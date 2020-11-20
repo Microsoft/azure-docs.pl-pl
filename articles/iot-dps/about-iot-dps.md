@@ -11,12 +11,12 @@ manager: eliotgra
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e3fce15cdeb1792749224299167b52fc2311d04e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6b33b866a10ad4a44cef14f3c86d8ca1f40c4750
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91318282"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965378"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Aprowizowanie urządzeń za pomocą usługi Azure IoT Hub Device Provisioning Service
 Platforma Microsoft Azure zapewnia bogaty zestaw zintegrowanych usług w chmurze publicznej spełniający wszelkie potrzeby rozwiązania IoT. IoT Hub Device Provisioning Service (DPS) to usługa pomocnika dla IoT Hub, która umożliwia zainicjowanie obsługi "just in Time" do odpowiedniego centrum IoT Hub bez konieczności interwencji człowieka. Usługa DPS umożliwia bezpieczne i skalowalne Inicjowanie obsługi milionów urządzeń.
@@ -81,7 +81,7 @@ Usługa DPS ma wiele funkcji, dzięki czemu jest idealnym rozwiązaniem do aprow
 
 * Obsługa **bezpiecznego zaświadczania** dla tożsamości opartych zarówno na standardzie X.509, jak i module TPM.
 * **Lista rejestracji** zawierająca pełny rejestr urządzeń/grup urządzeń, które w pewnym momencie mogą zostać zarejestrowane. Lista rejestracji zawiera informacje dotyczące żądanej konfiguracji urządzenia po jego zarejestrowaniu i może być aktualizowana w dowolnym momencie.
-* **Wiele zasad alokacji** do kontrolowania, w jaki sposób usługa DPS przypisuje urządzenia do centrów IoT w ramach obsługi Twoich scenariuszy: najniższy czas oczekiwania (domyślnie) i Konfiguracja statyczna za pośrednictwem listy rejestracji. Czas oczekiwania jest określany przy użyciu tej samej metody co [Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#performance).
+* **Wiele zasad alokacji** do kontrolowania, w jaki sposób usługa DPS przypisuje urządzenia do centrów IoT w ramach obsługi Twoich scenariuszy: najniższy czas oczekiwania (domyślnie) i Konfiguracja statyczna za pośrednictwem listy rejestracji. Czas oczekiwania jest określany przy użyciu tej samej metody co [Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md#performance).
 * **Monitorowanie i rejestrowanie diagnostyczne** w celu zapewnienia poprawnego działania.
 * **Obsługa wielu centrów** pozwala usłudze DPS przypisywać urządzenia do więcej niż jednego Centrum IoT. Usługa DPS może komunikować się z centrami w wielu subskrypcjach platformy Azure.
 * **Obsługa wielu regionów** pozwala usłudze DPS przypisywać urządzenia do centrów IoT w innych regionach.
@@ -119,7 +119,7 @@ Więcej informacji na temat limitów przydziałów znajduje się w artykułach:
 * [Azure Subscription Service Limits](../azure-resource-manager/management/azure-subscription-service-limits.md) (Limity usług subskrypcji platformy Azure)
 
 ## <a name="related-azure-components"></a>Powiązane składniki platformy Azure
-Usługa DPS automatyzuje Inicjowanie obsługi urządzeń za pomocą usługi Azure IoT Hub. Dowiedz się więcej o [IoT Hub](https://docs.microsoft.com/azure/iot-hub/).
+Usługa DPS automatyzuje Inicjowanie obsługi urządzeń za pomocą usługi Azure IoT Hub. Dowiedz się więcej o [IoT Hub](../iot-hub/index.yml).
 
 ## <a name="next-steps"></a>Następne kroki
 Teraz ogólnie wiesz, na czym polega aprowizowanie urządzeń IoT na platformie Azure. Następnym krokiem jest wypróbowanie kompletnego scenariusza IoT.

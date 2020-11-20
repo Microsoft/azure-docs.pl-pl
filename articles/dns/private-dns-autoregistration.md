@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
-ms.openlocfilehash: 9da94f80f9a9c1b3cba7b8e3ac4fef7e717918c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e976199730ec74f9e76b9f4199e90e192916474
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88042755"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966721"
 ---
 # <a name="what-is-the-autoregistration-feature-of-azure-dns-private-zones"></a>Co to jest funkcja autorejestrowania w strefach prywatnych Azure DNS
 
@@ -29,7 +29,7 @@ Autorejestrację można włączyć, wybierając opcję "Włącz autorejestrację
 
 * Autorejestracja działa tylko w przypadku maszyn wirtualnych. W przypadku wszystkich innych zasobów, takich jak wewnętrzne moduły równoważenia obciążenia itp., można ręcznie utworzyć rekordy DNS w prywatnej strefie DNS połączonej z siecią wirtualną.
 * Rekordy DNS są tworzone automatycznie tylko dla podstawowej karty sieciowej maszyny wirtualnej. Jeśli maszyny wirtualne mają więcej niż jedną kartę sieciową, można ręcznie utworzyć rekordy DNS dla innych interfejsów sieciowych.
-* Rekordy DNS są tworzone automatycznie tylko wtedy, gdy podstawowa karta sieciowa maszyny wirtualnej używa protokołu DHCP. Jeśli skonfigurowano statyczne adresy IP (na przykład w celu użycia [wielu adresów IP na platformie Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-multiple-ip-addresses-portal#os-config)), autorejestracja nie tworzy rekordów dla tej maszyny wirtualnej.
+* Rekordy DNS są tworzone automatycznie tylko wtedy, gdy podstawowa karta sieciowa maszyny wirtualnej używa protokołu DHCP. Jeśli skonfigurowano statyczne adresy IP (na przykład w celu użycia [wielu adresów IP na platformie Azure](../virtual-network/virtual-network-multiple-ip-addresses-portal.md#os-config)), autorejestracja nie tworzy rekordów dla tej maszyny wirtualnej.
 * Autorejestracja w protokole IPv6 (rekordy AAAA) nie jest obsługiwana.
 
 ## <a name="next-steps"></a>Następne kroki

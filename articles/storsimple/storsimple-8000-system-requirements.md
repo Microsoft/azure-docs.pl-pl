@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 3032585c6f0a5cc6143eee06b12b6def50cd7cd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dcaa83980210a1f5449e8a2e0982cb8e39ff03d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80297705"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966194"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Oprogramowanie StorSimple 8000 Series, wysoka dostępność i wymagania dotyczące sieci
 
@@ -122,7 +122,7 @@ Zalecamy ustawienie reguł zapory dla ruchu wychodzącego na podstawie stałych 
 
 Metryka routingu jest skojarzona z interfejsami i bramą, która kieruje dane do określonych sieci. Metryka routingu jest używana przez protokół routingu do obliczania najlepszej ścieżki do danego miejsca docelowego, jeśli poznanie wielu ścieżek istnieje w tym samym miejscu docelowym. Im niższa jest Metryka routingu, tym wyższy poziom preferencji.
 
-W kontekście StorSimple, jeśli skonfigurowano wiele interfejsów sieciowych i bram do ruchu sieciowego, metryki routingu będą odtwarzane w celu określenia względnej kolejności, w której będą używane interfejsy. Metryki routingu nie mogą być zmieniane przez użytkownika. Można jednak użyć `Get-HcsRoutingTable` polecenia cmdlet do drukowania tabeli routingu (i metryk) na urządzeniu StorSimple. Więcej informacji na temat polecenia cmdlet Get-HcsRoutingTable w [rozwiązywaniu problemów z wdrażaniem StorSimple](storsimple-troubleshoot-deployment.md).
+W kontekście StorSimple, jeśli skonfigurowano wiele interfejsów sieciowych i bram do ruchu sieciowego, metryki routingu będą odtwarzane w celu określenia względnej kolejności, w której będą używane interfejsy. Metryki routingu nie mogą być zmieniane przez użytkownika. Można jednak użyć `Get-HcsRoutingTable` polecenia cmdlet do drukowania tabeli routingu (i metryk) na urządzeniu StorSimple. Więcej informacji na temat polecenia cmdlet Get-HcsRoutingTable w [rozwiązywaniu problemów z wdrażaniem StorSimple](./storsimple-8000-troubleshoot-deployment.md).
 
 Algorytm metryk routingu używany do aktualizacji Update 2 i nowszych można wyjaśnić w następujący sposób.
 
@@ -250,4 +250,4 @@ Uważnie zapoznaj się z najlepszymi rozwiązaniami, aby zapewnić wysoką dost�
 * [Dowiedz się, jak wdrożyć rozwiązanie StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
 
 <!--Reference links-->
-[1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731844(v=ws.10)

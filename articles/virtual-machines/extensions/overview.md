@@ -4,16 +4,17 @@ description: Dowiedz się więcej o rozszerzeniach maszyn wirtualnych platformy 
 services: virtual-machines
 author: amjads1
 ms.service: virtual-machines
+ms.subservice: extensions
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 08/03/2020
 ms.author: amjads
-ms.openlocfilehash: 73738f339bea3e8e075530e5de564c1c0854d283
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1dd26fce2e0a761ceed211933cb79ce518905e2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87552054"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965888"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Rozszerzenia i funkcje maszyn wirtualnych platformy Azure
 Rozszerzenia to małe aplikacje, które zapewniają konfigurację i automatyzację po wdrożeniu na maszynach wirtualnych platformy Azure. Platforma Azure obsługuje wiele rozszerzeń obejmujących konfiguracje maszyn wirtualnych, monitorowanie, zabezpieczenia i narzędzia. Wydawcy pobierają aplikację, zawijają ją do rozszerzenia i upraszczają instalację. Wszystko, co musisz zrobić, zapewnia parametry obowiązkowe. 

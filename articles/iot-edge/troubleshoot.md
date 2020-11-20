@@ -4,16 +4,16 @@ description: Skorzystaj z tego artykułu, aby poznać standardowe umiejętności
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/27/2020
+ms.date: 11/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 540c4394a73ceff1f68a613561c034ca3bc7efc5
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: daae45c9eca45022225ea47aa048815d5eff70c4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046574"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964511"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Rozwiązywanie problemów z urządzeniem IoT Edge
 
@@ -46,6 +46,8 @@ Narzędzie do rozwiązywania problemów uruchamia wiele sprawdzeń, które są s
 * *Sprawdź, czy środowisko* uruchomieniowe IoT Edge może uzyskać dostęp do portów na urządzeniu hosta i czy wszystkie składniki IoT Edge mogą łączyć się z IoT Hub. Ten zestaw testów zwraca błędy, jeśli urządzenie IoT Edge znajduje się za serwerem proxy.
 * *Kontrole gotowości produkcyjnej* szukają zalecanych najlepszych rozwiązań w zakresie produkcji, takich jak stan certyfikatów urzędu certyfikacji urządzeń i konfiguracji pliku dziennika modułu.
 
+Narzędzie sprawdzania IoT Edge używa kontenera do uruchamiania jego diagnostyki. Obraz kontenera `mcr.microsoft.com/azureiotedge-diagnostics:latest` jest dostępny za pomocą [programu Microsoft Container Registry](https://github.com/microsoft/containerregistry). Jeśli musisz uruchomić kontrolę na urządzeniu bez bezpośredniego dostępu do Internetu, Twoje urządzenia będą potrzebować dostępu do obrazu kontenera.
+
 Aby uzyskać informacje o każdym z testów diagnostycznych wykonywanych przez to narzędzie, w tym o tym, co należy zrobić, jeśli wystąpi błąd lub ostrzeżenie, zobacz [IoT Edge Rozwiązywanie problemów z testami](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
 
 ## <a name="gather-debug-information-with-support-bundle-command"></a>Zbierz informacje debugowania za pomocą polecenia "support-Binding"
@@ -66,6 +68,8 @@ W systemie Windows:
 iotedge support-bundle --since 6h
 ```
 
+Możesz również użyć wywołania [metody bezpośredniej](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics) do urządzenia, aby przekazać dane wyjściowe polecenia support-Binding do usługi Azure Blob Storage.
+
 > [!WARNING]
 > Dane wyjściowe `support-bundle` polecenia mogą zawierać nazwy hosta, urządzenia i modułu, informacje zarejestrowane przez moduły itp. Pamiętaj o tym, jeśli udostępnisz dane wyjściowe na forum publicznym.
 
@@ -74,6 +78,23 @@ iotedge support-bundle --since 6h
 Jeśli używasz starszej wersji usługi IoT Edge, uaktualnienie może rozwiązać problem. `iotedge check`Narzędzie sprawdza, czy IoT Edge Security DAEMON to Najnowsza wersja, ale nie sprawdza wersji centrów IoT Edge i modułów agentów. Aby sprawdzić wersję modułów środowiska uruchomieniowego na urządzeniu, Użyj poleceń `iotedge logs edgeAgent` i `iotedge logs edgeHub` . Numer wersji jest deklarowany w dziennikach podczas uruchamiania modułu.
 
 Aby uzyskać instrukcje dotyczące sposobu aktualizowania urządzenia, zobacz [Aktualizacja demona i środowisko uruchomieniowe IoT Edge Security](how-to-update-iot-edge.md).
+
+## <a name="verify-the-installation-of-iot-edge-on-your-devices"></a>Weryfikowanie instalacji IoT Edge na urządzeniach
+
+Instalację IoT Edge na urządzeniach można zweryfikować przez [monitorowanie sznurka modułu edgeAgent](https://docs.microsoft.com/azure/iot-edge/how-to-monitor-module-twins).
+
+Aby uzyskać najnowszą edgeAgent modułu, uruchom następujące polecenie w [Azure Cloud Shell](https://shell.azure.com/):
+
+   ```azurecli-interactive
+   az iot hub module-twin show --device-id <edge_device_id> --module-id $edgeAgent --hub-name <iot_hub_name>
+   ```
+
+To polecenie spowoduje wyjście wszystkich edgeAgent [raportowanych właściwości](https://docs.microsoft.com/azure/iot-edge/module-edgeagent-edgehub). Poniżej przedstawiono kilka przydatnych elementów monitorowania stanu urządzenia:
+
+* stan środowiska uruchomieniowego
+* czas rozpoczęcia środowiska uruchomieniowego
+* czas ostatniego zakończenia środowiska uruchomieniowego
+* Liczba ponownych uruchomień środowiska uruchomieniowego
 
 ## <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>Sprawdź stan programu IoT Edge Security Manager i jego dzienników
 
@@ -192,6 +213,8 @@ Po uruchomieniu demona zabezpieczeń IoT Edge należy zapoznać się z dziennika
 ```cmd
 iotedge logs <container name>
 ```
+
+Możesz również użyć wywołania [metody bezpośredniej](how-to-retrieve-iot-edge-logs.md#upload-module-logs) do modułu na urządzeniu, aby przekazać dzienniki tego modułu do BLOB Storage platformy Azure.
 
 ## <a name="view-the-messages-going-through-the-iot-edge-hub"></a>Wyświetlanie komunikatów przechodzących przez Centrum IoT Edge
 

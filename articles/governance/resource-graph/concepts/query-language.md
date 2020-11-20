@@ -1,14 +1,14 @@
 ---
 title: Opis języka zapytań
 description: Opisuje tabele grafu zasobów i dostępne typy danych Kusto, operatory i funkcje możliwe do użycia w usłudze Azure Resource Graph.
-ms.date: 10/28/2020
+ms.date: 11/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7c3ad55a0f1af623211852c02aabd37560c00bc6
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 34aaaa60ed9d757cc1a63ffaebb2225900cff61f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926091"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966687"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Informacje o języku zapytań grafu zasobów platformy Azure
 
@@ -24,19 +24,19 @@ W tym artykule omówiono składniki językowe obsługiwane przez program Resourc
 
 ## <a name="resource-graph-tables"></a>Tabele grafu zasobów
 
-Wykres zasobów zawiera kilka tabel służących do przechowywania danych o typach zasobów Azure Resource Manager i ich właściwościach. Te tabele mogą być używane z `join` `union` operatorami or lub do pobierania właściwości z powiązanych typów zasobów. Poniżej znajduje się lista tabel dostępnych na wykresie zasobów:
+Wykres zasobów zawiera kilka tabel służących do przechowywania danych o typach zasobów Azure Resource Manager i ich właściwościach. Niektóre tabele mogą być używane z `join` `union` operatorami or lub do pobierania właściwości z powiązanych typów zasobów. Poniżej znajduje się lista tabel dostępnych na wykresie zasobów:
 
-|Tabele grafu zasobów |Opis |
+|Tabela grafu zasobów |Czy można `join` ? |Opis |
 |---|---|
-|Zasoby |Domyślna tabela, jeśli żadna nie została zdefiniowana w zapytaniu. Większość Menedżer zasobów typów zasobów i właściwości jest tutaj. |
-|ResourceContainers |Obejmuje subskrypcję (w wersji zapoznawczej-- `Microsoft.Resources/subscriptions` ) i grupy zasobów ( `Microsoft.Resources/subscriptions/resourcegroups` ) oraz typy zasobów i dane. |
-|AdvisorResources |Obejmuje zasoby _związane_ z programem `Microsoft.Advisor` . |
-|AlertsManagementResources |Obejmuje zasoby _związane_ z programem `Microsoft.AlertsManagement` . |
-|GuestConfigurationResources |Obejmuje zasoby _związane_ z programem `Microsoft.GuestConfiguration` . |
-|MaintenanceResources |Obejmuje zasoby _związane_ z programem `Microsoft.Maintenance` . |
-|PolicyResources |Obejmuje zasoby _związane_ z programem `Microsoft.PolicyInsights` . ( **Wersja zapoznawcza** )|
-|SecurityResources |Obejmuje zasoby _związane_ z programem `Microsoft.Security` . |
-|ServiceHealthResources |Obejmuje zasoby _związane_ z programem `Microsoft.ResourceHealth` . |
+|Zasoby |Tak |Domyślna tabela, jeśli żadna nie została zdefiniowana w zapytaniu. Większość Menedżer zasobów typów zasobów i właściwości jest tutaj. |
+|ResourceContainers |Tak |Obejmuje subskrypcję (w wersji zapoznawczej-- `Microsoft.Resources/subscriptions` ) i grupy zasobów ( `Microsoft.Resources/subscriptions/resourcegroups` ) oraz typy zasobów i dane. |
+|AdvisorResources |Nie |Obejmuje zasoby _związane_ z programem `Microsoft.Advisor` . |
+|AlertsManagementResources |Nie |Obejmuje zasoby _związane_ z programem `Microsoft.AlertsManagement` . |
+|GuestConfigurationResources |Nie |Obejmuje zasoby _związane_ z programem `Microsoft.GuestConfiguration` . |
+|MaintenanceResources |Nie |Obejmuje zasoby _związane_ z programem `Microsoft.Maintenance` . |
+|PolicyResources |Nie |Obejmuje zasoby _związane_ z programem `Microsoft.PolicyInsights` . (**Wersja zapoznawcza**)|
+|SecurityResources |Nie |Obejmuje zasoby _związane_ z programem `Microsoft.Security` . |
+|ServiceHealthResources |Nie |Obejmuje zasoby _związane_ z programem `Microsoft.ResourceHealth` . |
 
 Pełną listę zawierającą typy zasobów można znaleźć w temacie [Reference: obsługiwane tabele i typy zasobów](../reference/supported-tables-resources.md).
 
@@ -45,7 +45,7 @@ Pełną listę zawierającą typy zasobów można znaleźć w temacie [Reference
 
 Użyj Eksploratora grafów zasobów w portalu, aby dowiedzieć się, jakie typy zasobów są dostępne w każdej tabeli. Alternatywnie należy użyć zapytania, `<tableName> | distinct type` na przykład w celu uzyskania listy typów zasobów, których dana tabela grafu zasobów obsługuje istniejące w danym środowisku.
 
-Poniższe zapytanie pokazuje prostą `join` . Wyniki zapytania powodują mieszanie kolumn wraz ze wszystkimi zduplikowanymi nazwami kolumn z sprzężonej tabeli, _ResourceContainers_ w tym przykładzie, są dołączane z **1** . Ponieważ tabela _ResourceContainers_ zawiera typy dla subskrypcji i grup zasobów, do przyłączenia do zasobu z tabeli _zasobów_ można użyć dowolnego typu.
+Poniższe zapytanie pokazuje prostą `join` . Wyniki zapytania powodują mieszanie kolumn wraz ze wszystkimi zduplikowanymi nazwami kolumn z sprzężonej tabeli, _ResourceContainers_ w tym przykładzie, są dołączane z **1**. Ponieważ tabela _ResourceContainers_ zawiera typy dla subskrypcji i grup zasobów, do przyłączenia do zasobu z tabeli _zasobów_ można użyć dowolnego typu.
 
 ```kusto
 Resources
@@ -53,7 +53,7 @@ Resources
 | limit 1
 ```
 
-Poniższe zapytanie pokazuje bardziej złożone użycie programu `join` . Zapytanie ogranicza przyłączoną tabelę do zasobów subskrypcji i z `project` w celu uwzględnienia tylko oryginalnego identyfikatora _subskrypcji_ pola i _nazwy pola Nazwa_ z _nazwą_ . Zmiana nazwy pola pozwala uniknąć `join` dodawania go jako _Name1_ , ponieważ pole już istnieje w obszarze _zasoby_ . Oryginalna tabela jest filtrowana z `where` i poniżej `project` zawiera kolumny z obu tabel. Wynikiem zapytania jest pojedynczy magazyn kluczy zawierający typ, nazwę magazynu kluczy oraz nazwę subskrypcji, w której znajduje się.
+Poniższe zapytanie pokazuje bardziej złożone użycie programu `join` . Zapytanie ogranicza przyłączoną tabelę do zasobów subskrypcji i z `project` w celu uwzględnienia tylko oryginalnego identyfikatora _subskrypcji_ pola i _nazwy pola Nazwa_ z _nazwą_. Zmiana nazwy pola pozwala uniknąć `join` dodawania go jako _Name1_ , ponieważ pole już istnieje w obszarze _zasoby_. Oryginalna tabela jest filtrowana z `where` i poniżej `project` zawiera kolumny z obu tabel. Wynikiem zapytania jest pojedynczy magazyn kluczy zawierający typ, nazwę magazynu kluczy oraz nazwę subskrypcji, w której znajduje się.
 
 ```kusto
 Resources
@@ -68,7 +68,7 @@ Resources
 
 ## <a name="extended-properties-preview"></a><a name="extended-properties"></a>Właściwości rozszerzone (wersja zapoznawcza)
 
-Jako funkcja w _wersji zapoznawczej_ niektóre typy zasobów na wykresie zasobów mają dodatkowe właściwości związane z typem, które są dostępne do wykonywania zapytań poza właściwościami dostarczonymi przez Azure Resource Manager. Ten zestaw wartości, znany jako _właściwości rozszerzone_ , istnieje w obsługiwanym typie zasobów w `properties.extended` . Aby zobaczyć, które typy zasobów mają _Rozszerzone właściwości_ , użyj następującego zapytania:
+Jako funkcja w _wersji zapoznawczej_ niektóre typy zasobów na wykresie zasobów mają dodatkowe właściwości związane z typem, które są dostępne do wykonywania zapytań poza właściwościami dostarczonymi przez Azure Resource Manager. Ten zestaw wartości, znany jako _właściwości rozszerzone_, istnieje w obsługiwanym typie zasobów w `properties.extended` . Aby zobaczyć, które typy zasobów mają _Rozszerzone właściwości_, użyj następującego zapytania:
 
 ```kusto
 Resources
@@ -125,7 +125,7 @@ Poniżej znajduje się lista operatorów tabelarycznych KQL obsługiwanych przez
 |[liczbą](/azure/kusto/query/countoperator) |[Liczenie magazynów kluczy](../samples/starter.md#count-keyvaults) | |
 |[itp](/azure/kusto/query/distinctoperator) |[Pokaż różne wartości dla określonego aliasu](../samples/starter.md#distinct-alias-values) | |
 |[sunąć](/azure/kusto/query/extendoperator) |[Liczba maszyn wirtualnych według typu systemu operacyjnego](../samples/starter.md#count-os) | |
-|[Złącza](/azure/kusto/query/joinoperator) |[Magazyn kluczy z nazwą subskrypcji](../samples/advanced.md#join) |Obsługiwane typy sprzężeń: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [wewnętrzne](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limit 3 `join` w pojedynczym zapytaniu. Niestandardowe strategie dołączania, takie jak sprzężenie emisji, nie są dozwolone. Może być używany w jednej tabeli lub między tabelami _zasobów_ i _ResourceContainers_ . |
+|[Złącza](/azure/kusto/query/joinoperator) |[Magazyn kluczy z nazwą subskrypcji](../samples/advanced.md#join) |Obsługiwane typy sprzężeń: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [wewnętrzne](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limit 3 `join` w pojedynczym zapytaniu. Niestandardowe strategie dołączania, takie jak sprzężenie emisji, nie są dozwolone. W których tabelach można używać `join` , zobacz [tabele grafów zasobów](#resource-graph-tables). |
 |[granice](/azure/kusto/query/limitoperator) |[Lista wszystkich publicznych adresów IP](../samples/starter.md#list-publicip) |Synonim `take` . Nie działa z [pominięciem](./work-with-data.md#skipping-records). |
 |[mvexpand](/azure/kusto/query/mvexpandoperator) | | Starszy operator, `mv-expand` zamiast tego użyj. _RowLimit_ max z 400. Wartość domyślna to 128. |
 |[MV — rozwiń](/azure/kusto/query/mvexpandoperator) |[Wyświetlanie listy Cosmos DB z określonymi lokalizacjami zapisu](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_ max z 400. Wartość domyślna to 128. |
@@ -136,7 +136,7 @@ Poniżej znajduje się lista operatorów tabelarycznych KQL obsługiwanych przez
 |[Podsumuj](/azure/kusto/query/summarizeoperator) |[Liczba zasobów platformy Azure](../samples/starter.md#count-resources) |Uproszczona tylko pierwsza strona |
 |[take (pobierz)](/azure/kusto/query/takeoperator) |[Lista wszystkich publicznych adresów IP](../samples/starter.md#list-publicip) |Synonim `limit` . Nie działa z [pominięciem](./work-with-data.md#skipping-records). |
 |[Do góry](/azure/kusto/query/topoperator) |[Pokaż pięć pierwszych maszyn wirtualnych według nazwy i ich typu systemu operacyjnego](../samples/starter.md#show-sorted) | |
-|[Unii](/azure/kusto/query/unionoperator) |[Łączenie wyników z dwóch zapytań w jeden wynik](../samples/advanced.md#unionresults) |Dozwolona pojedyncza tabela: _T_ `| union` \[ `kind=` `inner` \| `outer` \] \[ `withsource=` _ColumnName_ \] _Table_ . Limit 3 `union` etapów w pojedynczej kwerendzie. Rozpoznawanie rozmyte `union` tabel nogi nie jest dozwolone. Może być używany w jednej tabeli lub między tabelami _zasobów_ i _ResourceContainers_ . |
+|[Unii](/azure/kusto/query/unionoperator) |[Łączenie wyników z dwóch zapytań w jeden wynik](../samples/advanced.md#unionresults) |Dozwolona pojedyncza tabela: _T_ `| union` \[ `kind=` `inner` \| `outer` \] \[ `withsource=` _ColumnName_ \] _Table_. Limit 3 `union` etapów w pojedynczej kwerendzie. Rozpoznawanie rozmyte `union` tabel nogi nie jest dozwolone. Może być używany w jednej tabeli lub między tabelami _zasobów_ i _ResourceContainers_ . |
 |[miejscu](/azure/kusto/query/whereoperator) |[Pokaż zasoby zawierające magazyn](../samples/starter.md#show-storage) | |
 
 ## <a name="query-scope"></a>Zakres zapytania
@@ -169,7 +169,7 @@ Niektóre nazwy właściwości, takie jak te, które zawierają `.` lub `$` , mu
 
 - `.` — Zawiń nazwę właściwości w taki sposób, aby: `['propertyname.withaperiod']`
   
-  Przykładowe zapytanie, które zawija Właściwość _OData. Type_ :
+  Przykładowe zapytanie, które zawija Właściwość _OData. Type_:
 
   ```kusto
   where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.['odata.type']

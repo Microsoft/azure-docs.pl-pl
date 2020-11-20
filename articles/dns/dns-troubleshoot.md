@@ -7,18 +7,18 @@ ms.service: dns
 ms.topic: troubleshooting
 ms.date: 09/20/2019
 ms.author: rohink
-ms.openlocfilehash: a63a0c1e0044f5dcd6babb4941e1f4409404cdd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fae63c61949302e25c9dee2899577fa4f0d2a975
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84711191"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965582"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów Azure DNS
 
 Ten artykuł zawiera informacje dotyczące rozwiązywania problemów dotyczących typowych pytań Azure DNS.
 
-Jeśli te kroki nie rozwiążą problemu, możesz również wyszukać lub opublikować swój problem na naszej [stronie pytania firmy&Microsoft dotyczącej wsparcia dla społeczności](https://docs.microsoft.com/answers/topics/azure-virtual-network.html). Możesz też otworzyć żądanie pomocy technicznej platformy Azure.
+Jeśli te kroki nie rozwiążą problemu, możesz również wyszukać lub opublikować swój problem na naszej [stronie pytania firmy&Microsoft dotyczącej wsparcia dla społeczności](/answers/topics/azure-virtual-network.html). Możesz też otworzyć żądanie pomocy technicznej platformy Azure.
 
 
 ## <a name="i-cant-create-a-dns-zone"></a>Nie mogę utworzyć strefy DNS
@@ -34,7 +34,7 @@ Aby rozwiązać typowe problemy, spróbuj wykonać następujące kroki:
 ### <a name="recommended-articles"></a>Zalecane artykuły
 
 * [Strefy i rekordy DNS](dns-zones-records.md)
-* [Tworzenie strefy DNS](dns-getstarted-create-dnszone-portal.md)
+* [Tworzenie strefy DNS](./dns-getstarted-portal.md)
 
 ## <a name="i-cant-create-a-dns-record"></a>Nie można utworzyć nowego rekordu DNS
 
@@ -50,7 +50,7 @@ Aby rozwiązać typowe problemy, spróbuj wykonać następujące kroki:
 ### <a name="recommended-articles"></a>Zalecane artykuły
 
 * [Strefy i rekordy DNS](dns-zones-records.md)
-* [Tworzenie strefy DNS](dns-getstarted-create-dnszone-portal.md)
+* [Tworzenie strefy DNS](./dns-getstarted-portal.md)
 
 
 
@@ -85,13 +85,12 @@ Przykładowe nazwy rekordów SRV (nazwa usługi „sip”, protokół „tcp”)
 ### <a name="recommended-articles"></a>Zalecane artykuły
 
 * [Strefy i rekordy DNS](dns-zones-records.md)
-* [Create DNS record sets and records by using the Azure portal (Tworzenie zestawów rekordów i rekordów DNS przy użyciu witryny Azure Portal)](dns-getstarted-create-recordset-portal.md)
+* [Create DNS record sets and records by using the Azure portal (Tworzenie zestawów rekordów i rekordów DNS przy użyciu witryny Azure Portal)](./dns-getstarted-portal.md)
 * [Typ rekordu SRV (Wikipedia)](https://en.wikipedia.org/wiki/SRV_record)
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Informacje o [Azure DNS strefach i rekordach](dns-zones-records.md)
-* Aby rozpocząć korzystanie z Azure DNS, Dowiedz się, jak [utworzyć strefę DNS](dns-getstarted-create-dnszone-portal.md) i [utworzyć rekordy DNS](dns-getstarted-create-recordset-portal.md).
+* Aby rozpocząć korzystanie z Azure DNS, Dowiedz się, jak [utworzyć strefę DNS](./dns-getstarted-portal.md) i [utworzyć rekordy DNS](./dns-getstarted-portal.md).
 * Aby przeprowadzić migrację istniejącej strefy DNS, Dowiedz się, jak [importować i eksportować plik strefy DNS](dns-import-export.md).
-

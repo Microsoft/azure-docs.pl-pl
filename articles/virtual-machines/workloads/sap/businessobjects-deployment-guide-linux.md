@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 1f15a3b4d8f51ec79fffce09bc006942d08096a6
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 17b978d3f4faebd3870868bceeea4572288ecb07
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427466"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965361"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Przewodnik wdrażania platformy SAP BusinessObjects BI dla systemu Linux na platformie Azure
 
@@ -113,7 +114,7 @@ Podczas tworzenia Azure NetApp Files dla serwera repozytorium plików platformy 
 
 W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
 
-**[A]** : krok dotyczy wszystkich hostów
+**[A]**: krok dotyczy wszystkich hostów
 
 ### <a name="format-and-mount-sap-file-system"></a>Sformatuj i zainstaluj system plików SAP
 
@@ -395,15 +396,15 @@ Aby serwer aplikacji SAP BOBI mógł uzyskać dostęp do bazy danych, wymaga kli
 
 W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
 
-**[A]** : krok ma zastosowanie do wszystkich hostów.
+**[A]**: krok ma zastosowanie do wszystkich hostów.
 
 1. **[A]** na podstawie wersji systemu Linux (SLES lub RHEL), należy ustawić parametry jądra i zainstalować wymagane biblioteki. Zapoznaj się z sekcją **wymagania systemowe** w [podręczniku instalacji platformy analizy biznesowej dla systemu UNIX](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3/en-US).
 
 2. **[A]** upewnij się, że strefa czasowa na maszynie jest prawidłowo ustawiona. Zapoznaj się z [sekcją dodatkowe wymagania dotyczące systemów UNIX i Linux](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3/en-US/46b143336e041014910aba7db0e91070.html) w podręczniku instalacji.
 
-3. **[A]** Utwórz konto użytkownika ( **BL1** adm) i grupę (sapsys), w ramach którego mogą być uruchamiane procesy w tle oprogramowania. Użyj tego konta do wykonania instalacji i uruchomienia oprogramowania. Konto nie wymaga uprawnień głównych.
+3. **[A]** Utwórz konto użytkownika (**BL1** adm) i grupę (sapsys), w ramach którego mogą być uruchamiane procesy w tle oprogramowania. Użyj tego konta do wykonania instalacji i uruchomienia oprogramowania. Konto nie wymaga uprawnień głównych.
 
-4. **[A]** Skonfiguruj środowisko konta użytkownika ( **BL1** adm) do korzystania z obsługiwanych ustawień regionalnych UTF-8 i upewnij się, że oprogramowanie konsoli obsługuje zestawy znaków UTF-8. Aby upewnić się, że system operacyjny używa prawidłowych ustawień regionalnych, Ustaw zmienne środowiskowe LC_ALL i LANG na preferowane ustawienia regionalne w środowisku użytkownika ( **BL1** adm).
+4. **[A]** Skonfiguruj środowisko konta użytkownika (**BL1** adm) do korzystania z obsługiwanych ustawień regionalnych UTF-8 i upewnij się, że oprogramowanie konsoli obsługuje zestawy znaków UTF-8. Aby upewnić się, że system operacyjny używa prawidłowych ustawień regionalnych, Ustaw zmienne środowiskowe LC_ALL i LANG na preferowane ustawienia regionalne w środowisku użytkownika (**BL1** adm).
 
    ```bash
    # This configuration is for bash shell. If you are using any other shell for sidadm, kindly set environment variable accordingly.
@@ -413,7 +414,7 @@ W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
    export LC_ALL=en_US.utf8
    ```
 
-5. **[A]** Skonfiguruj konto użytkownika ( **BL1** adm).
+5. **[A]** Skonfiguruj konto użytkownika (**BL1** adm).
 
    ```bash
    # Set ulimit for bl1adm to unlimited
@@ -465,7 +466,7 @@ Postępuj zgodnie z przewodnikiem instalacji [platformy SAP BOBI](https://help.s
 
 - Na ekranie **Wybieranie typu instalacji** wybierz pozycję **pełna** instalacja na pierwszym serwerze (azusbosl1), a dla opcji inny serwer (Azusbosl2) wybierz pozycję **niestandardowy/rozwiń** , która spowoduje rozwinięcie istniejącej konfiguracji BOBI.
 
-- Na ekranie **Wybierz domyślną lub istniejącą bazę** danych wybierz pozycję **Konfiguruj istniejącą bazę danych** , która wyświetli monit o wybranie opcji CMS i Audit Database. Wybierz typ bazy danych **MySQL** dla usługi CMS i typ bazy danych inspekcji.
+- Na ekranie **Wybierz domyślną lub istniejącą bazę** danych wybierz pozycję **Konfiguruj istniejącą bazę danych**, która wyświetli monit o wybranie opcji CMS i Audit Database. Wybierz typ bazy danych **MySQL** dla usługi CMS i typ bazy danych inspekcji.
 
   Możesz również wybrać opcję Brak bazy danych inspekcji, jeśli nie chcesz konfigurować inspekcji podczas instalacji.
 
@@ -584,7 +585,7 @@ Implementacja tego rozwiązania różni się w zależności od rodzaju konfigura
 
 Wysoka dostępność odnosi się do zestawu technologii, które mogą zminimalizować zakłócenia, zapewniając ciągłość działania aplikacji/usług za pomocą nadmiarowych, odpornych na uszkodzenia lub składników chronionych przez tryb failover w tym samym centrum danych. W naszym przypadku centra danych znajdują się w obrębie jednego regionu świadczenia usługi Azure. [Architektura i scenariusze wysokiej dostępności artykułu dla oprogramowania SAP](sap-high-availability-architecture-scenarios.md) zapewniają wstępny wgląd w różne techniki wysokiej dostępności i rekomendacje oferowane w przypadku aplikacji SAP na platformie Azure, które pomogą wykonać instrukcje podane w tej sekcji.
 
-Na podstawie wyniku zmiany wielkości platformy SAP BOBI należy zaprojektować krajobraz i określić dystrybucję składników analizy biznesowej między Virtual Machinesami i podsieciami platformy Azure. Poziom nadmiarowości w architekturze rozproszonej zależy od wymaganego przez firmę celu czasu odzyskiwania (RTO) i celu punktu odzyskiwania. Platforma SAP BOBI obejmuje różne warstwy i składniki w każdej warstwie, powinny być zaprojektowane w celu zapewnienia nadmiarowości. W związku z tym, jeśli jeden składnik ulegnie awarii, nie ma przerw w działaniu aplikacji SAP BOBI. Przykład:
+Na podstawie wyniku zmiany wielkości platformy SAP BOBI należy zaprojektować krajobraz i określić dystrybucję składników analizy biznesowej między Virtual Machinesami i podsieciami platformy Azure. Poziom nadmiarowości w architekturze rozproszonej zależy od wymaganego przez firmę celu czasu odzyskiwania (RTO) i celu punktu odzyskiwania. Platforma SAP BOBI obejmuje różne warstwy i składniki w każdej warstwie, powinny być zaprojektowane w celu zapewnienia nadmiarowości. W związku z tym, jeśli jeden składnik ulegnie awarii, nie ma przerw w działaniu aplikacji SAP BOBI. Na przykład
 
 - Nadmiarowe serwery aplikacji, takie jak serwery aplikacji analizy biznesowej i serwer sieci Web
 - Unikatowe składniki, takie jak CMS Database, serwer repozytorium plików, Load Balancer

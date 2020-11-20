@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 11/19/2020
 ms.author: alkohli
-ms.openlocfilehash: a73005580c9b7ddeae17e3e0490aa586bd9b0fbb
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: e1dca046177634842de25b255dd1bb22c5d2c5a5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335834"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964218"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Samouczek: Zamawianie urządzenia Azure Data Box
 
-Azure Data Box to hybrydowe rozwiązanie, które umożliwia importowanie danych lokalnych na platformę Azure szybko, łatwo i bez problemów. Przesyłasz swoje dane na urządzenie magazynujące dostarczane przez firmę Microsoft, którego pojemność do wykorzystania to 80 TB, a następnie odsyłasz urządzenie z powrotem do firmy Microsoft. Te dane są następnie przekazywane na platformę Azure.
+Azure Data Box to hybrydowe rozwiązanie, które umożliwia importowanie danych lokalnych na platformę Azure szybko, łatwo i bez problemów. Dane są przesyłane do urządzenia magazynującego dostarczonego przez firmę Microsoft o pojemności 80 TB, a następnie do ponownego wysłania urządzenia. Te dane są następnie przekazywane na platformę Azure.
 
 W tym samouczku opisano sposób zamawiania usługi Azure Data Box. Ten samouczek zawiera informacje dotyczące:
 
@@ -57,7 +57,7 @@ Przed rozpoczęciem upewnij się, że:
 
 * Zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) w wersji 2.0.67 lub nowszej. Alternatywnie możesz zainstalować plik [MSI](https://aka.ms/installazurecliwindows).
 
-**Logowanie do platformy Azure**
+**Zaloguj się do platformy Azure**
 
 Otwórz okno polecenia programu Windows PowerShell i zaloguj się do platformy Azure za pomocą polecenia [AZ login](/cli/azure/reference-index#az-login) :
 
@@ -182,7 +182,7 @@ Version              Name                                Repository           De
 0.1.1                Az.DataBox                          PSGallery            Microsoft Azure PowerShell - DataBox ser…
 ```
 
-#### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+#### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
 Otwórz okno polecenia programu Windows PowerShell i zaloguj się do platformy Azure za pomocą polecenia [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) :
 
@@ -217,7 +217,7 @@ Aby zamówić urządzenie, wykonaj następujące czynności w Azure Portal.
 
    ![Zrzut ekranu przedstawiający nową sekcję z Azure Data Box w polu wyszukiwania](media/data-box-deploy-ordered/select-data-box-import-02.png)
 
-3. Wybierz przycisk **Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 
    ![Zrzut ekranu przedstawiający sekcję Azure Data Box z opcją tworzenia wywołana](media/data-box-deploy-ordered/select-data-box-import-03.png)
 
@@ -231,7 +231,7 @@ Aby zamówić urządzenie, wykonaj następujące czynności w Azure Portal.
     |Kraj/region źródłowy    |    Wybierz kraj/region, w którym aktualnie znajdują się dane.         |
     |Docelowy region platformy Azure     |     Wybierz region platformy Azure, do którego chcesz przenieść dane. <br> Aby uzyskać więcej informacji, przejdź do sekcji [Dostępność regionalna](data-box-overview.md#region-availability).            |
 
-    [![Uruchamianie Azure Data Box kolejności importu](media/data-box-deploy-ordered/select-data-box-import-04b.png)](media/data-box-deploy-ordered/select-data-box-import-04b.png#lightbox)
+    [![Uruchamianie Azure Data Box kolejności importu](media/data-box-deploy-ordered/select-data-box-import-04-b.png#lightbox)
 
 5. Wybierz pozycję **Data Box**. Maksymalna użyteczna pojemność dla pojedynczej kolejności wynosi 80 TB. W przypadku większych ilości danych możesz utworzyć wiele zamówień.
 
@@ -245,17 +245,15 @@ Aby zamówić urządzenie, wykonaj następujące czynności w Azure Portal.
     |Grupa zasobów    | Wybrana wcześniej Grupa zasobów. |
     |Nazwa zamówienia importu | Podaj przyjazną nazwę, aby śledzić zamówienie. <br> Nazwa może zawierać od 3 do 24 znaków, które mogą być literami, cyframi i łącznikami. <br> Nazwa musi zaczynać i kończyć się literą lub cyfrą.    |
 
-    ![Kreator urządzenie Data Box zaimportowania, podstawowy ekran z poprawnymi informacjami](media/data-box-deploy-ordered/select-data-box-import-06.png)
+    ![Kreator urządzenie Data Box zaimportowania, podstawowy ekran z poprawnymi informacjami](media/data-box-deploy-ordered/select-data-box-import-06.png)<!--Generic subscription. Cut note. Box command.-->
 
-    Domyślnie hasło odblokowywania urządzenia jest szyfrowane przy użyciu klucza zarządzanego przez firmę Microsoft. Po zakończeniu zamówienia można dodać klucz zarządzany przez klienta. Klucz zarządzany przez klienta umożliwia użycie klucza z klucza magazynu kluczy platformy Azure w celu ochrony hasła do odblokowywania urządzenia. Aby uzyskać więcej informacji, zobacz [Korzystanie z kluczy zarządzanych przez klienta w Azure Key Vault Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
+7. Na ekranie **miejsce docelowe danych** wybierz **miejsce docelowe danych** — konta magazynu lub dyski zarządzane.
 
-7. Na karcie **miejsce docelowe danych** wybierz pozycję **miejsce docelowe danych**.
-
-    W przypadku używania **kont magazynu** jako miejsca docelowego magazynu zostanie wyświetlony następujący zrzut ekranu:
+    W przypadku używania **kont magazynu** jako miejsca docelowego magazynu zobaczysz następujący ekran:
 
     ![Urządzenie Data Box Kreatora importu kolejności, ekranu docelowego danych, z wybranymi kontami magazynu](media/data-box-deploy-ordered/select-data-box-import-07.png)
 
-    W oparciu o wybrany region platformy Azure wybierz z listy filtrowanej istniejących kont magazynu co najmniej jedno z nich. Urządzenie Data Box można połączyć z maksymalnie 10 kontami magazynu. Można również utworzyć nowe **konto ogólnego przeznaczenia w wersji 1** , **konto ogólnego przeznaczenia w wersji 2** lub **konto usługi Blob Storage**.
+    W oparciu o wybrany region platformy Azure wybierz z listy filtrowanej istniejących kont magazynu co najmniej jedno z nich. Urządzenie Data Box można połączyć z maksymalnie 10 kontami magazynu. Można również utworzyć nowe **konto ogólnego przeznaczenia w wersji 1**, **konto ogólnego przeznaczenia w wersji 2** lub **konto usługi Blob Storage**.
 
     Konta magazynu z sieciami wirtualnymi są obsługiwane. Aby umożliwić usłudze Data Box współpracę z zabezpieczonymi kontami magazynu, włącz usługi zaufane w ustawieniach zapory sieciowej dla konta magazynu. Aby uzyskać więcej informacji, zobacz jak [dodać Azure Data Box jako zaufaną usługę](../storage/common/storage-network-security.md#exceptions).
 
@@ -263,39 +261,106 @@ Aby zamówić urządzenie, wykonaj następujące czynności w Azure Portal.
 
     |Ustawienie  |Wartość  |
     |---------|---------|
-    |Grupy zasobów     | Utwórz nowe grupy zasobów, jeśli zamierzasz tworzyć dyski zarządzane na podstawie lokalnych dysków VHD. Istniejącej grupy zasobów można użyć tylko wtedy, gdy grupa zasobów została utworzona wcześniej podczas tworzenia kolejności urządzenie Data Box dla dysku zarządzanego przez usługę urządzenie Data Box. <br> Nazwy poszczególnych grup zasobów rozdziel średnikami. Obsługiwanych jest maksymalnie 10 grup zasobów.|
+    |Grupy zasobów     | Utwórz nowe grupy zasobów, jeśli zamierzasz tworzyć dyski zarządzane na podstawie lokalnych dysków VHD. Istniejącej grupy zasobów można użyć tylko wtedy, gdy grupa zasobów została utworzona wcześniej podczas tworzenia kolejności urządzenie Data Box dla dysków zarządzanych przez usługę urządzenie Data Box. <br> Nazwy poszczególnych grup zasobów rozdziel średnikami. Obsługiwanych jest maksymalnie 10 grup zasobów.|
 
-    ![Urządzenie Data Box Kreatora importu zamówień, ekranu docelowego danych z wybranym Managed Disks](media/data-box-deploy-ordered/select-data-box-import-07b.png)
+    ![Urządzenie Data Box Kreatora importu zamówień, ekranu docelowego danych z wybranym Managed Disks](media/data-box-deploy-ordered/select-data-box-import-07-b.png)
 
     Konto magazynu określone dla dysków zarządzanych jest używane jako przejściowe konto magazynu. Usługa Data Box przekazuje wirtualne dyski twarde jako stronicowe obiekty blob do przejściowego konta magazynu przed przekonwertowaniem ich na dyski zarządzane i przeniesieniem do grup zasobów. Aby uzyskać więcej informacji, zobacz [Weryfikowanie przekazania danych na platformę Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
+
    > [!NOTE]
    > Jeśli obiekt BLOB stronicowania nie zostanie pomyślnie przekonwertowany na dysk zarządzany, pozostaje na koncie magazynu i zostanie naliczona opłata za magazyn.
 
-    Wybierz pozycję **Dalej: zabezpieczenia** , aby kontynuować.
+8. Wybierz pozycję **Dalej: zabezpieczenia** , aby kontynuować.
 
-    Ekran **zabezpieczenia** pozwala korzystać z własnego urządzenia i udostępniać hasła oraz korzystać z szyfrowania podwójnego. 
+    Ekran **zabezpieczenia** pozwala korzystać z własnego klucza szyfrowania i własnego urządzenia oraz udostępniać hasła i korzystać z szyfrowania podwójnego.
 
     Wszystkie ustawienia na ekranie **zabezpieczenia** są opcjonalne. Jeśli nie zmienisz żadnych ustawień, zostaną zastosowane ustawienia domyślne.
 
     ![Ekran zabezpieczeń Kreatora urządzenie Data Box zaimportowania](media/data-box-deploy-ordered/select-data-box-import-security-01.png)
 
-8. Jeśli nie chcesz używać haseł generowanych przez system, które są domyślnie używane Azure Data Box, rozwiń pozycję **Przenieś własne hasło**.
+9. Jeśli chcesz użyć własnego klucza zarządzanego przez klienta, aby chronić klucz dostępu odblokowywania dla nowego zasobu, rozwiń pozycję **typ szyfrowania**.
 
-   Hasła generowane przez system są bezpieczne i są zalecane, chyba że organizacja wymaga inaczej.
+    Skonfigurowanie klucza zarządzanego przez klienta dla Azure Data Box jest opcjonalne. Domyślnie do ochrony klucza dostępu odblokowywania urządzenie Data Box jest stosowany klucz zarządzany przez firmę Microsoft.
 
-   ![Rozszerzone opcje przenoszenia własnych haseł na ekranie zabezpieczenia dla urządzenie Data Box zamówienie importowania](media/data-box-deploy-ordered/select-data-box-import-security-02.png)
+    Klucz zarządzany przez klienta nie ma wpływu na to, jak dane na urządzeniu są szyfrowane. Klucz służy tylko do szyfrowania klucza dostępu odblokowywania urządzenia.
 
-   - Aby użyć własnego hasła dla nowego urządzenia, **Ustaw preferencję hasła urządzenia** , wybierz opcję **Użyj własnego hasła** , a następnie wpisz hasło spełniające wymagania dotyczące zabezpieczeń.
+    Jeśli nie chcesz używać klucza zarządzanego przez klienta, przejdź do kroku 15.
+
+   ![Ekran zabezpieczenia z ustawieniami typu szyfrowania](./media/data-box-deploy-ordered/customer-managed-key-01.png)
+
+10. Jako typ klucza wybierz opcję **klucz zarządzany przez klienta** . Następnie wybierz pozycję **Wybierz magazyn kluczy i klucz**.
+   
+    ![Ekran zabezpieczeń, ustawienia klucza zarządzanego przez klienta](./media/data-box-deploy-ordered/customer-managed-key-02.png)
+
+11. W bloku **Wybieranie klucza z Azure Key Vault** subskrypcja zostanie automatycznie wypełniona.
+
+    - W przypadku **magazynu kluczy** można wybrać istniejący magazyn kluczy z listy rozwijanej.
+
+      ![Ekran wybierania klucza z Azure Key Vault](./media/data-box-deploy-ordered/customer-managed-key-03.png)
+
+    - Możesz również wybrać pozycję **Utwórz nowy** , aby utworzyć nowy magazyn kluczy. Na ekranie **Tworzenie magazynu kluczy** wprowadź grupę zasobów i nazwę magazynu kluczy. Upewnij się, że ochrona **usuwania nietrwałego** i **przeczyszczania** jest włączona. Zaakceptuj wszystkie inne ustawienia domyślne, a następnie wybierz pozycję **Recenzja + Utwórz**.
+
+      ![Utwórz nowe ustawienia Azure Key Vault](./media/data-box-deploy-ordered/customer-managed-key-04.png)
+
+      Zapoznaj się z informacjami dotyczącymi magazynu kluczy, a następnie wybierz pozycję **Utwórz**. Poczekaj kilka minut na ukończenie tworzenia magazynu kluczy.
+
+      ![Nowy ekran przeglądu Azure Key Vault](./media/data-box-deploy-ordered/customer-managed-key-05.png)
+
+12. W obszarze **Wybierz klucz z Azure Key Vault** możesz wybrać istniejący klucz w magazynie kluczy.
+
+    ![Wybierz istniejący klucz z Azure Key Vault](./media/data-box-deploy-ordered/customer-managed-key-06.png)
+
+    Jeśli chcesz utworzyć nowy klucz, wybierz pozycję **Utwórz nowy**. Musisz użyć klucza RSA. Rozmiar może wynosić 2048 lub więcej. Wprowadź nazwę nowego klucza, zaakceptuj inne ustawienia domyślne, a następnie wybierz pozycję **Utwórz**.
+
+      ![Utwórz nową opcję klucza](./media/data-box-deploy-ordered/customer-managed-key-07.png)
+
+      Otrzymasz powiadomienie, gdy klucz został utworzony w magazynie kluczy.
+
+13. Wybierz **wersję** klucza, która ma zostać użyta, a następnie wybierz **pozycję Wybierz**.
+
+      ![Nowy klucz został utworzony w magazynie kluczy](./media/data-box-deploy-ordered/customer-managed-key-08.png)
+
+    Jeśli chcesz utworzyć nową wersję klucza, wybierz pozycję **Utwórz nową**.
+
+    ![Otwieranie okna dialogowego służącego do tworzenia nowej wersji klucza](./media/data-box-deploy-ordered/customer-managed-key-08-a.png)
+
+    Wybierz opcję Ustawienia dla nowej wersji klucza i wybierz pozycję **Utwórz**.
+
+    ![Utwórz nową wersję klucza](./media/data-box-deploy-ordered/customer-managed-key-08-b.png)
+
+    Ustawienia **typ szyfrowania** na ekranie **zabezpieczenia** pokazują swój magazyn kluczy i klucz.
+
+    ![Klucz i Magazyn kluczy dla klucza zarządzanego przez klienta](./media/data-box-deploy-ordered/customer-managed-key-09.png)
+
+14. Wybierz tożsamość użytkownika, która będzie używana do zarządzania dostępem do tego zasobu. Wybierz **pozycję Wybierz tożsamość użytkownika**. W panelu po prawej stronie wybierz subskrypcję i zarządzaną tożsamość do użycia. Następnie wybierz opcję **Wybierz**.
+
+    Tożsamość zarządzana przypisana przez użytkownika to autonomiczny zasób platformy Azure, który może służyć do zarządzania wieloma zasobami. Aby uzyskać więcej informacji, zobacz [zarządzane typy tożsamości](/azure/active-directory/managed-identities-azure-resources/overview).  
+
+    Jeśli musisz utworzyć nową tożsamość zarządzaną, postępuj zgodnie ze wskazówkami zawartymi w temacie [Create, list, DELETE lub Assign a role do zarządzanej tożsamości przypisanej przez użytkownika przy użyciu Azure Portal](/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
+    
+    ![Wybierz tożsamość użytkownika](./media/data-box-deploy-ordered/customer-managed-key-10.png)
+
+    Tożsamość użytkownika jest wyświetlana w ustawieniach **typu szyfrowania** .
+
+    ![Wybrana tożsamość użytkownika pokazana w ustawieniach typu szyfrowania](./media/data-box-deploy-ordered/customer-managed-key-11.png)
+
+15. Jeśli nie chcesz korzystać z haseł generowanych przez system, które są domyślnie używane Azure Data Box, rozwiń pozycję **Przenieś własne hasło** na ekranie **zabezpieczenia** .
+
+    Hasła generowane przez system są bezpieczne i są zalecane, chyba że organizacja wymaga inaczej.
+
+    ![Rozwinięte opcje przenoszenia własnych haseł dla urządzenie Data Box zamówienie importu](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
+
+   - Aby użyć własnego hasła dla nowego urządzenia, **Ustaw preferencję hasła urządzenia**, wybierz opcję **Użyj własnego hasła**, a następnie wpisz hasło spełniające wymagania dotyczące zabezpieczeń.
    
      ![Opcje używania własnego hasła urządzenia na ekranie zabezpieczeń dla urządzenie Data Box zamówienie importowania](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
 
-   - Aby użyć własnych haseł dla udziałów:
+ - Aby użyć własnych haseł dla udziałów:
 
-     1. Ustawiając **preferencję dla haseł udostępniania** , wybierz opcję **Użyj własnych haseł** , a następnie **Wybierz hasła dla udziałów**.
+   - Ustawiając **preferencję dla haseł udostępniania**, wybierz opcję **Użyj własnych haseł** , a następnie **Wybierz hasła dla udziałów**.
      
         ![Opcje używania własnych haseł udostępniania na ekranie zabezpieczeń dla urządzenie Data Box zamówienie importowania](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
 
-     1. Wpisz hasło dla każdego konta magazynu w kolejności. Hasło będzie używane dla wszystkich udziałów dla konta magazynu.
+    - Wpisz hasło dla każdego konta magazynu w kolejności. Hasło będzie używane dla wszystkich udziałów dla konta magazynu.
      
         Aby użyć tego samego hasła dla wszystkich kont magazynu, wybierz opcję **Kopiuj do wszystkich**. Po zakończeniu wybierz pozycję **Zapisz**.
      
@@ -303,38 +368,38 @@ Aby zamówić urządzenie, wykonaj następujące czynności w Azure Portal.
 
        Aby zmienić hasła, na ekranie **zabezpieczenia** można użyć **widoku lub zmienić hasła** .
 
-9. W obszarze **zabezpieczenia** , jeśli chcesz włączyć podwójne szyfrowanie oparte na oprogramowaniu, rozwiń pozycję **podwójne szyfrowanie (w przypadku wysoce bezpiecznych środowisk)** , a następnie wybierz pozycję **Włącz podwójne szyfrowanie dla zamówienia**.
+16. W obszarze **zabezpieczenia**, jeśli chcesz włączyć podwójne szyfrowanie oparte na oprogramowaniu, rozwiń pozycję **podwójne szyfrowanie (w przypadku wysoce bezpiecznych środowisk)**, a następnie wybierz pozycję **Włącz podwójne szyfrowanie dla zamówienia**.
 
-   ![Opcje włączania szyfrowania opartego na oprogramowaniu na ekranie zabezpieczeń dla urządzenie Data Box zamówienie importu](media/data-box-deploy-ordered/select-data-box-import-security-07.png)
+    ![Ekran zabezpieczeń urządzenie Data Box importowania, Włączanie szyfrowania opartego na oprogramowaniu dla zamówienia urządzenie Data Box](media/data-box-deploy-ordered/select-data-box-import-security-07.png)
 
-   Szyfrowanie oparte na oprogramowaniu jest wykonywane poza szyfrowaniem AES-256 bitowym danych na urządzenie Data Box.
+    Szyfrowanie oparte na oprogramowaniu jest wykonywane poza szyfrowaniem AES-256 bitowym danych na urządzenie Data Box.
 
-   > [!NOTE]
-   > Włączenie tej opcji może spowodować wydłużenie przetwarzania zamówień i kopiowania danych. Po utworzeniu zamówienia nie można zmienić tej opcji.
+    > [!NOTE]
+    > Włączenie tej opcji może spowodować wydłużenie przetwarzania zamówień i kopiowania danych. Po utworzeniu zamówienia nie można zmienić tej opcji.
 
-   Wybierz pozycję **Dalej: szczegóły kontaktu** , aby kontynuować.
+    Wybierz pozycję **Dalej: szczegóły kontaktu** , aby kontynuować.
 
-10. W obszarze **szczegóły kontaktu** wybierz pozycję **+ Dodaj adres wysyłkowy**.
+17. W obszarze **szczegóły kontaktu** wybierz pozycję **+ Dodaj adres wysyłkowy**.
 
-    ![Na ekranie szczegóły kontaktu Dodaj adresy wysyłkowe do Azure Data Box zamówienia importu](media/data-box-deploy-ordered/select-data-box-import-08a.png)
+    ![Na ekranie szczegóły kontaktu Dodaj adresy wysyłkowe do Azure Data Box zamówienia importu](media/data-box-deploy-ordered/select-data-box-import-08-a.png)
 
-11. W polu **adres wysyłkowy** Podaj imię i nazwisko, nazwę i adres pocztowy firmy oraz prawidłowy numer telefonu. Następnie wybierz pozycję **Weryfikuj adres**. Usługa sprawdza dostępność usługi dla adresu. Jeśli usługa jest dostępna dla adresu wysyłkowego, zostanie wyświetlone powiadomienie.
+18. W obszarze **Adres wysyłkowy** podaj swoje imię i nazwisko, nazwę oraz adres pocztowy firmy i prawidłowy numer telefonu. Wybierz pozycję **Zweryfikuj adres**. Usługa zweryfikuje adres wysyłkowy pod kątem dostępności usługi. Jeśli ta usługa jest dostępna dla podanego adresu wysyłkowego, otrzymasz odpowiednie powiadomienie.
 
-     ![Dodaj adres wysyłkowy — okno dialogowe z opcjami Wyślij przy użyciu i Dodaj adres wysyłkowy](media/data-box-deploy-ordered/select-data-box-import-10.png)
+    ![Zrzut ekranu przedstawiający okno dialogowe Dodawanie adresu wysyłkowego z opcjami Wyślij przy użyciu i Dodaj adres wysyłkowy.](media/data-box-deploy-ordered/select-data-box-import-10.png)
 
     W przypadku wybrania opcji Wysyłka samozarządzanego otrzymasz powiadomienie e-mail po pomyślnym przekazaniu zamówienia. Aby uzyskać więcej informacji na temat samozarządzanej wysyłki, zobacz [Korzystanie z funkcji samozarządzanej wysyłki](data-box-portal-customer-managed-shipping.md).
 
-12. Wybierz pozycję **Dodaj adres wysyłkowy** po pomyślnym sprawdzeniu szczegółów wysyłki. Nastąpi powrót do karty **szczegóły kontaktu** .
+19. Wybierz pozycję **Dodaj adres wysyłkowy** po pomyślnym sprawdzeniu szczegółów wysyłki. Nastąpi powrót do karty **szczegóły kontaktu** .
 
-13. Po powrocie do **szczegółów kontaktu** Dodaj co najmniej jeden adres e-mail. Usługa wysyła powiadomienia e-mail dotyczące wszystkich aktualizacji stanu zamówienia na określone adresy e-mail.
+20. Po powrocie do **szczegółów kontaktu** Dodaj co najmniej jeden adres e-mail. Usługa wysyła powiadomienia e-mail dotyczące wszystkich aktualizacji stanu zamówienia na określone adresy e-mail.
 
     Zalecamy użycie grupowego adresu e-mail, aby otrzymywać powiadomienia, jeśli administrator opuści grupę.
 
-    ![Sekcja wiadomości e-mail z informacjami o kontakcie w Kreatorze zamówień](media/data-box-deploy-ordered/select-data-box-import-08c.png)
+    ![Sekcja wiadomości e-mail z informacjami o kontakcie w Kreatorze zamówień](media/data-box-deploy-ordered/select-data-box-import-08-c.png)
 
-12. Zapoznaj się z informacjami w temacie **Przegląd + Order** (kolejność) związanych z warunkami zamówienia, kontaktu, powiadomień i prywatności. Zaznacz pole oznaczające wyrażenie zgody na postanowienia dotyczące prywatności.
+21. Zapoznaj się z informacjami w temacie **Przegląd + Order** (kolejność) związanych z warunkami zamówienia, kontaktu, powiadomień i prywatności. Zaznacz pole oznaczające wyrażenie zgody na postanowienia dotyczące prywatności.
 
-13. Wybierz pozycję **Zamów**. Utworzenie zamówienia trwa kilka minut.
+22. Wybierz pozycję **Zamów**. Utworzenie zamówienia trwa kilka minut.
 
     ![Przegląd i kolejność ekranu kreatora zamówień](media/data-box-deploy-ordered/select-data-box-import-11.png)
 
@@ -515,7 +580,7 @@ Aby zamówić urządzenie, wykonaj następujące Azure PowerShell czynności:
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
-Po złożeniu zamówienia możesz śledzić jego stan w witrynie Azure Portal. Przejdź do zamówienia urządzenia Data Box, a następnie przejdź do obszaru **Omówienie** , aby sprawdzić stan. Zamówienie wyświetlone w portalu ma stan **Zamówione**.
+Po złożeniu zamówienia możesz śledzić jego stan w witrynie Azure Portal. Przejdź do zamówienia urządzenia Data Box, a następnie przejdź do obszaru **Omówienie**, aby sprawdzić stan. Zamówienie wyświetlone w portalu ma stan **Zamówione**.
 
 Jeśli urządzenie nie jest niedostępne, otrzymasz powiadomienie. Jeśli urządzenie jest dostępne, firma Microsoft zidentyfikuje urządzenie do wysłania i przygotuje wysyłkę. Podczas przygotowywania urządzenia są wykonywane następujące akcje:
 

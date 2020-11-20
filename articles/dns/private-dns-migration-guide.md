@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 06/18/2019
 ms.author: rohink
-ms.openlocfilehash: 9302e922d509f3145fd7913835ce896a6da860fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63bd1d01adf66f33a8ee5349f35063473429b007
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84699468"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964783"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>Migrowanie starszych stref prywatnych Azure DNS do nowego modelu zasobów
 
@@ -107,10 +107,10 @@ Ten krok spowoduje usunięcie starszych stref DNS i należy je wykonać dopiero 
 ## <a name="update-your-automation"></a>Aktualizowanie usługi Automation
 
 Jeśli używasz automatyzacji, w tym szablonów, skryptów programu PowerShell lub niestandardowego kodu opracowanego przy użyciu zestawu SDK, musisz zaktualizować automatyzację, aby używała nowego modelu zasobów dla prywatnych stref DNS. Poniżej znajdują się linki do nowej prywatnej infrastruktury interfejsu wiersza polecenia DNS/PS/SDK.
-* [Interfejs API REST stref prywatnych Azure DNS](https://docs.microsoft.com/rest/api/dns/privatedns/privatezones)
-* [Interfejs wiersza polecenia Azure DNS strefy prywatnej](https://docs.microsoft.com/cli/azure/ext/privatedns/network/private-dns?view=azure-cli-latest)
-* [Azure DNS stref prywatnych programu PowerShell](https://docs.microsoft.com/powershell/module/az.privatedns/?view=azps-2.3.2)
-* [Azure DNS zestawu SDK stref prywatnych](https://docs.microsoft.com/dotnet/api/overview/azure/privatedns/management?view=azure-dotnet-preview)
+* [Interfejs API REST stref prywatnych Azure DNS](/rest/api/dns/privatedns/privatezones)
+* [Interfejs wiersza polecenia Azure DNS strefy prywatnej](/cli/azure/ext/privatedns/network/private-dns?view=azure-cli-latest)
+* [Azure DNS stref prywatnych programu PowerShell](/powershell/module/az.privatedns/?view=azps-2.3.2)
+* [Azure DNS zestawu SDK stref prywatnych](/dotnet/api/overview/azure/privatedns/management?view=azure-dotnet-preview)
 
 ## <a name="need-further-help"></a>Potrzebna dodatkowa pomoc
 

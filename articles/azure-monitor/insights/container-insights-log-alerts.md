@@ -3,12 +3,12 @@ title: Rejestrowanie alertów z Azure Monitor dla kontenerów | Microsoft Docs
 description: W tym artykule opisano sposób tworzenia niestandardowych alertów dziennika dla pamięci i wykorzystania procesora CPU z Azure Monitor dla kontenerów.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: ddf898978bdaf51cb81a95c3209855c51212280f
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: e9b0e01ca4c0ccb24d0d1b04a4d17ec06db253b6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995267"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966255"
 ---
 # <a name="how-to-create-log-alerts-from-azure-monitor-for-containers"></a>Jak utworzyć alerty dzienników z Azure Monitor dla kontenerów
 
@@ -17,7 +17,7 @@ Azure Monitor dla kontenerów monitoruje wydajność obciążeń kontenera wdro�
 - Gdy użycie procesora CPU lub pamięci w węzłach klastra przekracza wartość progową
 - Gdy użycie procesora lub pamięci w dowolnym kontenerze w kontrolerze przekracza próg w porównaniu z limitem ustawionym dla odpowiedniego zasobu
 - Liczba węzłów stanu " *Nobieżniing* "
-- Liczba *zakończonych niepowodzeniem*, *oczekujących*, *nieznanych*, *uruchomionych*lub *zakończonych powodzeniem*
+- Liczba *zakończonych niepowodzeniem*, *oczekujących*, *nieznanych*, *uruchomionych* lub *zakończonych powodzeniem*
 - Gdy ilość wolnego miejsca na dysku w węzłach klastra przekracza wartość progową
 
 Aby otrzymywać alerty dotyczące wysokiego użycia procesora CPU lub pamięci lub małej ilości wolnego miejsca na dysku klastra, użyj zapytań dostarczonych do utworzenia alertu metryki lub alertu pomiaru metryki. Alerty metryk mają mniejsze opóźnienia niż alerty dzienników, ale alerty dzienników zapewniają zaawansowane zapytania i złożoności. Zapytania alertów dziennika porównują datę i godzinę do obecne przy użyciu operatora *Now* i cofają jedną godzinę. (Azure Monitor dla kontenerów przechowuje wszystkie daty w formacie uniwersalnego czasu koordynowanego (UTC).)
@@ -207,14 +207,14 @@ KubeNodeInventory
             NotReadyCount = todouble(NotReadyCount) / ClusterSnapshotCount
 | order by ClusterName asc, Computer asc, TimeGenerated desc
 ```
-Następujące zapytanie zwraca liczbę faz w oparciu o wszystkie fazy: *Niepowodzenie*, *oczekiwanie*, *nieznane*, *uruchomione*lub *zakończone powodzeniem*.  
+Następujące zapytanie zwraca liczbę faz w oparciu o wszystkie fazy: *Niepowodzenie*, *oczekiwanie*, *nieznane*, *uruchomione* lub *zakończone powodzeniem*.  
 
 ```kusto
-let endDateTime = now();
-    let startDateTime = ago(1h);
-    let trendBinSize = 1m;
-    let clusterName = '<your-cluster-name>';
-    KubePodInventory
+let endDateTime = now(); 
+let startDateTime = ago(1h);
+let trendBinSize = 1m;
+let clusterName = '<your-cluster-name>';
+KubePodInventory
     | where TimeGenerated < endDateTime
     | where TimeGenerated >= startDateTime
     | where ClusterName == clusterName
@@ -224,13 +224,13 @@ let endDateTime = now();
         KubePodInventory
         | where TimeGenerated < endDateTime
         | where TimeGenerated >= startDateTime
-        | distinct ClusterName, Computer, PodUid, TimeGenerated, PodStatus
+        | summarize PodStatus=any(PodStatus) by TimeGenerated, PodUid, ClusterId
         | summarize TotalCount = count(),
                     PendingCount = sumif(1, PodStatus =~ 'Pending'),
                     RunningCount = sumif(1, PodStatus =~ 'Running'),
                     SucceededCount = sumif(1, PodStatus =~ 'Succeeded'),
                     FailedCount = sumif(1, PodStatus =~ 'Failed')
-                 by ClusterName, bin(TimeGenerated, trendBinSize)
+                by ClusterName, bin(TimeGenerated, trendBinSize)
     ) on ClusterName, TimeGenerated
     | extend UnknownCount = TotalCount - PendingCount - RunningCount - SucceededCount - FailedCount
     | project TimeGenerated,
@@ -244,7 +244,7 @@ let endDateTime = now();
 ```
 
 >[!NOTE]
->Aby ostrzec o niektórych fazach, takich jak *oczekujące*, *zakończone niepowodzeniem*lub *nieznane*, należy zmodyfikować ostatni wiersz zapytania. Na przykład, aby ostrzec o *FailedCount* użyciu: <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
+>Aby ostrzec o niektórych fazach, takich jak *oczekujące*, *zakończone niepowodzeniem* lub *nieznane*, należy zmodyfikować ostatni wiersz zapytania. Na przykład, aby ostrzec o *FailedCount* użyciu: <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
 
 Następujące zapytanie zwraca dyski węzłów klastra, które przekraczają 90% wolnego miejsca. Aby uzyskać identyfikator klastra, najpierw uruchom następujące zapytanie i skopiuj wartość z `ClusterId` Właściwości:
 
@@ -287,14 +287,14 @@ Ta sekcja zawiera szczegółowe instrukcje dotyczące tworzenia reguły alertu p
 4. W okienku po lewej stronie wybierz pozycję **dzienniki** , aby otworzyć stronę Dzienniki Azure monitor. Ta strona służy do zapisywania i wykonywania zapytań dotyczących dzienników platformy Azure.
 5. Na stronie **dzienniki** wklej jedno z [zapytań](#resource-utilization-log-search-queries) dostarczonych wcześniej do pola **zapytania wyszukiwania** , a następnie wybierz polecenie **Uruchom** , aby sprawdzić poprawność wyników. Jeśli ten krok nie zostanie wykonane, opcja **+ Nowy alert** nie jest dostępna do wybrania.
 6. Wybierz pozycję **+ Nowy alert** , aby utworzyć alert dziennika.
-7. W sekcji **warunek** wybierz opcję zawsze, **gdy wyszukiwanie w dzienniku niestandardowym jest \<logic undefined> ** wstępnie zdefiniowanym warunkiem dziennika niestandardowego. Typ sygnału **niestandardowego wyszukiwania w dzienniku** jest automatycznie wybierany, ponieważ tworzymy regułę alertu bezpośrednio na stronie dzienników Azure monitor.  
+7. W sekcji **warunek** wybierz opcję zawsze, **gdy wyszukiwanie w dzienniku niestandardowym jest \<logic undefined>** wstępnie zdefiniowanym warunkiem dziennika niestandardowego. Typ sygnału **niestandardowego wyszukiwania w dzienniku** jest automatycznie wybierany, ponieważ tworzymy regułę alertu bezpośrednio na stronie dzienników Azure monitor.  
 8. Wklej jedno z [zapytań](#resource-utilization-log-search-queries) dostarczonych wcześniej do pola **zapytania wyszukiwania** .
 9. Skonfiguruj alert w następujący sposób:
 
     1. Z listy rozwijanej **na podstawie** wybierz pozycję **pomiar metryki**. Pomiar metryki tworzy alert dla każdego obiektu w zapytaniu, którego wartość przekracza nasz określony próg.
-    1. W obszarze **warunek**wybierz opcję **większe niż**i wprowadź **75** jako początkowy **próg** punktu odniesienia dla alertów użycia procesora CPU i pamięci. W przypadku alertu o małej ilości miejsca na dysku wprowadź **90**. Lub wprowadź inną wartość, która spełnia kryteria.
+    1. W obszarze **warunek** wybierz opcję **większe niż** i wprowadź **75** jako początkowy **próg** punktu odniesienia dla alertów użycia procesora CPU i pamięci. W przypadku alertu o małej ilości miejsca na dysku wprowadź **90**. Lub wprowadź inną wartość, która spełnia kryteria.
     1. W sekcji **alert wyzwalacza na podstawie** wybierz pozycję **kolejne naruszenia**. Z listy rozwijanej wybierz pozycję **większe niż**, a następnie wprowadź wartość **2**.
-    1. Aby skonfigurować alert dotyczący użycia procesora lub pamięci kontenera, w obszarze **agregowanie**wybierz pozycję **ContainerName**. Aby skonfigurować alert niskiego dysku węzła klastra, wybierz pozycję **ClusterId**.
+    1. Aby skonfigurować alert dotyczący użycia procesora lub pamięci kontenera, w obszarze **agregowanie** wybierz pozycję **ContainerName**. Aby skonfigurować alert niskiego dysku węzła klastra, wybierz pozycję **ClusterId**.
     1. W sekcji **oceniane na podstawie** ustaw wartość **okresu** na **60 minut**. Reguła będzie działać co 5 minut i zwracać rekordy, które zostały utworzone w ciągu ostatniej godziny od bieżącego czasu. Ustawianie przedziału czasu dla kont okien szerokich dla potencjalnych opóźnień danych. Zapewnia również, że zapytanie zwraca dane, aby uniknąć fałszywych wartości ujemnych, w których alert nigdy nie jest uruchamiany.
 
 10. Wybierz pozycję **gotowe** , aby zakończyć regułę alertu.

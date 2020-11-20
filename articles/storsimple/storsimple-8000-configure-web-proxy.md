@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 62c052f2293c670b43f1c77363c8bbbcc03d0de2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48671e7558ea1bd613d33372c96fa3c563407e81
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514280"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966228"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Konfigurowanie serwera proxy sieci Web dla urządzenia StorSimple
 
@@ -63,12 +63,12 @@ Kreator instalacji zawiera instrukcje dotyczące konfiguracji serwera proxy siec
    
     `Invoke-HcsSetupWizard`
 2. Jeśli używasz Kreatora instalacji do rejestracji urządzenia po raz pierwszy, musisz skonfigurować wszystkie wymagane ustawienia sieciowe do momentu uzyskania dostępu do konfiguracji serwera proxy sieci Web. Jeśli urządzenie jest już zarejestrowane, Zaakceptuj wszystkie skonfigurowane ustawienia sieciowe, dopóki nie zostanie osiągnięta konfiguracja serwera proxy sieci Web. Po wyświetleniu monitu o skonfigurowanie ustawień serwera proxy sieci Web w Kreatorze instalacji wpisz **tak**.
-3. W polu **adres URL serwera proxy sieci Web**Określ adres IP lub w pełni kwalifikowaną nazwę domeny (FQDN) serwera proxy sieci Web i numer portu TCP, który ma być używany przez urządzenie podczas komunikacji z chmurą. Użyj następującego formatu:
+3. W polu **adres URL serwera proxy sieci Web** Określ adres IP lub w pełni kwalifikowaną nazwę domeny (FQDN) serwera proxy sieci Web i numer portu TCP, który ma być używany przez urządzenie podczas komunikacji z chmurą. Użyj następującego formatu:
    
     `http://<IP address or FQDN of the web proxy server>:<TCP port number>`
    
     Domyślnie jest określony numer portu TCP 8080.
-4. Wybierz typ uwierzytelniania jako **NTLM**, **podstawowy**lub **Brak**. Podstawowa jest najmniej bezpiecznym uwierzytelnianiem dla konfiguracji serwera proxy. NT LAN Manager (NTLM) to wysoce bezpieczny i skomplikowany protokół uwierzytelniania, który korzysta z trójstanowego systemu obsługi komunikatów (czasami cztery Jeśli wymagana jest dodatkowa integralność) w celu uwierzytelnienia użytkownika. Domyślnym uwierzytelnianiem jest NTLM. Aby uzyskać więcej informacji, zobacz Uwierzytelnianie [podstawowe](https://hc.apache.org/httpclient-3.x/authentication.html) i [NTLM](https://hc.apache.org/httpclient-3.x/authentication.html). 
+4. Wybierz typ uwierzytelniania jako **NTLM**, **podstawowy** lub **Brak**. Podstawowa jest najmniej bezpiecznym uwierzytelnianiem dla konfiguracji serwera proxy. NT LAN Manager (NTLM) to wysoce bezpieczny i skomplikowany protokół uwierzytelniania, który korzysta z trójstanowego systemu obsługi komunikatów (czasami cztery Jeśli wymagana jest dodatkowa integralność) w celu uwierzytelnienia użytkownika. Domyślnym uwierzytelnianiem jest NTLM. Aby uzyskać więcej informacji, zobacz Uwierzytelnianie [podstawowe](https://hc.apache.org/httpclient-3.x/authentication.html) i [NTLM](https://hc.apache.org/httpclient-3.x/authentication.html). 
    
    > [!IMPORTANT]
    > **W usłudze StorSimple Menedżer urządzeń wykresy monitorowania urządzeń nie działają w przypadku włączenia uwierzytelniania podstawowego lub NTLM w konfiguracji serwera proxy dla urządzenia. Aby wykresy monitorowania działały, należy się upewnić, że uwierzytelnianie jest ustawione na NONE.**
@@ -154,6 +154,5 @@ Jeśli ustawienia serwera proxy sieci Web są nieprawidłowo skonfigurowane, kom
 > * Błędy związane z ustawieniami serwera proxy sieci Web nie będą wyświetlane w Azure Portal w usłudze Menedżer urządzeń usługi StorSimple. Jeśli wystąpi problem z serwerem proxy sieci Web po zakończeniu konfiguracji, stan urządzenia zmieni się na **offline** w portalu klasycznym. |
 
 ## <a name="next-steps"></a>Następne kroki
-* W przypadku napotkania problemów podczas wdrażania urządzenia lub konfigurowania ustawień serwera proxy sieci Web zapoznaj się z tematem [Rozwiązywanie problemów z wdrożeniem urządzenia StorSimple](storsimple-troubleshoot-deployment.md).
+* W przypadku napotkania problemów podczas wdrażania urządzenia lub konfigurowania ustawień serwera proxy sieci Web zapoznaj się z tematem [Rozwiązywanie problemów z wdrożeniem urządzenia StorSimple](./storsimple-8000-troubleshoot-deployment.md).
 * Aby dowiedzieć się, jak korzystać z usługi StorSimple Menedżer urządzeń, przejdź do [korzystania z usługi StorSimple Menedżer urządzeń w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
-

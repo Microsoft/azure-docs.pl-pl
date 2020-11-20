@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: e20183356655668750cb1450338d4c8af1ee2d8c
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 4cab1765a387bbae61c9c242a8e7a1ca881ea1f5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951710"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966670"
 ---
 # <a name="tutorial-use-custom-allocation-policies-with-device-provisioning-service-dps"></a>Samouczek: używanie niestandardowych zasad alokacji z usługą Device Provisioning Service (DPS)
 
@@ -46,7 +46,7 @@ W tym samouczku wykonasz następujące czynności:
 
 * Zainstalowana najnowsza wersja usługi[Git](https://git-scm.com/download/).
 
-* W środowisku deweloperskim systemu Windows [program Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 z włączonym obciążeniem ["Programowanie aplikacji klasycznych w języku C++"](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) jest wymagany. Obsługiwane są również programy Visual Studio 2015 i Visual Studio 2017.
+* W środowisku deweloperskim systemu Windows [program Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 z włączonym obciążeniem ["Programowanie aplikacji klasycznych w języku C++"](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) jest wymagany. Obsługiwane są również programy Visual Studio 2015 i Visual Studio 2017.
 
 * W systemie Linux lub macOS zapoznaj się z odpowiednią sekcją w sekcji [Przygotowywanie środowiska deweloperskiego](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) w dokumentacji [zestawu SDK usługi Azure IoT C](https://github.com/Azure/azure-iot-sdk-c) .
 
@@ -181,7 +181,7 @@ W tej sekcji utworzysz nową grupę rejestracji, która używa niestandardowych 
 
 2. W lewym okienku wybierz pozycję **Zarządzaj rejestracjami** , a następnie wybierz przycisk **Dodaj grupę rejestracji** w górnej części strony.
 
-3. W obszarze **Dodaj grupę rejestracji**wprowadź informacje w poniższej tabeli, a następnie kliknij przycisk **Zapisz** .
+3. W obszarze **Dodaj grupę rejestracji** wprowadź informacje w poniższej tabeli, a następnie kliknij przycisk **Zapisz** .
 
     | Pole | Opis i/lub Sugerowana wartość |
     | :---- | :----------------------------- |
@@ -296,7 +296,7 @@ Ta sekcja jest ukierunkowana na stację roboczą opartą na systemie Windows. Ab
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
 
-    Jeśli `cmake` nie znajdziesz kompilatora języka C++, może wystąpić błąd kompilacji podczas wykonywania polecenia. Jeśli tak się stanie, spróbuj uruchomić polecenie w [wierszu polecenia programu Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs).
+    Jeśli `cmake` nie znajdziesz kompilatora języka C++, może wystąpić błąd kompilacji podczas wykonywania polecenia. Jeśli tak się stanie, spróbuj uruchomić polecenie w [wierszu polecenia programu Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs).
 
     Gdy kompilacja zakończy się powodzeniem, kilka ostatnich wierszy danych wyjściowych będzie wyglądać podobnie do następujących danych wyjściowych:
 
@@ -347,7 +347,7 @@ Ten przykładowy kod symuluje sekwencję rozruchu urządzenia, która wysyła ż
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. W `main()` funkcji Znajdź wywołanie `Prov_Device_Register_Device()` . Tuż przed tym wywołaniem Dodaj następujące wiersze kodu, które używają [`Prov_Device_Set_Provisioning_Payload()`](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/prov-device-client-h/prov-device-set-provisioning-payload) do przekazywania niestandardowego ładunku JSON podczas aprowizacji. Może to służyć do zapewnienia dodatkowych informacji o niestandardowych funkcjach alokacji. Może to również służyć do przekazywania typu urządzenia zamiast badania identyfikatora rejestracji.
+6. W `main()` funkcji Znajdź wywołanie `Prov_Device_Register_Device()` . Tuż przed tym wywołaniem Dodaj następujące wiersze kodu, które używają [`Prov_Device_Set_Provisioning_Payload()`](/azure/iot-hub/iot-c-sdk-ref/prov-device-client-h/prov-device-set-provisioning-payload) do przekazywania niestandardowego ładunku JSON podczas aprowizacji. Może to służyć do zapewnienia dodatkowych informacji o niestandardowych funkcjach alokacji. Może to również służyć do przekazywania typu urządzenia zamiast badania identyfikatora rejestracji.
 
     ```c
     // An example custom payload

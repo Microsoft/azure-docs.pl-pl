@@ -9,17 +9,18 @@ manager: dcscontentpm
 editor: ''
 tags: top-support-issue,azure-resource-manager
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/25/2020
 ms.assetid: 3cd520fd-eaf7-4ef9-b4d3-4827057e5028
-ms.openlocfilehash: 15ece836e172b8316222ea606ca638650795d5d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5593257fa17944eebce6346a1eb9e88e7af2c06
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88852592"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965956"
 ---
 # <a name="issues-using-vm-extensions-in-python-3-enabled-linux-azure-virtual-machines-systems"></a>Problemy z korzystaniem z rozszerzeń maszyn wirtualnych w systemie Python 3 z obsługą systemu Linux na platformie Azure Virtual Machines
 
@@ -47,7 +48,7 @@ Przed wdrożeniem rozszerzeń w znanych scenariuszach opisanych wcześniej w pod
 
 1. Przed wdrożeniem rozszerzenia Przywróć `/usr/bin/python` link symboliczny przy użyciu metody dostarczonej przez dostawcę dystrybucji systemu Linux.
 
-   - Na przykład w przypadku języka **Python 2,7**należy użyć: `sudo apt update && sudo apt install python-is-python2`
+   - Na przykład w przypadku języka **Python 2,7** należy użyć: `sudo apt update && sudo apt install python-is-python2`
 
 1. To zalecenie dotyczy klientów platformy Azure i nie jest obsługiwane w Azure Stack:
 

@@ -7,18 +7,19 @@ author: saghorpa
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0967c5e354c3b0e433753cf89d830dc2101741af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b34a7665770308b45732711f5d8328eb1d0a785f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91363124"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965072"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Konfigurowanie wysokiej dostępności w systemie SUSE przy użyciu urządzenia STONITH
 Ten dokument zawiera szczegółowe instrukcje krok po kroku dotyczące konfigurowania wysokiej dostępności systemu operacyjnego SUSE przy użyciu urządzenia STONITH.
@@ -233,7 +234,7 @@ systemctl start pacemaker
 ```
 ![Zrzut ekranu przedstawia okno konsoli z wyświetlonym stanem po uruchomieniu Pacemaker.](media/HowToHLI/HASetupWithStonith/start-pacemaker.png)
 
-Jeśli usługa Pacemaker *nie powiedzie*się, zapoznaj się z *scenariuszem 5: usługa Pacemaker kończy się niepowodzeniem*
+Jeśli usługa Pacemaker *nie powiedzie* się, zapoznaj się z *scenariuszem 5: usługa Pacemaker kończy się niepowodzeniem*
 
 ## <a name="5---joining-the-cluster"></a>5. przyłączanie do klastra
 W tej sekcji opisano sposób przyłączania węzła do klastra.
@@ -322,7 +323,7 @@ crm configure load update crm-vip.txt
 
 ### <a name="74-validate-the-resources"></a>7,4 sprawdzanie poprawności zasobów
 
-Po uruchomieniu polecenia *crm_mon*można zobaczyć te dwa zasoby.
+Po uruchomieniu polecenia *crm_mon* można zobaczyć te dwa zasoby.
 ![Zrzut ekranu przedstawia okno konsoli z dwoma zasobami.](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
 
 Ponadto stan można zobaczyć na stronie *https:// \<node IP address> : 7630/CIB/Live/State*

@@ -9,18 +9,19 @@ editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 999d63ee-890e-432e-9391-25b3fc6cde28
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 00cb63f63ffb1f2e10a276cfdeee9c5e8e1022de
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 565f98126cea8cc03874bb4f83ecdc2c65f8d5fb
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427381"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966058"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Rozszerzenia i funkcje maszyny wirtualnej dla systemu Windows
 
@@ -92,7 +93,7 @@ Poniższe metody mogą służyć do uruchamiania rozszerzenia dla istniejącej m
 
 ### <a name="powershell"></a>PowerShell
 
-Istnieje kilka poleceń programu PowerShell do uruchamiania indywidualnych rozszerzeń. Aby wyświetlić listę, użyj [poleceń Get-Command](/powershell/module/microsoft.powershell.core/get-command) i Filter on *Extension* :
+Istnieje kilka poleceń programu PowerShell do uruchamiania indywidualnych rozszerzeń. Aby wyświetlić listę, użyj [poleceń Get-Command](/powershell/module/microsoft.powershell.core/get-command) i Filter on *Extension*:
 
 ```powershell
 Get-Command Set-Az*Extension* -Module Az.Compute
@@ -142,7 +143,7 @@ Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Nam
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Rozszerzenia maszyn wirtualnych można stosować do istniejącej maszyny wirtualnej za pomocą Azure Portal. Wybierz maszynę wirtualną w portalu, wybierz pozycję **rozszerzenia** , a następnie wybierz pozycję **Dodaj**. Wybierz odpowiednie rozszerzenie z listy dostępnych rozszerzeń i postępuj zgodnie z instrukcjami wyświetlanymi w kreatorze.
+Rozszerzenia maszyn wirtualnych można stosować do istniejącej maszyny wirtualnej za pomocą Azure Portal. Wybierz maszynę wirtualną w portalu, wybierz pozycję **rozszerzenia**, a następnie wybierz pozycję **Dodaj**. Wybierz odpowiednie rozszerzenie z listy dostępnych rozszerzeń i postępuj zgodnie z instrukcjami wyświetlanymi w kreatorze.
 
 W poniższym przykładzie przedstawiono instalację rozszerzenia ochrony przed złośliwym oprogramowaniem firmy Microsoft z Azure Portal:
 
@@ -286,7 +287,7 @@ Microsoft.Compute     CustomScriptExtension                1.9
 
 #### <a name="agent-updates"></a>Aktualizacje agenta
 
-Agent gościa systemu Windows zawiera tylko *kod obsługi rozszerzenia* , *kod aprowizacji systemu Windows* jest oddzielony. Można odinstalować agenta gościa systemu Windows. Nie można wyłączyć automatycznej aktualizacji agenta gościa systemu Windows.
+Agent gościa systemu Windows zawiera tylko *kod obsługi rozszerzenia*, *kod aprowizacji systemu Windows* jest oddzielony. Można odinstalować agenta gościa systemu Windows. Nie można wyłączyć automatycznej aktualizacji agenta gościa systemu Windows.
 
 *Kod obsługi rozszerzenia* jest odpowiedzialny za komunikowanie się z siecią szkieletową Azure i obsługują operacje rozszerzeń maszyn wirtualnych, takie jak instalowanie, raportowanie stanu, aktualizowanie poszczególnych rozszerzeń i ich usuwanie. Aktualizacje zawierają poprawki zabezpieczeń, poprawki błędów i ulepszenia *kodu obsługi rozszerzenia*.
 
@@ -294,7 +295,7 @@ Aby sprawdzić, która wersja jest uruchomiona, zobacz [wykrywanie zainstalowane
 
 #### <a name="extension-updates"></a>Aktualizacje rozszerzeń
 
-Po udostępnieniu aktualizacji rozszerzenia Agent gościa systemu Windows pobiera i uaktualnia rozszerzenie. Automatyczna aktualizacja rozszerzeń jest *niewielka* lub *poprawka*. Można zrezygnować z rozszerzeń lub zrezygnować z nich podczas inicjowania obsługi *administracyjnej rozszerzenia.* Poniższy przykład pokazuje, jak automatycznie uaktualniać wersje pomocnicze w szablonie Menedżer zasobów z *włączoną flagą autoupgrademinorversion ": true* ":
+Po udostępnieniu aktualizacji rozszerzenia Agent gościa systemu Windows pobiera i uaktualnia rozszerzenie. Automatyczna aktualizacja rozszerzeń jest *niewielka* lub *poprawka*. Można zrezygnować z rozszerzeń lub zrezygnować z nich podczas inicjowania obsługi *administracyjnej rozszerzenia.* Poniższy przykład pokazuje, jak automatycznie uaktualniać wersje pomocnicze w szablonie Menedżer zasobów z *włączoną flagą autoupgrademinorversion ": true*":
 
 ```json
     "properties": {
@@ -322,7 +323,7 @@ Jeśli rozszerzenie zostało udostępnione za pomocą elementu "włączoną flag
  $vm.Extensions
 ```
 
-Następujące przykładowe dane wyjściowe pokazują, że *włączoną flagą autoupgrademinorversion* jest ustawiona na *true* :
+Następujące przykładowe dane wyjściowe pokazują, że *włączoną flagą autoupgrademinorversion* jest ustawiona na *true*:
 
 ```powershell
 ForceUpdateTag              :
@@ -336,7 +337,7 @@ AutoUpgradeMinorVersion     : True
 
 Aby sprawdzić, kiedy wystąpiła aktualizacja rozszerzenia, Przejrzyj dzienniki agenta na maszynie wirtualnej w lokalizacji *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-W poniższym przykładzie maszyna wirtualna ma zainstalowaną *firmę Microsoft. COMPUTE. CustomScriptExtension 1,8* . Poprawka była dostępna w wersji *1,9* :
+W poniższym przykładzie maszyna wirtualna ma zainstalowaną *firmę Microsoft. COMPUTE. CustomScriptExtension 1,8* . Poprawka była dostępna w wersji *1,9*:
 
 ```powershell
 [INFO]  Getting plugin locations for plugin 'Microsoft.Compute.CustomScriptExtension'. Current Version: '1.8', Requested Version: '1.9'
@@ -403,7 +404,7 @@ Extensions[0]           :
     Message             : Finished executing command
 ```
 
-Stan wykonania rozszerzenia można również znaleźć w Azure Portal. Aby wyświetlić stan rozszerzenia, wybierz maszynę wirtualną, wybierz pozycję **rozszerzenia** , a następnie wybierz odpowiednie rozszerzenie.
+Stan wykonania rozszerzenia można również znaleźć w Azure Portal. Aby wyświetlić stan rozszerzenia, wybierz maszynę wirtualną, wybierz pozycję **rozszerzenia**, a następnie wybierz odpowiednie rozszerzenie.
 
 ### <a name="rerun-vm-extensions"></a>Uruchom ponownie rozszerzenia maszyn wirtualnych
 

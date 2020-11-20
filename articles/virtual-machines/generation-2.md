@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: jushiman
-ms.openlocfilehash: 7234c02d387e2fbf21a7f6002e44f84deb851133
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0aedcc3be4cb319dc24990507d85756bd77777e4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977599"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963831"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Obsługa maszyn wirtualnych 2. generacji na platformie Azure
 
@@ -85,7 +85,7 @@ Platforma Azure nie obsługuje obecnie niektórych funkcji, które są obsługiw
 
 ### <a name="generation-1-vs-generation-2-features"></a>Funkcje generacji 1 a generacja 2
 
-| Cecha | Pierwsza generacja | Druga generacja |
+| Obiekt feature | Pierwsza generacja | Druga generacja |
 |---------|--------------|--------------|
 | Rozruch             | PCAT                      | UEFI                               |
 | Kontrolery dysków | IDE                       | SCSI                               |
@@ -101,11 +101,12 @@ Platforma Azure nie obsługuje obecnie niektórych funkcji, które są obsługiw
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Tworzenie/przywracanie kopii zapasowych                    | :heavy_check_mark: | :heavy_check_mark: |
 | Galeria obrazów udostępnionych              | :heavy_check_mark: | :heavy_check_mark: |
-| Szyfrowanie dysków Azure             | :heavy_check_mark: | y                |
+| [Szyfrowanie dysków Azure](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | y                |
+| [Szyfrowanie po stronie serwera](disk-encryption.md)            | :heavy_check_mark: | :heavy_check_mark: |
 
 ## <a name="creating-a-generation-2-vm"></a>Tworzenie maszyny wirtualnej generacji 2
 
-### <a name="marketplace-image"></a>Obraz witryny Marketplace
+### <a name="marketplace-image"></a>Obraz z witryny Marketplace
 
 W Azure Portal lub interfejsie wiersza polecenia platformy Azure można tworzyć maszyny wirtualne 2. generacji z obrazu portalu Marketplace, który obsługuje rozruch z interfejsem UEFI.
 
@@ -119,13 +120,13 @@ Poniżej przedstawiono procedurę tworzenia maszyny wirtualnej generacji 2 (Gen2
 1. Wybierz obraz, który obsługuje Gen2.
 1. Kliknij pozycję **Utwórz**.
 1. Na karcie **Zaawansowane** w sekcji **generacja maszyny wirtualnej** wybierz opcję **generacji 2** .
-1. Na karcie **podstawowe** w obszarze **szczegóły wystąpienia**przejdź do pozycji **rozmiar** i Otwórz blok **Wybieranie rozmiaru maszyny wirtualnej** .
+1. Na karcie **podstawowe** w obszarze **szczegóły wystąpienia** przejdź do pozycji **rozmiar** i Otwórz blok **Wybieranie rozmiaru maszyny wirtualnej** .
 1. Wybierz [obsługiwaną maszynę wirtualną generacji 2](#generation-2-vm-sizes).
 1. Przejdź do pozostałych stron, aby zakończyć tworzenie maszyny wirtualnej.
 
 ![Wybierz maszynę wirtualną generacji 1 lub Gen 2](./media/generation-2/gen1-gen2-select.png)
 
-#### <a name="powershell"></a>Program PowerShell
+#### <a name="powershell"></a>PowerShell
 
 Możesz również użyć programu PowerShell do utworzenia maszyny wirtualnej, bezpośrednio odwołującej się do jednostki SKU generacji 1 lub 2.
 

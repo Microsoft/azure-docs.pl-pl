@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: alkohli
-ms.openlocfilehash: a33e01d68a31585e216faa51ac8af193d86c6123
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 639efab3a9eaef400b3fbe3d0b134d02f458b865
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90053280"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966296"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Instalowanie i Konfigurowanie adaptera StorSimple dla programu SharePoint
 ## <a name="overview"></a>Omówienie
@@ -53,7 +53,7 @@ Microsoft Azure StorSimple implementacja SPZ zapewnia następujące korzyści:
 Przeniesienie zawartości obiektu BLOB do systemu plików może zapewnić inne oszczędności i korzyści. Na przykład użycie SPZ może ograniczyć potrzebę oszczędności magazynu warstwy 1 i, ponieważ zmniejsza ona bazę danych zawartości, SPZ może zmniejszyć liczbę baz danych wymaganych w farmie serwerów programu SharePoint. Jednak inne czynniki, takie jak limity rozmiaru bazy danych i ilość zawartości spoza SPZ, mogą również mieć wpływ na wymagania dotyczące magazynu. Aby uzyskać więcej informacji o kosztach i korzyściach wynikających z używania SPZ, zobacz [Plan for SPZ (SharePoint Foundation 2010)][4] i [Decydowanie o użyciu SPZ w programie SharePoint 2013][5].
 
 ### <a name="capacity-and-performance-limits"></a>Limity pojemności i wydajności
-Przed rozpoczęciem korzystania z SPZ w rozwiązaniu programu SharePoint należy pamiętać o przetestowanych limitach wydajności i pojemności programu SharePoint Server 2010 i SharePoint Server 2013 oraz o tym, jak te limity odnoszą się do akceptowalnej wydajności. Aby uzyskać więcej informacji, zobacz [granice oprogramowania i limity dla programu SharePoint 2013](https://technet.microsoft.com/library/cc262787.aspx).
+Przed rozpoczęciem korzystania z SPZ w rozwiązaniu programu SharePoint należy pamiętać o przetestowanych limitach wydajności i pojemności programu SharePoint Server 2010 i SharePoint Server 2013 oraz o tym, jak te limity odnoszą się do akceptowalnej wydajności. Aby uzyskać więcej informacji, zobacz [granice oprogramowania i limity dla programu SharePoint 2013](/SharePoint/install/software-boundaries-and-limits-0).
 
 Przed skonfigurowaniem SPZ należy przejrzeć następujące elementy:
 
@@ -138,8 +138,8 @@ Upewnij się, że farma serwerów programu SharePoint została prawidłowo skonf
   1. Zamknij wszystkie wystąpienia programu Internet Explorer.
   2. Uruchom Menedżer serwera.
   3. W lewym okienku kliknij pozycję **serwer lokalny**.
-  4. W prawym okienku obok pozycji **Konfiguracja zwiększonych zabezpieczeń programu Internet Explorer**kliknij pozycję **włączone**.
-  5. W obszarze **administratorzy**kliknij pozycję **wyłączone**.
+  4. W prawym okienku obok pozycji **Konfiguracja zwiększonych zabezpieczeń programu Internet Explorer** kliknij pozycję **włączone**.
+  5. W obszarze **administratorzy** kliknij pozycję **wyłączone**.
   6. Kliknij przycisk **OK**.
 
 ## <a name="remote-blob-storage-rbs-prerequisites"></a>Wymagania wstępne dotyczące zdalnego magazynu obiektów BLOB (SPZ)
@@ -208,7 +208,7 @@ W poniższych procedurach opisano sposób przenoszenia obiektów blob z powrotem
 > Przed odinstalowaniem oprogramowania karty obiekty blob należy przenieść z powrotem do baz danych zawartości.
 
 
-### <a name="before-you-begin"></a>Zanim rozpoczniesz
+### <a name="before-you-begin"></a>Przed rozpoczęciem
 Przed przeniesieniem danych z powrotem do baz danych zawartości SQL Server należy zebrać następujące informacje i rozpocząć proces usuwania karty:
 
 * Nazwy wszystkich baz danych, dla których jest włączona funkcja SPZ
@@ -222,11 +222,11 @@ Przed odinstalowaniem adaptera StorSimple dla oprogramowania SharePoint należy 
 #### <a name="to-move-the-blobs-back-to-the-content-databases"></a>Aby przenieść obiekty blob z powrotem do baz danych zawartości
 1. Pobierz wszystkie obiekty zewnętrzne.
 2. Otwórz stronę **administracji centralnej programu SharePoint** i przejdź do **ustawień systemowych**.
-3. W obszarze **Azure StorSimple**kliknij pozycję **Konfiguruj StorSimple adapter**.
+3. W obszarze **Azure StorSimple** kliknij pozycję **Konfiguruj StorSimple adapter**.
 4. Na stronie **Konfigurowanie karty StorSimple** kliknij przycisk **Wyłącz** poniżej każdej bazy danych zawartości, która ma zostać usunięta z zewnętrznego magazynu obiektów BLOB. 
 5. Usuń obiekty z programu SharePoint, a następnie Przekaż je ponownie.
 
-Alternatywnie możesz użyć polecenia cmdlet programu Microsoft `RBS Migrate()` PowerShell dołączonego do programu SharePoint. Aby uzyskać więcej informacji, zobacz [Migrowanie zawartości do lub z SPZ](https://technet.microsoft.com/library/ff628255.aspx).
+Alternatywnie możesz użyć polecenia cmdlet programu Microsoft `RBS Migrate()` PowerShell dołączonego do programu SharePoint. Aby uzyskać więcej informacji, zobacz [Migrowanie zawartości do lub z SPZ](/previous-versions/office/sharepoint-foundation-2010/ff628255(v=office.14)).
 
 Po przeniesieniu obiektów blob z powrotem do bazy danych zawartości przejdź do następnego kroku: [Odinstaluj kartę](#uninstall-the-adapter).
 
@@ -258,8 +258,8 @@ Po przeniesieniu obiektów blob z powrotem do SQL Server baz danych zawartości 
 
 <!--Reference links-->
 [1]: https://www.microsoft.com/download/details.aspx?id=44073
-[2]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
-[3]: https://technet.microsoft.com/library/ff628583(v=office.14).aspx
-[4]: https://technet.microsoft.com/library/ff628569(v=office.14).aspx
-[5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
-[8]: https://technet.microsoft.com/library/ff943565.aspx
+[2]: /SharePoint/administration/rbs-planning
+[3]: /previous-versions/office/sharepoint-server-2010/ff628583(v=office.14)
+[4]: /previous-versions/office/sharepoint-foundation-2010/ff628569(v=office.14)
+[5]: /SharePoint/administration/rbs-planning
+[8]: /SharePoint/administration/maintain-rbs

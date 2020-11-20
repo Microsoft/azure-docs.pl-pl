@@ -3,16 +3,17 @@ title: Architektury do wdrażania aplikacji Oracle na platformie Azure Virtual M
 description: Architektury aplikacji do wdrażania aplikacji Oracle, w tym pakietów elektronicznych, JD Edwards EnterpriseOne i PeopleSoft na Microsoft Azure maszynach wirtualnych z bazami danych na platformie Azure lub w infrastrukturze chmury firmy Oracle (OCI).
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 6261e2b49eda2aead75d080ca3f6c2304bc49d81
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: aa481090e3483e58f6a88304e3e9d8c1a16df3c7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996602"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965922"
 ---
 # <a name="architectures-to-deploy-oracle-applications-on-azure"></a>Architektury do wdrażania aplikacji Oracle na platformie Azure
 

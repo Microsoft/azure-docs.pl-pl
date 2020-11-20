@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 07/31/2020
-ms.openlocfilehash: c09f741b37e06010a0bfbab40317980793240e29
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 3a474228776c689dbbd6f15ddd926f29383400ce
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683509"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964715"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift — często zadawane pytania
 
@@ -21,7 +21,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
 ### <a name="which-azure-regions-are-supported"></a>Które regiony platformy Azure są obsługiwane?
 
-Aby uzyskać listę obsługiwanych regionów dla usługi Azure Red Hat OpenShift 4. x, zobacz [dostępne regiony](https://docs.openshift.com/aro/4/welcome/index.html#available-regions).
+Aby uzyskać listę obsługiwanych regionów dla usługi Azure Red Hat OpenShift 4. x, zobacz [dostępne regiony](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all).
 
 Listę obsługiwanych regionów dla usługi Azure Red Hat OpenShift 3,11 można znaleźć w temacie [produkty dostępne według regionów](supported-resources.md#azure-regions).
 
@@ -127,7 +127,7 @@ W przypadku klastrów 4. x należy uwidocznić bezpieczny rejestr i skonfigurowa
 
 W przypadku klastrów 3,11 jest dostępny rejestr platformy Docker. Rejestr platformy Docker jest dostępny z programu `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` . Możesz również użyć Azure Container Registry.
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 
 ### <a name="can-i-deploy-a-cluster-into-an-existing-virtual-network"></a>Czy mogę wdrożyć klaster w istniejącej sieci wirtualnej?
 
@@ -202,7 +202,7 @@ W przypadku klastrów 4. x należy skonfigurować własnego dostawcę tożsamoś
 
 W przypadku klastrów 3,11 można korzystać z integracji usługi Azure AD. 
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Magazyn
 
 ### <a name="is-data-on-my-cluster-encrypted"></a>Czy dane w moim klastrze są szyfrowane?
 

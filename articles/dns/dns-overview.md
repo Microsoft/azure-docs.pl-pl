@@ -6,18 +6,18 @@ ms.service: dns
 ms.topic: overview
 ms.date: 3/21/2019
 ms.author: rohink
-ms.openlocfilehash: d59f166897674e9dcff8086b8f5c906605155ee3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5df2c2f686a1993dcd25d5391d5b553f2b42d937
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87924278"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965650"
 ---
 # <a name="what-is-azure-dns"></a>Co to jest system DNS platformy Azure?
 
 Azure DNS to usługa hostingu dla domen DNS, która umożliwia rozpoznawanie nazw przy użyciu infrastruktury platformy Microsoft Azure. Dzięki hostowaniu swoich domen na platformie Azure możesz zarządzać rekordami DNS z zastosowaniem tych samych poświadczeń, interfejsów API, narzędzi i rozliczeń co w przypadku innych usług platformy Azure.
 
-Za pomocą usługi Azure DNS nie można kupić nazwy domeny. Za roczną opłatą możesz kupić nazwę domeny, używając [domen usługi App Service](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain#buy-the-domain) lub innego rejestratora nazw domen. Następnie możesz hostować domeny w usłudze Azure DNS na potrzeby zarządzania rekordami. Aby uzyskać więcej informacji, zobacz [delegowanie domeny do Azure DNS](dns-domain-delegation.md).
+Za pomocą usługi Azure DNS nie można kupić nazwy domeny. Za roczną opłatą możesz kupić nazwę domeny, używając [domen usługi App Service](../app-service/manage-custom-dns-buy-domain.md#buy-the-domain) lub innego rejestratora nazw domen. Następnie możesz hostować domeny w usłudze Azure DNS na potrzeby zarządzania rekordami. Aby uzyskać więcej informacji, zobacz [delegowanie domeny do Azure DNS](dns-domain-delegation.md).
 
 W usłudze Azure DNS są dostępne poniższe funkcje.
 
@@ -29,11 +29,11 @@ W usłudze Azure DNS domeny DNS są hostowane w globalnej sieci serwerów nazw D
 
  Usługa Azure DNS jest oparta na usłudze Azure Resource Manager, która zapewnia następujące funkcje:
 
-* [Kontrola dostępu oparta na rolach (Azure RBAC)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) do kontrolowania, kto ma dostęp do określonych działań w organizacji.
+* [Kontrola dostępu oparta na rolach (Azure RBAC)](../azure-resource-manager/management/overview.md) do kontrolowania, kto ma dostęp do określonych działań w organizacji.
 
-* [Dzienniki aktywności](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) umożliwiają monitorowanie sposobu, w jaki zasób został zmodyfikowany przez użytkownika w organizacji, lub znalezienie błędu podczas rozwiązywania problemów.
+* [Dzienniki aktywności](../azure-resource-manager/management/overview.md) umożliwiają monitorowanie sposobu, w jaki zasób został zmodyfikowany przez użytkownika w organizacji, lub znalezienie błędu podczas rozwiązywania problemów.
 
-* [Blokowanie zasobów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) umożliwia blokowanie subskrypcji, grupy zasobów lub zasobu. Blokowanie uniemożliwia innym użytkownikom w organizacji przypadkowe usunięcie lub zmodyfikowanie krytycznych zasobów.
+* [Blokowanie zasobów](../azure-resource-manager/management/lock-resources.md) umożliwia blokowanie subskrypcji, grupy zasobów lub zasobu. Blokowanie uniemożliwia innym użytkownikom w organizacji przypadkowe usunięcie lub zmodyfikowanie krytycznych zasobów.
 
 Aby uzyskać więcej informacji, zobacz [How to protect DNS zones and records (Jak chronić strefy i rekordy DNS)](dns-protect-zones-recordsets.md). 
 
@@ -67,6 +67,6 @@ Aby uzyskać więcej informacji, zobacz temat [Overview of Azure DNS alias recor
 
 * Aby dowiedzieć się więcej na temat stref i rekordów DNS, zobacz [DNS zones and records overview (Omówienie stref i rekordów DNS)](dns-zones-records.md).
 
-* Aby dowiedzieć się, jak utworzyć strefę w usłudze Azure DNS, zobacz [Create a DNS Zone (Tworzenie strefy DNS)](./dns-getstarted-create-dnszone-portal.md).
+* Aby dowiedzieć się, jak utworzyć strefę w usłudze Azure DNS, zobacz [Create a DNS Zone (Tworzenie strefy DNS)](./dns-getstarted-portal.md).
 
 * Zobacz często zadawane pytania dotyczące usługi Azure DNS: [Azure DNS FAQ (Azure DNS — często zadawane pytania)](dns-faq.md).

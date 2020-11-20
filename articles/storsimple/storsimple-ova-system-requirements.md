@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 020208a8b67d248c02fc659d4dc48fa22d333839
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5970e82619667a47ba160c84df2cdeb145b0dab8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80298818"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966177"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Wymagania systemowe macierzy wirtualnej StorSimple
 
@@ -29,7 +29,7 @@ Wymagania systemowe obejmują:
 
 Informacje o wymaganiach systemowych StorSimple opublikowanych w tym artykule mają zastosowanie tylko do tablic wirtualnych StorSimple.
 
-* W przypadku urządzeń z serii 8000 przejdź do [wymagań systemowych dla urządzenia z serii StorSimple 8000](storsimple-system-requirements.md).
+* W przypadku urządzeń z serii 8000 przejdź do [wymagań systemowych dla urządzenia z serii StorSimple 8000](./storsimple-8000-system-requirements.md).
 * W przypadku urządzeń z serii 7000 przejdź do [wymagań systemowych dla urządzenia z serii StorSimple 5000-7000](http://onlinehelp.storsimple.com/1_StorSimple_System_Requirements).
 
 ## <a name="software-requirements"></a>Wymagania dotyczące oprogramowania
@@ -84,12 +84,12 @@ Poniższe wymagania dotyczące oprogramowania dotyczą klientów SMB, którzy uz
 
 
 ### <a name="supported-storage-format"></a>Obsługiwany format magazynu
-Obsługiwany jest tylko magazyn blokowych obiektów blob platformy Azure. Stronicowe obiekty blob nie są obsługiwane. Więcej informacji na [temat blokowych obiektów blob i stronicowych obiektów BLOB](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+Obsługiwany jest tylko magazyn blokowych obiektów blob platformy Azure. Stronicowe obiekty blob nie są obsługiwane. Więcej informacji na [temat blokowych obiektów blob i stronicowych obiektów BLOB](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
 ## <a name="networking-requirements"></a>Wymagania dotyczące sieci
 Poniższa tabela zawiera listę portów, które należy otworzyć w zaporze, aby umożliwić obsługę ruchu iSCSI, SMB, chmury lub zarządzania. W tej tabeli *w* lub *przychodzący* odnosi się do kierunku, w którym przychodzące żądania klienta uzyskują dostęp do urządzenia. *Out* lub *wychodzący* odnosi się do kierunku, w którym Urządzenie StorSimple wysyła dane zewnętrznie, poza wdrożeniem: na przykład, ruch wychodzący do Internetu.
 
-| **Port nr<sup>1</sup>** | **Do lub do zewnątrz** | **Zakres portów** | **Wymagane** | **Uwagi** |
+| **Port nr <sup>1</sup>** | **Do lub do zewnątrz** | **Zakres portów** | **Wymagane** | **Uwagi** |
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP) |Out |Sieć WAN |Nie |Port wychodzący jest używany na potrzeby dostępu do Internetu w celu pobierania aktualizacji. <br></br>Wychodzący serwer proxy sieci Web jest konfigurowany przez użytkownika. |
 | TCP 443 (HTTPS) |Out |Sieć WAN |Tak |Port wychodzący służy do uzyskiwania dostępu do danych w chmurze. <br></br>Wychodzący serwer proxy sieci Web jest konfigurowany przez użytkownika. |

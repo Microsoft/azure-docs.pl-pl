@@ -1,14 +1,14 @@
 ---
 title: Samouczek — wdrażanie klastra vSphere na platformie Azure
-description: Dowiedz się, jak wdrożyć klaster vSphere na platformie Azure przy użyciu rozwiązania Azure VMWare
+description: Dowiedz się, jak wdrożyć klaster vSphere na platformie Azure przy użyciu rozwiązania Azure VMware
 ms.topic: tutorial
-ms.date: 09/21/2020
-ms.openlocfilehash: b673a67fac734c9cb63e96b6a0c3dc9182f4b994
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 11/19/2020
+ms.openlocfilehash: 93937f8ca0918494810885f5cb45de571a6e1529
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952288"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966313"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Samouczek: Wdrażanie chmury prywatnej rozwiązania Azure VMware na platformie Azure
 
@@ -51,7 +51,7 @@ Wybierz opcję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell możn
 
 #### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Poniższy przykład tworzy grupę zasobów o nazwie Moja *zasobów* w lokalizacji *Wschodnie* :
+Utwórz grupę zasobów za pomocą polecenia `[az group create](/cli/azure/group)`. Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Poniższy przykład tworzy grupę zasobów o nazwie Moja *zasobów* w lokalizacji *Wschodnie* :
 
 ```azurecli-interactive
 
@@ -77,7 +77,7 @@ az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --locati
 
 ## <a name="delete-an-azure-vmware-solution-private-cloud"></a>Usuń chmurę prywatną rozwiązania Azure VMware
 
-Jeśli masz chmurę prywatną rozwiązania VMware platformy Azure, która nie jest już potrzebna, możesz ją usunąć. Chmura prywatna rozwiązania Azure VMware obejmuje izolowaną domenę sieciową, co najmniej jeden klaster vSphere z obsługą dedykowanych węzłów serwera i zazwyczaj wiele maszyn wirtualnych. Po usunięciu chmury prywatnej zostaną usunięte wszystkie maszyny wirtualne, ich dane i klastry. Dedykowane węzły systemu operacyjnego są bezpiecznie czyszczone i zwracane do puli bezpłatna. Domena sieciowa obsługiwana dla klienta jest usuwana.  
+Jeśli masz chmurę prywatną rozwiązania VMware platformy Azure, która nie jest już potrzebna, możesz ją usunąć. Chmura prywatna rozwiązania Azure VMware obejmuje izolowaną domenę sieciową, co najmniej jeden inicjowany klaster vSphere na dedykowanych hostach serwera i kilka maszyn wirtualnych. Po usunięciu chmury prywatnej zostaną usunięte wszystkie maszyny wirtualne, ich dane i klastry. Dedykowane hosty bez systemu operacyjnego są bezpiecznie czyszczone i zwracane do puli bezpłatna. Domena sieciowa obsługiwana dla klienta jest usuwana.  
 
 > [!CAUTION]
 > Usuwanie chmury prywatnej jest operacją nieodwracalną. Po usunięciu chmury prywatnej dane nie mogą zostać odzyskane, ponieważ przerywa wszystkie uruchomione obciążenia i składniki oraz niszczy wszystkie dane chmury prywatnej i ustawienia konfiguracji, w tym publiczne adresy IP.
@@ -92,7 +92,7 @@ Po usunięciu chmury prywatnej nie ma możliwości odzyskania maszyn wirtualnych
 
 2. Wybierz chmurę prywatną, która ma zostać usunięta.
  
-3. Wprowadź nazwę chmury prywatnej i wybierz opcję **tak**. Proces usuwania zostanie zakończony w ciągu kilku godzin.  
+3. Wprowadź nazwę chmury prywatnej i wybierz opcję **tak**. W ciągu kilku godzin proces usuwania zostanie ukończony.  
 
 ## <a name="azure-vmware-commands"></a>Polecenia programu VMware platformy Azure
 
@@ -100,7 +100,7 @@ Aby zapoznać się z listą poleceń, których można używać z rozwiązaniem V
 
 ## <a name="next-steps"></a>Następne kroki
 
-W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
+W tym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Utwórz chmurę prywatną rozwiązania Azure VMware

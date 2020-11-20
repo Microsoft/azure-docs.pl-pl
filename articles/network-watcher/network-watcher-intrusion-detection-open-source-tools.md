@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 6a7b4d8c3d2e2b33d8e2a9936670992b1c922b6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30a07957a75bfe82d8ce350675f0d29b2f03e069
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84737363"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966143"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Wykrywanie intruzów w sieci za pomocą Network Watcher i narzędzi open source
 
@@ -80,7 +80,7 @@ Chociaż dzienniki wytwarzane przez program Suricata zawierają cenne informacje
 
 #### <a name="install-elasticsearch"></a>Zainstaluj Elasticsearch
 
-1. Stos elastyczny z wersji 5,0 i nowszej wymaga języka Java 8. Uruchom polecenie, `java -version` Aby sprawdzić wersję. Jeśli nie masz zainstalowanego języka Java, zapoznaj się z dokumentacją na [platformie Azure-Suppored zestawy JDK](https://aka.ms/azure-jdks).
+1. Stos elastyczny z wersji 5,0 i nowszej wymaga języka Java 8. Uruchom polecenie, `java -version` Aby sprawdzić wersję. Jeśli nie masz zainstalowanego języka Java, zapoznaj się z dokumentacją na [platformie Azure-Suppored zestawy JDK](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 1. Pobierz poprawny pakiet binarny dla Twojego systemu:
 
@@ -276,7 +276,7 @@ Przykładowy pulpit nawigacyjny zawiera kilka wizualizacji dzienników alertów 
 
 Aby uzyskać więcej dokumentacji dotyczącej tworzenia niestandardowych wizualizacji i pulpitów nawigacyjnych, zobacz [oficjalną dokumentację Kibana](https://www.elastic.co/guide/en/kibana/current/introduction.html).
 
-## <a name="conclusion"></a>Podsumowanie
+## <a name="conclusion"></a>Wniosek
 
 Łącząc przechwycenia pakietów udostępniane przez Network Watcher i identyfikatory Open Source, takie jak Suricata, można przeprowadzić wykrywanie wtargnięcia w sieci dla szerokiego zakresu zagrożeń. Te pulpity nawigacyjne pozwalają szybko wyszukiwać trendy i anomalie w sieci, a także Dig dane w celu odnalezienia głównych przyczyn alertów, takich jak złośliwi agenci użytkowników lub zagrożone porty. Korzystając z tych wyodrębnionych danych, można podejmować świadome decyzje dotyczące sposobu reagowania i ochrony sieci przed wszelkimi szkodliwymi próbami włamania oraz utworzyć reguły zapobiegające przyszłym włamaniom do sieci.
 

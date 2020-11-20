@@ -7,17 +7,18 @@ author: hermanndms
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: 5c3a24bc9d754a15a0b372667fbcd689365a9aec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cf18e2d375d7a45c3641876b8a3ed5974882927
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088312"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965429"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Weryfikowanie i rozwiązywanie problemów SAP HANA skalowalnej w poziomie konfiguracji wysokiej dostępności w SLES 12 SP3 
 
@@ -202,7 +203,7 @@ totem {
 }
 </code></pre>
 
-Druga sekcja, **Rejestrowanie**nie zmieniła się z podanym wartością domyślną:
+Druga sekcja, **Rejestrowanie** nie zmieniła się z podanym wartością domyślną:
 
 <pre><code>
 logging {
@@ -255,7 +256,7 @@ nodelist {
 }
 </code></pre>
 
-W ostatniej sekcji **kworum**należy prawidłowo ustawić wartość **expected_votes** . Musi to być liczba węzłów, w tym węzeł producent większości. A wartość **two_node** musi być **równa 0**. Nie usuwaj wpisu. Ustaw wartość na **0**.
+W ostatniej sekcji **kworum** należy prawidłowo ustawić wartość **expected_votes** . Musi to być liczba węzłów, w tym węzeł producent większości. A wartość **two_node** musi być **równa 0**. Nie usuwaj wpisu. Ustaw wartość na **0**.
 
 <pre><code>
 quorum {
@@ -538,7 +539,7 @@ Ważną funkcją Pacemaker jest tryb konserwacji. W tym trybie można wprowadza�
 crm configure property maintenance-mode=true
 </code></pre>
 
-Po sprawdzeniu **stanu programu CRM**należy zauważyć, że wszystkie zasoby są oznaczone jako **niezarządzane**. W tym stanie klaster nie reaguje na żadne zmiany, takie jak uruchamianie lub zatrzymywanie SAP HANA.
+Po sprawdzeniu **stanu programu CRM** należy zauważyć, że wszystkie zasoby są oznaczone jako **niezarządzane**. W tym stanie klaster nie reaguje na żadne zmiany, takie jak uruchamianie lub zatrzymywanie SAP HANA.
 Poniższy przykład przedstawia dane wyjściowe polecenia stanu programu **CRM** , gdy klaster jest w trybie konserwacji:
 
 <pre><code>
@@ -550,7 +551,7 @@ Last change: Wed Sep 12 07:46:54 2018 by root via cibadmin on hso-hana-vm-s2-1
 7 nodes configured
 17 resources configured
 
-              *** Resource management is DISABLED ***
+              **_ Resource management is DISABLED _*_
   The cluster will not attempt to start, stop or recover services
 
 Online: [ hso-hana-dm hso-hana-vm-s1-0 hso-hana-vm-s1-1 hso-hana-vm-s1-2 hso-hana-vm-s2-0 hso-hana-vm-s2-1 hso-hana-vm-s2-2 ]
@@ -586,7 +587,7 @@ crm configure property maintenance-mode=false
 </code></pre>
 
 
-Inne polecenie **CRM** pobiera kompletną konfigurację klastra do edytora, więc można ją edytować. Po zapisaniu zmian klaster uruchamia odpowiednie akcje:
+Kolejne polecenie _ *CRM** pobiera kompletną konfigurację klastra do edytora, więc można ją edytować. Po zapisaniu zmian klaster uruchamia odpowiednie akcje:
 
 <pre><code>
 crm configure edit
@@ -682,7 +683,7 @@ Pomaga również sprawdzić stan SAP HANA krajobrazu pochodzący ze skryptu SAP 
 
 Istnieje kilka ponownych prób, aby uniknąć niepotrzebnych przełączeń w tryb failover. Klaster reaguje tylko wtedy, gdy stan zmieni się z **OK**, wartość zwracana **4**, na **błąd**, zwraca wartość **1**. Jest to poprawne, jeśli dane wyjściowe z **SAPHanaSR-showAttr** pokazują maszynę wirtualną z stanem **offline**. Nie ma jeszcze działania, aby przełączać podstawowe i pomocnicze. Żadna aktywność klastra nie zostanie wyzwolona, dopóki SAP HANA nie zwróci błędu.
 
-Możesz monitorować SAP HANA stan kondycji poziomej jako użytkownik ** \<HANA SID\> adm** , wywołując skrypt SAP Python w następujący sposób. Może być konieczne dostosowanie ścieżki:
+Możesz monitorować SAP HANA stan kondycji poziomej jako użytkownik **\<HANA SID\> adm** , wywołując skrypt SAP Python w następujący sposób. Może być konieczne dostosowanie ścieżki:
 
 <pre><code>
 watch python /hana/shared/HSO/exe/linuxx86_64/HDB_2.00.032.00.1533114046_eeaf4723ec52ed3935ae0dc9769c9411ed73fec5/python_support/landscapeHostConfiguration.py
@@ -945,7 +946,7 @@ listeninterface = .internal
 ## <a name="hawk"></a>Hawk
 
 Rozwiązanie klastrowe udostępnia interfejs przeglądarki, który oferuje graficznego interfejsu użytkownika dla użytkowników, którzy preferują menu i grafikę, aby wszystkie polecenia były dostępne na poziomie powłoki.
-Aby użyć interfejsu przeglądarki, Zastąp **\<node\>** wartość rzeczywistym węzłem SAP HANA w poniższym adresie URL. Następnie wprowadź poświadczenia klastra ( **klaster**użytkownika):
+Aby użyć interfejsu przeglądarki, Zastąp **\<node\>** wartość rzeczywistym węzłem SAP HANA w poniższym adresie URL. Następnie wprowadź poświadczenia klastra ( **klaster** użytkownika):
 
 <pre><code>
 https://&ltnode&gt:7630
@@ -967,7 +968,7 @@ Możesz również przekazać dane wyjściowe **hb_report** w Hawk w obszarze **h
 
 ![Hawk hb_report przekazywanie danych wyjściowych](media/hana-vm-scale-out-HA-troubleshooting/hawk-3.png)
 
-Za pomocą **Eksploratora historii**można następnie przejść przez wszystkie przejścia klastra zawarte w **hb_report** danych wyjściowych:
+Za pomocą **Eksploratora historii** można następnie przejść przez wszystkie przejścia klastra zawarte w **hb_report** danych wyjściowych:
 
 ![Hawk przejścia hb_report w danych wyjściowych](media/hana-vm-scale-out-HA-troubleshooting/hawk-4.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 5aa6906f7f06e109342d81db6171773a68642e0c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 76695d4d8dbc3e3a6b04b89b8f34e41b83a92963
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342284"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965191"
 ---
 # <a name="working-with-security-policies"></a>Praca z zasadami zabezpieczeń
 
@@ -46,7 +46,7 @@ Aby wyświetlić zasady zabezpieczeń w usłudze Security Center:
 
 1. Na pulpicie nawigacyjnym **Security Center** wybierz pozycję **zasady zabezpieczeń**.
 
-    :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="Strona Zarządzanie zasadami&quot;:::
+    :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="Strona Zarządzanie zasadami":::
 
    Na ekranie **Zarządzanie zasadami** można zobaczyć liczbę grup zarządzania, subskrypcji i obszarów roboczych, a także strukturę grupy zarządzania.
 
@@ -57,7 +57,7 @@ Aby wyświetlić zasady zabezpieczeń w usłudze Security Center:
    ![Strona zasad](./media/tutorial-security-policy/security-policy-page.png)
 
     > [!NOTE]
-    > Jeśli istnieje etykieta &quot;MG odziedziczona" wraz z zasadami domyślnymi, oznacza to, że zasady zostały przypisane do grupy zarządzania i są dziedziczone przez przeglądaną subskrypcję.
+    > Jeśli istnieje etykieta "MG odziedziczona" wraz z zasadami domyślnymi, oznacza to, że zasady zostały przypisane do grupy zarządzania i są dziedziczone przez przeglądaną subskrypcję.
 
 
 1. Wybierz spośród dostępnych opcji na tej stronie:
@@ -68,18 +68,7 @@ Aby wyświetlić zasady zabezpieczeń w usłudze Security Center:
 
     1. Aby wyświetlić i edytować zasady domyślne, wybierz pozycję **Wyświetl czynne zasady** i postępuj zgodnie z poniższym opisem. 
 
-        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Strona Zarządzanie zasadami&quot;:::
-
-   Na ekranie **Zarządzanie zasadami** można zobaczyć liczbę grup zarządzania, subskrypcji i obszarów roboczych, a także strukturę grupy zarządzania.
-
-1. Wybierz subskrypcję lub grupę zarządzania, której zasady chcesz wyświetlić.
-
-1. Zostanie wyświetlona strona zasady zabezpieczeń dla tej subskrypcji lub grupy zarządzania. Są w nim wyświetlane zasady dostępne i przypisane.
-
-   ![Strona zasad](./media/tutorial-security-policy/security-policy-page.png)
-
-    > [!NOTE]
-    > Jeśli istnieje etykieta &quot;MG odziedziczona":::
+        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Ekran zasad obowiązujących":::
 
        Ten ekran **zasad zabezpieczeń** odzwierciedla akcję podejmowaną przez zasady przypisane do wybranej subskrypcji lub grupy zarządzania.
        
@@ -97,7 +86,7 @@ Aby wyświetlić zasady zabezpieczeń w usłudze Security Center:
 
 Zasady zabezpieczeń można edytować za pośrednictwem portalu Azure Policy przy użyciu interfejsu API REST lub środowiska Windows PowerShell.
 
-Security Center używa Role-Based Access Control (RBAC), która udostępnia wbudowane role, które można przypisać do użytkowników, grup i usług platformy Azure. Gdy użytkownicy otworzą Security Center, zobaczą tylko informacje związane z zasobami, do których mogą uzyskać dostęp. Oznacza to, że użytkownicy mają przypisaną rolę *właściciela*, *współautora*lub *czytelnika* do subskrypcji zasobu. Istnieją również dwie konkretne role Security Center:
+Security Center używa kontroli dostępu opartej na rolach platformy Azure (Azure RBAC), która udostępnia wbudowane role, które można przypisać do użytkowników, grup i usług platformy Azure. Gdy użytkownicy otworzą Security Center, zobaczą tylko informacje związane z zasobami, do których mogą uzyskać dostęp. Oznacza to, że użytkownicy mają przypisaną rolę *właściciela*, *współautora* lub *czytelnika* do subskrypcji zasobu. Istnieją również dwie konkretne role Security Center:
 
 - **Czytelnik zabezpieczeń**: ma uprawnienia do wyświetlania Security Center elementów, takich jak zalecenia, alerty, zasady i kondycja. Nie można wprowadzić zmian.
 - **Administrator zabezpieczeń**: ma takie same uprawnienia do wyświetlania jak *czytelnik zabezpieczeń*. Może także aktualizować zasady zabezpieczeń i odrzucać alerty.

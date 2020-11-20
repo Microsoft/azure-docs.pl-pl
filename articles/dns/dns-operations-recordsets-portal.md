@@ -7,22 +7,22 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 10/6/2018
 ms.author: rohink
-ms.openlocfilehash: 111d94db1cbec658daabfb1a4c38c8160d6f50b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22ceba69ecf865d906021068a39a9d273b842ca2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84696835"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965735"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Zarządzanie rekordami i zestawami rekordów DNS przy użyciu Azure Portal
 
 W tym artykule pokazano, jak zarządzać zestawami rekordów i rekordami dla strefy DNS przy użyciu Azure Portal.
 
-Ważne jest, aby zrozumieć różnicę między zestawami rekordów DNS i pojedynczymi rekordami DNS. Zestaw rekordów jest kolekcją rekordów w strefie o tej samej nazwie i są tego samego typu. Aby uzyskać więcej informacji, zobacz [Tworzenie zestawów rekordów DNS i rekordów przy użyciu Azure Portal](dns-getstarted-create-recordset-portal.md).
+Ważne jest, aby zrozumieć różnicę między zestawami rekordów DNS i pojedynczymi rekordami DNS. Zestaw rekordów jest kolekcją rekordów w strefie o tej samej nazwie i są tego samego typu. Aby uzyskać więcej informacji, zobacz [Tworzenie zestawów rekordów DNS i rekordów przy użyciu Azure Portal](./dns-getstarted-portal.md).
 
 ## <a name="create-a-new-record-set-and-record"></a>Utwórz nowy zestaw rekordów i rekord
 
-Aby utworzyć zestaw rekordów w Azure Portal, zobacz [tworzenie rekordów DNS przy użyciu Azure Portal](dns-getstarted-create-recordset-portal.md).
+Aby utworzyć zestaw rekordów w Azure Portal, zobacz [tworzenie rekordów DNS przy użyciu Azure Portal](./dns-getstarted-portal.md).
 
 ## <a name="view-a-record-set"></a>Wyświetl zestaw rekordów
 

@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 1ba6a19b271943c7ecbe2254ef2544a5f576ad3d
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 3827fa7a98cef9358db0ee102925586bce97fae6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167427"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965242"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure w systemie SUSE Linux Enterprise Server for SAP — Przewodnik dotyczący wiele identyfikatorów SID
 
@@ -112,7 +113,7 @@ Na poniższej liście przedstawiono konfigurację modułu równoważenia obcią�
   * Adres IP dla NW2:10.3.1.16
   * Adres IP dla NW3:10.3.1.13
 * Porty sondy
-  * Port 620<strong> &lt; Nr &gt; </strong>, dlatego dla portów sondy NW1, NW2 i NW3 620**00**, 620**10** i 620**20**
+  * Port 620 <strong> &lt; Nr &gt;</strong>, dlatego dla portów sondy NW1, NW2 i NW3 620 **00**, 620 **10** i 620 **20**
 * Reguły równoważenia obciążenia — 
 * Utwórz jeden dla każdego wystąpienia, czyli NW1/ASCS, NW2/ASCS i NW3/ASCS.
   * W przypadku używania usługa Load Balancer w warstwie Standardowa wybierz pozycję **porty ha**
@@ -132,7 +133,7 @@ Na poniższej liście przedstawiono konfigurację modułu równoważenia obcią�
   * Adres IP dla NW2 10.3.1.17
   * Adres IP dla NW3 10.3.1.19
 * Port sondy
-  * Port 621<strong> &lt; Nr &gt; </strong>, w związku z tym dla portów sondy NW1, NW2 i N # 621**02**, 621**12** i 621**22**
+  * Port 621 <strong> &lt; Nr &gt;</strong>, w związku z tym dla portów sondy NW1, NW2 i N # 621 **02**, 621 **12** i 621 **22**
 * Reguły równoważenia obciążenia — Utwórz jedną dla każdego wystąpienia, czyli NW1/wykres WYWOŁUJĄCYCH, NW2/wykres WYWOŁUJĄCYCH i NW3/wykres WYWOŁUJĄCYCH.
   * W przypadku używania usługa Load Balancer w warstwie Standardowa wybierz pozycję **porty ha**
   * W przypadku korzystania z Load Balancer podstawowych Utwórz reguły równoważenia obciążenia dla następujących portów
@@ -290,7 +291,7 @@ W tej dokumentacji przyjęto założenie, że:
 
 2. **[1]** Instalowanie oprogramowania SAP NetWeaver ASCS  
 
-   Zainstaluj oprogramowanie SAP NetWeaver ASCS jako element główny, używając wirtualnej nazwy hosta, która jest mapowana na adres IP konfiguracji frontonu modułu równoważenia obciążenia dla ASCS. Na przykład w przypadku systemu **NW2**wirtualna nazwa hosta to <b>msnw2ascs</b>, <b>10.3.1.16</b> i numer wystąpienia, które zostało użyte do sondowania modułu równoważenia obciążenia, na przykład <b>10</b>. w przypadku systemu **NW3**wirtualna nazwa hosta jest <b>msnw3ascs</b>, <b>10.3.1.13</b> i numerem wystąpienia użytym do sondowania modułu równoważenia obciążenia, na przykład <b>20</b>.
+   Zainstaluj oprogramowanie SAP NetWeaver ASCS jako element główny, używając wirtualnej nazwy hosta, która jest mapowana na adres IP konfiguracji frontonu modułu równoważenia obciążenia dla ASCS. Na przykład w przypadku systemu **NW2** wirtualna nazwa hosta to <b>msnw2ascs</b>, <b>10.3.1.16</b> i numer wystąpienia, które zostało użyte do sondowania modułu równoważenia obciążenia, na przykład <b>10</b>. w przypadku systemu **NW3** wirtualna nazwa hosta jest <b>msnw3ascs</b>, <b>10.3.1.13</b> i numerem wystąpienia użytym do sondowania modułu równoważenia obciążenia, na przykład <b>20</b>.
 
    SAPINST_REMOTE_ACCESS_USER parametru sapinst można użyć, aby zezwolić użytkownikowi niebędącemu głównym na łączenie się z sapinst. Aby zainstalować oprogramowanie SAP przy użyciu nazwy hosta wirtualnego, można użyć parametru SAPINST_USE_HOSTNAME.  
 
@@ -298,7 +299,7 @@ W tej dokumentacji przyjęto założenie, że:
       sudo swpm/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=virtual_hostname
      ```
 
-   Jeśli instalacja nie powiedzie się w celu utworzenia podfolderu w/usr/SAP/**SID**/ASCS**instance #**, spróbuj ustawić dla właściciela wartość **SID**adm i Grupa na sapsys**wystąpienia ASCS #** i ponów próbę.
+   Jeśli instalacja nie powiedzie się w celu utworzenia podfolderu w/usr/SAP/**SID**/ASCS **instance #**, spróbuj ustawić dla właściciela wartość **SID** adm i Grupa na sapsys **wystąpienia ASCS #** i ponów próbę.
 
 3. **[1]** Utwórz zasoby klastra wirtualnego adresu IP i badania kondycji dla wystąpienia wykres wywołujących dodatkowego systemu SAP, który jest wdrażany w klastrze. Pokazany tutaj przykład dotyczy **NW2** i **NW3** wykres wywołujących, przy użyciu serwera NFS o wysokiej dostępności. 
 
@@ -340,7 +341,7 @@ W tej dokumentacji przyjęto założenie, że:
 
 4. **[2]** Instalowanie oprogramowania SAP NetWeaver wykres wywołujących
 
-   Zainstaluj program SAP NetWeaver wykres WYWOŁUJĄCYCH jako element główny w innym węźle, używając wirtualnej nazwy hosta, która jest mapowana na adres IP konfiguracji frontonu modułu równoważenia obciążenia dla wykres WYWOŁUJĄCYCH. Na przykład w przypadku systemu **NW2**nazwa hosta wirtualnego będzie <b>msnw2ers</b>, <b>10.3.1.17</b> i numer wystąpienia, który został użyty do sondowania modułu równoważenia obciążenia, na przykład <b>12</b>. W przypadku systemu **NW3**nazwa hosta wirtualnego <b>msnw3ers</b>, <b>10.3.1.19</b> i numer wystąpienia, które zostało użyte do sondowania modułu równoważenia obciążenia, na przykład <b>22</b>. 
+   Zainstaluj program SAP NetWeaver wykres WYWOŁUJĄCYCH jako element główny w innym węźle, używając wirtualnej nazwy hosta, która jest mapowana na adres IP konfiguracji frontonu modułu równoważenia obciążenia dla wykres WYWOŁUJĄCYCH. Na przykład w przypadku systemu **NW2** nazwa hosta wirtualnego będzie <b>msnw2ers</b>, <b>10.3.1.17</b> i numer wystąpienia, który został użyty do sondowania modułu równoważenia obciążenia, na przykład <b>12</b>. W przypadku systemu **NW3** nazwa hosta wirtualnego <b>msnw3ers</b>, <b>10.3.1.19</b> i numer wystąpienia, które zostało użyte do sondowania modułu równoważenia obciążenia, na przykład <b>22</b>. 
 
    SAPINST_REMOTE_ACCESS_USER parametru sapinst można użyć, aby zezwolić użytkownikowi niebędącemu głównym na łączenie się z sapinst. Aby zainstalować oprogramowanie SAP przy użyciu nazwy hosta wirtualnego, można użyć parametru SAPINST_USE_HOSTNAME.  
 
@@ -351,7 +352,7 @@ W tej dokumentacji przyjęto założenie, że:
    > [!NOTE]
    > Użyj SWPM SP 20 PL 05 lub wyższej. Niższa wersja nie ustawia prawidłowo uprawnień i instalacja zakończy się niepowodzeniem.
 
-   Jeśli instalacja nie powiedzie się w celu utworzenia podfolderu w**wystąpieniu**/usr/SAP/**NW2**/ERS #, spróbuj ustawić właściciela na **SID**adm i grupę do sapsys w folderze wykres wywołujących**instance #** i ponów próbę.
+   Jeśli instalacja nie powiedzie się w celu utworzenia podfolderu w **wystąpieniu**/usr/SAP/**NW2**/ERS #, spróbuj ustawić właściciela na **SID** adm i grupę do sapsys w folderze wykres wywołujących **instance #** i ponów próbę.
 
    Jeśli było konieczne, aby przeprowadzić migrację grupy wykres WYWOŁUJĄCYCH nowo wdrożonego systemu SAP do innego węzła klastra, należy pamiętać o usunięciu ograniczenia lokalizacji dla grupy wykres WYWOŁUJĄCYCH. Ograniczenie można usunąć, uruchamiając następujące polecenie (przykład podano w przypadku systemów SAP Systems **NW2** i **NW3**).  
 
@@ -772,7 +773,7 @@ Przedstawione testy znajdują się w dwóch węzłach klastra z obsługą wiele 
          rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
    ```
 
-   Uruchom następujące polecenia jako **NW2**adm, aby przeprowadzić migrację wystąpienia ASCS NW2.
+   Uruchom następujące polecenia jako **NW2** adm, aby przeprowadzić migrację wystąpienia ASCS NW2.
 
    ```
     slesmsscl2:nw2adm 53> sapcontrol -nr 10 -host msnw2ascs -user nw2adm password -function HAFailoverToNode ""

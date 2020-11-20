@@ -1,7 +1,7 @@
 ---
 title: Aktualizowanie polecenia z poziomu aplikacji klienckiej
 titleSuffix: Azure Cognitive Services
-description: Aktualizowanie polecenia z poziomu aplikacji klienckiej
+description: Dowiedz się, jak zaktualizować polecenie z aplikacji klienckiej.
 services: cognitive-services
 author: encorona-ms
 manager: yetian
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
 ms.author: encorona
-ms.openlocfilehash: 1bffb09d0f49bbd0059e8a528d67bfe215f0650d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 765bcbd0521f93bacb0799595e6fbef565d0f313
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654351"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963627"
 ---
-# <a name="update-a-command-from-the-client"></a>Aktualizowanie polecenia z poziomu klienta
+# <a name="update-a-command-from-a-client-app"></a>Aktualizowanie polecenia z poziomu aplikacji klienckiej
 
 W tym artykule dowiesz się, jak zaktualizować bieżące polecenie z aplikacji klienckiej.
 
@@ -29,7 +29,7 @@ W tym artykule dowiesz się, jak zaktualizować bieżące polecenie z aplikacji 
 
 Jeśli aplikacja kliencka wymaga zaktualizowania stanu trwającego polecenia bez wprowadzania głosu, można wysłać zdarzenie, aby zaktualizować polecenie.
 
-Aby zilustrować ten scenariusz, zaktualizuj stan trwającego polecenia (TurnOnOff), możemy wysłać następujące działania dotyczące zdarzenia. 
+Aby zilustrować ten scenariusz, wyślij następujące działanie zdarzenia w celu zaktualizowania stanu trwającego polecenia ( `TurnOnOff` ): 
 
 ```json
 {
@@ -49,36 +49,36 @@ Aby zilustrować ten scenariusz, zaktualizuj stan trwającego polecenia (TurnOnO
 }
 ```
 
-Umożliwia przejrzenie kluczowych atrybutów tego działania.
+Przejrzyjmy kluczowe atrybuty tego działania:
 
 | Atrybut | Wyjaśnienie |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| **Wprowadź** | Działanie jest typu "Event", a nazwa zdarzenia musi mieć wartość "RemoteUpdate". |
-| **wartość** | Atrybut "value" zawiera atrybuty wymagane do zaktualizowania bieżącego polecenia. |
-| **updatedCommand** | Atrybut "updatedCommand" zawiera nazwę polecenia, "updatedParameters" jest mapą z nazwą parametrów i ich zaktualizowanymi wartościami. |
-| **Anuluj** | Jeśli bieżące polecenie musi zostać anulowane, ustaw dla atrybutu "Cancel" wartość true. |
-| **updatedGlobalParameters** | Atrybut "updatedGlobalParameters" jest również mapą, podobnie jak "updatedParameters", ale używany jako parametry globalne. |
-| **processTurn** | Jeśli trzeba przetworzyć po wysłaniu działania, ustaw atrybut "processTurn" na wartość true. |
+| **Wprowadź** | Działanie jest typu `"event"` , a nazwa zdarzenia musi być `"RemoteUpdate"` . |
+| **wartość** | Ten atrybut `"value"` zawiera atrybuty wymagane do zaktualizowania bieżącego polecenia. |
+| **updatedCommand** | Ten atrybut `"updatedCommand"` zawiera nazwę polecenia. W tym atrybucie `"updatedParameters"` jest mapą z nazwami parametrów i ich zaktualizowanymi wartościami. |
+| **Anuluj** | Jeśli bieżące polecenie wymaga anulowania, należy ustawić atrybut `"cancel"` na `true` . |
+| **updatedGlobalParameters** | Ten atrybut `"updatedGlobalParameters"` jest mapą tak samo `"updatedParameters"` , ale jest używany dla parametrów globalnych. |
+| **processTurn** | Jeśli przekształcenie ma być przetwarzane po wysłaniu działania, należy ustawić atrybut `"processTurn"` na `true` . |
 
-Możesz przetestować ten scenariusz w portalu poleceń niestandardowych.
+Możesz przetestować ten scenariusz w portalu poleceń niestandardowych:
 
-1. Otwórz utworzoną wcześniej aplikację Polecenia niestandardowe. 
-1. Kliknij pozycję uczenie i przetestuj.
-1. Wyślij "Włącz".
-1. Otwórz Panel boczny, a następnie kliknij pozycję Edytor działań.
-1. Wpisz i Wyślij zdarzenie RemoteCommand określone w poprzedniej sekcji.
+1. Otwórz wcześniej utworzoną aplikację poleceń niestandardowych. 
+1. Wybierz pozycję **uczenie** i **Przetestuj**.
+1. Wyślij `turn` .
+1. Otwórz Panel boczny i wybierz pozycję **Edytor działań**.
+1. Wpisz i Wyślij `RemoteCommand` Zdarzenie określone w poprzedniej sekcji.
     > [!div class="mx-imgBorder"]
-    > ![Wyślij polecenie zdalne](media/custom-commands/send-remote-command-activity.png)
+    > ![Zrzut ekranu, który pokazuje zdarzenie dla polecenia zdalnego.](media/custom-commands/send-remote-command-activity.png)
 
-Zwróć uwagę, jak wartość parametru "OnOff" została ustawiona na "on" przy użyciu działania z klienta zamiast mowy lub tekstu.
+Należy zauważyć, jak wartość parametru `"OnOff"` została ustawiona na `"on"` za pomocą działania z klienta zamiast mowy lub tekstu.
 
 ## <a name="update-the-catalog-of-the-parameter-for-a-command"></a>Aktualizowanie katalogu parametru dla polecenia
 
 Po skonfigurowaniu listy prawidłowych opcji dla parametru, wartości dla parametru są definiowane globalnie dla aplikacji. 
 
-W naszym przykładzie parametr SubjectDevice będzie miał stałą listę obsługiwanych wartości bez względu na konwersację.
+W naszym przykładzie `SubjectDevice` parametr będzie miał stałą listę obsługiwanych wartości niezależnie od rozmowy.
 
-W przypadku konieczności dodania nowych wpisów do wykazu parametrów na konwersację można wysłać następujące działanie.
+Jeśli chcesz dodać nowe wpisy do wykazu parametrów dla każdej konwersacji, możesz wysłać następujące działanie:
 
 ```json
 {
@@ -103,48 +103,49 @@ W przypadku konieczności dodania nowych wpisów do wykazu parametrów na konwer
   }
 }
 ```
-W przypadku tego działania dodaliśmy wpis "stereo" do wykazu parametru "SubjectDevice" w poleceniu "TurnOnOff".
+W przypadku tego działania dodano wpis `"stereo"` do katalogu parametru `"SubjectDevice"` w poleceniu `"TurnOnOff"` .
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/custom-commands/update-catalog-with-remote-activity.png" alt-text="Katalog aktualizacji":::
+> :::image type="content" source="./media/custom-commands/update-catalog-with-remote-activity.png" alt-text="Zrzut ekranu przedstawiający aktualizację katalogu.":::
 
-Zanotuj kilka rzeczy.
-1. Wystarczy wysłać to działanie tylko raz (najlepiej po rozpoczęciu połączenia).
-1. Po wysłaniu tego działania należy poczekać na wysłanie usługi Event ParameterCatalogsUpdated z powrotem do klienta.
+Zanotuj kilka rzeczy:
+- To działanie należy wysłać tylko raz (najlepiej po rozpoczęciu połączenia).
+- Po wysłaniu tego działania należy poczekać na `ParameterCatalogsUpdated` wysłanie zdarzenia z powrotem do klienta.
 
-## <a name="add-additional-context-from-the-client-application"></a>Dodawanie dodatkowego kontekstu z aplikacji klienckiej
+## <a name="add-more-context-from-the-client-application"></a>Dodaj więcej kontekstu z aplikacji klienckiej
 
 Można ustawić dodatkowy kontekst z aplikacji klienckiej na konwersację, która może zostać później użyta w aplikacji poleceń niestandardowych. 
 
 Na przykład Pomyśl o scenariuszu, w którym chcesz wysłać identyfikator i nazwę urządzenia połączonego z aplikacją poleceń niestandardowych.
 
-Aby przetestować ten scenariusz, Utwórzmy nowe polecenie w naszej bieżącej aplikacji.
-1. Utwórz nowe polecenie o nazwie GetDeviceInfo.
-1. Dodaj przykładowe zdanie z "Pobierz informacje o urządzeniu".
-1. W regule ukończenia "gotowe" Dodaj akcję Wyślij odpowiedź na mowę, która zawiera atrybuty Klasa ClientContext.
-    > ![Wysyłanie odpowiedzi mowy z kontekstem](media/custom-commands/send-speech-response-context.png)
-1. Zapisz, Przeszkol i przetestuj aplikację.
+Aby przetestować ten scenariusz, Utwórzmy nowe polecenie w bieżącej aplikacji:
+1. Utwórz nowe polecenie o nazwie `GetDeviceInfo` .
+1. Dodaj przykładowe zdanie `get device info` .
+1. W **gotowej** regule ukończenia Dodaj akcję **Wyślij odpowiedź na mowę** , która zawiera atrybuty `clientContext` .
+   ![Zrzut ekranu pokazujący odpowiedź na wysyłanie mowy z kontekstem.](media/custom-commands/send-speech-response-context.png)
+1. Zapisz, Wyszkol i przetestuj aplikację.
 1. W oknie testowanie Wyślij działanie, aby zaktualizować kontekst klienta.
-    > ```json
-    >{
-    >   "type": "event",
-    >   "name": "RemoteUpdate",
-    >   "value": {
-    >     "clientContext": {
-    >       "deviceId": "12345",
-    >       "deviceName": "My device"
-    >     },
-    >     "processTurn": false
-    >   }
-    >}
-    > ```
-1. Wyślij tekst "Pobierz informacje o urządzeniu".
-    > ![Wyślij działanie kontekstu klienta](media/custom-commands/send-client-context-activity.png)
 
-Zanotuj kilka rzeczy.
-1. Wystarczy wysłać to działanie tylko raz (najlepiej po rozpoczęciu połączenia).
-1. Można używać obiektów złożonych dla Klasa ClientContext.
-1. W odpowiedziach na mowę można używać Klasa ClientContext do wysyłania działań i podczas wywoływania punktów końcowych sieci Web.
+    ```json
+    {
+       "type": "event",
+       "name": "RemoteUpdate",
+       "value": {
+         "clientContext": {
+           "deviceId": "12345",
+           "deviceName": "My device"
+         },
+         "processTurn": false
+       }
+    }
+    ```
+1. Wyślij tekst `get device info` .
+   ![Zrzut ekranu pokazujący działanie wysyłania kontekstu klienta.](media/custom-commands/send-client-context-activity.png)
+
+Zanotuj kilka rzeczy:
+- To działanie należy wysłać tylko raz (najlepiej po rozpoczęciu połączenia).
+- W programie można używać obiektów złożonych `clientContext` .
+- `clientContext`W odpowiedzi na mowę można używać do wysyłania działań i wywoływania punktów końcowych sieci Web.
 
 ## <a name="next-steps"></a>Następne kroki
 

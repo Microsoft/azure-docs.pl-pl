@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: b46ce20b868f8756f6ad91795a27328abcb2fbdf
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 71bfc84eb50521aef72f78b482bddda112c00c6c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044211"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964375"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Samouczek: opracowywanie modułu IoT Edge C# dla urządzeń z systemem Linux
 
@@ -33,7 +33,7 @@ Utworzony w tym samouczku moduł usługi IoT Edge filtruje dane temperatury gene
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="solution-scope"></a>Zakres rozwiązania
+## <a name="prerequisites"></a>Wymagania wstępne
 
 W tym samouczku przedstawiono sposób tworzenia modułu w **języku C#** przy użyciu **Visual Studio Code** i wdrażania go na **urządzeniu z systemem Linux**. Jeśli tworzysz moduły dla urządzeń z systemem Windows, przejdź do narzędzia do [tworzenia modułu IoT Edge w języku C# dla urządzeń z systemem Windows](tutorial-csharp-module-windows.md) .
 
@@ -46,8 +46,6 @@ Skorzystaj z poniższej tabeli, aby poznać opcje tworzenia i wdrażania moduł�
 
 >[!NOTE]
 >Obsługa urządzeń z systemem Linux ARM64 jest dostępna w [publicznej wersji zapoznawczej](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Aby uzyskać więcej informacji, zobacz [programowanie i debugowanie modułów IoT Edge arm64 w Visual Studio Code (wersja zapoznawcza)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
-
-## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed rozpoczęciem pracy z tym samouczkiem należy zapoznać się z poprzednim samouczkiem dotyczącym konfigurowania środowiska programistycznego, [opracowywania modułu IoT Edge dla urządzenia z systemem Linux](tutorial-develop-for-linux.md). Po ukończeniu tego samouczka należy spełnić następujące wymagania wstępne:
 
@@ -100,7 +98,7 @@ Rozszerzenie IoT Edge podejmuje próbę ściągnięcia poświadczeń rejestru ko
 
 Obecnie Visual Studio Code mogą opracowywać moduły C# dla urządzeń z systemem Linux AMD64 i Linux ARM32v7. Należy wybrać, która architektura ma być ukierunkowana na każde rozwiązanie, ponieważ kontener jest zbudowany i uruchamiany inaczej dla każdego typu architektury. Wartość domyślna to Linux AMD64.
 
-1. Otwórz paletę poleceń i Wyszukaj **Azure IoT Edge: Ustaw domyślną platformę docelową dla rozwiązania brzegowego**lub wybierz ikonę skrótu na pasku bocznym u dołu okna.
+1. Otwórz paletę poleceń i Wyszukaj **Azure IoT Edge: Ustaw domyślną platformę docelową dla rozwiązania brzegowego** lub wybierz ikonę skrótu na pasku bocznym u dołu okna.
 
 2. W palecie poleceń wybierz architekturę docelową z listy opcji. W tym samouczku używamy maszyny wirtualnej Ubuntu jako urządzenia IoT Edge, co spowoduje zachowanie domyślnego **amd64**.
 

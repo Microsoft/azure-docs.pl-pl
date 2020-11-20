@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 55195949cfaa741389f38deaea69806c568c0ce6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9a14ee6ee3e10b36d64ec11fc23807efe2bfaf2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89008271"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966568"
 ---
 # <a name="tutorial-enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Samouczek: rejestrowanie urządzenia w usłudze IoT Hub przy użyciu klienta usługi Azure IoT Hub Provisioning Service (.NET)
 
@@ -42,12 +42,12 @@ Ten samouczek symuluje okres podczas procesu produkcji sprzętu lub bezpośredni
 Ten krok obejmuje dodawanie unikatowych artefaktów zabezpieczeń urządzenia do usługi Device Provisioning. Te artefakty zabezpieczeń są następujące:
 
 - W przypadku urządzeń opartych na modułach TPM:
-    - *Klucz poręczenia*, który jest unikatowy dla każdego modułu TPM lub symulacji. Aby uzyskać więcej informacji, zobacz [Understand TPM Endorsement Key](https://technet.microsoft.com/library/cc770443.aspx) (Informacje o kluczu poręczenia modułu TPM).
+    - *Klucz poręczenia*, który jest unikatowy dla każdego modułu TPM lub symulacji. Aby uzyskać więcej informacji, zobacz [Understand TPM Endorsement Key](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770443(v=ws.11)) (Informacje o kluczu poręczenia modułu TPM).
     - *Identyfikator rejestracji* używany do jednoznacznego identyfikowania urządzenia w zakresie/przestrzeni nazw. Może, ale nie musi być taki sam jak identyfikator urządzenia. Identyfikator jest wymagany dla każdego urządzenia. W przypadku urządzeń opartych na modułach TPM identyfikator rejestracji może pochodzić od samego modułu TPM, na przykład może to być skrót SHA-256 klucza poręczenia modułu TPM.
 
 - W przypadku urządzeń opartych na standardzie X.509:
-    - [Certyfikat X.509 wystawiony dla urządzenia](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx) w postaci pliku *pem* lub *cer*. W przypadku rejestracji indywidualnej należy użyć *certyfikatu liścia* dla systemu X.509, natomiast w przypadku grup rejestracji należy użyć *certyfikatu głównego* lub odpowiedniego *certyfikatu osoby podpisującej*.
-    - *Identyfikator rejestracji* używany do jednoznacznego identyfikowania urządzenia w zakresie/przestrzeni nazw. Może, ale nie musi być taki sam jak identyfikator urządzenia. Identyfikator jest wymagany dla każdego urządzenia. W przypadku urządzeń opartych na standardzie X.509 identyfikator rejestracji jest pochodną nazwy pospolitej certyfikatu. Aby uzyskać więcej informacji na temat tych wymagań, zobacz [Pojęcia dotyczące urządzeń](https://docs.microsoft.com/azure/iot-dps/concepts-device).
+    - [Certyfikat X.509 wystawiony dla urządzenia](/windows/win32/seccertenroll/about-x-509-public-key-certificates) w postaci pliku *pem* lub *cer*. W przypadku rejestracji indywidualnej należy użyć *certyfikatu liścia* dla systemu X.509, natomiast w przypadku grup rejestracji należy użyć *certyfikatu głównego* lub odpowiedniego *certyfikatu osoby podpisującej*.
+    - *Identyfikator rejestracji* używany do jednoznacznego identyfikowania urządzenia w zakresie/przestrzeni nazw. Może, ale nie musi być taki sam jak identyfikator urządzenia. Identyfikator jest wymagany dla każdego urządzenia. W przypadku urządzeń opartych na standardzie X.509 identyfikator rejestracji jest pochodną nazwy pospolitej certyfikatu. Aby uzyskać więcej informacji na temat tych wymagań, zobacz [Pojęcia dotyczące urządzeń](./concepts-service.md).
 
 Istnieją dwa sposoby rejestrowania urządzenia w usłudze Device Provisioning:
 

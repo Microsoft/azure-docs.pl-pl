@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 738d62d60ad06431bd77cd99343fc8835c4c5685
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: a36b37c1f0118055d931f785f570a10041e2dbfc
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330176"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965701"
 ---
 # <a name="how-to-protect-private-dns-zones-and-records"></a>Ochrona prywatnych stref i rekordów DNS
 
@@ -204,7 +204,7 @@ Blokady zasobów na poziomie strefy można tworzyć za pomocą Azure Portal.  Na
 
 ![Blokady zasobów na poziomie strefy za pośrednictwem Azure Portal](./media/dns-protect-private-zones-recordsets/locks1.png)
 
-Blokady zasobów na poziomie strefy można także utworzyć za pośrednictwem [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcelock?view=latest):
+Blokady zasobów na poziomie strefy można także utworzyć za pośrednictwem [Azure PowerShell](/powershell/module/az.resources/new-azresourcelock?view=latest):
 
 ```azurepowershell-interactive
 # Lock a DNS zone
@@ -218,7 +218,7 @@ $rsg = "<resource group name>"
 New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rsc -ResourceType $rty -ResourceGroupName $rsg
 ```
 
-Równoważne polecenie jest również [dostępne za pośrednictwem interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/lock?view=azure-cli-latest#az-lock-create):
+Równoważne polecenie jest również [dostępne za pośrednictwem interfejsu wiersza polecenia platformy Azure](/cli/azure/lock?view=azure-cli-latest#az-lock-create):
 
 ```azurecli-interactive
 # Lock a DNS zone

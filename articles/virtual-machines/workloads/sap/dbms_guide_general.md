@@ -3,16 +3,17 @@ title: Zagadnienia dotyczące wdrażania systemu Azure Virtual Machines DBMS dla
 description: Zagadnienia dotyczące wdrażania systemu Azure Virtual Machines DBMS dla obciążeń SAP
 author: msjuergent
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 09/20/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 1f71d95d61e401e12c76ca5589368eed6cc29ce6
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 38f6cf039de2404c7b3eeecc74ee33233f4a2058
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993279"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965293"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Zagadnienia dotyczące wdrażania systemu Azure Virtual Machines DBMS dla obciążeń SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -55,7 +56,7 @@ W całym dokumencie są używane następujące warunki:
 * **Środowisko SAP**: co najmniej jeden składnik SAP logicznie zgrupowany do wykonywania funkcji biznesowej, takich jak programowanie, gwarancja jakości, szkolenia, odzyskiwanie po awarii lub produkcja.
 * **SAP krajobraz**: ten termin odnosi się do całego zasobu SAP w poziomie klienta IT. System SAP zawiera wszystkie środowiska produkcyjne i nieprodukcyjne.
 * **System SAP**: kombinacja warstwy DBMS i warstwy aplikacji programu, na przykład systemu PROGRAMISTYCZNEGO SAP ERP, systemu testowego programu SAP Business Warehouse lub systemu produkcyjnego SAP CRM. W przypadku wdrożeń platformy Azure dzielenie tych dwóch warstw między środowiskiem lokalnym i platformą Azure nie jest obsługiwane. W efekcie system SAP został wdrożony lokalnie lub wdrożony na platformie Azure. Różne systemy oprogramowania SAP można wdrożyć na platformie Azure lub lokalnie. Można na przykład wdrożyć systemy deweloperskie i testowe oprogramowania SAP CRM na platformie Azure, ale wdrożyć system produkcyjny SAP CRM lokalnie.
-* **Wiele**lokalizacji: opisuje scenariusz, w którym maszyny wirtualne są wdrażane w ramach subskrypcji platformy Azure, która ma łączność między lokacjami, w wielu lokacjach lub na platformie Azure ExpressRoute między lokalnymi centrami danych i platformą Azure. W typowej dokumentacji platformy Azure te rodzaje wdrożeń są również opisane jako scenariusze obejmujące wiele lokalizacji. 
+* **Wiele** lokalizacji: opisuje scenariusz, w którym maszyny wirtualne są wdrażane w ramach subskrypcji platformy Azure, która ma łączność między lokacjami, w wielu lokacjach lub na platformie Azure ExpressRoute między lokalnymi centrami danych i platformą Azure. W typowej dokumentacji platformy Azure te rodzaje wdrożeń są również opisane jako scenariusze obejmujące wiele lokalizacji. 
 
     Przyczyną połączenia jest rozszerzonie domen lokalnych, lokalnych Active Directory i lokalnych nazw DNS na platformę Azure. Lokalne poziomy są rozszerzane do zasobów platformy Azure w ramach subskrypcji. Dzięki temu rozszerzeniu maszyny wirtualne mogą być częścią domeny lokalnej. Użytkownicy domeny lokalnej mogą uzyskiwać dostęp do serwerów i uruchamiać usługi na tych maszynach wirtualnych, takich jak usługi DBMS. Możliwa jest komunikacja i rozpoznawanie nazw między maszynami wirtualnymi wdrożonymi lokalnie i maszynami wirtualnymi wdrożonymi na platformie Azure. Ten scenariusz jest najpopularniejszym scenariuszem używanym do wdrażania zasobów SAP na platformie Azure. Aby uzyskać więcej informacji, zobacz [Planowanie i projektowanie dla bramy sieci VPN](../../../vpn-gateway/vpn-gateway-about-vpngateways.md).
 

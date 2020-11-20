@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 2f606a2ff036c6bc3b4e3c508632d48ae8d40f15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36b96581d98465b860b630fe2f9a8aa64cf0f64f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400047"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964936"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple for Cloud Solutions Provider program: często zadawane pytania
 
@@ -59,7 +59,7 @@ Wirtualna macierz StorSimple dla dostawcy usług kryptograficznych jest dostępn
 Istnieje wiele rozwiązań:
 
 - Partnerzy mogą sprzedawać macierz wirtualną StorSimple. 
-- Partnerzy mogą dostarczać rozwiązania utworzone na podstawie StorSimple i innych usług platformy Azure lub oprogramowania innych firm. Aby uzyskać więcej informacji, zapoznaj [się z możliwymi rozwiązaniami, które istnieją wokół StorSimple](https://aka.ms/storsimple-build-solutions).
+- Partnerzy mogą dostarczać rozwiązania utworzone na podstawie StorSimple i innych usług platformy Azure lub oprogramowania innych firm. Aby uzyskać więcej informacji, zapoznaj [się z możliwymi rozwiązaniami, które istnieją wokół StorSimple](./storsimple-disaster-recovery-using-azure-site-recovery.md).
 - Mogą również wykrywać nowe modele biznesowe, dostarczając zarządzane usługi.
 
 ### <a name="what-are-the-incentives-available-for-storsimple-csp-partners-do-i-qualify-for-any-csp-program-incentives"></a>Jakie zachęty są dostępne dla partnerów StorSimple CSP? Czy kwalifikuję się do skorzystania z jakichkolwiek zachęt dla programu CSP?
@@ -86,7 +86,7 @@ Tak. Kierownik ds. sprzedaży i klienta dla klienta końcowego będzie kompensow
 ## <a name="support-for-storsimple-and-csp"></a>Obsługa StorSimple i dostawcy usług kryptograficznych
 
 ### <a name="are-there-any-forums-to-get-additional-support-for-csp-partners-to-deploy-and-manage-storsimple"></a>Czy istnieją fora umożliwiające uzyskanie dodatkowej pomocy dla partnerów programu CSP w celu wdrażania StorSimple i zarządzania nimi?
-Aby uzyskać odpowiedzi na kilka często zadawanych pytań, możesz odwiedzić witrynę StorSimple na forum CSP. Należy najpierw przyłączyć [grupę yammera usługi Azure Advisor](https://www.yammer.com/azureadvisors) . Następne wyszukiwanie i dołączanie do **doradców partnerów**usługi Group-StorSimple.
+Aby uzyskać odpowiedzi na kilka często zadawanych pytań, możesz odwiedzić witrynę StorSimple na forum CSP. Należy najpierw przyłączyć [grupę yammera usługi Azure Advisor](https://www.yammer.com/azureadvisors) . Następne wyszukiwanie i dołączanie do **doradców partnerów** usługi Group-StorSimple.
 
 ### <a name="how-does-the-support-work-for-storsimple-for-csp"></a>Jak działa pomoc techniczna dla StorSimple dla dostawcy CSP? 
 Model pomocy technicznej dla StorSimple w dostawcy usług kryptograficznych jest taki sam jak w przypadku innych usług platformy Azure w ramach dostawcy usług kryptograficznych. Aby uzyskać więcej informacji, przejdź do [obsługi klienta dla dostawcy usług kryptograficznych](/partner-center/csp-overview).

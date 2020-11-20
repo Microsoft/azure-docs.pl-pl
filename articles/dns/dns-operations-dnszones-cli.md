@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: rohink
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ff1abd48282a4ec9278d7182fea286178b5bd3ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 469fdbced4601c6ffb4b6aa35e8f943bcb5dde1b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87495917"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965786"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Jak zarządzać Strefy DNS w Azure DNS za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -37,17 +37,17 @@ W tym przewodniku zawarto specjalne strefy DNS. Aby uzyskać informacje na temat
 
 ## <a name="set-up-azure-cli-for-azure-dns"></a>Konfigurowanie interfejsu wiersza polecenia platformy Azure dla usługi Azure DNS
 
-### <a name="before-you-begin"></a>Zanim rozpoczniesz
+### <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Przed rozpoczęciem konfiguracji sprawdź, czy dysponujesz następującymi elementami:
 
 * Subskrypcja platformy Azure. Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz aktywować [korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/).
 
-* Zainstaluj najnowszą wersję interfejsu wiersza polecenia platformy Azure, który jest dostępny dla systemów Windows, Linux i MAC. Więcej informacji znajduje się w temacie [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-az-cli2).
+* Zainstaluj najnowszą wersję interfejsu wiersza polecenia platformy Azure, który jest dostępny dla systemów Windows, Linux i MAC. Więcej informacji znajduje się w temacie [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-az-cli2).
 
 ### <a name="sign-in-to-your-azure-account"></a>Zaloguj się do swojego konta platformy Azure
 
-Otwórz okno konsoli i uwierzytelnij się przy użyciu swoich poświadczeń. Aby uzyskać więcej informacji, zobacz [Logowanie do platformy Azure z poziomu interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+Otwórz okno konsoli i uwierzytelnij się przy użyciu swoich poświadczeń. Aby uzyskać więcej informacji, zobacz [Logowanie do platformy Azure z poziomu interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ```
 az login
@@ -85,7 +85,7 @@ az group create --name myresourcegroup --location "West US"
 
 ## <a name="getting-help"></a>Uzyskiwanie pomocy
 
-Wszystkie poleceń interfejsu wiersza polecenia platformy Azure odnoszące się do Azure DNS zaczynają się od `az network dns` . Pomoc jest dostępna dla każdego polecenia przy użyciu `--help` opcji (krótka wersja `-h` ).  Na przykład:
+Wszystkie poleceń interfejsu wiersza polecenia platformy Azure odnoszące się do Azure DNS zaczynają się od `az network dns` . Pomoc jest dostępna dla każdego polecenia przy użyciu `--help` opcji (krótka wersja `-h` ).  Przykład:
 
 ```azurecli
 az network dns --help
@@ -193,7 +193,6 @@ az network dns zone delete --resource-group myresourcegroup --name contoso.com
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się [, jak zarządzać zestawami rekordów i rekordami](dns-getstarted-create-recordset-cli.md) w strefie DNS.
+Dowiedz się [, jak zarządzać zestawami rekordów i rekordami](./dns-getstarted-cli.md) w strefie DNS.
 
 Dowiedz się, jak [delegować domenę do Azure DNS](dns-domain-delegation.md).
-

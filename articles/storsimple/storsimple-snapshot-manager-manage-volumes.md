@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: alkohli
-ms.openlocfilehash: 79a239def70f0455f63c18d86397ec8d927f244c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 309fa85d0a4d877522a89dd8f1e6e71fb2074744
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90054911"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964970"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Używanie Snapshot Manager StorSimple do wyświetlania woluminów i zarządzania nimi
 ## <a name="overview"></a>Omówienie
@@ -45,7 +45,7 @@ W tym samouczku wyjaśniono, jak można instalować, inicjować i formatować wo
 > 
 
 ## <a name="mount-volumes"></a>Zainstaluj woluminy
-Użyj następującej procedury, aby zainstalować, zainicjować i sformatować woluminy StorSimple. Ta procedura obejmuje zarządzanie dyskami, Narzędzie systemowe do zarządzania dyskami twardymi oraz odpowiednie woluminy lub partycje. Aby uzyskać więcej informacji na temat zarządzania dyskami, przejdź do obszaru [Zarządzanie dyskami](https://technet.microsoft.com/library/cc770943.aspx) w witrynie sieci Web Microsoft TechNet.
+Użyj następującej procedury, aby zainstalować, zainicjować i sformatować woluminy StorSimple. Ta procedura obejmuje zarządzanie dyskami, Narzędzie systemowe do zarządzania dyskami twardymi oraz odpowiednie woluminy lub partycje. Aby uzyskać więcej informacji na temat zarządzania dyskami, przejdź do obszaru [Zarządzanie dyskami](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770943(v=ws.11)) w witrynie sieci Web Microsoft TechNet.
 
 #### <a name="to-mount-volumes"></a>Aby zainstalować woluminy
 1. Na komputerze hosta Uruchom inicjatora iSCSI firmy Microsoft.
@@ -80,7 +80,7 @@ Użyj następującej procedury, aby zainstalować, zainicjować i sformatować w
       * Wybierz system plików NTFS.
       * Określ rozmiar jednostki alokacji 64 KB.
       * Przeprowadź szybkie formatowanie.
-7. Sformatuj woluminy wielopartycjowe. Aby uzyskać instrukcje, przejdź do sekcji "partycje i woluminy" podczas [implementowania zarządzania dyskami](https://msdn.microsoft.com/library/dd163556.aspx).
+7. Sformatuj woluminy wielopartycjowe. Aby uzyskać instrukcje, przejdź do sekcji "partycje i woluminy" podczas [implementowania zarządzania dyskami](/previous-versions/tn-archive/dd163556(v=technet.10)).
 
 ## <a name="view-information-about-your-volumes"></a>Wyświetlanie informacji o woluminach
 Poniższa procedura umożliwia wyświetlenie informacji na temat lokalnych i StorSimple woluminów platformy Azure.
@@ -121,7 +121,7 @@ Aby ponownie przeskanować woluminy połączone z StorSimple Snapshot Manager, w
 
 #### <a name="to-rescan-the-volumes"></a>Aby ponownie przeskanować woluminy
 1. Kliknij ikonę pulpitu, aby rozpocząć StorSimple Snapshot Manager.
-2. W okienku **zakres** kliknij prawym przyciskiem myszy pozycję **woluminy**, a następnie kliknij polecenie **Skanuj woluminy**ponownie.
+2. W okienku **zakres** kliknij prawym przyciskiem myszy pozycję **woluminy**, a następnie kliknij polecenie **Skanuj woluminy** ponownie.
    
     ![Skanuj ponownie woluminy](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Rescan_volumes.png)
    
@@ -133,14 +133,14 @@ Poniższa procedura służy do konfigurowania kopii zapasowej woluminu podstawow
 ### <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem:
 
-* Upewnij się, że urządzenie StorSimple i komputer hosta są prawidłowo skonfigurowane. Aby uzyskać więcej informacji, przejdź do obszaru [wdrażanie lokalnego urządzenia StorSimple](storsimple-deployment-walkthrough-u2.md).
+* Upewnij się, że urządzenie StorSimple i komputer hosta są prawidłowo skonfigurowane. Aby uzyskać więcej informacji, przejdź do obszaru [wdrażanie lokalnego urządzenia StorSimple](./storsimple-8000-deployment-walkthrough-u2.md).
 * Zainstaluj i skonfiguruj Snapshot Manager StorSimple. Aby uzyskać więcej informacji, przejdź do pozycji [Wdróż StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 
 #### <a name="to-configure-backup-of-a-basic-volume"></a>Aby skonfigurować kopię zapasową woluminu podstawowego
 1. Utwórz wolumin podstawowy na urządzeniu StorSimple.
 2. Instalowanie, inicjowanie i formatowanie woluminu zgodnie z opisem w artykule [woluminy instalacji](#mount-volumes). 
 3. Kliknij ikonę Snapshot Manager StorSimple na pulpicie. Zostanie wyświetlone okno StorSimple Snapshot Manager. 
-4. W okienku **zakres** kliknij prawym przyciskiem myszy węzeł **woluminy** , a następnie wybierz polecenie **Skanuj woluminy**ponownie. Po zakończeniu skanowania w okienku **wyników** powinna zostać wyświetlona lista woluminów. 
+4. W okienku **zakres** kliknij prawym przyciskiem myszy węzeł **woluminy** , a następnie wybierz polecenie **Skanuj woluminy** ponownie. Po zakończeniu skanowania w okienku **wyników** powinna zostać wyświetlona lista woluminów. 
 5. W okienku **wyników** kliknij prawym przyciskiem myszy wolumin, a następnie wybierz polecenie **Utwórz grupę woluminów**. 
    
     ![Utwórz grupę woluminów](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Create_volume_group.png) 
@@ -166,7 +166,7 @@ Przed rozpoczęciem:
 * Skonfiguruj dwa woluminy na urządzeniu StorSimple. (W przykładach dostępne woluminy to **dysk 1** i **dysk 2**). 
 
 ### <a name="step-1-use-disk-management-to-create-a-dynamic-mirrored-volume"></a>Krok 1. Tworzenie dynamicznego woluminu dublowanego za pomocą przystawki Zarządzanie dyskami
-Zarządzanie dyskami to narzędzie systemowe do zarządzania dyskami twardymi oraz woluminy lub partycje, które zawierają. Aby uzyskać więcej informacji na temat zarządzania dyskami, przejdź do obszaru [Zarządzanie dyskami](https://technet.microsoft.com/library/cc770943.aspx) w witrynie sieci Web Microsoft TechNet.
+Zarządzanie dyskami to narzędzie systemowe do zarządzania dyskami twardymi oraz woluminy lub partycje, które zawierają. Aby uzyskać więcej informacji na temat zarządzania dyskami, przejdź do obszaru [Zarządzanie dyskami](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770943(v=ws.11)) w witrynie sieci Web Microsoft TechNet.
 
 #### <a name="to-create-a-dynamic-mirrored-volume"></a>Aby utworzyć dynamiczny wolumin dublowany
 1. Aby uruchomić Zarządzanie dyskami, użyj dowolnej z następujących opcji: 
@@ -195,7 +195,7 @@ Aby skonfigurować dynamiczny wolumin dublowany, należy wykonać czynności opi
 
 #### <a name="to-configure-backup-of-a-dynamic-mirrored-volume"></a>Aby skonfigurować kopię zapasową dynamicznego woluminu dublowanego
 1. Kliknij ikonę Snapshot Manager StorSimple na pulpicie. Zostanie wyświetlone okno StorSimple Snapshot Manager. 
-2. W okienku **zakres** kliknij prawym przyciskiem myszy węzeł **woluminy** , a następnie wybierz polecenie **Skanuj woluminy**ponownie. Po zakończeniu skanowania w okienku **wyników** powinna zostać wyświetlona lista woluminów. Dynamiczny wolumin dublowany jest wymieniony jako pojedynczy wolumin. 
+2. W okienku **zakres** kliknij prawym przyciskiem myszy węzeł **woluminy** , a następnie wybierz polecenie **Skanuj woluminy** ponownie. Po zakończeniu skanowania w okienku **wyników** powinna zostać wyświetlona lista woluminów. Dynamiczny wolumin dublowany jest wymieniony jako pojedynczy wolumin. 
 3. W okienku **wyników** kliknij prawym przyciskiem myszy dynamiczny wolumin dublowany, a następnie kliknij polecenie **Utwórz grupę woluminów**. 
 4. W oknie dialogowym **Utwórz grupę woluminów** wpisz nazwę grupy woluminów, przypisz dynamiczny wolumin dublowany do tej grupy, a następnie kliknij przycisk **OK**. 
 5. W okienku **zakres** rozwiń węzeł **grupy woluminów** . Nowa grupa woluminów powinna zostać wyświetlona w węźle  **grupy woluminów** . 
@@ -210,4 +210,4 @@ Aby skonfigurować dynamiczny wolumin dublowany, należy wykonać czynności opi
 * Dowiedz się [, jak tworzyć grupy woluminów i zarządzać nimi za pomocą Snapshot Manager StorSimple](storsimple-snapshot-manager-manage-volume-groups.md).
 
 <!--Reference links-->
-[1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee338480(v=ws.10)

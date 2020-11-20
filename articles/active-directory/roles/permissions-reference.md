@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9055bb9689895a9b74f3d6b5affa325a3b594d65
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 2cdf89fa3281e070d6b1ac762d30d7c391f4126f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874682"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963644"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia ról administratorów w usłudze Azure Active Directory
 
@@ -707,10 +707,11 @@ Pełny dostęp do zarządzania urządzeniami w usłudze Azure AD.
 | **Akcje** | **Opis** |
 | --- | --- |
 | Microsoft. Directory/auditLogs/allProperties/odczyt | Odczytaj wszystkie właściwości (w tym właściwości uprzywilejowane) w witrynie auditLogs w Azure Active Directory. |
-| Microsoft. Directory/Devices/bitLockerRecoveryKeys/Read | Odczytaj Właściwość Devices. bitLockerRecoveryKeys w Azure Active Directory. |
+| Microsoft. Directory/bitlockerKeys/Key/Read | Odczytywanie obiektów i właściwości klucza funkcji BitLocker w Azure Active Directory. |
 | Microsoft. katalog/urządzenia/usuwanie | Usuń urządzenia w Azure Active Directory. |
 | Microsoft. Directory/Devices/Disable | Wyłącz urządzenia w Azure Active Directory. |
 | Microsoft. Directory/devices/Włącz | Włącz urządzenia w Azure Active Directory. |
+| Microsoft. Directory/Devices/extensionAttributes/Update | Zaktualizuj wszystkie wartości właściwości Devices. extensionAttributes w Azure Active Directory. |
 | Microsoft. Directory/signInReports/allProperties/odczyt | Odczytaj wszystkie właściwości (w tym właściwości uprzywilejowane) w witrynie signInReports w Azure Active Directory. |
 | Microsoft. Azure. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Azure Service Health. |
 | Microsoft. Office 365. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Service Health Microsoft 365. |
@@ -731,6 +732,7 @@ Może zarządzać wszystkimi aspektami usługi Azure AD i usługami firmy Micros
 | Microsoft. Directory/Applications/allProperties/allTasks | Tworzenie i usuwanie aplikacji oraz odczytywanie i aktualizowanie wszystkich właściwości w Azure Active Directory. |
 | Microsoft. Directory/appRoleAssignments/allProperties/allTasks | Tworzenie i usuwanie appRoleAssignments oraz odczytywanie i aktualizowanie wszystkich właściwości w Azure Active Directory. |
 | Microsoft. Directory/auditLogs/allProperties/odczyt | Odczytaj wszystkie właściwości (w tym właściwości uprzywilejowane) w witrynie auditLogs w Azure Active Directory. |
+| Microsoft. Directory/bitlockerKeys/Key/Read | Odczytywanie obiektów i właściwości klucza funkcji BitLocker w Azure Active Directory. |
 | Microsoft. Directory/Contacts/allProperties/allTasks | Tworzenie i usuwanie kontaktów oraz odczytywanie i aktualizowanie wszystkich właściwości w Azure Active Directory. |
 | Microsoft. Directory/kontrakty/allProperties/allTasks | Tworzenie i usuwanie kontraktów oraz odczytywanie i aktualizowanie wszystkich właściwości w Azure Active Directory. |
 | Microsoft. Directory/Devices/allProperties/allTasks | Tworzenie i usuwanie urządzeń oraz odczytywanie i aktualizowanie wszystkich właściwości w Azure Active Directory. |
@@ -1087,6 +1089,7 @@ Może odczytywać wszystko, co Administrator globalny może, ale nie edytować n
 | Microsoft. Directory/Applications/Basic/Read    | Zapoznaj się z podstawowymi właściwościami aplikacji w Azure Active Directory. |
 | Microsoft. Directory/Applications/Owners/Read    | Odczytywanie właściwości Applications. Owners w Azure Active Directory. |
 | Microsoft. Directory/Applications/policies/Read    | Odczytaj Właściwość Applications. policies w Azure Active Directory. |
+| Microsoft. Directory/bitlockerKeys/Key/Read | Odczytywanie obiektów i właściwości klucza funkcji BitLocker w Azure Active Directory. |
 | Microsoft. Directory/Contacts/Basic/Read    | Zapoznaj się z podstawowymi właściwościami kontaktów w Azure Active Directory. |
 | Microsoft. Directory/Contacts/memberOf/odczyt    | Przeczytaj Właściwość Contacts. memberOf w Azure Active Directory. |
 | Microsoft. Directory/kontrakts/Basic/Read    | Zapoznaj się z podstawowymi właściwościami umów w Azure Active Directory. |
@@ -1267,13 +1270,16 @@ Może zarządzać wszystkimi aspektami produktu usługi Intune.
 
 | **Akcje** | **Opis** |
 | --- | --- |
+| Microsoft. Directory/bitlockerKeys/Key/Read | Odczytywanie obiektów i właściwości klucza funkcji BitLocker w Azure Active Directory. |
 | Microsoft. Directory/Contacts/Basic/Update | Aktualizowanie podstawowych właściwości kontaktów w Azure Active Directory. |
 | Microsoft. Directory/Contacts/Create | Utwórz kontakty w Azure Active Directory. |
 | Microsoft. Directory/kontakty/usuwanie | Usuń kontakty w Azure Active Directory. |
 | Microsoft. Directory/Devices/podstawowa/aktualizacja | Zaktualizuj podstawowe właściwości na urządzeniach w Azure Active Directory. |
-| Microsoft. Directory/Devices/bitLockerRecoveryKeys/Read | Odczytaj Właściwość Devices. bitLockerRecoveryKeys w Azure Active Directory. |
 | Microsoft. Directory/Devices/Create | Utwórz urządzenia w Azure Active Directory. |
 | Microsoft. katalog/urządzenia/usuwanie | Usuń urządzenia w Azure Active Directory. |
+| Microsoft. Directory/Devices/Disable | Wyłącz urządzenia w Azure Active Directory. |
+| Microsoft. Directory/devices/Włącz | Włącz urządzenia w Azure Active Directory. |
+| Microsoft. Directory/Devices/extensionAttributes/Update | Zaktualizuj wszystkie wartości właściwości Devices. extensionAttributes w Azure Active Directory. |
 | Microsoft. Directory/Devices/registeredOwners/Update | Zaktualizuj Właściwość Devices. registeredOwners w Azure Active Directory. |
 | Microsoft. Directory/Devices/registeredUsers/Update | Zaktualizuj Właściwość Devices. registeredUsers w Azure Active Directory. |
 | Microsoft. Directory/Groups/appRoleAssignments/Update | Zaktualizuj Właściwość groups. appRoleAssignments w Azure Active Directory. |
@@ -1654,9 +1660,9 @@ Może odczytywać informacje o zabezpieczeniach i raporty oraz zarządzać konfi
 | --- | --- |
 | Microsoft. Azure. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Azure Service Health. |
 | Microsoft. Azure. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej systemu Azure i zarządzaj nimi dla usług na poziomie katalogu. |
+| Microsoft. Directory/bitlockerKeys/Key/Read | Odczytywanie obiektów i właściwości klucza funkcji BitLocker w Azure Active Directory. |
 | Microsoft. Directory/Applications/policies/Update | Zaktualizuj Właściwość Applications. policies w Azure Active Directory. |
 | Microsoft. Directory/auditLogs/allProperties/odczyt | Odczytaj wszystkie właściwości (w tym właściwości uprzywilejowane) w witrynie auditLogs w Azure Active Directory. |
-| Microsoft. Directory/Devices/bitLockerRecoveryKeys/Read | Odczytaj Właściwość Devices. bitLockerRecoveryKeys w Azure Active Directory. |
 | Microsoft. Directory/identityProtection/allProperties/odczyt | Odczytuj wszystkie zasoby w Microsoft. AAD. identityProtection. |
 | Microsoft. Directory/identityProtection/allProperties/Update | Zaktualizuj wszystkie zasoby w usłudze Microsoft. AAD. identityProtection. |
 | Microsoft. katalog/zasady/podstawowa/aktualizacja | Zaktualizuj podstawowe właściwości zasad w Azure Active Directory. |
@@ -1706,7 +1712,7 @@ Może odczytywać informacje o zabezpieczeniach i raporty w usłudze Azure AD i 
 | **Akcje** | **Opis** |
 | --- | --- |
 | Microsoft. Directory/auditLogs/allProperties/odczyt | Odczytaj wszystkie właściwości (w tym właściwości uprzywilejowane) w witrynie auditLogs w Azure Active Directory. |
-| Microsoft. Directory/Devices/bitLockerRecoveryKeys/Read | Odczytaj Właściwość Devices. bitLockerRecoveryKeys w Azure Active Directory. |
+| Microsoft. Directory/bitlockerKeys/Key/Read | Odczytywanie obiektów i właściwości klucza funkcji BitLocker w Azure Active Directory. |
 | Microsoft. Directory/policies/conditionalAccess/Basic/Read | Odczytaj Właściwość zasad. conditionalAccess w Azure Active Directory. |
 | Microsoft. Directory/signInReports/allProperties/odczyt | Odczytaj wszystkie właściwości (w tym właściwości uprzywilejowane) w witrynie signInReports w Azure Active Directory. |
 | Microsoft. AAD. identityProtection/allEntities/odczyt | Odczytuj wszystkie zasoby w Microsoft. AAD. identityProtection. |

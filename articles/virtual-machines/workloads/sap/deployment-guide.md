@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 1c4f1951-3613-4a5a-a0af-36b85750c84e
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: 4494af89ac35a391f7dc6097b14d135a911d99dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed30c271e4c2458a33784cbcfc682001b542f2b6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91359617"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964953"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Wdrożenie Virtual Machines platformy Azure dla oprogramowania SAP NetWeaver
 
@@ -425,7 +426,7 @@ Najprostszym sposobem tworzenia nowej maszyny wirtualnej przy użyciu obrazu z w
 1.  Wybierz pozycję **obliczenia**, a następnie wybierz typ systemu operacyjnego, który chcesz wdrożyć. Na przykład: Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12), Red Hat Enterprise Linux 7,2 (RHEL 7,2) lub Oracle Linux 7,2. W widoku listy domyślnej nie są wyświetlane wszystkie obsługiwane systemy operacyjne. Aby uzyskać pełną listę, wybierz pozycję **Zobacz wszystko** . Aby uzyskać więcej informacji o obsługiwanych systemach operacyjnych na potrzeby wdrażania oprogramowania SAP, zobacz temat SAP Note [1928533].
 1.  Na następnej stronie Przejrzyj warunki i postanowienia.
 1.  W polu **Wybierz model wdrażania** wybierz pozycję **Menedżer zasobów**.
-1.  Wybierz przycisk **Utwórz**.
+1.  Wybierz pozycję **Utwórz**.
 
 Kreator przeprowadzi Cię przez proces konfigurowania wymaganych parametrów w celu utworzenia maszyny wirtualnej, a także wszystkich wymaganych zasobów, takich jak interfejsy sieciowe i konta magazynu. Niektóre z tych parametrów są następujące:
 
@@ -487,7 +488,7 @@ W Azure Portal wprowadź następujące parametry szablonu:
 
 1. **Ustawienia**:
    * **Identyfikator systemu SAP**: identyfikator systemowy SAP (SID).
-   * **Typ systemu**operacyjnego: system operacyjny, który chcesz wdrożyć, na przykład Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12), Red Hat Enterprise Linux 7,2 (RHEL 7,2) lub Oracle Linux 7,2.
+   * **Typ systemu** operacyjnego: system operacyjny, który chcesz wdrożyć, na przykład Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12), Red Hat Enterprise Linux 7,2 (RHEL 7,2) lub Oracle Linux 7,2.
 
      W widoku listy nie są wyświetlane wszystkie obsługiwane systemy operacyjne. Aby uzyskać więcej informacji o obsługiwanych systemach operacyjnych na potrzeby wdrażania oprogramowania SAP, zobacz temat SAP Note [1928533].
    * **Rozmiar systemu SAP**: rozmiar systemu SAP.
@@ -625,7 +626,7 @@ W Azure Portal wprowadź następujące parametry szablonu:
    * **Lokalizacja**: gdzie należy wdrożyć szablon. W przypadku wybrania istniejącej grupy zasobów zostanie użyta lokalizacja tej grupy zasobów.
 1. **Ustawienia**:
    * **Identyfikator systemu SAP**: identyfikator systemu SAP.
-   * **Typ systemu**operacyjnego: typ systemu operacyjnego, który chcesz wdrożyć (system Windows lub Linux).
+   * **Typ systemu** operacyjnego: typ systemu operacyjnego, który chcesz wdrożyć (system Windows lub Linux).
    * **Rozmiar systemu SAP**: rozmiar systemu SAP.
 
      Liczba punktów SAP udostępnianych przez nowy system. Jeśli nie masz pewności, ile punktów SAP wymaga system, skontaktuj się z partnerem technologii SAP lub integratorem systemu.
@@ -720,7 +721,7 @@ W Azure Portal wprowadź następujące parametry szablonu:
    * **Lokalizacja**: gdzie należy wdrożyć szablon. W przypadku wybrania istniejącej grupy zasobów zostanie użyta lokalizacja tej grupy zasobów.
 1. **Ustawienia**:
    * **Identyfikator systemu SAP**: identyfikator systemu SAP.
-   * **Typ systemu**operacyjnego: typ systemu operacyjnego, który chcesz wdrożyć (system Windows lub Linux).
+   * **Typ systemu** operacyjnego: typ systemu operacyjnego, który chcesz wdrożyć (system Windows lub Linux).
    * **Rozmiar systemu SAP**: rozmiar systemu SAP.
 
      Liczba punktów SAP udostępnianych przez nowy system. Jeśli nie masz pewności, ile punktów SAP wymaga system, skontaktuj się z partnerem technologii SAP lub integratorem systemu.
@@ -828,7 +829,7 @@ W przypadku wdrażania maszyny wirtualnej z poziomu portalu Azure Marketplace te
 
 Do zaktualizowania agenta maszyny wirtualnej platformy Azure nie jest wymagana żadna interakcja ze strony użytkownika. Agent maszyny wirtualnej jest automatycznie aktualizowany i nie wymaga ponownego uruchomienia maszyny wirtualnej.
 
-#### <a name="linux"></a><a name="6889ff12-eaaf-4f3c-97e1-7c9edc7f7542"></a>System
+#### <a name="linux"></a><a name="6889ff12-eaaf-4f3c-97e1-7c9edc7f7542"></a>Linux
 
 Użyj następujących poleceń, aby zainstalować agenta maszyny wirtualnej dla systemu Linux:
 
@@ -856,7 +857,7 @@ Aby można było uzyskać dostęp do Internetu, należy prawidłowo skonfigurowa
 
 1. Przejdź do **menu Start**, wprowadź **gpedit. msc**, a następnie wybierz **klawisz ENTER**.
 1. Wybierz pozycję **Konfiguracja komputera**  >  **Szablony administracyjne**  >  **składniki systemu Windows**  >  **Internet Explorer**. Upewnij się, że ustawienie **Ustaw ustawienia serwera proxy na maszynę (zamiast użytkownika)** jest wyłączone lub nieskonfigurowane.
-1. W **Panelu sterowania**przejdź do opcji **internetowe centrum sieci i udostępniania**  >  **Internet Options**.
+1. W **Panelu sterowania** przejdź do opcji **internetowe centrum sieci i udostępniania**  >  **Internet Options**.
 1. Na karcie **połączenia** wybierz przycisk **Ustawienia sieci LAN** .
 1. Wyczyść pole wyboru **Automatycznie wykryj ustawienia**.
 1. Zaznacz pole wyboru **Użyj serwera proxy dla sieci LAN** , a następnie wprowadź adres i port serwera proxy.
@@ -1153,7 +1154,7 @@ Jeśli **stan kondycji** nie jest **prawidłowy**, postępuj zgodnie z instrukcj
 
    b. Uruchom polecenie `cat /var/lib/AzureEnhancedMonitor/PerfCounters | grep Error`
 
-   **Oczekiwany wynik**: zwraca jeden wiersz, w którym wystąpił **błąd, na**przykład **3; config; Błąd;; 0; 0; Brak; 0; 1456416792; TST-servercs;**
+   **Oczekiwany wynik**: zwraca jeden wiersz, w którym wystąpił **błąd, na** przykład **3; config; Błąd;; 0; 0; Brak; 0; 1456416792; TST-servercs;**
 
    c. Uruchom polecenie `more /var/lib/AzureEnhancedMonitor/LatestErrorRecord`
 
@@ -1495,7 +1496,7 @@ Wykonaj kroki opisane w rozdziale [Konfigurowanie rozszerzenia platformy Azure d
 
 Jeśli błędy nie znikną, [skontaktuj się z pomocą techniczną][deployment-guide-contact-support].
 
-#### <a name="contact-support"></a><a name="3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2"></a>Kontakt z pomocą techniczną
+#### <a name="contact-support"></a><a name="3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2"></a>Skontaktuj się z pomocą techniczną
 
 Nieoczekiwany błąd lub nie ma znanego rozwiązania. Zbierz plik AzureEnhancedMonitoring_service. log znajdujący się w folderze C:\Packages\Plugins\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler \\ \<version\> \Drop (Windows) lub/var/log/Azure/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux (Linux) i skontaktuj się z pomocą TECHNICZNą SAP w celu uzyskania dalszej pomocy.
 

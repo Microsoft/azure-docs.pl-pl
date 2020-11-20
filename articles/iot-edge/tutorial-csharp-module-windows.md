@@ -9,12 +9,12 @@ ms.date: 08/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, amqp, devx-track-csharp
-ms.openlocfilehash: e1e34bacb905bf48fc5f7cd44e66cf4a4326de91
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: d6bc11f4f468b784b957ded954dc9a1720e89bfd
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044653"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964443"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Samouczek: opracowywanie modułu IoT Edge C# dla urządzeń z systemem Windows
 
@@ -33,7 +33,7 @@ Utworzony w tym samouczku moduł usługi IoT Edge filtruje dane temperatury gene
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="solution-scope"></a>Zakres rozwiązania
+## <a name="prerequisites"></a>Wymagania wstępne
 
 W tym samouczku przedstawiono sposób tworzenia modułu w **języku C#** przy użyciu **programu Visual Studio 2019** i wdrażania go na **urządzeniu z systemem Windows**. Jeśli tworzysz moduły dla urządzeń z systemem Linux, przejdź do [obszaru opracowywanie modułu IoT Edge C# dla urządzeń z systemem Linux](tutorial-csharp-module.md) .
 
@@ -43,8 +43,6 @@ Skorzystaj z poniższej tabeli, aby poznać opcje tworzenia i wdrażania moduł�
 | -- | ------------------ | ------------------ |
 | **Windows AMD64 — programowanie** | ![Opracowywanie modułów języka C# dla WinAMD64 w VS Code](./media/tutorial-c-module/green-check.png) | ![Opracowywanie modułów języka C# dla WinAMD64 w programie Visual Studio](./media/tutorial-c-module/green-check.png) |
 | **Windows AMD64 Debug** |   | ![Debugowanie modułów języka C# dla programu WinAMD64 w programie Visual Studio](./media/tutorial-c-module/green-check.png) |
-
-## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed rozpoczęciem pracy z tym samouczkiem należy zapoznać się z poprzednim samouczkiem dotyczącym konfigurowania środowiska programistycznego, [opracowywania modułu IoT Edge dla urządzenia z systemem Windows](tutorial-develop-for-windows.md). Po ukończeniu tego samouczka należy spełnić następujące wymagania wstępne:
 
@@ -93,7 +91,7 @@ Manifest wdrożenia udostępnia poświadczenia dla rejestru kontenerów za pomoc
 
 1. W Eksploratorze rozwiązań programu Visual Studio Otwórz **deployment.template.js** plik.
 
-2. Znajdź właściwość **registryCredentials** w $edgeAgent żądanych właściwościach. Powinien mieć adres rejestru autowypełniany na podstawie informacji podanych podczas tworzenia projektu, a następnie pola username i Password powinny zawierać nazwy zmiennych. Na przykład:
+2. Znajdź właściwość **registryCredentials** w $edgeAgent żądanych właściwościach. Powinien mieć adres rejestru autowypełniany na podstawie informacji podanych podczas tworzenia projektu, a następnie pola username i Password powinny zawierać nazwy zmiennych. Przykład:
 
    ```json
    "registryCredentials": {
@@ -131,7 +129,7 @@ Kod modułu domyślnego odbiera komunikaty w kolejce wejściowej i przekazuje je
     static int temperatureThreshold { get; set; } = 25;
     ```
 
-4. Dodaj klasy **MessageBody**, **Machine**i **otoczenia** do klasy **program** po deklaracjach zmiennych. Te klasy definiują oczekiwany schemat treści komunikatów przychodzących.
+4. Dodaj klasy **MessageBody**, **Machine** i **otoczenia** do klasy **program** po deklaracjach zmiennych. Te klasy definiują oczekiwany schemat treści komunikatów przychodzących.
 
     ```csharp
     class MessageBody
@@ -273,7 +271,7 @@ Kod modułu domyślnego odbiera komunikaty w kolejce wejściowej i przekazuje je
 
 8. Zapisz plik Program.cs.
 
-9. Otwórz **deployment.template.js** pliku w rozwiązaniu IoT Edge. Ten plik zawiera informacje o agencie IoT Edge, które moduły wdrożyć, w tym przypadku **SimulatedTemperatureSensor** i **CSharpModule**i informuje Centrum IoT Edge o sposobie przesyłania komunikatów między nimi.
+9. Otwórz **deployment.template.js** pliku w rozwiązaniu IoT Edge. Ten plik zawiera informacje o agencie IoT Edge, które moduły wdrożyć, w tym przypadku **SimulatedTemperatureSensor** i **CSharpModule** i informuje Centrum IoT Edge o sposobie przesyłania komunikatów między nimi.
 
 10. Dodaj bliźniaczą reprezentację modułu **CSharpModule** do manifestu wdrożenia. Wstaw następującą zawartość do pliku JSON na końcu sekcji **modulesContent** po bliźniaczej reprezentacji modułu **$edgeHub**:
 

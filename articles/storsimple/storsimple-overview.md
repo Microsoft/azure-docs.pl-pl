@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: timlt
-ms.openlocfilehash: 64f91263154f7e65238acdcef9d97e5f2d09aad5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9c7a2df83e9d630ce2b4635a830fb941180c758
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006028"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965004"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Seria StorSimple 8000: rozwiązanie hybrydowego magazynu w chmurze
 
@@ -39,7 +39,7 @@ Oprócz zarządzania magazynem funkcje ochrony danych StorSimple umożliwiają t
 ## <a name="why-use-storsimple"></a>Dlaczego warto używać StorSimple?
 W poniższej tabeli opisano niektóre z najważniejszych korzyści zapewnianych przez Microsoft Azure StorSimple.
 
-| Cecha | Korzyść |
+| Obiekt feature | Korzyść |
 | --- | --- |
 | Integracja przezroczysta |Używa protokołu iSCSI do niewidocznego łączenia obiektów magazynu danych. Dzięki temu dane przechowywane w chmurze, w centrum danych lub na serwerach zdalnych, są przechowywane w jednej lokalizacji. |
 | Zmniejszone koszty magazynowania |Przydziela wystarczającą ilość miejsca w magazynie lokalnym lub w chmurze w celu spełnienia bieżących wymagań i rozszerza magazyn w chmurze tylko w razie potrzeby. Znacznie zmniejsza wymagania dotyczące magazynu i wydatków, eliminując nadmiarowe wersje tych samych danych (deduplikacji) i przy użyciu kompresji. |
@@ -48,7 +48,7 @@ W poniższej tabeli opisano niektóre z najważniejszych korzyści zapewnianych 
 | Mobilność danych |Do danych przekazywanych do usług w chmurze Microsoft Azure można uzyskać dostęp z innych lokacji na potrzeby odzyskiwania i migracji. Ponadto można użyć usługi StorSimple do skonfigurowania urządzeń w chmurze StorSimple na maszynach wirtualnych działających w Microsoft Azure. Maszyny wirtualne mogą następnie używać urządzeń wirtualnych do uzyskiwania dostępu do danych przechowywanych na potrzeby testowania lub odzyskiwania. |
 | Ciągłość działalności biznesowej |Umożliwia użytkownikom serii StorSimple 5000-7000 Migrowanie danych do urządzenia z serii StorSimple 8000. |
 | Dostępność w portalu Azure Government |StorSimple jest dostępny w portalu Azure Government. Aby uzyskać więcej informacji, zobacz [wdrażanie lokalnego urządzenia StorSimple w portalu dla instytucji rządowych](storsimple-8000-deployment-walkthrough-gov-u2.md). |
-| Ochrona i dostępność danych |Seria StorSimple 8000 obsługuje magazyn strefowo nadmiarowy (ZRS), a także Magazyn lokalnie nadmiarowy (LRS) i magazyn Geograficznie nadmiarowy (GRS). Zapoznaj się z [tym artykułem dotyczącym opcji nadmiarowości usługi Azure Storage](https://azure.microsoft.com/documentation/articles/storage-redundancy/) , aby uzyskać szczegółowe informacje o ZRS. |
+| Ochrona i dostępność danych |Seria StorSimple 8000 obsługuje magazyn strefowo nadmiarowy (ZRS), a także Magazyn lokalnie nadmiarowy (LRS) i magazyn Geograficznie nadmiarowy (GRS). Zapoznaj się z [tym artykułem dotyczącym opcji nadmiarowości usługi Azure Storage](../storage/common/storage-redundancy.md) , aby uzyskać szczegółowe informacje o ZRS. |
 | Obsługa aplikacji o znaczeniu krytycznym |StorSimple pozwala identyfikować odpowiednie woluminy jako przypięte lokalnie, co z kolei gwarantuje, że dane wymagane przez krytyczne aplikacje nie są warstwową chmurą. Woluminy przypięte lokalnie nie są objęte opóźnieniami w chmurze lub problemami z łącznością. Aby uzyskać więcej informacji na temat woluminów przypiętych lokalnie, zobacz [Używanie usługi StorSimple Menedżer urządzeń do zarządzania woluminami](storsimple-8000-manage-volumes-u2.md). |
 | Małe opóźnienia i wysoka wydajność |Możesz tworzyć urządzenia w chmurze wykorzystujące funkcje wysokiej wydajności i małych opóźnień w usłudze Azure Premium Storage. Aby uzyskać więcej informacji na temat urządzeń w chmurze StorSimple Premium, zobacz [wdrażanie i zarządzanie urządzeniem w chmurze StorSimple na platformie Azure](storsimple-8000-cloud-appliance-u2.md). |
 
@@ -212,7 +212,7 @@ Podsumowanie obsługiwanych obciążeń StorSimple znajduje się poniżej.
 | --- | --- | --- | --- | --- |
 | Współpraca |Udostępnianie plików |Tak | |Wszystkie wersje |
 | Współpraca |Rozproszone udostępnianie plików |Tak | |Wszystkie wersje |
-| Współpraca |Sharepoint |Tak* |Obsługiwane tylko dla woluminów przypiętych lokalnie |Aktualizacja 2 lub nowsza |
+| Współpraca |SharePoint |Tak* |Obsługiwane tylko dla woluminów przypiętych lokalnie |Aktualizacja 2 lub nowsza |
 | Archiwizacji |Proste archiwizowanie plików |Tak | |Wszystkie wersje |
 | Wirtualizacja |Maszyny wirtualne |Tak* |Obsługiwane tylko dla woluminów przypiętych lokalnie |Aktualizacja 2 lub nowsza |
 | baza danych |SQL |Tak* |Obsługiwane tylko dla woluminów przypiętych lokalnie |Aktualizacja 2 lub nowsza |
@@ -315,4 +315,3 @@ Przed wdrożeniem rozwiązania Microsoft Azure StorSimple zalecamy zapoznanie si
 
 ## <a name="next-steps"></a>Następne kroki
 Dowiedz się więcej o [zabezpieczeniach StorSimple](storsimple-8000-security.md).
-

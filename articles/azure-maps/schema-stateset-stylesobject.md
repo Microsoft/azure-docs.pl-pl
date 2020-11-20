@@ -8,16 +8,16 @@ ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8eb4e49e6c0e3f011015d40b8eca036d5218674c
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 4284956138002d209ab0934cdd052748ef8aab78
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891703"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966279"
 ---
 # <a name="stylesobject-schema-reference-guide-for-dynamic-maps"></a>Styleobject schemat referencyjny dla map dynamicznych
 
-Ten artykuł zawiera Przewodnik referencyjny dotyczący schematu i składni JSON dla programu `StylesObject` . `StylesObject`Jest `StyleObject` tablicą reprezentującą style stateset. Użyj [usługi stanu funkcji](/rest/api/maps/featurestate) twórcy Azure Maps, aby zastosować style stateset do funkcji danych mapy pomieszczeń. Po utworzeniu stylów stateset i skojarzeniu ich z funkcjami mapy pomieszczeń, można użyć ich do utworzenia dynamicznych map pomieszczeń. Aby uzyskać więcej informacji na temat tworzenia dynamicznych map pomieszczeń, zobacz [Implementuj style dynamiczne dla map pomieszczeń dla twórców](indoor-map-dynamic-styling.md).
+ `StylesObject`Jest `StyleObject` tablicą reprezentującą style stateset. Użyj [usługi stanu funkcji](/rest/api/maps/featurestate) twórcy Azure Maps, aby zastosować style stateset do funkcji danych mapy pomieszczeń. Po utworzeniu stylów stateset i skojarzeniu ich z funkcjami mapy pomieszczeń, można użyć ich do utworzenia dynamicznych map pomieszczeń. Aby uzyskać więcej informacji na temat tworzenia dynamicznych map pomieszczeń, zobacz [Implementuj style dynamiczne dla map pomieszczeń dla twórców](indoor-map-dynamic-styling.md).
 
 ## <a name="styleobject"></a>Styleobject
 
@@ -76,7 +76,7 @@ A `NumberRuleObject` składa się z [`RangeObject`](#rangeobject) i `color` wła
 
 Jeśli zdefiniujesz wiele nakładających się zakresów, wybrany kolor będzie kolorem zdefiniowanym w pierwszym zakresie, który jest spełniony.
 
-W poniższym przykładzie JSON oba zakresy będą miały wartość true, gdy wartość *stanu* mieści się w przedziale od 50-60. Jednak kolor, który będzie używany jest, `#343deb` ponieważ jest to pierwszy zakres na liście, który został spełniony.
+W poniższym przykładzie JSON oba zakresy będą miały wartość true, gdy wartość *stanu* mieści się w przedziale od 50-60. Jednak kolor, który będzie używany jest, ponieważ jest to `#343deb` pierwszy zakres na liście, który został spełniony.
 
 ```json
 

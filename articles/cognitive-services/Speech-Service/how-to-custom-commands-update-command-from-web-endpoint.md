@@ -1,7 +1,7 @@
 ---
-title: Aktualizowanie polecenia z punktu końcowego sieci Web
+title: Aktualizowanie polecenia z poziomu internetowego punktu końcowego
 titleSuffix: Azure Cognitive Services
-description: Aktualizowanie polecenia z punktu końcowego sieci Web
+description: Dowiedz się, jak zaktualizować stan polecenia, używając wywołania do punktu końcowego w sieci Web.
 services: cognitive-services
 author: encorona-ms
 manager: yetian
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
 ms.author: encorona
-ms.openlocfilehash: 4432843ac93002bc92068db191706352234d76e6
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: a24f1337a68f38db273688e9a91c65ac2f4736b4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94571252"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963610"
 ---
-# <a name="update-a-command-from-a-web-endpoint"></a>Aktualizowanie polecenia z punktu końcowego sieci Web
+# <a name="update-a-command-from-a-web-endpoint"></a>Aktualizowanie polecenia z poziomu internetowego punktu końcowego
 
-Jeśli aplikacja kliencka wymaga zaktualizowania stanu trwającego polecenia bez wprowadzania głosu, można użyć połączenia z punktem końcowym sieci Web, aby zaktualizować polecenie.
+Jeśli aplikacja kliencka wymaga aktualizacji stanu trwającego polecenia bez wprowadzania głosu, można użyć wywołania do punktu końcowego sieci Web, aby zaktualizować polecenie.
 
 W tym artykule dowiesz się, jak zaktualizować bieżące polecenie z punktu końcowego sieci Web.
 
@@ -29,7 +29,7 @@ W tym artykule dowiesz się, jak zaktualizować bieżące polecenie z punktu ko�
 
 ## <a name="create-an-azure-function"></a>Tworzenie funkcji platformy Azure 
 
-Na potrzeby tego przykładu będziemy potrzebować HTTP-Triggered [funkcji platformy Azure](https://docs.microsoft.com/azure/azure-functions/) , która obsługuje następujące dane wejściowe (lub podzestaw tego wejścia).
+Na potrzeby tego przykładu wymagana jest [Funkcja platformy Azure](https://docs.microsoft.com/azure/azure-functions/) wyzwalana przez protokół http, która obsługuje następujące dane wejściowe (lub podzestaw tego wejścia):
 
 ```JSON
 {
@@ -48,16 +48,16 @@ Na potrzeby tego przykładu będziemy potrzebować HTTP-Triggered [funkcji platf
 }
 ```
 
-Umożliwia przejrzenie kluczowych atrybutów tych danych wejściowych.
+Przejrzyjmy kluczowe atrybuty tego danych wejściowych:
 
 | Atrybut | Wyjaśnienie |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| **conversationId** | "conversationId" jest unikatowym identyfikatorem konwersacji, pamiętaj, że ten identyfikator może być generowany z poziomu aplikacji klienckiej. |
-| **currentCommand** | "currentCommand" to polecenie aktualnie aktywne w konwersacji. |
-| **Nazwij** | "name" to nazwa polecenia, a parametr "Parameters" to mapa z bieżącymi wartościami parametrów. |
-| **currentGlobalParameters** | "currentGlobalParameters" to również mapa, taka jak "Parameters", ale jest używana dla parametrów globalnych. |
+| **conversationId** | Unikatowy identyfikator konwersacji. Należy pamiętać, że ten identyfikator może być generowany z poziomu aplikacji klienckiej. |
+| **currentCommand** | Polecenie, które jest aktualnie aktywne w konwersacji. |
+| **Nazwij** | Nazwa polecenia. Ten `parameters` atrybut jest mapą z bieżącymi wartościami parametrów. |
+| **currentGlobalParameters** | Mapa, taka jak `parameters` , ale używana dla parametrów globalnych. |
 
-Dane wyjściowe funkcji platformy Azure muszą obsługiwać następujący format.
+Dane wyjściowe funkcji platformy Azure muszą obsługiwać następujący format:
 
 ```JSON
 {
@@ -76,7 +76,7 @@ Dane wyjściowe funkcji platformy Azure muszą obsługiwać następujący format
 
 Ten format można rozpoznać, ponieważ jest to ten sam, który był używany podczas [aktualizowania polecenia z klienta](./how-to-custom-commands-update-command-from-client.md)programu. 
 
-Teraz Utwórz funkcję platformy Azure na podstawie NodeJS i skopiuj ten kod
+Teraz Utwórz funkcję platformy Azure na podstawie Node.js. Kopiuj/wklej ten kod:
 
 ```nodejs
 module.exports = async function (context, req) {
@@ -94,35 +94,35 @@ module.exports = async function (context, req) {
 }
 ```
 
-Gdy wywołamy tę funkcję platformy Azure z poleceń niestandardowych, wyślemy bieżące wartości rozmowy i będziemy zwracały parametry, które chcemy zaktualizować, lub jeśli chcemy anulować bieżące polecenie.
+Gdy wywołasz tę funkcję platformy Azure z poleceń niestandardowych, będziesz wysyłać bieżące wartości w konwersacji. Zwracasz parametry, które chcesz zaktualizować, lub jeśli chcesz anulować bieżące polecenie.
 
 ## <a name="update-the-existing-custom-commands-app"></a>Aktualizowanie istniejącej aplikacji poleceń niestandardowych
 
-Teraz przejdźmy do funkcji platformy Azure za pomocą istniejącej aplikacji poleceń niestandardowych.
+Przejdźmy do funkcji platformy Azure za pomocą istniejącej aplikacji poleceń niestandardowych:
 
-1. Dodaj nowe polecenie o nazwie IncrementCounter.
-1. Dodaj tylko jedno przykładowe zdanie z wartością "Zwiększ".
-1. Dodaj nowy parametr o nazwie Counter (o nazwie określonej w funkcji platformy Azure powyżej) typu Number z wartością domyślną 0.
-1. Dodaj nowy internetowy punkt końcowy o nazwie IncrementEndpoint z adresem URL funkcji platformy Azure i z włączonymi aktualizacjami zdalnymi.
+1. Dodaj nowe polecenie o nazwie `IncrementCounter` .
+1. Dodaj tylko jedno przykładowe zdanie z wartością `increment` .
+1. Dodaj nowy parametr o nazwie `Counter` (o nazwie określonej w funkcji platformy Azure) typu `Number` z wartością domyślną `0` .
+1. Dodaj nowy internetowy punkt końcowy o nazwie `IncrementEndpoint` przy użyciu adresu URL funkcji platformy Azure z **włączonymi** **aktualizacjami zdalnymi** .
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-commands/set-web-endpoint-with-remote-updates.png" alt-text="Ustawianie punktu końcowego sieci Web przy użyciu aktualizacji zdalnych":::
-1. Utwórz nową regułę interakcji o nazwie "IncrementRule" i Dodaj akcję wywołania punktu końcowego sieci Web.
+    > :::image type="content" source="./media/custom-commands/set-web-endpoint-with-remote-updates.png" alt-text="Zrzut ekranu przedstawiający Ustawianie punktu końcowego sieci Web przy użyciu aktualizacji zdalnych.":::
+1. Utwórz nową regułę interakcji o nazwie **IncrementRule** i Dodaj akcję **wywołania punktu końcowego dla sieci Web** .
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-commands/increment-rule-web-endpoint.png" alt-text="Reguła przyrostu":::
-1. W obszarze Konfiguracja akcji wybierz IncrementEndpoint, skonfiguruj na pomyślne wysłanie odpowiedzi mowy z wartością licznika i w przypadku niepowodzenia z komunikatem o błędzie.
+    > :::image type="content" source="./media/custom-commands/increment-rule-web-endpoint.png" alt-text="Zrzut ekranu przedstawiający tworzenie reguły interakcji.":::
+1. W obszarze Konfiguracja akcji wybierz opcję `IncrementEndpoint` . Skonfiguruj **na sukces** , aby **wysłać odpowiedź mowy** o wartości `Counter` i skonfigurować w przypadku **niepowodzenia** z komunikatem o błędzie.
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-commands/set-increment-counter-call-endpoint.png" alt-text="Ustaw punkt końcowy wywołania licznika przyrostowego":::
-1. Ustawianie stanu po wykonaniu reguły w celu zaczekania na dane wejściowe użytkownika
+    > :::image type="content" source="./media/custom-commands/set-increment-counter-call-endpoint.png" alt-text="Zrzut ekranu przedstawiający Ustawianie licznika przyrostu do wywoływania punktu końcowego sieci Web.":::
+1. Ustaw stan po wykonaniu reguły, aby **czekać na dane wejściowe użytkownika**.
 
 ## <a name="test-it"></a>Testowanie
 
-1. Zapisywanie i uczenie aplikacji
-1. Kliknij przycisk Testuj
-1. Wyślij kilka razy "przyrostka" (jest to przykładowe zdanie dla polecenia IncrementCounter)
+1. Zapisz i Wyszkol aplikację.
+1. Kliknij przycisk **Testuj**.
+1. Wyślij `increment` kilka razy (czyli przykładowe zdanie dla `IncrementCounter` polecenia).
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-commands/increment-counter-example.png" alt-text="Przykład licznika przyrostu":::
+    > :::image type="content" source="./media/custom-commands/increment-counter-example.png" alt-text="Zrzut ekranu pokazujący przykład licznika przyrostu.":::
 
-Zwróć uwagę, jak wartość parametru licznika jest zwiększana przy każdym włączeniu funkcji platformy Azure.
+Zwróć uwagę, jak funkcja platformy Azure zwiększa wartość `Counter` parametru przy każdym włączeniu.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -9,17 +9,18 @@ editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 52f5d0ec-8f75-49e7-9e15-88d46b420e63
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: 283eb9b9cbdc03813cf7c765c9ef3be5965919eb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 129897d3288a900803efbfba8abf86c276077fa8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978343"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966075"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Rozszerzenia i funkcje maszyny wirtualnej dla systemu Linux
 
@@ -336,7 +337,7 @@ Poniższe kroki rozwiązywania problemów dotyczą wszystkich rozszerzeń maszyn
 
 1. Aby sprawdzić dziennik agenta systemu Linux, zapoznaj się z działaniem w przypadku aprowizacji rozszerzenia w */var/log/waagent.log*
 
-2. Zapoznaj się z rzeczywistymi dziennikami rozszerzeń, aby uzyskać więcej szczegółów w */var/log/Azure/ \<extensionName> *
+2. Zapoznaj się z rzeczywistymi dziennikami rozszerzeń, aby uzyskać więcej szczegółów w */var/log/Azure/ \<extensionName>*
 
 3. Sprawdź sekcje dotyczące rozwiązywania problemów z dokumentacją, aby zapoznać się z kodami błędów, znanymi problemami itp.
 

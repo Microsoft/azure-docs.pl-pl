@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: rohink
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 92509ff96af0ed2a7d77799edca8447ff6839ab6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e116096afbd01af4914be49d5675881724d5069
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019661"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965599"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Tworzenie stref DNS i zestawów rekordów przy użyciu zestawu .NET SDK
 
@@ -43,7 +43,7 @@ Zazwyczaj dostęp programistyczny do zasobów platformy Azure uzyskuje się za p
 
 Aby użyć Azure DNS .NET SDK, należy zainstalować pakiet NuGet **biblioteki zarządzania Azure DNS** i inne wymagane pakiety platformy Azure.
 
-1. W programie **Visual Studio**Otwórz projekt lub nowy projekt.
+1. W programie **Visual Studio** Otwórz projekt lub nowy projekt.
 2. Wybierz kolejno pozycje **Narzędzia** **>** **Menedżer pakietów NuGet** **>** **Zarządzanie pakietami NuGet dla rozwiązania...**
 3. Kliknij przycisk **Przeglądaj**, zaznacz pole wyboru **Uwzględnij wersję wstępną** i wpisz **Microsoft. Azure. Management. DNS** w polu wyszukiwania.
 4. Wybierz pakiet i kliknij pozycję **Zainstaluj** , aby dodać go do projektu programu Visual Studio.
@@ -79,7 +79,7 @@ Aby faktycznie utworzyć lub zaktualizować strefę w Azure DNS, obiekt strefy z
 > [!NOTE]
 > DnsManagementClient obsługuje trzy tryby działania: synchroniczne ("metodę createorupdate"), asynchroniczne ("CreateOrUpdateAsync") lub asynchroniczne z dostępem do odpowiedzi HTTP ("CreateOrUpdateWithHttpMessagesAsync").  Możesz wybrać dowolny z tych trybów, w zależności od potrzeb aplikacji.
 
-Azure DNS obsługuje optymistyczną współbieżność, nazywaną [ETag](dns-getstarted-create-dnszone.md). W tym przykładzie Określanie znaku "*" dla nagłówka "If-None-Match" oznacza Azure DNS, aby utworzyć strefę DNS, jeśli taka jeszcze nie istnieje.  Wywołanie kończy się niepowodzeniem, jeśli strefa o podaną nazwie już istnieje w danej grupie zasobów.
+Azure DNS obsługuje optymistyczną współbieżność, nazywaną [ETag](./dns-getstarted-powershell.md). W tym przykładzie Określanie znaku "*" dla nagłówka "If-None-Match" oznacza Azure DNS, aby utworzyć strefę DNS, jeśli taka jeszcze nie istnieje.  Wywołanie kończy się niepowodzeniem, jeśli strefa o podaną nazwie już istnieje w danej grupie zasobów.
 
 ```cs
 // Create zone parameters

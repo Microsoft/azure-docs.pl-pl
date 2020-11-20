@@ -3,16 +3,17 @@ title: Integracja Microsoft Azure z usługą Oracle Cloud Infrastructure | Micro
 description: Informacje o rozwiązaniach, które integrują aplikacje Oracle działające w Microsoft Azure z bazami danych w infrastrukturze chmury firmy Oracle (OCI).
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 06/01/2020
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: c8d0f32821bbb3957d7787b7c3bfd733a880325b
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: e8e9bf23c236f805135d7d46b969c564975448ac
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233920"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965412"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Rozwiązania aplikacji Oracle integrujące Microsoft Azure i infrastrukturę chmurową Oracle
 
@@ -50,7 +51,7 @@ Poniższy diagram przedstawia ogólny przegląd połączonego rozwiązania. Dla 
 * Azure Japonia Wschodnia (JapanEast) & OCI Tokio (Japonia Wschodnia)
 * Azure zachodnie stany USA (Zachodnie) & OCI San Jose (Zachodnie stany USA)
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 
 Klienci korporacyjni często decydują się na zróżnicowanie i wdrażaniu obciążeń dla wielu chmur w różnych sytuacjach firmy i operacyjnych. W celu zróżnicowania klienci korzystają z Internetu, sieci VPN IPSec lub bezpośredniego rozwiązania do łączności dostawcy w chmurze za pośrednictwem sieci lokalnej. Połączenia między sieciami w chmurze mogą wymagać znaczących inwestycji w miarę czasu, pieniędzy, projektowania, zaopatrzenia, instalacji, testowania i operacji. 
 

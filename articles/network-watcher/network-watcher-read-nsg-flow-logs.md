@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: damendo
-ms.openlocfilehash: 18023f5a5b36dd971080d7a62fdd44698a205bb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f9b9e91cda93a986fdaaf0f53d8987544e783a2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272539"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966466"
 ---
 # <a name="read-nsg-flow-logs"></a>Odczytywanie dzienników przepływu sieciowych grup zabezpieczeń
 
 Informacje dotyczące odczytywania wpisów dzienników przepływu sieciowej grupy zabezpieczeń przy użyciu programu PowerShell.
 
-Dzienniki przepływu sieciowej grupy zabezpieczeń są przechowywane na koncie magazynu w [blokowych](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)obiektach Blob. Blokowe obiekty blob składają się z mniejszych bloków. Każdy dziennik jest osobnym blokowym obiektem BLOB, który jest generowany co godzinę. Nowe dzienniki są generowane co godzinę. dzienniki są aktualizowane co kilka minut przy użyciu najnowszych danych. W tym artykule dowiesz się, jak czytać fragmenty dzienników przepływów.
+Dzienniki przepływu sieciowej grupy zabezpieczeń są przechowywane na koncie magazynu w [blokowych](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)obiektach Blob. Blokowe obiekty blob składają się z mniejszych bloków. Każdy dziennik jest osobnym blokowym obiektem BLOB, który jest generowany co godzinę. Nowe dzienniki są generowane co godzinę. dzienniki są aktualizowane co kilka minut przy użyciu najnowszych danych. W tym artykule dowiesz się, jak czytać fragmenty dzienników przepływów.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -37,7 +37,7 @@ Przed rozpoczęciem należy włączyć rejestrowanie przepływu sieciowych grup 
 
 ## <a name="retrieve-the-block-list"></a>Pobierz listę zablokowanych
 
-Poniższe środowisko programu PowerShell konfiguruje zmienne, które są konieczne do wykonywania zapytań dotyczących obiektu BLOB dziennika przepływu sieciowej grupy zabezpieczeń i wyświetlania bloków w blokowym obiekcie blob [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) . Zaktualizuj skrypt tak, aby zawierał prawidłowe wartości dla danego środowiska.
+Poniższe środowisko programu PowerShell konfiguruje zmienne, które są konieczne do wykonywania zapytań dotyczących obiektu BLOB dziennika przepływu sieciowej grupy zabezpieczeń i wyświetlania bloków w blokowym obiekcie blob [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) . Zaktualizuj skrypt tak, aby zawierał prawidłowe wartości dla danego środowiska.
 
 ```powershell
 function Get-NSGFlowLogCloudBlockBlob {
@@ -189,6 +189,6 @@ W tym scenariuszu przedstawiono przykład sposobu odczytywania wpisów w dzienni
 
 Odwiedź stronę [Korzystanie z elastycznego stosu](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Użyj Grafana](network-watcher-nsg-grafana.md)i [Skorzystaj z z narzędzia graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) , aby dowiedzieć się więcej na temat sposobów wyświetlania dzienników przepływu sieciowej grupy zabezpieczeń. Podejście funkcji platformy Azure typu open source do konsumowania obiektów BLOB bezpośrednio i emitowania do różnych odbiorców usługi log Analytics można znaleźć tutaj: [Łącznik usługi Azure Network Watcher sieciowej grupy zabezpieczeń Flow Logs](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
 
-Możesz użyć [usługi Azure Analiza ruchu](https://docs.microsoft.com/azure/network-watcher/traffic-analytics) , aby uzyskać wgląd w przepływy ruchu. Analiza ruchu używa [log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) , aby przepływ ruchu queryable.
+Możesz użyć [usługi Azure Analiza ruchu](./traffic-analytics.md) , aby uzyskać wgląd w przepływy ruchu. Analiza ruchu używa [log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) , aby przepływ ruchu queryable.
 
 Aby dowiedzieć się więcej na temat obiektów blob magazynu, odwiedź: [Azure Functions powiązania magazynu obiektów BLOB](../azure-functions/functions-bindings-storage-blob.md)

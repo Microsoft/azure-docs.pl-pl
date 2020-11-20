@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 1d6213d49c98f5e09f22e7310183315800d0c6f6
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: fe2d09315dcb2a0958f8a1b8efe7532c64c111d8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359786"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966551"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi ServiceNow na potrzeby automatycznego aprowizacji użytkowników
 
@@ -56,13 +56,6 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 
    ![Rola administratora usługi ServiceNow](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
 
-3. Upewnij się, że następujące ustawienia są **wyłączone** w usługi ServiceNow:
-
-   1. Wybierz pozycję **zabezpieczenia systemu**  >  **Ustawienia wysokie zabezpieczenia**  >  **wymagają uwierzytelniania podstawowego dla przychodzących żądań schematu**.
-   2. Wybieranie **Właściwości systemu**  >  **usługi sieci Web**  >  **wymagają podstawowej autoryzacji dla przychodzących żądań SOAP**.
-     
-   > [!IMPORTANT]
-   > Jeśli te ustawienia są *włączone* , aparat aprowizacji nie będzie mógł komunikować się z usługą usługi ServiceNow.
 
 ## <a name="step-3-add-servicenow-from-the-azure-ad-application-gallery"></a>Krok 3. Dodawanie usługi ServiceNow z galerii aplikacji usługi Azure AD
 
@@ -83,7 +76,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-servicenow-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla usługi ServiceNow w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -154,7 +147,7 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
    1. Wybierz pozycję **zabezpieczenia systemu**  >  **Ustawienia wysokie zabezpieczenia**  >  **wymagają uwierzytelniania podstawowego dla przychodzących żądań schematu**.
    2. Wybieranie **Właściwości systemu**  >  **usługi sieci Web**  >  **wymagają podstawowej autoryzacji dla przychodzących żądań SOAP**.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

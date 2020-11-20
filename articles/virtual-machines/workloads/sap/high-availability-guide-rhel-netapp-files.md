@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/22/2020
 ms.author: radeltch
-ms.openlocfilehash: 040220bfac2a3ac1ef54965ba9be35755b9b787b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0c5ebd3f7989458a0966fdc792cd3a8a9ea94acc
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487623"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965276"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Platforma Azure Virtual Machines wysoka dostępność dla oprogramowania SAP NetWeaver na Red Hat Enterprise Linux z Azure NetApp Files dla aplikacji SAP
 
@@ -195,13 +196,13 @@ Najpierw należy utworzyć woluminy Azure NetApp Files. Wdróż maszyny wirtualn
       1. Wybierz Maszyny wirtualne klastra SCS i ich adresy IP.
       1. Kliknij pozycję Dodaj.
    1. Tworzenie sond kondycji
-      1. Port 620**00** dla ASCS
+      1. Port 620 **00** dla ASCS
          1. Otwórz moduł równoważenia obciążenia, wybierz pozycję sondy kondycji, a następnie kliknij przycisk Dodaj.
          1. Wprowadź nazwę nowej sondy kondycji (na przykład **kondycja. QAS. ASCS**)
-         1. Wybierz pozycję TCP jako protokół, port 620**00**, Zachowaj interwał 5 i próg złej kondycji 2
+         1. Wybierz pozycję TCP jako protokół, port 620 **00**, Zachowaj interwał 5 i próg złej kondycji 2
          1. Kliknij przycisk OK.
-      1. Port 621**01** dla ASCS wykres wywołujących
-            * Powtórz powyższe kroki w sekcji "c", aby utworzyć sondę kondycji dla wykres WYWOŁUJĄCYCH (na przykład 621**01** i **kondycja). QAS. Wykres WYWOŁUJĄCYCH**)
+      1. Port 621 **01** dla ASCS wykres wywołujących
+            * Powtórz powyższe kroki w sekcji "c", aby utworzyć sondę kondycji dla wykres WYWOŁUJĄCYCH (na przykład 621 **01** i **kondycja). QAS. Wykres WYWOŁUJĄCYCH**)
    1. Reguły równoważenia obciążenia
       1. Reguły równoważenia obciążenia dla ASCS
          1. Otwórz moduł równoważenia obciążenia, wybierz pozycję reguły równoważenia obciążenia, a następnie kliknij przycisk Dodaj.
@@ -229,15 +230,15 @@ Najpierw należy utworzyć woluminy Azure NetApp Files. Wdróż maszyny wirtualn
       1. Wybierz Maszyny wirtualne klastra SCS
       1. Kliknij przycisk OK.
    1. Tworzenie sond kondycji
-      1. Port 620**00** dla ASCS
+      1. Port 620 **00** dla ASCS
          1. Otwórz moduł równoważenia obciążenia, wybierz pozycję sondy kondycji, a następnie kliknij przycisk Dodaj.
          1. Wprowadź nazwę nowej sondy kondycji (na przykład **kondycja. QAS. ASCS**)
-         1. Wybierz pozycję TCP jako protokół, port 620**00**, Zachowaj interwał 5 i próg złej kondycji 2
+         1. Wybierz pozycję TCP jako protokół, port 620 **00**, Zachowaj interwał 5 i próg złej kondycji 2
          1. Kliknij przycisk OK.
-      1. Port 621**01** dla ASCS wykres wywołujących
-            * Powtórz powyższe kroki w sekcji "c", aby utworzyć sondę kondycji dla wykres WYWOŁUJĄCYCH (na przykład 621**01** i **kondycja). QAS. Wykres WYWOŁUJĄCYCH**)
+      1. Port 621 **01** dla ASCS wykres wywołujących
+            * Powtórz powyższe kroki w sekcji "c", aby utworzyć sondę kondycji dla wykres WYWOŁUJĄCYCH (na przykład 621 **01** i **kondycja). QAS. Wykres WYWOŁUJĄCYCH**)
    1. Reguły równoważenia obciążenia
-      1. 32**00** TCP dla ASCS
+      1. 32 **00** TCP dla ASCS
          1. Otwórz moduł równoważenia obciążenia, wybierz pozycję reguły równoważenia obciążenia, a następnie kliknij przycisk Dodaj.
          1. Wprowadź nazwę nowej reguły modułu równoważenia obciążenia (na przykład **LB. QAS. ASCS. 3200**)
          1. Wybierz adres IP frontonu dla ASCS, puli zaplecza i sondy kondycji utworzonej wcześniej (na przykład **frontonu). QAS. ASCS**)
@@ -246,9 +247,9 @@ Najpierw należy utworzyć woluminy Azure NetApp Files. Wdróż maszyny wirtualn
          1. **Upewnij się, że włączono zmiennoprzecinkowy adres IP**
          1. Kliknij przycisk OK.
       1. Dodatkowe porty dla ASCS
-         * Powtórz powyższe kroki w obszarze "d" dla portów 36**00**, 39**00**, 81**00**, 5**00**, 5**00**14, 5**00**16 i TCP dla ASCS
+         * Powtórz powyższe kroki w obszarze "d" dla portów 36 **00**, 39 **00**, 81 **00**, 5 **00**, 5 **00** 14, 5 **00** 16 i TCP dla ASCS
       1. Dodatkowe porty dla ASCS wykres WYWOŁUJĄCYCH
-         * Powtórz powyższe kroki w obszarze "d" dla portów 32**01**, 33**01**, 5**01**13, 5**01**14, 5**01**16 i TCP dla ASCS wykres wywołujących
+         * Powtórz powyższe kroki w obszarze "d" dla portów 32 **01**, 33 **01**, 5 **01** 13, 5 **01** 14, 5 **01** 16 i TCP dla ASCS wykres wywołujących
 
       > [!IMPORTANT]
       > Zmienny adres IP nie jest obsługiwany w konfiguracji pomocniczego adresu IP karty sieciowej w scenariuszach równoważenia obciążenia. Aby uzyskać szczegółowe informacje, zobacz [ograniczenia modułu równoważenia obciążenia platformy Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Jeśli potrzebujesz dodatkowego adresu IP dla maszyny wirtualnej, wdróż drugą kartę sieciową.  
@@ -507,7 +508,7 @@ Następujące elementy są poprzedzone **[A]** -dotyczy wszystkie węzły, **[1]
    sudo <swpm>/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=<virtual_hostname>
    ```
 
-   Jeśli instalacja nie powiedzie się w celu utworzenia podfolderu w/usr/SAP/**QAS**/ASCS**00**, spróbuj ustawić właściciela i grupę folderu ASCS**00** , a następnie ponów próbę.
+   Jeśli instalacja nie powiedzie się w celu utworzenia podfolderu w/usr/SAP/**QAS**/ASCS **00**, spróbuj ustawić właściciela i grupę folderu ASCS **00** , a następnie ponów próbę.
 
    ```
    sudo chown qasadm /usr/sap/QAS/ASCS00
@@ -574,7 +575,7 @@ Następujące elementy są poprzedzone **[A]** -dotyczy wszystkie węzły, **[1]
    sudo <swpm>/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=<virtual_hostname>
    ```
 
-   Jeśli instalacja nie powiedzie się, utwórz podfolder w/usr/SAP/**QAS**/ERS**01**, spróbuj ustawić właściciela i grupę folderu wykres wywołujących**01** i ponów próbę.
+   Jeśli instalacja nie powiedzie się, utwórz podfolder w/usr/SAP/**QAS**/ERS **01**, spróbuj ustawić właściciela i grupę folderu wykres wywołujących **01** i ponów próbę.
 
    ```
    sudo chown qaadm /usr/sap/QAS/ERS01

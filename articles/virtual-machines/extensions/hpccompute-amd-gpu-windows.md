@@ -6,17 +6,18 @@ documentationcenter: ''
 author: vikancha-MSFT
 manager: jkabat
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/10/2020
 ms.author: vikancha
-ms.openlocfilehash: bc7bfecbcb387fa0da0809a9a2287b243e861c49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e0a5074061b190088441ed4f6787b112fb11fe5a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87010873"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966007"
 ---
 # <a name="amd-gpu-driver-extension-for-windows"></a>Rozszerzenie sterownika procesora GPU AMD dla systemu Windows
 
@@ -69,10 +70,10 @@ Poniższy kod JSON pokazuje schemat rozszerzenia.
 
 | Nazwa | Wartość/przykład | Typ danych |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | data |
 | publisher | Microsoft. HpcCompute | ciąg |
 | typ | AmdGpuDriverWindows | ciąg |
-| typeHandlerVersion | 1.0 | int |
+| typeHandlerVersion | 1,0 | int |
 
 
 ## <a name="deployment"></a>Wdrożenie

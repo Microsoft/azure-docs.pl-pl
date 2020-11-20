@@ -8,18 +8,19 @@ manager: juergent
 editor: ''
 keywords: HLI, HANA, SKU, S896, S224, S448, S672, Optane, SAP
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08872b95c4cff3c261a545f117cc4e6bf24e15a5
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: fd979f553ff03d8373948d73c416a96bb140b544
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411477"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964766"
 ---
 # <a name="available-skus-for-hana-large-instances"></a>Dostępne jednostki SKU dla dużych wystąpień HANA
 
@@ -36,7 +37,7 @@ Usługa SAP HANA na platformie Azure (duże wystąpienia) oparta na sygnaturach 
 - East US
 - Wschodnie stany USA 2
 - South Central US
-- Europa Zachodnia
+- West Europe
 - Europa Północna
 
 
@@ -104,9 +105,9 @@ Dwie różne klasy sprzętu dzielą jednostki SKU na:
 
 Pełna sygnatura dużego wystąpienia HANA nie jest przeznaczona wyłącznie dla jednego klienta&#39;s. Ten fakt dotyczy stojaków zasobów obliczeniowych i magazynu połączonych przez sieć szkieletową sieci wdrożoną na platformie Azure. Infrastruktura dużej instancji HANA, taka jak Azure, wdraża różne &quot; dzierżawy klientów, &quot; które są odizolowane od siebie na następujących trzech poziomach:
 
-- **Sieć** : Izolacja za pomocą sieci wirtualnych w sygnaturze dużej instancji Hana.
-- **Magazyn** : Izolacja za poorednictwem maszyn wirtualnych magazynu z przydzielonymi woluminami magazynu i Izoluj woluminy magazynu między dzierżawcami.
-- **Obliczanie** : dedykowane przypisywanie jednostek serwera do pojedynczej dzierżawy. Nie ma twardej ani miękkiej partycjonowania jednostek serwerów. Brak udostępniania pojedynczego serwera lub jednostki hosta między dzierżawcami. 
+- **Sieć**: Izolacja za pomocą sieci wirtualnych w sygnaturze dużej instancji Hana.
+- **Magazyn**: Izolacja za poorednictwem maszyn wirtualnych magazynu z przydzielonymi woluminami magazynu i Izoluj woluminy magazynu między dzierżawcami.
+- **Obliczanie**: dedykowane przypisywanie jednostek serwera do pojedynczej dzierżawy. Nie ma twardej ani miękkiej partycjonowania jednostek serwerów. Brak udostępniania pojedynczego serwera lub jednostki hosta między dzierżawcami. 
 
 Wdrożenia jednostek dużego wystąpienia HANA między różnymi dzierżawcami nie są widoczne dla siebie nawzajem. Jednostki z dużymi wystąpieniami HANA wdrożone w różnych dzierżawcach nie mogą komunikować się bezpośrednio ze sobą na poziomie sygnatury dużego wystąpienia HANA. Na poziomie sygnatury dużego wystąpienia HANA można komunikować się tylko z jednostkami dużego wystąpienia HANA w obrębie jednej dzierżawy.
 

@@ -3,16 +3,17 @@ title: Łączenie platformy Azure ExpressRoute z usługą Oracle Cloud Infrastru
 description: Łączenie platformy Azure ExpressRoute z usługą Oracle Cloud Infrastructure (OCI) FastConnect w celu włączenia rozwiązań aplikacji Oracle dla wielu chmur
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 03/16/2020
 ms.author: rogardle
 ms.reviewer: cynthn
-ms.openlocfilehash: e932bf7381e1246f4b489e7d564cf5486c3ec635
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 2717ba307cac82465e0c5df996ef3b668af5e7d4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996234"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963712"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Skonfiguruj bezpośrednie połączenie między platformą Azure a infrastrukturą chmurową Oracle  
 
@@ -43,7 +44,7 @@ Na poniższej ilustracji przedstawiono ogólne omówienie połączeń:
     * Obwód usługi Azure ExpressRoute zapewnia szczegółowe opcje przepustowości, a FastConnect obsługuje 1, 2, 5 lub 10 GB/s. W związku z tym zalecane jest wybranie jednej z tych opcji dopasowania przepustowości w obszarze ExpressRoute.
 
     ![Utwórz obwód ExpressRoute](media/configure-azure-oci-networking/exr-create-new.png)
-1. Zanotuj **klucz usługi**ExpressRoute. Musisz podać klucz podczas konfigurowania obwodu FastConnect.
+1. Zanotuj **klucz usługi** ExpressRoute. Musisz podać klucz podczas konfigurowania obwodu FastConnect.
 
     ![Klucz usługi ExpressRoute](media/configure-azure-oci-networking/exr-service-key.png)
 
@@ -57,7 +58,7 @@ Na poniższej ilustracji przedstawiono ogólne omówienie połączeń:
     * W obszarze Konfiguracja FastConnect wybierz pozycję **Microsoft Azure: ExpressRoute** jako dostawcę.
     * Wybierz bramę dynamicznego routingu, która została zainicjowana w poprzednim kroku.
     * Wybierz przepustowość, która ma zostać zainicjowana. W celu uzyskania optymalnej wydajności przepustowość musi być zgodna z przepustowością wybraną podczas tworzenia obwodu usługi ExpressRoute.
-    * W **kluczu usługi dostawcy**Wklej klucz usługi ExpressRoute.
+    * W **kluczu usługi dostawcy** Wklej klucz usługi ExpressRoute.
     * Użyj pierwszej/30 prywatnej przestrzeni adresów IP używać miejsca w poprzednim kroku dla **podstawowego adresu IP protokołu BGP** i drugiej/30 prywatnej przestrzeni adresów IP dla **POMOCNICZego adresu IP protokołu BGP** .
         * Przypisz pierwszy możliwy do użycia adres dla adresów IP Oracle (podstawowy i pomocniczy), a drugi adres adres IP protokołu BGP klienta (z perspektywy FastConnect). Pierwszy użyteczny adres IP to drugi adres IP w przestrzeni adresowej/30 (pierwszy adres IP jest zastrzeżony przez firmę Microsoft).
     * Kliknij pozycję **Utwórz**.
@@ -76,7 +77,7 @@ Na poniższej ilustracji przedstawiono ogólne omówienie połączeń:
 
 Po zakończeniu konfiguracji sieci można sprawdzić poprawność konfiguracji, klikając pozycję **Pobierz rekordy ARP** i **Pobierz tabelę tras** w bloku prywatnej komunikacji równorzędnej ExpressRoute w Azure Portal.
 
-## <a name="automation"></a>Automation
+## <a name="automation"></a>Automatyzacja
 
 Firma Microsoft stworzyła skrypty Terraform, aby umożliwić automatyczne wdrażanie połączeń sieciowych. Przed wykonaniem skryptów Terraform należy przeprowadzić uwierzytelnienie na platformie Azure, ponieważ wymagają one odpowiednich uprawnień w ramach subskrypcji platformy Azure. Uwierzytelnianie można wykonać przy użyciu jednostki [usługi Azure Active Directory](../../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) lub przy użyciu interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją Terraform](https://www.terraform.io/docs/providers/azurerm/auth/azure_cli.html).
 

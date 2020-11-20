@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: damendo
-ms.openlocfilehash: 28d5ae1451b97c19576baa3f9760b8f784db3175
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 099ead37b8d6b46b767ef59ff24a7e7ff9dc9e3c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84736734"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966449"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Zarządzanie przechwytywaniem pakietów za pomocą usługi Azure Network Watcher przy użyciu portalu
 
@@ -47,9 +47,9 @@ Jeśli sieciowa Grupa zabezpieczeń jest skojarzona z interfejsem sieciowym lub 
    - **Grupa zasobów**: Grupa zasobów maszyny wirtualnej.
    - **Docelowa maszyna wirtualna**: maszyna wirtualna, dla której chcesz utworzyć przechwycenie pakietu.
    - **Nazwa przechwytywania pakietów**: Nazwa przechwycenia pakietu.
-   - **Konto magazynu lub plik**: wybierz pozycję **konto magazynu**, **plik**lub oba. Po wybraniu opcji **plik**przechwytywania zostanie zapisany w ścieżce na maszynie wirtualnej.
+   - **Konto magazynu lub plik**: wybierz pozycję **konto magazynu**, **plik** lub oba. Po wybraniu opcji **plik** przechwytywania zostanie zapisany w ścieżce na maszynie wirtualnej.
    - **Ścieżka do pliku lokalnego**: ścieżka lokalna na maszynie wirtualnej, w której zostanie zapisane przechwytywanie pakietów (prawidłowy tylko wtedy, gdy *plik* jest zaznaczony). Ścieżka musi być prawidłową ścieżką. W przypadku korzystania z maszyny wirtualnej z systemem Linux ścieżka musi rozpoczynać się od */var/Captures*.
-   - **Konta magazynu**: Wybierz istniejące konto magazynu, jeśli wybrano pozycję *konto*magazynu. Ta opcja jest dostępna tylko w przypadku wybrania opcji **Magazyn**.
+   - **Konta magazynu**: Wybierz istniejące konto magazynu, jeśli wybrano pozycję *konto* magazynu. Ta opcja jest dostępna tylko w przypadku wybrania opcji **Magazyn**.
    
      > [!NOTE]
      > Konta usługi Premium Storage nie są obecnie obsługiwane do przechowywania przechwytywania pakietów.
@@ -67,14 +67,14 @@ Jeśli sieciowa Grupa zabezpieczeń jest skojarzona z interfejsem sieciowym lub 
      > [!NOTE]
      > Wartości portów i adresów IP mogą być pojedynczą wartością, zakresem wartości lub zakresem, na przykład 80-1024, dla portu. Można zdefiniować dowolną liczbę filtrów.
 
-4. Kliknij przycisk **OK**.
+4. Wybierz przycisk **OK**.
 
 Po upływie limitu czasu skonfigurowanego dla przechwycenia pakietu przechwycenie pakietu zostanie zatrzymane i będzie można je przejrzeć. Możesz również ręcznie zatrzymać sesję przechwytywania pakietów.
 
 > [!NOTE]
 > Portal automatycznie:
 >  * Tworzy obserwator sieciowy w tym samym regionie co region, w którym zaznaczono maszynę wirtualną, jeśli region nie ma już obserwatora sieci.
->  * Dodaje rozszerzenie maszyny wirtualnej *AzureNetworkWatcherExtension* [Linux](../virtual-machines/linux/extensions-nwa.md) lub [Windows](../virtual-machines/windows/extensions-nwa.md) do maszyny wirtualnej, jeśli nie jest jeszcze zainstalowana.
+>  * Dodaje rozszerzenie maszyny wirtualnej *AzureNetworkWatcherExtension* [Linux](../virtual-machines/extensions/network-watcher-linux.md) lub [Windows](../virtual-machines/extensions/network-watcher-windows.md) do maszyny wirtualnej, jeśli nie jest jeszcze zainstalowana.
 
 ## <a name="delete-a-packet-capture"></a>Usuwanie przechwytywania pakietu
 

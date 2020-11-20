@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: eefd67d4d150c0c8d152002a174c62d31fcb8b5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b6cb195f44bf6c868402481480d9b10802c4d59
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975063"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965680"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Używanie funkcji przechwytywania pakietów do aktywnego monitorowania sieci z alertami i Azure Functions
 
@@ -39,7 +39,7 @@ Korzystając z Network Watcher, alertów i funkcji z poziomu ekosystemu platform
 
 * Najnowsza wersja [Azure PowerShell](/powershell/azure/install-Az-ps).
 * Istniejące wystąpienie Network Watcher. Jeśli jeszcze tego nie masz, [Utwórz wystąpienie Network Watcher](network-watcher-create.md).
-* Istniejąca maszyna wirtualna w tym samym regionie co Network Watcher z rozszerzeniem [systemu Windows](../virtual-machines/windows/extensions-nwa.md) lub [rozszerzeniem maszyny wirtualnej](../virtual-machines/linux/extensions-nwa.md)z systemem Linux.
+* Istniejąca maszyna wirtualna w tym samym regionie co Network Watcher z rozszerzeniem [systemu Windows](../virtual-machines/extensions/network-watcher-windows.md) lub [rozszerzeniem maszyny wirtualnej](../virtual-machines/extensions/network-watcher-linux.md)z systemem Linux.
 
 ## <a name="scenario"></a>Scenariusz
 
@@ -148,7 +148,7 @@ Aby użyć Network Watcher poleceń cmdlet programu PowerShell, Przekaż najnows
 
     ![Pliki programu PowerShell][functions7]
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
 Aby użyć poleceń cmdlet programu PowerShell, należy się uwierzytelnić. Uwierzytelnianie można skonfigurować w aplikacji funkcji. Aby skonfigurować uwierzytelnianie, należy skonfigurować zmienne środowiskowe i przekazać zaszyfrowany plik klucza do aplikacji funkcji.
 
@@ -264,7 +264,7 @@ Teraz można wykonywać wywołania do Network Watcher z poziomu funkcji platform
 4. Okresowe przechwytywanie pakietów sondy do momentu ukończenia.
 5. Powiadom użytkownika, że sesja przechwytywania pakietów została ukończona.
 
-Poniższy przykład to kod programu PowerShell, który może być używany w funkcji. Istnieją wartości, które muszą zostać zastąpione dla identyfikatora **subskrypcji**, **resourceGroupName**i **storageAccountName**.
+Poniższy przykład to kod programu PowerShell, który może być używany w funkcji. Istnieją wartości, które muszą zostać zastąpione dla identyfikatora **subskrypcji**, **resourceGroupName** i **storageAccountName**.
 
 ```powershell
             #Import Azure PowerShell modules required to make calls to Network Watcher
@@ -340,7 +340,7 @@ Alerty można skonfigurować w taki sposób, aby powiadamiać osoby, gdy określ
 
 ### <a name="create-the-alert-rule"></a>Tworzenie reguły alertu
 
-Przejdź do istniejącej maszyny wirtualnej, a następnie Dodaj regułę alertu. Bardziej szczegółową dokumentację dotyczącą konfigurowania alertów można znaleźć [w temacie Tworzenie alertów w Azure monitor dla usług platformy Azure — Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md). Wprowadź następujące wartości w bloku **reguła alertu** , a następnie wybierz przycisk **OK**.
+Przejdź do istniejącej maszyny wirtualnej, a następnie Dodaj regułę alertu. Bardziej szczegółową dokumentację dotyczącą konfigurowania alertów można znaleźć [w temacie Tworzenie alertów w Azure monitor dla usług platformy Azure — Azure Portal](../azure-monitor/platform/alerts-classic-portal.md). Wprowadź następujące wartości w bloku **reguła alertu** , a następnie wybierz przycisk **OK**.
 
   |**Ustawienie** | **Wartość** | **Szczegóły** |
   |---|---|---|
@@ -353,7 +353,7 @@ Przejdź do istniejącej maszyny wirtualnej, a następnie Dodaj regułę alertu.
   |**Element webhook**|[adres URL elementu webhook z aplikacji funkcji]| Adres URL elementu webhook z aplikacji funkcji, który został utworzony w poprzednich krokach.|
 
 > [!NOTE]
-> Metryka segmentów TCP nie jest domyślnie włączona. Dowiedz się więcej o tym, jak włączyć dodatkowe metryki, odwiedzając [funkcję monitorowanie i diagnostykę](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).
+> Metryka segmentów TCP nie jest domyślnie włączona. Dowiedz się więcej o tym, jak włączyć dodatkowe metryki, odwiedzając [funkcję monitorowanie i diagnostykę](../azure-monitor/overview.md).
 
 ## <a name="review-the-results"></a>Sprawdzanie wyników
 
@@ -363,11 +363,11 @@ Po zastosowaniu kryteriów dla wyzwalaczy alertów zostanie utworzone przechwyty
 
 Jeśli plik przechwytywania jest przechowywany lokalnie, możesz go pobrać, logując się do maszyny wirtualnej.
 
-Aby uzyskać instrukcje dotyczące pobierania plików z kont usługi Azure Storage, zobacz [Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Innym narzędziem, którego można użyć, jest [Eksplorator usługi Storage](https://storageexplorer.com/).
+Aby uzyskać instrukcje dotyczące pobierania plików z kont usługi Azure Storage, zobacz [Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). Innym narzędziem, którego można użyć, jest [Eksplorator usługi Storage](https://storageexplorer.com/).
 
 Po pobraniu przechwytywania można je wyświetlić przy użyciu dowolnego narzędzia, które może odczytać plik **. Cap** . Poniżej znajdują się linki do dwóch z następujących narzędzi:
 
-- [Analizator komunikatów firmy Microsoft](https://technet.microsoft.com/library/jj649776.aspx)
+- [Analizator komunikatów firmy Microsoft](/message-analyzer/microsoft-message-analyzer-operating-guide)
 - [WireShark](https://www.wireshark.org/)
 
 ## <a name="next-steps"></a>Następne kroki

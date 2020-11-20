@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/16/2016
 ms.author: alkohli
-ms.openlocfilehash: 95386f36340aca470769c920e40bbb70e09d34fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67d3fafb9b4b93ae52bdb09d673bf65cad30b816
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80397880"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966160"
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>StorSimple Virtual Array Update 0,2 i 0,1 — informacje o wersji
 ## <a name="overview"></a>Omówienie
@@ -37,7 +37,7 @@ Aktualizacja 0,2 jest zgodna z wersją oprogramowania **10.0.10280.0**; Aktualiz
 ## <a name="issues-fixed-in-the-update-02"></a>Problemy rozwiązane w aktualizacji 0,2
 Aktualizacja 0,2 obejmuje wszystkie zmiany z aktualizacji 0,1 oprócz poprawki opisanej w poniższej tabeli:
 
-| Cecha | Problem |
+| Obiekt feature | Problem |
 | --- | --- |
 | Aktualizacje |W ostatniej wersji aktualizacje nie zostały wykryte automatycznie w klasycznym portalu Azure, dlatego należy użyć lokalnego interfejsu użytkownika sieci Web do zainstalowania aktualizacji. Ten problem został rozwiązany w tej wersji. Po zainstalowaniu aktualizacji 0,2 można zainstalować przyszłe aktualizacje przy użyciu klasycznego portalu Azure. |
 
@@ -54,7 +54,7 @@ Aktualizacja 0,1 zawiera następujące poprawki błędów i ulepszenia.
 ## <a name="issues-fixed-in-the-update-01"></a>Problemy rozwiązane w aktualizacji 0,1
 Poniższa tabela zawiera podsumowanie problemów rozwiązanych w tej wersji.
 
-| Nie. | Cecha | Problem |
+| Nie. | Obiekt feature | Problem |
 | --- | --- | --- |
 | 1 |VMDK |W niektórych wersjach programu VMware dysk systemu operacyjnego był traktowany jako rozrzedzony powodujący alerty i zakłócanie normalnych operacji. Ten problem został rozwiązany w tej wersji. |
 | 2 |serwer iSCSI |W ostatniej wersji użytkownik musiał określić bramę dla każdego włączonego interfejsu sieciowego urządzenia wirtualnego StorSimple. To zachowanie jest zmieniane w tej wersji, dzięki czemu użytkownik musi skonfigurować co najmniej jedną bramę dla wszystkich włączonych interfejsów sieciowych. |
@@ -65,12 +65,12 @@ Poniższa tabela zawiera podsumowanie problemów rozwiązanych w tej wersji.
 ## <a name="known-issues-in-the-update-01"></a>Znane problemy z aktualizacją 0,1
 Poniższa tabela zawiera podsumowanie znanych problemów dotyczących macierzy wirtualnej StorSimple i obejmuje wydanie wydań z poprzednich wersji. **Wydanie problemów zanotowane w tej wersji jest oznaczone gwiazdką. Prawie wszystkie problemy na tej liście przeprowadzono w porównaniu z wersją StorSimple macierzy wirtualnej.**
 
-| Nie. | Cecha | Problem | Obejście/Komentarze |
+| Nie. | Obiekt feature | Problem | Obejście/Komentarze |
 | --- | --- | --- | --- |
 | **1.** |Aktualizacje |Nie można zaktualizować urządzeń wirtualnych utworzonych w wersji zapoznawczej do obsługiwanej wersji ogólnej dostępności. |Te urządzenia wirtualne muszą zostać przełączone w tryb failover w celu udostępnienia ogólnej wersji dostępności przy użyciu przepływu pracy odzyskiwania po awarii (DR). |
 | **2.** |Dysk danych z zainicjowaną obsługą |Po zainicjowaniu obsługi dysku z danymi określonego rozmiaru i utworzeniu odpowiedniego urządzenia wirtualnego StorSimple nie należy rozwijać ani zmniejszać dysku z danymi. Próba wykonania tej czynności spowoduje utratę wszystkich danych w warstwach lokalnych urządzenia. | |
 | **3.** |Zasady grupy |Gdy urządzenie jest przyłączone do domeny, zastosowanie zasad grupy może niekorzystnie wpłynąć na działanie urządzenia. |Upewnij się, że tablica wirtualna ma własną jednostkę organizacyjną (OU) dla Active Directory i nie są do niej stosowane obiekty zasad grupy (GPO). |
-| **czwart.** |Lokalny interfejs użytkownika sieci Web |Jeśli ulepszone funkcje zabezpieczeń są włączone w programie Internet Explorer (IE ESC), niektóre strony lokalnego interfejsu użytkownika sieci Web, takie jak Rozwiązywanie problemów lub konserwacja, mogą nie funkcjonować prawidłowo. Przyciski na tych stronach mogą również nie funkcjonować. |Wyłącz ulepszone funkcje zabezpieczeń w programie Internet Explorer. |
+| **4.** |Lokalny interfejs użytkownika sieci Web |Jeśli ulepszone funkcje zabezpieczeń są włączone w programie Internet Explorer (IE ESC), niektóre strony lokalnego interfejsu użytkownika sieci Web, takie jak Rozwiązywanie problemów lub konserwacja, mogą nie funkcjonować prawidłowo. Przyciski na tych stronach mogą również nie funkcjonować. |Wyłącz ulepszone funkcje zabezpieczeń w programie Internet Explorer. |
 | **5000.** |Lokalny interfejs użytkownika sieci Web |W maszynie wirtualnej funkcji Hyper-V interfejsy sieciowe w interfejsie użytkownika sieci Web są wyświetlane jako interfejsy 10 GB/s. |To zachowanie jest odbiciem funkcji Hyper-V. Funkcja Hyper-V zawsze pokazuje 10 GB/s dla wirtualnych kart sieciowych. |
 | **ust.** |Woluminy warstwowe lub udziały |Blokowanie zakresu bajtów dla aplikacji współpracujących z woluminami warstwowymi StorSimple nie jest obsługiwane. Jeśli jest włączone blokowanie zakresu bajtów, StorSimple nie będzie działała. |Zalecane miary obejmują: <br></br>Wyłącz blokowanie zakresu bajtów w logice aplikacji.<br></br>Wybierz opcję umieszczenia danych dla tej aplikacji na woluminach przypiętych lokalnie, zamiast woluminów warstwowych.<br></br>*Zastrzeżenie*: w przypadku używania woluminów przypiętych lokalnie i blokowania zakresu bajtów należy pamiętać, że wolumin przypięty lokalnie może być w trybie online nawet przed ukończeniem przywracania. W takich przypadkach, jeśli przywracanie jest w toku, należy poczekać na ukończenie przywracania. |
 | **7.** |Udziały warstwowe |Praca z dużymi plikami może spowodować spowolnienie warstwy. |Podczas pracy z dużymi plikami zalecamy, aby największy plik był mniejszy niż 3% rozmiaru udziału. |
@@ -83,5 +83,4 @@ Poniższa tabela zawiera podsumowanie znanych problemów dotyczących macierzy w
 | **14,5.** |Serwer plików * |Jeśli do pliku w folderze są skojarzone alternatywne strumienie danych (ADS), nie są one tworzone ani przywracane w ramach odzyskiwania po awarii, klonowania i odzyskiwania na poziomie elementu. | |
 
 ## <a name="next-step"></a>Następny krok
-[Zainstaluj aktualizacje](storsimple-ova-install-update-01.md) w macierzy wirtualnej StorSimple.
-
+[Zainstaluj aktualizacje](./storsimple-virtual-array-install-update-06.md) w macierzy wirtualnej StorSimple.

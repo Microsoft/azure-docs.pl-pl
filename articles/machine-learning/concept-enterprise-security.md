@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: a9ad018980784a1f809ad28a77dacf9f0328fffa
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 4e2bcb683c9d4c5248315549bf6d6ee26b2a51ac
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873900"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965038"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Zabezpieczenia i zarządzanie dla przedsiębiorstw Azure Machine Learning
 
@@ -49,7 +49,7 @@ Aby uzyskać więcej informacji, zobacz [uwierzytelnianie dla Azure Machine Lear
 
 ### <a name="azure-rbac"></a>Kontrola dostępu na podstawie ról platformy Azure
 
-Można utworzyć wiele obszarów roboczych, a każdy obszar roboczy może być współużytkowany przez wiele osób. Można kontrolować, które funkcje lub operacje dostępne dla użytkowników obszaru roboczego mogą uzyskać dostęp, przypisując swoje konto usługi Azure AD do ról RBAC platformy Azure. Poniżej przedstawiono wbudowane role:
+Można utworzyć wiele obszarów roboczych, a każdy obszar roboczy może być współużytkowany przez wiele osób. Można kontrolować, które funkcje lub operacje dostępne dla użytkowników obszaru roboczego mogą uzyskać dostęp, przypisując swoje konto usługi Azure AD do ról platformy Azure. Poniżej przedstawiono wbudowane role:
 
 * Właściciel
 * Współautor

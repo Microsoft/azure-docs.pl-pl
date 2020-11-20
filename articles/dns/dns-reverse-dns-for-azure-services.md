@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
-ms.openlocfilehash: 15396467e92b3e035add03d0d29888558571aa2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3adbf34e4c19a76c2b5b2b1968c7821f37965929
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84711242"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965633"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Konfigurowanie odwrotnego serwera DNS dla usług hostowanych na platformie Azure
 
@@ -211,7 +211,7 @@ Aby usunąć odwrotną Właściwość DNS z istniejącej usługi w chmurze:
 Set-AzureService –ServiceName "contosoapp1" –Description "App1 with Reverse DNS" –ReverseDnsFqdn ""
 ```
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 ### <a name="how-much-do-reverse-dns-records-cost"></a>Jak wiele kosztów odwrotnych rekordów DNS?
 
@@ -247,11 +247,10 @@ Nie. Obecnie platforma Azure obsługuje odwrotną usługę DNS tylko w przypadku
 
 ### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>Czy mogę wysyłać wiadomości e-mail do domen zewnętrznych z usług obliczeniowych platformy Azure?
 
-Możliwość wysyłania wiadomości e-mail bezpośrednio z wdrożenia platformy Azure zależy od typu subskrypcji. Niezależnie od typu subskrypcji firma Microsoft zaleca używanie zaufanych usług przekazywania poczty do wysyłania poczty wychodzącej. Aby uzyskać więcej informacji, zobacz [ulepszone zabezpieczenia platformy Azure na potrzeby wysyłania wiadomości e-mail — Aktualizacja z listopada 2017](https://blogs.msdn.microsoft.com/mast/2017/11/15/enhanced-azure-security-for-sending-emails-november-2017-update/).
+Możliwość wysyłania wiadomości e-mail bezpośrednio z wdrożenia platformy Azure zależy od typu subskrypcji. Niezależnie od typu subskrypcji firma Microsoft zaleca używanie zaufanych usług przekazywania poczty do wysyłania poczty wychodzącej. Aby uzyskać więcej informacji, zobacz [ulepszone zabezpieczenia platformy Azure na potrzeby wysyłania wiadomości e-mail — Aktualizacja z listopada 2017](../virtual-network/troubleshoot-outbound-smtp-connectivity.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać więcej informacji na temat odwrotnej usługi DNS, zobacz [odwrotne wyszukiwanie DNS w witrynie Wikipedia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
 Dowiedz się [, jak hostować strefę wyszukiwania wstecznego dla zakresu adresów IP przypisanych przez usługodawcę internetowego w Azure DNS](dns-reverse-dns-for-azure-services.md).
-

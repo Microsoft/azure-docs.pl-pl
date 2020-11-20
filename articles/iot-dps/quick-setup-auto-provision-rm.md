@@ -8,22 +8,22 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 91e4e7de73d820c345b2973896d07d3479e49f9e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 59b68730710de189d690c367e2c04e3a433c9af2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748083"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964749"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Szybki Start: Konfigurowanie IoT Hub Device Provisioning Service przy użyciu szablonu Azure Resource Manager
 
-Przy użyciu usługi [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) można skonfigurować programowo zasoby w chmurze platformy Azure niezbędne do aprowizacji urządzeń. W tych krokach przedstawiono sposób tworzenia Centrum IoT i nowego IoT Hub Device Provisioning Service oraz łączenia tych dwóch usług przy użyciu szablonu Azure Resource Manager. Ten przewodnik Szybki Start korzysta z [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) w celu wykonania czynności programistycznych niezbędnych do utworzenia grupy zasobów i wdrożenia szablonu, ale w celu wykonania tych kroków i wdrożenia szablonu można łatwo użyć [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [programu PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), platformy .NET, języka Ruby lub innych języków programowania. 
+Przy użyciu usługi [Azure Resource Manager](../azure-resource-manager/management/overview.md) można skonfigurować programowo zasoby w chmurze platformy Azure niezbędne do aprowizacji urządzeń. W tych krokach przedstawiono sposób tworzenia Centrum IoT i nowego IoT Hub Device Provisioning Service oraz łączenia tych dwóch usług przy użyciu szablonu Azure Resource Manager. Ten przewodnik Szybki Start korzysta z [interfejsu wiersza polecenia platformy Azure](../azure-resource-manager/templates/deploy-cli.md) w celu wykonania czynności programistycznych niezbędnych do utworzenia grupy zasobów i wdrożenia szablonu, ale w celu wykonania tych kroków i wdrożenia szablonu można łatwo użyć [Azure Portal](../azure-resource-manager/templates/deploy-portal.md), [programu PowerShell](../azure-resource-manager/templates/deploy-powershell.md), platformy .NET, języka Ruby lub innych języków programowania. 
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Ten przewodnik Szybki Start wymaga lokalnego uruchomienia interfejsu wiersza polecenia platformy Azure. Musi być zainstalowany wiersz polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja interfejsu wiersza polecenia lub jego uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+- Ten przewodnik Szybki Start wymaga lokalnego uruchomienia interfejsu wiersza polecenia platformy Azure. Musi być zainstalowany wiersz polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja interfejsu wiersza polecenia lub jego uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 
 ## <a name="sign-in-to-azure-and-create-a-resource-group"></a>Logowanie się do platformy Azure i tworzenie grupy zasobów
@@ -113,7 +113,7 @@ Użyj szablonu JSON, aby utworzyć usługę inicjowania i połączone centrum Io
 
    ```
 
-4. Aby utworzyć centrum IoT, dodaj następujące wiersze do kolekcji **resources** . KOD JSON określa minimalne właściwości wymagane do utworzenia Centrum IoT Hub. Wartości **nazwy** i **lokalizacji** zostaną przesłane jako parametry z innego pliku. Aby dowiedzieć się więcej o właściwościach, które można określić dla Centrum IoT w szablonie, zobacz [Microsoft. Devices/IotHubs Template Reference](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs).
+4. Aby utworzyć centrum IoT, dodaj następujące wiersze do kolekcji **resources**. KOD JSON określa minimalne właściwości wymagane do utworzenia Centrum IoT Hub. Wartości **nazwy** i **lokalizacji** zostaną przesłane jako parametry z innego pliku. Aby dowiedzieć się więcej o właściwościach, które można określić dla Centrum IoT w szablonie, zobacz [Microsoft. Devices/IotHubs Template Reference](/azure/templates/microsoft.devices/iothubs).
 
    ```json
         {
@@ -133,9 +133,9 @@ Użyj szablonu JSON, aby utworzyć usługę inicjowania i połączone centrum Io
 
    ``` 
 
-5. Aby utworzyć usługę aprowizacji, dodaj następujące wiersze po specyfikacji centrum IoT w kolekcji **resources** . **Nazwa** i **Lokalizacja** usługi aprowizacji zostaną przesłane jako parametry. Kolekcja **iotHubs** określa centra IoT, które mają zostać połączone z usługą aprowizacji. Należy co najmniej określić właściwości **connectionString** i **location** dla każdego połączonego centrum IoT. Można również ustawić właściwości, takie jak **allocationWeight** i **applyAllocationPolicy** dla każdego centrum IoT, a także właściwości, takie jak **allocationPolicy** i **authorizationPolicies** , dla usługi aprowizacji. Więcej informacji zawiera dokumentacja dotycząca szablonów [Microsoft.Devices/provisioningServices](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices).
+5. Aby utworzyć usługę aprowizacji, dodaj następujące wiersze po specyfikacji centrum IoT w kolekcji **resources**. **Nazwa** i **Lokalizacja** usługi aprowizacji zostaną przesłane jako parametry. Kolekcja **iotHubs** określa centra IoT, które mają zostać połączone z usługą aprowizacji. Należy co najmniej określić właściwości **connectionString** i **location** dla każdego połączonego centrum IoT. Można również ustawić właściwości, takie jak **allocationWeight** i **applyAllocationPolicy** dla każdego centrum IoT, a także właściwości, takie jak **allocationPolicy** i **authorizationPolicies**, dla usługi aprowizacji. Więcej informacji zawiera dokumentacja dotycząca szablonów [Microsoft.Devices/provisioningServices](/azure/templates/microsoft.devices/provisioningservices).
 
-   Właściwość **dependsOn** służy do zapewnienia, że usługa Resource Manager utworzy centrum IoT zanim utworzy usługę aprowizacji. Szablon wymaga parametrów połączenia z centrum IoT, aby móc określić połączenie z usługą, dlatego centrum i jego klucze muszą zostać utworzone w pierwszej kolejności. Szablon używa funkcji, takich jak **concat** i **listKeys** , do tworzenia parametrów połączenia z zmiennych sparametryzowanych. Więcej informacji zawiera dokumentacja [funkcji szablonów usługi Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions).
+   Właściwość **dependsOn** służy do zapewnienia, że usługa Resource Manager utworzy centrum IoT zanim utworzy usługę aprowizacji. Szablon wymaga parametrów połączenia z centrum IoT, aby móc określić połączenie z usługą, dlatego centrum i jego klucze muszą zostać utworzone w pierwszej kolejności. Szablon używa funkcji, takich jak **concat** i **listKeys** , do tworzenia parametrów połączenia z zmiennych sparametryzowanych. Więcej informacji zawiera dokumentacja [funkcji szablonów usługi Azure Resource Manager](../azure-resource-manager/templates/template-functions.md).
 
    ```json
         {
@@ -300,7 +300,7 @@ Szablon zdefiniowany w ostatnim kroku używa parametrów, aby określić nazwę 
 
 Użyj następujących poleceń interfejsu wiersza polecenia Azure, aby wdrożyć szablony i zweryfikować wdrożenie.
 
-1. Aby wdrożyć szablon, przejdź do folderu zawierającego pliki szablonu i parametrów, a następnie uruchom następujące [polecenie, aby rozpocząć wdrożenie](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create&preserve-view=true):
+1. Aby wdrożyć szablon, przejdź do folderu zawierającego pliki szablonu i parametrów, a następnie uruchom następujące [polecenie, aby rozpocząć wdrożenie](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create&preserve-view=true):
     
     ```azurecli
      az group deployment create -g {your resource group name} --template-file template.json --parameters @parameters.json
@@ -311,7 +311,7 @@ Użyj następujących poleceń interfejsu wiersza polecenia Azure, aby wdrożyć
    ![Dane wyjściowe aprowizacji](./media/quick-setup-auto-provision-rm/output.png) 
 
 
-2. Aby zweryfikować wdrożenie, uruchom następujące [polecenie w celu wyświetlenia listy zasobów](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list&preserve-view=true) i wyszukaj nową usługę aprowizacji i centrum IoT w danych wyjściowych:
+2. Aby zweryfikować wdrożenie, uruchom następujące [polecenie w celu wyświetlenia listy zasobów](/cli/azure/resource?view=azure-cli-latest#az-resource-list&preserve-view=true) i wyszukaj nową usługę aprowizacji i centrum IoT w danych wyjściowych:
 
     ```azurecli
      az resource list -g {your resource group name}
@@ -351,13 +351,13 @@ W tym przewodniku szybki start wdrożono Centrum IoT Hub i wystąpienie usługi 
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-[lnk-CLI-install]: https://docs.microsoft.com/cli/azure/install-az-cli2
-[lnk-login-command]: https://docs.microsoft.com/cli/azure/get-started-with-az-cli2
-[lnk-az-account-command]: https://docs.microsoft.com/cli/azure/account
-[lnk-az-register-command]: https://docs.microsoft.com/cli/azure/provider
-[lnk-az-addcomponent-command]: https://docs.microsoft.com/cli/azure/component
-[lnk-az-resource-command]: https://docs.microsoft.com/cli/azure/resource
-[lnk-az-iot-command]: https://docs.microsoft.com/cli/azure/iot
+[lnk-CLI-install]: /cli/azure/install-az-cli2
+[lnk-login-command]: /cli/azure/get-started-with-az-cli2
+[lnk-az-account-command]: /cli/azure/account
+[lnk-az-register-command]: /cli/azure/provider
+[lnk-az-addcomponent-command]: /cli/azure/component
+[lnk-az-resource-command]: /cli/azure/resource
+[lnk-az-iot-command]: /cli/azure/iot
 [lnk-iot-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-portal]: iot-hub-create-through-portal.md 
+[lnk-portal]: iot-hub-create-through-portal.md

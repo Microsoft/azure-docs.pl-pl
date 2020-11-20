@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: bdf69a9ff7b3260b47042f296a47826e3c52387b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71b018da6b54ebf2b45a261378ea521a397159e5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81460651"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964987"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>StorSimple Virtual Array best practices (Najlepsze rozwiązania dotyczące macierzy wirtualnej StorSimple)
 
@@ -119,7 +119,7 @@ Jeśli Macierz wirtualna jest przyłączona do domeny, można do niej zastosowa�
 W związku z tym zalecamy:
 
 * Upewnij się, że tablica wirtualna ma własną jednostkę organizacyjną (OU) dla Active Directory.
-* Upewnij się, że żadne obiekty zasad grupy (GPO) nie są stosowane do macierzy wirtualnej. Można zablokować dziedziczenie, aby upewnić się, że Macierz wirtualna (węzeł podrzędny) nie dziedziczy automatycznie żadnych obiektów zasad grupy z elementu nadrzędnego. Aby uzyskać więcej informacji, przejdź do [bloku Blokowanie dziedziczenia](https://technet.microsoft.com/library/cc731076.aspx).
+* Upewnij się, że żadne obiekty zasad grupy (GPO) nie są stosowane do macierzy wirtualnej. Można zablokować dziedziczenie, aby upewnić się, że Macierz wirtualna (węzeł podrzędny) nie dziedziczy automatycznie żadnych obiektów zasad grupy z elementu nadrzędnego. Aby uzyskać więcej informacji, przejdź do [bloku Blokowanie dziedziczenia](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731076(v=ws.11)).
 
 ### <a name="networking"></a>Networking
 Konfiguracja sieci dla macierzy wirtualnej odbywa się za pomocą lokalnego interfejsu użytkownika sieci Web. Interfejs sieci wirtualnej jest włączany za pomocą funkcji hypervisor, w której zainicjowano obsługę macierzy wirtualnej. Na stronie [Ustawienia sieci](storsimple-virtual-array-deploy3-fs-setup.md) można skonfigurować adres IP, podsieć i bramę interfejsu sieci wirtualnej.  Można również skonfigurować podstawowy i pomocniczy serwer DNS, ustawienia czasu oraz opcjonalne ustawienia serwera proxy dla urządzenia. Większość konfiguracji sieci to jednorazowa konfiguracja. Przed wdrożeniem macierzy wirtualnej zapoznaj się z [wymaganiami dotyczącymi sieci StorSimple](storsimple-ova-system-requirements.md#networking-requirements) .
@@ -137,7 +137,7 @@ Podczas wdrażania macierzy wirtualnej zalecamy przestrzeganie następujących n
   * Skonfiguruj statyczne adresy IP. Należy skonfigurować podstawowy i pomocniczy serwer DNS.
   * Jeśli zdefiniowano wiele interfejsów sieciowych w macierzy wirtualnej, tylko pierwszy interfejs sieciowy (Domyślnie ten interfejs to **Ethernet**) może dotrzeć do chmury. Aby kontrolować typ ruchu, można utworzyć wiele interfejsów sieci wirtualnych w macierzy wirtualnej (skonfigurowany jako serwer iSCSI) i połączyć te interfejsy z różnymi podsieciami.
 * Aby ograniczyć przepustowość chmury (używaną przez macierz wirtualną), skonfiguruj ograniczenie przepustowości routera lub zapory. Jeśli zdefiniujesz ograniczenie w funkcji hypervisor, zostaną one ograniczone do wszystkich protokołów, w tym iSCSI i SMB, a nie tylko z przepustowością chmury.
-* Upewnij się, że synchronizacja czasu dla funkcji hypervisor jest włączona. W przypadku korzystania z funkcji Hyper-V wybierz macierz wirtualną w Menedżerze funkcji Hyper-V, przejdź do pozycji **ustawienia &gt; usługi integracji**i upewnij się, że jest zaznaczona opcja **synchronizacja czasu** .
+* Upewnij się, że synchronizacja czasu dla funkcji hypervisor jest włączona. W przypadku korzystania z funkcji Hyper-V wybierz macierz wirtualną w Menedżerze funkcji Hyper-V, przejdź do pozycji **ustawienia &gt; usługi integracji** i upewnij się, że jest zaznaczona opcja **synchronizacja czasu** .
 
 ### <a name="storage-accounts"></a>Konta magazynu
 Macierz wirtualna StorSimple może być skojarzona z jednym kontem magazynu. To konto magazynu może być automatycznie wygenerowanym kontem magazynu, kontem w tej samej subskrypcji co usługa lub kontem magazynu związanym z inną subskrypcją. Aby uzyskać więcej informacji, zobacz jak [zarządzać kontami magazynu dla macierzy wirtualnej](storsimple-virtual-array-manage-storage-accounts.md).
@@ -287,6 +287,5 @@ Może być konieczne wdrożenie wielu tablic wirtualnych na potrzeby rosnącego 
 * W przypadku wdrażania wielu tablic wirtualnych zaleca się, aby z perspektywy równoważenia obciążenia rozesłać tablicę między różnymi hostami funkcji hypervisor.
 * Wiele macierzy wirtualnych (w przypadku skonfigurowania serwera plików lub serwera iSCSI) można wdrożyć w przestrzeni nazw rozproszony system plików. Aby uzyskać szczegółowe instrukcje, przejdź do [rozwiązania rozproszony system plików przestrzeń nazw z przewodnikiem wdrażania hybrydowego magazynu w chmurze](https://www.microsoft.com/download/details.aspx?id=45507). Replikacja rozproszony system plików nie jest obecnie zalecana do użycia z wirtualną macierzą. 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 Dowiedz się, jak [administrować macierzą wirtualną StorSimple](storsimple-virtual-array-manager-service-administration.md) za pośrednictwem usługi StorSimple Manager.
-

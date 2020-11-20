@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 1f17463125cead64bd58a2d07e53eee4d3cfcd70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c458508dbf8d98349ec8549af32e3dd48bbd09b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76840812"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966432"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Wprowadzenie do funkcji przechwytywania pakietów zmiennych w usłudze Azure Network Watcher
 
@@ -25,7 +25,7 @@ Network Watcher przechwytywanie pakietów zmiennych umożliwia tworzenie sesji p
 Przechwytywanie pakietów to rozszerzenie maszyny wirtualnej, które jest zdalnie uruchamiane za pomocą Network Watcher. Ta funkcja ułatwia obciążenie przechwycenia pakietu ręcznie na wybranej maszynie wirtualnej, co pozwala zaoszczędzić cenny czas. Przechwytywanie pakietów może być wyzwalane za pomocą portalu, programu PowerShell, interfejsu wiersza polecenia lub API REST. Przykładem możliwości wyzwolenia funkcji przechwytywania pakietów są alerty maszyn wirtualnych. Filtry są udostępniane dla sesji przechwytywania, aby zapewnić przechwytywanie ruchu, który ma być monitorowany. Filtry są oparte na podanej kolekcji 5 (protokół, lokalny adres IP, zdalny adres IP, port lokalny i Port zdalny). Przechwycone dane są przechowywane na dysku lokalnym lub w magazynie obiektów BLOB. Istnieje limit 10 sesji przechwytywania pakietów na region na subskrypcję. Ten limit dotyczy tylko sesji i nie ma zastosowania do zapisanych plików przechwytywania pakietów lokalnie na maszynie wirtualnej lub na koncie magazynu.
 
 > [!IMPORTANT]
-> Przechwytywanie pakietów wymaga rozszerzenia maszyny wirtualnej `AzureNetworkWatcherExtension` . Aby zainstalować rozszerzenie na maszynie wirtualnej z systemem Windows, odwiedź [rozszerzenie maszyny wirtualnej usługi azure Network Watcher Agent dla systemu Windows](../virtual-machines/windows/extensions-nwa.md) i dla maszyny wirtualnej z systemem Linux odwiedź [rozszerzenie maszyny wirtualnej agenta usługi Azure Network Watcher](../virtual-machines/linux/extensions-nwa.md).
+> Przechwytywanie pakietów wymaga rozszerzenia maszyny wirtualnej `AzureNetworkWatcherExtension` . Aby zainstalować rozszerzenie na maszynie wirtualnej z systemem Windows, odwiedź [rozszerzenie maszyny wirtualnej usługi azure Network Watcher Agent dla systemu Windows](../virtual-machines/extensions/network-watcher-windows.md) i dla maszyny wirtualnej z systemem Linux odwiedź [rozszerzenie maszyny wirtualnej agenta usługi Azure Network Watcher](../virtual-machines/extensions/network-watcher-linux.md).
 
 Aby zmniejszyć przechwytywane informacje tylko do żądanych informacji, dostępne są następujące opcje dla sesji przechwytywania pakietów:
 
@@ -55,16 +55,3 @@ Dowiedz się, jak utworzyć proaktywne przechwycenia pakietów na podstawie aler
 
 <!--Image references-->
 [1]: ./media/network-watcher-packet-capture-overview/figure1.png
-
-
-
-
-
-
-
-
-
-
-
-
-

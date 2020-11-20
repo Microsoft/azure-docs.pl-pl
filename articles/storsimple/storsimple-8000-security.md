@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 4598f71f9b611e68f8eb00676138784833c39f32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72bf252488878c8b6fabb2ea2d61658a2cd87e14
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75891510"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966211"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple zabezpieczeń i ochrony danych
 
@@ -269,7 +269,7 @@ Odp **.:** Jeśli hasło zostało zapomniane, należy utworzyć nowe. Następnie
 
 Odp **.:** Nowy certyfikat można pobrać z usługi StorSimple Menedżer urządzeń, a następnie udostępnić go w magazynie certyfikatów klientów dostępu zdalnego. Aby uzyskać instrukcje, przejdź do:
 
-* [Polecenie cmdlet Import-Certificate](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate)
+* [Polecenie cmdlet Import-Certificate](/powershell/module/pkiclient/import-certificate)
 
 **P:** Czy moje dane są chronione w przypadku naruszenia zabezpieczeń usługi StorSimple Menedżer urządzeń?
 
@@ -288,4 +288,3 @@ Odp **.:** Ze względu na to, że wszystkie dane są szyfrowane w usłudze, a kl
 ## <a name="next-steps"></a>Następne kroki
 
 [Wdróż Urządzenie StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
-

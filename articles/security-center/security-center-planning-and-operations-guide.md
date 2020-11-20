@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 36c15907c0f45befacf35389652f6d91c0ab1958
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1f5db17549c2b95d5dd0dd2f866ca1d1c0e7d8aa
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787911"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965123"
 ---
 # <a name="planning-and-operations-guide"></a>Przewodnik dotyczący planowania i operacji
 Ten przewodnik jest przeznaczony dla specjalistów IT, architektów IT, analityków zabezpieczeń informacji i administratorów chmury do korzystania z Azure Security Center.
@@ -40,7 +40,7 @@ W zależności od rozmiaru i struktury organizacji wiele osób oraz zespołów m
 
 ![Role](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
 
-Usługa Security Center umożliwia tym osobom wypełnianie różnych obowiązków. Na przykład:
+Usługa Security Center umożliwia tym osobom wypełnianie różnych obowiązków. Przykład:
 
 **Jan (właściciel obciążenia)**
 
@@ -71,12 +71,12 @@ Usługa Security Center umożliwia tym osobom wypełnianie różnych obowiązkó
 
 Security Center używa [kontroli dostępu opartej na rolach platformy Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md), która udostępnia [wbudowane role](../role-based-access-control/built-in-roles.md) , które można przypisać do użytkowników, grup i usług na platformie Azure. Gdy użytkownik otwiera usługę Security Center, widzi tylko informacje dotyczące zasobów, do których ma dostęp. Oznacza to, że użytkownik ma przypisaną rolę właściciela, współautora lub czytelnika subskrypcji albo grupy zasobów, do której należy zasób. Oprócz tych ról istnieją dwie określone role usługi Security Center:
 
-- **Czytelnik zabezpieczeń** : użytkownik, który należy do tej roli, może wyświetlać tylko konfiguracje usługi Security Center, co obejmuje zalecenia, alerty, zasady i kondycję, ale nie może wprowadzać zmian.
-- **Administrator zabezpieczeń** : użytkownik ma takie same uprawnienia, jak w przypadku roli Czytelnik zabezpieczeń, ale ma również możliwość aktualizowania zasad zabezpieczeń oraz odrzucania zaleceń i alertów.
+- **Czytelnik zabezpieczeń**: użytkownik, który należy do tej roli, może wyświetlać tylko konfiguracje usługi Security Center, co obejmuje zalecenia, alerty, zasady i kondycję, ale nie może wprowadzać zmian.
+- **Administrator zabezpieczeń**: użytkownik ma takie same uprawnienia, jak w przypadku roli Czytelnik zabezpieczeń, ale ma również możliwość aktualizowania zasad zabezpieczeń oraz odrzucania zaleceń i alertów.
 
 Opisane powyżej role usługi Security Center nie mają dostępu do innych obszarów usług platformy Azure, takich jak magazyn, sieć internetowa i aplikacje mobilne oraz Internet rzeczy.
 
-W przypadku osób opisanych na poprzednim diagramie będzie potrzebna następująca kontrola dostępu oparta na rolach:
+Korzystając z osób wyjaśnionego na poprzednim diagramie, wymagana jest następująca kontrola RBAC platformy Azure:
 
 **Jan (właściciel obciążenia)**
 
@@ -106,7 +106,7 @@ Niektóre inne istotne informacje, które należy wziąć pod uwagę:
 * Tylko właściciele lub współautorzy subskrypcji i administratorzy zabezpieczeń mogą edytować zasady zabezpieczeń.
 * Tylko właściciele i współautorzy subskrypcji i grupy zasobów mogą stosować zalecenia dotyczące zabezpieczeń zasobu.
 
-Podczas planowania kontroli dostępu przy użyciu kontroli dostępu opartej na rolach dla usługi Security Center musisz wiedzieć, kto w Twojej organizacji będzie korzystał z usługi. Ponadto musisz wiedzieć, jakiego rodzaju zadania będą wykonywały te osoby, a następnie odpowiednio skonfigurować kontrolę dostępu opartą na rolach.
+Planując kontrolę dostępu przy użyciu usługi Azure RBAC dla Security Center, pamiętaj, aby zrozumieć, kto w organizacji będzie używać Security Center. Ponadto typy zadań, które będą wykonywane, a następnie skonfigurują odpowiednio usługę Azure RBAC.
 
 > [!NOTE]
 > Zaleca się przypisanie użytkownikom najbardziej ograniczonej roli wystarczającej do wykonywania zadań. Na przykład użytkownikom, którzy muszą tylko przeglądać informacje o stanie zabezpieczeń zasobów, ale nie muszą podejmować działań, np. stosować zaleceń ani edytować zasad, należy przypisać rolę czytelnika.
@@ -207,9 +207,9 @@ Chociaż w tym artykule nie ma potrzeby pomocy przy tworzeniu własnego planu re
 
 Na poniższych etapach możesz używać alertów usługi Security Center:
 
-* **Wykrywanie** : zidentyfikuj podejrzane działanie w co najmniej jednym zasobie.
-* **Ocenianie** : wykonaj wstępną ocenę, aby uzyskać więcej informacji na temat podejrzanego działania.
-* **Diagnozowanie** : zastosuj czynności zaradcze, aby przeprowadzić procedurę techniczną rozwiązania problemu.
+* **Wykrywanie**: zidentyfikuj podejrzane działanie w co najmniej jednym zasobie.
+* **Ocenianie**: wykonaj wstępną ocenę, aby uzyskać więcej informacji na temat podejrzanego działania.
+* **Diagnozowanie**: zastosuj czynności zaradcze, aby przeprowadzić procedurę techniczną rozwiązania problemu.
 
 Każdy alert zabezpieczeń zawiera informacje, które mogą ułatwić lepsze zrozumienie natury ataku i zasugerować możliwe ograniczenie jego skutków. Niektóre alerty zapewniają również linki do większej ilości informacji lub do innych źródeł informacji w ramach platformy Azure. Dostarczonych informacji możesz użyć do dalszej analizy i rozpoczęcia rozwiązywania problemu. Możliwe jest również wyszukiwanie danych związanych z zabezpieczeniami przechowywanych w obszarze roboczym.
 
