@@ -15,7 +15,7 @@
       href: partner-center-portal/account-migration-from-cpp-to-pc.md
 - name: Pojęcia
   items:
-    - name: Opcje i zagadnienia dotyczące publikowania
+    - name: Opcje ofert
       href: determine-your-listing-type.md
     - name: Transakcje na komercyjnej platformie handlowej
       href: marketplace-commercial-transaction-capabilities-and-considerations.md
@@ -349,15 +349,14 @@
       items:
         - name: Omówienie interfejsu API realizacji SaaS
           href: partner-center-portal/pc-saas-fulfillment-apis.md
-          items:
-            - name: Rejestrowanie aplikacji SaaS
-              href: partner-center-portal/pc-saas-registration.md
-            - name: Interfejsy API realizacji SaaS w wersji 2
-              href: partner-center-portal/pc-saas-fulfillment-api-v2.md
-            - name: Interfejsy API realizacji SaaS w wersji 1 (przestarzałe)
-              href: partner-center-portal/pc-saas-fulfillment-api-v1.md
-            - name: Interfejsy API realizacji SaaS — często zadawane pytania
-              href: partner-center-portal/saas-fulfillment-apis-faq.md
+        - name: Rejestrowanie aplikacji SaaS
+          href: partner-center-portal/pc-saas-registration.md
+        - name: Interfejsy API realizacji SaaS w wersji 2
+          href: partner-center-portal/pc-saas-fulfillment-api-v2.md
+        - name: Interfejsy API realizacji SaaS w wersji 1 (przestarzałe)
+          href: partner-center-portal/pc-saas-fulfillment-api-v1.md
+        - name: Interfejsy API realizacji SaaS — często zadawane pytania
+          href: partner-center-portal/saas-fulfillment-apis-faq.md
 - name: Zasoby
   items:
     - name: Często zadawane pytania dotyczące komercyjnej platformy handlowej

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 9ff43202bdace577024413c9cc177de2997a0ad5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dad7add63102d462a2111f1ecf12ae43dae123c
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627961"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979916"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Samouczek: Dodawanie logowania do firmy Microsoft do aplikacji sieci Web ASP.NET
 
-W tym przewodniku pokazano, jak zaimplementować logowanie do firmy Microsoft za pośrednictwem rozwiązania ASP.NET MVC przy użyciu tradycyjnej aplikacji opartej na przeglądarce sieci Web i usługi OpenID Connect Connect.
+W tym samouczku utworzysz aplikację sieci Web ASP.NET MVC, która umożliwia użytkownikom logowanie się przy użyciu oprogramowania pośredniczącego Open Web Interface for .NET (OWIN) i platformy tożsamości firmy Microsoft.
 
 Po ukończeniu tego przewodnika aplikacja będzie mogła akceptować logowania do kont osobistych za pomocą polubień outlook.com i live.com. Ponadto konta służbowe z dowolnej firmy lub organizacji zintegrowanej z platformą tożsamości firmy Microsoft będą mogły zalogować się do aplikacji.
 
@@ -69,7 +69,7 @@ W tej sekcji opisano sposób instalowania i konfigurowania potoku uwierzytelnian
 
 ## <a name="add-authentication-components"></a>dodawanie składników uwierzytelniania
 
-1. W programie Visual Studio: Przejdź do pozycji **Narzędzia**Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów**.
+1. W programie Visual Studio: Przejdź do pozycji **Narzędzia** Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów**.
 2. Dodaj *pakiety NuGet oprogramowania pośredniczącego OWIN*, wpisując następujące polecenie w oknie Konsola menedżera pakietów:
 
     ```powershell
@@ -230,7 +230,7 @@ Aby utworzyć nowy kontroler w celu udostępnienia metod logowania i wylogowania
 W programie Visual Studio Utwórz nowy widok, aby dodać przycisk logowania i wyświetlić informacje o użytkowniku po uwierzytelnieniu:
 
 1.  Kliknij prawym przyciskiem myszy folder **Views\Home** i wybierz polecenie **Dodaj widok**.
-2.  Nazwij nowy **indeks**widoku.
+2.  Nazwij nowy **indeks** widoku.
 3.  Dodaj do pliku następujący kod HTML, który zawiera przycisk logowania:
 
     ```html
@@ -320,7 +320,7 @@ Ze względu na użycie `[Authorize]` atrybutu wszystkie metody tego kontrolera m
 W programie Visual Studio utwórz nowy widok w celu wyświetlenia oświadczeń użytkownika na stronie internetowej:
 
 1.  Kliknij prawym przyciskiem myszy folder **Views\Claims** , a następnie wybierz polecenie **Dodaj widok**.
-2.  Nazwij nowy **indeks**widoku.
+2.  Nazwij nowy **indeks** widoku.
 3.  Dodaj następujący kod HTML do pliku:
 
     ```html
@@ -380,7 +380,7 @@ Aby ręcznie zarejestrować aplikację i dodać informacje na temat rejestracji 
 1. Wybierz pozycję **Nowa rejestracja**.
 1. Po wyświetleniu strony **Rejestrowanie aplikacji** podaj informacje dotyczące rejestracji aplikacji:
    1. W sekcji **Nazwa** wprowadź zrozumiałą nazwę aplikacji, która będzie wyświetlana użytkownikom aplikacji, na przykład **ASPNET-samouczek**.
-   1. Dodaj adres URL protokołu SSL skopiowany z programu Visual Studio w kroku 1 (na przykład `https://localhost:44368/` ) w polu **adres URL odpowiedzi**i wybierz pozycję **zarejestruj**.
+   1. Dodaj adres URL protokołu SSL skopiowany z programu Visual Studio w kroku 1 (na przykład `https://localhost:44368/` ) w polu **adres URL odpowiedzi** i wybierz pozycję **zarejestruj**.
 1. Wybierz menu **uwierzytelnianie** , wybierz pozycję **identyfikatory tokeny** w obszarze **niejawne Grant**, a następnie wybierz pozycję **Zapisz**.
 1. Dodaj następujące elementy w pliku web.config znajdującym się w folderze głównym w `configuration\appSettings` sekcji:
 

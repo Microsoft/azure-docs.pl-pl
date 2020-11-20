@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b20dab7719e4c55c5868032db3178bb7baaddda0
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7aa84336a3d71349c127ad15a90af98ffe2133fe
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748476"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980239"
 ---
 # <a name="how-to-certify-iot-plug-and-play-devices"></a>Jak przeprowadzić certyfikację urządzenia IoT Plug and Play
 
@@ -44,6 +44,10 @@ Aby spełnić wymagania dotyczące certyfikacji, urządzenie musi:
 - Publikuj model i wszystkie wymagane interfejsy w [repozytorium modelu publicznego usługi Azure IoT](https://devicemodels.azureiotsolutions.com/)
 - Wyślij Identyfikator modelu podczas rejestracji w usłudze [DPS](concepts-developer-guide-device-csharp.md#dps-payload) w ładunku aprowizacji.
 - Ogłoś Identyfikator modelu podczas połączenia usługi [MQTT](concepts-developer-guide-device-csharp.md#model-id-announcement).
+- Wszystkie modele urządzeń muszą być zgodne z [usługą Azure IoT Central](https://aka.ms/pnp-iotc-getstarted).
+
+> [!NOTE]
+> Obecnie usługa Azure IoT Central nie obsługuje w pełni typów danych **Array** **i DTDL** .
 
 ## <a name="test-with-the-azure-iot-extension-cli"></a>Testowanie przy użyciu rozszerzenia interfejsu wiersza polecenia usługi Azure IoT
 
@@ -182,7 +186,7 @@ Informacje o profilu firmy są używane w opisie urządzenia zaprezentowanym w k
 
 Aby zatwierdzić urządzenie, należy najpierw utworzyć nowy projekt.
 
-Przejdź do [portalu certyfikacji](https://aka.ms/acdp). Na stronie **projekty** wybierz pozycję *+ Utwórz nowy projekt* . Następnie wprowadź nazwę projektu, nazwę urządzenia i wybierz klasę urządzeń.
+Przejdź do [portalu certyfikacji](https://aka.ms/acdp). Na stronie **projekty** wybierz pozycję *+ Utwórz nowy projekt*. Następnie wprowadź nazwę projektu, nazwę urządzenia i wybierz klasę urządzeń.
 
 Informacje o produkcie, które podano podczas procesu certyfikacji, są podzielone na cztery kategorie:
 

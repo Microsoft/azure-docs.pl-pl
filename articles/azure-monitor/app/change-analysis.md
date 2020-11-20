@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: ed29bfc099ce401288c07db863207a1d989a5e0d
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 36e73ceddaa5e3f9cbbf4a41f76a4ba6d70eed0f
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168277"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979967"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Korzystanie z analizy zmian aplikacji (wersja zapoznawcza) w Azure Monitor
 
@@ -183,6 +183,7 @@ Jeśli po raz pierwszy przeglądasz historię zmian po jej zintegrowaniu z anali
     ```
 
 - **Nie można zarejestrować dostawcy zasobów Microsoft. ChangeAnalysis**. Ten komunikat oznacza, że coś nie powiodło się natychmiast, gdy interfejs użytkownika wysłał żądanie zarejestrowania dostawcy zasobów i nie jest powiązany z uprawnieniami. Prawdopodobnie może to być tymczasowy problem z połączeniem z Internetem. Spróbuj odświeżyć stronę i sprawdzić połączenie internetowe. Jeśli błąd będzie się powtarzać, skontaktuj się z changeanalysishelp@microsoft.com
+- Nie **można wykonać zapytania dotyczącego dostawcy zasobów Microsoft. ChangeAnalysis** z komunikatem *, że subskrypcja usługi Azure Lighthouse nie jest obsługiwana, zmiany są dostępne tylko w dzierżawie głównej subskrypcji*. Obecnie istnieje ograniczenie dotyczące rejestracji dostawcy zasobów analizy zmian za pomocą subskrypcji usługi Azure Lighthouse dla użytkowników, którzy nie znajdują się w dzierżawie głównej. Oczekujemy, że to ograniczenie zostanie rozkierowane w najbliższej przyszłości. Jeśli jest to problem z blokowaniem, istnieje obejście polegające na utworzeniu jednostki usługi i jawnie przypisaniu roli w celu zezwolenia na dostęp.  Skontaktuj się z nami changeanalysishelp@microsoft.com , aby dowiedzieć się więcej.
 
 - Trwa **to dłużej niż oczekiwano**. Ten komunikat oznacza, że rejestracja trwa dłużej niż 2 minuty. Jest to nietypowe, ale niekoniecznie oznacza coś, co poszło źle. Możesz przejść do pozycji **subskrypcje | Dostawca zasobów** do sprawdzania stanu rejestracji dostawcy zasobów **Microsoft. ChangeAnalysis** . Możesz spróbować użyć interfejsu użytkownika do wyrejestrowania, ponownego zarejestrowania lub odświeżenia, aby zobaczyć, czy to pomoże. Jeśli problem będzie się powtarzać, skontaktuj się z changeanalysishelp@microsoft.com pomocą techniczną.
     ![Rozwiązywanie problemów z rejestracją RP trwa zbyt długo](./media/change-analysis/troubleshoot-registration-taking-too-long.png)

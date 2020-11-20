@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 027305d953a24de17e62aa74b33b72494b03e652
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ded54628a307f3cf4441e804f7f1025a0e943b51
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825915"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979950"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Samouczek: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph z jednostronicowej aplikacji (SPA) języka JavaScript
 
-W tym samouczku utworzysz aplikację jednostronicową (SPA) w języku JavaScript, która może zalogować użytkowników przy użyciu osobistych kont Microsoft lub kont służbowych, a następnie uzyskać token dostępu służący do wywoływania interfejsu API Microsoft Graph.
+W tym samouczku utworzysz aplikację obsługującą skrypty JavaScript (single-page), która loguje się w użytkownikach i wywołuje Microsoft Graph przy użyciu niejawnego przepływu. Za pomocą usługi Microsoft Authentication Library (MSAL) dla języka JavaScript 1.0 zostanie utworzona SPA.
 
 W tym samouczku:
 
@@ -274,7 +274,7 @@ Przed kontynuowaniem uwierzytelniania Zarejestruj swoją aplikację na **Azure A
 1. Wybierz pozycję **Zarejestruj**.
 1. Na stronie **Przegląd** aplikacji Zanotuj wartość **identyfikatora aplikacji (klienta)** do późniejszego użycia.
 1. Ten przewodnik Szybki start wymaga włączenia [przepływu niejawnego udzielenia](v2-oauth2-implicit-grant-flow.md). W lewym okienku zarejestrowanej aplikacji wybierz pozycję **uwierzytelnianie**.
-1. W obszarze **Ustawienia zaawansowane**w obszarze **niejawne przyznanie**zaznacz pola wyboru **tokeny identyfikatorów** i **tokeny dostępu** . Tokeny identyfikatorów i tokeny dostępu są wymagane, ponieważ ta aplikacja musi zalogować użytkowników i wywołać interfejs API.
+1. W obszarze **Ustawienia zaawansowane** w obszarze **niejawne przyznanie** zaznacz pola wyboru **tokeny identyfikatorów** i **tokeny dostępu** . Tokeny identyfikatorów i tokeny dostępu są wymagane, ponieważ ta aplikacja musi zalogować użytkowników i wywołać interfejs API.
 1. Wybierz pozycję **Zapisz**.
 
 > ### <a name="set-a-redirect-url-for-nodejs"></a>Ustaw adres URL przekierowania dla Node.js
@@ -513,4 +513,3 @@ Zajrzyj do aplikacji jednostronicowej (SPA) na platformie tożsamości firmy Mic
 
 > [!div class="nextstepaction"]
 > [Scenariusz: aplikacja jednostronicowa](scenario-spa-overview.md)
-

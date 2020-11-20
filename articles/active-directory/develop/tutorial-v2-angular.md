@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: c93704130e150a7ca26144d4895e82756657fae2
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: c4c7d021c7c3a5a32d537a50fa45449fdee7e817
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096253"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979933"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Samouczek: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph ze kątowej aplikacji jednostronicowej
 
-Ten samouczek przeprowadzi Cię przez proces tworzenia aplikacji jednostronicowych (SPA), które mogą logować użytkowników przy użyciu osobistych kont Microsoft i kont służbowych, a także wywoływać interfejs API Microsoft Graph w ich imieniu.
+W tym samouczku utworzysz aplikację jednostronicową (SPA), która loguje się do użytkowników i wywołuje interfejs API Microsoft Graph.
 
 W tym samouczku:
 
@@ -264,14 +264,14 @@ this.authService.acquireTokenSilent(requestObj).then(function (tokenResponse) {
 
 W tym kodzie `scopes` zawiera zakresy wymagane do zwrócenia w tokenie dostępu dla interfejsu API.
 
-Na przykład:
+Przykład:
 
 * `["user.read"]` dla Microsoft Graph
 * `["<Application ID URL>/scope"]` w przypadku niestandardowych interfejsów API sieci Web (czyli `api://<Application ID>/access_as_user` )
 
 #### <a name="get-a-user-token-interactively"></a>Interaktywne pobieranie tokenu użytkownika
 
-Czasami potrzebujesz, aby użytkownik mógł korzystać z punktu końcowego platformy tożsamości firmy Microsoft. Na przykład:
+Czasami potrzebujesz, aby użytkownik mógł korzystać z punktu końcowego platformy tożsamości firmy Microsoft. Przykład:
 
 * Może być konieczne ponowne wprowadzenie poświadczeń przez użytkowników, ponieważ ich hasło wygasło.
 * Aplikacja żąda dostępu do dodatkowych zakresów zasobów, do których użytkownik musi wyrazić zgodę.

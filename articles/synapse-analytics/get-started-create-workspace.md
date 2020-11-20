@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: 862d2a93058c63dbfad1db49346edcbfe3c02ad1
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: c15750a7a63293994ff7c6b68cb85a5066acee90
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592451"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981140"
 ---
 # <a name="creating-a-synapse-workspace"></a>Tworzenie obszaru roboczego Synapse
 
@@ -30,7 +30,7 @@ Aby wykonać kroki tego samouczka, musisz mieć dostęp do grupy zasobów, do kt
 1. Otwórz [Azure Portal](https://portal.azure.com)i w górnej części Szukaj **Synapse**.
 1. W wynikach wyszukiwania w obszarze **usługi** wybierz pozycję **Azure Synapse Analytics (obszary robocze — wersja zapoznawcza)**.
 1. Wybierz pozycję **Dodaj** , aby utworzyć obszar roboczy.
-1. W obszarze **podstawowe** wpisz swoją preferowaną **subskrypcję** , **grupę zasobów** , **region** , a następnie wybierz nazwę obszaru roboczego. W tym samouczku użyjemy **obszaru roboczego**.
+1. W obszarze **podstawowe** wpisz swoją preferowaną **subskrypcję**, **grupę zasobów**, **region**, a następnie wybierz nazwę obszaru roboczego. W tym samouczku użyjemy **obszaru roboczego**.
 1. Przejdź do **opcji wybierz Data Lake Storage Gen 2**. 
 1. Kliknij pozycję **Utwórz nową** i nadaj jej nazwę **contosolake**.
 1. Kliknij pozycję **system plików** i nadaj jej nazwę **Użytkownicy**. Spowoduje to utworzenie kontenera o nazwie **Użytkownicy**
@@ -65,7 +65,7 @@ Dedykowana Pula SQL zużywa zasoby do rozliczenia, o ile jest ona aktywna. Pulę
 
 Pula platformy Spark informuje platformę Azure Synapse, ile zasobów platformy Spark ma używać. Płacisz tylko za wykorzystane zasoby. Gdy aktywne zaprzestanie korzystania z puli, zasoby są automatycznie przekroczenia limitu czasu i są odtwarzane.
 
-## <a name="the-serverless-sql-pool"></a>Bezserwerowa Pula SQL
+## <a name="the-built-in-serverless-sql-pool"></a>Wbudowana Pula SQL bezserwerowa
 
 Każdy obszar roboczy jest dostarczany ze wstępnie utworzoną pulą o nazwie **wbudowane**. Nie można usunąć tej puli. Bezserwerowa Pula SQL umożliwia korzystanie z programu SQL bez konieczności tworzenia lub oceniania zarządzania bezserwerową pulą SQL na platformie Azure Synapse. W przeciwieństwie do dedykowanych pul SQL, rozliczanie dla bezserwerowej puli SQL jest zależne od ilości danych przeskanowanych w celu uruchomienia zapytania, a nie liczby zasobów używanych do wykonywania zapytania.
 

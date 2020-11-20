@@ -5,13 +5,13 @@ services: logic-apps
 ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 08/27/2020
-ms.openlocfilehash: 8a59b47dadd845f1a522854c503af11c8fff72fd
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.date: 11/19/2020
+ms.openlocfilehash: b345168dad63b1846d46c12721587eaffb5f887e
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331978"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981208"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Wywoływanie, wyzwalanie lub zagnieżdżanie aplikacji logiki za pomocą punktów końcowych HTTPS w Azure Logic Apps
 
@@ -104,7 +104,7 @@ Aby uzyskać więcej informacji o zabezpieczeniach, autoryzacji i szyfrowaniu wy
 
    * W polu **adres URL post protokołu HTTP** wybierz pozycję **Kopiuj adres URL** (ikona Kopiuj pliki).
 
-   * Oznacz to połączenie:
+   * Wykonaj to wywołanie przy użyciu metody, której oczekuje wyzwalacz żądania. Ten przykład używa `POST` metody:
 
      `POST https://management.azure.com/{logic-app-resource-ID}/triggers/{endpoint-trigger-name}/listCallbackURL?api-version=2016-06-01`
 
@@ -124,9 +124,9 @@ Aby uzyskać więcej informacji o zabezpieczeniach, autoryzacji i szyfrowaniu wy
 
 ## <a name="select-expected-request-method"></a>Wybierz oczekiwaną metodę żądania
 
-Domyślnie wyzwalacz żądania oczekuje na żądanie POST. Można określić inną metodę, która będzie oczekiwać, ale tylko jedną metodę.
+Domyślnie wyzwalacz żądania oczekuje na `POST` żądanie. Można jednak określić inną metodę, której obiekt wywołujący musi używać, ale tylko jedną metodę.
 
-1. W wyzwalaczu żądania Otwórz listę **Dodaj nowy parametr** , a następnie wybierz **metodę** , która dodaje tę właściwość do wyzwalacza.
+1. W wyzwalaczu żądania Otwórz listę **Dodaj nowy parametr** , a następnie wybierz **metodę**, która dodaje tę właściwość do wyzwalacza.
 
    ![Dodaj właściwość "Method" do wyzwalacza](./media/logic-apps-http-endpoint/select-add-new-parameter-for-method.png)
 
@@ -154,7 +154,7 @@ Aby akceptować wartości parametrów za pomocą adresu URL punktu końcowego, d
 
 ### <a name="accept-values-through-get-parameters"></a>Akceptuj wartości za poorednictwem parametrów GET
 
-1. W wyzwalaczu żądania Otwórz **listę Dodaj nowy parametr** , Dodaj właściwość **metody** do wyzwalacza i wybierz metodę **Get** .
+1. W wyzwalaczu żądania Otwórz **listę Dodaj nowy parametr**, Dodaj właściwość **metody** do wyzwalacza i wybierz metodę **Get** .
 
    Aby uzyskać więcej informacji, zobacz [Wybierz oczekiwaną metodę żądania](#select-method).
 
@@ -162,7 +162,7 @@ Aby akceptować wartości parametrów za pomocą adresu URL punktu końcowego, d
 
    1. W obszarze wyzwalacz żądania wybierz pozycję **nowy krok**  >  **Dodaj akcję**.
    
-   1. W obszarze **Wybierz akcję** , w polu wyszukiwania wpisz `response` jako filtr. Z listy Akcje wybierz akcję **odpowiedź** .
+   1. W obszarze **Wybierz akcję**, w polu wyszukiwania wpisz `response` jako filtr. Z listy Akcje wybierz akcję **odpowiedź** .
 
 1. Aby skompilować `triggerOutputs()` wyrażenie pobierające wartość parametru, wykonaj następujące kroki:
 
@@ -217,7 +217,7 @@ Aby akceptować wartości parametrów za pomocą adresu URL punktu końcowego, d
 
 ### <a name="accept-values-through-a-relative-path"></a>Akceptowanie wartości za pomocą ścieżki względnej
 
-1. W wyzwalaczu żądania Otwórz listę **Dodaj nowy parametr** i wybierz pozycję **ścieżka względna** , która dodaje tę właściwość do wyzwalacza.
+1. W wyzwalaczu żądania Otwórz listę **Dodaj nowy parametr** i wybierz pozycję **ścieżka względna**, która dodaje tę właściwość do wyzwalacza.
 
    ![Dodaj właściwość "ścieżka względna" do wyzwalacza](./media/logic-apps-http-endpoint/select-add-new-parameter-for-relative-path.png)
 
@@ -229,7 +229,7 @@ Aby akceptować wartości parametrów za pomocą adresu URL punktu końcowego, d
 
    1. W obszarze wyzwalacz żądania wybierz pozycję **nowy krok**  >  **Dodaj akcję**.
 
-   1. W obszarze **Wybierz akcję** , w polu wyszukiwania wpisz `response` jako filtr. Z listy Akcje wybierz akcję **odpowiedź** .
+   1. W obszarze **Wybierz akcję**, w polu wyszukiwania wpisz `response` jako filtr. Z listy Akcje wybierz akcję **odpowiedź** .
 
 1. We właściwości **treści** akcji odpowiedzi Dołącz token, który reprezentuje parametr określony w ścieżce względnej wyzwalacza.
 
@@ -262,7 +262,7 @@ Aby akceptować wartości parametrów za pomocą adresu URL punktu końcowego, d
 
 ## <a name="call-logic-app-through-endpoint-url"></a>Wywoływanie aplikacji logiki przy użyciu adresu URL punktu końcowego
 
-Po utworzeniu punktu końcowego można wyzwolić aplikację logiki, wysyłając `POST` żądanie HTTPS do pełnego adresu URL punktu końcowego. Aplikacje logiki mają wbudowaną obsługę punktów końcowych dostępu bezpośredniego.
+Po utworzeniu punktu końcowego można wyzwolić aplikację logiki, wysyłając żądanie HTTPS do pełnego adresu URL punktu końcowego. Aplikacje logiki mają wbudowaną obsługę punktów końcowych dostępu bezpośredniego.
 
 <a name="generated-tokens"></a>
 
@@ -396,7 +396,7 @@ Aby uzyskać więcej informacji o zabezpieczeniach, autoryzacji i szyfrowaniu wy
 
 #### <a name="q-can-i-configure-callable-endpoints-further"></a>P: Czy można kontynuować konfigurowanie wywoływanych punktów końcowych?
 
-Odp **.: tak** , punkty końcowe HTTPS obsługują bardziej zaawansowaną konfigurację za pośrednictwem [usługi Azure API Management](../api-management/api-management-key-concepts.md). Ta usługa oferuje również możliwość spójnego zarządzania wszystkimi interfejsami API, w tym aplikacjami logiki, Konfigurowanie niestandardowych nazw domen, korzystanie z większej liczby metod uwierzytelniania i inne, na przykład:
+Odp **.: tak**, punkty końcowe HTTPS obsługują bardziej zaawansowaną konfigurację za pośrednictwem [usługi Azure API Management](../api-management/api-management-key-concepts.md). Ta usługa oferuje również możliwość spójnego zarządzania wszystkimi interfejsami API, w tym aplikacjami logiki, Konfigurowanie niestandardowych nazw domen, korzystanie z większej liczby metod uwierzytelniania i inne, na przykład:
 
 * [Zmień metodę żądania](../api-management/api-management-advanced-policies.md#SetRequestMethod)
 * [Zmiana segmentów adresu URL żądania](../api-management/api-management-transformation-policies.md#RewriteURL)

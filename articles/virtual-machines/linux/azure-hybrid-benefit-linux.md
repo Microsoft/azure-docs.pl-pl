@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: a26a618d4f1bd9900136561d95c21c1ecbaadfaa
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 1459c80c857a436c8369d3ebe89794e0b69c33b1
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916478"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980885"
 ---
 # <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Korzyść użycia hybrydowego platformy Azure — jak ma zastosowanie do Linux Virtual Machines
 
@@ -146,6 +146,35 @@ Odp.: nie można. Próba wprowadzenia typu licencji, która nieprawidłowo pasuj
 *Pytanie: zarejestrowano w systemie Red Hat Cloud Access, ale nadal nie można włączyć korzyści na maszynach wirtualnych RHEL. Co mam zrobić?*
 
 Odp.: może upłynąć trochę czasu na rejestrację subskrypcji usługi Red Hat Cloud Access w firmie Red Hat na platformie Azure. Jeśli po jednym dniu roboczym nadal widzisz błąd, skontaktuj się z pomocą techniczną firmy Microsoft.
+
+*P: wdrożono maszynę wirtualną przy użyciu obrazu RHEL BYOS ". Czy mogę przekonwertować rozliczenia na te obrazy z BYOS na PAYG?*
+
+Odp.: nie można. Korzyść użycia hybrydowego platformy Azure obsługuje konwersję tylko w przypadku obrazów z opcją płatność zgodnie z rzeczywistym użyciem.
+
+*P: wdrożono maszynę wirtualną przy użyciu obrazu RHEL BYOS ". Czy mogę przekonwertować rozliczenia na te obrazy z BYOS na PAYG?*
+
+Odp.: nie można. Korzyść użycia hybrydowego platformy Azure obsługuje konwersję tylko w przypadku obrazów z opcją płatność zgodnie z rzeczywistym użyciem.
+
+*P: przekazano mój własny obraz RHEL z Premium (za pośrednictwem funkcji ASR lub w inny sposób) do platformy Azure. Czy mogę przekonwertować rozliczenia na te obrazy z BYOS na PAYG?*
+
+Odp.: nie można. Funkcja Korzyść użycia hybrydowego platformy Azure jest dostępna tylko dla obrazów portalu Marketplace w RHEL i SLES. 
+
+*P: Czy można używać Korzyść użycia hybrydowego platformy Azure na maszynach wirtualnych wdrożonych z obrazów programu Marketplace RHEL i SLES SAP?*
+
+Odp.: tak, możesz. Typ licencji "RHEL_BYOS" można użyć dla maszyn wirtualnych RHEL i "SLES_BYOS" w przypadku konwersji maszyn wirtualnych wdrożonych z obrazów RHEL i SLES oprogramowania SAP w portalu Marketplace.
+
+*P: Czy można używać Korzyść użycia hybrydowego platformy Azure w zestawie skalowania maszyn wirtualnych (VMSS) dla RHEL i SLES?*
+
+Odp.: nie. VMSS obecnie nie są w zakresie Korzyść użycia hybrydowego platformy Azure dzisiaj dla RHEL i SLES.
+
+*P: Czy można używać Korzyść użycia hybrydowego platformy Azure na wystąpieniach zastrzeżonych (RIs) dla RHEL i SLES?*
+
+Odp.: nie. Usługi RIs nie znajdują się obecnie w zakresie Korzyść użycia hybrydowego platformy Azure RHEL i SLES.
+
+*P: Czy można używać Korzyść użycia hybrydowego platformy Azure na maszynie wirtualnej wdrożonej dla SQL Server na obrazach RHEL?*
+
+Odp.: nie. Nie ma planu na ich obsługę.
+ 
 
 ## <a name="common-issues"></a>Typowe problemy
 Ta sekcja zawiera listę typowych problemów, które mogą zostać napotkane, oraz czynności zaradcze.

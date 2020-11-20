@@ -12,17 +12,18 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 01169f3e73fb1d6ddf0ecaf4958c6121cb21c295
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 6b8a9cbfd3e7057f0d85d5f4e19fea3aa4fbe90b
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216134"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980222"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Samouczek: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph z aplikacji jednostronicowej JavaScript (SPA) przy użyciu przepływu kodu uwierzytelniania
 
-W tym samouczku pokazano, jak utworzyć aplikację jednostronicową języka JavaScript, która używa biblioteki Microsoft Authentication Library (MSAL) dla języka JavaScript 2.0 w celu:
+W tym samouczku utworzysz aplikację obsługującą skrypty JavaScript (single-page), która loguje się do użytkowników i wywołuje Microsoft Graph przy użyciu przepływu kodu autoryzacji z PKCE. Za pomocą usługi Microsoft Authentication Library (MSAL) dla języka JavaScript w wersji 2.0 zostanie utworzona SPA.
 
+W tym samouczku:
 > [!div class="checklist"]
 > * Wykonywanie przepływu kodu autoryzacji OAuth 2,0 przy użyciu PKCE
 > * Zaloguj się do osobistych kont Microsoft, a także kont służbowych
@@ -118,13 +119,13 @@ Masz teraz niewielki serwer sieci Web, który będzie obsługiwał Twoje SPA. Po
 ```
 msal-spa-tutorial/
 ├── app
-│   ├── authConfig.js
-│   ├── authPopup.js
-│   ├── authRedirect.js
-│   ├── graphConfig.js
-│   ├── graph.js
-│   ├── index.html
-│   └── ui.js
+│   ├── authConfig.js
+│   ├── authPopup.js
+│   ├── authRedirect.js
+│   ├── graphConfig.js
+│   ├── graph.js
+│   ├── index.html
+│   └── ui.js
 └── server.js
 ```
 
@@ -557,7 +558,7 @@ SPA, który został utworzony w tym samouczku, wywołuje `acquireTokenSilent` i/
 
 #### <a name="get-a-user-token-interactively"></a>Interaktywne pobieranie tokenu użytkownika
 
-Po wstępnym logowaniu aplikacja nie powinna prosić użytkowników o ponowne uwierzytelnienie za każdym razem, gdy potrzebują dostępu do chronionego zasobu (czyli do żądania tokenu). Aby uniemożliwić takie żądania ponownego uwierzytelniania, wywołaj polecenie `acquireTokenSilent` . Istnieją jednak sytuacje, w których konieczne może być wymuszenie współpracy użytkowników z punktem końcowym platformy tożsamości firmy Microsoft. Na przykład:
+Po wstępnym logowaniu aplikacja nie powinna prosić użytkowników o ponowne uwierzytelnienie za każdym razem, gdy potrzebują dostępu do chronionego zasobu (czyli do żądania tokenu). Aby uniemożliwić takie żądania ponownego uwierzytelniania, wywołaj polecenie `acquireTokenSilent` . Istnieją jednak sytuacje, w których konieczne może być wymuszenie współpracy użytkowników z punktem końcowym platformy tożsamości firmy Microsoft. Przykład:
 
 - Użytkownicy muszą ponownie wprowadzić swoje poświadczenia, ponieważ hasło wygasło.
 - Aplikacja żąda dostępu do zasobu i potrzebujesz zgody użytkownika.
@@ -619,23 +620,23 @@ Ukończono tworzenie aplikacji i teraz można jej użyć do uruchomienia serwera
 
 Po załadowaniu przez przeglądarkę pliku *index.html* wybierz pozycję **Zaloguj**. Zostanie wyświetlony monit o zalogowanie się za pomocą punktu końcowego platformy tożsamości firmy Microsoft:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Diagram przedstawiający przepływ kodu autoryzacji w aplikacji jednostronicowej":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Okno dialogowe logowania w przeglądarce sieci Web":::
 
 ### <a name="provide-consent-for-application-access"></a>Wyrażanie zgody na dostęp do aplikacji
 
 Po pierwszym zalogowaniu się do aplikacji zostanie wyświetlony monit o udzielenie dostępu do Twojego profilu i zalogowanie się w:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Diagram przedstawiający przepływ kodu autoryzacji w aplikacji jednostronicowej":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Okno dialogowe zawartości wyświetlane w przeglądarce internetowej":::
 
 Jeśli użytkownik wyraża zgodę na żądane uprawnienia, w aplikacjach sieci Web zostanie wyświetlona nazwa użytkownika, co oznacza pomyślne zalogowanie:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-03-signed-in.png" alt-text="Diagram przedstawiający przepływ kodu autoryzacji w aplikacji jednostronicowej":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-03-signed-in.png" alt-text="Wyniki pomyślnego logowania w przeglądarce sieci Web":::
 
 ### <a name="call-the-graph-api"></a>Wywołaj interfejs API programu Graph
 
 Po zalogowaniu wybierz pozycję **Zobacz Profil** , aby wyświetlić informacje o profilu użytkownika zwrócone w odpowiedzi z wywołania do interfejsu API Microsoft Graph:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-04-see-profile.png" alt-text="Diagram przedstawiający przepływ kodu autoryzacji w aplikacji jednostronicowej":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-04-see-profile.png" alt-text="Informacje o profilu z Microsoft Graph wyświetlane w przeglądarce":::
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Więcej informacji na temat zakresów i uprawnień delegowanych
 

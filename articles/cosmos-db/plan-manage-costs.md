@@ -6,35 +6,32 @@ ms.author: sngun
 ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: 3a1bb36910b09d24c3328c8fc8ae94e1e3321642
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/19/2020
+ms.openlocfilehash: a73d155d20d09573ad5e1b2597678291aea4c92b
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080706"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980594"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Planowanie i zarządzanie kosztami Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-W tym artykule opisano sposób planowania kosztów Azure Cosmos DB i zarządzania nimi:
+W tym artykule opisano sposób planowania kosztów Azure Cosmos DB i zarządzania nimi. Najpierw użyj kalkulatora pojemności Azure Cosmos DB, aby oszacować koszt obciążenia przed utworzeniem zasobów. Później możesz sprawdzić szacowany koszt i rozpocząć tworzenie zasobów.
 
-- Oszacuj, co będzie miało koszt przed utworzeniem zasobów
-- Przejrzyj szacowane koszty po rozpoczęciu korzystania z zasobów
-- Korzystanie z funkcji zarządzania kosztami w celu ustawiania budżetów i monitorowania kosztów
-- Zapoznaj się z prognozowanymi kosztami i zidentyfikuj trendy wydatków, aby ujawnić obszary, w których może być konieczne działanie
-
-Należy zrozumieć, że koszty Azure Cosmos DB są tylko częścią miesięcznych kosztów rachunku na korzystanie z platformy Azure. Jeśli używasz innych usług platformy Azure, opłaty są naliczane za wszystkie usługi i zasoby platformy Azure używane w ramach subskrypcji platformy Azure, w tym usługi innych firm. W tym artykule wyjaśniono, jak planować i zarządzać kosztami Azure Cosmos DB. Po zapoznaniu się z zarządzaniem kosztami Azure Cosmos DB możesz zastosować podobne metody, aby zarządzać kosztami wszystkich usług platformy Azure używanych w ramach subskrypcji.
+Po rozpoczęciu korzystania z Azure Cosmos DB zasobów Użyj funkcji Cost Management do ustawiania budżetów i monitorowania kosztów. Możesz również przejrzeć prognozowane koszty i zidentyfikować trendy wydatków, aby identyfikować obszary, w których może być konieczne działanie. Koszty Azure Cosmos DB są tylko częścią miesięcznych kosztów rachunku na korzystanie z platformy Azure. Chociaż w tym artykule wyjaśniono, jak planować i zarządzać kosztami Azure Cosmos DB, opłaty są naliczane za wszystkie usługi i zasoby platformy Azure używane w ramach subskrypcji platformy Azure, w tym usługi innych firm.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Analiza kosztów obsługuje różne typy kont platformy Azure. Aby wyświetlić pełną listę obsługiwanych typów kont, zobacz [Omówienie danych usługi Cost Management](../cost-management-billing/costs/understand-cost-mgt-data.md). Aby wyświetlić dane kosztów, potrzebujesz przynajmniej dostępu do odczytu dla Twojego konta platformy Azure. Aby uzyskać informacje na temat przypisywania dostępu do danych usługi Azure Cost Management, zobacz [Przypisywanie dostępu do danych](../cost-management-billing/costs/assign-access-acm-data.md).
-
-## <a name="provisioned-throughput-or-serverless"></a>Nieobsługiwana przepływność lub bezserwerowy
+### <a name="provisioned-throughput-or-serverless"></a>Nieobsługiwana przepływność lub bezserwerowy
 
 Azure Cosmos DB obsługuje dwa typy trybów pojemności: [zainicjowana przepływność](set-throughput.md) i [bezserwerowy](serverless.md). Sposób naliczania opłat za użycie Azure Cosmos DB różni się między tymi dwoma trybami, dlatego ważne jest, aby wybrać ten, który najlepiej sprawdza się w obciążeniu. Zapoznaj się z tematem [jak wybrać między niezależną przepływność i bezserwerowym](throughput-serverless.md) artykułem, aby uzyskać wskazówki i zalecenia dotyczące sposobu dokonania tego wyboru.
 
-## <a name="estimating-provisioned-throughput-costs-with-capacity-calculator"></a>Szacowanie zainicjowanych kosztów przepływności za pomocą kalkulatora pojemności
+### <a name="cost-analysis"></a>Analiza kosztów
+
+Analiza kosztów w Cost Management obsługuje większość typów kont platformy Azure, ale nie wszystkie z nich. Aby wyświetlić pełną listę obsługiwanych typów kont, zobacz [Omówienie danych usługi Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). Aby wyświetlić dane dotyczące kosztów, wymagany jest co najmniej dostęp do odczytu dla konta platformy Azure. Aby uzyskać informacje na temat przypisywania dostępu do danych usługi Azure Cost Management, zobacz [Przypisywanie dostępu do danych](https://docs.microsoft.com/azure/cost-management/assign-access-acm-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+
+## <a name="estimating-provisioned-throughput-costs-before-using-azure-cosmos-db"></a>Szacowanie zainicjowanych kosztów przepływności przed użyciem Azure Cosmos DB
 
 Jeśli planujesz używać Azure Cosmos DB w trybie przepływności, użyj [kalkulatora pojemności Azure Cosmos DB](https://cosmos.azure.com/capacitycalculator/) , aby oszacować koszty przed utworzeniem zasobów na koncie usługi Azure Cosmos. Kalkulator pojemności służy do uzyskiwania szacunku wymaganej przepływności i kosztu obciążenia. Skonfigurowanie baz danych i kontenerów platformy Azure Cosmos z właściwą ilością przepływności lub [jednostek żądań (ru/s)](request-units.md)dla obciążenia jest niezbędne w celu zoptymalizowania kosztów i wydajności. Musisz wprowadzić szczegóły, takie jak typ interfejsu API, liczba regionów, rozmiar elementu, żądania odczytu/zapisu na sekundę, Łączna ilość przechowywanych danych w celu uzyskania oszacowania kosztów. Aby dowiedzieć się więcej na temat kalkulatora pojemności, zobacz artykuł dotyczący [szacowania](estimate-ru-with-capacity-planner.md) .
 
@@ -42,7 +39,7 @@ Poniższy zrzut ekranu przedstawia przepływność i oszacowanie kosztów za pom
 
 :::image type="content" source="./media/plan-manage-costs/capacity-calculator-cost-estimate.png" alt-text="Oszacowanie kosztów w Azure Cosmos DB Kalkulator pojemności":::
 
-## <a name="estimating-serverless-costs"></a>Szacowanie kosztów bezserwerowych
+## <a name="estimating-serverless-costs-before-using-azure-cosmos-db"></a><a id="estimating-serverless-costs"></a> Szacowanie kosztów bezserwerowych przed użyciem Azure Cosmos DB
 
 Jeśli planujesz używać Azure Cosmos DB w trybie bezserwerowym, należy oszacować, ile [jednostek żądań](request-units.md) i GB miejsca na magazyn może zużywać miesięcznie. Aby oszacować wymaganą liczbę jednostek żądań, można ocenić ilość operacji w bazie danych, które zostaną wystawione w miesiącu, i pomnożyć ich kwoty według odpowiednich kosztów RU. W poniższej tabeli wymieniono szacowane opłaty za usługę RU dla wspólnych operacji bazy danych:
 
@@ -57,12 +54,12 @@ Jeśli planujesz używać Azure Cosmos DB w trybie bezserwerowym, należy oszaco
 > [!IMPORTANT] 
 > Zwróć uwagę na uwagi z powyższej tabeli. Aby uzyskać dokładniejsze oszacowanie rzeczywistych kosztów operacji, możesz użyć [emulatora usługi Azure Cosmos](local-emulator.md) i [zmierzyć dokładny koszt operacji na ru](find-request-unit-charge.md). Chociaż emulator usługi Azure Cosmos nie obsługuje bezserwerowego, raport jest naliczany jako standardowy RU dla operacji bazy danych i może służyć do tego oszacowania.
 
-Po przeprowadzeniu obliczenia łącznej liczby jednostek żądań i GB miejsca w magazynie, które prawdopodobnie będą zużywane przez miesiąc, następująca formuła zwróci oszacowanie kosztów: **([liczba jednostek żądań]/1 000 000 * $0,25) + ([GB magazynu] * $0,25)** .
+Po przeprowadzeniu obliczenia łącznej liczby jednostek żądań i GB miejsca w magazynie, które prawdopodobnie będą zużywane przez miesiąc, następująca formuła zwróci oszacowanie kosztów: **([liczba jednostek żądań]/1 000 000 * $0,25) + ([GB magazynu] * $0,25)**.
 
 > [!NOTE]
 > Koszty pokazane w poprzednim przykładzie służą wyłącznie do celów demonstracyjnych. Aby uzyskać najnowsze informacje o cenach, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/cosmos-db/) .
 
-## <a name="review-estimated-costs-from-the-azure-portal"></a>Przejrzyj szacowane koszty z Azure Portal
+## <a name="review-estimated-costs-in-the-azure-portal"></a>Przeglądanie szacowanych kosztów w witrynie Azure Portal
 
 Po rozpoczęciu korzystania z Azure Cosmos DB zasobów z Azure Portal można zobaczyć szacowane koszty. Aby zapoznać się z oszacowaniem kosztów, wykonaj następujące kroki:
 
@@ -72,31 +69,41 @@ Po rozpoczęciu korzystania z Azure Cosmos DB zasobów z Azure Portal można zob
 1. Utwórz nowy kontener, taki jak kontener grafu.
 1. Wprowadź przepływność wymaganą dla obciążenia, np. 400 RU/s. Po wprowadzeniu wartości przepływności można zobaczyć oszacowanie cen, jak pokazano na poniższym zrzucie ekranu:
 
-   :::image type="content" source="./media/plan-manage-costs/cost-estimate-portal.png" alt-text="Oszacowanie kosztów w Azure Cosmos DB Kalkulator pojemności":::
+   :::image type="content" source="./media/plan-manage-costs/cost-estimate-portal.png" alt-text="Szacowanie kosztów w Azure Portal":::
 
-## <a name="use-budgets-and-cost-alerts"></a>Używanie alertów dotyczących budżetu i kosztów
+Jeśli subskrypcja platformy Azure ma limit wydatków, platforma Azure nie pozwala na korzystanie z wydatków w wysokości. Twoje środki są używane podczas tworzenia i używania zasobów platformy Azure. Po osiągnięciu limitu kredytu wdrożone zasoby są wyłączone dla pozostałej części okresu rozliczeniowego. Nie możesz zmienić limitu kredytowego, ale możesz go usunąć. Aby uzyskać więcej informacji na temat limitów wydatków, zobacz [limit wydatków platformy Azure](https://docs.microsoft.com/azure/billing/billing-spending-limit).
 
-W celu zarządzania kosztami można utworzyć [budżety](../cost-management-billing/costs/tutorial-acm-create-budgets.md) oraz alerty, które automatycznie powiadamiają uczestników o anomaliach w wydatkach i o ryzyku nadmiernych wydatków. Alerty są oparte na wydatkach w porównaniu z budżetem i progami kosztów. Budżety i alerty są tworzone dla subskrypcji platformy Azure i grup zasobów, dzięki czemu są one przydatne jako część ogólnej strategii monitorowania kosztów. Mogą jednak mieć ograniczoną funkcjonalność do zarządzania poszczególnymi kosztami usług platformy Azure, takimi jak koszt Azure Cosmos DB, ponieważ są one przeznaczone do śledzenia kosztów na wyższym poziomie.
-
-Jeśli subskrypcja platformy Azure ma limit wydatków, platforma Azure nie pozwala na korzystanie z wydatków w wysokości. Twoje środki są używane podczas tworzenia i używania zasobów platformy Azure. Po osiągnięciu limitu kredytowego wdrożone zasoby są wyłączone dla pozostałej części okresu rozliczeniowego. Nie możesz zmienić limitu kredytowego, ale możesz go usunąć. Aby uzyskać więcej informacji na temat limitów wydatków, zobacz [limit wydatków platformy Azure](../cost-management-billing/manage/spending-limit.md).
+Opłaty za Azure Cosmos DB mogą być naliczane z tytułu zobowiązania pieniężnego na platformie Azure Umowa Enterprise. Nie można jednak użyć kredytu zobowiązania pieniężnego, aby uregulować opłaty za produkty i usługi innych firm, w tym te z portalu Azure Marketplace.
 
 ## <a name="monitor-costs"></a>Monitorowanie kosztów
 
-Gdy korzystasz z zasobów z Azure Cosmos DB, naliczane są koszty. Koszty jednostkowe użycia zasobów różnią się w zależności od przedziałów czasu (sekundy, minuty, godziny i dni) lub według użycia jednostki żądania. Po rozpoczęciu korzystania z Azure Cosmos DB koszty są naliczane i można je wyświetlić w okienku [Analiza kosztów](../cost-management-billing/costs/quick-acm-cost-analysis.md) w Azure Portal.
+Gdy korzystasz z zasobów z Azure Cosmos DB, naliczane są koszty. Koszty jednostkowe użycia zasobów różnią się w zależności od przedziałów czasu (sekundy, minuty, godziny i dni) lub według użycia jednostki żądania. Po rozpoczęciu korzystania z Azure Cosmos DB koszty są naliczane i można je wyświetlić w okienku [Analiza kosztów](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) w Azure Portal.
 
-Korzystając z analizy kosztów, można wyświetlić Azure Cosmos DB koszty w wykresach i tabelach dla różnych przedziałów czasu. Kilka przykładów jest dziennie, bieżących, poprzedniego miesiąca i roku. Możesz również wyświetlić koszty związane z budżetami i prognozowanymi kosztami. Przełączenie na dłuższe widoki w czasie może pomóc w identyfikowaniu trendów wydatków i sprawdzaniu, gdzie mogły wystąpić nadwyżki. Jeśli utworzono budżety, możesz również łatwo zobaczyć miejsce ich przekroczenia. Aby wyświetlić koszty Azure Cosmos DB w analizie kosztów:
+Korzystając z analizy kosztów, można wyświetlić Azure Cosmos DB koszty w wykresach i tabelach dla różnych przedziałów czasu. Kilka przykładów jest dziennie, bieżących, poprzedniego miesiąca i roku. Możesz również wyświetlić koszty związane z budżetami i prognozowanymi kosztami. Przełączenie na dłuższe widoki w czasie może pomóc w identyfikowaniu trendów wydatków i sprawdzaniu, gdzie mogły wystąpić nadwyżki. Jeśli utworzono budżety, możesz również łatwo zobaczyć miejsce ich przekroczenia. 
+
+Aby wyświetlić koszty Azure Cosmos DB w analizie kosztów:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. Otwórz okno **Cost Management + rozliczanie** , wybierz pozycję **Zarządzanie kosztami** z menu, a następnie wybierz pozycję **Analiza kosztów** . Następnie można zmienić zakres dla określonej subskrypcji z listy rozwijanej **zakres** .
+1. Otwórz zakres w Azure Portal a następnie wybierz pozycję **Analiza kosztów** w menu. Na przykład przejdź do pozycji **subskrypcje**, wybierz subskrypcję z listy, a następnie wybierz pozycję  **Analiza kosztów** w menu. Wybierz **zakres** , aby przełączyć się do innego zakresu w analizie kosztów.
 
 1. Domyślnie koszt wszystkich usług jest pokazywany na pierwszym wykresie pierścieniowym. Wybierz obszar na wykresie z etykietą "Azure Cosmos DB".
 
-1. Aby zawęzić koszty pojedynczej usługi, takiej jak Azure Cosmos DB, wybierz pozycję **Dodaj filtr** , a następnie wybierz pozycję **nazwa usługi** . Następnie wybierz **Azure Cosmos DB** z listy. Oto przykład przedstawiający koszty tylko Azure Cosmos DB:
+1. Aby zawęzić koszty pojedynczej usługi, takiej jak Azure Cosmos DB, wybierz pozycję **Dodaj filtr** , a następnie wybierz pozycję **nazwa usługi**. Następnie wybierz **Azure Cosmos DB** z listy. Oto przykład przedstawiający koszty tylko Azure Cosmos DB:
  
-   :::image type="content" source="./media/plan-manage-costs/cost-analysis-pane.png" alt-text="Oszacowanie kosztów w Azure Cosmos DB Kalkulator pojemności":::
+   :::image type="content" source="./media/plan-manage-costs/cost-analysis-pane.png" alt-text="Monitorowanie kosztów za pomocą okienka analiza kosztów":::
 
 W poprzednim przykładzie zobaczysz bieżący koszt dla Azure Cosmos DB w miesiącu lutego. Wykresy zawierają również koszty Azure Cosmos DB według lokalizacji i grupy zasobów.
+
+## <a name="create-budgets"></a>Tworzenie budżetów
+
+W celu zarządzania kosztami można utworzyć [budżety](https://docs.microsoft.com/azure/cost-management/tutorial-acm-create-budgets?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) oraz [alerty](https://docs.microsoft.com/azure/cost-management/cost-mgt-alerts-monitor-usage-spending?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn), które automatycznie powiadamiają uczestników o anomaliach w wydatkach i o ryzyku nadmiernych wydatków. Alerty są oparte na wydatkach w porównaniu z budżetem i progami kosztów. Budżety i alerty są tworzone dla subskrypcji platformy Azure i grup zasobów, dzięki czemu są one przydatne jako część ogólnej strategii monitorowania kosztów. 
+
+Budżety można utworzyć za pomocą filtrów dla określonych zasobów lub usług na platformie Azure, jeśli chcesz mieć większą szczegółowość w monitorowaniu. Filtry ułatwiają zagwarantowanie, że nie zostaną przypadkowo utworzone nowe zasoby, które będą kosztowały dodatkowe pieniądze. Aby uzyskać więcej informacji na temat opcji filtrowania podczas tworzenia budżetu, zobacz [Opcje grup i filtrów](https://docs.microsoft.com/azure/cost-management-billing/costs/group-filter?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+
+## <a name="export-cost-data"></a>Eksportowanie danych kosztów
+
+Możesz również [wyeksportować dane kosztu](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) do konta magazynu. Jest to przydatne, gdy potrzebujesz lub inne osoby mogą przeprowadzić dodatkową analizę danych pod kątem kosztów. Na przykład zespoły finansowe mogą analizować dane przy użyciu programu Excel lub Power BI. Możesz wyeksportować koszty codziennie, co tydzień lub miesięcznie i ustawić niestandardowy zakres dat. Eksportowanie danych o kosztach jest zalecanym sposobem na pobranie z nich zbiorów.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -106,3 +113,7 @@ Zapoznaj się z następującymi artykułami, aby dowiedzieć się więcej na tem
 * [Optymalizacja zaaprowizowanej przepływności w usłudze Azure Cosmos DB](optimize-cost-throughput.md)
 * [Optymalizacja kosztów zapytania w usłudze Azure Cosmos DB](./optimize-cost-reads-writes.md)
 * [Optymalizuj koszt magazynu w Azure Cosmos DB](optimize-cost-storage.md)
+* Dowiedz się [, jak zoptymalizować inwestycję w chmurę za pomocą Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/cost-mgt-best-practices?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+* Dowiedz się więcej o zarządzaniu kosztami przy użyciu [analizy kosztów](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+* Dowiedz się więcej na temat [zapobiegania nieoczekiwanym kosztom](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+* Zapoznaj się z [Cost Management](https://docs.microsoft.com/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) kurs uczenia z przewodnikiem.

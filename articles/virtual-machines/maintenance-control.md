@@ -5,14 +5,14 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 04/22/2020
+ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: 4d126d1e6bb92d2079ac3c0d95f754cb9aab3c21
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4b9dec0fe684e002fadbac2db375c354db2b6d01
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978615"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981174"
 ---
 # <a name="managing-platform-updates-with-maintenance-control"></a>Zarządzanie aktualizacjami platformy przy użyciu kontroli konserwacji 
 
@@ -23,12 +23,13 @@ Kontrola konserwacji pozwala określić, kiedy mają być stosowane aktualizacje
 Za pomocą kontrolki konserwacji można:
 - Aktualizacje wsadowe w jednym pakiecie aktualizacji.
 - Zaczekaj do 35 dni, aby zastosować aktualizacje. 
-- Automatyzuj aktualizacje platformy dla Twojego okna obsługi przy użyciu [Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
+- Automatyzowanie aktualizacji platformy przez skonfigurowanie harmonogramu konserwacji lub przy użyciu [Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
 - Konfiguracje konserwacji działają w ramach subskrypcji i grup zasobów. 
 
 ## <a name="limitations"></a>Ograniczenia
 
 - Maszyny wirtualne muszą znajdować się na [dedykowanym hoście](./dedicated-hosts.md)lub być tworzone przy użyciu [IZOLOWANEGO rozmiaru maszyny wirtualnej](isolation.md).
+- Jeśli harmonogram konserwacji jest zadeklarowany, musi on wynosić co najmniej 2 godziny.
 - Po upływie 35 dni zostanie automatycznie zastosowana aktualizacja.
 - Użytkownik musi mieć dostęp **współautora zasobów** .
 

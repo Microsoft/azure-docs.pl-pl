@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 11/03/2020
+ms.date: 11/18/2020
 ms.custom: generated
-ms.openlocfilehash: cf8c8e7d56f4eff351361edd148f91e81a07bfbb
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: ceb1aea1edcc4916fdd802673c3145b12de01801
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649147"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980919"
 ---
 # <a name="azure-resource-provider-operations"></a>Operacje dostawcy zasobów platformy Azure
 
@@ -271,7 +271,7 @@ Usługa platformy Azure: rdzeń
 > | Microsoft. Support/supportTickets/Communications/Read | Wyświetla jedną lub całą komunikację biletów pomocy technicznej |
 > | Microsoft. Support/supportTickets/Communications/Write | Dodaje nową komunikację do biletu pomocy technicznej |
 
-## <a name="compute"></a>Obliczenia
+## <a name="compute"></a>Wystąpienia obliczeniowe
 
 ### <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 
@@ -629,7 +629,7 @@ Usługa platformy Azure: [Service Fabric](../service-fabric/index.yml)
 > | Microsoft. servicefabric/Locations/Operations/Read | Odczytaj wszystkie operacje według lokalizacji |
 > | Microsoft. servicefabric/Operations/Read | Odczytaj wszystkie dostępne operacje |
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 
 ### <a name="microsoftcdn"></a>Microsoft. CDN
 
@@ -843,6 +843,7 @@ Usługa platformy Azure: [Application Gateway](../application-gateway/index.yml)
 > | Microsoft. Network/azureFirewalls/networkRuleCollections/odczyt | Pobiera NetworkRuleCollection zapory platformy Azure |
 > | Microsoft. Network/azureFirewalls/networkRuleCollections/Write | CreatesOrUpdates NetworkRuleCollection zapory platformy Azure |
 > | Microsoft. Network/azureFirewalls/networkRuleCollections/Delete | Usuwa NetworkRuleCollection zapory platformy Azure |
+> | Microsoft. Network/azureWebCategories/odczyt | Pobiera kategorie usługi Azure webcategories |
 > | Microsoft. Network/bastionHosts/odczyt | Pobiera hosta bastionu |
 > | Microsoft. Network/bastionHosts/Write | Tworzenie lub aktualizowanie hosta bastionu |
 > | Microsoft. Network/bastionHosts/Delete | Usuwa hosta bastionu |
@@ -1242,6 +1243,8 @@ Usługa platformy Azure: [Application Gateway](../application-gateway/index.yml)
 > | Microsoft. Network/virtualHubs/bgpConnections/odczyt | Pobiera zasób podrzędny z koncentratorem BGP dla koncentratora wirtualnego |
 > | Microsoft. Network/virtualHubs/bgpConnections/Write | Tworzy lub aktualizuje zasób podrzędny połączenia usługi BGP Hub koncentratora wirtualnego |
 > | Microsoft. Network/virtualHubs/bgpConnections/Delete | Usuwa zasób podrzędny połączenia z koncentratorem BGP koncentratora wirtualnego |
+> | Microsoft. Network/virtualHubs/bgpConnections/advertisedRoutes/Action | Pobiera trasy anonsowane przez virtualrouter |
+> | Microsoft. Network/virtualHubs/bgpConnections/learnedRoutes/Action | Pobiera virtualrouterne trasy |
 > | Microsoft. Network/virtualHubs/hubRouteTables/odczyt | Pobiera zasób podrzędny tabeli tras koncentratora wirtualnego |
 > | Microsoft. Network/virtualHubs/hubRouteTables/Write | Tworzy lub aktualizuje zasób podrzędny tabeli tras koncentratora wirtualnego |
 > | Microsoft. Network/virtualHubs/hubRouteTables/Delete | Usuwa zasób podrzędny tabeli tras koncentratora wirtualnego |
@@ -1329,6 +1332,9 @@ Usługa platformy Azure: [Application Gateway](../application-gateway/index.yml)
 > | Microsoft. Network/vpngateways/startpacketcapture/akcja | Uruchom przechwytywanie pakietów bramy sieci VPN z uwzględnieniem zasobu |
 > | Microsoft. Network/vpngateways/stoppacketcapture/akcja | Zatrzymaj przechwytywanie pakietów bramy sieci VPN za pomocą adresie sasurl |
 > | Microsoft. Network/vpngateways/listvpnconnectionshealth/akcja | Pobiera kondycję połączenia dla wszystkich lub podzbioru połączeń na bramy vpngateway |
+> | Microsoft. Network/vpnGateways/natRules/odczyt | Pobiera zasób reguły NAT |
+> | Microsoft. Network/vpnGateways/natRules/Write | Umieszcza zasób reguły NAT |
+> | Microsoft. Network/vpnGateways/natRules/Delete | Usuwa zasób reguły NAT |
 > | Microsoft. Network/vpnGateways/vpnConnections/odczyt | Pobiera VpnConnection. |
 > | Microsoft. Network/vpnGateways/vpnConnections/Write | VpnConnection. |
 > | Microsoft. Network/vpnGateways/vpnConnections/Delete | Usuwa element VpnConnection. |
@@ -1343,7 +1349,7 @@ Usługa platformy Azure: [Application Gateway](../application-gateway/index.yml)
 > | Microsoft. Network/vpnsites/Delete | Usuwa zasób witryny sieci VPN. |
 > | Microsoft. Network/vpnSites/vpnSiteLinks/odczyt | Pobiera łącze do witryny sieci VPN |
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 
 ### <a name="microsoftclassicstorage"></a>Microsoft. ClassicStorage
 
@@ -1934,6 +1940,9 @@ Usługa platformy Azure: [Azure Maps](../azure-maps/index.yml)
 > | Microsoft. Maps/accounts/Delete | Usuń konto Maps. |
 > | Microsoft. Maps/accounts/listKeys/Action | Lista mapowanie kluczy konta. |
 > | Microsoft. Maps/accounts/regenerateKey/Action | Generuj nowy klucz podstawowy lub pomocniczy konta map. |
+> | Microsoft. Maps/accounts/Creators/Write | Utwórz lub zaktualizuj twórcę. |
+> | Microsoft. Maps/accounts/Creators/Read | Pobierz twórcę. |
+> | Microsoft. Maps/accounts/Creators/Delete | Usuń twórcę. |
 > | Microsoft. Maps/accounts/eventGridFilters/Delete | Usuń filtr Event Grid. |
 > | Microsoft. Maps/accounts/eventGridFilters/Read | Pobierz filtr Event Grid |
 > | Microsoft. Maps/accounts/eventGridFilters/Write | Utwórz lub zaktualizuj filtr Event Grid. |
@@ -2103,6 +2112,7 @@ Usługa platformy Azure: [usługa Azure sygnalizująca](../azure-signalr/index.y
 > | Microsoft. SignalRService/Locations/checknameavailability/Action | Sprawdza, czy nazwa jest dostępna do użycia z nową usługą sygnalizującego |
 > | Microsoft. SignalRService/Locations/operationresults/sygnalizujący/odczytany | Zbadaj wynik operacji asynchronicznej opartej na lokalizacji |
 > | Microsoft. SignalRService/Locations/operationStatuses/operationId/Read | Badanie stanu operacji asynchronicznej opartej na lokalizacji |
+> | Microsoft. SignalRService/Locations/operationStatuses/sygnalizujący/odczytany | Badanie stanu operacji asynchronicznej opartej na lokalizacji |
 > | Microsoft. SignalRService/lokalizacje/użycia/odczyt | Pobierz użycie przydziału dla usługi Azure Signal Service |
 > | Microsoft. SignalRService/operationresults/odczyt | Zbadaj wynik operacji asynchronicznej na poziomie dostawcy |
 > | Microsoft. SignalRService/Operations/Read | Wyświetl listę operacji usługi Azure Signal Service. |
@@ -2610,6 +2620,7 @@ Usługa platformy Azure: [App Service](../app-service/index.yml), [Azure Functio
 > | Microsoft. Web/staticSites/GetUser/akcja | Pobieranie informacji o użytkowniku dla lokacji statycznej |
 > | Microsoft. Web/staticSites/listsecrets/akcja | Wyświetlanie wpisów tajnych dla lokacji statycznej |
 > | Microsoft. Web/staticSites/resetapikey/akcja | Zresetuj klucz interfejsu API dla lokacji statycznej |
+> | Microsoft. Web/staticSites/zipdeploy/akcja | Wdróż lokację statyczną z zawartości spakowanej |
 > | Microsoft. Web/staticSites/authproviders/listusers/Action | Wyświetlanie listy użytkowników dla witryny statycznej |
 > | Microsoft. Web/staticSites/authproviders/użytkownicy/usuwanie | Usuwanie użytkownika dla lokacji statycznej |
 > | Microsoft. Web/staticSites/authproviders/użytkownicy/zapis | Aktualizowanie użytkownika dla lokacji statycznej |
@@ -2617,6 +2628,7 @@ Usługa platformy Azure: [App Service](../app-service/index.yml), [Azure Functio
 > | Microsoft. Web/staticSites/kompilacja/usuwanie | Usuń kompilację dla lokacji statycznej |
 > | Microsoft. Web/staticSites/builds/listfunctionappsettings/Action | Lista ustawień aplikacji funkcji dla kompilacji lokacji statycznej |
 > | Microsoft. Web/staticSites/builds/listappsettings/Action | Wyświetlanie listy ustawień aplikacji dla kompilacji lokacji statycznej |
+> | Microsoft. Web/staticSites/builds/zipdeploy/Action | Wdrażanie kompilacji lokacji statycznej z zawartości spakowanej |
 > | Microsoft. Web/staticSites/kompilacja/konfiguracja/zapis | Utwórz lub zaktualizuj ustawienia aplikacji dla kompilacji lokacji statycznej |
 > | Microsoft. Web/staticSites/config/Write | Tworzenie lub aktualizowanie ustawień aplikacji dla lokacji statycznej |
 > | Microsoft. Web/staticSites/customdomains/zapis | Utwórz domenę niestandardową dla lokacji statycznej |
@@ -2625,7 +2637,7 @@ Usługa platformy Azure: [App Service](../app-service/index.yml), [Azure Functio
 > | Microsoft. Web/staticSites/customdomains/Validate/akcja | Weryfikowanie domeny niestandardowej można dodać do lokacji statycznej |
 > | Microsoft. Web/staticSites/Functions/Read | Wyświetlanie listy funkcji dla lokacji statycznej |
 
-## <a name="containers"></a>Kontenery
+## <a name="containers"></a>Containers
 
 ### <a name="microsoftcontainerinstance"></a>Microsoft. ContainerInstance
 
@@ -3931,6 +3943,8 @@ Usługa platformy Azure: [Azure SQL Database](../azure-sql/database/index.yml), 
 > | Microsoft. SQL/Locations/serverAdministratorOperationResults/Read | Wyniki operacji administratora serwera Azure Active Directory |
 > | Microsoft. SQL/Locations/serverKeyAzureAsyncOperation/Read | Pobiera operacje w toku dla kluczy serwera przezroczystego szyfrowania danych |
 > | Microsoft. SQL/Locations/serverKeyOperationResults/Read | Pobiera operacje w toku dla kluczy serwera przezroczystego szyfrowania danych |
+> | Microsoft. SQL/Locations/serverTrustGroupAzureAsyncOperation/Read | Pobieranie stanu operacji asynchronicznej grupy zaufania serwera |
+> | Microsoft. SQL/Locations/serverTrustGroupOperationResults/Read | Pobierz wynik operacji grupy zaufania serwera |
 > | Microsoft. SQL/Locations/serverTrustGroups/Write | Tworzy grupę zaufania serwera o określonych parametrach |
 > | Microsoft. SQL/Locations/serverTrustGroups/Delete | Usuwa istniejącą grupę SQL Server zaufania |
 > | Microsoft. SQL/Locations/serverTrustGroups/Read | Zwraca istniejące SQL Server grupy zaufania |
@@ -3946,12 +3960,12 @@ Usługa platformy Azure: [Azure SQL Database](../azure-sql/database/index.yml), 
 > | Microsoft. SQL/Locations/virtualNetworkRulesAzureAsyncOperation/Read | Zwraca szczegóły określonych reguł sieci wirtualnej Azure asynchronicznej operacji  |
 > | Microsoft. SQL/Locations/virtualNetworkRulesOperationResults/Read | Zwraca szczegóły określonej operacji dotyczącej reguł sieci wirtualnej  |
 > | Microsoft. SQL/managedInstances/tdeCertificates/akcja | Utwórz/zaktualizuj certyfikat TDE |
-> | Microsoft. SQL/managedInstances/joinServerTrustGroup/akcja | Określ, czy użytkownik może dołączyć do grupy zaufania serwera |
+> | Microsoft. SQL/managedInstances/tryb failover/akcja | Klient rozpoczął pracę w trybie failover wystąpienia zarządzanego. |
+> | Microsoft. SQL/managedInstances/joinServerTrustGroup/akcja | Określanie, czy użytkownik może dołączyć serwer zarządzany do grupy zaufania serwera |
 > | Microsoft. SQL/managedInstances/eksport/akcja | Eksportuj systemową bazę danych i klucz klucza |
 > | Microsoft. SQL/managedInstances/odczyt | Zwróć listę wystąpień zarządzanych lub pobiera właściwości dla określonego wystąpienia zarządzanego. |
 > | Microsoft. SQL/managedInstances/Write | Tworzy wystąpienie zarządzane o określonych parametrach lub aktualizuje właściwości lub Tagi dla określonego wystąpienia zarządzanego. |
 > | Microsoft. SQL/managedInstances/Delete | Usuwa istniejące wystąpienie zarządzane. |
-> | Microsoft. SQL/managedInstances/tryb failover/akcja | Klient rozpoczął pracę w trybie failover wystąpienia zarządzanego. |
 > | Microsoft. SQL/managedInstances/Administratorzy/odczyt | Pobiera listę administratorów wystąpienia zarządzanego. |
 > | Microsoft. SQL/managedInstances/Administratorzy/zapis | Tworzy lub aktualizuje administratora wystąpienia zarządzanego o określonych parametrach. |
 > | Microsoft. SQL/managedInstances/Administratorzy/usuwanie | Usuwa istniejącego administratora wystąpienia zarządzanego. |
@@ -4100,11 +4114,11 @@ Usługa platformy Azure: [Azure SQL Database](../azure-sql/database/index.yml), 
 > | Microsoft. SQL/serwery/bazy danych/dataMaskingPolicies/reguły/usuwanie | Usuń regułę zasad maskowania danych dla danej bazy danych |
 > | Microsoft. SQL/serwery/bazy danych/dataWarehouseQueries/odczyt | Zwraca informacje o zapytaniu dystrybucji magazynu danych dla wybranego identyfikatora zapytania |
 > | Microsoft. SQL/serwery/bazy danych/dataWarehouseQueries/dataWarehouseQuerySteps/odczyt | Zwraca informacje o kroku zapytania rozproszonego dotyczące zapytania hurtowni danych dla wybranego identyfikatora kroku |
-> | Microsoft. SQL/serwery/bazy danych/dataWarehouseUserActivities/odczyt | Pobiera działania użytkowników dedykowanej puli SQL usługi Azure Synapse Analytics, która obejmuje uruchomione i zawieszone zapytania |
+> | Microsoft. SQL/serwery/bazy danych/dataWarehouseUserActivities/odczyt | Pobiera działania użytkownika wystąpienia SQL Data Warehouse, w tym uruchomione i wstrzymane zapytania |
 > | Microsoft. SQL/serwery/bazy danych/extendedAuditingSettings/odczyt | Pobierz szczegóły zasad rozszerzonej inspekcji obiektów BLOB skonfigurowanych dla danej bazy danych |
 > | Microsoft. SQL/serwery/bazy danych/extendedAuditingSettings/Write | Zmiana zasad rozszerzonej inspekcji obiektów BLOB dla danej bazy danych |
-> | Microsoft. SQL/serwery/bazy danych/rozszerzenia/odczyt | Pobiera kolekcję rozszerzeń dla bazy danych. |
-> | Microsoft. SQL/serwery/bazy danych/rozszerzenia/zapis | Zmień rozszerzenie dla danej bazy danych |
+> | Microsoft. SQL/serwery/bazy danych/rozszerzenia/zapis | Wykonuje operację rozszerzenia bazy danych. |
+> | Microsoft. SQL/serwery/bazy danych/rozszerzenia/odczyt | Operacja pobrania rozszerzeń bazy danych. |
 > | Microsoft. SQL/serwery/bazy danych/rozszerzenia/importExtensionOperationResults/odczyt | Pobiera operacje importu w toku |
 > | Microsoft. SQL/serwery/bazy danych/geoBackupPolicies/odczyt | Pobierz zasady geograficznej kopii zapasowej dla danej bazy danych |
 > | Microsoft. SQL/serwery/bazy danych/geoBackupPolicies/Write | Tworzenie lub aktualizowanie zasad tworzenia kopii zapasowej bazy danych |
@@ -5140,6 +5154,7 @@ Usługa platformy Azure: [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft. CognitiveServices/accounts/textanalytics/Entities/akcja | Interfejs API zwraca listę znanych jednostek i ogólnych nazwanych jednostek ( \" osoba \" , \" Lokalizacja \" , \" organizacja \" itp.) w danym dokumencie. |
 > | Microsoft. CognitiveServices/accounts/textanalytics/frazy kluczowe/akcja | Interfejs API zwraca listę ciągów oznaczających kluczowe punkty w tekście wejściowym. |
 > | Microsoft. CognitiveServices/accounts/textanalytics/tonacji/Action | Interfejs API zwraca wynik liczbowy z zakresu od 0 do 1.<br>Wyniki zbliżone do wartości 1 wskazują na pozytywną tonację, a wyniki zbliżone do wartości 0 wskazują na negatywną tonację.<br>Wynik 0,5 wskazuje brak tonacji (np.<br>Instrukcja factoid). |
+> | Microsoft. CognitiveServices/accounts/textanalytics/Analizuj/Action | Prześlij kolekcję dokumentów tekstowych do analizy. Określ jedno lub więcej unikatowych zadań do wykonania. |
 > | Microsoft. CognitiveServices/accounts/texttranslation/Detect/Action | Identyfikuje język fragmentu tekstu. |
 > | Microsoft. CognitiveServices/accounts/texttranslation/breaksentence/Action | Określa położenie granic zdania w fragmencie tekstu. |
 > | Microsoft. CognitiveServices/accounts/texttranslation/Przekształć/akcja | Tłumaczy tekst. |
@@ -5501,24 +5516,24 @@ Usługa platformy Azure: [Notification Hubs](../notification-hubs/index.yml)
 > | Microsoft. NotificationHubs/Namespaces/CheckNotificationHubAvailability/Action | Sprawdza, czy dana nazwa NotificationHub jest dostępna wewnątrz przestrzeni nazw. |
 > | Microsoft. NotificationHubs/Namespaces/reguł autoryzacji/Write | Utwórz reguły autoryzacji na poziomie przestrzeni nazw i zaktualizuj jej właściwości. Prawa dostępu do reguł autoryzacji, klucze podstawowe i pomocnicze, można aktualizować. |
 > | Microsoft. NotificationHubs/Namespaces/reguł autoryzacji/Read | Pobierz Opis reguł autoryzacji przestrzeni nazw. |
-> | Microsoft. NotificationHubs/Namespaces/reguł autoryzacji/Delete | Usuń regułę autoryzacji przestrzeni nazw. Nie można usunąć domyślnej reguły autoryzacji przestrzeni nazw.  |
+> | Microsoft. NotificationHubs/Namespaces/reguł autoryzacji/Delete | Usuń regułę autoryzacji przestrzeni nazw. Nie można usunąć domyślnej reguły autoryzacji przestrzeni nazw. |
 > | Microsoft. NotificationHubs/Namespaces/reguł autoryzacji/ListKeys/Action | Pobierz parametry połączenia do przestrzeni nazw |
 > | Microsoft. NotificationHubs/Namespaces/reguł autoryzacji/regenerateKeys/Action | Reguła autoryzacji przestrzeni nazw Wygeneruj ponownie podstawowy/SecondaryKey, określ klucz, który należy ponownie wygenerować |
-> | Microsoft. NotificationHubs/Namespaces/diagnosticSettings/Read | Pobierz listę opisów zasobów ustawień diagnostycznych przestrzeni nazw |
-> | Microsoft. NotificationHubs/Namespaces/diagnosticSettings/Write | Pobierz listę opisów zasobów ustawień diagnostycznych przestrzeni nazw |
-> | Microsoft. NotificationHubs/Namespaces/logDefinitions/Read | Pobierz listę opisów zasobów dzienników przestrzeni nazw |
 > | Microsoft. NotificationHubs/Namespaces/NotificationHubs/Write | Utwórz centrum powiadomień i zaktualizuj jego właściwości. Jego właściwości obejmują głównie poświadczenia PNS. Reguły autoryzacji i czas wygaśnięcia |
 > | Microsoft. NotificationHubs/Namespaces/NotificationHubs/Read | Pobierz listę opisów zasobów centrum powiadomień |
 > | Microsoft. NotificationHubs/Namespaces/NotificationHubs/Delete | Usuwanie zasobu centrum powiadomień |
 > | Microsoft. NotificationHubs/Namespaces/NotificationHubs/reguł autoryzacji/Action | Pobierz listę reguł autoryzacji centrum powiadomień |
 > | Microsoft. NotificationHubs/Namespaces/NotificationHubs/pnsCredentials/Action | Pobierz wszystkie poświadczenia PNS centrum powiadomień. Obejmuje to, WNS, usługi MPNS, APNS, GCM i Baidu |
-> | Microsoft. NotificationHubs/Namespaces/NotificationHubs/debugSend/Action | Wyślij testowe Powiadomienie wypychane. |
+> | Microsoft. NotificationHubs/Namespaces/NotificationHubs/debugSend/Action | Wyślij testowe Powiadomienie wypychane na 10 dopasowanych urządzeń. |
 > | Microsoft. NotificationHubs/Namespaces/NotificationHubs/reguł autoryzacji/Write | Utwórz reguły autoryzacji centrum powiadomień i zaktualizuj jego właściwości. Prawa dostępu do reguł autoryzacji, klucze podstawowe i pomocnicze, można aktualizować. |
 > | Microsoft. NotificationHubs/Namespaces/NotificationHubs/reguł autoryzacji/Read | Pobierz listę reguł autoryzacji centrum powiadomień |
 > | Microsoft. NotificationHubs/Namespaces/NotificationHubs/reguł autoryzacji/Delete | Usuń reguły autoryzacji centrum powiadomień |
 > | Microsoft. NotificationHubs/Namespaces/NotificationHubs/reguł autoryzacji/ListKeys/Action | Pobierz parametry połączenia do centrum powiadomień |
 > | Microsoft. NotificationHubs/Namespaces/NotificationHubs/reguł autoryzacji/regenerateKeys/Action | Reguła autoryzacji centrum powiadomień Regenerate Primary/SecondaryKey, określ klucz, który należy ponownie wygenerować |
 > | Microsoft. NotificationHubs/Namespaces/NotificationHubs/metricDefinitions/Read | Pobierz listę opisów zasobów metryk przestrzeni nazw |
+> | Microsoft. NotificationHubs/Namespaces/Providers/Microsoft. Insights/diagnosticSettings/Read | Pobierz ustawienia diagnostyczne przestrzeni nazw |
+> | Microsoft. NotificationHubs/Namespaces/Providers/Microsoft. Insights/diagnosticSettings/Write | Utwórz lub zaktualizuj ustawienia diagnostyczne przestrzeni nazw |
+> | Microsoft. NotificationHubs/Namespaces/Providers/Microsoft. Insights/logDefinitions/Read | Pobiera dostępne dzienniki dla przestrzeni nazw |
 > | Microsoft. NotificationHubs/operationResults/odczyt | Zwraca wyniki operacji dla dostawcy Notification Hubs |
 > | Microsoft. NotificationHubs/Operations/Read | Zwraca listę obsługiwanych operacji dla dostawcy Notification Hubs |
 
@@ -5566,7 +5581,25 @@ Usługa platformy Azure: [kotwice przestrzenne platformy Azure](../spatial-ancho
 > | Akcja | Opis |
 > | --- | --- |
 > | Microsoft. MixedReality/Register/Action | Rejestruje subskrypcję dla dostawcy zasobów rzeczywistości mieszanej. |
+> | Microsoft. MixedReality/Unregister/Action | Wyrejestrowuje subskrypcję dla dostawcy zasobów rzeczywistości mieszanej. |
+> | Microsoft. MixedReality/Locations/checknameavailability/Read | Sprawdza dostępność nazwy |
+> | Microsoft. MixedReality/ObjectUnderstandingAccounts/Delete | Usuwanie konta opisującego obiekt |
+> | Microsoft. MixedReality/ObjectUnderstandingAccounts/ListKeys/akcja | Wyświetl listę kluczy, które obiekt ma zrozumieć konto |
+> | Microsoft. MixedReality/ObjectUnderstandingAccounts/odczyt | Odczytaj właściwości obiektu opisującego konto |
+> | Microsoft. MixedReality/ObjectUnderstandingAccounts/regeneratekeys/akcja | Ponowne generowanie kluczy konta opisującego obiekt |
+> | Microsoft. MixedReality/ObjectUnderstandingAccounts/Write | Aktualizowanie właściwości obiektu opisującego konto |
+> | Microsoft. MixedReality/Operations/Read | Wyświetl listę dostępnych operacji dla usługi Microsoft Mixed Reality |
+> | Microsoft. MixedReality/RemoteRenderingAccounts/Delete | Usuwanie konta renderowania zdalnego |
+> | Microsoft. MixedReality/RemoteRenderingAccounts/ListKeys/akcja | Lista kluczy zdalnego konta renderowania |
+> | Microsoft. MixedReality/RemoteRenderingAccounts/odczyt | Odczytywanie właściwości konta renderowania zdalnego |
+> | Microsoft. MixedReality/RemoteRenderingAccounts/regeneratekeys/akcja | Ponowne generowanie kluczy konta renderowania zdalnego |
+> | Microsoft. MixedReality/RemoteRenderingAccounts/Write | Aktualizowanie właściwości konta renderowania zdalnego |
+> | Microsoft. MixedReality/RemoteRenderingAccounts/klucze/odczyt | Odczytywanie kluczy zdalnego konta renderowania |
 > | Microsoft. MixedReality/remoteRenderingAccounts/Providers/Microsoft. Insights/metricDefinitions/Read | Pobiera dostępne metryki dla elementu Microsoft. MixedReality/remoteRenderingAccounts |
+> | Microsoft. MixedReality/SpatialAnchorsAccounts/ListKeys/akcja | Lista kluczy konta zakotwiczeń przestrzennych |
+> | Microsoft. MixedReality/SpatialAnchorsAccounts/odczyt | Odczytywanie właściwości konta zakotwiczeń przestrzennych |
+> | Microsoft. MixedReality/SpatialAnchorsAccounts/regeneratekeys/akcja | Ponowne generowanie kluczy konta zakotwiczeń przestrzennych |
+> | Microsoft. MixedReality/SpatialAnchorsAccounts/klucze/odczyt | Odczytaj klucze konta zakotwiczeń przestrzennych |
 > | Microsoft. MixedReality/spatialAnchorsAccounts/Providers/Microsoft. Insights/diagnosticSettings/Read | Pobiera ustawienie diagnostyczne dla Microsoft. MixedReality/spatialAnchorsAccounts |
 > | Microsoft. MixedReality/spatialAnchorsAccounts/Providers/Microsoft. Insights/diagnosticSettings/Write | Tworzy lub aktualizuje ustawienie diagnostyczne dla Microsoft. MixedReality/spatialAnchorsAccounts |
 > | Microsoft. MixedReality/spatialAnchorsAccounts/Providers/Microsoft. Insights/metricDefinitions/Read | Pobiera dostępne metryki dla elementu Microsoft. MixedReality/spatialAnchorsAccounts |
@@ -5931,6 +5964,11 @@ Usługa platformy Azure: [Azure Stack Edge](../databox-online/azure-stack-edge-o
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/role/odczyt | Wyświetla lub pobiera role |
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/role/Write | Tworzy lub aktualizuje role |
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/role/usuwanie | Usuwa role |
+> | Microsoft. DataBoxEdge/dataBoxEdgeDevices/role/Dodatki/odczyt | Wyświetla lub pobiera ArmApiRes_addons |
+> | Microsoft. DataBoxEdge/dataBoxEdgeDevices/role/Dodatki/odczyt | Wyświetla lub pobiera ArmApiRes_addons |
+> | Microsoft. DataBoxEdge/dataBoxEdgeDevices/role/Dodatki/zapis | Tworzy lub aktualizuje ArmApiRes_addons |
+> | Microsoft. DataBoxEdge/dataBoxEdgeDevices/role/Dodatki/usuwanie | Usuwa ArmApiRes_addons |
+> | Microsoft. DataBoxEdge/dataBoxEdgeDevices/role/Dodatki/operationResults/odczyt | Wyświetla lub pobiera wynik operacji |
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/role/monitoringConfig/Write | Tworzy lub aktualizuje konfigurację monitorowania |
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/role/monitoringConfig/Delete | Usuwa konfigurację monitorowania |
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/role/monitoringConfig/Read | Wyświetla lub Pobiera konfigurację monitorowania |
@@ -6543,65 +6581,65 @@ Usługa platformy Azure: [Key Vault](../key-vault/index.yml)
 > | Microsoft./Magazyn kluczy/managedHSMs/usuwanie | Usuwanie zarządzanego modułu HSM |
 > | Microsoft./Magazyn kluczy/operacje/odczyt | Wyświetla listę operacji dostępnych w ramach dostawcy zasobów Microsoft. |
 > | Microsoft./magazyny kluczy/magazynu/odczyt | Wyświetlanie właściwości magazynu kluczy |
-> | Microsoft./magazyny kluczy/magazynu/zapis | Utwórz nowy magazyn kluczy lub zaktualizuj właściwości istniejącego magazynu kluczy |
-> | Microsoft./magazyny/magazynu/usuwanie | Usuń magazyn kluczy |
+> | Microsoft./magazyny kluczy/magazynu/zapis | Tworzy nowy magazyn kluczy lub aktualizuje właściwości istniejącego magazynu kluczy. Niektóre właściwości mogą wymagać większej liczby uprawnień. |
+> | Microsoft./magazyny/magazynu/usuwanie | Usuwa Magazyn kluczy |
 > | Microsoft./magazyny/magazynu/wdrożenie/akcja | Zapewnia dostęp do wpisów tajnych w magazynie kluczy podczas wdrażania zasobów platformy Azure |
-> | Microsoft./magazyny kluczy/magazynu/accessPolicies/zapis | Aktualizowanie istniejących zasad dostępu przez scalanie lub zastępowanie lub Dodawanie nowych zasad dostępu do magazynu. |
+> | Microsoft./magazyny kluczy/magazynu/accessPolicies/zapis | Aktualizuje istniejące zasady dostępu przez scalanie lub zastępowanie lub dodanie nowych zasad dostępu do magazynu kluczy. |
 > | Microsoft./magazyny/magazynu/eventGridFilters/odczyt | Powiadamia Microsoft. EventGrid, że jest wyświetlana subskrypcja usługi dla Key Vault |
 > | Microsoft./magazyny kluczy/magazynu/eventGridFilters/zapis | Powiadamia Microsoft. kluczy, że jest tworzona nowa subskrypcja EventGrid dla Key Vault |
 > | Microsoft./magazyny/magazynu/eventGridFilters/usuwanie | Powiadamia Microsoft. EventGrid, że jest usuwana subskrypcja usługi dla Key Vault |
 > | Microsoft./magazyny/magazynu/klucze/odczyt | Wyświetl listę kluczy w określonym magazynie lub Odczytaj bieżącą wersję określonego klucza. |
-> | Microsoft./magazyny/magazynu/klucze/zapis | Utwórz nowy klucz lub zaktualizuj istniejący klucz. |
+> | Microsoft./magazyny/magazynu/klucze/zapis | Tworzy pierwszą wersję nowego klucza, jeśli nie istnieje. Jeśli już istnieje, istniejący klucz jest zwracany bez żadnych modyfikacji. Ten interfejs API nie tworzy kolejnych wersji i nie aktualizuje istniejących kluczy. |
 > | Microsoft./magazyny/magazynu/klucze/wersje/odczyt | Wyświetl listę wersji określonego klucza lub Odczytaj określoną wersję klucza. |
 > | Microsoft./magazyny/magazynu/wpisy tajne/odczyty | Wyświetl właściwości wpisu tajnego, ale nie jego wartość. |
-> | Microsoft./magazyny/magazynu/wpisy tajne/zapis | Utwórz nowy wpis tajny lub zaktualizuj wartość istniejącego klucza tajnego. |
+> | Microsoft./magazyny/magazynu/wpisy tajne/zapis | Tworzy nowy wpis tajny lub aktualizuje wartość istniejącego klucza tajnego. |
 > | **Akcja dataaction** | **Opis** |
 > | Microsoft./magazyny/magazynu/certificatecas/usuwanie | Usuwanie wystawcy certyfikatu |
 > | Microsoft./magazyny/magazynu/certificatecas/odczyt | Odczytywanie wystawcy certyfikatu |
 > | Microsoft./magazyny kluczy/magazynu/certificatecas/zapis | Napisz wystawcę certyfikatu |
 > | Microsoft./magazyny kluczy/magazynu/certificatecontacts/zapis | Zarządzanie kontaktem z certyfikatem |
-> | Microsoft./magazyny kluczy/magazynu/Certyfikaty/usuwanie | Usuń certyfikat. |
+> | Microsoft./magazyny kluczy/magazynu/Certyfikaty/usuwanie | Usuwa certyfikat. Wszystkie wersje są usuwane. |
 > | Microsoft./magazyny/magazynu/Certyfikaty/Odczytaj | Wyświetl listę certyfikatów w określonym magazynie kluczy lub Uzyskaj informacje o certyfikacie. |
-> | Microsoft./magazyny/magazynu/Certyfikaty/kopie zapasowe/akcja | Utwórz plik kopii zapasowej certyfikatu. Plik może służyć do przywrócenia certyfikatu w Key Vault tej samej subskrypcji. Mogą być stosowane ograniczenia. |
+> | Microsoft./magazyny/magazynu/Certyfikaty/kopie zapasowe/akcja | Tworzy plik kopii zapasowej certyfikatu. Plik może służyć do przywrócenia certyfikatu w Key Vault tej samej subskrypcji. Mogą być stosowane ograniczenia. |
 > | Microsoft.//magazyny/magazynu/Certyfikaty/Przeczyść/akcja | Przeczyszcza certyfikat, uniemożliwiając jego odzyskanie. |
 > | Microsoft./magazyny/magazynu/Certyfikaty/aktualizacje/akcja | Aktualizuje określone atrybuty skojarzone z danym certyfikatem. |
-> | Microsoft./magazyny/magazynu/Certyfikaty/tworzenie/akcja | Tworzy nowy certyfikat. |
-> | Microsoft./magazyny/magazynu/Certyfikaty/import/akcja | Importuje istniejący prawidłowy certyfikat zawierający klucz prywatny do Azure Key Vault. Certyfikat do zaimportowania może być w formacie PFX lub PEM. |
+> | Microsoft./magazyny/magazynu/Certyfikaty/tworzenie/akcja | Tworzy nowy certyfikat. Jeśli certyfikat nie istnieje, zostanie utworzona pierwsza wersja. W przeciwnym razie zostanie utworzona nowa wersja. |
+> | Microsoft./magazyny/magazynu/Certyfikaty/import/akcja | Importuje istniejący prawidłowy certyfikat zawierający klucz prywatny.<br>Certyfikat do zaimportowania może być w formacie PFX lub PEM.<br>Jeśli certyfikat nie istnieje w Key Vault, zostanie utworzona pierwsza wersja z określoną zawartością.<br>W przeciwnym razie zostanie utworzona nowa wersja z określoną zawartością. |
 > | Microsoft./magazyny kluczy/magazynu/Certyfikaty/odzyskiwanie/akcja | Odzyskuje usunięty certyfikat. Operacja wykonuje cofnięcie operacji usuwania. Operacja jest stosowana w magazynach włączonych do usuwania nietrwałego i musi zostać wystawiona w czasie trwania okresu przechowywania. |
-> | Microsoft./magazyny kluczy/magazynu/Certyfikaty/przywracanie/akcja | Przywraca kopię zapasową certyfikatu i wszystkie jego wersje do magazynu. |
+> | Microsoft./magazyny kluczy/magazynu/Certyfikaty/przywracanie/akcja | Przywraca certyfikat i wszystkie jego wersje z pliku kopii zapasowej wygenerowanego przez Key Vault. |
 > | Microsoft./magazyny/magazynu/klucze/odczyt | Wyświetl listę kluczy w określonym magazynie lub Odczytaj właściwości i materiał publiczny klucza.<br>W przypadku kluczy asymetrycznych ta operacja ujawnia klucz publiczny i obejmuje możliwość wykonywania algorytmów kluczy publicznych, takich jak szyfrowanie i Weryfikowanie podpisu.<br>Klucze prywatne i klucze symetryczne nigdy nie są ujawniane. |
 > | Microsoft. Keys/magazyny/klucze/aktualizacje/akcja | Aktualizuje określone atrybuty skojarzone z danym kluczem. |
-> | Microsoft. Keys/magazyny/klucze/tworzenie/akcja | Tworzy nowy klucz. |
-> | Microsoft. Keys/magazyny/klucze/import/akcja | Importuje klucz utworzony zewnętrznie, zapisuje go i zwraca parametry klucza i atrybuty do klienta. |
+> | Microsoft. Keys/magazyny/klucze/tworzenie/akcja | Tworzy nowy klucz. Jeśli klucz nie istnieje, zostanie utworzona pierwsza wersja. W przeciwnym razie zostanie utworzona nowa wersja z określoną wartością. |
+> | Microsoft. Keys/magazyny/klucze/import/akcja | Importuje zewnętrzny klucz. Jeśli klucz nie istnieje, pierwsza wersja jest tworzona przy użyciu zaimportowanego materiału. W przeciwnym razie zostanie utworzona nowa wersja z zaimportowanym materiałem. |
 > | Microsoft. Keys/magazyny/klucze/odzyskiwanie/akcja | Odzyskuje usunięty klucz. Operacja wykonuje cofnięcie operacji usuwania. Operacja jest stosowana w magazynach włączonych do usuwania nietrwałego i musi zostać wystawiona w czasie trwania okresu przechowywania. |
-> | Microsoft.//magazyny/magazynu/klucze/przywracanie/akcja | Przywraca klucz kopii zapasowej i wszystkie jego wersje do magazynu. |
-> | Microsoft./magazyny/magazynu/klucze/usuwanie | Usuń klucz. |
-> | Microsoft.//magazyny/magazynu/klucze/kopia zapasowa/akcja | Utwórz plik kopii zapasowej klucza. Plik może zostać użyty do przywrócenia klucza w Key Vault tej samej subskrypcji. Mogą być stosowane ograniczenia. |
+> | Microsoft.//magazyny/magazynu/klucze/przywracanie/akcja | Przywraca klucz i wszystkie jego wersje z pliku kopii zapasowej wygenerowanego przez Key Vault. |
+> | Microsoft./magazyny/magazynu/klucze/usuwanie | Usuwa klucz. Wszystkie wersje są usuwane. |
+> | Microsoft.//magazyny/magazynu/klucze/kopia zapasowa/akcja | Tworzy plik kopii zapasowej klucza. Plik może zostać użyty do przywrócenia klucza w Key Vault tej samej subskrypcji. Mogą być stosowane ograniczenia. |
 > | Microsoft. Keys/magazyny/klucze/Przeczyść/akcja | Przeczyszcza klucz, uniemożliwiając jego odzyskanie. |
-> | Microsoft. Keys/magazyny/klucze/szyfrowanie/akcja | Szyfruj zwykły tekst za pomocą klucza. Należy pamiętać, że jeśli klucz jest asymetryczny, ta operacja może być wykonywana przez podmioty zabezpieczeń z dostępem do odczytu. |
-> | Microsoft. Keys/magazyny/klucze/odszyfrowywanie/akcja | Odszyfruj tekst szyfrowany przy użyciu klucza. |
-> | Microsoft. Keys/magazyny/klucze/Zawijanie/akcja | Zawiń klucz symetryczny z kluczem Key Vault. Należy pamiętać, że jeśli klucz Key Vault jest asymetryczny, tę operację można wykonać z dostępem do odczytu. |
-> | Microsoft. Keys/magazyny/klucze/odpakowywanie/akcja | Odpakuj klucz symetryczny z kluczem Key Vault. |
-> | Microsoft. Keys/magazyny/klucze/akcja | Podpisz skrót przy użyciu klucza. |
-> | Microsoft. Keys/magazyny/klucze/weryfikacja/akcja | Sprawdź skrót. Należy pamiętać, że jeśli klucz jest asymetryczny, ta operacja może być wykonywana przez podmioty zabezpieczeń z dostępem do odczytu. |
-> | Microsoft./magazyny/magazynu/wpisy tajne/usuwanie | Usuń wpis tajny. |
-> | Microsoft./magazyny/magazynu/wpisy tajne/tworzenie kopii zapasowej/akcja | Utwórz plik kopii zapasowej klucza tajnego. Plik może zostać użyty do przywrócenia klucza tajnego w Key Vault tej samej subskrypcji. Mogą być stosowane ograniczenia. |
+> | Microsoft. Keys/magazyny/klucze/szyfrowanie/akcja | Szyfruje zwykły tekst przy użyciu klucza. Należy pamiętać, że jeśli klucz jest asymetryczny, ta operacja może być wykonywana przez podmioty zabezpieczeń z dostępem do odczytu. |
+> | Microsoft. Keys/magazyny/klucze/odszyfrowywanie/akcja | Odszyfrowuje tekst szyfrowany przy użyciu klucza. |
+> | Microsoft. Keys/magazyny/klucze/Zawijanie/akcja | Zawija klucz symetryczny z kluczem Key Vault. Należy pamiętać, że jeśli klucz Key Vault jest asymetryczny, ta operacja może być wykonywana przez podmioty zabezpieczeń z dostępem do odczytu. |
+> | Microsoft. Keys/magazyny/klucze/odpakowywanie/akcja | Odpakuje klucz symetryczny z kluczem Key Vault. |
+> | Microsoft. Keys/magazyny/klucze/akcja | Podpisuje skrót wiadomości (hash) za pomocą klucza. |
+> | Microsoft. Keys/magazyny/klucze/weryfikacja/akcja | Weryfikuje sygnaturę skrótu wiadomości (hash) przy użyciu klucza. Należy pamiętać, że jeśli klucz jest asymetryczny, ta operacja może być wykonywana przez podmioty zabezpieczeń z dostępem do odczytu. |
+> | Microsoft./magazyny/magazynu/wpisy tajne/usuwanie | Usuwa wpis tajny. Wszystkie wersje są usuwane. |
+> | Microsoft./magazyny/magazynu/wpisy tajne/tworzenie kopii zapasowej/akcja | Tworzy plik kopii zapasowej klucza tajnego. Plik może zostać użyty do przywrócenia klucza tajnego w Key Vault tej samej subskrypcji. Mogą być stosowane ograniczenia. |
 > | Microsoft.//magazyny/magazynu/wpisy tajne/akcja | Przeczyszcza wpis tajny, uniemożliwiając jego odzyskanie. |
 > | Microsoft./magazyny/magazynu/wpisy tajne/aktualizacja/akcja | Aktualizuje określone atrybuty skojarzone z danym wpisem tajnym. |
 > | Microsoft./magazyny/magazynu/wpisy tajne/odzyskiwanie/akcja | Odzyskiwanie usuniętego klucza tajnego. Operacja wykonuje cofnięcie operacji usuwania. Operacja jest stosowana w magazynach włączonych do usuwania nietrwałego i musi zostać wystawiona w czasie trwania okresu przechowywania. |
-> | Microsoft./magazyny/magazynu/wpisy tajne/przywracanie/akcja | Przywraca kopię zapasową wpisu tajnego oraz wszystkie jego wersje do magazynu. |
+> | Microsoft./magazyny/magazynu/wpisy tajne/przywracanie/akcja | Przywraca wpis tajny i wszystkie jego wersje z pliku kopii zapasowej wygenerowanego przez Key Vault. |
 > | Microsoft.//magazyny/magazynu/wpisy tajne/readMetadata/akcja | Wyświetlaj listę lub Wyświetl właściwości wpisu tajnego, ale nie jego wartość. |
-> | Microsoft./magazyny/magazynu/wpisy tajne/getsecret/Action | Pobierz wartość wpisu tajnego. |
-> | Microsoft., magazyn/magazyny/wpisy tajne/niejawne/akcja | Utwórz nowy wpis tajny. |
+> | Microsoft./magazyny/magazynu/wpisy tajne/getsecret/Action | Pobiera wartość wpisu tajnego. |
+> | Microsoft., magazyn/magazyny/wpisy tajne/niejawne/akcja | Ustawia wartość wpisu tajnego. Jeśli wpis tajny nie istnieje, zostanie utworzona pierwsza wersja. W przeciwnym razie zostanie utworzona nowa wersja z określoną wartością. |
 > | Microsoft./magazyny/magazynu/storageaccounts/odczyt | Odczytaj definicję zarządzanych kont magazynu i sygnatury dostępu współdzielonego. |
-> | Microsoft./magazyny kluczy/magazynu/storageaccounts/Set/Action | Utwórz lub zaktualizuj definicję zarządzanego konta magazynu. |
+> | Microsoft./magazyny kluczy/magazynu/storageaccounts/Set/Action | Tworzy lub aktualizuje definicję zarządzanego konta magazynu. |
 > | Microsoft./magazyny/magazynu/storageaccounts/usuwanie | Usuń definicję zarządzanego konta magazynu. |
-> | Microsoft./magazyny kluczy/magazynu/storageaccounts/kopia zapasowa/akcja | Utwórz kopię zapasową definicji zarządzanego konta magazynu i jego sygnatury dostępu współdzielonego. |
+> | Microsoft./magazyny kluczy/magazynu/storageaccounts/kopia zapasowa/akcja | Tworzy plik kopii zapasowej definicji zarządzanego konta magazynu i jego sygnatury dostępu współdzielonego. |
 > | Microsoft./magazyny kluczy/storageaccounts/przeczyszczanie/akcja | Przeczyszczanie usuniętej nietrwałej definicji zarządzanego konta magazynu lub sygnatury dostępu współdzielonego. |
 > | Microsoft./magazyny/magazynu/storageaccounts/regeneratekey/akcja | Wygeneruj ponownie klucz dostępu zarządzanego konta magazynu. |
 > | Microsoft./magazyny kluczy/magazynu/storageaccounts/odzyskiwanie/akcja | Odzyskaj nietrwałe definicje zarządzanego konta magazynu lub skojarzenia zabezpieczeń (Sygnatura dostępu współdzielonego). |
-> | Microsoft./magazyny kluczy/magazynu/storageaccounts/Przywróć/akcja | Przywraca definicję zarządzanego konta magazynu i jego sygnatury dostępu współdzielonego. |
-> | Microsoft./magazyny kluczy/magazynu/storageaccounts/SAS/Set/Action | Utwórz lub zaktualizuj definicję SAS (Sygnatura dostępu współdzielonego) dla zarządzanego konta magazynu. |
+> | Microsoft./magazyny kluczy/magazynu/storageaccounts/Przywróć/akcja | Przywraca definicję zarządzanego konta magazynu i jego sygnatury dostępu współdzielonego (Sygnatura dostęp współdzielony) z pliku kopii zapasowej wygenerowanego przez Key Vault. |
+> | Microsoft./magazyny kluczy/magazynu/storageaccounts/SAS/Set/Action | Tworzy lub aktualizuje definicję SAS (Sygnatura dostępu współdzielonego) dla zarządzanego konta magazynu. |
 > | Microsoft./magazyny kluczy/magazynu/storageaccounts/SAS/Delete | Usuń definicję SAS (Sygnatura dostępu współdzielonego) dla zarządzanego konta magazynu. |
 
 ### <a name="microsoftsecurity"></a>Microsoft.Security
@@ -6618,6 +6656,9 @@ Usługa platformy Azure: [Security Center](../security-center/index.yml)
 > | Microsoft. Security/advancedThreatProtectionSettings/Read | Pobiera ustawienia zaawansowanej ochrony przed zagrożeniami dla zasobu |
 > | Microsoft. Security/advancedThreatProtectionSettings/Write | Aktualizuje ustawienia zaawansowanej ochrony przed zagrożeniami dla zasobu |
 > | Microsoft. Security/Alerts/Read | Pobiera wszystkie dostępne alerty zabezpieczeń |
+> | Microsoft. Security/alertsSuppressionRules/Read | Pobiera wszystkie dostępne reguły pomijania alertów zabezpieczeń |
+> | Microsoft. Security/alertsSuppressionRules/Write | Tworzy nową regułę pomijania alertów zabezpieczeń lub zaktualizuj istniejącą regułę |
+> | Microsoft. Security/alertsSuppressionRules/Delete | Usuń regułę pomijania alertów zabezpieczeń |
 > | Microsoft. Security/applicationWhitelistings/Read | Pobiera aplikację allowlistings |
 > | Microsoft. Security/applicationWhitelistings/Write | Tworzy nową aplikację allowlisting lub aktualizuje istniejącą |
 > | Microsoft. Security/assessmentMetadata/Read | Uzyskaj dostępne metadane oceny zabezpieczeń w ramach subskrypcji |
@@ -6651,6 +6692,8 @@ Usługa platformy Azure: [Security Center](../security-center/index.yml)
 > | Microsoft. Security/Locations/Alerts/Read | Pobiera wszystkie dostępne alerty zabezpieczeń |
 > | Microsoft. zabezpieczenia/lokalizacje/alerty/Odrzuć/akcja | Odrzuć alert zabezpieczeń |
 > | Microsoft. Security/Locations/Alerts/Activate/Action | Aktywuj alert zabezpieczeń |
+> | Microsoft. Security/Locations/Alerts/Rozwiąż/akcja | Rozwiązywanie alertu zabezpieczeń |
+> | Microsoft. zabezpieczenia/lokalizacje/alerty/symulowanie/akcja | Symulowanie alertu zabezpieczeń |
 > | Microsoft. Security/Locations/jitNetworkAccessPolicies/Read | Pobiera zasady dostępu just in Time do sieci |
 > | Microsoft. Security/Locations/jitNetworkAccessPolicies/Write | Tworzy nowe zasady dostępu just in Time do sieci lub aktualizuje istniejące |
 > | Microsoft. Security/Locations/jitNetworkAccessPolicies/Delete | Usuwa zasady dostępu just in Time do sieci |
@@ -6665,6 +6708,10 @@ Usługa platformy Azure: [Security Center](../security-center/index.yml)
 > | Microsoft. zabezpieczenia/cenniki/odczyt | Pobiera ustawienia cen dla zakresu |
 > | Microsoft. zabezpieczenia/cenniki/zapis | Aktualizuje ustawienia cen dla zakresu |
 > | Microsoft. Security/cenniki/usuwanie | Usuwa ustawienia cen dla zakresu |
+> | Microsoft. Security/secureScoreControlDefinitions/Read | Pobieranie definicji kontroli bezpiecznego wyniku |
+> | Microsoft. Security/secureScoreControls/Read | Pobierz obliczoną bezpieczną kontrolę oceny dla Twojej subskrypcji |
+> | Microsoft. Security/secureScores/Read | Uzyskaj obliczony bezpieczny wynik dla subskrypcji |
+> | Microsoft. Security/secureScores/secureScoreControls/Read | Pobierz obliczoną bezpieczną kontrolę wyniku dla obliczenia bezpiecznego wyniku |
 > | Microsoft. Security/securityContacts/Read | Pobiera kontakt zabezpieczeń |
 > | Microsoft. Security/securityContacts/Write | Aktualizuje kontakt zabezpieczeń |
 > | Microsoft. Security/securityContacts/Delete | Usuwa kontakt zabezpieczeń |
@@ -6676,6 +6723,12 @@ Usługa platformy Azure: [Security Center](../security-center/index.yml)
 > | Microsoft. Security/securityStatusesSummaries/Read | Pobiera podsumowania stanu zabezpieczeń dla zakresu |
 > | Microsoft. Security/Settings/Read | Pobiera ustawienia dla zakresu |
 > | Microsoft. Security/Settings/Write | Aktualizuje ustawienia zakresu |
+> | Microsoft. Security/sqlVulnerabilityAssessments/baselineRules/Action | Dodaj listę reguł wynik do linii bazowej. |
+> | Microsoft. Security/sqlVulnerabilityAssessments/baselineRules/Read | Zwróć linie bazowe baz danych (wszystkie reguły, które zostały dodane do linii bazowej) lub uzyskaj wyniki linii bazowej reguły dla określonego identyfikatora reguły. |
+> | Microsoft. Security/sqlVulnerabilityAssessments/baselineRules/Write | Zmień wynik linii bazowej reguły. |
+> | Microsoft. Security/sqlVulnerabilityAssessments/baselineRules/Delete | Usuń wynik reguły z linii bazowej. |
+> | Microsoft. Security/sqlVulnerabilityAssessments/skany/odczyt | Zwróć listę rekordów skanowania oceny luk w zabezpieczeniach lub Pobierz rekord skanowania pod kątem określonego identyfikatora skanowania. |
+> | Microsoft. Security/sqlVulnerabilityAssessments/skany/scanResults/odczyt | Zwróć listę wyników reguł oceny luk w zabezpieczeniach lub Pobierz wynik reguły dla określonego identyfikatora reguły. |
 > | Microsoft. Security/Tasks/Read | Pobiera wszystkie dostępne zalecenia dotyczące zabezpieczeń |
 > | Microsoft. Security/webApplicationFirewalls/Read | Pobiera zapory aplikacji sieci Web |
 > | Microsoft. Security/webApplicationFirewalls/Write | Tworzy nową zaporę aplikacji sieci Web lub aktualizuje istniejącą |
@@ -6732,7 +6785,8 @@ Usługa platformy Azure: [wskaźnik na platformie Azure](../sentinel/index.yml)
 > | Microsoft. SecurityInsights/dataconnecters/Write | Aktualizuje Łącznik danych |
 > | Microsoft. SecurityInsights/dataconnecters/Delete | Usuwa Łącznik danych |
 > | Microsoft. SecurityInsights/Entities/odczyt | Pobiera wykres jednostek wskaźnikowych |
-> | Microsoft. SecurityInsights/jednostki/oś czasu/akcja | Pobiera oś czasu jednostki dla określonego zakresu |
+> | Microsoft. SecurityInsights/Entities/getoś czasu/akcja | Pobiera oś czasu jednostki dla określonego zakresu |
+> | Microsoft. SecurityInsights/Entities/getInsights/akcja | Pobiera szczegółowe informacje o jednostce dla określonego zakresu |
 > | Microsoft. SecurityInsights/Entities/relacje/odczyt | Pobiera relację między jednostką i powiązanymi zasobami |
 > | Microsoft. SecurityInsights/Entities/relacje/zapis | Aktualizuje relację między jednostką i powiązanymi zasobami |
 > | Microsoft. SecurityInsights/Entities/relacje/usuwanie | Usuwa relację między jednostką i powiązanymi zasobami |
@@ -8699,6 +8753,7 @@ Usługa platformy Azure: [Cost Management i rozliczanie](../cost-management-bill
 > | Microsoft. rozliczenia/billingAccounts/billingSubscriptions/odczyt |  |
 > | Microsoft. rozliczenia/billingAccounts/billingSubscriptions/Przenieś/akcja |  |
 > | Microsoft. rozliczenia/billingAccounts/billingSubscriptions/validateMoveEligibility/akcja |  |
+> | Microsoft. rozliczenia/billingAccounts/billingSubscriptions/downloadDocuments/akcja | Pobierz fakturę przy użyciu linku pobierania z listy |
 > | Microsoft. rozliczenia/billingAccounts/klienci/odczyt |  |
 > | Microsoft. rozliczenia/billingAccounts/klienci/billingPermissions/odczyt |  |
 > | Microsoft. rozliczenia/billingAccounts/działy/odczyt |  |
@@ -8712,7 +8767,6 @@ Usługa platformy Azure: [Cost Management i rozliczanie](../cost-management-bill
 > | Microsoft. rozliczenia/billingAccounts/produkty/Przenieś/akcja |  |
 > | Microsoft. rozliczenia/billingAccounts/produkty/validateMoveEligibility/akcja |  |
 > | Microsoft. rozliczenia/działy/odczyt |  |
-> | Microsoft. rozliczenia/faktury/pobieranie/akcja | Pobierz fakturę przy użyciu linku pobierania z listy |
 > | Microsoft. rozliczenia/faktury/pobieranie/akcja | Pobierz fakturę przy użyciu linku pobierania z listy |
 > | Microsoft. rozliczenia/operacje/odczyt |  |
 
@@ -9338,69 +9392,76 @@ Usługa platformy Azure: [Site Recovery](../site-recovery/index.yml)
 > | Akcja | Opis |
 > | --- | --- |
 > | Microsoft. RecoveryServices/Register/Action | Rejestruje subskrypcję dla danego dostawcy zasobów |
-> | Microsoft. RecoveryServices/Locations/backupPreValidateProtection/Action |  |
-> | Microsoft. RecoveryServices/Locations/backupStatus/Action | Sprawdź stan kopii zapasowej Recovery Services magazynów |
-> | Microsoft. RecoveryServices/Locations/backupValidateFeatures/Action | Weryfikuj funkcje |
+> | Microsoft. recoveryservices/Locations/backupPreValidateProtection/Action |  |
+> | Microsoft. recoveryservices/Locations/backupStatus/Action | Sprawdź stan kopii zapasowej Recovery Services magazynów |
+> | Microsoft. recoveryservices/Locations/backupValidateFeatures/Action | Weryfikuj funkcje |
 > | Microsoft. RecoveryServices/Locations/allocateStamp/Action | AllocateStamp jest operacją wewnętrzną używaną przez usługę |
 > | Microsoft. RecoveryServices/Locations/checkNameAvailability/Action | Sprawdź dostępność nazwy zasobu jest interfejsem API, aby sprawdzić, czy nazwa zasobu jest dostępna |
 > | Microsoft. RecoveryServices/Locations/allocatedStamp/Read | Operacja getallocatedstamp jest operacją wewnętrzną używaną przez usługę |
-> | Microsoft. RecoveryServices/Locations/backupProtectedItem/Write | Utwórz chroniony element kopii zapasowej |
-> | Microsoft. RecoveryServices/Locations/backupProtectedItems/Read | Zwraca listę wszystkich elementów chronionych. |
+> | Microsoft. recoveryservices/Locations/backupProtectedItem/Write | Utwórz chroniony element kopii zapasowej |
+> | Microsoft. recoveryservices/Locations/backupProtectedItems/Read | Zwraca listę wszystkich elementów chronionych. |
 > | Microsoft. RecoveryServices/Locations/operationStatus/Read | Pobiera stan operacji dla danej operacji |
 > | Microsoft. RecoveryServices/Operations/Read | Operacja zwraca listę operacji dla dostawcy zasobów |
-> | Microsoft. RecoveryServices/magazyny/backupJobsExport/akcja | Eksportuj zadania |
-> | Microsoft. RecoveryServices/magazyny/backupSecurityPIN/akcja | Zwraca informacje zabezpieczającego numeru PIN dla magazynu Recovery Services. |
-> | Microsoft. RecoveryServices/magazyny/backupValidateOperation/akcja | Sprawdź poprawność operacji dla chronionego elementu |
+> | Microsoft. recoveryservices/magazyny/backupCrossRegionRestore/akcja | Punkty odzyskiwania między regionami dla elementów chronionych. |
+> | Microsoft. recoveryservices/magazyny/backupCrrJob/akcja | Pobierz szczegóły zadania przywracania między regionami w regionie pomocniczym dla magazynu Recovery Services. |
+> | Microsoft. recoveryservices/magazyny/backupCrrJobs/akcja | Wyświetl listę zadań przywracania między regionami w regionie pomocniczym dla magazynu Recovery Services. |
+> | Microsoft. recoveryservices/magazyny/backupJobsExport/akcja | Eksportuj zadania |
+> | Microsoft. recoveryservices/magazyny/backupSecurityPIN/akcja | Zwraca informacje zabezpieczającego numeru PIN dla magazynu Recovery Services. |
+> | Microsoft. recoveryservices/magazyny/backupValidateOperation/akcja | Sprawdź poprawność operacji dla chronionego elementu |
 > | Microsoft. RecoveryServices/magazyny/zapis | Operacja Utwórz magazyn tworzy zasób platformy Azure typu "magazyn" |
 > | Microsoft. RecoveryServices/magazyny/odczyt | Operacja Pobierz magazyn pobiera obiekt reprezentujący zasób platformy Azure typu "magazyn" |
 > | Microsoft. RecoveryServices/magazyny/usuwanie | Operacja Usuń magazyn usuwa określony zasób platformy Azure typu "magazyn" |
-> | Microsoft. RecoveryServices/magazyny/backupconfig/odczyt | Zwraca konfigurację magazynu Recovery Services. |
-> | Microsoft. RecoveryServices/magazyny/backupconfig/zapis | Aktualizuje konfigurację magazynu Recovery Services. |
-> | Microsoft. RecoveryServices/magazyny/backupEncryptionConfigs/odczyt | Pobiera konfigurację szyfrowania zasobów kopii zapasowej. |
-> | Microsoft. RecoveryServices/magazyny/backupEncryptionConfigs/zapis | Aktualizuje konfigurację szyfrowania zasobów kopii zapasowej |
-> | Microsoft. RecoveryServices/magazyny/backupEngines/odczyt | Zwraca wszystkie serwery zarządzania kopiami zapasowymi zarejestrowane w magazynie. |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/refreshContainers/akcja | Odświeża listę kontenerów |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/backupProtectionIntent/usuwanie | Usuń zamiar ochrony kopii zapasowej |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/backupProtectionIntent/odczyt | Pobierz cel ochrony kopii zapasowej |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/backupProtectionIntent/zapis | Tworzenie opcji ochrony kopii zapasowej |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/operationResults/odczyt | Zwraca stan operacji |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/operationsStatus/odczyt | Zwraca stan operacji |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectableContainers/odczyt | Pobierz wszystkie kontenery z ochroną |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/usuwanie | Usuwa zarejestrowany kontener |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/zapytania/akcja | Wykonaj zapytanie dotyczące obciążeń w kontenerze |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/odczyt | Zwraca wszystkie zarejestrowane kontenery |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/zapis | Tworzy zarejestrowany kontener |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/Items/Read | Pobierz wszystkie elementy w kontenerze |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/operationResults/Read | Pobiera wynik operacji wykonanej na kontenerze ochrony. |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/operationsStatus/Read | Pobiera stan operacji wykonanej na kontenerze ochrony. |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/kopia zapasowa/akcja | Wykonuje kopię zapasową dla chronionego elementu. |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/Delete | Usuwa chroniony element |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/Read | Zwraca szczegóły obiektu chronionego elementu |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/Write | Utwórz chroniony element kopii zapasowej |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/operationResults/odczyt | Pobiera wynik operacji wykonanej na elementach chronionych. |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/operationsStatus/odczyt | Zwraca stan operacji wykonanej na elementach chronionych. |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/Action | Zapewnij natychmiastowe odzyskiwanie elementu dla chronionego elementu |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/recoveryPoints/odczyt | Pobierz punkty odzyskiwania dla elementów chronionych. |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/recoveryPoints/przywracanie/akcja | Przywracanie punktów odzyskiwania dla elementów chronionych. |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/Action | Odwołaj natychmiastowe odzyskiwanie elementu dla chronionego elementu |
-> | Microsoft. RecoveryServices/magazyny/backupJobs/anulowanie/akcja | Anuluj zadanie |
-> | Microsoft. RecoveryServices/magazyny/backupJobs/odczyt | Zwraca wszystkie obiekty zadań |
-> | Microsoft. RecoveryServices/magazyny/backupJobs/operationResults/odczyt | Zwraca wynik operacji zadania. |
-> | Microsoft. RecoveryServices/magazyny/backupJobs/operationsStatus/odczyt | Zwraca stan operacji zadania. |
-> | Microsoft. RecoveryServices/magazyny/backupOperationResults/odczyt | Zwraca wynik operacji tworzenia kopii zapasowej dla magazynu Recovery Services. |
-> | Microsoft. RecoveryServices/magazyny/backupOperations/odczyt | Zwraca stan operacji kopii zapasowej dla magazynu Recovery Services. |
-> | Microsoft. RecoveryServices/magazyny/backupPolicies/usuwanie | Usuwanie zasad ochrony |
-> | Microsoft. RecoveryServices/magazyny/backupPolicies/odczyt | Zwraca wszystkie zasady ochrony |
-> | Microsoft. RecoveryServices/magazyny/backupPolicies/zapis | Tworzy zasady ochrony |
-> | Microsoft. RecoveryServices/magazyny/backupPolicies/operationResults/odczyt | Pobierz wyniki operacji zasad. |
-> | Microsoft. RecoveryServices/magazyny/backupPolicies/operacje/odczyt | Pobierz stan operacji zasad. |
-> | Microsoft. RecoveryServices/magazyny/backupProtectableItems/odczyt | Zwraca listę wszystkich elementów podlegających ochronie. |
-> | Microsoft. RecoveryServices/magazyny/backupProtectedItems/odczyt | Zwraca listę wszystkich elementów chronionych. |
-> | Microsoft. RecoveryServices/magazyny/backupProtectionContainers/odczyt | Zwraca wszystkie kontenery należące do subskrypcji |
-> | Microsoft. RecoveryServices/magazyny/backupProtectionIntents/odczyt | Wyświetl listę wszystkich intencji ochrony kopii zapasowej |
-> | Microsoft. RecoveryServices/magazyny/backupstorageconfig/odczyt | Zwraca konfigurację magazynu dla magazynu Recovery Services. |
-> | Microsoft. RecoveryServices/magazyny/backupstorageconfig/zapis | Aktualizuje konfigurację magazynu dla magazynu Recovery Services. |
-> | Microsoft. RecoveryServices/magazyny/backupUsageSummaries/odczyt | Zwraca podsumowania elementów chronionych i serwerów chronionych dla Recovery Services. |
+> | Microsoft. recoveryservices/magazyny/backupAadProperties/odczyt | Uzyskaj właściwości usługi AAD do uwierzytelniania w trzecim regionie do przywracania między regionami. |
+> | Microsoft. recoveryservices/magazyny/backupconfig/odczyt | Zwraca konfigurację magazynu Recovery Services. |
+> | Microsoft. recoveryservices/magazyny/backupconfig/zapis | Aktualizuje konfigurację magazynu Recovery Services. |
+> | Microsoft. recoveryservices/magazyny/backupCrrOperationResults/odczyt | Zwraca wynik operacji CRR dla magazynu Recovery Services. |
+> | Microsoft. recoveryservices/magazyny/backupCrrOperationsStatus/odczyt | Zwraca stan operacji CRR dla magazynu Recovery Services. |
+> | Microsoft. recoveryservices/magazyny/backupEncryptionConfigs/odczyt | Pobiera konfigurację szyfrowania zasobów kopii zapasowej. |
+> | Microsoft. recoveryservices/magazyny/backupEncryptionConfigs/zapis | Aktualizuje konfigurację szyfrowania zasobów kopii zapasowej |
+> | Microsoft. recoveryservices/magazyny/backupEngines/odczyt | Zwraca wszystkie serwery zarządzania kopiami zapasowymi zarejestrowane w magazynie. |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/refreshContainers/akcja | Odświeża listę kontenerów |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/backupProtectionIntent/usuwanie | Usuń zamiar ochrony kopii zapasowej |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/backupProtectionIntent/odczyt | Pobierz cel ochrony kopii zapasowej |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/backupProtectionIntent/zapis | Tworzenie opcji ochrony kopii zapasowej |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/operationResults/odczyt | Zwraca stan operacji |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/operationsStatus/odczyt | Zwraca stan operacji |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectableContainers/odczyt | Pobierz wszystkie kontenery z ochroną |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/usuwanie | Usuwa zarejestrowany kontener |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/zapytania/akcja | Wykonaj zapytanie dotyczące obciążeń w kontenerze |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/odczyt | Zwraca wszystkie zarejestrowane kontenery |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/zapis | Tworzy zarejestrowany kontener |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/Items/Read | Pobierz wszystkie elementy w kontenerze |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/operationResults/Read | Pobiera wynik operacji wykonanej na kontenerze ochrony. |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/operationsStatus/Read | Pobiera stan operacji wykonanej na kontenerze ochrony. |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/kopia zapasowa/akcja | Wykonuje kopię zapasową dla chronionego elementu. |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/Delete | Usuwa chroniony element |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/Read | Zwraca szczegóły obiektu chronionego elementu |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/Write | Utwórz chroniony element kopii zapasowej |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/operationResults/odczyt | Pobiera wynik operacji wykonanej na elementach chronionych. |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/operationsStatus/odczyt | Zwraca stan operacji wykonanej na elementach chronionych. |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/recoveryPoints/accessToken/Action | Pobierz AccessToken do przywracania między regionami. |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/Action | Zapewnij natychmiastowe odzyskiwanie elementu dla chronionego elementu |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/recoveryPoints/odczyt | Pobierz punkty odzyskiwania dla elementów chronionych. |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/recoveryPoints/przywracanie/akcja | Przywracanie punktów odzyskiwania dla elementów chronionych. |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/Action | Odwołaj natychmiastowe odzyskiwanie elementu dla chronionego elementu |
+> | Microsoft. recoveryservices/magazyny/backupJobs/anulowanie/akcja | Anuluj zadanie |
+> | Microsoft. recoveryservices/magazyny/backupJobs/odczyt | Zwraca wszystkie obiekty zadań |
+> | Microsoft. recoveryservices/magazyny/backupJobs/operationResults/odczyt | Zwraca wynik operacji zadania. |
+> | Microsoft. recoveryservices/magazyny/backupJobs/operationsStatus/odczyt | Zwraca stan operacji zadania. |
+> | Microsoft. recoveryservices/magazyny/backupOperationResults/odczyt | Zwraca wynik operacji tworzenia kopii zapasowej dla magazynu Recovery Services. |
+> | Microsoft. recoveryservices/magazyny/backupOperations/odczyt | Zwraca stan operacji kopii zapasowej dla magazynu Recovery Services. |
+> | Microsoft. recoveryservices/magazyny/backupPolicies/usuwanie | Usuwanie zasad ochrony |
+> | Microsoft. recoveryservices/magazyny/backupPolicies/odczyt | Zwraca wszystkie zasady ochrony |
+> | Microsoft. recoveryservices/magazyny/backupPolicies/zapis | Tworzy zasady ochrony |
+> | Microsoft. recoveryservices/magazyny/backupPolicies/operationResults/odczyt | Pobierz wyniki operacji zasad. |
+> | Microsoft. recoveryservices/magazyny/backupPolicies/operacje/odczyt | Pobierz stan operacji zasad. |
+> | Microsoft. recoveryservices/magazyny/backupProtectableItems/odczyt | Zwraca listę wszystkich elementów podlegających ochronie. |
+> | Microsoft. recoveryservices/magazyny/backupProtectedItems/odczyt | Zwraca listę wszystkich elementów chronionych. |
+> | Microsoft. recoveryservices/magazyny/backupProtectionContainers/odczyt | Zwraca wszystkie kontenery należące do subskrypcji |
+> | Microsoft. recoveryservices/magazyny/backupProtectionIntents/odczyt | Wyświetl listę wszystkich intencji ochrony kopii zapasowej |
+> | Microsoft. recoveryservices/magazyny/backupstorageconfig/odczyt | Zwraca konfigurację magazynu dla magazynu Recovery Services. |
+> | Microsoft. recoveryservices/magazyny/backupstorageconfig/zapis | Aktualizuje konfigurację magazynu dla magazynu Recovery Services. |
+> | Microsoft. recoveryservices/magazyny/backupUsageSummaries/odczyt | Zwraca podsumowania elementów chronionych i serwerów chronionych dla Recovery Services. |
 > | Microsoft. RecoveryServices/magazyny/certyfikaty/zapis | Operacja Aktualizuj certyfikat zasobu aktualizuje certyfikat poświadczeń zasobu/magazynu. |
 > | Microsoft. RecoveryServices/magazyny/extendedInformation/odczyt | Operacja Pobierz rozszerzone informacje pobiera rozszerzone informacje o obiekcie reprezentujące zasób platformy Azure typu? |
 > | Microsoft. RecoveryServices/magazyny/extendedInformation/zapis | Operacja Pobierz rozszerzone informacje pobiera rozszerzone informacje o obiekcie reprezentujące zasób platformy Azure typu? |
@@ -9409,14 +9470,14 @@ Usługa platformy Azure: [Site Recovery](../site-recovery/index.yml)
 > | Microsoft. RecoveryServices/magazyny/monitoringAlerts/zapis | Rozwiązuje alert. |
 > | Microsoft. RecoveryServices/magazyny/monitoringConfigurations/odczyt | Pobiera konfigurację powiadomień magazynu usługi Recovery Services. |
 > | Microsoft. RecoveryServices/magazyny/monitoringConfigurations/zapis | Konfiguruje powiadomienia e-mail dla magazynu usługi Recovery Services. |
-> | Microsoft. RecoveryServices/magazyny/privateEndpointConnectionProxies/usuwanie | Poczekaj kilka minut, a następnie spróbuj ponownie wykonać operację. Jeśli problem będzie nadal występować, skontaktuj się z działem pomocy technicznej firmy Microsoft. |
-> | Microsoft. RecoveryServices/magazyny/privateEndpointConnectionProxies/odczyt | Pobierz wszystkie kontenery z ochroną |
-> | Microsoft. RecoveryServices/magazyny/privateEndpointConnectionProxies/weryfikacja/akcja | Pobierz wszystkie kontenery z ochroną |
-> | Microsoft. RecoveryServices/magazyny/privateEndpointConnectionProxies/zapis | Pobierz wszystkie kontenery z ochroną |
-> | Microsoft. RecoveryServices/magazyny/privateEndpointConnectionProxies/operationsStatus/odczyt | Pobierz wszystkie kontenery z ochroną |
-> | Microsoft. RecoveryServices/magazyny/privateEndpointConnections/usuwanie | Usuń prywatne żądania punktów końcowych. To wywołanie jest wykonywane przez administratora kopii zapasowej. |
-> | Microsoft. RecoveryServices/magazyny/privateEndpointConnections/zapis | Zatwierdzanie lub odrzucanie prywatnych żądań punktów końcowych. To wywołanie jest wykonywane przez administratora kopii zapasowej. |
-> | Microsoft. RecoveryServices/magazyny/privateEndpointConnections/operationsStatus/odczyt | Zwraca stan operacji dla połączenia prywatnego punktu końcowego. |
+> | Microsoft. recoveryservices/magazyny/privateEndpointConnectionProxies/usuwanie | Poczekaj kilka minut, a następnie spróbuj ponownie wykonać operację. Jeśli problem będzie nadal występować, skontaktuj się z działem pomocy technicznej firmy Microsoft. |
+> | Microsoft. recoveryservices/magazyny/privateEndpointConnectionProxies/odczyt | Pobierz wszystkie kontenery z ochroną |
+> | Microsoft. recoveryservices/magazyny/privateEndpointConnectionProxies/weryfikacja/akcja | Pobierz wszystkie kontenery z ochroną |
+> | Microsoft. recoveryservices/magazyny/privateEndpointConnectionProxies/zapis | Pobierz wszystkie kontenery z ochroną |
+> | Microsoft. recoveryservices/magazyny/privateEndpointConnectionProxies/operationsStatus/odczyt | Pobierz wszystkie kontenery z ochroną |
+> | Microsoft. recoveryservices/magazyny/privateEndpointConnections/usuwanie | Usuń prywatne żądania punktów końcowych. To wywołanie jest wykonywane przez administratora kopii zapasowej. |
+> | Microsoft. recoveryservices/magazyny/privateEndpointConnections/zapis | Zatwierdzanie lub odrzucanie prywatnych żądań punktów końcowych. To wywołanie jest wykonywane przez administratora kopii zapasowej. |
+> | Microsoft. recoveryservices/magazyny/privateEndpointConnections/operationsStatus/odczyt | Zwraca stan operacji dla połączenia prywatnego punktu końcowego. |
 > | Microsoft. RecoveryServices/magazyny/registeredIdentities/zapis | Operacji rejestrowania kontenera usługi można użyć do zarejestrowania kontenera z usługą odzyskiwania. |
 > | Microsoft. RecoveryServices/magazyny/registeredIdentities/odczyt | Operacja Pobierz kontenery umożliwia pobieranie kontenerów zarejestrowanych dla zasobu. |
 > | Microsoft. RecoveryServices/magazyny/registeredIdentities/usuwanie | Operacja Wyrejestruj kontener może służyć do wyrejestrowywania kontenera. |
@@ -9532,7 +9593,7 @@ Usługa platformy Azure: [Site Recovery](../site-recovery/index.yml)
 > | Microsoft. RecoveryServices/magazyny/replicationVaultSettings/odczyt | Odczytaj wszystkie  |
 > | Microsoft. RecoveryServices/magazyny/replicationVaultSettings/zapis | Utwórz lub zaktualizuj dowolne  |
 > | Microsoft. RecoveryServices/magazyny/replicationvCenters/odczyt | Odczytaj dowolne vCenter |
-> | Microsoft. RecoveryServices/magazyny/użycia/odczyt | Zwraca szczegóły użycia magazynu Recovery Servicesowego. |
+> | Microsoft. recoveryservices/magazyny/użycia/odczyt | Zwraca szczegóły użycia magazynu Recovery Servicesowego. |
 > | Microsoft. RecoveryServices/magazyny/użycia/odczyt | Odczytaj wszystkie użycia magazynu |
 > | Microsoft. RecoveryServices/magazyny/vaultTokens/odczyt | Operacja token magazynu umożliwia pobieranie tokenu magazynu dla operacji zaplecza na poziomie magazynu. |
 

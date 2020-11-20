@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 11/03/2020
+ms.date: 11/18/2020
 ms.custom: generated
-ms.openlocfilehash: a48a13fa18025254ee31344868d10181ae87c65e
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: e18dc7e16eb0b114bd279d53b7dcc895bd62f338
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685481"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980866"
 ---
 # <a name="azure-built-in-roles"></a>Role wbudowane platformy Azure
 
@@ -237,6 +237,7 @@ Przyznaje pełen dostęp do zarządzania wszystkimi zasobami, ale nie umożliwia
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/elevateAccess/Action | Przyznaje osobie wywołującej uprawnienia administratora dostępu użytkowników w zakresie dzierżawy |
 > | [Microsoft. plan](resource-provider-operations.md#microsoftblueprint)/blueprintAssignments/Write | Utwórz lub zaktualizuj wszystkie przypisania strategii |
 > | [Microsoft. plan](resource-provider-operations.md#microsoftblueprint)/blueprintAssignments/Delete | Usuń wszystkie przypisania strategii |
+> | [Microsoft. COMPUTE](resource-provider-operations.md#microsoftcompute)/Galleries/Share/Action | Udostępnia galerię do różnych zakresów |
 > | **Akcje dataactions** |  |
 > | *brak* |  |
 > | **NotDataActions** |  |
@@ -260,7 +261,8 @@ Przyznaje pełen dostęp do zarządzania wszystkimi zasobami, ale nie umożliwia
         "Microsoft.Authorization/*/Write",
         "Microsoft.Authorization/elevateAccess/Action",
         "Microsoft.Blueprint/blueprintAssignments/write",
-        "Microsoft.Blueprint/blueprintAssignments/delete"
+        "Microsoft.Blueprint/blueprintAssignments/delete",
+        "Microsoft.Compute/galleries/share/action"
       ],
       "dataActions": [],
       "notDataActions": []
@@ -393,7 +395,7 @@ Umożliwia zarządzanie dostępem użytkowników do zasobów platformy Azure. [D
 }
 ```
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Wystąpienia obliczeniowe
 
 
 ### <a name="classic-virtual-machine-contributor"></a>Współautor klasycznej maszyny wirtualnej
@@ -686,7 +688,7 @@ Wyświetl Virtual Machines w portalu i zaloguj się jako zwykły użytkownik. [D
 }
 ```
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 
 
 ### <a name="cdn-endpoint-contributor"></a>Współautor punktu końcowego usługi CDN
@@ -2587,7 +2589,7 @@ Odczytuj i wyświetlaj kolejki usługi Azure Storage oraz wiadomości w kolejce.
 }
 ```
 
-## <a name="web"></a>Internet
+## <a name="web"></a>Sieć Web
 
 
 ### <a name="azure-maps-data-reader"></a>Azure Maps czytnika danych
@@ -3070,7 +3072,7 @@ Umożliwia zarządzanie witrynami sieci Web (nie planami internetowymi), ale nie
 }
 ```
 
-## <a name="containers"></a>Kontenery
+## <a name="containers"></a>Containers
 
 
 ### <a name="acrdelete"></a>AcrDelete
@@ -6551,6 +6553,7 @@ Współautor Azure wskaźnikowego [Dowiedz się więcej](../sentinel/roles.md)
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/Query/*/Read |  |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/DataSources/Read | Pobierz źródła danych w obszarze roboczym. |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/Workbooks/* |  |
+> | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/myworkbooks/Read | Odczytaj prywatny skoroszyt |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
 > | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Tworzenie wdrożenia i zarządzanie nim |
@@ -6583,6 +6586,7 @@ Współautor Azure wskaźnikowego [Dowiedz się więcej](../sentinel/roles.md)
         "Microsoft.OperationalInsights/workspaces/query/*/read",
         "Microsoft.OperationalInsights/workspaces/dataSources/read",
         "Microsoft.Insights/workbooks/*",
+        "Microsoft.Insights/myworkbooks/read",
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Resources/deployments/*",
@@ -6620,6 +6624,7 @@ Czytnik wskaźnikowy platformy Azure [Dowiedz się więcej](../sentinel/roles.md
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/Query/*/Read |  |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/DataSources/Read | Pobierz źródła danych w obszarze roboczym. |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/Workbooks/Read | Odczytaj skoroszyt |
+> | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/myworkbooks/Read | Odczytaj prywatny skoroszyt |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
 > | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Tworzenie wdrożenia i zarządzanie nim |
@@ -6656,6 +6661,7 @@ Czytnik wskaźnikowy platformy Azure [Dowiedz się więcej](../sentinel/roles.md
         "Microsoft.OperationalInsights/workspaces/query/*/read",
         "Microsoft.OperationalInsights/workspaces/dataSources/read",
         "Microsoft.Insights/workbooks/read",
+        "Microsoft.Insights/myworkbooks/read",
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Resources/deployments/*",
@@ -6699,13 +6705,15 @@ Obiekt odpowiadający usługi Azure wskaźnikowej [Dowiedz się więcej](../sent
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/Query/*/Read |  |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/DataSources/Read | Pobierz źródła danych w obszarze roboczym. |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/Workbooks/Read | Odczytaj skoroszyt |
+> | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/myworkbooks/Read | Odczytaj prywatny skoroszyt |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
 > | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Tworzenie wdrożenia i zarządzanie nim |
 > | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/Read | Pobiera lub wyświetla listę grup zasobów. |
 > | [Microsoft. Support](resource-provider-operations.md#microsoftsupport)/* | Tworzenie i aktualizowanie biletu pomocy technicznej |
 > | **NotActions** |  |
-> | *brak* |  |
+> | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/Cases/*/Delete |  |
+> | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/incidents/*/Delete |  |
 > | **Akcje dataactions** |  |
 > | *brak* |  |
 > | **NotDataActions** |  |
@@ -6741,13 +6749,17 @@ Obiekt odpowiadający usługi Azure wskaźnikowej [Dowiedz się więcej](../sent
         "Microsoft.OperationalInsights/workspaces/query/*/read",
         "Microsoft.OperationalInsights/workspaces/dataSources/read",
         "Microsoft.Insights/workbooks/read",
+        "Microsoft.Insights/myworkbooks/read",
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Resources/deployments/*",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Support/*"
       ],
-      "notActions": [],
+      "notActions": [
+        "Microsoft.SecurityInsights/cases/*/Delete",
+        "Microsoft.SecurityInsights/incidents/*/Delete"
+      ],
       "dataActions": [],
       "notDataActions": []
     }
@@ -7004,8 +7016,8 @@ Odczytywanie metadanych kluczy i wykonywanie operacji zawijania/odpakowania. Dzi
 > | *brak* |  |
 > | **Akcje dataactions** |  |
 > | /Vaults/Keys/Read [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Wyświetl listę kluczy w określonym magazynie lub Odczytaj właściwości i materiał publiczny klucza. W przypadku kluczy asymetrycznych ta operacja ujawnia klucz publiczny i obejmuje możliwość wykonywania algorytmów kluczy publicznych, takich jak szyfrowanie i Weryfikowanie podpisu. Klucze prywatne i klucze symetryczne nigdy nie są ujawniane. |
-> | /Vaults/Keys/Wrap/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Zawiń klucz symetryczny z kluczem Key Vault. Należy pamiętać, że jeśli klucz Key Vault jest asymetryczny, tę operację można wykonać z dostępem do odczytu. |
-> | /Vaults/Keys/Unwrap/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Odpakuj klucz symetryczny z kluczem Key Vault. |
+> | /Vaults/Keys/Wrap/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Zawija klucz symetryczny z kluczem Key Vault. Należy pamiętać, że jeśli klucz Key Vault jest asymetryczny, ta operacja może być wykonywana przez podmioty zabezpieczeń z dostępem do odczytu. |
+> | /Vaults/Keys/Unwrap/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Odpakuje klucz symetryczny z kluczem Key Vault. |
 > | **NotDataActions** |  |
 > | *brak* |  |
 
@@ -7048,13 +7060,13 @@ Wykonywanie operacji kryptograficznych przy użyciu kluczy. Działa tylko w przy
 > | **Akcje dataactions** |  |
 > | /Vaults/Keys/Read [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Wyświetl listę kluczy w określonym magazynie lub Odczytaj właściwości i materiał publiczny klucza. W przypadku kluczy asymetrycznych ta operacja ujawnia klucz publiczny i obejmuje możliwość wykonywania algorytmów kluczy publicznych, takich jak szyfrowanie i Weryfikowanie podpisu. Klucze prywatne i klucze symetryczne nigdy nie są ujawniane. |
 > | /Vaults/Keys/Update/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Aktualizuje określone atrybuty skojarzone z danym kluczem. |
-> | /Vaults/Keys/Backup/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Utwórz plik kopii zapasowej klucza. Plik może zostać użyty do przywrócenia klucza w Key Vault tej samej subskrypcji. Mogą być stosowane ograniczenia. |
-> | /Vaults/Keys/Encrypt/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Szyfruj zwykły tekst za pomocą klucza. Należy pamiętać, że jeśli klucz jest asymetryczny, ta operacja może być wykonywana przez podmioty zabezpieczeń z dostępem do odczytu. |
-> | /Vaults/Keys/Decrypt/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Odszyfruj tekst szyfrowany przy użyciu klucza. |
-> | /Vaults/Keys/Wrap/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Zawiń klucz symetryczny z kluczem Key Vault. Należy pamiętać, że jeśli klucz Key Vault jest asymetryczny, tę operację można wykonać z dostępem do odczytu. |
-> | /Vaults/Keys/Unwrap/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Odpakuj klucz symetryczny z kluczem Key Vault. |
-> | /Vaults/Keys/Sign/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Podpisz skrót przy użyciu klucza. |
-> | /Vaults/Keys/verify/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Sprawdź skrót. Należy pamiętać, że jeśli klucz jest asymetryczny, ta operacja może być wykonywana przez podmioty zabezpieczeń z dostępem do odczytu. |
+> | /Vaults/Keys/Backup/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Tworzy plik kopii zapasowej klucza. Plik może zostać użyty do przywrócenia klucza w Key Vault tej samej subskrypcji. Mogą być stosowane ograniczenia. |
+> | /Vaults/Keys/Encrypt/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Szyfruje zwykły tekst przy użyciu klucza. Należy pamiętać, że jeśli klucz jest asymetryczny, ta operacja może być wykonywana przez podmioty zabezpieczeń z dostępem do odczytu. |
+> | /Vaults/Keys/Decrypt/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Odszyfrowuje tekst szyfrowany przy użyciu klucza. |
+> | /Vaults/Keys/Wrap/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Zawija klucz symetryczny z kluczem Key Vault. Należy pamiętać, że jeśli klucz Key Vault jest asymetryczny, ta operacja może być wykonywana przez podmioty zabezpieczeń z dostępem do odczytu. |
+> | /Vaults/Keys/Unwrap/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Odpakuje klucz symetryczny z kluczem Key Vault. |
+> | /Vaults/Keys/Sign/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Podpisuje skrót wiadomości (hash) za pomocą klucza. |
+> | /Vaults/Keys/verify/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Weryfikuje sygnaturę skrótu wiadomości (hash) przy użyciu klucza. Należy pamiętać, że jeśli klucz jest asymetryczny, ta operacja może być wykonywana przez podmioty zabezpieczeń z dostępem do odczytu. |
 > | **NotDataActions** |  |
 > | *brak* |  |
 
@@ -7221,7 +7233,7 @@ Odczytaj zawartość wpisu tajnego. Działa tylko w przypadku magazynów kluczy,
 > | **NotActions** |  |
 > | *brak* |  |
 > | **Akcje dataactions** |  |
-> | /Vaults/Secrets/getSecret/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Pobierz wartość wpisu tajnego. |
+> | /Vaults/Secrets/getSecret/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Pobiera wartość wpisu tajnego. |
 > | /Vaults/Secrets/readMetadata/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Wyświetlaj listę lub Wyświetl właściwości wpisu tajnego, ale nie jego wartość. |
 > | **NotDataActions** |  |
 > | *brak* |  |
@@ -7760,7 +7772,7 @@ Może odczytywać wszystkie dane monitorowania i edytować ustawienia monitorowa
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/sharedKeys/Action | Pobiera klucze wspólne dla obszaru roboczego. Klucze te służą do łączenia agentów programu Microsoft Operational Insights z obszarem roboczym. |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/storageinsightconfigs/* | Odczyt/zapis/Usuwanie konfiguracji usługi Magazyn analizy dzienników. |
 > | [Microsoft. Support](resource-provider-operations.md#microsoftsupport)/* | Tworzenie i aktualizowanie biletu pomocy technicznej |
-> | [Microsoft. Monitor obciążenia został](resource-provider-operations.md#microsoftworkloadmonitor)/Monitors/* | Uzyskaj informacje na temat monitorów kondycji maszyn wirtualnych gościa.  |
+> | [Microsoft. Monitor obciążenia został](resource-provider-operations.md#microsoftworkloadmonitor)/Monitors/* | Uzyskaj informacje na temat monitorów kondycji maszyn wirtualnych gościa. |
 > | [Microsoft. AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/smartDetectorAlertRules/* |  |
 > | [Microsoft. AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/actionRules/* |  |
 > | [Microsoft. AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/smartGroups/* |  |

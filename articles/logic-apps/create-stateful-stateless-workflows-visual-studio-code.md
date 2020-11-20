@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 11/09/2020
-ms.openlocfilehash: 749807349fd83f9639461fd4ddd9ab771d108119
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.date: 11/17/2020
+ms.openlocfilehash: 14809cb28870e88cfa584c4f02360d50beabf901
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410559"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981057"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Tworzenie stanowych lub bezstanowych przepływów pracy w programie Visual Studio Code za pomocą rozszerzenia usługi Azure Logic Apps (wersja zapoznawcza)
 
@@ -324,9 +324,9 @@ Przed utworzeniem aplikacji logiki Utwórz projekt lokalny, aby móc zarządzać
       Host shutdown completed.
       ```
 
-      Ten błąd może wystąpić, jeśli wcześniej podjęto próbę otwarcia projektanta, a następnie wycofanie lub usunięcie projektu. Aby rozwiązać ten problem, Usuń folder **ExtensionBundles** w tej lokalizacji **. ..\Users \\ {Nazwa użytkownika} \AppData\Local\Temp\Functions\ExtensionBundles** , a następnie ponów próbę otwarcia **workflow.jsw** pliku w projektancie.
+      Ten błąd może wystąpić, jeśli wcześniej podjęto próbę otwarcia projektanta, a następnie wycofanie lub usunięcie projektu. Aby rozwiązać ten problem, Usuń folder **ExtensionBundles** w tej lokalizacji **. ..\Users \\ {Nazwa użytkownika} \AppData\Local\Temp\Functions\ExtensionBundles**, a następnie ponów próbę otwarcia **workflow.jsw** pliku w projektancie.
 
-1. Na liście **Włącz łączniki na platformie Azure** wybierz pozycję **Użyj łączników z platformy Azure** , która ma zastosowanie do wszystkich łączników zarządzanych dostępnych i wdrożonych na platformie Azure, a nie tylko łączników dla usług platformy Azure.
+1. Na liście **Włącz łączniki na platformie Azure** wybierz pozycję **Użyj łączników z platformy Azure**, która ma zastosowanie do wszystkich łączników zarządzanych dostępnych i wdrożonych na platformie Azure, a nie tylko łączników dla usług platformy Azure.
 
    ![Zrzut ekranu przedstawiający okienko Eksploratora z wybraną listą "Włącz łączniki na platformie Azure" i "użyj łączników z platformy Azure".](./media/create-stateful-stateless-workflows-visual-studio-code/use-connectors-from-azure.png)
 
@@ -367,7 +367,7 @@ Po otwarciu projektanta aplikacji logiki z **workflow.jsw** menu skrótów do pl
 
 W tym przykładzie przepływ pracy aplikacji logiki używa tego wyzwalacza i następujących akcji:
 
-* Wbudowany [wyzwalacz żądania](../connectors/connectors-native-reqres.md), **gdy odebrane zostanie żądanie HTTP** , które odbiera wywołania przychodzące lub żądania i tworzy punkt końcowy, do którego mogą być wywoływane inne usługi lub Aplikacje logiki.
+* Wbudowany [wyzwalacz żądania](../connectors/connectors-native-reqres.md), **gdy odebrane zostanie żądanie HTTP**, które odbiera wywołania przychodzące lub żądania i tworzy punkt końcowy, do którego mogą być wywoływane inne usługi lub Aplikacje logiki.
 
 * [Akcja programu Outlook pakietu Office 365](../connectors/connectors-create-api-office365-outlook.md), **Wyślij wiadomość e-mail**.
 
@@ -392,9 +392,9 @@ W tym przykładzie przepływ pracy aplikacji logiki używa tego wyzwalacza i nas
 
    1. W Projektancie wybierz element, który powoduje otwarcie okienka szczegółów elementu po prawej stronie.
 
-   1. Rozwiń okno Visual Studio Code wystarczająco często, aby obok wyzwalacza lub nazwy akcji w prawym górnym rogu pojawił się przycisk wielokropka ( **...** ). 
+   1. Rozwiń okno Visual Studio Code wystarczająco często, aby obok wyzwalacza lub nazwy akcji w prawym górnym rogu pojawił się przycisk wielokropka (**...**). 
 
-   1. Otwórz menu wielokropka ( **...** ), a następnie wybierz pozycję **Usuń**. Aby potwierdzić usunięcie, wybierz **przycisk OK**.
+   1. Otwórz menu wielokropka (**...**), a następnie wybierz pozycję **Usuń**. Aby potwierdzić usunięcie, wybierz **przycisk OK**.
 
       ![Zrzut ekranu pokazujący wybrany element w Projektancie z otwartym okienkiem szczegółów i z wybranym przyciskiem wielokropka i opcją "Usuń".](./media/create-stateful-stateless-workflows-visual-studio-code/delete-item-from-designer.png)
 
@@ -452,7 +452,7 @@ W tym przykładzie przepływ pracy aplikacji logiki używa tego wyzwalacza i nas
    ||||
 
    > [!NOTE]
-   > Jeśli chcesz wprowadzić zmiany w okienku szczegółów na karcie **Ustawienia** , **Uruchom po** lub **statyczny wynik** , upewnij się, że wybrano pozycję **gotowe** , aby zatwierdzić te zmiany przed przełączeniem kart lub zmianę fokusu projektanta. W przeciwnym razie Visual Studio Code nie będą zachować zmian. Aby uzyskać więcej informacji, zapoznaj się ze [stroną usługi GitHub znane problemy](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)z rozszerzeniem podglądu.
+   > Jeśli chcesz wprowadzić zmiany w okienku szczegółów na karcie **Ustawienia**, **Uruchom po** lub **statyczny wynik** , upewnij się, że wybrano pozycję **gotowe** , aby zatwierdzić te zmiany przed przełączeniem kart lub zmianę fokusu projektanta. W przeciwnym razie Visual Studio Code nie będą zachować zmian. Aby uzyskać więcej informacji, zapoznaj się ze [stroną usługi GitHub znane problemy](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)z rozszerzeniem podglądu.
 
 1. W Projektancie wybierz pozycję **Zapisz**.
 
@@ -496,9 +496,9 @@ Aby przetestować aplikację logiki, wykonaj następujące kroki, aby rozpoczą�
 
    1. W oknie **Zapisywanie żądania** w obszarze **Nazwa żądania** Podaj nazwę żądania, na przykład `Test workflow trigger` .
 
-   1. W obszarze **Wybierz kolekcję lub folder, w którym chcesz zapisać** , wybierz pozycję **Utwórz kolekcję**.
+   1. W obszarze **Wybierz kolekcję lub folder, w którym chcesz zapisać**, wybierz pozycję **Utwórz kolekcję**.
 
-   1. W obszarze **wszystkie kolekcje** Podaj nazwę kolekcji, która ma zostać utworzona do organizowania żądań, naciśnij klawisz ENTER, a następnie wybierz pozycję **zapisz, aby < *nazwę* > kolekcji**. Ten przykład używa `Logic Apps requests` jako nazwy kolekcji.
+   1. W obszarze **wszystkie kolekcje** Podaj nazwę kolekcji, która ma zostać utworzona do organizowania żądań, naciśnij klawisz ENTER, a następnie wybierz pozycję **zapisz, aby <*nazwę* > kolekcji**. Ten przykład używa `Logic Apps requests` jako nazwy kolekcji.
 
       Zostanie otwarte okienko żądania programu post, dzięki któremu można wysłać żądanie do adresu URL wywołania zwrotnego dla wyzwalacza żądania.
 
@@ -528,19 +528,22 @@ Aby przetestować aplikację logiki, wykonaj następujące kroki, aby rozpoczą�
    | **Zostało przerwane** | Przebieg został zatrzymany lub nie został zakończony z powodu problemów zewnętrznych, na przykład awarii systemu lub subskrypcji platformy Azure. |
    | **Zerwan** | Uruchomienie zostało wyzwolone i uruchomione, ale Odebrano żądanie anulowania. |
    | **Niepowodzenie** | Co najmniej jedna akcja w przebiegu nie powiodła się. Nie skonfigurowano żadnych kolejnych akcji w przepływie pracy w celu obsłużenia błędu. |
-   | **Uruchomiono** | Uruchomienie zostało wyzwolone i jest w toku, ale ten stan może również pojawić się dla przebiegu, który jest ograniczany ze względu na [limity akcji](logic-apps-limits-and-config.md) lub [bieżący plan cenowy](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Porada** : w przypadku skonfigurowania [rejestrowania diagnostycznego](monitor-logic-apps-log-analytics.md)można uzyskać informacje o wszelkich zdarzeniach związanych z ograniczaniem. |
+   | **Uruchomiono** | Uruchomienie zostało wyzwolone i jest w toku, ale ten stan może również pojawić się dla przebiegu, który jest ograniczany ze względu na [limity akcji](logic-apps-limits-and-config.md) lub [bieżący plan cenowy](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Porada**: w przypadku skonfigurowania [rejestrowania diagnostycznego](monitor-logic-apps-log-analytics.md)można uzyskać informacje o wszelkich zdarzeniach związanych z ograniczaniem. |
    | **Powodzenie** | Przebieg zakończył się pomyślnie. Jeśli jakakolwiek akcja zakończyła się niepowodzeniem, kolejna Akcja w przepływie pracy obsłuży ten błąd. |
-   | **Przekroczono limit czasu** | Przekroczono limit czasu uruchamiania, ponieważ bieżący czas trwania przekracza limit czasu trwania przebiegu, który jest kontrolowany przez [ustawienie **przechowywania historii uruchamiania w dniach**](logic-apps-limits-and-config.md#run-duration-retention-limits). Czas trwania przebiegu jest obliczany przy użyciu limitu czasu rozpoczęcia i czas trwania uruchomienia w tym czasie. <p><p>**Uwaga** : Jeśli czas trwania przebiegu przekracza *Limit przechowywania bieżącej historii przebiegów* , który jest również kontrolowany przez ustawienie trwa [ **przechowywanie historii uruchamiania w dniach**](logic-apps-limits-and-config.md#run-duration-retention-limits), uruchomienie jest usuwane z historii uruchamiania przez codzienne zadanie oczyszczania. Bez względu na to, czy czas trwania lub zakończeniu przebiegu, okres przechowywania jest zawsze obliczany przy użyciu czasu rozpoczęcia i *bieżącego* limitu przechowywania. W związku z tym, jeśli skracasz limit czasu trwania dla uruchomienia w locie, przekroczenie limitu czasu przebiegu. Jednak przebieg jest wyświetlany lub zostaje usunięty z historii uruchamiania w zależności od tego, czy czas trwania przebiegu przekroczył limit przechowywania. |
+   | **Przekroczono limit czasu** | Przekroczono limit czasu uruchamiania, ponieważ bieżący czas trwania przekracza limit czasu trwania przebiegu, który jest kontrolowany przez [ustawienie **przechowywania historii uruchamiania w dniach**](logic-apps-limits-and-config.md#run-duration-retention-limits). Czas trwania przebiegu jest obliczany przy użyciu limitu czasu rozpoczęcia i czas trwania uruchomienia w tym czasie. <p><p>**Uwaga**: Jeśli czas trwania przebiegu przekracza *Limit przechowywania bieżącej historii przebiegów*, który jest również kontrolowany przez ustawienie trwa [ **przechowywanie historii uruchamiania w dniach**](logic-apps-limits-and-config.md#run-duration-retention-limits), uruchomienie jest usuwane z historii uruchamiania przez codzienne zadanie oczyszczania. Bez względu na to, czy czas trwania lub zakończeniu przebiegu, okres przechowywania jest zawsze obliczany przy użyciu czasu rozpoczęcia i *bieżącego* limitu przechowywania. W związku z tym, jeśli skracasz limit czasu trwania dla uruchomienia w locie, przekroczenie limitu czasu przebiegu. Jednak przebieg jest wyświetlany lub zostaje usunięty z historii uruchamiania w zależności od tego, czy czas trwania przebiegu przekroczył limit przechowywania. |
    | **Oczekiwanie** | Uruchomienie nie zostało uruchomione lub zostało wstrzymane, na przykład z powodu wcześniejszego wystąpienia przepływu pracy, które nadal działa. |
    |||
 
-1. Aby sprawdzić stan każdego kroku w określonym przebiegu oraz dane wejściowe i wyjściowe kroku, wybierz przycisk wielokropka ( **...** ) dla tego przebiegu, a następnie wybierz polecenie **Pokaż uruchomienie**.
+1. Aby sprawdzić stan każdego kroku w określonym przebiegu oraz dane wejściowe i wyjściowe kroku, wybierz przycisk wielokropka (**...**) dla tego przebiegu, a następnie wybierz polecenie **Pokaż uruchomienie**.
 
    ![Zrzut ekranu pokazujący wiersz historii przebiegu przepływu pracy z wielokropkiem i wybraną opcją "Pokaż przebieg"](./media/create-stateful-stateless-workflows-visual-studio-code/show-run-history.png)
 
    Visual Studio Code otwiera widok Monitorowanie i pokazuje stan każdego kroku w przebiegu.
 
    ![Zrzut ekranu pokazujący każdy krok w przebiegu przepływu pracy i ich stan](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-action-status.png)
+
+   > [!NOTE]
+   > Jeśli uruchomienie nie powiodło się, a krok w widoku monitorowania pokazuje `400 Bad Request` błąd, ten problem może wynikać z dłuższej nazwy wyzwalacza lub nazwy akcji, która powoduje, że bazowy Uniform Resource Identifier (URI) przekroczy domyślny limit znaków. Aby uzyskać więcej informacji, zobacz ["400 Nieprawidłowe żądanie"](#400-bad-request).
 
    Oto możliwe stany, które każdy krok w przepływie pracy może:
 
@@ -621,7 +624,7 @@ Po wprowadzeniu aktualizacji aplikacji logiki można uruchomić inny test, ponow
 
 1. Wyślij kolejne żądanie, aby wyzwolić przepływ pracy w programie Poster lub w narzędziu do tworzenia i wysyłania żądań.
 
-1. Jeśli utworzono stanowy przepływ pracy, na stronie Przegląd przepływu pracy Sprawdź stan ostatniego uruchomienia. Aby wyświetlić stan, dane wejściowe i wyjściowe dla każdego kroku w tym przebiegu, wybierz przycisk wielokropka ( **...** ) dla tego przebiegu, a następnie wybierz polecenie **Pokaż uruchomienie**.
+1. Jeśli utworzono stanowy przepływ pracy, na stronie Przegląd przepływu pracy Sprawdź stan ostatniego uruchomienia. Aby wyświetlić stan, dane wejściowe i wyjściowe dla każdego kroku w tym przebiegu, wybierz przycisk wielokropka (**...**) dla tego przebiegu, a następnie wybierz polecenie **Pokaż uruchomienie**.
 
    Na przykład poniżej przedstawiono stan krok po kroku dla uruchomienia po zaktualizowaniu przykładowego przepływu pracy przy użyciu akcji odpowiedzi.
 
@@ -750,7 +753,7 @@ W Visual Studio Code można wyświetlić wszystkie wdrożone Aplikacje logiki w 
 
 1. Aby wyświetlić wszystkie przepływy pracy w aplikacji logiki, rozwiń aplikację logiki, a następnie rozwiń węzeł **przepływy pracy** .
 
-1. Aby wyświetlić konkretny przepływ pracy, otwórz menu skrótów przepływu pracy i wybierz polecenie **Otwórz w projektancie** , co spowoduje otwarcie przepływu pracy w trybie tylko do odczytu.
+1. Aby wyświetlić konkretny przepływ pracy, otwórz menu skrótów przepływu pracy i wybierz polecenie **Otwórz w projektancie**, co spowoduje otwarcie przepływu pracy w trybie tylko do odczytu.
 
    Aby edytować przepływ pracy, dostępne są następujące opcje:
 
@@ -869,7 +872,7 @@ Jeśli projekt został już wdrożony na Azure Portal, wykonaj następujące kro
 
 1. W polu **wartość** Wprowadź następującą wartość: `WithStatelessRunHistory`
 
-   Na przykład:
+   Przykład:
 
    ![Zrzut ekranu pokazujący zasób Azure Portal i Logic App (wersja zapoznawcza) z otwartym okienkiem "Konfiguracja" > "nowe ustawienie aplikacji" < "Dodaj/Edytuj ustawienie aplikacji" i "przepływy pracy". {yourWorkflowName}. Opcja "OperationOptions" ma wartość "WithStatelessRunHistory".](./media/create-stateful-stateless-workflows-visual-studio-code/stateless-operation-options-run-history.png)
 
@@ -957,7 +960,7 @@ Za pomocą [Narzędzia .NET Core Command Line Interface (CLI)](/dotnet/core/tool
 
    `POST /runtime/webhooks/workflow/api/management/workflows/{workflow-name}/triggers/{trigger-name}/listCallbackUrl?api-version=2019-10-01-edge-preview&code={master-key}`
 
-   Wartość> *głównego klucza* <jest definiowana na koncie usługi Azure Storage ustawionym dla programu `AzureWebJobsStorage` w ramach pliku, **Azure-WebJobs-Secret/{Deployment-Name}/host.jsna** , gdzie można znaleźć wartość w tej sekcji:
+   Wartość> *głównego klucza* <jest definiowana na koncie usługi Azure Storage ustawionym dla programu `AzureWebJobsStorage` w ramach pliku, **Azure-WebJobs-Secret/{Deployment-Name}/host.jsna**, gdzie można znaleźć wartość w tej sekcji:
 
    ```json
    {
@@ -1014,6 +1017,47 @@ Chociaż liczne [istniejące limity dla Azure Logic Apps](../logic-apps/logic-ap
   * Limit znaków kodu jest większy od 1 024 znaków do 100 000 znaków.
 
   * Limit czasu do uruchomienia kodu rośnie z pięciu sekund do 15 sekund.
+
+<a name="troubleshooting"></a>
+
+## <a name="troubleshoot-errors-and-problems"></a>Rozwiązywanie problemów z błędami i problemami
+
+<a name="400-bad-request"></a>
+
+### <a name="400-bad-request"></a>"400 Nieprawidłowe żądanie"
+
+W przypadku niepowodzenia przebiegu i sprawdzenia przebiegu w widoku monitorowanie ten błąd może pojawić się w wyzwalaczu lub akcji o dłuższej nazwie, co powoduje, że bazowy Uniform Resource Identifier (URI) przekroczy domyślny limit znaków.
+
+Aby rozwiązać ten problem i dostosować go do dłuższego identyfikatora URI, `UrlSegmentMaxCount` Edytuj `UrlSegmentMaxLength` klucze rejestru i na komputerze, wykonując poniższe kroki. Te wartości domyślne klucza zostały opisane w tym temacie, [Http.sys ustawienia rejestru dla systemu Windows](/troubleshoot/iis/httpsys-registry-windows).
+
+> [!IMPORTANT]
+> Przed rozpoczęciem upewnij się, że Zapisano swoją pracę. To rozwiązanie wymaga ponownego uruchomienia komputera po zakończeniu, aby zmiany zaczęły obowiązywać.
+
+1. Na komputerze otwórz okno **uruchamiania** , a następnie uruchom `regedit` polecenie, które otwiera Edytor rejestru.
+
+1. W polu **Kontrola konta użytkownika** wybierz pozycję **tak** , aby zezwolić na wprowadzanie zmian na komputerze.
+
+1. W lewym okienku w obszarze **komputer** rozwiń węzły wzdłuż ścieżki, **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters** a następnie wybierz **Parametry**.
+
+1. W okienku po prawej stronie Znajdź `UrlSegmentMaxCount` `UrlSegmentMaxLength` klucze rejestru i.
+
+1. Zwiększ te najważniejsze wartości tak, aby identyfikatory URI mogły pomieścić nazwy, których chcesz użyć. Jeśli te klucze nie istnieją, Dodaj je do folderu **Parameters** , wykonując następujące czynności:
+
+   1. Z menu skrótów **Parametry** wybierz pozycję **Nowa**  >  **wartość DWORD (32-bitowa)**.
+
+   1. W wyświetlonym polu edycji wprowadź `UrlSegmentMaxCount` nową nazwę klucza.
+
+   1. Otwórz menu skrótów nowego klucza i wybierz polecenie **Modyfikuj**.
+
+   1. W wyświetlonym polu **ciągu edycji** wprowadź wartość klucza **danych wartości** , która ma być w formacie szesnastkowym lub dziesiętnym. Na przykład `400` w formacie szesnastkowym jest równoważne wartości `1024` w postaci dziesiętnej.
+
+   1. Aby dodać `UrlSegmentMaxLength` wartość klucza, Powtórz te kroki.
+
+   Po zwiększeniu lub dodaniu tych wartości klucza Edytor rejestru wygląda podobnie do tego przykładu:
+
+   ![Zrzut ekranu pokazujący Edytor rejestru.](media/create-stateful-stateless-workflows-visual-studio-code/edit-registry-settings-uri-length.png)
+
+1. Gdy wszystko będzie gotowe, uruchom ponownie komputer, aby zmiany zaczęły obowiązywać.
 
 ## <a name="next-steps"></a>Następne kroki
 

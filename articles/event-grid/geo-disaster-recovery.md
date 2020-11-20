@@ -2,21 +2,21 @@
 title: Odzyskiwanie po awarii geograficznej w Azure Event Grid | Microsoft Docs
 description: W tym artykule opisano, jak Azure Event Grid automatycznie obsługiwać odzyskiwanie geograficzne (GeoDR).
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: ccb16971020a65932daa8f9adf4b7cd9008a9253
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/19/2020
+ms.openlocfilehash: 10beaf0ae25f3ed9b7bcda5961a89494b18b84d9
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86105850"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980856"
 ---
 # <a name="server-side-geo-disaster-recovery-in-azure-event-grid"></a>Odzyskiwanie po awarii geograficznej po stronie serwera w Azure Event Grid
 Event Grid teraz ma automatyczne odzyskiwanie po awarii geograficznej (GeoDR) metadanych nie tylko dla nowych, ale wszystkie istniejące domeny, tematy i subskrypcje zdarzeń. W przypadku przekroczenia całego regionu platformy Azure Event Grid wszystkie metadane infrastruktury powiązane ze zdarzeniami są synchronizowane z sparowanym regionem. Twoje nowe zdarzenia zostaną ponownie przepływane bez interwencji użytkownika. 
 
 Odzyskiwanie po awarii jest mierzone przy użyciu dwóch metryk:
 
-- [Cel punktu odzyskiwania (RPO)](https://en.wikipedia.org/wiki/Disaster_recovery#Recovery_Point_Objective): minuty lub godziny danych, które mogą zostać utracone.
-- [Cel czasu odzyskiwania (RTO)](https://en.wikipedia.org/wiki/Disaster_recovery#Recovery_time_objective): minuty w godzinach, w których usługa może być wyłączona.
+- Cel punktu odzyskiwania (RPO): minuty lub godziny danych, które mogą zostać utracone.
+- Cel czasu odzyskiwania (RTO): minuty lub godziny, w których usługa może być wyłączona.
 
 Automatyczna tryb failover Event Grid ma różne RPO i RTO dla metadanych (subskrypcje zdarzeń itp.) oraz dane (zdarzenia). Jeśli wymagana jest inna Specyfikacja od następujących, można nadal zaimplementować swój wewnętrzny [tryb failover po stronie klienta za pomocą interfejsów API kondycji tematu](custom-disaster-recovery.md).
 

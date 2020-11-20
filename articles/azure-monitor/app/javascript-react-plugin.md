@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 3a11f77384c520bed9824841269be4ad998adba4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3348654a83b6d0930d10e1f58e07455623b5861d
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056204"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981089"
 ---
 # <a name="react-plugin-for-application-insights-javascript-sdk"></a>Wtyczka dla Application Insights JavaScript SDK
 
@@ -32,15 +32,17 @@ npm install @microsoft/applicationinsights-react-js
 
 ## <a name="basic-usage"></a>Podstawowy sposób użycia
 
+Zainicjuj połączenie z Application Insights:
+
 ```javascript
-import React from 'react';
+// AppInsights.js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
-import { ReactPlugin, withAITracking } from '@microsoft/applicationinsights-react-js';
-import { createBrowserHistory } from "history";
+import { ReactPlugin } from '@microsoft/applicationinsights-react-js';
+import { createBrowserHistory } from 'history';
 
 const browserHistory = createBrowserHistory({ basename: '' });
-var reactPlugin = new ReactPlugin();
-var appInsights = new ApplicationInsights({
+const reactPlugin = new ReactPlugin();
+const appInsights = new ApplicationInsights({
     config: {
         instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
         extensions: [reactPlugin],
@@ -50,6 +52,15 @@ var appInsights = new ApplicationInsights({
     }
 });
 appInsights.loadAppInsights();
+export { reactPlugin, appInsights };
+```
+
+Otoczyć składnik funkcją składnika wyższej kolejności, aby umożliwić Application Insights na nim:
+
+```javascript
+import React from 'react';
+import { withAITracking } from '@microsoft/applicationinsights-react-js';
+import { reactPlugin, appInsights } from './AppInsights';
 
 // To instrument various React components usage tracking, apply the `withAITracking` higher-order
 // component function.
@@ -58,8 +69,7 @@ class MyComponent extends React.Component {
     ...
 }
 
-export default withAITracking(reactPlugin,appInsights, MyComponent);
-
+export default withAITracking(reactPlugin, appInsights, MyComponent);
 ```
 
 ## <a name="configuration"></a>Konfiguracja
@@ -84,6 +94,127 @@ Możesz również uruchamiać niestandardowe zapytania, aby podzielić Applicati
 
 > [!NOTE]
 > Nowe metryki niestandardowe mogą pojawić się w witrynie Azure Portal dopiero po 10 minutach.
+
+## <a name="using-react-hooks"></a>Korzystanie z punktów zaczepienia reagowania
+
+[Punkty zaczepienia reagowania](https://reactjs.org/docs/hooks-reference.html) to podejście do stanu i zarządzania cyklem życia w aplikacji reagującej bez polegania na składnikach reakcji opartych na klasie. Wtyczka reaguje Application Insights zapewnia wiele integracji podzespołów, które działają w podobny sposób do podejścia do wyższego rzędu.
+
+### <a name="using-react-context"></a>Korzystanie z kontekstu reagowania
+
+Punkty zaczepienia reakcji dla Application Insights są przeznaczone do korzystania z [kontekstu reakcji](https://reactjs.org/docs/context.html) jako zawierającego go aspektu. Aby użyć kontekstu, zainicjuj Application Insights jak powyżej, a następnie zaimportuj obiekt kontekstu:
+
+```javascript
+import React from "react";
+import { AppInsightsContext } from "@microsoft/applicationinsights-react-js";
+import { reactPlugin } from "./AppInsights";
+
+const App = () => {
+    return (
+        <AppInsightsContext.Provider value={reactPlugin}>
+            /* your application here */
+        </AppInsightsContext.Provider>
+    );
+};
+```
+
+Ten dostawca kontekstu udostępni Application Insights jako punkt `useContext` zaczepienia we wszystkich składnikach podrzędnych.
+
+```javascript
+import React from "react";
+import { useAppInsightsContext } from "@microsoft/applicationinsights-react-js";
+
+const MyComponent = () => {
+    const appInsights = useAppInsightsContext();
+    
+    appInsights.trackMetric("Component 'MyComponent' is in use");
+    
+    return (
+        <h1>My Component</h1>
+    );
+}
+export default MyComponent;
+```
+
+### `useTrackMetric`
+
+Punkt `useTrackMetric` zaczepienia replikuje funkcje `withAITracking` składnika wyższej kolejności, bez dodawania dodatkowego składnika do struktury składnika. Punkt zaczepienia przyjmuje dwa argumenty, najpierw jest wystąpieniem Application Insights (które można uzyskać z punktu `useAppInsightsContext` zaczepienia) i identyfikatorem składnika do śledzenia (na przykład jego nazwy).
+
+```javascript
+import React from "react";
+import { useAppInsightsContext, useTrackMetric } from "@microsoft/applicationinsights-react-js";
+
+const MyComponent = () => {
+    const appInsights = useAppInsightsContext();
+    const trackComponent = useTrackMetric(appInsights, "MyComponent");
+    
+    return (
+        <h1 onHover={trackComponent} onClick={trackComponent}>My Component</h1>
+    );
+}
+export default MyComponent;
+```
+
+Będzie działać jak składnik wyższej kolejności, ale reaguje na Podłączanie zdarzeń cyklu życia, a nie cyklu życia składnika. Punkt zaczepienia musi być jawnie udostępniony dla zdarzeń użytkownika, jeśli istnieje potrzeba uruchomienia w określonych interakcjach.
+
+### `useTrackEvent`
+
+`useTrackEvent`Punkt zaczepienia służy do śledzenia dowolnego zdarzenia niestandardowego, które może być potrzebne do śledzenia aplikacji, takich jak kliknięcie przycisku lub inne wywołanie interfejsu API. Przyjmuje dwa argumenty, pierwsze jest wystąpieniem Application Insights (które można uzyskać z punktu `useAppInsightsContext` zaczepienia) i nazwą zdarzenia.
+
+```javascript
+import React, { useState, useEffect } from "react";
+import { useAppInsightsContext, useTrackEvent } from "@microsoft/applicationinsights-react-js";
+
+const ProductCart = () => {
+    const appInsights = useAppInsightsContext();
+    const trackCheckout = useTrackEvent(appInsights, "Checkout");
+    const trackCartUpdate = useTrackEvent(appInsights, "Cart Updated");
+    const [cart, setCart] = useState([]);
+    
+    useEffect(() => {
+        trackCartUpdate({ cartCount: cart.length });
+    }, [cart]);
+    
+    const performCheckout = () => {
+        trackCheckout();
+        // submit data
+    };
+    
+    return (
+        <div>
+            <ul>
+                <li>Product 1 <button onClick={() => setCart([...cart, "Product 1"])}>Add to Cart</button>
+                <li>Product 2 <button onClick={() => setCart([...cart, "Product 2"])}>Add to Cart</button>
+                <li>Product 3 <button onClick={() => setCart([...cart, "Product 3"])}>Add to Cart</button>
+                <li>Product 4 <button onClick={() => setCart([...cart, "Product 4"])}>Add to Cart</button>
+            </ul>
+            <button onClick={performCheckout}>Checkout</button>
+        </div>
+    );
+}
+export default MyComponent;
+```
+
+Gdy punkt zaczepienia jest używany, do tego celu można dodać do zdarzenia dodatkowe dane, gdy jest on przechowywany w Application Insights.
+
+## <a name="react-error-boundaries"></a>Reagowanie na granice błędów
+
+[Granice błędów](https://reactjs.org/docs/error-boundaries.html) umożliwiają bezpieczne obsłużenie wyjątku, gdy występuje w aplikacji do reagowania, a w przypadku wystąpienia takiego błędu prawdopodobnie należy zarejestrować wyjątek. Wtyczka do reagowania na Application Insights zawiera składnik granicy błędu, który spowoduje automatyczne zarejestrowanie błędu, gdy wystąpi.
+
+```javascript
+import React from "react";
+import { reactPlugin } from "./AppInsights";
+import { AppInsightsErrorBoundary } from "@microsoft/applicationinsights-react-js";
+
+const App = () => {
+    return (
+        <AppInsightsErrorBoundary onError={() => <h1>I believe something went wrong</h1>} appInsights={reactPlugin}>
+            /* app here */
+        </AppInsightsErrorBoundary>
+    );
+};
+```
+
+Do tego celu są `AppInsightsErrorBoundary` wymagane dwa propy, `ReactPlugin` wystąpienie utworzone dla aplikacji i składnika, które mają być renderowane po wystąpieniu błędu. Gdy wystąpi nieobsługiwany błąd, `trackException` jest wywoływany z informacjami podanymi w granicy błędu, a `onError` składnik jest wyświetlany.
 
 ## <a name="sample-app"></a>Przykładowa aplikacja
 

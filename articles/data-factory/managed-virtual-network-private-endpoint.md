@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: a34f2e50a5eb4ab87a02a5128cb912fa220849f1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 81d82bccd6b6bd97b84df5269dd59ffac4903370
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317069"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980382"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory Managed Virtual Network (wersja zapoznawcza)
 
@@ -73,6 +73,11 @@ Jeśli właściciel zatwierdzi połączenie, zostanie nawiązane łącze prywatn
 
 Tylko zarządzany prywatny punkt końcowy w zatwierdzonym stanie może wysyłać ruch do podanego zasobu linku prywatnego.
 
+## <a name="interactive-authoring"></a>Tworzenie interaktywne
+Funkcja interaktywnego tworzenia jest używana w przypadku funkcji, takich jak połączenie testowe, przeglądanie listy folderów i listy tabel, Pobieranie schematu i Podgląd danych. Można włączyć interaktywne tworzenie podczas tworzenia lub edytowania Azure Integration Runtime, który jest w sieci wirtualnej zarządzanej przez funkcję ADF. Usługa zaplecza ponownie przydzieli obliczenia dla interaktywnych funkcji tworzenia. W przeciwnym razie obliczenia będą przyliczane za każdym razem, gdy wykonywana jest jakakolwiek operacja interaktywna, która zajmie więcej czasu. Czas wygaśnięcia (TTL) dla autorstwa interaktywnego wynosi 60 minut, co oznacza, że zostanie on automatycznie wyłączony po 60 minutach od ostatniej operacji tworzenia interaktywnego.
+
+![Tworzenie interaktywne](./media/managed-vnet/interactive-authoring.png)
+
 ## <a name="limitations-and-known-issues"></a>Ograniczenia i znane problemy
 ### <a name="supported-data-sources"></a>Obsługiwane źródła danych
 Poniższe źródła danych umożliwiają łączenie się za pośrednictwem prywatnego linku z Virtual Network zarządzanych przez usługi ADF.
@@ -99,7 +104,7 @@ Poniższe źródła danych umożliwiają łączenie się za pośrednictwem prywa
 - South Central US
 - Central US
 - Europa Północna
-- Europa Zachodnia
+- West Europe
 - Południowe Zjednoczone Królestwo
 - Southeast Asia
 - Australia Wschodnia

@@ -5,14 +5,14 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 01/31/2020
+ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: efd35cfe2660f4597ec0c95dc29bcb4b839da680
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4cb57eb8d3396667e6c9cb40b7e41b1e97622ed
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306943"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981191"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Kontroluj aktualizacje przy użyciu sterowania konserwacją i Azure PowerShell
 
@@ -67,13 +67,7 @@ Można wykonać zapytanie o dostępne konfiguracje konserwacji za pomocą polece
 Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 ```
 
-### <a name="create-a-maintenance-configuration-with-scheduled-window-in-preview"></a>Utwórz konfigurację konserwacji z zaplanowanym oknem (w wersji zapoznawczej)
-
-
-> [!IMPORTANT]
-> Funkcja zaplanowanego okna jest obecnie w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+### <a name="create-a-maintenance-configuration-with-scheduled-window"></a>Utwórz konfigurację konserwacji z zaplanowanym oknem
 
 Użyj New-AzMaintenanceConfiguration, aby utworzyć konfigurację konserwacji z zaplanowanym oknem, gdy platforma Azure zastosuje aktualizacje do zasobów. W tym przykładzie zostanie utworzona konfiguracja konserwacji o nazwie Moja config z zaplanowanym oknem 5 godzin w czwartym poniedziałek każdego miesiąca. Po utworzeniu zaplanowanego okna nie trzeba już ręcznie stosować aktualizacji.
 
@@ -91,8 +85,13 @@ $config = New-AzMaintenanceConfiguration `
 > [!IMPORTANT]
 > **Czas trwania** konserwacji nie może być dłuższy niż *2 godziny* . **Cykl** konserwacji musi być ustawiony na co najmniej raz w ciągu 35 dni.
 
-**Cykl** konserwacji można wyrazić jako harmonogram dzienny, tygodniowy lub miesięczny. Dzienne przykłady harmonogramu to recurEvery: Day, recurEvery: 3Days. Cotygodniowe przykłady harmonogramu to recurEvery: 3Weeks, recurEvery: tydzień Sobota, niedziela. Miesięczne przykłady harmonogramu to recurEvery: Month day23, day24, recurEvery: Month Last niedziela, recurEvery: miesiąc czwarty poniedziałek.
-
+**Cykl** konserwacji można wyrazić jako:
+ | Wartość | Przykład |
+      |-------|-------------|
+      | dzienn | recurEvery: Day **lub** RecurEvery: 3Days | 
+      | co tydzień | recurEvery: 3Weeks **lub** RecurEvery: Sobota, niedziela | 
+      | miesięczne | recurEvery: miesiąc day23, day24 **lub** RecurEvery: miesiąc Ostatnia niedziela **lub** recurEvery: miesiąc czwarty poniedziałek | 
+      
 
 ## <a name="assign-the-configuration"></a>Przypisz konfigurację
 

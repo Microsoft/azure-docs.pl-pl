@@ -32,14 +32,14 @@ Jeśli strona przeglądarki internetowej się zawiesza, spróbuj wykonać każd�
 - Użyj innej przeglądarki internetowej.
 - Użyj prywatnego trybu przeglądania w przeglądarce:
 
-   - **Edge:** Otwórz okienko **Ustawienia** (trzy kropki przy zdjęciu profilu), wybierz pozycję **Nowe okno InPrivate** , a następnie zaloguj się do witryny [Azure Portal](https://portal.azure.com/) lub [Centrum konta platformy Azure](https://account.azure.com/Subscriptions). 
-   - **Chrome:** Wybierz tryb **Incognito** .
-   - **Safari:** Wybierz kolejno pozycje **Plik** , **Nowe okno prywatne** .
+   - **Microsoft Edge:** Otwórz okienko **Ustawienia** (trzy kropki przy zdjęciu profilu), wybierz pozycję **Nowe okno InPrivate**, a następnie zaloguj się do witryny [Azure Portal](https://portal.azure.com/)lub [Centrum konta platformy Azure](https://account.azure.com/Subscriptions). 
+   - **Chrome:** Wybierz tryb **Incognito**.
+   - **Safari:** Wybierz kolejno pozycje **Plik**, **Nowe okno prywatne**.
 
 - Wyczyść pamięć podręczną i usuń internetowe pliki cookie:
 
-   - **Edge:** Otwórz okienko **Ustawienia** i wybierz pozycję **Prywatność i usługi** . Postępuj zgodnie z instrukcjami w obszarze **Czyszczenie danych przeglądania** . Upewnij się, że zaznaczono pola wyboru **Historia przeglądania** , **Historia pobierania** i **Buforowane obrazy i pliki** , a następnie wybierz pozycję **Usuń** .
-   - **Chrome:** Wybierz pozycję **Ustawienia** , a następnie wybierz pozycję **Wyczyść dane przeglądania** w obszarze **Prywatność i bezpieczeństwo** .
+   - **Microsoft Edge:** Otwórz okienko **Ustawienia** i wybierz pozycję **Prywatność i usługi**. Postępuj zgodnie z instrukcjami w obszarze **Czyszczenie danych przeglądania**. Upewnij się, że zaznaczono pola wyboru **Historia przeglądania**, **Historia pobierania** i **Buforowane obrazy i pliki**, a następnie wybierz pozycję **Usuń**.
+   - **Chrome:** Wybierz pozycję **Ustawienia**, a następnie wybierz pozycję **Wyczyść dane przeglądania** w obszarze **Prywatność i bezpieczeństwo**.
 
 ## <a name="you-are-automatically-signed-in-as-a-different-user"></a>Następuje automatyczne zalogowanie Ciebie jako innego użytkownika
 
@@ -49,13 +49,13 @@ Aby rozwiązać ten problem, wypróbuj jedną z poniższych metod:
 
 - Wyczyść pamięć podręczną i usuń internetowe pliki cookie.
 
-   - **Edge:** Otwórz okienko **Ustawienia** i wybierz pozycję **Prywatność i usługi** . Postępuj zgodnie z instrukcjami w obszarze **Czyszczenie danych przeglądania** . Upewnij się, że zaznaczono pola wyboru **Historia przeglądania** , **Historia pobierania** , **Pliki cookie** i **Buforowane obrazy i pliki** , a następnie wybierz pozycję **Usuń** .
-   - **Chrome:** Wybierz pozycję **Ustawienia** , a następnie wybierz pozycję **Wyczyść dane przeglądania** w obszarze **Prywatność i bezpieczeństwo** .
+   - **Microsoft Edge:** Otwórz okienko **Ustawienia** i wybierz pozycję **Prywatność i usługi**. Postępuj zgodnie z instrukcjami w obszarze **Czyszczenie danych przeglądania**. Upewnij się, że zaznaczono pola wyboru **Historia przeglądania**, **Historia pobierania**, **Pliki cookie** i **Buforowane obrazy i pliki**, a następnie wybierz pozycję **Usuń**.
+   - **Chrome:** Wybierz pozycję **Ustawienia**, a następnie wybierz pozycję **Wyczyść dane przeglądania** w obszarze **Prywatność i bezpieczeństwo**.
 - Zresetuj ustawienia przeglądarki do wartości domyślnych.
 - Użyj prywatnego trybu przeglądania w przeglądarce. 
-   - **Edge:** Otwórz okienko **Ustawienia** (trzy kropki przy zdjęciu profilu), wybierz pozycję **Nowe okno InPrivate** , a następnie zaloguj się do witryny [Azure Portal](https://portal.azure.com/) lub [Centrum konta platformy Azure](https://account.azure.com/Subscriptions). 
-   - **Chrome:** Wybierz tryb **Incognito** .
-   - **Safari:** Wybierz kolejno pozycje **Plik** , **Nowe okno prywatne** .
+   - **Microsoft Edge:** Otwórz okienko **Ustawienia** (trzy kropki przy zdjęciu profilu), wybierz pozycję **Nowe okno InPrivate**, a następnie zaloguj się do witryny [Azure Portal](https://portal.azure.com/)lub [Centrum konta platformy Azure](https://account.azure.com/Subscriptions). 
+   - **Chrome:** Wybierz tryb **Incognito**.
+   - **Safari:** Wybierz kolejno pozycje **Plik**, **Nowe okno prywatne**.
 
 ## <a name="i-can-sign-in-but-i-see-the-error-no-subscriptions-found"></a>Mogę się zalogować, ale widzę komunikat o błędzie Nie odnaleziono żadnych subskrypcji
 
@@ -73,8 +73,8 @@ Aby rozwiązać ten problem:
 Sprawdź, czy używane konto ma uprawnienia administratora konta. Aby sprawdzić, kto jest administratorem konta, wykonaj następujące czynności:
 
 1.  Zaloguj się do [widoku Subskrypcje w witrynie Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1.  Wybierz subskrypcję, którą chcesz sprawdzić, a następnie wybierz pozycję **Ustawienia** .
-1.  Wybierz pozycję **Właściwości** . Administrator konta subskrypcji jest wyświetlany w polu **Administrator konta** .
+1.  Wybierz subskrypcję, którą chcesz sprawdzić, a następnie wybierz pozycję **Ustawienia**.
+1.  Wybierz pozycję **Właściwości**. Administrator konta subskrypcji jest wyświetlany w polu **Administrator konta**.
 
 ## <a name="additional-help-resources"></a>Dodatkowe zasoby pomocy
 
