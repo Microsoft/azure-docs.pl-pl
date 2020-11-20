@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
-ms.openlocfilehash: 2a030d9ca5422e12856dcb81b29f8327e684c97e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6b6649d03da319171b24baa24983972bf270679
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90528657"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954549"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Zarejestrowanie zestawu deweloperskiego IoT DevKit przy użyciu usługi Azure IoT Hub Device Provisioning Service IoT Hub
 
@@ -26,13 +26,13 @@ W tym artykule opisano sposób korzystania z usługi Azure IoT Hub Device Provis
 
 [Zestawu deweloperskiego IoT DevKit](https://aka.ms/iot-devkit) to cała tablica niezgodna z programem Arduino z rozbudowanymi urządzeniami peryferyjnymi i czujnikami. Możesz to zrobić za pomocą [usługi Azure IoT Device Workbench](https://aka.ms/iot-workbench) lub pakietu rozszerzeń [narzędzi Azure iot Tools](https://aka.ms/azure-iot-tools) w Visual Studio Code. DevKit jest dostępny w katalogu rosnące [projekty](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) , aby kierować rozwiązania do tworzenia prototypów Internet rzeczy (IoT), które wykorzystują usługi platformy Azure.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Aby wykonać kroki opisane w tym samouczku, najpierw wykonaj następujące zadania:
 
-* Skonfiguruj Wi-Fi i przygotuj środowisko programistyczne, postępując zgodnie z instrukcjami w sekcji "Przygotowanie środowiska programistycznego" w artykule [Connect IoT DEVKIT AZ3166 do platformy Azure IoT Hub w chmurze](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment).
+* Skonfiguruj Wi-Fi i przygotuj środowisko programistyczne, postępując zgodnie z instrukcjami w sekcji "Przygotowanie środowiska programistycznego" w artykule [Connect IoT DEVKIT AZ3166 do platformy Azure IoT Hub w chmurze](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment).
 * Uaktualnij do najnowszego oprogramowania układowego (1.3.0 lub nowszego) za pomocą samouczka [aktualizacji oprogramowania układowego DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) .
-* Utwórz i Połącz IoT Hub z wystąpieniem usługi Device Provisioning Service, wykonując kroki opisane w temacie [konfigurowanie IoT Hub Device Provisioning Service za pomocą Azure Portal](/azure/iot-dps/quick-setup-auto-provision).
+* Utwórz i Połącz IoT Hub z wystąpieniem usługi Device Provisioning Service, wykonując kroki opisane w temacie [konfigurowanie IoT Hub Device Provisioning Service za pomocą Azure Portal](./quick-setup-auto-provision.md).
 
 ## <a name="open-sample-project"></a>Otwórz przykładowy projekt
 
@@ -45,7 +45,7 @@ Aby wykonać kroki opisane w tym samouczku, najpierw wykonaj następujące zadan
 
 ## <a name="save-a-unique-device-secret-on-device-security-storage"></a>Zapisz unikatowy klucz tajny urządzenia w magazynie zabezpieczeń urządzenia
 
-Funkcja autoaprowizacji można skonfigurować na urządzeniu na podstawie [mechanizmu zaświadczania](concepts-service.md#attestation-mechanism)urządzenia. Zestawu deweloperskiego IoT DevKit używa [aparatu kompozycji tożsamości urządzenia](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf) z [Trusted Computing Group](https://trustedcomputinggroup.org). Do wygenerowania unikatowego [certyfikatu X. 509](concepts-x509-attestation.md)urządzenia zapisywany jest **unikatowy klucz tajny urządzenia** (STSAFE Security[STSAFE-A100](https://microsoft.github.io/azure-iot-developer-kit/docs/understand-security-chip/)) na DevKit. Certyfikat jest używany później do procesu rejestracji w usłudze Device Provisioning i podczas rejestracji w czasie wykonywania.
+Funkcja autoaprowizacji można skonfigurować na urządzeniu na podstawie [mechanizmu zaświadczania](concepts-service.md#attestation-mechanism)urządzenia. Zestawu deweloperskiego IoT DevKit używa [aparatu kompozycji tożsamości urządzenia](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf) z [Trusted Computing Group](https://trustedcomputinggroup.org). Do wygenerowania unikatowego [certyfikatu X. 509](concepts-x509-attestation.md)urządzenia zapisywany jest **unikatowy klucz tajny urządzenia** (STSAFE Security [STSAFE-A100](https://microsoft.github.io/azure-iot-developer-kit/docs/understand-security-chip/)) na DevKit. Certyfikat jest używany później do procesu rejestracji w usłudze Device Provisioning i podczas rejestracji w czasie wykonywania.
 
 Typowym wyciągiem jest 64-znakowego ciągu, jak pokazano w poniższym przykładzie:
 
@@ -74,7 +74,7 @@ Aby zapisać w DevKit:
 
 ## <a name="update-the-global-device-endpoint-and-id-scope"></a>Aktualizowanie globalnego punktu końcowego urządzenia i zakresu identyfikatorów
 
-W polu kod urządzenia należy określić [punkt końcowy aprowizacji urządzeń](/azure/iot-dps/concepts-service#device-provisioning-endpoint) i zakres identyfikatorów, aby zapewnić izolację dzierżawy.
+W polu kod urządzenia należy określić [punkt końcowy aprowizacji urządzeń](./concepts-service.md#device-provisioning-endpoint) i zakres identyfikatorów, aby zapewnić izolację dzierżawy.
 
 1. W Azure Portal Wybierz okienko **Przegląd** usługi Device Provisioning i zanotuj wartości **globalny punkt końcowy urządzenia** oraz **zakres identyfikatorów** .
   ![Globalny punkt końcowy usługi Device Provisioning i zakres identyfikatorów](media/how-to-connect-mxchip-iot-devkit/dps-global-endpoint.png)
@@ -90,7 +90,7 @@ W polu kod urządzenia należy określić [punkt końcowy aprowizacji urządzeń
 
 ## <a name="generate-x509-certificate"></a>Generuj certyfikat X. 509
 
-[Mechanizm zaświadczania](/azure/iot-dps/concepts-device#attestation-mechanism) używany przez ten przykład to certyfikat X. 509. Musisz użyć narzędzia do jego wygenerowania.
+[Mechanizm zaświadczania](./concepts-service.md#attestation-mechanism) używany przez ten przykład to certyfikat X. 509. Musisz użyć narzędzia do jego wygenerowania.
 
 1. W VS Code kliknij pozycję `F1` , wpisz i wybierz pozycję **Otwórz nowy terminal** , aby otworzyć okno terminalu.
 
@@ -141,4 +141,3 @@ Podsumowując, wiesz, jak:
 > * Sprawdź, czy urządzenie zostało zarejestrowane.
 
 Dowiedz się [, jak utworzyć i udostępnić symulowane urządzenie](./quick-create-simulated-device.md).
-

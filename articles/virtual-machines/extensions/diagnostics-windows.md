@@ -8,17 +8,18 @@ manager: gwallace
 editor: ''
 ms.assetid: 2e6d88f2-1980-4a24-827e-a81616a0d247
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: mimckitt
-ms.openlocfilehash: 3b46ae07d4bbbcd02b9880a394b72c790553f95c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9561f96dafd936244831cff2ed05cda4d915d27d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87837027"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955977"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Włączanie Diagnostyka Azure w maszynie wirtualnej z systemem Windows przy użyciu programu PowerShell
 
@@ -98,7 +99,7 @@ Należy zaktualizować konfigurację, aby uwzględnić następujące elementy:
 * Atrybut *ResourceID* elementu **Metrics** należy zaktualizować przy użyciu identyfikatora zasobu maszyny wirtualnej.
   
   * Identyfikator zasobu można utworzyć przy użyciu następującego wzorca: "*Identyfikator subskrypcji/subscriptions/{dla subskrypcji z maszyną wirtualną*}/resourceGroups/{*nazwę elementu zasobów dla maszyny wirtualnej*}/Providers/Microsoft.COMPUTE/virtualMachines/{*nazwę maszyny wirtualnej*}".
-  * Na przykład jeśli Identyfikator subskrypcji dla subskrypcji, w której uruchomiono maszynę wirtualną, **to 11111111-1111-1111-1111-111111111111**, nazwa grupy zasobów dla grupy zasobów jest grupą **zasobów, a**Nazwa maszyny wirtualnej to **MyWindowsVM**, a następnie wartość identyfikatora *ResourceID* :
+  * Na przykład jeśli Identyfikator subskrypcji dla subskrypcji, w której uruchomiono maszynę wirtualną, **to 11111111-1111-1111-1111-111111111111**, nazwa grupy zasobów dla grupy zasobów jest grupą **zasobów, a** Nazwa maszyny wirtualnej to **MyWindowsVM**, a następnie wartość identyfikatora *ResourceID* :
     
       ```xml
       <Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >

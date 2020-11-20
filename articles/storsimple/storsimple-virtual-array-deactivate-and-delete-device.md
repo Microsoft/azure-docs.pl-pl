@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: alkohli
-ms.openlocfilehash: c787df901fc33c2dcd2c8a901202c72ea6de45d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84fd1a2d3d0dc4ce6960469ea3212b8ca1d4d07c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85513604"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956776"
 ---
 # <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>Dezaktywacja i usuwanie macierzy wirtualnej usługi StorSimple
 
@@ -30,7 +30,7 @@ W przypadku dezaktywowania macierzy wirtualnej StorSimple należy przerwać poł
 * Dezaktywowanie urządzenia 
 * Usuwanie dezaktywowanego urządzenia
 
-Informacje zawarte w tym artykule dotyczą tylko tablic wirtualnych StorSimple. Aby uzyskać informacje na temat serii 8000, przejdź do pozycji jak [dezaktywować lub usunąć urządzenie](storsimple-deactivate-and-delete-device.md).
+Informacje zawarte w tym artykule dotyczą tylko tablic wirtualnych StorSimple. Aby uzyskać informacje na temat serii 8000, przejdź do pozycji jak [dezaktywować lub usunąć urządzenie](./storsimple-8000-deactivate-and-delete-device.md).
 
 ## <a name="when-to-deactivate"></a>Kiedy należy dezaktywować?
 
@@ -90,5 +90,4 @@ Aby usunąć urządzenie, wykonaj następujące czynności.
 
 * Aby uzyskać informacje na temat sposobu pracy awaryjnej, przejdź do [trybu failover i odzyskiwanie po awarii macierzy wirtualnej StorSimple](storsimple-virtual-array-failover-dr.md).
 
-* Aby dowiedzieć się więcej na temat korzystania z usługi StorSimple Menedżer urządzeń, przejdź do [korzystania z usługi StorSimple Menedżer urządzeń w celu administrowania wirtualną tablicą StorSimple](storsimple-virtual-array-manager-service-administration.md). 
-
+* Aby dowiedzieć się więcej na temat korzystania z usługi StorSimple Menedżer urządzeń, przejdź do [korzystania z usługi StorSimple Menedżer urządzeń w celu administrowania wirtualną tablicą StorSimple](storsimple-virtual-array-manager-service-administration.md).

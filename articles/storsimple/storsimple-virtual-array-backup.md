@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5c49a46dfcd97f5feb43b0b910476ef3ad6f402a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99c7f4ab92e4cce3937a933fec97008c281a0eae
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742251"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954124"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Tworzenie kopii zapasowej udziałów lub woluminów w macierzy wirtualnej StorSimple
 
@@ -28,7 +28,7 @@ ms.locfileid: "91742251"
 
 Wirtualna macierz StorSimple to hybrydowe urządzenie wirtualne magazynu w chmurze, które można skonfigurować jako serwer plików lub serwer iSCSI. Tablica wirtualna umożliwia użytkownikowi tworzenie zaplanowanych i ręcznych kopii zapasowych wszystkich udziałów lub woluminów na urządzeniu. Po skonfigurowaniu jako serwer plików, umożliwia również odzyskiwanie na poziomie elementu. W tym samouczku opisano sposób tworzenia zaplanowanych i ręcznych kopii zapasowych oraz odzyskiwania na poziomie elementu w celu przywrócenia usuniętego pliku w macierzy wirtualnej.
 
-Ten samouczek dotyczy tylko macierzy wirtualnych StorSimple. Aby uzyskać informacje na temat serii 8000, przejdź do obszaru [Tworzenie kopii zapasowej dla urządzenia z serii 8000](storsimple-manage-backup-policies-u2.md)
+Ten samouczek dotyczy tylko macierzy wirtualnych StorSimple. Aby uzyskać informacje na temat serii 8000, przejdź do obszaru [Tworzenie kopii zapasowej dla urządzenia z serii 8000](./storsimple-8000-manage-backup-policies-u2.md)
 
 ## <a name="back-up-shares-and-volumes"></a>Tworzenie kopii zapasowych udziałów i woluminów
 
@@ -100,7 +100,7 @@ Aby wyświetlić istniejące kopie zapasowe, wykonaj następujące kroki w Azure
     ![Przejdź do katalogu kopii zapasowych](./media/storsimple-virtual-array-backup/viewbackups1.png)
 2. Określ następujące kryteria, które mają być używane do filtrowania:
    
-   - **Zakres czasu** — może być **wcześniejsza niż 1 godzina**, **ostatnie 24 godziny**, **ostatnie 7 dni**, **ostatnie 30 dni**, **ubiegły rok**i **Data niestandardowa**.
+   - **Zakres czasu** — może być **wcześniejsza niż 1 godzina**, **ostatnie 24 godziny**, **ostatnie 7 dni**, **ostatnie 30 dni**, **ubiegły rok** i **Data niestandardowa**.
     
    - **Urządzenia** — wybierz z listy serwerów plików lub serwerów iSCSI zarejestrowanych w usłudze StorSimple Menedżer urządzeń.
    
@@ -115,4 +115,3 @@ Aby wyświetlić istniejące kopie zapasowe, wykonaj następujące kroki w Azure
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się więcej [na temat administrowania wirtualną macierzą StorSimple](storsimple-ova-web-ui-admin.md).
-

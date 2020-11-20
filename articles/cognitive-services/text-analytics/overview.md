@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 11/02/2020
+ms.date: 11/17/2020
 ms.author: aahi
 keywords: Wyszukiwanie tekstu, analiza tonacjiów, analizy tekstu
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 6d10161609abda321ed1be9dfda0acabf2030c9e
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: a91be0798dc67bfb751807b385d638343b89562b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94365299"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957048"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Czym jest interfejs API analizy tekstu?
 
@@ -50,6 +50,10 @@ Rozpoznawanie jednostek nazwanych (NER) może [identyfikować i klasyfikować je
 ## <a name="use-containers"></a>Korzystanie z kontenerów
 
 [Użyj kontenerów analiza tekstu](how-tos/text-analytics-how-to-install-containers.md) jako rozwiązania lokalnego dla tekstu wyszukiwania i korzystając z interfejsu API. Te kontenery platformy Docker umożliwiają wyodrębnianie kluczowych fraz i wykrywanie języka oraz analizowanie tonacji bliżej danych.
+
+## <a name="asynchronous-operations"></a>Operacje asynchroniczne
+
+`/analyze`Punkt końcowy umożliwia korzystanie z funkcji select interfejs API analizy tekstu [asynchronicznie](how-tos/text-analytics-how-to-call-api.md), takich jak ner i wyodrębnianie kluczowych fraz.
 
 ## <a name="typical-workflow"></a>Typowy przepływ pracy
 

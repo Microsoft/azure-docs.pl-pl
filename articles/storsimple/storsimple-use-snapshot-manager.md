@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: ead24b89dba889a4bb8f11d57eb687e7790aebfb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35fa0fc134045585eebd21324352f9b4ff272e87
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055915"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954243"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Korzystanie z StorSimple Snapshot Manager interfejsu użytkownika do zarządzania zadaniami tworzenia kopii zapasowych i wykazem kopii zapasowych
 
@@ -46,7 +46,7 @@ Ponadto Snapshot Manager StorSimple obsługuje [nawigację klawiaturową i wiele
 Interfejs użytkownika programu StorSimple Snapshot Manager obsługuje funkcje ułatwień dostępu udostępniane przez system operacyjny Windows i program Microsoft Management Console (MMC), a także niektóre skróty klawiaturowe, które są specyficzne dla Snapshot Manager StorSimple. 
 
 * Aby uzyskać opis funkcji ułatwień dostępu systemu Windows, przejdź do pozycji [skróty klawiaturowe dla systemu Windows](https://support.microsoft.com/kb/126449). 
-* Aby uzyskać opis funkcji ułatwień dostępu programu MMC, przejdź do obszaru [dostępność dla programu mmc 3,0](https://technet.microsoft.com/library/cc766075.aspx)
+* Aby uzyskać opis funkcji ułatwień dostępu programu MMC, przejdź do obszaru [dostępność dla programu mmc 3,0](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc766075(v=ws.11))
 * Opis funkcji ułatwień dostępu w programie StorSimple Snapshot Manager można znaleźć na stronie [Nawigacja i skróty klawiaturowe](#keyboard-navigation-and-shortcuts).
 
 ## <a name="menu-bar"></a>Pasek menu
@@ -73,7 +73,7 @@ W poniższej tabeli opisano elementy, które pojawiają się w menu **plik** .
 | Otwórz |Kliknij przycisk **Otwórz** , aby otworzyć istniejącą konsolę. |
 | Zapisz |Kliknij przycisk **Zapisz** , aby zapisać bieżącą konsolę. |
 | Zapisz jako |Kliknij pozycję **Zapisz jako** , aby utworzyć nowe, nazwane wystąpienie bieżącej konsoli. Użyj opcji **Zapisz jako** , aby dostosować widok i zapisać go do późniejszego pobrania. Można na przykład utworzyć przystawki Snapshot Manager StorSimple wskazujące określone serwery. |
-| Dodaj/Usuń przystawkę |Kliknij przycisk **Dodaj/Usuń przystawkę** , aby dodać lub usunąć przystawki i zorganizować węzły w okienku **zakres** . Aby uzyskać więcej informacji, przejdź do pozycji [Dodawanie, usuwanie i organizowanie przystawek i rozszerzeń w programie MMC 3,0](https://technet.microsoft.com/library/cc722035.aspx). |
+| Dodaj/Usuń przystawkę |Kliknij przycisk **Dodaj/Usuń przystawkę** , aby dodać lub usunąć przystawki i zorganizować węzły w okienku **zakres** . Aby uzyskać więcej informacji, przejdź do pozycji [Dodawanie, usuwanie i organizowanie przystawek i rozszerzeń w programie MMC 3,0](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc722035(v=ws.11)). |
 | Opcje |Kliknij przycisk **Opcje** , aby zmienić ikonę konsoli, określ tryby dostępu użytkowników i uprawnienia lub Usuń pliki konsoli, aby zwiększyć ilość dostępnego miejsca na dysku. |
 | Lista ścieżek plików |Kliknij ścieżkę na liście numerowanej, aby ponownie otworzyć ostatnio otwarty plik. |
 | Zakończ |Kliknij przycisk **Zakończ** , aby zamknąć menu **plik** . |
@@ -103,7 +103,7 @@ Poniższa tabela zawiera alfabetyczną listę akcji StorSimple Snapshot Manager.
 * W kolumnie **Opis** opisano, jak używać poszczególnych akcji w menu **akcji** lub w okienku Akcje i wyjaśniono, co robi.
 
 > [!NOTE]
-> Okienko **Akcje** i menu **akcji** zawierają dodatkowe opcje, takie jak **Widok**, **nowe okno z tego miejsca**, **odświeżanie**, **Eksportowanie listy**i **Pomoc**. Te opcje są dostępne jako część programu MMC i nie są specyficzne dla StorSimple Snapshot Manager. Tabela zawiera opisy tych opcji.
+> Okienko **Akcje** i menu **akcji** zawierają dodatkowe opcje, takie jak **Widok**, **nowe okno z tego miejsca**, **odświeżanie**, **Eksportowanie listy** i **Pomoc**. Te opcje są dostępne jako część programu MMC i nie są specyficzne dla StorSimple Snapshot Manager. Tabela zawiera opisy tych opcji.
 > 
 > 
 
@@ -340,7 +340,7 @@ W poniższej tabeli opisano klucze, których można użyć do nawigowania po int
 | Klawisz nawigacyjny | Akcja |
 |:--- |:--- |
 | Klawisz Strzałka w dół |Użyj klawisza Strzałka w dół, aby przenieść w pionie do następnego elementu w menu lub okienku. |
-| Enter |Naciśnij klawisz ENTER, aby ukończyć akcję, a następnie przejdź do następnego kroku. Na przykład możesz nacisnąć klawisz ENTER, aby wybrać **Następny**, **OK**lub **Create**, a następnie przejść do następnego kroku w kreatorze. |
+| Enter |Naciśnij klawisz ENTER, aby ukończyć akcję, a następnie przejdź do następnego kroku. Na przykład możesz nacisnąć klawisz ENTER, aby wybrać **Następny**, **OK** lub **Create**, a następnie przejść do następnego kroku w kreatorze. |
 | Esc |Naciśnij klawisz ESC, aby zamknąć menu lub anulować i zamknąć stronę. |
 | F1 |Naciśnij klawisz F1, aby wyświetlić temat pomocy dla aktualnie aktywnego okna. |
 | F5 |Naciśnij klawisz F5, aby odświeżyć węzeł. |
@@ -450,4 +450,3 @@ W poniższych tabelach przedstawiono kombinacje klawiszy skrótów dla każdego 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się, jak [używać Snapshot Manager StorSimple do administrowania rozwiązaniem StorSimple](storsimple-snapshot-manager-admin.md).
 * Dowiedz się, jak [używać Snapshot Manager StorSimple do łączenia urządzeń i zarządzania nimi](storsimple-snapshot-manager-manage-devices.md).
-

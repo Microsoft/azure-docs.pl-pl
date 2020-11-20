@@ -8,17 +8,18 @@ tags: azure-resource-manager
 keywords: dsc
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: dc73b5b9f05d24de206b25095ea7eaf93f035298
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e38fcd069fa6a3e8582dcd96b2bd0b4074986de7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511164"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955807"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Rozszerzenie konfiguracji żądanego stanu z szablonami Azure Resource Manager
 
@@ -81,7 +82,7 @@ Aby uzyskać więcej informacji, zobacz [Klasa VirtualMachineExtension](/dotnet/
 ## <a name="template-example-for-windows-virtual-machine-scale-sets"></a>Przykład szablonu dla zestawów skalowania maszyn wirtualnych z systemem Windows
 
 Węzeł zestawu skalowania maszyn wirtualnych ma sekcję **Właściwości** , która ma atrybut **VirtualMachineProfile, extensionProfile** .
-W obszarze **rozszerzenia**Dodaj szczegóły rozszerzenia DSC.
+W obszarze **rozszerzenia** Dodaj szczegóły rozszerzenia DSC.
 
 Rozszerzenie DSC dziedziczy domyślne właściwości rozszerzenia.
 Aby uzyskać więcej informacji, zobacz [Klasa VirtualMachineScaleSetExtension](/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
@@ -177,9 +178,9 @@ Aby uzyskać listę argumentów dostępnych dla domyślnego skryptu konfiguracji
 
 ## <a name="details"></a>Szczegóły
 
-| Nazwa właściwości | Type | Opis |
+| Nazwa właściwości | Typ | Opis |
 | --- | --- | --- |
-| Settings. wmfVersion |ciąg |Określa wersję programu Windows Management Framework (WMF), która powinna zostać zainstalowana na maszynie wirtualnej. Ustawienie tej właściwości na **Najnowsza** spowoduje zainstalowanie najnowszej wersji programu WMF. Obecnie jedyne możliwe wartości tej właściwości to **4,0**, **5,0**, **5,1**i **najnowsze**. Te możliwe wartości podlegają aktualizacjom. Wartość domyślna to **Najnowsza**. |
+| Settings. wmfVersion |ciąg |Określa wersję programu Windows Management Framework (WMF), która powinna zostać zainstalowana na maszynie wirtualnej. Ustawienie tej właściwości na **Najnowsza** spowoduje zainstalowanie najnowszej wersji programu WMF. Obecnie jedyne możliwe wartości tej właściwości to **4,0**, **5,0**, **5,1** i **najnowsze**. Te możliwe wartości podlegają aktualizacjom. Wartość domyślna to **Najnowsza**. |
 | settings.configwersja. URL |ciąg |Określa lokalizację adresu URL, z którego ma zostać pobrany plik konfiguracji DSC. Jeśli podany adres URL wymaga tokenu sygnatury dostępu współdzielonego, ustaw właściwość **protectedSettings.configurationUrlSasToken** na wartość tokenu SAS. Ta właściwość jest wymagana, jeśli **settings.configwersja. Script** lub **settings.configwersja. Function** . Jeśli dla tych właściwości nie podano wartości, rozszerzenie wywoła domyślny skrypt konfiguracji w celu skonfigurowania metadanych lokalizacji Configuration Manager (LCM) i należy podać argumenty. |
 | settings.configwersja. Script |ciąg |Określa nazwę pliku skryptu, który zawiera definicję konfiguracji DSC. Ten skrypt musi znajdować się w folderze głównym pliku zip, który jest pobierany z adresu URL określonego przez właściwość **settings.configwersja. URL** . Ta właściwość jest wymagana, jeśli jest zdefiniowany **settings.configwersja. URL** lub **settings.configwersja. Script** . Jeśli nie podano wartości dla tych właściwości, rozszerzenie wywołuje domyślny skrypt konfiguracji w celu ustawienia metadanych LCM i należy podać argumenty. |
 | settings.configwersja. Function |ciąg |Określa nazwę konfiguracji DSC. Konfiguracja o nazwie musi być uwzględniona w skrypcie, który **settings.configwersja. Script** definiuje. Ta właściwość jest wymagana, jeśli określono **settings.configwersja. URL** lub **settings.configwersja. Function** . Jeśli nie podano wartości dla tych właściwości, rozszerzenie wywołuje domyślny skrypt konfiguracji w celu ustawienia metadanych LCM i należy podać argumenty. |
@@ -196,12 +197,12 @@ Aby uzyskać listę argumentów dostępnych dla domyślnego skryptu konfiguracji
 Aby uzyskać więcej informacji na temat następujących wartości, zobacz [Local Configuration Manager — ustawienia podstawowe](/powershell/scripting/dsc/managing-nodes/metaConfig#basic-settings).
 Możesz użyć domyślnego skryptu konfiguracji rozszerzenia DSC, aby skonfigurować tylko właściwości LCM wymienione w poniższej tabeli.
 
-| Nazwa właściwości | Type | Opis |
+| Nazwa właściwości | Typ | Opis |
 | --- | --- | --- |
 | protectedSettings.configurationArguments. RegistrationKey |PSCredential |Wymagana właściwość. Określa klucz używany przez węzeł do zarejestrowania się w usłudze Azure Automation jako hasło obiektu poświadczeń programu PowerShell. Tę wartość można automatycznie wykryć przy użyciu metody **ListKeys** na koncie usługi Automation.  Zapoznaj się z [przykładem](#example-using-referenced-azure-automation-registration-values). |
 | settings.configurationArguments. RegistrationUrl |ciąg |Wymagana właściwość. Określa adres URL punktu końcowego automatyzacji, gdzie węzeł próbuje zarejestrować. Tę wartość można automatycznie wykryć przy użyciu metody **referencyjnej** względem konta usługi Automation. |
 | settings.configurationArguments. NodeConfigurationName |ciąg |Wymagana właściwość. Określa konfigurację węzła w ramach konta usługi Automation, która ma zostać przypisana do węzła. |
-| settings.configurationArguments.ConfigurationMode |ciąg |Określa tryb LCM. Prawidłowe opcje to **ApplyOnly**, **ApplyandMonitor**i **ApplyandAutoCorrect**.  Wartość domyślna to **ApplyandMonitor**. |
+| settings.configurationArguments.ConfigurationMode |ciąg |Określa tryb LCM. Prawidłowe opcje to **ApplyOnly**, **ApplyandMonitor** i **ApplyandAutoCorrect**.  Wartość domyślna to **ApplyandMonitor**. |
 | settings.configurationArguments. RefreshFrequencyMins | równ | Określa, jak często LCM próbuje sprawdzić konto usługi Automation pod kątem aktualizacji.  Wartość domyślna to **30**.  Wartość minimalna to **15**. |
 | settings.configurationArguments.ConfigurationModeFrequencyMins | równ | Określa, jak często LCM sprawdza bieżącą konfigurację. Wartość domyślna to **15**. Wartość minimalna to **15**. |
 | settings.configurationArguments. RebootNodeIfNeeded | boolean | Określa, czy węzeł może być automatycznie uruchamiany ponownie, jeśli operacja DSC zostanie zażądana. Wartość domyślna to **false**. |
@@ -294,7 +295,7 @@ Poniższy przykład pobiera **RegistrationUrl** i **RegistrationKey** , odwołuj
 
 ## <a name="update-from-a-previous-format"></a>Aktualizacja z poprzedniego formatu
 
-Wszystkie ustawienia w poprzednim formacie rozszerzenia (i które mają właściwości publiczne **ModulesUrl**, **ModuleSource**, **ModuleVersion**, **ConfigurationFunction**, **SasToken**lub **Właściwości**) są automatycznie dostosowywane do bieżącego formatu rozszerzenia.
+Wszystkie ustawienia w poprzednim formacie rozszerzenia (i które mają właściwości publiczne **ModulesUrl**, **ModuleSource**, **ModuleVersion**, **ConfigurationFunction**, **SasToken** lub **Właściwości**) są automatycznie dostosowywane do bieżącego formatu rozszerzenia.
 Działają one tak jak wcześniej.
 
 Poniższy schemat pokazuje, jak wygląda poprzedni Schemat ustawień:

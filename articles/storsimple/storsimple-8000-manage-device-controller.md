@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
-ms.openlocfilehash: baa035269f4a5b2f39263264f23183b308264ead
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 090797549cc61aa27945114e5ef8b666226b66e2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85513944"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956997"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Zarządzanie kontrolerami urządzeń StorSimple
 
@@ -117,7 +117,7 @@ Wykonaj następujące kroki, aby przywrócić domyślne ustawienia fabryczne urz
    
     `Reset-HcsFactoryDefault`
    
-    Aby zamiast tego zresetować pojedynczy kontroler, należy użyć polecenia cmdlet  [Reset-HcsFactoryDefault](https://technet.microsoft.com/library/dn688132.aspx) z `-scope` parametrem.)
+    Aby zamiast tego zresetować pojedynczy kontroler, należy użyć polecenia cmdlet  [Reset-HcsFactoryDefault](/previous-versions/windows/powershell-scripting/dn688132(v=wps.630)) z `-scope` parametrem.)
    
     System zostanie wielokrotnie uruchomiony ponownie. Użytkownik zostanie powiadomiony o pomyślnym zakończeniu resetowania. W zależności od modelu systemu może upłynąć 45-60 minut na urządzenie 8100 i 60-90 min, aby w ciągu tego procesu wystąpił komunikat 8600.
    
@@ -161,4 +161,3 @@ Ta sekcja zawiera podsumowanie niektórych często zadawanych pytań dotyczącyc
 ## <a name="next-steps"></a>Następne kroki
 * Jeśli wystąpią problemy z kontrolerami urządzeń StorSimple, których nie można rozwiązać za pomocą procedur wymienionych w tym samouczku, [skontaktuj się z pomoc techniczna firmy Microsoft](storsimple-8000-contact-microsoft-support.md).
 * Aby dowiedzieć się więcej o korzystaniu z usługi StorSimple Menedżer urządzeń, przejdź do [korzystania z usługi StorSimple Menedżer urządzeń w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
-

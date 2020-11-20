@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 29ea9300b2f86f442d95c96d4a5df3364628d866
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92041be4d3d5ef4d980c17fa0a5870b740c1784a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744138"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956113"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Wdróż usługę StorSimple Menedżer urządzeń dla macierzy wirtualnej StorSimple
 
@@ -36,7 +36,7 @@ Typowe zadania związane z usługą StorSimple Menedżer urządzeń są następu
 * Pobieranie klucza rejestracji usługi
 * Wygeneruj ponownie klucz rejestracji usługi
 
-W tym samouczku opisano sposób wykonywania każdego z powyższych zadań. Informacje zawarte w tym artykule dotyczą tylko tablic wirtualnych StorSimple. Aby uzyskać więcej informacji na temat serii StorSimple 8000, przejdź do [wdrożenia usługi StorSimple Manager](storsimple-manage-service.md).
+W tym samouczku opisano sposób wykonywania każdego z powyższych zadań. Informacje zawarte w tym artykule dotyczą tylko tablic wirtualnych StorSimple. Aby uzyskać więcej informacji na temat serii StorSimple 8000, przejdź do [wdrożenia usługi StorSimple Manager](./storsimple-8000-manage-service.md).
 
 ## <a name="create-a-service"></a>Tworzenie usługi
 
@@ -89,12 +89,12 @@ Zostanie odświeżona lista usług.
  ![Zaktualizowana lista usług](./media/storsimple-virtual-array-manage-service/deleteservice7.png)
 
 ## <a name="get-the-service-registration-key"></a>Pobieranie klucza rejestracji usługi
-Po pomyślnym utworzeniu usługi konieczne będzie zarejestrowanie urządzenia z systemem StorSimple w usłudze. Aby zarejestrować swoje pierwsze urządzenie StorSimple, będzie potrzebny klucz rejestracji usługi. Do zarejestrowania dodatkowych urządzeń za pomocą istniejącej usługi StorSimple wymagany jest zarówno klucz rejestracji, jak i klucz szyfrowania danych usługi (który jest generowany na pierwszym urządzeniu podczas rejestracji). Aby uzyskać więcej informacji na temat klucza szyfrowania danych usługi, zobacz [zabezpieczenia StorSimple](storsimple-security.md). Klucz rejestracji można uzyskać, uzyskując dostęp do bloku **klucze** usługi.
+Po pomyślnym utworzeniu usługi konieczne będzie zarejestrowanie urządzenia z systemem StorSimple w usłudze. Aby zarejestrować swoje pierwsze urządzenie StorSimple, będzie potrzebny klucz rejestracji usługi. Do zarejestrowania dodatkowych urządzeń za pomocą istniejącej usługi StorSimple wymagany jest zarówno klucz rejestracji, jak i klucz szyfrowania danych usługi (który jest generowany na pierwszym urządzeniu podczas rejestracji). Aby uzyskać więcej informacji na temat klucza szyfrowania danych usługi, zobacz [zabezpieczenia StorSimple](./storsimple-8000-security.md). Klucz rejestracji można uzyskać, uzyskując dostęp do bloku **klucze** usługi.
 
 Wykonaj następujące kroki, aby uzyskać klucz rejestracji usługi.
 
 #### <a name="to-get-the-service-registration-key"></a>Aby uzyskać klucz rejestracji usługi
-1. W bloku **StorSimple Menedżer urządzeń** przejdź do pozycji **klucze** **zarządzania &gt; ** .
+1. W bloku **StorSimple Menedżer urządzeń** przejdź do pozycji **klucze** **zarządzania &gt;** .
    
    ![Blok Klucze](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. W bloku **klucze** zostanie wyświetlony klucz rejestracji usługi. Skopiuj klucz rejestracji za pomocą ikony kopiowania. 
@@ -107,7 +107,7 @@ Należy ponownie wygenerować klucz rejestracji usługi, jeśli wymagane jest pr
 Wykonaj następujące kroki, aby ponownie wygenerować klucz rejestracji usługi.
 
 #### <a name="to-regenerate-the-service-registration-key"></a>Aby ponownie wygenerować klucz rejestracji usługi
-1. W bloku **StorSimple Menedżer urządzeń** przejdź do pozycji **klucze** **zarządzania &gt; ** .
+1. W bloku **StorSimple Menedżer urządzeń** przejdź do pozycji **klucze** **zarządzania &gt;** .
    
    ![Ponownie blok kluczy](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. W bloku **klucze** kliknij polecenie **Generuj ponownie**.
@@ -125,4 +125,3 @@ Wykonaj następujące kroki, aby ponownie wygenerować klucz rejestracji usługi
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się, jak rozpocząć [pracę](storsimple-virtual-array-deploy1-portal-prep.md) z wirtualną tablicą StorSimple.
 * Dowiedz się, jak [administrować urządzeniem StorSimple](storsimple-ova-web-ui-admin.md).
-

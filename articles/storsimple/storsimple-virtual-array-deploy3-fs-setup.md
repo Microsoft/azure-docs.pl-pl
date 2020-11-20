@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05447db97311fb78707079528e0570b3fd42df59
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 244fdbf7cb723fe85e0987d176a13242f0bff064
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977582"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956827"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Wdróż wirtualną macierz StorSimple — Skonfiguruj jako serwer plików za pośrednictwem Azure Portal
 ![Diagram przedstawiający kroki wymagane do wdrożenia macierzy wirtualnej. Pierwsza część trzeciego kroku ma ustawioną etykietę jako serwer plików i jest wyróżniona.](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -31,7 +31,7 @@ ms.locfileid: "91977582"
 
 W tym artykule opisano sposób przeprowadzania konfiguracji początkowej, rejestrowania serwera plików StorSimple, kończenia konfiguracji urządzenia i tworzenia udziałów SMB oraz łączenia się z nimi. Jest to ostatni artykuł z serii samouczków wdrażania wymaganych do całkowitego wdrożenia macierzy wirtualnej jako serwera plików lub serwera iSCSI.
 
-Proces instalacji i konfiguracji może potrwać około 10 minut. Informacje zawarte w tym artykule mają zastosowanie tylko do wdrożenia macierzy wirtualnej StorSimple. W przypadku wdrażania urządzeń z serii StorSimple 8000 przejdź do: [wdrażanie urządzenia z serii StorSimple 8000 z uruchomioną aktualizacją Update 2](storsimple-deployment-walkthrough-u2.md).
+Proces instalacji i konfiguracji może potrwać około 10 minut. Informacje zawarte w tym artykule mają zastosowanie tylko do wdrożenia macierzy wirtualnej StorSimple. W przypadku wdrażania urządzeń z serii StorSimple 8000 przejdź do: [wdrażanie urządzenia z serii StorSimple 8000 z uruchomioną aktualizacją Update 2](./storsimple-8000-deployment-walkthrough-u2.md).
 
 ## <a name="setup-prerequisites"></a>Wymagania wstępne instalacji
 Przed skonfigurowaniem i skonfigurowaniem macierzy wirtualnej StorSimple upewnij się, że:
@@ -55,10 +55,10 @@ Wykonaj następujące instrukcje krok po kroku, aby skonfigurować i skonfigurow
 2. Zaloguj się do internetowego interfejsu użytkownika macierzy wirtualnej jako **StorSimpleAdmin**. Wprowadź hasło administratora urządzenia zmienione w kroku 3: Uruchom macierz wirtualną w obszarze [StorSimple macierzy wirtualnej w funkcji Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) lub w [celu udostępnienia StorSimpleej macierzy wirtualnej w oprogramowaniu VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
    
    ![Zrzut ekranu przedstawiający stronę logowania StorSimple. Nazwa użytkownika StorSimpleAdmin jest widoczna, a pole hasła jest wypełniane nieokreślonymi znakami.](./media/storsimple-virtual-array-deploy3-fs-setup/image3.png)
-3. Nastąpi przekierowanie do strony **głównej** . Ta strona zawiera opis różnych ustawień wymaganych do skonfigurowania i zarejestrowania macierzy wirtualnej przy użyciu usługi StorSimple Menedżer urządzeń. Ustawienia **sieci**, **Ustawienia serwera proxy sieci Web**i **Ustawienia czasu** są opcjonalne. Jedyne wymagane ustawienia to **Ustawienia urządzenia** i **Ustawienia chmury**.
+3. Nastąpi przekierowanie do strony **głównej** . Ta strona zawiera opis różnych ustawień wymaganych do skonfigurowania i zarejestrowania macierzy wirtualnej przy użyciu usługi StorSimple Menedżer urządzeń. Ustawienia **sieci**, **Ustawienia serwera proxy sieci Web** i **Ustawienia czasu** są opcjonalne. Jedyne wymagane ustawienia to **Ustawienia urządzenia** i **Ustawienia chmury**.
    
    ![Zrzut ekranu strony głównej. Tekst wskazuje, że urządzenie nie jest skonfigurowane. Widoczne są linki do kilku różnych typów ustawień.](./media/storsimple-virtual-array-deploy3-fs-setup/image4.png)
-4. Na stronie **Ustawienia sieci** w obszarze **interfejsy sieciowe**zostaną automatycznie skonfigurowane dane 0. Każdy interfejs sieciowy jest domyślnie ustawiany w celu automatycznego uzyskiwania adresu IP (DHCP). W związku z tym adres IP, podsieć i Brama są automatycznie przypisywane (dla protokołów IPv4 i IPv6).
+4. Na stronie **Ustawienia sieci** w obszarze **interfejsy sieciowe** zostaną automatycznie skonfigurowane dane 0. Każdy interfejs sieciowy jest domyślnie ustawiany w celu automatycznego uzyskiwania adresu IP (DHCP). W związku z tym adres IP, podsieć i Brama są automatycznie przypisywane (dla protokołów IPv4 i IPv6).
    
    ![Zrzut ekranu przedstawiający stronę ustawień sieciowych z adresami IP skonfigurowanymi dla różnych wersji protokołu internetowego.](./media/storsimple-virtual-array-deploy3-fs-setup/image5.png)
    
@@ -90,7 +90,7 @@ Wykonaj następujące instrukcje krok po kroku, aby skonfigurować i skonfigurow
    
    Na stronie **serwer proxy sieci Web** :
    
-   1. Podaj **adres URL serwera proxy sieci Web** w tym formacie: *http:// &lt; host — adres IP lub nazwa FQDN &gt; :P numer*portu. Należy zauważyć, że adresy URL HTTPS nie są obsługiwane.
+   1. Podaj **adres URL serwera proxy sieci Web** w tym formacie: *http:// &lt; host — adres IP lub nazwa FQDN &gt; :P numer* portu. Należy zauważyć, że adresy URL HTTPS nie są obsługiwane.
    2. Określ **uwierzytelnianie** jako **podstawowa** lub **Brak**.
    3. W przypadku korzystania z uwierzytelniania należy również podać **nazwę użytkownika** i **hasło**.
    4. Kliknij pozycję **Zastosuj**. Spowoduje to zweryfikowanie i zastosowanie skonfigurowanych ustawień serwera proxy sieci Web.
@@ -113,12 +113,12 @@ Wykonaj następujące instrukcje krok po kroku, aby skonfigurować i skonfigurow
     3. Kliknij pozycję **Zarejestruj**. Spowoduje to ponowne uruchomienie urządzenia. Przed pomyślnym zarejestrowaniem urządzenia może być konieczne odczekanie przez 2-3 minut. Po ponownym uruchomieniu urządzenia nastąpi przekierowanie do strony logowania.
        
        ![Zrzut ekranu strony ustawień chmury. Pola klucz rejestracji i klucz szyfrowania są wypełniane, ale wartości są redagowane.](./media/storsimple-virtual-array-deploy3-fs-setup/image13.png)
-12. Wróć do witryny Azure Portal. Przejdź do obszaru **wszystkie zasoby**i Wyszukaj usługę StorSimple Menedżer urządzeń.
+12. Wróć do witryny Azure Portal. Przejdź do obszaru **wszystkie zasoby** i Wyszukaj usługę StorSimple Menedżer urządzeń.
     
     ![Zrzut ekranu przedstawiający stronę wszystkie zasoby Azure Portal. Zostanie wyróżniona usługa Menedżer urządzeń.](./media/storsimple-virtual-array-deploy3-fs-setup/searchdevicemanagerservice1.png) 
 13. Na liście filtrowane wybierz usługę StorSimple Menedżer urządzeń a następnie przejdź do opcji **zarządzanie > urządzeń**. W bloku **urządzenia** Sprawdź, czy urządzenie pomyślnie nawiązał połączenie z usługą i czy ma stan **gotowe do skonfigurowania**.
     
-    ![Wdrażanie](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
+    ![Wdróż](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
 
 ## <a name="step-2-configure-the-device-as-file-server"></a>Krok 2. Konfigurowanie urządzenia jako serwera plików
 Wykonaj następujące kroki w [Azure Portal](https://portal.azure.com/) , aby zakończyć wymaganą konfigurację urządzenia.
@@ -138,7 +138,7 @@ Wykonaj następujące kroki w [Azure Portal](https://portal.azure.com/) , aby za
     
    3. Do szyfrowania jest używany klucz 256-bitowy AES z kluczem zdefiniowanym przez użytkownika. Określ klucz znaku 32, a następnie ponownie wprowadź klucz, aby go potwierdzić. Zapisz klucz w aplikacji do zarządzania kluczami do użytku w przyszłości.
     
-   4. Kliknij pozycję **Skonfiguruj wymagane ustawienia** , aby określić poświadczenia konta magazynu, które będą używane z urządzeniem. Kliknij pozycję **Dodaj nowe** , jeśli nie skonfigurowano żadnych poświadczeń konta magazynu. **Upewnij się, że używane konto magazynu obsługuje blokowe obiekty blob. Stronicowe obiekty blob nie są obsługiwane.** Więcej informacji na temat [bloków BLOB i stronicowych obiektów BLOB](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+   4. Kliknij pozycję **Skonfiguruj wymagane ustawienia** , aby określić poświadczenia konta magazynu, które będą używane z urządzeniem. Kliknij pozycję **Dodaj nowe** , jeśli nie skonfigurowano żadnych poświadczeń konta magazynu. **Upewnij się, że używane konto magazynu obsługuje blokowe obiekty blob. Stronicowe obiekty blob nie są obsługiwane.** Więcej informacji na temat [bloków BLOB i stronicowych obiektów BLOB](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
       ![Konfigurowanie serwera plików 3](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. W bloku **Dodawanie poświadczeń konta magazynu** wykonaj następujące czynności: 
@@ -213,4 +213,3 @@ Teraz musisz nawiązać połączenie z co najmniej jednym udziałem utworzonym w
 
 ## <a name="next-steps"></a>Następne kroki
 Dowiedz się, jak [zarządzać wirtualną tablicą StorSimple](storsimple-ova-web-ui-admin.md)za pomocą lokalnego interfejsu użytkownika sieci Web.
-

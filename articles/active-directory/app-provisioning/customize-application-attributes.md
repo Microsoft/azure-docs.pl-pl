@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/10/2020
 ms.author: kenwith
-ms.openlocfilehash: 42ec826ab95363c2599be541fe451473be5ca08d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: f65fb37a4cc6640bc998af1c56e7852cccaba234
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441957"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955524"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Samouczek — Dostosowywanie mapowania atrybutów aprowizacji użytkowników dla aplikacji SaaS w Azure Active Directory
 
@@ -90,7 +90,7 @@ Wybrana liczba aplikacji, takich jak usługi ServiceNow, Box i G Suite, umożliw
 
 ![Przykład pokazuje usługi ServiceNow z zainicjowaną grupą i obiektami użytkownika](./media/customize-application-attributes/24.png)
 
-Inicjowanie obsługi grup można opcjonalnie włączyć lub wyłączyć, wybierając mapowanie grupy w obszarze **mapowania** , a ustawienie opcji ma być **włączone** na ekranie **Mapowanie atrybutu** .
+Inicjowanie obsługi grup można opcjonalnie włączyć lub wyłączyć, wybierając mapowanie grupy w obszarze **mapowania**, a ustawienie opcji ma być **włączone** na ekranie **Mapowanie atrybutu** .
 
 Atrybuty, które są obsługiwane jako część obiektów grupy można dostosować w taki sam sposób jak obiekty użytkownika, opisane wcześniej. 
 
@@ -105,7 +105,7 @@ Niektóre aplikacje obsługują jednak atrybuty niestandardowe, a usługa Azure 
 
 Aplikacje i systemy obsługujące Dostosowywanie listy atrybutów obejmują:
 
-- Salesforce
+- SalesForce
 - ServiceNow
 - Dzień roboczy do Active Directory/Workday do Azure Active Directory
 - SuccessFactors do Azure Active Directory Active Directory/SuccessFactors
@@ -136,7 +136,7 @@ Podczas edytowania listy obsługiwanych atrybutów są dostępne następujące w
 
 #### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Inicjowanie obsługi niestandardowego atrybutu rozszerzenia w aplikacji zgodnej z standard scim
 Standard scim RFC definiuje podstawowy schemat użytkownika i grupy, a także umożliwia obsługę rozszerzeń schematu w celu spełnienia wymagań aplikacji. Aby dodać atrybut niestandardowy do aplikacji Standard scim:
-   1. Zaloguj się do [portalu Azure Active Directory](https://aad.portal.azure.com), wybierz pozycję **aplikacje dla przedsiębiorstw** , wybierz aplikację, a następnie wybierz pozycję **Inicjowanie obsługi**.
+   1. Zaloguj się do [portalu Azure Active Directory](https://aad.portal.azure.com), wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz aplikację, a następnie wybierz pozycję **Inicjowanie obsługi**.
    2. W obszarze **mapowania** wybierz obiekt (użytkownika lub grupę), dla którego chcesz dodać atrybut niestandardowy.
    3. W dolnej części strony wybierz pozycję **Pokaż opcje zaawansowane**.
    4. Wybierz pozycję **Edytuj listę atrybutów dla elementu nazwa_aplikacji**.
@@ -202,7 +202,7 @@ Wykonaj poniższe kroki, aby zainicjować obsługę ról dla użytkownika w apli
   - **Rzeczy do rozważenia**
     - Upewnij się, że wiele ról nie jest przypisanych do użytkownika. Nie możemy zagwarantować, która rola zostanie zainicjowana.
     
-  - **Przykładowe dane wyjściowe** 
+  - **Przykładowe żądanie (POST)** 
 
    ```json
     {
@@ -226,6 +226,21 @@ Wykonaj poniższe kroki, aby zainicjować obsługę ról dla użytkownika w apli
    }
    ```
   
+  - **Przykładowe dane wyjściowe (poprawka)** 
+    
+   ```
+   "Operations": [
+   {
+   "op": "Add",
+   "path": "roles",
+   "value": [
+   {
+   "value": "{\"id\":\"06b07648-ecfe-589f-9d2f-6325724a46ee\",\"value\":\"25\",\"displayName\":\"Role1234\"}"
+   }
+   ]
+   ```  
+Format żądania w POPRAWKAch i POST różni się. Aby upewnić się, że poczta i poprawka są wysyłane w tym samym formacie, można użyć flagi funkcji opisanej [tutaj](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility#flags-to-alter-the-scim-behavior). 
+
 - **AppRoleAssignmentsComplex** 
   - **Kiedy używać:** Użyj wyrażenia AppRoleAssignmentsComplex, aby zainicjować obsługę wielu ról dla użytkownika. 
   - **Jak skonfigurować:** Edytuj listę obsługiwanych atrybutów, jak opisano powyżej, aby uwzględnić nowy atrybut dla ról: 

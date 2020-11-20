@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 5806266955eafab8c3c8c99695ff82736de92e9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 600934e2d46c1a84a83fa1290db13b3d0d1508f4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187068"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956895"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Rozwiązywanie problemów z wdrażaniem urządzeń StorSimple
 ## <a name="overview"></a>Omówienie
@@ -46,12 +46,12 @@ Poniższe sekcje mogą pomóc w rozwiązywaniu problemów występujących podcza
 ## <a name="first-time-setup-wizard-process"></a>Proces Kreatora instalacji pierwszego czasu
 Poniższe kroki podsumowują proces Kreatora instalacji. Aby uzyskać szczegółowe informacje dotyczące instalacji, zobacz [wdrażanie lokalnego urządzenia StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
 
-1. Uruchom polecenie cmdlet [Invoke-HcsSetupWizard](https://technet.microsoft.com/library/dn688135.aspx) , aby uruchomić Kreatora instalacji, który przeprowadzi Cię przez pozostałe kroki. 
+1. Uruchom polecenie cmdlet [Invoke-HcsSetupWizard](/previous-versions/windows/powershell-scripting/dn688135(v=wps.630)) , aby uruchomić Kreatora instalacji, który przeprowadzi Cię przez pozostałe kroki. 
 2. Konfigurowanie sieci: Kreator instalacji umożliwia skonfigurowanie ustawień sieciowych dla interfejsu sieciowego 0 na urządzeniu StorSimple. Są to m.in. następujące ustawienia:
-   * Wirtualny adres IP (VIP), maska podsieci i Brama — polecenie cmdlet [Set-HcsNetInterface](https://technet.microsoft.com/library/dn688161.aspx) jest wykonywane w tle. Konfiguruje adres IP, maskę podsieci i bramę dla interfejsu sieciowego DATA 0 na urządzeniu StorSimple.
-   * Podstawowy serwer DNS — polecenie cmdlet [Set-HcsDnsClientServerAddress](https://technet.microsoft.com/library/dn688172.aspx) jest wykonywane w tle. Konfiguruje ustawienia DNS dla rozwiązania StorSimple.
-   * Serwer NTP — polecenie cmdlet [Set-HcsNtpClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) jest wykonywane w tle. Konfiguruje ustawienia serwera NTP dla rozwiązania StorSimple.
-   * Opcjonalny serwer proxy sieci Web — polecenie cmdlet [Set-HcsWebProxy](https://technet.microsoft.com/library/dn688154.aspx) jest wykonywane w tle. Ustawia i włącza konfigurację serwera proxy sieci Web dla rozwiązania StorSimple.
+   * Wirtualny adres IP (VIP), maska podsieci i Brama — polecenie cmdlet [Set-HcsNetInterface](/previous-versions/windows/powershell-scripting/dn688161(v=wps.630)) jest wykonywane w tle. Konfiguruje adres IP, maskę podsieci i bramę dla interfejsu sieciowego DATA 0 na urządzeniu StorSimple.
+   * Podstawowy serwer DNS — polecenie cmdlet [Set-HcsDnsClientServerAddress](/previous-versions/windows/powershell-scripting/dn688172(v=wps.630)) jest wykonywane w tle. Konfiguruje ustawienia DNS dla rozwiązania StorSimple.
+   * Serwer NTP — polecenie cmdlet [Set-HcsNtpClientServerAddress](/previous-versions/windows/powershell-scripting/dn688138(v=wps.630)) jest wykonywane w tle. Konfiguruje ustawienia serwera NTP dla rozwiązania StorSimple.
+   * Opcjonalny serwer proxy sieci Web — polecenie cmdlet [Set-HcsWebProxy](/previous-versions/windows/powershell-scripting/dn688154(v=wps.630)) jest wykonywane w tle. Ustawia i włącza konfigurację serwera proxy sieci Web dla rozwiązania StorSimple.
 3. Skonfiguruj hasło: następnym krokiem jest skonfigurowanie hasła administratora urządzenia.
    Hasło administratora urządzenia służy do logowania się do urządzenia. Domyślne hasło urządzenia to **Password1**.
         
@@ -139,7 +139,7 @@ Aby zarejestrować urządzenie, należy użyć usługi StorSimple Menedżer urz�
 | 9 |Ostrzeżenie: nie można aktywować urządzenia. Hasła administratora urządzenia i StorSimple Snapshot Manager nie zostały zmienione. |Jeśli rejestracja nie powiedzie się, hasła administratora i StorSimple Snapshot Manager nie są zmieniane. | |
 
 ## <a name="tools-for-troubleshooting-storsimple-deployments"></a>Narzędzia do rozwiązywania problemów z wdrożeniami usługi StorSimple
-StorSimple zawiera kilka narzędzi, których można użyć do rozwiązywania problemów z rozwiązaniem StorSimple. Należą do nich:
+StorSimple zawiera kilka narzędzi, których można użyć do rozwiązywania problemów z rozwiązaniem StorSimple. Są one następujące:
 
 * Obsługa pakietów i dzienników urządzeń.
 * Polecenia cmdlet przeznaczone specjalnie do rozwiązywania problemów.
@@ -157,7 +157,7 @@ Pakiet pomocy technicznej zawiera wszystkie odpowiednie dzienniki, które mogą 
    2. W okienku **Akcje** kliknij pozycję **Otwórz zapisany dziennik** i wskaż pliki dziennika w formacie etvx/ETW (pakiet pomocy technicznej). Teraz możesz wyświetlić plik. Po otwarciu pliku możesz kliknąć prawym przyciskiem myszy i zapisać plik jako tekst.
       
       > [!IMPORTANT]
-      > Możesz również użyć polecenia cmdlet **Get-WinEvent** , aby otworzyć te pliki w programie Windows PowerShell. Aby uzyskać więcej informacji, zobacz [Get-WinEvent](https://technet.microsoft.com/library/hh849682.aspx) w dokumentacji dotyczącej poleceń cmdlet programu Windows PowerShell.
+      > Możesz również użyć polecenia cmdlet **Get-WinEvent** , aby otworzyć te pliki w programie Windows PowerShell. Aby uzyskać więcej informacji, zobacz [Get-WinEvent](/powershell/module/microsoft.powershell.diagnostics/get-winevent) w dokumentacji dotyczącej poleceń cmdlet programu Windows PowerShell.
      
 5. Po otwarciu dzienników w Podgląd zdarzeń należy poszukać następujących dzienników zawierających problemy związane z konfiguracją urządzenia:
    
@@ -189,7 +189,7 @@ W przypadku konfigurowania interfejsów sieciowych na potrzeby wdrożenia urząd
    * Jeśli interfejs jest w dobrej kondycji, ale nie jest włączony, stan **numer IfIndex** jest pokazywany jako **NotPresent**.
    * Jeśli interfejs nie istnieje, nie jest wyświetlany na tej liście. Interfejs użytkownika usługi StorSimple Menedżer urządzeń w dalszym ciągu będzie wyświetlał tego interfejsu w stanie niepowodzenia.
 
-Aby uzyskać więcej informacji na temat korzystania z tego polecenia cmdlet, przejdź do polecenia [Get-adapter](https://docs.microsoft.com/powershell/module/netadapter/get-netadapter?view=win10-ps) w dokumentacji poleceń cmdlet programu Windows PowerShell.
+Aby uzyskać więcej informacji na temat korzystania z tego polecenia cmdlet, przejdź do polecenia [Get-adapter](/powershell/module/netadapter/get-netadapter?view=win10-ps) w dokumentacji poleceń cmdlet programu Windows PowerShell.
 
 W poniższych sekcjach przedstawiono przykłady danych wyjściowych z `Get-NetAdapter` polecenia cmdlet.
 
@@ -284,7 +284,7 @@ Użyj `Test-HcsmConnection` polecenia cmdlet dla urządzenia, które jest już p
    * ErrorCode. CiSDeviceDecommissioned — wskazuje, że urządzenie zostało zdezaktywowane.
    * ErrorCode. DeviceNotReady — wskazuje, że urządzenie jest w trybie konserwacji.
    * ErrorCode. DeviceNotReady — wskazuje, że urządzenie nie jest w trybie online.
-3. Sprawdź, czy usługa Menedżer urządzeń StorSimple jest uruchomiona (Użyj polecenia cmdlet [Get-ClusterResource](https://technet.microsoft.com/library/ee461004.aspx) ). Jeśli usługa nie jest uruchomiona, mogą zostać wyświetlone następujące błędy:
+3. Sprawdź, czy usługa Menedżer urządzeń StorSimple jest uruchomiona (Użyj polecenia cmdlet [Get-ClusterResource](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee461004(v=technet.10)) ). Jeśli usługa nie jest uruchomiona, mogą zostać wyświetlone następujące błędy:
    
    * ErrorCode. CiSApplianceAgentNotOnline
    * ErrorCode. CisPowershellScriptHcsError — wskazuje, że wystąpił wyjątek podczas wykonywania Get-ClusterResource.
@@ -308,7 +308,7 @@ Użyj `Test-HcsmConnection` polecenia cmdlet dla urządzenia, które jest już p
 
 Pliki dziennika CiSCommandletLog0Curr. errlog i CiSAgentsvc0Curr. errlog będą miały więcej informacji, takich jak szczegóły wyjątku.
 
-Aby uzyskać więcej informacji na temat sposobu korzystania z polecenia cmdlet, przejdź do pozycji [test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx) w dokumentacji referencyjnej programu Windows PowerShell.
+Aby uzyskać więcej informacji na temat sposobu korzystania z polecenia cmdlet, przejdź do pozycji [test-HcsmConnection](/previous-versions/windows/powershell-scripting/dn715782(v=wps.630)) w dokumentacji referencyjnej programu Windows PowerShell.
 
 > [!IMPORTANT]
 > To polecenie cmdlet można uruchomić zarówno dla aktywnego, jak i pasywnego kontrolera.
@@ -553,5 +553,5 @@ Przyczyną błędu może być dowolny z następujących elementów:
 
 <!--Link references-->
 
-[1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
-[2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx 
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd379547(v=ws.10)
+[2]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd392266(v=ws.10)

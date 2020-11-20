@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
-ms.openlocfilehash: 9181ef93dfedbc28b297bef48a0bc37ba6d69798
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e43ad35cdaad89d5b9f43007bad8782f358c1a6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75646765"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954345"
 ---
 # <a name="what-is-a-virtual-network-link"></a>Co to jest link do sieci wirtualnej?
 
@@ -23,7 +23,7 @@ Można połączyć sieć wirtualną z prywatną strefą DNS jako sieć wirtualn�
 
 ## <a name="registration-virtual-network"></a>Sieć wirtualna rejestracji
 
-Podczas [tworzenia łącza](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network) między prywatną strefą DNS i siecią wirtualną istnieje możliwość włączenia [autorejestracji](./private-dns-autoregistration.md) rekordów DNS dla maszyn wirtualnych. W przypadku wybrania tej opcji Sieć wirtualna będzie siecią wirtualną rejestracji dla prywatnej strefy DNS. Rekord DNS jest tworzony automatycznie dla maszyn wirtualnych wdrażanych w sieci. Rekordy DNS są tworzone dla maszyn wirtualnych, które zostały już wdrożone w sieci wirtualnej. Z punktu widzenia sieci wirtualnej prywatna strefa DNS zostaje strefą rejestracji dla tej sieci wirtualnej.
+Podczas [tworzenia łącza](./private-dns-getstarted-portal.md#link-the-virtual-network) między prywatną strefą DNS i siecią wirtualną istnieje możliwość włączenia [autorejestracji](./private-dns-autoregistration.md) rekordów DNS dla maszyn wirtualnych. W przypadku wybrania tej opcji Sieć wirtualna będzie siecią wirtualną rejestracji dla prywatnej strefy DNS. Rekord DNS jest tworzony automatycznie dla maszyn wirtualnych wdrażanych w sieci. Rekordy DNS są tworzone dla maszyn wirtualnych, które zostały już wdrożone w sieci wirtualnej. Z punktu widzenia sieci wirtualnej prywatna strefa DNS zostaje strefą rejestracji dla tej sieci wirtualnej.
 Jedna prywatna strefa DNS może mieć wiele sieci wirtualnych rejestracji, ale każda sieć wirtualna może mieć dokładnie jedną skojarzoną z nią strefę rejestracji.
 
 ## <a name="resolution-virtual-network"></a>Sieć wirtualna rozpoznawania
@@ -33,7 +33,7 @@ Jedna prywatna strefa DNS może mieć wiele sieci wirtualnych rozpoznawania, a s
 
 ## <a name="limits"></a>Limity
 
-Aby zrozumieć, ile sieci rejestrowania i rozpoznawania można połączyć z prywatnymi strefami DNS, zobacz [limity Azure DNS](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits)
+Aby zrozumieć, ile sieci rejestrowania i rozpoznawania można połączyć z prywatnymi strefami DNS, zobacz [limity Azure DNS](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits)
 
 ## <a name="other-considerations"></a>Inne zagadnienia
 
@@ -49,7 +49,7 @@ Aby zrozumieć, ile sieci rejestrowania i rozpoznawania można połączyć z pry
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się, jak połączyć sieć wirtualną z prywatną strefą DNS przy użyciu [Azure Portal](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network)
+* Dowiedz się, jak połączyć sieć wirtualną z prywatną strefą DNS przy użyciu [Azure Portal](./private-dns-getstarted-portal.md#link-the-virtual-network)
 
 * Dowiedz się, jak utworzyć strefę prywatną w Azure DNS przy użyciu [Azure PowerShell](./private-dns-getstarted-powershell.md) lub [interfejsu wiersza polecenia platformy Azure](./private-dns-getstarted-cli.md).
 

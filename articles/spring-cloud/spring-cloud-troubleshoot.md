@@ -7,13 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: c5346858aa119f11ef34916b24c70c966286ab86
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 91ef218abc51cbdf079fd9e1baa8eb2b907087df
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089047"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954209"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Rozwiązywanie typowych problemów z chmurą wiosenną platformy Azure
 
@@ -21,7 +20,6 @@ Ten artykuł zawiera instrukcje dotyczące rozwiązywania problemów z programow
 
 ## <a name="availability-performance-and-application-issues"></a>Problemy z dostępnością, wydajnością i aplikacją
 
-::: zone pivot="programming-language-java"
 ### <a name="my-application-cant-start-for-example-the-endpoint-cant-be-connected-or-it-returns-a-502-after-a-few-retries"></a>Nie można uruchomić mojej aplikacji (na przykład punkt końcowy nie może być połączony lub zwraca 502 po kilku ponownych próbach)
 
 Wyeksportuj dzienniki do Log Analytics platformy Azure. Tabela dla sprężynowych dzienników aplikacji nosi nazwę *AppPlatformLogsforSpring*. Aby dowiedzieć się więcej, zobacz [Analizowanie dzienników i metryk przy użyciu ustawień diagnostycznych](diagnostic-services.md).
@@ -69,7 +67,6 @@ Gdy debugujesz awarie aplikacji, Zacznij od sprawdzenia stanu uruchomienia i sta
 
 
 Aby dowiedzieć się więcej o usłudze Azure Log Analytics, zobacz Wprowadzenie do [log Analytics w Azure monitor](../azure-monitor/log-query/get-started-portal.md).
-::: zone-end
 
 ### <a name="my-application-experiences-high-cpu-usage-or-high-memory-usage"></a>Moja aplikacja używa dużo mocy procesora lub pamięci
 
@@ -93,7 +90,6 @@ Jeśli wszystkie wystąpienia są uruchomione, przejdź do usługi Azure Log Ana
 
 Aby dowiedzieć się więcej o usłudze Azure Log Analytics, zobacz Wprowadzenie do [log Analytics w Azure monitor](../azure-monitor/log-query/get-started-portal.md). Wykonaj zapytanie dotyczące dzienników przy użyciu [języka zapytań Kusto](/azure/kusto/query/).
 
-::: zone pivot="programming-language-java"
 ### <a name="checklist-for-deploying-your-spring-application-to-azure-spring-cloud"></a>Lista kontrolna wdrażania aplikacji wiosennej w chmurze Azure wiosennej
 
 Przed dołączeniem aplikacji upewnij się, że spełnia ona następujące kryteria:
@@ -105,7 +101,6 @@ Przed dołączeniem aplikacji upewnij się, że spełnia ona następujące kryte
 * Parametry JVM mają oczekiwane wartości.
 * Zaleca się wyłączenie lub usunięcie z pakietu aplikacji usług rejestru Embedded _Server_ i _sprężyny_ usług.
 * Jeśli jakiekolwiek zasoby platformy Azure mają być powiązane za pomocą _powiązania usługi_, upewnij się, że zasoby docelowe zostały uruchomione.
-::: zone-end
 
 ## <a name="configuration-and-management"></a>Konfigurowanie i zarządzanie
 
@@ -124,7 +119,6 @@ Jeśli chcesz skonfigurować wystąpienie usługi w chmurze Azure wiosny przy u�
 
 Nazwa wystąpienia usługi w chmurze wiosennej na platformie Azure zostanie użyta do żądania nazwy domeny podrzędnej w `azureapps.io` programie, więc instalacja nie powiedzie się, jeśli wystąpi konflikt nazw z istniejącą. Więcej szczegółów można znaleźć w dziennikach aktywności.
 
-::: zone pivot="programming-language-java"
 ### <a name="i-cant-deploy-a-net-core-app"></a>Nie można wdrożyć aplikacji platformy .NET Core
 
 Nie można przekazać pliku *. zip* dla aplikacji platformy .NET Core steeltoe przy użyciu szablonu Menedżer zasobów Azure Portal.
@@ -132,9 +126,7 @@ Nie można przekazać pliku *. zip* dla aplikacji platformy .NET Core steeltoe p
 Podczas wdrażania pakietu aplikacji przy użyciu [interfejsu wiersza polecenia](/cli/azure/get-started-with-azure-cli)platformy Azure interfejs wiersza polecenia platformy Azure okresowo sonduje postęp wdrażania i na końcu wyświetla wynik wdrożenia.
 
 Upewnij się, że Twoja aplikacja jest spakowana w prawidłowym formacie pliku *zip* . Jeśli plik nie zostanie poprawnie spakowany, proces przestanie odpowiadać lub zostanie wyświetlony komunikat o błędzie.
-::: zone-end
 
-::: zone pivot="programming-language-java"
 ### <a name="i-cant-deploy-a-jar-package"></a>Nie można wdrożyć pakietu JAR
 
 Nie można przekazać pakietu/Source w pliku archiwum Java (JAR) przy użyciu szablonu Menedżer zasobów Azure Portal lub.
@@ -232,7 +224,6 @@ Sprawdź, czy `spring-boot-actuator` zależność jest włączona w pakiecie apl
 ```
 
 Jeśli dzienniki aplikacji można zarchiwizować na koncie magazynu, ale nie są wysyłane do usługi Azure Log Analytics, należy sprawdzić, czy [obszar roboczy został skonfigurowany prawidłowo](../azure-monitor/learn/quick-create-workspace.md). W przypadku korzystania z bezpłatnej warstwy usługi Azure Log Analytics należy pamiętać, że [w warstwie Bezpłatna nie jest oferowana umowa dotycząca poziomu usług (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
-::: zone-end
 
 ## <a name="next-steps"></a>Następne kroki
 

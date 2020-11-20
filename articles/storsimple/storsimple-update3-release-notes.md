@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4b61caecd67881eb08c82ea0c26522c63c3e8396
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e081acc357c1b8872dd3a25c552d4cbe9785e212
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84712058"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956589"
 ---
 # <a name="update-3-release-notes-for-your-storsimple-8000-series-device"></a>Update 3 — informacje o wersji dla urządzenia z serii StorSimple 8000
 
@@ -53,7 +53,7 @@ W poniższych tabelach przedstawiono podsumowanie problemów, które zostały ro
 ## <a name="known-issues-in-update-3"></a>Znane problemy w aktualizacji Update 3
 Poniższa tabela zawiera podsumowanie znanych problemów występujących w tej wersji.
 
-| Nie. | Cecha | Problem | Komentarze/obejście | Dotyczy urządzenia fizycznego | Dotyczy urządzenia wirtualnego |
+| Nie. | Obiekt feature | Problem | Komentarze/obejście | Dotyczy urządzenia fizycznego | Dotyczy urządzenia wirtualnego |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Kworum dysku |W rzadkich przypadkach, jeśli większość dysków w obudowie EBOD urządzenia 8600 zostanie odłączona, co spowodowało brak kworum dysku, Pula magazynów przejdzie w tryb offline. Pozostanie ono w trybie offline, nawet jeśli dyski zostaną ponownie połączone. |Konieczne będzie ponowne uruchomienie urządzenia. Jeśli problem będzie się powtarzać, skontaktuj się z firmą pomoc techniczna firmy Microsoft w celu wykonania następnych kroków. |Tak |Nie |
 | 2 |Niepoprawny identyfikator kontrolera |Gdy jest przeprowadzane Zastępowanie kontrolera, kontroler 0 może być wyświetlany jako kontroler 1. Podczas zastępowania kontrolera, gdy obraz jest ładowany z węzła równorzędnego, identyfikator kontrolera może początkowo być wyświetlany jako identyfikator kontrolera równorzędnego. W rzadkich przypadkach takie zachowanie może być również widoczne po ponownym uruchomieniu systemu. |Nie jest wymagane wykonanie jakiejkolwiek czynności przez użytkownika. Ta sytuacja zostanie rozwiązany po zakończeniu zastępowania kontrolera. |Tak |Nie |
@@ -79,11 +79,10 @@ Poniższa tabela zawiera podsumowanie znanych problemów występujących w tej w
 | 22 |Aktualizacje |W przypadku zastosowania aktualizacji Update 3 na stronie **Obsługa** w klasycznym portalu Azure zostanie wyświetlony następujący komunikat związany z aktualizacją Update 2 — "StorSimple 8000 Series Update 2" obejmuje możliwość, aby firma Microsoft mogła aktywnie zbierać informacje dziennika z urządzenia po wykryciu potencjalnych problemów ". Jest to mylące, ponieważ oznacza to, że urządzenie jest aktualizowane do aktualizacji Update 2. Po pomyślnym zaktualizowaniu urządzenia do aktualizacji 3 ten komunikat zniknie. |To zachowanie zostanie naprawione w przyszłym wydaniu. |Tak |Nie |
 
 ## <a name="controller-and-firmware-updates-in-update-3"></a>Aktualizacje kontrolera i oprogramowania układowego w ramach aktualizacji Update 3
-Ta wersja ma aktualizacje sterownika LSI i oprogramowania układowego. Aby uzyskać więcej informacji na temat instalowania sterownika LSI i aktualizacji oprogramowania układowego, zobacz [Instalowanie aktualizacji Update 3](storsimple-install-update-3.md) na urządzeniu StorSimple.
+Ta wersja ma aktualizacje sterownika LSI i oprogramowania układowego. Aby uzyskać więcej informacji na temat instalowania sterownika LSI i aktualizacji oprogramowania układowego, zobacz [Instalowanie aktualizacji Update 3](./index.yml) na urządzeniu StorSimple.
 
 ## <a name="virtual-device-updates-in-update-3"></a>Aktualizacje urządzeń wirtualnych w aktualizacji Update 3
 Tej aktualizacji nie można zastosować do urządzenia w chmurze StorSimple (nazywanego również urządzeniem wirtualnym). Należy utworzyć nowe urządzenia wirtualne. 
 
 ## <a name="next-step"></a>Następny krok
-Dowiedz się, jak [zainstalować aktualizację Update 3](storsimple-install-update-3.md) na urządzeniu StorSimple.
-
+Dowiedz się, jak [zainstalować aktualizację Update 3](./index.yml) na urządzeniu StorSimple.

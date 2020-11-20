@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: SAP
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: juergent
-ms.openlocfilehash: d613da4d9abdfe22fc20f1b74da41e4a65cbff33
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: be455de2a1f8aebc7327af4741e0652a4be76665
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151566"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956436"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Wysoka dostępność programu IBM Db2 LUW na maszynach wirtualnych platformy Azure w systemie Red Hat Enterprise Linux Server
 
@@ -144,7 +145,7 @@ Upewnij się, że wybrany system operacyjny jest obsługiwany przez firmę IBM/S
 
 ## <a name="create-the-pacemaker-cluster"></a>Tworzenie klastra Pacemaker
     
-Aby utworzyć podstawowy klaster Pacemaker dla tego serwera programu IBM DB2, zobacz [Konfigurowanie Pacemaker na Red Hat Enterprise Linux na platformie Azure][rhel-pcs-azr]. 
+Aby utworzyć podstawowy klaster Pacemaker dla tego serwera programu IBM DB2, zobacz [Konfigurowanie Pacemaker na Red Hat Enterprise Linux na platformie Azure][rhel-pcs-azr]. 
 
 ## <a name="install-the-ibm-db2-luw-and-sap-environment"></a>Instalowanie środowiska IBM DB2 LUW i SAP
 
@@ -205,7 +206,7 @@ Zalecamy stosowanie powyższych parametrów na podstawie wstępnego testowania t
 
 Aby skonfigurować serwer bazy danych w stanie gotowości przy użyciu procedury kopiowania jednorodnego systemu SAP, wykonaj następujące kroki:
 
-1. Wybierz opcję **kopiowania systemu** > wystąpienia **Target systems**  >  **rozproszonej**  >  **bazy danych**w systemie docelowym.
+1. Wybierz opcję **kopiowania systemu** > wystąpienia **Target systems**  >  **rozproszonej**  >  **bazy danych** w systemie docelowym.
 1. Jako metodę kopiowania wybierz **jednorodny system** , aby można było użyć kopii zapasowej do przywrócenia kopii zapasowej w wystąpieniu serwera w stanie gotowości.
 1. Po dojściu do kroku zakończenia, aby przywrócić bazę danych jednorodnej kopii systemu, zamknij Instalatora. Przywróć bazę danych z kopii zapasowej hosta podstawowego. Wszystkie kolejne etapy instalacji zostały już wykonane na podstawowym serwerze bazy danych.
 
@@ -439,7 +440,7 @@ Aby skonfigurować Azure Load Balancer, zalecamy użycie [jednostki SKU usługa 
 
    b. Wprowadź nazwę nowej sondy kondycji (na przykład **DB2-HP**).
 
-   c. Wybierz pozycję **TCP** jako protokół i port **62500**. Pozostaw wartość **interwału** ustawioną na **5**i pozostaw wartość **progową złej kondycji** ustawioną na **2**.
+   c. Wybierz pozycję **TCP** jako protokół i port **62500**. Pozostaw wartość **interwału** ustawioną na **5** i pozostaw wartość **progową złej kondycji** ustawioną na **2**.
 
    d. Wybierz przycisk **OK**.
 
@@ -451,7 +452,7 @@ Aby skonfigurować Azure Load Balancer, zalecamy użycie [jednostki SKU usługa 
 
    c. Wybierz adres IP frontonu, pulę zaplecza i sondę kondycji utworzoną wcześniej (na przykład **DB2-fronton**).
 
-   d. Pozostaw **Protokół** ustawiony na **TCP**i wprowadź port *komunikacyjny bazy danych*portu.
+   d. Pozostaw **Protokół** ustawiony na **TCP** i wprowadź port *komunikacyjny bazy danych* portu.
 
    e. Zwiększ **limit czasu bezczynności** do 30 minut.
 
@@ -616,8 +617,8 @@ sudo pcs resource clear Db2_HADR_<b>ID2</b>-master
 </code></pre>
 
 - **przenoszenie zasobów komputerów \<res_name> <host> :** tworzy ograniczenia lokalizacji i może powodować problemy z przejęciem
-- **niezrozumiały \<res_name> zasób komputerów **: czyści ograniczenia lokalizacji
-- **oczyszczanie \<res_name> zasobów komputerów **: czyści wszystkie błędy zasobu
+- **niezrozumiały \<res_name> zasób komputerów**: czyści ograniczenia lokalizacji
+- **oczyszczanie \<res_name> zasobów komputerów**: czyści wszystkie błędy zasobu
 
 ### <a name="test-a-manual-takeover"></a>Testowanie ręcznego przejęcia
 

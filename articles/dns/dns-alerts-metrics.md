@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: rohink
-ms.openlocfilehash: a27c4519024d6d3d2f3852534619b5f8c2bb5e43
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 85b681cbeb1b06784529e321c9e907ab2bdecb73
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489612"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954651"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS metryki i alerty
 Azure DNS to usługa hostingu dla domen DNS, która umożliwia rozpoznawanie nazw przy użyciu infrastruktury Microsoft Azure. W tym artykule opisano metryki i alerty dla usługi Azure DNS.
@@ -62,7 +62,7 @@ Metryka *wykorzystania pojemności zestawu rekordów* w Azure DNS pokazuje proce
 *Ilustracja: Ustawianie rekordu Azure DNS metryk wykorzystania pojemności*
 
 ## <a name="alerts-in-azure-dns"></a>Alerty w Azure DNS
-Azure Monitor oferuje możliwość zgłaszania alertów dotyczących dostępnych wartości metryk. Metryki DNS są dostępne w nowym środowisku konfiguracji alertów. Jak opisano szczegółowo w [dokumentacji Azure monitor alertów](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md), można wybrać strefy DNS jako zasób, wybrać typ sygnału metryki i skonfigurować logikę alertów oraz inne parametry, takie jak **okres** i **częstotliwość**. Można dodatkowo zdefiniować [grupę akcji](../azure-monitor/platform/action-groups.md) dla momentu spełnienia warunku alertu, zgodnie z którym alert zostanie dostarczony za pośrednictwem wybranych akcji. Aby uzyskać więcej informacji na temat konfigurowania alertów dotyczących metryk Azure Monitor, zobacz [Tworzenie i wyświetlanie alertów oraz zarządzanie nimi przy użyciu Azure monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). 
+Azure Monitor oferuje możliwość zgłaszania alertów dotyczących dostępnych wartości metryk. Metryki DNS są dostępne w nowym środowisku konfiguracji alertów. Jak opisano szczegółowo w [dokumentacji Azure monitor alertów](../azure-monitor/platform/alerts-metric.md), można wybrać strefy DNS jako zasób, wybrać typ sygnału metryki i skonfigurować logikę alertów oraz inne parametry, takie jak **okres** i **częstotliwość**. Można dodatkowo zdefiniować [grupę akcji](../azure-monitor/platform/action-groups.md) dla momentu spełnienia warunku alertu, zgodnie z którym alert zostanie dostarczony za pośrednictwem wybranych akcji. Aby uzyskać więcej informacji na temat konfigurowania alertów dotyczących metryk Azure Monitor, zobacz [Tworzenie i wyświetlanie alertów oraz zarządzanie nimi przy użyciu Azure monitor](../azure-monitor/platform/alerts-metric.md). 
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się więcej o [Azure DNS](dns-overview.md).

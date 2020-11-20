@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 08/10/2019
 ms.author: rohink
-ms.openlocfilehash: e7c4db7a2fc3ba931415e3b167f7fe72ee2b3980
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72adb2732eb0832589cbc25fb7e4288eb1899214
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84710545"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954515"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Hostowanie aplikacji sieci Web platformy Azure ze zrównoważonym obciążeniem w wierzchołku strefy
 
@@ -55,10 +55,10 @@ Utwórz dwie aplikacje sieci Web, jeden w każdym planie App Service.
 1. W lewym górnym rogu strony Azure Portal wybierz pozycję **Utwórz zasób**.
 2. Wpisz ciąg **aplikacja sieci Web** na pasku wyszukiwania i naciśnij klawisz ENTER.
 3. Wybierz pozycję **aplikacja sieci Web**.
-4. Wybierz przycisk **Utwórz**.
+4. Wybierz pozycję **Utwórz**.
 5. Zaakceptuj wartości domyślne i Skorzystaj z poniższej tabeli, aby skonfigurować dwie aplikacje sieci Web:
 
-   |Nazwa<br>(musi być unikatowy w obrębie. azurewebsites.net)|Grupa zasobów |Stos środowiska uruchomieniowego|Region|App Service plan/lokalizacja
+   |Nazwa<br>(musi być unikatowy w obrębie. azurewebsites.net)|Grupa zasobów |Stos środowiska uruchomieniowego|Region (Region)|App Service plan/lokalizacja
    |---------|---------|-|-|-------|
    |Aplikacja — 01|Użyj istniejącej<br>Wybierz grupę zasobów|.NET Core 2.2|East US|ASP — 01 (D1)|
    |App-02|Użyj istniejącej<br>Wybierz grupę zasobów|.NET Core 2.2|Central US|ASP-02 (D1)|
@@ -87,7 +87,7 @@ Teraz można utworzyć punkty końcowe dla dwóch aplikacji sieci Web.
 3. Wybierz pozycję **Dodaj**.
 4. Skorzystaj z poniższej tabeli, aby skonfigurować punkty końcowe:
 
-   |Type  |Nazwa  |Cel  |Lokalizacja  |Niestandardowe ustawienia nagłówka|
+   |Typ  |Nazwa  |Cel  |Lokalizacja  |Niestandardowe ustawienia nagłówka|
    |---------|---------|---------|---------|---------|
    |Zewnętrzny punkt końcowy     |Koniec-01|Adres IP zarejestrowany dla aplikacji App-01|East US|Host:\<the URL you recorded for App-01\><br>Przykład: **host: App-01.azurewebsites.NET**|
    |Zewnętrzny punkt końcowy     |Koniec 02|Adres IP zarejestrowany dla aplikacji App-02|Central US|Host:\<the URL you recorded for App-02\><br>Przykład: **host: App-02.azurewebsites.NET**
@@ -115,8 +115,8 @@ Dodaj domenę niestandardową dla obu aplikacji sieci Web.
 
 1. Otwórz grupę zasobów i wybierz swoją pierwszą aplikację sieci Web.
 2. W lewej kolumnie Wybierz pozycję **domeny niestandardowe**.
-3. W obszarze **domeny niestandardowe**wybierz pozycję **Dodaj domenę niestandardową**.
-4. W obszarze **domena niestandardowa**wpisz swoją niestandardową nazwę domeny. Na przykład contoso.com.
+3. W obszarze **domeny niestandardowe** wybierz pozycję **Dodaj domenę niestandardową**.
+4. W obszarze **domena niestandardowa** wpisz swoją niestandardową nazwę domeny. Na przykład contoso.com.
 5. Wybierz przycisk **Weryfikuj**.
 
    Twoja domena powinna przekazywać walidację i wyświetlać zielone znaczniki wyboru obok pozycji **Nazwa hosta** i **własność domeny**.
@@ -158,6 +158,6 @@ Aby dowiedzieć się więcej na temat rekordów aliasów, zobacz następujące a
 
 - [Samouczek: Konfigurowanie rekordu aliasu w celu odwoływania się do publicznego adresu IP platformy Azure](tutorial-alias-pip.md)
 - [Samouczek: konfigurowanie rekordu aliasu w celu obsługi nazw domen wierzchołkowych przy użyciu usługi Traffic Manager](tutorial-alias-tm.md)
-- [Często zadawane pytania na temat systemu DNS](https://docs.microsoft.com/azure/dns/dns-faq#alias-records)
+- [Często zadawane pytania na temat systemu DNS](./dns-faq.md#alias-records)
 
 Aby dowiedzieć się, jak przeprowadzić migrację aktywnej nazwy DNS, zobacz [Migrowanie aktywnej nazwy DNS do Azure App Service](../app-service/manage-custom-dns-migrate-domain.md).

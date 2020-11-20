@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: dsc
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 07/13/2020
 ms.author: magoedte
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 900273ec48c71e6f88d28bccff6f1e2abd412c1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17ada83f6fa1b57f8dd72d591b6625f25e9a2388
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89079578"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955858"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Wprowadzenie do procedury obsługi rozszerzenia Azure Desired State Configuration
 
@@ -108,7 +109,7 @@ Polecenie cmdlet **Remove-AzVMDscExtension** usuwa procedurę obsługi rozszerze
 Ważne informacje dotyczące Menedżer zasobów poleceń cmdlet rozszerzenia DSC:
 
 - Polecenia cmdlet Azure Resource Manager są synchroniczne.
-- Parametry *ResourceGroupName*, *VMName*, *ArchiveStorageAccountName*, *Version*i *Location* są wymagane.
+- Parametry *ResourceGroupName*, *VMName*, *ArchiveStorageAccountName*, *Version* i *Location* są wymagane.
 - *ArchiveResourceGroupName* jest opcjonalnym parametrem. Ten parametr można określić, jeśli konto magazynu należy do innej grupy zasobów niż ta, w której utworzono maszynę wirtualną.
 - Użyj przełącznika **autoaktualizacje** , aby automatycznie zaktualizować procedurę obsługi rozszerzenia do najnowszej wersji, gdy jest ona dostępna. Ten parametr może spowodować ponowne uruchomienie maszyny wirtualnej po wydaniu nowej wersji programu WMF.
 

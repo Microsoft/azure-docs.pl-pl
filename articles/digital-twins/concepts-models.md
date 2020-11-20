@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 12eed6aeccffe854810e9c2ddc8a5c4e59b8c312
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 0a38f9b8135fed08a95df68f108e44c34fec6325
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337937"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955331"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Zrozumienie modeli bliźniaczych w usłudze Azure Digital bliźniaczych reprezentacji
 
 Kluczową cechą usługi Azure Digital bliźniaczych reprezentacji jest możliwość definiowania własnego słownictwa i tworzenia grafu bliźniaczyego w samodzielnych warunkach firmy. Ta możliwość jest dostępna za poorednictwem **modeli** zdefiniowanych przez użytkownika. Można traktować modele jako rzeczowniki w opisie świata. 
 
-Model jest podobny do **klasy** w języku programowania zorientowanym obiektowo, definiując kształt danych dla jednej konkretnej koncepcji w rzeczywistym środowisku pracy. Modele mają nazwy (na przykład *pomieszczenie* lub *czujnik temperatury* ) i zawierają takie elementy, jak właściwości, dane telemetryczne/zdarzenia i polecenia opisujące, co może zrobić ten typ jednostki w środowisku. Później te modele są używane do tworzenia [**cyfrowych bliźniaczych reprezentacji**](concepts-twins-graph.md) , które reprezentują konkretne jednostki, które spełniają opis tego typu.
+Model jest podobny do **klasy** w języku programowania zorientowanym obiektowo, definiując kształt danych dla jednej konkretnej koncepcji w rzeczywistym środowisku pracy. Modele mają nazwy (na przykład *pomieszczenie* lub *czujnik temperatury*) i zawierają takie elementy, jak właściwości, dane telemetryczne/zdarzenia i polecenia opisujące, co może zrobić ten typ jednostki w środowisku. Później te modele są używane do tworzenia [**cyfrowych bliźniaczych reprezentacji**](concepts-twins-graph.md) , które reprezentują konkretne jednostki, które spełniają opis tego typu.
 
 Modele bliźniaczych reprezentacji cyfrowych platformy Azure są reprezentowane w języku JSON-LD-based **Digital (DTDL)**.  
 
@@ -49,7 +49,7 @@ Interfejs modelu DTDL może zawierać zero, jeden lub wiele z następujących p�
 * Relacje między **relacjami** umożliwiają prezentowanie sposobu, w jaki można polegać na cyfrowym przędze za pomocą innych bliźniaczych reprezentacji cyfrowych. Relacje mogą reprezentować różne orednie semantyczne, takie jak *Contains* ("piętro zawiera pomieszczenie"), *chłodnie* ("pomieszczenie chłodzenia HVAC"), *isBilledTo* ("kompresor jest rozliczany na użytkownika") itd. Relacje umożliwiają rozwiązanie udostępnienie grafu powiązanych jednostek.
 
 > [!NOTE]
-> [Specyfikacja DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) definiuje także **polecenia** , które są metodami, które mogą być wykonywane na dwucyfrowej sznurze (na przykład polecenie Reset lub polecenie w celu przełączenia lub wyłączenia wentylatora). *Polecenia nie są jednak obecnie obsługiwane w usłudze Azure Digital bliźniaczych reprezentacji.*
+> [Specyfikacja DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) definiuje także **polecenia**, które są metodami, które mogą być wykonywane na dwucyfrowej sznurze (na przykład polecenie Reset lub polecenie w celu przełączenia lub wyłączenia wentylatora). *Polecenia nie są jednak obecnie obsługiwane w usłudze Azure Digital bliźniaczych reprezentacji.*
 
 ### <a name="properties-vs-telemetry"></a>Właściwości a Telemetria
 
@@ -84,7 +84,7 @@ Usługa Azure Digital bliźniaczych reprezentacji również nie jest zgodna z `w
 
 Modele typu sznurka można pisać w dowolnym edytorze tekstu. Język DTDL jest następujący: Składnia JSON, dlatego należy przechowywać modele z rozszerzeniem *JSON*. Użycie rozszerzenia JSON spowoduje włączenie wielu edytorów tekstu programistycznego, aby zapewnić podstawowe sprawdzanie składni i wyróżnianie dokumentów DTDL. Istnieje również [rozszerzenie DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) dostępne dla [Visual Studio Code](https://code.visualstudio.com/).
 
-Ta sekcja zawiera przykład typowego modelu, który został zapisany jako interfejs DTDL. Model opisuje **planety** , każdy z nazwą, masą i temperaturą.
+Ta sekcja zawiera przykład typowego modelu, który został zapisany jako interfejs DTDL. Model opisuje **planety**, każdy z nazwą, masą i temperaturą.
  
 Należy wziąć pod uwagę, że planety może także wchodzić w pracę z **przyzwyczajami** , które są swoimi satelitami i mogą zawierać **kontenery**. W poniższym przykładzie `Planet` model wyraża połączenia z tymi innymi jednostkami, odwołując się do dwóch modeli zewnętrznych — `Moon` i `Crater` . Te modele są również zdefiniowane w przykładowym kodzie poniżej, ale są bardzo proste, aby nie rozciągać się z podstawowego `Planet` przykładu.
 
@@ -144,10 +144,10 @@ Pola modelu są następujące:
 | `@type` | Określa rodzaj opisywanych informacji. Dla interfejsu typ jest *interfejs*. |
 | `@context` | Ustawia [kontekst](https://niem.github.io/json/reference/json-ld/context/) dla dokumentu JSON. Powinny być używane modele `dtmi:dtdl:context;2` . |
 | `displayName` | obowiązkowe Pozwala nadać modelowi przyjazną nazwę w razie potrzeby. |
-| `contents` | Wszystkie pozostałe dane interfejsu są umieszczane w tym miejscu jako tablica definicji atrybutów. Każdy atrybut musi dostarczyć `@type` ( *Właściwość* , dane *telemetryczne* , *polecenie* , *relacja* lub *składnik* ), aby zidentyfikować informacje o interfejsie, które opisuje, a następnie zestaw właściwości, które definiują rzeczywisty atrybut (na przykład `name` i `schema` Aby zdefiniować *Właściwość* ). |
+| `contents` | Wszystkie pozostałe dane interfejsu są umieszczane w tym miejscu jako tablica definicji atrybutów. Każdy atrybut musi dostarczyć `@type` (*Właściwość*, dane *telemetryczne*, *polecenie*, *relacja* lub *składnik*), aby zidentyfikować informacje o interfejsie, które opisuje, a następnie zestaw właściwości, które definiują rzeczywisty atrybut (na przykład `name` i `schema` Aby zdefiniować *Właściwość*). |
 
 > [!NOTE]
-> Należy zauważyć, że interfejs składnika ( *Crater* w tym przykładzie) jest zdefiniowany w tej samej tablicy co interfejs, który go używa ( *globalnej* ). Składniki muszą być zdefiniowane w ten sposób w wywołaniach interfejsu API, aby można było znaleźć interfejs.
+> Należy zauważyć, że interfejs składnika (*Crater* w tym przykładzie) jest zdefiniowany w tej samej tablicy co interfejs, który go używa (*globalnej*). Składniki muszą być zdefiniowane w ten sposób w wywołaniach interfejsu API, aby można było znaleźć interfejs.
 
 ### <a name="possible-schemas"></a>Możliwe schematy
 
@@ -224,7 +224,11 @@ Po zastosowaniu dziedziczenia interfejs rozszerzający udostępnia wszystkie wł
 
 Interfejs rozszerzający nie może zmienić żadnej definicji interfejsów nadrzędnych. może tylko dodać do nich. Nie można również przedefiniować możliwości już zdefiniowanej w żadnym z jego interfejsów nadrzędnych (nawet jeśli możliwości są zdefiniowane jako takie same). Na przykład, jeśli interfejs nadrzędny definiuje `double` *masę* właściwości, interfejs rozszerzający nie może zawierać deklaracji *masy* nawet wtedy, gdy jest również `double` .
 
-## <a name="validating-models"></a>Sprawdzanie poprawności modeli
+## <a name="best-practices-for-designing-models"></a>Najlepsze rozwiązania dotyczące projektowania modeli
+
+Podczas projektowania modeli w celu odzwierciedlenia jednostek w środowisku przydatne może być poszukiwanie i rozpatrywanie implikacji związanych z [zapytaniami](concepts-query-language.md) . Można zaprojektować właściwości w taki sposób, aby uniknąć dużego zestawu wyników z przechodzenia do wykresu. Możesz również chcieć modelować relacje, które będą odpowiadały w pojedynczym zapytaniu jako relacje jednego poziomu.
+
+### <a name="validating-models"></a>Sprawdzanie poprawności modeli
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 

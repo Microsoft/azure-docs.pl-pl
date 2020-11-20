@@ -15,19 +15,19 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 24eb03069689d6dc89d8e237e0e65c71af6c6173
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 509a3ac383cebd91821e9c4b872c253ab3b0a947
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88184724"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956198"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Disaster recovery and device failover for your StorSimple Virtual Array via Azure portal (Odzyskiwane po awarii i przełączanie urządzenia w tryb failover dla macierzy wirtualnej StorSimple w witrynie Azure Portal)
 
 ## <a name="overview"></a>Omówienie
 W tym artykule opisano odzyskiwanie po awarii dla Microsoft Azure StorSimple macierzy wirtualnej, w tym szczegółowe kroki umożliwiające przełączenie w tryb failover do innej macierzy wirtualnej. W trybie failover można przenieść dane z urządzenia *źródłowego* w centrum danych na urządzenie *docelowe* . Urządzenie docelowe może znajdować się w tej samej lub innej lokalizacji geograficznej. Tryb failover urządzenia jest przeznaczony dla całego urządzenia. Podczas pracy w trybie failover dane w chmurze dla urządzenia źródłowego zmieniają własność na urządzenie docelowe.
 
-Ten artykuł dotyczy tylko tablic wirtualnych StorSimple. Aby przełączyć urządzenie z serii 8000, przejdź do [trybu failover urządzenia i odzyskiwanie po awarii urządzenia StorSimple](storsimple-device-failover-disaster-recovery.md).
+Ten artykuł dotyczy tylko tablic wirtualnych StorSimple. Aby przełączyć urządzenie z serii 8000, przejdź do [trybu failover urządzenia i odzyskiwanie po awarii urządzenia StorSimple](./storsimple-8000-device-failover-disaster-recovery.md).
 
 ## <a name="what-is-disaster-recovery-and-device-failover"></a>Co to jest odzyskiwanie po awarii i tryb failover urządzenia?
 
@@ -181,4 +181,3 @@ W przypadku urządzeń StorSimple, które zostały zarejestrowane tuż przed wys
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się więcej o sposobach [administrowania wirtualną macierzą StorSimple przy użyciu lokalnego interfejsu użytkownika sieci Web](storsimple-ova-web-ui-admin.md).
-

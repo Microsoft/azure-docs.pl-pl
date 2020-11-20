@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 3201870d2d738a867f89166904d668b5596cbcdf
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: dff98a5c54d2fee350e2b35dc00148c19ea233b8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149065"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956504"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Dodawanie certyfikatu TSL/SSL w usłudze Azure App Service
 
@@ -105,6 +105,8 @@ Jeśli masz już działającą App Service certyfikat, możesz:
 
 - [Zaimportuj certyfikat do App Service](#import-certificate-into-app-service).
 - [Zarządzaj certyfikatami](#manage-app-service-certificates), takimi jak odnowienie, ponowne generowanie kluczy i eksportowanie.
+> [!NOTE]
+> W tej chwili certyfikaty App Service nie są obsługiwane w chmurach narodowych platformy Azure.
 
 ### <a name="start-certificate-order"></a>Uruchom kolejność certyfikatów
 
@@ -150,7 +152,7 @@ Na stronie **stan Key Vault** kliknij pozycję **Key Vault repozytorium** , aby 
 
 Po wybraniu magazynu zamknij stronę **repozytorium Key Vault** . Opcja " **krok 1: Magazyn** " powinna zawierać zielony znacznik wyboru dla sukcesu. Pozostaw otwartą stronę w następnym kroku.
 
-### <a name="verify-domain-ownership"></a>Weryfikuj własność domeny
+### <a name="verify-domain-ownership"></a>Weryfikowanie własności domeny
 
 Na tej samej stronie **konfiguracji certyfikatu** , która została użyta w ostatnim kroku, kliknij pozycję **krok 2. Weryfikacja**.
 
@@ -164,7 +166,7 @@ Wybierz **App Service weryfikację**. Ponieważ domena została już zmapowana d
 > - **App Service** — najbardziej wygodna opcja, gdy domena została już zmapowana do aplikacji App Service w ramach tej samej subskrypcji. Wykorzystuje fakt, że aplikacja App Servicea już zweryfikowała własność domeny.
 > - **Domena** — sprawdź [domenę App Service zakupionej na platformie Azure](manage-custom-dns-buy-domain.md). Platforma Azure automatycznie dodaje rekord TXT weryfikacji dla Ciebie i kończy proces.
 > - **Poczta** — Sprawdź domenę, wysyłając wiadomość e-mail do administratora domeny. Instrukcje są dostępne po wybraniu opcji.
-> - **Ręcznie** — Sprawdź domenę, używając strony HTML (tylko certyfikat**Standardowy** ) lub rekordu TXT DNS. Instrukcje są dostępne po wybraniu opcji.
+> - **Ręcznie** — Sprawdź domenę, używając strony HTML (tylko certyfikat **Standardowy** ) lub rekordu TXT DNS. Instrukcje są dostępne po wybraniu opcji.
 
 ### <a name="import-certificate-into-app-service"></a>Importuj certyfikat do App Service
 
@@ -206,7 +208,7 @@ Skorzystaj z poniższej tabeli, aby wybrać certyfikat.
 | Ustawienie | Opis |
 |-|-|
 | Subskrypcja | Subskrypcja, do której należy Key Vault. |
-| Key Vault | Magazyn z certyfikatem, który ma zostać zaimportowany. |
+| Usługa Key Vault | Magazyn z certyfikatem, który ma zostać zaimportowany. |
 | Certyfikat | Wybierz z listy PKCS12 certyfikatów w magazynie. Wszystkie certyfikaty PKCS12 w magazynie są wyświetlane z odciskiem palca, ale nie wszystkie są obsługiwane w App Service. |
 
 Po zakończeniu operacji zobaczysz certyfikat na liście **Certyfikaty klucza prywatnego** . Jeśli importowanie nie powiedzie się z powodu błędu, certyfikat nie spełnia [wymagań dotyczących App Service](#private-certificate-requirements).
@@ -254,7 +256,7 @@ Utwórz plik scalonego certyfikatu o nazwie _mergedcertificate.crt_. W edytorze 
 
 Wyeksportuj scalony certyfikat TLS/SSL z kluczem prywatnym, za pomocą którego zostało wygenerowane żądanie certyfikatu.
 
-Jeśli żądanie certyfikatu zostało wygenerowane przy użyciu biblioteki OpenSSL, został utworzony plik klucza prywatnego. Aby wyeksportować certyfikat do pliku PFX, uruchom następujące polecenie. Zastąp symbole zastępcze _ &lt; pliku prywatnego-Key>_ i _ &lt; scalonego pliku certyfikatu>_ ze ścieżkami do klucza prywatnego i scalonym plikiem certyfikatu.
+Jeśli żądanie certyfikatu zostało wygenerowane przy użyciu biblioteki OpenSSL, został utworzony plik klucza prywatnego. Aby wyeksportować certyfikat do pliku PFX, uruchom następujące polecenie. Zastąp symbole zastępcze _&lt; pliku prywatnego-Key>_ i _&lt; scalonego pliku certyfikatu>_ ze ścieżkami do klucza prywatnego i scalonym plikiem certyfikatu.
 
 ```bash
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>  
@@ -270,7 +272,7 @@ Teraz możesz przekazać certyfikat do App Service.
 
 W <a href="https://portal.azure.com" target="_blank">Azure Portal</a>z menu po lewej stronie wybierz pozycję **App Services**  >  **\<app-name>** .
 
-W lewym panelu nawigacyjnym aplikacji wybierz pozycję **Ustawienia protokołu TLS/SSL**—  >  certyfikat przekazywania**certyfikatów klucza prywatnego (pfx)**  >  **Upload Certificate**.
+W lewym panelu nawigacyjnym aplikacji wybierz pozycję **Ustawienia protokołu TLS/SSL**—  >  certyfikat przekazywania **certyfikatów klucza prywatnego (pfx)**  >  **Upload Certificate**.
 
 ![Przekaż certyfikat prywatny w App Service](./media/configure-ssl-certificate/upload-private-cert.png)
 
@@ -292,7 +294,7 @@ W <a href="https://portal.azure.com" target="_blank">Azure Portal</a>z menu po l
 
 W lewym panelu nawigacyjnym aplikacji kliknij pozycję **Ustawienia TLS/SSL**  >  **Certyfikaty publiczne (CER)**  >  **Przekaż certyfikat klucza publicznego**.
 
-W polu **Nazwa**wpisz nazwę certyfikatu. W polu **plik certyfikatu CER**wybierz plik CER.
+W polu **Nazwa** wpisz nazwę certyfikatu. W polu **plik certyfikatu CER** wybierz plik CER.
 
 Kliknij pozycję **Przekaż**.
 
@@ -378,11 +380,11 @@ Teraz możesz usunąć certyfikat App Service. W lewym okienku nawigacji wybierz
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 
-[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
+[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
 
 ## <a name="more-resources"></a>Dodatkowe zasoby
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 12d11cddf077d4d07732490255d44e89ddaf3217
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73b9ecd03875b60ed2d9b9d4c8e8a3a0c8de3cfa
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60531053"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956606"
 ---
 # <a name="storsimple-8000-series-update-22-release-notes"></a>StorSimple 8000 Series Update 2,2 — informacje o wersji
 
@@ -63,14 +63,14 @@ W poniższych tabelach przedstawiono podsumowanie problemów, które zostały ro
 ## <a name="known-issues-in-update-22"></a>Znane problemy w aktualizacji 2,2
 Poniższa tabela zawiera podsumowanie znanych problemów występujących w tej wersji.
 
-| Nie. | Cecha | Problem | Komentarze/obejście | Dotyczy urządzenia fizycznego | Dotyczy urządzenia wirtualnego |
+| Nie. | Obiekt feature | Problem | Komentarze/obejście | Dotyczy urządzenia fizycznego | Dotyczy urządzenia wirtualnego |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Kworum dysku |W rzadkich przypadkach, jeśli większość dysków w obudowie EBOD urządzenia 8600 zostanie odłączona, co spowodowało brak kworum dysku, Pula magazynów przejdzie w tryb offline. Pozostanie ono w trybie offline, nawet jeśli dyski zostaną ponownie połączone. |Konieczne będzie ponowne uruchomienie urządzenia. Jeśli problem będzie się powtarzać, skontaktuj się z firmą pomoc techniczna firmy Microsoft w celu wykonania następnych kroków. |Tak |Nie |
 | 2 |Niepoprawny identyfikator kontrolera |Gdy jest przeprowadzane Zastępowanie kontrolera, kontroler 0 może być wyświetlany jako kontroler 1. Podczas zastępowania kontrolera, gdy obraz jest ładowany z węzła równorzędnego, identyfikator kontrolera może początkowo być wyświetlany jako identyfikator kontrolera równorzędnego. W rzadkich przypadkach takie zachowanie może być również widoczne po ponownym uruchomieniu systemu. |Nie jest wymagane wykonanie jakiejkolwiek czynności przez użytkownika. Ta sytuacja zostanie rozwiązany po zakończeniu zastępowania kontrolera. |Tak |Nie |
 | 3 |Konta magazynu |Użycie usługi Storage w celu usunięcia konta magazynu jest nieobsługiwanym scenariuszem. Spowoduje to powstanie sytuacji, w której nie można pobrać danych użytkownika. | |Tak |Tak |
 | 4 |Tryb failover urządzenia |Wiele przełączeń w tryb failover kontenera woluminów z tego samego urządzenia źródłowego do różnych urządzeń docelowych nie jest obsługiwane. Przełączenie w tryb failover z pojedynczego martwego urządzenia do wielu urządzeń spowoduje utratę własności danych przez kontenery woluminów na urządzeniu z systemem. Po przejściu do trybu failover te kontenery woluminów będą wyświetlane lub zachowywać się inaczej po wyświetleniu ich w klasycznym portalu Azure. | |Tak |Nie |
 | 5 |Instalacja |Podczas instalacji programu SharePoint adapter StorSimple należy podać adres IP urządzenia w celu pomyślnego zakończenia instalacji. | |Tak |Nie |
-| 6 |Serwer proxy sieci Web |Jeśli konfiguracja serwera proxy sieci Web ma HTTPS jako określony protokół, wpłynie to na komunikację z urządzeniem do usługi, a urządzenie przejdzie w tryb offline. Pakiety pomocy technicznej zostaną również wygenerowane w procesie, zużywając znaczące zasoby na urządzeniu. |Upewnij się, że adres URL serwera proxy sieci Web ma wartość HTTP jako określony protokół. Aby uzyskać więcej informacji, zobacz temat [Konfigurowanie serwera proxy sieci Web dla urządzenia](storsimple-configure-web-proxy.md). |Tak |Nie |
+| 6 |Serwer proxy sieci Web |Jeśli konfiguracja serwera proxy sieci Web ma HTTPS jako określony protokół, wpłynie to na komunikację z urządzeniem do usługi, a urządzenie przejdzie w tryb offline. Pakiety pomocy technicznej zostaną również wygenerowane w procesie, zużywając znaczące zasoby na urządzeniu. |Upewnij się, że adres URL serwera proxy sieci Web ma wartość HTTP jako określony protokół. Aby uzyskać więcej informacji, zobacz temat [Konfigurowanie serwera proxy sieci Web dla urządzenia](./storsimple-8000-configure-web-proxy.md). |Tak |Nie |
 | 7 |Serwer proxy sieci Web |Jeśli skonfigurujesz i włączysz serwer proxy sieci Web na zarejestrowanym urządzeniu, należy ponownie uruchomić kontroler Active na urządzeniu. | |Tak |Nie |
 | 8 |Duże opóźnienia w chmurze i duże obciążenie we/wy |Gdy urządzenie StorSimple napotyka kombinację bardzo dużych opóźnień w chmurze (kolejność sekund) i wysokiego obciążenia we/wy, woluminy urządzeń przechodzą w stan obniżonej wydajności, a w przypadku wystąpienia błędu "urządzenie nie jest gotowe" może zakończyć się niepowodzeniem. |Konieczne będzie ręczne ponowne uruchomienie kontrolerów urządzeń lub przełączenie w tryb failover urządzenia w celu odzyskania z tej sytuacji. |Tak |Nie |
 | 9 |Azure PowerShell |W przypadku korzystania z polecenia cmdlet **Get-AzureStorSimpleStorageAccountCredential programu StorSimple &#124; Select-Object — pierwsza 1 — poczekaj** na wybranie pierwszego obiektu, aby można było utworzyć nowy obiekt **kontenerem volumecontainer** , polecenie cmdlet zwróci wszystkie obiekty. |Zawiń polecenie cmdlet w nawiasach w następujący sposób: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object-pierwsze 1 — oczekiwanie** |Tak |Tak |
@@ -90,11 +90,10 @@ Poniższa tabela zawiera podsumowanie znanych problemów występujących w tej w
 ## <a name="controller-and-firmware-updates-in-update-22"></a>Aktualizacje kontrolera i oprogramowania układowego w aktualizacji 2,2
 Ta wersja ma aktualizacje wyłącznie oprogramowania. Jeśli jednak aktualizujesz wersję programu przed aktualizacją Update 2, należy zainstalować sterowniki, Storport, Spaceport i (w niektórych przypadkach) aktualizacje oprogramowania układowego dysku na urządzeniu.
 
-Aby uzyskać więcej informacji na temat instalowania aktualizacji sterowników, sterownika Storport, Spaceport i oprogramowania układowego dysku, zobacz [Instalowanie aktualizacji 2,2](storsimple-install-update-21.md) na urządzeniu StorSimple.
+Aby uzyskać więcej informacji na temat instalowania aktualizacji sterowników, sterownika Storport, Spaceport i oprogramowania układowego dysku, zobacz [Instalowanie aktualizacji 2,2](./storsimple-8000-install-update-5.md) na urządzeniu StorSimple.
 
 ## <a name="virtual-device-updates-in-update-22"></a>Aktualizacje urządzeń wirtualnych w aktualizacji 2,2
 Tej aktualizacji nie można zastosować do urządzenia wirtualnego. Należy utworzyć nowe urządzenia wirtualne. 
 
 ## <a name="next-step"></a>Następny krok
-Dowiedz się, jak [zainstalować aktualizację 2,2](storsimple-install-update-21.md) na urządzeniu StorSimple.
-
+Dowiedz się, jak [zainstalować aktualizację 2,2](./storsimple-8000-install-update-5.md) na urządzeniu StorSimple.

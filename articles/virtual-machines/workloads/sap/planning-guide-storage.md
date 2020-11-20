@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ed99145a2d3860849c4a8117a93a9a0f24d227c
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 1cd6f5f7865d18461ac7a635530e9aabfde380a6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540930"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955416"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Typy usługi Azure Storage dla obciążeń SAP
 Platforma Azure ma wiele typów magazynów, które różnią się znacznie w zależności od możliwości, przepływności, opóźnień i cen. Niektóre typy magazynów nie są lub są ograniczone do użycia w scenariuszach SAP. Niektóre typy magazynów platformy Azure są dobrze dopasowane lub zoptymalizowane pod kątem określonych scenariuszy obciążeń SAP. Szczególnie w przypadku SAP HANA niektóre typy magazynów platformy Azure uzyskały certyfikat do użycia z SAP HANA. W tym dokumencie przechodzą różne typy magazynów i opisano ich możliwości i użyteczność przy użyciu obciążeń SAP i składników SAP.
@@ -273,7 +274,7 @@ Dodatkowe wbudowane funkcje magazynu ANF:
 - Klonowanie woluminów ANF z migawek
 - Przywróć woluminy z migawek (przyciąganie i przywracanie)
 
-**Podsumowanie** : Azure NetApp Files to magazyn o małym opóźnieniu z certyfikatem platformy Hana, który umożliwia wdrażanie woluminów i udziałów w systemie plików NFS i SMB. Magazyn obejmuje trzy różne poziomy usług, które zapewniają różną przepływność i operacje we/wy w sposób liniowy dla pojemności GiB woluminu. Magazyn ANF umożliwia SAP HANA wdrażanie scenariuszy skalowalnych w poziomie przy użyciu węzła w stanie wstrzymania. Magazyn jest odpowiedni do udostępniania udziałów plików w razie potrzeby w przypadku globalnego katalogu transportowego/sapmnt lub SAP. Magazyn ANF zapewnia dostępność funkcji, która jest dostępna jako natywne funkcje NetApp.  
+**Podsumowanie**: Azure NetApp Files to magazyn o małym opóźnieniu z certyfikatem platformy Hana, który umożliwia wdrażanie woluminów i udziałów w systemie plików NFS i SMB. Magazyn obejmuje trzy różne poziomy usług, które zapewniają różną przepływność i operacje we/wy w sposób liniowy dla pojemności GiB woluminu. Magazyn ANF umożliwia SAP HANA wdrażanie scenariuszy skalowalnych w poziomie przy użyciu węzła w stanie wstrzymania. Magazyn jest odpowiedni do udostępniania udziałów plików w razie potrzeby w przypadku globalnego katalogu transportowego/sapmnt lub SAP. Magazyn ANF zapewnia dostępność funkcji, która jest dostępna jako natywne funkcje NetApp.  
 
 
 
