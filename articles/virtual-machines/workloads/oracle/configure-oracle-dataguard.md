@@ -3,16 +3,17 @@ title: Implementowanie funkcji Oracle Data Guard na maszynie wirtualnej platform
 description: Szybko Uzyskaj funkcję ochrony danych firmy Oracle w środowisku platformy Azure.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: b56fc172aa9fa4e88f03f488bdd1ac567708fe91
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: cc7579b48307325e25d8914ea4c722a9641883f3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996696"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952152"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementowanie funkcji Oracle Data Guard na maszynie wirtualnej platformy Azure z systemem Linux 
 
@@ -30,7 +31,7 @@ Aby zainstalować funkcję Oracle Data Guard, należy utworzyć dwie maszyny wir
 
 Obraz portalu Marketplace używany do tworzenia maszyn wirtualnych to Oracle: Oracle-Database-EE: 12.1.0.2: Najnowsze.
 
-### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure 
+### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure 
 
 Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [AZ login](/cli/azure/reference-index) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
 

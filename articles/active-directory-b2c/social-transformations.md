@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: eaa2984c0d7a5d3763f554e39f687fdbd2865e96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c60cecb9d6bfeeefc0569a1a57185d13f0c6442f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85203388"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953121"
 ---
 # <a name="social-accounts-claims-transformations"></a>Przekształceń oświadczeń dotyczących kont społecznościowych
 
@@ -39,7 +39,7 @@ Ten artykuł zawiera przykłady dotyczące korzystania z przekształceń oświad
 
 ## <a name="createalternativesecurityid"></a>CreateAlternativeSecurityId
 
-Tworzy reprezentację JSON właściwości alternativeSecurityId użytkownika, która może być używana w wywołaniach do Azure Active Directory. Aby uzyskać więcej informacji, zobacz Schemat [AlternativeSecurityId](https://docs.microsoft.com/graph/api/resources/alternativesecurityid) .
+Tworzy reprezentację JSON właściwości alternativeSecurityId użytkownika, która może być używana w wywołaniach do Azure Active Directory. Aby uzyskać więcej informacji, zobacz Schemat [AlternativeSecurityId](/graph/api/resources/alternativesecurityid) .
 
 | Element | TransformationClaimType | Typ danych | Uwagi |
 | ---- | ----------------------- | --------- | ----- |

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0edd85ea4478ac95ea854b73717056d52a9098b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: f7f6d643586897924c5efaddd7d1f229ba8d85dc
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647566"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952458"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>Co to jest samoobsługowe rejestrowanie się w Azure Active Directory?
 
@@ -76,6 +76,12 @@ Te dwa parametry mogą być używane w połączeniu do definiowania bardziej pre
 Poniższy schemat blokowy wyjaśnia różne kombinacje tych parametrów oraz wyniki związane z katalogiem i samoobsługowym rejestracją.
 
 ![Schemat blokowy formantów rejestracji samoobsługowej](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
+
+Szczegóły tego ustawienia można pobrać przy użyciu następującego polecenia cmdlet programu PowerShell Get-MsolCompanyInformation. Aby uzyskać więcej informacji na ten temat, zobacz [Get-MsolCompanyInformation](/powershell/module/msonline/get-msolcompanyinformation?view=azureadps-1.0)
+
+```powershell
+    Get-MsolCompanyInformation | Select AllowEmailVerifiedUsers, AllowAdHocSubscriptions
+```
 
 Aby uzyskać więcej informacji i przykłady korzystania z tych parametrów, zobacz [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 

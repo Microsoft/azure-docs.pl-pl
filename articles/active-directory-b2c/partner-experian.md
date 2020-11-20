@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: a88894bb7462e9ac3afd16d69ae820dd98543a5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29116d880a51444eb45a351e2118a07d13873043
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259377"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953852"
 ---
 # <a name="tutorial-for-configuring-experian-with-azure-active-directory-b2c"></a>Samouczek dotyczący konfigurowania Experian z Azure Active Directory B2C
 
@@ -42,7 +42,7 @@ Aby rozpocząć, musisz:
 
 - Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
 
-- [Dzierżawa Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) , która jest połączona z subskrypcją platformy Azure.
+- [Dzierżawa Azure AD B2C](./tutorial-create-tenant.md) , która jest połączona z subskrypcją platformy Azure.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -77,14 +77,14 @@ Na poniższym diagramie architektury przedstawiono implementację.
 
 ### <a name="part-1---deploy-the-api"></a>Część 1 — wdrażanie interfejsu API
 
-Wdróż podany [kod interfejsu API](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln) w usłudze platformy Azure. Kod można opublikować z programu Visual Studio, postępując zgodnie z tymi [instrukcjami](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Wdróż podany [kod interfejsu API](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln) w usłudze platformy Azure. Kod można opublikować z programu Visual Studio, postępując zgodnie z tymi [instrukcjami](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 >[!NOTE]
 >Aby skonfigurować usługę Azure AD przy użyciu wymaganych ustawień, należy podać adres URL wdrożonej usługi.
 
 ### <a name="part-2---deploy-the-client-certificate"></a>Część 2 — Wdrażanie certyfikatu klienta
 
-Wywołanie interfejsu API Experian jest chronione przez certyfikat klienta. Ten certyfikat klienta będzie dostarczany przez Experian. Postępując zgodnie z instrukcjami wymienionymi w tym [dokumencie](https://docs.microsoft.com/azure/app-service/environment/certificates#private-client-certificate), należy przekazać certyfikat do usługi Azure App Service. W przykładowych zasadach są używane te klucze kroków w procesie:
+Wywołanie interfejsu API Experian jest chronione przez certyfikat klienta. Ten certyfikat klienta będzie dostarczany przez Experian. Postępując zgodnie z instrukcjami wymienionymi w tym [dokumencie](../app-service/environment/certificates.md#private-client-certificate), należy przekazać certyfikat do usługi Azure App Service. W przykładowych zasadach są używane te klucze kroków w procesie:
 
 - Przekazywanie certyfikatu
 
@@ -92,7 +92,7 @@ Wywołanie interfejsu API Experian jest chronione przez certyfikat klienta. Ten 
 
 ### <a name="part-3---configure-the-api"></a>Część 3 — Konfigurowanie interfejsu API
 
-Ustawienia aplikacji można [skonfigurować w usłudze App Service na platformie Azure](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings). Za pomocą tej metody ustawienia można bezpiecznie skonfigurować bez sprawdzania ich w repozytorium. Należy podać następujące ustawienia w interfejsie API REST:
+Ustawienia aplikacji można [skonfigurować w usłudze App Service na platformie Azure](../app-service/configure-common.md#configure-app-settings). Za pomocą tej metody ustawienia można bezpiecznie skonfigurować bez sprawdzania ich w repozytorium. Należy podać następujące ustawienia w interfejsie API REST:
 
 | Ustawienia aplikacji | Element źródłowy | Uwagi |
 | :-------- | :------------| :-----------|
@@ -110,7 +110,7 @@ Ustawienia aplikacji można [skonfigurować w usłudze App Service na platformie
 
 ### <a name="part-4---create-api-policy-keys"></a>Część 4 — Tworzenie kluczy zasad interfejsu API
 
-Zapoznaj się z tym [dokumentem](https://docs.microsoft.com/azure/active-directory-b2c/secure-rest-api#add-rest-api-username-and-password-policy-keys) i Utwórz dwa klucze zasad — jeden dla nazwy użytkownika interfejsu API, a drugi dla hasła interfejsu API zdefiniowanego powyżej dla uwierzytelniania HTTP Basic.
+Zapoznaj się z tym [dokumentem](./secure-rest-api.md#add-rest-api-username-and-password-policy-keys) i Utwórz dwa klucze zasad — jeden dla nazwy użytkownika interfejsu API, a drugi dla hasła interfejsu API zdefiniowanego powyżej dla uwierzytelniania HTTP Basic.
 
 >[!NOTE]
 >Klucze do konfigurowania zasad będą potrzebne później.
@@ -133,7 +133,7 @@ W podanych [zasadach niestandardowych](https://github.com/azure-ad-b2c/partner-i
 
 ### <a name="part-6---configure-the-azure-ad-b2c-policy"></a>Część 6 — Konfigurowanie zasad Azure AD B2C
 
-Zapoznaj się z tym [dokumentem](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) , aby uzyskać instrukcje dotyczące sposobu konfigurowania dzierżawy usługi Azure AD B2C i konfigurowania zasad.
+Zapoznaj się z tym [dokumentem](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) , aby uzyskać instrukcje dotyczące sposobu konfigurowania dzierżawy usługi Azure AD B2C i konfigurowania zasad.
 
 >[!NOTE]
 >Te przykładowe zasady bazują na [lokalnych kontach z pakietem startowym](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts).
@@ -167,6 +167,6 @@ Zapoznaj się z tym [dokumentem](https://docs.microsoft.com/azure/active-directo
 
 Aby uzyskać dodatkowe informacje, zapoznaj się z następującymi artykułami:
 
-- [Zasady niestandardowe w usłudze Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Zasady niestandardowe w usłudze Azure AD B2C](./custom-policy-overview.md)
 
-- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

@@ -3,16 +3,17 @@ title: Konfigurowanie programu IBM DB2 HADR Cluster na maszynach wirtualnych pla
 description: Zapewnienie wysokiej dostępności programu IBM DB2 LUW na maszynach wirtualnych platformy Azure.
 author: msjuergent
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 10/16/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 88a84cd90efb42ea096cad647d75f1c3736426f4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 0cd1458c90970e219f2929e26423e455ba647a28
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146436"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951319"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Wysoka dostępność programu IBM DB2 LUW na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server z Pacemaker
 
@@ -131,7 +132,7 @@ Upewnij się, że wybrany system operacyjny jest obsługiwany przez firmę IBM/S
 
 ## <a name="create-the-pacemaker-cluster"></a>Tworzenie klastra Pacemaker
     
-Aby utworzyć podstawowy klaster Pacemaker dla tego serwera programu IBM DB2, zobacz [Konfigurowanie Pacemaker na SUSE Linux Enterprise Server na platformie Azure][sles-pacemaker]. 
+Aby utworzyć podstawowy klaster Pacemaker dla tego serwera programu IBM DB2, zobacz [Konfigurowanie Pacemaker na SUSE Linux Enterprise Server na platformie Azure][sles-pacemaker]. 
 
 ## <a name="install-the-ibm-db2-luw-and-sap-environment"></a>Instalowanie środowiska IBM DB2 LUW i SAP
 
@@ -167,7 +168,7 @@ Aby skonfigurować podstawowe wystąpienie bazy danych programu IBM DB2 LUW:
 
 Aby skonfigurować serwer bazy danych w stanie gotowości przy użyciu procedury kopiowania jednorodnego systemu SAP, wykonaj następujące kroki:
 
-1. Wybierz opcję **kopiowania systemu** > wystąpienia **Target systems**  >  **rozproszonej**  >  **bazy danych**w systemie docelowym.
+1. Wybierz opcję **kopiowania systemu** > wystąpienia **Target systems**  >  **rozproszonej**  >  **bazy danych** w systemie docelowym.
 1. Jako metodę kopiowania wybierz **jednorodny system** , aby można było użyć kopii zapasowej do przywrócenia kopii zapasowej w wystąpieniu serwera w stanie gotowości.
 1. Po dojściu do kroku zakończenia, aby przywrócić bazę danych jednorodnej kopii systemu, zamknij Instalatora. Przywróć bazę danych z kopii zapasowej hosta podstawowego. Wszystkie kolejne etapy instalacji zostały już wykonane na podstawowym serwerze bazy danych.
 1. Skonfiguruj HADR Cluster dla programu IBM DB2.
@@ -429,7 +430,7 @@ Aby skonfigurować Azure Load Balancer, zalecamy użycie [jednostki SKU usługa 
 
    b. Wprowadź nazwę nowej sondy kondycji (na przykład **DB2-HP**).
 
-   c. Wybierz pozycję **TCP** jako protokół i port **62500**. Pozostaw wartość **interwału** ustawioną na **5**i pozostaw wartość **progową złej kondycji** ustawioną na **2**.
+   c. Wybierz pozycję **TCP** jako protokół i port **62500**. Pozostaw wartość **interwału** ustawioną na **5** i pozostaw wartość **progową złej kondycji** ustawioną na **2**.
 
    d. Wybierz przycisk **OK**.
 
@@ -441,7 +442,7 @@ Aby skonfigurować Azure Load Balancer, zalecamy użycie [jednostki SKU usługa 
 
    c. Wybierz adres IP frontonu, pulę zaplecza i sondę kondycji utworzoną wcześniej (na przykład **DB2-fronton**).
 
-   d. Pozostaw **Protokół** ustawiony na **TCP**i wprowadź port *komunikacyjny bazy danych*portu.
+   d. Pozostaw **Protokół** ustawiony na **TCP** i wprowadź port *komunikacyjny bazy danych* portu.
 
    e. Zwiększ **limit czasu bezczynności** do 30 minut.
 
@@ -572,8 +573,8 @@ crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
 - **Migrowanie zasobów programu CRM \<res_name> \<host> :** tworzy ograniczenia lokalizacji i może powodować problemy z przejęciem
-- **czyszczenie \<res_name> zasobu CRM **: czyści ograniczenia lokalizacji
-- **oczyszczanie \<res_name> zasobów programu CRM **: czyści wszystkie błędy zasobu
+- **czyszczenie \<res_name> zasobu CRM**: czyści ograniczenia lokalizacji
+- **oczyszczanie \<res_name> zasobów programu CRM**: czyści wszystkie błędy zasobu
 
 ### <a name="test-the-fencing-agent"></a>Testowanie czynnika ogrodzenia
 

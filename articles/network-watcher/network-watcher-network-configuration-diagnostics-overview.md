@@ -11,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2020
 ms.author: damendo
-ms.openlocfilehash: 4d308b8a1a589308e2481c8bb9e0dc9ec64be25b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad60b0be8a9a5341c71d760f98c0db84a72763c2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90996697"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951523"
 ---
 # <a name="introduction-to-network-configuration-diagnostics-in-azure-network-watcher"></a>Wprowadzenie do diagnostyki konfiguracji sieci w usłudze Azure Network Watcher
 
 Narzędzie do diagnostyki konfiguracji sieci pomaga klientom zrozumieć, które przepływy ruchu będą dozwolone lub odrzucane na platformie Azure Virtual Network wraz ze szczegółowymi informacjami na temat debugowania. Może pomóc w zrozumieniu, czy reguły sieciowej grupy zabezpieczeń są prawidłowo skonfigurowane. 
 
 ## <a name="pre-requisites"></a>Wymagania wstępne
-W przypadku korzystania z diagnostyki konfiguracji sieci należy włączyć Network Watcher w ramach subskrypcji. Zobacz [Tworzenie wystąpienia usługi Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create) , aby je włączyć.
+W przypadku korzystania z diagnostyki konfiguracji sieci należy włączyć Network Watcher w ramach subskrypcji. Zobacz [Tworzenie wystąpienia usługi Azure Network Watcher](./network-watcher-create.md) , aby je włączyć.
 
 ## <a name="background"></a>Tło
 
@@ -39,7 +39,6 @@ Dla danego przepływu narzędzie NCD uruchamia symulację przepływu i zwraca in
 ## <a name="next-steps"></a>Następne kroki
 
 Używanie diagnostyki konfiguracji sieci za pomocą innych interfejsów
- - [Interfejs API REST](https://docs.microsoft.com/rest/api/network-watcher/networkwatchers/getnetworkconfigurationdiagnostic)
- - [Program PowerShell](https://docs.microsoft.com/powershell/module/az.network/invoke-aznetworkwatchernetworkconfigurationdiagnostic?view=azps-4.6.1)
- - [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/network/watcher?view=azure-cli-latest#az_network_watcher_run_configuration_diagnostic)
-
+ - [Interfejs API REST](/rest/api/network-watcher/networkwatchers/getnetworkconfigurationdiagnostic)
+ - [Program PowerShell](/powershell/module/az.network/invoke-aznetworkwatchernetworkconfigurationdiagnostic?view=azps-4.6.1)
+ - [Interfejs wiersza polecenia platformy Azure](/cli/azure/network/watcher?view=azure-cli-latest#az_network_watcher_run_configuration_diagnostic)

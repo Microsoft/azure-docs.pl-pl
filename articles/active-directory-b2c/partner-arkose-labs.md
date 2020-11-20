@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a4d8174cd0bfdb2297099b403fb836210c5529ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 333bb42643539cedec04d37680749c749a003536
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86170228"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953886"
 ---
 # <a name="tutorial-for-configuring-arkose-labs-with-azure-active-directory-b2c"></a>Samouczek dotyczący konfigurowania Arkose Labs przy użyciu Azure Active Directory B2C
 
@@ -66,13 +66,13 @@ Aby utworzyć konto magazynu, wykonaj następujące czynności:
 
 4. Wybierz przycisk **Dodaj**.
 
-5. W obszarze **Grupa zasobów**wybierz pozycję **Utwórz nową**, wprowadź nazwę nowej grupy zasobów, a następnie wybierz przycisk **OK**.
+5. W obszarze  **Grupa zasobów** wybierz pozycję  **Utwórz nową**, wprowadź nazwę nowej grupy zasobów, a następnie wybierz przycisk **OK**.
 
 6. Wprowadź nazwę konta magazynu. Wybrana nazwa musi być unikatowa w obrębie platformy Azure, musi mieć długość od 3 do 24 znaków oraz może zawierać tylko cyfry i małe litery.
 
 7. Wybierz lokalizację konta magazynu lub zaakceptuj lokalizację domyślną.
 
-8. Zaakceptuj wszystkie pozostałe wartości domyślne, wybierz pozycję  **Przejrzyj & Utwórz**  >  **Utwórz**.
+8. Zaakceptuj wszystkie pozostałe wartości domyślne, wybierz pozycję   **Przejrzyj & Utwórz**  >  **Utwórz**.
 
 9. Po utworzeniu konta magazynu wybierz pozycję  **Przejdź do zasobu**.
 
@@ -80,7 +80,7 @@ Aby utworzyć konto magazynu, wykonaj następujące czynności:
 
 1. Na stronie Przegląd konta magazynu wybierz pozycję  **obiekty blob**.
 
-2. Wybierz pozycję  **kontener**, wprowadź nazwę kontenera, wybierz pozycję  **obiekt BLOB** (Anonimowy dostęp do odczytu tylko dla obiektów BLOB), a następnie wybierz przycisk **OK**.
+2. Wybierz pozycję   **kontener**, wprowadź nazwę kontenera, wybierz pozycję   **obiekt BLOB** (Anonimowy dostęp do odczytu tylko dla obiektów BLOB), a następnie wybierz przycisk **OK**.
 
 #### <a name="enable-cross-origin-resource-sharing-cors"></a>Włącz współużytkowanie zasobów między źródłami (CORS)
 
@@ -88,15 +88,15 @@ Azure AD B2C kod w przeglądarce korzysta z nowoczesnego i standardowego podejś
 
 1. Z menu wybierz pozycję  **CORS**.
 
-2. Dla  **dozwolonych źródeł**wprowadź  `https://your-tenant-name.b2clogin.com` . Zastąp swoją nazwę dzierżawy nazwą swojej dzierżawy Azure AD B2C. Na przykład  `https://fabrikam.b2clogin.com`. W przypadku wprowadzania nazwy dzierżawy używaj wszystkich małych liter.
+2. Dla  **dozwolonych źródeł** wprowadź  `https://your-tenant-name.b2clogin.com` . Zastąp swoją nazwę dzierżawy nazwą swojej dzierżawy Azure AD B2C. Na przykład  `https://fabrikam.b2clogin.com`. W przypadku wprowadzania nazwy dzierżawy używaj wszystkich małych liter.
 
-3. Dla **dozwolonych metod**wybierz pozycję **Get**, **Put**i **Options**.
+3. Dla  **dozwolonych metod** wybierz pozycję  **Get**, **Put** i  **Options**.
 
-4. Dla **dozwolonych nagłówków**Wprowadź gwiazdkę (*).
+4. Dla **dozwolonych nagłówków** Wprowadź gwiazdkę (*).
 
-5. W przypadku **widocznych nagłówków**Wprowadź gwiazdkę (*).
+5. W przypadku **widocznych nagłówków** Wprowadź gwiazdkę (*).
 
-6. W obszarze **Maksymalny wiek**wprowadź 200.
+6. W obszarze **Maksymalny wiek** wprowadź 200.
 
    ![Rejestracja i logowanie w usłudze Arkose Labs](media/partner-arkose-labs/signup-signin-arkose.png)
 
@@ -106,7 +106,7 @@ Azure AD B2C kod w przeglądarce korzysta z nowoczesnego i standardowego podejś
 
 Pobierz narzędzie git bash i wykonaj poniższe czynności:
 
-1. Postępuj zgodnie z instrukcjami, aby [utworzyć aplikację sieci Web](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-php), dopóki nie zostanie wyświetlony komunikat "gratulacje!Twoja pierwsza aplikacja w języku PHP została wdrożona do App Service ".
+1. Postępuj zgodnie z instrukcjami, aby [utworzyć aplikację sieci Web](../app-service/quickstart-php.md), dopóki nie zostanie wyświetlony komunikat "gratulacje!Twoja pierwsza aplikacja w języku PHP została wdrożona do App Service ".
 
 2. Otwórz folder lokalny i Zmień nazwę pliku **index. php** na **verify-token. php**.
 
@@ -138,7 +138,7 @@ Pobierz narzędzie git bash i wykonaj poniższe czynności:
 
 5. Przekaż plik index.html do utworzonego powyżej magazynu obiektów BLOB.
 
-6. Przejdź do **Storage**  >  **Container**  >  **przekazywania**kontenera magazynu.
+6. Przejdź do **Storage**  >  **Container**  >  **przekazywania** kontenera magazynu.
 
 #### <a name="set-up-azure-ad-b2c"></a>Skonfiguruj Azure AD B2C
 
@@ -156,7 +156,7 @@ Ten adres URL strony niestandardowej jest uzyskiwany z lokalizacji pliku index.h
 
 ## <a name="test-the-user-flow"></a>Testowanie przepływu użytkownika
 
-1. Otwórz dzierżawcę Azure AD B2C i w obszarze **zasady**wybierz pozycję **przepływy użytkownika**.
+1. Otwórz dzierżawcę Azure AD B2C i w obszarze **zasady** wybierz pozycję **przepływy użytkownika**.
 
 2. Wybierz wcześniej utworzony przepływ użytkownika.
 
@@ -174,7 +174,7 @@ Ten adres URL strony niestandardowej jest uzyskiwany z lokalizacji pliku index.h
 
 6. Przejdź przez przepływ logowania.
 
-7. Po wybraniu opcji **Kontynuuj**zostanie wyświetlona Arkose Labs.
+7. Po wybraniu opcji **Kontynuuj** zostanie wyświetlona Arkose Labs.
 
 ## <a name="next-steps"></a>Następne kroki
 

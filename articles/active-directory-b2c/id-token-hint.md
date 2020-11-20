@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 708ec35524f25314ca568944b738ba2cdf60d55c
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 79a99d9f0ca117d8f47d56d76399210a72b91bb7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132078"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951659"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny wskazówki tokenu identyfikatora w zasadach niestandardowych Azure Active Directory B2C
 
@@ -130,13 +130,13 @@ Ten sam klucz, który jest używany przez wystawcę tokenu, musi zostać utworzo
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Na pasku narzędzi portalu wybierz ikonę **katalog i subskrypcję** , a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
 1. W Azure Portal Wyszukaj i wybierz pozycję **Azure AD B2C**.
-1. Na stronie Przegląd w obszarze **zasady**wybierz pozycję **platforma obsługi tożsamości**.
+1. Na stronie Przegląd w obszarze **zasady** wybierz pozycję **platforma obsługi tożsamości**.
 1. Wybierz **klucze zasad** 
 1. Wybierz pozycję **ręcznie**.
-1. W obszarze **Nazwa**Użyj `IdTokenHintKey` .  
+1. W obszarze **Nazwa** Użyj `IdTokenHintKey` .  
    Prefiks `B2C_1A_` może zostać dodany automatycznie.
 1. W polu **wpis tajny** wprowadź wcześniej wygenerowany klucz logowania.
-1. W celu **użycia klucza**Użyj **szyfrowania**.
+1. W celu **użycia klucza** Użyj **szyfrowania**.
 1. Wybierz pozycję **Utwórz**.
 1. Upewnij się, że utworzono klucz `B2C_1A_IdTokenHintKey` .
 
@@ -189,7 +189,7 @@ Zobacz przykład kontrolera [TokenMetadataController.cs](https://github.com/azur
 
 #### <a name="step-1-prepare-a-self-signed-certificate"></a>Krok 1. Przygotuj certyfikat z podpisem własnym
 
-Jeśli nie masz jeszcze certyfikatu, możesz użyć certyfikatu z podpisem własnym, aby zapoznać się z tym przewodnikiem. W systemie Windows można użyć polecenia cmdlet [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) programu PowerShell do wygenerowania certyfikatu.
+Jeśli nie masz jeszcze certyfikatu, możesz użyć certyfikatu z podpisem własnym, aby zapoznać się z tym przewodnikiem. W systemie Windows można użyć polecenia cmdlet [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) programu PowerShell do wygenerowania certyfikatu.
 
 Uruchom to polecenie programu PowerShell, aby wygenerować certyfikat z podpisem własnym. Zmodyfikuj `-Subject` argument jako odpowiedni dla aplikacji i Azure AD B2C nazwę dzierżawcy. Możesz również dostosować datę, `-NotAfter` Aby określić inne wygaśnięcie certyfikatu.
 
@@ -249,7 +249,7 @@ W przypadku podejścia symetrycznego i asymetrycznego `id_token_hint` profil tec
     ```xml
     <OrchestrationStep Order="1" Type="GetClaims" CpimIssuerTechnicalProfileReferenceId="IdTokenHint_ExtractClaims" />
     ``` 
-1. W zasadach jednostki uzależnionej Powtórz te same oświadczenia wejściowe, które zostały skonfigurowane w profilu technicznym IdTokenHint_ExtractClaims. Na przykład:
+1. W zasadach jednostki uzależnionej Powtórz te same oświadczenia wejściowe, które zostały skonfigurowane w profilu technicznym IdTokenHint_ExtractClaims. Przykład:
     ```xml
    <RelyingParty>
      <DefaultUserJourney ReferenceId="SignUp" />

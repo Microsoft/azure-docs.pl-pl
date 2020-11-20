@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 921d9e2138c8aa9c09535a673a7cd2d32e9cddad
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f4a71740c487896208a3da7bf35bb39899c56937
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89271559"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952067"
 ---
 # <a name="identity-protection-and-conditional-access-for-azure-ad-b2c"></a>Ochrona tożsamości i dostęp warunkowy dla Azure AD B2C
 
@@ -60,7 +60,7 @@ W Azure AD B2C można wyzwolić warunki dostępu warunkowego z wbudowanych przep
 
 ## <a name="microsoft-graph-api"></a>Microsoft Graph API
 
-Można także zarządzać zasadami dostępu warunkowego w Azure AD B2C z interfejsem API Microsoft Graph. Aby uzyskać szczegółowe informacje, zobacz [dokumentację dostępu warunkowego](../active-directory/conditional-access/overview.md) i [informacje dotyczące Microsoft Graph](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md).
+Można także zarządzać zasadami dostępu warunkowego w Azure AD B2C z interfejsem API Microsoft Graph. Aby uzyskać szczegółowe informacje, zobacz [dokumentację dostępu warunkowego](../active-directory/conditional-access/overview.md) i [informacje dotyczące Microsoft Graph](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

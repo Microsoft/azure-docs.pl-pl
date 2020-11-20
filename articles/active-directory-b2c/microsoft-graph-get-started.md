@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d95b45b9be0893282a532bae9ec0278c3a141686
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61e32f50e02e45487830c5ea7ff476a0571960f6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85385930"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954005"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Zarządzanie Azure AD B2C przy użyciu Microsoft Graph
 
@@ -52,7 +52,7 @@ Zanim skrypty i aplikacje będą mogły korzystać z [interfejsu API Microsoft G
 1. Wybierz pozycję **rejestracje aplikacji**, a następnie wybierz pozycję **Nowa rejestracja**.
 1. Wprowadź **nazwę** aplikacji. Na przykład *managementapp1*.
 1. Wybierz **konta tylko w tym katalogu organizacji**.
-1. W obszarze **uprawnienia**wyczyść pole wyboru *Udziel zgody na uprawnienia administratora do OpenID Connect i offline_access* .
+1. W obszarze **uprawnienia** wyczyść pole wyboru *Udziel zgody na uprawnienia administratora do OpenID Connect i offline_access* .
 1. Wybierz pozycję **Zarejestruj**.
 1. Zanotuj **Identyfikator aplikacji (klienta)** , który pojawia się na stronie przeglądu aplikacji. Ta wartość jest używana w późniejszym kroku.
 
@@ -66,7 +66,7 @@ Następnie udziel zarejestrowanej aplikacji uprawnień do manipulowania zasobami
 
 [!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
-Masz teraz aplikację, która ma uprawnienia do *tworzenia*, *odczytywania*, *aktualizowania*i *usuwania* użytkowników w dzierżawie Azure AD B2C. Przejdź do następnej sekcji, aby dodać uprawnienia do *aktualizacji haseł* .
+Masz teraz aplikację, która ma uprawnienia do *tworzenia*, *odczytywania*, *aktualizowania* i *usuwania* użytkowników w dzierżawie Azure AD B2C. Przejdź do następnej sekcji, aby dodać uprawnienia do *aktualizacji haseł* .
 
 ## <a name="enable-user-delete-and-password-update"></a>Włącz usuwanie i aktualizowanie haseł użytkowników
 
@@ -76,7 +76,7 @@ Jeśli aplikacja lub skrypt musi usunąć użytkowników lub zaktualizować swoj
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) i Użyj filtru **Directory + Subscription** , aby przełączyć się do dzierżawy Azure AD B2C.
 1. Wyszukaj i wybierz **Azure AD B2C**.
-1. W obszarze **Zarządzanie**wybierz pozycję **role i Administratorzy**.
+1. W obszarze **Zarządzanie** wybierz pozycję **role i Administratorzy**.
 1. Wybierz rolę **administratora użytkowników** .
 1. Wybierz pozycję **Dodaj przypisania**.
 1. W polu tekstowym **Wybierz** wpisz nazwę wcześniej zarejestrowanej aplikacji, na przykład *managementapp1*. Wybierz aplikację, gdy zostanie ona wyświetlona w wynikach wyszukiwania.
@@ -85,12 +85,12 @@ Jeśli aplikacja lub skrypt musi usunąć użytkowników lub zaktualizować swoj
 ## <a name="next-steps"></a>Następne kroki
 Teraz, po zarejestrowaniu aplikacji zarządzania i przyznaniu jej wymaganych uprawnień, Twoje aplikacje i usługi (na przykład Azure Pipelines) mogą używać swoich poświadczeń i uprawnień do współdziałania z interfejsem API Microsoft Graph. 
 
-* [Uzyskiwanie tokenu dostępu z usługi Azure AD](https://docs.microsoft.com/graph/auth-v2-service#4-get-an-access-token)
-* [Użyj tokenu dostępu do wywołania Microsoft Graph](https://docs.microsoft.com/graph/auth-v2-service#4-get-an-access-token)
+* [Uzyskiwanie tokenu dostępu z usługi Azure AD](/graph/auth-v2-service#4-get-an-access-token)
+* [Użyj tokenu dostępu do wywołania Microsoft Graph](/graph/auth-v2-service#4-get-an-access-token)
 * [B2C operacje obsługiwane przez Microsoft Graph](microsoft-graph-operations.md)
 * [Zarządzanie kontami użytkowników Azure AD B2C przy użyciu Microsoft Graph](manage-user-accounts-graph-api.md)
 * [Pobieranie dzienników inspekcji za pomocą interfejsu API raportowania usługi Azure AD](view-audit-logs.md#get-audit-logs-with-the-azure-ad-reporting-api)
 
 <!-- LINKS -->
-[ms-graph]: https://docs.microsoft.com/graph/
+[ms-graph]: /graph/
 [ms-graph-api]: https://docs.microsoft.com/graph/api/overview

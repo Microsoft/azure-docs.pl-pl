@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 718ccbaa57ffe9f4ebaf4e8df448b602ba8cc3fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1b2c7513562e951e1098cf327780387ddf6a495
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89293154"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953546"
 ---
 # <a name="tutorial-for-configuring-whoiam-with-azure-active-directory-b2c"></a>Samouczek dotyczący konfigurowania WhoIAM z Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Aby rozpocząć, musisz:
 
 - Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
 
-- [Dzierżawa Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) , która jest połączona z subskrypcją platformy Azure.
+- [Dzierżawa Azure AD B2C](./tutorial-create-tenant.md) , która jest połączona z subskrypcją platformy Azure.
 
 - [Konto wersji próbnej](https://www.whoiam.ai/contact-us/)WhoIAM.
 
@@ -72,7 +72,7 @@ Na poniższym diagramie architektury przedstawiono implementację.
 
     - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): służy do przechowywania i pobierania ustawień.
 
-    - [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview#:~:text=Application%20Insights%2C%20a%20feature%20of%20Azure%20Monitor%2C%20is,professionals.%20Use%20it%20to%20monitor%20your%20live%20applications) (opcjonalnie): służy do logowania się zarówno do interfejsu API, jak i portalu administracyjnego.
+    - [Application Insights](../azure-monitor/app/app-insights-overview.md) (opcjonalnie): służy do logowania się zarówno do interfejsu API, jak i portalu administracyjnego.
 
 3. Wdróż interfejs API BRIMS i Portal administracyjny BRIMS w środowisku platformy Azure.
 
@@ -82,15 +82,15 @@ Aby uzyskać więcej informacji na temat BRIMS WhoIAM, zobacz [dokumentację pro
 
 ## <a name="test-the-user-flow"></a>Testowanie przepływu użytkownika
 
-1. Otwórz dzierżawcę Azure AD B2C. W obszarze **zasady**wybierz pozycję **platforma obsługi tożsamości**.
+1. Otwórz dzierżawcę Azure AD B2C. W obszarze **zasady** wybierz pozycję **platforma obsługi tożsamości**.
 
 2. Wybierz wcześniej utworzone **SignUpSignIn**.
 
 3. Wybierz pozycję **Uruchom przepływ użytkownika** , a następnie:
 
-   a. W przypadku **aplikacji**wybierz zarejestrowaną aplikację (przykład: JWT).
+   a. W przypadku **aplikacji** wybierz zarejestrowaną aplikację (przykład: JWT).
 
-   b. W polu **adres URL odpowiedzi**wybierz **adres URL przekierowania**.
+   b. W polu **adres URL odpowiedzi** wybierz **adres URL przekierowania**.
 
    c. Wybierz pozycję **Uruchom przepływ użytkownika**.
 
@@ -102,6 +102,6 @@ Aby uzyskać więcej informacji na temat BRIMS WhoIAM, zobacz [dokumentację pro
 
 Aby uzyskać dodatkowe informacje, zapoznaj się z następującymi artykułami:
 
-- [Zasady niestandardowe w usłudze Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Zasady niestandardowe w usłudze Azure AD B2C](./custom-policy-overview.md)
 
-- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

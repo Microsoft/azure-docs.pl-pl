@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a330fc18f39ffd7007e2a41a28016df69a2b739
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e0baeb7eddb1d74a8d7708b04391134d2e188b2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314661"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951965"
 ---
 # <a name="high-availability-azure-virtual-machines-for-sap-netweaver"></a>Virtual Machines platformy Azure o wysokiej dostępności dla oprogramowania SAP NetWeaver
 
@@ -576,7 +577,7 @@ Aby skonfigurować szablon z obsługą wieloidentyfikatorów SID dla serwerów a
 
 
 ### <a name="azure-virtual-network"></a><a name="47d5300a-a830-41d4-83dd-1a0d1ffdbe6a"></a> Usługa Azure Virtual Network
-W naszym przykładzie przestrzeń adresowa sieci wirtualnej platformy Azure to 10.0.0.0/16. Istnieje jedna podsieć o nazwie **Subnet**z zakresem adresów 10.0.0.0/24. Wszystkie maszyny wirtualne i wewnętrzne moduły równoważenia obciążenia są wdrażane w tej sieci wirtualnej.
+W naszym przykładzie przestrzeń adresowa sieci wirtualnej platformy Azure to 10.0.0.0/16. Istnieje jedna podsieć o nazwie **Subnet** z zakresem adresów 10.0.0.0/24. Wszystkie maszyny wirtualne i wewnętrzne moduły równoważenia obciążenia są wdrażane w tej sieci wirtualnej.
 
 > [!IMPORTANT]
 > Nie wprowadzaj żadnych zmian w ustawieniach sieci w systemie operacyjnym gościa. Obejmuje to adresy IP, serwery DNS i podsieć. Skonfiguruj wszystkie ustawienia sieci na platformie Azure. Usługa Dynamic Host Configuration Protocol (DHCP) propaguje Twoje ustawienia.
@@ -621,13 +622,13 @@ W przypadku wdrożenia lokalnego wymagane są następujące zastrzeżone nazwy h
 
 Podczas tworzenia klastra utwórz nazwy hostów wirtualnych **PR1-ASCS-Vir** i **PR1-DBMS-Vir** oraz skojarzone adresy IP zarządzające klastrem. Aby uzyskać informacje o tym, jak to zrobić, zobacz [zbieranie węzłów klastra w konfiguracji klastra][sap-ha-guide-8.12.1].
 
-Można ręcznie utworzyć pozostałe dwie nazwy hostów wirtualnych, **PR1-ASCS-SAP** i **PR1-DBMS-SAP**oraz skojarzone adresy IP na serwerze DNS. W klastrowanym wystąpieniu SAP ASCS/SCS i klastrowanym wystąpieniu systemu DBMS są używane te zasoby. Aby uzyskać informacje o tym, jak to zrobić, zobacz [Tworzenie nazwy wirtualnego hosta dla klastrowanego wystąpienia SAP ASCS/SCS][sap-ha-guide-9.1.1].
+Można ręcznie utworzyć pozostałe dwie nazwy hostów wirtualnych, **PR1-ASCS-SAP** i **PR1-DBMS-SAP** oraz skojarzone adresy IP na serwerze DNS. W klastrowanym wystąpieniu SAP ASCS/SCS i klastrowanym wystąpieniu systemu DBMS są używane te zasoby. Aby uzyskać informacje o tym, jak to zrobić, zobacz [Tworzenie nazwy wirtualnego hosta dla klastrowanego wystąpienia SAP ASCS/SCS][sap-ha-guide-9.1.1].
 
 ### <a name="set-static-ip-addresses-for-the-sap-virtual-machines"></a><a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a> Ustaw statyczne adresy IP dla maszyn wirtualnych SAP
 Po wdrożeniu maszyn wirtualnych do użycia w klastrze należy ustawić statyczne adresy IP dla wszystkich maszyn wirtualnych. Zrób to w konfiguracji Virtual Network platformy Azure, a nie w systemie operacyjnym gościa.
 
-1. W Azure Portal wybierz pozycję **Grupa zasobów**  >  ustawienia**karta sieciowa**  >  **Settings**  >  **adres IP**.
-2. W bloku **adresy IP** w obszarze **przypisanie**wybierz pozycję **statyczny**. W polu **adres IP** wprowadź adres IP, którego chcesz użyć.
+1. W Azure Portal wybierz pozycję **Grupa zasobów**  >  ustawienia **karta sieciowa**  >  **Settings**  >  **adres IP**.
+2. W bloku **adresy IP** w obszarze **przypisanie** wybierz pozycję **statyczny**. W polu **adres IP** wprowadź adres IP, którego chcesz użyć.
 
    > [!NOTE]
    > Jeśli zmienisz adres IP karty sieciowej, musisz ponownie uruchomić maszyny wirtualne platformy Azure, aby zastosować tę zmianę.  
@@ -665,7 +666,7 @@ Szablon Azure Resource Manager SAP służy do tworzenia wewnętrznego modułu r�
 
 Aby ustawić statyczny adres IP dla wewnętrznego modułu równoważenia obciążenia platformy Azure:
 
-1. Początkowe wdrożenie ustawia adres IP wewnętrznego modułu równoważenia obciążenia na **dynamiczny**. W Azure Portal w bloku **adresy IP** w obszarze **przypisanie**wybierz pozycję **statyczny**.
+1. Początkowe wdrożenie ustawia adres IP wewnętrznego modułu równoważenia obciążenia na **dynamiczny**. W Azure Portal w bloku **adresy IP** w obszarze **przypisanie** wybierz pozycję **statyczny**.
 2. Ustaw adres IP wewnętrznego modułu równoważenia obciążenia **PR1-lb-ASCS** na adres IP nazwy hosta wirtualnego wystąpienia SAP ASCS/SCS.
 3. Ustaw adres IP wewnętrznego modułu równoważenia obciążenia **PR1-lb-DBMS** na adres IP nazwy hosta wirtualnego systemu DBMS.
 
@@ -737,7 +738,7 @@ Ustaw adres IP modułu równoważenia obciążenia **PR1-lb-DBMS** na adres IP n
 
 Jeśli chcesz użyć różnych numerów dla wystąpień SAP ASCS lub SCS, należy zmienić nazwy i wartości ich portów z wartości domyślnych.
 
-1. W Azure Portal wybierz pozycję ** < *SID*>-lb-ASCS**  >  **reguły równoważenia obciążenia**usługi równoważenia obciążenia.
+1. W Azure Portal wybierz pozycję **< *SID*>-lb-ASCS**  >  **reguły równoważenia obciążenia** usługi równoważenia obciążenia.
 2. Dla wszystkich reguł równoważenia obciążenia należących do wystąpienia SAP ASCS lub SCS Zmień następujące wartości:
 
    * Nazwa
@@ -746,7 +747,7 @@ Jeśli chcesz użyć różnych numerów dla wystąpień SAP ASCS lub SCS, należ
 
    Na przykład jeśli chcesz zmienić domyślną liczbę wystąpień ASCS z 00 na 31, musisz wprowadzić zmiany dla wszystkich portów wymienionych w tabeli 1.
 
-   Oto przykład aktualizacji *lbrule3200*portu.
+   Oto przykład aktualizacji *lbrule3200* portu.
 
    ![Rysunek 16. zmiana reguł domyślnego równoważenia obciążenia ASCS/SCS dla wewnętrznego modułu równoważenia obciążenia platformy Azure][sap-ha-guide-figure-3005]
 
@@ -993,7 +994,7 @@ Istnieją dwa sposoby dodawania .NET Framework 3,5:
 
 Zainstaluj program oprogramowanie SIOS DataKeeper Cluster Edition na każdym węźle w klastrze. Aby utworzyć wirtualny magazyn udostępniony z oprogramowanie SIOS DataKeeper, Utwórz zsynchronizowane dublowanie i Symuluj magazyn udostępniony klastra.
 
-Przed zainstalowaniem oprogramowania oprogramowanie SIOS Utwórz **DataKeeperSvc**użytkownika domeny.
+Przed zainstalowaniem oprogramowania oprogramowanie SIOS Utwórz **DataKeeperSvc** użytkownika domeny.
 
 > [!NOTE]
 > Dodaj użytkownika **DataKeeperSvc** do lokalnej grupy **administratorów** na obu węzłach klastra.
@@ -1132,7 +1133,7 @@ Instalowanie oprogramowania SAP z wystąpieniem ASCS/SCS o wysokiej dostępnośc
 1. W Menedżerze DNS systemu Windows Utwórz wpis DNS dla nazwy hosta wirtualnego wystąpienia ASCS/SCS.
 
    > [!IMPORTANT]
-   > Adres IP przypisany do nazwy hosta wirtualnego wystąpienia ASCS/SCS musi być taki sam jak adres IP przypisany do Azure Load Balancer (** < *SID*>-lb-ASCS**).  
+   > Adres IP przypisany do nazwy hosta wirtualnego wystąpienia ASCS/SCS musi być taki sam jak adres IP przypisany do Azure Load Balancer (**< *SID*>-lb-ASCS**).  
    >
    >
 
@@ -1210,7 +1211,7 @@ Aby dodać port sondy:
 
    Numer portu jest zdefiniowany w szablonach Azure Resource Manager SAP. Numer portu można przypisać w programie PowerShell.
 
-   Aby ustawić nową wartość ProbePort dla ** *identyfikatora SID* <protokołu SAP>** zasobu klastra IP, uruchom następujący skrypt programu PowerShell. Zaktualizuj zmienne programu PowerShell dla danego środowiska. Po uruchomieniu skryptu zostanie wyświetlony monit o ponowne uruchomienie grupy klastra SAP w celu aktywowania zmian.
+   Aby ustawić nową wartość ProbePort dla ***identyfikatora SID* <protokołu SAP>** zasobu klastra IP, uruchom następujący skrypt programu PowerShell. Zaktualizuj zmienne programu PowerShell dla danego środowiska. Po uruchomieniu skryptu zostanie wyświetlony monit o ponowne uruchomienie grupy klastra SAP w celu aktywowania zmian.
 
    ```powershell
    $SAPSID = "PR1"      # SAP <SID>
@@ -1268,7 +1269,7 @@ Aby dodać port sondy:
    }
    ```
 
-   Po przełączeniu roli klastra usługi **SAP <*SID* > ** do trybu online Sprawdź, czy **ProbePort** jest ustawiona na nową wartość.
+   Po przełączeniu roli klastra usługi **SAP <*SID* >** do trybu online Sprawdź, czy **ProbePort** jest ustawiona na nową wartość.
 
    ```powershell
    $SAPSID = "PR1"     # SAP <SID>
@@ -1292,7 +1293,7 @@ Należy otworzyć port sondy zapory systemu Windows na obu węzłach klastra. U�
   New-NetFirewallRule -Name AzureProbePort -DisplayName "Rule for Azure Probe Port" -Direction Inbound -Action Allow -Protocol TCP -LocalPort $ProbePort
   ```
 
-**ProbePort** jest ustawiona na **62000**. Teraz możesz uzyskać dostęp do udziału plików ** \\ \ascsha-clsap\sapmnt** z innych hostów, takich jak z **ascsha-przetwarzający**.
+**ProbePort** jest ustawiona na **62000**. Teraz możesz uzyskać dostęp do udziału plików **\\ \ascsha-clsap\sapmnt** z innych hostów, takich jak z **ascsha-przetwarzający**.
 
 ### <a name="install-the-database-instance"></a><a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a> Instalowanie wystąpienia bazy danych
 

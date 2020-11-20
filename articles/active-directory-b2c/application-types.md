@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2f99c5b9362380690badce832c3dd540137d35ac
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 07897823a3ba3b83e240e8e8dc005ea13b036fce
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215408"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952050"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Typy aplikacji, które mogą być używane w Active Directory B2C
  
@@ -141,7 +141,7 @@ Aplikacje zawierające długotrwałe procesy lub działające bez obecności uż
 
 Mimo że przesyłanie poświadczeń klienta OAuth 2,0 nie jest obecnie obsługiwane bezpośrednio przez usługę uwierzytelniania Azure AD B2C, można skonfigurować przepływ poświadczeń klienta przy użyciu usługi Azure AD i punktu końcowego Microsoft Identity platform/token dla aplikacji w dzierżawie Azure AD B2C. Dzierżawa Azure AD B2C udostępnia pewne funkcje z dzierżawami przedsiębiorstwa usługi Azure AD.
 
-Aby skonfigurować przepływ poświadczeń klienta, zobacz [Azure Active Directory v 2.0 i przepływ poświadczeń klienta OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds). Pomyślne uwierzytelnienie powoduje otrzymanie tokenu sformatowanego w taki sposób, aby mógł być używany przez usługę Azure AD zgodnie z opisem w temacie [odwołanie do tokenu usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Aby skonfigurować przepływ poświadczeń klienta, zobacz [Azure Active Directory v 2.0 i przepływ poświadczeń klienta OAuth 2,0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). Pomyślne uwierzytelnienie powoduje otrzymanie tokenu sformatowanego w taki sposób, aby mógł być używany przez usługę Azure AD zgodnie z opisem w temacie [odwołanie do tokenu usługi Azure AD](../active-directory/develop/id-tokens.md).
 
 Instrukcje dotyczące rejestrowania aplikacji zarządzania programu znajdują się w temacie [zarządzanie Azure AD B2C przy użyciu Microsoft Graph](microsoft-graph-get-started.md).
 
@@ -155,7 +155,7 @@ Ten scenariusz obejmujący łańcuch interfejsów API sieci Web może być obsł
 
 Nie należy edytować Azure AD B2C aplikacji w następujący sposób:
 
-- W innych portalach zarządzania aplikacjami, takich jak [Portal rejestracji aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
+- W innych portalach zarządzania aplikacjami, takich jak [portal rejestracji aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
 - Przy użyciu interfejs API programu Graph lub programu PowerShell.
 
 Jeśli edytujesz aplikację Azure AD B2C poza Azure Portal, stanie się ona błędną aplikacją i nie będzie można jej używać w Azure AD B2C. Usuń aplikację i utwórz ją ponownie.

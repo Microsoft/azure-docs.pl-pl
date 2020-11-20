@@ -11,19 +11,19 @@ ms.topic: how-to
 ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 558e6cea4d5e0c9bd0f6222f9070d2b867a5bf44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6064bd2c62922abea44508b8bf6cdfa3e7ecbc92
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85384944"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953308"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Logowanie przy użyciu aplikacji systemu iOS
 
 Platforma Microsoft Identity korzysta z otwartych standardów, takich jak OAuth2 i OpenID Connect. Korzystanie z protokołu Open standard oferuje deweloperom większą możliwość wyboru podczas wybierania biblioteki do integracji z naszymi usługami. Firma Microsoft udostępniła ten przewodnik i inne osoby, które ułatwiają deweloperom pisanie aplikacji łączących się z platformą tożsamości firmy The. Większość bibliotek implementujących [specyfikację RFC6749 OAuth2](https://tools.ietf.org/html/rfc6749) jest w stanie połączyć się z platformą tożsamości firmy Microsoft.
 
 > [!WARNING]
-> Firma Microsoft nie udostępnia poprawek do bibliotek innych firm i nie przeprowadzono przeglądu tych bibliotek. Ten przykład korzysta z biblioteki innej firmy o nazwie AppAuth, która została przetestowana pod kątem zgodności w podstawowych scenariuszach z Azure AD B2C. Problemy i żądania funkcji powinny być kierowane do projektu open-source biblioteki. Aby uzyskać więcej informacji, zobacz [ten artykuł](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries).
+> Firma Microsoft nie udostępnia poprawek do bibliotek innych firm i nie przeprowadzono przeglądu tych bibliotek. Ten przykład korzysta z biblioteki innej firmy o nazwie AppAuth, która została przetestowana pod kątem zgodności w podstawowych scenariuszach z Azure AD B2C. Problemy i żądania funkcji powinny być kierowane do projektu open-source biblioteki. Aby uzyskać więcej informacji, zobacz [ten artykuł](../active-directory/develop/reference-v2-libraries.md).
 >
 >
 
@@ -45,8 +45,8 @@ Zapisz także niestandardowy identyfikator URI przekierowania do użycia w póź
 ## <a name="create-your-user-flows"></a>Tworzenie przepływów użytkownika
 W Azure AD B2C każde środowisko użytkownika jest definiowane przez [przepływ użytkownika](user-flow-overview.md). Ta aplikacja zawiera jedno środowisko tożsamości: połączone logowanie i logowanie. Podczas tworzenia przepływu użytkownika upewnij się, że:
 
-* W obszarze **atrybuty rejestracji**wybierz **nazwę wyświetlaną**atrybutu.  Możesz również wybrać inne atrybuty.
-* W obszarze **oświadczenia aplikacji**wybierz **nazwę wyświetlaną** oświadczeń i **Identyfikator obiektu użytkownika**. Możesz również wybrać inne oświadczenia.
+* W obszarze **atrybuty rejestracji** wybierz **nazwę wyświetlaną** atrybutu.  Możesz również wybrać inne atrybuty.
+* W obszarze **oświadczenia aplikacji** wybierz **nazwę wyświetlaną** oświadczeń i **Identyfikator obiektu użytkownika**. Możesz również wybrać inne oświadczenia.
 * Skopiuj **nazwę** każdego przepływu użytkownika po jego utworzeniu. Nazwa przepływu użytkownika jest poprzedzona prefiksem `b2c_1_` podczas zapisywania przepływu użytkownika.  Nazwa przepływu użytkownika będzie potrzebna później.
 
 Po utworzeniu przepływów użytkowników możesz utworzyć aplikację.
@@ -62,7 +62,7 @@ Ten przykład został utworzony przez następujące instrukcje Readme dotyczące
 > AppAuth obsługuje system iOS 7 lub nowszy.  Jednak w celu zapewnienia obsługi logowań społecznościowych w usłudze Google wymagane jest SFSafariViewController, które wymagają systemu iOS 9 lub nowszego.
 >
 
-### <a name="configuration"></a>Konfiguracja
+### <a name="configuration"></a>Konfigurowanie
 
 Komunikację z Azure AD B2C można skonfigurować, określając punkt końcowy autoryzacji i identyfikatory URI punktu końcowego tokenu.  Aby wygenerować te identyfikatory URI, potrzebne są następujące informacje:
 * Identyfikator dzierżawy (na przykład contoso.onmicrosoft.com)

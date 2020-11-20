@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4db3c58da791a5cad5fc3b9c98f245202d8119e2
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 384f178481f7a6ff202d5363ba09c242b1fc366d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054767"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951795"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: często zadawane pytania
 
@@ -90,7 +90,7 @@ Za pomocą interfejsu API Microsoft Graph można napisać narzędzie do migracji
 
 ### <a name="what-password-user-flow-is-used-for-local-accounts-in-azure-ad-b2c"></a>Jakiego przepływu użytkownika hasła używa się do kont lokalnych w Azure AD B2C?
 
-Przepływ użytkownika Azure AD B2C hasło dla kont lokalnych jest oparty na zasadach usługi Azure AD. Usługa Azure AD B2C's do rejestracji, rejestrowania lub logowania oraz resetowania haseł — przepływy użytkownika używają silnych haseł i nie tracą hasła. Aby uzyskać więcej informacji, zobacz [zasady haseł i ograniczenia w Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy).
+Przepływ użytkownika Azure AD B2C hasło dla kont lokalnych jest oparty na zasadach usługi Azure AD. Usługa Azure AD B2C's do rejestracji, rejestrowania lub logowania oraz resetowania haseł — przepływy użytkownika używają silnych haseł i nie tracą hasła. Aby uzyskać więcej informacji, zobacz [zasady haseł i ograniczenia w Azure Active Directory](../active-directory/authentication/concept-sspr-policy.md).
 
 Informacje o blokadach kont i hasłach znajdują się [w temacie Zarządzanie zagrożeniami do zasobów i danych w programie Azure Active Directory B2C](threat-management.md).
 
@@ -104,7 +104,7 @@ Nie. ze względów bezpieczeństwa nie można otwierać stron Azure AD B2C w ele
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>Czy Azure AD B2C współpracuje z systemami CRM, takimi jak Microsoft Dynamics?
 
-Dostępna jest integracja z portalem systemu Microsoft Dynamics 365. Zobacz [Konfigurowanie portalu Dynamics 365 do korzystania z Azure AD B2C na potrzeby uwierzytelniania](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c).
+Dostępna jest integracja z portalem systemu Microsoft Dynamics 365. Zobacz [Konfigurowanie portalu Dynamics 365 do korzystania z Azure AD B2C na potrzeby uwierzytelniania](/dynamics365/customer-engagement/portals/azure-ad-b2c).
 
 ### <a name="does-azure-ad-b2c-work-with-sharepoint-on-premises-2016-or-earlier"></a>Czy Azure AD B2C współpracuje z lokalnym programem SharePoint 2016 lub starszym?
 
@@ -112,7 +112,7 @@ Azure AD B2C nie jest przeznaczona dla scenariusza udostępniania zewnętrznego 
 
 ### <a name="should-i-use-azure-ad-b2c-or-b2b-to-manage-external-identities"></a>Czy należy używać Azure AD B2C lub B2B do zarządzania tożsamościami zewnętrznymi?
 
-Przeczytaj temat [porównanie współpracy B2B i B2C w usłudze Azure AD](../active-directory/b2b/compare-with-b2c.md) , aby dowiedzieć się więcej na temat stosowania odpowiednich funkcji do Twoich zewnętrznych scenariuszy tożsamości.
+Przeczytaj temat [porównanie współpracy B2B i B2C w usłudze Azure AD](../active-directory/external-identities/compare-with-b2c.md) , aby dowiedzieć się więcej na temat stosowania odpowiednich funkcji do Twoich zewnętrznych scenariuszy tożsamości.
 
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Jakie funkcje raportowania i inspekcji udostępnia Azure AD B2C? Czy są one takie same jak w Azure AD — wersja Premium?
 
@@ -134,7 +134,7 @@ Obecnie nie. Ta funkcja jest dostępna w naszym przewodniku. Weryfikowanie domen
 
 Wykonaj następujące kroki, aby usunąć dzierżawę Azure AD B2C.
 
-Możesz użyć naszego nowego, ujednoliconego środowiska **rejestracje aplikacji** lub naszych starszych  **aplikacji (starsza wersja)** . [Dowiedz się więcej na temat nowego środowiska](https://aka.ms/b2cappregtraining).
+Możesz użyć naszego nowego, ujednoliconego środowiska **rejestracje aplikacji** lub naszych starszych  **aplikacji (starsza wersja)** . [Dowiedz się więcej na temat nowego środowiska](./app-registrations-training-guide.md).
 
 #### <a name="app-registrations"></a>[Rejestracje aplikacji](#tab/app-reg-ga/)
 
@@ -148,8 +148,8 @@ Możesz użyć naszego nowego, ujednoliconego środowiska **rejestracje aplikacj
 1. W obszarze **Zarządzanie** wybierz pozycję **Użytkownicy**.
 1. Wybierz każdego użytkownika z kolei (wykluczanie użytkownika *administratora subskrypcji* , który jest obecnie zalogowany). Wybierz pozycję **Usuń** w dolnej części strony i wybierz opcję **tak** po wyświetleniu monitu.
 1. Wybierz pozycję **Azure Active Directory** w menu po lewej stronie.
-1. W obszarze **Zarządzaj**wybierz pozycję **Ustawienia użytkownika**.
-1. W obszarze **Zarządzaj**wybierz pozycję **Właściwości** .
+1. W obszarze **Zarządzaj** wybierz pozycję **Ustawienia użytkownika**.
+1. W obszarze **Zarządzaj** wybierz pozycję **Właściwości** .
 1. W obszarze **Zarządzanie dostępem do zasobów platformy Azure** wybierz pozycję **Tak**, a następnie wybierz przycisk **Zapisz**.
 1. Wyloguj się z Azure Portal a następnie zaloguj się ponownie, aby odświeżyć dostęp.
 1. Wybierz pozycję **Azure Active Directory** w menu po lewej stronie.
@@ -168,9 +168,9 @@ Możesz użyć naszego nowego, ujednoliconego środowiska **rejestracje aplikacj
 1. W obszarze **Zarządzanie** wybierz pozycję **Rejestracje aplikacji**.
 1. Wybierz pozycję **Wyświetl wszystkie aplikacje**
 1. Wybierz aplikację o nazwie **B2C-Extensions-App**, wybierz pozycję **Usuń**, a następnie wybierz pozycję **tak** po wyświetleniu monitu.
-1. W obszarze **Zarządzaj**wybierz pozycję **Ustawienia użytkownika**.
-1. Jeśli jest obecny, w obszarze **połączenia konta serwisu LinkedIn**wybierz pozycję **nie**, a następnie wybierz pozycję **Zapisz**.
-1. W obszarze **Zarządzaj**wybierz pozycję **Właściwości** .
+1. W obszarze **Zarządzaj** wybierz pozycję **Ustawienia użytkownika**.
+1. Jeśli jest obecny, w obszarze **połączenia konta serwisu LinkedIn** wybierz pozycję **nie**, a następnie wybierz pozycję **Zapisz**.
+1. W obszarze **Zarządzaj** wybierz pozycję **Właściwości** .
 1. W obszarze **Zarządzanie dostępem do zasobów platformy Azure** wybierz pozycję **Tak**, a następnie wybierz przycisk **Zapisz**.
 1. Wyloguj się z Azure Portal a następnie zaloguj się ponownie, aby odświeżyć dostęp.
 1. Wybierz pozycję **Azure Active Directory** w menu po lewej stronie.

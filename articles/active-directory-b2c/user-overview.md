@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bb13b350dfecf70e5f3a45755f6f77069a855c6c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f7a4d0852edded516b7fbe42f15abfe160e44cd3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363848"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952798"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Omówienie kont użytkowników w Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Dostępne są następujące typy kont:
 - **Konto klienta** — konto konsumenta jest używane przez użytkownika aplikacji, które zostały zarejestrowane w Azure AD B2C. Konta konsumentów mogą być tworzone przez:
   - Użytkownik przechodzący przez przepływ użytkownika podczas rejestrowania w aplikacji Azure AD B2C
   - Korzystanie z interfejsu API Microsoft Graph
-  - Korzystanie z witryny Azure Portal
+  - Za pomocą witryny Azure Portal
 
 ## <a name="work-account"></a>Konto służbowe
 
@@ -36,7 +36,7 @@ Konto służbowe jest tworzone w taki sam sposób dla wszystkich dzierżawców w
 
 Po dodaniu nowego konta służbowego należy wziąć pod uwagę następujące ustawienia konfiguracji:
 
-- **Nazwa** i **Nazwa użytkownika** — Właściwość **name** zawiera imię i nazwisko użytkownika. **Nazwa użytkownika** to identyfikator, który użytkownik wprowadza do logowania. Nazwa użytkownika obejmuje pełną domenę. Część nazwy domeny musi być początkową domyślną nazwą domeny *Your-Domain.onmicrosoft.com*lub zweryfikowaną [niestandardową nazwą domeny](../active-directory/fundamentals/add-custom-domain.md) nieautorytatywną, taką jak *contoso.com*.
+- **Nazwa** i **Nazwa użytkownika** — Właściwość **name** zawiera imię i nazwisko użytkownika. **Nazwa użytkownika** to identyfikator, który użytkownik wprowadza do logowania. Nazwa użytkownika obejmuje pełną domenę. Część nazwy domeny musi być początkową domyślną nazwą domeny *Your-Domain.onmicrosoft.com* lub zweryfikowaną [niestandardową nazwą domeny](../active-directory/fundamentals/add-custom-domain.md) nieautorytatywną, taką jak *contoso.com*.
 - **Profil** — konto jest konfigurowane z profilem danych użytkownika. Możesz wprowadzić imię, nazwisko, stanowisko i nazwę działu. Można edytować profil po utworzeniu konta.
 - **Grupy** — Użyj grupy do wykonywania zadań zarządzania, takich jak Przypisywanie licencji lub uprawnień do kilku użytkowników lub urządzeń jednocześnie. Nowe konto można umieścić w istniejącej [grupie](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) w dzierżawie.
 - **Rola katalogu** — należy określić poziom dostępu, który ma być używany przez konto użytkownika do zasobów w dzierżawie. Dostępne są następujące poziomy uprawnień:
@@ -50,29 +50,29 @@ Po dodaniu nowego konta służbowego należy wziąć pod uwagę następujące us
 Poniższe informacje służą do utworzenia nowego konta służbowego:
 
 - [Witryna Azure Portal](../active-directory/fundamentals/add-users-azure-active-directory.md)
-- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
+- [Microsoft Graph](/graph/api/user-post-users?view=graph-rest-1.0)
 
 ### <a name="update-a-user-profile"></a>Aktualizowanie profilu użytkownika
 
 Poniższe informacje służą do aktualizowania profilu użytkownika:
 
 - [Witryna Azure Portal](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
-- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
+- [Microsoft Graph](/graph/api/user-update?view=graph-rest-1.0)
 
 ### <a name="reset-a-password-for-a-user"></a>Zresetuj hasło dla użytkownika
 
 Poniższe informacje służą do resetowania hasła użytkownika:
 
 - [Witryna Azure Portal](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
-- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
+- [Microsoft Graph](/graph/api/user-update?view=graph-rest-1.0)
 
 ## <a name="guest-user"></a>Użytkownik-Gość
 
-Użytkowników zewnętrznych można zaprosić do Twojej dzierżawy jako użytkownik-Gość. Typowym scenariuszem zapraszania użytkownika-gościa do dzierżawy usługi Azure AD B2C jest udostępnianie obowiązków administracyjnych. Aby zapoznać się z przykładem korzystania z konta gościa, zobacz [właściwości Azure Active Directory użytkownika współpracy B2B](../active-directory/b2b/user-properties.md).
+Użytkowników zewnętrznych można zaprosić do Twojej dzierżawy jako użytkownik-Gość. Typowym scenariuszem zapraszania użytkownika-gościa do dzierżawy usługi Azure AD B2C jest udostępnianie obowiązków administracyjnych. Aby zapoznać się z przykładem korzystania z konta gościa, zobacz [właściwości Azure Active Directory użytkownika współpracy B2B](../active-directory/external-identities/user-properties.md).
 
 Po zaproszeniu użytkownika-gościa do dzierżawy Podaj adres e-mail adresata i komunikat opisujący zaproszenie. Link do zaproszenia przenosi użytkownika na stronę zgody, na której wybrano przycisk **wprowadzenie** i zaakceptowano przegląd uprawnień. Jeśli skrzynka odbiorcza nie jest dołączona do adresu e-mail, użytkownik może przejść do strony zgody, przechodząc do strony firmy Microsoft przy użyciu zaproszonych poświadczeń. Następnie użytkownik jest zmuszony do zrealizowania zaproszenia w taki sam sposób jak kliknięcie linku w wiadomości e-mail. Na przykład: `https://myapps.microsoft.com/B2CTENANTNAME`.
 
-Możesz również użyć [interfejsu API Microsoft Graph](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-beta) , aby zaprosić użytkownika-gościa.
+Możesz również użyć [interfejsu API Microsoft Graph](/graph/api/invitation-post?view=graph-rest-beta) , aby zaprosić użytkownika-gościa.
 
 ## <a name="consumer-user"></a>Użytkownik odbiorcy
 

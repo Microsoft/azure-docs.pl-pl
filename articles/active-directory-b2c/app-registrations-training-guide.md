@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3e1d76c5ef1f003fe9e01b866343ef7de7ab4166
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 16b5814835ec5cad6b66087fee37676155196339
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92214927"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952084"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>Nowe środowisko Rejestracje aplikacji dla Azure Active Directory B2C
 
@@ -91,14 +91,14 @@ Platformy **iOS/macOS** i **Android** to typ klienta publicznego. Umożliwiają 
 
 ## <a name="application-certificates--secrets"></a>Certyfikaty aplikacji & wpisy tajne
 
-W nowym środowisku zamiast **kluczy**należy użyć bloku **Certyfikaty & wpisy tajne** do zarządzania certyfikatami i wpisami tajnymi. Certyfikaty & wpisy tajne pozwalają aplikacjom identyfikować się do usługi uwierzytelniania w przypadku otrzymywania tokenów w lokalizacji adresowej sieci Web (przy użyciu schematu HTTPS). Podczas uwierzytelniania w usłudze Azure AD zalecamy używanie certyfikatu zamiast klucza tajnego klienta. Nie można używać certyfikatów do uwierzytelniania w odniesieniu do Azure AD B2C.
+W nowym środowisku zamiast **kluczy** należy użyć bloku **Certyfikaty & wpisy tajne** do zarządzania certyfikatami i wpisami tajnymi. Certyfikaty & wpisy tajne pozwalają aplikacjom identyfikować się do usługi uwierzytelniania w przypadku otrzymywania tokenów w lokalizacji adresowej sieci Web (przy użyciu schematu HTTPS). Podczas uwierzytelniania w usłudze Azure AD zalecamy używanie certyfikatu zamiast klucza tajnego klienta. Nie można używać certyfikatów do uwierzytelniania w odniesieniu do Azure AD B2C.
 
 
 ## <a name="features-not-applicable-in-azure-ad-b2c-tenants"></a>Funkcje niemające zastosowania w dzierżawach Azure AD B2C
 Następujące możliwości rejestracji aplikacji usługi Azure AD nie mają zastosowania do dzierżaw Azure AD B2C ani do nich dostępnych:
 - **Role i Administratorzy** — obecnie nie są dostępne dla Azure AD B2C.
 - **Znakowanie** — Dostosowywanie interfejsu użytkownika/środowiska użytkownika jest konfigurowane w środowisku **znakowania firmowego** lub w ramach przepływu pracy. Dowiedz się, jak [dostosować interfejs użytkownika w Azure Active Directory B2C](customize-ui-overview.md).
-- **Weryfikacja domeny wydawcy** — Twoja aplikacja jest zarejestrowana w usłudze *. onmicrosoft.com*, która nie jest zweryfikowaną domeną. Ponadto domena wydawcy jest używana głównie do udzielania zgody użytkownika, która nie ma zastosowania do Azure AD B2C aplikacji do uwierzytelniania użytkowników. [Dowiedz się więcej o domenie wydawcy](https://docs.microsoft.com/azure/active-directory/develop/howto-configure-publisher-domain).
+- **Weryfikacja domeny wydawcy** — Twoja aplikacja jest zarejestrowana w usłudze *. onmicrosoft.com*, która nie jest zweryfikowaną domeną. Ponadto domena wydawcy jest używana głównie do udzielania zgody użytkownika, która nie ma zastosowania do Azure AD B2C aplikacji do uwierzytelniania użytkowników. [Dowiedz się więcej o domenie wydawcy](../active-directory/develop/howto-configure-publisher-domain.md).
 - **Konfiguracja tokenu** — token jest konfigurowany jako część przepływu użytkownika, a nie aplikacji.
 - Środowisko **Szybki Start** nie jest obecnie dostępne dla dzierżawców Azure AD B2C.
 <!-- - The **Integration assistant** blade is currently not available for Azure AD B2C tenants. -->

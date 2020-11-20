@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 8406074933489e53e9235a8a6a05b68f1dd42a85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 184616058cb2a86025eb75b4923e374ab42ebf05
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259140"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953563"
 ---
 # <a name="tutorial-for-configuring-saviynt-with-azure-active-directory-b2c"></a>Samouczek dotyczący konfigurowania Saviynt z Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ Aby rozpocząć, musisz:
 
 - Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
 
-- [Dzierżawa Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant). Dzierżawca jest połączony z subskrypcją platformy Azure.
+- [Dzierżawa Azure AD B2C](./tutorial-create-tenant.md). Dzierżawca jest połączony z subskrypcją platformy Azure.
 
 - [Subskrypcja](https://saviynt.com/contact-us/) Saviynt
 
@@ -48,7 +48,7 @@ Integracja Saviynt obejmuje następujące składniki:
 
 - [Saviynt](https://saviynt.com/integrations/azure-ad/for-b2c/) — platforma do zarządzania tożsamościami, która zapewnia szczegółowe administrowanie delegowaniem dla użytkowników i zarządzanie cyklem życia użytkownika oraz nadzór nad dostępem Azure AD B2C użytkowników.  
 
-- [Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api) — ten interfejs API udostępnia interfejsy Saviynt do zarządzania Azure AD B2C użytkownikami i ich dostępem w Azure AD B2C.
+- [Microsoft Graph API](/graph/use-the-api) — ten interfejs API udostępnia interfejsy Saviynt do zarządzania Azure AD B2C użytkownikami i ich dostępem w Azure AD B2C.
 
 Na poniższym diagramie architektury przedstawiono implementację.
 
@@ -69,7 +69,7 @@ Na poniższym diagramie architektury przedstawiono implementację.
 
 1. Aby utworzyć konto Saviynt, skontaktuj się z [Saviynt](https://saviynt.com/contact-us/)
 
-2. Utwórz zasady administracji delegowanej i Przypisz użytkowników jako [administratorów delegowanych](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-concept-delegation) z różnymi rolami.
+2. Utwórz zasady administracji delegowanej i Przypisz użytkowników jako [administratorów delegowanych](../active-directory/users-groups-roles/roles-concept-delegation.md) z różnymi rolami.
 
 ## <a name="configure-azure-ad-b2c-with-saviynt"></a>Konfigurowanie Azure AD B2C przy użyciu Saviynt
 
@@ -113,7 +113,7 @@ Na poniższym diagramie architektury przedstawiono implementację.
 Poniższe kroki wyjaśniają, jak włączyć Saviynt do wykonywania operacji usuwania przez użytkownika w Azure AD B2C.
 
 >[!NOTE]
->[Oceń ryzyko przed przyznaniem ról administracyjnych dostępu do nazwy głównej usługi.](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
+>[Oceń ryzyko przed przyznaniem ról administracyjnych dostępu do nazwy głównej usługi.](../active-directory/develop/app-objects-and-service-principals.md)
 
 1. Zainstaluj najnowszą wersję modułu MSOnline PowerShell na stacji roboczej/serwerze z systemem Windows.
 
@@ -133,8 +133,8 @@ Przejdź do swojej dzierżawy aplikacji Saviynt i przetestuj Zarządzanie cyklem
 
 Aby uzyskać dodatkowe informacje, zapoznaj się z następującymi artykułami:
 
-- [Zasady niestandardowe w usłudze Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Zasady niestandardowe w usłudze Azure AD B2C](./custom-policy-overview.md)
 
-- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
 
-- [Tworzenie aplikacji interfejsu API sieci Web](https://docs.microsoft.com/azure/active-directory-b2c/add-web-api-application)
+- [Tworzenie aplikacji interfejsu API sieci Web](./add-web-api-application.md)

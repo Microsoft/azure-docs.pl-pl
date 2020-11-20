@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: article
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 10/14/2020
+ms.date: 11/19/2020
 ms.author: victorh
-ms.openlocfilehash: 0f7fec997ec6d0c73fe6d1039ab1033752e0cedf
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 9fb8bf689e2767f681994258c4d2c51be41d6c68
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566575"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952135"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Omówienie zasad zapory aplikacji sieci Web platformy Azure (WAF)
 
@@ -53,7 +53,7 @@ Te zasady globalne są odpowiednie dla contoso.com i fabrikam.com, ale należy z
 
 Identyfikator URI adatum.com/payments to miejsce, w którym należy zachować ostrożność. Należy więc zastosować inne zasady dla tego identyfikatora URI i pozostawić wszystkie włączone reguły, a także usunąć wszystkie wykluczenia.
 
-W tym przykładzie istnieją zasady globalne, które mają zastosowanie do dwóch lokacji. Masz zasady dla poszczególnych lokacji, które mają zastosowanie do jednej lokacji, a następnie zasady dotyczące identyfikatorów URI, które dotyczą jednej konkretnej reguły opartej na ścieżce. Zobacz (tutaj Wstaw link tutaj, gdy istnieje), jak utworzyć zasady dla poszczególnych witryn i identyfikatorów URI dla odpowiedniego środowiska PowerShell dla tego przykładu.
+W tym przykładzie istnieją zasady globalne, które mają zastosowanie do dwóch lokacji. Masz zasady dla poszczególnych lokacji, które mają zastosowanie do jednej lokacji, a następnie zasady dotyczące identyfikatorów URI, które dotyczą jednej konkretnej reguły opartej na ścieżce. Zapoznaj się z tematem [Konfigurowanie zasad WAF dla poszczególnych lokacji przy użyciu Azure PowerShell](per-site-policies.md) dla odpowiedniego programu PowerShell.
 
 ## <a name="existing-waf-configurations"></a>Istniejące konfiguracje WAF
 

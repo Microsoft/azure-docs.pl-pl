@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0e8802d612f2497cc58c90856e9a5a5572a142f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60b7bb33dfbf29b7e448887ce992d03009133b2e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87482842"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953495"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Zabezpieczanie interfejsu API usługi Azure API Management przy użyciu Azure AD B2C
 
@@ -35,7 +35,7 @@ Przed wykonaniem kroków opisanych w tym artykule potrzebne są następujące za
 
 W przypadku zabezpieczania interfejsu API w usłudze Azure API Management przy użyciu Azure AD B2C potrzebne są kilka wartości dla [zasad przychodzących](../api-management/api-management-howto-policies.md) tworzonych w APIM. Najpierw Zapisz identyfikator aplikacji utworzonej wcześniej w dzierżawie Azure AD B2C. Jeśli używasz aplikacji utworzonej w ramach wymagań wstępnych, użyj identyfikatora aplikacji dla *webbapp1*.
 
-Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego nowego środowiska **rejestracje aplikacji** lub naszych starszych  **aplikacji (starsza wersja)** . [Dowiedz się więcej na temat nowego środowiska](https://aka.ms/b2cappregtraining).
+Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego nowego środowiska **rejestracje aplikacji** lub naszych starszych  **aplikacji (starsza wersja)** . [Dowiedz się więcej na temat nowego środowiska](./app-registrations-training-guide.md).
 
 #### <a name="app-registrations"></a>[Rejestracje aplikacji](#tab/app-reg-ga/)
 
@@ -50,7 +50,7 @@ Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wybierz filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
 1. W menu po lewej stronie wybierz pozycję **Azure AD B2C**. Lub wybierz pozycję **wszystkie usługi** i Wyszukaj i wybierz pozycję **Azure AD B2C**.
-1. W obszarze **Zarządzaj**wybierz pozycję **aplikacje (starsza wersja)**.
+1. W obszarze **Zarządzaj** wybierz pozycję **aplikacje (starsza wersja)**.
 1. Zapisz wartość w kolumnie **Identyfikator aplikacji** dla *webapp1* lub innej aplikacji, która została wcześniej utworzona.
 
 * * *
@@ -60,7 +60,7 @@ Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego
 Następnie uzyskaj dobrze znany adres URL konfiguracji dla jednego z Azure AD B2C przepływów użytkownika. Wymagany jest również identyfikator URI punktu końcowego wystawcy tokenów, który ma być obsługiwany na platformie Azure API Management.
 
 1. Przejdź do dzierżawy Azure AD B2C w [Azure Portal](https://portal.azure.com).
-1. W obszarze **zasady**wybierz pozycję **przepływy użytkownika**.
+1. W obszarze **zasady** wybierz pozycję **przepływy użytkownika**.
 1. Wybierz istniejące zasady, na przykład *B2C_1_signupsignin1*, a następnie wybierz pozycję **Uruchom przepływ użytkownika**.
 1. Zapisz adres URL w hiperłączu wyświetlanym w nagłówku przebiegu **użytkownika** w górnej części strony. Ten adres URL jest dobrze znanym punktem końcowym wykrywania OpenID Connect Connect dla przepływu użytkownika i jest używany w następnej sekcji podczas konfigurowania zasad ruchu przychodzącego w usłudze Azure API Management.
 
@@ -73,7 +73,7 @@ Następnie uzyskaj dobrze znany adres URL konfiguracji dla jednego z Azure AD B2
 
     Ta wartość jest używana w następnej sekcji podczas konfigurowania interfejsu API w usłudze Azure API Management.
 
-Teraz powinny zostać zarejestrowane dwa adresy URL do użycia w następnej sekcji: adres URL punktu końcowego znanej konfiguracji OpenID Connect Connect i identyfikator URI wystawcy. Na przykład:
+Teraz powinny zostać zarejestrowane dwa adresy URL do użycia w następnej sekcji: adres URL punktu końcowego znanej konfiguracji OpenID Connect Connect i identyfikator URI wystawcy. Przykład:
 
 ```
 https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_signupsignin1/v2.0/.well-known/openid-configuration
@@ -88,7 +88,7 @@ Teraz można przystąpić do dodawania zasad ruchu przychodzącego w usłudze Az
 1. Wybierz pozycję **Interfejsy API**.
 1. Wybierz interfejs API, który ma być zabezpieczony za pomocą Azure AD B2C.
 1. Wybierz kartę **Projekt**.
-1. W obszarze **Przetwarzanie przychodzące**wybierz pozycję **\</\>** Otwórz Edytor kodu zasad.
+1. W obszarze **Przetwarzanie przychodzące** wybierz pozycję **\</\>** Otwórz Edytor kodu zasad.
 1. Umieść następujący `<validate-jwt>` tag wewnątrz `<inbound>` zasad.
 
     1. Zaktualizuj `url` wartość w `<openid-config>` elemencie za pomocą dobrze znanego adresu URL konfiguracji zasad.
@@ -126,10 +126,10 @@ Aby wywołać interfejs API, wymagany jest token dostępu wystawiony przez Azure
 Najpierw musisz mieć token wystawiony przez Azure AD B2C do użycia w `Authorization` nagłówku w programie Poster. Możesz uzyskać jeden z nich, korzystając z funkcji **Uruchom teraz** przepływu użytkownika tworzenia konta/logowania, który powinien zostać utworzony jako jedno z wymagań wstępnych.
 
 1. Przejdź do dzierżawy Azure AD B2C w [Azure Portal](https://portal.azure.com).
-1. W obszarze **zasady**wybierz pozycję **przepływy użytkownika**.
+1. W obszarze **zasady** wybierz pozycję **przepływy użytkownika**.
 1. Wybierz istniejący przepływ użytkownika rejestracji/logowania, na przykład *B2C_1_signupsignin1*.
-1. W przypadku **aplikacji**wybierz pozycję *webapp1*.
-1. Dla **adresu URL odpowiedzi**wybierz opcję `https://jwt.ms` .
+1. W przypadku **aplikacji** wybierz pozycję *webapp1*.
+1. Dla **adresu URL odpowiedzi** wybierz opcję `https://jwt.ms` .
 1. Wybierz pozycję **Uruchom przepływ użytkownika**.
 
     ![Uruchom stronę przepływu użytkownika w celu zarejestrowania się w przepływie użytkownika w Azure Portal](media/secure-apim-with-b2c-token/portal-03-user-flow.png)
@@ -154,7 +154,7 @@ Aplikacja kliencka (w tym przypadku) wywołująca opublikowany interfejs API mus
 
 Po zarejestrowaniu tokenu dostępu i klucza subskrypcji APIM można już sprawdzić, czy bezpieczny dostęp do interfejsu API został prawidłowo skonfigurowany.
 
-1. Utwórz nowe `GET` żądanie w programie [Poster](https://www.getpostman.com/). W polu adres URL żądania Określ punkt końcowy listy głośników interfejsu API, który został opublikowany jako jedno z wymagań wstępnych. Na przykład:
+1. Utwórz nowe `GET` żądanie w programie [Poster](https://www.getpostman.com/). W polu adres URL żądania Określ punkt końcowy listy głośników interfejsu API, który został opublikowany jako jedno z wymagań wstępnych. Przykład:
 
     `https://contosoapim.azure-api.net/conference/speakers`
 

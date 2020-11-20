@@ -11,12 +11,12 @@ ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 6daf2da5b5bac051ac110ff15ed2c44971300a30
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 705df6ddc6b665ac3d0d62ec3dad93e38f5e513e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421043"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953104"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Samouczek: Włączanie uwierzytelniania w aplikacji jednostronicowej przy użyciu Azure AD B2C
 
@@ -53,14 +53,14 @@ Ponadto w lokalnym środowisku programistycznym są potrzebne następujące elem
 
 W [drugim samouczku](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-spa) , który został ukończony w ramach wymagań wstępnych, zarejestrowano aplikację jednostronicową w Azure AD B2C. Aby włączyć komunikację z przykładem kodu w tym samouczku, Dodaj adres URL odpowiedzi (nazywany także identyfikatorem URI przekierowania) do rejestracji aplikacji.
 
-Aby zaktualizować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego nowego środowiska **rejestracje aplikacji** lub naszych starszych  **aplikacji (starsza wersja)** . [Dowiedz się więcej na temat nowego środowiska](https://aka.ms/b2cappregtraining).
+Aby zaktualizować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego nowego środowiska **rejestracje aplikacji** lub naszych starszych  **aplikacji (starsza wersja)** . [Dowiedz się więcej na temat nowego środowiska](./app-registrations-training-guide.md).
 
 #### <a name="app-registrations-auth-code-flow"></a>[Rejestracje aplikacji (przepływ kodu uwierzytelniania)](#tab/app-reg-auth/)
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wybierz filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
 1. W menu po lewej stronie wybierz pozycję **Azure AD B2C**. Lub wybierz pozycję **wszystkie usługi** i Wyszukaj i wybierz pozycję **Azure AD B2C**.
-1. Wybierz pozycję **rejestracje aplikacji** , wybierz kartę **posiadane aplikacje** , a następnie wybierz aplikację *spaapp1* .
+1. Wybierz pozycję **rejestracje aplikacji**, wybierz kartę **posiadane aplikacje** , a następnie wybierz aplikację *spaapp1* .
 1. W obszarze **aplikacja jednostronicowa** wybierz łącze **Dodaj identyfikator URI** , a następnie wprowadź `http://localhost:6420` .
 1. Wybierz pozycję **Zapisz**.
 1. Wybierz pozycję **Omówienie**.
@@ -71,7 +71,7 @@ Aby zaktualizować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wybierz filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
 1. W menu po lewej stronie wybierz pozycję **Azure AD B2C**. Lub wybierz pozycję **wszystkie usługi** i Wyszukaj i wybierz pozycję **Azure AD B2C**.
-1. Wybierz pozycję **rejestracje aplikacji** , wybierz kartę **posiadane aplikacje** , a następnie wybierz aplikację *spaapp1* .
+1. Wybierz pozycję **rejestracje aplikacji**, wybierz kartę **posiadane aplikacje** , a następnie wybierz aplikację *spaapp1* .
 1. W obszarze **aplikacja jednostronicowa** wybierz łącze **Dodaj identyfikator URI** , a następnie wprowadź `http://localhost:6420` .
 1. W obszarze **niejawne przyznanie** zaznacz pola wyboru **tokenów dostępu** i **tokenów identyfikatorów** , jeśli nie została jeszcze wybrana, a następnie wybierz pozycję **Zapisz**.
 1. Wybierz pozycję **Omówienie**.
@@ -82,7 +82,7 @@ Aby zaktualizować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Upewnij się, że używasz katalogu, który zawiera dzierżawę Azure AD B2C, wybierając pozycję **katalog i subskrypcja** w górnym menu i wybierając katalog zawierający dzierżawcę.
 1. Wybierz pozycję **wszystkie usługi** w lewym górnym rogu Azure Portal, a następnie wyszukaj i wybierz pozycję **Azure AD B2C**.
-1. Wybierz pozycję **aplikacje (starsza wersja)** , a następnie wybierz aplikację *spaapp1* .
+1. Wybierz pozycję **aplikacje (starsza wersja)**, a następnie wybierz aplikację *spaapp1* .
 1. W obszarze **Adres URL odpowiedzi** dodaj `http://localhost:6420`.
 1. Wybierz pozycję **Zapisz**.
 1. Na stronie właściwości Zapisz **Identyfikator aplikacji**. IDENTYFIKATORA aplikacji można użyć w późniejszym kroku podczas aktualizowania kodu w jednostronicowej aplikacji sieci Web.
@@ -141,7 +141,7 @@ Otrzymany kod powinien wyglądać podobnie do poniższego:
 
 #### <a name="auth-code-flow-sample"></a>[Przykładowy przepływ kodu uwierzytelniania](#tab/review-auth/)
 
-*authConfig.js* :
+*authConfig.js*:
 
 ```javascript
 const msalConfig = {
@@ -165,7 +165,7 @@ const tokenRequest = {
 };
 ```
 
-*policies.js* :
+*policies.js*:
 
 ```javascript
 const b2cPolicies = {
@@ -189,7 +189,7 @@ const b2cPolicies = {
 }
 ```
 
-*apiConfig.js* :
+*apiConfig.js*:
 
 ```javascript
 const apiConfig = {
@@ -200,7 +200,7 @@ const apiConfig = {
 
 #### <a name="implicit-flow-sample"></a>[Przykładowy przepływ niejawny](#tab/review-implicit/)
 
-*authConfig.js* :
+*authConfig.js*:
 
 ```javascript
 const msalConfig = {
@@ -224,7 +224,7 @@ const tokenRequest = {
 };
 ```
 
-*policies.js* :
+*policies.js*:
 
 ```javascript
 const b2cPolicies = {
@@ -247,7 +247,7 @@ const b2cPolicies = {
 }
 ```
 
-*apiConfig.js* :
+*apiConfig.js*:
 
 ```javascript
 const apiConfig = {

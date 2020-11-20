@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 4e5becdd026b0a1c9e848b183ebeee5833654461
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3a8881b9fe44727caf07b3cc0d5ee19f0444e98
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259275"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953665"
 ---
 # <a name="tutorial-for-configuring-jumio-with-azure-active-directory-b2c"></a>Samouczek dotyczący konfigurowania Jumio z Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Aby rozpocząć, musisz:
 
 - Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
 
-- [Dzierżawa Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) , która jest połączona z subskrypcją platformy Azure.
+- [Dzierżawa Azure AD B2C](./tutorial-create-tenant.md) , która jest połączona z subskrypcją platformy Azure.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -65,7 +65,7 @@ Po utworzeniu konta Jumio należy użyć konta do skonfigurowania Azure AD B2C. 
 
 ### <a name="deploy-the-api"></a>Wdrażanie interfejsu API
 
-Wdróż podany [kod interfejsu API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/API/Jumio.Api) w usłudze platformy Azure. Kod można opublikować z programu Visual Studio, wykonując poniższe [instrukcje](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Wdróż podany [kod interfejsu API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/API/Jumio.Api) w usłudze platformy Azure. Kod można opublikować z programu Visual Studio, wykonując poniższe [instrukcje](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 >[!NOTE]
 >Aby skonfigurować usługę Azure AD przy użyciu wymaganych ustawień, należy podać adres URL wdrożonej usługi.
@@ -85,7 +85,7 @@ Wdróż podany [kod interfejsu API](https://github.com/azure-ad-b2c/partner-inte
 
    Certyfikat jest następnie eksportowany do lokalizacji określonej dla ``{your-local-path}`` .
 
-3. Zaimportuj certyfikat do Azure App Service, postępując zgodnie z instrukcjami w [tym artykule](https://docs.microsoft.com/azure/app-service/configure-ssl-certificate#upload-a-private-certificate).
+3. Zaimportuj certyfikat do Azure App Service, postępując zgodnie z instrukcjami w [tym artykule](../app-service/configure-ssl-certificate.md#upload-a-private-certificate).
 
 ### <a name="create-a-signingencryption-key"></a>Tworzenie klucza podpisywania/szyfrowania
 
@@ -102,7 +102,7 @@ Aby utworzyć ciąg, użyj następującego skryptu programu PowerShell:
 
 ### <a name="configure-the-api"></a>Konfigurowanie interfejsu API
 
-[Ustawienia aplikacji można skonfigurować w Azure App Service](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings). Za pomocą tej metody można bezpiecznie skonfigurować ustawienia bez sprawdzania ich w repozytorium. Należy podać następujące ustawienia w interfejsie API REST:
+[Ustawienia aplikacji można skonfigurować w Azure App Service](../app-service/configure-common.md#configure-app-settings). Za pomocą tej metody można bezpiecznie skonfigurować ustawienia bez sprawdzania ich w repozytorium. Należy podać następujące ustawienia w interfejsie API REST:
 
 | Ustawienia aplikacji | Element źródłowy | Uwagi |
 | :-------- | :------------| :-----------|
@@ -118,7 +118,7 @@ Aby utworzyć ciąg, użyj następującego skryptu programu PowerShell:
 
 ### <a name="deploy-the-ui"></a>Wdróż interfejs użytkownika
 
-1. Skonfiguruj [kontener magazynu obiektów BLOB na koncie magazynu](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
+1. Skonfiguruj [kontener magazynu obiektów BLOB na koncie magazynu](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
 
 2. Przechowywanie plików interfejsu użytkownika z [folderu interfejsu użytkownika](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/UI) w kontenerze obiektów BLOB.
 
@@ -139,7 +139,7 @@ Aby utworzyć ciąg, użyj następującego skryptu programu PowerShell:
 
 1. Przejdź do [zasad Azure AD B2C](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/Policies) w folderze zasady.
 
-2. Postępuj zgodnie z [tym artykułem](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) , aby pobrać [pakiet LocalAccounts Starter](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts).
+2. Postępuj zgodnie z [tym artykułem](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) , aby pobrać [pakiet LocalAccounts Starter](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts).
 
 3. Skonfiguruj zasady dla dzierżawy Azure AD B2C.
 
@@ -148,15 +148,15 @@ Aby utworzyć ciąg, użyj następującego skryptu programu PowerShell:
 
 ## <a name="test-the-user-flow"></a>Testowanie przepływu użytkownika
 
-1. Otwórz dzierżawcę Azure AD B2C. W obszarze **zasady**wybierz pozycję **platforma obsługi tożsamości**.
+1. Otwórz dzierżawcę Azure AD B2C. W obszarze **zasady** wybierz pozycję **platforma obsługi tożsamości**.
 
 2. Wybierz wcześniej utworzone **SignUpSignIn**.
 
 3. Wybierz pozycję **Uruchom przepływ użytkownika** , a następnie:
 
-   a. W przypadku **aplikacji**wybierz zarejestrowaną aplikację (przykład: JWT).
+   a. W przypadku **aplikacji** wybierz zarejestrowaną aplikację (przykład: JWT).
 
-   b. W polu **adres URL odpowiedzi**wybierz **adres URL przekierowania**.
+   b. W polu **adres URL odpowiedzi** wybierz **adres URL przekierowania**.
 
    c. Wybierz pozycję **Uruchom przepływ użytkownika**.
 
@@ -168,6 +168,6 @@ Aby utworzyć ciąg, użyj następującego skryptu programu PowerShell:
 
 Aby uzyskać dodatkowe informacje, zapoznaj się z następującymi artykułami:
 
-- [Zasady niestandardowe w usłudze Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Zasady niestandardowe w usłudze Azure AD B2C](./custom-policy-overview.md)
 
-- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

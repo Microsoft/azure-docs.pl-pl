@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: ca674f38b5c327123bc1d13dd284f84f614881b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf0570cd62a2c329407cfb6dd087020f53cdc991
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300449"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954073"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Rozwiązywanie problemów z urządzeniami z serii 8000 przy użyciu narzędzia diagnostyki StorSimple
 
@@ -332,7 +332,7 @@ Oto przykładowe dane wyjściowe urządzenia 8100. W danych wyjściowych można 
 * DANE 2-5 nie są włączone w portalu.
 * Konfiguracja serwera DNS jest prawidłowa i urządzenie może nawiązać połączenie za pośrednictwem serwera DNS.
 * Łączność z serwerem NTP jest również dobra.
-* Porty 80 i 443 są otwarte. Jednak port 9354 jest zablokowany. Na podstawie [wymagań sieci systemowej](storsimple-system-requirements.md)należy otworzyć ten port dla komunikacji z usługą Service Bus.
+* Porty 80 i 443 są otwarte. Jednak port 9354 jest zablokowany. Na podstawie [wymagań sieci systemowej](./storsimple-8000-system-requirements.md)należy otworzyć ten port dla komunikacji z usługą Service Bus.
 * Certyfikat TLS/SSL jest prawidłowy.
 * Urządzenie może nawiązać połączenie z kontem magazynu: _myss8000storageacct_.
 * Łączność z serwerami aktualizacji jest prawidłowa.
@@ -388,7 +388,7 @@ Aby użyć tego narzędzia, wykonaj następujące czynności:
 
     Jeśli czasy oczekiwania do odczytu i zapisu zgłoszone przez narzędzie diagnostyczne są wysokie:
 
-    1. Skonfiguruj analityka magazynu dla usług BLOB Services i analizuj dane wyjściowe, aby zrozumieć opóźnienia dla konta usługi Azure Storage. Aby uzyskać szczegółowe instrukcje, przejdź do pozycji [Włączanie i konfigurowanie analityka magazynu](../storage/common/storage-enable-and-view-metrics.md). Jeśli te opóźnienia są również duże i porównywalne z liczbami otrzymanymi z narzędzia diagnostyki StorSimple, należy zarejestrować żądanie obsługi w usłudze Azure Storage.
+    1. Skonfiguruj analityka magazynu dla usług BLOB Services i analizuj dane wyjściowe, aby zrozumieć opóźnienia dla konta usługi Azure Storage. Aby uzyskać szczegółowe instrukcje, przejdź do pozycji [Włączanie i konfigurowanie analityka magazynu](../storage/blobs/monitor-blob-storage.md). Jeśli te opóźnienia są również duże i porównywalne z liczbami otrzymanymi z narzędzia diagnostyki StorSimple, należy zarejestrować żądanie obsługi w usłudze Azure Storage.
 
     2. Jeśli opóźnienia konta magazynu są niskie, skontaktuj się z administratorem sieci, aby zbadać wszelkie problemy z opóźnieniami w sieci.
 
@@ -440,6 +440,6 @@ Poniżej przedstawiono tabelę zawierającą opis różnych parametrów programu
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Poznaj [składnię polecenia cmdlet Invoke-HcsDiagnostics](https://technet.microsoft.com/library/mt795371.aspx).
+* Poznaj [składnię polecenia cmdlet Invoke-HcsDiagnostics](/previous-versions/windows/powershell-scripting/mt795371(v=wps.630)).
 
-* Dowiedz się więcej na temat [rozwiązywania problemów z wdrażaniem](storsimple-troubleshoot-deployment.md) na urządzeniu StorSimple.
+* Dowiedz się więcej na temat [rozwiązywania problemów z wdrażaniem](./storsimple-8000-troubleshoot-deployment.md) na urządzeniu StorSimple.

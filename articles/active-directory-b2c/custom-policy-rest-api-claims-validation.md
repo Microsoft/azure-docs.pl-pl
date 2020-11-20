@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 30273c0103d8a0fde12b1b7c6f66d16dd4ea84cb
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 761bc4db7760ef5e84e3fc3c8a5deea5d4508f51
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089523"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951931"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-to-validate-user-input"></a>Wskazówki: integruje wymianę oświadczeń interfejsu API REST w ramach kursu Azure AD B2C użytkownika w celu zweryfikowania danych wejściowych użytkownika
 
@@ -65,7 +65,7 @@ Jeśli walidacja nie powiodła się, interfejs API REST musi zwrócić HTTP 409 
 }
 ```
 
-Konfiguracja punktu końcowego interfejsu API REST jest poza zakresem tego artykułu. Utworzyliśmy przykład [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) . Możesz uzyskać dostęp do kompletnego kodu funkcji platformy Azure w serwisie [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
+Konfiguracja punktu końcowego interfejsu API REST jest poza zakresem tego artykułu. Utworzyliśmy przykład [Azure Functions](../azure-functions/functions-reference.md) . Możesz uzyskać dostęp do kompletnego kodu funkcji platformy Azure w serwisie [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
 
 ## <a name="define-claims"></a>Definiowanie oświadczeń
 
@@ -233,11 +233,11 @@ Aby zwrócić z powrotem do aplikacji jednostki uzależnionej, należy dodać do
 1. Upewnij się, że używasz katalogu, który zawiera dzierżawę usługi Azure AD, wybierając filtr **katalog + subskrypcja** w górnym menu i wybierając katalog zawierający dzierżawę usługi Azure AD.
 1. Wybierz pozycję **wszystkie usługi** w lewym górnym rogu Azure Portal, a następnie wyszukaj i wybierz pozycję **rejestracje aplikacji**.
 1. Wybierz pozycję **platforma obsługi tożsamości**.
-1. Wybierz pozycję **Przekaż zasady niestandardowe**, a następnie Przekaż zmienione pliki zasad: *TrustFrameworkExtensions.xml*i *SignUpOrSignin.xml*. 
+1. Wybierz pozycję **Przekaż zasady niestandardowe**, a następnie Przekaż zmienione pliki zasad: *TrustFrameworkExtensions.xml* i *SignUpOrSignin.xml*. 
 1. Wybierz przekazane zasady rejestracji lub logowania, a następnie kliknij przycisk **Uruchom teraz** .
 1. Należy mieć możliwość rejestrowania się przy użyciu adresu e-mail.
 1. Kliknij link **Utwórz konto teraz** .
-1. W polu **Identyfikator lojalności**wpisz 1234, a następnie kliknij przycisk **Kontynuuj**. W tym momencie powinien zostać wyświetlony komunikat o błędzie walidacji.
+1. W polu **Identyfikator lojalności** wpisz 1234, a następnie kliknij przycisk **Kontynuuj**. W tym momencie powinien zostać wyświetlony komunikat o błędzie walidacji.
 1. Zmień na inną wartość, a następnie kliknij przycisk **Kontynuuj**.
 1. Token wysłany z powrotem do aplikacji zawiera `promoCode` zastrzeżenie.
 

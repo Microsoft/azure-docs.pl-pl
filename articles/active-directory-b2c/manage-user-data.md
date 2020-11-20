@@ -11,22 +11,22 @@ ms.date: 05/06/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 48c79306d376c2faa1089886881a7b5e9a792c86
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d9bdf7258296b82e65e03f6b8af8021b9a7be0f0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840558"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952475"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Zarządzanie danymi użytkowników w Azure Active Directory B2C
 
- W tym artykule omówiono sposób zarządzania danymi użytkownika w programie Azure Active Directory B2C (Azure AD B2C) przy użyciu operacji dostarczonych przez [interfejs API Microsoft Graph](https://docs.microsoft.com/graph/use-the-api). Zarządzanie danymi użytkowników obejmuje usuwanie lub eksportowanie danych z dzienników inspekcji.
+ W tym artykule omówiono sposób zarządzania danymi użytkownika w programie Azure Active Directory B2C (Azure AD B2C) przy użyciu operacji dostarczonych przez [interfejs API Microsoft Graph](/graph/use-the-api). Zarządzanie danymi użytkowników obejmuje usuwanie lub eksportowanie danych z dzienników inspekcji.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="delete-user-data"></a>Usuwanie danych użytkownika
 
-Dane użytkownika są przechowywane w katalogu Azure AD B2C i w dziennikach inspekcji. Wszystkie dane inspekcji użytkownika są przechowywane przez 7 dni w Azure AD B2C. Jeśli chcesz usunąć dane użytkownika w tym 7-dniowym okresie, możesz użyć operacji [usuwania użytkownika](https://docs.microsoft.com/graph/api/user-delete) . Operacja usuwania jest wymagana dla każdej dzierżawy Azure AD B2C, w której mogą znajdować się dane.
+Dane użytkownika są przechowywane w katalogu Azure AD B2C i w dziennikach inspekcji. Wszystkie dane inspekcji użytkownika są przechowywane przez 7 dni w Azure AD B2C. Jeśli chcesz usunąć dane użytkownika w tym 7-dniowym okresie, możesz użyć operacji [usuwania użytkownika](/graph/api/user-delete) . Operacja usuwania jest wymagana dla każdej dzierżawy Azure AD B2C, w której mogą znajdować się dane.
 
 Każdy użytkownik w Azure AD B2C ma przypisany identyfikator obiektu. Identyfikator obiektu zawiera niejednoznaczny identyfikator, który służy do usuwania danych użytkownika w Azure AD B2C. W zależności od architektury, identyfikator obiektu może być przydatnym identyfikatorem korelacji między innymi usługami, takimi jak finansowe, marketingowe i bazy danych zarządzania relacjami z klientami.
 

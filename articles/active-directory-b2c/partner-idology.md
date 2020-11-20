@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cfce5b42d37908d0ba89cff9c4831cb25b968524
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07a8f785cf2b9a64f3acb9f44c4fca5023c4fcf3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259326"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953750"
 ---
 # <a name="tutorial-for-configuring-idology-with-azure-active-directory-b2c"></a>Samouczek dotyczący konfigurowania IDology z Azure Active Directory B2C 
 
@@ -67,13 +67,13 @@ Na poniższym diagramie architektury przedstawiono implementację.
 
 ### <a name="part-1---deploy-the-api"></a>Część 1 — wdrażanie interfejsu API
 
-Wdróż podany [kod interfejsu API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/IDology/Api) w usłudze platformy Azure. Kod można opublikować z programu Visual Studio, postępując zgodnie z tymi [instrukcjami](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Wdróż podany [kod interfejsu API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/IDology/Api) w usłudze platformy Azure. Kod można opublikować z programu Visual Studio, postępując zgodnie z tymi [instrukcjami](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 Aby skonfigurować usługę Azure AD przy użyciu wymaganych ustawień, należy podać adres URL wdrożonej usługi.
 
 ### <a name="part-2---configure-the-api"></a>Część 2 — Konfigurowanie interfejsu API 
 
-Ustawienia aplikacji można [skonfigurować w App Service na platformie Azure](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings). Za pomocą tej metody ustawienia można bezpiecznie skonfigurować bez sprawdzania ich w repozytorium. Należy podać następujące ustawienia w interfejsie API REST:
+Ustawienia aplikacji można [skonfigurować w App Service na platformie Azure](../app-service/configure-common.md#configure-app-settings). Za pomocą tej metody ustawienia można bezpiecznie skonfigurować bez sprawdzania ich w repozytorium. Należy podać następujące ustawienia w interfejsie API REST:
 
 | Ustawienia aplikacji | Element źródłowy | Uwagi |
 | :-------- | :------------| :-----------|
@@ -119,7 +119,7 @@ Przykładowe zasady używają tych nazw kluczy:
 
 ## <a name="test-the-user-flow"></a>Testowanie przepływu użytkownika
 
-1. Otwórz dzierżawcę Azure AD B2C i w obszarze **zasady**wybierz pozycję **przepływy użytkownika**.
+1. Otwórz dzierżawcę Azure AD B2C i w obszarze **zasady** wybierz pozycję **przepływy użytkownika**.
 
 2. Wybierz wcześniej utworzony **przepływ użytkownika**.
 
@@ -145,5 +145,4 @@ Aby uzyskać dodatkowe informacje, zapoznaj się z następującymi artykułami:
 
 - [Zasady niestandardowe w usłudze Azure AD B2C](custom-policy-overview.md)
 
-- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](custom-policy-get-started.md?tabs=applications) 
-
+- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](custom-policy-get-started.md?tabs=applications)

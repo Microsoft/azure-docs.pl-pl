@@ -12,12 +12,12 @@ ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4fc25edb873a2dfe84f6ca716a71cf028c74cb2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9485fb09d3ac7684ba91bcd37720a0e55603404b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85383941"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952730"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Uzyskiwanie dostępu do dzienników inspekcji Azure AD B2C
 
@@ -84,7 +84,7 @@ Aby pobrać listę zdarzeń działania w pliku wartości rozdzielanych przecinka
 
 ## <a name="get-audit-logs-with-the-azure-ad-reporting-api"></a>Pobieranie dzienników inspekcji za pomocą interfejsu API raportowania usługi Azure AD
 
-Dzienniki inspekcji są publikowane w tym samym potoku co inne działania dotyczące Azure Active Directory, dzięki czemu można uzyskać do nich dostęp za pomocą [interfejsu API raportowania Azure Active Directory](https://docs.microsoft.com/graph/api/directoryaudit-list). Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z interfejsem API raportowania Azure Active Directory](../active-directory/reports-monitoring/concept-reporting-api.md).
+Dzienniki inspekcji są publikowane w tym samym potoku co inne działania dotyczące Azure Active Directory, dzięki czemu można uzyskać do nich dostęp za pomocą [interfejsu API raportowania Azure Active Directory](/graph/api/directoryaudit-list). Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z interfejsem API raportowania Azure Active Directory](../active-directory/reports-monitoring/concept-reporting-api.md).
 
 ### <a name="enable-reporting-api-access"></a>Włącz dostęp do interfejsu API raportowania
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 7b76c81a78bfd3eb57a54f1d23ba1b154b09b3e6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: bcf5f75cf5cabe42f530a6a179c2cafd43b5520d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660155"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952543"
 ---
 # <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>Używanie tożsamości usługi Azure AD z usługą internetową uczenia maszynowego w usłudze Azure Kubernetes Service
 
@@ -32,13 +32,13 @@ W tym instruktażu dowiesz się, jak przypisać tożsamość usługi Azure Activ
 
 ## <a name="create-and-install-an-azure-identity"></a>Utwórz i zainstaluj tożsamość platformy Azure
 
-1. Aby określić, czy klaster AKS jest włączony RBAC, użyj następującego polecenia:
+1. Aby określić, czy klaster AKS ma włączoną funkcję RBAC Kubernetes, użyj następującego polecenia:
 
     ```azurecli-interactive
     az aks show --name <AKS cluster name> --resource-group <resource group name> --subscription <subscription id> --query enableRbac
     ```
 
-    To polecenie zwraca wartość, `true` Jeśli RBAC jest włączona. Ta wartość Określa polecenie do użycia w następnym kroku.
+    To polecenie zwraca wartość, `true` Jeśli KUBERNETES RBAC jest włączona. Ta wartość Określa polecenie do użycia w następnym kroku.
 
 1. Zainstaluj [tożsamość usługi Azure AD pod](https://azure.github.io/aad-pod-identity/docs/getting-started/installation/) w klastrze AKS.
 

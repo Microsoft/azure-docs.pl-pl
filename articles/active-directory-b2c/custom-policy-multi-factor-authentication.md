@@ -11,12 +11,12 @@ ms.date: 10/15/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c0ab4d367d2ca9fd59c26ce8d36b5f80dcb832c8
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 39d23313f9d00ef48f64327dd10356a91b9d13b7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840631"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951897"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Włączanie uwierzytelniania wieloskładnikowego w Azure Active Directory B2C
 
@@ -41,6 +41,3 @@ Ta funkcja ułatwia aplikacjom obsługę scenariuszy, takich jak:
 Aby sprawdzić środowisko, można użyć funkcji **Uruchom przepływ użytkownika** . Potwierdź następujący scenariusz:
 
 Konto klienta jest tworzone w dzierżawie przed wykonaniem kroku usługi uwierzytelnianie wieloskładnikowe. W ramach tego kroku klient zostanie poproszony o podanie numeru telefonu i zweryfikowanie go. Jeśli weryfikacja zakończy się pomyślnie, numer telefonu jest dołączany do konta w celu późniejszego użycia. Nawet jeśli klient zostanie anulowany lub odrzuca, klient może zostać poproszony o ponowne zweryfikowanie numeru telefonu podczas kolejnego logowania z włączonym uwierzytelnianiem wieloskładnikowym.
-
-
-

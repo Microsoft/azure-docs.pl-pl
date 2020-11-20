@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 10/05/2019
 ms.author: rohink
-ms.openlocfilehash: 9d183f2da7b916b1547fa1f81aa877b1b5488b41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24f2ca238288854b99160a25c3d4dcedf8ce3368
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308439"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952390"
 ---
 # <a name="azure-private-dns-faq"></a>Prywatna strefa DNS — Często zadawane pytania
 
@@ -34,7 +34,7 @@ Nie. Strefy prywatne działają razem z sieciami wirtualnymi. Są one używane d
 
 ## <a name="can-the-same-private-zone-be-used-for-several-virtual-networks-for-resolution"></a>Czy można użyć tej samej strefy prywatnej dla kilku sieci wirtualnych do rozwiązania?
 
-Tak. Można połączyć prywatną strefę DNS z tysiącami sieci wirtualnych. Aby uzyskać więcej informacji, zobacz [limity Azure DNS](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits)
+Tak. Można połączyć prywatną strefę DNS z tysiącami sieci wirtualnych. Aby uzyskać więcej informacji, zobacz [limity Azure DNS](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits)
 
 ## <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-linked-to-a-private-zone"></a>Czy sieć wirtualna, która należy do innej subskrypcji, jest połączona ze strefą prywatną?
 
@@ -75,11 +75,11 @@ Tak. Strefy prywatne nie zastępują domyślnej strefy internal.cloudapp.net udo
 ## <a name="will-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>Czy sufiks DNS maszyn wirtualnych w połączonej sieci wirtualnej zostanie zmieniony na tę strefę prywatną?
 
 Nie. Sufiks DNS na maszynach wirtualnych w połączonej sieci wirtualnej pozostaje jako domyślny sufiks dostarczony przez platformę Azure ("*. internal.cloudapp.net"). Sufiks DNS można zmienić ręcznie na maszynach wirtualnych w ramach strefy prywatnej.
-Aby uzyskać wskazówki dotyczące zmiany tego sufiksu, [Użyj dynamicznego systemu DNS do rejestrowania nazw hostów na własnym serwerze DNS](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-ddns#windows-clients)
+Aby uzyskać wskazówki dotyczące zmiany tego sufiksu, [Użyj dynamicznego systemu DNS do rejestrowania nazw hostów na własnym serwerze DNS](../virtual-network/virtual-networks-name-resolution-ddns.md#windows-clients)
 
 ## <a name="what-are-the-usage-limits-for-azure-dns-private-zones"></a>Jakie są limity użycia dla Azure DNS stref prywatnych?
 
-Szczegółowe informacje na temat limitów użycia dla Azure DNS stref prywatnych można znaleźć w [limitach Azure DNS](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits) .
+Szczegółowe informacje na temat limitów użycia dla Azure DNS stref prywatnych można znaleźć w [limitach Azure DNS](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits) .
 
 ## <a name="why-dont-my-existing-private-dns-zones-show-up-in-new-portal-experience"></a>Dlaczego moje istniejące prywatne strefy DNS nie są wyświetlane w nowym środowisku portalu?
 

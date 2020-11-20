@@ -8,38 +8,39 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: e3e0ae444e2b3b6ac195a83653baf4b71bac6644
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.custom: references_regions
+ms.openlocfilehash: e7f017c1f3dc189af2b0fc053912decca3459478
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363871"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952764"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Instrukcje: korzystanie z analiza tekstu na potrzeby kondycji (wersja zapoznawcza)
-
-> [!NOTE]
-> Ostatnio Zaktualizowano analiza tekstu dla kontenera kondycji. Zobacz, [co nowego](../whats-new.md) , aby uzyskać więcej informacji na temat najnowszych zmian. Należy pamiętać o pociągnięciach najnowszych kontenerów, aby korzystać z aktualizacji.
 
 > [!IMPORTANT] 
 > Analiza tekstu dla kondycji to funkcja w wersji zapoznawczej udostępniona "AS IS" i "ze wszystkimi BŁĘDami". W związku z tym **Analiza tekstu dla kondycji (wersja zapoznawcza) nie należy implementować ani wdrażać w żadnym środowisku produkcyjnym.** Analiza tekstu dla kondycji nie są przeznaczone do użytku jako wyrób medyczny, pomoc techniczna kliniczna, narzędzie diagnostyczne ani inne technologie przeznaczone do celów diagnostycznych, pozyskiwania, łagodzenia, traktowania lub zapobiegania chorobom lub innym warunkom, a firma Microsoft nie udziela żadnych licencji ani prawa do korzystania z tej funkcji w taki sposób. Ta możliwość nie została zaprojektowana lub zaplanowana jako zamiennik do profesjonalnego doradztwa medycznego lub opinii o opieki zdrowotnej, diagnostyki, traktowania lub klinicznej oceny specjalisty ds. ochrony zdrowia i nie powinna być używana jako taka. Klient jest odpowiedzialny wyłącznie za korzystanie z analiza tekstu na potrzeby kondycji. Firma Microsoft nie gwarantuje, że analiza tekstu w zakresie kondycji lub materiały dostarczone w związku z tą możliwością będą wystarczające dla jakichkolwiek celów medycznych lub w inny sposób spełniają wymagania zdrowotne lub medyczne każdej osoby. 
 
 
-Analiza tekstu dla kondycji jest usługą kontenerową, która wyodrębnia i etykietuje odpowiednie informacje medyczne z tekstów bez struktury, takich jak notatki lekarskie, podsumowania zrzutów, dokumenty kliniczne i rejestry kondycji elektronicznej.  
+Analiza tekstu dla kondycji jest funkcją usługi interfejs API analizy tekstu, która wyodrębnia i etykietuje odpowiednie informacje medyczne z tekstów bez struktury, takich jak notatki lekarskie, podsumowania zrzutów, dokumenty kliniczne i rejestry kondycji elektronicznej.  Istnieją dwa sposoby korzystania z tej usługi: 
+
+* Internetowy interfejs API (asynchronicznie) 
+* Kontener platformy Docker (synchroniczny)   
 
 ## <a name="features"></a>Funkcje
 
-Analiza tekstu dla kontenera kondycji wykonuje obecnie nazwane rozpoznawanie jednostek (NER), wyodrębnianie relacji, negację jednostki oraz łączenie obiektów w języku angielskim w własnym środowisku programistycznym, które spełnia wymagania dotyczące zabezpieczeń i zarządzania danymi.
+Analiza tekstu dla kondycji wykonuje nazwane rozpoznawanie jednostek (NER), wyodrębnianie relacji, negację jednostki oraz łączenie jednostek w języku angielskim w celu uzyskania wglądu w dane kliniczne i biomedyczne bez struktury.
 
-#### <a name="named-entity-recognition"></a>[Rozpoznawanie jednostek nazwanych](#tab/ner)
+### <a name="named-entity-recognition"></a>[Rozpoznawanie jednostek nazwanych](#tab/ner)
 
 Rozpoznawanie jednostek nazwanych wykrywa słowa i frazy wymienione w tekście niestrukturalnym, które mogą być skojarzone z co najmniej jednym typem semantycznym, na przykład diagnostyką, nazwą leczenia, objawem/podpisem lub wiekiem.
 
 > [!div class="mx-imgBorder"]
 > ![NER kondycji](../media/ta-for-health/health-named-entity-recognition.png)
 
-#### <a name="relation-extraction"></a>[Wyodrębnianie relacji](#tab/relation-extraction)
+### <a name="relation-extraction"></a>[Wyodrębnianie relacji](#tab/relation-extraction)
 
 Wyodrębnienie relacji identyfikuje znaczące połączenia między pojęciami wymienionymi w tekście. Na przykład relacja "czas warunku" można znaleźć, kojarząc nazwę warunku z godziną. 
 
@@ -47,7 +48,7 @@ Wyodrębnienie relacji identyfikuje znaczące połączenia między pojęciami wy
 > ![Kondycja](../media/ta-for-health/health-relation-extraction.png)
 
 
-#### <a name="entity-linking"></a>[Łączenie jednostek](#tab/entity-linking)
+### <a name="entity-linking"></a>[Łączenie jednostek](#tab/entity-linking)
 
 Łączenie jednostek odróżnia odrębne jednostki, kojarząc nazwane jednostki wymienione w tekście z pojęciami znajdującymi się w wstępnie zdefiniowanej bazie danych koncepcji. Na przykład ujednolicony system językowy (UMLS).
 
@@ -56,7 +57,7 @@ Wyodrębnienie relacji identyfikuje znaczące połączenia między pojęciami wy
 
 Analiza tekstu dla kondycji obsługuje łączenie z słownikami kondycji i biomedycznej, które znajdują się w źródle wiedzy o systemie Unified[UMLS](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html).
 
-#### <a name="negation-detection"></a>[Wykrywanie negacji](#tab/negation-detection) 
+### <a name="negation-detection"></a>[Wykrywanie negacji](#tab/negation-detection) 
 
 Znaczenie dla zawartości medycznej ma duże wpływ na modyfikatory, takie jak Negacja, co może mieć krytyczne znaczenie w przypadku niezdiagnozowania. Analiza tekstu dla kondycji obsługuje wykrywanie negacji dla różnych jednostek wymienionych w tekście. 
 
@@ -67,173 +68,189 @@ Znaczenie dla zawartości medycznej ma duże wpływ na modyfikatory, takie jak N
 
 Aby uzyskać pełną listę obsługiwanych jednostek, zobacz [Kategorie jednostek](../named-entity-types.md?tabs=health) zwrócone przez analiza tekstu dla kondycji.
 
-## <a name="supported-languages"></a>Obsługiwane języki
+### <a name="supported-languages-and-regions"></a>Obsługiwane języki i regiony
 
-Analiza tekstu dla kondycji obsługuje tylko dokumenty w języku angielskim.
+Analiza tekstu dla kondycji obsługuje tylko dokumenty w języku angielskim. 
 
-## <a name="request-access-to-the-container-registry"></a>Zażądaj dostępu do rejestru kontenerów
+Analiza tekstu dla hostowanego interfejsu API sieci Web usługi kondycji jest obecnie dostępny tylko w następujących regionach: zachodnie stany USA 2, Wschodnie stany USA 2, środkowe stany USA, Europa Północna i Europa Zachodnia.
 
-Wypełnij i prześlij [formularz żądania Cognitive Services kontenerów](https://aka.ms/csgate) , aby zażądać dostępu do kontenera. Obecnie nie są naliczane opłaty za analiza tekstu za użycie kondycji. 
+## <a name="request-access-to-the-public-preview"></a>Zażądaj dostępu do publicznej wersji zapoznawczej
 
-[!INCLUDE [Request access to the container registry](../../../../includes/cognitive-services-containers-request-access-only.md)]
+Wypełnij i prześlij [formularz żądania Cognitive Services](https://aka.ms/csgate) , aby zażądać dostępu do analiza tekstu dla publicznej wersji zapoznawczej kondycji. Za użycie kondycji nie będą naliczane opłaty za analiza tekstu. 
 
-[!INCLUDE [Authenticate to the container registry](../../../../includes/cognitive-services-containers-access-registry.md)]
+Formularz żąda informacji o użytkowniku, firmie i scenariuszu użytkownika, dla którego będziesz używać kontenera. Po przesłaniu formularza zespół usługi Azure Cognitive Services sprawdzi go i wyśle wiadomość e-mail z decyzją.
 
-## <a name="install-the-container"></a>Instalowanie kontenera
+> [!IMPORTANT]
+> * W formularzu musisz użyć adresu e-mail skojarzonego z IDENTYFIKATORem subskrypcji platformy Azure.
+> * Zasób platformy Azure, którego używasz, musi zostać utworzony przy użyciu zatwierdzonego identyfikatora subskrypcji platformy Azure. 
+> * Sprawdź pocztę e-mail (Skrzynka odbiorcza i foldery śmieci), aby uzyskać aktualizacje stanu aplikacji firmy Microsoft.
 
-Istnieje wiele sposobów instalowania i uruchamiania kontenera. 
+## <a name="using-the-docker-container"></a>Używanie kontenera Docker 
 
-- Użyj [Azure Portal](text-analytics-how-to-install-containers.md?tabs=healthcare) , aby utworzyć zasób analiza tekstu i użyć platformy Docker do pobrania kontenera.
-- Aby zautomatyzować konfigurację kontenera wdrażania zasobów, należy użyć następujących skryptów [interfejsu wiersza polecenia](/cli/azure/?view=azure-cli-latest) programu PowerShell i platformy Azure.
+Aby uruchomić analiza tekstu dla kontenera kondycji w swoim środowisku, postępuj zgodnie [z tymi instrukcjami, aby pobrać i zainstalować kontener](../how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare).
 
-### <a name="install-the-container-using-azure-web-app-for-containers"></a>Instalowanie kontenera przy użyciu usługi Azure Web App for Containers
+## <a name="using-the-client-library"></a>Używanie biblioteki klienta
 
-Azure [Web App for Containers](https://azure.microsoft.com/services/app-service/containers/) to zasób platformy Azure przeznaczony do uruchamiania kontenerów w chmurze. Oferuje ona wbudowane funkcje, takie jak Skalowanie automatyczne, obsługa kontenerów platformy Docker i tworzenie rozwiązań Docker, obsługa protokołu HTTPS i wiele innych.
-
-> [!NOTE]
-> Przy użyciu aplikacji sieci Web platformy Azure automatycznie otrzymasz domenę w postaci `<appservice_name>.azurewebsites.net`
-
-Uruchom ten skrypt programu PowerShell przy użyciu interfejsu wiersza polecenia platformy Azure, aby utworzyć Web App for Containers przy użyciu subskrypcji i obrazu kontenera za pośrednictwem protokołu HTTPS. Poczekaj na zakończenie wykonywania skryptu (około 25-30 minut) przed przesłaniem pierwszego żądania.
-
-```bash
-$subscription_name = ""                    # THe name of the subscription you want you resource to be created on.
-$resource_group_name = ""                  # The name of the resource group you want the AppServicePlan
-                                           #    and AppSerivce to be attached to.
-$resources_location = ""                   # This is the location you wish the AppServicePlan to be deployed to.
-                                           #    You can use the "az account list-locations -o table" command to
-                                           #    get the list of available locations and location code names.
-$appservice_plan_name = ""                 # This is the AppServicePlan name you wish to have.
-$appservice_name = ""                      # This is the AppService resource name you wish to have.
-$TEXT_ANALYTICS_RESOURCE_API_KEY = ""      # This should be taken from the Text Analytics resource.
-$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT = "" # This should be taken from the Text Analytics resource.
-$DOCKER_REGISTRY_SERVER_PASSWORD = ""      # This will be provided separately.
-$DOCKER_REGISTRY_SERVER_USERNAME = ""      # This will be provided separately.
-$DOCKER_IMAGE_NAME = "containerpreview.azurecr.io/microsoft/cognitive-services-healthcare:latest"
-
-az login
-az account set -s $subscription_name
-az appservice plan create -n $appservice_plan_name -g $resource_group_name --is-linux -l $resources_location --sku P3V2
-az webapp create -g $resource_group_name -p $appservice_plan_name -n $appservice_name -i $DOCKER_IMAGE_NAME -s $DOCKER_REGISTRY_SERVER_USERNAME -w $DOCKER_REGISTRY_SERVER_PASSWORD
-az webapp config appsettings set -g $resource_group_name -n $appservice_name --settings Eula=accept Billing=$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT ApiKey=$TEXT_ANALYTICS_RESOURCE_API_KEY
-
-# Once deployment complete, the resource should be available at: https://<appservice_name>.azurewebsites.net
-```
-
-### <a name="install-the-container-using-azure-container-instance"></a>Instalowanie kontenera przy użyciu usługi Azure Container instance
-
-Możesz również użyć wystąpienia kontenera platformy Azure (ACI), aby ułatwić wdrażanie. ACI to zasób, który umożliwia uruchamianie kontenerów platformy Docker na żądanie w zarządzanym, bezserwerowym środowisku platformy Azure. 
-
-Zapoznaj się z tematem [jak używać Azure Container Instances](text-analytics-how-to-use-container-instances.md) kroków dotyczących wdrażania zasobu ACI przy użyciu Azure Portal. Możesz też użyć poniższego skryptu programu PowerShell przy użyciu interfejsu wiersza polecenia platformy Azure, który spowoduje utworzenie ACI w subskrypcji przy użyciu obrazu kontenera.  Poczekaj na zakończenie wykonywania skryptu (około 25-30 minut) przed przesłaniem pierwszego żądania.  Ze względu na limit maksymalnej liczby procesorów CPU na ACI zasób nie należy zaznaczać tej opcji, jeśli oczekuje się przesłania więcej niż 5 dużych dokumentów (około 5000 znaków) na żądanie.
-Aby uzyskać informacje o dostępności, zobacz artykuł dotyczący [pomocy regionalnej ACI](../../../container-instances/container-instances-region-availability.md) . 
-
-> [!NOTE] 
-> Azure Container Instances nie Uwzględniaj obsługi protokołu HTTPS dla domen wbudowanych. Jeśli potrzebujesz protokołu HTTPS, konieczne będzie jego ręczne skonfigurowanie, w tym utworzenie certyfikatu i zarejestrowanie domeny. Instrukcje można znaleźć w NGINX poniżej.
-
-```bash
-$subscription_name = ""                    # The name of the subscription you want you resource to be created on.
-$resource_group_name = ""                  # The name of the resource group you want the AppServicePlan
-                                           # and AppService to be attached to.
-$resources_location = ""                   # This is the location you wish the web app to be deployed to.
-                                           # You can use the "az account list-locations -o table" command to
-                                           # Get the list of available locations and location code names.
-$azure_container_instance_name = ""        # This is the AzureContainerInstance name you wish to have.
-$TEXT_ANALYTICS_RESOURCE_API_KEY = ""      # This should be taken from the Text Analytics resource.
-$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT = "" # This should be taken from the Text Analytics resource.
-$DOCKER_REGISTRY_SERVER_PASSWORD = ""      # This will be provided separately.
-$DOCKER_REGISTRY_SERVER_USERNAME = ""      # This will be provided separately.
-$DNS_LABEL = ""                            # This is the DNS label name you wish your ACI will have
-$DOCKER_REGISTRY_LOGIN_SERVER = "containerpreview.azurecr.io"
-$DOCKER_IMAGE_NAME = "containerpreview.azurecr.io/microsoft/cognitive-services-healthcare:latest"
-
-az login
-az account set -s $subscription_name
-az container create --resource-group $resource_group_name --name $azure_container_instance_name --image $DOCKER_IMAGE_NAME --cpu 4 --memory 12 --registry-login-server $DOCKER_REGISTRY_LOGIN_SERVER --registry-username $DOCKER_REGISTRY_SERVER_USERNAME --registry-password $DOCKER_REGISTRY_SERVER_PASSWORD --port 5000 --dns-name-label $DNS_LABEL --environment-variables Eula=accept Billing=$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT ApiKey=$TEXT_ANALYTICS_RESOURCE_API_KEY
-
-# Once deployment complete, the resource should be available at: http://<unique_dns_label>.<resource_group_region>.azurecontainer.io:5000
-```
-
-### <a name="secure-aci-connectivity"></a>Bezpieczna łączność ACI
-
-Domyślnie w przypadku korzystania z ACI z interfejsem API kontenera nie są dostępne żadne zabezpieczenia. Wynika to z faktu, że zwykle kontenery będą uruchamiane jako część elementu, który jest chroniony przez mostek sieciowy. Można jednak zmodyfikować kontener z składnikiem frontonu, zachowując prywatny punkt końcowy kontenera. W poniższych przykładach użyto [Nginx](https://www.nginx.com) jako bramy ruchu przychodzącego do obsługi protokołu HTTPS/SSL i uwierzytelniania za pomocą certyfikatu klienta.
-
-> [!NOTE]
-> NGINX to serwer HTTP, który jest serwerem proxy o wysokiej wydajności i serwerze. Kontener NGINX może służyć do kończenia połączenia TLS dla jednego kontenera. Dostępne są również bardziej złożone rozwiązania do zakończenia protokołu TLS oparte na protokole NGINX.
-
-#### <a name="set-up-nginx-as-an-ingress-gateway"></a>Skonfiguruj NGINX jako bramę transferu danych przychodzących
-
-NGINX używa [plików konfiguracji](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/) do włączania funkcji w czasie wykonywania. Aby włączyć zakończenie protokołu TLS dla innej usługi, należy określić certyfikat SSL, aby zakończyć połączenie TLS i  `proxy_pass` określić adres usługi. Poniżej przedstawiono przykład.
+Najnowsza wersja wstępna biblioteki klienta analiza tekstu umożliwia wywoływanie analiza tekstu na potrzeby kondycji przy użyciu obiektu klienckiego. Zapoznaj się z dokumentacją referencyjną i Zobacz przykłady w witrynie GitHub:
+* [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
+* [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
+* [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
 
 
-> [!NOTE]
-> `ssl_certificate` oczekuje ścieżki, która ma być określona w lokalnym systemie plików kontenera NGINX. Adres określony dla elementu `proxy_pass` musi być dostępny w sieci kontenera Nginx.
 
-Kontener NGINX będzie ładować wszystkie pliki w `_.conf_` folderze, które są zainstalowane w `/etc/nginx/conf.d/` ścieżce konfiguracji http.
+## <a name="sending-a-rest-api-request"></a>Wysyłanie żądania interfejsu API REST 
 
-```nginx
-server {
-  listen              80;
-  return 301 https://$host$request_uri;
-}
-server {
-  listen              443 ssl;
-  # replace with .crt and .key paths
-  ssl_certificate     /cert/Local.crt;
-  ssl_certificate_key /cert/Local.key;
+### <a name="preparation"></a>Przygotowanie
 
-  location / {
-    proxy_pass http://cognitive-service:5000;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header X-Real-IP  $remote_addr;
-  }
+Analiza tekstu w przypadku kondycji daje wynik wyższej jakości, gdy zostanie nadana mniejsza ilość tekstu do pracy. Jest to przeciwieństwo do niektórych innych funkcji analiza tekstu, takich jak wyodrębnianie kluczowych fraz, które wykonują lepsze działania w większych blokach tekstu. Aby uzyskać najlepsze wyniki tych operacji, rozważ odpowiednio restrukturyzację danych wejściowych.
+
+Musisz mieć dokumenty JSON w tym formacie: ID, text i Language. 
+
+Rozmiar dokumentu musi zawierać 5 120 znaków na dokument. Aby uzyskać maksymalną dozwoloną liczbę dokumentów w kolekcji, zobacz artykuł dotyczący [limitów danych](../concepts/data-limits.md?tabs=version-3) w obszarze pojęcia. Kolekcja jest przesyłana w treści żądania.
+
+### <a name="structure-the-api-request-for-the-hosted-asynchronous-web-api"></a>Tworzenie struktury żądania interfejsu API dla hostowanego asynchronicznego interfejsu API sieci Web
+
+W przypadku kontenera i hostowanego interfejsu API sieci Web należy utworzyć żądanie POST. Możesz [użyć](text-analytics-how-to-call-api.md)programu do wypełniania, polecenia lub **konsoli testowania interfejsu API** w analiza tekstu, aby [uzyskać informacje o kondycji hostowanego interfejsu API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) , aby szybko utworzyć i wysłać żądanie post do hostowanego interfejsu API sieci Web w żądanym regionie. 
+
+Poniżej znajduje się przykład pliku JSON dołączonego do analiza tekstu dla treści wpisu żądania interfejsu API kondycji:
+
+```json
+example.json
+
+{
+  "documents": [
+    {
+      "language": "en",
+      "id": "1",
+      "text": "Subject was administered 100mg remdesivir intravenously over a period of 120 min"
+    }
+  ]
 }
 ```
 
-#### <a name="example-docker-compose-file"></a>Przykładowy plik redagowania platformy Docker
+### <a name="hosted-asynchronous-web-api-response"></a>Hostowana asynchroniczna odpowiedź interfejsu API sieci Web 
 
-Poniższy przykład pokazuje, jak można utworzyć plik [redagowania platformy Docker](https://docs.docker.com/compose/reference/overview) w celu wdrożenia NGINX i analiza tekstu dla kontenerów kondycji:
+Ponieważ to żądanie POST służy do przesyłania zadania dla operacji asynchronicznej, w obiekcie Response nie ma tekstu.  Wymagana jest jednak wartość klucza operacji w nagłówkach odpowiedzi w celu uzyskania żądania GET w celu sprawdzenia stanu zadania i danych wyjściowych.  Poniżej znajduje się przykład wartości klucza lokalizacji operacji w nagłówku odpowiedzi żądania POST:
 
-```yaml
-version: "3.7"
-services:
-  cognitive-service:
-    image: {IMAGE_ID}
-    ports:
-      - 5000:5000
-    environment:
-      - eula=accept
-      - billing={ENDPOINT_URI}
-      - apikey={API_KEY}
-      - Logging:Disk:Format=json
-    volumes:
-        # replace with path to logs folder
-      - <path-to-logs-folder>:/output
-  nginx:
-    image: nginx
-    ports:
-      - 443:443
-    volumes:
-        # replace with paths for certs and conf folders
-      - <path-to-certs-folder>:/cert
-      - <path-to-conf-folder>:/etc/nginx/conf.d/
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/health/jobs/<jobID>`
+
+Aby sprawdzić stan zadania, wprowadź żądanie GET do adresu URL w polu Nagłówek klucza operacji w odpowiedzi na wpis.  Następujące stany są używane w celu odzwierciedlenia stanu zadania:,,,,, `NotStarted` `running` `succeeded` `failed` `rejected` `cancelling` i `cancelled` .  
+
+Zadanie można anulować przy użyciu `NotStarted` `running` stanu lub z WYWOŁANIEM Delete http na ten sam adres URL co żądanie Get.  Więcej informacji na temat wywołania usuwania jest dostępnych w [Analiza tekstu dla dokumentacji interfejsu API hostowanej kondycji](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/CancelHealthJob).
+
+Poniżej przedstawiono przykład odpowiedzi na żądanie GET.  Należy pamiętać, że dane wyjściowe są dostępne do pobrania, dopóki nie przeprowadzono operacji `expirationDateTime` (24 godziny od momentu utworzenia zadania), po upływie którego dane wyjściowe zostaną usunięte.
+
+```json
+{
+    "jobId": "b672c6f5-7c0d-4783-ba8c-4d0c47213454",
+    "lastUpdateDateTime": "2020-11-18T01:45:00Z",
+    "createdDateTime": "2020-11-18T01:44:55Z",
+    "expirationDateTime": "2020-11-19T01:44:55Z",
+    "status": "succeeded",
+    "errors": [],
+    "results": {
+        "documents": [
+            {
+                "id": "1",
+                "entities": [
+                    {
+                        "offset": 25,
+                        "length": 5,
+                        "text": "100mg",
+                        "category": "Dosage",
+                        "confidenceScore": 1.0,
+                        "isNegated": false
+                    },
+                    {
+                        "offset": 31,
+                        "length": 10,
+                        "text": "remdesivir",
+                        "category": "MedicationName",
+                        "confidenceScore": 1.0,
+                        "isNegated": false,
+                        "links": [
+                            {
+                                "dataSource": "UMLS",
+                                "id": "C4726677"
+                            },
+                            {
+                                "dataSource": "MSH",
+                                "id": "C000606551"
+                            },
+                            {
+                                "dataSource": "NCI",
+                                "id": "C152185"
+                            },
+                            {
+                                "dataSource": "NCI_FDA",
+                                "id": "3QKI37EEHE"
+                            }
+                        ]
+                    },
+                    {
+                        "offset": 42,
+                        "length": 13,
+                        "text": "intravenously",
+                        "category": "MedicationRoute",
+                        "confidenceScore": 1.0,
+                        "isNegated": false
+                    },
+                    {
+                        "offset": 56,
+                        "length": 4,
+                        "text": "over",
+                        "category": "Time",
+                        "confidenceScore": 0.87,
+                        "isNegated": false
+                    },
+                    {
+                        "offset": 73,
+                        "length": 7,
+                        "text": "120 min",
+                        "category": "Time",
+                        "confidenceScore": 0.99,
+                        "isNegated": false
+                    }
+                ],
+                "relations": [
+                    {
+                        "relationType": "DosageOfMedication",
+                        "bidirectional": false,
+                        "source": "#/results/documents/0/entities/0",
+                        "target": "#/results/documents/0/entities/1"
+                    },
+                    {
+                        "relationType": "RouteOfMedication",
+                        "bidirectional": false,
+                        "source": "#/results/documents/0/entities/2",
+                        "target": "#/results/documents/0/entities/1"
+                    },
+                    {
+                        "relationType": "TimeOfMedication",
+                        "bidirectional": false,
+                        "source": "#/results/documents/0/entities/3",
+                        "target": "#/results/documents/0/entities/1"
+                    },
+                    {
+                        "relationType": "TimeOfMedication",
+                        "bidirectional": false,
+                        "source": "#/results/documents/0/entities/4",
+                        "target": "#/results/documents/0/entities/1"
+                    }
+                ],
+                "warnings": []
+            }
+        ],
+        "errors": [],
+        "modelVersion": "2020-09-03"
+    }
+}
 ```
 
-Aby zainicjować ten plik do redagowania platformy Docker, wykonaj następujące polecenie w konsoli na poziomie głównym pliku:
 
-```bash
-docker-compose up
-```
+### <a name="structure-the-api-request-for-the-container"></a>Tworzenie struktury żądania interfejsu API dla kontenera
 
-Aby uzyskać więcej informacji, zobacz dokumentację NGINX na temat [Nginx protokołu SSL](https://docs.nginx.com/nginx/admin-guide/security-controls/terminating-ssl-http/).
-
-
-## <a name="example-api-request"></a>Przykładowe żądanie interfejsu API
-Kontener udostępnia oparte na interfejsie REST interfejsy API punktu końcowego przewidywania zapytań.  Udostępniono również narzędzie do wizualizacji w kontenerze, które jest dostępne przez dołączenie **pokazu** do punktu końcowego kontenera na przykład:
-
-```bash
-http://<serverURL>:5000/demo
-```
-
-Użyj przykładowego żądania zwinięcie poniżej, aby przesłać zapytanie do wdrożonego kontenera zastępującego `serverURL` zmienną odpowiednią wartością.
+Aby przesłać zapytanie do wdrożonego kontenera, można [użyć programu Poster](text-analytics-how-to-call-api.md) lub przykładowego żądania zwinięcie, zastępując `serverURL` zmienną odpowiednią wartością.  Zwróć uwagę, że wersja interfejsu API w adresie URL kontenera jest inna niż hostowany interfejs API.
 
 ```bash
 curl -X POST 'http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
@@ -261,9 +278,9 @@ example.json
 }
 ```
 
-## <a name="api-response-body"></a>Treść odpowiedzi interfejsu API
+### <a name="container-response-body"></a>Treść odpowiedzi kontenera
 
-Poniższy kod JSON jest przykładem treści odpowiedzi interfejsu API kondycji analiza tekstu:
+Poniższy kod JSON jest analiza tekstu przykładem treści odpowiedzi interfejsu API kondycji z kontenera synchronicznego wywołania:
 
 ```json
 {
@@ -273,81 +290,65 @@ Poniższy kod JSON jest przykładem treści odpowiedzi interfejsu API kondycji a
             "entities": [
                 {
                     "id": "0",
-                    "offset": 17,
-                    "length": 11,
-                    "text": "itchy sores",
-                    "category": "SymptomOrSign",
-                    "confidenceScore": 1.0,
-                    "isNegated": false
-                }
-            ]
-        },
-        {
-            "id": "2",
-            "entities": [
-                {
-                    "id": "0",
-                    "offset": 11,
-                    "length": 4,
-                    "text": "50mg",
+                    "offset": 25,
+                    "length": 5,
+                    "text": "100mg",
                     "category": "Dosage",
                     "confidenceScore": 1.0,
                     "isNegated": false
                 },
                 {
                     "id": "1",
-                    "offset": 16,
-                    "length": 8,
-                    "text": "benadryl",
+                    "offset": 31,
+                    "length": 10,
+                    "text": "remdesivir",
                     "category": "MedicationName",
                     "confidenceScore": 1.0,
                     "isNegated": false,
                     "links": [
                         {
                             "dataSource": "UMLS",
-                            "id": "C0700899"
-                        },
-                        {
-                            "dataSource": "CHV",
-                            "id": "0000044903"
-                        },
-                        {
-                            "dataSource": "MMSL",
-                            "id": "899"
+                            "id": "C4726677"
                         },
                         {
                             "dataSource": "MSH",
-                            "id": "D004155"
+                            "id": "C000606551"
                         },
                         {
                             "dataSource": "NCI",
-                            "id": "C300"
+                            "id": "C152185"
                         },
                         {
-                            "dataSource": "NCI_DTP",
-                            "id": "NSC0033299"
-                        },
-                        {
-                            "dataSource": "PDQ",
-                            "id": "CDR0000039163"
-                        },
-                        {
-                            "dataSource": "PSY",
-                            "id": "05760"
-                        },
-                        {
-                            "dataSource": "RXNORM",
-                            "id": "203457"
+                            "dataSource": "NCI_FDA",
+                            "id": "3QKI37EEHE"
                         }
                     ]
                 },
                 {
                     "id": "2",
-                    "offset": 32,
-                    "length": 11,
-                    "text": "twice daily",
-                    "category": "Frequency",
+                    "offset": 42,
+                    "length": 13,
+                    "text": "intravenously",
+                    "category": "MedicationRoute",
                     "confidenceScore": 1.0,
+                    "isNegated": false
+                },
+                {
+                    "id": "3",
+                    "offset": 56,
+                    "length": 4,
+                    "text": "over",
+                    "category": "Time",
+                    "confidenceScore": 0.87,
+                    "isNegated": false
+                },
+                {
+                    "id": "4",
+                    "offset": 73,
+                    "length": 7,
+                    "text": "120 min",
+                    "category": "Time",
+                    "confidenceScore": 0.99,
                     "isNegated": false
                 }
             ],
@@ -355,26 +356,38 @@ Poniższy kod JSON jest przykładem treści odpowiedzi interfejsu API kondycji a
                 {
                     "relationType": "DosageOfMedication",
                     "bidirectional": false,
-                    "source": "#/documents/1/entities/0",
-                    "target": "#/documents/1/entities/1"
+                    "source": "#/documents/0/entities/0",
+                    "target": "#/documents/0/entities/1"
                 },
                 {
-                    "relationType": "FrequencyOfMedication",
+                    "relationType": "RouteOfMedication",
                     "bidirectional": false,
-                    "source": "#/documents/1/entities/2",
-                    "target": "#/documents/1/entities/1"
+                    "source": "#/documents/0/entities/2",
+                    "target": "#/documents/0/entities/1"
+                },
+                {
+                    "relationType": "TimeOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/0/entities/3",
+                    "target": "#/documents/0/entities/1"
+                },
+                {
+                    "relationType": "TimeOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/0/entities/4",
+                    "target": "#/documents/0/entities/1"
                 }
             ]
         }
     ],
     "errors": [],
-    "modelVersion": "2020-07-24"
+    "modelVersion": "2020-09-03"
 }
 ```
 
 ### <a name="negation-detection-output"></a>Dane wyjściowe wykrywania negacji
 
-W przypadku korzystania z wykrywania negacji w niektórych przypadkach pojedynczy termin negacji może zająć kilka warunków jednocześnie. Negacja rozpoznanej jednostki jest reprezentowana w danych wyjściowych JSON przez wartość logiczną `isNegated` flagi:
+W przypadku korzystania z wykrywania negacji w niektórych przypadkach pojedynczy termin negacji może zająć kilka warunków jednocześnie. Negacja rozpoznanej jednostki jest reprezentowana w danych wyjściowych JSON przez wartość logiczną `isNegated` flagi, na przykład:
 
 ```json
 {
@@ -421,7 +434,7 @@ Dane wyjściowe wyodrębniania relacji zawierają odwołania identyfikatora URI 
 ]
 ```
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Przegląd analizy tekstu](../overview.md)
 * [Kategorie nazwanych jednostek](../named-entity-types.md)

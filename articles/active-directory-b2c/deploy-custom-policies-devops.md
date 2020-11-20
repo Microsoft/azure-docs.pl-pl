@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0dba5f96d90304418d7ebd297419c1f36244f868
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4dd9f98f174144cef455157162694a470aa1065f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363933"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951767"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Wdrażanie zasad niestandardowych przy użyciu Azure Pipelines
 
@@ -29,7 +29,7 @@ Aby umożliwić Azure Pipelines Zarządzanie zasadami niestandardowymi w ramach 
 1. Konfigurowanie potoku platformy Azure
 
 > [!IMPORTANT]
-> Zarządzanie zasadami niestandardowymi Azure AD B2C przy użyciu potoku platformy Azure obecnie używa operacji w **wersji zapoznawczej** dostępnych w `/beta` punkcie końcowym interfejsu API Microsoft Graph. Te interfejsy API nie są obsługiwane w zastosowaniach produkcyjnych. Aby uzyskać więcej informacji, zobacz [Informacje o punkcie końcowym interfejsu API REST](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta)w usłudze Microsoft Graph.
+> Zarządzanie zasadami niestandardowymi Azure AD B2C przy użyciu potoku platformy Azure obecnie używa operacji w **wersji zapoznawczej** dostępnych w `/beta` punkcie końcowym interfejsu API Microsoft Graph. Te interfejsy API nie są obsługiwane w zastosowaniach produkcyjnych. Aby uzyskać więcej informacji, zobacz [Informacje o punkcie końcowym interfejsu API REST](/graph/api/overview?toc=.%252fref%252ftoc.json&view=graph-rest-beta)w usłudze Microsoft Graph.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -40,7 +40,7 @@ Aby umożliwić Azure Pipelines Zarządzanie zasadami niestandardowymi w ramach 
 
 ## <a name="client-credentials-grant-flow"></a>Przepływ przyznania poświadczeń klienta
 
-W tym scenariuszu opisano sposób korzystania z wywołań między usługami Azure Pipelines i Azure AD B2C za pomocą [przepływu przydzielenia poświadczeń klienta](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md)OAuth 2,0. Ten przepływ grantu zezwala usłudze sieci Web, takiej jak Azure Pipelines (klient poufny) na używanie własnych poświadczeń zamiast personifikowania użytkownika w celu uwierzytelnienia podczas wywoływania innej usługi sieci Web (w tym przypadku interfejsu API Microsoft Graph). Azure Pipelines uzyskuje token nieinteraktywnie, a następnie wysyła żądania do interfejsu API Microsoft Graph.
+W tym scenariuszu opisano sposób korzystania z wywołań między usługami Azure Pipelines i Azure AD B2C za pomocą [przepływu przydzielenia poświadczeń klienta](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md)OAuth 2,0. Ten przepływ grantu zezwala usłudze sieci Web, takiej jak Azure Pipelines (klient poufny) na używanie własnych poświadczeń zamiast personifikowania użytkownika w celu uwierzytelnienia podczas wywoływania innej usługi sieci Web (w tym przypadku interfejsu API Microsoft Graph). Azure Pipelines uzyskuje token nieinteraktywnie, a następnie wysyła żądania do interfejsu API Microsoft Graph.
 
 ## <a name="register-an-application-for-management-tasks"></a>Rejestrowanie aplikacji na potrzeby zadań zarządzania
 
@@ -58,7 +58,7 @@ Po zarejestrowaniu aplikacji zarządzania można skonfigurować repozytorium dla
 1. [Utwórz nowy projekt][devops-create-project] lub wybierz istniejący projekt.
 1. W projekcie przejdź do **repozytoriów** i wybierz stronę **pliki** . Wybierz istniejące repozytorium lub utwórz je dla tego ćwiczenia.
 1. Utwórz folder o nazwie *B2CAssets*. Nazwij wymagany plik zastępczy *README.MD* i **Zatwierdź** plik. Możesz usunąć ten plik później, jeśli chcesz.
-1. Dodaj pliki zasad Azure AD B2C do folderu *B2CAssets* . Obejmuje to *TrustFrameworkBase.xml*, *TrustFrameWorkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*, *PasswordReset.xml*i innych utworzonych zasad. Zapisz nazwę pliku Azure AD B2C zasad do użycia w późniejszym kroku (są one używane jako argumenty skryptu programu PowerShell).
+1. Dodaj pliki zasad Azure AD B2C do folderu *B2CAssets* . Obejmuje to *TrustFrameworkBase.xml*, *TrustFrameWorkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*, *PasswordReset.xml* i innych utworzonych zasad. Zapisz nazwę pliku Azure AD B2C zasad do użycia w późniejszym kroku (są one używane jako argumenty skryptu programu PowerShell).
 1. Utwórz folder o nazwie *scripts* w katalogu głównym repozytorium, Nazwij plik symbolu zastępczego *DeployToB2c.ps1*. Nie zatwierdzaj pliku w tym momencie, należy to zrobić w późniejszym kroku.
 1. Wklej następujący skrypt programu PowerShell do *DeployToB2c.ps1*, a następnie **Zatwierdź** plik. Skrypt uzyskuje token z usługi Azure AD i wywołuje interfejs API Microsoft Graph, aby przekazać zasady w folderze *B2CAssets* do dzierżawy usługi Azure AD B2C.
 
@@ -115,14 +115,14 @@ Gdy Twoje repozytorium zostało zainicjowane i uzupełnione o niestandardowe pli
 
 1. Zaloguj się do organizacji Azure DevOps Services i przejdź do projektu.
 1. W projekcie wybierz pozycję **potoki**  >  **zwalnia**  >  **Nowy potok**.
-1. W obszarze **Wybierz szablon**wybierz pozycję **puste zadanie**.
+1. W obszarze **Wybierz szablon** wybierz pozycję **puste zadanie**.
 1. Wprowadź **nazwę etapu**, na przykład *DeployCustomPolicies*, a następnie zamknij okienko.
-1. Wybierz pozycję **Dodaj artefakt**i w obszarze **Typ źródła**wybierz pozycję **Azure Repository**.
+1. Wybierz pozycję **Dodaj artefakt** i w obszarze **Typ źródła** wybierz pozycję **Azure Repository**.
     1. Wybierz repozytorium źródłowe zawierające folder *skryptów* , który został wypełniony skryptem programu PowerShell.
     1. Wybierz **gałąź domyślną**. Jeśli utworzono nowe repozytorium w poprzedniej sekcji, gałąź domyślna to *Master*.
     1. Pozostaw **domyślne ustawienie wersji** *najnowsze z gałęzi domyślnej*.
     1. Wprowadź **alias źródła** dla repozytorium. Na przykład *policyRepo*. Nazwa aliasu nie zawiera żadnych spacji.
-1. Wybierz pozycję **Dodaj**
+1. Wybierz pozycję **Dodaj**.
 1. Zmień nazwę potoku, aby odzwierciedlić jego zamiar. Na przykład *Wdróż potok zasad niestandardowych*.
 1. Wybierz pozycję **Zapisz** , aby zapisać konfigurację potoku.
 
@@ -209,12 +209,12 @@ Powinien zostać wyświetlony baner powiadomienia informujący o tym, że wersja
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na następujące tematy:
+Dowiedz się więcej:
 
-* [Wywołania między usługami przy użyciu poświadczeń klienta](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
-* [Usługa Azure DevOps Services](https://docs.microsoft.com/azure/devops/user-guide/?view=azure-devops)
+* [Wywołania między usługami przy użyciu poświadczeń klienta](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md)
+* [Usługa Azure DevOps Services](/azure/devops/user-guide/?view=azure-devops)
 
 <!-- LINKS - External -->
-[devops]: https://docs.microsoft.com/azure/devops/?view=azure-devops
-[devops-create-project]:  https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops
-[devops-pipelines]: https://docs.microsoft.com/azure/devops/pipelines
+[devops]: /azure/devops/?view=azure-devops
+[devops-create-project]:  /azure/devops/organizations/projects/create-project?view=azure-devops
+[devops-pipelines]: /azure/devops/pipelines

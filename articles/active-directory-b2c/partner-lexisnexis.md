@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: c753e9a18f9869e1bf11aa437fb60484f2553e17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9bec7ffe28fbcdafd365f9867ebecaee5d2647e5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259258"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953693"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Samouczek dotyczący konfigurowania LexisNexis z Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ Aby rozpocząć, musisz:
 
 - Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
 
-- [Dzierżawa Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) , która jest połączona z subskrypcją platformy Azure.
+- [Dzierżawa Azure AD B2C](./tutorial-create-tenant.md) , która jest połączona z subskrypcją platformy Azure.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -73,14 +73,14 @@ Po utworzeniu konta otrzymasz informacje potrzebne do konfiguracji interfejsu AP
 
 ### <a name="part-1---deploy-the-api"></a>Część 1 — wdrażanie interfejsu API
 
-Wdróż podany [kod interfejsu API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/Api) w usłudze platformy Azure. Kod można opublikować z programu Visual Studio, postępując zgodnie z tymi [instrukcjami](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Wdróż podany [kod interfejsu API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/Api) w usłudze platformy Azure. Kod można opublikować z programu Visual Studio, postępując zgodnie z tymi [instrukcjami](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 >[!NOTE]
 >Aby skonfigurować usługę Azure AD przy użyciu wymaganych ustawień, należy podać adres URL wdrożonej usługi.
 
 ### <a name="part-2---configure-the-api"></a>Część 2 — Konfigurowanie interfejsu API
 
-Ustawienia aplikacji można [skonfigurować w usłudze App Service na platformie Azure](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings).  Za pomocą tej metody ustawienia można bezpiecznie skonfigurować bez sprawdzania ich w repozytorium. Należy podać następujące ustawienia w interfejsie API REST:
+Ustawienia aplikacji można [skonfigurować w usłudze App Service na platformie Azure](../app-service/configure-common.md#configure-app-settings).  Za pomocą tej metody ustawienia można bezpiecznie skonfigurować bez sprawdzania ich w repozytorium. Należy podać następujące ustawienia w interfejsie API REST:
 
 | Ustawienia aplikacji | Element źródłowy | Uwagi |
 | :-------- | :------------| :-----------|
@@ -95,13 +95,13 @@ Ustawienia aplikacji można [skonfigurować w usłudze App Service na platformie
 
 To rozwiązanie używa niestandardowych szablonów interfejsu użytkownika, które są ładowane przez Azure AD B2C. Te szablony interfejsu użytkownika to profilowanie wysyłane bezpośrednio do usługi ThreatMetrix.
 
-Zapoznaj się z tymi [instrukcjami](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#custom-page-content-walkthrough) , aby wdrożyć dołączone [pliki interfejsu użytkownika](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template) na koncie magazynu obiektów BLOB. Instrukcje obejmują Konfigurowanie konta magazynu obiektów blob, Konfigurowanie mechanizmu CORS i Włączanie dostępu publicznego.
+Zapoznaj się z tymi [instrukcjami](./custom-policy-ui-customization.md#custom-page-content-walkthrough) , aby wdrożyć dołączone [pliki interfejsu użytkownika](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template) na koncie magazynu obiektów BLOB. Instrukcje obejmują Konfigurowanie konta magazynu obiektów blob, Konfigurowanie mechanizmu CORS i Włączanie dostępu publicznego.
 
 Interfejs użytkownika jest oparty na [niebieskim szablonie oceanu](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template/ocean_blue). Wszystkie linki w interfejsie użytkownika należy zaktualizować, aby odwoływać się do wdrożonej lokalizacji. W folderze UI Znajdź i Zamień na https://yourblobstorage/blobcontainer wdrożoną lokalizację.
 
 ### <a name="part-4---create-api-policy-keys"></a>Część 4 — Tworzenie kluczy zasad interfejsu API
 
-Zapoznaj się z tym [dokumentem](https://docs.microsoft.com/azure/active-directory-b2c/secure-rest-api#add-rest-api-username-and-password-policy-keys) i Utwórz dwa klucze zasad — jeden dla nazwy użytkownika interfejsu API, a drugi dla hasła interfejsu API zdefiniowanego powyżej.
+Zapoznaj się z tym [dokumentem](./secure-rest-api.md#add-rest-api-username-and-password-policy-keys) i Utwórz dwa klucze zasad — jeden dla nazwy użytkownika interfejsu API, a drugi dla hasła interfejsu API zdefiniowanego powyżej.
 
 Przykładowe zasady używają tych nazw kluczy:
 
@@ -122,7 +122,7 @@ W podanych [zasadach TrustFrameworkExtensions](https://github.com/azure-ad-b2c/p
 
 ### <a name="part-7---configure-the-azure-ad-b2c-policy"></a>Część 7 — Konfigurowanie zasad Azure AD B2C
 
-Zapoznaj się z tym [dokumentem](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) , aby pobrać [pakiet startowy kont lokalnych](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) i skonfigurować [zasady](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy) dla dzierżawy Azure AD B2C.
+Zapoznaj się z tym [dokumentem](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) , aby pobrać [pakiet startowy kont lokalnych](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) i skonfigurować [zasady](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy) dla dzierżawy Azure AD B2C.
 
 >[!NOTE]
 >Aktualizowanie podanych zasad w celu odłożenia względem określonej dzierżawy.
@@ -153,6 +153,6 @@ Zapoznaj się z tym [dokumentem](https://docs.microsoft.com/azure/active-directo
 
 Aby uzyskać dodatkowe informacje, zapoznaj się z następującymi artykułami:
 
-- [Zasady niestandardowe w usłudze Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Zasady niestandardowe w usłudze Azure AD B2C](./custom-policy-overview.md)
 
-- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

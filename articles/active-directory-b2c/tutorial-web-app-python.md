@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.custom: devx-track-python
-ms.openlocfilehash: 6a113b3a3df475853f3690a0e932378bc0e2ab02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4455f21ae7243ab7a15e8d746d6674289f9fdb5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87844630"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953023"
 ---
 # <a name="tutorial-enable-authentication-in-a-python-web-application-with-azure-ad-b2c"></a>Samouczek: Włączanie uwierzytelniania w aplikacji sieci Web w języku Python za pomocą Azure AD B2C
 
@@ -49,7 +49,7 @@ Ponadto w lokalnym środowisku programistycznym są potrzebne następujące elem
 
 W drugim samouczku, który został ukończony w ramach wymagań wstępnych, zarejestrowano aplikację sieci Web w Azure AD B2C. Aby włączyć komunikację z przykładem kodu w tym samouczku, Dodaj adres URL odpowiedzi (nazywany także identyfikatorem URI przekierowania) do rejestracji aplikacji.
 
-Aby zaktualizować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego nowego środowiska **rejestracje aplikacji** lub naszych starszych  **aplikacji (starsza wersja)** . [Dowiedz się więcej na temat nowego środowiska](https://aka.ms/b2cappregtraining).
+Aby zaktualizować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego nowego środowiska **rejestracje aplikacji** lub naszych starszych  **aplikacji (starsza wersja)** . [Dowiedz się więcej na temat nowego środowiska](./app-registrations-training-guide.md).
 
 #### <a name="app-registrations"></a>[Rejestracje aplikacji](#tab/app-reg-ga/)
 
@@ -57,8 +57,8 @@ Aby zaktualizować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego
 1. Wybierz filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
 1. W menu po lewej stronie wybierz pozycję **Azure AD B2C**. Lub wybierz pozycję **wszystkie usługi** i Wyszukaj i wybierz pozycję **Azure AD B2C**.
 1. Wybierz pozycję **rejestracje aplikacji**, wybierz kartę **posiadane aplikacje** , a następnie wybierz aplikację *webapp1* .
-1. W obszarze **Zarządzaj**wybierz pozycję **uwierzytelnianie**.
-1. W obszarze **Sieć Web**wybierz łącze **Dodaj identyfikator URI** , a następnie wprowadź `http://localhost:5000/getAToken` w polu tekstowym.
+1. W obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**.
+1. W obszarze **Sieć Web** wybierz łącze **Dodaj identyfikator URI** , a następnie wprowadź `http://localhost:5000/getAToken` w polu tekstowym.
 1. Wybierz pozycję **Zapisz**.
 
 #### <a name="applications-legacy"></a>[Aplikacje (starsze)](#tab/applications-legacy/)
@@ -125,7 +125,7 @@ CLIENT_SECRET = "22222222-2222-2222-2222-222222222222" # Placeholder - for use O
 
 ## <a name="run-the-sample"></a>Uruchamianie aplikacji przykładowej
 
-1. W konsoli lub terminalu przejdź do katalogu zawierającego przykład. Na przykład:
+1. W konsoli lub terminalu przejdź do katalogu zawierającego przykład. Przykład:
 
     ```console
     cd ms-identity-python-webapp
@@ -162,13 +162,13 @@ Ta przykładowa aplikacja obsługuje rejestrowanie, logowanie i resetowanie has�
 
     Użyj prawidłowego adresu e-mail i przeprowadź weryfikację przy użyciu kodu weryfikacyjnego. Ustaw hasło. Wprowadź wartości żądanych atrybutów.
 
-    :::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-02.png" alt-text="Przeglądarka sieci Web, w której jest uruchomiona lokalna aplikacja sieci Web z kolbą Python":::
+    :::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-02.png" alt-text="Strona rejestracji wyświetlana przez Azure AD B2C przepływ użytkownika":::
 
 1. Wybierz pozycję **Utwórz** , aby utworzyć konto lokalne w katalogu Azure AD B2C.
 
-Po wybraniu opcji **Utwórz**aplikacja wyświetli nazwę zalogowanego użytkownika.
+Po wybraniu opcji **Utwórz** aplikacja wyświetli nazwę zalogowanego użytkownika.
 
-:::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-03.png" alt-text="Przeglądarka sieci Web, w której jest uruchomiona lokalna aplikacja sieci Web z kolbą Python":::
+:::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-03.png" alt-text="Przeglądarka sieci Web przedstawiająca aplikację sieci Web w języku Python z zalogowanym użytkownikiem":::
 
 Jeśli chcesz przetestować logowanie, wybierz łącze **Wyloguj** , a następnie wybierz pozycję **Zaloguj** się i zaloguj się przy użyciu adresu e-mail i hasła wprowadzonego podczas rejestracji.
 

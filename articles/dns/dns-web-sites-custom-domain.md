@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 10/20/2020
 ms.author: rohink
-ms.openlocfilehash: 151d5f083fe0e945b330d65095c908be93e3330f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 369c7dab174f0269797b10635882a6821ade8311
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316397"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952951"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Samouczek: tworzenie rekordów DNS w domenie niestandardowej dla aplikacji internetowej 
 
@@ -29,7 +29,7 @@ Aby to zrobić, musisz utworzyć trzy rekordy:
 
 Należy pamiętać, że w przypadku utworzenia rekordu A dla aplikacji internetowej na platformie Azure rekord A musi być ręcznie zaktualizowany, jeżeli zmieni się podstawowy adres IP aplikacji internetowej.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie rekordu A i TXT dla domeny niestandardowej
@@ -49,7 +49,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 * Utwórz strefę DNS w usłudze Azure DNS i deleguj strefę u rejestratora do usługi Azure DNS.
 
-   1. Aby utworzyć strefę DNS, wykonaj kroki opisane w sekcji [Tworzenie strefy DNS](dns-getstarted-create-dnszone.md).
+   1. Aby utworzyć strefę DNS, wykonaj kroki opisane w sekcji [Tworzenie strefy DNS](./dns-getstarted-powershell.md).
    2. Aby delegować strefę do usługi Azure DNS, wykonaj kroki opisane w sekcji [Delegowanie domeny DNS](dns-delegate-domain-azure-dns.md).
 
 Po utworzeniu strefy i oddelegowaniu jej do usługi Azure DNS możesz utworzyć rekordy dla domeny niestandardowej.
@@ -174,7 +174,7 @@ Otwórz przeglądarkę i przejdź do `http://www.<your domainname>` oraz `http:/
 > [!NOTE]
 > Upewnij się, że dołączysz `http://` prefiks, w przeciwnym razie przeglądarka może próbować przewidzieć adres URL.
 
-Dla obu adresów URL powinna zostać wyświetlona ta sama strona. Na przykład:
+Dla obu adresów URL powinna zostać wyświetlona ta sama strona. Przykład:
 
 ![Usługa aplikacji Contoso](media/dns-web-sites-custom-domain/contoso-app-svc.png)
 

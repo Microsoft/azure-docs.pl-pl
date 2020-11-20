@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 5a0ea8a2f07ef596cd80e9165eedb2b98dab0bfa
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0df0c12d5942179e2492bfdc932fa25d126a2426
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978717"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951744"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Zarządzanie poświadczeniami konta magazynu za pomocą usługi StorSimple Menedżer urządzeń
 
@@ -55,7 +55,7 @@ Najbardziej typowe zadania związane z kontami magazynu, które można wykonać,
 Istnieją trzy typy kont magazynu, które mogą być używane z urządzeniem StorSimple.
 
 * **Automatycznie generowane konta magazynu** — w takiej sytuacji nazwa jest generowana automatycznie podczas pierwszego tworzenia usługi. Aby dowiedzieć się więcej na temat sposobu tworzenia tego konta magazynu, zobacz [krok 1. Tworzenie nowej usługi](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service) w ramach [wdrażania lokalnego urządzenia StorSimple](storsimple-8000-deployment-walkthrough-u2.md). 
-* **Konta magazynu w ramach subskrypcji usługi** — są to konta usługi Azure Storage, które są skojarzone z tą samą subskrypcją, co w przypadku usługi. Aby dowiedzieć się więcej o sposobie tworzenia tych kont magazynu, zobacz [Informacje o kontach usługi Azure Storage](../storage/common/storage-create-storage-account.md). 
+* **Konta magazynu w ramach subskrypcji usługi** — są to konta usługi Azure Storage, które są skojarzone z tą samą subskrypcją, co w przypadku usługi. Aby dowiedzieć się więcej o sposobie tworzenia tych kont magazynu, zobacz [Informacje o kontach usługi Azure Storage](../storage/common/storage-account-create.md). 
 * **Konta magazynu poza subskrypcją usługi** — są to konta usługi Azure Storage, które nie są skojarzone z Twoją usługą i mogą istnieć przed utworzeniem usługi.
 
 ## <a name="add-a-storage-account"></a>Dodawanie konta magazynu
@@ -80,7 +80,7 @@ Aby dodać poświadczenia konta usługi Azure Storage, wykonaj następujące pro
 3. Kliknij pozycję **Dodaj**.
 4. W bloku **Dodawanie poświadczeń konta magazynu** wykonaj następujące czynności:
    
-    1. W obszarze **subskrypcja**wybierz pozycję **inne**.
+    1. W obszarze **subskrypcja** wybierz pozycję **inne**.
    
     2. Podaj nazwę poświadczenia konta usługi Azure Storage.
    
@@ -179,4 +179,3 @@ Po pomyślnym zsynchronizowaniu klucza użytkownik zostanie powiadomiony.
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o [zabezpieczeniach StorSimple](storsimple-8000-security.md).
 * Dowiedz się więcej o [korzystaniu z usługi StorSimple Menedżer urządzeń w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
-

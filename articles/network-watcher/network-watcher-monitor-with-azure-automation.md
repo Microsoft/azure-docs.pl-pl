@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 273e9f7ce65cdd15000b1cc4ac7c19cde5992992
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af671996722524de9af1a90ae8dfde27f814c8c2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396777"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951642"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Monitorowanie bram sieci VPN za pomocą Network Watcher rozwiązywania problemów
 
@@ -36,7 +36,7 @@ W tym scenariuszu zostaną:
 - Utwórz element Runbook wywołujący `Start-AzureRmNetworkWatcherResourceTroubleshooting` polecenie cmdlet w celu rozwiązania problemu ze stanem połączenia
 - Łączenie harmonogramu z elementem Runbook
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Przed rozpoczęciem tego scenariusza wymagane są następujące wymagania wstępne:
 
@@ -51,7 +51,7 @@ Przed rozpoczęciem tego scenariusza wymagane są następujące wymagania wstęp
 
 ### <a name="create-the-runbook"></a>Tworzenie elementu Runbook
 
-Pierwszym krokiem w celu skonfigurowania przykładu jest utworzenie elementu Runbook. W tym przykładzie używa się konta Uruchom jako. Aby dowiedzieć się więcej o kontach Uruchom jako, odwiedź stronę [uwierzytelnianie elementów Runbook przy użyciu konta Uruchom jako platformy Azure](../automation/automation-create-runas-account.md)
+Pierwszym krokiem w celu skonfigurowania przykładu jest utworzenie elementu Runbook. W tym przykładzie używa się konta Uruchom jako. Aby dowiedzieć się więcej o kontach Uruchom jako, odwiedź stronę [uwierzytelnianie elementów Runbook przy użyciu konta Uruchom jako platformy Azure](../automation/manage-runas-account.md)
 
 ### <a name="step-1"></a>Krok 1
 
@@ -67,7 +67,7 @@ Kliknij pozycję **Dodaj element Runbook** , aby rozpocząć proces tworzenia el
 
 ### <a name="step-3"></a>Krok 3
 
-W obszarze **szybkie tworzenie**kliknij pozycję **Utwórz nowy element Runbook** , aby utworzyć element Runbook.
+W obszarze **szybkie tworzenie** kliknij pozycję **Utwórz nowy element Runbook** , aby utworzyć element Runbook.
 
 ![Dodawanie bloku elementu Runbook][3]
 

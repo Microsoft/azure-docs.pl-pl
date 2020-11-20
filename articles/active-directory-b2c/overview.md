@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 09/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7126cd38a9d0f9ed0079a73e1235cb08a99bcbcf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 29b34041042f00d72b8a9fe86e31bd80f8c77dc2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91396539"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953954"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Co to jest usługa Azure Active Directory B2C?
 
@@ -79,7 +79,7 @@ W przypadku artykułów spożywczych WoodGrove dostępne są kilka opcji logowan
 
 * **Indywidualni** klienci mogą zarejestrować się lub zalogować przy użyciu poszczególnych kont, takich jak dostawca tożsamości społecznościowej lub adres e-mail oraz hasło.
 * Klienci **biznesowi** mogą zarejestrować się lub zalogować przy użyciu swoich poświadczeń przedsiębiorstwa.
-* **Partnerzy** i dostawcy to osoby, które dostarczają sklep spożywczy do sprzedawanych produktów. Tożsamość partnera jest zapewniana przez [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
+* **Partnerzy** i dostawcy to osoby, które dostarczają sklep spożywczy do sprzedawanych produktów. Tożsamość partnera jest zapewniana przez [Azure Active Directory B2B](../active-directory/external-identities/what-is-b2b.md).
 
 ![Strony logowania indywidualnego (B2C), Business (B2C) i partnera (B2B)](./media/overview/woodgrove-overview.png)
 
@@ -111,7 +111,7 @@ Te zasady przedstawiają użytkownikowi opcję użycia poświadczeń firmowych d
 
 Link **Zaloguj się przy użyciu konta dostawcy** używa funkcji współpracy Azure Active Directory B2B's. Usługa Azure AD B2B jest rodziną funkcji w Azure Active Directory do zarządzania tożsamościami partnerów. Te tożsamości mogą być federacyjne z Azure Active Directory w celu uzyskania dostępu do aplikacji chronionych Azure AD B2C.
 
-Dowiedz się więcej o usłudze Azure AD B2B w temacie [co to jest dostęp gościa w Azure Active Directory B2B?](../active-directory/b2b/what-is-b2b.md)
+Dowiedz się więcej o usłudze Azure AD B2B w temacie [co to jest dostęp gościa w Azure Active Directory B2B?](../active-directory/external-identities/what-is-b2b.md)
 
 <!-- UNCOMMENT WHEN REPO IS UPDATED WITH LATEST DEMO CODE
 ### Sample code
