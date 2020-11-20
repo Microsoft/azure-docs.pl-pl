@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: a9ef15bf595d84613b5f41a73e5526cb0fe79d5b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: c5caf48dd4e2860ec5f4815eb38629ad66391a2c
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841414"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990112"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Konfigurowanie uwierzytelniania usługi Azure AD i zarządzanie nim za pomocą usługi Azure SQL
 
@@ -105,7 +105,7 @@ Aby udzielić uprawnienia do odczytu wystąpienia zarządzanego usługi SQL AD p
 
 7. Na stronie administrator usługi Azure AD Wyszukaj użytkownika, wybierz użytkownika lub grupę, który ma być administratorem, a następnie wybierz pozycję **Wybierz**.
 
-   Na stronie Administrator Active Directory są wyświetlane wszystkie elementy członkowskie i grupy Active Directory. Nie można wybrać użytkowników lub grup, które są wyszarzone, ponieważ nie są one obsługiwane jako Administratorzy usługi Azure AD. Zapoznaj się z listą obsługiwanych administratorów w [funkcjach i ograniczeniach usługi Azure AD](authentication-aad-overview.md#azure-ad-features-and-limitations). Kontrola dostępu oparta na rolach (RBAC) ma zastosowanie tylko do Azure Portal i nie jest propagowana do SQL Database, wystąpienia zarządzanego SQL ani usługi Azure Synapse.
+   Na stronie Administrator Active Directory są wyświetlane wszystkie elementy członkowskie i grupy Active Directory. Nie można wybrać użytkowników lub grup, które są wyszarzone, ponieważ nie są one obsługiwane jako Administratorzy usługi Azure AD. Zapoznaj się z listą obsługiwanych administratorów w [funkcjach i ograniczeniach usługi Azure AD](authentication-aad-overview.md#azure-ad-features-and-limitations). Kontrola dostępu oparta na rolach (Azure RBAC) ma zastosowanie tylko do Azure Portal i nie jest propagowana do SQL Database, wystąpienia zarządzanego SQL ani usługi Azure Synapse.
 
     ![Dodaj administratora Azure Active Directory](./media/authentication-aad-configure/add-azure-active-directory-admin.png)
 
@@ -253,7 +253,7 @@ W poniższych dwóch procedurach pokazano, jak udostępnić administratorowi Azu
 
     ![Serwery SQL ustawione jako administrator Active Directory](./media/authentication-aad-configure/sql-servers-set-active-directory-admin.png)  
 
-5. Na stronie **Dodawanie administratora** wyszukaj użytkownika, wybierz użytkownika lub grupę do pełnienia funkcji administratora, a następnie kliknij opcję **Wybierz**. (Na stronie administratora usługi Active Directory wyświetlono wszystkich członków i grupy danej usługi Active Directory). Nie można wybrać wyszarzonych użytkowników lub grup, ponieważ nie są oni obsługiwani jako administratorzy usługi Azure AD. (Zobacz listę obsługiwanych administratorów w sekcji funkcje usługi **Azure AD i ograniczenia** dotyczące [uwierzytelniania przy użyciu usługi Azure Active Directory Authentication SQL Database lub Azure Synapse](authentication-aad-overview.md)). Kontrola dostępu oparta na rolach (RBAC) dotyczy tylko portalu i nie jest propagowana do SQL Server.
+5. Na stronie **Dodawanie administratora** wyszukaj użytkownika, wybierz użytkownika lub grupę do pełnienia funkcji administratora, a następnie kliknij opcję **Wybierz**. (Na stronie administratora usługi Active Directory wyświetlono wszystkich członków i grupy danej usługi Active Directory). Nie można wybrać wyszarzonych użytkowników lub grup, ponieważ nie są oni obsługiwani jako administratorzy usługi Azure AD. (Zobacz listę obsługiwanych administratorów w sekcji funkcje usługi **Azure AD i ograniczenia** dotyczące [uwierzytelniania przy użyciu usługi Azure Active Directory Authentication SQL Database lub Azure Synapse](authentication-aad-overview.md)). Kontrola dostępu oparta na rolach (Azure RBAC) ma zastosowanie tylko do portalu i nie jest propagowana do SQL Server.
 
     ![Wybierz administratora Azure Active Directory](./media/authentication-aad-configure/select-azure-active-directory-admin.png)  
 

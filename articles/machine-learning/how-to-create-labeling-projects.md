@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: da046fd633120944231ee440605367bdb730cbff
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 450d471beebbcc554a6d534fb2d5361778f158bc
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543225"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992322"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Utwórz projekt etykietowania danych i Eksportuj etykiety 
 
@@ -152,7 +152,7 @@ Wybierz opcję *Włącz oznaczenie ml z etykietami* i określ procesor GPU, aby 
 * Klastrowanie
 * Etykietowanie
 
-Dokładna liczba obrazów z etykietami, które są niezbędne do rozpoczęcia etykietowania pomocy, nie jest ustalona.  Może się to różnić w zależności od jednego projektu etykietowego do innego. W przypadku niektórych projektów czasami możliwe jest wyświetlenie przednich lub zadań klastra po ręcznym etykietowaniu obrazów 300. Przy pomocy zatytułowanej do uczenia maszynowego jest stosowana technika o nazwie *nauka przekazu* , która korzysta ze wstępnie przeszkolonego modelu, aby przeskoczyć proces szkolenia. Jeśli klasy zestawu danych są podobne do tych w modelu wstępnie szkolonym, etykietki wstępne mogą być dostępne po tylko kilku setkach obrazów oznaczonych ręcznie. Jeśli zestaw danych znacznie różni się od danych używanych do wstępnego uczenia modelu, może to zająć dużo czasu.
+Dokładna liczba obrazów z etykietami, które są niezbędne do rozpoczęcia etykietowania pomocy, nie jest ustalona.  Może się to różnić w zależności od jednego projektu etykietowego do innego. W przypadku niektórych projektów czasami możliwe jest wyświetlenie przednich lub zadań klastra po ręcznym etykietowaniu obrazów 300. Przy pomocy zatytułowanej do uczenia maszynowego jest stosowana technika o nazwie *nauka przekazu*, która korzysta ze wstępnie przeszkolonego modelu, aby przeskoczyć proces szkolenia. Jeśli klasy zestawu danych są podobne do tych w modelu wstępnie szkolonym, etykietki wstępne mogą być dostępne po tylko kilku setkach obrazów oznaczonych ręcznie. Jeśli zestaw danych znacznie różni się od danych używanych do wstępnego uczenia modelu, może to zająć dużo czasu.
 
 Ponieważ końcowe etykiety nadal opierają się na danych wejściowych z Labeler, Technologia ta jest czasami wywoływana *przez człowieka w pętli* etykiet.
 
@@ -213,7 +213,7 @@ Po prawej stronie jest dystrybuowanie etykiet dla tych zadań, które zostały u
 
 ### <a name="data-tab"></a>Karta dane
 
-Na karcie **dane** można zobaczyć zestaw danych i przejrzeć dane z etykietami. Jeśli zobaczysz nieprawidłowe etykiety danych, zaznacz ją i wybierz polecenie **Odrzuć** , co spowoduje usunięcie etykiet i umieszczenie danych z powrotem w kolejce bez etykiety.
+Na karcie **dane** można zobaczyć zestaw danych i przejrzeć dane z etykietami. Jeśli zobaczysz nieprawidłowe etykiety danych, zaznacz ją i wybierz polecenie **Odrzuć**, co spowoduje usunięcie etykiet i umieszczenie danych z powrotem w kolejce bez etykiety.
 
 ### <a name="details-tab"></a>Karta Szczegóły
 
@@ -250,7 +250,7 @@ Wykonaj następujące kroki, aby dodać jedną lub więcej etykiet do projektu:
 
 ## <a name="export-the-labels"></a>Eksportowanie etykiet
 
-W dowolnym momencie możesz wyeksportować dane etykiet dla Machine Learning eksperymentowania. Etykiety obrazów można eksportować w [formacie Coco](http://cocodataset.org/#format-data) lub jako zestaw danych Azure Machine Learning. Użyj przycisku **Eksportuj** na stronie **szczegóły projektu** w projekcie etykietowania.
+W dowolnym momencie możesz wyeksportować dane etykiet dla Machine Learning eksperymentowania. Etykiety obrazów można eksportować w [formacie Coco](http://cocodataset.org/#format-data) lub jako [zestaw danych Azure Machine Learning z etykietami](how-to-use-labeled-dataset.md). Użyj przycisku **Eksportuj** na stronie **szczegóły projektu** w projekcie etykietowania.
 
 Plik COCO jest tworzony w domyślnym magazynie obiektów BLOB obszaru roboczego Azure Machine Learning w folderze w obszarze *Export/Coco*. Możesz uzyskać dostęp do wyeksportowanego zestawu danych Azure Machine Learning w sekcji **zestawy** danych w Machine Learning. Strona szczegóły zestawu danych zawiera również przykładowy kod umożliwiający uzyskanie dostępu do etykiet z poziomu języka Python.
 

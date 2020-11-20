@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: a386ea5149b36a4e82b4c935e2373f505c6c83cf
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: db270224a753f815a2d94e6a1fa79ebbedf49278
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789883"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94991574"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Tworzenie kopii zapasowych i przywracanie SQL Server na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -55,23 +55,23 @@ Aby przywrócić bazę danych, należy zlokalizować wymagane pliki kopii zapaso
 
 Aby uzyskać więcej informacji na temat konfigurowania zautomatyzowanej kopii zapasowej dla maszyn wirtualnych SQL, zobacz jeden z następujących artykułów:
 
-- **SQL Server 2016/2017** : [Automatyczne kopie zapasowe v2 dla platformy Azure Virtual Machines](automated-backup.md)
-- **SQL Server 2014** : [Automatyczne kopie zapasowe dla SQL Server 2014 Virtual Machines](automated-backup-sql-2014.md)
+- **SQL Server 2016/2017**: [Automatyczne kopie zapasowe v2 dla platformy Azure Virtual Machines](automated-backup.md)
+- **SQL Server 2014**: [Automatyczne kopie zapasowe dla SQL Server 2014 Virtual Machines](automated-backup-sql-2014.md)
 
 ## <a name="azure-backup-for-sql-vms"></a><a id="azbackup"></a> Azure Backup dla maszyn wirtualnych SQL
 
 [Azure Backup](../../../backup/index.yml) zapewnia funkcję tworzenia kopii zapasowych klasy korporacyjnej dla SQL Server na maszynach wirtualnych platformy Azure. Wszystkie kopie zapasowe są przechowywane i zarządzane w magazynie Recovery Services. Istnieje kilka korzyści, które zapewnia to rozwiązanie, szczególnie w przypadku przedsiębiorstw:
 
-- **Tworzenie kopii zapasowej bez infrastruktury** : nie ma potrzeby zarządzania serwerami kopii zapasowych ani lokalizacjami magazynu.
-- **Skalowanie** : Ochrona wielu maszyn wirtualnych SQL i tysięcy baz danych.
+- **Tworzenie kopii zapasowej bez infrastruktury**: nie ma potrzeby zarządzania serwerami kopii zapasowych ani lokalizacjami magazynu.
+- **Skalowanie**: Ochrona wielu maszyn wirtualnych SQL i tysięcy baz danych.
 - **Płatność zgodnie z rzeczywistym** użyciem: Ta funkcja jest oddzielną usługą oferowaną przez Azure Backup, ale podobnie jak w przypadku wszystkich usług platformy Azure, płacisz tylko za to, czego używasz.
-- **Centralne zarządzanie i monitorowanie** : centralne zarządzanie wszystkimi kopiami zapasowymi, w tym innymi obciążeniami obsługiwanymi przez Azure Backup, z jednego pulpitu nawigacyjnego na platformie Azure.
+- **Centralne zarządzanie i monitorowanie**: centralne zarządzanie wszystkimi kopiami zapasowymi, w tym innymi obciążeniami obsługiwanymi przez Azure Backup, z jednego pulpitu nawigacyjnego na platformie Azure.
 - Tworzenie **kopii zapasowych i przechowywanie** na podstawie zasad: Utwórz standardowe zasady tworzenia kopii zapasowych dla zwykłych kopii zapasowych. Ustanów zasady przechowywania do obsługi kopii zapasowych przez lata.
-- **Obsługa funkcji SQL Always On** : wykrywanie i ochrona SQL Server zawsze włączona konfiguracja i przestrzeganie preferencji tworzenia kopii zapasowej grupy dostępności.
-- **15-minutowy cel punktu odzyskiwania** : Skonfiguruj kopie zapasowe dziennika transakcji SQL do co 15 minut.
-- **Przywracanie do punktu w czasie** : Użyj portalu, aby odzyskać bazy danych do określonego punktu w czasie bez konieczności ręcznego przywracania wielu kopii zapasowych, różnicowych i dzienników.
-- **Skonsolidowane alerty e-mail dotyczące niepowodzeń** : Skonfiguruj skonsolidowane powiadomienia e-mail pod kątem błędów.
-- **Kontrola dostępu oparta na rolach** : Określanie, kto może zarządzać operacjami tworzenia kopii zapasowych i przywracania za pośrednictwem portalu.
+- **Obsługa funkcji SQL Always On**: wykrywanie i ochrona SQL Server zawsze włączona konfiguracja i przestrzeganie preferencji tworzenia kopii zapasowej grupy dostępności.
+- **15-minutowy cel punktu odzyskiwania**: Skonfiguruj kopie zapasowe dziennika transakcji SQL do co 15 minut.
+- **Przywracanie do punktu w czasie**: Użyj portalu, aby odzyskać bazy danych do określonego punktu w czasie bez konieczności ręcznego przywracania wielu kopii zapasowych, różnicowych i dzienników.
+- **Skonsolidowane alerty e-mail dotyczące niepowodzeń**: Skonfiguruj skonsolidowane powiadomienia e-mail pod kątem błędów.
+- **Kontrola dostępu oparta na rolach na platformie Azure**: Określanie, kto może zarządzać operacjami tworzenia kopii zapasowych i przywracania za pośrednictwem portalu.
 
 Aby zapoznać się z krótkim omówieniem, jak to działa wraz z pokazem, Obejrzyj następujące wideo:
 
@@ -108,9 +108,9 @@ Począwszy od SQL Server 2012 z dodatkiem SP1 ZASTOSUJESZ pakietu CU2 można two
 
 Aby uzyskać więcej informacji, zobacz jeden z następujących artykułów w zależności od używanej wersji programu SQL Server:
 
-- **SQL Server 2016/2017** : [SQL Server tworzenia kopii zapasowej do adresu URL](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
-- **SQL Server 2014** : [SQL Server 2014 Utwórz kopię zapasową do adresu URL](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service?viewFallbackFrom=sql-server-2014)
-- **SQL Server 2012** : [SQL Server 2012 Utwórz kopię zapasową do adresu URL](/previous-versions/sql/sql-server-2012/jj919148(v=sql.110))
+- **SQL Server 2016/2017**: [SQL Server tworzenia kopii zapasowej do adresu URL](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
+- **SQL Server 2014**: [SQL Server 2014 Utwórz kopię zapasową do adresu URL](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service?viewFallbackFrom=sql-server-2014)
+- **SQL Server 2012**: [SQL Server 2012 Utwórz kopię zapasową do adresu URL](/previous-versions/sql/sql-server-2012/jj919148(v=sql.110))
 
 ### <a name="managed-backup"></a>Tworzenie zarządzanej kopii zapasowej
 

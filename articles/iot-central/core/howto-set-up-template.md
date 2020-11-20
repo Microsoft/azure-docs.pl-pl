@@ -1,6 +1,6 @@
 ---
 title: Definiowanie nowego typu urządzenia IoT na platformie Azure IoT Central | Microsoft Docs
-description: W tym artykule przedstawiono jako konstruktora, jak utworzyć nowy szablon urządzenia usługi Azure IoT w aplikacji IoT Central platformy Azure. Zdefiniuj dane telemetryczne, stan, właściwości i polecenia dla danego typu.
+description: W tym artykule pokazano, jak w przypadku konstruktora rozwiązań, jak utworzyć nowy szablon urządzenia Azure IoT w aplikacji IoT Central platformy Azure. Zdefiniuj dane telemetryczne, stan, właściwości i polecenia dla danego typu.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/06/2019
@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperfq1
 - device-developer
-ms.openlocfilehash: c8fb60a4b549a7203057dd60298d2ae0540450d6
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: f5b3e461408242553822024bc59c56a3feb29c44
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122657"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94991064"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definiowanie nowego typu urządzenia IoT w aplikacji usługi Azure IoT Central
 
@@ -38,12 +38,12 @@ Z tego szablonu urządzenia operator może tworzyć i łączyć urządzenia went
 > [!NOTE]
 > Tylko konstruktory i Administratorzy mogą tworzyć, edytować i usuwać szablony urządzeń. Każdy użytkownik może tworzyć urządzenia na stronie **urządzenia** z istniejących szablonów urządzeń.
 
-W aplikacji IoT Central szablon urządzenia używa modelu możliwości urządzenia do opisywania możliwości urządzenia. Jako Konstruktor można utworzyć szablony urządzeń za pomocą kilku opcji:
+W aplikacji IoT Central szablon urządzenia używa modelu urządzenia do opisywania możliwości urządzenia. Jako Konstruktor można utworzyć szablony urządzeń za pomocą kilku opcji:
 
-- Zaprojektuj szablon urządzenia w IoT Central, a następnie [Zaimplementuj jego model możliwości urządzenia w kodzie urządzenia](concepts-telemetry-properties-commands.md).
-- Zaimportuj model możliwości urządzenia z [wykazu urządzeń z certyfikatem platformy Azure dla IoT](https://aka.ms/iotdevcat). Następnie Dodaj wszystkie właściwości i dostosowania chmury oraz pulpity nawigacyjne, których potrzebujesz IoT Central aplikacji.
-- Utwórz model możliwości urządzenia przy użyciu Visual Studio Code. Zaimplementuj swój kod urządzenia z modelu. Ręcznie zaimportuj model możliwości urządzenia do aplikacji IoT Central, a następnie Dodaj wszystkie właściwości, dostosowania i pulpity nawigacyjne, których potrzebuje aplikacja IoT Central.
-- Utwórz model możliwości urządzenia przy użyciu Visual Studio Code. Zaimplementuj swój kod urządzenia z modelu, a następnie połącz rzeczywiste urządzenie z aplikacją IoT Central przy użyciu połączenia urządzenia po raz pierwszy. IoT Central odnajduje i importuje model możliwości urządzenia z repozytorium publicznego. Następnie można dodać wszystkie właściwości, dostosowania i pulpity nawigacyjne, których aplikacja IoT Central musi być szablonem urządzenia.
+- Zaprojektuj szablon urządzenia w IoT Central, a następnie [Zaimplementuj jego model urządzenia w kodzie urządzenia](concepts-telemetry-properties-commands.md).
+- Zaimportuj szablon urządzenia z [wykazu urządzeń z certyfikatem platformy Azure dla IoT](https://aka.ms/iotdevcat). Dostosuj szablon urządzenia do wymagań w IoT Central.
+- Tworzenie modelu urządzenia przy użyciu [języka Digital bliźniaczych reprezentacji Definition Language (DTDL) — wersja 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Program Visual Studio Code ma rozszerzenie, które obsługuje tworzenie modeli DTDL. Aby dowiedzieć się więcej, zobacz [Instalowanie i używanie narzędzi autorskich DTDL](../../iot-pnp/howto-use-dtdl-authoring-tools.md). Następnie opublikuj model w repozytorium modelu publicznego. Aby dowiedzieć się więcej, zobacz [repozytorium modeli urządzeń](../../iot-pnp/concepts-model-repository.md). Zaimplementuj swój kod urządzenia z modelu, a następnie połącz rzeczywiste urządzenie z aplikacją IoT Central. IoT Central odnajduje i importuje model urządzenia z repozytorium publicznego, a następnie generuje szablon urządzenia. Następnie można dodać wszystkie właściwości, dostosowania i pulpity nawigacyjne, których aplikacja IoT Central musi być szablonem urządzenia.
+- Tworzenie modelu urządzenia przy użyciu DTDL. Zaimplementuj swój kod urządzenia z modelu. Ręcznie zaimportuj model urządzenia do aplikacji IoT Central, a następnie Dodaj wszystkie właściwości, dostosowania i pulpity nawigacyjne, których potrzebuje aplikacja IoT Central.
 
 Możesz również dodać szablony urządzeń do aplikacji IoT Central przy użyciu [interfejsu API REST lub interfejs](/learn/modules/manage-iot-central-apps-with-rest-api/) [wiersza polecenia](howto-manage-iot-central-from-cli.md).
 
@@ -51,10 +51,10 @@ Niektóre [Szablony aplikacji](concepts-app-templates.md) zawierają już szablo
 
 ## <a name="create-a-device-template-from-the-device-catalog"></a>Tworzenie szablonu urządzenia z poziomu katalogu urządzeń
 
-Jako Konstruktor możesz szybko rozpocząć tworzenie rozwiązania przy użyciu certyfikatu usługi IoT Plug and Play (wersja zapoznawcza). Zapoznaj się z listą w [wykazie urządzeń Azure IoT](https://catalog.azureiotsolutions.com/alldevices). IoT Central integrują się z katalogiem urządzeń, aby można było zaimportować model możliwości urządzenia z dowolnego z tych urządzeń z certyfikatem certyfikowanym Plug and Play IoT (wersja zapoznawcza). Aby utworzyć szablon urządzenia na podstawie jednego z tych urządzeń w IoT Central:
+Jako Konstruktor można szybko rozpocząć tworzenie rozwiązania przy użyciu certyfikowanego urządzenia. Zapoznaj się z listą w [wykazie urządzeń Azure IoT](https://catalog.azureiotsolutions.com/alldevices). IoT Central integruje się z wykazem urządzeń, aby można było zaimportować model urządzenia z dowolnego certyfikowanego urządzenia. Aby utworzyć szablon urządzenia na podstawie jednego z tych urządzeń w IoT Central:
 
 1. Przejdź do strony **Szablony urządzeń** w aplikacji IoT Central.
-1. Wybierz pozycję **+ Nowy**, a następnie wybierz dowolne z certyfikowanych urządzeń Plug and Play IoT (wersja zapoznawcza) z wykazu. IoT Central tworzy szablon urządzenia w oparciu o ten model możliwości urządzenia.
+1. Wybierz pozycję **+ Nowy**, a następnie wybierz dowolne z certyfikowanych urządzeń z wykazu. IoT Central tworzy szablon urządzenia oparty na tym modelu urządzenia.
 1. Dodaj do szablonu urządzenia wszystkie właściwości, dostosowania lub widoki w chmurze.
 1. Wybierz pozycję **Publikuj** , aby udostępnić szablon dla operatorów do wyświetlania i łączenia urządzeń.
 
@@ -62,57 +62,56 @@ Jako Konstruktor możesz szybko rozpocząć tworzenie rozwiązania przy użyciu 
 
 Szablon urządzenia zawiera:
 
-- _Model możliwości urządzenia_ określający dane telemetryczne, właściwości i polecenia implementowane przez urządzenie. Te możliwości są zorganizowane w jeden lub więcej interfejsów.
+- _Model urządzenia_ , który określa dane telemetryczne, właściwości i polecenia implementowane przez urządzenie. Te możliwości są zorganizowane w jeden lub więcej składników.
 - _Właściwości chmury_ definiujące informacje o urządzeniach, które IoT Central aplikacji. Na przykład właściwość chmury może rejestrować datę ostatniej obsługi urządzenia. Te informacje nigdy nie są udostępniane na urządzeniu.
-- _Dostosowania_ pozwalają konstruktorowi zastępować niektóre definicje w modelu możliwości urządzenia. Na przykład Konstruktor może zastąpić nazwę właściwości urządzenia. Nazwy właściwości są wyświetlane na IoT Central pulpitów nawigacyjnych i formularzach.
+- _Dostosowania_ pozwalają konstruktorowi zastępować niektóre definicje w modelu urządzenia. Na przykład Konstruktor może zastąpić nazwę właściwości urządzenia. Nazwy właściwości są wyświetlane na IoT Central pulpitów nawigacyjnych i formularzach.
 - _Pulpity nawigacyjne i formularze_ umożliwiają konstruktorowi Tworzenie interfejsu użytkownika, który umożliwia operatorom monitorowanie i zarządzanie urządzeniami podłączonymi do aplikacji.
 
 Aby utworzyć szablon urządzenia w IoT Central:
 
 1. Przejdź do strony **Szablony urządzeń** w aplikacji IoT Central.
-1. Wybierz pozycję **+ Nowy**  >  **niestandardowy**.
-1. Wprowadź nazwę szablonu, na przykład **czujnik środowiska**.
-1.  Naciśnij klawisz **Enter**. IoT Central tworzy pusty szablon urządzenia.
+1. Wybierz pozycję **+ nowe**  >  **urządzenie IoT**. Następnie wybierz pozycję **Dalej: Dostosuj**.
+1. Wprowadź nazwę szablonu, na przykład **termostat**. Następnie wybierz pozycję **Dalej: Przejrzyj** , a następnie wybierz pozycję **Utwórz**.
+1. IoT Central tworzy pusty szablon urządzenia i umożliwia wybranie tworzenia modelu niestandardowego od podstaw lub zaimportowania modelu DTDL.
 
 ## <a name="manage-a-device-template"></a>Zarządzanie szablonem urządzenia
 
 Można zmienić nazwę szablonu lub usunąć go ze strony głównej szablonu.
 
-Po dodaniu modelu możliwości urządzenia do szablonu można go opublikować. Dopóki szablon nie zostanie opublikowany, nie można połączyć urządzenia na podstawie tego szablonu, aby operatory były widoczne na stronie **urządzenia** .
+Po dodaniu modelu urządzenia do szablonu można go opublikować. Dopóki szablon nie zostanie opublikowany, nie można połączyć urządzenia na podstawie tego szablonu, aby operatory były widoczne na stronie **urządzenia** .
 
 ## <a name="create-a-capability-model"></a>Tworzenie modelu możliwości
 
-Aby utworzyć model możliwości urządzenia, możesz:
+Aby utworzyć model urządzenia, możesz:
 
 - Użyj IoT Central, aby utworzyć niestandardowy model od podstaw.
-- Importuj model z pliku JSON. Konstruktor urządzeń mógł używać Visual Studio Code do tworzenia modelu możliwości urządzenia dla aplikacji.
-- Wybierz jedno z urządzeń z katalogu urządzeń. Ta opcja Importuje model możliwości urządzenia Opublikowany przez producenta dla tego urządzenia. Model możliwości urządzenia zaimportowany jak ten jest automatycznie publikowany.
+- Importuj model DTDL z pliku JSON. Konstruktor urządzeń mógł używać Visual Studio Code do tworzenia modelu urządzenia dla aplikacji.
+- Wybierz jedno z urządzeń z katalogu urządzeń. Ta opcja umożliwia zaimportowanie modelu urządzenia opublikowanego przez producenta dla tego urządzenia. Model urządzenia zaimportowany jak ten jest automatycznie publikowany.
 
 ## <a name="manage-a-capability-model"></a>Zarządzanie modelem możliwości
 
-Po utworzeniu modelu możliwości urządzenia można:
+Po utworzeniu modelu urządzenia można:
 
-- Dodaj interfejsy do modelu. Model musi mieć co najmniej jeden interfejs.
+- Dodaj składniki do modelu. Model musi mieć co najmniej jeden składnik.
 - Edytuj metadane modelu, takie jak jego identyfikator, przestrzeń nazw i nazwa.
 - Usuń model.
 
-## <a name="create-an-interface"></a>Tworzenie interfejsu
+## <a name="create-a-component"></a>Tworzenie składnika
 
-Możliwość urządzenia musi mieć co najmniej jeden interfejs. Interfejs jest kolekcją możliwości wielokrotnego użytku.
+Model urządzenia musi mieć co najmniej jeden składnik domyślny. Składnik to kolekcja możliwości wielokrotnego użytku.
 
-Aby utworzyć interfejs:
+Aby utworzyć składnik:
 
-1. Przejdź do modelu możliwości urządzenia i wybierz pozycję **+ Dodaj interfejs**.
+1. Przejdź do modelu urządzenia i wybierz pozycję **+ Dodaj składnik**.
 
-1. Na stronie **Wybieranie interfejsu** można:
+1. Na stronie **Dodawanie interfejsu składnika** można:
 
-    - Utwórz niestandardowy interfejs od podstaw.
-    - Importuj istniejący interfejs z pliku. Konstruktor urządzeń mógł używać Visual Studio Code do tworzenia interfejsu dla urządzenia.
-    - Wybierz jeden z standardowych interfejsów, takich jak interfejs **informacji o urządzeniu** . Interfejsy standardowe określają możliwości typowe dla wielu urządzeń. Te standardowe interfejsy są publikowane przez usługę Azure IoT i nie mogą być w wersji ani edytowane.
+    - Utwórz niestandardowy składnik od podstaw.
+    - Importuj istniejący składnik z pliku DTDL. Konstruktor urządzeń mógł używać Visual Studio Code do tworzenia interfejsu składnika dla Twojego urządzenia.
 
-1. Po utworzeniu interfejsu wybierz opcję **Edytuj tożsamość** , aby zmienić nazwę wyświetlaną interfejsu.
+1. Po utworzeniu składnika wybierz opcję **Edytuj tożsamość** , aby zmienić nazwę wyświetlaną składnika.
 
-1. Jeśli zdecydujesz się utworzyć interfejs niestandardowy od podstaw, możesz dodać możliwości urządzenia. Możliwości urządzenia to dane telemetryczne, właściwości i polecenia.
+1. Jeśli zdecydujesz się utworzyć niestandardowy składnik od podstaw, możesz dodać możliwości urządzenia. Możliwości urządzenia to dane telemetryczne, właściwości i polecenia.
 
 ### <a name="telemetry"></a>Telemetria
 
@@ -127,16 +126,16 @@ W poniższej tabeli przedstawiono ustawienia konfiguracji dla funkcji telemetrii
 | Typ możliwości | Telemetrii. |
 | Typ semantyczny | Typ semantyczny telemetrii, taki jak temperatura, stan lub zdarzenie. Wybór typu semantycznego określa, które z poniższych pól są dostępne. |
 | Schemat | Typ danych telemetrii, taki jak Double, String lub Vector. Dostępne opcje są określane przez typ semantyczny. Schemat nie jest dostępny dla typów semantyki zdarzenia i stanu. |
-| Ważność | Dostępne tylko dla typu semantycznego zdarzenia. Te informacje dotyczą **błędu**, **informacji**lub **ostrzeżenia**. |
+| Ważność | Dostępne tylko dla typu semantycznego zdarzenia. Te informacje dotyczą **błędu**, **informacji** lub **ostrzeżenia**. |
 | Wartości stanu | Dostępne tylko dla typu semantyki stanu. Zdefiniuj możliwe wartości stanu, z których każdy ma nazwę wyświetlaną, nazwę, typ wyliczenia i wartość. |
-| Jednostka | Jednostka wartości telemetrii, na przykład **mph**, **%** lub ** &deg; C**. |
+| Jednostka | Jednostka wartości telemetrii, na przykład **mph**, **%** lub **&deg; C**. |
 | Jednostka wyświetlania | Jednostka wyświetlania do użycia na pulpitach nawigacyjnych i formularzach. |
 | Komentarz | Wszelkie komentarze dotyczące funkcji telemetrii. |
 | Opis | Opis możliwości telemetrii. |
 
 ### <a name="properties"></a>Właściwości
 
-Właściwości reprezentują wartości punktu w czasie. Na przykład urządzenie może użyć właściwości do raportowania temperatury docelowej, do której próbujesz uzyskać dostęp. Można ustawić właściwości do zapisu z IoT Central.
+Właściwości reprezentują wartości punktu w czasie. Na przykład urządzenie może użyć właściwości do raportowania temperatury docelowej, do której próbujesz uzyskać dostęp. Można ustawić właściwości z możliwością zapisu z IoT Central.
 
 W poniższej tabeli przedstawiono ustawienia konfiguracji dla funkcji właściwości:
 
@@ -147,10 +146,10 @@ W poniższej tabeli przedstawiono ustawienia konfiguracji dla funkcji właściwo
 | Typ możliwości | Wartość. |
 | Typ semantyczny | Typ semantyczny właściwości, taki jak temperatura, stan lub zdarzenie. Wybór typu semantycznego określa, które z poniższych pól są dostępne. |
 | Schemat | Typ danych właściwości, taki jak Double, String lub Vector. Dostępne opcje są określane przez typ semantyczny. Schemat nie jest dostępny dla typów semantyki zdarzenia i stanu. |
-| Z możliwością zapisu | Jeśli właściwość nie jest zapisywalna, urządzenie może raportować wartości właściwości do IoT Central. Jeśli właściwość jest zapisywalna, urządzenie może raportować wartości właściwości do IoT Central i IoT Central może wysyłać do urządzenia aktualizacje właściwości.
-| Ważność | Dostępne tylko dla typu semantycznego zdarzenia. Te informacje dotyczą **błędu**, **informacji**lub **ostrzeżenia**. |
+| Zapisywalne | Jeśli właściwość nie zostanie zapisywalna, urządzenie może raportować wartości właściwości do IoT Central. Jeśli właściwość jest zapisywalna, urządzenie może raportować wartości właściwości do IoT Central i IoT Central może wysyłać do urządzenia aktualizacje właściwości.
+| Ważność | Dostępne tylko dla typu semantycznego zdarzenia. Te informacje dotyczą **błędu**, **informacji** lub **ostrzeżenia**. |
 | Wartości stanu | Dostępne tylko dla typu semantyki stanu. Zdefiniuj możliwe wartości stanu, z których każdy ma nazwę wyświetlaną, nazwę, typ wyliczenia i wartość. |
-| Jednostka | Jednostka wartości właściwości, takiej jak **mph**, **%** lub ** &deg; C**. |
+| Jednostka | Jednostka wartości właściwości, takiej jak **mph**, **%** lub **&deg; C**. |
 | Jednostka wyświetlania | Jednostka wyświetlania do użycia na pulpitach nawigacyjnych i formularzach. |
 | Komentarz | Wszelkie komentarze dotyczące możliwości właściwości. |
 | Opis | Opis możliwości właściwości. |
@@ -166,11 +165,12 @@ W poniższej tabeli przedstawiono ustawienia konfiguracji dla funkcji polecenia:
 | Nazwa wyświetlana | Nazwa wyświetlana polecenia użyta na pulpitach nawigacyjnych i formularzach. |
 | Nazwa | Nazwa polecenia. IoT Central generuje wartość dla tego pola z nazwy wyświetlanej, ale w razie potrzeby można wybrać własną wartość. To pole musi być alfanumeryczne. |
 | Typ możliwości | Dotyczące. |
-| Polecenie | `SynchronousExecutionType`. |
 | Komentarz | Wszelkie komentarze dotyczące funkcji polecenia. |
 | Opis | Opis możliwości polecenia. |
 | Żądanie | Jeśli ta funkcja jest włączona, definicja parametru żądania, w tym: nazwa, nazwa wyświetlana, schemat, jednostka i jednostka wyświetlania. |
 | Reakcja | Jeśli ta funkcja jest włączona, definicja odpowiedzi polecenia, w tym: nazwa, nazwa wyświetlana, schemat, jednostka i jednostka wyświetlania. |
+
+Aby dowiedzieć się więcej o tym, jak urządzenia implementują polecenia, zobacz dane [telemetryczne, właściwości i poleceń > polecenia i długotrwałe polecenia](concepts-telemetry-properties-commands.md#commands).
 
 #### <a name="offline-commands"></a>Polecenia w trybie offline
 
@@ -185,13 +185,13 @@ Komunikaty z chmury do urządzenia:
 - Wymagaj, aby urządzenie zaimplementował procedurę obsługi komunikatów w celu przetworzenia komunikatu z chmury do urządzenia.
 
 > [!NOTE]
-> Ta opcja jest dostępna tylko w interfejsie użytkownika sieci Web IoT Central. To ustawienie nie jest uwzględniane w przypadku eksportowania modelu lub interfejsu z szablonu urządzenia.
+> Ta opcja jest dostępna tylko w interfejsie użytkownika sieci Web IoT Central. To ustawienie nie jest uwzględniane w przypadku eksportowania modelu lub składnika z szablonu urządzenia.
 
-## <a name="manage-an-interface"></a>Zarządzanie interfejsem
+## <a name="manage-a-component"></a>Zarządzanie składnikiem
 
-Jeśli interfejs nie został opublikowany, można edytować możliwości zdefiniowane przez interfejs. Po opublikowaniu interfejsu, jeśli chcesz wprowadzić zmiany, musisz utworzyć nową wersję szablonu urządzenia i wersję interfejsu. W sekcji **Dostosowywanie** można wprowadzać zmiany, które nie wymagają przechowywania wersji, takie jak nazwy wyświetlane lub jednostki.
+Jeśli składnik nie został opublikowany, można edytować możliwości zdefiniowane przez składnik. Jeśli po opublikowaniu składnika chcesz wprowadzić jakiekolwiek zmiany, należy utworzyć nową wersję szablonu urządzenia i [wersję składnika](howto-version-device-template.md). W sekcji **Dostosowywanie** można wprowadzać zmiany, które nie wymagają przechowywania wersji, takie jak nazwy wyświetlane lub jednostki.
 
-Możesz również wyeksportować interfejs jako plik JSON, jeśli chcesz użyć go ponownie w innym modelu możliwości.
+Możesz również wyeksportować składnik jako plik JSON, jeśli chcesz użyć go ponownie w innym modelu możliwości.
 
 ## <a name="add-cloud-properties"></a>Dodawanie właściwości chmury
 
@@ -208,23 +208,23 @@ W poniższej tabeli przedstawiono ustawienia konfiguracji dla właściwości chm
 
 ## <a name="add-customizations"></a>Dodawanie dostosowań
 
-Dostosowań należy używać w przypadku konieczności modyfikacji zaimportowanego interfejsu lub dodania funkcji specyficznych dla IoT Central do funkcji. Można dostosować tylko pola, które nie łamią zgodności interfejsów. Możesz na przykład:
+Dostosowań należy używać w przypadku konieczności modyfikacji składnika zaimportowanego lub dodania funkcji specyficznych dla IoT Central do możliwości. Można dostosować tylko pola, które nie przerywają zgodności składników. Możesz na przykład:
 
 - Dostosuj nazwę wyświetlaną i jednostki możliwości.
 - Dodaj domyślny kolor, który ma być używany, gdy wartość pojawia się na wykresie.
 - Określ początkową, minimalną i maksymalną wartość właściwości.
 
-Nie można dostosować nazwy możliwości ani typu możliwości. Jeśli istnieją zmiany, których nie można wprowadzić w sekcji **Dostosowywanie** , musisz zmienić wersję szablonu i interfejsu urządzenia, aby zmodyfikować tę możliwość.
+Nie można dostosować nazwy możliwości ani typu możliwości. Jeśli istnieją zmiany, których nie można wprowadzić w sekcji **Dostosowywanie** , musisz zmienić wersję szablonu i składnika urządzenia, aby zmodyfikować tę możliwość.
 
 ### <a name="generate-default-views"></a>Generuj widoki domyślne
 
 Generowanie widoków domyślnych to szybki sposób wizualizacji ważnych informacji o urządzeniu. Istnieje maksymalnie trzy widoki domyślne wygenerowane dla szablonu urządzenia:
 
-- **Polecenia** udostępniają widok z poleceniami urządzenia i umożliwiają operatorowi wysyłanie ich do urządzenia.
-- **Przegląd** zawiera widok z danymi telemetrycznymi urządzeń, wyświetlanie wykresów i metryk.
-- Informacje **o** programie zawierają informacje o urządzeniu, wyświetlając właściwości urządzenia.
+- **Polecenia**: widok z poleceniami urządzenia i umożliwia operatorowi wysyłanie ich do urządzenia.
+- **Przegląd**: widok z danymi telemetrycznymi urządzeń, wyświetlanie wykresów i metryk.
+- **Informacje**: widok z informacjami o urządzeniu, wyświetlanie właściwości urządzenia.
 
-Po wybraniu opcji **Generuj domyślne widoki**zobaczysz, że zostały one automatycznie dodane w sekcji **widoki** szablonu urządzenia.
+Po wybraniu opcji **Generuj domyślne widoki** zobaczysz, że zostały one automatycznie dodane w sekcji **widoki** szablonu urządzenia.
 
 ## <a name="add-dashboards"></a>Dodaj pulpity nawigacyjne
 
@@ -237,13 +237,13 @@ Aby dodać pulpit nawigacyjny do szablonu urządzenia:
 1. Wprowadź nazwę pulpitu nawigacyjnego w polu **Nazwa pulpitu nawigacyjnego**.
 1. Dodaj kafelki do pulpitu nawigacyjnego z listy kafelków statycznej, właściwości, chmury, telemetrii i poleceń. Przeciągnij i upuść kafelki, które chcesz dodać do pulpitu nawigacyjnego.
 1. Aby wykreolić wiele wartości telemetrii na pojedynczym kafelku wykresu, wybierz wartości telemetryczne, a następnie wybierz pozycję **Połącz**.
-1. Skonfiguruj wszystkie dodawane kafelki, aby dostosować sposób wyświetlania danych. Możesz to zrobić, wybierając ikonę koła zębatego lub wybierając pozycję **Zmień konfigurację** na kafelku wykresu.
+1. Skonfiguruj wszystkie dodawane kafelki, aby dostosować sposób wyświetlania danych. Dostęp do tej opcji można uzyskać, wybierając ikonę koła zębatego lub wybierając pozycję **Zmień konfigurację** na kafelku wykresu.
 1. Rozmieść kafelki na pulpicie nawigacyjnym i zmień ich rozmiar.
 1. Zapisz zmiany.
 
 ### <a name="configure-preview-device-to-view-dashboard"></a>Konfigurowanie urządzenia w wersji zapoznawczej do wyświetlania pulpitu nawigacyjnego
 
-Aby wyświetlić i przetestować pulpit nawigacyjny, wybierz pozycję **Konfiguruj urządzenie w wersji zapoznawczej**. Dzięki temu pulpit nawigacyjny będzie widoczny po opublikowaniu. Użyj tej opcji, aby sprawdzić, czy w widokach są wyświetlane poprawne dane. Możesz wybrać następujące opcje:
+Aby wyświetlić i przetestować pulpit nawigacyjny, wybierz pozycję **Konfiguruj urządzenie w wersji zapoznawczej**. Ta funkcja umożliwia wyświetlenie pulpitu nawigacyjnego, ponieważ jest on widoczny po opublikowaniu. Użyj tej funkcji, aby sprawdzić, czy w widokach są wyświetlane poprawne dane. Możesz wybrać z następujących opcji:
 
 - Brak urządzenia w wersji zapoznawczej.
 - Rzeczywiste urządzenie testowe skonfigurowane dla szablonu urządzenia.
@@ -251,7 +251,7 @@ Aby wyświetlić i przetestować pulpit nawigacyjny, wybierz pozycję **Konfigur
 
 ## <a name="add-forms"></a>Dodawanie formularzy
 
-Dodaj formularze do szablonu urządzenia, aby umożliwić operatorom zarządzanie urządzeniem przez wyświetlanie i Ustawianie właściwości. Operatory mogą edytować tylko właściwości chmury i zapisywalne właściwości urządzeń. Dla szablonu urządzenia można mieć wiele formularzy.
+Dodaj formularze do szablonu urządzenia, aby umożliwić operatorom zarządzanie urządzeniem przez wyświetlanie i Ustawianie właściwości. Operatory mogą edytować tylko właściwości chmury i właściwości urządzenia z możliwością zapisu. Dla szablonu urządzenia można mieć wiele formularzy.
 
 Aby dodać formularz do szablonu urządzenia:
 
@@ -266,9 +266,9 @@ Aby dodać formularz do szablonu urządzenia:
 
 ## <a name="publish-a-device-template"></a>Publikowanie szablonu urządzenia
 
-Aby można było połączyć urządzenie, które implementuje model możliwości urządzenia, należy opublikować szablon urządzenia.
+Aby można było połączyć urządzenie implementujące model urządzenia, należy opublikować szablon urządzenia.
 
-Po opublikowaniu szablonu urządzenia można wprowadzać tylko ograniczone zmiany w modelu możliwości urządzenia. Aby zmodyfikować interfejs, należy [utworzyć i opublikować nową wersję](./howto-version-device-template.md).
+Po opublikowaniu szablonu urządzenia można wprowadzać tylko ograniczone zmiany w modelu urządzenia. Aby zmodyfikować składnik, należy [utworzyć i opublikować nową wersję](./howto-version-device-template.md).
 
 Aby opublikować szablon urządzenia, przejdź do szablonu urządzenia i wybierz pozycję **Publikuj**.
 

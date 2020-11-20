@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
 ms.date: 10/26/2020
-ms.openlocfilehash: 1485f06af2bb3c4912df3e34cb23c409b7db3dc2
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 39119f62fa938f5f4f6529539d4ca9a84bdf8fd7
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780363"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989194"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Omówienie funkcji zabezpieczeń wystąpienia zarządzanego w Azure SQL Database i SQL
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -41,22 +41,22 @@ Reguły zapory adresów IP umożliwiają dostęp do baz danych na podstawie źr�
 [Reguły sieci wirtualnej](vnet-service-endpoint-rule-overview.md) umożliwiają Azure SQL Database tylko akceptowanie komunikacji wysyłanej z wybranych podsieci w sieci wirtualnej.
 
 > [!NOTE]
-> Kontrolowanie dostępu za pomocą reguł *zapory nie ma zastosowania do* **wystąpienia zarządzanego SQL** . Aby uzyskać więcej informacji o wymaganej konfiguracji sieci, zobacz [nawiązywanie połączenia z wystąpieniem zarządzanym](../managed-instance/connect-application-instance.md)
+> Kontrolowanie dostępu za pomocą reguł *zapory nie ma zastosowania do* **wystąpienia zarządzanego SQL**. Aby uzyskać więcej informacji o wymaganej konfiguracji sieci, zobacz [nawiązywanie połączenia z wystąpieniem zarządzanym](../managed-instance/connect-application-instance.md)
 
 ## <a name="access-management"></a>Zarządzanie dostępem
 
 > [!IMPORTANT]
-> Zarządzanie bazami danych i serwerami na platformie Azure jest kontrolowane przez przypisania roli konta użytkownika portalu. Aby uzyskać więcej informacji na temat tego artykułu, zobacz [Kontrola dostępu oparta na rolach w Azure Portal](../../role-based-access-control/overview.md).
+> Zarządzanie bazami danych i serwerami na platformie Azure jest kontrolowane przez przypisania roli konta użytkownika portalu. Aby uzyskać więcej informacji na ten temat, zobacz [kontrolę dostępu opartą na rolach na platformie Azure w Azure Portal](../../role-based-access-control/overview.md).
 
 ### <a name="authentication"></a>Authentication
 
 Uwierzytelnianie to proces potwierdzania tożsamości użytkownika. Azure SQL Database i wystąpienie zarządzane SQL obsługują dwa typy uwierzytelniania:
 
-- **Uwierzytelnianie SQL** :
+- **Uwierzytelnianie SQL**:
 
     Uwierzytelnianie SQL odnosi się do uwierzytelniania użytkownika podczas nawiązywania połączenia z usługą Azure SQL Database lub wystąpieniem zarządzanym usługi Azure SQL przy użyciu nazwy użytkownika i hasła. Podczas tworzenia serwera należy określić identyfikator logowania **administratora serwera** z nazwą użytkownika i hasłem. Korzystając z tych poświadczeń, **administrator serwera** może uwierzytelniać się w dowolnej bazie danych na tym serwerze lub wystąpieniu jako właściciel bazy danych. Następnie administrator serwera może utworzyć dodatkowe identyfikatory logowania i użytkowników SQL, które umożliwią użytkownikom łączenie się przy użyciu nazwy użytkownika i hasła.
 
-- **Uwierzytelnianie Azure Active Directory** :
+- **Uwierzytelnianie Azure Active Directory**:
 
     Uwierzytelnianie Azure Active Directory jest mechanizmem łączenia się z [Azure SQL Database](sql-database-paas-overview.md), [wystąpienia zarządzanego usługi Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md) i [analizy Synapse azure](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) przy użyciu tożsamości w Azure Active Directory (Azure AD). Uwierzytelnianie za pomocą usługi Azure AD pozwala administratorom centralnie zarządzać tożsamościami i uprawnieniami użytkowników baz danych wraz z innymi usługami platformy Azure w jednej centralnej lokalizacji. Obejmuje to minimalizowanie magazynu haseł i umożliwia scentralizowane zasady rotacji haseł.
 
@@ -65,7 +65,7 @@ Uwierzytelnianie to proces potwierdzania tożsamości użytkownika. Azure SQL Da
     Dostępne są dodatkowe opcje uwierzytelniania usługi Azure AD [Active Directory uniwersalnego uwierzytelniania dla połączeń SQL Server Management Studio, w](authentication-mfa-ssms-overview.md) tym [Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) i [dostępu warunkowego](conditional-access-configure.md).
 
 > [!IMPORTANT]
-> Zarządzanie bazami danych i serwerami na platformie Azure jest kontrolowane przez przypisania roli konta użytkownika portalu. Aby uzyskać więcej informacji na temat tego artykułu, zobacz [Kontrola dostępu oparta na rolach w Azure Portal](../../role-based-access-control/overview.md). Kontrolowanie dostępu za pomocą reguł *zapory nie ma zastosowania do* **wystąpienia zarządzanego SQL** . Aby uzyskać więcej informacji na temat konfiguracji sieci, należy zapoznać się z poniższym artykułem dotyczącym [łączenia się z wystąpieniem zarządzanym](../managed-instance/connect-application-instance.md) .
+> Zarządzanie bazami danych i serwerami na platformie Azure jest kontrolowane przez przypisania roli konta użytkownika portalu. Aby uzyskać więcej informacji na ten temat, zobacz [Kontrola dostępu oparta na rolach na platformie Azure w Azure Portal](../../role-based-access-control/overview.md). Kontrolowanie dostępu za pomocą reguł *zapory nie ma zastosowania do* **wystąpienia zarządzanego SQL**. Aby uzyskać więcej informacji na temat konfiguracji sieci, należy zapoznać się z poniższym artykułem dotyczącym [łączenia się z wystąpieniem zarządzanym](../managed-instance/connect-application-instance.md) .
 
 ## <a name="authorization"></a>Autoryzacja
 
@@ -103,7 +103,7 @@ SQL Database, wystąpienie zarządzane SQL i usługa Azure Synapse Analytics wym
 
 Najlepszym rozwiązaniem jest zalecanie, aby w parametrach połączenia używanych przez aplikację określić połączenie szyfrowane i _**nie**_ ufać certyfikatowi serwera. Oznacza to, że aplikacja weryfikuje certyfikat serwera i w związku z tym uniemożliwia aplikacji atak na ataki typu średniego.
 
-Na przykład podczas korzystania z sterownika ADO.NET jest to realizowane za pośrednictwem  **szyfrowania = true** i **TrustServerCertificate = false** . W przypadku uzyskania parametrów połączenia z Azure Portal będzie on miał poprawne ustawienia.
+Na przykład podczas korzystania z sterownika ADO.NET jest to realizowane za pośrednictwem  **szyfrowania = true** i **TrustServerCertificate = false**. W przypadku uzyskania parametrów połączenia z Azure Portal będzie on miał poprawne ustawienia.
 
 > [!IMPORTANT]
 > Należy pamiętać, że niektóre sterowniki inne niż firmy Microsoft mogą nie używać protokołu TLS domyślnie lub korzystają ze starszej wersji protokołu TLS (<1,2), aby móc działać. W takim przypadku serwer nadal umożliwia nawiązanie połączenia z bazą danych. Zaleca się jednak, aby oszacować zagrożenia bezpieczeństwa, które umożliwiają łączenie takich sterowników i aplikacji z SQL Database, szczególnie w przypadku przechowywania poufnych danych.
@@ -130,7 +130,7 @@ Na platformie Azure wszystkie nowo utworzone bazy danych są szyfrowane domyśln
 
 ![Diagram przedstawiający Dynamiczne maskowanie danych. Aplikacja biznesowa wysyła dane do bazy danych SQL, która maskuje dane przed wysłaniem ich z powrotem do aplikacji biznesowej.](./media/security-overview/azure-database-ddm.png)
 
-Dynamiczne maskowanie danych ogranicza narażenie na dane poufne przez zamaskowanie ich dla użytkowników bez uprawnień. Dynamiczne maskowanie danych automatycznie odnajduje potencjalnie wrażliwe dane w Azure SQL Database i wystąpieniu zarządzanym SQL, a także udostępnia zalecenia umożliwiające podjęcie odpowiednich działań w celu zamaskowania tych pól przy minimalnym wpływie na warstwę aplikacji. Jego działanie polega na zaciemnianiu poufnych danych w wyznaczonych polach bazy danych w zestawie wyników zapytania, przy czym dane w bazie danych pozostają bez zmian. Aby uzyskać więcej informacji, zobacz [wprowadzenie do SQL Database i dynamiczne maskowanie danych wystąpienia zarządzanego SQL](dynamic-data-masking-overview.md).
+Dynamiczne maskowanie danych ogranicza ujawnianie danych poufnych, maskując je w przypadku użytkowników bez uprawnień. Dynamiczne maskowanie danych automatycznie odnajduje potencjalnie wrażliwe dane w Azure SQL Database i wystąpieniu zarządzanym SQL, a także udostępnia zalecenia umożliwiające podjęcie odpowiednich działań w celu zamaskowania tych pól przy minimalnym wpływie na warstwę aplikacji. Jego działanie polega na zaciemnianiu poufnych danych w wyznaczonych polach bazy danych w zestawie wyników zapytania, przy czym dane w bazie danych pozostają bez zmian. Aby uzyskać więcej informacji, zobacz [wprowadzenie do SQL Database i dynamiczne maskowanie danych wystąpienia zarządzanego SQL](dynamic-data-masking-overview.md).
 
 ## <a name="security-management"></a>Zarządzanie zabezpieczeniami
 

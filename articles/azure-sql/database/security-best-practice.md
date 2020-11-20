@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: c7a94a24bd825249859ff699ab82ce4d3ae8fce1
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b309ce01595e2e62bea7f78ae728d83bc7d9b9be
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842247"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992169"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Element PlayBook do rozwiązywania typowych wymagań dotyczących zabezpieczeń w przypadku wystąpienia zarządzanego Azure SQL Database i usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -107,12 +107,12 @@ Centralne zarządzanie tożsamościami oferuje następujące korzyści:
 > [!NOTE]
 >
 > - Uwierzytelnianie usługi Azure AD jest rejestrowane w dziennikach inspekcji usługi Azure SQL, ale nie w dziennikach logowania usługi Azure AD.
-> - Uprawnienia RBAC przyznane na platformie Azure nie mają zastosowania do uprawnień wystąpienia zarządzanego Azure SQL Database lub SQL. Takie uprawnienia muszą zostać utworzone/zmapowane ręcznie przy użyciu istniejących uprawnień SQL.
+> - Uprawnienia usługi Azure RBAC przyznane na platformie Azure nie mają zastosowania do uprawnień wystąpienia zarządzanego Azure SQL Database lub SQL. Takie uprawnienia muszą zostać utworzone/zmapowane ręcznie przy użyciu istniejących uprawnień SQL.
 > - Po stronie klienta uwierzytelnianie usługi Azure AD wymaga dostępu do Internetu lub za pośrednictwem trasy zdefiniowanej przez użytkownika (UDR) do sieci wirtualnej.
 > - Token dostępu usługi Azure AD jest buforowany po stronie klienta, a jego okres istnienia zależy od konfiguracji tokenu. Zapoznaj się z artykułem [konfigurowalne okresy istnienia tokenu w Azure Active Directory](../../active-directory/develop/active-directory-configurable-token-lifetimes.md)
 > - Aby uzyskać wskazówki dotyczące rozwiązywania problemów z uwierzytelnianiem w usłudze Azure AD, zobacz następujący Blog: [Rozwiązywanie problemów z usługą Azure AD](https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991).
 
-### <a name="azure-ad-multi-factor-authentication"></a>Multi-Factor Authentication usługi Azure AD
+### <a name="azure-ad-multi-factor-authentication"></a>Uwierzytelnianie wieloskładnikowe w usłudze Azure AD
 
 > Wymienione w: rozwiązanie OSA #2, ISO Access Control (AC)
 

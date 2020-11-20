@@ -1,15 +1,15 @@
 ---
 title: Szczegóły zgodności z przepisami dla usług CIS Microsoft Azure testy porównawcze
 description: Szczegółowe informacje na temat usług CIS Microsoft Azure stwierdzenia zgodności z przepisami testowymi. Każda kontrolka jest zamapowana na co najmniej jedną definicję Azure Policy, która pomaga w ocenie.
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 1f9379427be69ecf8a07000744f0410c9b34f13c
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 2ed1a40ba7589d25864cd5bdd90526635f189d6d
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696935"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94991319"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-regulatory-compliance-built-in-initiative"></a>Szczegółowe informacje na temat usług CIS Microsoft Azure stwierdzenia zgodności z przepisami testowymi
 
@@ -110,7 +110,7 @@ Ta inicjatywa wbudowana jest wdrażana jako część [przykładowego planu poró
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Zalecane zalecenia dotyczące ograniczania przepustowości sieci powinny być stosowane w przypadku maszyn wirtualnych mających dostęp do Internetu.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F08e6af2d-db70-460a-bfe9-d5bd474ba9d6) |Azure Security Center analizuje wzorce ruchu maszyn wirtualnych mających dostęp do Internetu i zawiera zalecenia dotyczące reguły sieciowej grupy zabezpieczeń, które zmniejszają potencjalną podatność na ataki |AuditIfNotExists, wyłączone |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AdaptiveNetworkHardenings_Audit.json) |
+|[Zalecane zalecenia dotyczące ograniczania przepustowości sieci powinny być stosowane w przypadku maszyn wirtualnych mających dostęp do Internetu.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F08e6af2d-db70-460a-bfe9-d5bd474ba9d6) |Azure Security Center analizuje wzorce ruchu maszyn wirtualnych mających dostęp do Internetu i zawiera zalecenia dotyczące reguły sieciowej grupy zabezpieczeń, które zmniejszają potencjalną podatność na ataki |AuditIfNotExists, wyłączone |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AdaptiveNetworkHardenings_Audit.json) |
 
 ### <a name="ensure-asc-default-policy-setting-enable-next-generation-firewallngfw-monitoring-is-not-disabled"></a>Upewnij się, że domyślne ustawienie zasad ASC "Włącz monitorowanie zapory nowej generacji (zapory następnej generacji)" nie jest wyłączone
 
@@ -449,7 +449,7 @@ Ta inicjatywa wbudowana jest wdrażana jako część [przykładowego planu poró
 |---|---|---|---|
 |[Alert dziennika aktywności powinien istnieć dla określonych operacji zabezpieczeń](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3b980d31-7904-4bb7-8575-5665739a8052) |Ta zasada przeprowadza inspekcję określonych operacji zabezpieczeń bez skonfigurowanych alertów dziennika aktywności. |AuditIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_SecurityOperations_Audit.json) |
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 
 ### <a name="ensure-that-rdp-access-is-restricted-from-the-internet"></a>Upewnij się, że dostęp do protokołu RDP jest ograniczony z Internetu
 

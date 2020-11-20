@@ -3,17 +3,16 @@ title: Samouczek — Tworzenie reguł i zarządzanie nimi w aplikacji IoT Centra
 description: W tym samouczku przedstawiono sposób, w jaki reguły IoT Central platformy Azure umożliwiają monitorowanie urządzeń w czasie niemal rzeczywistym oraz automatyczne wywoływanie akcji, takich jak wysyłanie wiadomości e-mail, gdy reguła jest wyzwalana.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/06/2020
+ms.date: 11/16/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-manager: philmea
-ms.openlocfilehash: 555da74da65f3b1897a276cf819a263334cfa053
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d49e3585460c95ca931f497a63cbc281aed1db1
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80999059"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94991017"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Samouczek: Tworzenie reguły i konfigurowanie powiadomień w aplikacji usługi Azure IoT Central
 
@@ -21,11 +20,11 @@ ms.locfileid: "80999059"
 
 Za pomocą usługi Azure IoT Central można zdalnie monitorować połączone urządzenia. Reguły IoT Central platformy Azure umożliwiają monitorowanie urządzeń w czasie niemal rzeczywistym i automatyczne wywoływanie akcji, na przykład wysłanie wiadomości e-mail. W tym artykule wyjaśniono, jak utworzyć reguły monitorowania danych telemetrycznych wysyłanych przez urządzenia.
 
-Urządzenia używają telemetrii do wysyłania danych liczbowych z urządzenia. Reguła jest wyzwalana, gdy wybrana wartość telemetrii urządzenia przekroczy określony próg.
+Urządzenia używają telemetrii do wysyłania danych liczbowych z urządzenia. Reguła jest wyzwalana, gdy wybrana Telemetria przekracza określony próg.
 
-W tym samouczku utworzysz regułę wysyłania wiadomości e-mail, gdy temperatura symulowanego urządzenia czujnika środowiska przekroczy 70 &deg; F.
+W tym samouczku utworzysz regułę do wysyłania wiadomości e-mail, gdy temperatura w symulowanym urządzeniu czujnika przekracza 70 &deg; F.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -34,25 +33,25 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem Wypełnij [aplikację tworzenie IoT Central platformy Azure](./quick-deploy-iot-central.md) i [Dodaj symulowane urządzenie do aplikacji IoT Central](./quick-create-simulated-device.md) przewodników Szybki Start, aby utworzyć szablon urządzenia **zestawu deweloperskiego IoT DevKit** do pracy z usługą.
+Przed rozpoczęciem wykonaj czynności [Tworzenie aplikacji IoT Central platformy Azure](./quick-deploy-iot-central.md) i [Dodawanie symulowanego urządzenia do aplikacji IoT Central](./quick-create-simulated-device.md) przewodników Szybki Start, aby utworzyć szablon urządzenia **kontrolera czujnika** do pracy.
 
 ## <a name="create-a-rule"></a>Tworzenie reguły
 
-Aby utworzyć regułę telemetrii, szablon urządzenia musi zawierać co najmniej jedną wartość telemetrii. W tym samouczku jest używane symulowane urządzenie **zestawu deweloperskiego IoT DevKit** , które wysyła dane telemetryczne temperatury i wilgotności. Dodano ten szablon urządzenia i utworzono symulowane urządzenie na stronie [Dodawanie symulowanego urządzenia do aplikacji do IoT Central](./quick-create-simulated-device.md) przewodnika Szybki Start. Reguła monitoruje temperaturę zgłoszoną przez urządzenie i wysyła wiadomość e-mail, gdy znajdzie się ona powyżej 70 stopni.
+Aby utworzyć regułę telemetrii, szablon urządzenia musi zawierać co najmniej jedną wartość telemetrii. W tym samouczku jest używane urządzenie symulowanego **kontrolera czujnika** , które wysyła dane telemetryczne temperatury i wilgotności. Dodano ten szablon urządzenia i utworzono symulowane urządzenie na stronie [Dodawanie symulowanego urządzenia do aplikacji do IoT Central](./quick-create-simulated-device.md) przewodnika Szybki Start. Reguła monitoruje temperaturę zgłoszoną przez urządzenie i wysyła wiadomość e-mail, gdy znajdzie się ona powyżej 70 stopni.
 
 1. W lewym okienku wybierz pozycję **reguły**.
 
 1. Jeśli nie utworzono jeszcze żadnych reguł, zobaczysz następujący ekran:
 
-    ![Jeszcze nie ma reguł](media/tutorial-create-telemetry-rules/rules-landing-page1.png)
+    :::image type="content" source="media/tutorial-create-telemetry-rules/rules-landing-page.png" alt-text="Zrzut ekranu pokazujący pustą listę reguł":::
 
-1. Wybierz **+** , aby dodać nową regułę.
+1. Wybierz pozycję **+ Nowy** , aby dodać nową regułę.
 
 1. Wprowadź nazwę _monitora temperatury_ , aby zidentyfikować regułę, a następnie naciśnij klawisz ENTER.
 
-1. Wybierz szablon urządzenia **zestawu deweloperskiego IoT DevKit** . Domyślnie reguła ma zastosowanie automatycznie do wszystkich urządzeń skojarzonych z szablonem urządzenia. Aby odfiltrować podzestaw urządzeń, wybierz opcję **+ Filtr** i Użyj właściwości urządzenia w celu zidentyfikowania urządzeń. Aby wyłączyć regułę, przełącz przycisk **włączone/wyłączone** w nagłówku reguły:
+1. Wybierz szablon urządzenia **kontrolera czujnika** . Domyślnie reguła ma zastosowanie automatycznie do wszystkich urządzeń skojarzonych z szablonem urządzenia. Aby odfiltrować podzestaw urządzeń, wybierz opcję **+ Filtr** i Użyj właściwości urządzenia w celu zidentyfikowania urządzeń. Aby wyłączyć regułę, przełącz przycisk **włączone/wyłączone** :
 
-    ![Filtry i Włącz](media/tutorial-create-telemetry-rules/device-filters.png)
+    :::image type="content" source="media/tutorial-create-telemetry-rules/device-filters.png" alt-text="Zrzut ekranu pokazujący wybór szablonu urządzenia w definicji reguły":::
 
 ### <a name="configure-the-rule-conditions"></a>Skonfiguruj warunki reguły
 
@@ -62,14 +61,14 @@ Warunki określają kryteria monitorowane przez regułę. W tym samouczku skonfi
 
 1. Następnie wybierz pozycję **jest większy niż** **Operator** i wprowadź _70_ jako **wartość**.
 
-    ![Warunek](media/tutorial-create-telemetry-rules/condition-filled-out1.png)
+    :::image type="content" source="media/tutorial-create-telemetry-rules/condition-filled-out.png" alt-text="Zrzut ekranu pokazujący warunek temperatury dla reguły":::
 
 1. Opcjonalnie można ustawić **agregację czasu**. Po wybraniu agregacji czasu należy również wybrać typ agregacji, taki jak Average lub sum z listy rozwijanej agregacji.
 
     * Bez agregacji reguła wyzwala dla każdego punktu danych telemetrii, który spełnia warunek. Na przykład, jeśli skonfigurujesz regułę do wyzwalania, gdy temperatura jest powyżej 70, reguła jest wyzwalana niemal natychmiast, gdy temperatura urządzenia przekroczy tę wartość.
     * Przy agregacji reguła jest wyzwalana, gdy wartość zagregowana punktów danych telemetrii w przedziale czasu spełnia warunek. Na przykład, jeśli skonfigurujesz regułę do wyzwalania, gdy temperatura przekracza 70 i średni czas agregacji wynoszący 10 minut, reguła jest wyzwalana, gdy urządzenie zgłosi średnią temperaturę większą niż 70, obliczoną w ciągu 10 minut.
 
-     ![Warunek agregacji](media/tutorial-create-telemetry-rules/aggregate-condition-filled-out1.png)
+    :::image type="content" source="media/tutorial-create-telemetry-rules/aggregate-condition-filled-out.png" alt-text="Zrzut ekranu pokazujący łączny warunek wypełnienia":::
 
 Do reguły można dodać wiele warunków, wybierając pozycję **+ warunek**. W przypadku określenia wielu warunków wszystkie warunki muszą być spełnione, aby reguła była wyzwalana. Każdy warunek jest przyłączony przez klauzulę niejawną `AND` . Jeśli używasz agregacji czasu z wieloma warunkami, wszystkie wartości telemetryczne muszą być agregowane.
 
@@ -84,7 +83,7 @@ Po zdefiniowaniu warunku należy skonfigurować akcje do wykonania, gdy reguła 
     > [!NOTE]
     > Wiadomości e-mail są wysyłane tylko do użytkowników, którzy zostali dodani do aplikacji i zarejestrowali się co najmniej raz. Dowiedz się więcej na temat [zarządzania użytkownikami](howto-administer.md) w usłudze Azure IoT Central.
 
-   ![Konfiguruj akcję](media/tutorial-create-telemetry-rules/configure-action1.png)
+    :::image type="content" source="media/tutorial-create-telemetry-rules/configure-action.png" alt-text="Zrzut ekranu pokazujący akcję e-mail dla reguły":::
 
 1. Aby zapisać akcję, wybierz pozycję **gotowe**. Do reguły można dodać wiele akcji.
 
@@ -92,7 +91,7 @@ Po zdefiniowaniu warunku należy skonfigurować akcje do wykonania, gdy reguła 
 
 Gdy reguła zostanie wyświetlona, otrzymasz wiadomość e-mail z powiadomieniem:
 
-![Przykład wiadomości e-mail](media/tutorial-create-telemetry-rules/email.png)
+:::image type="content" source="media/tutorial-create-telemetry-rules/email.png" alt-text="Zrzut ekranu przedstawiający wiadomość e-mail z powiadomieniem":::
 
 ## <a name="delete-a-rule"></a>Usuwanie reguły
 

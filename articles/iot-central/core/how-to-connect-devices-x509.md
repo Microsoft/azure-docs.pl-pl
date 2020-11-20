@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: c2af331304decd7955892ef4911d1644518f57b8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 33d837f63fca2062ec930fcf0d64ee01ea822c99
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427879"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989534"
 ---
 # <a name="how-to-connect-devices-with-x509-certificates-using-nodejs-device-sdk-for-iot-central-application"></a>Jak połączyć urządzenia z certyfikatami X. 509 za pomocą zestawu SDK urządzeń Node.js dla IoT Central aplikacji
 
@@ -55,7 +55,7 @@ W tej sekcji użyto certyfikatu X. 509, aby połączyć urządzenie z certyfikat
 
     ```cmd/sh
     node create_test_cert.js root mytestrootcert
-    node create_test_cert.js device mytestdevice mytestrootcert
+    node create_test_cert.js device sample-device-01 mytestrootcert
     ```
 
     > [!TIP]
@@ -73,7 +73,7 @@ filename | Contents
 
 1. Otwórz aplikację IoT Central i przejdź do opcji **Administracja**  w okienku po lewej stronie i wybierz pozycję **połączenie z urządzeniem**.
 
-1. Wybierz pozycję **+ Utwórz grupę rejestracji**i Utwórz nową grupę rejestracji o nazwie Moja _x509_ z typem zaświadczania **certyfikatów (X. 509)**.
+1. Wybierz pozycję **+ Utwórz grupę rejestracji** i Utwórz nową grupę rejestracji o nazwie Moja _x509_ z typem zaświadczania **certyfikatów (X. 509)**.
 
 1. Otwórz utworzoną grupę rejestracji i wybierz pozycję **Zarządzaj podstawową**.
 
@@ -91,61 +91,70 @@ filename | Contents
 
     ![Zweryfikowany certyfikat](./media/how-to-connect-devices-x509/verified.png)
 
-Teraz można połączyć urządzenia, które mają certyfikat X. 509 pochodzący z tego podstawowego certyfikatu głównego. Po zapisaniu grupy rejestracji Zanotuj zakres identyfikatorów.
+Teraz można połączyć urządzenia, które mają certyfikat X. 509 pochodzący z tego podstawowego certyfikatu głównego.
+
+Po zapisaniu grupy rejestracji Zanotuj zakres identyfikatorów.
 
 ## <a name="run-sample-device-code"></a>Uruchom przykładowy kod urządzenia
 
-1. W aplikacji IoT Central platformy Azure wybierz pozycję **urządzenia**i Utwórz nowe urządzenie z _Mytestdevice_ jako **Identyfikator urządzenia** na podstawie szablonu urządzenia **czujnika środowiska** .
+1. Skopiuj pliki **sampleDevice01_key. pem** i **sampleDevice01_cert. pem** do folderu _Azure-IoT-SDK-Node/Device/Samples/pnp_ , który zawiera aplikację **simple_thermostat.js** . Ta aplikacja została użyta po zakończeniu pracy z [samouczkiem łączenie urządzenia (Node.js)](./tutorial-connect-device-nodejs.md).
 
-1. Skopiuj pliki _mytestdevice_key. pem_ i _mytestdevice_cert. pem_ do folderu, który zawiera aplikację _environmentalSensor.js_ . Ta aplikacja została utworzona po zakończeniu pracy z [samouczkiem łączenie urządzenia (Node.js)](./tutorial-connect-device-nodejs.md).
-
-1. Przejdź do folderu, który zawiera environmentalSensor.js aplikację, a następnie uruchom następujące polecenie, aby zainstalować pakiet X. 509:
+1. Przejdź do folderu _Azure-IoT-SDK-Node/Device/Samples/PnP_ zawierającego aplikację **simple_thermostat.js** i uruchom następujące polecenie, aby zainstalować pakiet X. 509:
 
     ```cmd/sh
     npm install azure-iot-security-x509 --save
     ```
 
-1. Edytuj plik **environmentalSensor.js** .
-    - Zastąp `idScope` wartość **zakresem identyfikatorów** , który został wcześniej zanotowany.
-    - Zastąp `registrationId` wartość wartością `mytestdevice` .
+1. Otwórz plik **simple_thermostat.js** w edytorze tekstów.
 
-1. Edytuj `require` instrukcje w następujący sposób:
+1. Edytuj `require` instrukcje, aby uwzględnić następujące elementy:
 
     ```javascript
-    var iotHubTransport = require('azure-iot-device-mqtt').Mqtt;
-    var Client = require('azure-iot-device').Client;
-    var Message = require('azure-iot-device').Message;
-    var ProvisioningTransport = require('azure-iot-provisioning-device-mqtt').Mqtt;
-    var ProvisioningDeviceClient = require('azure-iot-provisioning-device').ProvisioningDeviceClient;
-    var fs = require('fs');
-    var X509Security = require('azure-iot-security-x509').X509Security;
+    const fs = require('fs');
+    const X509Security = require('azure-iot-security-x509').X509Security;
     ```
 
-1. Edytuj sekcję tworzącą klienta w następujący sposób:
+1. Aby zainicjować zmienną, Dodaj następujące cztery wiersze do sekcji "informacje o połączeniu usługi DPS" `deviceCert` :
 
     ```javascript
-    var provisioningHost = 'global.azure-devices-provisioning.net';
-    var deviceCert = {
-      cert: fs.readFileSync('mytestdevice_cert.pem').toString(),
-      key: fs.readFileSync('mytestdevice_key.pem').toString()
+    const deviceCert = {
+      cert: fs.readFileSync(process.env.IOTHUB_DEVICE_X509_CERT).toString(),
+      key: fs.readFileSync(process.env.IOTHUB_DEVICE_X509_KEY).toString()
     };
-    var provisioningSecurityClient = new X509Security(registrationId, deviceCert);
-    var provisioningClient = ProvisioningDeviceClient.create(provisioningHost, idScope, new ProvisioningTransport(), provisioningSecurityClient);
-    var hubClient;
     ```
 
-1. Zmodyfikuj sekcję otwierającą połączenie w następujący sposób:
+1. Edytuj `provisionDevice` funkcję, która tworzy klienta, zastępując pierwszy wiersz następującym:
 
-   ```javascript
-    var connectionString = 'HostName=' + result.assignedHub + ';DeviceId=' + result.deviceId + ';x509=true';
-    hubClient = Client.fromConnectionString(connectionString, iotHubTransport);
-    hubClient.setOptions(deviceCert);
+    ```javascript
+    var provSecurityClient = new X509Security(registrationId, deviceCert);
     ```
+
+1. W tej samej funkcji Zmodyfikuj wiersz ustawiający `deviceConnectionString` zmienną w następujący sposób:
+
+    ```javascript
+    deviceConnectionString = 'HostName=' + result.assignedHub + ';DeviceId=' + result.deviceId + ';x509=true';
+    ```
+
+1. W `main` funkcji Dodaj następujący wiersz po wierszu, który wywołuje `Client.fromConnectionString` :
+
+    ```javascript
+    client.setOptions(deviceCert);
+    ```
+
+1. W środowisku powłoki ustaw następujące dwa zmienne środowiskowe:
+
+    ```cmd/sh
+    set IOTHUB_DEVICE_X509_CERT=sampleDevice01_cert.pem
+    set IOTHUB_DEVICE_X509_KEY=sampleDevice01_key.pem
+    ```
+
+    > [!TIP]
+    > Inne wymagane zmienne środowiskowe są ustawiane po zakończeniu pracy z samouczkiem [Tworzenie i łączenie aplikacji klienckiej z programem Azure IoT Central aplikacji](./tutorial-connect-device-nodejs.md) .
 
 1. Wykonaj skrypt i sprawdź, czy urządzenie zostało pomyślnie zainicjowane:
 
     ```cmd/sh
-    node environmentalSensor.js
+    node simple_thermostat.js
     ```
 
     Możesz również sprawdzić, czy dane telemetryczne są wyświetlane na pulpicie nawigacyjnym.
@@ -170,7 +179,7 @@ Utwórz certyfikat urządzenia X. 509 z podpisem własnym, uruchamiając skrypt.
 
 ## <a name="create-individual-enrollment"></a>Utwórz rejestrację indywidualną
 
-1. W aplikacji IoT Central platformy Azure wybierz pozycję **urządzenia**i Utwórz nowe urządzenie z **identyfikatorem urządzenia** jako _Mytestselfcertprimary_ z szablonu urządzenia czujnika środowiska. Zanotuj **zakres identyfikatora**, który będzie używany później.
+1. W aplikacji IoT Central platformy Azure wybierz pozycję **urządzenia** i Utwórz nowe urządzenie z **identyfikatorem urządzenia** jako _mytestselfcertprimary_ z poziomu szablonu urządzenia z termostatem. Zanotuj **zakres identyfikatora**, który będzie używany później.
 
 1. Otwórz utworzone urządzenie i wybierz pozycję **Połącz**.
 
@@ -188,19 +197,15 @@ Urządzenie jest teraz obsługiwane z certyfikatem X. 509.
 
 ## <a name="run-a-sample-individual-enrollment-device"></a>Uruchamianie przykładowego urządzenia rejestracji indywidualnej
 
-1. Skopiuj pliki _mytestselfcertprimary_key. pem_ i _mytestselfcertprimary_cert. pem_ do folderu, który zawiera aplikację environmentalSensor.js. Ta aplikacja została utworzona po zakończeniu pracy z [samouczkiem łączenie urządzenia (Node.js)](./tutorial-connect-device-nodejs.md).
+1. Skopiuj pliki _mytestselfcertprimary_key. pem_ i _mytestselfcertprimary_cert. pem_ do folderu _Azure-IoT-SDK-Node/Device/Samples/pnp_ , który zawiera aplikację **simple_thermostat.js** . Ta aplikacja została użyta po zakończeniu pracy z [samouczkiem łączenie urządzenia (Node.js)](./tutorial-connect-device-nodejs.md).
 
-1. Edytuj plik **environmentalSensor.js** w następujący sposób i Zapisz go.
-    - Zastąp `idScope` wartość **zakresem identyfikatorów** , który został wcześniej zanotowany.
-    - Zastąp `registrationId` wartość wartością `mytestselfcertprimary` .
-    - Zastąp **wariancję deviceCert** jako:
+1. Zmodyfikuj zmienne środowiskowe używane w następujący sposób:
 
-        ```javascript
-        var deviceCert = {
-        cert: fs.readFileSync('mytestselfcertprimary_cert.pem').toString(),
-        key: fs.readFileSync('mytestselfcertprimary_key.pem').toString()
-        };
-        ```
+    ```cmd/sh
+    set IOTHUB_DEVICE_DPS_DEVICE_ID=mytestselfcertprimary
+    set IOTHUB_DEVICE_X509_CERT=mytestselfcertprimary_cert.pem
+    set IOTHUB_DEVICE_X509_KEY=mytestselfcertprimary_key.pem
+    ```
 
 1. Wykonaj skrypt i sprawdź, czy urządzenie zostało pomyślnie zainicjowane:
 

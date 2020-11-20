@@ -8,12 +8,12 @@ ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
 ms.custom: device-developer, devx-track-azurecli
-ms.openlocfilehash: f4f35aed10465fb06460f2818a876444bf989e01
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 2bbf400840c968587de3a0a0951d28c7c35b210f
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843965"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990894"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Rozwiązywanie problemów dotyczących niewyświetlania danych z urządzeń w usłudze Azure IoT Central
 
@@ -135,7 +135,7 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 | Zaaprowizowane | Brak natychmiastowego rozpoznawania problemu. | Nie dotyczy |
 | Zarejestrowany | Urządzenie nie zostało jeszcze podłączone do IoT Central. | Sprawdź dzienniki urządzeń pod kątem problemów z łącznością. |
 | Zablokowane | Urządzenie ma zablokowany dostęp do IoT Central. | Urządzenie ma zablokowany dostęp do aplikacji IoT Central. Odblokuj urządzenie w IoT Central i ponów próbę. Aby dowiedzieć się więcej, zobacz [blokowanie urządzeń](concepts-get-connected.md#device-status-values). |
-| Niezatwierdzonych | Urządzenie nie jest zatwierdzone. | Urządzenie nie jest zatwierdzone do nawiązania połączenia z aplikacją IoT Central. Zatwierdź urządzenie w IoT Central i ponów próbę. Aby dowiedzieć się więcej, zobacz [zatwierdzanie urządzeń](concepts-get-connected.md#connect-without-registering-devices) |
+| Niezatwierdzonych | Urządzenie nie jest zatwierdzone. | Urządzenie nie jest zatwierdzone do nawiązania połączenia z aplikacją IoT Central. Zatwierdź urządzenie w IoT Central i ponów próbę. Aby dowiedzieć się więcej, zobacz [zatwierdzanie urządzeń](concepts-get-connected.md#device-registration) |
 | Nieskojarzone | Urządzenie nie jest skojarzone z szablonem urządzenia. | Skojarz urządzenie z szablonem urządzenia, aby IoT Central wie, jak analizować dane. |
 
 Dowiedz się więcej na temat [kodów stanu urządzeń](concepts-get-connected.md#device-status-values).

@@ -8,12 +8,12 @@ mms.devlang: na
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: kumud
-ms.openlocfilehash: 70793b585a11da2eccb43fd6cf47053774f1e991
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 4cc0fd970f9adc26f5fdb024f501dcb0edf77bde
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905407"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992424"
 ---
 # <a name="partnering-with-azure-ddos-protection-standard"></a>Współpraca z usługą Azure DDoS Protection Standard
 W tym artykule opisano możliwości partnerskie włączane przez Standard Azure DDoS Protection. Ten artykuł ma na celu ułatwienie menedżerom produktów i rolom biznesowym zrozumienia ścieżki inwestycyjnej i zapewnienie wglądu w propozycję wartości partnerskiej.
@@ -77,10 +77,10 @@ Aby partnerzy mogli skonfigurować integrację ze standardem Azure DDoS Protecti
 
 - [Strona produktu Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/)
 - [Dokumentacja Azure DDoS Protection](ddos-protection-overview.md)
-- [Dokumentacja interfejsu API Azure DDoS Protection](https://docs.microsoft.com/rest/api/virtualnetwork/ddosprotectionplans)
-- [Dokumentacja interfejsu API usługi Azure Virtual Network](https://docs.microsoft.com/rest/api/virtualnetwork/virtualnetworks)
+- [Dokumentacja interfejsu API Azure DDoS Protection](/rest/api/virtualnetwork/ddosprotectionplans)
+- [Dokumentacja interfejsu API usługi Azure Virtual Network](/rest/api/virtualnetwork/virtualnetworks)
 
-### <a name="get-help"></a>Uzyskiwanie pomocy
+### <a name="get-help"></a>Uzyskaj pomoc
 
 - Jeśli masz pytania dotyczące integracji aplikacji, usługi lub produktu ze standardem Azure DDoS Protection, skontaktuj się z [społecznością usługi Azure Security](https://techcommunity.microsoft.com/t5/security-identity/bd-p/Azure-Security).
 - Obserwuj dyskusje na [Stack Overflow](https://stackoverflow.com/tags/azure-ddos/).

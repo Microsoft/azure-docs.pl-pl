@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 4539709dbac992979af6a56e3dae81725a35739d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5c5276f11da687f14630bafd007532d172ef3737
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324998"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990809"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Korzystanie z punktów końcowych usługi sieci wirtualnej i reguł dla serwerów w Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -55,7 +55,7 @@ Istnieje separacja ról zabezpieczeń w administrowaniu punktami końcowymi usł
 - **Administrator sieci:** &nbsp; Włącz punkt końcowy.
 - **Administrator bazy danych:** &nbsp; Zaktualizuj listę kontroli dostępu (ACL), aby dodać daną podsieć do serwera.
 
-*Alternatywa RBAC:*
+*Alternatywa dla usługi Azure RBAC:*
 
 Role administratora sieci i administratora bazy danych mają więcej możliwości niż jest to konieczne do zarządzania regułami sieci wirtualnej. Wymagany jest tylko podzestaw ich możliwości.
 
@@ -89,7 +89,7 @@ W przypadku Azure SQL Database funkcja reguł sieci wirtualnej ma następujące 
 
 Korzystając z punktów końcowych usługi dla Azure SQL Database, zapoznaj się z następującymi kwestiami:
 
-- **Wychodzące do Azure SQL Database publicznych adresów IP jest wymagane** : aby umożliwić łączność, należy otworzyć sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) w celu Azure SQL Database adresów IP. Można to zrobić za pomocą [tagów usługi](../../virtual-network/network-security-groups-overview.md#service-tags) sieciowej grupy zabezpieczeń dla Azure SQL Database.
+- **Wychodzące do Azure SQL Database publicznych adresów IP jest wymagane**: aby umożliwić łączność, należy otworzyć sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) w celu Azure SQL Database adresów IP. Można to zrobić za pomocą [tagów usługi](../../virtual-network/network-security-groups-overview.md#service-tags) sieciowej grupy zabezpieczeń dla Azure SQL Database.
 
 ### <a name="expressroute"></a>ExpressRoute
 
@@ -136,7 +136,7 @@ Baza i instrukcja COPY są często używane do ładowania danych do usługi Azur
    > - Jeśli masz konto usługi Magazyn ogólnego przeznaczenia w wersji 1 lub BLOB, musisz **najpierw przeprowadzić uaktualnienie do wersji 2** przy użyciu tego [przewodnika](../../storage/common/storage-account-upgrade.md).
    > - Aby uzyskać znane problemy z Azure Data Lake Storage Gen2, zapoznaj się z tym [przewodnikiem](../../storage/blobs/data-lake-storage-known-issues.md).
 
-1. W obszarze konto magazynu przejdź do pozycji **Access Control (IAM)** , a następnie wybierz pozycję **Dodaj przypisanie roli**. Przypisywanie **danych obiektu blob magazynu współautor** roli platformy Azure na serwerze hostującym usługę Azure Synapse Analytics, która została zarejestrowana w Azure Active Directory (AAD), jak w kroku #1.
+1. W obszarze konto magazynu przejdź do pozycji **Access Control (IAM)**, a następnie wybierz pozycję **Dodaj przypisanie roli**. Przypisywanie **danych obiektu blob magazynu współautor** roli platformy Azure na serwerze hostującym usługę Azure Synapse Analytics, która została zarejestrowana w Azure Active Directory (AAD), jak w kroku #1.
 
    > [!NOTE]
    > Tylko członkowie z uprawnieniami właściciela na koncie magazynu mogą wykonać ten krok. W przypadku różnych wbudowanych ról platformy Azure Zapoznaj się z tym [przewodnikiem](../../role-based-access-control/built-in-roles.md).
@@ -149,7 +149,7 @@ Baza i instrukcja COPY są często używane do ładowania danych do usługi Azur
        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
        ```
 
-   1. Utwórz poświadczenie o zakresie bazy danych o **tożsamości = "tożsamość usługi zarządzanej"** :
+   1. Utwórz poświadczenie o zakresie bazy danych o **tożsamości = "tożsamość usługi zarządzanej"**:
 
        ```sql
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
@@ -192,7 +192,7 @@ Błąd połączenia 40914 odnosi się do *reguł sieci wirtualnej* określonych 
 
 ### <a name="error-40914"></a>Błąd 40914
 
-*Tekst komunikatu:* Nie można otworzyć serwera " *[nazwa serwera]* " żądanego podczas logowania. Klient nie może uzyskać dostępu do serwera.
+*Tekst komunikatu:* Nie można otworzyć serwera "*[nazwa serwera]*" żądanego podczas logowania. Klient nie może uzyskać dostępu do serwera.
 
 *Opis błędu:* Klient należy do podsieci, która ma punkty końcowe serwera sieci wirtualnej. Ale serwer nie ma reguły sieci wirtualnej, która przyznaje podsieci prawo do komunikacji z bazą danych.
 
@@ -238,9 +238,9 @@ Musisz mieć już podsieć, która jest otagowana przy użyciu konkretnej *nazwy
 
 ## <a name="azure-portal-steps"></a>Azure Portal kroki
 
-1. Zaloguj się do [portalu Azure][http-azure-portal-link-ref-477t].
+1. Zaloguj się w witrynie [Azure Portal][http-azure-portal-link-ref-477t].
 
-2. Wyszukaj i wybierz pozycję **serwery SQL** , a następnie wybierz serwer. W obszarze **zabezpieczenia** wybierz pozycję **zapory i sieci wirtualne**.
+2. Wyszukaj i wybierz pozycję **serwery SQL**, a następnie wybierz serwer. W obszarze **zabezpieczenia** wybierz pozycję **zapory i sieci wirtualne**.
 
 3. Ustaw ustawienie **Zezwalaj na dostęp do usług platformy Azure** .
 

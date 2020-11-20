@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/09/2020
-ms.openlocfilehash: a133cdb72e304a254305833b9ae6e8a7ebe30ab3
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 211ef9571b5a126686b4583330dc0f80863fd47e
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540012"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992050"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Szyfrowanie danych za pomocą Azure Machine Learning
 
@@ -39,7 +39,7 @@ Azure Machine Learning używa różnych usług magazynu danych platformy Azure i
 * Włącza filtrowanie adresów IP, aby upewnić się, że źródłowe pule usługi Batch nie mogą być wywoływane przez żadną zewnętrzną usługę inną niż AzureMachineLearningService
 * W obszarze roboczym HBI nie są obsługiwane wystąpienia obliczeniowe.
 
-### <a name="azure-blob-storage"></a>Azure Blob Storage
+### <a name="azure-blob-storage"></a>Usługa Azure Blob Storage
 
 Azure Machine Learning przechowuje migawki, dane wyjściowe i dzienniki na koncie usługi Azure Blob Storage, które jest powiązane z obszarem roboczym Azure Machine Learning i subskrypcją. Wszystkie dane przechowywane w usłudze Azure Blob Storage są szyfrowane w stanie spoczynku przy użyciu kluczy zarządzanych przez firmę Microsoft.
 
@@ -129,6 +129,12 @@ Każda maszyna wirtualna ma także lokalny dysk tymczasowy dla operacji systemu 
 ### <a name="azure-databricks"></a>Azure Databricks
 
 Azure Databricks można używać w potokach Azure Machine Learning. Domyślnie system plików dataDBFSs używany przez Azure Databricks jest szyfrowany przy użyciu klucza zarządzanego przez firmę Microsoft. Aby skonfigurować Azure Databricks do korzystania z kluczy zarządzanych przez klienta, zobacz [Konfigurowanie kluczy zarządzanych przez klienta na domyślnym (głównym) DBFS](/azure/databricks/security/customer-managed-keys-dbfs).
+
+### <a name="microsoft-generated-data"></a>Dane generowane przez firmę Microsoft
+
+W przypadku korzystania z usług, takich jak automatyczne Machine Learning, firma Microsoft może generować przejściowe, wstępnie przetworzone dane do szkolenia wielu modeli. Te dane są przechowywane w magazynie danych w obszarze roboczym, co umożliwia odpowiednie wymuszanie kontroli dostępu i szyfrowania.
+
+Możesz również zaszyfrować [informacje diagnostyczne zarejestrowane ze wdrożonego punktu końcowego](how-to-enable-app-insights.md) w wystąpieniu usługi Azure Application Insights.
 
 ## <a name="encryption-in-transit"></a>Szyfrowanie podczas transferu
 

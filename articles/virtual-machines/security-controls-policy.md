@@ -1,18 +1,18 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla Virtual Machines platformy Azure
 description: Wyświetla listę Azure Policy kontroli zgodności z przepisami, które są dostępne dla Virtual Machines platformy Azure. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ms.topic: sample
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: e0e82dbb861b0ea04791e0fa0cb072e8532f7fcf
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 8f173bb9d8194bb212012308bf2a3e56de3deea5
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693315"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992346"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-virtual-machines"></a>Azure Policy kontroli zgodności z przepisami dla Virtual Machines platformy Azure 
 

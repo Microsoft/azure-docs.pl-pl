@@ -1,6 +1,6 @@
 ---
 title: Azure DDoS Protection — Omówienie
-description: Dowiedz się, jak standard Azure DDoS Protection, w połączeniu z najlepszymi rozwiązaniami dotyczącymi projektowania aplikacji, zapewnia ochronę przed atakami DDoS.
+description: Dowiedz się, jak usługa Azure DDoS Protection w warstwie Standardowa w połączeniu z najlepszymi rozwiązaniami dotyczącymi projektowania aplikacji zapewnia ochronę przed atakami DDoS.
 services: virtual-network
 documentationcenter: na
 author: yitoh
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/9/2020
 ms.author: yitoh
-ms.openlocfilehash: a8d8a41b5d527833ef071275d90cf9102cec47f7
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: e3ded2fc286117da1438b0bb28298632532c4329
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905460"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992543"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Omówienie usługi Azure DDoS Protection w warstwie Standardowa
 
@@ -38,10 +38,10 @@ Usługa Azure DDoS Protection nie przechowuje danych klienta.
 - **Dostrajanie adaptacyjne:** Profilowanie ruchu inteligentnego uzyskuje informacje o ruchu aplikacji w czasie i wybiera i aktualizuje profil, który jest najbardziej odpowiedni dla Twojej usługi. Profil dostosowuje się w miarę zmiany ruchu w czasie.
 - **Ochrona wielowarstwowa:** Zapewnia pełną ochronę DDoS stosu, gdy jest używana z zaporą aplikacji sieci Web.
 - **Rozbudowana Skala łagodzenia:** Ponad 60 różnych typów ataków można ograniczyć, korzystając z globalnej pojemności, aby chronić przed największym znanymi atakami DDoS.
-- **Analiza ataków:** Uzyskaj szczegółowe raporty w ciągu pięciu minut podczas ataku i kompletne podsumowanie po zakończeniu ataku. Dzienniki przepływów ograniczenia przesyłania strumieniowego na [platformie Azure](https://docs.microsoft.com/azure/sentinel/connect-azure-ddos-protection) — dane bezpieczeństwa i zabezpieczenia w trybie offline oraz system zarządzania zdarzeniami (Siem) na potrzeby monitorowania niemal w czasie rzeczywistym podczas ataku.
+- **Analiza ataków:** Uzyskaj szczegółowe raporty w ciągu pięciu minut podczas ataku i kompletne podsumowanie po zakończeniu ataku. Dzienniki przepływów ograniczenia przesyłania strumieniowego na [platformie Azure](../sentinel/connect-azure-ddos-protection.md) — dane bezpieczeństwa i zabezpieczenia w trybie offline oraz system zarządzania zdarzeniami (Siem) na potrzeby monitorowania niemal w czasie rzeczywistym podczas ataku.
 - **Metryki ataków:** Podsumowania metryk z każdego ataku są dostępne za pośrednictwem Azure Monitor.
 - **Alerty ataków:** Alerty można skonfigurować przy uruchamianiu i zatrzymywaniu ataku oraz przez czas trwania ataku przy użyciu wbudowanych metryk ataku. Alerty integrują się z oprogramowaniem operacyjnym, takimi jak dzienniki monitora Microsoft Azure, Splunk, Azure Storage, Poczta E-mail i Azure Portal.
-- **DDoS szybka odpowiedź** : Zaangażuj zespół szybkiego reagowania (DRR) DDoS Protection, aby uzyskać pomoc przy badaniu i analizie ataku. Aby dowiedzieć się więcej, zobacz [szybkie reagowanie na DDoS](ddos-rapid-response.md).
+- **DDoS szybka odpowiedź**: Zaangażuj zespół szybkiego reagowania (DRR) DDoS Protection, aby uzyskać pomoc przy badaniu i analizie ataku. Aby dowiedzieć się więcej, zobacz [szybkie reagowanie na DDoS](ddos-rapid-response.md).
 - **Gwarancja kosztów:** Kredyty na korzystanie z usług transferu i skalowanie w poziomie aplikacji dla udokumentowanych ataków DDoS.
 
 ## <a name="pricing"></a>Cennik

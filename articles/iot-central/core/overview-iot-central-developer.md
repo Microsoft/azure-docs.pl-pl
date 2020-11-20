@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: 39ce436cd59447b2b6f8d9f88deaab80b00dd639
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 82818c8db326889079948cd2b32b2ed0be6ab50d
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812356"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990758"
 ---
 # <a name="iot-central-device-development-overview"></a>Omówienie tworzenia urządzenia usługi IoT Central
 
@@ -72,7 +72,7 @@ Aby dowiedzieć się więcej, zobacz temat [połączono z usługą Azure IoT Cen
 
 ### <a name="security"></a>Zabezpieczenia
 
-Połączenie między urządzeniem a aplikacją IoT Central jest zabezpieczone przy użyciu [sygnatur dostępu współdzielonego](./concepts-get-connected.md#connect-devices-at-scale-using-sas) lub [certyfikatów X. 509](./concepts-get-connected.md#connect-devices-using-x509-certificates)standardowych w branży.
+Połączenie między urządzeniem a aplikacją IoT Central jest zabezpieczone przy użyciu [sygnatur dostępu współdzielonego](./concepts-get-connected.md#sas-group-enrollment) lub [certyfikatów X. 509](./concepts-get-connected.md#x509-group-enrollment)standardowych w branży.
 
 ### <a name="communication-protocols"></a>Protokoły komunikacyjne
 
@@ -80,12 +80,58 @@ Protokoły komunikacyjne używane przez urządzenie do nawiązywania połączeń
 
 ## <a name="implement-the-device"></a>Implementowanie urządzenia
 
+Szablon urządzenia IoT Central obejmuje _model_ , który określa zachowania urządzenia tego typu. Zachowania obejmują dane telemetryczne, właściwości i polecenia.
+
+> [!TIP]
+> Model można wyeksportować z IoT Central jako plik JSON w [języku bliźniaczych reprezentacji Definition Language (DTDL) v2](https://github.com/Azure/opendigitaltwins-dtdl) .
+
+Każdy model ma unikatowy _Identyfikator modelu sznurka urządzenia_ (DTMI), taki jak `dtmi:com:example:Thermostat;1` . Gdy urządzenie łączy się z IoT Central, wysyła DTMI modelu, który implementuje. IoT Central następnie może skojarzyć właściwy szablon urządzenia z urządzeniem.
+
+[Plug and Play IoT](../../iot-pnp/overview-iot-plug-and-play.md) definiuje zestaw Konwencji, które powinny być stosowane przez urządzenie, gdy IMPLEMENTUJE model DTDL.
+
+[Zestawy SDK urządzeń Azure IoT](#languages-and-sdks) obejmują obsługę Konwencji Plug and Play IoT.
+
+### <a name="device-model"></a>Model urządzenia
+
+Model urządzenia jest definiowany przy użyciu [DTDL](https://github.com/Azure/opendigitaltwins-dtdl). Ten język pozwala definiować:
+
+- Dane telemetryczne wysyłane przez urządzenie. Definicja zawiera nazwę i typ danych telemetrii. Na przykład urządzenie wysyła dane telemetryczne temperatury jako podwójną.
+- Właściwości, które urządzenie ma IoT Central. Definicja właściwości zawiera jej nazwę i typ danych. Na przykład urządzenie raportuje stan zaworu jako wartość logiczną.
+- Właściwości, z których urządzenie może odbierać IoT Central. Opcjonalnie można oznaczyć właściwość jako zapisywalną. Na przykład IoT Central wysyła do urządzenia docelową temperaturę jako podwójną.
+- Polecenia, na które urządzenie reaguje. Definicja zawiera nazwę polecenia oraz nazwy i typy danych parametrów. Na przykład urządzenie odpowiada na polecenie ponownego uruchomienia, które określa czas oczekiwania (w sekundach) przed ponownym uruchomieniem.
+
+Model DTDL może być modelem _no-Component_ lub _wieloskładnikowym_ :
+
+- Model bez składników: prosty model nie używa składników osadzonych ani kaskadowych. Wszystkie dane telemetryczne, właściwości i polecenia są definiowane jako jeden _składnik domyślny_. Aby zapoznać się z przykładem, zobacz model [termostatu](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) .
+- Model wieloskładnikowy. Bardziej skomplikowany model, który zawiera co najmniej dwa składniki. Te składniki obejmują jeden składnik domyślny i jeden lub więcej dodatkowych składników zagnieżdżonych. Aby zapoznać się z przykładem, zobacz model [kontrolera temperatury](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) .
+
+Aby dowiedzieć się więcej, zobacz [składniki Plug and Play IoT w modelach](../../iot-pnp/concepts-components.md)
+
+### <a name="conventions"></a>Konwencje
+
+Urządzenie powinno przestrzegać Konwencji Plug and Play IoT, gdy wymienia dane z IoT Central. Konwencje obejmują:
+
+- Wyślij DTMI, gdy nawiąże połączenie z IoT Central.
+- Wysyłaj poprawnie sformatowane ładunki JSON i metadane do IoT Central.
+- Prawidłowo odpowiadaj na zapisywalne właściwości i polecenia z IoT Central.
+- Postępuj zgodnie z konwencjami nazewnictwa dla poleceń składnika.
+
+> [!NOTE]
+> Obecnie IoT Central nie obsługuje w pełni **macierzy** DTDL i typów danych **geoprzestrzennych** .
+
+Aby dowiedzieć się więcej o formacie komunikatów JSON wymienianych przez urządzenie z IoT Central, zobacz dane [telemetryczne, właściwości i polecenia](concepts-telemetry-properties-commands.md).
+
+Aby dowiedzieć się więcej na temat Konwencji Plug and Play IoT, zobacz [konwencje Plug and Play IoT](../../iot-pnp/concepts-convention.md).
+
+### <a name="device-sdks"></a>Zestawy SDK urządzeń
+
 Aby zaimplementować zachowanie urządzenia, użyj jednego z [zestawów SDK urządzeń usługi Azure IoT](#languages-and-sdks) . Kod powinien:
 
 - Zarejestruj urządzenie w usłudze DPS i Skorzystaj z informacji z usługi DPS, aby nawiązać połączenie z wewnętrznym centrum IoT Hub w aplikacji IoT Central.
-- Wysyłaj dane telemetryczne w formacie, który określa szablon urządzenia w IoT Central. IoT Central używa szablonu urządzenia, aby określić, jak używać telemetrii do wizualizacji i analizy.
-- Zsynchronizuj wartości właściwości między urządzeniem a IoT Central. Szablon urządzenia określa nazwy właściwości i typy danych, dzięki czemu IoT Central mogą wyświetlać informacje.
-- Zaimplementuj programy obsługi poleceń dla poleceń, które są określone w szablonie urządzenia. Szablon urządzenia określa nazwy poleceń i parametry, które powinny być używane przez urządzenie.
+- Ogłoś DTMI modelu, który implementuje urządzenie.
+- Wysyłaj dane telemetryczne w formacie określanym przez model urządzenia. IoT Central korzysta z modelu w szablonie urządzenia, aby określić, jak używać telemetrii do wizualizacji i analizy.
+- Zsynchronizuj wartości właściwości między urządzeniem a IoT Central. Model określa nazwy właściwości i typy danych, dzięki czemu IoT Central mogą wyświetlać informacje.
+- Implementowanie obsługi poleceń dla poleceń określonych w modelu. Model określa nazwy poleceń i parametry, które powinny być używane przez urządzenie.
 
 Aby uzyskać więcej informacji na temat roli szablonów urządzeń, zobacz [co to są szablony urządzeń?](./concepts-device-templates.md)
 

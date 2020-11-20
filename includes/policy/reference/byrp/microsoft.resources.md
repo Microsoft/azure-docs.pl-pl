@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: f9916500aeca20ef66a0765255cb1862f6a8e6ad
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 32ee2ce40533a885e59cbfd834cc295fb56f8a3e
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94744788"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94988720"
 ---
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -19,7 +19,9 @@ ms.locfileid: "94744788"
 |[Należy podać numer telefonu kontaktu z zabezpieczeniami dla Twojej subskrypcji](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb4d66858-c922-44e3-9566-5cdb7a7be744) |Wprowadź numer telefonu, aby otrzymywać powiadomienia, gdy Azure Security Center wykryje naruszone zasoby |AuditIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Security_contact_phone_number.json) |
 |[Dziennik aktywności powinien być zachowywany przez co najmniej jeden rok.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb02aacc0-b073-424e-8298-42b22829ee0a) |Ta zasada przeprowadza inspekcję dziennika aktywności, jeśli czas przechowywania nie jest ustawiony na 365 dni lub bez ograniczeń (dni przechowywania ustawione na 0). |AuditIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLogRetention_365orGreater.json) |
 |[Dodawanie znacznika do grup zasobów](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F726aca4c-86e9-4b04-b0c5-073027359532) |Dodaje określony tag i wartość, gdy wszystkie grupy zasobów, w których brakuje tego tagu, zostaną utworzone lub zaktualizowane. Istniejące grupy zasobów można skorygować, wyzwalając zadanie korygowania. Jeśli tag istnieje z inną wartością, nie zostanie on zmieniony. |Modyfikowanie |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/AddTag_ResourceGroup_Modify.json) |
+|[Dodawanie tagu do subskrypcji](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F96d9a89c-0d67-41fc-899d-2b9599f76a24) |Dodaje określony tag i wartość do subskrypcji za pośrednictwem zadania korygowania. Jeśli tag istnieje z inną wartością, nie zostanie on zmieniony. [https://aka.ms/azurepolicyremediation](https://aka.ms/azurepolicyremediation)Aby uzyskać więcej informacji na temat korygowania zasad, zobacz. |Modyfikowanie |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/AddTag_Subscription_Modify.json) |
 |[Dodawanie lub zastępowanie tagu w grupach zasobów](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd157c373-a6c4-483d-aaad-570756956268) |Dodaje lub zastępuje określony tag i wartość po utworzeniu lub zaktualizowaniu dowolnej grupy zasobów. Istniejące grupy zasobów można skorygować, wyzwalając zadanie korygowania. |Modyfikowanie |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/AddOrReplaceTag_ResourceGroup_Modify.json) |
+|[Dodawanie lub zastępowanie tagu w subskrypcjach](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F61a4d60b-7326-440e-8051-9f94394d4dd1) |Dodaje lub zastępuje określony tag i wartość w subskrypcjach za pośrednictwem zadania korygowania. Istniejące grupy zasobów można skorygować, wyzwalając zadanie korygowania. [https://aka.ms/azurepolicyremediation](https://aka.ms/azurepolicyremediation)Aby uzyskać więcej informacji na temat korygowania zasad, zobacz. |Modyfikowanie |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/AddOrReplaceTag_Subscription_Modify.json) |
 |[Dozwolone lokalizacje grup zasobów](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe765b5de-1225-4ba3-bd56-1ac6695af988) |Te zasady pozwalają ograniczyć lokalizacje, w których organizacja może tworzyć grupy zasobów w programie. Służy do wymuszania wymagań dotyczących zgodności obszarów geograficznych. |pozbawić |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/ResourceGroupAllowedLocations_Deny.json) |
 |[Alert dziennika aktywności powinien istnieć dla określonych operacji administracyjnych](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb954148f-4c11-4c38-8221-be76711e194a) |Ta zasada przeprowadza inspekcję określonych operacji administracyjnych bez skonfigurowanych alertów dziennika aktywności. |AuditIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_AdministrativeOperations_Audit.json) |
 |[Dla określonych operacji zasad powinien istnieć alert dziennika aktywności](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc5447c04-a4d7-4ba8-a263-c9ee321a6858) |Ta zasada przeprowadza inspekcję określonych operacji zasad bez skonfigurowanych alertów dziennika aktywności. |AuditIfNotExists, wyłączone |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_PolicyOperations_Audit.json) |

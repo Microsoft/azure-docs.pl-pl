@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 25f2c4f4698785326f80c24d3749e7585e85d5bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e49b713aca23c0373fa71d772ef7567372abe456
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309510"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990571"
 ---
 # <a name="devops-practices-for-luis"></a>DevOps praktyk dla LUIS
 
@@ -34,7 +34,7 @@ Korzystając z pojęć i wskazówek opisanych w tym dokumencie, można opracowyw
   - Istnieje możliwość zintegrowania zmian w aplikacji LUIS z jednej gałęzi do innej za pośrednictwem zmiany bazy lub scalenia.
   - Deweloperzy mogą scalić żądanie ściągnięcia z gałęzią nadrzędną.
 
-- **Przechowywanie wersji**
+- **Obsługa wersji**
   - Każdy składnik w dużej aplikacji powinien mieć niezależną wersję, dzięki czemu deweloperzy mogą wykrywać istotne zmiany lub aktualizacje bezpośrednio, sprawdzając numer wersji.
 
 - **Przeglądy kodu**
@@ -58,7 +58,7 @@ Aby zapisać aplikację LUIS w `.lu` formacie i umieścić ją pod kontrolą źr
 
 ### <a name="build-the-luis-app-from-source"></a>Kompilowanie aplikacji LUIS ze źródła
 
-W przypadku aplikacji LUIS do *kompilowania ze źródła* środków w celu [utworzenia nowej wersji aplikacji Luis przez zaimportowanie `.lu` źródła](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#import-version) w celu [nauczenia](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) i[opublikowania](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-publish-app)wersji. Można to zrobić w portalu LUIS lub w wierszu polecenia:
+W przypadku aplikacji LUIS do *kompilowania ze źródła* środków w celu [utworzenia nowej wersji aplikacji Luis przez zaimportowanie `.lu` źródła](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#import-version) w celu [nauczenia](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) i [opublikowania](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-publish-app)wersji. Można to zrobić w portalu LUIS lub w wierszu polecenia:
 
 - Użyj portalu LUIS, aby [zaimportować `.lu` wersję](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#import-version) aplikacji z kontroli źródła, a następnie [nauczenie](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) i [opublikowanie](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-publish-app) aplikacji.
 
@@ -74,7 +74,7 @@ Następujące typy plików dla aplikacji LUIS powinny być utrzymywane pod kontr
 
 - [Pliki testów wsadowych](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test#batch-file-format) (wyrażenia długości i oczekiwane wyniki) używane do testowania wydajności
 
-### <a name="credentialsand-keys-are-not-checked-in"></a>Poświadczenia i klucze nie są zaewidencjonowane
+### <a name="credentials-and-keys-are-not-checked-in"></a>Poświadczenia i klucze nie są zaewidencjonowane
 
 Nie uwzględniaj kluczy subskrypcji ani podobnych poufnych wartości w plikach, które można zaewidencjonować do repozytorium, gdzie mogą być widoczne dla nieautoryzowanych osób. Klucze i inne wartości, których nie należy zaewidencjonować, obejmują:
 
@@ -181,7 +181,7 @@ Aby uzyskać więcej informacji na temat testowania dla LUIS DevOps, zobacz [tes
 
 Aplikacja LUIS w formacie LUDown jest czytelna dla człowieka, która obsługuje komunikację z zmianami w ramach żądania ściągnięcia, które jest odpowiednie do przeglądu. Pliki testów jednostkowych są również zapisywane w formacie LUDown, a także łatwo można je przeglądać w ramach żądania ściągnięcia.
 
-## <a name="versioning"></a>Przechowywanie wersji
+## <a name="versioning"></a>Obsługa wersji
 
 Aplikacja składa się z wielu składników, które mogą obejmować takie elementy, jak bot działające w [Azure bot Service](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0), [QNA Maker](https://www.qnamaker.ai/), [Azure Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview)i innych. Aby osiągnąć cel luźno sprzężonych aplikacji, należy użyć [kontroli wersji](https://docs.microsoft.com/azure/devops/learn/git/what-is-version-control) , tak aby każdy składnik aplikacji miał niezależną wersję, dzięki czemu deweloperzy mogą wykrywać istotne zmiany lub aktualizacje bezpośrednio, sprawdzając numer wersji. Łatwiej jest w wersji aplikacji LUIS niezależnie od innych składników, Jeśli przechowujesz ją we własnym repozytorium.
 

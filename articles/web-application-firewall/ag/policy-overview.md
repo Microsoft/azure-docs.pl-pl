@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: article
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 11/19/2020
+ms.date: 11/20/2020
 ms.author: victorh
-ms.openlocfilehash: 9fb8bf689e2767f681994258c4d2c51be41d6c68
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b546b043b856fd6ec69acd63fd69a01c48d0553b
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952135"
+ms.locfileid: "94990129"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Omówienie zasad zapory aplikacji sieci Web platformy Azure (WAF)
 
@@ -43,13 +43,13 @@ Aby jeszcze bardziej dostosowywać do poziomu identyfikatora URI, można skojarz
 
 Podobnie jak w przypadku zasad WAF dla poszczególnych witryn, bardziej szczegółowe zasady przesłaniają mniej szczegółowych zasad. Oznacza to, że zasady dotyczące identyfikatorów URI na mapie ścieżki URL przesłaniają wszystkie zasady dotyczące poszczególnych witryn lub globalnych WAF.
 
-## <a name="example"></a>Przykład
+### <a name="example"></a>Przykład
 
 Załóżmy, że masz trzy lokacje: contoso.com, fabrikam.com i adatum.com, które znajdują się za tą samą bramą aplikacji. Chcesz, aby WAF miało zastosowanie do wszystkich trzech witryn, ale potrzebujesz zabezpieczeń z adatum.com, ponieważ klienci odwiedzają, przeglądają i kupują produkty.
 
 W razie potrzeby można zastosować do WAF zasady globalne z niektórymi podstawowymi ustawieniami, wykluczeniami lub regułami niestandardowymi, aby zatrzymać niektóre fałszywe pozytywne dane dotyczące blokowania ruchu. W takim przypadku nie ma potrzeby wykonywania globalnych reguł iniekcji SQL, ponieważ fabrikam.com i contoso.com są stronami statycznymi bez zaplecze języka SQL. W ten sposób można wyłączyć te reguły w ramach zasad globalnych.
 
-Te zasady globalne są odpowiednie dla contoso.com i fabrikam.com, ale należy zachować ostrożność w przypadku adatum.com, gdzie są obsługiwane informacje logowania i płatności. Zasady dotyczące poszczególnych lokacji można zastosować do odbiornika adatum i pozostawić uruchomione reguły SQL. Załóżmy również, że istnieje plik cookie blokujący ruch, dlatego można utworzyć wykluczenie dla tego pliku cookie, aby zatrzymać wynik fałszywie dodatni. 
+Te zasady globalne są odpowiednie dla contoso.com i fabrikam.com, ale należy zachować ostrożność przy użyciu adatum.com, gdzie są obsługiwane informacje logowania i płatności. Zasady dotyczące poszczególnych lokacji można zastosować do odbiornika adatum i pozostawić uruchomione reguły SQL. Załóżmy również, że istnieje plik cookie blokujący ruch, dlatego można utworzyć wykluczenie dla tego pliku cookie, aby zatrzymać wynik fałszywie dodatni. 
 
 Identyfikator URI adatum.com/payments to miejsce, w którym należy zachować ostrożność. Należy więc zastosować inne zasady dla tego identyfikatora URI i pozostawić wszystkie włączone reguły, a także usunąć wszystkie wykluczenia.
 

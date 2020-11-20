@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 47733f4b141b0064e966d0c083fd6414405f65f9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e2f5528fde977520dc0aa0215a480a40ef8f1e7d
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095547"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989619"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard-using-azure-cli"></a>Szybki Start: Tworzenie i Konfigurowanie standardu Azure DDoS Protection przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -39,7 +39,7 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 
 Na platformie Azure możesz przydzielić powiązane zasoby do grupy zasobów. Możesz użyć istniejącej grupy zasobów lub utworzyć nową.
 
-Aby utworzyć grupę zasobów, użyj polecenie [AZ Group Create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create&preserve-view=true). W tym przykładzie zmienimy nazwę _naszej grupy zasobów_ i użyjemy lokalizacji _Wschodnie stany USA_ :
+Aby utworzyć grupę zasobów, użyj polecenie [AZ Group Create](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-create). W tym przykładzie zmienimy nazwę _naszej grupy zasobów_ i użyjemy lokalizacji _Wschodnie stany USA_ :
 
 ```azurecli-interactive
 az group create \
@@ -47,7 +47,7 @@ az group create \
     --location eastus
 ```
 
-Teraz Utwórz plan ochrony DDoS o nazwie _MyDdosProtectionPlan_ :
+Teraz Utwórz plan ochrony DDoS o nazwie _MyDdosProtectionPlan_:
 
 ```azurecli-interactive
 az network ddos-protection create \
@@ -59,7 +59,7 @@ az network ddos-protection create \
 
 ### <a name="enable-ddos-protection-for-a-new-virtual-network"></a>Włącz ochronę DDoS dla nowej sieci wirtualnej
 
-Ochronę DDoS można włączyć podczas tworzenia sieci wirtualnej. W tym przykładzie zmienimy nazwę naszej sieci wirtualnej _MyVnet_ : 
+Ochronę DDoS można włączyć podczas tworzenia sieci wirtualnej. W tym przykładzie zmienimy nazwę naszej sieci wirtualnej _MyVnet_: 
 
 ```azurecli-interactive
 az network vnet create \
@@ -73,7 +73,7 @@ Nie można przenieść sieci wirtualnej do innej grupy zasobów lub subskrypcji,
 
 ### <a name="enable-ddos-protection-for-an-existing-virtual-network"></a>Włącz ochronę DDoS dla istniejącej sieci wirtualnej
 
-Podczas [tworzenia planu ochrony DDoS](#create-a-ddos-protection-plan)można skojarzyć co najmniej jedną sieć wirtualną z planem. Aby dodać więcej niż jedną sieć wirtualną, wystarczy podać nazwy lub identyfikatory, rozdzielone spacjami. W tym przykładzie dodamy _MyVnet_ :
+Podczas [tworzenia planu ochrony DDoS](#create-a-ddos-protection-plan)można skojarzyć co najmniej jedną sieć wirtualną z planem. Aby dodać więcej niż jedną sieć wirtualną, wystarczy podać nazwy lub identyfikatory, rozdzielone spacjami. W tym przykładzie dodamy _MyVnet_:
 
 ```azurecli-interactive
 az group create \
@@ -111,7 +111,7 @@ Sprawdź, czy polecenie zwraca poprawne szczegóły planu ochrony DDoS.
 
 Możesz zachować zasoby dla następnego samouczka. Jeśli nie jest już potrzebne, Usuń grupę _zasobów zasobu._ Po usunięciu grupy zasobów należy również usunąć plan ochrony DDoS i wszystkie powiązane z nim zasoby. 
 
-Aby usunąć grupę zasobów, użyj [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_delete&preserve-view=true):
+Aby usunąć grupę zasobów, użyj [AZ Group Delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az_group_delete):
 
 ```azurecli-interactive
 az group delete \

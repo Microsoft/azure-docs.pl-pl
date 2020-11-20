@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad dla usługi Azure cache for Redis
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla usługi Azure cache for Redis. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ms.topic: reference
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 849e6667eff1daab7cbebec1fb09928c887d3a38
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 2f186a7ac33114e7746ee4365fc16706bad06eb2
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94741031"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94991304"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-cache-for-redis"></a>Azure Policy wbudowane definicje dla usługi Azure cache for Redis
 

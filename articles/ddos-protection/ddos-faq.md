@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 871ededce1db5e4c3179c187fc46a828cd157456
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 6c475971f604c951280d0351d593cd5d96879d31
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886281"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992407"
 ---
 # <a name="azure-ddos-protection-standard-frequent-asked-questions"></a>Często zadawane pytania Azure DDoS Protection standardowe
 
@@ -29,7 +29,7 @@ Rozproszone odmowa usługi lub DDoS jest typem ataku, w którym osoba atakująca
 Azure DDoS Protection Standard, w połączeniu z najlepszymi rozwiązaniami dotyczącymi projektowania aplikacji, zapewnia ulepszone funkcje ograniczenia DDoS w celu obrony przed atakami DDoS. Jest on automatycznie dostosowany do ochrony określonych zasobów platformy Azure w sieci wirtualnej. Ochrona jest prosta do włączenia w przypadku każdej nowej lub istniejącej sieci wirtualnej i nie wymaga żadnych zmian aplikacji ani zasobów. Ma kilka korzyści w porównaniu z usługą podstawową, w tym rejestrowanie, alerty i dane telemetryczne. Aby uzyskać więcej informacji, zobacz [omówienie Azure DDoS Protection Standard](ddos-protection-overview.md) . 
 
 ## <a name="what-about-protection-at-the-service-layer-layer-7"></a>Co z ochroną w warstwie usług (warstwa 7)?
-Klienci mogą używać usługi Azure DDoS Protection w połączeniu z jednostką [SKU Application Gateway WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview) do ochrony zarówno w warstwie sieciowej (warstwa 3 i 4, oferowany przez usługę Azure DDoS Protection), jak i w warstwie aplikacji (warstwa 7 oferowana przez magazyn Application Gateway WAF).
+Klienci mogą używać usługi Azure DDoS Protection w połączeniu z jednostką [SKU Application Gateway WAF](../web-application-firewall/ag/ag-overview.md) do ochrony zarówno w warstwie sieciowej (warstwa 3 i 4, oferowany przez usługę Azure DDoS Protection), jak i w warstwie aplikacji (warstwa 7 oferowana przez magazyn Application Gateway WAF).
 
 ## <a name="are-services-unsafe-in-azure-without-the-service"></a>Czy usługi nie są niebezpieczne na platformie Azure bez usługi?
 Usługi działające na platformie Azure są chronione przez Azure DDoS Protection podstawowe, które są stosowane do ochrony infrastruktury platformy Azure. Jednak ochrona, która chroni infrastrukturę, ma znacznie wyższy próg niż większość aplikacji ma pojemność do obsłużenia i nie zapewnia telemetrii ani alertów, dlatego w przypadku, gdy natężenie ruchu sieciowego może być postrzegane jako nieszkodliwe przez platformę, można materialne do aplikacji, która je otrzymuje. 
@@ -64,6 +64,3 @@ Zobacz [testowanie przez symulacje](test-through-simulations.md).
 ## <a name="how-long-does-it-take-for-the-metrics-to-load-on-portal"></a>Jak długo trwa ładowanie metryk w portalu?
 Metryki powinny być widoczne w portalu w ciągu 5 minut. Jeśli zasób jest objęty atakami, inne metryki będą wyświetlane w portalu w ciągu 5-7 minut. 
     
-
-
-

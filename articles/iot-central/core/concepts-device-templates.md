@@ -3,17 +3,17 @@ title: Co to są szablony urządzeń na platformie Azure IoT Central | Microsoft
 description: Szablony urządzeń IoT Central platformy Azure pozwalają określić zachowanie urządzeń podłączonych do aplikacji. Szablon urządzenia określa dane telemetryczne, właściwości i polecenia, które urządzenie musi zaimplementować. Szablon urządzenia definiuje również interfejs użytkownika dla urządzenia w IoT Central, takich jak formularze i pulpity nawigacyjne, które są stosowane przez operatora.
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/21/2020
+ms.date: 11/05/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 75317b5c6af2d0ce89d2db32f4343d9cc73a1a81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e82a377d62184c8ae1d2e8f076b228e36005887a
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91813172"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992679"
 ---
 # <a name="what-are-device-templates"></a>Co to są szablony urządzeń?
 
@@ -25,86 +25,99 @@ Konstruktor rozwiązań dodaje szablony urządzeń do aplikacji IoT Central. Dew
 
 Szablon urządzenia zawiera następujące sekcje:
 
-- _Model możliwości urządzenia (DCM)_. Ta część szablonu urządzenia określa, jak urządzenie współdziała z Twoją aplikacją. Deweloper urządzenia implementuje zachowania zdefiniowane w DCM.
-    - _Interfejsy_. DCM zawiera jeden lub więcej interfejsów, które definiują dane telemetryczne, właściwości i polecenia, które urządzenie musi zaimplementować.
-- _Właściwości chmury_. Ta część szablonu urządzenia umożliwia deweloperowi rozwiązania określenie wszelkich metadanych urządzeń do przechowywania. Właściwości chmury nigdy nie są synchronizowane z urządzeniami i istnieją tylko w aplikacji. Właściwości chmury nie wpływają na kod, który Projektant urządzenia zapisuje w celu wdrożenia DCM.
-- _Dostosowania_. Ta część szablonu urządzenia umożliwia deweloperowi rozwiązania zastąpienie niektórych definicji w DCM. Dostosowania są przydatne, jeśli deweloper rozwiązania chce udoskonalić, jak aplikacja obsługuje wartość, na przykład zmieniając nazwę wyświetlaną właściwości lub kolor używany do wyświetlania wartości telemetrii. Dostosowania nie wpływają na kod, który Projektant urządzenia zapisuje w celu wdrożenia DCM.
-- _Widoki_. Ta część szablonu urządzenia umożliwia deweloperowi rozwiązania Definiowanie wizualizacji do wyświetlania danych z urządzenia oraz formularzy służących do zarządzania urządzeniami i ich kontrolowania. Widoki używają właściwości DCM, Cloud i customizations. Widoki nie wpływają na kod, który Projektant urządzenia zapisuje w celu wdrożenia DCM.
+- _Model urządzenia_. Ta część szablonu urządzenia określa, jak urządzenie współdziała z Twoją aplikacją. Deweloper urządzenia implementuje zachowania zdefiniowane w modelu.
+    - _Składnik domyślny_. Każdy model urządzenia ma składnik domyślny. Domyślny interfejs składnika zawiera opis możliwości specyficznych dla modelu urządzenia.
+    - _Składniki_. Model urządzenia może obejmować składniki oprócz domyślnego składnika do opisywania możliwości urządzeń. Każdy składnik ma interfejs, który opisuje możliwości składnika. Interfejsy składników mogą być ponownie używane w innych modelach urządzeń. Przykładowo kilka modeli urządzeń telefonicznych może korzystać z tego samego interfejsu aparatu.
+    - _Dziedziczone interfejsy_. Model urządzenia zawiera jeden lub więcej interfejsów, które zwiększają możliwości składnika domyślnego.
+- _Właściwości chmury_. Ta część szablonu urządzenia umożliwia deweloperowi rozwiązania określenie wszelkich metadanych urządzeń do przechowywania. Właściwości chmury nigdy nie są synchronizowane z urządzeniami i istnieją tylko w aplikacji. Właściwości chmury nie wpływają na kod, który Projektant urządzenia zapisuje w celu zaimplementowania modelu urządzenia.
+- _Dostosowania_. Ta część szablonu urządzenia umożliwia deweloperowi rozwiązania zastąpienie niektórych definicji w modelu urządzenia. Dostosowania są przydatne, jeśli deweloper rozwiązania chce udoskonalić, jak aplikacja obsługuje wartość, na przykład zmieniając nazwę wyświetlaną właściwości lub kolor używany do wyświetlania wartości telemetrii. Dostosowania nie wpływają na kod, który Projektant urządzenia zapisuje w celu wdrożenia modelu urządzenia.
+- _Widoki_. Ta część szablonu urządzenia umożliwia deweloperowi rozwiązania Definiowanie wizualizacji do wyświetlania danych z urządzenia oraz formularzy służących do zarządzania urządzeniami i ich kontrolowania. Widoki używają modelu urządzenia, właściwości chmury i dostosowań. Widoki nie wpływają na kod, który Projektant urządzenia zapisuje w celu zaimplementowania modelu urządzenia.
 
-## <a name="device-capability-models"></a>Modele możliwości urządzeń
+## <a name="device-models"></a>Modele urządzeń
 
-DCM definiuje, jak urządzenie współdziała z aplikacją IoT Central. Deweloper urządzenia musi upewnić się, że urządzenie implementuje zachowania zdefiniowane w DCM, aby IoT Central mógł monitorować urządzenie i zarządzać nim. DCM składa się z jednego lub kilku _interfejsów_, a każdy interfejs może definiować zbiór typów _telemetrii_ , _Właściwości urządzenia_i _poleceń_. Deweloper rozwiązania może zaimportować plik JSON, który definiuje DCM w szablonie urządzenia, lub użyć internetowego interfejsu użytkownika w IoT Central, aby utworzyć lub edytować DCM. Zmiany DCM wprowadzone przy użyciu interfejsu użytkownika sieci Web wymagają, [Aby szablon urządzenia był w wersji](./howto-version-device-template.md).
+Model urządzenia definiuje, jak urządzenie współdziała z aplikacją IoT Central. Deweloper urządzenia musi upewnić się, że na urządzeniu zaimplementowano zachowania zdefiniowane w modelu urządzenia, tak aby IoT Central mógł monitorować urządzenie i zarządzać nim. Model urządzenia składa się z jednego lub kilku _interfejsów_, a każdy interfejs może definiować zbiór typów _telemetrii_ , _Właściwości urządzenia_ i _poleceń_. Deweloper rozwiązania może zaimportować plik JSON definiujący model urządzenia do szablonu urządzenia lub użyć internetowego interfejsu użytkownika w IoT Central, aby utworzyć lub edytować model urządzenia. Zmiany w modelu urządzenia za pomocą interfejsu użytkownika sieci Web wymagają, [Aby szablon urządzenia był w wersji](./howto-version-device-template.md).
 
-Deweloperzy rozwiązań mogą również eksportować plik JSON, który zawiera DCM. Deweloper urządzenia może użyć tego dokumentu JSON, aby zrozumieć, w jaki sposób urządzenie ma komunikować się z aplikacją IoT Central.
+Deweloper rozwiązania może również wyeksportować plik JSON, który zawiera model urządzenia. Deweloper urządzenia może użyć tego dokumentu JSON, aby zrozumieć, w jaki sposób urządzenie ma komunikować się z aplikacją IoT Central.
 
-Plik JSON, który definiuje DCM, używa [języka Digital bliźniaczy Definition Language (DTDL) v1](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). IoT Central oczekuje, że plik JSON będzie zawierać DCM z interfejsami zdefiniowanymi w tekście, a nie w oddzielnych plikach.
+Plik JSON, który definiuje model urządzenia, używa [języka Digital bliźniaczy Definition Language (DTDL) v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). IoT Central oczekuje, że plik JSON zawiera model urządzenia z interfejsami zdefiniowanymi w tekście, a nie w oddzielnych plikach.
 
 Typowe urządzenie IoT składa się z:
 
 - Części niestandardowe, które są elementami, które sprawiają, że urządzenie jest unikatowe.
 - Standardowe części, które są wspólne dla wszystkich urządzeń.
 
-Te części nazywają _interfejsy_ w DCM. Interfejsy definiują szczegóły każdej części implementującej Twoje urządzenie. Interfejsy są wielokrotnego użytku w DCMs.
+Te części nazywają się _interfejsami_ w modelu urządzenia. Interfejsy definiują szczegóły każdej części implementującej Twoje urządzenie. Interfejsy są wielokrotnego użytku między modelami urządzeń. W DTDL składnik odwołuje się do interfejsu zdefiniowanego w osobnym pliku DTDL.
 
-Poniższy przykład przedstawia kontur modelu możliwości urządzenia dla urządzenia czujnika środowiska z dwoma interfejsami:
+Poniższy przykład przedstawia zarys modelu urządzenia dla urządzenia kontrolera temperatury. Składnik domyślny zawiera definicje dla `workingSet` , `serialNumber` i `reboot` . Model urządzenia zawiera również `thermostat` `deviceInformation` interfejsy i:
 
 ```json
 {
-  "@id": "urn:contoso:sensor_device:1",
-  "@type": "CapabilityModel",
-  "displayName": "Environment Sensor Capability Model",
-  "implements": [
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:com:example:TemperatureController;1",
+  "@type": "Interface",
+  "displayName": "Temperature Controller",
+  "description": "Device with two thermostats and remote reboot.",
+  "contents": [
     {
-      "@type": "InterfaceInstance",
-      "name": "deviceinfo",
-      "schema": {
-        "@id": "urn:azureiot:DeviceManagement:DeviceInformation:1",
-        "@type": "Interface",
-        "displayName": "Device Information",
-        "@context": "http://azureiot.com/v1/contexts/IoTModel.json",
-        "contents": [
-          ...
-        ]
+      "@type": [
+        "Telemetry", "DataSize"
+      ],
+      "name": "workingSet",
+      "displayName": "Working Set",
+      "description": "Current working set of the device memory in KiB.",
+      "schema": "double",
+      "unit" : "kibibyte"
+    },
+    {
+      "@type": "Property",
+      "name": "serialNumber",
+      "displayName": "Serial Number",
+      "description": "Serial number of the device.",
+      "schema": "string"
+    },
+    {
+      "@type": "Command",
+      "name": "reboot",
+      "displayName": "Reboot",
+      "description": "Reboots the device after waiting the number of seconds specified.",
+      "request": {
+        "name": "delay",
+        "displayName": "Delay",
+        "description": "Number of seconds to wait before rebooting the device.",
+        "schema": "integer"
       }
     },
     {
-      "@type": "InterfaceInstance",
-      "name": "sensor",
-      "schema": {
-        "@id": "urn:contoso:EnvironmentalSensor:1",
-        "@type": "Interface",
-        "displayName": "Environmental Sensor",
-        "@context": "http://azureiot.com/v1/contexts/IoTModel.json",
-        "contents": [
-          ...
-        ]
-      }
+      "@type" : "Component",
+      "schema": "dtmi:com:example:Thermostat;1",
+      "name": "thermostat",
+      "displayName": "Thermostat",
+      "description": "Thermostat One."
+    },
+    {
+      "@type": "Component",
+      "schema": "dtmi:azure:DeviceManagement:DeviceInformation;1",
+      "name": "deviceInformation",
+      "displayName": "Device Information interface",
+      "description": "Optional interface with basic device hardware information."
     }
-  ],
-  "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
+  ]
 }
 ```
-
-Model możliwości ma niektóre wymagane pola:
-
-- `@id`: unikatowy identyfikator w postaci prostej jednolitej nazwy zasobu.
-- `@type`: deklaruje, że ten obiekt jest modelem możliwości.
-- `@context`: określa wersję DTDL używaną dla modelu możliwości.
-- `implements`: Wyświetla listę interfejsów, które implementuje urządzenie.
-
-Każdy wpis na liście interfejsów w sekcji Implements ma:
-
-- `name`: Nazwa programowania interfejsu.
-- `schema`: interfejs implementujący model możliwości.
 
 Interfejs ma niektóre wymagane pola:
 
 - `@id`: unikatowy identyfikator w postaci prostej jednolitej nazwy zasobu.
 - `@type`: deklaruje, że ten obiekt jest interfejsem.
 - `@context`: określa wersję DTDL użytą dla interfejsu.
-- `contents`: Wyświetla właściwości, dane telemetryczne i polecenia wchodzące w skład Twojego urządzenia.
+- `contents`: Wyświetla właściwości, dane telemetryczne i polecenia wchodzące w skład Twojego urządzenia. Możliwości można definiować w wielu interfejsach.
 
 Istnieją opcjonalne pola, za pomocą których można dodać więcej szczegółów do modelu możliwości, takie jak nazwa wyświetlana i opis.
+
+Każdy wpis na liście interfejsów w sekcji Implements ma:
+
+- `name`: Nazwa programowania interfejsu.
+- `schema`: interfejs implementujący model możliwości.
 
 ## <a name="interfaces"></a>Interfejsy
 
@@ -114,55 +127,105 @@ DTDL umożliwia opisywanie możliwości urządzenia. Powiązane funkcje są pogr
 - `Telemetry`. Pola telemetrii przedstawiają pomiary z czujników. Za każdym razem, gdy urządzenie przyjmuje pomiar czujnika, należy wysłać zdarzenie telemetrii zawierające dane czujnika.
 - `Commands`. Polecenia reprezentują metody, które użytkownicy urządzenia mogą wykonywać na urządzeniu. Na przykład polecenie Reset lub polecenie umożliwiające włączenie lub wyłączenie wentylatora.
 
-W poniższym przykładzie przedstawiono definicję interfejsu czujnika środowiska:
+W poniższym przykładzie przedstawiono definicję interfejsu termostatu:
 
 ```json
 {
-  "@type": "Property",
-  "displayName": "Device State",
-  "description": "The state of the device. Two states online/offline are available.",
-  "name": "state",
-  "schema": "boolean"
-},
-{
-  "@type": "Property",
-  "displayName": "Customer Name",
-  "description": "The name of the customer currently operating the device.",
-  "name": "name",
-  "schema": "string",
-  "writable": true
-},
-{
-  "@type": [
-    "Telemetry",
-    "SemanticType/Temperature"
-  ],
-  "description": "Current temperature on the device",
-  "displayName": "Temperature",
-  "name": "temp",
-  "schema": "double",
-  "unit": "Units/Temperature/fahrenheit"
-},
-{
-  "@type": "Command",
-  "name": "turnon",
-  "comment": "This Commands will turn-on the LED light on the device.",
-  "commandType": "synchronous"
-},
-{
-  "@type": "Command",
-  "name": "turnoff",
-  "comment": "This Commands will turn-off the LED light on the device.",
-  "commandType": "synchronous"
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:com:example:Thermostat;1",
+  "@type": "Interface",
+  "displayName": "Thermostat",
+  "description": "Reports current temperature and provides desired temperature control.",
+  "contents": [
+    {
+      "@type": [
+        "Telemetry",
+        "Temperature"
+      ],
+      "name": "temperature",
+      "displayName" : "Temperature",
+      "description" : "Temperature in degrees Celsius.",
+      "schema": "double",
+      "unit": "degreeCelsius"
+    },
+    {
+      "@type": [
+        "Property",
+        "Temperature"
+      ],
+      "name": "targetTemperature",
+      "schema": "double",
+      "displayName": "Target Temperature",
+      "description": "Allows to remotely specify the desired target temperature.",
+      "unit" : "degreeCelsius",
+      "writable": true
+    },
+    {
+      "@type": [
+        "Property",
+        "Temperature"
+      ],
+      "name": "maxTempSinceLastReboot",
+      "schema": "double",
+      "unit" : "degreeCelsius",
+      "displayName": "Max temperature since last reboot.",
+      "description": "Returns the max temperature since last device reboot."
+    },
+    {
+      "@type": "Command",
+      "name": "getMaxMinReport",
+      "displayName": "Get Max-Min report.",
+      "description": "This command returns the max, min and average temperature from the specified time to the current time.",
+      "request": {
+        "name": "since",
+        "displayName": "Since",
+        "description": "Period to return the max-min report.",
+        "schema": "dateTime"
+      },
+      "response": {
+        "name" : "tempReport",
+        "displayName": "Temperature Report",
+        "schema": {
+          "@type": "Object",
+          "fields": [
+            {
+              "name": "maxTemp",
+              "displayName": "Max temperature",
+              "schema": "double"
+            },
+            {
+              "name": "minTemp",
+              "displayName": "Min temperature",
+              "schema": "double"
+            },
+            {
+              "name" : "avgTemp",
+              "displayName": "Average Temperature",
+              "schema": "double"
+            },
+            {
+              "name" : "startTime",
+              "displayName": "Start Time",
+              "schema": "dateTime"
+            },
+            {
+              "name" : "endTime",
+              "displayName": "End Time",
+              "schema": "dateTime"
+            }
+          ]
+        }
+      }
+    }
+  ]
 }
 ```
 
-Ten przykład przedstawia dwie właściwości (jeden tylko do odczytu i jeden zapisywalny), typ telemetrii i dwa polecenia. Minimalny opis pola ma:
+Ten przykład przedstawia dwie właściwości (jeden tylko do odczytu i jeden zapisywalny), typ telemetrii i polecenie. Minimalny opis pola ma:
 
 - `@type` Aby określić typ możliwości: `Telemetry` , `Property` , lub `Command` .  W niektórych przypadkach typ zawiera typ semantyczny, aby umożliwić IoT Central w celu wprowadzenia pewnych założeń dotyczących obsługi wartości.
 - `name` wartość telemetrii.
 - `schema` Aby określić typ danych telemetrii lub właściwości. Ta wartość może być typem pierwotnym, takim jak Double, Integer, Boolean lub String. Obsługiwane są również złożone typy obiektów, tablice i mapy.
-- `commandType` , aby określić sposób obsługi polecenia.
 
 Opcjonalne pola, takie jak nazwa wyświetlana i opis, umożliwiają dodanie więcej szczegółów do interfejsu i możliwości.
 
@@ -180,33 +243,36 @@ W przypadku właściwości zapisywalnych aplikacja urządzenia zwraca kod stanu 
 
 ## <a name="telemetry"></a>Telemetria
 
-IoT Central umożliwia wyświetlanie danych telemetrycznych na pulpitach nawigacyjnych i na wykresach oraz stosowanie reguł do wyzwalania akcji po osiągnięciu progów. IoT Central używa informacji w DCM, takich jak typy danych, jednostki i nazwy wyświetlane, aby określić sposób wyświetlania wartości telemetrii.
+IoT Central umożliwia wyświetlanie danych telemetrycznych na pulpitach nawigacyjnych i na wykresach oraz stosowanie reguł do wyzwalania akcji po osiągnięciu progów. IoT Central używa informacji w modelu urządzenia, takich jak typy danych, jednostki i nazwy wyświetlane, aby określić sposób wyświetlania wartości telemetrii.
 
 Za pomocą funkcji eksportu danych IoT Central można przesyłać dane telemetryczne do innych miejsc docelowych, takich jak magazyn lub Event Hubs.
 
 ## <a name="commands"></a>Polecenia
 
-Polecenia są synchroniczne lub asynchroniczne. Polecenie synchroniczne musi być wykonywane w ciągu 30 sekund domyślnie, a urządzenie musi być połączone po nadejściu polecenia. Jeśli urządzenie jest w czasie odpowiedzi lub urządzenie nie jest połączone, polecenie kończy się niepowodzeniem.
+Polecenie musi być wykonywane w ciągu 30 sekund domyślnie, a urządzenie musi być połączone po nadejściu polecenia. Jeśli urządzenie jest w czasie odpowiedzi lub urządzenie nie jest połączone, polecenie kończy się niepowodzeniem.
 
-Korzystaj z poleceń asynchronicznych dla długotrwałych operacji. Urządzenie wysyła informacje o postępie przy użyciu komunikatów telemetrycznych. Te komunikaty postępu mają następujące właściwości nagłówka:
+Polecenia mogą zawierać parametry żądania i zwracać odpowiedź.
 
-- `iothub-command-name`: nazwa polecenia, na przykład `UpdateFirmware` .
-- `iothub-command-request-id`: Identyfikator żądania wygenerowany po stronie serwera i wysyłany do urządzenia w wywołaniu początkowym.
-- `iothub-interface-id`: Identyfikator interfejsu, na którym jest zdefiniowane to polecenie, na przykład `urn:example:AssetTracker:1` .
- `iothub-interface-name`: nazwa wystąpienia tego interfejsu, na przykład `myAssetTracker` .
-- `iothub-command-statuscode`: kod stanu zwrócony z urządzenia, na przykład `202` .
+### <a name="offline-commands"></a>Polecenia w trybie offline
+
+Możesz wybrać polecenia kolejki, jeśli urządzenie jest obecnie w trybie offline, włączając opcję **kolejki w trybie offline** dla polecenia w szablonie urządzenia.
+
+Polecenia w trybie offline to jednokierunkowe powiadomienia do urządzenia z rozwiązania. Polecenia w trybie offline mogą zawierać parametry żądania, ale nie zwracają odpowiedzi.
+
+> [!NOTE]
+> Ta opcja jest dostępna tylko w interfejsie użytkownika sieci Web IoT Central. To ustawienie nie jest uwzględniane w przypadku eksportowania modelu lub interfejsu z szablonu urządzenia.
 
 ## <a name="cloud-properties"></a>Właściwości chmury
 
-Właściwości chmury są częścią szablonu urządzenia, ale nie są częścią DCM. Właściwości chmury umożliwiają deweloperom rozwiązania Określanie metadanych urządzeń, które mają być przechowywane w aplikacji IoT Central. Właściwości chmury nie wpływają na kod, który Projektant urządzenia zapisuje w celu wdrożenia DCM.
+Właściwości chmury są częścią szablonu urządzenia, ale nie są częścią modelu urządzenia. Właściwości chmury umożliwiają deweloperom rozwiązania Określanie metadanych urządzeń, które mają być przechowywane w aplikacji IoT Central. Właściwości chmury nie wpływają na kod, który Projektant urządzenia zapisuje w celu zaimplementowania modelu urządzenia.
 
 Deweloper rozwiązań może dodawać właściwości chmury do pulpitów nawigacyjnych i widoków wraz z właściwościami urządzenia, aby umożliwić operatorowi zarządzanie urządzeniami podłączonymi do aplikacji. Deweloper rozwiązania może również użyć właściwości chmury jako części definicji reguły, aby umożliwić edytowanie wartości progowej przez operatora.
 
 ## <a name="customizations"></a>Dostosowania
 
-Dostosowania są częścią szablonu urządzenia, ale nie są częścią DCM. Dostosowania pozwalają deweloperom rozwiązania ulepszyć lub zastąpić niektóre definicje w DCM. Na przykład deweloper rozwiązania może zmienić nazwę wyświetlaną dla typu telemetrii lub właściwości. Deweloper rozwiązania może również użyć dostosowań, aby dodać sprawdzanie poprawności, takie jak minimalna lub maksymalna długość właściwości urządzenia typu String.
+Dostosowania są częścią szablonu urządzenia, ale nie są częścią modelu urządzenia. Dostosowania pozwalają deweloperom rozwiązania ulepszyć lub zastąpić niektóre definicje w modelu urządzenia. Na przykład deweloper rozwiązania może zmienić nazwę wyświetlaną dla typu telemetrii lub właściwości. Deweloper rozwiązania może również użyć dostosowań, aby dodać sprawdzanie poprawności, takie jak minimalna lub maksymalna długość właściwości urządzenia typu String.
 
-Dostosowania mogą mieć wpływ na kod, który Projektant urządzenia zapisuje w celu wdrożenia DCM. Na przykład dostosowanie może ustawić minimalną i maksymalną długość ciągu lub minimalną i maksymalną wartość liczbową dla telemetrii.
+Dostosowania mogą mieć wpływ na kod, który Projektant urządzenia zapisuje w celu wdrożenia modelu urządzenia. Na przykład dostosowanie może ustawić minimalną i maksymalną długość ciągu lub minimalną i maksymalną wartość liczbową dla telemetrii.
 
 ## <a name="views"></a>Widoki
 
@@ -219,7 +285,7 @@ Deweloper rozwiązania tworzy widoki, które umożliwiają operatorom monitorowa
 - Kafelki, które umożliwiają wywoływanie poleceń operatora, w tym poleceń, które oczekują ładunku.
 - Kafelki do wyświetlania etykiet, obrazów lub tekstu promocji.
 
-Dane telemetryczne, właściwości i polecenia, które można dodać do widoku, są określane na podstawie właściwości DCM, chmury i dostosowań w szablonie urządzenia.
+Dane telemetryczne, właściwości i polecenia, które można dodać do widoku, są określane przez model urządzenia, właściwości chmury i dostosowania w szablonie urządzenia.
 
 ## <a name="next-steps"></a>Następne kroki
 

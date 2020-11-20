@@ -6,12 +6,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: 32734ff9df2e55d24789742cd49984d8da212a17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3d09ec4c4ab578a87f0d983c0f243bee2a84597
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212183"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94991234"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions powiązania SendGrid
 
@@ -41,6 +41,7 @@ Poniższy przykład pokazuje [funkcję języka C#](functions-dotnet-class-librar
 
 ```cs
 using SendGrid.Helpers.Mail;
+using System.Text.Json;
 
 ...
 
@@ -49,7 +50,7 @@ public static void Run(
     [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
     [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] out SendGridMessage message)
 {
-var emailObject = JsonConvert.DeserializeObject<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
+var emailObject = JsonSerializer.Deserialize<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
 
 message = new SendGridMessage();
 message.AddTo(emailObject.To);
@@ -71,15 +72,16 @@ public class OutgoingEmail
 
 ```cs
 using SendGrid.Helpers.Mail;
+using System.Text.Json;
 
 ...
 
 [FunctionName("SendEmail")]
-public static async void Run(
+public static async Task Run(
  [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
  [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] IAsyncCollector<SendGridMessage> messageCollector)
 {
- var emailObject = JsonConvert.DeserializeObject<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
+ var emailObject = JsonSerializer.Deserialize<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
 
  var message = new SendGridMessage();
  message.AddTo(emailObject.To);
@@ -189,7 +191,7 @@ Oto kod JavaScript:
 ```javascript
 module.exports = function (context, input) {
     var message = {
-         "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
+         "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
         from: { email: "sender@contoso.com" },
         subject: "Azure news",
         content: [{
@@ -357,9 +359,9 @@ W poniższej tabeli wymieniono właściwości konfiguracji powiązań dostępne 
 
 | *function.js* właściwości | Właściwość atrybutu/adnotacji | Opis | Opcjonalne |
 |--------------------------|-------------------------------|-------------|----------|
-| typ |nie dotyczy| Musi być ustawiony na `sendGrid` .| Nie |
-| kierunek |nie dotyczy| Musi być ustawiony na `out` .| Nie |
-| name |nie dotyczy| Nazwa zmiennej używana w kodzie funkcji dla żądania lub treści żądania. Ta wartość jest, `$return` gdy istnieje tylko jedna wartość zwracana. | Nie |
+| typ |n/d| Musi być ustawiony na `sendGrid` .| Nie |
+| kierunek |n/d| Musi być ustawiony na `out` .| Nie |
+| name |n/d| Nazwa zmiennej używana w kodzie funkcji dla żądania lub treści żądania. Ta wartość jest, `$return` gdy istnieje tylko jedna wartość zwracana. | Nie |
 | apiKey | ApiKey | Nazwa ustawienia aplikacji, która zawiera klucz interfejsu API. Jeśli nie zostanie ustawiona, domyślna nazwa ustawienia aplikacji to *AzureWebJobsSendGridApiKey*.| Nie |
 | na wartość| Działanie | Adres e-mail adresata. | Tak |
 | wniosek| Źródło | Adres e-mail nadawcy. |  Tak |
@@ -392,7 +394,7 @@ W tej sekcji opisano globalne ustawienia konfiguracji dostępne dla tego powiąz
 
 |Właściwość  |Domyślne | Opis |
 |---------|---------|---------| 
-|wniosek|nie dotyczy|Adres e-mail nadawcy we wszystkich funkcjach.| 
+|wniosek|n/d|Adres e-mail nadawcy we wszystkich funkcjach.| 
 
 
 ## <a name="next-steps"></a>Następne kroki

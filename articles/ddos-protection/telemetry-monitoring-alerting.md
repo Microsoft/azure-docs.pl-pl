@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: eefb658c689128c1d91858ac906c09e71d05cda6
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 5c80e5e611c275c2a2262963aa0759075fca836b
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888950"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989398"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>Wyświetlanie i konfigurowanie telemetrii ochrony przed atakami DDoS
 
-Azure DDoS Protection Standard zapewnia szczegółowe informacje o atakach i wizualizacje z DDoSą analizą ataków. Klienci chroniący sieci wirtualne przed atakami DDoS mają szczegółowy wgląd w ruch związany z atakami i działania podejmowane w celu ograniczenia ataku za pośrednictwem raportów ograniczenia ataków, które &ją dzienniki przepływów ograniczenia. Bogate dane telemetryczne są udostępniane za pośrednictwem Azure Monitor, w tym szczegółowych metryk w czasie trwania ataku DDoS. Alerty można skonfigurować dla dowolnych metryk Azure Monitor uwidocznionych przez DDoS Protection. Rejestrowanie może być dodatkowo zintegrowane z [platformą Azure](https://docs.microsoft.com/azure/sentinel/connect-azure-ddos-protection), Splunk (Azure Event Hubs), pakietem OMS log Analytics i usługą Azure Storage, aby uzyskać zaawansowaną analizę za pośrednictwem interfejsu diagnostyki Azure monitor.
+Azure DDoS Protection Standard zapewnia szczegółowe informacje o atakach i wizualizacje z DDoSą analizą ataków. Klienci chroniący sieci wirtualne przed atakami DDoS mają szczegółowy wgląd w ruch związany z atakami i działania podejmowane w celu ograniczenia ataku za pośrednictwem raportów ograniczenia ataków, które &ją dzienniki przepływów ograniczenia. Bogate dane telemetryczne są udostępniane za pośrednictwem Azure Monitor, w tym szczegółowych metryk w czasie trwania ataku DDoS. Alerty można skonfigurować dla dowolnych metryk Azure Monitor uwidocznionych przez DDoS Protection. Rejestrowanie może być dodatkowo zintegrowane z [platformą Azure](../sentinel/connect-azure-ddos-protection.md), Splunk (Azure Event Hubs), pakietem OMS log Analytics i usługą Azure Storage, aby uzyskać zaawansowaną analizę za pośrednictwem interfejsu diagnostyki Azure monitor.
 
 Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
@@ -49,7 +49,7 @@ Można wybrać dowolną z dostępnych metryk ochrony DDoS, aby poinformować uż
     |Nazwa                     | Wprowadź _MyDdosAlert_.                                                                                |
     |Subskrypcja             | Wybierz subskrypcję zawierającą publiczny adres IP, dla którego chcesz otrzymywać alerty.        |
     |Grupa zasobów           | Wybierz grupę zasobów zawierającą publiczny adres IP, dla którego chcesz otrzymywać alerty.      |
-    |Zasób                 | Wybierz publiczny adres IP, który zawiera publiczny adres IP, dla którego chcesz otrzymywać alerty. DDoS monitoruje publiczne adresy IP przypisane do zasobów w ramach sieci wirtualnej. Jeśli nie masz żadnych zasobów z publicznymi adresami IP w sieci wirtualnej, musisz najpierw utworzyć zasób z publicznym adresem IP. Możesz monitorować publiczny adres IP wszystkich zasobów wdrożonych za pomocą Menedżer zasobów (nieklasyczny) wymienionych w [sieci wirtualnej dla usług platformy Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services#services-that-can-be-deployed-into-a-virtual-network), z wyjątkiem środowisk Azure App Service i platformy Azure VPN Gateway. Aby kontynuować pracę z tym samouczkiem, możesz szybko utworzyć maszynę wirtualną z [systemem Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lub [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) .                   |
+    |Zasób                 | Wybierz publiczny adres IP, który zawiera publiczny adres IP, dla którego chcesz otrzymywać alerty. DDoS monitoruje publiczne adresy IP przypisane do zasobów w ramach sieci wirtualnej. Jeśli nie masz żadnych zasobów z publicznymi adresami IP w sieci wirtualnej, musisz najpierw utworzyć zasób z publicznym adresem IP. Możesz monitorować publiczny adres IP wszystkich zasobów wdrożonych za pomocą Menedżer zasobów (nieklasyczny) wymienionych w [sieci wirtualnej dla usług platformy Azure](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network), z wyjątkiem środowisk Azure App Service i platformy Azure VPN Gateway. Aby kontynuować pracę z tym samouczkiem, możesz szybko utworzyć maszynę wirtualną z [systemem Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lub [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) .                   |
     |Metryka                   | Wybierz opcję **w obszarze atak DDoS**.                                                                |
     |Próg                | 1- **1** oznacza, że jesteś w trakcie ataku. **0** oznacza, że nie jesteś w trakcie ataku.                         |
     |Okres                   | Wybierz dowolną wybraną wartość.                                                                   |
@@ -95,7 +95,7 @@ Progi zasad są konfigurowane przy użyciu profilowania sieci opartych na usłud
 
 ## <a name="view-ddos-protection-alerts-in-azure-security-center"></a>Wyświetlanie alertów dotyczących ochrony DDoS w Azure Security Center
 
-Azure Security Center zawiera listę [alertów zabezpieczeń](/azure/security-center/security-center-managing-and-responding-alerts)z informacjami ułatwiającymi badanie i korygowanie problemów. Dzięki tej funkcji można uzyskać ujednolicony widok alertów, w tym alerty związane z atakiem DDoS oraz działania podejmowane w celu ograniczenia ataków w czasie prawie czasu.
+Azure Security Center zawiera listę [alertów zabezpieczeń](../security-center/security-center-managing-and-responding-alerts.md)z informacjami ułatwiającymi badanie i korygowanie problemów. Dzięki tej funkcji można uzyskać ujednolicony widok alertów, w tym alerty związane z atakiem DDoS oraz działania podejmowane w celu ograniczenia ataków w czasie prawie czasu.
 Istnieją dwa konkretne alerty, które będą widoczne w przypadku wykrywania ataków DDoS i łagodzenia rozwiązań:
 
 - **Wykryto atak DDoS dla publicznego adresu IP**: ten alert jest generowany, gdy Usługa ochrony DDoS wykryje, że jeden z publicznych adresów IP jest celem ataku DDoS.
