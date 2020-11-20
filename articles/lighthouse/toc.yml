@@ -36,6 +36,10 @@
     - name: Usługa Azure Lighthouse i aplikacje zarządzane na platformie Azure
       displayName: 'managed apps, ama'
       href: ./concepts/managed-applications.md
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Dołączanie klienta do usługi Azure Lighthouse

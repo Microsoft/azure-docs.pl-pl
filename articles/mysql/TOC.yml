@@ -116,8 +116,6 @@
           href: sample-scripts-azure-cli.md
         - name: Buforowanie połączeń Java
           href: sample-scripts-java-connection-pooling.md
-        - name: Elementy wbudowane usługi Azure Policy
-          href: ./policy-reference.md
     - name: Pojęcia
       items:
         - name: Serwery
@@ -156,6 +154,9 @@
               href: concepts-azure-ad-authentication.md
             - name: Podwójne szyfrowanie infrastruktury
               href: concepts-infrastructure-double-encryption.md
+            - name: Kontrole zabezpieczeń usługi Azure Policy
+              displayName: 'regulatory, compliance, standards, domains'
+              href: ./security-controls-policy.md
             - name: Punkt odniesienia zabezpieczeń
               href: security-baseline.md
         - name: Planowana konserwacja
@@ -573,6 +574,9 @@
       href: /azure/templates/microsoft.dbformysql/allversions
     - name: Procedury składowane zarządzania
       href: reference-stored-procedures.md
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Zasoby
   items:
     - name: Szablony wdrażania

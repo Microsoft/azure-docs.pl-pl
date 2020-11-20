@@ -8,6 +8,10 @@
   items:
     - name: Planowanie zagregowanej przestrzeni nazw
       href: hpc-cache-namespace.md
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Wymagania wstępne

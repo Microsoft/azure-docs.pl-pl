@@ -57,8 +57,12 @@
       href: concept-security-alerts.md
     - name: Dostosowywalne alerty zabezpieczeń
       href: concept-customizable-security-alerts.md
-    - name: Zalecenia dotyczące zabezpieczeń
-      href: concept-recommendations.md
+    - name: Zabezpieczenia
+      items:
+        - name: Zalecenia dotyczące zabezpieczeń
+          href: concept-recommendations.md
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
     - name: Punkt odniesienia
       href: concept-baseline.md
     - name: Agregacja zdarzeń

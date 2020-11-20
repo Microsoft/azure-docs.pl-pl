@@ -11,8 +11,6 @@
       href: quickstart-template.md
     - name: PowerShell
       href: quickstart-powershell.md
-    - name: Interfejs wiersza polecenia platformy Azure
-      href: quickstart-azure-cli.md
 - name: Samouczki
   items:
     - name: Tworzenie zasad zaświadczania
@@ -45,10 +43,6 @@
       href: /rest/api/attestation/
     - name: Azure PowerShell
       href: /powershell/module/az.attestation/?view=azps-5.0.0#attestation
-    - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/ext/attestation/attestation?view=azure-cli-latest
-    - name: Terraform
-      href: 'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/attestation'
     - name: Biblioteka Azure DCAP dla systemu Windows
       href: 'https://www.nuget.org/packages/Microsoft.Azure.DCAP/'
     - name: Biblioteka Azure DCAP dla systemu Linux
