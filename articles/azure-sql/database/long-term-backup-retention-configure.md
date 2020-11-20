@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 04/14/2020
-ms.openlocfilehash: 42f6badabd27ceaa302f635a7a33b0161b870dc5
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3cab3b262f9116903d0b423cd5e4a0ebd03c46fa
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782862"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94984434"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Zarządzanie długoterminowym przechowywaniem kopii zapasowych Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,7 +31,7 @@ W poniższych sekcjach pokazano, jak za pomocą Azure Portal skonfigurować dłu
 
 Można skonfigurować SQL Database, aby [zachować automatyczne kopie zapasowe](long-term-retention-overview.md) przez okres dłuższy niż okres przechowywania w warstwie usług.
 
-1. W Azure Portal wybierz wystąpienie SQL Server, a następnie kliknij pozycję **Zarządzaj kopiami zapasowymi** . Na karcie **Konfigurowanie zasad** zaznacz pole wyboru dla bazy danych, dla której chcesz ustawić lub zmodyfikować długoterminowe zasady przechowywania kopii zapasowych. Jeśli pole wyboru obok bazy danych nie jest zaznaczone, zmiany zasad nie będą miały zastosowania do tej bazy danych.  
+1. W Azure Portal wybierz wystąpienie SQL Server, a następnie kliknij pozycję **Zarządzaj kopiami zapasowymi**. Na karcie **Konfigurowanie zasad** zaznacz pole wyboru dla bazy danych, dla której chcesz ustawić lub zmodyfikować długoterminowe zasady przechowywania kopii zapasowych. Jeśli pole wyboru obok bazy danych nie jest zaznaczone, zmiany zasad nie będą miały zastosowania do tej bazy danych.  
 
    ![Link zarządzania kopiami zapasowymi](./media/long-term-backup-retention-configure/ltr-configure-ltr.png)
 
@@ -39,7 +39,7 @@ Można skonfigurować SQL Database, aby [zachować automatyczne kopie zapasowe](
 
    ![Konfigurowanie zasad](./media/long-term-backup-retention-configure/ltr-configure-policies.png)
 
-3. Po zakończeniu kliknij przycisk **Zastosuj** .
+3. Po zakończeniu kliknij przycisk **Zastosuj**.
 
 > [!IMPORTANT]
 > Włączenie długoterminowych zasad przechowywania kopii zapasowych może zająć do 7 dni, zanim pierwsza kopia zapasowa stanie się widoczna i będzie dostępna do przywrócenia. Aby uzyskać szczegółowe informacje dotyczące CADANCE kopii zapasowych LTR, zobacz [długoterminowe przechowywanie kopii zapasowych](long-term-retention-overview.md).
@@ -48,7 +48,7 @@ Można skonfigurować SQL Database, aby [zachować automatyczne kopie zapasowe](
 
 Wyświetl kopie zapasowe, które są zachowywane dla określonej bazy danych za pomocą zasad oddzielania i Przywróć te kopie zapasowe.
 
-1. W Azure Portal wybierz serwer, a następnie kliknij pozycję **Zarządzaj kopiami zapasowymi** . Na karcie **dostępne kopie zapasowe** wybierz bazę danych, dla której chcesz wyświetlić dostępne kopie zapasowe.
+1. W Azure Portal wybierz serwer, a następnie kliknij pozycję **Zarządzaj kopiami zapasowymi**. Na karcie **dostępne kopie zapasowe** wybierz bazę danych, dla której chcesz wyświetlić dostępne kopie zapasowe.
 
    ![Wybierz bazę danych](./media/long-term-backup-retention-configure/ltr-available-backups-select-database.png)
 
@@ -100,7 +100,7 @@ W przypadku **usunięcia-AzSqlDatabaseLongTermRetentionBackup** należy mieć je
 > [!NOTE]
 > Rola współautor SQL Server nie ma uprawnień do usuwania kopii zapasowych LTR.
 
-Uprawnienia RBAC można udzielić w zakresie *subskrypcji* lub *grupy zasobów* . Aby jednak uzyskać dostęp do kopii zapasowych LTR należących do porzuconego serwera, należy przyznać uprawnienie w zakresie *subskrypcji* tego serwera.
+Uprawnienia kontroli RBAC platformy Azure można udzielić w zakresie *subskrypcji* lub *grupy zasobów* . Aby jednak uzyskać dostęp do kopii zapasowych LTR należących do porzuconego serwera, należy przyznać uprawnienie w zakresie *subskrypcji* tego serwera.
 
 - Microsoft. SQL/Locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/Delete
 

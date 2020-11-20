@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 11/16/2020
-ms.openlocfilehash: e91a3cc0a96add1f53d220e04fb98d63cc7c33f4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0d2248b9c0a289f5e4f9f2f8e987365ab58c49c0
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841091"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94988548"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Używanie grup z obsługą trybu failover w celu zapewnienia przezroczystej i skoordynowanej pracy w trybie failover wielu baz danych
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -142,15 +142,15 @@ Uprawnienia dla grupy trybu failover są zarządzane za pośrednictwem [kontroli
 
 ### <a name="create-failover-group"></a>Utwórz grupę trybu failover
 
-Aby utworzyć grupę trybu failover, wymagany jest dostęp do zapisu RBAC zarówno do serwera podstawowego, jak i pomocniczego, oraz do wszystkich baz danych w grupie trybu failover. W przypadku wystąpienia zarządzanego SQL wymagany jest dostęp do zapisu RBAC zarówno do podstawowego, jak i pomocniczego wystąpienia zarządzanego SQL, ale uprawnienia do poszczególnych baz danych nie są istotne, ponieważ nie można dodać do grupy trybu failover ani usunąć z niej pojedynczych baz danych wystąpienia zarządzanego SQL.
+Aby utworzyć grupę trybu failover, wymagany jest dostęp do zapisu z usługi Azure RBAC do serwera podstawowego i pomocniczego oraz do wszystkich baz danych w grupie trybu failover. W przypadku wystąpienia zarządzanego SQL wymagany jest dostęp do zapisu w usłudze Azure RBAC zarówno do podstawowego, jak i pomocniczego wystąpienia zarządzanego SQL, ale uprawnienia do poszczególnych baz danych nie są istotne, ponieważ nie można dodać do grupy trybu failover ani usunąć z niej pojedynczych baz danych wystąpienia zarządzanego SQL.
 
 ### <a name="update-a-failover-group"></a>Aktualizowanie grupy trybu failover
 
-Aby zaktualizować grupę trybu failover, wymagany jest dostęp do zapisu RBAC do grupy trybu failover oraz wszystkich baz danych na bieżącym serwerze podstawowym lub zarządzanym wystąpieniu.  
+Aby zaktualizować grupę trybu failover, wymagany jest dostęp do zapisu z usługi Azure RBAC do grupy trybu failover oraz wszystkich baz danych na bieżącym serwerze podstawowym lub zarządzanym wystąpieniu.  
 
 ### <a name="fail-over-a-failover-group"></a>Praca awaryjna grupy trybu failover
 
-Aby można było przełączyć grupę trybu failover, należy uzyskać dostęp do zapisu RBAC do grupy trybu failover na nowym serwerze podstawowym lub zarządzanym wystąpieniu.
+Aby można było przełączyć grupę trybu failover w tryb pracy awaryjnej, do grupy trybu failover na nowym serwerze podstawowym lub wystąpieniu zarządzanym jest wymagany dostęp do zapisu z usługi Azure RBAC.
 
 ## <a name="best-practices-for-sql-database"></a>Najlepsze rozwiązania dotyczące SQL Database
 
@@ -409,7 +409,7 @@ Należy pamiętać o następujących ograniczeniach:
 
 ## <a name="programmatically-managing-failover-groups"></a>Programowe zarządzanie grupami trybu failover
 
-Jak wspomniano wcześniej, grupy autotrybu failover i aktywnej replikacji geograficznej mogą być również zarządzane programowo przy użyciu Azure PowerShell i interfejsu API REST. W poniższych tabelach opisano zestaw dostępnych poleceń. Aktywna replikacja geograficzna obejmuje zestaw Azure Resource Manager interfejsów API do zarządzania, w tym [Azure SQL Database interfejsu API REST](/rest/api/sql/) i [poleceń cmdlet Azure PowerShell](/powershell/azure/). Te interfejsy API wymagają użycia grup zasobów i obsługują zabezpieczenia oparte na rolach (RBAC). Aby uzyskać więcej informacji na temat implementowania ról dostępu, zobacz [Kontrola dostępu oparta na rolach na platformie Azure (RBAC)](../../role-based-access-control/overview.md).
+Jak wspomniano wcześniej, grupy autotrybu failover i aktywnej replikacji geograficznej mogą być również zarządzane programowo przy użyciu Azure PowerShell i interfejsu API REST. W poniższych tabelach opisano zestaw dostępnych poleceń. Aktywna replikacja geograficzna obejmuje zestaw Azure Resource Manager interfejsów API do zarządzania, w tym [Azure SQL Database interfejsu API REST](/rest/api/sql/) i [poleceń cmdlet Azure PowerShell](/powershell/azure/). Te interfejsy API wymagają używania grup zasobów i obsługują kontrolę dostępu opartą na rolach (Azure RBAC). Aby uzyskać więcej informacji na temat implementowania ról dostępu, zobacz [Kontrola dostępu oparta na rolach na platformie Azure (RBAC)](../../role-based-access-control/overview.md).
 
 ### <a name="manage-sql-database-failover"></a>Zarządzanie trybem failover SQL Database
 

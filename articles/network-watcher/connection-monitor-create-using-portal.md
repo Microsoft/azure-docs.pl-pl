@@ -1,5 +1,5 @@
 ---
-title: Utwórz monitor połączeń — Azure Portal
+title: Utwórz monitor połączeń (wersja zapoznawcza) — Azure Portal
 titleSuffix: Azure Network Watcher
 description: W tym artykule opisano sposób tworzenia monitora w monitorze połączeń przy użyciu Azure Portal.
 services: network-watcher
@@ -12,18 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: d652f1eae62270fa8968d64a2bd15a1261dca673
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: f1ba23d53d79587c9d75c1d840c1d3857725d8dd
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949194"
+ms.locfileid: "94984383"
 ---
-# <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Tworzenie monitora w monitorze połączeń przy użyciu Azure Portal
+# <a name="create-a-monitor-in-connection-monitor-preview-by-using-the-azure-portal"></a>Tworzenie monitora w monitorze połączeń (wersja zapoznawcza) przy użyciu Azure Portal
 
 Dowiedz się, jak używać monitora połączeń do monitorowania komunikacji między zasobami. W tym artykule opisano sposób tworzenia monitora przy użyciu Azure Portal. Monitor połączeń obsługuje wdrożenia hybrydowe i w chmurze platformy Azure.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem 
+> [!IMPORTANT]
+> Monitor połączeń jest obecnie w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## <a name="before-you-begin"></a>Zanim rozpoczniesz 
 
 W monitorach połączeń utworzonych przy użyciu monitora połączeń można dodawać zarówno maszyny lokalne, jak i maszyny wirtualne platformy Azure jako źródła. Te monitory połączeń mogą również monitorować łączność z punktami końcowymi. Punkty końcowe mogą znajdować się na platformie Azure lub w innym adresie URL lub IP.
 

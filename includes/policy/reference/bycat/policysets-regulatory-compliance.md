@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 10/20/2020
+ms.date: 11/20/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 394bad6623eeb4ce4b43cadd9bef53934ed7e852
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: dc4ec31a307d559fad84392522e6847aab1e3873
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311605"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94986972"
 ---
 |Nazwa |Opis |Zasady |Wersja |
 |---|---|---|---|
@@ -18,7 +18,7 @@ ms.locfileid: "92311605"
 |[Test porównawczy zabezpieczeń platformy Azure](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/asb_audit.json) |Ta inicjatywa obejmuje zasady wdrażania usługi Audit i Extension maszyny wirtualnej, które dotyczą podzestawu zaleceń dotyczących usług Azure Security test. Dodatkowe zasady zostaną dodane w przyszłych wydaniach. Aby uzyskać więcej informacji, odwiedź stronę [https://aka.ms/azsecbm](https://aka.ms/azsecbm) . |136 |6.1.0 — wersja zapoznawcza |
 |[Canada Federal PBMM](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CanadaFederalPBMM_audit.json) |Ta inicjatywa obejmuje zasady wdrażania rozszerzeń i maszyn wirtualnych, które dotyczą podzestawu federalnych kontrolek PBMM Kanady. Dodatkowe zasady zostaną dodane w przyszłych wydaniach. Aby uzyskać więcej informacji, odwiedź stronę [https://aka.ms/canadafederalpbmm-blueprint](https://aka.ms/canadafederalpbmm-blueprint) . |60 |3.0.0 |
 |[CIS Microsoft Azure Foundations Benchmark 1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_1_0_audit.json) |Ta inicjatywa obejmuje zasady inspekcji, które są związane z podzbiorem zaleceń dotyczących usługi CIS Microsoft Azure. Dodatkowe zasady zostaną dodane w przyszłych wydaniach. Aby uzyskać więcej informacji, odwiedź stronę [https://aka.ms/cisazure-blueprint](https://aka.ms/cisazure-blueprint) . |87 |7.1.0 |
-|[FedRAMP High](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_H_audit.json) |Ta inicjatywa obejmuje zasady wdrażania rozszerzeń maszyn wirtualnych i ich rozszerzenia, które dotyczą podzbioru kontrolek FedRAMP H. Dodatkowe zasady zostaną dodane w przyszłych wydaniach. Aby uzyskać więcej informacji, odwiedź stronę [https://aka.ms/fedramph-blueprint](https://aka.ms/fedramph-blueprint) . |72 |3.0.0 |
+|[FedRAMP High](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_H_audit.json) |Ta inicjatywa obejmuje zasady wdrażania rozszerzeń maszyn wirtualnych i ich rozszerzenia, które dotyczą podzbioru kontrolek FedRAMP H. Dodatkowe zasady zostaną dodane w przyszłych wydaniach. Aby uzyskać więcej informacji, odwiedź stronę [https://aka.ms/fedramph-blueprint](https://aka.ms/fedramph-blueprint) . |72 |3.0.1 |
 |[FedRAMP Moderate](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_M_audit.json) |Ta inicjatywa obejmuje zasady wdrażania rozszerzeń maszyn wirtualnych i ich rozszerzenia, które obsługują podzbiór formantów FedRAMP M. Dodatkowe zasady zostaną dodane w przyszłych wydaniach. Aby uzyskać więcej informacji, odwiedź stronę [https://aka.ms/fedrampm-blueprint](https://aka.ms/fedrampm-blueprint) . |62 |3.0.0 |
 |[HITRUST/HIPAA](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/HIPAA_HITRUST_audit.json) |Ta inicjatywa obejmuje zasady wdrażania rozszerzenia maszyny wirtualnej i programu, które obsługują podzbiór formantów HITRUST/HIPAA. Dodatkowe zasady zostaną dodane w przyszłych wydaniach. Aby uzyskać więcej informacji, odwiedź stronę [https://aka.ms/hipaa-blueprint](https://aka.ms/hipaa-blueprint) . |121 |4.1.0 |
 |[IRS1075 wrzesień 2016](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/IRS1075_audit.json) |Ta inicjatywa obejmuje zasady wdrażania rozszerzenia maszyny wirtualnej i wdrożenia, które dotyczą podzbioru IRS1075 września 2016. Dodatkowe zasady zostaną dodane w przyszłych wydaniach. Aby uzyskać więcej informacji, odwiedź stronę [https://aka.ms/irs1075-blueprint](https://aka.ms/irs1075-blueprint) . |62 |3.0.0 |

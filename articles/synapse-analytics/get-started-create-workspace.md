@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: c15750a7a63293994ff7c6b68cb85a5066acee90
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: d22d70a360290e7fbfabf1d05fc49d4ef6eb8c83
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94981140"
+ms.locfileid: "94986338"
 ---
 # <a name="creating-a-synapse-workspace"></a>Tworzenie obszaru roboczego Synapse
 
@@ -67,7 +67,7 @@ Pula platformy Spark informuje platformę Azure Synapse, ile zasobów platformy 
 
 ## <a name="the-built-in-serverless-sql-pool"></a>Wbudowana Pula SQL bezserwerowa
 
-Każdy obszar roboczy jest dostarczany ze wstępnie utworzoną pulą o nazwie **wbudowane**. Nie można usunąć tej puli. Bezserwerowa Pula SQL umożliwia korzystanie z programu SQL bez konieczności tworzenia lub oceniania zarządzania bezserwerową pulą SQL na platformie Azure Synapse. W przeciwieństwie do dedykowanych pul SQL, rozliczanie dla bezserwerowej puli SQL jest zależne od ilości danych przeskanowanych w celu uruchomienia zapytania, a nie liczby zasobów używanych do wykonywania zapytania.
+Każdy obszar roboczy zawiera wstępnie zbudowaną pulę SQL bezserwerową o nazwie **wbudowane**. Nie można usunąć tej puli. Pule SQL bezserwerowe umożliwiają użycie programu SQL withou w celu zarezerwowania pojemności z dedykowanymi pulami SQL. W przeciwieństwie do dedykowanych pul SQL, rozliczanie dla bezserwerowej puli SQL jest oparte na ilości danych przeskanowanych w celu uruchomienia zapytania, a nie liczby pojemności przydzielonej do puli.
 
 ## <a name="next-steps"></a>Następne kroki
 

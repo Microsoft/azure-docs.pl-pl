@@ -5,12 +5,12 @@ ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: devx-track-js
-ms.openlocfilehash: d1d3ad94957e791b2178b6c60d4c7debdec2b391
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5bbfca4d890440574ee6717ca910969226fc781a
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283432"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987069"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Wdróż szablon rozwiązania typu "Weryfikacja urzędu certyfikacji Ethereum" na platformie Azure
 
@@ -48,7 +48,7 @@ Każde wdrożenie składowe konsorcjum obejmuje:
 * Azure Monitor agregowania dzienników i statystyk wydajności
 * Brama sieci wirtualnej (opcjonalnie) do zezwalania na połączenia VPN między prywatnym sieci wirtualnych
 
-Domyślnie punkty końcowe wywołania RPC i komunikacji równorzędnej są dostępne za pośrednictwem publicznego adresu IP, aby umożliwić uproszczoną łączność między subskrypcjami i chmurami. W przypadku kontroli dostępu na poziomie aplikacji można użyć [kontraktów z uprawnieniami z parzystością](https://wiki.parity.io/Permissioning). Sieci, które są wdrożone za pośrednictwem sieci VPN, są obsługiwane w przypadku łączności między subskrypcjami. Ze względu na to, że wdrożenia VPN i sieci wirtualnych są bardziej skomplikowane, warto zacząć od publicznego modelu IP podczas tworzenia prototypów rozwiązania.
+Domyślnie punkty końcowe wywołania RPC i komunikacji równorzędnej są dostępne za pośrednictwem publicznego adresu IP, aby umożliwić uproszczoną łączność między subskrypcjami i chmurami. W przypadku kontroli dostępu na poziomie aplikacji można użyć kontraktów z uprawnieniami z parzystością. Sieci, które są wdrożone za pośrednictwem sieci VPN, są obsługiwane w przypadku łączności między subskrypcjami. Ze względu na to, że wdrożenia VPN i sieci wirtualnych są bardziej skomplikowane, warto zacząć od publicznego modelu IP podczas tworzenia prototypów rozwiązania.
 
 Kontenery platformy Docker są używane w celu zapewnienia niezawodności i modularności. Azure Container Registry służy do hostowania i obsługi obrazów z wersjami w ramach każdego wdrożenia. Obrazy kontenerów składają się z:
 
@@ -86,7 +86,7 @@ Wybierz pozycję **łańcucha bloków**  >  **Ethereum weryfikacji urzędu certy
 
 ### <a name="basics"></a>Podstawy
 
-W obszarze **podstawowe**Określ wartości parametrów standardowych dla każdego wdrożenia.
+W obszarze **podstawowe** Określ wartości parametrów standardowych dla każdego wdrożenia.
 
 ![Podstawy](./media/ethereum-poa-deployment/basic-blade.png)
 
@@ -105,7 +105,7 @@ Wybierz przycisk **OK**.
 
 ### <a name="deployment-regions"></a>Regiony wdrożenia
 
-W obszarze *regiony wdrożenia*Określ liczbę regionów i lokalizacji dla każdego z nich. Można wdrożyć maksymalnie pięć regionów. Pierwszy region powinien odpowiadać lokalizacji grupy zasobów z sekcji *podstawowe* . W przypadku sieci programistycznych lub testowych można użyć jednego regionu na członka. W przypadku produkcji należy wdrożyć w dwóch lub większej liczbie regionów w celu zapewnienia wysokiej dostępności.
+W obszarze *regiony wdrożenia* Określ liczbę regionów i lokalizacji dla każdego z nich. Można wdrożyć maksymalnie pięć regionów. Pierwszy region powinien odpowiadać lokalizacji grupy zasobów z sekcji *podstawowe* . W przypadku sieci programistycznych lub testowych można użyć jednego regionu na członka. W przypadku produkcji należy wdrożyć w dwóch lub większej liczbie regionów w celu zapewnienia wysokiej dostępności.
 
 ![regiony wdrożenia](./media/ethereum-poa-deployment/deployment-regions.png)
 
@@ -119,7 +119,7 @@ Wybierz przycisk **OK**.
 
 ### <a name="network-size-and-performance"></a>Rozmiar i wydajność sieci
 
-W obszarze *rozmiar sieci i wydajność*Określ dane wejściowe rozmiaru sieci konsorcjum. Rozmiar magazynu węzła modułu sprawdzania poprawności określa potencjalną wielkość łańcucha bloków. Rozmiar można zmienić po wdrożeniu.
+W obszarze *rozmiar sieci i wydajność* Określ dane wejściowe rozmiaru sieci konsorcjum. Rozmiar magazynu węzła modułu sprawdzania poprawności określa potencjalną wielkość łańcucha bloków. Rozmiar można zmienić po wdrożeniu.
 
 ![Rozmiar i wydajność sieci](./media/ethereum-poa-deployment/network-size-and-performance.png)
 
@@ -141,7 +141,7 @@ Wybierz przycisk **OK**.
 
 ### <a name="ethereum-settings"></a>Ustawienia Ethereum
 
-W obszarze *Ustawienia Ethereum*Określ ustawienia konfiguracji związane z Ethereum.
+W obszarze *Ustawienia Ethereum* Określ ustawienia konfiguracji związane z Ethereum.
 
 ![Ustawienia Ethereum](./media/ethereum-poa-deployment/ethereum-settings.png)
 
@@ -333,7 +333,7 @@ Ze względów bezpieczeństwa dostęp do portu SSH jest domyślnie odrzucony prz
 
 1. Wybierz pozycję **Zapisz**. Zastosowanie zmian może potrwać kilka minut.
 
-Można zdalnie nawiązać połączenie z maszynami wirtualnymi dla węzłów modułu sprawdzania poprawności za pośrednictwem protokołu SSH z podaną nazwą użytkownika administratora i hasła/klucza SSH. Polecenie SSH, aby uzyskać dostęp do pierwszego węzła modułu sprawdzania poprawności, znajduje się na liście wyjściowej wdrożenia szablonu. Na przykład:
+Można zdalnie nawiązać połączenie z maszynami wirtualnymi dla węzłów modułu sprawdzania poprawności za pośrednictwem protokołu SSH z podaną nazwą użytkownika administratora i hasła/klucza SSH. Polecenie SSH, aby uzyskać dostęp do pierwszego węzła modułu sprawdzania poprawności, znajduje się na liście wyjściowej wdrożenia szablonu. Przykład:
 
 ``` bash
 ssh -p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com.
@@ -341,7 +341,7 @@ ssh -p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com.
 
 Aby przejść do dodatkowych węzłów transakcji, Zwiększ numer portu o jeden.
 
-Jeśli wdrożono w więcej niż jednym regionie, należy zmienić polecenie na nazwę DNS lub adres IP modułu równoważenia obciążenia w tym regionie. Aby znaleźć nazwę DNS lub adres IP innych regionów, Znajdź zasób z konwencją nazewnictwa ** \* \* \* \* \* -lbpip-reg \# ** i Wyświetl jego właściwości nazwy DNS i adresu IP.
+Jeśli wdrożono w więcej niż jednym regionie, należy zmienić polecenie na nazwę DNS lub adres IP modułu równoważenia obciążenia w tym regionie. Aby znaleźć nazwę DNS lub adres IP innych regionów, Znajdź zasób z konwencją nazewnictwa **\* \* \* \* \* -lbpip-reg \#** i Wyświetl jego właściwości nazwy DNS i adresu IP.
 
 ## <a name="azure-traffic-manager-load-balancing"></a>Równoważenie obciążenia Traffic Manager platformy Azure
 
@@ -370,7 +370,7 @@ Jeśli zdecydujesz się utworzyć profil Traffic Manager, możesz użyć nazwy D
 
 1. Wybierz kartę **punkty końcowe** i wybierz przycisk **Dodaj** .
 1. Określ unikatową nazwę punktu końcowego.
-1. W obszarze **Typ zasobu docelowego**wybierz pozycję **publiczny adres IP**.
+1. W obszarze **Typ zasobu docelowego** wybierz pozycję **publiczny adres IP**.
 1. Wybierz publiczny adres IP modułu równoważenia obciążenia pierwszego regionu.
 
     ![Routing Traffic Manager](./media/ethereum-poa-deployment/traffic-manager-routing.png)
@@ -685,9 +685,9 @@ Po wdrożeniu kontraktu inteligentnego można wysłać transakcję, aby wywoła�
 
 ## <a name="webassembly-wasm-support"></a>Obsługa zestawu webassembly (WASM)
 
-Obsługa zestawu webassembly jest już włączona dla nowo wdrożonych sieci PoA. Umożliwia ona programowanie aplikacji inteligentnych w dowolnym języku, który transstertuje Web-Assembly (Rust, C, C++). Aby uzyskać więcej informacji, zobacz: [Omówienie parzystości zestawu webassembly](https://wiki.parity.io/WebAssembly-Home) i [samouczek od firmy o parzystości technicznej](https://github.com/paritytech/pwasm-tutorial)
+Obsługa zestawu webassembly jest już włączona dla nowo wdrożonych sieci PoA. Umożliwia ona programowanie aplikacji inteligentnych w dowolnym języku, który transstertuje Web-Assembly (Rust, C, C++). Aby uzyskać więcej informacji, zobacz [samouczek od firmy z parzystością techniczną](https://github.com/paritytech/pwasm-tutorial).
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 ### <a name="i-notice-there-are-many-transactions-on-the-network-that-i-didnt-send-where-are-these-coming-from"></a>Zauważ, że w sieci nie wysłano wielu transakcji. Skąd pochodzą?
 

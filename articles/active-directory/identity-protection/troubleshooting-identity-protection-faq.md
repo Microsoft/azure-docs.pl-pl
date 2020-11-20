@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec45ce7634b7bc0a8f38f354112cdc2e172f1e17
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 58f0ffa8bd43a8428603334b6c89fa1cf36315b5
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288376"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987341"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Często zadawane pytania dotyczące ochrony tożsamości w programie Azure Active Directory
 
@@ -95,6 +95,4 @@ Ze względu na to, że ryzyko związane z użytkownikiem ma charakter zbiorczy i
 
 Wysoki zagregowany wskaźnik ryzyka może opierać się na innych funkcjach logowania lub w przypadku, gdy wygenerowane jest więcej niż jedno wykrycie dla tego logowania. Z drugiej strony Logowanie może mieć ryzyko związane z logowaniem (zagregowany), nawet jeśli wykrycie skojarzone z logowaniem ma wysokie ryzyko. 
 
-### <a name="why-is-the-detection-which-is-linked-to-a-risky-sign-in-have-a-different-risk-level-than-the-sign-in-risk-level-real-time"></a>Dlaczego wykrywanie, które jest połączone z ryzykownym logowaniem, ma różny poziom ryzyka niż poziom ryzyka logowania (w czasie rzeczywistym)? 
 
-Niedawno wprowadziliśmy usprawnienia w zakresie obliczania ryzyka związanego z logowaniem w czasie rzeczywistym. Niezgodność zaobserwowana między poziomem wykrywania ryzyka a poziomem ryzyka związanego z logowaniem jest wynikiem tych zmian. Należy pamiętać, że ryzyko związane z logowaniem w czasie rzeczywistym jest wartością używaną podczas wymuszania zasad. 

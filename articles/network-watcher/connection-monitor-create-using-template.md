@@ -1,5 +1,5 @@
 ---
-title: Utwórz monitor połączeń — ARMClient
+title: Utwórz monitor połączeń (wersja zapoznawcza) — szablon ARM
 titleSuffix: Azure Network Watcher
 description: Dowiedz się, jak utworzyć monitor połączeń przy użyciu ARMClient.
 services: network-watcher
@@ -12,18 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: c80f2aaf26c0f0e89014c997151599c8bddbe903
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: e1a0ecd85d07aa4fdf5482c5104c17eb4a068688
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94948820"
+ms.locfileid: "94984230"
 ---
-# <a name="create-a-connection-monitor-using-the-armclient"></a>Tworzenie monitora połączeń przy użyciu ARMClient
+# <a name="create-a-connection-monitor-using-the-arm-template"></a>Tworzenie monitora połączeń przy użyciu szablonu ARM
 
 Dowiedz się, jak utworzyć monitor połączeń do monitorowania komunikacji między zasobami przy użyciu ARMClient. Obsługuje wdrożenia w chmurze hybrydowej i platformy Azure.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem 
+> [!IMPORTANT]
+> Monitor połączeń jest obecnie w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## <a name="before-you-begin"></a>Zanim rozpoczniesz 
 
 W monitorach połączeń utworzonych w monitorze połączeń można dodawać zarówno maszyny lokalne, jak i maszyny wirtualne platformy Azure jako źródła. Te monitory połączeń mogą również monitorować łączność z punktami końcowymi. Punkty końcowe mogą znajdować się na platformie Azure lub dowolnym innym adresem URL lub adresie IP.
 

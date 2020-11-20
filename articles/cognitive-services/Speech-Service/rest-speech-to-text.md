@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 98c42a61e65935446f948e35cb08ed2893dd0b7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bb66d8a197a33d6d0ad46502b510662f43ea1ca
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532521"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94988565"
 ---
 # <a name="speech-to-text-rest-api"></a>Interfejs API REST zamiany mowy na tekst
 
@@ -64,7 +64,7 @@ Te parametry mogą być zawarte w ciągu zapytania żądania REST.
 
 Ta tabela zawiera listę wymaganych i opcjonalnych nagłówków dla żądań zamiany mowy na tekst.
 
-|Header| Opis | Wymagane/opcjonalne |
+|Nagłówek| Opis | Wymagane/opcjonalne |
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Klucz subskrypcji usługi rozpoznawania mowy. | Ten nagłówek lub `Authorization` jest wymagany. |
 | `Authorization` | Token autoryzacji poprzedzony słowem `Bearer` . Aby uzyskać więcej informacji, zobacz [Authentication](#authentication) (Uwierzytelnianie). | Ten nagłówek lub `Ocp-Apim-Subscription-Key` jest wymagany. |
@@ -90,10 +90,10 @@ Dźwięk jest wysyłany w treści `POST` żądania HTTP. Musi być w jednym z fo
 
 Ta tabela zawiera listę wymaganych i opcjonalnych parametrów oceny wymowy.
 
-| Parametr | Opis | Wymagane/opcjonalne |
+| Parametr | Opis | Wymagane? |
 |-----------|-------------|---------------------|
 | ReferenceText | Tekst, dla którego będzie oceniana wymowa. | Wymagane |
-| GradingSystem | System punktu do kalibracji oceny. Akceptowane wartości to `FivePoint` i `HundredMark` . Ustawienie domyślne to `FivePoint`. | Opcjonalne |
+| GradingSystem | System punktu do kalibracji oceny. `FivePoint`System daje 0-5 wynik zmiennoprzecinkowy i `HundredMark` daje wynik o wartości 0-100 zmiennoprzecinkowej. Wartość domyślna: `FivePoint`. | Opcjonalne |
 | Poziom szczegółowości | Stopień szczegółowości oceny. Akceptowane wartości to `Phoneme` , które pokazują wynik na poziomie pełnego tekstu, wyrazów i fonem, `Word` który pokazuje wynik na poziomie pełnego tekstu i słowa, `FullText` który pokazuje wynik tylko na poziomie pełnego tekstu. Ustawienie domyślne to `Phoneme`. | Opcjonalne |
 | Wymiar | Definiuje kryteria danych wyjściowych. Akceptowane wartości to `Basic` , które wyświetlają tylko wynik dokładności, `Comprehensive` pokazują wyniki o większej liczbie wymiarów (np. wyniki Fluency oraz wynik kompletności na poziomie pełnego tekstu, typ błędu na poziomie wyrazu). Sprawdź [Parametry odpowiedzi](#response-parameters) , aby zobaczyć definicje różnych wymiarów oceny i typów błędów wyrazów. Ustawienie domyślne to `Basic`. | Opcjonalne |
 | EnableMiscue | Włącza Obliczanie miscue. Po włączeniu tej możliwości wymawiane wyrazy będą porównywane z tekstem odwołania i będą oznaczone jako pomijania/wstawiania na podstawie porównania. Akceptowane wartości to `False` i `True` . Ustawienie domyślne to `False`. | Opcjonalne |
@@ -147,7 +147,7 @@ Pronunciation-Assessment: eyJSZWZlcm...
 
 Kod stanu HTTP dla każdej odpowiedzi oznacza powodzenie lub typowe błędy.
 
-| Kod stanu HTTP | Opis | Możliwa przyczyna |
+| Kod stanu HTTP | Opis | Możliwe przyczyny |
 |------------------|-------------|-----------------|
 | `100` | Kontynuuj | Początkowe żądanie zostało zaakceptowane. Kontynuuj wysyłanie reszty danych. (Używany z transferem fragmentarycznym) |
 | `200` | OK | Żądanie zakończyło się pomyślnie. treść odpowiedzi jest obiektem JSON. |

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: f4cb57eb8d3396667e6c9cb40b7e41b1e97622ed
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: f33cb7d4d005f15d0a5fcc70d56ebd4698f86694
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94981191"
+ms.locfileid: "94988225"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Kontroluj aktualizacje przy użyciu sterowania konserwacją i Azure PowerShell
 
@@ -69,7 +69,7 @@ Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 
 ### <a name="create-a-maintenance-configuration-with-scheduled-window"></a>Utwórz konfigurację konserwacji z zaplanowanym oknem
 
-Użyj New-AzMaintenanceConfiguration, aby utworzyć konfigurację konserwacji z zaplanowanym oknem, gdy platforma Azure zastosuje aktualizacje do zasobów. W tym przykładzie zostanie utworzona konfiguracja konserwacji o nazwie Moja config z zaplanowanym oknem 5 godzin w czwartym poniedziałek każdego miesiąca. Po utworzeniu zaplanowanego okna nie trzeba już ręcznie stosować aktualizacji.
+Możesz również zadeklarować zaplanowane okno, gdy platforma Azure zastosuje aktualizacje do zasobów. W tym przykładzie zostanie utworzona konfiguracja konserwacji o nazwie Moja config z zaplanowanym oknem 5 godzin w czwartym poniedziałek każdego miesiąca. Po utworzeniu zaplanowanego okna nie trzeba już ręcznie stosować aktualizacji.
 
 ```azurepowershell-interactive
 $config = New-AzMaintenanceConfiguration `
@@ -85,12 +85,10 @@ $config = New-AzMaintenanceConfiguration `
 > [!IMPORTANT]
 > **Czas trwania** konserwacji nie może być dłuższy niż *2 godziny* . **Cykl** konserwacji musi być ustawiony na co najmniej raz w ciągu 35 dni.
 
-**Cykl** konserwacji można wyrazić jako:
- | Wartość | Przykład |
-      |-------|-------------|
-      | dzienn | recurEvery: Day **lub** RecurEvery: 3Days | 
-      | co tydzień | recurEvery: 3Weeks **lub** RecurEvery: Sobota, niedziela | 
-      | miesięczne | recurEvery: miesiąc day23, day24 **lub** RecurEvery: miesiąc Ostatnia niedziela **lub** recurEvery: miesiąc czwarty poniedziałek | 
+**Cykl** konserwacji można wyrazić jako codziennie, co tydzień lub co miesiąc. Przykłady to:
+ - codziennie — "recurEvery: Day" **lub** "RecurEvery: 3Days" 
+ - co tydzień — "recurEvery: 3Weeks" **lub** "RecurEvery: tydzień Sobota, Niedziela" 
+ - co miesiąc — "recurEvery: Month day23, day24" **lub** "RecurEvery: Month Last Niedziela" **lub** "recurEvery: miesiąc czwarty poniedziałek"  
       
 
 ## <a name="assign-the-configuration"></a>Przypisz konfigurację

@@ -1,5 +1,5 @@
 ---
-title: Monitor połączeń | Microsoft Docs
+title: Monitor połączeń (wersja zapoznawcza) na platformie Azure | Microsoft Docs
 description: Dowiedz się, jak używać monitora połączeń do monitorowania komunikacji sieciowej w środowisku rozproszonym.
 services: network-watcher
 documentationcenter: na
@@ -15,18 +15,21 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 13b379fd3b4f788d79cbb6a9bf6d40cb1693eaf9
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: cb24cc55844d7c42d68e75d6f6ef947b1315a306
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949003"
+ms.locfileid: "94984366"
 ---
-# <a name="network-connectivity-monitoring-with-connection-monitor"></a>Monitorowanie łączności sieciowej z monitorem połączeń
+# <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Monitorowanie łączności sieciowej z monitorem połączeń (wersja zapoznawcza)
 
 Monitor połączeń zapewnia ujednolicone kompleksowe monitorowanie połączeń w usłudze Azure Network Watcher. Funkcja monitor połączeń obsługuje wdrożenia hybrydowe i w chmurze platformy Azure. Network Watcher udostępnia narzędzia do monitorowania, diagnozowania i wyświetlania metryk związanych z łącznością dla wdrożeń platformy Azure.
 
-Poniżej przedstawiono niektóre przypadki użycia monitora połączeń:
+> [!IMPORTANT]
+> Monitor połączeń jest obecnie w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Poniżej przedstawiono niektóre przypadki użycia monitora połączeń:
 
 - Maszyna wirtualna serwera frontonu sieci Web komunikuje się z maszyną wirtualną serwera bazy danych w aplikacji wielowarstwowej. Chcesz sprawdzić łączność sieciową między dwiema maszynami wirtualnymi.
 - Chcesz, aby maszyny wirtualne w regionie Wschodnie stany USA mogli wysyłać polecenia ping do maszyn wirtualnych w regionie Środkowe stany USA, a chcesz porównać opóźnienia sieci między regionami.

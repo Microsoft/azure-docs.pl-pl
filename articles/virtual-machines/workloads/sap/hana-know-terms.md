@@ -11,15 +11,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/21/2020
+ms.date: 11/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b65190c0fd2fcac132f762116a63357a08e6bf02
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7777888bd27325e9094032458922969494a9a64e
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967741"
+ms.locfileid: "94984961"
 ---
 # <a name="know-the-terms"></a>Poznawanie warunków
 
@@ -45,6 +45,7 @@ Kilka typowych definicji jest szeroko używanych w przewodniku wdrażania archit
 - **Poprawka**: Istnieją dwie różne wersje sygnatury dla sygnatur dużych wystąpień usługi Hana. Różnią się one w architekturze i sąsiedztwie na hostach maszyn wirtualnych platformy Azure
     - "Poprawka 3" (Rev. 3): to oryginalny projekt, który został wdrożony w połowie roku 2016
     - "Wersja 4" (Rev. 4): to nowy projekt, który może zapewnić bliższą bliskość hostom maszyn wirtualnych platformy Azure, oraz to, co zmniejsza opóźnienie sieci między maszynami wirtualnymi platformy Azure i jednostkami dużej instancji HANA 
+    - "Poprawka 4,2" (rev 4,2): w przypadku istniejących poprawek 4 kontrolery domen zasoby są oznaczone do infrastruktury BareMetal.  Klienci mogą uzyskać dostęp do swoich zasobów jako wystąpienia BareMetal z Azure Portal. 
 
 W przypadku wdrażania obciążeń SAP w chmurze dostępne są różne dodatkowe zasoby. Jeśli planujesz wykonać wdrożenie SAP HANA na platformie Azure, musisz mieć doświadczenie i wiedzieć o zasadach platformy Azure IaaS oraz o wdrażaniu obciążeń SAP na platformie Azure IaaS. Przed kontynuowaniem zobacz [Korzystanie z rozwiązań SAP na maszynach wirtualnych platformy Azure](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , aby uzyskać więcej informacji. 
 

@@ -1,5 +1,5 @@
 ---
-title: Migrowanie do monitora połączeń z Network Performance Monitor
+title: Migrowanie do monitora połączeń (wersja zapoznawcza) z Network Performance Monitor
 titleSuffix: Azure Network Watcher
 description: Dowiedz się, jak przeprowadzić migrację do monitora połączeń z Network Performance Monitor.
 services: network-watcher
@@ -12,16 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2020
 ms.author: vinigam
-ms.openlocfilehash: 949f717c56892f8a1d0826e8e6f1f2164a4a142c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 38ea682b4f3894f373d16908b942b4fa578741c4
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94974931"
+ms.locfileid: "94985811"
 ---
-# <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>Migrowanie do monitora połączeń z Network Performance Monitor
+# <a name="migrate-to-connection-monitor-preview-from-network-performance-monitor"></a>Migrowanie do monitora połączeń (wersja zapoznawcza) z Network Performance Monitor
 
 Testy z programu Network Performance Monitor (NPM) można migrować do nowego, ulepszonego monitora połączeń jednym kliknięciem i bez przestojów. Aby dowiedzieć się więcej o korzyściach, zobacz [monitor połączeń](./connection-monitor-overview.md).
+
+> [!IMPORTANT]
+> Monitor połączeń jest obecnie w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 >[!NOTE]
 > Tylko testy z monitora łączności usług można migrować do monitora połączeń.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: cc33d3c07461b5662e1454ec131dbc2b5f19a390
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 7b048581b29fa4244c42261810f382b229a627dd
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126177"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985971"
 ---
 # <a name="azure-iot-central-architecture"></a>Architektura usługi Azure IoT Central
 
@@ -23,7 +23,7 @@ Ten artykuł zawiera omówienie architektury IoT Central Microsoft Azure.
 
 ![Architektura najwyższego poziomu](media/concepts-architecture/architecture.png)
 
-## <a name="devices"></a>Urządzenia
+## <a name="devices"></a>Devices
 
 Urządzenia wymieniają dane z aplikacją IoT Central platformy Azure. Urządzenie może:
 
@@ -54,7 +54,7 @@ IoT Central zapewnia następujące możliwości dla urządzeń IoT Edge:
   - Dane telemetryczne wysyłane przez każdy moduł.
   - Właściwości każdego modułu raportów.
   - Polecenia, na które odpowiada każdy moduł.
-  - Relacje między modelem możliwości urządzenia bramy IoT Edge i modelem możliwości urządzenia podrzędnego.
+  - Relacje między urządzeniem bramy IoT Edge a urządzeniem podrzędnym.
   - Właściwości chmury, które nie są przechowywane na urządzeniu IoT Edge.
   - Dostosowania, pulpity nawigacyjne i formularze, które są częścią aplikacji IoT Central.
 
@@ -133,16 +133,16 @@ W aplikacji IoT Central platformy Azure szablony urządzeń określają zachowan
 
 ![Architektura szablonu](media/concepts-architecture/template-architecture.png)
 
-Szablon urządzenia aplikacji IoT Central zawiera następujące:
+W IoT Central [szablonu urządzenia](concepts-device-templates.md) znajdują się następujące:
 
-- **Modele możliwości urządzeń** określają możliwości urządzenia, takie jak dane telemetryczne, które wysyła, właściwości definiujące stan urządzenia i polecenia, na które odpowiada urządzenie. Możliwości urządzenia są zorganizowane w jeden lub więcej interfejsów.
+- **Model urządzenia** służący do określania możliwości urządzenia, takich jak dane telemetryczne, które wysyła, właściwości definiujące stan urządzenia oraz poleceń, na które odpowiada urządzenie. Możliwości urządzenia są zorganizowane w jeden lub więcej interfejsów.
 - **Właściwości chmury** określają właściwości IoT Central magazynów dla urządzenia. Te właściwości są przechowywane tylko w IoT Central i nigdy nie są wysyłane do urządzenia.
 - **Widoki** umożliwiają określanie pulpitów nawigacyjnych i formularzy tworzonych przez konstruktora, aby umożliwić operatorowi monitorowanie urządzeń i zarządzanie nimi.
-- **Dostosowania** pozwalają konstruktorowi zastąpić niektóre definicje w modelu możliwości urządzenia, aby zwiększyć ich znaczenie do aplikacji IoT Central.
+- **Dostosowania** pozwalają konstruktorowi zastąpić niektóre definicje w modelu urządzenia, aby zwiększyć ich znaczenie do aplikacji IoT Central.
 
 Aplikacja może mieć co najmniej jedno symulowane i rzeczywiste urządzenie w oparciu o każdy szablon urządzenia.
 
-## <a name="data-export"></a>Eksportowanie danych
+## <a name="data-export"></a>Eksport danych
 
 W aplikacji IoT Central platformy Azure możesz [ciągle eksportować dane](howto-export-data.md) do własnych wystąpień platformy Azure Event Hubs i Azure Service Bus. Możesz również okresowo eksportować dane do konta usługi Azure Blob Storage. IoT Central mogą eksportować pomiary, urządzenia i szablony urządzeń.
 
@@ -152,7 +152,7 @@ W aplikacji IoT Central platformy Azure można [tworzyć i uruchamiać zadania](
 
 ## <a name="role-based-access-control-rbac"></a>Kontrola dostępu oparta na rolach (RBAC)
 
-[Administrator może zdefiniować reguły dostępu](howto-manage-users-roles.md) dla aplikacji IoT Central platformy Azure przy użyciu jednej ze wstępnie zdefiniowanych ról lub tworząc rolę niestandardową. Role określają obszary aplikacji, do których użytkownik ma dostęp i jakie akcje mogą wykonywać.
+Każda aplikacja IoT Central ma własny wbudowany system RBAC. [Administrator może zdefiniować reguły dostępu](howto-manage-users-roles.md) dla aplikacji IoT Central platformy Azure przy użyciu jednej ze wstępnie zdefiniowanych ról lub tworząc rolę niestandardową. Role określają obszary aplikacji, do których użytkownik ma dostęp i jakie akcje mogą wykonywać.
 
 ## <a name="security"></a>Zabezpieczenia
 

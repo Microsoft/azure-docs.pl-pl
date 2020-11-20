@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 4392086146642e18b1fdef28a9e602bdbb5b0b18
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: b138b3eb52a0bfb6dca2ec6fdf0b855223bab698
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542188"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94984451"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Obrazy tagów w projekcie etykietowania 
 
@@ -82,7 +82,7 @@ W szczególności przede wszystkim w projekcie etykietowania model uczenia maszy
 
 Jeśli projekt jest typu "Klasyfikacja obrazu wiele klas", przypiszesz jeden tag do całego obrazu. Aby zapoznać się ze wskazówkami w dowolnym momencie, przejdź do strony z **instrukcjami** i wybierz pozycję **Wyświetl szczegółowe instrukcje**.
 
-Jeśli zauważysz, że po przypisaniu znacznika do obrazu wystąpi błąd, możesz go naprawić. Wybierz znak " **X** " na etykiecie, która jest wyświetlana poniżej obrazu, aby wyczyścić tag. Lub zaznacz obraz i wybierz inną klasę. Nowo wybrana wartość zastąpi poprzednio zastosowany tag.
+Jeśli zauważysz, że po przypisaniu znacznika do obrazu wystąpi błąd, możesz go naprawić. Wybierz znak "**X**" na etykiecie, która jest wyświetlana poniżej obrazu, aby wyczyścić tag. Lub zaznacz obraz i wybierz inną klasę. Nowo wybrana wartość zastąpi poprzednio zastosowany tag.
 
 ## <a name="tag-images-for-multi-label-classification"></a>Tagowanie obrazów na potrzeby klasyfikacji z wieloma etykietami
 
@@ -96,7 +96,7 @@ Wybierz obraz, który chcesz oznaczyć etykietą, a następnie wybierz tag. Tag 
 
 ![Animacja pokazuje przepływ wieloetykietowy](./media/how-to-label-images/multilabel.gif)
 
-Aby poprawić błąd, kliknij znak " **X** ", aby wyczyścić pojedynczy tag, lub wybierz obrazy, a następnie wybierz tag, który czyści tag ze wszystkich zaznaczonych obrazów. Ten scenariusz jest przedstawiony tutaj. Kliknięcie pozycji "Ziemia" spowoduje wyczyszczenie tego tagu z dwóch zaznaczonych obrazów.
+Aby poprawić błąd, kliknij znak "**X**", aby wyczyścić pojedynczy tag, lub wybierz obrazy, a następnie wybierz tag, który czyści tag ze wszystkich zaznaczonych obrazów. Ten scenariusz jest przedstawiony tutaj. Kliknięcie pozycji "Ziemia" spowoduje wyczyszczenie tego tagu z dwóch zaznaczonych obrazów.
 
 ![Zrzut ekranu przedstawia wiele selektorów](./media/how-to-label-images/multiple-deselection.png)
 
@@ -133,7 +133,7 @@ Jeśli projekt jest typu "segmentacja wystąpienia (Wielokąt)", należy określ
 
 1. Wybierz tag dla wielokąta, który ma zostać utworzony.
 1. Wybierz narzędzie **Rysuj region wielokąta** , ![ rysując region wielokąta ](./media/how-to-label-images/polygon-tool.png) lub wybierz "P".
-3. Kliknij dla każdego punktu w wielokąta.  Po zakończeniu kształtu kliknij dwukrotnie, aby zakończyć.
+1. Kliknij dla każdego punktu w wielokąta.  Po zakończeniu kształtu kliknij dwukrotnie, aby zakończyć.
 
     :::image type="content" source="media/how-to-label-images/polygon.gif" alt-text="Tworzenie wielokątów dla klas Cat i Dog":::
 
@@ -158,3 +158,5 @@ Gdy skończysz etykietowanie, wybierz swoją nazwę w prawym górnym rogu portal
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się, jak [uczenie modeli klasyfikacji obrazów na platformie Azure](./tutorial-train-models-with-aml.md)
+
+

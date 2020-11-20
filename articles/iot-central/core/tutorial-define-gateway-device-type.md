@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 58e481e34d9f798b73b72b114b071cf035c3319f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f95df6fb74071dc16814f11fb48521f984c89778
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90967914"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94988045"
 ---
 # <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Samouczek — Definiowanie nowego typu urządzenia bramy IoT w aplikacji IoT Central platformy Azure
 
@@ -51,11 +51,11 @@ Aby utworzyć szablon urządzenia dla **czujnika S1** :
 
 1. Na stronie **Przegląd** wybierz pozycję **Utwórz** , aby dodać szablon urządzenia do aplikacji. 
 
-Aby utworzyć szablon urządzenia dla urządzenia**czujnika RS40ego** :
+Aby utworzyć szablon urządzenia dla urządzenia *_czujnika RS40ego_* :
 
 1. W okienku po lewej stronie wybierz pozycję **Szablony urządzeń**. Następnie wybierz **+** , aby rozpocząć Dodawanie szablonu.
 
-1. Przewiń w dół do momentu, gdy zobaczysz kafelek dla urządzenia**czujnika RS40** . Wybierz kafelek, a następnie wybierz przycisk **Dalej: Dostosuj**.
+1. Przewiń w dół do momentu, gdy zobaczysz kafelek dla urządzenia *_czujnika RS40_* . Wybierz kafelek, a następnie wybierz przycisk **Dalej: Dostosuj**.
 
 1. Na stronie **Przegląd** wybierz pozycję **Utwórz** , aby dodać szablon urządzenia do aplikacji. 
 
@@ -110,7 +110,7 @@ Aby dodać właściwości chmury do szablonu **urządzenia do tworzenia intelige
 
     | Nazwa wyświetlana      | Typ semantyczny | Schemat |
     | ----------------- | ------------- | ------ |
-    | Data ostatniego serwisowania | Brak          | Data   |
+    | Data ostatniego serwisowania | Brak          | Date   |
     | Nazwa klienta     | Brak          | Ciąg |
 
 2. Wybierz pozycję **Zapisz**.
@@ -142,7 +142,7 @@ Aby opublikować szablon urządzenia bramy:
 
 3. W oknie dialogowym **Publikowanie szablonu urządzenia** wybierz pozycję **Publikuj**.
 
-Po opublikowaniu szablonu urządzenia jest on widoczny na stronie **urządzenia** i do operatora. W opublikowanym szablonie urządzenia nie można edytować modelu możliwości urządzenia bez tworzenia nowej wersji. Można jednak wykonywać aktualizacje właściwości, dostosowań i widoków w chmurze w opublikowanym szablonie urządzenia. Te aktualizacje nie powodują utworzenia nowej wersji. Po wprowadzeniu zmian wybierz pozycję **Publikuj**  , aby wypchnąć te zmiany do operatora.
+Po opublikowaniu szablonu urządzenia jest on widoczny na stronie **urządzenia** i do operatora. W opublikowanym szablonie urządzenia nie można edytować modelu urządzenia bez tworzenia nowej wersji. Można jednak wykonywać aktualizacje właściwości, dostosowań i widoków w chmurze w opublikowanym szablonie urządzenia. Te aktualizacje nie powodują utworzenia nowej wersji. Po wprowadzeniu zmian wybierz pozycję **Publikuj**  , aby wypchnąć te zmiany do operatora.
 
 ## <a name="create-the-simulated-devices"></a>Tworzenie symulowanych urządzeń
 
@@ -154,7 +154,7 @@ Aby utworzyć symulowane urządzenie bramy:
 
 1. Wybierz **+** , aby rozpocząć dodawanie nowego urządzenia.
 
-1. Zachowaj wygenerowany **Identyfikator urządzenia** i **nazwę urządzenia**. Upewnij się, że **symulowany** przełącznik jest **włączony**. Wybierz przycisk **Utwórz**.
+1. Zachowaj wygenerowany **Identyfikator urządzenia** i **nazwę urządzenia**. Upewnij się, że **symulowany** przełącznik jest **włączony**. Wybierz pozycję **Utwórz**.
 
 Aby utworzyć symulowane urządzenia podrzędne:
 
@@ -162,13 +162,13 @@ Aby utworzyć symulowane urządzenia podrzędne:
 
 1. Wybierz **+** , aby rozpocząć dodawanie nowego urządzenia.
 
-1. Zachowaj wygenerowany **Identyfikator urządzenia** i **nazwę urządzenia**. Upewnij się, że **symulowany** przełącznik jest **włączony**. Wybierz przycisk **Utwórz**.
+1. Zachowaj wygenerowany **Identyfikator urządzenia** i **nazwę urządzenia**. Upewnij się, że **symulowany** przełącznik jest **włączony**. Wybierz pozycję **Utwórz**.
 
 1. Na stronie **urządzenia** wybierz pozycję **czujnik S1** na liście szablonów urządzeń.
 
 1. Wybierz **+** , aby rozpocząć dodawanie nowego urządzenia.
 
-1. Zachowaj wygenerowany **Identyfikator urządzenia** i **nazwę urządzenia**. Upewnij się, że **symulowany** przełącznik jest **włączony**. Wybierz przycisk **Utwórz**.
+1. Zachowaj wygenerowany **Identyfikator urządzenia** i **nazwę urządzenia**. Upewnij się, że **symulowany** przełącznik jest **włączony**. Wybierz pozycję **Utwórz**.
 
 ![Symulowane urządzenia w aplikacji](./media/tutorial-define-gateway-device-type/simulated-devices.png)
 

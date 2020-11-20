@@ -1,19 +1,19 @@
 ---
 title: Wbudowane definicje zasad dla usługi Azure Virtual Machines
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Virtual Machines platformy Azure. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 10/20/2020
+ms.date: 11/20/2020
 ms.topic: reference
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.subservice: security
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 4488d2b851b388dcd37df1f7322f23837a78b5a7
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 6066d832bffb8911bd321d1510c91d89cc68acc8
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518674"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94986200"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-machines"></a>Azure Policy wbudowane definicje dla platformy Azure Virtual Machines
 

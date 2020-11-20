@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 11/15/2020
+ms.date: 11/17/2020
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cac88e57ce0135295ac4b7078111102fa69e6838
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e89793ed8404bf36f2857f228d94fdf2a8828d43
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646597"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94984264"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Ogranicz uprawnienia dostępu gościa (wersja zapoznawcza) w Azure Active Directory
 
@@ -147,7 +147,7 @@ Usługa bez bieżącej obsługi może mieć problemy ze zgodnością z nowym ust
 - Formularze
 - Planista w zespołach
 - Aplikacja planisty
-- Projekt
+- Project
 - Yammer
 
 ## <a name="frequently-asked-questions-faq"></a>Często zadawane pytania
@@ -155,7 +155,8 @@ Usługa bez bieżącej obsługi może mieć problemy ze zgodnością z nowym ust
 Pytanie | Odpowiedź
 -------- | ------
 Gdzie są naliczane te uprawnienia? | Te uprawnienia na poziomie katalogu są wymuszane w ramach usług Azure AD i portali, w tym Microsoft Graph, PowerShell V2, Azure Portal i my Apps. Na Microsoft 365 usług korzystających z Microsoft 365 grup na potrzeby scenariuszy współpracy dotyczy to również programów Outlook, Microsoft Teams i SharePoint.
-Które części portalu Moje aplikacje mają wpływ na tę funkcję? | Funkcje grup w portalu My Apps będą honorować te nowe uprawnienia. Obejmuje to wszystkie ścieżki umożliwiające wyświetlenie listy grup i członkostwa w grupach w moich aplikacjach. Nie wprowadzono żadnych zmian w dostępności kafelka grupy. Dostępność kafelka grupy jest nadal kontrolowana przez istniejące ustawienie grupy w portalu administracyjnym platformy Azure.
+Jak ograniczone uprawnienia mają wpływ na to, które grupy mogą zobaczyć Goście? | Niezależnie od domyślnego lub ograniczonego uprawnienia gościa Goście nie mogą wyliczyć listy grup lub użytkowników. Goście mogą widzieć grupy, do których należą zarówno w Azure Portal, jak i w portalu Moje aplikacje, w zależności od uprawnień:<li>**Uprawnienia domyślne**: aby znaleźć grupy, do których należą, w Azure Portal, gość musi wyszukać swój identyfikator obiektu na liście **Wszyscy użytkownicy** , a następnie wybrać pozycję **grupy**. W tym miejscu można zobaczyć listę grup, do których należą, w tym wszystkie szczegóły grupy, takie jak imię i nazwisko, adres e-mail itd. W portalu My Apps można zobaczyć listę grup, których są członkami, oraz grup, do których należą.</li><li>**Ograniczone uprawnienia gościa**: w Azure Portal nadal mogą znaleźć listę grup, do których należą, wyszukując identyfikator obiektu na liście wszyscy użytkownicy, a następnie wybierając pozycję grupy. Mogą widzieć tylko bardzo ograniczone szczegóły dotyczące grupy, w szczególności identyfikator obiektu. Według projektu nazwa i kolumny wiadomości E-mail są puste i typ grupy nie został rozpoznany. W portalu Moje aplikacje nie są w stanie uzyskać dostępu do listy grup, których są członkami, lub grup, do których należą.</li><br>Aby uzyskać bardziej szczegółowe porównanie uprawnień katalogu, które pochodzą z interfejs API programu Graph, zobacz [domyślne uprawnienia użytkownika](../fundamentals/users-default-permissions.md#member-and-guest-users).
+Które części portalu Moje aplikacje mają wpływ na tę funkcję? | Funkcje grup w portalu My Apps będą honorować te nowe uprawnienia. Obejmuje to wszystkie ścieżki umożliwiające wyświetlenie listy grup i członkostwa w grupach w moich aplikacjach. Nie wprowadzono żadnych zmian w dostępności kafelka grupy. Dostępność kafelka grupy jest nadal kontrolowana przez istniejące ustawienie grupy w Azure Portal.
 Czy te uprawnienia zastępują ustawienia gościa programu SharePoint lub programu Microsoft Teams? | Nie. Te istniejące ustawienia nadal kontrolują środowisko i dostęp do tych aplikacji. Jeśli na przykład widzisz problemy w programie SharePoint, sprawdź ustawienia udostępniania zewnętrznego.
 Jakie są znane problemy ze zgodnością w programie Planner i Yammer? | <li>Dzięki uprawnieniom ustawionym na wartość "Restricted" Goście zalogowani do aplikacji planisty lub uzyskując dostęp do planisty w usłudze Microsoft Teams nie będą mogli uzyskać dostępu do planów ani zadań.<li>Gdy uprawnienia mają ustawioną wartość "ograniczony", Goście zalogowani do usługi Yammer nie będą mogli opuścić grupy.
 Czy moje istniejące uprawnienia gościa zostaną zmienione w mojej dzierżawie? | W bieżących ustawieniach nie wprowadzono żadnych zmian. Zachowamy zgodność z poprzednimi wersjami z istniejącymi ustawieniami. Użytkownik zdecyduje się na wprowadzenie zmian.

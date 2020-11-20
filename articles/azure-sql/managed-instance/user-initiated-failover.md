@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 08/31/2020
-ms.openlocfilehash: 7bcdabdb4e49d198b9acb7a1c57312b31a5b4fff
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 51e9e66e2fd8ff60dd20c275a66fd13c047cc629
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842230"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985522"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Inicjowanie ręcznego przełączania użytkownika na wystąpienie zarządzane SQL
 
@@ -37,9 +37,9 @@ Rozważ wykonanie [ręcznej pracy awaryjnej](../database/high-availability-sla.m
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>Inicjowanie ręcznego przełączania do trybu failover w wystąpieniu zarządzanym SQL
 
-### <a name="rbac-permissions-required"></a>Wymagane są uprawnienia RBAC
+### <a name="azure-rbac-permissions-required"></a>Wymagane są uprawnienia kontroli RBAC platformy Azure
 
-Użytkownik inicjujący tryb failover musi mieć jedną z następujących ról RBAC:
+Użytkownik inicjujący tryb failover musi mieć jedną z następujących ról platformy Azure:
 
 - Rola właściciela subskrypcji lub
 - Rola współautora wystąpienia zarządzanego lub

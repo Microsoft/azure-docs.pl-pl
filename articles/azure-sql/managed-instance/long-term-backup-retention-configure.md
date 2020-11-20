@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 04/29/2020
-ms.openlocfilehash: 8b0d6665b440516d29cc9aeb0b6e50f509528574
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: ec193eab02d937e9d93b8632fa171fec8227d6c2
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503440"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987511"
 ---
 # <a name="manage-azure-sql-managed-instance-long-term-backup-retention-powershell"></a>Zarządzanie długoterminowym przechowywaniem kopii zapasowych wystąpienia zarządzanego usługi Azure SQL (program PowerShell)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -30,7 +30,7 @@ W poniższych sekcjach pokazano, jak używać programu PowerShell do konfigurowa
 
 ## <a name="azure-roles-to-manage-long-term-retention"></a>Role platformy Azure do zarządzania długoterminowym przechowywaniem
 
-W przypadku funkcji **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** i **Restore-AzSqlInstanceDatabase**konieczne będzie posiadanie jednej z następujących ról:
+W przypadku funkcji **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** i **Restore-AzSqlInstanceDatabase** konieczne będzie posiadanie jednej z następujących ról:
 
 - Rola właściciela subskrypcji lub
 - Rola współautor wystąpienia zarządzanego lub
@@ -39,7 +39,7 @@ W przypadku funkcji **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** i **Res
   - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionManagedInstanceBackups/read`
   - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/read`
 
-W przypadku **usunięcia-AzSqlInstanceDatabaseLongTermRetentionBackup**należy mieć jedną z następujących ról:
+W przypadku **usunięcia-AzSqlInstanceDatabaseLongTermRetentionBackup** należy mieć jedną z następujących ról:
 
 - Rola właściciela subskrypcji lub
 - Rola niestandardowa z następującymi uprawnieniami:
@@ -48,7 +48,7 @@ W przypadku **usunięcia-AzSqlInstanceDatabaseLongTermRetentionBackup**należy m
 > [!NOTE]
 > Rola współautor wystąpienia zarządzanego nie ma uprawnień do usuwania kopii zapasowych LTR.
 
-Uprawnienia RBAC można udzielić w zakresie *subskrypcji* lub *grupy zasobów* . Aby jednak uzyskać dostęp do kopii zapasowych LTR należących do porzuconego wystąpienia, należy przyznać uprawnienie w zakresie *subskrypcji* tego wystąpienia.
+Uprawnienia kontroli RBAC platformy Azure można udzielić w zakresie *subskrypcji* lub *grupy zasobów* . Aby jednak uzyskać dostęp do kopii zapasowych LTR należących do porzuconego wystąpienia, należy przyznać uprawnienie w zakresie *subskrypcji* tego wystąpienia.
 
 - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete`
 

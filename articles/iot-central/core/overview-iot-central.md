@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 3952736af9cf7c3b720769cee6a58e3fc52a6111
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b62a0da7074676787b7e1c0182ca7588b83cdbe0
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127407"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985046"
 ---
 # <a name="what-is-azure-iot-central"></a>Co to jest usługa Azure IoT Central?
 
@@ -58,7 +58,7 @@ Jako Konstruktor rozwiązań można utworzyć _szablon urządzenia_ dla urządze
 
 Ten [szablon urządzenia](howto-set-up-template.md) obejmuje następujące:
 
-- _Model możliwości urządzenia_ opisujący możliwości implementowania urządzenia. Dostępne są następujące możliwości urządzenia:
+- _Model urządzenia_ , który opisuje możliwości implementowane przez urządzenie. Dostępne są następujące możliwości urządzenia:
 
   - Telemetrię przesyła strumieniowo do IoT Central.
   - Właściwości tylko do odczytu używające do raportowania stanu do IoT Central.
@@ -72,9 +72,9 @@ Ten [szablon urządzenia](howto-set-up-template.md) obejmuje następujące:
 
 Jako Konstruktor rozwiązań masz kilka opcji tworzenia szablonów urządzeń:
 
-- Zaprojektuj szablon urządzenia w IoT Central a następnie Zaimplementuj jego model możliwości urządzenia w kodzie urządzenia.
-- Utwórz model możliwości urządzenia przy użyciu programu Visual Studio Code i Opublikuj model w repozytorium. Zaimplementuj swój kod urządzenia z modelu i Połącz urządzenie z aplikacją IoT Central. IoT Central odnajduje model możliwości urządzenia z repozytorium i tworzy prosty szablon urządzenia.
-- Utwórz model możliwości urządzenia przy użyciu programu Visual Studio Code. Zaimplementuj swój kod urządzenia z modelu. Ręcznie zaimportuj model możliwości urządzenia do aplikacji IoT Central, a następnie Dodaj wszystkie właściwości, dostosowania i pulpity nawigacyjne, których potrzebuje aplikacja IoT Central.
+- Zaprojektuj szablon urządzenia w IoT Central a następnie Zaimplementuj jego model urządzenia w kodzie urządzenia.
+- Utwórz model urządzenia przy użyciu programu Visual Studio Code i Opublikuj model w repozytorium. Zaimplementuj swój kod urządzenia z modelu i Połącz urządzenie z aplikacją IoT Central. IoT Central odnajduje model urządzenia z repozytorium i tworzy prosty szablon urządzenia.
+- Utwórz model urządzenia za pomocą programu Visual Studio Code. Zaimplementuj swój kod urządzenia z modelu. Ręcznie zaimportuj model urządzenia do aplikacji IoT Central, a następnie Dodaj wszystkie właściwości, dostosowania i pulpity nawigacyjne, których potrzebuje aplikacja IoT Central.
 
 Jako Konstruktor rozwiązań możesz użyć IoT Central do wygenerowania kodu dla urządzeń testowych, aby sprawdzić poprawność szablonów urządzeń.
 
@@ -151,7 +151,6 @@ Każda subskrypcja platformy Azure ma domyślne przydziały, które mogą mieć 
 - Typy schematów tablicy nie są obsługiwane.
 - Obsługiwane są tylko zestawy SDK urządzeń C i Node.js.
 - IoT Central jest obecnie dostępna w lokalizacjach Stany Zjednoczone, Europy, Azja i Pacyfik, Australii, Wielkiej Brytanii i Japonii.
-- Modele możliwości urządzeń muszą mieć wszystkie interfejsy zdefiniowane wewnętrznie w tym samym pliku.
 
 ## <a name="next-steps"></a>Następne kroki
 

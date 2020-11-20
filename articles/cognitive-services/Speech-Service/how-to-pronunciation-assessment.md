@@ -12,12 +12,12 @@ ms.date: 09/29/2020
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-set-nineteen
-ms.openlocfilehash: 245a00acb07d1c0e769a243413fccdf64d544f5a
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 1cc313daf0e76ddd14865959410b07d9bdc189d7
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133687"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94984925"
 ---
 # <a name="pronunciation-assessment"></a>Ocena wymowy
 
@@ -154,12 +154,12 @@ double pronunciationScore = pronunciationAssessmentResult.pronunciationScore;
 
 Ta tabela zawiera listę parametrów konfiguracji dla oceny wymowy.
 
-| Parametr | Opis | Wymagane/opcjonalne |
+| Parametr | Opis | Wymagane? |
 |-----------|-------------|---------------------|
 | ReferenceText | Tekst, dla którego będzie oceniana wymowa. | Wymagane |
-| GradingSystem | System punktu do kalibracji oceny. Akceptowane wartości to `FivePoint` i `HundredMark` . Ustawienie domyślne to `FivePoint`. | Opcjonalne |
-| Poziom szczegółowości | Stopień szczegółowości oceny. Akceptowane wartości to `Phoneme` , które pokazują wynik na poziomie pełnego tekstu, wyrazów i fonem, `Word` który pokazuje wynik na poziomie pełnego tekstu i słowa, `FullText` który pokazuje wynik tylko na poziomie pełnego tekstu. Ustawienie domyślne to `Phoneme`. | Opcjonalne |
-| EnableMiscue | Włącza Obliczanie miscue. Po włączeniu tej możliwości wymawiane wyrazy będą porównywane z tekstem odwołania i będą oznaczone jako pomijania/wstawiania na podstawie porównania. Akceptowane wartości to `False` i `True` . Ustawienie domyślne to `False`. | Opcjonalne |
+| GradingSystem | System punktu do kalibracji oceny. `FivePoint`System daje 0-5 wynik zmiennoprzecinkowy i `HundredMark` daje wynik o wartości 0-100 zmiennoprzecinkowej. Wartość domyślna: `FivePoint`. | Opcjonalne |
+| Poziom szczegółowości | Stopień szczegółowości oceny. Akceptowane wartości to `Phoneme` , które pokazują wynik na poziomie pełnego tekstu, wyrazów i fonem, `Word` który pokazuje wynik na poziomie pełnego tekstu i słowa, `FullText` który pokazuje wynik tylko na poziomie pełnego tekstu. Wartość domyślna: `Phoneme`. | Opcjonalne |
+| EnableMiscue | Włącza Obliczanie miscue. Po włączeniu tej możliwości wymawiane wyrazy będą porównywane z tekstem odwołania i będą oznaczone jako pomijania/wstawiania na podstawie porównania. Akceptowane wartości to `False` i `True` . Wartość domyślna: `False`. | Opcjonalne |
 | ScenarioId | Identyfikator GUID wskazujący dostosowany system punktów. | Opcjonalne |
 
 ### <a name="pronunciation-assessment-result-parameters"></a>Parametry wyniku oceny wymowy

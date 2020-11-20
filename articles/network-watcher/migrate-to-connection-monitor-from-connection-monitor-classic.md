@@ -1,5 +1,5 @@
 ---
-title: Migrowanie do monitora połączeń z monitora połączeń
+title: Migrowanie do monitora połączeń (wersja zapoznawcza) z monitora połączeń
 titleSuffix: Azure Network Watcher
 description: Dowiedz się, jak przeprowadzić migrację do monitora połączeń z monitora połączeń.
 services: network-watcher
@@ -12,16 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2020
 ms.author: vinigam
-ms.openlocfilehash: 0ae1a1f36b9f81145b49245d8e6ace37ab36f834
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d785ecd48816150cd33d8e2f5fcce2ff36f1603f
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94974914"
+ms.locfileid: "94985794"
 ---
-# <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>Migrowanie do monitora połączeń z monitora połączeń (klasyczny)
+# <a name="migrate-to-connection-monitor-preview-from-connection-monitor-classic"></a>Migrowanie do monitora połączeń (wersja zapoznawcza) z monitora połączeń (klasyczny)
 
-Istniejące monitory połączeń można migrować do nowego, ulepszonego monitora połączeń z zaledwie kilkoma kliknięciami i bez przestojów. Aby dowiedzieć się więcej o korzyściach, zobacz [monitor połączeń](./connection-monitor-overview.md).
+Istniejące monitory połączeń można migrować do nowego, ulepszonego monitora połączeń (wersja zapoznawcza) za pomocą zaledwie kilku kliknięć i bez przestojów. Aby dowiedzieć się więcej o korzyściach, zobacz [monitor połączeń](./connection-monitor-overview.md).
+
+> [!IMPORTANT]
+> Monitor połączeń jest obecnie w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="key-points-to-note"></a>Najważniejsze punkty do uwagi
 

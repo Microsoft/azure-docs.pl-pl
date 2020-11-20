@@ -1,5 +1,5 @@
 ---
-title: Tworzenie monitora połączeń — PowerShell
+title: Tworzenie monitora połączeń (wersja zapoznawcza) — PowerShell
 titleSuffix: Azure Network Watcher
 description: Dowiedz się, jak utworzyć monitor połączeń przy użyciu programu PowerShell.
 services: network-watcher
@@ -12,18 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: fa8b2d967a336343d23c5f6aa4477ebcf2396407
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b1ffce75d5c38177c70db3ec1fc024a01821d3ab
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949041"
+ms.locfileid: "94984247"
 ---
-# <a name="create-a-connection-monitor-using-powershell"></a>Tworzenie monitora połączeń przy użyciu programu PowerShell
+# <a name="create-a-connection-monitor-preview-using-powershell"></a>Tworzenie monitora połączeń (wersja zapoznawcza) przy użyciu programu PowerShell
 
 Dowiedz się, jak utworzyć monitor połączeń do monitorowania komunikacji między zasobami przy użyciu programu PowerShell.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem 
+> [!IMPORTANT]
+> Monitor połączeń jest obecnie w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## <a name="before-you-begin"></a>Zanim rozpoczniesz 
 
 W monitorach połączeń utworzonych w monitorze połączeń można dodawać zarówno maszyny lokalne, jak i maszyny wirtualne platformy Azure jako źródła. Te monitory połączeń mogą również monitorować łączność z punktami końcowymi. Punkty końcowe mogą znajdować się na platformie Azure lub dowolnym innym adresem URL lub adresie IP.
 
@@ -80,7 +84,7 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
 
 * Punkty końcowe
     * Nazwa — unikatowa nazwa dla każdego punktu końcowego
-    * resourceId — dla punktów końcowych platformy Azure identyfikator zasobu odnosi się do Azure Resource Manager IDENTYFIKATORem zasobu dla maszyn wirtualnych. W przypadku punktów końcowych spoza platformy Azure identyfikator zasobu odwołuje się do identyfikatora zasobu usługi Azure Resource Manager dla obszaru roboczego Log Analytics połączonego z agentami spoza platformy Azure.
+    * resourceId — dla punktów końcowych platformy Azure identyfikator zasobu odnosi się do Azure Resource Manager IDENTYFIKATORem zasobu dla maszyn wirtualnych. W przypadku punktów końcowych spoza platformy Azure identyfikator zasobu odnosi się do Azure Resource Manager identyfikator zasobu dla obszaru roboczego Log Analytics połączonego z agentami nienależącymi do platformy Azure.
     * adres — dotyczy tylko sytuacji, gdy nie określono identyfikatora zasobu lub jeśli identyfikator zasobu jest Log Analytics obszarze roboczym. Jeśli jest używany z IDENTYFIKATORem zasobu Log Analytics, to odnosi się do nazwy FQDN agenta, która może być używana do monitorowania. Jeśli jest używany bez identyfikatora zasobu, może to być adres URL lub IP dowolnego publicznego punktu końcowego.
     * Filtr — w przypadku punktów końcowych spoza platformy Azure Użyj opcji Filtruj, aby wybrać agentów z Log Analytics obszaru roboczego, które będą używane do monitorowania w ramach zasobu monitora połączeń. Jeśli filtry nie są ustawione, Wszyscy agenci należący do obszaru roboczego Log Analytics mogą być używani do monitorowania
         * Typ — Ustaw typ jako "adres agenta"
@@ -100,6 +104,10 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
         * preferHTTPS — Określ, czy używać protokołu HTTPS przez HTTP
         * Port — określ wybrany port docelowy.
         * disableTraceRoute — dotyczy grup testów, których protokół to TCP lub ICMP. Uniemożliwia ona źródłem odnajdywania topologii i RTT przeskoków przez przeskok.
+        * Metoda — dotyczy konfiguracji testów, których protokół to HTTP. Wybierz metodę żądania HTTP — Pobierz lub Opublikuj
+        * ścieżka — Określ parametry ścieżki do dołączenia do adresu URL
+        * validStatusCodes — wybierz odpowiednie kody stanu. Jeśli kod odpowiedzi nie jest zgodny z tą listą, otrzymasz komunikat diagnostyczny
+        * requestHeaders — określ niestandardowe ciągi nagłówka żądania, które zostaną przesłane do miejsca docelowego
     * successThreshold — można ustawić progi dla następujących parametrów sieci:
         * checksFailedPercent — Ustaw procent kontroli, które mogą zakończyć się niepowodzeniem, gdy źródła sprawdzają łączność z lokalizacjami docelowymi przy użyciu określonych kryteriów. W przypadku protokołu TCP lub ICMP wartość procentowa nieudanych testów może być równa wartości procentowej utraty pakietów. W przypadku protokołu HTTP to pole reprezentuje procent żądań HTTP, które nie otrzymały odpowiedzi.
         * roundTripTimeMs — Ustaw czas RTT w milisekundach, przez jaki źródła mogą być wykonywane w celu nawiązania połączenia z miejscem docelowym za pośrednictwem konfiguracji testu.

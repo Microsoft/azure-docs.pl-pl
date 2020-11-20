@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - device-developer
 - iot-edge
-ms.openlocfilehash: 5c51649e742f6e314e0e324ae19c38f1a83b02ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c4248246be845aa8608aac8b8a3ce761ea1ef86
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016864"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987052"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Łączenie urządzeń usługi Azure IoT Edge z aplikacją usługi Azure IoT Central
 
@@ -63,9 +63,9 @@ Na platformie Azure IoT Central można zaimportować manifest wdrożenia w celu 
 
 IoT Central modeluje urządzenie IoT Edge w następujący sposób:
 
-* Każdy szablon urządzenia IoT Edge ma model możliwości urządzenia.
+* Każdy szablon urządzenia IoT Edge ma model urządzenia.
 * Dla każdego modułu niestandardowego wymienionego w manifeście wdrożenia jest generowany model możliwości modułu.
-* Między każdym modelem możliwości modułu a modelem możliwości urządzenia jest ustanowiona relacja.
+* Między każdym modelem możliwości modułu a modelem urządzenia zostaje ustanowiona relacja.
 * Model możliwości modułu implementuje interfejsy modułów.
 * Każdy interfejs modułu zawiera dane telemetryczne, właściwości i polecenia.
 
@@ -73,7 +73,7 @@ IoT Central modeluje urządzenie IoT Edge w następujący sposób:
 
 ## <a name="iot-edge-gateway-devices"></a>Urządzenia bramy IoT Edge
 
-Jeśli wybrano urządzenie IoT Edge jako urządzenie bramy, można dodać relacje podrzędne do modeli możliwości urządzeń, które mają być połączone z urządzeniem bramy.
+Jeśli wybrano urządzenie IoT Edge jako urządzenie bramy, można dodać relacje podrzędne do modeli urządzeń dla urządzeń, które mają być połączone z urządzeniem bramy.
 
 ## <a name="next-steps"></a>Następne kroki
 
