@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ef5384abd63dcd9aeb4789dc4955f4b80068d330
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d239b89aaf0bc140916d38583f4263f7bf660f1a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88921243"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023620"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Samouczek: Tworzenie aplikacji do translacji przy użyciu WPF
 
-W tym samouczku utworzysz aplikację platformy [Windows Presentation Foundation (WPF)](https://docs.microsoft.com/visualstudio/designers/getting-started-with-wpf?view=vs-2019), która korzysta z usług Azure Cognitive Services na potrzeby tłumaczenia tekstu, wykrywania języka i sprawdzania pisowni, przy użyciu klucza pojedynczej subskrypcji. Aplikacja będzie wywoływać interfejsy API z translatora i [Sprawdzanie pisowni Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/).
+W tym samouczku utworzysz aplikację platformy [Windows Presentation Foundation (WPF)](/visualstudio/designers/getting-started-with-wpf?view=vs-2019), która korzysta z usług Azure Cognitive Services na potrzeby tłumaczenia tekstu, wykrywania języka i sprawdzania pisowni, przy użyciu klucza pojedynczej subskrypcji. Aplikacja będzie wywoływać interfejsy API z translatora i [Sprawdzanie pisowni Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 
 Co to jest platforma WPF? Jest struktura interfejsu użytkownika służąca do tworzenia aplikacji klienckich dla komputerów. Platforma programistyczna WPF obsługuje szeroką gamę funkcji tworzenia aplikacji, w tym model aplikacji, zasoby, kontrolki, grafiki, układ, powiązanie danych, dokumenty i zabezpieczenia. Jest podzbiorem programu .NET Framework, więc jeśli wcześniej tworzono aplikacje przy użyciu programu .NET Framework za pomocą platformy ASP.NET lub Windows Forms, środowisko programowania powinno być znajome. Platforma WPF przy użyciu języka Extensible Application Markup Language (XAML) zapewnia model deklaratywny na potrzeby programowania aplikacji, który zostanie omówiony w następnych sekcjach.
 
@@ -38,18 +38,18 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 Ta lista zawiera usługi Cognitive Services używane w tym samouczku. Użyj linku, aby przejrzeć dokumentację interfejsu API dla każdej funkcji.
 
-| Usługa | Cecha | Opis |
+| Usługa | Cechy | Opis |
 |---------|---------|-------------|
-| Translator | [Pobieranie języków](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) | Pobierz pełną listę obsługiwanych języków na potrzeby tłumaczenia tekstu. |
-| Translator | [Przetłumacz](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Tłumaczenie tekstu na więcej niż 70 języków. |
-| Translator | [Powinny](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Wykryj język tekstu wejściowego. Obejmuje współczynnik ufności dla wykrywania. |
-| Sprawdzanie pisowni Bing | [Sprawdzanie pisowni](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Popraw błędy pisowni w celu zwiększenia dokładności tłumaczenia. |
+| Translator | [Pobieranie języków](./reference/v3-0-languages.md) | Pobierz pełną listę obsługiwanych języków na potrzeby tłumaczenia tekstu. |
+| Translator | [Przetłumacz](./reference/v3-0-translate.md) | Tłumaczenie tekstu na więcej niż 70 języków. |
+| Translator | [Powinny](./reference/v3-0-detect.md) | Wykryj język tekstu wejściowego. Obejmuje współczynnik ufności dla wykrywania. |
+| Sprawdzanie pisowni Bing | [Sprawdzanie pisowni](/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Popraw błędy pisowni w celu zwiększenia dokładności tłumaczenia. |
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed kontynuowaniem potrzebne będą następujące elementy:
 
-* Subskrypcja usług Azure Cognitive Services. [Uzyskaj klucz usług Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#create-a-new-azure-cognitive-services-resource).
+* Subskrypcja usług Azure Cognitive Services. [Uzyskaj klucz usług Cognitive Services](../cognitive-services-apis-create-account.md#create-a-new-azure-cognitive-services-resource).
 * Maszyna z systemem Windows
 * [Visual Studio 2019](https://www.visualstudio.com/downloads/) — społeczność lub Enterprise
 
@@ -61,7 +61,7 @@ Przed kontynuowaniem potrzebne będą następujące elementy:
 Pierwszą rzeczą, jaką należy wykonać, jest skonfigurowanie projektu w programie Visual Studio.
 
 1. Otwórz program Visual Studio. Wybierz pozycję **Utwórz nowy projekt**.
-1. W obszarze **Utwórz nowy projekt**Znajdź i wybierz pozycję **aplikacja WPF (.NET Framework)**. Możesz wybrać język C# z poziomu **języka** , aby zawęzić opcje.
+1. W obszarze **Utwórz nowy projekt** Znajdź i wybierz pozycję **aplikacja WPF (.NET Framework)**. Możesz wybrać język C# z poziomu **języka** , aby zawęzić opcje.
 1. Wybierz pozycję **dalej**, a następnie nadaj nazwę projektowi `MSTranslatorDemo` .
 1. Ustaw wersję struktury na **.NET Framework 4.7.2** lub nowszą, a następnie wybierz pozycję **Utwórz**.
    ![Wprowadź nazwę i wersję struktury w programie Visual Studio](media/name-wpf-project-visual-studio.png)
@@ -83,14 +83,14 @@ Dodajmy do naszego projektu zestawy na potrzeby serializacji i deserializacji ob
 1. Na karcie **zestawy** są wyświetlane wszystkie zestawy .NET Framework, które są dostępne do odwołania. Aby wyszukać odwołania, użyj paska wyszukiwania w prawym górnym rogu.
    ![Dodawanie odwołań do zestawów](media/add-assemblies-2019.png)
 1. Wybierz następujące odwołania dla projektu:
-   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
-   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
+   * [System.Runtime.Serialization](/dotnet/api/system.runtime.serialization)
+   * [System.Web](/dotnet/api/system.web)
    * System.Web.Extensions
-   * [System. Windows](https://docs.microsoft.com/dotnet/api/system.windows)
+   * [System. Windows](/dotnet/api/system.windows)
 1. Po dodaniu tych odwołań do projektu możesz kliknąć przycisk **OK**, aby zamknąć **Menedżera odwołań**.
 
 > [!NOTE]
-> Jeśli chcesz dowiedzieć się więcej o odwołaniach do zestawów, zobacz [How to: Dodawanie lub usuwanie odwołania za pomocą Menedżera odwołań](https://docs.microsoft.com/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2019).
+> Jeśli chcesz dowiedzieć się więcej o odwołaniach do zestawów, zobacz [How to: Dodawanie lub usuwanie odwołania za pomocą Menedżera odwołań](/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2019).
 
 ### <a name="install-newtonsoftjson"></a>Instalowanie pakietu Newtonsoft.Json
 
@@ -269,7 +269,7 @@ Translator obsługuje obecnie ponad 70 języków. Ponieważ nowa obsługa język
 W tej sekcji utworzymy żądanie `GET` do zasobu Languages określające, że chcemy uzyskać listę języków dostępnych do tłumaczenia.
 
 > [!NOTE]
-> Zasób Languages umożliwia filtrowanie obsługi języków przy użyciu następujących parametrów zapytań: transliteracja, słownik i tłumaczenie. Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
+> Zasób Languages umożliwia filtrowanie obsługi języków przy użyciu następujących parametrów zapytań: transliteracja, słownik i tłumaczenie. Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API](./reference/v3-0-languages.md).
 
 Zanim przejdziemy dalej, przyjrzyjmy się przykładowym danym wyjściowym wywołania zasobu Languages:
 
@@ -581,4 +581,4 @@ Kod źródłowy tego projektu jest dostępny w serwisie GitHub.
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Dokumentacja usługi Microsoft Translator](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
+> [Dokumentacja usługi Microsoft Translator](./reference/v3-0-reference.md)

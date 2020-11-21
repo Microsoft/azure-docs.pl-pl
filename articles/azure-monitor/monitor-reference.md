@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 1681217c9e55b67ee2a6737aeece5303256bc1e6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 654d7b4ddb332906aba330da20d42a0e16ec79e6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461808"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021443"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Co jest monitorowane przez Azure Monitor?
 W tym artykule opisano różne aplikacje i usługi monitorowane przez program Azure Monitor. 
@@ -86,7 +86,7 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Container Instances | Tak | Nie | Nie |  |
 |Container Registry | Tak | Tak | Nie |  |
 |Content Delivery Network (CDN) | Nie | Tak | Nie |  |
-|Usługa Cosmos DB | Tak | Tak | [Tak](insights/cosmosdb-insights-overview.md) |  |
+|Cosmos DB | Tak | Tak | [Tak](insights/cosmosdb-insights-overview.md) |  |
 |Cost Management | Nie | Nie | Nie |  |
 |Data Box | Nie | Nie | Nie |  |
 |Data Catalog Gen2 | Nie | Nie | Nie |  |
@@ -109,7 +109,7 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Event Grid | Tak | Nie | Nie |  |
 |Event Hubs | Tak | Tak | Nie |  |
 |ExpressRoute | Tak | Tak | Nie |  |
-|Firewall | Tak | Tak | Nie |  |
+|Zapora | Tak | Tak | Nie |  |
 |Front Door | Tak | Tak | Nie |  |
 |Funkcje | Tak | Tak | Nie |  |
 |HDInsight | Nie | Tak | Nie |  |
@@ -126,7 +126,6 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Aplikacje zarządzane  | Nie | Nie | Nie |  |
 |Maps  | Nie | Nie | Nie |  |
 |Media Services | Tak | Tak | Nie |  |
-|Microsoft Flow | Nie | Nie | Nie |  |
 |Microsoft Managed Desktop | Nie | Nie | Nie |  |
 |Microsoft PowerApps | Nie | Nie | Nie |  |
 |Microsoft Social Engagement | Nie | Nie | Nie |  |
@@ -137,6 +136,7 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Notification Hubs | Tak | Nie | Nie |  |
 |Open Datasets | Nie | Nie | Nie |  |
 |Zasady | Nie | Nie | Nie |  |
+|Power Automate | Nie | Nie | Nie |  |
 |Power BI Embedded | Tak | Tak | Nie |  |
 |Private Link | Nie | Nie | Nie |  |
 |Platforma komunikacji buforu projektu | Nie | Nie | Nie |  |
@@ -155,7 +155,7 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Baza danych SQL | Tak | Tak | Nie |  |
 |SQL Server Stretch Database | Tak | Tak | Nie |  |
 |Stos | Nie | Nie | Nie |  |
-|Magazyn | Tak | Nie | [Tak](insights/storage-insights-overview.md) |  |
+|Storage | Tak | Nie | [Tak](insights/storage-insights-overview.md) |  |
 |Pamięć podręczna magazynu | Nie | Nie | Nie |  |
 |Usługi synchronizacji magazynu | Nie | Nie | Nie |  |
 |Stream Analytics | Tak | Tak | Nie |  |
@@ -163,7 +163,7 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |TINA | Nie | Nie | Nie |  |
 |Traffic Manager | Tak | Tak | Nie |  |
 |Wydruk uniwersalny | Nie | Nie | Nie |  |
-|Virtual Machine Scale Sets | Nie | Tak | [Tak](insights/vminsights-overview.md) | Agent wymagany do monitorowania systemu operacyjnego gościa i przepływów pracy. |
+|Zestawy skali maszyn wirtualnych | Nie | Tak | [Tak](insights/vminsights-overview.md) | Agent wymagany do monitorowania systemu operacyjnego gościa i przepływów pracy. |
 |Virtual Machines | Tak | Tak | [Tak](insights/vminsights-overview.md) | Agent wymagany do monitorowania systemu operacyjnego gościa i przepływów pracy. |
 |Virtual Network | Tak | Tak | [Tak](insights/network-insights-overview.md) |  |
 |Dzienniki przepływów Virtual Network sieciowej grupy zabezpieczeń | Nie | Tak | Nie |  |

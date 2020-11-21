@@ -11,33 +11,33 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2b83433a135fec486701b4538793f0c3e0a6fa6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a9115b5400cc6d6c1ecc5740af796d831f5dee3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611830"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023262"
 ---
 # <a name="send-events-to-an-azure-time-series-insights-gen1-environment-by-using-an-event-hub"></a>Wysyłanie zdarzeń do środowiska Azure Time Series Insights Gen1 przy użyciu centrum zdarzeń
 
 > [!CAUTION]
 > To jest artykuł Gen1.
 
-W tym artykule opisano sposób tworzenia i konfigurowania centrum zdarzeń w usłudze Azure Event Hubs. Opisano w nim również sposób uruchamiania przykładowej aplikacji w celu wypchnięcia zdarzeń do Azure Time Series Insights z Event Hubs. Jeśli masz istniejące centrum zdarzeń ze zdarzeniami w formacie JSON, Pomiń ten samouczek i Sprawdź środowisko w [Azure Time Series Insights](./time-series-insights-update-create-environment.md).
+W tym artykule opisano sposób tworzenia i konfigurowania centrum zdarzeń w usłudze Azure Event Hubs. Opisano w nim również sposób uruchamiania przykładowej aplikacji w celu wypchnięcia zdarzeń do Azure Time Series Insights z Event Hubs. Jeśli masz istniejące centrum zdarzeń ze zdarzeniami w formacie JSON, Pomiń ten samouczek i Sprawdź środowisko w [Azure Time Series Insights](./tutorials-set-up-tsi-environment.md).
 
 ## <a name="configure-an-event-hub"></a>Konfigurowanie centrum zdarzeń
 
-1. Aby dowiedzieć się, jak utworzyć centrum zdarzeń, Przeczytaj [dokumentację dotyczącą Event Hubs](https://docs.microsoft.com/azure/event-hubs/).
+1. Aby dowiedzieć się, jak utworzyć centrum zdarzeń, Przeczytaj [dokumentację dotyczącą Event Hubs](../event-hubs/index.yml).
 1. W polu wyszukiwania Wyszukaj **Event Hubs**. Na liście zwracanej wybierz pozycję **Event Hubs**.
 1. Wybierz centrum zdarzeń.
-1. Podczas tworzenia centrum zdarzeń tworzona jest przestrzeń nazw centrum zdarzeń. Jeśli nie utworzono jeszcze centrum zdarzeń w przestrzeni nazw, w menu w obszarze **jednostki**Utwórz centrum zdarzeń.  
+1. Podczas tworzenia centrum zdarzeń tworzona jest przestrzeń nazw centrum zdarzeń. Jeśli nie utworzono jeszcze centrum zdarzeń w przestrzeni nazw, w menu w obszarze **jednostki** Utwórz centrum zdarzeń.  
 
     [![Lista centrów zdarzeń](media/send-events/tsi-connect-event-hub-namespace.png)](media/send-events/tsi-connect-event-hub-namespace.png#lightbox)
 
 1. Po utworzeniu centrum zdarzeń wybierz je na liście centrów zdarzeń.
-1. W menu w obszarze **jednostki**wybierz pozycję **Event Hubs**.
+1. W menu w obszarze **jednostki** wybierz pozycję **Event Hubs**.
 1. Wybierz nazwę centrum zdarzeń, aby je skonfigurować.
-1. W obszarze **Przegląd**wybierz pozycję **grupy użytkowników**, a następnie wybierz pozycję **Grupa odbiorców**.
+1. W obszarze **Przegląd** wybierz pozycję **grupy użytkowników**, a następnie wybierz pozycję **Grupa odbiorców**.
 
     [![Tworzenie grupy odbiorców](media/send-events/add-event-hub-consumer-group.png)](media/send-events/add-event-hub-consumer-group.png#lightbox)
 
@@ -46,7 +46,7 @@ W tym artykule opisano sposób tworzenia i konfigurowania centrum zdarzeń w us�
     > [!IMPORTANT]
     > Upewnij się, że ta grupa odbiorców nie jest używana przez żadną inną usługę, na przykład zadanie Azure Stream Analytics lub inne środowisko Azure Time Series Insights. Jeśli grupa odbiorców jest używana przez inne usługi, operacje odczytu mają negatywny wpływ na to środowisko i dla innych usług. Jeśli używasz **$default** jako grupy konsumentów, inni czytelnicy mogą potencjalnie ponownie wykorzystać grupę odbiorców.
 
-1. W menu w obszarze **Ustawienia**wybierz pozycję **zasady dostępu współdzielonego**, a następnie wybierz pozycję **Dodaj**.
+1. W menu w obszarze **Ustawienia** wybierz pozycję **zasady dostępu współdzielonego**, a następnie wybierz pozycję **Dodaj**.
 
     [![Wybierz pozycję Zasady dostępu współdzielonego, a następnie wybierz przycisk Dodaj.](media/send-events/add-shared-access-policy.png)](media/send-events/add-shared-access-policy.png#lightbox)
 
@@ -54,7 +54,7 @@ W tym artykule opisano sposób tworzenia i konfigurowania centrum zdarzeń w us�
 
     [![W polu Nazwa zasad wpisz MySendPolicy](media/send-events/configure-shared-access-policy-confirm.png)](media/send-events/configure-shared-access-policy-confirm.png#lightbox)
 
-1. W **obszarze**Zażądaj zaznacz pole wyboru **Wyślij** .
+1. W **obszarze** Zażądaj zaznacz pole wyboru **Wyślij** .
 
 ## <a name="add-an-azure-time-series-insights-instance"></a>Dodaj wystąpienie Azure Time Series Insights
 
@@ -62,7 +62,7 @@ W Azure Time Series Insights Gen2 można dodać dane kontekstowe do przychodząc
 
 ### <a name="create-an-azure-time-series-insights-event-source"></a>Tworzenie źródła zdarzeń Azure Time Series Insights
 
-1. Jeśli nie utworzono źródła zdarzeń, wykonaj kroki, aby [utworzyć źródło zdarzenia](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
+1. Jeśli nie utworzono źródła zdarzeń, wykonaj kroki, aby [utworzyć źródło zdarzenia](./how-to-ingest-data-event-hub.md).
 
 1. Ustaw wartość dla parametru `timeSeriesId` . Aby dowiedzieć się więcej na temat **identyfikatora szeregów czasowych**, Przeczytaj [modele szeregów czasowych](./concepts-model-overview.md).
 
@@ -84,7 +84,7 @@ W Azure Time Series Insights Gen2 można dodać dane kontekstowe do przychodząc
 1. Wybierz **pozycję kliknij, aby rozpocząć**.
 
     > [!TIP]
-    > Symulator Windmill tworzy również kod JSON, którego można użyć jako ładunku z [interfejsami API zapytań Azure Time Series INSIGHTS ga](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query).
+    > Symulator Windmill tworzy również kod JSON, którego można użyć jako ładunku z [interfejsami API zapytań Azure Time Series INSIGHTS ga](/rest/api/time-series-insights/gen1-query).
 
     > [!NOTE]
     > Symulator będzie kontynuował wysyłanie danych, dopóki karta przeglądarki nie zostanie zamknięta.
@@ -208,4 +208,4 @@ W Azure Time Series Insights Gen2 można dodać dane kontekstowe do przychodząc
 
 * [Wyświetl swoje środowisko](https://insights.timeseries.azure.com) w Eksploratorze Azure Time Series Insights.
 
-* Przeczytaj więcej na temat [IoT Hub komunikatów urządzenia](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)
+* Przeczytaj więcej na temat [IoT Hub komunikatów urządzenia](../iot-hub/iot-hub-devguide-messages-construct.md)

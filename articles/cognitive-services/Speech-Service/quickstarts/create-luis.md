@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: trbye
-ms.openlocfilehash: c4195ff1b81097a3620f68939f32147a26e16d60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f547b353091cc81816f0974fced8d4dc836d22b2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85391608"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023824"
 ---
 # <a name="quickstart-getting-a-luis-endpoint-key"></a>Szybki Start: Pobieranie klucza punktu końcowego LUIS
 
@@ -37,7 +37,7 @@ LUIS używa trzech rodzajów kluczy:
 |Starter (początkowy)|Umożliwia testowanie aplikacji LUIS przy użyciu tylko tekstu|
 |Punkt końcowy |Autoryzuje dostęp do określonej aplikacji LUIS|
 
-W tym samouczku potrzebny jest typ klucza punktu końcowego. W tym samouczku jest używana przykładowa aplikacja LUIS Automation, którą można utworzyć, korzystając z [prebudowanego](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) przewodnika Szybki Start dla aplikacji do automatyzacji domowej. Jeśli utworzono własną aplikację LUIS, można jej użyć zamiast niej.
+W tym samouczku potrzebny jest typ klucza punktu końcowego. W tym samouczku jest używana przykładowa aplikacja LUIS Automation, którą można utworzyć, korzystając z [prebudowanego](../../luis/luis-get-started-create-app.md) przewodnika Szybki Start dla aplikacji do automatyzacji domowej. Jeśli utworzono własną aplikację LUIS, można jej użyć zamiast niej.
 
 Gdy tworzysz aplikację LUIS, LUIS automatycznie generuje klucz początkowy, aby można było przetestować aplikację przy użyciu zapytań tekstowych. Ten klucz nie umożliwia integracji usługi mowy i nie współpracuje z tym samouczkiem. Utwórz zasób LUIS na pulpicie nawigacyjnym platformy Azure i przypisz go do aplikacji LUIS. Na potrzeby tego samouczka możesz używać subskrypcji warstwy Bezpłatna.
 
@@ -50,9 +50,9 @@ Na stronie **Ustawienia kluczy i punktu końcowego** :
 1. Przewiń w dół do sekcji **zasoby i klucze** , a następnie wybierz pozycję **Przypisz zasób**.
 1. W oknie dialogowym **przypisywanie klucza do aplikacji** wprowadź następujące zmiany:
 
-   * W obszarze **dzierżawca**wybierz pozycję **Microsoft**.
-   * W obszarze **Nazwa subskrypcji**wybierz subskrypcję platformy Azure zawierającą zasób Luis, którego chcesz użyć.
-   * W obszarze **klucz**wybierz zasób Luis, który ma być używany z aplikacją.
+   * W obszarze **dzierżawca** wybierz pozycję **Microsoft**.
+   * W obszarze **Nazwa subskrypcji** wybierz subskrypcję platformy Azure zawierającą zasób Luis, którego chcesz użyć.
+   * W obszarze **klucz** wybierz zasób Luis, który ma być używany z aplikacją.
 
    Za chwilę w tabeli w dolnej części strony zostanie wyświetlona nowa subskrypcja.
 

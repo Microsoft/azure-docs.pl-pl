@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fcbcaab7b5cd050e072aaded3e2c09a94a451072
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: bf314510a8569a825ccd309ec855e3ff186bba86
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578539"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023381"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integracja z partnerem pulpitu wirtualnego systemu Windows
 
@@ -350,7 +350,7 @@ SSH2 to dostawca usług dodanego pulpitu wirtualnego systemu Windows, który sł
 appCURE przechwytuje szczegóły aplikacji z uruchomionych aplikacji, aby upewnić się, że wszystkie punkty, które mogą mieć wpływ na aplikacje użytkownika końcowego, są zrozumiałe. appCURE następnie aktualizuje i dostarcza je do nowego pulpitu wirtualnego systemu Windows. Przechwytując wszystkie punkty integracji aplikacji w bieżącym środowisku, appCURE zapewnia szybkość optymalizowania zasobów IT i planowanie dla migracji lepszych i szybszych niż kiedykolwiek, dzięki czemu organizacje mogą szybciej korzystać z produkcji.
 
 - [Zobacz Krótki opis wspólnego rozwiązania](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4Fs38).
-- [Przejdź do strony partnerskiej](/azure/virtual-desktop/partners#ssh2).
+- [Przejdź do strony partnerskiej](#ssh2).
 
 ## <a name="thinprint"></a>ThinPrint
 

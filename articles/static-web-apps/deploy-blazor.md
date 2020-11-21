@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: cshoe
-ms.openlocfilehash: 60e62228e33d2d86bb407e45802f5c0621a94049
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80a48a948c70db7344ac9cbc20474177309bd909
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761094"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024232"
 ---
 # <a name="tutorial-building-a-static-web-app-with-blazor-in-azure-static-web-apps"></a>Samouczek: Tworzenie statycznej aplikacji internetowej z Blazor w usłudze Azure static Web Apps
 
@@ -33,7 +33,7 @@ Usługa Azure static Web Apps umożliwia tworzenie statycznych aplikacji sieci W
 
 Aplikacja proponowana w tym samouczku składa się z trzech różnych projektów programu Visual Studio:
 
-- **Interfejs API**: aplikacja C# Azure Functions, która implementuje punkt końcowy interfejsu API, który zapewnia informacje o pogodzie dla aplikacji statycznej. [`WeatherForecastFunction`](https://github.com/ssdeepak/blazor/blob/main/Api/WeatherForecastFunction.cs)Zwraca tablicę `WeatherForecast` obiektów.
+- **Interfejs API**: aplikacja C# Azure Functions, która implementuje punkt końcowy interfejsu API, który zapewnia informacje o pogodzie dla aplikacji statycznej. **WeatherForecastFunction** zwraca tablicę `WeatherForecast` obiektów.
 
 - **Klient**: projekt zestawu sieci Web frontonu Blazor. Zaimplementowano [trasę rezerwową](#fallback-route) , aby zapewnić, że wszystkie trasy są obsługiwane w pliku _index.html_ .
 
@@ -79,7 +79,7 @@ Po utworzeniu repozytorium Utwórz statyczną aplikację sieci Web na podstawie 
 
 W sekcji _podstawowe_ Zacznij od skonfigurowania nowej aplikacji i powiązania jej z repozytorium GitHub.
 
-:::image type="content" source="media/deploy-blazor/basics.png" alt-text="Ukończ aplikację Blazor":::
+:::image type="content" source="media/deploy-blazor/basics.png" alt-text="Karta Podstawowe":::
 
 1. Wybierz swoją _subskrypcję platformy Azure_
 1. Wybierz lub Utwórz nową _grupę zasobów_
@@ -91,7 +91,7 @@ W sekcji _podstawowe_ Zacznij od skonfigurowania nowej aplikacji i powiązania j
 
 Po zalogowaniu się za pomocą usługi GitHub wprowadź informacje o repozytorium.
 
-:::image type="content" source="media/deploy-blazor/repository-details.png" alt-text="Ukończ aplikację Blazor":::
+:::image type="content" source="media/deploy-blazor/repository-details.png" alt-text="Szczegóły repozytorium":::
 
 1. Wybierz preferowaną _organizację_
 1. Wybierz pozycję **My-First-static-blazor-App** z listy rozwijanej _repozytorium_
@@ -103,17 +103,17 @@ Po zalogowaniu się za pomocą usługi GitHub wprowadź informacje o repozytoriu
 
     - Wybierz pozycję **Blazor** z listy rozwijanej _kompilacje predefiniowane_ i Zachowaj wszystkie wartości domyślne.
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 
-    :::image type="content" source="media/deploy-blazor/review-create.png" alt-text="Ukończ aplikację Blazor":::
+    :::image type="content" source="media/deploy-blazor/review-create.png" alt-text="Przycisk tworzenia przeglądu":::
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
-    :::image type="content" source="media/deploy-blazor/create-button.png" alt-text="Ukończ aplikację Blazor":::
+    :::image type="content" source="media/deploy-blazor/create-button.png" alt-text="Przycisk Utwórz":::
 
 1. Wybierz pozycję **Przejdź do zasobu**.
 
-    :::image type="content" source="media/deploy-blazor/resource-button.png" alt-text="Ukończ aplikację Blazor":::
+    :::image type="content" source="media/deploy-blazor/resource-button.png" alt-text="Przycisk Przejdź do zasobu":::
 
 ## <a name="view-the-website"></a>Wyświetlanie witryny sieci Web
 
@@ -123,7 +123,7 @@ Aby można było przejść do nowej lokacji statycznej, kompilacja wdrożenia mu
 
 W oknie przeglądu Web Apps statycznego zostanie wyświetlona seria linków, które pomagają w współpracy z aplikacją sieci Web.
 
-:::image type="content" source="./media/deploy-blazor/overview-window.png" alt-text="Ukończ aplikację Blazor":::
+:::image type="content" source="./media/deploy-blazor/overview-window.png" alt-text="Okno przegląd":::
 
 1. Kliknięcie transparentu, który brzmi, _kliknij tutaj, aby sprawdzić stan uruchomionych akcji usługi GitHub_ , spowoduje przejście do akcji GitHub uruchomionych względem repozytorium. Po sprawdzeniu, czy zadanie wdrożenia zostało zakończone, możesz przejść do witryny sieci Web za pośrednictwem wygenerowanego adresu URL.
 

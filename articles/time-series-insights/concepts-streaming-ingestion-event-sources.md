@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: 6bc238389ac470e6127a582eb174ec7bc438e36b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e83cca79a4dc99533ab17cca7e96e1ac802d598
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91650872"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020797"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Azure Time Series Insights źródła zdarzeń Gen2
 
@@ -27,7 +27,7 @@ Zdarzenia muszą być wysyłane jako zakodowany w formacie UTF-8 kod JSON.
 
 ## <a name="create-or-edit-event-sources"></a>Tworzenie lub edytowanie źródeł zdarzeń
 
-Zasoby źródłowe zdarzeń mogą się znajdować w tej samej subskrypcji platformy Azure co środowisko Azure Time Series Insights Gen2 lub inną subskrypcję. Możesz użyć [Azure Portal](time-series-insights-update-create-environment.md#create-a-preview-payg-environment), [interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), [szablonów ARM](time-series-insights-manage-resources-using-azure-resource-manager-template.md)i [interfejsu API REST](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) do tworzenia, edytowania lub usuwania źródeł zdarzeń środowiska.
+Zasoby źródłowe zdarzeń mogą się znajdować w tej samej subskrypcji platformy Azure co środowisko Azure Time Series Insights Gen2 lub inną subskrypcję. Możesz użyć [Azure Portal](./tutorials-set-up-tsi-environment.md#create-an-azure-time-series-insights-gen2-environment), [interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), [szablonów ARM](time-series-insights-manage-resources-using-azure-resource-manager-template.md)i [interfejsu API REST](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) do tworzenia, edytowania lub usuwania źródeł zdarzeń środowiska.
 
 Po nawiązaniu połączenia ze źródłem zdarzeń środowisko Azure Time Series Insights Gen2 odczytuje wszystkie zdarzenia przechowywane obecnie w usłudze IoT lub centrum zdarzeń, rozpoczynając od najstarszego zdarzenia.
 
@@ -45,7 +45,7 @@ Po nawiązaniu połączenia ze źródłem zdarzeń środowisko Azure Time Series
 
 - Nie należy przekroczyć [limitu szybkości przepływności](./concepts-streaming-ingress-throughput-limits.md) dla środowiska lub limitu partycji.
 
-- Skonfiguruj [alert](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts) z opóźnieniem, aby otrzymywać powiadomienia o problemach z przetwarzaniem danych w środowisku.
+- Skonfiguruj [alert](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) z opóźnieniem, aby otrzymywać powiadomienia o problemach z przetwarzaniem danych w środowisku.
 
 - Używaj pozyskiwania strumieniowego w przypadku niemal czasu rzeczywistego i ostatnich danych, ale dane historyczne przesyłania strumieniowego nie są obsługiwane.
 
@@ -64,7 +64,7 @@ Korzystanie z potoku przesyłania strumieniowego do importowania danych historyc
 
 ## <a name="event-source-timestamp"></a>Sygnatura czasowa źródła zdarzeń
 
-Podczas konfigurowania źródła zdarzeń zostanie wyświetlony monit o podanie właściwości identyfikatora znacznika czasu. Właściwość timestamp służy do śledzenia zdarzeń w czasie. jest to czas, który będzie używany jako $event. $ts w [interfejsach API zapytań](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute) oraz do wykreślania serii w Eksploratorze Azure Time Series Insights. Jeśli w czasie tworzenia nie podano żadnej właściwości, lub jeśli w zdarzeniu brakuje właściwości timestamp, zostanie użyta wartość domyślna "IoT Hub zdarzeń" i centra zdarzeń w kolejce. Wartości właściwości timestamp są przechowywane w formacie UTC.
+Podczas konfigurowania źródła zdarzeń zostanie wyświetlony monit o podanie właściwości identyfikatora znacznika czasu. Właściwość timestamp służy do śledzenia zdarzeń w czasie. jest to czas, który będzie używany jako $event. $ts w [interfejsach API zapytań](/rest/api/time-series-insights/dataaccessgen2/query/execute) oraz do wykreślania serii w Eksploratorze Azure Time Series Insights. Jeśli w czasie tworzenia nie podano żadnej właściwości, lub jeśli w zdarzeniu brakuje właściwości timestamp, zostanie użyta wartość domyślna "IoT Hub zdarzeń" i centra zdarzeń w kolejce. Wartości właściwości timestamp są przechowywane w formacie UTC.
 
 Ogólnie rzecz biorąc, użytkownicy będą dostosowywać Właściwość sygnatur czasowych i używać czasu, gdy czujnik lub tag wygenerował odczyt, zamiast korzystać z domyślnego, wbudowanego czasu centrum. Jest to szczególnie konieczne, gdy urządzenia mają nieprzerwaną utratę łączności, a partia opóźnionych komunikatów jest przekazywana do Azure Time Series Insights Gen2.
 

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 175b2268727364040640b319c24019bdf9b48df9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e4cb4fe8a701600290d24c055e2be5187a711c5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89433708"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023398"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Przygotowywanie i dostosowywanie głównego obrazu wirtualnego dysku twardego
 
@@ -114,7 +114,7 @@ Aby przekierować strefy czasowe:
 1. Na serwerze Active Directory Otwórz **Konsola zarządzania zasadami grupy**.
 2. Rozwiń domenę i zasady grupy obiekty.
 3. Kliknij prawym przyciskiem myszy **obiekt zasady grupy** , który został utworzony dla ustawień zasad grupy, a następnie wybierz polecenie **Edytuj**.
-4. W **Edytor zarządzania zasadami grupy**przejdź do węzła zasady **konfiguracji**,  >  **Policies**  >  **Szablony administracyjne**  >  **składniki systemu Windows**  >  **usługi pulpitu zdalnego**  >  **pulpit zdalny Sesja hosta sesji**  >  **i przekierowania zasobów**.
+4. W **Edytor zarządzania zasadami grupy** przejdź do węzła zasady **konfiguracji**,  >  **Policies**  >  **Szablony administracyjne**  >  **składniki systemu Windows**  >  **usługi pulpitu zdalnego**  >  **pulpit zdalny Sesja hosta sesji**  >  **i przekierowania zasobów**.
 5. Włącz ustawienie **Zezwalaj na przekierowywanie strefy czasowej** .
 
 Możesz również uruchomić to polecenie na głównym obrazie, aby przekierować strefy czasowe:
@@ -138,7 +138,7 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\
 
 ### <a name="include-additional-language-support"></a>Uwzględnij dodatkową obsługę języka
 
-Ten artykuł nie obejmuje konfigurowania języka i obsługi regionalnej. Aby uzyskać więcej informacji zobacz następujące artykuły:
+Ten artykuł nie obejmuje konfigurowania języka i obsługi regionalnej. Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - [Dodawanie języków do obrazów systemu Windows](/windows-hardware/manufacture/desktop/add-language-packs-to-windows/)
 - [Funkcje na żądanie](/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities/)
@@ -189,7 +189,7 @@ Poniższe instrukcje przedstawiają sposób przekazania obrazu wzorcowego do kon
 
 1. Przekonwertuj obraz maszyny wirtualnej (VHD) na stały, jeśli jeszcze tego nie zrobiono. Jeśli nie przekonwertujesz obrazu na naprawione, nie można pomyślnie utworzyć obrazu.
 
-2. Przekaż wirtualny dysk twardy do kontenera obiektów BLOB na koncie magazynu. Możesz szybko przekazać za pomocą [narzędzia Eksplorator usługi Storage](https://azure.microsoft.com/features/storage-explorer/). Aby dowiedzieć się więcej o narzędziu Eksplorator usługi Storage, zobacz [ten artykuł](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
+2. Przekaż wirtualny dysk twardy do kontenera obiektów BLOB na koncie magazynu. Możesz szybko przekazać za pomocą [narzędzia Eksplorator usługi Storage](https://azure.microsoft.com/features/storage-explorer/). Aby dowiedzieć się więcej o narzędziu Eksplorator usługi Storage, zobacz [ten artykuł](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows).
 
     > [!div class="mx-imgBorder"]
     > ![Zrzut ekranu przedstawiający okno wyszukiwania narzędzia Eksplorator usługi Microsoft Azure Storage. Pole wyboru "Przekaż pliki VHD lub VHDX jako stronicowe obiekty blob (zalecane)" jest zaznaczone.](media/897aa9a9b6acc0aa775c31e7fd82df02.png)

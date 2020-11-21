@@ -12,12 +12,12 @@ ms.date: 11/03/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 zone_pivot_groups: keyword-quickstart
-ms.openlocfilehash: 2d15da55c0bab42571d2a9660156a780c5d27881
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 49ac70b6881085f48c8bc3a12e31e4a1aa220c6a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305864"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021953"
 ---
 # <a name="get-started-with-custom-keyword"></a>Wprowadzenie do Niestandardowego słowa kluczowego
 
@@ -39,7 +39,7 @@ Aby można było użyć niestandardowego słowa kluczowego, należy utworzyć s�
 
 1. Na stronie [niestandardowe słowo kluczowe](https://aka.ms/sdsdk-wakewordportal) Utwórz **Nowy projekt**. 
 
-1. Wprowadź **nazwę** i opcjonalny **Opis** , a następnie wybierz język. Potrzebny jest jeden projekt dla każdego języka, a obsługa jest obecnie ograniczona do `en-US` języka.
+1. Wprowadź **nazwę** i opcjonalny **Opis**, a następnie wybierz język. Potrzebny jest jeden projekt dla każdego języka, a obsługa jest obecnie ograniczona do `en-US` języka.
 
     ![Opisz swój projekt słowa kluczowego](media/custom-keyword/custom-kws-portal-new-project.png)
 
@@ -49,7 +49,7 @@ Aby można było użyć niestandardowego słowa kluczowego, należy utworzyć s�
 
 1. Aby utworzyć nowy model słów kluczowych, kliknij pozycję **uczenie modelu**.
 
-1. Wprowadź **nazwę** modelu, opcjonalny **Opis** i **słowo kluczowe** , a następnie kliknij przycisk **dalej**. Zapoznaj się ze [wskazówkami](speech-devices-sdk-kws-guidelines.md#choose-an-effective-keyword) dotyczącymi wybierania obowiązującego słowa kluczowego.
+1. Wprowadź **nazwę** modelu, opcjonalny **Opis** i **słowo kluczowe** , a następnie kliknij przycisk **dalej**. Zapoznaj się ze [wskazówkami](./custom-keyword-overview.md#choose-an-effective-keyword) dotyczącymi wybierania obowiązującego słowa kluczowego.
 
     ![Wprowadź słowo kluczowe](media/custom-keyword/custom-kws-portal-new-model.png)
 
@@ -79,4 +79,4 @@ Aby można było użyć niestandardowego słowa kluczowego, należy utworzyć s�
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przetestuj niestandardowe słowo kluczowe przy użyciu [zestawu Speech Devices SDK szybkiego startu](https://aka.ms/sdsdk-quickstart).
+Przetestuj niestandardowe słowo kluczowe przy użyciu [zestawu Speech Devices SDK szybkiego startu](./speech-devices-sdk-quickstart.md?pivots=platform-android).

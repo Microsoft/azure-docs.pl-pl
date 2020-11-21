@@ -10,23 +10,23 @@ ms.workload: identity
 ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: fcddf99c3a4c53fe25db1ed653983e8ddac0edb7
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: ef7782c68746d4c20df5a9ae5e27ffca3e60efbe
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428929"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024130"
 ---
 # <a name="tutorial-enable-authentication-in-app-service-and-access-storage-and-microsoft-graph"></a>Samouczek: Włączanie uwierzytelniania w App Service i dostęp do magazynu i Microsoft Graph
 
-W tym samouczku opisano typowy scenariusz aplikacji:
+W tym samouczku opisano typowy scenariusz aplikacji, w którym można dowiedzieć się, jak:
 
-- [(A) Skonfiguruj uwierzytelnianie dla aplikacji sieci Web](scenario-secure-app-authentication-app-service.md) i Ogranicz dostęp do użytkowników w organizacji.
-- [(B) bezpieczny dostęp do usługi Azure Storage](scenario-secure-app-access-storage.md) w imieniu aplikacji sieci Web przy użyciu tożsamości zarządzanych.
-- (C) dostęp do danych w Microsoft Graph [w imieniu zalogowanego użytkownika](scenario-secure-app-access-microsoft-graph-as-user.md) lub [w imieniu aplikacji sieci Web](scenario-secure-app-access-microsoft-graph-as-app.md) przy użyciu tożsamości zarządzanych.
+- [Skonfiguruj uwierzytelnianie dla aplikacji sieci Web](scenario-secure-app-authentication-app-service.md) i Ogranicz dostęp do użytkowników w organizacji. Zobacz na diagramie.
+- [Bezpieczny dostęp do usługi Azure Storage](scenario-secure-app-access-storage.md) dla aplikacji sieci Web przy użyciu tożsamości zarządzanych. Zobacz B na diagramie.
+- Dostęp do danych w Microsoft Graph [dla zalogowanego użytkownika](scenario-secure-app-access-microsoft-graph-as-user.md) lub [dla aplikacji sieci Web](scenario-secure-app-access-microsoft-graph-as-app.md) przy użyciu tożsamości zarządzanych. Zobacz C na diagramie.
 - [Wyczyść zasoby](scenario-secure-app-clean-up-resources.md) utworzone w ramach tego samouczka.
 
-:::image type="content" source="./media/scenario-secure-app-overview/web-app.svg" alt-text="Scenariusze aplikacji na platformie tożsamości firmy Microsoft" border="false":::
+:::image type="content" source="./media/scenario-secure-app-overview/web-app.svg" alt-text="Diagram przedstawiający scenariusze aplikacji na platformie Microsoft Identity platform." border="false":::
 
 Aby rozpocząć, Dowiedz się, jak włączyć uwierzytelnianie dla aplikacji sieci Web.
 

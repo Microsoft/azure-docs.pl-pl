@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: mamccrea
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9fbf4eab55ec2cf8e4f0e27969ca4a22eb1f27ad
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 753c7ff48960711cbedbf6b5d8644a26502dd413
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578621"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023746"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Korzystanie z platformy .NET dla Apache Spark przy użyciu usługi Azure Synapse Analytics
 
@@ -74,9 +74,11 @@ Notes .NET Spark jest oparty na interaktywnych środowiskach [.NET](https://gith
 
 ### <a name="install-nuget-packages-in-notebooks"></a>Instalowanie pakietów NuGet w notesach
 
-Możesz zainstalować wybrane pakiety NuGet w notesie przy użyciu `#r` symbolu przed nazwą pakietu NuGet. Na poniższym diagramie przedstawiono przykład:
+Możesz zainstalować wybrane pakiety NuGet w notesie przy użyciu `#r nuget` polecenia Magic przed nazwą pakietu NuGet. Na poniższym diagramie przedstawiono przykład:
 
 ![Zrzut ekranu, który pokazuje, #r zainstalować pakiet NuGet programu Spark .NET Notes](./media/apache-spark-development-using-notebooks/synapse-spark-dotnet-notebook-nuget.png)
+
+Aby dowiedzieć się więcej na temat pracy z pakietami NuGet w notesach, zobacz [dokumentację programu .NET Interactive](https://github.com/dotnet/interactive/blob/main/docs/nuget-overview.md).
 
 ### <a name="net-for-apache-spark-c-kernel-features"></a>.NET dla Apache Spark funkcje jądra języka C#
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ec8e40c0908855cd06d647bdd9121106e3553c11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c0bd21f55fee4d8487826deae23093ede293c8c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88918914"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021817"
 ---
 # <a name="test-your-custom-commands-application"></a>Testowanie aplikacji poleceń niestandardowych
 
@@ -49,11 +49,10 @@ Aby skonfigurować aplikację kliencką platforma uniwersalna systemu Windows (p
 - [Instrukcje: Konfigurowanie punktów końcowych sieci Web](./how-to-custom-commands-setup-web-endpoints.md)
 
 W przypadku innych języków programowania i platform:
-- [Języki programowania zestawu Speech SDK, platformy, możliwości scenariusza](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk)
+- [Języki programowania zestawu Speech SDK, platformy, możliwości scenariusza](./speech-sdk.md)
 - [Przykładowe kody asystenta głosowego](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant)
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [Zobacz przykłady w witrynie GitHub](https://aka.ms/speech/cc-samples)
-

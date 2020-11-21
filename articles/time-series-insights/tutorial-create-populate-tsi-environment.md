@@ -9,12 +9,12 @@ ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: d504cbe9c2ac9046a34187d4a5576385b1f73bbe
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 982ca04237d16979d65260a040f5aed783822ac7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518113"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023228"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-gen1-environment"></a>Samouczek: Tworzenie środowiska Azure Time Series Insights Gen1
 
@@ -101,7 +101,7 @@ Następnie Utwórz środowisko Azure Time Series Insights w ramach subskrypcji p
 
    Parametr|Opis
    ---|---
-   **Nazwa środowiska** | Wybierz unikatową nazwę środowiska Azure Time Series Insights. Nazwy są używane przez Eksploratora Azure Time Series Insights i [interfejsy API zapytań](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query).
+   **Nazwa środowiska** | Wybierz unikatową nazwę środowiska Azure Time Series Insights. Nazwy są używane przez Eksploratora Azure Time Series Insights i [interfejsy API zapytań](/rest/api/time-series-insights/gen1-query).
    **Subskrypcja** | Subskrypcje są kontenerami zasobów platformy Azure. Wybierz subskrypcję, aby utworzyć środowisko Azure Time Series Insights.
    **Grupa zasobów** | Grupa zasobów jest kontenerem zasobów platformy Azure. Wybierz istniejącą grupę zasobów lub Utwórz nową dla zasobu środowiska Azure Time Series Insights.
    **Lokalizacja** | Wybierz region centrum danych dla środowiska Azure Time Series Insightsowego. Aby uniknąć dodatkowego opóźnienia, Utwórz środowisko Azure Time Series Insights w tym samym regionie, w którym są inne zasoby IoT.
@@ -142,7 +142,7 @@ Wraz z Centrum IoT jest generowana Azure App Service aplikacja sieci Web służ�
    ---|---
    **Docelowa usługa IoT Hub** | Wybierz opcję **Użyj wstępnie zainicjowanej IoT Hub**.
    **Model urządzenia** | Wybierz pozycję **Chiller** (Chłodnia).
-   **Liczba urządzeń**  | Wprowadź `10` **wartość**poniżej.
+   **Liczba urządzeń**  | Wprowadź `10` **wartość** poniżej.
    **Częstotliwość telemetrii** | Wprowadź `10` sekundy.
    **Czas trwania symulacji** | Wybierz pozycję **Zakończ w:** i wprowadź `5` minuty.
 

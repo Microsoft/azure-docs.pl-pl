@@ -13,38 +13,38 @@ author: blazem-msft
 ms.author: blazem
 ms.reviewer: jroth
 manager: jroth
-ms.openlocfilehash: f4dcec5e58cb10850e22d3006b0ecd41f6d013fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15b4a90a4e082cbe8fc0f2da1a87b6860cfb66a4
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86202270"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024215"
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Wszystkie tematy dotyczące usługi SQL Server Stretch Database platformy Azure
 Ten temat zawiera listę wszystkich tematów, które mają zastosowanie bezpośrednio do usługi **SQL Server stretch Database** platformy Azure. Możesz przeszukać Tę stronę sieci Web pod kątem słów kluczowych przy użyciu **kombinacji klawiszy Ctrl + F**, aby znaleźć tematy bieżącego zainteresowania.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 | Tytuł | Opis |
 |:--- |:--- |
-|[Identyfikowanie baz danych i tabel dla Stretch Database przez uruchomienie usługi Stretch Database Advisor](sql-server-stretch-database-identify-databases.md) |Dowiedz się, jak identyfikować bazy danych i tabele, które są kandydatami do Stretch Database. |
-|[Ograniczenia dotyczące Stretch Database](sql-server-stretch-database-limitations.md) |Poznaj ograniczenia dotyczące Stretch Database. |
-|[Przegląd Stretch Database](sql-server-stretch-database-overview.md) |Dowiedz się, jak w sposób niewidoczny i bezpieczny usługa Stretch Database migruje zimne dane do chmury platformy Microsoft Azure. |
-|[Rozpoczynanie pracy przez uruchomienie kreatora włączania bazy danych Stretch](sql-server-stretch-database-wizard.md) |Dowiedz się, jak skonfigurować bazę danych dla bazy danych Stretch przy użyciu kreatora włączania bazy danych Stretch. |
+|[Identyfikowanie baz danych i tabel dla Stretch Database przez uruchomienie usługi Stretch Database Advisor](/sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor) |Dowiedz się, jak identyfikować bazy danych i tabele, które są kandydatami do Stretch Database. |
+|[Ograniczenia dotyczące Stretch Database](/sql/sql-server/stretch-database/limitations-for-stretch-database) |Poznaj ograniczenia dotyczące Stretch Database. |
+|[Przegląd Stretch Database](/sql/sql-server/stretch-database/stretch-database) |Dowiedz się, jak w sposób niewidoczny i bezpieczny usługa Stretch Database migruje zimne dane do chmury platformy Microsoft Azure. |
+|[Rozpoczynanie pracy przez uruchomienie kreatora włączania bazy danych Stretch](/sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard) |Dowiedz się, jak skonfigurować bazę danych dla bazy danych Stretch przy użyciu kreatora włączania bazy danych Stretch. |
 
 ## <a name="enable"></a>Włącz
 | Tytuł | Opis |
 |:--- |:--- |
-|[Włączanie bazy danych Stretch dla bazy danych](sql-server-stretch-database-enable-database.md) |Dowiedz się, jak skonfigurować bazę danych dla Stretch Database. |
-|[Włączanie bazy danych Stretch dla tabeli](sql-server-stretch-database-enable-table.md) |Dowiedz się, jak skonfigurować tabelę dla Stretch Database. |
-|[Wybierz wiersze do migracji przy użyciu funkcji filtru (Stretch Database)](sql-server-stretch-database-predicate-function.md) |Dowiedz się, jak wybrać wiersze do migracji przy użyciu funkcji filtrowania. |
+|[Włączanie bazy danych Stretch dla bazy danych](/sql/sql-server/stretch-database/enable-stretch-database-for-a-database) |Dowiedz się, jak skonfigurować bazę danych dla Stretch Database. |
+|[Włączanie bazy danych Stretch dla tabeli](/sql/sql-server/stretch-database/enable-stretch-database-for-a-table) |Dowiedz się, jak skonfigurować tabelę dla Stretch Database. |
+|[Wybierz wiersze do migracji przy użyciu funkcji filtru (Stretch Database)](/sql/sql-server/stretch-database/select-rows-to-migrate-by-using-a-filter-function-stretch-database) |Dowiedz się, jak wybrać wiersze do migracji przy użyciu funkcji filtrowania. |
 
 ## <a name="manage"></a>Zarządzanie
 | Tytuł | Opis |
 |:--- |:--- |
-|[Wyłączanie Stretch Database i przywracanie danych zdalnych](sql-server-stretch-database-disable.md) |Dowiedz się, jak wyłączyć Stretch Database tabeli i opcjonalnie przywrócić zdalne dane. |
-|[Zarządzanie bazą danych Stretch i rozwiązywanie problemów](sql-server-stretch-database-manage.md) |Dowiedz się, jak zarządzać Stretch Database i rozwiązywać problemy. |
-|[Monitorowanie i rozwiązywanie problemów z migracją danych (Stretch Database)](sql-server-stretch-database-monitor.md) |Dowiedz się, jak monitorować stan migracji danych. |
-|[Wstrzymywanie i wznawianie migracji danych (Stretch Database)](sql-server-stretch-database-pause.md) |Dowiedz się, jak wstrzymać lub wznowić migrację danych do platformy Azure. |
+|[Wyłączanie Stretch Database i przywracanie danych zdalnych](/sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data) |Dowiedz się, jak wyłączyć Stretch Database tabeli i opcjonalnie przywrócić zdalne dane. |
+|[Zarządzanie bazą danych Stretch i rozwiązywanie problemów](/sql/sql-server/stretch-database/manage-and-troubleshoot-stretch-database) |Dowiedz się, jak zarządzać Stretch Database i rozwiązywać problemy. |
+|[Monitorowanie i rozwiązywanie problemów z migracją danych (Stretch Database)](/sql/sql-server/stretch-database/monitor-and-troubleshoot-data-migration-stretch-database) |Dowiedz się, jak monitorować stan migracji danych. |
+|[Wstrzymywanie i wznawianie migracji danych (Stretch Database)](/sql/sql-server/stretch-database/pause-and-resume-data-migration-stretch-database) |Dowiedz się, jak wstrzymać lub wznowić migrację danych do platformy Azure. |
 
 ## <a name="security"></a>Zabezpieczenia
 | Tytuł | Opis |
@@ -55,6 +55,5 @@ Ten temat zawiera listę wszystkich tematów, które mają zastosowanie bezpośr
 ## <a name="backup-and-recovery"></a>Tworzenie i przywracanie kopii zapasowych
 | Tytuł | Opis |
 |:--- |:--- |
-|[Tworzenie kopii zapasowych baz danych z obsługą usługi Stretch](sql-server-stretch-database-backup.md) |Dowiedz się, jak utworzyć kopię zapasową rozproszonych \- baz danych. |
-|[Przywracanie baz danych z obsługą rozciągania](sql-server-stretch-database-restore.md) |Dowiedz się, jak przywrócić rozproszone \- bazy danych. |
-
+|[Tworzenie kopii zapasowych baz danych z obsługą usługi Stretch](/sql/sql-server/stretch-database/backup-stretch-enabled-databases-stretch-database) |Dowiedz się, jak utworzyć kopię zapasową rozproszonych \- baz danych. |
+|[Przywracanie baz danych z obsługą rozciągania](/sql/sql-server/stretch-database/restore-stretch-enabled-databases-stretch-database) |Dowiedz się, jak przywrócić rozproszone \- bazy danych. |

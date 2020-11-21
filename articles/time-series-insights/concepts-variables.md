@@ -6,18 +6,18 @@ ms.author: shresha
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: dc03a74bfad5b1417eb9cc20b5f211718cc08646
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1c394bb1a568d59e0821b61e7acfcf8f25290f7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653710"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020763"
 ---
 # <a name="time-series-model-variables"></a>Zmienne modelu szeregów czasowych
 
 W tym artykule opisano zmienne modelu szeregów czasowych, które określają reguły formuł i obliczeń dla zdarzeń.
 
-Każda zmienna może być jednym z trzech rodzajów: *liczbowej*, *kategorii*i *agregacji*.
+Każda zmienna może być jednym z trzech rodzajów: *liczbowej*, *kategorii* i *agregacji*.
 
 * Rodzaje **liczbowe** pracują z ciągłymi wartościami liczbowymi.
 * Rodzaje **kategorii** działają ze zdefiniowanym zestawem wartości dyskretnych.
@@ -34,7 +34,7 @@ W poniższej tabeli przedstawiono właściwości, które są istotne dla poszcze
 | Filtr zmiennych | Filtry są opcjonalnymi klauzulami warunkowymi, aby ograniczyć liczbę wierszy, które są brane pod uwagę podczas obliczania. |
 | Wartość zmiennej | Wartości telemetryczne używane do obliczeń pochodzących z urządzenia lub czujników lub przekształcone przy użyciu wyrażeń szeregów czasowych. Zmienne rodzaju liczbowego muszą być typu *Double*.|
 | Interpolacja zmiennych | Interpolacja określa, jak odtworzyć sygnał przy użyciu istniejących danych. Opcje interpolacji *krokowej* i *liniowej* są dostępne dla zmiennych liczbowych. |
-| Agregacja zmiennych | Wykonywanie obliczeń za pomocą obsługiwanych [funkcji agregacji dla zmiennych liczbowych](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#numeric-variable-kind). |
+| Agregacja zmiennych | Wykonywanie obliczeń za pomocą obsługiwanych [funkcji agregacji dla zmiennych liczbowych](/rest/api/time-series-insights/reference-time-series-expression-syntax#numeric-variable-kind). |
 
 Zmienne są zgodne z następującym przykładem JSON:
 
@@ -102,7 +102,7 @@ Zmienne są zgodne z następującym przykładem JSON:
 | Variable — Właściwość | Opis |
 | --- | ---|
 | Filtr zmiennych | Filtry są opcjonalnymi klauzulami warunkowymi, aby ograniczyć liczbę wierszy, które są brane pod uwagę podczas obliczania. |
-| Agregacja zmiennych | Wykonywanie obliczeń za pomocą obsługiwanych [funkcji agregacji dla typów zmiennych agregacji](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#aggregate-variable-kind). |
+| Agregacja zmiennych | Wykonywanie obliczeń za pomocą obsługiwanych [funkcji agregacji dla typów zmiennych agregacji](/rest/api/time-series-insights/reference-time-series-expression-syntax#aggregate-variable-kind). |
 
 Zmienne są zgodne z następującym przykładem JSON:
 

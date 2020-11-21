@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.custom: seodec18
-ms.openlocfilehash: b186c2d2c4b5efc8e1e052a63505549e860b5619
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b512a80fcfc26efbe5c008884509aebfd86ed3e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460832"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020848"
 ---
 # <a name="data-storage"></a>Magazyn danych
 
@@ -27,7 +27,7 @@ Podczas tworzenia środowiska Azure Time Series Insights Gen2 dostępne są nast
 
 * Chłodny magazyn danych:
   * Utwórz nowy zasób usługi Azure Storage w ramach subskrypcji i regionu wybranego dla danego środowiska.
-  * Dołącz już istniejące konto usługi Azure Storage. Ta opcja jest dostępna tylko przez wdrożenie z [szablonu](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions)Azure Resource Manager i nie jest widoczna w Azure Portal.
+  * Dołącz już istniejące konto usługi Azure Storage. Ta opcja jest dostępna tylko przez wdrożenie z [szablonu](/azure/templates/microsoft.timeseriesinsights/allversions)Azure Resource Manager i nie jest widoczna w Azure Portal.
 * Magazyn danych ciepłych:
   * Magazyn ciepły jest opcjonalny i można go włączyć lub wyłączyć w czasie aprowizacji lub po nim. Jeśli zdecydujesz się na włączenie sklepu w sieci w późniejszym czasie, a w chłodnym magazynie znajdują się już dane, zapoznaj się [z sekcją](concepts-storage.md#warm-store-behavior) poniżej, aby zrozumieć oczekiwane zachowanie. Czas przechowywania danych w sklepie ciepłym można skonfigurować od 7 do 31 dni. można go również dostosować w razie potrzeby.
 
@@ -40,14 +40,14 @@ Gdy zdarzenie jest pozyskiwane, jest indeksowane w obu sklepach (jeśli są wł�
 
 ## <a name="data-availability"></a>Dostępność danych
 
-Azure Time Series Insights partycje Gen2 i indeksowanie danych w celu uzyskania optymalnej wydajności zapytań. Dane staną się dostępne do wykonywania zapytań z obu ciepłej (jeśli są włączone) i magazynu zimnego po jego indeksowaniu. Ilość danych, które są pozyskiwane, a szybkość przepływności na partycję może mieć wpływ na dostępność. Przejrzyj [ograniczenia przepływności](./concepts-streaming-ingress-throughput-limits.md) źródła zdarzeń i [najlepsze rozwiązania](./concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices) w celu uzyskania najlepszej wydajności. Możesz również skonfigurować [alert](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts) z opóźnieniem, aby otrzymywać powiadomienia o problemach z przetwarzaniem danych w środowisku.
+Azure Time Series Insights partycje Gen2 i indeksowanie danych w celu uzyskania optymalnej wydajności zapytań. Dane staną się dostępne do wykonywania zapytań z obu ciepłej (jeśli są włączone) i magazynu zimnego po jego indeksowaniu. Ilość danych, które są pozyskiwane, a szybkość przepływności na partycję może mieć wpływ na dostępność. Przejrzyj [ograniczenia przepływności](./concepts-streaming-ingress-throughput-limits.md) źródła zdarzeń i [najlepsze rozwiązania](./concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices) w celu uzyskania najlepszej wydajności. Możesz również skonfigurować [alert](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) z opóźnieniem, aby otrzymywać powiadomienia o problemach z przetwarzaniem danych w środowisku.
 
 > [!IMPORTANT]
 > Zanim dane staną się dostępne, może wystąpić okres do 60 sekund. Jeśli wystąpi znaczący czas oczekiwania przekraczający 60 sekund, Prześlij bilet pomocy technicznej za pomocą Azure Portal.
 
 ## <a name="warm-store"></a>Sklep ciepły
 
-Dane w magazynie ciepłym są dostępne tylko za pośrednictwem [interfejsów API zapytań szeregów czasowych](./time-series-insights-update-tsq.md), [Eksploratora TSI Azure Time Series Insights](./time-series-insights-update-explorer.md)lub [łącznika Power BI](./how-to-connect-power-bi.md). Zapytania magazynu w sieci ciepłej są bezpłatne i nie ma limitu przydziału, ale obowiązuje [limit 30](https://docs.microsoft.com/rest/api/time-series-insights/reference-api-limits#query-apis---limits) współbieżnych żądań.
+Dane w magazynie ciepłym są dostępne tylko za pośrednictwem [interfejsów API zapytań szeregów czasowych](./concepts-query-overview.md), [Eksploratora TSI Azure Time Series Insights](./concepts-ux-panels.md)lub [łącznika Power BI](./how-to-connect-power-bi.md). Zapytania magazynu w sieci ciepłej są bezpłatne i nie ma limitu przydziału, ale obowiązuje [limit 30](/rest/api/time-series-insights/reference-api-limits#query-apis---limits) współbieżnych żądań.
 
 ### <a name="warm-store-behavior"></a>Zachowanie magazynu ciepłego
 
@@ -77,9 +77,9 @@ Aby zapewnić wydajność zapytań i dostępność danych, nie należy edytować
 
 #### <a name="accessing-cold-store-data"></a>Uzyskiwanie dostępu do danych zimnego magazynu
 
-Oprócz uzyskiwania dostępu do danych z interfejsów API zapytań programu [Azure Time Series Insights Explorer](./time-series-insights-update-explorer.md) i [szeregów czasowych](./time-series-insights-update-tsq.md)możesz również uzyskać dostęp do danych bezpośrednio z plików Parquet przechowywanych w chłodnym magazynie. Na przykład można odczytywać, przekształcać i czyścić dane w notesie Jupyter, a następnie używać go do uczenia modelu Azure Machine Learning w tym samym przepływie pracy platformy Spark.
+Oprócz uzyskiwania dostępu do danych z interfejsów API zapytań programu [Azure Time Series Insights Explorer](./concepts-ux-panels.md) i [szeregów czasowych](./concepts-query-overview.md)możesz również uzyskać dostęp do danych bezpośrednio z plików Parquet przechowywanych w chłodnym magazynie. Na przykład można odczytywać, przekształcać i czyścić dane w notesie Jupyter, a następnie używać go do uczenia modelu Azure Machine Learning w tym samym przepływie pracy platformy Spark.
 
-Aby uzyskać dostęp do danych bezpośrednio z konta usługi Azure Storage, musisz mieć dostęp do odczytu do konta używanego do przechowywania Azure Time Series Insights danych Gen2. Następnie można odczytać wybrane dane na podstawie czasu utworzenia pliku Parquet znajdującego się w `PT=Time` folderze opisanym poniżej w sekcji [Format pliku Parquet](#parquet-file-format-and-folder-structure) .  Aby uzyskać więcej informacji na temat włączania dostępu do odczytu do konta magazynu, zobacz [Zarządzanie dostępem do zasobów konta magazynu](../storage/blobs/storage-manage-access-to-resources.md).
+Aby uzyskać dostęp do danych bezpośrednio z konta usługi Azure Storage, musisz mieć dostęp do odczytu do konta używanego do przechowywania Azure Time Series Insights danych Gen2. Następnie można odczytać wybrane dane na podstawie czasu utworzenia pliku Parquet znajdującego się w `PT=Time` folderze opisanym poniżej w sekcji [Format pliku Parquet](#parquet-file-format-and-folder-structure) .  Aby uzyskać więcej informacji na temat włączania dostępu do odczytu do konta magazynu, zobacz [Zarządzanie dostępem do zasobów konta magazynu](../storage/blobs/anonymous-read-access-configure.md).
 
 #### <a name="data-deletion"></a>Usuwanie danych
 
@@ -123,6 +123,6 @@ Azure Time Series Insights zdarzenia Gen2 są mapowane do zawartości pliku Parq
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Przeczytaj o [modelowaniu danych](./time-series-insights-update-tsm.md).
+* Przeczytaj o [modelowaniu danych](./concepts-model-overview.md).
 
-* Zaplanuj [środowisko Azure Time Series Insights Gen2](./time-series-insights-update-plan.md).
+* Zaplanuj [środowisko Azure Time Series Insights Gen2](./how-to-plan-your-environment.md).

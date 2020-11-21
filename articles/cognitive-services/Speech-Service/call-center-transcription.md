@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: c592055be1987786b94623bde5352e2a3cc0e092
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19d4cc388494e149b7f258a8e9f154041a3dd070
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630155"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021970"
 ---
 # <a name="speech-service-for-telephony-data"></a>Usługa mowy dla danych telefonii
 
@@ -60,7 +60,7 @@ Nie jest to nietypowe w przypadku 35% wywołania pomocy technicznej, aby wywoły
 
 ### <a name="translation"></a>Tłumaczenie
 
-Niektóre firmy są eksperymentować z przekazywaniem przetłumaczonych transkrypcji od wywołań obsługi języka obcego, dzięki czemu menedżerowie ds. dostarczania mogą zrozumieć światowe środowisko klientów. Nasze możliwości [tłumaczenia](/azure/cognitive-services/speech-service/speech-translation) są niezbyt nadmiarowe. Możemy przetłumaczyć dźwięk na dźwięk lub dźwięk na tekst dla dużej liczby ustawień regionalnych.
+Niektóre firmy są eksperymentować z przekazywaniem przetłumaczonych transkrypcji od wywołań obsługi języka obcego, dzięki czemu menedżerowie ds. dostarczania mogą zrozumieć światowe środowisko klientów. Nasze możliwości [tłumaczenia](./speech-translation.md) są niezbyt nadmiarowe. Możemy przetłumaczyć dźwięk na dźwięk lub dźwięk na tekst dla dużej liczby ustawień regionalnych.
 
 ### <a name="text-to-speech"></a>Zamiana tekstu na mowę
 
@@ -70,7 +70,7 @@ Nasze opóźnienia kompleksowe są znacznie niskie dla różnych technologii, ta
 
 Nasze nowe głosy są również odróżniane od głosów ludzkich. Możesz użyć naszych głosów, aby bot swój unikatowy charakter.
 
-### <a name="search"></a>Wyszukaj
+### <a name="search"></a>Wyszukiwanie
 
 Kolejną zszywaniem funkcji analitycznych jest zidentyfikowanie interakcji w przypadku wystąpienia konkretnego zdarzenia lub doświadczenia. Zwykle jest to wykonywane z jednym z dwóch metod; Wyszukiwanie ad hoc, w którym użytkownik po prostu wpisuje frazę i system odpowiada, lub bardziej strukturalne zapytanie, gdzie analityk może utworzyć zestaw instrukcji logicznych, które identyfikują scenariusz w wywołaniu, a następnie każde wywołanie może być indeksowane względem tego zestawu zapytań. Dobrym przykładem wyszukiwania jest Powszechna Deklaracja zgodności "to wywołanie jest rejestrowane w celach jakościowych... ". W wielu firmach chcemy upewnić się, że ich agenci dostarczą tej odpowiedzialności klientom przed faktycznym zarejestrowaniem połączenia. Większość systemów analitycznych ma możliwość trendu zachowań znalezionych przez algorytmy zapytań i wyszukiwania, a to raportowanie trendów jest ostatecznie jedną z najważniejszych funkcji systemu analitycznego. Za pomocą [katalogu usług poznawczych](https://azure.microsoft.com/services/cognitive-services/directory/search/) kompleksowe rozwiązanie można znacznie rozszerzyć za pomocą funkcji indeksowania i wyszukiwania.
 
@@ -94,7 +94,7 @@ Typowe rozwiązanie używa tych usług:
 
 - Usługa mowy służy do transkrypcja zamiany mowy na tekst. Standardowa subskrypcja (S0) usługi mowy jest wymagana do korzystania z interfejsu API transkrypcji partii. Bezpłatne subskrypcje (F0) nie będą działały.
 - [Usługa Azure Storage](https://azure.microsoft.com/services/storage/) służy do przechowywania danych telefonicznych i transkrypcji zwróconych przez interfejs API transkrypcji partii. To konto magazynu powinno używać powiadomień, w odniesieniu do gdy dodawane są nowe pliki. Te powiadomienia są używane do wyzwalania procesu transkrypcji.
-- [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) służy do tworzenia identyfikatora URI sygnatury dostępu współdzielonego (SAS) dla każdego rejestrowania i wyzwalania żądania HTTP post w celu rozpoczęcia transkrypcji. Ponadto Azure Functions służy do tworzenia żądań pobrania i usunięcia transkrypcji przy użyciu interfejsu API transkrypcji usługi Batch.
+- [Azure Functions](../../azure-functions/index.yml) służy do tworzenia identyfikatora URI sygnatury dostępu współdzielonego (SAS) dla każdego rejestrowania i wyzwalania żądania HTTP post w celu rozpoczęcia transkrypcji. Ponadto Azure Functions służy do tworzenia żądań pobrania i usunięcia transkrypcji przy użyciu interfejsu API transkrypcji usługi Batch.
 
 Wewnętrznie korzystamy z powyższych technologii do obsługi wywołań klientów firmy Microsoft w trybie wsadowym.
 :::image type="content" source="media/scenarios/call-center-batch-pipeline.png" alt-text="Technologie używane do obsługi wywołań klientów firmy Microsoft w trybie wsadowym.":::
@@ -111,7 +111,7 @@ Wewnętrznie korzystamy z powyższych technologii do analizy w czasie rzeczywist
 
 ## <a name="a-word-on-ivrs"></a>Słowo w IVRs
 
-Usługę mowy można łatwo zintegrować w dowolnym rozwiązaniu za pomocą [zestawu Speech SDK](speech-sdk.md) lub [interfejsu API REST](rest-apis.md). Jednak transkrypcja centrum połączeń może wymagać dodatkowych technologii. Zwykle jest wymagane połączenie między systemem IVR i platformą Azure. Chociaż nie oferujemy takich składników, w tym artykule opisano, co wiąże się z połączeniem z IVR.
+Usługę mowy można łatwo zintegrować w dowolnym rozwiązaniu za pomocą [zestawu Speech SDK](speech-sdk.md) lub [interfejsu API REST](./overview.md#reference-docs). Jednak transkrypcja centrum połączeń może wymagać dodatkowych technologii. Zwykle jest wymagane połączenie między systemem IVR i platformą Azure. Chociaż nie oferujemy takich składników, w tym artykule opisano, co wiąże się z połączeniem z IVR.
 
 Kilka produktów usługi IVR lub usług telefonii (takich jak Genesys lub AudioCodes) oferuje możliwości integracji, których można użyć w celu włączenia przekazywania audio przychodzącego i wychodzącego do usługi platformy Azure. W zasadzie niestandardowa usługa platformy Azure może udostępnić określony interfejs do definiowania sesji połączeń telefonicznych (takich jak wywołanie uruchomienia lub wywołania końcowego) i uwidocznić interfejs API protokołu WebSocket, który będzie odbierać strumienie audio dla ruchu przychodzącego, który jest używany z usługą mowy. Odpowiedzi wychodzące, takie jak transkrypcja konwersacji lub połączenia z platformą bot, można wyszukiwać za pomocą usługi zamiany tekstu na mowę firmy Microsoft i zwrócić do IVR na potrzeby odtwarzania.
 
@@ -123,10 +123,10 @@ Innym scenariuszem jest bezpośrednia integracja z protokołem inicjowania sesji
 
 | Usługa rozpoznawania mowy | Model | Opis |
 | -------------- | ----- | ----------- |
-| Zamiana mowy na tekst | [Model akustyczny](how-to-customize-acoustic-models.md) | Utwórz niestandardowy model akustyczny dla aplikacji, narzędzi lub urządzeń używanych w określonych środowiskach, takich jak samochód lub piętro fabryki, z których każdy ma określone warunki rejestrowania. Przykłady obejmują akcentowanie mowy, konkretne zakłócenia w tle lub użycie określonego mikrofonu do nagrywania. |
-|                | [Model językowy](how-to-customize-language-model.md) | Utwórz niestandardowy model języka w celu usprawnienia transkrypcji słownictwa i gramatyki właściwych dla branży, takich jak Terminologia medyczna lub żargon IT. |
-|                | [Model wymowy](how-to-customize-pronunciation.md) | Przy użyciu niestandardowego modelu wymowy można zdefiniować formularz fonetyczny i wyświetlić wyraz lub termin. Jest to przydatne do obsługi niestandardowych warunków, takich jak nazwy produktów lub akronimy. Wszystko, co musisz zrobić, to plik wymowy, który jest prostym `.txt` plikiem. |
-| Zamiana tekstu na mowę | [Czcionka głosowa](how-to-customize-voice-font.md) | Niestandardowe czcionki głosowe umożliwiają utworzenie rozpoznawalnego, jednoczęściowego głosu dla marki. Rozpoczęcie pracy wymaga jedynie niewielkiej ilości danych. Im więcej danych zapewniasz, tym bardziej naturalna i przypominająca Twoja czcionka głosu będzie dźwiękowa. |
+| Zamiana mowy na tekst | [Model akustyczny](./how-to-custom-speech-train-model.md) | Utwórz niestandardowy model akustyczny dla aplikacji, narzędzi lub urządzeń używanych w określonych środowiskach, takich jak samochód lub piętro fabryki, z których każdy ma określone warunki rejestrowania. Przykłady obejmują akcentowanie mowy, konkretne zakłócenia w tle lub użycie określonego mikrofonu do nagrywania. |
+|                | [Model językowy](./how-to-custom-speech-train-model.md) | Utwórz niestandardowy model języka w celu usprawnienia transkrypcji słownictwa i gramatyki właściwych dla branży, takich jak Terminologia medyczna lub żargon IT. |
+|                | [Model wymowy](./how-to-custom-speech-train-model.md) | Przy użyciu niestandardowego modelu wymowy można zdefiniować formularz fonetyczny i wyświetlić wyraz lub termin. Jest to przydatne do obsługi niestandardowych warunków, takich jak nazwy produktów lub akronimy. Wszystko, co musisz zrobić, to plik wymowy, który jest prostym `.txt` plikiem. |
+| Zamiana tekstu na mowę | [Czcionka głosowa](./how-to-custom-voice-create-voice.md) | Niestandardowe czcionki głosowe umożliwiają utworzenie rozpoznawalnego, jednoczęściowego głosu dla marki. Rozpoczęcie pracy wymaga jedynie niewielkiej ilości danych. Im więcej danych zapewniasz, tym bardziej naturalna i przypominająca Twoja czcionka głosu będzie dźwiękowa. |
 
 ## <a name="sample-code"></a>Przykładowy kod
 
@@ -138,7 +138,7 @@ Przykładowy kod jest dostępny w witrynie GitHub dla każdej funkcji usługi Sp
 
 ## <a name="reference-docs"></a>Dokumentacja dokumentacji
 
-- [Zestaw SDK rozpoznawania mowy](speech-sdk-reference.md)
+- [Zestaw SDK rozpoznawania mowy](./speech-sdk.md)
 - [Zestaw Speech Devices SDK](speech-devices-sdk.md)
 - [Interfejs API REST: zamiana mowy na tekst](rest-speech-to-text.md)
 - [Interfejs API REST: zamiana tekstu na mowę](rest-text-to-speech.md)

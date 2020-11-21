@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 401d22ee68ba0652eb684b03b06fddf0b0fe3d72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61af7922318514a7b86a349d1970c59d4d168d85
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569451"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023330"
 ---
 # <a name="create-a-new-azure-time-series-insights-gen1-environment-in-the-azure-portal"></a>Utwórz nowe środowisko Azure Time Series Insights Gen1 w Azure Portal
 
@@ -60,7 +60,7 @@ Wykonaj następujące kroki, aby utworzyć środowisko:
 
    [![Obejrzyj powiadomienia](media/time-series-insights-get-started/tsi-deploy-notifications.png)](media/time-series-insights-get-started/tsi-deploy-notifications.png#lightbox)
 
-1. W **przeglądzie**zasobów Sprawdź ustawienia konfiguracji wdrożenia.
+1. W **przeglądzie** zasobów Sprawdź ustawienia konfiguracji wdrożenia.
 
    [![Utwórz Azure Time Series Insights Przypnij do pulpitu nawigacyjnego](media/time-series-insights-get-started/tsi-verify-deployment.png)](media/time-series-insights-get-started/tsi-verify-deployment.png#lightbox)
 
@@ -68,9 +68,9 @@ Wykonaj następujące kroki, aby utworzyć środowisko:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zdefiniuj zasady dostępu do danych](time-series-insights-data-access.md) w celu zabezpieczenia środowiska.
+* [Zdefiniuj zasady dostępu do danych](./concepts-access-policies.md) w celu zabezpieczenia środowiska.
 
-* [Dodaj źródło zdarzeń centrum zdarzeń](time-series-insights-how-to-add-an-event-source-eventhub.md) do środowiska Azure Time Series Insightsowego.
+* [Dodaj źródło zdarzeń centrum zdarzeń](./how-to-ingest-data-event-hub.md) do środowiska Azure Time Series Insightsowego.
 
 * [Wyślij zdarzenia](time-series-insights-send-events.md) do źródła zdarzeń.
 

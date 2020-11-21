@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: 7df082cd5044f142d8d5900ec1fff6c182262bd9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 348277d42c543bc45cf98bfeaf7ea8313afe8f6f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425116"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021987"
 ---
 # <a name="disclosure-design-patterns"></a>Wzorce projektowania ujawniania
 Teraz, gdy&#39;ve ustaliły odpowiedni [poziom ujawniania](concepts-disclosure-guidelines.md#disclosure-assessment) w przypadku głosu syntetycznego,&#39;s jest dobrym czasem, aby poznać potencjalne wzorce projektowe.
@@ -241,17 +241,17 @@ Użyj ujawnienia jako możliwości bezproblemowego niepowodzenia.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 - [Wytyczne dotyczące bot firmy Microsoft](https://www.microsoft.com/research/uploads/prod/2018/11/Bot_Guidelines_Nov_2018.pdf)
-- [Wskazówki dotyczące projektowania Cortany](https://docs.microsoft.com/cortana/voice-commands/voicecommand-design-guidelines)
-- [Wskazówki dotyczące projektowania mowy w systemie Microsoft Windows platformy UWP](https://docs.microsoft.com/windows/uwp/design/input/speech-interactions)
-- [Wskazówki dotyczące poleceń głosowych programu Microsoft Windows Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
+- [Wskazówki dotyczące projektowania Cortany](/cortana/voice-commands/voicecommand-design-guidelines)
+- [Wskazówki dotyczące projektowania mowy w systemie Microsoft Windows platformy UWP](/windows/uwp/design/input/speech-interactions)
+- [Wskazówki dotyczące poleceń głosowych programu Microsoft Windows Mixed Reality](/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
 
 ## <a name="reference-docs"></a>Dokumentacja dokumentacji
 
-* [Ujawnienie dla talent głosu](https://aka.ms/disclosure-voice-talent)
+* [Ujawnienie dla talent głosu](/legal/cognitive-services/speech-service/disclosure-voice-talent)
 * [Wytyczne dotyczące odpowiedzialnego wdrożenia syntetycznej technologii głosowej](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Kontroli — Omówienie](concepts-gating-overview.md)
 * [Jak ujawnić](concepts-disclosure-guidelines.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Ujawnienie dla talent głosu](https://aka.ms/disclosure-voice-talent)
+* [Ujawnienie dla talent głosu](/legal/cognitive-services/speech-service/disclosure-voice-talent)

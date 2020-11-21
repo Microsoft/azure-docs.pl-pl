@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/28/2020
-ms.openlocfilehash: ae767905e24e2d7ddf3b8e12ec77b1efe782cf85
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: b93bc4d1adfa2787f14106707b3848ebfe5c57bc
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535609"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021205"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql"></a>Szybki Start: używanie języka PHP do łączenia i wykonywania zapytań dotyczących danych w Azure Database for MySQL
 Ten przewodnik Szybki start przedstawia sposób nawiązywania połączeń z usługą Azure Database for MySQL przy użyciu aplikacji języka [PHP](https://secure.php.net/manual/intro-whatis.php). Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych.
@@ -30,7 +30,7 @@ W tym przewodniku Szybki Start są potrzebne następujące aplikacje:
     | **Konfigurowanie punktu końcowego usługi** | Publiczne | [Portal](./howto-manage-vnet-using-portal.md) <br/> [Interfejs wiersza polecenia](./howto-manage-vnet-using-cli.md)|
     | **Konfigurowanie linku prywatnego** | Prywatne | [Portal](./howto-configure-privatelink-portal.md) <br/> [Interfejs wiersza polecenia](./howto-configure-privatelink-cli.md) |
 
-- [Tworzenie bazy danych i użytkownika niebędącego administratorem](/howto-create-users?tabs=single-server)
+- [Tworzenie bazy danych i użytkownika niebędącego administratorem](/azure/mysql/howto-create-users?tabs=single-server)
 - Zainstaluj najnowszą wersję języka PHP dla systemu operacyjnego
     - [PHP w macOS](https://secure.php.net/manual/install.macosx.php)
     - [PHP w systemie Linux](https://secure.php.net/manual/install.unix.php)
@@ -46,7 +46,7 @@ Informacje o połączeniu z serwerem bazy danych można uzyskać z Azure Portal,
 2. Przejdź do strony bazy danych Azure Database for MySQL. Możesz wyszukać i wybrać **Azure Database for MySQL**.
 :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/find-azure-mysql-in-portal.png" alt-text="Znajdź Azure Database for MySQL":::
 
-2. Wybierz serwer MySQL (na przykład **mydemoserver** ).
+2. Wybierz serwer MySQL (na przykład **mydemoserver**).
 3. Na stronie **Przegląd** Skopiuj w pełni kwalifikowaną nazwę serwera obok pozycji **Nazwa serwera** i nazwa użytkownika administratora obok **nazwy logowania administratora serwera**. Aby skopiować nazwę serwera lub hosta, umieść na niej wskaźnik myszy i wybierz ikonę **Kopiuj**.
 
 > [!IMPORTANT]

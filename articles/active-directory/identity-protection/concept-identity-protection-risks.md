@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32d9683012a5900569740080d61ac21b464a5cd4
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: d0da8755199645b12e9c6ed75a42881fe86e70b5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490614"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023041"
 ---
 # <a name="what-is-risk"></a>Co to jest ryzyko?
 
@@ -74,7 +74,7 @@ Te zagrożenia mogą być obliczane w czasie rzeczywistym lub obliczane w trybie
 
 ### <a name="risk-levels"></a>Poziomy ryzyka
 
-Ochrona tożsamości dzieli ryzyko na trzy warstwy: niski, średni i wysoki. 
+Ochrona tożsamości dzieli ryzyko na trzy warstwy: niski, średni i wysoki. Podczas konfigurowania [niestandardowych zasad ochrony tożsamości](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-policies#custom-conditional-access-policy)można także skonfigurować je do wyzwalania **bez żadnego poziomu ryzyka** . Żadne ryzyko nie oznacza, że nie ma żadnych aktywnych informacji o naruszeniu tożsamości użytkownika.
 
 Firma Microsoft nie udostępnia szczegółowych informacji o sposobie obliczania ryzyka, dlatego będziemy mieć pewność, że każdy z poziomów zapewnia wyższy poziom pewności, że użytkownik lub logowanie zostało naruszone. Na przykład inne wystąpienia nieznanych właściwości logowania użytkownika mogą nie być zagrożone jako zagrożenie dla innego użytkownika.
 

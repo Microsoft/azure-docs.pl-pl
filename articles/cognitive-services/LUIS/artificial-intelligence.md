@@ -6,12 +6,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 08/07/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 2586bf2d31ef28c662ad88bde3718541bb21a31c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39f73dd002091451ae832516d525499eae98564d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327208"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021375"
 ---
 # <a name="artificial-intelligence-in-language-understanding-luis"></a>Sztuczna inteligencja w Language Understanding (LUIS)
 
@@ -38,7 +38,7 @@ Przetwarzanie języka naturalnego jest dostępne dla aplikacji LUIS w następuj�
 * Konfigurowalne aspekty NLP w LUIS:
     * [Tokenizacji](luis-language-support.md#tokenization)
     * Morfologia za poorednictwem znaków diakrytycznych, interpunkcji i [ustawień interfejsu API](luis-reference-application-settings.md) formularzy programu Word
-* Wstępne lub końcowe przetwarzanie zapytania wypowiedź dostarczone przez inne [Cognitive Services](../Welcome.md) takie jak:
+* Wstępne lub końcowe przetwarzanie zapytania wypowiedź dostarczone przez inne [Cognitive Services](../what-are-cognitive-services.md) takie jak:
     * [Tłumaczenie](../translator/translator-info-overview.md)
 
 ## <a name="natural-language-understanding-nlu"></a>Interpretacja języka naturalnego (NLU)

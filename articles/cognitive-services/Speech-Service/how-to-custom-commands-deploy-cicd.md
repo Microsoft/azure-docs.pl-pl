@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: bd1ab5110313380c90e71ed161935c7274a845b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dda50a443babca88a0a650fde60df0744d0a1d2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839252"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021834"
 ---
 # <a name="continuous-deployment-with-azure-devops"></a>Ciągłe wdrażanie za pomocą usługi Azure DevOps
 
@@ -25,7 +25,7 @@ W tym artykule dowiesz się, jak skonfigurować ciągłe wdrażanie dla aplikacj
 > [!div class = "checklist"]
 > * Aplikacja poleceń niestandardowych do programowania (DEV)
 > * Aplikacja poleceń niestandardowych dla środowiska produkcyjnego (PROD)
-> * Zarejestruj się, aby uzyskać [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops)
+> * Zarejestruj się, aby uzyskać [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops)
 
 ## <a name="exportimportpublish"></a>Eksportuj/importuj/Publikuj
 
@@ -99,7 +99,7 @@ Skrypty są hostowane w [Cognitive Services Asystencie głosu — poleceniami ni
 
 ## <a name="deploy-from-source-code"></a>Wdróż z kodu źródłowego
 
-W przypadku, gdy chcesz zachować definicję aplikacji w repozytorium, udostępniamy skrypty dla wdrożeń z kodu źródłowego. Ponieważ skrypty są w bash, w przypadku korzystania z systemu Windows należy zainstalować [podsystem Linux](https://docs.microsoft.com/windows/wsl/install-win10).
+W przypadku, gdy chcesz zachować definicję aplikacji w repozytorium, udostępniamy skrypty dla wdrożeń z kodu źródłowego. Ponieważ skrypty są w bash, w przypadku korzystania z systemu Windows należy zainstalować [podsystem Linux](/windows/wsl/install-win10).
 
 Skrypty są hostowane w [Cognitive Services Asystencie głosu — poleceniami niestandardowymi](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/tree/master/custom-commands). Sklonuj skrypty znajdujące się w katalogu bash w repozytorium. Upewnij się, że utrzymywana jest taka sama ścieżka.
 

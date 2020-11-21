@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.custom: devx-track-python, devx-track-js
-ms.openlocfilehash: 41d7fe8e22b39d8755f86e5ee490aa6e7dff97fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cbe4d44f5e1c8b34a3d7bb9d05b9546f320b81c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330625"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023475"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Samouczek: Tworzenie aplikacji do kolby za pomocą usługi Azure Cognitive Services
 
@@ -64,7 +64,7 @@ Jak wspomniano wcześniej, będziesz potrzebować trzech kluczy subskrypcji dla 
 * Analiza tekstu
 * Usługi mowy
 
-Aby uzyskać instrukcje krok po kroku dotyczące tworzenia zasobów, użyj polecenia [Utwórz konto Cognitive Services w Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) .
+Aby uzyskać instrukcje krok po kroku dotyczące tworzenia zasobów, użyj polecenia [Utwórz konto Cognitive Services w Azure Portal](../cognitive-services-apis-create-account.md) .
 
 > [!IMPORTANT]
 > Na potrzeby tego samouczka Utwórz zasoby w regionie zachodnie stany USA. W przypadku korzystania z innego regionu należy dostosować podstawowy adres URL w każdym z plików języka Python.
@@ -475,7 +475,7 @@ Naciśnij **klawisze CTRL + c** , aby skasować aplikację, a następnie przejd�
 
 ## <a name="analyze-sentiment"></a>Analiza tonacji
 
-[Interfejs API analizy tekstu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) można użyć do przeprowadzenia analizy tonacji, wyodrębnienia kluczowych fraz z tekstu lub wykrycia języka źródłowego. W tej aplikacji będziemy używać analizy tonacji, aby określić, czy podany tekst jest dodatni, neutralny, czy ujemny. Interfejs API zwraca wynik liczbowy z zakresu od 0 do 1. Wyniki zbliżone do 1 oznaczają pozytywne tonacji, a wyniki zbliżone do 0 wskazują na ujemne tonacji.
+[Interfejs API analizy tekstu](../text-analytics/overview.md) można użyć do przeprowadzenia analizy tonacji, wyodrębnienia kluczowych fraz z tekstu lub wykrycia języka źródłowego. W tej aplikacji będziemy używać analizy tonacji, aby określić, czy podany tekst jest dodatni, neutralny, czy ujemny. Interfejs API zwraca wynik liczbowy z zakresu od 0 do 1. Wyniki zbliżone do 1 oznaczają pozytywne tonacji, a wyniki zbliżone do 0 wskazują na ujemne tonacji.
 
 W tej sekcji nastąpi kilka rzeczy:
 
@@ -659,7 +659,7 @@ Naciśnij **klawisze CTRL + c** , aby skasować aplikację, a następnie przejd�
 
 ## <a name="convert-text-to-speech"></a>Zamiana tekstu na mowę
 
-[Interfejs API zamiany tekstu na mowę](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech) umożliwia aplikacji Konwertowanie tekstu na rozpoznawanie mowy przez człowieka. Usługa obsługuje standardowe, neuronowych i niestandardowe głosy. Nasza przykładowa aplikacja używa kilku dostępnych głosów, aby zapoznać się z pełną listą, zobacz [obsługiwane języki](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech).
+[Interfejs API zamiany tekstu na mowę](../speech-service/text-to-speech.md) umożliwia aplikacji Konwertowanie tekstu na rozpoznawanie mowy przez człowieka. Usługa obsługuje standardowe, neuronowych i niestandardowe głosy. Nasza przykładowa aplikacja używa kilku dostępnych głosów, aby zapoznać się z pełną listą, zobacz [obsługiwane języki](../speech-service/language-support.md#text-to-speech).
 
 W tej sekcji nastąpi kilka rzeczy:
 
@@ -954,7 +954,7 @@ Przejdź do podanego adresu serwera. Wpisz tekst w obszarze wejściowym, wybierz
 > [!TIP]
 > Jeśli wprowadzone zmiany nie są wyświetlane lub aplikacja nie działa w oczekiwany sposób, spróbuj usunąć pamięć podręczną lub otworzyć okno prywatne/incognito.
 
-Oznacza to, że masz działającą aplikację, która wykonuje tłumaczenia, analizuje tonacji i tłumaczy mowę. Naciśnij **klawisze CTRL + c** , aby skasować aplikację. Upewnij się, że zapoznaj się z innymi [Cognitive Services platformy Azure](https://docs.microsoft.com/azure/cognitive-services/).
+Oznacza to, że masz działającą aplikację, która wykonuje tłumaczenia, analizuje tonacji i tłumaczy mowę. Naciśnij **klawisze CTRL + c** , aby skasować aplikację. Upewnij się, że zapoznaj się z innymi [Cognitive Services platformy Azure](../index.yml).
 
 ## <a name="get-the-source-code"></a>Uzyskiwanie kodu źródłowego
 
@@ -962,6 +962,6 @@ Kod źródłowy dla tego projektu jest dostępny w serwisie [GitHub](https://git
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dokumentacja usługi translator](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
+* [Dokumentacja usługi translator](./reference/v3-0-reference.md)
 * [Dokumentacja interfejsu API analizy tekstu](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
-* [Dokumentacja interfejsu API zamiany tekstu na mowę](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech)
+* [Dokumentacja interfejsu API zamiany tekstu na mowę](../speech-service/rest-text-to-speech.md)

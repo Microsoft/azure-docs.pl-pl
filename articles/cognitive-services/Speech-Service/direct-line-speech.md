@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 2b0bb997ecea55d25748152bab7bb6963d67657f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8c7e21b0784aacc85bd02e3c1702e1a710e76ab
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357645"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021885"
 ---
 # <a name="what-is-direct-line-speech"></a>Co to jest mowa Direct Line?
 
@@ -37,9 +37,9 @@ Oferujemy również Przewodniki Szybki Start zaprojektowane z założeniami szyb
 
 | Szybki start | Platforma | Dokumentacja interfejsu API |
 |------------|----------|---------------|
-| C#, PLATFORMY UWP | Windows | [Przeglądaj](https://aka.ms/csspeech/csharpref) |
-| Java | Windows, macOS, Linux | [Przeglądaj](https://aka.ms/csspeech/javaref) |
-| Java | Android | [Przeglądaj](https://aka.ms/csspeech/javaref) |
+| C#, PLATFORMY UWP | Windows | [Przeglądaj](/dotnet/api/microsoft.cognitiveservices.speech) |
+| Java | Windows, macOS, Linux | [Przeglądaj](/java/api/com.microsoft.cognitiveservices.speech) |
+| Java | Android | [Przeglądaj](/java/api/com.microsoft.cognitiveservices.speech) |
 
 ## <a name="sample-code"></a>Przykładowy kod
 
@@ -50,21 +50,21 @@ Przykładowy kod służący do tworzenia asystenta głosowego jest dostępny w w
 
 ## <a name="customization"></a>Dostosowywanie
 
-Asystentów głosowych utworzonych za pomocą usługi mowy mogą korzystać z pełnego zakresu opcji dostosowywania dostępnych na potrzeby [zamiany mowy na tekst](speech-to-text.md), zamiany [tekstu na mowę](text-to-speech.md)i [niestandardowego słowa kluczowego](speech-devices-sdk-create-kws.md).
+Asystentów głosowych utworzonych za pomocą usługi mowy mogą korzystać z pełnego zakresu opcji dostosowywania dostępnych na potrzeby [zamiany mowy na tekst](speech-to-text.md), zamiany [tekstu na mowę](text-to-speech.md)i [niestandardowego słowa kluczowego](./custom-keyword-basics.md).
 
 > [!NOTE]
-> Opcje dostosowywania różnią się w zależności od języka/ustawień regionalnych (zobacz [obsługiwane języki](supported-languages.md)).
+> Opcje dostosowywania różnią się w zależności od języka/ustawień regionalnych (zobacz [obsługiwane języki](./language-support.md)).
 
-Bezpośrednia obsługa mowy liniowej i skojarzonych z nią funkcji dla asystentów głosowych jest idealnym uzupełnieniem rozwiązania do obsługi [asystenta wirtualnego i szablonu przedsiębiorstwa](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Mimo że funkcja Direct line Speech może współdziałać z dowolnymi zgodnymi bot, te zasoby zapewniają linię bazową wielokrotnego użytku dla środowisk komunikacji o wysokiej jakości, a także często wspierane umiejętności i modele umożliwiające szybkie rozpoczęcie pracy.
+Bezpośrednia obsługa mowy liniowej i skojarzonych z nią funkcji dla asystentów głosowych jest idealnym uzupełnieniem rozwiązania do obsługi [asystenta wirtualnego i szablonu przedsiębiorstwa](/azure/bot-service/bot-builder-enterprise-template-overview). Mimo że funkcja Direct line Speech może współdziałać z dowolnymi zgodnymi bot, te zasoby zapewniają linię bazową wielokrotnego użytku dla środowisk komunikacji o wysokiej jakości, a także często wspierane umiejętności i modele umożliwiające szybkie rozpoczęcie pracy.
 
 ## <a name="reference-docs"></a>Dokumentacja dokumentacji
 
-* [Zestaw SDK rozpoznawania mowy](speech-sdk-reference.md)
-* [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
+* [Zestaw SDK rozpoznawania mowy](./speech-sdk.md)
+* [Azure Bot Service](/azure/bot-service/?view=azure-bot-service-4.0)
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Uzyskaj bezpłatnie klucz subskrypcji usługi mowy](overview.md#try-the-speech-service-for-free)
 * [Pobieranie zestawu Speech SDK](speech-sdk.md)
-* [Tworzenie i wdrażanie podstawowego bota](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+* [Tworzenie i wdrażanie podstawowego bota](/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 * [Pobierz rozwiązanie dla Asystenta wirtualnego i szablonu przedsiębiorstwa](https://github.com/Microsoft/AI)

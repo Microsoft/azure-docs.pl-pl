@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 03566dccbb453aa06a2b5f86bd02b86d85d61b28
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0fe9b3ddaee41802ced30e1898b46cefa2566771
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91322057"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023194"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Co to jest Windows Virtual Desktop?
 
@@ -71,7 +71,7 @@ Obsługiwane są następujące systemy operacyjne, dlatego należy upewnić się
 
 Aby zapewnić obsługę pulpitu wirtualnego systemu Windows, Twoja infrastruktura wymaga następujących czynności:
 
-* [Azure Active Directory](/azure/active-directory/).
+* [Azure Active Directory](../active-directory/index.yml).
 * Active Directory systemu Windows Server synchronizacja z Azure Active Directory. Tę konfigurację można skonfigurować przy użyciu Azure AD Connect (dla organizacji hybrydowych) lub Azure AD Domain Services (dla organizacji hybrydowej lub w chmurze).
   * Windows Server AD w synchronizacji z Azure Active Directory. Użytkownik pochodzi z systemu Windows Server AD, a maszyna wirtualna z systemem Windows jest dołączona do domeny usługi AD systemu Windows Server.
   * Windows Server AD w synchronizacji z Azure Active Directory. Użytkownik pochodzi z systemu Windows Server AD, a maszyna wirtualna z systemem Windows jest przyłączona do domeny Azure AD Domain Services.
@@ -85,7 +85,7 @@ Wymagania użytkownika dotyczące nawiązywania połączenia z pulpitem wirtualn
 
 Maszyny wirtualne platformy Azure tworzone dla pulpitu wirtualnego systemu Windows muszą być:
 
-* [Standardowe przyłączone do domeny](../active-directory-domain-services/active-directory-ds-comparison.md) lub [hybrydowe usługi AD](../active-directory/devices/hybrid-azuread-join-plan.md). Maszyny wirtualne nie mogą być przyłączone do usługi Azure AD.
+* [Standardowe przyłączone do domeny](../active-directory-domain-services/compare-identity-solutions.md) lub [hybrydowe usługi AD](../active-directory/devices/hybrid-azuread-join-plan.md). Maszyny wirtualne nie mogą być przyłączone do usługi Azure AD.
 * Uruchamianie jednego z następujących [obsługiwanych obrazów systemu operacyjnego](#supported-virtual-machine-os-images).
 
 >[!NOTE]
@@ -101,7 +101,7 @@ W celu uzyskania optymalnej wydajności upewnij się, że sieć spełnia następ
 * Ruch sieciowy może przepływać poza granicami kraju/regionu, gdy maszyny wirtualne, które obsługują komputery stacjonarne i aplikacje, łączą się z usługą zarządzania.
 * Aby zoptymalizować pod kątem wydajności sieci, zalecamy zapoznanie się z maszynami wirtualnymi hosta sesji w tym samym regionie platformy Azure co usługa zarządzania.
 
-Typową konfigurację architektury pulpitu wirtualnego systemu Windows dla przedsiębiorstwa można zobaczyć w naszej [architekturze zawiera](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
+Typową konfigurację architektury pulpitu wirtualnego systemu Windows dla przedsiębiorstwa można zobaczyć w naszej [architekturze zawiera](/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
 
 ## <a name="supported-remote-desktop-clients"></a>Obsługiwani klienci Pulpit zdalny
 

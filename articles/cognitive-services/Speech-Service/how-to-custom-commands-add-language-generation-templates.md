@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 0cbc57922b31f1b3879bb2cad8a988a1ba4cc368
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40c5e3474d3992108ef61d34e745bc63c1f7a713
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85307829"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020950"
 ---
 # <a name="add-language-generation-templates-for-speech-responses"></a>Dodawanie szablonów generowania języka na potrzeby odpowiedzi mowy
 
@@ -34,7 +34,7 @@ Należy wykonać czynności opisane w następujących artykułach:
 
 ## <a name="language-generation-templates-overview"></a>Omówienie szablonów generowania języka
 
-Szablony poleceń niestandardowych są oparte na [szablonach LG](https://aka.ms/speech/cc-lg-format)BotFramework. Ponieważ polecenia niestandardowe tworzą nowy szablon LG w razie potrzeby (czyli w przypadku odpowiedzi na mowę w parametrach lub akcjach), nie trzeba określać nazwy szablonu LG. Dlatego zamiast definiować szablon jako:
+Szablony poleceń niestandardowych są oparte na [szablonach LG](/azure/bot-service/file-format/bot-builder-lg-file-format#templates)BotFramework. Ponieważ polecenia niestandardowe tworzą nowy szablon LG w razie potrzeby (czyli w przypadku odpowiedzi na mowę w parametrach lub akcjach), nie trzeba określać nazwy szablonu LG. Dlatego zamiast definiować szablon jako:
 
  ```
     # CompletionAction
@@ -51,7 +51,7 @@ Wystarczy zdefiniować treść szablonu bez nazwy w następujący sposób.
 
 Ta zmiana wprowadza zmiany do odpowiedzi na mowę wysyłanych do klienta. Tak więc w przypadku tego samego wypowiedź, odpowiednia odpowiedź mowy byłaby losowo wybierana z dostępnych opcji.
 
-Korzystanie z szablonów LG pozwala także definiować złożone odpowiedzi na mowę dla poleceń przy użyciu wyrażeń adaptacyjnych. Aby uzyskać więcej informacji, można zapoznać się z [formatem szablonów LG](https://aka.ms/speech/cc-lg-format) . Polecenia niestandardowe domyślnie obsługują wszystkie funkcje z następującymi niewielkimi różnicami:
+Korzystanie z szablonów LG pozwala także definiować złożone odpowiedzi na mowę dla poleceń przy użyciu wyrażeń adaptacyjnych. Aby uzyskać więcej informacji, można zapoznać się z [formatem szablonów LG](/azure/bot-service/file-format/bot-builder-lg-file-format#templates) . Polecenia niestandardowe domyślnie obsługują wszystkie funkcje z następującymi niewielkimi różnicami:
 
 * W jednostkach szablonów LG są reprezentowane jako $ {EntityName}. W poleceniach niestandardowych nie używamy jednostek, ale parametry mogą być używane jako zmienne z jedną z tych reprezentacji $ {ParameterName} lub {ParameterName}
 * Tworzenie i rozszerzanie szablonu nie jest obsługiwane w poleceniach niestandardowych. Dzieje się tak dlatego, że nigdy nie edytujesz `.lg` pliku bezpośrednio, ale tylko odpowiedzi automatycznie utworzonych szablonów.
@@ -110,8 +110,8 @@ Innym sposobem dostosowania odpowiedzi na polecenia niestandardowe jest wybranie
 > ![Przykładowe zdania z parametrami](media/custom-commands/select-custom-voice.png)
 
 > [!NOTE]
-> - Dla **publicznych głosów** **typy neuronowych** są dostępne tylko dla określonych regionów. Aby sprawdzić dostępność, zobacz [głosy standardowe i neuronowych według regionu/punktu końcowego](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).
-> - W przypadku **niestandardowych głosów**można je utworzyć na stronie niestandardowego projektu głosu. Zobacz Rozpoczynanie [pracy z niestandardowym głosem](./how-to-custom-voice.md).
+> - Dla **publicznych głosów** **typy neuronowych** są dostępne tylko dla określonych regionów. Aby sprawdzić dostępność, zobacz [głosy standardowe i neuronowych według regionu/punktu końcowego](./regions.md#standard-and-neural-voices).
+> - W przypadku **niestandardowych głosów** można je utworzyć na stronie niestandardowego projektu głosu. Zobacz Rozpoczynanie [pracy z niestandardowym głosem](./how-to-custom-voice.md).
 
 Teraz aplikacja będzie odpowiadać w wybranym głosowaniu zamiast domyślnego głosu.
 

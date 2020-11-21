@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/15/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: f1ea8d16a441230323b4f0213229d223a0b035bc
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8dbf3b5de4b908eb831158b73b2b17472bc4895e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778637"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020967"
 ---
 # <a name="what-are-the-comparisons-between-azure-cdn-product-features"></a>Jakie są porównania między funkcjami produktu Azure CDN?
 
@@ -23,7 +23,7 @@ Istnieją cztery produkty Azure Content Delivery Network (CDN):
 * **Azure CDN Standard od firmy Microsoft**
 * **Azure CDN Standard z Akamai**
 * **Azure CDN Standard z Verizon**
-* **Azure CDN Premium od Verizon** . 
+* **Azure CDN Premium od Verizon**. 
 
 W poniższej tabeli przedstawiono porównanie funkcji dostępnych w poszczególnych produktach.
 
@@ -38,7 +38,7 @@ W poniższej tabeli przedstawiono porównanie funkcji dostępnych w poszczególn
 | Zmień typ optymalizacji | |**&#x2713;** | | |
 | Port źródła |Wszystkie porty TCP |[Dozwolone porty pochodzenia](/previous-versions/azure/mt757337(v%3Dazure.100)#allowed-origin-ports) |Wszystkie porty TCP |Wszystkie porty TCP |
 | [Globalne równoważenia obciążenia serwera (usługa GSLB)](../traffic-manager/traffic-manager-load-balancing-azure.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Szybkie przeczyszczanie](cdn-purge-endpoint.md)  | **&#x2713;** |**&#x2713;** , Przeczyść wszystkie i Przeczyść symbole wieloznaczne nie są obecnie obsługiwane przez Azure CDN z Akamai |**&#x2713;** |**&#x2713;** |
+| [Szybkie przeczyszczanie](cdn-purge-endpoint.md)  | **&#x2713;** |**&#x2713;**, Przeczyść wszystkie i Przeczyść symbole wieloznaczne nie są obecnie obsługiwane przez Azure CDN z Akamai |**&#x2713;** |**&#x2713;** |
 | [Wstępne ładowanie zasobów](cdn-preload-endpoint.md)  |  | |**&#x2713;** |**&#x2713;** |
 | Ustawienia pamięci podręcznej/nagłówka (przy użyciu [reguł buforowania](cdn-caching-rules.md))  |**&#x2713;** przy użyciu [aparatu reguł standardowych](cdn-standard-rules-engine.md)  |**&#x2713;** |**&#x2713;** | |
 | Dostosowywalny, oparty na regułach aparat dostarczania zawartości |**&#x2713;** przy użyciu [aparatu reguł standardowych](cdn-standard-rules-engine.md)  | | |**&#x2713;** przy użyciu [aparatu reguł](./cdn-verizon-premium-rules-engine.md) |
@@ -51,7 +51,7 @@ W poniższej tabeli przedstawiono porównanie funkcji dostępnych w poszczególn
 ||||
  **Zabezpieczenia** | **Microsoft — Standardowa** | **Akamai — Standardowa** | **Verizon — Standardowa** | **Verizon — Premium** | 
 | Obsługa protokołu HTTPS z punktem końcowym usługi CDN | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Protokół HTTPS domen niestandardowych](cdn-custom-ssl.md)  | **&#x2713;** | **&#x2713;** , wymaga bezpośredniego rekordu CNAME do włączenia |**&#x2713;** |**&#x2713;** |
+| [Protokół HTTPS domen niestandardowych](cdn-custom-ssl.md)  | **&#x2713;** | **&#x2713;**, wymaga bezpośredniego rekordu CNAME do włączenia |**&#x2713;** |**&#x2713;** |
 | [Obsługa niestandardowych nazw domen](cdn-map-content-to-custom-domain.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Filtrowanie geograficzne](cdn-restrict-access-by-country.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Uwierzytelnianie przy użyciu tokenów](cdn-token-auth.md)  |  |  |  |**&#x2713;**| 
@@ -72,11 +72,11 @@ W poniższej tabeli przedstawiono porównanie funkcji dostępnych w poszczególn
 | Łatwa integracja z usługami platformy Azure, takimi jak [Storage](cdn-create-a-storage-account-with-cdn.md), [Web Apps](cdn-add-to-web-app.md) i [Media Services](../media-services/previous/media-services-portal-manage-streaming-endpoints.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Zarządzanie za pomocą [interfejsu API REST](/rest/api/cdn/), [platformy .NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md)lub [programu PowerShell](cdn-manage-powershell.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Typy kompresji MIME](./cdn-improve-performance.md)  |Tylko domyślne |Konfigurowalne |Konfigurowalne  |Konfigurowalne  |
-| Kodowania kompresji  |gzip, brotli |gzip |gzip, Wklęśnięcie, BZIP2, brotili  |gzip, Wklęśnięcie, BZIP2, brotili  |
+| Kodowania kompresji  |gzip, brotli |gzip |gzip, Wklęśnięcie, BZIP2, brotli  |gzip, Wklęśnięcie, BZIP2, brotli  |
 
 ## <a name="migration"></a>Migracja
 
-Aby uzyskać informacje na temat migracji profilu **Azure CDN Standard from Verizon** do profilu **Azure CDN Premium from Verizon** , zobacz artykuł [Migrate an Azure CDN profile from Standard Verizon to Premium Verizon (Migrowanie profilu usługi Azure CDN firmy Verizon z warstwy Standardowa do warstwy Premium)](cdn-migrate.md). 
+Aby uzyskać informacje na temat migracji profilu **Azure CDN Standard from Verizon** do profilu **Azure CDN Premium from Verizon**, zobacz artykuł [Migrate an Azure CDN profile from Standard Verizon to Premium Verizon (Migrowanie profilu usługi Azure CDN firmy Verizon z warstwy Standardowa do warstwy Premium)](cdn-migrate.md). 
 
 > [!NOTE]
 > Istnieje ścieżka uaktualnienia ze standardowego Verizon do warstwy Premium Verizon, w tej chwili nie istnieje mechanizm konwersji między innymi produktami.

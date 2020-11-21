@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: dc39c1e43580c5cf302e85664783dba4509889af
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d3033af32229be238831740c11a1112513259a43
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842638"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023160"
 ---
 # <a name="security-best-practices"></a>Najlepsze rozwiązania dotyczące zabezpieczeń
 
@@ -62,7 +62,7 @@ Aby dowiedzieć się więcej, zobacz Dołączanie [subskrypcji platformy Azure d
 
 ### <a name="improve-your-secure-score"></a>Poprawianie wskaźnika bezpieczeństwa
 
-Metoda Secure Score zawiera zalecenia i najlepsze rozwiązanie w zakresie poprawy ogólnego bezpieczeństwa. Zalecenia te mają na celu ułatwienie wyboru, które najważniejsze są najważniejsze, a opcje szybkiej naprawy ułatwiają szybkie rozwiązywanie potencjalnych luk w zabezpieczeniach. Te zalecenia również są aktualizowane w miarę upływu czasu, dzięki czemu można uzyskać aktualną obsługę bezpieczeństwa środowiska. Aby dowiedzieć się więcej, zobacz [ulepszanie bezpiecznego oceny w Azure Security Center](../security-center/security-center-secure-score.md).
+Metoda Secure Score zawiera zalecenia i najlepsze rozwiązanie w zakresie poprawy ogólnego bezpieczeństwa. Zalecenia te mają na celu ułatwienie wyboru, które najważniejsze są najważniejsze, a opcje szybkiej naprawy ułatwiają szybkie rozwiązywanie potencjalnych luk w zabezpieczeniach. Te zalecenia również są aktualizowane w miarę upływu czasu, dzięki czemu można uzyskać aktualną obsługę bezpieczeństwa środowiska. Aby dowiedzieć się więcej, zobacz [ulepszanie bezpiecznego oceny w Azure Security Center](../security-center/secure-score-security-controls.md).
 
 ## <a name="windows-virtual-desktop-security-best-practices"></a>Najlepsze rozwiązania w zakresie zabezpieczeń pulpitu wirtualnego systemu Windows
 
@@ -74,13 +74,13 @@ Wymaganie uwierzytelniania wieloskładnikowego dla wszystkich użytkowników i a
 
 ### <a name="enable-conditional-access"></a>Włącz dostęp warunkowy
 
-Włączenie [dostępu warunkowego](../active-directory/conditional-access/best-practices.md) umożliwia zarządzanie ryzykiem przed udzieleniem użytkownikom dostępu do środowiska pulpitu wirtualnego systemu Windows. W przypadku podejmowania decyzji o tym, którzy użytkownicy mają udzielić dostępu, zalecamy także rozważenie, kto to użytkownik, w jaki sposób loguje się i które urządzenie używa.
+Włączenie [dostępu warunkowego](../active-directory/conditional-access/overview.md) umożliwia zarządzanie ryzykiem przed udzieleniem użytkownikom dostępu do środowiska pulpitu wirtualnego systemu Windows. W przypadku podejmowania decyzji o tym, którzy użytkownicy mają udzielić dostępu, zalecamy także rozważenie, kto to użytkownik, w jaki sposób loguje się i które urządzenie używa.
 
 ### <a name="collect-audit-logs"></a>Zbierz dzienniki inspekcji
 
 Włączenie zbierania dzienników inspekcji umożliwia wyświetlenie aktywności użytkowników i administratorów związanych z pulpitem wirtualnym systemu Windows. Przykłady dzienników inspekcji kluczy są następujące:
 
--   [Dziennik aktywności platformy Azure](../azure-monitor/platform/activity-log-collect.md)
+-   [Dziennik aktywności platformy Azure](../azure-monitor/platform/activity-log.md)
 -   [Azure Active Directory dziennik aktywności](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 -   [Hosty sesji](../azure-monitor/platform/agent-windows.md)
@@ -93,7 +93,7 @@ Wybierając model wdrażania, można udostępnić użytkownikom zdalnym dostęp 
 
 ### <a name="monitor-usage-with-azure-monitor"></a>Monitoruj użycie przy użyciu Azure Monitor
 
-Monitoruj użycie i dostępność usługi pulpitu wirtualnego systemu Windows za pomocą [Azure monitor](https://azure.microsoft.com/services/monitor/). Należy rozważyć utworzenie [alertów kondycji usługi](../service-health/alerts-activity-log-service-notifications.md) dla usługi pulpitów wirtualnych systemu Windows w celu otrzymywania powiadomień w przypadku wystąpienia zdarzenia wpływającego na usługę.
+Monitoruj użycie i dostępność usługi pulpitu wirtualnego systemu Windows za pomocą [Azure monitor](https://azure.microsoft.com/services/monitor/). Należy rozważyć utworzenie [alertów kondycji usługi](../service-health/alerts-activity-log-service-notifications-portal.md) dla usługi pulpitów wirtualnych systemu Windows w celu otrzymywania powiadomień w przypadku wystąpienia zdarzenia wpływającego na usługę.
 
 ## <a name="session-host-security-best-practices"></a>Najlepsze rozwiązania w zakresie zabezpieczeń hosta sesji
 

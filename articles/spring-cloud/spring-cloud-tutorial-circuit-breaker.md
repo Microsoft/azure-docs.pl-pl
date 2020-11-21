@@ -7,18 +7,17 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 0edcdbfec07c032f095cc03eb91be8cf0785b58a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 53884c2f6d9f2e8cbb5676e9ac10e8fb15ed919e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844850"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024283"
 ---
 # <a name="use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>Korzystanie z pulpitu nawigacyjnego wyłącznika ze sprężyną Azure
 
 **Ten artykuł ma zastosowanie do:** ✔️ Java
 
-::: zone pivot="programming-language-java"
 [Turbina Netflix Cloud w chmurze](https://github.com/Netflix/Turbine) jest szeroko używana do agregowania wielu strumieni metryk [Hystrix](https://github.com/Netflix/Hystrix) , dzięki czemu strumienie mogą być monitorowane w jednym widoku przy użyciu pulpitu nawigacyjnego Hystrix. W tym samouczku pokazano, jak używać ich w chmurze Azure wiosennej.
 > [!NOTE]
 > Netflix Hystrix jest szeroko używany w wielu istniejących aplikacjach w chmurze, ale nie jest już aktywnym programowaniem. W przypadku tworzenia nowego projektu należy użyć zamiast nich aplikacji wyłącznika, takich jak [resilience4j](https://github.com/resilience4j/resilience4j). Inaczej niż w przypadku platformy turbin pokazanej w tym samouczku, Nowa struktura wyłącznika chmurowego sprężyny łączy wszystkie implementacje potoku danych metryk w Micrometer. Nadal pracujemy nad obsługą micrometer w chmurze Azure wiosennej, dlatego nie będzie ona objęta tym samouczkiem.
@@ -84,4 +83,4 @@ Jako aplikacja internetowa Hystrix pulpit nawigacyjny powinien działać na `tes
 ## <a name="next-steps"></a>Następne kroki
 * [Inicjowanie obsługi administracyjnej wystąpienia usługi w interfejsie wiersza polecenia platformy Azure](./spring-cloud-quickstart.md#provision-an-instance-of-azure-spring-cloud)
 * [Przygotowywanie aplikacji ze sprężyną Java do wdrożenia w chmurze Azure wiosennej](./spring-cloud-tutorial-prepare-app-deployment.md)
-::: zone-end
+

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: cb673efb3e5d14e72e945bcf8c23d57495823720
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 56d5eb981aa02d9da83973d49e8df79fcd9c7e9c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394955"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021018"
 ---
 # <a name="securing-azure-sql-edge"></a>Zabezpieczanie usługi Azure SQL Edge
 
@@ -34,14 +34,14 @@ Implementacja zabezpieczeń platformy rozpoczyna się od utrzymywania nieautoryz
 - Określanie i ograniczanie portów hosta, które są używane na potrzeby usługi Azure SQL Edge
 - Upewnienie się, że odpowiednia kontrola dostępu jest stosowana do wszystkich woluminów danych, które obsługują dane usługi Azure SQL Edge. 
 
-Aby uzyskać więcej informacji na temat protokołów sieciowych i punktów końcowych usługi Azure SQL Edge, odwołuje się do nich, [protokoły sieciowe i punkty końcowe TDS](//previous-versions/sql/sql-server-2008-r2/ms191220(v=sql.105)).
+Aby uzyskać więcej informacji na temat protokołów sieciowych i punktów końcowych usługi Azure SQL Edge, odwołuje się do nich, [protokoły sieciowe i punkty końcowe TDS](/previous-versions/sql/sql-server-2008-r2/ms191220(v=sql.105)).
 
 ## <a name="authentication-and-authorization"></a>Uwierzytelnianie i autoryzacja 
 
 ### <a name="authentication"></a>Authentication  
 Uwierzytelnianie to proces potwierdzania tożsamości użytkownika. Usługa Azure SQL Edge obecnie obsługuje tylko `SQL Authentication` mechanizm.
 
-- *Uwierzytelnianie SQL* :
+- *Uwierzytelnianie SQL*:
 
     Uwierzytelnianie SQL dotyczy uwierzytelnienia użytkownika podczas nawiązywania połączenia z usługą Azure SQL Edge przy użyciu nazwy użytkownika i hasła. Podczas wdrażania programu SQL Edge należy określić hasło logowania do programu SQL **sa** . Następnie administrator serwera może utworzyć dodatkowe identyfikatory logowania i użytkowników SQL, które umożliwią użytkownikom łączenie się przy użyciu nazwy użytkownika i hasła.
 

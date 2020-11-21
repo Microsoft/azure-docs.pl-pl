@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: 105faf796583eb0f272eea7a316648993fdafd0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 680b3c5a9548fa06d0139bd441b5583c27427a77
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653778"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020780"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Wizualizuj dane z Azure Time Series Insights w Power BI
 
@@ -32,7 +32,7 @@ Pamiętaj o zarejestrowaniu się w celu uzyskania [bezpłatnej subskrypcji platf
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Pobierz i zainstaluj najnowszą wersję programu [Power BI Desktop](https://powerbi.microsoft.com/downloads/)
-* Posiadanie lub tworzenie [środowiska Azure Time Series Insights Gen2](time-series-insights-update-how-to-manage.md)
+* Posiadanie lub tworzenie [środowiska Azure Time Series Insights Gen2](./how-to-provision-manage.md)
 
 > [!IMPORTANT]
 >
@@ -69,7 +69,7 @@ Aby rozpocząć:
        > [!NOTE]
        > Istnieje limit liczby zdarzeń 250 000 dla danych na poziomie nieprzetworzonych zdarzeń.
 
-       [![Łączone](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
+       [![Połącz](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
 
    1. Jeśli środowisko Azure Time Series Insights nie zostało skonfigurowane z **magazynem ciepłym**, zostanie wyświetlone ostrzeżenie.
 
@@ -94,7 +94,7 @@ Aby rozpocząć:
 
     [![Wybierz pozycję Utwórz zapytanie niestandardowe](media/how-to-connect-power-bi/confirm-the-connection.png)](media/how-to-connect-power-bi/confirm-the-connection.png#lightbox)
 
-1. W menu rozwijanym w obszarze **Źródło danych**wybierz polecenie **Utwórz zapytanie niestandardowe**. Wklej ze schowka do opcjonalnego pola **zapytania niestandardowego (opcjonalnie)** , a następnie naciśnij przycisk **OK**.
+1. W menu rozwijanym w obszarze **Źródło danych** wybierz polecenie **Utwórz zapytanie niestandardowe**. Wklej ze schowka do opcjonalnego pola **zapytania niestandardowego (opcjonalnie)** , a następnie naciśnij przycisk **OK**.
 
     [![Przekaż zapytanie niestandardowe i wybierz pozycję OK](media/how-to-connect-power-bi/custom-query-load.png)](media/how-to-connect-power-bi/custom-query-load.png#lightbox)  
 
@@ -130,7 +130,7 @@ Po utworzeniu raportu można go opublikować w usłudze Power BI Reporting Servi
 
 ## <a name="advanced-editing"></a>Edycja zaawansowana
 
-Jeśli zestaw danych został już załadowany w Power BI ale chcesz zmodyfikować zapytanie (takie jak parametry daty/godziny lub identyfikatora środowiska), możesz to zrobić za pomocą funkcji Edytor zaawansowany Power BI. Zapoznaj się z [dokumentacją Power BI](https://docs.microsoft.com/power-bi/desktop-query-overview) , aby dowiedzieć się więcej.
+Jeśli zestaw danych został już załadowany w Power BI ale chcesz zmodyfikować zapytanie (takie jak parametry daty/godziny lub identyfikatora środowiska), możesz to zrobić za pomocą funkcji Edytor zaawansowany Power BI. Zapoznaj się z [dokumentacją Power BI](/power-bi/desktop-query-overview) , aby dowiedzieć się więcej.
 
 Przegląd:
 
@@ -146,6 +146,6 @@ Interfejs będzie teraz odzwierciedlać wymagane zmiany, które zostały zastoso
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Zapoznaj się z tematem [Power BI pojęć dotyczących łącznika](https://docs.microsoft.com/power-bi/desktop-query-overview) Azure Time Series Insights.
+* Zapoznaj się z tematem [Power BI pojęć dotyczących łącznika](/power-bi/desktop-query-overview) Azure Time Series Insights.
 
-* Dowiedz się więcej o [Power BI pulpicie](https://docs.microsoft.com/power-bi/desktop-query-overview).
+* Dowiedz się więcej o [Power BI pulpicie](/power-bi/desktop-query-overview).

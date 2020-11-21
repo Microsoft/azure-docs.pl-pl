@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 61c31b24b01b40da4d73a308a4f304f6ff242e41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 729e22f8ad94d2119d0f3f3e9fc474cc83a493a8
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88691415"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023075"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Wdrażanie narzędzia diagnostycznego pulpitu wirtualnego systemu Windows (klasycznego)
 
@@ -94,9 +94,9 @@ Aby uruchomić skrypt programu PowerShell:
 2.  Przejdź do [repozytorium RDS-templates GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) i uruchom skrypt **CreateLogAnalyticsWorkspaceforDiagnostics.ps1** w programie PowerShell.
 3. Wprowadź następujące wartości parametrów:
 
-    - W polu **ResourceGroupName**wprowadź nazwę grupy zasobów.
-    - W przypadku **LogAnalyticsWorkspaceName**wprowadź unikatową nazwę obszaru roboczego log Analytics.
-    - W polu **Lokalizacja**wprowadź region platformy Azure, którego używasz.
+    - W polu **ResourceGroupName** wprowadź nazwę grupy zasobów.
+    - W przypadku **LogAnalyticsWorkspaceName** wprowadź unikatową nazwę obszaru roboczego log Analytics.
+    - W polu **Lokalizacja** wprowadź region platformy Azure, którego używasz.
     - Wprowadź **Identyfikator subskrypcji platformy Azure**, który można znaleźć w Azure Portal w obszarze **subskrypcje**.
 
 4. Wprowadź poświadczenia użytkownika z dostępem delegowanego administratora.
@@ -121,7 +121,7 @@ Poniżej przedstawiono sposób ręcznego konfigurowania zalecanych liczników wy
     -   Informacje o procesorze ( \* ) \\ czas procesora
     -   Opóźnienie wejściowe użytkownika na sesję ( \* ) \\ maksymalne opóźnienie wejściowe
 
-Dowiedz się więcej o licznikach wydajności w [źródłach danych wydajności systemu Windows i Linux w Azure monitor](/azure/azure-monitor/platform/data-sources-performance-counters).
+Dowiedz się więcej o licznikach wydajności w [źródłach danych wydajności systemu Windows i Linux w Azure monitor](../../azure-monitor/platform/data-sources-performance-counters.md).
 
 >[!NOTE]
 >Wszystkie skonfigurowane dodatkowe liczniki nie będą wyświetlane w samym narzędziu diagnostyki. Aby pojawił się w narzędziu diagnostycznym, należy skonfigurować plik konfiguracyjny narzędzia. Instrukcje dotyczące sposobu wykonania tej czynności z zaawansowaną administracją będą dostępne w serwisie GitHub w późniejszym terminie.
@@ -144,7 +144,7 @@ Aby upewnić się, że rejestracja aplikacji ma uprawnienia interfejsu API:
 Aby upewnić się, że obszar roboczy Log Analytics ma wstępnie skonfigurowane liczniki wydajności systemu Windows:
 
 1. W [Azure Portal](https://portal.azure.com/)przejdź do **obszaru log Analytics obszary robocze** , aby przejrzeć skonfigurowane liczniki wydajności systemu Windows.
-2. W obszarze **Ustawienia**wybierz pozycję **Ustawienia zaawansowane**.
+2. W obszarze **Ustawienia** wybierz pozycję **Ustawienia zaawansowane**.
 3. Następnie przejdź do pozycji **dane**  >  **liczniki wydajności systemu Windows**.
 4. Upewnij się, że następujące liczniki są wstępnie skonfigurowane:
 
@@ -191,7 +191,7 @@ Aby ustawić identyfikator URI przekierowania:
 4.  W lewym panelu w obszarze Zarządzaj wybierz pozycję **uwierzytelnianie**.
 5.  Wprowadź żądany identyfikator URI przekierowania do pola tekstowego **Identyfikator URI przekierowania** , a następnie wybierz pozycję **Zapisz** w lewym górnym rogu menu.
 6. W menu rozwijanym w obszarze Typ wybierz pozycję **Sieć Web** .
-7. Wprowadź adres URL na stronie Przegląd aplikacji i Dodaj **/Security/SignIn-callback** na końcu. Przykład: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
+7. Wprowadź adres URL na stronie Przegląd aplikacji i Dodaj **/Security/SignIn-callback** na końcu. Na przykład: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
    > [!div class="mx-imgBorder"]
    > ![Strona URI przekierowania](../media/redirect-uri-page.png)
@@ -204,7 +204,7 @@ Aby ustawić identyfikator URI przekierowania:
 
 Przed udostępnieniem narzędzi diagnostycznych użytkownikom upewnij się, że mają one następujące uprawnienia:
 
-- Użytkownicy potrzebują dostępu do odczytu usługi log Analytics. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z rolami, uprawnieniami i zabezpieczeniami przy użyciu Azure monitor](/azure/azure-monitor/platform/roles-permissions-security).
+- Użytkownicy potrzebują dostępu do odczytu usługi log Analytics. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z rolami, uprawnieniami i zabezpieczeniami przy użyciu Azure monitor](../../azure-monitor/platform/roles-permissions-security.md).
 -  Użytkownicy muszą również mieć dostęp do odczytu dla dzierżawy pulpitu wirtualnego systemu Windows (rola czytnika usług pulpitu zdalnego). Aby uzyskać więcej informacji, zobacz [delegowany dostęp w programie Virtual Desktop systemu Windows](delegated-access-virtual-desktop-2019.md).
 
 Należy również nadać użytkownikom następujące informacje:

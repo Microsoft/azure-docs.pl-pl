@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6dcd2005971927de30ca96173cb2bdb063e46663
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8578f8aef779ff80f3965fc21b24b785f11226d0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397438"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024147"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Przekazywanie danych zadania usługi Azure Automation do dzienników usługi Azure Monitor
 
@@ -58,7 +58,7 @@ Jeśli masz więcej niż jedno konto usługi Automation lub obszar roboczy w dan
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. W Azure Portal wybierz konto usługi Automation na stronie **konta usługi Automation** .
-1. Na stronie wybranego konta usługi Automation w obszarze **Ustawienia konta**wybierz pozycję **Właściwości**.
+1. Na stronie wybranego konta usługi Automation w obszarze **Ustawienia konta** wybierz pozycję **Właściwości**.
 1. Na stronie **Właściwości** Zanotuj wymienione poniżej szczegóły.
 
     ![Właściwości konta usługi Automation](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
@@ -177,7 +177,7 @@ AzureDiagnostics
 
 ### <a name="filter-job-status-output-converted-into-a-json-object"></a>Filtrowanie danych wyjściowych stanu zadania konwertowane na obiekt JSON
 
-Ostatnio zmieniono zachowanie sposobu zapisywania danych dziennika usługi Automation w `AzureDiagnostics` tabeli w usłudze log Analytics, gdzie nie powoduje już podziału właściwości JSON na osobne pola. Jeśli element Runbook został skonfigurowany do formatowania obiektów w strumieniu danych wyjściowych w formacie JSON jako oddzielnych kolumn, należy ponownie skonfigurować zapytania, aby przeanalizować to pole do obiektu JSON w celu uzyskania dostępu do tych właściwości. Jest to realizowane za pomocą [parseJSON](../azure-monitor/log-query/json-data-structures.md#parsejson) , aby uzyskać dostęp do określonego elementu JSON w znanej ścieżce.
+Ostatnio zmieniono zachowanie sposobu zapisywania danych dziennika usługi Automation w `AzureDiagnostics` tabeli w usłudze log Analytics, gdzie nie powoduje już podziału właściwości JSON na osobne pola. Jeśli element Runbook został skonfigurowany do formatowania obiektów w strumieniu danych wyjściowych w formacie JSON jako oddzielnych kolumn, należy ponownie skonfigurować zapytania, aby przeanalizować to pole do obiektu JSON w celu uzyskania dostępu do tych właściwości. Jest to realizowane za pomocą [parseJSON](https://docs.microsoft.com/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#parsejson) , aby uzyskać dostęp do określonego elementu JSON w znanej ścieżce.
 
 Na przykład element Runbook formatuje Właściwość *ResultDescription* w strumieniu danych wyjściowych w formacie JSON z wieloma polami. Aby wyszukać stan zadań, które znajdują się w stanie niepowodzenia określonym w polu o nazwie **status**, użyj tego przykładowego zapytania, aby przeszukać *ResultDescription* ze stanem **Niepowodzenie**:
 

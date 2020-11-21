@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: overview
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 576bc3e37711851acd7d6c7ac811a10e40080710
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 34d340881e4f612544f4b3d68d3c1f3da598cab3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "75908917"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023432"
 ---
 # <a name="internet-peering-overview"></a>Internet Komunikacja równorzędna — Omówienie
 
@@ -53,4 +53,4 @@ W przypadku często zadawanych pytań dotyczących komunikacji równorzędnej zo
 
 * Aby dowiedzieć się więcej o krokach konfigurowania bezpośredniej komunikacji równorzędnej z firmą Microsoft, postępuj zgodnie ze wskazówkami [bezpośredniego komunikacji równorzędnej](walkthrough-direct-all.md)
 * Aby poznać kroki konfigurowania komunikacji równorzędnej programu Exchange z firmą Microsoft, postępuj zgodnie ze wskazówkami dotyczącymi [komunikacji równorzędnej programu Exchange](walkthrough-exchange-all.md)
-* Poznaj inne kluczowe [możliwości sieciowe](https://docs.microsoft.com/azure/networking/networking-overview) platformy Azure.
+* Poznaj inne kluczowe [możliwości sieciowe](../networking/networking-overview.md) platformy Azure.

@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 231f2e4df1445c60378ac06aab0d0e56f410c1c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15f2ff5aaa1d731c13125d0a3ab4ac32acb9276c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530140"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023279"
 ---
 # <a name="diagnose-and-solve-issues-in-your-azure-time-series-insights-gen1-environment"></a>Diagnozowanie i rozwiązywanie problemów w Azure Time Series Insights środowisku Gen1
 
@@ -37,7 +37,7 @@ Jeśli w [eksploratorze Azure Time Series Insights](https://insights.timeseries.
 
 ### <a name="cause-a-event-source-data-isnt-in-json-format"></a>Przyczyna: dane źródłowe zdarzenia nie są w formacie JSON
 
-Azure Time Series Insights obsługuje tylko dane JSON. Aby zapoznać się z przykładami JSON, zobacz [obsługiwane kształty JSON](./how-to-shape-query-json.md).
+Azure Time Series Insights obsługuje tylko dane JSON. Aby zapoznać się z przykładami JSON, zobacz [obsługiwane kształty JSON](./concepts-json-flattening-escaping-rules.md).
 
 ### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Przyczyna B: klucz źródła zdarzenia nie ma wymaganego uprawnienia
 
@@ -51,7 +51,7 @@ Azure Time Series Insights obsługuje tylko dane JSON. Aby zapoznać się z przy
 
 ### <a name="cause-c-the-provided-consumer-group-isnt-exclusive-to-azure-time-series-insights"></a>Przyczyna C: poświadczona Grupa odbiorców nie ma na wyłączność Azure Time Series Insights
 
-Po zarejestrowaniu Centrum IoT Hub lub centrum zdarzeń należy ustawić grupę odbiorców, która ma być używana do odczytywania danych. *Nie można udostępnić*tej grupy odbiorców. Jeśli grupa konsumentów jest udostępniona, podstawowe Centrum IoT lub centrum zdarzeń automatycznie i losowo rozłącza jednego z nich. Podaj unikatową grupę odbiorców, w której ma zostać odczytana Azure Time Series Insights.
+Po zarejestrowaniu Centrum IoT Hub lub centrum zdarzeń należy ustawić grupę odbiorców, która ma być używana do odczytywania danych. *Nie można udostępnić* tej grupy odbiorców. Jeśli grupa konsumentów jest udostępniona, podstawowe Centrum IoT lub centrum zdarzeń automatycznie i losowo rozłącza jednego z nich. Podaj unikatową grupę odbiorców, w której ma zostać odczytana Azure Time Series Insights.
 
 ### <a name="cause-d-the-environment-has-just-been-provisioned"></a>Przyczyna D: środowisko zostało właśnie zainicjowane
 
@@ -85,7 +85,7 @@ Wyobraź sobie środowisko, które pozyskuje komunikaty z centrum zdarzeń. Ma d
 
 Środowisko jednostki SKU S1 o pojemności 3 może przypadać tylko 2 100 zdarzeń co minutę (1 000 000 zdarzeń dziennie = 700 zdarzeń na minutę w trzech jednostkach = 2 100 zdarzeń na minutę).
 
-Aby uzyskać ogólne omówienie sposobu działania logiki spłaszczania, zobacz [obsługiwane kształty JSON](./how-to-shape-query-json.md).
+Aby uzyskać ogólne omówienie sposobu działania logiki spłaszczania, zobacz [obsługiwane kształty JSON](./concepts-json-flattening-escaping-rules.md).
 
 #### <a name="recommended-resolutions-for-excessive-throttling"></a>Zalecane rozwiązania do nadmiernego ograniczania przepustowości
 
@@ -127,7 +127,7 @@ Należy pamiętać, że w nazwie właściwości sygnatury czasowej rozróżniana
 
 Najprostszym sposobem, aby upewnić się, że nazwa właściwości sygnatury czasowej została przechwycona i działa prawidłowo, to użycie Eksploratora Azure Time Series Insights. W Eksploratorze Azure Time Series Insights przy użyciu wykresu Wybierz okres czasu po wprowadzeniu nazwy właściwości sygnatury czasowej. Kliknij prawym przyciskiem myszy zaznaczenie, a następnie wybierz polecenie **Eksploruj zdarzenia**.
 
-Pierwszy nagłówek kolumny powinien być nazwą właściwości sygnatury czasowej. Obok **sygnatury czasowej**wyrazu zostanie wyświetlona wartość **($TS)** .
+Pierwszy nagłówek kolumny powinien być nazwą właściwości sygnatury czasowej. Obok **sygnatury czasowej** wyrazu zostanie wyświetlona wartość **($TS)** .
 
 Następujące wartości nie będą wyświetlane:
 

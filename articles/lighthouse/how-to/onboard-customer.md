@@ -3,12 +3,12 @@ title: Dołączanie klienta do usługi Azure Lighthouse
 description: Dowiedz się, jak dołączyć klienta do usługi Azure Lighthouse, umożliwiając dostęp do zasobów i zarządzanie nimi za pośrednictwem własnej dzierżawy przy użyciu funkcji zarządzania zasobami delegowanymi przez platformę Azure.
 ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: d80fef21e4b7cf1705b67df3c8d08f91bac589bf
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 43f28073c996167c82e241476020bdc341486b26
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042850"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024300"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Dołączanie klienta do usługi Azure Lighthouse
 
@@ -38,7 +38,7 @@ Jeśli nie masz już tych wartości identyfikatorów, możesz je pobrać w jeden
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Identyfikator dzierżawy może być widoczny przez umieszczenie kursora nad nazwą konta w prawym górnym rogu Azure Portal lub przez wybranie pozycji **Przełącz katalog** . Aby wybrać i skopiować identyfikator dzierżawy, wyszukaj frazę "Azure Active Directory" w portalu, a następnie wybierz pozycję **Właściwości** i skopiuj wartość podaną w polu **Identyfikator katalogu** . Aby znaleźć identyfikator subskrypcji w dzierżawie klienta, wyszukaj frazę "subskrypcje", a następnie wybierz odpowiedni identyfikator subskrypcji.
+Identyfikator dzierżawy może być widoczny przez umieszczenie kursora nad nazwą konta w prawym górnym rogu Azure Portal lub przez wybranie pozycji **Przełącz katalog**. Aby wybrać i skopiować identyfikator dzierżawy, wyszukaj frazę "Azure Active Directory" w portalu, a następnie wybierz pozycję **Właściwości** i skopiuj wartość podaną w polu **Identyfikator katalogu** . Aby znaleźć identyfikator subskrypcji w dzierżawie klienta, wyszukaj frazę "subskrypcje", a następnie wybierz odpowiedni identyfikator subskrypcji.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -67,7 +67,7 @@ Jako dostawca usług możesz chcieć wykonać wiele zadań dla pojedynczego klie
 Aby ułatwić zarządzanie, zalecamy korzystanie z grup użytkowników usługi Azure AD dla każdej roli. Zapewnia to elastyczność dodawania lub usuwania poszczególnych użytkowników do grupy mającej dostęp, dzięki czemu nie trzeba powtarzać procesu dołączania w celu wprowadzenia zmian przez użytkownika. Role można przypisywać do jednostki usługi, co może być przydatne w scenariuszach automatyzacji.
 
 > [!IMPORTANT]
-> Aby można było dodać uprawnienia dla grupy usługi Azure AD, **Typ grupy** musi być ustawiony na **zabezpieczenia** . Ta opcja jest wybierana podczas tworzenia grupy. Aby uzyskać więcej informacji, zobacz [Tworzenie podstawowej grupy i dodawanie członków w usłudze Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+> Aby można było dodać uprawnienia dla grupy usługi Azure AD, **Typ grupy** musi być ustawiony na **zabezpieczenia**. Ta opcja jest wybierana podczas tworzenia grupy. Aby uzyskać więcej informacji, zobacz [Tworzenie podstawowej grupy i dodawanie członków w usłudze Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 Podczas definiowania autoryzacji należy przestrzegać zasad najniższych uprawnień, aby użytkownicy mieli tylko uprawnienia do wykonywania swoich zadań. Aby uzyskać wskazówki i informacje o obsługiwanych rolach, zobacz [dzierżawy, użytkowników i role w scenariuszach usługi Azure Lighthouse](../concepts/tenants-users-roles.md).
 
@@ -128,7 +128,7 @@ Proces dołączania wymaga szablonu Azure Resource Manager (dostępnego w naszym
 > [!IMPORTANT]
 > Opisany tutaj proces wymaga oddzielnego wdrożenia dla każdej subskrypcji, która jest dołączana, nawet w przypadku dołączania subskrypcji w tej samej dzierżawie klienta. W przypadku dołączania wielu grup zasobów w ramach różnych subskrypcji w tej samej dzierżawie klienta wymagane są również oddzielne wdrożenia. Istnieje jednak możliwość dołączania wielu grup zasobów w ramach jednej subskrypcji w jednym wdrożeniu.
 >
-> Oddzielne wdrożenia są również wymagane dla wielu ofert, które są stosowane do tej samej subskrypcji (lub grup zasobów w ramach subskrypcji). Każda zastosowana oferta musi używać innego **mspOfferName** .
+> Oddzielne wdrożenia są również wymagane dla wielu ofert, które są stosowane do tej samej subskrypcji (lub grup zasobów w ramach subskrypcji). Każda zastosowana oferta musi używać innego **mspOfferName**.
 
 Wybrany szablon będzie zależeć od tego, czy dołączysz całą subskrypcję, grupę zasobów lub wiele grup zasobów w ramach subskrypcji. Udostępniamy również szablon, który może być używany dla klientów, którzy kupili ofertę usługi zarządzanej opublikowaną w portalu Azure Marketplace, jeśli wolisz dołączyć swoje subskrypcje w ten sposób.
 
@@ -211,8 +211,8 @@ Wdrożenie może odbywać się w Azure Portal, przy użyciu programu PowerShell 
 ### <a name="azure-portal"></a>Azure Portal
 
 1. W naszym [repozytorium GitHub](https://github.com/Azure/Azure-Lighthouse-samples/)wybierz przycisk **Wdróż na platformie Azure** widoczny obok szablonu, którego chcesz użyć. Szablon zostanie otwarty w witrynie Azure Portal.
-1. Wprowadź wartości w **pozycji Nazwa oferty msp** , **opis oferty msp** , **zarządzane przez identyfikator dzierżawy** i **autoryzacje** . Jeśli wolisz, możesz wybrać opcję **Edytuj parametry** , aby wprowadzić wartości dla `mspOfferName` ,, `mspOfferDescription` `managedbyTenantId` i `authorizations` bezpośrednio w pliku parametrów. Należy pamiętać, aby zaktualizować te wartości zamiast używać wartości domyślnych z szablonu.
-1. Wybierz pozycję **Przejrzyj i Utwórz** , a następnie wybierz pozycję **Utwórz** .
+1. Wprowadź wartości w **pozycji Nazwa oferty msp**, **opis oferty msp**, **zarządzane przez identyfikator dzierżawy** i **autoryzacje**. Jeśli wolisz, możesz wybrać opcję **Edytuj parametry** , aby wprowadzić wartości dla `mspOfferName` ,, `mspOfferDescription` `managedbyTenantId` i `authorizations` bezpośrednio w pliku parametrów. Należy pamiętać, aby zaktualizować te wartości zamiast używać wartości domyślnych z szablonu.
+1. Wybierz pozycję **Przejrzyj i Utwórz**, a następnie wybierz pozycję **Utwórz**.
 
 Po kilku minutach powinna zostać wyświetlona powiadomienie o zakończeniu wdrożenia.
 
@@ -265,7 +265,7 @@ Po pomyślnym dołączeniu subskrypcji klienta do usługi Azure Lighthouse użyt
 W dzierżawie dostawcy usług:
 
 1. Przejdź do [strony moi klienci](view-manage-customers.md).
-2. Wybierz pozycję **Klienci** .
+2. Wybierz pozycję **Klienci**.
 3. Upewnij się, że można zobaczyć subskrypcje o nazwie oferty podanej w szablonie Menedżer zasobów.
 
 > [!IMPORTANT]
@@ -274,7 +274,7 @@ W dzierżawie dostawcy usług:
 W dzierżawie klienta:
 
 1. Przejdź do [strony dostawcy usług](view-manage-service-providers.md).
-2. Wybierz pozycję **Oferty dostawców usług** .
+2. Wybierz pozycję **Oferty dostawców usług**.
 3. Upewnij się, że można zobaczyć subskrypcje o nazwie oferty podanej w szablonie Menedżer zasobów.
 
 > [!NOTE]
@@ -286,6 +286,11 @@ W dzierżawie klienta:
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
 
 Get-AzContext
+
+# Confirm successful onboarding for Azure Lighthouse
+
+Get-AzManagedServicesDefinition
+Get-AzManagedServicesAssignment
 ```
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure

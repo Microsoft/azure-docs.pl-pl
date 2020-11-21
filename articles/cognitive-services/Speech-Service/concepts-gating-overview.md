@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: shlo
-ms.openlocfilehash: 73e6e4e69a245485ca473f048bbeafef21dbbf37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d66c02b58da295c74a38fb921a081cc4036763a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73836785"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021919"
 ---
 # <a name="custom-neural-voice-gating-overview"></a>Niestandardowy neuronowych głosu kontroli — Omówienie
 
@@ -28,7 +28,7 @@ W ramach zobowiązania firmy Microsoft do projektowania odpowiedzialnych plików
 ### <a name="guidance-for-deploying-custom-neural-voice"></a>Wskazówki dotyczące wdrażania niestandardowego głosu neuronowych
 
 - [Wytyczne dotyczące odpowiedzialnego wdrożenia](concepts-guidelines-responsible-deployment-synthetic.md): nasze najważniejsze zalecenia na podstawie naszych badań
-- [Ujawnienie do talentów głosu](https://aka.ms/disclosure-voice-talent): czego potrzebujesz, aby poznać i poinformować talent o technologii, aby z niej korzystać
+- [Ujawnienie do talentów głosu](/legal/cognitive-services/speech-service/disclosure-voice-talent): czego potrzebujesz, aby poznać i poinformować talent o technologii, aby z niej korzystać
 - [Projekt ujawniania](concepts-disclosure-guidelines.md): jak projektować środowiska, aby użytkownicy wiedzieli, kiedy jest używany głos syntetyczny i ufają usłudze
 
 ### <a name="why-custom-neural-voice-is-a-gated-technology"></a>Dlaczego niestandardowy głos neuronowych jest technologią warunkową
@@ -41,11 +41,11 @@ Aby uzyskać dostęp do niestandardowego głosu neuronowych, musisz zacząć od 
 
 Dostęp do niestandardowej usługi głosowej neuronowych jest uzależniony od uznania firmy Microsoft w zależności od kryteriów kwalifikujących, procesu przed sprawdzeniem i dostępności w celu obsługi ograniczonej liczby klientów w ramach tej warunkowej wersji zapoznawczej.
 
-W ramach procesu aplikacji należy zatwierdzić uzyskanie jawnie pisemnego uprawnienia z Talenti głosu przed utworzeniem czcionki głosowej, co obejmuje udostępnienie [ujawniania talent głosu](https://aka.ms/disclosure-voice-talent). Należy również wyrazić zgodę na to, że podczas wdrażania czcionki głosowej Twoja implementacja będzie [ujawniać syntetyczny charakter](concepts-disclosure-guidelines.md) usługi dla użytkowników, zapewniać przypisanie do firmy Microsoft syntetycznej usługi rozpoznawania mowy w warunkach użytkowania i obsługiwać kanał opinii, który umożliwia użytkownikom usługi zgłaszanie problemów i udostępnianie szczegółowych informacji w firmie Microsoft. Dowiedz się więcej o naszych warunkach użytkowania [tutaj](https://aka.ms/custom-neural-code-of-conduct).
+W ramach procesu aplikacji należy zatwierdzić uzyskanie jawnie pisemnego uprawnienia z Talenti głosu przed utworzeniem czcionki głosowej, co obejmuje udostępnienie [ujawniania talent głosu](/legal/cognitive-services/speech-service/disclosure-voice-talent). Należy również wyrazić zgodę na to, że podczas wdrażania czcionki głosowej Twoja implementacja będzie [ujawniać syntetyczny charakter](concepts-disclosure-guidelines.md) usługi dla użytkowników, zapewniać przypisanie do firmy Microsoft syntetycznej usługi rozpoznawania mowy w warunkach użytkowania i obsługiwać kanał opinii, który umożliwia użytkownikom usługi zgłaszanie problemów i udostępnianie szczegółowych informacji w firmie Microsoft. Dowiedz się więcej o naszych warunkach użytkowania [tutaj](/legal/cognitive-services/speech-service/tts-code-of-conduct).
 
 ## <a name="reference-docs"></a>Dokumentacja dokumentacji
 
-* [Ujawnianie dotyczące aktorów głosowych](https://aka.ms/disclosure-voice-talent)
+* [Ujawnianie dotyczące aktorów głosowych](/legal/cognitive-services/speech-service/disclosure-voice-talent)
 * [Wytyczne dotyczące odpowiedzialnego wdrożenia syntetycznej technologii głosowej](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Jak ujawnić](concepts-disclosure-guidelines.md)
 

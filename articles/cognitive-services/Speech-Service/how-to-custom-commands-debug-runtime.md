@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 1c9b0b48c7862990cfa2c8ba38bde0851058a228
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49d9b91df896646da7bf36e077d9f3c9187137dd
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86023027"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021800"
 ---
 # <a name="debug-errors-when-running-a-custom-commands-application"></a>Debuguj błędy podczas uruchamiania aplikacji poleceń niestandardowych
 
@@ -86,13 +86,13 @@ Language Understanding (LUIS) ma limity użycia zasobów. Zwykle "błąd przekro
 
     Dodaj zasób predykcyjny do aplikacji poleceń niestandardowych: 
     1. Przejdź do pozycji **Ustawienia**, zasób Luis
-    1. Wybierz zasób przewidywania z **zasobów predykcyjnych**lub kliknij pozycję **Utwórz nowy zasób** . 
+    1. Wybierz zasób przewidywania z **zasobów predykcyjnych** lub kliknij pozycję **Utwórz nowy zasób** . 
 
 - Zasób predykcyjny LUIS przekracza limit
 
     Jeśli korzystasz z zasobu przewidywania F0, obowiązuje limit 10 tysięcy/miesiąc, 5 zapytań na sekundę.
 
-Aby uzyskać więcej informacji na temat limitów zasobów LUIS, zobacz temat [użycie i limit zasobów Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits#resource-usage-and-limits)
+Aby uzyskać więcej informacji na temat limitów zasobów LUIS, zobacz temat [użycie i limit zasobów Language Understanding](../luis/luis-limits.md#resource-usage-and-limits)
 
 ### <a name="connection-to-the-recognizer-failed"></a>Nie można nawiązać połączenia z aparatem rozpoznawania
 Zazwyczaj oznacza to, że przejściowy błąd połączenia Language Understanding (LUIS). Spróbuj ponownie, a problem powinien zostać rozwiązany.
@@ -123,7 +123,7 @@ Nieoczekiwane odpowiedzi mogą być spowodowane wieloma elementami. Kilka testó
 
     Dokładność rozpoznawania LUIS może się pojawić, jeśli dwa polecenia mają podobne zamiary i przykładowe zdania. Możesz spróbować wykonać funkcje poleceń i przykładowe zdania jak to możliwe.
 
-    Najlepszym rozwiązaniem w zakresie zwiększenia dokładności rozpoznawania jest [Luis najlepszych](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices)rozwiązań.
+    Najlepszym rozwiązaniem w zakresie zwiększenia dokładności rozpoznawania jest [Luis najlepszych](../luis/luis-concept-best-practices.md)rozwiązań.
 
 - Okno dialogowe zostało anulowane
     

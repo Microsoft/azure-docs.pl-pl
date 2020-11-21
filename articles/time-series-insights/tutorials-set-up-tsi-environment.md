@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 58da5c73ea2674bbbd1536a163e163aa0ff31d96
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: eeb3de2fc3f0e3e0be9c98002f11e470eaf04f8c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521292"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020933"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>Samouczek: Konfigurowanie środowiska Azure Time Series Insights Gen2
 
@@ -91,8 +91,8 @@ W tej sekcji opisano sposób tworzenia środowiska Azure Time Series Insights Ge
     | **Grupa zasobów** | Wybierz istniejącą grupę zasobów lub Utwórz nową grupę zasobów dla zasobu środowiska Azure Time Series Insights Gen2. Grupa zasobów jest kontenerem zasobów platformy Azure. Najlepszym rozwiązaniem jest użycie tej samej grupy zasobów co inne zasoby IoT, które są tworzone przez symulatora urządzeń. |
     | **Lokalizacja** | Wybierz region centrum danych dla środowiska Azure Time Series Insights Gen2. Aby uniknąć dodatkowego opóźnienia, najlepszym rozwiązaniem jest utworzenie środowiska Azure Time Series Insights Gen2 w tym samym regionie, w którym znajduje się centrum IoT utworzone w symulatorze urządzeń. |
     | **Warstwa** |  Wybierz pozycję **Gen2 (L1)**. Jest to jednostka SKU dla produktu Azure Time Series Insights Gen2. |
-    | **Nazwa właściwości identyfikatora szeregów czasowych** | Wprowadź nazwę właściwości, która zawiera wartości, które jednoznacznie identyfikują wystąpienia szeregów czasowych. Nie można później zmienić wartości wprowadzonej w polu **Nazwa właściwości** jako identyfikatora szeregów czasowych. W tym samouczku wpisz **_iothub-Connection-Device-ID_*_. Aby dowiedzieć się więcej na temat identyfikatora szeregów czasowych, w tym złożonego identyfikatora szeregów czasowych, zobacz [najlepsze rozwiązania dotyczące wybierania identyfikatora szeregów czasowych](./time-series-insights-update-how-to-id.md). |
-    | _*Nazwa konta magazynu** | Wprowadź globalnie unikatową nazwę nowego konta magazynu.|
+    | **Nazwa właściwości identyfikatora szeregów czasowych** | Wprowadź nazwę właściwości, która zawiera wartości, które jednoznacznie identyfikują wystąpienia szeregów czasowych. Nie można później zmienić wartości wprowadzonej w polu **Nazwa właściwości** jako identyfikatora szeregów czasowych. W tym samouczku wpisz **_iothub-Connection-Device-ID_* _. Aby dowiedzieć się więcej na temat identyfikatora szeregów czasowych, w tym złożonego identyfikatora szeregów czasowych, zobacz [najlepsze rozwiązania dotyczące wybierania identyfikatora szeregów czasowych](./how-to-select-tsid.md). |
+    | _ *Nazwa konta magazynu** | Wprowadź globalnie unikatową nazwę nowego konta magazynu.|
     | **Rodzaj konta magazynu** | Wybierz rodzaj magazynu dla nowego konta magazynu. Zalecamy StorageV2|
     | **Replikacja konta magazynu** | Wybierz rodzaj magazynu dla nowego konta magazynu. W zależności od wybranej lokalizacji można wybrać jedną z LRS, GRS i ZRS. Na potrzeby tego samouczka można wybrać LRS|
     | **Hierarchiczna przestrzeń nazw** |Ta opcja jest zaznaczona, po wybraniu rodzaju magazynu, który ma zostać StorageV2. Domyślnie jest on wyłączony. W tym samouczku można pozostawić go w domyślnym stanie *Disabled*|
@@ -123,7 +123,7 @@ W tej sekcji opisano sposób tworzenia środowiska Azure Time Series Insights Ge
 
    [![Skonfiguruj utworzone Centrum IoT Hub jako źródło zdarzenia.](media/v2-update-provision/tsi-configure-event-source.png)](media/v2-update-provision/tsi-configure-event-source.png#lightbox)
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
     [![Przejrzyj i Utwórz stronę przy użyciu przycisku Utwórz.](media/v2-update-provision/tsi-environment-confirmation.png)](media/v2-update-provision/tsi-environment-confirmation.png#lightbox)
 
@@ -143,7 +143,7 @@ W tej sekcji opisano sposób tworzenia środowiska Azure Time Series Insights Ge
 
    1. Sprawdź, czy na liście znajdują się Twoje poświadczenia:
 
-      Jeśli Twoje poświadczenia nie znajdują się na liście, musisz udzielić sobie uprawnień dostępu do środowiska, wybierając pozycję Dodaj i wyszukuj poświadczenia. Aby dowiedzieć się więcej o ustawianiu uprawnień, zobacz [Grant data access (Przyznawanie dostępu do danych)](./time-series-insights-data-access.md).
+      Jeśli Twoje poświadczenia nie znajdują się na liście, musisz udzielić sobie uprawnień dostępu do środowiska, wybierając pozycję Dodaj i wyszukuj poświadczenia. Aby dowiedzieć się więcej o ustawianiu uprawnień, zobacz [Grant data access (Przyznawanie dostępu do danych)](./concepts-access-policies.md).
 
 ## <a name="stream-data"></a>Strumieniowe przesyłanie danych
 
@@ -177,7 +177,7 @@ Po wdrożeniu środowiska Azure Time Series Insights Gen2 Rozpocznij przesyłani
 
 ## <a name="analyze-data"></a>Analizowanie danych
 
-W tej sekcji przeprowadzasz podstawową analizę danych szeregów czasowych przy użyciu [Azure Time Series Insights Explorer Gen2](./time-series-insights-update-explorer.md).
+W tej sekcji przeprowadzasz podstawową analizę danych szeregów czasowych przy użyciu [Azure Time Series Insights Explorer Gen2](./concepts-ux-panels.md).
 
 1. Przejdź do Azure Time Series Insights Gen2 Explorer, wybierając adres URL na stronie zasobów w [Azure Portal](https://portal.azure.com/).
 
@@ -233,7 +233,7 @@ W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu 
         | **Wartość** | Wybierz jedną z ustawień predefiniowanych: wybierz pozycję **temperatura (Podwójna precyzja)**. <br /> Uwaga: może upłynąć kilka minut, zanim **wartość** zostanie automatycznie wypełniona, gdy Azure Time Series Insights Gen2 zacznie otrzymywać zdarzenia.|
         | **Operacja agregacji** | Rozwiń **Opcje zaawansowane**. <br /> Wybierz opcję **AVG** (średnia). |
 
-    1. Wybierz przycisk **Zastosuj**. Następnie ponownie **Dodaj zmienną** i ustaw następujące wartości:
+    1. Wybierz pozycję **Zastosuj**. Następnie ponownie **Dodaj zmienną** i ustaw następujące wartości:
 
         | Parametr | Akcja |
         | --- | --- |
@@ -242,7 +242,7 @@ W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu 
         | **Wartość** | Wybierz spośród ustawień predefiniowanych: wybierz pozycję **drgania (Double)**. <br /> Uwaga: może upłynąć kilka minut, zanim **wartość** zostanie automatycznie wypełniona, gdy Azure Time Series Insights Gen2 zacznie otrzymywać zdarzenia.|
         | **Operacja agregacji** | Rozwiń **Opcje zaawansowane**. <br /> Wybierz opcję **AVG** (średnia). |
 
-    1. Wybierz przycisk **Zastosuj**. Następnie ponownie **Dodaj zmienną** i ustaw następujące wartości dla zmiennej trzeciej i końcowej:
+    1. Wybierz pozycję **Zastosuj**. Następnie ponownie **Dodaj zmienną** i ustaw następujące wartości dla zmiennej trzeciej i końcowej:
 
         | Parametr | Akcja |
         | --- | --- |
@@ -254,7 +254,7 @@ W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu 
 
         [![Dodaj zmienne typu.](media/v2-update-provision/tsi-add-type-variables.png)](media/v2-update-provision/tsi-add-type-variables.png#lightbox)
 
-    1. Wybierz przycisk **Zastosuj**. 
+    1. Wybierz pozycję **Zastosuj**. 
     1. Wybierz pozycję **Zapisz**. Zostaną utworzone i wyświetlone trzy zmienne.
 
         [![Po dodaniu typu Sprawdź go w widoku model.](media/v2-update-provision/tsi-add-type-and-view.png)](media/v2-update-provision/tsi-add-type-and-view.png#lightbox)
@@ -287,8 +287,8 @@ W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu 
         | Parametr | Akcja |
         | --- | --- |
         | **Hierarchie** | Wybierz **hierarchię lokalizacji** |
-        | **Country (Kraj)** | Wprowadź **Stan USA** |
-        | **City (Miasto)** | Wprowadź **Seattle** |
+        | **Kraj** | Wprowadź **Stan USA** |
+        | **—** | Wprowadź **Seattle** |
         | **Budowaniu** | Wprowadź **wskazówkę miejsca** |
 
     1. Wybierz pozycję **Zapisz**.
@@ -303,8 +303,8 @@ W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu 
     | **Nazwa** | Wprowadź **windę 2**|
     | **Opis** | Wprowadź **wystąpienie dla wind 2** |
     | **Hierarchie** | Wybierz **hierarchię lokalizacji** |
-    | **Country (Kraj)** | Wprowadź **Stan USA** |
-    | **City (Miasto)** | Wprowadź **Seattle** |
+    | **Kraj** | Wprowadź **Stan USA** |
+    | **—** | Wprowadź **Seattle** |
     | **Budowaniu** | Wprowadź **centrum nauki Pacyfiku** |
 
     **Dla windy 3:**
@@ -315,17 +315,17 @@ W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu 
     | **Nazwa** | Wprowadź **windę 3**|
     | **Opis** | Wprowadź **wystąpienie dla wind 3** |
     | **Hierarchie** | Wybierz **hierarchię lokalizacji** |
-    | **Country (Kraj)** | Wprowadź **Stan USA** |
-    | **City (Miasto)** | Wprowadź **Nowy Jork** |
+    | **Kraj** | Wprowadź **Stan USA** |
+    | **—** | Wprowadź **Nowy Jork** |
     | **Budowaniu** | Wprowadź **kompilację stanu Empire** |
 
     [![Wyświetl zaktualizowane wystąpienia.](media/v2-update-provision/iot-solution-accelerator-instances.png)](media/v2-update-provision/iot-solution-accelerator-instances.png#lightbox)
 
-1. Przejdź z powrotem do karty **Analiza** , aby wyświetlić okienko wykresów. W obszarze **Hierarchia lokalizacji**rozwiń węzeł wszystkie poziomy hierarchii, aby wyświetlić wystąpienia szeregów czasowych:
+1. Przejdź z powrotem do karty **Analiza** , aby wyświetlić okienko wykresów. W obszarze **Hierarchia lokalizacji** rozwiń węzeł wszystkie poziomy hierarchii, aby wyświetlić wystąpienia szeregów czasowych:
 
     [![Wyświetl wszystkie hierarchie w widoku wykresu.](media/v2-update-provision/iot-solution-accelerator-view-hierarchies.png)](media/v2-update-provision/iot-solution-accelerator-view-hierarchies.png#lightbox)
 
-1. W obszarze **centrum nauki pacyficznego**wybierz pozycję przenośnik szeregów czasowych **2**, a następnie wybierz pozycję **Pokaż średnią temperaturę**.
+1. W obszarze **centrum nauki pacyficznego** wybierz pozycję przenośnik szeregów czasowych **2**, a następnie wybierz pozycję **Pokaż średnią temperaturę**.
 
 1. Dla tego samego wystąpienia, **Wind 2**, wybierz pozycję **Pokaż piętro**.
 

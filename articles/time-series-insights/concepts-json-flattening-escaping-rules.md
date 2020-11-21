@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/28/2020
-ms.openlocfilehash: a1f633548ed36320f40e485f540923c8e3045a99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0839d2c734418824952f37cb177490e56e1133c5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460870"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023313"
 ---
 # <a name="json-flattening-escaping-and-array-handling"></a>Spłaszczanie danych JSON, ucieczka i obsługa tablic
 
@@ -22,18 +22,18 @@ Azure Time Series Insights środowisko Gen2 będzie dynamicznie tworzyć kolumny
 
 > [!IMPORTANT]
 >
-> * Przejrzyj poniższe reguły przed wybraniem [Właściwości identyfikatora szeregów czasowych](time-series-insights-update-how-to-id.md) i/lub właściwych dla zdarzenia [sygnatury czasowej](concepts-streaming-ingestion-event-sources.md#event-source-timestamp)źródła zdarzeń. Jeśli identyfikator TS lub sygnatura czasowa znajduje się w obiekcie zagnieżdżonym lub ma co najmniej jeden znak specjalny poniżej, należy się upewnić, że nazwa właściwości, która jest zgodna z nazwą kolumny *po* zastosowaniu reguł pozyskiwania. Zobacz przykład [B](concepts-json-flattening-escaping-rules.md#example-b) poniżej.
+> * Przejrzyj poniższe reguły przed wybraniem [Właściwości identyfikatora szeregów czasowych](./how-to-select-tsid.md) i/lub właściwych dla zdarzenia [sygnatury czasowej](concepts-streaming-ingestion-event-sources.md#event-source-timestamp)źródła zdarzeń. Jeśli identyfikator TS lub sygnatura czasowa znajduje się w obiekcie zagnieżdżonym lub ma co najmniej jeden znak specjalny poniżej, należy się upewnić, że nazwa właściwości, która jest zgodna z nazwą kolumny *po* zastosowaniu reguł pozyskiwania. Zobacz przykład [B](concepts-json-flattening-escaping-rules.md#example-b) poniżej.
 
-| Reguła | Przykładowy kod JSON | [Składnia wyrażenia szeregów czasowych](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) | Nazwa kolumny właściwości w Parquet
+| Reguła | Przykładowy kod JSON | [Składnia wyrażenia szeregów czasowych](/rest/api/time-series-insights/reference-time-series-expression-syntax) | Nazwa kolumny właściwości w Parquet
 |---|---|---|---|
 | Typ danych Azure Time Series Insights Gen2 jest dołączany na końcu nazwy kolumny jako "_ \<dataType\> " | ```"type": "Accumulated Heat"``` | `$event.type.String` |`type_string` |
 | [Właściwość sygnatury czasowej](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) źródła zdarzeń zostanie zapisana w Azure Time Series Insights Gen2 jako "timestamp" w magazynie i wartość przechowywana w formacie UTC. Możesz dostosować właściwość sygnatury czasowej źródła zdarzeń, aby spełniała potrzeby rozwiązania, ale nazwa kolumny w magazynie ciepłego i zimnego to "timestamp". Inne właściwości JSON typu DateTime, które nie są sygnaturą czasową źródła zdarzenia, zostaną zapisane z "_datetime" w nazwie kolumny, jak wspomniano w powyższej regule.  | ```"ts": "2020-03-19 14:40:38.318"``` |  `$event.$ts` | `timestamp` |
 | Nazwy właściwości JSON, które zawierają znaki specjalne. [\ i "są wyprowadzane przy użyciu [" i "]  |  ```"id.wasp": "6A3090FD337DE6B"``` |  `$event['id.wasp'].String` | `['id.wasp']_string` |
 | W obrębie ["i"] istnieje dodatkowe anulowanie apostrofów i ukośników odwrotnych. Pojedynczy cytat zostanie zapisany jako ", a ukośnik odwrotny zostanie zapisany jako \\\ | ```"Foo's Law Value": "17.139999389648"``` | `$event['Foo\'s Law Value'].Double` | `['Foo\'s Law Value']_double` |
 | Zagnieżdżone obiekty JSON są spłaszczone z kropką jako separatorem. Obsługiwane jest zagnieżdżanie do 10 poziomów. |  ```"series": {"value" : 316 }``` | `$event.series.value.Long``$event['series']['value'].Long`lub`$event.series['value'].Long` |  `series.value_long` |
-| Tablice typów pierwotnych są przechowywane jako typ dynamiczny |  ```"values": [154, 149, 147]``` | Typy dynamiczne można pobrać tylko za pośrednictwem interfejsu API [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) | `values_dynamic` |
+| Tablice typów pierwotnych są przechowywane jako typ dynamiczny |  ```"values": [154, 149, 147]``` | Typy dynamiczne można pobrać tylko za pośrednictwem interfejsu API [GetEvents](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) | `values_dynamic` |
 | Tablice zawierające obiekty mają dwa zachowania w zależności od zawartości obiektu: jeśli identyfikatory TS (s) lub właściwości sygnatur czasowych znajdują się w obiektach tablicy, tablica zostanie wycofana w taki sposób, że początkowy ładunek JSON generuje wiele zdarzeń. Pozwala to na przetwarzanie wsadowe wielu zdarzeń w jedną strukturę JSON. Wszystkie właściwości najwyższego poziomu, które są elementami równorzędnymi do tablicy, zostaną zapisane przy użyciu każdego nierzutowanego obiektu. Jeśli identyfikatory TS i sygnatura czasowa *nie* znajdują się w tablicy, zostanie ona zapisana jako typ dynamiczny. | Zobacz przykłady [a](concepts-json-flattening-escaping-rules.md#example-a), [B](concepts-json-flattening-escaping-rules.md#example-b)i [C](concepts-json-flattening-escaping-rules.md#example-c) poniżej
-| Tablice zawierające elementy mieszane nie są spłaszczone. |  ```"values": ["foo", {"bar" : 149}, 147]``` | Typy dynamiczne można pobrać tylko za pośrednictwem interfejsu API [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) | `values_dynamic` |
+| Tablice zawierające elementy mieszane nie są spłaszczone. |  ```"values": ["foo", {"bar" : 149}, 147]``` | Typy dynamiczne można pobrać tylko za pośrednictwem interfejsu API [GetEvents](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) | `values_dynamic` |
 | 512 znaków to limit nazw właściwości JSON. Jeśli długość nazwy przekracza 512 znaków, zostanie ona obcięta do 512 i zostanie dołączona wartość "_<" skrótu ">". **Należy zauważyć** , że dotyczy to również nazw właściwości, które zostały połączone z obiektu spłaszczonego, co oznacza zagnieżdżoną ścieżkę obiektu. |``"data.items.datapoints.values.telemetry<...continuing to over 512 chars>" : 12.3440495`` |`"$event.data.items.datapoints.values.telemetry<...continuing to include all chars>.Double"` | `data.items.datapoints.values.telemetry<...continuing to 512 chars>_912ec803b2ce49e4a541068d495ab570_double` |
 
 ## <a name="understanding-the-dual-behavior-for-arrays"></a>Zrozumienie podwójnego zachowania dla tablic
@@ -44,7 +44,7 @@ Jednak w niektórych przypadkach tablice zawierające obiekty są zrozumiałe ty
 
 ### <a name="how-to-know-if-my-array-of-objects-will-produce-multiple-events"></a>Jak dowiedzieć się, czy moja tablica obiektów będzie generować wiele zdarzeń
 
-Jeśli co najmniej jeden identyfikator szeregów czasowych jest zagnieżdżony w obrębie obiektów w tablicy *lub* Jeśli właściwość sygnatury czasowej źródła zdarzenia jest zagnieżdżona, aparat pozyskiwania podzieli go w celu utworzenia wielu zdarzeń. Nazwy właściwości podane dla identyfikatorów i/lub sygnatury czasowej usług terminalowych powinny być zgodne z powyższymi regułami spłaszczania i w związku z tym wskazują kształt JSON. Zapoznaj się z poniższymi przykładami i zapoznaj się z przewodnikiem dotyczącym [wybierania identyfikatora szeregów czasowych.](time-series-insights-update-how-to-id.md)
+Jeśli co najmniej jeden identyfikator szeregów czasowych jest zagnieżdżony w obrębie obiektów w tablicy *lub* Jeśli właściwość sygnatury czasowej źródła zdarzenia jest zagnieżdżona, aparat pozyskiwania podzieli go w celu utworzenia wielu zdarzeń. Nazwy właściwości podane dla identyfikatorów i/lub sygnatury czasowej usług terminalowych powinny być zgodne z powyższymi regułami spłaszczania i w związku z tym wskazują kształt JSON. Zapoznaj się z poniższymi przykładami i zapoznaj się z przewodnikiem dotyczącym [wybierania identyfikatora szeregów czasowych.](./how-to-select-tsid.md)
 
 ### <a name="example-a"></a>Przykład
 

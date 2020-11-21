@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 90db861a4ef4fc951844d3ae82a51d20cf9dc8c5
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 3d19a60fd6a22eb9245722c6ff69d3b39c05d29e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875108"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023177"
 ---
 # <a name="safe-url-list"></a>Lista bezpiecznych adresów URL
 
@@ -34,7 +34,7 @@ Maszyny wirtualne platformy Azure tworzone dla pulpitu wirtualnego systemu Windo
 |mrsglobalsteus2prod.blob.core.windows.net|443|Aktualizacje stosu agenta i SXS|AzureCloud|
 |wvdportalstorageblob.blob.core.windows.net|443|Obsługa Azure Portal|AzureCloud|
 | 169.254.169.254 | 80 | [Punkt końcowy usługi metadanych wystąpienia platformy Azure](../virtual-machines/windows/instance-metadata-service.md) | Nie dotyczy |
-| 168.63.129.16 | 80 | [Monitorowanie kondycji hosta sesji](../virtual-network/security-overview.md#azure-platform-considerations) | Nie dotyczy |
+| 168.63.129.16 | 80 | [Monitorowanie kondycji hosta sesji](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | Nie dotyczy |
 
 >[!IMPORTANT]
 >Pulpit wirtualny systemu Windows obsługuje teraz tag FQDN. Aby uzyskać więcej informacji, zobacz [Korzystanie z zapory platformy Azure do ochrony wdrożeń pulpitów wirtualnych systemu Windows](../firewall/protect-windows-virtual-desktop.md).
@@ -56,7 +56,7 @@ Maszyny wirtualne platformy Azure tworzone dla pulpitu wirtualnego systemu Windo
 |mrsglobalstugviffx.core.usgovcloudapi.net|443|Aktualizacje stosu agenta i SXS|AzureCloud|
 |wvdportalstorageblob.blob.core.usgovcloudapi.net|443|Obsługa Azure Portal|AzureCloud|
 | 169.254.169.254 | 80 | [Punkt końcowy usługi metadanych wystąpienia platformy Azure](../virtual-machines/windows/instance-metadata-service.md) | Nie dotyczy |
-| 168.63.129.16 | 80 | [Monitorowanie kondycji hosta sesji](../virtual-network/security-overview.md#azure-platform-considerations) | Nie dotyczy |
+| 168.63.129.16 | 80 | [Monitorowanie kondycji hosta sesji](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | Nie dotyczy |
 
 W poniższej tabeli przedstawiono opcjonalne adresy URL, do których maszyny wirtualne platformy Azure mogą mieć dostęp:
 
@@ -87,12 +87,12 @@ Wszyscy klienci korzystający z Pulpit zdalny muszą mieć dostęp do następuj�
 
 |Adres|Wychodzący port TCP|Przeznaczenie|Klienci|Azure gov|
 |---|---|---|---|---|
-|*. wvd.microsoft.com|443|Ruch usługi|Wszystkie|*. wvd.microsoft.us|
-|*.servicebus.windows.net|443|Rozwiązywanie problemów z danymi|Wszystkie|*. servicebus.usgovcloudapi.net|
-|go.microsoft.com|443|Linki fwlink firmy Microsoft|Wszystkie|Brak|
-|aka.ms|443|Shortener URL firmy Microsoft|Wszystkie|Brak|
-|docs.microsoft.com|443|Dokumentacja|Wszystkie|Brak|
-|privacy.microsoft.com|443|Oświadczenie o ochronie prywatności|Wszystkie|Brak|
+|*. wvd.microsoft.com|443|Ruch usługi|Wszystko|*. wvd.microsoft.us|
+|*.servicebus.windows.net|443|Rozwiązywanie problemów z danymi|Wszystko|*. servicebus.usgovcloudapi.net|
+|go.microsoft.com|443|Linki fwlink firmy Microsoft|Wszystko|Brak|
+|aka.ms|443|Shortener URL firmy Microsoft|Wszystko|Brak|
+|docs.microsoft.com|443|Dokumentacja|Wszystko|Brak|
+|privacy.microsoft.com|443|Oświadczenie o ochronie prywatności|Wszystko|Brak|
 |query.prod.cms.rt.microsoft.com|443|Aktualizacje klienta|Pulpit systemu Windows|Brak|
 
 >[!IMPORTANT]

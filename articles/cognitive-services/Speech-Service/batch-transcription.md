@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f89dd6b7926baf6c1c64cff81e8b613461a3e925
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: b9ed43019e7af0cb810c3e0fc849281a458a43e1
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345503"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023637"
 ---
 # <a name="how-to-use-batch-transcription"></a>Jak korzystać z transkrypcji partii
 
@@ -46,7 +46,7 @@ Podobnie jak w przypadku wszystkich funkcji usługi Speech, można utworzyć klu
 >[!NOTE]
 > Aby można było użyć transkrypcji partii, wymagana jest Standardowa subskrypcja (S0) dla usługi rozpoznawania mowy. Bezpłatne klucze subskrypcji (F0) nie będą działały. Aby uzyskać więcej informacji, zobacz [Cennik i limity](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-Jeśli planujesz dostosowanie modeli, postępuj zgodnie z instrukcjami w temacie [dostosowanie akustyczne](how-to-customize-acoustic-models.md) i [Dostosowywanie języka](how-to-customize-language-model.md). Aby można było używać utworzonych modeli w transkrypcji partii, potrzebna jest ich lokalizacja modelu. Lokalizację modelu można pobrać podczas inspekcji szczegółów modelu ( `self` Właściwości). Wdrożony niestandardowy punkt końcowy *nie jest wymagany* w przypadku usługi transkrypcji partii.
+Jeśli planujesz dostosowanie modeli, postępuj zgodnie z instrukcjami w temacie [dostosowanie akustyczne](./how-to-custom-speech-train-model.md) i [Dostosowywanie języka](./how-to-custom-speech-train-model.md). Aby można było używać utworzonych modeli w transkrypcji partii, potrzebna jest ich lokalizacja modelu. Lokalizację modelu można pobrać podczas inspekcji szczegółów modelu ( `self` Właściwości). Wdrożony niestandardowy punkt końcowy *nie jest wymagany* w przypadku usługi transkrypcji partii.
 
 >[!NOTE]
 > W ramach interfejsu API REST transkrypcja usługi Batch ma zestaw [przydziałów i limitów](speech-services-quotas-and-limits.md#batch-transcription), które zachęcamy do przeglądu. Aby skorzystać z pełnego wykorzystania możliwości transkrypcji w usłudze Batch w celu wydajnego transkrypcja dużej liczby plików audio, zalecamy wysyłanie wielu plików na żądanie lub wskazanie kontenera Blob Storage z plikami audio do transkrypcja. Usługa będzie transkrypcja pliki jednocześnie zmniejszając czas szybkością oferowaną. Używanie wielu plików w pojedynczym żądaniu jest bardzo proste i proste — Zobacz sekcję [konfiguracyjną](#configuration) . 
@@ -180,9 +180,9 @@ Użyj tych opcjonalnych właściwości, aby skonfigurować transkrypcję:
       Opcjonalny adres URL z [usługą ad hoc SAS](../../storage/common/storage-sas-overview.md) do zapisywalnego kontenera na platformie Azure. Wynik jest przechowywany w tym kontenerze. Sygnatura dostępu współdzielonego z przechowywanymi zasadami zapisu **nie** jest obsługiwana. Jeśli nie zostanie określony, firma Microsoft zapisuje wyniki w kontenerze magazynu zarządzanym przez firmę Microsoft. Gdy transkrypcja zostanie usunięta przez wywołanie [usuwania transkrypcji](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), dane wynikowe również zostaną usunięte.
 :::row-end:::
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 
-Transkrypcja usługi Batch może odczytywać dźwięk z publicznego, widocznego w Internecie identyfikatora URI i może odczytywać zapisy audio i zapisu przy użyciu identyfikatora URI sygnatury dostępu współdzielonego z [usługą Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview).
+Transkrypcja usługi Batch może odczytywać dźwięk z publicznego, widocznego w Internecie identyfikatora URI i może odczytywać zapisy audio i zapisu przy użyciu identyfikatora URI sygnatury dostępu współdzielonego z [usługą Azure Blob Storage](../../storage/blobs/storage-blobs-overview.md).
 
 ## <a name="batch-transcription-result"></a>Wynik transkrypcji partii
 

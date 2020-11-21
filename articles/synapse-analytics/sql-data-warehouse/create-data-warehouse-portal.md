@@ -8,15 +8,15 @@ ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 05/28/2019
-ms.author: Kevin
+ms.author: pimorano
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 878b272e2a1a0e1d5a00a9c2028a6803b6d95383
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 470892aa46d3f75ce8e17200f7d0549ae14b0e86
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91568969"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023790"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>Szybki Start: Tworzenie puli SQL Synapse i wykonywanie na niej zapytań przy użyciu Azure Portal
 
@@ -49,7 +49,7 @@ Wykonaj następujące kroki, aby utworzyć pulę SQL zawierającą przykładowe 
 
    ![tworzenie pustego magazynu danych](./media/create-data-warehouse-portal/create-a-data-warehouse.png)
 
-3. W obszarze **podstawowe**Podaj swoją subskrypcję, grupę zasobów, nazwę puli SQL i nazwę serwera:
+3. W obszarze **podstawowe** Podaj swoją subskrypcję, grupę zasobów, nazwę puli SQL i nazwę serwera:
 
    | Ustawienie | Sugerowana wartość | Opis |
    | :------ | :-------------- | :---------- |
@@ -60,13 +60,13 @@ Wykonaj następujące kroki, aby utworzyć pulę SQL zawierającą przykładowe 
 
    ![Tworzenie podstawowych szczegółów magazynu danych](./media/create-data-warehouse-portal/create-sql-pool-basics.png)
 
-4. W obszarze **poziom wydajności**wybierz pozycję **Wybierz poziom wydajności** , aby opcjonalnie zmienić konfigurację za pomocą suwaka.
+4. W obszarze **poziom wydajności** wybierz pozycję **Wybierz poziom wydajności** , aby opcjonalnie zmienić konfigurację za pomocą suwaka.
 
    ![Zmień poziom wydajności magazynu danych](./media/create-data-warehouse-portal/create-sql-pool-performance-level.png)  
 
    Aby uzyskać więcej informacji na temat poziomów wydajności, zobacz [Zarządzanie obliczeniami w usłudze Azure Synapse Analytics](sql-data-warehouse-manage-compute-overview.md).
 
-5. Wybierz pozycję **dodatkowe ustawienia**, w obszarze **Użyj istniejących danych**wybierz pozycję **przykład** , aby AdventureWorksDW zostanie utworzony jako Przykładowa baza danych.
+5. Wybierz pozycję **dodatkowe ustawienia**, w obszarze **Użyj istniejących danych** wybierz pozycję **przykład** , aby AdventureWorksDW zostanie utworzony jako Przykładowa baza danych.
 
     ![Wybierz pozycję Użyj istniejących danych](./media/create-data-warehouse-portal/create-sql-pool-additional-1.png) 
 

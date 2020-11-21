@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5810bea7920dbfe91a836814124cbe4c7f6f3bee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edfbbdd1b30cba74cf4f63d6b5e84c2e616e1a0f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653795"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020984"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Eksplorator Azure Time Series Insights
 
@@ -25,11 +25,11 @@ W tym artykule opisano różne funkcje i opcje dostępne w [środowisku demonstr
 
 Aby rozpocząć pracę z Eksploratorem Azure Time Series Insights, musisz:
 
-* Zainicjowano środowisko Azure Time Series Insights Gen2. Dowiedz się więcej o aprowizacji wystąpienia, odczytując samouczek [Azure Time Series Insights Gen2](./time-series-insights-update-create-environment.md) .
-* [Zapewnianie dostępu do danych](./time-series-insights-data-access.md) do środowiska Azure Time Series Insights Gen2 utworzonego dla konta. Możesz zapewnić dostęp do innych osób, jak również do siebie.
+* Zainicjowano środowisko Azure Time Series Insights Gen2. Dowiedz się więcej o aprowizacji wystąpienia, odczytując samouczek [Azure Time Series Insights Gen2](./tutorials-set-up-tsi-environment.md) .
+* [Zapewnianie dostępu do danych](./concepts-access-policies.md) do środowiska Azure Time Series Insights Gen2 utworzonego dla konta. Możesz zapewnić dostęp do innych osób, jak również do siebie.
 * Dodaj źródło zdarzenia do Azure Time Series Insights środowiska Gen2, aby wypchnąć dane do środowiska:
-  * Dowiedz się [, jak nawiązać połączenie z centrum zdarzeń](./time-series-insights-how-to-add-an-event-source-eventhub.md)
-  * Dowiedz się, [jak nawiązać połączenie z usługą IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md)
+  * Dowiedz się [, jak nawiązać połączenie z centrum zdarzeń](./how-to-ingest-data-event-hub.md)
+  * Dowiedz się, [jak nawiązać połączenie z usługą IoT Hub](./how-to-ingest-data-iot-hub.md)
 
 ## <a name="explore-the-azure-time-series-insights-explorer"></a>Eksplorowanie Azure Time Series Insights Explorer
 
@@ -133,7 +133,7 @@ Oto przykład **nakładających się wykresów** :
 
   [![Nakładający się opcja wykresu](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png)](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png#lightbox)
 
-Przycisk **więcej akcji** rozwija się, aby wyświetlić opcję **Pobierz jako plik CSV**, **nawiązać połączenie z Power BI**, **pokazać dane wykresu jako tabelę**i zapoznać się z opcjami **nieprzetworzonych zdarzeń** .
+Przycisk **więcej akcji** rozwija się, aby wyświetlić opcję **Pobierz jako plik CSV**, **nawiązać połączenie z Power BI**, **pokazać dane wykresu jako tabelę** i zapoznać się z opcjami **nieprzetworzonych zdarzeń** .
 
   [![Opcja Więcej akcji](media/v2-update-explorer/more-actions-icon.png)](media/v2-update-explorer/more-actions-icon.png#lightbox)
 
@@ -160,7 +160,7 @@ Następujące kontrolki sieci Web są dostępne w Azure Time Series Insights Gen
 
 1. **Kontrolka suwaka zewnętrznego zakresu dat**: Użyj kontrolek punktu końcowego, aby wybrać zewnętrzny zakres dat, który będzie dostępny dla wewnętrznej kontroli zakresu dat.
 
-1. **Kontrolka suwaka zakresu czasu**: Użyj jej, aby szybko przełączać się do wybranych opcji przedziału czasu, takich jak ostatnie **30 minut**, **ostatnie 12 godzin**lub **niestandardowy zakres**. Zmiana tej wartości powoduje także zmianę dostępnych zakresów interwału, które omówiono w narzędziu suwaka Rozmiar interwału.
+1. **Kontrolka suwaka zakresu czasu**: Użyj jej, aby szybko przełączać się do wybranych opcji przedziału czasu, takich jak ostatnie **30 minut**, **ostatnie 12 godzin** lub **niestandardowy zakres**. Zmiana tej wartości powoduje także zmianę dostępnych zakresów interwału, które omówiono w narzędziu suwaka Rozmiar interwału.
 
    [![Do i z panelu wyboru](media/v2-update-explorer/to-and-from-element.png)](media/v2-update-explorer/to-and-from-element.png#lightbox)
 
@@ -221,7 +221,7 @@ Azure Time Series Insights panel Edytor warunków Gen2 przyjmuje następujące p
 | `IN` | Ciąg, bool, Double, DateTime, TimeSpan, NULL | Wszystkie operandy powinny być tego samego typu lub być stałe o wartości NULL. |
 | `HAS` | Ciąg | Tylko stałe literały ciągu są dozwolone po prawej stronie. Pusty ciąg i wartość NULL są niedozwolone. |
 
-Aby dowiedzieć się więcej o obsługiwanych operacjach zapytań i typach danych, zobacz [wyrażenie szeregów czasowych (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
+Aby dowiedzieć się więcej o obsługiwanych operacjach zapytań i typach danych, zobacz [wyrażenie szeregów czasowych (TSX)](/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 ### <a name="examples-of-where-clauses"></a>Przykłady klauzul WHERE
 
@@ -245,4 +245,4 @@ Możesz pokazać i ukryć elementy w panelu wykresu, wybierając ikonę widoczne
 
 * Przeczytaj o [modelowania danych](./concepts-model-overview.md) w Azure Time Series Insights Gen2.
 
-* Dowiedz się [, jak diagnozować i rozwiązywać problemy](./time-series-insights-update-how-to-troubleshoot.md) ze środowiskiem.
+* Dowiedz się [, jak diagnozować i rozwiązywać problemy](./how-to-diagnose-troubleshoot.md) ze środowiskiem.
