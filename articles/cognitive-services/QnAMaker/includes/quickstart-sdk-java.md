@@ -8,12 +8,12 @@ ms.subservice: qna-maker
 ms.topic: include
 ms.date: 09/04/2020
 ms.author: v-jawe
-ms.openlocfilehash: 01b8e32db50b8a1b75bb0d3ebeb6d2f4a3f901a1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 59416d2e65f17dadfd9d92969319d1804fa308ac
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90982761"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95097153"
 ---
 Użyj biblioteki klienta QnA Maker dla języka Java, aby:
 
@@ -77,7 +77,7 @@ W przypadku operacji natychmiastowych Metoda zwykle zwraca wynik, jeśli istniej
 
 ### <a name="qnamakerruntimeclient-object-model"></a>Model obiektów QnAMakerRuntimeClient
 
-QnA Maker środowiska uruchomieniowego jest obiektem [QnAMakerRuntimeClient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker/QnAMakerRuntimeClient.java) .
+QnA Maker środowiska uruchomieniowego jest obiektem [QnAMakerRuntimeClient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker/QnAMakerClient.java) .
 
 Po opublikowaniu bazy wiedzy przy użyciu klienta tworzenia należy skorzystać z metody [generateAnswer](https://github.com/Azure/azure-sdk-for-java/blob/b455a61f4c6daece13590a0f4136bab3c4f30546/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker/Runtimes.java#L36) klienta środowiska uruchomieniowego w celu uzyskania odpowiedzi z bazy wiedzy.
 
@@ -93,10 +93,10 @@ Utwórz wystąpienie klienta przy użyciu punktu końcowego tworzenia i klucza s
 
 Baza wiedzy zapisuje pary pytań i odpowiedzi dla obiektu [CreateKbDTO](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker/models/CreateKbDTO.java) z trzech źródeł:
 
-* W przypadku **zawartości redakcyjnej**Użyj obiektu [QnADTO](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker/models/QnADTO.java) .
+* W przypadku **zawartości redakcyjnej** Użyj obiektu [QnADTO](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker/models/QnADTO.java) .
     * Aby użyć metadanych i monitów uzupełniających, użyj kontekstu redakcyjnego, ponieważ te dane są dodawane na indywidualnym poziomie pary QnA.
-* Dla **plików**Użyj obiektu [FileDTO](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker/models/FileDTO.java) . FileDTO zawiera nazwę pliku, a także publiczny adres URL w celu uzyskania dostępu do pliku.
-* W przypadku **adresów URL**Użyj listy ciągów do reprezentowania publicznie dostępnych adresów URL.
+* Dla **plików** Użyj obiektu [FileDTO](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker/models/FileDTO.java) . FileDTO zawiera nazwę pliku, a także publiczny adres URL w celu uzyskania dostępu do pliku.
+* W przypadku **adresów URL** Użyj listy ciągów do reprezentowania publicznie dostępnych adresów URL.
 
 Wywołaj metodę [Create](https://github.com/Azure/azure-sdk-for-java/blob/b455a61f4c6daece13590a0f4136bab3c4f30546/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker/Knowledgebases.java#L173) , a następnie Przekaż `operationId` Właściwość zwracanej operacji do metody Details w celu sondowania stanu. [getDetails](#get-status-of-an-operation)
 

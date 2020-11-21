@@ -10,21 +10,21 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
-ms.openlocfilehash: fbfc6bf9c50257c2683522913503bf9b29450d94
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bc27c73fbf9e827ce9a95c8aaaddc82ffb0aec53
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86226379"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95096442"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed rozpoczęciem upewnij się, że:
 
 > [!div class="checklist"]
-> * [Tworzenie zasobu usługi Azure Speech](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Tworzenie zasobu usługi Azure Speech](../../../../overview.md#try-the-speech-service-for-free)
 > * [Konfigurowanie środowiska deweloperskiego i Tworzenie pustego projektu](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
-> * Utwórz element bot połączony z [kanałem mowy linii bezpośredniej](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Utwórz element bot połączony z [kanałem mowy linii bezpośredniej](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Upewnij się, że masz dostęp do mikrofonu do przechwytywania audio
 
   > [!NOTE]
@@ -272,4 +272,3 @@ Po uruchomieniu aplikacji i jej działania kliknij przycisk, aby rozpocząć roz
 ## <a name="next-steps"></a>Następne kroki
 
 [!INCLUDE [footer](./footer.md)]
-

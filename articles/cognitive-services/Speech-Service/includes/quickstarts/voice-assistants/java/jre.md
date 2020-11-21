@@ -4,21 +4,21 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
-ms.openlocfilehash: 38e6bae69710dc9e1dbc8789ee9ccb636193c7f7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8ee14b94977b3152e0aab853fa3919a739d0dfdd
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "80671189"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95097389"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed rozpoczęciem upewnij się, że:
 
 > [!div class="checklist"]
-> * [Tworzenie zasobu usługi Azure Speech](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Tworzenie zasobu usługi Azure Speech](../../../../overview.md#try-the-speech-service-for-free)
 > * [Konfigurowanie środowiska deweloperskiego i Tworzenie pustego projektu](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
-> * Utwórz element bot połączony z [kanałem mowy linii bezpośredniej](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Utwórz element bot połączony z [kanałem mowy linii bezpośredniej](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Upewnij się, że masz dostęp do mikrofonu do przechwytywania audio
 
   > [!NOTE]
@@ -115,7 +115,7 @@ Ponadto, aby włączyć rejestrowanie, zaktualizuj plik _pom.xml_ , aby uwzględ
 
 1. W `main` metodzie należy najpierw skonfigurować `DialogServiceConfig` i użyć jej do utworzenia `DialogServiceConnector` wystąpienia. To wystąpienie nawiązuje połączenie z kanałem mowy linii bezpośredniej w celu korzystania z bot. `AudioConfig`Wystąpienie jest również używane do określania źródła danych wejściowych audio. W tym przykładzie domyślny mikrofon jest używany z `AudioConfig.fromDefaultMicrophoneInput()` .
 
-   - Zastąp ciąg `YourSubscriptionKey` kluczem subskrypcji, który można uzyskać z [tej witryny sieci Web](~/articles/cognitive-services/speech-service/get-started.md).
+   - Zastąp ciąg `YourSubscriptionKey` kluczem subskrypcji, który można uzyskać z [tej witryny sieci Web](../../../../overview.md#try-the-speech-service-for-free).
    - Zamień ciąg na `YourServiceRegion` [region](~/articles/cognitive-services/speech-service/regions.md) skojarzony z subskrypcją.
 
    > [!NOTE]

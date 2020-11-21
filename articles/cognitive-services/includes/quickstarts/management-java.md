@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/01/2020
 ms.author: pafarley
-ms.openlocfilehash: 346854d5990ac6861bd4eb93914bb1745b90bfa5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a7fc96127d4449cfe0333ba81532d3c5c4ec19fe
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89321603"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95096815"
 ---
-[Dokumentacja](https://docs.microsoft.com/java/api/com.microsoft.azure.management.cognitiveservices?view=azure-java-stable)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/mgmt-v2017_04_18/src/main/java/com/microsoft/azure/management/cognitiveservices/v2017_04_18)  |  źródłowy biblioteki [Pakiet (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-mgmt-cognitiveservices)
+[Dokumentacja](/java/api/com.microsoft.azure.management.cognitiveservices?view=azure-java-stable)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/mgmt-v2017_04_18/src/main/java/com/microsoft/azure/management/cognitiveservices/v2017_04_18)  |  źródłowy biblioteki [Pakiet (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-mgmt-cognitiveservices)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -124,9 +124,9 @@ Poniższa metoda usuwa określony zasób z danej grupy zasobów.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/azure_management_service/quickstart.java?name=snippet_delete)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-* [Dokumentacja zestawu SDK zarządzania platformy Azure](https://docs.microsoft.com/java/api/com.microsoft.azure.management.cognitiveservices?view=azure-java-stable)
-* [Co to jest platforma Azure Cognitive Services?](../../Welcome.md)
+* [Dokumentacja zestawu SDK zarządzania platformy Azure](/java/api/com.microsoft.azure.management.cognitiveservices?view=azure-java-stable)
+* [Co to jest platforma Azure Cognitive Services?](../../what-are-cognitive-services.md)
 * [Uwierzytelnianie żądań w usłudze Azure Cognitive Services](../../authentication.md)
 * [Tworzenie nowego zasobu przy użyciu witryny Azure Portal](../../cognitive-services-apis-create-account.md)

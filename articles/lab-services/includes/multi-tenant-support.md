@@ -3,15 +3,15 @@ author: Julia
 ms.author: juliako
 ms.date: 10/30/2020
 ms.topic: include
-ms.openlocfilehash: a07e4c8ae222aa2a1f6ce43fd1dabe193f8cf6e8
-ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
+ms.openlocfilehash: d2eff2720d4a8d7b18bb52c827c86bc883ff1dfb
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93148293"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95095863"
 ---
-Jeśli jesteś administratorem lub właścicielem laboratorium, który jest częścią wielu dzierżawców usługi Azure AD, możesz przechodzić między dzierżawcami z portalu Azure Lab Services (prawy górny róg). 
+Jeśli masz rolę administratora lub właściciela laboratorium w co najmniej dwóch dzierżawach usługi Azure AD, możesz przełączać się między dzierżawcami w portalu Azure Lab Services, wybierając formant w prawym górnym rogu, jak pokazano na poniższym zrzucie ekranu: 
 
-![Wybierz dzierżawcę](../media/multi-tenant-support/picker.png)
+![Zrzut ekranu przedstawiający kontrolkę przełączania między dzierżawcami w portalu Azure Lab Services.](../media/multi-tenant-support/picker.png)
 
-Po wybraniu dzierżawy wybierz konto laboratorium w ramach dzierżawy usługi Azure Active Directory (Azure AD) w lewym górnym rogu.
+Po wybraniu dzierżawy usługi Azure AD przejdź do swojego konta laboratorium, wybierając formant w lewym górnym rogu.

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/25/2020
 ms.author: trrwilson
-ms.openlocfilehash: b05e63dc549fdf1fec4485e27086bb32251b41d8
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c37637ba1cb5154bbd56f7fd22bbbca62b8c3438
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93136159"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95095464"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -18,7 +18,7 @@ Przed rozpoczęciem:
 > [!div class="checklist"]
 > * [Tworzenie zasobu usługi Azure Speech](../../../../overview.md#try-the-speech-service-for-free)
 > * [Skonfiguruj środowisko deweloperskie i Utwórz pusty projekt](../../../../quickstarts/setup-platform.md)
-> * Utwórz element bot połączony z [kanałem mowy linii bezpośredniej](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Utwórz element bot połączony z [kanałem mowy linii bezpośredniej](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Upewnij się, że masz dostęp do mikrofonu do przechwytywania audio
 >
   > [!NOTE]
@@ -108,7 +108,7 @@ Zastąp `YOUR_SUBSCRIPTION_KEY` wartości i wartościami `YOUR_BOT_REGION` rzecz
    > Zapoznaj się z [listą obsługiwanych regionów dla asystentów głosowych](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) i upewnij się, że zasoby zostały wdrożone w jednym z tych regionów.
 
    > [!NOTE]
-   > Aby uzyskać informacje na temat konfigurowania bot, zobacz dokumentację platformy bot dla [kanału Direct line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
+   > Aby uzyskać informacje na temat konfigurowania bot, zobacz dokumentację platformy bot dla [kanału Direct line Speech](/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
 ## <a name="code-explanation"></a>Wyjaśnienie kodu
 Klucz subskrypcji mowy i region są wymagane do utworzenia obiektu konfiguracji mowy. Obiekt konfiguracji jest wymagany do utworzenia wystąpienia obiektu aparatu rozpoznawania mowy.
