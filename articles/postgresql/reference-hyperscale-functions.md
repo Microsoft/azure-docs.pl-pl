@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
-ms.openlocfilehash: 16c3a45e0d88a0546772b3fdc855c90f2e450d14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f324ef44d002f50bf27c08072e904c1d92b5512f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250335"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026237"
 ---
 # <a name="functions-in-the-hyperscale-citus-sql-api"></a>Funkcje w interfejsie API SQL Citus
 
@@ -32,15 +32,15 @@ Ta funkcja zastępuje użycie metody Master \_ create \_ Distributed \_ Table ()
 
 #### <a name="arguments"></a>Argumenty
 
-** \_ Nazwa tabeli:** nazwa tabeli, która musi być dystrybuowana.
+**\_ Nazwa tabeli:** nazwa tabeli, która musi być dystrybuowana.
 
-** \_ kolumna dystrybucji:** kolumna, w której ma zostać dystrybuowana tabela.
+**\_ kolumna dystrybucji:** kolumna, w której ma zostać dystrybuowana tabela.
 
-** \_ Typ dystrybucji:** (opcjonalnie) Metoda, zgodnie z którą tabela ma być dystrybuowana. Dozwolone wartości to dołączenie lub wartość skrótu z wartością domyślną "hash".
+**\_ Typ dystrybucji:** (opcjonalnie) Metoda, zgodnie z którą tabela ma być dystrybuowana. Dozwolone wartości to dołączenie lub wartość skrótu z wartością domyślną "hash".
 
 **Znajdź \_ przy użyciu:** (opcjonalnie) Uwzględnij bieżącą tabelę w grupie wspólnej lokalizacji innej tabeli. Tabele domyślne są umieszczane w, gdy są dystrybuowane według kolumn tego samego typu, mają tę samą liczbę fragmentu i mają ten sam współczynnik replikacji. Możliwe wartości dla programu `colocate_with` to `default` , `none` Aby rozpocząć nową grupę wspólnej lokalizacji, lub nazwę innej tabeli, która ma być rozszukiwana z tą tabelą.  (Zobacz [kolokacja tabeli](concepts-hyperscale-colocation.md)).
 
-Należy pamiętać, że wartość domyślna to `colocate_with` niejawna współlokalizacja. [Współlokalizacja](concepts-hyperscale-colocation.md) może być doskonałym rozwiązaniem w przypadku, gdy tabele są powiązane lub zostaną dołączone.  Jeśli jednak dwie tabele są niepowiązane, ale mają korzystać z tego samego typu danych dla ich kolumn dystrybucji, przypadkowe współlokalizowanie ich może obniżyć wydajność podczas ponownego [równoważenia fragmentu](howto-hyperscale-scaling.md#rebalance-shards).  Tabela fragmentów będzie niepotrzebnie przenoszona razem w \" kaskadowo.\"
+Należy pamiętać, że wartość domyślna to `colocate_with` niejawna współlokalizacja. [Współlokalizacja](concepts-hyperscale-colocation.md) może być doskonałym rozwiązaniem w przypadku, gdy tabele są powiązane lub zostaną dołączone.  Jeśli jednak dwie tabele są niepowiązane, ale mają korzystać z tego samego typu danych dla ich kolumn dystrybucji, przypadkowe współlokalizowanie ich może obniżyć wydajność podczas ponownego [równoważenia fragmentu](howto-hyperscale-scale-rebalance.md).  Tabela fragmentów będzie niepotrzebnie przenoszona razem w \" kaskadowo.\"
 
 Jeśli nowa tabela rozproszona nie jest powiązana z innymi tabelami, najlepiej ją określić `colocate_with => 'none'` .
 
@@ -66,7 +66,7 @@ Funkcja Create \_ Reference \_ Table () służy do definiowania małych odwoła�
 
 #### <a name="arguments"></a>Argumenty
 
-** \_ Nazwa tabeli:** nazwa małego wymiaru lub tabeli referencyjnej, która musi być dystrybuowana.
+**\_ Nazwa tabeli:** nazwa małego wymiaru lub tabeli referencyjnej, która musi być dystrybuowana.
 
 #### <a name="return-value"></a>Wartość zwracana
 
@@ -86,7 +86,7 @@ Funkcja uaktualniania \_ do \_ odwołania \_ tabeli () przyjmuje istniejącą ta
 
 #### <a name="arguments"></a>Argumenty
 
-** \_ Nazwa tabeli:** nazwa tabeli rozproszonej (o liczbie fragmentu = 1), która zostanie dystrybuowana jako tabela referencyjna.
+**\_ Nazwa tabeli:** nazwa tabeli rozproszonej (o liczbie fragmentu = 1), która zostanie dystrybuowana jako tabela referencyjna.
 
 #### <a name="return-value"></a>Wartość zwracana
 
@@ -108,9 +108,9 @@ Tabele, które należy wykonać, powinny być wykonywane w czasie dystrybucji ta
 
 #### <a name="arguments"></a>Argumenty
 
-** \_ \_ Nazwa tabeli źródłowej:** nazwa tabeli rozproszonej, której Grupa współdzielona zostanie przypisana do dopasowania.
+**\_ \_ Nazwa tabeli źródłowej:** nazwa tabeli rozproszonej, której Grupa współdzielona zostanie przypisana do dopasowania.
 
-** \_ nazwy tabel docelowych \_ :** Tablica nazw rozproszonej tabeli docelowej nie może być pusta. Te tabele rozproszone muszą być zgodne z tabelą źródłową w programie:
+**\_ nazwy tabel docelowych \_ :** Tablica nazw rozproszonej tabeli docelowej nie może być pusta. Te tabele rozproszone muszą być zgodne z tabelą źródłową w programie:
 
 > -   Metoda dystrybucji
 > -   Typ kolumny dystrybucji
@@ -144,9 +144,9 @@ Propaguje funkcję z węzła koordynatora do pracowników i oznacza ją do wykon
 
 #### <a name="arguments"></a>Argumenty
 
-** \_ nazwa funkcji:** nazwa funkcji do dystrybucji. Nazwa musi zawierać typy parametrów funkcji w nawiasach, ponieważ wiele funkcji może mieć taką samą nazwę w PostgreSQL. Na przykład `'foo(int)'` różni się od `'foo(int, text)'` .
+**\_ nazwa funkcji:** nazwa funkcji do dystrybucji. Nazwa musi zawierać typy parametrów funkcji w nawiasach, ponieważ wiele funkcji może mieć taką samą nazwę w PostgreSQL. Na przykład `'foo(int)'` różni się od `'foo(int, text)'` .
 
-** \_ Nazwa ARG \_ :** (opcjonalnie) nazwa argumentu do dystrybucji. Dla wygody (lub jeśli argumenty funkcji nie mają nazw), symbol zastępczy pozycyjny jest dozwolony, taki jak `'$1'` . Jeśli ten parametr nie jest określony, funkcja o nazwie przez `function_name` jest tworzona wyłącznie w ramach procesów roboczych. Jeśli węzły procesu roboczego są dodawane w przyszłości, funkcja zostanie automatycznie utworzona.
+**\_ Nazwa ARG \_ :** (opcjonalnie) nazwa argumentu do dystrybucji. Dla wygody (lub jeśli argumenty funkcji nie mają nazw), symbol zastępczy pozycyjny jest dozwolony, taki jak `'$1'` . Jeśli ten parametr nie jest określony, funkcja o nazwie przez `function_name` jest tworzona wyłącznie w ramach procesów roboczych. Jeśli węzły procesu roboczego są dodawane w przyszłości, funkcja zostanie automatycznie utworzona.
 
 **Znajdź \_ przy użyciu:** (opcjonalnie) gdy funkcja dystrybuowana odczytuje lub zapisuje dane w rozproszonej tabeli (lub, bardziej ogólnie, w grupie wspólnej lokalizacji), pamiętaj o nazwie tej tabeli przy użyciu `colocate_with` parametru. Następnie każde wywołanie funkcji zostanie uruchomione w węźle procesu roboczego zawierającym odpowiednie fragmentów.
 
@@ -186,7 +186,7 @@ Główna \_ Funkcja pobierania \_ \_ metadanych tabeli () może służyć do zwr
 
 #### <a name="arguments"></a>Argumenty
 
-** \_ Nazwa tabeli:** nazwa tabeli rozproszonej, dla której mają zostać pobrane metadane.
+**\_ Nazwa tabeli:** nazwa tabeli rozproszonej, dla której mają zostać pobrane metadane.
 
 #### <a name="return-value"></a>Wartość zwracana
 
@@ -194,17 +194,17 @@ Spójna kolekcja zawierająca następujące informacje:
 
 **logiczne \_ relid:** identyfikator OID tabeli rozproszonej. Odwołuje się do kolumny relfilenode w \_ tabeli wykazu systemu klasy PG.
 
-** \_ Typ magazynu części \_ :** typ magazynu używany dla tabeli. Może to być "t" (tabela standardowa), "f" (Tabela obca) lub "c" (tabela kolumnowy).
+**\_ Typ magazynu części \_ :** typ magazynu używany dla tabeli. Może to być "t" (tabela standardowa), "f" (Tabela obca) lub "c" (tabela kolumnowy).
 
 **część \_ — Metoda:** metoda dystrybucji użyta dla tabeli. Może to być "a" (append) lub "h" (hash).
 
-** \_ klucz części:** kolumna dystrybucji dla tabeli.
+**\_ klucz części:** kolumna dystrybucji dla tabeli.
 
-** \_ Liczba replik części \_ :** bieżąca liczba replikacji fragmentu.
+**\_ Liczba replik części \_ :** bieżąca liczba replikacji fragmentu.
 
-** \_ Maksymalny \_ rozmiar części:** bieżący maksymalny rozmiar fragmentu w bajtach.
+**\_ Maksymalny \_ rozmiar części:** bieżący maksymalny rozmiar fragmentu w bajtach.
 
-** \_ zasady umieszczania części \_ :** fragmentu zasady umieszczania używane do umieszczania fragmentów tabeli. Może być 1 (lokalny-węzeł-pierwszy) lub 2 (działające w trybie okrężnym).
+**\_ zasady umieszczania części \_ :** fragmentu zasady umieszczania używane do umieszczania fragmentów tabeli. Może być 1 (lokalny-węzeł-pierwszy) lub 2 (działające w trybie okrężnym).
 
 #### <a name="example"></a>Przykład
 
@@ -224,9 +224,9 @@ Funkcja Citus) przypisuje każdy wiersz tabeli rozproszonej do fragmentu na pods
 
 #### <a name="arguments"></a>Argumenty
 
-** \_ Nazwa tabeli:** rozproszonej tabeli.
+**\_ Nazwa tabeli:** rozproszonej tabeli.
 
-** \_ wartość dystrybucji:** wartość kolumny dystrybucji.
+**\_ wartość dystrybucji:** wartość kolumny dystrybucji.
 
 #### <a name="return-value"></a>Wartość zwracana
 
@@ -251,9 +251,9 @@ Aby zapoznać się z bardziej szczegółowym omówieniem, zobacz [Wybieranie kol
 
 #### <a name="arguments"></a>Argumenty
 
-** \_ Nazwa tabeli:** rozproszonej tabeli.
+**\_ Nazwa tabeli:** rozproszonej tabeli.
 
-** \_ tekst var kolumny \_ :** wartość `partkey` w `pg_dist_partition` tabeli.
+**\_ tekst var kolumny \_ :** wartość `partkey` w `pg_dist_partition` tabeli.
 
 #### <a name="return-value"></a>Wartość zwracana
 
@@ -375,15 +375,15 @@ Aby naprawić fragmentu, funkcja najpierw odrzuca rozmieszczenie fragmentu w zł
 
 #### <a name="arguments"></a>Argumenty
 
-** \_ identyfikator fragmentu:** identyfikator fragmentu, który ma zostać naprawiony.
+**\_ identyfikator fragmentu:** identyfikator fragmentu, który ma zostać naprawiony.
 
-** \_ \_ nazwa węzła źródłowego:** nazwa DNS węzła, na którym znajduje się fragmentu w dobrej kondycji ( \" węzeł źródłowy \" ).
+**\_ \_ nazwa węzła źródłowego:** nazwa DNS węzła, na którym znajduje się fragmentu w dobrej kondycji ( \" węzeł źródłowy \" ).
 
-** \_ port węzła źródłowego \_ :** port w źródłowym węźle procesu roboczego, na którym nasłuchuje serwer bazy danych.
+**\_ port węzła źródłowego \_ :** port w źródłowym węźle procesu roboczego, na którym nasłuchuje serwer bazy danych.
 
-** \_ \_ nazwa węzła docelowego:** nazwa DNS węzła, na którym znajduje się nieprawidłowe rozmieszczenie fragmentu ( \" węzeł docelowy \" ).
+**\_ \_ nazwa węzła docelowego:** nazwa DNS węzła, na którym znajduje się nieprawidłowe rozmieszczenie fragmentu ( \" węzeł docelowy \" ).
 
-** \_ port węzła docelowego \_ :** port w docelowym węźle procesu roboczego, na którym nasłuchuje serwer bazy danych.
+**\_ port węzła docelowego \_ :** port w docelowym węźle procesu roboczego, na którym nasłuchuje serwer bazy danych.
 
 #### <a name="return-value"></a>Wartość zwracana
 
@@ -409,17 +409,17 @@ Po pomyślnym wykonaniu operacji przenoszenia fragmentów w węźle źródłowym
 
 #### <a name="arguments"></a>Argumenty
 
-** \_ identyfikator fragmentu:** identyfikator fragmentu, który ma zostać przeniesiony.
+**\_ identyfikator fragmentu:** identyfikator fragmentu, który ma zostać przeniesiony.
 
-** \_ \_ nazwa węzła źródłowego:** nazwa DNS węzła, na którym znajduje się fragmentu w dobrej kondycji ( \" węzeł źródłowy \" ).
+**\_ \_ nazwa węzła źródłowego:** nazwa DNS węzła, na którym znajduje się fragmentu w dobrej kondycji ( \" węzeł źródłowy \" ).
 
-** \_ port węzła źródłowego \_ :** port w źródłowym węźle procesu roboczego, na którym nasłuchuje serwer bazy danych.
+**\_ port węzła źródłowego \_ :** port w źródłowym węźle procesu roboczego, na którym nasłuchuje serwer bazy danych.
 
-** \_ \_ nazwa węzła docelowego:** nazwa DNS węzła, na którym znajduje się nieprawidłowe rozmieszczenie fragmentu ( \" węzeł docelowy \" ).
+**\_ \_ nazwa węzła docelowego:** nazwa DNS węzła, na którym znajduje się nieprawidłowe rozmieszczenie fragmentu ( \" węzeł docelowy \" ).
 
-** \_ port węzła docelowego \_ :** port w docelowym węźle procesu roboczego, na którym nasłuchuje serwer bazy danych.
+**\_ port węzła docelowego \_ :** port w docelowym węźle procesu roboczego, na którym nasłuchuje serwer bazy danych.
 
-** \_ Tryb transferu fragmentu \_ :** (opcjonalnie) Określ metodę replikacji, czy ma być używana replikacja logiczna PostgreSQL lub polecenie kopiowania między procesami roboczymi. Możliwe wartości są następujące:
+**\_ Tryb transferu fragmentu \_ :** (opcjonalnie) Określ metodę replikacji, czy ma być używana replikacja logiczna PostgreSQL lub polecenie kopiowania między procesami roboczymi. Możliwe wartości są następujące:
 
 > -   `auto`: Wymagaj tożsamości repliki, jeśli istnieje replikacja logiczna, w przeciwnym razie użyj starszego zachowania (np. do naprawy fragmentu, PostgreSQL 9,6). Jest to wartość domyślna.
 > -   `force_logical`: Użyj replikacji logicznej, nawet jeśli tabela nie ma tożsamości repliki. Wszystkie współbieżne instrukcje Update/Delete do tabeli będą kończyć się niepowodzeniem podczas replikacji.
@@ -454,7 +454,7 @@ Zaleca się Wywołaj [get_rebalance_table_shards_plan](#get_rebalance_table_shar
 
 #### <a name="arguments"></a>Argumenty
 
-** \_ Nazwa tabeli:** (opcjonalnie) nazwa tabeli, której fragmentów należy ponownie zrównoważyć. Jeśli wartość jest równa NULL, należy ponownie zrównoważyć wszystkie istniejące grupy wspólnej lokalizacji.
+**\_ Nazwa tabeli:** (opcjonalnie) nazwa tabeli, której fragmentów należy ponownie zrównoważyć. Jeśli wartość jest równa NULL, należy ponownie zrównoważyć wszystkie istniejące grupy wspólnej lokalizacji.
 
 **próg:** (opcjonalnie) liczba zmiennoprzecinkowa z zakresu od 0,0 do 1,0, która wskazuje maksymalną różnicę współczynnika wykorzystania węzła z średniego użycia. Na przykład określenie 0,1 spowoduje, że moduł równoważenia fragmentu podejmie próbę zrównoważenia wszystkich węzłów o tej samej liczbie fragmentów ± 10%.
 W każdym przypadku moduł równoważenia fragmentu podejmie próbę uzgodnienia wykorzystania wszystkich węzłów procesu roboczego z średnim wykorzystaniem (1-próg \* ) \_ \. . (1
@@ -464,7 +464,7 @@ W każdym przypadku moduł równoważenia fragmentu podejmie próbę uzgodnienia
 
 **wykluczona \_ \_ Lista fragmentu:** (opcjonalnie) identyfikatory fragmentów, które nie powinny zostać przeniesione podczas operacji ponownego równoważenia.
 
-** \_ Tryb transferu fragmentu \_ :** (opcjonalnie) Określ metodę replikacji, czy ma być używana replikacja logiczna PostgreSQL lub polecenie kopiowania między procesami roboczymi. Możliwe wartości są następujące:
+**\_ Tryb transferu fragmentu \_ :** (opcjonalnie) Określ metodę replikacji, czy ma być używana replikacja logiczna PostgreSQL lub polecenie kopiowania między procesami roboczymi. Możliwe wartości są następujące:
 
 > -   `auto`: Wymagaj tożsamości repliki, jeśli istnieje replikacja logiczna, w przeciwnym razie użyj starszego zachowania (np. do naprawy fragmentu, PostgreSQL 9,6). Jest to wartość domyślna.
 > -   `force_logical`: Użyj replikacji logicznej, nawet jeśli tabela nie ma tożsamości repliki. Wszystkie współbieżne instrukcje Update/Delete do tabeli będą kończyć się niepowodzeniem podczas replikacji.
@@ -506,9 +506,9 @@ Te same argumenty jak ponowne równoważenie \_ tabeli \_ fragmentów: relacja, 
 
 Krotki zawierające następujące kolumny:
 
--   ** \_ Nazwa tabeli**: tabela, której fragmentów zostałaby przeniesiona
+-   **\_ Nazwa tabeli**: tabela, której fragmentów zostałaby przeniesiona
 -   **shardid**: fragmentu
--   ** \_ rozmiar fragmentu**: rozmiar w bajtach
+-   **\_ rozmiar fragmentu**: rozmiar w bajtach
 -   **SourceName**: Nazwa hosta węzła źródłowego
 -   **sourceport**: Port węzła źródłowego
 -   **TargetName**: Nazwa hosta węzła docelowego
@@ -527,9 +527,9 @@ Nie dotyczy
 Krotki zawierające następujące kolumny:
 
 -   Identyfikator **sesji**: Postgres PID monitora równoważenia obciążenia
--   ** \_ Nazwa tabeli**: tabela, której przenoszona jest fragmentów
+-   **\_ Nazwa tabeli**: tabela, której przenoszona jest fragmentów
 -   **shardid**: fragmentu
--   ** \_ rozmiar fragmentu**: rozmiar w bajtach
+-   **\_ rozmiar fragmentu**: rozmiar w bajtach
 -   **SourceName**: Nazwa hosta węzła źródłowego
 -   **sourceport**: Port węzła źródłowego
 -   **TargetName**: Nazwa hosta węzła docelowego
@@ -563,15 +563,15 @@ Aby uzyskać więcej informacji na temat tych argumentów, zobacz odpowiednie wa
 
 **Nazwa:** identyfikator nowej strategii
 
-** \_ Funkcja kosztu fragmentu \_ :** identyfikuje funkcję służącą do określenia \" kosztu \" każdego fragmentu
+**\_ Funkcja kosztu fragmentu \_ :** identyfikuje funkcję służącą do określenia \" kosztu \" każdego fragmentu
 
-** \_ Funkcja pojemności węzła \_ :** określa funkcję do mierzenia pojemności węzła
+**\_ Funkcja pojemności węzła \_ :** określa funkcję do mierzenia pojemności węzła
 
 **fragmentu \_ dozwolony \_ w \_ \_ funkcji Node:** identyfikuje funkcję, która określa, które fragmentów mogą być umieszczone w węzłach
 
 **domyślny \_ próg:** wartość progowa liczby zmiennoprzecinkowej, która dostosowuje dokładnie ten skumulowany koszt fragmentu między węzłami
 
-** \_ próg minimalny:** (opcjonalnie) kolumna zabezpieczeń, która posiada minimalną wartość dozwoloną dla argumentu progowego modułu równoważenia obciążenia \_ tabeli \_ fragmentów (). Wartość domyślna to 0
+**\_ próg minimalny:** (opcjonalnie) kolumna zabezpieczeń, która posiada minimalną wartość dozwoloną dla argumentu progowego modułu równoważenia obciążenia \_ tabeli \_ fragmentów (). Wartość domyślna to 0
 
 #### <a name="return-value"></a>Wartość zwracana
 
@@ -626,7 +626,7 @@ Funkcja głównego \_ węzła opróżniania \_ () przenosi fragmentów poza wyzn
 
 **NodePort:** Numer portu węzła, który ma zostać opróżniony.
 
-** \_ Tryb transferu fragmentu \_ :** (opcjonalnie) Określ metodę replikacji, czy ma być używana replikacja logiczna PostgreSQL lub polecenie kopiowania między procesami roboczymi. Możliwe wartości są następujące:
+**\_ Tryb transferu fragmentu \_ :** (opcjonalnie) Określ metodę replikacji, czy ma być używana replikacja logiczna PostgreSQL lub polecenie kopiowania między procesami roboczymi. Możliwe wartości są następujące:
 
 > -   `auto`: Wymagaj tożsamości repliki, jeśli istnieje replikacja logiczna, w przeciwnym razie użyj starszego zachowania (np. do naprawy fragmentu, PostgreSQL 9,6). Jest to wartość domyślna.
 > -   `force_logical`: Użyj replikacji logicznej, nawet jeśli tabela nie ma tożsamości repliki. Wszystkie współbieżne instrukcje Update/Delete do tabeli będą kończyć się niepowodzeniem podczas replikacji.
@@ -677,7 +677,7 @@ Funkcja replikowania \_ tabeli \_ fragmentów () replikuje fragmentów w podanej
 
 #### <a name="arguments"></a>Argumenty
 
-** \_ Nazwa tabeli:** nazwa tabeli, której fragmentów musi być replikowana.
+**\_ Nazwa tabeli:** nazwa tabeli, której fragmentów musi być replikowana.
 
 **fragmentu \_ \_ :** (opcjonalnie) żądany czynnik replikacji do osiągnięcia dla każdego fragmentuu.
 
@@ -709,7 +709,7 @@ Ta funkcja tworzy nowy fragmentu do przechowywania wierszy z określoną pojedyn
 
 #### <a name="arguments"></a>Argumenty
 
-** \_ Nazwa tabeli:** nazwa tabeli, aby uzyskać nowy fragmentu.
+**\_ Nazwa tabeli:** nazwa tabeli, aby uzyskać nowy fragmentu.
 
 **Identyfikator dzierżawy \_ :** wartość kolumny dystrybucji, która zostanie przypisana do nowego fragmentu.
 
@@ -717,7 +717,7 @@ Ta funkcja tworzy nowy fragmentu do przechowywania wierszy z określoną pojedyn
 
 #### <a name="return-value"></a>Wartość zwracana
 
-** \_ identyfikator fragmentu:** funkcja zwraca unikatowy identyfikator przypisany do nowo utworzonego fragmentu.
+**\_ identyfikator fragmentu:** funkcja zwraca unikatowy identyfikator przypisany do nowo utworzonego fragmentu.
 
 #### <a name="examples"></a>Przykłady
 

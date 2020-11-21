@@ -7,20 +7,20 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
-ms.date: 06/18/2020
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: f82bedc6ef638714b2641003e8274c2024a86c2e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 83b5804888379316b855c36f803f646cec102d9e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85213010"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024589"
 ---
 # <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>Szybki Start: ładowanie danych przy użyciu instrukcji COPY
 
-W tym przewodniku szybki start załadujesz dane do puli SQL przy użyciu prostej i elastycznej [instrukcji Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) do pozyskiwania danych o wysokiej przepływności. Instrukcja COPY jest zalecanym narzędziem do ładowania, ponieważ pozwala bezproblemowo i elastycznie ładować dane przez zapewnienie funkcjonalności:
+W tym przewodniku szybki start załadujesz dane do dedykowanej puli SQL przy użyciu prostej i elastycznej [instrukcji Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) do pozyskiwania danych o wysokiej przepływności. Instrukcja COPY jest zalecanym narzędziem do ładowania, ponieważ pozwala bezproblemowo i elastycznie ładować dane przez zapewnienie funkcjonalności:
 
 - Zezwalaj niższym uprzywilejowanym użytkownikom na ładowanie bez konieczności stosowania ścisłych kontroli w magazynie danych
 - Wykorzystanie tylko jednej instrukcji języka T-SQL bez konieczności tworzenia dodatkowych obiektów bazy danych
@@ -34,7 +34,7 @@ W tym przewodniku szybki start załadujesz dane do puli SQL przy użyciu prostej
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym przewodniku szybki start założono, że masz już pulę SQL. Jeśli nie utworzono puli SQL, Skorzystaj z przewodnika Szybki Start dotyczącego [tworzenia i łączenia z portalem](create-data-warehouse-portal.md) .
+W tym przewodniku szybki start założono, że masz już dedykowaną pulę SQL. Jeśli dedykowana Pula SQL nie została utworzona, Skorzystaj z przewodnika Szybki Start dotyczącego [tworzenia i łączenia z portalem](create-data-warehouse-portal.md) .
 
 ## <a name="set-up-the-required-permissions"></a>Skonfiguruj wymagane uprawnienia
 

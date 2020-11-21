@@ -5,18 +5,18 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 04/20/2020
+ms.date: 11/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 67e33732574d2a6c173675d5adf0a7d1c2050688
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d94cd649df9da6b36ac484d4fc1e6acef7a21bb7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90528180"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026169"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>Sterowanie aktualizacjami przy użyciu sterowania konserwacją i interfejsu wiersza polecenia platformy Azure
 
-Kontrola konserwacji pozwala określić, kiedy mają być stosowane aktualizacje odizolowanych maszyn wirtualnych i hostów dedykowanych platformy Azure. W tym temacie omówiono opcje interfejsu wiersza polecenia platformy Azure służące do sterowania konserwacją. Aby uzyskać więcej informacji na temat korzyści z używania kontroli konserwacji, jej ograniczeń i innych opcji zarządzania, zobacz [Zarządzanie aktualizacjami platformy przy użyciu kontroli konserwacji](maintenance-control.md).
+Kontrola konserwacji umożliwia określenie, kiedy należy zastosować aktualizacje platformy do infrastruktury hosta izolowanych maszyn wirtualnych i hostów dedykowanych platformy Azure. W tym temacie omówiono opcje interfejsu wiersza polecenia platformy Azure służące do sterowania konserwacją. Aby uzyskać więcej informacji na temat korzyści z używania kontroli konserwacji, jej ograniczeń i innych opcji zarządzania, zobacz [Zarządzanie aktualizacjami platformy przy użyciu kontroli konserwacji](maintenance-control.md).
 
 ## <a name="create-a-maintenance-configuration"></a>Utworzenie konfiguracji konserwacji
 
@@ -28,14 +28,14 @@ az group create \
    --name myMaintenanceRG
 az maintenance configuration create \
    -g myMaintenanceRG \
-   --name myConfig \
-   --maintenanceScope host\
+   --resource-name myConfig \
+   --maintenance-scope host\
    --location eastus
 ```
 
 Skopiuj identyfikator konfiguracji z danych wyjściowych do użycia później.
 
-Użycie `--maintenanceScope host` gwarantuje, że konfiguracja konserwacji służy do kontrolowania aktualizacji hosta.
+Użycie `--maintenance-scope host` gwarantuje, że konfiguracja konserwacji służy do kontrolowania aktualizacji infrastruktury hosta.
 
 Jeśli spróbujesz utworzyć konfigurację o tej samej nazwie, ale w innej lokalizacji, zostanie wyświetlony komunikat o błędzie. Nazwy konfiguracji muszą być unikatowe dla grupy zasobów.
 
@@ -44,6 +44,30 @@ Można wykonać zapytanie o dostępne konfiguracje konserwacji przy użyciu prog
 ```azurecli-interactive
 az maintenance configuration list --query "[].{Name:name, ID:id}" -o table 
 ```
+
+### <a name="create-a-maintenance-configuration-with-scheduled-window"></a>Utwórz konfigurację konserwacji z zaplanowanym oknem
+Możesz również zadeklarować zaplanowane okno, gdy platforma Azure zastosuje aktualizacje do zasobów. W tym przykładzie zostanie utworzona konfiguracja konserwacji o nazwie Moja config z zaplanowanym oknem 5 godzin w czwartym poniedziałek każdego miesiąca. Po utworzeniu zaplanowanego okna nie trzeba już ręcznie stosować aktualizacji.
+
+```azurecli-interactive
+az maintenance configuration create \
+   -g myMaintenanceRG \
+   --resource-name myConfig \
+   --maintenance-scope host \
+   --location eastus \
+   --maintenance-window-duration "05:00" \
+   --maintenance-window-recur-every "Month Fourth Monday" \
+   --maintenance-window-start-date-time "2020-12-30 08:00" \
+   --maintenance-window-time-zone "Pacific Standard Time"
+```
+
+> [!IMPORTANT]
+> **Czas trwania** konserwacji nie może być dłuższy niż *2 godziny* . **Cykl** konserwacji musi być ustawiony na co najmniej raz w ciągu 35 dni.
+
+Cykl konserwacji można wyrazić jako codziennie, co tydzień lub co miesiąc. Przykłady to:
+- **codzienne**— konserwacja — powtarzanie okna — co: "dzień" **lub** "3Days"
+- **cotygodniowe**— konserwacja — powtarzanie okna — co: "3Weeks" **lub** "tydzień Sobota, Niedziela"
+- **miesięczne**-konserwacyjne — powtarzanie okna — co: "miesiąc day23, day24" **lub** "miesiąc ostatni Niedziela" **lub** "miesiąc czwarty poniedziałek"
+
 
 ## <a name="assign-the-configuration"></a>Przypisz konfigurację
 
@@ -251,7 +275,7 @@ Służy `az maintenance configuration delete` do usuwania konfiguracji konserwac
 az maintenance configuration delete \
    --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
    -g myResourceGroup \
-   --name myConfig
+   --resource-name myConfig
 ```
 
 ## <a name="next-steps"></a>Następne kroki

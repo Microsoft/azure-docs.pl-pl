@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
 ms.author: swmachan
-ms.openlocfilehash: 6b211dd8ca735ea9ee4a5209aa6030398cca472e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8175cbd469c8a3933526d01f433e1def714783b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88121021"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024504"
 ---
 # <a name="translator-v30"></a>Translator — wersja 3.0
 
@@ -48,7 +48,7 @@ Aby wymusić obsługę żądania przez określoną lokalizację geograficzną pl
 |Azure|Europa|  api-eur.cognitive.microsofttranslator.com|
 |Azure|Azja i Pacyfik|    api-apc.cognitive.microsofttranslator.com|
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 Zasubskrybuj usługę translator lub [Cognitive Services wiele usług](https://azure.microsoft.com/pricing/details/cognitive-services/) na platformie Azure Cognitive Services i Użyj klucza subskrypcji (dostępnego w Azure Portal) do uwierzytelniania. 
 
@@ -147,7 +147,7 @@ Token uwierzytelniania jest ważny przez 10 minut. Token powinien być ponownie 
 
 ## <a name="virtual-network-support"></a>Obsługa sieci wirtualnej
 
-Usługa Translator jest teraz dostępna z możliwościami Virtual Network (VNET) we wszystkich regionach chmury publicznej platformy Azure. Aby włączyć Virtual Network, zobacz [Konfigurowanie platformy Azure Cognitive Services sieci wirtualnych](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
+Usługa Translator jest teraz dostępna z możliwościami Virtual Network (VNET) we wszystkich regionach chmury publicznej platformy Azure. Aby włączyć Virtual Network, zobacz [Konfigurowanie platformy Azure Cognitive Services sieci wirtualnych](../../cognitive-services-virtual-networks.md?tabs=portal). 
 
 Po włączeniu tej funkcji musisz użyć niestandardowego punktu końcowego, aby wywołać translator. Nie można użyć globalnego punktu końcowego usługi Translator ("api.cognitive.microsofttranslator.com") i nie można uwierzytelnić się przy użyciu tokenu dostępu.
 
@@ -169,7 +169,7 @@ curl -X POST "https://<your-custom-domain>.cognitiveservices.azure.com/translato
      -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
-## <a name="errors"></a>Errors
+## <a name="errors"></a>błędy
 
 Standardowa odpowiedź na błąd to obiekt JSON z parą nazwa/wartość o nazwie `error` . Wartość jest również obiektem JSON z właściwościami:
 
@@ -230,7 +230,7 @@ Kod błędu to 6-cyfrowy numer łączący 3-cyfrowy kod stanu HTTP, a następnie
 | 503000| Usługa jest tymczasowo niedostępna. Spróbuj ponownie. Jeśli błąd będzie się powtarzać, zgłoś ten błąd w polu Data/godzina błędu, identyfikator żądania z nagłówka odpowiedzi X-IdentyfikatorŻądania i identyfikator klienta z nagłówka żądania X-ClientTraceId.|
 
 ## <a name="metrics"></a>Metryki 
-Metryki umożliwiają wyświetlanie informacji dotyczących użycia i dostępności usługi Translator w Azure Portal w obszarze metryki, jak pokazano na poniższym zrzucie ekranu. Aby uzyskać więcej informacji, zobacz [metryki danych i platformy](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+Metryki umożliwiają wyświetlanie informacji dotyczących użycia i dostępności usługi Translator w Azure Portal w obszarze metryki, jak pokazano na poniższym zrzucie ekranu. Aby uzyskać więcej informacji, zobacz [metryki danych i platformy](../../../azure-monitor/platform/data-platform-metrics.md).
 
 ![Metryki translatora](../media/translatormetrics.png)
 

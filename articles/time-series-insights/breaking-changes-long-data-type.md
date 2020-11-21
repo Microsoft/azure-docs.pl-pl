@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: dpalled
-ms.openlocfilehash: 2cf86ed4fd4305a37d27bf7a88e8493821ef085c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3460cd8a88733ede041f6c0635ba40797675ed03
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629101"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025331"
 ---
 # <a name="adding-support-for-long-data-type-in-azure-time-series-insights-gen2"></a>Dodawanie obsługi długich typów danych w Azure Time Series Insights Gen2
 
@@ -42,11 +42,11 @@ W zależności od rozwiązania IoT i ograniczeń można nie mieć wglądu w dane
 - Można zapobiegawczo wprowadzić zalecane zmiany dla wszystkich tagów numerycznych.
 - Możesz tymczasowo kierować podzestaw zdarzeń do magazynu, aby lepiej zrozumieć i eksplorować schemat.
 
-Aby przechowywać zdarzenia, Włącz funkcję [przechwytywania zdarzeń](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) dla platformy Azure Event Hubs lub [roześlij](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c#azure-storage) ją z IoT Hub do usługi Azure Blob Storage.
+Aby przechowywać zdarzenia, Włącz funkcję [przechwytywania zdarzeń](../event-hubs/event-hubs-capture-overview.md) dla platformy Azure Event Hubs lub [roześlij](../iot-hub/iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint) ją z IoT Hub do usługi Azure Blob Storage.
 
-Dane można także zaobserwować za pośrednictwem [Eksploratora centrum zdarzeń](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer)lub za pomocą [hosta procesora zdarzeń](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send#receive-events).
+Dane można także zaobserwować za pośrednictwem [Eksploratora centrum zdarzeń](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer)lub za pomocą [hosta procesora zdarzeń](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md#receive-events).
 
-Jeśli używasz IoT Hub, przejdź do pozycji [odczytywanie komunikatów z urządzenia do chmury z wbudowanego punktu końcowego,](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) Aby uzyskać dostęp do wbudowanego punktu końcowego.
+Jeśli używasz IoT Hub, przejdź do pozycji [odczytywanie komunikatów z urządzenia do chmury z wbudowanego punktu końcowego,](../iot-hub/iot-hub-devguide-messages-read-builtin.md) Aby uzyskać dostęp do wbudowanego punktu końcowego.
 
 > [!NOTE]
 > Jeśli nie wprowadzisz zalecanych zmian, może wystąpić zakłócenie. Na przykład zmienne Time Series Insights, do których uzyskuje się dostęp za pośrednictwem interfejsów API zapytań lub Eksplorator Time Series Insights zwróci **wartość null** (oznacza to, że w Eksploratorze nie są wyświetlane żadne dane).
@@ -66,7 +66,7 @@ Jeśli aktualnie wysyłasz dane telemetryczne typu Integer, Twoje dane zostaną 
 
 Dane liczb całkowitych są zapisywane do **propertyValue_long**. Poprzednio pozyskiwane (i przyszłe pozyskiwane) dane liczbowe w **propertyValue_double** nie są kopiowane.
 
-Jeśli chcesz wykonać zapytanie o dane w tych dwóch kolumnach dla właściwości **PropertyValue** , musisz użyć funkcji skalarnej **łączenia ()** w TSX. Funkcja akceptuje argumenty tego samego **typu danych** i zwraca pierwszą wartość różną od null na liście argumentów. Aby uzyskać więcej informacji, zobacz [Azure Time Series Insights Gen2 Data Access](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#other-functions).
+Jeśli chcesz wykonać zapytanie o dane w tych dwóch kolumnach dla właściwości **PropertyValue** , musisz użyć funkcji skalarnej **łączenia ()** w TSX. Funkcja akceptuje argumenty tego samego **typu danych** i zwraca pierwszą wartość różną od null na liście argumentów. Aby uzyskać więcej informacji, zobacz [Azure Time Series Insights Gen2 Data Access](/rest/api/time-series-insights/reference-time-series-expression-syntax#other-functions).
 
 #### <a name="variable-definition-in-tsx---numeric"></a>Definicja zmiennej w TSX — wartość liczbowa
 
@@ -78,7 +78,7 @@ Jeśli chcesz wykonać zapytanie o dane w tych dwóch kolumnach dla właściwoś
 
 [![Zrzut ekranu przedstawia okno dialogowe Dodawanie nowej zmiennej dla zmiennej PropertyValue z wartością niestandardową, numeryczną.](media/time-series-insights-long-data-type/var-def.png)](media/time-series-insights-long-data-type/var-def.png#lightbox)
 
-Można również użyć **łączenia ($Event. PropertyValue. Double, ToDouble — ($Event. PropertyValue. Long))** jako [wyrażenia niestandardowego szeregu czasowego](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
+Można również użyć **łączenia ($Event. PropertyValue. Double, ToDouble — ($Event. PropertyValue. Long))** jako [wyrażenia niestandardowego szeregu czasowego](/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 #### <a name="inline-variable-definition-using-tsx-query-apis---numeric"></a>Wbudowana definicja zmiennej przy użyciu interfejsów API zapytań TSX — wartość liczbowa
 
@@ -126,7 +126,7 @@ Można również użyć **łączenia ($Event. PropertyValue. Double, ToDouble �
 }
 ```
 
-Można również użyć **łączenia ($Event. PropertyValue. Double, ToDouble — ($Event. PropertyValue. Long))** jako [wyrażenia niestandardowego szeregu czasowego](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
+Można również użyć **łączenia ($Event. PropertyValue. Double, ToDouble — ($Event. PropertyValue. Long))** jako [wyrażenia niestandardowego szeregu czasowego](/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 > [!NOTE]
 > Zalecamy, aby zaktualizować te zmienne we wszystkich miejscach, w których mogą być używane. Te miejsca obejmują model szeregów czasowych, zapisane zapytania i zapytania łączników Power BI.
@@ -145,9 +145,9 @@ Jeśli obecnie używasz zmiennych kategorii, które mapują wartości całkowite
 
 [![Zrzut ekranu przedstawia okno dialogowe Dodawanie nowej zmiennej dla zmiennej PropertyValue z wartością niestandardową kategorii.](media/time-series-insights-long-data-type/var-def-cat.png)](media/time-series-insights-long-data-type/var-def-cat.png#lightbox)
 
-Można również użyć **łączenia ($Event. PropertyValue. Double, ToDouble — ($Event. PropertyValue. Long))** jako [wyrażenia niestandardowego szeregu czasowego](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
+Można również użyć **łączenia ($Event. PropertyValue. Double, ToDouble — ($Event. PropertyValue. Long))** jako [wyrażenia niestandardowego szeregu czasowego](/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
-Zmienne kategorii nadal wymagają wartości typu Integer. Typ **danych** wszystkich argumentów w elemencie **łączenia ()** musi być typu **Long** w niestandardowym [wyrażeniu szeregów czasowych.](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)
+Zmienne kategorii nadal wymagają wartości typu Integer. Typ **danych** wszystkich argumentów w elemencie **łączenia ()** musi być typu **Long** w niestandardowym [wyrażeniu szeregów czasowych.](/rest/api/time-series-insights/reference-time-series-expression-syntax)
 
 #### <a name="inline-variable-definition-using-tsx-query-apis---categorical"></a>Wbudowana definicja zmiennej przy użyciu interfejsów API zapytań TSX — kategorii
 
@@ -227,7 +227,7 @@ Zmienne kategorii nadal wymagają wartości typu Integer. Typ **danych** wszystk
 }
 ```
 
-Zmienne kategorii nadal wymagają wartości typu Integer. Typ **danych** wszystkich argumentów w elemencie **łączenia ()** musi być typu **Long** w niestandardowym [wyrażeniu szeregów czasowych](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
+Zmienne kategorii nadal wymagają wartości typu Integer. Typ **danych** wszystkich argumentów w elemencie **łączenia ()** musi być typu **Long** w niestandardowym [wyrażeniu szeregów czasowych](/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 > [!NOTE]
 > Zalecamy, aby zaktualizować te zmienne we wszystkich miejscach, w których mogą być używane. Te miejsca obejmują model szeregów czasowych, zapisane zapytania i zapytania łączników Power BI.

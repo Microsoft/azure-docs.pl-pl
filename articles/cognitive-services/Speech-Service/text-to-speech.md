@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: Zamiana tekstu na mowę
-ms.openlocfilehash: 5d60279a2e3cb6aa7226f518783d53a1a38ddaa8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af0c9338cb9661402c3a76bab55f34b01304c7b6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357458"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024521"
 ---
 # <a name="what-is-text-to-speech"></a>Co to jest zamiana tekstu na mowę?
 
@@ -31,7 +31,7 @@ Ten przegląd zawiera informacje na temat zalet i możliwości usługi zamiany t
 
 ## <a name="core-features"></a>Podstawowe funkcje
 
-* Synteza mowy — używanie [zestawu Speech SDK](quickstarts/text-to-speech-audio-file.md) lub [interfejsu API REST](rest-text-to-speech.md) do konwertowania zamiany tekstu na mowę przy użyciu standardowych, neuronowych lub niestandardowych głosów.
+* Synteza mowy — używanie [zestawu Speech SDK](./get-started-text-to-speech.md) lub [interfejsu API REST](rest-text-to-speech.md) do konwertowania zamiany tekstu na mowę przy użyciu standardowych, neuronowych lub niestandardowych głosów.
 
 * Asynchroniczna synteza długiego dźwięku — korzystaj z [długiego interfejsu API audio](long-audio-api.md) , aby asynchronicznie wyszukiwać pliki zamiany tekstu na mowę dłużej niż 10 minut (na przykład książki audio lub wykłady). W przeciwieństwie do syntezy przy użyciu zestawu Speech SDK lub interfejsu API REST zamiany mowy na tekst, odpowiedzi nie są zwracane w czasie rzeczywistym. Oczekuje się, że żądania są wysyłane asynchronicznie, odpowiedzi są sondowane i w przypadku, gdy jest ona pobierana z usługi. Obsługiwane są tylko niestandardowe głosy neuronowych.
 

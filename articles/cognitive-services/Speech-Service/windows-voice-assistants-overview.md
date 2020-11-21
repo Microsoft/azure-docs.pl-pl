@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: fbcb262fee6a2cc62bfe64e8a8589c92b4fe2b17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e8b009ecc2181edfaad5da3d8d05ad0c1909051
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82997448"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024759"
 ---
 # <a name="voice-assistants-on-windows"></a>Asystenci głosu w systemie Windows
 
@@ -37,7 +37,7 @@ Gdy użytkownik mówi słowa kluczowego, oprogramowanie lub Spotter słowa klucz
 
 ### <a name="registration"></a>Rejestracja
 
-Gdy aplikacja jest uruchamiana po raz pierwszy, zostanie ona zarejestrowana przy użyciu interfejsów API ConversationalAgent. AAR rejestruje wszystkie konfiguracje w mapowaniu globalnym za pomocą słowa kluczowego sprzętu lub oprogramowania Spotter w systemie, umożliwiając im wykrycie słowa kluczowego aplikacji. Aplikacja również [rejestruje się w usłudze w tle](https://docs.microsoft.com/windows/uwp/launch-resume/register-a-background-task).
+Gdy aplikacja jest uruchamiana po raz pierwszy, zostanie ona zarejestrowana przy użyciu interfejsów API ConversationalAgent. AAR rejestruje wszystkie konfiguracje w mapowaniu globalnym za pomocą słowa kluczowego sprzętu lub oprogramowania Spotter w systemie, umożliwiając im wykrycie słowa kluczowego aplikacji. Aplikacja również [rejestruje się w usłudze w tle](/windows/uwp/launch-resume/register-a-background-task).
 
 Należy zauważyć, że oznacza to, że aplikacja nie może być aktywowana przez głos, dopóki nie została uruchomiona jednokrotnie, a rejestracja mogła zostać ukończona.
 

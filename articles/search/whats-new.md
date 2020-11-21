@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4c1284c13d1516ac4061319287adb64ab7e14ff5
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 73902cf53d9995f7dfc1991e3b7ed7c7c469bf2a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579474"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026665"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Co nowego w usłudze Azure Wyszukiwanie poznawcze
 
@@ -23,7 +23,7 @@ Dowiedz się, co nowego w usłudze. Oznacz Tę stronę zakładką, aby zapewnić
 
 |Ona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategoria | Opis | Dostępność  |
 |------------------------------|----------|-------------|---------------|
-|[szyfrowanie klucza zarządzanego przez klienta za pośrednictwem indeksatorów, źródeł danych i umiejętności](search-security-manage-encryption-keys.md) | Zabezpieczenia | Ta dodatkowa część rozszerza szyfrowanie zarządzane przez klienta przez cały zakres zasobów utworzonych i zarządzanych przez usługę wyszukiwania. Wycofaj, że obsługa CMK dodaje dodatkową warstwę szyfrowania na podstawie podstawowego szyfrowania wykonywanego i zarządzanego przez firmę Microsoft. | Ogólnie dostępna przy użyciu interfejsu API REST-Version = 2020-06-30 |  
+|[Szyfrowanie klucza zarządzanego przez klienta za pośrednictwem indeksatorów, źródeł danych i umiejętności](search-security-manage-encryption-keys.md) | Zabezpieczenia | Ta dodatkowa część rozszerza szyfrowanie zarządzane przez klienta przez cały zakres zasobów utworzonych i zarządzanych przez usługę wyszukiwania. Odwołuje się do pomocy technicznej związanej z kluczem zarządzanym przez klienta, która umożliwia dodanie dodatkowej warstwy szyfrowania na podstawie podstawowego szyfrowania wykonywanego i zarządzanego przez firmę Microsoft. | Ogólnie dostępna przy użyciu interfejsu API REST-Version = 2020-06-30 |  
 
 ## <a name="september-2020"></a>Wrzesień 2020
 
@@ -41,7 +41,7 @@ Utwórz tożsamość usługi wyszukiwania w Azure Active Directory, a następnie
 
 |Ona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategoria | Opis | Dostępność  |
 |---------|------------------|-------------|---------------|
-| [podwójne szyfrowanie](search-security-overview.md#encryption) | Zabezpieczenia | Włącz podwójne szyfrowanie w warstwie magazynowania, konfigurując szyfrowanie klucza zarządzanego przez klienta (CMK) w nowych usługach wyszukiwania. Utwórz nową usługę, [Skonfiguruj i Zastosuj klucze zarządzane przez klienta](search-security-manage-encryption-keys.md) do indeksów lub map synonimów, a następnie skorzystaj z podwójnego szyfrowania nad tą zawartością. | Ogólnie dostępna we wszystkich usługach wyszukiwania utworzonych po 1 sierpnia 2020 w następujących regionach: zachodnie stany USA 2, Wschodnie stany USA, Południowo-środkowe stany USA, US Gov Wirginia, US Gov Arizona. Tworzenie usługi przy użyciu portalu, interfejsów API REST zarządzania lub zestawów SDK. |
+| [podwójne szyfrowanie](search-security-overview.md#encryption) | Zabezpieczenia | Włącz podwójne szyfrowanie w warstwie magazynowania, konfigurując szyfrowanie klucza zarządzanego przez klienta w nowych usługach wyszukiwania. Utwórz nową usługę, [Skonfiguruj i Zastosuj klucze zarządzane przez klienta](search-security-manage-encryption-keys.md) do indeksów lub map synonimów, a następnie skorzystaj z podwójnego szyfrowania nad tą zawartością. | Ogólnie dostępna we wszystkich usługach wyszukiwania utworzonych po 1 sierpnia 2020 w następujących regionach: zachodnie stany USA 2, Wschodnie stany USA, Południowo-środkowe stany USA, US Gov Wirginia, US Gov Arizona. Tworzenie usługi przy użyciu portalu, interfejsów API REST zarządzania lub zestawów SDK. |
 
 ## <a name="july-2020"></a>Lipiec 2020 r.
 

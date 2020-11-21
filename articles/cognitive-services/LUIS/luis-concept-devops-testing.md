@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/3/2020
-ms.openlocfilehash: c41e9fe1f197334bce27241ab9f28309c92f7e0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3017d0dec5acd3494600c42bef410ed346fead1a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316549"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025946"
 ---
 # <a name="testing-for-luis-devops"></a>Testowanie pod kątem LUIS DevOps
 
@@ -25,10 +25,10 @@ Testy są krytyczną częścią [przepływów pracy](luis-concept-devops-automat
 Istnieją dwa różne rodzaje testów dla aplikacji LUIS, które należy wykonać w przepływach pracy ciągłej integracji:
 
 - **Testy jednostkowe** — stosunkowo proste testy, które weryfikują najważniejsze funkcje aplikacji Luis. Test jednostkowy kończy się, gdy oczekiwane przeznaczenie i oczekiwane jednostki są zwracane dla danego wypowiedź testu. Wszystkie testy jednostkowe muszą zostać przekazane w celu pomyślnego ukończenia przebiegu testowego.  
-Ten rodzaj testów jest podobny do [interaktywnego testowania](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-test) , który można wykonać w [portalu Luis](https://www.luis.ai/).
+Ten rodzaj testów jest podobny do [interaktywnego testowania](./luis-concept-test.md) , który można wykonać w [portalu Luis](https://www.luis.ai/).
 
 - **Testy wsadowe** — testowanie wsadowe to kompleksowy test w bieżącym przeszkolonym modelu, który umożliwia mierzenie jego wydajności. W przeciwieństwie do testów jednostkowych, testowanie wsadowe nie przebiega pomyślnie | testowanie nie powiodło się. Oczekiwanie przy testowaniu wsadowym nie jest, że każdy test zwróci oczekiwany cel i oczekiwane jednostki. Zamiast tego test wsadowy ułatwia przeglądanie dokładności poszczególnych założeń i jednostek w aplikacji, a także pomaga w porównaniu z upływem czasu wprowadzania ulepszeń.  
-Tego rodzaju testowanie jest takie samo jak [testy wsadowe](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test) , które można wykonać interaktywnie w portalu Luis.
+Tego rodzaju testowanie jest takie samo jak [testy wsadowe](./luis-concept-batch-test.md) , które można wykonać interaktywnie w portalu Luis.
 
 Testy jednostkowe można zastosować od początku projektu. Testowanie wsadowe ma naprawdę wartość tylko wtedy, gdy opracowano schemat aplikacji LUIS i pracujesz nad zwiększeniem jego dokładności.
 
@@ -42,7 +42,7 @@ Podczas pisania zestawu testów dla każdego testu należy zdefiniować:
 * Oczekiwany cel
 * Oczekiwane jednostki.
 
-Użyj [składni pliku wsadowego](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test#batch-syntax-template-for-intents-with-entities) Luis, aby zdefiniować grupę testów w pliku w formacie JSON. Na przykład:
+Użyj [składni pliku wsadowego](./luis-concept-batch-test.md#batch-syntax-template-for-intents-with-entities) Luis, aby zdefiniować grupę testów w pliku w formacie JSON. Przykład:
 
 ```JSON
 [
@@ -76,7 +76,7 @@ W każdym teście jednostkowym dla danego wypowiedź testowego można:
 
 * Sprawdź, czy zwracany jest poprawny cel
 * Sprawdź, czy jednostki "Key" — te, które mają krytyczne znaczenie dla rozwiązania, są zwracane.
-* Sprawdź, czy [wynik przewidywania](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-prediction-score) dla zamiaru i jednostek przekracza zdefiniowany próg. Na przykład można zdecydować, że tylko test przeszedł, jeśli wynik przewidywania dla zamiaru i dla jednostek klucza przekracza 0,75.
+* Sprawdź, czy [wynik przewidywania](./luis-concept-prediction-score.md) dla zamiaru i jednostek przekracza zdefiniowany próg. Na przykład można zdecydować, że tylko test przeszedł, jeśli wynik przewidywania dla zamiaru i dla jednostek klucza przekracza 0,75.
 
 W testach jednostkowych dobrym pomysłem jest przetestowanie, czy jednostki kluczy zostały zwrócone w odpowiedzi predykcyjnej, ale w celu zignorowania wszelkich fałszywych wartości dodatnich. *Fałszywie dodatnie* to jednostki, które znajdują się w odpowiedzi predykcyjnej, ale które nie są zdefiniowane w oczekiwanych wynikach testu. Ignorowanie fałszywych wartości dodatnich powoduje, że mniej uciążliwe do tworzenia testów jednostkowych, a jednocześnie pozwala skupić się na testowaniu, że dane, które są kluczem do rozwiązania, są zwracane w odpowiedzi predykcyjnej.
 
@@ -85,15 +85,15 @@ W testach jednostkowych dobrym pomysłem jest przetestowanie, czy jednostki kluc
 
 #### <a name="designing-batch-tests"></a>Projektowanie testów wsadowych
 
-Zestawy testów wsadowych powinny zawierać dużą liczbę przypadków testowych, które są przeznaczone do testowania między wszystkimi intencjami i wszystkimi jednostkami w aplikacji LUIS. Aby uzyskać informacje na temat definiowania zestawu testów wsadowych [, zobacz test wsadowy w portalu Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test) .
+Zestawy testów wsadowych powinny zawierać dużą liczbę przypadków testowych, które są przeznaczone do testowania między wszystkimi intencjami i wszystkimi jednostkami w aplikacji LUIS. Aby uzyskać informacje na temat definiowania zestawu testów wsadowych [, zobacz test wsadowy w portalu Luis](./luis-concept-batch-test.md) .
 
 ### <a name="running-tests"></a>Uruchamianie testów
 
 Portal LUIS oferuje funkcje ułatwiające testowanie interaktywne:
 
-* [**Testowanie interaktywne**](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-test) pozwala przesłać przykładową wypowiedźę i uzyskać odpowiedź na LUISe i jednostki. Sprawdzasz sukces testu przez kontrolę wzrokową.
+* [**Testowanie interaktywne**](./luis-concept-test.md) pozwala przesłać przykładową wypowiedźę i uzyskać odpowiedź na LUISe i jednostki. Sprawdzasz sukces testu przez kontrolę wzrokową.
 
-* [**Testy wsadowe**](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test) wykorzystują plik testu wsadowego jako dane wejściowe, aby zweryfikować aktywną przeszkolonej wersji, aby zmierzyć jej dokładność przewidywania. Test wsadowy ułatwia przeglądanie dokładności poszczególnych zamierzeń i jednostek w aktywnej wersji, wyświetlając wyniki z wykresem.
+* [**Testy wsadowe**](./luis-concept-batch-test.md) wykorzystują plik testu wsadowego jako dane wejściowe, aby zweryfikować aktywną przeszkolonej wersji, aby zmierzyć jej dokładność przewidywania. Test wsadowy ułatwia przeglądanie dokładności poszczególnych zamierzeń i jednostek w aktywnej wersji, wyświetlając wyniki z wykresem.
 
 #### <a name="running-tests-in-an-automated-build-workflow"></a>Uruchamianie testów w zautomatyzowanym przepływie pracy kompilacji
 
@@ -109,7 +109,7 @@ Możliwości testowania, które są dostępne w portalu LUIS, nie wymagają opub
 
 > [!TIP]
 > * Jeśli wdrażasz własne rozwiązanie do testowania i piszesz kod w celu wysłania testu wyrażenia długości do punktu końcowego, pamiętaj, że jeśli używasz klucza tworzenia LUIS, dozwolona stawka transakcji jest ograniczona do 5TPS. Ogranicz szybkość wysyłania lub zamiast tego użyj klucza przewidywania.
-> * Podczas wysyłania zapytań testowych do punktu końcowego należy pamiętać, aby użyć `log=false` ciągu zapytania do żądania prognozowania. Gwarantuje to, że test wyrażenia długości nie zostanie zarejestrowany przez LUIS i kończy się na liście przeglądów wyrażenia długości punktu końcowego prezentowanych przez funkcję [Active Learning](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) Luis, a w rezultacie przypadkowo dodaliśmy do szkolenia wyrażenia długości aplikacji.
+> * Podczas wysyłania zapytań testowych do punktu końcowego należy pamiętać, aby użyć `log=false` ciągu zapytania do żądania prognozowania. Gwarantuje to, że test wyrażenia długości nie zostanie zarejestrowany przez LUIS i kończy się na liście przeglądów wyrażenia długości punktu końcowego prezentowanych przez funkcję [Active Learning](./luis-concept-review-endpoint-utterances.md) Luis, a w rezultacie przypadkowo dodaliśmy do szkolenia wyrażenia długości aplikacji.
 
 #### <a name="running-unit-tests-at-the-command-line-and-in-cicd-workflows"></a>Uruchamianie testów jednostkowych w wierszu polecenia i w przepływach pracy ciągłej integracji/ciągłego dostarczania
 
@@ -123,13 +123,13 @@ Możesz użyć [NLU. Pakiet DevOps](https://github.com/microsoft/NLU.DevOps) do 
 Możesz również użyć NLU. Pakiet DevOps do uruchamiania testów wsadowych w wierszu polecenia.
 
 * Użyj NLU. DevOps [polecenie testowe](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Test.md) , aby przesłać testy z pliku testowego do punktu końcowego i przechwycić rzeczywiste wyniki przewidywania do pliku, tak samo jak w przypadku testów jednostkowych.
-* Użyj NLU. DevOps [PORÓWNAJ polecenie](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md) w [trybie testowania wydajności](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#performance-test-mode) , aby zmierzyć wydajność aplikacji, można także porównać wydajność aplikacji z bazowym testem wydajności, na przykład z wynikami ostatniego zatwierdzenia do głównego lub bieżącego wydania. W trybie testowania wydajności `compare` polecenie generuje dane wyjściowe testu nunit oraz [wyniki testów wsadowych](https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#batch-test) w formacie JSON.
+* Użyj NLU. DevOps [PORÓWNAJ polecenie](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md) w [trybie testowania wydajności](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#performance-test-mode) , aby zmierzyć wydajność aplikacji, można także porównać wydajność aplikacji z bazowym testem wydajności, na przykład z wynikami ostatniego zatwierdzenia do głównego lub bieżącego wydania. W trybie testowania wydajności `compare` polecenie generuje dane wyjściowe testu nunit oraz [wyniki testów wsadowych](./luis-glossary.md#batch-test) w formacie JSON.
 
 ## <a name="luis-non-deterministic-training-and-the-effect-on-testing"></a>LUIS niedeterministyczne szkolenie i wpływ na testowanie
 
 Gdy LUIS jest szkoleniowym modelem, na przykład w celu zamiaru, potrzebuje zarówno danych pozytywnych, jak i szkoleń, które zostały podane w celu uczenia aplikacji dla danych model-i danych negatywnych, które *nie* są prawidłowymi przykładami użycia tego modelu. W trakcie szkolenia LUIS kompiluje dane ujemne jednego modelu ze wszystkich danych pozytywnych dostarczonych dla innych modeli, ale w niektórych przypadkach może to spowodować Niezrównoważenie danych. Aby uniknąć tego nierównowagi, LUIS próbuje podzbiór danych negatywnych w sposób niedeterministyczny, aby zoptymalizować go pod kątem lepszego, zrównoważonego zestawu szkoleniowego, ulepszonej wydajności modelu i szybszego uczenia się.
 
-Wynikiem tego niedeterministycznego szkolenia jest to, że może wystąpić nieco [inna odpowiedź przewidywania między różnymi sesjami szkoleniowymi](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-prediction-score), zwykle dla intencji i/lub jednostek, w których [wynik przewidywania](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-prediction-score) nie jest wysoki.
+Wynikiem tego niedeterministycznego szkolenia jest to, że może wystąpić nieco [inna odpowiedź przewidywania między różnymi sesjami szkoleniowymi](./luis-concept-prediction-score.md), zwykle dla intencji i/lub jednostek, w których [wynik przewidywania](./luis-concept-prediction-score.md) nie jest wysoki.
 
 Jeśli chcesz wyłączyć niedeterministyczne szkolenie dla tych wersji aplikacji LUIS, które tworzysz na potrzeby testowania, użyj [interfejsu API ustawień wersji](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) z `UseAllTrainingData` ustawieniem ustawionym na `true` .
 

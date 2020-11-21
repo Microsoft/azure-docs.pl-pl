@@ -14,12 +14,12 @@ ms.date: 06/08/2020
 ms.author: RamaKoni
 ms.reviewer: sqlblt, daleche
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a0ecc36d78ffde002dac971a749889104ff10073
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: b9223ffc564620804b36f6f0e71602b3888a9f42
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556458"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025382"
 ---
 # <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Zmiana w miejscu SQL Server wersji na maszynie wirtualnej platformy Azure
 
@@ -66,7 +66,7 @@ Aby uaktualnić wersję programu SQL Server, uzyskaj nośnik instalacyjny SQL Se
 
    :::image type="content" source="./media/change-sql-server-version/upgrade.png" alt-text="Wybór do uaktualnienia wersji SQL Server":::
 
-1. Na stronie **klucz produktu** wybierz opcję, aby wskazać, czy przeprowadzasz uaktualnienie do bezpłatnej wersji SQL Server, czy masz klucz PID dla wersji produkcyjnej produktu. Aby uzyskać więcej informacji, zobacz [wersje i obsługiwane funkcje programu SQL Server 2019 (15. x)](/sql/sql-server/editions-and-components-of-sql-server-version-155) oraz [obsługiwane uaktualnienia wersji i wydania (SQL Server 2016)](/sql/database-engine/install-windows/supported-version-and-edition-upgrades).
+1. Na stronie **klucz produktu** wybierz opcję, aby wskazać, czy przeprowadzasz uaktualnienie do bezpłatnej wersji SQL Server, czy masz klucz PID dla wersji produkcyjnej produktu. Aby uzyskać więcej informacji, zobacz [wersje i obsługiwane funkcje programu SQL Server 2019 (15. x)](/sql/sql-server/editions-and-components-of-sql-server-version-15) oraz [obsługiwane uaktualnienia wersji i wydania (SQL Server 2016)](/sql/database-engine/install-windows/supported-version-and-edition-upgrades).
 1. Wybierz pozycję **dalej** do momentu uzyskania dostępu **do strony gotowy do uaktualnienia** , a następnie wybierz pozycję **Uaktualnij**. Okno instalatora może przestać odpowiadać przez kilka minut, gdy zmiana zacznie obowiązywać. **Pełna** Strona potwierdzi, że uaktualnienie zostało ukończone. Aby zapoznać się z procedurą krok po kroku dotyczącą uaktualniania, zobacz [kompletną procedurę](/sql/database-engine/install-windows/upgrade-sql-server-using-the-installation-wizard-setup#procedure).
 
    :::image type="content" source="./media/change-sql-server-version/complete-page.png" alt-text="Pełna Strona":::

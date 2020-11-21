@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
-ms.openlocfilehash: a74ad7b995f0112346e2212866655107f72c03e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 370dade1b74634649c9de44864a0fd9f5cac988f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324811"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025980"
 ---
 # <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>Przepływy pracy ciągłej integracji i ciągłego dostarczania dla LUIS DevOps
 
@@ -27,9 +27,9 @@ W systemie zarządzania kodem źródłowym (SCM) skonfiguruj zautomatyzowane pot
 
 **Przepływ pracy** ciągłej integracji/ciągłego łączenia dwóch uzupełniających procesów programistycznych:
 
-* [Ciągła integracja](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-integration) (ci) to proces inżynieryjny często zatwierdzania kodu w repozytorium udostępnionym i wykonywania zautomatyzowanej kompilacji. Sparowane [z podejściem](luis-concept-devops-testing.md) zautomatyzowanym, Integracja ciągła pozwala nam sprawdzić, czy dla każdej aktualizacji źródło LUDown jest nadal ważne i można je zaimportować do aplikacji Luis, ale również przekazywać grupę testów, które weryfikują przeszkolonej aplikacji, aby rozpoznawać intencje i jednostki wymagane dla danego rozwiązania.
+* [Ciągła integracja](/azure/devops/learn/what-is-continuous-integration) (ci) to proces inżynieryjny często zatwierdzania kodu w repozytorium udostępnionym i wykonywania zautomatyzowanej kompilacji. Sparowane [z podejściem](luis-concept-devops-testing.md) zautomatyzowanym, Integracja ciągła pozwala nam sprawdzić, czy dla każdej aktualizacji źródło LUDown jest nadal ważne i można je zaimportować do aplikacji Luis, ale również przekazywać grupę testów, które weryfikują przeszkolonej aplikacji, aby rozpoznawać intencje i jednostki wymagane dla danego rozwiązania.
 
-* [Ciągłe dostarczanie](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-delivery) pozwala jeszcze bardziej szczegółowo wdrożyć aplikację w środowisku, w którym można wykonywać bardziej szczegółowe testy. Dysk CD umożliwia nam wczesne zapoznanie się z przewidzianymi problemami, które wynikają z naszych zmian, jak najszybciej, a także informacje o lukach w pokryciu testów.
+* [Ciągłe dostarczanie](/azure/devops/learn/what-is-continuous-delivery) pozwala jeszcze bardziej szczegółowo wdrożyć aplikację w środowisku, w którym można wykonywać bardziej szczegółowe testy. Dysk CD umożliwia nam wczesne zapoznanie się z przewidzianymi problemami, które wynikają z naszych zmian, jak najszybciej, a także informacje o lukach w pokryciu testów.
 
 Celem ciągłej integracji i ciągłego dostarczania jest upewnienie się, że "Master jest zawsze w drodze". W przypadku aplikacji LUIS oznacza to, że jeśli będziemy musieli, pobrać dowolną wersję z głównej gałęzi aplikacji LUIS i wydać ją w środowisku produkcyjnym.
 
@@ -41,7 +41,7 @@ Użyj następujących narzędzi do tworzenia przepływów pracy automatyzacji dl
 
 * [Interfejs wiersza polecenia bot Framework Tools Luis](https://github.com/microsoft/botbuilder-tools/tree/master/packages/LUIS) do pracy z aplikacjami i wersjami Luis, uczeniem się, testowaniem i publikowaniem w ramach usługi Luis.
 
-* [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) do wykonywania zapytań dotyczących subskrypcji platformy Azure, pobierania Luis tworzenia i przewidywania kluczy oraz do tworzenia jednostki [usługi](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) platformy Azure używanej do uwierzytelniania automatyzacji.
+* [Interfejs wiersza polecenia platformy Azure](/cli/azure/?view=azure-cli-latest) do wykonywania zapytań dotyczących subskrypcji platformy Azure, pobierania Luis tworzenia i przewidywania kluczy oraz do tworzenia jednostki [usługi](/cli/azure/ad/sp?view=azure-cli-latest) platformy Azure używanej do uwierzytelniania automatyzacji.
 
 * [NLU. Narzędzie DevOps](https://github.com/microsoft/NLU.DevOps) do [testowania aplikacji Luis](luis-concept-devops-testing.md) i analizowania wyników testów.
 
@@ -70,7 +70,7 @@ Ten przepływ pracy powinien:
 * Nauczenie i opublikowanie wersji aplikacji LUIS.
 
   > [!NOTE]
-  > Zgodnie z opisem w temacie [Uruchamianie testów w zautomatyzowanym przepływie pracy kompilacji](luis-concept-devops-testing.md#running-tests-in-an-automated-build-workflow) należy opublikować testowaną wersję aplikacji Luis, tak aby narzędzia takie jak NLU. DevOps może uzyskać do niego dostęp. LUIS obsługuje tylko dwa nazwane gniazda publikacji, *przygotowanie* i *produkcję* dla aplikacji Luis, ale można również [opublikować wersję bezpośrednio](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisapplicationpublish) i [wykonać zapytanie według wersji](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-api-v3#changes-by-slot-name-and-version-name). Używaj bezpośredniej publikacji wersji w przepływach pracy usługi Automation, aby uniknąć ograniczenia do korzystania z nazwanych miejsc publikacji.
+  > Zgodnie z opisem w temacie [Uruchamianie testów w zautomatyzowanym przepływie pracy kompilacji](luis-concept-devops-testing.md#running-tests-in-an-automated-build-workflow) należy opublikować testowaną wersję aplikacji Luis, tak aby narzędzia takie jak NLU. DevOps może uzyskać do niego dostęp. LUIS obsługuje tylko dwa nazwane gniazda publikacji, *przygotowanie* i *produkcję* dla aplikacji Luis, ale można również [opublikować wersję bezpośrednio](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisapplicationpublish) i [wykonać zapytanie według wersji](./luis-migration-api-v3.md#changes-by-slot-name-and-version-name). Używaj bezpośredniej publikacji wersji w przepływach pracy usługi Automation, aby uniknąć ograniczenia do korzystania z nazwanych miejsc publikacji.
 
 * Uruchom wszystkie [testy jednostkowe](luis-concept-devops-testing.md).
 
@@ -84,13 +84,13 @@ Ten przepływ pracy powinien:
 
 Zadanie dysku CD w przepływie pracy ciągłej integracji/ciągłego przebiega warunkowo po pomyślnym wykonaniu kompilacji i zautomatyzowanych testów jednostkowych. Jego zadaniem jest automatyczne wdrażanie aplikacji LUIS w środowisku, w którym można wykonywać więcej testów.
 
-Nie ma żadnych zalecanych rozwiązań dotyczących najlepszego wdrożenia aplikacji LUIS i należy zaimplementować proces odpowiedni dla projektu. Repozytorium [szablonów Luis DevOps](https://github.com/Azure-Samples/LUIS-DevOps-Template) implementuje proste rozwiązanie dla tego programu, które ma na celu [opublikowanie nowej wersji aplikacji Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-publish-app) w miejscu publikowania *produkcyjnego* . Jest to bardzo precyzyjne w przypadku prostej konfiguracji. Jeśli jednak potrzebujesz obsługi wielu różnych środowisk produkcyjnych w tym samym czasie, takich jak *programowanie*, *przemieszczanie* i *przeprowadzających*, limit dwóch nazwanych miejsc publikowania dla aplikacji będzie niewystarczający.
+Nie ma żadnych zalecanych rozwiązań dotyczących najlepszego wdrożenia aplikacji LUIS i należy zaimplementować proces odpowiedni dla projektu. Repozytorium [szablonów Luis DevOps](https://github.com/Azure-Samples/LUIS-DevOps-Template) implementuje proste rozwiązanie dla tego programu, które ma na celu [opublikowanie nowej wersji aplikacji Luis](./luis-how-to-publish-app.md) w miejscu publikowania *produkcyjnego* . Jest to bardzo precyzyjne w przypadku prostej konfiguracji. Jeśli jednak potrzebujesz obsługi wielu różnych środowisk produkcyjnych w tym samym czasie, takich jak *programowanie*, *przemieszczanie* i *przeprowadzających*, limit dwóch nazwanych miejsc publikowania dla aplikacji będzie niewystarczający.
 
 Inne opcje wdrażania wersji aplikacji obejmują:
 
 * Pozostaw wersję aplikacji opublikowaną w punkcie końcowym wersji bezpośredniej i zaimplementuj proces konfigurowania podrzędnych środowisk produkcyjnych z punktem końcowym wersji bezpośredniej zgodnie z wymaganiami.
 * Przechowuj różne aplikacje LUIS dla każdego środowiska produkcyjnego i pisz kroki automatyzacji, aby zaimportować do `.lu` nowej wersji aplikacji Luis dla docelowego środowiska produkcyjnego, aby przeprowadzić uczenie i opublikować ją.
-* Wyeksportuj przetestowaną wersję aplikacji LUIS do [kontenera Docker Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto?tabs=v3) i Wdróż kontener Luis do usługi Azure [Container Instances](https://docs.microsoft.com/azure/container-instances/).
+* Wyeksportuj przetestowaną wersję aplikacji LUIS do [kontenera Docker Luis](./luis-container-howto.md?tabs=v3) i Wdróż kontener Luis do usługi Azure [Container Instances](../../container-instances/index.yml).
 
 ## <a name="release-management"></a>Release Management
 

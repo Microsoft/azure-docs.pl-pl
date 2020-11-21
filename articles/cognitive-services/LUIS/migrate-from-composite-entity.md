@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 5c3ac14af6eb863daa9eadd32727f4fb53d2185f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46e9ece70d9f980065c719ee1205eb46591b45c0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322861"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025246"
 ---
 # <a name="upgrade-composite-entity-to-machine-learning-entity"></a>Uaktualnianie jednostki złożonej do jednostki Uczenie maszynowe
 
@@ -29,7 +29,7 @@ Proces uaktualniania:
     * Jeśli jednostka podrzędna jest używana w złożonej _i_ jako osobna jednostka (oznaczona w przykładowym wyrażenia długości), zostanie ona dodana do wersji jako jednostki i jako podobiektu do nowej jednostki uczenia maszynowego.
     * Jeśli jednostka podrzędna używa roli, każda rola zostanie przekonwertowana na podjednostkę o tej samej nazwie.
     * Jeśli jednostka podrzędna jest jednostką uczenia maszynowego (wyrażeniem regularnym, obiektem listy lub wstępnie utworzoną jednostką), tworzona jest nowa podjednostka o tej samej nazwie, a nowa podjednostka ma funkcję korzystającą z jednostki uczenia maszynowego z dodaną wymaganą funkcją.
-* Nazwy są zachowywane, ale muszą być unikatowe na tym samym poziomie podobiektu/elementu równorzędnego. Zapoznaj się z [unikatowymi limitami nazewnictwa](luis-boundaries.md#name-uniqueness).
+* Nazwy są zachowywane, ale muszą być unikatowe na tym samym poziomie podobiektu/elementu równorzędnego. Zapoznaj się z [unikatowymi limitami nazewnictwa](./luis-limits.md#name-uniqueness).
 * Etykiety w przykładowej wyrażenia długości są przełączane do nowej jednostki uczenia maszynowego za pomocą podjednostek.
 
 Skorzystaj z poniższej tabeli, aby zrozumieć, jak zmienia się model:

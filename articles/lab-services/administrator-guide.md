@@ -3,48 +3,48 @@ title: Podręcznik administratora Azure Lab Services | Microsoft Docs
 description: Ten przewodnik pomaga administratorom, którzy tworzą konta laboratorium i zarządzają nimi przy użyciu Azure Lab Services.
 ms.topic: article
 ms.date: 10/20/2020
-ms.openlocfilehash: b1fadc58926b00c75ab888dad86e45b181059a38
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 08d2fea719ad67f666ea9da09721dc3f7ab54768
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659849"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024640"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services — Podręcznik administratora
-Administratorzy IT, którzy zarządzają zasobami w chmurze University, są zwykle odpowiedzialni za skonfigurowanie konta laboratorium dla swojej szkoły. Po skonfigurowaniu konta Laboratorium Administratorzy lub wykładowcy tworzą laboratoria, które są zawarte w ramach konta laboratorium. Ten artykuł zawiera ogólne omówienie związanych zasobów platformy Azure oraz wskazówki dotyczące ich tworzenia.
+Administratorzy IT, którzy zarządzają zasobami w chmurze University, są zwykle odpowiedzialni za skonfigurowanie konta laboratorium dla swojej szkoły. Po skonfigurowaniu konta Laboratorium Administratorzy lub wykładowcy tworzą laboratoria, które są zawarte w ramach tego konta. Ten artykuł zawiera ogólne omówienie zasobów platformy Azure, które są wykorzystywane, oraz wskazówki dotyczące ich tworzenia.
 
-![Widok wysokiego poziomu zasobów platformy Azure na koncie laboratorium](./media/administrator-guide/high-level-view.png)
+![Diagram wysokiego poziomu widoku zasobów platformy Azure na koncie laboratorium.](./media/administrator-guide/high-level-view.png)
 
-- Laboratoria są hostowane w ramach subskrypcji platformy Azure należącej do Azure Lab Services.
+- Laboratoria są hostowane w ramach subskrypcji platformy Azure, która jest własnością Azure Lab Services.
 - Konta laboratorium, udostępnione galerii obrazów i wersje obrazów są hostowane w ramach subskrypcji.
 - Możesz mieć konto laboratorium i galerię obrazów udostępnionych w tej samej grupie zasobów. Na tym diagramie znajdują się one w różnych grupach zasobów.
 
-Aby uzyskać więcej informacji na temat architektury, przeczytaj artykuł: [podstawy architektury Labs](./classroom-labs-fundamentals.md)
+Aby uzyskać więcej informacji na temat architektury, zobacz temat [Architektura architektury Labs](./classroom-labs-fundamentals.md).
 
 ## <a name="subscription"></a>Subskrypcja
-Twój Uniwersytet ma co najmniej jedną subskrypcję platformy Azure. Subskrypcja służy do zarządzania rozliczeniami i zabezpieczeniami dla wszystkich resources\services platformy Azure, które są używane w ramach tego konta, w tym kont laboratorium.
+Twoje uczelnie mogą mieć co najmniej jedną subskrypcję platformy Azure. Subskrypcje służą do zarządzania rozliczeniami i zabezpieczeniami dla wszystkich zasobów i usług platformy Azure, które są używane w ramach tego konta, w tym kont laboratorium.
 
 Relacja między kontem laboratorium a jego subskrypcją jest ważna, ponieważ:
 
 - Rozliczenia są raportowane w ramach subskrypcji zawierającej konto laboratorium.
-- Można udzielić użytkownikom Azure Active Directory dostęp do dzierżawy w ramach subskrypcji usługi Azure Lab Services. Możesz dodać użytkownika jako owner\contributor konta laboratorium, twórcę laboratorium lub właściciela laboratorium.
+- Można przyznać użytkownikom w ramach dzierżawy Azure Active Directory (Azure AD) dostęp do Azure Lab Services. Użytkownika można dodać jako właściciela konta laboratorium lub współpracownika albo jako twórcę lub właściciela laboratorium.
 
-Laboratoria i ich maszyny wirtualne są zarządzane i hostowane dla Ciebie w ramach subskrypcji należącej do Azure Lab Services.
+Laboratoria i ich maszyny wirtualne są zarządzane i hostowane w ramach subskrypcji należącej do Azure Lab Services.
 
 ## <a name="resource-group"></a>Grupa zasobów
 Subskrypcja zawiera co najmniej jedną grupę zasobów. Grupy zasobów służą do tworzenia grup logicznych zasobów platformy Azure, które są używane razem w ramach tego samego rozwiązania.  
 
 Podczas tworzenia konta laboratorium należy skonfigurować grupę zasobów, która zawiera konto laboratorium. 
 
-Grupa zasobów jest również wymagana podczas tworzenia [galerii obrazów udostępnionych](#shared-image-gallery). Możesz wybrać opcję umieszczenia konta laboratorium i udostępnionej galerii obrazów w dwóch oddzielnych grupach zasobów, która jest typowa, jeśli planujesz udostępnienie galerii obrazów w różnych rozwiązaniach. Można też zdecydować się na umieszczenie ich w tej samej grupie zasobów.
+Grupa zasobów jest również wymagana podczas tworzenia [galerii obrazów udostępnionych](#shared-image-gallery). Możesz umieścić konto laboratorium i galerię obrazów udostępnionych w tej samej grupie zasobów lub w dwóch oddzielnych grupach zasobów. Jeśli planujesz udostępnienie galerii obrazów w różnych rozwiązaniach, warto wykonać te drugie podejście.
 
-Podczas tworzenia konta laboratorium można automatycznie utworzyć i dołączyć udostępnioną galerię obrazów.  Ta opcja spowoduje utworzenie w oddzielnych grupach zasobów konta laboratorium i udostępnionej galerii obrazów. To zachowanie zostanie wyświetlone w przypadku korzystania z kroków opisanych w tym samouczku: [Konfigurowanie galerii obrazów udostępnionych w momencie tworzenia konta laboratorium](how-to-attach-detach-shared-image-gallery.md#configure-at-the-time-of-lab-account-creation). Obraz w górnej części tego artykułu używa również tej konfiguracji. 
+Podczas tworzenia konta laboratorium można automatycznie utworzyć i dołączyć udostępnioną galerię obrazów.  Ta opcja spowoduje utworzenie w oddzielnych grupach zasobów konta laboratorium i udostępnionej galerii obrazów. To zachowanie zostanie wyświetlone po wykonaniu kroków opisanych w samouczku [Konfigurowanie udostępnionego obrazu w momencie tworzenia konta laboratorium](how-to-attach-detach-shared-image-gallery.md#configure-at-the-time-of-lab-account-creation) . Na początku tego artykułu zostanie użyta ta konfiguracja. 
 
-Zalecamy nadanie inwestycji przed zaplanowaniem struktury grup zasobów, ponieważ *nie* jest możliwe Zmiana grupy zasobów konta laboratorium lub udostępnionej galerii obrazów po jej utworzeniu. Jeśli musisz zmienić grupę zasobów dla tych zasobów, musisz usunąć i utworzyć ponownie konto laboratorium and\or udostępnionej galerii obrazów.
+Zalecamy zainwestowanie czasu z góry, aby zaplanować strukturę grup zasobów, ponieważ *nie* jest możliwe Zmiana grupy zasobów konta laboratorium lub udostępnionej galerii obrazów po jej utworzeniu. Jeśli musisz zmienić grupę zasobów dla tych zasobów, musisz usunąć i ponownie utworzyć swoje konto laboratorium lub udostępnioną galerię obrazów.
 
 ## <a name="lab-account"></a>Konto laboratorium
 
-Konto laboratorium służy jako kontener dla jednej lub kilku laboratoriów. Gdy rozpoczynasz pracę z Azure Lab Services, często ma ono tylko jedno konto laboratorium. W miarę skalowania użycia laboratorium możesz później utworzyć więcej kont laboratorium.
+Konto laboratorium służy jako kontener dla jednej lub kilku laboratoriów. Gdy rozpoczynasz pracę z Azure Lab Services, najprawdopodobniej jest to jedno konto laboratorium. W miarę skalowania użycia laboratorium możesz później utworzyć więcej kont laboratorium.
 
 Na poniższej liście przedstawiono scenariusze, w których może być korzystne więcej niż jedno konto laboratorium:
 
@@ -52,225 +52,230 @@ Na poniższej liście przedstawiono scenariusze, w których może być korzystne
 
     Podczas konfigurowania konta laboratorium należy ustawić zasady, które mają zastosowanie do *wszystkich* laboratoriów w ramach konta laboratorium, takie jak:
     - Sieć wirtualna platformy Azure z udostępnionymi zasobami dostępnymi do laboratorium. Na przykład może istnieć zestaw laboratoriów, które wymagają dostępu do udostępnionego zestawu danych w ramach sieci wirtualnej.
-    - Obrazy maszyn wirtualnych, które mogą być używane przez laboratoria do tworzenia maszyn wirtualnych. Na przykład możesz mieć zestaw laboratoriów, które potrzebują dostępu do obrazu portalu Marketplace w witrynie [Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) .
+    - Obrazy maszyn wirtualnych, których laboratoria mogą używać do tworzenia maszyn wirtualnych. Na przykład może istnieć zestaw laboratoriów, które potrzebują dostępu do [Data Science VM na potrzeby](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) obrazu systemu Linux Azure Marketplace.
 
-    Jeśli masz laboratoria, które mają unikatowe wymagania dotyczące zasad ze sobą, może być korzystne utworzenie oddzielnych kont laboratorium, aby zarządzać tymi laboratoriami osobno.
+    Jeśli każda z laboratoriów ma unikatowe wymagania dotyczące zasad, może być korzystne utworzenie oddzielnych kont laboratorium do zarządzania każdym laboratorium osobno.
 
-- **Oddzielanie budżetu według konta laboratorium**
+- **Przypisywanie oddzielnego budżetu do każdego konta laboratorium**
   
-    Zamiast zgłaszać wszystkie koszty laboratorium za pomocą jednego konta laboratorium, może być konieczne bardziej przejrzysty budżet. Można na przykład utworzyć konta laboratorium dla działu matematycznego, działu nauki komputerowego i tak dalej, aby rozdzielić budżet między działy.  Następnie można wyświetlić koszt poszczególnych poszczególnych kont laboratorium przy użyciu [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md).
+    Zamiast zgłaszać wszystkie koszty laboratorium za pomocą jednego konta laboratorium, może być konieczne bardziej wyraźnie przydzielenie budżetu. Na przykład można utworzyć osobne konta laboratorium dla działu matematycznego, działu nauki komputerowego i tak dalej, aby dystrybuować budżet między działami.  Następnie można wyświetlić koszt poszczególnych poszczególnych kont laboratorium przy użyciu [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md).
 
-- **Izolowanie laboratoriów pilotażowych z active\production Labs**
+- **Izolowanie laboratoriów pilotażowych od aktywnych i produkcyjnych laboratoriów**
   
-    Mogą wystąpić sytuacje, w których chcesz przeprowadzić pilotażowe zmiany zasad dla konta laboratorium bez potencjalnie wpływu na active\production Labs. W tym scenariuszu tworzenie oddzielnego konta laboratorium do celów pilotażowych pozwala na odizolowanie zmian. 
+    Mogą wystąpić sytuacje, w których chcesz zmienić zasady pilotażowe dla konta laboratorium bez wpływu na aktywną lub produkcyjną laboratoriów. W tym scenariuszu tworzenie oddzielnego konta laboratorium do celów pilotażowych pozwala na odizolowanie zmian. 
 
 ## <a name="lab"></a>Laboratorium
 
 Laboratorium zawiera maszyny wirtualne, które są przypisane do pojedynczego ucznia.  Ogólnie rzecz biorąc, można oczekiwać:
 
 - Ma jedno laboratorium dla każdej klasy.
-- Utwórz nowy zestaw laboratoriów każdego semestru (lub dla każdego przedziału czasowego, który jest oferowany dla klasy). Zwykle w przypadku klas, które mają ten sam obraz, należy użyć [udostępnionej galerii obrazów](#shared-image-gallery) do ponownego użycia obrazów w laboratoriach i semestrach.
+- Utwórz nowy zestaw laboratoriów dla każdego z semestrów, kwartałów lub innych systemów akademickich, z których korzystasz. W przypadku klas, które muszą korzystać z tego samego obrazu, należy użyć [udostępnionej galerii obrazów](#shared-image-gallery). W ten sposób możesz ponownie wykorzystać obrazy w laboratoriach i okresach akademickich.
 
 Podczas określania sposobu tworzenia struktury laboratoriów należy wziąć pod uwagę następujące kwestie:
 
 - **Wszystkie maszyny wirtualne w laboratorium są wdrażane przy użyciu tego samego obrazu, który został opublikowany**
 
-    W związku z tym, jeśli dysponujesz klasą, która wymaga opublikowania różnych obrazów laboratoryjnych, należy utworzyć osobne laboratoria dla każdej z nich.
+    W związku z tym, jeśli masz klasę, która wymaga opublikowania w tym samym czasie różnych obrazów laboratoryjnych, należy utworzyć osobne laboratorium dla każdego obrazu.
   
 - **Limit przydziału użycia jest ustawiany na poziomie laboratorium i ma zastosowanie do wszystkich użytkowników w laboratorium**
 
-    Aby ustawić różne przydziały dla użytkowników, należy utworzyć osobne laboratoria. Jednak po ustawieniu limitu przydziału można dodać więcej godzin do określonego użytkownika.
+    Aby ustawić różne przydziały dla użytkowników, należy utworzyć osobne laboratoria. Można jednak dodać więcej godzin do określonych użytkowników po ustawieniu limitu przydziału.
   
 - **Harmonogram uruchamiania lub zamykania jest ustawiany na poziomie laboratorium i ma zastosowanie do wszystkich maszyn wirtualnych w laboratorium**
 
-    Podobnie jak w poprzednim punkcie, jeśli trzeba ustawić różne harmonogramy dla użytkowników, należy utworzyć osobne laboratoria.
+    Podobnie jak w przypadku ustawienia limitu przydziału, jeśli trzeba ustawić różne harmonogramy dla użytkowników, należy utworzyć oddzielne laboratorium dla każdego harmonogramu.
 
-Domyślnie każde laboratorium będzie miało własną sieć wirtualną.  Jeśli jest włączona Komunikacja równorzędna sieci wirtualnej, każde laboratorium będzie miało własną podsieć równorzędną do określonej sieci wirtualnej.
+Domyślnie każde laboratorium ma własną sieć wirtualną.  W przypadku włączenia komunikacji równorzędnej sieci wirtualnej każde laboratorium będzie miało własną podsieć równorzędną z określoną siecią wirtualną.
 
 ## <a name="shared-image-gallery"></a>Galeria obrazów udostępnionych
 
-Udostępniona Galeria obrazów jest dołączona do konta laboratorium i służy jako centralne repozytorium do przechowywania obrazów. Obraz jest zapisywany w galerii, gdy nauczycieli wybierze eksport z maszyny wirtualnej szablonu laboratorium (VM). Za każdym razem, gdy nauczycieli wprowadza zmiany w szablonie maszyny wirtualnej i eksportu, nowe wersje obrazu są zapisywane podczas zachowywania poprzednich wersji.
+Udostępniona Galeria obrazów jest dołączona do konta laboratorium i służy jako centralne repozytorium do przechowywania obrazów. Obraz jest zapisywany w galerii, gdy nauczycieli zdecyduje się wyeksportować go z maszyny wirtualnej szablonu laboratorium. Za każdym razem, gdy nauczycieli wprowadza zmiany do szablonu maszyny wirtualnej i eksportuje je, nowe wersje obrazu są zapisywane i są zachowywane poprzednie wersje.
 
 Instruktorzy mogą publikować wersję obrazu z galerii udostępnionych obrazów podczas tworzenia nowego laboratorium. Mimo że Galeria przechowuje wiele wersji obrazu, wykładowcy mogą wybrać tylko najnowszą wersję podczas tworzenia laboratorium.
 
-Udostępniona Galeria obrazów jest opcjonalnym zasobem, który może nie być konieczny natychmiast w przypadku uruchamiania tylko kilku laboratoriów. Jednak używanie galerii obrazów udostępnionych ma wiele korzyści, które są przydatne podczas skalowania do większej ilości laboratoriów:
+Udostępniona Galeria obrazów jest opcjonalnym zasobem, który może nie być konieczny natychmiast, jeśli zaczynasz od kilku laboratoriów. Jednak Galeria obrazów udostępnionych oferuje wiele korzyści, które są przydatne podczas skalowania w górę do dodatkowych laboratoriów:
 
-- **Umożliwia zapisywanie wersji obrazu maszyny wirtualnej szablonu i zarządzanie nimi**
+- **Możesz zapisywać wersje obrazu maszyny wirtualnej szablonu i zarządzać nimi**
 
-    Warto utworzyć obraz niestandardowy lub wprowadzić zmiany (oprogramowanie, konfiguracja itp.) do obrazu z galerii publicznej witryny Marketplace.  Na przykład typowe dla nauczycieli wymagają zainstalowania różnych software\tooling. Zamiast wymagać od uczniów ręcznego instalowania tych wymagań wstępnych, różne wersje obrazu maszyny wirtualnej mogą zostać wyeksportowane do galerii obrazów udostępnionych. Te wersje obrazu mogą być następnie używane podczas tworzenia nowych laboratoriów.
-- **Włącza sharing\reuse szablonów maszyn wirtualnych w laboratoriach**
+    Warto utworzyć obraz niestandardowy lub wprowadzić zmiany (oprogramowanie, konfigurację itd.) do obrazu z publicznej galerii portalu Azure Marketplace.  Na przykład typowe dla nauczycieli są wymagane do zainstalowania innego oprogramowania lub narzędzi. Zamiast wymagać od uczniów ręcznego instalowania tych wymagań wstępnych, różne wersje obrazu maszyny wirtualnej mogą zostać wyeksportowane do galerii obrazów udostępnionych. Te wersje obrazów można następnie użyć podczas tworzenia nowych laboratoriów.
 
-    Możesz zapisać i ponownie użyć obrazu, aby nie trzeba było konfigurować obrazu od podstaw za każdym razem, gdy tworzysz nowe laboratorium. Na przykład jeśli jest oferowanych wiele klas, które wymagają tego samego obrazu, ten obraz należy utworzyć tylko raz i wyeksportować do galerii obrazów udostępnionych, aby można go było udostępnić w laboratoriach.
-- **Zapewnia dostępność obrazu za poorednictwem replikacji**
+- **Możesz udostępniać i ponownie używać szablonów maszyn wirtualnych w laboratoriach**
 
-    Gdy zapisujesz do galerii obrazów udostępnionych z laboratorium, obraz jest automatycznie replikowany do innych [regionów w tej samej lokalizacji geograficznej](https://azure.microsoft.com/global-infrastructure/regions/). W przypadku awarii dla regionu, opublikowanie obrazu w laboratorium nie ma żadnego oddziaływania, ponieważ można użyć repliki obrazu z innego regionu.  Publikowanie maszyn wirtualnych z wielu replik może być również pomocne w wydajności.
+    Możesz zapisać i ponownie użyć obrazu, aby nie trzeba było go konfigurować od podstaw za każdym razem, gdy tworzysz nowe laboratorium. Na przykład jeśli wiele klas musi korzystać z tego samego obrazu, można je utworzyć raz i wyeksportować do galerii obrazów udostępnionych, aby można je było udostępnić w laboratoriach.
 
-Aby logicznie grupować obrazy udostępnione, masz kilka opcji:
+- **Dostępność obrazu jest zapewniana przez automatyczną replikację**
 
-- Utwórz wiele udostępnionych galerii obrazów. Każde konto laboratorium może łączyć się tylko z jedną udostępnioną galerią obrazów, dlatego ta opcja będzie wymagała również utworzenia wielu kont laboratorium.
-- Można też użyć jednej udostępnionej galerii obrazów, która jest współużytkowana przez wiele kont laboratorium. W takim przypadku każde konto laboratorium może włączyć tylko te obrazy, które mają zastosowanie do laboratoriów, które zawiera.
+    Po zapisaniu obrazu z laboratorium do udostępnionej galerii obrazów jest on automatycznie replikowany do innych [regionów w tej samej lokalizacji geograficznej](https://azure.microsoft.com/global-infrastructure/regions/). Jeśli wystąpiła awaria dla regionu, publikowanie obrazu w laboratorium nie ma żadnego oddziaływania, ponieważ można użyć repliki obrazu z innego regionu.  Publikowanie maszyn wirtualnych z wielu replik może być również pomocne w wydajności.
+
+Aby logicznie grupować obrazy udostępnione, można wykonać jedną z następujących czynności:
+
+- Utwórz wiele udostępnionych galerii obrazów. Każde konto laboratorium może łączyć się tylko z jedną udostępnioną galerią obrazów, dlatego ta opcja wymaga również utworzenia wielu kont laboratorium.
+- Użyj pojedynczej udostępnionej galerii obrazów, która jest współużytkowana przez wiele kont laboratorium. W takim przypadku każde konto laboratorium może włączyć tylko obrazy, które mają zastosowanie do laboratoriów na tym koncie.
 
 ## <a name="naming"></a>Nazewnictwo
 
-Po rozpoczęciu pracy z Azure Lab Services zalecamy ustanowienie konwencji nazewnictwa dla grup zasobów, kont laboratorium, laboratoriów oraz udostępnionej galerii obrazów. Chociaż ustanowione konwencje nazewnictwa będą unikatowe dla potrzeb organizacji, w poniższej tabeli przedstawiono ogólne wytyczne.
+Po rozpoczęciu pracy z Azure Lab Services zalecamy ustanowienie konwencji nazewnictwa dla grup zasobów, kont laboratorium, laboratoriów oraz udostępnionej galerii obrazów. Chociaż ustanowione konwencje nazewnictwa będą unikatowe dla potrzeb organizacji, w poniższej tabeli przedstawiono ogólne wytyczne:
 
 | Typ zasobu | Rola | Sugerowany wzorzec | Przykłady |
 | ------------- | ---- | ----------------- | -------- | 
-| Grupa zasobów | Zawiera jedno lub więcej kont laboratorium i jedną lub więcej udostępnionych galerii obrazów | \<organization short name\>-\<environment\>-RG<ul><li>**Krótka nazwa organizacji** określa nazwę organizacji obsługiwaną przez grupę zasobów</li><li>**Środowisko** identyfikuje środowisko dla zasobu, na przykład pilotażowy lub produkcyjny</li><li>**RG** oznacza typ zasobu: Grupa zasobów.</li></ul> | contosouniversitylabs — RG<br/>contosouniversitylabs-pilotaż-RG<br/>contosouniversitylabs — prod-RG |
-| Konto laboratorium | Zawiera co najmniej jedną Labs | \<organization short name\>-\<environment\>-La<ul><li>**Krótka nazwa organizacji** określa nazwę organizacji obsługiwaną przez grupę zasobów</li><li>**Środowisko** identyfikuje środowisko dla zasobu, na przykład pilotażowy lub produkcyjny</li><li>**La** oznacza typ zasobu: konto laboratorium.</li></ul> | contosouniversitylabs — La<br/>mathdeptlabs — La<br/>sciencedeptlabs-pilotaż-La<br/>sciencedeptlabs — prod-La |
-| Laboratorium | Zawiera co najmniej jedną maszynę wirtualną |\<class name\>-\<timeframe\>-\<educator identifier\><ul><li>**Nazwa klasy** identyfikuje nazwę klasy obsługiwanej przez laboratorium.</li><li>**Przedział czasu** określa przedział czasu, w którym jest oferowana Klasa.</li>**Identyfikator edukacji** identyfikuje nauczycieli, który jest właścicielem laboratorium.</li></ul> | CS1234-fall2019-jankowalski<br/>CS1234-spring2019-jankowalski |
+| Grupa zasobów | Zawiera jedno lub więcej kont laboratorium i jedną lub więcej udostępnionych galerii obrazów | \<organization short name\>-\<environment\>-RG<ul><li>**Krótka nazwa organizacji** identyfikuje nazwę organizacji obsługiwaną przez grupę zasobów.</li><li>**Środowisko** identyfikuje środowisko dla zasobu, na przykład *pilotażowe* lub *produkcyjne*.</li><li>**RG** oznacza *grupę zasobów* typu zasobu.</li></ul> | contosouniversitylabs — RG<br/>contosouniversitylabs-pilotaż-RG<br/>contosouniversitylabs — prod-RG |
+| Konto laboratorium | Zawiera co najmniej jedną Labs | \<organization short name\>-\<environment\>-La<ul><li>**Krótka nazwa organizacji** identyfikuje nazwę organizacji obsługiwaną przez grupę zasobów.</li><li>**Środowisko** identyfikuje środowisko dla zasobu, na przykład *pilotażowe* lub *produkcyjne*.</li><li>**La** oznacza *konto laboratorium* typu zasobu.</li></ul> | contosouniversitylabs — La<br/>mathdeptlabs — La<br/>sciencedeptlabs-pilotaż-La<br/>sciencedeptlabs — prod-La |
+| Laboratorium | Zawiera co najmniej jedną maszynę wirtualną |\<class name\>-\<timeframe\>-\<educator identifier\><ul><li>**Nazwa klasy** identyfikuje nazwę klasy obsługiwanej przez laboratorium.</li><li>**Przedział czasu** określa przedział czasu, w którym jest oferowana Klasa.</li>**Identyfikator nauczycieli** identyfikuje nauczycieli, który jest właścicielem laboratorium.</li></ul> | CS1234-fall2019-jankowalski<br/>CS1234-spring2019-jankowalski |
 | Galeria obrazów udostępnionych | Zawiera co najmniej jedną wersję obrazu maszyny wirtualnej | \<organization short name\>zdjęć | contosouniversitylabsgallery |
 
-Aby uzyskać więcej informacji na temat nazewnictwa innych zasobów platformy Azure, zobacz [konwencje nazewnictwa dla zasobów platformy Azure](/azure/architecture/best-practices/naming-conventions).
+Aby uzyskać więcej informacji o nazewnictwie innych zasobów platformy Azure, zobacz [konwencje nazewnictwa dla zasobów platformy Azure](/azure/architecture/best-practices/naming-conventions).
 
 ## <a name="regionslocations"></a>Regions\locations
 
-Podczas konfigurowania zasobów Azure Lab Services "wymagane jest podanie regionu (lub lokalizacji) centrum danych, które będzie hostować zasób. Poniżej znajdują się szczegółowe informacje o tym, jak region ma wpływ na wszystkie zasoby, które są wykorzystywane podczas konfigurowania laboratorium.
+Po skonfigurowaniu zasobów Azure Lab Services należy podać region lub lokalizację centrum danych, które będzie hostować zasoby. W następnych sekcjach opisano, w jaki sposób region lub lokalizacja może mieć wpływ na każdy zasób, który jest związany z konfigurowaniem laboratorium.
 
 ### <a name="resource-group"></a>Grupa zasobów
 
-Region określa centrum danych, w którym są przechowywane informacje o grupie zasobów. Zasoby platformy Azure zawarte w grupie zasobów mogą znajdować się w różnych regionach z ich poziomu nadrzędnego.
+Region określa centrum danych, w którym są przechowywane informacje o grupie zasobów. Zasoby platformy Azure zawarte w grupie zasobów mogą znajdować się w innym regionie niż jego element nadrzędny.
 
 ### <a name="lab-account"></a>Konto laboratorium
 
-Lokalizacja konta laboratorium wskazuje region, w którym znajduje się ten zasób.  
+Lokalizacja konta laboratorium wskazuje region, w którym znajduje się zasób.  
 
 ### <a name="lab"></a>Laboratorium
 
-Lokalizacja, w której znajduje się laboratorium, różni się w zależności od następujących czynników:
+Lokalizacja, w której istnieje laboratorium, różni się w zależności od następujących czynników:
 
-  - **Konto laboratorium jest połączone z siecią wirtualną (VNet)**
+  - **Konto laboratorium jest połączone z siecią wirtualną**
   
-    Konto laboratorium może być połączone [z siecią wirtualną](./how-to-connect-peer-virtual-network.md) , gdy znajdują się w tym samym regionie.  Gdy konto laboratorium jest połączone z siecią wirtualną, laboratoria są tworzone automatycznie w tym samym regionie co konto laboratorium i Sieć wirtualna.
+    [Konto laboratorium można połączyć z siecią wirtualną](./how-to-connect-peer-virtual-network.md) , gdy znajdują się one w tym samym regionie.  Gdy konto laboratorium jest połączone z siecią wirtualną, laboratoria są tworzone automatycznie w tym samym regionie co konto laboratorium i Sieć wirtualna.
 
     > [!NOTE]
-    > Gdy konto laboratorium jest połączone z siecią wirtualną, ustawienie Zezwalaj na wybór przez **twórcę laboratorium do wybrania lokalizacji laboratorium** jest wyłączone. Dodatkowe informacje na temat tego ustawienia można znaleźć w artykule: [Zezwalaj na twórcę laboratorium w celu wybrania lokalizacji dla laboratorium](./allow-lab-creator-pick-lab-location.md).
+    > W przypadku komunikacji równorzędnej z siecią wirtualną przy użyciu konta laboratorium opcja **Zezwalaj na wybór laboratorium dla programu Lab Creator** jest wyłączona. Aby uzyskać więcej informacji, zobacz [Zezwalanie na twórcę laboratorium do wybierania lokalizacji dla laboratorium](./allow-lab-creator-pick-lab-location.md).
     
-  - * * Żadna Sieć wirtualna nie jest w trybie komunikacji równorzędnej **_, a_* twórcy laboratorium nie mogą wybierać location_ laboratoryjnych *
+  - **Żadna Sieć wirtualna nie jest połączona za pomocą komunikacji równorzędnej *, a* twórcy laboratorium nie mogą wybrać lokalizacji laboratorium**
   
-    Gdy **nie ma sieci wirtualnej z** siecią wirtualną przy użyciu konta laboratorium, *a* [twórcy laboratorium **nie** mogą wybrać lokalizacji laboratorium](./allow-lab-creator-pick-lab-location.md), laboratoria są automatycznie tworzone w regionie, który ma dostępną pojemność maszyny wirtualnej.  W Azure Lab Services szuka dostępności w [regionach, które znajdują się w tej samej lokalizacji geograficznej co konto laboratorium](https://azure.microsoft.com/global-infrastructure/regions).
+    Gdy *żadna* Sieć wirtualna nie jest połączona z kontem laboratorium, a [twórcy laboratorium *nie mogą* wybrać lokalizacji laboratorium](./allow-lab-creator-pick-lab-location.md), laboratoria są automatycznie tworzone w regionie, który ma dostępną pojemność maszyny wirtualnej.  W Azure Lab Services szuka dostępności w [regionach, które znajdują się w tej samej lokalizacji geograficznej co konto laboratorium](https://azure.microsoft.com/global-infrastructure/regions).
 
-  - * * Żadna Sieć wirtualna nie ma komunikacji równorzędnej **_, a_* twórcy laboratorium mogą wybrać laboratorium location_ *
+  - **Żadna Sieć wirtualna nie jest połączona za pomocą komunikacji równorzędnej *, a* twórcy laboratorium mogą wybrać lokalizację laboratorium**
        
-    Jeśli nie ma **żadnej** komunikacji równorzędnej sieci wirtualnej, a [twórcy laboratorium nie mogą wybrać lokalizacji laboratorium](./allow-lab-creator-pick-lab-location.md), lokalizacje, które mogą zostać wybrane przez twórcę laboratorium, są oparte na dostępnej pojemności.
+    Gdy *żadna* Sieć wirtualna nie jest połączona za pomocą komunikacji równorzędnej, a [twórcy laboratorium nie *mogą* wybrać lokalizacji laboratorium](./allow-lab-creator-pick-lab-location.md), lokalizacje, które mogą zostać wybrane przez twórcę laboratorium, zależą od dostępnej pojemności.
 
 > [!NOTE]
-> Aby zapewnić wystarczającą pojemność maszyny wirtualnej dla regionu, ważne jest, aby najpierw zażądać pojemności za pomocą konta laboratorium lub podczas tworzenia laboratorium.
+> Aby zapewnić, że region ma wystarczającą pojemność maszyny wirtualnej, ważne jest, aby najpierw zażądać pojemności przy użyciu konta laboratorium podczas tworzenia laboratorium.
 
-Ogólna zasada polega na ustawieniu regionu zasobu, który znajduje się najbliżej jego użytkowników. W przypadku laboratoriów oznacza to, że tworzenie laboratorium jest najbliższe uczniom. W przypadku kursów online, w których studenci znajdują się na całym świecie, musisz użyć najlepszego osądu, aby utworzyć laboratorium, które znajduje się centralnie. Lub Podziel klasę na wiele laboratoriów w oparciu o region uczniów.
-
-### <a name="shared-image-gallery"></a>Galeria obrazów udostępnionych
-
-Region wskazuje region źródłowy, w którym jest przechowywana pierwsza wersja obrazu przed automatyczną replikacją do regionów docelowych.
+Ogólna zasada polega na ustawieniu regionu zasobu, który znajduje się najbliżej jego użytkowników. W przypadku laboratoriów oznacza to utworzenie laboratorium, które jest najbliższe uczniom. W przypadku kursów online, których studenci znajdują się na całym świecie, Skorzystaj z najlepszych orzeczeń, aby utworzyć laboratorium, które znajduje się centralnie. Można też podzielić klasę na wiele laboratoriów zgodnie z regionami uczniów.
 
 ## <a name="vm-sizing"></a>Rozmiar maszyny wirtualnej
 
-Gdy Administratorzy lub twórcy laboratorium tworzą laboratorium, mogą wybrać spośród następujących rozmiarów maszyn wirtualnych na podstawie potrzeb ich klas. Należy pamiętać, że dostępne rozmiary obliczeń zależą od regionu, w którym znajduje się konto w laboratorium:
+Gdy Administratorzy lub twórcy laboratorium tworzą laboratorium, mogą wybrać różne rozmiary maszyn wirtualnych, w zależności od potrzeb swojej klasy. Należy pamiętać, że dostępność rozmiaru obliczeń zależy od regionu, w którym znajduje się konto laboratorium.
 
 | Rozmiar | Specyfikacje | Seria | Sugerowane użycie |
 | ---- | ----- | ------ | ------------- |
-| Mały| <ul><li>2 rdzenie</li><li>3,5 GB PAMIĘCI RAM</li> | [Standardowa_A2_v2](../virtual-machines/av2-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Ten rozmiar najlepiej nadaje się w przypadku wiersza polecenia, otwierania przeglądarki sieci Web, serwerów sieci Web o małym ruchu, małych i średnich baz danych. |
-| Średniaa | <ul><li>4 rdzenie</li><li>7 GB PAMIĘCI RAM</li> | [Standardowa_A4_v2](../virtual-machines/av2-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Ten rozmiar jest najlepiej dostosowany do relacyjnych baz danych, buforowania w pamięci i analizy. |
-| Średni (Wirtualizacja zagnieżdżona) | <ul><li>4 rdzenie</li><li>16 GB PAMIĘCI RAM</li></ul> | [Standardowa_D4s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#dsv3-series) | Ten rozmiar jest najlepiej dostosowany do relacyjnych baz danych, buforowania w pamięci i analizy.
-| Duży | <ul><li>8 rdzeni</li><li>16 GB PAMIĘCI RAM</li></ul>  | [Standardowa_A8_v2](../virtual-machines/av2-series.md) | Ten rozmiar najlepiej nadaje się w przypadku aplikacji wymagających szybszych procesorów CPU, lepszej wydajności dysków lokalnych, dużych baz danych i dużych pamięci podręcznych pamięci.  Ten rozmiar obsługuje również wirtualizację zagnieżdżoną. |
-| Duże (Wirtualizacja zagnieżdżona) | <ul><li>8 rdzeni</li><li>32 GB pamięci RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#dsv3-series) | Ten rozmiar najlepiej nadaje się w przypadku aplikacji wymagających szybszych procesorów CPU, lepszej wydajności dysków lokalnych, dużych baz danych i dużych pamięci podręcznych pamięci. |
-| Mały procesor GPU (wizualizacja) | <ul><li>6 rdzeni</li><li>56 GB PAMIĘCI RAM</li>  | [Standardowa_NV6](../virtual-machines/nv-series.md) | Ten rozmiar najlepiej nadaje się do zdalnej wizualizacji, przesyłania strumieniowego, gier, kodowania przy użyciu struktur, takich jak OpenGL i DirectX. |
-| Mały procesor GPU (obliczenia) | <ul><li>6 rdzeni</li><li>56 GB PAMIĘCI RAM</li></ul>  | [Standardowa_NC6](../virtual-machines/nc-series.md) |Ten rozmiar najlepiej nadaje się w przypadku aplikacji intensywnie korzystających z komputerów, takich jak sztuczna inteligencja i uczenie głębokie. |
-| Średni procesor GPU (wizualizacja) | <ul><li>12 rdzeni</li><li>112 GB PAMIĘCI RAM</li></ul>  | [Standardowa_NV12](../virtual-machines/nv-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Ten rozmiar najlepiej nadaje się do zdalnej wizualizacji, przesyłania strumieniowego, gier, kodowania przy użyciu struktur, takich jak OpenGL i DirectX. |
+| Mały| <ul><li>2 &nbsp; rdzenie</li><li>Pamięć RAM 3,5 gigabajtów (GB)</li> | [Standardowa_A2_v2](../virtual-machines/av2-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Najlepiej dopasowane do wiersza polecenia, otwierania przeglądarki sieci Web, serwerów sieci Web o niewielkim ruchu, małych i średnich baz danych. |
+| Średniaa | <ul><li>4 &nbsp; rdzenie</li><li>7 &nbsp; GB &nbsp; pamięci RAM</li> | [Standardowa_A4_v2](../virtual-machines/av2-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Najlepiej dopasowane do relacyjnych baz danych, buforowania w pamięci i analizy. |
+| Średni (Wirtualizacja zagnieżdżona) | <ul><li>4 &nbsp; rdzenie</li><li>16 &nbsp; GB &nbsp; pamięci RAM</li></ul> | [Standardowa_D4s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#dsv3-series) | Najlepiej dopasowane do relacyjnych baz danych, buforowania w pamięci i analizy.
+| Duży | <ul><li>8 &nbsp; rdzeni</li><li>16 &nbsp; GB &nbsp; pamięci RAM</li></ul>  | [Standardowa_A8_v2](../virtual-machines/av2-series.md) | Najlepiej dopasowane do aplikacji wymagających szybszych procesorów, lepszej wydajności dysków lokalnych, dużych baz danych i dużych pamięci podręcznych pamięci.  Ten rozmiar obsługuje również wirtualizację zagnieżdżoną. |
+| Duże (Wirtualizacja zagnieżdżona) | <ul><li>8 &nbsp; rdzeni</li><li>32 &nbsp; GB &nbsp; pamięci RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#dsv3-series) | Najlepiej dopasowane do aplikacji wymagających szybszych procesorów, lepszej wydajności dysków lokalnych, dużych baz danych i dużych pamięci podręcznych pamięci. |
+| Mały procesor GPU (wizualizacja) | <ul><li>6 &nbsp; rdzeni</li><li>56 &nbsp; GB &nbsp; pamięci RAM</li>  | [Standardowa_NV6](../virtual-machines/nv-series.md) | Najlepiej dopasowane do zdalnej wizualizacji, przesyłania strumieniowego, gier i kodowania przy użyciu platform, takich jak OpenGL i DirectX. |
+| Mały procesor GPU (obliczenia) | <ul><li>6 &nbsp; rdzeni</li><li>56 &nbsp; GB &nbsp; pamięci RAM</li></ul>  | [Standardowa_NC6](../virtual-machines/nc-series.md) |Najlepiej dopasowane do aplikacji intensywnie korzystających z komputerów, takich jak AI i uczenie głębokie. |
+| Średni procesor GPU (wizualizacja) | <ul><li>12 &nbsp; rdzeni</li><li>112 &nbsp; GB &nbsp; pamięci RAM</li></ul>  | [Standardowa_NV12](../virtual-machines/nv-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Najlepiej dopasowane do zdalnej wizualizacji, przesyłania strumieniowego, gier i kodowania przy użyciu platform, takich jak OpenGL i DirectX. |
 
 ## <a name="manage-identity"></a>Zarządzanie tożsamością
 
-Za pomocą [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/overview.md)można przypisać następujące role, aby zapewnić dostęp do kont laboratorium i laboratoriów:
+Korzystając z [kontroli dostępu opartej na rolach (RBAC) na platformie Azure](../role-based-access-control/overview.md) w celu uzyskiwania dostępu do kont laboratorium i laboratoriów, można przypisać następujące role:
 
-- **Właściciel konta laboratorium**
+- **Właściciel** konta laboratorium
 
-    Administrator tworzący konto laboratorium jest automatycznie dodawany do roli **właściciela** konta laboratorium.  Administrator, który ma przypisaną rolę **właściciela** , może:
+    Administrator, który tworzy konto laboratorium, ma automatycznie przypisaną rolę właściciela konta laboratorium. Rola właściciela może:
      - Zmień ustawienia konta laboratorium.
-     - Nadaj innym administratorom dostęp do konta laboratorium jako właściciele lub Współautorzy.
-     - Nadaj nauczycielom dostęp do laboratoriów jako twórców, właścicieli lub współautorów.
-     - Twórz Wszystkie laboratoria w ramach konta laboratorium i zarządzaj nimi.
+     - Udziel innym administratorom dostępu do konta laboratorium jako właściciela lub współautora.
+     - Przyznaj nauczycielom dostęp do laboratoriów jako twórca, właściciel lub współautor.
+     - Twórz Wszystkie laboratoria na koncie laboratorium i zarządzaj nimi.
 
-- **Współautor konta laboratorium**
+- **Współautor** konta laboratorium
 
-    Administrator, do którego przypisano rolę **współautor** , może:
+    Administrator, który ma przypisaną rolę współautor, może:
     - Zmień ustawienia konta laboratorium.
-    - Twórz Wszystkie laboratoria w ramach konta laboratorium i zarządzaj nimi.
+    - Twórz Wszystkie laboratoria na koncie laboratorium i zarządzaj nimi.
 
-    *Nie mogą* jednak dać innym użytkownikom dostępu do kont laboratorium lub laboratoriów.
+    Jednak współautor *nie może* przyznać innym użytkownikom dostępu do kont laboratorium lub laboratoriów.
 
 - **Twórca laboratorium**
 
-    Aby utworzyć laboratoria na koncie laboratorium, nauczycieli musi być członkiem roli **twórca laboratorium** .  Gdy nauczycieli tworzy laboratorium, są one automatycznie dodawane jako właściciel laboratorium.  Zapoznaj się z samouczkiem dotyczącym [dodawania użytkownika do roli **twórca laboratorium**](./tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role). 
+    Aby utworzyć laboratoria na koncie laboratorium, nauczycieli musi być członkiem roli twórca laboratorium.  Nauczycieli, który tworzy laboratorium, jest automatycznie dodawany jako właściciel laboratorium. Aby uzyskać więcej informacji, zobacz [Dodawanie użytkownika do roli twórca laboratorium](./tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role). 
 
-- **Owner\contributor Lab**
+- **Właściciel** lub **współautor** laboratorium
   
-    Nauczycieli może wyświetlać i zmieniać ustawienia laboratorium, gdy są członkami roli **właściciela** lub **współautora** laboratorium; muszą być również członkami roli **czytelnik** konta laboratorium.
+    Nauczycieli w roli właściciela laboratorium lub współautora mogą wyświetlać i zmieniać ustawienia laboratorium. Osoba musi być również członkiem roli czytelnik konta laboratorium.
 
-    Kluczowa różnica między rolami **właściciela** i **współautora** laboratorium polega na tym, że współautor *nie może* przyznać innym użytkownikom dostępu do zarządzania laboratorium.
-
-    Ponadto nauczycieli *nie może* tworzyć nowych laboratoriów, chyba że są również członkami roli **twórca laboratorium** .
+    Kluczową różnicą między rolą właściciela laboratorium i współautorów jest to, że tylko właściciel może udzielić innym użytkownikom dostępu do zarządzania laboratorium. Współautor *nie może* udzielić innym użytkownikom dostępu do zarządzania laboratorium.
 
 - **Galeria obrazów udostępnionych**
 
-    Po dołączeniu udostępnionej galerii obrazów do konta laboratorium, konto Lab owners\contributors i Lab creators\owners\contributors są automatycznie udzielane dostępu do wyświetlania i zapisywania obrazów w galerii.
+    Po dołączeniu udostępnionej galerii obrazów do konta laboratorium, właściciele konta laboratorium i współautorzy oraz twórcy laboratorium, właściciele laboratorium i współautorzy laboratorium mają automatycznie udzielony dostęp do wyświetlania i zapisywania obrazów w galerii.
 
-Oto kilka porad ułatwiających Przypisywanie ról:
-   - Zazwyczaj tylko administratorzy powinni być członkami ról **właściciela** konta laboratorium lub **współautora** . może być więcej niż jeden owner\contributor.
-   - Aby dać nauczycieli możliwość tworzenia nowych laboratoriów i zarządzania przez nich laboratoriami, wystarczy przypisać dostęp do roli **twórca laboratorium** .
-   - Aby dać nauczycieli możliwość zarządzania określonymi laboratoriami, ale *nie* ma możliwości tworzenia nowych laboratoriów; należy przypisać dostęp do roli **właściciel** lub **współautor** dla każdej z laboratoriów, którymi będą zarządzać.  Na przykład możesz chcieć zezwolić zarówno profesor, jak i Asystentowi nauczania na Współtworzenie laboratorium.  Zapoznaj się z przewodnikiem, jak [dodać użytkownika jako właściciela do laboratorium](./how-to-add-user-lab-owner.md).
+Podczas przypisywania ról pomocne są następujące porady:
+
+   - Zwykle tylko administratorzy powinni być członkami roli właściciela konta laboratorium lub współautora. Konto laboratorium może mieć więcej niż jednego właściciela lub współautora.
+   - Aby dać nauczycielom możliwość tworzenia nowych laboratoriów i zarządzania nimi, należy przypisać im tylko rolę twórcy laboratorium.
+   - Aby dać wykładowcom możliwość zarządzania określonymi laboratoriami, ale *nie* możliwość tworzenia nowych laboratoriów, należy przypisać im rolę właściciel lub współautor dla każdego laboratorium, które będą zarządzane. Na przykład możesz chcieć, aby profesor i asystent nauczania mogli współistnieć z laboratorium. Aby uzyskać więcej informacji, zobacz [Dodawanie właścicieli do laboratorium](./how-to-add-user-lab-owner.md).
 
 ## <a name="pricing"></a>Cennik
 
 ### <a name="azure-lab-services"></a>Azure Lab Services
 
-Cennik Azure Lab Services został opisany w następującym artykule: [Azure Lab Services Cennik](https://azure.microsoft.com/pricing/details/lab-services/).
+Aby dowiedzieć się więcej o cenach, zobacz [cennik Azure Lab Services](https://azure.microsoft.com/pricing/details/lab-services/).
 
-Należy również wziąć pod uwagę ceny udostępnionej galerii obrazów, jeśli planujesz jej używać do przechowywania wersji obrazów i zarządzania nimi. 
 
 ### <a name="shared-image-gallery"></a>Galeria obrazów udostępnionych
 
-Tworzenie galerii obrazów udostępnionych i dołączanie jej do konta laboratorium jest bezpłatne. Koszty nie są naliczane, dopóki nie zapiszesz wersji obrazu w galerii. Zazwyczaj ceny za używanie udostępnionej galerii obrazów są dość nieznaczne, ale ważne jest, aby zrozumieć, jak jest ona obliczana, ponieważ nie jest uwzględniona w cenach Azure Lab Services.  
+Należy również wziąć pod uwagę Cennik usługi galerii obrazów udostępnionych, jeśli planujesz używać udostępnionych galerii obrazów do przechowywania wersji obrazów i zarządzania nimi. 
+
+Tworzenie galerii obrazów udostępnionych i dołączanie jej do konta laboratorium jest bezpłatne. Koszt nie jest naliczany do momentu zapisania wersji obrazu w galerii. Ceny za korzystanie z galerii obrazów udostępnionych są zwykle dość nieznaczne, ale ważne jest, aby zrozumieć, jak jest obliczana, ponieważ nie jest ona uwzględniona w cenach Azure Lab Services.  
 
 #### <a name="storage-charges"></a>Opłaty za magazyn
 
-Aby przechowywać wersje obrazów, w galerii obrazów udostępnionych są używane standardowe dyski twarde dysk twardy. Rozmiar używanego dysku zarządzanego przez dysk twardy zależy od rozmiaru przechowywanego obrazu. Zapoznaj się z następującym artykułem, aby wyświetlić Cennik: [Zarządzanie dyskami zarządzanymi](https://azure.microsoft.com/pricing/details/managed-disks/).
+Aby przechowywać wersje obrazów, udostępniona Galeria obrazów używa dysków zarządzanych w standardowym dysku twardym (dysk twardy). Rozmiar używanego dysku zarządzanego przez dysk twardy zależy od rozmiaru przechowywanego obrazu. Aby dowiedzieć się więcej o cenach, zobacz [Cennik dysków zarządzanych](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 #### <a name="replication-and-network-egress-charges"></a>Opłaty za replikację i ruch wychodzący z sieci
 
-Po zapisaniu wersji obrazu przy użyciu maszyny wirtualnej szablonu laboratorium (VM) Azure Lab Services najpierw zapisuje ją w regionie źródłowym, a następnie automatycznie replikuje wersję obrazu źródłowego do co najmniej jednego regionu docelowego. Należy pamiętać, że Azure Lab Services automatycznie replikuje wersję obrazu źródłowego do wszystkich [regionów docelowych w obszarze geograficznym](https://azure.microsoft.com/global-infrastructure/regions/) , w którym znajduje się laboratorium. Na przykład jeśli laboratorium znajduje się w lokalizacji geograficznej USA, wersja obrazu jest replikowana do każdego z ośmiu regionów istniejących w Stanach Zjednoczonych
+Gdy zapisujesz wersję obrazu przy użyciu maszyny wirtualnej szablonu laboratorium, Azure Lab Services najpierw zapisuje ją w regionie źródłowym, a następnie automatycznie replikuje wersję obrazu źródłowego do co najmniej jednego regionu docelowego. 
 
-Opłata za ruch wychodzący sieci występuje, gdy wersja obrazu jest replikowana z regionu źródłowego do dodatkowych regionów docelowych. Opłata jest naliczana na podstawie rozmiaru wersji obrazu, gdy dane obrazu są początkowo przenoszone z regionu źródłowego.  Aby uzyskać szczegółowe informacje o cenach, zapoznaj się z następującym artykułem: [szczegóły cennika dotyczącego przepustowości](https://azure.microsoft.com/pricing/details/bandwidth/).
+Należy pamiętać, że Azure Lab Services automatycznie replikuje wersję obrazu źródłowego do wszystkich [regionów docelowych w obszarze geograficznym](https://azure.microsoft.com/global-infrastructure/regions/) , w którym znajduje się laboratorium. Na przykład jeśli laboratorium znajduje się w lokalizacji geograficznej USA, wersja obrazu jest replikowana do każdego z ośmiu regionów, które znajdują się w Stanach Zjednoczonych.
 
-Klienci [rozwiązań edukacyjnych](https://www.microsoft.com/licensing/licensing-programs/licensing-for-industries?rtc=1&activetab=licensing-for-industries-pivot:primaryr3) mogą zrezygnować z płacenia opłat wychodzących. Aby dowiedzieć się więcej, skontaktuj się z menedżerem konta.  Aby uzyskać więcej informacji, zobacz sekcję **często zadawanych pytań** w połączonym dokumencie, w tym pytanie "Jakie programy transferu danych istnieją dla klientów akademickich I jak mam zakwalifikować?".
+Opłata za ruch wychodzący sieci występuje, gdy wersja obrazu jest replikowana z regionu źródłowego do dodatkowych regionów docelowych. Opłata jest naliczana na podstawie rozmiaru wersji obrazu, gdy dane obrazu są początkowo przenoszone z regionu źródłowego.  Aby uzyskać szczegółowe informacje o cenach, zobacz [szczegóły cennika dotyczącego przepustowości](https://azure.microsoft.com/pricing/details/bandwidth/).
+
+Opłaty za ruch wychodzący mogą zostać uchylone dla klientów [rozwiązań edukacyjnych](https://www.microsoft.com/licensing/licensing-programs/licensing-for-industries?rtc=1&activetab=licensing-for-industries-pivot:primaryr3) . Aby dowiedzieć się więcej, skontaktuj się z kierownikiem ds. klientów. 
+
+Aby uzyskać więcej informacji, zobacz "Jakie programy transferu danych istnieją dla klientów akademickich i jak mam zakwalifikować"? w sekcji często zadawane pytania na stronie [programy dla instytucji edukacyjnych](https://azure.microsoft.com/pricing/details/bandwidth/) .
 
 #### <a name="pricing-example"></a>Przykład cen
 
-Aby podsumowanie opisane powyżej ceny, przyjrzyjmy się przykładowi zapisywania obrazu maszyny wirtualnej z szablonami w galerii obrazów udostępnionych. Założono następujące scenariusze:
+Przyjrzyjmy się przykładowi kosztu zapisania obrazu maszyny wirtualnej szablonu do galerii obrazów udostępnionych. Założono następujące scenariusze:
 
 - Masz jeden niestandardowy obraz maszyny wirtualnej.
 - Zapisujesz dwie wersje obrazu.
 - Twoje laboratorium znajduje się w Stanach Zjednoczonych, które zawierają łącznie osiem regionów.
 - Każda wersja obrazu ma rozmiar 32 GB; w związku z tym cena dysku zarządzanego przez dysk twardy wynosi $1,54 miesięcznie.
 
-Łączny koszt jest szacowany jako:
+Łączny koszt miesięcznie jest szacowany jako:
 
-Liczba obrazów × liczba wersji × liczba replik × cena dysku zarządzanego
+* *Liczba obrazów liczba wersji z numerem liczba &times; &times; replik &times; Cena dysku zarządzanego = łączny koszt na miesiąc*
 
 W tym przykładzie kosztem jest:
 
-1 obraz niestandardowy (32 GB) x 2 wersje x 8 USA regiony x $1,54 = $24,64 miesięcznie
+* 1 obraz niestandardowy (32 GB) &times; 2 wersje &times; 8 regiony USA &times; $1,54 = $24,64 miesięcznie
+
+> [!NOTE]
+> Poprzednie obliczenie jest tylko na przykład. Obejmuje to koszty magazynowania związane z korzystaniem z galerii obrazów udostępnionych i *nie* obejmuje kosztów wychodzących. Aby uzyskać aktualną cenę usługi Storage, zobacz [Cennik usługi Managed disks](https://azure.microsoft.com/en-us/pricing/details/managed-disks/).
 
 #### <a name="cost-management"></a>Zarządzanie kosztami
 
-Ważne jest, aby administrator konta laboratorium mógł zarządzać kosztami przez zwykłe usuwanie niepotrzebnych wersji obrazu z galerii. 
+Ważne jest, aby administratorzy kont laboratorium mogli zarządzać kosztami, przez zwykłe usuwanie niepotrzebnych wersji obrazu z galerii. 
 
-Nie należy usuwać replikacji do określonych regionów w celu zmniejszenia kosztów (Ta opcja istnieje w galerii obrazów udostępnionych). Zmiany replikacji mogą mieć niekorzystny wpływ na możliwość publikowania maszyn wirtualnych przez usługę Azure Lab z obrazów zapisanych w galerii obrazów udostępnionych.
+Nie należy usuwać replikacji do określonych regionów w celu zmniejszenia kosztów, chociaż ta opcja istnieje w galerii obrazów udostępnionych. Zmiany replikacji mogą mieć niekorzystny wpływ na możliwość Azure Lab Services publikowania maszyn wirtualnych z obrazów zapisanych w galerii obrazów udostępnionych.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Następne kroki wspólne dla konfigurowania środowiska laboratoryjnego.
+Aby uzyskać więcej informacji na temat konfigurowania laboratoriów i zarządzania nimi, zobacz:
 
-- [Przewodnik konfigurowania konta laboratorium](account-setup-guide.md)
-- [Przewodnik po konfiguracji laboratorium](setup-guide.md)
-- [Zarządzanie kosztami dla laboratoriów](cost-management-guide.md)
+- [Przewodnik konfigurowania konta laboratorium](account-setup-guide.md)  
+- [Przewodnik po konfiguracji laboratorium](setup-guide.md)  
+- [Zarządzanie kosztami dla laboratoriów](cost-management-guide.md)  
 - [Używanie Azure Lab Services w zespołach](lab-services-within-teams-overview.md)

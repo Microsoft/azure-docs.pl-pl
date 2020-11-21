@@ -6,12 +6,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f3eb30662cae5f117942db6322b27491670abb1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 621a41f743b751a8c24bf6f6ad8497fb5c79775c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324845"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026014"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Zmień wypowiedź danych przed lub podczas przewidywania
 LUIS zapewnia sposoby manipulowania wypowiedź przed lub podczas przewidywania. Obejmują one [naprawianie błędów](luis-tutorial-bing-spellcheck.md)i rozwiązywanie problemów ze strefą czasową dla prekompilowanego [datetimeV2](luis-reference-prebuilt-datetimev2.md).
@@ -98,7 +98,7 @@ Usuń 60 minut:
 
 #### <a name="v2-prediction-c-code-determines-correct-value-of-parameter"></a>Kod w języku C# przewidywania w wersji 2 określa poprawną wartość parametru
 
-Poniższy kod w języku C# używa metody [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) klasy [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) w celu określenia poprawnej wartości przesunięcia na podstawie czasu systemowego:
+Poniższy kod w języku C# używa metody [FindSystemTimeZoneById](/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) klasy [TimeZoneInfo](/dotnet/api/system.timezoneinfo) w celu określenia poprawnej wartości przesunięcia na podstawie czasu systemowego:
 
 ```csharp
 // Get CST zone id

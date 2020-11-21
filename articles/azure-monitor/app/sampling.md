@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e4c5000adb2339d3fd0f828781a60f75c75894b5
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 87e33940d927fc9116c03345011e21398384d484
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168600"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024419"
 ---
 # <a name="sampling-in-application-insights"></a>Próbkowanie w usłudze Application Insights
 
@@ -25,7 +25,7 @@ Gdy liczba metryk jest prezentowana w portalu, zostaną one rozznormalizowane w 
 * Próbkowanie z ustaloną szybkością jest dostępne w ostatnich wersjach Application Insights zestawów SDK dla ASP.NET, ASP.NET Core, Java (zarówno dla agenta, jak i zestawu SDK), jak i języka Python.
 * Próbkowanie pozyskiwania działa w punkcie końcowym usługi Application Insights. Ma zastosowanie tylko wtedy, gdy nie są stosowane żadne inne próbki. Jeśli zestaw SDK próbkuje dane telemetryczne, pobieranie próbek pozyskiwania jest wyłączone.
 * W przypadku aplikacji sieci Web, Jeśli rejestrujesz zdarzenia niestandardowe i chcesz upewnić się, że zestaw zdarzeń jest przechowywany lub odrzucony, zdarzenia muszą mieć tę samą `OperationId` wartość.
-* W przypadku pisania zapytań analitycznych należy [wziąć pod uwagę próbkowanie](../log-query/aggregations.md). W szczególności, a nie do zwykłego zliczania rekordów, należy użyć `summarize sum(itemCount)` .
+* W przypadku pisania zapytań analitycznych należy [wziąć pod uwagę próbkowanie](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#aggregations). W szczególności, a nie do zwykłego zliczania rekordów, należy użyć `summarize sum(itemCount)` .
 * Niektóre typy telemetrii, w tym metryki wydajności i metryki niestandardowe, są zawsze zachowywane niezależnie od tego, czy próbkowanie jest włączone, czy nie.
 
 W poniższej tabeli zestawiono typy próbkowania dostępne dla każdego zestawu SDK i typu aplikacji:

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 4bdca8921a99db764cbc8ee1edfdad8cf8b8568f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa885b1dcff59ec1b89d9a0bcf4ac5578cb5e8ea
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360943"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024912"
 ---
 # <a name="what-is-a-voice-assistant"></a>Co to jest asystent głosowy?
 
@@ -32,7 +32,7 @@ Pierwszym krokiem tworzenia asystenta głosowego jest podjęcie decyzji o tym, c
 |Otwarta-zakończona konwersacja z niezawodną integracją umiejętności i pełną kontrolą wdrożenia | Azure Bot Service bot z [bezpośrednim kanałem mowy wiersza](direct-line-speech.md) | <ul><li>"Muszę przejść do Seattle"</li><li>"Jakiego rodzaju Pizza można zamówić?"</li></ul>
 |Polecenia głosowe lub proste konwersacje zorientowane na zadania z uproszczonym tworzeniem i hostingiem | [Polecenia niestandardowe](custom-commands.md) | <ul><li>"Włącz światło narzutu"</li><li>"Przekształć w 5 stopniowy"</li><li>Inne przykłady [dostępne tutaj](https://speech.microsoft.com/customcommands)</li></ul>
 
-Zaleca się [bezpośrednie używanie mowy liniowej](direct-line-speech.md) jako najlepszego wyboru, jeśli nie masz jeszcze pewności, co chcesz obsłużyć asystenta. Oferuje ona integrację z rozbudowanym zestawem narzędzi i ułatwieniami autorskimi, takimi jak [rozwiązanie dla Asystenta wirtualnego i szablon przedsiębiorstwa](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) oraz [Usługa QNA Maker](https://docs.microsoft.com/azure/cognitive-services/QnAMaker/Overview/overview) , które umożliwiają kompilowanie wspólnych wzorców i korzystanie z istniejących źródeł wiedzy.
+Zaleca się [bezpośrednie używanie mowy liniowej](direct-line-speech.md) jako najlepszego wyboru, jeśli nie masz jeszcze pewności, co chcesz obsłużyć asystenta. Oferuje ona integrację z rozbudowanym zestawem narzędzi i ułatwieniami autorskimi, takimi jak [rozwiązanie dla Asystenta wirtualnego i szablon przedsiębiorstwa](/azure/bot-service/bot-builder-enterprise-template-overview) oraz [Usługa QNA Maker](../qnamaker/overview/overview.md) , które umożliwiają kompilowanie wspólnych wzorców i korzystanie z istniejących źródeł wiedzy.
 
 [Polecenia niestandardowe](custom-commands.md) ułatwiają tworzenie zaawansowanych poleceń głosowych zoptymalizowanych pod kątem interakcji głosowych. Zapewnia ujednolicone środowisko tworzenia, automatyczny model hostingu i stosunkowo niższą złożoność, ułatwiając skoncentrowanie się na tworzeniu najlepszego rozwiązania dla scenariuszy poleceń głosowych.
 
@@ -49,7 +49,7 @@ Bez względu na to, czy wybierasz [bezpośrednią mowę liniową](direct-line-sp
 
 | Kategoria | Funkcje |
 |----------|----------|
-|[Custom — słowo kluczowe](speech-devices-sdk-create-kws.md) | Użytkownicy mogą uruchamiać konwersacje z asystentami przy użyciu niestandardowego słowa kluczowego, takiego jak "Hej contoso". Aplikacja wykonuje tę funkcję za pomocą niestandardowego aparatu słów kluczowych w zestawie mowy SDK, który można skonfigurować za pomocą niestandardowego słowa kluczowego [, które można wygenerować w tym miejscu](speech-devices-sdk-create-kws.md). Asystenci głosu mogą korzystać z weryfikacji słowa kluczowego po stronie usługi, aby poprawić dokładność aktywacji słowa kluczowego (w przeciwieństwie do samego urządzenia).
+|[Custom — słowo kluczowe](./custom-keyword-basics.md) | Użytkownicy mogą uruchamiać konwersacje z asystentami przy użyciu niestandardowego słowa kluczowego, takiego jak "Hej contoso". Aplikacja wykonuje tę funkcję za pomocą niestandardowego aparatu słów kluczowych w zestawie mowy SDK, który można skonfigurować za pomocą niestandardowego słowa kluczowego [, które można wygenerować w tym miejscu](./custom-keyword-basics.md). Asystenci głosu mogą korzystać z weryfikacji słowa kluczowego po stronie usługi, aby poprawić dokładność aktywacji słowa kluczowego (w przeciwieństwie do samego urządzenia).
 |[Zamiana mowy na tekst](speech-to-text.md) | Asystenci głosu konwertują dźwięk w czasie rzeczywistym na rozpoznany tekst przy użyciu [zamiany mowy na tekst](speech-to-text.md) z usługi mowy. Ten tekst jest dostępny, ponieważ jest uzyskanego, zarówno w implementacji asystenta, jak i aplikacji klienckiej.
 |[Zamiana tekstu na mowę](text-to-speech.md) | Odpowiedzi na tekst od asystenta są syntezą przy użyciu zamiany [tekstu na mowę](text-to-speech.md) z usługi mowy. Ta synteza jest następnie udostępniana aplikacji klienckiej jako strumień audio. Firma Microsoft oferuje możliwość tworzenia własnego, niestandardowego głosu neuronowych TTS, który daje głos do marki. Aby dowiedzieć się więcej, [skontaktuj się z nami](mailto:mstts@microsoft.com).
 

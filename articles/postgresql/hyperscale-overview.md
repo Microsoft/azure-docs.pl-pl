@@ -8,12 +8,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: overview
 ms.date: 09/01/2020
-ms.openlocfilehash: 90d3cb106fa93649f7d6dda5ab5755061d118f66
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1734128384d63749d3c777cf6315278fced9d140
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91268387"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025144"
 ---
 # <a name="what-is-azure-database-for-postgresql---hyperscale-citus"></a>Co to jest Azure Database for PostgreSQL-ze skalowaniem (Citus)?
 
@@ -33,4 +33,4 @@ Aplikacje skompilowane dla PostgreSQL mogą uruchamiać zapytania rozproszone na
 
 - Zacznij od [utworzenia pierwszej](./quickstart-create-hyperscale-portal.md) grupy serwerów Azure Database for PostgreSQL-Citus.
 - Zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/postgresql/) , aby obporównania kosztów i kalkulatory. Funkcja [przeskaling](concepts-hyperscale-reserved-pricing.md) (Citus) oferuje również płatne rabaty wystąpień zarezerwowanych
-- Określ najlepszy [początkowy rozmiar](howto-hyperscale-scaling.md#picking-initial-size) grupy serwerów
+- Określ najlepszy [początkowy rozmiar](howto-hyperscale-scale-initial.md) grupy serwerów

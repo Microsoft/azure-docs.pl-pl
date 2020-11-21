@@ -4,13 +4,13 @@ description: Praktyki i przepływy pracy w Azure Container Registry do zarządza
 author: dlepow
 ms.topic: article
 ms.author: danlep
-ms.date: 10/29/2020
-ms.openlocfilehash: def1c3a9b8a1086f453c7e71d766ab0dd89b0c2d
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.date: 11/20/2020
+ms.openlocfilehash: 0c92899528d417f9c91f8f8930ca4932dc74e850
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347526"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024742"
 ---
 # <a name="manage-public-content-with-azure-container-registry"></a>Zarządzanie zawartością publiczną za pomocą Azure Container Registry
 
@@ -26,6 +26,8 @@ Bez odpowiednich kontroli, posiadanie zależności od zawartości rejestru publi
 ## <a name="authenticate-with-docker-hub"></a>Uwierzytelnianie za pomocą narzędzia Docker Hub
 
 Pierwszy krok, jeśli obecnie pobierasz Obrazy publiczne z usługi Docker Hub w ramach przepływu pracy kompilowania lub wdrażania, zalecamy [uwierzytelnienie przy użyciu konta usługi Docker Hub](https://docs.docker.com/docker-hub/download-rate-limit/#how-do-i-authenticate-pull-requests) zamiast anonimowego żądania ściągnięcia.
+
+Podczas przeprowadzania często anonimowych żądań ściągnięcia można zobaczyć błędy platformy Docker podobne do programu `ERROR: toomanyrequests: Too Many Requests.` lub `You have reached your pull rate limit.` uwierzytelnić się w usłudze Docker Hub, aby uniknąć tych błędów.
 
 > [!NOTE]
 > Od 2 listopada 2020 [limity szybkości pobierania](https://docs.docker.com/docker-hub/download-rate-limit) dotyczą żądań anonimowych i uwierzytelnionych do usługi Docker Hub z kont planów bezpłatnych platformy Docker i są wymuszane odpowiednio przy użyciu adresu IP i identyfikatora platformy Docker. 
@@ -46,21 +48,21 @@ Kilka usług platformy Azure, w tym App Service i Azure Container Instances obs�
 
 **App Service**
 
-* **Źródło obrazu** : centrum platformy Docker
-* **Dostęp do repozytorium** : prywatny
-* **Logowanie** : \<Docker Hub username>
-* **Hasło** : \<Docker Hub token>
+* **Źródło obrazu**: centrum platformy Docker
+* **Dostęp do repozytorium**: prywatny
+* **Logowanie**: \<Docker Hub username>
+* **Hasło**: \<Docker Hub token>
 
 Aby uzyskać szczegółowe informacje, zobacz [uwierzytelnione ściągania usługi Docker Hub na App Service](https://azure.github.io/AppService/2020/10/15/Docker-Hub-authenticated-pulls-on-App-Service.html).
 
 **Azure Container Instances**
 
-* **Źródło obrazu** : centrum platformy Docker lub inny rejestr
-* **Typ obrazu** : prywatny
-* **Serwer logowania rejestru obrazów** : Docker.IO
-* **Nazwa użytkownika rejestru obrazu** : \<Docker Hub username>
-* **Hasło rejestru obrazu** : \<Docker Hub token>
-* **Obraz** : Docker.IO/ \<repo name\> :\<tag>
+* **Źródło obrazu**: centrum platformy Docker lub inny rejestr
+* **Typ obrazu**: prywatny
+* **Serwer logowania rejestru obrazów**: Docker.IO
+* **Nazwa użytkownika rejestru obrazu**: \<Docker Hub username>
+* **Hasło rejestru obrazu**: \<Docker Hub token>
+* **Obraz**: Docker.IO/ \<repo name\> :\<tag>
 
 ## <a name="import-images-to-an-azure-container-registry"></a>Importowanie obrazów do usługi Azure Container Registry
  

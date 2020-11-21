@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 86db8c88fae7a5fd1ec4828d8936c6cb8172a61c
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 446731e084084ca301b350f6fec0c4065485a40f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564569"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026628"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Najlepsze rozwiązania dotyczące konfiguracji klastra (SQL Server w usłudze Azure Virtual Machines)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,7 +33,7 @@ Użyj pojedynczej karty sieciowej na serwer (węzeł klastra) i pojedynczej pods
 
 ### <a name="tuning-failover-cluster-network-thresholds"></a>Dostrajanie progów sieci klastra trybu failover
 
-W przypadku uruchamiania węzłów klastra trybu failover systemu Windows na maszynach wirtualnych platformy Azure z funkcją SQL Server AlwaysOn zaleca się zmianę ustawienia klastra na bardziej swobodny stan monitorowania.  Dzięki temu klaster jest znacznie bardziej stabilny i niezawodny.  Aby uzyskać szczegółowe informacje na ten temat, zobacz [IaaS with SQL AlwaysOn-dostrajania sieci klastra trybu failover](/windows-server/troubleshoot/iaas-sql-failover-cluser).
+W przypadku uruchamiania węzłów klastra trybu failover systemu Windows na maszynach wirtualnych platformy Azure z funkcją SQL Server AlwaysOn zaleca się zmianę ustawienia klastra na bardziej swobodny stan monitorowania.  Dzięki temu klaster jest znacznie bardziej stabilny i niezawodny.  Aby uzyskać szczegółowe informacje na ten temat, zobacz [IaaS with SQL AlwaysOn-dostrajania sieci klastra trybu failover](/windows-server/troubleshoot/iaas-sql-failover-cluster).
 
 ## <a name="quorum"></a>Kworum
 
@@ -60,7 +60,7 @@ Skonfiguruj dysk udostępniony platformy Azure jako monitor dysku.
 Aby rozpocząć, zobacz [Konfigurowanie monitora dysku](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
-**Obsługiwany system operacyjny** : wszystkie   
+**Obsługiwany system operacyjny**: wszystkie   
 
 
 ### <a name="cloud-witness"></a>Monitor w chmurze
@@ -70,7 +70,7 @@ Monitor w chmurze to typ monitora kworum klastra trybu failover, który używa M
 Aby rozpocząć, zobacz [Configure a Cloud monitor](/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp).
 
 
-**Obsługiwane systemy operacyjne** : Windows Server 2016 i nowsze   
+**Obsługiwane systemy operacyjne**: Windows Server 2016 i nowsze   
 
 
 ### <a name="file-share-witness"></a>Monitor udziału plików
@@ -82,7 +82,7 @@ Jeśli zamierzasz korzystać z udziału plików platformy Azure, możesz go zain
 Aby rozpocząć, zobacz [Konfigurowanie monitora udziału plików](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
-**Obsługiwane systemy operacyjne** : Windows Server 2012 i nowsze   
+**Obsługiwane systemy operacyjne**: Windows Server 2012 i nowsze   
 
 ## <a name="connectivity"></a>Łączność
 
@@ -108,9 +108,9 @@ W przypadku korzystania z modułu równoważenia obciążenia występuje niewiel
 
 Aby rozpocząć, Dowiedz się, jak skonfigurować Azure Load Balancer dla [wystąpienia klastra trybu failover](failover-cluster-instance-vnn-azure-load-balancer-configure.md) lub [grupy dostępności](availability-group-vnn-azure-load-balancer-configure.md)
 
-**Obsługiwany system operacyjny** : wszystkie   
-**Obsługiwana wersja programu SQL** : wszystkie   
-**Obsługiwane rozwiązanie HADR Cluster** : wystąpienie klastra trybu failover i Grupa dostępności   
+**Obsługiwany system operacyjny**: wszystkie   
+**Obsługiwana wersja programu SQL**: wszystkie   
+**Obsługiwane rozwiązanie HADR Cluster**: wystąpienie klastra trybu failover i Grupa dostępności   
 
 
 ### <a name="distributed-network-name-dnn"></a>Nazwa sieci rozproszonej (DNN)
@@ -128,9 +128,9 @@ Większość SQL Server funkcje działają w sposób przezroczysty z FCI i grupa
 
 Aby rozpocząć, zapoznaj się z tematem Konfigurowanie zasobu rozproszonej nazwy sieciowej dla [wystąpienia klastra trybu failover](failover-cluster-instance-distributed-network-name-dnn-configure.md) lub [grupy dostępności](availability-group-distributed-network-name-dnn-listener-configure.md)
 
-**Obsługiwane systemy operacyjne** : Windows Server 2016 i nowsze   
-**Obsługiwana wersja programu SQL** : SQL Server 2019 ZASTOSUJESZ pakietu CU2 (FCI) i SQL Server 2019 CU8 (AG)   
-**Obsługiwane rozwiązanie HADR Cluster** : wystąpienie klastra trybu failover i Grupa dostępności   
+**Obsługiwane systemy operacyjne**: Windows Server 2016 i nowsze   
+**Obsługiwana wersja programu SQL**: SQL Server 2019 ZASTOSUJESZ pakietu CU2 (FCI) i SQL Server 2019 CU8 (AG)   
+**Obsługiwane rozwiązanie HADR Cluster**: wystąpienie klastra trybu failover i Grupa dostępności   
 
 
 ## <a name="limitations"></a>Ograniczenia

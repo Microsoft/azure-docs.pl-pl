@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 0aba809fd18dfd74a344a32b2335aba9426c9845
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 5c20fbbe25b51160f42f233d30c39ccaec0f5cac
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94496994"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026065"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Przewodnik migracji: SQL Server do wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -99,10 +99,10 @@ Jeśli potrzebujesz porównać wydajność obciążeń z wystąpieniem zarządza
 
 ### <a name="create-sql-managed-instance"></a>Tworzenie wystąpienia zarządzanego SQL 
 
-Na podstawie informacji w fazie odnajdywania i oceniania Utwórz odpowiednie docelowe wystąpienie zarządzane SQL. Można to zrobić przy użyciu szablonu [Azure Portal](../../managed-instance/instance-create-quickstart.md), [programu PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)lub [Azure Resource Manager (ARM)](/../../managed-instance/create-template-quickstart.md). 
+Na podstawie informacji w fazie odnajdywania i oceniania Utwórz odpowiednie docelowe wystąpienie zarządzane SQL. Można to zrobić przy użyciu szablonu [Azure Portal](../../managed-instance/instance-create-quickstart.md), [programu PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)lub [Azure Resource Manager (ARM)](/azure/azure-sql/managed-instance/create-template-quickstart). 
 
 
-## <a name="migrate"></a>Migrate
+## <a name="migrate"></a>Migrate (Migracja)
 
 Po ukończeniu zadań skojarzonych z etapem wstępnej migracji można przystąpić do wykonywania migracji schematu i danych. 
 
@@ -117,7 +117,7 @@ Aby przeprowadzić migrację za pomocą usługi DMS, wykonaj następujące czynn
 1. Zarejestruj dostawcę zasobów **Microsoft. datamigration** w ramach subskrypcji, jeśli wykonujesz tę operację po raz pierwszy.
 1. Utwórz wystąpienie Azure Database Migration Service w wybranej lokalizacji (najlepiej w tym samym regionie, w którym znajduje się docelowe wystąpienie zarządzane Azure SQL) i wybierz istniejącą sieć wirtualną lub Utwórz nową, aby hostować wystąpienie usługi DMS.
 1. Po utworzeniu wystąpienia DMS Utwórz nowy projekt migracji i określ typ serwera źródłowego jako **SQL Server** i docelowy typ serwera jako **Azure SQL Database wystąpienie zarządzane**. Wybierz typ działania w bloku tworzenia projektu — migracja danych w trybie online lub offline. 
-1.  Określ szczegóły SQL Server źródłowej na stronie szczegółów **źródła migracji** oraz szczegóły docelowego wystąpienia zarządzanego Azure SQL na stronie Szczegóły **lokalizacji docelowej migracji** . Wybierz opcję **Dalej**.
+1.  Określ szczegóły SQL Server źródłowej na stronie szczegółów **źródła migracji** oraz szczegóły docelowego wystąpienia zarządzanego Azure SQL na stronie Szczegóły **lokalizacji docelowej migracji** . Wybierz pozycję **Dalej**.
 1. Wybierz bazę danych, którą chcesz zmigrować. 
 1. Podaj ustawienia konfiguracji, aby określić **udział sieciowy SMB** zawierający pliki kopii zapasowej bazy danych. Użyj poświadczeń użytkownika systemu Windows z usługą DMS, która może uzyskać dostęp do udziału sieciowego. Podaj **szczegóły konta usługi Azure Storage**. 
 1. Przejrzyj podsumowanie migracji, a następnie wybierz pozycję **Uruchom migrację**. Następnie można monitorować działanie migracji i sprawdzać postęp migracji bazy danych.
@@ -142,16 +142,16 @@ Poniższy diagram przedstawia ogólny przegląd procesu:
 
 Aby przeprowadzić migrację przy użyciu kopii zapasowej i przywracania, wykonaj następujące kroki: 
 
-1. Utwórz kopię zapasową bazy danych w usłudze Azure Blob Storage. Na przykład użyj [kopii zapasowej do adresu URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) w [SQL Server Management Studio](/ssms/download-sql-server-management-studio-ssms). Użyj [narzędzia Microsoft Azure](https://go.microsoft.com/fwlink/?LinkID=324399) do obsługi baz danych starszych niż SQL Server 2012 SP1 zastosujesz pakietu CU2. 
+1. Utwórz kopię zapasową bazy danych w usłudze Azure Blob Storage. Na przykład użyj [kopii zapasowej do adresu URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) w [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms). Użyj [narzędzia Microsoft Azure](https://go.microsoft.com/fwlink/?LinkID=324399) do obsługi baz danych starszych niż SQL Server 2012 SP1 zastosujesz pakietu CU2. 
 1. Połącz się z wystąpieniem zarządzanym usługi Azure SQL przy użyciu SQL Server Management Studio. 
-1. Utwórz poświadczenia przy użyciu sygnatury dostępu współdzielonego, aby uzyskać dostęp do konta usługi Azure Blob Storage za pomocą kopii zapasowych bazy danych. Na przykład:
+1. Utwórz poświadczenia przy użyciu sygnatury dostępu współdzielonego, aby uzyskać dostęp do konta usługi Azure Blob Storage za pomocą kopii zapasowych bazy danych. Przykład:
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases]
    WITH IDENTITY = 'SHARED ACCESS SIGNATURE'
    , SECRET = 'sv=2017-11-09&ss=bfqt&srt=sco&sp=rwdlacup&se=2028-09-06T02:52:55Z&st=2018-09-04T18:52:55Z&spr=https&sig=WOTiM%2FS4GVF%2FEEs9DGQR9Im0W%2BwndxW2CQ7%2B5fHd7Is%3D'
    ```
-1. Przywróć kopię zapasową z kontenera obiektów BLOB usługi Azure Storage. Na przykład: 
+1. Przywróć kopię zapasową z kontenera obiektów BLOB usługi Azure Storage. Przykład: 
 
     ```sql
    RESTORE DATABASE [TargetDatabaseName] FROM URL =
@@ -191,10 +191,10 @@ Po przeprowadzeniu migracji danych do środowiska docelowego wszystkie aplikacje
 
 Podejście testowe do migracji bazy danych obejmuje następujące działania:
 
-1. **Opracowywanie testów weryfikacyjnych** : Aby przetestować migrację bazy danych, należy użyć zapytań SQL. Należy utworzyć zapytania walidacji do uruchomienia względem źródłowej i docelowej bazy danych. Zapytania weryfikacyjne powinny obejmować zdefiniowany zakres.
-1. **Konfigurowanie środowiska testowego** : środowisko testowe powinno zawierać kopię źródłowej bazy danych i docelowej bazy danych. Należy pamiętać o odizolowaniu środowiska testowego.
-1. **Uruchom testy weryfikacyjne** : Uruchom testy weryfikacyjne względem źródła i celu, a następnie Przeanalizuj wyniki.
-1. **Uruchom testy wydajnościowe** : Uruchom test wydajności względem źródła i celu, a następnie Przeanalizuj i Porównaj wyniki.
+1. **Opracowywanie testów weryfikacyjnych**: Aby przetestować migrację bazy danych, należy użyć zapytań SQL. Należy utworzyć zapytania walidacji do uruchomienia względem źródłowej i docelowej bazy danych. Zapytania weryfikacyjne powinny obejmować zdefiniowany zakres.
+1. **Konfigurowanie środowiska testowego**: środowisko testowe powinno zawierać kopię źródłowej bazy danych i docelowej bazy danych. Należy pamiętać o odizolowaniu środowiska testowego.
+1. **Uruchom testy weryfikacyjne**: Uruchom testy weryfikacyjne względem źródła i celu, a następnie Przeanalizuj wyniki.
+1. **Uruchom testy wydajnościowe**: Uruchom test wydajności względem źródła i celu, a następnie Przeanalizuj i Porównaj wyniki.
 
    > [!NOTE]
    > Aby uzyskać pomoc w tworzeniu i uruchamianiu testów weryfikacyjnych po migracji, należy wziąć pod uwagę rozwiązanie dotyczące jakości danych dostępne z [QuerySurge](https://www.querysurge.com/company/partners/microsoft)partnera. 

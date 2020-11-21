@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: 34c0703ee7c335ca904a21bcce6ed44abc6dc13f
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 9193da2f3841bb94aa395399c31d7fe826c395e0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555791"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025603"
 ---
-# <a name="train-and-deploy-a-custom-speech-model"></a>Uczenie i wdrażanie modelu Custom Speech
+# <a name="train-and-deploy-a-custom-speech-model"></a>Trenowanie i wdrażanie modelu usługi Custom Speech
 
 W tym artykule dowiesz się, jak nauczyć i wdrożyć modele Custom Speech. Uczenie modelu zamiany mowy na tekst może poprawić dokładność rozpoznawania dla modelu bazowego firmy Microsoft. Model jest szkolony z zastosowaniem transkrypcji i powiązanego tekstu. Te zestawy danych wraz z wcześniej przekazanymi danymi audio są używane do uściślania i uczenia modelu zamiany mowy na tekst.
 
@@ -33,7 +33,7 @@ Jeśli napotykasz problemy z rozpoznawaniem z modelem podstawowym, używanie tra
 
 ## <a name="train-and-evaluate-a-model"></a>Trenowanie i ocenianie modelu
 
-Pierwszym krokiem do uczenia modelu jest przekazanie danych szkoleniowych. Użyj opcji [Przygotuj i przetestuj dane](how-to-custom-speech-test-data.md) , aby uzyskać instrukcje krok po kroku w celu przygotowania oznakowania i powiązanego tekstu (wyrażenia długości i wymowy). Po przesłaniu danych szkoleniowych postępuj zgodnie z poniższymi instrukcjami, aby rozpocząć uczenie modelu:
+Pierwszym krokiem do uczenia modelu jest przekazanie danych szkoleniowych. Użyj opcji [Przygotuj i przetestuj dane](./how-to-custom-speech-test-and-train.md) , aby uzyskać instrukcje krok po kroku w celu przygotowania oznakowania i powiązanego tekstu (wyrażenia długości i wymowy). Po przesłaniu danych szkoleniowych postępuj zgodnie z poniższymi instrukcjami, aby rozpocząć uczenie modelu:
 
 1. Zaloguj się do [portalu Custom Speech](https://speech.microsoft.com/customspeech).
 2. Przejdź do **> zamiany mowy na tekst Custom Speech > [nazwa projektu] > szkolenia**.
@@ -61,7 +61,7 @@ Następnie wybierz pozycję **Dodaj punkt końcowy** i wprowadź **nazwę** i **
 > [!NOTE]
 > Nie zapomnij zaakceptować warunków użytkowania i szczegółów cennika.
 
-Następnie wybierz pozycję **Utwórz**. Ta akcja powoduje powrót do strony **wdrożenia** . Tabela zawiera teraz wpis odpowiadający niestandardowemu punktowi końcowemu. Stan punktu końcowego pokazuje jego bieżący stan. Utworzenie wystąpienia nowego punktu końcowego przy użyciu modeli niestandardowych może potrwać do 30 minut. Gdy stan wdrożenia zmieni się na **ukończone** , punkt końcowy jest gotowy do użycia.
+Następnie wybierz pozycję **Utwórz**. Ta akcja powoduje powrót do strony **wdrożenia** . Tabela zawiera teraz wpis odpowiadający niestandardowemu punktowi końcowemu. Stan punktu końcowego pokazuje jego bieżący stan. Utworzenie wystąpienia nowego punktu końcowego przy użyciu modeli niestandardowych może potrwać do 30 minut. Gdy stan wdrożenia zmieni się na **ukończone**, punkt końcowy jest gotowy do użycia.
 
 Po wdrożeniu punktu końcowego nazwa punktu końcowego jest wyświetlana jako link. Kliknij link, aby wyświetlić informacje specyficzne dla danego punktu końcowego, takie jak klucz punktu końcowego, adres URL punktu końcowego i przykładowy kod.
 
@@ -77,6 +77,6 @@ Dane rejestrowania są dostępne do pobrania w obszarze **punkt końcowy > szcze
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Przygotowywanie i testowanie danych](how-to-custom-speech-test-data.md)
+- [Przygotowywanie i testowanie danych](./how-to-custom-speech-test-and-train.md)
 - [Inspekcja danych](how-to-custom-speech-inspect-data.md)
 - [Oceń dane](how-to-custom-speech-evaluate-data.md)

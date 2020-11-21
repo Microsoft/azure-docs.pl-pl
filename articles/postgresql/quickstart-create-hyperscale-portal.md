@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 08/17/2020
-ms.openlocfilehash: d4925b8ecb7768f1f49b2c971f7234d58339c056
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 03a6e927a074067e85f1a3adca38cae386d1af38
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92481112"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026220"
 ---
 # <a name="quickstart-create-a-hyperscale-citus-server-group-in-the-azure-portal"></a>Szybki Start: Tworzenie grupy serwerów ze skalą (Citus) w Azure Portal
 
@@ -139,4 +139,4 @@ W poprzednich krokach zostały utworzone zasoby platformy Azure w grupie serwer�
 W tym przewodniku szybki start zawarto informacje na temat aprowizacji grupy serwerów z Citus. Nawiązano połączenie z usługą PSQL, utworzono schemat i dane rozproszone.
 
 - Postępuj zgodnie z samouczkiem, aby [utworzyć skalowalne aplikacje z wieloma dzierżawcami](./tutorial-design-database-hyperscale-multi-tenant.md)
-- Określ najlepszy [początkowy rozmiar](howto-hyperscale-scaling.md#picking-initial-size) grupy serwerów
+- Określ najlepszy [początkowy rozmiar](howto-hyperscale-scale-initial.md) grupy serwerów

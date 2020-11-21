@@ -10,38 +10,40 @@ ms.workload: identity
 ms.date: 10/27/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: ab91ea7aa6e621dabc5cac83fe818dbf175214b6
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 64421dba5578b478a5fdf0c657614770baf9d735
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428904"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025365"
 ---
 # <a name="tutorial-clean-up-resources"></a>Samouczek: czyszczenie zasobów
 
-Jeśli wykonano wszystkie kroki tego samouczka wieloczęściowego, utworzono usługę App Service, plan hostingu usługi App Service i konto magazynu w grupie zasobów.  Możesz również utworzyć rejestrację aplikacji w usłudze Azure AD.  Gdy nie będzie już potrzebny, usuń te zasoby i rejestrację aplikacji, aby nie naliczać opłat.  
+Jeśli wykonano wszystkie kroki tego samouczka wieloczęściowego, utworzono usługę App Service, plan hostingu usługi App Service i konto magazynu w grupie zasobów. Możesz również utworzyć rejestrację aplikacji w Azure Active Directory. Gdy nie będzie już potrzebny, usuń te zasoby i rejestrację aplikacji, aby nie naliczać opłat.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
-> * Usuń zasoby platformy Azure utworzone w ramach samouczka
+> * Usuń zasoby platformy Azure utworzone w ramach samouczka.
 
 ## <a name="delete-the-resource-group"></a>Usuwanie grupy zasobów
+
 W [Azure Portal](https://portal.azure.com)wybierz pozycję **grupy zasobów** z menu Portal i wybierz grupę zasobów zawierającą usługę App Service i plan usługi App Service.
 
 Wybierz pozycję **Usuń grupę zasobów** , aby usunąć grupę zasobów i wszystkie zasoby.
 
-:::image type="content" alt-text="Usuwanie grupy zasobów" source="./media/scenario-secure-app-clean-up-resources/delete-resource-group.png":::
+:::image type="content" alt-text="Zrzut ekranu pokazujący Usuwanie grupy zasobów." source="./media/scenario-secure-app-clean-up-resources/delete-resource-group.png":::
 
 Uruchomienie tego polecenia może potrwać kilka minut.
 
 ## <a name="delete-the-app-registration"></a>Usuń rejestrację aplikacji
-W menu portalu wybierz pozycję **Azure Active Directory** , a następnie pozycję **rejestracje aplikacji** , a następnie utworzoną aplikację.
-:::image type="content" alt-text="Wybierz rejestrację aplikacji" source="./media/scenario-secure-app-clean-up-resources/select-app-registration.png":::
+
+W menu portalu wybierz pozycję **Azure Active Directory**  >  **rejestracje aplikacji**. Następnie wybierz utworzoną aplikację.
+:::image type="content" alt-text="Zrzut ekranu pokazujący wybór rejestracji aplikacji." source="./media/scenario-secure-app-clean-up-resources/select-app-registration.png":::
 
 W przegląd rejestracji aplikacji wybierz pozycję **Usuń**.
-:::image type="content" alt-text="Usuń rejestrację aplikacji" source="./media/scenario-secure-app-clean-up-resources/delete-app-registration.png":::
+:::image type="content" alt-text="Zrzut ekranu pokazujący Usuwanie rejestracji aplikacji." source="./media/scenario-secure-app-clean-up-resources/delete-app-registration.png":::
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -49,6 +51,6 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 > [!div class="checklist"]
 >
-> * Usuń zasoby platformy Azure utworzone w ramach samouczka
+> * Usuń zasoby platformy Azure utworzone w ramach samouczka.
 
 Dowiedz się, jak połączyć [aplikację platformy .NET Core](tutorial-dotnetcore-sqldb-app.md), aplikację [języka](tutorial-java-spring-cosmosdb.md) [Python](tutorial-python-postgresql-app.md), aplikację Java lub [Node.js aplikację](tutorial-nodejs-mongodb-app.md) z bazą danych.

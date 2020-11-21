@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 49922599adb30e6c631f29b4831fda60cc000a40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa3a6d16b79800043bdcd3f183dd86fa278dd1a9
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360127"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026031"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Integracja z aplikacją kliencką przy użyciu zestawu Speech SDK
 
@@ -35,7 +35,7 @@ Wymagane są również:
 > [!div class = "checklist"]
 > * [Program Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) lub nowszy. Ten przewodnik jest oparty na programie Visual Studio 2019.
 > * Klucz subskrypcji platformy Azure dla usługi Speech Services. [Pobierz bezpłatnie](overview.md#try-the-speech-service-for-free) lub utwórz je na [Azure Portal](https://portal.azure.com)
-> * [Włącz Programowanie na urządzeniu](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
+> * [Włącz Programowanie na urządzeniu](/windows/uwp/get-started/enable-your-device-for-development)
 
 ## <a name="step-1-publish-custom-commands-application"></a>Krok 1. publikowanie aplikacji poleceń niestandardowych
 
@@ -43,7 +43,7 @@ Wymagane są również:
 1. Przejdź do pozycji **Ustawienia**, wybierz pozycję **zasób Luis**
 1. Jeśli nie przypisano **zasobu przewidywania** , wybierz klucz predykcyjny zapytania lub Utwórz nowy.
 
-    Klucz przewidywania zapytania jest zawsze wymagany przed opublikowaniem aplikacji. Aby uzyskać więcej informacji na temat zasobów LUIS, Utwórz odwołanie do [zasobu Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription)
+    Klucz przewidywania zapytania jest zawsze wymagany przed opublikowaniem aplikacji. Aby uzyskać więcej informacji na temat zasobów LUIS, Utwórz odwołanie do [zasobu Luis](../luis/luis-how-to-azure-subscription.md)
 
 1. Wróć do edycji poleceń, wybierz pozycję **Publikuj**
 
@@ -65,7 +65,7 @@ W tym kroku dodamy kod XAML, który definiuje interfejs użytkownika aplikacji, 
 
 Utwórz interfejs użytkownika aplikacji, dodając kod XAML.
 
-1. W **Eksplorator rozwiązań**Otwórz `MainPage.xaml`
+1. W **Eksplorator rozwiązań** Otwórz `MainPage.xaml`
 
 1. W widoku XAML projektanta Zastąp całą zawartość następującym fragmentem kodu:
 
@@ -129,7 +129,7 @@ Dodaj źródło związane z kodem, aby aplikacja działała zgodnie z oczekiwani
 
 Dodaj źródło związane z kodem w następujący sposób:
 
-1. W **Eksplorator rozwiązań**Otwórz plik źródłowy związany z kodem `MainPage.xaml.cs` (pogrupowany pod `MainPage.xaml` ).
+1. W **Eksplorator rozwiązań** Otwórz plik źródłowy związany z kodem `MainPage.xaml.cs` (pogrupowany pod `MainPage.xaml` ).
 
 1. Zastąp zawartość pliku następującym kodem: 
 
@@ -404,7 +404,7 @@ Dodaj źródło związane z kodem w następujący sposób:
 
 1. Na pasku menu wybierz kolejno opcje **plik**  >  **Zapisz wszystko** , aby zapisać zmiany.
 
-## <a name="try-it-out"></a>Wypróbowywanie działania
+## <a name="try-it-out"></a>Czas to wypróbować
 
 1. Na pasku menu wybierz polecenie **Kompiluj**  >  **kompilację rozwiązania** , aby skompilować aplikację. Kod powinien zostać skompilowany bez błędów.
 
@@ -416,7 +416,7 @@ Dodaj źródło związane z kodem w następujący sposób:
 
    ![Żądanie uprawnienia dostępu do mikrofonu](media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
-1. Wybierz opcję **rozmowa**i zacznij mówić do angielskiej frazy lub zdania na mikrofon urządzenia. Twoja Zamiana jest przesyłana do kanału mowy Direct line i uzyskanego do tekstu, który pojawia się w oknie.
+1. Wybierz opcję **rozmowa** i zacznij mówić do angielskiej frazy lub zdania na mikrofon urządzenia. Twoja Zamiana jest przesyłana do kanału mowy Direct line i uzyskanego do tekstu, który pojawia się w oknie.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: 44a7a89740be3d6d502c5d22c79b46582034d88a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cda71c6e825ff27ba9b03e1306ccb287663e8613
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535966"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025963"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Wzorce poprawiają dokładność przewidywania
 Wzorce zostały zaprojektowane w celu poprawy dokładności, gdy kilka wyrażenia długości jest bardzo podobne.  Wzorzec umożliwia uzyskanie większej dokładności dla zamiaru bez udostępniania wielu wyrażenia długości.
@@ -48,7 +48,7 @@ Wzorzec jest głównie przeznaczony do przewidywania intencji i ról. _Wzorzec. 
 Nie oczekuje się, że w przypadku zwinięcia wielu wyrażenia długości do jednego wzorca nie widzisz ulepszonej przewidywania jednostek. Aby proste jednostki były wyzwalane, należy dodać wyrażenia długości lub użyć jednostek listy, ponieważ wzorzec nie zostanie uruchomiony.
 
 ## <a name="patterns-use-entity-roles"></a>Wzorce używają ról jednostek
-Jeśli co najmniej dwie jednostki we wzorcu są powiązane z kontekstem, wzorce używają [ról](luis-concept-roles.md) jednostki do wyodrębniania informacji kontekstowych dotyczących jednostek.
+Jeśli co najmniej dwie jednostki we wzorcu są powiązane z kontekstem, wzorce używają [ról](./luis-concept-entity-types.md) jednostki do wyodrębniania informacji kontekstowych dotyczących jednostek.
 
 ## <a name="prediction-scores-with-and-without-patterns"></a>Wyniki przewidywania z wzorcem i bez
 Mając wystarczająco dużo przykład wyrażenia długości, LUIS może zwiększyć wiarygodność przewidywania bez wzorców. Wzorce zwiększają wynik pewności bez konieczności podawania tylu wyrażenia długości.

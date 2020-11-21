@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3f2171d3271a4ffc4770dd0c9faea16c23e44d02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01f4f52acaa5b461e2b058f112f26dafda86dcb7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88005506"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025031"
 ---
 # <a name="tutorial-set-up-service-alerts-for-windows-virtual-desktop-classic"></a>Samouczek: Konfigurowanie alertów usługi dla pulpitu wirtualnego systemu Windows (klasyczny)
 
@@ -25,7 +25,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Tworzenie i Konfigurowanie alertów usługi.
 
-Aby dowiedzieć się więcej na temat Azure Service Health, zobacz dokumentację dotyczącą [kondycji platformy Azure](https://docs.microsoft.com/azure/service-health/).
+Aby dowiedzieć się więcej na temat Azure Service Health, zobacz dokumentację dotyczącą [kondycji platformy Azure](../../service-health/index.yml).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -52,7 +52,7 @@ Aby skonfigurować alerty usługi:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. Wybierz **Service Health.**
-3. Aby skonfigurować alerty i powiadomienia, użyj instrukcji w temacie [tworzenie alertów dziennika aktywności w ramach powiadomień dotyczących usług](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2Fazure%2Fservice-health%2Ftoc.json#alert-and-new-action-group-using-azure-portal) .
+3. Aby skonfigurować alerty i powiadomienia, użyj instrukcji w temacie [tworzenie alertów dziennika aktywności w ramach powiadomień dotyczących usług](../../service-health/alerts-activity-log-service-notifications-portal.md?toc=%2fazure%2fservice-health%2ftoc.json) .
 
 ## <a name="next-steps"></a>Następne kroki
 

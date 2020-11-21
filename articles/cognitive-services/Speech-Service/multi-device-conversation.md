@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 15b69e664ae9a01635afb44d7b6b7c24d7551ce9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c2dbaf8f65208126c52617d4b89d901b3670dac
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87921422"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025178"
 ---
 # <a name="what-is-multi-device-conversation-preview"></a>Co to jest konwersacja na wiele urządzeń (wersja zapoznawcza)?
 
 **Konwersacja z wieloma urządzeniami** ułatwia tworzenie konwersacji mowy lub tekstu między wieloma klientami i koordynowanie komunikatów wysyłanych między nimi.
 
-W przypadku konwersacji z użyciem **kilku urządzeń**można:
+W przypadku konwersacji z użyciem **kilku urządzeń** można:
 
 - Łączenie wielu klientów z tą samą konwersacją i Zarządzanie wysyłaniem i otrzymywaniem komunikatów między nimi.
 - Łatwo transkrypcja dźwięk z każdego klienta i wysyłaj transkrypcję do innych, z opcjonalnym tłumaczeniem.
@@ -105,7 +105,7 @@ Podczas tworzenia lub przyłączania konwersacji każdy użytkownik musi wybrać
 Istnieją dwa rodzaje języków: **Zamiana mowy na tekst** i **tekst**:
 - Jeśli użytkownik wybierze język **zamiany mowy na tekst** jako język podstawowy, będzie mógł korzystać z funkcji rozpoznawania mowy i tekstu w konwersacji.
 
-- Jeśli użytkownik wybierze język **tekstowy** , wówczas będzie mógł korzystać tylko z wprowadzania tekstu i wysyłać wiadomości błyskawiczne w konwersacji. Języki tylko do tekstu to języki obsługiwane w przypadku tłumaczenia tekstu, ale nie zamiany mowy na tekst. Dostępne języki można zobaczyć na stronie [Obsługa języka](supported-languages.md) .
+- Jeśli użytkownik wybierze język **tekstowy** , wówczas będzie mógł korzystać tylko z wprowadzania tekstu i wysyłać wiadomości błyskawiczne w konwersacji. Języki tylko do tekstu to języki obsługiwane w przypadku tłumaczenia tekstu, ale nie zamiany mowy na tekst. Dostępne języki można zobaczyć na stronie [Obsługa języka](./language-support.md) .
 
 Niezależnie od ich języka podstawowego każdy uczestnik może także określić dodatkowe języki do tłumaczenia konwersacji.
 
@@ -119,7 +119,7 @@ Poniżej znajduje się podsumowanie możliwości, które użytkownik będzie mó
 | Tłumaczenie konwersacji | ✔️ | ✔️ |
 
 > [!NOTE]
-> Aby zapoznać się z listami dostępnych języków zamiany mowy na tekst i tekstu, zobacz [obsługiwane języki](supported-languages.md).
+> Aby zapoznać się z listami dostępnych języków zamiany mowy na tekst i tekstu, zobacz [obsługiwane języki](./language-support.md).
 
 
 

@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: f7536034eeac8548304f6a7f861910a99cd72a27
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 894398d63e326db3c6ee9de9bebc426a6e621600
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447960"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024674"
 ---
 # <a name="configure-the-api-proxy-module-for-your-gateway-hierarchy-scenario-preview"></a>Skonfiguruj moduł proxy interfejsu API dla scenariusza hierarchii bramy (wersja zapoznawcza)
 
@@ -113,7 +113,7 @@ Ten scenariusz wymaga, aby podrzędne urządzenia IoT Edge wskazywały nazwę do
 
 Ten przypadek użycia przedstawiono w samouczku [Tworzenie hierarchii IoT Edge urządzeń przy użyciu bram](tutorial-nested-iot-edge.md).
 
-Skonfiguruj następujące moduły w **górnej warstwie** :
+Skonfiguruj następujące moduły w **górnej warstwie**:
 
 * Moduł rejestru platformy Docker
   * Skonfiguruj moduł z zapamiętaną nazwą, taką jak *Rejestr* , i Uwidocznij port w module, aby otrzymywać żądania.
@@ -173,7 +173,7 @@ Innym przypadkiem użycia dla modułu proxy interfejsu API jest umożliwienie Io
 
 W tym scenariuszu do obsługi tworzenia i przekazywania obiektów BLOB są używane [BLOB Storage platformy Azure w IoT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/azure-blob-storage.edge-azure-blob-storage) module w górnej warstwie.
 
-Skonfiguruj następujące moduły w **górnej warstwie** :
+Skonfiguruj następujące moduły w **górnej warstwie**:
 
 * Blob Storage platformy Azure na IoT Edge module.
 * Moduł proxy interfejsu API
@@ -228,7 +228,7 @@ Skonfiguruj następujący moduł na dowolnej **niższej warstwie** w tym scenari
 Wykonaj następujące kroki, aby przekazać pakiet obsługi lub plik dziennika do modułu BLOB Storage znajdującego się w górnej warstwie:
 
 1. Utwórz kontener obiektów BLOB przy użyciu Eksplorator usługi Azure Storage lub interfejsów API REST. Aby uzyskać więcej informacji, zobacz artykuł [Przechowuj dane na krawędzi za pomocą usługi Azure Blob Storage w IoT Edge](how-to-store-data-blob.md).
-1. Poproś o dziennik lub Załaduj pakiet pomocy technicznej zgodnie z instrukcjami w temacie [pobieranie dzienników z wdrożeń IoT Edge](how-to-retrieve-iot-edge-logs.md), ale Użyj nazwy domeny `$upstream` i portu open proxy zamiast adresu modułu usługi BLOB Storage. Na przykład:
+1. Poproś o dziennik lub Załaduj pakiet pomocy technicznej zgodnie z instrukcjami w temacie [pobieranie dzienników z wdrożeń IoT Edge](how-to-retrieve-iot-edge-logs.md), ale Użyj nazwy domeny `$upstream` i portu open proxy zamiast adresu modułu usługi BLOB Storage. Przykład:
 
    ```json
    {
@@ -263,7 +263,7 @@ Gdy moduł serwera proxy interfejsu API analizuje konfigurację serwera proxy, n
 
 Aby dynamicznie zaktualizować konfigurację serwera proxy, wykonaj następujące czynności:
 
-1. Napisz plik konfiguracji. Tego szablonu domyślnego można użyć jako odwołania: [nginx_default_config. conf](hhttps://github.com/Azure/iotedge/blob/master/edge-modules/api-proxy-module/templates/nginx_default_config.conf)
+1. Napisz plik konfiguracji. Tego szablonu domyślnego można użyć jako odwołania: [nginx_default_config. conf](https://github.com/Azure/iotedge/blob/master/edge-modules/api-proxy-module/templates/nginx_default_config.conf)
 1. Skopiuj tekst pliku konfiguracji i przekonwertuj go na format Base64.
 1. Wklej zakodowany plik konfiguracji jako wartość `proxy_config` żądanej właściwości w formie sznurka modułu.
 

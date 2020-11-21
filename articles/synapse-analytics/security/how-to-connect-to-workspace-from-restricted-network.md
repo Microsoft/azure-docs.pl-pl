@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7cff2d8245095489fbba3b7af24b416885995e4d
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 55ec8be176dc7274a3b9a1feca53726d57eeb422
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637136"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024469"
 ---
 # <a name="connect-to-workspace-resources-from-a-restricted-network"></a>Łączenie z zasobami obszaru roboczego z sieci z ograniczeniami
 
@@ -21,9 +21,9 @@ Załóżmy, że jesteś administratorem IT, który zarządza siecią z ogranicze
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Subskrypcja platformy Azure** : Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
-* **Obszar roboczy analizy usługi Azure Synapse** : możesz utworzyć jedną z usługi Azure Synapse Analytics. Potrzebna jest nazwa obszaru roboczego w kroku 4.
-* **Sieć z ograniczeniami** : Administrator IT utrzymuje sieci z ograniczeniami dla organizacji i ma uprawnienia do konfigurowania zasad sieciowych. W kroku 3 potrzebna jest nazwa sieci wirtualnej i jej podsieć.
+* **Subskrypcja platformy Azure**: Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
+* **Obszar roboczy analizy usługi Azure Synapse**: możesz utworzyć jedną z usługi Azure Synapse Analytics. Potrzebna jest nazwa obszaru roboczego w kroku 4.
+* **Sieć z ograniczeniami**: Administrator IT utrzymuje sieci z ograniczeniami dla organizacji i ma uprawnienia do konfigurowania zasad sieciowych. W kroku 3 potrzebna jest nazwa sieci wirtualnej i jej podsieć.
 
 
 ## <a name="step-1-add-network-outbound-security-rules-to-the-restricted-network"></a>Krok 1. Dodawanie sieci wychodzących reguł zabezpieczeń do sieci z ograniczeniami
@@ -38,13 +38,13 @@ Poniższy zrzut ekranu przedstawia szczegółowe informacje dotyczące Azure Res
 
 ![Zrzut ekranu przedstawiający szczegóły tagu usługi Azure Resource Manager.](./media/how-to-connect-to-workspace-from-restricted-network/arm-servicetag.png)
 
-Podczas tworzenia innych trzech reguł Zastąp wartość **docelową tag usługi** wartościami **AzureFrontDoor. frontonu** , **usługi azureactivedirectory** lub **AzureMonitor** z listy.
+Podczas tworzenia innych trzech reguł Zastąp wartość **docelową tag usługi** wartościami **AzureFrontDoor. frontonu**, **usługi azureactivedirectory** lub **AzureMonitor** z listy.
 
-Aby uzyskać więcej informacji, zobacz [Omówienie tagów usług](/azure/virtual-network/service-tags-overview.md).
+Aby uzyskać więcej informacji, zobacz [Omówienie tagów usług](/azure/virtual-network/service-tags-overview).
 
 ## <a name="step-2-create-private-link-hubs"></a>Krok 2. Tworzenie centrów linków prywatnych
 
-Następnie utwórz prywatne centra linków z Azure Portal. Aby znaleźć ten element w portalu, Wyszukaj pozycję *Azure Synapse Analytics (centra linków prywatnych)* , a następnie wprowadź wymagane informacje, aby je utworzyć. 
+Następnie utwórz prywatne centra linków z Azure Portal. Aby znaleźć ten element w portalu, Wyszukaj pozycję *Azure Synapse Analytics (centra linków prywatnych)*, a następnie wprowadź wymagane informacje, aby je utworzyć. 
 
 > [!Note]
 > Upewnij się, że wartość **regionu** jest taka sama jak ta, w której znajduje się obszar roboczy usługi Azure Synapse Analytics.
@@ -53,7 +53,7 @@ Następnie utwórz prywatne centra linków z Azure Portal. Aby znaleźć ten ele
 
 ## <a name="step-3-create-a-private-endpoint-for-your-gateway"></a>Krok 3. Tworzenie prywatnego punktu końcowego dla bramy
 
-Aby uzyskać dostęp do bramy usługi Azure Synapse Analytics Studio, należy utworzyć prywatny punkt końcowy na podstawie Azure Portal. Aby go znaleźć w portalu, Wyszukaj *łącze prywatne*. W **centrum linku prywatnego** wybierz pozycję **Utwórz prywatny punkt końcowy** , a następnie wprowadź wymagane informacje, aby je utworzyć. 
+Aby uzyskać dostęp do bramy usługi Azure Synapse Analytics Studio, należy utworzyć prywatny punkt końcowy na podstawie Azure Portal. Aby go znaleźć w portalu, Wyszukaj *łącze prywatne*. W **centrum linku prywatnego** wybierz pozycję **Utwórz prywatny punkt końcowy**, a następnie wprowadź wymagane informacje, aby je utworzyć. 
 
 > [!Note]
 > Upewnij się, że wartość **regionu** jest taka sama jak ta, w której znajduje się obszar roboczy usługi Azure Synapse Analytics.
@@ -78,7 +78,7 @@ Po utworzeniu prywatnego linku połączenia można uzyskać dostęp do strony lo
 Aby uzyskać dostęp do zasobów w ramach zasobu obszaru roboczego usługi Azure Synapse Analytics Studio, należy utworzyć następujące elementy:
 
 - Co najmniej jeden prywatny punkt końcowy łącza z typem **dev** dla **docelowego zasobu podrzędnego**.
-- Dwa inne opcjonalne prywatne punkty końcowe z typami **SQL** lub **SqlOnDemand** , w zależności od zasobów w obszarze roboczym, do których chcesz uzyskać dostęp.
+- Dwa inne opcjonalne prywatne punkty końcowe z typami **SQL** lub **SqlOnDemand**, w zależności od zasobów w obszarze roboczym, do których chcesz uzyskać dostęp.
 
 Tworzenie tych metod jest podobne do sposobu tworzenia punktu końcowego w poprzednim kroku.  
 

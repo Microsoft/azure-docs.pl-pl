@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: d43a72db385d282ee189c179254cfc270929dbbf
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8b3b6a41da6e3100739da920472d582711d1e9b1
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207193"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024385"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Wprowadzenie do zapytań dotyczących dzienników w usłudze Azure Monitor
 
@@ -192,7 +192,7 @@ SecurityEvent
 ## <a name="summarize-aggregate-groups-of-rows"></a>Podsumowanie: agregowanie grup wierszy
 Użyj **podsumowania** do identyfikowania grup rekordów, zgodnie z co najmniej jedną kolumną, i Zastosuj do nich agregacje. Najbardziej typowym zastosowaniem **podsumowania** jest *Liczba*, która zwraca liczbę wyników w każdej grupie.
 
-Następujące zapytanie przegląda wszystkie rekordy *wydajności* z ostatniej godziny, grupuje je według obiektu *ObjectName*i zlicza rekordy w każdej grupie: 
+Następujące zapytanie przegląda wszystkie rekordy *wydajności* z ostatniej godziny, grupuje je według obiektu *ObjectName* i zlicza rekordy w każdej grupie: 
 ```Kusto
 Perf
 | where TimeGenerated > ago(1h)
@@ -244,7 +244,7 @@ Aby dane wyjściowe były wyraźniejsze, wybierz opcję wyświetlania go jako wy
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o korzystaniu z danych ciągu w zapytaniu dziennika i [pracy z ciągami w zapytaniach dziennika Azure monitor](string-operations.md).
-- Dowiedz się więcej na temat agregowania danych w zapytaniu dziennika z [zaawansowanymi agregacjami w zapytaniach dziennika Azure monitor](advanced-aggregations.md).
-- Dowiedz się, jak dołączać dane z wielu tabel przy użyciu [sprzężeń w kwerendach dzienników Azure monitor](joins.md).
+- Dowiedz się więcej o korzystaniu z danych ciągu w zapytaniu dziennika i [pracy z ciągami w zapytaniach dziennika Azure monitor](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#string-operations).
+- Dowiedz się więcej na temat agregowania danych w zapytaniu dziennika z [zaawansowanymi agregacjami w zapytaniach dziennika Azure monitor](/azure/data-explorer/write-queries#advanced-aggregations).
+- Dowiedz się, jak dołączać dane z wielu tabel przy użyciu [sprzężeń w kwerendach dzienników Azure monitor](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#joins).
 - Zapoznaj się z dokumentacją w całym języku zapytań Kusto w dokumentacji [języka KQL](/azure/kusto/query/).

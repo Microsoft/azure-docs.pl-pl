@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 18ffc5aa9c56451099afc4ddbe8b6ac5bd588974
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: aca8c75f262e472cbc770c052b86d6e760ee449a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94948769"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026475"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Wizualizowanie dzienników przepływu sieciowych grup zabezpieczeń usługi Azure Network Watcher przy użyciu narzędzi open source
 
@@ -207,7 +207,7 @@ Pobierz [plik pulpitu nawigacyjnego](https://aka.ms/networkwatchernsgflowlogdash
 
 Na karcie **Zarządzanie** w programie Kibana przejdź do pozycji **zapisane obiekty** i zaimportuj wszystkie trzy pliki. Następnie na karcie **pulpit nawigacyjny** możesz otworzyć i załadować przykładowy pulpit nawigacyjny.
 
-Możesz również tworzyć własne wizualizacje i pulpity nawigacyjne dostosowane do metryk własnych zainteresowań. Dowiedz się więcej na temat tworzenia wizualizacji Kibana z [oficjalnej dokumentacji](https://www.elastic.co/guide/en/kibana/current/visualize.html)programu Kibana.
+Możesz również tworzyć własne wizualizacje i pulpity nawigacyjne dostosowane do metryk własnych zainteresowań. Dowiedz się więcej na temat tworzenia wizualizacji Kibana z [oficjalnej dokumentacji](https://www.tutorialspoint.com/kibana/kibana_create_visualization.htm)programu Kibana.
 
 ### <a name="visualize-nsg-flow-logs"></a>Wizualizacja dzienników przepływu sieciowej grupy zabezpieczeń
 

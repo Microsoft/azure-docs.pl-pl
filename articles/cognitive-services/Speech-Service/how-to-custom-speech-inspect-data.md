@@ -10,17 +10,17 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: erhopf
-ms.openlocfilehash: c55d69e99715a0c646c4e836df06cf105f9770bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3ff2a1f92cabb61f58d70b732738e613afa7cd9
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319132"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025637"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspekcja danych usługi Custom Speech
 
 > [!NOTE]
-> Na tej stronie założono, że załączono [przygotowanie danych testowych dla Custom Speech](how-to-custom-speech-test-data.md) i przekazano zestaw danych do inspekcji.
+> Na tej stronie założono, że załączono [przygotowanie danych testowych dla Custom Speech](./how-to-custom-speech-test-and-train.md) i przekazano zestaw danych do inspekcji.
 
 Custom Speech udostępnia narzędzia umożliwiające wizualne badanie jakości rozpoznawania modelu przez porównanie danych audio z odpowiednim wynikiem rozpoznawania. Z poziomu [portalu Custom Speech](https://speech.microsoft.com/customspeech)można odtworzyć załadowane audio i określić, czy podany wynik rozpoznawania jest poprawny. To narzędzie ułatwia sprawdzenie jakości modelu zamiany mowy na tekst linii bazowej firmy Microsoft, sprawdzenie przeszkolonego modelu niestandardowego lub porównanie transkrypcji przez dwa modele.
 
@@ -35,7 +35,7 @@ Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć test:
 3. Kliknij przycisk **Dodaj test**.
 4. Wybierz pozycję **Inspekcja jakości (dane audio)**. Nadaj testowi nazwę, opis i wybierz zestaw danych audio.
 5. Wybierz maksymalnie dwa modele, które chcesz przetestować.
-6. Kliknij przycisk **Utwórz**.
+6. Kliknij pozycję **Utwórz**.
 
 Po pomyślnym utworzeniu testu można zobaczyć, jak model przekształca określony zestaw danych audio, lub Porównaj wyniki z dwóch modeli obok siebie.
 
@@ -91,7 +91,7 @@ Po dokonaniu edycji kliknij przycisk **Zapisz** .
 
 Aby wyeksportować zestawy danych z powrotem do karty **dane** , przejdź do strony Szczegóły danych, a następnie kliknij przycisk **Eksportuj** , aby wyeksportować wszystkie pliki jako nowy zestaw danych. Można również filtrować pliki według czasu ostatniego edytowania, czasów trwania audio itp., aby częściowo wybierać żądane pliki. 
 
-![Eksportuj dane](media/custom-speech/custom-speech-editor-export.png)
+![Eksportowanie danych](media/custom-speech/custom-speech-editor-export.png)
 
 Pliki eksportowane do danych będą używane jako zestaw danych marki i nie wpłyną na żadne istniejące dane/szkolenia/jednostki testowe.
 
@@ -102,6 +102,6 @@ Pliki eksportowane do danych będą używane jako zestaw danych marki i nie wpł
 - [Ulepszanie modelu](how-to-custom-speech-improve-accuracy.md)
 - [Wdrażanie modelu](how-to-custom-speech-deploy-model.md)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Przygotuj dane testowe dla Custom Speech](how-to-custom-speech-test-data.md)
+- [Przygotuj dane testowe dla Custom Speech](./how-to-custom-speech-test-and-train.md)

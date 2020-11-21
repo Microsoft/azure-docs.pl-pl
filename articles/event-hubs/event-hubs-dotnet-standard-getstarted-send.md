@@ -4,12 +4,12 @@ description: Ten artykuł zawiera Przewodnik dotyczący tworzenia aplikacji .NET
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1c0f5a5fb45ee45cb9b7e399dc39ad29406b15dc
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 7962e28ecdc7e2c04fefeb0faf6feb5b730d979c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578998"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024538"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Wysyłanie zdarzeń do i odbieranie zdarzeń z usługi Azure Event Hubs — .NET (Azure. Messaging. EventHubs) 
 W tym przewodniku szybki start pokazano, jak wysyłać zdarzenia do i odbierać zdarzenia z centrum zdarzeń przy użyciu biblioteki platformy .NET **Azure. Messaging. EventHubs** . 
@@ -35,7 +35,7 @@ W tej sekcji przedstawiono sposób tworzenia aplikacji konsolowej .NET Core w ce
 
 1. Uruchom program Visual Studio 2019. 
 1. Wybierz pozycję **Utwórz nowy projekt**. 
-1. W oknie dialogowym **Tworzenie nowego projektu** wykonaj następujące czynności: Jeśli to okno dialogowe nie jest widoczne, wybierz pozycję **plik** w menu, wybierz pozycję **Nowy** , a następnie wybierz pozycję **projekt**. 
+1. W oknie dialogowym **Tworzenie nowego projektu** wykonaj następujące czynności: Jeśli to okno dialogowe nie jest widoczne, wybierz pozycję **plik** w menu, wybierz pozycję **Nowy**, a następnie wybierz pozycję **projekt**. 
     1. Wybierz język **C#** dla języka programowania.
     1. Wybierz pozycję **konsola** dla typu aplikacji. 
     1. Wybierz pozycję **aplikacja konsoli (.NET Core)** z listy wyników. 
@@ -113,7 +113,7 @@ W tej sekcji pokazano, jak napisać aplikację konsolową .NET Core, która odbi
 > [!WARNING]
 > Jeśli uruchomisz ten kod w Azure Stack centrum, wystąpią błędy środowiska uruchomieniowego, chyba że zostanie wybrana wersja interfejsu API określonej usługi Storage. Jest to spowodowane tym, że zestaw SDK Event Hubs korzysta z najnowszego dostępnego interfejsu API usługi Azure Storage dostępnego na platformie Azure, który może nie być dostępny na platformie Azure Stack Hub. Azure Stack Hub może obsługiwać inną wersję zestawu SDK obiektów blob magazynu niż te, które są zwykle dostępne na platformie Azure. Jeśli używasz magazynu blogów platformy Azure jako magazynu punktów kontrolnych, sprawdź [obsługiwaną wersję interfejsu API usługi Azure Storage dla kompilacji centrum Azure Stack](/azure-stack/user/azure-stack-acs-differences?#api-version) i wybierz tę wersję w kodzie. 
 >
-> Na przykład jeśli korzystasz z programu Azure Stack Hub w wersji 2005, najwyższa dostępna wersja usługi Storage to wersja 2019-02-02. Domyślnie Biblioteka klienta zestawu SDK Event Hubs używa najwyższej dostępnej wersji na platformie Azure (2019-07-07 w momencie wydania zestawu SDK). W takim przypadku, oprócz kroków opisanych w tej sekcji, należy również dodać kod docelowy interfejsu API usługi Storage w wersji 2019-02-02. Aby zapoznać się z przykładem dotyczącym konkretnej wersji interfejsu API usługi Storage, zobacz [ten przykład w witrynie GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
+> Na przykład jeśli korzystasz z programu Azure Stack Hub w wersji 2005, najwyższa dostępna wersja usługi Storage to wersja 2019-02-02. Domyślnie Biblioteka klienta zestawu SDK Event Hubs używa najwyższej dostępnej wersji na platformie Azure (2019-07-07 w momencie wydania zestawu SDK). W takim przypadku, oprócz kroków opisanych w tej sekcji, należy również dodać kod docelowy interfejsu API usługi Storage w wersji 2019-02-02. Aby zapoznać się z przykładem dotyczącym konkretnej wersji interfejsu API usługi Storage, zobacz [ten przykład w witrynie GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/). 
  
 
 ### <a name="create-an-azure-storage-and-a-blob-container"></a>Tworzenie usługi Azure Storage i kontenera obiektów BLOB
@@ -128,9 +128,9 @@ W tym przewodniku szybki start użyjesz usługi Azure Storage jako magazynu punk
 
 ### <a name="create-a-project-for-the-receiver"></a>Tworzenie projektu dla odbiorcy
 
-1. W oknie Eksplorator rozwiązań kliknij prawym przyciskiem myszy rozwiązanie **EventHubQuickStart** , wskaż polecenie **Dodaj** , a następnie wybierz pozycję **Nowy projekt**. 
-1. Wybierz pozycję **aplikacja konsoli (.NET Core)** , a **następnie** wybierz pozycję Dalej. 
-1. Wprowadź **EventHubsReceiver** jako **nazwę projektu** , a następnie wybierz pozycję **Utwórz**. 
+1. W oknie Eksplorator rozwiązań kliknij prawym przyciskiem myszy rozwiązanie **EventHubQuickStart** , wskaż polecenie **Dodaj**, a następnie wybierz pozycję **Nowy projekt**. 
+1. Wybierz pozycję **aplikacja konsoli (.NET Core)**, a **następnie** wybierz pozycję Dalej. 
+1. Wprowadź **EventHubsReceiver** jako **nazwę projektu**, a następnie wybierz pozycję **Utwórz**. 
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Dodawanie pakietu NuGet usługi Event Hubs
 
@@ -218,7 +218,7 @@ W tym przewodniku szybki start użyjesz usługi Azure Storage jako magazynu punk
 1. Skompiluj projekt i upewnij się, że nie ma żadnych błędów.
 
     > [!NOTE]
-    > Aby uzyskać więcej informacji, zobacz [ten plik w witrynie GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample01_HelloWorld.cs).
+    > Aby uzyskać więcej informacji, zobacz [ten plik w witrynie GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample01_HelloWorld.md).
 6. Uruchom aplikację odbiornika. 
 1. Powinien zostać wyświetlony komunikat informujący o odebraniu zdarzenia. 
 

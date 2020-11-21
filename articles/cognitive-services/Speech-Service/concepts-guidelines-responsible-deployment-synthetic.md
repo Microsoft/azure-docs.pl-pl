@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: benoah
-ms.openlocfilehash: a529ac8b7ce16d3ee4463f1b4bc2e8007e5b79b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d80ffb575c6aa15695279584b58288cbc16be43
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73836761"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024980"
 ---
 # <a name="guidelines-for-responsible-deployment-of-synthetic-voice-technology"></a>Wytyczne dotyczące odpowiedzialnego wdrożenia syntetycznej technologii głosowej
 Poniżej przedstawiono ogólne wytyczne dotyczące projektowania firmy Microsoft dotyczące korzystania z syntetycznej technologii głosowej. Zostały one opracowane w badaniach, które firma Microsoft prowadziła przy użyciu głosu talent, konsumentów, a także osób z zaburzeniami mowy, aby zapewnić odpowiedzialny rozwój głosu syntetycznego.
@@ -39,7 +39,7 @@ W niejednoznacznych scenariuszach transakcyjnych (na przykład w centrum pomocy 
 Podczas pracy z usługą Voice talent, na przykład aktorów głosowych, do tworzenia głosów syntetycznych stosuje się poniższe wytyczne.
 
 ### <a name="obtain-meaningful-consent-from-voice-talent"></a>Uzyskaj znaczącą zgodę z talent głosu
-Talent głosu oczekuje na kontrolę nad ich czcionką głosową (jak i miejsce jej użycia) i są kompensowane w dowolnym momencie użycia. Właściciele systemu powinni w związku z tym uzyskiwać jawne uprawnienia od talentów głosu i mieć jasne specyfikacje umowne dotyczące przypadków użycia, czas użytkowania, wynagrodzenie i tak dalej. Niektóre Talente głosu nie znają potencjalnych złośliwych użycia technologii i powinny być przestawione przez właścicieli systemu na informacje o możliwościach technologii. Aby uzyskać więcej informacji na temat Talenti i wyrażania głosu, Przeczytaj nasze [ujawnienie dla głosu talent](https://aka.ms/disclosure-voice-talent).
+Talent głosu oczekuje na kontrolę nad ich czcionką głosową (jak i miejsce jej użycia) i są kompensowane w dowolnym momencie użycia. Właściciele systemu powinni w związku z tym uzyskiwać jawne uprawnienia od talentów głosu i mieć jasne specyfikacje umowne dotyczące przypadków użycia, czas użytkowania, wynagrodzenie i tak dalej. Niektóre Talente głosu nie znają potencjalnych złośliwych użycia technologii i powinny być przestawione przez właścicieli systemu na informacje o możliwościach technologii. Aby uzyskać więcej informacji na temat Talenti i wyrażania głosu, Przeczytaj nasze [ujawnienie dla głosu talent](/legal/cognitive-services/speech-service/disclosure-voice-talent).
 
 
 ## <a name="considerations-for-those-with-speech-disorders"></a>Zagadnienia związane z zaburzeniami mowy
@@ -57,13 +57,13 @@ Osoby z zaburzeniami mowy chcą wprowadzać aktualizacje do głosu syntetycznego
 
 ## <a name="reference-docs"></a>Dokumentacja dokumentacji
 
-* [Ujawnienie dla talent głosu](https://aka.ms/disclosure-voice-talent)
+* [Ujawnienie dla talent głosu](/legal/cognitive-services/speech-service/disclosure-voice-talent)
 * [Kontroli — Omówienie](concepts-gating-overview.md)
 * [Jak ujawnić](concepts-disclosure-guidelines.md)
 * [Wzorce projektowania ujawniania](concepts-disclosure-patterns.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Ujawnienie dla talent głosu](https://aka.ms/disclosure-voice-talent)
+* [Ujawnienie dla talent głosu](/legal/cognitive-services/speech-service/disclosure-voice-talent)
 * [Jak ujawnić](concepts-disclosure-guidelines.md)
 * [Wzorce projektowania ujawniania](concepts-disclosure-patterns.md)

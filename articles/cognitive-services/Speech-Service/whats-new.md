@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: erhopf
-ms.openlocfilehash: 87832057e955f8408b369e2f55096a713780e965
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 5c4f02eff06c08f1829f9f1c74d1dcb09ee57905
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410780"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024793"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>Usługa mowy: co nowego w dokumentacji
 
@@ -38,17 +38,17 @@ Jeśli chcesz dowiedzieć się więcej na temat aktualizacji usługi mowy, zesta
 
 * [Informacje o interfejsie API wejściowego strumienia zestawu Speech SDK](how-to-use-audio-input-streams.md) — zaktualizowane dozwolone próbki na sekundę.
 * [Automatyczne wykrywanie języka dla zamiany mowy na tekst](how-to-automatic-language-detection.md) dodanych do dokumentacji.
-* [Wybierz tryb rozpoznawania mowy](how-to-choose-recognition-mode.md) — dodano instrukcje języka JavaScript do dokumentacji.
+* [Wybierz tryb rozpoznawania mowy](./get-started-speech-to-text.md) — dodano instrukcje języka JavaScript do dokumentacji.
 * [Konfigurowanie RHEL/CentOS 7 dla zestawu Speech SDK](how-to-configure-rhel-centos-7.md) — ulepszone instrukcje dotyczące instalacji.
-* [Listy fraz dla zamiany mowy na tekst](how-to-phrase-lists.md) — instrukcje języka JavaScript do dokumentacji.
-* [Szybki Start: synteza asynchroniczna na potrzeby długiego dźwięku w języku Python (wersja zapoznawcza)](quickstarts/text-to-speech/async-synthesis-long-form-audio.md) — Aktualizacja z obsługą publicznych głosów neuronowych i skojarzonych z nimi parametrów.
-* [Szybki Start: Rozpoznawanie mowy z pliku audio](quickstarts/speech-to-text-from-file.md) — dodano instrukcje języka JavaScript do dokumentacji.
-* [Szybki Start: Rozpoznawanie mowy przy użyciu mikrofonu](quickstarts/speech-to-text-from-microphone.md ) dodanego do dokumentacji i instrukcje języka JavaScript.
+* [Listy fraz dla zamiany mowy na tekst](./get-started-speech-to-text.md) — instrukcje języka JavaScript do dokumentacji.
+* [Szybki Start: synteza asynchroniczna na potrzeby długiego dźwięku w języku Python (wersja zapoznawcza)](./long-audio-api.md) — Aktualizacja z obsługą publicznych głosów neuronowych i skojarzonych z nimi parametrów.
+* [Szybki Start: Rozpoznawanie mowy z pliku audio](./get-started-speech-to-text.md) — dodano instrukcje języka JavaScript do dokumentacji.
+* [Szybki Start: Rozpoznawanie mowy przy użyciu mikrofonu](./get-started-speech-to-text.md) dodanego do dokumentacji i instrukcje języka JavaScript.
 * [Szybki Start: Rozpoznawanie mowy przechowywanej w usłudze BLOB Storage](quickstarts/from-blob.md) — dodano instrukcje języka JavaScript do dokumentacji.
 * [Szybki Start: Rozpoznawanie mowy, intencji i jednostek z Language Understanding (LUIS)](quickstarts/intent-recognition.md)
 * [Szybki Start: Konfigurowanie środowiska deweloperskiego](quickstarts/setup-platform.md) — dodano instrukcje języka JavaScript do dokumentacji.
-* [Szybki Start: synteza mowy w pliku audio](quickstarts/text-to-speech-audio-file.md) — dodano instrukcje języka JavaScript do dokumentacji.
-* [Szybki Start: synteza mowy z](quickstarts/text-to-speech.md) instrukcją języka JavaScript dodaną przez prelegenta do dokumentacji.
+* [Szybki Start: synteza mowy w pliku audio](./get-started-text-to-speech.md) — dodano instrukcje języka JavaScript do dokumentacji.
+* [Szybki Start: synteza mowy z](./get-started-text-to-speech.md) instrukcją języka JavaScript dodaną przez prelegenta do dokumentacji.
 * [Co to jest słowo kluczowe?](custom-keyword-overview.md) -Dodano zawartość i linki do wprowadzenia.
 * [Określ język źródłowy na potrzeby zamiany mowy na tekst](how-to-specify-source-language.md) — instrukcje języka JavaScript i celu dodanego do dokumentacji.
 

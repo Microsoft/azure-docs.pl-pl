@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: affbf57fcda5ff9fb56e148c2fa8769e7aa775e6
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: b8b3a0aa6d9790dbb5900eac2d79074f44a749d2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555808"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025654"
 ---
-# <a name="evaluate-and-improve-custom-speech-accuracy"></a>Oceń i popraw dokładność Custom Speech
+# <a name="evaluate-and-improve-custom-speech-accuracy"></a>Ocenianie i poprawianie dokładności usługi Custom Speech
 
 W tym artykule dowiesz się, jak ilościowo mierzyć i poprawiać dokładność modeli zamiany mowy na tekst firmy Microsoft lub własnych modeli niestandardowych. Wymagane jest przetestowanie dokładności przez audio i dane transkrypcji z etykietami ludzkimi, które powinny być podane przez 30 minut.
 
@@ -62,7 +62,7 @@ Po pomyślnym utworzeniu testu można porównać wyniki obok siebie.
 
 ### <a name="side-by-side-comparison"></a>Porównanie równoczesne
 
-Po zakończeniu testu, wskazywanym przez zmianę stanu na *powodzenie* , można znaleźć numer funkcji Raportowanie błędów dla obu modeli uwzględnionych w teście. Kliknij nazwę testu, aby wyświetlić stronę szczegółów testowania. Ta strona szczegółów zawiera listę wszystkich wyrażenia długości w zestawie danych, wskazując wyniki rozpoznawania dwóch modeli obok transkrypcji z przesłanego zestawu danych. Aby pomóc w sprawdzeniu porównania obok siebie, można przełączać różne typy błędów, w tym Wstawianie, usuwanie i podstawianie. Nasłuchiwanie audio i porównywanie wyników rozpoznawania w każdej kolumnie, która pokazuje transkrypcję z etykietami ludzkimi i wyniki dla dwóch modeli zamiany mowy na tekst, można zdecydować, który model spełnia Twoje potrzeby i gdzie są wymagane dodatkowe szkolenia i ulepszenia.
+Po zakończeniu testu, wskazywanym przez zmianę stanu na *powodzenie*, można znaleźć numer funkcji Raportowanie błędów dla obu modeli uwzględnionych w teście. Kliknij nazwę testu, aby wyświetlić stronę szczegółów testowania. Ta strona szczegółów zawiera listę wszystkich wyrażenia długości w zestawie danych, wskazując wyniki rozpoznawania dwóch modeli obok transkrypcji z przesłanego zestawu danych. Aby pomóc w sprawdzeniu porównania obok siebie, można przełączać różne typy błędów, w tym Wstawianie, usuwanie i podstawianie. Nasłuchiwanie audio i porównywanie wyników rozpoznawania w każdej kolumnie, która pokazuje transkrypcję z etykietami ludzkimi i wyniki dla dwóch modeli zamiany mowy na tekst, można zdecydować, który model spełnia Twoje potrzeby i gdzie są wymagane dodatkowe szkolenia i ulepszenia.
 
 ## <a name="improve-custom-speech-accuracy"></a>Zwiększanie dokładności usługi Custom Speech
 
@@ -114,7 +114,7 @@ Należy wziąć pod uwagę następujące szczegóły:
 
 ### <a name="add-new-words-with-pronunciation"></a>Dodawanie nowych wyrazów z wymowęm
 
-Wyrazy, które są tworzone lub wysoce wyspecjalizowane mogą mieć unikatowe wymowy. Te wyrazy można rozpoznać, jeśli wyraz może zostać podzielony na mniejsze słowa, aby go wyróżnić. Na przykład, aby rozpoznać **konsolę Xbox** , Wymawiaj jako **pole X**. Takie podejście nie spowoduje zwiększenia ogólnej dokładności, ale może zwiększyć rozpoznawanie tych słów kluczowych.
+Wyrazy, które są tworzone lub wysoce wyspecjalizowane mogą mieć unikatowe wymowy. Te wyrazy można rozpoznać, jeśli wyraz może zostać podzielony na mniejsze słowa, aby go wyróżnić. Na przykład, aby rozpoznać **konsolę Xbox**, Wymawiaj jako **pole X**. Takie podejście nie spowoduje zwiększenia ogólnej dokładności, ale może zwiększyć rozpoznawanie tych słów kluczowych.
 
 > [!NOTE]
 > Ta technika jest dostępna tylko w niektórych językach. Aby uzyskać szczegółowe informacje, zobacz Dostosowywanie wymowy w [tabeli zamiany mowy na tekst](language-support.md) .
@@ -136,5 +136,5 @@ W poniższej tabeli przedstawiono scenariusze rozpoznawania głosu i wymieniono 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Przygotowywanie i testowanie danych](how-to-custom-speech-test-data.md)
+* [Przygotowywanie i testowanie danych](./how-to-custom-speech-test-and-train.md)
 * [Inspekcja danych](how-to-custom-speech-inspect-data.md)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: erhopf
-ms.openlocfilehash: 2897fe2e0cc8aeb929b0a33f5cdaba9c60f2a244
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dae7b8e0485c1a2456b85e0910f60b2164d4e41c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81261588"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026322"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Rejestruj przykłady głosu, aby utworzyć niestandardowy głos
 
@@ -211,7 +211,7 @@ Uważnie nasłuchiwanie każdego pliku. Na tym etapie można edytować małe nie
 
 Przekonwertuj każdy plik na 16 bitów i szybkość próbkowania 16 kHz przed zapisaniem i, jeśli nagrano czat Studio, Usuń drugi kanał. Zapisz każdy plik w formacie WAV, nazywając je numerem wypowiedź ze skryptu.
 
-Na koniec Utwórz *transkrypcję* , która kojarzy każdy plik WAV z wersją tekstową odpowiedniego wypowiedź. [Tworzenie niestandardowych czcionek głosowych](how-to-customize-voice-font.md) zawiera szczegółowe informacje o wymaganym formacie. Możesz skopiować tekst bezpośrednio ze skryptu. Następnie utwórz plik zip plików WAV i transkrypcję tekstu.
+Na koniec Utwórz *transkrypcję* , która kojarzy każdy plik WAV z wersją tekstową odpowiedniego wypowiedź. [Tworzenie niestandardowych czcionek głosowych](./how-to-custom-voice-create-voice.md) zawiera szczegółowe informacje o wymaganym formacie. Możesz skopiować tekst bezpośrednio ze skryptu. Następnie utwórz plik zip plików WAV i transkrypcję tekstu.
 
 Archiwizuj oryginalne nagrania w bezpiecznym miejscu, jeśli będą potrzebne później. Zachowaj swój skrypt i notatki.
 
@@ -220,4 +220,4 @@ Archiwizuj oryginalne nagrania w bezpiecznym miejscu, jeśli będą potrzebne p�
 Wszystko jest gotowe do przekazania swoich nagrań i utworzenia niestandardowego głosu.
 
 > [!div class="nextstepaction"]
-> [Tworzenie niestandardowych czcionek głosowych](how-to-customize-voice-font.md)
+> [Tworzenie niestandardowych czcionek głosowych](./how-to-custom-voice-create-voice.md)

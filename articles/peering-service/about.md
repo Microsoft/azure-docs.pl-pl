@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: 03ece391b6f33b47f34705cec1c5907602ac7b23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 198ba23920179e71e095e498ee2173d7f0111d42
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400183"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026733"
 ---
 # <a name="azure-peering-service-overview"></a>Omówienie usługi Komunikacja równorzędna Azure
 
@@ -45,7 +45,7 @@ Usługa komunikacji równorzędnej:
 Usługa komunikacji równorzędnej nie jest produktem do łączności prywatnej, takim jak Azure ExpressRoute lub produkt sieci VPN.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat ExpressRoute, zobacz [dokumentację ExpressRoute](https://docs.microsoft.com/azure/expressroute/).
+> Aby uzyskać więcej informacji na temat ExpressRoute, zobacz [dokumentację ExpressRoute](../expressroute/index.yml).
 >
 
 ## <a name="background"></a>Tło
@@ -57,7 +57,7 @@ Dostawcy usług firmy Microsoft i partnerów zapewniają, że ruch dla prefiksó
 ![Sieć firmy Microsoft i łączność publiczna](./media/peering-service-about/peering-service-background-final.png)
 
 > [!NOTE]
-> Aby uzyskać więcej informacji o sieci globalnej firmy Microsoft, zobacz [Microsoft Global Network](https://docs.microsoft.com/azure/networking/microsoft-global-network).
+> Aby uzyskać więcej informacji o sieci globalnej firmy Microsoft, zobacz [Microsoft Global Network](../networking/microsoft-global-network.md).
 >
 
 ## <a name="why-use-peering-service"></a>Dlaczego warto używać usługi komunikacji równorzędnej?

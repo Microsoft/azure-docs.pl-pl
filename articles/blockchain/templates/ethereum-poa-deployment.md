@@ -5,12 +5,12 @@ ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: devx-track-js
-ms.openlocfilehash: 5bbfca4d890440574ee6717ca910969226fc781a
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: e680bc601b7f230314c1063523a003e95a849c0a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94987069"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024402"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Wdróż szablon rozwiązania typu "Weryfikacja urzędu certyfikacji Ethereum" na platformie Azure
 
@@ -48,7 +48,9 @@ Każde wdrożenie składowe konsorcjum obejmuje:
 * Azure Monitor agregowania dzienników i statystyk wydajności
 * Brama sieci wirtualnej (opcjonalnie) do zezwalania na połączenia VPN między prywatnym sieci wirtualnych
 
-Domyślnie punkty końcowe wywołania RPC i komunikacji równorzędnej są dostępne za pośrednictwem publicznego adresu IP, aby umożliwić uproszczoną łączność między subskrypcjami i chmurami. W przypadku kontroli dostępu na poziomie aplikacji można użyć kontraktów z uprawnieniami z parzystością. Sieci, które są wdrożone za pośrednictwem sieci VPN, są obsługiwane w przypadku łączności między subskrypcjami. Ze względu na to, że wdrożenia VPN i sieci wirtualnych są bardziej skomplikowane, warto zacząć od publicznego modelu IP podczas tworzenia prototypów rozwiązania.
+Domyślnie punkty końcowe wywołań RPC i komunikacji równorzędnej są dostępne za pośrednictwem publicznego adresu IP, aby umożliwić uproszczoną łączność między
+
+Subskrypcje i chmury. W przypadku kontroli dostępu na poziomie aplikacji można użyć [kontraktów z uprawnieniami z parzystością](https://openethereum.github.io/Permissioning.html). Sieci, które są wdrożone za pośrednictwem sieci VPN, są obsługiwane w przypadku łączności między subskrypcjami. Ze względu na to, że wdrożenia VPN i sieci wirtualnych są bardziej skomplikowane, warto zacząć od publicznego modelu IP podczas tworzenia prototypów rozwiązania.
 
 Kontenery platformy Docker są używane w celu zapewnienia niezawodności i modularności. Azure Container Registry służy do hostowania i obsługi obrazów z wersjami w ramach każdego wdrożenia. Obrazy kontenerów składają się z:
 
@@ -685,7 +687,7 @@ Po wdrożeniu kontraktu inteligentnego można wysłać transakcję, aby wywoła�
 
 ## <a name="webassembly-wasm-support"></a>Obsługa zestawu webassembly (WASM)
 
-Obsługa zestawu webassembly jest już włączona dla nowo wdrożonych sieci PoA. Umożliwia ona programowanie aplikacji inteligentnych w dowolnym języku, który transstertuje Web-Assembly (Rust, C, C++). Aby uzyskać więcej informacji, zobacz [samouczek od firmy z parzystością techniczną](https://github.com/paritytech/pwasm-tutorial).
+Obsługa zestawu webassembly jest już włączona dla nowo wdrożonych sieci PoA. Umożliwia ona programowanie aplikacji inteligentnych w dowolnym języku, który transstertuje Web-Assembly (Rust, C, C++). Aby uzyskać więcej informacji, zobacz: [Omówienie parzystości zestawu webassembly](https://openethereum.github.io/WebAssembly-Home.html) i [samouczek od firmy o parzystości technicznej](https://github.com/paritytech/pwasm-tutorial)
 
 ## <a name="faq"></a>Często zadawane pytania
 

@@ -9,18 +9,18 @@ ms.date: 07/09/2019
 ms.topic: how-to
 manager: peterpr
 ms.custom: device-developer
-ms.openlocfilehash: fb6029a91714ed0229876bbaf6bb0790565be29c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: fc8ea41e804344735cfa2400d5d763622d8811c8
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427843"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026254"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Kompiluj IoT Central mostek urządzeń, aby połączyć inne chmury IoT z IoT Central
 
 *Ten temat ma zastosowanie do administratorów.*
 
-IoT Central mostka urządzenia to rozwiązanie "open source", które łączy SIGFOX, cząsteczek, Sieć rzeczy i inne chmury z aplikacją IoT Central. Bez względu na to, czy są używane urządzenia śledzenia zasobów połączone z siecią SIGFOX z niską przepustowością, czy za pomocą urządzeń do monitorowania jakości powietrza w chmurze urządzenia cząsteczkowego, czy też przy użyciu urządzeń monitorujących wilgotność gleby w TTN, można bezpośrednio wykorzystać możliwości IoT Central przy użyciu mostka IoT Central urządzeń. Mostek urządzenia łączy inne chmury IoT z usługą IoT Central, przekazując dane wysyłane przez urządzenia do innych chmur za pomocą aplikacji IoT Central. W aplikacji IoT Central można tworzyć reguły i uruchamiać analizy na tych danych, tworzyć przepływy pracy w Microsoft Flow i usłudze Azure Logic Apps, eksportować te dane i wiele innych. Pobierz [mostek urządzenia IoT Central](https://aka.ms/iotcentralgithubdevicebridge) z usługi GitHub
+IoT Central mostka urządzenia to rozwiązanie "open source", które łączy SIGFOX, cząsteczek, Sieć rzeczy i inne chmury z aplikacją IoT Central. Bez względu na to, czy są używane urządzenia śledzenia zasobów połączone z siecią SIGFOX z niską przepustowością, czy za pomocą urządzeń do monitorowania jakości powietrza w chmurze urządzenia cząsteczkowego, czy też przy użyciu urządzeń monitorujących wilgotność gleby w TTN, można bezpośrednio wykorzystać możliwości IoT Central przy użyciu mostka IoT Central urządzeń. Mostek urządzenia łączy inne chmury IoT z usługą IoT Central, przekazując dane wysyłane przez urządzenia do innych chmur za pomocą aplikacji IoT Central. W aplikacji IoT Central można tworzyć reguły i uruchamiać analizy na tych danych, tworzyć przepływy pracy w usłudze Automatyzacja i usługi Azure Logic Apps, eksportować te dane i wiele innych. Pobierz [mostek urządzenia IoT Central](https://aka.ms/iotcentralgithubdevicebridge) z usługi GitHub
 
 ## <a name="what-is-it-and-how-does-it-work"></a>Co to jest i jak to działa?
 IoT Central mostka urządzenia to rozwiązanie Open Source w usłudze GitHub. Jest to gotowe do użycia przycisk "wdróż na platformie Azure" służący do wdrażania niestandardowego szablonu Azure Resource Manager z kilkoma zasobami platformy Azure w ramach subskrypcji platformy Azure. Zasoby obejmują:

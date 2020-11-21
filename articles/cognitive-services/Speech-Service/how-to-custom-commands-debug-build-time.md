@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 9c84b35318637f5b89e6c88c0ebb3fd6616533fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aeb90e8e064c44f4d17f920261ed58310f0e55f0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86023129"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025705"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>Debuguj błędy podczas tworzenia niestandardowej aplikacji poleceń
 
@@ -24,7 +24,7 @@ W tym artykule opisano sposób debugowania podczas wyświetlania błędów podcz
 ## <a name="errors-when-creating-an-application"></a>Błędy podczas tworzenia aplikacji
 Polecenia niestandardowe tworzą również aplikację w [Luis](https://www.luis.ai/) podczas tworzenia aplikacji poleceń niestandardowych. 
 
-[Luis ogranicza 500 aplikacji na zasób autorstwa](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits). Tworzenie aplikacji LUIS może zakończyć się niepowodzeniem, jeśli używasz zasobu tworzenia, który ma już 500 aplikacji. 
+[Luis ogranicza 500 aplikacji na zasób autorstwa](../luis/luis-limits.md). Tworzenie aplikacji LUIS może zakończyć się niepowodzeniem, jeśli używasz zasobu tworzenia, który ma już 500 aplikacji. 
 
 Upewnij się, że wybrany zasób LUIS Authoring ma mniej niż 500 aplikacji. Jeśli nie, możesz utworzyć nowy zasób tworzenia LUIS, przełączyć się do innego lub spróbować wyczyścić aplikacje LUIS.  
 
@@ -61,7 +61,7 @@ Polecenia niestandardowe nie zezwalają na wspólne zdania przykładowe wspólne
 
 Upewnij się, że nie masz wspólnych zdań przykładowych udostępnianych między różnymi poleceniami. 
 
-Aby uzyskać najlepsze rozwiązanie dotyczące równoważenia przykładowych zdań w różnych poleceniach, należy zapoznać się z [najlepszymi](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices)rozwiązaniami Luis.
+Aby uzyskać najlepsze rozwiązanie dotyczące równoważenia przykładowych zdań w różnych poleceniach, należy zapoznać się z [najlepszymi](../luis/luis-concept-best-practices.md)rozwiązaniami Luis.
 
 ### <a name="empty-sample-sentences"></a>Puste zdania przykładowe
 Musisz mieć co najmniej jedno zdanie przykładowe dla każdego polecenia.
@@ -82,7 +82,7 @@ Na przykład można zdefiniować parametr {pojazd} dla przykładowych zdań poni
 | Książka a samolotem | Książka a {pojazd} |
 | Książka z taksówką | Książka a {pojazd} |
 
-Najlepsze rozwiązanie z zakresu szkoleń LUIS można znaleźć w [Luis najlepszych](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices)rozwiązań.
+Najlepsze rozwiązanie z zakresu szkoleń LUIS można znaleźć w [Luis najlepszych](../luis/luis-concept-best-practices.md)rozwiązań.
 
 ## <a name="cant-update-luis-key"></a>Nie można zaktualizować klucza LUIS
 ### <a name="reassign-to-e0-authoring-resource"></a>Przypisz ponownie do zasobu E0 Authoring

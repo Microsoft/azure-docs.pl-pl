@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: wellsi
-ms.openlocfilehash: a2652bed6c8e7dec0a6fe8f9471793c3873646bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf0580c96f5bf78f0444b2bb39088f2a417fd658
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82781758"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025065"
 ---
 # <a name="how-to-configure-a-microphone-array"></a>Jak skonfigurować macierz mikrofonów
 
-W tym artykule dowiesz się, jak skonfigurować [tablicę mikrofonu](https://aka.ms/sdsdk-microphone). Obejmuje to ustawienie kąta pracy oraz sposób wybierania mikrofonu używanego dla zestawu Speech Devices SDK.
+W tym artykule dowiesz się, jak skonfigurować [tablicę mikrofonu](./speech-devices-sdk-microphone.md). Obejmuje to ustawienie kąta pracy oraz sposób wybierania mikrofonu używanego dla zestawu Speech Devices SDK.
 
-Zestaw SDK urządzeń mowy działa najlepiej z tablicą mikrofonu, która została zaprojektowana zgodnie z [naszymi wskazówkami](https://aka.ms/sdsdk-microphone). Konfiguracja macierzy mikrofonu może być świadczona przez system operacyjny lub dostarczana za pomocą jednej z następujących metod.
+Zestaw SDK urządzeń mowy działa najlepiej z tablicą mikrofonu, która została zaprojektowana zgodnie z [naszymi wskazówkami](./speech-devices-sdk-microphone.md). Konfiguracja macierzy mikrofonu może być świadczona przez system operacyjny lub dostarczana za pomocą jednej z następujących metod.
 
 Zestaw SDK usługi Speech Devices początkowo obsługiwał tablice mikrofonu, wybierając z ustalonego zestawu konfiguracji.
 
@@ -49,7 +49,7 @@ Jeśli jest określona tablica mikrofonu przy użyciu `AudioConfig::FromMicropho
 Stos audio firmy Microsoft w zestawie SDK usługi Speech Devices obsługuje tylko próbkowanie dla częstotliwości próbkowania, które są całkowitymi wielokrotnośćmi 16 KHz. Dodatkowo obsługiwane są następujące formaty: 32-bitowe IEEE little endian float, 32-bit little endiand int, 24-bitowe little endian ze znakiem int, 16-bitowym, little endian ze znakiem int oraz 8-bitowe podpisane int.
 
 ## <a name="android"></a>Android
-Obecnie tylko [roobo V1](speech-devices-sdk-android-quickstart.md) jest obsługiwany przez zestaw SDK urządzeń mowy. Zachowanie jest takie samo jak w poprzednich wersjach, z wyjątkiem `MicArrayGeometryConfigFile` Właściwości Now można użyć do określenia pliku JSON zawierającego zakres Beamforming.
+Obecnie tylko [roobo V1](./speech-devices-sdk-quickstart.md?pivots=platform-android%253fpivots%253dplatform-android) jest obsługiwany przez zestaw SDK urządzeń mowy. Zachowanie jest takie samo jak w poprzednich wersjach, z wyjątkiem `MicArrayGeometryConfigFile` Właściwości Now można użyć do określenia pliku JSON zawierającego zakres Beamforming.
 
 ## <a name="microphone-array-configuration-json"></a>Plik JSON konfiguracji macierzy mikrofonu
 

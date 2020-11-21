@@ -3,12 +3,12 @@ title: Równoważenie obciążenia partycji w wielu wystąpieniach — Event Hub
 description: Opisuje sposób równoważenia obciążenia partycji w wielu wystąpieniach aplikacji przy użyciu procesora zdarzeń i zestawu Azure Event Hubs SDK.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 03aeebb376c74e62a1bd935ac1fec4f178b63f4f
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: af307058d0eda6b96c0811bccc245c09e2bdd27d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685141"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025048"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Równoważenie obciążenia partycji w wielu wystąpieniach aplikacji
 Aby skalować aplikację do przetwarzania zdarzeń, można uruchomić wiele wystąpień aplikacji i zrównoważyć obciążenie między sobą. W starszych wersjach [klasy eventprocessorhost](event-hubs-event-processor-host.md) można zrównoważyć obciążenie między wieloma wystąpieniami zdarzeń programu i punktów kontrolnych podczas otrzymywania. W nowszych wersjach (5,0), **EventProcessorClient** (.NET i Java) lub **EventHubConsumerClient** (Python i JavaScript) umożliwiają wykonywanie tych samych czynności. Model programistyczny jest prostszy przy użyciu zdarzeń. Zasubskrybuj zdarzenia, które Cię interesują, rejestrując procedurę obsługi zdarzeń. Jeśli używasz starej wersji biblioteki klienckiej, zapoznaj się z następującymi przewodnikami migracji: [.NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md), [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/migration-guide.md), [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/migration_guide.md)i [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/migrationguide.md).
@@ -76,7 +76,7 @@ Gdy punkt kontrolny jest wykonywany do oznaczania zdarzenia jako przetworzone, w
 
 > [!NOTE]
 > Jeśli używasz platformy Azure Blob Storage jako magazynu punktów kontrolnych w środowisku obsługującym inną wersję zestawu SDK magazynu obiektów BLOB niż te, które są zwykle dostępne na platformie Azure, musisz użyć kodu, aby zmienić wersję interfejsu API usługi magazynu na określoną wersję obsługiwaną przez to środowisko. Na przykład jeśli używasz [Event Hubs w centrum Azure Stack w wersji 2002](/azure-stack/user/event-hubs-overview), najwyższa dostępna wersja usługi Storage to wersja 2017-11-09. W takim przypadku należy użyć kodu, aby docelowa wersja interfejsu API usługi Storage do 2017-11-09. Aby zapoznać się z przykładem dotyczącym konkretnej wersji interfejsu API usługi Storage, zobacz następujące przykłady w witrynie GitHub: 
-> - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
+> - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/). 
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
 > - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) lub  [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)
 > - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/)

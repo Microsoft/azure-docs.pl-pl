@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: f33cb7d4d005f15d0a5fcc70d56ebd4698f86694
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 2cc935e81e867609159b5c150b6ee7c346bb9f8e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94988225"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026152"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Kontroluj aktualizacje przy użyciu sterowania konserwacją i Azure PowerShell
 
-Kontrola konserwacji pozwala określić, kiedy mają być stosowane aktualizacje odizolowanych maszyn wirtualnych i hostów dedykowanych platformy Azure. W tym temacie omówiono opcje Azure PowerShell sterowania konserwacją. Aby uzyskać więcej informacji na temat korzyści z używania kontroli konserwacji, jej ograniczeń i innych opcji zarządzania, zobacz [Zarządzanie aktualizacjami platformy przy użyciu kontroli konserwacji](maintenance-control.md).
+Kontrola konserwacji umożliwia określenie, kiedy należy zastosować aktualizacje platformy do infrastruktury hosta izolowanych maszyn wirtualnych i hostów dedykowanych platformy Azure. W tym temacie omówiono opcje Azure PowerShell sterowania konserwacją. Aby uzyskać więcej informacji na temat korzyści z używania kontroli konserwacji, jej ograniczeń i innych opcji zarządzania, zobacz [Zarządzanie aktualizacjami platformy przy użyciu kontroli konserwacji](maintenance-control.md).
  
 ## <a name="enable-the-powershell-module"></a>Włączanie modułu programu PowerShell
 
@@ -86,9 +86,9 @@ $config = New-AzMaintenanceConfiguration `
 > **Czas trwania** konserwacji nie może być dłuższy niż *2 godziny* . **Cykl** konserwacji musi być ustawiony na co najmniej raz w ciągu 35 dni.
 
 **Cykl** konserwacji można wyrazić jako codziennie, co tydzień lub co miesiąc. Przykłady to:
- - codziennie — "recurEvery: Day" **lub** "RecurEvery: 3Days" 
- - co tydzień — "recurEvery: 3Weeks" **lub** "RecurEvery: tydzień Sobota, Niedziela" 
- - co miesiąc — "recurEvery: Month day23, day24" **lub** "RecurEvery: Month Last Niedziela" **lub** "recurEvery: miesiąc czwarty poniedziałek"  
+ - **codziennie**— RecurEvery "Day" **lub** "3Days" 
+ - **Weekly**-RecurEvery "3Weeks" **lub** "tydzień Sobota, Niedziela" 
+ - **Monthly**-RecurEvery "miesiąc day23, day24" **lub** "miesiąc ostatni Niedziela" **lub** "miesiąc czwarty poniedziałek"  
       
 
 ## <a name="assign-the-configuration"></a>Przypisz konfigurację

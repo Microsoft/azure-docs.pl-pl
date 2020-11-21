@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 3/16/2020
-ms.openlocfilehash: 7e455565a0cd5e1fc96a6fe7d9e0502da3214fcf
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 73705434aef3ee438c02fbfd6502d30e7620b695
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909917"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026458"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Użyj Azure Portal, aby skonfigurować alerty dotyczące metryk dla Azure Database for PostgreSQL-Citus
 
@@ -41,13 +41,13 @@ Można skonfigurować i uzyskać informacje o regułach alertów przy użyciu:
 
 4. Zostanie otwarta strona **Tworzenie reguły** , jak pokazano poniżej. Wypełnij wymagane informacje:
 
-   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png" alt-text="Wybierz reguły alertów":::
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png" alt-text="Formularz dodawania alertu metryki":::
 
-5. W sekcji **warunek** wybierz pozycję **Dodaj** .
+5. W sekcji **warunek** wybierz pozycję **Dodaj**.
 
 6. Wybierz metrykę z listy sygnałów, dla których chcesz otrzymywać alerty. W tym przykładzie wybierz pozycję "procent magazynu".
    
-   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png" alt-text="Wybierz reguły alertów":::
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png" alt-text="Zrzut ekranu przedstawia stronę Konfigurowanie logiki sygnału, na której można wyświetlić kilka sygnałów.":::
 
 7. Skonfiguruj logikę alertów:
 
@@ -58,9 +58,13 @@ Można skonfigurować i uzyskać informacje o regułach alertów przy użyciu:
    
    Wybierz pozycję **gotowe** po zakończeniu.
 
-   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png" alt-text="Wybierz reguły alertów" z nazwą, krótką nazwą, subskrypcją i grupą zasobów.
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png" alt-text="Zrzut ekranu przedstawia okienko, w którym można skonfigurować logikę alertów.":::
 
-    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/9-add-action-group.png" alt-text="Wybierz reguły alertów":::
+8. W sekcji **grupy akcji** wybierz pozycję **Utwórz nową** , aby utworzyć nową grupę, która będzie otrzymywać powiadomienia dotyczące alertu.
+
+9. Wypełnij formularz "Dodawanie grupy akcji" z nazwą, krótką nazwą, subskrypcją i grupą zasobów.
+
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/9-add-action-group.png" alt-text="Zrzut ekranu przedstawia formularz Dodaj grupę akcji, w którym można wprowadzić opisane wartości.":::
 
 10. Skonfiguruj typ akcji **poczty e-mail/SMS/wypychania/głosu** .
     
@@ -68,11 +72,11 @@ Można skonfigurować i uzyskać informacje o regułach alertów przy użyciu:
    
     Po zakończeniu wybierz **przycisk OK** .
 
-    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/10-action-group-type.png" alt-text="Wybierz reguły alertów":::
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/10-action-group-type.png" alt-text="Zrzut ekranu przedstawia okienko wiadomości E-mail/S M/wypychanie/głos.":::
 
 11. Określ nazwę, opis i ważność reguły alertu.
 
-    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png" alt-text="Wybierz reguły alertów"::: 
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png" alt-text="Zrzut ekranu przedstawia okienko Szczegóły alertu."::: 
 
 12. Wybierz pozycję **Utwórz regułę alertu** , aby utworzyć alert.
 
@@ -97,8 +101,8 @@ Zalecamy ustawienie alertów dotyczących miejsca na dysku dla każdego węzła 
 Ponieważ dysk zbliża się do limitu miejsca, wypróbuj te metody, aby uzyskać więcej wolnego miejsca:
 
 * Przejrzyj zasady przechowywania danych. Jeśli to możliwe, Przenieś starsze dane do magazynu chłodnego.
-* Rozważ [dodanie węzłów](howto-hyperscale-scaling.md#add-worker-nodes) do grupy serwerów i ponowne zrównoważenie fragmentów. Ponowne równoważenie dystrybuuje dane na większej liczbie komputerów.
-* Rozważ zwiększenie [pojemności](howto-hyperscale-scaling.md#increase-or-decrease-vcores-on-nodes) węzłów procesu roboczego. Każdy proces roboczy może mieć do 2 TiB magazynu. Należy jednak próbować dodać węzły przed zmianą rozmiarów węzłów, ponieważ Dodawanie węzłów kończy się szybciej.
+* Rozważ [dodanie węzłów](howto-hyperscale-scale-grow.md#add-worker-nodes) do grupy serwerów i ponowne zrównoważenie fragmentów. Ponowne równoważenie dystrybuuje dane na większej liczbie komputerów.
+* Rozważ zwiększenie [pojemności](howto-hyperscale-scale-grow.md#increase-or-decrease-vcores-on-nodes) węzłów procesu roboczego. Każdy proces roboczy może mieć do 2 TiB magazynu. Należy jednak próbować dodać węzły przed zmianą rozmiarów węzłów, ponieważ Dodawanie węzłów kończy się szybciej.
 
 ### <a name="cpu-usage"></a>Użycie procesora
 

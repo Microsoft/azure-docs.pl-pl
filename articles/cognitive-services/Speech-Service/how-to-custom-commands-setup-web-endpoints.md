@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 0e2406cd35fb2d4dd99da4f5139a9f0f80697912
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: e50d7aba5cc5b3d5d620d844cc9ad169ad8b3bf6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566252"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025895"
 ---
 # <a name="set-up-web-endpoints"></a>Konfigurowanie internetowych punktów końcowych
 
@@ -49,18 +49,18 @@ W tym artykule dowiesz się, jak skonfigurować internetowe punkty końcowe w ap
    | Nagłówki | Klucz: aplikacja, Wartość: 8 pierwszych cyfr identyfikatora aplikacji | Parametry nagłówka do uwzględnienia w nagłówku żądania.|
 
     > [!NOTE]
-    > - Przykładowy internetowy punkt końcowy utworzony przy użyciu [funkcji platformy Azure](https://docs.microsoft.com/azure/azure-functions/), który łączy się z bazą danych zapisującą stan urządzenia telewizora i wentylatora
+    > - Przykładowy internetowy punkt końcowy utworzony przy użyciu [funkcji platformy Azure](../../azure-functions/index.yml), który łączy się z bazą danych zapisującą stan urządzenia telewizora i wentylatora
     > - Sugerowany nagłówek jest wymagany tylko w przypadku przykładowego punktu końcowego
     > - Aby upewnić się, że wartość nagłówka w naszym przykładowym punkcie końcowym jest unikatowa, użyj 8 pierwszych cyfr identyfikatora aplikacji
-    > - W rzeczywistym świecie internetowym punktem końcowym może być punkt końcowy [centrum IOT](https://docs.microsoft.com/azure/iot-hub/about-iot-hub), który zarządza Twoimi urządzeniami
+    > - W rzeczywistym świecie internetowym punktem końcowym może być punkt końcowy [centrum IOT](../../iot-hub/about-iot-hub.md), który zarządza Twoimi urządzeniami
 
 1. Kliknij pozycję **Zapisz**.
 
 ## <a name="call-web-endpoints"></a>Wywoływanie internetowych punktów końcowych
 
-1. Przejdź do polecenia **TurnOnOff** , w regule ukończenia wybierz pozycję **ConfirmationResponse** , a następnie wybierz pozycję **Dodaj akcję**.
+1. Przejdź do polecenia **TurnOnOff**, w regule ukończenia wybierz pozycję **ConfirmationResponse**, a następnie wybierz pozycję **Dodaj akcję**.
 1. W obszarze **Nowa akcja — Typ** wybierz pozycję **Wywołaj internetowy punkt końcowy**
-1. W obszarze **Edytuj akcję — Punkty końcowe** wybierz pozycję **UpdateDeviceState** , która jest utworzonym przez nas internetowym punktem końcowym.  
+1. W obszarze **Edytuj akcję — Punkty końcowe** wybierz pozycję **UpdateDeviceState**, która jest utworzonym przez nas internetowym punktem końcowym.  
 1. W obszarze **Konfiguracja** umieść następujące wartości: 
    > [!div class="mx-imgBorder"]
    > ![Parametry akcji wywoływania internetowych punktów końcowych](media/custom-commands/setup-web-endpoint-edit-action-parameters.png)

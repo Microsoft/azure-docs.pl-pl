@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: 2bd06491b5488223b9a8eba50839a7fdf0cd61b6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 480af87519f8e11c14f009058b0f518bdfc34a1b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478545"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026271"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Samouczek: projektowanie pulpitu nawigacyjnego analizy w czasie rzeczywistym za pomocą Azure Database for PostgreSQL — Citus
 
@@ -227,4 +227,4 @@ W poprzednich krokach zostały utworzone zasoby platformy Azure w grupie serwer�
 W tym samouczku pokazano, jak zainicjować obsługę administracyjną grupy serwerów Citus. Nawiązano połączenie z usługą PSQL, utworzono schemat i dane rozproszone. Wiesz już, jak wykonywać zapytania dotyczące danych w postaci pierwotnej, regularnie agregować te dane, wysyłać zapytania do zagregowanych tabel i wygasać stare dane.
 
 - Informacje o [typach węzłów](./concepts-hyperscale-nodes.md) grupy serwerów
-- Określ najlepszy [początkowy rozmiar](howto-hyperscale-scaling.md#picking-initial-size) grupy serwerów
+- Określ najlepszy [początkowy rozmiar](howto-hyperscale-scale-initial.md) grupy serwerów

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3baedd49843c7721b6dba464054d5535b4c4f1cd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 87fa97dafe9de4a23f5eaadfd4083cd1ca517cde
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785344"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026594"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>Informacje o interfejsie API strumieniowego wejścia audio zestawu mowy SDK
 
@@ -60,7 +60,7 @@ Następujące kroki są wymagane w przypadku korzystania ze strumieni danych wej
    };
   ```
 
-- Utwórz konfigurację audio w oparciu o format audio i strumień wejściowy. Podczas tworzenia aparatu rozpoznawania należy przekazać zwykłą konfigurację mowy i konfigurację wejściową audio. Na przykład:
+- Utwórz konfigurację audio w oparciu o format audio i strumień wejściowy. Podczas tworzenia aparatu rozpoznawania należy przekazać zwykłą konfigurację mowy i konfigurację wejściową audio. Przykład:
 
   ```csharp
   var audioConfig = AudioConfig.FromStreamInput(new ContosoAudioStream(config), audioFormat);
@@ -77,4 +77,4 @@ Następujące kroki są wymagane w przypadku korzystania ze strumieni danych wej
 ## <a name="next-steps"></a>Następne kroki
 
 - [Tworzenie bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/cognitive-services/)
-- [Zobacz jak rozpoznać mowę w języku C #](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+- [Zobacz jak rozpoznać mowę w języku C #](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet)

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: cf138248e878b21531df2035dfeda1b90162ea99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf5ab7361c84fb787366c7c361829e52362fe427
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536107"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025912"
 ---
 # <a name="intents-in-your-luis-app"></a>Intencje w aplikacji LUIS
 
@@ -32,7 +32,7 @@ Intencje dla aplikacji podróży   |   Przykładowe wypowiedzi   |
 Wszystkie aplikacje są dostarczane ze wstępnie zdefiniowanym zamiarem "[none](#none-intent)", który jest zamiarem alternatywnym.
 
 ## <a name="prebuilt-domains-provide-intents"></a>Wbudowane domeny zapewniają intencje
-Oprócz elementów docelowych, które można zdefiniować, można użyć prebudowanych intencji z jednej z [prekompilowanych domen](luis-how-to-use-prebuilt-domains.md).
+Oprócz elementów docelowych, które można zdefiniować, można użyć prebudowanych intencji z jednej z [prekompilowanych domen](./howto-add-prebuilt-models.md).
 
 ## <a name="return-all-intents-scores"></a>Zwróć wszystkie wyniki intencji
 Do jednego celu przypiszesz wypowiedź. Gdy LUIS odbiera wypowiedź w punkcie końcowym, domyślnie zwraca najwyższy zamiar dla tego wypowiedź.
@@ -59,7 +59,7 @@ Utwórz cel, gdy _zamiaru_ użytkownika wywoła akcję w aplikacji klienckiej, t
 
 ## <a name="prebuilt-domain-intents"></a>Prebudowane intencje domeny
 
-[Prebudowane domeny](luis-how-to-use-prebuilt-domains.md) zapewniają intencje wyrażenia długości.
+[Prebudowane domeny](./howto-add-prebuilt-models.md) zapewniają intencje wyrażenia długości.
 
 ## <a name="none-intent"></a>Intencja None
 

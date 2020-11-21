@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: 5685a2553b95308a1c18c3e490737338f609b594
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 7d4d1acac591bfe6ce40efcf6166357d43718363
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330941"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024963"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Popraw syntezę przy użyciu narzędzia do tworzenia zawartości audio
 
@@ -33,13 +33,13 @@ Tworzenie zawartości audio to bezpłatne narzędzie, ale płacisz za usługę A
 
 ### <a name="step-1---create-an-azure-account"></a>Krok 1. Tworzenie konta platformy Azure
 
-Aby móc korzystać z tworzenia zawartości audio, musisz mieć [konto Microsoft](https://account.microsoft.com/account) i [konto platformy Azure](https://azure.microsoft.com/free/ai/). Postępuj zgodnie z tymi instrukcjami, aby [skonfigurować konto](get-started.md#new-resource). 
+Aby móc korzystać z tworzenia zawartości audio, musisz mieć [konto Microsoft](https://account.microsoft.com/account) i [konto platformy Azure](https://azure.microsoft.com/free/ai/). Postępuj zgodnie z tymi instrukcjami, aby [skonfigurować konto](./overview.md#try-the-speech-service-for-free). 
 
 [Azure Portal](https://portal.azure.com/) to centralne miejsce, w którym można zarządzać kontem platformy Azure. Można utworzyć zasób mowy, zarządzać dostępem do produktu oraz monitorować wszystko z prostych aplikacji sieci Web w celu złożonych wdrożeń w chmurze. 
 
 ### <a name="step-2---create-a-speech-resource"></a>Krok 2. Tworzenie zasobu mowy
 
-Po zarejestrowaniu się do konta platformy Azure musisz utworzyć zasób mowy na koncie platformy Azure, aby uzyskać dostęp do usług mowy. Zapoznaj się z instrukcjami dotyczącymi [sposobu tworzenia zasobu mowy](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview#create-the-azure-resource). 
+Po zarejestrowaniu się do konta platformy Azure musisz utworzyć zasób mowy na koncie platformy Azure, aby uzyskać dostęp do usług mowy. Zapoznaj się z instrukcjami dotyczącymi [sposobu tworzenia zasobu mowy](./overview.md#create-the-azure-resource). 
 
 Wdrożenie nowego zasobu mowy trwa kilka minut. Po zakończeniu wdrażania możesz rozpocząć podróż tworzenia zawartości audio. 
 
@@ -63,7 +63,7 @@ Na tym diagramie przedstawiono kroki, które należy wykonać, aby dostosować w
 2. [Utwórz plik dostrajania audio](#create-an-audio-tuning-file) przy użyciu zwykłego tekstu lub skryptów SSML. Wpisz lub przekaż swoją zawartość do tworzenia zawartości audio.
 3. Wybierz głos i język zawartości skryptu. Tworzenie zawartości audio obejmuje wszystkie [głosy zamiany tekstu na mowę firmy Microsoft](language-support.md#text-to-speech). Możesz użyć standardowego, neuronowych lub własnego niestandardowego głosu.
    >[!NOTE]
-   > Dostęp warunkowy jest dostępny dla niestandardowych głosów neuronowych, które umożliwiają tworzenie głosów o wysokiej rozdzielczości, podobnie jak w przypadku mowy dźwięku naturalnego. Aby uzyskać więcej informacji, zobacz [kontroli Process](https://aka.ms/ignite2019/speech/ethics).
+   > Dostęp warunkowy jest dostępny dla niestandardowych głosów neuronowych, które umożliwiają tworzenie głosów o wysokiej rozdzielczości, podobnie jak w przypadku mowy dźwięku naturalnego. Aby uzyskać więcej informacji, zobacz [kontroli Process](./text-to-speech.md).
 
 4. Kliknij ikonę **odtwarzania** (trójkąt), aby wyświetlić podgląd domyślnego wyniku syntezy. Następnie Popraw dane wyjściowe przez dostosowanie wymowy, przerwania, skoku, stawki, intonation, stylu głosu i innych. Aby zapoznać się z pełną listą opcji, zobacz Language [syntezowania mowy](speech-synthesis-markup.md). Oto [film wideo](https://www.youtube.com/watch?v=O1wIJ7mts_w) , który pokazuje, jak dostosować dane wyjściowe mowy przy tworzeniu zawartości audio. 
 5. Zapisz i [wyeksportuj dostosowany dźwięk](#export-tuned-audio). Po zapisaniu ścieżki dostrajania w systemie można kontynuować pracę i iterację danych wyjściowych. Gdy dane wyjściowe są zadowalające, można utworzyć zadanie tworzenia dźwięku za pomocą funkcji eksportowania. Można obserwować stan zadania eksportu i pobrać dane wyjściowe do użycia z aplikacjami i produktami.
@@ -132,11 +132,11 @@ Jeśli więcej niż jeden użytkownik chce użyć tworzenia zawartości audio, m
 Wykonaj następujące kroki, aby dodać użytkownika do zasobu mowy, aby mogli używać tworzenia zawartości audio.
 
 1. Wyszukaj **usługi poznawcze** w [Azure Portal](https://portal.azure.com/)wybierz zasób mowy, do którego chcesz dodać użytkowników.
-2. Kliknij pozycję **Kontrola dostępu (IAM)** . Kliknij kartę **Przypisania ról** , aby wyświetlić wszystkie przypisania ról dla tej subskrypcji.
+2. Kliknij pozycję **Kontrola dostępu (IAM)** . Kliknij kartę **Przypisania ról**, aby wyświetlić wszystkie przypisania ról dla tej subskrypcji.
     :::image source="media/audio-content-creation/access-control-roles.png" alt-text="Karta Przypisanie roli":::
-1. Kliknij pozycję **Dodaj** > **Dodaj przypisanie roli** , aby otworzyć okienko Dodawanie przypisania roli. Z listy rozwijanej rola wybierz rolę **użytkownika usługi poznawczej** . Jeśli chcesz nadać użytkownikowi własność tego zasobu mowy, możesz wybrać rolę **właściciela** .
+1. Kliknij pozycję **Dodaj** > **Dodaj przypisanie roli**, aby otworzyć okienko Dodawanie przypisania roli. Z listy rozwijanej rola wybierz rolę **użytkownika usługi poznawczej** . Jeśli chcesz nadać użytkownikowi własność tego zasobu mowy, możesz wybrać rolę **właściciela** .
 1. Wybierz użytkownika z listy. Jeśli nie widzisz użytkownika na liście, możesz wpisać w polu Wybierz, aby wyszukać nazwy wyświetlane i adresy e-mail w katalogu. Jeśli użytkownik nie znajduje się w tym katalogu, można wprowadzić [konto Microsoft](https://account.microsoft.com/account) użytkownika (który jest traktowany jako zaufany przez usługę Azure Active Directory).
-1. Kliknij przycisk **Zapisz** , aby przypisać rolę. Po kilku chwilach użytkownik ma przypisaną rolę użytkownika usługi poznawczej w zakresie zasobów mowy.
+1. Kliknij przycisk **Zapisz**, aby przypisać rolę. Po kilku chwilach użytkownik ma przypisaną rolę użytkownika usługi poznawczej w zakresie zasobów mowy.
 
     :::image source="media/audio-content-creation/add-role-first.png" alt-text="Okno dialogowe Dodawanie roli":::
 
@@ -154,13 +154,13 @@ Użytkownicy, którzy znajdują się w tym samym zasobie mowy, zobaczą swoją s
 Jeśli chcesz, aby jeden z użytkowników miał dostęp do innych użytkowników, musisz nadać użytkownikowi rolę właściciela dla zasobu mowy i ustawić użytkownika jako czytnika katalogów platformy Azure. 
 1. Dodaj użytkownika jako właściciela zasobu mowy. Zobacz [, jak dodać użytkowników do zasobu mowy](#add-users-to-a-speech-resource).
     :::image source="media/audio-content-creation/add-role.png" alt-text="Pole właściciela roli":::
-1. Wybierz menu zwinięte w lewym górnym rogu. Kliknij przycisk **Azure Active Directory** , a następnie kliknij pozycję **Użytkownicy**.
+1. Wybierz menu zwinięte w lewym górnym rogu. Kliknij przycisk **Azure Active Directory**, a następnie kliknij pozycję **Użytkownicy**.
 1. Przeszukaj konto Microsoft użytkownika i przejdź do strony szczegółów użytkownika. Kliknij pozycję **przypisane role**.
 1. Kliknij pozycję **Dodaj przydziały**  ->  **katalogów**.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-* [Długi interfejs API audio](https://aka.ms/long-audio-api)
+* [Długi interfejs API audio](./long-audio-api.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: trbye
-ms.openlocfilehash: 5d95525c7dfecd44758c86903ca4a96c2290df52
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c27493748381a3aced92aab41745f352f228c50e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487787"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024997"
 ---
 # <a name="what-is-conversation-transcription-in-meetings-preview"></a>Co to jest transkrypcja konwersacji w trakcie spotkań (wersja zapoznawcza)?
 
@@ -34,7 +34,7 @@ Transkrypcja konwersacji to rozwiązanie typu ["Zamiana mowy na tekst](speech-to
 > [!NOTE]
 > Chociaż transkrypcja konwersacji nie ogranicza liczby głośników w pokoju, jest zoptymalizowana pod kątem 2-10 głośników na sesję.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Zapoznaj się z [przewodnikiem Szybki Start](how-to-use-conversation-transcription.md) dla konwersacji w czasie rzeczywistym, aby rozpocząć pracę.
 
@@ -54,7 +54,7 @@ Jest to ogólny przegląd sposobu działania transkrypcji konwersacji.
 
 ## <a name="expected-inputs"></a>Oczekiwane dane wejściowe
 
-- **Wielokanałowy strumień audio** — Aby uzyskać szczegółowe informacje dotyczące specyfikacji i projektowania, zobacz [mikrofon zestawu SDK urządzenia Microsoft Speech](https://aka.ms/cts/microphone). Aby dowiedzieć się więcej lub zakupić zestaw deweloperski, zobacz temat [pobieranie zestawu SDK urządzenia Microsoft Speech](https://aka.ms/cts/getsdk).
+- **Wielokanałowy strumień audio** — Aby uzyskać szczegółowe informacje dotyczące specyfikacji i projektowania, zobacz [mikrofon zestawu SDK urządzenia Microsoft Speech](./speech-devices-sdk-microphone.md). Aby dowiedzieć się więcej lub zakupić zestaw deweloperski, zobacz temat [pobieranie zestawu SDK urządzenia Microsoft Speech](./get-speech-devices-sdk.md).
 - **Przykłady głosu użytkownika** — transkrypcja konwersacji wymaga podania profilów użytkowników przed konwersacją. Należy zebrać nagrania audio od poszczególnych użytkowników, a następnie wysłać nagrań do [usługi generacji podpisów](https://aka.ms/cts/signaturegenservice) , aby zweryfikować dźwięk i wygenerować profile użytkowników.
 
 > [!NOTE]

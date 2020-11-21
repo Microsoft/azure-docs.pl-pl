@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a529875536c2feafe05695e5d20daed0873a95e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0503e0bf2fe152296ca6890e14503d05bd3bbeef
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934450"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024776"
 ---
 # <a name="implementing-voice-assistants-on-windows"></a>Implementowanie asystentów głosowych w systemie Windows
 
@@ -30,15 +30,15 @@ Po [skonfigurowaniu środowiska](how-to-windows-voice-assistants-get-started.md)
 
 #### <a name="ensure-that-the-microphone-is-available-and-accessible-then-monitor-its-state"></a>Upewnij się, że mikrofon jest dostępny i dostępny, a następnie monitoruj jego stan
 
-Aby można było wykryć aktywację głosową, w MVA musi być obecny mikrofon. Użyj klas [AppCapability](https://docs.microsoft.com/uwp/api/windows.security.authorization.appcapabilityaccess.appcapability?view=winrt-18362), [DeviceWatcher](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher?view=winrt-18362)i [MediaCapture](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture?view=winrt-18362) , aby sprawdzić, czy są dostępne odpowiednio ustawienia ochrony prywatności mikrofonu, obecności urządzenia i stanu urządzenia (np. głośności i wyciszenie).
+Aby można było wykryć aktywację głosową, w MVA musi być obecny mikrofon. Użyj klas [AppCapability](/uwp/api/windows.security.authorization.appcapabilityaccess.appcapability?view=winrt-18362), [DeviceWatcher](/uwp/api/windows.devices.enumeration.devicewatcher?view=winrt-18362)i [MediaCapture](/uwp/api/windows.media.capture.mediacapture?view=winrt-18362) , aby sprawdzić, czy są dostępne odpowiednio ustawienia ochrony prywatności mikrofonu, obecności urządzenia i stanu urządzenia (np. głośności i wyciszenie).
 
 ### <a name="register-the-application-with-the-background-service"></a>Rejestrowanie aplikacji w usłudze w tle
 
-Aby można było uruchomić aplikację w tle przez MVA, aplikacja musi zostać zarejestrowana w usłudze w tle. Zobacz pełny Przewodnik [po rejestracji usługi](https://docs.microsoft.com/windows/uwp/launch-resume/register-a-background-task)w tle.
+Aby można było uruchomić aplikację w tle przez MVA, aplikacja musi zostać zarejestrowana w usłudze w tle. Zobacz pełny Przewodnik [po rejestracji usługi](/windows/uwp/launch-resume/register-a-background-task)w tle.
 
 ### <a name="unlock-the-limited-access-feature"></a>Odblokuj funkcję ograniczonego dostępu
 
-Aby odblokować funkcję asystenta głosowego, należy użyć klucza funkcji ograniczonego dostępu zapewnianego przez firmę Microsoft. Użyj klasy [LimitedAccessFeature](https://docs.microsoft.com/uwp/api/windows.applicationmodel.limitedaccessfeatures?view=winrt-18362) z Windows SDK, aby to zrobić.
+Aby odblokować funkcję asystenta głosowego, należy użyć klucza funkcji ograniczonego dostępu zapewnianego przez firmę Microsoft. Użyj klasy [LimitedAccessFeature](/uwp/api/windows.applicationmodel.limitedaccessfeatures?view=winrt-18362) z Windows SDK, aby to zrobić.
 
 ### <a name="register-the-keyword-for-the-application"></a>Zarejestruj słowo kluczowe dla aplikacji
 
@@ -86,7 +86,7 @@ Gdy aplikacja agenta głosowego zostanie aktywowana za pomocą głosu, następny
 
 ### <a name="retrieve-activation-audio"></a>Pobierz dźwięk aktywacji
 
-Utwórz element [AudioGraph](https://docs.microsoft.com/uwp/api/windows.media.audio.audiograph) i przekaż go do `CreateAudioDeviceInputNodeAsync` elementu `ConversationalAgentSession` . Spowoduje to załadowanie buforu audio wykresu przy użyciu dźwięku *rozpoczynającego się około 3 sekund przed wykryciem słowa kluczowego*. Ten dodatkowy dźwięk wiodący jest uwzględniany w celu dopasowania do szerokiego zakresu długości słów kluczowych i szybkości głośników. Następnie należy obsłużyć zdarzenie [QuantumStarted](https://docs.microsoft.com/uwp/api/windows.media.audio.audiograph.quantumstarted?view=winrt-18362) z grafu audio, aby pobrać dane audio.
+Utwórz element [AudioGraph](/uwp/api/windows.media.audio.audiograph) i przekaż go do `CreateAudioDeviceInputNodeAsync` elementu `ConversationalAgentSession` . Spowoduje to załadowanie buforu audio wykresu przy użyciu dźwięku *rozpoczynającego się około 3 sekund przed wykryciem słowa kluczowego*. Ten dodatkowy dźwięk wiodący jest uwzględniany w celu dopasowania do szerokiego zakresu długości słów kluczowych i szybkości głośników. Następnie należy obsłużyć zdarzenie [QuantumStarted](/uwp/api/windows.media.audio.audiograph.quantumstarted?view=winrt-18362) z grafu audio, aby pobrać dane audio.
 
 ```csharp
 var inputNode = await agentSession.CreateAudioDeviceInputNodeAsync(audioGraph);
@@ -118,7 +118,7 @@ Poniższe kroki obejmują wymagania umożliwiające włączenie asystenta głoso
 
 Aby uzyskać wskazówki dotyczące projektowania powyżej środowiska blokady, zapoznaj się z [przewodnikiem najlepszymi rozwiązaniami](windows-voice-assistants-best-practices.md).
 
-Gdy aplikacja pokazuje widok powyżej blokady, jest uznawana za w trybie kiosku. Aby uzyskać więcej informacji na temat implementowania aplikacji korzystającej z trybu kiosku, zobacz [dokumentację trybu kiosku](https://docs.microsoft.com/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access).
+Gdy aplikacja pokazuje widok powyżej blokady, jest uznawana za w trybie kiosku. Aby uzyskać więcej informacji na temat implementowania aplikacji korzystającej z trybu kiosku, zobacz [dokumentację trybu kiosku](/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access).
 
 ### <a name="transitioning-above-lock"></a>Przejście powyżej blokady
 
@@ -149,7 +149,7 @@ Wpis aplikacji na stronie Ustawienia prywatności aktywacji głosowej ma przeł�
 Aby program programowo zamknąć aplikację w czasie powyżej lub poniżej blokady, użyj `WindowService.CloseWindow()` interfejsu API. Powoduje to wyzwolenie wszystkich metod cyklu życia platformy UWP, w tym onsuspend, umożliwiając aplikacji usuwanie jej `ConversationalAgentSession` wystąpienia przed zamknięciem.
 
 > [!NOTE]
-> Aplikacja może zostać ZAMKNIĘTA bez zamykania [poniższego wystąpienia blokady](https://docs.microsoft.com/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access#add-a-way-out-of-assigned-access-). W takim przypadku powyższym widok blokady musi być "oczyszczanie", upewniając się, że po odblokowaniu ekranu nie ma obsługi zdarzeń ani zadań, które próbują manipulować powyższym widokiem blokady.
+> Aplikacja może zostać ZAMKNIĘTA bez zamykania [poniższego wystąpienia blokady](/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access#add-a-way-out-of-assigned-access-). W takim przypadku powyższym widok blokady musi być "oczyszczanie", upewniając się, że po odblokowaniu ekranu nie ma obsługi zdarzeń ani zadań, które próbują manipulować powyższym widokiem blokady.
 
 ## <a name="next-steps"></a>Następne kroki
 

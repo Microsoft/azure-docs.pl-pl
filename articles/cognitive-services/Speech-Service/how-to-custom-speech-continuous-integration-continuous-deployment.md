@@ -10,20 +10,20 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: de0065abaf5669859e864186fc9a3fb88219414b
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f82ea154d5949f4d229ac76e7a7ce2a89d15ac13
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555825"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025671"
 ---
 # <a name="cicd-for-custom-speech"></a>Ciągła integracja/ciągłe wdrażanie dla usługi Custom Speech
 
 Zaimplementuj zautomatyzowane szkolenia, testowanie i zarządzanie wydaniami, aby umożliwić ciągłe ulepszanie modeli Custom Speech podczas stosowania aktualizacji do szkoleń i testowania danych. Dzięki efektywnej implementacji przepływów pracy ciągłej integracji/ciągłego dostępu można upewnić się, że punkt końcowy najlepszego Custom Speech modelu jest zawsze dostępny.
 
-[Ciągła integracja](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-integration) (ci) to proces inżynieryjny często zatwierdzania aktualizacji w repozytorium udostępnionym i wykonywania zautomatyzowanej kompilacji. Przepływy pracy CI dla Custom Speech przeszkolią nowy model ze źródeł danych i przeprowadź automatyczne testowanie na nowym modelu, aby upewnić się, że działa lepiej niż poprzedni model.
+[Ciągła integracja](/azure/devops/learn/what-is-continuous-integration) (ci) to proces inżynieryjny często zatwierdzania aktualizacji w repozytorium udostępnionym i wykonywania zautomatyzowanej kompilacji. Przepływy pracy CI dla Custom Speech przeszkolią nowy model ze źródeł danych i przeprowadź automatyczne testowanie na nowym modelu, aby upewnić się, że działa lepiej niż poprzedni model.
 
-[Ciągłe dostarczanie](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-delivery) (CD) pobiera modele z procesu ci i tworzy punkt końcowy dla każdego ulepszonego modelu Custom Speech. Dzięki temu punkty końcowe są łatwo dostępne do zintegrowania z rozwiązaniami.
+[Ciągłe dostarczanie](/azure/devops/learn/what-is-continuous-delivery) (CD) pobiera modele z procesu ci i tworzy punkt końcowy dla każdego ulepszonego modelu Custom Speech. Dzięki temu punkty końcowe są łatwo dostępne do zintegrowania z rozwiązaniami.
 
 Możliwe są niestandardowe rozwiązania ciągłej integracji/ciągłego wdrażania, ale dla niezawodnego, wstępnie skompilowanego rozwiązania Użyj [repozytorium szablonów DevOps mowy](https://github.com/Azure-Samples/Speech-Service-DevOps-Template), które wykonuje przepływy pracy ciągłej integracji/ciągłego wdrażania za pomocą akcji usługi GitHub.
 
@@ -73,7 +73,7 @@ Większość zespołów wymaga ręcznego przeglądu i procesu zatwierdzania wdro
 
 Użyj następujących narzędzi dla przepływów pracy usługi CI/CD Automation dla Custom Speech:
 
-- [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) do tworzenia uwierzytelniania jednostki usługi platformy Azure, wykonywania zapytań dotyczących subskrypcji platformy Azure i zapisywania wyników testów w obiekcie blob platformy Azure.
+- [Interfejs wiersza polecenia platformy Azure](/cli/azure/?view=azure-cli-latest) do tworzenia uwierzytelniania jednostki usługi platformy Azure, wykonywania zapytań dotyczących subskrypcji platformy Azure i zapisywania wyników testów w obiekcie blob platformy Azure.
 - [Interfejs wiersza polecenia usługi Azure Speech](spx-overview.md) do współpracy z usługą mowy z poziomu wiersza poleceń lub zautomatyzowanego przepływu pracy.
 
 ## <a name="devops-solution-for-custom-speech-using-github-actions"></a>DevOps rozwiązanie do Custom Speech przy użyciu akcji GitHub
@@ -84,7 +84,7 @@ Aby uzyskać już zaimplementowane rozwiązanie DevOps dla Custom Speech, przejd
 
 - Skopiuj repozytorium szablonów do swojego konta usługi GitHub, a następnie utwórz zasoby platformy Azure i jednostkę [usług](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) dla przepływów pracy Ci/CD akcji usługi GitHub.
 - Zapoznaj się z tematem "[Pętla wewnętrzna dev](https://mitchdenny.com/the-inner-loop/)". Aktualizowanie szkoleń i testowania danych z gałęzi funkcji, testowanie zmian przy użyciu tymczasowego modelu programowania i zgłaszanie żądania ściągnięcia w celu zaproponowania i przejrzenia zmian.
-- Gdy dane szkoleniowe są aktualizowane w ramach żądania ściągnięcia do *głównego* , nauczenie modeli z przepływem pracy Ci akcji usługi GitHub.
+- Gdy dane szkoleniowe są aktualizowane w ramach żądania ściągnięcia do *głównego*, nauczenie modeli z przepływem pracy Ci akcji usługi GitHub.
 - Wykonaj zautomatyzowane testowanie dokładności, aby określić [Współczynnik błędów wyrazów](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) dla modelu. Przechowaj wyniki testów w obiekcie blob platformy Azure.
 - Wykonaj przepływ pracy na dysku CD, aby utworzyć punkt końcowy, gdy raportowanie błędów systemu Windows poprawi.
 

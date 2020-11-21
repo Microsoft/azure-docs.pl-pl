@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 09/02/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 242d131e79966ebdb286a20f75d20f91f5fa7406
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b4034f9b7a5a9ec856134e27b422736e2c98f04a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91334654"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025195"
 ---
 # <a name="what-is-language-understanding-luis"></a>Co to jest usługa Language Understanding (LUIS)?
 
@@ -50,7 +50,7 @@ Aplikacja usługi LUIS przeprowadza analizy, dzięki którym aplikacja kliencka 
 
 Twoja aplikacja LUIS zawiera model języka naturalnego specyficzny dla domeny. Możesz uruchomić aplikację LUIS ze wstępnie utworzonym modelem domeny, utworzyć własny model lub połączyć elementy wstępnie utworzonej domeny z własnymi informacjami.
 
-* **Model wstępnie utworzony** usługi LUIS zawiera wiele wstępnie utworzonych modeli domeny, w tym intencje, wypowiedzi i wstępnie utworzone jednostki. Możesz skorzystać z wstępnie utworzonych jednostek bez konieczności korzystania z intencji i wypowiedzi wstępnie utworzonego modelu. [Wstępnie utworzone modele domeny](luis-how-to-use-prebuilt-domains.md "Wstępnie utworzone modele domen") zawierają kompletny projekt i są świetnym sposobem, aby szybko rozpocząć korzystanie z usługi LUIS.
+* **Model wstępnie utworzony** usługi LUIS zawiera wiele wstępnie utworzonych modeli domeny, w tym intencje, wypowiedzi i wstępnie utworzone jednostki. Możesz skorzystać z wstępnie utworzonych jednostek bez konieczności korzystania z intencji i wypowiedzi wstępnie utworzonego modelu. [Wstępnie utworzone modele domeny](./howto-add-prebuilt-models.md "Wstępnie utworzone modele domen") zawierają kompletny projekt i są świetnym sposobem, aby szybko rozpocząć korzystanie z usługi LUIS.
 
 * **Model niestandardowy** LUIS oferuje kilka sposobów identyfikacji własnych niestandardowych modeli, w tym intencje i jednostki. Jednostki obejmują jednostki uczenia maszynowego, określone lub literałowe jednostki oraz kombinację uczenia maszynowego i literału.
 
@@ -116,7 +116,7 @@ Narzędzia do szybkiego i łatwego korzystania z usługi LUIS z botem:
 
 ## <a name="integrate-with-a-bot"></a>Integracja z usługą bot
 
-Użyj [usługi Azure bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0 "Usługa Azure bot") z [platformą Microsoft bot Framework](https://dev.botframework.com/ "Microsoft Bot Framework") , aby skompilować i wdrożyć aplikację Chat bot. Projektuj i opracowuj przy użyciu narzędzia interfejsu graficznego, [kompozytora](https://docs.microsoft.com/composer/ "Program Composer")lub [roboczych przykładów bot](https://github.com/microsoft/BotBuilder-Samples "Przykłady pracy z bot") zaprojektowanych dla najważniejszych scenariuszy bot.
+Użyj [usługi Azure bot](/azure/bot-service/?view=azure-bot-service-4.0 "Usługa Azure bot") z [platformą Microsoft bot Framework](https://dev.botframework.com/ "Microsoft Bot Framework") , aby skompilować i wdrożyć aplikację Chat bot. Projektuj i opracowuj przy użyciu narzędzia interfejsu graficznego, [kompozytora](/composer/ "Program Composer")lub [roboczych przykładów bot](https://github.com/microsoft/BotBuilder-Samples "Przykłady pracy z bot") zaprojektowanych dla najważniejszych scenariuszy bot.
 
 ## <a name="integrate-with-other-cognitive-services"></a>Integracja z innymi Cognitive Services
 
@@ -138,8 +138,8 @@ Dowiedz się więcej na temat LUIS z przewodnikami Szybki Start przy użyciu [po
 * [Zbadaj punkt końcowy przewidywania](luis-get-started-get-intent-from-browser.md "Wykonywanie zapytania dotyczącego punktu końcowego przewidywania").
 * [Zasoby dla deweloperów](developer-reference-resource.md "Zasoby dla deweloperów") dla Luis.
 
-[bot-framework]: https://docs.microsoft.com/bot-framework/
-[flow]: https://docs.microsoft.com/connectors/luis/
+[bot-framework]: /bot-framework/
+[flow]: /connectors/luis/
 [authoring-apis]: https://go.microsoft.com/fwlink/?linkid=2092087
 [endpoint-apis]: https://go.microsoft.com/fwlink/?linkid=2092356
 [qnamaker]: https://qnamaker.ai/

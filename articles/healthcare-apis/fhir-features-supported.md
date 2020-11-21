@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: cavoeg
-ms.openlocfilehash: 609bd01e8dcb0e9202d1d9dbe1d1fc1a01cac550
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 71097f13fffbbe5cb57a69c98fb0ab272e16af5c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368285"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026305"
 ---
 # <a name="features"></a>Funkcje
 
@@ -61,7 +61,7 @@ Wszystkie typy parametrów wyszukiwania są obsługiwane.
 | Token                 | Tak       | Tak       | Tak       |         |
 | Dokumentacja             | Tak       | Tak       | Tak       |         |
 | Złożenie             | Tak       | Tak       | Tak       |         |
-| Liczba              | Tak       | Tak       | Tak       |         |
+| Ilość              | Tak       | Tak       | Tak       |         |
 | URI                   | Tak       | Tak       | Tak       |         |
 | Jako               | Nie        | Nie        | Nie        |         |
 
@@ -100,8 +100,8 @@ Wszystkie typy parametrów wyszukiwania są obsługiwane.
 |-------------------------|-----------|-----------|-----------|---------|
 | `_sort`                 | Częściowe        | Częściowe   | Częściowe        |   `_sort=_lastUpdated` jest obsługiwana       |
 | `_count`                | Tak       | Tak       | Tak       | `_count` jest ograniczone do 100 znaków. Jeśli ustawiona na wartość większą niż 100, zostaną zwrócone tylko 100, a w pakiecie zostanie zwrócone ostrzeżenie. |
-| `_include`              | Nie        | Tak       | Nie        |         |
-| `_revinclude`           | Nie        | Tak       | Nie        | Uwzględnione elementy są ograniczone do 100. |
+| `_include`              | Tak       | Tak       | Tak       |Uwzględnione elementy są ograniczone do 100. Dołączenie do PaaS i OSS na Cosmos DB nie obejmuje: ITERING support.|
+| `_revinclude`           | Tak       | Tak       | Tak       | Uwzględnione elementy są ograniczone do 100. Dołączenie do PaaS i OSS na Cosmos DB nie obejmuje: ITERING support.|
 | `_summary`              | Częściowe   | Częściowe   | Częściowe   | `_summary=count` jest obsługiwana |
 | `_total`                | Częściowe   | Częściowe   | Częściowe   | _total = non i _total = dokładne      |
 | `_elements`             | Tak       | Tak       | Tak       |         |
@@ -132,6 +132,27 @@ Cosmos DB to baza danych oparta na globalnie rozproszonym modelu (SQL API, Mongo
 Serwer FHIR używa [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) na potrzeby kontroli dostępu. W konkretnym przypadku jest wymuszane Role-Based Access Control (RBAC), jeśli `FhirServer:Security:Enabled` parametr konfiguracji jest ustawiony na `true` , a wszystkie żądania (z wyjątkiem `/metadata` ) do serwera FHIR muszą mieć `Authorization` nagłówek żądania ustawiony na `Bearer <TOKEN>` . Token musi zawierać co najmniej jedną rolę zdefiniowaną w ramach tego `roles` żądania. Żądanie będzie dozwolone, jeśli token zawiera rolę, która zezwala na określoną akcję dla określonego zasobu.
 
 Obecnie dozwolone akcje dla danej roli są stosowane *globalnie* w interfejsie API.
+
+## <a name="service-limits"></a>Limity usługi
+
+* [**Jednostki żądań (jednostek ru)**](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) — możesz skonfigurować do 10 000 jednostek RU w portalu dla interfejsu API platformy Azure dla FHIR. Wymagana jest co najmniej 400 jednostek ru lub 10 jednostek ru/GB, w zależności od tego, co będzie większe. Jeśli potrzebujesz więcej niż 10 000 jednostek ru, możesz umieścić bilet pomocy technicznej w celu zwiększenia tego problemu. Maksymalna dostępna wartość to 1 000 000.
+
+* **Współbieżne połączenia** i **wystąpienia** — dzięki dafault masz pięć współbieżnych połączeń na dwóch wystąpieniach w klastrze (w sumie 10 współbieżnych żądań). Jeśli uważasz, że potrzebujesz więcej współbieżnych żądań, Otwórz bilet pomocy technicznej ze szczegółowymi informacjami dotyczącymi Twoich potrzeb.
+
+* **Rozmiar pakietu** — każdy pakiet jest ograniczony do 500 elementów.
+
+* **Rozmiar danych** — dane/dokumenty muszą być nieco mniejsze niż 2 MB.
+
+## <a name="performance-expectations"></a>Oczekiwania dotyczące wydajności
+
+Wydajność systemu zależy od liczby jednostek ru, połączeń współbieżnych i typu wykonywanych operacji (Put, post itp.). Poniżej znajdują się niektóre ogólne zakresy, których można oczekiwać na podstawie skonfigurowanych jednostek ru. Ogólnie rzecz biorąc, wydajność skaluje się liniowo ze wzrostem jednostek ru:
+
+| Liczba jednostek ru | Zasoby/s |
+|----------|---------------|
+| 400      | 5-10          |
+| 1000    | 100-150       |
+| 10 000   | 225-400       |
+| 100 000  | 2500 – 4000   |
 
 ## <a name="next-steps"></a>Następne kroki
 

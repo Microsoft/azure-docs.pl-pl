@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 9bcc3d08fa29109cf4178f8eb0c3efe661323ef0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6f01354bb5aa2b78d3c9962bac49be39dd2c81f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541785"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025997"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Wyodrębnij dane z wypowiedź tekstu z intencjami i jednostkami
 LUIS daje możliwość uzyskiwania informacji z wyrażenia długości języka naturalnego użytkownika. Informacje są wyodrębniane w taki sposób, aby mogły być używane przez program, aplikację lub czat bot. W poniższych sekcjach dowiesz się, jakie dane są zwracane z intencji i jednostek z przykładami JSON.
@@ -33,7 +33,7 @@ LUIS wyodrębnia dane z wypowiedź użytkownika w opublikowanym [punkcie końcow
 **Odpowiedź https** zawiera wszystkie zamierzenia i informacje o jednostce, które Luis mogą ustalić w oparciu o aktualnie opublikowany model punktu końcowego lub produkcyjnego. Adres URL punktu końcowego znajduje się w witrynie sieci Web [Luis](luis-reference-regions.md) w sekcji **Zarządzanie** na stronie **klucze i punkty końcowe** .
 
 ## <a name="data-from-intents"></a>Dane z intencji
-Dane podstawowe są największą **nazwą przeznaczenie**oceniania. Odpowiedź punktu końcowego to:
+Dane podstawowe są największą **nazwą przeznaczenie** oceniania. Odpowiedź punktu końcowego to:
 
 #### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania wersji 2](#tab/V2)
 
@@ -193,7 +193,7 @@ Dowiedz się więcej o [punkcie końcowym przewidywania v3](luis-migration-api-v
 
 * * *
 
-|Obszar|Obiekt danych|Typ danych|Lokalizacja danych|Wartość|
+|Domena|Obiekt danych|Typ danych|Lokalizacja danych|Wartość|
 |--|--|--|--|--|
 |Narzędzia|Zamiar|Ciąg|intencje [0]. cel|"<b>Narzędzia</b>. ShowNext"|
 |Komunikacja|Zamiar|Ciąg|intencje [1]. cel|<b>Komunikacja</b>. StartOver"|
@@ -232,9 +232,9 @@ Jednostki [PersonName](luis-reference-prebuilt-person.md) i [GeographyV2](luis-r
 
 ### <a name="names-of-people"></a>Nazwy osób
 
-Nazwa osoby może mieć nieco niewielki format w zależności od języka i kultury. Użyj wstępnie utworzonej jednostki **[PersonName](luis-reference-prebuilt-person.md)** lub **[prostej jednostki](luis-concept-entity-types.md#simple-entity)** z [rolami](luis-concept-roles.md) imię i nazwisko.
+Nazwa osoby może mieć nieco niewielki format w zależności od języka i kultury. Użyj wstępnie utworzonej jednostki **[PersonName](luis-reference-prebuilt-person.md)** lub **[prostej jednostki](luis-concept-entity-types.md)** z rolami imię i nazwisko.
 
-Jeśli używasz prostej jednostki, upewnij się, że są podane przykłady, które używają pierwszej i ostatniej nazwy w różnych częściach wypowiedź, w wyrażenia długości o różnej długości i wyrażenia długości we wszystkich intencjach, w tym dla opcji Brak. Regularnie [Przeglądaj](luis-how-to-review-endoint-utt.md) wyrażenia długości punktu końcowego, aby oznaczyć wszystkie nazwy, które nie zostały prawidłowo przewidywalne.
+Jeśli używasz prostej jednostki, upewnij się, że są podane przykłady, które używają pierwszej i ostatniej nazwy w różnych częściach wypowiedź, w wyrażenia długości o różnej długości i wyrażenia długości we wszystkich intencjach, w tym dla opcji Brak. Regularnie [Przeglądaj](./luis-how-to-review-endpoint-utterances.md) wyrażenia długości punktu końcowego, aby oznaczyć wszystkie nazwy, które nie zostały prawidłowo przewidywalne.
 
 ### <a name="names-of-places"></a>Nazwy miejsc
 
@@ -242,17 +242,17 @@ Nazwy lokalizacji są ustawiane i znane, takie jak miasta, powiaty, Stany, prowi
 
 ### <a name="new-and-emerging-names"></a>Nowe i pojawiające się nazwy
 
-Niektóre aplikacje muszą być w stanie znaleźć nowe i pojawiające się nazwy, takie jak produkty lub firmy. Te typy nazw są najbardziej trudnym typem wyodrębniania danych. Zacznij od **[prostej jednostki](luis-concept-entity-types.md#simple-entity)** i Dodaj [listę fraz](luis-concept-feature.md). Regularnie [Przeglądaj](luis-how-to-review-endoint-utt.md) wyrażenia długości punktu końcowego, aby oznaczyć wszystkie nazwy, które nie zostały prawidłowo przewidywalne.
+Niektóre aplikacje muszą być w stanie znaleźć nowe i pojawiające się nazwy, takie jak produkty lub firmy. Te typy nazw są najbardziej trudnym typem wyodrębniania danych. Zacznij od **[prostej jednostki](luis-concept-entity-types.md#simple-entity)** i Dodaj [listę fraz](luis-concept-feature.md). Regularnie [Przeglądaj](./luis-how-to-review-endpoint-utterances.md) wyrażenia długości punktu końcowego, aby oznaczyć wszystkie nazwy, które nie zostały prawidłowo przewidywalne.
 
 ## <a name="patternany-entity-data"></a>Wzorzec. wszystkie dane jednostki
 
 [Wzorzec. any](reference-entity-pattern-any.md) jest symbolem zastępczym o zmiennej długości używanym tylko w szablonie wzorca wypowiedź, aby oznaczyć, gdzie rozpoczyna się i kończą. Aby można było zastosować wzorzec, należy znaleźć jednostkę używaną we wzorcu.
 
 ## <a name="sentiment-analysis"></a>Analiza tonacji
-Jeśli podczas [publikowania](luis-how-to-publish-app.md#sentiment-analysis)tonacji analiza jest skonfigurowana, odpowiedź JSON Luis zawiera analizę tonacji. Dowiedz się więcej o analizie tonacji w dokumentacji [Analiza tekstu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) .
+Jeśli podczas [publikowania](luis-how-to-publish-app.md#sentiment-analysis)tonacji analiza jest skonfigurowana, odpowiedź JSON Luis zawiera analizę tonacji. Dowiedz się więcej o analizie tonacji w dokumentacji [Analiza tekstu](../text-analytics/index.yml) .
 
 ## <a name="key-phrase-extraction-entity-data"></a>Dane jednostki wyodrębniania klucza
-[Jednostka wyodrębniania klucza](luis-reference-prebuilt-keyphrase.md) zwraca kluczowe frazy w wypowiedź, dostarczone przez [Analiza tekstu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
+[Jednostka wyodrębniania klucza](luis-reference-prebuilt-keyphrase.md) zwraca kluczowe frazy w wypowiedź, dostarczone przez [Analiza tekstu](../text-analytics/index.yml).
 
 ## <a name="data-matching-multiple-entities"></a>Dane pasujące do wielu jednostek
 

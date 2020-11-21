@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: c9f7168bc0524b483413ade9792af18ff9cfebfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40736764cf9cec6f652e0147eb25d83f15c5bee2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358546"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024946"
 ---
 # <a name="what-is-custom-commands"></a>Co to są polecenia niestandardowe?
 
@@ -28,7 +28,7 @@ Polecenia niestandardowe najlepiej nadają się do wykonywania zadań lub scenar
 > [!TIP]
 > Obejrzyj nasze przykładowe pokazy na naszej stronie docelowej pod adresem [https://speech.microsoft.com/customcommands](https://speech.microsoft.com/customcommands) .
 
-Jeśli interesuje Cię tworzenie złożonych aplikacji do konwersacji, zachęcasz do wypróbowania platformy bot przy użyciu [rozwiązania Virtual Assistant](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Możesz dodać głos do dowolnych bot Framework bot przy użyciu bezpośredniej mowy wiersza.
+Jeśli interesuje Cię tworzenie złożonych aplikacji do konwersacji, zachęcasz do wypróbowania platformy bot przy użyciu [rozwiązania Virtual Assistant](/azure/bot-service/bot-builder-enterprise-template-overview). Możesz dodać głos do dowolnych bot Framework bot przy użyciu bezpośredniej mowy wiersza.
 
 Dobre kandydaci dla poleceń niestandardowych mają stałe słownictwo ze zdefiniowanymi zestawami zmiennych. Na przykład doskonałe zadania automatyzacji, takie jak kontrolowanie termostatu, są idealne.
 

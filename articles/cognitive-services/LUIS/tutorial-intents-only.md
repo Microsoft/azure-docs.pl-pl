@@ -5,18 +5,18 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/05/2020
-ms.openlocfilehash: c4a564834166686e8280f1117269742b489fc62c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 398324099f923a5141b172d61f9fd41a69dbf069
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334756"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025297"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Samouczek: Tworzenie aplikacji LUIS w celu określenia zamiarów użytkownika
 
 W tym samouczku utworzysz aplikację niestandardową, która przewiduje zamiar użytkownika w oparciu o wypowiedź (tekst).
 
-**Ten samouczek zawiera informacje na temat wykonywania następujących czynności:**
+**Z tego samouczka dowiesz się, jak wykonywać następujące czynności:**
 
 > [!div class="checklist"]
 > * Tworzenie nowej aplikacji
@@ -193,7 +193,7 @@ Gdy usługa LUIS zwróci odpowiedź w formacie JSON, żądanie zostanie wykonane
 * [Jak trenować](luis-how-to-train.md)
 * [Jak opublikować](luis-how-to-publish-app.md)
 * [Jak przeprowadzać testy w portalu usługi LUIS](luis-interactive-test.md)
-* [Azure Bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
+* [Azure Bot](/azure/bot-service/?view=azure-bot-service-4.0)
 
 
 ## <a name="next-steps"></a>Następne kroki

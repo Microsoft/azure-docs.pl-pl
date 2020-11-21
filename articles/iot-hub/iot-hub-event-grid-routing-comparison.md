@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
 ms.custom: fasttrack-edit
-ms.openlocfilehash: fa5c4bc1aae91e9e40b6d14ad5c12b8d1aee68f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f0853261e770b2cba9a243ae66b0b0d766fcd92
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767603"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024691"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Porównanie routingu komunikatów i Event Grid dla IoT Hub
 
@@ -30,19 +30,19 @@ Usługa Azure IoT Hub oferuje możliwość przesyłania strumieniowego danych z 
 
 Chociaż zarówno Routing komunikatów, jak i Event Grid włączają konfigurację alertów, istnieją pewne kluczowe różnice między nimi. Szczegółowe informacje znajdują się w poniższej tabeli:
 
-| Cecha | IoT Hub Routing komunikatów | IoT Hub integrację z usługą Event Grid |
+| Obiekt feature | IoT Hub Routing komunikatów | IoT Hub integrację z usługą Event Grid |
 | ------- | --------------- | ---------- |
 | **Komunikaty i zdarzenia urządzenia** | Tak. w przypadku danych telemetrycznych można używać routingu komunikatów, zgłaszać zmiany sznurka urządzenia, zdarzenia cyklu życia urządzenia (np. gdy urządzenia są tworzone, usuwane, połączone i odłączone od IoT Hub) oraz zdarzenia zmiany cyfrowych sznurów. | Tak, Event Grid może służyć do obsługi danych telemetrycznych i zdarzeń cyklu życia urządzenia. Nie można jednak używać usługi Event Grid na potrzeby zdarzeń zmiany sznurka urządzenia i zdarzeń zmiany cyfrowych sznurów. |
-| **Zamówienie** | Tak, porządkowanie zdarzeń jest zachowywane.  | Nie, kolejność zdarzeń nie jest gwarantowana. | 
+| **Zamawianie** | Tak, porządkowanie zdarzeń jest zachowywane.  | Nie, kolejność zdarzeń nie jest gwarantowana. | 
 | **Filtrowanie** | Zaawansowane filtrowanie właściwości aplikacji komunikatów, właściwości systemu komunikatów, treści wiadomości, znaczniki sznurka urządzenia i właściwości sznurów urządzeń. Filtrowanie nie jest stosowane do wieloosiowych zdarzeń zmiany. Aby zapoznać się z przykładami, zobacz [Składnia zapytania dotyczącego routingu komunikatów](iot-hub-devguide-routing-query-syntax.md). | Filtrowanie na podstawie typu zdarzenia, typu podmiotu i atrybutów w każdym zdarzeniu. Aby zapoznać się z przykładami, zobacz [Opis filtrowania zdarzeń w Event Grid subskrypcje](../event-grid/event-filtering.md). Podczas subskrybowania zdarzeń telemetrii można zastosować dodatkowe filtry do danych w celu filtrowania właściwości komunikatów, treści wiadomości i sznurów urządzeń w IoT Hub przed opublikowaniem w Event Grid. Zobacz [Jak filtrować zdarzenia](../iot-hub/iot-hub-event-grid.md#filter-events). |
-| **Punkty końcowe** | <ul><li>Event Hubs</li> <li>Azure Blob Storage</li> <li>Kolejka usługi Service Bus</li> <li>Tematy usługi Service Bus</li></ul><br>Płatne IoT Hub jednostki SKU (S1, S2 i S3) są ograniczone do 10 niestandardowych punktów końcowych. 100 tras można utworzyć na IoT Hub. | <ul><li>Azure Functions</li> <li>Azure Automation</li> <li>Event Hubs</li> <li>Logic Apps</li> <li>Storage Blob</li> <li>Tematy niestandardowe</li> <li>Queue Storage</li> <li>Microsoft Flow</li> <li>Usługi innych firm za poorednictwem elementów webhook</li></ul><br>500 punktów końcowych na IoT Hub są obsługiwane. Aby uzyskać najbardziej aktualną listę punktów końcowych, zobacz [Event Grid obsługi zdarzeń](../event-grid/overview.md#event-handlers). |
+| **Punkty końcowe** | <ul><li>Event Hubs</li> <li>Azure Blob Storage</li> <li>Kolejka usługi Service Bus</li> <li>Tematy usługi Service Bus</li></ul><br>Płatne IoT Hub jednostki SKU (S1, S2 i S3) są ograniczone do 10 niestandardowych punktów końcowych. 100 tras można utworzyć na IoT Hub. | <ul><li>Azure Functions</li> <li>Azure Automation</li> <li>Event Hubs</li> <li>Logic Apps</li> <li>Storage Blob</li> <li>Tematy niestandardowe</li> <li>Queue Storage</li> <li>Power Automate</li> <li>Usługi innych firm za poorednictwem elementów webhook</li></ul><br>500 punktów końcowych na IoT Hub są obsługiwane. Aby uzyskać najbardziej aktualną listę punktów końcowych, zobacz [Event Grid obsługi zdarzeń](../event-grid/overview.md#event-handlers). |
 | **Koszty** | Nie ma oddzielnej opłaty za Routing komunikatów. Opłata jest naliczana tylko za transfer danych telemetrycznych do IoT Hub. Na przykład jeśli masz komunikat kierowany do trzech różnych punktów końcowych, opłaty są naliczane tylko za jeden komunikat. | Nie jest naliczana opłata od IoT Hub. Event Grid oferuje bezpłatnie pierwszych 100 000 operacji miesięcznie, a następnie $0,60 za milion operacji. |
 
 ## <a name="similarities"></a>Podobieństwa
 
 IoT Hub Routing komunikatów i Event Grid mają podobne podobieństwa, ale niektóre z nich opisano szczegółowo w poniższej tabeli:
 
-| Cecha | IoT Hub Routing komunikatów | IoT Hub integrację z usługą Event Grid |
+| Obiekt feature | IoT Hub Routing komunikatów | IoT Hub integrację z usługą Event Grid |
 | ------- | --------------- | ---------- |
 | **Maksymalny rozmiar komunikatu** | 256 KB, urządzenie-chmura | 256 KB, urządzenie-chmura |
 | **Niezawodność** | Wysoka: dostarcza każdy komunikat do punktu końcowego co najmniej raz dla każdej trasy. Wygaśnie wszystkie komunikaty, które nie zostały dostarczone w ciągu godziny. | Wysoka: dostarcza każdy komunikat do elementu webhook co najmniej raz dla każdej subskrypcji. Wygaśnie wszystkie zdarzenia, które nie zostały dostarczone w ciągu 24 godzin. | 
