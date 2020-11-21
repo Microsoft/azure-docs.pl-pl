@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 844252d5ae86ccdd853c4c65889f7233f69215ff
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: f083ae097995dc618dbbe096d7cddfa57e96e78b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535983"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013918"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-nodejs"></a>Szybki Start: Wyodrębnij drukowany tekst (OCR) przy użyciu interfejsu API REST przetwarzanie obrazów i Node.js
 
 > [!NOTE]
-> W przypadku wyodrębniania tekstu w języku angielskim należy rozważyć użycie nowej [operacji odczytu](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text).
+> W przypadku wyodrębniania tekstu w języku angielskim należy rozważyć użycie nowej [operacji odczytu](../concept-recognizing-text.md).
 
 W tym przewodniku szybki start wyodrębnisz drukowany tekst z użyciem optycznego rozpoznawania znaków (OCR) z obrazu przy użyciu interfejsu API REST przetwarzanie obrazów. Metoda optycznego rozpoznawania znaków ([OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d)) pozwala wykrywać na obrazie tekst wydrukowany i wyodrębniać rozpoznane znaki do strumienia znaków, którego mogą używać komputery.
 
@@ -33,7 +33,7 @@ W tym przewodniku szybki start wyodrębnisz drukowany tekst z użyciem optyczneg
 * Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" Utwórz zasób przetwarzanie obrazów "  target="_blank"> utwórz zasób przetwarzanie obrazów <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
     * Będziesz potrzebować klucza i punktu końcowego z zasobu, który utworzysz, aby połączyć aplikację z usługą przetwarzanie obrazów. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
     * Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
-* [Utwórz zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla adresu URL klucza i punktu końcowego `COMPUTER_VISION_SUBSCRIPTION_KEY` , `COMPUTER_VISION_ENDPOINT` odpowiednio nazwane i.
+* [Utwórz zmienne środowiskowe](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) dla adresu URL klucza i punktu końcowego `COMPUTER_VISION_SUBSCRIPTION_KEY` , `COMPUTER_VISION_ENDPOINT` odpowiednio nazwane i.
 
 ## <a name="create-and-run-the-sample"></a>Tworzenie i uruchamianie próbki
 

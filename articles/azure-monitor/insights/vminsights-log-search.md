@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 64884f07bc59e5ff2b29eac645ddb469ef3db465
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b3fdf052ce7f0d6a5c3497aa1ac971d9249546a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87325189"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015596"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Jak wykonywać zapytania dotyczące dzienników z Azure Monitor dla maszyn wirtualnych
 
@@ -230,7 +230,7 @@ Rekordy z typem *VMProcess* mają dane spisu dla procesów połączonych z proto
 |Plik wykonywalny | Nazwa pliku wykonywalnego procesu | 
 |Nazwa wyświetlana | Nazwa wyświetlana procesu |
 |Rola | Rola procesu: *WebServer*, *appServer*, *databaseServer*, *ldapServer*, *smbServer* |
-|Group (Grupa) | Nazwa grupy procesów. Procesy w tej samej grupie są logicznie powiązane, np. częścią tego samego produktu lub składnika systemu. |
+|Grupa | Nazwa grupy procesów. Procesy w tej samej grupie są logicznie powiązane, np. częścią tego samego produktu lub składnika systemu. |
 |StartTime | Godzina rozpoczęcia puli procesów |
 |FirstPid | Pierwszy Identyfikator PID w puli procesów |
 |Opis | Opis procesu |
@@ -446,7 +446,7 @@ Rekordy z typem *InsightsMetrics* mają dane dotyczące wydajności z systemu op
 |Val | Zebrana wartość | 
 |Tagi | Powiązane szczegółowe informacje o rekordzie. Zapoznaj się z poniższą tabelą dla tagów używanych z różnymi typami rekordów.  |
 |Identyfikator agenta | Unikatowy identyfikator dla agenta każdego komputera |
-|Type | *InsightsMetrics* |
+|Typ | *InsightsMetrics* |
 |_ResourceId_ | Identyfikator zasobu maszyny wirtualnej |
 
 Liczniki wydajności aktualnie zebrane w tabeli *InsightsMetrics* są wymienione w poniższej tabeli:
@@ -475,5 +475,5 @@ Liczniki wydajności aktualnie zebrane w tabeli *InsightsMetrics* są wymienione
 
 * Jeśli jesteś nowym sposobem pisania zapytań dzienników w Azure Monitor, zapoznaj się z [tematem jak używać log Analytics](../log-query/get-started-portal.md) w Azure Portal do zapisywania zapytań dzienników.
 
-* Dowiedz się więcej na temat [pisania zapytań wyszukiwania](../log-query/search-queries.md).
+* Dowiedz się więcej na temat [pisania zapytań wyszukiwania](/azure/azure-monitor/log-query/get-started-queries).
 

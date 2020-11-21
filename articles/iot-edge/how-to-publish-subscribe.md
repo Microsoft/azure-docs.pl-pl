@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: ef92895374f07c79f8ba8d626a0aab3d89733f40
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 1ace40098e1d53c6199accea755ffb6969781663
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629652"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015667"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publikowanie i subskrybowanie za pomocą Azure IoT Edge
 
@@ -209,7 +209,7 @@ Teraz, gdy rozumiesz, jak nawiązać połączenie z IoT Edge brokerem MQTT, zoba
 
 ## <a name="publish-and-subscribe-on-user-defined-topics"></a>Publikowanie i subskrybowanie tematów zdefiniowanych przez użytkownika
 
-W tym artykule opisano użycie jednego klienta o nazwie **sub_client** , który subskrybuje temat i inny klient o nazwie **pub_client** , który publikuje w temacie. Użyjemy uwierzytelniania przy użyciu [klucza symetrycznego](how-to-authenticate-downstream-device.md#symmetric-key-authentication) , ale ten sam można wykonać przy użyciu uwierzytelniania z podpisem [własnym x. 509](how-to-authenticate-downstream-device.md#x509-self-signed-authentication) lub uwierzytelniania z podpisem [własnym x. 509](./how-to-authenticate-downstream-device.md#x509-self-signed-authentication).
+W tym artykule opisano użycie jednego klienta o nazwie **sub_client** , który subskrybuje temat i inny klient o nazwie **pub_client** , który publikuje w temacie. Użyjemy uwierzytelniania przy użyciu [klucza symetrycznego](how-to-authenticate-downstream-device.md#symmetric-key-authentication) , ale ten sam można wykonać przy użyciu uwierzytelniania z podpisem [własnym x. 509](how-to-authenticate-downstream-device.md#x509-self-signed-authentication) lub [uwierzytelniania podpisanego przez urząd certyfikacji x. 509](./how-to-authenticate-downstream-device.md#x509-ca-signed-authentication).
 
 ### <a name="create-publisher-and-subscriber-clients"></a>Tworzenie klientów wydawcy i subskrybentów
 
@@ -331,7 +331,7 @@ Należy zauważyć, że w pierwszym przykładzie jest używany port 1883 (MQTT),
 
 Klient **sub_client** MQTT jest teraz uruchamiany i oczekuje na komunikaty przychodzące w usłudze `test_topic` .
 
-#### <a name="publish"></a>Opublikuj
+#### <a name="publish"></a>Publikowanie
 
 Połącz klienta **pub_client** MQTT z brokerem MQTT i opublikuje komunikat w tym samym pliku `test_topic` , co powyżej, uruchamiając następujące polecenie na urządzeniu IoT Edge z innego terminalu:
 

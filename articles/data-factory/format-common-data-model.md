@@ -1,18 +1,18 @@
 ---
 title: Format Common Data Model
 description: Przekształcanie danych przy użyciu systemu metadanych usługi Common Data Model
-author: djpmsft
+author: kromerm
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/13/2020
-ms.author: daperlov
-ms.openlocfilehash: 452aa3406ac09dd8342d8ade0b56b126067b7582
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/20/2020
+ms.author: makromer
+ms.openlocfilehash: 7fc3a63f841a88451746d088a527a41d756e711f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636412"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015175"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Format Common Data Model w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -39,20 +39,24 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez źródło CD
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Format | Format musi być `cdm` | yes | `cdm` | format |
 | Format metadanych | Miejsce, w którym znajdują się odwołania do danych jednostki. Jeśli jest używany program CDM w wersji 1,0, wybierz pozycję Manifest. W przypadku używania wersji CDM przed 1,0 wybierz pozycję model.json. | Tak | `'manifest'` lub `'model'` | manifesttype |
-| Lokalizacja główna: kontener | Nazwa kontenera folderu CDM | yes | String | Wymagany |
-| Lokalizacja główna: ścieżka folderu | Lokalizacja folderu głównego folderu CDM | yes | String | folderPath |
-| Plik manifestu: ścieżka jednostki | Ścieżka folderu jednostki w folderze głównym | nie | String | entityPath |
+| Lokalizacja główna: kontener | Nazwa kontenera folderu CDM | yes | Ciąg | Wymagany |
+| Lokalizacja główna: ścieżka folderu | Lokalizacja folderu głównego folderu CDM | yes | Ciąg | folderPath |
+| Plik manifestu: ścieżka jednostki | Ścieżka folderu jednostki w folderze głównym | nie | Ciąg | entityPath |
 | Plik manifestu: Nazwa manifestu | Nazwa pliku manifestu. Wartość domyślna to "default"  | Nie | Ciąg | manifestname |
 | Filtruj według ostatniej modyfikacji | Wybierz filtrowanie plików na podstawie czasu ich ostatniej modyfikacji | nie | Timestamp | modifiedAfter <br> modifiedBefore | 
 | Połączona usługa schematu | Połączona usługa, w której znajduje się korpus | tak, jeśli używasz manifestu | `'adlsgen2'` lub `'github'` | corpusStore | 
-| Kontener odwołania do jednostki | Korpus kontenerów znajduje się w | tak, jeśli używasz manifestu i korpus w ADLS Gen2 | String | adlsgen2_fileSystem |
-| Repozytorium odwołań do jednostek | Nazwa repozytorium GitHub | tak, jeśli używasz manifestu i korpus w usłudze GitHub | String | github_repository |
-| Gałąź odwołania do jednostki | Gałąź repozytorium GitHub | tak, jeśli używasz manifestu i korpus w usłudze GitHub | String |  github_branch |
-| Folder korpus | główna lokalizacja korpus | tak, jeśli używasz manifestu | String | corpusPath |
-| Jednostka korpus | Ścieżka do odwołania do jednostki | yes | String | jednostka |
+| Kontener odwołania do jednostki | Korpus kontenerów znajduje się w | tak, jeśli używasz manifestu i korpus w ADLS Gen2 | Ciąg | adlsgen2_fileSystem |
+| Repozytorium odwołań do jednostek | Nazwa repozytorium GitHub | tak, jeśli używasz manifestu i korpus w usłudze GitHub | Ciąg | github_repository |
+| Gałąź odwołania do jednostki | Gałąź repozytorium GitHub | tak, jeśli używasz manifestu i korpus w usłudze GitHub | Ciąg |  github_branch |
+| Folder korpus | główna lokalizacja korpus | tak, jeśli używasz manifestu | Ciąg | corpusPath |
+| Jednostka korpus | Ścieżka do odwołania do jednostki | yes | Ciąg | jednostka |
 | Nie znaleziono plików | W przypadku wartości true błąd nie jest zgłaszany, jeśli nie znaleziono plików | nie | `true` lub `false` | ignoreNoFilesFound |
 
-Jeśli definicja jednostki, która ma być używana w transformacji źródłowej, znajduje się w tym samym katalogu, co folder danych, można usunąć zaznaczenie opcji "Użyj jednostki z korpus" i po prostu wpisać w jednostce jednostki, która ma być używana jako odwołanie do jednostki.
+W przypadku wybrania opcji "odwołanie do jednostki" w transformacje źródła i ujścia można wybrać jedną z tych trzech opcji lokalizacji odwołania do jednostki:
+
+* Lokalna używa jednostki zdefiniowanej w pliku manifestu, który jest już używany przez ADF
+* Niestandardowi zostanie poproszony o wskazanie pliku manifestu jednostki, który jest inny niż plik manifestu ADF używa
+* Standard użyje odwołania do jednostki z standardowej biblioteki jednostek CDM przechowywanych w ```Github``` .
 
 ### <a name="sink-settings"></a>Ustawienia ujścia
 
@@ -117,20 +121,20 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez ujścia CDM.
 | Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Format | Format musi być `cdm` | yes | `cdm` | format |
-| Lokalizacja główna: kontener | Nazwa kontenera folderu CDM | yes | String | Wymagany |
-| Lokalizacja główna: ścieżka folderu | Lokalizacja folderu głównego folderu CDM | yes | String | folderPath |
-| Plik manifestu: ścieżka jednostki | Ścieżka folderu jednostki w folderze głównym | nie | String | entityPath |
+| Lokalizacja główna: kontener | Nazwa kontenera folderu CDM | yes | Ciąg | Wymagany |
+| Lokalizacja główna: ścieżka folderu | Lokalizacja folderu głównego folderu CDM | yes | Ciąg | folderPath |
+| Plik manifestu: ścieżka jednostki | Ścieżka folderu jednostki w folderze głównym | nie | Ciąg | entityPath |
 | Plik manifestu: Nazwa manifestu | Nazwa pliku manifestu. Wartość domyślna to "default" | Nie | Ciąg | manifestname |
 | Połączona usługa schematu | Połączona usługa, w której znajduje się korpus | yes | `'adlsgen2'` lub `'github'` | corpusStore | 
-| Kontener odwołania do jednostki | Korpus kontenerów znajduje się w | tak, jeśli korpus w ADLS Gen2 | String | adlsgen2_fileSystem |
-| Repozytorium odwołań do jednostek | Nazwa repozytorium GitHub | tak, jeśli korpus w serwisie GitHub | String | github_repository |
-| Gałąź odwołania do jednostki | Gałąź repozytorium GitHub | tak, jeśli korpus w serwisie GitHub | String |  github_branch |
-| Folder korpus | główna lokalizacja korpus | yes | String | corpusPath |
-| Jednostka korpus | Ścieżka do odwołania do jednostki | yes | String | jednostka |
-| Ścieżka partycji | Lokalizacja, w której zostanie zapisywana partycja | nie | String | partitionPath |
+| Kontener odwołania do jednostki | Korpus kontenerów znajduje się w | tak, jeśli korpus w ADLS Gen2 | Ciąg | adlsgen2_fileSystem |
+| Repozytorium odwołań do jednostek | Nazwa repozytorium GitHub | tak, jeśli korpus w serwisie GitHub | Ciąg | github_repository |
+| Gałąź odwołania do jednostki | Gałąź repozytorium GitHub | tak, jeśli korpus w serwisie GitHub | Ciąg |  github_branch |
+| Folder korpus | główna lokalizacja korpus | yes | Ciąg | corpusPath |
+| Jednostka korpus | Ścieżka do odwołania do jednostki | yes | Ciąg | jednostka |
+| Ścieżka partycji | Lokalizacja, w której zostanie zapisywana partycja | nie | Ciąg | partitionPath |
 | Wyczyść folder | Jeśli folder docelowy został wyczyszczony przed zapisem | nie | `true` lub `false` | obciąć |
 | Typ formatu | Wybierz, aby określić format Parquet | nie | `parquet` Jeśli określony | podformat |
-| Ogranicznik kolumny | Jeśli piszesz do DelimitedText, jak ograniczać kolumny | tak, jeśli piszesz do DelimitedText | String | columnDelimiter |
+| Ogranicznik kolumny | Jeśli piszesz do DelimitedText, jak ograniczać kolumny | tak, jeśli piszesz do DelimitedText | Ciąg | columnDelimiter |
 | Pierwszy wiersz jako nagłówek | W przypadku korzystania z DelimitedText, niezależnie od tego, czy nazwy kolumn są dodawane jako nagłówek | nie | `true` lub `false` | columnNamesAsHeader |
 
 ### <a name="cdm-sink-data-flow-script-example"></a>Przykład skryptu przepływu danych ujścia CDM

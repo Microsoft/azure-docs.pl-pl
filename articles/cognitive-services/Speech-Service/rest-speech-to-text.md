@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2bb66d8a197a33d6d0ad46502b510662f43ea1ca
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 89e5fa180b011cbedebc25a5e5d555a2190805f8
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94988565"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015362"
 ---
 # <a name="speech-to-text-rest-api"></a>Interfejs API REST zamiany mowy na tekst
 
@@ -30,7 +30,7 @@ Przed użyciem interfejsu API REST zamiany mowy na tekst należy wziąć pod uwa
 Jeśli wysyłanie dłuższego dźwięku jest wymagane dla aplikacji, należy rozważyć użycie [zestawu Speech SDK](speech-sdk.md) lub interfejsu API REST opartego na plikach, takiego jak [transkrypcja partii](batch-transcription.md).
 
 > [!TIP]
-> Zobacz punkty końcowe dla systemu [Azure dla instytucji rządowych](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) (FairFax).
+> Zobacz punkty końcowe dla systemu [Azure dla instytucji rządowych](../../azure-government/compare-azure-government-global-azure.md) (FairFax).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -307,5 +307,5 @@ Typowa odpowiedź na potrzeby rozpoznawania z oceną wymowy:
 ## <a name="next-steps"></a>Następne kroki
 
 - [Tworzenie bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/cognitive-services/)
-- [Samouczek: tworzenie niestandardowego modelu akustycznego](how-to-customize-acoustic-models.md)
-- [Samouczek: tworzenie niestandardowego modelu językowego](how-to-customize-language-model.md)
+- [Samouczek: tworzenie niestandardowego modelu akustycznego](./how-to-custom-speech-train-model.md)
+- [Samouczek: tworzenie niestandardowego modelu językowego](./how-to-custom-speech-train-model.md)

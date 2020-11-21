@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: cf4b321425ccaae877c2ff5c9b54f429d95a3515
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b9966d4d9ab0a37f5484ec9eb9b7e2472a6b41dc
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312314"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95012914"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Uczenie wzmacniające (wersja zapoznawcza) dzięki Azure Machine Learning
 
@@ -52,7 +52,7 @@ Uruchom ten kod w dowolnym z następujących środowisk. Zalecamy wypróbowanie 
     - Zainstaluj [zestaw SDK Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
     - Zainstaluj [zestaw SDK Azure Machine Learning RL](/python/api/azureml-contrib-reinforcementlearning/?preserve-view=true&view=azure-ml-py): `pip install --upgrade azureml-contrib-reinforcementlearning`
     - Utwórz [plik konfiguracji obszaru roboczego](how-to-configure-environment.md#workspace).
-    - Uruchom [Notes konfiguracji](https://aka.ms/azure-rl-env-setup) sieci wirtualnej, aby otworzyć porty sieciowe używane do uczenia rozproszonego wzmacniania.
+    - Uruchom sieć wirtualną, aby otworzyć porty sieciowe używane do uczenia rozproszonego wzmacniania.
 
 
 ## <a name="how-to-train-a-pong-playing-agent"></a>Jak szkolić agenta pong

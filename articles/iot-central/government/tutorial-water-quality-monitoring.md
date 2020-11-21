@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: a80fe998c1ab241e35bee195b927846e264dec59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07f0e66888eaa909dfce14924e9186bcb9b876b4
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972361"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014496"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Samouczek: Tworzenie aplikacji do monitorowania jakości wody na platformie Azure IoT Central
 
@@ -56,7 +56,7 @@ W tej sekcji użyjesz szablonu **monitorowania jakości wody** platformy Azure I
 
     * **Nazwa aplikacji**: Domyślnie nazwa aplikacji to **monitorowanie jakości wody** , a po nim unikatowy ciąg identyfikacyjny generowany przez usługę Azure IoT Central. Jeśli chcesz, możesz wprowadzić nazwę wyświetlaną lub później zmienić nazwę aplikacji.
     * **Adres URL**: możesz wprowadzić dowolny adres URL lub później zmienić wartość adresu URL.
-    * Jeśli masz subskrypcję platformy Azure, wprowadź wartości dla **katalogu**, **subskrypcji platformy Azure**i **regionu**. Jeśli nie masz subskrypcji, możesz włączyć **7-dniową bezpłatną wersję próbną** i uzupełnić wymagane informacje kontaktowe.
+    * Jeśli masz subskrypcję platformy Azure, wprowadź wartości dla **katalogu**, **subskrypcji platformy Azure** i **regionu**. Jeśli nie masz subskrypcji, możesz włączyć **7-dniową bezpłatną wersję próbną** i uzupełnić wymagane informacje kontaktowe.
 
     Aby uzyskać więcej informacji na temat katalogów i subskrypcji, zobacz [Tworzenie aplikacji](../core/quick-deploy-iot-central.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) — Szybki Start.
 
@@ -188,7 +188,7 @@ Na karcie **urządzenia** wybierz pozycję **+ Nowy** , aby dodać nowe urządze
 
 ## <a name="explore-and-configure-rules"></a>Eksplorowanie i konfigurowanie reguł
 
-Na platformie Azure IoT Central można utworzyć reguły, które automatycznie monitorują dane telemetryczne urządzenia. Te reguły wyzwalają akcję w przypadku spełnienia dowolnego z nich warunków. Jedną z możliwych czynności jest wysłanie powiadomień e-mail. Inne możliwości obejmują akcję Microsoft Flow lub akcję elementu webhook w celu wysyłania danych do innych usług.
+Na platformie Azure IoT Central można utworzyć reguły, które automatycznie monitorują dane telemetryczne urządzenia. Te reguły wyzwalają akcję w przypadku spełnienia dowolnego z nich warunków. Jedną z możliwych czynności jest wysłanie powiadomień e-mail. Inne możliwości obejmują akcję automatyzacji lub akcję elementu webhook w celu wysyłania danych do innych usług.
 
 Utworzona aplikacja do monitorowania jakości wody ma dwie wstępnie skonfigurowane reguły.
 
@@ -232,16 +232,16 @@ Za pomocą zadań IoT Central platformy Azure można wyzwolić aktualizacje wła
 Jako Konstruktor można zmienić kilka ustawień, aby dostosować środowisko użytkownika w aplikacji.
 
 1. Wybierz pozycję **Administracja**  >  **Dostosuj aplikację**.
-1. W obszarze **logo aplikacji**wybierz pozycję **Zmień** , aby wybrać obraz do przekazania jako logo.
-1. W obszarze **ikona przeglądarki**wybierz pozycję **Zmień** , aby wybrać obraz wyświetlany na kartach przeglądarki.
-1. W obszarze **kolory przeglądarki**można zastąpić wartości domyślne kodami szesnastkowymi w formacie HTML.
+1. W obszarze **logo aplikacji** wybierz pozycję **Zmień** , aby wybrać obraz do przekazania jako logo.
+1. W obszarze **ikona przeglądarki** wybierz pozycję **Zmień** , aby wybrać obraz wyświetlany na kartach przeglądarki.
+1. W obszarze **kolory przeglądarki** można zastąpić wartości domyślne kodami szesnastkowymi w formacie HTML.
 1. Wybierz pozycję **Ustawienia** , aby zmienić wartość **motywu**.
 
    ![Dostosowywanie aplikacji](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-customize-your-application1.png)
 
 ### <a name="update-the-application-image"></a>Aktualizowanie obrazu aplikacji
 
-1. Wybierz **Administration**pozycję  >  **Ustawienia aplikacji**administracyjnej.
+1. Wybierz **Administration** pozycję  >  **Ustawienia aplikacji** administracyjnej.
 
 1. Użyj przycisku **Wybierz obraz** , aby wybrać obraz do przekazania jako obraz aplikacji.
 

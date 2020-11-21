@@ -9,12 +9,12 @@ ms.date: 10/16/2020
 ms.author: euang
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: fbcc7ffbde49acfd9afc180418d618060eb923c1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 6f777b605c5050b7fa4b3b9e3671f3638ad67372
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313539"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016262"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Zarządzanie bibliotekami Apache Spark w usłudze Azure Synapse Analytics
 
@@ -92,9 +92,9 @@ Aby zainstalować bibliotekę w puli platformy Spark (wersja zapoznawcza) bezpo�
 Aby sprawdzić, czy są zainstalowane poprawne wersje odpowiednich bibliotek, uruchom następujący kod
 
 ```python
-import pip #needed to use the pip functions
-for i in pip.get_installed_distributions(local_only=True):
-    print(i)
+import pkg_resources
+for d in pkg_resources.working_set:
+     print(d)
 ```
 ### <a name="update-python-packages"></a>Aktualizowanie pakietów języka Python
 Pakiety mogą być dodawane lub modyfikowane w dowolnym momencie między sesjami. Po przekazaniu nowego pliku konfiguracji pakietu spowoduje to zastąpienie istniejących pakietów i wersji.  
@@ -112,7 +112,7 @@ Aby zaktualizować lub odinstalować bibliotekę:
    
 
 > [!IMPORTANT]
-> Wybierając opcję **Wymuś nowe ustawienia** , zostaną zakończone wszystkie bieżące sesje dla wybranej puli platformy Spark. Po zakończeniu sesji należy poczekać na ponowne uruchomienie puli. 
+> Wybierając opcję **Wymuś nowe ustawienia**, zostaną zakończone wszystkie bieżące sesje dla wybranej puli platformy Spark. Po zakończeniu sesji należy poczekać na ponowne uruchomienie puli. 
 >
 > Jeśli to ustawienie nie jest zaznaczone, trzeba będzie poczekać na zakończenie bieżącej sesji platformy Spark lub zatrzymać ją ręcznie. Po zakończeniu sesji należy pozwolić na ponowne uruchomienie puli. 
 

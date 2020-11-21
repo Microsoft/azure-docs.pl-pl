@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 7b430f16e96c6d59fe85c711d07e323bf848b069
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: dd6ca0de98bb44e070eeaaebf3f29f9e19b061cc
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541253"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013844"
 ---
 # <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Szybki start: korzystanie z modelu domeny w funkcji przetwarzania obrazów przy użyciu interfejsu API REST i języka Python
 
@@ -33,7 +33,7 @@ Możesz pracować z tym przewodnikiem Szybki start krok po kroku, korzystając z
 * Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" Utwórz zasób przetwarzanie obrazów "  target="_blank"> utwórz zasób przetwarzanie obrazów <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
     * Będziesz potrzebować klucza i punktu końcowego z zasobu, który utworzysz, aby połączyć aplikację z usługą przetwarzanie obrazów. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
     * Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
-* [Utwórz zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla adresu URL klucza i punktu końcowego `COMPUTER_VISION_SUBSCRIPTION_KEY` , `COMPUTER_VISION_ENDPOINT` odpowiednio nazwane i.
+* [Utwórz zmienne środowiskowe](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) dla adresu URL klucza i punktu końcowego `COMPUTER_VISION_SUBSCRIPTION_KEY` , `COMPUTER_VISION_ENDPOINT` odpowiednio nazwane i.
 
 ## <a name="create-and-run-the-landmarks-sample"></a>Tworzenie i uruchamianie przykładowego kodu do rozpoznawania elementów krajobrazu
 
@@ -210,6 +210,6 @@ Gdy pliki obu przykładów nie będą już potrzebne, usuń je.
 Następnie zapoznaj się z aplikacją w języku Python, która używa przetwarzanie obrazów do wykonywania optycznego rozpoznawania znaków (OCR). Twórz inteligentne, przycięte miniatury; wykrywaj, Kategoryzuj i opisuj funkcje wizualne w obrazach.
 
 > [!div class="nextstepaction"]
-> [Computer Vision API Python Tutorial (Samouczek dla języka Python dotyczący interfejsu API przetwarzania obrazów)](../Tutorials/PythonTutorial.md)
+> [Computer Vision API Python Tutorial (Samouczek dla języka Python dotyczący interfejsu API przetwarzania obrazów)](https://github.com/Microsoft/Cognitive-Vision-Python)
 
 * Aby szybko zacząć eksperymentować z interfejsem API przetwarzania obrazów, wypróbuj [konsolę testowania interfejsu Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).

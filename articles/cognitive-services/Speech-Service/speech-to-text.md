@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: Zamiana mowy na tekst, oprogramowanie zamiany mowy na tekst
-ms.openlocfilehash: f4392881c2f572b1e53d7c283ef5c1debc1d20ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f26d896397a950bc2c5f5d1f66dca6a01da045d7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91359940"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015226"
 ---
 # <a name="what-is-speech-to-text"></a>Co to jest zamiana mowy na tekst?
 
@@ -48,7 +48,7 @@ Przykładowy kod dla zestawu Speech SDK jest dostępny w witrynie GitHub. Te prz
 
 ## <a name="customization"></a>Dostosowywanie
 
-Oprócz standardowego modelu usługi mowy można tworzyć modele niestandardowe. Dostosowanie pomaga w przezwyciężeniu barier rozpoznawania mowy, takich jak styl mowy, słownictwo i hałas w tle, zobacz [Custom Speech](how-to-custom-speech.md). Opcje dostosowywania różnią się w zależności od języka/ustawień regionalnych, zobacz [obsługiwane języki](supported-languages.md) , aby sprawdzić pomoc techniczną.
+Oprócz standardowego modelu usługi mowy można tworzyć modele niestandardowe. Dostosowanie pomaga w przezwyciężeniu barier rozpoznawania mowy, takich jak styl mowy, słownictwo i hałas w tle, zobacz [Custom Speech](how-to-custom-speech.md). Opcje dostosowywania różnią się w zależności od języka/ustawień regionalnych, zobacz [obsługiwane języki](./language-support.md) , aby sprawdzić pomoc techniczną.
 
 ## <a name="batch-transcription"></a>Transkrypcja wsadowa
 

@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: 7d31649e18f8cc687a9716c8ecafe556fa250de6
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 14b9429de5432680e5203e392827efa32e2a2a38
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377891"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015400"
 ---
 # <a name="what-is-the-speech-service"></a>Czym jest usługa rozpoznawania mowy?
 
-Usługa mowy to zjednoczenie zamiany mowy na tekst, tekstu na mowę i tłumaczenia mowy na jedną subskrypcję platformy Azure. Można łatwo włączyć obsługę mowy dla aplikacji, narzędzi i urządzeń za pomocą [interfejsu wiersza polecenia mowy](spx-overview.md), [zestawu Speech SDK](speech-sdk-reference.md), [zestawu Speech Devices SDK](https://aka.ms/sdsdk-quickstart), [mowy Studio](https://speech.microsoft.com/)lub [interfejsów API REST](rest-apis.md).
+Usługa mowy to zjednoczenie zamiany mowy na tekst, tekstu na mowę i tłumaczenia mowy na jedną subskrypcję platformy Azure. Można łatwo włączyć obsługę mowy dla aplikacji, narzędzi i urządzeń za pomocą [interfejsu wiersza polecenia mowy](spx-overview.md), [zestawu Speech SDK](./speech-sdk.md), [zestawu Speech Devices SDK](./speech-devices-sdk-quickstart.md?pivots=platform-android), [mowy Studio](https://speech.microsoft.com/)lub [interfejsów API REST](#reference-docs).
 
 > [!IMPORTANT]
 > Usługa mowy została zastąpiona interfejs API rozpoznawania mowy Bing i tłumaczenie mowy w usłudze Translator. Zapoznaj się z sekcją _migracja_ , aby uzyskać instrukcje dotyczące migracji.
@@ -28,16 +28,16 @@ Poniższe funkcje są częścią usługi mowy. Skorzystaj z łączy w tej tabeli
 
 | Usługa | Cechy | Opis | SDK | REST |
 |---------|---------|-------------|-----|------|
-| [Zamiana mowy na tekst](speech-to-text.md) | Zamiana mowy na tekst w czasie rzeczywistym | Funkcja zamiany mowy na tekst przekształca lub tłumaczy strumienie audio lub pliki lokalne na tekst w czasie rzeczywistym, gdy aplikacje, narzędzia lub urządzenia mogą korzystać z lub wyświetlać. Używaj zamiany mowy na tekst za pomocą [Language Understanding (Luis)](https://docs.microsoft.com/azure/cognitive-services/luis/) , aby uzyskać intencje użytkownika z uzyskanego mowy i korzystać z poleceń głosowych. | [Tak](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Tak](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Zamiana mowy na tekst](speech-to-text.md) | Zamiana mowy na tekst w czasie rzeczywistym | Funkcja zamiany mowy na tekst przekształca lub tłumaczy strumienie audio lub pliki lokalne na tekst w czasie rzeczywistym, gdy aplikacje, narzędzia lub urządzenia mogą korzystać z lub wyświetlać. Używaj zamiany mowy na tekst za pomocą [Language Understanding (Luis)](../luis/index.yml) , aby uzyskać intencje użytkownika z uzyskanego mowy i korzystać z poleceń głosowych. | [Tak](./speech-sdk.md) | [Tak](#reference-docs) |
 | | [Zamiana mowy na tekst w usłudze Batch](batch-transcription.md) | Funkcja zamiany mowy na tekst w usłudze Batch umożliwia asynchroniczne transkrypcję zamiany mowy na tekst dużych ilości danych audio mowy przechowywanych w usłudze Azure Blob Storage. Oprócz konwersji dźwięku zamiany mowy na tekst, funkcja zamiany mowy na tekst usługi Batch umożliwia również obsługę diarization i tonacji. | Nie | [Tak](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
 | | [Konwersacja z obsługą kilku urządzeń](multi-device-conversation.md) | Łączenie wielu urządzeń lub klientów w konwersacji w celu wysyłania komunikatów na mowę lub tekstowych przy użyciu łatwej obsługi transkrypcji i tłumaczenia| Tak | Nie |
-| | [Transkrypcja konwersacji](conversation-transcription-service.md) | Włącza rozpoznawanie mowy w czasie rzeczywistym, identyfikację głosu i diarization. Doskonale nadaje się do jego przepisywaniach spotkań osób z możliwością odróżniania głośników. | Tak | Nie |
+| | [Transkrypcja konwersacji](./conversation-transcription.md) | Włącza rozpoznawanie mowy w czasie rzeczywistym, identyfikację głosu i diarization. Doskonale nadaje się do jego przepisywaniach spotkań osób z możliwością odróżniania głośników. | Tak | Nie |
 | | [Tworzenie modeli Custom Speech](#customize-your-speech-experience) | Jeśli używasz funkcji zamiany mowy na tekst do rozpoznawania i transkrypcji w unikatowym środowisku, możesz tworzyć i uczenia niestandardowych modeli akustycznych, językowych i wymowych w celu obsługi szumów otoczenia lub słownictwa specyficznego dla branż. | Nie | [Tak](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
-| [Zamiana tekstu na mowę](text-to-speech.md) | Zamiana tekstu na mowę | Zamiana tekstu na mowę polega na konwertowaniu tekstu wejściowego na wymowę przez człowieka, który używa [języka SSML (Speech syntezing Language)](speech-synthesis-markup.md). Wybieraj spośród standardowych głosów i głosów neuronowych (zobacz [Obsługa języka](language-support.md)). | [Tak](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Tak](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| | [Tworzenie niestandardowych głosów](#customize-your-speech-experience) | Twórz niestandardowe czcionki głosowe, które są unikatowe dla danej marki lub produktu. | Nie | [Tak](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Tłumaczenie mowy](speech-translation.md) | Tłumaczenie mowy | Tłumaczenie mowy umożliwia tłumaczenie mowy w czasie rzeczywistym na wiele języków w aplikacjach, narzędziach i urządzeniach. Ta usługa umożliwia tłumaczenie mowy na mowę i zamianę mowy na tekst. | [Tak](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Nie |
+| [Zamiana tekstu na mowę](text-to-speech.md) | Zamiana tekstu na mowę | Zamiana tekstu na mowę polega na konwertowaniu tekstu wejściowego na wymowę przez człowieka, który używa [języka SSML (Speech syntezing Language)](speech-synthesis-markup.md). Wybieraj spośród standardowych głosów i głosów neuronowych (zobacz [Obsługa języka](language-support.md)). | [Tak](./speech-sdk.md) | [Tak](#reference-docs) |
+| | [Tworzenie niestandardowych głosów](#customize-your-speech-experience) | Twórz niestandardowe czcionki głosowe, które są unikatowe dla danej marki lub produktu. | Nie | [Tak](#reference-docs) |
+| [Tłumaczenie mowy](speech-translation.md) | Tłumaczenie mowy | Tłumaczenie mowy umożliwia tłumaczenie mowy w czasie rzeczywistym na wiele języków w aplikacjach, narzędziach i urządzeniach. Ta usługa umożliwia tłumaczenie mowy na mowę i zamianę mowy na tekst. | [Tak](./speech-sdk.md) | Nie |
 | [Asystenci głosowi](voice-assistants.md) | Asystenci głosowi | Asystenci głosu korzystający z usługi mowy umożliwiają deweloperom tworzenie naturalnych, przypominających konwersacje interfejsów dla aplikacji i środowisk. Usługa asystenta głosowego zapewnia szybką i niezawodną interakcję między urządzeniem a implementacją asystenta, która korzysta z kanału mowy linii Direct line lub zintegrowanego polecenia niestandardowego (wersja zapoznawcza) w celu ukończenia zadania. | [Tak](voice-assistants.md) | Nie |
-| [Rozpoznawanie osoby mówiącej](speaker-recognition-overview.md) | Weryfikacja & tożsamość osoby mówiącej | Usługa rozpoznawanie osoby mówiącej zapewnia algorytmy weryfikujące i identyfikujące głośniki przy użyciu ich unikatowych cech głosowych. Rozpoznawanie osoby mówiącej jest używany do odpowiedzi na pytanie "kto mówi?". | Tak | [Tak](https://docs.microsoft.com/rest/api/speakerrecognition/) |
+| [Rozpoznawanie osoby mówiącej](speaker-recognition-overview.md) | Weryfikacja & tożsamość osoby mówiącej | Usługa rozpoznawanie osoby mówiącej zapewnia algorytmy weryfikujące i identyfikujące głośniki przy użyciu ich unikatowych cech głosowych. Rozpoznawanie osoby mówiącej jest używany do odpowiedzi na pytanie "kto mówi?". | Tak | [Tak](/rest/api/speakerrecognition/) |
 
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
@@ -59,7 +59,7 @@ Aby dodać zasób usługi mowy (warstwa Bezpłatna lub płatna) do konta platfor
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) za pomocą konta Microsoft.
 
-1. Wybierz pozycję **Utwórz zasób** w lewym górnym rogu portalu. Jeśli nie widzisz opcji **Utwórz zasób** , zawsze możesz ją znaleźć, wybierając menu rozwijane w lewym górnym rogu ekranu.
+1. Wybierz pozycję **Utwórz zasób** w lewym górnym rogu portalu. Jeśli nie widzisz opcji **Utwórz zasób**, zawsze możesz ją znaleźć, wybierając menu rozwijane w lewym górnym rogu ekranu.
 
 1. W **nowym** oknie wpisz "mowę" w polu wyszukiwania, a następnie naciśnij klawisz ENTER.
 
@@ -67,14 +67,14 @@ Aby dodać zasób usługi mowy (warstwa Bezpłatna lub płatna) do konta platfor
 
    ![Wyniki wyszukiwania mowy](media/index/speech-search.png)
 
-1. Wybierz pozycję **Utwórz** , a następnie:
+1. Wybierz pozycję **Utwórz**, a następnie:
 
    - Nadaj unikatowej nazwie nowemu zasobowi. Nazwa pomaga rozróżnić wiele subskrypcji powiązanych z tą samą usługą.
    - Wybierz subskrypcję platformy Azure, z którą jest skojarzony nowy zasób, aby określić, w jaki sposób opłaty są naliczane. Poniżej przedstawiono wprowadzenie do [tworzenia subskrypcji platformy Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription#create-a-subscription-in-the-azure-portal) w Azure Portal.
    - Wybierz [region](regions.md) , w którym będzie używany zasób. Azure to globalna platforma w chmurze, która jest ogólnie dostępna w wielu regionach na całym świecie. Aby uzyskać najlepszą wydajność, wybierz region, który znajduje się najbliżej Ciebie lub gdzie działa aplikacja. Dostępność usługi mowy różni się od różnych regionów. Upewnij się, że zasób jest tworzony w obsługiwanym regionie. Zobacz [region obsługa usługi Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-to-text-text-to-speech-and-translation).
    - Wybierz opcję bezpłatna (F0) lub płatna (S0). Aby uzyskać pełne informacje na temat cen i przydziałów użycia dla każdej warstwy, wybierz pozycję **Wyświetl pełne szczegóły cennika** lub zobacz [Cennik usługi Speech Services](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Limity dotyczące zasobów znajdują się w temacie [limity Cognitive Services platformy Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits).
    - Utwórz nową grupę zasobów dla tej subskrypcji mowy lub Przypisz subskrypcję do istniejącej grupy zasobów. Grupy zasobów ułatwiają zachowanie różnych subskrypcji platformy Azure.
-   - Wybierz przycisk **Utwórz**. Spowoduje to przejście do omówienia wdrażania i wyświetlenie komunikatów o postępie wdrażania.  
+   - Wybierz pozycję **Utwórz**. Spowoduje to przejście do omówienia wdrażania i wyświetlenie komunikatów o postępie wdrażania.  
 <!--
 > [!NOTE]
 > You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.
@@ -87,7 +87,7 @@ Aby znaleźć klucze i region ukończonego wdrożenia, wykonaj następujące kro
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) za pomocą konta Microsoft.
 
-2. Wybierz pozycję **wszystkie zasoby** , a następnie wybierz nazwę zasobu Cognitive Services.
+2. Wybierz pozycję **wszystkie zasoby**, a następnie wybierz nazwę zasobu Cognitive Services.
 
 3. W okienku po lewej stronie w obszarze **Zarządzanie zasobami** wybierz pozycję **klucze i punkt końcowy**.
 
@@ -104,15 +104,15 @@ Oferujemy Przewodniki Szybki Start w najpopularniejszych językach programowania
 
 * [Przewodnik Szybki start dotyczący zamiany mowy na tekst](get-started-speech-to-text.md)
 * [Przewodnik Szybki start dotyczący zamiany tekstu na mowę](get-started-text-to-speech.md)
-* [Przewodnik Szybki start dotyczący tłumaczenia mowy](speech-translation-basics.md)
+* [Przewodnik Szybki start dotyczący tłumaczenia mowy](./get-started-speech-translation.md)
 * [Szybki start — rozpoznawanie intencji](quickstarts/intent-recognition.md)
-* [Rozpoznawanie osoby mówiącej — Szybki Start](speaker-recognition-basics.md)
+* [Rozpoznawanie osoby mówiącej — Szybki Start](./get-started-speaker-recognition.md)
 
 Gdy masz okazję do rozpoczęcia korzystania z usługi mowy, wypróbuj nasze samouczki pokazujące, jak rozwiązać różne scenariusze.
 
 - [Samouczek: Rozpoznawanie intencji z mowy przy użyciu zestawu Speech SDK i LUIS, C #](how-to-recognize-intents-from-speech-csharp.md)
 - [Samouczek: Voice enable the bot with Speech SDK, C #](tutorial-voice-enable-your-bot-speech-sdk.md)
-- [Samouczek: Tworzenie aplikacji kolby do tłumaczenia tekstu, analizowanie tonacji i syntezowanie przetłumaczonego tekstu na mowę, REST](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json&toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fspeech-service%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
+- [Samouczek: Tworzenie aplikacji kolby do tłumaczenia tekstu, analizowanie tonacji i syntezowanie przetłumaczonego tekstu na mowę, REST](../translator/tutorial-build-flask-app-translation-synthesis.md?bc=%252fazure%252fcognitive-services%252fspeech-service%252fbreadcrumb%252ftoc.json%252c%252fen-us%252fazure%252fbread%252ftoc.json&toc=%252fazure%252fcognitive-services%252fspeech-service%252ftoc.json%252c%252fen-us%252fazure%252fcognitive-services%252fspeech-service%252ftoc.json)
 
 ## <a name="get-sample-code"></a>Pobieranie przykładowego kodu
 
@@ -136,7 +136,7 @@ Inne produkty oferują modele mowy dopasowane do określonych celów, takich jak
 
 ## <a name="reference-docs"></a>Dokumentacja dokumentacji
 
-- [Zestaw SDK rozpoznawania mowy](speech-sdk-reference.md)
+- [Zestaw SDK rozpoznawania mowy](./speech-sdk.md)
 - [Zestaw Speech Devices SDK](speech-devices-sdk.md)
 - [Interfejs API REST: zamiana mowy na tekst](rest-speech-to-text.md)
 - [Interfejs API REST: zamiana tekstu na mowę](rest-text-to-speech.md)
@@ -145,5 +145,5 @@ Inne produkty oferują modele mowy dopasowane do określonych celów, takich jak
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Wprowadzenie do zamiany mowy na tekst](speech-to-text-basics.md) 
+> [Wprowadzenie do zamiany mowy na tekst](./get-started-speech-to-text.md) 
 >  [Wprowadzenie do zamiany tekstu na mowę](get-started-text-to-speech.md)

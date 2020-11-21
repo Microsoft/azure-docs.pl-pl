@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2018
-ms.openlocfilehash: 00fdaf93553c97112c67caa66cb2246756b63c33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c59b5646e011afa6b8487e8145a1cb07e6e2a8ff
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207487"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015587"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Splunk Azure Monitor zapytanie dziennika
 
@@ -26,7 +26,7 @@ W poniższej tabeli porównano koncepcje i struktury danych między Splunk i dzi
  | Jednostka wdrożenia  | cluster |  cluster |  Azure Monitor zezwala na dowolne zapytania między klastrami. Splunk nie. |
  | Pamięć podręczna danych |  zasobników  |  Zasady pamięci podręcznej i przechowywania |  Kontroluje okres i poziom buforowania danych. To ustawienie ma bezpośredni wpływ na wydajność zapytań i koszt wdrożenia. |
  | Logiczna partycja danych  |  index  |  database  |  Umożliwia logiczne rozdzielenie danych. Obie implementacje zezwalają na złożenie i łączenie między tymi partycjami. |
- | Metadane zdarzeń strukturalnych | Nie dotyczy | tabela |  Splunk nie ma koncepcji uwidocznionej w języku wyszukiwania metadanych zdarzeń. Dzienniki Azure Monitor mają koncepcję tabeli, która zawiera kolumny. Każde wystąpienie zdarzenia jest zamapowane na wiersz. |
+ | Metadane zdarzeń strukturalnych | Nie dotyczy | table (stolik) |  Splunk nie ma koncepcji uwidocznionej w języku wyszukiwania metadanych zdarzeń. Dzienniki Azure Monitor mają koncepcję tabeli, która zawiera kolumny. Każde wystąpienie zdarzenia jest zamapowane na wiersz. |
  | Rekord danych | event | wiersz |  Tylko zmiana terminologii. |
  | Atrybut rekordu danych | pole |  kolumna |  W Azure Monitor jest to wstępnie zdefiniowane jako część struktury tabeli. W Splunk każde zdarzenie ma swój własny zestaw pól. |
  | Types | typu |  typu |  Azure Monitor typy danych są bardziej jawne, ponieważ są ustawione w kolumnach. Obie funkcje umożliwiają dynamiczne działanie z typami danych i w przybliżeniu równoważnym zestawem elementów DataType, w tym obsługi JSON. |
@@ -65,7 +65,7 @@ Poniższe sekcje zawierają przykłady użycia różnych operatorów między Spl
 > [!NOTE]
 > Na potrzeby poniższego przykładu _reguła_ pola Splunk jest mapowana na tabelę w Azure monitor i domyślna sygnatura czasowa Splunk jest mapowana do kolumny Logs Analytics _ingestion_time ()_ .
 
-### <a name="search"></a>Wyszukaj
+### <a name="search"></a>Wyszukiwanie
 W Splunk można pominąć `search` słowo kluczowe i określić ciąg nieujęty w cudzysłów. W Azure Monitor należy uruchomić każde zapytanie z `find` , ciąg bez cudzysłowu jest nazwą kolumny, a wartość wyszukiwania musi być ciągiem ujętym w cudzysłów. 
 
 | | Operator | Przykład |
@@ -74,13 +74,13 @@ W Splunk można pominąć `search` słowo kluczowe i określić ciąg nieujęty 
 | **Azure Monitor** | **wyświetlić** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
 
 
-### <a name="filter"></a>Filtrowanie
+### <a name="filter"></a>Filtr
 Zapytania dziennika Azure Monitor rozpoczynają się od tabelarycznego zestawu wyników, w którym filtr. W Splunk filtrowanie jest operacją domyślną w bieżącym indeksie. Możesz również użyć `where` operatora w Splunk, ale nie jest to zalecane.
 
 | | Operator | Przykład |
 |:---|:---|:---|
 | **Splunk** | **search** | <code>Event.Rule="330009.2" Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" _indextime>-24h</code> |
-| **Azure Monitor** | **miejscu** | <code>Office_Hub_OHubBGTaskError<br>&#124; where Session_Id == "c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time() > ago(24h)</code> |
+| **Azure Monitor** | **where** | <code>Office_Hub_OHubBGTaskError<br>&#124; where Session_Id == "c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time() > ago(24h)</code> |
 
 ### <a name="getting-n-eventsrows-for-inspection"></a>Pobieranie n zdarzeń/wierszy do inspekcji 
 Zapytania dziennika Azure Monitor obsługują również `take` jako alias do `limit` . W Splunk, jeśli wyniki są uporządkowane, `head` zwróci pierwsze n wyników. W Azure Monitor, limit nie jest uporządkowany, ale zwraca pierwsze n znalezionych wierszy.
@@ -123,7 +123,7 @@ Splunk prawdopodobnie nie ma operatora podobnego do `project-away` . Za pomocą 
 | **Azure Monitor** | **projektu**<br>**projekt — poza** | <code>Office_Hub_OHubBGTaskError<br>&#124; project exception, state</code> |
 
 ### <a name="aggregation"></a>Agregacja
-Zobacz [agregacje w dzienniku Azure monitor kwerendy](aggregations.md) dla różnych funkcji agregacji.
+Zobacz [agregacje w dzienniku Azure monitor kwerendy](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#aggregations) dla różnych funkcji agregacji.
 
 | | Operator | Przykład |
 |:---|:---|:---|

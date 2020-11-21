@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 31219fda04095d48b55165f59c27f3dee85485a9
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8c6d26de62364b6aca671d1e4283a01c1b78c397
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843642"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014836"
 ---
 # <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Tworzenie dzierżawy i puli hostów w systemie Windows Virtual Desktop (klasyczny)
 
@@ -49,7 +49,7 @@ Contact your IT Admin to review the configuration of your service subscriptions.
 
 **Przyczyna:** Nie udzielono zgody na pulpit wirtualny systemu Windows w wystąpieniu usługi Azure Active Directory.
 
-**Poprawka:** [postępuj zgodnie z tym przewodnikiem](https://docs.microsoft.com/azure/virtual-desktop/virtual-desktop-fall-2019/tenant-setup-azure-active-directory#grant-permissions-to-windows-virtual-desktop) , aby udzielić zgody.
+**Poprawka:** [postępuj zgodnie z tym przewodnikiem](./tenant-setup-azure-active-directory.md#grant-permissions-to-windows-virtual-desktop) , aby udzielić zgody.
 
 ### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Błąd: Użytkownik nie ma uprawnień do wysyłania zapytań do usługi zarządzania
 
@@ -140,9 +140,9 @@ Jeśli szablon operacji przekracza limit przydziału, możesz wykonać jedną z 
 
 Postępuj zgodnie z poniższymi instrukcjami, aby rozwiązywać problemy z niepowodzeniem wdrożenia szablonów Azure Resource Manager i DSC programu PowerShell.
 
-1. Przejrzyj błędy we wdrożeniu, korzystając [z opcji Wyświetl operacje wdrażania z Azure Resource Manager](../../azure-resource-manager/resource-manager-deployment-operations.md).
-2. Jeśli wdrożenie nie zawiera żadnych błędów, Przejrzyj błędy w dzienniku aktywności, korzystając [z widoku dzienniki aktywności do inspekcji akcji na zasobach](../../azure-resource-manager/resource-group-audit.md).
-3. Po zidentyfikowaniu tego błędu Użyj komunikatu o błędzie i zasobów w [rozwiązywaniu typowych błędów wdrażania platformy Azure z Azure Resource Manager](../../azure-resource-manager/resource-manager-common-deployment-errors.md) , aby rozwiązać problem.
+1. Przejrzyj błędy we wdrożeniu, korzystając [z opcji Wyświetl operacje wdrażania z Azure Resource Manager](../../azure-resource-manager/templates/deployment-history.md).
+2. Jeśli wdrożenie nie zawiera żadnych błędów, Przejrzyj błędy w dzienniku aktywności, korzystając [z widoku dzienniki aktywności do inspekcji akcji na zasobach](../../azure-resource-manager/management/view-activity-logs.md).
+3. Po zidentyfikowaniu tego błędu Użyj komunikatu o błędzie i zasobów w [rozwiązywaniu typowych błędów wdrażania platformy Azure z Azure Resource Manager](../../azure-resource-manager/templates/common-deployment-errors.md) , aby rozwiązać problem.
 4. Usuń wszystkie zasoby utworzone w poprzednim wdrożeniu i ponów próbę wdrożenia szablonu.
 
 ### <a name="error-your-deployment-failedhostnamejoindomain"></a>Błąd: wdrożenie nie powiodło się.... \<hostname> /JoinDomain

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: fb409673e028375812551ec146b43c27e3755d2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3f6f6a5ac1068f2eabca351e85376b8e16d1058
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91595532"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016755"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Najlepsze rozwiązania dotyczące wybierania identyfikatora szeregu czasowego
 
@@ -32,11 +32,11 @@ Wybór odpowiedniego identyfikatora szeregów czasowych ma krytyczne znaczenie. 
 > * *Niezmienna* Właściwość: po utworzeniu nie można jej zmienić.
 
 > [!TIP]
-> Jeśli źródłem zdarzenia jest centrum IoT, identyfikator szeregów czasowych będzie prawdopodobnie ***iothub-Connection-ID***.
+> Jeśli źródłem zdarzenia jest centrum IoT, identyfikator szeregów czasowych będzie prawdopodobnie ***iothub-Connection-Device-ID** _.
 
 Najważniejsze wskazówki dotyczące najważniejszych rozwiązań:
 
-* Wybierz klucz partycji z wieloma unikatowymi wartościami (na przykład setki lub tysiące). W wielu przypadkach może to być identyfikator urządzenia, identyfikator czujnika lub identyfikator tagu w formacie JSON.
+_ Wybierz klucz partycji z wieloma unikatowymi wartościami (na przykład setki lub tysiące). W wielu przypadkach może to być identyfikator urządzenia, identyfikator czujnika lub identyfikator tagu w formacie JSON.
 * Identyfikator szeregów czasowych musi być unikatowy na poziomie węzła liścia [modelu szeregów czasowych](./concepts-model-overview.md).
 * Limit znaków dla ciągu nazwy właściwości identyfikatora szeregów czasowych to 128. W przypadku wartości właściwości identyfikator szeregów czasowych limit znaków to 1 024.
 * Jeśli brakuje unikatowej wartości właściwości identyfikatora szeregów czasowych, jest ona traktowana jako wartość null i zgodna z tą samą regułą ograniczenia unikatowości.
@@ -53,15 +53,15 @@ W poniższych scenariuszach opisano wybieranie więcej niż jednej właściwośc
 ### <a name="example-1-time-series-id-with-a-unique-key"></a>Przykład 1: Identyfikator szeregów czasowych z unikatowym kluczem
 
 * Masz starsze floty zasobów. Każdy z nich ma unikatowy klucz.
-* Jedna flota jest unikatowo identyfikowana przez identyfikator **deviceId**właściwości. Dla innej floty właściwość UNIQUE ma wartość **objectid**. Żadna flota nie zawiera unikatowej właściwości innej floty. W tym przykładzie należy wybrać dwa klucze, **deviceId** i **objectid**, jako unikatowe klucze.
+* Jedna flota jest unikatowo identyfikowana przez identyfikator **deviceId** właściwości. Dla innej floty właściwość UNIQUE ma wartość **objectid**. Żadna flota nie zawiera unikatowej właściwości innej floty. W tym przykładzie należy wybrać dwa klucze, **deviceId** i **objectid**, jako unikatowe klucze.
 * Akceptujemy wartości null, a brak obecności właściwości w ładunku zdarzenia jest traktowany jako wartość null. Jest to również odpowiedni sposób obsługi wysyłania danych do dwóch źródeł zdarzeń, gdzie dane w każdym źródle zdarzeń mają unikatowy identyfikator szeregów czasowych.
 
 ### <a name="example-2-time-series-id-with-a-composite-key"></a>Przykład 2: Identyfikator szeregów czasowych z kluczem złożonym
 
 * Wymagane jest, aby wiele właściwości była unikatowa w ramach tej samej floty zasobów.
-* Jesteś producentem inteligentnych budynków i wdrażaj czujniki w każdym pokoju. W każdym pokoju zwykle są te same wartości dla **sensorId**. Przykłady to **sensor1**, **Sensor2**i **sensor3**.
-* Budynek zawiera nakładające się numery podłóg i pomieszczeń między lokacjami we właściwości **flrRm**. Te liczby zawierają wartości, takie jak **1a**, **2b**i **3a**.
-* Istnieje właściwość, **Lokalizacja**, która zawiera wartości, takie jak **Redmond**, **Barcelona**i **Tokio**. Aby utworzyć unikatowość, należy wyznaczyć następujące trzy właściwości jako klucze identyfikatorów szeregów czasowych: **sensorId**, **flrRm**i **Location**.
+* Jesteś producentem inteligentnych budynków i wdrażaj czujniki w każdym pokoju. W każdym pokoju zwykle są te same wartości dla **sensorId**. Przykłady to **sensor1**, **Sensor2** i **sensor3**.
+* Budynek zawiera nakładające się numery podłóg i pomieszczeń między lokacjami we właściwości **flrRm**. Te liczby zawierają wartości, takie jak **1a**, **2b** i **3a**.
+* Istnieje właściwość, **Lokalizacja**, która zawiera wartości, takie jak **Redmond**, **Barcelona** i **Tokio**. Aby utworzyć unikatowość, należy wyznaczyć następujące trzy właściwości jako klucze identyfikatorów szeregów czasowych: **sensorId**, **flrRm** i **Location**.
 
 Przykładowe zdarzenie pierwotne:
 
@@ -86,4 +86,4 @@ W Azure Portal można następnie wprowadzić klucz złożony w następujący spo
 
 * Przeczytaj [reguły spłaszczania i ucieczki JSON](./concepts-json-flattening-escaping-rules.md) , aby zrozumieć, jak będą przechowywane zdarzenia.
 
-* Zaplanuj [środowisko Azure Time Series Insights Gen2](./time-series-insights-update-plan.md).
+* Zaplanuj [środowisko Azure Time Series Insights Gen2](./how-to-plan-your-environment.md).

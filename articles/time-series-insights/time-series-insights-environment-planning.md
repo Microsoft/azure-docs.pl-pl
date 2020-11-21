@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 546c53334b7700ab73c22edb2d82b324bfad61a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e0f1ea42aa2ba888b89dd652d3397a3a2163a3e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569444"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016211"
 ---
 # <a name="plan-your-azure-time-series-insights-gen1-environment"></a>Planowanie środowiska Azure Time Series Insights Gen1
 
@@ -67,7 +67,7 @@ Można dostosować przechowywanie i przełączać się między dwoma trybami na 
 
 1. W [Azure Portal](https://portal.azure.com)wybierz środowisko Time Series Insights.
 
-1. W okienku **środowisko Time Series Insights** w obszarze **Ustawienia**wybierz pozycję **Konfiguracja magazynu**.
+1. W okienku **środowisko Time Series Insights** w obszarze **Ustawienia** wybierz pozycję **Konfiguracja magazynu**.
 
 1. W polu **czas przechowywania danych (w dniach)** wprowadź wartość z zakresu od 1 do 400.
 
@@ -92,7 +92,7 @@ Ograniczanie i opóźnienie odgrywają rolę w wydajności na minutę. Jeśli Tw
 
 Na przykład jeśli masz pojedynczą jednostkę SKU S1, przyniesiesz dane przy użyciu stawki 720 zdarzeń na minutę, a szybkość danych jest większa niż jedna godzina według stawki 1 440 zdarzeń lub mniejszej, a w środowisku nie ma zauważalnego opóźnienia. Jednakże w przypadku przekroczenia 1 440 zdarzeń na minutę przez więcej niż godzinę, prawdopodobnie wystąpi opóźnienie w danych, które są wizualizowane i dostępne dla zapytań w środowisku.
 
-Użytkownik może nie wiedzieć, jak dużo danych, które powinny zostać wypchnięcie. W takim przypadku można znaleźć dane telemetryczne dla [usługi azure IoT Hub](../iot-hub/iot-hub-metrics.md) i [platformy Azure Event Hubs](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) w ramach subskrypcji Azure Portal. Dane telemetryczne mogą pomóc w ustaleniu, jak zainicjować obsługę środowiska. Aby wyświetlić dane telemetryczne, użyj okienka **metryki** w Azure Portal dla odpowiedniego źródła zdarzenia. Jeśli zrozumiesz metryki źródła zdarzeń, możesz efektywnie zaplanować i zainicjować obsługę środowiska Azure Time Series Insights.
+Użytkownik może nie wiedzieć, jak dużo danych, które powinny zostać wypchnięcie. W takim przypadku można znaleźć dane telemetryczne dla [usługi azure IoT Hub](../iot-hub/monitor-iot-hub.md) i [platformy Azure Event Hubs](/archive/blogs/cloud_solution_architect/using-the-azure-rest-apis-to-retrieve-event-hub-metrics) w ramach subskrypcji Azure Portal. Dane telemetryczne mogą pomóc w ustaleniu, jak zainicjować obsługę środowiska. Aby wyświetlić dane telemetryczne, użyj okienka **metryki** w Azure Portal dla odpowiedniego źródła zdarzenia. Jeśli zrozumiesz metryki źródła zdarzeń, możesz efektywnie zaplanować i zainicjować obsługę środowiska Azure Time Series Insights.
 
 ### <a name="calculate-ingress-requirements"></a>Oblicz wymagania dotyczące transferu danych przychodzących
 
@@ -128,6 +128,6 @@ Aby dowiedzieć się więcej na temat sposobu tworzenia, przekazywania i zarząd
 
 - Rozpocznij od utworzenia [nowego środowiska Azure Time Series Insights w Azure Portal](time-series-insights-get-started.md).
 
-- Dowiedz się, jak [dodać Event Hubs Źródło zdarzenia](time-series-insights-how-to-add-an-event-source-eventhub.md) do Azure Time Series Insights.
+- Dowiedz się, jak [dodać Event Hubs Źródło zdarzenia](./how-to-ingest-data-event-hub.md) do Azure Time Series Insights.
 
-- Przeczytaj [, jak skonfigurować źródło zdarzeń IoT Hub](time-series-insights-how-to-add-an-event-source-iothub.md).
+- Przeczytaj [, jak skonfigurować źródło zdarzeń IoT Hub](./how-to-ingest-data-iot-hub.md).

@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: v-jawe
 ms.custom: references_regions
-ms.openlocfilehash: 5be99ba09032020abf777c80307e347658a6e037
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 2b5a34e8f3e7132a16ad3683b846d57e9ece2cb6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470655"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015494"
 ---
 W tym przewodniku szybki start przedstawiono podstawowe wzorce projektowe dla rozpoznawanie osoby mówiącej przy użyciu zestawu Speech SDK, w tym:
 
@@ -51,7 +51,7 @@ using Microsoft.CognitiveServices.Speech.Audio;
 
 ## <a name="create-a-speech-configuration"></a>Tworzenie konfiguracji mowy
 
-Aby wywołać usługę mowy przy użyciu zestawu Speech SDK, należy utworzyć [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true) . W tym przykładzie utworzysz [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true) przy użyciu klucza subskrypcji i regionu. Utworzysz również podstawowy kod standardowy do użycia w pozostałej części tego artykułu, który można modyfikować w celu dostosowania.
+Aby wywołać usługę mowy przy użyciu zestawu Speech SDK, należy utworzyć [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-dotnet) . W tym przykładzie utworzysz [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-dotnet) przy użyciu klucza subskrypcji i regionu. Utworzysz również podstawowy kod standardowy do użycia w pozostałej części tego artykułu, który można modyfikować w celu dostosowania.
 
 Należy pamiętać, że region jest ustawiony na `westus` , ponieważ jest to jedyny obsługiwany region usługi.
 
@@ -70,7 +70,7 @@ public class Program
 
 ## <a name="text-dependent-verification"></a>Weryfikacja zależna od tekstu
 
-Weryfikacja osoby mówiącej to czynność potwierdzająca, że prelegent pasuje do znanego lub **zarejestrowanego** głosu. Pierwszym krokiem jest **zarejestrowanie** profilu głosowego, dzięki czemu usługa ma coś do porównania przyszłych przykładów głosowych. W tym przykładzie należy zarejestrować profil przy użyciu strategii **zależnej od tekstu** , która wymaga określonego potwierdzenia do użycia zarówno do rejestracji, jak i weryfikacji. Listę obsługiwanych fraz z przekazywaniem można znaleźć w [dokumentacji referencyjnej](https://docs.microsoft.com/rest/api/speakerrecognition/) .
+Weryfikacja osoby mówiącej to czynność potwierdzająca, że prelegent pasuje do znanego lub **zarejestrowanego** głosu. Pierwszym krokiem jest **zarejestrowanie** profilu głosowego, dzięki czemu usługa ma coś do porównania przyszłych przykładów głosowych. W tym przykładzie należy zarejestrować profil przy użyciu strategii **zależnej od tekstu** , która wymaga określonego potwierdzenia do użycia zarówno do rejestracji, jak i weryfikacji. Listę obsługiwanych fraz z przekazywaniem można znaleźć w [dokumentacji referencyjnej](/rest/api/speakerrecognition/) .
 
 Zacznij od utworzenia następującej funkcji w klasie w `Program` celu zarejestrowania profilu głosowego.
 
@@ -232,7 +232,7 @@ Verified voice profile for speaker Your Name, score is 0.849409
 
 Identyfikacja osoby mówiącej służy do określenia **, kto** jest w danej grupie zarejestrowanych głosów. Ten proces jest bardzo podobny do **weryfikacji niezależnej od tekstu**, z główną różnicą, którą można zweryfikować w wielu profilach głosowych jednocześnie, zamiast weryfikować się w odniesieniu do pojedynczego profilu.
 
-Utwórz funkcję `IdentificationEnroll` do rejestracji wielu profilów głosowych. Proces rejestracji dla każdego profilu jest taki sam jak proces rejestracji dla **weryfikacji niezależnej od tekstu**i wymaga 20 sekund audio dla każdego profilu. Ta funkcja akceptuje listę ciągów i utworzy `profileNames` Nowy profil głosowy dla każdej nazwy na liście. Funkcja zwraca listę `VoiceProfile` obiektów, które są używane w następnej funkcji do identyfikowania prelegenta.
+Utwórz funkcję `IdentificationEnroll` do rejestracji wielu profilów głosowych. Proces rejestracji dla każdego profilu jest taki sam jak proces rejestracji dla **weryfikacji niezależnej od tekstu** i wymaga 20 sekund audio dla każdego profilu. Ta funkcja akceptuje listę ciągów i utworzy `profileNames` Nowy profil głosowy dla każdej nazwy na liście. Funkcja zwraca listę `VoiceProfile` obiektów, które są używane w następnej funkcji do identyfikowania prelegenta.
 
 ```csharp
 public static async Task<List<VoiceProfile>> IdentificationEnroll(SpeechConfig config, List<string> profileNames, Dictionary<string, string> profileMapping)

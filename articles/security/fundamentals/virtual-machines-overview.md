@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: d22ce3941b00903be8532caaa36a9ce55e2f2c6f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 91dfb3cb07cca8ec89c77dea43f1cd075db11bbf
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409794"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014768"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Omówienie zabezpieczeń usługi Azure Virtual Machines
 Ten artykuł zawiera omówienie podstawowych funkcji zabezpieczeń platformy Azure, które mogą być używane z maszynami wirtualnymi.
@@ -57,7 +57,7 @@ Dowiedz się więcej o oprogramowaniu chroniącym przed złośliwym kodem, aby p
 
 W celu zapewnienia jeszcze bardziej zaawansowanej ochrony należy rozważyć użycie funkcji [zaawansowanej ochrony przed zagrożeniami w usłudze Windows Defender](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection). Usługa Windows Defender ATP zapewnia następujące korzyści:
 
-* [Zmniejszenie obszaru ataków](/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction)  
+* [Zmniejszanie obszaru ataków](/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction)  
 * [Ochrona nowej generacji](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
 * [Endpoint Protection i odpowiedź](/windows/security/threat-protection/windows-defender-atp/overview-endpoint-detection-response)
 * [Zautomatyzowane badanie i korygowanie](/windows/security/threat-protection/windows-defender-atp/automated-investigations-windows-defender-advanced-threat-protection)
@@ -108,16 +108,16 @@ Istotną częścią strategii BCDR organizacji jest ustalenie, jak utrzymywać o
 
 Site Recovery:
 
-* **Upraszcza strategię BCDR** : Site Recovery ułatwia obsługę replikacji, trybu failover i odzyskiwania wielu obciążeń i aplikacji firmowych z jednej lokalizacji. Site Recovery organizuje replikację i pracę w trybie failover, ale nie przechwytuje danych aplikacji ani nie zawiera żadnych informacji o nim.
-* **Zapewnia elastyczną replikację** : korzystając z Site Recovery, można replikować obciążenia uruchomione na maszynach wirtualnych funkcji Hyper-V, maszynach wirtualnych VMware oraz serwerach fizycznych z systemem Windows/Linux.
-* **Obsługuje tryb failover i odzyskiwanie** : Site Recovery umożliwia testowanie pracy w trybie failover w celu obsługi szczegółów odzyskiwania po awarii bez wpływu na środowiska produkcyjne. Możesz również uruchomić planowane tryby failover (brak utraty danych) w przypadku przewidywanych przerw w działaniu lub nieplanowane tryby failover (minimalna utrata danych, zależna od częstotliwości replikacji) w przypadku nieoczekiwanych awarii. Po przejściu w tryb failover można wrócić do lokacji głównych. Usługa Site Recovery zapewnia plany odzyskiwania, które mogą uwzględniać skrypty i skoroszyty automatyzacji platformy Azure. Dzięki nim możesz dostosować tryb failover i odzyskiwanie dla aplikacji wielowarstwowych.
+* **Upraszcza strategię BCDR**: Site Recovery ułatwia obsługę replikacji, trybu failover i odzyskiwania wielu obciążeń i aplikacji firmowych z jednej lokalizacji. Site Recovery organizuje replikację i pracę w trybie failover, ale nie przechwytuje danych aplikacji ani nie zawiera żadnych informacji o nim.
+* **Zapewnia elastyczną replikację**: korzystając z Site Recovery, można replikować obciążenia uruchomione na maszynach wirtualnych funkcji Hyper-V, maszynach wirtualnych VMware oraz serwerach fizycznych z systemem Windows/Linux.
+* **Obsługuje tryb failover i odzyskiwanie**: Site Recovery umożliwia testowanie pracy w trybie failover w celu obsługi szczegółów odzyskiwania po awarii bez wpływu na środowiska produkcyjne. Możesz również uruchomić planowane tryby failover (brak utraty danych) w przypadku przewidywanych przerw w działaniu lub nieplanowane tryby failover (minimalna utrata danych, zależna od częstotliwości replikacji) w przypadku nieoczekiwanych awarii. Po przejściu w tryb failover można wrócić do lokacji głównych. Usługa Site Recovery zapewnia plany odzyskiwania, które mogą uwzględniać skrypty i skoroszyty automatyzacji platformy Azure. Dzięki nim możesz dostosować tryb failover i odzyskiwanie dla aplikacji wielowarstwowych.
 * **Eliminuje dodatkowe centra** danych: można przeprowadzić replikację do dodatkowej lokacji lokalnej lub do platformy Azure. Korzystanie z platformy Azure jako miejsca docelowego do odzyskiwania po awarii eliminuje koszt i złożoność utrzymywania lokacji dodatkowej. Zreplikowane dane są przechowywane w usłudze Azure Storage.
-* **Integruje się z istniejącymi technologiami BCDR** : Partnerzy Site Recovery z funkcjami BCDR innych aplikacji. Na przykład można użyć Site Recovery, aby pomóc w ochronie SQL Server zaplecza obciążeń firmowych. Obejmuje to natywną obsługę usługi SQL Server, która jest zawsze włączona, aby zarządzać trybem failover grup dostępności.
+* **Integruje się z istniejącymi technologiami BCDR**: Partnerzy Site Recovery z funkcjami BCDR innych aplikacji. Na przykład można użyć Site Recovery, aby pomóc w ochronie SQL Server zaplecza obciążeń firmowych. Obejmuje to natywną obsługę usługi SQL Server, która jest zawsze włączona, aby zarządzać trybem failover grup dostępności.
 
 Więcej informacji:
 
 * [Co to jest Azure Site Recovery?](../../site-recovery/site-recovery-overview.md)
-* [W jaki sposób działa usługa Azure Site Recovery?](/azure/security/fundamentals/azure-to-azure-architecture)
+* [W jaki sposób działa usługa Azure Site Recovery?](/azure/site-recovery/azure-to-azure-architecture)
 * [Jakie obciążenia są chronione przez Azure Site Recovery?](../../site-recovery/site-recovery-workload.md)
 
 ## <a name="virtual-networking"></a>Sieć wirtualna

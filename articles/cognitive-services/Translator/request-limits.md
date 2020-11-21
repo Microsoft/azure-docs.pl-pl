@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: dff69f00833cc3f8004befd330d144f4da0e332d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8841c55d8f276f048db53a531bd2e9218e498b34
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566589"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016500"
 ---
 # <a name="request-limits-for-translator"></a>Limity żądań dla translatora
 
@@ -52,17 +52,17 @@ W przypadku osiągnięcia lub przekroczenia tych limitów lub wysłania zbyt du�
 | S3/C3 | 120 000 000 znaków na godzinę |
 | S4/C4 | 200 000 000 znaków na godzinę |
 
-Limity dla [subskrypcji dla kilku usług](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) są takie same jak w przypadku warstwy S1.
+Limity dla [subskrypcji dla kilku usług](./reference/v3-0-reference.md#authentication) są takie same jak w przypadku warstwy S1.
 
 Limity te są ograniczone do standardowych modeli tłumaczenia firmy Microsoft. Niestandardowe modele tłumaczenia korzystające z translatora niestandardowego są ograniczone do 1 800 znaków na sekundę.
 
 ## <a name="latency"></a>Opóźnienie
 
-Translator ma maksymalne opóźnienie wynoszące 15 sekund przy użyciu modeli standardowych i 120 sekund podczas korzystania z modeli niestandardowych. Zazwyczaj odpowiedzi *na tekst w ciągu 100 znaków* są zwracane w 150 ms do 300 milisekund. Modele translatorów niestandardowych mają podobne charakterystyki opóźnienia dotyczące długotrwałego żądania i mogą mieć wyższy czas opóźnienia, gdy częstotliwość żądań jest nieprzerwana. Czasy odpowiedzi będą się różnić w zależności od rozmiaru pary żądań i języków. Jeśli nie otrzymasz tłumaczenia lub odpowiedź na [błąd](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) w tym okresie, sprawdź kod, połączenie sieciowe i ponów próbę. 
+Translator ma maksymalne opóźnienie wynoszące 15 sekund przy użyciu modeli standardowych i 120 sekund podczas korzystania z modeli niestandardowych. Zazwyczaj odpowiedzi *na tekst w ciągu 100 znaków* są zwracane w 150 ms do 300 milisekund. Modele translatorów niestandardowych mają podobne charakterystyki opóźnienia dotyczące długotrwałego żądania i mogą mieć wyższy czas opóźnienia, gdy częstotliwość żądań jest nieprzerwana. Czasy odpowiedzi będą się różnić w zależności od rozmiaru pary żądań i języków. Jeśli nie otrzymasz tłumaczenia lub odpowiedź na [błąd](./reference/v3-0-reference.md#errors) w tym okresie, sprawdź kod, połączenie sieciowe i ponów próbę. 
 
 ## <a name="sentence-length-limits"></a>Limity długości zdania
 
-W przypadku korzystania z funkcji [BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence) długość zdania jest ograniczona do 275 znaków. Istnieją wyjątki dla następujących języków:
+W przypadku korzystania z funkcji [BreakSentence](./reference/v3-0-break-sentence.md) długość zdania jest ograniczona do 275 znaków. Istnieją wyjątki dla następujących języków:
 
 | Język | Kod | Limit znaków |
 |----------|------|-----------------|
@@ -81,4 +81,4 @@ W przypadku korzystania z funkcji [BreakSentence](https://docs.microsoft.com/azu
 
 * [Cennik](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
 * [Dostępność regionalna](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
-* [Dokumentacja usługi Translator w wersji 3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+* [Dokumentacja usługi Translator w wersji 3](./reference/v3-0-reference.md)

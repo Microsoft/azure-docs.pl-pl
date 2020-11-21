@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3528ff790f16b5ec759989966ab35b8bad6565a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86b465d0b3c28c50a8aa85247a14e189d4586a47
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629458"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016279"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Przyznawanie dostępu do danych w środowisku
 
@@ -60,7 +60,7 @@ Wykonaj następujące kroki, aby udzielić dostępu do danych dla podmiotu zabez
 
 ## <a name="provide-guest-access-from-another-azure-ad-tenant"></a>Zapewnianie dostępu gościa z innej dzierżawy usługi Azure AD
 
-`Guest`Rola nie jest rolą zarządzania. Jest to termin używany w przypadku konta zaproszonego z jednej dzierżawy do innej. Po zaproszeniu konta gościa do katalogu dzierżawy może on mieć taką samą kontrolę dostępu, jak dowolne inne konto. Można udzielić dostępu do środowiska Azure Time Series Insights za pomocą bloku Access Control (IAM). Można też udzielić dostępu do danych w środowisku za pomocą bloku zasady dostępu do danych. Aby uzyskać więcej informacji na temat dostępu gościa dzierżawy Azure Active Directory (Azure AD), przeczytaj temat [dodawanie Azure Active Directory użytkowników współpracy B2B w Azure Portal](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
+`Guest`Rola nie jest rolą zarządzania. Jest to termin używany w przypadku konta zaproszonego z jednej dzierżawy do innej. Po zaproszeniu konta gościa do katalogu dzierżawy może on mieć taką samą kontrolę dostępu, jak dowolne inne konto. Można udzielić dostępu do środowiska Azure Time Series Insights za pomocą bloku Access Control (IAM). Można też udzielić dostępu do danych w środowisku za pomocą bloku zasady dostępu do danych. Aby uzyskać więcej informacji na temat dostępu gościa dzierżawy Azure Active Directory (Azure AD), przeczytaj temat [dodawanie Azure Active Directory użytkowników współpracy B2B w Azure Portal](../active-directory/external-identities/add-users-administrator.md).
 
 Wykonaj następujące kroki, aby przyznać dostęp gościa do środowiska Azure Time Series Insights do użytkownika usługi Azure AD z innej dzierżawy.
 
@@ -100,7 +100,7 @@ Wykonaj następujące kroki, aby przyznać dostęp gościa do środowiska Azure 
 
     [![Gość wybiera pozycję Rozpocznij, aby zaakceptować](media/data-access/data-access-email-invitation.png)](media/data-access/data-access-email-invitation.png#lightbox)
 
-1. Po wybraniu pozycji **Rozpocznij**użytkownik zostanie wyświetlony z polem uprawnień skojarzonym z organizacją administratora. Po udzieleniu uprawnień przez wybranie pozycji **Akceptuj**, zostaną one zalogowane.
+1. Po wybraniu pozycji **Rozpocznij** użytkownik zostanie wyświetlony z polem uprawnień skojarzonym z organizacją administratora. Po udzieleniu uprawnień przez wybranie pozycji **Akceptuj**, zostaną one zalogowane.
 
     [![Gość przegląda uprawnienia i akceptuje](media/data-access/data-access-grant-permission-sign-in.png)](media/data-access/data-access-grant-permission-sign-in.png#lightbox)
 
@@ -124,4 +124,4 @@ Wykonaj następujące kroki, aby przyznać dostęp gościa do środowiska Azure 
 
 * Odczytaj [uwierzytelnianie i autoryzację](time-series-insights-authentication-and-authorization.md) dla Azure Active Directory kroków rejestracji aplikacji.
 
-* Wyświetl [swoje środowisko w eksploratorze Azure Time Series Insights](./time-series-insights-update-explorer.md).
+* Wyświetl [swoje środowisko w eksploratorze Azure Time Series Insights](./concepts-ux-panels.md).

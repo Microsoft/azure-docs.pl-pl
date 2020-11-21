@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: b80ff6d1cc83bcace903651a759351718a5df221
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 5d01d6e8f8c2170120e7740bfd0ceefc1e48dd51
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542987"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014156"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-c"></a>Szybki Start: generowanie miniatury przy użyciu interfejsu API REST przetwarzanie obrazów i języka C #
 
@@ -29,7 +29,7 @@ W tym przewodniku szybki start utworzysz miniaturę obrazu przy użyciu interfej
 * Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" Utwórz zasób przetwarzanie obrazów "  target="_blank"> utwórz zasób przetwarzanie obrazów <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
     * Będziesz potrzebować klucza i punktu końcowego z zasobu, który utworzysz, aby połączyć aplikację z usługą przetwarzanie obrazów. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
     * Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
-* [Utwórz zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla adresu URL klucza i punktu końcowego `COMPUTER_VISION_SUBSCRIPTION_KEY` , `COMPUTER_VISION_ENDPOINT` odpowiednio nazwane i.
+* [Utwórz zmienne środowiskowe](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) dla adresu URL klucza i punktu końcowego `COMPUTER_VISION_SUBSCRIPTION_KEY` , `COMPUTER_VISION_ENDPOINT` odpowiednio nazwane i.
 
 ## <a name="create-and-run-the-sample-application"></a>Tworzenie i uruchamianie przykładowej aplikacji
 
@@ -37,9 +37,9 @@ Aby utworzyć próbkę w programie Visual Studio, wykonaj następujące czynnoś
 
 1. Utwórz nowe rozwiązanie Visual Studio w programie Visual Studio przy użyciu szablonu aplikacji konsoli na potrzeby środowiska Visual C#.
 1. Zainstaluj pakiet NuGet Newtonsoft.Json.
-    1. W menu kliknij pozycję **Narzędzia** , a następnie **Menedżer pakietów NuGet** i **Zarządzaj pakietami NuGet rozwiązania**.
-    1. Kliknij kartę **Przeglądaj** , a następnie w polu **Wyszukiwanie** wpisz ciąg „Newtonsoft.Json”.
-    1. Gdy zostanie wyświetlona pozycja **Newtonsoft.Json** , wybierz ją, a następnie kliknij kolejno pole wyboru obok nazwy projektu i pozycję **Zainstaluj**.
+    1. W menu kliknij pozycję **Narzędzia**, a następnie **Menedżer pakietów NuGet** i **Zarządzaj pakietami NuGet rozwiązania**.
+    1. Kliknij kartę **Przeglądaj**, a następnie w polu **Wyszukiwanie** wpisz ciąg „Newtonsoft.Json”.
+    1. Gdy zostanie wyświetlona pozycja **Newtonsoft.Json**, wybierz ją, a następnie kliknij kolejno pole wyboru obok nazwy projektu i pozycję **Zainstaluj**.
 1. Uruchomisz program.
 1. Gdy pojawi się monit, wprowadź ścieżkę do obrazu lokalnego.
 

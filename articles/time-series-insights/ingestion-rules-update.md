@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: lyhughes
-ms.openlocfilehash: 320d92ef0ad6d02dbe7c31b883eb7f73472378ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56a1d5aab2f665f9c5bd8f6fa322f35e55483c7b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667813"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016721"
 ---
 # <a name="upcoming-changes-to-json-flattening-and-escaping-rules-for-new-environments"></a>Nadchodzące zmiany w regułach spłaszczania i ucieczki JSON dla nowych środowisk
 
@@ -44,17 +44,17 @@ Tablice obiektów są zawsze spłaszczone i wytwarzają wiele zdarzeń. | Jeśli
 
 Wszystkie nowe wdrożenia muszą być zgodne z nowymi regułami pozyskiwania. Na przykład, jeśli identyfikator TS to `telemetry_tagId` , należy zaktualizować wszystkie szablony Azure Resource Manager lub zautomatyzowanego wdrażania skryptów, aby skonfigurować `telemetry.tagId` je jako środowisko TS ID. Konieczna jest również ta zmiana dla sygnatur czasowych źródła zdarzeń w zagnieżdżonym formacie JSON.
 
-### <a name="if-your-payload-contains-nested-json-or-special-characters-and-you-automate-authoring-time-series-model-variable-expressions"></a>Jeśli ładunek zawiera zagnieżdżony kod JSON lub znaki specjalne i automatyzuje tworzenie wyrażeń zmiennych [modelu szeregów czasowych](.\time-series-insights-update-tsm.md)
+### <a name="if-your-payload-contains-nested-json-or-special-characters-and-you-automate-authoring-time-series-model-variable-expressions"></a>Jeśli ładunek zawiera zagnieżdżony kod JSON lub znaki specjalne i automatyzuje tworzenie wyrażeń zmiennych [modelu szeregów czasowych](./concepts-model-overview.md)
 
-Zaktualizuj kod klienta, który wykonuje [TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput) , aby pasował do nowych reguł pozyskiwania. Na przykład należy zaktualizować poprzednie [wyrażenie szeregów czasowych](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) `"value": {"tsx": "$event.series_value.Double"}` do jednej z następujących opcji:
+Zaktualizuj kod klienta, który wykonuje [TypesBatchPut](/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput) , aby pasował do nowych reguł pozyskiwania. Na przykład należy zaktualizować poprzednie [wyrażenie szeregów czasowych](/rest/api/time-series-insights/reference-time-series-expression-syntax) `"value": {"tsx": "$event.series_value.Double"}` do jednej z następujących opcji:
 
 * `"value": {"tsx": "$event.series.value.Double"}`
 * `"value": {"tsx": "$event['series']['value'].Double"}`
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej na temat [Azure Time Series Insights Gen2 Storage i](./time-series-insights-update-storage-ingress.md)transferów przychodzących.
+* Dowiedz się więcej na temat [Azure Time Series Insights Gen2 Storage i](./concepts-ingestion-overview.md)transferów przychodzących.
 
 * Dowiedz się, jak wykonywać zapytania dotyczące danych, korzystając z [interfejsów API zapytań szeregów czasowych](./concepts-query-overview.md).
 
-* Przeczytaj więcej na temat [nowej składni wyrażeń szeregów czasowych](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
+* Przeczytaj więcej na temat [nowej składni wyrażeń szeregów czasowych](/rest/api/time-series-insights/reference-time-series-expression-syntax).

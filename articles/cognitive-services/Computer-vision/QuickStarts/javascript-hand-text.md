@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/23/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 79d9c0e4a1e820ca30e8434e87fd0e40622291d4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: c9c4a96259f939e4732c182c690f47735bc0e3e8
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542783"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013980"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-javascript"></a>Szybki Start: Wyodrębnianie wydrukowanych i odręcznych tekstu przy użyciu interfejsu API REST przetwarzanie obrazów i języka JavaScript
 
@@ -389,6 +389,6 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 Eksploruj aplikację JavaScript, która używa przetwarzanie obrazów do wykonywania optycznego rozpoznawania znaków (OCR). Twórz inteligentne, przycięte miniatury; wykrywaj, Kategoryzuj i opisuj funkcje wizualne w obrazach. 
 
 > [!div class="nextstepaction"]
-> [Samouczek języka JavaScript interfejsu API przetwarzania obrazów](../Tutorials/javascript-tutorial.md)
+> [Samouczek języka JavaScript interfejsu API przetwarzania obrazów](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial)
 
 * Aby szybko zacząć eksperymentować z interfejsem API przetwarzania obrazów, wypróbuj [konsolę testowania interfejsu Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).

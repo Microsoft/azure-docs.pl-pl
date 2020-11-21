@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 7408e3fb279536f61dd2e5cf1858476da57219d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1bd3c5796658663b6111723829cbe620346002c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665818"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016245"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Uwierzytelnianie i autoryzacja na potrzeby interfejsu API usługi Azure Time Series Insights
 
@@ -35,7 +35,7 @@ Przepływ rejestracji aplikacji Azure Active Directory obejmuje trzy główne kr
 1. Autoryzuj aplikację w taki sposób, aby miała [dostęp do danych środowiska Azure Time Series Insights](#granting-data-access).
 1. Użyj **identyfikatora aplikacji** i **klucza tajnego klienta** , aby uzyskać token z `https://api.timeseries.azure.com/` w [aplikacji klienckiej](#client-app-initialization). Tokenu można następnie użyć do wywołania interfejsu API Azure Time Series Insights.
 
-Na **krok 3**oddzielenie poświadczeń aplikacji i użytkownika pozwala:
+Na **krok 3** oddzielenie poświadczeń aplikacji i użytkownika pozwala:
 
 * Przypisywanie uprawnień do tożsamości aplikacji, które różnią się od własnych uprawnień. Zazwyczaj te uprawnienia są ograniczone tylko do wymaganej aplikacji. Można na przykład zezwolić aplikacji na odczytywanie danych tylko z określonego środowiska Azure Time Series Insights.
 * Odizolowanie zabezpieczeń aplikacji od tworzenia poświadczeń uwierzytelniania użytkownika przy użyciu **klucza tajnego klienta** lub certyfikatu zabezpieczeń. W związku z tym poświadczenia aplikacji nie są zależne od poświadczeń określonego użytkownika. Jeśli rola użytkownika ulegnie zmianie, aplikacja nie musi wymagać nowych poświadczeń lub dalszej konfiguracji. Jeśli użytkownik zmieni hasło, cały dostęp do aplikacji nie wymaga nowych poświadczeń ani kluczy.
@@ -73,7 +73,7 @@ Na **krok 3**oddzielenie poświadczeń aplikacji i użytkownika pozwala:
 1. Zapisz zasady, wybierając **przycisk OK**.
 
    > [!TIP]
-   > Aby uzyskać zaawansowane opcje dostępu do danych, należy przeczytać artykuł [udzielanie dostępu do danych](./time-series-insights-data-access.md).
+   > Aby uzyskać zaawansowane opcje dostępu do danych, należy przeczytać artykuł [udzielanie dostępu do danych](./concepts-access-policies.md).
 
 ### <a name="client-app-initialization"></a>Inicjowanie aplikacji klienta
 
@@ -90,18 +90,18 @@ Na **krok 3**oddzielenie poświadczeń aplikacji i użytkownika pozwala:
    1. Token można następnie przesłać do `Authorization` nagłówka, gdy aplikacja wywoła interfejs API Azure Time Series Insights.
 
 > [!IMPORTANT]
-> Azure Active Directory w przypadku korzystania z [biblioteki MSAL Authentication Library (ADAL)](https://docs.microsoft.com/azure/active-directory/azuread-dev/active-directory-authentication-libraries) Przeczytaj informacje [na temat migrowania do programu](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration).
+> Azure Active Directory w przypadku korzystania z [biblioteki MSAL Authentication Library (ADAL)](../active-directory/azuread-dev/active-directory-authentication-libraries.md) Przeczytaj informacje [na temat migrowania do programu](../active-directory/develop/msal-net-migration.md).
 
 ## <a name="common-headers-and-parameters"></a>Wspólne nagłówki i parametry
 
-W tej sekcji opisano typowe nagłówki i parametry żądań HTTP służące do wykonywania zapytań dotyczących interfejsów API Azure Time Series Insights Gen1 i Gen2. Wymagania dotyczące interfejsu API są szczegółowo opisane w [dokumentacji dotyczącej interfejsu API REST Azure Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/).
+W tej sekcji opisano typowe nagłówki i parametry żądań HTTP służące do wykonywania zapytań dotyczących interfejsów API Azure Time Series Insights Gen1 i Gen2. Wymagania dotyczące interfejsu API są szczegółowo opisane w [dokumentacji dotyczącej interfejsu API REST Azure Time Series Insights](/rest/api/time-series-insights/).
 
 > [!TIP]
-> Przeczytaj informacje o [interfejsie API REST platformy Azure](https://docs.microsoft.com/rest/api/azure/) , aby dowiedzieć się więcej na temat korzystania z interfejsów API REST, wykonywania żądań HTTP i obsługi odpowiedzi HTTP.
+> Przeczytaj informacje o [interfejsie API REST platformy Azure](/rest/api/azure/) , aby dowiedzieć się więcej na temat korzystania z interfejsów API REST, wykonywania żądań HTTP i obsługi odpowiedzi HTTP.
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
-Aby wykonać uwierzytelnione zapytania dotyczące [Azure Time Series Insights interfejsów API REST](https://docs.microsoft.com/rest/api/time-series-insights/), należy przesłać prawidłowy token okaziciela OAuth 2,0 w [nagłówku autoryzacji](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) za pomocą wybranego przez siebie klienta REST (Poster, JavaScript, C#).
+Aby wykonać uwierzytelnione zapytania dotyczące [Azure Time Series Insights interfejsów API REST](/rest/api/time-series-insights/), należy przesłać prawidłowy token okaziciela OAuth 2,0 w [nagłówku autoryzacji](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) za pomocą wybranego przez siebie klienta REST (Poster, JavaScript, C#).
 
 > [!TIP]
 > Zapoznaj się z [przykładową wizualizacją zestawu SDK klienta](https://tsiclientsample.azurewebsites.net/) hostowanego Azure Time Series Insights, aby dowiedzieć się, jak uwierzytelniać się za pomocą interfejsu API Azure Time Series Insights programowo przy użyciu [zestawu SDK klienta JavaScript](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) oraz wykresów i grafów
@@ -140,7 +140,7 @@ Opcjonalne, ale zalecane nagłówki odpowiedzi są opisane poniżej.
 ### <a name="http-parameters"></a>Parametry HTTP
 
 > [!TIP]
-> Więcej informacji na temat wymaganych i opcjonalnych informacji o zapytaniach znajduje się w [dokumentacji referencyjnej](https://docs.microsoft.com/rest/api/time-series-insights/).
+> Więcej informacji na temat wymaganych i opcjonalnych informacji o zapytaniach znajduje się w [dokumentacji referencyjnej](/rest/api/time-series-insights/).
 
 Parametry ciągu zapytania wymaganego adresu URL są zależne od wersji interfejsu API.
 
@@ -157,7 +157,7 @@ Opcjonalne parametry ciągu zapytania URL obejmują ustawianie limitu czasu dla 
 
 | Opcjonalny parametr zapytania | Opis | Wersja |
 | --- |  --- | --- |
-| `timeout=<timeout>` | Limit czasu po stronie serwera dla wykonywania żądania HTTP. Dotyczy tylko [zdarzeń Get Environment](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability) i [Get Environment](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api) API. Wartość limitu czasu powinna mieć format czasu trwania ISO 8601, na przykład `"PT20S"` i musi należeć do zakresu `1-30 s` . Wartość domyślna to `30 s`. | Gen1 |
+| `timeout=<timeout>` | Limit czasu po stronie serwera dla wykonywania żądania HTTP. Dotyczy tylko [zdarzeń Get Environment](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability) i [Get Environment](/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api) API. Wartość limitu czasu powinna mieć format czasu trwania ISO 8601, na przykład `"PT20S"` i musi należeć do zakresu `1-30 s` . Wartość domyślna to `30 s`. | Gen1 |
 | `storeType=<storeType>` | W przypadku środowisk Gen2 z włączonym rozgrzanym magazynem zapytanie można wykonać przy użyciu `WarmStore` lub `ColdStore` . Ten parametr w zapytaniu definiuje magazyn, dla którego ma zostać wykonane zapytanie. Jeśli nie zostanie zdefiniowana, zapytanie zostanie wykonane w chłodnym magazynie. Aby zbadać magazyn ciepły, należy ustawić wartość **magazynutype** na `WarmStore` . Jeśli nie zostanie zdefiniowana, zapytanie zostanie wykonane względem zimnego magazynu. | Gen2 |
 
 ## <a name="next-steps"></a>Następne kroki
@@ -166,6 +166,6 @@ Opcjonalne parametry ciągu zapytania URL obejmują ustawianie limitu czasu dla 
 
 * W przypadku przykładowego kodu, który wywołuje przykłady kodu interfejsu API Gen2 Azure Time Series Insights, Odczytaj [dane Gen2 zapytania przy użyciu języka C#](./time-series-insights-update-query-data-csharp.md).
 
-* Informacje referencyjne dotyczące interfejsu API można znaleźć w dokumentacji dotyczącej [interfejsu API zapytań](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api) .
+* Informacje referencyjne dotyczące interfejsu API można znaleźć w dokumentacji dotyczącej [interfejsu API zapytań](/rest/api/time-series-insights/gen1-query-api) .
 
 * Dowiedz się, jak [utworzyć jednostkę usługi](../active-directory/develop/howto-create-service-principal-portal.md).

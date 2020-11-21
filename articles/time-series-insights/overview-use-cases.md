@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: b5b6233c0978f15aad94b7f66f8935c2d6f6f1c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8f13a20232fab61dc082c1b12b7ddaa11807554
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666963"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016194"
 ---
 # <a name="azure-time-series-insights-gen2-use-cases"></a>Azure Time Series Insights przypadki użycia Gen2
 
@@ -52,13 +52,13 @@ Klienci mogą korzystać z szybkości, aby szybko zdiagnozować problemy związa
 
 Istnieją trzy podstawowe sposoby współpracy z danymi przechowywanymi w Azure Time Series Insights Gen2:
 
-* Pierwszym i najprostszym sposobem rozpoczęcia pracy jest wprowadzenie Azure Time Series Insights Gen2 Explorer. Za jego pomocą można szybko wizualizować wszystkie dane IoT w jednym miejscu. Udostępnia narzędzia takie jak mapa cieplna, które ułatwiają wykrywanie anomalii w danych. Zawiera również widok perspektywy. Służy do porównywania do czterech widoków z co najmniej jednego Azure Time Series Insights środowisk Gen2 na jednym pulpicie nawigacyjnym. Pulpit nawigacyjny umożliwia wyświetlenie danych szeregów czasowych we wszystkich lokalizacjach. Dowiedz się więcej na temat [Azure Time Series Insights Explorer Gen2](./time-series-insights-update-explorer.md). Aby zaplanować środowisko, Przeczytaj [Azure Time Series Insights Gen2 planowanie](./time-series-insights-update-plan.md).
+* Pierwszym i najprostszym sposobem rozpoczęcia pracy jest wprowadzenie Azure Time Series Insights Gen2 Explorer. Za jego pomocą można szybko wizualizować wszystkie dane IoT w jednym miejscu. Udostępnia narzędzia takie jak mapa cieplna, które ułatwiają wykrywanie anomalii w danych. Zawiera również widok perspektywy. Służy do porównywania do czterech widoków z co najmniej jednego Azure Time Series Insights środowisk Gen2 na jednym pulpicie nawigacyjnym. Pulpit nawigacyjny umożliwia wyświetlenie danych szeregów czasowych we wszystkich lokalizacjach. Dowiedz się więcej na temat [Azure Time Series Insights Explorer Gen2](./concepts-ux-panels.md). Aby zaplanować środowisko, Przeczytaj [Azure Time Series Insights Gen2 planowanie](./how-to-plan-your-environment.md).
 
 * Drugim sposobem na rozpoczęcie pracy jest użycie zestawu SDK języka JavaScript w celu szybkiego osadzenia zaawansowanych wykresów i grafów w aplikacji sieci Web. Wystarczy kilka wierszy kodu, które umożliwiają tworzenie zaawansowanych zapytań. Służą one do wypełniania wykresów liniowych, wykresów kołowych, wykresów słupkowych, map cieplnych, siatek danych i nie tylko. Wszystkie te elementy istnieją jako wbudowane przy użyciu zestawu SDK. Zestaw SDK jest również abstrakcyjny Azure Time Series Insights interfejsów API zapytań Gen2. Za ich pomocą można tworzyć predykaty podobne do języka SQL, aby wykonywać zapytania dotyczące danych, które mają być wyświetlane na pulpicie nawigacyjnym. W przypadku hybrydowych rozwiązań warstwy prezentacji Azure Time Series Insights Gen2 oferuje sparametryzowane adresy URL. Zapewniają one bezproblemowe punkty połączenia z Azure Time Series Insights Gen2 Explorer, aby uzyskać szczegółowe omówieniach do danych.
 
   * Zapoznaj się z [biblioteką kliencką js](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) i [przykładową dokumentacją klienta](https://github.com/Microsoft/tsiclient) , aby dowiedzieć się więcej na temat zestawu SDK języka JavaScript.
 
-  * Dowiedz się więcej o udostępnianiu adresów URL i nowym interfejsie użytkownika, przeglądając temat [Wizualizacja danych w Azure Time Series Insights Gen2 Explorer](time-series-insights-update-explorer.md).
+  * Dowiedz się więcej o udostępnianiu adresów URL i nowym interfejsie użytkownika, przeglądając temat [Wizualizacja danych w Azure Time Series Insights Gen2 Explorer](./concepts-ux-panels.md).
 
 * Trzecim sposobem na rozpoczęcie pracy jest użycie zaawansowanych interfejsów API do wykonywania zapytań dotyczących danych przechowywanych w Azure Time Series Insights Gen2. Azure Time Series Insights Gen2 ma operatory czasowe, takie jak `from` ,, `to` `first` , i `last` . Ma agregacje i przekształcenia, takie jak `average` ,,,,, `sum` `min` `max` `time-weighted average` `time-weighted sum` itd. Umożliwia także filtrowanie, operatory arytmetyczne i logiczne, funkcje skalarne itp. Wszystkie te operatory umożliwiają aplikacjom podrzędnym szybkie znajdowanie interesujących trendów i wzorców w danych. Służą one do wypełniania wizualizacji Homegrown na potrzeby wykrywania anomalii.
 
@@ -100,6 +100,6 @@ Azure Time Series Insights Gen2 mostkuje przerwy między danymi IoT a zaawansowa
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej na temat [Azure Time Series Insights Explorer Gen2](./time-series-insights-update-explorer.md).
-* Przeczytaj [Azure Time Series Insights Gen2 najlepsze rozwiązania](./time-series-insights-update-plan.md) w celu zaplanowania środowiska.
+* Dowiedz się więcej na temat [Azure Time Series Insights Explorer Gen2](./concepts-ux-panels.md).
+* Przeczytaj [Azure Time Series Insights Gen2 najlepsze rozwiązania](./how-to-plan-your-environment.md) w celu zaplanowania środowiska.
 * Przeczytaj [przykładową dokumentację klienta](https://github.com/Microsoft/tsiclient) .

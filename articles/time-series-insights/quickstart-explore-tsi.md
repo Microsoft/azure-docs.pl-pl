@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 10/02/2020
-ms.openlocfilehash: 9cd1a6059360c948229a1da00780cd6cb40b7f35
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3956f8d91793367f7200d2f349a8713aff3d2f59
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91666538"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016228"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-gen2-demo-environment"></a>Szybki Start: Eksplorowanie środowiska demonstracyjnego Azure Time Series Insights Gen2
 
@@ -38,7 +38,7 @@ Eksplorator Azure Time Series Insights Gen2 demonstruje dane historyczne i anali
 
 ## <a name="work-with-historical-data"></a>Pracuj z danymi historycznymi
 
-1. W firmie **contoso 1**zapoznaj się z tematem wiatr turbin **W7**.  
+1. W firmie **contoso 1** zapoznaj się z tematem wiatr turbin **W7**.  
 
    1. Zmień zakres widoku na **1/1/17 20:00:00.00 do 3/10/17 20:00:00.00 (UTC)**.
    1. Aby wybrać czujnik, wybierz pozycję **contoso roślina 1**  >  **W7**  >  **Generator system**  >  **GeneratorSpeed**. Następnie przejrzyj wyświetlane wartości.
@@ -102,7 +102,7 @@ Za pomocą Azure Time Series Insights Gen2 i danych telemetrycznych, wykryliśmy
 
 1. Inne punkty danych czujników można dodać, aby zapewnić większy kontekst. Im więcej czujników jest wyświetlanych, tym pełniejsze zrozumienie problemu jest. Upuśćmy znacznik, aby wyświetlić rzeczywiste wartości.
 
-    1. Wybierz pozycję **system generatora**, a następnie wybierz pozycję trzy czujniki: **GridVoltagePhase1**, **GridVoltagePhase2**i **GridVoltagePhase3**.
+    1. Wybierz pozycję **system generatora**, a następnie wybierz pozycję trzy czujniki: **GridVoltagePhase1**, **GridVoltagePhase2** i **GridVoltagePhase3**.
     1. Ustaw znacznik na ostatnim punkcie danych w widocznym obszarze.
 
        [![Upuść znacznik](media/v2-update-quickstart/quick-start-drop-marker.png)](media/v2-update-quickstart/quick-start-drop-marker.png#lightbox)
@@ -119,7 +119,7 @@ Za pomocą Azure Time Series Insights Gen2 i danych telemetrycznych, wykryliśmy
 
 Po zakończeniu przewodnika Szybki Start Wyczyść utworzone zasoby:
 
-1. W menu po lewej stronie w [Azure Portal](https://portal.azure.com)wybierz pozycję **wszystkie zasoby**i Znajdź grupę zasobów Azure Time Series Insights Gen2.
+1. W menu po lewej stronie w [Azure Portal](https://portal.azure.com)wybierz pozycję **wszystkie zasoby** i Znajdź grupę zasobów Azure Time Series Insights Gen2.
 1. Usuń całą grupę zasobów (i wszystkie znajdujące się w niej zasoby), wybierając pozycję **Usuń** lub Usuń osobno każdy zasób.
 
 ## <a name="next-steps"></a>Następne kroki
@@ -127,9 +127,9 @@ Po zakończeniu przewodnika Szybki Start Wyczyść utworzone zasoby:
 Wszystko jest gotowe do utworzenia własnego środowiska Azure Time Series Insights Gen2. Aby rozpocząć:
 
 > [!div class="nextstepaction"]
-> [Planowanie środowiska Azure Time Series Insights Gen2](time-series-insights-update-plan.md)
+> [Planowanie środowiska Azure Time Series Insights Gen2](./how-to-plan-your-environment.md)
 
 Dowiedz się, jak korzystać z demonstracji i jej funkcji:
 
 > [!div class="nextstepaction"]
-> [Eksplorator Azure Time Series Insights Gen2](time-series-insights-update-explorer.md)
+> [Eksplorator Azure Time Series Insights Gen2](./concepts-ux-panels.md)

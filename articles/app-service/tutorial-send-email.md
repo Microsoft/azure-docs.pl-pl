@@ -4,12 +4,12 @@ description: Dowiedz się, jak wywoływać procesy biznesowe z poziomu aplikacji
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 5aa563e55c64893d57522dd1154a64c7e90a1690
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8072a941cd89290af3e25cc63c4fccccce705df9
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397440"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014666"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Samouczek: wysyłanie wiadomości e-mail i wywoływanie innych procesów biznesowych z App Service
 
@@ -58,7 +58,7 @@ Wdróż aplikację z wybranym przez Ciebie platformą języka, aby App Service. 
 1. Na stronie powitalnej programu Logic Apps Designer wybierz opcję **gdy żądanie HTTP zostanie odebrane** w polu **Rozpocznij ze wspólnym wyzwalaczem**.
 
     ![Zrzut ekranu pokazujący stronę powitalną dla projektanta Logic Apps z wyświetloną żądaniem H T t P.](./media/tutorial-send-email/receive-http-request.png)
-1. W oknie dialogowym dla **momentu odebrania żądania HTTP**wybierz pozycję **Użyj przykładowego ładunku do wygenerowania schematu**.
+1. W oknie dialogowym dla **momentu odebrania żądania HTTP** wybierz pozycję **Użyj przykładowego ładunku do wygenerowania schematu**.
 
     ![Zrzut ekranu, na którym jest wyświetlane okno dialogowe żądanie H T t P, a w polu Użyj przykładowego ładunku do wygenerowania wybranego schematu opion. ](./media/tutorial-send-email/generate-schema-with-payload.png)
 
@@ -105,7 +105,7 @@ Wdróż aplikację z wybranym przez Ciebie platformą języka, aby App Service. 
 
 1. Kliknij pole tekstowe **temat** , a w ten sam sposób wybierz **zadanie**. Po umieszczeniu kursora w polu **tematu** wpisz polecenie *utworzony*. 
 
-1. Kliknij pozycję w **treści**i w ten sam sposób wybierz pozycję **termin**. Przesuń **kursor z lewej strony i wpisz** *ten element roboczy*.
+1. Kliknij pozycję w **treści** i w ten sam sposób wybierz pozycję **termin**. Przesuń **kursor z lewej strony i wpisz** *ten element roboczy*.
 
     > [!TIP]
     > Jeśli chcesz edytować zawartość HTML bezpośrednio w treści wiadomości e-mail, wybierz pozycję **Widok kodu** w górnej części okna projektanta Logic Apps. Upewnij się, że zachowasz dynamiczny kod zawartości (na przykład `@{triggerBody()?['due']}` ).
@@ -153,7 +153,7 @@ Kliknij kartę preferowany język/struktura poniżej, aby zobaczyć przykład.
 
 ### <a name="aspnet"></a>[ASP.NET](#tab/dotnet)
 
-W ASP.NET można wysłać wpis HTTP przy użyciu klasy [System .NET. http. HttpClient](/dotnet/api/system.net.http.httpclient) . Na przykład:
+W ASP.NET można wysłać wpis HTTP przy użyciu klasy [System .NET. http. HttpClient](/dotnet/api/system.net.http.httpclient) . Przykład:
 
 ```csharp
 // requires using System.Net.Http;
@@ -178,7 +178,7 @@ Jeśli testujesz ten kod w przykładowej aplikacji na potrzeby [samouczka: Tworz
 
 ### <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
 
-W ASP.NET Core można wysłać wpis HTTP przy użyciu klasy [System .NET. http. HttpClient](/dotnet/api/system.net.http.httpclient) . Na przykład:
+W ASP.NET Core można wysłać wpis HTTP przy użyciu klasy [System .NET. http. HttpClient](/dotnet/api/system.net.http.httpclient) . Przykład:
 
 ```csharp
 // requires using System.Net.Http;
@@ -206,7 +206,7 @@ Jeśli testujesz ten kod w przykładowej aplikacji na potrzeby [samouczka: tworz
 
 ### <a name="nodejs"></a>[Node.js](#tab/node)
 
-W Node.js można łatwo wysyłać pocztę HTTP przy użyciu pakietu npm, takiego jak [Axios](https://www.npmjs.com/package/axios). Na przykład:
+W Node.js można łatwo wysyłać pocztę HTTP przy użyciu pakietu npm, takiego jak [Axios](https://www.npmjs.com/package/axios). Przykład:
 
 ```javascript
 // Requires npm install --save axios
@@ -233,7 +233,7 @@ Jeśli testujesz ten kod w przykładowej aplikacji na potrzeby [samouczka: Tworz
 
 ### <a name="php"></a>[PHP](#tab/php)
 
-W języku PHP można łatwo wysyłać pocztę HTTP przy użyciu [Guzzle](http://docs.guzzlephp.org/en/stable/index.html). Na przykład:
+W języku PHP można łatwo wysyłać pocztę HTTP przy użyciu [Guzzle](http://docs.guzzlephp.org/en/stable/index.html). Przykład:
 
 ```php
 // Requires composer require guzzlehttp/guzzle:~6.0
@@ -265,7 +265,7 @@ Jeśli testujesz ten kod w przykładowej aplikacji na potrzeby [samouczka: Tworz
 
 ### <a name="python"></a>[Python](#tab/python)
 
-W języku Python można łatwo wysyłać pocztę HTTP przy użyciu [żądań](https://pypi.org/project/requests/). Na przykład:
+W języku Python można łatwo wysyłać pocztę HTTP przy użyciu [żądań](https://pypi.org/project/requests/). Przykład:
 
 ```python
 # Requires pip install requests && pip freeze > requirements.txt
@@ -296,7 +296,7 @@ Jeśli testujesz ten kod w przykładowej aplikacji na potrzeby [samouczka: Uruch
 
 ### <a name="ruby"></a>[Ruby](#tab/ruby)
 
-W języku Ruby można łatwo wysyłać pocztę HTTP przy użyciu [JSONClient](https://www.rubydoc.info/gems/httpclient/JSONClient). Na przykład:
+W języku Ruby można łatwo wysyłać pocztę HTTP przy użyciu JSONClient. Przykład:
 
 ```ruby
 clnt = JSONClient.new

@@ -10,16 +10,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: dpalled
-ms.openlocfilehash: c3948a5bdfce583384992fb87bf40e9e7251974d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d02a6e3eb2aef4a02c90360b2016e64af579081
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91346386"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014734"
 ---
 # <a name="model-synchronization-between-azure-digital-twins-and-time-series-insights-gen2"></a>Synchronizacja modeli między usługą Azure Digital Twins i Time Series Insights Gen2
 
-W tym artykule opisano najlepsze rozwiązania i narzędzia służące do tłumaczenia modelu zasobów w usłudze Azure Digital bliźniaczych reprezentacji (ADT) na model zasobów w Azure Time Series Insights (TSI).  Ten artykuł jest drugą częścią serii samouczków z dwiema częściami wyjaśniającą integrację usługi Azure Digital bliźniaczych reprezentacji z programem Azure Time Series Insights. Integracja usługi Azure Digital bliźniaczych reprezentacji z programem Time Series Insights umożliwia archiwizowanie i śledzenie historii telemetrii i obliczonych właściwości cyfrowych bliźniaczych reprezentacji. Ta seria samouczków jest przeznaczona dla deweloperów pracujących nad integracją Time Series Insights z usługą Azure Digital bliźniaczych reprezentacji. W części 1 opisano  [ustanawianie potoku danych, który zawiera rzeczywiste dane szeregów czasowych z usługi Azure Digital bliźniaczych reprezentacji do Time Series Insights](https://docs.microsoft.com/azure/digital-twins/how-to-integrate-time-series-insights) , a druga część serii samouczków zawiera opis synchronizacji modelu zasobów między usługą Azure Digital bliźniaczych reprezentacji i Time Series Insights. W tym samouczku wyjaśniono najlepsze rozwiązania dotyczące wyboru i ustanowienia konwencji nazewnictwa dla identyfikatora szeregów czasowych (TS ID) oraz ręcznego ustanawiania hierarchii w modelu szeregów czasowych (TSM).
+W tym artykule opisano najlepsze rozwiązania i narzędzia służące do tłumaczenia modelu zasobów w usłudze Azure Digital bliźniaczych reprezentacji (ADT) na model zasobów w Azure Time Series Insights (TSI).  Ten artykuł jest drugą częścią serii samouczków z dwiema częściami wyjaśniającą integrację usługi Azure Digital bliźniaczych reprezentacji z programem Azure Time Series Insights. Integracja usługi Azure Digital bliźniaczych reprezentacji z programem Time Series Insights umożliwia archiwizowanie i śledzenie historii telemetrii i obliczonych właściwości cyfrowych bliźniaczych reprezentacji. Ta seria samouczków jest przeznaczona dla deweloperów pracujących nad integracją Time Series Insights z usługą Azure Digital bliźniaczych reprezentacji. W części 1 opisano  [ustanawianie potoku danych, który zawiera rzeczywiste dane szeregów czasowych z usługi Azure Digital bliźniaczych reprezentacji do Time Series Insights](../digital-twins/how-to-integrate-time-series-insights.md) , a druga część serii samouczków zawiera opis synchronizacji modelu zasobów między usługą Azure Digital bliźniaczych reprezentacji i Time Series Insights. W tym samouczku wyjaśniono najlepsze rozwiązania dotyczące wyboru i ustanowienia konwencji nazewnictwa dla identyfikatora szeregów czasowych (TS ID) oraz ręcznego ustanawiania hierarchii w modelu szeregów czasowych (TSM).
 
 ## <a name="choosing-a-time-series-id"></a>Wybieranie identyfikatora szeregów czasowych
 
@@ -29,7 +29,7 @@ Identyfikator szeregów czasowych jest unikatowym identyfikatorem używanym do i
 
 ## <a name="contextualizing-time-series"></a>Contextualizing szeregi czasowe
 
-Contextualization danych (głównie przestrzenne) w Time Series Insights jest realizowana za pomocą hierarchii zasobów, a ta sama służy do łatwego nawigowania po danych za pomocą widoku drzewa w Eksploratorze Time Series Insights. Typy szeregów czasowych i hierarchie są definiowane przy użyciu modelu szeregów czasowych (TSM) w Time Series Insights. Typy w pomocy TSM definiują zmienne, podczas gdy poziomy hierarchii i wartości pól wystąpienia są używane do konstruowania widoku drzewa w Eksploratorze Time Series Insights. Aby uzyskać więcej informacji na temat TSM, zobacz [dokumentację Time Series Insights online](https://docs.microsoft.com/azure/time-series-insights/concepts-model-overview).
+Contextualization danych (głównie przestrzenne) w Time Series Insights jest realizowana za pomocą hierarchii zasobów, a ta sama służy do łatwego nawigowania po danych za pomocą widoku drzewa w Eksploratorze Time Series Insights. Typy szeregów czasowych i hierarchie są definiowane przy użyciu modelu szeregów czasowych (TSM) w Time Series Insights. Typy w pomocy TSM definiują zmienne, podczas gdy poziomy hierarchii i wartości pól wystąpienia są używane do konstruowania widoku drzewa w Eksploratorze Time Series Insights. Aby uzyskać więcej informacji na temat TSM, zobacz [dokumentację Time Series Insights online](./concepts-model-overview.md).
 
 W usłudze Azure Digital bliźniaczych reprezentacji połączenie między elementami zawartości jest wyrażane przy użyciu relacji bliźniaczych. Relacje z przędzą są po prostu wykresem połączonych zasobów. Jednak w usłudze Time Series Insights relacje między elementami zawartości są hierarchiczne. Oznacza to, że zasoby współużytkują typ nadrzędny-podrzędny od relacji i są reprezentowane przy użyciu struktury drzewa. Aby przetłumaczyć informacje o relacji z usługi Azure Digital bliźniaczych reprezentacji na hierarchie Time Series Insights, musimy wybrać odpowiednie relacje hierarchiczne z usługi Azure Digital bliźniaczych reprezentacji. Usługa Azure Digital bliźniaczych reprezentacji używa otwartego standardu języka modelowego o nazwie Digital bliźniaczy Definition Language (DTDL). W modelach DTDL są opisane przy użyciu wariantu JSON o nazwie JSON-LD. Zapoznaj się z [dokumentacją DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) , aby uzyskać szczegółowe informacje na temat specyfikacji.
 
@@ -82,7 +82,7 @@ Poniższy fragment kodu przedstawia sposób, w jaki aplikacja kliencka może naw
 
 > [!Note]
 >
-> W tym przykładzie fragmentu kodu założono, że czytelnicy znają [część 01](https://docs.microsoft.com/azure/digital-twins/tutorial-end-to-end#set-up-the-sample-function-app) samouczka, a ta zmiana kodu została wprowadzona wewnątrz funkcji "ProcessHubToDTEvents".
+> W tym przykładzie fragmentu kodu założono, że czytelnicy znają [część 01](../digital-twins/tutorial-end-to-end.md#set-up-the-sample-function-app) samouczka, a ta zmiana kodu została wprowadzona wewnątrz funkcji "ProcessHubToDTEvents".
 
 ```csharp
 if (propertyPath.Equals("/Flow"))
@@ -114,7 +114,7 @@ relationship for " + twinId);
 
 ## <a name="updating-instance-fields-using-apis"></a>Aktualizowanie pól wystąpień przy użyciu interfejsów API
 
-W tej części samouczka wyjaśniono nasłuchiwanie zmian modelu w usłudze Azure Digital bliźniaczych reprezentacji, takich jak tworzenie, usuwanie bliźniaczych reprezentacji lub zmiana relacji między bliźniaczych reprezentacji i aktualizowaniem pól wystąpień i hierarchii programowo przy użyciu interfejsów API modelu Time Series Insights. Ta metoda aktualizacji modelu Time Series Insights jest zazwyczaj uzyskiwana za pośrednictwem usługi Azure Functions. W przypadku usługi Azure Digital bliźniaczych reprezentacji powiadomienia o zdarzeniach, takie jak dodawanie lub usuwanie dwuosiowe mogą być kierowane do usług podrzędnych, takich jak Event Hubs, które z kolei mogą być przekazywane do usługi Azure Functions. Więcej informacji o routingu i filtrowaniu zdarzeń wyjaśniono w [tym miejscu](https://docs.microsoft.com/azure/digital-twins/how-to-manage-routes-portal).  W pozostałej części tej sekcji opisano Używanie interfejsów API modelu Time Series Insights w usłudze Azure Functions do aktualizowania Time Series Insights modelu w odpowiedzi na dodanie sznurka (jeden typ zmiany modelu) w usłudze Azure Digital bliźniaczych reprezentacji.
+W tej części samouczka wyjaśniono nasłuchiwanie zmian modelu w usłudze Azure Digital bliźniaczych reprezentacji, takich jak tworzenie, usuwanie bliźniaczych reprezentacji lub zmiana relacji między bliźniaczych reprezentacji i aktualizowaniem pól wystąpień i hierarchii programowo przy użyciu interfejsów API modelu Time Series Insights. Ta metoda aktualizacji modelu Time Series Insights jest zazwyczaj uzyskiwana za pośrednictwem usługi Azure Functions. W przypadku usługi Azure Digital bliźniaczych reprezentacji powiadomienia o zdarzeniach, takie jak dodawanie lub usuwanie dwuosiowe mogą być kierowane do usług podrzędnych, takich jak Event Hubs, które z kolei mogą być przekazywane do usługi Azure Functions. Więcej informacji o routingu i filtrowaniu zdarzeń wyjaśniono w [tym miejscu](../digital-twins/how-to-manage-routes-portal.md).  W pozostałej części tej sekcji opisano Używanie interfejsów API modelu Time Series Insights w usłudze Azure Functions do aktualizowania Time Series Insights modelu w odpowiedzi na dodanie sznurka (jeden typ zmiany modelu) w usłudze Azure Digital bliźniaczych reprezentacji.
 
 ### <a name="receiving-and-identifying-twin-addition-event-notification"></a>Otrzymywanie i identyfikowanie powiadomienia o zdarzeniu dodawania dwuosiowego
 
@@ -227,4 +227,4 @@ private async Task<TimeSeriesInstance> AddHierarchyToInstanceAsync(TimeSeriesIns
 
 ## <a name="next-steps"></a>Następne kroki
 
-Trzecia z serii samouczków pokazuje, jak wykonywać zapytania dotyczące danych historycznych z usługi Azure Digital bliźniaczych reprezentacji przy użyciu interfejsów API Time Series Insights. Jest to prace w toku, a sekcja zostanie zaktualizowana, gdy będzie gotowa. W międzyczasie Zachęcamy czytelników do odwoływania się do [dokumentacji interfejsu API zapytań dotyczących danych Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/concepts-query-overview).
+Trzecia z serii samouczków pokazuje, jak wykonywać zapytania dotyczące danych historycznych z usługi Azure Digital bliźniaczych reprezentacji przy użyciu interfejsów API Time Series Insights. Jest to prace w toku, a sekcja zostanie zaktualizowana, gdy będzie gotowa. W międzyczasie Zachęcamy czytelników do odwoływania się do [dokumentacji interfejsu API zapytań dotyczących danych Time Series Insights](./concepts-query-overview.md).

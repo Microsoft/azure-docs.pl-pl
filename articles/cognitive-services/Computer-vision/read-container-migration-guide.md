@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 10/23/2020
 ms.author: aahi
-ms.openlocfilehash: 14b4e7217b6e902023e5e82f8dbd404e43b36ef0
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 1616a0149ae56de8afe0e9ab485af4bf76326d86
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676167"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014615"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migrowanie do kontenerów OCR odczytu v3. x
 
@@ -35,7 +35,7 @@ Kontener Read v 3.1 używa wersji 3 interfejs API przetwarzania obrazów i ma na
 * `/vision/v3.1-preview.2/read/analyze`
 * `/vision/v3.1-preview.2/read/syncAnalyze`
 
-Aby uzyskać szczegółowe informacje na temat aktualizowania aplikacji do korzystania z wersji 3 interfejsu API odczytu opartego na chmurze, zobacz [Przewodnik migracji interfejsu API REST przetwarzanie obrazów v3](https://docs.microsoft.com/azure/cognitive-services/computer-vision/upgrade-api-versions) . Te informacje odnoszą się również do kontenera. Należy zauważyć, że operacje synchronizacji są obsługiwane tylko w kontenerach.
+Aby uzyskać szczegółowe informacje na temat aktualizowania aplikacji do korzystania z wersji 3 interfejsu API odczytu opartego na chmurze, zobacz [Przewodnik migracji interfejsu API REST przetwarzanie obrazów v3](./upgrade-api-versions.md) . Te informacje odnoszą się również do kontenera. Należy zauważyć, że operacje synchronizacji są obsługiwane tylko w kontenerach.
 
 ## <a name="memory-requirements"></a>Wymagania dotyczące pamięci
 

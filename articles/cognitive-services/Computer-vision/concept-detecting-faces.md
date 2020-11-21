@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 089c59c041110209e55cc3fb10b1c5adf54bd13e
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 6d85498b0e76997a1f0f989f4ea0f30acc0e8443
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538278"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013723"
 ---
 # <a name="face-detection-with-computer-vision"></a>Wykrywanie kroju przy użyciu przetwarzanie obrazów
 
 Przetwarzanie obrazów mogą wykrywać ludzkie twarze na obrazie i generować wiek, płeć oraz prostokąt dla każdej wykrytej twarzy. 
 
 > [!NOTE]
-> Ta funkcja jest również oferowana [przez usługę Azure](/azure/cognitive-services/face/) site. Zapoznaj się z tą alternatywą w celu uzyskania bardziej szczegółowej analizy, w tym identyfikacji i wykrywania ułożenia. 
+> Ta funkcja jest również oferowana [przez usługę Azure](../face/index.yml) site. Zapoznaj się z tą alternatywą w celu uzyskania bardziej szczegółowej analizy, w tym identyfikacji i wykrywania ułożenia. 
 
 ## <a name="face-detection-examples"></a>Przykłady wykrywania kroju
 

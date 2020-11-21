@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 64ec7bfa400edceb0f638b1862b9057d104c7904
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: ccb82b141733910552fadd2fe9fb6402924265ce
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542749"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013965"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-javascript"></a>Szybki Start: generowanie miniatury przy użyciu interfejsu API REST przetwarzanie obrazów i języka JavaScript
 
@@ -33,7 +33,7 @@ W tym przewodniku szybki start utworzysz miniaturę obrazu przy użyciu interfej
 
 Aby utworzyć i uruchomić przykład, wykonaj następujące kroki:
 
-1. Utwórz plik o nazwie _get-thumbnail.html_ , otwórz go w edytorze tekstów i skopiuj do niego następujący kod.
+1. Utwórz plik o nazwie _get-thumbnail.html_, otwórz go w edytorze tekstów i skopiuj do niego następujący kod.
 1. Opcjonalnie Zastąp wartość `value` atrybutu `inputImage` kontrolki adresem URL innego obrazu, który chcesz analizować.
 1. Otwórz okno przeglądarki.
 1. W przeglądarce przeciągnij plik i upuść go w oknie przeglądarki.
@@ -166,4 +166,4 @@ Pomyślna odpowiedź jest zwracana jako dane binarne, które reprezentują dane 
 Zapoznaj się z aplikacją w języku JavaScript, w której zastosowano interfejs API przetwarzania obrazów do optycznego rozpoznawania znaków (OCR), inteligentnego przycinania miniatur oraz wykrywania, kategoryzowania, tagowania i opisywania elementów wizualnych, w tym twarzy, na obrazie. Aby szybko zacząć eksperymentować z interfejsem API przetwarzania obrazów, wypróbuj [konsolę testowania interfejsu Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).
 
 > [!div class="nextstepaction"]
-> [Samouczek języka JavaScript interfejsu API przetwarzania obrazów](../Tutorials/javascript-tutorial.md)
+> [Samouczek języka JavaScript interfejsu API przetwarzania obrazów](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial)

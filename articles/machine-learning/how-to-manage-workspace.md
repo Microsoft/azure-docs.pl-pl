@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 1a7204fea1a77dbca57ffc7d512f81e46c4d3b5f
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 9524577d40c3b6b65bb3c3c8ff9e257b015ed90d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873397"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95012940"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Tworzenie obszarów roboczych Azure Machine Learning i zarządzanie nimi 
 
@@ -27,6 +27,10 @@ Wraz ze zmianami lub wymaganiami dotyczącymi usługi Automation można także t
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree) dzisiaj.
 * W przypadku korzystania z zestawu SDK języka Python [Zainstaluj zestaw SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+
+## <a name="limitations"></a>Ograniczenia
+
+* Podczas tworzenia nowego obszaru roboczego można zezwolić obszarowi roboczemu na tworzenie usług platformy Azure, które wymagają automatycznie, lub udostępnić istniejące usługi. W przypadku udostępniania istniejących usług te usługi muszą znajdować się w tej samej subskrypcji platformy Azure co obszar roboczy.
 
 ## <a name="create-a-workspace"></a>Tworzenie obszaru roboczego
 
@@ -132,7 +136,7 @@ Jeśli masz problemy z uzyskaniem dostępu do subskrypcji, zobacz [Konfigurowani
    Grupa zasobów | Użyj grupy zasobów istniejącej w Twojej subskrypcji lub wprowadź nazwę, aby utworzyć nową grupę zasobów. Grupa zasobów zawiera powiązane zasoby dla rozwiązania platformy Azure. W tym przykładzie używane są **dokumenty-AML**. Aby korzystać z istniejącej grupy zasobów, musisz mieć rolę *współautora* lub *właściciela* .  Aby uzyskać więcej informacji na temat dostępu, zobacz [Zarządzanie dostępem do obszaru roboczego Azure Machine Learning](how-to-assign-roles.md).
    Region (Region) | Wybierz region platformy Azure znajdujący się najbliżej Twoich użytkowników i zasoby danych, aby utworzyć obszar roboczy.
    | Konto magazynu | Domyślne konto magazynu dla obszaru roboczego. Domyślnie zostanie utworzony nowy. |
-   | Key Vault | Azure Key Vault używany przez obszar roboczy. Domyślnie zostanie utworzony nowy. |
+   | Usługa Key Vault | Azure Key Vault używany przez obszar roboczy. Domyślnie zostanie utworzony nowy. |
    | Application Insights | Wystąpienie usługi Application Insights dla obszaru roboczego. Domyślnie zostanie utworzony nowy. |
    | Container Registry | Azure Container Registry obszaru roboczego. Domyślnie nowy element _nie_ jest początkowo tworzony dla obszaru roboczego. Zamiast tego jest tworzony, gdy będzie potrzebny podczas tworzenia obrazu platformy Docker podczas uczenia lub wdrożenia. |
 
@@ -151,7 +155,7 @@ Jeśli masz problemy z uzyskaniem dostępu do subskrypcji, zobacz [Konfigurowani
  
 ---
 
-### <a name="networking"></a>Sieć  
+### <a name="networking"></a>Networking  
 
 > [!IMPORTANT]  
 > Aby uzyskać więcej informacji na temat korzystania z prywatnego punktu końcowego i sieci wirtualnej z obszarem roboczym, zobacz [izolacja sieci i ochrona prywatności](how-to-network-security-overview.md).
@@ -193,7 +197,7 @@ Aby uzyskać więcej informacji, zobacz [Konfiguracja DNS prywatnego punktu koń
 
 Usługa Azure Security Center zapewnia ujednolicone zarządzanie zabezpieczeniami i zaawansowaną ochronę przed zagrożeniami na potrzeby różnych obciążeń chmury hybrydowej. Należy zezwolić Azure Security Center na skanowanie zasobów i postępować zgodnie z zaleceniami. Więcej informacji można znaleźć w temacie  [Azure Container Registry Scanning image Security Center](../security-center/defender-for-container-registries-introduction.md) i [Azure Kubernetes Services integration with a Security Center](../security-center/defender-for-kubernetes-introduction.md).
 
-### <a name="advanced"></a>Zaawansowany
+### <a name="advanced"></a>Zaawansowane
 
 Domyślnie metadane obszaru roboczego są przechowywane w wystąpieniu Azure Cosmos DBnym przez firmę Microsoft. Te dane są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft.
 

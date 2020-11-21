@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/23/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-java
-ms.openlocfilehash: a1eb55192b73f29bdb119c33255ed6bbe90ad164
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: d07bdfe682804a8690152981048a8d25b5a9311d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542868"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014045"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-java"></a>Szybki Start: Wyodrębnianie wydrukowanych i odręcznych tekstu przy użyciu interfejsu API REST przetwarzanie obrazów i języka Java
 
@@ -28,11 +28,11 @@ Metoda [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/co
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
-* [Język Java &trade; Platform, Standard Edition Development Kit 7 lub 8](https://aka.ms/azure-jdks) (JDK 7 lub 8)
+* [Język Java &trade; Platform, Standard Edition Development Kit 7 lub 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) (JDK 7 lub 8)
 * Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" Utwórz zasób przetwarzanie obrazów "  target="_blank"> utwórz zasób przetwarzanie obrazów <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
     * Będziesz potrzebować klucza i punktu końcowego z zasobu, który utworzysz, aby połączyć aplikację z usługą przetwarzanie obrazów. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
     * Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
-* [Utwórz zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla adresu URL klucza i punktu końcowego `COMPUTER_VISION_SUBSCRIPTION_KEY` , `COMPUTER_VISION_ENDPOINT` odpowiednio nazwane i.
+* [Utwórz zmienne środowiskowe](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) dla adresu URL klucza i punktu końcowego `COMPUTER_VISION_SUBSCRIPTION_KEY` , `COMPUTER_VISION_ENDPOINT` odpowiednio nazwane i.
 
 ## <a name="create-and-run-the-sample-application"></a>Tworzenie i uruchamianie przykładowej aplikacji
 
@@ -381,6 +381,6 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 Następnie zapoznaj się z aplikacją w języku Java, która używa przetwarzanie obrazów do wykonywania optycznego rozpoznawania znaków (OCR). Twórz inteligentne, przycięte miniatury; wykrywaj, Kategoryzuj i opisuj funkcje wizualne w obrazach.
 
 > [!div class="nextstepaction"]
-> [Computer Vision API Java Tutorial (Samouczek dla języka JavaScript dotyczący interfejsu API przetwarzania obrazów)](../Tutorials/java-tutorial.md)
+> [Computer Vision API Java Tutorial (Samouczek dla języka JavaScript dotyczący interfejsu API przetwarzania obrazów)](https://github.com/Azure-Samples/cognitive-services-java-computer-vision-tutorial)
 
 * Aby szybko zacząć eksperymentować z interfejsem API przetwarzania obrazów, wypróbuj [konsolę testowania interfejsu Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).

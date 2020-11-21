@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 7de78a52482b2f07cb4e5e036509e0f9e402a3f4
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: aa85822b433e2d8128df9ae3664411ea3fcddec4
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576278"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95012926"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Tworzenie obszaru roboczego dla Azure Machine Learning przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -26,9 +26,13 @@ W tym artykule dowiesz się, jak utworzyć obszar roboczy Azure Machine Learning
 
 * **Subskrypcja platformy Azure**. Jeśli go nie masz, wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Aby korzystać z poleceń interfejsu wiersza polecenia w tym dokumencie ze **środowiska lokalnego** , wymagany jest [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* Aby korzystać z poleceń interfejsu wiersza polecenia w tym dokumencie ze **środowiska lokalnego**, wymagany jest [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
     Jeśli używasz [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/), interfejs wiersza polecenia jest dostępny za pomocą przeglądarki i przebywa w chmurze.
+
+## <a name="limitations"></a>Ograniczenia
+
+* Podczas tworzenia nowego obszaru roboczego można zezwolić obszarowi roboczemu na tworzenie usług platformy Azure, które wymagają automatycznie, lub udostępnić istniejące usługi. W przypadku udostępniania istniejących usług te usługi muszą znajdować się w tej samej subskrypcji platformy Azure co obszar roboczy.
 
 ## <a name="connect-the-cli-to-your-azure-subscription"></a>Łączenie interfejsu wiersza polecenia z subskrypcją platformy Azure
 
@@ -78,7 +82,7 @@ Obszar roboczy Azure Machine Learning opiera się na następujących usługach l
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Obszar roboczy Azure Machine Learning należy utworzyć w grupie zasobów. Możesz użyć istniejącej grupy zasobów lub utworzyć nową. Aby __utworzyć nową grupę zasobów__ , użyj następującego polecenia. Zamień na `<resource-group-name>` nazwę, która ma być używana dla tej grupy zasobów. Zamień na `<location>` region platformy Azure, który ma być używany dla tej grupy zasobów:
+Obszar roboczy Azure Machine Learning należy utworzyć w grupie zasobów. Możesz użyć istniejącej grupy zasobów lub utworzyć nową. Aby __utworzyć nową grupę zasobów__, użyj następującego polecenia. Zamień na `<resource-group-name>` nazwę, która ma być używana dla tej grupy zasobów. Zamień na `<location>` region platformy Azure, który ma być używany dla tej grupy zasobów:
 
 > [!TIP]
 > Należy wybrać region, w którym Azure Machine Learning jest dostępna. Aby uzyskać więcej informacji, zobacz [dostępne produkty według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service).
@@ -107,7 +111,7 @@ Aby uzyskać więcej informacji na temat pracy z grupami zasobów, zobacz [AZ Gr
 
 ### <a name="automatically-create-required-resources"></a>Automatycznie twórz wymagane zasoby
 
-Aby utworzyć nowy obszar roboczy, w którym __usługi są tworzone automatycznie__ , użyj następującego polecenia:
+Aby utworzyć nowy obszar roboczy, w którym __usługi są tworzone automatycznie__, użyj następującego polecenia:
 
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name>
@@ -189,7 +193,7 @@ Aby utworzyć obszar roboczy, który korzysta z istniejących zasobów, należy 
 > [!IMPORTANT]
 > Nie musisz określać wszystkich istniejących zasobów. Można określić jeden lub więcej. Na przykład możesz określić istniejące konto magazynu, a w obszarze roboczym zostaną utworzone inne zasoby.
 
-+ **Konto usługi Azure Storage** : `az storage account show --name <storage-account-name> --query "id"`
++ **Konto usługi Azure Storage**: `az storage account show --name <storage-account-name> --query "id"`
 
     Odpowiedź z tego polecenia jest podobna do poniższego tekstu i jest IDENTYFIKATORem konta magazynu:
 
@@ -198,7 +202,7 @@ Aby utworzyć obszar roboczy, który korzysta z istniejących zasobów, należy 
     > [!IMPORTANT]
     > Jeśli chcesz użyć istniejącego konta usługi Azure Storage, nie może ono być kontem Premium (Premium_LRS i Premium_GRS). Nie może ona również mieć hierarchicznej przestrzeni nazw (używane z Azure Data Lake Storage Gen2). _W przypadku konta magazynu w_ warstwie Premium ani hierarchicznej przestrzeni nazw nie są obsługiwane. Możesz użyć magazynu w warstwie Premium lub hierarchicznej przestrzeni nazw z kontami magazynu _innego niż domyślne_ .
 
-+ **Application Insights platformy Azure** :
++ **Application Insights platformy Azure**:
 
     1. Zainstaluj rozszerzenie usługi Application Insights:
 
@@ -216,13 +220,13 @@ Aby utworzyć obszar roboczy, który korzysta z istniejących zasobów, należy 
 
         `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/microsoft.insights/components/<application-insight-name>"`
 
-+ **Azure Key Vault** : `az keyvault show --name <key-vault-name> --query "ID"`
++ **Azure Key Vault**: `az keyvault show --name <key-vault-name> --query "ID"`
 
     Odpowiedź z tego polecenia jest podobna do poniższego tekstu i jest IDENTYFIKATORem magazynu kluczy:
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<key-vault-name>"`
 
-+ **Azure Container Registry** : `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
++ **Azure Container Registry**: `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
 
     Odpowiedź z tego polecenia jest podobna do poniższego tekstu i jest IDENTYFIKATORem rejestru kontenerów:
 

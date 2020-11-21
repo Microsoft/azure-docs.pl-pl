@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 51d43a1cdb24455c12717f4db50955fc7bc738f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a02dc3b9fb1305aea9430aa1494cce2437ef6091
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84707450"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016126"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-with-basic-load-balancer-in-azure---template"></a>Wdrażanie aplikacji dwustosowej IPv6 przy użyciu podstawowego Load Balancer na platformie Azure — szablon
 
@@ -80,8 +80,8 @@ Sekcja szablonu do dodania:
               "protocol": "Tcp",
               "sourcePortRange": "33819-33829",
               "destinationPortRange": "5000-6000",
-              "sourceAddressPrefix": "ace:cab:deca:deed::/64",
-              "destinationAddressPrefix": "cab:ace:deca:deed::/64",
+              "sourceAddressPrefix": "2001:db8:deca:deed::/64",
+              "destinationAddressPrefix": "2001:db8:deca:deed::/64",
               "access": "Allow",
               "priority": 1003,
               "direction": "Inbound"
@@ -103,9 +103,9 @@ Jeśli używasz sieciowego urządzenia wirtualnego, Dodaj trasy IPv6 w tabeli tr
           {
             "name": "v6route",
             "properties": {
-              "addressPrefix": "ace:cab:deca:deed::/64",
+              "addressPrefix": "2001:db8:deca:deed::/64",
               "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "deca:cab:ace:f00d::1"
+              "nextHopIpAddress": "2001:db8:ace:f00d::1"
             }
 ```
 

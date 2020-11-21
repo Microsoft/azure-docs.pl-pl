@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: trbye
-ms.openlocfilehash: be38d3e78108a15c9f7875a15156e0eeba5a6211
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a538deb3b7da19261e1bc2b7c0d29f35315f786
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167763"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015417"
 ---
 # <a name="long-audio-api-preview"></a>Long audio API (wersja zapoznawcza)
 
@@ -27,7 +27,7 @@ Dodatkowe korzyści wynikające z długiego interfejsu API audio:
 * Nie ma potrzeby wdrażania punktu końcowego głosowego, ponieważ umożliwia on syntezę głosów bez trybu wsadowego w czasie rzeczywistym.
 
 > [!NOTE]
-> Długi interfejs API audio obsługuje teraz zarówno [publiczne głosy neuronowych](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices) , jak i [niestandardowe głosy neuronowych](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice#custom-neural-voices).
+> Długi interfejs API audio obsługuje teraz zarówno [publiczne głosy neuronowych](./language-support.md#neural-voices) , jak i [niestandardowe głosy neuronowych](./how-to-custom-voice.md#custom-neural-voices).
 
 ## <a name="workflow"></a>Przepływ pracy
 
@@ -44,7 +44,7 @@ Podczas przygotowywania pliku tekstowego upewnij się, że:
 * Jest to zwykły tekst (. txt) lub tekst SSML (. txt)
 * Jest zakodowany jako [UTF-8 z oznaczeniem kolejności bajtów (BOM)](https://www.w3.org/International/questions/qa-utf8-bom.en#bom)
 * Jest pojedynczym plikiem, a nie plikiem ZIP
-* Zawiera więcej niż 400 znaków dla zwykłego tekstu lub 400 [znaków do rozliczenia](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech#pricing-note) dla tekstu SSML i mniej niż 10 000 akapitów
+* Zawiera więcej niż 400 znaków dla zwykłego tekstu lub 400 [znaków do rozliczenia](./text-to-speech.md#pricing-note) dla tekstu SSML i mniej niż 10 000 akapitów
   * W przypadku zwykłego tekstu każdy akapit jest oddzielony przez naciśnięcie **klawisza ENTER/Return** -View — [przykład wprowadzania tekstu](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)
   * W przypadku tekstu SSML każdy element SSML jest traktowany jako akapit. Elementy SSML są oddzielane różnymi akapitami — [przykładem wyświetlania tekstu SSML](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt)
 > [!NOTE]
@@ -114,7 +114,7 @@ Jeśli parametr **PublicVoice** ma **wartość true**, głos jest publiczny neur
 Przygotuj wejściowy plik tekstowy, w postaci zwykłego tekstu lub SSML tekstu, a następnie Dodaj następujący kod do `voice_synthesis_client.py` :
 
 > [!NOTE]
-> "concatenateResult" jest opcjonalnym parametrem. Jeśli ten parametr nie jest ustawiony, wyjście audio zostanie wygenerowane na akapit. Możesz również połączyć dźwięk do 1 wyjściowego przez ustawienie parametru. Domyślnie wyjście audio jest ustawione na RIFF-16khz-16bit-mono-PCM. Aby uzyskać więcej informacji na temat obsługiwanych wyjść audio, zobacz [formaty danych wyjściowych audio](https://docs.microsoft.com/azure/cognitive-services/speech-service/long-audio-api#audio-output-formats).
+> "concatenateResult" jest opcjonalnym parametrem. Jeśli ten parametr nie jest ustawiony, wyjście audio zostanie wygenerowane na akapit. Możesz również połączyć dźwięk do 1 wyjściowego przez ustawienie parametru. Domyślnie wyjście audio jest ustawione na RIFF-16khz-16bit-mono-PCM. Aby uzyskać więcej informacji na temat obsługiwanych wyjść audio, zobacz [formaty danych wyjściowych audio](#audio-output-formats).
 
 ```python
 parser.add_argument('--submit', action="store_true", default=False, help='submit a synthesis request')
@@ -277,7 +277,7 @@ W poniższej tabeli przedstawiono szczegóły kodów odpowiedzi HTTP i komunikat
 |        | 400 | Plik wejściowy powinien zawierać więcej niż 400 znaków. | Upewnij się, że plik wejściowy przekracza 400 znaków. |
 |        | 404 | Nie można znaleźć modelu zadeklarowanego w definicji syntezy głosu: {modelID}. | Upewnij się, że wartość {modelID} jest poprawna. |
 |        | 429 | Przekracza limit aktywnego syntezy głosu. Zaczekaj na zakończenie niektórych żądań. | Serwer może działać i kolejkować do 120 żądań dla każdego konta platformy Azure. Zaczekaj i unikaj przesyłania nowych żądań, dopóki niektóre żądania nie zostaną ukończone. |
-| Wszystkie       | 429 | Zbyt wiele żądań. | Klient może przesłać do 5 żądań na serwer na sekundę dla każdego konta platformy Azure. Zmniejsz liczbę żądań na sekundę. |
+| Wszystko       | 429 | Zbyt wiele żądań. | Klient może przesłać do 5 żądań na serwer na sekundę dla każdego konta platformy Azure. Zmniejsz liczbę żądań na sekundę. |
 | Usuwanie    | 400 | Zadanie syntezy głosu jest nadal w użyciu. | Można usuwać tylko żądania, które zostały **ukończone** lub **zakończyły się niepowodzeniem**. |
 | GetByID   | 404 | Nie można znaleźć określonej jednostki. | Upewnij się, że identyfikator syntezy jest poprawny. |
 
@@ -285,7 +285,7 @@ W poniższej tabeli przedstawiono szczegóły kodów odpowiedzi HTTP i komunikat
 
 Długi interfejs API audio jest dostępny w wielu regionach z unikatowymi punktami końcowymi.
 
-| Region | Punkt końcowy |
+| Region (Region) | Punkt końcowy |
 |--------|----------|
 | Australia Wschodnia | `https://australiaeast.customvoice.api.speech.microsoft.com` |
 | Kanada Środkowa | `https://canadacentral.customvoice.api.speech.microsoft.com` |

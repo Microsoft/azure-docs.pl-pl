@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: 59e064dc2b9d33bda966eb50544c8383b0394dd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15f20bab91a4feab056a9f8cd6b012792f036be2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566606"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016551"
 ---
 # <a name="translator-30-translate"></a>Translator 3,0: tłumaczenie
 
@@ -55,7 +55,7 @@ Parametry żądania przesłane na ciągu zapytania są następujące:
   <th>Opis</th>
   <tr>
     <td>wniosek</td>
-    <td><em>Opcjonalny parametr</em>.<br/>Określa język tekstu wejściowego. Znajdź Języki dostępne do przetłumaczenia, wyszukując <a href="./v3-0-languages.md">obsługiwane języki</a> przy użyciu <code>translation</code> zakresu. Jeśli <code>from</code> parametr nie jest określony, automatyczne wykrywanie języka jest stosowane w celu określenia języka źródłowego. <br/><br/>W <code>from</code> przypadku korzystania z funkcji <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">słownika dynamicznego</a> należy użyć parametru zamiast automatycznego wykrywania.</td>
+    <td><em>Opcjonalny parametr</em>.<br/>Określa język tekstu wejściowego. Znajdź Języki dostępne do przetłumaczenia, wyszukując <a href="./v3-0-languages.md">obsługiwane języki</a> przy użyciu <code>translation</code> zakresu. Jeśli <code>from</code> parametr nie jest określony, automatyczne wykrywanie języka jest stosowane w celu określenia języka źródłowego. <br/><br/>W <code>from</code> przypadku korzystania z funkcji <a href="/azure/cognitive-services/translator/dynamic-dictionary">słownika dynamicznego</a> należy użyć parametru zamiast automatycznego wykrywania.</td>
   </tr>  
   <tr>
     <td>texttype</td>
@@ -63,7 +63,7 @@ Parametry żądania przesłane na ciągu zapytania są następujące:
   </tr>
   <tr>
     <td>category</td>
-    <td><em>Opcjonalny parametr</em>.<br/>Ciąg określający kategorię (domenę) tłumaczenia. Ten parametr służy do uzyskiwania tłumaczeń z dostosowanego systemu utworzonego przy użyciu <a href="../customization.md">translatora niestandardowego</a>. Dodaj identyfikator kategorii z <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">szczegółów projektu</a> usługi tłumaczenia niestandardowego do tego parametru, aby użyć wdrożonego systemu. Wartość domyślna to: <code>general</code> .</td>
+    <td><em>Opcjonalny parametr</em>.<br/>Ciąg określający kategorię (domenę) tłumaczenia. Ten parametr służy do uzyskiwania tłumaczeń z dostosowanego systemu utworzonego przy użyciu <a href="../customization.md">translatora niestandardowego</a>. Dodaj identyfikator kategorii z <a href="/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">szczegółów projektu</a> usługi tłumaczenia niestandardowego do tego parametru, aby użyć wdrożonego systemu. Wartość domyślna to: <code>general</code> .</td>
   </tr>
   <tr>
     <td>profanityAction</td>
@@ -107,7 +107,7 @@ Nagłówki żądań obejmują:
   <th>Opis</th>
   <tr>
     <td>Nagłówki uwierzytelniania</td>
-    <td><em>Wymagany nagłówek żądania</em>.<br/>Zobacz <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">dostępne opcje uwierzytelniania</a>.</td>
+    <td><em>Wymagany nagłówek żądania</em>.<br/>Zobacz <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">dostępne opcje uwierzytelniania</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -234,7 +234,7 @@ Oto możliwe kody stanu HTTP zwracane przez żądanie.
   </tr>
 </table> 
 
-Jeśli wystąpi błąd, żądanie zwróci także odpowiedź na błąd JSON. Kod błędu to 6-cyfrowy numer łączący 3-cyfrowy kod stanu HTTP, a następnie 3-cyfrowy numer do dalszej kategoryzacji błędu. Typowe kody błędów można znaleźć na [stronie referencyjnej translatora v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Jeśli wystąpi błąd, żądanie zwróci także odpowiedź na błąd JSON. Kod błędu to 6-cyfrowy numer łączący 3-cyfrowy kod stanu HTTP, a następnie 3-cyfrowy numer do dalszej kategoryzacji błędu. Typowe kody błędów można znaleźć na [stronie referencyjnej translatora v3](./v3-0-reference.md#errors). 
 
 ## <a name="examples"></a>Przykłady
 
@@ -391,7 +391,7 @@ W przypadku <code>ProfanityMarker=Tag</code> , wulgarne słowa są otoczone prze
   </tr>
 </table> 
 
-Na przykład:
+Przykład:
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"

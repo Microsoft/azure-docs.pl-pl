@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 695b0b0ac06e63912ca0a471be3d96c148458c29
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: dc3d119479d2dce45b286463f3d6a76410220dd0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104244"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014224"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Standardowe kolumny w dziennikach Azure Monitor
 Dane w dziennikach Azure Monitor są [przechowywane jako zestaw rekordów w obszarze roboczym log Analytics lub w aplikacji Application Insights](./data-platform-logs.md), z których każdy ma określony typ danych, który ma unikatowy zestaw kolumn. Wiele typów danych będzie zawierać standardowe kolumny, które są wspólne dla wielu typów. W tym artykule opisano te kolumny i przedstawiono przykłady korzystania z nich w zapytaniach.
@@ -48,7 +48,7 @@ exceptions
 ```
 
 ## <a name="_timereceived"></a>\_TimeReceived
-Kolumna ** \_ TimeReceived** zawiera datę i godzinę odebrania rekordu przez punkt pozyskiwania Azure monitor w chmurze platformy Azure. Może to być przydatne do identyfikowania problemów opóźnienia między źródłem danych i chmurą. Przykładem może być problem z siecią, powodujący opóźnienie przesyłania danych z agenta. Aby uzyskać więcej informacji, zobacz czas pozyskiwania [danych dziennika w Azure monitor](data-ingestion-time.md) .
+Kolumna **\_ TimeReceived** zawiera datę i godzinę odebrania rekordu przez punkt pozyskiwania Azure monitor w chmurze platformy Azure. Może to być przydatne do identyfikowania problemów opóźnienia między źródłem danych i chmurą. Przykładem może być problem z siecią, powodujący opóźnienie przesyłania danych z agenta. Aby uzyskać więcej informacji, zobacz czas pozyskiwania [danych dziennika w Azure monitor](data-ingestion-time.md) .
 
 Następujące zapytanie zwraca średni czas oczekiwania (według godziny) dla rekordów zdarzeń z agenta. Obejmuje to czas od agenta do chmury oraz łączny czas dla rekordu, który będzie dostępny dla zapytań dzienników.
 
@@ -74,11 +74,11 @@ search *
 
 ```
 ## <a name="_itemid"></a>\_Elementów
-Kolumna ** \_ ItemId** zawiera unikatowy identyfikator dla rekordu.
+Kolumna **\_ ItemId** zawiera unikatowy identyfikator dla rekordu.
 
 
 ## <a name="_resourceid"></a>\_ResourceId
-Kolumna ** \_ ResourceID** zawiera unikatowy identyfikator zasobu, z którym jest skojarzony rekord. Zapewnia to standardową kolumnę, która ma być używana do określania zakresu zapytania tylko do rekordów z określonego zasobu lub do łączenia się z danymi w wielu tabelach.
+Kolumna **\_ ResourceID** zawiera unikatowy identyfikator zasobu, z którym jest skojarzony rekord. Zapewnia to standardową kolumnę, która ma być używana do określania zakresu zapytania tylko do rekordów z określonego zasobu lub do łączenia się z danymi w wielu tabelach.
 
 W przypadku zasobów platformy Azure wartość **_ResourceId** jest [adresem URL identyfikatora zasobu platformy Azure](../../azure-resource-manager/templates/template-functions-resource.md). Kolumna jest obecnie ograniczona do zasobów platformy Azure, ale zostanie rozszerzona o zasoby spoza platformy Azure, takie jak komputery lokalne.
 
@@ -124,7 +124,7 @@ union withsource = tt *
 Te `union withsource = tt *` zapytania są oszczędnie zależą od tego, jak skanowanie między typami danych jest kosztowne.
 
 ## <a name="_isbillable"></a>\_Ismiliard
-Kolumna ** \_ isbilld** określa, czy są naliczane opłaty za pozyskiwane dane. Dane z ** \_ ** niepłatną opłatą `false` są zbierane bezpłatnie i nie są naliczane za Twoje konto platformy Azure.
+Kolumna **\_ isbilld** określa, czy są naliczane opłaty za pozyskiwane dane. Dane z **\_** niepłatną opłatą `false` są zbierane bezpłatnie i nie są naliczane za Twoje konto platformy Azure.
 
 ### <a name="examples"></a>Przykłady
 Aby uzyskać listę komputerów wysyłających typy danych, należy użyć następującej kwerendy:
@@ -151,7 +151,7 @@ union withsource = tt *
 ```
 
 ## <a name="_billedsize"></a>\_BilledSize
-Kolumna ** \_ BilledSize** określa rozmiar w bajtach danych, które będą rozliczane na konto platformy Azure, jeśli jest ** \_ ** to wartość true.
+Kolumna **\_ BilledSize** określa rozmiar w bajtach danych, które będą rozliczane na konto platformy Azure, jeśli jest **\_** to wartość true.
 
 
 ### <a name="examples"></a>Przykłady
@@ -211,4 +211,4 @@ union withsource = tt *
 
 - Przeczytaj więcej na temat sposobu [przechowywania danych dziennika Azure monitor](../log-query/log-query-overview.md).
 - Zapoznaj się z lekcjami dotyczącymi [pisania zapytań dzienników](../log-query/get-started-queries.md).
-- Zapoznaj się z lekcji na [sprzęganie tabel w zapytaniach dziennika](../log-query/joins.md).
+- Zapoznaj się z lekcji na [sprzęganie tabel w zapytaniach dziennika](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#joins).

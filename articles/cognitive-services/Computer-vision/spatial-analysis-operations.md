@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
-ms.openlocfilehash: 80f0d29de6b3013ad02ed1a5d34bebdf81a8766b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d1b6e20bf2decfe051e79e073736f71181260fa
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628217"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014547"
 ---
 # <a name="spatial-analysis-operations"></a>Operacje analizy przestrzennej
 
@@ -39,7 +39,7 @@ Wszystkie powyższe operacje są również dostępne w `.debug` wersji, która m
 | cognitiveservices. Vision. spatialanalysis-personcrossingpolygon. Debug | Śledzi, gdy osoba przecina wydzielony wiersz w polu widoku aparatu. <br> Emituje zdarzenie _personLineEvent_ , gdy osoba przecina strefę i udostępnia informacje kierunkowe. |
 | cognitiveservices. Vision. spatialanalysis-persondistance. Debug | Śledzi, gdy ludzie naruszają regułę odległości. <br> Emituje _personDistanceEvent_ okresowo przy użyciu lokalizacji każdego naruszenia odległości. |
 
-Analiza przestrzenna może być również uruchamiana z użyciem [analizy wideo na żywo](https://aka.ms/lva-spatial-analysis) jako ich modułu wideo AI. 
+Analiza przestrzenna może być również uruchamiana z użyciem [analizy wideo na żywo](../../media-services/live-video-analytics-edge/spatial-analysis-tutorial.md) jako ich modułu wideo AI. 
 
 <!--more details on the setup can be found in the [LVA Setup page](LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics. -->
 
@@ -304,7 +304,7 @@ Przykładowy kod JSON dla zdarzenia danych wyjściowych przez tę operację.
 }
 ```
 
-| Nazwa pola zdarzenia | Type| Opis|
+| Nazwa pola zdarzenia | Typ| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator zdarzenia|
 | `type` | ciąg| Typ zdarzenia|
@@ -316,7 +316,7 @@ Przykładowy kod JSON dla zdarzenia danych wyjściowych przez tę operację.
 | `zone` | ciąg | Pole "name" wielokąta reprezentujące przekreśloną strefę|
 | `trigger` | ciąg| Typ wyzwalacza to "Event" lub "Interval" w zależności od wartości `trigger` w SPACEANALYTICS_CONFIG|
 
-| Nazwa pola wykrywania | Type| Opis|
+| Nazwa pola wykrywania | Typ| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator wykrywania|
 | `type` | ciąg| Typ wykrywania|
@@ -325,10 +325,10 @@ Przykładowy kod JSON dla zdarzenia danych wyjściowych przez tę operację.
 | `points` |  — kolekcja| Górny lewy i prawy dolny punkt, gdy typ regionu to prostokąt |
 | `confidence` | float| Zaufanie algorytmu|
 
-| Nazwa pola SourceInfo | Type| Opis|
+| Nazwa pola SourceInfo | Typ| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator aparatu|
-| `timestamp` | date| Data UTC, kiedy ładunek JSON został emitowany|
+| `timestamp` | data| Data UTC, kiedy ładunek JSON został emitowany|
 | `width` | int | Szerokość ramki wideo|
 | `height` | int | Wysokość ramki wideo|
 | `frameId` | int | Identyfikator ramki|
@@ -338,10 +338,10 @@ Przykładowy kod JSON dla zdarzenia danych wyjściowych przez tę operację.
 | `focalLength` | float | Długość Ogniskowa aparatu (w pikselach). Ta funkcja jest wywnioskowana z autokalibracji. |
 | `tiltUpAngle` | float | Kąt pochylenia aparatu w pionie. Ta funkcja jest wywnioskowana z autokalibracji.|
 
-| Nazwa pola SourceInfo | Type| Opis|
+| Nazwa pola SourceInfo | Typ| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator aparatu|
-| `timestamp` | date| Data UTC, kiedy ładunek JSON został emitowany|
+| `timestamp` | data| Data UTC, kiedy ładunek JSON został emitowany|
 | `width` | int | Szerokość ramki wideo|
 | `height` | int | Wysokość ramki wideo|
 | `frameId` | int | Identyfikator ramki|
@@ -399,7 +399,7 @@ Przykładowy kod JSON dla wykrywania danych wyjściowych przez tę operację.
     "schemaVersion": "1.0"
 }
 ```
-| Nazwa pola zdarzenia | Type| Opis|
+| Nazwa pola zdarzenia | Typ| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator zdarzenia|
 | `type` | ciąg| Typ zdarzenia|
@@ -409,7 +409,7 @@ Przykładowy kod JSON dla wykrywania danych wyjściowych przez tę operację.
 | `status` | ciąg| Kierunek skrzyżowań linii, "CrossLeft" lub "CrossRight"|
 | `zone` | ciąg | Pole "name" w wierszu, który został przekreślony|
 
-| Nazwa pola wykrywania | Type| Opis|
+| Nazwa pola wykrywania | Typ| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator wykrywania|
 | `type` | ciąg| Typ wykrywania|
@@ -418,10 +418,10 @@ Przykładowy kod JSON dla wykrywania danych wyjściowych przez tę operację.
 | `points` |  — kolekcja| Górny lewy i prawy dolny punkt, gdy typ regionu to prostokąt |
 | `confidence` | float| Zaufanie algorytmu|
 
-| Nazwa pola SourceInfo | Type| Opis|
+| Nazwa pola SourceInfo | Typ| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator aparatu|
-| `timestamp` | date| Data UTC, kiedy ładunek JSON został emitowany|
+| `timestamp` | data| Data UTC, kiedy ładunek JSON został emitowany|
 | `width` | int | Szerokość ramki wideo|
 | `height` | int | Wysokość ramki wideo|
 | `frameId` | int | Identyfikator ramki|
@@ -484,7 +484,7 @@ Przykładowy kod JSON dla wykrywania danych wyjściowych przez tę operację.
 }
 ```
 
-| Nazwa pola zdarzenia | Type| Opis|
+| Nazwa pola zdarzenia | Typ| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator zdarzenia|
 | `type` | ciąg| Typ zdarzenia|
@@ -494,7 +494,7 @@ Przykładowy kod JSON dla wykrywania danych wyjściowych przez tę operację.
 | `status` | ciąg| Kierunek skrzyżowania wielokąta, "Enter" lub "Exit"|
 | `zone` | ciąg | Pole "name" wielokąta reprezentujące przekreśloną strefę|
 
-| Nazwa pola wykrywania | Type| Opis|
+| Nazwa pola wykrywania | Typ| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator wykrywania|
 | `type` | ciąg| Typ wykrywania|
@@ -595,7 +595,7 @@ Przykładowy kod JSON dla wykrywania danych wyjściowych przez tę operację.
 }
 ```
 
-| Nazwa pola zdarzenia | Type| Opis|
+| Nazwa pola zdarzenia | Typ| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator zdarzenia|
 | `type` | ciąg| Typ zdarzenia|
@@ -610,7 +610,7 @@ Przykładowy kod JSON dla wykrywania danych wyjściowych przez tę operację.
 | `zone` | ciąg | Pole "name" wielokąta reprezentujące strefę monitorowaną dla distancing między osobami|
 | `trigger` | ciąg| Typ wyzwalacza to "Event" lub "Interval" w zależności od wartości `trigger` w SPACEANALYTICS_CONFIG|
 
-| Nazwa pola wykrywania | Type| Opis|
+| Nazwa pola wykrywania | Typ| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator wykrywania|
 | `type` | ciąg| Typ wykrywania|
@@ -620,10 +620,10 @@ Przykładowy kod JSON dla wykrywania danych wyjściowych przez tę operację.
 | `confidence` | float| Zaufanie algorytmu|
 | `centerGroundPoint` | 2 wartości zmiennoprzecinkowe| `x`, `y` wartości ze współrzędnymi odwołującej się osoby na ziemi w stawce. `x` jest to odległość od aparatu prostopadle do płaszczyzny obrazu aparatu, która jest rzutowana na ziemię w stawce. `y` jest to odległość od aparatu do warstwy obrazu, która jest rzutowana na ziemię w stawce.|
 
-| Nazwa pola SourceInfo | Type| Opis|
+| Nazwa pola SourceInfo | Typ| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator aparatu|
-| `timestamp` | date| Data UTC, kiedy ładunek JSON został emitowany|
+| `timestamp` | data| Data UTC, kiedy ładunek JSON został emitowany|
 | `width` | int | Szerokość ramki wideo|
 | `height` | int | Wysokość ramki wideo|
 | `frameId` | int | Identyfikator ramki|
@@ -638,8 +638,8 @@ Przykładowy kod JSON dla wykrywania danych wyjściowych przez tę operację.
 
 Możesz chcieć zintegrować wykrywanie przestrzenne lub zdarzenia w aplikacji. Oto kilka metod, które należy wziąć pod uwagę: 
 
-* Użyj zestawu SDK usługi Azure Event Hub dla wybranego języka programowania, aby nawiązać połączenie z punktem końcowym usługi Azure IoT Hub i odebrać zdarzenia. Aby uzyskać więcej informacji [, zobacz odczytywanie komunikatów z urządzenia do chmury z wbudowanego punktu końcowego](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) . 
-* Skonfiguruj **Routing komunikatów** na IoT Hub platformy Azure, aby wysyłać zdarzenia do innych punktów końcowych, lub Zapisz zdarzenia w magazynie danych. Aby uzyskać więcej informacji, zobacz [IoT Hub Routing komunikatów](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) . 
+* Użyj zestawu SDK usługi Azure Event Hub dla wybranego języka programowania, aby nawiązać połączenie z punktem końcowym usługi Azure IoT Hub i odebrać zdarzenia. Aby uzyskać więcej informacji [, zobacz odczytywanie komunikatów z urządzenia do chmury z wbudowanego punktu końcowego](../../iot-hub/iot-hub-devguide-messages-read-builtin.md) . 
+* Skonfiguruj **Routing komunikatów** na IoT Hub platformy Azure, aby wysyłać zdarzenia do innych punktów końcowych, lub Zapisz zdarzenia w magazynie danych. Aby uzyskać więcej informacji, zobacz [IoT Hub Routing komunikatów](../../iot-hub/iot-hub-devguide-messages-d2c.md) . 
 * Skonfiguruj zadanie Azure Stream Analytics, aby przetwarzać zdarzenia w czasie rzeczywistym w miarę ich odbierania i tworzenia wizualizacji. 
 
 ## <a name="deploying-spatial-analysis-operations-at-scale-multiple-cameras"></a>Wdrażanie operacji analizy przestrzennej na dużą skalę (wiele kamer)

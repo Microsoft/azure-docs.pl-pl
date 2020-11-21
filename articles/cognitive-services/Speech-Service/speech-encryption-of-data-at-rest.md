@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: b9b76b2eb5e9536561f73a92b6911a2f82122a1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa0fe33dff0161767b74546aad49003d8fc70c16
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078099"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015260"
 ---
 # <a name="speech-service-encryption-of-data-at-rest"></a>Usługa mowy — szyfrowanie danych magazynowanych
 
@@ -33,11 +33,11 @@ W przypadku korzystania z Custom Speech i niestandardowego głosu usługa mowy m
 
 Domyślnie dane są przechowywane w magazynie firmy Microsoft, a Twoja subskrypcja korzysta z kluczy szyfrowania zarządzanych przez firmę Microsoft. Dostępna jest również opcja przygotowania własnego konta magazynu. Dostęp do sklepu jest zarządzany przez zarządzaną tożsamość, a usługa mowy nie może bezpośrednio uzyskać dostępu do własnych danych, takich jak dane śledzenia mowy, dane szkoleniowe dotyczące dostosowywania i modele niestandardowe.
 
-Aby uzyskać więcej informacji na temat tożsamości zarządzanej, zobacz [co to są tożsamości zarządzane](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Aby uzyskać więcej informacji na temat tożsamości zarządzanej, zobacz [co to są tożsamości zarządzane](../../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="bring-your-own-storage-byos-for-customization-and-logging"></a>Przenoszenie własnego magazynu (BYOS) na potrzeby dostosowywania i rejestrowania
 
-Aby zażądać dostępu w celu przeniesienia własnego magazynu, Wypełnij i prześlij [usługę mowy — Wstaw własny formularz żądania magazynu (BYOS)](https://aka.ms/cogsvc-cmk). Po zatwierdzeniu należy utworzyć własne konto magazynu do przechowywania danych wymaganych do dostosowania i rejestrowania. W przypadku dodawania konta magazynu zasób usługi mowy spowoduje włączenie tożsamości zarządzanej przypisanej do systemu. Po włączeniu tożsamości zarządzanej przypisanej do systemu ten zasób zostanie zarejestrowany w Azure Active Directory (AAD). Po zarejestrowaniu tożsamość zarządzana będzie mieć dostęp do konta magazynu. Więcej informacji o tożsamościach zarządzanych można znaleźć tutaj. Aby uzyskać więcej informacji na temat tożsamości zarządzanej, zobacz [co to są tożsamości zarządzane](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Aby zażądać dostępu w celu przeniesienia własnego magazynu, Wypełnij i prześlij [usługę mowy — Wstaw własny formularz żądania magazynu (BYOS)](https://aka.ms/cogsvc-cmk). Po zatwierdzeniu należy utworzyć własne konto magazynu do przechowywania danych wymaganych do dostosowania i rejestrowania. W przypadku dodawania konta magazynu zasób usługi mowy spowoduje włączenie tożsamości zarządzanej przypisanej do systemu. Po włączeniu tożsamości zarządzanej przypisanej do systemu ten zasób zostanie zarejestrowany w Azure Active Directory (AAD). Po zarejestrowaniu tożsamość zarządzana będzie mieć dostęp do konta magazynu. Więcej informacji o tożsamościach zarządzanych można znaleźć tutaj. Aby uzyskać więcej informacji na temat tożsamości zarządzanej, zobacz [co to są tożsamości zarządzane](../../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
 > Jeśli wyłączysz tożsamości zarządzane przypisane przez system, dostęp do konta magazynu zostanie usunięty. Spowoduje to, że części usługi mowy, które wymagają dostępu do konta magazynu, przestaną działać.  
@@ -50,4 +50,4 @@ Usługa mowy nie obsługuje obecnie Skrytka klienta. Dane klienta mogą jednak b
 ## <a name="next-steps"></a>Następne kroki
 
 * [Usługa mowy — formularz żądania własnego magazynu (BYOS)](https://aka.ms/cogsvc-cmk)
-* [Co to są tożsamości zarządzane](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+* [Co to są tożsamości zarządzane](../../active-directory/managed-identities-azure-resources/overview.md).

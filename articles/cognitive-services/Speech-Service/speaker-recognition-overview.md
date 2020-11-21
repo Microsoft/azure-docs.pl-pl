@@ -12,12 +12,12 @@ ms.date: 09/02/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: Rozpoznawanie osoby mówiącej, biometry głosu
-ms.openlocfilehash: 5001ac166b37f3a3852bc14261a5b5d199d778cd
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d07a9960c8a586fa137b4b717afbf91740c265d3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844575"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015328"
 ---
 # <a name="what-is-speaker-recognition-preview"></a>Co to jest rozpoznawanie osoby mówiącej (wersja zapoznawcza)?
 
@@ -70,10 +70,10 @@ Podobnie jak w przypadku wszystkich zasobów Cognitive Services, deweloperzy kor
 | Jakie formaty audio są obsługiwane? | Mono 16-bitowe, 16kHz w formacie WAV |
 | **Akceptowanie** i **odrzucanie** odpowiedzi nie jest dokładne, jak dostosować próg? | Ze względu na to, że optymalny próg różni się w zależności od scenariuszy, interfejs API decyduje o tym, czy "Akceptuję" czy "odrzucić", w oparciu o domyślny próg 0,5. Zaawansowani użytkownicy powinni zastąpić domyślną decyzję, a następnie dostosować wynik na podstawie własnego scenariusza. |
 | Czy można wielokrotnie rejestrować jednego prelegenta? | Tak, w przypadku weryfikacji zależnej od tekstu możesz zarejestrować prelegenta do 50 razy. W przypadku weryfikacji niezależnej od tekstu lub identyfikacji osoby mówiącej możesz zarejestrować się nawet przez 300 sekund audio. |
-| Jakie dane są przechowywane na platformie Azure? | Dźwięk rejestracyjny jest przechowywany w usłudze do momentu [usunięcia](speaker-recognition-basics.md#deleting-voice-profile-enrollments)profilu głosowego. Próbki audio rozpoznawania nie są zachowywane ani przechowywane. |
+| Jakie dane są przechowywane na platformie Azure? | Dźwięk rejestracyjny jest przechowywany w usłudze do momentu [usunięcia](./get-started-speaker-recognition.md#deleting-voice-profile-enrollments)profilu głosowego. Próbki audio rozpoznawania nie są zachowywane ani przechowywane. |
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> * Zapoznaj się z [artykułem podstawowe](speaker-recognition-basics.md) rozpoznawanie osoby mówiącej, aby zapoznać się z typowymi wzorcami projektowymi, których można używać w aplikacjach.
+> * Zapoznaj się z [artykułem podstawowe](./get-started-speaker-recognition.md) rozpoznawanie osoby mówiącej, aby zapoznać się z typowymi wzorcami projektowymi, których można używać w aplikacjach.
 > * Zapoznaj się z [samouczkiem](https://azure.microsoft.com/resources/videos/speaker-recognition-text-independent-verification-developer-tutorial/) dotyczącym weryfikacji niezależnych od tekstu.

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: aahi
-ms.openlocfilehash: 6ebc1831b990b540bcb9a3856c380c28142af536
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 2f03746a6a5afc388db2beeff84b3ab4cbd393b5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357117"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014598"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instalowanie i uruchamianie kontenera analizy przestrzennej (wersja zapoznawcza)
 
@@ -34,7 +34,7 @@ Aby można było uruchomić kontener analizy przestrzennej, potrzebne jest urzą
 
 #### <a name="azure-stack-edge-device"></a>[Urządzenie brzegowe Azure Stack](#tab/azure-stack-edge)
 
-Azure Stack Edge to rozwiązanie typu "sprzęt jako usługa" oraz urządzenie komputerowe z systemem brzegowym z funkcją transferu danych w sieci. Szczegółowe instrukcje dotyczące przygotowania i instalacji znajdują się w [dokumentacji Azure Stack Edge](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-prep).
+Azure Stack Edge to rozwiązanie typu "sprzęt jako usługa" oraz urządzenie komputerowe z systemem brzegowym z funkcją transferu danych w sieci. Szczegółowe instrukcje dotyczące przygotowania i instalacji znajdują się w [dokumentacji Azure Stack Edge](../../databox-online/azure-stack-edge-deploy-prep.md).
 
 #### <a name="desktop-machine"></a>[Komputer stacjonarny](#tab/desktop-machine)
 
@@ -59,7 +59,7 @@ W tym artykule zostaną pobrane i zainstalowane następujące pakiety oprogramow
 * [Sterowniki grafiki NVIDIA](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html) i [zestaw narzędzi NVIDIA CUDA](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
 * Konfiguracje dla [NVIDIA MP](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf) (usługa wieloprocesowa).
 * [Docker ce](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-engine---community-1) i [NVIDIA — Docker2](https://github.com/NVIDIA/nvidia-docker) 
-* [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) środowiska uruchomieniowego.
+* [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) środowiska uruchomieniowego.
 
 ---
 
@@ -93,13 +93,13 @@ Zalecane jest używanie Azure Stack urządzenia brzegowego dla komputera hosta. 
  
 Analiza przestrzenna korzysta z funkcji obliczeniowych Azure Stack Edge, aby uruchomić rozwiązanie AI. Aby włączyć funkcje obliczeniowe, należy się upewnić, że: 
 
-* [Nawiązano połączenie i aktywowano](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate) urządzenie Azure Stack Edge. 
+* [Nawiązano połączenie i aktywowano](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md) urządzenie Azure Stack Edge. 
 * Masz system klienta systemu Windows z uruchomionym programem PowerShell 5,0 lub nowszym, aby uzyskać dostęp do urządzenia.  
 * Aby wdrożyć klaster Kubernetes, należy skonfigurować urządzenie brzegowe Azure Stack za pomocą **lokalnego interfejsu użytkownika** na [Azure Portal](https://portal.azure.com/): 
   1. Włącz funkcję COMPUTE na urządzeniu Azure Stack Edge. Aby włączyć obliczenia, przejdź na stronę **obliczenia** w interfejsie sieci Web urządzenia. 
   2. Wybierz interfejs sieciowy, który chcesz włączyć dla obliczeń, a następnie kliknij pozycję **Włącz**. Spowoduje to utworzenie przełącznika wirtualnego na urządzeniu, w tym interfejsie sieciowym.
   3. Pozostaw puste adresy IP węzła testowego Kubernetes i adresy IP usług zewnętrznych Kubernetes.
-  4. Kliknij przycisk **Zastosuj**. Ta operacja może potrwać około dwie minuty. 
+  4. Kliknij pozycję **Zastosuj**. Ta operacja może potrwać około dwie minuty. 
 
 ![Konfigurowanie obliczeń](media/spatial-analysis/configure-compute.png)
 
@@ -117,7 +117,7 @@ Po skonfigurowaniu roli funkcji obliczeniowej Edge na urządzeniu Edge tworzone 
 
 > [!NOTE]
 > * Obecnie tylko platforma systemu Linux jest obsługiwana w przypadku urządzeń IoT Edge. Aby uzyskać pomoc w rozwiązywaniu problemów z urządzeniem brzegowym Azure Stack, zobacz artykuł [Rejestrowanie i rozwiązywanie problemów](spatial-analysis-logging.md) .
-> * Aby dowiedzieć się więcej o konfigurowaniu IoT Edge urządzenia do komunikowania się za pomocą serwera proxy, zobacz [Konfigurowanie urządzenia IoT Edge do komunikowania się za pomocą serwera proxy](https://docs.microsoft.com/azure/iot-edge/how-to-configure-proxy-support#azure-portal)
+> * Aby dowiedzieć się więcej o konfigurowaniu IoT Edge urządzenia do komunikowania się za pomocą serwera proxy, zobacz [Konfigurowanie urządzenia IoT Edge do komunikowania się za pomocą serwera proxy](../../iot-edge/how-to-configure-proxy-support.md#azure-portal)
 
 ###  <a name="enable-mps-on-azure-stack-edge"></a>Włącz MP na Azure Stack Edge 
 
@@ -129,7 +129,7 @@ Po skonfigurowaniu roli funkcji obliczeniowej Edge na urządzeniu Edge tworzone 
     winrm quickconfig
     ```
     
-    Jeśli widzisz ostrzeżenia dotyczące wyjątku zapory, Sprawdź typ połączenia sieciowego i zapoznaj się z dokumentacją [Windows Remote Management](https://docs.microsoft.com/windows/win32/winrm/installation-and-configuration-for-windows-remote-management) .
+    Jeśli widzisz ostrzeżenia dotyczące wyjątku zapory, Sprawdź typ połączenia sieciowego i zapoznaj się z dokumentacją [Windows Remote Management](/windows/win32/winrm/installation-and-configuration-for-windows-remote-management) .
 
 3. Przypisz zmienną do adresu IP urządzenia. 
     
@@ -246,7 +246,7 @@ sudo systemctl --now enable nvidia-mps.service
 
 ## <a name="configure-azure-iot-edge-on-the-host-computer"></a>Konfigurowanie Azure IoT Edge na komputerze hosta
 
-Aby wdrożyć kontener analizy przestrzennej na komputerze hosta, Utwórz wystąpienie usługi [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) przy użyciu warstwy cenowej Standard (S1) lub Free (F0). Jeśli komputer hosta jest Azure Stack krawędzią, Użyj tej samej subskrypcji i grupy zasobów, która jest używana przez zasób Azure Stack Edge.
+Aby wdrożyć kontener analizy przestrzennej na komputerze hosta, Utwórz wystąpienie usługi [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) przy użyciu warstwy cenowej Standard (S1) lub Free (F0). Jeśli komputer hosta jest Azure Stack krawędzią, Użyj tej samej subskrypcji i grupy zasobów, która jest używana przez zasób Azure Stack Edge.
 
 Utwórz wystąpienie usługi Azure IoT Hub przy użyciu interfejsu wiersza polecenia platformy Azure. Zastąp parametry stosownie do potrzeb. Alternatywnie możesz utworzyć IoT Hub platformy Azure na [Azure Portal](https://portal.azure.com/).
 
@@ -261,7 +261,7 @@ az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-reso
 az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
 ```
 
-Jeśli komputer hosta nie jest Azure Stack urządzeniem brzegowym, należy zainstalować program [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) Version 1.0.9. Wykonaj następujące kroki, aby pobrać poprawną wersję:
+Jeśli komputer hosta nie jest Azure Stack urządzeniem brzegowym, należy zainstalować program [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) Version 1.0.9. Wykonaj następujące kroki, aby pobrać poprawną wersję:
 
 Ubuntu Server 18,04:
 ```bash
@@ -292,7 +292,7 @@ Zainstaluj wersję 1.0.9:
 sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
-Następnie zarejestruj komputer hosta jako urządzenie IoT Edge w wystąpieniu IoT Hub, używając [parametrów połączenia](https://docs.microsoft.com/azure/iot-edge/how-to-register-device#register-in-the-azure-portal).
+Następnie zarejestruj komputer hosta jako urządzenie IoT Edge w wystąpieniu IoT Hub, używając [parametrów połączenia](../../iot-edge/how-to-manual-provision-symmetric-key.md?view=iotedge-2018-06).
 
 Musisz podłączyć urządzenie IoT Edge do IoT Hub platformy Azure. Należy skopiować parametry połączenia z utworzonego wcześniej urządzenia IoT Edge. Alternatywnie możesz uruchomić poniższe polecenie w interfejsie wiersza polecenia platformy Azure.
 
@@ -306,7 +306,7 @@ Na komputerze hosta otwartym  `/etc/iotedge/config.yaml` do edycji. Zamień na `
 sudo systemctl restart iotedge
 ```
 
-Wdróż kontener analizy przestrzennej jako moduł IoT na komputerze-hoście, z poziomu [Azure Portal](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli). Jeśli używasz portalu, ustaw identyfikator URI obrazu na lokalizację Azure Container Registry. 
+Wdróż kontener analizy przestrzennej jako moduł IoT na komputerze-hoście, z poziomu [Azure Portal](../../iot-edge/how-to-deploy-modules-portal.md) lub [interfejsu wiersza polecenia platformy Azure](../../iot-edge/how-to-deploy-modules-cli.md). Jeśli używasz portalu, ustaw identyfikator URI obrazu na lokalizację Azure Container Registry. 
 
 Wykonaj poniższe kroki, aby wdrożyć kontener przy użyciu interfejsu wiersza polecenia platformy Azure.
 
@@ -335,7 +335,7 @@ W poniższej tabeli przedstawiono różne zmienne środowiskowe używane przez m
 > [!IMPORTANT]
 > `Eula` `Billing` `ApiKey` Aby można było uruchomić kontener, należy określić opcje, i. w przeciwnym razie kontener nie zostanie uruchomiony.  Aby uzyskać więcej informacji, zobacz [rozliczenia](#billing).
 
-Po zaktualizowaniu manifestu wdrażania dla [Azure Stack urządzenia brzegowe](https://go.microsoft.com/fwlink/?linkid=2142179) lub [maszyny stacjonarnej](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) z własnymi ustawieniami i wyborem operacji można użyć poniższego polecenia [interfejsu wiersza poleceń platformy Azure](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) , aby wdrożyć kontener na komputerze hosta jako moduł IoT Edge.
+Po zaktualizowaniu manifestu wdrażania dla [Azure Stack urządzenia brzegowe](https://go.microsoft.com/fwlink/?linkid=2142179) lub [maszyny stacjonarnej](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) z własnymi ustawieniami i wyborem operacji można użyć poniższego polecenia [interfejsu wiersza poleceń platformy Azure](../../iot-edge/how-to-deploy-modules-cli.md) , aby wdrożyć kontener na komputerze hosta jako moduł IoT Edge.
 
 ```azurecli
 az login
@@ -366,14 +366,14 @@ Musisz użyć [operacji analizy przestrzennej](spatial-analysis-operations.md) ,
 
 ## <a name="redeploy-or-delete-the-deployment"></a>Ponowne wdrażanie lub usuwanie wdrożenia
 
-Jeśli trzeba zaktualizować wdrożenie, należy upewnić się, że poprzednie wdrożenia zostały pomyślnie wdrożone lub należy usunąć IoT Edge wdrożenia urządzeń, które nie zostały ukończone. W przeciwnym razie te wdrożenia będą kontynuowane, pozostawiając system w nieprawidłowym stanie. Możesz użyć Azure Portal lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment).
+Jeśli trzeba zaktualizować wdrożenie, należy upewnić się, że poprzednie wdrożenia zostały pomyślnie wdrożone lub należy usunąć IoT Edge wdrożenia urządzeń, które nie zostały ukończone. W przeciwnym razie te wdrożenia będą kontynuowane, pozostawiając system w nieprawidłowym stanie. Możesz użyć Azure Portal lub [interfejsu wiersza polecenia platformy Azure](/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment).
 
 ## <a name="use-the-output-generated-by-the-container"></a>Użyj danych wyjściowych wygenerowanych przez kontener
 
 Jeśli chcesz zacząć zużywać dane wyjściowe wygenerowane przez kontener, zobacz następujące artykuły:
 
-*   Użyj zestawu SDK usługi Azure Event Hub dla wybranego języka programowania, aby nawiązać połączenie z punktem końcowym usługi Azure IoT Hub i odebrać zdarzenia. Aby uzyskać więcej informacji [, zobacz odczytywanie komunikatów z urządzenia do chmury z wbudowanego punktu końcowego](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) . 
-*   Skonfiguruj Routing komunikatów na IoT Hub platformy Azure, aby wysyłać zdarzenia do innych punktów końcowych, lub Zapisz zdarzenia w usłudze Azure Blob Storage itd. Aby uzyskać więcej informacji, zobacz [IoT Hub Routing komunikatów](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) . 
+*   Użyj zestawu SDK usługi Azure Event Hub dla wybranego języka programowania, aby nawiązać połączenie z punktem końcowym usługi Azure IoT Hub i odebrać zdarzenia. Aby uzyskać więcej informacji [, zobacz odczytywanie komunikatów z urządzenia do chmury z wbudowanego punktu końcowego](../../iot-hub/iot-hub-devguide-messages-read-builtin.md) . 
+*   Skonfiguruj Routing komunikatów na IoT Hub platformy Azure, aby wysyłać zdarzenia do innych punktów końcowych, lub Zapisz zdarzenia w usłudze Azure Blob Storage itd. Aby uzyskać więcej informacji, zobacz [IoT Hub Routing komunikatów](../../iot-hub/iot-hub-devguide-messages-d2c.md) . 
 
 ## <a name="running-spatial-analysis-with-a-recorded-video-file"></a>Uruchamianie analizy przestrzennej z zarejestrowanym plikiem wideo
 
@@ -381,7 +381,7 @@ Możesz użyć analizy przestrzennej z zarówno zarejestrowanym, jak i wideo na 
     1. Zmiana **bezpiecznego transferu wymaganego** do **wyłączenia**
     2. Zmień **Zezwalaj na dostęp publiczny do obiektu BLOB** **Enabled**
 
-Przejdź do sekcji **kontenera** , a następnie utwórz nowy kontener lub Użyj istniejącego. Następnie Przekaż plik wideo do kontenera. Rozwiń Ustawienia pliku dla przekazanego pliku, a następnie wybierz pozycję **Generuj sygnaturę dostępu współdzielonego**. Pamiętaj o ustawieniu **daty wygaśnięcia** wystarczająco długo, aby uwzględnić okres testowania. Ustaw **dozwolone protokoły** *http* ( *https* nie jest obsługiwane).
+Przejdź do sekcji **kontenera** , a następnie utwórz nowy kontener lub Użyj istniejącego. Następnie Przekaż plik wideo do kontenera. Rozwiń Ustawienia pliku dla przekazanego pliku, a następnie wybierz pozycję **Generuj sygnaturę dostępu współdzielonego**. Pamiętaj o ustawieniu **daty wygaśnięcia** wystarczająco długo, aby uwzględnić okres testowania. Ustaw **dozwolone protokoły** *http* (*https* nie jest obsługiwane).
 
 Kliknij pozycję **Generuj token SAS i adres URL** , a następnie skopiuj adres URL sygnatury dostępu współdzielonego obiektu BLOB. Zastąp ciąg rozpoczynający `https` się od `http` i Przetestuj adres URL w przeglądarce, która obsługuje odtwarzanie wideo.
 

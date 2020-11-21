@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: Tłumaczenie mowy
-ms.openlocfilehash: e54659b0d4504def272d3de40d5e953d98404a8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36c2943d7cd5ce2c5c7c4a8501dc0033aa8c9cbc
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630074"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015209"
 ---
 # <a name="what-is-speech-translation"></a>Co to jest tłumaczenie mowy?
 
@@ -48,13 +48,13 @@ Przykładowy kod dla zestawu Speech SDK jest dostępny w witrynie GitHub. Te prz
 
 ## <a name="migration-guides"></a>Przewodniki po migracji
 
-Jeśli Twoje aplikacje, narzędzia lub produkty używają [interfejs API tłumaczenia mowy w usłudze translator](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview), zostały utworzone przewodniki ułatwiające Migrowanie do usługi mowy.
+Jeśli Twoje aplikacje, narzędzia lub produkty używają [interfejs API tłumaczenia mowy w usłudze translator](./how-to-migrate-from-translator-speech-api.md), zostały utworzone przewodniki ułatwiające Migrowanie do usługi mowy.
 
 * [Migrowanie z interfejs API tłumaczenia mowy w usłudze Translator do usługi mowy](how-to-migrate-from-translator-speech-api.md)
 
 ## <a name="reference-docs"></a>Dokumentacja dokumentacji
 
-* [Zestaw SDK rozpoznawania mowy](speech-sdk-reference.md)
+* [Zestaw SDK rozpoznawania mowy](./speech-sdk.md)
 * [Zestaw Speech Devices SDK](speech-devices-sdk.md)
 * [Interfejs API REST: zamiana mowy na tekst](rest-speech-to-text.md)
 * [Interfejs API REST: zamiana tekstu na mowę](rest-text-to-speech.md)

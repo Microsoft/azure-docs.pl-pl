@@ -6,20 +6,22 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/14/2019
+ms.date: 11/20/2020
 ms.author: victorh
-ms.openlocfilehash: bfa6690c636e15fa933f50698cd81359600b5c05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f164418c29e9838928f3d03519342ebef40e16e7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77368306"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015701"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Tworzenie i używanie reguł niestandardowych zapory aplikacji sieci Web w wersji 2 na Application Gateway
 
 Zapora aplikacji sieci Web (WAF) v2 na platformie Azure Application Gateway zapewnia ochronę aplikacji sieci Web. Ta ochrona jest zapewniana przez zestaw reguł programu Open Web Application Security (OWASP) Core (KSR). W niektórych przypadkach może być konieczne utworzenie własnych reguł niestandardowych w celu spełnienia określonych wymagań. Aby uzyskać więcej informacji na temat reguł niestandardowych WAF, zobacz [niestandardowe reguły zapory aplikacji internetowych — Omówienie](custom-waf-rules-overview.md).
 
 W tym artykule przedstawiono kilka przykładowych reguł niestandardowych, które można tworzyć i korzystać z WAF w wersji 2. Aby dowiedzieć się, jak wdrożyć WAF z regułą niestandardową przy użyciu Azure PowerShell, zobacz [Konfigurowanie niestandardowych reguł zapory aplikacji sieci Web przy użyciu Azure PowerShell](configure-waf-custom-rules.md).
+
+Fragmenty kodu JSON pokazane w tym artykule pochodzą z zasobu [ApplicationGatewayWebApplicationFirewallPolicies](/templates/microsoft.network/applicationgatewaywebapplicationfirewallpolicies) .
 
 >[!NOTE]
 > Jeśli Brama aplikacji nie korzysta z warstwy WAF, opcja uaktualnienia bramy aplikacji do warstwy WAF zostanie wyświetlona w okienku po prawej stronie.
@@ -229,7 +231,7 @@ Odpowiadająca reguła KSR: `SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:7
 
 ## <a name="example-4"></a>Przykład 4
 
-Na potrzeby tego przykładu chcesz zablokować User-Agent *evilbot*i ruch w zakresie 192.168.5.0/24. Aby to osiągnąć, można utworzyć dwa oddzielne warunki dopasowania i umieścić je w jednej regule. Dzięki temu w przypadku dopasowania obu *evilbot* w nagłówku User-Agent **i** adresów IP z zakresu 192.168.5.0/24 żądanie zostanie zablokowane.
+Na potrzeby tego przykładu chcesz zablokować User-Agent *evilbot* i ruch w zakresie 192.168.5.0/24. Aby to osiągnąć, można utworzyć dwa oddzielne warunki dopasowania i umieścić je w jednej regule. Dzięki temu w przypadku dopasowania obu *evilbot* w nagłówku User-Agent **i** adresów IP z zakresu 192.168.5.0/24 żądanie zostanie zablokowane.
 
 Logika: p **i** q
 

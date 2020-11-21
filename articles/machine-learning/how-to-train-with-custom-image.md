@@ -10,12 +10,12 @@ author: saachigopal
 ms.date: 10/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 4b4a1e601a5a0dbf5e56fc1d930e14150f27fee3
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: a441d1d22f938e1d1e05aea547929fa3b315d406
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398236"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95012893"
 ---
 # <a name="train-a-model-by-using-a-custom-docker-image"></a>Uczenie modelu przy użyciu niestandardowego obrazu platformy Docker
 
@@ -138,7 +138,7 @@ print(compute_target.get_status().serialize())
 
 ## <a name="configure-your-training-job"></a>Konfigurowanie zadania szkoleniowego
 
-Na potrzeby tego samouczka Użyj skryptu szkoleniowego *Train.py* w witrynie [GitHub](https://github.com/Azure/azureml-examples/blob/main/code/train/fastai/pets-resnet34/train.py). W tym celu można wykonać dowolny skrypt niestandardowego szkolenia i uruchomić go, tak jak w przypadku Azure Machine Learning.
+Na potrzeby tego samouczka Użyj skryptu szkoleniowego *Train.py* w witrynie [GitHub](https://github.com/Azure/azureml-examples/blob/main/workflows/train/fastai/pets/src/train.py). W tym celu można wykonać dowolny skrypt niestandardowego szkolenia i uruchomić go, tak jak w przypadku Azure Machine Learning.
 
 Utwórz `ScriptRunConfig` zasób, aby skonfigurować zadanie do uruchamiania w żądanym [miejscu docelowym obliczeń](how-to-set-up-training-targets.md).
 

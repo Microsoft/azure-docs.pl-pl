@@ -8,19 +8,19 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 11/13/2020
+ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: e3d95be52215b03a30dc4b5c7f251357f163b24a
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: c67dcbbe2ca6dea533260f59831556c4338374ba
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616097"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95012999"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Jak używać obszaru roboczego z niestandardowym serwerem DNS
 
-W przypadku korzystania z Azure Machine Learning z siecią wirtualną istnieje [kilka sposobów obsługi rozpoznawania nazw DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Domyślnie platforma Azure automatycznie obsługuje rozpoznawanie nazw dla obszaru roboczego i prywatnego punktu końcowego. Jeśli zamiast tego _używasz własnego niestandardowego serwera DNS_ _, musisz ręcznie utworzyć wpisy DNS dla obszaru roboczego.
+W przypadku korzystania z obszaru roboczego Azure Machine Learning z prywatnym punktem końcowym istnieje [kilka sposobów obsługi rozpoznawania nazw DNS](../private-link/private-endpoint-dns.md). Domyślnie platforma Azure automatycznie obsługuje rozpoznawanie nazw dla obszaru roboczego i prywatnego punktu końcowego. Jeśli zamiast tego _używasz własnego niestandardowego serwera DNS_ _, musisz ręcznie utworzyć wpisy DNS dla obszaru roboczego.
 
 > [!IMPORTANT]
 > W tym artykule opisano, jak znaleźć w pełni kwalifikowaną nazwę domeny (FQDN) i adresy IP dla tych wpisów, które nie zawierają informacji na temat konfigurowania rekordów DNS dla tych elementów. Zapoznaj się z dokumentacją oprogramowania DNS, aby uzyskać informacje na temat dodawania rekordów.
@@ -33,6 +33,8 @@ W przypadku korzystania z Azure Machine Learning z siecią wirtualną istnieje [
 
 - Znajomość korzystania z [izolacji sieci podczas szkoleń & wnioskowania](./how-to-network-security-overview.md).
 
+- Znajomość [konfiguracji strefy DNS prywatnego punktu końcowego platformy Azure](../private-link/private-endpoint-dns.md)
+
 - Opcjonalnie [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) lub [Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="find-the-ip-addresses"></a>Znajdowanie adresów IP
@@ -43,7 +45,7 @@ Poniższa lista zawiera w pełni kwalifikowane nazwy domen (FQDN) używane przez
 * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 * `<workspace-GUID>.workspace.<region>.aether.ms`
-* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.ml`
+* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.net`
 * W przypadku tworzenia wystąpienia obliczeniowego należy również dodać wpis `<instance-name>.<region>.instances.azureml.ms` z prywatnym adresem IP prywatnego punktu końcowego obszaru roboczego.
 
     > [!NOTE]

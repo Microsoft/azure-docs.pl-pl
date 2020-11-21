@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: cb12777a6a4fa1e75cd65bc597c87442d592aad5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8d96d7b5952c020493af278ee1ea8ad5ff46716
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598117"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016789"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Planowanie środowiska Azure Time Series Insights Gen2
 
@@ -45,7 +45,7 @@ W ramach procesu inicjowania obsługi administracyjnej należy określić, czy m
 Zapytania dotyczące sklepu w sklepie są bezpłatne, podczas gdy zapytania dotyczące magazynu zimnego są ponoszone. Ważne jest, aby zrozumieć wzorce zapytań i odpowiednio zaplanować konfigurację magazynu ciepłego. Zalecamy, aby interakcyjna analiza najnowszych danych znajdował się w magazynie ciepłym i analizie wzorców oraz długoterminowe trendy znajdowały się na zimno.
 
 > [!NOTE]
-> Aby dowiedzieć się więcej na temat wykonywania zapytań dotyczących danych ciepłych, Przeczytaj [Informacje o interfejsie API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters).
+> Aby dowiedzieć się więcej na temat wykonywania zapytań dotyczących danych ciepłych, Przeczytaj [Informacje o interfejsie API](/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters).
 
 Aby rozpocząć, potrzebne są trzy dodatkowe elementy:
 
@@ -64,7 +64,7 @@ Aby utworzyć nowe środowisko Azure Time Series Insights, wybierz identyfikator
 > [!IMPORTANT]
 > Identyfikatorów szeregów czasowych *nie można zmienić później*. Sprawdź każdy z nich przed ostatecznym zaznaczeniem i pierwszym użyciem.
 
-Można wybrać maksymalnie trzy klucze, aby jednoznacznie odróżnić zasoby. Aby uzyskać więcej informacji, zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi wybierania identyfikatora szeregów czasowych](./time-series-insights-update-how-to-id.md) i [reguł](concepts-json-flattening-escaping-rules.md)pozyskiwania.
+Można wybrać maksymalnie trzy klucze, aby jednoznacznie odróżnić zasoby. Aby uzyskać więcej informacji, zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi wybierania identyfikatora szeregów czasowych](./how-to-select-tsid.md) i [reguł](concepts-json-flattening-escaping-rules.md)pozyskiwania.
 
 Właściwość **sygnatury czasowej** jest również ważna. Tę właściwość można wyznaczyć podczas dodawania źródeł zdarzeń. Każde źródło zdarzenia ma opcjonalną właściwość sygnatury czasowej, która jest używana do śledzenia źródeł zdarzeń w czasie. W wartościach sygnatury czasowej jest uwzględniana wielkość liter i muszą one być sformatowane do poszczególnych specyfikacji każdego źródła zdarzenia.
 
@@ -74,7 +74,7 @@ Gdy pole pozostanie puste, czas, w którym zdarzenie zostało w kolejce do IoT H
 
 Teraz można skonfigurować model szeregów czasowych środowiska Azure Time Series Insights. Nowy model ułatwia znajdowanie i analizowanie danych IoT. Umożliwia ona nadzorowanie, konserwację i wzbogacanie danych szeregów czasowych i pomaga przygotować zestawy danych gotowe do użycia przez klientów. Model używa identyfikatorów szeregów czasowych, które mapują do wystąpienia, które kojarzy unikatowy zasób ze zmiennymi, znanymi jako typy i hierarchie. Przeczytaj temat Omówienie [modelu szeregów czasowych](./concepts-model-overview.md) , aby dowiedzieć się więcej.
 
-Model jest dynamiczny, więc można go skompilować w dowolnym momencie. Aby szybko rozpocząć pracę, skompiluj ją i przekaż przed wypchnięciem danych do Azure Time Series Insights. Aby skompilować model, przeczytaj artykuł [Korzystanie z modelu szeregów czasowych](/azure/time-series-insights/concepts-model-overview).
+Model jest dynamiczny, więc można go skompilować w dowolnym momencie. Aby szybko rozpocząć pracę, skompiluj ją i przekaż przed wypchnięciem danych do Azure Time Series Insights. Aby skompilować model, przeczytaj artykuł [Korzystanie z modelu szeregów czasowych](./concepts-model-overview.md).
 
 W przypadku wielu klientów model szeregów czasowych jest mapowany na istniejący model zasobów lub system ERP. Jeśli nie masz istniejącego modelu, [zapewnione](https://github.com/Microsoft/tsiclient) zostanie wbudowane środowisko użytkownika umożliwiające szybkie rozpoczęcie pracy. Aby Envision, jak może pomóc model, zobacz [przykładowe środowisko demonstracyjne](https://insights.timeseries.azure.com/preview/demo).
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 18e90bcfe7238ae998ac677a9d7eebef0ffa8939
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: a4848f5e8b542d80b382abe39f4882a26e0f534c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874257"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015684"
 ---
 # <a name="troubleshooting-certificate-errors"></a>Rozwiązywanie problemów z błędami certyfikatów
 
@@ -58,7 +58,6 @@ W poniższej tabeli przedstawiono typowe błędy certyfikatów i szczegółowe i
 | CertificateImportFailure | Certyfikat z odciskiem palca {0} nie został zaimportowany w węźle {1} . Jeśli problem będzie się powtarzał, skontaktuj się z pomoc techniczna firmy Microsoft. |
 | CertificateApplyFailure | Certyfikat z odciskiem palca {0} nie został zastosowany w węźle {1} . Jeśli problem będzie się powtarzał, skontaktuj się z pomoc techniczna firmy Microsoft.|
 | NodeNotReachable | Nie można zweryfikować certyfikatu {0} . Sprawdź kondycję sprzętu i oprogramowania systemu.|
-| POBIERZ KOD BŁĘDU | Klucz prywatny dla tego certyfikatu jest niedostępny. Upewnij się, że korzystasz z obsługiwanego certyfikatu. Obsługiwany jest tylko dostawca usług kryptograficznych RSA/SChannel firmy Microsoft. |
 
 
 ## <a name="next-steps"></a>Następne kroki

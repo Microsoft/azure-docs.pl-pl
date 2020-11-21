@@ -7,12 +7,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 53304f14286577bf0bc25b2a66442286527c5140
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a7f5ec0231612a2cee2a9435144c886527c228e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972430"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014479"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Samouczek: Tworzenie połączonej aplikacji zarządzania odpadami w IoT Central
 
@@ -69,7 +69,7 @@ Aby utworzyć nową aplikację usługi Azure IoT Central połączonego zarządza
     ![IoT Central Azure — tworzenie połączonych informacji rozliczeniowych](./media/tutorial-connectedwastemanagement/new-application-connectedwastemanagement-billinginfo.png)
 
  
-6. Utworzono przyłączoną aplikację zarządzania odpadami przy użyciu **szablonu zarządzania odpadami**w usłudze Azure IoT Central. 
+6. Utworzono przyłączoną aplikację zarządzania odpadami przy użyciu **szablonu zarządzania odpadami** w usłudze Azure IoT Central. 
 
 Gratulacje! Nowo utworzona aplikacja zawiera wstępnie skonfigurowane:
 * Przykładowe pulpity nawigacyjne operatorów
@@ -92,18 +92,18 @@ Jako Konstruktor można tworzyć i dostosowywać widoki na pulpicie nawigacyjnym
 
 Pulpit nawigacyjny składa się z różnych rodzajów kafelków:
 
-* ***Kafelek obrazów narzędzi obejmujących cały świat***: pierwszy kafelek na pulpicie nawigacyjnym to kafelek obrazu fikcyjnego narzędzia do "całego świata". Możesz dostosować kafelek i umieścić własny obraz lub usunąć go. 
+* ***Kafelek obrazu narzędzia szerokiej gamy obrazów** _: pierwszy kafelek na pulpicie nawigacyjnym to kafelek obrazu fikcyjnego środowiska "odpady w całym świecie". Możesz dostosować kafelek i umieścić własny obraz lub usunąć go. 
 
-* ***Kafelek obrazu bin śmieci***: możesz użyć kafelków obrazów i zawartości, aby utworzyć wizualną reprezentację monitorowanego urządzenia wraz z tekstem opisowym. 
+_ ***Kafelek obrazu bin**: można użyć kafelków obrazów i zawartości, aby utworzyć wizualną reprezentację monitorowanego urządzenia wraz z tekstem opisowym. 
 
-* ***KAFELEK KPI na poziomie wypełnienia***: kafelek wyświetla wartość raportowaną przez czujnik *poziomu wypełnienia* w pojemniku. *Poziom wypełnienia* i inne czujniki, takie jak *miernik odor* lub *waga* w pojemniku, mogą być monitorowane zdalnie. Operator może podejmować działania, takie jak wysyłanie ciężarówki do pobrania. 
+_ ***KAFELEK KPI poziomu wypełnienia** _: kafelek wyświetla wartość raportowaną przez czujnik _Fill Level * w pojemniku odpadowym. *Poziom wypełnienia* i inne czujniki, takie jak *miernik odor* lub *waga* w pojemniku, mogą być monitorowane zdalnie. Operator może podejmować działania, takie jak wysyłanie ciężarówki do pobrania. 
 
-*  ***Mapa obszaru monitorowania odpadów***: mapa używa Azure Maps, którą można skonfigurować bezpośrednio w usłudze Azure IoT Central. Kafelek Mapa Wyświetla lokalizację urządzenia. Spróbuj umieścić kursor na mapie i wypróbuj kontrolki na mapie, takie jak powiększenie, Powiększ lub rozwiń.
+*  ***Mapa obszaru monitorowania odpadów** _: mapa używa Azure Maps, którą można skonfigurować bezpośrednio w usłudze Azure IoT Central. Kafelek Mapa Wyświetla lokalizację urządzenia. Spróbuj umieścić kursor na mapie i wypróbuj kontrolki na mapie, takie jak powiększenie, Powiększ lub rozwiń.
 
      ![Mapa pulpitu nawigacyjnego zarządzania połączonymi odpadami](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-map.png)
 
 
-* ***Wypełnienie, odor, wykres słupkowy poziomu wagi**: można wizualizować jedno lub wiele danych telemetrii urządzenia na wykresie słupkowym. Możesz również rozwinąć wykres słupkowy.  
+_ ***Fill, odor, wykres słupkowy poziomu wagi**: można wizualizować jedno lub wiele danych telemetrii urządzenia na wykresie słupkowym. Możesz również rozwinąć wykres słupkowy.  
 
   ![Wykres słupkowy pulpitu nawigacyjnego zarządzania odpadami](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-barchart.png)
 
@@ -135,7 +135,7 @@ Aby wyświetlić szablon urządzenia:
 
 2. Na liście szablony urządzeń zostanie wyświetlony **pojemnik połączone odpady**. Otwórz program, klikając nazwę.
 
-3. Zapoznaj się z możliwościami szablonu urządzenia. Zobaczysz, że definiuje on czujniki, takie jak *poziom wypełnienia*, *odor*, *waga*, *Lokalizacja*i inne.
+3. Zapoznaj się z możliwościami szablonu urządzenia. Zobaczysz, że definiuje on czujniki, takie jak *poziom wypełnienia*, *odor*, *waga*, *Lokalizacja* i inne.
 
    ![Zrzut ekranu przedstawiający szczegóły szablonu urządzenia bin podłączonych odpadów](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
 
@@ -161,7 +161,7 @@ Spróbuj dostosować następujące elementy:
 
   ![Widoki szablonów urządzeń](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-views.png)
 
-### <a name="publish"></a>Opublikuj 
+### <a name="publish"></a>Publikowanie 
 
 * Jeśli zostały wprowadzone jakiekolwiek zmiany, upewnij się, że szablon urządzenia jest **opublikowany** . 
 
@@ -197,7 +197,7 @@ Aplikacja do **zarządzania połączonymi odpadami** ma dwa symulowane urządzen
 
 ## <a name="explore-and-configure-rules"></a>Eksplorowanie i konfigurowanie reguł
 
-W usłudze Azure IoT Central można tworzyć reguły automatycznego monitorowania w ramach telemetrii urządzenia i wyzwalać akcje po spełnieniu jednego lub większej liczby warunków. Akcje mogą obejmować wysyłanie powiadomień e-mail, wyzwalanie akcji Microsoft Flow lub akcji elementu webhook w celu wysyłania danych do innych usług.
+W usłudze Azure IoT Central można tworzyć reguły automatycznego monitorowania w ramach telemetrii urządzenia i wyzwalać akcje po spełnieniu jednego lub większej liczby warunków. Akcje mogą obejmować wysyłanie powiadomień e-mail, wyzwalanie akcji automatyzacji lub akcja elementu webhook w celu wysyłania danych do innych usług.
 
 Aplikacja do **zarządzania połączonymi odpadami** ma cztery przykładowe reguły.
 

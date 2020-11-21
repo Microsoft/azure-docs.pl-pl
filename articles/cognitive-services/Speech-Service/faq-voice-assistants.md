@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 8480299c2c889a243150028ac9651f4b62656aec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d399507499a320116ff1c732a1ffc0ad84b5731
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74110348"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015446"
 ---
 # <a name="voice-assistants-frequently-asked-questions"></a>Często zadawane pytania dotyczące asystentów głosowych
 
-Jeśli nie możesz znaleźć odpowiedzi na pytania w tym dokumencie, zapoznaj się z [innymi opcjami pomocy technicznej](support.md).
+Jeśli nie możesz znaleźć odpowiedzi na pytania w tym dokumencie, zapoznaj się z [innymi opcjami pomocy technicznej](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext).
 
 ## <a name="general"></a>Ogólne
 
@@ -35,9 +35,9 @@ Odp. **:** [polecenia niestandardowe (wersja zapoznawcza)](custom-commands.md) t
 
 Odp **.:** Najlepszym sposobem, aby zacząć od tworzenia niestandardowych poleceń (wersja zapoznawcza) lub Basic bot Framework bot.
 
-- [Tworzenie aplikacji poleceń niestandardowych (wersja zapoznawcza)](quickstart-custom-speech-commands-create-new.md)
-- [Tworzenie podstawowego bot Framework bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
-- [Łączenie bot z kanałem mowy w linii bezpośredniej](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Tworzenie aplikacji poleceń niestandardowych (wersja zapoznawcza)](./quickstart-custom-commands-application.md)
+- [Tworzenie podstawowego bot Framework bot](/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+- [Łączenie bot z kanałem mowy w linii bezpośredniej](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
 ## <a name="debugging"></a>Debugowanie
 
@@ -62,7 +62,7 @@ Odp **.:** Podczas zarządzania subskrypcją w Azure Portal upewnij się, że u�
 Odp **.:** Ten błąd wskazuje na problem z komunikacją między asystentem a usługą asystenta głosowego.
 
 - W przypadku poleceń niestandardowych (wersja zapoznawcza) Upewnij się, że aplikacja poleceń niestandardowych (wersja zapoznawcza) została opublikowana
-- W przypadku bezpośredniej obsługi mowy w wierszu upewnij się, że [nawiązano połączenie z usługą bot z kanałem mowy z linią Direct](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech), [Dodano obsługę protokołu przesyłania strumieniowego](https://aka.ms/botframework/addstreamingprotocolsupport) do bot (z obsługą obsługiwanego gniazda sieci Web), a następnie sprawdź, czy bot odpowiada na żądania przychodzące z kanału.
+- W przypadku bezpośredniej obsługi mowy w wierszu upewnij się, że [nawiązano połączenie z usługą bot z kanałem mowy z linią Direct](/azure/bot-service/bot-service-channel-connect-directlinespeech), [Dodano obsługę protokołu przesyłania strumieniowego](/azure/bot-service/directline-speech-bot) do bot (z obsługą obsługiwanego gniazda sieci Web), a następnie sprawdź, czy bot odpowiada na żądania przychodzące z kanału.
 
 **P: ten kod nadal nie działa i/lub występuje inny błąd podczas korzystania z `DialogServiceConnector` . Co mam zrobić?**
 

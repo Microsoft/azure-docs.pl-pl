@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 11/17/2020
-ms.openlocfilehash: 730178d974ba95db968332ac669f701486b513bd
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.date: 11/20/2020
+ms.openlocfilehash: 9d6970331024ea0cd08e890cc62507d9eb230678
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94738530"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016337"
 ---
 # <a name="co-sell-partner-engagement"></a>Współpraca między partnerami w zakresie sprzedaży
 
@@ -85,6 +85,13 @@ Rozpocznij swoją podróż wspólną bezpośrednio w centrum partnerskim, wykonu
         :::image type="content" source="media/co-sell/co-sell-request-review.png" alt-text="Ten obraz przedstawia listę rozwijaną CED, aby zażądać przeglądu współsprzedawanego.":::
 
     CED skontaktuje się z Tobą, aby ukończyć proces.
+
+## <a name="see-your-offers-co-sell-status"></a>Zobacz stan współsprzedaży oferty
+
+W przypadku ofert z [opcją współsprzedaży w centrum partnerskim](./partner-center-portal/commercial-marketplace-co-sell.md)na stronie przeglądu oferty można zobaczyć bieżący stan tej oferty:
+
+ :::image type="content" source="media/co-sell/co-sell-status.png" alt-text="Ten obraz przedstawia bieżący stan współsprzedawanej oferty.":::
+
 
 ## <a name="next-steps"></a>Następne kroki
 

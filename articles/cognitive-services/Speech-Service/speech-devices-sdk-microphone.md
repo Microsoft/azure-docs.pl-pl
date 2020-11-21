@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
-ms.openlocfilehash: eace63effdbd62d8f08395aa16683627b475a963
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 698a1d52af6c2472d6c025851ead1a0b6a6dff82
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86232529"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015345"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Zestaw SDK urządzenia mowy zalecenia dotyczące tablicy mikrofonów
 
@@ -97,7 +97,7 @@ Następujące wskazówki dotyczące architektury są niezbędne podczas integrow
 | Zegar próbkowania      | Dźwięk urządzenia musi być bezpłatny i rozwijany z niską dryfem |
 | Możliwość rejestrowania   | Urządzenie musi mieć możliwość równoczesnego rejestrowania pojedynczych strumieni nieprzetworzonych kanałów |
 | USB                 | Wszystkie urządzenia wejściowe audio USB muszą ustawić deskryptory zgodnie z [specyfikacją rev3 urządzeń audio USB](https://www.usb.org/document-library/usb-audio-devices-rev-30-and-adopters-agreement) |
-| Geometria mikrofonu | Sterowniki muszą implementować poprawnie [deskryptory geometrii macierzy mikrofonu](https://docs.microsoft.com/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) |
+| Geometria mikrofonu | Sterowniki muszą implementować poprawnie [deskryptory geometrii macierzy mikrofonu](/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) |
 | Możliwości odnajdywania     | Urządzenia nie mogą mieć żadnych niewykrywalnych lub niekontrolowanych sprzętu, oprogramowania układowego ani nieliniowych algorytmów przetwarzania audio na/z urządzenia |
 | Format przechwytywania      | Formaty przechwytywania muszą mieć minimalną częstotliwość próbkowania wynoszącą 16 kHz i zalecaną 24-bitową głębię |
 

@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-dotnet
-ms.openlocfilehash: ce75b5465d18f988d9dfd2b329c4157bab41ded9
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: f61ca23157bd34669f4e7fa9ed1ead429e1d1674
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534521"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014173"
 ---
 # <a name="quickstart-extract-text-using-the-computer-vision-20-rest-api-ocr-operation-and-c"></a>Szybki Start: Wyodrębnianie tekstu przy użyciu operacji OCR interfejsu API REST w przetwarzanie obrazów 2,0 i C #
 
 > [!IMPORTANT]
-> W przypadku wyodrębniania tekstu w języku angielskim, niderlandzkim, francuskim, niemieckim, włoskim, portugalskim, hiszpańskim lub uproszczonym (wersja zapoznawcza) zaleca się użycie nowszej [operacji odczytu](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). Dostępna jest funkcja [Szybki Start języka C#](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text) . 
+> W przypadku wyodrębniania tekstu w języku angielskim, niderlandzkim, francuskim, niemieckim, włoskim, portugalskim, hiszpańskim lub uproszczonym (wersja zapoznawcza) zaleca się użycie nowszej [operacji odczytu](../concept-recognizing-text.md). Dostępna jest funkcja [Szybki Start języka C#](./csharp-hand-text.md) . 
 
 W tym przewodniku szybki start wyodrębnisz drukowany tekst z obrazu przy użyciu funkcji [rozpoznawania](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) przetwarzanie obrazów interfejsu API REST. Za pomocą tej operacji można wykryć drukowany tekst w obrazie i wyodrębnić rozpoznane znaki do strumienia znaków użytkowych maszynowo.
 
@@ -32,7 +32,7 @@ W tym przewodniku szybki start wyodrębnisz drukowany tekst z obrazu przy użyci
 * Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" Utwórz zasób przetwarzanie obrazów "  target="_blank"> utwórz zasób przetwarzanie obrazów <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
     * Będziesz potrzebować klucza i punktu końcowego z zasobu, który utworzysz, aby połączyć aplikację z usługą przetwarzanie obrazów. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
     * Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
-* [Utwórz zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla adresu URL klucza i punktu końcowego `COMPUTER_VISION_SUBSCRIPTION_KEY` , `COMPUTER_VISION_ENDPOINT` odpowiednio nazwane i.
+* [Utwórz zmienne środowiskowe](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) dla adresu URL klucza i punktu końcowego `COMPUTER_VISION_SUBSCRIPTION_KEY` , `COMPUTER_VISION_ENDPOINT` odpowiednio nazwane i.
 
 ## <a name="create-and-run-the-sample-application"></a>Tworzenie i uruchamianie przykładowej aplikacji
 
@@ -40,9 +40,9 @@ Aby utworzyć próbkę w programie Visual Studio, wykonaj następujące czynnoś
 
 1. Utwórz nowe rozwiązanie Visual Studio w programie Visual Studio przy użyciu szablonu aplikacji konsoli na potrzeby środowiska Visual C#.
 1. Zainstaluj pakiet NuGet Newtonsoft.Json.
-    1. W menu kliknij pozycję **Narzędzia** , a następnie **Menedżer pakietów NuGet** i **Zarządzaj pakietami NuGet rozwiązania**.
-    1. Kliknij kartę **Przeglądaj** , a następnie w polu **Wyszukiwanie** wpisz ciąg „Newtonsoft.Json”.
-    1. Gdy zostanie wyświetlona pozycja **Newtonsoft.Json** , wybierz ją, a następnie kliknij kolejno pole wyboru obok nazwy projektu i pozycję **Zainstaluj**.
+    1. W menu kliknij pozycję **Narzędzia**, a następnie **Menedżer pakietów NuGet** i **Zarządzaj pakietami NuGet rozwiązania**.
+    1. Kliknij kartę **Przeglądaj**, a następnie w polu **Wyszukiwanie** wpisz ciąg „Newtonsoft.Json”.
+    1. Gdy zostanie wyświetlona pozycja **Newtonsoft.Json**, wybierz ją, a następnie kliknij kolejno pole wyboru obok nazwy projektu i pozycję **Zainstaluj**.
 1. Uruchomisz program.
 1. Gdy pojawi się monit, wprowadź ścieżkę do obrazu lokalnego.
 

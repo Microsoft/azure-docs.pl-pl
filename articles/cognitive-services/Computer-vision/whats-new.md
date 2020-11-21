@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: e4c56700e75eb5bc7e5e7faec073fe7157e5df88
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1ef317ee3917172d0de204adafe5d5bf21a2a9ac
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976372"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014513"
 ---
 # <a name="whats-new-in-computer-vision"></a>Co nowego w przetwarzanie obrazów
 
@@ -80,7 +80,7 @@ Masz teraz możliwość używania wersji 3,0 interfejsu API odczytu do wyodrębn
 * Wynik pewności dla każdego wyodrębnionego wyrazu
 * Obsługa języków hiszpańskich i angielskich przy użyciu dodatkowego parametru języka
 
-Postępuj zgodnie z [przewodnikiem Szybki Start dla tekstu](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text?tabs=version-3) , aby rozpocząć korzystanie z interfejsu API 3,0.
+Postępuj zgodnie z [przewodnikiem Szybki Start dla tekstu](./quickstarts/csharp-hand-text.md?tabs=version-3) , aby rozpocząć korzystanie z interfejsu API 3,0.
 
 ## <a name="cognitive-service-updates"></a>Aktualizacje usługi poznawczej
 

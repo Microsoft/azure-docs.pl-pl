@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: 560c156c8e2c3d69c099b2ad573fa0d214f3f80b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0309329b37436022dc88f8951853c4bb09a2c080
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355078"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015277"
 ---
 # <a name="what-is-the-speech-devices-sdk"></a>Co to jest zestaw SDK urządzeń mowy?
 
@@ -29,9 +29,9 @@ Zestaw SDK urządzeń mowy może pomóc:
 
 Zestaw SDK urządzeń mowy korzysta z [zestawu Speech SDK](speech-sdk.md). Korzystając z naszych zaawansowanych algorytmów przetwarzania dźwięku z tablicą mikrofonu urządzenia, można wysłać dźwięk do [usługi mowy](overview.md). Zapewnia dokładne [rozpoznawanie mowy](speech-to-text.md) z odłożeniami przy użyciu funkcji pomijania szumów, anulowania echa, Beamforming i dereverberation.
 
-Za pomocą zestawu Speech Devices SDK można także tworzyć urządzenia otoczenia z własnymi własnymi [słowami kluczowymi](speech-devices-sdk-create-kws.md). Słowo kluczowe Custom zawiera wskaźnik uruchamiający interakcję użytkownika, która jest unikatowa dla Twojej marki.
+Za pomocą zestawu Speech Devices SDK można także tworzyć urządzenia otoczenia z własnymi własnymi [słowami kluczowymi](./custom-keyword-basics.md). Słowo kluczowe Custom zawiera wskaźnik uruchamiający interakcję użytkownika, która jest unikatowa dla Twojej marki.
 
-Zestaw SDK urządzeń mowy umożliwia korzystanie z różnych scenariuszy z obsługą głosu, takich jak [asystentów głosowych](https://aka.ms/bots/speech/va), systemów porządkujących się na stacjach, [transkrypcji konwersacji](conversation-transcription-service.md)i inteligentnych głośników. Możesz odpowiedzieć użytkownikom z tekstem, mówić z powrotem do nich przy użyciu domyślnego lub [niestandardowego głosu](how-to-customize-voice-font.md), podać wyniki wyszukiwania, [przetłumaczać](speech-translation.md) je na inne języki i nie tylko. Czekamy na zapoznaj się z kompilacją.
+Zestaw SDK urządzeń mowy umożliwia korzystanie z różnych scenariuszy z obsługą głosu, takich jak [asystentów głosowych](./voice-assistants.md), systemów porządkujących się na stacjach, [transkrypcji konwersacji](./conversation-transcription.md)i inteligentnych głośników. Możesz odpowiedzieć użytkownikom z tekstem, mówić z powrotem do nich przy użyciu domyślnego lub [niestandardowego głosu](./how-to-custom-voice-create-voice.md), podać wyniki wyszukiwania, [przetłumaczać](speech-translation.md) je na inne języki i nie tylko. Czekamy na zapoznaj się z kompilacją.
 
 ## <a name="get-the-speech-devices-sdk"></a>Pobieranie zestawu Speech Devices SDK
 

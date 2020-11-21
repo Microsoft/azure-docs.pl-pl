@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: aahi
-ms.openlocfilehash: 8154ef7a90011da8c15f52870eebb6c80ebaebca
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: dd1b6d216f6225a13d86aa2435b5b1c807547ec3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496101"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014581"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetrię i rozwiązywanie problemów
 
@@ -51,7 +51,7 @@ Danych wejściowych
 Wydajności
 1. Azure Monitor
 
-Dostarczony moduł telegraf analizy przestrzennej opublikuje wszystkie dane telemetryczne emitowane przez kontener analizy przestrzennej do Azure Monitor. Zobacz [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview) , aby uzyskać informacje na temat dodawania Azure monitor do subskrypcji.
+Dostarczony moduł telegraf analizy przestrzennej opublikuje wszystkie dane telemetryczne emitowane przez kontener analizy przestrzennej do Azure Monitor. Zobacz [Azure monitor](../../azure-monitor/overview.md) , aby uzyskać informacje na temat dodawania Azure monitor do subskrypcji.
 
 Po skonfigurowaniu Azure Monitor należy utworzyć poświadczenia, które umożliwiają modułowi wysyłanie danych telemetrycznych. Możesz użyć Azure Portal, aby utworzyć nową nazwę główną usługi, lub użyj poniższego polecenia platformy Azure, aby go utworzyć.
 
@@ -216,7 +216,7 @@ Dzienniki są przekazywane na żądanie za pomocą `getRTCVLogs` metody IoT Edge
 
 
 1. Przejdź do strony portalu IoT Hub, wybierz pozycję **urządzenia brzegowe**, a następnie wybierz urządzenie i moduł diagnostyczny. 
-2. Przejdź do strony szczegółów modułu i kliknij kartę **_Metoda bezpośrednia_*_.
+2. Przejdź do strony szczegółów modułu i kliknij kartę **_Metoda bezpośrednia_* _.
 3. Wpisz `getRTCVLogs` nazwę metody i ciąg formatu JSON w ładunku. Możesz wprowadzić `{}` , który jest pustym ładunkiem. 
 4. Ustaw limity czasu połączenia i metody, a następnie kliknij _ * Invoke metoda * *.
 5. Wybierz kontener docelowy i skompiluj ciąg JSON ładunku przy użyciu parametrów opisanych w sekcji **składnia rejestrowania** . Kliknij pozycję **Wywołaj metodę** , aby wykonać żądanie.
@@ -224,7 +224,7 @@ Dzienniki są przekazywane na żądanie za pomocą `getRTCVLogs` metody IoT Edge
 >[!NOTE]
 > Wywołanie `getRTCVLogs` metody z pustym ładunkiem spowoduje zwrócenie listy wszystkich kontenerów wdrożonych na urządzeniu. Nazwa metody uwzględnia wielkość liter. Jeśli podano niepoprawną nazwę metody, zostanie wyświetlony błąd 501.
 
-:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Raport telemetrii Azure Monitor":::
+:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Wywoływanie metody getRTCVLogs ":::
 ![Strona metody bezpośredniej getRTCVLogs](./media/spatial-analysis/direct-log-collection.png)
 
  
@@ -245,7 +245,7 @@ W poniższej tabeli wymieniono atrybuty w odpowiedzi na zapytanie.
 
 | Słowo kluczowe | Opis|
 |--|--|
-|DoPost| *Wartość true* lub *false*. Wskazuje, czy dzienniki zostały przekazane, czy nie. W przypadku wybrania opcji nie przekazuj dzienników interfejs API zwraca informacje ***synchronicznie**_. Po wybraniu przekazania dzienników interfejs API zwraca 200, jeśli żądanie jest prawidłowe i zaczyna przekazywania dzienników _*_asynchronicznie_*_.|
+|DoPost| *Wartość true* lub *false*. Wskazuje, czy dzienniki zostały przekazane, czy nie. W przypadku wybrania opcji nie przekazuj dzienników interfejs API zwraca informacje ***synchronicznie** _. Po wybraniu przekazania dzienników interfejs API zwraca 200, jeśli żądanie jest prawidłowe i zaczyna przekazywania dzienników _*_asynchronicznie_*_.|
 |TimeFilter| Filtr czasu zastosowany do dzienników.|
 |ValueFilters| Filtry słów kluczowych zastosowane do dzienników. |
 |Znacznik czasu| Godzina rozpoczęcia wykonywania metody. |
@@ -316,8 +316,8 @@ Poniższa sekcja zawiera pomoc dotyczącą debugowania i weryfikacji stanu urzą
 
 ### <a name="access-the-kubernetes-api-endpoint"></a>Dostęp do punktu końcowego interfejsu API Kubernetes. 
 
-1. W lokalnym interfejsie użytkownika urządzenia przejdź na stronę _*Devices**. 
-2. W obszarze **punkty końcowe urządzenia**Skopiuj punkt końcowy usługi interfejsu API Kubernetes. Ten punkt końcowy jest ciągiem w następującym formacie: `https://compute..[device-IP-address]` .
+1. W lokalnym interfejsie użytkownika urządzenia przejdź na stronę _ *Devices**. 
+2. W obszarze **punkty końcowe urządzenia** Skopiuj punkt końcowy usługi interfejsu API Kubernetes. Ten punkt końcowy jest ciągiem w następującym formacie: `https://compute..[device-IP-address]` .
 3. Zapisz ciąg punktu końcowego. Będzie on używany później podczas konfigurowania programu `kubectl` w celu uzyskania dostępu do klastra Kubernetes.
 
 ### <a name="connect-to-powershell-interface"></a>Połącz z interfejsem programu PowerShell
@@ -326,7 +326,7 @@ Zdalnie, Połącz się z klienta systemu Windows. Po utworzeniu klastra Kubernet
 
 > [!TIP]
 > * Przed rozpoczęciem upewnij się, że na kliencie systemu Windows jest uruchomiony program Windows PowerShell 5,0 lub nowszy.
-> * Program PowerShell jest również [dostępny w systemie Linux](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux).
+> * Program PowerShell jest również [dostępny w systemie Linux](/powershell/scripting/install/installing-powershell-core-on-linux).
 
 1. Uruchom sesję programu Windows PowerShell jako administrator. 
     1. Upewnij się, że na kliencie jest uruchomiona usługa Windows Remote Management. W wierszu polecenia wpisz polecenie `winrm quickconfig` .

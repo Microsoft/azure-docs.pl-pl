@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 9ed4e47cf946827e2e4b9aaeb14d9668e96aeaa5
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: e76612c6c1b83ddb7e88377824902fe6290e7aaf
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873781"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015243"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Ulepszanie syntezy przy użyciu języka znaczników syntezy mowy (SSML)
 
@@ -155,7 +155,7 @@ speechConfig.setProperty(
     "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
 ```
 
-# <a name="objective-c"></a>[Objective-C](#tab/objectivec)
+# <a name="objective-c"></a>[Obiektowy C](#tab/objectivec)
 
 Aby uzyskać więcej informacji, zobacz <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
@@ -587,7 +587,7 @@ Można również bezpośrednio podać oczekiwany `alias` termin dla akronimu lub
 
 Aby uzyskać więcej informacji na temat niestandardowego pliku leksykonu, zobacz [Specyfikacja leksykonu wymowy (innych obszarów roboczych) w wersji 1,0](https://www.w3.org/TR/pronunciation-lexicon/).
 
-Następnie opublikuj niestandardowy plik leksykonu. Chociaż nie mamy ograniczeń dotyczących lokalizacji tego pliku, zalecamy korzystanie z [usługi Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+Następnie opublikuj niestandardowy plik leksykonu. Chociaż nie mamy ograniczeń dotyczących lokalizacji tego pliku, zalecamy korzystanie z [usługi Azure Blob Storage](../../storage/blobs/storage-quickstart-blobs-portal.md).
 
 Po opublikowaniu słownika niestandardowego można odwołać się do niego z SSML.
 

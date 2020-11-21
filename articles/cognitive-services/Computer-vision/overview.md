@@ -14,12 +14,12 @@ ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: Obsługa komputerów, aplikacje komputerowe, usługa komputerowa
-ms.openlocfilehash: aeaa10870b8b40b907da1d1660e77ebf0271c300
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 1603aa05d8bde6d4c3edba2d49120fa3545d3fd0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629754"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014649"
 ---
 # <a name="what-is-computer-vision"></a>Czym jest przetwarzanie obrazów?
 
@@ -64,7 +64,7 @@ Generowanie opisu całego obrazu w języku zrozumiałym dla człowieka przy uży
 
 ### <a name="detect-faces"></a>Wykrywanie twarzy
 
-Wykrywanie twarzy na obrazie i dostarczanie informacji o każdej wykrytej twarzy. Usługa przetwarzania obrazów zwraca współrzędne, prostokąt, płeć i wiek osoby dla każdej wykrytej twarzy.<br/>Przetwarzanie obrazów zapewnia podzestaw funkcji usługi [kroju](/azure/cognitive-services/face/) . Możesz użyć usługi twarzy, aby uzyskać bardziej szczegółową analizę, taką jak Identyfikacja twarzy i wykrywanie ułożenia. [Wykrywanie twarzy](concept-detecting-faces.md)
+Wykrywanie twarzy na obrazie i dostarczanie informacji o każdej wykrytej twarzy. Usługa przetwarzania obrazów zwraca współrzędne, prostokąt, płeć i wiek osoby dla każdej wykrytej twarzy.<br/>Przetwarzanie obrazów zapewnia podzestaw funkcji usługi [kroju](../face/index.yml) . Możesz użyć usługi twarzy, aby uzyskać bardziej szczegółową analizę, taką jak Identyfikacja twarzy i wykrywanie ułożenia. [Wykrywanie twarzy](concept-detecting-faces.md)
 
 ### <a name="detect-image-types"></a>Wykrywanie typów obrazu
 

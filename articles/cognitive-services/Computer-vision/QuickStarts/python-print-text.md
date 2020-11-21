@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 539f6fe35a2d6eb0566871dbab4e9758a300e999
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: c4df284b4f202c78969a16d118c3a20a41592343
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541882"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013591"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-python"></a>Szybki Start: Wyodrębnianie wydruku tekstu (OCR) przy użyciu interfejsu API REST przetwarzanie obrazów i języka Python
 
 > [!NOTE]
-> W przypadku wyodrębniania tekstu w języku angielskim należy rozważyć użycie nowej [operacji odczytu](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). Dostępny jest [Przewodnik Szybki Start](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/python-hand-text) dla języka Python. 
+> W przypadku wyodrębniania tekstu w języku angielskim należy rozważyć użycie nowej [operacji odczytu](../concept-recognizing-text.md). Dostępny jest [Przewodnik Szybki Start](./python-hand-text.md) dla języka Python. 
 
 W tym przewodniku Szybki Start zostanie wyodrębniony drukowany tekst z użyciem optycznego rozpoznawania znaków (OCR) z obrazu przy użyciu interfejsu API REST przetwarzanie obrazów. Metoda optycznego rozpoznawania znaków ([OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d)) pozwala wykrywać na obrazie tekst wydrukowany i wyodrębniać rozpoznane znaki do strumienia znaków, którego mogą używać komputery.
 
@@ -37,7 +37,7 @@ Możesz pracować z tym przewodnikiem Szybki start krok po kroku, korzystając z
 * Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" Utwórz zasób przetwarzanie obrazów "  target="_blank"> utwórz zasób przetwarzanie obrazów <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
     * Będziesz potrzebować klucza i punktu końcowego z zasobu, który utworzysz, aby połączyć aplikację z usługą przetwarzanie obrazów. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
     * Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
-* [Utwórz zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla adresu URL klucza i punktu końcowego `COMPUTER_VISION_SUBSCRIPTION_KEY` , `COMPUTER_VISION_ENDPOINT` odpowiednio nazwane i.
+* [Utwórz zmienne środowiskowe](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) dla adresu URL klucza i punktu końcowego `COMPUTER_VISION_SUBSCRIPTION_KEY` , `COMPUTER_VISION_ENDPOINT` odpowiednio nazwane i.
 
 ## <a name="create-and-run-the-sample"></a>Tworzenie i uruchamianie próbki
 
@@ -232,6 +232,6 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 Następnie zapoznaj się z aplikacją w języku Python, która używa przetwarzanie obrazów do wykonywania optycznego rozpoznawania znaków (OCR). Twórz inteligentne, przycięte miniatury; wykrywaj, Kategoryzuj i opisuj funkcje wizualne w obrazach.
 
 > [!div class="nextstepaction"]
-> [Computer Vision API Python Tutorial (Samouczek dla języka Python dotyczący interfejsu API przetwarzania obrazów)](../Tutorials/PythonTutorial.md)
+> [Computer Vision API Python Tutorial (Samouczek dla języka Python dotyczący interfejsu API przetwarzania obrazów)](https://github.com/Microsoft/Cognitive-Vision-Python)
 
 * Aby szybko zacząć eksperymentować z interfejsem API przetwarzania obrazów, wypróbuj [konsolę testowania interfejsu Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).

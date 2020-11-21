@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 2c415fc92d2d338c568c422b1db2579563527839
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: f07efcc18f3eff7e40232941befb563cd236266b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442059"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013038"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Użyj szablonu Azure Resource Manager, aby utworzyć obszar roboczy dla Azure Machine Learning
 
@@ -39,6 +39,10 @@ Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji przy użyciu szabl
 
     Aby uzyskać więcej informacji, zobacz [Zarządzanie i zwiększanie limitów przydziału](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
+## <a name="limitations"></a>Ograniczenia
+
+* Podczas tworzenia nowego obszaru roboczego można zezwolić obszarowi roboczemu na tworzenie usług platformy Azure, które wymagają automatycznie, lub udostępnić istniejące usługi. W przypadku udostępniania istniejących usług te usługi muszą znajdować się w tej samej subskrypcji platformy Azure co obszar roboczy.
+
 ## <a name="workspace-resource-manager-template"></a>Szablon Menedżer zasobów obszaru roboczego
 
 Szablon Azure Resource Manager używany w tym dokumencie znajduje się w katalogu [201-Machine-Learning-Advanced](https://github.com/Azure/azure-quickstart-templates/blob/master/201-machine-learning-advanced/azuredeploy.json) w usłudze Azure Start templates repozytorium GitHub.
@@ -59,7 +63,7 @@ Przykładowy szablon ma dwa **wymagane** parametry:
 
     Szablon będzie korzystać z lokalizacji wybranej dla większości zasobów. Wyjątkiem jest usługa Application Insights, która nie jest dostępna we wszystkich lokalizacjach, w których znajdują się inne usługi. W przypadku wybrania lokalizacji, w której jest ona niedostępna, usługa zostanie utworzona w lokalizacji Południowo-środkowe stany USA.
 
-* **Obszar roboczyname** , który jest przyjazną nazwą obszaru roboczego Azure Machine Learning.
+* **Obszar roboczyname**, który jest przyjazną nazwą obszaru roboczego Azure Machine Learning.
 
     > [!NOTE]
     > W nazwie obszaru roboczego nie jest rozróżniana wielkość liter.

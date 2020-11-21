@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 11/09/2020
 ms.custom: how-to, seodec18, devx-track-azurecli, contperfq2
-ms.openlocfilehash: 6cd4bbec89e955c398f7cb6e37ba5c3dcc6427ea
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 90abd46e73ecb50b5e6de40218571d0ec899752e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94961230"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95012971"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Zarządzanie dostępem do obszaru roboczego usługi Azure Machine Learning
 
@@ -27,7 +27,7 @@ W tym artykule dowiesz się, jak zarządzać dostępem (autoryzacją) do obszaru
 >
 > * [Kontrola dostępu do zasobów klastra usługi Azure Kubernetes](../aks/azure-ad-rbac.md)
 > * [Korzystanie z usługi Azure RBAC na potrzeby autoryzacji Kubernetes](../aks/manage-azure-rbac.md)
-> * [Korzystanie z usługi Azure RBAC na potrzeby dostępu do danych obiektów BLOB](/storage/common/storage-auth-aad-rbac-portal.md)
+> * [Korzystanie z usługi Azure RBAC na potrzeby dostępu do danych obiektów BLOB](/azure/storage/common/storage-auth-aad-rbac-portal)
 
 > [!WARNING]
 > Zastosowanie niektórych ról może ograniczyć funkcjonalność interfejsu użytkownika w programie Azure Machine Learning Studio dla innych użytkowników. Na przykład jeśli rola użytkownika nie ma możliwości utworzenia wystąpienia obliczeniowego, opcja tworzenia wystąpienia obliczeniowego nie będzie dostępna w programie Studio. To zachowanie jest oczekiwane i uniemożliwia użytkownikowi podejmowanie prób wykonania operacji, które zwracają błąd odmowy dostępu.

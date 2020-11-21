@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 4eb2835bd09e6548149ee90cb7232bf230de0300
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 73887515eea344e920455e3c24f3eae3d5ad515a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538754"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013743"
 ---
 # <a name="optical-character-recognition-ocr"></a>Optyczne rozpoznawanie znaków (OCR)
 
@@ -138,7 +138,7 @@ Rozpocznij pracę z [Przetwarzanie obrazówą przewodnika Szybki Start dla zesta
 ## <a name="supported-languages-for-print-text"></a>Obsługiwane języki na potrzeby drukowania tekstu
 [Interfejs API odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) obsługuje wyodrębnianie drukowanego tekstu w języku angielskim, hiszpańskim, niemieckim, francuskim, włoskim, portugalskim i holenderskim.
 
-Pełną listę języków obsługiwanych przez OCR można znaleźć w [obsługiwanych językach](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) .
+Pełną listę języków obsługiwanych przez OCR można znaleźć w [obsługiwanych językach](./language-support.md#optical-character-recognition-ocr) .
 
 ### <a name="read-32-preview-adds-simplified-chinese-and-japanese"></a>Read 3,2 Preview dodaje uproszczony chiński i japoński
 W [publicznej wersji zapoznawczej interfejsu API Read 3,2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) dodano obsługę języka chińskiego uproszczonego i japońskiego. Jeśli scenariusz wymaga obsługi większej liczby języków, zobacz sekcję dotyczącą [interfejsu API OCR](#ocr-api) . 
@@ -150,7 +150,7 @@ Operacja odczytu obsługuje obecnie Wyodrębnianie tekstu odręcznego wyłączni
 [Interfejs API REST do odczytu 3. x](./QuickStarts/CSharp-hand-text.md) jest preferowaną opcją dla większości klientów ze względu na łatwość integracji i szybką produktywność z usługi Box. Platforma Azure i usługa przetwarzanie obrazów obsługują skalowanie, wydajność, bezpieczeństwo danych i wymagania dotyczące zgodności podczas skoncentrowania się na potrzebach klientów.
 
 ## <a name="deploy-on-premise-with-docker-containers"></a>Wdrażanie lokalnie przy użyciu kontenerów platformy Docker
-[Odczytaj kontener platformy Docker (wersja zapoznawcza)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers) umożliwia wdrożenie nowych funkcji OCR w środowisku lokalnym. Kontenery doskonale nadają się do określonych wymagań w zakresie zabezpieczeń i zarządzania danymi.
+[Odczytaj kontener platformy Docker (wersja zapoznawcza)](./computer-vision-how-to-install-containers.md) umożliwia wdrożenie nowych funkcji OCR w środowisku lokalnym. Kontenery doskonale nadają się do określonych wymagań w zakresie zabezpieczeń i zarządzania danymi.
 
 ## <a name="example-outputs"></a>Przykładowe dane wyjściowe
 
@@ -186,7 +186,7 @@ Interfejs API odczytu obsługuje obrazy i dokumenty zawierające wiele różnych
 
 ## <a name="ocr-api"></a>INTERFEJS API OCR
 
-[Interfejs API OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) używa starszego modelu rozpoznawania, obsługuje tylko obrazy i wykonuje synchronicznie, zwracając natychmiast z wykrytym tekstem. Zobacz [obsługiwane języki OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) , a następnie przeczytaj interfejs API.
+[Interfejs API OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) używa starszego modelu rozpoznawania, obsługuje tylko obrazy i wykonuje synchronicznie, zwracając natychmiast z wykrytym tekstem. Zobacz [obsługiwane języki OCR](./language-support.md#optical-character-recognition-ocr) , a następnie przeczytaj interfejs API.
 
 ## <a name="data-privacy-and-security"></a>Prywatność i zabezpieczenia danych
 
