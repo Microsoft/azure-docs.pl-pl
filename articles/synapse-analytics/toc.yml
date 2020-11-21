@@ -1,5 +1,5 @@
 - name: Azure Synapse (wersja zapoznawcza obszarów roboczych)
-  href: sql-data-warehouse/index.yml
+  href: overview-what-is.md
 - name: Przełączanie do usługi Azure Synapse (wcześniej SQL DW)
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
 - name: Omówienie
@@ -7,10 +7,8 @@
     - name: Co to jest usługa Azure Synapse?
       href: overview-what-is.md
       displayName: overview
-    - name: Ściągawka
-      href: overview-cheat-sheet.md
-    - name: Często zadawane pytania
-      href: overview-faq.md
+    - name: Terminologia
+      href: overview-terminology.md
     - name: Informacje o wersji
       href: release-notes.md
 - name: Przewodniki Szybki start

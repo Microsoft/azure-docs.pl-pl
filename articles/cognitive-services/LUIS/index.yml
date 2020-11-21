@@ -12,12 +12,12 @@ metadata:
   title: Dokumentacja usługi Language Understanding (LUIS)
   titleSuffix: Azure Cognitive Services
   description: Usługa Language Understanding (LUIS) umożliwia aplikacji rozpoznawanie poleceń wydawanych naturalnymi słowami. Usługa LUIS korzysta z uczenia maszynowego, aby umożliwić deweloperom tworzenie aplikacji odbierających dane wejściowe użytkownika w języku naturalnym i wyodrębniających ich znaczenie.
-  ms.openlocfilehash: 3bae2e6e0a79dbc0106dc71a9510aa4dc318650c
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: ff928f1879f8cfd356fa020ff6afaa68b72f63c5
+  ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92364188"
+  ms.lasthandoff: 11/21/2020
+  ms.locfileid: "95019385"
 landingContent:
 - title: Informacje o usłudze Language Understanding (LUIS)
   linkLists:
@@ -70,7 +70,7 @@ landingContent:
     - text: Dodawanie intencji z przykładowymi wypowiedziami
       url: luis-how-to-add-intents.md
     - text: Dodawanie jednostek
-      url: luis-how-to-add-example-utterances.md
+      url: ./luis-how-to-add-entities.md
     - text: Funkcja dodawania listy fraz
       url: luis-how-to-add-features.md
 - title: Tworzenie wersji, trenowanie, testowanie i publikowanie
@@ -78,7 +78,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: Obsługa wersji
-      url: luis-concept-version.md
+      url: ./luis-concept-app-iteration.md
     - text: Testowanie interakcyjne
       url: luis-concept-test.md
     - text: Testowanie wsadowe
@@ -110,15 +110,15 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Za pomocą języka C# i usługi REST
-      url: luis-get-started-cs-get-intent.md
+      url: ./luis-get-started-get-intent-from-rest.md
     - text: Za pomocą języka Go i usługi REST
-      url: luis-get-started-go-get-intent.md
+      url: ./luis-get-started-get-intent-from-rest.md
     - text: Za pomocą języka Java i usługi REST
-      url: luis-get-started-java-get-intent.md
+      url: ./luis-get-started-get-intent-from-rest.md
     - text: Za pomocą środowiska Node.js i usługi REST
-      url: luis-get-started-node-get-intent.md
+      url: ./luis-get-started-get-intent-from-rest.md
     - text: Za pomocą języka Python i usługi REST
-      url: luis-get-started-python-get-intent.md
+      url: ./luis-get-started-get-intent-from-rest.md
 - title: Dokumentacja
   linkLists:
   - linkListType: reference

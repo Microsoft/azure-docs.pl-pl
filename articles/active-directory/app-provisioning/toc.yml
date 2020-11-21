@@ -49,7 +49,7 @@
         - name: Eksportowanie i importowanie konfiguracji
           href: export-import-provisioning-configuration.md
         - name: Aprowidowanie raportów
-          href: ../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+          href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: Automatyzowanie konfiguracji przy użyciu programu MS Graph
       href: 'https://docs.microsoft.com/graph/application-provisioning-configure-api'
     - name: Rozwiązywanie problemów z aprowizacją aplikacji
@@ -65,7 +65,7 @@
         - name: Brak atrybutu źródłowego
           href: user-provisioning-sync-attributes-for-mapping.md
         - name: Dzienniki aprowizowania
-          href: ../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+          href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
 - name: Dokumentacja
   items:
     - name: Zgodność z protokołem SCIM 2.0

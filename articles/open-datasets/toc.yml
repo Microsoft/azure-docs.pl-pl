@@ -9,9 +9,9 @@
 - name: Samouczek
   items:
     - name: Regresja przy użyciu zautomatyzowanego uczenia maszynowego
-      href: ../machine-learning/tutorial-auto-train-models.md?bc=%252fazure%252fopen-datasets%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fopen-datasets%252ftoc.json
+      href: ../machine-learning/tutorial-auto-train-models.md?bc=%2fazure%2fopen-datasets%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fopen-datasets%2ftoc.json
     - name: Wzbogacanie modelu klasyfikacji obrazów
-      href: ../machine-learning/tutorial-train-models-with-aml.md?bc=%252fazure%252fopen-datasets%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fopen-datasets%252ftoc.json
+      href: ../machine-learning/tutorial-train-models-with-aml.md?bc=%2fazure%2fopen-datasets%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fopen-datasets%2ftoc.json
 - name: Przewodniki z instrukcjami
   items:
     - name: Zestawy danych w usłudze Azure Machine Learning

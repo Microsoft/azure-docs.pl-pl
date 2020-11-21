@@ -21,6 +21,10 @@
       href: work-remotely-support.md
     - name: Usługa Bastion i wirtualne sieci równorzędne
       href: vnet-peering.md
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Tworzenie hosta

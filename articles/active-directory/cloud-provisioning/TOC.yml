@@ -19,7 +19,7 @@
 - name: Pojęcia
   items:
     - name: Co to jest synchronizacja skrótów haseł?
-      href: ../hybrid/whatis-phs.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcloud-provisioning-context
+      href: ../hybrid/whatis-phs.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcloud-provisioning-context
     - name: 'Informacje o schemacie, atrybutach i wyrażeniach usługi Azure AD'
       href: concept-attributes.md
     - name: Pisanie wyrażeń na potrzeby mapowania atrybutów w usłudze Azure Active Directory
@@ -63,10 +63,10 @@
 - name: Dokumentacja
   items:
     - name: Historia wersji agenta aprowizacji w chmurze programu Azure AD Connect
-      href: ../app-provisioning/provisioning-agent-release-version-history.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
+      href: ../app-provisioning/provisioning-agent-release-version-history.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
     - name: Często zadawane pytania dotyczące aprowizacji w chmurze programu Azure AD Connect
       href: reference-cloud-provisioning-faq.md
     - name: Synchronizowane atrybuty
-      href: ../hybrid/reference-connect-sync-attributes-synchronized.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
+      href: ../hybrid/reference-connect-sync-attributes-synchronized.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
     - name: Podstawowe środowisko usług Active Directory i Azure AD
       href: tutorial-basic-ad-azure.md

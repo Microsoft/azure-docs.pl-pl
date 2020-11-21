@@ -81,6 +81,9 @@
       href: azure-portal-dashboards-structure.md
     - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/ext/portal/portal
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Zasoby
   items:
     - name: Harmonogram działania dla platformy Azure

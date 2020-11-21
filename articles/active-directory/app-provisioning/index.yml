@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 21e1ed894e61d222ab579d15f5a4bb63903baea4
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: 788555f808ccc56672b0ea0be24e680c4844a6ae
+  ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92366636"
+  ms.lasthandoff: 11/20/2020
+  ms.locfileid: "94985488"
 landingContent:
 - title: Aprowizowanie użytkowników i grup w aplikacji w chmurze
   linkLists:
@@ -30,11 +30,11 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Aprowizacja w usłudze SAP Cloud Platform Identity Authentication
-      url: ../saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+      url: ../saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - text: Aprowizacja w programie Oracle Fusion ERP
-      url: ../saas-apps/oracle-fusion-erp-provisioning-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+      url: ../saas-apps/oracle-fusion-erp-provisioning-tutorial.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - text: Aprowizacja w usłudze Atlassian Cloud
-      url: ../saas-apps/atlassian-cloud-provisioning-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+      url: ../saas-apps/atlassian-cloud-provisioning-tutorial.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
   - linkListType: how-to-guide
     links:
     - text: Dodajesz aplikację z galerii? Konfigurowanie aprowizacji w aplikacji
@@ -62,9 +62,9 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Aprowizacja w produkcie Workday
-      url: ../saas-apps/workday-inbound-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+      url: ../saas-apps/workday-inbound-tutorial.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - text: Aprowizacja w produkcie SAP SuccessFactors
-      url: ../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+      url: ../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
 - title: Nowości w dokumentacji
   linkLists:
   - linkListType: whats-new

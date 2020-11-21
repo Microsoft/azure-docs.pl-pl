@@ -11,16 +11,16 @@
 - name: Samouczki
   items:
     - name: Tworzenie grupy dynamicznej
-      href: ../enterprise-users/users-revoke-access.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+      href: ../enterprise-users/users-revoke-access.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Pojęcia
   expanded: true
   items:
     - name: Delegowanie ról administratorów usługi Azure AD
       href: concept-delegation.md
     - name: Porównywanie domyślnych uprawnień użytkowników
-      href: ../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+      href: ../fundamentals/users-default-permissions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Porównanie ról na platformie Azure i w usłudze Azure AD
-      href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+      href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Informacje o jednostkach administracyjnych w usłudze Azure AD
       href: administrative-units.md
 - name: Przewodniki z instrukcjami
@@ -29,15 +29,15 @@
     - name: Użytkownicy i role
       items:
         - name: Przypisywanie użytkowników do ról administratorów
-          href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
         - name: Odwoływanie dostępu użytkownika
-          href: ../enterprise-users/users-revoke-access.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+          href: ../enterprise-users/users-revoke-access.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
         - name: Przypisywanie roli do użytkownika-gościa
-          href: ../b2b/add-guest-to-role.md?context=azure/active-directory/roles/context/ugr-context
+          href: ../b2b/add-guest-to-role.md?context=%2fazure/active-directory/roles/context/ugr-context
         - name: Ograniczanie dostępu użytkowników-gości
-          href: ../enterprise-users/users-restrict-guest-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+          href: ../enterprise-users/users-restrict-guest-permissions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
         - name: Grupy dynamiczne i goście
-          href: ../b2b/use-dynamic-groups.md?context=azure/active-directory/roles/context/ugr-context
+          href: ../b2b/use-dynamic-groups.md?context=%2fazure/active-directory/roles/context/ugr-context
     - name: Role i uprawnienia
       expanded: true
       items:
@@ -57,7 +57,7 @@
         - name: Wyświetlanie przypisań ról niestandardowych
           href: custom-view-assignments.md
         - name: Przypisywanie ról niestandardowych w witrynie Azure Portal
-          href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
         - name: Przypisywanie ról niestandardowych w programie PowerShell
           href: custom-assign-powershell.md
         - name: Przypisywanie ról niestandardowych na potrzeby aplikacji dla przedsiębiorstw
@@ -111,7 +111,7 @@
     - name: Rozwiązywanie problemów
       items:
         - name: Uzyskiwanie pomocy technicznej dla usługi Azure AD
-          href: ../fundamentals/active-directory-troubleshooting-support-howto.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+          href: ../fundamentals/active-directory-troubleshooting-support-howto.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Dokumentacja
   items:
     - name: Najmniej uprzywilejowane role według zadania
@@ -125,4 +125,4 @@
     - name: Moduł Azure AD PowerShell dla programu Graph
       href: /powershell/azure/active-directory/install-adv2?view=azureadps-2.0
     - name: Limity usługi Azure AD
-      href: ../enterprise-users/directory-service-limits-restrictions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+      href: ../enterprise-users/directory-service-limits-restrictions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context

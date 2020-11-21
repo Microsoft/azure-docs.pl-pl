@@ -93,7 +93,7 @@
       displayName: 'example, examples, studio, pipelines, data sets, modules'
       href: samples-designer.md
     - name: Open Datasets (wersja publiczna)
-      href: ../open-datasets/samples.md?context=azure%252fmachine-learning%252fcontext%252fml-context
+      href: ../open-datasets/samples.md?context=%2fazure%2fmachine-learning%2fcontext%2fml-context
 - name: Pojęcia
   items:
     - name: Planowanie kosztów i zarządzanie nimi
@@ -449,7 +449,7 @@
             - name: Używanie niestandardowego obrazu platformy Docker
               href: how-to-deploy-custom-docker-image.md
             - name: IoT Edge
-              href: ../iot-edge/tutorial-deploy-machine-learning.md?context=azure%252fmachine-learning%252fservice%252fcontext%252fml-context
+              href: ../iot-edge/tutorial-deploy-machine-learning.md?context=%2fazure%2fmachine-learning%2fservice%2fcontext%2fml-context
             - name: Wnioskowanie FPGA
               href: how-to-deploy-fpga-web-service.md
         - name: Rozwiązywanie problemów i debugowanie
@@ -530,7 +530,7 @@
           href: how-to-debug-parallel-run-step.md
     - name: Potoki platformy Azure dla ciągłej integracji i ciągłego wdrażania
       displayName: 'continuous, integration, delivery'
-      href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
+      href: /azure/devops/pipelines/targets/azure-machine-learning?context=%2fazure/machine-learning/context/ml-context
     - name: Akcje GitHub Actions dla ciągłej integracji/ciągłego wdrażania
       href: how-to-github-actions-machine-learning.md
     - name: Zarządzanie przydziałami zasobów
@@ -595,7 +595,7 @@
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning-service'
     - name: Porównanie naszych produktów do uczenia maszynowego
-      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/context/ml-context
+      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=%2fazure/machine-learning/context/ml-context
     - name: Co się stało z aplikacją Workbench
       displayName: 'desktop, ui, Workbench, upgrade, update, transfer'
       href: overview-what-happened-to-workbench.md

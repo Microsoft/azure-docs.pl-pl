@@ -47,7 +47,7 @@
         - name: Wdrażanie na platformie Kubernetes
           href: deploy-kubernetes.md
         - name: Wdrażanie za pomocą programu Azure Data Studio
-          href: /sql/azure-data-studio/deploy-azure-sql-edge?toc=%252fazure%252fazure-sql-edge%252ftoc.json
+          href: /sql/azure-data-studio/deploy-azure-sql-edge?toc=%2fazure%2fazure-sql-edge%2ftoc.json
     - name: Uczenie maszynowe
       items:
         - name: Uczenie maszynowe i sztuczna inteligencja z użyciem formatu ONNX
@@ -91,9 +91,9 @@
         - name: DATE_BUCKET (Transact-SQL)
           href: date-bucket-tsql.md
         - name: FIRST_VALUE (Transact-SQL)
-          href: /sql/t-sql/functions/first-value-transact-sql?toc=%252fazure%252fazure-sql-edge%252ftoc.json
+          href: /sql/t-sql/functions/first-value-transact-sql?toc=%2fazure%2fazure-sql-edge%2ftoc.json
         - name: LAST_VALUE (Transact-SQL)
-          href: /sql/t-sql/functions/last-value-transact-sql?toc=%252fazure%252fazure-sql-edge%252ftoc.json
+          href: /sql/t-sql/functions/last-value-transact-sql?toc=%2fazure%2fazure-sql-edge%2ftoc.json
         - name: Przechowywanie i czyszczenie danych
           items:
             - name: Omówienie przechowywania danych
@@ -109,11 +109,11 @@
         - name: Omówienie zabezpieczeń
           href: security-overview.md
         - name: Funkcje zabezpieczeń
-          href: /sql/linux/sql-server-linux-security-get-started?toc=%252fazure%252fazure-sql-edge%252ftoc.json
+          href: /sql/linux/sql-server-linux-security-get-started?toc=%2fazure%2fazure-sql-edge%2ftoc.json
         - name: Szyfrowanie połączeń
-          href: /sql/linux/sql-server-linux-encrypted-connections?toc=%252fazure%252fazure-sql-edge%252ftoc.json
+          href: /sql/linux/sql-server-linux-encrypted-connections?toc=%2fazure%2fazure-sql-edge%2ftoc.json
         - name: Azure Security Center dla IoT
-          href: ../defender-for-iot/overview.md?bc=%252fazure%252fazure-sql-edge%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fazure-sql-edge%252ftoc.json
+          href: ../defender-for-iot/overview.md?bc=%2fazure%2fazure-sql-edge%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-sql-edge%2ftoc.json
 - name: Instrukcje
   items:
     - name: Konfigurowanie usługi SQL Edge

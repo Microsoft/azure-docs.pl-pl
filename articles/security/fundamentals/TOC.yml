@@ -78,7 +78,7 @@
     - name: Zawieszone rekordy DNS i przejmowanie poddomen
       href: subdomain-takeover.md
     - name: Bezpieczna hybrydowa architektura sieci
-      href: /azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?bc=%252fazure%252fsecurity%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fsecurity%252ftoc.json
+      href: /azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ftoc.json
 - name: Zabezpieczenia IaaS
   items:
     - name: Usługa firmy Microsoft chroniąca przed złośliwym kodem
@@ -118,7 +118,7 @@
         - name: Lista kontrolna zabezpieczeń
           href: database-security-checklist.md
     - name: Przewodnik po zabezpieczeniach magazynu
-      href: ../../storage/blobs/security-recommendations.md?bc=%252fazure%252fsecurity%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fsecurity%252ftoc.json
+      href: ../../storage/blobs/security-recommendations.md?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ftoc.json
     - name: Skrytka klienta
       href: customer-lockbox-overview.md
     - name: Punkt odniesienia zabezpieczeń skrytki klienta

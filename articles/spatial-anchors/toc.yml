@@ -14,33 +14,44 @@
           href: unity-overview.md
         - name: HoloLens
           href: quickstarts/get-started-unity-hololens.md
+          displayName: 'Azure CLI, az spatial-anchors-account'
         - name: Android
           href: quickstarts/get-started-unity-android.md
+          displayName: 'Azure CLI, az spatial-anchors-account'
         - name: iOS
           href: quickstarts/get-started-unity-ios.md
+          displayName: 'Azure CLI, az spatial-anchors-account'
     - name: Tworzenie aplikacji dla urządzenia HoloLens
       href: quickstarts/get-started-hololens.md
+      displayName: 'Azure CLI, az spatial-anchors-account'
     - name: Tworzenie aplikacji systemu Android
       href: quickstarts/get-started-android.md
+      displayName: 'Azure CLI, az spatial-anchors-account'
     - name: Tworzenie aplikacji systemu iOS
       href: quickstarts/get-started-ios.md
+      displayName: 'Azure CLI, az spatial-anchors-account'
     - name: Tworzenie aplikacji platformy Xamarin
       items:
         - name: Android
           href: quickstarts/get-started-xamarin-android.md
+          displayName: 'Azure CLI, az spatial-anchors-account'
         - name: iOS
           href: quickstarts/get-started-xamarin-ios.md
+          displayName: 'Azure CLI, az spatial-anchors-account'
 - name: Samouczki
   items:
     - name: Udostępnianie dla różnych sesji i urządzeń
       href: tutorials/tutorial-share-anchors-across-devices.md
+      displayName: 'Azure CLI, az spatial-anchors-account'
       items:
         - name: Trwałe udostępnianie za pomocą usługi Azure Cosmos DB
           href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
     - name: Uruchamianie nowej aplikacji Unity HoloLens
       href: tutorials/tutorial-new-unity-hololens-app.md
+      displayName: 'Azure CLI, az spatial-anchors-account'
     - name: Uruchamianie nowej aplikacji dla systemu Android
       href: tutorials/tutorial-new-android-app.md
+      displayName: 'Azure CLI, az spatial-anchors-account'
 - name: Porady
   items:
     - name: Tworzenie i znajdowanie kotwic
