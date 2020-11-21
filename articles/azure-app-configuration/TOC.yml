@@ -100,6 +100,8 @@
           href: concept-enable-rbac.md
         - name: Przypisywanie tożsamości zarządzanej platformy Azure
           href: overview-managed-identity.md
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
     - name: Wysoka dostępność
       items:
         - name: Odporność i odzyskiwanie po awarii
