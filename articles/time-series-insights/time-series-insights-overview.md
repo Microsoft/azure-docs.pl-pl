@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: f395f96dfa48567f95a1c50cf5403d3cbb427cb7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: cebe0e018b4483a9de1771fb3171effbbd5ca59c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91597818"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020065"
 ---
 # <a name="what-is-azure-time-series-insights-gen1"></a>Co to jest Azure Time Series Insights Gen1?
 
@@ -33,7 +33,7 @@ Azure Time Series Insights ma cztery kluczowe zadania:
 - Azure Time Series Insights zapewnia wbudowaną wizualizację za pomocą Eksploratora Azure Time Series Insights.
 - Azure Time Series Insights udostępnia usługę zapytań, zarówno w Eksploratorze Azure Time Series Insights, jak i za pomocą interfejsów API, które można łatwo zintegrować, aby osadzić dane szeregów czasowych w aplikacjach niestandardowych.
 
-W przypadku tworzenia aplikacji do użytku wewnętrznego lub dla klientów zewnętrznych można użyć Azure Time Series Insights jako zaplecza. Można jej użyć do indeksowania, przechowywania i agregowania danych szeregów czasowych. Aby utworzyć wizualizację niestandardową i środowisko użytkownika na górze, użyj [zestawu SDK klienta](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). Azure Time Series Insights jest również wyposażony w kilka [interfejsów API zapytań](how-to-shape-query-json.md) , aby umożliwić te niestandardowe scenariusze.
+W przypadku tworzenia aplikacji do użytku wewnętrznego lub dla klientów zewnętrznych można użyć Azure Time Series Insights jako zaplecza. Można jej użyć do indeksowania, przechowywania i agregowania danych szeregów czasowych. Aby utworzyć wizualizację niestandardową i środowisko użytkownika na górze, użyj [zestawu SDK klienta](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). Azure Time Series Insights jest również wyposażony w kilka [interfejsów API zapytań](./concepts-json-flattening-escaping-rules.md) , aby umożliwić te niestandardowe scenariusze.
 
 Dane szeregów czasowych przedstawiają, jak zasób lub proces zmienia się wraz z upływem czasu. Dane szeregów czasowych są indeksowane przez sygnatury czasowe, a czas jest najbardziej znaczącą osią, na której zorganizowane są takie dane. Dane szeregów czasowych są zwykle docierane w kolejności sekwencyjnej, więc jest traktowana jako INSERT, a nie aktualizacja bazy danych.
 
@@ -72,7 +72,7 @@ Azure Time Series Insights przechwytuje i zapisuje każde nowe zdarzenie jako wi
 
 - **Szybko Rozpocznij pracę**: Azure Time Series Insights nie wymaga przygotowania do przedniego danych, dzięki czemu możesz szybko połączyć się z milionami zdarzeń w centrum IoT Hub lub centrum zdarzeń. Po nawiązaniu połączenia możesz wizualizować dane czujników i korzystać z nich, aby szybko weryfikować Twoje rozwiązania IoT. Możesz korzystać z danych bez pisania kodu i nie musisz uczyć się nowego języka. Azure Time Series Insights udostępnia szczegółową, niezależną powierzchnię zapytania dla zaawansowanych użytkowników, a także Eksplorowanie punktów i klikanie.
 
-- **Szczegółowe informacje**w czasie rzeczywistym: Azure Time Series Insights mogą pozyskiwanie milionów zdarzeń czujników dziennie, z opóźnieniem jednej minuty. Azure Time Series Insights pomaga uzyskać wgląd w dane czujników. Korzystaj z nich, aby wypróbować trendy i anomalie, przeprowadzać analizy głównych przyczyn i uniknąć kosztownych przestojów. Wzajemna korelacja między danymi w czasie rzeczywistym i historycznymi ułatwia znalezienie ukrytych trendów w danych.
+- **Szczegółowe informacje** w czasie rzeczywistym: Azure Time Series Insights mogą pozyskiwanie milionów zdarzeń czujników dziennie, z opóźnieniem jednej minuty. Azure Time Series Insights pomaga uzyskać wgląd w dane czujników. Korzystaj z nich, aby wypróbować trendy i anomalie, przeprowadzać analizy głównych przyczyn i uniknąć kosztownych przestojów. Wzajemna korelacja między danymi w czasie rzeczywistym i historycznymi ułatwia znalezienie ukrytych trendów w danych.
 
 - **Tworzenie niestandardowych rozwiązań**: Osadź Azure Time Series Insights dane w istniejących aplikacjach. Można również tworzyć nowe niestandardowe rozwiązania przy użyciu Azure Time Series Insights interfejsów API REST. Utwórz widoki spersonalizowane, które można udostępniać innym, aby umożliwić im eksplorowanie Twoich szczegółowych danych.
 

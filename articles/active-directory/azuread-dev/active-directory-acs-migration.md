@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0f40c91672310d5963dab01180ea92633e970c5c
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: eda648a4d00a0ab4a51c66510060ce16421972ff
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055374"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020014"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Instrukcje: Migrowanie z usługi Azure Access Control Service
 
@@ -103,7 +103,7 @@ Postępuj zgodnie z instrukcjami w tej sekcji, aby dowiedzieć się, które apli
 
     Na przykład jeśli jedna z przestrzeni nazw jest contoso-test, przejdź do `https://contoso-test.accesscontrol.windows.net`
 
-2. W obszarze **relacje zaufania**wybierz pozycję **aplikacje jednostki uzależnionej** , aby wyświetlić listę aplikacji, na które WPŁYNIE wycofanie usługi ACS.
+2. W obszarze **relacje zaufania** wybierz pozycję **aplikacje jednostki uzależnionej** , aby wyświetlić listę aplikacji, na które WPŁYNIE wycofanie usługi ACS.
 3. Powtórz kroki 1-2 dla wszystkich innych przestrzeni nazw ACS, które posiadasz.
 
 ## <a name="retirement-schedule"></a>Harmonogram wycofania
@@ -148,7 +148,7 @@ Każda usługa w chmurze firmy Microsoft, która akceptuje tokeny wystawiane prz
 
 Klienci programu SharePoint 2013, 2016 i SharePoint Online mogą korzystać z usługi ACS na potrzeby uwierzytelniania w środowiskach lokalnych i hybrydowych. W przypadku niektórych funkcji i zastosowań programu SharePoint wpłynie to na wycofanie usług ACS, a inne nie. Poniższa tabela zawiera podsumowanie wskazówek dotyczących migracji dla niektórych najpopularniejszych funkcji programu SharePoint, które wykorzystują usługę ACS:
 
-| Cecha | Wskazówki |
+| Obiekt feature | Wskazówki |
 | ------- | -------- |
 | Uwierzytelnianie użytkowników z usługi Azure AD | Wcześniej usługa Azure AD nie obsługiwała tokenów SAML 1,1 wymaganych przez program SharePoint na potrzeby uwierzytelniania, a składnik ACS został użyty jako pośrednik, który udostępnił program SharePoint w formatach tokenów usługi Azure AD. Teraz możesz [połączyć program SharePoint bezpośrednio z usługą Azure AD za pomocą galerii aplikacja usługi Azure AD SharePoint w aplikacji lokalnej](../saas-apps/sharepoint-on-premises-tutorial.md). |
 | [Uwierzytelnianie aplikacji & uwierzytelnianie między serwerami w programie SharePoint lokalnie](/SharePoint/security-for-sharepoint-server/authentication-overview) | Nie ma to wpływ na wycofanie usługi ACS; nie trzeba zmieniać żadnych zmian. | 
@@ -287,7 +287,7 @@ W takich przypadkach warto rozważyć Migrowanie aplikacji sieci Web do innej us
 
 ![Ten obraz pokazuje logo Identity ping](./media/active-directory-acs-migration/rsz-ping.png)
 
-[Polecenie ping Identity](https://www.pingidentity.com) oferuje dwa rozwiązania podobne do usługi ACS. PingOne to usługa tożsamości w chmurze, która obsługuje wiele takich samych funkcji, jak ACS, a serwera pingfederate jest podobnym produktem tożsamości, który oferuje większą elastyczność. Aby uzyskać więcej informacji na temat korzystania z tych produktów, zobacz [wskazówki dotyczące wycofania usługi ACS](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) dla usługi ping.
+[Polecenie ping Identity](https://www.pingidentity.com) oferuje dwa rozwiązania podobne do usługi ACS. PingOne to usługa tożsamości w chmurze, która obsługuje wiele takich samych funkcji, jak ACS, a serwera pingfederate jest podobnym produktem tożsamości, który oferuje większą elastyczność. Aby uzyskać więcej informacji na temat korzystania z tych produktów, zobacz [wskazówki dotyczące wycofania usługi ACS](https://www.pingidentity.com/en/company/blog/posts/2017/migrating-from-microsoft-acs-to-ping-identity.html) dla usługi ping.
 
 Naszym celem w pracy z usługą ping Identity i rozwiązanie Auth0 jest upewnienie się, że wszyscy klienci Access Control mają ścieżkę migracji dla swoich aplikacji i usług, które minimalizują ilość pracy wymaganej do przeniesienia z Access Control.
 
@@ -351,7 +351,7 @@ W takich przypadkach można rozważyć Migrowanie aplikacji sieci Web do innej u
 [Rozwiązanie Auth0](https://auth0.com/acs) to elastyczna usługa tożsamości w chmurze, która stworzyła [wskazówki dotyczące migracji wysokiego poziomu dla klientów Access Control](https://auth0.com/acs)i obsługuje niemal każdą funkcję, którą robi Usługa ACS.
 
 ![Ten obraz przedstawia polecenie ping Identity logo ](./media/active-directory-acs-migration/rsz-ping.png)
- [ping](https://www.pingidentity.com) , które oferuje dwa rozwiązania podobne do usługi ACS. PingOne to usługa tożsamości w chmurze, która obsługuje wiele takich samych funkcji, jak ACS, a serwera pingfederate jest podobnym produktem tożsamości, który oferuje większą elastyczność. Aby uzyskać więcej informacji na temat korzystania z tych produktów, zobacz [wskazówki dotyczące wycofania usługi ACS](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) dla usługi ping.
+ [ping](https://www.pingidentity.com) , które oferuje dwa rozwiązania podobne do usługi ACS. PingOne to usługa tożsamości w chmurze, która obsługuje wiele takich samych funkcji, jak ACS, a serwera pingfederate jest podobnym produktem tożsamości, który oferuje większą elastyczność. Aby uzyskać więcej informacji na temat korzystania z tych produktów, zobacz [wskazówki dotyczące wycofania usługi ACS](https://www.pingidentity.com/en/company/blog/posts/2017/migrating-from-microsoft-acs-to-ping-identity.html) dla usługi ping.
 
 Naszym celem w pracy z usługą ping Identity i rozwiązanie Auth0 jest upewnienie się, że wszyscy klienci Access Control mają ścieżkę migracji dla swoich aplikacji i usług, które minimalizują ilość pracy wymaganej do przeniesienia z Access Control.
 

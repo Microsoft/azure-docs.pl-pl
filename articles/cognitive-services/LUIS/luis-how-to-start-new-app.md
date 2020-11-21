@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/18/2020
-ms.openlocfilehash: fcc803e87b2efd3e94b90eb17258ab3bb156359f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2dd06a7b4c8e6296cda747d17fd3d5be5db0af6b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541440"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018892"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Tworzenie nowej aplikacji LUIS w portalu LUIS
 Istnieje kilka sposobów tworzenia aplikacji LUIS. Aplikację LUIS można utworzyć w portalu LUIS lub za pomocą [interfejsów API](developer-reference-resource.md)tworzenia Luis.
@@ -24,7 +24,7 @@ Istnieje kilka sposobów tworzenia aplikacji LUIS. Aplikację LUIS można utworz
 Nową aplikację w portalu można utworzyć na kilka sposobów:
 
 * Zacznij od pustej aplikacji i Utwórz intencje, wyrażenia długości i jednostki.
-* Zacznij od pustej aplikacji i Dodaj [prezbudowaną domenę](luis-how-to-use-prebuilt-domains.md).
+* Zacznij od pustej aplikacji i Dodaj [prezbudowaną domenę](./howto-add-prebuilt-models.md).
 * Zaimportuj aplikację LUIS z `.lu` pliku lub, `.json` który zawiera już intencje, wyrażenia długości i jednostki.
 
 ## <a name="using-the-authoring-apis"></a>Korzystanie z interfejsów API tworzenia
@@ -75,4 +75,4 @@ Pasek narzędzi kontekstowych zawiera inne akcje:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli projekt aplikacji obejmuje wykrywanie intencji, [Utwórz nowe intencje](luis-how-to-add-intents.md)i Dodaj przykład wyrażenia długości. Jeśli projekt aplikacji jest tylko do wyodrębnienia danych, Dodaj przykład wyrażenia długości do zamiaru brak, a następnie [Utwórz jednostki](luis-how-to-add-example-utterances.md)i Oznacz przykład wyrażenia długości z tymi jednostkami.
+Jeśli projekt aplikacji obejmuje wykrywanie intencji, [Utwórz nowe intencje](luis-how-to-add-intents.md)i Dodaj przykład wyrażenia długości. Jeśli projekt aplikacji jest tylko do wyodrębnienia danych, Dodaj przykład wyrażenia długości do zamiaru brak, a następnie [Utwórz jednostki](./luis-how-to-add-entities.md)i Oznacz przykład wyrażenia długości z tymi jednostkami.

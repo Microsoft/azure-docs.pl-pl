@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/13/2020
-ms.openlocfilehash: 926b79e672c14249ec7c2b053dba7eb3a31443a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 455c7d66748740ae6e2cc11c6a44bbf30c1cbced
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536051"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018841"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrowanie do klucza tworzenia zasobów platformy Azure
 
@@ -40,7 +40,7 @@ Należy przeprowadzić migrację z portalu LUIS. Jeśli tworzysz klucze tworzeni
 * Właściciele są monitowani o wysłanie wiadomości e-mail do współpracowników, aby poinformować ich o migracji.
 * Aplikacje nie będą migrowane z Ciebie, jeśli jesteś współpracownikiem aplikacji.
 * Właściciel nie ma żadnego sposobu, aby wiedzieć, że współpracownicy zostali zmigrowani.
-* Migracja nie zbiera automatycznie współpracowników i przenosi je ani nie dodaje do zasobu tworzenia platformy Azure. Właściciel aplikacji to ten, który musi wykonać ten krok po migracji. Ten krok wymaga [uprawnień do zasobu tworzenia platformy Azure](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-collaborate).
+* Migracja nie zbiera automatycznie współpracowników i przenosi je ani nie dodaje do zasobu tworzenia platformy Azure. Właściciel aplikacji to ten, który musi wykonać ten krok po migracji. Ten krok wymaga [uprawnień do zasobu tworzenia platformy Azure](./luis-how-to-collaborate.md).
 * Po przypisaniu współpracowników do zasobu platformy Azure muszą oni przeprowadzić migrację w celu uzyskania dostępu do aplikacji. W przeciwnym razie nie będą mieli dostępu do tworzenia aplikacji.
 * Nie można dodać zmigrowanego użytkownika jako współpracownika aplikacji.
 * Jeśli masz własne klucze przewidywania przypisane do aplikacji należących do innych użytkowników, spowoduje to zablokowanie migracji zarówno dla właściciela, jak i współpracowników. Zapoznaj się z zaleceniami w dalszej części tego artykułu.
@@ -174,7 +174,7 @@ Jeśli planujesz edytować aplikacje programowo, będziesz potrzebować wartośc
 
 Dowiedz się [, jak dodać współautorów](luis-how-to-collaborate.md) do zasobu tworzenia. Współautorzy będą mieli dostęp do wszystkich aplikacji w ramach tego zasobu.
 
-Współautorzy można dodać do zasobu tworzenia z Azure Portal na stronie **Access Control (IAM)** dla tego zasobu. Aby uzyskać więcej informacji, zobacz [Dodawanie dostępu współautora](luis-migration-authoring-steps.md#after-the-migration-process-add-contributors-to-your-authoring-resource).
+Współautorzy można dodać do zasobu tworzenia z Azure Portal na stronie **Access Control (IAM)** dla tego zasobu. Aby uzyskać więcej informacji, zobacz [Dodawanie współautorów do aplikacji](luis-how-to-collaborate.md).
 
 > [!Note]
 > Jeśli właściciel aplikacji LUIS został zmigrowany i dodany do współpracownika jako współautor w ramach zasobu platformy Azure, współpracownik nadal nie będzie miał dostępu do aplikacji, o ile nie zostanie również zmigrowany.
@@ -229,7 +229,7 @@ Gdy próbujesz przeprowadzić migrację, ale nie możesz znaleźć subskrypcji p
 * Upewnij się, że jesteś w odpowiedniej dzierżawie skojarzonej z prawidłową subskrypcją. Możesz przełączyć dzierżawców z awatara z lewej strony inicjałów na tym pasku narzędzi: ![ pasek narzędzi umożliwiający przełączanie dzierżawców](./media/migrate-authoring-key/switch-user-tenant-2.png)
 
 Jeśli masz istniejący zasób tworzenia, ale nie można go znaleźć po wybraniu opcji **Użyj istniejącego zasobu tworzenia** :
-* Zasób został prawdopodobnie utworzony w lokalizacji innej niż witryna, w której jest zalogowany. Sprawdź [regiony i portale tworzenia Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-authoring-regions).
+* Zasób został prawdopodobnie utworzony w lokalizacji innej niż witryna, w której jest zalogowany. Sprawdź [regiony i portale tworzenia Luis](./luis-reference-regions.md#luis-authoring-regions).
 * Zamiast tego Utwórz nowy zasób z portalu LUIS.
 
 W przypadku wybrania opcji **Utwórz nowy zasób tworzenia** i migracji kończy się niepowodzeniem z komunikatem o błędzie "nie powiodło się pobranie informacji o platformie Azure użytkownika, spróbuj ponownie później":

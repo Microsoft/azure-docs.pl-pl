@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: a591a8d0df751c071a17b1d77febdb3607a1b53d
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f7c6c3f9c3f468c7b55baf2b0cc45c094d693de5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555774"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018654"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Tworzenie i publikowanie regionów oraz skojarzonych kluczy
 
@@ -27,7 +27,7 @@ Istnieją trzy portale tworzenia LUIS na podstawie regionu. Tworzyć i publikowa
 |[au.luis.ai][au.luis.ai] |Australia| `australiaeast`|
 |[eu.luis.ai][eu.luis.ai] |Europa|`westeurope`|
 
-Regiony tworzenia mają [sparowane regiony trybu failover](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Regiony tworzenia mają [sparowane regiony trybu failover](../../best-practices-availability-paired-regions.md).
 
 <a name="regions-and-azure-resources"></a>
 
@@ -102,7 +102,7 @@ Dowiedz się więcej o [punktach końcowych tworzenia i przewidywania](developer
 
 Każdy region ma region pomocniczy do przełączenia w tryb failover. Europa działa w trybie failover w Europie i Australia przechodzi w tryb failover w Australii.
 
-Regiony tworzenia mają [sparowane regiony trybu failover](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Regiony tworzenia mają [sparowane regiony trybu failover](../../best-practices-availability-paired-regions.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

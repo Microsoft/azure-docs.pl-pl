@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.openlocfilehash: 914ca77b18d0469c3ea926848be4c60aab04c9c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5e1cc5cdda921e63315c2904d560b7ad3939776
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539108"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018858"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Jak dodać wzorce, aby poprawić dokładność przewidywania
-Gdy aplikacja LUIS otrzymuje punkt końcowy wyrażenia długości, użyj [wzorca](luis-concept-patterns.md) , aby poprawić dokładność przewidywania dla wyrażenia długości, które ujawnia wzorzec w kolejności słów i wyborze wyrazu. Wzorce używają określonej [składni](luis-concept-patterns.md#pattern-syntax) , aby wskazać lokalizację: [jednostki](luis-concept-entity-types.md), [role](luis-concept-roles.md)jednostek i tekst opcjonalny.
+Gdy aplikacja LUIS otrzymuje punkt końcowy wyrażenia długości, użyj [wzorca](luis-concept-patterns.md) , aby poprawić dokładność przewidywania dla wyrażenia długości, które ujawnia wzorzec w kolejności słów i wyborze wyrazu. Wzorce używają określonej [składni](luis-concept-patterns.md#pattern-syntax) , aby wskazać lokalizację: [jednostki](luis-concept-entity-types.md), [role](./luis-concept-entity-types.md)jednostek i tekst opcjonalny.
 
 > [!CAUTION]
 > Wzorce obejmują tylko nadrzędne jednostki uczenia maszynowego, a nie podjednostki.
@@ -35,7 +35,7 @@ Gdy aplikacja LUIS otrzymuje punkt końcowy wyrażenia długości, użyj [wzorca
     > [!div class="mx-imgBorder"]
     > ![Zrzut ekranu jednostki dla wzorca](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    Jeśli jednostka zawiera [rolę](luis-concept-roles.md), wskaż rolę z pojedynczym dwukropkiem, `:` po nazwie jednostki, takiej jak `{Location:Origin}` . Lista ról dla jednostek zostanie wyświetlona na liście. Wybierz rolę, a następnie wybierz klawisz ENTER.
+    Jeśli jednostka zawiera [rolę](./luis-concept-entity-types.md), wskaż rolę z pojedynczym dwukropkiem, `:` po nazwie jednostki, takiej jak `{Location:Origin}` . Lista ról dla jednostek zostanie wyświetlona na liście. Wybierz rolę, a następnie wybierz klawisz ENTER.
 
     > [!div class="mx-imgBorder"]
     > ![Zrzut ekranu jednostki z rolą](./media/luis-how-to-model-intent-pattern/patterns-4.png)

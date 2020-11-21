@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.openlocfilehash: 3cf4ce5dc7061065ea501ae1c00cd5b9e5404770
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b93e9fd4047ee3731ef6fe4652bb92ce5145987d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540867"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018824"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Używanie wersji do edytowania i testowania bez wpływu na aplikacje tymczasowe i produkcyjne
 
-Wersje umożliwiają kompilowanie i publikowanie różnych modeli. Dobrym sposobem jest klonowanie bieżącego aktywnego modelu do innej [wersji](luis-concept-version.md) aplikacji przed wprowadzeniem zmian w modelu.
+Wersje umożliwiają kompilowanie i publikowanie różnych modeli. Dobrym sposobem jest klonowanie bieżącego aktywnego modelu do innej [wersji](./luis-concept-app-iteration.md) aplikacji przed wprowadzeniem zmian w modelu.
 
 Aktywna wersja to wersja edytowana w sekcji **kompilacja** portalu Luis z intencjami, obiektami, funkcjami i wzorcami. W przypadku korzystania z interfejsów API tworzenia nie trzeba ustawiać aktywnej wersji, ponieważ wywołania interfejsu API REST specyficzne dla wersji obejmują wersję w marszrucie.
 
@@ -66,4 +66,3 @@ Możesz zaimportować `.json` lub `.lu` wersję aplikacji.
 * Aby **usunąć** wersję, wybierz wersję z listy, a następnie wybierz pozycję **Usuń** z paska narzędzi. Wybierz przycisk **OK**.
 * Aby **zmienić nazwę** wersji, wybierz wersję z listy, a następnie wybierz pozycję **Zmień nazwę** z paska narzędzi. Wprowadź nową nazwę i wybierz pozycję **gotowe**.
 * Aby **wyeksportować** wersję, wybierz wersję z listy, a następnie wybierz pozycję **Eksportuj aplikację** z paska narzędzi. Wybierz pozycję JSON lub LU, aby wyeksportować dane do kopii zapasowej lub zapisać w kontroli źródła, wybierz pozycję **Eksportuj dla kontenera** , aby [użyć tej aplikacji w kontenerze Luis](luis-container-howto.md).
-

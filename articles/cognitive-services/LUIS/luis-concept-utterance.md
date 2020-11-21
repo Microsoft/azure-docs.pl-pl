@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 4c3b5674fe039a89eb97b915d13b5d472a6a0568
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96b9754908f437ccf81e002e9e9dd17af0bab4e3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316396"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019079"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Dowiedz się, co to jest dobry wyrażenia długości dla aplikacji LUIS
 
@@ -29,7 +29,7 @@ Zbieraj wyrażenia długości, że użytkownicy będą wprowadzać. Uwzględnij 
 
 ## <a name="how-to-choose-varied-utterances"></a>Jak wybrać różne wyrażenia długości
 
-Po pierwszym uruchomieniu dodając [przykład wyrażenia długości](luis-how-to-add-example-utterances.md) do modelu Luis, należy wziąć pod uwagę pewne zasady.
+Po pierwszym uruchomieniu dodając [przykład wyrażenia długości](./luis-how-to-add-entities.md) do modelu Luis, należy wziąć pod uwagę pewne zasady.
 
 ### <a name="utterances-arent-always-well-formed"></a>Wyrażenia długości nie zawsze są poprawnie sformułowane
 
@@ -147,5 +147,4 @@ Jeśli chcesz, aby jednostka zdarzenia znalazła wszystkie dane zdarzeń, Oznacz
 
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz [Dodawanie przykładu wyrażenia długości](luis-how-to-add-example-utterances.md) , aby uzyskać informacje na temat szkolenia aplikacji Luis, aby poznać wyrażenia długości użytkownika.
-
+Zobacz [Dodawanie przykładu wyrażenia długości](./luis-how-to-add-entities.md) , aby uzyskać informacje na temat szkolenia aplikacji Luis, aby poznać wyrażenia długości użytkownika.

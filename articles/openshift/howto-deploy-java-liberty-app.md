@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/30/2020
 keywords: Java, jakartaee, JavaEE, mikroprofil, Open-wolności, WebSphere-wolności, ARO, OpenShift, Red Hat
-ms.openlocfilehash: ee4baf8eed26a43728fa52289bce86108c9e8c4a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 41891b58942efbfd705747cc16219185f2a2daa2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414875"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018396"
 ---
 # <a name="deploy-a-java-application-with-open-libertywebsphere-liberty-on-an-azure-red-hat-openshift-4-cluster"></a>Wdróż aplikację Java z otwartą wolnością/WebSphereą w klastrze Red Hat OpenShift 4
 
@@ -65,7 +65,7 @@ Te elementy należy zanotować po wykonaniu kroków, aby włączyć wbudowany re
 
 1. Zaloguj się do konsoli sieci Web OpenShift z poziomu przeglądarki przy użyciu `kubeadmin` poświadczeń.
 2. Przejdź do **Administration**  >  obszaru **nazw** Administracja  >  **Utwórz przestrzeń nazw**.
-3. Wypełnij pola `open-liberty-demo` **Nazwa** i wybierz pozycję **Utwórz** , jak pokazano poniżej.
+3. Wypełnij pola `open-liberty-demo` **Nazwa** i wybierz pozycję **Utwórz**, jak pokazano poniżej.
 
    ![Utwórz przestrzeń nazw](./media/howto-deploy-java-liberty-app/create-namespace.png)
 
@@ -95,10 +95,10 @@ Poza zarządzaniem obrazami, **użytkownik usługi AAD** będzie miał również
 Po utworzeniu i nawiązaniu połączenia z klastrem należy zainstalować operator Open wolności.  Główna Strona początkowa dla operatora Open wolności jest w serwisie [GitHub](https://github.com/OpenLiberty/open-liberty-operator).
 
 1. Zaloguj się do konsoli sieci Web OpenShift z poziomu przeglądarki przy użyciu `kubeadmin` poświadczeń.
-2. Przejdź do **operatorów**  >  **OperatorHub** i wyszukaj ciąg " **Open wolności** ".
+2. Przejdź do **operatorów**  >  **OperatorHub** i wyszukaj ciąg " **Open wolności**".
 3. Wybierz pozycję **Otwórz operator wolności** z wyników wyszukiwania.
 4. Wybierz pozycję **Zainstaluj**.
-5. W oknie podręcznym **Utwórz subskrypcję operatora** zaznacz **wszystkie przestrzenie nazw w klastrze (domyślnie)** dla opcji **tryb instalacji** , **wersja beta** dla **kanału aktualizacji** i **Automatyczne** dla **strategii zatwierdzania** :
+5. W oknie podręcznym **Utwórz subskrypcję operatora** zaznacz **wszystkie przestrzenie nazw w klastrze (domyślnie)** dla opcji **tryb instalacji**, **wersja beta** dla **kanału aktualizacji** i **Automatyczne** dla **strategii zatwierdzania**:
 
    ![Utwórz subskrypcję operatora dla operatora Open wolności](./media/howto-deploy-java-liberty-app/install-operator.png)
 6. Wybierz pozycję **Subskrybuj** i poczekaj chwilę lub dwa, aż zostanie wyświetlony operator Open wolności.
@@ -126,7 +126,7 @@ Aby uruchomić aplikację przy otwartym wolności, należy utworzyć otwarty pli
    [INFO] Source compilation was successful.
    ```
 
-1. Otwórz [http://localhost:9080/](http://localhost:9080/) w przeglądarce, aby odwiedzić stronę główną aplikacji. Aplikacja będzie wyglądać podobnie do poniższej ilustracji:
+1. Otwórz `http://localhost:9080/` w przeglądarce, aby odwiedzić stronę główną aplikacji. Aplikacja będzie wyglądać podobnie do poniższej ilustracji:
 
    ![Interfejs użytkownika sieci Web JavaEE Cafe](./media/howto-deploy-java-liberty-app/javaee-cafe-web-ui.png)
 1. Naciśnij klawisze **Control-C** , aby zatrzymać aplikację i otworzyć serwer wolności.
@@ -164,7 +164,7 @@ Przed wdrożeniem aplikacji kontenera do zdalnego klastra uruchom polecenie z lo
 
 1. Uruchom `docker run -it --rm -p 9080:9080 javaee-cafe-simple:1.0.0` w konsoli programu.
 2. Poczekaj na uruchomienie serwera i aplikacji do wdrożenia.
-3. Otwórz [http://localhost:9080/](http://localhost:9080/) w przeglądarce, aby odwiedzić stronę główną aplikacji.
+3. Otwórz `http://localhost:9080/` w przeglądarce, aby odwiedzić stronę główną aplikacji.
 4. Naciśnij klawisz **Control-C** , aby zatrzymać aplikację i serwer wolności.
 
 ### <a name="push-the-image-to-the-container-image-registry"></a>Wypchnij obraz do rejestru kontenerów
@@ -233,7 +233,7 @@ Teraz można wdrożyć aplikację z przykładową wolnością w klastrze usługi
 Ze względu na to, że korzystamy z operatora Open wolności do zarządzania aplikacjami z wolnością, musimy utworzyć wystąpienie swojej *niestandardowej definicji zasobu* typu "OpenLibertyApplication". Następnie operator zajmie się wszystkimi aspektami zarządzania zasobami OpenShift wymaganymi do wdrożenia.
 
 1. Zaloguj się do konsoli sieci Web OpenShift z poziomu przeglądarki przy użyciu poświadczeń użytkownika usługi Azure AD.
-1. Rozwiń węzeł **Strona główna** , wybierz pozycję **projekty**  >  **Open-wolność-Demonstracja**.
+1. Rozwiń węzeł **Strona główna**, wybierz pozycję **projekty**  >  **Open-wolność-Demonstracja**.
 1. Przejdź do **operatorów**  >  **zainstalowanych** operatorów.
 1. W środku strony wybierz pozycję **Otwórz operator wolności**.
 1. Na środku strony wybierz pozycję **Otwórz aplikację wolności**.  Nawigacja elementów w interfejsie użytkownika odzwierciedla rzeczywistą hierarchię zawierania używanych technologii.
@@ -241,7 +241,7 @@ Ze względu na to, że korzystamy z operatora Open wolności do zarządzania apl
    ![Zawiera środowisko Java wyaro](./media/howto-deploy-java-liberty-app/aro-java-containment.png)
 1. Wybierz pozycję **Utwórz OpenLibertyApplication**
 1. Zastąp wygenerowany YAML własnym, który znajduje się w lokalizacji `<path-to-repo>/2-simple/openlibertyapplication.yaml` .
-1. Wybierz przycisk **Utwórz**. Nastąpi powrót do listy OpenLibertyApplications.
+1. Wybierz pozycję **Utwórz**. Nastąpi powrót do listy OpenLibertyApplications.
 1. Wybierz pozycję **JavaEE-kawiarni-Simple**.
 1. W środku strony wybierz pozycję **zasoby**.
 1. W tabeli wybierz link do **JavaEE-kawiarni-Simple** z **rodzajem** **trasy**.

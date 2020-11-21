@@ -6,18 +6,18 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 4d399dc9298c51906d62dabbc36650bf21f94af8
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: d070a03a81f70cdbf2c721cc67a3bc40c5d731fc
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542834"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018739"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Samouczek: używanie bot aplikacji sieci Web z włączonym Language Understanding w Node.js
 
-Użyj Node.js, aby utworzyć Czat bot zintegrowany z funkcją interpretacji języka (LUIS). Bot jest tworzona przy użyciu [aplikacji sieci Web](https://docs.microsoft.com/azure/bot-service/) platformy Azure bot Resource i [bot Framework w wersji](https://github.com/Microsoft/botbuilder-dotnet) v4.
+Użyj Node.js, aby utworzyć Czat bot zintegrowany z funkcją interpretacji języka (LUIS). Bot jest tworzona przy użyciu [aplikacji sieci Web](/azure/bot-service/) platformy Azure bot Resource i [bot Framework w wersji](https://github.com/Microsoft/botbuilder-dotnet) v4.
 
-**Ten samouczek zawiera informacje na temat wykonywania następujących czynności:**
+**Z tego samouczka dowiesz się, jak wykonywać następujące czynności:**
 
 > [!div class="checklist"]
 > * Tworzenie bota aplikacji internetowej. Ten proces tworzy nową aplikację usługi LUIS.
@@ -34,7 +34,7 @@ Użyj Node.js, aby utworzyć Czat bot zintegrowany z funkcją interpretacji jęz
 
 1. W witrynie [Azure Portal](https://portal.azure.com) wybierz polecenie **Utwórz nowy zasób**.
 
-1. W polu wyszukiwania wyszukaj i wybierz pozycję **Web App Bot** (Bot aplikacji internetowej). Wybierz przycisk **Utwórz**.
+1. W polu wyszukiwania wyszukaj i wybierz pozycję **Web App Bot** (Bot aplikacji internetowej). Wybierz pozycję **Utwórz**.
 
 1. W polu **Bot Service** (Usługa bota) podaj wymagane informacje:
 
@@ -59,7 +59,7 @@ Użyj Node.js, aby utworzyć Czat bot zintegrowany z funkcją interpretacji jęz
     |Język zestawu SDK|Język programowania bota|**Node.js**|
     |Bot|Typ bota|**Bot podstawowy**|
 
-1. Wybierz przycisk **Utwórz**. To powoduje utworzenie i wdrożenie usługi bota na platformie Azure. W ramach tego procesu jest tworzona nowa aplikacja usługi LUIS o nazwie `luis-nodejs-bot-XXXX`. Ta nazwa jest oparta na nazwie aplikacji usługi/Azure bot.
+1. Wybierz pozycję **Utwórz**. To powoduje utworzenie i wdrożenie usługi bota na platformie Azure. W ramach tego procesu jest tworzona nowa aplikacja usługi LUIS o nazwie `luis-nodejs-bot-XXXX`. Ta nazwa jest oparta na nazwie aplikacji usługi/Azure bot.
 
     > [!div class="mx-imgBorder"]
     > [![Tworzenie bot aplikacji sieci Web](./media/bfv4-nodejs/create-web-app-service.png)](./media/bfv4-nodejs/create-web-app-service.png#lightbox)
@@ -395,4 +395,4 @@ Zażądaj bot pytania dotyczącego zamiaru lotów w ramach książki.
 Zobacz więcej [przykładów](https://github.com/microsoft/botframework-solutions) z botami konwersacyjnymi.
 
 > [!div class="nextstepaction"]
-> [Tworzenie aplikacji Language Understanding z niestandardową domeną podmiotu](luis-quickstart-intents-only.md)
+> [Tworzenie aplikacji Language Understanding z niestandardową domeną podmiotu](./tutorial-intents-only.md)

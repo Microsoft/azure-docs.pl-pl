@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: e49b713aca23c0373fa71d772ef7567372abe456
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 9e322ac89d8ecad93c2002aa302c155f895911f4
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990571"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019198"
 ---
 # <a name="devops-practices-for-luis"></a>DevOps praktyk dla LUIS
 
@@ -18,7 +18,7 @@ Inżynierowie oprogramowania, którzy opracowują aplikację Language Understand
 
 ## <a name="source-control-and-branch-strategies-for-luis"></a>Strategie kontroli źródła i stosowania gałęzi dla usługi LUIS
 
-Jednym z kluczowych czynników, od których zależy powodzenie DevOps, jest [Kontrola źródła](https://docs.microsoft.com/azure/devops/user-guide/source-control?view=azure-devops). System kontroli źródła umożliwia deweloperom współpracę w kodzie i śledzenie zmian. Użycie gałęzi umożliwia deweloperom przełączanie się między różnymi wersjami bazy kodu i pracę niezależnie od innych członków zespołu. Gdy deweloperzy zgłaszają [żądanie ściągnięcia](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) w celu zaproponowania aktualizacji z jednej gałęzi do innej lub gdy zmiany są scalane, może to być wyzwalacz dla [zautomatyzowanych kompilacji](luis-concept-devops-automation.md) , aby kompilować i ciągle testować kod.
+Jednym z kluczowych czynników, od których zależy powodzenie DevOps, jest [Kontrola źródła](/azure/devops/user-guide/source-control?view=azure-devops). System kontroli źródła umożliwia deweloperom współpracę w kodzie i śledzenie zmian. Użycie gałęzi umożliwia deweloperom przełączanie się między różnymi wersjami bazy kodu i pracę niezależnie od innych członków zespołu. Gdy deweloperzy zgłaszają [żądanie ściągnięcia](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) w celu zaproponowania aktualizacji z jednej gałęzi do innej lub gdy zmiany są scalane, może to być wyzwalacz dla [zautomatyzowanych kompilacji](luis-concept-devops-automation.md) , aby kompilować i ciągle testować kod.
 
 Korzystając z pojęć i wskazówek opisanych w tym dokumencie, można opracowywać aplikację LUIS podczas śledzenia zmian w systemie kontroli źródła i stosować następujące najlepsze rozwiązania dotyczące inżynierii oprogramowania:
 
@@ -42,13 +42,13 @@ Korzystając z pojęć i wskazówek opisanych w tym dokumencie, można opracowyw
 
 ## <a name="source-control"></a>Kontrola źródła
 
-Aby zarządzać [definicją schematu aplikacji](https://docs.microsoft.com/azure/cognitive-services/luis/app-schema-definition) Luis w systemie zarządzania kodem źródłowym, użyj [formatu LUDown ( `.lu` )](https://docs.microsoft.com/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0)  aplikacji. `.lu` Format jest preferowany do `.json` formatowania, ponieważ jest czytelny, co ułatwia dokonywanie i przeglądanie zmian w żądań ściągnięcia.
+Aby zarządzać [definicją schematu aplikacji](./app-schema-definition.md) Luis w systemie zarządzania kodem źródłowym, użyj [formatu LUDown ( `.lu` )](/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0)  aplikacji. `.lu` Format jest preferowany do `.json` formatowania, ponieważ jest czytelny, co ułatwia dokonywanie i przeglądanie zmian w żądań ściągnięcia.
 
 ### <a name="save-a-luis-app-using-the-ludown-format"></a>Zapisywanie aplikacji LUIS przy użyciu formatu LUDown
 
 Aby zapisać aplikację LUIS w `.lu` formacie i umieścić ją pod kontrolą źródła:
 
-- : [Wyeksportuj wersję aplikacji](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#other-actions) `.lu` z [portalu Luis](https://www.luis.ai/) i Dodaj ją do swojego repozytorium kontroli źródła
+- : [Wyeksportuj wersję aplikacji](./luis-how-to-manage-versions.md#other-actions) `.lu` z [portalu Luis](https://www.luis.ai/) i Dodaj ją do swojego repozytorium kontroli źródła
 
 - LUB: Użyj edytora tekstów, aby utworzyć `.lu` plik dla aplikacji Luis i dodać go do repozytorium kontroli źródła
 
@@ -58,9 +58,9 @@ Aby zapisać aplikację LUIS w `.lu` formacie i umieścić ją pod kontrolą źr
 
 ### <a name="build-the-luis-app-from-source"></a>Kompilowanie aplikacji LUIS ze źródła
 
-W przypadku aplikacji LUIS do *kompilowania ze źródła* środków w celu [utworzenia nowej wersji aplikacji Luis przez zaimportowanie `.lu` źródła](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#import-version) w celu [nauczenia](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) i [opublikowania](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-publish-app)wersji. Można to zrobić w portalu LUIS lub w wierszu polecenia:
+W przypadku aplikacji LUIS do *kompilowania ze źródła* środków w celu [utworzenia nowej wersji aplikacji Luis przez zaimportowanie `.lu` źródła](./luis-how-to-manage-versions.md#import-version) w celu [nauczenia](./luis-how-to-train.md) i [opublikowania](./luis-how-to-publish-app.md)wersji. Można to zrobić w portalu LUIS lub w wierszu polecenia:
 
-- Użyj portalu LUIS, aby [zaimportować `.lu` wersję](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#import-version) aplikacji z kontroli źródła, a następnie [nauczenie](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) i [opublikowanie](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-publish-app) aplikacji.
+- Użyj portalu LUIS, aby [zaimportować `.lu` wersję](./luis-how-to-manage-versions.md#import-version) aplikacji z kontroli źródła, a następnie [nauczenie](./luis-how-to-train.md) i [opublikowanie](./luis-how-to-publish-app.md) aplikacji.
 
 - Użyj [interfejsu wiersza polecenia bot Framework dla Luis](https://github.com/microsoft/botbuilder-tools/tree/master/packages/LUIS) w wierszu polecenia lub w przepływie pracy ciągłej integracji/ciągłego [importowania](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisversionimport) `.lu` wersji aplikacji z kontroli źródła do aplikacji Luis, a następnie [nauczenie](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luistrainrun) i [opublikowanie](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisapplicationpublish) aplikacji.
 
@@ -72,7 +72,7 @@ Następujące typy plików dla aplikacji LUIS powinny być utrzymywane pod kontr
 
 - [Pliki definicji testów jednostkowych](luis-concept-devops-testing.md#writing-tests) (wyrażenia długości i oczekiwane wyniki)
 
-- [Pliki testów wsadowych](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test#batch-file-format) (wyrażenia długości i oczekiwane wyniki) używane do testowania wydajności
+- [Pliki testów wsadowych](./luis-concept-batch-test.md#batch-file-format) (wyrażenia długości i oczekiwane wyniki) używane do testowania wydajności
 
 ### <a name="credentials-and-keys-are-not-checked-in"></a>Poświadczenia i klucze nie są zaewidencjonowane
 
@@ -81,7 +81,7 @@ Nie uwzględniaj kluczy subskrypcji ani podobnych poufnych wartości w plikach, 
 - LUIS tworzenie i prognozowanie
 - LUIS tworzenie i punkty końcowe przewidywania
 - Klucze subskrypcji platformy Azure
-- Tokeny dostępu, takie jak token dla jednostki usługi platformy Azure używany do uwierzytelniania w [usłudze](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) Automation
+- Tokeny dostępu, takie jak token dla jednostki usługi platformy Azure używany do uwierzytelniania w [usłudze](/cli/azure/ad/sp?view=azure-cli-latest) Automation
 
 #### <a name="strategies-for-securely-managing-secrets"></a>Strategie bezpiecznego zarządzania kluczami tajnymi
 
@@ -92,7 +92,7 @@ Strategie bezpiecznego zarządzania kluczami tajnymi obejmują:
 
 ## <a name="branching-and-merging"></a>Rozgałęzianie i scalanie
 
-Rozproszone systemy kontroli wersji, takie jak Git, zapewniają elastyczność w zakresie publikowania, udostępniania, przeglądania i iterowania zmian w kodzie za pomocą gałęzi programistycznych udostępnianych innym osobom. Zastosuj [strategię rozgałęziania git](https://docs.microsoft.com/azure/devops/repos/git/git-branching-guidance) , która jest odpowiednia dla Twojego zespołu.
+Rozproszone systemy kontroli wersji, takie jak Git, zapewniają elastyczność w zakresie publikowania, udostępniania, przeglądania i iterowania zmian w kodzie za pomocą gałęzi programistycznych udostępnianych innym osobom. Zastosuj [strategię rozgałęziania git](/azure/devops/repos/git/git-branching-guidance) , która jest odpowiednia dla Twojego zespołu.
 
 W zależności od przyjętej strategii rozgałęziania każda z nich jest taka, że członkowie zespołu mogą korzystać z rozwiązania w ramach *gałęzi funkcji* niezależnie od pracy, która przechodzi w innych gałęziach.
 
@@ -110,7 +110,7 @@ Deweloperzy mogą korzystać z aktualizacji aplikacji LUIS niezależnie od innyc
 
 1. Tworzenie gałęzi funkcji z głównej gałęzi (w zależności od strategii gałęzi, zazwyczaj głównego lub programowania).
 
-1. [Utwórz nową aplikację Luis w portalu Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-start-new-app) ("*dev Branch App*"), aby zapewnić obsługę pracy w gałęzi funkcji.
+1. [Utwórz nową aplikację Luis w portalu Luis](./luis-how-to-start-new-app.md) ("*dev Branch App*"), aby zapewnić obsługę pracy w gałęzi funkcji.
 
    * Jeśli `.lu` Źródło rozwiązania już istnieje w gałęzi, ponieważ zostało zapisane po zakończeniu pracy w innej gałęzi w projekcie, Utwórz aplikację dev Branch Luis, importując `.lu` plik.
 
@@ -120,11 +120,11 @@ Deweloperzy mogą korzystać z aktualizacji aplikacji LUIS niezależnie od innyc
 
 1. Przetestuj aktualizacje — zobacz [test for Luis DevOps](luis-concept-devops-testing.md) , aby uzyskać szczegółowe informacje na temat testowania aplikacji gałęzi deweloperskiej.
 
-1. Wyeksportuj aktywną wersję aplikacji gałęzi deweloperskiej `.lu` z [listy wersje](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions).
+1. Wyeksportuj aktywną wersję aplikacji gałęzi deweloperskiej `.lu` z [listy wersje](./luis-how-to-manage-versions.md).
 
 1. Zaewidencjonuj aktualizacje i zaproś równorzędne przeglądy swoich aktualizacji. W przypadku korzystania z usługi GitHub zostanie zgłoszone [żądanie ściągnięcia](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests).
 
-1. Po zatwierdzeniu zmian Scal aktualizacje z gałęzią główną. W tym momencie utworzysz nową [wersję](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions) *głównej* aplikacji Luis przy użyciu zaktualizowanego elementu `.lu` głównego. Zobacz temat [przechowywanie wersji](#versioning) , aby poznać zagadnienia dotyczące ustawiania nazwy wersji.
+1. Po zatwierdzeniu zmian Scal aktualizacje z gałęzią główną. W tym momencie utworzysz nową [wersję](./luis-how-to-manage-versions.md) *głównej* aplikacji Luis przy użyciu zaktualizowanego elementu `.lu` głównego. Zobacz temat [przechowywanie wersji](#versioning) , aby poznać zagadnienia dotyczące ustawiania nazwy wersji.
 
 1. Po usunięciu gałęzi funkcji warto usunąć aplikację dev Branch LUIS utworzoną dla działania oddziału funkcji.
 
@@ -144,9 +144,9 @@ Można obsługiwać wielu deweloperów pracujących nad tą samą gałęzią fun
 
 - W przypadku zastosowania wzorca opisanego powyżej w programie [deweloperzy mogą współpracować z niezależnymi gałęziami](#developers-can-work-from-independent-branches), ta gałąź będzie używać unikatowej aplikacji Luis do obsługi programowania. Ta aplikacja LUIS "dev Branch" zostanie utworzona przez pierwszego członka zespołu projektowego, który zaczyna działać w gałęzi funkcji.
 
-- [Dodaj członków zespołu jako współautorów](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-collaborate) do aplikacji dev Branch Luis.
+- [Dodaj członków zespołu jako współautorów](./luis-how-to-collaborate.md) do aplikacji dev Branch Luis.
 
-- Po zakończeniu pracy gałęzi funkcji należy wyeksportować aktywną wersję aplikacji LUIS dla gałęzi dev `.lu` z [listy wersje](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions), zapisać zaktualizowany `.lu` plik w repozytorium i zaewidencjonować zmiany.
+- Po zakończeniu pracy gałęzi funkcji należy wyeksportować aktywną wersję aplikacji LUIS dla gałęzi dev `.lu` z [listy wersje](./luis-how-to-manage-versions.md), zapisać zaktualizowany `.lu` plik w repozytorium i zaewidencjonować zmiany.
 
 ### <a name="incorporating-changes-from-one-branch-to-another-with-rebase-or-merge"></a>Dołączanie zmian z jednej gałęzi do innej za pomocą zmiany bazy lub scalenia
 
@@ -183,7 +183,7 @@ Aplikacja LUIS w formacie LUDown jest czytelna dla człowieka, która obsługuje
 
 ## <a name="versioning"></a>Obsługa wersji
 
-Aplikacja składa się z wielu składników, które mogą obejmować takie elementy, jak bot działające w [Azure bot Service](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0), [QNA Maker](https://www.qnamaker.ai/), [Azure Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview)i innych. Aby osiągnąć cel luźno sprzężonych aplikacji, należy użyć [kontroli wersji](https://docs.microsoft.com/azure/devops/learn/git/what-is-version-control) , tak aby każdy składnik aplikacji miał niezależną wersję, dzięki czemu deweloperzy mogą wykrywać istotne zmiany lub aktualizacje bezpośrednio, sprawdzając numer wersji. Łatwiej jest w wersji aplikacji LUIS niezależnie od innych składników, Jeśli przechowujesz ją we własnym repozytorium.
+Aplikacja składa się z wielu składników, które mogą obejmować takie elementy, jak bot działające w [Azure bot Service](/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0), [QNA Maker](https://www.qnamaker.ai/), [Azure Speech Service](../speech-service/overview.md)i innych. Aby osiągnąć cel luźno sprzężonych aplikacji, należy użyć [kontroli wersji](/azure/devops/learn/git/what-is-version-control) , tak aby każdy składnik aplikacji miał niezależną wersję, dzięki czemu deweloperzy mogą wykrywać istotne zmiany lub aktualizacje bezpośrednio, sprawdzając numer wersji. Łatwiej jest w wersji aplikacji LUIS niezależnie od innych składników, Jeśli przechowujesz ją we własnym repozytorium.
 
 Aplikacja LUIS dla gałęzi głównej powinna mieć zastosowany schemat przechowywania wersji. Po scaleniu aktualizacji `.lu` aplikacji Luis z serwerem głównym należy zaimportować to zaktualizowane źródło do nowej wersji aplikacji Luis dla gałęzi głównej.
 
@@ -195,7 +195,7 @@ Każda aktualizacja numeru wersji jest zwiększana o ostatnią cyfrę.
 
 Wersja główna/pomocnicza może służyć do wskazywania zakresu zmian funkcji aplikacji LUIS:
 
-* Wersja główna: znacząca zmiana, taka jak obsługa nowego [zamiaru](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-intent) lub [jednostki](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-entity-types)
+* Wersja główna: znacząca zmiana, taka jak obsługa nowego [zamiaru](./luis-concept-intent.md) lub [jednostki](./luis-concept-entity-types.md)
 * Wersja pomocnicza: niewielka zmiana zgodna z poprzednimi wersjami, na przykład po znaczącym nowym szkoleniu
 * Kompilacja: nie została zmieniona żadna funkcjonalność, tylko inna kompilacja.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: v-demjoh
 keywords: Rozpoznawanie intencji
-ms.openlocfilehash: 0d718459e0fd0ea410232d3a165b560aa8c59cd1
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 215b25e440b8cad76e0656e47d32b184edf4ac66
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174642"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018705"
 ---
 # <a name="what-is-intent-recognition"></a>Co to jest rozpoznawanie intencji?
 
@@ -29,9 +29,9 @@ Korzystając z rozpoznawania intencji, Twoje aplikacje, narzędzia i urządzenia
 
 * Usługa LUIS integruje się z usługą rozpoznawania mowy, aby rozpoznawać intencje z mowy. Nie potrzebujesz subskrypcji usługi rozpoznawania mowy, tylko usługi LUIS.
 * Funkcja rozpoznawania zamierzeń mowy jest zintegrowana z zestawem SDK. Za pomocą usługi mowy można użyć klucza LUIS.
-* Rozpoznawanie intencji za pomocą zestawu Speech SDK jest [oferowane w podzestawie regionów obsługiwanych przez Luis](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#intent-recognition).
+* Rozpoznawanie intencji za pomocą zestawu Speech SDK jest [oferowane w podzestawie regionów obsługiwanych przez Luis](./regions.md#intent-recognition).
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Zapoznaj się z [przewodnikiem Szybki Start](quickstarts/intent-recognition.md) , aby rozpocząć pracę z rozpoznawaniem intencji.
 
@@ -39,8 +39,8 @@ Zapoznaj się z [przewodnikiem Szybki Start](quickstarts/intent-recognition.md) 
 
 Przykładowy kod do rozpoznawania intencji:
 
-* [Szybki start: używanie wstępnie utworzonej aplikacji Home Automation](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app)
-* [rozpoznawanie intencji z mowy przy użyciu zestawu Speech SDK dla języka C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp)
+* [Szybki start: używanie wstępnie utworzonej aplikacji Home Automation](../luis/luis-get-started-create-app.md)
+* [rozpoznawanie intencji z mowy przy użyciu zestawu Speech SDK dla języka C#](./how-to-recognize-intents-from-speech-csharp.md)
 * [Rozpoznawanie intencji i inne usługi mowy korzystające z aparatu Unity w języku C #](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/unity/speechrecognizer)
 * [Rozpoznawanie intencji przy użyciu zestawu Speech SDK dla języka Python](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/console)
 * [Rozpoznawanie intencji i inne usługi mowy przy użyciu zestawu Speech SDK dla języka C++ w systemie Windows](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/windows/console)
@@ -49,7 +49,7 @@ Przykładowy kod do rozpoznawania intencji:
 
 ## <a name="reference-docs"></a>Dokumentacja dokumentacji
 
-* [Zestaw SDK rozpoznawania mowy](speech-sdk-reference.md)
+* [Zestaw SDK rozpoznawania mowy](./speech-sdk.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

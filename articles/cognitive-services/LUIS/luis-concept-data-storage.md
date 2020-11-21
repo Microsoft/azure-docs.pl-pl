@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 12693fb11556380e62df277be093ce20c02ff372
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: fd7499bd5e216f2a625d87ea13996da851a1889e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018036"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019215"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Magazynowanie i usuwanie danych w Language Understanding (LUIS) Cognitive Services
 LUIS przechowuje dane zaszyfrowane w magazynie danych platformy Azure odpowiadające regionowi określonemu przez klucz. Te dane są przechowywane przez 30 dni. 
@@ -26,8 +26,8 @@ Użytkownicy mają pełną kontrolę nad [eksportowaniem](luis-how-to-start-new-
 
 Wyrażenia długości mogą być przechowywane w dwóch różnych miejscach. 
 
-* Podczas **procesu tworzenia**wyrażenia długości są tworzone i przechowywane w zamierzeniu. Wyrażenia długości w intencjach są wymagane do pomyślnej aplikacji LUIS. Gdy aplikacja zostanie opublikowana i otrzyma zapytania w punkcie końcowym, ciąg QueryString żądania punktu końcowego `log=false` określa, czy punkt końcowy wypowiedź jest przechowywany. Jeśli punkt końcowy jest przechowywany, stał się częścią aktywnego uczenia wyrażenia długości, którą można znaleźć w sekcji **kompilacja** portalu, w sekcji **Przegląd wyrażenia długości punktu końcowego** . 
-* Gdy **przeglądasz punkt końcowy wyrażenia długości**i dodasz wypowiedź do celu, wypowiedź nie jest już przechowywana jako część punktu końcowego wyrażenia długości do zweryfikowania. Jest on dodawany do intencji aplikacji. 
+* Podczas **procesu tworzenia** wyrażenia długości są tworzone i przechowywane w zamierzeniu. Wyrażenia długości w intencjach są wymagane do pomyślnej aplikacji LUIS. Gdy aplikacja zostanie opublikowana i otrzyma zapytania w punkcie końcowym, ciąg QueryString żądania punktu końcowego `log=false` określa, czy punkt końcowy wypowiedź jest przechowywany. Jeśli punkt końcowy jest przechowywany, stał się częścią aktywnego uczenia wyrażenia długości, którą można znaleźć w sekcji **kompilacja** portalu, w sekcji **Przegląd wyrażenia długości punktu końcowego** . 
+* Gdy **przeglądasz punkt końcowy wyrażenia długości** i dodasz wypowiedź do celu, wypowiedź nie jest już przechowywana jako część punktu końcowego wyrażenia długości do zweryfikowania. Jest on dodawany do intencji aplikacji. 
 
 <a name="utterances-in-an-intent"></a>
 
@@ -55,7 +55,7 @@ Jeśli nie przeprowadzono migracji, możesz usunąć konto i wszystkie Twoje apl
 Usuwanie konta jest dostępne na stronie **Ustawienia** . Wybierz nazwę swojego konta w prawym górnym pasku nawigacyjnym, aby przejść do strony **ustawień** .
 
 ## <a name="delete-an-authoring-resource"></a>Usuwanie zasobu tworzenia
-Jeśli [przeprowadzono migrację do zasobu tworzenia](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-authoring), usunięcie samego zasobu z Azure Portal spowoduje usunięcie wszystkich aplikacji skojarzonych z tym zasobem wraz z przykładami wyrażenia długości i dzienników. Dane są przechowywane przez 90 dni przed ich trwałe usunięciem.    
+Jeśli [przeprowadzono migrację do zasobu tworzenia](./luis-migration-authoring.md), usunięcie samego zasobu z Azure Portal spowoduje usunięcie wszystkich aplikacji skojarzonych z tym zasobem wraz z przykładami wyrażenia długości i dzienników. Dane są przechowywane przez 90 dni przed ich trwałe usunięciem.    
 
 Aby usunąć zasób, przejdź do [Azure Portal](https://ms.portal.azure.com/#home) i wybierz zasób autorstwa Luis. Przejdź do karty **Przegląd** , a następnie kliknij przycisk **Usuń** w górnej części strony. Następnie potwierdź, że zasób został usunięty. 
 

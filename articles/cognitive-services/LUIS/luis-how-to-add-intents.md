@@ -9,18 +9,18 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.service: cognitive-services
-ms.openlocfilehash: c2802f1b41ed2842e12c808a8c380ebd646ffa03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2401c032f0fc90024e0049fad5f696b8a184544
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540935"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018943"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Dodawanie intencji w celu określenia zamiaru użytkownika wyrażenia długości
 
 Dodaj [intencje](luis-concept-intent.md) do aplikacji Luis, aby zidentyfikować grupy pytań lub poleceń, które mają ten sam zamiar.
 
-W portalu LUIS, intencje są zarządzane z sekcji **kompilacja** górnego paska nawigacyjnego, a następnie od **intencji**panelu po lewej stronie.
+W portalu LUIS, intencje są zarządzane z sekcji **kompilacja** górnego paska nawigacyjnego, a następnie od **intencji** panelu po lewej stronie.
 
 ## <a name="add-an-intent-to-your-app"></a>Dodawanie zamiaru do aplikacji
 
@@ -81,4 +81,4 @@ Po dodaniu, przeprowadzeniu edycji lub usunięciu zamiarów możesz [nauczyć](l
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na temat dodawania [przykładowej wyrażenia długości](luis-how-to-add-example-utterances.md) z obiektami.
+Dowiedz się więcej na temat dodawania [przykładowej wyrażenia długości](./luis-how-to-add-entities.md) z obiektami.

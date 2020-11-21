@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/19/2019
-ms.openlocfilehash: 120852c3e66594b1cf5cd28bb52ce06634211060
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d2a1702ea131e9b1b4bf5e586f4290db3aff7ff
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541100"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018773"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Popraw błędne słowa przy użyciu sprawdzanie pisowni Bing
 
@@ -26,7 +26,7 @@ Aplikację LUIS można zintegrować sprawdzanie pisowni Bing z [interfejsem API 
 
 Aby utworzyć zasób sprawdzanie pisowni Bing w Azure Portal, wykonaj następujące instrukcje:
 
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com).
 
 2. Wybierz pozycję **Utwórz zasób** w lewym górnym rogu.
 
@@ -97,4 +97,4 @@ Dwa rozwiązania:
 Na stronie [Publikowanie](luis-how-to-publish-app.md) jest zaznaczone pole wyboru **Włącz sprawdzanie pisowni Bing** . Jest to wygoda do utworzenia klucza i zrozumienia, jak zmienia się adres URL punktu końcowego. Nadal musisz użyć prawidłowych parametrów punktu końcowego, aby poprawić pisownię dla każdego wypowiedźu.
 
 > [!div class="nextstepaction"]
-> [Dowiedz się więcej na temat przykładu wyrażenia długości](luis-how-to-add-example-utterances.md)
+> [Dowiedz się więcej na temat przykładu wyrażenia długości](./luis-how-to-add-entities.md)

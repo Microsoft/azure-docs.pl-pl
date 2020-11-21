@@ -5,12 +5,12 @@ author: gundarev
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 7599a0c7b48bdc371d851ec20282af82e77783bf
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: c3a23276ce19f6d7b4cf341bac155ec84363fe5f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505312"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018345"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Konfigurowanie przyspieszania procesora graficznego (GPU) dla usługi Windows Virtual Desktop
 
@@ -23,27 +23,27 @@ Postępuj zgodnie z instrukcjami w tym artykule, aby utworzyć maszynę wirtualn
 
 ## <a name="select-an-appropriate-gpu-optimized-azure-virtual-machine-size"></a>Wybierz odpowiedni rozmiar maszyny wirtualnej platformy Azure zoptymalizowany pod kątem procesora GPU
 
-Wybierz jedną z rozmiarów maszyn wirtualnych [z serii](/azure/virtual-machines/nv-series) [NVv3](/azure/virtual-machines/nvv3-series)lub [NVv4](/azure/virtual-machines/nvv4-series) . Są one dostosowane do wirtualizacji aplikacji i pulpitu oraz umożliwiają przyspieszenie użycia aplikacji i interfejsu użytkownika systemu Windows. Wybór właściwy dla puli hostów zależy od wielu czynników, w tym konkretnych obciążeń aplikacji, odpowiedniej jakości środowiska użytkownika i kosztów. Ogólnie rzecz biorąc, większe i wydajniejsze procesory GPU oferują lepsze środowisko użytkownika w danej gęstości użytkownika, podczas gdy mniejsze i ułamkowe rozmiary procesora GPU umożliwiają dokładniejszą kontrolę nad kosztami i jakością.
+Wybierz jedną z rozmiarów maszyn wirtualnych [z serii](../virtual-machines/nv-series.md) [NVv3](../virtual-machines/nvv3-series.md)lub [NVv4](../virtual-machines/nvv4-series.md) . Są one dostosowane do wirtualizacji aplikacji i pulpitu oraz umożliwiają przyspieszenie użycia aplikacji i interfejsu użytkownika systemu Windows. Wybór właściwy dla puli hostów zależy od wielu czynników, w tym konkretnych obciążeń aplikacji, odpowiedniej jakości środowiska użytkownika i kosztów. Ogólnie rzecz biorąc, większe i wydajniejsze procesory GPU oferują lepsze środowisko użytkownika w danej gęstości użytkownika, podczas gdy mniejsze i ułamkowe rozmiary procesora GPU umożliwiają dokładniejszą kontrolę nad kosztami i jakością.
 
 >[!NOTE]
 >Maszyny wirtualne z serii NC, NCv2, Seria NCV3, ND i NDv2 na platformie Azure zwykle nie są odpowiednie dla hostów sesji usług pulpitu wirtualnego systemu Windows. Te maszyny wirtualne są dostosowane do wyspecjalizowanych, wysoko wydajnych narzędzi obliczeniowych lub uczenia maszynowego, takich jak te utworzone za pomocą technologii NVIDIA CUDA. Ogólne przyspieszenie aplikacji i pulpitu za pomocą technologii NVIDIA GPU wymaga licencjonowania sieci NVIDIA GRID; jest to zapewniane przez platformę Azure dla zalecanych rozmiarów maszyn wirtualnych, ale należy je oddzielnie rozmieścić dla maszyn wirtualnych z serii NC/ND.
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>Tworzenie puli hostów, Inicjowanie obsługi administracyjnej maszyny wirtualnej i Konfigurowanie grupy aplikacji
 
-Utwórz nową pulę hostów przy użyciu maszyny wirtualnej o wybranym rozmiarze. Aby uzyskać instrukcje, zobacz [Samouczek: Tworzenie puli hostów przy użyciu Azure Portal](/azure/virtual-desktop/create-host-pools-azure-marketplace).
+Utwórz nową pulę hostów przy użyciu maszyny wirtualnej o wybranym rozmiarze. Aby uzyskać instrukcje, zobacz [Samouczek: Tworzenie puli hostów przy użyciu Azure Portal](./create-host-pools-azure-marketplace.md).
 
 Pulpit wirtualny systemu Windows obsługuje renderowanie i kodowanie procesora GPU w następujących systemach operacyjnych:
 
 * Windows 10 w wersji 1511 lub nowszej
 * Windows Server 2016 lub nowszy
 
-Należy również skonfigurować grupę aplikacji lub użyć domyślnej grupy aplikacji pulpitu (o nazwie "aplikacja klasyczna"), która jest tworzona automatycznie podczas tworzenia nowej puli hostów. Aby uzyskać instrukcje, zobacz [Samouczek: Zarządzanie grupami aplikacji dla pulpitu wirtualnego systemu Windows](/azure/virtual-desktop/manage-app-groups).
+Należy również skonfigurować grupę aplikacji lub użyć domyślnej grupy aplikacji pulpitu (o nazwie "aplikacja klasyczna"), która jest tworzona automatycznie podczas tworzenia nowej puli hostów. Aby uzyskać instrukcje, zobacz [Samouczek: Zarządzanie grupami aplikacji dla pulpitu wirtualnego systemu Windows](./manage-app-groups.md).
 
 ## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>Instaluj obsługiwane sterowniki grafiki na maszynie wirtualnej
 
-Aby skorzystać z możliwości procesora GPU maszyn wirtualnych z serii N w systemie Windows, należy zainstalować odpowiednie sterowniki grafiki. Postępuj zgodnie z instrukcjami w obszarze [obsługiwane systemy operacyjne i sterowniki](/azure/virtual-machines/windows/sizes-gpu#supported-operating-systems-and-drivers) , aby zainstalować sterowniki od odpowiedniego dostawcy grafiki, ręcznie lub przy użyciu rozszerzenia maszyny wirtualnej platformy Azure.
+Aby skorzystać z możliwości procesora GPU maszyn wirtualnych z serii N w systemie Windows, należy zainstalować odpowiednie sterowniki grafiki. Postępuj zgodnie z instrukcjami w obszarze [obsługiwane systemy operacyjne i sterowniki](../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers) , aby zainstalować sterowniki od odpowiedniego dostawcy grafiki, ręcznie lub przy użyciu rozszerzenia maszyny wirtualnej platformy Azure.
 
-Dla pulpitu wirtualnego systemu Windows są obsługiwane tylko sterowniki dystrybuowane przez platformę Azure. W przypadku maszyn wirtualnych z serii NV platformy Azure z procesorami GPU firmy NVIDIA, tylko [sterowników NVIDIA GRID](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers), a nie sterowników NVIDIA Tesla (cuda), obsługują Przyspieszenie GPU dla aplikacji ogólnego przeznaczenia i komputerów stacjonarnych.
+Dla pulpitu wirtualnego systemu Windows są obsługiwane tylko sterowniki dystrybuowane przez platformę Azure. W przypadku maszyn wirtualnych z serii NV platformy Azure z procesorami GPU firmy NVIDIA, tylko [sterowników NVIDIA GRID](../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers), a nie sterowników NVIDIA Tesla (cuda), obsługują Przyspieszenie GPU dla aplikacji ogólnego przeznaczenia i komputerów stacjonarnych.
 
 Po zainstalowaniu sterownika wymagane jest ponowne uruchomienie maszyny wirtualnej. Wykonaj kroki weryfikacji opisane powyżej, aby potwierdzić, że sterowniki grafiki zostały pomyślnie zainstalowane.
 
@@ -92,7 +92,7 @@ Jeśli często używasz aplikacji, które generują zawartość o wysokiej rozdz
 
 Aby sprawdzić, czy aplikacje używają procesora GPU do renderowania, spróbuj wykonać jedną z następujących czynności:
 
-* W przypadku maszyn wirtualnych platformy Azure z procesorem GPU NVIDIA Użyj `nvidia-smi` narzędzia zgodnie z opisem w temacie [Weryfikowanie instalacji sterowników](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) , aby sprawdzić użycie procesora GPU podczas uruchamiania aplikacji.
+* W przypadku maszyn wirtualnych platformy Azure z procesorem GPU NVIDIA Użyj `nvidia-smi` narzędzia zgodnie z opisem w temacie [Weryfikowanie instalacji sterowników](../virtual-machines/windows/n-series-driver-setup.md#verify-driver-installation) , aby sprawdzić użycie procesora GPU podczas uruchamiania aplikacji.
 * W przypadku obsługiwanych wersji systemu operacyjnego można użyć Menedżera zadań do sprawdzenia użycia procesora GPU. Wybierz procesor GPU na karcie "Performance" (wydajność), aby sprawdzić, czy aplikacje korzystają z procesora GPU.
 
 ## <a name="verify-gpu-accelerated-frame-encoding"></a>Weryfikowanie przyspieszanego procesora GPU
@@ -115,5 +115,5 @@ Aby sprawdzić, czy Pulpit zdalny korzysta z pełnoekranowego kodowania wideo:
 
 Instrukcje te powinny obejmować Przyspieszenie GPU na jednym hoście sesji (jednej maszynie wirtualnej). Dodatkowe zagadnienia dotyczące włączania przyspieszenia procesora GPU w większej puli hostów:
 
-* Rozważ użycie [rozszerzenia maszyny wirtualnej](/azure/virtual-machines/extensions/overview) w celu uproszczenia instalacji sterowników i aktualizacji na wielu maszynach wirtualnych. Użyj [rozszerzenia sterownika procesora GPU NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) dla maszyn wirtualnych z procesorami GPU firmy NVIDIA i Użyj [rozszerzenia sterownika procesora GPU AMD](/azure/virtual-machines/extensions/hpccompute-amd-gpu-windows) dla maszyn wirtualnych z procesorami GPU AMD.
-* Rozważ użycie zasady grupy Active Directory, aby uprościć konfigurację zasad grupy na wielu maszynach wirtualnych. Aby uzyskać informacje na temat wdrażania zasady grupy w domenie Active Directory, zobacz [Praca z obiektami zasady grupy](https://go.microsoft.com/fwlink/p/?LinkId=620889).
+* Rozważ użycie [rozszerzenia maszyny wirtualnej](../virtual-machines/extensions/overview.md) w celu uproszczenia instalacji sterowników i aktualizacji na wielu maszynach wirtualnych. Użyj [rozszerzenia sterownika procesora GPU NVIDIA](../virtual-machines/extensions/hpccompute-gpu-windows.md) dla maszyn wirtualnych z procesorami GPU firmy NVIDIA i Użyj [rozszerzenia sterownika procesora GPU AMD](../virtual-machines/extensions/hpccompute-amd-gpu-windows.md) dla maszyn wirtualnych z procesorami GPU AMD.
+* Rozważ użycie zasady grupy Active Directory, aby uprościć konfigurację zasad grupy na wielu maszynach wirtualnych. Aby uzyskać informacje na temat wdrażania zasady grupy w domenie Active Directory, zobacz [Praca z obiektami zasady grupy](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731212(v=ws.11)).

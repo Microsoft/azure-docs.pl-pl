@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
 ms.author: anwigley
-ms.openlocfilehash: 6df65040277ac61cca5fb4bf7fce5b5a7b2f3afe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b733e90b69be4e2bd458be5486564747ed4cca78
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84783762"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018875"
 ---
 # <a name="apply-devops-to-luis-app-development-using-github-actions"></a>Zastosuj DevOps do tworzenia aplikacji LUIS przy użyciu akcji usługi GitHub
 
@@ -27,9 +27,9 @@ Przejdź do [repozytorium szablonów Luis DevOps](https://github.com/Azure-Sampl
 [Repozytorium szablonów Luis DevOps](https://github.com/Azure-Samples/LUIS-DevOps-Template) zawiera instrukcje:
 
 * **Klonowanie repozytorium szablonów** — Skopiuj szablon do własnego repozytorium GitHub.
-* **Konfigurowanie zasobów Luis** — tworzenie [Luis zasobów tworzenia i przewidywania na platformie Azure](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription#create-resources-in-azure-cli) , które będą używane przez przepływy pracy ciągłej integracji.
+* **Konfigurowanie zasobów Luis** — tworzenie [Luis zasobów tworzenia i przewidywania na platformie Azure](./luis-how-to-azure-subscription.md) , które będą używane przez przepływy pracy ciągłej integracji.
 * **Skonfiguruj przepływy pracy** ciągłej integracji/ciągłego konfigurowania parametrów dla przepływów pracy Ci/CD i Zapisz je w wpisach [tajnych usługi GitHub](https://help.github.com/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets).
-* **Przegląda ["pętlę wewnętrzną dev"](https://mitchdenny.com/the-inner-loop/) ** — deweloper wprowadza aktualizacje przykładowej aplikacji Luis podczas pracy w gałęzi deweloperskiej, testuje aktualizacje, a następnie zgłasza żądanie ściągnięcia w celu zaproponowania zmian i sprawdzenia zatwierdzenia.
+* **Przegląda ["pętlę wewnętrzną dev"](https://mitchdenny.com/the-inner-loop/)** — deweloper wprowadza aktualizacje przykładowej aplikacji Luis podczas pracy w gałęzi deweloperskiej, testuje aktualizacje, a następnie zgłasza żądanie ściągnięcia w celu zaproponowania zmian i sprawdzenia zatwierdzenia.
 * **Wykonaj przepływy pracy** [ciągłej integracji/ciągłego wdrażania, aby utworzyć i przetestować aplikację Luis](luis-concept-devops-automation.md) przy użyciu akcji usługi GitHub.
 * **Przeprowadzaj automatyczne testowanie** — wykonaj [zautomatyzowane testowanie wsadowe dla aplikacji Luis](luis-concept-devops-testing.md) , aby oszacować jakość aplikacji.
 * **Wdróż aplikację Luis** — wykonaj [zadanie ciągłego dostarczania (CD)](luis-concept-devops-automation.md#continuous-delivery-cd) w celu opublikowania aplikacji Luis.

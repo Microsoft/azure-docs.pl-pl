@@ -9,18 +9,18 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 04/02/2019
-ms.openlocfilehash: e1e9ac4ceef843712cc2e39f26ff0aca5341e201
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 867ae2cc7567077786bb0840cd11c47b786be423
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541326"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018756"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Przewodnik migracji interfejsu API V1 do wersji 2 dla aplikacji LUIS
 [Punkt końcowy](https://aka.ms/v1-endpoint-api-docs) w wersji 1 i interfejsy API [tworzenia](https://aka.ms/v1-authoring-api-docs) są przestarzałe. Skorzystaj z tego przewodnika, aby zrozumieć, jak przeprowadzić migrację do [punktu końcowego](https://go.microsoft.com/fwlink/?linkid=2092356) w wersji 2 i interfejsów API [tworzenia](https://go.microsoft.com/fwlink/?linkid=2092087) .
 
 ## <a name="new-azure-regions"></a>Nowe regiony platformy Azure
-LUIS zawiera nowe [regiony](https://aka.ms/LUIS-regions) dla interfejsów API Luis. LUIS udostępnia inny Portal dla grup regionów. Aplikacja musi być utworzona w tym samym regionie, w którym oczekuje się, aby wykonać zapytanie. Aplikacje nie migrują automatycznie regionów. Możesz wyeksportować aplikację z jednego regionu, a następnie zaimportować ją do innej, aby była dostępna w nowym regionie.
+LUIS zawiera nowe [regiony](./luis-reference-regions.md) dla interfejsów API Luis. LUIS udostępnia inny Portal dla grup regionów. Aplikacja musi być utworzona w tym samym regionie, w którym oczekuje się, aby wykonać zapytanie. Aplikacje nie migrują automatycznie regionów. Możesz wyeksportować aplikację z jednego regionu, a następnie zaimportować ją do innej, aby była dostępna w nowym regionie.
 
 ## <a name="authoring-route-changes"></a>Tworzenie zmian trasy
 Trasa interfejsu API tworzenia została zmieniona z używania **trasy usługi** do korzystania z trasy **interfejsu API** .
@@ -143,7 +143,7 @@ LUIS sugeruje wyrażenia długości z istniejącego [punktu końcowego wyrażeni
 
 
 ## <a name="create-app-from-prebuilt-domains"></a>Tworzenie aplikacji na podstawie wstępnie skompilowanych domen
-[Prebudowane domeny](luis-how-to-use-prebuilt-domains.md) zapewniają wstępnie zdefiniowany model domeny. Prebudowane domeny umożliwiają szybkie tworzenie aplikacji LUIS dla wspólnych domen. Ten interfejs API umożliwia utworzenie nowej aplikacji na podstawie wstępnie skompilowanej domeny. Odpowiedź jest nowym identyfikatorem aplikacji.
+[Prebudowane domeny](./howto-add-prebuilt-models.md) zapewniają wstępnie zdefiniowany model domeny. Prebudowane domeny umożliwiają szybkie tworzenie aplikacji LUIS dla wspólnych domen. Ten interfejs API umożliwia utworzenie nowej aplikacji na podstawie wstępnie skompilowanej domeny. Odpowiedź jest nowym identyfikatorem aplikacji.
 
 |2. trasa|czasownik|
 |--|--|
@@ -154,7 +154,7 @@ LUIS sugeruje wyrażenia długości z istniejącego [punktu końcowego wyrażeni
 Plik JSON wyeksportowanej aplikacji 1. x ma pewne obszary, które należy zmienić przed zaimportowaniem do [LUIS][LUIS] 2,0.
 
 ### <a name="prebuilt-entities"></a>Wstępnie utworzone jednostki
-[Wstępnie utworzone jednostki](luis-prebuilt-entities.md) uległy zmianie. Upewnij się, że używasz wstępnie skompilowanych jednostek w wersji 2. Obejmuje to użycie [datetimeV2](luis-reference-prebuilt-datetimev2.md)zamiast DateTime.
+[Wstępnie utworzone jednostki](./howto-add-prebuilt-models.md) uległy zmianie. Upewnij się, że używasz wstępnie skompilowanych jednostek w wersji 2. Obejmuje to użycie [datetimeV2](luis-reference-prebuilt-datetimev2.md)zamiast DateTime.
 
 ### <a name="actions"></a>Akcje
 Właściwość Actions nie jest już prawidłowa. Powinien być pusty
@@ -169,4 +169,4 @@ Zobacz [kody odpowiedzi interfejsu API Luis](luis-reference-response-codes.md).
 
 Użyj dokumentacji interfejsu API v2, aby zaktualizować istniejące wywołania REST do LUISego [punktu końcowego](https://go.microsoft.com/fwlink/?linkid=2092356) i interfejsów API [tworzenia](https://go.microsoft.com/fwlink/?linkid=2092087) .
 
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+[LUIS]: ./luis-reference-regions.md

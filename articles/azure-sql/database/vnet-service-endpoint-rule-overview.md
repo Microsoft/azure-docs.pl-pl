@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 5c5276f11da687f14630bafd007532d172ef3737
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 97be3bf0ecec20c4bf2e1633f893c9aa0d9ba49d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990809"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020286"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Korzystanie z punktów końcowych usługi sieci wirtualnej i reguł dla serwerów w Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -80,6 +80,7 @@ W przypadku Azure SQL Database funkcja reguł sieci wirtualnej ma następujące 
 
 - Włączenie punktów końcowych usługi sieci wirtualnej w celu Azure SQL Database również umożliwia korzystanie z punktów końcowych dla usług MySQL i PostgreSQL platformy Azure. Jednak w przypadku punktów końcowych w systemie próby nawiązania połączenia z punktami końcowymi z wystąpieniami MySQL lub PostgreSQL mogą zakończyć się niepowodzeniem.
   - Podstawowym powodem jest to, że dla programu MySQL i PostgreSQL prawdopodobnie nie skonfigurowano reguły sieci wirtualnej. Należy skonfigurować regułę sieci wirtualnej dla Azure Database for MySQL i PostgreSQL, a połączenie powiedzie się.
+  - Aby zdefiniować reguły zapory sieci wirtualnej na serwerze logicznym SQL, który jest już skonfigurowany za pomocą prywatnych punktów końcowych, ustaw opcję **Odmów dostępu do sieci publicznej** na wartość **nie**.
 
 - Na zaporze zakresy adresów IP dotyczą następujących elementów sieciowych, ale reguły sieci wirtualnej nie są:
   - [Wirtualna sieć prywatna (VPN) typu lokacja-lokacja (S2S)][vpn-gateway-indexmd-608y]

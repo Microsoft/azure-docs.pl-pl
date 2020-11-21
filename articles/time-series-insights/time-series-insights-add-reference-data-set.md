@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: dc759bb9af852fab5313686ebaffefda9220f45a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d80d97a609aa3a464b9b114439fe7f4058e287c3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614244"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020150"
 ---
 # <a name="create-a-reference-data-set-for-your-azure-time-series-insights-gen1-environment-using-the-azure-portal"></a>Utwórz zestaw danych referencyjnych dla środowiska Azure Time Series Insights Gen1 przy użyciu Azure Portal
 
@@ -41,7 +41,7 @@ Dane referencyjne nie są przyłączone wstecz. W takim przypadku tylko bieżąc
 
 1. Znajdź istniejące środowisko Azure Time Series Insights. Wybierz pozycję **wszystkie zasoby** w menu po lewej stronie Azure Portal. Wybierz środowisko Azure Time Series Insights.
 
-1. Wybierz stronę **Przegląd**. Rozwiń sekcję **podstawowe** informacje w górnej części strony, aby znaleźć **adres URL Eksploratora Time Series Insights** i otworzyć link.  
+1. Wybierz stronę **Overview** (Przegląd). Rozwiń sekcję **podstawowe** informacje w górnej części strony, aby znaleźć **adres URL Eksploratora Time Series Insights** i otworzyć link.  
 
    [![Rozwiń sekcję podstawowe informacje](media/add-reference-data-set/essentials.png)](media/add-reference-data-set/essentials.png#lightbox)
 
@@ -107,7 +107,7 @@ Dane referencyjne nie są przyłączone wstecz. W takim przypadku tylko bieżąc
     > [!WARNING]
     > Kolumny lub właściwości, które są współużytkowane przez zestawy danych referencyjnych, będą wyświetlały **zduplikowany błąd przekazywania nazwy właściwości** . Błąd nie będzie uniemożliwiać pomyślnego przekazania zestawów danych referencyjnych. Można go usunąć przez połączenie wierszy, które udostępniają zduplikowaną nazwę właściwości.
 
-1. Wybierz pozycję **Dodaj wiersz**, **Importuj zbiorczo wiersze**lub **Dodaj kolumnę** , aby dodać więcej wartości danych referencyjnych w razie potrzeby.
+1. Wybierz pozycję **Dodaj wiersz**, **Importuj zbiorczo wiersze** lub **Dodaj kolumnę** , aby dodać więcej wartości danych referencyjnych w razie potrzeby.
 
     [![Dodaj wiersz, Importuj zbiorczo wiersze lub Dodaj kolumnę.](media/add-reference-data-set/add-row-or-bulk-upload.png)](media/add-reference-data-set/add-row-or-bulk-upload.png#lightbox)
 
@@ -121,4 +121,4 @@ Dane referencyjne nie są przyłączone wstecz. W takim przypadku tylko bieżąc
 
 - [Zarządzanie danymi referencyjnymi](time-series-insights-manage-reference-data-csharp.md) na drodze programowej.
 
-- Aby uzyskać pełne informacje o interfejsie API, Przeczytaj dokument dotyczący [interfejsu API danych referencyjnych](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api) .
+- Aby uzyskać pełne informacje o interfejsie API, Przeczytaj dokument dotyczący [interfejsu API danych referencyjnych](/rest/api/time-series-insights/gen1-reference-data-api) .

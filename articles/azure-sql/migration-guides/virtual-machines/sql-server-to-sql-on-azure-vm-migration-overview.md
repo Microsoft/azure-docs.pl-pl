@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: d47abaade13958b4e28d3ad5f62b88e8a53e89a9
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: a910edfbbe1ad07dca806026396c506f7e90e6e7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917845"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019436"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>Przegląd migracji: SQL Server do SQL Server na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -75,7 +75,7 @@ Poniższa tabela zawiera szczegółowe informacje o dostępnej metodzie dotyczą
 
 |**Metoda** | **Minimalna wersja źródła** | **Minimalna wersja docelowa** | **Ograniczenie rozmiaru kopii zapasowej źródła** |  **Uwagi** |
 | --- | --- | --- | --- | --- |
-| [Azure Migrate](../../../migrate/index.yml) | SQL Server 2008 z dodatkiem SP4| SQL Server 2008 z dodatkiem SP4| [Limit przestrzeni dyskowej maszyny wirtualnej platformy Azure](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |  Istniejące SQL Server przenoszone do wystąpienia SQL Server na maszynie wirtualnej platformy Azure. Może skalować obciążenia migracji do 35 000 maszyn wirtualnych. <br /><br /> Serwery źródłowe pozostają w trybie online i obsługują żądania podczas synchronizacji danych serwera, co minimalizuje przestoje. <br /><br /> **Automatyzacja & obsługa skryptów**: [Azure Site Recovery skryptów](../../../migrate/how-to-migrate-at-scale.md) i [Przykładowa migracja skalowana i planowanie na platformie Azure](/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)|
+| [Azure Migrate](../../../migrate/index.yml) | SQL Server 2008 z dodatkiem SP4| SQL Server 2008 z dodatkiem SP4| [Limit przestrzeni dyskowej maszyny wirtualnej platformy Azure](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |  Istniejące SQL Server przenoszone do wystąpienia SQL Server na maszynie wirtualnej platformy Azure. Może skalować obciążenia migracji do 35 000 maszyn wirtualnych. <br /><br /> Serwery źródłowe pozostają w trybie online i obsługują żądania podczas synchronizacji danych serwera, co minimalizuje przestoje. <br /><br /> **Automatyzacja & obsługa skryptów**: [Azure Site Recovery skryptów](../../../migrate/how-to-migrate-at-scale.md) i [Przykładowa migracja skalowana i planowanie na platformie Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)|
 
 ## <a name="migrate"></a>Migrate (Migracja)  
 

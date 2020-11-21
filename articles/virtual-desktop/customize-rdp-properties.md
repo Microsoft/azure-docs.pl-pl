@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 86e3422cbd1cbf92a0d0d218267001c934403753
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: cc3a08f383368b189e41bebd204707f2483e77c0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930700"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018311"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>Dostosowywanie właściwości Remote Desktop Protocol (RDP) dla puli hostów
 
@@ -20,7 +20,7 @@ ms.locfileid: "91930700"
 
 Dostosowanie właściwości Remote Desktop Protocol puli hostów (RDP), takich jak środowisko monitorowania i przekierowania audio, zapewnia optymalne środowisko dla użytkowników zgodnie z ich potrzebami. Właściwości protokołu RDP można dostosować na pulpicie wirtualnym systemu Windows przy użyciu Azure Portal lub za pomocą parametru *-CustomRdpProperty* w poleceniu cmdlet **Update-AzWvdHostPool** .
 
-Zobacz [obsługiwane ustawienia plików RDP](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context) , aby uzyskać pełną listę obsługiwanych właściwości i ich wartości domyślne.
+Zobacz [obsługiwane ustawienia plików RDP](/windows-server/remote/remote-desktop-services/clients/rdp-files?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext) , aby uzyskać pełną listę obsługiwanych właściwości i ich wartości domyślne.
 
 ## <a name="default-rdp-file-properties"></a>Domyślne właściwości pliku RDP
 

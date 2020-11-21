@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: bad9757bb62d5175e725bfe8e005155040dccf36
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 9e0b438e0cfa729300099463086248780c69484c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458938"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019844"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Samouczek: integracja Azure Active Directory z usługą Kontiki
 
@@ -104,7 +104,7 @@ W tej sekcji skonfigurujesz Logowanie jednokrotne w usłudze Azure AD za pomocą
     ![Kontiki domenę i adresy URL Logowanie jednokrotne](common/sp-signonurl.png)
 
     > [!NOTE]
-    > Skontaktuj się z [zespołem obsługi klienta Kontiki](https://customersupport.kontiki.com/enterprise/contactsupport.html) , aby uzyskać poprawną wartość do użycia. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Skontaktuj się z [zespołem obsługi klienta Kontiki](https://kollective.com/support/) , aby uzyskać poprawną wartość do użycia. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 1. W okienku **Skonfiguruj pojedyncze Sign-On przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz** obok pozycji **XML metadanych Federacji**. Wybierz opcję pobierania w zależności od wymagań. Zapisz certyfikat na komputerze.
 
@@ -120,7 +120,7 @@ W tej sekcji skonfigurujesz Logowanie jednokrotne w usłudze Azure AD za pomocą
 
 ### <a name="configure-kontiki-single-sign-on"></a>Konfigurowanie logowania jednokrotnego Kontiki
 
-Aby skonfigurować Logowanie jednokrotne po stronie Kontiki, Wyślij pobrany plik XML metadanych Federacji i odpowiednie adresy URL skopiowane z Azure Portal do [zespołu pomocy technicznej Kontiki](https://customersupport.kontiki.com/enterprise/contactsupport.html). Zespół pomocy technicznej Kontiki używa tych informacji, aby upewnić się, że połączenie protokołu SAML logowania jednokrotnego jest ustawione prawidłowo po obu stronach.
+Aby skonfigurować Logowanie jednokrotne po stronie Kontiki, Wyślij pobrany plik XML metadanych Federacji i odpowiednie adresy URL skopiowane z Azure Portal do [zespołu pomocy technicznej Kontiki](https://kollective.com/support/). Zespół pomocy technicznej Kontiki używa tych informacji, aby upewnić się, że połączenie protokołu SAML logowania jednokrotnego jest ustawione prawidłowo po obu stronach.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -138,7 +138,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w witrynie A
 
     1. W polu **Nazwa** wpisz **BrittaSimon**.
   
-    1. W polu **Nazwa użytkownika** wprowadź **brittasimon \@ \<your-company-domain> . \<extension> **. Na przykład **brittasimon \@ contoso.com**.
+    1. W polu **Nazwa użytkownika** wprowadź **brittasimon \@ \<your-company-domain> . \<extension>**. Na przykład **brittasimon \@ contoso.com**.
 
     1. Zaznacz pole wyboru **Pokaż hasło** . Zapisz wartość wyświetlaną w polu **hasło** .
 

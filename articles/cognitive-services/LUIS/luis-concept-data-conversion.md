@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: b305be693f59b65a62570f656a0132f4f03cf099
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42a9caff0433808734ee853cbad90a2088bf4e1e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541802"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019249"
 ---
 # <a name="convert-data-format-of-utterances"></a>Konwertowanie formatu danych wyrażenia długości
 LUIS udostępnia następujące konwersje wypowiedź użytkownika przed przewidywaniam "
@@ -26,7 +26,7 @@ LUIS udostępnia następujące konwersje wypowiedź użytkownika przed przewidyw
 Zamiana mowy na tekst jest zapewniana jako integracja z usługą LUIS.
 
 ### <a name="intent-conversion-concepts"></a>Pojęcia dotyczące konwersji intencji
-Konwersja mowy na tekst w programie LUIS umożliwia wysyłanie mówionych wyrażenia długości do punktu końcowego i odbieranie odpowiedzi przewidywania LUIS. Ten proces jest integracją usługi [mowy](https://docs.microsoft.com/azure/cognitive-services/Speech) z Luis. Dowiedz się więcej na temat zamiany mowy z [samouczkiem](../speech-service/how-to-recognize-intents-from-speech-csharp.md).
+Konwersja mowy na tekst w programie LUIS umożliwia wysyłanie mówionych wyrażenia długości do punktu końcowego i odbieranie odpowiedzi przewidywania LUIS. Ten proces jest integracją usługi [mowy](/azure/cognitive-services/Speech) z Luis. Dowiedz się więcej na temat zamiany mowy z [samouczkiem](../speech-service/how-to-recognize-intents-from-speech-csharp.md).
 
 ### <a name="key-requirements"></a>Podstawowe wymagania
 Nie trzeba tworzyć klucza **interfejs API rozpoznawania mowy Bing** dla tej integracji. Klucz **Language Understanding** utworzony w Azure Portal działa dla tej integracji. Nie używaj klucza początkowego LUIS.
@@ -41,4 +41,3 @@ Aby uzyskać informacje, zobacz [kluczowe limity](luis-limits.md#key-limits) .
 
 > [!div class="nextstepaction"]
 > [Wyodrębnianie danych](luis-concept-data-extraction.md)
-

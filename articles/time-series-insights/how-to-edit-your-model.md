@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: cac4234d5bd93de8b059ea53a4697dae1bf5c64c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89efc1d4f34b250d211f9fd7492588bd2896eb6e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667883"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016857"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-gen2"></a>Modelowanie danych w Azure Time Series Insights Gen2
 
@@ -24,11 +24,11 @@ W tym artykule opisano sposób pracy z modelem szeregów czasowych w Azure Time 
 > [!TIP]
 >
 > * Przeczytaj więcej na temat [modelu szeregów czasowych](concepts-model-overview.md).
-> * Dowiedz się więcej na temat nawigowania w [eksploratorze Azure Time Series Insights Gen2](./time-series-insights-update-explorer.md).
+> * Dowiedz się więcej na temat nawigowania w [eksploratorze Azure Time Series Insights Gen2](./concepts-ux-panels.md).
 
 ## <a name="instances"></a>Wystąpienia
 
-Eksplorator Azure Time Series Insights obsługuje operacje **tworzenia**, **odczytywania**, **aktualizowania**i **usuwania** wystąpień w przeglądarce.
+Eksplorator Azure Time Series Insights obsługuje operacje **tworzenia**, **odczytywania**, **aktualizowania** i **usuwania** wystąpień w przeglądarce.
 
 Aby rozpocząć, wybierz widok **modelu** w widoku **analizy** Azure Time Series Insights Explorer.
 
@@ -76,7 +76,7 @@ Aby rozpocząć, wybierz widok **modelu** w widoku **analizy** Azure Time Series
 
 ## <a name="hierarchies"></a>Hierarchie
 
-Eksplorator Azure Time Series Insights obsługuje operacje **tworzenia**, **odczytywania**, **aktualizowania**i **usuwania** hierarchii w przeglądarce.
+Eksplorator Azure Time Series Insights obsługuje operacje **tworzenia**, **odczytywania**, **aktualizowania** i **usuwania** hierarchii w przeglądarce.
 
 Aby rozpocząć, wybierz widok **modelu** w widoku **analizy** Azure Time Series Insights Explorer.
 
@@ -126,7 +126,7 @@ Aby rozpocząć, wybierz widok **modelu** w widoku **analizy** Azure Time Series
 
 ## <a name="types"></a>Types
 
-Eksplorator Azure Time Series Insights obsługuje operacje **tworzenia**, **odczytu**, **aktualizacji**i **usuwania** w przeglądarce.
+Eksplorator Azure Time Series Insights obsługuje operacje **tworzenia**, **odczytu**, **aktualizacji** i **usuwania** w przeglądarce.
 
 Aby rozpocząć, wybierz widok **modelu** w widoku **analizy** Azure Time Series Insights Explorer.
 
@@ -171,6 +171,6 @@ Aby rozpocząć, wybierz widok **modelu** w widoku **analizy** Azure Time Series
 
 * Aby uzyskać więcej informacji na temat modelu szeregów czasowych, przeczytaj artykuł [Modelowanie danych](./concepts-model-overview.md).
 
-* Aby dowiedzieć się więcej na temat Gen2, Odczytaj [dane wizualizacji w eksploratorze Azure Time Series Insights Gen2](./time-series-insights-update-explorer.md).
+* Aby dowiedzieć się więcej na temat Gen2, Odczytaj [dane wizualizacji w eksploratorze Azure Time Series Insights Gen2](./concepts-ux-panels.md).
 
 * Aby dowiedzieć się więcej o obsługiwanych kształtach JSON, Odczytaj [obsługiwane kształty JSON](./time-series-insights-send-events.md#supported-json-shapes).

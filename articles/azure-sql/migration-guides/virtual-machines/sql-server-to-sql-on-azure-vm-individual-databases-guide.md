@@ -10,17 +10,17 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: c7a62bb3ed07ffbd8cfef520e5d504c810d11e5a
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 1558c396566b2fcfc098a749407d5e7a28316b6f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94497304"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019453"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>Przewodnik migracji: SQL Server SQL Server na maszynach wirtualnych platformy Azure 
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
 
-W tym przewodniku migracji nauczysz się **odkrywać** , **oceniać** i **migrować** bazy danych użytkowników z SQL Server do wystąpienia SQL Server na platformie Azure Virtual Machines (maszyny wirtualne) za pomocą kopii zapasowych i przywracania oraz wysyłania dzienników przy użyciu [Asystent migracji bazy danych (DMA)](/sql/dma/dma-overview) do oceny. 
+W tym przewodniku migracji nauczysz się **odkrywać**, **oceniać** i **migrować** bazy danych użytkowników z SQL Server do wystąpienia SQL Server na platformie Azure Virtual Machines (maszyny wirtualne) za pomocą kopii zapasowych i przywracania oraz wysyłania dzienników przy użyciu [Asystent migracji bazy danych (DMA)](/sql/dma/dma-overview) do oceny. 
 
 Możesz migrować SQL Server uruchomione lokalnie lub na:
 
@@ -40,7 +40,7 @@ Migrowanie do SQL Server na maszynach wirtualnych platformy Azure wymaga następ
 - [Asystent migracji bazy danych (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 - [Projekt Azure Migrate](/azure/migrate/create-manage-projects).
 - Przygotowana [SQL Server ukierunkowana na maszynie wirtualnej platformy Azure](/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal) , która jest taka sama lub większa niż SQL Server źródłowa.
-- [Łączność między platformą Azure i](/architecture/reference-architectures/hybrid-networking)środowiskiem lokalnym.
+- [Łączność między platformą Azure i](/azure/architecture/reference-architectures/hybrid-networking)środowiskiem lokalnym.
 - [Wybór odpowiedniej strategii migracji](sql-server-to-sql-on-azure-vm-migration-overview.md#migrate).
 
 ## <a name="pre-migration"></a>Przed migracją
@@ -59,7 +59,7 @@ Dodatkowe narzędzia do odnajdywania znajdują się w temacie [usługi i narzęd
 
 ### <a name="assess"></a>Ocena
 
-Po wykryciu wszystkich źródeł danych Użyj [Data Migration Assistant (DMA)](/dma/dma-overview) do oceny wystąpień SQL Server lokalnych migracji do wystąpienia SQL Server na maszynie wirtualnej platformy Azure, aby zrozumieć luki między wystąpieniami źródłowym i docelowym. 
+Po wykryciu wszystkich źródeł danych Użyj [Data Migration Assistant (DMA)](/sql/dma/dma-overview) do oceny wystąpień SQL Server lokalnych migracji do wystąpienia SQL Server na maszynie wirtualnej platformy Azure, aby zrozumieć luki między wystąpieniami źródłowym i docelowym. 
 
 
 > [!NOTE]
@@ -109,7 +109,7 @@ Zdecydowanie zaleca się, aby wszystkie poprawki DMA były skryptowe i stosowane
 > Nie wszystkie wersje SQL Server obsługują wszystkie tryby zgodności. Sprawdź, czy [docelowa wersja SQL Server](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level) obsługuje wybraną zgodność bazy danych. Na przykład SQL Server 2019 nie obsługuje baz danych z poziomem zgodności poziomu 90 (czyli SQL Server 2005). Te bazy danych wymagają co najmniej uaktualnienia do poziomu zgodności 100.
 >
 
-## <a name="migrate"></a>Migrate
+## <a name="migrate"></a>Migrate (Migracja)
 
 Po ukończeniu kroków poprzedzających migrację można przystąpić do migracji baz danych i składników użytkownika. Przeprowadź migrację baz danych przy użyciu preferowanej [metody migracji](sql-server-to-sql-on-azure-vm-migration-overview.md#migrate).  
 
@@ -123,7 +123,7 @@ Aby przeprowadzić migrację standardową przy użyciu funkcji tworzenia kopii z
 1. Wstrzymaj/Zatrzymaj wszystkie aplikacje, które korzystają z baz danych przeznaczonych do migracji. 
 1. Upewnij się, że bazy danych użytkowników są nieaktywne przy użyciu [trybu jednego użytkownika](/sql/relational-databases/databases/set-a-database-to-single-user-mode). 
 1. Wykonaj pełną kopię zapasową bazy danych w lokalizacji lokalnej.
-1. Skopiuj lokalne pliki kopii zapasowej do maszyny wirtualnej za pomocą pulpitu zdalnego, [platformy Azure Eksplorator danych](/data-explorer/data-explorer-overview)lub [narzędzia wiersza polecenia AZCopy](../../../storage/common/storage-use-azcopy-v10.md) (zalecane > 2 TB kopii zapasowych).
+1. Skopiuj lokalne pliki kopii zapasowej do maszyny wirtualnej za pomocą pulpitu zdalnego, [platformy Azure Eksplorator danych](/azure/data-explorer/data-explorer-overview)lub [narzędzia wiersza polecenia AZCopy](../../../storage/common/storage-use-azcopy-v10.md) (zalecane > 2 TB kopii zapasowych).
 1. Przywróć pełne kopie zapasowe bazy danych do SQL Server na maszynie wirtualnej platformy Azure.
 
 ### <a name="log-shipping--minimize-downtime"></a>Wysyłanie dziennika (Minimalizuj czas przestoju)
@@ -133,7 +133,7 @@ Aby przeprowadzić minimalną migrację za pomocą kopii zapasowych, przywracani
 1. Skonfiguruj łączność do SQL Server docelowej na maszynie wirtualnej platformy Azure zgodnie z wymaganiami. Zobacz [nawiązywanie połączenia z maszyną wirtualną SQL Server na platformie Azure (Menedżer zasobów)](../../virtual-machines/windows/ways-to-connect-to-sql.md).
 1. Upewnij się, że lokalne bazy danych użytkowników, które mają zostać zmigrowane, są w modelu odzyskiwania pełnego lub z pełnymi zabezpieczeniami.
 1. Wykonaj pełną kopię zapasową bazy danych w lokalizacji lokalnej i zmodyfikuj wszystkie istniejące zadania pełnej kopii zapasowej bazy danych, aby użyć słowa kluczowego [COPY_ONLY](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) w celu zachowania łańcucha dzienników.
-1. Skopiuj lokalne pliki kopii zapasowej do maszyny wirtualnej za pomocą pulpitu zdalnego, [platformy Azure Eksplorator danych](/data-explorer/data-explorer-overview)lub [narzędzia wiersza polecenia AZCopy](../../../storage/common/storage-use-azcopy-v10.md) (zalecane >1 TB kopii zapasowych).
+1. Skopiuj lokalne pliki kopii zapasowej do maszyny wirtualnej za pomocą pulpitu zdalnego, [platformy Azure Eksplorator danych](/azure/data-explorer/data-explorer-overview)lub [narzędzia wiersza polecenia AZCopy](../../../storage/common/storage-use-azcopy-v10.md) (zalecane >1 TB kopii zapasowych).
 1. Przywróć pełne kopie zapasowe bazy danych na SQL Server na maszynie wirtualnej platformy Azure.
 1. Skonfiguruj [wysyłanie dzienników](/sql/database-engine/log-shipping/configure-log-shipping-sql-server) między lokalną bazą danych i SQL Server docelowy na maszynie wirtualnej platformy Azure. Nie należy ponownie inicjować baz danych, ponieważ zostały one już wykonane w poprzednich krokach.
 1. **Wytnij** do serwera docelowego. 
@@ -213,7 +213,7 @@ Aby uzyskać więcej informacji na temat tych problemów i konkretnych kroków, 
 
 - Aby dowiedzieć się więcej o usłudze Azure SQL, zobacz:
    - [Opcje wdrożenia](../../azure-sql-iaas-vs-paas-what-is-overview.md)
-   - [SQL Server na maszynach wirtualnych platformy Azure](../../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
+   - [Program SQL Server na maszynach wirtualnych platformy Azure](../../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
    - [Kalkulator całkowitego kosztu posiadania na platformę Azure](https://azure.microsoft.com/pricing/tco/calculator/) 
 
 

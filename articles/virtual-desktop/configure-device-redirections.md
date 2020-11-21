@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 00a3c1d0a2a905e6435b811d5f2611c16a5de502
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: b60a6e53e8fecd71885204690231776ff69fc08f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328883"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018379"
 ---
 # <a name="configure-device-redirections"></a>Konfigurowanie przekierowań urządzeń
 
@@ -19,11 +19,11 @@ Skonfigurowanie przekierowań urządzeń dla środowiska pulpitu wirtualnego sys
 
 ## <a name="supported-device-redirections"></a>Obsługiwane przekierowania urządzeń
 
-Każdy klient obsługuje inne przekierowania urządzeń. Zapoznaj się z tematem [porównanie klientów](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-app-compare) , aby uzyskać pełną listę obsługiwanych przekierowań urządzeń dla każdego klienta.
+Każdy klient obsługuje inne przekierowania urządzeń. Zapoznaj się z tematem [porównanie klientów](/windows-server/remote/remote-desktop-services/clients/remote-desktop-app-compare) , aby uzyskać pełną listę obsługiwanych przekierowań urządzeń dla każdego klienta.
 
 ## <a name="customizing-rdp-properties-for-a-host-pool"></a>Dostosowywanie właściwości protokołu RDP dla puli hostów
 
-Aby dowiedzieć się więcej o dostosowywaniu właściwości protokołu RDP dla puli hostów przy użyciu programu PowerShell lub Azure Portal, zapoznaj się z [właściwościami protokołu RDP](customize-rdp-properties.md). Aby uzyskać pełną listę obsługiwanych właściwości protokołu RDP, zobacz [obsługiwane ustawienia plików RDP](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context).
+Aby dowiedzieć się więcej o dostosowywaniu właściwości protokołu RDP dla puli hostów przy użyciu programu PowerShell lub Azure Portal, zapoznaj się z [właściwościami protokołu RDP](customize-rdp-properties.md). Aby uzyskać pełną listę obsługiwanych właściwości protokołu RDP, zobacz [obsługiwane ustawienia plików RDP](/windows-server/remote/remote-desktop-services/clients/rdp-files?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext).
 
 ## <a name="setup-device-redirections"></a>Konfigurowanie przekierowań urządzeń
 
@@ -78,7 +78,7 @@ Najpierw Ustaw następującą Właściwość RDP, aby włączyć przekierowywani
 
 Następnie ustaw następujące zasady grupy na urządzeniu lokalnym użytkownika:
 
-- Przejdź do **Computer Configuration**węzła  >  **zasady**konfiguracji >  **Szablony administracyjne**  >  **składniki systemu Windows**  >  **usługi pulpitu zdalnego**  >  **Podłączanie pulpitu zdalnego**  >  **przekierowania urządzenia USB RemoteFX**.
+- Przejdź do **Computer Configuration** węzła  >  **zasady** konfiguracji >  **Szablony administracyjne**  >  **składniki systemu Windows**  >  **usługi pulpitu zdalnego**  >  **Podłączanie pulpitu zdalnego**  >  **przekierowania urządzenia USB RemoteFX**.
 - Wybierz opcję **Zezwalaj na przekierowywanie protokołu RDP innych obsługiwanych urządzeń USB z funkcją RemoteFX z tego komputera**.
 - Wybierz opcję **włączone** , a następnie wybierz opcję **Administratorzy i użytkownicy w polu prawa dostępu przekierowania USB RemoteFX** .
 - Wybierz przycisk **OK**.

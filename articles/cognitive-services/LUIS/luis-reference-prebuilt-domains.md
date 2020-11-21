@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/27/2019
-ms.openlocfilehash: e93822f4a2992f619b598474082caa56562b6e36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73b279f98011181b329cdb010041022ab0da57f0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538368"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018637"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Wstępnie skompilowane odwołanie do domeny dla aplikacji LUIS
-Ta dokumentacja zawiera informacje na temat [wstępnie skompilowanych domen](luis-how-to-use-prebuilt-domains.md), które są wstępnie skompilowanymi kolekcjami intencji i jednostek, które Luis oferty.
+Ta dokumentacja zawiera informacje na temat [wstępnie skompilowanych domen](./howto-add-prebuilt-models.md), które są wstępnie skompilowanymi kolekcjami intencji i jednostek, które Luis oferty.
 
 [Domeny niestandardowe](luis-how-to-start-new-app.md), z kolei, zaczynają się od żadnych zamiar i modeli. Do modelu niestandardowego można dodać wszystkie wbudowane intencje domeny i jednostki.
 

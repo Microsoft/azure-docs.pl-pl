@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: a5760db2d6e453d631680d6154e6d9a03ce55cd6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59cf250a9db5a1f6759495c1b5a3c48cb07cde15
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541343"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018790"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Zmiany przewidywanych punktów końcowych dla wersji 3
 
@@ -60,7 +60,7 @@ Jeśli nie znasz żadnej aplikacji klienckiej ani integracji (bot Framework i sp
 
 ### <a name="bing-spell-check"></a>Sprawdzanie pisowni Bing
 
-Ten interfejs API nie jest obsługiwany w punkcie końcowym przewidywania v3 — Kontynuuj korzystanie z punktu końcowego przewidywania interfejsu API V2 na potrzeby poprawek pisowni. Jeśli wymagana jest Korekcja pisowni podczas korzystania z interfejsu API v3, aplikacja kliencka może wywołać interfejs API [Sprawdzanie pisowni Bing](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/overview) i zmienić tekst na poprawną pisownię przed wysłaniem tekstu do interfejsu API Luis.
+Ten interfejs API nie jest obsługiwany w punkcie końcowym przewidywania v3 — Kontynuuj korzystanie z punktu końcowego przewidywania interfejsu API V2 na potrzeby poprawek pisowni. Jeśli wymagana jest Korekcja pisowni podczas korzystania z interfejsu API v3, aplikacja kliencka może wywołać interfejs API [Sprawdzanie pisowni Bing](../bing-spell-check/overview.md) i zmienić tekst na poprawną pisownię przed wysłaniem tekstu do interfejsu API Luis.
 
 ## <a name="bot-framework-and-azure-bot-service-client-applications"></a>Bot Framework i Azure Bot Service aplikacje klienckie
 
@@ -103,13 +103,13 @@ Jeśli chcesz wykonać zapytanie według wersji, musisz najpierw [opublikować z
 }
 ```
 
-|Właściwość|Type|Wersja|Domyślne|Przeznaczenie|
+|Właściwość|Typ|Wersja|Domyślne|Przeznaczenie|
 |--|--|--|--|--|
 |`dynamicLists`|array|Tylko wersja 3|Niewymagane.|[Listy dynamiczne](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) umożliwiają rozbudowa istniejącej, przeszkolonej i opublikowanej jednostki listy, już w aplikacji Luis.|
 |`externalEntities`|array|Tylko wersja 3|Niewymagane.|[Jednostki zewnętrzne](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) zapewniają aplikacji Luis możliwość identyfikowania i etykietowania jednostek podczas środowiska uruchomieniowego, które mogą być używane jako funkcje istniejących jednostek. |
 |`options.datetimeReference`|ciąg|Tylko wersja 3|Brak domyślnego|Służy do określania [przesunięcia datetimeV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). Format datetimeReference to [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
 |`options.preferExternalEntities`|boolean|Tylko wersja 3|fałsz|Określa, czy jest używana [Jednostka zewnętrzna użytkownika (o takiej samej nazwie jak istniejąca jednostka)](schema-change-prediction-runtime.md#override-existing-model-predictions) lub istniejąca jednostka w modelu jest używana do przewidywania. |
-|`query`|ciąg|Tylko wersja 3|Wymagane.|**W wersji 2**wypowiedź do przewidywania jest `q` parametrem. <br><br>**W wersji 3**funkcja jest przenoszona do `query` parametru.|
+|`query`|ciąg|Tylko wersja 3|Wymagane.|**W wersji 2** wypowiedź do przewidywania jest `q` parametrem. <br><br>**W wersji 3** funkcja jest przenoszona do `query` parametru.|
 
 ## <a name="response-changes"></a>Zmiany odpowiedzi
 
@@ -162,9 +162,9 @@ Zmiany schematu JSON odpowiedzi są dozwolone dla:
 
 #### <a name="marking-placement-of-entities-in-utterances"></a>Oznaczanie rozmieszczenia jednostek w wyrażenia długości
 
-**W wersji 2**jednostka została oznaczona w wypowiedź z `startIndex` i `endIndex` .
+**W wersji 2** jednostka została oznaczona w wypowiedź z `startIndex` i `endIndex` .
 
-**W wersji 3**jednostka jest oznaczona za pomocą `startIndex` i `entityLength` .
+**W wersji 3** jednostka jest oznaczona za pomocą `startIndex` i `entityLength` .
 
 #### <a name="access-instance-for-entity-metadata"></a>Dostęp `$instance` do metadanych jednostki
 

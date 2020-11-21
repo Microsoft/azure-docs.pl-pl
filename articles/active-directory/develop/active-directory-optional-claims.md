@@ -12,12 +12,12 @@ ms.date: 10/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 340f451080f43fab213a3afc69f2adfae83514d7
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 1a08aa4261e8d2546d16bb60394829c83604b4cd
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837332"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019963"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Instrukcje: dostarczanie opcjonalnych oświadczeń do aplikacji
 
@@ -138,6 +138,9 @@ Opcjonalne oświadczenia dla aplikacji można skonfigurować za pomocą interfej
 1. Wybierz opcjonalne oświadczenia do dodania.
 1. Wybierz pozycję **Dodaj**.
 
+> [!NOTE]
+> Blok **Konfiguracja tokenu** opcji interfejsu użytkownika nie jest dostępny dla aplikacji zarejestrowanych w dzierżawie Azure AD B2C. W przypadku aplikacji zarejestrowanych w dzierżawie B2C opcjonalne oświadczenia można skonfigurować przez modyfikację manifestu aplikacji. Aby uzyskać więcej informacji [, zobacz Dodawanie oświadczeń i dostosowywanie danych wejściowych użytkownika przy użyciu zasad niestandardowych w Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-configure-user-input) 
+
 **Konfigurowanie opcjonalnych oświadczeń za pomocą manifestu aplikacji:**
 
 [![Pokazuje, jak skonfigurować oświadczenia opcjonalne przy użyciu manifestu aplikacji](./media/active-directory-optional-claims/app-manifest.png)](./media/active-directory-optional-claims/app-manifest.png)
@@ -175,6 +178,7 @@ Opcjonalne oświadczenia dla aplikacji można skonfigurować za pomocą interfej
     ```
 
 2. Po zakończeniu wybierz pozycję **Zapisz**. Teraz określone opcjonalne oświadczenia zostaną uwzględnione w tokenach aplikacji.
+
 
 ### <a name="optionalclaims-type"></a>Typ OptionalClaims
 

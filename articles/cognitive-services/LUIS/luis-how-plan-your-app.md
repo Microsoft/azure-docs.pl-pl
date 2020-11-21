@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 69f2048da0b4690d9de72e96e296edbd55c4cd9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66df23466694fe8b9caea4e56565cde6d8fd7416
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309459"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018960"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planowanie schematu aplikacji LUIS przy użyciu domeny podmiotu i wyodrębniania danych
 
@@ -21,7 +21,7 @@ Schemat aplikacji LUIS zawiera [intencje](luis-glossary.md#intent) i [jednostki]
 Aplikacja LUIS jest wyśrodkowana wokół domeny podmiotu. Na przykład może istnieć aplikacja podróży, która obsługuje rezerwacje biletów, lotów, hoteli i samochodów. Inna aplikacja może zapewnić zawartość powiązaną z wykonywaniem, śledzeniem wysiłków związanych z sprawnością i ustawianiem celów. Zidentyfikowanie domeny ułatwia znalezienie wyrazów lub fraz, które są istotne dla Twojej domeny.
 
 > [!TIP]
-> LUIS oferuje [prebudowane domeny](luis-how-to-use-prebuilt-domains.md) dla wielu typowych scenariuszy. Sprawdź, czy możesz użyć wstępnie skompilowanej domeny jako punktu wyjścia dla aplikacji.
+> LUIS oferuje [prebudowane domeny](./howto-add-prebuilt-models.md) dla wielu typowych scenariuszy. Sprawdź, czy możesz użyć wstępnie skompilowanej domeny jako punktu wyjścia dla aplikacji.
 
 ## <a name="identify-your-intents"></a>Zidentyfikuj swoje intencje
 
@@ -49,7 +49,7 @@ W przykładzie wyrażenia długości Określ jednostki, które mają zostać wyo
 Podczas określania obiektów, które mają być używane w aplikacji, należy pamiętać, że istnieją różne typy jednostek do przechwytywania relacji między typami obiektów. [Jednostki w Luis](luis-concept-entity-types.md) zapewniają więcej szczegółowych informacji o różnych typach.
 
 > [!TIP]
-> LUIS oferuje [wstępnie utworzone jednostki](luis-prebuilt-entities.md) na potrzeby typowych scenariuszy użytkownika. Rozważ użycie wstępnie utworzonych jednostek jako punktu wyjścia do tworzenia aplikacji.
+> LUIS oferuje [wstępnie utworzone jednostki](./howto-add-prebuilt-models.md) na potrzeby typowych scenariuszy użytkownika. Rozważ użycie wstępnie utworzonych jednostek jako punktu wyjścia do tworzenia aplikacji.
 
 ## <a name="resolution-with-intent-or-entity"></a>Czy masz rozwiązanie z intencją lub jednostką?
 
@@ -79,4 +79,3 @@ Aby ułatwić ekstrakcję, Dodaj funkcje do podjednostek. Możesz wybrać swoje 
 
 > [!div class="nextstepaction"]
 > [Uczenie się LUIS Development lifecylce](luis-concept-app-iteration.md)
-

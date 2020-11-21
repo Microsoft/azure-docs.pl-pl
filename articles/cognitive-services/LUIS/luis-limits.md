@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 06/04/2020
-ms.openlocfilehash: 5ef681e335cf49a1759a096766b5ccd70545e60a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c855be6d31a1ee46434ecadbeae7a36dd6a3ff95
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324709"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018807"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limity dotyczące modelu i kluczy LUIS
 LUIS ma kilka obszarów ograniczeń. Pierwszy to [Limit modelu](#model-limits), który steruje intencjami, jednostkami i funkcjami w Luis. Drugi obszar ma [limity przydziału](#key-limits) na podstawie typu klucza. Trzeci obszar limitów jest [kombinacją klawiatury](#keyboard-controls) służącą do kontrolowania witryny sieci Web Luis. Czwarty obszar to [Mapowanie regionów świata](luis-reference-regions.md) między witryną sieci Web Luis Authoring a interfejsem API Luis [Endpoint](luis-glossary.md#endpoint) .
@@ -21,7 +21,7 @@ LUIS ma kilka obszarów ograniczeń. Pierwszy to [Limit modelu](#model-limits), 
 
 Jeśli Twoja aplikacja przekracza limity modelu LUIS, rozważ użycie aplikacji do [wysyłania Luis](luis-concept-enterprise.md#dispatch-tool-and-model) lub [kontenera Luis](luis-container-howto.md).
 
-|Warstwowy|Limit|
+|Obszar|Limit|
 |--|:--|
 | [Nazwa aplikacji][luis-get-started-create-app] | * Maksimum znaku domyślnego |
 | Aplikacje| 500 aplikacji na zasób tworzenia na platformie Azure |
@@ -32,16 +32,16 @@ Jeśli Twoja aplikacja przekracza limity modelu LUIS, rozważ użycie aplikacji 
 | [Wyświetlanie listy jednostek](./luis-concept-entity-types.md) | Element nadrzędny: 50, element podrzędny: 20 000 elementów. Nazwa kanoniczna to * domyślny znak maksymalny. Wartości synonimów nie mają ograniczenia długości. |
 | [jednostki uczenia maszynowego + role](./luis-concept-entity-types.md):<br> złożone<br>ułatwia<br>rola jednostki|Limit 100 jednostek nadrzędnych lub 330 jednostek, w zależności od liczby trafień użytkownika. Rola jest traktowana jako jednostka na potrzeby tego limitu. Przykładem jest kompozyt z prostą jednostką, która ma 2 role: 1 złożona + 1 prosta + 2 role = 4 jednostek 330.<br>Podjednostki można zagnieżdżać do 5 poziomów.|
 |Model jako funkcja| Maksymalna liczba modeli, które mogą być używane jako funkcja do określonego modelu do 10 modeli. Maksymalna liczba list fraz używanych jako funkcja dla określonego modelu do 10 list fraz.|
-| [Wersja zapoznawcza — jednostki listy dynamicznej](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listy ~ 1K na żądanie punktu końcowego przewidywania zapytań|
+| [Wersja zapoznawcza — jednostki listy dynamicznej](./luis-migration-api-v3.md)|2 listy ~ 1K na żądanie punktu końcowego przewidywania zapytań|
 | [Wzorce](luis-concept-patterns.md)|500 wzorców na aplikację.<br>Maksymalna długość wzorca to 400 znaków.<br>3 wzorzec. wszystkie jednostki na wzorzec<br>Maksymalnie 2 zagnieżdżonych dodatkowych tekstów w wzorcu|
 | [Wzorzec. any](./luis-concept-entity-types.md)|100 na aplikację, 3 wzorce. wszystkie jednostki na wzorzec |
 | [Lista fraz][phrase-list]|500 list fraz. 10 globalnych list fraz spowodowanych przez model jako limit funkcji. Lista fraz niewymiennych ma maksymalnie 5 000 fraz. Lista fraz wymiennych ma maksymalnie 50 000 fraz. Maksymalna liczba fraz dla każdej aplikacji 500 000 fraz.|
-| [Wstępnie utworzone jednostki](./luis-prebuilt-entities.md) | bez limitu|
+| [Wstępnie utworzone jednostki](./howto-add-prebuilt-models.md) | bez limitu|
 | [Jednostki wyrażenia regularnego](./luis-concept-entity-types.md)|20 jednostek<br>maksymalnie 500 znaków. na wzorzec jednostki wyrażenia regularnego|
-| [Role](luis-concept-roles.md)|300 ról na aplikację. 10 ról na jednostkę|
+| [Role](./luis-concept-entity-types.md)|300 ról na aplikację. 10 ról na jednostkę|
 | [Wypowiedź][utterances] | 500 znaków<br><br>Jeśli masz tekst dłuższy niż ten limit znaków, musisz podzielić wypowiedź przed wprowadzeniem do LUIS, a otrzymasz indywidualne odpowiedzi na segment. Istnieją oczywiste przerwy, z którymi można korzystać, takie jak znaki interpunkcyjne i długie przerwy w mowie.|
 | [Przykłady wypowiedź][utterances] | 15 000 na aplikację — nie ma limitu liczby wyrażenia długości na zamiar<br><br>Jeśli konieczne jest uczenie aplikacji z więcej przykładów, użyj podejścia modelu [wysyłania](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch) . Możesz przeszkolić pojedyncze aplikacje LUIS (nazywane aplikacjami podrzędnymi do nadrzędnej aplikacji do wysyłania) z co najmniej jednym zamiarem, a następnie przeszkolić aplikację do wysyłania, która próbuje pobrać z poszczególnych podrzędnych aplikacji LUIS wyrażenia długości, aby skierować żądanie przewidywania do odpowiedniej aplikacji podrzędnej. |
-| [Versions](luis-concept-version.md) (Wersje)| 100 wersji na aplikację |
+| [Versions](./luis-concept-app-iteration.md) (Wersje)| 100 wersji na aplikację |
 | [Nazwa wersji][luis-how-to-manage-versions] | 128 znaków |
 
 * Wartość domyślna to 50 znaków.
@@ -116,12 +116,12 @@ Użyj _rodzaju_, `LUIS` , podczas filtrowania zasobów w Azure Portal. Zasób pu
 
 Dostęp do logowania wynosi od **60 minut**. Ten błąd zostanie wyświetlony po upływie tego czasu. Musisz zalogować się ponownie.
 
-[luis-get-started-create-app]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app
-[batch-testing]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-test#batch-testing
-[intents]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-intent
-[phrase-list]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-feature
-[utterances]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-utterance
-[luis-how-to-manage-versions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions
+[luis-get-started-create-app]: ./luis-get-started-create-app.md
+[batch-testing]: ./luis-concept-test.md#batch-testing
+[intents]: ./luis-concept-intent.md
+[phrase-list]: ./luis-concept-feature.md
+[utterances]: ./luis-concept-utterance.md
+[luis-how-to-manage-versions]: ./luis-how-to-manage-versions.md
 [pricing]: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
 <!-- TBD: fix this link -->
 [speech-to-intent-pricing]: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/

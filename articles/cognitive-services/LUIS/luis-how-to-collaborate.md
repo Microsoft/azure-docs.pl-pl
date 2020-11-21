@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/19/2019
-ms.openlocfilehash: 30b4256b37dc3329801a730192e25f7c24a45594
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60b100e1100b8a4925a967f8b7265f1612e5beb7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540913"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018909"
 ---
 # <a name="add-contributors-to-your-app"></a>Dodawanie współautorów do aplikacji
 
@@ -66,7 +66,7 @@ Jeśli dodasz współautorów/współpracowników do aplikacji LUIS, określisz 
 
 ### <a name="azure-active-directory-resources"></a>Zasoby Azure Active Directory
 
-Jeśli używasz usługi [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD) w organizacji, language UNDERSTANDING (Luis) potrzebuje uprawnień do informacji o dostępie użytkowników, gdy chcą korzystać z Luis. Zasoby, które LUIS wymagają, są minimalne.
+Jeśli używasz usługi [Azure Active Directory](../../active-directory/index.yml) (Azure AD) w organizacji, language UNDERSTANDING (Luis) potrzebuje uprawnień do informacji o dostępie użytkowników, gdy chcą korzystać z Luis. Zasoby, które LUIS wymagają, są minimalne.
 
 Szczegółowy opis jest wyświetlany podczas próby zarejestrowania się przy użyciu konta, które ma zgodę administratora lub nie wymaga zgody administratora, na przykład zgody administratora:
 
@@ -87,7 +87,7 @@ Administrator dzierżawy powinien współpracować bezpośrednio z użytkownikie
 
 Jeśli administrator dzierżawy chce, aby niektórzy użytkownicy korzystali z LUIS, istnieje kilka możliwych rozwiązań:
 * Podawanie "zgody administratora" (wyrażanie zgody wszystkim użytkownikom usługi Azure AD), a następnie ustawienie opcji "tak" jako "wymagane przypisanie użytkownika" we właściwościach aplikacji dla przedsiębiorstw i przypisanie/dodanie tylko odpowiednich użytkowników do aplikacji. W przypadku tej metody administrator nadal zapewnia dostęp do aplikacji "Zgoda na administrowanie", jednak można kontrolować użytkowników, którzy mają do nich dostępu.
-* Drugim rozwiązaniem jest użycie [interfejsu API zarządzania tożsamościami i dostępem usługi Azure AD w Microsoft Graph](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) , aby zapewnić zgodę na poszczególnych użytkowników.
+* Drugim rozwiązaniem jest użycie [interfejsu API zarządzania tożsamościami i dostępem usługi Azure AD w Microsoft Graph](/graph/azuread-identity-access-management-concept-overview) , aby zapewnić zgodę na poszczególnych użytkowników.
 
 Dowiedz się więcej na temat użytkowników i zgody usługi Azure Active Directory:
 * [Ograniczanie aplikacji](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) do zestawu użytkowników
