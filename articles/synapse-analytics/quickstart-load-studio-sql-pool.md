@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 11/16/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3b32e7a1df0dbbf4d43a73f1e3e409a904ab88a3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 8d70a45b89142f6f9c6990fdbb4b79751c82275f
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660087"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95237480"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-sql"></a>Szybki Start: ładowanie zbiorcze przy użyciu języka SQL Synapse
 
@@ -39,7 +39,8 @@ Teraz można łatwo ładować dane przy użyciu dedykowanych pul SQL z prostym k
 
 ### <a name="steps"></a>Kroki
 
-1. Wybierz konto magazynu i plik lub folder, który jest ładowany, w panelu źródłowa lokalizacja magazynu. Kreator automatycznie podejmie próbę wykrycia plików Parquet. Jeśli nie można potwierdzić typu pliku Parquet, domyślnie zostanie użyty rozdzielany tekst (CSV). 
+1. Wybierz konto magazynu i plik lub folder, który jest ładowany, w panelu źródłowa lokalizacja magazynu. Kreator automatycznie podejmie próbę wykrycia plików Parquet. Jeśli nie można potwierdzić typu pliku Parquet, domyślnie zostanie użyty rozdzielany tekst (CSV).
+
    ![Wybieranie lokalizacji źródłowej](./sql/media/bulk-load/bulk-load-source-location.png)
 
 2. Wybierz ustawienia formatu pliku, w tym konto magazynu, w którym chcesz napisać odrzucone wiersze (plik błędu). Obecnie obsługiwane są tylko pliki CSV i Parquet.

@@ -5,12 +5,12 @@ ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.date: 10/10/2019
-ms.openlocfilehash: c20333c83275edb90a266afec3ec3756ae1e0e7e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 41b7c80c85331f288343351749e6b2e5292b30c6
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216270"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241611"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>Dowiedz się, jak rozwiązywać błędy środowiska uruchomieniowego U-SQL ze względu na zmiany w czasie wykonywania
 
@@ -33,7 +33,7 @@ Możesz zobaczyć historię wersji środowiska uruchomieniowego, które przeszł
 
 1. W Azure Portal przejdź do swojego konta Data Lake Analytics.
 2. Wybierz pozycję **Wyświetl wszystkie zadania**. Zostanie wyświetlona lista wszystkich aktywnych i ostatnio zakończonych zadań w ramach konta.
-3. Opcjonalnie kliknij przycisk **Filtruj** , aby pomóc znaleźć zadania według **zakresu czasu**, **nazwy zadania**i wartości **autora** .
+3. Opcjonalnie kliknij przycisk **Filtruj** , aby pomóc znaleźć zadania według **zakresu czasu**, **nazwy zadania** i wartości **autora** .
 4. Można zobaczyć środowisko uruchomieniowe używane w zakończonych zadaniach.
 
 ![Wyświetlanie wersji środowiska uruchomieniowego przeszłego zadania](./media/runtime-troubleshoot/prior-job-usql-runtime-version-.png)
@@ -49,11 +49,25 @@ Na przykład release_20190318_adl_3394512_2 oznacza drugą wersję kompilacji 33
 
 Istnieją dwie możliwe problemy z wersją środowiska uruchomieniowego, które mogą wystąpić:
 
-1. Skrypt lub jakiś kod użytkownika zmienia zachowanie z jednej wersji na następną. Takie istotne zmiany są zwykle przekazywane wcześniej z publikacją informacji o wersji. W przypadku wystąpienia takiej zmiany należy skontaktować się z pomoc techniczna firmy Microsoft, aby zgłosić takie zachowanie przerwania (na wypadek, gdyby nie zostało jeszcze udokumentowane) i przesłać zadania do starszej wersji środowiska uruchomieniowego.
+1. Skrypt lub jakiś kod użytkownika zmienia zachowanie z jednej wersji na następną. Takie istotne zmiany są zwykle przekazywane wcześniej z publikacją informacji o wersji. W przypadku wystąpienia takiej zmiany należy skontaktować się z pomoc techniczna firmy Microsoft, aby zgłosić takie zachowanie przerwania (jeśli nie zostało to jeszcze udokumentowane) i przesłać zadania do starszej wersji środowiska uruchomieniowego.
 
-2. Użyto niedomyślnego środowiska uruchomieniowego jawnie lub niejawnie, gdy został on przypięty do Twojego konta, i że środowisko uruchomieniowe zostało usunięte po pewnym czasie. Jeśli napotkasz brakujące środowiska uruchomieniowe, Uaktualnij skrypty, aby były uruchamiane przy użyciu bieżącego domyślnego środowiska uruchomieniowego. Jeśli potrzebujesz dodatkowego czasu, skontaktuj się z pomoc techniczna firmy Microsoft
+2. Użyto niedomyślnego środowiska uruchomieniowego jawnie lub niejawnie, gdy został on przypięty do Twojego konta, i że środowisko uruchomieniowe zostało usunięte po pewnym czasie. Jeśli napotkasz brakujące środowiska uruchomieniowe, Uaktualnij skrypty, aby były uruchamiane przy użyciu bieżącego domyślnego środowiska uruchomieniowego. Jeśli potrzebujesz dodatkowego czasu, skontaktuj się z firmą pomoc techniczna firmy Microsoft
 
-## <a name="see-also"></a>Zobacz też
+## <a name="known-issues"></a>Znane problemy
+
+* Odwoływanie się do Newtonsoft.Jsw wersji pliku 12.0.3 lub nowszej w skrypcie USQL spowoduje wystąpienie następującego błędu kompilacji:
+
+    *"Niestety; zadania uruchomione na koncie Data Lake Analytics prawdopodobnie będą działać wolniej lub niepowodzenie. Nieoczekiwany problem uniemożliwia automatyczne przywrócenie tej funkcji na koncie Azure Data Lake Analytics. Azure Data Lake inżynierów skontaktowali się z Tobą w celu zbadania ".*  
+
+    Gdzie stos wywołań będzie zawierać:  
+    `System.IndexOutOfRangeException: Index was outside the bounds of the array.`  
+    `at Roslyn.Compilers.MetadataReader.PEFile.CustomAttributeTableReader.get_Item(UInt32 rowId)`  
+    `...`
+
+    **Rozwiązanie**: Użyj Newtonsoft.Jsw pliku 12.0.2 lub niższym.
+
+
+## <a name="see-also"></a>Zobacz także
 
 - [Przegląd Azure Data Lake Analytics](data-lake-analytics-overview.md)
 - [Zarządzanie Azure Data Lake Analytics przy użyciu Azure Portal](data-lake-analytics-manage-use-portal.md)

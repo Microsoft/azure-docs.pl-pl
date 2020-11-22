@@ -1,37 +1,35 @@
 ---
 title: Interfejs API REST usługi Azure App Configuration — blokady
-description: Strony referencyjne umożliwiające pracę z blokadami klucz-wartość za pomocą interfejsu API REST usługi Azure App Configuration
+description: Strony referencyjne umożliwiające pracę z blokadami klucz-wartość przy użyciu interfejsu API REST usługi Azure App Configuration
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 4949db646c54d75f60d29d3c631d0f4ee8d7c26e
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 7e63b48f2119c48cd43717acee7b13b1701e0032
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424311"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241271"
 ---
 # <a name="locks"></a>Blokady
 
-wersja interfejsu API: 1,0
-
-Ten interfejs API zapewnia semantykę blokady/odblokowywania dla zasobu klucz-wartość. Obsługuje następujące operacje:
+Ten interfejs API (w wersji 1,0) zapewnia semantykę blokady i odblokowywania dla zasobu klucz-wartość. Obsługuje następujące operacje:
 
 - Umieść blokadę
 - Usuń blokadę
 
-Jeśli jest obecny, `label` musi być jawną wartością etykiety ( **nie** symbolem wieloznacznym). Dla wszystkich operacji jest to opcjonalny parametr. W przypadku pominięcia oznacza brak etykiety.
+Jeśli jest obecny, `label` musi być jawną wartością etykiety (nie symbolem wieloznacznym). Dla wszystkich operacji jest to opcjonalny parametr. W przypadku pominięcia oznacza brak etykiety.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-rest-api-prereqs.md)]
 
-## <a name="lock-key-value"></a>Zablokuj Key-Value
+## <a name="lock-key-value"></a>Zablokuj klucz-wartość
 
-- **Wymagane:** ``{key}`` , ``{api-version}``  
-- *Opcjonalne:*``label``
+- Wymagane: ``{key}`` , ``{api-version}``  
+- Obowiązkowe ``label``
 
 ```http
 PUT /locks/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -63,10 +61,10 @@ Jeśli klucz-wartość nie istnieje, zwracana jest następująca odpowiedź:
 HTTP/1.1 404 Not Found
 ```
 
-## <a name="unlock-key-value"></a>Odblokuj Key-Value
+## <a name="unlock-key-value"></a>Odblokuj klucz-wartość
 
-- **Wymagane:** ``{key}`` , ``{api-version}``  
-- *Opcjonalne:*``label``
+- Wymagane: ``{key}`` , ``{api-version}``  
+- Obowiązkowe ``label``
 
 ```http
 DELETE /locks/{key}?label={label}?api-version={api-version} HTTP/1.1
@@ -98,9 +96,9 @@ Jeśli klucz-wartość nie istnieje, zwracana jest następująca odpowiedź:
 HTTP/1.1 404 Not Found
 ```
 
-## <a name="conditional-lockunlock"></a>Warunkowe blokowanie/odblokowywanie
+## <a name="conditional-lock-and-unlock"></a>Warunkowe blokowanie i odblokowywanie
 
-Aby zapobiec występowaniu warunków wyścigu, użyj `If-Match` lub `If-None-Match` Zażądaj nagłówków. `etag`Argument jest częścią reprezentacji klucza. Jeśli `If-Match` lub `If-None-Match` zostaną pominięte, operacja będzie bezwarunkowo.
+Aby zapobiec występowaniu warunków wyścigu, użyj `If-Match` lub `If-None-Match` Zażądaj nagłówków. `etag`Argument jest częścią reprezentacji klucza. Jeśli `If-Match` lub `If-None-Match` zostaną pominięte, operacja jest bezwarunkowa.
 
 Poniższe żądanie stosuje operację tylko wtedy, gdy bieżąca reprezentacja klucza jest zgodna z określoną wartością `etag` :
 

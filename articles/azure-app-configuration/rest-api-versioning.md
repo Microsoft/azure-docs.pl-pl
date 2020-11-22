@@ -1,33 +1,31 @@
 ---
 title: Interfejs API REST usługi Azure App Configuration — przechowywanie wersji
-description: Strony referencyjne do obsługi wersji za pomocą interfejsu API REST usługi Azure App Configuration
+description: Strony referencyjne do przechowywania wersji przy użyciu interfejsu API REST usługi Azure App Configuration
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 90d131cdc7c496853f2520951c95b9903d69f8fb
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 3a7f50b26d59501d2be3a0147fe89919819b50e6
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424267"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95246371"
 ---
-# <a name="versioning"></a>Przechowywanie wersji
+# <a name="versioning"></a>Obsługa wersji
 
-wersja interfejsu API: 1,0
-
-Każde żądanie klienta musi udostępniać jawną wersję interfejsu API jako parametr ciągu zapytania. Na przykład: `https://{myconfig}.azconfig.io/kv?api-version=1.0`
+Każde żądanie klienta musi udostępniać jawną wersję interfejsu API jako parametr ciągu zapytania. Na przykład: `https://{myconfig}.azconfig.io/kv?api-version=1.0`.
 
 `api-version` jest wyrażony w formacie SemVer (główny. pomocniczy). Negocjowanie zakresu lub wersji nie jest obsługiwane.
 
-## <a name="error-response"></a>Odpowiedź na błąd
+Ten artykuł ma zastosowanie do interfejsu API w wersji 1,0.
 
 Poniżej przedstawiono podsumowanie możliwych błędów odpowiedzi zwracanych przez serwer, gdy nie można dopasować żądanej wersji interfejsu API.
 
-### <a name="api-version-unspecified"></a>Nieokreślona wersja interfejsu API
+## <a name="api-version-unspecified"></a>Nieokreślona wersja interfejsu API
 
-Występuje, gdy klient wysyła żądanie bez podawania wersji interfejsu API.
+Ten błąd występuje, gdy klient wysyła żądanie bez podawania wersji interfejsu API.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -41,9 +39,9 @@ Content-Type: application/problem+json; charset=utf-8
 }
 ```
 
-### <a name="unsupported-api-version"></a>Nieobsługiwana wersja interfejsu API
+## <a name="unsupported-api-version"></a>Nieobsługiwana wersja interfejsu API
 
-Występuje, gdy żądana wersja interfejsu API klienta nie jest zgodna z żadną z obsługiwanych wersji interfejsu API przez serwer.
+Ten błąd występuje, gdy klient zażądał wersji interfejsu API nie jest zgodny z żadną z obsługiwanych wersji interfejsu API przez serwer.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -57,9 +55,9 @@ Content-Type: application/problem+json; charset=utf-8
 }
 ```
 
-### <a name="invalid-api-version"></a>Nieprawidłowa wersja interfejsu API
+## <a name="invalid-api-version"></a>Nieprawidłowa wersja interfejsu API
 
-Występuje, gdy klient wysyła żądanie z wersją interfejsu API, ale wartość jest źle sformułowana lub nie można jej przeanalizować przez serwer.
+Ten błąd występuje, gdy klient wysyła żądanie z wersją interfejsu API, ale wartość jest źle sformułowana lub nie można jej przeanalizować przez serwer.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -73,9 +71,9 @@ Content-Type: application/problem+json; charset=utf-8
 }
 ```
 
-### <a name="ambiguous-api-version"></a>Niejednoznaczna wersja interfejsu API
+## <a name="ambiguous-api-version"></a>Niejednoznaczna wersja interfejsu API
 
-Występuje, gdy klient żąda wersji interfejsu API, która jest niejednoznaczna dla serwera. Na przykład wiele różnych wartości.
+Ten błąd występuje, gdy klient żąda wersji interfejsu API, która jest niejednoznaczna dla serwera (na przykład wiele różnych wartości).
 
 ```http
 HTTP/1.1 400 Bad Request

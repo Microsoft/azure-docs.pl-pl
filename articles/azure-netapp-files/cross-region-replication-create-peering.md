@@ -1,5 +1,5 @@
 ---
-title: Tworzenie komunikacji równorzędnej replikacji dla Azure NetApp Files | Microsoft Docs
+title: Tworzenie replikacji woluminu dla Azure NetApp Files | Microsoft Docs
 description: Opisuje sposób tworzenia komunikacji równorzędnej replikacji woluminu dla Azure NetApp Files w celu skonfigurowania replikacji między regionami.
 services: azure-netapp-files
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: b-juche
-ms.openlocfilehash: df70f8a37a7223119068afd323583ea6126ca542
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 412724a072bfc03a67bf1005173702f757c6fdf4
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708824"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95249941"
 ---
-# <a name="create-replication-peering-for-azure-netapp-files"></a>Tworzenie komunikacji równorzędnej replikacji dla Azure NetApp Files
+# <a name="create-volume-replication-for-azure-netapp-files"></a>Utwórz replikację woluminu dla Azure NetApp Files
 
 > [!IMPORTANT]
 > Funkcja replikacji między regionami jest obecnie w publicznej wersji zapoznawczej. Musisz przesłać żądanie waitlist, aby uzyskać dostęp do funkcji za Azure NetApp Files pomocą [strony przesyłania waitlist replikacji między regionami](https://aka.ms/anfcrrpreviewsignup). Przed rozpoczęciem korzystania z funkcji replikacji między regionami poczekaj oficjalne powiadomienie e-mail z zespołu Azure NetApp Files.
@@ -113,5 +113,6 @@ Aby autoryzować replikację, należy uzyskać identyfikator zasobu woluminu doc
 * [Wyświetlanie stanu kondycji relacji replikacji](cross-region-replication-display-health-status.md)
 * [Metryki replikacji woluminów](azure-netapp-files-metrics.md#replication)
 * [Zarządzanie odzyskiwaniem po awarii](cross-region-replication-manage-disaster-recovery.md)
+* [Usuwanie replikacji woluminów lub woluminów](cross-region-replication-delete.md)
 * [Rozwiązywanie problemów z replikacją między regionami](troubleshoot-cross-region-replication.md)
 

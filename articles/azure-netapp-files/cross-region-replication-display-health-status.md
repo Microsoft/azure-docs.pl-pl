@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: b-juche
-ms.openlocfilehash: 95c1202fb56e882554d40926e9d5ecec7be49086
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a14656bc1abc42fdc3e948fdae1ca07469681d21
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708811"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95249856"
 ---
 # <a name="display-health-status-of-replication-relationship"></a>Wyświetlanie stanu kondycji relacji replikacji 
 
@@ -58,5 +58,6 @@ Można wyświetlić stan replikacji woluminu źródłowego lub woluminu docelowe
 * [Replikacja między regionami](cross-region-replication-introduction.md)
 * [Zarządzanie odzyskiwaniem po awarii](cross-region-replication-manage-disaster-recovery.md)
 * [Metryki replikacji woluminów](azure-netapp-files-metrics.md#replication)
+* [Usuwanie replikacji woluminów lub woluminów](cross-region-replication-delete.md)
 * [Rozwiązywanie problemów z replikacją między regionami](troubleshoot-cross-region-replication.md)
 

@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: ce438ad0725aff677f897a635a0cd32d92bbbdbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb828eeb408a170b93ffc73b58f14b3f7a883cc4
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265473"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95247238"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Konfigurowanie oświadczeń grupy dla aplikacji z Azure Active Directory
 
@@ -74,7 +74,7 @@ Istnieją dwie kroki konfigurowania Azure Active Directory, aby emitować nazwy 
 
 ## <a name="add-group-claims-to-tokens-for-saml-applications-using-sso-configuration"></a>Dodawanie oświadczeń grupy do tokenów dla aplikacji SAML przy użyciu konfiguracji rejestracji jednokrotnej
 
-Aby skonfigurować oświadczenia grupy dla galerii lub aplikacji SAML innej niż Galeria, Otwórz **aplikacje dla przedsiębiorstw**, kliknij aplikację na liście, wybierz opcję **Konfiguracja logowania**jednokrotnego, a następnie wybierz pozycję **atrybuty użytkownika & oświadczenia**.
+Aby skonfigurować oświadczenia grupy dla galerii lub aplikacji SAML innej niż Galeria, Otwórz **aplikacje dla przedsiębiorstw**, kliknij aplikację na liście, wybierz opcję **Konfiguracja logowania** jednokrotnego, a następnie wybierz pozycję **atrybuty użytkownika & oświadczenia**.
 
 Kliknij pozycję **Dodaj zgłoszenie do grupy**  
 
@@ -144,10 +144,11 @@ Prawidłowe wartości:
 |----------|-------------|
 | **Całą** | Emituje grupy zabezpieczeń, listy dystrybucyjne i role |
 | **Grupy securitygroup** | Emituje grupy zabezpieczeń, których użytkownik jest członkiem w ramach roszczeń grupowych |
-| **"DirectoryRole** | Jeśli użytkownik ma przypisane role katalogu, są emitowane jako wids ' (nie będą wysyłane żądania grup) |
-| **"Aplikacja** | Emituje tylko te grupy, które są jawnie przypisane do aplikacji, a użytkownik jest członkiem |
+| **"DirectoryRole"** | Jeśli użytkownik ma przypisane role katalogu, są emitowane jako wids ' (nie będą wysyłane żądania grup) |
+| **Dla zmiennej 'applicationgroup** | Emituje tylko te grupy, które są jawnie przypisane do aplikacji, a użytkownik jest członkiem |
+| **Dawaj** | Nie zwrócono żadnych grup. (Nie jest to przypadek-sensetive, więc nie działa i można go ustawić bezpośrednio w manifeście aplikacji). |
 
-   Na przykład:
+   Przykład:
 
    ```json
    "groupMembershipClaims": "SecurityGroup"

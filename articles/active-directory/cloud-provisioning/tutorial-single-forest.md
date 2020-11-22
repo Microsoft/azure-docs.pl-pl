@@ -11,18 +11,18 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce5658fb79a893e0aca9d78faf090a886a2ee591
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: ad5147971fc42e65e4621c8a3f0a98e01f2e0339
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651468"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95237304"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Samouczek: Integrowanie pojedynczego lasu z jedną dzierżawą usługi Azure AD
 
 Ten samouczek przeprowadzi Cię przez proces tworzenia hybrydowego środowiska tożsamości przy użyciu usługi Azure Active Directory (Azure AD) łączenie się z obsługą chmury.
 
-![Przycisk Utwórz](media/tutorial-single-forest/diagram1.png)
+![Utwórz](media/tutorial-single-forest/diagram1.png)
 
 Możesz użyć środowiska utworzonego w tym samouczku do testowania lub w celu poznania się z obsługą chmury.
 
@@ -67,7 +67,7 @@ Możesz użyć środowiska utworzonego w tym samouczku do testowania lub w celu 
 7. Po zakończeniu tej operacji zostanie uruchomiony Kreator konfiguracji.  Zaloguj się przy użyciu konta administratora globalnego usługi Azure AD.  Należy pamiętać, że jeśli masz włączone rozszerzone zabezpieczenia programu IE, spowoduje to zablokowanie logowania.  W takim przypadku Zamknij instalację, wyłącz zaawansowane zabezpieczenia programu IE w Menedżer serwera, a następnie kliknij **Kreatora agenta aprowizacji usługi AAD Connect** , aby ponownie uruchomić instalację.
 8. Na ekranie **połącz Active Directory** kliknij pozycję **Dodaj katalog** , a następnie zaloguj się przy użyciu konta administratora domeny Active Directory.  Uwaga: konto administratora domeny nie powinno mieć wymagań dotyczących zmiany hasła. W przypadku wygaśnięcia lub zmiany hasła należy ponownie skonfigurować agenta przy użyciu nowych poświadczeń. Ta operacja spowoduje dodanie katalogu lokalnego.  Kliknij przycisk **Dalej**.
 
-   ![Zrzut ekranu przedstawiający ekran "Połącz Active Directory".](media/how-to-install/install-3.png)
+   ![Zrzut ekranu przedstawiający ekran "Połącz Active Directory".](media/how-to-install/install-3a.png)
 
 9. Na ekranie **Konfiguracja ukończona** kliknij przycisk **Potwierdź**.  Ta operacja spowoduje zarejestrowanie i ponowne uruchomienie agenta.
 

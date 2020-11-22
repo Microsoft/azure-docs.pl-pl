@@ -14,34 +14,34 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: b-juche
-ms.openlocfilehash: ad006279a656758ba856cd3f39c17b0410e525e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eab55f881c250c2e07717604d4ba00587a8b6031
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708791"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95243209"
 ---
 # <a name="manage-disaster-recovery-using-cross-region-replication"></a>Zarządzanie odzyskiwaniem po awarii przy użyciu replikacji między regionami 
 
-Ciągła replikacja między woluminami źródłowymi i docelowymi (zobacz [Tworzenie komunikacji równorzędnej replikacji](cross-region-replication-create-peering.md)) przygotowuje Cię do zdarzenia odzyskiwania po awarii. 
+Ciągła replikacja między woluminami źródłowymi i docelowymi (zobacz [Tworzenie replikacji woluminu](cross-region-replication-create-peering.md)) przygotowuje Cię do zdarzenia odzyskiwania po awarii. 
 
-W przypadku wystąpienia takiego zdarzenia można [przełączyć się do trybu failover na woluminie docelowym](#break-replication-peering-to-activate-the-destination-volume), umożliwiając klientowi odczytywanie i zapisywanie na woluminie docelowym. 
+Po wystąpieniu takiego zdarzenia można przełączyć się do trybu failover [na woluminie docelowym](#fail-over-to-destination-volume), umożliwiając klientowi odczytywanie i zapisywanie na woluminie docelowym. 
 
-Po odzyskiwaniu po awarii można wrócić do woluminu źródłowego z [operacją ponownej synchronizacji](#resync-replication-to-reactivate-the-source-volume) , która zastępuje dane woluminu źródłowego przy użyciu danych woluminu docelowego.  Następnie należy ponownie [nawiązać replikację źródłową i docelową](#reestablish-source-to-destination-replication) , a następnie ponownie zainstalować wolumin źródłowy, do którego ma dostęp klient. 
+Po odzyskiwaniu po awarii można wykonać operację [ponownej synchronizacji](#resync-replication) w celu powrotu po awarii do woluminu źródłowego. Następnie należy ponownie [nawiązać replikację źródłową i docelową](#reestablish-source-to-destination-replication) , a następnie ponownie zainstalować wolumin źródłowy, do którego ma dostęp klient. 
 
 Szczegóły są opisane poniżej. 
 
-## <a name="break-replication-peering-to-activate-the-destination-volume"></a>Przerwij replikację komunikacji równorzędnej, aby aktywować wolumin docelowy
+## <a name="fail-over-to-destination-volume"></a>Przełącz do trybu failover na woluminie docelowym
 
 Gdy konieczne jest aktywowanie woluminu docelowego (na przykład w przypadku przejścia w tryb failover do regionu docelowego), należy przerwać komunikację równorzędną replikacji, a następnie zainstalować wolumin docelowy.  
 
 1. Aby przerwać replikację komunikacji równorzędnej, wybierz wolumin docelowy. Kliknij pozycję **replikacja** w obszarze usługa magazynu.  
 
 2.  Przed kontynuowaniem sprawdź następujące pola:  
-    * Upewnij się, że stan dublowania pokazuje ***dublowanie***.   
-        Nie należy próbować przerwać replikacji komunikacji równorzędnej, jeśli stan dublowany pokazuje *niezainicjowany*.
-    * Upewnij się, że stan relacji jest wyświetlany jako ***bezczynny***.   
-        Nie należy próbować przerwać replikacji komunikacji równorzędnej, jeśli stan relacji pokazuje *transfer*.   
+    * Upewnij się, że stan dublowania pokazuje ***zdublowany** _.   
+        Nie należy próbować przerwać replikacji komunikacji równorzędnej, jeśli stan dublowany pokazuje _Uninitialized *.
+    * Upewnij się, że stan relacji pokazuje ***bezczynny** _.   
+        Nie należy próbować przerwać replikacji komunikacji równorzędnej, jeśli stan relacji pokazuje _Transferring *.   
 
     Zobacz [Wyświetlanie stanu kondycji relacji replikacji](cross-region-replication-display-health-status.md). 
 
@@ -54,7 +54,7 @@ Gdy konieczne jest aktywowanie woluminu docelowego (na przykład w przypadku prz
 5.  Zainstaluj wolumin docelowy, wykonując kroki opisane w sekcji [Instalowanie lub odinstalowywanie woluminu dla maszyn wirtualnych z systemem Windows lub Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).   
     Ten krok umożliwia klientowi dostęp do woluminu docelowego.
 
-## <a name="resync-replication-to-reactivate-the-source-volume"></a>Wykonaj ponowną synchronizację replikacji, aby ponownie aktywować wolumin źródłowy   
+## <a name="resync-volumes-after-disaster-recovery"></a><a name="resync-replication"></a>Synchronizuj ponownie woluminy po odzyskiwaniu po awarii
 
 Po odzyskiwaniu po awarii można ponownie aktywować wolumin źródłowy, wykonując operację ponownej synchronizacji.  Operacja ponownej synchronizacji odwraca proces replikacji i synchronizuje dane z woluminu docelowego do woluminu źródłowego.  
 
@@ -63,7 +63,7 @@ Po odzyskiwaniu po awarii można ponownie aktywować wolumin źródłowy, wykonu
 
 1. Aby ponownie zsynchronizować replikację, wybierz wolumin *źródłowy* . Kliknij pozycję **replikacja** w obszarze usługa magazynu. Następnie kliknij pozycję **ponowna synchronizacja**.  
 
-2. Wpisz **tak** po wyświetleniu monitu, a następnie kliknij przycisk ponownie **Synchronizuj** . 
+2. Wpisz **tak** po wyświetleniu monitu, a następnie kliknij pozycję **ponowna synchronizacja**. 
  
     ![Synchronizuj ponownie replikację](../media/azure-netapp-files/cross-region-replication-resync-replication.png)
 
@@ -80,10 +80,10 @@ Po zakończeniu operacji ponownej synchronizacji z lokalizacji docelowej do źr�
 1. Przerwij komunikację równorzędną replikacji:  
     a. Wybierz wolumin *docelowy* . Kliknij pozycję **replikacja** w obszarze usługa magazynu.  
     b. Przed kontynuowaniem sprawdź następujące pola:   
-    * Upewnij się, że stan dublowania pokazuje ***dublowanie***.   
-    Nie należy próbować przerwać replikacji komunikacji równorzędnej, jeśli stan dublowany pokazuje *niezainicjowany*.  
-    * Upewnij się, że stan relacji jest wyświetlany jako ***bezczynny***.   
-    Nie należy próbować przerwać replikacji komunikacji równorzędnej, jeśli stan relacji pokazuje *transfer*.    
+    * Upewnij się, że stan dublowania pokazuje ***zdublowany** _.   
+    Nie należy próbować przerwać replikacji komunikacji równorzędnej, jeśli stan dublowany pokazuje _uninitialized *.  
+    * Upewnij się, że stan relacji pokazuje ***bezczynny** _.   
+    Nie należy próbować przerwać replikacji komunikacji równorzędnej, jeśli stan relacji pokazuje _transferring *.    
 
         Zobacz [Wyświetlanie stanu kondycji relacji replikacji](cross-region-replication-display-health-status.md). 
 
@@ -103,5 +103,6 @@ Po zakończeniu operacji ponownej synchronizacji z lokalizacji docelowej do źr�
 * [Wymagania i zagadnienia dotyczące korzystania z replikacji między regionami](cross-region-replication-requirements-considerations.md)
 * [Wyświetlanie stanu kondycji relacji replikacji](cross-region-replication-display-health-status.md)
 * [Metryki replikacji woluminów](azure-netapp-files-metrics.md#replication)
+* [Usuwanie replikacji woluminów lub woluminów](cross-region-replication-delete.md)
 * [Rozwiązywanie problemów z replikacją między regionami](troubleshoot-cross-region-replication.md)
 

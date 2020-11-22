@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a0d474208f11c203ca65e9ac296fa381d8633a8b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 12c9fd43933f9f54e013752c5fe482ce31650536
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663745"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95238398"
 ---
 # <a name="create-an-app-service-environment"></a>Tworzenie App Service Environment
 
@@ -48,7 +48,7 @@ ASEv3 jest oferowana tylko w wybranych regionach. Więcej regionów zostanie dod
 
 ## <a name="creating-an-ase-in-the-portal"></a>Tworzenie środowiska ASE w portalu
 
-1. Aby utworzyć ASEv3, Wyszukaj w witrynie Marketplace witrynę **App Service Environment v3**.  
+1. Aby utworzyć ASEv3, Wyszukaj w witrynie Marketplace **App Service Environment (wersja zapoznawcza)**.  
 2. Podstawowe informacje: wybierz subskrypcję, wybierz lub Utwórz grupę zasobów, a następnie wprowadź nazwę środowiska ASE.  Nazwa środowiska ASE zostanie również użyta dla sufiksu domeny w środowisku ASE.  Jeśli nazwa środowiska ASE to *contoso* , sufiks domeny zostanie *contoso.appserviceenvironment.NET*.  Ta nazwa zostanie automatycznie ustawiona w prywatnej strefie Azure DNS używanej przez sieć wirtualną, w której wdrożono środowisko ASE. 
 
     ![Karta App Service Environment tworzenie podstawy](./media/creation/creation-basics.png)

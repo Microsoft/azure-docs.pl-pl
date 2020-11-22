@@ -6,26 +6,26 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: fb3d00fb79c55e29d578f5e068e4ae025414a935
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 78344bd3896ca7d00c9f761c586b6f5142dc1e58
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424195"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95253409"
 ---
 # <a name="azure-active-directory-authentication"></a>Uwierzytelnianie za pomocą usługi Azure Active Directory
 
-Żądania HTTP mogą być uwierzytelniane przy użyciu schematu uwierzytelniania **okaziciela** z tokenem uzyskanym z Azure Active Directory (Azure AD). Te żądania muszą być przesyłane za pośrednictwem protokołu TLS.
+Żądania HTTP można uwierzytelniać przy użyciu `Bearer` schematu uwierzytelniania z tokenem uzyskanym z Azure Active Directory (Azure AD). Należy przesłać te żądania za pośrednictwem Transport Layer Security (TLS).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Podmiot zabezpieczeń, który będzie używany do żądania tokenu usługi Azure AD, musi być przypisany do jednej z odpowiednich [ról konfiguracji aplikacji](./rest-api-authorization-azure-ad.md)
+Należy przypisać podmiot zabezpieczeń, który jest używany do żądania tokenu usługi Azure AD do jednej z odpowiednich [ról konfiguracji aplikacji platformy Azure](./rest-api-authorization-azure-ad.md).
 
-Podaj każde żądanie ze wszystkimi nagłówkami HTTP, które są wymagane do uwierzytelniania. Wymagane są następujące wymagania:
+Podaj każde żądanie ze wszystkimi nagłówkami HTTP, które są wymagane do uwierzytelniania. Poniżej przedstawiono minimalne wymagania:
 
 |  Nagłówek żądania | Opis  |
 | --------------- | ------------ |
-| **Autoryzacja** | Informacje o uwierzytelnianiu wymagane przez schemat **okaziciela** . Poniżej wyjaśniono format i szczegóły. |
+| `Authorization` | Informacje o uwierzytelnianiu wymagane przez `Bearer` schemat. |
 
 **Przykład:**
 
@@ -34,37 +34,40 @@ Host: {myconfig}.azconfig.io
 Authorization: Bearer {{AadToken}}
 ```
 
-## <a name="azure-active-directory-token-acquisition"></a>Azure Active Directory pozyskiwanie tokenów
+## <a name="azure-ad-token-acquisition"></a>Pozyskiwanie tokenów usługi Azure AD
 
-Przed uzyskaniem tokenu usługi Azure AD musi on identyfikować użytkownika, który chce się uwierzytelnić, co odbiorca żąda tokenu oraz jaki punkt końcowy usługi Azure AD powinien używać.
+Przed uzyskaniem tokenu usługi Azure AD należy określić użytkownika, który ma być uwierzytelniany, jak odbiorców, dla których żądasz tokenu, oraz do czego służy punkt końcowy usługi Azure AD.
 
 ### <a name="audience"></a>Grupy odbiorców
 
-Token usługi Azure AD musi być żądany dla odpowiednich odbiorców. W przypadku konfiguracji aplikacji platformy Azure podczas żądania tokenu należy określić jedną z następujących grup odbiorców. Odbiorcy mogą być również nazywani "zasobem", dla którego żądano tokenu.
+Zażądaj tokenu usługi Azure AD za pomocą odpowiednich odbiorców. W przypadku konfiguracji aplikacji platformy Azure Użyj jednej z następujących grup odbiorców. Odbiorcy mogą również być określeni jako *zasób* , dla którego żądano tokenu.
 
 - {configurationStoreName}. azconfig. IO
 - *. azconfig.io
 
 > [!IMPORTANT]
-> Gdy żądanymi odbiorcami jest {configurationStoreName}. azconfig. we/wy, musi dokładnie pasować do nagłówka żądania "host" (z uwzględnieniem wielkości liter) użytego do wysłania żądania.
+> Gdy zażądano odbiorców `{configurationStoreName}.azconfig.io` , musi on dokładnie pasować do `Host` nagłówka żądania (z uwzględnieniem wielkości liter) użytego do wysłania żądania.
 
 ### <a name="azure-ad-authority"></a>Urząd usługi Azure AD
 
-Urząd usługi Azure AD jest punktem końcowym używanym do uzyskiwania tokenu usługi Azure AD. Ma postać `https://login.microsoftonline.com/{tenantId}` . `{tenantId}`Segment odnosi się do identyfikatora dzierżawy Azure Active Directory, do którego należy użytkownik/aplikacja, która próbuje się uwierzytelnić.
+Urząd usługi Azure AD jest punktem końcowym używanym do uzyskiwania tokenu usługi Azure AD. Ma postać `https://login.microsoftonline.com/{tenantId}` . `{tenantId}`Segment odwołuje się do identyfikatora dzierżawy usługi Azure AD, do którego należy użytkownik lub aplikacja próbująca się uwierzytelnić.
 
 ### <a name="authentication-libraries"></a>Biblioteki uwierzytelniania
 
-Platforma Azure udostępnia zestaw bibliotek o nazwie biblioteki uwierzytelniania Azure Active Directory (ADAL), aby uprościć proces uzyskiwania tokenu usługi Azure AD. Te biblioteki zostały skompilowane dla wielu języków. Dokumentację można znaleźć [tutaj](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries).
+Platforma Azure udostępnia zestaw bibliotek o nazwie Azure Active Directory bibliotek uwierzytelniania, co upraszcza proces uzyskiwania tokenu usługi Azure AD. Platforma Azure tworzy te biblioteki dla wielu języków. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries).
 
-## <a name="errors"></a>**błędy**
+## <a name="errors"></a>błędy
+
+Mogą wystąpić następujące błędy.
 
 ```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256, Bearer
 ```
 
-**Przyczyna:** Nie podano nagłówka żądania autoryzacji z schematem okaziciela.
-**Rozwiązanie:** Podaj prawidłowy ```Authorization``` nagłówek żądania http
+**Przyczyna:** Nie podano nagłówka żądania autoryzacji z `Bearer` schematem.
+
+**Rozwiązanie:** Podaj prawidłowy `Authorization` nagłówek żądania HTTP.
 
 ```http
 HTTP/1.1 401 Unauthorized
@@ -72,7 +75,8 @@ WWW-Authenticate: HMAC-SHA256, Bearer error="invalid_token", error_description="
 ```
 
 **Przyczyna:** Token usługi Azure AD jest nieprawidłowy.
-**Rozwiązanie:** Uzyskaj token usługi Azure AD z urzędu usługi Azure AD i upewnij się, że są używane odpowiednie odbiorcy.
+
+**Rozwiązanie:** Uzyskaj token usługi Azure AD z urzędu usługi Azure AD, a następnie upewnij się, że użyto odpowiednich odbiorców.
 
 ```http
 HTTP/1.1 401 Unauthorized
@@ -80,4 +84,5 @@ WWW-Authenticate: HMAC-SHA256, Bearer error="invalid_token", error_description="
 ```
 
 **Przyczyna:** Token usługi Azure AD jest nieprawidłowy.
-**Rozwiązanie:** Uzyskaj token usługi Azure AD z urzędu usługi Azure AD i upewnij się, że dzierżawa usługi Azure AD jest skojarzona z subskrypcją, do której należy magazyn konfiguracji. Ten błąd może pojawić się, jeśli podmiot zabezpieczeń należy do więcej niż jednej dzierżawy usługi Azure AD.
+
+**Rozwiązanie:** Uzyskaj token usługi Azure AD z urzędu usługi Azure AD. Upewnij się, że dzierżawa usługi Azure AD jest skojarzona z subskrypcją, do której należy magazyn konfiguracji. Ten błąd może pojawić się, jeśli podmiot zabezpieczeń należy do więcej niż jednej dzierżawy usługi Azure AD.

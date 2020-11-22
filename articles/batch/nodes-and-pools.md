@@ -2,17 +2,17 @@
 title: Węzły i pule w Azure Batch
 description: Zapoznaj się z węzłami obliczeniowymi i pulami oraz sposobem ich użycia w przepływie pracy Azure Batch z punktu widzenia rozwoju.
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: 77f3a1c954f5591537436c9ee747052b3a642ec4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 11/20/2020
+ms.openlocfilehash: 880a956a2d839483c59578afad1b62146799578a
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537615"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95243073"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Węzły i pule w Azure Batch
 
-W przepływie pracy Azure Batch *węzeł obliczeniowy* (lub *węzeł* ) jest maszyną wirtualną, która przetwarza część obciążenia aplikacji. *Pula* jest kolekcją tych węzłów, na których aplikacja ma działać. W tym artykule opisano więcej informacji o węzłach i pulach wraz z zagadnieniami dotyczącymi tworzenia i używania ich w przepływie pracy Azure Batch.
+W przepływie pracy Azure Batch *węzeł obliczeniowy* (lub *węzeł*) jest maszyną wirtualną, która przetwarza część obciążenia aplikacji. *Pula* jest kolekcją tych węzłów, na których aplikacja ma działać. W tym artykule opisano więcej informacji o węzłach i pulach wraz z zagadnieniami dotyczącymi tworzenia i używania ich w przepływie pracy Azure Batch.
 
 ## <a name="nodes"></a>Węzły
 
@@ -40,7 +40,7 @@ Do każdego węzła, który jest dodawany do puli zostaje przypisana unikatowa n
 
 Pula może być używana tylko na koncie usługi Batch, w ramach którego ją utworzono. Konto wsadowe może utworzyć wiele pul, aby spełnić wymagania dotyczące zasobów aplikacji, które zostaną uruchomione.
 
-Pulę można utworzyć ręcznie lub automatycznie przez usługę Batch po określeniu pracy do wykonania. Podczas tworzenia puli można określić następujące atrybuty:
+Pulę można utworzyć ręcznie lub [automatycznie przez usługę Batch](#autopools) po określeniu pracy do wykonania. Podczas tworzenia puli można określić następujące atrybuty:
 
 - [System operacyjny i wersja węzła](#operating-system-and-version)
 - [Typ węzła i docelowa liczba węzłów](#node-type-and-target)
@@ -105,7 +105,7 @@ Węzły o niskim priorytecie mogą zostać przeniesiona, gdy platforma Azure ma 
 
 W tej samej puli mogą istnieć węzły obliczeniowe o niskim priorytecie i węzły dedykowane. Każdy typ węzła ma własne ustawienie docelowe, dla którego można określić żądaną liczbę węzłów.
 
-Liczbę węzłów obliczeniowych określa się jako *docelową* , ponieważ w niektórych sytuacjach wybrana liczba węzłów w puli nie zostanie osiągnięta. Na przykład pula może nie osiągnąć wartości docelowej, jeśli wcześniej zostanie osiągnięty [podstawowy przydział](batch-quota-limit.md) dla konta usługi Batch. Lub Pula może nie osiągnąć celu, jeśli zastosowano formułę automatycznego skalowania do puli, która ogranicza maksymalną liczbę węzłów.
+Liczbę węzłów obliczeniowych określa się jako *docelową*, ponieważ w niektórych sytuacjach wybrana liczba węzłów w puli nie zostanie osiągnięta. Na przykład pula może nie osiągnąć wartości docelowej, jeśli wcześniej zostanie osiągnięty [podstawowy przydział](batch-quota-limit.md) dla konta usługi Batch. Lub Pula może nie osiągnąć celu, jeśli zastosowano formułę automatycznego skalowania do puli, która ogranicza maksymalną liczbę węzłów.
 
 Aby uzyskać informacje o cenach dla węzłów o niskim priorytecie i dedykowanych, zobacz [Cennik usługi Batch](https://azure.microsoft.com/pricing/details/batch/).
 
@@ -142,7 +142,7 @@ Opcja konfiguracji [maksymalnej liczby zadań podrzędnych na węzeł](batch-par
 
 Domyślna konfiguracja polega na tym, że w danym momencie w węźle jest uruchamiane jedno zadanie podrzędne, ale istnieją scenariusze, w których korzystne jest, aby w danym momencie w węźle było wykonywanych więcej zadań podrzędnych. Zobacz [przykładowy scenariusz](batch-parallel-node-tasks.md#example-scenario) w artykule dotyczącym [równoczesnych zadań podrzędnych węzła](batch-parallel-node-tasks.md), aby dowiedzieć się, jak można korzystać z wielu zadań podrzędnych w jednym węźle.
 
-Można również określić *Typ wypełnienia* , który określa, czy wsadowe rozprasza zadania równomiernie we wszystkich węzłach w puli, czy pakiety z każdym węzłem z maksymalną liczbą zadań przed przypisaniem zadań do innego węzła.
+Można również określić *Typ wypełnienia*, który określa, czy wsadowe rozprasza zadania równomiernie we wszystkich węzłach w puli, czy pakiety z każdym węzłem z maksymalną liczbą zadań przed przypisaniem zadań do innego węzła.
 
 ## <a name="communication-status"></a>Stan komunikacji
 
@@ -184,6 +184,10 @@ Z jednej strony można utworzyć pulę dla każdego przesyłanego zadania i usun
 Z drugiej strony, jeśli natychmiastowe uruchomienie zadań ma najwyższy priorytet, pula może zostać utworzona przed czasem, a jej węzły mogą zostać udostępnione przed przesłaniem zadań. W tym scenariuszu zadania podrzędne mogą być uruchamiane natychmiast, ale podczas oczekiwania na ich przypisanie węzły mogą być w stanie bezczynności.
 
 Połączone podejście jest zwykle używane do obsługi zmiennej, ale trwającego obciążenia. Możesz mieć pulę, w której przesyłane są wiele zadań, i można skalować liczbę węzłów w górę lub w dół zgodnie z obciążeniem zadania. Można to zrobić w sposób reaktywny, w oparciu o bieżące obciążenie, lub aktywny, jeśli obciążenie można przewidzieć. Aby uzyskać więcej informacji, zobacz [zasady skalowania automatycznego](#automatic-scaling-policy).
+
+## <a name="autopools"></a>Autopule
+
+[Autopula](/rest/api/batchservice/job/add#autopoolspecification) jest pulą utworzoną przez usługę Batch, gdy zadanie zostanie przesłane zamiast tworzenia przed zadaniami, które zostaną uruchomione w puli. Usługa Batch będzie zarządzać okresem istnienia puli Auto, zgodnie ze specyfiką określoną przez użytkownika. W większości przypadków te pule są również ustawiane automatycznie po zakończeniu zadań.
 
 ## <a name="security-with-certificates"></a>Zabezpieczenia oparte na certyfikatach
 

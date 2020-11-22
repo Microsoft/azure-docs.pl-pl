@@ -4,12 +4,12 @@ description: Usługa Batch obsługuje uwierzytelnianie z usługi Batch w usłudz
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 685b84f1e628ea67689d3de8bf64c9641edba6fc
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 784e92eaa2cd672d511177066befcfd7effc7ca4
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920512"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95252644"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Uwierzytelnianie rozwiązań usługi Batch za pomocą Active Directory
 
@@ -144,7 +144,7 @@ Możesz użyć roli niestandardowej, aby udzielić uprawnień użytkownikowi, gr
 - Microsoft.Batch/batchAccounts/odczyt (dla każdej operacji odczytu)
 - Microsoft.Batch/batchAccounts/listKeys/Action (dla dowolnej operacji)
 
-Role niestandardowe są przeznaczone dla użytkowników uwierzytelnionych przez usługę Azure AD, a nie poświadczenia konta usługi Batch (klucz współużytkowany). Zwróć uwagę, że poświadczenia konta w usłudze Batch dają pełne uprawnienia do konta w usłudze Batch. Należy również pamiętać, że zadania używające autopuli wymagają uprawnień na poziomie puli.
+Role niestandardowe są przeznaczone dla użytkowników uwierzytelnionych przez usługę Azure AD, a nie poświadczenia konta usługi Batch (klucz współużytkowany). Zwróć uwagę, że poświadczenia konta w usłudze Batch dają pełne uprawnienia do konta w usłudze Batch. Należy również pamiętać, że zadania używające [autopuli](nodes-and-pools.md#autopools) wymagają uprawnień na poziomie puli.
 
 > [!NOTE]
 > W polu akcja należy określić pewne przypisania ról, podczas gdy inne muszą być określone w polu dataaction. Aby uzyskać więcej informacji, zobacz operacje związane z [dostawcą zasobów platformy Azure](../role-based-access-control/resource-provider-operations.md#microsoftbatch).

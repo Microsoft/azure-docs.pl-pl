@@ -1,30 +1,30 @@
 ---
-title: Interfejs API REST usługi Azure App Configuration — Key-Value
+title: Interfejs API REST usługi Azure App Configuration — klucz-wartość
 description: Strony referencyjne do pracy z kluczowymi wartościami przy użyciu interfejsu API REST usługi Azure App Configuration
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 50d97a330507e9361674776acf29d1007ee5bf58
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: f89b3f2fa4805eeb2fd9f9d511c8f228b98139ac
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424138"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241033"
 ---
-# <a name="key-values"></a>Key-Values
+# <a name="key-values"></a>Klucze/wartości
 
-wersja interfejsu API: 1,0
+Klucz-wartość to zasób identyfikowany przez unikatową kombinację `key`  +  `label` . Parametr `label` jest opcjonalny. Aby jawnie odwoływać się do wartości klucza bez etykiety, należy użyć "\ 0" (adres URL zakodowany jako ``%00`` ). Zobacz szczegóły każdej operacji.
 
-Klucz-wartość to zasób identyfikowany przez unikatową kombinację `key`  +  `label` . Parametr `label` jest opcjonalny. Aby jawnie odwoływać się do wartości klucza bez etykiet, użyj "\ 0" (adres URL zakodowany jako ``%00`` ). Zobacz szczegóły każdej operacji.
+Ten artykuł ma zastosowanie do interfejsu API w wersji 1,0.
 
 ## <a name="operations"></a>Operacje
 
 - Get
 - Lista wielu
 - Set
-- Usuń
+- Usuwanie
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -45,10 +45,10 @@ Klucz-wartość to zasób identyfikowany przez unikatową kombinację `key`  +  
 }
 ```
 
-## <a name="get-key-value"></a>Pobierz Key-Value
+## <a name="get-key-value"></a>Pobierz wartość klucza
 
-**Wymagane:** ``{key}`` , ``{api-version}``  
-*Opcjonalne:* ``label`` -Jeśli pominięty, oznacza to, że klucz-wartość nie jest etykietą
+Wymagane: ``{key}`` , ``{api-version}``  
+Opcjonalne: ``label`` (w przypadku pominięcia oznacza to, że klucz-wartość nie jest etykietą).
 
 ```http
 GET /kv/{key}?label={label}&api-version={api-version}
@@ -87,7 +87,7 @@ HTTP/1.1 404 Not Found
 
 ## <a name="get-conditionally"></a>Pobierz (warunkowo)
 
-Aby poprawić buforowanie klienta, użyj `If-Match` lub `If-None-Match` Zażądaj nagłówków. `etag`Argument jest częścią reprezentacji klucza. Zobacz [sekcję 14,24 i 14,26](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+Aby poprawić buforowanie klienta, użyj `If-Match` lub `If-None-Match` Zażądaj nagłówków. `etag`Argument jest częścią reprezentacji klucza. Aby uzyskać więcej informacji, zobacz [sekcje 14,24 i 14,26](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 
 Poniższe żądanie pobiera wartość klucza tylko wtedy, gdy bieżąca reprezentacja nie jest zgodna z określoną `etag` :
 
@@ -109,12 +109,9 @@ lub
 HTTP/1.1 200 OK
 ```
 
-## <a name="list-key-values"></a>Key-Values listy
+## <a name="list-key-values"></a>Wyświetl wartości kluczy
 
-Zobacz **filtrowanie** dla opcji dodatkowych
-
-*Opcjonalne:* ``key`` -Jeśli nie zostanie określony, oznacza **dowolny** klucz.
-*Opcjonalne:* ``label`` -Jeśli nie zostanie określony, oznacza to, że **wszystkie** etykiety.
+Opcjonalne: ``key`` (jeśli nie zostanie określony, oznacza dowolny klucz). Opcjonalne: ``label`` (jeśli nie zostanie określony, oznacza to etykietę).
 
 ```http
 GET /kv?label=*&api-version={api-version} HTTP/1.1
@@ -127,9 +124,11 @@ HTTP/1.1 200 OK
 Content-Type: application/vnd.microsoft.appconfig.kvset+json; charset=utf-8
 ```
 
+Aby uzyskać dodatkowe opcje, zobacz sekcję "filtrowanie" w dalszej części tego artykułu.
+
 ## <a name="pagination"></a>Dzielenie na strony
 
-Wynik jest podzielony na strony, jeśli liczba zwracanych elementów przekracza limit odpowiedzi. Postępuj zgodnie z opcjonalnymi `Link` nagłówkami odpowiedzi i Użyj `rel="next"` na potrzeby nawigacji.
+Wynik jest podzielony na strony, jeśli liczba zwracanych elementów przekracza limit odpowiedzi. Postępuj zgodnie z opcjonalnymi `Link` nagłówkami odpowiedzi i używaj `rel="next"` do nawigacji.
 Alternatywnie zawartość zawiera następny link w postaci `@nextLink` właściwości. Połączony identyfikator URI zawiera `api-version` argument.
 
 ```http
@@ -183,7 +182,7 @@ GET /kv?key={key}&label={label}&api-version={api-version}
 
 `_`, `\`, `,`
 
-Jeśli zarezerwowany znak jest częścią wartości, należy użyć klawisza ucieczki `\{Reserved Character}` . Znaki niezastrzeżone mogą również zostać zmienione.
+Jeśli zarezerwowany znak jest częścią wartości, należy użyć znaku ucieczki przy użyciu `\{Reserved Character}` . Znaki niezastrzeżone mogą również zostać zmienione.
 
 ***Sprawdzanie poprawności filtru** _
 
@@ -232,9 +231,9 @@ Użyj opcjonalnego `$select` parametru ciągu zapytania i podaj rozdzieloną prz
 GET /kv?$select=key,value&api-version={api-version} HTTP/1.1
 ```
 
-## <a name="time-based-access"></a>Dostęp Time-Based
+## <a name="time-based-access"></a>Dostęp oparty na czasie
 
-Uzyskaj reprezentację wyniku tak jak wcześniej. Zobacz sekcję [2.1.1](https://tools.ietf.org/html/rfc7089#section-2.1). Podział na strony jest nadal obsługiwany zgodnie z definicją powyżej.
+Uzyskaj reprezentację wyniku tak jak wcześniej. Aby uzyskać więcej informacji, zobacz sekcję [2.1.1](https://tools.ietf.org/html/rfc7089#section-2.1). Podział na strony jest nadal obsługiwany zgodnie z definicją we wcześniejszej części tego artykułu.
 
 ```http
 GET /kv?api-version={api-version} HTTP/1.1
@@ -260,8 +259,8 @@ Link: <{relative uri}>; rel="original"
 
 ## <a name="set-key"></a>Ustaw klucz
 
-- **Wymagane:**``{key}``
-- *Opcjonalne:* ``label`` -Jeśli nie określono lub etykieta = %00, oznacza to, że nie ma etykiety.
+- Wymagane: ``{key}``
+- Opcjonalnie: ``label`` (jeśli nie zostanie określony, lub etykieta = %00, oznacza to, że wartość klucza nie jest etykietą).
 
 ```http
 PUT /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -323,9 +322,9 @@ Content-Type: application/problem+json; charset="utf-8"
 ## <a name="set-key-conditionally"></a>Ustaw klucz (warunkowo)
 
 Aby zapobiec występowaniu warunków wyścigu, użyj `If-Match` lub `If-None-Match` Zażądaj nagłówków. `etag`Argument jest częścią reprezentacji klucza.
-Jeśli `If-Match` lub `If-None-Match` zostaną pominięte, operacja będzie bezwarunkowo.
+Jeśli `If-Match` lub `If-None-Match` zostaną pominięte, operacja jest bezwarunkowa.
 
-Następująca odpowiedź aktualizuje wartość tylko wtedy, gdy bieżąca reprezentacja pasuje do określonego `etag`
+Następująca odpowiedź aktualizuje wartość tylko wtedy, gdy bieżąca reprezentacja pasuje do określonego `etag` :
 
 ```http
 PUT /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -333,7 +332,7 @@ Content-Type: application/vnd.microsoft.appconfig.kv+json
 If-Match: "4f6dd610dd5e4deebc7fbaef685fb903"
 ```
 
-Następująca odpowiedź aktualizuje wartość tylko wtedy, gdy bieżąca reprezentacja *nie* jest zgodna z określoną `etag`
+Następująca odpowiedź aktualizuje wartość tylko wtedy, gdy bieżąca reprezentacja nie jest zgodna z określoną `etag` :
 
 ```http
 PUT /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -349,7 +348,7 @@ Content-Type: application/vnd.microsoft.appconfig.kv+json;
 If-Match: "*"
 ```
 
-Poniższe żądanie dodaje wartość tylko wtedy, gdy reprezentacja jeszcze *nie* istnieje:
+Poniższe żądanie dodaje wartość tylko wtedy, gdy reprezentacja jeszcze nie istnieje:
 
 ```http
 PUT /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -371,10 +370,10 @@ lub
 HTTP/1.1 412 PreconditionFailed
 ```
 
-## <a name="delete"></a>Usuń
+## <a name="delete"></a>Usuwanie
 
-- **Wymagane:** `{key}` , `{api-version}`
-- *Opcjonalne:* `{label}` -Jeśli nie określono lub etykieta = %00, oznacza to, że nie ma etykiety.
+- Wymagane: `{key}` , `{api-version}`
+- Opcjonalnie: `{label}` (jeśli nie zostanie określony, lub etykieta = %00, oznacza to, że wartość klucza nie jest etykietą).
 
 ```http
 DELETE /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -396,4 +395,4 @@ HTTP/1.1 204 No Content
 
 ## <a name="delete-key-conditionally"></a>Usuń klucz (warunkowo)
 
-Podobne do **ustawiania klucza (warunkowo)**
+Jest to podobne do sekcji "Ustawianie klucza (warunkowo)" wcześniej w tym artykule.

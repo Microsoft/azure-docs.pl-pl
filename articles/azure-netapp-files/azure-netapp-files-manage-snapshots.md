@@ -12,18 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/12/2020
+ms.date: 11/18/2020
 ms.author: b-juche
-ms.openlocfilehash: c64bc8bf265a8e3cc3c490827bdbd79661e3528a
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 03b7941385517fe694f0743194655a1b6a1c0e1e
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591753"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95253562"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Zarządzanie migawkami przy użyciu usługi Azure NetApp Files
 
 Azure NetApp Files obsługuje tworzenie migawek na żądanie i Używanie zasad migawek do planowania automatycznego tworzenia migawek. Możesz również przywrócić migawkę do nowego woluminu, przywrócić pojedynczy plik za pomocą klienta lub przywrócić istniejący wolumin przy użyciu migawki.
+
+> [!NOTE] 
+> Aby zapoznać się z zagadnieniami dotyczącymi zarządzania migawkami w ramach replikacji między regionami, zobacz [wymagania i zagadnienia dotyczące korzystania z replikacji między regionami](cross-region-replication-requirements-considerations.md).
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Tworzenie migawki na żądanie dla woluminu
 
@@ -77,7 +80,7 @@ Zasady migawek umożliwiają określenie częstotliwości tworzenia migawek w cy
 
 2.  W oknie Zasady migawek Ustaw stan zasady na **włączone**. 
 
-3.  Kliknij kartę **co godzinę** , **codziennie** , **co tydzień** lub **co miesiąc** , aby utworzyć zasady co godzinę, codziennie, co tydzień lub co miesiąc. Określ **liczbę migawek do zachowania**.  
+3.  Kliknij kartę **co godzinę**, **codziennie**, **co tydzień** lub **co miesiąc** , aby utworzyć zasady co godzinę, codziennie, co tydzień lub co miesiąc. Określ **liczbę migawek do zachowania**.  
 
     Zapoznaj się z [limitami zasobów dla Azure NetApp Files](azure-netapp-files-resource-limits.md) o maksymalnej liczbie migawek dozwolonych dla woluminu. 
 
@@ -97,7 +100,7 @@ Zasady migawek umożliwiają określenie częstotliwości tworzenia migawek w cy
 
     ![Zasady migawek miesięcznie](../media/azure-netapp-files/snapshot-policy-monthly.png) 
 
-4.  Kliknij pozycję **Zapisz**.  
+4.  Kliknij przycisk **Zapisz**.  
 
 Jeśli konieczne jest utworzenie dodatkowych zasad migawek, Powtórz krok 3.
 Utworzone zasady są wyświetlane na stronie zasady migawek.
@@ -226,7 +229,7 @@ Jeśli katalog migawek nie jest widoczny, może być ukryty, ponieważ opcja Ukr
 
     ![Wklej plik do przywrócenia](../media/azure-netapp-files/snapshot-paste-file-restore.png) 
 
-4. Możesz również kliknąć prawym przyciskiem myszy katalog nadrzędny, wybrać pozycję **Właściwości** , kliknij kartę **poprzednie wersje** , aby wyświetlić listę migawek, a następnie wybierz pozycję **Przywróć** , aby przywrócić plik.  
+4. Możesz również kliknąć prawym przyciskiem myszy katalog nadrzędny, wybrać pozycję **Właściwości**, kliknij kartę **poprzednie wersje** , aby wyświetlić listę migawek, a następnie wybierz pozycję **Przywróć** , aby przywrócić plik.  
 
     ![Właściwości poprzednie wersje](../media/azure-netapp-files/snapshot-properties-previous-version.png) 
 

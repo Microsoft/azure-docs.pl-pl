@@ -1,5 +1,5 @@
 ---
-title: Usuwanie replikacji dla Azure NetApp Files replikacji między regionami | Microsoft Docs
+title: Usuwanie replikacji woluminów lub woluminów dla Azure NetApp Files replikacji między regionami | Microsoft Docs
 description: Opisuje sposób usuwania połączenia replikacji, które nie jest już potrzebne między woluminami źródłowymi i docelowymi.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,23 +12,41 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 11/18/2020
 ms.author: b-juche
-ms.openlocfilehash: e08b69271ba9d115c26418bc5e421ee6c94b031d
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 5ce7a591acd8203775808457219b0ec392cd696e
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695711"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95249898"
 ---
-# <a name="delete-replications"></a>Usuwanie replikacji
+# <a name="delete-volume-replications-or-volumes"></a>Usuwanie replikacji woluminów lub woluminów
 
-Możesz przerwać połączenie replikacji między woluminem źródłowym a docelowym, usuwając replikację woluminu. Można wykonać operację usuwania z woluminu źródłowego lub docelowego. Operacja usuwania usuwa tylko autoryzację na potrzeby replikacji; nie powoduje usunięcia źródła ani woluminu docelowego. 
+W tym artykule opisano sposób usuwania replikacji woluminów. Opisano w nim również sposób usuwania woluminu źródłowego lub docelowego.
 
-## <a name="steps"></a>Kroki
+## <a name="delete-volume-replications"></a>Usuwanie replikacji woluminów
 
-1. Upewnij się, że Komunikacja równorzędna replikacji została przerwana przed usunięciem replikacji woluminu.    
-    Zobacz [Wyświetlanie stanu kondycji relacji replikacji](cross-region-replication-display-health-status.md) i [przerywanie replikacji komunikacji równorzędnej](cross-region-replication-manage-disaster-recovery.md#break-replication-peering-to-activate-the-destination-volume).  
+Możesz przerwać połączenie replikacji między woluminem źródłowym a docelowym, usuwając replikację woluminu. Należy usunąć replikację z woluminu docelowego. Operacja usuwania usuwa tylko autoryzację na potrzeby replikacji; nie powoduje usunięcia źródła ani woluminu docelowego. 
+
+1. Upewnij się, że Komunikacja równorzędna replikacji została przerwana przed usunięciem replikacji woluminu. Aby przerwać replikację komunikacji równorzędnej: 
+
+    1. Wybierz wolumin *docelowy* . Kliknij pozycję **replikacja** w obszarze usługa magazynu.  
+
+    2.  Przed kontynuowaniem sprawdź następujące pola:  
+        * Upewnij się, że stan dublowania pokazuje ***zdublowany** _.   
+            Nie należy próbować przerwać replikacji komunikacji równorzędnej, jeśli stan dublowany pokazuje _Uninitialized *.
+        * Upewnij się, że stan relacji pokazuje ***bezczynny** _.   
+            Nie należy próbować przerwać replikacji komunikacji równorzędnej, jeśli stan relacji pokazuje _Transferring *.   
+
+        Zobacz [Wyświetlanie stanu kondycji relacji replikacji](cross-region-replication-display-health-status.md). 
+
+    3.  Kliknij pozycję **Przerwij komunikację równorzędną**.  
+
+    4.  Wpisz **tak** po wyświetleniu monitu, a następnie kliknij przycisk **Przerwij**. 
+
+        ![Przerwij replikację komunikacji równorzędnej](../media/azure-netapp-files/cross-region-replication-break-replication-peering.png)
+
 
 1. Aby usunąć replikację woluminu, wybierz pozycję **replikacja** ze źródła lub woluminu docelowego.  
 
@@ -37,6 +55,16 @@ Możesz przerwać połączenie replikacji między woluminem źródłowym a docel
 3. Potwierdź usunięcie, wpisując **Yes** i klikając przycisk **Usuń**.   
 
     ![Usuń replikację](../media/azure-netapp-files/cross-region-replication-delete-replication.png)
+
+## <a name="delete-source-or-destination-volumes"></a>Usuń woluminy źródłowe lub docelowe
+
+Jeśli chcesz usunąć wolumin źródłowy lub docelowy, należy wykonać następujące kroki w opisanej kolejności. W przeciwnym razie wystąpi `Volume with replication cannot be deleted` błąd.  
+
+1. Z woluminu docelowego [Usuń replikację woluminu](#delete-volume-replications).   
+
+2. Usuń wolumin docelowy lub źródłowy zgodnie z wymaganiami, klikając prawym przyciskiem myszy nazwę woluminu i wybierając polecenie **Usuń**.   
+
+    ![Zrzut ekranu, który pokazuje menu prawym przyciskiem myszy woluminu.](../media/azure-netapp-files/cross-region-replication-delete-volume.png)
 
 ## <a name="next-steps"></a>Następne kroki  
 

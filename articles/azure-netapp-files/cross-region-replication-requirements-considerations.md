@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/16/2020
 ms.author: b-juche
-ms.openlocfilehash: f2a50872fdb71419a0c3f068712ec67523a098e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b664dcd1cb12808960ffacf91c6d02d58632c4e
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708784"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95243141"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>Wymagania i zagadnienia dotyczące korzystania z replikacji między regionami 
 
@@ -38,12 +38,14 @@ Należy zwrócić uwagę na następujące wymagania i zagadnienia dotyczące kor
 * Konfigurowanie replikacji woluminu dla woluminów źródłowych utworzonych na podstawie migawki nie jest w tej chwili obsługiwane.
 * Po skonfigurowaniu replikacji między regionami proces replikacji tworzy *migawki SnapMirror* , aby zapewnić odwołania między woluminem źródłowym a woluminem docelowym. Migawki SnapMirror są automatycznie przetwarzane, gdy dla każdego transferu przyrostowego zostanie utworzony nowy. Nie można usunąć migawek SnapMirror, dopóki nie zostaną usunięte relacje i woluminy replikacji. 
 * Ręczne migawki można usunąć na woluminie źródłowym relacji replikacji, gdy relacja replikacji jest aktywna lub zerwana, a także po usunięciu relacji replikacji. Nie można usunąć migawek ręcznych dla woluminu docelowego, dopóki relacja replikacji nie zostanie przerwana.
+* Nie można przywrócić migawki, która została wykonana przed utworzeniem woluminu docelowego replikacji.
 
 ## <a name="next-steps"></a>Następne kroki
-* [Tworzenie komunikacji równorzędnej replikacji](cross-region-replication-create-peering.md)
+* [Utwórz replikację woluminu](cross-region-replication-create-peering.md)
 * [Wyświetlanie stanu kondycji relacji replikacji](cross-region-replication-display-health-status.md)
 * [Zarządzanie odzyskiwaniem po awarii](cross-region-replication-manage-disaster-recovery.md)
 * [Metryki replikacji woluminów](azure-netapp-files-metrics.md#replication)
+* [Usuwanie replikacji woluminów lub woluminów](cross-region-replication-delete.md)
 * [Rozwiązywanie problemów z replikacją między regionami](troubleshoot-cross-region-replication.md)
 
 

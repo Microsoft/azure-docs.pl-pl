@@ -3,12 +3,12 @@ title: Usuwanie nietrwałe dla Azure Backup
 description: Dowiedz się, jak używać funkcji zabezpieczeń w programie Azure Backup, aby tworzyć kopie zapasowe bardziej bezpieczne.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: d7998c7f9def6ce9965ded3b6ec700f7975891eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da473b1d886ec2fe95a7baae76b09aff38fb3cd7
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271549"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95254053"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Usuwanie nietrwałe dla Azure Backup
 
@@ -37,7 +37,7 @@ Aby wyłączyć usuwanie nietrwałe, wykonaj następujące kroki:
 
 1. W Azure Portal przejdź do magazynu, a następnie przejdź do pozycji **Ustawienia**  ->  **Właściwości**.
 2. W okienku właściwości wybierz pozycję Aktualizacja **ustawień zabezpieczeń**  ->  **Update**.  
-3. W okienku ustawienia zabezpieczeń w obszarze **usuwanie nietrwałe**wybierz pozycję **Wyłącz**.
+3. W okienku ustawienia zabezpieczeń w obszarze **usuwanie nietrwałe** wybierz pozycję **Wyłącz**.
 
 ![Wyłącz usuwanie nietrwałe](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
 
@@ -73,7 +73,7 @@ Wykonaj następujące kroki:
 
 1. Postępuj zgodnie z instrukcjami, aby [wyłączyć usuwanie nietrwałe](#enabling-and-disabling-soft-delete).
 
-2. W Azure Portal przejdź do swojego magazynu, przejdź do **pozycji elementy kopii zapasowej**i wybierz niewygładzony element usunięty.
+2. W Azure Portal przejdź do swojego magazynu, przejdź do **pozycji elementy kopii zapasowej** i wybierz niewygładzony element usunięty.
 
    ![Wybierz niewygładzony element usunięty](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
@@ -87,11 +87,11 @@ Wykonaj następujące kroki:
 
 5. Wybierz pozycję **Usuń dane kopii zapasowej** , aby trwale usunąć dane kopii zapasowej.
 
-   ![Wybierz pozycję Usuń dane kopii zapasowej](/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+   ![Wybierz pozycję Usuń dane kopii zapasowej](./media/backup-azure-manage-vms/delete-backup-button.png)
 
 6. Wpisz nazwę elementu kopii zapasowej, aby potwierdzić, że chcesz usunąć punkty odzyskiwania.
 
-   ![Wpisz nazwę elementu kopii zapasowej](/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+   ![Wpisz nazwę elementu kopii zapasowej](./media/backup-azure-manage-vms/delete-backup-data.png)
 
 7. Aby usunąć dane kopii zapasowej dla elementu, wybierz pozycję **Usuń**. Komunikat z powiadomieniem informuje o tym, że dane kopii zapasowej zostały usunięte.
 

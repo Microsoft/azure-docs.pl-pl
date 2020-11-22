@@ -1,38 +1,38 @@
 ---
 title: Interfejs API REST usługi Azure App Configuration — uwierzytelnianie HMAC
-description: Używanie algorytmu HMAC do uwierzytelniania w usłudze Azure App Configuration przy użyciu interfejsu API REST
+description: Używanie algorytmu HMAC do uwierzytelniania w konfiguracji aplikacji platformy Azure przy użyciu interfejsu API REST
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 236670cb59a98ee097baaeb35174489d66e6e786
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 4171155f5a9f72ef0c021bd0e37fe4ec2f206646
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424188"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95253358"
 ---
 # <a name="hmac-authentication---rest-api-reference"></a>Uwierzytelnianie HMAC — dokumentacja interfejsu API REST
 
-Żądania HTTP mogą być uwierzytelniane za pomocą schematu uwierzytelniania **HMAC-SHA256** . Te żądania muszą być przesyłane za pośrednictwem protokołu TLS.
+Żądania HTTP można uwierzytelniać przy użyciu schematu uwierzytelniania HMAC-SHA256. (HMAC odwołuje się do kodu uwierzytelniania wiadomości opartego na skrócie). Te żądania muszą być przesyłane za pośrednictwem protokołu TLS.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - **Poświadczeń** - \<Access Key ID\>
 - Wartość klucza dostępu dekodowanego przez **klucz tajny** Base64. ``base64_decode(<Access Key Value>)``
 
-Wartości poświadczeń (nazywanych także "identyfikatorem") i wpisu tajnego (zwanego również "wartością") należy uzyskać z wystąpienia konfiguracji aplikacji platformy Azure, które można wykonać przy użyciu [Azure Portal](https://portal.azure.com) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true).
+Wartości poświadczeń (nazywanych również `id` ) i tajnych (nazywanych również `value` ) muszą zostać pobrane z wystąpienia konfiguracji aplikacji platformy Azure. Można to zrobić za pomocą [Azure Portal](https://portal.azure.com) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true).
 
 Podaj każde żądanie ze wszystkimi nagłówkami HTTP, które są wymagane do uwierzytelniania. Wymagane są następujące wymagania:
 
 |  Nagłówek żądania | Opis  |
 | --------------- | ------------ |
-| **Host** | Numer portu i hosta internetowego. Zobacz sekcję  [3.2.2](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.2.2) |
-| **Data** | Data i godzina, o której pochodzi żądanie. Wartość nie może być większa niż 15 minut od bieżącego czasu GMT. Wartość jest datą HTTP, zgodnie z opisem w sekcji [3.3.1](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)
-| **x-MS-Date** | Tak samo jak ```Date``` powyżej. Można go użyć zamiast tego, jeśli Agent nie może uzyskać dostępu bezpośrednio do ```Date``` nagłówka żądania lub gdy serwer proxy modyfikuje go. Jeśli ```x-ms-date``` i ```Date``` są podane, ```x-ms-date``` pierwszeństwo ma. |
+| **Host** | Numer portu i hosta internetowego. Aby uzyskać więcej informacji, zobacz sekcję  [3.2.2](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.2.2). |
+| **Data** | Data i godzina, o której pochodzi żądanie. Nie może być dłuższe niż 15 minut od bieżącego skoordynowanego czasu uniwersalnego (czas uniwersalny Greenwich). Wartość jest datą HTTP, zgodnie z opisem w sekcji [3.3.1](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1).
+| **x-MS-Date** | Tak samo jak ```Date``` powyżej. Można go użyć zamiast tego, gdy Agent nie może bezpośrednio uzyskać dostępu do ```Date``` nagłówka żądania, lub serwer proxy modyfikuje go. Jeśli ```x-ms-date``` i ```Date``` są podane, ```x-ms-date``` pierwszeństwo ma. |
 | **x-MS-Content-SHA256** | Skrót SHA256 szyfrowany algorytmem Base64 elementu treści żądania. Musi być podana, nawet jeśli nie istnieje treść. ```base64_encode(SHA256(body))```|
-| **Autoryzacja** | Informacje o uwierzytelnianiu wymagane przez schemat **HMAC-SHA256** . Poniżej wyjaśniono format i szczegóły. |
+| **Autoryzacja** | Informacje o uwierzytelnianiu wymagane przez schemat HMAC-SHA256. Formatowanie i szczegóły zostały omówione w dalszej części tego artykułu. |
 
 **Przykład:**
 
@@ -51,18 +51,18 @@ Authorization: HMAC-SHA256 Credential={Access Key ID}&SignedHeaders=x-ms-date;ho
 
 |  Argument | Opis  |
 | ------ | ------ |
-| **HMAC-SHA256** | Schemat autoryzacji _(wymagany)_ |
+| **HMAC-SHA256** | Schemat autoryzacji. _potrzeb_ |
 | **Poświadczenie** | Identyfikator klucza dostępu używany do obliczania sygnatury. _potrzeb_ |
 | **SignedHeaders** | Nagłówki żądań HTTP dodane do podpisu. _potrzeb_ |
-| **Podpis** | zakodowana w formacie base64 HMACSHA256 **ciągu do podpisywania**. _potrzeb_|
+| **Podpis** | zakodowana w formacie base64 HMACSHA256 ciągu do podpisywania. _potrzeb_|
 
 ### <a name="credential"></a>Poświadczenie
 
-Identyfikator klucza dostępu używany do obliczania **sygnatury**.
+Identyfikator klucza dostępu używany do obliczania sygnatury.
 
 ### <a name="signed-headers"></a>Nagłówki podpisane
 
-Nazwy nagłówków żądań HTTP rozdzielonych średnikami są wymagane do podpisania żądania. Te nagłówki HTTP również muszą być poprawnie dostarczone z żądaniem. **Nie używaj białych znaków**.
+Nazwy nagłówków żądań HTTP, oddzielone średnikami, wymagane do podpisania żądania. Te nagłówki HTTP również muszą być poprawnie dostarczone z żądaniem. Nie używaj białych znaków.
 
 ### <a name="required-http-request-headers"></a>Wymagane nagłówki żądań HTTP
 
@@ -76,7 +76,7 @@ x-MS-Date; Host; x-MS-Content-SHA256; ```Content-Type``` ;```Accept```
 
 ### <a name="signature"></a>Podpis
 
-Zakodowana algorytmem Base64 skrót HMACSHA256 w **ciągu znaków do podpisywania** przy użyciu klucza dostępu identyfikowanego przez `Credential` .
+Zakodowany algorytm Base64 HMACSHA256 skrótu ciągu do podpisywania. Używa klucza dostępu określonego przez `Credential` .
 ```base64_encode(HMACSHA256(String-To-Sign, Secret))```
 
 ### <a name="string-to-sign"></a>Ciąg-to-Sign
@@ -89,9 +89,9 @@ _Ciąg-do-Sign =_
 
 |  Argument | Opis  |
 | ------ | ------ |
-| **HTTP_METHOD** | Wielka nazwa metody HTTP używana z żądaniem. Zobacz [sekcję 9](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) . |
-|**path_and_query** | Łączenie bezwzględnej ścieżki URI i ciągu zapytania. Zobacz [sekcję 3,3](https://tools.ietf.org/html/rfc3986#section-3.3).
-| **signed_headers_values** | Wartości rozdzielane średnikami wszystkich nagłówków żądań HTTP wymienionych w **SignedHeaders**. Format jest następujący: semantyka **SignedHeaders** . |
+| **HTTP_METHOD** | Wielka nazwa metody HTTP używana z żądaniem. Aby uzyskać więcej informacji, zobacz [sekcję 9](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). |
+|**path_and_query** | Łączenie bezwzględnej ścieżki URI i ciągu zapytania. Aby uzyskać więcej informacji, zobacz [sekcję 3,3](https://tools.ietf.org/html/rfc3986#section-3.3).
+| **signed_headers_values** | Wartości rozdzielane średnikami wszystkich nagłówków żądań HTTP wymienionych w temacie `SignedHeaders` . Format jest następujący: `SignedHeaders` semantyka. |
 
 **Przykład:**
 
@@ -111,15 +111,17 @@ WWW-Authenticate: HMAC-SHA256, Bearer
 ```
 
 **Przyczyna:** Nie podano nagłówka żądania autoryzacji ze schematem HMAC-SHA256.
-**Rozwiązanie:** Podaj prawidłowy ```Authorization``` nagłówek żądania http
+
+**Rozwiązanie:** Podaj prawidłowy ```Authorization``` nagłówek żądania HTTP.
 
 ```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="The access token has expired", Bearer
 ```
 
-**Przyczyna:** ```Date``` lub ```x-ms-date``` nagłówek żądania jest większy niż 15 minut od bieżącego czasu GMT.
-**Rozwiązanie:** Podaj poprawną datę i godzinę
+**Przyczyna:** ```Date``` lub ```x-ms-date``` nagłówek żądania jest większy niż 15 minut od bieżącego skoordynowanego czasu uniwersalnego (czas uniwersalny Greenwich).
+
+**Rozwiązanie:** Podaj poprawną datę i godzinę.
 
 
 ```http
@@ -127,22 +129,23 @@ HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="Invalid access token date", Bearer
 ```
 
-**Przyczyna:** Brakujący lub nieprawidłowy ```Date``` lub ```x-ms-date``` nagłówek żądania
+**Przyczyna:** Brakujący lub nieprawidłowy ```Date``` lub ```x-ms-date``` nagłówek żądania.
 
 ```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="[Credential][SignedHeaders][Signature] is required", Bearer
 ```
 
-**Przyczyna:** Brak wymaganego parametru z ```Authorization``` nagłówka żądania
+**Przyczyna:** Brak wymaganego parametru z ```Authorization``` nagłówka żądania.
 
 ```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="Invalid Credential", Bearer
 ```
 
-**Przyczyna:** Nie znaleziono podanego [ ```Host``` ]/[identyfikator klucza dostępu].
-**Rozwiązanie:** Sprawdź ```Credential``` parametr ```Authorization``` nagłówka żądania i upewnij się, że jest on PRAWIDŁOWYm identyfikatorem klucza dostępu. Upewnij się, że ```Host``` nagłówek wskazuje zarejestrowane konto.
+**Przyczyna:** Nie znaleziono podanego ```Host``` identyfikatora klucza dostępu []/[Access].
+
+**Rozwiązanie:** Sprawdź ```Credential``` parametr ```Authorization``` nagłówka żądania. Upewnij się, że jest to prawidłowy identyfikator klucza dostępu, i upewnij się, że ```Host``` nagłówek wskazuje zarejestrowane konto.
 
 ```http
 HTTP/1.1 401 Unauthorized
@@ -150,15 +153,17 @@ WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="Invalid S
 ```
 
 **Przyczyna:** ```Signature``` Podane informacje nie są zgodne z oczekiwaniami serwera.
-**Rozwiązanie:** Upewnij się, że ```String-To-Sign``` jest poprawny. Upewnij się, że ```Secret``` jest poprawny i prawidłowo używany (kod Base64 przed użyciem). Zobacz sekcję **przykłady** .
+
+**Rozwiązanie:** Upewnij się, że ```String-To-Sign``` jest poprawny. Upewnij się, że ```Secret``` jest poprawny i prawidłowo używany (kod Base64 przed użyciem).
 
 ```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="Signed request header 'xxx' is not provided", Bearer
 ```
 
-**Przyczyna:** Brak nagłówka żądania wymaganego przez ```SignedHeaders``` parametr w ```Authorization``` nagłówku.
-**Rozwiązanie:** Podaj wymaganą wartość nagłówka z poprawną wartością.
+**Przyczyna:** Brak nagłówka żądania wymaganego przez ```SignedHeaders``` parametr w  ```Authorization``` nagłówku.
+
+**Rozwiązanie:** Podaj wymagany nagłówek z poprawną wartością.
 
 ```http
 HTTP/1.1 401 Unauthorized
@@ -166,13 +171,14 @@ WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="XXX is re
 ```
 
 **Przyczyna:** Brak parametru w ```SignedHeaders``` .
-**Rozwiązanie:** Sprawdź minimalne wymagania dotyczące **nagłówków ze znakiem** .
+
+**Rozwiązanie:** Sprawdź minimalne wymagania dotyczące nagłówków ze znakiem.
 
 ## <a name="code-snippets"></a>Fragmenty kodu
 
 ### <a name="javascript"></a>JavaScript
 
-*Wymagania wstępne* : [Kryptografia js](https://code.google.com/archive/p/crypto-js/)
+*Wymagania wstępne*: [Kryptografia js](https://code.google.com/archive/p/crypto-js/)
 
 ```js
 function signRequest(host, 
@@ -362,7 +368,7 @@ import (
     "time"
 )
 
-//SignRequest Setup the auth header for accessing Azure AppConfiguration service
+//SignRequest Setup the auth header for accessing Azure App Configuration service
 func SignRequest(id string, secret string, req *http.Request) error {
     method := req.Method
     host := req.URL.Host
@@ -537,7 +543,7 @@ Invoke-RestMethod -Uri $uri -Method $method -Headers $headers -Body $body
 
 ### <a name="bash"></a>Bash
 
-*Wymagania wstępne* :
+*Wymagania wstępne*:
 
 | Wymaganie wstępne | Polecenie | Przetestowane wersje |
 | ------------ | ------- | --------------- |

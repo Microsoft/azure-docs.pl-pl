@@ -9,18 +9,18 @@ ms.subservice: overview
 ms.date: 11/18/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: e78c31b3e7c309c0c55895c764fa29589dd15dbd
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 4d69c1d69de63dc0d4c3c8f8e46e73f9efc72933
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026841"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95244722"
 ---
 # <a name="azure-synapse-analytics-terminology"></a>Terminologia dotycząca usługi Azure Synapse Analytics
 
 [!INCLUDE [preview](includes/note-preview.md)]
 
-Ta Terminologia dotycząca usługi Azure Synapse Analytics przeprowadzi Cię przez podstawowe pojęcia związane z usługą i ważnymi poleceniami. Ten artykuł jest pomocny w przypadku nowych osób, które chcą uzyskać najważniejsze informacje dotyczące terminologii dotyczącej platformy Azure Synapse.
+W tym dokumencie przedstawiono podstawowe pojęcia dotyczące usługi Azure Synapse Analytics.
 
 ## <a name="basics"></a>Podstawy
 
@@ -28,16 +28,18 @@ Ta Terminologia dotycząca usługi Azure Synapse Analytics przeprowadzi Cię prz
 
 Obszar roboczy umożliwia wykonywanie analiz przy użyciu programów SQL i Apache Spark. Zasoby dostępne dla usługi SQL i programu Spark Analytics są zorganizowane w **Pule** SQL i Spark. 
 
+## <a name="linked-services"></a>Połączone usługi
+
 Obszar roboczy może zawierać dowolną liczbę **połączonych usług**, czyli parametry połączenia, które definiują informacje o połączeniu potrzebne do nawiązania połączenia z zasobami zewnętrznymi w obszarze roboczym.
 
-## <a name="synapse-sql-terminology"></a>Synapse terminologia SQL
+## <a name="synapse-sql"></a>Synapse SQL
 
 **Synapse SQL** to możliwość wykonywania analiz opartych na języku T-SQL w obszarze roboczym Synapse. Program Synapse SQL ma dwa modele użycia: dedykowany i bezserwerowy.  W przypadku modelu dedykowanego Użyj **dedykowanych pul SQL**. Obszar roboczy może mieć dowolną liczbę tych pul. Aby użyć modelu bezserwerowego, użyj **bezserwerowych pul SQL**. Każdy obszar roboczy ma jedną z tych pul.
 
 * Operacja **żądania SQL** , taka jak zapytanie działa za pomocą dedykowanej puli SQL lub bezserwerowej puli SQL.
 * **Skrypt SQL** — zestaw poleceń SQL zapisywanych w pliku. Skrypt SQL może zawierać jedną lub więcej instrukcji SQL. Może służyć do uruchamiania żądań SQL za poorednictwem dedykowanej puli SQL lub bezserwerowej puli SQL.
 
-## <a name="apache-spark-for-synapse-terminology"></a>Apache Spark terminologii Synapse
+## <a name="apache-spark-for-synapse"></a>Apache Spark Synapse
 
 Aby korzystać z usługi Spark Analytics, Utwórz i Użyj **bezserwerowych pul Apache Spark** w obszarze roboczym usługi Synapse.
 
@@ -48,7 +50,7 @@ Aby korzystać z usługi Spark Analytics, Utwórz i Użyj **bezserwerowych pul A
 * **Notes** — interaktywny i reaktywny interfejs nauki i inżynierii danych obsługujący Scala, PySpark, C# i SparkSQL.
 * **Definicja zadania platformy Spark** — interfejs umożliwiający przesłanie zadania platformy Spark przez zestaw jar zawierający kod i jego zależności.
 
-## <a name="pipelines-terminology"></a>Terminologia potoku
+## <a name="pipelines"></a>Potoki
 
 * **Integracja danych** — umożliwia pozyskiwanie danych między różnymi źródłami i organizowanie działań uruchomionych w obszarze roboczym lub poza obszarem roboczym.
 * **Przepływ danych** — udostępnia w pełni wizualizację, bez konieczności kodowania danych Big Data. Wszystkie optymalizacje i wykonywanie są obsługiwane w sposób bezserwerowy.

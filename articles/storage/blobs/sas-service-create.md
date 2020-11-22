@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/30/2020
+ms.date: 11/20/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 66ad9f84985c7f35d410c6b1c3508efd33526c83
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 0b2d18165bf2c5a4f70f1cbc555db79020ce988f
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147729"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95250621"
 ---
 # <a name="create-a-service-sas-for-a-container-or-blob"></a>Tworzenie sygnatury dostępu współdzielonego usługi dla kontenera lub obiektu BLOB
 
@@ -32,7 +32,7 @@ Poniższy przykład kodu tworzy sygnaturę dostępu współdzielonego dla konten
 
 Sygnatura dostępu współdzielonego usługi jest podpisana przy użyciu klucza dostęp do konta. Użyj klasy [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) , aby utworzyć poświadczenia używane do podpisywania sygnatury dostępu współdzielonego. Następnie utwórz nowy obiekt [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) i Wywołaj [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) , aby uzyskać ciąg tokenu sygnatury dostępu współdzielonego.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetContainerSasUri":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetServiceSasUriForContainer":::
 
 ### <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
 
@@ -114,13 +114,13 @@ function getContainerSasUri(containerClient, sharedKeyCredential, storedPolicyNa
 
 Poniższy przykład kodu tworzy sygnaturę dostępu współdzielonego dla obiektu BLOB. Jeśli zostanie podana nazwa istniejących zasad dostępu, te zasady są skojarzone ze skojarzonymi ze standardami SAS. Jeśli nie podano żadnych przechowywanych zasad dostępu, kod tworzy w obiekcie blob ad hoc SAS.
 
-### <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
+# <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
 
 Sygnatura dostępu współdzielonego usługi jest podpisana przy użyciu klucza dostęp do konta. Użyj klasy [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) , aby utworzyć poświadczenia używane do podpisywania sygnatury dostępu współdzielonego. Następnie utwórz nowy obiekt [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) i Wywołaj [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) , aby uzyskać ciąg tokenu sygnatury dostępu współdzielonego.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetBlobSasUri":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetServiceSasUriForBlob":::
 
-### <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
+# <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
 
 Aby utworzyć sygnaturę dostępu współdzielonego usługi dla obiektu BLOB, wywołaj metodę [polecenia cloudblob. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature) .
 
@@ -203,6 +203,14 @@ function getBlobSasUri(containerClient, blobName, sharedKeyCredential, storedPol
 ```
 
 ---
+
+## <a name="create-a-service-sas-for-a-directory"></a>Tworzenie sygnatury dostępu współdzielonego usługi dla katalogu
+
+Na koncie magazynu z włączoną hierarchiczną przestrzenią nazw można utworzyć sygnaturę dostępu współdzielonego usługi dla katalogu. Aby utworzyć sygnaturę dostępu współdzielonego usługi, upewnij się, że masz zainstalowaną wersję 12.5.0 lub nowszą pakietu [Azure. Storage. Files. datalake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/) .
+
+Poniższy przykład pokazuje, jak utworzyć sygnaturę dostępu współdzielonego usługi dla katalogu za pomocą biblioteki klienckiej V12 dla platformy .NET:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetServiceSasUriForDirectory":::
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 

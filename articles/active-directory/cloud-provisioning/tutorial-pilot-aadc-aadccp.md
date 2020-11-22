@@ -11,20 +11,20 @@ ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77a8e6948b9912061801fefaa63d2f49611014aa
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6b510464145f434f761cc28ba4e1c1361f983f8b
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651706"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95237395"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Pilotażowa aprowizacja w chmurze dla istniejącego zsynchronizowanego lasu usługi AD 
 
 Ten samouczek przeprowadzi Cię przez pilotażowe Inicjowanie obsługi administracyjnej chmury dla Active Directory lasu testowego, która jest już synchronizowana przy użyciu usługi Azure Active Directory (Azure AD) Connect Sync.
 
-![Przycisk Utwórz](media/tutorial-migrate-aadc-aadccp/diagram.png)
+![Utwórz](media/tutorial-migrate-aadc-aadccp/diagram.png)
 
-## <a name="considerations"></a>Kwestie do rozważenia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 Przed podjęciem próby wykonania tego samouczka należy wziąć pod uwagę następujące elementy:
 1. Upewnij się, że znasz już podstawy aprowizacji w chmurze. 
 2. Upewnij się, że korzystasz z programu Azure AD Connect Sync w wersji 1.4.32.0 lub nowszej i skonfigurowano reguły synchronizacji zgodnie z opisem. Podczas pilotażu zostanie usunięta testowa jednostka organizacyjna lub grupa z zakresu synchronizacji Azure AD Connect. Przeniesienie obiektów poza zakresem prowadzi do usunięcia tych obiektów w usłudze Azure AD. W przypadku obiektów użytkownika obiekty w usłudze Azure AD są usuwane jako nietrwałe i można je przywrócić. W przypadku obiektów grupy obiekty w usłudze Azure AD są trwale usuwane i nie można ich przywrócić. Nowy typ łącza został wprowadzony w Azure AD Connect synchronizacji, co uniemożliwi usunięcie w przypadku scenariusza pilotażowego. 
@@ -126,7 +126,7 @@ Należy wykonać te same czynności dla wszystkich typów obiektów (użytkownik
 
 4. Po zakończeniu tej operacji zostanie uruchomiony Kreator konfiguracji.  Zaloguj się przy użyciu konta administratora globalnego usługi Azure AD.
 5. Na ekranie **połącz Active Directory** kliknij pozycję **Dodaj katalog** , a następnie zaloguj się przy użyciu konta administratora Active Directory.  Ta operacja spowoduje dodanie katalogu lokalnego.  Kliknij przycisk **Dalej**.</br>
-![Zrzut ekranu pokazujący ekran "Połącz Active Directory" z wprowadzoną wartością katalogu.](media/how-to-install/install-3.png)</br>
+![Zrzut ekranu pokazujący ekran "Połącz Active Directory" z wprowadzoną wartością katalogu.](media/how-to-install/install-3a.png)</br>
 
 6. Na ekranie **Konfiguracja ukończona** kliknij przycisk **Potwierdź**.  Ta operacja spowoduje zarejestrowanie i ponowne uruchomienie agenta.</br>
 ![Zrzut ekranu przedstawiający ekran "ukończenie konfiguracji" z wybranym przyciskiem "Potwierdź".](media/how-to-install/install-4a.png)</br>

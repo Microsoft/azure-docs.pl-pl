@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: 613cf7d9b68fe42c26f2c01cb1fb5dd1da1e1fb5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f67df45b6b663584e848983251031146cdf8df60
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947478"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95247697"
 ---
 # <a name="overview-of-azure-stream-analytics-cluster-preview"></a>Omówienie klastra Azure Stream Analytics (wersja zapoznawcza)
 
@@ -69,7 +69,7 @@ W przypadku klastrów Stream Analytics są naliczone opłaty na podstawie wybran
 
 ### <a name="which-inputs-and-outputs-can-i-privately-connect-to-from-my-stream-analytics-cluster"></a>Które dane wejściowe i wyjściowe mogą łączyć się prywatnie z klastra usługi Stream Analytics?
 
-Stream Analytics obsługuje różne typy danych wejściowych i wyjściowych. Każda z tych usług, które obsługują linki prywatne platformy Azure, może łączyć się z zadaniami prywatnie. W klastrze można [tworzyć prywatne punkty końcowe](private-endpoints.md) , które umożliwiają wykonywanie zadań dostępu do zasobów wejściowych i wyjściowych.
+Stream Analytics obsługuje różne typy danych wejściowych i wyjściowych. W klastrze można [tworzyć prywatne punkty końcowe](private-endpoints.md) , które umożliwiają wykonywanie zadań dostępu do zasobów wejściowych i wyjściowych. Obecnie Azure SQL Database, Azure Storage, Azure Data Lake Storage Gen2, Azure Event Hub i Azure Service Bus są obsługiwanymi usługami, a inne typy zostaną dodane wkrótce. 
 
 ## <a name="next-steps"></a>Następne kroki
 

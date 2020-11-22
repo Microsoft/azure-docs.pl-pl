@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 95cb4aa5827190abf125669f2423c808cf8c92a5
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 9c4410cb2b9550bc111da96204ada15313867fb1
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368937"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95238092"
 ---
 # <a name="customize-your-text-translations"></a>Dostosowywanie tłumaczenia tekstu
 
@@ -38,28 +38,6 @@ Dostosowany system jest następnie dostępny za pośrednictwem zwykłego wywoła
 Uwzględniając odpowiedni typ i ilość danych szkoleniowych, nie zdarza się, że występuje różnica między 5 a 10, lub jeszcze więcej punktów BLEU dotyczących jakości tłumaczenia przy użyciu translatora niestandardowego.
 
 Więcej szczegółowych informacji na temat różnych poziomów dostosowywania opartych na dostępnych danych można znaleźć w [podręczniku użytkownika usługi tłumaczenia niestandardowego](./custom-translator/overview.md).
-
-
-## <a name="microsoft-translator-hub"></a>Centrum usługi Microsoft Translator
-
-> [!NOTE]
-> Starsza wersja centrum usługi Microsoft Translator zostanie wycofana w dniu 17 maja 2019. [Wyświetlanie ważnych informacji i dat migracji](https://www.microsoft.com/translator/business/hub/).  
-
-## <a name="custom-translator-versus-hub"></a>Translator niestandardowy a centrum
-
-| Cechy | Koncentrator | Custom Translator |
-| ------- | :-: | :---------------: |
-|Stan funkcji dostosowywania    | Ogólna dostępność    | Ogólna dostępność |
-| Wersja interfejsu API tekstu    | Tylko wersja 2    | Tylko wersja 3 |
-| Dostosowanie SMT    | Tak    | Nie |
-| Dostosowanie NMT    | Nie    | Tak |
-| Nowe ujednolicone usługi rozpoznawania mowy    | Nie    | Tak |
-| [Brak śladu](https://www.aka.ms/notrace) | Tak    | Tak |
-
-## <a name="collaborative-translations-framework"></a>Struktura tłumaczeń współpracy
-
-> [!NOTE]
-> Od 1 lutego 2018, addtranslation () i AddTranslationArray () nie są już dostępne do użycia z translatorem w wersji 2.0. Te metody zakończą się niepowodzeniem i nic nie zostanie zapisaniu. Translator 3.0 nie obsługuje tych metod.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3610fa5ea442e5ccb15255d8a1ddcee211871aeb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be72c2152bdb8e1155d2dd29547f93ba3605d462
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84463947"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95251097"
 ---
 # <a name="how-to-investigate-risk"></a>Instrukcje: Badanie ryzyka
 
-Ochrona tożsamości zapewnia organizacjom trzy raporty, których mogą używać do badania zagrożeń związanych z tożsamościami w ich środowisku. Te raporty to **ryzykowni użytkownicy**, **ryzykowne logowania**i **wykrycia ryzyka**. Badanie zdarzeń jest kluczem do lepszego zrozumienia i zidentyfikowania wszystkich słabych punktów w strategii zabezpieczeń.
+Ochrona tożsamości zapewnia organizacjom trzy raporty, których mogą używać do badania zagrożeń związanych z tożsamościami w ich środowisku. Te raporty to **ryzykowni użytkownicy**, **ryzykowne logowania** i **wykrycia ryzyka**. Badanie zdarzeń jest kluczem do lepszego zrozumienia i zidentyfikowania wszystkich słabych punktów w strategii zabezpieczeń.
 
 Wszystkie trzy raporty umożliwiają pobieranie zdarzeń w programie. Format CSV do dalszej analizy poza Azure Portal. Raporty ryzykownych użytkowników i ryzykownych logowań umożliwiają pobranie najnowszych wpisów 2500, podczas gdy raport wykrywania ryzyka umożliwia pobranie najnowszych rekordów 5000.
 
@@ -90,6 +90,10 @@ Korzystając z informacji podanych w raporcie wykrywania ryzyka, Administratorzy
 - Połącz się z bardziej szczegółowymi informacjami z Microsoft Cloud App Security (MCAS).
 
 Administratorzy mogą następnie powrócić do raportu o zagrożeniu lub zalogowaniu użytkownika, aby podjąć działania na podstawie zebranych informacji.
+
+> [!NOTE] 
+> Nasz system może wykryć, że zdarzenie ryzyka, które przyczynia się do oceny ryzyka dla użytkownika, było fałszywie dodatnie lub ryzyko związane z użytkownikiem zostało skorygowane przy użyciu wymuszania zasad, takich jak zakończenie monitu usługi MFA lub bezpieczne Zmienianie hasła. W związku z tym, nasz system spowoduje odłączenie stanu ryzyka i szczegółowe informacje o ryzyku "zatwierdzono logowanie w bezpiecznym miejscu". 
+
 
 ## <a name="next-steps"></a>Następne kroki
 

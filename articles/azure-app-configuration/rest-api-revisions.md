@@ -6,23 +6,22 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 7d1990d6bc524a69de2b22b4f7c5aeec88c3ce9d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 668345da8bb89412f7b1dd36975c5bed6f229580
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424275"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95246388"
 ---
 # <a name="key-value-revisions"></a>Wersje klucz-wartość
 
-wersja interfejsu API: 1,0
+*Poprawka klucz-wartość* definiuje historyczną reprezentację zasobu klucz-wartość. Poprawki wygasają po upływie 7 dni dla magazynów w warstwie Bezpłatna lub przez 30 dni dla magazynów w warstwie Standardowa. Poprawki obsługują `List` operację.
 
-**Poprawka klucz-wartość** definiuje historyczną reprezentację zasobu klucz-wartość. Poprawki wygasają po upływie 7 dni dla magazynów w warstwie Bezpłatna lub przez 30 dni dla magazynów w warstwie Standardowa. Poprawki obsługują następujące operacje:
+Dla wszystkich operacji, ``key`` jest opcjonalnym parametrem. W przypadku pominięcia oznacza dowolny klucz.
 
-- Lista
+Dla wszystkich operacji, ``label`` jest opcjonalnym parametrem. W przypadku pominięcia oznacza każdą etykietę.
 
-Dla wszystkich operacji, ``key`` jest opcjonalnym parametrem. W przypadku pominięcia oznacza **dowolny** klucz.
-Dla wszystkich operacji, ``label`` jest opcjonalnym parametrem. W przypadku pominięcia oznacza **każdą** etykietę.
+Ten artykuł ma zastosowanie do interfejsu API w wersji 1,0.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -62,7 +61,7 @@ Accept-Ranges: items
 
 ## <a name="pagination"></a>Dzielenie na strony
 
-Wynik jest podzielony na strony, jeśli liczba zwracanych elementów przekracza limit odpowiedzi. Postępuj zgodnie z opcjonalnym ``Link`` nagłówkiem odpowiedzi i Użyj ``rel="next"`` na potrzeby nawigacji.  Alternatywnie zawartość zawiera następny link w postaci ``@nextLink`` właściwości.
+Wynik jest podzielony na strony, jeśli liczba zwracanych elementów przekracza limit odpowiedzi. Postępuj zgodnie z opcjonalnym ``Link`` nagłówkiem odpowiedzi i Użyj ``rel="next"`` na potrzeby nawigacji. Alternatywnie zawartość zawiera następny link w postaci ``@nextLink`` właściwości.
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1
@@ -88,7 +87,7 @@ Link: <{relative uri}>; rel="next"
 
 ## <a name="list-subset-of-revisions"></a>Lista podzestawów poprawek
 
-Użyj `Range` nagłówka żądania. Odpowiedź będzie zawierać `Content-Range` nagłówek. Jeśli serwer nie może spełnić żądanego zakresu, będzie odpowiadać przy użyciu protokołu HTTP `416` (RangeNotSatisfiable)
+Użyj `Range` nagłówka żądania. Odpowiedź zawiera nagłówek `Content-Range`. Jeśli serwer nie może spełnić żądanego zakresu, odpowiada za pomocą protokołu HTTP `416` ( `RangeNotSatisfiable` ).
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1
@@ -135,9 +134,11 @@ GET /revisions?key={key}&label={label}&api-version={api-version}
 
 ### <a name="reserved-characters"></a>Znaki zastrzeżone
 
+Zastrzeżone znaki to:
+
 `*`, `\`, `,`
 
-Jeśli zarezerwowany znak jest częścią wartości, należy użyć klawisza ucieczki `\{Reserved Character}` . Znaki niezastrzeżone mogą również zostać zmienione.
+Jeśli zarezerwowany znak jest częścią wartości, należy użyć znaku ucieczki przy użyciu `\{Reserved Character}` . Znaki niezastrzeżone mogą również zostać zmienione.
 
 ### <a name="filter-validation"></a>Sprawdzanie poprawności filtru
 
@@ -160,19 +161,19 @@ Content-Type: application/problem+json; charset=utf-8
 
 ### <a name="examples"></a>Przykłady
 
-- Wszystko
+- Całą
 
     ```http
     GET /revisions
     ```
 
-- Elementy, w których nazwa klucza rozpoczyna się od **ABC**
+- Elementy, w których nazwa klucza rozpoczyna się od **ABC**:
 
     ```http
     GET /revisions?key=abc*&api-version={api-version}
     ```
 
-- Elementy, w których nazwa klucza to **ABC** lub **XYZ** , a etykiety zawierają kod **produkcyjny**
+- Elementy, w których nazwa klucza to **ABC** lub **XYZ**, a etykiety zawierają kod **prod**:
 
     ```http
     GET /revisions?key=abc,xyz&label=*prod*&api-version={api-version}
@@ -186,9 +187,9 @@ Użyj opcjonalnego `$select` parametru ciągu zapytania i podaj rozdzieloną prz
 GET /revisions?$select=value,label,last_modified&api-version={api-version} HTTP/1.1
 ```
 
-## <a name="time-based-access"></a>Dostęp Time-Based
+## <a name="time-based-access"></a>Dostęp oparty na czasie
 
-Uzyskaj reprezentację wyniku tak jak wcześniej. Zobacz sekcję [2.1.1](https://tools.ietf.org/html/rfc7089#section-2.1)
+Uzyskaj reprezentację wyniku tak jak wcześniej. Aby uzyskać więcej informacji, zobacz [Architektura protokołu HTTP dla Time-Based dostępu do Stanów zasobów — pamiątki](https://tools.ietf.org/html/rfc7089#section-2.1), sekcja 2.1.1.
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1

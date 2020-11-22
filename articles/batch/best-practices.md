@@ -3,12 +3,12 @@ title: Najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i przydatne porady dotyczące tworzenia rozwiązań Azure Batch.
 ms.date: 11/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: a799aa7de19b9d5b0b8e085252cb172efebd05dc
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 6aaed76ad398b5278850dd66ce1da6d5bd33807f
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916869"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95254667"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch najlepszych praktyk
 
@@ -38,7 +38,7 @@ W tym artykule omówiono zbiór najlepszych rozwiązań i przydatne porady dotyc
 
 ### <a name="pool-lifetime-and-billing"></a>Okres istnienia puli i rozliczenia
 
-Okres istnienia puli może się różnić w zależności od metody alokacji i opcji stosowanych do konfiguracji puli. Pule mogą mieć dowolny okres istnienia i różną liczbę węzłów obliczeniowych w puli w dowolnym momencie. Odpowiedzialność za zarządzanie węzłami obliczeniowymi w puli w sposób jawny lub za pomocą funkcji udostępnianych przez usługę (automatyczne skalowanie lub autopule).
+Okres istnienia puli może się różnić w zależności od metody alokacji i opcji stosowanych do konfiguracji puli. Pule mogą mieć dowolny okres istnienia i różną liczbę węzłów obliczeniowych w puli w dowolnym momencie. Odpowiedzialność za zarządzanie węzłami obliczeniowymi w puli w sposób jawny lub za pomocą funkcji udostępnianych przez usługę ([Automatyczne skalowanie](nodes-and-pools.md#automatic-scaling-policy) lub [autopule](nodes-and-pools.md#autopools)).
 
 - **Przechowuj pule jako świeże.**
     Zmień rozmiar pul na zero co kilka miesięcy, aby upewnić się, że są używane [najnowsze aktualizacje agenta węzła i poprawki błędów](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). W puli nie będą odbierane aktualizacje agentów węzła, chyba że zostanie on ponownie utworzony lub zmieniono rozmiar do 0 węzłów obliczeniowych. Przed ponownym utworzeniem lub zmianą puli zaleca się pobranie wszelkich dzienników agentów węzłów na potrzeby debugowania, zgodnie z opisem w sekcji [węzły](#nodes) .
@@ -93,7 +93,7 @@ Istnieje domyślny [limit przydziału aktywnego zadania i harmonogramu zadań](b
 
 ### <a name="save-task-data"></a>Zapisz dane zadania
 
-Węzły obliczeniowe są według ich charakterów tymczasowych. Istnieje wiele funkcji usługi Batch, takich jak autopula i automatyczne skalowanie, które ułatwiają węzły. Gdy węzły opuszczają pulę (z powodu zmiany rozmiaru lub usuwania puli), wszystkie pliki w tych węzłach również zostaną usunięte. W związku z tym zadanie powinno przenieść wyjście z węzła, w którym jest uruchomiony, i do magazynu trwałego przed jego ukończeniem. Podobnie, jeśli zadanie nie powiedzie się, należy przenieść dzienniki wymagane do zdiagnozowania niepowodzenia do magazynu trwałego.
+Węzły obliczeniowe są według ich charakterów tymczasowych. Istnieje wiele funkcji usługi Batch, takich jak [autopula](nodes-and-pools.md#autopools) i [Automatyczne skalowanie](nodes-and-pools.md#automatic-scaling-policy) , które mogą ułatwić usuwanie węzłów. Gdy węzły opuszczają pulę (z powodu zmiany rozmiaru lub usunięcia puli), wszystkie pliki w tych węzłach również zostaną usunięte. W związku z tym zadanie powinno przenieść wyjście z węzła, w którym jest uruchomiony, i do magazynu trwałego przed jego ukończeniem. Podobnie, jeśli zadanie nie powiedzie się, należy przenieść dzienniki wymagane do zdiagnozowania niepowodzenia do magazynu trwałego.
 
 Usługa Batch została zintegrowana z obsługą usługi Azure Storage w celu przekazywania danych za pośrednictwem programu [OutputFiles](batch-task-output-files.md), a także wielu udostępnionych systemów plików lub można wykonać przekazywanie samodzielnie w swoich zadaniach.
 

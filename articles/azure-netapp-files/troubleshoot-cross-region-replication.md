@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/17/2020
+ms.date: 11/18/2020
 ms.author: b-juche
-ms.openlocfilehash: 6fbb9b054433905d41d0171ab08b4647618be466
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: b30ed0cca680013b85efe064d59fb7cb73d753d2
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94745687"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95239554"
 ---
 # <a name="troubleshoot-cross-region-replication"></a>Rozwiązywanie problemów z replikacją między regionami
 
@@ -50,6 +50,12 @@ W tym artykule opisano komunikaty o błędach i rozwiązania, które mogą pomó
 |-|-|
 |     `Replication   cannot be deleted, mirror state needs to be in status: Broken before deleting`    |     Sprawdź, czy replikacja została przerwana, czy nie została zainicjowana i bezczynna (niepowodzenie inicjalizacji).    |
 |     `Cannot delete   source replication`    |     Usuwanie replikacji ze strony źródłowej jest niedozwolone. Upewnij się, że usuwasz replikację ze strony docelowej.    |
+
+## <a name="errors-deleting-volume"></a>Błędy usuwania woluminu
+
+|     Komunikat o błędzie    |     Rozwiązanie    |
+|-|-|
+| `Volume is a member of an active volume replication relationship`  |  Usuń replikację przed usunięciem woluminu. Zobacz [Usuwanie replikacji](cross-region-replication-delete.md). Ta operacja wymaga przerwania komunikacji równorzędnej przed usunięciem replikacji woluminu. |
 | `Volume with replication cannot be deleted`  |  Usuń replikację przed usunięciem woluminu. Zobacz [Usuwanie replikacji](cross-region-replication-delete.md). Ta operacja wymaga przerwania komunikacji równorzędnej przed usunięciem replikacji woluminu. 
 
 ## <a name="errors-resyncing-volume"></a>Błędy podczas ponownej synchronizacji woluminu
@@ -69,7 +75,7 @@ W tym artykule opisano komunikaty o błędach i rozwiązania, które mogą pomó
 
 * [Replikacja między regionami](cross-region-replication-introduction.md)
 * [Wymagania i zagadnienia dotyczące korzystania z replikacji między regionami](cross-region-replication-requirements-considerations.md)
-* [Tworzenie komunikacji równorzędnej replikacji](cross-region-replication-create-peering.md)
+* [Utwórz replikację woluminu](cross-region-replication-create-peering.md)
 * [Wyświetlanie stanu kondycji relacji replikacji](cross-region-replication-display-health-status.md)
 * [Zarządzanie odzyskiwaniem po awarii](cross-region-replication-manage-disaster-recovery.md)
 * [Rozwiązywanie problemów z replikacją między regionami](troubleshoot-cross-region-replication.md)

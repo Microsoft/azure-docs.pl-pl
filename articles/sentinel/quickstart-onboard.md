@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: 21e0cfd56a37304d1ec333f8713894504282541f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 107806b6372360e501fe9cc0a21d25cff5cc35f9
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660665"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95248649"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Szybki start: wdrażanie usługi Azure Sentinel
 
@@ -41,7 +41,7 @@ Po nawiązaniu połączenia ze źródłami danych wybierz jedną z galerii ze sz
 
 ### <a name="geographical-availability-and-data-residency"></a>Dostępność geograficzna i dane miejsca do zamieszkania
 
-- Wskaźnik "Azure" może działać w obszarach roboczych w dowolnym [regionie log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) z wyjątkiem regionów Chińska i Niemcy (suwerenne). 
+- Wskaźnik "Azure" może działać w obszarach roboczych w większości [regionów log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) z wyjątkiem regionów Chińska i Niemcy (suwerenne). Czasami nowe regiony Log Analytics mogą chwilę potrwać, aby dołączyć do usługi wskaźnikowej. 
 
 - Dane generowane przez wskaźnik na platformie Azure, takie jak zdarzenia, zakładki i reguły analityczne, mogą zawierać niektóre dane klienta pochodzące z Log Analytics obszarów roboczych klienta. Te dane generowane przez wskaźnik na platformie Azure są zapisywane w lokalizacji geograficznej wymienionej w poniższej tabeli, zgodnie z lokalizacją geograficzną, w której znajduje się obszar roboczy:
 
