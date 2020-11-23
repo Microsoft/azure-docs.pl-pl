@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: 64dfc7400380505c882979e68a3bf0adcb8942a0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 048068a74151bb986392b5cb27787385fc0f5363
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107967"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95315536"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Reguły zbierania danych w Azure Monitor (wersja zapoznawcza)
 Zasady zbierania danych (DCR) definiują dane wprowadzane do Azure Monitor i określają, gdzie mają być wysyłane lub przechowywane dane. Ten artykuł zawiera omówienie zasad zbierania danych, w tym ich zawartości i struktury, oraz sposobu tworzenia i pracy z nimi.
@@ -49,19 +49,7 @@ Każde źródło danych ma typ źródła danych. Każdy typ definiuje unikatowy 
 
 
 ## <a name="limits"></a>Limity
-W poniższej tabeli wymieniono limity, które są aktualnie stosowane do każdej reguły zbierania danych.
-
-| Limit | Wartość |
-|:---|:---|
-| Maksymalna liczba źródeł danych | 10 |
-| Maksymalna liczba specyfikatorów licznika w liczniku wydajności | 100 |
-| Maksymalna liczba nazw funkcji w dzienniku systemowym | 20 |
-| Maksymalna liczba zapytań XPath w dzienniku zdarzeń | 100 |
-| Maksymalna liczba przepływów danych | 10 |
-| Maksymalna liczba strumieni danych | 10 |
-| Maksymalna liczba rozszerzeń | 10 |
-| Maksymalny rozmiar ustawień rozszerzenia | 32 KB |
-| Maksymalna liczba Log Analytics obszarów roboczych | 10 |
+Aby uzyskać ograniczenia dotyczące poszczególnych reguł zbierania danych, zobacz [Azure monitor limitów usługi](../service-limits.md#data-collection-rules).
 
 
 ## <a name="create-a-dcr"></a>Tworzenie elementu DCR

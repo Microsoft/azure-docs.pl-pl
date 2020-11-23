@@ -1,18 +1,19 @@
 ---
 title: Konfigurowanie zbierania danych dla agenta Azure Monitor (wersja zapoznawcza)
-description: ''
+description: Opisuje sposób tworzenia reguły zbierania danych w celu zbierania danych z maszyn wirtualnych przy użyciu agenta Azure Monitor.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: cd29bfafe2d37b6a34031e6962cc27bfff0006c1
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 94c926c555a4bc96ac3c6fbe773650e16554bcf2
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108018"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95315706"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Konfigurowanie zbierania danych dla agenta Azure Monitor (wersja zapoznawcza)
+
 Zasady zbierania danych (DCR) definiują dane wprowadzane do Azure Monitor i określają miejsce, w którym powinny być wysyłane. W tym artykule opisano sposób tworzenia reguły zbierania danych w celu zbierania danych z maszyn wirtualnych przy użyciu agenta Azure Monitor.
 
 Aby uzyskać pełny opis reguł zbierania danych, zobacz [reguły zbierania danych w Azure monitor (wersja zapoznawcza)](data-collection-rule-overview.md).
@@ -20,15 +21,18 @@ Aby uzyskać pełny opis reguł zbierania danych, zobacz [reguły zbierania dany
 > [!NOTE]
 > W tym artykule opisano sposób konfigurowania danych dla maszyn wirtualnych za pomocą agenta Azure Monitor, który jest obecnie w wersji zapoznawczej. Zobacz [Omówienie agentów Azure monitor](agents-overview.md) , aby uzyskać opis agentów, którzy są ogólnie dostępni i jak używać ich do zbierania danych.
 
+## <a name="data-collection-rule-associations"></a>Skojarzenia reguł zbierania danych
 
-## <a name="dcr-associations"></a>Skojarzenia DCR
 Aby zastosować DCR do maszyny wirtualnej, należy utworzyć skojarzenie dla maszyny wirtualnej. Maszyna wirtualna może mieć skojarzenie z wieloma Dcrami, a DCR może być skojarzonych wiele maszyn wirtualnych. Dzięki temu można zdefiniować zestaw DCR, każdy pasujący do określonego wymagania i zastosować je tylko do maszyn wirtualnych, które mają zastosowanie. 
 
 Rozważmy na przykład środowisko z zestawem maszyn wirtualnych z działającą aplikacją biznesową i innymi osobami, na których działa SQL Server. Może istnieć jedna domyślna reguła zbierania danych, która ma zastosowanie do wszystkich maszyn wirtualnych i oddzielnych reguł zbierania danych, które zbierają dane przeznaczone dla aplikacji biznesowych i dla SQL Server. Skojarzenia dla maszyn wirtualnych z regułami zbierania danych wyglądają podobnie jak na poniższym diagramie.
 
 ![Diagram przedstawia maszyny wirtualne hostujący aplikację biznesową i SQL Server skojarzone z regułami zbierania danych o nazwie Central-i t-default i aplikacji LOB dla aplikacji biznesowych, a Central-i t-default oraz s q l dla SQL Server.](media/data-collection-rule-azure-monitor-agent/associations.png)
 
-## <a name="create-using-the-azure-portal"></a>Tworzenie za pomocą witryny Azure Portal
+
+
+## <a name="create-rule-and-association-in-azure-portal"></a>Utwórz regułę i skojarzenie w Azure Portal
+
 Za pomocą Azure Portal można utworzyć regułę zbierania danych i skojarzyć maszyny wirtualne w subskrypcji z tą regułą. Agent Azure Monitor zostanie zainstalowany automatycznie, a zarządzana tożsamość utworzona dla każdej maszyny wirtualnej, która nie jest jeszcze zainstalowana.
 
 W menu **Azure monitor** w Azure Portal wybierz pozycję **reguły zbierania danych** z sekcji **Ustawienia** . Kliknij przycisk **Dodaj** , aby dodać nową regułę zbierania danych i przypisanie.
@@ -39,7 +43,7 @@ Kliknij przycisk **Dodaj** , aby utworzyć nową regułę i zestaw skojarzeń. P
 
 [![Podstawy reguł zbierania danych](media/azure-monitor-agent/data-collection-rule-basics.png)](media/azure-monitor-agent/data-collection-rule-basics.png#lightbox)
 
-Na karcie **maszyny wirtualne** Dodaj maszyny wirtualne, które powinny mieć zastosowana reguła zbierania danych. Agent Azure Monitor zostanie zainstalowany na maszynach wirtualnych, które nie są jeszcze zainstalowane.
+Na karcie **maszyny wirtualne** Dodaj maszyny wirtualne, które powinny mieć zastosowana reguła zbierania danych. Należy wymienić zarówno maszyny wirtualne platformy Azure, jak i serwery z obsługą usługi Azure Arc w Twoim środowisku. Agent Azure Monitor zostanie zainstalowany na maszynach wirtualnych, które nie są jeszcze zainstalowane.
 
 [![Maszyna wirtualna z regułą zbierania danych](media/azure-monitor-agent/data-collection-rule-virtual-machines.png)](media/azure-monitor-agent/data-collection-rule-virtual-machines.png#lightbox)
 
@@ -59,13 +63,23 @@ Na karcie **miejsce docelowe** Dodaj co najmniej jeden obiekt docelowy dla źró
 Kliknij pozycję **Dodaj źródło danych** , a następnie **Przejrzyj i Utwórz** , aby przejrzeć szczegóły reguły zbierania danych i powiązania z zestawem maszyn wirtualnych. Kliknij przycisk **Utwórz** , aby go utworzyć.
 
 > [!NOTE]
-> Po utworzeniu reguły zbierania danych i skojarzeniach dane do miejsc docelowych mogą być wysyłane do 5 minut.
+> Po utworzeniu reguły zbierania danych i skojarzeniach dane będą wysyłane do miejsc docelowych, które mogą upłynąć do 5 minut.
 
-## <a name="createusingrestapi"></a>Tworzenie za pomocą interfejsu API REST
-Wykonaj poniższe kroki, aby utworzyć DCR i skojarzenia przy użyciu interfejsu API REST. 
-1.Ręcznie Utwórz plik DCR przy użyciu formatu JSON pokazanego w [przykładzie DCR](data-collection-rule-overview.md#sample-data-collection-rule).
-2.Utwórz regułę przy użyciu [interfejsu API REST](/rest/api/monitor/datacollectionrules/create#examples).
-3.Utwórz skojarzenie dla każdej maszyny wirtualnej z regułą zbierania danych przy użyciu [interfejsu API REST](/rest/api/monitor/datacollectionruleassociations/create#examples).
+
+## <a name="create-rule-and-association-using-rest-api"></a>Tworzenie reguły i skojarzenia przy użyciu interfejsu API REST
+
+Wykonaj poniższe kroki, aby utworzyć regułę zbierania danych i skojarzenia przy użyciu interfejsu API REST.
+
+1. Ręcznie Utwórz plik DCR przy użyciu formatu JSON pokazanego w [przykładzie DCR](data-collection-rule-overview.md#sample-data-collection-rule).
+
+2. Utwórz regułę przy użyciu [interfejsu API REST](/rest/api/monitor/datacollectionrules/create#examples).
+
+3. Utwórz skojarzenie dla każdej maszyny wirtualnej z regułą zbierania danych przy użyciu [interfejsu API REST](/rest/api/monitor/datacollectionruleassociations/create#examples).
+
+
+## <a name="create-association-using-resource-manager-template"></a>Utwórz skojarzenie przy użyciu szablonu Menedżer zasobów
+
+Nie można utworzyć reguły zbierania danych przy użyciu szablonu Menedżer zasobów, ale można utworzyć skojarzenie między maszyną wirtualną platformy Azure lub serwerem z obsługą usługi Azure ARC przy użyciu szablonu Menedżer zasobów. Zobacz [przykłady szablonów Menedżer zasobów dla reguł zbierania danych w Azure monitor](../samples/resource-manager-data-collection-rules.md) dla przykładowych szablonów.
 
 ## <a name="next-steps"></a>Następne kroki
 

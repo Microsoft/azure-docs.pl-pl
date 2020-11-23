@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
-ms.openlocfilehash: 6033ca5b0eaf6845d14407832c776dd8e006226b
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 647256949d1f8f13439a0a5db87f3b02d697d32b
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686974"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95318137"
 ---
 # <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>Włącz Azure Monitor dla maszyn wirtualnych kondycję gościa (wersja zapoznawcza)
 Azure Monitor dla maszyn wirtualnych kondycja gościa umożliwia wyświetlanie kondycji maszyny wirtualnej zdefiniowanej przez zestaw pomiarów wydajności, które są próbkowane w regularnych odstępach czasu. W tym artykule opisano, jak włączyć tę funkcję w ramach subskrypcji i jak włączyć monitorowanie Gości dla każdej maszyny wirtualnej.
@@ -24,13 +24,19 @@ Azure Monitor dla maszyn wirtualnych kondycja gościa ma następujące ogranicze
   - Ubuntu 16,04 LTS, Ubuntu 18,04 LTS
   - Windows Server 2012 lub nowszy
 - Maszyna wirtualna musi znajdować się w jednym z następujących regionów:
+  - Australia Wschodnia
   - Australia Południowo-Wschodnia
+  - Indie Środkowe
   - Central US
   - East US
   - Wschodnie stany USA 2
   - Wschodnie stany USA 2 — EUAP
+  - Niemcy Środkowo-Zachodnie
+  - Japan East
+  - Północno-środkowe stany USA
   - Europa Północna
-  - Azja Południowo-Wschodnia
+  - South Central US
+  - Southeast Asia
   - Południowe Zjednoczone Królestwo
   - West Europe
   - Zachodnie stany USA

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2020
-ms.openlocfilehash: fd131798352aaccaea66c242e92d550c98d7c86f
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 2bbc57d8ddc004c1926da7e0037efdc1fcf2d76e
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94687017"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95318103"
 ---
 # <a name="configure-monitoring-in-azure-monitor-for-vms-guest-health-using-data-collection-rules-preview"></a>Konfigurowanie monitorowania w Azure Monitor dla maszyn wirtualnych kondycji gościa przy użyciu reguł zbierania danych (wersja zapoznawcza)
 [Azure monitor dla maszyn wirtualnych kondycja gościa](vminsights-health-overview.md) umożliwia wyświetlanie kondycji maszyny wirtualnej zdefiniowanej przez zestaw pomiarów wydajności, które są próbkowane w regularnych odstępach czasu. W tym artykule opisano, jak można modyfikować domyślne monitorowanie wielu maszyn wirtualnych przy użyciu reguł zbierania danych.
@@ -57,7 +57,7 @@ W poniższej tabeli wymieniono konfigurację domyślną dla każdego monitora. T
 ## <a name="overrides"></a>Przesłonięcia
 *Zastąpienie* zmienia jedną rudy więcej właściwości monitora. Na przykład przesłonięcie mogło wyłączyć monitor, który jest domyślnie włączony, zdefiniować kryteria ostrzegawcze dla monitora lub zmodyfikować Próg krytyczny monitora. 
 
-Zastąpienia są zdefiniowane w [regule zbierania danych (DCR)](../platform/data-collection-rule-overview.md). Można utworzyć wiele DCR z różnymi zestawami zastąpień i zastosować je do wielu maszyn wirtualnych. Do maszyny wirtualnej stosuje się DCR, tworząc skojarzenie zgodnie z opisem w temacie [Konfigurowanie zbierania danych dla agenta Azure monitor (wersja zapoznawcza)](../platform/data-collection-rule-azure-monitor-agent.md#dcr-associations).
+Zastąpienia są zdefiniowane w [regule zbierania danych (DCR)](../platform/data-collection-rule-overview.md). Można utworzyć wiele DCR z różnymi zestawami zastąpień i zastosować je do wielu maszyn wirtualnych. Do maszyny wirtualnej stosuje się DCR, tworząc skojarzenie zgodnie z opisem w temacie [Konfigurowanie zbierania danych dla agenta Azure monitor (wersja zapoznawcza)](../platform/data-collection-rule-azure-monitor-agent.md#data-collection-rule-associations).
 
 
 ## <a name="multiple-overrides"></a>Wiele zastąpień

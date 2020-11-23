@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/20/2020
-ms.openlocfilehash: 66d420a902cbfb56ece75646ee39bbba774b6208
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 11/21/2020
+ms.openlocfilehash: 30521e85feda0fc19329364dcb710d322ae8cfc1
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312409"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95323238"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Omówienie agentów Azure Monitor
 
@@ -32,23 +32,23 @@ W poniższych tabelach przedstawiono krótkie porównanie Azure Monitor agentów
 
 ### <a name="windows-agents"></a>Agenci dla systemu Windows
 
-| | Agent Azure Monitor (wersja zapoznawcza) | Diagnostyka<br>rozszerzenie (funkcji wad) | Usługa Log Analytics<br>agent | Zależność<br>agent |
+| | Agent Azure Monitor (wersja zapoznawcza) | Diagnostyka<br>rozszerzenie (funkcji wad) | Log Analytics<br>agent | Zależność<br>agent |
 |:---|:---|:---|:---|:---|
-| **Obsługiwane środowiska** | Azure | Azure | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Środowiska lokalne | 
+| **Obsługiwane środowiska** | Azure<br>Inna chmura (Azure ARC)<br>Lokalna (łuk systemu Azure)  | Azure | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Magazyn lokalny | 
 | **Wymagania dotyczące agenta**  | Brak | Brak | Brak | Wymaga agenta Log Analytics |
 | **Zbierane dane** | Dzienniki zdarzeń<br>Wydajność | Dzienniki zdarzeń<br>zdarzenia ETW<br>Wydajność<br>Dzienniki na podstawie plików<br>Dzienniki usług IIS<br>Dzienniki aplikacji .NET<br>Zrzuty awaryjne<br>Dzienniki diagnostyki agentów | Dzienniki zdarzeń<br>Wydajność<br>Dzienniki na podstawie plików<br>Dzienniki usług IIS<br>Szczegółowe informacje i rozwiązania<br>Inne usługi | Zależności procesów<br>Metryki połączenia sieciowego |
-| **Dane wysyłane do** | Dzienniki usługi Azure Monitor<br>Metryki Azure Monitor | Azure Storage<br>Metryki Azure Monitor<br>Centrum zdarzeń | Dzienniki usługi Azure Monitor | Dzienniki usługi Azure Monitor<br>(za poorednictwem agenta Log Analytics) |
-| **Usługi i**<br>**oferowanych**<br>**obsługiwał** | Usługa Log Analytics<br>Eksplorator metryk | Eksplorator metryk | Usługa Azure Monitor dla maszyn wirtualnych<br>Usługa Log Analytics<br>Azure Automation<br>Azure Security Center<br>Usługa Azure Sentinel | Usługa Azure Monitor dla maszyn wirtualnych<br>Mapa usługi |
+| **Dane wysyłane do** | Dzienniki usługi Azure Monitor<br>Metryki usługi Azure Monitor | Azure Storage<br>Metryki usługi Azure Monitor<br>Centrum zdarzeń | Dzienniki usługi Azure Monitor | Dzienniki usługi Azure Monitor<br>(za poorednictwem agenta Log Analytics) |
+| **Usługi i**<br>**oferowanych**<br>**obsługiwał** | Log Analytics<br>Eksplorator metryk | Eksplorator metryk | Usługa Azure Monitor dla maszyn wirtualnych<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Usługa Azure Sentinel | Usługa Azure Monitor dla maszyn wirtualnych<br>Mapa usługi |
 
 ### <a name="linux-agents"></a>Agenci dla systemu Linux
 
-| | Agent Azure Monitor (wersja zapoznawcza) | Diagnostyka<br>rozszerzenie (LAD) | Telegraf<br>agent | Usługa Log Analytics<br>agent | Zależność<br>agent |
+| | Agent Azure Monitor (wersja zapoznawcza) | Diagnostyka<br>rozszerzenie (LAD) | Telegraf<br>agent | Log Analytics<br>agent | Zależność<br>agent |
 |:---|:---|:---|:---|:---|:---|
-| **Obsługiwane środowiska** | Azure | Azure | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Środowiska lokalne |
+| **Obsługiwane środowiska** | Azure<br>Inna chmura (Azure ARC)<br>Lokalna (łuk łuku) | Azure | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Magazyn lokalny |
 | **Wymagania dotyczące agenta**  | Brak | Brak | Brak | Brak | Wymaga agenta Log Analytics |
 | **Zbierane dane** | Dziennik systemu<br>Wydajność | Dziennik systemu<br>Wydajność | Wydajność | Dziennik systemu<br>Wydajność| Zależności procesów<br>Metryki połączenia sieciowego |
-| **Dane wysyłane do** | Dzienniki usługi Azure Monitor<br>Metryki Azure Monitor | Azure Storage<br>Centrum zdarzeń | Metryki Azure Monitor | Dzienniki usługi Azure Monitor | Dzienniki usługi Azure Monitor<br>(za poorednictwem agenta Log Analytics) |
-| **Usługi i**<br>**oferowanych**<br>**obsługiwał** | Usługa Log Analytics<br>Eksplorator metryk | | Eksplorator metryk | Usługa Azure Monitor dla maszyn wirtualnych<br>Usługa Log Analytics<br>Azure Automation<br>Azure Security Center<br>Usługa Azure Sentinel | Usługa Azure Monitor dla maszyn wirtualnych<br>Mapa usługi |
+| **Dane wysyłane do** | Dzienniki usługi Azure Monitor<br>Metryki usługi Azure Monitor | Azure Storage<br>Centrum zdarzeń | Metryki usługi Azure Monitor | Dzienniki usługi Azure Monitor | Dzienniki usługi Azure Monitor<br>(za poorednictwem agenta Log Analytics) |
+| **Usługi i**<br>**oferowanych**<br>**obsługiwał** | Log Analytics<br>Eksplorator metryk | | Eksplorator metryk | Usługa Azure Monitor dla maszyn wirtualnych<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Usługa Azure Sentinel | Usługa Azure Monitor dla maszyn wirtualnych<br>Mapa usługi |
 
 
 ## <a name="azure-monitor-agent-preview"></a>Agent Azure Monitor (wersja zapoznawcza)
@@ -56,7 +56,7 @@ W poniższych tabelach przedstawiono krótkie porównanie Azure Monitor agentów
 
 Użyj agenta Azure Monitor, jeśli zachodzi taka potrzeba:
 
-- Zbierz dzienniki gościa i metryki z dowolnej maszyny wirtualnej na platformie Azure, w innych chmurach lub lokalnie. (Tylko platforma Azure w wersji zapoznawczej).
+- Zbierz dzienniki gościa i metryki z dowolnej maszyny wirtualnej na platformie Azure, w innych chmurach lub lokalnie. (Usługa Azure Arc jest wymagana w przypadku maszyn wirtualnych poza platformą Azure). 
 - Wysyłaj dane do dzienników Azure Monitor i Azure Monitor metryki analizy za pomocą Azure Monitor. 
 - Wyślij dane do usługi Azure Storage w celu archiwizacji.
 - Wyślij dane do narzędzi innych firm przy użyciu [usługi Azure Event Hubs](diagnostics-extension-stream-event-hubs.md).
@@ -179,7 +179,7 @@ W poniższej tabeli wymieniono systemy operacyjne, które są obsługiwane przez
 | SUSE Linux Enterprise Server 15                          | X | X |   |   |
 | SUSE Linux Enterprise Server 12                          | X | X | X | X |
 | Ubuntu 20,04 LTS                                         |   | X |   |   |
-| Ubuntu 18,04 LTS                                         | X | X | X | X |
+| Ubuntu 18.04 LTS                                         | X | X | X | X |
 | Ubuntu 16.04 LTS                                         | X | X | X | X |
 | Ubuntu 14,04 LTS                                         |   | X |   | X |
 
@@ -196,7 +196,7 @@ Ponieważ agent zależności działa na poziomie jądra, pomoc techniczna jest r
 |                    | 6,9     | 2.6.32-696  |
 | CentOSPlus         | 6,10    | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
 |                    | 6,9     | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
-| Ubuntu Server      | 18,04   | 5.3.0-1020<br>5,0 (obejmuje jądro dostosowane do platformy Azure)<br>4,18* <br> 4,15* |
+| Ubuntu Server      | 18,04   | 5.3.0-1020<br>5,0 (obejmuje jądro dostosowane do platformy Azure)<br>4,18 *<br> 4,15* |
 |                    | 16.04.3 | 4,15. * |
 |                    | 16,04   | 4,13.\*<br>4,11.\*<br>4,10.\*<br>4,8.\*<br>4,4.\* |
 | SUSE Linux 12 Enterprise Server | 12 SP4 | 4,12. * (obejmuje jądro dostosowane do platformy Azure) |
