@@ -3,26 +3,26 @@ title: AMQP 1,0 Azure Service Bus i Event Hubs Przewodnik po protokole | Microso
 description: Przewodnik po protokole do wyrażeń i opisów AMQP 1,0 w Azure Service Bus i Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: ffccd49d37dbf2a8fc404e9895b648e53007675c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32e71211ed1574cade0567f7944b154eea062b24
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88064540"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95396879"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1,0 Azure Service Bus i Event Hubs Przewodnik po protokole
 
-Protokół Advanced Message Queueing Protocol 1,0 to ustandaryzowany protokół obsługi ramek i transferu w celu asynchronicznego, bezpiecznego i niezawodnego przesyłania komunikatów między dwiema stronami. Jest to podstawowy protokół Azure Service Bus Messaging i Azure Event Hubs. Obie usługi obsługują również protokół HTTPS. Zastrzeżony protokół SBMP, który jest również obsługiwany, jest stopniowo wycofywany na korzyść AMQP.
+Protokół Advanced Message Queueing Protocol 1,0 to ustandaryzowany protokół obsługi ramek i transferu w celu asynchronicznego, bezpiecznego i niezawodnego przesyłania komunikatów między dwiema stronami. Jest to podstawowy protokół Azure Service Bus Messaging i Azure Event Hubs.  
 
-AMQP 1,0 to wynik szerokiej współpracy branżowej, która współpracowała z dostawcami oprogramowania pośredniczącego, takimi jak firma Microsoft i Red Hat, z wieloma użytkownikami oprogramowania pośredniczącego do obsługi komunikatów, takimi jak JP Morgan Chase reprezentujący branżę usług finansowych. Forum normalizacyjne techniczne dla protokołów AMQP i specyfikacji rozszerzeń jest języka Oasis i uzyskało formalne zatwierdzenie jako standard międzynarodowy jako ISO/IEC 19494.
+AMQP 1,0 to wynik szerokiej współpracy branżowej, która współpracowała z dostawcami oprogramowania pośredniczącego, takimi jak firma Microsoft i Red Hat, z wieloma użytkownikami oprogramowania pośredniczącego do obsługi komunikatów, takimi jak JP Morgan Chase reprezentujący branżę usług finansowych. Forum normalizacyjne techniczne dla protokołów AMQP i specyfikacji rozszerzeń jest języka Oasis i uzyskało formalne zatwierdzenie jako standard międzynarodowy jako ISO/IEC 19494:2014. 
 
 ## <a name="goals"></a>Cele
 
-W tym artykule krótko podsumowano podstawowe koncepcje specyfikacji obsługi komunikatów w systemie AMQP 1,0 oraz mały zestaw wersji roboczych specyfikacji rozszerzeń, które są obecnie finalizowane w Komitecie technicznym języka Oasis AMQP i wyjaśniono, w jaki sposób Azure Service Bus implementuje i kompiluje te specyfikacje.
+W tym artykule podsumowano podstawowe pojęcia specyfikacji obsługi komunikatów w systemie AMQP 1,0 wraz ze specyfikacjami rozszerzeń opracowanymi przez [Komitet techniczny języka Oasis AMQP](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp) i wyjaśniono, w jaki sposób Azure Service Bus implementuje i tworzy na podstawie tych specyfikacji.
 
 Celem jest dla każdego dewelopera korzystającego z dowolnego istniejącego stosu klienta AMQP 1,0 na dowolnej platformie, aby możliwe było współdziałanie z Azure Service Bus za pośrednictwem AMQP 1,0.
 
-Typowe stosy AMQP 1,0, takie jak Apache Proton lub AMQP.NET Lite, już implementują wszystkie podstawowe protokoły AMQP 1,0. Te podstawowe gesty są czasami opakowane przy użyciu interfejsu API wyższego poziomu. Program Apache Proton oferuje dwa, bezwzględny interfejs API programu Messenger i reaktywny interfejs API reaktora.
+Typowe stosy AMQP 1,0, takie jak [Apache Qpid Proton](https://qpid.apache.org/proton/index.html) lub [AMQP.NET Lite](https://github.com/Azure/amqpnetlite), implementują wszystkie podstawowe elementy protokołu AMQP 1,0, takie jak sesje lub łącza. Te elementy podstawowe są czasami opakowane przy użyciu interfejsu API wyższego poziomu. Program Apache Proton oferuje dwa, bezwzględny interfejs API programu Messenger i reaktywny interfejs API reaktora.
 
 W poniższej dyskusji przyjęto założenie, że zarządzanie połączeniami AMQP, sesjami i łączami oraz obsługą transferów ramek i sterowania przepływem jest obsługiwane przez odpowiedni stos (na przykład Apache Proton-C) i nie wymaga dużej uwagi od deweloperów aplikacji. Częściowo zakładamy istnienie kilku prymitywów interfejsu API, takich jak możliwość nawiązywania połączenia, oraz do tworzenia niektórych postaci obiektów abstrakcji *nadawcy* i *odbiorników* , które mają `send()` odpowiednio kształt i `receive()` operacje.
 
@@ -46,7 +46,7 @@ Najbardziej autorytatywne źródło informacji o tym, jak działa AMQP, jest spe
 
 ### <a name="connections-and-sessions"></a>Połączenia i sesje
 
-AMQP wywołuje *kontenery*programów komunikujących się; zawierają *węzły*, które są komunikującymi się jednostkami w tych kontenerach. Kolejka może być węzłem. AMQP umożliwia obsługę multipleksera, dlatego pojedyncze połączenie może być używane dla wielu ścieżek komunikacji między węzłami. na przykład klient aplikacji może jednocześnie odbierać z jednej kolejki i wysyłać do innej kolejki za pośrednictwem tego samego połączenia sieciowego.
+AMQP wywołuje *kontenery* programów komunikujących się; zawierają *węzły*, które są komunikującymi się jednostkami w tych kontenerach. Kolejka może być węzłem. AMQP umożliwia obsługę multipleksera, dlatego pojedyncze połączenie może być używane dla wielu ścieżek komunikacji między węzłami. na przykład klient aplikacji może jednocześnie odbierać z jednej kolejki i wysyłać do innej kolejki za pośrednictwem tego samego połączenia sieciowego.
 
 ![Diagram przedstawiający sesje i połączenia między kontenerami.][1]
 
@@ -77,14 +77,14 @@ Klienci korzystający z połączeń AMQP za pośrednictwem protokołu TCP potrze
 
 ![Lista portów docelowych][4]
 
-Klient platformy .NET może zakończyć się niepowodzeniem z użyciem gniazda SocketException ("podjęto próbę uzyskania dostępu do gniazda w sposób zabroniony przez jego uprawnienia dostępu"), jeśli te porty są blokowane przez zaporę. Tę funkcję można wyłączyć `EnableAmqpLinkRedirect=false` , ustawiając ciąg connectiong, który wymusza komunikację klientów z usługą zdalną przez port 5671.
+Klient platformy .NET może zakończyć się niepowodzeniem z użyciem gniazda SocketException ("podjęto próbę uzyskania dostępu do gniazda w sposób zabroniony przez jego uprawnienia dostępu"), jeśli te porty są blokowane przez zaporę. Tę funkcję można wyłączyć przez ustawienie `EnableAmqpLinkRedirect=false` w parametrach połączenia, które wymuszają klientom komunikację z usługą zdalną przez port 5671.
 
 
 ### <a name="links"></a>Linki
 
 AMQP przesyła komunikaty przez linki. Link jest ścieżką komunikacyjną utworzoną za pośrednictwem sesji, która umożliwia przesyłanie komunikatów w jednym kierunku; negocjowanie stanu transferu odbywa się nad łączem i dwukierunkową między połączonymi stronami.
 
-![Zrzut ekranu przedstawiający sesję carryign połączenie między dwoma kontenerami.][2]
+![Zrzut ekranu przedstawiający sesję łączącą połączenie między dwoma kontenerami.][2]
 
 Linki można tworzyć za pomocą kontenera w dowolnym momencie i za pośrednictwem istniejącej sesji, co sprawia, że AMQP różni się od wielu innych protokołów, w tym HTTP i MQTT, gdzie inicjowanie transferów i ścieżki transferu jest wyłącznym uprawnieniem dla strony tworzącej połączenie gniazda.
 
@@ -120,7 +120,7 @@ Aby skompensować możliwe niezduplikowane komunikaty, Service Bus obsługuje wy
 
 Oprócz modelu sterowania przepływem na poziomie sesji, który został wcześniej omówiony, każdy link ma własny model sterowania przepływem. Sterowanie przepływem na poziomie sesji chroni kontener przed zajściem zbyt wielu ramek jednocześnie, sterowanie przepływem na poziomie łącza umieszcza aplikację, która będzie mogła obsługiwać wiele komunikatów, które chcą obsłużyć z linku.
 
-![Zrzut ekranu przedstawiający dziennik z danymi źródłowymi, docelowymi, port źródłowy, port docelowy i nazwa protokołu. W wierszu fiest port docelowy 10401 (0x28 A 1) jest podkreślony jako czarny.][4]
+![Zrzut ekranu przedstawiający dziennik z danymi źródłowymi, docelowymi, port źródłowy, port docelowy i nazwa protokołu. W pierwszym wierszu port docelowy 10401 (0x28 A 1) jest opisany w czerni.][4]
 
 W przypadku linku transfery mogą wystąpić tylko wtedy, gdy nadawca dysponuje wystarczającym *środkiem konsolidacji*. Link kredyt jest licznikiem ustawionym przez odbiornik przy użyciu performative *przepływu* , który jest objęty zakresem linku. Gdy nadawca ma przypisany kredyt, próbuje użyć tego kredytu, dostarczając komunikaty. Każde dostarczanie komunikatów zmniejsza pozostałe środki w wysokości łącznej o 1. Gdy zostanie użyte środki łącza, dostawy są zatrzymane.
 
@@ -130,7 +130,7 @@ W roli nadawcy Service Bus wysyła wiadomości w celu użycia wszelkich zaległy
 
 Wywołanie "Receive" na poziomie interfejsu API tłumaczy do performative *przepływu* wysyłanego do Service Bus przez klienta i Service Bus zużywa te środki, pobierając pierwszy dostępną, odblokowany komunikat z kolejki, blokując ją i przekazując ją. Jeśli nie ma żadnych komunikatów, które są dostępne do dostarczenia, wszelkie zaległe środki związane z tym konkretną jednostką pozostaną zarejestrowane w kolejności przybycia, a komunikaty są blokowane i przesyłane, gdy staną się dostępne, aby można było korzystać z jakichkolwiek zaległych środków.
 
-Blokada komunikatu jest publikowana, gdy transfer zostanie rozliczony do jednego z Stanów końcowych *przyjętych*, *odrzuconych*lub *wydanych*. Wiadomość zostanie usunięta z Service Bus, gdy stan końcowy zostanie *zaakceptowany*. Pozostanie w Service Bus i zostanie dostarczone do następnego odbiorcy, gdy transfer osiągnie jakikolwiek inny stan. Service Bus automatycznie przenosi komunikat do kolejki utraconych danych jednostki, gdy osiągnie maksymalną liczbę dostaw dozwoloną dla jednostki z powodu powtarzających się odrzuceń lub wydań.
+Blokada komunikatu jest publikowana, gdy transfer zostanie rozliczony do jednego z Stanów końcowych *przyjętych*, *odrzuconych* lub *wydanych*. Wiadomość zostanie usunięta z Service Bus, gdy stan końcowy zostanie *zaakceptowany*. Pozostanie w Service Bus i zostanie dostarczone do następnego odbiorcy, gdy transfer osiągnie jakikolwiek inny stan. Service Bus automatycznie przenosi komunikat do kolejki utraconych danych jednostki, gdy osiągnie maksymalną liczbę dostaw dozwoloną dla jednostki z powodu powtarzających się odrzuceń lub wydań.
 
 Mimo że interfejsy API Service Bus nie ujawniają bezpośrednio takiej opcji, klient niskiego poziomu protokołu AMQP może użyć modelu kredytowego dla linku, aby przekształcić funkcję "w stylu ściągania" o wystawienie jednej jednostki środków w odniesieniu do każdego żądania odbioru do modelu "push-Style", wydając dużą liczbę kredytów na łącza, a następnie odbierając komunikaty, gdy staną się dostępne bez żadnej dalsze Wypychanie jest obsługiwane za pomocą ustawień właściwości [MessagingFactory. PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) lub [MessageReceiver. PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) . Jeśli są one inne niż zero, klient AMQP używa go jako łącznego kredytu.
 
@@ -222,7 +222,7 @@ Każda właściwość, którą aplikacja musi definiować, powinna być mapowana
 | --- | --- | --- |
 | Identyfikator komunikatu |Zdefiniowany przez aplikację identyfikator dowolnej postaci dla tego komunikatu. Używany do wykrywania duplikatów. |[Identyfikatora](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Identyfikator użytkownika zdefiniowany przez aplikację, nieinterpretowany przez Service Bus. |Niedostępne za pomocą interfejsu API Service Bus. |
-| na wartość |Zdefiniowany przez aplikację identyfikator docelowy, nieinterpretowany przez Service Bus. |[Działanie](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| na wartość |Zdefiniowany przez aplikację identyfikator docelowy, nieinterpretowany przez Service Bus. |[Do](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | Temat |Identyfikator przeznaczenie komunikatu zdefiniowany przez aplikację, nieinterpretowany przez Service Bus. |[Etykieta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | Odpowiedz do |Zdefiniowany przez aplikację wskaźnik ścieżki odpowiedzi, nieinterpretowany przez Service Bus. |[From](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | correlation-id |Zdefiniowany przez aplikację identyfikator korelacji, nieinterpretowany przez Service Bus. |[Korelacj](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -319,7 +319,7 @@ W tej części omówiono zaawansowane możliwości Azure Service Bus, które są
 
 ### <a name="amqp-management"></a>AMQP Management
 
-Specyfikacja AMQP Management to pierwszy z tych rozszerzeń, które zostały omówione w tym artykule. Ta specyfikacja definiuje zestaw protokołów warstwowych na podstawie protokołu AMQP, który pozwala na interakcje zarządzania z infrastrukturą obsługi komunikatów w AMQP. Specyfikacja definiuje operacje ogólne, takie jak *Tworzenie*, *odczytywanie*, *Aktualizowanie*i *usuwanie* w celu zarządzania jednostkami wewnątrz infrastruktury obsługi komunikatów i zestawem operacji zapytań.
+Specyfikacja AMQP Management to pierwszy z tych rozszerzeń, które zostały omówione w tym artykule. Ta specyfikacja definiuje zestaw protokołów warstwowych na podstawie protokołu AMQP, który pozwala na interakcje zarządzania z infrastrukturą obsługi komunikatów w AMQP. Specyfikacja definiuje operacje ogólne, takie jak *Tworzenie*, *odczytywanie*, *Aktualizowanie* i *usuwanie* w celu zarządzania jednostkami wewnątrz infrastruktury obsługi komunikatów i zestawem operacji zapytań.
 
 Wszystkie te gesty wymagają interakcji żądania/odpowiedzi między klientem i infrastrukturą obsługi komunikatów, dlatego specyfikacja definiuje, jak modelować ten wzorzec interakcji w oparciu o AMQP: klient łączy się z infrastrukturą obsługi komunikatów, inicjuje sesję, a następnie tworzy parę linków. W przypadku jednego linku klient pełni rolę nadawcy, a drugie działa jako odbiornik, tworząc parę łączy, które mogą pełnić rolę kanału dwukierunkowego.
 

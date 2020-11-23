@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej pod
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: cff5c68803d0930bbf3310a385ffa0132bcbb3b1
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2c38af9a2e1c4c71bb2d5661758f663efe13a946
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95017030"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95414083"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tabela obsługi dla maszyn wirtualnych platformy Azure
 
@@ -160,7 +160,7 @@ Rozmiar dysku danych | Rozmiar poszczególnych dysków może należeć do 32 TB 
 Typ magazynu | HDD w warstwie Standardowa, SSD w warstwie Standardowa, SSD w warstwie Premium.
 Dyski zarządzane | Obsługiwane.
 Zaszyfrowane dyski | Obsługiwane.<br/><br/> Można utworzyć kopię zapasową maszyn wirtualnych platformy Azure z włączonym Azure Disk Encryption (z aplikacją usługi Azure AD lub bez niej).<br/><br/> Zaszyfrowane maszyny wirtualne nie mogą zostać odzyskane na poziomie plików/folderów. Należy odzyskać całą maszynę wirtualną.<br/><br/> Możesz włączyć szyfrowanie na maszynach wirtualnych, które są już chronione przez Azure Backup.
-Dyski z włączonym akcelerator zapisu | Nieobsługiwane.<br/><br/> Azure Backup automatycznie wyklucza dyski z włączoną funkcją akcelerator zapisu (WA) podczas tworzenia kopii zapasowej. Ponieważ nie są one tworzone w kopii zapasowej, nie można przywrócić tych dysków z punktów odzyskiwania maszyny wirtualnej. <br><br> **Ważna Uwaga**: maszyny wirtualne z dyskami wa muszą mieć łączność z Internetem, aby utworzyć kopię zapasową (mimo że te dyski są wykluczone z kopii zapasowej).
+Dyski z włączonym akcelerator zapisu | Od 23 listopada 2020, obsługiwane w regionach Korea Środkowa (KRC) i Północna Republika Południowej Afryki (SAN).<br/><br/> Azure Backup będzie tworzyć kopie zapasowe maszyn wirtualnych z dyskami z włączoną funkcją Write Accelarted (WA) podczas tworzenia kopii zapasowej.  
 Tworzenie kopii zapasowej & przywracanie deduplikowanych maszyn wirtualnych/dysków | Azure Backup nie obsługuje deduplikacji. Aby uzyskać więcej informacji, zobacz ten [artykuł](./backup-support-matrix.md#disk-deduplication-support) <br/> <br/>  -Azure Backup nie deduplikowania między maszynami wirtualnymi w magazynie Recovery Services <br/> <br/>  — Jeśli podczas przywracania istnieją maszyny wirtualne w stanie deduplikacji, nie można przywrócić plików, ponieważ magazyn nie rozumie tego formatu. Można jednak pomyślnie wykonać pełne przywracanie maszyny wirtualnej.
 Dodawanie dysku do chronionej maszyny wirtualnej | Obsługiwane.
 Zmień rozmiar dysku na chronionej maszynie wirtualnej | Obsługiwane.

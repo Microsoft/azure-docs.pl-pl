@@ -2,13 +2,13 @@
 title: Omówienie obsługi komunikatów w usłudze Azure Service Bus | Microsoft Docs
 description: Ten artykuł zawiera ogólne omówienie Azure Service Bus, a w pełni zarządzanego brokera komunikatów integracji przedsiębiorstwa.
 ms.topic: overview
-ms.date: 06/23/2020
-ms.openlocfilehash: 478dd0debb5117e76cf8d0ab6599dcf363c12ab3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 11/20/2020
+ms.openlocfilehash: febb25474f84819b0afc9ab1f9af96e93489ab54
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87501478"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95415290"
 ---
 # <a name="what-is-azure-service-bus"></a>Co to jest Azure Service Bus?
 
@@ -43,7 +43,7 @@ Do wysyłania i odbierania komunikatów można również używać *tematów*. Ko
 
 Tematy mogą mieć wiele niezależnych subskrypcji. Subskrybent tematu może otrzymywać kopie wszystkich komunikatów wysłanych do tego tematu. Subskrypcje są nazwanymi jednostkami. Subskrypcje są utrwalane, ale mogą wygasnąć lub usuwać.
 
-Użytkownik może nie chcieć, aby poszczególne subskrypcje odbierali wszystkie komunikaty wysyłane do tematu. W takim przypadku można użyć *zasad* i *filtrów* do definiowania warunków wyzwalających *Akcje*opcjonalne. Można filtrować określone komunikaty i ustawiać lub modyfikować właściwości komunikatów. Aby uzyskać więcej informacji, zobacz [temat filtry i akcje tematu](topic-filters.md).
+Użytkownik może nie chcieć, aby poszczególne subskrypcje odbierali wszystkie komunikaty wysyłane do tematu. W takim przypadku można użyć *zasad* i *filtrów* do definiowania warunków wyzwalających *Akcje* opcjonalne. Można filtrować określone komunikaty i ustawiać lub modyfikować właściwości komunikatów. Aby uzyskać więcej informacji, zobacz [temat filtry i akcje tematu](topic-filters.md).
 
 ## <a name="advanced-features"></a>Funkcje zaawansowane
 
@@ -89,30 +89,47 @@ Autodelete przy bezczynności umożliwia określenie interwału bezczynności, p
 
 Błąd może spowodować, że klient ma wątpliwości dotyczące wyniku operacji wysyłania. Wykrywanie duplikatów umożliwia nadawcy ponowne wysłanie tego samego komunikatu. Inna opcja dotyczy kolejki lub tematu, aby odrzucić wszystkie zduplikowane kopie. Aby uzyskać więcej informacji, zobacz [Wykrywanie duplikatów](duplicate-detection.md).
 
-### <a name="security-protocols"></a>Protokoły zabezpieczeń
-<a name="sas-rbac-and-managed-identities-for-azure-resources"></a>
-
-Service Bus obsługuje protokoły zabezpieczeń, takie jak [sygnatury dostępu współdzielonego](service-bus-sas.md) (SAS), [Kontrola dostępu oparta na rolach na platformie Azure (RBAC)](authenticate-application.md) i [zarządzane tożsamości dla zasobów platformy Azure](service-bus-managed-service-identity.md).
-
 ### <a name="geo-disaster-recovery"></a>Geograficzne odzyskiwanie po awarii
 
-Jeśli w regionach lub centrach danych Azure dojdzie do przestoju, geograficzne odzyskiwanie po awarii umożliwia kontynuowanie przetwarzania danych w innym regionie lub centrum danych. Aby uzyskać więcej informacji, zobacz [Azure Service Bus geograficznie z odzyskiwaniem po awarii](service-bus-geo-dr.md).
+Gdy w regionach platformy Azure lub centrach danych wystąpi przestój, funkcja rozproszonego odzyskiwania po awarii w trybie geograficznym umożliwia przetwarzanie danych w celu kontynuowania działania w innym regionie lub Datacenter. Aby uzyskać więcej informacji, zobacz [Azure Service Bus geograficznie z odzyskiwaniem po awarii](service-bus-geo-dr.md).
 
 ### <a name="security"></a>Zabezpieczenia
 
-Usługa Service Bus obsługuje standardowe protokoły [AMQP 1.0](service-bus-amqp-overview.md) i [HTTP/REST](/rest/api/servicebus/).
+Service Bus obsługuje standardowe protokoły [AMQP 1,0](service-bus-amqp-overview.md) i [http/REST](/rest/api/servicebus/) oraz ich odpowiednie funkcje zabezpieczeń, w tym zabezpieczenia na poziomie transportu (TLS). Klienci mogą mieć autoryzację dostępu przy użyciu Service Bus natywnego modelu [sygnatury dostępu współdzielonego](service-bus-sas.md) lub [Azure Active Directory](service-bus-authentication-and-authorization.md) zabezpieczeń opartych na rolach, używając zwykłych kont usług lub tożsamości zarządzanych platformy Azure. 
+
+W celu ochrony przed niechcianym ruchem Service Bus zapewnia szereg [funkcji zabezpieczeń sieci](network-security.md), w tym zapory filtrowania IP i integrację z platformą Azure i lokalnymi sieciami wirtualnymi.
 
 ## <a name="client-libraries"></a>Biblioteki klienta
 
-Service Bus obsługuje biblioteki klienckie dla [platform .NET](https://github.com/Azure/azure-service-bus-dotnet/tree/master), [Java](https://github.com/Azure/azure-service-bus-java/tree/master)i [JMS](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client).
+W pełni obsługiwane Service Bus biblioteki klienckie są dostępne za pośrednictwem zestawu Azure SDK.
+
+- [Azure Service Bus dla platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/service-bus?view=azure-dotnet&preserve-view=true)
+- [Biblioteki Azure Service Bus dla języka Java](https://docs.microsoft.com/java/api/overview/azure/servicebus?view=azure-java-stable&preserve-view=true)
+- [Dostawca Azure Service Bus dla języka Java JMS 2,0](how-to-use-java-message-service-20.md)
+- [Moduły Azure Service Bus dla języków JavaScript i TypeScript](https://docs.microsoft.com/javascript/api/overview/azure/service-bus?view=azure-node-latest&preserve-view=true)
+- [Biblioteki Azure Service Bus dla języka Python](https://docs.microsoft.com/python/api/overview/azure/servicebus?view=azure-python&preserve-view=true)
+
+[Azure Service Bus "podstawowy protokół to AMQP 1,0](service-bus-amqp-overview.md) i może być używany z dowolnego klienta zgodnego protokołu AMQP 1,0. Kilku klientów AMQP Open Source ma przykłady, które jawnie demonstrują Service Bus współdziałania. Zapoznaj się z [przewodnikiem po protokole AMQP 1,0](service-bus-amqp-protocol-guide.md) , aby dowiedzieć się, jak używać funkcji Service Bus "bezpośrednio z klientami AMQP 1,0.
+
+| Język | Biblioteka |
+| --- | --- |
+| Java | [Apache Qpid Proton-J](https://qpid.apache.org/proton/index.html) |
+| C/C++ |[Azure UAMQP C](https://github.com/azure/azure-uamqp-c/), [Apache Qpid Proton-C](https://qpid.apache.org/proton/index.html) |
+| Python |[Azure uAMQP for Python](https://github.com/azure/azure-uamqp-python/), [Apache Qpid Proton Python](https://qpid.apache.org/releases/qpid-proton-0.32.0/proton/python/docs/overview.html) |
+| PHP | [Azure uAMQP dla języka PHP](https://github.com/vsouz4/azure-uamqp-php/) |
+| Ruby | [Apache Qpid Proton Ruby](https://github.com/apache/qpid-proton/tree/master/ruby) |
+| Przejdź | [Azure go AMQP](https://github.com/Azure/go-amqp), [Apache Qpid Proton go](https://github.com/apache/qpid-proton/tree/master/go/examples)
+| C#/F #/VB | [AMQP .NET Lite](https://github.com/Azure/amqpnetlite), [Apache NMS AMQP](https://github.com/apache/activemq-nms-amqp)|
+| JavaScript/węzeł | [Rhea](https://github.com/grs/rhea) |
 
 ## <a name="integration"></a>Integracja
 
-Usługa Service Bus w pełni integruje się z następującymi usługami platformy Azure:
+Service Bus w pełni integrują się z wieloma usługami firmy Microsoft i platformy Azure, na przykład:
 
 * [Event Grid](https://azure.microsoft.com/services/event-grid/)
 * [Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
+* [Power Platform](https://powerplatform.microsoft.com/)
 * [Dynamics 365](https://dynamics.microsoft.com)
 * [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
 

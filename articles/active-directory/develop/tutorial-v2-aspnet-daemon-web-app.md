@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 72b72959f7b5c89bfad4495c8534de5dfaaefe8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 031ee9a6d945d923279fd3025c32212c3ead98ed
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611099"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95406603"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Samouczek: Tworzenie demona z wieloma dzierżawcami korzystającą z platformy tożsamości firmy Microsoft
 
-W ramach tego samouczka nauczysz się używać platformy tożsamości firmy Microsoft do uzyskiwania dostępu do danych klientów firmy Microsoft w długotrwałym, nieinteraktywnym procesie. Demona Przykładowa używa [przydzielenia poświadczeń klienta OAuth2](v2-oauth2-client-creds-grant-flow.md) w celu uzyskania tokenu dostępu. Demon używa tokenu do wywoływania [Microsoft Graph](https://graph.microsoft.io) i dostępu do danych organizacji.
+W tym samouczku pobierzesz i uruchomisz aplikację sieci Web demona ASP.NET, która demonstruje użycie poświadczeń klienta OAuth 2,0, aby uzyskać token dostępu do wywołania interfejsu API Microsoft Graph.
+
+W tym samouczku:
 
 > [!div class="checklist"]
 > * Integrowanie aplikacji demona z platformą tożsamości firmy Microsoft
@@ -116,7 +118,7 @@ Jeśli nie chcesz używać automatyzacji, wykonaj kroki opisane w poniższych se
 1. Na stronie **certyfikaty & wpisy tajne** w sekcji **klucze tajne klienta** wybierz pozycję **nowy klucz tajny klienta**. Następnie:
 
    1. Wprowadź opis klucza (na przykład **klucz tajny aplikacji**),
-   1. Wybierz kluczowy okres trwania z przedziału **1 roku**, **w ciągu 2 lat**lub **nigdy nie wygasa**.
+   1. Wybierz kluczowy okres trwania z przedziału **1 roku**, **w ciągu 2 lat** lub **nigdy nie wygasa**.
    1. Wybierz przycisk **Add** (Dodaj).
    1. Gdy zostanie wyświetlona wartość klucza, skopiuj ją i Zapisz w bezpiecznej lokalizacji. Ten klucz będzie potrzebny później, aby skonfigurować projekt w programie Visual Studio. Nie będzie można go ponownie wyświetlić ani pobrać w inny sposób.
 1. Na liście stron dla aplikacji wybierz pozycję **uprawnienia interfejsu API**. Następnie:
@@ -189,12 +191,12 @@ Odpowiedni kod dla tego przykładu znajduje się w następujących plikach:
 1. W **Startup.auth.cs**, Rozwiąż brakujące odwołania przez dodanie instrukcji **using** zgodnie z sugestią w programie Visual Studio IntelliSense.
 1. Kliknij prawym przyciskiem myszy projekt, wybierz polecenie **Dodaj**, a następnie wybierz pozycję **Klasa**.
 1. W polu wyszukiwania wprowadź **Owin**. **Klasa uruchomieniowa Owin** jest wyświetlana jako zaznaczenie. Zaznacz ją i nadaj jej nazwę **Startup.cs**.
-1. W **Startup.cs**Zastąp kod klasy **uruchomieniowej** kodem z tego samego pliku przykładowej aplikacji. Należy pamiętać, że definicja zmiany z **klasy publicznej rozpoczyna** się na **publiczne uruchamianie częściowej klasy**.
+1. W **Startup.cs** Zastąp kod klasy **uruchomieniowej** kodem z tego samego pliku przykładowej aplikacji. Należy pamiętać, że definicja zmiany z **klasy publicznej rozpoczyna** się na **publiczne uruchamianie częściowej klasy**.
 1. W folderze **modele** Dodaj nową klasę o nazwie **MsGraphUser.cs**. Zastąp implementację zawartością pliku o tej samej nazwie z przykładu.
 1. Dodaj nowy **kontroler MVC 5 — puste** wystąpienie o nazwie **elementu AccountController**. Zastąp implementację zawartością pliku o tej samej nazwie z przykładu.
 1. Dodaj nowy **kontroler MVC 5 — puste** wystąpienie o nazwie **UserController**. Zastąp implementację zawartością pliku o tej samej nazwie z przykładu.
 1. Dodaj nowy **kontroler Web API 2 — puste** wystąpienie o nazwie **SyncController**. Zastąp implementację zawartością pliku o tej samej nazwie z przykładu.
-1. W przypadku interfejsu użytkownika w folderze **Views\Account** Dodaj trzy **puste (bez modelu) wystąpienia widoków** o nazwie **GrantPermissions**, **index**i **UserMismatch**. Dodaj i jeden nazwany **indeks** w folderze **Views\User** Zastąp implementację zawartością pliku o tej samej nazwie z przykładu.
+1. W przypadku interfejsu użytkownika w folderze **Views\Account** Dodaj trzy **puste (bez modelu) wystąpienia widoków** o nazwie **GrantPermissions**, **index** i **UserMismatch**. Dodaj i jeden nazwany **indeks** w folderze **Views\User** Zastąp implementację zawartością pliku o tej samej nazwie z przykładu.
 1. Aktualizowanie **współużytkowanego \_ układu. cshtml** i **Home\Index.cshtml** w celu poprawnego łączenia różnych widoków.
 
 ## <a name="deploy-the-sample-to-azure"></a>Wdróż przykład na platformie Azure
@@ -209,8 +211,8 @@ Ten projekt zawiera projekty aplikacji sieci Web i interfejsów API sieci Web. W
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. W lewym górnym rogu wybierz pozycję **Utwórz zasób**.
-1. Wybierz pozycję **Web**  >  **App**Web, a następnie nadaj nazwę witrynie sieci Web. Na przykład nadaj mu nazwę **dotnet-Web-DAEMON-v2-contoso.azurewebsites.NET**.
-1. Wybierz informacje dotyczące **subskrypcji**, **grupy zasobów**i **planu i lokalizacji usługi App Service**. System **operacyjny** to **Windows**i **publikuje** **kod**.
+1. Wybierz pozycję **Web**  >  **App** Web, a następnie nadaj nazwę witrynie sieci Web. Na przykład nadaj mu nazwę **dotnet-Web-DAEMON-v2-contoso.azurewebsites.NET**.
+1. Wybierz informacje dotyczące **subskrypcji**, **grupy zasobów** i **planu i lokalizacji usługi App Service**. System **operacyjny** to **Windows** i **publikuje** **kod**.
 1. Wybierz pozycję **Utwórz** i poczekaj na utworzenie usługi App Service.
 1. Po otrzymaniu powiadomienia o **pomyślnym wdrożeniu** wybierz pozycję **Przejdź do zasobu** , aby przejść do nowo utworzonej usługi App Service.
 1. Po utworzeniu witryny sieci Web Znajdź ją na **pulpicie nawigacyjnym** , a następnie wybierz ją, aby otworzyć ekran **Przegląd** usługi App Service.
@@ -220,7 +222,7 @@ Ten projekt zawiera projekty aplikacji sieci Web i interfejsów API sieci Web. W
    1. Kliknij prawym przyciskiem myszy projekt w Eksplorator rozwiązań, a następnie wybierz pozycję **Publikuj**.
    1. Wybierz pozycję **Importuj profil** na dolnym pasku i zaimportuj wcześniej pobrany profil publikacji.
 1. Wybierz pozycję **Konfiguruj**.
-1. Na karcie **połączenie** zaktualizuj docelowy adres URL w taki sposób, aby korzystał z protokołu HTTPS. Użyj na przykład nazwy `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`. Wybierz opcję **Dalej**.
+1. Na karcie **połączenie** zaktualizuj docelowy adres URL w taki sposób, aby korzystał z protokołu HTTPS. Użyj na przykład nazwy `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`. Wybierz pozycję **Dalej**.
 1. Na karcie **Ustawienia** upewnij się, że pole wyboru **Włącz uwierzytelnianie organizacyjne** jest wyczyszczone.
 1. Wybierz pozycję **Zapisz**. Wybierz pozycję **Publikuj** na ekranie głównym.
 
@@ -234,7 +236,7 @@ Program Visual Studio opublikuje projekt i automatycznie otworzy przeglądarkę 
 1. Na stronie **uwierzytelnianie** dla swojej aplikacji zaktualizuj pola **adresu URL wylogowywania** z adresem usługi. Użyj na przykład nazwy `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
 1. Z menu **znakowanie** , zaktualizuj **adres URL strony głównej** na adres usługi. Użyj na przykład nazwy `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
 1. Zapisz konfigurację.
-1. Dodaj ten sam adres URL na liście wartości **Authentication**  >  menu**identyfikatorów URI przekierowania** uwierzytelniania. Jeśli masz wiele adresów URL przekierowania, upewnij się, że istnieje nowy wpis, który używa identyfikatora URI usługi App Service dla każdego adresu URL przekierowania.
+1. Dodaj ten sam adres URL na liście wartości **Authentication**  >  menu **identyfikatorów URI przekierowania** uwierzytelniania. Jeśli masz wiele adresów URL przekierowania, upewnij się, że istnieje nowy wpis, który używa identyfikatora URI usługi App Service dla każdego adresu URL przekierowania.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Gdy nie jest już potrzebne, Usuń obiekt aplikacji, który został utworzony w kroku [zarejestruj aplikację](#register-your-application) .  Aby usunąć aplikację, postępuj zgodnie z instrukcjami w temacie [usuwanie aplikacji napisanej przez Ciebie lub w organizacji](quickstart-remove-app.md#remove-an-application-authored-by-you-or-your-organization).

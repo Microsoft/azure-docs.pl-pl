@@ -7,12 +7,12 @@ ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: b3ab711f6d324c6d49eda0dccd88a3f2ac939eb5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8710e0cdd6c930338009fb2b7f3bd98fafcfad3e
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461587"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95411567"
 ---
 # <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer-preview"></a>Wyeksportuj dane z Azure Monitor przy użyciu usługi Azure Eksplorator danych (wersja zapoznawcza)
 Eksportowanie danych z Azure Monitor na konto usługi Azure Storage umożliwia przechowywanie w niskich kosztach i możliwość ponownego przydzielenia dzienników do różnych regionów. Użyj usługi Azure Eksplorator danych, aby wykonać zapytanie dotyczące danych, które zostały wyeksportowane z Log Analytics obszarów roboczych. Po skonfigurowaniu obsługiwane tabele, które są wysyłane z obszarów roboczych do konta usługi Azure Storage, będą dostępne jako źródło danych dla Eksplorator danych platformy Azure.
@@ -43,7 +43,7 @@ Użyj [tabel zewnętrznych](/azure/data-explorer/kusto/query/schema-entities/ext
 
 Aby utworzyć odwołanie, wymagany jest schemat wyeksportowanej tabeli. Użyj operatora [GetSchema](/azure/data-explorer/kusto/query/getschemaoperator) z log Analytics, aby pobrać te informacje, które obejmują kolumny tabeli i ich typy danych.
 
-:::image type="content" source="media\azure-data-explorer-query-storage\exported-data-map-schema.jpg" alt-text="Usługa Azure Eksplorator danych wyeksportował przepływ zapytań o dane.":::
+:::image type="content" source="media\azure-data-explorer-query-storage\exported-data-map-schema.jpg" alt-text="Log Analytics schemat tabeli.":::
 
 Teraz można użyć danych wyjściowych do utworzenia zapytania Kusto na potrzeby tworzenia tabeli zewnętrznej.
 Postępując zgodnie ze wskazówkami w temacie [Tworzenie i modyfikowanie tabel zewnętrznych w usłudze Azure Storage lub Azure Data Lake](/azure/data-explorer/kusto/management/external-tables-azurestorage-azuredatalake), Utwórz tabelę zewnętrzną w formacie JSON, a następnie uruchom zapytanie z bazy danych Azure Eksplorator danych.
@@ -56,12 +56,12 @@ Poniższy skrypt programu PowerShell utworzy polecenia [tworzenia](/azure/data-e
 ```powershell
 PARAM(
     $resourcegroupname, #The name of the Azure resource group
-    $TableName, # The log lanlyics table you wish to convert to external table
+    $TableName, # The Log Analytics table you wish to convert to external table
     $MapName, # The name of the map
     $subscriptionId, #The ID of the subscription
-    $WorkspaceId, # The log lanlyics WorkspaceId
-    $WorkspaceName, # The log lanlyics workspace name
-    $BlobURL, # The Blob URL where to save
+    $WorkspaceId, # The Log Analytics WorkspaceId
+    $WorkspaceName, # The Log Analytics workspace name
+    $BlobURL, # The Blob URL where the data is saved
     $ContainerAccessKey, # The blob container Access Key (Option to add a SAS url)
     $ExternalTableName = $null # The External Table name, null to use the same name
 )
@@ -116,12 +116,13 @@ Write-Host -ForegroundColor Green $createMapping
 
 Na poniższej ilustracji przedstawiono i przykład danych wyjściowych.
 
-:::image type="content" source="media/azure-data-explorer-query-storage/external-table-create-command-output.png" alt-text="Usługa Azure Eksplorator danych wyeksportował przepływ zapytań o dane.":::
+:::image type="content" source="media/azure-data-explorer-query-storage/external-table-create-command-output.png" alt-text="Dane wyjściowe polecenia CREATE zewnętrznego.":::
 
 [![Przykładowe dane wyjściowe](media/azure-data-explorer-query-storage/external-table-create-command-output.png)](media/azure-data-explorer-query-storage/external-table-create-command-output.png#lightbox)
 
 >[!TIP]
->Skopiuj, wklej, a następnie Uruchom dane wyjściowe skryptu w narzędziu klienckim Eksplorator danych platformy Azure, aby utworzyć tabelę i mapowanie.
+>* Skopiuj, wklej, a następnie Uruchom dane wyjściowe skryptu w narzędziu klienckim Eksplorator danych platformy Azure, aby utworzyć tabelę i mapowanie.
+>* Jeśli chcesz używać wszystkich danych wewnątrz kontenera, możesz zmienić skrypt, a adres URL to " https://your.blob.core.windows.net/containername ; SecKey'
 
 ## <a name="query-the-exported-data-from-azure-data-explorer"></a>Wykonaj zapytanie dotyczące wyeksportowanych danych z usługi Azure Eksplorator danych 
 
