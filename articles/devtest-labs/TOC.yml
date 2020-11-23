@@ -191,6 +191,8 @@
           href: use-managed-identities-environments.md
         - name: Alerty zabezpieczeń dla środowisk
           href: environment-security-alerts.md
+        - name: Tworzenie środowiska zorientowanego na aplikacje
+          href: create-application-centric-environment.md
     - name: Zarządzanie szablonami wielokrotnego użytku
       items:
         - name: Obrazy niestandardowe a formuły

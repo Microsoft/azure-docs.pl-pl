@@ -62,7 +62,7 @@
       href: How-tos/text-analytics-how-to-call-api.md
     - name: Wykrywanie języka
       href: How-tos/text-analytics-how-to-language-detection.md
-    - name: Analiza tonacji
+    - name: Analiza tonacji i wyszukiwanie opinii
       href: How-tos/text-analytics-how-to-sentiment-analysis.md
     - name: Wyodrębnianie kluczowych fraz
       href: How-tos/text-analytics-how-to-keyword-extraction.md
@@ -92,6 +92,8 @@
       href: /powershell/module/azurerm.cognitiveservices/
     - name: Interfejs API analizy tekstu
       items:
+        - name: v3.1.preview.3
+          href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/'
         - name: wersja 3.0
           href: 'https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0'
         - name: v2

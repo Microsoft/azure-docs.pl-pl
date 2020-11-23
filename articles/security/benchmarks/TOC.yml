@@ -81,6 +81,8 @@
       href: /azure/data-explorer/security-baseline
     - name: Punkt odniesienia zabezpieczeń usługi Azure Data Factory
       href: ../../data-factory/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Azure Data Share
+      href: ../../data-share/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Database for MySQL
       href: ../../mysql/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Database for MariaDB
@@ -91,6 +93,8 @@
       href: ../../postgresql/postgresql-hyperscale-security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Databricks
       href: /azure/databricks/scenarios/security-baseline
+    - name: Punkt odniesienia zabezpieczeń usługi Azure Defender dla IoT
+      href: ../../defender-for-iot/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure DNS
       href: ../../dns/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure DevTest Labs
@@ -101,18 +105,24 @@
       href: ../../frontdoor/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Functions
       href: ../../azure-functions/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Azure HPC Cache
+      href: ../../hpc-cache/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Information Protection
       href: /azure/information-protection/security-baseline
     - name: Punkt odniesienia zabezpieczeń usługi Azure IoT Hub
       href: ../../iot-hub/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Kubernetes Service
       href: ../../aks/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Azure Lighthouse
+      href: ../../lighthouse/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Load Balancer
       href: ../../load-balancer/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Monitor
       href: ../../azure-monitor/security-baseline.md
     - name: Plan bazowy zabezpieczeń usługi Azure Machine Learning
       href: ../../machine-learning/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Azure Migrate Learning
+      href: ../../migrate/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Policy
       href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Private Link
