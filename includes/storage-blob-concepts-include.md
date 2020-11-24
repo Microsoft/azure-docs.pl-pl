@@ -34,7 +34,7 @@ Użytkownicy lub aplikacje klienckie mogą uzyskiwać dostęp do obiektów w mag
 * [Java](https://docs.microsoft.com/java/api/overview/azure/storage)
 * [Node.js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage)
 * [Python](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-python)
-* [Przejdź](https://github.com/azure/azure-storage-blob-go/)
+* [Go](https://github.com/azure/azure-storage-blob-go/)
 * [PHP](https://azure.github.io/azure-storage-php/)
 * [Ruby](https://azure.github.io/azure-storage-ruby)
 
