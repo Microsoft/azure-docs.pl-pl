@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: harshacs
-ms.openlocfilehash: b5ae68dea228e834b2449152bd3ef357f2a74e83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff1f80641dc3db1f6b69fc0223c60022f8cf8435
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069496"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95811627"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Konfigurowanie mapowania sieci i adresowania IP dla sieci wirtualnych VNet
 
@@ -26,11 +26,11 @@ Przed zamapowaniem sieci należy mieć [platformę Azure sieci wirtualnych](../v
 
 Mapuj sieci w następujący sposób:
 
-1. W obszarze **infrastruktura Site Recovery**kliknij pozycję **+ mapowanie sieci**.
+1. W obszarze **infrastruktura Site Recovery** kliknij pozycję **+ mapowanie sieci**.
 
     ![ Tworzenie mapowania sieci](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
 
-3. W obszarze **Dodawanie mapowania sieci**wybierz lokalizację źródłową i docelową. W naszym przykładzie źródłowa maszyna wirtualna jest uruchomiona w regionie Azja Wschodnia i jest replikowana do regionu Azja Południowo-Wschodnia.
+3. W obszarze **Dodawanie mapowania sieci** wybierz lokalizację źródłową i docelową. W naszym przykładzie źródłowa maszyna wirtualna jest uruchomiona w regionie Azja Wschodnia i jest replikowana do regionu Azja Południowo-Wschodnia.
 
     ![Wybierz źródło i cel](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 3. Teraz Utwórz mapowanie sieci w odwrotnym kierunku. W naszym przykładzie Źródło będzie teraz miało Azja Południowo-Wschodnia, a element docelowy zostanie Azja Wschodnia.
@@ -85,7 +85,7 @@ Inna przestrzeń adresowa | Następny dostępny adres IP w podsieci docelowej je
 **Sieć docelowa** | **Szczegóły**
 --- | ---
 Sieć docelowa jest siecią wirtualną trybu failover | -Docelowy adres IP będzie statyczny przy użyciu tego samego adresu IP. <br/><br/>  — Jeśli ten sam adres IP jest już przypisany, adres IP jest następną dostępną na końcu zakresu podsieci. Na przykład: Jeśli źródłowy adres IP to 10.0.0.19, a sieć trybu failover używa zakresu 10.0.0.0/24, wówczas Następny adres IP przypisany do docelowej maszyny wirtualnej to 10.0.0.254.
-Sieć docelowa nie jest siecią wirtualną trybu failover | -Docelowy adres IP będzie statyczny przy użyciu tego samego adresu IP.<br/><br/>  — Jeśli ten sam adres IP jest już przypisany, adres IP jest następną dostępną na końcu zakresu podsieci.<br/><br/> Na przykład: Jeśli źródłowy statyczny adres IP to 10.0.0.19, a tryb failover znajduje się w sieci, która nie jest siecią trybu failover, z zakresem 10.0.0.0/24, docelowy statyczny adres IP będzie 10.0.0.0.19, jeśli jest dostępny, a w przeciwnym razie będzie 10.0.0.254.
+Sieć docelowa nie jest siecią wirtualną trybu failover | -Docelowy adres IP będzie statyczny przy użyciu tego samego adresu IP.<br/><br/>  — Jeśli ten sam adres IP jest już przypisany, adres IP jest następną dostępną na końcu zakresu podsieci.<br/><br/> Na przykład: Jeśli źródłowy statyczny adres IP to 10.0.0.19, a tryb failover znajduje się w sieci, która nie jest siecią trybu failover, z zakresem 10.0.0.0/24, docelowy statyczny adres IP będzie 10.0.0.19, jeśli jest dostępny, a w przeciwnym razie będzie 10.0.0.254.
 
 - Sieć wirtualna trybu failover jest siecią docelową wybraną podczas konfigurowania odzyskiwania po awarii.
 - Zalecamy, aby zawsze używać sieci nieprodukcyjnej do testowania pracy w trybie failover.

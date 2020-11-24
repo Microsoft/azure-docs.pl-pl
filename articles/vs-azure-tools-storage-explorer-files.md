@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: 1b76413bb78baa211fee3aebe37075188ec8c69e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: f9a828b78dc5ba6bdbc77e22daa75be4182015f0
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/24/2020
-ms.locfileid: "95531954"
+ms.locfileid: "95805692"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Używanie programu Storage Explorer z usługą Azure File Storage
 
@@ -31,7 +31,7 @@ Do wykonania kroków opisanych w tym artykule konieczne jest wykonanie kroków z
 
 - [Pobieranie i instalowanie Eksploratora usługi Storage](https://www.storageexplorer.com/)
 
-- [Nawiązywanie połączenia z kontem lub usługą Azure Storage](//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
+- [Nawiązywanie połączenia z kontem lub usługą Azure Storage](/azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-file-share"></a>Tworzenie udziału plików
 
@@ -47,7 +47,7 @@ Poniższe kroki ilustrują tworzenie udziału plików w Eksploratorze usługi St
 
     ![Tworzenie udziału plików](media/vs-azure-tools-storage-explorer-files/image1.png)
 
-1. Poniżej folderu **Udziały plików** zostanie wyświetlone pole tekstowe. Wprowadź nazwę udziału plików. Lista reguł i ograniczeń dotyczących nazewnictwa udziałów plików znajduje się w sekcji [Reguły nazewnictwa udziałów](//azure/storage/storage-dotnet-how-to-use-blobs).
+1. Poniżej folderu **Udziały plików** zostanie wyświetlone pole tekstowe. Wprowadź nazwę udziału plików. Lista reguł i ograniczeń dotyczących nazewnictwa udziałów plików znajduje się w sekcji [Reguły nazewnictwa udziałów](/azure/storage/storage-dotnet-how-to-use-blobs).
 
     ![Nazywanie udziału](media/vs-azure-tools-storage-explorer-files/image2.png)
 
@@ -77,7 +77,7 @@ Poniższe kroki ilustrują wyświetlanie zawartości udziału plików w Eksplora
 
 ## <a name="delete-a-file-share"></a>Usuwanie udziału plików
 
-Udziały plików można łatwo tworzyć i usuwać. Informacje na temat sposobu usuwania pojedynczych plików zawiera sekcja [Managing files in a file share](//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container) (Zarządzanie plikami w udziale plików).
+Udziały plików można łatwo tworzyć i usuwać. Informacje na temat sposobu usuwania pojedynczych plików zawiera sekcja [Managing files in a file share](/azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container) (Zarządzanie plikami w udziale plików).
 
 Poniższe kroki ilustrują usuwanie udziału plików w Eksploratorze usługi Storage:
 
@@ -97,7 +97,7 @@ Poniższe kroki ilustrują usuwanie udziału plików w Eksploratorze usługi Sto
 
 ## <a name="copy-a-file-share"></a>Kopiowanie udziału plików
 
-Eksplorator usługi Storage umożliwia kopiowanie udziału plików do schowka, a następnie wklejanie go do innego konta magazynu. Informacje na temat sposobu kopiowania pojedynczych plików zawiera sekcja [Managing files in a file share](//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container) (Zarządzanie plikami w udziale plików).
+Eksplorator usługi Storage umożliwia kopiowanie udziału plików do schowka, a następnie wklejanie go do innego konta magazynu. Informacje na temat sposobu kopiowania pojedynczych plików zawiera sekcja [Managing files in a file share](/azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container) (Zarządzanie plikami w udziale plików).
 
 Poniższe kroki ilustrują kopiowanie udziału plików z jednego konta magazynu do innego.
 
@@ -117,7 +117,7 @@ Poniższe kroki ilustrują kopiowanie udziału plików z jednego konta magazynu 
 
 ## <a name="get-the-sas-for-a-file-share"></a>Uzyskiwanie sygnatury dostępu współdzielonego dla udziału plików
 
-[Sygnatura dostępu współdzielonego (SAS, shared access signature)](//azure/storage/storage-dotnet-shared-access-signature-part-1) zapewnia delegowany dostęp do zasobów w ramach konta magazynu. Oznacza to, że możliwe jest przyznanie klientowi ograniczonych uprawnień do obiektów w ramach konta magazynu na określony czas i z określonym zestawem uprawnień bez konieczności udostępniania kluczy dostępu do konta.
+[Sygnatura dostępu współdzielonego (SAS, shared access signature)](/azure/storage/storage-dotnet-shared-access-signature-part-1) zapewnia delegowany dostęp do zasobów w ramach konta magazynu. Oznacza to, że możliwe jest przyznanie klientowi ograniczonych uprawnień do obiektów w ramach konta magazynu na określony czas i z określonym zestawem uprawnień bez konieczności udostępniania kluczy dostępu do konta.
 
 Poniższe kroki ilustrują tworzenie sygnatury dostępu współdzielonego dla udziału plików:
 

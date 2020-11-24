@@ -2,13 +2,13 @@
 title: Zadania i zadania w Azure Batch
 description: Dowiedz się więcej o zadaniach i zadaniach oraz sposobie ich użycia w przepływie pracy Azure Batch z punktu widzenia rozwoju.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: 5120b76f34e81c2ceeba88767a656b5ee0d40c2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/23/2020
+ms.openlocfilehash: e1ca721ec7527d9d042c129c22cf0266e57c32e9
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85955373"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95808588"
 ---
 # <a name="jobs-and-tasks-in-azure-batch"></a>Zadania i zadania w Azure Batch
 
@@ -18,15 +18,17 @@ W Azure Batch *zadanie* reprezentuje jednostkę obliczeniową. *Zadanie* to zbi�
 
 Zadanie to kolekcja zadań podrzędnych. Umożliwia ono zarządzanie sposobem wykonywania obliczeń przez zadania podrzędne w węzłach obliczeniowych puli.
 
-Zadanie określa [pulę](nodes-and-pools.md#pools) , w której ma być uruchamiana praca. Możesz utworzyć nową pulę dla każdego zadania lub używać jednej puli dla wielu zadań. Możesz utworzyć pulę dla każdego zadania skojarzonego z harmonogramem zadań lub dla wszystkich zadań skojarzonych z harmonogramem zadań.
+Zadanie określa [pulę](nodes-and-pools.md#pools) , w której ma być uruchamiana praca. Możesz utworzyć nową pulę dla każdego zadania lub używać jednej puli dla wielu zadań. Można utworzyć pulę dla każdego zadania skojarzonego z [harmonogramem zadań](#scheduled-jobs)lub jednej puli dla wszystkich zadań skojarzonych z harmonogramem zadań.
 
 ### <a name="job-priority"></a>Priorytet zadań
 
-Do utworzonych zadań można przypisać opcjonalny priorytet zadania. Usługa Batch używa wartości priorytetu zadania do określania kolejności planowania zadań w ramach konta (nie należy mylić tego pojęcia z [zadaniem zaplanowanym](#scheduled-jobs)). Wartości priorytetu mieszczą się w zakresie od -1000 do 1000, gdzie -1000 oznacza najniższy priorytet, a 1000 najwyższy. Aby zaktualizować priorytet zadania, wywołaj operację [Aktualizuj właściwości zadania](/rest/api/batchservice/job/update) (interfejs REST usługi Batch) lub zmień właściwość [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob) (platforma .NET usługi Batch).
+Do utworzonych zadań można przypisać opcjonalny priorytet zadania. Usługa Batch używa wartości priorytetu zadania w celu określenia kolejności planowania (dla wszystkich zadań w ramach zadania) wtihin każdej puli.
 
-W ramach tego samego konta zadania o wyższym priorytecie mają pierwszeństwo planowania nad zadaniami o niższym priorytecie. Zadanie o wyższym priorytecie na jednym koncie nie ma pierwszeństwa planowania nad innym zadaniem o niższym priorytecie na innym koncie. Zadania podrzędne w zadaniach o niższym priorytecie, które zostały już uruchomione, nie są przerywane.
+Aby zaktualizować priorytet zadania, należy wywołać [aktualizację właściwości operacji zadania](/rest/api/batchservice/job/update) (Batch REST) lub zmodyfikować [CloudJob. Priority](/dotnet/api/microsoft.azure.batch.cloudjob) (Batch .NET). Wartości priorytetów mieszczą się w zakresie od-1000 (najniższy priorytet) do 1000 (najwyższy priorytet).
 
-Planowanie zadań między pulami odbywa się niezależnie. Między różnymi pulami nie ma żadnej gwarancji, że zadanie o wyższym priorytecie zostanie zaplanowane jako pierwsze, jeśli w skojarzonej z nim puli brakuje bezczynnych węzłów. W tej samej puli zadania o tym samym priorytecie mają równe szanse na zaplanowanie.
+W ramach tej samej puli zadania o wyższym priorytecie mają pierwszeństwo planowania nad zadaniami o niższym priorytecie. Zadania w zadaniach o niższym priorytecie, które są już uruchomione, nie zostaną przeniesiona przez zadania w ramach zadania o wyższym priorytecie. Zadania o takim samym poziomie priorytetu mają równą możliwość zaplanowania, a porządkowanie wykonywania zadań nie jest zdefiniowane.
+
+Zadanie z wartością o wysokim priorytecie działającą w jednej puli nie będzie miało wpływu na planowanie zadań uruchomionych w osobnej puli lub na innym koncie wsadowym. Priorytet zadania nie ma zastosowania do [pul autopool](nodes-and-pools.md#autopools), które są tworzone podczas przesyłania zadania.
 
 ### <a name="job-constraints"></a>Ograniczenia zadania
 
@@ -39,9 +41,9 @@ Ograniczenia zadania umożliwiają określenie pewnych limitów dla zadań:
 
 Aplikacja kliencka może dodawać zadania podrzędne do zadania. Można również wybrać [zadanie podrzędne Menedżera zadań](#job-manager-task). Zadanie podrzędne Menedżera zadań zawiera informacje niezbędne do utworzenia wymaganych zadań podrzędnych danego zadania. Jest ono uruchamiane na jednym z węzłów obliczeniowych w puli. Zadanie Menedżera zadań jest obsługiwane w odróżnieniu od partii; jest on umieszczany zaraz po utworzeniu zadania i zostanie ponownie uruchomiony, jeśli zakończy się niepowodzeniem. Zadanie Menedżera zadań jest wymagane w przypadku zadań tworzonych w ramach [harmonogramu zadań](#scheduled-jobs), ponieważ jest jedynym sposobem definiowania zadań przed wystąpieniem zadania.
 
-Domyślnie zadania pozostają aktywne do momentu ukończenia zdań podrzędnych odpowiadających danemu zadaniu. To zachowanie można zmienić tak, aby zadanie było automatycznie przerywane po ukończeniu wszystkich powiązanych z nim zadań podrzędnych. Ustaw dla właściwości **onAllTasksComplete** zadania ([OnAllTasksComplete](/dotnet/api/microsoft.azure.batch.cloudjob) na platformie .NET w usłudze Batch) wartość *terminatejob*, aby automatycznie zakończyć zadanie po ukończeniu wszystkich powiązanych z nim zadań podrzędnych.
+Domyślnie zadania pozostają aktywne do momentu ukończenia zdań podrzędnych odpowiadających danemu zadaniu. To zachowanie można zmienić tak, aby zadanie było automatycznie przerywane po ukończeniu wszystkich powiązanych z nim zadań podrzędnych. Ustaw właściwość **onAllTasksComplete** zadania ([OnAllTasksComplete](/dotnet/api/microsoft.azure.batch.cloudjob) w usłudze Batch .NET) na wartość `terminatejob` *, aby automatycznie kończyć zadanie, gdy wszystkie jego zadania są w stanie ukończone.
 
-Usługa Batch traktuje zadanie *bez* zadań do wykonania wszystkich zadań. W związku z tym ta opcja jest najczęściej używana w przypadku [zadania podrzędnego Menedżera zadań](#job-manager-task). Jeśli chcesz użyć opcji automatycznego przerywania zadań bez Menedżera zadań, musisz początkowo ustawić właściwość **onAllTasksComplete** nowego zadania na wartość *noaction*. Po dodaniu wszystkich podrzędnych do zadania zmień tę wartość na *terminatejob*.
+Usługa Batch traktuje zadanie *bez* zadań do wykonania wszystkich zadań. W związku z tym ta opcja jest najczęściej używana w przypadku [zadania podrzędnego Menedżera zadań](#job-manager-task). Jeśli chcesz użyć automatycznego kończenia zadania bez Menedżera zadań, należy wstępnie ustawić właściwość **onAllTasksComplete** nowego zadania na `noaction` , a następnie ustawić ją na `terminatejob` * ' dopiero po zakończeniu dodawania zadań do zadania.
 
 ### <a name="scheduled-jobs"></a>Zaplanowane zadania
 

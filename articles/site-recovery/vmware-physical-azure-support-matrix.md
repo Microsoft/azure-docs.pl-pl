@@ -3,12 +3,12 @@ title: Macierz obsługi dla oprogramowania VMware/fizycznego odzyskiwania po awa
 description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych programu VMware i serwera fizycznego na platformie Azure przy użyciu Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 5b511eeb99b70fd64a5366b7b54900166f06b4d7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e3130242e29b8d3886b585d56d33d0a9a2379ee3
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369322"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95800273"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Macierz obsługi odzyskiwania po awarii maszyn wirtualnych VMware i serwerów fizycznych na platformie Azure
 
@@ -93,7 +93,8 @@ SUSE Linux | SUSE Linux Enterprise Server 12 z dodatkiem SP1, SP2, SP3, SP4, [SP
 Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4573888/), [8,0](https://support.microsoft.com/help/4573888/), [8,1](https://support.microsoft.com/help/4573888/), [8,2](https://support.microsoft.com/help/4573888/)  <br/> Uruchamianie jądra zgodnego z systemem Red Hat lub nieprzerwane wydanie jądra 3, 4 & 5 (UEK3, UEK4, UEK5)<br/><br/>8.1<br/>Uruchamianie na wszystkich jądrach UEK i jądrze RedHat <= 3.10.0-1062. * są obsługiwane w [9,35](https://support.microsoft.com/help/4573888/) obsłudze dla pozostałych jądra RedHat jest dostępny w [9,36](https://support.microsoft.com/help/4578241/)
 
 > [!Note]
-> Dla każdej wersji systemu Windows Azure Site Recovery obsługuje tylko kompilacje [LTSC (Long-Term Servicing Channel)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) .  W tej chwili nie są obecnie obsługiwane [półroczne wersje kanałów](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) .
+>- Dla każdej wersji systemu Windows Azure Site Recovery obsługuje tylko kompilacje [LTSC (Long-Term Servicing Channel)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) .  W tej chwili nie są obecnie obsługiwane [półroczne wersje kanałów](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) .
+>- Upewnij się, że w przypadku wersji systemu Linux Azure Site Recovery nie obsługuje niestandardowych obrazów systemów operacyjnych. Obsługiwane są tylko jądra podstawowe, które są częścią wersji pomocniczej dystrybucji/aktualizacji.
 
 ### <a name="ubuntu-kernel-versions"></a>Wersje jądra Ubuntu
 
@@ -150,7 +151,7 @@ SUSE Linux Enterprise Server 15 i 15 SP1 | [9,34](https://support.microsoft.com/
 
 ## <a name="linux-file-systemsguest-storage"></a>Systemy plików Linux/magazyn gościa
 
-**Składnik** | **Obsługiwane**
+**Składnik** | **Obsługiwał**
 --- | ---
 Systemy plików | ext3, EXT4, XFS, BTRFS (warunki odpowiednie dla tej tabeli)
 Inicjowanie obsługi zarządzania woluminami logicznymi (LVM)| Grube udostępnianie — tak <br></br> Alokowanie elastyczne — nie
@@ -177,7 +178,7 @@ Dodawanie dysku do zreplikowanej maszyny wirtualnej | Nieobsługiwane.<br/> Wył
 
 ## <a name="network"></a>Sieć
 
-**Składnik** | **Obsługiwane**
+**Składnik** | **Obsługiwał**
 --- | ---
 Tworzenie zespołu kart interfejsu sieciowego hosta | Obsługiwane przez maszyny wirtualne VMware. <br/><br/>Nieobsługiwane w przypadku replikacji maszyn fizycznych.
 Sieć VLAN hosta | Tak.
@@ -194,7 +195,7 @@ Prywatny dostęp do połączenia z usługą Site Recovery | Tak. [Dowiedz się w
 
 ## <a name="azure-vm-network-after-failover"></a>Sieć maszyn wirtualnych platformy Azure (po przejściu w tryb failover)
 
-**Składnik** | **Obsługiwane**
+**Składnik** | **Obsługiwał**
 --- | ---
 Azure ExpressRoute | Tak
 ILB | Tak
@@ -208,7 +209,7 @@ Punkty końcowe usługi dla sieci wirtualnej platformy Azure<br/> | Tak
 Wydajniejsze sieci | Nie
 
 ## <a name="storage"></a>Magazyn
-**Składnik** | **Obsługiwane**
+**Składnik** | **Obsługiwał**
 --- | ---
 Dysk dynamiczny | Dysk systemu operacyjnego musi być dyskiem podstawowym. <br/><br/>Dyski danych mogą być dyskami dynamicznymi
 Konfiguracja dysku platformy Docker | Nie
@@ -239,7 +240,7 @@ Gość/serwer EFI/rozruch UEFI | -Obsługiwane dla wszystkich [systemów operacy
 
 ## <a name="replication-channels"></a>Kanały replikacji
 
-|**Typ replikacji**   |**Obsługiwane**  |
+|**Typ replikacji**   |**Obsługiwał**  |
 |---------|---------|
 |Odciążone transfery danych (ODX)    |       Nie  |
 |Rozmieszczanie w trybie offline        |   Nie      |
@@ -247,7 +248,7 @@ Gość/serwer EFI/rozruch UEFI | -Obsługiwane dla wszystkich [systemów operacy
 
 ## <a name="azure-storage"></a>Azure Storage
 
-**Składnik** | **Obsługiwane**
+**Składnik** | **Obsługiwał**
 --- | ---
 Magazyn lokalnie nadmiarowy | Tak
 Magazyn geograficznie nadmiarowy | Tak
@@ -266,7 +267,7 @@ Konta magazynu ogólnego przeznaczenia w wersji 2 (warstwy gorąca i chłodna) |
 
 ## <a name="azure-compute"></a>Obliczenia na platformie Azure
 
-**Funkcja** | **Obsługiwane**
+**Funkcja** | **Obsługiwał**
 --- | ---
 Zestawy dostępności | Tak
 Strefy dostępności | Nie
@@ -323,7 +324,7 @@ Maksymalny współczynnik zmian danych dziennie obsługiwany przez serwer przetw
 
 ## <a name="vault-tasks"></a>Zadania magazynu
 
-**Akcja** | **Obsługiwane**
+**Akcja** | **Obsługiwał**
 --- | ---
 Przenoszenie magazynu między grupami zasobów | Nie
 Przenoszenie magazynu w ramach subskrypcji i między subskrypcjami | Nie

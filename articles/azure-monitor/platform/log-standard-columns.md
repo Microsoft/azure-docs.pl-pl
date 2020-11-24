@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: dc3d119479d2dce45b286463f3d6a76410220dd0
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2370f76bacb8645f1b343da4f056c8bcf06a26dd
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014224"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95796720"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Standardowe kolumny w dziennikach Azure Monitor
 Dane w dziennikach Azure Monitor są [przechowywane jako zestaw rekordów w obszarze roboczym log Analytics lub w aplikacji Application Insights](./data-platform-logs.md), z których każdy ma określony typ danych, który ma unikatowy zestaw kolumn. Wiele typów danych będzie zawierać standardowe kolumny, które są wspólne dla wielu typów. W tym artykule opisano te kolumny i przedstawiono przykłady korzystania z nich w zapytaniach.
@@ -80,7 +80,7 @@ Kolumna **\_ ItemId** zawiera unikatowy identyfikator dla rekordu.
 ## <a name="_resourceid"></a>\_ResourceId
 Kolumna **\_ ResourceID** zawiera unikatowy identyfikator zasobu, z którym jest skojarzony rekord. Zapewnia to standardową kolumnę, która ma być używana do określania zakresu zapytania tylko do rekordów z określonego zasobu lub do łączenia się z danymi w wielu tabelach.
 
-W przypadku zasobów platformy Azure wartość **_ResourceId** jest [adresem URL identyfikatora zasobu platformy Azure](../../azure-resource-manager/templates/template-functions-resource.md). Kolumna jest obecnie ograniczona do zasobów platformy Azure, ale zostanie rozszerzona o zasoby spoza platformy Azure, takie jak komputery lokalne.
+W przypadku zasobów platformy Azure wartość **_ResourceId** jest [adresem URL identyfikatora zasobu platformy Azure](../../azure-resource-manager/templates/template-functions-resource.md). Kolumna jest ograniczona do zasobów platformy Azure, w tym zasobów [usługi Azure Arc](../../azure-arc/overview.md) , lub do dzienników niestandardowych, które wskazywały identyfikator zasobu podczas pozyskiwania.
 
 > [!NOTE]
 > Niektóre typy danych mają już pola zawierające identyfikator zasobu platformy Azure lub co najmniej te elementy, takie jak identyfikator subskrypcji. Chociaż te pola są utrzymywane w celu zapewnienia zgodności z poprzednimi wersjami, zaleca się używanie _ResourceId do wykonywania wzajemnej korelacji, ponieważ będzie ona bardziej spójna.
@@ -111,17 +111,47 @@ AzureActivity
 ) on _ResourceId  
 ```
 
-Poniższe zapytanie analizuje **_ResourceId** i agreguje rozliczane woluminy danych na subskrypcję platformy Azure.
+Poniższe zapytanie analizuje **_ResourceId** i agreguje rozliczane woluminy danych na grupę zasobów platformy Azure.
 
 ```Kusto
 union withsource = tt * 
 | where _IsBillable == true 
 | parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
     resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
-| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last 
+| summarize Bytes=sum(_BilledSize) by resourceGroup | sort by Bytes nulls last 
 ```
 
 Te `union withsource = tt *` zapytania są oszczędnie zależą od tego, jak skanowanie między typami danych jest kosztowne.
+
+Użycie kolumny identyfikatora subskrypcji jest zawsze wydajniejsze \_ niż wyodrębnianie jej przez analizowanie \_ kolumny ResourceID.
+
+## <a name="_substriptionid"></a>\_SubstriptionId
+Kolumna **\_ subskrypcji** zawiera identyfikator subskrypcji zasobu, z którym jest skojarzony rekord. Zapewnia to standardową kolumnę, która ma być używana do określania zakresu zapytania tylko do rekordów z określonej subskrypcji lub do porównywania różnych subskrypcji.
+
+W przypadku zasobów platformy Azure wartość **__SubscriptionId** jest częścią subskrypcji [adresu URL identyfikatora zasobu platformy Azure](../../azure-resource-manager/templates/template-functions-resource.md). Kolumna jest ograniczona do zasobów platformy Azure, w tym zasobów [usługi Azure Arc](../../azure-arc/overview.md) , lub do dzienników niestandardowych, które wskazywały identyfikator zasobu podczas pozyskiwania.
+
+> [!NOTE]
+> Niektóre typy danych mają już pola zawierające Identyfikator subskrypcji platformy Azure. Chociaż te pola są przechowywane na potrzeby zgodności z poprzednimi wersjami, zaleca się użycie \_ kolumny identyfikatora subskrypcji w celu przeprowadzenia wzajemnej korelacji, ponieważ będzie ona bardziej spójna.
+### <a name="examples"></a>Przykłady
+Poniższe zapytanie bada dane wydajności dla komputerów z określoną subskrypcją. 
+
+```Kusto
+Perf 
+| where TimeGenerated > ago(24h) and CounterName == "memoryAllocatableBytes"
+| where _SubscriptionId == "57366bcb3-7fde-4caf-8629-41dc15e3b352"
+| summarize avgMemoryAllocatableBytes = avg(CounterValue) by Computer
+```
+
+Poniższe zapytanie analizuje **_ResourceId** i agreguje rozliczane woluminy danych na subskrypcję platformy Azure.
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by _SubscriptionId | sort by Bytes nulls last 
+```
+
+Te `union withsource = tt *` zapytania są oszczędnie zależą od tego, jak skanowanie między typami danych jest kosztowne.
+
 
 ## <a name="_isbillable"></a>\_Ismiliard
 Kolumna **\_ isbilld** określa, czy są naliczane opłaty za pozyskiwane dane. Dane z **\_** niepłatną opłatą `false` są zbierane bezpłatnie i nie są naliczane za Twoje konto platformy Azure.
@@ -168,8 +198,7 @@ Aby wyświetlić wielkość rozliczania zdarzeń pobieranych na subskrypcję, u�
 ```Kusto
 union withsource=table * 
 | where _IsBillable == true 
-| parse _ResourceId with "/subscriptions/" SubscriptionId "/" *
-| summarize Bytes=sum(_BilledSize) by  SubscriptionId | sort by Bytes nulls last 
+| summarize Bytes=sum(_BilledSize) by  _SubscriptionId | sort by Bytes nulls last 
 ```
 
 Aby wyświetlić rozmiar pozyskanych zdarzeń rozliczanych według grupy zasobów, należy użyć następującego zapytania:
@@ -178,7 +207,7 @@ Aby wyświetlić rozmiar pozyskanych zdarzeń rozliczanych według grupy zasobó
 union withsource=table * 
 | where _IsBillable == true 
 | parse _ResourceId with "/subscriptions/" SubscriptionId "/resourcegroups/" ResourceGroupName "/" *
-| summarize Bytes=sum(_BilledSize) by  SubscriptionId, ResourceGroupName | sort by Bytes nulls last 
+| summarize Bytes=sum(_BilledSize) by  _SubscriptionId, ResourceGroupName | sort by Bytes nulls last 
 
 ```
 

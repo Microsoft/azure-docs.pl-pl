@@ -1,20 +1,19 @@
 ---
-title: Odwołanie do składni SQLRuleAction w Azure Service Bus
-description: Ten artykuł zawiera odwołanie do składni SQLRuleAction. Akcje są zapisywane w składni opartej na języku SQL, która jest wykonywana względem komunikatu obsługiwanego przez brokera.
+title: Składnia akcji SQL Azure Service Bus reguły subskrypcji | Microsoft Docs
+description: Ten artykuł zawiera odwołanie do składni akcji reguły SQL. Akcje są zapisywane w składni opartej na języku SQL, która jest wykonywana względem wiadomości.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 61fa6e046b4d4a0ba91bf8608c846755026d07ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: a156a9d8f18a7763f03c63b56681fa25ce6de289
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85341587"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95808845"
 ---
-# <a name="sqlruleaction-syntax-reference-for-azure-service-bus"></a>SQLRuleAction odwołanie do składni dla Azure Service Bus
+# <a name="subscription-rule-sql-action-syntax"></a>Składnia akcji SQL reguły subskrypcji
 
-*SqlRuleAction* jest wystąpieniem klasy [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) i reprezentuje zestaw akcji utworzonych w składni opartej na języku SQL, która jest wykonywana dla [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
+*Akcja SQL* służy do manipulowania metadanymi komunikatów po wybraniu komunikatu przez filtr reguły subskrypcji. Jest to wyrażenie tekstowe, które jest chude w podzestawie standardu SQL-92. Wyrażenia akcji są używane z `sqlExpression` elementem właściwości "Action" Service Bus `Rule` w [szablonie Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md)lub z `az servicebus topic subscription rule create` argumentem polecenia platformy Azure [`--action-sql-expression`](https://docs.microsoft.com/cli/azure/servicebus/topic/subscription/rule?view=azure-cli-latest&preserve-view=true#az_servicebus_topic_subscription_rule_create) , a także z kilkoma funkcjami zestawu SDK, które umożliwiają zarządzanie regułami subskrypcji.
   
-W tym artykule przedstawiono szczegółowe informacje na temat gramatyki akcji reguły SQL.  
   
 ```  
 <statements> ::=
@@ -211,5 +210,9 @@ Stałe ciągów są ujęte w znaki pojedynczego cudzysłowu i zawierają wszystk
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Klasa SQLRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
-- [Klasa sqlfilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
+- [Klasa SQLRuleAction (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
+- [Klasa SQLRuleAction (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlruleaction)
+- [SqlRuleAction — Klasa (Java)](/java/api/com.microsoft.azure.servicebus.rules.sqlruleaction)
+- [SqlRuleAction (JavaScript)](/javascript/api/@azure/service-bus/sqlruleaction)
+- [AZ ServiceBus — reguła subskrypcji tematu](/cli/azure/servicebus/topic/subscription/rule)
+- [New-AzServiceBusRule](/powershell/module/az.servicebus/new-azservicebusrule)

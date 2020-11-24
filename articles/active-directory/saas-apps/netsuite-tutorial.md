@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/28/2020
+ms.date: 11/09/2020
 ms.author: jeedes
-ms.openlocfilehash: c2f2e86a3080b0edfcb0a699ac9b3a78ee1b5a52
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 9bebb11c3a1162a0a7b72140f7d3812f86f793ce
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519422"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95791362"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Samouczek: integracja logowania jednokrotnego w usłudze Azure AD z pakietem
 
@@ -25,8 +25,6 @@ W tym samouczku dowiesz się, jak zintegrować pakiet z usługą Azure Active Di
 * Kontrolka w usłudze Azure AD, która ma dostęp do pakietu.
 * Zezwól użytkownikom na automatyczne logowanie do pakietu z użyciem kont usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji, Azure Portal.
-
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -44,7 +42,6 @@ Pakiet servicesuite obsługuje:
 * Zainicjowane przez dostawcy tożsamości Logowanie jednokrotne.
 * Inicjowanie obsługi administracyjnej użytkowników w trybie JIT (just-in-Time).
 * [Automatyczne Inicjowanie obsługi użytkowników](NetSuite-provisioning-tutorial.md).
-* Po skonfigurowaniu pakietu można wymusić kontrolki sesji, które chronią eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolki sesji wykraczają poza dostęp warunkowy. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 > [!NOTE]
 > Ponieważ identyfikator tej aplikacji jest stałą wartością ciągu, można skonfigurować tylko jedno wystąpienie w jednej dzierżawie.
@@ -53,7 +50,7 @@ Pakiet servicesuite obsługuje:
 
 Aby skonfigurować integrację pakietu w usłudze Azure AD, Dodaj pakiet z galerii do listy zarządzanych aplikacji SaaS, wykonując następujące czynności:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) za pomocą konta służbowego lub konto Microsoft prywatnego.
+1. Zaloguj się do Azure Portal za pomocą konta służbowego lub konto Microsoft prywatnego.
 1. W okienku po lewej stronie wybierz usługę **Azure Active Directory** .
 1. Przejdź do pozycji **Aplikacje dla przedsiębiorstw** i wybierz pozycję **Wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
@@ -77,7 +74,7 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
 
 Aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal, wykonaj następujące czynności:
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie **integracja aplikacji sieci** Web Znajdź sekcję **Zarządzanie** , a następnie wybierz pozycję **Logowanie jednokrotne**.
+1. W Azure Portal na stronie **integracja aplikacji sieci** Web Znajdź sekcję **Zarządzanie** , a następnie wybierz pozycję **Logowanie jednokrotne**.
 1. W okienku **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
 1. W okienku **Skonfiguruj pojedyncze Sign-On przy użyciu języka SAML** wybierz ikonę **Edytuj** ("ołówek") obok pozycji **Podstawowa konfiguracja SAML**.
 
@@ -135,7 +132,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    a. W polu **Nazwa** wprowadź wartość **B. Simon**.  
    b. W polu **Nazwa użytkownika** wprowadź username@companydomain.extension (na przykład B.Simon@contoso.com ).  
    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.  
-   d. Wybierz przycisk **Utwórz**.
+   d. Wybierz pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -144,13 +141,7 @@ W tej sekcji zostanie włączona funkcja User B. Simon, która umożliwia logowa
 1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Z listy Aplikacje wybierz pozycję **zestaw**.
 1. W okienku Przegląd poszukaj sekcji **Zarządzanie** , a następnie wybierz łącze **Użytkownicy i grupy** .
-
-   ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
-
 1. Wybierz pozycję **Dodaj użytkownika** , a następnie w okienku **Dodaj przypisanie** wybierz pozycję **Użytkownicy i grupy**.
-
-    ![Przycisk "Dodaj użytkownika"](common/add-assign-user.png)
-
 1. W okienku **Użytkownicy i grupy** , na liście rozwijanej **Użytkownicy** wybierz pozycję **B. Simon**, a następnie wybierz przycisk **Wybierz** w dolnej części ekranu.
 1. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, wykonaj następujące czynności:
 
@@ -162,7 +153,7 @@ W tej sekcji zostanie włączona funkcja User B. Simon, która umożliwia logowa
 
 1. Otwórz nową kartę w przeglądarce i zaloguj się do swojej witryny firmowej jako administrator.
 
-2. Na górnym pasku nawigacyjnym wybierz pozycję **Instalator**, a następnie **Company**wybierz pozycję  >  **funkcje włączania**firmy.
+2. Na górnym pasku nawigacyjnym wybierz pozycję **Instalator**, a następnie **Company** wybierz pozycję  >  **funkcje włączania** firmy.
 
     ![Zrzut ekranu przedstawia funkcje włączania wybrane z firmy.](./media/NetSuite-tutorial/ns-setupsaml.png)
 
@@ -170,7 +161,7 @@ W tej sekcji zostanie włączona funkcja User B. Simon, która umożliwia logowa
 
     ![Zrzut ekranu przedstawia SuiteCloud zaznaczone.](./media/NetSuite-tutorial/ns-suitecloud.png)
 
-4. W obszarze **Zarządzanie uwierzytelnianiem**zaznacz pole wyboru Protokół **SAML logowanie** jednokrotne, aby włączyć opcję logowania jednokrotnego protokołu SAML w zestawie.
+4. W obszarze **Zarządzanie uwierzytelnianiem** zaznacz pole wyboru Protokół **SAML logowanie** jednokrotne, aby włączyć opcję logowania jednokrotnego protokołu SAML w zestawie.
 
     ![Zrzut ekranu przedstawia Zarządzanie uwierzytelnianiem, w którym można wybrać opcję Logowanie jednokrotne w protokole SAML.](./media/NetSuite-tutorial/ns-ticksaml.png)
 
@@ -182,7 +173,7 @@ W tej sekcji zostanie włączona funkcja User B. Simon, która umożliwia logowa
 
     ![Zrzut ekranu przedstawia integrację wybraną z zadań Instalatora.](./media/NetSuite-tutorial/ns-integration.png)
 
-7. W obszarze **Zarządzanie uwierzytelnianiem**wybierz pozycję **SAML logowanie**jednokrotne.
+7. W obszarze **Zarządzanie uwierzytelnianiem** wybierz pozycję **SAML logowanie** jednokrotne.
 
     ![Zrzut ekranu pokazujący Logowanie jednokrotne SAML wybrane z elementu Integration w ZADANIAch INSTALACYJNYch.](./media/NetSuite-tutorial/ns-saml.png)
 
@@ -192,7 +183,7 @@ W tej sekcji zostanie włączona funkcja User B. Simon, która umożliwia logowa
   
     a. Zaznacz pole wyboru **podstawowa metoda uwierzytelniania** .
 
-    b. W obszarze **metadane dostawcy tożsamości SAMLV2**wybierz pozycję **Przekaż plik metadanych dostawcy tożsamości**, a następnie wybierz pozycję **Przeglądaj** , aby przekazać pobrany plik metadanych z Azure Portal.
+    b. W obszarze **metadane dostawcy tożsamości SAMLV2** wybierz pozycję **Przekaż plik metadanych dostawcy tożsamości**, a następnie wybierz pozycję **Przeglądaj** , aby przekazać pobrany plik metadanych z Azure Portal.
 
     c. Wybierz pozycję **Prześlij**.
 
@@ -205,6 +196,8 @@ W tej sekcji zostanie włączona funkcja User B. Simon, która umożliwia logowa
     b. W okienku **Informacje o firmie** w prawej kolumnie skopiuj wartość **Identyfikator konta** .
 
     c. Wklej **Identyfikator konta** skopiowany z konta usługi w polu **wartość atrybutu** w usłudze Azure AD.
+
+    ![Zrzut ekranu przedstawiający dodanie wartości identyfikatora konta](./media/netsuite-tutorial/attribute-value.png)
 
 10. Zanim użytkownicy będą mogli wykonywać logowanie jednokrotne do aplikacji NetSuite, należy im wcześniej przypisać odpowiednie uprawnienia w tej aplikacji. Aby przypisać te uprawnienia, wykonaj następujące czynności:
 
@@ -228,7 +221,7 @@ W tej sekcji zostanie włączona funkcja User B. Simon, która umożliwia logowa
 
     ![Zrzut ekranu przedstawia kartę Konfiguracja, w której można wprowadzić podane wartości.](./media/NetSuite-tutorial/ns-sso.png)
 
-    przykład Wybierz pozycję **SAML logowanie**jednokrotne, a następnie wybierz pozycję **Dodaj**.
+    przykład Wybierz pozycję **SAML logowanie** jednokrotne, a następnie wybierz pozycję **Dodaj**.
 
     h. Wybierz pozycję **Zapisz**.
 
@@ -256,16 +249,13 @@ W tej sekcji użytkownik o nazwie B. Simon został utworzony w pakiecie. Aplikac
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji.
 
-Po wybraniu kafelka pakietu w panelu dostępu należy automatycznie zalogować się do pakietu, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+- Kliknij pozycję Testuj tę aplikację w Azure Portal i należy automatycznie zalogować się do pakietu, dla którego skonfigurowano Logowanie jednokrotne
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+- Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka pakietu w obszarze Moje aplikacje należy automatycznie zalogować się do pakietu, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
-- [Wypróbuj pakiet z usługą Azure AD](https://aad.portal.azure.com/)
-- [Co to jest kontrola sesji w Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Jak chronić pakiet za pomocą zaawansowanej widoczności i kontroli](/cloud-app-security/proxy-intro-aad)
+## <a name="next-steps"></a>Następne kroki
+
+Po skonfigurowaniu pakietu można wymusić kontrolki sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolki sesji rozciągają się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

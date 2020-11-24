@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 11/18/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4d69c1d69de63dc0d4c3c8f8e46e73f9efc72933
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 20e635d606676a526fac4c3720931525beb66876
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95244722"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95790423"
 ---
 # <a name="azure-synapse-analytics-terminology"></a>Terminologia dotycząca usługi Azure Synapse Analytics
 
@@ -43,12 +43,18 @@ Obszar roboczy może zawierać dowolną liczbę **połączonych usług**, czyli 
 
 Aby korzystać z usługi Spark Analytics, Utwórz i Użyj **bezserwerowych pul Apache Spark** w obszarze roboczym usługi Synapse.
 
-* **Apache Spark w przypadku** czasu wykonywania Synapse-Spark używanego w puli Spark bezserwerowej. Bieżącą obsługiwaną wersją jest platforma Spark 2,4 z 3.6.1 języka Python, Scala 2.11.12, obsługą platformy .NET dla Apache Spark 0,5 i delty Lake 0,3.  
 * W obszarze roboczym można wdrażać zasoby **puli Apache Spark** — od 0 do N platformy Spark z odpowiednimi bazami danych. Pulę platformy Spark można automatycznie wstrzymać, wznowić i skalować.  
 * **Aplikacja Spark** — składa się z procesu sterownika i zestawu procesów wykonujących testy. Aplikacja Spark działa w puli Spark bezserwerowej.            
 * **Sesja platformy Spark**— Zunifikowany punkt wejścia aplikacji platformy Spark. Zapewnia sposób współpracy z różnymi funkcjami platformy Spark i z mniejszą liczbą konstrukcji. Aby uruchomić Notes, należy utworzyć sesję. Sesję można skonfigurować do uruchamiania na określonej liczbie wykonawców o określonym rozmiarze. Domyślna konfiguracja sesji notesu jest uruchamiana w przypadku programów wykonawczych o rozmiarze 2 średnim.
 * **Notes** — interaktywny i reaktywny interfejs nauki i inżynierii danych obsługujący Scala, PySpark, C# i SparkSQL.
 * **Definicja zadania platformy Spark** — interfejs umożliwiający przesłanie zadania platformy Spark przez zestaw jar zawierający kod i jego zależności.
+
+Obsługa wersji:
+* Platforma Spark 2,4
+* 3.6.1 Python
+* Scala 2.11.12
+* .NET dla Apache Spark 1,0
+* Różnicowa Lake 0,3.  
 
 ## <a name="pipelines"></a>Potoki
 

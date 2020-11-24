@@ -3,12 +3,12 @@ title: Zarządzanie kopiami zapasowymi baz danych SAP HANAymi na maszynach wirtu
 description: W tym artykule przedstawiono typowe zadania związane z zarządzaniem i monitorowaniem SAP HANA baz danych uruchomionych na maszynach wirtualnych platformy Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: e257aa7771f6f76a4d53f16255c2f3cbb80c8967
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c8dc80c7b48217e40d5325b75752e21174ecaae
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89377458"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95811952"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Zarządzanie kopiami zapasowymi baz danych platformy SAP HANA i ich monitorowanie
 
@@ -62,8 +62,8 @@ Azure Backup umożliwia łatwe zarządzanie kopią zapasową bazy danych SAP HAN
 Kopie zapasowe są uruchamiane zgodnie z harmonogramem zasad. Kopię zapasową można uruchomić na żądanie w następujący sposób:
 
 1. W menu magazyn wybierz pozycję **elementy kopii zapasowej**.
-2. W obszarze **elementy kopii zapasowej**wybierz maszynę wirtualną z uruchomioną SAP HANA bazą danych, a następnie wybierz pozycję **Utwórz kopię zapasową teraz**.
-3. W obszarze **kopia zapasowa**wybierz typ kopii zapasowej, którą chcesz wykonać. Następnie wybierz przycisk **OK**. Ta kopia zapasowa zostanie zachowana zgodnie z zasadami skojarzonymi z tym elementem kopii zapasowej.
+2. W obszarze **elementy kopii zapasowej** wybierz maszynę wirtualną z uruchomioną SAP HANA bazą danych, a następnie wybierz pozycję **Utwórz kopię zapasową teraz**.
+3. W obszarze **kopia zapasowa** wybierz typ kopii zapasowej, którą chcesz wykonać. Następnie wybierz przycisk **OK**. Ta kopia zapasowa zostanie zachowana zgodnie z zasadami skojarzonymi z tym elementem kopii zapasowej.
 4. Monitoruj powiadomienia portalu. Postęp zadania można monitorować na pulpicie nawigacyjnym magazynu > **zadania tworzenia kopii zapasowej**  >  **w toku**. W zależności od rozmiaru bazy danych Tworzenie początkowej kopii zapasowej może chwilę potrwać.
 
 Domyślnie przechowywanie kopii zapasowych na żądanie to 45 dni.
@@ -86,20 +86,39 @@ Te kopie zapasowe na żądanie również zostaną wyświetlone na liście punkt�
 
 Przywrócenie wyzwalane przez klientów platformy HANA Native (przy użyciu **BACKINT**) do przywrócenia na tym samym komputerze może być [monitorowane](#monitor-manual-backup-jobs-in-the-portal) ze strony **zadania tworzenia kopii zapasowej** .
 
-### <a name="run-sap-hana-native-client-backup-on-a-database-with-azure-backup-enabled"></a>Uruchamianie SAP HANA natywnej kopii zapasowej klienta w bazie danych z włączoną funkcją Azure Backup
+### <a name="run-sap-hana-native-client-backup-to-local-disk-on-a-database-with-azure-backup-enabled"></a>Uruchamianie SAP HANA natywnej kopii zapasowej klienta na dysku lokalnym w bazie danych z włączoną funkcją Azure Backup
 
 Jeśli chcesz utworzyć lokalną kopię zapasową (przy użyciu platformy HANA Studio/Panel sterowania) dla bazy danych, której kopia zapasowa jest tworzona przy użyciu Azure Backup, wykonaj następujące czynności:
 
 1. Poczekaj na zakończenie wszystkich pełnych lub dzienników kopii zapasowych bazy danych. Sprawdź stan w SAP HANA Studio/Panel sterowania.
-2. Wyłącz kopie zapasowe dzienników i ustaw wykaz kopii zapasowych w systemie plików dla odpowiedniej bazy danych.
-3. Aby to zrobić, kliknij dwukrotnie pozycję **systemdb**  >  **Konfiguracja**systemdb  >  **Wybierz pozycję Filtr bazy danych**  >  **(log)**.
-4. Ustaw **enable_auto_log_backup** na wartość **nie**.
-5. Ustaw **log_backup_using_backint** na **wartość false**.
-6. Wykonaj pełną kopię zapasową bazy danych.
-7. Poczekaj na zakończenie pełnej kopii zapasowej i kopii zapasowej wykazu.
-8. Przywróć poprzednie ustawienia z powrotem do tych dla platformy Azure:
-   * Ustaw wartość **enable_auto_log_backup** na **tak**.
-   * Ustaw **log_backup_using_backint** na **wartość true**.
+2. dla odpowiedniej bazy danych
+    1. Nie usunięto parametrów BACKINT. Aby to zrobić, kliknij dwukrotnie pozycję **systemdb**  >  **Konfiguracja** systemdb  >  **Wybierz pozycję Filtr bazy danych**  >  **(log)**.
+        * enable_auto_log_backup: nie
+        * log_backup_using_backint: FAŁSZ
+        * catalog_backup_using_backint: FAŁSZ
+3. Wykonaj pełną kopię zapasową bazy danych na żądanie
+4. Następnie Wycofaj kroki. Dla tej samej bazy danych wymienionej powyżej,
+    1. ponownie włącz parametry BACKINT
+        1. catalog_backup_using_backint: prawda
+        1. log_backup_using_backint: prawda
+        1. enable_auto_log_backup: tak
+
+### <a name="manage-or-clean-up-the-hana-catalog-for-a-database-with-azure-backup-enabled"></a>Zarządzanie wykazem platformy HANA dla bazy danych z włączonymi Azure Backupami i ich oczyszczanie
+
+Jeśli chcesz edytować lub wyczyścić wykaz kopii zapasowych, wykonaj następujące czynności:
+
+1. Poczekaj na zakończenie wszystkich pełnych lub dzienników kopii zapasowych bazy danych. Sprawdź stan w SAP HANA Studio/Panel sterowania.
+2. dla odpowiedniej bazy danych
+    1. Nie usunięto parametrów BACKINT. Aby to zrobić, kliknij dwukrotnie pozycję **systemdb**  >  **Konfiguracja** systemdb  >  **Wybierz pozycję Filtr bazy danych**  >  **(log)**.
+        * enable_auto_log_backup: nie
+        * log_backup_using_backint: FAŁSZ
+        * catalog_backup_using_backint: FAŁSZ
+3. Edytuj katalog i Usuń starsze wpisy
+4. Następnie Wycofaj kroki. Dla tej samej bazy danych wymienionej powyżej,
+    1. ponownie włącz parametry BACKINT
+        1. catalog_backup_using_backint: prawda
+        1. log_backup_using_backint: prawda
+        1. enable_auto_log_backup: tak
 
 ### <a name="change-policy"></a>Zmień zasady
 
@@ -146,7 +165,7 @@ Zmodyfikuj zasady, aby zmienić typy kopii zapasowych, częstotliwości i zakres
 
 1. Wybierz pozycję **Modyfikuj**.
 
-   ![Wybieranie opcji Modyfikuj](./media/sap-hana-db-manage/modify-policy.png)
+   ![Wybierz pozycję Modyfikuj](./media/sap-hana-db-manage/modify-policy.png)
 
 1. Wybierz częstotliwość tworzenia kopii zapasowych.
 
@@ -180,7 +199,7 @@ Jeśli zdecydujesz się na pozostawienie punktów odzyskiwania, pamiętaj o nast
 Aby zatrzymać ochronę bazy danych:
 
 * Na pulpicie nawigacyjnym magazynu wybierz pozycję **elementy kopii zapasowej**.
-* W obszarze **Typ zarządzania kopiami zapasowymi**wybierz pozycję **SAP HANA na maszynie wirtualnej platformy Azure**
+* W obszarze **Typ zarządzania kopiami zapasowymi** wybierz pozycję **SAP HANA na maszynie wirtualnej platformy Azure**
 
   ![Wybierz SAP HANA na maszynie wirtualnej platformy Azure](./media/sap-hana-db-manage/sap-hana-azure-vm.png)
 
@@ -218,11 +237,15 @@ Dowiedz się, jak kontynuować tworzenie kopii zapasowej bazy danych SAP HANA [p
 
 Dowiedz się, jak kontynuować tworzenie kopii zapasowej bazy danych SAP HANA, której [Identyfikator SID nie zmienił się po uaktualnieniu z SDC do MDC](backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-no-change-in-sid).
 
+### <a name="upgrading-to-a-new-version-in-either-sdc-or-mdc"></a>Uaktualnianie do nowej wersji w SDC lub MDC
+
+Dowiedz się, jak kontynuować tworzenie kopii zapasowej bazy danych SAP HANA, [której wersja jest uaktualniana](backup-azure-sap-hana-database-troubleshoot.md#sdc-version-upgrade-or-mdc-version-upgrade-on-the-same-vm).
+
 ### <a name="unregister-an-sap-hana-instance"></a>Wyrejestruj wystąpienie SAP HANA
 
 Wyrejestruj wystąpienie SAP HANA po wyłączeniu ochrony, ale przed usunięciem magazynu:
 
-* Na pulpicie nawigacyjnym magazynu w obszarze **Zarządzaj**wybierz pozycję **infrastruktura kopii zapasowych**.
+* Na pulpicie nawigacyjnym magazynu w obszarze **Zarządzaj** wybierz pozycję **infrastruktura kopii zapasowych**.
 
    ![Wybieranie pozycji Infrastruktura zapasowa](./media/sap-hana-db-manage/backup-infrastructure.png)
 
@@ -230,7 +253,7 @@ Wyrejestruj wystąpienie SAP HANA po wyłączeniu ochrony, ale przed usunięciem
 
    ![Wybierz typ zarządzania kopiami zapasowymi jako obciążenie na maszynie wirtualnej platformy Azure](./media/sap-hana-db-manage/backup-management-type.png)
 
-* W obszarze **serwery chronione**wybierz wystąpienie do wyrejestrowania. Aby usunąć magazyn, należy wyrejestrować wszystkie serwery i wystąpienia.
+* W obszarze **serwery chronione** wybierz wystąpienie do wyrejestrowania. Aby usunąć magazyn, należy wyrejestrować wszystkie serwery i wystąpienia.
 
 * Kliknij prawym przyciskiem myszy chronione wystąpienie i wybierz polecenie **Wyrejestruj**.
 

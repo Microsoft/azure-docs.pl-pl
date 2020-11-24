@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 10/23/2020
 ms.author: aahi
-ms.openlocfilehash: 1616a0149ae56de8afe0e9ab485af4bf76326d86
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 0ae7bb9acde3cc8552a23db12d208a82ba0fb2f3
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014615"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95800872"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migrowanie do kontenerów OCR odczytu v3. x
 
@@ -29,11 +29,11 @@ Jeśli używasz wersji 2 przetwarzanie obrazów kontenera OCR do odczytu, Skorzy
 
 ## <a name="api-changes"></a>Zmiany interfejsu API
 
-Kontener Read v 3.1 używa wersji 3 interfejs API przetwarzania obrazów i ma następujące punkty końcowe:
+Kontener Read v 3.2 używa wersji 3 interfejs API przetwarzania obrazów i ma następujące punkty końcowe:
 
-* `/vision/v3.1-preview.2/read/analyzeResults/{operationId}`
-* `/vision/v3.1-preview.2/read/analyze`
-* `/vision/v3.1-preview.2/read/syncAnalyze`
+* `/vision/v3.2-preview.1/read/analyzeResults/{operationId}`
+* `/vision/v3.2-preview.1/read/analyze`
+* `/vision/v3.2-preview.1/read/syncAnalyze`
 
 Aby uzyskać szczegółowe informacje na temat aktualizowania aplikacji do korzystania z wersji 3 interfejsu API odczytu opartego na chmurze, zobacz [Przewodnik migracji interfejsu API REST przetwarzanie obrazów v3](./upgrade-api-versions.md) . Te informacje odnoszą się również do kontenera. Należy zauważyć, że operacje synchronizacji są obsługiwane tylko w kontenerach.
 
@@ -43,7 +43,7 @@ Wymagania i zalecenia są oparte na testach porównawczych z pojedynczym żądan
 
 |Kontener  |Minimum | Zalecane  |
 |---------|---------|------|
-|Przeczytaj 3,1 — wersja zapoznawcza | 8 rdzeni, 16 GB pamięci         | 8 rdzeni, 24 GB pamięci |
+|Przeczytaj 3,2 — wersja zapoznawcza | 8 rdzeni, 16 GB pamięci         | 8 rdzeni, 24 GB pamięci |
 
 Każdy rdzeń musi mieć co najmniej 2,6 gigaherca (GHz) lub szybszy.
 

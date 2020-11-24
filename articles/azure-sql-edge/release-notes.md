@@ -9,17 +9,32 @@ ms.subservice: ''
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 09/22/2020
-ms.openlocfilehash: 543a71bc2a77f0a31f8ddaa0de13135b93db48ec
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.date: 11/24/2020
+ms.openlocfilehash: bb0c176ee8c145e1268827d79b453628e6f1bc28
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395040"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95808622"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Informacje o wersji usługi Azure SQL Edge 
 
 W tym artykule opisano nowości i zmiany, które zostały zmienione wraz z każdą nową kompilacją usługi Azure SQL Edge.
+
+## <a name="azure-sql-edge---101"></a>Azure SQL Edge — 1.0.1
+
+### <a name="sql-engine-build-number---15020001553"></a>Numer kompilacji aparatu SQL — 15.0.2000.1553
+
+### <a name="whats-new"></a>Co nowego?
+
+- Zezwalaj na wyrażenie Datebucket zdefiniowane w kolumnach obliczanych
+
+### <a name="fixes"></a>Poprawki
+
+- Poprawka zasad przechowywania dla tabeli porzucania z włączonymi zasadami przechowywania z nieograniczonym limitem czasu
+- Obsługa wdrażania usługi DacFx na potrzeby funkcji przesyłania strumieniowego i zasad przechowywania 
+- Poprawka wdrożenia DacFx w celu włączenia wdrożenia z folderu zagnieżdżonego w adresie URL sygnatury dostępu współdzielonego 
+- PROGNOZowanie poprawek w celu obsługi długich nazw kolumn w komunikatach o błędach
 
 ## <a name="azure-sql-edge---100-rtm"></a>Azure SQL Edge — 1.0.0 (RTM)
 

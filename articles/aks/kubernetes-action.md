@@ -4,18 +4,28 @@ description: Dowiedz się, jak wdrożyć kontener w usłudze Kubernetes przy uż
 services: container-service
 author: azooinmyluggage
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 11/06/2020
 ms.author: atulmal
-ms.openlocfilehash: 7743a3a8d6e77affd6229b648ab79b5b2f07a0af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: github-actions-azure
+ms.openlocfilehash: a0f64b0d19dd3f65d883237e9ead2c9f1303adaf
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564104"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95794787"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>Akcje GitHub dotyczące wdrażania w usłudze Kubernetes Service
 
-Dzięki [akcjom GitHub](https://help.github.com/en/articles/about-github-actions) można tworzyć zautomatyzowane przepływy pracy tworzenia oprogramowania. Akcja Kubernetes [azure/aks-set-context@v1](https://github.com/Azure/aks-set-context) ułatwia wdrażanie klastrów usługi Azure Kubernetes Service. Akcja ustawia docelowy kontekst klastra AKS, który może być używany przez inne akcje, takie jak [Azure/k8s-Deploy](https://github.com/Azure/k8s-deploy/tree/master), [Azure/k8s-Create-Secret](https://github.com/Azure/k8s-create-secret/tree/master) itp. lub uruchomić dowolne polecenia polecenia kubectl.
+Dzięki [akcjom GitHub](https://help.github.com/en/articles/about-github-actions) można tworzyć zautomatyzowane przepływy pracy tworzenia oprogramowania. Można użyć wielu akcji Kubernetes do wdrożenia do kontenerów z Azure Container Registry do usługi Azure Kubernetes przy użyciu akcji GitHub. 
+
+## <a name="prerequisites"></a>Wymagania wstępne 
+
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Konto usługi GitHub. Jeśli nie masz takiego konta, zarejestruj się [bezpłatnie](https://github.com/join).  
+- Działający klaster Kubernetes
+    - [Samouczek: przygotowywanie aplikacji dla usługi Azure Kubernetes Service](tutorial-kubernetes-prepare-app.md)
+
+## <a name="workflow-file-overview"></a>Omówienie pliku przepływu pracy
 
 Przepływ pracy jest definiowany przez plik YAML (. yml) w `/.github/workflows/` ścieżce w repozytorium. Ta definicja zawiera różne kroki i parametry wchodzące w skład przepływu pracy.
 
@@ -31,7 +41,7 @@ Dla przepływu pracy AKS, plik ma trzy sekcje:
 
 ## <a name="create-a-service-principal"></a>Tworzenie nazwy głównej usługi
 
-[Nazwę główną usługi](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) można utworzyć przy użyciu polecenia [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) w [interfejsie użytkownika platformy Azure](/cli/azure/). Można uruchomić to polecenie przy użyciu [Azure Cloud Shell](https://shell.azure.com/) w Azure Portal lub wybierając przycisk **Wypróbuj** .
+[Nazwę główną usługi](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) można utworzyć przy użyciu polecenia [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) w [interfejsie użytkownika platformy Azure](/cli/azure/). Można uruchomić to polecenie przy użyciu [Azure Cloud Shell](https://shell.azure.com/) w Azure Portal lub wybierając przycisk **Wypróbuj** .
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> --sdk-auth
@@ -71,9 +81,42 @@ Postępuj zgodnie z instrukcjami, aby skonfigurować wpisy tajne:
 
 ##  <a name="build-a-container-image-and-deploy-to-azure-kubernetes-service-cluster"></a>Tworzenie obrazu kontenera i wdrażanie go w klastrze usługi Azure Kubernetes Service
 
-Kompilacja i wypychanie obrazów kontenera odbywa się przy użyciu `Azure/docker-login@v1` akcji. Aby wdrożyć obraz kontenera w AKS, musisz użyć `Azure/k8s-deploy@v1` akcji. Ta akcja ma pięć parametrów:
+Kompilacja i wypychanie obrazów kontenera odbywa się przy użyciu `Azure/docker-login@v1` akcji. 
 
-| **Parametr**  | **Objaśnienie**  |
+
+```yml
+env:
+  REGISTRY_NAME: {registry-name}
+  CLUSTER_NAME: {cluster-name}
+  CLUSTER_RESOURCE_GROUP: {resource-group-name}
+  NAMESPACE: {namespace-name}
+  APP_NAME: {app-name}
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    
+    # Connect to Azure Container registry (ACR)
+    - uses: azure/docker-login@v1
+      with:
+        login-server: ${{ env.REGISTRY_NAME }}.azurecr.io
+        username: ${{ secrets.REGISTRY_USERNAME }} 
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+    
+    # Container build and push to a Azure Container registry (ACR)
+    - run: |
+        docker build . -t ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
+        docker push ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
+
+```
+
+### <a name="deploy-to-azure-kubernetes-service-cluster"></a>Wdróż w klastrze usługi Azure Kubernetes Service
+
+Aby wdrożyć obraz kontenera w AKS, musisz użyć `Azure/k8s-deploy@v1` akcji. Ta akcja ma pięć parametrów:
+
+| **Parametr**  | **Wyjaśnienie**  |
 |---------|---------|
 | **namespace** | Obowiązkowe Wybierz docelową przestrzeń nazw Kubernetes. Jeśli przestrzeń nazw nie zostanie podana, polecenia zostaną uruchomione w domyślnej przestrzeni nazw | 
 | **manifesty** |  Potrzeb Ścieżka do plików manifestu, która będzie używana do wdrażania |
@@ -81,68 +124,109 @@ Kompilacja i wypychanie obrazów kontenera odbywa się przy użyciu `Azure/docke
 | **imagepullsecrets** | Obowiązkowe Nazwa wpisu tajnego rejestru platformy Docker, który został już skonfigurowany w klastrze. Każda z tych nazw tajnych jest dodawana w polu imagePullSecrets dla obciążeń znalezionych w wejściowych plikach manifestu |
 | **polecenia kubectl — wersja** | Obowiązkowe Instaluje określoną wersję pliku binarnego polecenia kubectl |
 
-### <a name="deploy-to-azure-kubernetes-service-cluster"></a>Wdróż w klastrze usługi Azure Kubernetes Service
 
-Kompleksowy przepływ pracy tworzenia obrazów kontenerów i wdrażania go w klastrze usługi Azure Kubernetes.
+Przed wdrożeniem programu do AKS należy ustawić przestrzeń nazw Target Kubernetes i utworzyć wpis tajny obrazu. Zobacz [ściąganie obrazów z usługi Azure Container Registry do klastra Kubernetes](../container-registry/container-registry-auth-kubernetes.md), aby dowiedzieć się więcej na temat sposobu działania obrazów ściągających. 
 
 ```yaml
+  # Create namespace if doesn't exist
+  - run: |
+      kubectl create namespace ${{ env.NAMESPACE }} --dry-run -o json | kubectl apply -f -
+  
+  # Create image pull secret for ACR
+  - uses: azure/k8s-create-secret@v1
+    with:
+      container-registry-url: ${{ env.REGISTRY_NAME }}.azurecr.io
+      container-registry-username: ${{ secrets.REGISTRY_USERNAME }}
+      container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+      secret-name: ${{ env.SECRET }}
+      namespace: ${{ env.NAMESPACE }}
+      force: true
+```
+
+
+Ukończ wdrożenie z `k8s-deploy` akcją. Zamień zmienne środowiskowe na wartości dla aplikacji. 
+
+```yaml
+
 on: [push]
 
+# Environment variables available to all jobs and steps in this workflow
+env:
+  REGISTRY_NAME: {registry-name}
+  CLUSTER_NAME: {cluster-name}
+  CLUSTER_RESOURCE_GROUP: {resource-group-name}
+  NAMESPACE: {namespace-name}
+  SECRET: {secret-name}
+  APP_NAME: {app-name}
+  
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
     
-    - uses: Azure/docker-login@v1
+    # Connect to Azure Container registry (ACR)
+    - uses: azure/docker-login@v1
       with:
-        login-server: contoso.azurecr.io
-        username: ${{ secrets.REGISTRY_USERNAME }}
+        login-server: ${{ env.REGISTRY_NAME }}.azurecr.io
+        username: ${{ secrets.REGISTRY_USERNAME }} 
         password: ${{ secrets.REGISTRY_PASSWORD }}
     
+    # Container build and push to a Azure Container registry (ACR)
     - run: |
-        docker build . -t contoso.azurecr.io/k8sdemo:${{ github.sha }}
-        docker push contoso.azurecr.io/k8sdemo:${{ github.sha }}
-      
-    # Set the target AKS cluster.
-    - uses: Azure/aks-set-context@v1
+        docker build . -t ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
+        docker push ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
+    
+    # Set the target Azure Kubernetes Service (AKS) cluster. 
+    - uses: azure/aks-set-context@v1
       with:
         creds: '${{ secrets.AZURE_CREDENTIALS }}'
-        cluster-name: contoso
-        resource-group: contoso-rg
-        
-    - uses: Azure/k8s-create-secret@v1
+        cluster-name: ${{ env.CLUSTER_NAME }}
+        resource-group: ${{ env.CLUSTER_RESOURCE_GROUP }}
+    
+    # Create namespace if doesn't exist
+    - run: |
+        kubectl create namespace ${{ env.NAMESPACE }} --dry-run -o json | kubectl apply -f -
+    
+    # Create image pull secret for ACR
+    - uses: azure/k8s-create-secret@v1
       with:
-        container-registry-url: contoso.azurecr.io
+        container-registry-url: ${{ env.REGISTRY_NAME }}.azurecr.io
         container-registry-username: ${{ secrets.REGISTRY_USERNAME }}
         container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
-        secret-name: demo-k8s-secret
-
-    - uses: Azure/k8s-deploy@v1
+        secret-name: ${{ env.SECRET }}
+        namespace: ${{ env.NAMESPACE }}
+        force: true
+    
+    # Deploy app to AKS
+    - uses: azure/k8s-deploy@v1
       with:
         manifests: |
           manifests/deployment.yml
           manifests/service.yml
         images: |
-          demo.azurecr.io/k8sdemo:${{ github.sha }}
+          ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
         imagepullsecrets: |
-          demo-k8s-secret
+          ${{ env.SECRET }}
+        namespace: ${{ env.NAMESPACE }}
 ```
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Gdy klaster Kubernetes, rejestr kontenerów i repozytorium nie są już potrzebne, Oczyść wdrożone zasoby, usuwając grupę zasobów i repozytorium GitHub. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zestaw akcji można znaleźć w różnych repozytoriach usługi GitHub, z których każda zawiera dokumentację i przykłady ułatwiające korzystanie z usługi GitHub w przypadku ciągłej integracji/ciągłego wdrażania oraz wdrażanie aplikacji na platformie Azure.
+> [!div class="nextstepaction"]
+> [Dowiedz się więcej o usłudze Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-start-here)
 
-- [Konfiguracja — polecenia kubectl](https://github.com/Azure/setup-kubectl)
+### <a name="more-kubernetes-github-actions"></a>Więcej Kubernetesych akcji GitHub
 
-- [k8s — Ustawianie kontekstu](https://github.com/Azure/k8s-set-context)
-
-- [AKS — Ustawianie kontekstu](https://github.com/Azure/aks-set-context)
-
-- [k8s-Create-Secret](https://github.com/Azure/k8s-create-secret)
-
-- [k8s — Wdróż](https://github.com/Azure/k8s-deploy)
-
-- [aplikacje webapps — kontener — wdrażanie](https://github.com/Azure/webapps-container-deploy)
-
-- [akcje — przykłady dla przepływu pracy](https://github.com/Azure/actions-workflow-samples)
+* [Instalator narzędzia polecenia kubectl](https://github.com/Azure/setup-kubectl) ( `azure/setup-kubectl` ): instaluje określoną wersję programu polecenia kubectl w module uruchamiającego.
+* [Kontekst zestawu Kubernetes](https://github.com/Azure/k8s-set-context) ( `azure/k8s-set-context` ): Ustaw docelowy kontekst klastra Kubernetes, który będzie używany przez inne akcje, lub Uruchom dowolne polecenia polecenia kubectl.
+* [Kontekst zestawu AKS](https://github.com/Azure/aks-set-context) ( `azure/aks-set-context` ): Ustaw docelowy kontekst klastra usługi Azure Kubernetes.
+* [Kubernetes Utwórz klucz tajny](https://github.com/Azure/k8s-create-secret) ( `azure/k8s-create-secret` ): Utwórz ogólny wpis tajny lub element Docker-Registry w klastrze Kubernetes.
+* [Kubernetes Deploy](https://github.com/Azure/k8s-deploy) ( `azure/k8s-deploy` ): Tworzenie i Wdróż manifesty w klastrach Kubernetes.
+* [Setup Helm](https://github.com/Azure/setup-helm) ( `azure/setup-helm` ): Zainstaluj określoną wersję pliku binarnego Helm w module uruchamiającego.
+* [Kubernetes tworzenie](https://github.com/Azure/k8s-bake) ( `azure/k8s-bake` ): Tworzenie plik manifestu, który ma być używany na potrzeby wdrożeń przy użyciu helm2, kustomize lub kompose.
+* [Kubernetes lint](https://github.com/azure/k8s-lint) ( `azure/k8s-lint` ): Weryfikuj/lint plików manifestu.

@@ -5,12 +5,12 @@ author: spelluru
 ms.topic: quickstart
 ms.date: 08/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 201ea38c6feabbda2576d8480a9983f00d62d175
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 14892b114f3bb8a0bb6c07f7cdd01a174b931cf9
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88191270"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95810627"
 ---
 # <a name="use-the-azure-cli-to-create-a-service-bus-namespace-and-a-queue"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure w celu utworzenia Service Bus przestrzeni nazw i kolejki
 Ten przewodnik Szybki Start przedstawia sposób tworzenia Service Bus przestrzeni nazw i kolejki przy użyciu interfejsu wiersza polecenia platformy Azure. Pokazano w nim także, jak uzyskać poświadczenia autoryzacji, które mogą być używane przez aplikację kliencką do wysyłania/odbierania komunikatów z kolejki. 
@@ -24,7 +24,7 @@ W tym przewodniku szybki start użyjesz Azure Cloud Shell, które można uruchom
 
 ## <a name="provision-resources"></a>Inicjowanie zasobów
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Uruchom Azure Cloud Shell, wybierając ikonę pokazaną na poniższej ilustracji. Przełącz się do trybu **bash** , jeśli CloudShell jest w trybie **PowerShell** . 
+2. Uruchom Azure Cloud Shell, wybierając ikonę pokazaną na poniższej ilustracji. Przełącz się do trybu **bash** , jeśli Cloud Shell jest w trybie **programu PowerShell** . 
 
     :::image type="content" source="./media/service-bus-quickstart-powershell/launch-cloud-shell.png" alt-text="Cloud Shell uruchamiania":::
 3. Uruchom następujące polecenie, aby utworzyć grupę zasobów platformy Azure. W razie potrzeby zaktualizuj nazwę grupy zasobów i lokalizację. 
@@ -56,7 +56,7 @@ W tym artykule opisano tworzenie Service Bus przestrzeni nazw i kolejki w przest
 
 - [.NET](service-bus-dotnet-get-started-with-queues.md)
 - [Java](service-bus-java-how-to-use-queues.md)
-- [JavaScript](service-bus-nodejs-how-to-use-queues-new-package.md)
+- [JavaScript](service-bus-nodejs-how-to-use-queues.md)
 - [Python](service-bus-python-how-to-use-queues.md)
 - [PHP](service-bus-php-how-to-use-queues.md)
 - [Ruby](service-bus-ruby-how-to-use-queues.md)

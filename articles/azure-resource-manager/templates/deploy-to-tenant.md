@@ -2,13 +2,13 @@
 title: Wdrażanie zasobów w dzierżawie
 description: Opisuje sposób wdrażania zasobów w zakresie dzierżawy w szablonie Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 11/20/2020
-ms.openlocfilehash: 65a5e90616f8883b338d22fa31eee6932452b5fd
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.date: 11/24/2020
+ms.openlocfilehash: 5733c5d6eb6cbd86207589244c22badc17fe7073
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95242665"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95807632"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Wdrożenia dzierżawców przy użyciu szablonów ARM
 
@@ -129,6 +129,14 @@ Aby uzyskać bardziej szczegółowe informacje na temat poleceń wdrażania i op
 * [Użyj przycisku wdrożenia, aby wdrożyć szablony z repozytorium GitHub](deploy-to-azure-button.md)
 * [Wdrażanie szablonów usługi ARM na podstawie Cloud Shell](deploy-cloud-shell.md)
 
+## <a name="deployment-location-and-name"></a>Lokalizacja i nazwa wdrożenia
+
+W przypadku wdrożeń na poziomie dzierżawy należy podać lokalizację wdrożenia. Lokalizacja wdrożenia jest oddzielona od lokalizacji wdrażanych zasobów. Lokalizacja wdrożenia określa miejsce przechowywania danych wdrożenia. Wdrożenia [subskrypcji](deploy-to-subscription.md) i [grupy zarządzania](deploy-to-management-group.md) wymagają również lokalizacji. W przypadku wdrożeń [grup zasobów](deploy-to-resource-group.md) lokalizacja grupy zasobów jest używana do przechowywania danych wdrożenia.
+
+Możesz podać nazwę wdrożenia lub użyć domyślnej nazwy wdrożenia. Nazwa domyślna to nazwa pliku szablonu. Na przykład wdrożenie szablonu o nazwie **azuredeploy.jsw** programie tworzy domyślną nazwę wdrożenia **azuredeploy**.
+
+Dla każdej nazwy wdrożenia lokalizacja jest niezmienna. Nie można utworzyć wdrożenia w jednej lokalizacji, gdy istnieje wdrożenie o tej samej nazwie w innej lokalizacji. Jeśli na przykład utworzysz wdrożenie dzierżawy o nazwie **deployment1** w **centrali**, nie będzie można utworzyć innego wdrożenia o nazwie **deployment1** , ale lokalizacji **zachodniej**. Jeśli zostanie wyświetlony kod błędu `InvalidDeploymentLocation` , użyj innej nazwy lub tej samej lokalizacji co poprzednie wdrożenie dla tej nazwy.
+
 ## <a name="deployment-scopes"></a>Zakresy wdrożenia
 
 Podczas wdrażania w dzierżawie można wdrożyć zasoby w programie:
@@ -153,7 +161,7 @@ Zasoby zdefiniowane w sekcji zasobów szablonu są stosowane do dzierżawcy.
 
 Aby wskazać grupę zarządzania w ramach dzierżawy, Dodaj wdrożenie zagnieżdżone i określ `scope` Właściwość.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,18,22":::
 
 ### <a name="scope-to-subscription"></a>Zakres subskrypcji
 
@@ -161,7 +169,7 @@ Możesz również kierować subskrypcje do subskrypcji w ramach dzierżawy. Uży
 
 Aby docelowa była subskrypcja w ramach dzierżawy, należy użyć wdrożenia zagnieżdżonego i `subscriptionId` właściwości.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="10,18":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="9,10,18":::
 
 ### <a name="scope-to-resource-group"></a>Zakres do grupy zasobów
 
@@ -170,14 +178,6 @@ Możesz również kierować grupy zasobów w ramach dzierżawy. Użytkownik wdra
 Aby określić grupę zasobów w ramach dzierżawy, należy użyć wdrożenia zagnieżdżonego. Ustaw `subscriptionId` właściwości i `resourceGroup` . Nie ustawiaj lokalizacji dla wdrożenia zagnieżdżonego, ponieważ jest ono wdrożone w lokalizacji grupy zasobów.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-rg.json" highlight="9,10,18":::
-
-## <a name="deployment-location-and-name"></a>Lokalizacja i nazwa wdrożenia
-
-W przypadku wdrożeń na poziomie dzierżawy należy podać lokalizację wdrożenia. Lokalizacja wdrożenia jest oddzielona od lokalizacji wdrażanych zasobów. Lokalizacja wdrożenia określa miejsce przechowywania danych wdrożenia.
-
-Możesz podać nazwę wdrożenia lub użyć domyślnej nazwy wdrożenia. Nazwa domyślna to nazwa pliku szablonu. Na przykład wdrożenie szablonu o nazwie **azuredeploy.jsw** programie tworzy domyślną nazwę wdrożenia **azuredeploy**.
-
-Dla każdej nazwy wdrożenia lokalizacja jest niezmienna. Nie można utworzyć wdrożenia w jednej lokalizacji, gdy istnieje wdrożenie o tej samej nazwie w innej lokalizacji. Jeśli zostanie wyświetlony kod błędu `InvalidDeploymentLocation` , użyj innej nazwy lub tej samej lokalizacji co poprzednie wdrożenie dla tej nazwy.
 
 ## <a name="create-management-group"></a>Tworzenie grupy zarządzania
 

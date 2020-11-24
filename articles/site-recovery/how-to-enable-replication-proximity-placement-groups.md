@@ -5,12 +5,12 @@ author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
 ms.date: 05/25/2020
-ms.openlocfilehash: f3abdad427e038bb4a853cb6222174dd090cb6b2
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 4d079a8b6254fc70ca641380ce68aac12eed28d9
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348427"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95805609"
 ---
 # <a name="replicate-azure-virtual-machines-running-in-proximity-placement-groups-to-another-region"></a>Replikowanie maszyn wirtualnych platformy Azure działających w grupach umieszczania w pobliżu w innym regionie
 
@@ -22,7 +22,7 @@ W tym artykule opisano sposób replikowania maszyn wirtualnych, trybu failover i
 
 W typowym scenariuszu maszyny wirtualne mogą działać w grupie umieszczania bliskości, aby uniknąć opóźnień sieci między różnymi warstwami aplikacji. Chociaż może to zapewnić optymalne opóźnienia sieci aplikacji, należy chronić te aplikacje przy użyciu Site Recovery dla dowolnego błędu poziomu regionu. Site Recovery replikuje dane z jednego regionu do innego regionu platformy Azure i łączy maszyny w regionie odzyskiwania po awarii w przypadku przejścia w tryb failover.
 
-## <a name="considerations"></a>Kwestie do rozważenia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 - Najlepszym nakładem pracy jest przełączenie w tryb failover i powrót po awarii maszyn wirtualnych do grupy umieszczania sąsiedztwa. Jeśli jednak maszyna wirtualna nie może zostać przełączona w tryb failover lub powrotu po awarii, nastąpi przejście do trybu failover/powrotu po awarii, a maszyny wirtualne zostaną utworzone poza grupą położenia sąsiedztwa.
 -  Jeśli zestaw dostępności jest przypięty do grupy umieszczania bliskości, a podczas pracy w trybie failover/powrotu po awarii w zestawie dostępności istnieją ograniczenia alokacji, maszyny wirtualne zostaną utworzone poza zestaw dostępności i grupę umieszczania sąsiedztwa.
@@ -62,17 +62,20 @@ W typowym scenariuszu maszyny wirtualne mogą działać w grupie umieszczania bl
 $RecoveryRG = Get-AzResourceGroup -Name "a2ademorecoveryrg" -Location "West US 2"
 
 #Specify replication properties for each disk of the VM that is to be replicated (create disk replication configuration)
+#Make sure to replace the variables $OSdiskName with OS disk name.
 
 #OS Disk
-$OSdisk = Get-AzDisk -DiskName $OSdiskName -ResourceGroupName $OSdiskResourceGroup
+$OSdisk = Get-AzDisk -DiskName $OSdiskName -ResourceGroupName "A2AdemoRG"
 $OSdiskId = $OSdisk.Id
 $RecoveryOSDiskAccountType = $OSdisk.Sku.Name
 $RecoveryReplicaDiskAccountType = $OSdisk.Sku.Name
 
 $OSDiskReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $EastUSCacheStorageAccount.Id -DiskId $OSdiskId -RecoveryResourceGroupId $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType $RecoveryReplicaDiskAccountType -RecoveryTargetDiskAccountType $RecoveryOSDiskAccountType
 
+#Make sure to replace the variables $datadiskName with data disk name.
+
 #Data disk
-$datadisk = Get-AzDisk -DiskName $datadiskName -ResourceGroupName $datadiskResourceGroup
+$datadisk = Get-AzDisk -DiskName $datadiskName -ResourceGroupName "A2AdemoRG"
 $datadiskId1 = $datadisk[0].Id
 $RecoveryReplicaDiskAccountType = $datadisk[0].Sku.Name
 $RecoveryTargetDiskAccountType = $datadisk[0].Sku.Name

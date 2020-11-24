@@ -1,14 +1,14 @@
 ---
 title: Konfigurowanie środowiska dla operatora tworzenia planów
 description: Dowiedz się, jak skonfigurować środowisko platformy Azure do użycia z wbudowaną rolą Azure Operatorion.
-ms.date: 08/27/2020
+ms.date: 11/24/2020
 ms.topic: how-to
-ms.openlocfilehash: ae881ac6d0714401f8c80e880b4d288f594b7cf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db8450516feab2fae4136f549959a29b006059aa
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535785"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95804917"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>Konfigurowanie środowiska dla operatora strategii
 
@@ -28,11 +28,13 @@ Pierwszym krokiem jest przyznanie roli **operatora** planu do konta lub grupy za
 
 Definicja planu może korzystać z tożsamości zarządzanych przypisanych do systemu lub przypisanej przez użytkownika. Jednak w przypadku korzystania z roli **operatora** planu definicja strategii musi być skonfigurowana do korzystania z tożsamości zarządzanej przypisanej przez użytkownika. Ponadto konto lub grupa zabezpieczeń, do której należy rola **operatora** planu, musi mieć przypisaną rolę **operatora tożsamości zarządzanej** na zarządzanej tożsamości przypisanej do użytkownika. Bez tego uprawnienia przypisanie strategii kończy się niepowodzeniem z powodu braku uprawnień.
 
-1. [Tworzenie tożsamości zarządzanej przypisanej przez użytkownika](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity) do użycia przez przypisany plan
+1. [Utwórz tożsamość zarządzaną przypisaną przez użytkownika](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity) do użycia przez przypisany plan.
+
+1. Przyznaj tożsamości zarządzanej przez użytkownika wszelkie role lub uprawnienia wymagane przez definicję planu dla zamierzonego zakresu.
 
 1. [Dodaj przypisanie roli](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) **operatora tożsamości zarządzanej** do konta lub grupy zabezpieczeń. Określ zakres przypisania roli do nowej tożsamości zarządzanej przypisanej przez użytkownika.
 
-1. Jako **operator**planu [Przypisz plan](../create-blueprint-portal.md#assign-a-blueprint) , który używa nowej tożsamości zarządzanej przypisanej przez użytkownika.
+1. Jako **operator** planu [Przypisz plan](../create-blueprint-portal.md#assign-a-blueprint) , który używa nowej tożsamości zarządzanej przypisanej przez użytkownika.
 
 ## <a name="next-steps"></a>Następne kroki
 

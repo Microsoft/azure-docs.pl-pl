@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 11/17/2020
 ms.author: aahi
-ms.openlocfilehash: 90ac4891dbca34ff2d9bdb9653e27ad2a495b317
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 09a83c28d07540b8ecd813e7ab2f10ceee891d7a
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021256"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95792986"
 ---
 # <a name="azure-cognitive-services-container-image-tags-and-release-notes"></a>Informacje o wersji i znacznikach obrazu kontenera Cognitive Services platformy Azure
 
@@ -52,6 +52,17 @@ Ten obraz kontenera ma dostępne następujące Tagi. Możesz również znaleźć
 
 # <a name="latest-version"></a>[Najnowsza wersja](#tab/current)
 
+Informacje o wersji dla `3.2-preview.1` :
+
+* Nowy kontener v 3.2
+
+| Tagi obrazu                    | Uwagi |
+|-------------------------------|:------|
+| `latest`                      |       |
+| `3.2-preview.1` |  |
+
+# <a name="previous-versions"></a>[Poprzednie wersje](#tab/previous)
+
 Informacje o wersji dla `v2.0.013250001-amd64-preview` :
 
 * Dalsze zmniejszenie użycia pamięci dla kontenera.
@@ -59,13 +70,6 @@ Informacje o wersji dla `v2.0.013250001-amd64-preview` :
 * Naprawione brakujące wyniki, gdy pamięć podręczna Redis jest skonfigurowana i `ResultExpirationPeriod` jest ustawiona na 0.
 * Usuń ograniczenie rozmiaru treści żądania 26MB. Kontener może teraz akceptować >pliki 26MB.
 * Dodaj sygnaturę czasową i skompiluj wersję do rejestrowania w konsoli.
-
-| Tagi obrazu                    | Uwagi |
-|-------------------------------|:------|
-| `latest`                      |       |
-| `2.0.013250001-amd64-preview` |  |
-
-# <a name="previous-versions"></a>[Poprzednie wersje](#tab/previous)
 
 Informacje o wersji dla programu `1.1.013050001-amd64-preview`
 
@@ -88,6 +92,7 @@ Informacje o wersji dla programu `1.1.013050001-amd64-preview`
 
 | Tagi obrazu                    | Uwagi |
 |-------------------------------|:------|
+| `2.0.013250001-amd64-preview` |       |
 | `1.1.013050001-amd64-preview` |       |
 | `1.1.011580001-amd64-preview` |       |
 | `1.1.009920003-amd64-preview` |       |

@@ -5,31 +5,20 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 11/23/2020
+ms.date: 11/24/2020
 ms.author: victorh
-ms.openlocfilehash: 650cf1e9b0e9fbbadc5a783cad844898698bf017
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 73a07af0fa98adf66d6104f1ab545d31a0cfd6d7
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95509743"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95802023"
 ---
 # <a name="azure-firewall-manager-policy-overview"></a>Omówienie zasad Menedżera zapory platformy Azure
 
 Zasady zapory to zasób platformy Azure, który zawiera kolekcje reguł translatora adresów sieciowych, sieci i aplikacji oraz ustawienia analizy zagrożeń. Jest to zasób globalny, który może być używany w wielu wystąpieniach zapory platformy Azure w zabezpieczonych wirtualnych centrach i koncentratorach wirtualnych. Zasady działają między regionami i subskrypcjami.
 
 ![Zasady Menedżera zapory platformy Azure](media/policy-overview/policy-overview.png)
-
-## <a name="availability"></a>Dostępność
-
-Zasada zapory to zasób o wysokiej dostępności i automatycznie replikowany. W przypadku wystąpienia rzadkich regionalnych awarii, tryb failover operacji zasad zapory w przypadku sparowanych regionów platformy Azure. Po przejściu do trybu failover operacji odzyskiwania w regionie podstawowym platformy Azure dla operacji synchronicznych i asynchronicznych. 
-
-Sparowane regiony zapewniają kilka korzyści, w tym:
-- Izolacja fizyczna oddzielona przez co najmniej 300 kilometrów
-- szybsze odzyskiwanie po awarii
-- wymagania dotyczące miejsca zamieszkania danych, które są odpowiednie dla lokalizacji geograficznej
-
-Aby uzyskać więcej informacji na temat sparowanych regionów, zobacz temat [ciągłość działania i odzyskiwanie po awarii (BCDR): Wielosparowane regiony platformy Azure](../best-practices-availability-paired-regions.md).
 
 ## <a name="policy-creation-and-association"></a>Tworzenie i kojarzenie zasad
 

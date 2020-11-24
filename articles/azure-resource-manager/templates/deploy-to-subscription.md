@@ -2,13 +2,13 @@
 title: Wdrażanie zasobów w ramach subskrypcji
 description: Opisuje sposób tworzenia grupy zasobów w szablonie Azure Resource Manager. Przedstawiono w nim również sposób wdrażania zasobów w zakresie subskrypcji platformy Azure.
 ms.topic: conceptual
-ms.date: 11/23/2020
-ms.openlocfilehash: c87f6fa590e1f769816fb0ee3cba3aad1997de15
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.date: 11/24/2020
+ms.openlocfilehash: 2d4bd0db32a4bf0224b9da3af6e03ca86d7b496e
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/24/2020
-ms.locfileid: "95519867"
+ms.locfileid: "95807705"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>Wdrożenia subskrypcji przy użyciu szablonów ARM
 
@@ -126,6 +126,14 @@ Aby uzyskać bardziej szczegółowe informacje na temat poleceń wdrażania i op
 * [Użyj przycisku wdrożenia, aby wdrożyć szablony z repozytorium GitHub](deploy-to-azure-button.md)
 * [Wdrażanie szablonów usługi ARM na podstawie Cloud Shell](deploy-cloud-shell.md)
 
+## <a name="deployment-location-and-name"></a>Lokalizacja i nazwa wdrożenia
+
+W przypadku wdrożeń na poziomie subskrypcji należy podać lokalizację wdrożenia. Lokalizacja wdrożenia jest oddzielona od lokalizacji wdrażanych zasobów. Lokalizacja wdrożenia określa miejsce przechowywania danych wdrożenia. Wdrożenia [grup zarządzania](deploy-to-management-group.md) i [dzierżawców](deploy-to-tenant.md) wymagają również lokalizacji. W przypadku wdrożeń [grup zasobów](deploy-to-resource-group.md) lokalizacja grupy zasobów jest używana do przechowywania danych wdrożenia.
+
+Możesz podać nazwę wdrożenia lub użyć domyślnej nazwy wdrożenia. Nazwa domyślna to nazwa pliku szablonu. Na przykład wdrożenie szablonu o nazwie **azuredeploy.jsw** programie tworzy domyślną nazwę wdrożenia **azuredeploy**.
+
+Dla każdej nazwy wdrożenia lokalizacja jest niezmienna. Nie można utworzyć wdrożenia w jednej lokalizacji, gdy istnieje wdrożenie o tej samej nazwie w innej lokalizacji. Przykładowo w przypadku utworzenia wdrożenia subskrypcji o nazwie **deployment1** w **centrali** nie można utworzyć innego wdrożenia o nazwie **deployment1** , ale lokalizacji **zachodniej**. Jeśli zostanie wyświetlony kod błędu `InvalidDeploymentLocation` , użyj innej nazwy lub tej samej lokalizacji co poprzednie wdrożenie dla tej nazwy.
+
 ## <a name="deployment-scopes"></a>Zakresy wdrożenia
 
 Podczas wdrażania w ramach subskrypcji można wdrożyć zasoby w programie:
@@ -173,14 +181,6 @@ Można użyć wdrożenia zagnieżdżonego z `scope` i `location` zestawu.
 Lub można ustawić zakres `/` dla niektórych typów zasobów, takich jak grupy zarządzania.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-create-mg.json" highlight="12,15":::
-
-## <a name="deployment-location-and-name"></a>Lokalizacja i nazwa wdrożenia
-
-W przypadku wdrożeń na poziomie subskrypcji należy podać lokalizację wdrożenia. Lokalizacja wdrożenia jest oddzielona od lokalizacji wdrażanych zasobów. Lokalizacja wdrożenia określa miejsce przechowywania danych wdrożenia.
-
-Możesz podać nazwę wdrożenia lub użyć domyślnej nazwy wdrożenia. Nazwa domyślna to nazwa pliku szablonu. Na przykład wdrożenie szablonu o nazwie **azuredeploy.jsw** programie tworzy domyślną nazwę wdrożenia **azuredeploy**.
-
-Dla każdej nazwy wdrożenia lokalizacja jest niezmienna. Nie można utworzyć wdrożenia w jednej lokalizacji, gdy istnieje wdrożenie o tej samej nazwie w innej lokalizacji. Jeśli zostanie wyświetlony kod błędu `InvalidDeploymentLocation` , użyj innej nazwy lub tej samej lokalizacji co poprzednie wdrożenie dla tej nazwy.
 
 ## <a name="resource-groups"></a>Grupy zasobów
 

@@ -4,12 +4,12 @@ description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych pla
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: 3ffa781e046a89b2e363d6edc9b9bf99116aac07
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 2391a4056d5c0c952677b57e7d37a181ef0eacc0
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94991982"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95808861"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Macierz obsługi odzyskiwania po awarii maszyny wirtualnej platformy Azure między regionami platformy Azure
 
@@ -113,6 +113,9 @@ SUSE Linux Enterprise Server 11 | USUWA<br/><br/> Uaktualnienie maszyn replikowa
 SUSE Linux Enterprise Server 11 | DODATEK
 Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4573888/), [8,0](https://support.microsoft.com/help/4573888/), [8,1](https://support.microsoft.com/help/4573888/)  <br/> Uruchamianie jądra zgodnego z systemem Red Hat lub nieprzerwane wydanie jądra 3, 4 & 5 (UEK3, UEK4, UEK5)<br/><br/>8.1<br/>Uruchamianie na wszystkich jądrach UEK i jądrze RedHat <= 3.10.0-1062. * są obsługiwane w [9,35](https://support.microsoft.com/help/4573888/) obsłudze dla pozostałych jądra RedHat jest dostępny w [9,36](https://support.microsoft.com/help/4578241/)
 
+> [!NOTE]
+> Upewnij się, że w przypadku wersji systemu Linux Azure Site Recovery nie obsługuje niestandardowych obrazów systemów operacyjnych. Obsługiwane są tylko jądra podstawowe, które są częścią wersji pomocniczej dystrybucji/aktualizacji.
+
 * * Uwaga: aby obsłużyć najnowsze jądra systemu Linux w ciągu 15 dni od wydania, Azure Site Recovery naprawia poprawkę poprawek na bieżąco na najnowszej wersji agenta mobilności. Ta poprawka jest wprowadzana między dwiema wersjami głównymi. Aby zaktualizować do najnowszej wersji agenta mobilności (łącznie z poprawkami gorącą), wykonaj kroki opisane w [tym artykule](service-updates-how-to.md#azure-vm-disaster-recovery-to-azure). Ta poprawka jest obecnie wprowadzana dla agentów mobilności używanych na platformie Azure do scenariusza odzyskiwania po awarii platformy Azure.
 
 #### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Obsługiwane wersje jądra Ubuntu dla usługi Azure Virtual Machines
@@ -172,7 +175,7 @@ SUSE Linux Enterprise Server 15 i 15 SP1 | [9,34](https://support.microsoft.com/
 * Menedżer woluminów: LVM2
 
 > [!NOTE]
-> Oprogramowanie wielościeżkowe nie jest obsługiwane. 
+> Oprogramowanie wielościeżkowe nie jest obsługiwane.
 
 
 ## <a name="replicated-machines---compute-settings"></a>Zreplikowane maszyny — ustawienia obliczeń

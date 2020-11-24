@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: becaadda37cdc7cf25fb3881dda0961e8640ad12
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 64799013d8d71e63300a8b48e5ca5b0d4d02c634
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/24/2020
-ms.locfileid: "95538363"
+ms.locfileid: "95808027"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Zalecenia dotyczące zabezpieczeń usługi BLOB Storage
 
@@ -73,5 +73,5 @@ Azure Security Center okresowo analizuje stan zabezpieczeń zasobów platformy A
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dokumentacja zabezpieczeń platformy Azure](//azure/security/)
+- [Dokumentacja zabezpieczeń platformy Azure](../../security/index.yml)
 - [Bezpieczna dokumentacja dotycząca opracowywania](../../security/develop/index.yml)oprogramowania.

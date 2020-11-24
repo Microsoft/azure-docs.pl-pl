@@ -3,12 +3,12 @@ title: Jak włączyć zasób rozwiązania Azure VMware
 description: Dowiedz się, jak przesłać żądanie pomocy technicznej, aby włączyć zasób rozwiązania VMware platformy Azure. Możesz również zażądać większej liczby hostów w istniejącej chmurze prywatnej rozwiązania VMware platformy Azure.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: cd58611f77c2f2fb1694597fc9ef049420093ccc
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 68f8fe38c67ec5ddad7cf662a7996330ee2a1e73
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967367"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95794711"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Jak włączyć zasób rozwiązania VMware dla platformy Azure
 Dowiedz się, jak przesłać żądanie pomocy technicznej, aby włączyć zasób [rozwiązania VMware platformy Azure](introduction.md) . Możesz również zażądać większej liczby hostów w istniejącej chmurze prywatnej rozwiązania VMware platformy Azure.
@@ -64,7 +64,7 @@ Przed utworzeniem zasobu rozwiązania Azure VMware należy przesłać bilet pomo
 Dostawcy usług kryptograficznych muszą korzystać z [Centrum partnerskiego firmy Microsoft](https://partner.microsoft.com) , aby umożliwić klientom korzystanie z rozwiązań VMware platformy Azure. 
 
    >[!IMPORTANT] 
-   >Usługa Azure VMware Solution Service nie udostępnia środowiska wielodostępnego i dlatego partnerzy hostingu nie są jeszcze obsługiwani. 
+   >Usługa Azure VMware Solution Service nie zapewnia wymaganej wielu dzierżawców. Partnerzy hostingu wymagający tego nie są obsługiwani. 
 
 1. W **centrum partnerskim** wybierz **dostawcę CSP** , aby uzyskać dostęp do obszaru **Customers** .
 
@@ -113,13 +113,16 @@ Po skonfigurowaniu planu platformy Azure i wymaganych uprawnieniach vSphere RBAC
    >[!IMPORTANT] 
    >Jeśli masz już istniejące rozwiązanie VMware platformy Azure i żądasz dodatkowych hostów, pamiętaj, że potrzebujemy pięciu dni roboczych, aby przydzielić hosty. 
 
-1. Po dodaniu do planu platformy Azure i włączeniu limitu przydziału klient lub administrator partnera może wdrożyć chmurę prywatną rozwiązania VMware platformy Azure za pomocą Azure Portal. Przed udostępnieniem hostów upewnij się, że rejestrujesz dostawcę zasobów **Microsoft. Automatyczna synchronizacja** w Azure Portal.  
+1. Jeśli subskrypcja jest zarządzana przez dostawcę usług, jego zespół administracyjny musi uzyskać dostęp do Azure Portal przy użyciu procedury ponownie **administrator w imieniu** (AOBO) z Centrum partnerskiego. Jeden w Azure Portal uruchomić wystąpienie [Cloud Shell](../cloud-shell/overview.md) i zarejestrować dostawcę zasobów **Microsoft. Automatyczna synchronizacja** i kontynuować wdrażanie chmury prywatnej rozwiązania Azure VMware.  
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
    ```
 
    Aby uzyskać dodatkowe sposoby rejestrowania dostawcy zasobów, zobacz [dostawcy zasobów platformy Azure i ich typy](../azure-resource-manager/management/resource-providers-and-types.md).
+
+1. Jeśli subskrypcja jest zarządzana bezpośrednio przez klienta, Rejestracja dostawcy zasobów **Microsoft. Automatyczna synchronizacja** musi zostać wykonana przez użytkownika z wystarczającymi uprawnieniami w ramach subskrypcji, zobacz [dostawcy zasobów platformy Azure i typy](../azure-resource-manager/management/resource-providers-and-types.md) , aby uzyskać więcej szczegółów i sposobów rejestrowania dostawcy zasobów. 
+
 
 ## <a name="next-steps"></a>Następne kroki
 

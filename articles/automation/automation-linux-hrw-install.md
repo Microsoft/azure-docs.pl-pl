@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9b06024b7dc25f37f75c71b822f6aeea32c3e26a
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 07c04274829530942bab0e3267200f6524c4ddc7
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95509060"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95793401"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Linux
 
@@ -40,15 +40,15 @@ Rola hybrydowego procesu roboczego elementu Runbook wymaga [agenta log Analytics
 
 ### <a name="supported-linux-operating-systems"></a>Obsługiwane systemy operacyjne Linux
 
-Funkcja hybrydowego procesu roboczego elementu Runbook obsługuje następujące dystrybucje:
+Funkcja hybrydowego procesu roboczego elementu Runbook obsługuje następujące dystrybucje. Przyjmuje się, że wszystkie systemy operacyjne są w wersji x64. Architektura x86 nie jest obsługiwana dla żadnego systemu operacyjnego.
 
-* Amazon Linux 2012,09 do 2015,09 (x64)
-* CentOS Linux 5, 6 i 7 (x64)
-* Oracle Linux 5, 6 i 7 (x64)
-* Red Hat Enterprise Linux Server 5, 6 i 7 (x64)
-* Debian GNU/Linux 6, 7 i 8 (x64)
-* Ubuntu 12,04 LTS, 14,04 LTS, 16,04 LTS i 18,04 (x64)
-* SUSE Linux Enterprise Server 12 (x64)
+* Amazon Linux 2012,09 do 2015,09
+* CentOS Linux 5, 6 i 7
+* Oracle Linux 5, 6 i 7
+* Red Hat Enterprise Linux Server 5, 6 i 7
+* Debian GNU/Linux 6, 7 i 8
+* Ubuntu 12,04 LTS, 14,04 LTS, 16,04 LTS i 18,04 LTS
+* SUSE Linux Enterprise Server 12
 
 ### <a name="minimum-requirements"></a>Minimalne wymagania
 
@@ -88,7 +88,7 @@ Hybrydowe procesy robocze elementu Runbook systemu Linux obsługują ograniczon�
 |Typ elementu Runbook | Obsługiwane |
 |-------------|-----------|
 |Python 2 |Tak |
-|Program PowerShell |Tak<sup>1</sup> |
+|PowerShell |Tak<sup>1</sup> |
 |Przepływ pracy programu PowerShell |Nie |
 |Element graficzny |Nie |
 |Graficzny przepływ pracy programu PowerShell |Nie |

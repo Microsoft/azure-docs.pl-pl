@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-python
 ms.date: 04/03/2020
-ms.openlocfilehash: 8447eae4ea7234a7f47219cc81441650121b84ae
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: d6c45a5c8062c3b6441309361037f8755a552074
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676178"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95791898"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Korzystanie z klastrów Apache Kafka w usłudze Azure HDInsight przy użyciu serwera proxy REST
 
@@ -51,7 +51,7 @@ W przypadku przenoszenia własnej sieci wirtualnej i kontrolowania ruchu sieciow
 
 1. Utwórz grupę zabezpieczeń usługi Azure AD. Dodaj aplikację, która została zarejestrowana w usłudze Azure AD, do grupy zabezpieczeń jako **członka** grupy. Ta grupa zabezpieczeń zostanie użyta do kontrolowania, które aplikacje mogą korzystać z serwera proxy REST. Aby uzyskać więcej informacji na temat tworzenia grup usługi Azure AD, zobacz [Tworzenie grupy podstawowej i Dodawanie członków przy użyciu Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-    Sprawdź, czy grupa jest typu **zabezpieczenia** .
+    Sprawdź, czy grupa jest typu **zabezpieczenia**.
     ![Grupy zabezpieczeń](./media/rest-proxy/rest-proxy-group.png)
 
     Sprawdź, czy aplikacja jest członkiem grupy.
@@ -65,7 +65,7 @@ Poniższe kroki używają Azure Portal. Przykład użycia interfejsu wiersza pol
 
      ![Zrzut ekranu przedstawia stronę Tworzenie klastra usługi H Insights z wybraną opcją zabezpieczenia i sieć.](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png)
 
-1. Kliknij pozycję **Wybierz grupę zabezpieczeń** . Z listy grup zabezpieczeń wybierz grupę zabezpieczeń, która ma mieć dostęp do serwera proxy REST. Możesz użyć pola wyszukiwania, aby znaleźć odpowiednią grupę zabezpieczeń. Kliknij przycisk **Wybierz** u dołu.
+1. Kliknij pozycję **Wybierz grupę zabezpieczeń**. Z listy grup zabezpieczeń wybierz grupę zabezpieczeń, która ma mieć dostęp do serwera proxy REST. Możesz użyć pola wyszukiwania, aby znaleźć odpowiednią grupę zabezpieczeń. Kliknij przycisk **Wybierz** u dołu.
 
      ![Zrzut ekranu przedstawia stronę Tworzenie klastra usługi H Insights z opcją wyboru grupy zabezpieczeń.](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png)
 
@@ -97,7 +97,7 @@ Ten kod wykonuje następujące czynności:
 1. Pobiera token OAuth z usługi Azure AD.
 1. Pokazuje, jak utworzyć żądanie Kafka serwera proxy REST.
 
-Aby uzyskać więcej informacji na temat uzyskiwania tokenów OAuth w języku Python, zobacz [Python AuthenticationContext Class](/python/api/adal/adal.authentication_context.authenticationcontext). W tym miejscu mogą pojawić się opóźnienia `topics` , które nie zostały utworzone lub usunięte za pomocą serwera proxy REST Kafka. To opóźnienie wynika z faktu odświeżenia pamięci podręcznej.
+Aby uzyskać więcej informacji na temat uzyskiwania tokenów OAuth w języku Python, zobacz [Python AuthenticationContext Class](/python/api/adal/adal.authentication_context.authenticationcontext). W tym miejscu mogą pojawić się opóźnienia `topics` , które nie zostały utworzone lub usunięte za pomocą serwera proxy REST Kafka. To opóźnienie wynika z faktu odświeżenia pamięci podręcznej. **Wartość pola wartości** w interfejsie API producenta została ulepszona. Teraz akceptuje obiekty JSON i wszystkie zserializowane formularze.
 
 ```python
 #Required python packages
@@ -110,16 +110,6 @@ import requests
 import string
 import sys
 import time
-
-def get_custom_value_json_object():
-
-    custom_value_json_object = {
-        "static_value": "welcome to HDI Kafka REST proxy",
-        "random_value": get_random_string(),
-    }
-
-    return custom_value_json_object
-
 
 def get_random_string():
     letters = string.ascii_letters
@@ -215,22 +205,68 @@ payload_json = {
     "records": [
         {
             "key": "key1",
-            "value": "**********"
-        },
-        {
-            "value": "5"
+            "value": "**********"         # A string                              
         },
         {
             "partition": 0,
-            "value": json.dumps(get_custom_value_json_object())  # need to be a serialized string. For example, "{\"static_value\": \"welcome to HDI Kafka REST proxy\", \"random_value\": \"pAPrgPk\"}"
+            "value": 5                    # An integer
         },
         {
-            "value": json.dumps(get_custom_value_json_object())  # need to be a serialized string. For example, "{\"static_value\": \"welcome to HDI Kafka REST proxy\", \"random_value\": \"pAPrgPk\"}"
+            "value": 3.14                 # A floating number
+        },
+        {
+            "value": {                    # A JSON object
+                "id": 1,
+                "name": "HDInsight Kafka REST proxy"
+            }
+        },
+        {
+            "value": [                    # A list of JSON objects
+                {
+                    "id": 1,
+                    "name": "HDInsight Kafka REST proxy 1"
+                },
+                {
+                    "id": 2,
+                    "name": "HDInsight Kafka REST proxy 2"
+                },
+                {
+                    "id": 3,
+                    "name": "HDInsight Kafka REST proxy 3"
+                }
+            ]
+        },
+        {
+            "value": {                  # A nested JSON object
+                "group id": 1,
+                "HDI Kafka REST": {
+                    "id": 1,
+                    "name": "HDInsight Kafka REST proxy 1"
+                },
+                "HDI Kafka REST server info": {
+                    "id": 1,
+                    "name": "HDInsight Kafka REST proxy 1",
+                    "servers": [
+                        {
+                            "server id": 1,
+                            "server name": "HDInsight Kafka REST proxy server 1"
+                        },
+                        {
+                            "server id": 2,
+                            "server name": "HDInsight Kafka REST proxy server 2"
+                        },
+                        {
+                            "server id": 3,
+                            "server name": "HDInsight Kafka REST proxy server 3"
+                        }
+                    ]
+                }
+            }
         }
     ]
 }
 
-print("Producing 4 messages in a request: \n", payload_json)
+print("Payloads in a Producer request: \n", payload_json)
 producer_url = api_format.format(api_version=api_version, rest_api=producer_api_format.format(topic_name=new_topic))
 response = requests.post(producer_url, headers=headers, json=payload_json, timeout=request_timeout, verify=verify_https)
 print(response.content)
@@ -259,6 +295,23 @@ while True:
     else:
         print("Error " + str(response.status_code))
         break
+        
+# List partitions
+get_partitions_url = api_format.format(api_version=api_version, rest_api=partitions_api_format.format(topic_name=new_topic))
+print("Fetching partitions from  " + get_partitions_url)
+
+response = requests.get(get_partitions_url, headers={'Authorization': 'Bearer ' + accessToken}, timeout=request_timeout, verify=verify_https)
+partition_list = response.json()
+print("Partition list: \n" + json.dumps(partition_list, indent=2))
+
+# List a partition
+get_partition_url = api_format.format(api_version=api_version, rest_api=partition_api_format.format(topic_name=new_topic, partition_id=partition_id))
+print("Fetching metadata of a partition from  " + get_partition_url)
+
+response = requests.get(get_partition_url, headers={'Authorization': 'Bearer ' + accessToken}, timeout=request_timeout, verify=verify_https)
+partition = response.json()
+print("Partition metadata: \n" + json.dumps(partition, indent=2))
+
 ```
 
 Znajdź poniżej inny przykład, aby uzyskać token z platformy Azure dla serwera proxy REST przy użyciu polecenia zwinięcie. **Należy zauważyć, że `scope=https://hib.azurehdinsight.net/.default` podczas pobierania tokenu potrzebujemy określonego elementu.**
