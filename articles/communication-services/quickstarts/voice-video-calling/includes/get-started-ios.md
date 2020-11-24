@@ -6,12 +6,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 63b74675a9b0d3480c90c7414e82658705796e7c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 5f604847faf01d1b267e6cbb73481d57ef397bd9
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92438191"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95556101"
 ---
 W tym przewodniku szybki start dowiesz się, jak rozpocząć wywoływanie przy użyciu biblioteki klienta wywołującej usługi Azure Communications Services dla systemu iOS.
 
@@ -32,22 +32,23 @@ W Xcode Utwórz nowy projekt dla systemu iOS i wybierz szablon **aplikacji pojed
 
 :::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Zrzut ekranu przedstawiający okno nowy projekt w Xcode.":::
 
-### <a name="install-the-package"></a>Zainstaluj pakiet
+### <a name="install-the-package-and-dependencies-with-cocoapods"></a>Instalowanie pakietu i zależności za pomocą CocoaPods
 
-Dodaj do projektu bibliotekę klienta wywołującą usługi Azure Communication Services oraz jej zależności (AzureCore. Framework i AzureCommunication. Framework).
+1. Utwórz plik podfile dla aplikacji, tak jak to:
 
-> [!NOTE]
-> Wraz z wydaniem zestawu AzureCommunicationCalling SDK znajdziesz skrypt bash `BuildAzurePackages.sh` . Skrypt, gdy zostanie uruchomiony, `sh ./BuildAzurePackages.sh` zapewnia ścieżkę do wygenerowanych pakietów platformy, które należy zaimportować do przykładowej aplikacji w następnym kroku. Należy pamiętać, że konieczne będzie skonfigurowanie narzędzi wiersza polecenia Xcode, jeśli nie zostało to zrobione przed uruchomieniem skryptu: Start Xcode, wybierz pozycję "Preferencje-> lokalizacje". Wybierz wersję Xcode dla narzędzi wiersza polecenia. **Skrypt BuildAzurePackages.sh działa tylko z Xcode 11,5 i nowszymi**
+   ```
+   platform :ios, '13.0'
+   use_frameworks!
 
-1. [Pobierz](https://github.com/Azure/Communication/releases) bibliotekę kliencką klienta usługi Azure Communications Services dla systemu iOS.
-2. W Xcode kliknij plik projektu i wybierz miejsce docelowe kompilacji, aby otworzyć Edytor ustawień projektu.
-3. Na karcie **Ogólne** przewiń do sekcji **struktury, biblioteki i osadzona zawartość** , a następnie kliknij ikonę **"+"** .
-4. W lewym dolnym rogu okna dialogowego Użyj listy rozwijanej wybierz pozycję **Dodaj pliki**, przejdź do katalogu **AzureCommunicationCalling. Framework** w niespakowanym pakiecie biblioteki klienta.
-    1. Powtórz ostatni krok w celu dodania **AzureCore. Framework** i **AzureCommunication. Framework**.
-5. Otwórz kartę **Ustawienia kompilacji** w edytorze ustawień projektu i przewiń do sekcji **ścieżki wyszukiwania** . Dodaj nowy wpis **ścieżki wyszukiwania struktury** dla katalogu zawierającego **AzureCommunicationCalling. Framework**.
-    1. Dodaj kolejną pozycję ścieżki wyszukiwania struktury wskazującej folder zawierający zależności.
+   target 'AzureCommunicationCallingSample' do
+     pod 'AzureCommunicationCalling', '~> 1.0.0-beta.5'
+     pod 'AzureCommunication', '~> 1.0.0-beta.5'
+     pod 'AzureCore', '~> 1.0.0-beta.5'
+   end
+   ```
 
-:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Zrzut ekranu przedstawiający okno nowy projekt w Xcode.":::
+2. Uruchom polecenie `pod install`.
+3. Otwórz `.xcworkspace` program with Xcode.
 
 ### <a name="request-access-to-the-microphone"></a>Zażądaj dostępu do mikrofonu
 
@@ -74,9 +75,9 @@ Zastąp implementację `ContentView` struktury niektórymi prostymi kontrolkami 
 ```swift
 struct ContentView: View {
     @State var callee: String = ""
-    @State var callClient: ACSCallClient?
-    @State var callAgent: ACSCallAgent?
-    @State var call: ACSCall?
+    @State var callClient: CallClient?
+    @State var callAgent: CallAgent?
+    @State var call: Call?
 
     var body: some View {
         NavigationView {
@@ -136,7 +137,7 @@ do {
     return
 }
 
-self.callClient = ACSCallClient()
+self.callClient = CallClient()
 
 // Creates the call agent
 self.callClient?.createCallAgent(userCredential) { (agent, error) in
@@ -165,13 +166,13 @@ func startCall()
         if granted {
             // start call logic
             let callees:[CommunicationIdentifier] = [CommunicationUser(identifier: self.callee)]
-            self.call = self.callAgent?.call(callees, options: ACSStartCallOptions())
+            self.call = self.callAgent?.call(callees, options: StartCallOptions())
         }
     }
 }
 ```
 
-Można również użyć właściwości w, `ACSStartCallOptions` Aby ustawić początkowe opcje wywołania (tj. umożliwia uruchomienie wywołania z mikrofonu wyciszonego).
+Można również użyć właściwości w, `StartCallOptions` Aby ustawić początkowe opcje wywołania (tj. umożliwia uruchomienie wywołania z mikrofonu wyciszonego).
 
 ## <a name="end-a-call"></a>Zakończenie wywołania
 
@@ -180,7 +181,7 @@ Zaimplementuj `endCall` metodę, aby zakończyć bieżące wywołanie, gdy zosta
 ```swift
 func endCall()
 {    
-    self.call!.hangup(ACSHangupOptions()) { (error) in
+    self.call!.hangup(HangupOptions()) { (error) in
         if (error != nil) {
             print("ERROR: It was not possible to hangup the call.")
         }
@@ -190,9 +191,9 @@ func endCall()
 
 ## <a name="run-the-code"></a>Uruchamianie kodu
 
-Możesz skompilować i uruchomić aplikację w symulatorze systemu iOS, wybierając **Product**opcję  >  **Uruchom** produkt lub używając skrótu klawiaturowego (&#8984;-R).
+Możesz skompilować i uruchomić aplikację w symulatorze systemu iOS, wybierając **Product** opcję  >  **Uruchom** produkt lub używając skrótu klawiaturowego (&#8984;-R).
 
-:::image type="content" source="../media/ios/quick-start-make-call.png" alt-text="Zrzut ekranu przedstawiający okno nowy projekt w Xcode.":::
+:::image type="content" source="../media/ios/quick-start-make-call.png" alt-text="Końcowy wygląd i działanie aplikacji szybkiego startu":::
 
 Wychodzące wywołanie VOIP można utworzyć, podając identyfikator użytkownika w polu tekstowym i naciskając przycisk **Rozpocznij połączenie** . Wywołanie `8:echo123` nawiązuje połączenie z botem ECHA. jest to doskonałe rozwiązanie do rozpoczęcia i sprawdzenia, czy urządzenia audio działają. 
 

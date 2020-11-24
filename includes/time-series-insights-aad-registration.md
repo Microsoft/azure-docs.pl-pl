@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 ms.topic: include
 ms.custom: include file
 services: time-series-insights
@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.date: 10/02/2020
-ms.openlocfilehash: 7de4dc21391f7dbd817c56ce51606a808cf9e3c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50f203357d29d450f5b34593952f611f025b14ff
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665819"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95554447"
 ---
 1. W [Azure Portal](https://ms.portal.azure.com/)wybierz pozycję **Azure Active Directory**  >  **rejestracje aplikacji**  >  **Nowa rejestracja**.
 
@@ -22,7 +22,7 @@ ms.locfileid: "91665819"
 
     Aplikacja zostanie wyświetlona w tym miejscu po zarejestrowaniu.
 
-1. Nadaj aplikacji nazwę i wybierz **konta w tym katalogu organizacji tylko w** celu określenia **obsługiwanych typów kont** , które mogą uzyskiwać dostęp do interfejsu API. Jeśli tworzysz [publiczną aplikację kliencką](https://docs.microsoft.com/azure/active-directory/develop/msal-client-application-configuration#redirect-uri), Dodaj prawidłowy identyfikator URI przekierowania, a następnie **zarejestruj**się.
+1. Nadaj aplikacji nazwę i wybierz **konta w tym katalogu organizacji tylko w** celu określenia **obsługiwanych typów kont** , które mogą uzyskiwać dostęp do interfejsu API. Jeśli tworzysz [publiczną aplikację kliencką](../articles/active-directory/develop/msal-client-application-configuration.md#redirect-uri), Dodaj prawidłowy identyfikator URI przekierowania, a następnie **zarejestruj** się.
 
    [![Tworzenie aplikacji w Azure Active Directory](media/time-series-insights-aad-registration/active-directory-registration.png)](media/time-series-insights-aad-registration/active-directory-registration.png#lightbox)
 
@@ -66,7 +66,7 @@ ms.locfileid: "91665819"
    > [!NOTE]
    > Możesz zamiast tego zaimportować certyfikat. W celu zwiększenia bezpieczeństwa zaleca się używanie certyfikatu. Aby użyć certyfikatu, wybierz opcję **Przekaż certyfikat**.
 
-1. Skojarz Azure Time Series Insights aplikacji Azure Active Directory. Wybierz pozycję **uprawnienia interfejsu API**  >  **Dodawanie uprawnień**interfejsy API, które są  >  **wykorzystywane przez moją organizację**.
+1. Skojarz Azure Time Series Insights aplikacji Azure Active Directory. Wybierz pozycję **uprawnienia interfejsu API**  >  **Dodawanie uprawnień** interfejsy API, które są  >  **wykorzystywane przez moją organizację**.
 
     [![Kojarzenie interfejsu API z aplikacją Azure Active Directory](media/time-series-insights-aad-registration/active-directory-app-api-permission.png)](media/time-series-insights-aad-registration/active-directory-app-api-permission.png#lightbox)
 

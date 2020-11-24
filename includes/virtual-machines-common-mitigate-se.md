@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/12/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 6668d9753d0b93ab907d37cdeff8315f488cff7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8594ce713a8675505e0ee3051018b05992b160a9
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73935884"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95556027"
 ---
 **Ostatnia aktualizacja dokumentu**: 12 listopada 2019 10:00 am.
 
@@ -21,9 +21,9 @@ Ujawnienie [nowej klasy luk w zabezpieczeniach procesora](https://portal.msrc.mi
 
 Firma Microsoft wdrożyła środki zaradcze dla wszystkich naszych usług w chmurze. Infrastruktura działająca na platformie Azure i izolowanie obciążeń klientów od innych użytkowników jest chroniona. Oznacza to, że potencjalni osoba atakująca korzystająca z tej samej infrastruktury nie może zaatakować aplikacji przy użyciu tych luk w zabezpieczeniach.
 
-Platforma Azure korzysta z konserwowanej [pamięci](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#maintenance-that-doesnt-require-a-reboot) , jeśli jest to możliwe, aby zminimalizować wpływ klienta i wyeliminować konieczność ponownego uruchomienia. Platforma Azure będzie nadal korzystać z tych metod podczas systemowo aktualizacji hosta i ochrony naszych klientów.
+Platforma Azure korzysta z konserwowanej [pamięci](../articles/virtual-machines/maintenance-and-updates.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json%252c%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json%253ftoc%253d%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#maintenance-that-doesnt-require-a-reboot) , jeśli jest to możliwe, aby zminimalizować wpływ klienta i wyeliminować konieczność ponownego uruchomienia. Platforma Azure będzie nadal korzystać z tych metod podczas systemowo aktualizacji hosta i ochrony naszych klientów.
 
-Więcej informacji o tym, jak zabezpieczenia są zintegrowane z każdym aspektem platformy Azure, jest dostępny w witrynie [dokumentacji zabezpieczeń platformy Azure](https://docs.microsoft.com/azure/security/) . 
+Więcej informacji o tym, jak zabezpieczenia są zintegrowane z każdym aspektem platformy Azure, jest dostępny w witrynie [dokumentacji zabezpieczeń platformy Azure](../articles/security/index.yml) . 
 
 > [!NOTE] 
 > Ponieważ ten dokument został po raz pierwszy opublikowany, ujawniono wiele wariantów tej klasy luk w zabezpieczeniach. Firma Microsoft jest w dalszym ciągu silnie zainwestowana w ochronę naszych klientów i zapewnia wskazówki. Ta strona zostanie zaktualizowana, ponieważ będziemy nadal mogli zwolnić dalsze poprawki. 
@@ -43,7 +43,7 @@ Chociaż Aktualizacja systemu operacyjnego nie jest wymagana do izolowania aplik
 
 | Oferta | Zalecana akcja  |
 |----------|---------------------|
-| usług Azure Cloud Services  | Włącz funkcję [autoaktualizowania](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-configure-portal) lub upewnij się, że korzystasz z najnowszego systemu operacyjnego gościa. |
+| usług Azure Cloud Services  | Włącz funkcję [autoaktualizowania](../articles/cloud-services/cloud-services-how-to-configure-portal.md) lub upewnij się, że korzystasz z najnowszego systemu operacyjnego gościa. |
 | Linux Virtual Machines platformy Azure | Zainstaluj aktualizacje z dostawcy systemu operacyjnego. Aby uzyskać więcej informacji, zobacz [Linux](#linux) w dalszej części tego dokumentu. |
 | Windows Virtual Machines platformy Azure  | Zainstaluj najnowszą wersję zbiorczą zabezpieczeń.
 | Inne usługi Azure PaaS | W przypadku klientów korzystających z tych usług nie jest wymagana żadna akcja. Platforma Azure automatycznie zachowuje aktualność wersji systemu operacyjnego. |
@@ -72,7 +72,7 @@ Jeśli używasz niezaufanego kodu, możesz włączyć dodatkowe funkcje zabezpie
 Docelowy system operacyjny musi być aktualny, aby umożliwić korzystanie z tych dodatkowych funkcji zabezpieczeń. Chociaż liczne środki zaradcze są domyślnie włączone, dodatkowe funkcje opisane w tym miejscu muszą być włączone ręcznie i mogą spowodować wpływ na wydajność. 
 
 
-**Krok 1. wyłączenie funkcji wielowątkowości na maszynie wirtualnej** — klienci z uruchomionym niezaufanym kodem na maszynie wirtualnej z funkcją Hyper-Threading będą musieli wyłączyć funkcję Hyper-Threading lub przenieść ją do rozmiaru maszyny wirtualnej bez funkcji Hyper-Threading. Odwołuje się do [tego dokumentu](https://docs.microsoft.com/azure/virtual-machines/windows/acu) , aby uzyskać listę rozmiarów maszyn wirtualnych z funkcją Hyper-Threading (stosunek vCPU do rdzeń to 2:1). Aby sprawdzić, czy maszyna wirtualna ma włączone wielowątkowość, zapoznaj się z poniższym skryptem przy użyciu wiersza polecenia systemu Windows z poziomu maszyny wirtualnej.
+**Krok 1. wyłączenie funkcji wielowątkowości na maszynie wirtualnej** — klienci z uruchomionym niezaufanym kodem na maszynie wirtualnej z funkcją Hyper-Threading będą musieli wyłączyć funkcję Hyper-Threading lub przenieść ją do rozmiaru maszyny wirtualnej bez funkcji Hyper-Threading. Odwołuje się do [tego dokumentu](../articles/virtual-machines/acu.md) , aby uzyskać listę rozmiarów maszyn wirtualnych z funkcją Hyper-Threading (stosunek vCPU do rdzeń to 2:1). Aby sprawdzić, czy maszyna wirtualna ma włączone wielowątkowość, zapoznaj się z poniższym skryptem przy użyciu wiersza polecenia systemu Windows z poziomu maszyny wirtualnej.
 
 Wpisz `wmic` , aby wprowadzić interfejs interaktywny. Następnie wpisz poniższe polecenie, aby wyświetlić ilość procesorów fizycznych i logicznych na maszynie wirtualnej.
 
@@ -108,10 +108,10 @@ Jeśli dane wyjściowe są widoczne `MDS mitigation is enabled: False` , [skonta
 **Krok 3**. Aby włączyć obsługę systemu operacyjnego jądra (Kvas) i system operacyjny wtrysku docelowej gałęzi (BTI), postępuj zgodnie z instrukcjami w [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) , aby włączyć ochronę przy użyciu `Session Manager` kluczy rejestru. Wymagany jest ponowny rozruch.
 
 
-**Krok 4**. w przypadku wdrożeń korzystających z [wirtualizacji zagnieżdżonej](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (tylko D3 i E3): te instrukcje są stosowane w ramach maszyny wirtualnej, która jest używana jako host funkcji Hyper-V.
+**Krok 4**. w przypadku wdrożeń korzystających z [wirtualizacji zagnieżdżonej](../articles/virtual-machines/windows/nested-virtualization.md) (tylko D3 i E3): te instrukcje są stosowane w ramach maszyny wirtualnej, która jest używana jako host funkcji Hyper-V.
 
 1.  Postępuj zgodnie z instrukcjami w [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) , aby włączyć ochronę przy użyciu `MinVmVersionForCpuBasedMitigations` kluczy rejestru.
-2.  Ustaw typ harmonogramu funkcji hypervisor, `Core` postępując zgodnie z instrukcjami znajdującymi się [tutaj](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
+2.  Ustaw typ harmonogramu funkcji hypervisor, `Core` postępując zgodnie z instrukcjami znajdującymi się [tutaj](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
 
 
 ### <a name="linux"></a>Linux
@@ -119,7 +119,7 @@ Jeśli dane wyjściowe są widoczne `MDS mitigation is enabled: False` , [skonta
 <a name="linux"></a>Włączenie zestawu dodatkowych funkcji zabezpieczeń w programie wymaga pełnej Aktualności systemu operacyjnego. Niektóre środki zaradcze zostaną domyślnie włączone. W poniższej sekcji opisano funkcje, które są domyślnie wyłączone i/lub oparte na obsłudze sprzętu (włączenia mikrokodu). Włączenie tych funkcji może spowodować wpływ na wydajność. Dodatkowe instrukcje zawiera dokumentacja dostawcy systemu operacyjnego
 
 
-**Krok 1. wyłączenie funkcji wielowątkowości na maszynie wirtualnej** — klienci z uruchomionym niezaufanym kodem na maszynie wirtualnej z funkcją Hyper-Threading będą musieli wyłączyć funkcję Hyper-Threading lub przenieść ją na maszynę wirtualną, która nie jest wielowątkowa.  Odwołuje się do [tego dokumentu](https://docs.microsoft.com/azure/virtual-machines/linux/acu) , aby uzyskać listę rozmiarów maszyn wirtualnych z funkcją Hyper-Threading (stosunek vCPU do rdzeń to 2:1). Aby sprawdzić, czy uruchomiono maszynę wirtualną z funkcją Hyper-threaded, uruchom `lscpu` polecenie na maszynie wirtualnej z systemem Linux. 
+**Krok 1. wyłączenie funkcji wielowątkowości na maszynie wirtualnej** — klienci z uruchomionym niezaufanym kodem na maszynie wirtualnej z funkcją Hyper-Threading będą musieli wyłączyć funkcję Hyper-Threading lub przenieść ją na maszynę wirtualną, która nie jest wielowątkowa.  Odwołuje się do [tego dokumentu](../articles/virtual-machines/acu.md) , aby uzyskać listę rozmiarów maszyn wirtualnych z funkcją Hyper-Threading (stosunek vCPU do rdzeń to 2:1). Aby sprawdzić, czy uruchomiono maszynę wirtualną z funkcją Hyper-threaded, uruchom `lscpu` polecenie na maszynie wirtualnej z systemem Linux. 
 
 Jeśli `Thread(s) per core = 2` Funkcja Hyper-Threading została włączona. 
 
@@ -179,11 +179,3 @@ Ten artykuł zawiera wskazówki dotyczące poniższych ataków na kanał po stro
 
 Asynchroniczne przerywanie transakcji rozszerzeń synchronizacji transakcyjnej (Intel® TSX):  
 - [CVE-2019-11135](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-11135) – TSX asynchroniczne przerwanie transakcji (TAA)
-
-
-
-
-
-
-
-

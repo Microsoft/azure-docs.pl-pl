@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: e206c12a85cfbaed3297f2a44bf0a5d694c2d170
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2ed5cbc8c855d2f81986964c93009d75ed28fb8e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92321606"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95557062"
 ---
 **Wolumin zbierania danych i ich przechowywanie** 
 
@@ -47,7 +47,7 @@ ms.locfileid: "92321606"
 | Maksymalny rozmiar pojedynczego wpisu | 30 MB | Podziel większe woluminy na wiele wpisów. |
 | Maksymalny rozmiar wartości pól  | 32 KB | Pola dłuższe niż 32 KB są obcinane. |
 
-**Interfejs API wyszukiwania**
+**Wyszukaj interfejs API**
 
 | Kategoria | Limit | Komentarze |
 |:---|:---|:---|
@@ -62,7 +62,7 @@ ms.locfileid: "92321606"
 |:---|:---|:---|
 | Maksymalna liczba kolumn w tabeli         | 500 | |
 | Maksymalna liczba znaków w nazwie kolumny | 500 | |
-| Eksportowanie danych | Obecnie niedostępne | Agreguj i Eksportuj dane przy użyciu funkcji platformy Azure lub aplikacji logiki. | 
+| Eksport danych | Obecnie niedostępne | Agreguj i Eksportuj dane przy użyciu funkcji platformy Azure lub aplikacji logiki. | 
 
 **<a name="data-ingestion-volume-rate">Współczynnik ilości woluminu pozyskiwania danych</a>**
 
@@ -73,4 +73,4 @@ W przypadku wysyłania danych do obszaru roboczego o współczynniku ilościowym
 Zobacz [monitorowanie kondycji obszaru roboczego log Analytics w Azure monitor](../articles/azure-monitor/platform/monitor-workspace.md) , aby utworzyć reguły alertów w celu ich aktywnego powiadamiania, gdy osiągniesz limity pozyskiwania.
 
 >[!NOTE]
->W zależności od tego, jak długo korzystasz z Log Analytics, możesz mieć dostęp do starszych warstw cenowych. Dowiedz się więcej na temat [log Analytics starszych warstw cenowych](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers). 
+>W zależności od tego, jak długo korzystasz z Log Analytics, możesz mieć dostęp do starszych warstw cenowych. Dowiedz się więcej na temat [log Analytics starszych warstw cenowych](../articles/azure-monitor/platform/manage-cost-storage.md#legacy-pricing-tiers).

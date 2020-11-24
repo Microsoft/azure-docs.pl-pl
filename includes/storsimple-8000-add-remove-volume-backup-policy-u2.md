@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: b57c2ff2e53a5b836d9faeef7e18052d6e670cf6
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 2b592e1f7ea227e528915c1531e56dabf1a4bc4d
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375772"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95559404"
 ---
 #### <a name="to-add-or-remove-a-volume"></a>Aby dodać lub usunąć wolumin
 
@@ -17,19 +17,19 @@ ms.locfileid: "93375772"
 
 2. Na tabelarycznej liście zasad wybierz i kliknij zasady, które chcesz zmodyfikować. Kliknij prawym przyciskiem myszy, aby wywołać menu kontekstowe, a następnie wybierz polecenie **Dodaj/Usuń wolumin**.
 
-    ![Zarządzanie harmonogramami](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol1.png)
+    ![Zasady tworzenia kopii zapasowych są wyróżnione w okienku ustawienia po lewej stronie. W zasadach tworzenia kopii zapasowych wyróżnione są tylko zasady, mybupol1. Polecenie Dodaj/Usuń wolumin jest wyróżnione w menu kontekstowym.](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol1.png)
 
-3. W bloku **Dodaj/Usuń wolumin** zaznacz lub usuń zaznaczenie pól wyboru, aby dodać lub usunąć wolumin. Wybrano lub usunięto zaznaczenie wielu woluminów, zaznaczając lub usuwając zaznaczenie odpowiednich pól wyboru.
+3. W bloku **Dodaj/Usuń wolumin** zaznacz lub wyczyść pola wyboru, aby dodać lub usunąć wolumin. Wybrano/wyczyszczono wiele woluminów, zaznaczając lub czyszcząc odpowiednie pola wyboru.
 
-    ![Zarządzanie harmonogramami 2](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol3.png)
+    ![Wybrano wolumin myssvolsrch2. Informacje o woluminie są wyróżnione, co oznacza przycisk Dodaj.](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol3.png)
 
     Jeśli przypiszesz woluminy z różnych kontenerów woluminów do zasad tworzenia kopii zapasowych, musisz pamiętać o przełączeniu w tryb failover tych kontenerów woluminów. Zostanie wyświetlone ostrzeżenie.
 
-    ![Zarządzanie harmonogramami 3](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol2.png)
+    ![Zostanie wyróżniony wolumin z jednego kontenera, a dwa woluminy z innego kontenera są wyróżnione razem.](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol2.png)
 
 4. Otrzymasz powiadomienie o zmodyfikowaniu zasad tworzenia kopii zapasowych. Lista zasad tworzenia kopii zapasowych została również zaktualizowana.
 
-    ![Zarządzanie harmonogramami 4](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol6.png)
+    ![Na liście zasad kopii zapasowych jest wyróżniona liczba woluminów dla zasad mybupol1. Wartość jest równa 1.](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol6.png)
 
 
 

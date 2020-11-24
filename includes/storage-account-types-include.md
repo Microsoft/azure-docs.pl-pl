@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: storage
 author: tamram
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 726fc9cc0e4eb5a8f9bed5cca8dd4d3df588ac7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8a72640ebe8daffedb196456df7d40bc41b7b1b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79371560"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95562406"
 ---
 Usługa Azure Storage oferuje kilka typów kont magazynu. Każdy typ obsługuje różne funkcje i ma własny model cen. Te różnice należy wziąć pod uwagę przed utworzeniem konta magazynu w celu określenia typu konta najlepszego dla aplikacji. Oto typy kont magazynu:
 
@@ -33,14 +33,14 @@ W poniższej tabeli opisano typy kont magazynu i ich możliwości:
 | FileStorage   | Tylko plik | Premium                       | Nie dotyczy                            | LRS, ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div>                               | Resource Manager             | Zaszyfrowane              |
 | BlobStorage         | Obiekt BLOB (Blokuj obiekty blob i Dołącz tylko obiekty blob) | Standardowa                      | Gorąca, chłodna, archiwalna<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS                  | Resource Manager             | Zaszyfrowane              |
 
-<div id="deployment-model"><sup>1</sup> Zalecane jest korzystanie z modelu wdrażania Azure Resource Manager. Konta magazynu korzystające z klasycznego modelu wdrażania można nadal tworzyć w niektórych lokalizacjach, a istniejące konta klasyczne są nadal obsługiwane. Aby uzyskać więcej informacji, zobacz <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model">Azure Resource Manager a wdrożenie klasyczne: Omówienie modeli wdrażania i stanu zasobów</a>.</div><br/>
+<div id="deployment-model"><sup>1</sup> Zalecane jest korzystanie z modelu wdrażania Azure Resource Manager. Konta magazynu korzystające z klasycznego modelu wdrażania można nadal tworzyć w niektórych lokalizacjach, a istniejące konta klasyczne są nadal obsługiwane. Aby uzyskać więcej informacji, zobacz <a href="/azure/azure-resource-manager/resource-manager-deployment-model">Azure Resource Manager a wdrożenie klasyczne: Omówienie modeli wdrażania i stanu zasobów</a>.</div><br/>
 
-<div id="encryption"><sup>2</sup> Wszystkie konta magazynu są szyfrowane przy użyciu szyfrowanie usługi Storage (SSE) dla danych przechowywanych. Aby uzyskać więcej informacji, zobacz <a href="https://docs.microsoft.com/azure/storage/common/storage-service-encryption">szyfrowanie usługi Storage platformy Azure dla danych przechowywanych w spoczynku</a>.</div><br/>
+<div id="encryption"><sup>2</sup> Wszystkie konta magazynu są szyfrowane przy użyciu szyfrowanie usługi Storage (SSE) dla danych przechowywanych. Aby uzyskać więcej informacji, zobacz <a href="/azure/storage/common/storage-service-encryption">szyfrowanie usługi Storage platformy Azure dla danych przechowywanych w spoczynku</a>.</div><br/>
 
-<div id="archive"><sup>3</sup> magazyny archiwum i Obsługa warstw na poziomie obiektów BLOB obsługują tylko blokowe obiekty blob. Warstwa archiwum jest dostępna tylko na poziomie pojedynczego obiektu BLOB, a nie na poziomie konta magazynu. Aby uzyskać więcej informacji, zobacz <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers">Azure Blob Storage: warstwy magazynowania gorąca, chłodna i archiwalna</a>.</div><br/>
+<div id="archive"><sup>3</sup> magazyny archiwum i Obsługa warstw na poziomie obiektów BLOB obsługują tylko blokowe obiekty blob. Warstwa archiwum jest dostępna tylko na poziomie pojedynczego obiektu BLOB, a nie na poziomie konta magazynu. Aby uzyskać więcej informacji, zobacz <a href="/azure/storage/blobs/storage-blob-storage-tiers">Azure Blob Storage: warstwy magazynowania gorąca, chłodna i archiwalna</a>.</div><br/>
 
-<div id="zone-redundant-storage"><sup>4</sup> Magazyn strefowo nadmiarowy (ZRS) i geograficznie nadmiarowy magazyn (GZRS/RA-GZRS) (wersja zapoznawcza) są dostępne tylko dla kont standardowych ogólnego przeznaczenia w wersji 2, BlockBlobStorage i FileStorage w określonych regionach. Aby uzyskać więcej informacji na temat opcji nadmiarowości usługi Azure Storage, zobacz <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy">nadmiarowość usługi Azure Storage</a>.</div><br/>
+<div id="zone-redundant-storage"><sup>4</sup> Magazyn strefowo nadmiarowy (ZRS) i geograficznie nadmiarowy magazyn (GZRS/RA-GZRS) (wersja zapoznawcza) są dostępne tylko dla kont standardowych ogólnego przeznaczenia w wersji 2, BlockBlobStorage i FileStorage w określonych regionach. Aby uzyskać więcej informacji na temat opcji nadmiarowości usługi Azure Storage, zobacz <a href="/azure/storage/common/storage-redundancy">nadmiarowość usługi Azure Storage</a>.</div><br/>
 
 <div id="premium-performance"><sup>5</sup> Wydajność warstwy Premium dla kont ogólnego przeznaczenia w wersji 2 i ogólnego przeznaczenia w wersji 1 jest dostępna tylko dla dysków i stron obiektów BLOB. Wydajność warstwy Premium dla obiektów BLOB bloków lub dołączania jest dostępna tylko na kontach BlockBlobStorage. Wydajność warstwy Premium dla plików jest dostępna tylko na kontach FileStorage.</div><br/>
 
-<div id="data-lake-gen2"><sup>6</sup> Azure Data Lake Storage Gen2 to zestaw funkcji przeznaczonych do analizy danych Big Data, opartych na usłudze Azure Blob Storage. Data Lake Storage Gen2 jest obsługiwana tylko na kontach magazynu ogólnego przeznaczenia w wersji 2 z włączoną hierarchiczną przestrzenią nazw. Aby uzyskać więcej informacji na temat Data Lake Storage Gen2, zobacz <a href="https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction">wprowadzenie do Azure Data Lake Storage Gen2</a>.</div>
+<div id="data-lake-gen2"><sup>6</sup> Azure Data Lake Storage Gen2 to zestaw funkcji przeznaczonych do analizy danych Big Data, opartych na usłudze Azure Blob Storage. Data Lake Storage Gen2 jest obsługiwana tylko na kontach magazynu ogólnego przeznaczenia w wersji 2 z włączoną hierarchiczną przestrzenią nazw. Aby uzyskać więcej informacji na temat Data Lake Storage Gen2, zobacz <a href="/azure/storage/blobs/data-lake-storage-introduction">wprowadzenie do Azure Data Lake Storage Gen2</a>.</div>

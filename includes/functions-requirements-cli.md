@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
-ms.openlocfilehash: 7ddceb2808874e531cfda81e5a9ce74be3a4fab4
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 951dbb6c1a44e3c081f682db49458be165e9e930
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517087"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95555363"
 ---
 ## <a name="configure-your-local-environment"></a>Konfigurowanie środowiska lokalnego
 
@@ -42,7 +42,7 @@ Przed rozpoczęciem należy wykonać następujące czynności:
 + [Zestaw .NET Core SDK 3,1](https://www.microsoft.com/net/download)
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-+ [Zestaw Java developer Kit](https://aka.ms/azure-jdks), wersja 8 lub 11. 
++ [Zestaw Java developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), wersja 8 lub 11. 
 
 + [Apache Maven](https://maven.apache.org), wersja 3,0 lub nowsza.
 

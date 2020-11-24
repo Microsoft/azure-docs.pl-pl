@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: iot-suite
 author: dominicbetts
 ms.service: iot-suite
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: ca4bd3d3b40934323bab8036f3ce72e9281f1de4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4b93685160250a5abe7c050db89978ae8ceb1a9
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67183667"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95559636"
 ---
 > [!div class="op_single_selector"]
 > * [C w systemie Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -21,7 +21,7 @@ ms.locfileid: "67183667"
 > * [C na urządzeniu Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-c.md)
 > * [Node.js (ogólne)](../articles/iot-accelerators/iot-accelerators-connecting-devices-node.md)
 > * [Node.js na urządzeniu Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-node.md)
-> * [MXChip IoT DevKit](../articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md)
+> * [MXChip IoT DevKit](../articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2.md)
 
 W tym samouczku zaimplementowano urządzenie **chłodzenia** , które wysyła następujące dane telemetryczne do [akceleratora rozwiązania](../articles/iot-accelerators/about-iot-accelerators.md)do monitorowania zdalnego:
 
@@ -54,7 +54,7 @@ Po zakończeniu procesu wdrażania rozwiązania do monitorowania zdalnego klikni
 ### <a name="add-your-device-to-the-remote-monitoring-solution"></a>Dodawanie urządzenia do rozwiązania do zdalnego monitorowania
 
 > [!NOTE]
-> Jeśli urządzenie zostało już dodane do rozwiązania, możesz pominąć ten krok. Następnym krokiem jest jednak wymaganie parametrów połączenia urządzenia. Parametry połączenia urządzenia można pobrać z [Azure Portal](https://portal.azure.com) lub przy użyciu polecenia [AZ IoT](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) CLI.
+> Jeśli urządzenie zostało już dodane do rozwiązania, możesz pominąć ten krok. Następnym krokiem jest jednak wymaganie parametrów połączenia urządzenia. Parametry połączenia urządzenia można pobrać z [Azure Portal](https://portal.azure.com) lub przy użyciu polecenia [AZ IoT](/cli/azure/iot?view=azure-cli-latest) CLI.
 
 Aby urządzenie łączyło się z akceleratorem rozwiązania, musi zidentyfikować się do IoT Hub przy użyciu prawidłowych poświadczeń. Istnieje możliwość zapisania parametrów połączenia urządzenia, które zawierają te poświadczenia po dodaniu urządzenia do rozwiązania. W dalszej części tego samouczka dołączysz parametry połączenia urządzenia w aplikacji klienckiej.
 
@@ -68,7 +68,7 @@ Aby dodać urządzenie do rozwiązania do zdalnego monitorowania, wykonaj nastę
 
     ![Wybierz opcje urządzenia](media/iot-suite-selector-connecting/devicesoptions.png)
 
-1. Wybierz pozycję **Zastosuj**. Następnie zanotuj wartość **Identyfikator urządzenia**, **klucz podstawowy**i **Parametry połączenia klucza podstawowego** :
+1. Wybierz pozycję **Zastosuj**. Następnie zanotuj wartość **Identyfikator urządzenia**, **klucz podstawowy** i **Parametry połączenia klucza podstawowego** :
 
     ![Pobieranie poświadczeń](media/iot-suite-selector-connecting/credentials.png)
 
@@ -78,4 +78,4 @@ Aplikacja kliencka implementuje wbudowany model urządzenia **chłodzenia** . Mo
 
 * Właściwości, które urządzenie raportuje do rozwiązania. Na przykład urządzenie **chłodnicze** zgłasza informacje o jego oprogramowaniu układowym i lokalizacji.
 * Typy telemetrii wysyłane przez urządzenie do rozwiązania. Na przykład urządzenie **chłodzenia** wysyła wartości temperatury, wilgotności i ciśnienia.
-* Metody, które można zaplanować od rozwiązania do uruchomienia na urządzeniu. Na przykład urządzenie **chłodzenia** musi implementować metody **reboot**, **FirmwareUpdate**, **EmergencyValveRelease**i **IncreasePressure** .
+* Metody, które można zaplanować od rozwiązania do uruchomienia na urządzeniu. Na przykład urządzenie **chłodzenia** musi implementować metody **reboot**, **FirmwareUpdate**, **EmergencyValveRelease** i **IncreasePressure** .

@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/04/2020
 ms.author: glenga
-ms.openlocfilehash: 37a61e270f95ffdc420536046e0ce1eda1e489b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 826fccad043b067ce86d5f56eaebc6ee48b532d1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85391494"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95560845"
 ---
 | Zasób |[Plan Zużycie](../articles/azure-functions/functions-scale.md#consumption-plan)|[Plan Premium](../articles/azure-functions/functions-scale.md#premium-plan)|[Plan dedykowany](../articles/azure-functions/functions-scale.md#app-service-plan)|[ASE](../articles/app-service/environment/intro.md)| [Kubernetes](../articles/aks/quotas-skus-regions.md) |
 | --- | --- | --- | --- | --- | --- |
@@ -19,13 +19,13 @@ ms.locfileid: "85391494"
 | Maksymalny rozmiar żądania (MB)<sup>3</sup> | 100 | 100 | 100 | 100 | Zależy od klastra |
 | Maksymalna długość ciągu zapytania<sup>3</sup> | 4096 | 4096 | 4096 | 4096 | Zależy od klastra |
 | Maksymalna długość adresu URL żądania<sup>3</sup> | 8192 | 8192 | 8192 | 8192 | Zależy od klastra |
-|[ACU](../articles/virtual-machines/windows/acu.md) na wystąpienie | 100 | 210-840 | 100-840 | 210-250<sup>8</sup> | [Cennik AKS](https://azure.microsoft.com/pricing/details/container-service/) |
+|[ACU](../articles/virtual-machines/acu.md) na wystąpienie | 100 | 210-840 | 100-840 | 210-250<sup>8</sup> | [Cennik AKS](https://azure.microsoft.com/pricing/details/container-service/) |
 | Maksymalna ilość pamięci (GB na wystąpienie) | 1.5 | 3,5-14 | 1,75-14 | 3,5 – 14 | Obsługiwany jest dowolny węzeł |
 | Aplikacje funkcji na plan |100 |100 |niepowiązane<sup>4</sup> | Unbounded | Unbounded |
 | [Plany usługi App Service](../articles/app-service/overview-hosting-plans.md) | 100 na [region](https://azure.microsoft.com/global-infrastructure/regions/) |100 na grupę zasobów |100 na grupę zasobów | - | - |
-| Magazyn<sup>5</sup> |5 TB |250 GB |50-1000 GB | 1 TB | nie dotyczy |
-| Domeny niestandardowe na aplikację</a> |500<sup>6</sup> |500 |500 | 500 | nie dotyczy |
-| [Obsługa protokołu SSL](../articles/app-service/configure-ssl-bindings.md) domeny niestandardowej |uwzględniono niepowiązane połączenie SNI SSL | uwzględniono niepowiązane SNI SSL i 1 Połączenie SSL z adresu IP połączeń |uwzględniono niepowiązane SNI SSL i 1 Połączenie SSL z adresu IP połączeń | uwzględniono niepowiązane SNI SSL i 1 Połączenie SSL z adresu IP połączeń | nie dotyczy |
+| Magazyn<sup>5</sup> |5 TB |250 GB |50-1000 GB | 1 TB | n/d |
+| Domeny niestandardowe na aplikację</a> |500<sup>6</sup> |500 |500 | 500 | n/d |
+| [Obsługa protokołu SSL](../articles/app-service/configure-ssl-bindings.md) domeny niestandardowej |uwzględniono niepowiązane połączenie SNI SSL | uwzględniono niepowiązane SNI SSL i 1 Połączenie SSL z adresu IP połączeń |uwzględniono niepowiązane SNI SSL i 1 Połączenie SSL z adresu IP połączeń | uwzględniono niepowiązane SNI SSL i 1 Połączenie SSL z adresu IP połączeń | n/d |
 
 <sup>1</sup> domyślnie przekroczenie limitu czasu dla funkcji 1. x środowiska uruchomieniowego w planie App Service jest niepowiązane.  
 <sup>2</sup> wymaga, aby plan App Service był ustawiony na wartość [zawsze włączone](../articles/azure-functions/functions-scale.md#always-on). Płatność według [stawek](https://azure.microsoft.com/pricing/details/app-service/)standardowych.  

@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: iot-fundamentals
 author: robinsh
 ms.service: iot-fundamentals
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: a2eafd6bb34b897f3492ddcffd6841f0fabc4ca7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28609ad27330ae4ea5ea7c0d02d5a61181fbe0df
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73034550"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95561234"
 ---
 Podczas projektowania systemu ważne jest, aby zrozumieć potencjalne zagrożenia dla tego systemu i odpowiednio dodać odpowiednie zabezpieczenia, gdy system został zaprojektowany i opracowany. Ważne jest, aby zaprojektować produkt od samego początku z myślą o bezpieczeństwie, ponieważ zrozumienie, jak osoba atakująca może naruszyć bezpieczeństwo systemu, pozwala upewnić się, że na początku są stosowane odpowiednie środki zaradcze.
 
@@ -72,7 +72,7 @@ Cztery podstawowe elementy modelu zagrożeń:
 
 * Jednostki zewnętrzne (wszystkie elementy, które współdziałają z systemem, ale nie są pod kontrolą aplikacji, przykłady obejmują użytkowników i źródła satelitarne)
 
-Wszystkie elementy na diagramie architektury podlegają różnym zagrożeniom; w tym artykule opisano krok. Przeczytaj [ponownie modelowanie zagrożeń, krok,](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) aby dowiedzieć się więcej o elementach krok.
+Wszystkie elementy na diagramie architektury podlegają różnym zagrożeniom; w tym artykule opisano krok. Przeczytaj [ponownie modelowanie zagrożeń, krok,](/archive/blogs/larryosterman/threat-modeling-again-stride) aby dowiedzieć się więcej o elementach krok.
 
 Różne elementy diagramu aplikacji podlegają pewnym zagrożeniom:
 
@@ -177,7 +177,7 @@ W przypadku każdej kategorii podanej w architekturze usługi Azure IoT ten przy
 
 **Podniesienie uprawnień (E)**: urządzenie, które ma konkretną funkcję, może być wymuszane w inny sposób. Na przykład, zawór, który jest zaprogramowany do otwarcia pół drogi, może zostać zawarty do otwarcia w sposób otwarty.
 
-| **Składnik** | **Zagrożenie** | **Ograniczanie ryzyka** | **Ryzyko** | **Implementacja** |
+| **Składnik** | **Zagrożenie** | **Środki zaradcze** | **Ryzyko** | **Implementacja** |
 | --- | --- | --- | --- | --- |
 | Urządzenie |S |Przypisywanie tożsamości do urządzenia i uwierzytelnianie urządzenia |Zastępowanie urządzenia lub części urządzenia innym urządzeniem. Jak wiesz, że rozmawiasz z właściwym urządzeniem? |Uwierzytelnianie urządzenia przy użyciu Transport Layer Security (TLS) lub IPSec. Infrastruktura powinna obsługiwać korzystanie z klucza wstępnego (PSK) na tych urządzeniach, które nie mogą obsługiwać pełnego asymetrycznego kryptografii. Korzystanie z usługi Azure AD i [uwierzytelniania OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
 || TRID |Zastosowanie mechanizmów Tamperproof na urządzeniu, na przykład przez zwiększenie możliwości wyodrębnienia kluczy i innych materiałów kryptograficznych z urządzenia. |Ryzyko polega na tym, że ktoś narusza urządzenie (zakłócenia fizyczne). Na pewno to urządzenie nie zostało naruszone. |Najbardziej skutecznym środkiem ograniczającym jest funkcja TPM (Trusted Platform Module), która umożliwia przechowywanie kluczy w specjalnym obwodzie obwodowym, z którego klucze nie mogą być odczytywane, ale mogą być używane tylko w przypadku operacji kryptograficznych, które używają klucza, ale nigdy nie ujawniają klucza. Szyfrowanie pamięci urządzenia. Zarządzanie kluczami dla urządzenia. Podpisywanie kodu. |
@@ -220,7 +220,7 @@ Poniżej przedstawiono kilka przykładów zagrożeń w tej kategorii:
 
 Zagrożenia dotyczące ścieżki komunikacji między urządzeniami, urządzeniami i bramami pól oraz bramą urządzenia i chmury. W poniższej tabeli przedstawiono wskazówki dotyczące otwartych gniazd na urządzeniu/w sieci VPN:
 
-| **Składnik** | **Zagrożenie** | **Ograniczanie ryzyka** | **Ryzyko** | **Implementacja** |
+| **Składnik** | **Zagrożenie** | **Środki zaradcze** | **Ryzyko** | **Implementacja** |
 | --- | --- | --- | --- | --- |
 | IoT Hub urządzenia |TID |Wykres TLS (PSK/RSA) do szyfrowania ruchu |Podsłuchiwanie lub zakłócanie komunikacji między urządzeniem i bramą |Zabezpieczenia na poziomie protokołu. W przypadku protokołów niestandardowych należy ustalić sposób ich ochrony. W większości przypadków komunikacja odbywa się z urządzenia do IoT Hub (urządzenie inicjuje połączenie). |
 | Urządzenie do urządzenia |TID |Wykres TLS (PSK/RSA) do szyfrowania ruchu sieciowego. |Odczytywanie danych podczas przesyłania między urządzeniami. Manipulowanie danymi. Przeciążanie urządzenia nowymi połączeniami |Zabezpieczenia na poziomie protokołu (MQTT/AMQP/HTTP/CoAP. W przypadku protokołów niestandardowych należy ustalić sposób ich ochrony. Środki zaradcze dla zagrożeń systemu DoS polegają na urządzeniach równorzędnych za pomocą chmury lub bramy polowej i mogą działać tylko jako klienci w sieci. Komunikacja równorzędna może spowodować bezpośrednie połączenie między elementami równorzędnymi po przeprowadzeniu przez niego brokera |
@@ -240,11 +240,11 @@ Poniżej przedstawiono kilka przykładów zagrożeń w tej kategorii:
 
 **Ujawnienie informacji:** osoba atakująca może eavesdrop się na emisję i uzyskać informacje bez autoryzacji **odmowy usługi:** osoba atakująca może zazakleszczenie sygnału emisji i odmowę dystrybucji informacji
 
-#### <a name="storage"></a>Magazyn
+#### <a name="storage"></a>Storage
 
 Każde urządzenie i Brama pola mają pewną postać magazynu (tymczasową dla kolejkowania danych, magazynu obrazów systemu operacyjnego).
 
-| **Składnik** | **Zagrożenie** | **Ograniczanie ryzyka** | **Ryzyko** | **Implementacja** |
+| **Składnik** | **Zagrożenie** | **Środki zaradcze** | **Ryzyko** | **Implementacja** |
 | --- | --- | --- | --- | --- |
 | Magazyn urządzeń |TRID |Szyfrowanie magazynu, podpisywanie dzienników |Odczytywanie danych z magazynu (dane OSOBowe), manipulowanie danymi telemetrycznymi. Manipulowanie danymi kontroli poleceń umieszczonymi w kolejce lub w pamięci podręcznej. Manipulowanie pakietami aktualizacji konfiguracji lub oprogramowania układowego w pamięci podręcznej lub w kolejce lokalnie może prowadzić do naruszenia zabezpieczeń systemów operacyjnych i/lub |Szyfrowanie, kod uwierzytelniania wiadomości (MAC) lub podpis cyfrowy. Gdy jest to możliwe, silna kontrola dostępu za poorednictwem list kontroli dostępu do zasobów (ACL) lub uprawnień. |
 | Obraz systemu operacyjnego urządzenia |TRID | |Manipulowanie systemem operacyjnym/Replacing składników systemu operacyjnego |Partycja systemu operacyjnego tylko do odczytu, obraz podpisanego systemu operacyjnego, szyfrowanie |
@@ -263,9 +263,9 @@ System kontroli (lub kontroler) to rozwiązanie programowe, które jest interfej
 
 Pośrednie powierzchnie kontroli fizycznej to te, w których logika, która ogranicza funkcję fizycznej kontroli, w taki sposób, że równoważna funkcja może zostać zainicjowana zdalnie lub można uniknąć konfliktów wejściowych z zdalnymi danymi wejściowymi — takie pośrednie powierzchnie kontroli są koncepcyjnie dołączone do lokalnego systemu kontroli, który wykorzystuje te same funkcje, co inne systemy zdalnego sterowania, do których urządzenie może być połączone równolegle. Najważniejsze zagrożenia w chmurze obliczeniowej można znaleźć na stronie [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/articles/csa-releases-top-threats-to-cloud-computing-deep-dive/) .
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-Aby uzyskać więcej informacji zobacz następujące artykuły:
+Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 * [Threat Modeling Tool SDL](https://www.microsoft.com/sdl/adopt/threatmodeling.aspx)
 * [Architektura referencyjna Microsoft Azure IoT](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)

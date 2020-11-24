@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 10/01/2020
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 33d701fe8dc19b3deaa05cf6f10643bdb1059aa1
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 1e4ae81c85d8de22bc87f22538c85cdc4c15b79c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505759"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95556720"
 ---
 | Zasób | Limit domyślny | Limit maksymalny |
 | --- | --- | --- |
 | Alerty metryk (klasyczne) |100 aktywnych reguł alertów na subskrypcję. | Obsługa wywołań |
-| Alerty dotyczące metryk |5 000 aktywnych reguł alertów na subskrypcję na platformie Azure, usługa Azure — Chiny i chmury Azure Government. W przypadku osiągnięcia tego limitu należy sprawdzić, czy można użyć [tego samego typu alertów o kilku zasobach](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor).   | Skontaktuj się z pomocą techniczną. |
+| Alerty dotyczące metryk |5 000 aktywnych reguł alertów na subskrypcję na platformie Azure, usługa Azure — Chiny i chmury Azure Government. W przypadku osiągnięcia tego limitu należy sprawdzić, czy można użyć [tego samego typu alertów o kilku zasobach](../articles/azure-monitor/platform/alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor).   | Skontaktuj się z pomocą techniczną. |
 | Alerty dotyczące dziennika aktywności | 100 aktywnych reguł alertów na subskrypcję. | Analogicznie jak domyślne |
 | Alerty dotyczące dzienników | 512 aktywnych reguł alertów na subskrypcję. 200 aktywnych reguł alertów dla zasobu. | Obsługa wywołań |
 | Grupy akcji |2 000 grup akcji na subskrypcję. | Obsługa wywołań |

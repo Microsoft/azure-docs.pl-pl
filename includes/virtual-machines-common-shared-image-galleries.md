@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 10/14/2020
 ms.author: olayemio
 ms.custom: include file
-ms.openlocfilehash: b17480c1a2a0bd8588289627a51780999e1f311c
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 29cbb2f6a7f0faf91852e520f15b779b3fe229c8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897833"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95555146"
 ---
 Udostępniona Galeria obrazów to usługa, która ułatwia tworzenie struktury i organizacji na całym obrazie. Udostępnione Galerie obrazów zapewniają następujące:
 
@@ -45,7 +45,7 @@ Funkcja galerii obrazów udostępnionych ma wiele typów zasobów:
 
 Definicje obrazów są logiczną grupą dla wersji obrazu. Definicja obrazu zawiera informacje na temat przyczyny utworzenia obrazu, jego systemu operacyjnego i innych informacji na temat korzystania z obrazu. Definicja obrazu jest taka sama jak w przypadku planu dla wszystkich szczegółów dotyczących tworzenia określonego obrazu. Nie można wdrożyć maszyny wirtualnej na podstawie definicji obrazu, ale z wersji obrazu utworzonych na podstawie definicji.
 
-Istnieją trzy parametry dla każdej definicji obrazu, które są używane w połączeniu **wydawcy** , **oferty** i **jednostki SKU** . Są one używane do znajdowania konkretnej definicji obrazu. Możesz mieć wersje obrazów, które współdzielą jeden lub dwa, ale nie wszystkie trzy wartości.  Na przykład poniżej przedstawiono trzy definicje obrazów i ich wartości:
+Istnieją trzy parametry dla każdej definicji obrazu, które są używane w połączeniu **wydawcy**, **oferty** i **jednostki SKU**. Są one używane do znajdowania konkretnej definicji obrazu. Możesz mieć wersje obrazów, które współdzielą jeden lub dwa, ale nie wszystkie trzy wartości.  Na przykład poniżej przedstawiono trzy definicje obrazów i ich wartości:
 
 |Definicja obrazu|Publisher|Oferta|SKU|
 |---|---|---|---|
@@ -71,7 +71,7 @@ Poniżej znajdują się inne parametry, które można ustawić w definicji obraz
 - Tag — możesz dodać tagi podczas tworzenia definicji obrazu. Aby uzyskać więcej informacji na temat tagów, zobacz [Używanie tagów do organizowania zasobów](../articles/azure-resource-manager/management/tag-resources.md)
 - Minimalne i maksymalne zalecenia dotyczące vCPU i pamięci — Jeśli obraz ma zalecenia vCPU i pamięci, możesz dołączyć te informacje do definicji obrazu.
 - Niedozwolone typy dysków — można podać informacje o wymaganiach dotyczących magazynu dla maszyny wirtualnej. Na przykład jeśli obraz nie jest odpowiedni dla standardowych dysków DYSKowych, należy dodać je do listy nie Zezwalaj.
-- Informacje o planach zakupu dla obrazów z witryny Marketplace — `-PurchasePlanPublisher` , `-PurchasePlanName` i `-PurchasePlanProduct` . Aby uzyskać więcej informacji na temat informacji o planie zakupu, zobacz [Znajdowanie obrazów w portalu Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) i [dostarczanie informacji o planie zakupów w portalu Azure Marketplace podczas tworzenia obrazów](../articles/virtual-machines/marketplace-images.md).
+- Informacje o planach zakupu dla obrazów z witryny Marketplace — `-PurchasePlanPublisher` , `-PurchasePlanName` i `-PurchasePlanProduct` . Aby uzyskać więcej informacji na temat informacji o planie zakupu, zobacz [Znajdowanie obrazów w portalu Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) i [dostarczanie informacji o planie zakupów w portalu Azure Marketplace podczas tworzenia obrazów](../articles/virtual-machines/marketplace-images.md).
 
 
 ## <a name="image-versions"></a>Wersje obrazu
@@ -110,7 +110,7 @@ Istnieją limity dla każdej subskrypcji dotyczące wdrażania zasobów przy uż
 - 10 replik wersji obrazu na subskrypcję na region
 - Dowolny dysk dołączony do obrazu musi być mniejszy lub równy 1 TB
 
-Aby uzyskać więcej informacji, zobacz [Sprawdzanie użycia zasobów względem limitów](https://docs.microsoft.com/azure/networking/check-usage-against-limits) na potrzeby przykładów sprawdzania bieżącego użycia.
+Aby uzyskać więcej informacji, zobacz [Sprawdzanie użycia zasobów względem limitów](../articles/networking/check-usage-against-limits.md) na potrzeby przykładów sprawdzania bieżącego użycia.
  
 ## <a name="scaling"></a>Skalowanie
 Udostępniona Galeria obrazów pozwala określić liczbę replik, które mają być przechowywane na platformie Azure. Pomaga to w scenariuszach wdrażania wielu maszyn wirtualnych, ponieważ wdrożenia maszyn wirtualnych można rozmieścić w różnych replikach, co zmniejsza prawdopodobieństwo ograniczenia przetwarzania wystąpienia z powodu przeciążenia pojedynczej repliki.
@@ -128,7 +128,7 @@ Zawsze zalecamy przeprowadzenie aprowizacji liczby replik ze względu na takie c
 
 [Magazyn strefowo nadmiarowy (ZRS) platformy Azure](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/) zapewnia odporność na awarię strefy dostępności w regionie. Korzystając z ogólnej dostępności galerii obrazów udostępnionych, można wybrać przechowywanie obrazów na kontach ZRS w regionach, w których Strefy dostępności. 
 
-Możesz również wybrać typ konta dla każdego regionu docelowego. Domyślny typ konta magazynu to Standard_LRS, ale można wybrać Standard_ZRS dla regionów z Strefy dostępności. Sprawdź regionalną dostępność ZRS [tutaj](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs).
+Możesz również wybrać typ konta dla każdego regionu docelowego. Domyślny typ konta magazynu to Standard_LRS, ale można wybrać Standard_ZRS dla regionów z Strefy dostępności. Sprawdź regionalną dostępność ZRS [tutaj](../articles/storage/common/storage-redundancy.md).
 
 ![Ilustracja przedstawiająca ZRS](./media/shared-image-galleries/zrs.png)
 
@@ -183,11 +183,11 @@ Wersja obrazu:
 
 Następujące zestawy SDK obsługują Tworzenie udostępnionych galerii obrazów:
 
-- [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
-- [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
-- [Node.js](https://docs.microsoft.com/javascript/api/@azure/arm-compute)
-- [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
-- [Przejdź](https://docs.microsoft.com/azure/go/)
+- [.NET](/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
+- [Java](/java/azure/?view=azure-java-stable)
+- [Node.js](/javascript/api/@azure/arm-compute)
+- [Python](/python/api/overview/azure/virtualmachines?view=azure-python)
+- [Przejdź](/azure/go/)
 
 ## <a name="templates"></a>Szablony
 
@@ -222,9 +222,9 @@ Możesz utworzyć zasób udostępnionej galerii obrazów przy użyciu szablonów
 Aby wyświetlić listę wszystkich udostępnionych zasobów galerii obrazów między subskrypcjami, do których masz dostęp na Azure Portal, wykonaj następujące czynności:
 
 1. Otwórz witrynę [Azure Portal](https://portal.azure.com).
-1. Przewiń w dół stronę i wybierz pozycję **wszystkie zasoby** .
+1. Przewiń w dół stronę i wybierz pozycję **wszystkie zasoby**.
 1. Wybierz wszystkie subskrypcje, w ramach których chcesz wyświetlić listę wszystkich zasobów.
-1. Wyszukaj zasoby typu **Shared Image Gallery** .
+1. Wyszukaj zasoby typu **Shared Image Gallery**.
   
 Aby wyświetlić listę wszystkich udostępnionych zasobów galerii obrazów między subskrypcjami, do których masz uprawnienia, użyj następującego polecenia w interfejsie wiersza polecenia platformy Azure:
 
@@ -244,8 +244,8 @@ Tak. Istnieją 3 scenariusze na podstawie typów obrazów, które mogą mieć.
 
  Scenariusz 3. Jeśli masz dysk VHD w lokalnym systemie plików, musisz przekazać wirtualny dysk twardy do zarządzanego obrazu, a następnie utworzyć definicję obrazu i wersję obrazu.
 
-- Jeśli wirtualny dysk twardy jest maszyną wirtualną z systemem Windows, zobacz [przekazywanie wirtualnego dysku twardego](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
-- Jeśli wirtualny dysk twardy jest przeznaczony dla maszyny wirtualnej z systemem Linux, zobacz [przekazywanie wirtualnego dysku twardego](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
+- Jeśli wirtualny dysk twardy jest maszyną wirtualną z systemem Windows, zobacz [przekazywanie wirtualnego dysku twardego](../articles/virtual-machines/windows/upload-generalized-managed.md).
+- Jeśli wirtualny dysk twardy jest przeznaczony dla maszyny wirtualnej z systemem Linux, zobacz [przekazywanie wirtualnego dysku twardego](../articles/virtual-machines/linux/upload-vhd.md#option-1-upload-a-vhd)
 
 ### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>Czy mogę utworzyć wersję obrazu z wyspecjalizowanego dysku?
 
@@ -310,4 +310,4 @@ W przypadku wdrożeń maszyny wirtualnej i zestawu skalowania maszyn wirtualnych
 
 ### <a name="can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-shared-image-gallery-images"></a>Czy mogę zaktualizować zestaw skalowania maszyn wirtualnych utworzony przy użyciu obrazu zarządzanego, aby używać obrazów z galerii obrazów udostępnionych?
 
-Tak, możesz zaktualizować odwołanie do obrazu zestawu skalowania z obrazu zarządzanego do obrazu udostępnionej galerii obrazów, o ile typ systemu operacyjnego, generacja funkcji Hyper-V i układ dysku danych dopasowuje się między obrazami. 
+Tak, możesz zaktualizować odwołanie do obrazu zestawu skalowania z obrazu zarządzanego do obrazu udostępnionej galerii obrazów, o ile typ systemu operacyjnego, generacja funkcji Hyper-V i układ dysku danych dopasowuje się między obrazami.

@@ -4,18 +4,18 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 21c19027d21a87e199d74644cfc5c8f3cd52ba4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1b56cfb85595b8a17dc18f69a0b162d504c04ec
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79129377"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558628"
 ---
 Aby zresetować urządzenie, należy bezpiecznie wyczyścić wszystkie dane na dysku danych i dysku rozruchowym urządzenia. 
 
 Użyj `Reset-HcsAppliance` polecenia cmdlet, aby wyczyścić zarówno dyski danych, jak i dysk rozruchowy, albo tylko dyski danych. `ClearData`Przełączniki i `BootDisk` umożliwiają odpowiednio czyszczenie dysków danych i dysku rozruchowego.
 
-`BootDisk`Przełącznik powoduje wymazanie dysku rozruchowego i uniemożliwić korzystanie z tego urządzenia. Należy go używać tylko wtedy, gdy urządzenie ma zostać zwrócone firmie Microsoft. Aby uzyskać więcej informacji, zobacz [zwracają urządzenie do firmy Microsoft](https://docs.microsoft.com/azure/databox-online/data-box-edge-return-device).
+`BootDisk`Przełącznik powoduje wymazanie dysku rozruchowego i uniemożliwić korzystanie z tego urządzenia. Należy go używać tylko wtedy, gdy urządzenie ma zostać zwrócone firmie Microsoft. Aby uzyskać więcej informacji, zobacz [zwracają urządzenie do firmy Microsoft](../articles/databox-online/azure-stack-edge-return-device.md).
 
 Jeśli użyjesz funkcji resetowania urządzenia w lokalnym internetowym interfejsie użytkownika, tylko dyski danych zostaną bezpiecznie wyczyszczone, a dysk rozruchowy pozostanie nienaruszony. Dysk rozruchowy zawiera konfigurację urządzenia.
 

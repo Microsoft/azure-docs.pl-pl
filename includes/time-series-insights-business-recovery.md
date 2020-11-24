@@ -5,12 +5,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.date: 07/09/2020
-ms.openlocfilehash: de5d3f8f32e928c77ffd6028ec764793ab7229ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f25c335c568c112c05f81df51d69e83aeff423e2
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86495345"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95555369"
 ---
 ## <a name="business-disaster-recovery"></a>Odzyskiwanie po awarii firmy
 
@@ -22,10 +22,10 @@ Jako usługa platformy Azure Azure Time Series Insights zapewnia pewne funkcje *
 
 Dodatkowe funkcje wysokiej dostępności zapewniane przez platformę Azure (a także dostępne dla każdego wystąpienia Azure Time Series Insights) obejmują:
 
-- **Tryb failover**: platforma Azure zapewnia [replikację geograficzną i równoważenie obciążenia](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region).
-- **Przywracanie** i **odzyskiwanie**danych: platforma Azure oferuje [kilka opcji umożliwiających zachowanie i odzyskiwanie danych](https://docs.microsoft.com/azure/architecture/resiliency/recovery-data-corruption).
-- **Azure Site Recovery**: platforma Azure udostępnia funkcje usługi Site Recovery za pomocą [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/).
-- **Azure Backup**: [Azure Backup](https://docs.microsoft.com/azure/backup/backup-architecture) obsługuje kopie zapasowe maszyn wirtualnych platformy Azure zarówno lokalnie, jak i w chmurze.
+- **Tryb failover**: platforma Azure zapewnia [replikację geograficzną i równoważenie obciążenia](/azure/architecture/resiliency/recovery-loss-azure-region).
+- **Przywracanie** i **odzyskiwanie** danych: platforma Azure oferuje [kilka opcji umożliwiających zachowanie i odzyskiwanie danych](/azure/architecture/resiliency/recovery-data-corruption).
+- **Azure Site Recovery**: platforma Azure udostępnia funkcje usługi Site Recovery za pomocą [Azure Site Recovery](../articles/site-recovery/index.yml).
+- **Azure Backup**: [Azure Backup](../articles/backup/backup-architecture.md) obsługuje kopie zapasowe maszyn wirtualnych platformy Azure zarówno lokalnie, jak i w chmurze.
 
 Upewnij się, że zostały włączone odpowiednie funkcje platformy Azure w celu zapewnienia globalnej wysokiej dostępności dla urządzeń i użytkowników w różnych regionach.
 
@@ -36,9 +36,9 @@ Upewnij się, że zostały włączone odpowiednie funkcje platformy Azure w celu
 
 Niektóre usługi Azure IoT obejmują również wbudowane funkcje odzyskiwania po awarii firmy:
 
-- [Usługa Azure IoT Hub odzyskiwanie awaryjne o wysokiej dostępności](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr), które obejmuje nadmiarowość wewnątrz regionu
-- [Zasady usługi Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr)
-- [Nadmiarowość usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+- [Usługa Azure IoT Hub odzyskiwanie awaryjne o wysokiej dostępności](../articles/iot-hub/iot-hub-ha-dr.md), które obejmuje nadmiarowość wewnątrz regionu
+- [Zasady usługi Azure Event Hubs](../articles/event-hubs/event-hubs-geo-dr.md)
+- [Nadmiarowość usługi Azure Storage](../articles/storage/common/storage-redundancy.md)
 
 Integracja Azure Time Series Insights z innymi usługami zapewnia dodatkowe możliwości odzyskiwania po awarii. Na przykład dane telemetryczne wysyłane do centrum zdarzeń mogą zostać utrwalone w kopii zapasowej bazy danych usługi Azure Blob Storage.
 
@@ -55,10 +55,10 @@ Ogólnie rzecz biorąc, najlepszym sposobem duplikowania środowiska Azure Time 
 
 Aby utworzyć zduplikowane środowisko:
 
-1. Utwórz środowisko w drugim regionie. Aby uzyskać więcej informacji, przeczytaj artykuł [Tworzenie nowego środowiska Azure Time Series Insights w Azure Portal](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
+1. Utwórz środowisko w drugim regionie. Aby uzyskać więcej informacji, przeczytaj artykuł [Tworzenie nowego środowiska Azure Time Series Insights w Azure Portal](../articles/time-series-insights/time-series-insights-get-started.md).
 1. Utwórz drugą dedykowaną grupę odbiorców dla źródła zdarzeń.
 1. Połącz to źródło zdarzeń z nowym środowiskiem. Upewnij się, że wyznaczysz drugą dedykowaną grupę odbiorców.
-1. Zapoznaj się z dokumentacją [IoT Hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) Azure Time Series Insights i [Event Hubs](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access) .
+1. Zapoznaj się z dokumentacją [IoT Hub](../articles/time-series-insights/how-to-ingest-data-iot-hub.md) Azure Time Series Insights i [Event Hubs](../articles/time-series-insights/concepts-access-policies.md) .
 
 Jeśli wystąpi zdarzenie:
 
@@ -71,5 +71,4 @@ Jeśli wystąpi zdarzenie:
 > * Może również wystąpić opóźnienie.
 > * Może wystąpić chwilowe skoki przetwarzania komunikatów, ponieważ operacje są przekierowywane.
 > 
-> Aby uzyskać więcej informacji, przeczytaj temat [ograniczanie opóźnień w Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency).
-
+> Aby uzyskać więcej informacji, przeczytaj temat [ograniczanie opóźnień w Azure Time Series Insights](../articles/time-series-insights/time-series-insights-environment-mitigate-latency.md).

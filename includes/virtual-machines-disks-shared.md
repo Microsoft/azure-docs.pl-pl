@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7831eaaa478a3f28ff158d5c9599abaf8a107c15
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 74c77356df4f35461a8b9f1459712cdcf7f77cbf
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684435"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95553502"
 ---
 Azure Shared disks to nowa funkcja dysków zarządzanych przez platformę Azure, która umożliwia jednoczesne dołączanie dysku zarządzanego do wielu maszyn wirtualnych. Dołączenie dysku zarządzanego do wielu maszyn wirtualnych pozwala wdrożyć nowe lub migrować istniejące aplikacje klastrowane na platformę Azure.
 
@@ -41,7 +41,7 @@ Dyski udostępnione obsługują kilka systemów operacyjnych. Zapoznaj się z se
 
 ### <a name="windows"></a>Windows
 
-Dyski udostępnione platformy Azure są obsługiwane w systemie Windows Server 2008 i nowszych. Większość klastrów opartych na systemie Windows jest oparta na usłudze WSFC, która obsługuje wszystkie podstawowe infrastruktury komunikacji węzłów klastra, co umożliwia aplikacjom korzystanie z wzorców dostępu równoległego. W zależności od wersji systemu Windows Server środowisko WSFC umożliwia używanie zarówno opcji opartych na woluminach CSV, jak i nieopartych na woluminach CSV. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie klastra trybu failover](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster).
+Dyski udostępnione platformy Azure są obsługiwane w systemie Windows Server 2008 i nowszych. Większość klastrów opartych na systemie Windows jest oparta na usłudze WSFC, która obsługuje wszystkie podstawowe infrastruktury komunikacji węzłów klastra, co umożliwia aplikacjom korzystanie z wzorców dostępu równoległego. W zależności od wersji systemu Windows Server środowisko WSFC umożliwia używanie zarówno opcji opartych na woluminach CSV, jak i nieopartych na woluminach CSV. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie klastra trybu failover](/windows-server/failover-clustering/create-failover-cluster).
 
 Niektóre popularne aplikacje działające w środowisku WSFC obejmują:
 

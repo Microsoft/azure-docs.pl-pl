@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 7700f1c92aecab76dbc347814b7b161bc3d822a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 338332eb90fda9afe7655f9f2ad19ed726419b6c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67183287"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95561711"
 ---
 ### <a name="to-configure-and-register-the-device"></a>Konfigurowanie i rejestrowanie urządzenia
 1. Przejdź do interfejsu programu Windows PowerShell na konsoli szeregowej urządzenia StorSimple. Instrukcje można znaleźć w temacie [Nawiązywanie połączenia z konsolą szeregową urządzenia przy użyciu programu PuTTY](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#use-putty-to-connect-to-the-device-serial-console). **Pamiętaj, aby dokładnie wykonać procedurę, w przeciwnym wypadku nie uzyskasz dostępu do konsoli.**
@@ -43,7 +43,7 @@ ms.locfileid: "67183287"
    4. Opcjonalnie Skonfiguruj serwer proxy sieci Web.
       
       > [!IMPORTANT]
-      > Konfiguracja serwera proxy sieci Web jest opcjonalna, jednak warto wiedzieć, że w przypadku korzystania z serwera proxy sieci Web można go skonfigurować tylko w tym miejscu. Aby uzyskać więcej informacji, zobacz temat [Konfigurowanie serwera proxy sieci Web dla urządzenia](../articles/storsimple/storsimple-configure-web-proxy.md).
+      > Konfiguracja serwera proxy sieci Web jest opcjonalna, jednak warto wiedzieć, że w przypadku korzystania z serwera proxy sieci Web można go skonfigurować tylko w tym miejscu. Aby uzyskać więcej informacji, zobacz temat [Konfigurowanie serwera proxy sieci Web dla urządzenia](../articles/storsimple/storsimple-8000-configure-web-proxy.md).
      
 6. Naciśnij klawisze CTRL + C, aby zamknąć kreatora instalacji.
 8. Uruchom następujące polecenie cmdlet, aby wskazać urządzenie w portalu Microsoft Azure Government (ponieważ domyślnie wskazuje on publiczny klasyczny portal platformy Azure). Spowoduje to ponowne uruchomienie obu kontrolerów. Zaleca się, aby do obu kontrolerów połączyć się jednocześnie z obydwoma sesjami, dzięki czemu można zobaczyć, kiedy każdy kontroler zostanie uruchomiony ponownie.
@@ -86,4 +86,3 @@ ms.locfileid: "67183287"
         Jeśli po kilku minutach urządzenie jest wciąż w trybie offline, sprawdź, czy sieć zapory została skonfigurowana zgodnie z opisem [wymagań sieciowych dotyczących urządzenia StorSimple](../articles/storsimple/storsimple-8000-system-requirements.md).
        
         Sprawdź, czy port 9354 jest otwarty dla komunikacji wychodzącej, ponieważ jest on używany przez usługę Service Bus do komunikacji między usługą i urządzeniem w usłudze Menedżer urządzeń StorSimple.
-

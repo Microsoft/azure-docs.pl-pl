@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/15/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 535ee447ff63aabb9af1f32252fb4e4dd2c392de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 764d75872eb1bad0647235cd70f9984ebd7789bd
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779424"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95562368"
 ---
 W poniższej tabeli wymieniono informacje o limicie przydziału dotyczące Azure Service Bus komunikatów. Aby uzyskać informacje na temat cen i innych przydziałów Service Bus, zobacz [Cennik usługi Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
@@ -21,11 +21,11 @@ W poniższej tabeli wymieniono informacje o limicie przydziału dotyczące Azure
 | --- | --- | --- | --- |
 | Maksymalna liczba przestrzeni nazw podstawowa lub standardowa na subskrypcję platformy Azure |Przestrzeń nazw |Kolejne żądania dotyczące dodatkowych podstawowych lub standardowych przestrzeni nazw są odrzucane przez Azure Portal. |100|
 | Maksymalna liczba przestrzeni nazw w warstwie Premium na subskrypcję platformy Azure |Przestrzeń nazw |Kolejne żądania dla dodatkowych przestrzeni nazw w warstwie Premium są odrzucane przez portal. |100 |
-| Rozmiar kolejki lub tematu |Jednostka |Zdefiniowane podczas tworzenia kolejki lub tematu. <br/><br/> Kolejne komunikaty przychodzące są odrzucane i występuje wyjątek przez wywoływany kod. |1, 2, 3, 4 GB lub 5 GB.<br /><br />W jednostkach SKU Premium i standardowej jednostce SKU z włączoną funkcją [partycjonowania](/azure/service-bus-messaging/service-bus-partitioning) maksymalny rozmiar kolejki lub tematu wynosi 80 GB. |
+| Rozmiar kolejki lub tematu |Jednostka |Zdefiniowane podczas tworzenia kolejki lub tematu. <br/><br/> Kolejne komunikaty przychodzące są odrzucane i występuje wyjątek przez wywoływany kod. |1, 2, 3, 4 GB lub 5 GB.<br /><br />W jednostkach SKU Premium i standardowej jednostce SKU z włączoną funkcją [partycjonowania](../articles/service-bus-messaging/service-bus-partitioning.md) maksymalny rozmiar kolejki lub tematu wynosi 80 GB. |
 | Liczba równoczesnych połączeń w przestrzeni nazw |Przestrzeń nazw |Kolejne żądania dla dodatkowych połączeń są odrzucane i występuje wyjątek przez wywoływany kod. Operacje REST nie są wliczane do współbieżnych połączeń TCP. |Obsługa komunikatów netto: 1 000.<br /><br />AMQP: 5 000. |
 | Liczba współbieżnych żądań odebrania dla kolejki, tematu lub jednostki subskrypcji |Jednostka |Kolejne żądania odbioru są odrzucane, a wywoływany kod wywołuje wyjątek. Ten limit przydziału ma zastosowanie do łącznej liczby równoczesnych operacji odbierania we wszystkich subskrypcjach w temacie. |5000 |
 | Liczba tematów lub kolejek na przestrzeń nazw |Przestrzeń nazw |Kolejne żądania utworzenia nowego tematu lub kolejki w przestrzeni nazw są odrzucane. W związku z tym, jeśli zostanie on skonfigurowany za pomocą [Azure Portal][Azure portal], zostanie wygenerowany komunikat o błędzie. Jeśli wywoływana z interfejsu API zarządzania, kod wywołujący otrzymuje wyjątek. |10 000 dla warstwy Podstawowa lub standardowa. Łączna liczba tematów i kolejek w przestrzeni nazw musi być mniejsza lub równa 10 000. <br/><br/>W przypadku warstwy Premium 1 000 na jednostkę obsługi wiadomości (MU). Maksymalny limit to 4 000. |
-| Liczba [podzielonych tematów lub kolejek](/azure/service-bus-messaging/service-bus-partitioning) na przestrzeń nazw |Przestrzeń nazw |Kolejne żądania utworzenia nowego podzielonego tematu lub kolejki w przestrzeni nazw są odrzucane. W związku z tym, jeśli zostanie on skonfigurowany za pomocą [Azure Portal][Azure portal], zostanie wygenerowany komunikat o błędzie. W przypadku wywołania z interfejsu API zarządzania wyjątek **QuotaExceededException** jest odbierany przez wywoływany kod. |Warstwy Podstawowa i standardowa: 100.<br/><br/>Partycjonowane jednostki nie są obsługiwane w warstwie [Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md) .<br/><br />Każda podzielona Kolejka lub temat ma do przydziału liczby jednostek 1 000 na przestrzeń nazw. |
+| Liczba [podzielonych tematów lub kolejek](../articles/service-bus-messaging/service-bus-partitioning.md) na przestrzeń nazw |Przestrzeń nazw |Kolejne żądania utworzenia nowego podzielonego tematu lub kolejki w przestrzeni nazw są odrzucane. W związku z tym, jeśli zostanie on skonfigurowany za pomocą [Azure Portal][Azure portal], zostanie wygenerowany komunikat o błędzie. W przypadku wywołania z interfejsu API zarządzania wyjątek **QuotaExceededException** jest odbierany przez wywoływany kod. |Warstwy Podstawowa i standardowa: 100.<br/><br/>Partycjonowane jednostki nie są obsługiwane w warstwie [Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md) .<br/><br />Każda podzielona Kolejka lub temat ma do przydziału liczby jednostek 1 000 na przestrzeń nazw. |
 | Maksymalny rozmiar dowolnej ścieżki jednostki obsługi komunikatów: kolejki lub tematu |Jednostka |- |260 znaków. |
 | Maksymalny rozmiar każdej nazwy jednostki obsługi komunikatów: przestrzeń nazw, subskrypcja lub reguła subskrypcji |Jednostka |- |50 znaków. |
 | Maksymalny rozmiar [identyfikatora komunikatu](/dotnet/api/microsoft.azure.servicebus.message.messageid) | Jednostka |- | 128 |

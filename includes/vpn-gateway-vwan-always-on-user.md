@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 17df5dca584b760cc52ddc171e92fb26b418c347
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b68fce603801c7bc1aee2af871df257b5f69197
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79500186"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95561860"
 ---
 1. Zainstaluj certyfikaty klienta na kliencie systemu Windows 10, jak pokazano w tym artykule dotyczącym [klienta sieci VPN typu punkt-lokacja](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) . Certyfikat musi znajdować się w magazynie bieżący użytkownik.
 
-1. Skonfiguruj opcję zawsze włączone klienta VPN za pomocą programu PowerShell, Configuration Manager lub Intune, postępując zgodnie z instrukcjami w temacie [Konfigurowanie klienta systemu Windows 10 zawsze włączone połączenia sieci VPN](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
+1. Skonfiguruj opcję zawsze włączone klienta VPN za pomocą programu PowerShell, Configuration Manager lub Intune, postępując zgodnie z instrukcjami w temacie [Konfigurowanie klienta systemu Windows 10 zawsze włączone połączenia sieci VPN](/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
 
 ### <a name="example-configuration-for-the-user-tunnel"></a>Przykładowa konfiguracja dla tunelu użytkownika
 
@@ -128,6 +128,6 @@ Po skonfigurowaniu bramy sieci wirtualnej i zainstalowaniu certyfikatu klienta w
    ```
    
    ![MachineCertTest](./media/vpn-gateway-vwan-always-on-user/p2s2.jpg)
-1. W obszarze **Ustawienia sieci VPN**Znajdź wpis **UserTest** , a następnie wybierz pozycję **Połącz**.
+1. W obszarze **Ustawienia sieci VPN** Znajdź wpis **UserTest** , a następnie wybierz pozycję **Połącz**.
 
 1. W przypadku pomyślnego nawiązania połączenia pomyślnie skonfigurowano tunel zawsze włączony.

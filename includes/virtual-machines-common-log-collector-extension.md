@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 09c4420647043fccc408631fec75854667923721
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a442b5de7a256dd8bcf47da741bd41894709c3a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74085265"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95561203"
 ---
 Diagnozowanie problemów z usługą Microsoft Azure w chmurze wymaga zebrania plików dziennika usługi na maszynach wirtualnych, gdy wystąpią problemy. Możesz użyć rozszerzenia AzureLogCollector na żądanie, aby wykonać jednorazowe zbieranie dzienników z co najmniej jednej maszyny wirtualnej usługi w chmurze (z ról sieci Web i procesów roboczych) i przenieść zebrane pliki na konto usługi Azure Storage — bez zdalnego logowania do żadnej z maszyn wirtualnych.
 
@@ -44,7 +44,7 @@ W obu trybach kolekcji można określić dodatkowe foldery zbierania danych przy
 * Azure PowerShell. Zobacz [install Azure PowerShell](/powershell/azure/install-az-ps)], aby uzyskać instrukcje dotyczące instalacji.
 
 ## <a name="add-the-extension"></a>Dodawanie rozszerzenia
-Aby dodać rozszerzenie AzureLogCollector, można użyć poleceń cmdlet [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) lub [interfejsów API REST usługi Service Management](https://msdn.microsoft.com/library/ee460799.aspx) .
+Aby dodać rozszerzenie AzureLogCollector, można użyć poleceń cmdlet [Microsoft Azure PowerShell](/previous-versions/azure/dn495240(v=azure.100)) lub [interfejsów API REST usługi Service Management](/previous-versions/azure/ee460799(v=azure.100)) .
 
 Aby uzyskać Cloud Services, można użyć istniejącego polecenia cmdlet programu Azure PowerShell, **Set-AzureServiceExtension**, aby włączyć rozszerzenie w wystąpieniach roli usługi w chmurze. Za każdym razem, gdy to rozszerzenie jest włączone za pomocą tego polecenia cmdlet, zbieranie dzienników jest wyzwalane w wybranych wystąpieniach roli wybranych ról.
 
@@ -528,4 +528,3 @@ else
 
 ## <a name="next-steps"></a>Następne kroki
 Teraz można przeanalizować lub skopiować dzienniki z jednej prostej lokalizacji.
-

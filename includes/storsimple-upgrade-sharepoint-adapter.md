@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: b2dec95e0258933b50d4437f1cb317639b62883d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3467a5d5daa300f82c7b81641ab7e262259d9285
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67183274"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95554418"
 ---
 ### <a name="upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-storsomple-adapter-for-sharepoint"></a>Uaktualnij program SharePoint 2010 do programu SharePoint 2013, a następnie zainstaluj adapter StorSomple dla programu SharePoint
 > [!IMPORTANT]
@@ -20,7 +20,7 @@ ms.locfileid: "67183274"
 #### <a name="to-upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-adapter"></a>Aby uaktualnić SharePoint 2010 do programu SharePoint 2013, a następnie zainstalować kartę
 1. W farmie programu SharePoint 2010 Zwróć uwagę na ścieżkę magazynu obiektów BLOB dla zewnętrznych obiektów blob i baz danych zawartości, dla których jest włączona funkcja SPZ. 
 2. Zainstaluj i skonfiguruj nową farmę programu SharePoint 2013. 
-3. Przenoszenie baz danych, aplikacji i kolekcji witryn z farmy programu SharePoint 2010 do nowej farmy programu SharePoint 2013. Aby uzyskać instrukcje, przejdź do [omówienia procesu uaktualniania do programu SharePoint 2013](https://technet.microsoft.com/library/cc262483.aspx).
+3. Przenoszenie baz danych, aplikacji i kolekcji witryn z farmy programu SharePoint 2010 do nowej farmy programu SharePoint 2013. Aby uzyskać instrukcje, przejdź do [omówienia procesu uaktualniania do programu SharePoint 2013](/SharePoint/upgrade-and-update/overview-of-the-upgrade-process).
 4. Zainstaluj adapter StorSimple dla programu SharePoint w nowej farmie. Przejdź do procedury [instalacji adaptera StorSimple dla programu SharePoint](#install-the-storsimple-adapter-for-sharepoint) .
 5. Korzystając z informacji zanotowanych w kroku 1, Włącz strukturę SPZ dla tego samego zestawu baz danych zawartości i podaj tę samą ścieżkę magazynu obiektów BLOB, która została użyta w instalacji programu SharePoint 2010. Przejdź do pozycji [Konfigurowanie SPZ](#configure-rbs) dla procedur. Po wykonaniu tego kroku wcześniej zewnętrzne pliki powinny być dostępne z nowej farmy. 
 
@@ -29,7 +29,7 @@ ms.locfileid: "67183274"
 > Należy zaplanować to uaktualnienie w trakcie zaplanowanego okna obsługi z następujących powodów:
 > 
 > * Wcześniej zewnętrzna zawartość nie będzie dostępna do momentu ponownego zainstalowania karty.
-> * Każda zawartość przekazana do lokacji po odinstalowaniu poprzedniej wersji adaptera StorSimple dla programu SharePoint, ale przed zainstalowaniem nowej wersji, będzie przechowywana w bazie danych zawartości. Po zainstalowaniu nowej karty należy przenieść tę zawartość na urządzenie StorSimple. `RBS Migrate()`Do migrowania zawartości można użyć polecenia cmdlet programu Microsoft PowerShell dołączonego do programu SharePoint. Aby uzyskać więcej informacji, zobacz [Migrowanie zawartości do lub z SPZ](https://technet.microsoft.com/library/ff628255.aspx). 
+> * Każda zawartość przekazana do lokacji po odinstalowaniu poprzedniej wersji adaptera StorSimple dla programu SharePoint, ale przed zainstalowaniem nowej wersji, będzie przechowywana w bazie danych zawartości. Po zainstalowaniu nowej karty należy przenieść tę zawartość na urządzenie StorSimple. `RBS Migrate()`Do migrowania zawartości można użyć polecenia cmdlet programu Microsoft PowerShell dołączonego do programu SharePoint. Aby uzyskać więcej informacji, zobacz [Migrowanie zawartości do lub z SPZ](/previous-versions/office/sharepoint-foundation-2010/ff628255(v=office.14)). 
 > 
 > 
 
@@ -41,4 +41,3 @@ ms.locfileid: "67183274"
    > 
    > 
 2. Zainstaluj nową kartę StorSimple dla programu SharePoint. Nowy adapter automatycznie rozpoznaje bazy danych zawartości, które zostały wcześniej włączone lub wyłączone dla SPZ, i użyje poprzednich ustawień.
-

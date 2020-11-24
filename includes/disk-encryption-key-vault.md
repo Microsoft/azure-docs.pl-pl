@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 489ee630deb56aef6c004067f29779053fbcd3e7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 3fe622d2ff4f6f8aff546452db0f475cfd44eb1b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755697"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95559025"
 ---
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -63,8 +63,8 @@ New-AzKeyvault -name "<your-unique-keyvault-name>" -ResourceGroupName "myResourc
 
 Możesz również utworzyć magazyn kluczy przy użyciu [szablonu Menedżer zasobów](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
 
-1. W szablonie szybkiego startu platformy Azure kliknij pozycję **Wdróż na platformie Azure** .
-2. Wybierz subskrypcję, grupę zasobów, lokalizację grupy zasobów, nazwę Key Vault, identyfikator obiektu, postanowienia prawne i umowę, a następnie kliknij przycisk **Kup** . 
+1. W szablonie szybkiego startu platformy Azure kliknij pozycję **Wdróż na platformie Azure**.
+2. Wybierz subskrypcję, grupę zasobów, lokalizację grupy zasobów, nazwę Key Vault, identyfikator obiektu, postanowienia prawne i umowę, a następnie kliknij przycisk **Kup**. 
 
 
 ##  <a name="set-key-vault-advanced-access-policies"></a>Ustawianie zaawansowanych zasad dostępu magazynu kluczy
@@ -115,12 +115,12 @@ Użyj [AZ Key Update](/cli/azure/keyvault#az-keyvault-update) , aby włączyć s
      Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -ResourceGroupName "MyResourceGroup" -EnabledForTemplateDeployment
      ```
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
-1. Wybierz magazyn kluczy, przejdź do pozycji **zasady dostępu** , a **następnie kliknij, aby wyświetlić zaawansowane zasady dostępu** .
-2. Zaznacz pole o nazwie **Włącz dostęp do Azure Disk Encryption na potrzeby szyfrowania woluminów** .
-3. Wybierz pozycję **Włącz dostęp do usługi Azure Virtual Machines w celu wdrożenia** i/lub **włącz dostęp do Azure Resource Manager na potrzeby wdrożenia szablonu** , jeśli jest to konieczne. 
-4. Kliknij pozycję **Zapisz** .
+1. Wybierz magazyn kluczy, przejdź do pozycji **zasady dostępu**, a **następnie kliknij, aby wyświetlić zaawansowane zasady dostępu**.
+2. Zaznacz pole o nazwie **Włącz dostęp do Azure Disk Encryption na potrzeby szyfrowania woluminów**.
+3. Wybierz pozycję **Włącz dostęp do usługi Azure Virtual Machines w celu wdrożenia** i/lub **włącz dostęp do Azure Resource Manager na potrzeby wdrożenia szablonu**, jeśli jest to konieczne. 
+4. Kliknij pozycję **Zapisz**.
 
     ![Zaawansowane zasady dostępu magazynu kluczy platformy Azure](../articles/virtual-machines/media/disk-encryption/keyvault-portal-fig4.png)
 
@@ -131,7 +131,7 @@ Jeśli chcesz użyć klucza szyfrowania klucza (KEK) w celu uzyskania dodatkowej
 
 Nowy KEK można wygenerować przy użyciu interfejsu wiersza polecenia platformy Azure [AZ Key magazynu create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) Azure PowerShell, polecenie cmdlet [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) lub [Azure Portal](https://portal.azure.com/). Musisz wygenerować typ klucza RSA; Azure Disk Encryption nie obsługuje jeszcze kluczy krzywej eliptycznej.
 
-Zamiast tego możesz zaimportować KEK z lokalnego modułu HSM zarządzania kluczami. Aby uzyskać więcej informacji, zobacz [dokumentację Key Vault](/azure/key-vault/key-vault-hsm-protected-keys).
+Zamiast tego możesz zaimportować KEK z lokalnego modułu HSM zarządzania kluczami. Aby uzyskać więcej informacji, zobacz [dokumentację Key Vault](../articles/key-vault/keys/hsm-protected-keys.md).
 
 Adresy URL KEK magazynu kluczy muszą być w wersji. System Azure wymusza to ograniczenie wersji. Aby uzyskać prawidłowe tajne i KEK adresy URL, zobacz następujące przykłady:
 

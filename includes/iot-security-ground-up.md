@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: iot-fundamentals
 author: robinsh
 ms.service: iot-fundamentals
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 4f7ec9bbf7877d8067b3d8b1566a5cd2c2075281
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 234407e6973657ba3ad0d78189e7cb1d363c15e2
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86050324"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95556525"
 ---
 Internet rzeczy (IoT) stanowi unikatowe wyzwania w zakresie zabezpieczeń, prywatności i zgodności dla firm na całym świecie. W przeciwieństwie do tradycyjnej technologii cybernetycznymi, w której te problemy są nanoszone wokół oprogramowania i sposobu ich implementacji, IoT ma wpływ na to, co się dzieje w przypadku zbieżności cybernetycznymi i fizycznych rozwiązań. Ochrona rozwiązań IoT wymaga zapewnienia bezpiecznego aprowizacji urządzeń, bezpiecznej łączności między tymi urządzeniami i chmurą oraz zapewnienia bezpiecznej ochrony danych w chmurze podczas przetwarzania i przechowywania. Korzystanie z tych funkcji jest jednak urządzeniami z ograniczeniami zasobów, dystrybucją geograficzną wdrożeń i dużą liczbą urządzeń w ramach rozwiązania.
 
@@ -39,11 +39,11 @@ Infrastruktura [Microsoft Cloud](https://azure.microsoft.com) obsługuje ponad 1
 
 Microsoft Azure oferuje kompletne rozwiązanie w chmurze, które łączy stale rosnącą kolekcję zintegrowanych usług w chmurze — analizy, uczenia maszynowego, magazynu, zabezpieczeń, sieci i sieci Web — dzięki wiodącym w branży zobowiązaniom do ochrony i prywatności danych. Strategia założenia [naruszenia](https://azure.microsoft.com/blog/red-teaming-using-cutting-edge-threat-simulation-to-harden-the-microsoft-enterprise-cloud/) firmy Microsoft korzysta z dedykowanego, *czerwonego zespołu* ekspertów ds. zabezpieczeń oprogramowania, którzy symulują ataki, testując możliwości platformy Azure w celu wykrywania, ochrony przed nowymi zagrożeniami i odzyskiwania po naruszeniu. Globalny zespół [reagowania na zdarzenia](https://www.microsoft.com/en-us/TrustCenter/Security/DesignOpSecurity) firmy Microsoft działa wokół zegara, aby wyeliminować skutki ataków i złośliwych działań. Zespół postępuje zgodnie z procedurami dotyczącymi zarządzania zdarzeniami, komunikacji i odzyskiwania oraz korzystania z możliwości odnajdywania i przewidywalnych interfejsów z partnerami wewnętrznymi i zewnętrznymi.
 
-Systemy firmy Microsoft zapewniają ciągłą ochronę przed włamaniami, zapobieganie atakom, regularne testowanie penetracji i narzędzia śledczej, które pomagają identyfikować i ograniczać zagrożenia. [Uwierzytelnianie wieloskładnikowe](../articles/active-directory/authentication/multi-factor-authentication.md) zapewnia dodatkową warstwę zabezpieczeń dla użytkowników końcowych, którzy uzyskują dostęp do sieci. W przypadku aplikacji i dostawcy hosta firma Microsoft oferuje funkcje kontroli dostępu, monitorowania, ochrony przed złośliwym oprogramowaniem, skanowania, poprawek i zarządzania konfiguracją.
+Systemy firmy Microsoft zapewniają ciągłą ochronę przed włamaniami, zapobieganie atakom, regularne testowanie penetracji i narzędzia śledczej, które pomagają identyfikować i ograniczać zagrożenia. [Uwierzytelnianie wieloskładnikowe](../articles/active-directory/authentication/concept-mfa-howitworks.md) zapewnia dodatkową warstwę zabezpieczeń dla użytkowników końcowych, którzy uzyskują dostęp do sieci. W przypadku aplikacji i dostawcy hosta firma Microsoft oferuje funkcje kontroli dostępu, monitorowania, ochrony przed złośliwym oprogramowaniem, skanowania, poprawek i zarządzania konfiguracją.
 
 Akceleratory rozwiązań wykorzystują funkcje zabezpieczeń i ochrony prywatności wbudowane w platformę Azure, a także procesy SDL i OSA umożliwiające bezpieczne opracowywanie i obsługę całego oprogramowania firmy Microsoft. Te procedury zapewniają ochronę infrastruktury, ochronę sieci oraz funkcje tożsamości i zarządzania podstawowe dla bezpieczeństwa dowolnego rozwiązania.
 
-Usługa [azure IoT Hub](../articles/iot-hub/about-iot-hub.md) w ramach [akceleratorów rozwiązań IoT](../articles/iot-fundamentals/iot-introduction.md) oferuje w pełni zarządzaną usługę, która umożliwia niezawodne i niezawodną komunikację dwukierunkową między urządzeniami IoT i usługami platformy Azure, takimi jak [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) i [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md) , przy użyciu poświadczeń zabezpieczeń poszczególnych urządzeń i kontroli dostępu.
+Usługa [azure IoT Hub](../articles/iot-hub/about-iot-hub.md) w ramach [akceleratorów rozwiązań IoT](../articles/iot-fundamentals/iot-introduction.md) oferuje w pełni zarządzaną usługę, która umożliwia niezawodne i niezawodną komunikację dwukierunkową między urządzeniami IoT i usługami platformy Azure, takimi jak [Azure Machine Learning](../articles/machine-learning/classic/index.yml) i [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md) , przy użyciu poświadczeń zabezpieczeń poszczególnych urządzeń i kontroli dostępu.
 
 Aby najlepiej komunikować funkcje zabezpieczeń i prywatności wbudowane w Akceleratory rozwiązań usługi Azure IoT, w tym artykule zostaje podzielony pakiet na trzy podstawowe obszary zabezpieczeń.
 
@@ -89,9 +89,9 @@ Korzystając z Azure Active Directory (AAD) do uwierzytelniania i autoryzacji u�
 
 Gdy dane znajdują się w chmurze, mogą być przetwarzane i przechowywane w dowolnym zdefiniowanym przez użytkownika przepływie pracy. Dostęp do każdej części danych jest kontrolowany przy użyciu Azure Active Directory, w zależności od używanej usługi magazynu.
 
-Wszystkie klucze używane przez infrastrukturę IoT są przechowywane w chmurze w bezpiecznym magazynie, z możliwością przejęcia kluczy przypadków należy ponownie zainicjować obsługę administracyjną. Dane mogą być przechowywane w [Azure Cosmos DB](../articles/cosmos-db/introduction.md) lub w [SQL Database](../articles/sql-database/sql-database-faq.md), co pozwala na zdefiniowanie żądanego poziomu zabezpieczeń. Ponadto platforma Azure umożliwia monitorowanie i inspekcję całego dostępu do danych w taki sposób, aby ostrzegał o wszelkich włamaniach lub nieautoryzowanym dostępie.
+Wszystkie klucze używane przez infrastrukturę IoT są przechowywane w chmurze w bezpiecznym magazynie, z możliwością przejęcia kluczy przypadków należy ponownie zainicjować obsługę administracyjną. Dane mogą być przechowywane w [Azure Cosmos DB](../articles/cosmos-db/introduction.md) lub w [SQL Database](../articles/azure-sql/database/sql-database-paas-overview.md), co pozwala na zdefiniowanie żądanego poziomu zabezpieczeń. Ponadto platforma Azure umożliwia monitorowanie i inspekcję całego dostępu do danych w taki sposób, aby ostrzegał o wszelkich włamaniach lub nieautoryzowanym dostępie.
 
-## <a name="conclusion"></a>Podsumowanie
+## <a name="conclusion"></a>Wniosek
 
 Internet rzeczy rozpoczyna się od Twoich rzeczy — rzeczy, które najlepiej odpowiadają firmom. IoT może dostarczać niezwykłe wartości do firmy przez redukcję kosztów, wzrost przychodu i transformowanie firmy. Pomyślne przekształcenie jest w dużym stopniu zależne od wyboru odpowiedniego oprogramowania i dostawcy usług IoT. Oznacza to znalezienie dostawcy, który nie tylko catalyzes tę transformację, przez zrozumienie potrzeb i wymagań firmy, ale także udostępnia usługi i oprogramowanie stworzone z myślą o bezpieczeństwie, prywatności, przezroczystości i zgodności w ramach głównych zagadnień projektowych. Firma Microsoft oferuje rozległe doświadczenia związane z tworzeniem i wdrażaniem bezpiecznego oprogramowania i usług i nadal jest liderem w tym nowym wieku Internet rzeczy.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: eeda43b972e30c573743c8c59f75cfae61d7ee85
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 26a5537496d9e881ece135437c403baf4a4fd67c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413148"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95560331"
 ---
 Na razie Ultra dyski mają dodatkowe ograniczenia, są następujące:
 
@@ -38,16 +38,16 @@ W poniższej tabeli przedstawiono regiony Ultra disks, a także odpowiadające i
 |Zachodnie stany USA     |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)        |
 |Australia Środkowa    |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)|
 |Australia Wschodnia     |Trzy strefy dostępności         |
-|Azja Południowo-Wschodnia    |Trzy strefy dostępności        |
+|Southeast Asia    |Trzy strefy dostępności        |
 |Kanada środkowa *     |Trzy strefy dostępności          |
-|Środkowe stany USA     |Trzy strefy dostępności          |
+|Central US     |Trzy strefy dostępności          |
 |East US     |Trzy strefy dostępności          |
 |Wschodnie stany USA 2     |Trzy strefy dostępności         |
 |Francja Środkowa    |Dwie strefy dostępności        |
 |Japan East    |Trzy strefy dostępności        |
 |Europa Północna    |Trzy strefy dostępności        |
 |Południowe Zjednoczone Królestwo    |Trzy strefy dostępności        |
-|Europa Zachodnia    | Trzy strefy dostępności|
+|West Europe    | Trzy strefy dostępności|
 |Zachodnie stany USA 2    |Trzy strefy dostępności|
 
 \* Skontaktuj się z pomocą techniczną platformy Azure, aby uzyskać dostęp do Strefy dostępności w tym regionie.
@@ -67,7 +67,7 @@ W poniższej tabeli przedstawiono regiony Ultra disks, a także odpowiadające i
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
 - Nie każdy rozmiar maszyny wirtualnej jest dostępny w każdym obsługiwanym regionie przy użyciu Ultra Disks.
 - Są dostępne tylko jako dyski danych. 
-- Domyślnie Obsługuj rozmiar sektora fizycznego 4 KB. rozmiar sektora 512E jest dostępny jako oferta ogólnie dostępna, ale należy [utworzyć konto](https://aka.ms/ultradisk512e). Większość aplikacji jest zgodna z rozmiarami sektorów 4K, ale niektóre wymagają 512 bajtów sektorów. Przykładem może być Oracle Database, który wymaga wersji 12,2 lub nowszej w celu obsługi dysków natywnych 4K. W przypadku starszych wersji Oracle DB wymagany jest rozmiar sektora bajtów 512.
+- Domyślnie Obsługuj rozmiar sektora fizycznego 4 KB. rozmiar sektora 512E jest dostępny jako oferta ogólnie dostępna (bez konieczności rejestrowania), ale jest obecnie dostępna tylko przy użyciu interfejsu wiersza polecenia lub programu PowerShell. Większość aplikacji jest zgodna z rozmiarami sektorów 4K, ale niektóre wymagają 512 bajtów sektorów. Przykładem może być Oracle Database, który wymaga wersji 12,2 lub nowszej w celu obsługi dysków natywnych 4K. W przypadku starszych wersji Oracle DB wymagany jest rozmiar sektora bajtów 512.
 - Można utworzyć tylko jako puste dyski.
 - Obecnie nie obsługuje migawek dysków, obrazów maszyn wirtualnych, zestawów dostępności, dedykowanych hostów platformy Azure ani usługi Azure Disk Encryption.
 - Program nie obsługuje obecnie integracji z Azure Backup ani Azure Site Recovery.

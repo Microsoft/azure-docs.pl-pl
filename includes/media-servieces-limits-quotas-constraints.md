@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: inhenkel
-ms.openlocfilehash: 84aa07ef282dd7100043f7e9bfcc97cb3b3673a5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 59ff0ba854fa609e6d29f3473f662a89ab5f3dbc
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755363"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95559168"
 ---
 > [!NOTE]
 > W przypadku zasobów, które nie zostały naprawione, należy otworzyć bilet pomocy technicznej w celu poproszenia o zwiększenie limitów przydziału. Nie należy tworzyć dodatkowych kont Azure Media Services próbujących uzyskać wyższe limity.
@@ -81,7 +81,7 @@ Każdy rekord zadania na koncie starszej niż 90 dni zostanie automatycznie usun
 | Zasady przesyłania strumieniowego | 100 <sup>(6)</sup> |
 | Unikatowe lokalizatory przesyłania strumieniowego skojarzone z elementem zawartości w jednym momencie | 100<sup>(7)</sup> (stałe) |
 
-<sup>6</sup> Jeśli używasz niestandardowych [zasad przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streamingpolicies), należy zaprojektować ograniczony zestaw takich zasad dla konta usługi Media Service i ponownie użyć ich do StreamingLocators za każdym razem, gdy potrzebne są te same opcje szyfrowania i protokoły. Nie należy tworzyć nowych zasad przesyłania strumieniowego dla każdego lokalizatora przesyłania strumieniowego.
+<sup>6</sup> Jeśli używasz niestandardowych [zasad przesyłania strumieniowego](/rest/api/media/streamingpolicies), należy zaprojektować ograniczony zestaw takich zasad dla konta usługi Media Service i ponownie użyć ich do StreamingLocators za każdym razem, gdy potrzebne są te same opcje szyfrowania i protokoły. Nie należy tworzyć nowych zasad przesyłania strumieniowego dla każdego lokalizatora przesyłania strumieniowego.
 
 <sup>7</sup> lokalizatorów przesyłania strumieniowego nie są przeznaczone do zarządzania kontrolą dostępu dla poszczególnych użytkowników. Aby nadać różne uprawnienia poszczególnym użytkownikom, użyj rozwiązań do zarządzania prawami cyfrowymi (DRM, Digital Rights Management).
 

@@ -5,18 +5,18 @@ ms.subservice: pod
 ms.topic: include
 ms.date: 09/git14/2020
 ms.author: alkohli
-ms.openlocfilehash: 91f91b1260cc445f90c2608fc5259ad61acd37ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25c2ea04cd062554a975c63aae9b97846e646d68
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90533175"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558106"
 ---
-Poniżej znajduje się lista obsługiwanych kont magazynu i typów magazynów dla urządzenia urządzenie Data Box. Aby zapoznać się z pełną listą różnych typów kont magazynu i ich pełnych możliwości, zobacz [typy kont magazynu](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
+Poniżej znajduje się lista obsługiwanych kont magazynu i typów magazynów dla urządzenia urządzenie Data Box. Aby zapoznać się z pełną listą różnych typów kont magazynu i ich pełnych możliwości, zobacz [typy kont magazynu](../articles/storage/common/storage-account-overview.md#types-of-storage-accounts).
 
 W przypadku zamówień importu Poniższa tabela zawiera listę obsługiwanych kont magazynu.
 
-| **Konto magazynu/obsługiwane typy magazynów** | **Blokowy obiekt blob** |**Obiekt BLOB strony*** |**Pliki platformy Azure** |**Uwagi**|
+| **Konto magazynu/obsługiwane typy magazynów** | **Blokowy obiekt blob** |**Obiekt BLOB strony** _ |_ *Plików platformy Azure** |**Uwagi**|
 | --- | --- | -- | -- | -- |
 | Standard klasyczny | T | T | T |
 | Standard do ogólnego przeznaczenia w wersji 1  | T | T | T | Obsługiwane są zarówno gorąca, jak i chłodna.|
@@ -29,7 +29,7 @@ W przypadku zamówień importu Poniższa tabela zawiera listę obsługiwanych ko
 
 W przypadku zamówień eksportu Poniższa tabela zawiera listę obsługiwanych kont magazynu.
 
-| **Konto magazynu/obsługiwane typy magazynów** | **Blokowy obiekt blob** |**Obiekt BLOB strony*** |**Pliki platformy Azure** |**Obsługiwane warstwy dostępu**|
+| **Konto magazynu/obsługiwane typy magazynów** | **Blokowy obiekt blob** |**Obiekt BLOB strony** _ |_ *Plików platformy Azure** |**Obsługiwane warstwy dostępu**|
 | --- | --- | -- | -- | -- |
 | Standard klasyczny | T | T | T | |
 | Standard do ogólnego przeznaczenia w wersji 1  | T | T | T | Gorąca, chłodna|
@@ -47,5 +47,3 @@ W przypadku zamówień eksportu Poniższa tabela zawiera listę obsługiwanych k
 > - Dane przekazane do stronicowych obiektów BLOB muszą być 512 bajtami wyrównanymi, takimi jak wirtualne dyski twarde.
 > - Można wyeksportować maksymalnie 80 TB.
 > - Historia plików i migawki obiektów BLOB nie zostały wyeksportowane.
-
-

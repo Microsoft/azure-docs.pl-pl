@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 10/29/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e8e3df77df53b887c4367e46b05d8a7ea4eed2f6
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 946ff043828034340ae3273fc0629e32de755540
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93061639"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558071"
 ---
 ## <a name="create-a-self-signed-root-certificate"></a><a name="rootcert"></a>Tworzenie certyfikatu głównego z podpisem własnym
 
-Użyj polecenia cmdlet New-SelfSignedCertificate, aby utworzyć certyfikat główny z podpisem własnym. Aby uzyskać dodatkowe informacje o parametrach, zobacz polecenie [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
+Użyj polecenia cmdlet New-SelfSignedCertificate, aby utworzyć certyfikat główny z podpisem własnym. Aby uzyskać dodatkowe informacje o parametrach, zobacz polecenie [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate).
 
 1. Na komputerze z systemem Windows 10 lub Windows Server 2016 Otwórz konsolę programu Windows PowerShell z podwyższonym poziomem uprawnień. Te przykłady nie działają w Azure Cloud Shell "try". Te przykłady należy uruchomić lokalnie.
-1. Użyj poniższego przykładu, aby utworzyć certyfikat główny z podpisem własnym. Poniższy przykład tworzy certyfikat główny z podpisem własnym o nazwie "P2SRootCert", który jest automatycznie instalowany w "Certificates-Current User\Personal\Certificates". Certyfikat można wyświetlić, otwierając *certmgr. msc* lub *Zarządzaj certyfikatami użytkowników* .
+1. Użyj poniższego przykładu, aby utworzyć certyfikat główny z podpisem własnym. Poniższy przykład tworzy certyfikat główny z podpisem własnym o nazwie "P2SRootCert", który jest automatycznie instalowany w "Certificates-Current User\Personal\Certificates". Certyfikat można wyświetlić, otwierając *certmgr. msc* lub *Zarządzaj certyfikatami użytkowników*.
 
    Zaloguj się przy użyciu `Connect-AzAccount` polecenia cmdlet. Następnie uruchom poniższy przykład z wszelkimi koniecznymi modyfikacjami.
 
@@ -39,7 +39,7 @@ Na każdym komputerze klienckim nawiązującym połączenie z siecią wirtualną
 
 Poniższe kroki przeprowadzą Cię przez proces generowania certyfikatu klienta z certyfikatu głównego z podpisem własnym. Można generować wiele certyfikatów klienta z tego samego certyfikatu głównego. Po wygenerowaniu certyfikatów klienta przy użyciu poniższych kroków certyfikat klienta jest automatycznie instalowany na komputerze, który został użyty do wygenerowania certyfikatu. Jeśli chcesz zainstalować certyfikat klienta na innym komputerze klienckim, możesz wyeksportować certyfikat.
 
-W przykładach użyto polecenia cmdlet New-SelfSignedCertificate, aby wygenerować certyfikat klienta, który wygaśnie w ciągu roku. Dodatkowe informacje o parametrach, takie jak ustawienie innej wartości wygaśnięcia dla certyfikatu klienta, można znaleźć w temacie [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
+W przykładach użyto polecenia cmdlet New-SelfSignedCertificate, aby wygenerować certyfikat klienta, który wygaśnie w ciągu roku. Dodatkowe informacje o parametrach, takie jak ustawienie innej wartości wygaśnięcia dla certyfikatu klienta, można znaleźć w temacie [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate).
 
 ### <a name="example-1---powershell-console-session-still-open"></a>Przykład 1 — sesja konsoli programu PowerShell jest nadal otwarta
 

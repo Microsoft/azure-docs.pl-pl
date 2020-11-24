@@ -9,18 +9,18 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: 5ec1f71d13d5d2fb3af86c1c63d5e61ce13d2c82
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: e7b5dfe9380612d56e591c3f619dfcb8582f8dee
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553165"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95556856"
 ---
 ### <a name="property-limits"></a>Limity właściwości
 
-Limity właściwości Azure Time Series Insights zostały zwiększone do 1 000 dla magazynu ciepłego i nie ma limitu właściwości dla magazynu chłodnego. Podane właściwości zdarzenia mają odpowiednie kolumny JSON, CSV i wykresu, które można wyświetlić w [eksploratorze Azure Time Series Insights Gen2](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
+Limity właściwości Azure Time Series Insights zostały zwiększone do 1 000 dla magazynu ciepłego i nie ma limitu właściwości dla magazynu chłodnego. Podane właściwości zdarzenia mają odpowiednie kolumny JSON, CSV i wykresu, które można wyświetlić w [eksploratorze Azure Time Series Insights Gen2](../articles/time-series-insights/quickstart-explore-tsi.md).
 
-| Jednostka SKU | Właściwości maksymalne |
+| SKU | Właściwości maksymalne |
 | --- | --- |
 | Gen2 (L1) | 1 000 właściwości (kolumny) dla magazynu ciepłego i bez ograniczeń dla magazynu zimnego|
 | Gen1 (S1) | Właściwości 600 (kolumny) |
@@ -36,4 +36,4 @@ Limity właściwości Azure Time Series Insights zostały zwiększone do 1 000 d
 
 ### <a name="api-limits"></a>Limity interfejsu API
 
-Limity interfejsu API REST dla Azure Time Series Insights Gen2 są określone w [dokumentacji interfejsu API REST](https://docs.microsoft.com/rest/api/time-series-insights/preview#limits-1).
+Limity interfejsu API REST dla Azure Time Series Insights Gen2 są określone w [dokumentacji interfejsu API REST](/rest/api/time-series-insights/preview#limits-1).

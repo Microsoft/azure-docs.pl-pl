@@ -4,15 +4,15 @@ ms.service: service-bus
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
-ms.openlocfilehash: aec13c6beb8dbfcdd5f38e7f96b86bf03e42fa37
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5c2959a1bf6225c164f8538c3c437e464d834b96
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "80986792"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95555790"
 ---
 ## <a name="create-a-ruby-application"></a>Tworzenie aplikacji języka Ruby
-Aby uzyskać instrukcje, zobacz [Tworzenie aplikacji języka Ruby na platformie Azure](../articles/virtual-machines/linux/classic/ruby-rails-web-app.md).
+Aby uzyskać instrukcje, zobacz [Tworzenie aplikacji języka Ruby na platformie Azure](/previous-versions/azure/virtual-machines/linux/classic/ruby-rails-web-app).
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Skonfiguruj aplikację do używania Service Bus
 Aby użyć Service Bus, Pobierz pakiet Azure Ruby i użyj go, który obejmuje zestaw wygodnych bibliotek, które komunikują się z usługami REST magazynu.

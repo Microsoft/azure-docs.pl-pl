@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: d8583a1fee96d0a6eb3300882b2b115f057cbeec
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 54f4835a904b897370cf9f075ae3c005b1114992
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135945"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95560958"
 ---
-[Uzyskaj kondycję punktu końcowego](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) w interfejsie API REST zapewnia stan kondycji punktów końcowych, a także ostatni znany błąd, aby zidentyfikować przyczynę, w której punkt końcowy nie jest w dobrej kondycji. W poniższej tabeli wymieniono najbardziej typowe błędy.
+[Uzyskaj kondycję punktu końcowego](/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) w interfejsie API REST zapewnia stan kondycji punktów końcowych, a także ostatni znany błąd, aby zidentyfikować przyczynę, w której punkt końcowy nie jest w dobrej kondycji. W poniższej tabeli wymieniono najbardziej typowe błędy.
 
 |Ostatni znany błąd|Opis/gdy występuje|Możliwe środki zaradcze|
 |-----|-----|-----|
-|Administracyjnej|Wystąpił błąd przejściowy, a IoT Hub spróbuje ponownie wykonać operację.|Zwróć uwagę na [trasy dzienników zasobów](https://docs.microsoft.com/azure/iot-hub/monitor-iot-hub-reference#routes).|
-|InternalError|Wystąpił błąd podczas dostarczania komunikatu do punktu końcowego.|Jest to wewnętrzny wyjątek, ale również obserwuje [dzienniki zasobów trasy](https://docs.microsoft.com/azure/iot-hub/monitor-iot-hub-reference#routes).|
+|Administracyjnej|Wystąpił błąd przejściowy, a IoT Hub spróbuje ponownie wykonać operację.|Zwróć uwagę na [trasy dzienników zasobów](../articles/iot-hub/monitor-iot-hub-reference.md#routes).|
+|InternalError|Wystąpił błąd podczas dostarczania komunikatu do punktu końcowego.|Jest to wewnętrzny wyjątek, ale również obserwuje [dzienniki zasobów trasy](../articles/iot-hub/monitor-iot-hub-reference.md#routes).|
 |Brak autoryzacji|IoT Hub nie ma uprawnień do wysyłania komunikatów do określonego punktu końcowego.|Sprawdź, czy parametry połączenia są aktualne dla punktu końcowego. Jeśli została zmieniona, należy rozważyć aktualizację IoT Hub. Jeśli punkt końcowy korzysta z tożsamości zarządzanej, sprawdź, czy podmiot zabezpieczeń IoT Hub ma wymagane uprawnienia w elemencie docelowym.|
 |Ograniczone|IoT Hub jest ograniczany podczas zapisywania komunikatów w punkcie końcowym.|Przejrzyj limity ograniczania dla odnośnego punktu końcowego. Zmodyfikuj konfiguracje dla punktu końcowego, aby w razie potrzeby skalować w górę.|
 |Limit czasu|Limit czasu operacji.|Spróbuj ponownie wykonać operację.|

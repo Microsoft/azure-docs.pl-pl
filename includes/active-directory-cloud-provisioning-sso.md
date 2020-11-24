@@ -5,12 +5,12 @@ ms.subservice: cloud-provisioning
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: billmath
-ms.openlocfilehash: 3aa1571b46938b03f556fa124d3f0a2a70f2c5c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d95e40623f17a39145778a2fc067dccc68fd872
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79504284"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95559205"
 ---
 ## <a name="steps-to-enable-single-sign-on"></a>Procedura włączania logowania jednokrotnego
 Inicjowanie obsługi administracyjnej w chmurze współpracuje z logowaniem jednokrotnym.  Obecnie nie jest dostępna opcja włączania logowania jednokrotnego w przypadku zainstalowania agenta. można jednak wykonać poniższe kroki, aby włączyć logowanie jednokrotne i użyć go. 
@@ -23,7 +23,7 @@ Inicjowanie obsługi administracyjnej w chmurze współpracuje z logowaniem jedn
 
 ### <a name="step-2-import-the-seamless-sso-powershell-module"></a>Krok 2. zaimportowanie bezproblemowego modułu programu PowerShell logowania jednokrotnego
 
-1. Pobierz i zainstaluj program [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+1. Pobierz i zainstaluj program [Azure AD PowerShell](/powershell/azure/active-directory/overview).
 2. Przejdź do folderu `%programfiles%\Microsoft Azure Active Directory Connect`.
 3. Zaimportuj bezproblemowy moduł programu PowerShell dla logowania jednokrotnego za pomocą tego polecenia: `Import-Module .\AzureADSSO.psd1` .
 

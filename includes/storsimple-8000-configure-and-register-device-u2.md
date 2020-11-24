@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 56514f5dcf4bfe205ef46ee64dcf4dcf638d4f62
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee92e145acd981bb8c84b43986b90306b994c262
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67183436"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95560018"
 ---
 #### <a name="to-configure-and-register-the-device"></a>Konfigurowanie i rejestrowanie urządzenia
 
@@ -98,7 +98,7 @@ ms.locfileid: "67183436"
 
     ```
 
-12. Po zarejestrowaniu urządzenia zostanie wyświetlony klucz szyfrowania danych usługi. Skopiuj ten klucz i zapisz go w bezpiecznym miejscu. **Ten klucz będzie wymagany razem z kluczem rejestracji usługi w celu rejestracji dodatkowych urządzeń w usłudze Menedżer urządzeń StorSimple.** Więcej informacji na temat tego klucza znajduje się w temacie [Zabezpieczenia usługi StorSimple](../articles/storsimple/storsimple-security.md).
+12. Po zarejestrowaniu urządzenia zostanie wyświetlony klucz szyfrowania danych usługi. Skopiuj ten klucz i zapisz go w bezpiecznym miejscu. **Ten klucz będzie wymagany razem z kluczem rejestracji usługi w celu rejestracji dodatkowych urządzeń w usłudze Menedżer urządzeń StorSimple.** Więcej informacji na temat tego klucza znajduje się w temacie [Zabezpieczenia usługi StorSimple](../articles/storsimple/storsimple-8000-security.md).
     
     ![Rejestrowanie urządzenia StorSimple 7](./media/storsimple-8000-configure-and-register-device-u2/step3pssetup1.png)
     
@@ -117,4 +117,3 @@ ms.locfileid: "67183436"
         Być może trzeba będzie poczekać kilka minut na zmianę stanu urządzenia na **Gotowe do skonfigurowania**.
        
         Jeśli urządzenie nie jest wyświetlane na tej liście, musisz sprawdzić, czy sieć zapory została skonfigurowana zgodnie z opisem [wymagań sieciowych dotyczących urządzenia StorSimple](../articles/storsimple/storsimple-8000-system-requirements.md). Sprawdź, czy port 9354 jest otwarty dla komunikacji wychodzącej, ponieważ jest on używany przez usługę Service Bus do komunikacji między usługą i urządzeniem w usłudze Menedżer urządzeń StorSimple.
-

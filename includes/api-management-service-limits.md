@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 04/14/2020
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 5c36a541c9380596884252efcba4a9c0ca2be33f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: cf051d96651161658796689639b5d268230d4b5a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92082207"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95553696"
 ---
 | Zasób | Limit |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -44,4 +44,4 @@ ms.locfileid: "92082207"
 <sup>7</sup> Certyfikaty urzędu certyfikacji nie są obsługiwane w warstwie zużycia.<br/>
 <sup>8</sup> Ten limit dotyczy tylko warstwy zużycia. W tych kategoriach nie ma ograniczeń dotyczących innych warstw.<br/>
 <sup>9</sup> Dotyczy tylko warstwy zużycia. Zawiera ciąg zapytania o długości do 2048 bajtów.<br/>
-<sup>10</sup> Bramy samoobsługowe są obsługiwane tylko w warstwach deweloper i Premium. Limit ma zastosowanie do liczby [zasobów bramy samoobsługowej](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/gateway). Aby zgłosić ten limit, skontaktuj się z [pomocą techniczną](https://azure.microsoft.com/support/options/). Należy zauważyć, że liczba węzłów (lub replik) skojarzonych z nieobsługiwanym zasobem bramy jest nieograniczona w warstwie Premium i ograniczona do jednego węzła w warstwie dewelopera.
+<sup>10</sup> Bramy samoobsługowe są obsługiwane tylko w warstwach deweloper i Premium. Limit ma zastosowanie do liczby [zasobów bramy samoobsługowej](/rest/api/apimanagement/2019-12-01/gateway). Aby zgłosić ten limit, skontaktuj się z [pomocą techniczną](https://azure.microsoft.com/support/options/). Należy zauważyć, że liczba węzłów (lub replik) skojarzonych z nieobsługiwanym zasobem bramy jest nieograniczona w warstwie Premium i ograniczona do jednego węzła w warstwie dewelopera.

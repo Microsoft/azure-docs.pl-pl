@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 320fa542f2b786f0a256c22f2d2eb299c476dcae
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 1b5905046fdde4d5574fd4d39f40dce1bbf11e32
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94362759"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95554537"
 ---
 W poniższych tabelach przedstawiono limity przydziału i limity dotyczące [usługi Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Aby uzyskać informacje na temat cennika Event Hubs, zobacz [Cennik usługi Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -42,17 +42,17 @@ W poniższej tabeli przedstawiono limity, które mogą być różne dla warstw P
 | Liczba grup odbiorców na centrum zdarzeń | &nbsp; |1 |20 |
 | Liczba połączeń AMQP na przestrzeń nazw | Kolejne żądania dla dodatkowych połączeń są odrzucane i występuje wyjątek przez wywoływany kod. |100 |5000|
 | Maksymalny okres przechowywania danych zdarzenia | &nbsp; |1 dzień |1-7 dni |
-| Maksymalna liczba jednostek przepływności |Przekroczenie tego limitu powoduje ograniczenie danych i wygenerowanie [wyjątku zajętości serwera](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Aby zażądać większej liczby jednostek przepływności dla warstwy Standardowa, należy [wysłać żądanie pomocy technicznej](/azure/azure-portal/supportability/how-to-create-azure-support-request). [Dodatkowe jednostki przepływności](../articles/event-hubs/event-hubs-auto-inflate.md) są dostępne w blokach od 20 na podstawie zatwierdzonego zakupu. |20 | 20 | 
+| Maksymalna liczba jednostek przepływności |Przekroczenie tego limitu powoduje ograniczenie danych i wygenerowanie [wyjątku zajętości serwera](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Aby zażądać większej liczby jednostek przepływności dla warstwy Standardowa, należy [wysłać żądanie pomocy technicznej](../articles/azure-portal/supportability/how-to-create-azure-support-request.md). [Dodatkowe jednostki przepływności](../articles/event-hubs/event-hubs-auto-inflate.md) są dostępne w blokach od 20 na podstawie zatwierdzonego zakupu. |20 | 20 | 
 
 ## <a name="dedicated-tier-vs-standard-tier"></a>Warstwa dedykowana a warstwa standardowa
 W przypadku oferty Event Hubs — warstwa Dedykowana jest naliczana stała cena miesięczna, a co najmniej 4 godziny użytkowania. Warstwa dedykowana oferuje wszystkie funkcje planu Standard, ale z możliwością skalowania w przedsiębiorstwie i limitami dla klientów wymagających obciążeń. 
 
-Zapoznaj się z tym [dokumentem](https://docs.microsoft.com/azure/event-hubs/event-hubs-dedicated-cluster-create-portal) , jak utworzyć dedykowany klaster Event Hubs przy użyciu Azure Portal.
+Zapoznaj się z tym [dokumentem](../articles/event-hubs/event-hubs-dedicated-cluster-create-portal.md) , jak utworzyć dedykowany klaster Event Hubs przy użyciu Azure Portal.
 
-| Cechy | Standardowa | Dedykowane |
+| Cecha | Standardowa | Dedykowane |
 | --- |:---|:---|
 | Przepustowość | 20 TUs (do 40 TUs) | 20 jednostek |
-| Przestrzenie nazw |  1 | 50 na CU |
+| Namespaces |  1 | 50 na CU |
 | Event Hubs |  10 na przestrzeń nazw | 1000 na przestrzeń nazw |
 | Zdarzenia związane z transferem danych przychodzących | Płatność za milion zdarzeń | Dołączono |
 | Rozmiar komunikatu | 1 000 000 bajtów | 1 000 000 bajtów |
@@ -66,7 +66,7 @@ Zapoznaj się z tym [dokumentem](https://docs.microsoft.com/azure/event-hubs/eve
 ## <a name="schema-registry-limitations"></a>Ograniczenia rejestru schematu
 
 ### <a name="limits-that-are-the-same-for-standard-and-dedicated-tiers"></a>Limity, które są takie same dla warstw **standardowa** i **dedykowana** 
-| Cechy | Limit | 
+| Cecha | Limit | 
 |---|---|--|
 | Maksymalna długość nazwy grupy schematu | 50 |  
 | Maksymalna długość nazwy schematu | 100 |    
@@ -83,8 +83,3 @@ Zapoznaj się z tym [dokumentem](https://docs.microsoft.com/azure/event-hubs/eve
 | Rozmiar rejestru schematu (przestrzeń nazw) w bajtach. | 25 |  1024 |
 | Liczba grup schematu w rejestrze lub przestrzeni nazw schematu | 1 — wykluczanie grupy domyślnej | 1000 |
 | Liczba wersji schematu we wszystkich grupach schematu | 25 | 10 000 |
-
-
-
-
-
