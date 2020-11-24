@@ -11,12 +11,12 @@ metadata:
   ms.author: dobett
   manager: philmea
   ms.date: 10/31/2019
-  ms.openlocfilehash: 5b01154fa3e5821ca577e4a910facff8d9cb968a
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 75aa276fb41ebe717caa5c2f0dbdab5f9709237e
+  ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91598048"
+  ms.lasthandoff: 11/23/2020
+  ms.locfileid: "95495240"
 landingContent:
 - title: Informacje o usłudze IoT Plug and Play
   linkLists:
@@ -30,20 +30,12 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Łączenie przykładowego urządzenia z usługą IoT Hub (C)
-      url: quickstart-connect-device-c.md
-    - text: Łączenie przykładowego urządzenia z usługą IoT Hub (C#)
-      url: quickstart-connect-device-csharp.md
-    - text: Łączenie przykładowego urządzenia z usługą IoT Hub (Java)
-      url: quickstart-connect-device-java.md
-    - text: Łączenie przykładowego urządzenia z usługą IoT Hub (Node.js)
-      url: quickstart-connect-device-node.md
-    - text: Łączenie przykładowego urządzenia z usługą IoT Hub (Python)
-      url: quickstart-connect-device-python.md
+    - text: Łączenie przykładowego urządzenia z usługą IoT Hub
+      url: quickstart-connect-device.md
   - linkListType: concept
     links:
     - text: Przewodnik dla deweloperów
-      url: concepts-developer-guide-device-csharp.md
+      url: concepts-developer-guide-device.md
     - text: Składniki
       url: concepts-components.md
     - text: Konwencje technologii IoT Plug and Play
@@ -54,10 +46,8 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Interakcja z urządzeniem z rozwiązania (Node.js)
-      url: quickstart-service-node.md
-    - text: Interakcja z urządzeniem z rozwiązania (Python)
-      url: quickstart-service-python.md
+    - text: Interakcja z urządzeniem z rozwiązania
+      url: quickstart-service.md
   - linkListType: concept
     links:
     - text: Architektura
