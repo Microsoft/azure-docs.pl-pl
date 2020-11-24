@@ -4,14 +4,13 @@ ms.date: 04/17/2019
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.openlocfilehash: 1b3f9fff835e39c737227d6817c3a1dd901f3c65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be2242e22ad2815a70be1a56cb77696afbd9a8d3
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85367578"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95554195"
 ---
 > [!NOTE]
 > Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r.
-> Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.3.0). Aby uzyskać instrukcje dotyczące instalacji modułu Az, zobacz [Instalowanie programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.3.0).
-
+> Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](/powershell/azure/new-azureps-module-az?view=azps-3.3.0). Aby uzyskać instrukcje dotyczące instalacji modułu Az, zobacz [Instalowanie programu Azure PowerShell](/powershell/azure/install-az-ps?view=azps-3.3.0).
