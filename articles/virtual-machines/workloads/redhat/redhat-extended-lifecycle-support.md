@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: mathapli
 ms.reviewer: cynthn
-ms.openlocfilehash: 71ff00dbf32ef32ead85be60cdbe53f23c8e35c7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 1f31cc982e5e7f92cfe7e8adf588dd96628f2c6f
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957575"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95744045"
 ---
 # <a name="red-hat-enterprise-linux-rhel-extended-lifecycle-support"></a>Red Hat Enterprise Linux (RHEL) rozszerzona obsługa cyklu życia
 Ten artykuł zawiera informacje o rozszerzonej obsłudze cyklu życia obrazów systemu Red Hat Enterprise:
@@ -22,6 +22,14 @@ Ten artykuł zawiera informacje o rozszerzonej obsłudze cyklu życia obrazów s
 ## <a name="red-hat-enterprise-linux-6-lifecycle"></a>Cykl życia Red Hat Enterprise Linux 6
 Począwszy od 30 listopada 2020, Red Hat Enterprise Linux 6 zostanie osiągnięty koniec fazy konserwacji. Po fazie konserwacji następuje rozbudowana faza okresu istnienia. Jako Red Hat Enterprise Linux 6 przejść z faz pełnej/konserwacji, zdecydowanie zaleca się uaktualnienie do Red Hat Enterprise Linux 7 lub 8. Jeśli klienci muszą pozostać w Red Hat Enterprise Linux 6, zaleca się dodanie dodatku Red Hat Enterprise Linux rozszerzonej pomocy technicznej cyklu życia (ELS).
 
+## <a name="steps-to-add-extended-lifecycle-support-on-marketplace-pay-as-you-go-vms"></a>Kroki umożliwiające dodanie rozszerzonej obsługi cyklu życia na maszynach wirtualnych z systemem Marketplace z opcją płatność zgodnie z rzeczywistym użyciem
+1. Wypełnij [formularz Els dostępny tutaj](https://aka.ms/els-form) wraz z informacjami dotyczącymi kontaktu i subskrypcją maszyn wirtualnych, dla których chcesz dodać obsługę Els. Szczegółowe informacje o cenach są dostępne również w formularzu.
+1. Zespół usługi Azure Red Hat Enterprise Linux będzie mógł skontaktować się z listą maszyn wirtualnych na potrzeby obsługi ELS w ciągu 1-2 dni roboczych. Przejrzyj listę i odpowiadaj na dodawanie cen.
+1. Zespół usługi Azure Red Hat Enterprise Linux będzie udostępniać kroki umożliwiające dodanie pakietu klienta ELS do maszyn wirtualnych. Postępuj zgodnie z instrukcjami podanymi w wiadomości e-mail, aby nadal otrzymywać konserwacje oprogramowania (poprawki usterek i zabezpieczeń) oraz obsłużyć Red Hat Enterprise Linux 6.
+
+> [!Note]
+> Nie należy udostępniać czynności związanych z korzystaniem z usługi RHEL ELS Add on z innymi osobami spoza organizacji. Skontaktuj się z Tobą, aby AzureRedHatELS@microsoft.com uzyskać pomoc techniczną lub uzyskać dodatkowe pytania.
+
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
 #### <a name="im-running-red-hat-enterprise-linux-6-and-cant-migrate-to-a-later-version-at-this-time-what-options-do-i-have"></a>Korzystam z programu Red Hat Enterprise Linux 6 i nie można teraz migrować do nowszej wersji. Jakie są dostępne opcje?
@@ -29,19 +37,8 @@ Począwszy od 30 listopada 2020, Red Hat Enterprise Linux 6 zostanie osiągnięt
 * Przeprowadź migrację do Red Hat Enterprise Linux 7 lub 8 tak szybko, jak to możliwe.
 
 #### <a name="what-is-the-additional-charge-for-using-red-hat-enterprise-linux-extended-life-cycle-support-els-add-on"></a>Jaka jest dodatkowa opłata za korzystanie z usługi Red Hat Enterprise Linux dodatkowym obsłudze cyklu życia (ELS)?
+Koszty związane z rozszerzoną obsługą cyklu życia można znaleźć za pomocą [formularza Els](https://aka.ms/els-form)
 
-|Rozmiar maszyny wirtualnej|Dodatkowy przedział czasu opłaty|Dodatkowa kwota dolara (USD)| Uwagi|
-|---|---|---|---|
-| Mały wirtualny Gości (<= 4 rdzenie) | Opłata dodatkowa co godzinę | TBC | |
-|  | Miesięczna opłata dodatkowa | TBC | Dla wystąpień zarezerwowanych |
-|  | Roczna opłata dodatkowa | TBC | Dla wystąpień zarezerwowanych |
-| Duże wirtualne gościa (>4 rdzenie) | Opłata dodatkowa co godzinę | TBC | |
-|  | Miesięczna opłata dodatkowa | TBC | Dla wystąpień zarezerwowanych |
-|  | Roczna opłata dodatkowa | TBC | Dla wystąpień zarezerwowanych |
-
-#### <a name="what-is-the-process-to-add-extended-life-cycle-support-els-repositories-to-continue-to-receive-software-maintenance-bug-and-security-fixes-and--support-for-red-hat-enterprise-linux-6"></a>Co to jest proces dodawania repozytoriów z rozszerzonym cyklem życia (ELS) w celu kontynuowania otrzymywania konserwacji oprogramowania (poprawek usterek i zabezpieczeń) oraz pomocy technicznej dla Red Hat Enterprise Linux 6?
-
-Kompleksowy proces rejestracji w usłudze ELS będzie dostępny wkrótce (najpóźniej do 30 listopada, 2020).
 
 ## <a name="next-steps"></a>Następne kroki
 

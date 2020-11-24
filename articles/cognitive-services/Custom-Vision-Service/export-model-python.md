@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: ee9f49463e8e6749d29c810afaf7337cc99a98e8
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: a47475ad55c5e6262dc8ba1a384d89b9721fd2e9
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616046"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736429"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>Samouczek: uruchamianie modelu TensorFlow w języku Python
 
@@ -34,7 +34,7 @@ Aby korzystać z tego samouczka, wykonaj następujące czynności:
 
 Następnie należy zainstalować następujące pakiety:
 
-```
+```bash
 pip install tensorflow
 pip install pillow
 pip install numpy
@@ -43,7 +43,7 @@ pip install opencv-python
 
 ## <a name="load-your-model-and-tags"></a>Ładowanie modelu i tagów
 
-Pobrany plik zip zawiera pliki model.pb i labels.txt. Te pliki stanowią uczony model i etykiety klasyfikacji. Pierwszym krokiem jest załadowanie modelu do projektu.
+Pobrany plik zip zawiera _model. PB_ i plik _labels.txt_ . Te pliki stanowią uczony model i etykiety klasyfikacji. Pierwszym krokiem jest załadowanie modelu do projektu. Dodaj następujący kod do nowego skryptu języka Python.
 
 ```Python
 import tensorflow as tf
@@ -126,6 +126,8 @@ augmented_image = crop_center(augmented_image, network_input_size, network_input
 
 ```
 
+### <a name="add-helper-functions"></a>Dodawanie funkcji pomocnika
+
 W powyższych krokach używane są następujące funkcje pomocnicze:
 
 ```Python
@@ -191,7 +193,7 @@ with tf.compat.v1.Session() as sess:
         exit(-1)
 ```
 
-## <a name="view-the-results"></a>Wyświetlanie wyników
+## <a name="display-the-results"></a>Wyświetl wyniki
 
 Wyniki uruchomienia tensora obrazu za pośrednictwem modelu trzeb będzie wtedy zamapować z powrotem na etykiety.
 

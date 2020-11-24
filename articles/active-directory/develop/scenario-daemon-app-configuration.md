@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 24e3841abc9c397ab307e55405bdcc208815570e
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 6864502a9d338a786e1e77dbf9888a7818bb94e9
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444167"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95748652"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Aplikacja demona, która wywołuje interfejsy API sieci Web — konfiguracja kodu
 
@@ -36,9 +36,9 @@ Te biblioteki firmy Microsoft obsługują aplikacje demona:
 
 Aplikacje demona używają uprawnień aplikacji zamiast uprawnień delegowanych. Typ konta, który jest obsługiwany, nie może być kontem w żadnym katalogu organizacyjnym ani żadnym konto Microsoft osobistym (na przykład Skype, Xbox, Outlook.com). Brak administratora dzierżawy do udzielenia zgody na aplikację demona dla konta osobistego firmy Microsoft. Musisz wybrać *konta w mojej organizacji* lub *kontach w dowolnej organizacji*.
 
-W związku z tym Urząd określony w konfiguracji aplikacji powinien być dzierżawcą (określając identyfikator dzierżawy lub nazwę domeny skojarzoną z Twoją organizacją).
+Urząd określony w konfiguracji aplikacji powinien być dzierżawcą (określając identyfikator dzierżawy lub nazwę domeny skojarzoną z Twoją organizacją).
 
-Jeśli jesteś niezależnym dostawcą oprogramowania i chcesz udostępnić narzędzie wielodostępne, możesz użyć programu `organizations` . Należy jednak pamiętać, że należy również wyjaśnić swoim klientom sposób udzielania zgody administratora. Aby uzyskać szczegółowe informacje, zobacz [żądanie zgody dla całej dzierżawy](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). Ponadto obecnie obowiązuje ograniczenie MSAL: `organizations` jest to dozwolone tylko wtedy, gdy poświadczenia klienta są wpisem tajnym aplikacji (nie certyfikatem).
+Nawet jeśli chcesz udostępnić narzędzie wielodostępne, użyj identyfikatora dzierżawy lub nazwy domeny, a **nie** `common` lub `organizations` z tym przepływem, ponieważ usługa nie może w sposób niezawodny ustalić, która dzierżawa powinna zostać użyta.
 
 ## <a name="configure-and-instantiate-the-application"></a>Konfigurowanie i tworzenie wystąpienia aplikacji
 

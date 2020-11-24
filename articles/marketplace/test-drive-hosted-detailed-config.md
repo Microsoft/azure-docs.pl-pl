@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 11/06/2020
-ms.openlocfilehash: 0765c05e08dda782c084775fb83b22a52558fa0d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 9e8aecfe8b16d8af755d3f4c3c71b875d4e8ec40
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491617"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95751253"
 ---
 # <a name="detailed-configuration-for-hosted-test-drives"></a>Szczegółowa konfiguracja dla hostowanych dysków testowych
 
@@ -29,7 +29,7 @@ W tym artykule opisano sposób konfigurowania hostowanego dysku testowego dla pr
 
     - **Typ dysku testowego** — wybierz **firmę Microsoft hostowaną (Dynamics 365 for Customer Engagement & powerapps)**. Oznacza to, że firma Microsoft będzie hostować i obsługiwać usługę, która przeprowadza testowanie i cofa obsługę administracyjną użytkowników.
 
-5. Przyznaj Microsoft AppSource uprawnienia do aprowizacji i anulowania aprowizacji użytkowników w dzierżawie przy użyciu [tych instrukcji](https://github.com/Microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md). W tym kroku zostanie wygenerowany **aplikacja usługi Azure AD identyfikator** i **aplikacja usługi Azure AD wartości klucza** wymienione poniżej.
+5. Przyznaj Microsoft AppSource uprawnienia do aprowizacji i anulowania aprowizacji użytkowników w dzierżawie przy użyciu [tych instrukcji](https://docs.microsoft.com/azure/marketplace/test-drive-azure-subscription-setup). W tym kroku zostanie wygenerowany **aplikacja usługi Azure AD identyfikator** i **aplikacja usługi Azure AD wartości klucza** wymienione poniżej.
 6. Wypełnij te pola na stronie **konfiguracja techniczna na dysku testowym** .
 
     [![Strona konfiguracja techniczna na dysku testowym.](media/test-drive/technical-config-details.png)](media/test-drive/technical-config-details.png#lightbox)

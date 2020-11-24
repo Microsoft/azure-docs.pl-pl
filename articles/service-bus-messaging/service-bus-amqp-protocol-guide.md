@@ -3,12 +3,12 @@ title: AMQP 1,0 Azure Service Bus i Event Hubs Przewodnik po protokole | Microso
 description: Przewodnik po protokole do wyrażeń i opisów AMQP 1,0 w Azure Service Bus i Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 32e71211ed1574cade0567f7944b154eea062b24
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: e001327c2c7da08cb9a3552f97fc9a7d8b7921a2
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95396879"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736718"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1,0 Azure Service Bus i Event Hubs Przewodnik po protokole
 
@@ -42,7 +42,7 @@ Protokół AMQP 1,0 został zaprojektowany tak, aby był rozszerzalny, umożliwi
 
 W tej sekcji objaśniono podstawowe użycie AMQP 1,0 z Azure Service Bus, które obejmują tworzenie połączeń, sesji i linków oraz przenoszenie komunikatów do i z jednostek Service Bus, takich jak kolejki, tematy i subskrypcje.
 
-Najbardziej autorytatywne źródło informacji o tym, jak działa AMQP, jest specyfikacją AMQP 1,0, ale specyfikacja została zapisywana w celu precyzyjnego wdrożenia przewodnika, a nie do uczenia się protokołu. Ta sekcja koncentruje się na wprowadzaniu tyle terminologii, ile jest potrzebnych do opisywania, w jaki sposób Service Bus używa AMQP 1,0. Aby zapoznać się z bardziej szczegółowym wprowadzeniem do AMQP, a także szerszej dyskusji na temat AMQP 1,0, możesz przejrzeć [ten kurs wideo][this video course].
+Najbardziej autorytatywne źródło informacji o tym, jak działa AMQP, jest [specyfikacją AMQP 1,0](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html), ale specyfikacja została zapisywana w celu precyzyjnego wdrożenia przewodnika, a nie do uczenia się protokołu. Ta sekcja koncentruje się na wprowadzaniu tyle terminologii, ile jest potrzebnych do opisywania, w jaki sposób Service Bus używa AMQP 1,0. Aby zapoznać się z bardziej szczegółowym wprowadzeniem do AMQP, a także szerszej dyskusji na temat AMQP 1,0, możesz przejrzeć [ten kurs wideo][this video course].
 
 ### <a name="connections-and-sessions"></a>Połączenia i sesje
 
@@ -67,7 +67,7 @@ Sesje mają model sterowania przepływem oparty na oknie; Po utworzeniu sesji ka
 
 Ten model oparty na oknach jest w przybliżeniu podobny do koncepcji TCP sterowania przepływem opartym na oknach, ale na poziomie sesji w gnieździe. Koncepcja protokołu zezwalająca na wiele współbieżnych sesji istnieje, tak że ruch o wysokim priorytecie może być rushed, a poprzedni ruch z ograniczeniami, na przykład na torze ekspresowym Express.
 
-Azure Service Bus obecnie używa dokładnie jednej sesji dla każdego połączenia. Maksymalny rozmiar ramki Service Bus wynosi 262 144 bajtów (256 – K b) dla Service Bus Standard i Event Hubs. Jest to 1 048 576 (1 MB) dla Service Bus Premium. Service Bus nie nakłada żadnych określonych okien ograniczania przepustowości, ale resetuje okno regularnie w ramach sterowania przepływem na poziomie linku (zobacz [następną sekcję](#links)).
+Azure Service Bus obecnie używa dokładnie jednej sesji dla każdego połączenia. Maksymalny rozmiar ramki Service Bus wynosi 262 144 bajtów (256 – K b) dla Service Bus Standard. Jest 1 048 576 (1 MB) dla Service Bus Premium i Event Hubs. Service Bus nie nakłada żadnych określonych okien ograniczania przepustowości, ale resetuje okno regularnie w ramach sterowania przepływem na poziomie linku (zobacz [następną sekcję](#links)).
 
 Połączenia, kanały i sesje są nieulotne. Jeśli połączenie podstawowe jest zwinięte, należy ponownie nawiązać połączenia, tunel protokołu TLS, kontekst autoryzacji SASL i sesje.
 

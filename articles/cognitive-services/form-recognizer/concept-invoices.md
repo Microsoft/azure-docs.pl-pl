@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 366826e591ed131ca63dc94eae994773217438d1
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: af3935bab5cd4d6a2aa4a9e3250f6beec19a8ea4
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511565"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736683"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Wbudowany model faktury aparatu rozpoznawania formularzy
 
@@ -107,7 +107,8 @@ Usługa Invoice wyodrębni pola tekstu, tabel i 26 pól faktury. Poniżej przeds
 ## <a name="next-steps"></a>Następne kroki
 
 - Wypróbuj własne faktury i przykłady w [przykładowym interfejsie użytkownika aparatu rozpoznawania formularzy](https://fott-preview.azurewebsites.net/).
-- Lub postępuj zgodnie z przewodnikiem Szybki Start dla [danych faktury](./QuickStarts/python-invoices.md) , aby zaimplementować wyodrębnianie danych z faktury za pomocą języka Python i interfejsu API REST.
+- Wykonaj kroki z [przewodnikiem Szybki Start dla biblioteki klienta aparatu rozpoznawania](quickstarts/client-library.md) , aby rozpocząć pisanie aplikacji do przetwarzania faktur przy użyciu aparatu rozpoznawania formularzy w wybranym języku.
+- Lub postępuj zgodnie z przewodnikiem Szybki Start dla [danych faktury](./quickstarts/python-invoices.md) , aby zaimplementować wyodrębnianie danych z faktury za pomocą języka Python i interfejsu API REST.
 ## <a name="see-also"></a>Zobacz także
 
 * [Co to jest rozpoznawanie formularzy?](./overview.md)

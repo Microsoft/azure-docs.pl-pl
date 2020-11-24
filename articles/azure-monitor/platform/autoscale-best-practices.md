@@ -4,12 +4,12 @@ description: Automatyczne skalowanie wzorców na platformie Azure dla Web Apps, 
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 414716fbbb36167e52c4f3b98c70ae7696ffea8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fdb3588833dd9bcf989e020cd1dd861c6e28f37
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327059"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95745320"
 ---
 # <a name="best-practices-for-autoscale"></a>Najlepsze rozwiązania dotyczące automatycznego skalowania
 Automatyczne skalowanie Azure Monitor ma zastosowanie tylko do [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service-Web Apps](https://azure.microsoft.com/services/app-service/web/)i [usług API Management](../../api-management/api-management-key-concepts.md).
@@ -74,6 +74,9 @@ W tym przypadku
 4. Reguła skalowania automatycznego skalowania szacuje stan końcowy w przypadku skalowania w poziomie. Na przykład 60 x 3 (bieżąca liczba wystąpień) = 180/2 (końcowa liczba wystąpień podczas skalowania w dół) = 90. Dlatego Skalowanie automatyczne nie jest skalowane, ponieważ będzie musiało być od razu skalowane. Zamiast tego pomija skalowanie w dół.
 5. W następnym czasie kontrole automatycznego skalowania procesora CPU w dalszym ciągu spadnie do 50. To polecenie szacuje się ponownie — 50 x 3 wystąpienie = 150/2 wystąpień = 75, które jest poniżej progu skalowania w poziomie wynoszącym 80, dlatego skaluje się w pomyślnie do 2 wystąpień.
 
+> [!NOTE]
+> Jeśli aparat skalowania automatycznego wykrywa niestabilny może wystąpić w wyniku skalowania do docelowej liczby wystąpień, będzie również próbować skalować do innej liczby wystąpień między bieżącą liczbą i liczbą docelową. Jeśli niestabilny nie występuje w tym zakresie, automatyczne skalowanie będzie kontynuowało operację skalowania z nowym elementem docelowym.
+
 ### <a name="considerations-for-scaling-threshold-values-for-special-metrics"></a>Zagadnienia dotyczące skalowania wartości progowych dla metryk specjalnych
  W przypadku metryk specjalnych, takich jak magazyn lub Service Bus długość kolejki, próg to średnia liczba komunikatów dostępnych na bieżącą liczbę wystąpień. Starannie wybieraj wartość progową dla tej metryki.
 
@@ -115,8 +118,8 @@ Podobnie, gdy automatyczne skalowanie przełącza się z powrotem do domyślnego
 
 Istnieją przypadki, w których może być konieczne ustawienie wielu reguł w profilu. Następujące reguły automatycznego skalowania są używane przez aparat skalowania automatycznego, gdy ustawiono wiele reguł.
 
-W przypadku *skalowania w poziomie*funkcja automatycznego skalowania jest uruchamiana, jeśli dowolna reguła zostanie spełniona.
-W przypadku *skalowania w*poziomie Funkcja automatycznego skalowania wymaga spełnienia wszystkich reguł.
+W przypadku *skalowania w poziomie* funkcja automatycznego skalowania jest uruchamiana, jeśli dowolna reguła zostanie spełniona.
+W przypadku *skalowania w* poziomie Funkcja automatycznego skalowania wymaga spełnienia wszystkich reguł.
 
 Aby zilustrować, założono, że masz cztery następujące reguły automatycznego skalowania:
 
@@ -143,6 +146,8 @@ Automatyczne skalowanie będzie ogłaszane w dzienniku aktywności w przypadku w
 * Usługa automatycznego skalowania nie może wykonać akcji skalowania.
 * Metryki nie są dostępne dla usługi automatycznego skalowania, aby podejmować decyzje dotyczące skalowania.
 * Metryki są dostępne ponownie (Odzyskiwanie), aby przeprowadzić decyzję skalowania.
+* Funkcja automatycznego skalowania wykrywa niestabilny i przerywa próbę skalowania. W tej sytuacji zobaczysz typ dziennika `Flapping` . Jeśli widzisz ten element, zastanów się, czy progi są zbyt wąskie.
+* Funkcja automatycznego skalowania wykrywa niestabilny, ale nadal może skalować. W tej sytuacji zobaczysz typ dziennika `FlappingOccurred` . Jeśli zobaczysz, aparat skalowania automatycznego podjął próbę skalowania (np. z 4 wystąpień do 2), ale stwierdził, że może to spowodować niestabilny. Zamiast tego aparat skalowania automatycznego został przeskalowany do innej liczby wystąpień (np. przy użyciu 3 wystąpień zamiast 2), która nie powoduje już niestabilny, więc została przeskalowana do tej liczby wystąpień.
 
 Możesz również użyć alertu dziennika aktywności do monitorowania kondycji aparatu skalowania automatycznego. Poniżej przedstawiono przykłady [tworzenia alertu dziennika aktywności w celu monitorowania wszystkich operacji aparatu automatycznego skalowania w ramach subskrypcji](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) lub [tworzenia alertu dziennika aktywności w celu monitorowania wszystkich niezakończonych operacji skalowania automatycznego w poziomie w ramach subskrypcji](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
 

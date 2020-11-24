@@ -3,12 +3,12 @@ title: Jak wykonywać zapytania dotyczące dzienników z Azure Monitor kontener�
 description: Azure Monitor dla kontenerów zbiera dane dotyczące metryk i dzienników, a w tym artykule opisano rekordy i zawiera przykładowe zapytania.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: a540ae828b14f231b3b327b714876550cc744a7e
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 08c42fab84cb5180497f8da4f077b9bd82283ad4
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994025"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95747683"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Jak wykonywać zapytania dotyczące dzienników z Azure Monitor dla kontenerów
 
@@ -16,7 +16,7 @@ Azure Monitor dla kontenerów zbiera metryki wydajności, dane spisu i informacj
 
 ## <a name="container-records"></a>Rekordy kontenerów
 
-W poniższej tabeli przedstawiono szczegółowe informacje o rekordach zebranych przez Azure Monitor dla kontenerów. 
+W poniższej tabeli przedstawiono szczegółowe informacje o rekordach zbieranych przez Azure Monitor kontenerów. Aby zapoznać się z listą opisów kolumn, zobacz temat informacje o tabelach [ContainerInventory](/azure/azure-monitor/reference/tables/containerinventory) i [ContainerLog](/azure/azure-monitor/reference/tables/containerlog) .
 
 | Dane | Źródło danych | Typ danych | Pola |
 |------|-------------|-----------|--------|

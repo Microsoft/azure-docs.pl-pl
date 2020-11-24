@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: 3f52b8d4e56ec854f93940ea77f09c3dff1d362e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 423a879889402d5d3df70a7fadae6451c8418238
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096006"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95743161"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Co to są przeglądy dostępu w usłudze Azure AD?
 
@@ -74,10 +74,18 @@ W zależności od tego, co chcesz przejrzeć, możesz utworzyć przegląd dostę
 
 Katalog wymaga co najmniej tylu licencji na Azure AD — wersja Premium P2 jako liczby pracowników, którzy będą wykonywać następujące zadania:
 
-- Użytkownicy i Goście przypisani jako recenzenci
-- Użytkownicy i Goście, którzy wykonują własne przeglądy
-- Właściciele grup, którzy wykonują przegląd dostępu
-- Właściciele aplikacji, którzy wykonują przegląd dostępu
+-   Użytkownicy będący członkami, którzy są przypisani jako recenzenci
+-   Użytkownicy będący członkami, którzy wykonują własne przeglądy
+-   Użytkownicy będący członkami jako właściciele grup, którzy wykonują przegląd dostępu
+-   Użytkownicy będący członkami jako właściciele aplikacji, którzy wykonują przegląd dostępu
+
+Dla użytkowników-Gości wymagania dotyczące licencjonowania będą zależeć od używanego modelu licencjonowania. Jednak poniższe działania użytkowników-Gości są uważane za Azure AD — wersja Premium użycia P2:
+
+-   Użytkownicy-Goście przypisani jako recenzenci
+-   Użytkownicy-Goście, którzy wykonują własne przeglądy
+-   Użytkownicy-Goście jako właściciele grup, którzy wykonują przegląd dostępu
+-   Użytkownicy-Goście jako właściciele aplikacji, którzy wykonują przegląd dostępu
+
 
 Licencje na Azure AD — wersja Premium P2 **nie** są wymagane dla użytkowników z rolami administratora globalnego lub administratora użytkowników, którzy konfigurują przeglądy dostępu, konfigurują ustawienia lub stosują decyzje z przeglądu.
 

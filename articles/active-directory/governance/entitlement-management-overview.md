@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 09/30/2020
+ms.date: 11/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: ecc25af19694c0befdd24b041807e2067db4f13b
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 163947268d79a0297eef3f3f6e97187a0aef6994
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886944"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95738146"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Co to jest zarządzanie upoważnieniami w usłudze Azure AD?
 
@@ -144,10 +144,10 @@ Wyspecjalizowane chmury, takie jak Azure (Niemcy) i Azure (Chiny), nie są obecn
 Upewnij się, że Twój katalog ma co najmniej tyle licencji na Azure AD — wersja Premium P2, ile masz:
 
 - Użytkownicy będący członkami, którzy **mogą** zażądać pakietu dostępu.
-- Użytkownicy i Goście, którzy <u>żądają</u> pakietu dostępu.
-- Użytkownicy i Goście, którzy <u>zatwierdzają żądania</u> dla pakietu dostępu.
+- Użytkownicy będący członkami, którzy <u>żądają</u> pakietu dostępu.
+- Użytkownicy będący członkami, którzy <u>zatwierdzają żądania</u> dla pakietu dostępu.
 - Użytkownicy będący członkami, którzy <u>przeglądają przypisania</u> dla pakietu dostępu. 
-- Użytkownicy i Goście, którzy mają <u>bezpośrednie przypisanie</u> do pakietu dostępu.
+- Użytkownicy będący członkami, którzy mają <u>bezpośrednie przypisanie</u> do pakietu dostępu.
 
 Dla użytkowników-Gości wymagania dotyczące licencjonowania będą zależeć od używanego [modelu licencjonowania](../external-identities/external-identities-pricing.md) . Jednak poniższe działania użytkowników-Gości są uważane za Azure AD — wersja Premium użycia P2:
 - Użytkownicy-Goście, którzy <u>żądają</u> pakietu dostępu. 

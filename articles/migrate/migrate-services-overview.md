@@ -4,12 +4,12 @@ description: Dowiedz się więcej o usłudze Azure Migrate.
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 48447959f0a60baf8802a9939612bf0d536c2557
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 5a003fc740d08c24af301a6c7ad06cc342530c56
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314763"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95746884"
 ---
 # <a name="about-azure-migrate"></a>Informacje o usłudze Azure Migrate
 
@@ -18,7 +18,7 @@ Ten artykuł zawiera krótkie omówienie usługi Azure Migrate.
 Azure Migrate udostępnia scentralizowany centrum do oceny i migracji do lokalnych serwerów, infrastruktury, aplikacji i danych platformy Azure. Dostępne są następujące elementy:
 
 - **Ujednolicona platforma migracji**: pojedynczy Portal do uruchamiania, uruchamiania i śledzenia migracji do platformy Azure.
-- **Zakres narzędzi**: szereg narzędzi do oceny i migracji. Narzędzia Azure Migrate obejmują ocenę serwera i Azure Migrate: Migracja serwera. Azure Migrate integruje się także z innymi usługami i narzędziami platformy Azure oraz ofertami niezależnych dostawców oprogramowania (ISV).
+- **Zakres narzędzi**: szereg narzędzi do oceny i migracji. Narzędzia Azure Migrate obejmują Azure Migrate: Ocena serwera i Azure Migrate: Migracja serwera. Azure Migrate integruje się także z innymi usługami i narzędziami platformy Azure oraz ofertami niezależnych dostawców oprogramowania (ISV).
 - **Ocena i migracja**: w centrum Azure Migrate można ocenić i zmigrować:
     - **Serwery**: ocenianie serwerów lokalnych i migrowanie ich do usługi Azure Virtual Machines lub Azure VMware Solution (wersja zapoznawcza).
     - **Bazy danych**: ocenianie lokalnych baz danych i migrowanie ich do Azure SQL Database lub do wystąpienia zarządzanego SQL.
@@ -80,11 +80,11 @@ Ocena serwera korzysta z uproszczonego [urządzenia Azure Migrate](migrate-appli
 
 Azure Migrate: Narzędzie do migracji serwera ułatwia Migrowanie do platformy Azure:
 
-**Migrate (Migracja)** | **Szczegóły**
+**Migracja** | **Szczegóły**
 --- | ---
-Lokalne maszyny wirtualne VMware | Migrowanie maszyn wirtualnych na platformę Azure przy użyciu funkcji bezagentowej lub migracji opartej na agentach.<br/><br/> W przypadku migracji bez wykorzystania agentów Migracja serwera używa urządzenia Azure Migrate, które jest wdrażane lokalnie. Jest to ten sam typ urządzenia, którego używasz do oceny serwera.<br/><br/> W przypadku migracji na podstawie agenta Ocena serwera korzysta z urządzenia replikacji.
-Lokalne maszyny wirtualne funkcji Hyper-V | Migrowanie maszyn wirtualnych na platformę Azure.<br/><br/> Funkcja oceny serwera używa agentów dostawcy zainstalowanych na hoście funkcji Hyper-V na potrzeby migracji.
-Lokalne serwery fizyczne | Maszyny fizyczne można migrować do platformy Azure. Można również migrować inne maszyny wirtualne i maszyny wirtualne z innych chmur publicznych, traktując je jako maszyny wirtualne na potrzeby migracji. | Ocena serwera używa urządzenia replikacji do migracji.
+Lokalne maszyny wirtualne VMware | Migrowanie maszyn wirtualnych na platformę Azure przy użyciu funkcji bezagentowej lub migracji opartej na agentach.<br/><br/> W przypadku migracji bez wykorzystania agentów Migracja serwera używa tego samego urządzenia Azure Migrate, które może być również używane przez ocenę serwera na potrzeby odnajdywania i oceny maszyn wirtualnych VMware.<br/><br/> W przypadku migracji na podstawie agenta Migracja serwera korzysta z urządzenia replikacji.
+Lokalne maszyny wirtualne funkcji Hyper-V | Migrowanie maszyn wirtualnych na platformę Azure.<br/><br/> Migracja serwera używa agentów dostawcy zainstalowanych na hoście funkcji Hyper-V na potrzeby migracji.
+Lokalne serwery fizyczne | Maszyny fizyczne można migrować do platformy Azure. Można również migrować inne maszyny wirtualne i maszyny wirtualne z innych chmur publicznych, traktując je jako serwery fizyczne na potrzeby migracji. | Migracja serwera używa urządzenia replikacji do migracji.
 
 
 ## <a name="selecting-assessment-and-migration-tools"></a>Wybieranie narzędzi do oceny i migracji

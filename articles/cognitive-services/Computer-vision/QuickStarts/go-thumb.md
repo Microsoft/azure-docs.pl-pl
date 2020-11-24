@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 2913d0407ba791cfd9c7dd542a65fb2e697e442b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 12ab8f2c6eeb0e464eddbb0a56937af7115ef6e6
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014122"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95746391"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-with-go"></a>Szybki Start: generowanie miniatury przy użyciu interfejsu API REST przetwarzanie obrazów z funkcją go
 

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: ed767055c1227d39fc29ac77a44c96b19030ad28
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 8033117d9e3c31f8aa9bba06afb7c3b1b7bba67f
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535864"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95751032"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Obsługiwane wersje serwera Azure Database for MySQL
 
@@ -46,9 +46,9 @@ Zapoznaj się z [informacjami o wersji](https://dev.mysql.com/doc/relnotes/mysql
 ## <a name="managing-updates-and-upgrades"></a>Zarządzanie aktualizacjami i uaktualnieniami
 Usługa automatycznie zarządza poprawkami do poprawek błędów wersji. Na przykład 5.7.20 do 5.7.21.  
 
-Obecnie uaktualnienia wersji pomocniczych i głównych nie są obsługiwane. Na przykład uaktualnienie bazy danych MySQL 5.6 do wersji 5.7 nie jest obsługiwane. Jeśli chcesz przeprowadzić uaktualnienie z wersji 5.6 do 5.7, wykonaj [zrzut i przywróć go](./concepts-migrate-dump-restore.md) na serwer, który został utworzony przy użyciu nowej wersji aparatu.
+Uaktualnianie wersji głównej jest obecnie obsługiwane przez usługę do uaktualnień z programu MySQL v 5.6 do wersji 5.7. Aby uzyskać więcej informacji, zobacz [Jak przeprowadzić uaktualnienia wersji głównej](how-to-major-version-upgrade.md). Jeśli chcesz przeprowadzić uaktualnienie z 5,7 do 8,0, zalecamy wykonanie [zrzutu i przywrócenia](./concepts-migrate-dump-restore.md) na serwerze, który został utworzony przy użyciu nowej wersji aparatu.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby uzyskać szczegółowe informacje na temat zasad dotyczących wersji Azure Database for MySQL, zobacz [ten dokument](concepts-version-policy.md).
-- Aby uzyskać informacje na temat konkretnych przydziałów zasobów i ograniczeń na podstawie **warstwy usług** , zobacz [warstwy usług](./concepts-pricing-tiers.md)
+- Aby uzyskać informacje na temat konkretnych przydziałów zasobów i ograniczeń na podstawie **warstwy usług**, zobacz [warstwy usług](./concepts-pricing-tiers.md)

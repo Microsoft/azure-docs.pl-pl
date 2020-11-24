@@ -13,16 +13,16 @@ ms.date: 09/18/2020
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 70194c7adc55a00c5cb65928daac184499eb124d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aff89d49dec9bafedb3c9a5a76abdeb803740a12
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611116"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95746731"
 ---
 # <a name="tutorial-sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>Samouczek: Logowanie użytkowników i wywoływanie Microsoft Graph z aplikacji dla systemu iOS lub macOS
 
-W tym samouczku dowiesz się, jak zintegrować aplikację z systemem iOS lub macOS za pomocą platformy tożsamości firmy Microsoft. Aplikacja zarejestruje użytkownika, uzyska token dostępu do wywołania interfejsu API Microsoft Graph i wyśle żądanie do interfejsu API Microsoft Graph.
+W tym samouczku utworzysz aplikację dla systemu iOS lub macOS, która integruje się z platformą tożsamości firmy Microsoft w celu podpisywania użytkownikom i uzyskiwania tokenu dostępu do wywoływania interfejsu API Microsoft Graph.
 
 Po ukończeniu tego przewodnika aplikacja będzie akceptować logowania do osobistych kont Microsoft (w tym outlook.com, live.com i innych) oraz kont służbowych z dowolnej firmy lub organizacji korzystającej z Azure Active Directory. Ten samouczek dotyczy zarówno aplikacji dla systemu iOS, jak i macOS. Niektóre kroki są różne dla obu platform.
 
@@ -63,8 +63,8 @@ Jeśli chcesz pobrać kompletną wersję aplikacji skompilowanej w ramach tego s
 ## <a name="create-a-new-project"></a>Tworzenie nowego projektu
 
 1. Otwórz Xcode i wybierz pozycję **Utwórz nowy projekt Xcode**.
-2. W przypadku aplikacji dla systemu **iOS**iOS wybierz opcję  >  **aplikacja z pojedynczym widokiem** systemu iOS i wybierz pozycję **dalej**.
-3. W przypadku aplikacji macOS wybierz **macOS**pozycję  >  **aplikacja kakao** macOS i wybierz pozycję **dalej**.
+2. W przypadku aplikacji dla systemu **iOS** iOS wybierz opcję  >  **aplikacja z pojedynczym widokiem** systemu iOS i wybierz pozycję **dalej**.
+3. W przypadku aplikacji macOS wybierz **macOS** pozycję  >  **aplikacja kakao** macOS i wybierz pozycję **dalej**.
 4. Podaj nazwę produktu.
 5. Ustaw **Język** na **SWIFT** i wybierz pozycję **dalej**.
 6. Wybierz folder, w którym chcesz utworzyć aplikację, a następnie wybierz pozycję **Utwórz**.
@@ -80,7 +80,7 @@ Jeśli chcesz pobrać kompletną wersję aplikacji skompilowanej w ramach tego s
 
 7. Wybierz opcję **Wypróbuj nowe środowisko** w górnej części ekranu, aby otworzyć nowe środowisko rejestracji aplikacji, a następnie wybierz pozycję **+ Nowa rejestracja**  >  **+ Dodaj platformę**  >  **iOS/macOS**.
     - Wprowadź identyfikator pakietu projektu. Jeśli pobrano kod, jest to `com.microsoft.identitysample.MSALiOS` . Jeśli tworzysz własny projekt, wybierz projekt w Xcode i Otwórz kartę **Ogólne** . Identyfikator pakietu zostanie wyświetlony w sekcji **tożsamość** .
-8. Wybierz `Configure` i Zapisz **konfigurację MSAL** , która jest wyświetlana na stronie **Konfiguracja MSAL** , tak aby można ją było wprowadzić podczas późniejszej konfiguracji aplikacji. Wybierz pozycję **Gotowe**.
+8. Wybierz `Configure` i Zapisz **konfigurację MSAL** , która jest wyświetlana na stronie **Konfiguracja MSAL** , tak aby można ją było wprowadzić podczas późniejszej konfiguracji aplikacji. Kliknij **Gotowe**.
 
 ## <a name="add-msal"></a>Dodaj MSAL
 
@@ -158,7 +158,7 @@ Jedyną wartością, którą należy zmodyfikować powyżej, jest wartość przy
 
 ## <a name="configure-xcode-project-settings"></a>Konfigurowanie ustawień projektu Xcode
 
-Dodaj nową grupę łańcucha kluczy do **możliwości & podpisywania**projektu. Grupa łańcucha kluczy powinna znajdować się `com.microsoft.adalcache` w systemach iOS i `com.microsoft.identity.universalstorage` macOS.
+Dodaj nową grupę łańcucha kluczy do **możliwości & podpisywania** projektu. Grupa łańcucha kluczy powinna znajdować się `com.microsoft.adalcache` w systemach iOS i `com.microsoft.identity.universalstorage` macOS.
 
 ![Interfejs użytkownika Xcode przedstawiający sposób konfigurowania grupy łańcucha kluczy](../../../includes/media/active-directory-develop-guidedsetup-ios-introduction/iosintro-keychainShare.png)
 

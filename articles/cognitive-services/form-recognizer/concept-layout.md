@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 3c2e691d673b385d597957cf5a4ce3c3f18ba466
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: b489964e5ef8ea483cbe203be1ff665078a6d66a
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511552"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95741733"
 ---
 # <a name="form-recognizer-layout-service"></a>Usługa układu aparatu rozpoznawania formularzy
 
@@ -86,11 +86,10 @@ Układ wyodrębnia tabele z dokumentów (PDF, TIFF) i obrazów (jpg, PNG, BMP). 
 
 Układ wyodrębnia także znaczniki wyboru z dokumentów. Wyodrębnione znaczniki zaznaczenia obejmują pole ograniczenia, pewność i stan (wybrane/niezaznaczone). Informacje o zaznaczeniu są wyodrębniane w `"readResults"` sekcji danych wyjściowych JSON. 
 
-<<< Dodawanie znaczników zaznaczenia>>>
-
 ## <a name="next-steps"></a>Następne kroki
 
 - Wypróbuj własną ekstrakcję układu przy użyciu [przykładowego interfejsu użytkownika aparatu rozpoznawania formularzy](https://fott-preview.azurewebsites.net/)
+- Aby rozpocząć wyodrębnianie układów w wybranym języku, wykonaj kroki [przewodnika Szybki Start dla biblioteki klienta aparatu rozpoznawania formularzy](quickstarts/client-library.md) .
 - Można też postępować zgodnie z przewodnikiem Szybki Start do wdrażania [danych układu przy](./QuickStarts/python-layout.md) użyciu języka Python i interfejsu API REST.
 
 ## <a name="see-also"></a>Zobacz także

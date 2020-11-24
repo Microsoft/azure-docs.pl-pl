@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 4252e3a7f8c3ff9d0ec782a2a9222553c063463c
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 88774450fb196da5de24bcad047ecdb8c424f653
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/24/2020
-ms.locfileid: "95533280"
+ms.locfileid: "95736538"
 ---
 # <a name="configure-an-aks-cluster"></a>Konfigurowanie klastra AKS
 
@@ -276,7 +276,7 @@ az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-grou
 ```
 
 > [!IMPORTANT]
-> Za pomocą tymczasowej wersji systemu operacyjnego można wdrożyć maszyny wirtualne i wystąpienia obrazów o rozmiarze do rozmiaru pamięci podręcznej maszyny wirtualnej. W przypadku AKS domyślna konfiguracja dysku systemu operacyjnego węzła używa 100GiB, co oznacza, że potrzebujesz rozmiaru maszyny wirtualnej, która ma pamięć podręczną o rozmiarze większym niż 100 GiB. Domyślny Standard_DS2_v2 ma rozmiar pamięci podręcznej wynoszący 86 GiB, która nie jest wystarczająco duża. Standard_DS3_v2 ma rozmiar pamięci podręcznej 172 GiB, która jest wystarczająco duża. Możesz również zmniejszyć domyślny rozmiar dysku systemu operacyjnego za pomocą polecenia `--node-osdisk-size` . Minimalny rozmiar obrazów AKS to 30GiB. 
+> Za pomocą tymczasowej wersji systemu operacyjnego można wdrożyć maszyny wirtualne i wystąpienia obrazów o rozmiarze do rozmiaru pamięci podręcznej maszyny wirtualnej. W przypadku AKS domyślna konfiguracja dysku systemu operacyjnego węzła używa 128 GB, co oznacza, że potrzebujesz rozmiaru maszyny wirtualnej o rozmiarze pamięci podręcznej większej niż 128 GB. Domyślny Standard_DS2_v2 ma rozmiar pamięci podręcznej 86GB, który nie jest wystarczająco duży. Standard_DS3_v2 ma rozmiar pamięci podręcznej 172GB, który jest wystarczająco duży. Możesz również zmniejszyć domyślny rozmiar dysku systemu operacyjnego za pomocą polecenia `--node-osdisk-size` . Minimalny rozmiar obrazów AKS to 30 GB. 
 
 Jeśli chcesz utworzyć pule węzłów z dyskami systemu operacyjnego dołączonymi do sieci, możesz to zrobić, określając polecenie `--node-osdisk-type Managed` .
 

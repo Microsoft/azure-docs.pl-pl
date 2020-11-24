@@ -7,24 +7,24 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 09/04/2020
-ms.openlocfilehash: c52fabcfc2ff22df2de6dd93f2543d625310baef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/30/2020
+ms.openlocfilehash: 83c575aa40b80d9a8e39263e89a5e7860c8f8774
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89484345"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95741665"
 ---
-# <a name="publishing-guide-for-container-offers"></a>Przewodnik publikowania dla ofert kontenera
+# <a name="publishing-guide-for-azure-container-offers"></a>Przewodnik publikowania dla ofert kontenerów platformy Azure
 
-Kontener oferuje pomoc w publikowaniu obrazu kontenera w witrynie Azure Marketplace. Skorzystaj z tego przewodnika, aby poznać wymagania dotyczące tej oferty. 
+Usługa Azure Container oferuje pomoc w publikowaniu obrazu kontenera w witrynie Azure Marketplace. Skorzystaj z tego przewodnika, aby poznać wymagania dotyczące tego typu oferty.
 
-Oferty kontenerów to oferty transakcji, które są wdrażane i rozliczane za pomocą witryny Azure Marketplace. Opcja aukcji wyświetlana przez użytkownika to "Pobierz go teraz".
+Oferty kontenerów platformy Azure to oferty transakcji, które są wdrażane i rozliczane za pomocą witryny Azure Marketplace. Opcja aukcji wyświetlana przez użytkownika to "Pobierz go teraz".
 
-Użyj typu oferty *kontenera* , gdy rozwiązanie jest obrazem kontenera Docker, który jest skonfigurowany jako wystąpienie usługi kontenera platformy Azure opartej na Kubernetes. 
+Użyj typu oferty kontenera platformy Azure, gdy rozwiązanie jest obrazem kontenera Docker, który jest skonfigurowany jako Kubernetes Azure Container instance.
 
 > [!NOTE]
-> Przykłady wystąpień usługi kontenera platformy Azure opartej na Kubernetes to usługa Azure Kubernetes Service lub Azure Container Instances, wybór klientów platformy Azure dla środowiska uruchomieniowego kontenera opartego na Kubernetes.  
+> Wystąpienie kontenera platformy Azure to wystąpienie platformy Docker czasu wykonywania, które zapewnia najszybszy i najprostszy sposób uruchamiania kontenera na platformie Azure bez konieczności zarządzania wszystkimi maszynami wirtualnymi i bez konieczności wdrażania usługi wyższego poziomu. Wystąpienia kontenerów można wdrażać bezpośrednio na platformie Azure lub organizować przy użyciu usługi Azure Kubernetes Services lub aparatu usługi Azure Kubernetes Service.  
 
 Firma Microsoft obsługuje obecnie bezpłatne modele licencjonowania (BYOL).
 
@@ -39,9 +39,6 @@ Firma Microsoft obsługuje obecnie bezpłatne modele licencjonowania (BYOL).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli jeszcze tego nie zrobiono, Dowiedz się, jak [rozwijać swoją firmę w chmurze za pomocą witryny Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
+- Aby przygotować zasoby techniczne dla oferty kontenera, zobacz [Tworzenie zasobów technicznych kontenera platformy Azure](create-azure-container-technical-assets.md).
 
-Aby zarejestrować się i rozpocząć pracę w centrum partnerskim:
-
-- [Zaloguj się do Centrum partnerskiego](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) , aby utworzyć lub zakończyć swoją ofertę.
-- Aby uzyskać więcej informacji, zobacz [Tworzenie oferty kontenera platformy Azure](./partner-center-portal/create-azure-container-offer.md) .
+- Aby utworzyć ofertę platformy Azure, zapoznaj się z tematem [Tworzenie oferty kontenera platformy Azure w witrynie Azure Marketplace](create-azure-container-offer.md) , aby uzyskać więcej informacji.

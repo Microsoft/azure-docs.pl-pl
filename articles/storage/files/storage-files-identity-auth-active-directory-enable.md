@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 9dc6433170144635ad05033d110f448cf314179b
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 2214dbc9dcbd4ba7728065ee45471e9f94b9e513
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628853"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95739999"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Omówienie lokalnego uwierzytelniania Active Directory Domain Services za pośrednictwem protokołu SMB dla udziałów plików platformy Azure
 
@@ -24,7 +24,7 @@ Jeśli dopiero zaczynasz korzystanie z udziałów plików platformy Azure, zalec
 
 - AD DS tożsamości używanych do Azure Files lokalnego uwierzytelniania AD DS należy synchronizować z usługą Azure AD. Synchronizacja skrótów haseł jest opcjonalna. 
 - Obsługuje udziały plików platformy Azure zarządzane przez Azure File Sync.
-- Obsługuje uwierzytelnianie Kerberos za pomocą usługi AD z szyfrowaniem RC4-HMAC i [AES 256](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). Szyfrowanie AES 128 Kerberos nie jest jeszcze obsługiwane.
+- Obsługuje uwierzytelnianie Kerberos za pomocą usługi AD z szyfrowaniem RC4-HMAC i [AES 256](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). Obsługa szyfrowania AES 256 jest obecnie ograniczona do kont magazynu z nazwami <= 15 znaków. Szyfrowanie AES 128 Kerberos nie jest jeszcze obsługiwane.
 - Obsługuje logowanie jednokrotne.
 - Obsługiwane tylko na klientach z systemem operacyjnym w wersji nowszej niż Windows 7 lub Windows Server 2008 R2.
 - Obsługiwane tylko w przypadku lasu usługi AD, do którego jest zarejestrowana konto magazynu. Można uzyskać dostęp tylko do udziałów plików platformy Azure z poświadczeniami AD DS z pojedynczego lasu. Jeśli potrzebujesz dostępu do udziału plików platformy Azure z innego lasu, upewnij się, że skonfigurowano odpowiednie zaufanie lasu, aby uzyskać szczegółowe informacje, zobacz [często zadawane pytania](storage-files-faq.md#ad-ds--azure-ad-ds-authentication) .

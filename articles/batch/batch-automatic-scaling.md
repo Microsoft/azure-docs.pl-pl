@@ -2,14 +2,14 @@
 title: Automatyczne skalowanie węzłów obliczeniowych w puli Azure Batch
 description: Włącz automatyczne skalowanie w puli w chmurze, aby dynamicznie dostosować liczbę węzłów obliczeniowych w puli.
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 11/23/2020
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 5774acbfc035ab61267dddb31b01b0e82689f690
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 033272f22b98b27c67e9a551bce952368d35a043
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849796"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95737296"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Utwórz automatyczną formułę skalowania węzłów obliczeniowych w puli usługi Batch
 
@@ -135,6 +135,9 @@ Możesz uzyskać wartość tych zmiennych zdefiniowanych przez usługę, aby wpr
 > [!TIP]
 > Te zmienne zdefiniowane przez usługę tylko do odczytu są *obiektami* , które udostępniają różne metody uzyskiwania dostępu do danych skojarzonych z każdym z nich. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie przykładowych danych](#obtain-sample-data) w dalszej części tego artykułu.
 
+> [!NOTE]
+> Używany `$RunningTasks` podczas skalowania na podstawie liczby zadań uruchomionych w danym momencie oraz `$ActiveTasks` do skalowania na podstawie liczby zadań, które są umieszczane w kolejce do uruchomienia.
+
 ## <a name="types"></a>Types
 
 Formuły skalowania automatycznego obsługują następujące typy:
@@ -226,7 +229,7 @@ Podczas definiowania formuły można użyć metryk zasobów i zadań. Dostosowan
 
 <table>
   <tr>
-    <th>Metryka</th>
+    <th>Metric</th>
     <th>Opis</th>
   </tr>
   <tr>
@@ -381,7 +384,7 @@ $NodeDeallocationOption = taskcompletion;
 ```
 
 > [!NOTE]
-> Jeśli wybierzesz opcję, możesz uwzględnić zarówno komentarze, jak i podziały wierszy w ciągach formuły.
+> Jeśli wybierzesz opcję, możesz uwzględnić zarówno komentarze, jak i podziały wierszy w ciągach formuły. Należy również pamiętać, że brakujące średniki mogą spowodować błędy oceny.
 
 ## <a name="automatic-scaling-interval"></a>Interwał automatycznego skalowania
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 92eda77d03e547e814cac85f5ac8bb03b552d135
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ed6d3b927254d44863b7fd0a597528813be791cf
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95506558"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736615"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Co nowego w usłudze Rozpoznawanie formularzy?
 
@@ -38,13 +38,13 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
   > [Dowiedz się więcej o wyodrębnianiu układu](concept-layout.md)
 
 - **Obsługiwany nowy język: japoński** — teraz obsługiwane są następujące nowe języki: dla `AnalyzeLayout` i `AnalyzeCustomForm` : japoński ( `ja` ). [Obsługa języków](language-support.md)
-- **Oznaczenie stylu linii tekstu (odręczne/drukowanie) (tylko języki łacińskie)** — aparat rozpoznawania formularzy teraz wyprowadza `appearance` obiekt sklasyfikowany niezależnie od tego, czy każdy wiersz tekstu jest stylem odręcznym, czy nie, wraz z oceną ufności. Ta funkcja jest obsługiwana tylko dla języków łacińskich.
+- **Oznaczenie stylu linii tekstowej (pismo odręczne/inne) (tylko języki łacińskie)** — aparat rozpoznawania formularzy teraz wyprowadza `appearance` obiekt sklasyfikowany niezależnie od tego, czy każdy wiersz tekstu jest stylem odręcznym, czy nie, wraz z oceną ufności. Ta funkcja jest obsługiwana tylko dla języków łacińskich.
 - **Udoskonalenia dotyczące jakości** — ulepszenia wyodrębniania, w tym ulepszenia wyodrębniania z jednej cyfry.
 - **Nowa funkcja try-it w narzędziu do tworzenia etykiet z przykładowym aparatem rozpoznawania formularzy** — możliwość wypróbowania wstępnie utworzonych modeli faktur, paragonów i kart służbowych oraz interfejsu API układu przy użyciu narzędzia do etykietowania przykładowego aparatu rozpoznawania formularzy. Zobacz, w jaki sposób dane będą wyodrębniane bez pisania kodu.
 
   > [Wypróbuj narzędzie przykładowe aparat rozpoznawania formularzy](https://fott-preview.azurewebsites.net/)
 
-  ![Przykład FOTT](./media/fott-preview.jpg)
+  ![Przykład FOTT](./media/ui-preview.jpg)
 
 ## <a name="august-2020"></a>Sierpień 2020 r.
 
@@ -85,7 +85,7 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
 * **Obsługa waluty** — wykrywanie i wyodrębnianie symboli walut globalnych.
 * **Usługa Azure gov** — aparat rozpoznawania formularzy jest teraz również dostępny na platformie Azure gov.
 * **Ulepszone funkcje zabezpieczeń**: 
-   * Usługa aparat rozpoznawania **własnych** formularzy automatycznie szyfruje dane po utrwaleniu ich w chmurze w celu zapewnienia jej ochrony i zapewnienia zgodności ze swoimi zobowiązaniami dotyczącymi zabezpieczeń i bezpieczeństwa. Domyślnie subskrypcja używa kluczy szyfrowania zarządzanych przez firmę Microsoft. Teraz możesz również zarządzać subskrypcją przy użyciu własnych kluczy szyfrowania. [Klucze zarządzane przez klienta (CMK), znane także jako dające własny klucz (BYOK)](./form-recognizer-encryption-of-data-at-rest.md), zapewniają większą elastyczność tworzenia, obracania, wyłączania i odwoływania kontroli dostępu. Możesz również przeprowadzać inspekcję kluczy szyfrowania używanych do ochrony danych.  
+   * Usługa aparat rozpoznawania **własnych** formularzy automatycznie szyfruje dane po utrwaleniu ich w chmurze w celu zapewnienia jej ochrony i zapewnienia zgodności ze swoimi zobowiązaniami dotyczącymi zabezpieczeń i bezpieczeństwa. Domyślnie subskrypcja używa kluczy szyfrowania zarządzanych przez firmę Microsoft. Teraz możesz również zarządzać subskrypcją przy użyciu własnych kluczy szyfrowania. [Klucze zarządzane przez klienta, znane także jako dające własny klucz (BYOK)](./form-recognizer-encryption-of-data-at-rest.md), zapewniają większą elastyczność tworzenia, obracania, wyłączania i odwoływania kontroli dostępu. Możesz również przeprowadzać inspekcję kluczy szyfrowania używanych do ochrony danych.  
    * **Prywatne punkty końcowe** — umożliwia korzystanie z sieci wirtualnej (VNET) w celu [bezpiecznego dostępu do danych za pośrednictwem prywatnego linku.](../../private-link/private-link-overview.md)
 
 

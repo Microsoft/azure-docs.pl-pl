@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: trkeya
 ms.author: trkeya
-ms.openlocfilehash: f628c2a4c2f8eb474bbc34ef2d3fd2f03f668992
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: de85e4eb553f623790b472e79f8f97487ba96b48
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629907"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95751117"
 ---
 # <a name="test-drive-technical-configuration"></a>Wersja testowa konfiguracji technicznej
 
@@ -34,11 +34,13 @@ Firma Microsoft może usunąć złożoność konfigurowania dysku testowego, udo
 
 - **Adres URL wystąpienia** (wymagany) — adres URL, pod którym klient będzie rozpoczynać swój dysk testowy. Zwykle jest to adres URL wystąpienia usługi Dynamics 365 z uruchomioną aplikacją z zainstalowanymi przykładowymi danymi (na przykład `https://testdrive.crm.dynamics.com` ).
 
-- **Adres URL internetowego interfejsu API wystąpienia** (wymagany) — Pobierz adres URL internetowego interfejsu API dla wystąpienia usługi Dynamics 365, logując się do konta usługi Microsoft 365 i przechodząc do dostosowywania **ustawień**  >  **Customization**  >  wystąpienia **zasobów deweloperskich**  >  **Web API (główny adres URL usługi)** , skopiuj adres URL znaleziony tutaj (na przykład `https://testdrive.crm.dynamics.com/api/data/v9.0` ).
+- **Adres URL internetowego interfejsu API wystąpienia** (wymagany) — Pobierz adres URL internetowego interfejsu API dla wystąpienia usługi Dynamics 365, logując się do konta usługi Microsoft 365 i przechodząc do dostosowywania **ustawień**  >  **Customization**  >  wystąpienia **zasobów deweloperskich**  >  **Web API (główny adres URL usługi)**, skopiuj adres URL znaleziony tutaj (na przykład `https://testdrive.crm.dynamics.com/api/data/v9.0` ).
 
 - **Nazwa roli** (wymagana) — podaj nazwę roli zabezpieczeń, która została zdefiniowana w niestandardowym dysku testowym Dynamics 365, która zostanie przypisana do użytkownika podczas testu na dysku (na przykład "rola stacji testowych").
 
-Aby uzyskać pomoc dotyczącą sposobu konfigurowania środowiska Dynamics 365 dla dysku testowego i przyznawania uprawnień AppSource do aprowizacji i anulowania aprowizacji użytkowników w dzierżawie, postępuj zgodnie z [tymi instrukcjami](https://github.com/Microsoft/AppSource/blob/patch-1/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md).
+Aby uzyskać pomoc dotyczącą sposobu konfigurowania środowiska Dynamics 365 dla dysku testowego i przyznawania uprawnień AppSource do aprowizacji i anulowania aprowizacji użytkowników w dzierżawie, postępuj zgodnie z [tymi instrukcjami](https://docs.microsoft.com/azure/marketplace/test-drive-azure-subscription-setup).
+
+Instrukcje krok po kroku dotyczące wyświetlania i konfigurowania hostowanego dysku testowego znajdują się na stronie [Szczegółowa konfiguracja dla hostowanego dysku testowego](https://docs.microsoft.com/azure/marketplace/test-drive-hosted-detailed-config) .
 
 ## <a name="logic-app-test-drive"></a>Dysk testowy aplikacji logiki
 
@@ -68,13 +70,13 @@ Aby umożliwić firmie Microsoft wdrożenie dysku testowego w Twoim imieniu, Utw
 
 - **Identyfikator subskrypcji platformy Azure** (wymagany dla Azure Resource Manager i aplikacji logiki) — wprowadź identyfikator subskrypcji, aby udzielić dostępu do usług konta platformy Azure na potrzeby raportowania użycia zasobów i rozliczeń. Zalecamy [utworzenie oddzielnej subskrypcji platformy Azure](../cost-management-billing/manage/create-subscription.md) , która ma być używana na potrzeby dysków testowych, jeśli jeszcze jej nie masz. Identyfikator subskrypcji platformy Azure można znaleźć, logując się do [Azure Portal](https://portal.azure.com/) i przechodząc do karty **subskrypcje** w menu po lewej stronie. Wybranie karty spowoduje wyświetlenie identyfikatora subskrypcji (na przykład "a83645ac-1234-5ab6-6789-1h234g764ghty").
 
-- **Identyfikator dzierżawy usługi Azure AD** (wymagany) — wprowadź [Identyfikator dzierżawy](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)usługi Azure Active Directory (AD). Aby znaleźć ten identyfikator, zaloguj się do [Azure Portal](https://portal.azure.com/), wybierz kartę Active Directory w menu po lewej stronie, wybierz pozycję **Właściwości** , a następnie wyszukaj numer **identyfikatora katalogu** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e). Możesz również wyszukać identyfikator dzierżawy w organizacji przy użyciu adresu nazwy domeny w lokalizacji [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
+- **Identyfikator dzierżawy usługi Azure AD** (wymagany) — wprowadź [Identyfikator dzierżawy](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)usługi Azure Active Directory (AD). Aby znaleźć ten identyfikator, zaloguj się do [Azure Portal](https://portal.azure.com/), wybierz kartę Active Directory w menu po lewej stronie, wybierz pozycję **Właściwości**, a następnie wyszukaj numer **identyfikatora katalogu** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e). Możesz również wyszukać identyfikator dzierżawy w organizacji przy użyciu adresu nazwy domeny w lokalizacji [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
 
 - **Nazwa dzierżawy usługi Azure AD** (wymagana dla dynamicznego 365) — wprowadź nazwę Azure Active Directory (AD). Aby znaleźć tę nazwę, zaloguj się do [Azure Portal](https://portal.azure.com/), w prawym górnym rogu nazwa dzierżawy zostanie wyświetlona w polu Nazwa konta.
 
-- **Identyfikator aplikacji usługi Azure AD** (wymagany) — wprowadź [Identyfikator aplikacji](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)Azure Active Directory (AD). Aby znaleźć ten identyfikator, zaloguj się do [Azure Portal](https://portal.azure.com/), wybierz kartę Active Directory w menu po lewej stronie, wybierz pozycję **rejestracje aplikacji** , a następnie wyszukaj numer **identyfikatora aplikacji** na liście (na przykład `50c464d3-4930-494c-963c-1e951d15360e` ).
+- **Identyfikator aplikacji usługi Azure AD** (wymagany) — wprowadź [Identyfikator aplikacji](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)Azure Active Directory (AD). Aby znaleźć ten identyfikator, zaloguj się do [Azure Portal](https://portal.azure.com/), wybierz kartę Active Directory w menu po lewej stronie, wybierz pozycję **rejestracje aplikacji**, a następnie wyszukaj numer **identyfikatora aplikacji** na liście (na przykład `50c464d3-4930-494c-963c-1e951d15360e` ).
 
-- **Wpis tajny klienta aplikacji usługi Azure AD** (wymagane) — wprowadź [klucz tajny klienta](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)aplikacji usługi Azure AD. Aby znaleźć tę wartość, zaloguj się do [Azure Portal](https://portal.azure.com/). Wybierz kartę **Azure Active Directory** w menu po lewej stronie, wybierz pozycję **rejestracje aplikacji** , a następnie wybierz aplikację testową. Następnie wybierz pozycję **Certyfikaty i wpisy tajne** , wybierz pozycję **Nowy wpis tajny klienta** , wprowadź opis, wybierz pozycję **nigdy nie** w obszarze **wygaśnięcie** , a następnie wybierz pozycję **Dodaj**. Należy pamiętać o skopiowaniu wartości. Przed skopiowaniem wartości nie opuszczaj strony.
+- **Wpis tajny klienta aplikacji usługi Azure AD** (wymagane) — wprowadź [klucz tajny klienta](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)aplikacji usługi Azure AD. Aby znaleźć tę wartość, zaloguj się do [Azure Portal](https://portal.azure.com/). Wybierz kartę **Azure Active Directory** w menu po lewej stronie, wybierz pozycję **rejestracje aplikacji**, a następnie wybierz aplikację testową. Następnie wybierz pozycję **Certyfikaty i wpisy tajne**, wybierz pozycję **Nowy wpis tajny klienta**, wprowadź opis, wybierz pozycję **nigdy nie** w obszarze **wygaśnięcie**, a następnie wybierz pozycję **Dodaj**. Należy pamiętać o skopiowaniu wartości. Przed skopiowaniem wartości nie opuszczaj strony.
 
 ## <a name="test-drive-listings"></a>Aukcje na dysku testowym
 
@@ -92,6 +94,8 @@ Opcja **listy** dla wersji testowych znajduje się na karcie **dysk testowy** w 
   - **Miniatura** (533 x 324 pikseli) — obraz musi być w formacie PNG.
 
 Jeśli obecnie tworzysz dysk testowy w centrum partnerskim, wybierz opcję **Zapisz wersję roboczą** przed kontynuowaniem.
+
+Instrukcje krok po kroku dotyczące wyświetlania i konfigurowania hostowanego dysku testowego znajdują się na stronie [Szczegółowa konfiguracja dla hostowanego dysku testowego](https://docs.microsoft.com/azure/marketplace/test-drive-hosted-detailed-config) .
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

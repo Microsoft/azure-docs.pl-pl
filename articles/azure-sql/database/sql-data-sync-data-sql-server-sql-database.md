@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 01c5d4395eb584631efb9b3b956b9a987e46b0db
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: c77001707eda7c208ad19a014a1f0cff2b85b25d
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540624"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736480"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Co to jest SQL Data Sync dla platformy Azure?
 
@@ -81,9 +81,9 @@ Synchronizacja danych nie jest preferowanym rozwiązaniem dla następujących sc
 | | Synchronizacja danych | Replikacja transakcyjna |
 |---|---|---|
 | **Zalety** | -Aktywne-aktywne wsparcie<br/>-Dwukierunkowe między środowiskiem lokalnym i Azure SQL Database | -Małe opóźnienia<br/>-Spójności transakcyjnej<br/>-Ponowne użycie istniejącej topologii po migracji <br/>— Obsługa wystąpienia zarządzanego usługi Azure SQL |
-| **Wady** | -5 min minimalnej częstotliwości między synchronizacją<br/>-Brak spójności transakcyjnej<br/>— Wyższy wpływ na wydajność | -Nie można opublikować z Azure SQL Database <br/>— Wysoki koszt konserwacji |
+| **Wady** | -Brak spójności transakcyjnej<br/>— Wyższy wpływ na wydajność | -Nie można opublikować z Azure SQL Database <br/>— Wysoki koszt konserwacji |
 
-## <a name="get-started"></a>Rozpoczęcie pracy 
+## <a name="get-started"></a>Wprowadzenie 
 
 ### <a name="set-up-data-sync-in-the-azure-portal"></a>Konfigurowanie synchronizacji danych w Azure Portal
 
@@ -150,7 +150,7 @@ Inicjowanie obsługi administracyjnej i cofanie aprowizacji podczas tworzenia gr
 
 #### <a name="unsupported-column-types"></a>Nieobsługiwane typy kolumn
 
-Synchronizacja danych nie może synchronizować kolumn tylko do odczytu lub generowanych przez system. Przykład:
+Synchronizacja danych nie może synchronizować kolumn tylko do odczytu lub generowanych przez system. Na przykład:
 
 - Kolumny obliczane.
 - Kolumny danych czasowych generowane przez system.
@@ -166,7 +166,6 @@ Synchronizacja danych nie może synchronizować kolumn tylko do odczytu lub gene
 | Tabele w grupie synchronizacji                                          | 500                    | Tworzenie wielu grup synchronizacji |
 | Kolumny w tabeli w grupie synchronizacji                              | 1000                   |                             |
 | Rozmiar wiersza danych w tabeli                                        | 24 MB                  |                             |
-| Minimalny interwał częstotliwości synchronizacji (od momentu wcześniejszego uruchomienia synchronizacji)     | 5 minut              |                             |
 
 > [!NOTE]
 > W jednej grupie synchronizacji może istnieć maksymalnie 30 punktów końcowych, jeśli istnieje tylko jedna grupa synchronizacji. Jeśli istnieje więcej niż jedna grupa synchronizacji, Łączna liczba punktów końcowych we wszystkich grupach synchronizacji nie może przekroczyć 30. Jeśli baza danych należy do wielu grup synchronizacji, jest traktowana jako wiele punktów końcowych, a nie jeden.
@@ -176,7 +175,7 @@ Synchronizacja danych nie może synchronizować kolumn tylko do odczytu lub gene
 Po ustanowieniu grupy synchronizacji usługa synchronizacji danych musi nawiązać połączenie z bazą danych centrum. Podczas ustanawiania grupy synchronizacji w ustawieniach programu Azure SQL Server musi znajdować się następująca konfiguracja `Firewalls and virtual networks` :
 
  * *Odmowa dostępu do sieci publicznej* musi być ustawiona na *off*.
- * *Zezwól usługom i zasobom platformy Azure na dostęp do tego serwera* musi być ustawiona wartość *Yes (tak* ) lub należy utworzyć reguły adresów IP dla [adresów IP używanych przez usługę synchronizacji danych](network-access-controls-overview.md#data-sync).
+ * *Zezwól usługom i zasobom platformy Azure na dostęp do tego serwera* musi być ustawiona wartość *Yes (tak*) lub należy utworzyć reguły adresów IP dla [adresów IP używanych przez usługę synchronizacji danych](network-access-controls-overview.md#data-sync).
 
 Po utworzeniu i udostępnieniu grupy synchronizacji można wyłączyć te ustawienia. Agent synchronizacji będzie łączył się bezpośrednio z centralną bazą danych i można użyć [reguł IP zapory](firewall-configure.md) serwera lub [prywatnych punktów końcowych](private-endpoint-overview.md) , aby umożliwić agentowi dostęp do serwera centrum.
 
