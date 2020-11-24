@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 12/05/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 754a47b3692847957de7f3d666f4dc09dc309d25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6684c4269f14b91ded651dadff3f0a2e0878a4f2
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91025084"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95564287"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>Czy niestandardowe zasady protokołu IPsec/IKE są obsługiwane na wszystkich jednostkach SKU bramy sieci VPN platformy Azure?
 Niestandardowe zasady protokołu IPsec/IKE są obsługiwane we wszystkich jednostkach SKU platformy Azure z wyjątkiem podstawowej jednostki SKU.
 
 ### <a name="how-many-policies-can-i-specify-on-a-connection"></a>Ile zasad można określić dla połączenia?
-Można określić tylko ***jedną*** kombinację zasad dla danego połączenia.
+Można określić tylko ***jedną** _ kombinacji zasad dla danego połączenia.
 
 ### <a name="can-i-specify-a-partial-policy-on-a-connection-for-example-only-ike-algorithms-but-not-ipsec"></a>Czy można określić dla połączenia zasady częściowe (np. tylko algorytmy IKE, ale nie IPsec)
 Nie, należy określić wszystkie algorytmy i parametry zarówno dla protokołu IKE (tryb główny), jak i protokołu IPsec (tryb szybki). Określenie zasad częściowych nie jest dozwolone.
@@ -27,7 +27,7 @@ Nie, należy określić wszystkie algorytmy i parametry zarówno dla protokołu 
 ### <a name="what-are-the-algorithms-and-key-strengths-supported-in-the-custom-policy"></a>Jakie algorytmy i siły klucza są obsługiwane w zasadach niestandardowych?
 W poniższej tabeli wymieniono obsługiwane algorytmy kryptograficzne i siły klucza konfigurowalne przez klientów. Należy wybrać jedną opcję dla każdego pola.
 
-| **IPsec/IKEv2**  | **Opcje**                                                                   |
+| _ *IPSec/IKEv2**  | **Opcje**                                                                   |
 | ---              | ---                                                                           |
 | Szyfrowanie IKEv2 | AES256, AES192, AES128, DES3, DES                                             |
 | Integralność IKEv2  | SHA384, SHA256, SHA1, MD5                                                     |
@@ -40,7 +40,7 @@ W poniższej tabeli wymieniono obsługiwane algorytmy kryptograficzne i siły kl
 |                  |                                                                               |
 
 > [!IMPORTANT]
-> 1. DHGroup2048 i PFS2048 są takie same jak grupa Diffie’ego-Hellmana**14** w funkcji PFS protokołów IKE i IPsec. Pełną listę mapowań można znaleźć w sekcji dotyczącej [grup Diffie’ego-Hellmana](#DH).
+> 1. DHGroup2048 i PFS2048 są takie same jak grupa Diffie’ego-Hellmana **14** w funkcji PFS protokołów IKE i IPsec. Pełną listę mapowań można znaleźć w sekcji dotyczącej [grup Diffie’ego-Hellmana](#DH).
 > 2. W przypadku algorytmów GCMAES należy określić ten sam algorytm GCMAES i długość klucza na potrzeby integralności i szyfrowania IPsec.
 > 3. Okres istnienia skojarzenia zabezpieczeń trybu głównego protokołu IKEv2 jest ustalony na 28 800 sekund na bramach sieci VPN platformy Azure.
 > 4. Okresy istnienia skojarzeń zabezpieczeń QM to parametry opcjonalne. Jeśli żaden nie został określony, są używane wartości domyślne 27 000 sekund (7,5 godz.) i 102400000 KB (102 GB).
@@ -107,7 +107,7 @@ Domyślny limit czasu DPD wynosi 45 sekund. Można określić inną wartość li
 Nie. Zasady protokołu IPsec/IKE działają tylko dla połączeń sieci VPN S2S i połączeń między sieciami wirtualnymi za pośrednictwem bram sieci VPN platformy Azure.
 
 ### <a name="how-do-i-create-connections-with-ikev1-or-ikev2-protocol-type"></a>Jak mogę utworzyć połączenia z typem protokołu IKEv1 lub IKEv2?
-Połączenia protokołu IKEv1 można tworzyć dla wszystkich jednostek SKU typu sieci VPN RouteBased, z wyjątkiem podstawowej jednostki SKU, standardowej jednostki SKU i innych [starszych jednostek SKU](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-skus-legacy#gwsku). Podczas tworzenia połączeń można określić typ protokołu połączenia IKEv1 lub IKEv2. Jeśli nie określisz typu protokołu połączenia, w razie potrzeby zostanie użyta opcja IKEv2. Aby uzyskać więcej informacji, zobacz dokumentację [poleceń cmdlet programu PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?) . W przypadku typów jednostek SKU i obsługi protokołu IKEv1/IKEv2 zobacz [łączenie bram z urządzeniami sieci VPN opartymi na zasadach](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
+Połączenia protokołu IKEv1 można tworzyć dla wszystkich jednostek SKU typu sieci VPN RouteBased, z wyjątkiem podstawowej jednostki SKU, standardowej jednostki SKU i innych [starszych jednostek SKU](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#gwsku). Podczas tworzenia połączeń można określić typ protokołu połączenia IKEv1 lub IKEv2. Jeśli nie określisz typu protokołu połączenia, w razie potrzeby zostanie użyta opcja IKEv2. Aby uzyskać więcej informacji, zobacz dokumentację [poleceń cmdlet programu PowerShell](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) . W przypadku typów jednostek SKU i obsługi protokołu IKEv1/IKEv2 zobacz [łączenie bram z urządzeniami sieci VPN opartymi na zasadach](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
 ### <a name="is-transit-between-between-ikev1-and-ikev2-connections-allowed"></a>Czy między połączeniami protokołu IKEv1 i IKEv2 jest dozwolony transfer?
 Tak. Przesyłanie między połączeniami IKEv1 i IKEv2 jest obsługiwane.

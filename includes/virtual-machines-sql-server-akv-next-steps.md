@@ -4,12 +4,12 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: e0ff4e91ed55a37e710a5655e7da9ec76b7d1dd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6195b949cc71043dfa7a12bdece7a311dbde5e21
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84014704"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95563774"
 ---
 ## <a name="next-steps"></a>Następne kroki
 
@@ -142,8 +142,8 @@ SELECT CONVERT(VARCHAR, DECRYPTBYKEY(@DATA));
 CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 ```
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-Aby uzyskać więcej informacji na temat korzystania z tych funkcji szyfrowania, zobacz [using EKM with SQL Server Encryption Features](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
+Aby uzyskać więcej informacji na temat korzystania z tych funkcji szyfrowania, zobacz [using EKM with SQL Server Encryption Features](/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server#UsesOfEKM).
 
 Należy pamiętać, że kroki opisane w tym artykule założono, że masz już SQL Server uruchomione na maszynie wirtualnej platformy Azure. Jeśli nie, zobacz temat [udostępnianie maszyny wirtualnej SQL Server na platformie Azure](../articles/azure-sql/virtual-machines/windows/create-sql-vm-portal.md). Aby uzyskać inne wskazówki dotyczące uruchamiania SQL Server na maszynach wirtualnych platformy Azure, zobacz [SQL Server na platformie Virtual Machines Azure — omówienie](../articles/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).

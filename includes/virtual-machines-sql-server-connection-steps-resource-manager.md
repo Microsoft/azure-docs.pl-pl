@@ -4,12 +4,12 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: 4e79fef08af8ff73ce63ab4732c9efd77e3a5d3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51dc04fbef8d09878f33d7fda6f15039d3afba3e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67183186"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95563504"
 ---
 ### <a name="configure-a-dns-label-for-the-public-ip-address"></a>Konfigurowanie etykiety DNS dla publicznego adresu IP
 
@@ -34,7 +34,7 @@ Aby utworzyć etykietę DNS, wybierz najpierw **maszyny wirtualne** w portalu. W
 
 ### <a name="connect-to-the-database-engine-from-another-computer"></a>Nawiązywanie połączenia z aparatem bazy danych z innego komputera
 
-1. Na komputerze podłączonym do Internetu otwórz program SQL Server Management Studio (SSMS). Jeśli nie masz programu SQL Server Management Studio, możesz pobrać go [tutaj](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+1. Na komputerze podłączonym do Internetu otwórz program SQL Server Management Studio (SSMS). Jeśli nie masz programu SQL Server Management Studio, możesz pobrać go [tutaj](/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. W oknie dialogowym **Connect to Server** (Łączenie z serwerem) lub **Connect to Database Engine** (Łączenie z aparatem bazy danych) edytuj wartość **Server name** (Nazwa serwera). Wprowadź adres IP lub pełną nazwę DNS maszyny wirtualnej (określoną w poprzednim zadaniu). Możesz także dodać przecinek i podać port TCP programu SQL Server. Na przykład `mysqlvmlabel.eastus.cloudapp.azure.com,1433`.
 
@@ -44,6 +44,6 @@ Aby utworzyć etykietę DNS, wybierz najpierw **maszyny wirtualne** w portalu. W
 
 1. W polu **Password** (Hasło) wpisz hasło logowania.
 
-1. Kliknij przycisk **Połącz**.
+1. Kliknij przycisk **Podłącz**.
 
     ![nawiązywanie połączenia w programie ssms](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)

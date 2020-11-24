@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: storage
 author: roygara
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/26/2020
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: a168b9f721cd9c3d4ab0e8b6a56b764fec3b1fe3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4773446ec0007ffbed99bc01939d1f92f5823d99
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779312"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95563850"
 ---
 ## <a name="assign-access-permissions-to-an-identity"></a>Przypisywanie uprawnień dostępu do tożsamości
 
@@ -77,7 +77,7 @@ az role assignment create --role "<role-name>" --assignee <user-principal-name> 
 
 Po przypisaniu uprawnień na poziomie udziałów przy użyciu RBAC należy przypisać odpowiednie uprawnienia systemu plików NTFS do poziomu głównego, katalogu lub pliku. Należy traktować uprawnienia na poziomie udziałów jako strażnika wysokiego poziomu, który określa, czy użytkownik może uzyskać dostęp do udziału. Uprawnienia NTFS działają na bardziej szczegółowym poziomie, aby określić, jakie operacje może wykonać użytkownik na poziomie katalogu lub pliku.
 
-Azure Files obsługuje pełny zestaw uprawnień systemu plików NTFS podstawowych i zaawansowanych. Uprawnienia NTFS można wyświetlać i konfigurować dla katalogów i plików w udziale plików platformy Azure, instalując udział, a następnie używając Eksploratora plików systemu Windows lub uruchamiając polecenie [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) lub [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-acl) . 
+Azure Files obsługuje pełny zestaw uprawnień systemu plików NTFS podstawowych i zaawansowanych. Uprawnienia NTFS można wyświetlać i konfigurować dla katalogów i plików w udziale plików platformy Azure, instalując udział, a następnie używając Eksploratora plików systemu Windows lub uruchamiając polecenie [icacls](/windows-server/administration/windows-commands/icacls) lub [Set-ACL](/powershell/module/microsoft.powershell.security/set-acl) . 
 
 Aby skonfigurować system plików NTFS z uprawnieniami administratora, należy zainstalować udział przy użyciu klucza konta magazynu z maszyny wirtualnej przyłączonej do domeny. Postępuj zgodnie z instrukcjami w następnej sekcji, aby zainstalować udział plików platformy Azure z wiersza polecenia i odpowiednio skonfigurować uprawnienia systemu plików NTFS.
 
@@ -108,7 +108,7 @@ else
 
 ```
 
-Jeśli występują problemy z nawiązywaniem połączenia z usługą Azure Files, zapoznaj się z [narzędziem do rozwiązywania problemów opublikowanym pod kątem Azure Files instalowania błędów w systemie Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Udostępniamy również [wskazówki](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) ułatwiające obejście tego problemu, gdy port 445 jest zablokowany. 
+Jeśli występują problemy z nawiązywaniem połączenia z usługą Azure Files, zapoznaj się z [narzędziem do rozwiązywania problemów opublikowanym pod kątem Azure Files instalowania błędów w systemie Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Udostępniamy również [wskazówki](../articles/storage/files/storage-files-faq.md#on-premises-access) ułatwiające obejście tego problemu, gdy port 445 jest zablokowany. 
 
 
 ### <a name="configure-ntfs-permissions-with-windows-file-explorer"></a>Konfigurowanie uprawnień systemu plików NTFS przy użyciu Eksploratora plików systemu Windows
@@ -120,9 +120,9 @@ Użyj Eksploratora plików systemu Windows, aby przyznać pełne uprawnienia do 
 3. Wybierz pozycję **Edytuj.** Aby zmienić uprawnienia.
 4. Możesz zmienić uprawnienia istniejących użytkowników lub wybrać przycisk **Dodaj...** , aby przyznać uprawnienia nowym użytkownikom.
 5. W oknie monitu, aby dodać nowych użytkowników, wprowadź nazwę użytkownika docelowego, do którego chcesz udzielić uprawnień w polu **Wprowadź nazwy obiektów do wybrania** , a następnie wybierz pozycję **Sprawdź nazwy** , aby znaleźć pełną nazwę UPN użytkownika docelowego.
-7.    Wybierz przycisk **OK**.
+7.    Wybierz pozycję **OK**.
 8.    Na karcie **zabezpieczenia** wybierz pozycję wszystkie uprawnienia, które chcesz udzielić nowemu użytkownikowi.
-9.    Wybierz przycisk **Zastosuj**.
+9.    Wybierz pozycję **Zastosuj**.
 
 ### <a name="configure-ntfs-permissions-with-icacls"></a>Konfigurowanie uprawnień systemu plików NTFS przy użyciu icacls
 
@@ -132,7 +132,7 @@ Użyj następującego polecenia systemu Windows, aby przyznać pełne uprawnieni
 icacls <mounted-drive-letter>: /grant <user-email>:(f)
 ```
 
-Aby uzyskać więcej informacji na temat używania icacls do ustawiania uprawnień systemu plików NTFS i różnych typów obsługiwanych uprawnień, zobacz [informacje dotyczące wiersza polecenia dla icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
+Aby uzyskać więcej informacji na temat używania icacls do ustawiania uprawnień systemu plików NTFS i różnych typów obsługiwanych uprawnień, zobacz [informacje dotyczące wiersza polecenia dla icacls](/windows-server/administration/windows-commands/icacls).
 
 ## <a name="mount-a-file-share-from-a-domain-joined-vm"></a>Instalowanie udziału plików z maszyny wirtualnej przyłączonej do domeny
 
@@ -142,7 +142,7 @@ Zaloguj się do maszyny wirtualnej przy użyciu tożsamości usługi Azure AD, d
 
 ![Zrzut ekranu przedstawiający ekran logowania do usługi Azure AD na potrzeby uwierzytelniania użytkowników](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
 
-Użyj poniższego polecenia, aby zainstalować udział plików platformy Azure. Pamiętaj, aby zastąpić wartości zastępcze własnymi wartościami. Ponieważ użytkownik został uwierzytelniony, nie musisz podawać klucza konta magazynu, poświadczeń lokalnych AD DS ani poświadczeń AD DS platformy Azure. Obsługa logowania jednokrotnego jest obsługiwana w przypadku uwierzytelniania za pomocą lokalnego AD DS lub AD DS platformy Azure. Jeśli wystąpią problemy z instalowaniem przy użyciu poświadczeń AD DS, zapoznaj się z tematem [Rozwiązywanie problemów dotyczących Azure Files problemów w systemie Windows](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) .
+Użyj poniższego polecenia, aby zainstalować udział plików platformy Azure. Pamiętaj, aby zastąpić wartości zastępcze własnymi wartościami. Ponieważ użytkownik został uwierzytelniony, nie musisz podawać klucza konta magazynu, poświadczeń lokalnych AD DS ani poświadczeń AD DS platformy Azure. Obsługa logowania jednokrotnego jest obsługiwana w przypadku uwierzytelniania za pomocą lokalnego AD DS lub AD DS platformy Azure. Jeśli wystąpią problemy z instalowaniem przy użyciu poświadczeń AD DS, zapoznaj się z tematem [Rozwiązywanie problemów dotyczących Azure Files problemów w systemie Windows](../articles/storage/files/storage-troubleshoot-windows-file-connection-problems.md) .
 
 ```
 $connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445

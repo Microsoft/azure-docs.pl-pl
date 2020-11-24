@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: notification-hubs
 author: sethmanheim
 ms.service: notification-hubs
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/10/2020
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: 1cb7753f54e9c1334e35635c227f776041631f1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b5034f2163e8478d7ddb7b9271402b094a809d7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88864879"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95563315"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Generuj plik żądania podpisania certyfikatu
 
@@ -70,17 +70,17 @@ Aby wysyłać powiadomienia wypychane do aplikacji systemu iOS, zarejestruj swoj
 
       ![Potwierdź nowy identyfikator aplikacji](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-register.png)
 
-      Po wybraniu pozycji **zarejestruj**nowy identyfikator aplikacji zostanie wyświetlony jako element wiersza na stronie **certyfikaty, identyfikatory & profile** .
+      Po wybraniu pozycji **zarejestruj** nowy identyfikator aplikacji zostanie wyświetlony jako element wiersza na stronie **certyfikaty, identyfikatory & profile** .
 
-4. Na stronie **certyfikaty, identyfikatory & profile** w obszarze **identyfikatory**Znajdź element wiersza identyfikatora aplikacji, który został właśnie utworzony, a następnie wybierz jego wiersz w celu wyświetlenia ekranu **Edytowanie konfiguracji identyfikatora aplikacji** .
+4. Na stronie **certyfikaty, identyfikatory & profile** w obszarze **identyfikatory** Znajdź element wiersza identyfikatora aplikacji, który został właśnie utworzony, a następnie wybierz jego wiersz w celu wyświetlenia ekranu **Edytowanie konfiguracji identyfikatora aplikacji** .
 
 ## <a name="creating-a-certificate-for-notification-hubs"></a>Tworzenie certyfikatu dla Notification Hubs
 Aby umożliwić centrum powiadomień współdziałanie z usługą **APNs**, wymagany jest certyfikat. Można to zrobić na jeden z dwóch sposobów:
 
 1. Utwórz plik **. p12** , który można przekazać bezpośrednio do centrum powiadomień.  
-2. Utwórz plik **. P8** , który może być używany do [uwierzytelniania opartego na tokenach](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-http2-token-authentification) (*rozwiązanie nowsze*).
+2. Utwórz plik **. P8** , który może być używany do [uwierzytelniania opartego na tokenach](../articles/notification-hubs/notification-hubs-push-notification-http2-token-authentication.md) (*rozwiązanie nowsze*).
 
-Nowsze podejście ma wiele korzyści (w porównaniu z użyciem certyfikatów), zgodnie z opisem w temacie [uwierzytelnianie oparte na tokenach (http/2) dla usługi APNs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-http2-token-authentification). Należy jednak wykonać kroki dla obu tych metod. 
+Nowsze podejście ma wiele korzyści (w porównaniu z użyciem certyfikatów), zgodnie z opisem w temacie [uwierzytelnianie oparte na tokenach (http/2) dla usługi APNs](../articles/notification-hubs/notification-hubs-push-notification-http2-token-authentication.md). Należy jednak wykonać kroki dla obu tych metod. 
 
 ### <a name="option-1-creating-a-p12-push-certificate-that-can-be-uploaded-directly-to-notification-hub"></a>Opcja 1: Tworzenie certyfikatu wypychania z. P12, który można przekazać bezpośrednio do centrum powiadomień
 
@@ -145,7 +145,7 @@ Nowsze podejście ma wiele korzyści (w porównaniu z użyciem certyfikatów), z
    > [!NOTE] 
    > Pamiętaj, aby zachować plik. P8 w bezpiecznym miejscu (i zapisać kopię zapasową). Po pobraniu klucza nie można go pobrać z jego pobrania, ponieważ kopia serwera zostanie usunięta.
   
-6. W obszarze **klucze**kliknij właśnie utworzony klucz (lub istniejący klucz, jeśli wybrano opcję użycia tego elementu).
+6. W obszarze **klucze** kliknij właśnie utworzony klucz (lub istniejący klucz, jeśli wybrano opcję użycia tego elementu).
 7. Zanotuj wartość **identyfikatora klucza** .
 8. Otwórz swój certyfikat. P8 w odpowiedniej wybranej aplikacji, na przykład [**Visual Studio Code**](https://code.visualstudio.com) następnie zanotuj wartość klucza. Jest to wartość między **-----rozpocznij-----klucza prywatnego** i **-----Zakończ-----klucza prywatnego** .
 
@@ -183,7 +183,7 @@ Po zakończeniu tych kroków należy skorzystać z poniższych informacji dotycz
     2. W sekcji **oprogramowanie** wybierz pozycję **programowanie firmy Apple**. Następnie wybierz pozycję **Kontynuuj**.
     3. Na ekranie **Tworzenie nowego certyfikatu** wybierz pozycję **Wybierz plik**.
     4. Przejdź do utworzonego wcześniej certyfikatu **żądania podpisania certyfikatu** , zaznacz go, a następnie wybierz pozycję **Otwórz**.
-    5. Wybierz pozycję **Continue** (Kontynuuj).
+    5. Wybierz opcję **Kontynuuj**.
     6. Pobierz certyfikat programistyczny i Zapamiętaj lokalizację, w której został zapisany.
 
 1. Wróć do strony **certyfikaty, identyfikatory & profile** , wybierz pozycję **Profile** z menu po lewej stronie, a następnie wybierz pozycję **+** Utwórz nowy profil. Zostanie wyświetlony ekran **Zarejestruj nowy profil aprowizacji** .
@@ -208,7 +208,7 @@ W tej sekcji utworzysz centrum powiadomień i skonfigurujesz uwierzytelnianie za
 
 ## <a name="configure-your-notification-hub-with-apns-information"></a>Konfigurowanie centrum powiadomień przy użyciu informacji dotyczących usługi APNs
 
-W obszarze **usługi powiadomień**wybierz pozycję **Apple (APNs)** , a następnie postępuj zgodnie z odpowiednimi instrukcjami w sekcji [Tworzenie certyfikatu dla Notification Hubs](#creating-a-certificate-for-notification-hubs) .  
+W obszarze **usługi powiadomień** wybierz pozycję **Apple (APNs)** , a następnie postępuj zgodnie z odpowiednimi instrukcjami w sekcji [Tworzenie certyfikatu dla Notification Hubs](#creating-a-certificate-for-notification-hubs) .  
 
 > [!NOTE]
 > W przypadku kompilowania aplikacji za pomocą sklepu z aplikacjami lub profilu dystrybucji ad hoc Użyj środowiska **produkcyjnego** dla **trybu aplikacji**. Umożliwi to urządzeniu wysyłanie powiadomień wypychanych do użytkowników, którzy kupili aplikację ze sklepu.

@@ -9,19 +9,19 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: a416c22c5b8e09104b20a17bc5042302fa56d8ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f74d4ffdd724039354a311234317dac889cd7cfe
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88035148"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545950"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Przeodwodnione dane obiektów blob z warstwy Archiwum
 
 Gdy obiekt BLOB znajduje się w warstwie dostępu archiwizowania, jest traktowany jako przełączony do trybu offline i nie można go odczytać ani modyfikować. Metadane obiektu BLOB pozostają w trybie online i są dostępne, umożliwiając wyświetlenie listy obiektów blob i jego właściwości. Odczytywanie i modyfikowanie danych obiektów BLOB jest możliwe tylko w przypadku warstw online, takich jak gorąca lub chłodna. Dostępne są dwie opcje pobierania i uzyskiwania dostępu do danych przechowywanych w warstwie dostępu archiwizowania.
 
-1. [Ponownie Zapisz zarchiwizowany obiekt BLOB w warstwie online](#rehydrate-an-archived-blob-to-an-online-tier) — przeciąganie obiektu BLOB archiwalnego na gorącą lub chłodną przez zmianę jego warstwy przy użyciu operacji [ustawiania warstwy obiektów BLOB](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) .
-2. [Kopiuj zarchiwizowany obiekt BLOB do warstwy online](#copy-an-archived-blob-to-an-online-tier) — Utwórz nową kopię obiektu BLOB archiwum przy użyciu operacji [copy BLOB](https://docs.microsoft.com/rest/api/storageservices/copy-blob) . Określ inną nazwę obiektu BLOB i warstwę docelową gorącą lub chłodną.
+1. [Ponownie Zapisz zarchiwizowany obiekt BLOB w warstwie online](#rehydrate-an-archived-blob-to-an-online-tier) — przeciąganie obiektu BLOB archiwalnego na gorącą lub chłodną przez zmianę jego warstwy przy użyciu operacji [ustawiania warstwy obiektów BLOB](/rest/api/storageservices/set-blob-tier) .
+2. [Kopiuj zarchiwizowany obiekt BLOB do warstwy online](#copy-an-archived-blob-to-an-online-tier) — Utwórz nową kopię obiektu BLOB archiwum przy użyciu operacji [copy BLOB](/rest/api/storageservices/copy-blob) . Określ inną nazwę obiektu BLOB i warstwę docelową gorącą lub chłodną.
 
  Aby uzyskać więcej informacji o warstwach, zobacz [Azure Blob Storage: warstwy dostępu gorąca, chłodna i archiwalna](storage-blob-storage-tiers.md).
 
@@ -31,7 +31,7 @@ Gdy obiekt BLOB znajduje się w warstwie dostępu archiwizowania, jest traktowan
 
 ## <a name="copy-an-archived-blob-to-an-online-tier"></a>Kopiowanie zarchiwizowanego obiektu blob do warstwy online
 
-Jeśli nie chcesz ponownie odwodnionić obiektu BLOB archiwum, możesz wykonać operację [kopiowania obiektu BLOB](https://docs.microsoft.com/rest/api/storageservices/copy-blob) . Oryginalny obiekt BLOB pozostanie niezmodyfikowany w archiwum, podczas gdy nowy obiekt BLOB zostanie utworzony w warstwie gorąca lub chłodna w trybie online, na którym będziesz pracować. W operacji kopiowania obiektu BLOB można również ustawić opcjonalną Właściwość *x-MS---* ------------------Priority na wartość standardowa lub wysoka, aby określić priorytet tworzenia kopii obiektu BLOB.
+Jeśli nie chcesz ponownie odwodnionić obiektu BLOB archiwum, możesz wykonać operację [kopiowania obiektu BLOB](/rest/api/storageservices/copy-blob) . Oryginalny obiekt BLOB pozostanie niezmodyfikowany w archiwum, podczas gdy nowy obiekt BLOB zostanie utworzony w warstwie gorąca lub chłodna w trybie online, na którym będziesz pracować. W operacji kopiowania obiektu BLOB można również ustawić opcjonalną Właściwość *x-MS---* ------------------Priority na wartość standardowa lub wysoka, aby określić priorytet tworzenia kopii obiektu BLOB.
 
 Kopiowanie obiektu BLOB z archiwum może zająć kilka godzin, w zależności od wybranego priorytetu rehydratacji. W tle operacja **kopiowania obiektu BLOB** odczytuje źródłowy obiekt BLOB archiwum, aby utworzyć nowy obiekt BLOB w trybie online w wybranej warstwie docelowej. Nowy obiekt BLOB może być widoczny podczas wyświetlania listy obiektów blob, ale dane nie są dostępne do momentu zakończenia odczytu ze źródłowego obiektu BLOB archiwum, a dane są zapisywane w nowym docelowym obiekcie blob online. Nowy obiekt BLOB jest niezależną kopią, a jakakolwiek modyfikacja lub usunięcie nie ma wpływu na źródłowy obiekt BLOB archiwum.
 
@@ -69,7 +69,7 @@ Obiekty blob w warstwie archiwum powinny być przechowywane przez co najmniej 18
 
 1. Wybierz kontener, a następnie wybierz obiekt BLOB.
 
-1. We **właściwościach obiektu BLOB**wybierz pozycję **Zmień warstwę**.
+1. We **właściwościach obiektu BLOB** wybierz pozycję **Zmień warstwę**.
 
 1. Wybierz warstwę dostępu **gorąca** lub **chłodna** . 
 

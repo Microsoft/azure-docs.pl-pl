@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6d0737a7300b2a6025f776c1ed65a05cacf2141a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fc14083b0912cf18f98c229adcb297b89bc8971
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67183097"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95563621"
 ---
 Utwórz połączenie pulpitu zdalnego, aby nawiązać połączenie z maszyną wirtualną wdrożoną w sieci wirtualnej. Najlepszym sposobem na zweryfikowanie, czy można połączyć się z maszyną wirtualną, jest połączenie się z nią za pomocą jej prywatnego adresu IP, a nie nazwy komputera. W ten sposób można przetestować możliwość połączenia się, a nie poprawność skonfigurowania rozpoznawania nazw. 
 
@@ -32,4 +32,4 @@ Jeśli masz problemy z łączeniem się z maszyną wirtualną za pośrednictwem 
 - Jeśli możesz połączyć się z maszyną wirtualną za pomocą prywatnego adresu IP, ale nie za pomocą nazwy komputera, sprawdź, czy usługa DNS została prawidłowo skonfigurowana. Aby uzyskać więcej informacji na temat tego, jak działa rozpoznawanie nazw dla maszyn wirtualnych, zobacz [Name Resolution for VMs](../articles/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) (Rozpoznawanie nazw dla maszyn wirtualnych).
 - Sprawdź, czy pakiet konfiguracji klienta sieci VPN jest generowany po określeniu adresów IP serwera DNS dla sieci wirtualnej. Jeśli zaktualizujesz adresy IP serwera DNS, wygeneruj i zainstaluj nowy pakiet konfiguracji klienta sieci VPN.
 
-Aby uzyskać więcej informacji na temat rozwiązywania problemów, zobacz [Rozwiązywanie problemów z połączeniami pulpitu zdalnego z maszyną wirtualną](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md).
+Aby uzyskać więcej informacji na temat rozwiązywania problemów, zobacz [Rozwiązywanie problemów z połączeniami pulpitu zdalnego z maszyną wirtualną](../articles/virtual-machines/troubleshooting/troubleshoot-rdp-connection.md).

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 5ac49491d8cb8fc81fe01d6f3d0d85456b190ed9
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 42dfa499e0a44d0b468d3a234e9dc88904c361b0
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329481"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95562984"
 ---
 Oto ograniczenia używania i inne limity usługi dotyczące usługi Azure Active Directory (Azure AD).
 
@@ -30,4 +30,4 @@ Oto ograniczenia używania i inne limity usługi dotyczące usługi Azure Active
 | Panel dostępu |Nie ma żadnego limitu liczby aplikacji, które mogą być widoczne w panelu dostępu dla użytkownika niezależnie od przypisanych licencji.  |
 | Raporty | W dowolnym raporcie można wyświetlić lub pobrać maksymalnie 1000 wierszy. Dodatkowe dane są obcinane. |
 | Jednostki administracyjne | Zasób usługi Azure AD może być członkiem nie więcej niż 30 jednostek administracyjnych. |
-| Role i uprawnienia w usłudze Azure AD | <ul><li>W organizacji usługi Azure AD można utworzyć maksymalnie 30 [ról niestandardowych usługi Azure AD](https://docs.microsoft.com/azure/active-directory//users-groups-roles/roles-custom-overview?context=azure/active-directory/users-groups-roles/context/ugr-context) .</li><li>Grupy nie można dodać jako [właściciela grupy](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership).</li><li>Możliwość odczytywania informacji o dzierżawie innych użytkowników może być ograniczona tylko przez przełącznik całej organizacji usługi Azure AD, aby wyłączyć dostęp wszystkich użytkowników niebędących administratorami do wszystkich informacji o dzierżawie (niezalecane). Aby uzyskać więcej informacji, zobacz [ograniczanie uprawnień domyślnych dla użytkowników należących do członków](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users).</li><li>Przed przystąpieniem do członkostwa w roli administratora może upłynąć do 15 minut lub wylogowanie/zalogowanie się.</li></ul> |
+| Role i uprawnienia w usłudze Azure AD | <ul><li>W organizacji usługi Azure AD można utworzyć maksymalnie 30 [ról niestandardowych usługi Azure AD](/azure/active-directory//users-groups-roles/roles-custom-overview?context=azure%252factive-directory%252fusers-groups-roles%252fcontext%252fugr-context) .</li><li>Grupy nie można dodać jako [właściciela grupy](../articles/active-directory/fundamentals/users-default-permissions.md?context=azure%252factive-directory%252fusers-groups-roles%252fcontext%252fugr-context#object-ownership).</li><li>Możliwość odczytywania informacji o dzierżawie innych użytkowników może być ograniczona tylko przez przełącznik całej organizacji usługi Azure AD, aby wyłączyć dostęp wszystkich użytkowników niebędących administratorami do wszystkich informacji o dzierżawie (niezalecane). Aby uzyskać więcej informacji, zobacz [ograniczanie uprawnień domyślnych dla użytkowników należących do członków](../articles/active-directory/fundamentals/users-default-permissions.md?context=azure%252factive-directory%252fusers-groups-roles%252fcontext%252fugr-context#restrict-member-users-default-permissions).</li><li>Przed przystąpieniem do członkostwa w roli administratora może upłynąć do 15 minut lub wylogowanie/zalogowanie się.</li></ul> |

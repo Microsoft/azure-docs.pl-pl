@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 07/08/2020
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: e3106b52ede95fe63a8df691a82acdd4937c8cce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d09cb92055c69b6585fa3b55609144c0e680964a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91672292"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95563676"
 ---
 **Wymagania dotyczące konfiguracji i serwera przetwarzania**
 
@@ -37,8 +37,8 @@ Wolne miejsce na dysku (dysk przechowywania) | 600 GB
 System operacyjny | Windows Server 2012 z dodatkiem R2 <br> Windows Server 2016
 Ustawienia regionalne systemu operacyjnego | Angielski (EN-*)
 Role systemu Windows Server | Nie należy włączać tych ról: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V 
-Zasady grupy | Nie włączaj tych zasad grupy: <br> -Zapobiegaj dostępowi do wiersza polecenia. <br> — Uniemożliwia dostęp do narzędzi do edytowania rejestru. <br> — Logika zaufania dla plików załączników. <br> — Włącz wykonywanie skryptu. <br> [Dowiedz się więcej](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
-IIS | -Brak istniejącej domyślnej witryny sieci Web <br> — Żadna istniejąca witryna sieci Web/aplikacja nasłuchu na porcie 443 <br>-Włącz  [uwierzytelnianie anonimowe](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Włącz ustawienie [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 
+Zasady grupy | Nie włączaj tych zasad grupy: <br> -Zapobiegaj dostępowi do wiersza polecenia. <br> — Uniemożliwia dostęp do narzędzi do edytowania rejestru. <br> — Logika zaufania dla plików załączników. <br> — Włącz wykonywanie skryptu. <br> [Dowiedz się więcej](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))
+IIS | -Brak istniejącej domyślnej witryny sieci Web <br> — Żadna istniejąca witryna sieci Web/aplikacja nasłuchu na porcie 443 <br>-Włącz  [uwierzytelnianie anonimowe](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> -Włącz ustawienie [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10)) 
 FIPS (Federal Information Processing Standards) | Nie włączaj trybu FIPS
 |
 

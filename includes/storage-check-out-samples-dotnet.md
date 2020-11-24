@@ -4,17 +4,15 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: 86262c5816788bad04159aca7874b1f9f9f4dffa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 664f845adfca331bd3c5a715a4b932179f8f4ecb
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67183298"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95562950"
 ---
 > [!TIP]
 > 
 > **Zapoznaj się z repozytorium przykładów kodu usługi Azure Storage**
 > 
-> Nasza lista [przykładów usługi Azure Storage](https://docs.microsoft.com/azure/storage/storage-samples-dotnet) zawiera łatwe w użyciu kompleksowe przykłady kodu usługi Azure Storage, które można pobierać i uruchamiać.
-
-
+> Nasza lista [przykładów usługi Azure Storage](../articles/storage/common/storage-samples-dotnet.md) zawiera łatwe w użyciu kompleksowe przykłady kodu usługi Azure Storage, które można pobierać i uruchamiać.

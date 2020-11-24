@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 70ac106995324c758bde942d12191a01e3457e6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0c05eb88df27ba9e71c0f61bad75457d893a7ce
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67182965"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95564109"
 ---
 > [!NOTE]
 > Te przykłady nie dotyczą konfiguracji współistnienia połączeń S2S/ExpressRoute.
@@ -25,7 +25,7 @@ Po dodaniu bramy do sieci wirtualnej przy użyciu klasycznego modelu zasobów na
 
 ### <a name="download-the-network-configuration-file"></a>Pobierz plik konfiguracji sieciowej
 
-1. Pobierz plik konfiguracji sieciowej, wykonując czynności opisane w artykule [plik konfiguracji sieci](../articles/virtual-network/virtual-networks-using-network-configuration-file.md) . Otwórz plik za pomocą edytora tekstu.
+1. Pobierz plik konfiguracji sieciowej, wykonując czynności opisane w artykule [plik konfiguracji sieci](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file) . Otwórz plik za pomocą edytora tekstu.
 2. Dodaj do pliku lokację sieci lokalnej. Można użyć dowolnego prawidłowego prefiksu adresu. Można dodać dowolny prawidłowy adres IP dla bramy sieci VPN. Wartości adresu w tej sekcji nie są używane dla operacji ExpressRoute, ale są wymagane do walidacji plików. W przykładzie "Branch1" to nazwa witryny. Możesz użyć innej nazwy, ale pamiętaj, aby użyć tej samej wartości w sekcji bramy pliku.
 
    ```

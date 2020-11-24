@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 8579efcee45e08fec3331df8f55b61618edb4f4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5e687b172b49fec5f77615e332d0a2204162c43
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000417"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545797"
 ---
 # <a name="getting-started-with-azure-table-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Wprowadzenie do usługi Azure Table Storage i usług połączonych programu Visual Studio (projekty usług Cloud Services)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -28,11 +28,11 @@ W tym artykule opisano, jak rozpocząć korzystanie z usługi Azure Table Storag
 
 Usługa Azure Table Storage umożliwia przechowywanie dużych ilości danych strukturalnych. Usługa to magazyn danych NoSQL, który akceptuje uwierzytelnione wywołania z chmury platformy Azure i poza nią. Tabele Azure idealnie nadają się do przechowywania strukturalnych danych nierelacyjnych.
 
-Aby rozpocząć, musisz najpierw utworzyć tabelę na koncie magazynu. Pokażemy Ci, jak utworzyć tabelę platformy Azure w kodzie, a także jak wykonywać podstawowe operacje tabeli i jednostek, takie jak dodawanie, modyfikowanie, odczytywanie i odczytywanie jednostek tabeli. Przykłady są zapisywane w kodzie języka C \# i używają [Microsoft Azure Storage biblioteki klienckiej dla platformy .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Aby rozpocząć, musisz najpierw utworzyć tabelę na koncie magazynu. Pokażemy Ci, jak utworzyć tabelę platformy Azure w kodzie, a także jak wykonywać podstawowe operacje tabeli i jednostek, takie jak dodawanie, modyfikowanie, odczytywanie i odczytywanie jednostek tabeli. Przykłady są zapisywane w kodzie języka C \# i używają [Microsoft Azure Storage biblioteki klienckiej dla platformy .NET](/previous-versions/azure/dn261237(v=azure.100)).
 
-**Uwaga:** Niektóre interfejsy API, które wykonują wywołania do usługi Azure Storage, są asynchroniczne. Aby uzyskać więcej informacji [, zobacz Programowanie asynchroniczne z Async i await](https://msdn.microsoft.com/library/hh191443.aspx) . W poniższym kodzie przyjęto, że są używane asynchroniczne metody programowania.
+**Uwaga:** Niektóre interfejsy API, które wykonują wywołania do usługi Azure Storage, są asynchroniczne. Aby uzyskać więcej informacji [, zobacz Programowanie asynchroniczne z Async i await](/previous-versions/hh191443(v=vs.140)) . W poniższym kodzie przyjęto, że są używane asynchroniczne metody programowania.
 
-* Zobacz Rozpoczynanie [pracy z usługą Azure Table Storage przy użyciu platformy .NET](../storage/storage-dotnet-how-to-use-tables.md) , aby uzyskać więcej informacji na temat programistycznego manipulowania tabelami.
+* Zobacz Rozpoczynanie [pracy z usługą Azure Table Storage przy użyciu platformy .NET](../cosmos-db/tutorial-develop-table-dotnet.md) , aby uzyskać więcej informacji na temat programistycznego manipulowania tabelami.
 * Aby uzyskać ogólne informacje o usłudze Azure Storage, zobacz [dokumentację usługi Storage](https://azure.microsoft.com/documentation/services/storage/) .
 * Zobacz [dokumentację Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/) , aby uzyskać ogólne informacje na temat usług Azure Cloud Services.
 * Aby uzyskać więcej informacji na temat programowania aplikacji ASP.NET, zobacz [ASP.NET](https://www.asp.net) .
@@ -215,4 +215,3 @@ else
 
 ## <a name="next-steps"></a>Następne kroki
 [!INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
-

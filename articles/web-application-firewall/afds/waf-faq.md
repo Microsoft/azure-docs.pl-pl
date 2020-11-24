@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: 5b60082db53b458adc53ac23d98731ad1c97b52b
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 5c2763112b1aa2d58f5dc57cea72a3d0bdea961e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563651"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545673"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Często zadawane pytania dotyczące zapory aplikacji sieci Web platformy Azure w usłudze Azure Front-drzwiczk
 
@@ -57,6 +57,17 @@ Możesz skonfigurować listę Access Control IP w zapleczu, aby zezwolić tylko 
 
 Istnieją dwie opcje stosowania zasad WAFymi na platformie Azure. WAF z platformą Azure front-drzwi to globalne, rozproszone rozwiązanie do zabezpieczeń. WAF with Application Gateway to regionalne, dedykowane rozwiązanie. Zalecamy wybranie rozwiązania na podstawie ogólnych wymagań dotyczących wydajności i zabezpieczeń. Aby uzyskać więcej informacji, zobacz [równoważenie obciążenia przy użyciu pakietu dostarczania aplikacji platformy Azure](../../frontdoor/front-door-lb-with-azure-app-delivery-suite.md).
 
+## <a name="whats-the-recommended-approach-to-enabling-waf-on-front-door"></a>Jakie jest zalecane podejście do włączenia WAF na wierzchu drzwi?
+
+Po włączeniu WAF w istniejącej aplikacji często mają być fałszywe pozytywne wykrycia, w których reguły WAF wykrywają wiarygodny ruch jako zagrożenie. Aby zminimalizować ryzyko wpływu na użytkowników, zalecamy wykonanie następujących czynności:
+
+* Włącz WAF w trybie [ **wykrywania**](./waf-front-door-create-portal.md#change-mode) , aby upewnić się, że WAF nie blokuje żądań podczas pracy w ramach tego procesu.
+  > [!IMPORTANT]
+  > W tym procesie opisano, jak włączyć WAF w nowym lub istniejącym rozwiązaniu, gdy priorytet ma zminimalizować zakłócenia użytkowników aplikacji. Jeśli używasz ataku lub bezpośredniego zagrożenia, możesz zamiast tego ponownie wdrożyć WAF w trybie **zapobiegania** , a następnie użyć procesu dostrajania do monitorowania i dostrajania WAF w czasie. Prawdopodobnie spowoduje to zablokowanie niektórych wiarygodnych ruchu, co jest zalecane tylko w przypadku zagrożenia.
+* Postępuj zgodnie z naszymi [wskazówkami dotyczącymi dostrajania WAF](./waf-front-door-tuning.md). Ten proces wymaga włączenia rejestrowania diagnostycznego, regularnego przeglądania dzienników i dodawania wykluczeń reguł oraz innych środków zaradczych.
+* Powtórz ten cały proces, sprawdzając dzienniki regularnie, dopóki nie masz pewności, że żaden uzasadniony ruch nie jest blokowany. Cały proces może potrwać kilka tygodni. W idealnym przypadku po każdej zmianie dostrajania powinno być widoczne mniej fałszywie pozytywnego wykrywania.
+* Na koniec Włącz WAF w **trybie zapobiegania**.
+* Nawet gdy uruchamiasz WAF w środowisku produkcyjnym, należy zachować monitorowanie dzienników, aby zidentyfikować inne wykrycia fałszywie-pozytywne. Regularne przeglądanie dzienników ułatwi również zidentyfikowanie wszelkich rzeczywistych prób ataku, które zostały zablokowane.
 
 ## <a name="do-you-support-same-waf-features-in-all-integrated-platforms"></a>Czy te same funkcje WAF są obsługiwane we wszystkich zintegrowanych platformach?
 

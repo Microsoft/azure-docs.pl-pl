@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5558a57812414f6f1bb1be053a089af98533155a
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 39c1972eba84f4f1990c87112c5801c386849640
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288328"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545962"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Omówienie obiektów BLOB na stronie platformy Azure
 
@@ -31,7 +31,7 @@ Stronicowe obiekty blob mogą korzystać tylko z warstwy dostępu **gorąca** , 
 
 ## <a name="sample-use-cases"></a>Przykładowe przypadki użycia
 
-Omówmy kilka przypadków użycia dla stronicowych obiektów blob, rozpoczynając od dysku IaaS platformy Azure. Obiekty blob na stronie platformy Azure są szkieletem platformy dysków wirtualnych dla usługi Azure IaaS. System operacyjny Azure i dyski danych są implementowane jako dyski wirtualne, na których dane są trwale trwałe na platformie Azure Storage, a następnie dostarczane do maszyn wirtualnych w celu zapewnienia maksymalnej wydajności. Dyski platformy Azure są utrwalane w [formacie wirtualnego dysku twardego](https://technet.microsoft.com/library/dd979539.aspx) funkcji Hyper-V i przechowywane jako [stronicowe obiekty blob](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) w usłudze Azure Storage. Oprócz używania dysków wirtualnych dla maszyn wirtualnych usługi Azure IaaS, stronicowe obiekty blob umożliwiają również scenariusze PaaS i DBaaS, takie jak usługa Azure SQL DB, która obecnie używa stronicowych obiektów BLOB do przechowywania danych SQL, umożliwiając szybkie losowe operacje odczytu i zapisu bazy danych. Innym przykładem jest to, że jeśli masz usługę PaaS do udostępniania dostępu do multimediów dla aplikacji do edycji filmów wideo, stronicowe obiekty blob umożliwiają szybki dostęp do losowo wybranych lokalizacji na nośniku. Umożliwia również szybkie i wydajne edytowanie i scalanie tego samego nośnika przez wielu użytkowników. 
+Omówmy kilka przypadków użycia dla stronicowych obiektów blob, rozpoczynając od dysku IaaS platformy Azure. Obiekty blob na stronie platformy Azure są szkieletem platformy dysków wirtualnych dla usługi Azure IaaS. System operacyjny Azure i dyski danych są implementowane jako dyski wirtualne, na których dane są trwale trwałe na platformie Azure Storage, a następnie dostarczane do maszyn wirtualnych w celu zapewnienia maksymalnej wydajności. Dyski platformy Azure są utrwalane w [formacie wirtualnego dysku twardego](/previous-versions/windows/it-pro/windows-7/dd979539(v=ws.10)) funkcji Hyper-V i przechowywane jako [stronicowe obiekty blob](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) w usłudze Azure Storage. Oprócz używania dysków wirtualnych dla maszyn wirtualnych usługi Azure IaaS, stronicowe obiekty blob umożliwiają również scenariusze PaaS i DBaaS, takie jak usługa Azure SQL DB, która obecnie używa stronicowych obiektów BLOB do przechowywania danych SQL, umożliwiając szybkie losowe operacje odczytu i zapisu bazy danych. Innym przykładem jest to, że jeśli masz usługę PaaS do udostępniania dostępu do multimediów dla aplikacji do edycji filmów wideo, stronicowe obiekty blob umożliwiają szybki dostęp do losowo wybranych lokalizacji na nośniku. Umożliwia również szybkie i wydajne edytowanie i scalanie tego samego nośnika przez wielu użytkowników. 
 
 Usługi firmy Microsoft w pierwszej kolejności, takie jak Azure Site Recovery, Azure Backup, a także wielu deweloperów innych firm wdrożyły wiodące w branży innowacje przy użyciu interfejsu REST obiektu BLOB strony. Poniżej przedstawiono niektóre z unikatowych scenariuszy wdrożonych na platformie Azure: 
 
@@ -47,7 +47,7 @@ Oba typy magazynów oferowane przez stronicowe obiekty blob mają własny model 
 
 ### <a name="rest-api"></a>Interfejs API REST
 
-Zapoznaj się z następującym dokumentem, aby rozpocząć [Programowanie przy użyciu stronicowych obiektów BLOB](storage-dotnet-how-to-use-blobs.md). Na przykład zapoznaj się z tematem jak uzyskać dostęp do stronicowych obiektów BLOB przy użyciu biblioteki klienta usługi Storage dla platformy .NET. 
+Zapoznaj się z następującym dokumentem, aby rozpocząć [Programowanie przy użyciu stronicowych obiektów BLOB](./storage-quickstart-blobs-dotnet.md). Na przykład zapoznaj się z tematem jak uzyskać dostęp do stronicowych obiektów BLOB przy użyciu biblioteki klienta usługi Storage dla platformy .NET. 
 
 Na poniższym diagramie opisano ogólne relacje między kontem, kontenerami i stronicowymi obiektami BLOB.
 
@@ -63,7 +63,7 @@ Najpierw Pobierz odwołanie do kontenera. Aby utworzyć stronicowy obiekt BLOB, 
 
 # <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 
-W celu utworzenia stronicowego obiektu BLOB najpierw tworzymy obiekt **CloudBlobClient** z podstawowym identyfikatorem URI uzyskiwania dostępu do magazynu obiektów BLOB dla konta magazynu ( *pbaccount* na rysunku 1) wraz z obiektem **StorageCredentialsAccountAndKey** , jak pokazano w poniższym przykładzie. Przykład pokazuje, jak utworzyć odwołanie do obiektu **CloudBlobContainer** , a następnie utworzyć kontener ( *testvhds* ), jeśli jeszcze nie istnieje. Następnie za pomocą obiektu **CloudBlobContainer** Utwórz odwołanie do obiektu **CloudPageBlob** , określając nazwę obiektu BLOB (OS4. VHD), aby uzyskać dostęp. Aby utworzyć stronicowy obiekt BLOB, wywołaj [CloudPageBlob. Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create), przekazując w maksymalnym rozmiarze dla obiektu BLOB do utworzenia. *BlobSize* musi być wielokrotnością 512 bajtów.
+W celu utworzenia stronicowego obiektu BLOB najpierw tworzymy obiekt **CloudBlobClient** z podstawowym identyfikatorem URI uzyskiwania dostępu do magazynu obiektów BLOB dla konta magazynu (*pbaccount* na rysunku 1) wraz z obiektem **StorageCredentialsAccountAndKey** , jak pokazano w poniższym przykładzie. Przykład pokazuje, jak utworzyć odwołanie do obiektu **CloudBlobContainer** , a następnie utworzyć kontener (*testvhds*), jeśli jeszcze nie istnieje. Następnie za pomocą obiektu **CloudBlobContainer** Utwórz odwołanie do obiektu **CloudPageBlob** , określając nazwę obiektu BLOB (OS4. VHD), aby uzyskać dostęp. Aby utworzyć stronicowy obiekt BLOB, wywołaj [CloudPageBlob. Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create), przekazując w maksymalnym rozmiarze dla obiektu BLOB do utworzenia. *BlobSize* musi być wielokrotnością 512 bajtów.
 
 ```csharp
 using Microsoft.Azure;
