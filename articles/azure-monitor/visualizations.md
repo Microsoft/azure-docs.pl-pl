@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 4c9f74f5a9950a299b34e22c1e86dd91f8c82364
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9f95a5e85ec4eebf82cca707476750595331d73
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983593"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522672"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Wizualizowanie danych z usługi Azure Monitor
 Ten artykuł zawiera podsumowanie dostępnych metod wizualizacji danych dziennika i metryk przechowywanych w Azure Monitor.
@@ -49,7 +49,7 @@ Oto przewodnik wideo dotyczący tworzenia pulpitów nawigacyjnych.
 - Głębokiej integracji z platformą Azure. Wizualizacje można przypinać do pulpitów nawigacyjnych z wielu stron platformy Azure, w tym Eksplorator metryk, Log Analytics i Application Insights.
 - Obsługuje metryki i dzienniki.
 - Połącz dane z wielu źródeł, w tym dane wyjściowe z [Eksploratora metryk](platform/metrics-charts.md), [zapytań dzienników](log-query/log-query-overview.md)i [map](app/app-map.md) i dostępności w Application Insights.
-- Opcja dla osobistych lub udostępnionych pulpitów nawigacyjnych. Integracja z [uwierzytelnianiem opartym na rolach (RBAC) na](../role-based-access-control/overview.md)platformie Azure.
+- Opcja dla osobistych lub udostępnionych pulpitów nawigacyjnych. Integracja z [kontrolą dostępu opartą na rolach (Azure RBAC)](../role-based-access-control/overview.md).
 - Automatyczne odświeżanie. Odświeżanie metryk zależy od zakresu czasu, który jest co najmniej pięć minut. Dzienniki są odświeżane co godzinę przy użyciu opcji ręcznego odświeżania na żądanie, klikając ikonę "Odśwież" w danej wizualizacji lub odświeżając pełny pulpit nawigacyjny.
 - Parametry, które są pulpitami nawigacyjnymi metryk z sygnaturami czasowymi i parametry niestandardowe.
 - Elastyczne opcje układu.

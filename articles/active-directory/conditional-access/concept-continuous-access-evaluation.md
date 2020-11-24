@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: daa3f3b1687b01005f32cbd2665c84b933c993b8
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 706fa1666dc327955294fb350b673aed40d6bf48
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837621"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95520666"
 ---
 # <a name="continuous-access-evaluation"></a>Ciągła weryfikacja dostępu
 
@@ -26,7 +26,9 @@ Klienci wyrazili wątpliwości dotyczące zwłoki między zmianami warunków uż
 
 Czasowa reakcja na naruszenia zasad lub problemy z zabezpieczeniami naprawdę wymaga "konwersacji" między wystawcą tokenów, takimi jak Azure AD, a jednostką uzależnioną, taką jak Exchange Online. Ta dwukierunkowa konwersacja daje nam dwie ważne możliwości. Jednostka uzależniona może zwrócić uwagę na to, że zmiany uległy zmianie, takie jak klient pochodzący z nowej lokalizacji i informujący wystawca tokenów. Zapewnia również wystawcy tokenów sposób informowania jednostki uzależnionej o zaprzestanie poszanowania tokenów dla danego użytkownika ze względu na złamanie konta, wyłączenie lub inne problemy. Mechanizmem tej konwersacji jest ciągły dostęp do wersji ewaluacyjnej (CAE). Celem jest osiągnięcie niemal rzeczywistego czasu reakcji, ale w niektórych przypadkach można zaobserwować opóźnienie do 15 minut z powodu czasu propagacji zdarzeń.
 
-Początkowa implementacja oceny ciągłego dostępu koncentruje się na wymianie, zespołach i usłudze SharePoint Online. 
+Początkowa implementacja oceny ciągłego dostępu koncentruje się na wymianie, zespołach i usłudze SharePoint Online.
+
+Aby przygotować aplikacje do korzystania z programu CAE, zobacz [jak używać interfejsów API do oceny dostępu ciągłego w aplikacjach](/develop/app-resilience-continuous-access-evaluation.md).
 
 ### <a name="key-benefits"></a>Najważniejsze korzyści
 
@@ -144,7 +146,7 @@ W przypadku usługi CAE dostępne są tylko szczegółowe informacje o nazwanych
 
 ### <a name="ip-address-configuration"></a>Konfiguracja adresu IP
 
-Dostawca tożsamości i dostawcy zasobów mogą zobaczyć różne adresy IP. Taka niezgodność może wystąpić ze względu na implementacje serwera proxy sieci w organizacji lub nieprawidłowe konfiguracje protokołu IPv4/IPv6 między dostawcą tożsamości i dostawcą zasobów. Przykład:
+Dostawca tożsamości i dostawcy zasobów mogą zobaczyć różne adresy IP. Taka niezgodność może wystąpić ze względu na implementacje serwera proxy sieci w organizacji lub nieprawidłowe konfiguracje protokołu IPv4/IPv6 między dostawcą tożsamości i dostawcą zasobów. Na przykład:
 
 - Dostawca tożsamości widzi jeden adres IP od klienta.
 - Dostawca zasobów widzi inny adres IP od klienta po przejściu przez serwer proxy.

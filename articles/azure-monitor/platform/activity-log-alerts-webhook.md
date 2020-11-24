@@ -4,12 +4,12 @@ description: Informacje o schemacie JSON, który jest publikowany w adresie URL 
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: 0ebaf7f0cc52ac131573226dfff5516581745c67
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 026613c3f5710137fb110153b34f9ed74bbf8a7b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104278"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522791"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Elementy webhook dla alertów dziennika aktywności platformy Azure
 W ramach definicji grupy akcji można skonfigurować punkty końcowe elementu webhook, aby otrzymywać powiadomienia o alertach dziennika aktywności. Za pomocą elementów webhook można kierować te powiadomienia do innych systemów na potrzeby akcji wykonywanych po przetworzeniu lub w niestandardowym. W tym artykule przedstawiono sposób, w jaki zostanie wyświetlony ładunek dla wpisu HTTP dla elementu webhook.
@@ -262,14 +262,14 @@ Aby uzyskać szczegółowe informacje dotyczące schematu alertów dziennika akt
 | warunektype |Zawsze "zdarzenie". |
 | name |Nazwa reguły alertu. |
 | identyfikator |Identyfikator zasobu alertu. |
-| description |Opis alertu ustawiany podczas tworzenia alertu. |
+| description (opis) |Opis alertu ustawiany podczas tworzenia alertu. |
 | subscriptionId |Identyfikator subskrypcji platformy Azure. |
 | sygnatura czasowa |Godzina, o której zdarzenie zostało wygenerowane przez usługę platformy Azure, która przetworzyła żądanie. |
 | resourceId |Identyfikator zasobu zasobu, którego dotyczy problem. |
 | resourceGroupName |Nazwa grupy zasobów dla zasobu, którego dotyczy problem. |
 | properties |Zestaw `<Key, Value>` par (czyli `Dictionary<String, String>` ), który zawiera szczegółowe informacje o zdarzeniu. |
 | event |Element, który zawiera metadane dotyczące zdarzenia. |
-| autoryzacja |Role-Based Access Control właściwości zdarzenia. Te właściwości zazwyczaj obejmują akcję, rolę i zakres. |
+| autoryzacja |Właściwości kontroli dostępu opartej na rolach platformy Azure dla zdarzenia. Te właściwości zazwyczaj obejmują akcję, rolę i zakres. |
 | category |Kategoria zdarzenia. Obsługiwane wartości to: administracyjne, alert, zabezpieczenia, servicehealth i rekomendacja. |
 | Obiekt wywołujący |Adres e-mail użytkownika, który wykonał operację, oświadczenie nazwy UPN lub oświadczenie SPN na podstawie dostępności. Może mieć wartość null w przypadku niektórych wywołań systemowych. |
 | correlationId |Zazwyczaj identyfikator GUID w formacie ciągu. Zdarzenia z identyfikatorem korelacji należy do tej samej większej akcji i zwykle współużytkują identyfikator korelacji. |

@@ -11,12 +11,12 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 05d810928a71aec0e3314c32051e5f3565413564
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 17b2d717ac6f244cb3ddddfdbc2f29581aa1f59f
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444609"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95527313"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Wdrażanie modelu w celu Azure Machine Learning wystąpień obliczeniowych
 
@@ -40,7 +40,7 @@ Przykładowy Notes, który pokazuje lokalne wdrożenia, jest uwzględniony w wys
 
 1. W programie [Azure Machine Learning Studio](https://ml.azure.com)wybierz Azure Machine Learning wystąpienia obliczeniowe.
 
-1. Otwórz `samples-*` podkatalog, a następnie otwórz `how-to-use-azureml/deploy-to-local/register-model-deploy-local.ipynb` . Po otwarciu Uruchom Notes.
+1. Otwórz `samples-*` podkatalog, a następnie otwórz `how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb` . Po otwarciu Uruchom Notes.
 
     ![Zrzut ekranu przedstawiający uruchomioną usługę lokalną w notesie](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service.png)
 
@@ -52,7 +52,7 @@ Przykładowy Notes, który pokazuje lokalne wdrożenia, jest uwzględniony w wys
     * Maszyna wirtualna notesu: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.notebooks.azureml.net/score` . 
     * Wystąpienie obliczeniowe: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.instances.azureml.net/score` . 
 
-    Przykład: 
+    Na przykład 
     * Maszyna wirtualna notesu: `https://vm-name-6789.northcentralus.notebooks.azureml.net/score` 
     * Wystąpienie obliczeniowe: `https://vm-name-6789.northcentralus.instances.azureml.net/score`
 

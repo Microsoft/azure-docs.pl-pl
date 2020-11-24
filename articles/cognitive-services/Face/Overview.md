@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 9/17/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: rozpoznawanie twarzy, oprogramowanie do rozpoznawania twarzy, analiza twarzy, dopasowanie twarzy, aplikacja do rozpoznawania twarzy, wyszukiwanie twarzy według obrazu, wyszukiwanie twarzy
-ms.openlocfilehash: ccc9ee3107d287844430be0ae089e4b7ac3a2f44
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 600ca48cc19ee8723b423e484ec96736a55ae7fc
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911447"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95532260"
 ---
 # <a name="what-is-the-azure-face-service"></a>Co to jest usługa Azure Front?
 
@@ -48,7 +48,7 @@ Sprawdź, czy interfejs API wykonuje uwierzytelnianie w odniesieniu do dwóch wy
 
 Interfejs API Znajdź podobny dopasowuje dopasowanie między powierzchnią docelową a zestawem kandydatów, co umożliwia znalezienie mniejszego zestawu twarzy, który wygląda podobnie do powierzchni docelowej. Jest to przydatne do przeszukiwania kroju na podstawie obrazu. 
 
-Obsługiwane są dwa tryby pracy, **matchPerson** i **matchFace** . Tryb **matchPerson** zwraca podobne twarze po filtrowaniu dla tej samej osoby za pomocą narzędzia [verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). Tryb **matchFace** ignoruje ten sam filtr osoby. Zwraca listę podobnych powierzchni kandydujących, które mogą lub nie należą do tej samej osoby.
+Obsługiwane są dwa tryby pracy, **matchPerson** i **matchFace**. Tryb **matchPerson** zwraca podobne twarze po filtrowaniu dla tej samej osoby za pomocą narzędzia [verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). Tryb **matchFace** ignoruje ten sam filtr osoby. Zwraca listę podobnych powierzchni kandydujących, które mogą lub nie należą do tej samej osoby.
 
 W poniższym przykładzie pokazano tarczę docelową:
 
@@ -76,9 +76,9 @@ Po utworzeniu i przeprowadzeniu uczenia bazy danych można przeprowadzić identy
 
 Aby uzyskać więcej informacji na temat identyfikacji osób, zobacz Przewodnik dotyczący pojęć dotyczących [rozpoznawania twarzy](concepts/face-recognition.md) lub dokumentację dotyczącą [identyfikacji interfejsów API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) .
 
-## <a name="containers"></a>Containers
+## <a name="deploy-on-premises-using-docker-containers"></a>Wdrażanie lokalnie przy użyciu kontenerów platformy Docker
 
-[Użyj kontenera twarzy](face-how-to-install-containers.md) , aby wykrywać, rozpoznawać i identyfikować twarze, instalując ustandaryzowany kontener platformy Docker bliżej Twoich danych.
+[Użyj kontenera funkcji Front (wersja zapoznawcza),](face-how-to-install-containers.md) aby wdrożyć funkcje interfejsu API lokalnie. Ten kontener platformy Docker umożliwia przełączenie usługi do danych pod kątem zgodności, zabezpieczeń lub innych przyczyn operacyjnych.
 
 ## <a name="sample-apps"></a>Przykładowe aplikacje
 

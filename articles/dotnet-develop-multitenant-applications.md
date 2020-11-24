@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 71114b6663d010437e5778d288eacf4e120b3da5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d36a2804519e5728dd068cc6c06ad005244e8c95
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91395978"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95524100"
 ---
 # <a name="multitenant-applications-in-azure"></a>Aplikacje wielodostępne na platformie Azure
 Aplikacja wielodostępna jest udostępnionym zasobem, który umożliwia "użytkownikom w osobnych dzierżawcach" wyświetlanie aplikacji tak, jakby była własna. Typowym scenariuszem, który ogranicza się do aplikacji wielodostępnej, jest to, w której wszyscy użytkownicy aplikacji z różnych dzierżawców mogą chcieć dostosować środowisko użytkownika, ale w przeciwnym razie mają one te same podstawowe wymagania biznesowe. Przykłady dużych aplikacji wielodostępnych to Microsoft 365, Outlook.com i visualstudio.com.
@@ -43,7 +43,7 @@ Prawidłowo zaimplementowana aplikacja wielodostępna zapewnia użytkownikom nas
 
 Krótko mówiąc, chociaż istnieje wiele kwestii, które należy wziąć pod uwagę w celu zapewnienia wysokiej skalowalności usługi, istnieją również pewne cele i wymagania, które są wspólne dla wielu aplikacji wielodostępnych. Niektóre z nich mogą nie być istotne w określonych scenariuszach, a znaczenie poszczególnych celów i wymagań różni się w każdym scenariuszu. Jako dostawca aplikacji wielodostępnej również masz cele i wymagania, takie jak, spełniające cele i wymagania dzierżawy, zyskowność, rozliczenie, wiele poziomów usług, Inicjowanie obsługi, monitorowanie utrzymania i automatyzację.
 
-Aby uzyskać więcej informacji na temat dodatkowych zagadnień projektowych aplikacji wielodostępnej, zobacz hosting aplikacji wielodostępnej [na platformie Azure][Hosting a Multi-Tenant Application on Azure]. Aby uzyskać informacje na temat typowych wzorców architektury danych w aplikacjach baz danych typu oprogramowanie jako usługa (SaaS), zobacz artykuł [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md) (Wzorce projektowe dla wielodostępnych aplikacji SaaS korzystających z usługi Azure SQL Database). 
+Aby uzyskać więcej informacji na temat dodatkowych zagadnień projektowych aplikacji wielodostępnej, zobacz hosting aplikacji wielodostępnej [na platformie Azure][Hosting a Multi-Tenant Application on Azure]. Aby uzyskać informacje na temat typowych wzorców architektury danych w aplikacjach baz danych typu oprogramowanie jako usługa (SaaS), zobacz artykuł [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](./azure-sql/database/saas-tenancy-app-design-patterns.md) (Wzorce projektowe dla wielodostępnych aplikacji SaaS korzystających z usługi Azure SQL Database). 
 
 Platforma Azure udostępnia wiele funkcji, które umożliwiają rozwiązywanie najważniejszych problemów występujących podczas projektowania wielodostępnego systemu.
 
@@ -92,5 +92,5 @@ Platforma Azure udostępnia wiele metod udostępniania nowych dzierżawców dla 
 
 <!--links-->
 
-[Hosting a Multi-Tenant Application on Azure]: https://msdn.microsoft.com/library/hh534480.aspx
+[Hosting a Multi-Tenant Application on Azure]: /previous-versions/msp-n-p/hh534480(v=pandp.10)
 [Designing Multitenant Applications on Azure]: https://msdn.microsoft.com/library/windowsazure/hh689716

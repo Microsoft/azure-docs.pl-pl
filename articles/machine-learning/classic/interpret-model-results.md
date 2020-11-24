@@ -8,17 +8,16 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 11/29/2017
-ms.openlocfilehash: 3cfdeaee863c8e11a76ac5842ae6c35d370e2ae2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 74210475cc8c0efd274d6e80c3f1c89b5206a97d
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322544"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95509509"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Interpretowanie wyników modelu w Azure Machine Learning Studio (klasyczny)
 
-**dotyczy:** ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) ![ nie ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
-
+**dotyczy:** ![ Jest to znacznik wyboru, co oznacza, że ten artykuł ma zastosowanie do Machine Learning Studio (klasyczne). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) ![ to jest X, co oznacza, że ten artykuł ma zastosowanie do Azure Machine Learning ](../../../includes/media/aml-applies-to-skus/no.png)[ . Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 W tym temacie wyjaśniono, jak wizualizować i interpretować wyniki prognozowania w Azure Machine Learning Studio (klasyczny). Po przeprowadzeniu szkolenia modelu i zakończeniu przewidywania względem niego ("Ocena modelu") należy zrozumieć i zinterpretować wynik przewidywania.
 
@@ -107,7 +106,7 @@ W danych szkoleniowych są wyekstrahowane 16 funkcji z obrazów list odręcznych
 
 Rysunek 6. Eksperyment problemu klasyfikacji wieloklasowego rozpoznawania litery
 
-Wizualizowanie wyników modułu [modelu wynikowego][score-model] przez kliknięcie portu wyjściowego modułu [oceny wyniku][score-model] , a następnie kliknięcie **wizualizacji** , powinna zostać wyświetlona zawartość, jak pokazano na rysunku 7.
+Wizualizowanie wyników modułu [modelu wynikowego][score-model] przez kliknięcie portu wyjściowego modułu [oceny wyniku][score-model] , a następnie kliknięcie **wizualizacji**, powinna zostać wyświetlona zawartość, jak pokazano na rysunku 7.
 
 ![Wyniki modelu wyników](./media/interpret-model-results/7.png)
 
@@ -247,7 +246,7 @@ Rysunek 20. Zalecany eksperyment systemu
 
 **Prognozowanie klasyfikacji dla danego użytkownika i elementu**
 
-Wybierając opcję **prognozowanie klasyfikacji** w obszarze **przewidywanie** , należy zadać systemowi zalecanym do przewidywania oceny danego użytkownika i elementu. Wizualizacja danych wyjściowych [Matchbox oceny wyniku][score-matchbox-recommender] jest następująca, jak rysunek 21.
+Wybierając opcję **prognozowanie klasyfikacji** w obszarze **przewidywanie**, należy zadać systemowi zalecanym do przewidywania oceny danego użytkownika i elementu. Wizualizacja danych wyjściowych [Matchbox oceny wyniku][score-matchbox-recommender] jest następująca, jak rysunek 21.
 
 ![Wynik wyniku proponowanego systemu — przewidywanie oceny](./media/interpret-model-results/21.png)
 
@@ -257,7 +256,7 @@ Pierwsze dwie kolumny to pary elementu User-Item dostarczone przez dane wejścio
 
 **Zalecane elementy dla danego użytkownika**
 
-Wybierając pozycję **element rekomendacja** w obszarze **predykcyjny zalecenia** , prosisz o system polecający, aby zalecać elementy dla danego użytkownika. Ostatni parametr, który należy wybrać w tym scenariuszu, jest *zalecanym wyborem elementu*. Opcja **z elementów ocenianych (na potrzeby oceny modelu)** służy głównie do oceny modelu podczas procesu szkolenia. Na potrzeby tego etapu przewidywania wybieramy **spośród wszystkich elementów**. Wizualizacja danych wyjściowych [Matchbox oceny wyniku][score-matchbox-recommender] jest następująca, jak rysunek 22.
+Wybierając pozycję **element rekomendacja** w obszarze **predykcyjny zalecenia**, prosisz o system polecający, aby zalecać elementy dla danego użytkownika. Ostatni parametr, który należy wybrać w tym scenariuszu, jest *zalecanym wyborem elementu*. Opcja **z elementów ocenianych (na potrzeby oceny modelu)** służy głównie do oceny modelu podczas procesu szkolenia. Na potrzeby tego etapu przewidywania wybieramy **spośród wszystkich elementów**. Wizualizacja danych wyjściowych [Matchbox oceny wyniku][score-matchbox-recommender] jest następująca, jak rysunek 22.
 
 ![Wynik wyniku zalecanego systemu — zalecenie dotyczące elementu](./media/interpret-model-results/22.png)
 
@@ -267,7 +266,7 @@ Pierwsza z sześciu kolumn reprezentuje podane identyfikatory użytkowników, ab
 
 **Znajdź użytkowników związanych z danym użytkownikiem**
 
-Wybierając **odpowiednich użytkowników** w obszarze **predykcyjny polecający** , użytkownik jest proszony o wyszukanie pokrewnych użytkowników dla danego użytkownika. Pokrewni użytkownicy są użytkownikami, którzy mają podobne preferencje. Ostatnim parametrem wybieranym w tym scenariuszu jest *wybór związany z użytkownikiem*. Opcja **od użytkowników, którzy oceniali elementy (na potrzeby oceny modelu)** , jest przede wszystkim do oceny modelu w trakcie procesu szkoleniowego. Wybierz **spośród wszystkich użytkowników** tego etapu przewidywania. Wizualizacja danych wyjściowych [Matchbox oceny wyniku][score-matchbox-recommender] jest następująca, jak rysunek 23.
+Wybierając **odpowiednich użytkowników** w obszarze **predykcyjny polecający**, użytkownik jest proszony o wyszukanie pokrewnych użytkowników dla danego użytkownika. Pokrewni użytkownicy są użytkownikami, którzy mają podobne preferencje. Ostatnim parametrem wybieranym w tym scenariuszu jest *wybór związany z użytkownikiem*. Opcja **od użytkowników, którzy oceniali elementy (na potrzeby oceny modelu)** , jest przede wszystkim do oceny modelu w trakcie procesu szkoleniowego. Wybierz **spośród wszystkich użytkowników** tego etapu przewidywania. Wizualizacja danych wyjściowych [Matchbox oceny wyniku][score-matchbox-recommender] jest następująca, jak rysunek 23.
 
 ![Wynik oceny zalecanych użytkowników systemu](./media/interpret-model-results/23.png)
 
@@ -277,7 +276,7 @@ W pierwszej z sześciu kolumn są wyświetlane podane identyfikatory użytkownik
 
 **Znajdź elementy dotyczące danego elementu**
 
-Wybierając **powiązane elementy** w obszarze **predykcyjny polecający** , użytkownik jest proszony o wyszukanie pokrewnych elementów dla danego elementu. Elementy pokrewne to elementy, które najprawdopodobniej będą odnosi się do tego samego użytkownika. Ostatnim parametrem, który należy wybrać w tym scenariuszu, jest *wybór powiązanego elementu*. Opcja **z elementów ocenianych (na potrzeby oceny modelu)** służy głównie do oceny modelu podczas procesu szkolenia. Wybieramy **ze wszystkich elementów** dla tego etapu przewidywania. Wizualizacja danych wyjściowych [Matchbox oceny wyniku][score-matchbox-recommender] jest następująca, jak rysunek 24.
+Wybierając **powiązane elementy** w obszarze **predykcyjny polecający**, użytkownik jest proszony o wyszukanie pokrewnych elementów dla danego elementu. Elementy pokrewne to elementy, które najprawdopodobniej będą odnosi się do tego samego użytkownika. Ostatnim parametrem, który należy wybrać w tym scenariuszu, jest *wybór powiązanego elementu*. Opcja **z elementów ocenianych (na potrzeby oceny modelu)** służy głównie do oceny modelu podczas procesu szkolenia. Wybieramy **ze wszystkich elementów** dla tego etapu przewidywania. Wizualizacja danych wyjściowych [Matchbox oceny wyniku][score-matchbox-recommender] jest następująca, jak rysunek 24.
 
 ![Wynik oceny zalecanych elementów systemu](./media/interpret-model-results/24.png)
 

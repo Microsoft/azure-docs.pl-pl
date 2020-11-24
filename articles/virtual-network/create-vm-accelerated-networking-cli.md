@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 31d833d1a6e9c7715ca13582c09f5f72564d683a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: bccbfed96dd6cd87bdfe986baf4b52817a160ac0
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016143"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95533365"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Tworzenie maszyny wirtualnej z systemem Linux za pomocą przyspieszonej sieci przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -48,7 +48,7 @@ Następujące dystrybucje są obsługiwane z poziomu galerii platformy Azure:
 * **RHEL 7,4 lub nowszy**
 * **CentOS 7,4 lub nowszy**
 * **CoreOS Linux**
-* **Debian "Rozciągnij" przy użyciu jądra dla portów**
+* **Debian "Rozciągnij" przy użyciu jądra z wieloma portami, Debian "Buster" lub nowszy**
 * **Oracle Linux 7,4 i nowsze dzięki jądrze zgodnemu z systemem Red Hat (RHCK)**
 * **Oracle Linux 7,5 i nowsze z UEK wersja 5**
 * **FreeBSD 10,4, 11,1 & 12,0 lub nowszego**

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: dineshm
-ms.openlocfilehash: 62cd31ab6f63aec5ddeb675bca3621a329ab1f2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4c6b5b23a0609a5d68eb72c614ce282ae04a817
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87826572"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519102"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagowanie na zdarzenia usługi Blob Storage
 
@@ -29,17 +29,17 @@ Jeśli chcesz wypróbować zdarzenia magazynu obiektów blob, zapoznaj się z do
 
 |Jeśli chcesz użyć tego narzędzia:    |Zobacz ten artykuł: |
 |--|-|
-|Azure Portal    |[Szybki Start: kierowanie zdarzeń magazynu obiektów BLOB do punktu końcowego sieci Web za pomocą Azure Portal](https://docs.microsoft.com/azure/event-grid/blob-event-quickstart-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Program PowerShell    |[Szybki Start: kierowanie zdarzeń magazynu do punktu końcowego w sieci Web przy użyciu programu PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Interfejs wiersza polecenia platformy Azure    |[Szybki Start: kierowanie zdarzeń magazynu do punktu końcowego sieci Web przy użyciu interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure Portal    |[Szybki Start: kierowanie zdarzeń magazynu obiektów BLOB do punktu końcowego sieci Web za pomocą Azure Portal](../../event-grid/blob-event-quickstart-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json)|
+|Program PowerShell    |[Szybki Start: kierowanie zdarzeń magazynu do punktu końcowego w sieci Web przy użyciu programu PowerShell](./storage-blob-event-quickstart-powershell.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json)|
+|Interfejs wiersza polecenia platformy Azure    |[Szybki Start: kierowanie zdarzeń magazynu do punktu końcowego sieci Web przy użyciu interfejsu wiersza polecenia platformy Azure](./storage-blob-event-quickstart.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json)|
 
 Aby zapoznać się z szczegółowymi przykładami odwołującymi się do zdarzeń magazynu obiektów BLOB za pomocą usługi Azure Functions, zobacz następujące artykuły:
 
 - [Samouczek: Użyj zdarzeń Azure Data Lake Storage Gen2, aby zaktualizować tabelę różnicową](data-lake-storage-events.md)danych.
-- [Samouczek: Automatyzowanie zmiany rozmiarów załadowanych obrazów przy użyciu Event Grid](https://docs.microsoft.com/azure/event-grid/resize-images-on-storage-blob-upload-event?tabs=dotnet)
+- [Samouczek: Automatyzowanie zmiany rozmiarów załadowanych obrazów przy użyciu Event Grid](../../event-grid/resize-images-on-storage-blob-upload-event.md?tabs=dotnet)
 
 >[!NOTE]
-> Tylko konta magazynu typu **StorageV2 (ogólnego przeznaczenia w wersji 2)**, **BlockBlobStorage**i **BlobStorage** obsługują integrację zdarzeń. **Magazyn (ogólnego przeznaczenia w wersji 1)** *nie obsługuje integracji* z programem Event Grid.
+> Tylko konta magazynu typu **StorageV2 (ogólnego przeznaczenia w wersji 2)**, **BlockBlobStorage** i **BlobStorage** obsługują integrację zdarzeń. **Magazyn (ogólnego przeznaczenia w wersji 1)** *nie obsługuje integracji* z programem Event Grid.
 
 ## <a name="the-event-model"></a>Model zdarzenia
 
@@ -60,7 +60,7 @@ Zobacz artykuł [schemat zdarzeń magazynu obiektów BLOB](../../event-grid/even
 
 Zdarzenia obiektów BLOB [można filtrować](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) według typu zdarzenia, nazwy kontenera lub nazwy obiektu, który został utworzony/usunięty. Filtry w Event Grid są zgodne z początkiem lub końcem podmiotu, dlatego zdarzenia z odpowiednim podmiotem przejdą do subskrybenta.
 
-Aby dowiedzieć się więcej na temat stosowania filtrów, zobacz [filtrowanie zdarzeń dla Event Grid](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
+Aby dowiedzieć się więcej na temat stosowania filtrów, zobacz [filtrowanie zdarzeń dla Event Grid](../../event-grid/how-to-filter-events.md).
 
 W temacie zdarzeń magazynu obiektów BLOB jest stosowany format:
 
@@ -96,13 +96,13 @@ Aplikacje, które obsługują zdarzenia magazynu obiektów blob, powinny spełni
 > [!div class="checklist"]
 > * Ponieważ można skonfigurować wiele subskrypcji do kierowania zdarzeń do tego samego programu obsługi zdarzeń, ważne jest, aby nie przyjmować zdarzeń z określonego źródła, ale w celu sprawdzenia, czy pochodzi ona z konta magazynu, którego oczekujesz.
 > * Podobnie Sprawdź, czy typ zdarzenia jest przygotowana do przetworzenia i nie zakładaj, że wszystkie zdarzenia, które otrzymujesz, są oczekiwanymi typami.
-> * Ponieważ komunikaty mogą trafiać po pewnym opóźnieniu, Użyj pól ETag, aby zrozumieć, czy informacje o obiektach są nadal aktualne. Aby dowiedzieć się, jak używać pola ETag, zobacz [Zarządzanie współbieżnością w magazynie obiektów BLOB](https://docs.microsoft.com/azure/storage/common/storage-concurrency?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage). 
+> * Ponieważ komunikaty mogą trafiać po pewnym opóźnieniu, Użyj pól ETag, aby zrozumieć, czy informacje o obiektach są nadal aktualne. Aby dowiedzieć się, jak używać pola ETag, zobacz [Zarządzanie współbieżnością w magazynie obiektów BLOB](../common/storage-concurrency.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#managing-concurrency-in-blob-storage). 
 > * Ponieważ komunikaty mogą się pojawiać poza kolejnością, Użyj pól programu Sequencer do zrozumienia kolejności zdarzeń dla każdego określonego obiektu. Pole Sequencer jest wartością ciągu reprezentującą logiczną sekwencję zdarzeń dla każdej konkretnej nazwy obiektu BLOB. Można użyć standardowego porównania ciągów, aby zrozumieć względną sekwencję dwóch zdarzeń dla tej samej nazwy obiektu BLOB.
 > * Zdarzenia magazynu gwarantują co najmniej jednokrotne dostarczanie do subskrybentów, co gwarantuje, że wszystkie komunikaty są zwracane. Jednak ze względu na ponowną próbę lub dostępność subskrypcji mogą czasami wystąpić zduplikowane komunikaty. Aby dowiedzieć się więcej na temat dostarczania komunikatów i ponawiania prób, zobacz [Event Grid dostarczania komunikatów i ponów próbę](../../event-grid/delivery-and-retry.md).
 > * Użyj pola blobtype, aby zrozumieć, jaki typ operacji jest dozwolony dla obiektu BLOB, a także typy bibliotek klientów, które powinny być używane w celu uzyskania dostępu do obiektu BLOB. Prawidłowe wartości to `BlockBlob` lub `PageBlob` . 
 > * Użyj pola adresu URL z `CloudBlockBlob` `CloudAppendBlob` konstruktorami i, aby uzyskać dostęp do obiektu BLOB.
 > * Ignoruj pola, które nie są zrozumiałe. Ta metoda pomaga w zachowaniu odporności na nowe funkcje, które mogą zostać dodane w przyszłości.
-> * Jeśli chcesz się upewnić, że zdarzenie **Microsoft. Storage. BlobCreated** jest wyzwalane tylko wtedy, gdy blokowy obiekt BLOB jest całkowicie zatwierdzony, przefiltruj zdarzenie dla `CopyBlob` `PutBlob` `PutBlockList` `FlushWithClose` wywołań interfejsu API, lub protokołu REST. Te wywołania interfejsu API wyzwalają zdarzenie **Microsoft. Storage. BlobCreated** tylko wtedy, gdy dane są w pełni zatwierdzone do blokowego obiektu BLOB. Aby dowiedzieć się, jak utworzyć filtr, zobacz [filtrowanie zdarzeń dla Event Grid](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
+> * Jeśli chcesz się upewnić, że zdarzenie **Microsoft. Storage. BlobCreated** jest wyzwalane tylko wtedy, gdy blokowy obiekt BLOB jest całkowicie zatwierdzony, przefiltruj zdarzenie dla `CopyBlob` `PutBlob` `PutBlockList` `FlushWithClose` wywołań interfejsu API, lub protokołu REST. Te wywołania interfejsu API wyzwalają zdarzenie **Microsoft. Storage. BlobCreated** tylko wtedy, gdy dane są w pełni zatwierdzone do blokowego obiektu BLOB. Aby dowiedzieć się, jak utworzyć filtr, zobacz [filtrowanie zdarzeń dla Event Grid](../../event-grid/how-to-filter-events.md).
 
 
 ## <a name="next-steps"></a>Następne kroki

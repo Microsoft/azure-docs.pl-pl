@@ -2,13 +2,13 @@
 title: Wdrażanie zasobów w grupie zarządzania
 description: Opisuje sposób wdrażania zasobów w zakresie grupy zarządzania w szablonie Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: 084ab69f463334569d37efd9187bfe587bfc524d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/23/2020
+ms.openlocfilehash: 54d4c096fab09bf31e121a7aae0eed3d2462e0c4
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668938"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519884"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Wdrożenia grup zarządzania przy użyciu szablonów ARM
 
@@ -83,7 +83,7 @@ az deployment mg create \
   --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json"
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Aby uzyskać Azure PowerShell, użyj polecenie [New-AzManagementGroupDeployment](/powershell/module/az.resources/new-azmanagementgroupdeployment).
 
@@ -113,7 +113,8 @@ Podczas wdrażania w grupie zarządzania można wdrożyć zasoby w programie:
 * docelowa Grupa zarządzania z operacji
 * inna grupa zarządzania w dzierżawie
 * subskrypcje w grupie zarządzania
-* grupy zasobów w grupie zarządzania (za pomocą dwóch wdrożeń zagnieżdżonych)
+* grupy zasobów w grupie zarządzania
+* Dzierżawca dla grupy zasobów
 * [zasoby rozszerzeń](scope-extension-resources.md) można stosować do zasobów
 
 Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
@@ -142,17 +143,31 @@ Aby uzyskać subskrypcję w grupie zarządzania, należy użyć zagnieżdżonego
 
 ### <a name="scope-to-resource-group"></a>Zakres do grupy zasobów
 
-Aby wskazać grupę zasobów w ramach tej subskrypcji, Dodaj dwa zagnieżdżone wdrożenia. Pierwszy wskazuje subskrypcję, która ma grupę zasobów. Drugi element docelowy grupy zasobów przez ustawienie `resourceGroup` właściwości.
+Można również kierować grupy zasobów w grupie zarządzania. Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-resource-group.json" highlight="10,21,25":::
+Aby określić grupę zasobów w grupie zarządzania, należy użyć wdrożenia zagnieżdżonego. Ustaw `subscriptionId` właściwości i `resourceGroup` . Nie ustawiaj lokalizacji dla wdrożenia zagnieżdżonego, ponieważ jest ono wdrożone w lokalizacji grupy zasobów.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-resource-group.json" highlight="9,10,18":::
 
 Aby użyć wdrożenia grupy zarządzania do utworzenia grupy zasobów w ramach subskrypcji i wdrożenia konta magazynu w tej grupie zasobów, zobacz [wdrażanie w ramach subskrypcji i grupy zasobów](#deploy-to-subscription-and-resource-group).
+
+### <a name="scope-to-tenant"></a>Zakres do dzierżawy
+
+Możesz tworzyć zasoby w dzierżawie, ustawiając dla ustawienia `scope` wartość `/` . Użytkownik wdrażający szablon musi mieć [wymagany dostęp do wdrożenia w dzierżawie](deploy-to-tenant.md#required-access).
+
+Można użyć wdrożenia zagnieżdżonego z `scope` i `location` zestawu.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-to-tenant.json" highlight="9,10,14":::
+
+Lub można ustawić zakres `/` dla niektórych typów zasobów, takich jak grupy zarządzania.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-create-mg.json" highlight="12,15":::
 
 ## <a name="deployment-location-and-name"></a>Lokalizacja i nazwa wdrożenia
 
 W przypadku wdrożeń na poziomie grupy zarządzania należy podać lokalizację wdrożenia. Lokalizacja wdrożenia jest oddzielona od lokalizacji wdrażanych zasobów. Lokalizacja wdrożenia określa miejsce przechowywania danych wdrożenia.
 
-Możesz podać nazwę wdrożenia lub użyć domyślnej nazwy wdrożenia. Nazwa domyślna to nazwa pliku szablonu. Na przykład wdrożenie szablonu o nazwie **azuredeploy.jsw** programie tworzy domyślną nazwę wdrożenia **azuredeploy** .
+Możesz podać nazwę wdrożenia lub użyć domyślnej nazwy wdrożenia. Nazwa domyślna to nazwa pliku szablonu. Na przykład wdrożenie szablonu o nazwie **azuredeploy.jsw** programie tworzy domyślną nazwę wdrożenia **azuredeploy**.
 
 Dla każdej nazwy wdrożenia lokalizacja jest niezmienna. Nie można utworzyć wdrożenia w jednej lokalizacji, gdy istnieje wdrożenie o tej samej nazwie w innej lokalizacji. Jeśli zostanie wyświetlony kod błędu `InvalidDeploymentLocation` , użyj innej nazwy lub tej samej lokalizacji co poprzednie wdrożenie dla tej nazwy.
 
@@ -234,77 +249,79 @@ Na podstawie wdrożenia na poziomie grupy zarządzania można określić subskry
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "nestedsubId": {
-      "type": "string"
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "nestedsubId": {
+            "type": "string"
+        },
+        "nestedRG": {
+            "type": "string"
+        },
+        "storageAccountName": {
+            "type": "string"
+        },
+        "nestedLocation": {
+            "type": "string"
+        }
     },
-    "nestedRG": {
-      "type": "string"
-    },
-    "storageAccountName": {
-      "type": "string"
-    },
-    "nestedLocation": {
-      "type": "string"
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
-      "name": "nestedSub",
-      "location": "[parameters('nestedLocation')]",
-      "subscriptionId": "[parameters('nestedSubId')]",
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {
-          },
-          "variables": {
-          },
-          "resources": [
-            {
-              "type": "Microsoft.Resources/resourceGroups",
-              "apiVersion": "2020-06-01",
-              "name": "[parameters('nestedRG')]",
-              "location": "[parameters('nestedLocation')]",
-            },
-            {
-              "type": "Microsoft.Resources/deployments",
-              "apiVersion": "2020-06-01",
-              "name": "nestedSubRG",
-              "resourceGroup": "[parameters('nestedRG')]",
-              "dependsOn": [
-                "[parameters('nestedRG')]"
-              ],
-              "properties": {
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "nestedSub",
+            "location": "[parameters('nestedLocation')]",
+            "subscriptionId": "[parameters('nestedSubId')]",
+            "properties": {
                 "mode": "Incremental",
                 "template": {
-                  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                  "contentVersion": "1.0.0.0",
-                  "resources": [
-                    {
-                      "type": "Microsoft.Storage/storageAccounts",
-                      "apiVersion": "2019-04-01",
-                      "name": "[parameters('storageAccountName')]",
-                      "location": "[parameters('nestedLocation')]",
-                      "sku": {
-                        "name": "Standard_LRS"
-                      }
-                    }
-                  ]
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {
+                    },
+                    "variables": {
+                    },
+                    "resources": [
+                        {
+                            "type": "Microsoft.Resources/resourceGroups",
+                            "apiVersion": "2020-06-01",
+                            "name": "[parameters('nestedRG')]",
+                            "location": "[parameters('nestedLocation')]"
+                        }
+                    ]
                 }
-              }
             }
-          ]
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "nestedRG",
+            "subscriptionId": "[parameters('nestedSubId')]",
+            "resourceGroup": "[parameters('nestedRG')]",
+            "dependsOn": [
+                "nestedSub"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "resources": [
+                        {
+                            "type": "Microsoft.Storage/storageAccounts",
+                            "apiVersion": "2019-04-01",
+                            "name": "[parameters('storageAccountName')]",
+                            "location": "[parameters('nestedLocation')]",
+                            "kind": "StorageV2",
+                            "sku": {
+                                "name": "Standard_LRS"
+                            }
+                        }
+                    ]
+                }
+            }
         }
-      }
-    }
-  ]
+    ]
 }
 ```
 

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f4de7268f3384f86b7090dfe18576347311e048e
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 9cf503f374cd2fd1ca04aad6650b2c07abebbc46
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888678"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519357"
 ---
 # <a name="communication-services-notifications"></a>Powiadomienia dotyczące usług komunikacyjnych
 
@@ -77,7 +77,8 @@ W portalu przejdź do zasobu usługi Azure Communications Services. W obszarze z
 :::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Zrzut ekranu przedstawiający ustawienia powiadomień wypychanych w witrynie Azure Portal.":::
 
 > [!NOTE]
-> Jeśli parametry połączenia centrum powiadomień platformy Azure zostały zaktualizowane, należy również zaktualizować zasób usług komunikacyjnych.
+> Jeśli parametry połączenia centrum powiadomień platformy Azure zostały zaktualizowane, należy również zaktualizować zasób usług komunikacyjnych.  
+Wszelkie zmiany dotyczące sposobu łączenia centrum zostaną odzwierciedlone w płaszczyźnie danych (tj. podczas wysyłania powiadomienia) w ciągu maksymalnego okresu ``10`` minut. Dotyczy to również sytuacji, gdy centrum jest połączone po raz pierwszy, **Jeśli** wcześniej zostały wysłane powiadomienia.
 
 #### <a name="device-registration"></a>Rejestracja urządzenia 
 

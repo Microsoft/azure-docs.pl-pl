@@ -7,18 +7,20 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 989115224489ff8fff360a34b27c338ea3e33058
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: d587c4dbdd8f46d6e098ff96f464d456fffc9ccf
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145824"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95529992"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Wprowadzenie do usługi Azure Defender dla rejestrów kontenerów
 
 Azure Container Registry (ACR) to zarządzana usługa rejestru prywatnego platformy Docker, która przechowuje obrazy kontenerów dla wdrożeń platformy Azure i zarządza nimi w rejestrze centralnym. Jest ona oparta na rejestrze platformy Docker open source 2,0.
 
 Aby chronić wszystkie Azure Resource Manager rejestry oparte na danych w subskrypcji, Włącz **usługę Azure Defender dla rejestrów kontenerów** na poziomie subskrypcji. Security Center następnie skanuje obrazy, które są przekazywane do rejestru, importowane do rejestru lub wszystkie obrazy pobrane w ciągu ostatnich 30 dni. Ta funkcja jest naliczana za obraz.
+
+[!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-container-registries"></a>Jakie są korzyści z używania usługi Azure Defender na potrzeby rejestrów kontenerów?
 
@@ -71,7 +73,7 @@ Obraz zostanie pobrany z rejestru. Następnie uruchamia się w izolowanej piasko
 Security Center filtrów i klasyfikuje wyniki ze skanera. Gdy obraz jest w dobrej kondycji, Security Center oznacza go jako taki. Security Center generuje zalecenia dotyczące zabezpieczeń tylko dla obrazów, które mają problemy, które mają zostać rozwiązane. Powiadamiając tylko w przypadku problemów, Security Center zmniejsza możliwości niechcianych alertów informacyjnych.
 
 ### <a name="can-i-get-the-scan-results-via-rest-api"></a>Czy mogę uzyskać wyniki skanowania za pośrednictwem interfejsu API REST?
-Tak. Wyniki są poniżej [interfejsu API REST podocen](/rest/api/securitycenter/subassessments/list/). Ponadto można użyć usługi Azure Resource Graph (ARG), interfejsu API podobnej do Kusto dla wszystkich zasobów: zapytanie może pobrać określone skanowanie.
+Tak. Wyniki są dostępne w [interfejsie API REST ocen podrzędnych](/rest/api/securitycenter/subassessments/list/). Ponadto można użyć usługi Azure Resource Graph (ARG), interfejsu API podobnej do Kusto dla wszystkich zasobów: zapytanie może pobrać określone skanowanie.
 
 ### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>Jakie typy rejestrów są skanowane? Jakie typy są rozliczane?
 Listę typów rejestrów kontenerów obsługiwanych przez usługę Azure Defender dla rejestrów kontenerów można znaleźć w temacie [Availability (dostępność](defender-for-container-registries-usage.md#availability)).

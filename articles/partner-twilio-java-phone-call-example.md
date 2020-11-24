@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.custom: devx-track-java
-ms.openlocfilehash: 9a28677063c6f6dd7bb7bcf6746dbc541308891f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cad25990d0ba7e27f4a90adc587f0c8a0a2c551a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87305911"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521074"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Jak nawiązać połączenie telefoniczne za pomocą Twilio w aplikacji Java na platformie Azure
 Poniższy przykład pokazuje, jak można użyć Twilio do wywołania ze strony sieci Web hostowanej na platformie Azure. Aplikacja wynikowa wyświetli monit dla użytkownika o wartości połączeń telefonicznych, jak pokazano na poniższym zrzucie ekranu.
@@ -186,7 +186,7 @@ Ten kod został dostarczony, aby pokazać podstawowe funkcje przy użyciu progra
 
 * Zamiast korzystać z formularza sieci Web, można użyć obiektów BLOB usługi Azure Storage lub SQL Database do przechowywania numerów telefonów i wywoływać tekst. Aby uzyskać informacje o korzystaniu z obiektów BLOB usługi Azure Storage w języku Java, zobacz [jak używać usługi BLOB Storage z poziomu języka Java][howto_blob_storage_java]. 
 * Można użyć **RoleEnvironment. getConfigurationSettings** , aby pobrać identyfikator konta Twilio i token uwierzytelniania z ustawień konfiguracji wdrożenia, zamiast twardo kodowanie wartości w makecall.jsp. Aby uzyskać informacje na temat klasy **RoleEnvironment** , zobacz [Korzystanie z biblioteki środowiska uruchomieniowego usługi platformy Azure w JSP][azure_runtime_jsp].
-* Kod w makecall.jsp przypisuje adres URL podany przez Twilio, [https://twimlets.com/message][twimlet_message_url] do zmiennej **URL** . Ten adres URL zawiera odpowiedź Twilio Markup Language (TwiML), która informuje Twilio, jak kontynuować wywoływanie. Na przykład zwracana TwiML może ** &lt; &gt; zawierać czasownik,** który powoduje wypowiadanie tekstu do odbiorcy wywołania. Zamiast używać adresu URL podanego przez Twilio, można utworzyć własną usługę, aby odpowiedzieć na żądanie Twilio; Aby uzyskać więcej informacji, zobacz [jak używać funkcji Twilio na potrzeby obsługi głosu i programu SMS w języku Java][howto_twilio_voice_sms_java]. Więcej informacji na temat TwiML można znaleźć pod adresem [https://www.twilio.com/docs/api/twiml][twiml] i więcej informacji na temat ** &lt; &gt; powiedzieć** i innych zleceń Twilio można znaleźć pod adresem [https://www.twilio.com/docs/api/twiml/say][twilio_say] .
+* Kod w makecall.jsp przypisuje adres URL podany przez Twilio, [https://twimlets.com/message][twimlet_message_url] do zmiennej **URL** . Ten adres URL zawiera odpowiedź Twilio Markup Language (TwiML), która informuje Twilio, jak kontynuować wywoływanie. Na przykład zwracana TwiML może **&lt; &gt; zawierać czasownik,** który powoduje wypowiadanie tekstu do odbiorcy wywołania. Zamiast używać adresu URL podanego przez Twilio, można utworzyć własną usługę, aby odpowiedzieć na żądanie Twilio; Aby uzyskać więcej informacji, zobacz [jak używać funkcji Twilio na potrzeby obsługi głosu i programu SMS w języku Java][howto_twilio_voice_sms_java]. Więcej informacji na temat TwiML można znaleźć pod adresem [https://www.twilio.com/docs/api/twiml][twiml] i więcej informacji na temat **&lt; &gt; powiedzieć** i innych zleceń Twilio można znaleźć pod adresem [https://www.twilio.com/docs/api/twiml/say][twilio_say] .
 * Zapoznaj się ze wskazówkami dotyczącymi zabezpieczeń Twilio na stronie [https://www.twilio.com/docs/security][twilio_docs_security] .
 
 Aby uzyskać dodatkowe informacje na temat Twilio, zobacz [https://www.twilio.com/docs][twilio_docs] .
@@ -203,12 +203,12 @@ Aby uzyskać dodatkowe informacje na temat Twilio, zobacz [https://www.twilio.co
 [twimlet_message_url]: https://twimlets.com/message
 [twiml]: https://www.twilio.com/docs/api/twiml
 [twilio_api_service]: https://api.twilio.com
-[add_ca_cert]: java-add-certificate-ca-store.md
-[azure_java_eclipse_hello_world]: https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app 
+[add_ca_cert]: /azure/developer/java/sdk/java-sdk-add-certificate-ca-store
+[azure_java_eclipse_hello_world]: /java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app
 [howto_twilio_voice_sms_java]: partner-twilio-java-how-to-use-voice-sms.md
 [howto_blob_storage_java]: https://www.windowsazure.com/develop/java/how-to-guides/blob-storage/
 [howto_sql_azure_java]: https://msdn.microsoft.com/library/windowsazure/hh749029.aspx
-[azure_runtime_jsp]: https://msdn.microsoft.com/library/windowsazure/hh690948.aspx
+[azure_runtime_jsp]: /previous-versions/azure/hh690948(v=azure.100)
 [twilio_docs_security]: https://www.twilio.com/docs/security
 [twilio_docs]: https://www.twilio.com/docs
 [twilio_say]: https://www.twilio.com/docs/api/twiml/say

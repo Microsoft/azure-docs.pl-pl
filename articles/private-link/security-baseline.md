@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1f9e4fd2f7f55f916743074b57f89788c0d32f7d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 636bc3c64dcd15ead36a9a4e969e802d49895dca
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427496"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522247"
 ---
 # <a name="azure-security-baseline-for-azure-private-link"></a>Azure Security Baseline dla prywatnego linku platformy Azure
 
@@ -28,7 +28,7 @@ Ta linia bazowa zabezpieczeń stosuje wskazówki z [testu porównawczego zabezpi
 
 Utwórz alerty w Azure Monitor, które będą wyzwalane po wprowadzeniu zmian w zasobach krytycznych.
 
-- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Jak utworzyć alerty w Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -68,7 +68,7 @@ Ponadto należy włączyć i dołączyć dane do usługi Azure wskaźnikowej lub
 
 - [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
 
-- [Wyświetlanie i pobieranie zdarzeń dziennika aktywności platformy Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Wyświetlanie i pobieranie zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Rejestrowanie i monitorowanie dla prywatnego linku](private-link-overview.md#logging-and-monitoring)
 
@@ -96,7 +96,7 @@ Innym rozwiązaniem jest umożliwienie i dołączenie danych do produktów wska�
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
-- [Informacje o obszarze roboczym Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [Informacje o obszarze roboczym Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Jak wykonywać niestandardowe zapytania w Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -142,7 +142,7 @@ Włączaj i dołączaj dane do produktów wskaźnikowych platformy Azure lub SIE
 
 Ponadto należy włączyć dostęp just-in-Time/tylko za pomocą usługi Azure Active Directory (Azure AD) Privileged Identity Management role uprzywilejowane dla usług firmy Microsoft i Azure Resource Manager.
 
-- [Dowiedz się więcej o Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
+- [Dowiedz się więcej o Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -188,7 +188,7 @@ Ponadto należy włączyć dostęp just-in-Time/tylko za pomocą usługi Azure A
 
 **Wskazówki**: korzystanie z funkcji wykrywania ryzyka Azure Active Directory (Azure AD) w celu wyświetlania alertów i raportów na temat ryzykownego zachowania użytkowników. Pozyskaj Security Center alerty wykrywania ryzyka w Azure Monitor i skonfiguruj niestandardowe alerty/powiadomienia przy użyciu grup akcji.
 
-- [Zrozumienie Azure Security Center wykrywania ryzyka (podejrzane działanie)](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Zrozumienie Azure Security Center wykrywania ryzyka (podejrzane działanie)](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -222,7 +222,7 @@ Ponadto należy włączyć dostęp just-in-Time/tylko za pomocą usługi Azure A
 
 **Wskazówki**: Azure Active Directory zawiera dzienniki ułatwiające wykrywanie starych kont. Ponadto za pomocą przeglądów dostępu do tożsamości platformy Azure można efektywnie zarządzać członkostwem w grupach, dostępem do aplikacji dla przedsiębiorstw i przypisaniami ról. Dostęp użytkowników może być regularnie przeglądany, aby upewnić się, że tylko Ci użytkownicy mają ciągły dostęp.
 
-- [Informacje o raportowaniu usługi Azure AD](/azure/active-directory/reports-monitoring/)
+- [Informacje o raportowaniu usługi Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Jak korzystać z przeglądów dostępu do tożsamości platformy Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -248,7 +248,7 @@ Usprawnij ten proces, tworząc ustawienia diagnostyczne dla kont użytkowników 
 
 Pozyskiwanie danych na platformie Azure — Wskaźnikowanie do dalszej analizy.
 
-- [Jak wyświetlić ryzykowne logowania usługi Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Jak wyświetlić ryzykowne logowania usługi Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Jak skonfigurować i włączyć zasady dotyczące ryzyka związanego z ochroną tożsamości](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -270,11 +270,11 @@ Ogranicz poziom dostępu do zasobów platformy Azure za pomocą aplikacji i śro
 
 Kontroluj dostęp do zasobów platformy Azure za pośrednictwem kontroli dostępu opartej na rolach (Azure RBAC).
 
-- [Jak utworzyć dodatkowe subskrypcje platformy Azure](/azure/billing/billing-create-subscription)
+- [Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Jak utworzyć Grupy zarządzania](/azure/governance/management-groups/create)
+- [Jak utworzyć Grupy zarządzania](../governance/management-groups/create-management-group-portal.md)
 
-- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -348,7 +348,7 @@ Upewnij się, że masz odpowiednie uprawnienia (odczyt) w dzierżawie i że moż
 
 **Wskazówki**: stosowanie tagów do zasobów platformy Azure przy użyciu metadanych do logicznego organizowania ich w taksonomię.
 
-- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -360,11 +360,11 @@ Upewnij się, że masz odpowiednie uprawnienia (odczyt) w dzierżawie i że moż
 
 Regularnie Uzgadniaj spis i zapewnij, że nieautoryzowane zasoby są usuwane z subskrypcji w odpowiednim czasie.
 
-- [Jak utworzyć dodatkowe subskrypcje platformy Azure](/azure/billing/billing-create-subscription)
+- [Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Jak utworzyć Grupy zarządzania](/azure/governance/management-groups/create)
+- [Jak utworzyć Grupy zarządzania](../governance/management-groups/create-management-group-portal.md)
 
-- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -418,7 +418,7 @@ Korzystając z grafu zasobów platformy Azure, można także wysyłać zapytania
 
 - [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
 
-- [Jak odmówić określonego typu zasobu za pomocą Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Jak odmówić określonego typu zasobu za pomocą Azure Policy](../governance/policy/samples/index.md)
 
 - [Przykładowe zasady platformy Azure dla prywatnego linku](../governance/policy/samples/built-in-policies.md)
 
@@ -634,7 +634,7 @@ Klient jest odpowiedzialny za ustalanie priorytetów korygowania alertów na pod
 
 - [Alerty zabezpieczeń w Centrum zabezpieczeń Azure](../security-center/security-center-alerts-overview.md)
 
-- [Organizowanie zasobów platformy Azure przy użyciu tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Organizowanie zasobów platformy Azure przy użyciu tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -706,5 +706,5 @@ Korzystaj z strategii firmy Microsoft i wykonywania testów na żywo z obsługą
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [test porównawczy zabezpieczeń platformy Azure](/azure/security/benchmarks/overview)
-- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](/azure/security/benchmarks/security-baselines-overview)
+- Zobacz [test porównawczy zabezpieczeń platformy Azure](../security/benchmarks/overview.md)
+- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](../security/benchmarks/security-baselines-overview.md)

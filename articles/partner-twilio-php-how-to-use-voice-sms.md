@@ -12,12 +12,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: 2ce0e34032d8f0d07af3a7dcd3c47558814be7bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf1ab01b39d594002bc5e677ffe6c3049fbb91ce
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826819"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521023"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-php"></a>Jak używać funkcji Twilio do obsługi głosu i SMS w języku PHP
 W tym przewodniku pokazano, jak wykonywać typowe zadania programistyczne za pomocą usługi interfejsu API Twilio na platformie Azure. Omówione scenariusze obejmują wykonywanie połączeń telefonicznych i wysyłanie wiadomości SMS. Aby uzyskać więcej informacji na temat Twilio i używania programów Voice i SMS w aplikacjach, zobacz sekcję [następne kroki](#NextSteps) .
@@ -38,20 +38,20 @@ Interfejs API Twilio jest interfejsem API RESTful, który zapewnia funkcje głos
 Kluczowe aspekty interfejsu API Twilio są czasownikami Twilio i Twilio Markup Language (TwiML).
 
 ### <a name="twilio-verbs"></a><a id="Verbs"></a>Zlecenia Twilio
-Interfejs API korzysta z czasowników Twilio; na przykład czasownik ** &lt; powiedzie &gt; ** nakazuje Twilio audibly dostarczenie komunikatu w wywołaniu.
+Interfejs API korzysta z czasowników Twilio; na przykład czasownik **&lt; powiedzie &gt;** nakazuje Twilio audibly dostarczenie komunikatu w wywołaniu.
 
 Poniżej znajduje się lista zleceń Twilio. Zapoznaj się z innymi zleceniami i możliwościami za pośrednictwem [dokumentacji języka Twilio Markup](https://www.twilio.com/docs/api/twiml)Language.
 
-* ** &lt; Wybierz &gt; **: łączy obiekt wywołujący z innym telefonem.
-* ** &lt; Zbieranie &gt; **: zbiera cyfry liczbowe wprowadzone na klawiaturze telefonicznej.
-* Rozłączenie: przerywa wywołanie. ** &lt; &gt; **
-* ** &lt; Odtwórz &gt; **: odtwarza plik audio.
-* ** &lt; Wstrzymaj &gt; **: czeka w trybie cichym przez określoną liczbę sekund.
-* ** &lt; Rekord &gt; **: rejestruje głos obiektu wywołującego i zwraca adres URL pliku, który zawiera nagranie.
-* ** &lt; Przekierowanie &gt; **: przenosi kontrolę nad wywołaniem lub wiadomością SMS do TwiML pod innym adresem URL.
-* ** &lt; Odrzuć &gt; **: odrzuca wywołanie przychodzące do numeru Twilio bez rozliczeń
-* ** &lt; Załóżmy &gt; **: konwertuje tekst na mowę, która jest wykonywana w wywołaniu.
-* ** &lt; SMS &gt; **: wysyła wiadomość SMS.
+* **&lt; Wybierz &gt;**: łączy obiekt wywołujący z innym telefonem.
+* **&lt; Zbieranie &gt;**: zbiera cyfry liczbowe wprowadzone na klawiaturze telefonicznej.
+* Rozłączenie: przerywa wywołanie. **&lt; &gt;**
+* **&lt; Odtwórz &gt;**: odtwarza plik audio.
+* **&lt; Wstrzymaj &gt;**: czeka w trybie cichym przez określoną liczbę sekund.
+* **&lt; Rekord &gt;**: rejestruje głos obiektu wywołującego i zwraca adres URL pliku, który zawiera nagranie.
+* **&lt; Przekierowanie &gt;**: przenosi kontrolę nad wywołaniem lub wiadomością SMS do TwiML pod innym adresem URL.
+* **&lt; Odrzuć &gt;**: odrzuca wywołanie przychodzące do numeru Twilio bez rozliczeń
+* **&lt; Załóżmy &gt;**: konwertuje tekst na mowę, która jest wykonywana w wywołaniu.
+* **&lt; SMS &gt;**: wysyła wiadomość SMS.
 
 ### <a name="twiml"></a><a id="TwiML"></a>TwiML
 TwiML to zestaw instrukcji opartych na języku XML opartych na zleceniach Twilio, które informują Twilio o sposobie przetwarzania wywołania lub wiadomości SMS.
@@ -262,7 +262,7 @@ Teraz, gdy znasz już podstawy usługi Twilio, Skorzystaj z poniższych linków,
 [howto_phonecall_php]: partner-twilio-php-make-phone-call.md
 [twilio_voice_request]: https://www.twilio.com/docs/api/twiml/twilio_request
 [twilio_sms_request]: https://www.twilio.com/docs/api/twiml/sms/twilio_request
-[misc_role_config_settings]: https://msdn.microsoft.com/library/windowsazure/hh690945.aspx
+[misc_role_config_settings]: /previous-versions/azure/hh690945(v=azure.100)
 [twimlet_message_url]: https://twimlets.com/message
 [twimlet_message_url_hello_world]: https://twimlets.com/message?Message%5B0%5D=Hello%20World
 [twiml_reference]: https://www.twilio.com/docs/api/twiml

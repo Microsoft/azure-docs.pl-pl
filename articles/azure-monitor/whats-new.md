@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: 18222573956f5ff3e9c617602902374b114328da
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 4fa00bffc35c4ed67ce70751c8882b74ad6b01a1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555621"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95534504"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Co nowego w dokumentacji Azure Monitor?
 
@@ -296,7 +296,7 @@ Nowe i zaktualizowane artykuły z restrukturyzacji zawartości Azure Monitor dla
 
 ### <a name="logs"></a>Dzienniki
 - [Usuń i Odzyskaj polecenie programu PowerShell dla usługi Azure log Analytics Workspace](platform/delete-workspace.md) . Zaktualizowano Rozwiązywanie problemów.
-- [Zarządzanie obszarami roboczymi Log Analytics Azure monitor w](platform/manage-access.md) przykładowym przykładzie dla niedozwolonych tabel w sekcji RBAC.
+- [Zarządzanie obszarami roboczymi Log Analytics Azure monitor w](platform/manage-access.md) przykładowym przykładzie dla niedozwolonych tabel w sekcji Azure RBAC.
 - [Zarządzanie użyciem i kosztami dzienników Azure monitor](platform/manage-cost-storage.md) — dodatkowe szczegóły dotyczące obliczania rozmiaru danych. Zaktualizowano Konfigurowanie alertów ilości danych. Szczegółowe informacje o danych zabezpieczeń zebranych przez wskaźnik na platformie Azure. Wyjaśnienie dotyczące limitów danych.
 - [Użyj dzienników Azure monitor z użyciem Azure Logic Apps i automatyzacji oszczędzania mocy](platform/logicapp-flow-connector.md) — dodano limity łączników.
 
@@ -571,7 +571,7 @@ Wiele aktualizacji w ramach ponownego zapisywania zawartości rozszerzenia diagn
 
 #### <a name="azure-monitor-for-containers"></a>Usługa Azure Monitor dla kontenerów
 
-- [Integruj Azure Active Directory z usługą Azure Kubernetes Service](../aks/azure-ad-integration-cli.md) — dodano uwagę na potrzeby tworzenia aplikacji klienckiej do obsługi klastra z obsługą RBAC w celu obsługi Azure monitor kontenerów.
+- [Integruj Azure Active Directory z usługą Azure Kubernetes Service](../aks/azure-ad-integration-cli.md) — dodano uwagę na potrzeby tworzenia aplikacji klienckiej do obsługi klastra z obsługą RBAC Kubernetes w celu obsługi Azure monitor kontenerów.
 
 #### <a name="azure-monitor-for-vms"></a>Usługa Azure Monitor dla maszyn wirtualnych
 

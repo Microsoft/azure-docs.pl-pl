@@ -2,13 +2,13 @@
 title: Wdrażanie zasobów w ramach subskrypcji
 description: Opisuje sposób tworzenia grupy zasobów w szablonie Azure Resource Manager. Przedstawiono w nim również sposób wdrażania zasobów w zakresie subskrypcji platformy Azure.
 ms.topic: conceptual
-ms.date: 10/26/2020
-ms.openlocfilehash: 7b0edde4f3571255e92c65d82429b4ddd1a689b8
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/23/2020
+ms.openlocfilehash: c87f6fa590e1f769816fb0ee3cba3aad1997de15
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668880"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519867"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>Wdrożenia subskrypcji przy użyciu szablonów ARM
 
@@ -102,9 +102,9 @@ az deployment sub create \
   --parameters rgName=demoResourceGroup rgLocation=centralus
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-W przypadku polecenia wdrażania programu PowerShell Użyj poleceń [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) i **New-AzSubscriptionDeployment** . Poniższy przykład wdraża szablon w celu utworzenia grupy zasobów:
+W przypadku polecenia wdrażania programu PowerShell Użyj poleceń [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) i **New-AzSubscriptionDeployment**. Poniższy przykład wdraża szablon w celu utworzenia grupy zasobów:
 
 ```azurepowershell-interactive
 New-AzSubscriptionDeployment `
@@ -131,20 +131,28 @@ Aby uzyskać bardziej szczegółowe informacje na temat poleceń wdrażania i op
 Podczas wdrażania w ramach subskrypcji można wdrożyć zasoby w programie:
 
 * subskrypcja docelowa z operacji
-* grupy zasobów w ramach subskrypcji
+* dowolna subskrypcja dzierżawy
+* grupy zasobów w ramach subskrypcji lub innych subskrypcji
+* Dzierżawca dla subskrypcji
 * [zasoby rozszerzeń](scope-extension-resources.md) można stosować do zasobów
 
-Nie można przeprowadzić wdrożenia w ramach subskrypcji innej niż subskrypcja docelowa. Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
+Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
 
 W tej sekcji pokazano, jak określić różne zakresy. Można połączyć te różne zakresy w jednym szablonie.
 
-### <a name="scope-to-subscription"></a>Zakres subskrypcji
+### <a name="scope-to-target-subscription"></a>Zakres dla subskrypcji docelowej
 
 Aby wdrożyć zasoby w ramach subskrypcji docelowej, należy dodać te zasoby do sekcji zasobów szablonu.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
 
 Przykłady wdrażania w ramach subskrypcji można znaleźć w temacie [Tworzenie grup zasobów](#create-resource-groups) i [przypisywanie definicji zasad](#assign-policy-definition).
+
+### <a name="scope-to-other-subscription"></a>Zakres do innej subskrypcji
+
+Aby wdrożyć zasoby w ramach subskrypcji innej niż subskrypcja z operacji, należy dodać wdrożenie zagnieżdżone. Ustaw `subscriptionId` Właściwość na identyfikator subskrypcji, która ma zostać wdrożona. Ustaw `location` Właściwość dla wdrożenia zagnieżdżonego.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-sub.json" highlight="9,10,14":::
 
 ### <a name="scope-to-resource-group"></a>Zakres do grupy zasobów
 
@@ -154,11 +162,23 @@ Aby wdrożyć zasoby w grupie zasobów w ramach subskrypcji, Dodaj wdrożenie za
 
 Aby zapoznać się z przykładem wdrażania w grupie zasobów, zobacz [Tworzenie grupy zasobów i zasobów](#create-resource-group-and-resources).
 
+### <a name="scope-to-tenant"></a>Zakres do dzierżawy
+
+Możesz tworzyć zasoby w dzierżawie, ustawiając dla ustawienia `scope` wartość `/` . Użytkownik wdrażający szablon musi mieć [wymagany dostęp do wdrożenia w dzierżawie](deploy-to-tenant.md#required-access).
+
+Można użyć wdrożenia zagnieżdżonego z `scope` i `location` zestawu.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-to-tenant.json" highlight="9,10,14":::
+
+Lub można ustawić zakres `/` dla niektórych typów zasobów, takich jak grupy zarządzania.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-create-mg.json" highlight="12,15":::
+
 ## <a name="deployment-location-and-name"></a>Lokalizacja i nazwa wdrożenia
 
 W przypadku wdrożeń na poziomie subskrypcji należy podać lokalizację wdrożenia. Lokalizacja wdrożenia jest oddzielona od lokalizacji wdrażanych zasobów. Lokalizacja wdrożenia określa miejsce przechowywania danych wdrożenia.
 
-Możesz podać nazwę wdrożenia lub użyć domyślnej nazwy wdrożenia. Nazwa domyślna to nazwa pliku szablonu. Na przykład wdrożenie szablonu o nazwie **azuredeploy.jsw** programie tworzy domyślną nazwę wdrożenia **azuredeploy** .
+Możesz podać nazwę wdrożenia lub użyć domyślnej nazwy wdrożenia. Nazwa domyślna to nazwa pliku szablonu. Na przykład wdrożenie szablonu o nazwie **azuredeploy.jsw** programie tworzy domyślną nazwę wdrożenia **azuredeploy**.
 
 Dla każdej nazwy wdrożenia lokalizacja jest niezmienna. Nie można utworzyć wdrożenia w jednej lokalizacji, gdy istnieje wdrożenie o tej samej nazwie w innej lokalizacji. Jeśli zostanie wyświetlony kod błędu `InvalidDeploymentLocation` , użyj innej nazwy lub tej samej lokalizacji co poprzednie wdrożenie dla tej nazwy.
 

@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: a7bdc1ee22d3672160122cad65b18de99f743cc7
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: d3bedfae88544d0b0ebd07868438559305279fed
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94747693"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95530118"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>Skonfiguruj obszar roboczy Log Analytics dla Azure Monitor dla maszyn wirtualnych
 Azure Monitor dla maszyn wirtualnych zbiera dane z co najmniej jednego Log Analytics obszarów roboczych w Azure Monitor. Przed dołączeniem agentów należy utworzyć i skonfigurować obszar roboczy. W tym artykule opisano wymagania obszaru roboczego i skonfigurować go do Azure Monitor dla maszyn wirtualnych.
@@ -68,7 +68,7 @@ Azure Monitor dla maszyn wirtualnych obsługuje Log Analytics obszarów roboczyc
 - Australia Wschodnia
 - Australia Południowo-Wschodnia
 
-## <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
+## <a name="azure-role-based-access-control"></a>Kontrola dostępu na podstawie ról na platformie Azure
 Aby włączyć funkcje i uzyskać do nich dostęp w Azure Monitor dla maszyn wirtualnych, musisz mieć [rolę współautor log Analytics](../platform/manage-access.md#manage-access-using-azure-permissions) w obszarze roboczym. Aby wyświetlić dane dotyczące wydajności, kondycji i mapy, musisz mieć [rolę czytnika monitorowania](../platform/roles-permissions-security.md#built-in-monitoring-roles) dla maszyny wirtualnej platformy Azure. Aby uzyskać więcej informacji na temat kontrolowania dostępu do obszaru roboczego Log Analytics, zobacz [Zarządzanie obszarami roboczymi](../platform/manage-access.md).
 
 ## <a name="add-vminsights-solution-to-workspace"></a>Dodaj rozwiązanie VMInsights do obszaru roboczego

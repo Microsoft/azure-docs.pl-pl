@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 08/13/2020
-ms.openlocfilehash: 282f13c89c527b096573b67b5d539de821e89032
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 82297b81ebe99301574e99ef438cc81c711dbeff
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900805"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95533688"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Składniki i wersje oprogramowania Apache dostępne dla usługi Azure HDInsight
 
@@ -32,7 +32,7 @@ Wersje składników skojarzone z wersjami klastra usługi HDInsight są wymienio
 |------------------------|---------------|-----------------------------|
 | Apache Hadoop i PRZĘDZa | 3.1.1         | 2.7.3                       |
 | Apache Tez             | 0.9.1         | 0.7.0                       |
-| Apache świni             | 0.16.0        | 0.16.0                      |
+| Apache świni             | 0.16.1        | 0.16.0                      |
 | Apache Hive            | 3.1.0         | 1.2.1 (2.1.0 on w zapytaniu Interactive ESP) |
 | Apache Tez Hive2       | -             | 0.8.4                       |
 | Apache Ranger          | 1.1.0         | 0.7.0                       |
@@ -89,7 +89,7 @@ Ta tabela zawiera listę wersji usługi HDInsight dostępnych w Azure Portal i i
 | HDInsight 3,6 Spark             | 2.2               | Wycofano 30 czerwca 2020          |                             |
 | HDInsight 3,6 Spark             | 2.1               | Wycofano 30 czerwca 2020          |                             |
 | HDInsight 3,6 Kafka             | 1,1               | 31 grudnia 2020                      | 30 czerwca 2021               |
-| HDInsight 3,6 Kafka             | 1.0               | Wycofano 30 czerwca 2020.         |                             |
+| HDInsight 3,6 Kafka             | 1,0               | Wycofano 30 czerwca 2020.         |                             |
 | HDInsight 3,6 HBase             | 1,1               | 31 grudnia 2020                      | 30 czerwca 2021               |
 | Zapytanie interaktywne usługi HDInsight 3,6 | 2.1               | 31 grudnia 2020                      | 30 czerwca 2021               |
 | Usługa HDInsight 3,6             | 1,1               | 31 grudnia 2020                      | 30 czerwca 2021               |
@@ -119,7 +119,7 @@ W tej tabeli wymieniono wersje usługi HDInsight, które nie są dostępne w Azu
 
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>Umowa dotycząca poziomu usług dla wersji klastra usługi HDInsight
 
-Umowa dotycząca poziomu usług jest definiowana w _oknie obsługi_ . Okno pomocy technicznej to czas, przez który wersja usługi HDInsight jest obsługiwana przez dział obsługi klienta firmy Microsoft. Jeśli wersja została przeniesiona na _datę wygaśnięcia obsługi_ , klaster usługi HDInsight jest poza oknem obsługi. Obsługa wygasania w usłudze HDInsight w wersji X (dostępna jest nowsza wersja X + 1) jest nowsza:
+Umowa dotycząca poziomu usług jest definiowana w _oknie obsługi_. Okno pomocy technicznej to czas, przez który wersja usługi HDInsight jest obsługiwana przez dział obsługi klienta firmy Microsoft. Jeśli wersja została przeniesiona na _datę wygaśnięcia obsługi_, klaster usługi HDInsight jest poza oknem obsługi. Obsługa wygasania w usłudze HDInsight w wersji X (dostępna jest nowsza wersja X + 1) jest nowsza:
 
 - **Wzór 1:** Dodaj 180 dni do daty wydania klastra usługi HDInsight w wersji X.
 - **Formuła 2:** Dodaj 90 dni do daty, w której w Azure Portal jest dostępny klaster usługi HDInsight w wersji X + 1.

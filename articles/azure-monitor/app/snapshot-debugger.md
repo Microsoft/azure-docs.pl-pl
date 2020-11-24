@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 10/23/2019
 ms.reviewer: cweining
-ms.openlocfilehash: b439dcfc755f0113ffabf792850a2bd0fbcf322e
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: cbbec71ff8ab762ea0da764a7db9459123850271
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996521"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95530237"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Debugowanie migawek wyjątków w aplikacjach .NET
 Gdy wystąpi wyjątek, można automatycznie zebrać migawkę debugowania z działającej aplikacji sieci Web. Migawka pokazuje stan kodu źródłowego i zmienne w momencie, gdy wyjątek został zgłoszony. Snapshot Debugger w [usłudze Azure Application Insights](./app-insights-overview.md) monitoruje dane telemetryczne wyjątku z aplikacji sieci Web. Zbiera migawki na najważniejszych wyjątkach, aby uzyskać informacje potrzebne do diagnozowania problemów w środowisku produkcyjnym. Dołącz [pakiet NuGet modułu zbierającego migawki](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) do aplikacji i opcjonalnie Skonfiguruj parametry kolekcji w [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Migawki są wyświetlane na [wyjątkach](./asp-net-exceptions.md) w portalu Application Insights.
@@ -39,7 +39,7 @@ Jeśli włączono Snapshot Debugger, ale nie widzisz migawek, zapoznaj się [z n
 
 ## <a name="grant-permissions"></a>Udzielenie uprawnień
 
-Dostęp do migawek jest chroniony przez kontrolę dostępu na podstawie ról (RBAC). Aby przeprowadzić inspekcję migawki, najpierw właściciel subskrypcji musi Cię dodać do niezbędnej roli.
+Dostęp do migawek jest chroniony przez kontrolę dostępu opartą na rolach (Azure RBAC). Aby przeprowadzić inspekcję migawki, najpierw właściciel subskrypcji musi Cię dodać do niezbędnej roli.
 
 > [!NOTE]
 > Właściciele i współautorzy nie mają tej roli automatycznie. Jeśli chcesz wyświetlić migawki, muszą dodać siebie do roli.

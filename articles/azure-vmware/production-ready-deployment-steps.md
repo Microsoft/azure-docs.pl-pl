@@ -3,12 +3,12 @@ title: Planowanie wdrożenia rozwiązań VMware na platformie Azure
 description: W tym artykule opisano przepływ pracy wdrażania rozwiązań VMware platformy Azure.  Wynik końcowy to środowisko gotowe do tworzenia i migracji maszyn wirtualnych.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 08a15e6f8cad4068415cec3353544829f2218fb0
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 1ef83a568e41fe99f1e8e385a599de9c5ab7c0ca
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888984"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "95529737"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planowanie wdrożenia rozwiązań VMware na platformie Azure
 
@@ -48,7 +48,7 @@ Określ rozmiar hostów, które mają być używane podczas wdrażania rozwiąza
 
 ## <a name="number-of-hosts"></a>Liczba hostów
 
-Zdefiniuj liczbę hostów, które chcesz wdrożyć w chmurze prywatnej rozwiązania Azure VMware.  Minimalna liczba węzłów to trzy, a maksymalna to 16 na klaster.  Aby uzyskać więcej informacji, zapoznaj się z dokumentacją dotyczącą [chmury i klastrów prywatnych rozwiązania Azure VMware](concepts-private-clouds-clusters.md#clusters) .
+Zdefiniuj liczbę hostów, które chcesz wdrożyć w chmurze prywatnej rozwiązania Azure VMware.  Minimalna liczba hostów wynosi trzy, a maksymalna wynosi 16 na klaster.  Aby uzyskać więcej informacji, zapoznaj się z dokumentacją dotyczącą [chmury i klastrów prywatnych rozwiązania Azure VMware](concepts-private-clouds-clusters.md#clusters) .
 
 Klaster można zawsze później zwiększyć, jeśli trzeba przekroczyć początkowy numer wdrożenia.
 

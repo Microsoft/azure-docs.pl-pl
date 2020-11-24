@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 3a5489241aa15ce105dbe4d89086aff00373ca55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f21db00ecc9ff2668698f53a4d20f5bae525721
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90603972"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95520445"
 ---
 # <a name="tutorial-move-azure-vms-across-regions"></a>Samouczek: przenoszenie maszyn wirtualnych platformy Azure między regionami
 
@@ -23,7 +23,7 @@ W tym artykule dowiesz się, jak przenieść maszyny wirtualne platformy Azure o
 > Usługa Azure Resource przeprowadzki jest obecnie dostępna w publicznej wersji zapoznawczej.
 
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Sprawdź wymagania wstępne i wymagania.
@@ -44,7 +44,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 -  Sprawdź, czy masz dostęp *właściciela* do subskrypcji zawierającej zasoby, które chcesz przenieść.
     - Przy pierwszym dodawaniu zasobu dla określonej pary źródłowej i docelowej w ramach subskrypcji platformy Azure usługa zarządzania zasobami tworzy [tożsamość zarządzaną przypisaną przez system](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (znaną wcześniej jako identyfikator usługi zarządzanej (msi), która jest zaufana przez subskrypcję.
     - Aby utworzyć tożsamość i przypisać do niej wymaganą rolę (współautor lub administratora dostępu użytkownika w subskrypcji źródłowej), konto używane do dodawania zasobów wymaga uprawnień *właściciela* do subskrypcji. [Dowiedz się więcej](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) na temat ról platformy Azure.
-- Subskrypcja wymaga wystarczającego limitu przydziału, aby utworzyć zasoby, które są przenoszone w regionie docelowym. Jeśli nie ma limitu przydziału, [Zażądaj dodatkowych limitów](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+- Subskrypcja wymaga wystarczającego limitu przydziału, aby utworzyć zasoby, które są przenoszone w regionie docelowym. Jeśli nie ma limitu przydziału, [Zażądaj dodatkowych limitów](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Sprawdź ceny i opłaty związane z regionem docelowym, do którego przenosisz maszyny wirtualne. Skorzystaj z [kalkulatora cen](https://azure.microsoft.com/pricing/calculator/) , aby uzyskać pomoc.
     
 
@@ -71,26 +71,26 @@ Wybierz zasoby, które chcesz przenieść.
 - Zasoby, które zostały już dodane do przeniesienia między regionami, nie są wyświetlane.
 - Przenoszenie zasobów do regionu docelowego w tej samej subskrypcji co region źródłowy. Jeśli chcesz zmienić subskrypcję, możesz to zrobić po przeniesieniu zasobów.
 
-1. W Azure Portal Wyszukaj pozycję *przeniesienie zasobów*. Następnie w obszarze **usługi**wybierz pozycję **Azure Resource**przenosząca.
+1. W Azure Portal Wyszukaj pozycję *przeniesienie zasobów*. Następnie w obszarze **usługi** wybierz pozycję **Azure Resource** przenosząca.
 
     ![Wyniki wyszukiwania dla przenoszenia zasobów w Azure Portal](./media/tutorial-move-region-virtual-machines/search.png)
 
-2. W obszarze **Przegląd**kliknij pozycję **Rozpocznij**.
+2. W obszarze **Przegląd** kliknij pozycję **Rozpocznij**.
 
     ![Przycisk dodawania zasobów do przenoszenia do innego regionu](./media/tutorial-move-region-virtual-machines/get-started.png)
 
-3. W obszarze **Przenieś zasoby**  >  **Źródło + miejsce docelowe**wybierz źródłową subskrypcję i region.
-4. W obszarze **Lokalizacja docelowa**wybierz region, do którego chcesz przenieść maszyny wirtualne. Następnie kliknij przycisk **Dalej**.
+3. W obszarze **Przenieś zasoby**  >  **Źródło + miejsce docelowe** wybierz źródłową subskrypcję i region.
+4. W obszarze **Lokalizacja docelowa** wybierz region, do którego chcesz przenieść maszyny wirtualne. Następnie kliknij przycisk **Dalej**.
 
     ![Strona umożliwiająca wybranie regionu źródłowego i docelowego](./media/tutorial-move-region-virtual-machines/source-target.png)
 
-6. W obszarze **zasoby do przeniesienia**kliknij pozycję **Wybierz zasoby**.
-7. W obszarze **Wybierz zasoby**wybierz maszynę wirtualną. Można dodawać tylko [zasoby obsługiwane do przenoszenia](#check-vm-requirements). Następnie kliknij przycisk **gotowe**.
+6. W obszarze **zasoby do przeniesienia** kliknij pozycję **Wybierz zasoby**.
+7. W obszarze **Wybierz zasoby** wybierz maszynę wirtualną. Można dodawać tylko [zasoby obsługiwane do przenoszenia](#check-vm-requirements). Następnie kliknij przycisk **gotowe**.
 
     ![Strona umożliwiająca wybranie maszyn wirtualnych do przeniesienia](./media/tutorial-move-region-virtual-machines/select-vm.png)
 
-8.  W obszarze **zasoby do przeniesienia**kliknij przycisk **dalej**.
-9. W obszarze **Recenzja + Dodawanie**Sprawdź ustawienia źródłowe i docelowe. 
+8.  W obszarze **zasoby do przeniesienia** kliknij przycisk **dalej**.
+9. W obszarze **Recenzja + Dodawanie** Sprawdź ustawienia źródłowe i docelowe. 
 
     ![Strona umożliwiająca przejrzenie ustawień i przejście do przenoszenia](./media/tutorial-move-region-virtual-machines/review.png)
 10. Kliknij przycisk " **Zastosuj**", aby rozpocząć dodawanie zasobów.
@@ -105,7 +105,7 @@ Wybierz zasoby, które chcesz przenieść.
 
 1. Jeśli w kolumnie **problemy** zostanie wyświetlony komunikat *Weryfikuj zależności* , kliknij przycisk **Weryfikuj zależności** . Rozpocznie się proces walidacji.
 2. Jeśli znajdują się zależności, kliknij przycisk **Dodaj zależności**. 
-3. W obszarze **Dodaj zależności**Wybierz zasoby zależne > **Dodaj zależności**. Monitoruj postęp w powiadomieniach.
+3. W obszarze **Dodaj zależności** Wybierz zasoby zależne > **Dodaj zależności**. Monitoruj postęp w powiadomieniach.
 
     ![Dodaj zależności](./media/tutorial-move-region-virtual-machines/add-dependencies.png)
 
@@ -129,8 +129,8 @@ Podczas przygotowania proces przenoszenia zasobów generuje szablony Azure Resou
 
 Przygotuj się w następujący sposób:
 
-1. W **różnych regionach**wybierz źródłową grupę zasobów > **Przygotuj**.
-2. W obszarze **Przygotowywanie zasobów**kliknij pozycję **Przygotuj**.
+1. W **różnych regionach** wybierz źródłową grupę zasobów > **Przygotuj**.
+2. W obszarze **Przygotowywanie zasobów** kliknij pozycję **Przygotuj**.
 
     ![Przygotuj grupę zasobów](./media/tutorial-move-region-virtual-machines/prepare-resource-group.png)
 
@@ -142,7 +142,7 @@ Przygotuj się w następujący sposób:
 
 Zainicjuj przechodzenie w następujący sposób:
 
-1. W **różnych regionach**wybierz grupę zasobów > **zainicjować przenoszenie**
+1. W **różnych regionach** wybierz grupę zasobów > **zainicjować przenoszenie**
 2. LN **przenoszenie zasobów**, kliknij przycisk **Inicjuj przenoszenie**. Grupa zasobów przechodzi do stanu *inicjowania przenoszenia w toku* .
 3. Po zainicjowaniu przenoszenia docelowa Grupa zasobów zostanie utworzona na podstawie wygenerowanego szablonu ARM. Źródłowa Grupa zasobów przechodzi w stan *oczekiwania na przeniesienie zatwierdzenia* .
 
@@ -150,8 +150,8 @@ Zainicjuj przechodzenie w następujący sposób:
 
 Aby zatwierdzić i zakończyć proces przenoszenia:
 
-1. W **różnych regionach**wybierz grupę zasobów > **Zatwierdź przeniesienie**.
-2. w obszarze **Przenieś zasoby**kliknij pozycję **Zatwierdź**.
+1. W **różnych regionach** wybierz grupę zasobów > **Zatwierdź przeniesienie**.
+2. w obszarze **Przenieś zasoby** kliknij pozycję **Zatwierdź**.
 
 > [!NOTE]
 > Po zatwierdzeniu przeniesienia źródłowa Grupa zasobów jest w stanie oczekiwania na *usunięcie źródła* .
@@ -160,7 +160,7 @@ Aby zatwierdzić i zakończyć proces przenoszenia:
 
 Po przeniesieniu źródłowej grupy zasobów można przystąpić do przenoszenia innych zasobów.
 
-1. W obszarze **między regionami**Wybierz zasoby, które chcesz przygotować. 
+1. W obszarze **między regionami** Wybierz zasoby, które chcesz przygotować. 
 
     ![Strona do wybrania przygotowania do innych zasobów](./media/tutorial-move-region-virtual-machines/prepare-other.png)
 
@@ -179,8 +179,8 @@ Po przeniesieniu źródłowej grupy zasobów można przystąpić do przenoszenia
 
 Po przygotowaniu zasobów można teraz zainicjować przenoszenie. 
 
-1. W **różnych regionach**wybierz pozycję zasoby z stanem *Inicjuj przenoszenie oczekujące*. Następnie kliknij pozycję **zainicjuj przenoszenie**.
-2. W obszarze **Przenieś zasoby**kliknij pozycję **Inicjuj przenoszenie**.
+1. W **różnych regionach** wybierz pozycję zasoby z stanem *Inicjuj przenoszenie oczekujące*. Następnie kliknij pozycję **zainicjuj przenoszenie**.
+2. W obszarze **Przenieś zasoby** kliknij pozycję **Inicjuj przenoszenie**.
 
     ![Kliknij, aby kliknąć przycisk inicjowania przenoszenia](./media/tutorial-move-region-virtual-machines/initiate-move.png)
 
@@ -199,15 +199,15 @@ Po przygotowaniu zasobów można teraz zainicjować przenoszenie.
 Po początkowym przeniesieniu możesz zdecydować, czy chcesz zatwierdzić przeniesienie, czy go odrzucić. 
 
 - **Odrzuć**: możesz odrzucić przeniesienie, jeśli testujesz, i nie chcesz faktycznie przenosić zasobu źródłowego. Odrzucanie przesunięcia spowoduje zwrócenie zasobu do stanu *inicjacja oczekującego przeniesienia*.
-- **Zatwierdzenie**: zatwierdzenie powoduje zakończenie przejścia do regionu docelowego. Po zatwierdzeniu zasób źródłowy będzie w stanie *oczekiwania na usunięcie źródła*i można zdecydować, czy ma zostać usunięty.
+- **Zatwierdzenie**: zatwierdzenie powoduje zakończenie przejścia do regionu docelowego. Po zatwierdzeniu zasób źródłowy będzie w stanie *oczekiwania na usunięcie źródła* i można zdecydować, czy ma zostać usunięty.
 
 
 ## <a name="discard-the-move"></a>Odrzuć przeniesienie 
 
 Możesz odrzucić przeniesienie w następujący sposób:
 
-1. W obszarze **między regionami**wybierz pozycję zasoby z *oczekującym przeniesieniem*stanu, a następnie kliknij pozycję **odrzuć przeniesienie**.
-2. W polu **Odrzuć przenoszenie**kliknij pozycję **Odrzuć**.
+1. W obszarze **między regionami** wybierz pozycję zasoby z *oczekującym przeniesieniem* stanu, a następnie kliknij pozycję **odrzuć przeniesienie**.
+2. W polu **Odrzuć przenoszenie** kliknij pozycję **Odrzuć**.
 3. Śledź postęp przenoszenia na pasku powiadomień.
 
 
@@ -218,8 +218,8 @@ Możesz odrzucić przeniesienie w następujący sposób:
 
 Jeśli chcesz zakończyć proces przenoszenia, Zatwierdź przeniesienie. 
 
-1. W obszarze **między regionami**wybierz pozycję zasoby z *oczekującym przeniesieniem*stanu, a następnie kliknij pozycję **Zatwierdź przeniesienie**.
-2. W obszarze **Zatwierdź zasoby**kliknij pozycję **Zatwierdź**.
+1. W obszarze **między regionami** wybierz pozycję zasoby z *oczekującym przeniesieniem* stanu, a następnie kliknij pozycję **Zatwierdź przeniesienie**.
+2. W obszarze **Zatwierdź zasoby** kliknij pozycję **Zatwierdź**.
 
     ![Strona do zatwierdzania zasobów w celu sfinalizowania przenoszenia](./media/tutorial-move-region-virtual-machines/commit-resources.png)
 
@@ -242,7 +242,7 @@ Jeśli chcesz zakończyć proces przenoszenia, Zatwierdź przeniesienie.
 
 Po przeniesieniu można opcjonalnie usunąć zasoby w regionie źródłowym. 
 
-1. W **różnych regionach**kliknij nazwę każdego zasobu źródłowego, który chcesz usunąć.
+1. W **różnych regionach** kliknij nazwę każdego zasobu źródłowego, który chcesz usunąć.
 2. Na stronie właściwości dla każdego zasobu wybierz pozycję **Usuń**.
 
 ## <a name="delete-additional-resources-created-for-move"></a>Usuń dodatkowe zasoby utworzone do przeniesienia

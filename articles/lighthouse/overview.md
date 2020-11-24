@@ -1,14 +1,14 @@
 ---
 title: Co to jest Azure Lighthouse?
 description: Usługa Azure Lighthouse umożliwia dostawcom usług dostarczanie usług zarządzanych klientom o większej wydajności i skalowalności.
-ms.date: 10/19/2020
+ms.date: 11/12/2020
 ms.topic: overview
-ms.openlocfilehash: a76606ff48a09c0c31584882e3d2aa164ec97325
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a8fd796218804a79c82a5723c0e5851af359cdea
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203793"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95528826"
 ---
 # <a name="what-is-azure-lighthouse"></a>Co to jest Azure Lighthouse?
 
@@ -33,9 +33,12 @@ Zarządzanie zasobami platformy Azure nie wiąże się z dodatkowymi kosztami zw
 Usługa Azure Lighthouse obejmuje wiele sposobów usprawniania zaangażowania i zarządzania:
 
 - **Zarządzanie zasobami delegowanymi przez platformę Azure**: [bezpieczne zarządzanie zasobami platformy Azure klientów w ramach własnej dzierżawy](concepts/azure-delegated-resource-management.md)bez konieczności przełączania kontekstu i płaszczyzny kontroli. Subskrypcje i grupy zasobów klientów mogą być delegowane do określonych użytkowników i ról w dzierżawie zarządzającej, z możliwością usuwania dostępu zgodnie z wymaganiami.
-- **Nowe Azure Portal środowiska**: Wyświetl informacje o różnych dzierżawach na [stronie **moi klienci** ](how-to/view-manage-customers.md) w Azure Portal. Odpowiednia strona [ **dostawcy usług** ](how-to/view-manage-service-providers.md) pozwala klientom wyświetlać i zarządzać dostępem dostawcy usług.
+- **Nowe Azure Portal środowiska**: Wyświetl informacje o różnych dzierżawach na [stronie **moi klienci**](how-to/view-manage-customers.md) w Azure Portal. Odpowiednia strona [ **dostawcy usług**](how-to/view-manage-service-providers.md) pozwala klientom wyświetlać i zarządzać dostępem dostawcy usług.
 - **Szablony Azure Resource Manager**: Użyj szablonów ARM, aby [dołączyć delegowane zasoby klienta](how-to/onboard-customer.md) i [wykonać zadania zarządzania między dzierżawcami](samples/index.md).
 - **Oferty usług zarządzanych w witrynie Azure Marketplace**: [oferowanie usług klientom](concepts/managed-services-offers.md) za pomocą ofert prywatnych lub publicznych oraz automatyczne dołączanie ich do usługi Azure Lighthouse.
+
+> [!TIP]
+> Podobna oferta [Microsoft 365 Lighthouse](https://techcommunity.microsoft.com/t5/small-and-medium-business-blog/announcing-microsoft-365-lighthouse-for-managed-service/ba-p/1698181)ułatwia partnerom IT dołączenie, monitorowanie i zarządzanie Microsoft 365 klientami w odpowiedniej skali. Microsoft 365 Lighthouse jest obecnie w prywatnej wersji zapoznawczej.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 91bc7adaf7829766c471056c50c1c3abd70dda63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a53f947eb2a44cc8773be8ee2b2bd03ca899be22
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87828782"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521006"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Informacje o wersji Eksploratora usługi Microsoft Azure Storage
 
@@ -39,7 +39,7 @@ Aby pobrać wcześniejsze wersje Eksplorator usługi Storage, odwiedź [stronę 
       * Przekaż, w tym przeciągnij & upuść
       * Pobierz
       * Kopiuj & wklej #1249
-      * Usuwanie
+      * Usuń
    * ADLS Gen2 obiektów BLOB
       * Przekaż, w tym przeciągnij & upuść
       * Pobierz
@@ -86,7 +86,7 @@ Aby pobrać wcześniejsze wersje Eksplorator usługi Storage, odwiedź [stronę 
 * Funkcje dysków zarządzanych nie są obsługiwane w Azure Stack.
 * Jeśli przekazanie lub wklejenie dysku zakończy się niepowodzeniem i przed awarią zostanie utworzony nowy dysk, Eksplorator usługi Storage nie spowoduje usunięcia dysku.
 * W zależności od tego, kiedy anulujesz przekazywanie lub wklejanie dysku, można pozostawić nowy dysk w uszkodzonym stanie. W takim przypadku należy usunąć nowy dysk lub ręcznie wywołać interfejsy API dysku, aby zastąpić zawartość dysku, tak że nie jest już uszkodzona.
-* W przypadku korzystania z funkcji RBAC Eksplorator usługi Storage wymaga pewnych uprawnień do warstwy zarządzania w celu uzyskania dostępu do zasobów magazynu. Więcej informacji można znaleźć w [przewodniku rozwiązywania problemów](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) .
+* W przypadku korzystania z funkcji RBAC Eksplorator usługi Storage wymaga pewnych uprawnień do warstwy zarządzania w celu uzyskania dostępu do zasobów magazynu. Więcej informacji można znaleźć w [przewodniku rozwiązywania problemów](./storage/common/storage-explorer-troubleshooting.md) .
 * Odłączanie od zasobu dołączonego za pomocą identyfikatora URI SAS, takiego jak kontener obiektów blob, może spowodować błąd, który uniemożliwia poprawne wyświetlanie innych załączników. Aby obejść ten problem, po prostu Odśwież węzeł grupy. Aby uzyskać więcej informacji, zobacz #537.
 * Jeśli używasz programu VS for Mac i kiedykolwiek utworzysz niestandardową konfigurację usługi AAD, możesz nie być w stanie zalogować się. Aby obejść ten problem, Usuń zawartość ~/. IdentityService/AadConfigurations. Jeśli tak się nie odblokowuje, komentarz dotyczący tego problemu.
 * Azurite jeszcze nie zaimplementowano wszystkich interfejsów API magazynu. Z tego powodu mogą wystąpić nieoczekiwane błędy lub zachowanie podczas korzystania z azurite na potrzeby magazynu deweloperskiego.
@@ -108,7 +108,7 @@ Aby pobrać wcześniejsze wersje Eksplorator usługi Storage, odwiedź [stronę 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Uruchomienie Eksplorator usługi Storage w systemie Linux wymaga wcześniejszego zainstalowania niektórych zależności. Aby uzyskać więcej informacji, zapoznaj się z [przewodnikiem rozwiązywania problemów](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) Eksplorator usługi Storage.
+* Uruchomienie Eksplorator usługi Storage w systemie Linux wymaga wcześniejszego zainstalowania niektórych zależności. Aby uzyskać więcej informacji, zapoznaj się z [przewodnikiem rozwiązywania problemów](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) Eksplorator usługi Storage.
 
 ## <a name="previous-releases"></a>Poprzednie wersje
 
@@ -161,14 +161,14 @@ Aby pobrać wcześniejsze wersje Eksplorator usługi Storage, odwiedź [stronę 
 
 ### <a name="new"></a>Nowy
 * Eksplorator usługi Storage ma teraz interfejs użytkownika dedykowanych ustawień. Możesz uzyskać do niego dostęp przy użyciu opcji Edytuj ustawienia → lub klikając ikonę Ustawienia (koła zębatego) na pasku narzędzi po lewej stronie. Ta funkcja jest pierwszą czynnością, którą należy wykonać, aby zapewnić różne [Ustawienia użytkownika](https://github.com/microsoft/AzureStorageExplorer/labels/%3Abulb%3A%20setting%20candidate). Począwszy od tej wersji, obsługiwane są następujące ustawienia:
-  * motyw
+  * Motyw
   * Serwer proxy
   * Wyloguj się #6 zakończenia
   * Włącz logowanie przy użyciu przepływu kodu urządzenia
   * #1526 AutoRefresh
   * Włącz AzCopy
   * AzCopy czas trwania SAS Jeśli istnieją inne ustawienia, które chcesz zobaczyć, [Otwórz problem w usłudze GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=) z opisem ustawienia, które chcesz zobaczyć.
-* Eksplorator usługi Storage teraz obsługuje Managed Disks. Dostępne możliwości:
+* Eksplorator usługi Storage teraz obsługuje Managed Disks. Możesz:
   * Przekazywanie lokalnego wirtualnego dysku twardego do nowego dysku
   * Pobieranie dysku
   * Kopiowanie i wklejanie dysków między grupami zasobów i regionami
@@ -176,7 +176,7 @@ Aby pobrać wcześniejsze wersje Eksplorator usługi Storage, odwiedź [stronę 
   * Tworzenie migawki dysku
 
 Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwane przez AzCopy v10.
-* Eksplorator usługi Storage można teraz zainstalować za pośrednictwem magazynu Snap w systemie Linux. Podczas instalacji za pomocą usługi Snap są instalowane wszystkie zależności, w tym .NET Core. Obecnie sprawdzono, że Eksplorator usługi Storage działa dobrze w Ubuntu i CentOS. Jeśli wystąpią problemy z instalacją z magazynu Snap w innym systemie Linux dystrybucje, należy [otworzyć problem w witrynie GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=). Aby dowiedzieć się więcej o instalowaniu z magazynu Snap, zobacz nasz [Przewodnik wprowadzający](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux). #68
+* Eksplorator usługi Storage można teraz zainstalować za pośrednictwem magazynu Snap w systemie Linux. Podczas instalacji za pomocą usługi Snap są instalowane wszystkie zależności, w tym .NET Core. Obecnie sprawdzono, że Eksplorator usługi Storage działa dobrze w Ubuntu i CentOS. Jeśli wystąpią problemy z instalacją z magazynu Snap w innym systemie Linux dystrybucje, należy [otworzyć problem w witrynie GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=). Aby dowiedzieć się więcej o instalowaniu z magazynu Snap, zobacz nasz [Przewodnik wprowadzający](./vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux). #68
 * Wprowadzono dwa istotne zmiany w celu dołączenia do Azure Active Directory (Azure AD), które mają być bardziej przydatne dla ADLS Gen2 użytkowników:
   * Teraz wybierz dzierżawcę, do którego jest dołączany zasób. Oznacza to, że nie trzeba już uzyskiwać dostępu RBAC do subskrypcji zasobu.
   * W przypadku dołączania kontenera ADLS Gen2 obiektów BLOB możesz teraz dołączyć do określonej ścieżki w kontenerze.
@@ -202,7 +202,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
 * W zależności od tego, kiedy anulujesz przekazywanie lub wklejanie dysku, można pozostawić nowy dysk w uszkodzonym stanie. W takim przypadku należy usunąć nowy dysk lub ręcznie wywołać interfejsy API dysku, aby zastąpić zawartość dysku, tak że nie jest już uszkodzona.
 * W zależności od tego, kiedy anulujesz przekazywanie lub wklejanie dysku, można pozostawić nowy dysk w uszkodzonym stanie. W takim przypadku należy usunąć nowy dysk lub ręcznie wywołać interfejsy API dysku, aby zastąpić zawartość dysku, tak że nie jest już uszkodzona.
 * Podczas pobierania obiektu BLOB, który nie jest AzCopy, MD5 dla dużych plików nie jest weryfikowany. Jest to spowodowane usterką w zestawie SDK magazynu. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* W przypadku korzystania z funkcji RBAC Eksplorator usługi Storage wymaga pewnych uprawnień do warstwy zarządzania w celu uzyskania dostępu do zasobów magazynu. Więcej informacji można znaleźć w [przewodniku rozwiązywania problemów](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) .
+* W przypadku korzystania z funkcji RBAC Eksplorator usługi Storage wymaga pewnych uprawnień do warstwy zarządzania w celu uzyskania dostępu do zasobów magazynu. Więcej informacji można znaleźć w [przewodniku rozwiązywania problemów](./storage/common/storage-explorer-troubleshooting.md) .
 * Odłączanie od zasobu dołączonego za pomocą identyfikatora URI SAS, takiego jak kontener obiektów blob, może spowodować błąd, który uniemożliwia poprawne wyświetlanie innych załączników. Aby obejść ten problem, po prostu Odśwież węzeł grupy. Aby uzyskać więcej informacji, zobacz #537.
 * Jeśli używasz programu VS for Mac i kiedykolwiek utworzysz niestandardową konfigurację usługi AAD, możesz nie być w stanie zalogować się. Aby obejść ten problem, Usuń zawartość ~/. IdentityService/AadConfigurations. Jeśli tak się nie odblokowuje, komentarz dotyczący tego problemu.
 * Azurite jeszcze nie zaimplementowano wszystkich interfejsów API magazynu. Z tego powodu mogą wystąpić nieoczekiwane błędy lub zachowanie podczas korzystania z azurite na potrzeby magazynu deweloperskiego.
@@ -224,7 +224,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Uruchomienie Eksplorator usługi Storage w systemie Linux wymaga wcześniejszego zainstalowania niektórych zależności. Aby uzyskać więcej informacji, zapoznaj się z [przewodnikiem rozwiązywania problemów](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) Eksplorator usługi Storage.
+* Uruchomienie Eksplorator usługi Storage w systemie Linux wymaga wcześniejszego zainstalowania niektórych zależności. Aby uzyskać więcej informacji, zapoznaj się z [przewodnikiem rozwiązywania problemów](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) Eksplorator usługi Storage.
 
 
 ## <a name="version-1100"></a>1.10.0 wersja
@@ -233,7 +233,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
 ### <a name="new"></a>Nowy
 
 * Eksplorator usługi Storage ma teraz interfejs użytkownika dedykowanych ustawień. Możesz uzyskać do niego dostęp przy użyciu opcji Edytuj ustawienia → lub klikając ikonę Ustawienia (koła zębatego) na pasku narzędzi po lewej stronie. Ta funkcja jest pierwszą czynnością, którą należy wykonać, aby zapewnić różne [Ustawienia użytkownika](https://github.com/microsoft/AzureStorageExplorer/labels/%3Abulb%3A%20setting%20candidate). Począwszy od tej wersji, obsługiwane są następujące ustawienia:
-    * motyw
+    * Motyw
     * Serwer proxy
     * Wyloguj się [#6](https://www.github.com/Microsoft/AzureStorageExplorer/issues/6) zakończenia
     * Włącz logowanie przy użyciu przepływu kodu urządzenia
@@ -242,7 +242,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
     * Czas trwania AzCopy SAS
 
     Jeśli istnieją inne ustawienia, które chcesz zobaczyć, [Otwórz problem w usłudze GitHub z opisem ustawienia, które chcesz zobaczyć](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=).
-* Eksplorator usługi Storage teraz obsługuje Managed Disks. Dostępne możliwości:
+* Eksplorator usługi Storage teraz obsługuje Managed Disks. Możesz:
     * Przekazywanie lokalnego wirtualnego dysku twardego do nowego dysku
     * Pobieranie dysku
     * Kopiowanie i wklejanie dysków między grupami zasobów i regionami
@@ -250,7 +250,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
     * Tworzenie migawki dysku
 
     Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwane przez AzCopy v10.
-* Eksplorator usługi Storage można teraz zainstalować za pośrednictwem magazynu Snap w systemie Linux. Podczas instalacji za pomocą usługi Snap są instalowane wszystkie zależności, w tym .NET Core. Obecnie sprawdzono, że Eksplorator usługi Storage działa dobrze w Ubuntu i CentOS. Jeśli wystąpią problemy z instalacją z magazynu Snap w innym systemie Linux dystrybucje, należy [otworzyć problem w witrynie GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=). Aby dowiedzieć się więcej o instalowaniu z magazynu Snap, zobacz nasz [Przewodnik wprowadzający](https://aka.ms/storageexplorer/snapinformation). [#68](https://www.github.com/Microsoft/AzureStorageExplorer/issues/68)
+* Eksplorator usługi Storage można teraz zainstalować za pośrednictwem magazynu Snap w systemie Linux. Podczas instalacji za pomocą usługi Snap są instalowane wszystkie zależności, w tym .NET Core. Obecnie sprawdzono, że Eksplorator usługi Storage działa dobrze w Ubuntu i CentOS. Jeśli wystąpią problemy z instalacją z magazynu Snap w innym systemie Linux dystrybucje, należy [otworzyć problem w witrynie GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=). Aby dowiedzieć się więcej o instalowaniu z magazynu Snap, zobacz nasz [Przewodnik wprowadzający](./vs-azure-tools-storage-manage-with-storage-explorer.md). [#68](https://www.github.com/Microsoft/AzureStorageExplorer/issues/68)
 * Wprowadzono dwa istotne zmiany w celu dołączenia do Azure Active Directory (Azure AD), które mają być bardziej przydatne dla ADLS Gen2 użytkowników: * teraz wybierz dzierżawę, do której jest dołączany zasób. Oznacza to, że nie trzeba już uzyskiwać dostępu RBAC do subskrypcji zasobu.
         * Jeśli dołączysz kontener ADLS Gen2 obiektów blob, możesz teraz dołączyć do określonej ścieżki w kontenerze.
 * Podczas zarządzania listami ACL dla ADLS Gen2 plików i folderów, Eksplorator usługi Storage będzie teraz pokazywał przyjazne nazwy dla jednostek na liście ACL. [#957](https://www.github.com/Microsoft/AzureStorageExplorer/issues/957)
@@ -276,7 +276,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
 * Jeśli przekazanie lub wklejenie dysku zakończy się niepowodzeniem i przed awarią zostanie utworzony nowy dysk, Eksplorator usługi Storage nie spowoduje usunięcia dysku.
 * W zależności od tego, kiedy anulujesz przekazywanie lub wklejanie dysku, można pozostawić nowy dysk w uszkodzonym stanie. W takim przypadku należy usunąć nowy dysk lub ręcznie wywołać interfejsy API dysku, aby zastąpić zawartość dysku, tak że nie jest już uszkodzona.
 * Podczas pobierania obiektu BLOB, który nie jest AzCopy, MD5 dla dużych plików nie jest weryfikowany. Jest to spowodowane usterką w zestawie SDK magazynu. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* W przypadku korzystania z funkcji RBAC Eksplorator usługi Storage wymaga pewnych uprawnień do warstwy zarządzania w celu uzyskania dostępu do zasobów magazynu. Więcej informacji można znaleźć w [przewodniku rozwiązywania problemów](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) .
+* W przypadku korzystania z funkcji RBAC Eksplorator usługi Storage wymaga pewnych uprawnień do warstwy zarządzania w celu uzyskania dostępu do zasobów magazynu. Więcej informacji można znaleźć w [przewodniku rozwiązywania problemów](./storage/common/storage-explorer-troubleshooting.md) .
 * Odłączanie od zasobu dołączonego za pomocą identyfikatora URI SAS, takiego jak kontener obiektów blob, może spowodować błąd, który uniemożliwia poprawne wyświetlanie innych załączników. Aby obejść ten problem, po prostu Odśwież węzeł grupy. Aby uzyskać więcej informacji, zobacz #537.
 * Jeśli używasz programu VS for Mac i kiedykolwiek utworzysz niestandardową konfigurację usługi AAD, możesz nie być w stanie zalogować się. Aby obejść ten problem, Usuń zawartość ~/. IdentityService/AadConfigurations. Jeśli tak się nie odblokowuje, komentarz dotyczący tego problemu.
 * Azurite jeszcze nie zaimplementowano wszystkich interfejsów API magazynu. Z tego powodu mogą wystąpić nieoczekiwane błędy lub zachowanie podczas korzystania z azurite na potrzeby magazynu deweloperskiego.
@@ -298,7 +298,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Uruchomienie Eksplorator usługi Storage w systemie Linux wymaga wcześniejszego zainstalowania niektórych zależności. Aby uzyskać więcej informacji, zapoznaj się z [przewodnikiem rozwiązywania problemów](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) Eksplorator usługi Storage.
+* Uruchomienie Eksplorator usługi Storage w systemie Linux wymaga wcześniejszego zainstalowania niektórych zależności. Aby uzyskać więcej informacji, zapoznaj się z [przewodnikiem rozwiązywania problemów](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) Eksplorator usługi Storage.
 
 ## <a name="version-190"></a>1.9.0 wersja
 7/1/2019
@@ -334,7 +334,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
 ### <a name="known-issues"></a>Znane problemy
 
 * Podczas pobierania obiektu BLOB, który nie jest AzCopy, MD5 dla dużych plików nie jest weryfikowany. Jest to spowodowane usterką w zestawie SDK magazynu. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* W przypadku korzystania z funkcji RBAC Eksplorator usługi Storage wymaga pewnych uprawnień do warstwy zarządzania w celu uzyskania dostępu do zasobów magazynu. Więcej informacji można znaleźć w [przewodniku rozwiązywania problemów](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) .
+* W przypadku korzystania z funkcji RBAC Eksplorator usługi Storage wymaga pewnych uprawnień do warstwy zarządzania w celu uzyskania dostępu do zasobów magazynu. Więcej informacji można znaleźć w [przewodniku rozwiązywania problemów](./storage/common/storage-explorer-troubleshooting.md) .
 * Próba uzyskania dostępu do ADLS Gen2 obiektów blob, gdy serwer proxy może zakończyć się niepowodzeniem.
 * Odłączanie od zasobu dołączonego za pomocą identyfikatora URI SAS, takiego jak kontener obiektów blob, może spowodować błąd, który uniemożliwia poprawne wyświetlanie innych załączników. Aby obejść ten problem, po prostu Odśwież węzeł grupy. Aby uzyskać więcej informacji, zobacz #537.
 * Jeśli używasz programu VS for Mac i kiedykolwiek utworzysz niestandardową konfigurację usługi AAD, możesz nie być w stanie zalogować się. Aby obejść ten problem, Usuń zawartość ~/. IdentityService/AadConfigurations. Jeśli tak się nie odblokowuje, komentarz dotyczący tego problemu.
@@ -356,7 +356,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Uruchomienie Eksplorator usługi Storage w systemie Linux wymaga wcześniejszego zainstalowania niektórych zależności. Aby uzyskać więcej informacji, zapoznaj się z [przewodnikiem rozwiązywania problemów](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) Eksplorator usługi Storage.
+* Uruchomienie Eksplorator usługi Storage w systemie Linux wymaga wcześniejszego zainstalowania niektórych zależności. Aby uzyskać więcej informacji, zapoznaj się z [przewodnikiem rozwiązywania problemów](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) Eksplorator usługi Storage.
 
 ## <a name="version-181"></a>1.8.1 wersja
 5/13/2019
@@ -391,7 +391,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
 ### <a name="known-issues"></a>Znane problemy
 
 * Podczas pobierania obiektu BLOB, który nie jest AzCopy, MD5 dla dużych plików nie jest weryfikowany. Jest to spowodowane usterką w zestawie SDK magazynu. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* W przypadku korzystania z funkcji RBAC Eksplorator usługi Storage wymaga pewnych uprawnień do warstwy zarządzania w celu uzyskania dostępu do zasobów magazynu. Więcej informacji można znaleźć w [przewodniku rozwiązywania problemów](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) .
+* W przypadku korzystania z funkcji RBAC Eksplorator usługi Storage wymaga pewnych uprawnień do warstwy zarządzania w celu uzyskania dostępu do zasobów magazynu. Więcej informacji można znaleźć w [przewodniku rozwiązywania problemów](./storage/common/storage-explorer-troubleshooting.md) .
 * Próba uzyskania dostępu do ADLS Gen2 obiektów blob, gdy serwer proxy może zakończyć się niepowodzeniem.
 * Odłączanie od zasobu dołączonego za pomocą identyfikatora URI SAS, takiego jak kontener obiektów blob, może spowodować błąd, który uniemożliwia poprawne wyświetlanie innych załączników. Aby obejść ten problem, po prostu Odśwież węzeł grupy. Aby uzyskać więcej informacji, zobacz #537.
 * Jeśli używasz programu VS for Mac i kiedykolwiek utworzysz niestandardową konfigurację usługi AAD, możesz nie być w stanie zalogować się. Aby obejść ten problem, Usuń zawartość ~/. IdentityService/AadConfigurations. Jeśli tak się nie odblokowuje, komentarz dotyczący tego problemu.
@@ -413,7 +413,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Uruchomienie Eksplorator usługi Storage w systemie Linux wymaga wcześniejszego zainstalowania niektórych zależności. Aby uzyskać więcej informacji, zapoznaj się z [przewodnikiem rozwiązywania problemów](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) Eksplorator usługi Storage.
+* Uruchomienie Eksplorator usługi Storage w systemie Linux wymaga wcześniejszego zainstalowania niektórych zależności. Aby uzyskać więcej informacji, zapoznaj się z [przewodnikiem rozwiązywania problemów](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) Eksplorator usługi Storage.
 
 ## <a name="version-180"></a>1.8.0 wersja
 1.05.2019
@@ -443,7 +443,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
 ### <a name="known-issues"></a>Znane problemy
 
 * Podczas pobierania obiektu BLOB, który nie jest AzCopy, MD5 dla dużych plików nie jest weryfikowany. Jest to spowodowane usterką w zestawie SDK magazynu. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* W przypadku korzystania z funkcji RBAC Eksplorator usługi Storage wymaga pewnych uprawnień do warstwy zarządzania w celu uzyskania dostępu do zasobów magazynu. Więcej informacji można znaleźć w [przewodniku rozwiązywania problemów](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) .
+* W przypadku korzystania z funkcji RBAC Eksplorator usługi Storage wymaga pewnych uprawnień do warstwy zarządzania w celu uzyskania dostępu do zasobów magazynu. Więcej informacji można znaleźć w [przewodniku rozwiązywania problemów](./storage/common/storage-explorer-troubleshooting.md) .
 * Próba uzyskania dostępu do ADLS Gen2 obiektów blob, gdy serwer proxy może zakończyć się niepowodzeniem.
 * Odłączanie od zasobu dołączonego za pomocą identyfikatora URI SAS, takiego jak kontener obiektów blob, może spowodować błąd, który uniemożliwia poprawne wyświetlanie innych załączników. Aby obejść ten problem, po prostu Odśwież węzeł grupy. Aby uzyskać więcej informacji, zobacz #537.
 * Jeśli używasz programu VS for Mac i kiedykolwiek utworzysz niestandardową konfigurację usługi AAD, możesz nie być w stanie zalogować się. Aby obejść ten problem, Usuń zawartość ~/. IdentityService/AadConfigurations. Jeśli tak się nie odblokowuje, komentarz dotyczący tego problemu.
@@ -465,7 +465,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Uruchomienie Eksplorator usługi Storage w systemie Linux wymaga wcześniejszego zainstalowania niektórych zależności. Aby uzyskać więcej informacji, zapoznaj się z [przewodnikiem rozwiązywania problemów](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) Eksplorator usługi Storage.
+* Uruchomienie Eksplorator usługi Storage w systemie Linux wymaga wcześniejszego zainstalowania niektórych zależności. Aby uzyskać więcej informacji, zapoznaj się z [przewodnikiem rozwiązywania problemów](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) Eksplorator usługi Storage.
 
 ## <a name="version-170"></a>Wersja 1.7.0
 3/5/2019
@@ -499,7 +499,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
 
 ### <a name="known-issues"></a>Znane problemy
 
-* W przypadku korzystania z funkcji RBAC Eksplorator usługi Storage wymaga pewnych uprawnień do warstwy zarządzania w celu uzyskania dostępu do zasobów magazynu. Więcej informacji można znaleźć w [przewodniku rozwiązywania problemów](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) .
+* W przypadku korzystania z funkcji RBAC Eksplorator usługi Storage wymaga pewnych uprawnień do warstwy zarządzania w celu uzyskania dostępu do zasobów magazynu. Więcej informacji można znaleźć w [przewodniku rozwiązywania problemów](./storage/common/storage-explorer-troubleshooting.md) .
 * Próba uzyskania dostępu do ADLS Gen2 obiektów blob, gdy serwer proxy może zakończyć się niepowodzeniem.
 * Odłączanie od zasobu dołączonego za pomocą identyfikatora URI SAS, takiego jak kontener obiektów blob, może spowodować błąd, który uniemożliwia poprawne wyświetlanie innych załączników. Aby obejść ten problem, po prostu Odśwież węzeł grupy. Aby uzyskać więcej informacji, zobacz #537.
 * Odłączanie od zasobu dołączonego za pomocą identyfikatora URI SAS, takiego jak kontener obiektów blob, może spowodować błąd, który uniemożliwia poprawne wyświetlanie innych załączników. Aby obejść ten problem, po prostu Odśwież węzeł grupy. Aby uzyskać więcej informacji, zobacz #537.
@@ -559,7 +559,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
         
 ### <a name="new"></a>Nowy
 
-* Teraz możesz używać Eksplorator usługi Storage, aby uzyskiwać dostęp do danych obiektów BLOB za pomocą [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Jeśli użytkownik jest zalogowany i Eksplorator usługi Storage nie może pobrać kluczy dla konta magazynu, zostanie użyty token OAuth do uwierzytelniania podczas korzystania z danych.
+* Teraz możesz używać Eksplorator usługi Storage, aby uzyskiwać dostęp do danych obiektów BLOB za pomocą [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). Jeśli użytkownik jest zalogowany i Eksplorator usługi Storage nie może pobrać kluczy dla konta magazynu, zostanie użyty token OAuth do uwierzytelniania podczas korzystania z danych.
 * Eksplorator usługi Storage teraz obsługuje konta magazynu ADLS Gen2. Gdy Eksplorator usługi Storage wykryje, że dla konta magazynu jest włączona hierarchiczna przestrzeń nazw, zobaczysz "(ADLS Gen2 wersja zapoznawcza)" obok nazwy konta magazynu. Eksplorator usługi Storage jest w stanie wykryć, czy hierarchiczna przestrzeń nazw jest włączona, gdy użytkownik jest zalogowany, lub czy konto magazynu zostało dołączone przy użyciu nazwy i klucza. W przypadku kont usługi ADLS Gen2 Storage można użyć Eksplorator usługi Storage do:
   * Tworzenie i usuwanie kontenerów
   * Zarządzanie właściwościami i uprawnieniami kontenera (po lewej stronie)
@@ -628,7 +628,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
         
 ### <a name="new"></a>Nowy
 
-* Teraz możesz używać Eksplorator usługi Storage, aby uzyskiwać dostęp do danych obiektów BLOB za pomocą [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Jeśli użytkownik jest zalogowany i Eksplorator usługi Storage nie może pobrać kluczy dla konta magazynu, zostanie użyty token OAuth do uwierzytelniania podczas korzystania z danych.
+* Teraz możesz używać Eksplorator usługi Storage, aby uzyskiwać dostęp do danych obiektów BLOB za pomocą [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). Jeśli użytkownik jest zalogowany i Eksplorator usługi Storage nie może pobrać kluczy dla konta magazynu, zostanie użyty token OAuth do uwierzytelniania podczas korzystania z danych.
 * Eksplorator usługi Storage teraz obsługuje konta magazynu ADLS Gen2. Gdy Eksplorator usługi Storage wykryje, że dla konta magazynu jest włączona hierarchiczna przestrzeń nazw, zobaczysz "(ADLS Gen2 wersja zapoznawcza)" obok nazwy konta magazynu. Eksplorator usługi Storage jest w stanie wykryć, czy hierarchiczna przestrzeń nazw jest włączona, gdy użytkownik jest zalogowany, lub czy konto magazynu zostało dołączone przy użyciu nazwy i klucza. W przypadku kont usługi ADLS Gen2 Storage można użyć Eksplorator usługi Storage do:
   * Tworzenie i usuwanie kontenerów
   * Zarządzanie właściwościami i uprawnieniami kontenera (po lewej stronie)
@@ -683,7 +683,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
 
 ### <a name="new"></a>Nowy
 
-* Teraz możesz używać Eksplorator usługi Storage, aby uzyskiwać dostęp do danych obiektów BLOB za pomocą [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Jeśli użytkownik jest zalogowany i Eksplorator usługi Storage nie może pobrać kluczy dla konta magazynu, zostanie użyty token OAuth do uwierzytelniania podczas korzystania z danych.
+* Teraz możesz używać Eksplorator usługi Storage, aby uzyskiwać dostęp do danych obiektów BLOB za pomocą [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). Jeśli użytkownik jest zalogowany i Eksplorator usługi Storage nie może pobrać kluczy dla konta magazynu, zostanie użyty token OAuth do uwierzytelniania podczas korzystania z danych.
 * Eksplorator usługi Storage teraz obsługuje konta magazynu ADLS Gen2. Gdy Eksplorator usługi Storage wykryje, że dla konta magazynu jest włączona hierarchiczna przestrzeń nazw, zobaczysz "(ADLS Gen2 wersja zapoznawcza)" obok nazwy konta magazynu. Eksplorator usługi Storage jest w stanie wykryć, czy hierarchiczna przestrzeń nazw jest włączona, gdy użytkownik jest zalogowany, lub czy konto magazynu zostało dołączone przy użyciu nazwy i klucza. W przypadku kont usługi ADLS Gen2 Storage można użyć Eksplorator usługi Storage do:
   * Tworzenie i usuwanie kontenerów
   * Zarządzanie właściwościami i uprawnieniami kontenera (po lewej stronie)
@@ -810,7 +810,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
    * Dostosuj nazwę wyświetlaną zasobu, który jest dołączany. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Dołącz do wielu lokalnych emulatorów przy użyciu różnych portów. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Dodaj dołączone zasoby do paska Szybki dostęp. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Dostępne możliwości:
+* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Możesz:
    * Skonfiguruj zasady usuwania nietrwałego, klikając prawym przyciskiem myszy węzeł kontenery obiektów BLOB dla konta magazynu.
    * Wyświetl nietrwałe usunięte obiekty blob w Edytorze obiektów blob, wybierając pozycję "aktywne i usunięte obiekty blob" na liście rozwijanej obok paska nawigacyjnego.
    * Cofnij usunięcie usuniętych nietrwałych obiektów BLOB.
@@ -866,7 +866,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
    * Dostosuj nazwę wyświetlaną zasobu, który jest dołączany. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Dołącz do wielu lokalnych emulatorów przy użyciu różnych portów. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Dodaj dołączone zasoby do paska Szybki dostęp. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Dostępne możliwości:
+* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Możesz:
    * Skonfiguruj zasady usuwania nietrwałego, klikając prawym przyciskiem myszy węzeł kontenery obiektów BLOB dla konta magazynu.
    * Wyświetl nietrwałe usunięte obiekty blob w Edytorze obiektów blob, wybierając pozycję "aktywne i usunięte obiekty blob" na liście rozwijanej obok paska nawigacyjnego.
    * Cofnij usunięcie usuniętych nietrwałych obiektów BLOB.
@@ -921,7 +921,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
    * Dostosuj nazwę wyświetlaną zasobu, który jest dołączany. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Dołącz do wielu lokalnych emulatorów przy użyciu różnych portów. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Dodaj dołączone zasoby do paska Szybki dostęp. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Dostępne możliwości:
+* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Możesz:
    * Skonfiguruj zasady usuwania nietrwałego, klikając prawym przyciskiem myszy węzeł kontenery obiektów BLOB dla konta magazynu.
    * Wyświetl nietrwałe usunięte obiekty blob w Edytorze obiektów blob, wybierając pozycję "aktywne i usunięte obiekty blob" na liście rozwijanej obok paska nawigacyjnego.
    * Cofnij usunięcie usuniętych nietrwałych obiektów BLOB.
@@ -981,7 +981,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
    * Dostosuj nazwę wyświetlaną zasobu, który jest dołączany. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Dołącz do wielu lokalnych emulatorów przy użyciu różnych portów. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Dodaj dołączone zasoby do paska Szybki dostęp. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Dostępne możliwości:
+* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Możesz:
    * Skonfiguruj zasady usuwania nietrwałego, klikając prawym przyciskiem myszy węzeł kontenery obiektów BLOB dla konta magazynu.
    * Wyświetl nietrwałe usunięte obiekty blob w Edytorze obiektów blob, wybierając pozycję "aktywne i usunięte obiekty blob" na liście rozwijanej obok paska nawigacyjnego.
    * Cofnij usunięcie usuniętych nietrwałych obiektów BLOB.
@@ -1144,7 +1144,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 
 ### <a name="new"></a>Nowy
 * Eksplorator usługi Storage obsługuje teraz korzystanie z azurite. Uwaga: połączenie z usługą azurite jest stałe do domyślnych punktów końcowych deweloperskich.
-* Eksplorator usługi Storage teraz obsługuje warstwy dostępu tylko dla kont obiektów blob i GPV2. Więcej informacji na temat warstw dostępu [znajdziesz tutaj](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
+* Eksplorator usługi Storage teraz obsługuje warstwy dostępu tylko dla kont obiektów blob i GPV2. Więcej informacji na temat warstw dostępu [znajdziesz tutaj](./storage/blobs/storage-blob-storage-tiers.md).
 * Godzina rozpoczęcia nie jest już wymagana podczas generowania sygnatury dostępu współdzielonego.
 
 ### <a name="fixes"></a>Poprawki
@@ -1204,7 +1204,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 * Eksplorator usługi Storage Opinie teraz w serwisie GitHub. Aby uzyskać dostęp do strony problemów, kliknij przycisk opinii w lewym dolnym rogu lub przejdź do [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues) . Możesz korzystać z sugestii, zgłaszać problemy, zadawać pytania lub pozostawać dowolną inną formę opinii.
 * Jeśli używasz programu do problemów z certyfikatem TLS/SSL i nie można znaleźć poprawnego certyfikatu, możesz teraz uruchomić Eksplorator usługi Storage z wiersza polecenia z `--ignore-certificate-errors` flagą. Po uruchomieniu z tą flagą Eksplorator usługi Storage zignoruje błędy certyfikatu TLS/SSL.
 * W menu kontekstowym dla elementów BLOB i plików istnieje teraz opcja "Download".
-* Ulepszona obsługa ułatwień dostępu i czytnika ekranu. Jeśli korzystasz z funkcji ułatwień dostępu, zapoznaj się z [dokumentacją ułatwień dostępu](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-accessibility) , aby uzyskać więcej informacji.
+* Ulepszona obsługa ułatwień dostępu i czytnika ekranu. Jeśli korzystasz z funkcji ułatwień dostępu, zapoznaj się z [dokumentacją ułatwień dostępu](./vs-azure-tools-storage-explorer-accessibility.md) , aby uzyskać więcej informacji.
 * Eksplorator usługi Storage używa teraz elektronów 1.8.3
 
 ### <a name="breaking-changes"></a>Zmiany powodujące niezgodność
@@ -1313,7 +1313,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 
 ### <a name="fixes"></a>Poprawki
 * Ulepszenia wydajności uruchomienia.
-* Różne poprawki błędów.
+* Różne poprawki.
 
 ### <a name="known-issues"></a>Znane problemy
 * Eksplorator usługi Storage nie obsługuje kont usług AD FS.

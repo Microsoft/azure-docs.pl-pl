@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: c831e099eca3cd6e6da20f55ad19980ae8e9ddc5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 557f0a6a37747d3a461ced8de16fd1fcf0d1abab
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545926"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95524117"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Konfigurowanie sieciowego urządzenia wirtualnego w usłudze Azure HDInsight
 
@@ -22,7 +22,7 @@ ms.locfileid: "92545926"
 Tag nazwy FQDN zapory platformy Azure jest automatycznie konfigurowany, aby zezwalać na ruch dla wielu wspólnych ważnych nazw FQDN. Użycie innego sieciowego urządzenia wirtualnego wymaga skonfigurowania szeregu dodatkowych funkcji. Podczas konfigurowania wirtualnego urządzenia sieciowego należy wziąć pod uwagę następujące czynniki:
 
 * Usługi obsługujące punkt końcowy usługi można skonfigurować za pomocą punktów końcowych usługi, które w wyniku pomijania urządzenie WUS zazwyczaj dotyczą kosztów lub problemów dotyczących wydajności.
-* Jeśli ResourceProviderConnection jest ustawiony na *wychodzące* , można użyć prywatnych punktów końcowych dla magazynu metadanych i serwerów SQL dla magazynu. nie ma potrzeby dodawania ich do urządzenie WUS.
+* Jeśli ResourceProviderConnection jest ustawiony na *wychodzące*, można użyć prywatnych punktów końcowych dla magazynu metadanych i serwerów SQL dla magazynu. nie ma potrzeby dodawania ich do urządzenie WUS.
 * Zależności adresów IP są związane z ruchem innym niż HTTP/S (ruchem TCP i UDP).
 * Punkty końcowe HTTP/HTTPS FQDN mogą być zatwierdzone na urządzeniu urządzenie WUS.
 * Przypisz tabelę tras utworzoną w podsieci usługi HDInsight.
@@ -41,7 +41,7 @@ Opcjonalnie można włączyć co najmniej jeden z następujących punktów końc
 
 | **Punkt końcowy** | **Szczegóły** |
 |---|---|
-| Adresy IP opublikowane w [tym miejscu](hdinsight-management-ip-addresses.md) | Te adresy IP są przeznaczone dla dostawcy zasobów usługi HDInsight i powinny być zawarte w UDR, aby uniknąć przesyłania asymetrycznego. Ta reguła jest wymagana tylko wtedy, gdy ResourceProviderConnection jest ustawiona na wartość *przychodzące* . Jeśli ResourceProviderConnection jest ustawiony na *wychodzące* , te adresy IP nie są konieczne w UDR.  |
+| Adresy IP opublikowane w [tym miejscu](hdinsight-management-ip-addresses.md) | Te adresy IP są przeznaczone dla dostawcy zasobów usługi HDInsight i powinny być zawarte w UDR, aby uniknąć przesyłania asymetrycznego. Ta reguła jest wymagana tylko wtedy, gdy ResourceProviderConnection jest ustawiona na wartość *przychodzące*. Jeśli ResourceProviderConnection jest ustawiony na *wychodzące* , te adresy IP nie są konieczne w UDR.  |
 | AAD — prywatne adresy IP usługi DS | Wymagany tylko w przypadku klastrów ESP, jeśli sieci wirtualnych nie są połączone za pomocą komunikacji równorzędnej.|
 
 
@@ -57,6 +57,7 @@ Poniższa lista zawiera tylko kilka nazw FQDN, które mogą być używane do sto
 | security.ubuntu.com:80                                                |
 | ocsp.msocsp.com:80                                                    |
 | ocsp.digicert.com:80                                                  |
+| microsoft.com/pki/mscorp/cps/default.htm:443                                      |
 | microsoft.com:80                                                      |
 |login.windows.net:443                                                  |
 |login.microsoftonline.com:443                                          |

@@ -1,17 +1,17 @@
 ---
 title: Zasady obsługi klastrów w systemie Red Hat OpenShift 4
-description: Poznaj wymagania dotyczące zasad pomocy technicznej dla Red Hat OpenShift 4.
+description: Informacje o wymaganiach dotyczących zasad pomocy technicznej dla Red Hat OpenShift 4
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 04/24/2020
-ms.openlocfilehash: e396cfa032a3030467b2e2318d61393713894cd4
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.date: 11/23/2020
+ms.openlocfilehash: c8d52609043f173e896668eadeb8c59493739859
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628224"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521142"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Zasady pomocy technicznej usługi Azure Red Hat OpenShift
 
@@ -23,7 +23,7 @@ Niektóre konfiguracje klastrów usługi Azure Red Hat OpenShift 4 mogą mieć w
 ## <a name="cluster-configuration-requirements"></a>Wymagania dotyczące konfiguracji klastra
 
 * Wszystkie operatory klastrów OpenShift muszą pozostać w stanie zarządzanym. Listę operatorów klastra można zwrócić przez uruchomienie `oc get clusteroperators` .
-* Klaster musi mieć co najmniej jeden węzeł roboczy. Nie Skaluj procesów roboczych klastra do zera.
+* Klaster musi mieć co najmniej dwa węzły procesu roboczego. Nie Skaluj procesów roboczych klastra do zera lub spróbuj bezpieczniej zamknąć klaster.
 * Nie usuwaj ani nie Modyfikuj usług Cluster Prometheus i Alertmanager.
 * Nie usuwaj reguł usługi alertów usług.
 * Nie usuwaj ani nie Modyfikuj rejestrowania usługi Azure Red Hat OpenShift Service (procesem MDSD).

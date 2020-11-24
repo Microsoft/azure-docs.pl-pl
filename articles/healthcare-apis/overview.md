@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 11/13/2020
 ms.author: matjazl
-ms.openlocfilehash: 3bb168cf3f642d22096c54b3f35c7833afaff769
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 386003d7dae80e086f523b2cebe61aa0eee7b89e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635147"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95527823"
 ---
 # <a name="what-is-azure-api-for-fhirreg"></a>Co to jest Azure API for FHIR &reg; ?
 
@@ -24,7 +24,7 @@ Interfejs API platformy Azure dla usługi FHIR umożliwia szybkie wymianę danyc
 - Wysoka wydajność, małe opóźnienia
 - Bezpieczne zarządzanie chronionymi danymi kondycji w zgodnym środowisku chmury
 - Inteligentne FHIR dla implementacji aplikacji mobilnych i sieci Web
-- Kontroluj własne dane w dużej skali za pomocą Role-Based Access Control (RBAC)
+- Kontrolowanie własnych danych na dużą skalę dzięki kontroli dostępu opartej na rolach (RBAC)
 - Śledzenie dzienników inspekcji na potrzeby dostępu, tworzenia, modyfikowania i odczytywania w ramach poszczególnych magazynów danych
 
 Interfejs Azure API for FHIR umożliwia tworzenie i wdrażanie usługi FHIR w zaledwie kilka minut, aby korzystać z elastycznego skalowania w chmurze.  Płacisz tylko za wymaganą przepływność i magazyn. Usługi platformy Azure, które korzystają z interfejsu API platformy Azure dla usługi FHIR, są przeznaczone do szybkiej wydajności niezależnie od tego, jakiego rozmiaru są zarządzane.
@@ -53,7 +53,7 @@ Korzystanie z interfejsu API platformy Azure dla usługi FHIR umożliwia łącze
 
 ### <a name="control-data-access-at-scale"></a>Kontrolowanie dostępu do danych na dużą skalę
 
-Kontrolujesz swoje dane. Role-Based Access Control (RBAC) umożliwia zarządzanie sposobem przechowywania danych i uzyskiwania do nich dostępu.  Zapewnianie zwiększonych zabezpieczeń i zmniejszenie obciążenia administracyjnego należy określić, kto ma dostęp do utworzonych zestawów danych, na podstawie definicji ról utworzonych dla danego środowiska.  
+Kontrolujesz swoje dane. Kontrola dostępu oparta na rolach (RBAC) umożliwia zarządzanie sposobem przechowywania danych i uzyskiwania do nich dostępu.  Zapewnianie zwiększonych zabezpieczeń i zmniejszenie obciążenia administracyjnego należy określić, kto ma dostęp do utworzonych zestawów danych, na podstawie definicji ról utworzonych dla danego środowiska.  
 
 ### <a name="audit-logs-and-tracking"></a>Inspekcja dzienników i śledzenia 
 

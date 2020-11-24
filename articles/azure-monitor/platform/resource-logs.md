@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: a9423069b917c37e77b70a4466e489918cd330c4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a2f46440a4214e298bc6d2f3b9c2b5680437ead7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143919"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522706"
 ---
 # <a name="azure-resource-logs"></a>Dzienniki zasobów platformy Azure
 Dzienniki zasobów platformy Azure to [dzienniki platformy](platform-logs-overview.md) , które zapewniają wgląd w operacje wykonywane w ramach zasobu platformy Azure. Zawartość dzienników zasobów zależy od usługi platformy Azure i typu zasobu. Dzienniki zasobów nie są domyślnie zbierane. Musisz utworzyć ustawienia diagnostyczne dla każdego zasobu platformy Azure, aby wysłać dzienniki zasobów do obszaru roboczego Log Analytics, który ma być używany z [dziennikami Azure monitor](data-platform-logs.md), usługa Azure Event Hubs do przesyłania dalej poza platformą Azure lub do usługi Azure Storage w celu archiwizacji.
@@ -54,7 +54,7 @@ Tabela AzureDiagnostics będzie wyglądać następująco:
 | ... |
 
 ### <a name="resource-specific"></a>Specyficzne dla zasobów
-W tym trybie poszczególne tabele w wybranym obszarze roboczym są tworzone dla każdej kategorii wybranej w ustawieniu diagnostyki. Ta metoda jest zalecana, ponieważ znacznie ułatwia pracę z danymi w dziennikach zapytań, zapewnia lepszą wykrywalność schematów i ich strukturę, zwiększa wydajność zarówno opóźnienia pozyskiwania, jak i czasy wykonywania zapytań oraz możliwość udzielania praw RBAC w określonej tabeli. Wszystkie usługi platformy Azure zostaną ostatecznie przemigrowane do trybu Resource-Specific. 
+W tym trybie poszczególne tabele w wybranym obszarze roboczym są tworzone dla każdej kategorii wybranej w ustawieniu diagnostyki. Ta metoda jest zalecana, ponieważ znacznie ułatwia pracę z danymi w dziennikach zapytań, zapewnia lepszą wykrywalność schematów i ich strukturę, zwiększa wydajność zarówno opóźnienia pozyskiwania, jak i czasy wykonywania zapytań, a także umożliwia przyznanie praw usługi Azure RBAC w określonej tabeli. Wszystkie usługi platformy Azure zostaną ostatecznie przemigrowane do trybu Resource-Specific. 
 
 W powyższym przykładzie powstaje trzy tabele:
  

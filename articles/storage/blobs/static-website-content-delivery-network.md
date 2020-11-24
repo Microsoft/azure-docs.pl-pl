@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.author: normesta
 ms.date: 04/07/2020
-ms.openlocfilehash: 02b7e02c33161db33420e2efe1ef4b70a138d127
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e458f98d82c910ec845ebf951b7f6470b6aba10d
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84465222"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95527330"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Integrowanie statycznej witryny sieci Web z Azure CDN
 
@@ -63,7 +63,7 @@ Możesz włączyć Azure CDN dla statycznej witryny sieci Web bezpośrednio z ko
 
 Jeśli nie chcesz już buforować obiektu w usłudze Azure CDN, możesz wykonać jedną z następujących czynności:
 
-* Ustaw kontener jako prywatny, a nie publiczny. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem anonimowym do odczytu do kontenerów i obiektów BLOB](storage-manage-access-to-resources.md).
+* Ustaw kontener jako prywatny, a nie publiczny. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem anonimowym do odczytu do kontenerów i obiektów BLOB](./anonymous-read-access-configure.md).
 * Wyłącz lub usuń punkt końcowy usługi CDN przy użyciu witryny Azure Portal.
 * Zmodyfikuj usługę hostowaną w taki sposób, aby nie odpowiadała już na żądania dla obiektu.
 

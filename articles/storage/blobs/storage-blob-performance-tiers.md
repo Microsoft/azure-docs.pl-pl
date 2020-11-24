@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: ff82986b27d038c536872b07e1308b0d48fadaef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 404999cfac5037702eb61fdf74b2c5245ce9eb30
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74270223"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95526123"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>Warstwy wydajności dla magazynu blokowych obiektów blob
 
@@ -83,6 +83,6 @@ Nie można przenieść danych przechowywanych na koncie magazynu blokowych obiek
 Oceń gorące, chłodne i archiwalne na kontach GPv2 i BLOB Storage.
 
 - [Dowiedz się więcej na temat ponownego wypełniania danych obiektów BLOB w warstwie Archiwum](storage-blob-rehydration.md)
-- [Ocena użycia bieżących kont magazynu przez włączenie metryk usługi Azure Storage](../common/storage-enable-and-view-metrics.md)
+- [Ocena użycia bieżących kont magazynu przez włączenie metryk usługi Azure Storage](./monitor-blob-storage.md)
 - [Sprawdzanie cen gorąca, chłodna i archiwalna w usłudze BLOB Storage i kontach GPv2 według regionów](https://azure.microsoft.com/pricing/details/storage/)
 - [Sprawdzanie ceny transferu danych](https://azure.microsoft.com/pricing/details/data-transfers/)

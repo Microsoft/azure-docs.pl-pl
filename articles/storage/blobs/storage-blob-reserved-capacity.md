@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/08/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: cf96906b0dab9a94febe83468f813c7cae0675b0
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 1c957330fbd54660367fa350d6985929f0bbd3d1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874819"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95531393"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Optymalizowanie kosztów magazynu obiektów blob przy użyciu pojemności zarezerwowanej
 
@@ -38,7 +38,7 @@ Zarezerwowana pojemność usługi Azure Storage jest dostępna dla jednej subskr
 
 W przypadku zakupu zarezerwowanej pojemności usługi Azure Storage można użyć rezerwacji zarówno dla blokowych obiektów blob, jak i danych Azure Data Lake Storage Gen2. Rezerwacja jest stosowana do użycia w ramach zakupionego zakresu i nie może być ograniczona do określonego konta magazynu, kontenera lub obiektu w ramach subskrypcji.
 
-Rezerwacja usługi Azure Storage obejmuje tylko ilość danych przechowywanych w ramach subskrypcji lub udostępnionej grupy zasobów. Opłaty za wcześniejsze usunięcie, operacje, przepustowość i transfer danych nie są uwzględniane w rezerwacji. Po zakupieniu rezerwacji opłaty za pojemność, które pasują do atrybutów rezerwacji, są naliczane według stawek rabatu, a nie według stawek płatności zgodnie z rzeczywistym użyciem. Aby uzyskać więcej informacji na temat rezerwacji platformy Azure, zobacz [co to są Azure Reservations?](/azure/billing/billing-save-compute-costs-reservations).
+Rezerwacja usługi Azure Storage obejmuje tylko ilość danych przechowywanych w ramach subskrypcji lub udostępnionej grupy zasobów. Opłaty za wcześniejsze usunięcie, operacje, przepustowość i transfer danych nie są uwzględniane w rezerwacji. Po zakupieniu rezerwacji opłaty za pojemność, które pasują do atrybutów rezerwacji, są naliczane według stawek rabatu, a nie według stawek płatności zgodnie z rzeczywistym użyciem. Aby uzyskać więcej informacji na temat rezerwacji platformy Azure, zobacz [co to są Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md).
 
 ### <a name="supported-account-types-tiers-and-redundancy-options"></a>Obsługiwane typy kont, warstwy i opcje nadmiarowości
 
@@ -67,7 +67,7 @@ Rezerwacje są obecnie dostępne dla bloków 100 TiB lub 1 PiB z wyższymi rabat
 
 ## <a name="purchase-azure-storage-reserved-capacity"></a>Kupowanie zarezerwowanej pojemności usługi Azure Storage
 
-Możesz zakupić zarezerwowaną pojemność usługi Azure Storage za pomocą [Azure Portal](https://portal.azure.com). Płatność za rezerwację jest wnoszona z góry lub w ratach miesięcznych. Aby uzyskać więcej informacji na temat kupowania miesięcznych płatności, zobacz [kupowanie rezerwacji platformy Azure z góry lub miesięcznymi opłatami](/azure/billing/billing-monthly-payments-reservations).
+Możesz zakupić zarezerwowaną pojemność usługi Azure Storage za pomocą [Azure Portal](https://portal.azure.com). Płatność za rezerwację jest wnoszona z góry lub w ratach miesięcznych. Aby uzyskać więcej informacji na temat kupowania miesięcznych płatności, zobacz [kupowanie rezerwacji platformy Azure z góry lub miesięcznymi opłatami](../../cost-management-billing/reservations/prepare-buy-reservation.md).
 
 Aby uzyskać pomoc dotyczącą określania warunków rezerwacji odpowiednich dla danego scenariusza, zobacz [Opis rabatu zarezerwowanej pojemności usługi Azure Storage](../../cost-management-billing/reservations/understand-storage-charges.md).
 
@@ -81,14 +81,14 @@ Wykonaj następujące kroki, aby zakupić zastrzeżoną pojemność:
 
    |Pole  |Opis  |
    |---------|---------|
-   |**Zakres**   |  Wskazuje, ile subskrypcji może korzystać z zalet rozliczeń skojarzonych z rezerwacją. Kontroluje również sposób zastosowania rezerwacji do określonych subskrypcji. <br/><br/> W przypadku wybrania opcji **udostępnione**rabat zostanie zastosowany do pojemności usługi Azure Storage w dowolnej subskrypcji w kontekście rozliczania. Kontekst rozliczania jest oparty na sposobie rejestracji w usłudze Azure. W przypadku klientów korporacyjnych zakresem udostępnionym jest rejestracja i uwzględnianie wszystkich subskrypcji w ramach rejestracji. W przypadku klientów z systemem płatność zgodnie z rzeczywistym użyciem zakres udostępniony obejmuje wszystkie poszczególne subskrypcje z opłatami z rabatem zgodnie z rzeczywistym użyciem utworzonymi przez administratora konta.  <br/><br/>  W przypadku wybrania opcji **Pojedyncza subskrypcja**rabat zostanie zastosowany do pojemności usługi Azure Storage w ramach wybranej subskrypcji. <br/><br/> W przypadku wybrania opcji **pojedynczy zasób**rabat zostanie zastosowany do pojemności usługi Azure Storage w ramach wybranej subskrypcji i wybranej grupy zasobów w ramach tej subskrypcji. <br/><br/> Można zmienić zakres rezerwacji po zakupie rezerwacji.  |
+   |**Zakres**   |  Wskazuje, ile subskrypcji może korzystać z zalet rozliczeń skojarzonych z rezerwacją. Kontroluje również sposób zastosowania rezerwacji do określonych subskrypcji. <br/><br/> W przypadku wybrania opcji **udostępnione** rabat zostanie zastosowany do pojemności usługi Azure Storage w dowolnej subskrypcji w kontekście rozliczania. Kontekst rozliczania jest oparty na sposobie rejestracji w usłudze Azure. W przypadku klientów korporacyjnych zakresem udostępnionym jest rejestracja i uwzględnianie wszystkich subskrypcji w ramach rejestracji. W przypadku klientów z systemem płatność zgodnie z rzeczywistym użyciem zakres udostępniony obejmuje wszystkie poszczególne subskrypcje z opłatami z rabatem zgodnie z rzeczywistym użyciem utworzonymi przez administratora konta.  <br/><br/>  W przypadku wybrania opcji **Pojedyncza subskrypcja** rabat zostanie zastosowany do pojemności usługi Azure Storage w ramach wybranej subskrypcji. <br/><br/> W przypadku wybrania opcji **pojedynczy zasób** rabat zostanie zastosowany do pojemności usługi Azure Storage w ramach wybranej subskrypcji i wybranej grupy zasobów w ramach tej subskrypcji. <br/><br/> Można zmienić zakres rezerwacji po zakupie rezerwacji.  |
    |**Subskrypcja**  | Subskrypcja, która jest używana do płacenia za rezerwację usługi Azure Storage. Metoda płatności w ramach wybranej subskrypcji jest używana w celu naliczania kosztów. Subskrypcja musi być jednym z następujących typów: <br/><br/>  Umowa Enterprise (numery ofert: MS-AZR-0017P lub MS-AZR-0148P): w przypadku subskrypcji przedsiębiorstwa opłaty są naliczane od salda zobowiązania pieniężnego rejestracji lub opłaty są naliczane jako nadwyżkowe. <br/><br/> Indywidualna subskrypcja z stawką płatności zgodnie z rzeczywistym użyciem (numery ofert: MS-AZR-0003P lub MS-AZR-0023P): w przypadku pojedynczej subskrypcji z stawką płatności zgodnie z rzeczywistym użyciem opłaty są naliczane za kartę kredytową lub formę płatności faktury dla subskrypcji.    |
    | **Region** | Region, w którym rezerwacja jest obowiązująca. |
-   | **Warstwa dostępu** | Warstwa dostępu, w której obowiązuje rezerwacja. Dostępne opcje to *gorąca*, *chłodna*lub *archiwalna*. Aby uzyskać więcej informacji o warstwach dostępu, zobacz [Azure Blob Storage: warstwy dostępu gorąca, chłodna i archiwalna](storage-blob-storage-tiers.md). |
-   | **Nadmiarowość** | Opcja nadmiarowości dla rezerwacji. Dostępne opcje to: *LRS*, *ZRS*, *GRS*, *GZRS*, *RA-GRS*i *RA-GZRS*. Aby uzyskać więcej informacji na temat opcji nadmiarowości, zobacz [nadmiarowość usługi Azure Storage](../common/storage-redundancy.md). |
+   | **Warstwa dostępu** | Warstwa dostępu, w której obowiązuje rezerwacja. Dostępne opcje to *gorąca*, *chłodna* lub *archiwalna*. Aby uzyskać więcej informacji o warstwach dostępu, zobacz [Azure Blob Storage: warstwy dostępu gorąca, chłodna i archiwalna](storage-blob-storage-tiers.md). |
+   | **Nadmiarowość** | Opcja nadmiarowości dla rezerwacji. Dostępne opcje to: *LRS*, *ZRS*, *GRS*, *GZRS*, *RA-GRS* i *RA-GZRS*. Aby uzyskać więcej informacji na temat opcji nadmiarowości, zobacz [nadmiarowość usługi Azure Storage](../common/storage-redundancy.md). |
    | **Częstotliwość rozliczeń** | Wskazuje, jak często konto jest rozliczane dla rezerwacji. Opcje obejmują *co miesiąc* lub z *góry*. |
    | **Rozmiar** | Ilość pojemności do zarezerwowania. |
-   |**Okres**  | Jeden rok lub trzy lata.   |
+   |**Termin**  | Jeden rok lub trzy lata.   |
 
 1. Po wybraniu parametrów dla rezerwacji Azure Portal zostanie wyświetlony koszt. W portalu jest również pokazywana wartość procentowa rabatu w porównaniu z płatnościami zgodnie z rzeczywistym użyciem.
 
@@ -102,7 +102,7 @@ Po zakupieniu rezerwacji zostanie ona automatycznie zastosowana do wszystkich is
 
 Możesz wymienić lub refundować rezerwację z pewnymi ograniczeniami. Te ograniczenia są opisane w poniższych sekcjach.
 
-Aby wymienić lub zwrócić zastrzeżenie, przejdź do szczegółów rezerwacji w Azure Portal. Wybierz pozycję **Exchange** lub **refunda**i postępuj zgodnie z instrukcjami, aby przesłać żądanie pomocy technicznej. Gdy żądanie zostało przetworzone, firma Microsoft wyśle do Ciebie wiadomość e-mail w celu potwierdzenia zakończenia żądania.
+Aby wymienić lub zwrócić zastrzeżenie, przejdź do szczegółów rezerwacji w Azure Portal. Wybierz pozycję **Exchange** lub **refunda** i postępuj zgodnie z instrukcjami, aby przesłać żądanie pomocy technicznej. Gdy żądanie zostało przetworzone, firma Microsoft wyśle do Ciebie wiadomość e-mail w celu potwierdzenia zakończenia żądania.
 
 Aby uzyskać więcej informacji na temat zasad Azure Reservations, zobacz samoobsługowe [wymianę i zwroty za Azure Reservations](../../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 

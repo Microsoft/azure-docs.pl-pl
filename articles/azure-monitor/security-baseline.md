@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 15026c378c4c399915e99b0910f1e6518f5adfc8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c8ed791fc9496e67acdcfbfafddad9170ac47535
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151860"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522587"
 ---
 # <a name="azure-security-baseline-for-azure-monitor"></a>Podstawa zabezpieczeń platformy Azure dla Azure Monitor
 
@@ -324,7 +324,7 @@ Możesz również włączyć dostęp do usługi Microsoft just-in-Time/tylko do 
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4,2: Izoluj systemy przechowujące lub przetwarzające informacje poufne
 
-**Wskazówki**: Zaimplementuj izolację przy użyciu osobnych subskrypcji i grup zarządzania dla poszczególnych domen zabezpieczeń, takich jak typ środowiska i poziom czułości danych. Możesz ograniczyć poziom dostępu do Azure Monitor i powiązanych zasobów, których wymagają Twoje aplikacje i środowiska korporacyjne. Dostęp do Azure Monitor można kontrolować za pośrednictwem Azure Active Directory kontroli dostępu opartej na rolach.
+**Wskazówki**: Zaimplementuj izolację przy użyciu osobnych subskrypcji i grup zarządzania dla poszczególnych domen zabezpieczeń, takich jak typ środowiska i poziom czułości danych. Możesz ograniczyć poziom dostępu do Azure Monitor i powiązanych zasobów, których wymagają Twoje aplikacje i środowiska korporacyjne. Dostęp do Azure Monitor można kontrolować za pomocą kontroli dostępu opartej na rolach platformy Azure.
 
 - [Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md)
 
@@ -361,7 +361,7 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: stosowanie kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
 
-**Wskazówki**: Aby zarządzać dostępem do Azure monitor, użyj kontroli dostępu opartej na ROLACH (RBAC) na platformie Azure.
+**Wskazówki**: Aby zarządzać dostępem do Azure monitor, użyj kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure.
 
 - [Role, uprawnienia i zabezpieczenia w Azure Monitor](platform/roles-permissions-security.md)
 
@@ -529,7 +529,7 @@ W przypadku korzystania z funkcji APM przesyłania strumieniowego na żywo, opr�
 
 - [Eksport jednego i kilku zasobów do szablonu w Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
 
-- [Zalecenia dotyczące zabezpieczeń — Przewodnik referencyjny](../security-center/recommendations-reference.md)
+- [Zalecenia dotyczące zabezpieczeń — przewodnik referencyjny](../security-center/recommendations-reference.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -685,7 +685,7 @@ Użyj wykrywania zagrożeń Azure Security Center dla usług danych w celu wykry
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: zapewnianie ochrony kopii zapasowych i kluczy zarządzanych przez klienta
 
-**Wskazówki**: Użyj usługi Azure DevOps, aby bezpiecznie przechowywać kod, taki jak niestandardowe zasady platformy Azure, szablony Azure Resource Manager i zarządzać nimi. Aby chronić zasoby zarządzane w usłudze Azure DevOps, można udzielić lub odmówić uprawnień określonym użytkownikom, wbudowanym grupom zabezpieczeń lub grupom zdefiniowanym w Azure Active Directory (Azure AD) w przypadku integracji z usługą Azure DevOps lub Active Directory w przypadku integracji z programem TFS.   Użyj kontroli dostępu opartej na rolach, aby chronić klucze zarządzane przez klienta. 
+**Wskazówki**: Użyj usługi Azure DevOps, aby bezpiecznie przechowywać kod, taki jak niestandardowe zasady platformy Azure, szablony Azure Resource Manager i zarządzać nimi. Aby chronić zasoby zarządzane w usłudze Azure DevOps, można udzielić lub odmówić uprawnień określonym użytkownikom, wbudowanym grupom zabezpieczeń lub grupom zdefiniowanym w Azure Active Directory (Azure AD) w przypadku integracji z usługą Azure DevOps lub Active Directory w przypadku integracji z programem TFS.   Używanie kontroli dostępu opartej na rolach na platformie Azure w celu ochrony kluczy zarządzanych przez klienta. 
 
 Ponadto Włącz ochronę Soft-Delete i przeczyszczanie w Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem. Jeśli usługa Azure Storage jest używana do przechowywania kopii zapasowych szablonów Azure Resource Manager, należy włączyć funkcję usuwania nietrwałego, aby zapisywać i odzyskiwać dane po usunięciu obiektów blob lub migawek obiektów BLOB. 
 

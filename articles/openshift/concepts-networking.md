@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 06/22/2020
-ms.openlocfilehash: fb81405e85d6e2653e0cf6c007c363493992161a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3417b59d0be9e285f8793ef598abb7f98bda7549
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87419975"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95527993"
 ---
 # <a name="networking-in-azure-red-hat-on-openshift-4"></a>Sieć na platformie Azure Red Hat w systemie OpenShift 4
 
@@ -98,7 +98,7 @@ Następujące ustawienia sieciowe są dostępne na platformie Azure Red Hat Open
     * "Publiczny" — serwer interfejsu API jest dostępny dla sieci zewnętrznych.
     * "Prywatny" — serwer interfejsu API przypisany do prywatnego adresu IP z podsieci Master, dostępny tylko przy użyciu połączonych sieci (równorzędne sieci wirtualne, inne podsieci w klastrze). W imieniu klienta zostanie utworzona prywatna strefa DNS.
 * **Widoczność** transferu danych przychodzących — Ustaw widoczność interfejsu API podczas uruchamiania [polecenia AZ ARO Create](tutorial-create-cluster.md#create-the-cluster).
-    * Trasy "Public" będą domyślnie kierowane do publicznej usługi Azure usługa Load Balancer w warstwie Standardowa (można to zmienić).
+    * Trasy "Public" domyślnie będą usługa Load Balancer w warstwie Standardowa publicznego (można to zmienić).
     * Trasy "prywatne" będą domyślnie kierowane do wewnętrznego modułu równoważenia obciążenia (można to zmienić).
 
 ## <a name="network-security-groups"></a>Grupy zabezpieczeń sieci

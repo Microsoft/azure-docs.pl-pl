@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: cavoeg
-ms.openlocfilehash: 71097f13fffbbe5cb57a69c98fb0ab272e16af5c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 3aea2322129c383a385168c54001464da5dae276
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026305"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95520088"
 ---
 # <a name="features"></a>Funkcje
 
@@ -49,7 +49,7 @@ Obecnie obsługiwane są również poprzednie wersje: `3.0.2`
 | stronicowania                         | Częściowe   | Częściowe   | Częściowe   | `self` i `next` są obsługiwane                     |
 | pośredników                 | Nie        | Nie        | Nie        |                                                     |
 
-## <a name="search"></a>Wyszukiwanie
+## <a name="search"></a>Wyszukaj
 
 Wszystkie typy parametrów wyszukiwania są obsługiwane. 
 
@@ -129,7 +129,7 @@ Cosmos DB to baza danych oparta na globalnie rozproszonym modelu (SQL API, Mongo
 
 ## <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
 
-Serwer FHIR używa [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) na potrzeby kontroli dostępu. W konkretnym przypadku jest wymuszane Role-Based Access Control (RBAC), jeśli `FhirServer:Security:Enabled` parametr konfiguracji jest ustawiony na `true` , a wszystkie żądania (z wyjątkiem `/metadata` ) do serwera FHIR muszą mieć `Authorization` nagłówek żądania ustawiony na `Bearer <TOKEN>` . Token musi zawierać co najmniej jedną rolę zdefiniowaną w ramach tego `roles` żądania. Żądanie będzie dozwolone, jeśli token zawiera rolę, która zezwala na określoną akcję dla określonego zasobu.
+Serwer FHIR używa [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) na potrzeby kontroli dostępu. W konkretnym przypadku kontrola dostępu oparta na rolach (RBAC) jest wymuszana, jeśli `FhirServer:Security:Enabled` parametr konfiguracji jest ustawiony na `true` , a wszystkie żądania (z wyjątkiem `/metadata` ) do serwera FHIR muszą mieć `Authorization` nagłówek żądania ustawiony na `Bearer <TOKEN>` . Token musi zawierać co najmniej jedną rolę zdefiniowaną w ramach tego `roles` żądania. Żądanie będzie dozwolone, jeśli token zawiera rolę, która zezwala na określoną akcję dla określonego zasobu.
 
 Obecnie dozwolone akcje dla danej roli są stosowane *globalnie* w interfejsie API.
 

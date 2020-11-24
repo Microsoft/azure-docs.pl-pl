@@ -12,12 +12,12 @@ ms.date: 11/17/2020
 ms.author: aahi
 keywords: Wyszukiwanie tekstu, analiza tonacjiów, analizy tekstu
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: a91be0798dc67bfb751807b385d638343b89562b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 14dfa6111bbda8750b175c8c9b2a96321e1af2c5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957048"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519408"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Czym jest interfejs API analizy tekstu?
 
@@ -47,9 +47,14 @@ Mechanizm wykrywania języka może [wykryć język, w którym wprowadzany jest t
 
 Rozpoznawanie jednostek nazwanych (NER) może [identyfikować i klasyfikować jednostki](how-tos/text-analytics-how-to-entity-linking.md) w tekście jako osoby, miejsca, organizacje, ilości, dobrze znane jednostki, które są także rozpoznawane i połączone z więcej informacji w sieci Web.
 
-## <a name="use-containers"></a>Korzystanie z kontenerów
+## <a name="deploy-on-premises-using-docker-containers"></a>Wdrażanie lokalnie przy użyciu kontenerów platformy Docker
 
-[Użyj kontenerów analiza tekstu](how-tos/text-analytics-how-to-install-containers.md) jako rozwiązania lokalnego dla tekstu wyszukiwania i korzystając z interfejsu API. Te kontenery platformy Docker umożliwiają wyodrębnianie kluczowych fraz i wykrywanie języka oraz analizowanie tonacji bliżej danych.
+[Używanie kontenerów analiza tekstu](how-tos/text-analytics-how-to-install-containers.md) do wdrażania funkcji interfejsu API w środowisku lokalnym. Te kontenery platformy Docker umożliwiają przełączenie usługi bliżej danych pod kątem zgodności, bezpieczeństwa lub innych przyczyn operacyjnych. Analiza tekstu oferuje następujące kontenery:
+
+* Analiza tonacji
+* Wyodrębnianie kluczowych fraz (wersja zapoznawcza)
+* wykrywanie języka (wersja zapoznawcza)
+* Analiza tekstu dla kondycji (wersja zapoznawcza)
 
 ## <a name="asynchronous-operations"></a>Operacje asynchroniczne
 

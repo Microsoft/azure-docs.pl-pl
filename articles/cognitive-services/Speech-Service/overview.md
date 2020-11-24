@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 08/20/2020
+ms.date: 11/23/2020
 ms.author: trbye
-ms.openlocfilehash: 14b9429de5432680e5203e392827efa32e2a2a38
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 291ac7804109b098b556e38c57ca493ba74f1b14
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015400"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95528894"
 ---
 # <a name="what-is-the-speech-service"></a>Czym jest usługa rozpoznawania mowy?
 
@@ -26,7 +26,7 @@ Usługa mowy to zjednoczenie zamiany mowy na tekst, tekstu na mowę i tłumaczen
 
 Poniższe funkcje są częścią usługi mowy. Skorzystaj z łączy w tej tabeli, aby dowiedzieć się więcej na temat typowych przypadków użycia dla każdej funkcji, lub przejrzyj odwołanie do interfejsu API.
 
-| Usługa | Cechy | Opis | SDK | REST |
+| Usługa | Cecha | Opis | SDK | REST |
 |---------|---------|-------------|-----|------|
 | [Zamiana mowy na tekst](speech-to-text.md) | Zamiana mowy na tekst w czasie rzeczywistym | Funkcja zamiany mowy na tekst przekształca lub tłumaczy strumienie audio lub pliki lokalne na tekst w czasie rzeczywistym, gdy aplikacje, narzędzia lub urządzenia mogą korzystać z lub wyświetlać. Używaj zamiany mowy na tekst za pomocą [Language Understanding (Luis)](../luis/index.yml) , aby uzyskać intencje użytkownika z uzyskanego mowy i korzystać z poleceń głosowych. | [Tak](./speech-sdk.md) | [Tak](#reference-docs) |
 | | [Zamiana mowy na tekst w usłudze Batch](batch-transcription.md) | Funkcja zamiany mowy na tekst w usłudze Batch umożliwia asynchroniczne transkrypcję zamiany mowy na tekst dużych ilości danych audio mowy przechowywanych w usłudze Azure Blob Storage. Oprócz konwersji dźwięku zamiany mowy na tekst, funkcja zamiany mowy na tekst usługi Batch umożliwia również obsługę diarization i tonacji. | Nie | [Tak](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
@@ -134,6 +134,17 @@ Inne produkty oferują modele mowy dopasowane do określonych celów, takich jak
 | Zamiana mowy na tekst | [Custom Speech](https://aka.ms/customspeech) | Dostosuj modele rozpoznawania mowy do Twoich potrzeb i dostępnych danych. Przezwyciężenie barier rozpoznawania mowy, takich jak styl mowy, słownictwo i hałas w tle. |
 | Zamiana tekstu na mowę | [Niestandardowy głos](https://aka.ms/customvoice) | Utwórz rozpoznawalny, unikatowy głos dla aplikacji zamieniających tekst na mowę, które korzystają z Twoich dostępnych danych mowy. Można dokładniej dostosować dane wyjściowe głosu przez dostosowanie zestawu parametrów głosowych. |
 
+## <a name="deploy-on-premises-using-docker-containers"></a>Wdrażanie lokalnie przy użyciu kontenerów platformy Docker
+
+[Używanie kontenerów usługi mowy](speech-container-howto.md) do wdrażania funkcji interfejsu API w środowisku lokalnym. Te kontenery platformy Docker umożliwiają przełączenie usługi bliżej danych pod kątem zgodności, bezpieczeństwa lub innych przyczyn operacyjnych. Usługa mowy oferuje następujące kontenery:
+
+* Standardowe Zamiana mowy na tekst
+* Custom Speech do tekstu
+* Standardowe Zamiana tekstu na mowę
+* Neuronowych Zamiana tekstu na mowę
+* Niestandardowa Zamiana tekstu na mowę (wersja zapoznawcza)
+* Wykrywanie języka mowy (wersja zapoznawcza)
+
 ## <a name="reference-docs"></a>Dokumentacja dokumentacji
 
 - [Zestaw SDK rozpoznawania mowy](./speech-sdk.md)
@@ -141,6 +152,7 @@ Inne produkty oferują modele mowy dopasowane do określonych celów, takich jak
 - [Interfejs API REST: zamiana mowy na tekst](rest-speech-to-text.md)
 - [Interfejs API REST: zamiana tekstu na mowę](rest-text-to-speech.md)
 - [Interfejs API REST: Transkrypcja i dostosowywanie partii](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
+
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 09/21/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: Automatyczne przetwarzanie danych, przetwarzanie dokumentów, automatyczne wprowadzanie danych, przetwarzanie formularzy
-ms.openlocfilehash: 8b790da9eaa17cbb0fbdcbcc49682786deb319a0
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 05024b8d7f4cf76024d71a79cb1fce489d58ee70
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95492165"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519527"
 ---
 # <a name="what-is-form-recognizer"></a>Co to jest rozpoznawanie formularzy?
 
@@ -30,9 +30,9 @@ Aparat rozpoznawania formularzy składa się z następujących usług:
 * **[Interfejs API układu](#layout-api)** — Wyodrębnianie tekstu, znaczników wyboru i struktur tabel wraz ze współrzędnymi pola ograniczenia, z dokumentów.
 * **[Modele niestandardowe](#custom-models)** — Wyodrębnij pary tekstu, par klucz/wartość, znaczniki wyboru i dane tabeli z formularzy. Te modele są przeszkolone przy użyciu własnych danych, dzięki czemu są dostosowane do Twoich formularzy.
 * Wstępnie **[utworzone modele](#prebuilt-models)** — Wyodrębnij dane z unikatowych typów formularzy przy użyciu wbudowanych modeli. Obecnie dostępne są następujące modele wbudowane
-    * [Faktury](./concept-invoices.md) 
+    * [Faktury](./concept-invoices.md)
     * [Przyjęcia sprzedaży](./concept-receipts.md)
-    * [Wizytówki](./concept-business-cards.md) 
+    * [Wizytówki](./concept-business-cards.md)
 
 
 ## <a name="try-it-out"></a>Czas to wypróbować
@@ -50,7 +50,7 @@ Aby wypróbować usługę aparat rozpoznawania formularzy, przejdź do narzędzi
 
 ---
 
-Potrzebna jest subskrypcja platformy Azure ([Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)) i punkt końcowy [zasobu aparatu rozpoznawania formularzy](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) oraz klucz służący do wypróbowania usługi rozpoznawania formularzy. 
+Potrzebna jest subskrypcja platformy Azure ([Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)) i punkt końcowy [zasobu aparatu rozpoznawania formularzy](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) oraz klucz służący do wypróbowania usługi rozpoznawania formularzy.
 
 ## <a name="layout-api"></a>Interfejs API układu
 
@@ -125,8 +125,6 @@ Skorzystaj z [przykładowego narzędzia rozpoznawania formularzy](https://fott.a
     * [Wyodrębnij dane przyjęcia — Python](quickstarts/python-receipts.md)
   * Wyodrębnianie danych z wizytówek
     * [Wyodrębnianie danych z kart służbowych — Python](quickstarts/python-business-cards.md)
- 
-
 
 ### <a name="review-the-rest-apis"></a>Przeglądanie interfejsów API REST
 
@@ -153,6 +151,10 @@ Zapoznaj się z [dokumentacją interfejsu API REST](https://westus2.dev.cognitiv
 ## <a name="input-requirements"></a>Wymagania wejściowe
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
+
+## <a name="deploy-on-premises-using-docker-containers"></a>Wdrażanie lokalnie przy użyciu kontenerów platformy Docker
+
+[Używanie kontenerów aparatu rozpoznawania formularzy (wersja zapoznawcza)](form-recognizer-container-howto.md) do wdrażania funkcji interfejsu API w środowisku lokalnym. Ten kontener platformy Docker umożliwia przełączenie usługi do danych pod kątem zgodności, zabezpieczeń lub innych przyczyn operacyjnych.
 
 ## <a name="data-privacy-and-security"></a>Prywatność i zabezpieczenia danych
 

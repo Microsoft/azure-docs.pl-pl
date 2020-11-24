@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2019
 ms.author: cawa
-ms.openlocfilehash: 07652f2ac88475664f30e8189204b5649f966d16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48f00d964a87790b8d8c9b1d8eceaed26d15199e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88033618"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95531971"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Zarządzanie zasobami usługi Azure Blob Storage za pomocą Eksploratora usługi Storage
 
 ## <a name="overview"></a>Omówienie
 
-[Azure Blob Storage](storage/blobs/storage-dotnet-how-to-use-blobs.md) to usługa do przechowywania dużych ilości danych bez struktury, takich jak dane tekstowe lub binarne, do których można uzyskiwać dostęp z dowolnego miejsca na świecie za pośrednictwem protokołu HTTP lub https.
+[Azure Blob Storage](./storage/blobs/storage-quickstart-blobs-dotnet.md) to usługa do przechowywania dużych ilości danych bez struktury, takich jak dane tekstowe lub binarne, do których można uzyskiwać dostęp z dowolnego miejsca na świecie za pośrednictwem protokołu HTTP lub https.
 Magazyn obiektów Blob może być użyty do udostępniania danych publicznie lub do przechowywania danych aplikacji prywatnie. W tym artykule dowiesz się, jak używać Eksplorator usługi Storage do pracy z kontenerami obiektów blob i obiektami BLOB.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -61,7 +61,7 @@ Poniższe kroki ilustrują sposób wyświetlania zawartości kontenera obiektów
 
 1. Otwórz Eksploratora usługi Storage.
 2. W okienku po lewej stronie rozwiń konto magazynu zawierające kontener obiektów blob, który chcesz wyświetlić.
-3. Rozwiń **kontenery obiektów BLOB**konta magazynu.
+3. Rozwiń **kontenery obiektów BLOB** konta magazynu.
 4. Kliknij prawym przyciskiem myszy kontener obiektów blob, który chcesz wyświetlić, a następnie z menu kontekstowego wybierz pozycję **Otwórz Edytor kontenera obiektów BLOB**.
    Możesz również kliknąć dwukrotnie kontener obiektów blob, który chcesz wyświetlić.
 
@@ -78,7 +78,7 @@ Poniższe kroki ilustrują sposób usuwania kontenera obiektów BLOB w ramach Ek
 
 1. Otwórz Eksploratora usługi Storage.
 2. W okienku po lewej stronie rozwiń konto magazynu zawierające kontener obiektów blob, który chcesz wyświetlić.
-3. Rozwiń **kontenery obiektów BLOB**konta magazynu.
+3. Rozwiń **kontenery obiektów BLOB** konta magazynu.
 4. Kliknij prawym przyciskiem myszy kontener obiektów blob, który chcesz usunąć, a następnie z menu kontekstowego wybierz pozycję **Usuń**.
    Możesz również nacisnąć klawisz **delete** , aby usunąć aktualnie wybrany kontener obiektów BLOB.
 
@@ -95,7 +95,7 @@ Poniższe kroki ilustrują sposób kopiowania kontenera obiektów blob z jednego
 
 1. Otwórz Eksploratora usługi Storage.
 2. W okienku po lewej stronie rozwiń konto magazynu zawierające kontener obiektów blob, który chcesz skopiować.
-3. Rozwiń **kontenery obiektów BLOB**konta magazynu.
+3. Rozwiń **kontenery obiektów BLOB** konta magazynu.
 4. Kliknij prawym przyciskiem myszy kontener obiektów blob, który chcesz skopiować, a następnie z menu kontekstowego wybierz polecenie **Kopiuj kontener obiektów BLOB**.
 
    ![Menu kontekstowe kopiowania kontenera obiektów BLOB][6]
@@ -105,14 +105,14 @@ Poniższe kroki ilustrują sposób kopiowania kontenera obiektów blob z jednego
 
 ## <a name="get-the-sas-for-a-blob-container"></a>Uzyskiwanie sygnatury dostępu współdzielonego dla kontenera obiektów blob
 
-[Sygnatura dostępu współdzielonego (SAS, shared access signature)](storage/common/storage-dotnet-shared-access-signature-part-1.md) zapewnia delegowany dostęp do zasobów w ramach konta magazynu.
+[Sygnatura dostępu współdzielonego (SAS, shared access signature)](./storage/common/storage-sas-overview.md) zapewnia delegowany dostęp do zasobów w ramach konta magazynu.
 Oznacza to, że możliwe jest przyznanie klientowi ograniczonych uprawnień do obiektów w ramach konta magazynu na określony czas i z określonym zestawem uprawnień bez konieczności udostępniania kluczy dostępu do konta.
 
 Poniższe kroki ilustrują sposób tworzenia sygnatury dostępu współdzielonego dla kontenera obiektów blob:
 
 1. Otwórz Eksploratora usługi Storage.
 2. W okienku po lewej stronie rozwiń konto magazynu zawierające kontener obiektów blob, dla którego chcesz uzyskać sygnaturę dostępu współdzielonego.
-3. Rozwiń **kontenery obiektów BLOB**konta magazynu.
+3. Rozwiń **kontenery obiektów BLOB** konta magazynu.
 4. Kliknij prawym przyciskiem myszy żądany kontener obiektów blob, a następnie z menu kontekstowego wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego**.
 
    ![Pobierz menu kontekstowe SAS][8]
@@ -132,7 +132,7 @@ Poniższe kroki ilustrują sposób zarządzania (Dodawanie i usuwanie) zasad dos
 
 1. Otwórz Eksploratora usługi Storage.
 2. W okienku po lewej stronie rozwiń konto magazynu zawierające kontener obiektów blob, którego zasady dostępu chcesz zarządzać.
-3. Rozwiń **kontenery obiektów BLOB**konta magazynu.
+3. Rozwiń **kontenery obiektów BLOB** konta magazynu.
 4. Wybierz żądany kontener obiektów blob, a następnie z menu kontekstowego wybierz pozycję **Zarządzaj zasadami dostępu**.
 
    ![Menu kontekstowe Zarządzanie zasadami dostępu][11]
@@ -153,14 +153,14 @@ Poniższe kroki ilustrują sposób określania publicznego poziomu dostępu dla 
 
 1. Otwórz Eksploratora usługi Storage.
 2. W okienku po lewej stronie rozwiń konto magazynu zawierające kontener obiektów blob, którego zasady dostępu chcesz zarządzać.
-3. Rozwiń **kontenery obiektów BLOB**konta magazynu.
+3. Rozwiń **kontenery obiektów BLOB** konta magazynu.
 4. Wybierz żądany kontener obiektów blob, a następnie z menu kontekstowego wybierz pozycję **Ustaw poziom dostępu publicznego**.
 
    ![Ustaw menu kontekstowe poziomu dostępu publicznego][13]
 5. W oknie dialogowym **Ustawianie poziomu dostępu publicznego kontenera** Określ żądany poziom dostępu.
 
    ![Ustawianie opcji poziomu dostępu publicznego][14]
-6. Wybierz przycisk **Zastosuj**.
+6. Wybierz pozycję **Zastosuj**.
 
 ## <a name="managing-blobs-in-a-blob-container"></a>Zarządzanie obiektami BLOB w kontenerze obiektów BLOB
 
@@ -170,7 +170,7 @@ Poniższe kroki ilustrują sposób zarządzania obiektami BLOB (i folderami) w k
 
 1. Otwórz Eksploratora usługi Storage.
 2. W okienku po lewej stronie rozwiń konto magazynu zawierające kontener obiektów blob, którym chcesz zarządzać.
-3. Rozwiń **kontenery obiektów BLOB**konta magazynu.
+3. Rozwiń **kontenery obiektów BLOB** konta magazynu.
 4. Kliknij dwukrotnie kontener obiektów blob, który chcesz wyświetlić.
 5. W okienku głównym zostanie wyświetlona zawartość kontenera obiektów BLOB.
 

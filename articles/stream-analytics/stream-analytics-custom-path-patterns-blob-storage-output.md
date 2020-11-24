@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: b6d6838779d4f219a8ce10b2cf3ae6cd620762a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72718285ff83a23acd21a5e29001ea96e1f061c8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317858"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95531359"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics partycjonowanie niestandardowego obiektu BLOB
 
@@ -25,7 +25,7 @@ Atrybuty pola niestandardowego lub danych wejściowych usprawniają przepływy p
 
 ### <a name="partition-key-options"></a>Opcje klucza partycji
 
-Klucz partycji lub nazwa kolumny używana do partycjonowania danych wejściowych mogą zawierać znaki alfanumeryczne z łącznikami, podkreśleniami i spacjami. Nie można używać zagnieżdżonych pól jako klucza partycji, chyba że są używane w połączeniu z aliasami. Klucz partycji musi być NVARCHAR (MAX).
+Klucz partycji lub nazwa kolumny używana do partycjonowania danych wejściowych mogą zawierać znaki alfanumeryczne z łącznikami, podkreśleniami i spacjami. Nie można używać zagnieżdżonych pól jako klucza partycji, chyba że są używane w połączeniu z aliasami. Klucz partycji musi być typu NVARCHAR (MAX), BIGINT, FLOAT lub BIT (poziom zgodności 1,2 lub wyższy). Aby uzyskać więcej informacji, zobacz [Azure Stream Analytics typów danych](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
 
 ### <a name="example"></a>Przykład
 
@@ -62,6 +62,8 @@ Zwróć uwagę, że każdy rekord w obiekcie blob ma **client_id** kolumnę pasu
 2. W kluczach partycji nie jest rozróżniana wielkość liter, dlatego klucze partycji, takie jak "Jan" i "Jan", są równoważne. Wyrażenia nie mogą być również używane jako klucze partycji. Na przykład **{ColumnA + ColumnB}** nie działa.  
 
 3. Gdy strumień wejściowy składa się z rekordów z kardynalnością klucza partycji poniżej 8000, rekordy będą dołączane do istniejących obiektów blob i w razie potrzeby tworzyć nowe obiekty blob. Jeśli Kardynalność przekracza 8000, nie ma gwarancji, że istniejące obiekty blob zostaną zapisane w programie, a nowe obiekty blob nie zostaną utworzone dla dowolnej liczby rekordów z tym samym kluczem partycji.
+
+4. Jeśli dane wyjściowe obiektu BLOB są [skonfigurowane jako niezmienne](../storage/blobs/storage-blob-immutable-storage.md), Stream Analytics utworzy nowy obiekt BLOB za każdym razem, gdy dane są wysyłane.
 
 ## <a name="custom-datetime-path-patterns"></a>Niestandardowe wzorce ścieżki DateTime
 

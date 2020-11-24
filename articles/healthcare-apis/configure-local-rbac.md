@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/15/2020
 ms.author: matjazl
-ms.openlocfilehash: c62593251cb0e19c91d1c4877d1b33fe407ebd06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 096e4e3ecbcedaec674e074a2baccbb336e03c94
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87847010"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95524202"
 ---
 # <a name="configure-local-rbac-for-fhir"></a>Konfigurowanie lokalnego RBAC dla FHIR 
 
@@ -23,7 +23,7 @@ W tym artykule wyjaśniono, jak skonfigurować usługę Azure API for FHIR do ko
 
 ## <a name="add-service-principal"></a>Dodawanie jednostki usługi
 
-Lokalna kontrola RBAC umożliwia korzystanie z zewnętrznej dzierżawy Azure Active Directory z serwerem FHIR. Aby umożliwić systemowi RBAC sprawdzenie przynależności do grupy w tej dzierżawie, interfejs API platformy Azure dla FHIR musi mieć nazwę główną usługi w dzierżawie. Ta nazwa główna usługi zostanie utworzona automatycznie w dzierżawach powiązanych z subskrypcjami, w których wdrożono interfejs API platformy Azure dla usługi FHIR, ale w przypadku, gdy dzierżawa nie ma powiązanej subskrypcji, Administrator dzierżawy będzie musiał utworzyć tę jednostkę usługi przy użyciu jednego z następujących poleceń:
+Lokalna kontrola RBAC umożliwia korzystanie z zewnętrznej dzierżawy Azure Active Directory z serwerem FHIR. Aby zezwolić lokalnemu systemowi RBAC na sprawdzanie członkostwa w grupach w tej dzierżawie, interfejs API platformy Azure dla FHIR musi mieć nazwę główną usługi w dzierżawie. Ta nazwa główna usługi zostanie utworzona automatycznie w dzierżawach powiązanych z subskrypcjami, w których wdrożono interfejs API platformy Azure dla usługi FHIR, ale w przypadku, gdy dzierżawa nie ma powiązanej subskrypcji, Administrator dzierżawy będzie musiał utworzyć tę jednostkę usługi przy użyciu jednego z następujących poleceń:
 
 Przy użyciu `Az` modułu programu PowerShell:
 

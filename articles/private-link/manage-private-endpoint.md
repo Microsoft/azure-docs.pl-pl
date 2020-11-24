@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 20695d183ea8184f7ee2948b3897fa1f3a741411
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2987cd1ff8c678f7079e13e8b9bc657817c066f1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84737499"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95531376"
 ---
 # <a name="manage-a-private-endpoint-connection"></a>Zarządzanie połączeniem z prywatnym punktem końcowym
 Łącze prywatne platformy Azure działa w modelu przepływu wywołań zatwierdzania, w którym odbiorca usługi linku prywatnego może zażądać połączenia z dostawcą usług w celu korzystania z usługi. Dostawca usług może następnie zdecydować, czy zezwolić konsumentowi na nawiązanie połączenia. Link prywatny platformy Azure umożliwia dostawcom usług Zarządzanie połączeniem prywatnego punktu końcowego w swoich zasobach. Ten artykuł zawiera instrukcje dotyczące zarządzania połączeniami prywatnego punktu końcowego.
@@ -20,8 +20,8 @@ ms.locfileid: "84737499"
 ![Zarządzanie prywatnymi punktami końcowymi](media/manage-private-endpoint/manage-private-endpoint.png)
 
 Istnieją dwie metody zatwierdzania połączeń, z których może wybierać odbiorcy usługi link prywatny:
-- **Automatyczne**: Jeśli odbiorca usługi ma uprawnienia RBAC w ramach zasobu dostawcy usługi, może wybrać metodę automatycznego zatwierdzania. W takim przypadku, gdy żądanie osiągnie zasób dostawcy usługi, nie jest wymagane żadne działanie od usługodawcy, a połączenie jest automatycznie zatwierdzane. 
-- **Ręczne**: w przeciwieństwie do tego, czy konsument usługi nie ma uprawnień RBAC w ramach zasobu dostawcy usług, odbiorca może wybrać metodę ręcznego zatwierdzania. W takim przypadku żądanie połączenia pojawia się w zasobach usługi jako **oczekujące**. Aby można było nawiązać połączenia, dostawca usług musi ręcznie zatwierdzić żądanie. W przypadku ręcznych, konsument usługi może także określić komunikat z żądaniem, aby dostarczyć więcej kontekstu do dostawcy usług. Dostawca usług zawiera następujące opcje do wyboru dla wszystkich połączeń prywatnych punktów końcowych: **zatwierdzone**, **odrzucone**, **Usuń**.
+- **Automatyczne**: Jeśli klient usługi ma uprawnienia kontroli dostępu platformy Azure do zasobu dostawcy usługi, może wybrać metodę automatycznego zatwierdzania. W takim przypadku, gdy żądanie osiągnie zasób dostawcy usługi, nie jest wymagane żadne działanie od usługodawcy, a połączenie jest automatycznie zatwierdzane. 
+- **Ręczne**: w przeciwieństwie do tego, czy konsument usługi nie ma uprawnień kontroli RBAC platformy Azure w ramach zasobu dostawcy usług, odbiorca może wybrać metodę ręcznego zatwierdzania. W takim przypadku żądanie połączenia pojawia się w zasobach usługi jako **oczekujące**. Aby można było nawiązać połączenia, dostawca usług musi ręcznie zatwierdzić żądanie. W przypadku ręcznych, konsument usługi może także określić komunikat z żądaniem, aby dostarczyć więcej kontekstu do dostawcy usług. Dostawca usług zawiera następujące opcje do wyboru dla wszystkich połączeń prywatnych punktów końcowych: **zatwierdzone**, **odrzucone**, **Usuń**.
 
 W poniższej tabeli przedstawiono różne akcje dostawcy usług oraz Stany połączeń powstających dla prywatnych punktów końcowych.  Dostawca usług może również zmienić stan połączenia prywatnego połączenia punktu końcowego w późniejszym czasie bez interwencji konsumenta. Akcja spowoduje zaktualizowanie stanu punktu końcowego po stronie klienta. 
 
@@ -38,7 +38,7 @@ W poniższej tabeli przedstawiono różne akcje dostawcy usług oraz Stany poł�
 Portal jest preferowaną metodą zarządzania połączeniami prywatnego punktu końcowego w zasobach usługi Azure PaaS. Obecnie nie mamy obsługi środowiska PowerShell/interfejsu wiersza polecenia do zarządzania połączeniami w ramach zasobów usługi Azure PaaS.
 1. Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 2. Przejdź do prywatnego centrum linków.
-3. W obszarze **zasoby**wybierz typ zasobu, do którego chcesz zarządzać połączeniami prywatnego punktu końcowego.
+3. W obszarze **zasoby** wybierz typ zasobu, do którego chcesz zarządzać połączeniami prywatnego punktu końcowego.
 4. Dla każdego typu zasobu można wyświetlić liczbę skojarzonych z nim połączeń prywatnych punktów końcowych. Zasoby można filtrować zgodnie z wymaganiami.
 5. Wybierz połączenia prywatnego punktu końcowego.  W obszarze połączenia na liście Wybierz połączenie, które chcesz zarządzać. 
 6. Stan połączenia można zmienić, wybierając pozycję z opcji w górnej części.
@@ -47,7 +47,7 @@ Portal jest preferowaną metodą zarządzania połączeniami prywatnego punktu k
 
 Azure PowerShell i interfejs wiersza polecenia platformy Azure są preferowanymi metodami zarządzania połączeniami prywatnego punktu końcowego w usługach partnerskich firmy Microsoft lub w usługach należących do klienta. Obecnie nie mamy pomocy technicznej portalu do zarządzania połączeniami w usłudze linku prywatnego.  
  
-### <a name="powershell"></a>PowerShell 
+### <a name="powershell"></a>Program PowerShell 
   
 Aby zarządzać połączeniami prywatnych punktów końcowych, użyj następujących poleceń programu PowerShell.  
 #### <a name="get-private-link-connection-states"></a>Pobierz Stany połączeń linków prywatnych 
