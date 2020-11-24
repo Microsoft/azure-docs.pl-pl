@@ -51,6 +51,8 @@
       href: /samples/azure-samples/mxchip-iot-devkit-pnp-get-started/sample/
     - name: Łączenie modułu urządzenia
       href: tutorial-migrate-device-to-module.md
+    - name: Wersja zapoznawcza — łączenie i analizowanie danych przy użyciu usługi Time Series Insights Gen2
+      href: tutorial-configure-tsi.md
 - name: Pojęcia
   items:
     - name: Architektura

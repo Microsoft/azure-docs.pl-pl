@@ -260,6 +260,8 @@
       href: install-vm-agent-offline.md
     - name: Rozwiązywanie problemów z agentem maszyny wirtualnej systemu Windows
       href: windows-azure-guest-agent.md
+    - name: Rozwiązywanie problemów z agentem maszyny wirtualnej systemu Linux
+      href: linux-azure-guest-agent.md
 - name: Tworzenie kopii zapasowej i przywracanie
   items:
     - name: Rozwiązywanie problemów z błędami kopii zapasowych na maszynie wirtualnej platformy Azure

@@ -1,4 +1,4 @@
-- name: Azure Synapse (SQL DW)
+- name: Azure Synapse (wcześniej SQL DW)
   href: index.yml
 - name: Przejdź do usługi Azure Synapse (wersja zapoznawcza obszarów roboczych)
   href: ../overview-what-is.md

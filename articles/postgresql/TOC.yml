@@ -603,8 +603,14 @@
           href: reference-hyperscale-metadata.md
     - name: Przewodniki z instrukcjami
       items:
-        - name: Skalowanie grupy serwerów
-          href: howto-hyperscale-scaling.md
+        - name: Rozmiar grupy serwerów
+          items:
+            - name: Wybieranie rozmiaru początkowego
+              href: howto-hyperscale-scale-initial.md
+            - name: Skalowanie grupy serwerów
+              href: howto-hyperscale-scale-grow.md
+            - name: Ponowne równoważenie fragmentów
+              href: howto-hyperscale-scale-rebalance.md
         - name: Reguły zapory
           items:
             - name: Azure Portal

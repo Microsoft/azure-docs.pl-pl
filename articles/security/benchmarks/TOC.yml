@@ -69,8 +69,12 @@
       href: ../../automation/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Advisor
       href: ../../advisor/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Azure App Configuration
+      href: ../../azure-app-configuration/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Backup
       href: ../../backup/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Azure Bastion
+      href: ../../bastion/security-baseline.md
     - name: Linia bazowa zabezpieczeń usługi Azure Cache for Redis
       href: ../../azure-cache-for-redis/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Cognitive Search
@@ -201,5 +205,7 @@
       href: ../../virtual-machines/windows/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Virtual Network
       href: ../../virtual-network/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń translatora adresów sieciowych usługi Virtual Network
+      href: ../../virtual-network/nat-security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi VPN Gateway
       href: ../../vpn-gateway/security-baseline.md

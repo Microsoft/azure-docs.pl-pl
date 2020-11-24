@@ -97,13 +97,13 @@
       href: dynamic-change-volume-service-level.md
     - name: Zarządzanie replikacją między regionami
       items:
-        - name: Tworzenie komunikacji równorzędnej replikacji
+        - name: Tworzenie replikacji woluminu
           href: cross-region-replication-create-peering.md
         - name: Wyświetlanie stanu kondycji relacji replikacji
           href: cross-region-replication-display-health-status.md
         - name: Zarządzanie odzyskiwaniem po awarii
           href: cross-region-replication-manage-disaster-recovery.md
-        - name: Usuwanie replikacji
+        - name: Usuwanie replikacji woluminów lub woluminów
           href: cross-region-replication-delete.md
     - name: Programowanie
       items:

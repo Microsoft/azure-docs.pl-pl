@@ -479,7 +479,7 @@
       items:
         - name: Omówienie
           href: authentication-national-cloud.md
-        - name: Authentication
+        - name: Uwierzytelnianie
           href: msal-national-cloud.md
     - name: Automatyczna aprowizacja użytkowników (SCIM)
       items:
@@ -539,6 +539,8 @@
           href: howto-handle-samesite-cookie-changes-chrome-browser.md
         - name: Obsługa funkcji ITP w przeglądarce Safari
           href: reference-third-party-cookies-spas.md
+        - name: Korzystanie z interfejsów API ciągłej weryfikacji dostępu
+          href: app-resilience-continuous-access-evaluation.md
     - name: Konfiguracja aplikacji
       displayName: App configuration
       items:

@@ -270,9 +270,13 @@
     - name: Tworzenie przekształceń i zadań
       items:
         - name: Tworzenie przekształceń
-          href: cli-create-transform.md
+          href: how-to-create-transform.md
         - name: Tworzenie podstawowego przekształcenia audio przy użyciu interfejsu REST
           href: how-to-create-basic-audio-transform.md
+        - name: Tworzenie transformacji copyAllBitrateNonInterleaved przy użyciu interfejsu REST
+          href: how-to-create-copyallbitratenoninterleaved-transform.md
+        - name: Kopiowanie wideo bez kodowania przy użyciu interfejsu REST
+          href: how-to-create-copy-video-audio-transform.md
         - name: Tworzenie zadań
           href: cli-create-jobs.md
         - name: Tworzenie danych wejściowych zadania przy użyciu pliku lokalnego i platformy .NET
@@ -397,7 +401,7 @@
           href: /python/api/overview/azure/mediaservices/management
         - name: Node.js
           href: /javascript/api/overview/azure/mediaservices/management
-        - name: Go
+        - name: Przejdź
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.media/allversions

@@ -75,6 +75,8 @@
           href: spring-cloud-howto-launch-from-source.md
         - name: Wdrażanie aplikacji za pomocą środowiska IntelliJ
           href: spring-cloud-tutorial-intellij-deploy-apps.md
+        - name: Wdrażanie usługi Azure Spring Cloud za pomocą usługi Azure PowerShell
+          href: spring-cloud-howto-deploy-powershell.md
     - name: Konfigurowanie
       items:
         - name: 'Uruchamianie, zatrzymywanie i usuwanie aplikacji'

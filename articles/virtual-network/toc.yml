@@ -95,8 +95,10 @@
           href: public-ip-security-baseline.md
     - name: Zabezpieczenia
       items:
-        - name: Punkt odniesienia zabezpieczeń
+        - name: Punkt odniesienia zabezpieczeń sieci wirtualnej
           href: security-baseline.md
+        - name: Punkt odniesienia zabezpieczeń translatora adresów sieciowych sieci wirtualnej
+          href: nat-security-baseline.md
         - name: Grupy zabezpieczeń sieci
           items:
             - name: Omówienie

@@ -8,47 +8,45 @@
 - name: Samouczki
   expanded: true
   items:
-    - name: 1 — Tworzenie klastra usługi Azure Red Hat OpenShift 4
+    - name: 1 — Tworzenie klastra usługi ARO
       href: tutorial-create-cluster.md
-    - name: 2 — Nawiązywanie połączenia z klastrem usługi Azure Red Hat OpenShift 4
+    - name: 2 — Łączenie z klastrem usługi ARO
       href: tutorial-connect-cluster.md
-    - name: 3 — Usuwanie klastra usługi Azure Red Hat OpenShift 4
+    - name: 3 — Usuwanie klastra usługi ARO
       href: tutorial-delete-cluster.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Tworzenie prywatnego klastra usługi Azure Red Hat OpenShift 4
-      href: howto-create-private-cluster-4x.md
-    - name: Tworzenie klasy Azure Files StorageClass w usłudze Azure Red Hat OpenShift 4
-      href: howto-create-a-storageclass.md
-    - name: Aktualizacja wpisu tajnego ściągania dla klastra usługi Azure Red Hat OpenShift 4
-      href: howto-add-update-pull-secret.md
-    - name: Konfigurowanie przekazywania DNS dla klastra usługi Azure Red Hat OpenShift 4
-      href: dns-forwarding.md
-    - name: Konfigurowanie wbudowanego rejestru kontenerów dla systemu Azure Red Hat OpenShift 4
-      href: built-in-container-registry.md
-    - name: Konfigurowanie uwierzytelniania usługi Azure Active Directory dla klastra usługi Azure Red Hat OpenShift 4
+    - name: Networking
+      items:
+        - name: Tworzenie prywatnego klastra usługi ARO
+          href: howto-create-private-cluster-4x.md
+        - name: Konfigurowanie przesyłania dalej w usłudze DNS
+          href: dns-forwarding.md
+    - name: Zabezpieczenia i uwierzytelnianie
       items:
         - name: Konfigurowanie uwierzytelniania usługi Azure Active Directory (interfejs wiersza polecenia)
           href: configure-azure-ad-cli.md
         - name: Konfigurowanie uwierzytelniania usługi Azure Active Directory (portal)
           href: configure-azure-ad-ui.md
-    - name: Tworzenie kopii zapasowej i przywracanie aplikacji za pomocą narzędzia Velero
+        - name: Aktualizowanie wpisu tajnego ściągania dla klastra usługi ARO
+          href: howto-add-update-pull-secret.md
+    - name: Tworzenie kopii zapasowej i przywracanie
       items:
         - name: Tworzenie kopii zapasowej aplikacji klastra za pomocą narzędzia Velero
           href: howto-create-a-backup.md
         - name: Tworzenie przywracania aplikacji klastra za pomocą narzędzia Velero
           href: howto-create-a-restore.md
-    - name: Monitorowanie i rejestrowanie dla usługi Azure Red Hat OpenShift 4
+    - name: Monitorowanie i rejestrowanie
       items:
-        - name: Usługa Azure Monitor dla kontenerów w usłudze Azure Red Hat OpenShift 4 (wersja zapoznawcza)
+        - name: Usługa Azure Monitor dla kontenerów
           items:
-            - name: Konfigurowanie usługi Azure Monitor dla kontenerów dla usługi Azure Red Hat OpenShift 4 (wersja zapoznawcza)
+            - name: Konfigurowanie usługi Azure Monitor dla kontenerów na potrzeby usługi ARO 4 (wersja zapoznawcza)
               href: ../azure-monitor/insights/container-insights-azure-redhat4-setup.md
-            - name: Wyłączanie usługi Azure Monitor dla kontenerów na platformie Azure Red Hat OpenShift 3.11 (wersja zapoznawcza)
+            - name: Wyłączanie usługi Azure Monitor dla kontenerów w usłudze ARO 4 (wersja zapoznawcza)
               href: ../azure-monitor/insights/container-insights-optout-openshift-v4.md
-    - name: Aplikacja Open Liberty/WebSphere Liberty w klastrze systemu Azure Red Hat OpenShift 4
+    - name: Opracowywanie i uruchamianie aplikacji
       items:
-        - name: Wdrażanie aplikacji Open Liberty/WebSphere Liberty w klastrze systemu Azure Red Hat OpenShift 4
+        - name: Wdrażanie aplikacji Open Liberty/WebSphere Liberty
           href: howto-deploy-java-liberty-app.md
     - name: Azure Red Hat OpenShift 3.11
       items:
@@ -85,9 +83,9 @@
               href: cluster-administration-security-context-constraints.md
 - name: Pojęcia
   items:
-    - name: Obsługa sieci w klastrach usługi Azure Red Hat OpenShift 4
+    - name: Networking
       href: concepts-networking.md
-    - name: Migrowanie z usługi Azure Red Hat OpenShift 3.11 do usługi Azure Red Hat OpenShift 4
+    - name: Migrowanie z usługi ARO 3.11 do usługi ARO 4
       href: migration.md
 - name: Dokumentacja
   items:
@@ -101,17 +99,15 @@
       href: openshift-faq.md
     - name: Rozwiązywanie problemów
       href: troubleshoot.md
-    - name: Obsługiwane zasoby dla usługi Azure Red Hat OpenShift 3.11
-      href: supported-resources.md
-    - name: Obsługiwane zasoby dla usługi Azure Red Hat OpenShift 4.3
+    - name: Zasady pomocy technicznej dla usługi ARO 4
       href: support-policies-v4.md
-    - name: Cykl życia wsparcia platformy Azure Red Hat OpenShift 4
+    - name: Cykl życia pomocy technicznej dla usługi ARO 4
       href: support-lifecycle.md
     - name: Dostępność regionalna
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Dokumentacja usługi Azure Red Hat OpenShift 4.3
+    - name: Dokumentacja usługi Red Hat OpenShift 4
       href: 'https://docs.openshift.com/aro/4/welcome/index.html'
-    - name: Dokumentacja usługi Azure Red Hat OpenShift 3.11
-      href: 'https://docs.openshift.com/aro/3/welcome/index.html'
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: Harmonogram działania dla usługi ARO
+      href: 'https://github.com/Azure/OpenShift/projects/1'
