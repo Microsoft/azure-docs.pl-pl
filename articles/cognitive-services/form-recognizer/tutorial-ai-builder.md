@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 10/23/2020
+ms.date: 11/23/2020
 ms.author: pafarley
-ms.openlocfilehash: bb4b69902f73a22cbd2b0fd5ad97c547ceb76a5c
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 3ba08f11fb52fc0ffe3acda5e81e21b7e7629628
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912331"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95757424"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Samouczek: Tworzenie aplikacji do przetwarzania formularzy przy użyciu programu AI Builder
 
@@ -23,7 +23,7 @@ ms.locfileid: "92912331"
 > [!NOTE]
 > Ten projekt jest również dostępny jako [moduł Microsoft Learn](/learn/modules/get-started-with-form-processing/).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Utwórz model AI przetwarzający formularz
@@ -40,10 +40,10 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 ## <a name="create-a-form-processing-project"></a>Tworzenie projektu przetwarzania formularza
 
 1. Przejdź do pozycji [aplikacje zaawansowane](https://make.powerapps.com/) lub [Automatyzacja](https://flow.microsoft.com/signin)i zaloguj się przy użyciu konta organizacji.
-1. W okienku po lewej stronie wybierz pozycję kompilacja programu **AI Builder**  >  **Build** .
+1. W okienku po lewej stronie wybierz pozycję kompilacja programu **AI Builder**  >  **Build**.
 1. Wybierz kartę **Przetwarzanie formularza** .
 1. Wpisz nazwę modelu.
-1. Wybierz pozycję **Utwórz** .
+1. Wybierz pozycję **Utwórz**.
 
 ## <a name="upload-and-analyze-documents"></a>Przekazywanie i analizowanie dokumentów
 
@@ -61,9 +61,9 @@ Na stronie **Dodawanie dokumentów** należy dostarczyć przykładowe dokumenty,
 
 ### <a name="upload-your-documents"></a>Przekazywanie dokumentów
 
-1. Wybierz pozycję **Dodaj dokumenty** , wybierz co najmniej pięć dokumentów, a następnie wybierz pozycję **Przekaż** .
-1. Po zakończeniu przekazywania wybierz pozycję **Zamknij** .
-1. Następnie wybierz pozycję **Analizuj** .
+1. Wybierz pozycję **Dodaj dokumenty**, wybierz co najmniej pięć dokumentów, a następnie wybierz pozycję **Przekaż**.
+1. Po zakończeniu przekazywania wybierz pozycję **Zamknij**.
+1. Następnie wybierz pozycję **Analizuj**.
 
 > [!NOTE] 
 > Po przekazaniu tych dokumentów nadal można usunąć niektóre dokumenty lub przekazać dodatkowe.
@@ -89,8 +89,8 @@ Na stronie Wybór pola wybierz odpowiednie pola:
 
     Po kliknięciu wykrytego pola zostaną wyświetlone następujące informacje:
 
-    - **Nazwa pola** : Nazwa etykiety dla wykrytych pól.
-    - **Wartość pola** : wartość wygenerowanego pola.
+    - **Nazwa pola**: Nazwa etykiety dla wykrytych pól.
+    - **Wartość pola**: wartość wygenerowanego pola.
 
 > [!div class="mx-imgBorder"]
 > ![Znakowanie strony](./media/tutorial-ai-builder/select-fields-page.png)
@@ -101,16 +101,16 @@ Jeśli pole do etykiet nie zostało wykryte automatycznie przez model, możesz n
 
 ## <a name="train-your-model"></a>Szkolenie modelu
 
-1. Wybierz pozycję **Dalej** , aby zaznaczyć wybrane pola formularza. Jeśli wszystko wygląda dobrze, wybierz pozycję **Trenuj** , aby wytrenować model.
+1. Wybierz pozycję **Dalej**, aby zaznaczyć wybrane pola formularza. Jeśli wszystko wygląda dobrze, wybierz pozycję **Trenuj**, aby wytrenować model.
 
     > [!div class="mx-imgBorder"]
     > ![Strona szkoleń](./media/tutorial-ai-builder/summary-train-page.png)
-1. Po zakończeniu trenowania wybierz pozycję **Przejdź do strony Szczegóły** na ekranie **Ukończono trenowanie** .
+1. Po zakończeniu trenowania wybierz pozycję **Przejdź do strony Szczegóły** na ekranie **Ukończono trenowanie**.
 ## <a name="quick-test-your-model"></a>Szybkie testowanie modelu
 
 Strona Szczegóły umożliwia przetestowanie modelu przed jego opublikowaniem lub użyciem:
 
-1. Na stronie Szczegóły wybierz pozycję **Szybki test** .
+1. Na stronie Szczegóły wybierz pozycję **Szybki test**.
 2. Możesz przeciągnąć i upuścić dokument lub wybrać opcję **Przekaż z urządzenia** , aby przekazać plik testowy. Szybki test powinien trwać tylko kilka sekund, zanim wyświetli wyniki.
 3. Możesz wybrać opcję **Rozpocznij od nowa** , aby uruchomić inny test lub **zamknąć** , jeśli skończysz.
 

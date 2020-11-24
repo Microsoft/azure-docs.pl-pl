@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2020
-ms.openlocfilehash: bd6ba091b3715741af929613600a59511e7cdb0b
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 16292999bf8c01615a9125ffaa9f93fc4b2a8ec2
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94498347"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95756217"
 ---
 # <a name="log-analytics-tutorial"></a>Samouczek usługi Log Analytics
 Log Analytics to narzędzie w Azure Portal do edytowania i uruchamiania zapytań dzienników z danych zebranych przez dzienniki Azure Monitor i interaktywnie analizować ich wyniki. Za pomocą zapytań Log Analytics można pobierać rekordy spełniające określone kryteria, identyfikować trendy, analizować wzorce i udostępniać różnorodne informacje w danych. 
@@ -23,7 +23,7 @@ Ten samouczek przeprowadzi Cię przez interfejs Log Analytics, pozwala rozpoczą
 > * Zapisuj i uruchamiaj proste zapytania oraz Modyfikuj zakres czasu dla zapytań
 > * Filtrowanie, sortowanie i grupowanie wyników zapytania
 > * Wyświetlanie, modyfikowanie i udostępnianie wizualizacji wyników zapytania
-> * Zapisz, Załaduj, Eksportuj i Kopiuj zapytania i wyniki
+> * Załaduj, Eksportuj i Kopiuj zapytania i wyniki
 
 > [!IMPORTANT]
 > Ten samouczek używa funkcji Log Analytics do kompilowania i uruchamiania zapytania zamiast pracy z samymi kwerendą. Będziesz korzystać z funkcji Log Analytics, aby utworzyć jedno zapytanie i użyć innego przykładowego zapytania. Gdy wszystko jest gotowe do poznania składni zapytań i rozpoczęcia bezpośredniego edytowania zapytania, przejdź przez [samouczek języka zapytań Kusto](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor). Ten samouczek przeprowadzi Cię przez kilka przykładowych zapytań, które można edytować i uruchamiać w Log Analytics, wykorzystując kilka funkcji, które można poznać w tym samouczku.
@@ -75,7 +75,7 @@ Wszystkie tabele w Log Analytics obszarze roboczym mają kolumnę o nazwie **Tim
 
 Domyślnie zapytanie zwróci rekordy z ostatnich 24 godzin. Wybierz listę rozwijaną **zakres czasu** i zmień ją na **7 dni**. Kliknij przycisk **Uruchom** ponownie, aby zwrócić wyniki. Można zobaczyć, że wyniki są zwracane, ale mamy komunikat informujący o tym, że nie widzimy wszystkich wyników. Dzieje się tak, ponieważ Log Analytics może zwrócić maksymalnie 10 000 rekordów, a zapytanie zwróciło więcej rekordów niż to. 
 
-[![Zakres czasu](media/log-analytics-tutorial/query-results-max.png)](media/log-analytics-tutorial/query-results-max.png#lightbox)
+[![Przedział czasu](media/log-analytics-tutorial/query-results-max.png)](media/log-analytics-tutorial/query-results-max.png#lightbox)
 
 
 ## <a name="multiple-query-conditions"></a>Wiele warunków zapytania

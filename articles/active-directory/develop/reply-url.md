@@ -5,18 +5,18 @@ description: Opis ograniczeń i ograniczeń w formacie URI przekierowania (adres
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 10/29/2020
+ms.date: 11/23/2020
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: a2838e40844b83d1e90789439ce286f2738e22c4
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 30ea74b249937544a0bf9811cad60f02c1ca45c7
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331859"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95752794"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Ograniczenia i ograniczenia URI przekierowania (adres URL odpowiedzi)
 
@@ -51,25 +51,32 @@ Aby dodać identyfikatory URI przekierowania ze schematem HTTP do rejestracji ap
 
 Zgodnie z [sekcją RFC 8252 sekcje 8,3](https://tools.ietf.org/html/rfc8252#section-8.3) i [7,3](https://tools.ietf.org/html/rfc8252#section-7.3), "sprzężenie zwrotne" lub "localhost" identyfikatorów URI przekierowania są dwa specjalne zagadnienia:
 
-1. `http` Schematy identyfikatorów URI są akceptowalne, ponieważ przekierowanie nigdy nie opuszcza urządzenia. W związku z tym oba te elementy są akceptowane:
-    - `http://127.0.0.1/myApp`
-    - `https://127.0.0.1/myApp`
-1. Ze względu na tymczasowe zakresy portów często wymagane przez natywne aplikacje, składnik portu (na przykład `:5001` lub `:443` ) jest ignorowany na potrzeby dopasowywania identyfikatora URI przekierowania. W związku z tym wszystkie te są uważane za równoważne:
-    - `http://127.0.0.1/MyApp`
-    - `http://127.0.0.1:1234/MyApp`
-    - `http://127.0.0.1:5000/MyApp`
-    - `http://127.0.0.1:8080/MyApp`
+1. `http` Schematy identyfikatorów URI są akceptowalne, ponieważ przekierowanie nigdy nie opuszcza urządzenia. W związku z tym oba te identyfikatory URI są dopuszczalne:
+    - `http://localhost/myApp`
+    - `https://localhost/myApp`
+1. Ze względu na tymczasowe zakresy portów często wymagane przez natywne aplikacje, składnik portu (na przykład `:5001` lub `:443` ) jest ignorowany na potrzeby dopasowywania identyfikatora URI przekierowania. W związku z tym wszystkie te identyfikatory URI są uważane za równoważne:
+    - `http://localhost/MyApp`
+    - `http://localhost:1234/MyApp`
+    - `http://localhost:5000/MyApp`
+    - `http://localhost:8080/MyApp`
 
 Z punktu widzenia projektowania oznacza to kilka rzeczy:
 
 * Nie należy rejestrować wielu identyfikatorów URI przekierowania, gdy tylko port jest różny. Serwer logowania wybiera arbitralnie i użyje zachowania skojarzonego z tym identyfikatorem URI przekierowania (na przykład, czy jest to `web` -, `native` -lub `spa` przekierowania).
 
     Jest to szczególnie ważne, gdy chcesz użyć różnych przepływów uwierzytelniania w tej samej rejestracji aplikacji, na przykład w przypadku przydzielenia kodu autoryzacji i niejawnego przepływu. Aby skojarzyć poprawne zachowanie odpowiedzi z każdym identyfikatorem URI przekierowania, serwer logowania musi być w stanie rozróżnić identyfikatory URI przekierowania i nie może tego zrobić, gdy tylko port jest różny.
-* Jeśli zachodzi potrzeba zarejestrowania wielu identyfikatorów URI przekierowania na hoście lokalnym w celu przetestowania różnych przepływów podczas opracowywania, Odróżnij je za pomocą składnika *ścieżki* identyfikatora URI. Na przykład `http://127.0.0.1/MyWebApp` nie są zgodne `http://127.0.0.1/MyNativeApp` .
+* Jeśli zachodzi potrzeba zarejestrowania wielu identyfikatorów URI przekierowania na hoście lokalnym w celu przetestowania różnych przepływów podczas opracowywania, Odróżnij je za pomocą składnika *ścieżki* identyfikatora URI. Na przykład `http://localhost/MyWebApp` nie są zgodne `http://localhost/MyNativeApp` .
 * Adres sprzężenia zwrotnego IPv6 ( `[::1]` ) nie jest obecnie obsługiwany.
-* Aby zapobiec utracie aplikacji przez błędnie skonfigurowane zapory lub zmienić nazwy interfejsów sieciowych, użyj adresu sprzężenia zwrotnego literału IP `127.0.0.1` w identyfikatorze URI przekierowania zamiast `localhost` .
 
-    Aby użyć `http` schematu z adresem sprzężenia zwrotnego literału IP `127.0.0.1` , należy obecnie zmodyfikować atrybut [replyUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) w [manifeście aplikacji](reference-app-manifest.md).
+#### <a name="prefer-127001-over-localhost"></a>Preferuj adres 127.0.0.1 przez localhost
+
+Aby zapobiec utracie aplikacji przez błędnie skonfigurowane zapory lub zmienić nazwy interfejsów sieciowych, użyj adresu sprzężenia zwrotnego literału IP `127.0.0.1` w identyfikatorze URI przekierowania zamiast `localhost` . Na przykład `https://127.0.0.1`.
+
+Nie można jednak użyć pola tekstowego **Przekieruj identyfikatory URI** w Azure Portal, aby dodać URI przekierowania na podstawie sprzężenia zwrotnego, który używa `http` schematu:
+
+:::image type="content" source="media/reply-url/portal-01-no-http-loopback-redirect-uri.png" alt-text="Okno dialogowe błędów w Azure Portal pokazujące niedozwolony identyfikator URI przekierowania sprzężenia zwrotnego opartego na protokole http":::
+
+Aby dodać identyfikator URI przekierowania, który używa `http` schematu z `127.0.0.1` adresem sprzężenia zwrotnego, należy obecnie zmodyfikować atrybut [replyUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) w [manifeście aplikacji](reference-app-manifest.md).
 
 ## <a name="restrictions-on-wildcards-in-redirect-uris"></a>Ograniczenia dotyczące symboli wieloznacznych w identyfikatorach URI przekierowania
 
