@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: ac934f88d00521b13fd2b134c80f19656c63117b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79cf0ef059d96ac66f5918605e999d3936d589d2
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88718819"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95486521"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Tworzenie kopii zapasowych i odzyskiwanie modeli aparatu rozpoznawania formularzy
 
@@ -41,7 +41,7 @@ Proces kopiowania modelu niestandardowego składa się z następujących kroków
 1. Będziesz używać poświadczeń zasobów źródłowych do wysyłania zapytań do adresu URL postępu do momentu sukcesu operacji. Możesz również wysłać zapytanie do nowego identyfikatora modelu w zasobie docelowym, aby uzyskać stan nowego modelu.
 
 > [!CAUTION]
-> Interfejs API kopiowania aktualnie nie obsługuje identyfikatorów modelu dla [złożonych modeli](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/Compose). Redagowanie modelu jest funkcją w wersji zapoznawczej w wersji 2.1 — wersja zapoznawcza. 1 wersja zapoznawcza. 
+> Interfejs API kopiowania aktualnie nie obsługuje identyfikatorów modelu dla [złożonych modeli](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/Compose). Redagowanie modelu jest funkcją w wersji zapoznawczej w wersji 2.1 — Preview. 2 wersja zapoznawcza. 
 
 ## <a name="generate-copy-authorization-request"></a>Generuj żądanie autoryzacji kopiowania
 

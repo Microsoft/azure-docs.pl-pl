@@ -1,19 +1,19 @@
 ---
 title: 'Samouczek: udostępnianie kotwic z Azure Cosmos DB'
 description: W tym samouczku dowiesz się, jak udostępnić identyfikatory kotwic usługi Azure przestrzenny na urządzeniach z systemem Android/iOS w środowisku Unity przy użyciu usługi zaplecza i Azure Cosmos DB.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: rgarcia
-ms.date: 07/31/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 8ff431c27dd53e82f9003b658c82ceb3efb5d320
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff888cd98cc79f3e2d508b01f092102eaa038c86
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87810024"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95494764"
 ---
 # <a name="tutorial-sharing-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Samouczek: udostępnianie kotwic przestrzennych platformy Azure między sesjami i urządzeniami przy użyciu zaplecza Azure Cosmos DB
 
@@ -33,11 +33,11 @@ Skopiuj `Connection String` plik, ponieważ będzie on potrzebny.
 
 ## <a name="make-minor-changes-to-the-sharingservice-files"></a>Wprowadzanie drobnych zmian w plikach SharingService
 
-W **Eksplorator rozwiązań**Otwórz program `SharingService\Startup.cs` .
+W **Eksplorator rozwiązań** Otwórz program `SharingService\Startup.cs` .
 
 Znajdź `#define INMEMORY_DEMO` w górnej części pliku i komentarz, który znajduje się w wierszu. Zapisz plik.
 
-W **Eksplorator rozwiązań**Otwórz program `SharingService\appsettings.json` .
+W **Eksplorator rozwiązań** Otwórz program `SharingService\appsettings.json` .
 
 Znajdź `StorageConnectionString` Właściwość i ustaw wartość tak, aby była taka sama jak `Connection String` wartość skopiowana w [kroku Tworzenie konta bazy danych](#create-a-database-account). Zapisz plik.
 

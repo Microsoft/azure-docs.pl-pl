@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 5125fff0ef8987d313c6611e4d5de08d090f2263
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 769dea079339af2c6307d9230e047a654dc3d5dd
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913198"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95492214"
 ---
 # <a name="receipt-concepts"></a>Pojęcia dotyczące rachunków
 
@@ -57,6 +57,13 @@ Interfejs API paragonu zwraca również następujące informacje:
 * Tekst nieprzetworzony OCR (wyodrębniany tekst wyjściowy tekstu dla całego potwierdzenia)
 * Pole ograniczenia dla każdej wartości, wiersza i słowa
 
+## <a name="try-it-out"></a>Czas to wypróbować
+
+Aby wypróbować usługę potwierdzenia rozpoznawania formularzy, przejdź do narzędzia przykładowego interfejsu użytkownika w trybie online:
+
+> [!div class="nextstepaction"]
+> [Wypróbuj wbudowane modele](https://fott-preview.azurewebsites.net/)
+
 ## <a name="input-requirements"></a>Wymagania wejściowe
 
 [!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
@@ -64,7 +71,7 @@ Interfejs API paragonu zwraca również następujące informacje:
 ## <a name="supported-locales"></a>Obsługiwane ustawienia regionalne 
 
 * **Wstępnie skompilowane przyjęcie w wersji 2.0** (ga) obsługuje przyjęcia sprzedaży w ustawieniach regionalnych en-us
-* **Wstępnie utworzone przyjęcie — wersja zapoznawcza. 1** (publiczna wersja zapoznawcza) dodaje dodatkową pomoc techniczną dla następujących ustawień regionalnych usługi: 
+* **Wstępnie utworzone przyjęcie — wersja zapoznawcza. 2** (publiczna wersja zapoznawcza) dodaje dodatkową pomoc techniczną dla następujących ustawień regionalnych usługi: 
   * EN-AU 
   * EN-CA 
   * PL GB 
@@ -73,12 +80,12 @@ Interfejs API paragonu zwraca również następujące informacje:
   > [!NOTE]
   > Dane wejściowe języka 
   >
-  > Wstępnie utworzone przyjęcie — wersja zapoznawcza. 1 ma opcjonalny parametr żądania, aby określić ustawienia regionalne odbioru z dodatkowych rynków w języku angielskim. W przypadku przyjęć sprzedaży w języku angielskim z Australii (EN-AU), Kanada (EN-CA), Wielka Brytania (en-GB) i Indie (EN-IN) można określić ustawienia regionalne, aby uzyskać ulepszone wyniki. Jeśli nie określono ustawień regionalnych w wersji 2.1-Preview. 1, model będzie domyślnie modelem EN-US.
+  > Wstępnie utworzone przyjęcie v 2.1 — wersja zapoznawcza. 2 ma opcjonalny parametr żądania, aby określić ustawienia regionalne odbioru z dodatkowych rynków w języku angielskim. W przypadku przyjęć sprzedaży w języku angielskim z Australii (EN-AU), Kanada (EN-CA), Wielka Brytania (en-GB) i Indie (EN-IN) można określić ustawienia regionalne, aby uzyskać ulepszone wyniki. Jeśli nie określono ustawień regionalnych w wersji 2.1-Preview. 2, model będzie domyślnie modelem EN-US.
 
 
 ## <a name="the-analyze-receipt-operation"></a>Operacja analizy przychodu
 
-[Przeanalizuj potwierdzenie](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync) pobiera obraz lub plik PDF z paragonu jako dane wejściowe i wyodrębnia wartości zainteresowań i tekstu. Wywołanie zwraca pole nagłówka odpowiedzi o nazwie `Operation-Location` . `Operation-Location`Wartość jest adresem URL, który zawiera identyfikator wynik do użycia w następnym kroku.
+[Przeanalizuj potwierdzenie](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeReceiptAsync) pobiera obraz lub plik PDF z paragonu jako dane wejściowe i wyodrębnia wartości zainteresowań i tekstu. Wywołanie zwraca pole nagłówka odpowiedzi o nazwie `Operation-Location` . `Operation-Location`Wartość jest adresem URL, który zawiera identyfikator wynik do użycia w następnym kroku.
 
 |Nagłówek odpowiedzi| Adres URL wyniku |
 |:-----|:----|
@@ -86,7 +93,7 @@ Interfejs API paragonu zwraca również następujące informacje:
 
 ## <a name="the-get-analyze-receipt-result-operation"></a>Operacja pobrania wyniku analizy przychodu
 
-Drugim krokiem jest wywołanie operacji [Get Analizuj wynik przyjęcia](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult) . Ta operacja przyjmuje jako dane wejściowe Identyfikator wyniku, który został utworzony przez operację Analizuj potwierdzenie. Zwraca odpowiedź JSON, która zawiera pole **stanu** z następującymi możliwymi wartościami. Tę operację można wywołać iteracyjnie, dopóki nie zwróci wartości z wartością **sukces** . Użyj interwału od 3 do 5 sekund, aby uniknąć przekroczenia liczby żądań na sekundę (RPS pliku).
+Drugim krokiem jest wywołanie operacji [Get Analizuj wynik przyjęcia](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeReceiptResult) . Ta operacja przyjmuje jako dane wejściowe Identyfikator wyniku, który został utworzony przez operację Analizuj potwierdzenie. Zwraca odpowiedź JSON, która zawiera pole **stanu** z następującymi możliwymi wartościami. Tę operację można wywołać iteracyjnie, dopóki nie zwróci wartości z wartością **sukces** . Użyj interwału od 3 do 5 sekund, aby uniknąć przekroczenia liczby żądań na sekundę (RPS pliku).
 
 |Pole| Typ | Możliwe wartości |
 |:-----|:----:|:----|

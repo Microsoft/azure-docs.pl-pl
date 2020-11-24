@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 09/30/2020
+ms.date: 11/23/2020
 ms.author: victorh
-ms.openlocfilehash: 00a84fbf694a58128712abf806ff12df96f0e5e9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 84ecea7764ddf48d68c983eaa5bccbac5f332d9b
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91596688"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95489698"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Co to jest usługa Azure Firewall Manager?
 
@@ -89,7 +89,8 @@ Menedżer zapory platformy Azure ma następujące znane problemy:
 |Reguły aplikacji nie działają w bezpiecznym centrum z skonfigurowanym niestandardowym systemem DNS (wersja zapoznawcza).|Niestandardowy system DNS (wersja zapoznawcza) nie działa w ramach bezpiecznych wdrożeń centrum i wdrożeń sieci wirtualnych centrum, w których włączono tunelowanie wymuszone.|Rozwiązywanie problemu.|
 |Standard DDoS Protection nie jest obsługiwany z bezpiecznymi centrami wirtualnymi|Standard DDoS Protection nie jest zintegrowany z vWANs.|Badanie|
 |Dzienniki aktywności nie są w pełni obsługiwane|Zasady zapory nie obsługują obecnie dzienników aktywności.|Badanie|
-|Konfigurowanie zakresów prywatnych adresów IP współdziałania|[Ustawienia prywatnych zakresów adresów IP](../firewall/snat-private-range.md) są ignorowane, jeśli skonfigurowano zasady zapory platformy Azure. Używane jest domyślne zachowanie zapory platformy Azure, w którym nie są stosowane reguły sieciowe dotyczące protokołu IPSec, gdy docelowy adres IP należy do prywatnego zakresu adresów IP na [organizację IANA RFC 1918](https://tools.ietf.org/html/rfc1918).|Badanie
+|Konfigurowanie zakresów prywatnych adresów IP współdziałania|[Ustawienia prywatnych zakresów adresów IP](../firewall/snat-private-range.md) są ignorowane, jeśli skonfigurowano zasady zapory platformy Azure. Używane jest domyślne zachowanie zapory platformy Azure, w którym nie są stosowane reguły sieciowe dotyczące protokołu IPSec, gdy docelowy adres IP należy do prywatnego zakresu adresów IP na [organizację IANA RFC 1918](https://tools.ietf.org/html/rfc1918).|Badanie|
+|Niektóre ustawienia zapory nie są migrowane w przypadku migrowania zapory w celu używania zasad zapory|Adresy prywatne Strefy dostępności i nie są migrowane podczas migracji do zasad zapory platformy Azure.|Badanie| 
 
 ## <a name="next-steps"></a>Następne kroki
 

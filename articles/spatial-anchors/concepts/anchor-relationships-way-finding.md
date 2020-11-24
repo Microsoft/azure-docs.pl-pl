@@ -1,19 +1,19 @@
 ---
 title: Relacje zakotwiczeń i znajdowanie drogi
 description: Zapoznaj się z modelem koncepcyjnym związanym z relacjami zakotwiczenia. Dowiedz się, jak połączyć kotwice w miejscu i użyć interfejsu API w pobliżu do realizacji scenariusza szukania.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: rgarcia
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 13c85dff40e266287d893d9e45b32a66a33f027e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c321eae9451715077aa50d163b62b51ec88ce1a
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83006016"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95496889"
 ---
 # <a name="anchor-relationships-and-way-finding-in-azure-spatial-anchors"></a>Relacje zakotwiczenia i sposób znajdowania w kotwicach przestrzennych platformy Azure
 

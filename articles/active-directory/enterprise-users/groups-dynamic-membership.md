@@ -7,19 +7,18 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: overview
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1dc0429ae4507172e95618bc95e6a2c51034d352
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bf5a06cf906084e3f87d5f56748476a26587ff17
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92379167"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95490735"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Reguły członkostwa dynamicznego dla grup w Azure Active Directory
 
@@ -309,8 +308,8 @@ Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 
 Poniższe porady mogą pomóc w poprawnym użyciu zasady.
 
-- **Identyfikator Menedżera** jest identyfikatorem obiektu menedżera. Można je znaleźć w **profilu**Menedżera.
-- Aby reguła działała, upewnij się, że właściwość **Manager** została ustawiona poprawnie dla użytkowników w organizacji. Bieżącą wartość można sprawdzić w **profilu**użytkownika.
+- **Identyfikator Menedżera** jest identyfikatorem obiektu menedżera. Można je znaleźć w **profilu** Menedżera.
+- Aby reguła działała, upewnij się, że właściwość **Manager** została ustawiona poprawnie dla użytkowników w organizacji. Bieżącą wartość można sprawdzić w **profilu** użytkownika.
 - Ta reguła obsługuje tylko raporty bezpośrednie Menedżera. Innymi słowy, nie można utworzyć grupy z bezpośrednimi raportami Menedżera *i* ich raportami.
 - Tej reguły nie można łączyć z żadną inną regułą członkostwa.
 

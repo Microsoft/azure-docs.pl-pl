@@ -7,18 +7,18 @@ ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: dc86340026ec7b85afc9e5208ea8ef8c32d8bac6
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 9ac616ddf1c3475f2ca3b3e8097bb74da72faa77
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421468"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95500275"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Samouczek: łączenie modułu IoT Plug and Play (C#)
 
 W tym samouczku przedstawiono sposób łączenia ogólnego [modułu](../iot-hub/iot-hub-devguide-module-twins.md)IoT Plug and Play.
 
-Urządzenie jest urządzeniem Plug and Play IoT, jeśli publikuje jego identyfikator modelu podczas nawiązywania połączenia z usługą IoT Hub i implementuje właściwości i metody opisane w modelu Digital bliźniaczych reprezentacji Definition Language (DTDL) identyfikowane przez identyfikator modelu. Aby dowiedzieć się więcej o tym, jak urządzenia używają DTDL i identyfikatora modelu, zobacz [przewodnik dewelopera IoT Plug and Play](./concepts-developer-guide-device-csharp.md). Moduły używają identyfikatorów modelu i modeli DTDL w taki sam sposób.
+Urządzenie jest urządzeniem Plug and Play IoT, jeśli publikuje jego identyfikator modelu podczas nawiązywania połączenia z usługą IoT Hub i implementuje właściwości i metody opisane w modelu Digital bliźniaczych reprezentacji Definition Language (DTDL) identyfikowane przez identyfikator modelu. Aby dowiedzieć się więcej o tym, jak urządzenia używają DTDL i identyfikatora modelu, zobacz [przewodnik dewelopera IoT Plug and Play](./concepts-developer-guide-device.md). Moduły używają identyfikatorów modelu i modeli DTDL w taki sam sposób.
 
 Aby zademonstrować sposób implementacji modułu IoT Plug and Play, w tym samouczku pokazano, jak skonwertować próbkę urządzenia w języku C# z termostatu do modułu ogólnego.
 
@@ -33,11 +33,11 @@ Aby ukończyć ten samouczek w systemie Windows, Zainstaluj następujące oprogr
 
 Za pomocą narzędzia Azure IoT Explorer Dodaj nowe urządzenie o nazwie **My-module-Device** do centrum IoT Hub.
 
-Dodaj moduł o nazwie **My-module** do **urządzenia My-module** :
+Dodaj moduł o nazwie **My-module** do **urządzenia My-module**:
 
 1. W narzędziu Azure IoT Explorer przejdź do urządzenia **My-module-Device** .
 
-1. Wybierz pozycję **tożsamość modułu** , a następnie wybierz pozycję **+ Dodaj**.
+1. Wybierz pozycję **tożsamość modułu**, a następnie wybierz pozycję **+ Dodaj**.
 
 1. Wprowadź **My-module** jako nazwę tożsamości modułu, a następnie wybierz pozycję **Zapisz**.
 
@@ -238,4 +238,4 @@ Za pomocą narzędzia Azure IoT Explorer można zobaczyć:
 W tym samouczku dowiesz się, jak połączyć urządzenie z usługą IoT Plug and Play z modułami do centrum IoT. Aby dowiedzieć się więcej na temat modeli urządzeń IoT Plug and Play, zobacz:
 
 > [!div class="nextstepaction"]
-> [Przewodnik dewelopera modelowania Plug and Play IoT](./concepts-developer-guide-device-csharp.md)
+> [Przewodnik dewelopera modelowania Plug and Play IoT](./concepts-developer-guide-device.md)

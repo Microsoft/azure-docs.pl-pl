@@ -1,19 +1,19 @@
 ---
 title: Omówienie usługi Azure Spatial Anchors
 description: Dowiedz się, jak usługa Azure Spatial Anchors ułatwia opracowanie międzyplatformowych środowisk rzeczywistości mieszanej.
-author: craigktreasure
-manager: aliemami
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 361a75c2e5951dc540830efd6be057753402daf1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a422371bacddf049365562fce9af7e61f35089a1
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83006111"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95487388"
 ---
 # <a name="azure-spatial-anchors-overview"></a>Omówienie usługi Azure Spatial Anchors
 

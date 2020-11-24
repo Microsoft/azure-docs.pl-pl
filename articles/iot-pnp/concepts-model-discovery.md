@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: dda0e3d6739e94df4ce5910938c164e3db336bce
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 5f82206a7c86c5ae1e6477419faee0dca88ef883
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445578"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495291"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Używanie modeli Plug and Play IoT w rozwiązaniu IoT
 
@@ -125,7 +125,7 @@ Po zidentyfikowaniu identyfikatora modelu dla nowego połączenia z urządzeniem
 
 1. Korzystając z definicji modelu połączonego urządzenia, można wyliczyć możliwości urządzenia.
 
-1. Korzystając z wyliczonych możliwości urządzenia, można zezwolić użytkownikom na [współpracującie z urządzeniem](quickstart-service-node.md).
+1. Korzystając z wyliczonych możliwości urządzenia, można zezwolić użytkownikom na [współpracującie z urządzeniem](quickstart-service.md).
 
 ### <a name="custom-store"></a>Magazyn niestandardowy
 
@@ -137,12 +137,12 @@ Po zidentyfikowaniu identyfikatora modelu dla nowego połączenia z urządzeniem
 
 1. Korzystając z definicji modelu połączonego urządzenia, można wyliczyć możliwości urządzenia. 
 
-1. Korzystając z wyliczonych możliwości urządzenia, można zezwolić użytkownikom na [współpracującie z urządzeniem](quickstart-service-node.md).  
+1. Korzystając z wyliczonych możliwości urządzenia, można zezwolić użytkownikom na [współpracującie z urządzeniem](quickstart-service.md).  
 
 ## <a name="next-steps"></a>Następne kroki
 
 Teraz, gdy wiesz już, jak zintegrować modele IoT Plug and Play w rozwiązaniu IoT, Oto kilka sugerowanych następnych kroków:
 
-- [Interakcja z urządzeniem z rozwiązania](quickstart-service-node.md)
+- [Interakcja z urządzeniem z rozwiązania](quickstart-service.md)
 - [Interfejs API REST cyfrowego przędzy IoT](/rest/api/iothub/service/digitaltwin)
 - [Eksplorator IoT Azure](howto-use-iot-explorer.md)

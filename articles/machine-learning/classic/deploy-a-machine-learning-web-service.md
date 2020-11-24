@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 5a588195f2095b2d0cb261e1573eeb9ec881f2fd
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f77c0fb09dddd884335d31d630904ea6aeafeaf5
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322833"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495206"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Wdrażanie usługi sieci Web Azure Machine Learning Studio (klasycznej)
 
-**dotyczy:** ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) ![ nie ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**dotyczy:** ![ Jest to znacznik wyboru, co oznacza, że ten artykuł ma zastosowanie do Machine Learning Studio (klasyczne). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) ![ to jest X, co oznacza, że ten artykuł ma zastosowanie do Azure Machine Learning ](../../../includes/media/aml-applies-to-skus/no.png)[ . Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Azure Machine Learning Studio (klasyczny) umożliwia tworzenie i testowanie rozwiązań analitycznych predykcyjnych. Następnie możesz wdrożyć rozwiązanie jako usługę sieci Web.
@@ -93,7 +93,7 @@ Podczas konwertowania tego eksperymentu szkoleniowego na eksperyment predykcyjny
 
 * **Wynik** — w tym przykładzie moduł [Split Data][split] jest używany do dzielenia strumienia danych na dane testowe i dane szkoleniowe. W eksperymentie predykcyjnym nie jesteśmy już szkoleniami, więc można usunąć [dane podzielone][split] . Analogicznie, drugi moduł [modelu][score-model] oceny i moduł [oceny modelu][evaluate-model] są używane do porównywania wyników danych testowych, więc te moduły nie są konieczne w przypadku eksperymentu predykcyjnego. Moduł pozostały [model oceny][score-model] jest jednak wymagany do zwrócenia wyniku oceny przez usługę sieci Web.
 
-Oto jak wygląda przykład po kliknięciu przycisku **Skonfiguruj usługę sieci Web** :
+Oto jak wygląda przykład po kliknięciu przycisku **Skonfiguruj usługę sieci Web**:
 
 ![Przekonwertowany eksperyment predykcyjny](./media/convert-training-experiment-to-scoring-experiment/figure3.png)
 
@@ -250,7 +250,7 @@ Aby przetestować usługę wykonywania wsadowego, kliknij link Podgląd **testow
 
 Na stronie **Konfiguracja** można zmienić nazwę wyświetlaną usługi i podać opis. Nazwa i opis są wyświetlane w [Azure Portal](https://portal.azure.com/) , w którym można zarządzać usługami sieci Web.
 
-Można podać opis danych wejściowych, danych wyjściowych i parametrów usługi sieci Web, wprowadzając ciąg dla każdej kolumny w obszarze **schemat wejściowy** , **schemat danych wyjściowych** i **parametr usługi sieci Web**. Opisy te są używane w przykładowej dokumentacji kodu podanej dla usługi sieci Web.
+Można podać opis danych wejściowych, danych wyjściowych i parametrów usługi sieci Web, wprowadzając ciąg dla każdej kolumny w obszarze **schemat wejściowy**, **schemat danych wyjściowych** i **parametr usługi sieci Web**. Opisy te są używane w przykładowej dokumentacji kodu podanej dla usługi sieci Web.
 
 Możesz włączyć rejestrowanie, aby zdiagnozować wszystkie błędy widoczne podczas uzyskiwania dostępu do usługi sieci Web. Aby uzyskać więcej informacji, zobacz [Włączanie rejestrowania dla usług sieci web Machine Learning Studio (klasycznych)](web-services-logging.md).
 

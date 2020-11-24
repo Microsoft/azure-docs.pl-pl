@@ -1,19 +1,19 @@
 ---
 title: Wskazówki dotyczące efektywnych środowisk zakotwiczenia
 description: Wskazówki i zagadnienia dotyczące efektywnego tworzenia i lokalizowania kotwic przy użyciu kotwic przestrzennych platformy Azure.
-author: mattwojo
-manager: jken
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: mattwoj
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 1877934cb604d140d7700c2e537d6dc187b63cc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6bc500516de7e554c38a335ea57519a39c8f602
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83005525"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95487507"
 ---
 # <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Tworzenie efektywnego środowiska zakotwiczonego przy użyciu kotwic przestrzennych platformy Azure
 
@@ -76,7 +76,7 @@ Podobnie w środowiskach, w których zmiany funkcji wizualnych zmieniają się, 
 
 W wielu przypadkach zakotwiczenie jest punktem wejścia do środowiska Twojej aplikacji. W tym kroku warto szybko i niezawodnie za, aby użytkownicy mogli wprowadzać Twoje doświadczenia. Czas poświęcany na sposób, w jaki użytkownicy znajdą Twoje kotwice, to ważny krok projektowania. Warto zastanowić się nad znalezieniem kotwic w dwóch ogólnych scenariuszach: *celach* i *pokojów*.
 
-### <a name="targets"></a>Targets (Obiekty docelowe)
+### <a name="targets"></a>Obiekty docelowe
 
 W scenariuszu docelowym lokalizacja kotwicy jest dobrze znana. Na przykład w fikcyjnej aplikacji do malowania w rzeczywistości mieszanej jeden użytkownik umieszcza wirtualną kanwę na tablicy. Powoduje, że inni użytkownicy w pokoju wskazują swoje urządzenia w tym samym miejscu na ścianie, aby zlokalizować zakotwiczenie i rozpocząć pracę.
 

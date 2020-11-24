@@ -1,19 +1,19 @@
 ---
 title: Często zadawane pytania
 description: Często zadawane pytania dotyczące usługi zakotwiczeń przestrzennych platformy Azure.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: rgarcia
-ms.date: 05/18/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: eb02de25cfcb0dde01699c1169d03f0d822c4ae2
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 01eb0ce83efa54366e027d35d9c3c3bbf86eff7b
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097409"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95487371"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Często zadawane pytania dotyczące usługi Azure Spatial Anchors
 
@@ -55,7 +55,7 @@ Odp **.:** Wszystkie dane są przechowywane w postaci zaszyfrowanej przy użyciu
 
 **P: jakie informacje o środowisku są przesyłane i przechowywane w usłudze przy użyciu kotwic przestrzennych platformy Azure? Czy obrazy środowiska są przesyłane i przechowywane?**
 
-Odp **.: podczas**tworzenia lub lokalizowania kotwic obrazy środowiska są przetwarzane na urządzeniu w formacie pochodnym. Ten format pochodny jest przesyłany i przechowywany w ramach usługi.
+Odp **.: podczas** tworzenia lub lokalizowania kotwic obrazy środowiska są przetwarzane na urządzeniu w formacie pochodnym. Ten format pochodny jest przesyłany i przechowywany w ramach usługi.
 
 Aby zapewnić przejrzystość, poniżej znajduje się obraz środowiska i pochodna chmura punktów rozrzedzonych. Chmura punktów przedstawia geometryczną reprezentację środowiska, która jest przesyłana i przechowywane w usłudze. Dla każdego punktu w chmurze punktów rozrzedzonych przesyłamy i przechowujemy jego skrót właściwości wizualnych. Skrót jest tworzony na podstawie danych pikseli, ale nie zawiera żadnych z nich.
 

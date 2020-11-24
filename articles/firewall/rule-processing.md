@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 04/10/2020
+ms.date: 11/18/2020
 ms.author: victorh
-ms.openlocfilehash: 84110e749dac9267e994385aa5f6d05e3ba224a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01f7aa61d3bfb3c712320bbf138160a7ff8197c7
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87087547"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95502194"
 ---
 # <a name="configure-azure-firewall-rules"></a>Konfigurowanie reguł zapory platformy Azure
 Reguły translatora adresów sieciowych, reguły sieci i aplikacje można skonfigurować w zaporze platformy Azure. Kolekcje reguł są przetwarzane zgodnie z typem reguły w kolejności priorytetów, niższymi liczbami od 100 do 65 000. Nazwa kolekcji reguł może zawierać tylko litery, cyfry, podkreślenia, kropki lub łączniki. Musi zaczynać się literą lub cyfrą oraz kończyć się literą, cyfrą lub podkreśleniem. Maksymalna długość nazwy to 80 znaków.
@@ -26,7 +26,13 @@ Najlepiej wstępnie umieścić numery priorytetów kolekcji reguł w przyrostach
 
 ### <a name="network-rules-and-applications-rules"></a>Reguły sieci i zasady dotyczące aplikacji
 
-W przypadku konfigurowania reguł sieci i reguł aplikacji reguły sieci są stosowane w kolejności priorytetu przed regułami aplikacji. Reguły są przerywane. Dlatego w przypadku znalezienia dopasowania w regule sieciowej nie są przetwarzane żadne inne reguły.  Jeśli nie ma dopasowania reguły sieci i jeśli protokół to HTTP, HTTPS lub MSSQL, pakiet jest następnie oceniany przez reguły aplikacji w kolejności priorytetów. Jeśli nadal nie zostanie znalezione dopasowanie, pakiet jest oceniany względem [kolekcji reguł infrastruktury](infrastructure-fqdns.md). Jeśli wciąż nie zostanie znalezione dopasowanie, pakiet zostanie domyślnie odrzucony.
+W przypadku konfigurowania reguł sieci i reguł aplikacji reguły sieci są stosowane w kolejności priorytetu przed regułami aplikacji. Reguły są przerywane. Dlatego w przypadku znalezienia dopasowania w regule sieciowej nie są przetwarzane żadne inne reguły.  Jeśli nie ma dopasowania reguły sieci, a protokół to HTTP, HTTPS lub MSSQL, pakiet jest następnie oceniany przez reguły aplikacji w kolejności priorytetów. Jeśli nadal nie zostanie znalezione dopasowanie, pakiet jest oceniany względem [kolekcji reguł infrastruktury](infrastructure-fqdns.md). Jeśli nadal nie ma dopasowania, pakiet zostanie domyślnie odrzucony.
+
+#### <a name="network-rule-protocol"></a>Protokół reguły sieci
+
+Reguły sieci można skonfigurować dla **protokołów TCP**, **UDP**, **ICMP** lub **dowolnego** protokołu IP. Każdy protokół IP zawiera wszystkie protokoły IP zgodnie z definicją w dokumencie [numery protokołów IANA (Internet Assigned Numbers Authority)](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) . Jeśli port docelowy jest skonfigurowany jawnie, reguła zostanie przetłumaczona na regułę TCP + UDP.
+
+Przed 9 listopada 2020 **wszystkie** przeznaczone do tego **protokoły TCP**, **UDP** i **ICMP**. Dlatego można skonfigurować regułę przed tą datą przy użyciu protokołu = any i portów docelowych = ' * '. Jeśli nie jest planowane Zezwalanie na żaden protokół IP jako obecnie zdefiniowany, należy zmodyfikować regułę, aby jawnie skonfigurować odpowiednie protokoły (TCP, UDP lub ICMP).
 
 ## <a name="inbound-connectivity"></a>Łączność przychodząca
 
@@ -57,7 +63,7 @@ Połączenie z usługą google.com jest dozwolone z powodu zgodnej reguły sieci
 
 - Akcja: Odmów
 
-|name  |Typ źródła  |Element źródłowy  |Protokół: Port|Docelowe nazwy FQDN|
+|name  |Typ źródła  |Element źródłowy  |Protokół:port|Docelowe nazwy FQDN|
 |---------|---------|---------|---------|----------|----------|
 |Odmów — Google     |Adres IP|*|http: 80, https: 443|google.com
 

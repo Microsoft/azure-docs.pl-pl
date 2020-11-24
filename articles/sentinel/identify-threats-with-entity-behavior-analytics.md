@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 657221a2acbf592a56cb4659ced2199023bc5e5b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: a0a677342534cd92d5530199076e3d2e7084134d
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658795"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95494781"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identyfikowanie zaawansowanych zagrożeń przy użyciu funkcji analizy zachowań użytkowników i jednostek (UEBA) na platformie Azure — wskaźnik
 
@@ -205,7 +205,7 @@ Do wizualizacji metadanych elementów równorzędnych użytkownika można użyć
 
 Analiza uprawnień pomaga określić potencjalny wpływ naruszenia zasobów organizacyjnych przez osobę atakującą. Ten wpływ jest również znany jako "wzmacniający promień zasobu". Analitycy zabezpieczeń mogą używać tych informacji do określania priorytetów kontroli i obsługi zdarzeń.
 
-Wskaźnik oceny platformy Azure określa bezpośrednie i przechodnie prawa dostępu przechowywane przez danego użytkownika do zasobów platformy Azure, oceniając subskrypcje platformy Azure, do których użytkownik może uzyskiwać dostęp bezpośrednio lub za pośrednictwem grup lub jednostek usługi. Te informacje, a także pełna lista przynależności do grupy zabezpieczeń użytkownika usługi Azure AD, są następnie przechowywane w tabeli **UserAccessAnalytics** . Zrzut ekranu poniżej przedstawia przykładowy wiersz w tabeli UserAccessAnalytics, dla którego użytkownik Alexuje Johnsonem. **Jednostka źródłowa** jest kontem użytkownika lub usługi, a **jednostką docelową** jest zasób, do którego jednostka źródłowa ma dostęp. Wartości **poziomu dostępu** i **typu dostępu** są zależne od modelu kontroli dostępu jednostki docelowej. Zobaczysz, że Alex ma dostęp współautora do *dzierżawy* usługi Azure Subscription contoso. Model kontroli dostępu subskrypcji to RBAC.   
+Wskaźnik oceny platformy Azure określa bezpośrednie i przechodnie prawa dostępu przechowywane przez danego użytkownika do zasobów platformy Azure, oceniając subskrypcje platformy Azure, do których użytkownik może uzyskiwać dostęp bezpośrednio lub za pośrednictwem grup lub jednostek usługi. Te informacje, a także pełna lista przynależności do grupy zabezpieczeń użytkownika usługi Azure AD, są następnie przechowywane w tabeli **UserAccessAnalytics** . Zrzut ekranu poniżej przedstawia przykładowy wiersz w tabeli UserAccessAnalytics, dla którego użytkownik Alexuje Johnsonem. **Jednostka źródłowa** jest kontem użytkownika lub usługi, a **jednostką docelową** jest zasób, do którego jednostka źródłowa ma dostęp. Wartości **poziomu dostępu** i **typu dostępu** są zależne od modelu kontroli dostępu jednostki docelowej. Zobaczysz, że Alex ma dostęp współautora do *dzierżawy* usługi Azure Subscription contoso. Model kontroli dostępu subskrypcji to Azure RBAC.   
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="Zrzut ekranu przedstawiający tabelę analizy dostępu użytkowników":::
 

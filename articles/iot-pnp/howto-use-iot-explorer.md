@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: contperfq2
-ms.openlocfilehash: 8482ba608ee5fcefb006234b339cd9b711a38020
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 55607527ced2e5d93a61cfd85477758482f18daa
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445306"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495427"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Instalowanie i korzystanie z programu Azure IoT Explorer
 
@@ -40,13 +40,13 @@ Przejdź do [wersji programu Azure IoT Explorer](https://github.com/Azure/azure-
 
 ## <a name="use-azure-iot-explorer"></a>Korzystanie z programu Azure IoT Explorer
 
-W przypadku urządzenia można podłączyć własne urządzenie lub użyć jednego z przykładowych symulowanych urządzeń. W przypadku niektórych przykładowych symulowanych urządzeń zapisanych w różnych językach zapoznaj się z [aplikacją Connect a sample Plug and Play Device, aby IoT Hub](quickstart-connect-device-node.md) przewodników Szybki Start.
+W przypadku urządzenia można podłączyć własne urządzenie lub użyć jednego z przykładowych symulowanych urządzeń. W przypadku niektórych przykładowych symulowanych urządzeń, które są zapisywane w różnych językach, zobacz temat [łączenie przykładowej aplikacji urządzenia Plug and Play IoT IoT Hub](quickstart-connect-device.md) przewodnika Szybki Start.
 
 ### <a name="connect-to-your-hub"></a>Nawiązywanie połączenia z centrum
 
 Przy pierwszym uruchomieniu programu Azure IoT Explorer zostanie wyświetlony monit o podanie parametrów połączenia Centrum IoT. Po dodaniu parametrów połączenia wybierz pozycję **Połącz**. Możesz użyć ustawień narzędzia, aby przełączyć się do innego Centrum IoT Hub przez zaktualizowanie parametrów połączenia.
 
-Definicje modeli dla urządzenia IoT Plug and Play są przechowywane w repozytorium publicznym, podłączonym urządzeniu lub w folderze lokalnym. Domyślnie narzędzie szuka definicji modelu w repozytorium publicznym i podłączonym urządzeniu. Możesz dodawać i usuwać źródła albo konfigurować priorytety źródeł w **ustawieniach** :
+Definicje modeli dla urządzenia IoT Plug and Play są przechowywane w repozytorium publicznym, podłączonym urządzeniu lub w folderze lokalnym. Domyślnie narzędzie szuka definicji modelu w repozytorium publicznym i podłączonym urządzeniu. Możesz dodawać i usuwać źródła albo konfigurować priorytety źródeł w **ustawieniach**:
 
 Aby dodać Źródło:
 
@@ -78,7 +78,7 @@ Na stronie lista **urządzeń** wybierz wartość w kolumnie **Identyfikator urz
 
 ### <a name="device"></a>Urządzenie
 
-Ta sekcja obejmuje **tożsamość urządzenia** ,  **sznurki urządzenia** , **dane telemetryczne** , **metodę bezpośrednią** , **komunikat z chmury do urządzenia** , karty **tożsamości modułów**  .
+Ta sekcja obejmuje **tożsamość urządzenia**,  **sznurki urządzenia**, **dane telemetryczne**, **metodę bezpośrednią**, **komunikat z chmury do urządzenia**, karty **tożsamości modułów**  .
 
 - Informacje o [tożsamości urządzenia](../iot-hub/iot-hub-devguide-identity-registry.md) można wyświetlić i zaktualizować na karcie **tożsamość urządzenia** .
 - Dostęp do informacji o [bliźniaczych urządzeniach](../iot-hub/iot-hub-devguide-device-twins.md) można uzyskać na karcie **sznurki urządzenia** .
@@ -89,7 +89,7 @@ Ta sekcja obejmuje **tożsamość urządzenia** ,  **sznurki urządzenia** , **d
 
 ### <a name="iot-plug-and-play-components"></a>Składniki Plug and Play IoT
 
-Jeśli urządzenie jest połączone z centrum przy użyciu **identyfikatora modelu** , narzędzie wyświetli kartę **składniki Plug and Play IoT** , w której można zobaczyć **Identyfikator modelu**.
+Jeśli urządzenie jest połączone z centrum przy użyciu **identyfikatora modelu**, narzędzie wyświetli kartę **składniki Plug and Play IoT** , w której można zobaczyć **Identyfikator modelu**.
 
 Jeśli **Identyfikator modelu** jest dostępny w jednym ze skonfigurowanych źródeł — publicznego repozytorium lub folderu lokalnego, zostanie wyświetlona lista składników. Wybranie składnika powoduje wyświetlenie dostępnych właściwości, poleceń i danych telemetrycznych.
 
@@ -109,7 +109,7 @@ Właściwości tylko do odczytu zdefiniowane w interfejsie można wyświetlić n
 1. Wyświetlenie podglądu ładunku do wysłania na urządzenie.
 1. Prześlij zmianę.
 
-Po przesłaniu zmiany można śledzić stan aktualizacji: **Synchronizacja** , **sukces** lub **błąd**. Po zakończeniu synchronizacji zostanie wyświetlona nowa wartość właściwości w kolumnie **raportowana Właściwość** . Jeśli przejdziesz do innych stron przed ukończeniem synchronizacji, narzędzie będzie nadal powiadamiane po zakończeniu aktualizacji. Możesz również użyć Centrum powiadomień narzędzia, aby wyświetlić historię powiadomień.
+Po przesłaniu zmiany można śledzić stan aktualizacji: **Synchronizacja**, **sukces** lub **błąd**. Po zakończeniu synchronizacji zostanie wyświetlona nowa wartość właściwości w kolumnie **raportowana Właściwość** . Jeśli przejdziesz do innych stron przed ukończeniem synchronizacji, narzędzie będzie nadal powiadamiane po zakończeniu aktualizacji. Możesz również użyć Centrum powiadomień narzędzia, aby wyświetlić historię powiadomień.
 
 #### <a name="commands"></a>Polecenia
 

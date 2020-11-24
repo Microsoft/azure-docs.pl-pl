@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 0704f076ef7c5d1a39af67d3ec6ec2baece1fda5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 9c100ca82b751a050e74cce85e1794701a789288
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517305"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95498473"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Uprawnienia w usłudze Azure Sentinel
 
@@ -54,7 +54,7 @@ Użytkownikom z określonymi wymaganiami dotyczącymi zadań może być konieczn
 
 - Praca z usługą elementy PlayBook w celu zautomatyzowania odpowiedzi na zagrożenia
 
-    Wskaźnik platformy Azure używa **elementy PlayBook** do automatycznej reakcji na zagrożenia. Elementy PlayBook są oparte na **Azure Logic Apps**i są osobnym zasobem platformy Azure. Można przypisać do określonych członków zespołu ds. operacji zabezpieczeń, który może używać Logic Apps do operacji aranżacji zabezpieczeń, automatyzacji i odpowiedzi (o). Rola [współautor aplikacji logiki](../role-based-access-control/built-in-roles.md#logic-app-contributor) lub rola [operatora aplikacji logiki](../role-based-access-control/built-in-roles.md#logic-app-operator) służy do przypisywania jawnego uprawnienia do korzystania z elementy PlayBook.
+    Wskaźnik platformy Azure używa **elementy PlayBook** do automatycznej reakcji na zagrożenia. Elementy PlayBook są oparte na **Azure Logic Apps** i są osobnym zasobem platformy Azure. Można przypisać do określonych członków zespołu ds. operacji zabezpieczeń, który może używać Logic Apps do operacji aranżacji zabezpieczeń, automatyzacji i odpowiedzi (o). Rola [współautor aplikacji logiki](../role-based-access-control/built-in-roles.md#logic-app-contributor) lub rola [operatora aplikacji logiki](../role-based-access-control/built-in-roles.md#logic-app-operator) służy do przypisywania jawnego uprawnienia do korzystania z elementy PlayBook.
 
 - Łączenie źródeł danych z platformą Azure — wskaźnikiem
 
@@ -80,7 +80,7 @@ Na przykład użytkownik, któremu przypisano rolę **czytnika** punktów kontro
 
 W poniższej tabeli podsumowano role i dozwolone działania w usłudze Azure Sentinel. 
 
-| Role | Tworzenie i uruchamianie podręczników| Tworzenie i edytowanie skoroszytów, reguł analizy i innych zasobów usługi Azure Sentinel | Zarządzanie zdarzeniami (odrzucanie, przypisywanie itp.) | Wyświetl dane, zdarzenia, skoroszyty i inne zasoby dotyczące platformy Azure |
+| Rola | Tworzenie i uruchamianie podręczników| Tworzenie i edytowanie skoroszytów, reguł analizy i innych zasobów usługi Azure Sentinel | Zarządzanie zdarzeniami (odrzucanie, przypisywanie itp.) | Wyświetl dane, zdarzenia, skoroszyty i inne zasoby dotyczące platformy Azure |
 |---|---|---|---|---|
 | Czytelnik usługi Azure Sentinel | -- | -- | -- | &#10003; |
 | Obiekt odpowiadający usługi Azure Sentinel | -- | -- | &#10003; | &#10003; |
@@ -91,7 +91,7 @@ W poniższej tabeli podsumowano role i dozwolone działania w usłudze Azure Sen
 
 - Oprócz, lub zamiast, przy użyciu wbudowanych ról platformy Azure, można utworzyć role niestandardowe platformy Azure dla platformy Azure. Role niestandardowe platformy Azure dla usługi Azure wskaźnikowej są tworzone w taki sam sposób, jak w przypadku tworzenia innych [ról niestandardowych platformy](../role-based-access-control/custom-roles-rest.md#create-a-custom-role)Azure, na podstawie [określonych uprawnień do usługi Azure wskaźnikowego](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) i do [zasobów platformy Azure log Analytics](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
 
-- Możesz użyć zaawansowanej kontroli dostępu opartej na rolach Log Analytics w danych w obszarze roboczym wskaźnikowego platformy Azure. Dotyczy to zarówno opartego na typie danych kontroli RBAC, jak i skoncentrowanej na zasobach platformy Azure. Aby uzyskać więcej informacji na temat ról Log Analytics, zobacz [Zarządzanie danymi dzienników i obszarami roboczymi w programie Azure monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
+- Możesz użyć Log Analytics zaawansowanej kontroli dostępu opartej na rolach platformy Azure dla danych w obszarze roboczym wskaźnikowego platformy Azure. Dotyczy to zarówno opartego na typie danych kontroli RBAC, jak i skoncentrowanej na zasobach platformy Azure. Aby uzyskać więcej informacji na temat ról Log Analytics, zobacz [Zarządzanie danymi dzienników i obszarami roboczymi w programie Azure monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
 
 ## <a name="next-steps"></a>Następne kroki
 

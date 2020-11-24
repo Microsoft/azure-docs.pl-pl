@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: a87617e1cc6910b4c807aa90f413efe94b6e6953
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 2cccb1fdfe775250f80da6cc2ecdcc4ddaa3d88e
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920308"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95484087"
 ---
 # <a name="iot-plug-and-play-architecture"></a>Architektura technologii IoT Plug and Play
 
@@ -98,4 +98,4 @@ Teraz, gdy już masz Przegląd architektury rozwiązania IoT Plug and Play, kole
 
 - [Repozytorium modelu](./concepts-model-repository.md)
 - [Integracja modelu cyfrowej przędzy](./concepts-model-discovery.md)
-- [Opracowywanie Plug and Play IoT](./concepts-developer-guide-device-csharp.md)
+- [Opracowywanie Plug and Play IoT](./concepts-developer-guide-device.md)

@@ -7,12 +7,12 @@ ms.date: 07/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: ea523045875e0abc9e14924c7bb388ea2cfcc2db
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f13230c7bd88a9c3cf043fc1881a34f6b7ce6fe7
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046472"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495325"
 ---
 # <a name="understand-iot-plug-and-play-digital-twins"></a>Interpretacja bliźniaczej reprezentacji urządzenia IoT Plug and Play
 
@@ -382,6 +382,6 @@ content-encoding:utf-8
 Teraz, kiedy już wiesz o programie Digital bliźniaczych reprezentacji, Oto kilka dodatkowych zasobów:
 
 - [Jak używać interfejsów API cyfrowych bliźniaczych Plug and Play IoT](howto-manage-digital-twin.md)
-- [Interakcja z urządzeniem z rozwiązania](quickstart-service-node.md)
+- [Interakcja z urządzeniem z rozwiązania](quickstart-service.md)
 - [Interfejs API REST cyfrowego przędzy IoT](/rest/api/iothub/service/digitaltwin)
 - [Eksplorator IoT Azure](howto-use-iot-explorer.md)

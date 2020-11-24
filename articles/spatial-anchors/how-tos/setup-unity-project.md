@@ -1,19 +1,19 @@
 ---
 title: Zainstaluj kotwice przestrzenne platformy Azure dla aparatu Unity
 description: Konfigurowanie projektu środowiska Unity do korzystania z kotwic przestrzennych platformy Azure
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 09/29/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: da983719dc66656aa28cab4aea0bae558c2a7162
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2330310b0bf4e165af71208477db128650a787cf
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530424"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95496951"
 ---
 # <a name="configuring-azure-spatial-anchors-in-a-unity-project"></a>Konfigurowanie kotwic przestrzennych platformy Azure w projekcie środowiska Unity
 
@@ -55,7 +55,7 @@ Kotwice przestrzenne platformy Azure dla aparatu Unity są obecnie dystrybuowane
 #### <a name="android-only-configure-the-maintemplategradle-file"></a>Tylko system Android: Konfigurowanie pliku mainTemplate. Gradle
 
 1. Przejdź do pozycji **Edytuj**  >  **Ustawienia projektu**  >  **odtwarzacz**.
-2. W **panelu Inspektora** **Ustawienia odtwarzacza**wybierz ikonę **systemu Android** .
+2. W **panelu Inspektora** **Ustawienia odtwarzacza** wybierz ikonę **systemu Android** .
 3. W sekcji **kompilacja** zaznacz pole wyboru **niestandardowy główny szablon Gradle** , aby wygenerować niestandardowy szablon Gradle w lokalizacji `Assets\Plugins\Android\mainTemplate.gradle` .
 4. Otwórz `mainTemplate.gradle` plik w edytorze tekstu.
 5. W `dependencies` sekcji Wklej następujące zależności:

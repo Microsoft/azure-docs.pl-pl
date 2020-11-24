@@ -9,12 +9,12 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
-ms.openlocfilehash: 4fd7a24edffbfb63adc830ddb83b45997743ad42
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: d6cba4bcb76094ed156ef35b1ea76cea7001c372
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421638"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95486300"
 ---
 # <a name="what-is-iot-plug-and-play"></a>Co to jest usługa IoT Plug and Play?
 
@@ -72,5 +72,5 @@ Jako Konstruktor urządzeń można opracowywać produkt sprzętu IoT, który obs
 
 Teraz, gdy masz przegląd Plug and Play IoT, sugerowanym następnym krokiem jest wypróbowanie jednego z przewodników szybki start:
 
-- [Łączenie urządzenia z IoT Hub (C)](./quickstart-connect-device-c.md)
-- [Interakcja z urządzeniem z rozwiązania (Node.js)](./quickstart-service-node.md)
+- [Łączenie urządzenia z usługą IoT Hub](./quickstart-connect-device.md)
+- [Interakcja z urządzeniem z rozwiązania](./quickstart-service.md)

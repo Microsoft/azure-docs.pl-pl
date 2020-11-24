@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09bd82225fb7d8a6eefe84b5a70660e4553a3070
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: abcc2b60fd796a80342fe48c3c9027388660476a
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360789"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95488151"
 ---
 # <a name="update-management-overview"></a>Omówienie rozwiązania Update Management
 
@@ -132,7 +132,7 @@ Update Management używa zasobów opisanych w tej sekcji. Te zasoby są automaty
 
 Po włączeniu Update Management każda maszyna z systemem Windows, która jest bezpośrednio połączona z obszarem roboczym Log Analytics, zostanie automatycznie skonfigurowana jako hybrydowy proces roboczy elementu Runbook w celu obsługi elementów Runbook, które obsługują Update Management.
 
-Każda maszyna z systemem Windows zarządzana przez Update Management jest wymieniona w okienku grupy hybrydowych procesów roboczych jako Grupa hybrydowych procesów roboczych systemu dla konta usługi Automation. Grupy używają `Hostname FQDN_GUID` konwencji nazewnictwa. Nie można kierować tymi grupami do elementów Runbook na Twoim koncie. Jeśli spróbujesz, próba zakończy się niepowodzeniem. Te grupy są przeznaczone do obsługi tylko Update Management. Aby dowiedzieć się więcej na temat wyświetlania listy maszyn systemu Windows skonfigurowanych jako hybrydowy proces roboczy elementu Runbook, zobacz temat [Wyświetlanie hybrydowych procesów roboczych elementów Runbook](../automation-hybrid-runbook-worker.md#view-hybrid-runbook-workers).
+Każda maszyna z systemem Windows zarządzana przez Update Management jest wymieniona w okienku grupy hybrydowych procesów roboczych jako Grupa hybrydowych procesów roboczych systemu dla konta usługi Automation. Grupy używają `Hostname FQDN_GUID` konwencji nazewnictwa. Nie można kierować tymi grupami do elementów Runbook na Twoim koncie. Jeśli spróbujesz, próba zakończy się niepowodzeniem. Te grupy są przeznaczone do obsługi tylko Update Management. Aby dowiedzieć się więcej na temat wyświetlania listy maszyn systemu Windows skonfigurowanych jako hybrydowy proces roboczy elementu Runbook, zobacz temat [Wyświetlanie hybrydowych procesów roboczych elementów Runbook](../automation-hybrid-runbook-worker.md#view-system-hybrid-runbook-workers).
 
 Możesz dodać maszynę z systemem Windows do grupy hybrydowych procesów roboczych elementu Runbook na koncie usługi Automation w celu obsługi elementów Runbook usługi Automation, jeśli używasz tego samego konta dla Update Management i członkostwa w grupie hybrydowych procesów roboczych elementu Runbook. Ta funkcja została dodana w wersji 7.2.12024.0 hybrydowego procesu roboczego elementu Runbook.
 
@@ -207,7 +207,7 @@ W poniższej tabeli zdefiniowano klasyfikacje, które Update Management obsługi
 |Pakiety funkcji     | Nowe funkcje produktu dystrybuowane poza wydaniem produktu.        |
 |Dodatki Service Pack     | Zbiorczy zestaw poprawek, które są stosowane do aplikacji.        |
 |Aktualizacje definicji     | Aktualizacja dla wirusów lub innych plików definicji.        |
-|narzędzia     | Narzędzie lub funkcja, która pomaga wykonać jedno lub więcej zadań.        |
+|Narzędzia     | Narzędzie lub funkcja, która pomaga wykonać jedno lub więcej zadań.        |
 |Aktualizacje     | Aktualizacja aplikacji lub pliku, który jest aktualnie zainstalowany.        |
 
 W następnej tabeli zdefiniowano obsługiwane klasyfikacje aktualizacji systemu Linux.
