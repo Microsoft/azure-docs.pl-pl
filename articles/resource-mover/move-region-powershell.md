@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: 3236e0a95c6a4b4f57ac38ed067011c3d6848b5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 176f12a0a06a5bcae601463e30189bc139d3531f
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89670541"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543854"
 ---
 # <a name="move-resources-across-regions-in-powershell"></a>Przenoszenie zasobów między regionami w programie PowerShell
 
@@ -25,7 +25,7 @@ Dowiedz się, jak przenieść zasoby platformy Azure do innego regionu przy uży
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
-- Twoja subskrypcja platformy Azure [powinna mieć dostęp](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) do przenoszenia zasobów i należy mieć uprawnienia administratora lub [dostępu użytkownika](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) do subskrypcji.
+- Twoja subskrypcja platformy Azure [powinna mieć dostęp](../role-based-access-control/built-in-roles.md#owner) do przenoszenia zasobów i należy mieć uprawnienia administratora lub [dostępu użytkownika](../role-based-access-control/built-in-roles.md#user-access-administrator) do subskrypcji.
 - Program przenoszenia zasobów nie śledzi zmian i uaktualnień, dlatego przed rozpoczęciem przenoszenia należy wprowadzić wszelkie wymagane zmiany zasobów.
 - W przypadku przenoszenia zasobów przy użyciu programu PowerShell nie można obecnie edytować żadnych ustawień regionu docelowego. Zmodyfikuj te ustawienia bezpośrednio w portalu.
 - Po dodaniu zasobów do kolekcji przenoszenia w przygotowaniu do przenoszenia ich do innego regionu metadane dotyczące przenoszenia są przechowywane w grupie zasobów utworzonej dla tego celu. Obecnie ta grupa zasobów może znajdować się w regionach Wschodnie stany USA 2 lub Europa Północna. Zasoby platformy Azure można przenosić między wszystkimi regionami publicznymi przy użyciu metadanych znajdujących się w jednym z tych regionów.
@@ -47,7 +47,7 @@ Region docelowy | Zachodnio-środkowe stany USA
 Docelowa Grupa zasobów | PSDemoRMtgt
 Maszyna wirtualna do przeniesienia | PSDemoVM
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
 Zaloguj się do subskrypcji platformy Azure.
 
@@ -347,7 +347,7 @@ Invoke-AzResourceMoverInitiateMove -SubscriptionId <subscription-id> -ResourceGr
 Po początkowym przeniesieniu możesz zdecydować, czy chcesz zatwierdzić przeniesienie, czy go odrzucić. 
 
 - **Odrzuć**: możesz odrzucić przeniesienie, jeśli testujesz, i nie chcesz faktycznie przenosić zasobu źródłowego. Odrzucanie przesunięcia spowoduje zwrócenie zasobu do stanu *inicjacja oczekującego przeniesienia*. W razie konieczności można ponownie zainicjować operację przenoszenia.
-- **Zatwierdzenie**: zatwierdzenie powoduje zakończenie przejścia do regionu docelowego. Po zatwierdzeniu zasób źródłowy będzie w stanie *oczekiwania na usunięcie źródła*i można zdecydować, czy ma zostać usunięty.
+- **Zatwierdzenie**: zatwierdzenie powoduje zakończenie przejścia do regionu docelowego. Po zatwierdzeniu zasób źródłowy będzie w stanie *oczekiwania na usunięcie źródła* i można zdecydować, czy ma zostać usunięty.
 
 ### <a name="discard"></a>Odrzuć
 

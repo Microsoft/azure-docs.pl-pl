@@ -9,19 +9,19 @@ ms.reviewer: dineshm
 ms.date: 09/11/2020
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 3adbc0a2d55a2adc2ab7c1f82b0a358542eefc2a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 799c0dbc3ddb673cafe0fe4962f7346a841bd4b7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842451"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543106"
 ---
 # <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Konfigurowanie przepływu pracy akcji usługi GitHub w celu wdrożenia statycznej witryny sieci Web w usłudze Azure Storage
 
 Rozpocznij pracę z [akcjami usługi GitHub](https://docs.github.com/en/actions) za pomocą przepływu pracy, aby wdrożyć lokację statyczną na koncie magazynu platformy Azure. Po skonfigurowaniu przepływu pracy akcji usługi GitHub będzie możliwe automatyczne wdrażanie witryny na platformie Azure z usługi GitHub po wprowadzeniu zmian w kodzie witryny.
 
 > [!NOTE]
-> Jeśli używasz [usługi Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/), nie musisz ręcznie konfigurować przepływu pracy akcji usługi GitHub.
+> Jeśli używasz [usługi Azure Static Web Apps](../../static-web-apps/index.yml), nie musisz ręcznie konfigurować przepływu pracy akcji usługi GitHub.
 > Usługa Azure static Web Apps automatycznie tworzy przepływ pracy dla akcji usługi GitHub. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -68,7 +68,7 @@ W powyższym przykładzie Zastąp symbole zastępcze IDENTYFIKATORem subskrypcji
 
 1. Wklej wszystkie dane wyjściowe JSON z polecenia platformy Azure w polu wartość klucza tajnego. Nadaj wpisowi tajnemu nazwę, taką jak `AZURE_CREDENTIALS` .
 
-    Podczas późniejszej konfiguracji pliku przepływu pracy należy użyć wpisu tajnego dla danych wejściowych `creds` akcji logowania platformy Azure. Przykład:
+    Podczas późniejszej konfiguracji pliku przepływu pracy należy użyć wpisu tajnego dla danych wejściowych `creds` akcji logowania platformy Azure. Na przykład:
 
     ```yaml
     - uses: azure/login@v1
@@ -187,4 +187,4 @@ Gdy statyczna Witryna internetowa i repozytorium GitHub nie są już potrzebne, 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Dowiedz się więcej o usłudze Azure static Web Apps](https://docs.microsoft.com/azure/static-web-apps/)
+> [Dowiedz się więcej o usłudze Azure static Web Apps](../../static-web-apps/index.yml)

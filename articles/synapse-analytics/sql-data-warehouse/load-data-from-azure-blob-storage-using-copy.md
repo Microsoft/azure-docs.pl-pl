@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 05/31/2020
+ms.date: 11/23/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: cb5984ba5d5764ee2ffa3f28e2d95612c14f7e27
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: bd5c56ef74fbe0c60a9d395a7b8a0fbc496e773c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025939"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95534844"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Samouczek: Załaduj zestaw danych Taxicab Nowego Jorku
 
@@ -24,9 +24,6 @@ Ten samouczek używa [instrukcji Copy](https://docs.microsoft.com/sql/t-sql/stat
 
 > [!div class="checklist"]
 >
-> * Utwórz pulę SQL w Azure Portal
-> * Konfigurowanie reguły zapory na poziomie serwera w witrynie Azure Portal
-> * Nawiązywanie połączenia z magazynem danych za pomocą programu SSMS
 > * Tworzenie użytkownika wyznaczonego do ładowania danych
 > * Tworzenie tabel dla przykładowego zestawu danych 
 > * Ładowanie danych do magazynu danych za pomocą instrukcji COPY języka T-SQL
@@ -34,130 +31,11 @@ Ten samouczek używa [instrukcji Copy](https://docs.microsoft.com/sql/t-sql/stat
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
-Zanim rozpoczniesz ten samouczek, pobierz i zainstaluj najnowszą wersję programu [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
+Zanim rozpoczniesz ten samouczek, pobierz i zainstaluj najnowszą wersję programu [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).  
 
-## <a name="log-in-to-the-azure-portal"></a>Logowanie do witryny Azure Portal
-
-Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
-
-## <a name="create-a-blank-database"></a>Tworzenie pustej bazy danych
-
-Zostanie utworzona Pula SQL ze zdefiniowanym zestawem [zasobów obliczeniowych](memory-concurrency-limits.md). Baza danych jest tworzona w [grupie zasobów platformy Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) i w [logicznym serwerze SQL](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-
-Wykonaj następujące kroki, aby utworzyć pustą bazę danych.
-
-1. W lewym górnym rogu witryny Azure Portal wybierz pozycję **Utwórz zasób** .
-
-2. Na stronie **Nowy** wybierz pozycję **bazy danych** , a następnie wybierz pozycję **Azure Synapse Analytics** w obszarze **proponowane** na **nowej** stronie.
-
-    ![Zrzut ekranu przedstawia SQL Data Warehouse wybrane z baz danych w Azure Portal.](./media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
-
-3. Wypełnij formularz, używając poniższych informacji:
-
-   | Ustawienie            | Sugerowana wartość       | Opis                                                  |
-   | ------------------ | --------------------- | ------------------------------------------------------------ |
-   | *Nazwij**            | mySampleDataWarehouse | Prawidłowe nazwy baz danych znajdują się w temacie [identyfikatory baz danych](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). |
-   | **Subskrypcja**   | Twoja subskrypcja     | Aby uzyskać szczegółowe informacje o subskrypcjach, zobacz [Subskrypcje](https://account.windowsazure.com/Subscriptions). |
-   | **Grupa zasobów** | myResourceGroup       | Prawidłowe nazwy grup zasobów opisano w artykule [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Reguły i ograniczenia nazewnictwa). |
-   | **Wybierz źródło**  | Pusta baza danych        | Określa, że ma zostać utworzona pusta baza danych. Pamiętaj, że magazyn danych jest jednym z typów bazy danych. |
-
-    ![Zrzut ekranu przedstawia okienko SQL Data Warehouse, w którym można wprowadzić te wartości.](./media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
-
-4. Wybierz pozycję **Serwer** , aby utworzyć i skonfigurować nowy serwer dla nowej bazy danych. Wypełnij **formularz nowego serwera** , używając następujących informacji:
-
-    | Ustawienie                | Sugerowana wartość          | Opis                                                  |
-    | ---------------------- | ------------------------ | ------------------------------------------------------------ |
-    | **Nazwa serwera**        | Dowolna nazwa unikatowa w skali globalnej | Prawidłowe nazwy serwera opisano w artykule [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Reguły i ograniczenia nazewnictwa). |
-    | **Identyfikator logowania administratora serwera** | Dowolna prawidłowa nazwa           | Prawidłowe nazwy logowania można znaleźć w temacie [identyfikatory baz danych](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). |
-    | **Hasło**           | Dowolne prawidłowe hasło       | Hasło musi mieć co najmniej osiem znaków i musi zawierać znaki z trzech z następujących kategorii: wielkie litery, małe litery, cyfry i znaki inne niż alfanumeryczne. |
-    | **Lokalizacja**           | Dowolna prawidłowa lokalizacja       | Aby uzyskać informacje na temat regionów, zobacz temat [Regiony systemu Azure](https://azure.microsoft.com/regions/). |
-
-    ![Utwórz serwer](./media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
-
-5. Wybierz pozycję **Wybierz** .
-
-6. Wybierz pozycję **poziom wydajności** , aby określić, czy magazyn danych to Gen1, czy Gen2, oraz liczbę jednostek magazynu danych.
-
-7. Na potrzeby tego samouczka wybierz pozycję SQL Pool **Gen2** . Suwak jest domyślnie ustawiony na **DW1000c** .  Spróbuj przesunąć go w górę i w dół, aby zobaczyć, jak działa.
-
-    ![konfigurowanie wydajności](./media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
-
-8. Wybierz przycisk **Zastosuj** .
-9. W bloku aprowizacji wybierz **Sortowanie** dla pustej bazy danych. Na potrzeby tego samouczka użyj wartości domyślnej. Aby uzyskać więcej informacji na temat sortowań, zobacz [Sortowania](/sql/t-sql/statements/collations?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-
-10. Po ukończeniu formularza wybierz pozycję **Utwórz** , aby zainicjować obsługę administracyjną bazy danych. Aprowizacja zajmuje kilka minut.
-
-11. Na pasku narzędzi wybierz pozycję **Powiadomienia** , aby monitorować proces wdrażania.
-  
-     ![Zrzut ekranu przedstawia Azure Portal z otwartym okienkiem powiadomień z wdrożeniem w toku.](./media/load-data-from-azure-blob-storage-using-polybase/notification.png)
-
-## <a name="create-a-server-level-firewall-rule"></a>Tworzenie reguły zapory na poziomie serwera
-
-Zapora na poziomie serwera, która uniemożliwia zewnętrznym aplikacjom i narzędziom łączenie się z serwerem lub dowolnymi bazami danych na serwerze. Aby umożliwić łączność, możesz dodać reguły zezwalające na połączenia dla konkretnych adresów IP.  Wykonaj następujące kroki, aby utworzyć [regułę zapory na poziomie serwera](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) dla Twojego adresu IP klienta.
-
-> [!NOTE]
-> Usługa Azure Synapse Analytics komunikuje się przez port 1433. Jeśli próbujesz nawiązać połączenie z sieci firmowej, ruch wychodzący na porcie 1433 może być blokowany przez zaporę sieciową. W takim przypadku nie można nawiązać połączenia z serwerem, chyba że dział IT otworzy port 1433.
-
-1. Po zakończeniu wdrażania wybierz pozycję **bazy danych SQL** w menu po lewej stronie, a następnie wybierz pozycję **mySampleDatabase** na stronach **bazy danych SQL** . Zostanie otwarta strona przeglądu bazy danych zawierająca w pełni kwalifikowaną nazwę serwera (na przykład **mynewserver-20180430.Database.Windows.NET** ) i opcje dalszej konfiguracji.
-
-2. Skopiuj tę w pełni kwalifikowaną nazwę serwera w celu nawiązania połączenia z serwerem i jego bazami danych w kolejnych przewodnikach Szybki start. Następnie wybierz nazwę serwera, aby otworzyć ustawienia serwera.
-
-    ![znajdowanie nazwy serwera](././media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
-
-3. Wybierz nazwę serwera, aby otworzyć ustawienia serwera.
-
-    ![ustawienia serwera](./media/load-data-from-azure-blob-storage-using-polybase/server-settings.png)
-
-4. Wybierz pozycję **Pokaż ustawienia zapory** . Zostanie otwarta strona **Ustawienia zapory** dla serwera.
-
-    ![reguła zapory serwera](./media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png)
-
-5. Wybierz pozycję **Dodaj adres IP klienta** na pasku narzędzi, aby dodać bieżący adres IP do nowej reguły zapory. Reguła zapory może otworzyć port 1433 dla pojedynczego adresu IP lub zakresu adresów IP.
-
-6. Wybierz pozycję **Zapisz** . Reguła zapory na poziomie serwera jest tworzona dla bieżącego adresu IP otwierającego port 1433 na serwerze.
-
-7. Wybierz przycisk **OK** , a następnie zamknij stronę **Ustawienia zapory** .
-
-Teraz można nawiązać połączenie z serwerem i jego magazynami danych przy użyciu tego adresu IP. Połączenie działa z programu SQL Server Management Studio lub dowolnego innego narzędzia. Przy łączeniu się używaj wcześniej utworzonego konta administratora serwera.  
-
-> [!IMPORTANT]
-> Domyślnie dostęp za pośrednictwem zapory usługi SQL Database jest włączony dla wszystkich usług platformy Azure. Wybierz pozycję **wyłączone** na tej stronie, a następnie wybierz pozycję **Zapisz** , aby wyłączyć zaporę dla wszystkich usług platformy Azure.
-
-## <a name="get-the-fully-qualified-server-name"></a>Uzyskiwanie w pełni kwalifikowanej nazwy serwera
-
-Uzyskaj w pełni kwalifikowaną nazwę serwera dla serwera w Azure Portal. Nazwa ta będzie używana później przy nawiązywaniu połączenia z serwerem.
-
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
-2. Wybierz pozycję **Azure Synapse Analytics** z menu po lewej stronie, a następnie wybierz swoją bazę danych ze strony **Analiza usługi Azure Synapse** .
-3. W okienku **Essentials** na stronie bazy danych w witrynie Azure Portal zlokalizuj i skopiuj **nazwę serwera** . W tym przykładzie w pełni kwalifikowana nazwa to mynewserver-20180430.database.windows.net.
-
-    ![informacje o połączeniu](././media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
-
-## <a name="connect-to-the-server-as-server-admin"></a>Nawiąż połączenie z serwerem jako administrator serwera
-
-Ta sekcja używa [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) do nawiązywania połączenia z serwerem.
-
-1. Otwórz program SQL Server Management Studio.
-
-2. W oknie dialogowym **Połącz z serwerem** wprowadź następujące informacje:
-
-    | Ustawienie        | Sugerowana wartość                            | Opis                                                  |
-    | -------------- | ------------------------------------------ | ------------------------------------------------------------ |
-    | Typ serwera    | Aparat bazy danych                            | Ta wartość jest wymagana                                       |
-    | Nazwa serwera    | W pełni kwalifikowana nazwa serwera            | Nazwa powinna wyglądać następująco: **mynewserver-20180430.Database.Windows.NET** . |
-    | Uwierzytelnianie | Uwierzytelnianie programu SQL Server                  | Uwierzytelnianie SQL to jedyny typ uwierzytelniania skonfigurowany w tym samouczku. |
-    | Zaloguj się          | Konto administratora serwera                   | To konto określono podczas tworzenia serwera. |
-    | Hasło       | Hasło konta administratora serwera | To hasło określono podczas tworzenia serwera. |
-
-    ![łączenie z serwerem](./media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
-
-3. Wybierz pozycję **Połącz** . W programie SSMS zostanie otwarte okno Eksplorator obiektów.
-
-4. W Eksploratorze obiektów rozwiń pozycję **Bazy danych** . Następnie rozwiń węzły **Systemowe bazy danych** i **master** , aby wyświetlić obiekty w bazie danych master.  Rozwiń węzeł **mySampleDatabase** , aby wyświetlić obiekty w nowej bazie danych.
-
-    ![obiekty bazy danych](./media/load-data-from-azure-blob-storage-using-polybase/connected.png)
+W tym samouczku założono, że utworzono już dedykowaną pulę SQL z poziomu poniższego [samouczka](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal#connect-to-the-server-as-server-admin).
 
 ## <a name="create-a-user-for-loading-data"></a>Tworzenie użytkownika do ładowania danych
 
@@ -165,9 +43,9 @@ Konto administratora serwera jest przeznaczone do wykonywania operacji zarządza
 
 Najlepszym rozwiązaniem jest utworzenie identyfikatora logowania i użytkownika, które są przeznaczone do ładowania danych. Następnie należy dodać użytkownika ładującego do [klasy zasobów](resource-classes-for-workload-management.md), która umożliwia odpowiednią maksymalną alokację pamięci.
 
-Obecnie łączysz się jako administrator serwera, dlatego możesz tworzyć identyfikatory logowania i użytkowników. Wykonaj następujące czynności, aby utworzyć identyfikator logowania i użytkownika o nazwie **LoaderRC20** . Następnie przypisz tego użytkownika do klasy zasobów **staticrc20** .
+Połącz się jako administrator serwera, aby można było tworzyć identyfikatory logowania i użytkowników. Wykonaj następujące czynności, aby utworzyć identyfikator logowania i użytkownika o nazwie **LoaderRC20**. Następnie przypisz tego użytkownika do klasy zasobów **staticrc20**.
 
-1. W programie SSMS kliknij prawym przyciskiem myszy pozycję **Master** , aby wyświetlić menu rozwijane, a następnie wybierz pozycję **nowe zapytanie** . Otworzy się okno nowego zapytania.
+1. W programie SSMS kliknij prawym przyciskiem myszy pozycję **Master** , aby wyświetlić menu rozwijane, a następnie wybierz pozycję **nowe zapytanie**. Otworzy się okno nowego zapytania.
 
     ![Nowe zapytanie w bazie danych master](./media/load-data-from-azure-blob-storage-using-polybase/create-loader-login.png)
 
@@ -178,9 +56,9 @@ Obecnie łączysz się jako administrator serwera, dlatego możesz tworzyć iden
     CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
     ```
 
-3. Wybierz pozycję **Wykonaj** .
+3. Wybierz pozycję **Wykonaj**.
 
-4. Kliknij prawym przyciskiem myszy pozycję **mySampleDataWarehouse** i wybierz pozycję **Nowe zapytanie** . Zostanie otwarte okno nowego zapytania.  
+4. Kliknij prawym przyciskiem myszy pozycję **mySampleDataWarehouse** i wybierz pozycję **Nowe zapytanie**. Zostanie otwarte okno nowego zapytania.  
 
     ![Nowe zapytanie dotyczące przykładowego magazynu danych](./media/load-data-from-azure-blob-storage-using-polybase/create-loading-user.png)
 
@@ -192,19 +70,19 @@ Obecnie łączysz się jako administrator serwera, dlatego możesz tworzyć iden
     EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
     ```
 
-6. Wybierz pozycję **Wykonaj** .
+6. Wybierz pozycję **Wykonaj**.
 
 ## <a name="connect-to-the-server-as-the-loading-user"></a>Nawiązywanie połączenia z serwerem jako użytkownik ładujący
 
 Pierwszym krokiem do załadowania danych jest zalogowanie się jako użytkownik LoaderRC20.  
 
-1. W Eksplorator obiektów wybierz menu rozwijane **Połącz** i wybierz pozycję **aparat bazy danych** . Zostanie wyświetlone okno dialogowe **Nawiązywanie połączenia z serwerem** .
+1. W Eksplorator obiektów wybierz menu rozwijane **Połącz** i wybierz pozycję **aparat bazy danych**. Zostanie wyświetlone okno dialogowe **Nawiązywanie połączenia z serwerem**.
 
     ![Nawiązywanie połączenia za pomocą nowego konta logowania](./media/load-data-from-azure-blob-storage-using-polybase/connect-as-loading-user.png)
 
-2. Wprowadź w pełni kwalifikowaną nazwę serwera i jako nazwę logowania wprowadź identyfikator **LoaderRC20** .  Wprowadź hasło dla użytkownika LoaderRC20.
+2. Wprowadź w pełni kwalifikowaną nazwę serwera i jako nazwę logowania wprowadź identyfikator **LoaderRC20**.  Wprowadź hasło dla użytkownika LoaderRC20.
 
-3. Wybierz pozycję **Połącz** .
+3. Wybierz pozycję **Połącz**.
 
 4. Gdy połączenie będzie gotowe, w Eksploratorze obiektów zobaczysz dwa połączenia z serwerem. Jedno połączenie jako ServerAdmin i jedno połączenie jako MedRCLogin.
 
@@ -216,7 +94,7 @@ Wszystko jest gotowe do rozpoczęcia procesu ładowania danych do nowego magazyn
 
 Uruchom następujące skrypty SQL i podaj informacje o danych, które chcesz załadować. Informacje te obejmują obecną lokalizację danych, format zawartości danych i definicję tabel dla danych.
 
-1. W poprzedniej sekcji zalogowano się do magazynu danych jako użytkownik LoaderRC20. W programie SSMS kliknij prawym przyciskiem myszy połączenie użytkownika LoaderRC20, a następnie wybierz polecenie **Nowe zapytanie** .  Zostanie otwarte okno nowego zapytania.
+1. W poprzedniej sekcji zalogowano się do magazynu danych jako użytkownik LoaderRC20. W programie SSMS kliknij prawym przyciskiem myszy połączenie użytkownika LoaderRC20, a następnie wybierz polecenie **Nowe zapytanie**.  Zostanie otwarte okno nowego zapytania.
 
     ![Okno nowego zapytania ładującego](./media/load-data-from-azure-blob-storage-using-polybase/new-loading-query.png)
 
@@ -505,13 +383,13 @@ Wykonaj następujące kroki, aby wyczyścić zasoby zgodnie z potrzebami.
 
     ![Czyszczenie zasobów](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Aby wstrzymać obliczenia, wybierz przycisk **Wstrzymaj** . Gdy magazyn danych jest wstrzymany, widoczny jest przycisk **Uruchom** .  Aby wznowić obliczenia, wybierz pozycję **Uruchom** .
+2. Aby wstrzymać obliczenia, wybierz przycisk **Wstrzymaj** . Gdy magazyn danych jest wstrzymany, widoczny jest przycisk **Uruchom**.  Aby wznowić obliczenia, wybierz pozycję **Uruchom**.
 
-3. Aby usunąć magazyn danych, aby nie naliczać opłat za zasoby obliczeniowe i magazynowanie, wybierz pozycję **Usuń** .
+3. Aby usunąć magazyn danych, aby nie naliczać opłat za zasoby obliczeniowe i magazynowanie, wybierz pozycję **Usuń**.
 
-4. Aby usunąć utworzony serwer, wybierz pozycję **mynewserver-20180430.Database.Windows.NET** na poprzednim obrazie, a następnie wybierz pozycję **Usuń** .  Należy zachować ostrożność, ponieważ usunięcie serwera spowoduje usunięcie wszystkich baz danych przypisanych do tego serwera.
+4. Aby usunąć utworzony serwer, wybierz pozycję **mynewserver-20180430.Database.Windows.NET** na poprzednim obrazie, a następnie wybierz pozycję **Usuń**.  Należy zachować ostrożność, ponieważ usunięcie serwera spowoduje usunięcie wszystkich baz danych przypisanych do tego serwera.
 
-5. Aby usunąć grupę zasobów, wybierz pozycję Moja **zasobów** , a następnie wybierz pozycję **Usuń grupę zasobów** .
+5. Aby usunąć grupę zasobów, wybierz pozycję Moja **zasobów**, a następnie wybierz pozycję **Usuń grupę zasobów**.
 
 ## <a name="next-steps"></a>Następne kroki
 

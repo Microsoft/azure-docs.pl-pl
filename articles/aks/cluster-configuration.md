@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 352c057a74d1be5f440041b9f13127e8730edf82
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 4252e3a7f8c3ff9d0ec782a2a9222553c063463c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698074"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95533280"
 ---
 # <a name="configure-an-aks-cluster"></a>Konfigurowanie klastra AKS
 
@@ -237,47 +237,28 @@ az aks nodepool add --name gen2 --cluster-name myAKSCluster --resource-group myR
 Jeśli chcesz utworzyć regularne pule węzłów Gen1, możesz to zrobić, pomijając `--aks-custom-headers` znacznik niestandardowy.
 
 
-## <a name="ephemeral-os-preview"></a>Tymczasowych systemów operacyjnych (wersja zapoznawcza)
+## <a name="ephemeral-os"></a>Tymczasowych systemów operacyjnych
 
-Domyślnie dysk systemu operacyjnego maszyny wirtualnej platformy Azure jest automatycznie replikowany do usługi Azure Storage, aby uniknąć utraty danych, gdy maszyna wirtualna musi zostać przeniesiona do innego hosta. Ponieważ jednak kontenery nie mają trwałego stanu lokalnego, to zachowanie oferuje ograniczoną wartość, a jednocześnie zapewnia pewne wady, w tym wolniejsze Inicjowanie obsługi węzłów oraz wyższe opóźnienia odczytu i zapisu.
+Domyślnie platforma Azure automatycznie replikuje dysk systemu operacyjnego maszyny wirtualnej do usługi Azure Storage, aby uniknąć utraty danych, gdy maszyna wirtualna musi zostać przeniesiona do innego hosta. Ponieważ jednak kontenery nie mają trwałego stanu lokalnego, to zachowanie oferuje ograniczoną wartość, a jednocześnie zapewnia pewne wady, w tym wolniejsze Inicjowanie obsługi węzłów oraz wyższe opóźnienia odczytu i zapisu.
 
 Z kolei tymczasowe dyski systemu operacyjnego są przechowywane tylko na komputerze-hoście, podobnie jak dysk tymczasowy. Zapewnia to mniejsze opóźnienie odczytu/zapisu oraz szybsze skalowanie węzłów i uaktualnień klastra.
 
 Podobnie jak w przypadku dysku tymczasowego, tymczasowy dysk systemu operacyjnego jest dołączany do ceny maszyny wirtualnej, dzięki czemu nie są naliczane żadne dodatkowe koszty magazynowania.
 
-Zarejestruj `EnableEphemeralOSDiskPreview` funkcję:
+> [!IMPORTANT]
+>Jeśli użytkownik nie zażąda jawnie usługi Managed disks dla systemu operacyjnego, AKS będzie domyślnie mieć tymczasowych systemów operacyjnych, jeśli jest to możliwe dla danej konfiguracji nodepool.
 
-```azurecli
-az feature register --name EnableEphemeralOSDiskPreview --namespace Microsoft.ContainerService
-```
+W przypadku korzystania z tymczasowych systemów operacyjnych dysk systemu operacyjnego musi pasować do pamięci podręcznej maszyny wirtualnej. Rozmiary pamięci podręcznej maszyn wirtualnych są dostępne w [dokumentacji platformy Azure](../virtual-machines/dv3-dsv3-series.md) w nawiasach obok pozycji przepływność we/wy ("rozmiar pamięci podręcznej w GIB").
 
-Wyświetlenie stanu jako **zarejestrowanego** może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) :
+Użycie domyślnego rozmiaru maszyny wirtualnej AKS Standard_DS2_v2 z domyślnym rozmiarem dysku systemu operacyjnego 100 GB na przykład ten rozmiar maszyny wirtualnej obsługuje system operacyjny, ale ma tylko 86GB rozmiaru pamięci podręcznej. Ta konfiguracja będzie domyślnie obsługiwana w przypadku dysków zarządzanych, jeśli użytkownik nie określi jawnie. Jeśli użytkownik jawnie zażądał tymczasowej wersji systemu operacyjnego, wystąpi błąd walidacji.
 
-```azurecli
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEphemeralOSDiskPreview')].{Name:name,State:properties.state}"
-```
+Jeśli użytkownik zażąda tego samego Standard_DS2_v2 z dyskiem systemu operacyjnego o pojemności 60 GB, ta konfiguracja będzie domyślnie w systemie operacyjnym tymczasowych: żądany rozmiar dysku 60 GB jest mniejszy niż maksymalny rozmiar pamięci podręcznej 86GB.
 
-Gdy stan jest wyświetlany jako zarejestrowane, Odśwież rejestrację `Microsoft.ContainerService` dostawcy zasobów przy użyciu polecenia [AZ Provider Register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true) :
+Przy użyciu Standard_D8s_v3 z dyskiem systemu operacyjnego 100 GB ten rozmiar maszyny wirtualnej obsługuje tymczasowe systemy operacyjne i 200 GB miejsce w pamięci podręcznej. Jeśli użytkownik nie określi typu dysku systemu operacyjnego, nodepool domyślnie otrzymuje system operacyjny. 
 
-```azurecli
-az provider register --namespace Microsoft.ContainerService
-```
+Tymczasowe systemy operacyjne wymagają co najmniej wersji 2.15.0 interfejsu wiersza polecenia platformy Azure.
 
-Tymczasowe systemy operacyjne wymagają co najmniej wersji 0.4.63 rozszerzenia interfejsu wiersza polecenia AKS-Preview.
-
-Aby zainstalować rozszerzenie interfejsu wiersza polecenia AKS-Preview, użyj następujących poleceń interfejsu wiersza polecenia platformy Azure:
-
-```azurecli
-az extension add --name aks-preview
-```
-
-Aby zaktualizować rozszerzenie interfejsu wiersza polecenia AKS-Preview, użyj następujących poleceń interfejsu wiersza polecenia platformy Azure:
-
-```azurecli
-az extension update --name aks-preview
-```
-
-### <a name="use-ephemeral-os-on-new-clusters-preview"></a>Używanie tymczasowych systemów operacyjnych w nowych klastrach (wersja zapoznawcza)
+### <a name="use-ephemeral-os-on-new-clusters"></a>Używanie tymczasowych systemów operacyjnych w nowych klastrach
 
 Skonfiguruj klaster do używania tymczasowych dysków systemu operacyjnego podczas tworzenia klastra. Użyj `--node-osdisk-type` flagi, aby ustawić tymczasowych systemów operacyjnych jako typ dysku systemu operacyjnego dla nowego klastra.
 
@@ -285,9 +266,9 @@ Skonfiguruj klaster do używania tymczasowych dysków systemu operacyjnego podcz
 az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
 ```
 
-Jeśli chcesz utworzyć zwykły klaster przy użyciu dysków systemu operacyjnego podłączonych do sieci, możesz to zrobić, pomijając `--node-osdisk-type` tag niestandardowy lub określając `--node-osdisk-type=Managed` . Możesz również dodać więcej pul węzłów systemu operacyjnego z systemem operacyjnym poniżej.
+Jeśli chcesz utworzyć zwykły klaster przy użyciu dysków systemu operacyjnego podłączonych do sieci, możesz to zrobić przez określenie opcji `--node-osdisk-type=Managed` . Możesz również dodać więcej pul węzłów systemu operacyjnego z systemem operacyjnym poniżej.
 
-### <a name="use-ephemeral-os-on-existing-clusters-preview"></a>Używanie tymczasowych systemów operacyjnych w istniejących klastrach (wersja zapoznawcza)
+### <a name="use-ephemeral-os-on-existing-clusters"></a>Używanie tymczasowych systemów operacyjnych w istniejących klastrach
 Skonfiguruj nową pulę węzłów do używania tymczasowych dysków systemu operacyjnego. Użyj `--node-osdisk-type` flagi, aby ustawić jako typ dysku systemu operacyjnego jako typ dysku systemu operacyjnego dla tej puli węzłów.
 
 ```azurecli
@@ -297,7 +278,7 @@ az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-grou
 > [!IMPORTANT]
 > Za pomocą tymczasowej wersji systemu operacyjnego można wdrożyć maszyny wirtualne i wystąpienia obrazów o rozmiarze do rozmiaru pamięci podręcznej maszyny wirtualnej. W przypadku AKS domyślna konfiguracja dysku systemu operacyjnego węzła używa 100GiB, co oznacza, że potrzebujesz rozmiaru maszyny wirtualnej, która ma pamięć podręczną o rozmiarze większym niż 100 GiB. Domyślny Standard_DS2_v2 ma rozmiar pamięci podręcznej wynoszący 86 GiB, która nie jest wystarczająco duża. Standard_DS3_v2 ma rozmiar pamięci podręcznej 172 GiB, która jest wystarczająco duża. Możesz również zmniejszyć domyślny rozmiar dysku systemu operacyjnego za pomocą polecenia `--node-osdisk-size` . Minimalny rozmiar obrazów AKS to 30GiB. 
 
-Jeśli chcesz utworzyć pule węzłów z dyskami systemu operacyjnego dołączonymi do sieci, możesz to zrobić, pomijając znacznik niestandardowy `--node-osdisk-type` .
+Jeśli chcesz utworzyć pule węzłów z dyskami systemu operacyjnego dołączonymi do sieci, możesz to zrobić, określając polecenie `--node-osdisk-type Managed` .
 
 ## <a name="custom-resource-group-name"></a>Nazwa niestandardowej grupy zasobów
 

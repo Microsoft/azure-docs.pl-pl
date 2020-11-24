@@ -1,6 +1,6 @@
 ---
-title: Zmiana rozmiaru dysku systemu operacyjnego z partycją GPT | Microsoft Docs
-description: Ten artykuł zawiera instrukcje dotyczące zmiany rozmiarów dysku systemu operacyjnego z partycją GPT.
+title: Zmiana rozmiaru dysku systemu operacyjnego z partycją GPT
+description: Ten artykuł zawiera instrukcje dotyczące zmiany rozmiaru dysku systemu operacyjnego, który ma partycję z tabelą partycji GUID (GPT) w systemie Linux.
 services: virtual-machines-linux
 documentationcenter: ''
 author: kailashmsft
@@ -14,17 +14,17 @@ ms.devlang: azurecli
 ms.date: 05/03/2020
 ms.author: kaib
 ms.custom: seodec18
-ms.openlocfilehash: 99b723322ce7636edce3ae5b59a69b96e288ca24
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 3565b165c669af3566667d9bdfa401d15fcce101
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392694"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544160"
 ---
 # <a name="resize-an-os-disk-that-has-a-gpt-partition"></a>Zmiana rozmiaru dysku systemu operacyjnego z partycją GPT
 
 > [!NOTE]
-> Ten scenariusz dotyczy tylko dysków systemu operacyjnego z partycją z tabelą partycji GUID (GPT).
+> Ten artykuł dotyczy tylko dysków systemu operacyjnego z partycją z tabelą partycji GUID (GPT).
 
 W tym artykule opisano sposób zwiększenia rozmiaru dysku systemu operacyjnego z partycją GPT w systemie Linux. 
 
@@ -78,14 +78,14 @@ Poniższe instrukcje dotyczą dystrybucji z systemem Linux.
 
 ### <a name="ubuntu"></a>Ubuntu
 
-Aby zwiększyć rozmiar dysku systemu operacyjnego w Ubuntu 16. x i 18. x:
+Aby zwiększyć rozmiar dysku systemu operacyjnego w Ubuntu 16. *x* i 18. *x*:
 
 1. Zatrzymaj maszynę wirtualną.
 1. Zwiększ rozmiar dysku systemu operacyjnego z portalu.
 1. Uruchom ponownie maszynę wirtualną, a następnie zaloguj się do maszyny wirtualnej jako użytkownik **główny** .
 1. Sprawdź, czy na dysku systemu operacyjnego jest teraz wyświetlany zwiększony rozmiar systemu plików.
 
-Jak pokazano w poniższym przykładzie, rozmiar dysku systemu operacyjnego został zmieniony z portalu do 100 GB. System plików **/dev/sda1** zainstalowany na **/** teraz wyświetla 97 GB.
+W poniższym przykładzie zmieniono rozmiar dysku systemu operacyjnego z portalu do 100 GB. System plików **/dev/sda1** zainstalowany na **/** teraz wyświetla 97 GB.
 
 ```
 user@myvm:~# df -Th
@@ -112,7 +112,7 @@ Aby zwiększyć rozmiar dysku systemu operacyjnego w wersji SUSE 12 SP4, SUSE SL
 
 Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
 
-1. Uzyskaj dostęp do maszyny wirtualnej jako użytkownik **główny** przy użyciu następującego polecenia:
+1. Uzyskaj dostęp do maszyny wirtualnej jako użytkownik **główny** przy użyciu tego polecenia:
 
    ```
    # sudo -i
@@ -124,7 +124,7 @@ Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
    # zypper install growpart
    ```
 
-1. Użyj `lsblk` polecenia, aby znaleźć partycję zainstalowaną w katalogu głównym systemu plików ("/"). W takim przypadku widzimy, że partycja 4 urządzenia SDA jest zainstalowana na/:
+1. Użyj `lsblk` polecenia, aby znaleźć partycję zainstalowaną w folderze głównym systemu plików ( **/** ). W takim przypadku zobaczymy, że partycja 4 urządzenia **SDA** jest zainstalowana na **/** :
 
    ```
    # lsblk
@@ -138,7 +138,7 @@ Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
    └─sdb1   8:17   0    4G  0 part /mnt/resource
    ```
 
-1. Zmień rozmiar wymaganej partycji za pomocą `growpart` polecenia, używając numeru partycji znalezionego w poprzednim kroku.
+1. Zmień rozmiar wymaganej partycji za pomocą `growpart` polecenia i numeru partycji określonego w poprzednim kroku:
 
    ```
    # growpart /dev/sda 4
@@ -177,7 +177,7 @@ Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
 
 1. W oparciu o typ systemu plików użyj odpowiednich poleceń, aby zmienić rozmiar systemu plików.
    
-   W przypadku **XFS** Użyj następującego polecenia:
+   W przypadku **XFS** Użyj tego polecenia:
    
    ```
    #xfs_growfs /
@@ -200,13 +200,13 @@ Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
    data blocks changed from 7470331 to 12188923
    ```
    
-   W przypadku **ext4** Użyj następującego polecenia:
+   W przypadku **ext4** Użyj tego polecenia:
    
    ```
    #resize2fs /dev/sda4
    ```
    
-1. Sprawdź zwiększony rozmiar systemu plików dla **DF-ty** przy użyciu następującego polecenia:
+1. Sprawdź zwiększony rozmiar systemu plików dla **DF-ty** przy użyciu tego polecenia:
    
    ```
    #df -Thl
@@ -233,13 +233,13 @@ Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
 
 ### <a name="rhel-with-lvm"></a>RHEL z LVM
 
-1. Uzyskaj dostęp do maszyny wirtualnej jako użytkownik **główny** przy użyciu następującego polecenia:
+1. Uzyskaj dostęp do maszyny wirtualnej jako użytkownik **główny** przy użyciu tego polecenia:
 
    ```bash
    [root@dd-rhel7vm ~]# sudo -i
    ```
 
-1. Użyj `lsblk` polecenia, aby znaleźć wolumin logiczny (LV), który jest instalowany w katalogu głównym systemu plików ("/"). W takim przypadku zobaczymy, że **_rootvg-rootlv_*_ jest zainstalowany na _* /**.  Jeśli pożądany jest inny system plików, Zastąp punkt LV i punktu instalacji tym dokumentem.
+1. Użyj `lsblk` polecenia, aby określić, który wolumin logiczny (LV) jest instalowany w katalogu głównym systemu plików ( **/** ). W takim przypadku zobaczymy, że **rootvg-rootlv** jest zainstalowany w systemie **/** . Jeśli chcesz użyć innego systemu plików, Zastąp punkt LV i punktu instalacji w tym artykule.
 
    ```shell
    [root@dd-rhel7vm ~]# lsblk -f
@@ -258,7 +258,7 @@ Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
       └─rootvg-rootlv     xfs                 4f3e6f40-61bf-4866-a7ae-5c6a94675193   /
    ```
 
-1. Sprawdź, czy w grupie woluminów LVM znajduje się wolne miejsce zawierające partycję główną.  Jeśli jest wolne miejsce, przejdź do kroku **12**
+1. Sprawdź, czy w grupie woluminów LVM (VG), która zawiera partycję główną, znajduje się wolne miejsce. Jeśli jest wolne miejsce, przejdź do kroku 12.
 
    ```bash
    [root@dd-rhel7vm ~]# vgdisplay rootvg
@@ -284,17 +284,15 @@ Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
    VG UUID               lPUfnV-3aYT-zDJJ-JaPX-L2d7-n8sL-A9AgJb
    ```
 
-   W tym przykładzie, bezpłatna wersja **środowiska PE/size** wskazuje, że w grupie woluminów istnieje 38.02 GB wolnego miejsca.  Nie trzeba zmieniać rozmiarów dysków przed dodaniem miejsca do grupy woluminów
+   W tym przykładzie, bezpłatna wersja **środowiska PE/size** pokazuje, że w grupie woluminów istnieje 38,02 GB wolnego miejsca. Nie musisz zmieniać rozmiaru dysku przed dodaniem miejsca do grupy woluminów.
 
-1. Aby zwiększyć rozmiar dysku systemu operacyjnego w RHEL 7. x z LVM:
+1. Aby zwiększyć rozmiar dysku systemu operacyjnego w RHEL 7. *x* z LVM:
 
    1. Zatrzymaj maszynę wirtualną.
    1. Zwiększ rozmiar dysku systemu operacyjnego z portalu.
    1. Uruchom maszynę wirtualną.
 
-1. Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
-
-   1. Zainstaluj pakiet **Cloud-Installations-growpart** , aby udostępnić polecenie **growpart** , które jest wymagane do zwiększenia rozmiaru dysku systemu operacyjnego.
+1. Po ponownym uruchomieniu maszyny wirtualnej Zainstaluj pakiet narzędzia **chmur-narzędzia-growpart** , aby uzyskać `growpart` polecenie, które jest potrzebne do zwiększenia rozmiaru dysku systemu operacyjnego.
 
       Ten pakiet jest wstępnie instalowany w większości obrazów portalu Azure Marketplace.
 
@@ -302,14 +300,14 @@ Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
       [root@dd-rhel7vm ~]# yum install cloud-utils-growpart
       ```
 
-1. Określ, który dysk i partycja przechowuje woluminy fizyczne LVM (PV) w grupie woluminów (VG) o nazwie rootvg za pomocą polecenia **pvscan** .  Zanotuj rozmiar i wolne miejsce na liście między nawiasami klamrowymi **[]**.
+1. Określ, który dysk i partycja przechowuje wolumin fizyczny LVM lub woluminy (PV) w grupie woluminów o nazwie **rootvg** przy użyciu `pvscan` polecenia. Zanotuj rozmiar i wolne miejsce na liście w nawiasach kwadratowych (**[** i **]**).
 
    ```bash
    [root@dd-rhel7vm ~]# pvscan
      PV /dev/sda4   VG rootvg          lvm2 [<63.02 GiB / <38.02 GiB free]
    ```
 
-1. Sprawdź rozmiar partycji z **lsblk**.  Spójrz na 
+1. Sprawdź rozmiar partycji za pomocą polecenia `lsblk` . 
 
    ```bash
    [root@dd-rhel7vm ~]# lsblk /dev/sda4
@@ -323,14 +321,14 @@ Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
    └─rootvg-rootlv 253:6    0   2G  0 lvm  /
    ```
 
-1. Rozwiń partycję zawierającą tę WB przy użyciu **growpart** , nazwę urządzenia i numer partycji.  Spowoduje to rozwinięcie określonej partycji w celu użycia całego wolnego miejsca na urządzeniu.
+1. Rozwiń partycję zawierającą to WB przy użyciu `growpart` , nazwę urządzenia i numer partycji. Wykonanie tej czynności spowoduje rozwinięcie określonej partycji w celu użycia całego wolnego miejsca na urządzeniu.
 
    ```bash
    [root@dd-rhel7vm ~]# growpart /dev/sda 4
    CHANGED: partition=4 start=2054144 old: size=132161536 end=134215680 new: size=199272414 end=201326558
    ```
 
-1. Sprawdź, czy rozmiar partycji został zmieniony na rozmiar oczekiwany przy użyciu polecenia **lsblk** .  Zwróć uwagę, że w przykładzie sda4 zmienił się z 63G na 95G.
+1. Sprawdź, czy rozmiar partycji został zmieniony na rozmiar oczekiwany przy użyciu `lsblk` polecenia ponownie. Zwróć uwagę, że w przykładzie **sda4** zmienił się z 63 gb na 95 GB.
 
    ```bash
    [root@dd-rhel7vm ~]# lsblk /dev/sda4
@@ -344,7 +342,7 @@ Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
    └─rootvg-rootlv 253:6    0   2G  0 lvm  /
    ```
 
-1. Rozwiń WB, aby użyć reszty nowo rozwiniętej partycji
+1. Rozwiń WB, aby użyć reszty nowo rozwiniętej partycji:
 
    ```bash
    [root@dd-rhel7vm ~]# pvresize /dev/sda4
@@ -352,14 +350,14 @@ Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
    1 physical volume(s) resized or updated / 0 physical volume(s) not resized
    ```
 
-1. Sprawdź, czy rozmiar elementu PV jest oczekiwany, porównując z oryginalnymi wartościami **[size/Free]** .
+1. Sprawdź, czy nowy rozmiar PV jest oczekiwanym rozmiarem, porównując go z oryginalnymi wartościami **[size/Free]** :
 
    ```bash
    [root@dd-rhel7vm ~]# pvscan
    PV /dev/sda4   VG rootvg          lvm2 [<95.02 GiB / <70.02 GiB free]
    ```
 
-1. Rozwiń żądany wolumin logiczny (LV) o żądaną ilość, która nie musi być całością wolnego miejsca w grupie woluminów.  W poniższym przykładzie rozmiar **/dev/mapper/rootvg-rootlv** jest zmieniany z 2 GB do 12 GB (wzrost 10 GB) za pomocą poniższego polecenia. To polecenie spowoduje również zmianę rozmiaru systemu plików.
+1. Rozwiń żądany wolumin logiczny (LV) o żądaną kwotę. Ta kwota nie musi być całością wolnego miejsca w grupie woluminów. W poniższym przykładzie rozmiar **/dev/mapper/rootvg-rootlv** jest zmieniany z 2 GB do 12 GB (wzrost 10 GB). To polecenie spowoduje również zmianę rozmiaru systemu plików.
 
    ```bash
    [root@dd-rhel7vm ~]# lvresize -r -L +10G /dev/mapper/rootvg-rootlv
@@ -383,7 +381,7 @@ Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
    data blocks changed from 524288 to 3145728
    ```
 
-1. Polecenie lvresize automatycznie wywołuje odpowiednie polecenie zmiany rozmiaru dla systemu plików w LV. Sprawdź, czy **/dev/mapper/rootvg-rootlv** , który jest zainstalowany w **/** programie, ma zwiększony rozmiar systemu plików przy użyciu następującego polecenia:
+1. `lvresize`Polecenie automatycznie wywołuje odpowiednie polecenie zmiany rozmiaru dla systemu plików w LV. Sprawdź, czy **/dev/mapper/rootvg-rootlv**, który jest zainstalowany w systemie **/** , ma zwiększony rozmiar systemu plików przy użyciu tego polecenia:
 
    ```shell
    [root@dd-rhel7vm ~]# df -Th /
@@ -399,26 +397,27 @@ Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
    ```
 
 > [!NOTE]
-> Aby użyć tej samej procedury w celu zmiany rozmiaru dowolnego innego woluminu logicznego, należy zmienić nazwę **LV** w kroku **12**.
+> Aby użyć tej samej procedury w celu zmiany rozmiaru dowolnego innego woluminu logicznego, należy zmienić nazwę LV w kroku 12.
 
 ### <a name="rhel-raw"></a>RHEL RAW
 >[!NOTE]
 >Zawsze należy utworzyć migawkę maszyny wirtualnej przed zwiększeniem rozmiaru dysku systemu operacyjnego.
 
-Aby zwiększyć rozmiar dysku systemu operacyjnego w RHEL z nieprzetworzoną partycją:
+Aby zwiększyć rozmiar dysku systemu operacyjnego w partycji RHEL RAW:
 
-Zatrzymaj maszynę wirtualną.
-Zwiększ rozmiar dysku systemu operacyjnego z portalu.
-Uruchom maszynę wirtualną.
+1. Zatrzymaj maszynę wirtualną.
+1. Zwiększ rozmiar dysku systemu operacyjnego z portalu.
+1. Uruchom maszynę wirtualną.
+
 Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
 
-1. Uzyskaj dostęp do maszyny wirtualnej jako użytkownik **główny** przy użyciu następującego polecenia:
+1. Uzyskaj dostęp do maszyny wirtualnej jako użytkownik **główny** przy użyciu tego polecenia:
  
    ```
    sudo su
    ```
 
-1. Zainstaluj pakiet **gptfdisk** , który jest wymagany do zwiększenia rozmiaru dysku systemu operacyjnego.
+1. Zainstaluj pakiet **gptfdisk** , który jest potrzebny do zwiększenia rozmiaru dysku systemu operacyjnego:
 
    ```
    yum install gdisk -y
@@ -429,70 +428,71 @@ Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
     gdisk -l /dev/sda
     ```
 
-1. Zobaczysz szczegóły dotyczące typu partycji. Upewnij się, że jest to tabela GPT. Zidentyfikuj partycję główną. Nie zmieniaj ani nie usuwaj partycji rozruchowej (partycja rozruchowa systemu BIOS) i partycji systemowej ("partycja systemowa EFI")
+1. Zobaczysz szczegóły dotyczące typu partycji. Upewnij się, że jest to tabela GPT. Zidentyfikuj partycję główną. Nie zmieniaj ani nie usuwaj partycji rozruchowej (partycja rozruchowa BIOS) ani partycji systemowej (partycja systemowa EFI).
 
-1. Użyj poniższego polecenia, aby rozpocząć partycjonowanie po raz pierwszy. 
+1. Użyj tego polecenia, aby rozpocząć partycjonowanie po raz pierwszy: 
     ```
     gdisk /dev/sda
     ```
 
-1. Zobaczysz komunikat z prośbą o następne polecenie ("polecenie:? w celu uzyskania pomocy "). 
+1. Zobaczysz komunikat z monitem o następne polecenie: `Command: ? for help` . Wybierz klawisz **w** :
 
    ```
    w
    ```
 
-1. Zostanie wyświetlone ostrzeżenie informujące o "ostrzeżeniu! Nagłówek pomocniczy został zbyt wcześnie umieszczony na dysku! Czy chcesz rozwiązać ten problem? (T/N): ". Musisz nacisnąć przycisk "t"
+1. Zostanie wyświetlony następujący komunikat: `Warning! Secondary header is placed too early on the disk! Do you want to
+correct this problem? (Y/N)` . Wybierz klawisz **Y** : 
 
    ```
    Y
    ```
 
-1. Powinien zostać wyświetlony komunikat z informacją, że sprawdzanie końcowe zostało ukończone i zażądaj potwierdzenia. Naciśnij klawisz "Y"
+1. Powinien zostać wyświetlony komunikat z informacją, że sprawdzanie końcowe zostało zakończone i pojawia się monit o potwierdzenie. Wybierz klawisz **Y** :
 
    ```
    Y
    ```
 
-1. Sprawdź, czy wszystko zostało wykonane prawidłowo przy użyciu polecenia partprobe
+1. Użyj `partprobe` polecenia, aby sprawdzić, czy wszystko poszło poprawnie:
 
    ```
    partprobe
    ```
 
-1. Powyższe kroki zapewniają, że pomocniczy nagłówek GPT jest umieszczony na końcu. Następnym krokiem jest rozpoczęcie procesu zmiany rozmiarów przy użyciu narzędzia gdisk. Użyj poniższego polecenia.
+1. Poprzednie kroki zostały wykonane, aby upewnić się, że pomocniczy nagłówek GPT jest umieszczony na końcu. Następnie należy ponownie uruchomić proces zmiany rozmiarów przy użyciu `gdisk` Narzędzia. Użyj następującego polecenia:
 
    ```
    gdisk /dev/sda
    ```
-1. Aby wyświetlić listę partycji, w menu poleceń naciśnij klawisz "p". Zidentyfikuj partycję główną (w krokach sda2 jest traktowana jako partycja główna), a partycja rozruchowa (w krokach, sda3 jest traktowana jako partycja rozruchowa) 
+1. W menu poleceń wybierz klawisz **p** , aby wyświetlić listę partycji. Zidentyfikuj partycję główną. (W tych krokach **sda2** jest uznawany za partycję główną). Zidentyfikuj partycję rozruchową. (W tych krokach **sda3** jest traktowany jako partycja rozruchowa). 
 
    ```
    p
    ```
-    ![Partycja główna i partycja rozruchowa](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw1.png)
+    ![Zrzut ekranu pokazujący partycję główną i partycję rozruchową.](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw1.png)
 
-1. Naciśnij przycisk 'd ', aby usunąć partycję, a następnie wybierz numer partycji przypisanej do rozruchu (w tym przykładzie jest to "3").
+1. Wybierz klawisz **d** , aby usunąć partycję. Następnie wybierz numer partycji przypisany do partycji rozruchowej. (W tym przykładzie jest to **3**).
    ```
    d
    3
    ```
-1. Naciśnij przycisk 'd ', aby usunąć partycję, a następnie wybierz numer partycji przypisanej do rozruchu (w tym przykładzie jest to "2").
+1. Wybierz klawisz **d** , aby usunąć partycję. Wybierz numer partycji przypisany do partycji rozruchowej. (W tym przykładzie jest to **2**).
    ```
    d
    2
    ```
-    ![Usuwanie partycji głównej i partycji rozruchowej](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw2.png)
+    ![Zrzut ekranu pokazujący kroki usuwania partycji głównych i rozruchowych.](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw2.png)
 
-1. Aby ponownie utworzyć partycję główną o większym rozmiarze, naciśnij przycisk "n", wprowadź numer partycji, który został usunięty wcześniej dla katalogu głównego ("2" w tym przykładzie) i wybierz pierwszy sektor jako "wartość domyślna", ostatni sektor jako "wartość ostatniego sektora — sektor rozmiaru rozruchu" ("4096 w tym przypadku" odpowiada na rozruch z 2 MB) i kod szesnastkowy "8300"
+1. Aby ponownie utworzyć partycję główną z większym rozmiarem, wybierz **n** klucz, a następnie wprowadź numer partycji, który został usunięty wcześniej dla katalogu głównego (**2** w tym przykładzie). Wybierz `Default Value` dla pierwszego sektora. Wybierz `Last sector value -  boot size sector` dla ostatniego sektora ( `4096` w tym przypadku, odpowiadający rozruch 2 MB). Wybierz `8300` dla kodu szesnastkowego.
    ```
    n
    2
    (Enter default)
-   (Calculateed value of Last sector value - 4096)
+   (Calculated value of Last sector value - 4096)
    8300
    ```
-1. Aby ponownie utworzyć partycję rozruchową, należy nacisnąć klawisz "n", wprowadzić numer partycji, który został wcześniej usunięty dla rozruchu ("3" w tym przykładzie) i wybrać pierwszy sektor jako wartość domyślną ", ostatni sektor jako" wartość domyślna "i kod szesnastkowy jako" EF02 "
+1. Aby ponownie utworzyć partycję rozruchową, wybierz klucz **n** , a następnie wprowadź numer partycji, który został usunięty wcześniej dla rozruchu (**3** w tym przykładzie). Wybierz `Default Value` dla pierwszego sektora i ostatniego sektora. Wybierz `EF02` dla kodu szesnastkowego.
    ```
    n
    3
@@ -501,28 +501,28 @@ Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
    EF02
    ```
 
-1. Zapisz zmiany za pomocą polecenia "w" i naciśnij klawisz "Y", aby potwierdzić
+1. Zapisz zmiany za pomocą `w` polecenia, a następnie wybierz, `Y` Aby potwierdzić zmiany:
    ```
    w
    Y
    ```
-1. Uruchom polecenie "partprobe", aby sprawdzić stabilność dysku
+1. Uruchom `partprobe` polecenie, aby sprawdzić stabilność dysku:
    ```
    partprobe
    ```
-1. Przeprowadź ponowny rozruch maszyny wirtualnej, a rozmiar partycji głównej zostałby zwiększony
+1. Uruchom ponownie maszynę wirtualną. Rozmiar partycji głównej należy zwiększyć.
    ```
    reboot
    ```
 
-   ![Nowa partycja główna i partycja rozruchowa](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw3.png)
+   ![Zrzut ekranu pokazujący procedurę ponownego tworzenia partycji rozruchowej.](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw3.png)
 
-1. Uruchom polecenie xfs_growfs na partycji, aby zmienić ich rozmiar
+1. Uruchom `xfs_growfs` polecenie na partycji, aby zmienić jego rozmiar:
    ```
    xfs_growfs /dev/sda2
    ```
 
-   ![XFS](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw4.png)
+   ![Zrzut ekranu pokazujący wynik uruchamiania xfs_growfs.](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw4.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

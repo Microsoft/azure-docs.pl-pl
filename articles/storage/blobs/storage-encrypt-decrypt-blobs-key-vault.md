@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8ac69b442b06864fd45561b26909e1247674611a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddc9dbf77c04ea95e5b873c45de4c0df109514c7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458386"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544449"
 ---
 # <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Samouczek — szyfrowanie i odszyfrowywanie obiektów BLOB za pomocą Azure Key Vault
 
@@ -236,8 +236,8 @@ To wszystko. Owocnej pracy.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat korzystania z Microsoft Azure Storage w języku C#, zobacz [Microsoft Azure Storage biblioteki klienckiej dla platformy .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Aby uzyskać więcej informacji na temat korzystania z Microsoft Azure Storage w języku C#, zobacz [Microsoft Azure Storage biblioteki klienckiej dla platformy .NET](/previous-versions/azure/dn261237(v=azure.100)).
 
-Aby uzyskać więcej informacji na temat interfejsu API REST obiektów blob, zobacz [interfejs API REST usługi BLOB Service](https://msdn.microsoft.com/library/azure/dd135733.aspx).
+Aby uzyskać więcej informacji na temat interfejsu API REST obiektów blob, zobacz [interfejs API REST usługi BLOB Service](/rest/api/storageservices/Blob-Service-REST-API).
 
-Aby uzyskać najnowsze informacje na temat Microsoft Azure Storage, przejdź do [blogu zespołu Microsoft Azure Storage](https://docs.microsoft.com/archive/blogs/windowsazurestorage/).
+Aby uzyskać najnowsze informacje na temat Microsoft Azure Storage, przejdź do [blogu zespołu Microsoft Azure Storage](/archive/blogs/windowsazurestorage/).

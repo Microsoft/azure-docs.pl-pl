@@ -9,12 +9,12 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3a3395873d7655118e3fcc9c36cdfc3855f8f000
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14da8b6cb695703f1881b6b0b9858772bde386c5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714812"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544755"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista kontrolna wydajności i skalowalności usługi BLOB Storage
 
@@ -59,7 +59,7 @@ Ten artykuł organizuje sprawdzone rozwiązania dotyczące wydajności w ramach 
 
 Jeśli aplikacja zbliża się lub przekroczy elementy docelowe skalowalności, może wystąpić zwiększenie opóźnień transakcji lub ograniczenie przepustowości. Gdy usługa Azure Storage ogranicza swoją aplikację, rozpocznie się zwracanie kodów błędów 503 (serwer zajęty) lub 500 (limit czasu operacji). Unikanie tych błędów przez Przekroczenie limitów celów skalowalności jest ważną częścią zwiększania wydajności aplikacji.
 
-Aby uzyskać więcej informacji dotyczących skalowalności usługa kolejki, zobacz [cele dotyczące skalowalności i wydajności usługi Azure Storage](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage).
+Aby uzyskać więcej informacji dotyczących skalowalności usługa kolejki, zobacz [cele dotyczące skalowalności i wydajności usługi Azure Storage](../queues/scalability-targets.md#scale-targets-for-queue-storage).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Maksymalna liczba kont magazynu
 
@@ -100,7 +100,7 @@ Zrozumienie, jak usługa Azure Storage Partitions dane obiektów BLOB są przyda
 
 Usługa BLOB Storage używa schematu partycjonowania opartego na zakresie na potrzeby skalowania i równoważenia obciążenia. Każdy obiekt BLOB ma klucz partycji składający się z pełnej nazwy obiektu BLOB (account + Container + BLOB). Klucz partycji służy do partycjonowania danych obiektów BLOB w ramach zakresów. Zakresy są następnie zrównoważone obciążenie między magazynem obiektów BLOB.
 
-Partycjonowanie oparte na zakresie oznacza, że konwencje nazewnictwa, które korzystają z porządkowania leksykalnego *myperformance*(na przykład *myemployees*:*log20160101*, *log20160102*, *log20160102*itp. *), są*bardziej podobne do tych, które znajdują się na tym samym serwerze partycji. , do momentu zwiększenia obciążenia wymaga, aby zostały podzielone na mniejsze zakresy. Wspólne lokalizowanie obiektów BLOB na tym samym serwerze partycji zwiększa wydajność, dzięki czemu istotna część rozszerzania wydajności polega na nazewnictwie obiektów BLOB w sposób, który organizuje je najbardziej efektywnie.
+Partycjonowanie oparte na zakresie oznacza, że konwencje nazewnictwa, które korzystają z porządkowania leksykalnego *myperformance*(na przykład *myemployees*:*log20160101*, *log20160102*, *log20160102* itp. *), są* bardziej podobne do tych, które znajdują się na tym samym serwerze partycji. , do momentu zwiększenia obciążenia wymaga, aby zostały podzielone na mniejsze zakresy. Wspólne lokalizowanie obiektów BLOB na tym samym serwerze partycji zwiększa wydajność, dzięki czemu istotna część rozszerzania wydajności polega na nazewnictwie obiektów BLOB w sposób, który organizuje je najbardziej efektywnie.
 
 Na przykład wszystkie obiekty blob w kontenerze mogą być obsługiwane przez jeden serwer, dopóki obciążenie tych obiektów BLOB nie wymaga dodatkowego ponownego zrównoważenia zakresów partycji. Analogicznie, Grupa jasno załadowanych kont z ich nazwami uporządkowanymi w kolejności leksykalnej może być obsługiwana przez jeden serwer do momentu, gdy obciążenie jednego lub wszystkich tych kont nie będzie wymagało ich podziału na wiele serwerów partycji.
 
@@ -195,7 +195,7 @@ ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 
 W przypadku innych języków programowania zapoznaj się z dokumentacją, aby określić, jak ustawić limit połączeń.  
 
-Aby uzyskać więcej informacji, zobacz blog [usługi sieci Web w blogu: połączenia współbieżne](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+Aby uzyskać więcej informacji, zobacz blog [usługi sieci Web w blogu: połączenia współbieżne](/archive/blogs/darrenj/web-services-concurrent-connections).  
 
 ### <a name="increase-minimum-number-of-threads"></a>Zwiększ minimalną liczbę wątków
 
@@ -213,7 +213,7 @@ Chociaż równoległość może być świetna dla wydajności, należy zachować
 
 ## <a name="client-libraries-and-tools"></a>Biblioteki i narzędzia klienta
 
-Aby uzyskać najlepszą wydajność, zawsze używaj najnowszych bibliotek i narzędzi klienta dostarczonych przez firmę Microsoft. Biblioteki klienckie usługi Azure Storage są dostępne dla różnych języków. Usługa Azure Storage obsługuje również program PowerShell i interfejs wiersza polecenia platformy Azure. Firma Microsoft aktywnie opracowuje te biblioteki i narzędzia klienckie z uwzględnieniem wydajności, a następnie zapewnia ich aktualność przy użyciu najnowszych wersji usługi i gwarantuje, że obsługa wielu sprawdzonych rozwiązań dotyczących wydajności jest wewnętrznie. Aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą usługi Azure Storage](/azure/storage/#reference).
+Aby uzyskać najlepszą wydajność, zawsze używaj najnowszych bibliotek i narzędzi klienta dostarczonych przez firmę Microsoft. Biblioteki klienckie usługi Azure Storage są dostępne dla różnych języków. Usługa Azure Storage obsługuje również program PowerShell i interfejs wiersza polecenia platformy Azure. Firma Microsoft aktywnie opracowuje te biblioteki i narzędzia klienckie z uwzględnieniem wydajności, a następnie zapewnia ich aktualność przy użyciu najnowszych wersji usługi i gwarantuje, że obsługa wielu sprawdzonych rozwiązań dotyczących wydajności jest wewnętrznie.
 
 ## <a name="handle-service-errors"></a>Obsługa błędów usługi
 
@@ -243,11 +243,11 @@ Aby skopiować dane w ramach tego samego konta magazynu, użyj operacji [kopiowa
 
 ### <a name="use-azcopy"></a>Korzystanie z narzędzia AzCopy
 
-Narzędzie wiersza polecenia AzCopy jest prostą i wydajną opcją transferu zbiorczego obiektów BLOB do, z i między kontami magazynu. AzCopy jest zoptymalizowany pod kątem tego scenariusza i może osiągać wysokie szybkości transferu. AzCopy wersja 10 używa `Put Block From URL` operacji do kopiowania danych obiektów BLOB na kontach magazynu. Aby uzyskać więcej informacji, zobacz [kopiowanie lub przenoszenie danych do usługi Azure Storage za pomocą AzCopy v10](/azure/storage/common/storage-use-azcopy-v10).  
+Narzędzie wiersza polecenia AzCopy jest prostą i wydajną opcją transferu zbiorczego obiektów BLOB do, z i między kontami magazynu. AzCopy jest zoptymalizowany pod kątem tego scenariusza i może osiągać wysokie szybkości transferu. AzCopy wersja 10 używa `Put Block From URL` operacji do kopiowania danych obiektów BLOB na kontach magazynu. Aby uzyskać więcej informacji, zobacz [kopiowanie lub przenoszenie danych do usługi Azure Storage za pomocą AzCopy v10](../common/storage-use-azcopy-v10.md).  
 
 ### <a name="use-azure-data-box"></a>Użyj Azure Data Box
 
-Aby zaimportować duże ilości danych do usługi BLOB Storage, należy rozważyć użycie Azure Data Box rodziny do transferów w trybie offline. Urządzenia urządzenie Data Box dostarczone przez firmę Microsoft są dobrym rozwiązaniem w przypadku przeniesienia dużych ilości danych na platformę Azure, gdy jest to ograniczone przez czas, dostępność sieci lub koszty. Aby uzyskać więcej informacji, zobacz [dokumentację usługi Azure DataBox](/azure/databox/).
+Aby zaimportować duże ilości danych do usługi BLOB Storage, należy rozważyć użycie Azure Data Box rodziny do transferów w trybie offline. Urządzenia urządzenie Data Box dostarczone przez firmę Microsoft są dobrym rozwiązaniem w przypadku przeniesienia dużych ilości danych na platformę Azure, gdy jest to ograniczone przez czas, dostępność sieci lub koszty. Aby uzyskać więcej informacji, zobacz [dokumentację usługi Azure DataBox](../../databox/index.yml).
 
 ## <a name="content-distribution"></a>Dystrybucja zawartości
 

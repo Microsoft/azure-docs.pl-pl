@@ -7,12 +7,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/30/2020
 ms.custom: mvc, contperfq1
-ms.openlocfilehash: 1a83385c7f384f7727a0fd10e238c6511950abfe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31dd33bd8805ffcc677d5f0e98e81f2fa9e91ee2
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612722"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95537054"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Tworzenie niestandardowych pulpitów nawigacyjnych wskaźników KPI przy użyciu usługi Azure Application Insights
 
@@ -132,7 +132,7 @@ Usługa Azure Application Insights Logs oferuje bogaty język zapytań, który p
 ## <a name="share-dashboard"></a>Udostępnianie pulpitu nawigacyjnego
 
 1. W górnej części pulpitu nawigacyjnego wybierz pozycję **Udostępnij** , aby opublikować zmiany.
-2. Opcjonalnie możesz zdefiniować listę użytkowników, którzy powinni mieć dostęp do pulpitu nawigacyjnego. Aby uzyskać więcej informacji, zobacz [udostępnianie pulpitów nawigacyjnych platformy Azure przy użyciu Role-Based Access Control](../../azure-portal/azure-portal-dashboard-share-access.md).
+2. Opcjonalnie możesz zdefiniować listę użytkowników, którzy powinni mieć dostęp do pulpitu nawigacyjnego. Aby uzyskać więcej informacji, zobacz [udostępnianie pulpitów nawigacyjnych platformy Azure przy użyciu kontroli dostępu opartej na rolach platformy Azure](../../azure-portal/azure-portal-dashboard-share-access.md).
 3. Kliknij pozycję **Opublikuj**.
 
 ## <a name="next-steps"></a>Następne kroki

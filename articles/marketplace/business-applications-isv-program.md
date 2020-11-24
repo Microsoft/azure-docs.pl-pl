@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
-ms.date: 7/14/2020
-ms.openlocfilehash: 653e6aad7f57b4d683f2f71ed22e402ed5d1fca8
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.date: 11/19/2020
+ms.openlocfilehash: a20c495553dfe9a16c34a2972575d21cc95eef44
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630298"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95537139"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Przewodnik dołączania do programu Microsoft Business Applications Independent Software Vendor (ISV) Connect Program
 
@@ -38,7 +38,7 @@ Uczestnictwo w tym programie wymaga przejrzenia i zaakceptowania [uzupełnienia 
 > Ten krok wymaga od *właściciela* lub roli *Menedżera* w centrum partnerskim konta do podpisywania umów prawnych.
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard).
-1. Wybierz pozycję **Ustawienia** (ikona koła zębatego), a następnie **Ustawienia dewelopera**.
+1. Wybierz pozycję **Ustawienia** (ikona koła zębatego) > **Ustawienia konta**.
 1. Wybierz pozycję **umowy**.
 1. Wybierz łącze wersja i Wyświetl umowę.
 1. Aby wyrazić zgodę i zaakceptować umowę, wybierz pozycję **Akceptuj umowę**.
@@ -51,8 +51,8 @@ Skonfiguruj informacje dotyczące rozliczeń dla programu Business Applications 
 > Ten krok wymaga od *właściciela* lub roli *Menedżera* w centrum partnerskim konta do aktualizowania informacji dotyczących rozliczeń.
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard).
-1. Wybierz pozycję **Ustawienia** (ikona koła zębatego), a następnie **Ustawienia dewelopera**.
-1. W obszarze **Ustawienia konta** wybierz pozycję **profil rozliczeń**.
+1. Wybierz pozycję **Ustawienia** (ikona koła zębatego) > **Ustawienia konta**.
+1. W obszarze **profil organizacji** wybierz pozycję **profil rozliczeń** , a następnie kartę **deweloper** .
 1. Przejrzyj podstawowe informacje kontaktowe i rozliczeń, które są wypełniane przez jednostkę prawną.
 1. Aby wprowadzić zmiany, wybierz pozycję **Aktualizuj**.
 1. W razie potrzeby podaj ustawienia identyfikator podatkowy/NIP.

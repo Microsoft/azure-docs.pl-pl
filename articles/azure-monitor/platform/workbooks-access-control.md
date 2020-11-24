@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 92ac1887aca8f30c551419ef9149073d79f333a5
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7d3bc13dc373cda510153099859cf4cd61b3dd69
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143832"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95534538"
 ---
 # <a name="access-control"></a>Kontrola dostępu
 
@@ -32,7 +32,7 @@ Kontrola dostępu w skoroszytach obejmuje dwie rzeczy:
 "Współautor skoroszytów" dodaje uprawnienia "skoroszyty/zapis" do obiektu w celu zapisania udostępnionych skoroszytów.
 Użytkownikom nie są wymagane żadne specjalne uprawnienia do zapisywania prywatnych skoroszytów, które tylko mogą zobaczyć.
 
-W przypadku niestandardowej kontroli dostępu opartej na rolach:
+W przypadku ról niestandardowych:
 
 Dodaj `microsoft.insights/workbooks/write` , aby zapisać udostępnione skoroszyty. Aby uzyskać więcej informacji, zobacz Rola [współautor skoroszytu](../../role-based-access-control/built-in-roles.md#monitoring-contributor) .
 

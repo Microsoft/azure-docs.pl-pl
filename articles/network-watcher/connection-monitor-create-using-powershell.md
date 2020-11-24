@@ -1,5 +1,5 @@
 ---
-title: Tworzenie monitora połączeń (wersja zapoznawcza) — PowerShell
+title: Tworzenie monitora połączeń — PowerShell
 titleSuffix: Azure Network Watcher
 description: Dowiedz się, jak utworzyć monitor połączeń przy użyciu programu PowerShell.
 services: network-watcher
@@ -10,22 +10,19 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2020
+ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: b1ffce75d5c38177c70db3ec1fc024a01821d3ab
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 1a554177bf7084b9a7f4c413dbe82271b3ab6b3a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984247"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545537"
 ---
-# <a name="create-a-connection-monitor-preview-using-powershell"></a>Tworzenie monitora połączeń (wersja zapoznawcza) przy użyciu programu PowerShell
+# <a name="create-a-connection-monitor-using-powershell"></a>Tworzenie monitora połączeń przy użyciu programu PowerShell
 
 Dowiedz się, jak utworzyć monitor połączeń do monitorowania komunikacji między zasobami przy użyciu programu PowerShell.
 
-> [!IMPORTANT]
-> Monitor połączeń jest obecnie w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz 
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 7e1deb11eb8ae754198cae5be7ecf7150262a61e
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: a817c12a367d7c14f693389920e49b368a35cc06
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411392"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522876"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optymalizowanie zapytań dzienników w Azure Monitor
 Dzienniki Azure Monitor korzystają z [usługi Azure Eksplorator danych (ADX)](/azure/data-explorer/) do przechowywania danych dziennika i uruchamiania zapytań w celu analizowania tych danych. Tworzy, zarządza i obsługuje klastry ADX oraz optymalizuje je do obciążeń analizy dzienników. Po uruchomieniu zapytania jest on zoptymalizowany i kierowany do odpowiedniego klastra ADX, który przechowuje dane obszaru roboczego. Zarówno dzienniki Azure Monitor, jak i Azure Eksplorator danych korzystają z wielu automatycznych mechanizmów optymalizacji zapytań. Chociaż Optymalizacja automatyczna zapewnia znaczący wzrost, istnieją przypadki, w których można znacznie poprawić wydajność zapytań. W tym artykule opisano zagadnienia dotyczące wydajności i kilka technik rozwiązywania tych problemów.
@@ -463,7 +463,7 @@ Zachowania zapytań, które mogą obniżyć równoległość, obejmują:
 - Użycie funkcji serializacji i okna, takich jak [operator serializacji](/azure/kusto/query/serializeoperator), [Next ()](/azure/kusto/query/nextfunction), [poprzedni ()](/azure/kusto/query/prevfunction)i funkcje [wiersza](/azure/kusto/query/rowcumsumfunction) . W niektórych z tych przypadków można używać szeregów czasowych i funkcji analitycznych użytkownika. Nieefektywna Serializacja może również wystąpić, jeśli następujące operatory nie znajdują się na końcu zapytania: [zakres](/azure/kusto/query/rangeoperator), [Sortowanie](/azure/kusto/query/sortoperator), [kolejność](/azure/kusto/query/orderoperator), [Top](/azure/kusto/query/topoperator), [Top-hitters](/azure/kusto/query/tophittersoperator), [GetSchema](/azure/kusto/query/getschemaoperator).
 -    Użycie funkcji agregacji [DCount ()](/azure/kusto/query/dcount-aggfunction) wymusza, aby system miał centralną kopię różnych wartości. Gdy skala danych jest wysoka, rozważ użycie opcjonalnych parametrów funkcji DCount do zredukowania dokładności.
 -    W wielu przypadkach operator [Join](/azure/kusto/query/joinoperator?pivots=azuremonitor) obniżyć ogólną wartość równoległości. Badaj rozłączenie losowe jako alternatywę w przypadku problemów z wydajnością.
--    W zapytaniach dotyczących zakresu zasobów, kontrole RBAC przedwykonawcy mogą być pokutujące w sytuacjach, gdy istnieje bardzo duża liczba przypisań ról platformy Azure. Może to prowadzić do dłuższego sprawdzenia, które mogłoby spowodować zmniejszenie równoległości. Na przykład zapytanie jest wykonywane w ramach subskrypcji, w której istnieją tysiące zasobów, a każdy zasób ma wiele przypisań roli na poziomie zasobu, a nie w ramach subskrypcji lub grupy zasobów.
+-    W zapytaniach dotyczących zakresu zasobów, sprawdzanie przed wykonaniem Kubernetes RBAC lub kontrola RBAC platformy Azure może być pokutujące w sytuacjach, gdy istnieje bardzo duża liczba przypisań ról platformy Azure. Może to prowadzić do dłuższego sprawdzenia, które mogłoby spowodować zmniejszenie równoległości. Na przykład zapytanie jest wykonywane w ramach subskrypcji, w której istnieją tysiące zasobów, a każdy zasób ma wiele przypisań roli na poziomie zasobu, a nie w ramach subskrypcji lub grupy zasobów.
 -    Jeśli zapytanie przetwarza małe fragmenty danych, jego równoległość będzie niska, ponieważ system nie rozwiąże go w wielu węzłach obliczeniowych.
 
 

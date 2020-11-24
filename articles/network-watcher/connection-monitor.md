@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 11/23/2020
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 667b07b3fe53ca6d88eba94faeaeeae074d71f1e
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 2da675f0836dbb10ce5227e7e93e98d706cc5c64
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984281"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544806"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Samouczek: monitorowanie komunikacji sieciowej między dwiema maszynami wirtualnymi przy użyciu witryny Azure Portal
 
@@ -37,9 +37,7 @@ Pomyślna komunikacja między maszyną wirtualną i punktem końcowym, takim jak
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-> [!IMPORTANT]
-> Monitor połączeń jest obecnie w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 ## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 

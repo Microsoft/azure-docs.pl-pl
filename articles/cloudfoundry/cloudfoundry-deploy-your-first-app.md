@@ -7,12 +7,12 @@ ms.subservice: workloads
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: 18f9f62ba28595289d37975200352c26788e69cc
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: c8afc4f15f421a7b60b95d09b954e7742c24c66e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040036"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519680"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Wdrażanie pierwszej aplikacji w rozwiązaniu Cloud Foundry na platformie Microsoft Azure
 
@@ -64,7 +64,7 @@ cf target -o testorg -s dev
 Teraz, podczas wdrażania aplikacji, zostanie ona automatycznie utworzona w nowej organizacji i przestrzeni. Aby potwierdzić, że w nowej organizacji/przestrzeni nie ma obecnie żadnych aplikacji, wpisz `cf apps` ponownie.
 
 > [!NOTE] 
-> Aby uzyskać więcej informacji na temat organizacje i miejsc oraz sposobów ich używania na potrzeby kontroli dostępu opartej na rolach (RBAC), zobacz [dokumentację Cloud Foundry][cf-orgs-spaces-docs].
+> Aby uzyskać więcej informacji o organizacje i miejscach oraz sposobie ich użycia w Cloud Foundry kontroli dostępu opartej na rolach (Cloud Foundry RBAC), zapoznaj się z [dokumentacją Cloud Foundry][cf-orgs-spaces-docs].
 
 ## <a name="deploy-an-application"></a>Wdrażanie aplikacji
 
@@ -95,7 +95,7 @@ Większość aplikacji można wdrożyć do Cloud Foundry przy użyciu `push` pol
 cf push
 ```
 
-Podczas *wypychania* aplikacji Cloud Foundry wykrywa typ aplikacji (w tym przypadku aplikację Java) i identyfikuje jej zależności (w tym przypadku struktury sprężynowe). Następnie wszystkie elementy wymagane do uruchomienia kodu w autonomicznym obrazie kontenera, znane jako *droplet* . Na koniec Cloud Foundry planuje aplikację na jednej z dostępnych maszyn w środowisku i tworzy adres URL, w którym można się z nim skontaktować, który jest dostępny w danych wyjściowych polecenia.
+Podczas *wypychania* aplikacji Cloud Foundry wykrywa typ aplikacji (w tym przypadku aplikację Java) i identyfikuje jej zależności (w tym przypadku struktury sprężynowe). Następnie wszystkie elementy wymagane do uruchomienia kodu w autonomicznym obrazie kontenera, znane jako *droplet*. Na koniec Cloud Foundry planuje aplikację na jednej z dostępnych maszyn w środowisku i tworzy adres URL, w którym można się z nim skontaktować, który jest dostępny w danych wyjściowych polecenia.
 
 ![Dane wyjściowe polecenia CF push][cf-push-output]
 
@@ -114,7 +114,7 @@ Możesz użyć interfejsu wiersza polecenia Cloud Foundry, aby wyświetlić dzie
 cf logs hello-spring-cloud
 ```
 
-Domyślnie polecenie Logs używa *ogona* , który wyświetla nowe dzienniki podczas pisania. Aby wyświetlić nowe dzienniki, Odśwież aplikację Hello-wiosny w chmurze w przeglądarce.
+Domyślnie polecenie Logs używa *ogona*, który wyświetla nowe dzienniki podczas pisania. Aby wyświetlić nowe dzienniki, Odśwież aplikację Hello-wiosny w chmurze w przeglądarce.
 
 Aby wyświetlić dzienniki, które zostały już zapisane, Dodaj `recent` przełącznik:
 

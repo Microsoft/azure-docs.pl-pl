@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 11/13/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: Obsługa komputerów, aplikacje komputerowe, usługa komputerowa
-ms.openlocfilehash: 1603aa05d8bde6d4c3edba2d49120fa3545d3fd0
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1b4768781c45733590639b4a382fecfdb02adf48
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014649"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95532294"
 ---
 # <a name="what-is-computer-vision"></a>Czym jest przetwarzanie obrazów?
 
@@ -90,13 +90,12 @@ Przeanalizuj zawartość obrazu w celu zwrócenia współrzędnych *obszaru zain
 
 Za pomocą przetwarzanie obrazów można [wykrywać zawartość dla dorosłych](concept-detecting-adult-content.md) w obrazie i zwracać wyniki zaufania dla różnych klasyfikacji. Próg oflagowania zawartości można ustawić na ruchomej skali, aby dopasować swoje preferencje.
 
-## <a name="use-containers"></a>Korzystanie z kontenerów
+## <a name="deploy-on-premises-using-docker-containers"></a>Wdrażanie lokalnie przy użyciu kontenerów platformy Docker
 
-Użyj przetwarzanie obrazów kontenerów platformy Docker, aby korzystać z lokalnej usługi. Obecnie dostępne są dwa kontenery:
+Używanie kontenerów przetwarzanie obrazów do wdrażania funkcji interfejsu API w środowisku lokalnym. Te kontenery platformy Docker umożliwiają przełączenie usługi bliżej danych pod kątem zgodności, bezpieczeństwa lub innych przyczyn operacyjnych. Przetwarzanie obrazów oferuje następujące kontenery:
 
-* [Kontener przetwarzanie obrazów Read](computer-vision-how-to-install-containers.md) umożliwia rozpoznawanie wydrukowanych i odręcznych tekstu w obrazach.
-
-* [Kontener analizy przestrzennej przetwarzanie obrazów](spatial-analysis-container.md) umożliwia analizowanie wideo przesyłania strumieniowego w czasie rzeczywistym w celu zrozumienia relacji przestrzennych między ludźmi a ich przenoszeniem za pomocą środowisk fizycznych.
+* [Kontener OCR przetwarzanie obrazów Read (wersja zapoznawcza)](computer-vision-how-to-install-containers.md) umożliwia rozpoznawanie wydrukowanych i odręcznych tekstu w obrazach.
+* [Kontener analizy przestrzennej przetwarzanie obrazów (wersja zapoznawcza)](spatial-analysis-container.md) umożliwia analizowanie wideo przesyłania strumieniowego w czasie rzeczywistym w celu zrozumienia relacji przestrzennych między osobami i ich przenoszeniem za pomocą środowisk fizycznych.
 
 ## <a name="image-requirements"></a>Wymagania obrazu
 

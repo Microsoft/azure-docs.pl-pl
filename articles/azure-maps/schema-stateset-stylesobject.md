@@ -1,19 +1,19 @@
 ---
-title: Styleobject dla Azure Maps dynamicznej
-description: Przewodnik referencyjny dotyczący schematu i składni JSON dla obiektu Styleobject używanego podczas tworzenia w Azure Maps dynamicznym.
+title: Styleobject schemat referencyjny dla Azure Maps dynamicznej
+description: Przewodnik referencyjny dotyczący schematu i składni dynamicznego Azure Maps Styleobject.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/19/2020
+ms.date: 11/20/2020
 ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4284956138002d209ab0934cdd052748ef8aab78
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: f6bc4c62febf24dee790ac6136b1661426d4d619
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966279"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536952"
 ---
 # <a name="stylesobject-schema-reference-guide-for-dynamic-maps"></a>Styleobject schemat referencyjny dla map dynamicznych
 
@@ -21,9 +21,15 @@ ms.locfileid: "94966279"
 
 ## <a name="styleobject"></a>Styleobject
 
-A `StyleObject` jest albo [`BooleanTypeStyleRule`](#booleantypestylerule) [`NumericTypeStyleRule`](#numerictypestylerule) .
+A `StyleObject` jest jednym z następujących reguł stylu:
 
-Poniższy kod JSON zawiera `BooleanTypeStyleRule` nazwę `occupied` i `NumericTypeStyleRule` nazwę `temperature` .
+ * [`BooleanTypeStyleRule`](#booleantypestylerule)
+ * [`NumericTypeStyleRule`](#numerictypestylerule)
+ * [`StringTypeStyleRule`](#stringtypestylerule)
+
+Poniższy kod JSON pokazuje przykładowe użycie każdego z trzech typów stylu.  Służy `BooleanTypeStyleRule` do określania stylu dynamicznego dla funkcji, których `occupied` Właściwość ma wartość true i false.  Służy `NumericTypeStyleRule` do określania stylu funkcji, których `temperature` Właściwość znajduje się w określonym zakresie. Na koniec `StringTypeStyleRule` jest używany do dopasowywania określonych stylów do `meetingType` .
+
+
 
 ```json
  "styles": [
@@ -56,6 +62,18 @@ Poniższy kod JSON zawiera `BooleanTypeStyleRule` nazwę `occupied` i `NumericTy
               "color": "#eba834"
             }
         ]
+    },
+    {
+      "keyname": "meetingType",
+      "type": "string",
+      "rules": [
+        {
+          "private": "#FF0000",
+          "confidential": "#FF00AA",
+          "allHands": "#00FF00",
+          "brownBag": "#964B00"
+        }
+      ]
     }
 ]
 ```
@@ -108,7 +126,7 @@ W poniższym przykładzie JSON oba zakresy będą miały wartość true, gdy war
 
 ### <a name="rangeobject"></a>Zakresobject
 
-`RangeObject`Definiuje wartość numerycznego zakresu [`NumberRuleObject`](#numberruleobject) . Aby wartość *stanu* należeć do zakresu, wszystkie zdefiniowane warunki muszą mieć wartość true. 
+`RangeObject`Definiuje wartość numerycznego zakresu [`NumberRuleObject`](#numberruleobject) . Aby wartość *stanu* należeć do zakresu, wszystkie zdefiniowane warunki muszą mieć wartość true.
 
 | Właściwość | Typ | Opis | Wymagane |
 |-----------|----------|-------------|-------------|
@@ -144,13 +162,55 @@ Poniższy kod JSON ilustruje `NumericTypeStyleRule` *stan* o nazwie `temperature
 }
 ```
 
+## <a name="stringtypestylerule"></a>StringTypeStyleRule
+
+A `StringTypeStyleRule` [`StyleObject`](#styleobject) i składa się z następujących właściwości:
+
+| Właściwość | Typ | Opis | Wymagane |
+|-----------|----------|-------------|-------------|
+| `keyName` | ciąg |  Nazwa właściwości *stan* lub dynamiczna.  Element A `keyName` powinien być unikatowy wewnątrz  `StyleObject` tablicy.| Tak |
+| `type` | ciąg |Wartość to "String". | Tak |
+| `rules` | [`StringRuleObject`](#stringruleobject)[]| Tablica N-liczbowych wartości *stanu* .| Tak |
+
+### <a name="stringruleobject"></a>StringRuleObject
+
+`StringRuleObject`Składa się z maksymalnie N liczb wartości stanu, które są możliwymi wartościami ciągu właściwości funkcji. Jeśli wartość właściwości funkcji nie jest zgodna z żadną z zdefiniowanych wartości stanu, ta funkcja nie będzie mieć stylu dynamicznego. Jeśli podano zduplikowane wartości stanu, pierwszeństwo ma pierwszy.
+
+W dopasowaniu wartości ciągu rozróżniana jest wielkość liter.
+
+| Właściwość | Typ | Opis | Wymagane |
+|-----------|----------|-------------|-------------|
+| `stateValue1` | ciąg | Kolor, gdy wartość jest równa stateValue1. | Nie |
+| `stateValue2` | ciąg | Kolor, gdy wartość jest równa stateValue. | Nie |
+| `stateValueN` | ciąg | Kolor, gdy wartość jest równa stateValueN. | Nie |
+
+### <a name="example-of-stringtypestylerule"></a>Przykład StringTypeStyleRule
+
+Poniższy kod JSON ilustruje `StringTypeStyleRule` , że definiuje style skojarzone z określonymi typami spotkań.
+
+```json
+    {
+      "keyname": "meetingType",
+      "type": "string",
+      "rules": [
+        {
+          "private": "#FF0000",
+          "confidential": "#FF00AA",
+          "allHands": "#00FF00",
+          "brownBag": "#964B00"
+        }
+      ]
+    }
+
+```
+
 ## <a name="booleantypestylerule"></a>BooleanTypeStyleRule
 
 A `BooleanTypeStyleRule` [`StyleObject`](#styleobject) i składa się z następujących właściwości:
 
 | Właściwość | Typ | Opis | Wymagane |
 |-----------|----------|-------------|-------------|
-| `keyName` | ciąg |  Nazwa właściwości *stan* lub dynamiczna.  `keyName`Powinna być unikatowa wewnątrz tablicy stylów.| Tak |
+| `keyName` | ciąg |  Nazwa właściwości *stan* lub dynamiczna.  Element A `keyName` powinien być unikatowy wewnątrz `StyleObject`  tablicy.| Tak |
 | `type` | ciąg |Wartość to "Boolean". | Tak |
 | `rules` | [`BooleanRuleObject`](#booleanruleobject)jedno| Para logiczna z kolorami `true` i wartościami `false` *stanu* .| Tak |
 

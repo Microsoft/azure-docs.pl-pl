@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2e3e16b71d52edd9ab4eaf55651567b95e334b84
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 411815ca2f947c47b8dfb0d2e5d61f8ea18f3545
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94961791"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95541253"
 ---
 # <a name="use-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Użyj tagów indeksu obiektów BLOB (wersja zapoznawcza), aby zarządzać danymi na platformie Azure Blob Storage i znajdować je
 
@@ -38,7 +38,7 @@ Ponieważ indeks obiektów BLOB jest w wersji zapoznawczej, pakiet programu .NET
 
 2. W Menedżerze pakietów NuGet Znajdź pakiet **Azure. Storage. blob** i Zainstaluj wersję **12.7.0-Preview. 1** lub nowszą dla projektu. Możesz również uruchomić polecenie programu PowerShell: `Install-Package Azure.Storage.Blobs -Version 12.7.0-preview.1`
 
-   Aby dowiedzieć się, jak to zrobić, zobacz [Znajdowanie i instalowanie pakietu](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
+   Aby dowiedzieć się, jak to zrobić, zobacz [Znajdowanie i instalowanie pakietu](/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
 
 3. Dodaj następujące instrukcje using na początku pliku kodu.
 
@@ -56,7 +56,7 @@ Ponieważ indeks obiektów BLOB jest w wersji zapoznawczej, pakiet programu .NET
 
 ## <a name="upload-a-new-blob-with-index-tags"></a>Przekaż nowy obiekt BLOB za pomocą tagów indeksu
 
-To zadanie można wykonać przez [właściciela danych obiektu blob magazynu](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) lub podmiot zabezpieczeń, który uzyskał uprawnienie do `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [operacji dostawcy zasobów platformy Azure](/azure/role-based-access-control/resource-provider-operations.md#microsoftstorage) za pośrednictwem niestandardowej roli platformy Azure.
+To zadanie można wykonać przez [właściciela danych obiektu blob magazynu](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) lub podmiot zabezpieczeń, który uzyskał uprawnienie do `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [operacji dostawcy zasobów platformy Azure](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) za pośrednictwem niestandardowej roli platformy Azure.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -114,9 +114,9 @@ static async Task BlobIndexTagsOnCreate()
 
 ## <a name="get-set-and-update-blob-index-tags"></a>Pobieranie, ustawianie i aktualizowanie tagów indeksów obiektów BLOB
 
-Pobieranie tagów indeksów obiektów BLOB może odbywać się przez [właściciela danych obiektu blob magazynu](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) lub podmiot zabezpieczeń, który otrzymał uprawnienia do `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` [operacji dostawcy zasobów platformy Azure](/azure/role-based-access-control/resource-provider-operations.md#microsoftstorage) za pośrednictwem niestandardowej roli platformy Azure.
+Pobieranie tagów indeksów obiektów BLOB może odbywać się przez [właściciela danych obiektu blob magazynu](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) lub podmiot zabezpieczeń, który otrzymał uprawnienia do `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` [operacji dostawcy zasobów platformy Azure](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) za pośrednictwem niestandardowej roli platformy Azure.
 
-Ustawienie i zaktualizowanie tagów indeksów obiektów BLOB może być wykonywane przez [właściciela danych obiektu blob magazynu](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) lub podmiot zabezpieczeń, który otrzymał uprawnienia do `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [operacji dostawcy zasobów platformy Azure](/azure/role-based-access-control/resource-provider-operations.md#microsoftstorage) za pośrednictwem niestandardowej roli platformy Azure.
+Ustawienie i zaktualizowanie tagów indeksów obiektów BLOB może być wykonywane przez [właściciela danych obiektu blob magazynu](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) lub podmiot zabezpieczeń, który otrzymał uprawnienia do `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [operacji dostawcy zasobów platformy Azure](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) za pośrednictwem niestandardowej roli platformy Azure.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -193,7 +193,7 @@ static async Task BlobIndexTagsExample()
 
 ## <a name="filter-and-find-data-with-blob-index-tags"></a>Filtrowanie i znajdowanie danych przy użyciu tagów indeksów obiektów BLOB
 
-To zadanie można wykonać przez [właściciela danych obiektu blob magazynu](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) lub podmiot zabezpieczeń, który uzyskał uprawnienie do `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` [operacji dostawcy zasobów platformy Azure](/azure/role-based-access-control/resource-provider-operations.md#microsoftstorage) za pośrednictwem niestandardowej roli platformy Azure.
+To zadanie można wykonać przez [właściciela danych obiektu blob magazynu](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) lub podmiot zabezpieczeń, który uzyskał uprawnienie do `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` [operacji dostawcy zasobów platformy Azure](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) za pośrednictwem niestandardowej roli platformy Azure.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

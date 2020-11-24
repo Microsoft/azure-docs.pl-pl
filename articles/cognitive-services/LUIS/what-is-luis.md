@@ -5,14 +5,14 @@ keywords: Azure, sztuczna inteligencja, AI, przetwarzanie języka naturalnego, N
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 09/02/2020
+ms.date: 11/23/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: b4034f9b7a5a9ec856134e27b422736e2c98f04a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: fb36ab8a86a89d6383f93ad58c23956472841de2
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025195"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95539264"
 ---
 # <a name="what-is-language-understanding-luis"></a>Co to jest usługa Language Understanding (LUIS)?
 
@@ -116,7 +116,7 @@ Narzędzia do szybkiego i łatwego korzystania z usługi LUIS z botem:
 
 ## <a name="integrate-with-a-bot"></a>Integracja z usługą bot
 
-Użyj [usługi Azure bot](/azure/bot-service/?view=azure-bot-service-4.0 "Usługa Azure bot") z [platformą Microsoft bot Framework](https://dev.botframework.com/ "Microsoft Bot Framework") , aby skompilować i wdrożyć aplikację Chat bot. Projektuj i opracowuj przy użyciu narzędzia interfejsu graficznego, [kompozytora](/composer/ "Program Composer")lub [roboczych przykładów bot](https://github.com/microsoft/BotBuilder-Samples "Przykłady pracy z bot") zaprojektowanych dla najważniejszych scenariuszy bot.
+Użyj [usługi Azure bot](/azure/bot-service/ "Usługa Azure bot") z [platformą Microsoft bot Framework](https://dev.botframework.com/ "Microsoft Bot Framework") , aby skompilować i wdrożyć aplikację Chat bot. Projektuj i opracowuj przy użyciu narzędzia interfejsu graficznego, [kompozytora](/composer/ "Program Composer")lub [roboczych przykładów bot](https://github.com/microsoft/BotBuilder-Samples "Przykłady pracy z bot") zaprojektowanych dla najważniejszych scenariuszy bot.
 
 ## <a name="integrate-with-other-cognitive-services"></a>Integracja z innymi Cognitive Services
 
@@ -130,6 +130,10 @@ LUIS zapewnia funkcjonalność analiza tekstu w ramach istniejących zasobów LU
 
 Dowiedz się więcej na temat LUIS z przewodnikami Szybki Start przy użyciu [portalu](get-started-portal-build-app.md "portal") i [bibliotek klienckich SDK](azure-sdk-quickstart.md "Biblioteki klienckie SDK").
 
+
+## <a name="deploy-on-premises-using-docker-containers"></a>Wdrażanie lokalnie przy użyciu kontenerów platformy Docker
+
+[Używanie kontenerów Luis](luis-container-howto.md) do wdrażania funkcji interfejsu API w środowisku lokalnym. Te kontenery platformy Docker umożliwiają przełączenie usługi bliżej danych pod kątem zgodności, bezpieczeństwa lub innych przyczyn operacyjnych.
 
 ## <a name="next-steps"></a>Następne kroki
 

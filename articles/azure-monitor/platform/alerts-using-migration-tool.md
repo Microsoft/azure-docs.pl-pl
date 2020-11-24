@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: e49525018a3e23ecbbf92d7a8b3f7c50804432b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7bcf3e5c0b50d3d6eb8f71dc70f0ff064ff3465
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358665"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536034"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Migrowanie klasycznych reguł alertów za pomocą narzędzia do migracji dobrowolnej
 
@@ -83,7 +83,7 @@ Gdy subskrypcja stanie się gotowa do migracji, właściciel subskrypcji otrzyma
 
 ### <a name="who-can-trigger-the-migration"></a>Kto może wyzwolić migrację?
 
-Użytkownicy, którzy mają przypisaną rolę współautor monitorowania na poziomie subskrypcji, mogą wyzwolić migrację. [Dowiedz się więcej na temat Access Control Role-Based na potrzeby procesu migracji](alerts-understand-migration.md#who-can-trigger-the-migration).
+Użytkownicy, którzy mają przypisaną rolę współautor monitorowania na poziomie subskrypcji, mogą wyzwolić migrację. [Dowiedz się więcej na temat kontroli dostępu opartej na rolach na platformie Azure dla procesu migracji](alerts-understand-migration.md#who-can-trigger-the-migration).
 
 ### <a name="how-long-will-the-migration-take"></a>Jak długo trwa migracja?
 

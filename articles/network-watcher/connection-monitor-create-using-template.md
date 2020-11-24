@@ -1,5 +1,5 @@
 ---
-title: Utwórz monitor połączeń (wersja zapoznawcza) — szablon ARM
+title: Tworzenie monitora połączeń — szablon ARM
 titleSuffix: Azure Network Watcher
 description: Dowiedz się, jak utworzyć monitor połączeń przy użyciu ARMClient.
 services: network-watcher
@@ -10,22 +10,19 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2020
+ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: e1a0ecd85d07aa4fdf5482c5104c17eb4a068688
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: c3b228d2652d5f7dcf7c6596ee5425b3f5f9a4d8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984230"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544007"
 ---
 # <a name="create-a-connection-monitor-using-the-arm-template"></a>Tworzenie monitora połączeń przy użyciu szablonu ARM
 
 Dowiedz się, jak utworzyć monitor połączeń do monitorowania komunikacji między zasobami przy użyciu ARMClient. Obsługuje wdrożenia w chmurze hybrydowej i platformy Azure.
 
-> [!IMPORTANT]
-> Monitor połączeń jest obecnie w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz 
 

@@ -12,12 +12,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: 19372b30a5e56738230216777897c08b07a0a86a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49203195bf7746d0bff1b9543d1641f69ab23359
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86170704"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542681"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Jak używać funkcji Twilio do obsługi głosu i SMS w języku Ruby
 W tym przewodniku pokazano, jak wykonywać typowe zadania programistyczne za pomocą usługi interfejsu API Twilio na platformie Azure. Omówione scenariusze obejmują wykonywanie połączeń telefonicznych i wysyłanie wiadomości SMS. Aby uzyskać więcej informacji na temat Twilio i używania programów Voice i SMS w aplikacjach, zobacz sekcję [następne kroki](#NextSteps) .
@@ -48,20 +48,20 @@ Na przykład następujące TwiML spowodują przekonwertowanie tekstu **Hello Wor
 Wszystkie dokumenty TwiML mają `<Response>` jako element główny. W tym miejscu możesz zdefiniować zachowanie aplikacji przy użyciu zleceń Twilio.
 
 ### <a name="twiml-verbs"></a><a id="Verbs"></a>Zlecenia TwiML
-Zlecenia Twilio są tagami XML, które informują Twilio, co należy **zrobić**. Na przykład czasownik ** &lt; powiedzie &gt; ** nakazuje Twilio audibly dostarczenie komunikatu w wywołaniu. 
+Zlecenia Twilio są tagami XML, które informują Twilio, co należy **zrobić**. Na przykład czasownik **&lt; powiedzie &gt;** nakazuje Twilio audibly dostarczenie komunikatu w wywołaniu. 
 
 Poniżej znajduje się lista zleceń Twilio.
 
-* ** &lt; Wybierz &gt; **: łączy obiekt wywołujący z innym telefonem.
-* ** &lt; Zbieranie &gt; **: zbiera cyfry liczbowe wprowadzone na klawiaturze telefonicznej.
-* Rozłączenie: przerywa wywołanie. ** &lt; &gt; **
-* ** &lt; Odtwórz &gt; **: odtwarza plik audio.
-* ** &lt; Wstrzymaj &gt; **: czeka w trybie cichym przez określoną liczbę sekund.
-* ** &lt; Rekord &gt; **: rejestruje głos obiektu wywołującego i zwraca adres URL pliku, który zawiera nagranie.
-* ** &lt; Przekierowanie &gt; **: przenosi kontrolę nad wywołaniem lub wiadomością SMS do TwiML pod innym adresem URL.
-* ** &lt; Odrzuć &gt; **: odrzuca wywołanie przychodzące do numeru Twilio bez rozliczeń
-* ** &lt; Załóżmy &gt; **: konwertuje tekst na mowę, która jest wykonywana w wywołaniu.
-* ** &lt; SMS &gt; **: wysyła wiadomość SMS.
+* **&lt; Wybierz &gt;**: łączy obiekt wywołujący z innym telefonem.
+* **&lt; Zbieranie &gt;**: zbiera cyfry liczbowe wprowadzone na klawiaturze telefonicznej.
+* Rozłączenie: przerywa wywołanie. **&lt; &gt;**
+* **&lt; Odtwórz &gt;**: odtwarza plik audio.
+* **&lt; Wstrzymaj &gt;**: czeka w trybie cichym przez określoną liczbę sekund.
+* **&lt; Rekord &gt;**: rejestruje głos obiektu wywołującego i zwraca adres URL pliku, który zawiera nagranie.
+* **&lt; Przekierowanie &gt;**: przenosi kontrolę nad wywołaniem lub wiadomością SMS do TwiML pod innym adresem URL.
+* **&lt; Odrzuć &gt;**: odrzuca wywołanie przychodzące do numeru Twilio bez rozliczeń
+* **&lt; Załóżmy &gt;**: konwertuje tekst na mowę, która jest wykonywana w wywołaniu.
+* **&lt; SMS &gt;**: wysyła wiadomość SMS.
 
 Aby uzyskać więcej informacji na temat czasowników Twilio, ich atrybutów i TwiML, zobacz [TwiML][twiml]. Aby uzyskać dodatkowe informacje o interfejsie API Twilio, zobacz [TWILIO API][twilio_api].
 
@@ -206,4 +206,4 @@ Teraz, gdy znasz już podstawy usługi Twilio, Skorzystaj z poniższych linków,
 [twilio_support]: https://www.twilio.com/help/contact
 [twilio_quickstarts]: https://www.twilio.com/docs/quickstart
 [sinatra]: http://www.sinatrarb.com/
-[azure_vm_setup]: https://docs.microsoft.com/azure/virtual-machines/linux/classic/ruby-rails-web-app
+[azure_vm_setup]: /previous-versions/azure/virtual-machines/linux/classic/ruby-rails-web-app

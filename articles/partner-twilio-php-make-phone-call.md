@@ -12,12 +12,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: e75b5a265ba85813581e39a548d897ea57a33da6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef0642b26898249d78f5103e8a8f80198887bed9
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88080562"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542528"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-php-application-on-azure"></a>Jak nawiązać połączenie telefoniczne za pomocą Twilio w aplikacji PHP na platformie Azure
 Poniższy przykład pokazuje, jak można użyć Twilio, aby wykonać wywołanie ze strony sieci Web w języku PHP hostowanej na platformie Azure. Aplikacja wynikowa wyświetli monit dla użytkownika o wartości połączeń telefonicznych, jak pokazano na poniższym zrzucie ekranu.
@@ -29,7 +29,7 @@ Aby użyć kodu w tym temacie, należy wykonać następujące czynności:
 1. Uzyskaj konto Twilio i token uwierzytelniania z [konsoli Twilio][twilio_console]. Aby rozpocząć pracę z usługą Twilio, Oceń ceny pod adresem [https://www.twilio.com/pricing][twilio_pricing] . Możesz zarejestrować się w celu uzyskania konta w wersji próbnej pod adresem [https://www.twilio.com/try-twilio][try_twilio] .
 2. Uzyskaj [bibliotekę Twilio dla języka PHP](https://github.com/twilio/twilio-php) lub zainstaluj ją jako pakiet języka gruszkowego. Aby uzyskać więcej informacji, zobacz [plik Readme](https://github.com/twilio/twilio-php/blob/master/README.md).
 3. Zainstaluj zestaw Azure SDK dla języka PHP. 
-<!-- For an overview of the SDK and instructions on installing it, see [Set up the Azure SDK for PHP](app-service-web/web-sites-php-mysql-deploy-use-git.md) -->
+<!-- For an overview of the SDK and instructions on installing it, see [Set up the Azure SDK for PHP](./app-service/quickstart-php.md) -->
 
 ## <a name="create-a-web-form-for-making-a-call"></a>Utwórz formularz sieci Web na potrzeby wywołania
 Poniższy kod HTML pokazuje, jak utworzyć stronę sieci Web (**callform.html**), która pobiera dane użytkownika w celu utworzenia wywołania:
@@ -129,8 +129,8 @@ Aby uzyskać dodatkowe informacje na temat Twilio, zobacz [https://www.twilio.co
 [twilio_api_service]: https://api.twilio.com
 [build_php_azure_app]: http://azurephp.interoperabilitybridges.com/articles/build-and-deploy-a-windows-azure-php-application
 [howto_twilio_voice_sms_php]: partner-twilio-php-how-to-use-voice-sms.md
-[howto_blob_storage_php]: https://azure.microsoft.com/documentation/articles/storage-php-how-to-use-blobs/
-[howto_sql_azure_php]: https://azure.microsoft.com/documentation/articles/sql-database-php-how-to-use/
+[howto_blob_storage_php]: ./storage/blobs/storage-quickstart-blobs-php.md
+[howto_sql_azure_php]: ./azure-sql/database/connect-query-content-reference-guide.md
 [twilio_call_properties]: https://www.twilio.com/docs/api/rest/call#instance-properties
 [twilio_docs_security]: https://www.twilio.com/docs/security
 [twilio_docs]: https://www.twilio.com/docs

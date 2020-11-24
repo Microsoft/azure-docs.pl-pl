@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: 315ea9b683ccd583f5c29c7527013f0d924336f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88006fb354af2673496c6476090d7f73c8a005e6
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061884"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543004"
 ---
 # <a name="move-azure-vms-to-an-availability-zone-in-another-region"></a>Przenoszenie maszyn wirtualnych platformy Azure do strefy dostępności w innym regionie
 
@@ -35,7 +35,7 @@ Jeśli chcesz przenieść maszyny wirtualne do innej strefy dostępności w tym 
 - Dostęp *właściciela* do subskrypcji, w której znajdują się zasoby, które chcesz przenieść.
     - Przy pierwszym dodawaniu zasobu do określonego mapowania źródła i miejsca docelowego w ramach subskrypcji platformy Azure usługa zarządzania zasobami tworzy [tożsamość zarządzaną przypisaną przez system](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (znaną wcześniej jako identyfikator usługi zarządzanej (msi), która jest zaufana przez subskrypcję.
     - Aby utworzyć tożsamość i przypisać do niej wymaganą rolę (współautor lub administratora dostępu użytkownika w subskrypcji źródłowej), konto używane do dodawania zasobów wymaga uprawnień *właściciela* do subskrypcji. [Dowiedz się więcej](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) na temat ról platformy Azure.
-- Subskrypcja wymaga wystarczającego limitu przydziału, aby można było utworzyć zasoby źródłowe w regionie docelowym. Jeśli nie, zażądaj dodatkowych limitów. [Dowiedz się więcej](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+- Subskrypcja wymaga wystarczającego limitu przydziału, aby można było utworzyć zasoby źródłowe w regionie docelowym. Jeśli nie, zażądaj dodatkowych limitów. [Dowiedz się więcej](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Sprawdź ceny i opłaty związane z regionem docelowym, do którego przenosisz maszyny wirtualne. Skorzystaj z [kalkulatora cen](https://azure.microsoft.com/pricing/calculator/) , aby uzyskać pomoc.
     
 
@@ -62,24 +62,24 @@ Wybierz zasoby, które chcesz przenieść.
 - Możesz wybrać dowolny obsługiwany typ zasobu dla grup zasobów w wybranym regionie źródłowym.
 - Przenoszenie zasobów do regionu docelowego w subskrypcji regionu źródłowego. Jeśli chcesz zmienić subskrypcję, możesz to zrobić po przeniesieniu zasobów.
 
-1. W Azure Portal Wyszukaj pozycję przeniesienie zasobów. Następnie w obszarze **usługi**wybierz pozycję **Azure Resource**przenosząca.
+1. W Azure Portal Wyszukaj pozycję przeniesienie zasobów. Następnie w obszarze **usługi** wybierz pozycję **Azure Resource** przenosząca.
 
     ![Wyszukiwanie zasobów przenoszenia](./media/move-region-availability-zone/search.png)
 
-2. W obszarze **Przegląd**wybierz pozycję **Rozpocznij**.
+2. W obszarze **Przegląd** wybierz pozycję **Rozpocznij**.
 
     ![Przycisk, aby rozpocząć](./media/move-region-availability-zone/get-started.png)
 
-3. W obszarze **Przenieś zasoby**  >  **Źródło + miejsce docelowe**wybierz źródłową subskrypcję i region.
-4. W obszarze **Lokalizacja docelowa**wybierz region, do którego chcesz przenieść maszyny wirtualne. Następnie kliknij przycisk **Dalej**.
+3. W obszarze **Przenieś zasoby**  >  **Źródło + miejsce docelowe** wybierz źródłową subskrypcję i region.
+4. W obszarze **Lokalizacja docelowa** wybierz region, do którego chcesz przenieść maszyny wirtualne. Następnie kliknij przycisk **Dalej**.
 
      ![Strona do wypełnienia dla źródłowej i docelowej subskrypcji/regionu](./media/move-region-availability-zone/source-target.png)
 
-6. W obszarze **zasoby do przeniesienia**kliknij pozycję **Wybierz zasoby**.
-7. W obszarze **Wybierz zasoby**wybierz maszynę wirtualną. Można dodawać tylko zasoby obsługiwane do przenoszenia. Następnie kliknij przycisk **gotowe**. W obszarze **zasoby do przeniesienia**kliknij przycisk **dalej**.
+6. W obszarze **zasoby do przeniesienia** kliknij pozycję **Wybierz zasoby**.
+7. W obszarze **Wybierz zasoby** wybierz maszynę wirtualną. Można dodawać tylko zasoby obsługiwane do przenoszenia. Następnie kliknij przycisk **gotowe**. W obszarze **zasoby do przeniesienia** kliknij przycisk **dalej**.
 
     ![Strona umożliwiająca wybranie maszyn wirtualnych do przeniesienia](./media/move-region-availability-zone/select-vm.png)
-8. W obszarze **Recenzja + Dodawanie**Sprawdź ustawienia źródłowe i docelowe.
+8. W obszarze **Recenzja + Dodawanie** Sprawdź ustawienia źródłowe i docelowe.
 
     ![Strona umożliwiająca przejrzenie ustawień i przejście do przenoszenia](./media/move-region-availability-zone/review.png)
 
@@ -98,7 +98,7 @@ Po kliknięciu powiadomienia wyświetlane są zasoby na stronie **między region
 
 1. Jeśli w kolumnie **problemy** zostanie wyświetlony komunikat *Weryfikuj zależności* , kliknij przycisk **Weryfikuj zależności** . Proces sprawdzania poprawności.
 2. Jeśli znajdują się zależności, kliknij przycisk **Dodaj zależności**. 
-3. W obszarze **Dodaj zależności**Wybierz zasoby zależne > **Dodaj zależności**. Monitoruj postęp w powiadomieniach.
+3. W obszarze **Dodaj zależności** Wybierz zasoby zależne > **Dodaj zależności**. Monitoruj postęp w powiadomieniach.
 
     ![Przycisk dodawania zależności](./media/move-region-availability-zone/add-dependencies.png)
 
@@ -118,8 +118,8 @@ Aby można było przygotować i przenieść maszyny wirtualne, źródłowa Grupa
 
 Przygotuj się w następujący sposób:
 
-1. W **różnych regionach**wybierz źródłową grupę zasobów > **Przygotuj**.
-2. W obszarze **Przygotowywanie zasobów**kliknij pozycję **Przygotuj**.
+1. W **różnych regionach** wybierz źródłową grupę zasobów > **Przygotuj**.
+2. W obszarze **Przygotowywanie zasobów** kliknij pozycję **Przygotuj**.
 
     ![Przycisk przygotowujący źródłową grupę zasobów](./media/move-region-availability-zone/prepare-resource-group.png)
 
@@ -134,7 +134,7 @@ Przygotuj się w następujący sposób:
 
 Zainicjuj przechodzenie w następujący sposób:
 
-1. W **różnych regionach**wybierz grupę zasobów > **zainicjować przenoszenie**
+1. W **różnych regionach** wybierz grupę zasobów > **zainicjować przenoszenie**
 2. LN **przenoszenie zasobów**, kliknij przycisk **Inicjuj przenoszenie**. Grupa zasobów przechodzi do stanu *inicjowania przenoszenia w toku* .
 3. Po zainicjowaniu przenoszenia docelowa Grupa zasobów zostanie utworzona na podstawie wygenerowanego szablonu ARM. Źródłowa Grupa zasobów przechodzi w stan *oczekiwania na przeniesienie zatwierdzenia* .
 
@@ -142,8 +142,8 @@ Zainicjuj przechodzenie w następujący sposób:
 
 Aby zatwierdzić i zakończyć proces przenoszenia:
 
-1. W **różnych regionach**wybierz grupę zasobów, w której ma zostać **przeniesiona > zatwierdzenie**
-2. w obszarze **Przenieś zasoby**kliknij pozycję **Zatwierdź**.
+1. W **różnych regionach** wybierz grupę zasobów, w której ma zostać **przeniesiona > zatwierdzenie**
+2. w obszarze **Przenieś zasoby** kliknij pozycję **Zatwierdź**.
 
 > [!NOTE]
 > Po zatwierdzeniu przeniesienia źródłowa Grupa zasobów jest w stanie oczekiwania na *usunięcie źródła* .
@@ -157,16 +157,16 @@ Przed przeniesieniem reszty zasobów ustawimy docelową strefę dostępności dl
 
     ![Właściwości maszyny wirtualnej](./media/move-region-availability-zone/select-vm-settings.png)
 
-3. W obszarze **Ustawienia konfiguracji**Określ ustawienie dla docelowej maszyny wirtualnej. Maszynę wirtualną można skonfigurować w regionie docelowym w następujący sposób:
+3. W obszarze **Ustawienia konfiguracji** Określ ustawienie dla docelowej maszyny wirtualnej. Maszynę wirtualną można skonfigurować w regionie docelowym w następujący sposób:
     -  Utwórz nowy odpowiednik zasobu w regionie docelowym. Z wyjątkiem określonych ustawień, zasób docelowy jest tworzony przy użyciu tych samych ustawień co źródło.
     - Wybierz istniejącą maszynę wirtualną w regionie docelowym. 
 
-4. W obszarze **strefy**wybierz strefę, w której chcesz umieścić maszynę wirtualną podczas jej przenoszenia.
+4. W obszarze **strefy** wybierz strefę, w której chcesz umieścić maszynę wirtualną podczas jej przenoszenia.
 
     Zmiany są wykonywane tylko dla edytowanego zasobu. Należy osobno zaktualizować wszystkie zależne zasoby.
 
-5. W obszarze **jednostka SKU**Określ [warstwę platformy Azure](..//virtual-machines/sizes.md) , która ma zostać przypisana do docelowej maszyny wirtualnej.
-6. W obszarze **zestaw dostępności**wybierz zestaw dostępności, jeśli chcesz, aby docelowa maszyna wirtualna była uruchamiana w ramach zestawu dostępności w strefie dostępności.
+5. W obszarze **jednostka SKU** Określ [warstwę platformy Azure](..//virtual-machines/sizes.md) , która ma zostać przypisana do docelowej maszyny wirtualnej.
+6. W obszarze **zestaw dostępności** wybierz zestaw dostępności, jeśli chcesz, aby docelowa maszyna wirtualna była uruchamiana w ramach zestawu dostępności w strefie dostępności.
 7. Wybierz pozycję **Save changes** (Zapisz zmiany).
 
     ![Ustawienia maszyny wirtualnej](./media/move-region-availability-zone/vm-settings.png)
@@ -176,7 +176,7 @@ Przed przeniesieniem reszty zasobów ustawimy docelową strefę dostępności dl
 
 Po przeniesieniu źródłowej grupy zasobów można przystąpić do przenoszenia innych zasobów.
 
-1. W obszarze **między regionami**Wybierz zasoby, które chcesz przygotować. 
+1. W obszarze **między regionami** Wybierz zasoby, które chcesz przygotować. 
 
     ![Strona do wybrania przygotowania do innych zasobów](./media/move-region-availability-zone/prepare-other.png)
 
@@ -194,8 +194,8 @@ Po przeniesieniu źródłowej grupy zasobów można przystąpić do przenoszenia
 
 Po przygotowaniu zasobów można teraz zainicjować przenoszenie. 
 
-1. W **różnych regionach**wybierz pozycję zasoby z stanem *Inicjuj przenoszenie oczekujące*. Następnie kliknij pozycję **Inicjuj przenoszenie**
-2. W obszarze **Przenieś zasoby**kliknij pozycję **Inicjuj przenoszenie**.
+1. W **różnych regionach** wybierz pozycję zasoby z stanem *Inicjuj przenoszenie oczekujące*. Następnie kliknij pozycję **Inicjuj przenoszenie**
+2. W obszarze **Przenieś zasoby** kliknij pozycję **Inicjuj przenoszenie**.
 
     ![Strona umożliwiająca zainicjowanie przenoszenia zasobów](./media/move-region-availability-zone/initiate-move.png)
 
@@ -215,14 +215,14 @@ Po przygotowaniu zasobów można teraz zainicjować przenoszenie.
 Po początkowym przeniesieniu możesz zdecydować, czy chcesz zatwierdzić przeniesienie, czy go odrzucić. 
 
 - **Odrzuć**: możesz odrzucić przeniesienie, jeśli testujesz, i nie chcesz faktycznie przenosić zasobu źródłowego. Odrzucanie przesunięcia spowoduje zwrócenie zasobu do stanu *inicjacja oczekującego przeniesienia*.
-- **Zatwierdzenie**: zatwierdzenie powoduje zakończenie przejścia do regionu docelowego. Po zatwierdzeniu zasób źródłowy będzie w stanie *oczekiwania na usunięcie źródła*i można zdecydować, czy ma zostać usunięty.
+- **Zatwierdzenie**: zatwierdzenie powoduje zakończenie przejścia do regionu docelowego. Po zatwierdzeniu zasób źródłowy będzie w stanie *oczekiwania na usunięcie źródła* i można zdecydować, czy ma zostać usunięty.
 
 ## <a name="discard-the-move"></a>Odrzuć przeniesienie 
 
 Możesz odrzucić przeniesienie w następujący sposób:
 
-1. W obszarze **między regionami**wybierz pozycję zasoby z *oczekującym przeniesieniem*stanu, a następnie kliknij pozycję **odrzuć przeniesienie**.
-2. W polu **Odrzuć przenoszenie**kliknij pozycję **Odrzuć**.
+1. W obszarze **między regionami** wybierz pozycję zasoby z *oczekującym przeniesieniem* stanu, a następnie kliknij pozycję **odrzuć przeniesienie**.
+2. W polu **Odrzuć przenoszenie** kliknij pozycję **Odrzuć**.
 3. Śledź postęp przenoszenia na pasku powiadomień.
  
 
@@ -233,8 +233,8 @@ Możesz odrzucić przeniesienie w następujący sposób:
 
 Jeśli chcesz zakończyć proces przenoszenia, Zatwierdź przeniesienie. 
 
-1. W obszarze **między regionami**wybierz pozycję zasoby z *oczekującym przeniesieniem*stanu, a następnie kliknij pozycję **Zatwierdź przeniesienie**.
-2. W obszarze **Zatwierdź zasoby**kliknij pozycję **Zatwierdź**.
+1. W obszarze **między regionami** wybierz pozycję zasoby z *oczekującym przeniesieniem* stanu, a następnie kliknij pozycję **Zatwierdź przeniesienie**.
+2. W obszarze **Zatwierdź zasoby** kliknij pozycję **Zatwierdź**.
 
     ![Strona do zatwierdzania zasobów w celu sfinalizowania przenoszenia](./media/move-region-availability-zone/commit-resources.png)
 
@@ -256,7 +256,7 @@ Usługa mobilności nie została automatycznie odinstalowana z maszyn wirtualnyc
 
 Po przeniesieniu można opcjonalnie usunąć zasoby w regionie źródłowym.
 
-1. W **różnych regionach**kliknij nazwę każdego zasobu źródłowego, który chcesz usunąć.
+1. W **różnych regionach** kliknij nazwę każdego zasobu źródłowego, który chcesz usunąć.
 2. Na stronie właściwości dla każdego zasobu wybierz pozycję **Usuń**.
 
 ## <a name="delete-additional-resources-created-for-move"></a>Usuń dodatkowe zasoby utworzone do przeniesienia

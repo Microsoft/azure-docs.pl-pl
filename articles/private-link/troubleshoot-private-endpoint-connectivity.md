@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: fcc482e6231bbd925fd500a37989052765dede58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f861f9efa6ecc1886647ed6c460b6718ff97e8a1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77538538"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522332"
 ---
 # <a name="troubleshoot-azure-private-endpoint-connectivity-problems"></a>Rozwiązywanie problemów z łącznością z prywatnym punktem końcowym platformy Azure
 
@@ -56,7 +56,7 @@ Zapoznaj się z tymi krokami, aby upewnić się, że wszystkie typowe konfigurac
     
        ![Konfiguracja sieci wirtualnej i systemu DNS](./media/private-endpoint-tsg/vnet-dns-configuration.png)
     
-1. Użyj [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview) , aby sprawdzić, czy dane przepływają.
+1. Użyj [Azure monitor](../azure-monitor/overview.md) , aby sprawdzić, czy dane przepływają.
 
     a. W polu zasób prywatnego punktu końcowego wybierz pozycję **Monitoruj**.
      - Wybierz **dane z lub z** **danych**. 
@@ -80,7 +80,7 @@ Zapoznaj się z tymi krokami, aby upewnić się, że wszystkie typowe konfigurac
      - Wklej nazwę FQDN z prywatnego zasobu punktu końcowego.
      - Podaj port. Zazwyczaj należy używać 443 dla usługi Azure Storage lub Azure Cosmos DB i 1336 dla SQL.
 
-    e. Wybierz pozycję **Testuj**i sprawdź poprawność wyników testu.
+    e. Wybierz pozycję **Testuj** i sprawdź poprawność wyników testu.
     
       ![Network Watcher — wyniki testu](./media/private-endpoint-tsg/network-watcher-test-results.png)
     
@@ -93,7 +93,7 @@ Zapoznaj się z tymi krokami, aby upewnić się, że wszystkie typowe konfigurac
        - Sprawdź, czy istnieje rekord prywatnej strefy DNS. Jeśli nie istnieje, utwórz ją.
      - Jeśli używasz niestandardowej usługi DNS:
        - Przejrzyj niestandardowe ustawienia DNS i sprawdź, czy konfiguracja DNS jest poprawna.
-       Aby uzyskać wskazówki, zobacz [Omówienie prywatnego punktu końcowego: Konfiguracja DNS](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
+       Aby uzyskać wskazówki, zobacz [Omówienie prywatnego punktu końcowego: Konfiguracja DNS](./private-endpoint-overview.md#dns-configuration).
 
     b. Jeśli łączność kończy się niepowodzeniem ze względu na sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) lub trasy zdefiniowane przez użytkownika:
      - Przejrzyj reguły ruchu wychodzącego sieciowej grupy zabezpieczeń i Utwórz odpowiednie reguły ruchu wychodzącego, aby zezwolić na ruch.
@@ -107,5 +107,5 @@ Zapoznaj się z tymi krokami, aby upewnić się, że wszystkie typowe konfigurac
 
 ## <a name="next-steps"></a>Następne kroki
 
- * [Utwórz prywatny punkt końcowy w zaktualizowanej podsieci (Azure Portal)](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal)
+ * [Utwórz prywatny punkt końcowy w zaktualizowanej podsieci (Azure Portal)](./create-private-endpoint-portal.md)
  * [Przewodnik rozwiązywania problemów z prywatnym linkiem na platformie Azure](troubleshoot-private-link-connectivity.md)

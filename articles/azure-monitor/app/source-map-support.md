@@ -6,12 +6,12 @@ author: markwolff
 ms.author: marwolff
 ms.date: 06/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 5b15492a36032a53ac81929eb55bce0bc70e040c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6403ecd534d17298a10ffcf8f089a2b010fa3a51
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335135"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536459"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>Obsługa mapy źródłowej dla aplikacji JavaScript
 
@@ -67,7 +67,7 @@ Jeśli chcesz skonfigurować lub zmienić konto magazynu lub kontener obiektów 
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-### <a name="required-role-based-access-control-rbac-settings-on-your-blob-container"></a>Wymagane ustawienia kontroli dostępu opartej na rolach (RBAC) w kontenerze obiektów BLOB
+### <a name="required-azure-role-based-access-control-azure-rbac-settings-on-your-blob-container"></a>Wymagane ustawienia kontroli dostępu opartej na rolach (Azure RBAC) w kontenerze obiektów BLOB
 
 Każdy użytkownik w portalu korzystający z tej funkcji musi być co najmniej przypisany jako [czytnik danych magazynu obiektów BLOB][storage blob data reader] do kontenera obiektów BLOB. Tę rolę należy przypisać do wszystkich innych użytkowników, którzy będą korzystać z map źródłowych za pośrednictwem tej funkcji.
 

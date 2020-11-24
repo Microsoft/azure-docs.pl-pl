@@ -3,18 +3,18 @@ title: Tworzenie nowego Azure Monitor Application Insights zasobów opartych na 
 description: Dowiedz się więcej na temat kroków wymaganych do włączenia nowych Azure Monitor Application Insights zasobów obszaru roboczego.
 ms.topic: conceptual
 ms.date: 10/06/2020
-ms.openlocfilehash: 9b91e5065729bee6af3f8018c36930e132eb1a15
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: ecbac02bcb4d9b4f0db36eab854a91366c774d6c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945417"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536918"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Zasoby Application Insights oparte na obszarze roboczym
 
 Zasoby oparte na obszarze roboczym obsługują pełną integrację między Application Insights i Log Analytics. Teraz możesz wysyłać dane telemetryczne Application Insights do wspólnego Log Analytics obszaru roboczego, dzięki któremu masz pełny dostęp do wszystkich funkcji Log Analytics podczas zachowywania dzienników aplikacji, infrastruktury i platformy w pojedynczej skonsolidowanej lokalizacji.
 
-Pozwala to również na typowe Role-Based Access Control (RBAC) w ramach Twoich zasobów i eliminuje konieczność wykonywania zapytań między aplikacjami i obszarami roboczymi.
+Pozwala to również na wspólną kontrolę dostępu opartą na rolach (Azure RBAC) w ramach Twoich zasobów i eliminuje konieczność wykonywania zapytań między aplikacjami i obszarami roboczymi.
 
 > [!NOTE]
 > Pozyskiwanie i przechowywanie danych dla zasobów Application Insights opartych na obszarze roboczym jest rozliczane za pośrednictwem Log Analytics obszaru roboczego, w którym znajdują się dane. [Dowiedz się więcej]( ./pricing.md#workspace-based-application-insights) o rozliczeniach dla zasobów Application Insights opartych na obszarze roboczym.
@@ -207,7 +207,7 @@ Starsza Funkcja eksportu ciągłego nie jest obsługiwana w przypadku zasobów o
 
 > [!NOTE]
 > Nie są obecnie naliczane dodatkowe opłaty za eksport danych telemetrycznych. Informacje o cenach dla tej funkcji będą dostępne na [stronie cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).  Przed rozpoczęciem rozliczania będą wysyłane powiadomienia. Jeśli zdecydujesz się nadal korzystać z usługi po upływie <feature name> okresu wypowiedzenia, opłaty zostaną naliczone według odpowiedniej stawki. 
- 
+ 
 
 ## <a name="next-steps"></a>Następne kroki
 

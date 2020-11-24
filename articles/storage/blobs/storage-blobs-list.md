@@ -9,12 +9,12 @@ ms.date: 11/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 906df01587201561fbbfea0661d0885864042925
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: ddd19c90c8c47016497e2c3b00e04595a94e7715
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701317"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543072"
 ---
 # <a name="list-blobs-with-net"></a>Wyświetlanie listy obiektów BLOB przy użyciu platformy .NET
 
@@ -61,7 +61,7 @@ Aby odfiltrować listę obiektów blob, Określ ciąg dla `prefix` parametru. Ci
 
 Można zwrócić metadane obiektu BLOB z wynikami.
 
-- Jeśli używasz zestawu SDK platformy .NET V12, określ wartość **metadanych** dla wyliczenia [BlobTraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits) .
+- Jeśli używasz zestawu SDK platformy .NET V12, określ wartość **metadanych** dla wyliczenia [BlobTraits](/dotnet/api/azure.storage.blobs.models.blobtraits) .
 
 - Jeśli używasz zestawu SDK platformy .NET V11, określ wartość **metadanych** dla wyliczenia [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) . Usługa Azure Storage obejmuje metadane z zwróconymi wszystkimi obiektami BLOB, więc nie trzeba wywoływać jednej z metod **FetchAttributes** w tym kontekście, aby pobrać metadane obiektu BLOB.
 

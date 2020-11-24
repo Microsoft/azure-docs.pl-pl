@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: b52cc38c40d8b6a39961ab28d9f0600ea7ee2201
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 391d9562bc73265a10976f485c78e3966aa4fe83
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841907"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536289"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor często zadawane pytania
 
@@ -412,7 +412,7 @@ Unikatowe dostosowania, które często trzeba ręcznie odtworzyć lub zaktualizo
 - Utwórz ponownie niestandardowe pulpity nawigacyjne i skoroszyty. 
 - Utwórz ponownie lub zaktualizuj zakres wszelkich niestandardowych alertów dzienników/metryk. 
 - Utwórz ponownie alerty dostępności.
-- Utwórz ponownie wszystkie niestandardowe ustawienia Access Control Role-Based (RBAC), które są wymagane, aby użytkownicy mieli dostęp do nowego zasobu. 
+- Utwórz ponownie wszystkie niestandardowe ustawienia kontroli dostępu opartej na rolach (Azure RBAC), które są wymagane, aby użytkownicy mieli dostęp do nowego zasobu. 
 - Replikowanie ustawień obejmujących pobieranie próbek, przechowywanie danych, dzienny limit i włączenie metryk niestandardowych. Te ustawienia są kontrolowane za pośrednictwem okienka **użycie i szacowane koszty** .
 - Dowolna integracja, która opiera się na kluczach interfejsu API, takich jak [Adnotacje wersji](/azure/azure-monitor/app/annotations), [kanał bezpiecznego sterowania metrykami na żywo](app/live-stream.md#secure-the-control-channel) itp. Musisz wygenerować nowe klucze interfejsu API i zaktualizować skojarzoną integrację. 
 - Eksport ciągły w klasycznych zasobach musi zostać skonfigurowany ponownie.
@@ -680,9 +680,9 @@ Tabela ContainerInventory zawiera informacje o zatrzymanych i uruchomionych kont
 
 Jeśli wystąpi błąd **braku rejestracji subskrypcji dla Microsoft. OperationsManagement**, możesz rozwiązać ten problem, rejestrując dostawcę zasobów **Microsoft. OperationsManagement** w subskrypcji, w której zdefiniowano obszar roboczy. Dokumentację dotyczącą sposobu wykonywania tej czynności można znaleźć [tutaj](../azure-resource-manager/templates/error-register-resource-provider.md).
 
-### <a name="is-there-support-for-rbac-enabled-aks-clusters"></a>Czy obsługiwane są klastry AKS z włączoną funkcją RBAC?
+### <a name="is-there-support-for-kubernetes-rbac-enabled-aks-clusters"></a>Czy jest obsługiwane Kubernetes z obsługą RBAC AKS klastrów?
 
-Rozwiązanie do monitorowania kontenerów nie obsługuje RBAC, ale jest obsługiwane w przypadku kontenerów Azure Monitor. Na stronie Szczegóły rozwiązania mogą nie być wyświetlane odpowiednie informacje w blokach, które pokazują dane dla tych klastrów.
+Rozwiązanie do monitorowania kontenerów nie obsługuje Kubernetes RBAC, ale jest obsługiwane Azure Monitor w przypadku kontenerów. Na stronie Szczegóły rozwiązania mogą nie być wyświetlane odpowiednie informacje w blokach, które pokazują dane dla tych klastrów.
 
 ### <a name="how-do-i-enable-log-collection-for-containers-in-the-kube-system-namespace-through-helm"></a>Jak mogę włączyć zbieranie dzienników dla kontenerów w przestrzeni nazw polecenia-system za pomocą Helm?
 

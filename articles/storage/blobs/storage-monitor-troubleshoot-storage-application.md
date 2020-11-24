@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 5deece615e9d7de1e71e33164560c1c26212ec08
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 6c1d9b813db15900521968865c1036d53ad53f41
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676787"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544789"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Monitorowanie i rozwiązywanie problemów aplikacji magazynu w chmurze
 
@@ -37,9 +37,9 @@ Zaloguj się do [Azure Portal](https://portal.azure.com)
 
 ## <a name="turn-on-logging-and-metrics"></a>Włączanie rejestrowania i metryk
 
-W menu po lewej stronie wybierz kolejno pozycje **Grupy zasobów** i **myResourceGroup** , a następnie wybierz konto magazynu na liście zasobów.
+W menu po lewej stronie wybierz kolejno pozycje **Grupy zasobów** i **myResourceGroup**, a następnie wybierz konto magazynu na liście zasobów.
 
-W obszarze **Ustawienia diagnostyki (klasyczne)** zmień ustawienie **Stan** na **Włączone** . Upewnij się, że wszystkie opcje w obszarze **Właściwości obiektu blob** są włączone.
+W obszarze **Ustawienia diagnostyki (klasyczne)** zmień ustawienie **Stan** na **Włączone**. Upewnij się, że wszystkie opcje w obszarze **Właściwości obiektu blob** są włączone.
 
 Po zakończeniu kliknij przycisk **Zapisz** .
 
@@ -51,9 +51,9 @@ Alerty umożliwiają wysłanie wiadomości e-mail do administratora lub wyzwolen
 
 ### <a name="navigate-to-the-storage-account-in-the-azure-portal"></a>Przechodzenie do konta magazynu w witrynie Azure Portal
 
-W sekcji **Monitorowanie** wybierz pozycję **Alerty (klasyczne)** .
+W sekcji **Monitorowanie** wybierz pozycję **Alerty (klasyczne)**.
 
-Wybierz polecenie **Dodaj alert dotyczący metryki (klasyczne)** i ukończ formularz **Dodawanie reguły** , podając wymagane informacje. Z listy rozwijanej **Metryki** wybierz pozycję `SASClientOtherError`. Aby umożliwić wyzwolenie alertu po pierwszym błędzie, z listy rozwijanej **Warunek** wybierz pozycję **Większe niż lub równe** .
+Wybierz polecenie **Dodaj alert dotyczący metryki (klasyczne)** i ukończ formularz **Dodawanie reguły**, podając wymagane informacje. Z listy rozwijanej **Metryki** wybierz pozycję `SASClientOtherError`. Aby umożliwić wyzwolenie alertu po pierwszym błędzie, z listy rozwijanej **Warunek** wybierz pozycję **Większe niż lub równe**.
 
 ![Okienko diagnostyki](media/storage-monitor-troubleshoot-storage-application/add-alert-rule.png)
 
@@ -83,19 +83,19 @@ Poniższa ilustracja przedstawia przykładowy alert utworzony na podstawie symul
 
 Dane dzienników magazynu są przechowywane w zestawie obiektów blob w kontenerze obiektów blob o nazwie **$logs** na koncie magazynu. Ten kontener nie jest wyświetlany na liście wszystkich kontenerów obiektów blob na koncie, ale można wyświetlić jego zawartość po uzyskaniu do niego bezpośredniego dostępu.
 
-W tym scenariuszu należy użyć narzędzia [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx) do interakcji z kontem usługi Azure Storage.
+W tym scenariuszu należy użyć narzędzia [Microsoft Message Analyzer](/message-analyzer/microsoft-message-analyzer-operating-guide) do interakcji z kontem usługi Azure Storage.
 
 ### <a name="download-microsoft-message-analyzer"></a>Pobieranie narzędzia Microsoft Message Analyzer
 
-Pobierz narzędzie [Microsoft Message Analyzer](https://docs.microsoft.com/message-analyzer/installing-and-upgrading-message-analyzer) i zainstaluj aplikację.
+Pobierz narzędzie [Microsoft Message Analyzer](/message-analyzer/installing-and-upgrading-message-analyzer) i zainstaluj aplikację.
 
-Uruchom aplikację i wybierz polecenie **plik**  >  **otwarty**  >  **z innych źródeł plików** .
+Uruchom aplikację i wybierz polecenie **plik**  >  **otwarty**  >  **z innych źródeł plików**.
 
-W oknie dialogowym **File Selector** (Selektor plików) wybierz opcję **+ Add Azure Connection** (+ Dodaj połączenie Azure). Uzupełnij pola **Storage account name** (Nazwa konta magazynu) i **Account key** (Klucz konta), a następnie kliknij przycisk **OK** .
+W oknie dialogowym **File Selector** (Selektor plików) wybierz opcję **+ Add Azure Connection** (+ Dodaj połączenie Azure). Uzupełnij pola **Storage account name** (Nazwa konta magazynu) i **Account key** (Klucz konta), a następnie kliknij przycisk **OK**.
 
 ![Narzędzie Microsoft Message Analyzer — Okno dialogowe Dodawanie połączenia z usługą Azure Storage](media/storage-monitor-troubleshoot-storage-application/figure3.png)
 
-Po nawiązaniu połączenia rozwiń kontenery w widoku drzewa magazynu, aby wyświetlić obiekty blob dziennika. Wybierz najnowszy dziennik i kliknij przycisk **OK** .
+Po nawiązaniu połączenia rozwiń kontenery w widoku drzewa magazynu, aby wyświetlić obiekty blob dziennika. Wybierz najnowszy dziennik i kliknij przycisk **OK**.
 
 ![Zrzut ekranu pokazujący Analizator komunikatów firmy Microsoft i wyróżniony wybrany plik dziennika.](media/storage-monitor-troubleshoot-storage-application/figure4.png)
 

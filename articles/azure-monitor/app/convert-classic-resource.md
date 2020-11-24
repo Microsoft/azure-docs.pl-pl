@@ -3,18 +3,18 @@ title: Migrowanie Azure Monitor Application Insights zasobów klasycznych do zas
 description: Informacje o krokach wymaganych do uaktualnienia Azure Monitor Application Insights zasobów klasycznych do nowego modelu opartego na obszarze roboczym.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 0d2c7d1b9ee57e6d201205c04557e1b5f5623eb0
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 709cff1326bb6393a14c594ea434a6c16fb80860
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930581"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536527"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Migrowanie do zasobów Application Insights opartych na obszarze roboczym
 
 Ten przewodnik przeprowadzi Cię przez proces migrowania klasycznego zasobu Application Insights do zasobów opartych na obszarze roboczym. Zasoby oparte na obszarze roboczym obsługują pełną integrację między Application Insights i Log Analytics. Zasoby oparte na obszarze roboczym wysyłają Application Insights dane telemetryczne do wspólnego Log Analytics obszaru roboczego, dzięki czemu można uzyskiwać dostęp do [najnowszych funkcji Azure monitor](#new-capabilities) podczas utrzymywania dzienników aplikacji, infrastruktury i platformy w pojedynczej skonsolidowanej lokalizacji.
 
-Zasoby oparte na obszarze roboczym umożliwiają korzystanie z typowych Role-Based Access Control (RBAC) w ramach zasobów i eliminuje konieczność wykonywania zapytań między aplikacjami i obszarami roboczymi.
+Zasoby oparte na obszarze roboczym umożliwiają wspólną kontrolę dostępu opartą na rolach (Azure RBAC) w ramach Twoich zasobów i eliminuje konieczność wykonywania zapytań między aplikacjami i obszarami roboczymi.
 
 **Zasoby oparte na obszarze roboczym są obecnie dostępne we wszystkich regionach komercyjnych i dla instytucji rządowych USA platformy Azure**
 

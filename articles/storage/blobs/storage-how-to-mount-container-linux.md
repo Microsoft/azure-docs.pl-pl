@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 2/1/2019
 ms.author: ripohane
 ms.reviewer: dineshm
-ms.openlocfilehash: 297595c6c4a9c82c3d0293f2cea2db66ea9ca54a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0de8d8d5ff0f14d0268dbcca743f4d06ed877903
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89180409"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544398"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Jak zainstalować magazyn obiektów BLOB jako system plików za pomocą blobfuse
 
@@ -23,12 +23,12 @@ ms.locfileid: "89180409"
 W tym przewodniku przedstawiono sposób korzystania z programu blobfuse i instalowania kontenera magazynu obiektów BLOB w systemie Linux i uzyskiwania dostępu do danych. Aby dowiedzieć się więcej na temat blobfuse, zapoznaj się ze szczegółami w [repozytorium blobfuse](https://github.com/Azure/azure-storage-fuse).
 
 > [!WARNING]
-> Blobfuse nie gwarantuje zgodności z 100% POSIX, ponieważ po prostu tłumaczy żądania na [interfejsy API REST obiektów BLOB](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api). Na przykład operacje zmiany nazwy są niepodzielne w modelu POSIX, ale nie w blobfuse.
+> Blobfuse nie gwarantuje zgodności z 100% POSIX, ponieważ po prostu tłumaczy żądania na [interfejsy API REST obiektów BLOB](/rest/api/storageservices/blob-service-rest-api). Na przykład operacje zmiany nazwy są niepodzielne w modelu POSIX, ale nie w blobfuse.
 > Aby zapoznać się z pełną listą różnic między natywnym systemem plików i blobfuse, odwiedź [repozytorium kodu źródłowego blobfuse](https://github.com/azure/azure-storage-fuse).
 > 
 
 ## <a name="install-blobfuse-on-linux"></a>Zainstaluj program blobfuse w systemie Linux
-Pliki binarne Blobfuse są dostępne w [repozytoriach oprogramowania firmy Microsoft dla systemu Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) na potrzeby dystrybucji Ubuntu i RHEL. Aby zainstalować blobfuse na tych dystrybucjach, należy skonfigurować jeden z repozytoriów z listy. Możesz również utworzyć pliki binarne z kodu źródłowego po [wykonaniu kroków instalacji usługi Azure Storage](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) , jeśli nie ma plików binarnych dostępnych dla dystrybucji.
+Pliki binarne Blobfuse są dostępne w [repozytoriach oprogramowania firmy Microsoft dla systemu Linux](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) na potrzeby dystrybucji Ubuntu i RHEL. Aby zainstalować blobfuse na tych dystrybucjach, należy skonfigurować jeden z repozytoriów z listy. Możesz również utworzyć pliki binarne z kodu źródłowego po [wykonaniu kroków instalacji usługi Azure Storage](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) , jeśli nie ma plików binarnych dostępnych dla dystrybucji.
 
 Blobfuse obsługuje instalację na Ubuntu 14,04, 16,04 i 18,04. Uruchom to polecenie, aby upewnić się, że masz wdrożoną jedną z tych wersji:
 ```
@@ -36,7 +36,7 @@ lsb_release -a
 ```
 
 ### <a name="configure-the-microsoft-package-repository"></a>Skonfiguruj repozytorium pakietu Microsoft
-Skonfiguruj [repozytorium pakietów systemu Linux dla produktów firmy Microsoft](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
+Skonfiguruj [repozytorium pakietów systemu Linux dla produktów firmy Microsoft](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
 
 Przykładowo w dystrybucji Enterprise Linux 6:
 ```bash
@@ -144,5 +144,4 @@ echo "hello world" > test/blob.txt
 ## <a name="next-steps"></a>Następne kroki
 
 * [Strona główna Blobfuse](https://github.com/Azure/azure-storage-fuse#blobfuse)
-* [Zgłoś problemy blobfuse](https://github.com/Azure/azure-storage-fuse/issues) 
-
+* [Zgłoś problemy blobfuse](https://github.com/Azure/azure-storage-fuse/issues)

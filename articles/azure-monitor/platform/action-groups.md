@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a5d685e49d941d7b6febbc220cdbfbcb631c4496
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 17e01844463b6d18bd7d2c3b56ee86d938682b8e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94746367"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536323"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Tworzenie grup akcji i zarządzanie nimi w Azure Portal
 Grupa akcji to zbiór preferencji powiadomień definiowanych przez właściciela subskrypcji platformy Azure. Alerty Azure Monitor i Service Health umożliwiają Powiadamianie użytkowników o wyzwoleniu alertu. Różne alerty mogą korzystać z tej samej grupy akcji lub różnych grup akcji w zależności od wymagań użytkownika. W ramach subskrypcji można skonfigurować maksymalnie 2 000 grup akcji.
@@ -120,7 +120,7 @@ W grupie akcji może istnieć ograniczona liczba akcji elementu Runbook.
 ### <a name="azure-app-push-notifications"></a>Powiadomienia push aplikacji platformy Azure
 W grupie akcji może istnieć ograniczona liczba akcji aplikacji platformy Azure.
 
-### <a name="email"></a>E-mail
+### <a name="email"></a>Poczta e-mail
 Wiadomości e-mail będą wysyłane z następujących adresów e-mail. Upewnij się, że filtrowanie poczty e-mail jest skonfigurowane odpowiednio
 - azure-noreply@microsoft.com
 - azureemail-noreply@microsoft.com
@@ -149,6 +149,10 @@ W grupie akcji może istnieć ograniczona liczba akcji narzędzia ITSM.
 W grupie akcji może istnieć ograniczona liczba akcji aplikacji logiki.
 
 ### <a name="secure-webhook"></a>Bezpieczny element webhook
+
+> [!NOTE]
+> Użycie akcji elementu webhook wymaga, aby docelowy punkt końcowy elementu webhook nie wymagał pomyślnego funkcjonowania alertu lub może on przeanalizować informacje kontekstu alertu, które są dostarczane jako część operacji POST. Jeśli punkt końcowy elementu webhook nie może samodzielnie obsłużyć informacji kontekstu alertu, możesz użyć rozwiązania, takiego jak [Akcja aplikacji logiki](./action-groups-logic-app.md) do niestandardowego manipulowania informacjami kontekstu alertu w celu dopasowania do oczekiwanego formatu danych elementu webhook.
+
 Akcja elementu webhook grup akcji umożliwia korzystanie z Azure Active Directory w celu zabezpieczenia połączenia między grupą akcji i chronionym internetowym interfejsem API (punkt końcowy elementu webhook). Poniżej opisano ogólny przepływ pracy w celu skorzystania z zalet tej funkcji. Omówienie aplikacji usługi Azure AD i nazw głównych usług można znaleźć w temacie [Microsoft Identity platform (v 2.0) — Omówienie](../../active-directory/develop/v2-overview.md).
 
 1. Utwórz aplikację usługi Azure AD dla chronionego internetowego interfejsu API. Zobacz [chroniony internetowy interfejs API: Rejestracja aplikacji](../../active-directory/develop/scenario-protected-web-api-app-registration.md).
@@ -259,6 +263,10 @@ W grupie akcji może istnieć ograniczona liczba akcji głosowych.
 Cennik dla obsługiwanych krajów/regionów znajduje się na [stronie cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### <a name="webhook"></a>Webhook
+
+> [!NOTE]
+> Użycie akcji elementu webhook wymaga, aby docelowy punkt końcowy elementu webhook nie wymagał pomyślnego funkcjonowania alertu lub może on przeanalizować informacje kontekstu alertu, które są dostarczane jako część operacji POST. Jeśli punkt końcowy elementu webhook nie może samodzielnie obsłużyć informacji kontekstu alertu, możesz użyć rozwiązania, takiego jak [Akcja aplikacji logiki](./action-groups-logic-app.md) do niestandardowego manipulowania informacjami kontekstu alertu w celu dopasowania do oczekiwanego formatu danych elementu webhook.
+
 Elementy webhook są przetwarzane przy użyciu następujących reguł
 - Podjęto próbę wywołania elementu webhook z maksymalnie 3 razy.
 - Wywołanie zostanie ponowione, jeśli odpowiedź nie zostanie odebrana w określonym limicie czasu lub zostanie zwrócony jeden z następujących kodów stanu HTTP: 408, 429, 503 lub 504.

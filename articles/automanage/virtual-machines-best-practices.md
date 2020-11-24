@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 2b8009d6d571a9daf7163d2126b6d52edfc4bfdd
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 001721ac0fdbbaaf808b962a79353369ab1dddb5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521088"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521958"
 ---
 # <a name="azure-automanage-for-virtual-machines-best-practices"></a>Usługa Azure automanage dla najlepszych rozwiązań dotyczących maszyn wirtualnych
 
@@ -33,6 +33,7 @@ W przypadku wszystkich tych usług będziemy automatycznie dołączać, automaty
 |Usługa firmy Microsoft chroniąca przed złośliwym kodem    |Firma Microsoft chroniąca przed złośliwym kodem dla systemu Azure to bezpłatna ochrona w czasie rzeczywistym, która ułatwia identyfikowanie i usuwanie wirusów, programów szpiegujących i innego złośliwego oprogramowania. Generuje alerty, gdy znane złośliwe lub niechciane oprogramowanie próbuje zainstalować się lub uruchomić w swoich systemach platformy Azure. Dowiedz się [więcej](../security/fundamentals/antimalware.md). |Najlepsze praktyki dotyczące maszyn wirtualnych platformy Azure — produkcja, najlepsze rozwiązania dotyczące maszyn wirtualnych platformy Azure — tworzenie i testowanie    |Tak    |
 |Zarządzanie aktualizacjami    |Update Management w Azure Automation służy do zarządzania aktualizacjami systemu operacyjnego dla maszyn wirtualnych. Można szybko ocenić stan dostępnych aktualizacji na wszystkich komputerach agentów i zarządzać procesem instalowania wymaganych aktualizacji dla serwerów. Dowiedz się [więcej](../automation/update-management/update-mgmt-overview.md).    |Najlepsze praktyki dotyczące maszyn wirtualnych platformy Azure — produkcja, najlepsze rozwiązania dotyczące maszyn wirtualnych platformy Azure — tworzenie i testowanie    |Nie    |
 |Change Tracking & spis    |Change Tracking i spis łączy funkcje śledzenia zmian i spisu, aby umożliwić śledzenie zmian infrastruktury maszyny wirtualnej i serwera. Usługa obsługuje śledzenie zmian między usługami, przedemonuje oprogramowanie, rejestr i pliki w swoim środowisku, aby ułatwić diagnozowanie niepożądanych zmian i zgłaszanie alertów. Obsługa spisu umożliwia wykonywanie zapytań dotyczących zasobów gościa w celu wglądu w zainstalowane aplikacje i inne elementy konfiguracji.  Dowiedz się [więcej](../automation/change-tracking/overview.md).    |Najlepsze praktyki dotyczące maszyn wirtualnych platformy Azure — produkcja, najlepsze rozwiązania dotyczące maszyn wirtualnych platformy Azure — tworzenie i testowanie    |Nie    |
+|Konfiguracja gościa platformy Azure    | Zasady konfiguracji gościa służą do monitorowania konfiguracji i raportu dotyczącego zgodności maszyny. Usługa autozarządzania zainstaluje [linie bazowe zabezpieczeń systemu Windows](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines) przy użyciu rozszerzenia konfiguracji gościa. Dowiedz się [więcej](../governance/policy/concepts/guest-configuration.md).    |Najlepsze praktyki dotyczące maszyn wirtualnych platformy Azure — produkcja, najlepsze rozwiązania dotyczące maszyn wirtualnych platformy Azure — tworzenie i testowanie    |Nie    |
 |Konto usługi Azure Automation    |Azure Automation obsługuje zarządzanie przez cały cykl życia infrastruktury i aplikacji. Dowiedz się [więcej](../automation/automation-intro.md).    |Najlepsze praktyki dotyczące maszyn wirtualnych platformy Azure — produkcja, najlepsze rozwiązania dotyczące maszyn wirtualnych platformy Azure — tworzenie i testowanie    |Nie    |
 |Obszar roboczy usługi Log Analytics    |Azure Monitor przechowuje dane dzienników w obszarze roboczym Log Analytics, który jest zasobem platformy Azure i kontenerem, w którym zbierane są dane, agregowane i obsługiwane jako granica administracyjna. Dowiedz się [więcej](../azure-monitor/platform/design-logs-deployment.md).    |Najlepsze praktyki dotyczące maszyn wirtualnych platformy Azure — produkcja, najlepsze rozwiązania dotyczące maszyn wirtualnych platformy Azure — tworzenie i testowanie    |Nie    |
 

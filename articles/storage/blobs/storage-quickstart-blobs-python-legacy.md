@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: a01b6e644ce3afda451d94d3e00eda278a645adf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 34205caf03d2f2d7255f75ea6203c5572c4c429b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87851328"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95523311"
 ---
 # <a name="quickstart-manage-blobs-with-python-v21-sdk"></a>Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK języka Python v 2.1
 
@@ -137,7 +137,7 @@ Najpierw należy utworzyć odwołania do obiektów używane w celu uzyskania dos
 Gdy istnieje już kontener CloudBlobContainer, utwórz wystąpienie obiektu **CloudBlockBlob** wskazujące na konkretny obiekt blob, którego chcesz użyć. Następnie możesz przekazywać, pobierać i kopiować obiekt blob zgodnie z potrzebami.
 
 > [!IMPORTANT]
-> Nazwy kontenerów muszą być zapisane małymi literami. Aby uzyskać więcej informacji na temat nazw kontenerów i obiektów blob, zobacz [nazywanie i odwoływanie się do kontenerów, obiektów blob i metadanych](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+> Nazwy kontenerów muszą być zapisane małymi literami. Aby uzyskać więcej informacji na temat nazw kontenerów i obiektów blob, zobacz [nazywanie i odwoływanie się do kontenerów, obiektów blob i metadanych](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 ### <a name="upload-blobs-to-the-container"></a>Przekazywanie obiektów blob do kontenera
 
@@ -216,7 +216,7 @@ Aby uzyskać więcej informacji na temat programowania w języku Python za pomoc
 
 ### <a name="client-library-reference-and-samples"></a>Dokumentacja i przykłady dotyczące biblioteka klienta
 
-- Aby uzyskać więcej informacji na temat biblioteki klienta języka Python, zobacz [biblioteki usługi Azure Storage dla języka Python](https://docs.microsoft.com/python/api/overview/azure/storage).
+- Aby uzyskać więcej informacji na temat biblioteki klienta języka Python, zobacz [biblioteki usługi Azure Storage dla języka Python](/python/api/overview/azure/storage).
 - Zapoznaj się z [przykładami magazynu Blob Storage](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=python&term=blob) napisanymi przy użyciu biblioteki klienta Python.
 
 ## <a name="next-steps"></a>Następne kroki

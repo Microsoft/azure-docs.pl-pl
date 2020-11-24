@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 10f16118b37810ed888c0812a30ad276c49803f2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 39b5a812c5f9b8e148b5180569af110c72e2c75b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545790"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544602"
 ---
 # <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK V8 języka Java
 
@@ -38,15 +38,15 @@ Użyj narzędzia [git](https://git-scm.com/), aby pobrać kopię tej aplikacji d
 git clone https://github.com/Azure-Samples/storage-blobs-java-quickstart.git
 ```
 
-To polecenie klonuje repozytorium do lokalnego folderu git. Aby otworzyć projekt, włącz środowisko Eclipse i zamknij ekran powitalny. Wybierz pozycję **plik** , a następnie **Otwórz projekty z systemu plików** . Upewnij się, że zaznaczono opcję **Detect and configure project natures** (Wykryj i skonfiguruj natury projektów). Wybierz pozycję **Directory** (Katalog), a następnie przejdź do miejsca przechowywania sklonowanego repozytorium. Wewnątrz sklonowanego repozytorium wybierz folder **blobAzureApp** . Upewnij się, że projekt **blobAzureApp** jest wyświetlany jako projekt Eclipse, a następnie wybierz pozycję **Finish** (Zakończ).
+To polecenie klonuje repozytorium do lokalnego folderu git. Aby otworzyć projekt, włącz środowisko Eclipse i zamknij ekran powitalny. Wybierz pozycję **plik** , a następnie **Otwórz projekty z systemu plików**. Upewnij się, że zaznaczono opcję **Detect and configure project natures** (Wykryj i skonfiguruj natury projektów). Wybierz pozycję **Directory** (Katalog), a następnie przejdź do miejsca przechowywania sklonowanego repozytorium. Wewnątrz sklonowanego repozytorium wybierz folder **blobAzureApp**. Upewnij się, że projekt **blobAzureApp** jest wyświetlany jako projekt Eclipse, a następnie wybierz pozycję **Finish** (Zakończ).
 
-Po zakończeniu importowania projektu Otwórz **plik azureapp. Java** (znajdujący się w **blobQuickstart. blobAzureApp** wewnątrz elementu **src/Main/Java** ) i Zastąp `accountname` i `accountkey` wewnątrz `storageConnectionString` ciągu. Następnie uruchom aplikację. Szczegółowe instrukcje dotyczące wykonywania tych zadań zostały opisane w poniższych sekcjach.
+Po zakończeniu importowania projektu Otwórz **plik azureapp. Java** (znajdujący się w **blobQuickstart. blobAzureApp** wewnątrz elementu **src/Main/Java**) i Zastąp `accountname` i `accountkey` wewnątrz `storageConnectionString` ciągu. Następnie uruchom aplikację. Szczegółowe instrukcje dotyczące wykonywania tych zadań zostały opisane w poniższych sekcjach.
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>Konfigurowanie parametrów połączenia magazynu
 
-W aplikacji należy wprowadzić parametry połączenia konta magazynu. Otwórz plik **AzureApp.Java** . Znajdź zmienną `storageConnectionString` i wklej wartość parametrów połączenia skopiowaną w poprzedniej sekcji. Zmienna `storageConnectionString` powinna wyglądać podobnie do poniższego kodu:
+W aplikacji należy wprowadzić parametry połączenia konta magazynu. Otwórz plik **AzureApp.Java**. Znajdź zmienną `storageConnectionString` i wklej wartość parametrów połączenia skopiowaną w poprzedniej sekcji. Zmienna `storageConnectionString` powinna wyglądać podobnie do poniższego kodu:
 
 ```java
 public static final String storageConnectionString =
@@ -57,7 +57,7 @@ public static final String storageConnectionString =
 
 ## <a name="run-the-sample"></a>Uruchamianie aplikacji przykładowej
 
-Ta przykładowa aplikacja tworzy plik testowy w katalogu domyślnym ( *C:\Users \<user> \AppData\Local\Temp* , dla użytkowników systemu Windows), przekazuje go do usługi BLOB Storage, wyświetla listę obiektów BLOB w kontenerze, a następnie pobiera plik z nową nazwą, aby można było porównać stare i nowe pliki.
+Ta przykładowa aplikacja tworzy plik testowy w katalogu domyślnym (*C:\Users \<user> \AppData\Local\Temp*, dla użytkowników systemu Windows), przekazuje go do usługi BLOB Storage, wyświetla listę obiektów BLOB w kontenerze, a następnie pobiera plik z nową nazwą, aby można było porównać stare i nowe pliki.
 
 Uruchom aplikację przykładową, używając narzędzia Maven w wierszu polecenia. Otwórz powłokę i przejdź do pozycji **blobAzureApp** w sklonowanym katalogu. Następnie wprowadź ciąg `mvn compile exec:java`.
 
@@ -76,7 +76,7 @@ Deleting the container
 Deleting the source, and downloaded files
 ```
 
-Przed kontynuowaniem sprawdź katalog domyślny ( *C:\Users \<user> \AppData\Local\Temp* dla użytkowników systemu Windows) dla pliku przykładowego. Skopiuj adres URL dla obiektu blob z okna konsoli i wklej go do przeglądarki, aby wyświetlić zawartość pliku w usłudze Blob Storage. Jeśli porównasz przykładowy plik w katalogu z zawartością przechowywaną w usłudze Blob Storage, zobaczysz, że są takie same.
+Przed kontynuowaniem sprawdź katalog domyślny (*C:\Users \<user> \AppData\Local\Temp* dla użytkowników systemu Windows) dla pliku przykładowego. Skopiuj adres URL dla obiektu blob z okna konsoli i wklej go do przeglądarki, aby wyświetlić zawartość pliku w usłudze Blob Storage. Jeśli porównasz przykładowy plik w katalogu z zawartością przechowywaną w usłudze Blob Storage, zobaczysz, że są takie same.
 
   >[!NOTE]
   >Możesz również wyświetlić pliki w usłudze Blob Storage za pomocą narzędzia takiego jak [Eksplorator usługi Azure Storage](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Eksplorator usługi Azure Storage to darmowe narzędzie międzyplatformowe, które umożliwia dostęp do informacji na koncie magazynu.
@@ -93,22 +93,22 @@ Najpierw należy utworzyć odwołania do obiektów używane w celu uzyskania dos
 
 * Utwórz wystąpienie obiektu [CloudStorageAccount](/java/api/com.microsoft.azure.management.storage.storageaccount) wskazujące konto magazynu.
 
-    Obiekt **CloudStorageAccount** reprezentuje konto magazynu i umożliwia ustawienie właściwości konta magazynu oraz uzyskanie do nich dostępu przez programowanie. Skorzystaj z obiektu **CloudStorageAccount** , aby utworzyć wystąpienie obiektu **CloudBlobClient** , które jest konieczne, aby uzyskać dostęp do usługi Blob Service.
+    Obiekt **CloudStorageAccount** reprezentuje konto magazynu i umożliwia ustawienie właściwości konta magazynu oraz uzyskanie do nich dostępu przez programowanie. Skorzystaj z obiektu **CloudStorageAccount**, aby utworzyć wystąpienie obiektu **CloudBlobClient**, które jest konieczne, aby uzyskać dostęp do usługi Blob Service.
 
-* Utwórz wystąpienie obiektu **CloudBlobClient** , które wskazuje na [usługę Blob Service](/java/api/com.microsoft.azure.storage.blob.cloudblobclient) na koncie magazynu.
+* Utwórz wystąpienie obiektu **CloudBlobClient**, które wskazuje na [usługę Blob Service](/java/api/com.microsoft.azure.storage.blob.cloudblobclient) na koncie magazynu.
 
-    **CloudBlobClient** zapewnia punkt dostępu do usługi BLOB Service, co pozwala programowo ustawiać i uzyskiwać dostęp do właściwości magazynu obiektów BLOB. Użycie obiektu **CloudBlobClient** umożliwia utworzenie wystąpienia obiektu **CloudBlobContainer** , który jest konieczny do utworzenia kontenerów.
+    **CloudBlobClient** zapewnia punkt dostępu do usługi BLOB Service, co pozwala programowo ustawiać i uzyskiwać dostęp do właściwości magazynu obiektów BLOB. Użycie obiektu **CloudBlobClient** umożliwia utworzenie wystąpienia obiektu **CloudBlobContainer**, który jest konieczny do utworzenia kontenerów.
 
 * Utwórz wystąpienie obiektu [CloudBlobContainer](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer) reprezentujący kontener, do którego uzyskujesz dostęp. Użyj kontenerów, aby uporządkować obiekty blob w ten sam sposób, w jaki foldery na komputerze są używane do porządkowania plików.
 
-    Gdy masz **CloudBlobContainer** , możesz utworzyć wystąpienie obiektu [CloudBlockBlob](/java/api/com.microsoft.azure.storage.blob.cloudblockblob) , które wskazuje na konkretny obiekt BLOB, który Cię interesuje, i wykonaj operacje przekazywania, pobierania, kopiowania lub innych operacji.
+    Gdy masz **CloudBlobContainer**, możesz utworzyć wystąpienie obiektu [CloudBlockBlob](/java/api/com.microsoft.azure.storage.blob.cloudblockblob) , które wskazuje na konkretny obiekt BLOB, który Cię interesuje, i wykonaj operacje przekazywania, pobierania, kopiowania lub innych operacji.
 
 > [!IMPORTANT]
-> Nazwy kontenerów muszą być zapisane małymi literami. Aby uzyskać dodatkowe informacje o kontenerach, zobacz [Nazewnictwo i odwołania do kontenerów, obiektów blob i metadanych](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+> Nazwy kontenerów muszą być zapisane małymi literami. Aby uzyskać dodatkowe informacje o kontenerach, zobacz [Nazewnictwo i odwołania do kontenerów, obiektów blob i metadanych](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 ### <a name="create-a-container"></a>Tworzenie kontenera
 
-Ta sekcja poświęcona jest tworzeniu wystąpień obiektów, tworzeniu nowego kontenera, a następnie konfigurowaniu uprawnień w kontenerze, tak aby obiekty blob były publiczne i można było do nich uzyskać dostęp za pomocą samego adresu URL. Kontener nosi nazwę **quickstartcontainer** .
+Ta sekcja poświęcona jest tworzeniu wystąpień obiektów, tworzeniu nowego kontenera, a następnie konfigurowaniu uprawnień w kontenerze, tak aby obiekty blob były publiczne i można było do nich uzyskać dostęp za pomocą samego adresu URL. Kontener nosi nazwę **quickstartcontainer**.
 
 W tym przykładzie użyto metody [CreateIfNotExists](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists), ponieważ chcemy utworzyć nowy kontener za każdym razem, gdy jest uruchamiana aplikacja przykładowa. W środowisku produkcyjnym, w którym można używać tego samego kontenera w całej aplikacji, lepszym rozwiązaniem jest tylko jednokrotne wywołanie **metodę createifnotexists** . Możesz również utworzyć kontener wcześniej, aby nie było konieczne tworzenie go w kodzie.
 
@@ -125,9 +125,9 @@ container.createIfNotExists(BlobContainerPublicAccessType.CONTAINER, new BlobReq
 
 ### <a name="upload-blobs-to-the-container"></a>Przekazywanie obiektów blob do kontenera
 
-Aby przekazać plik do blokowego obiektu BLOB, Pobierz odwołanie do obiektu BLOB w kontenerze docelowym. Po uzyskaniu odwołania do obiektu blob możesz przekazać do niego dane przy użyciu polecenia [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.cloudblockblob.upload). Ta operacja tworzy obiekt blob, jeśli jeszcze nie istnieje, lub zastępuje obiekt blob, jeśli już istnieje.
+Aby przekazać plik do blokowego obiektu BLOB, Pobierz odwołanie do obiektu BLOB w kontenerze docelowym. Po uzyskaniu odwołania do obiektu blob możesz przekazać do niego dane przy użyciu polecenia [CloudBlockBlob.Upload](/java/api/com.microsoft.azure.storage.blob.cloudblockblob.upload). Ta operacja tworzy obiekt blob, jeśli jeszcze nie istnieje, lub zastępuje obiekt blob, jeśli już istnieje.
 
-Przykładowy kod tworzy plik lokalny do zastosowania w przypadku przekazywania i pobierania, przechowujący plik do przekazania jako **source** i nazwę obiektu blob w elemencie **blob** . Następujący kod przykładowy przekazuje plik do kontenera o nazwie **quickstartcontainer** .
+Przykładowy kod tworzy plik lokalny do zastosowania w przypadku przekazywania i pobierania, przechowujący plik do przekazania jako **source** i nazwę obiektu blob w elemencie **blob**. Następujący kod przykładowy przekazuje plik do kontenera o nazwie **quickstartcontainer**.
 
 ```java
 //Creating a sample file
@@ -151,7 +151,7 @@ Blokowe obiekty blob mogą mieć formę dowolnego typu pliku tekstowego lub bina
 
 ### <a name="list-the-blobs-in-a-container"></a>Wyświetlanie listy obiektów blob w kontenerze
 
-Możesz uzyskać listę plików w kontenerze za pomocą polecenia [CloudBlobContainer.ListBlobs](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.listblobs). Poniższy kod umożliwia pobranie listy obiektów blob, a następnie przetwarza je w pętli, wyświetlając identyfikatory URI odnalezionych obiektów blob. Możesz skopiować identyfikator URI z okna polecenia i wkleić go do przeglądarki, aby wyświetlić plik.
+Możesz uzyskać listę plików w kontenerze za pomocą polecenia [CloudBlobContainer.ListBlobs](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.listblobs). Poniższy kod umożliwia pobranie listy obiektów blob, a następnie przetwarza je w pętli, wyświetlając identyfikatory URI odnalezionych obiektów blob. Możesz skopiować identyfikator URI z okna polecenia i wkleić go do przeglądarki, aby wyświetlić plik.
 
 ```java
 //Listing contents of container
@@ -162,7 +162,7 @@ for (ListBlobItem blobItem : container.listBlobs()) {
 
 ### <a name="download-blobs"></a>Pobieranie obiektów blob
 
-Można pobierać obiekty blob na dysk lokalny przy użyciu polecenia [CloudBlob.DownloadToFile](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.cloudblob.downloadtofile).
+Można pobierać obiekty blob na dysk lokalny przy użyciu polecenia [CloudBlob.DownloadToFile](/java/api/com.microsoft.azure.storage.blob.cloudblob.downloadtofile).
 
 Następujący kod pobiera obiekty blob przekazane w poprzedniej sekcji, dodając sufiks „_DOWNLOADED” do nazwy obiektu blob, tak aby oba pliki były widoczne na dysku lokalnym.
 
@@ -177,7 +177,7 @@ blob.downloadToFile(downloadedFile.getAbsolutePath());
 
 ### <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli obiekty blob, które zostały przekazane, nie są już potrzebne, można usunąć cały kontener za pomocą [CloudBlobContainer. DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.deleteifexists). Ta metoda spowoduje również usunięcie plików w kontenerze.
+Jeśli obiekty blob, które zostały przekazane, nie są już potrzebne, można usunąć cały kontener za pomocą [CloudBlobContainer. DeleteIfExists](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.deleteifexists). Ta metoda spowoduje również usunięcie plików w kontenerze.
 
 ```java
 try {
@@ -201,5 +201,5 @@ sourceFile.deleteOnExit();
 W tym artykule przedstawiono sposób transferu plików między dyskiem lokalnym i usługą Azure Blob Storage przy użyciu języka Java. Aby dowiedzieć się więcej na temat pracy z językiem Java, przejdź do repozytorium kodu źródłowego w witrynie GitHub.
 
 > [!div class="nextstepaction"]
-> Dokumentacja interfejsu API [języka Java](https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy) 
+> Dokumentacja interfejsu API [języka Java](/java/api/overview/azure/storage?view=azure-java-legacy) 
 >  [Przykłady kodu dla języka Java](../common/storage-samples-java.md)

@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: 3174dbd36d9bb39ce606ec12f88397f795e91526
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4f84c3c2f6fc671a8cb6ac70313361540e3dd815
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832436"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95523284"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Zarządzanie danymi obiektów blob platformy Azure i znajdowanie ich przy użyciu tagów indeksu obiektów BLOB (wersja zapoznawcza)
 
@@ -51,7 +51,7 @@ Te obiekty blob są oddzielane przy użyciu prefiksu *kontenera/nazwy obiektu BL
 Tagi indeksów obiektów BLOB są atrybutami wartości klucz-wartość, które mogą być stosowane do nowych lub istniejących obiektów na koncie magazynu. Tagi indeksów można określić podczas procesu przekazywania przy użyciu operacji [Put BLOB](/rest/api/storageservices/put-blob), [Put Block list](/rest/api/storageservices/put-block-list)lub [copy BLOB](/rest/api/storageservices/copy-blob) i opcjonalnego `x-ms-tags` nagłówka. Jeśli masz już obiekty blob na koncie magazynu, wywołaj opcję [Ustaw Tagi obiektów BLOB](/rest/api/storageservices/set-blob-tags) przekazującą sformatowany dokument XML z tagami indeksu w treści żądania.
 
 > [!IMPORTANT]
-> Ustawienie tagów indeksów obiektów BLOB może być wykonywane przez [właściciela danych obiektów blob magazynu](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) i przez każdą osobę z sygnaturą dostępu współdzielonego, która ma uprawnienia dostępu do tagów obiektu BLOB ( `t` uprawnienie SAS).
+> Ustawienie tagów indeksów obiektów BLOB może być wykonywane przez [właściciela danych obiektów blob magazynu](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) i przez każdą osobę z sygnaturą dostępu współdzielonego, która ma uprawnienia dostępu do tagów obiektu BLOB ( `t` uprawnienie SAS).
 >
 > Ponadto użytkownicy RBAC z `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` uprawnieniem mogą wykonać tę operację.
 
@@ -87,7 +87,7 @@ Do tagów indeksów obiektów BLOB mają zastosowanie następujące ograniczenia
 Tagi indeksów obiektów BLOB są przechowywane jako zasoby podrzędne wraz z danymi obiektów blob i mogą być pobierane niezależnie od źródłowej zawartości danych obiektów BLOB. Tagi indeksów obiektów BLOB dla pojedynczego obiektu BLOB można pobrać przy użyciu operacji [pobierania tagów obiektów BLOB](/rest/api/storageservices/get-blob-tags) . Operacja [listy obiektów BLOB](/rest/api/storageservices/list-blobs) z `include:tags` parametrem zwróci również wszystkie obiekty blob w kontenerze wraz z ich tagami indeksu obiektów BLOB.
 
 > [!IMPORTANT]
-> Pobieranie i wyświetlanie znaczników indeksów obiektów BLOB może być wykonywane przez [właściciela danych obiektów blob magazynu](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) i przez każdą osobę z sygnaturą dostępu współdzielonego, która ma uprawnienia dostępu do tagów obiektu BLOB ( `t` uprawnieniem sygnatury typu SAS).
+> Pobieranie i wyświetlanie znaczników indeksów obiektów BLOB może być wykonywane przez [właściciela danych obiektów blob magazynu](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) i przez każdą osobę z sygnaturą dostępu współdzielonego, która ma uprawnienia dostępu do tagów obiektu BLOB ( `t` uprawnieniem sygnatury typu SAS).
 >
 > Ponadto użytkownicy RBAC z `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` uprawnieniem mogą wykonać tę operację.
 
@@ -100,7 +100,7 @@ Aparat indeksowania uwidacznia atrybuty klucz-wartość w indeksie wielowymiarow
 Operacja [Znajdź obiekty blob według tagów](/rest/api/storageservices/find-blobs-by-tags) umożliwia uzyskanie odfiltrowanego zestawu obiektów blob, których Tagi indeksów są zgodne z danym wyrażeniem zapytania. `Find Blobs by Tags` obsługuje filtrowanie między wszystkimi kontenerami w ramach konta magazynu lub można ograniczyć filtrowanie do tylko jednego kontenera. Ponieważ wszystkie klucze i wartości tagów indeksów są ciągami, operatory relacyjne używają sortowania leksykograficznych.
 
 > [!IMPORTANT]
-> Znajdowanie danych przy użyciu tagów indeksów obiektów BLOB może być wykonywane przez [właściciela danych obiektów blob magazynu](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) i przez każdą osobę z sygnaturą dostępu współdzielonego, która ma uprawnienia do znajdowania obiektów BLOB według tagów ( `f` uprawnienie sygnatury typu SAS).
+> Znajdowanie danych przy użyciu tagów indeksów obiektów BLOB może być wykonywane przez [właściciela danych obiektów blob magazynu](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) i przez każdą osobę z sygnaturą dostępu współdzielonego, która ma uprawnienia do znajdowania obiektów BLOB według tagów ( `f` uprawnienie sygnatury typu SAS).
 >
 > Ponadto użytkownicy RBAC z `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` uprawnieniem mogą wykonać tę operację.
 
@@ -235,7 +235,7 @@ Obiekty wywołujące korzystające z [tożsamości usługi Azure AD](../common/s
 | [Pobierz Tagi obiektów BLOB](/rest/api/storageservices/get-blob-tags)           | Microsoft. Storage/storageAccounts/blobServices/kontenery/obiekty blob/Tagi/odczyt     |
 | [Znajdź obiekty blob według tagów](/rest/api/storageservices/find-blobs-by-tags) | Microsoft. Storage/storageAccounts/blobServices/Containers/Blobs/Filter/Action |
 
-Do operacji tagów indeksów są wymagane dodatkowe uprawnienia, oddzielone od źródłowych danych obiektów BLOB. Rola [właściciela danych obiektów blob magazynu](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) ma przyznane uprawnienia dla wszystkich trzech operacji znacznika indeksu obiektów BLOB. [Czytnik danych obiektów blob magazynu](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) ma przyznane tylko uprawnienia do `Find Blobs by Tags` `Get Blob Tags` operacji i.
+Do operacji tagów indeksów są wymagane dodatkowe uprawnienia, oddzielone od źródłowych danych obiektów BLOB. Rola [właściciela danych obiektów blob magazynu](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) ma przyznane uprawnienia dla wszystkich trzech operacji znacznika indeksu obiektów BLOB. [Czytnik danych obiektów blob magazynu](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) ma przyznane tylko uprawnienia do `Find Blobs by Tags` `Get Blob Tags` operacji i.
 
 ### <a name="sas-permissions"></a>Uprawnienia SAS
 

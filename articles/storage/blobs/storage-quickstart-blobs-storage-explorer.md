@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: f920a937f4b9b51f9babd03ed0fb42dd3c7775d8
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 2477107105b6dbcab96db8d44ac982554dc0c48d
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217793"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543174"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob"></a>Szybki Start: Tworzenie obiektu BLOB za pomocą Eksplorator usługi Azure Storage
 
@@ -78,7 +78,7 @@ Aby pobrać obiekty blob przy użyciu **Eksploratora usługi Azure Storage**, za
 
 ## <a name="manage-snapshots"></a>Zarządzanie migawkami
 
-Eksplorator usługi Azure Storage umożliwia tworzenie [migawek](storage-blob-snapshots.md) obiektów blob i zarządzanie nimi. Aby utworzyć migawkę obiektu blob, kliknij go prawym przyciskiem myszy, a następnie wybierz pozycję **Utwórz migawkę**. Aby wyświetlić migawkę obiektu blob, kliknij go prawym przyciskiem myszy, a następnie wybierz pozycję **Zarządzaj migawkami**. Lista migawek dla danego obiektu blob jest wyświetlana w bieżącej karcie.
+Eksplorator usługi Azure Storage umożliwia tworzenie [migawek](./snapshots-overview.md) obiektów blob i zarządzanie nimi. Aby utworzyć migawkę obiektu blob, kliknij go prawym przyciskiem myszy, a następnie wybierz pozycję **Utwórz migawkę**. Aby wyświetlić migawkę obiektu blob, kliknij go prawym przyciskiem myszy, a następnie wybierz pozycję **Zarządzaj migawkami**. Lista migawek dla danego obiektu blob jest wyświetlana w bieżącej karcie.
 
 ![Zrzut ekranu przedstawiający listę obiektów BLOB w Eksplorator usługi Microsoft Azure Storage.](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
 
@@ -99,4 +99,4 @@ Sygnatury dostępu współdzielonego można pobierać za pomocą Eksploratora us
 W tym przewodniku Szybki start przedstawiono metodę transferowania plików między dyskiem lokalnym i usługą Azure Blob Storage przy użyciu **Eksploratora usługi Azure Storage**. Aby dowiedzieć się więcej na temat pracy z usługą Blob Storage, przejdź do instrukcji dotyczących magazynu obiektów blob.
 
 > [!div class="nextstepaction"]
-> [Instrukcje: Operacje wykonywane w usłudze Blob Storage](storage-how-to-use-blobs-powershell.md)
+> [Instrukcje: Operacje wykonywane w usłudze Blob Storage](./storage-quickstart-blobs-powershell.md)

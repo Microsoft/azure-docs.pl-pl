@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: barbkess
 ms.custom: references_regions
-ms.openlocfilehash: b720d9dd824018d885ccc9860ee9fd8a90a46051
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d42eabe3afeb738b0cbb011881678839fe0ba2d7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84194318"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95539060"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Ciągłość działania i odzyskiwanie po awarii — BCDR: Regiony sparowane platformy Azure
 
@@ -43,7 +43,7 @@ Nie. Chociaż dana usługa platformy Azure może polegać na parze regionalnym, 
 
 ## <a name="must-i-use-azure-regional-pairs"></a>Czy muszę używać par regionalnych platformy Azure?
 
-Nie. Klienci mogą korzystać z usług platformy Azure, aby zaprojektować odporną usługę bez polegania na lokalnych parach platformy Azure.  Firma Microsoft zaleca jednak skonfigurowanie odzyskiwania po awarii (BCDR) ciągłości biznesowej w celu uzyskania korzyści z [izolacji](./security/fundamentals/isolation-choices.md) i zwiększenia [dostępności](./availability-zones/az-overview.md). W przypadku aplikacji obsługujących wiele aktywnych regionów zalecamy używanie obu regionów z pary regionalnej, gdy jest to możliwe. Zapewnia to optymalną dostępność aplikacji i zminimalizowany czas odzyskiwania w przypadku awarii. Zawsze, gdy to możliwe, Zaprojektuj aplikację pod kątem [maksymalnej odporności](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview) i łatwości [odzyskiwania po awarii](https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery).
+Nie. Klienci mogą korzystać z usług platformy Azure, aby zaprojektować odporną usługę bez polegania na lokalnych parach platformy Azure.  Firma Microsoft zaleca jednak skonfigurowanie odzyskiwania po awarii (BCDR) ciągłości biznesowej w celu uzyskania korzyści z [izolacji](./security/fundamentals/isolation-choices.md) i zwiększenia [dostępności](./availability-zones/az-overview.md). W przypadku aplikacji obsługujących wiele aktywnych regionów zalecamy używanie obu regionów z pary regionalnej, gdy jest to możliwe. Zapewnia to optymalną dostępność aplikacji i zminimalizowany czas odzyskiwania w przypadku awarii. Zawsze, gdy to możliwe, Zaprojektuj aplikację pod kątem [maksymalnej odporności](/azure/architecture/framework/resiliency/overview) i łatwości [odzyskiwania po awarii](/azure/architecture/framework/resiliency/backup-and-recovery).
 
 ## <a name="azure-regional-pairs"></a>Pary regionalne platformy Azure
 
@@ -94,9 +94,9 @@ Jak określono na rysunku 2.
 
 1. **Azure COMPUTE (IaaS)** — w celu zapewnienia dostępności zasobów w innym regionie w trakcie awarii należy zainicjować obsługę administracyjną dodatkowych zasobów obliczeniowych. Aby uzyskać więcej informacji, zobacz [Wskazówki techniczne dotyczące odporności na platformie Azure](https://github.com/uglide/azure-content/blob/master/articles/resiliency/resiliency-technical-guidance.md). 
 
-2. **Azure Storage** — Jeśli używasz dysków zarządzanych, Dowiedz się więcej o [kopiach zapasowych między regionami](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) i Azure Backup i [replikowanie maszyn wirtualnych](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) z jednego regionu do innego przy użyciu Azure Site Recovery. Jeśli używasz kont magazynu, to magazyn Geograficznie nadmiarowy (GRS) jest konfigurowany domyślnie podczas tworzenia konta usługi Azure Storage. W przypadku GRS dane są automatycznie replikowane trzy razy w regionie podstawowym, a trzy razy w sparowanym regionie. Aby uzyskać więcej informacji, zobacz [Opcje nadmiarowości usługi Azure Storage](storage/common/storage-redundancy.md).
+2. **Azure Storage** — Jeśli używasz dysków zarządzanych, Dowiedz się więcej o [kopiach zapasowych między regionami](/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) i Azure Backup i [replikowanie maszyn wirtualnych](./site-recovery/azure-to-azure-tutorial-enable-replication.md) z jednego regionu do innego przy użyciu Azure Site Recovery. Jeśli używasz kont magazynu, to magazyn Geograficznie nadmiarowy (GRS) jest konfigurowany domyślnie podczas tworzenia konta usługi Azure Storage. W przypadku GRS dane są automatycznie replikowane trzy razy w regionie podstawowym, a trzy razy w sparowanym regionie. Aby uzyskać więcej informacji, zobacz [Opcje nadmiarowości usługi Azure Storage](storage/common/storage-redundancy.md).
 
-3. **Azure SQL Database** — z Azure SQL Database replikacją geograficzną można skonfigurować asynchroniczne replikację transakcji do dowolnego regionu na świecie; Zalecamy jednak wdrożenie tych zasobów w sparowanym regionie w przypadku większości scenariuszy odzyskiwania po awarii. Aby uzyskać więcej informacji, zobacz [replikację geograficzną w Azure SQL Database](sql-database/sql-database-geo-replication-overview.md).
+3. **Azure SQL Database** — z Azure SQL Database replikacją geograficzną można skonfigurować asynchroniczne replikację transakcji do dowolnego regionu na świecie; Zalecamy jednak wdrożenie tych zasobów w sparowanym regionie w przypadku większości scenariuszy odzyskiwania po awarii. Aby uzyskać więcej informacji, zobacz [replikację geograficzną w Azure SQL Database](./azure-sql/database/auto-failover-group-overview.md).
 
 4. **Azure Resource Manager** — usługa Resource Manager z założenia zapewnia logiczną izolację składników w różnych regionach. Oznacza to, że logiczne błędy w jednym regionie są mniej podobne do innych.
 

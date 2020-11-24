@@ -3,12 +3,12 @@ title: Jak zaprojektować wdrożenie Application Insights — jeden z wielu zaso
 description: Bezpośrednia Telemetria do różnych zasobów na potrzeby tworzenia, testowania i tworzenia sygnatur produkcji.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 264cbe35e7af50577b345d686b639e47760f428d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49e9b8920af7333e0d95e23e6e5cf0828d448609
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88258718"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536357"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Ile zasobów Application Insights należy wdrożyć
 
@@ -26,7 +26,7 @@ Każdy zasób Application Insights jest dostarczany z metrykami, które są dost
 
 -   Dla składników aplikacji, które są wdrażane razem. Zwykle opracowywane przez jednego zespołu, zarządzane przez ten sam zestaw użytkowników DevOps/ITOps.
 -   Jeśli warto agregować kluczowe wskaźniki wydajności (KPI), takie jak czasy trwania odpowiedzi, współczynniki niepowodzeń na pulpicie nawigacyjnym itp., wszystkie te ustawienia są domyślnie (można wybrać segment według nazwy roli w Eksplorator metryk środowisku).
--   Jeśli nie ma potrzeby zarządzania Access Control opartej na rolach (RBAC) w różny sposób między składnikami aplikacji.
+-   Jeśli nie ma potrzeby zarządzania kontrolą dostępu opartą na rolach (Azure RBAC) w różny sposób między składnikami aplikacji.
 -   Jeśli nie są potrzebne kryteria alertów metryk, które różnią się między składnikami programu.
 -   Jeśli nie ma potrzeby zarządzania ciągłymi eksportami w różny sposób między składnikami programu.
 -   Jeśli nie jest konieczne Zarządzanie rozliczeniami/przydziałami w różny sposób między składnikami programu.

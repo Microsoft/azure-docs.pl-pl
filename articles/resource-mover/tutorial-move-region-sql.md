@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e3e2c9aa42ff3189e90f57d7c6e92b2a71f46639
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9fe43125c83436f89bf93cbe975317efec2beb46
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061612"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542817"
 ---
 # <a name="tutorial-move-azure-sql-database-resources-to-another-region"></a>Samouczek: przenoszenie zasobów Azure SQL Database do innego regionu
 
@@ -22,7 +22,7 @@ W tym samouczku dowiesz się, jak przenieść bazy danych SQL Azure i pule elast
 > [!NOTE]
 > Usługa przenoszenia zasobów platformy Azure jest obecnie dostępna w wersji zapoznawczej.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Sprawdź wymagania wstępne i wymagania.
@@ -43,22 +43,22 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 -  Sprawdź, czy masz dostęp *właściciela* do subskrypcji zawierającej zasoby, które chcesz przenieść.
     - Przy pierwszym dodawaniu zasobu dla określonej pary źródłowej i docelowej w ramach subskrypcji platformy Azure usługa zarządzania zasobami tworzy [tożsamość zarządzaną przypisaną przez system](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (znaną wcześniej jako identyfikator usługi zarządzanej (msi), która jest zaufana przez subskrypcję.
     - Aby utworzyć tożsamość i przypisać do niej wymaganą rolę (współautor lub administratora dostępu użytkownika w subskrypcji źródłowej), konto używane do dodawania zasobów wymaga uprawnień *właściciela* do subskrypcji. [Dowiedz się więcej](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) na temat ról platformy Azure.
-- Subskrypcja wymaga wystarczającego limitu przydziału, aby utworzyć zasoby, które są przenoszone w regionie docelowym. Jeśli nie ma limitu przydziału, [Zażądaj dodatkowych limitów](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+- Subskrypcja wymaga wystarczającego limitu przydziału, aby utworzyć zasoby, które są przenoszone w regionie docelowym. Jeśli nie ma limitu przydziału, [Zażądaj dodatkowych limitów](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Sprawdź ceny i opłaty związane z regionem docelowym, do którego są przenoszone zasoby. Skorzystaj z [kalkulatora cen](https://azure.microsoft.com/pricing/calculator/) , aby uzyskać pomoc.
     
 
 ## <a name="check-sql-requirements"></a>Sprawdź wymagania SQL
 
 1. [Sprawdź](support-matrix-move-region-sql.md) , które funkcje bazy danych/puli elastycznej są obsługiwane na potrzeby przechodzenia do innego regionu.
-2. W regionie docelowym Utwórz serwer docelowy dla każdego serwera źródłowego. [Dowiedz się więcej](/azure/azure-sql/database/active-geo-replication-security-configure#how-to-configure-logins-and-users).
+2. W regionie docelowym Utwórz serwer docelowy dla każdego serwera źródłowego. [Dowiedz się więcej](../azure-sql/database/active-geo-replication-security-configure.md#how-to-configure-logins-and-users).
 4. Jeśli bazy danych są szyfrowane przy użyciu transparentu szyfrowanie danych (TDE) i używasz własnego klucza szyfrowania w Azure Key Vault, [Dowiedz się, jak](../key-vault/general/move-region.md) przenieść magazyny kluczy do innego regionu.
 5. Jeśli synchronizacja danych SQL jest włączona, przeniesienie baz danych elementów członkowskich jest obsługiwane. Po przeniesieniu należy skonfigurować synchronizację danych SQL do nowej docelowej bazy danych.
-6. Usuń zaawansowane ustawienia zabezpieczeń danych przed przeniesieniem. Po przeniesieniu [Skonfiguruj ustawienia](/azure/sql-database/sql-database-advanced-data-security) na poziomie SQL Server w regionie docelowym.
-7. Jeśli inspekcja jest włączona, zasady są resetowane do domyślnych po przeniesieniu. Ponownie [Skonfiguruj inspekcję](/azure/sql-database/sql-database-auditing) po przeniesieniu.
-7. Zasady przechowywania kopii zapasowej dla źródłowej bazy danych są przenoszone do docelowej bazy danych. [Dowiedz się więcej](/azure/sql-database/sql-database-long-term-backup-retention-configure ) o modyfikowaniu ustawień po przeniesieniu.
-8. Przed przeniesieniem Usuń reguły zapory na poziomie serwera. Reguły zapory na poziomie bazy danych są kopiowane z serwera źródłowego na serwer docelowy podczas przenoszenia. Po przeniesieniu [Skonfiguruj reguły zapory](/azure/sql-database/sql-database-server-level-firewall-rule) dla SQL Server w regionie docelowym.
-9. Przed przeniesieniem Usuń ustawienia autodostrajania. Po przeniesieniu ponownie [Skonfiguruj ustawienia automatycznego dostrajania](/azure/sql-database/sql-database-automatic-tuning-enable) .
-10. Przed przeniesieniem Usuń ustawienia alertów bazy danych. [Zresetuj](/azure/sql-database/sql-database-insights-alerts-portal) po przeniesieniu.
+6. Usuń zaawansowane ustawienia zabezpieczeń danych przed przeniesieniem. Po przeniesieniu [Skonfiguruj ustawienia](../azure-sql/database/azure-defender-for-sql.md) na poziomie SQL Server w regionie docelowym.
+7. Jeśli inspekcja jest włączona, zasady są resetowane do domyślnych po przeniesieniu. Ponownie [Skonfiguruj inspekcję](../azure-sql/database/auditing-overview.md) po przeniesieniu.
+7. Zasady przechowywania kopii zapasowej dla źródłowej bazy danych są przenoszone do docelowej bazy danych. [Dowiedz się więcej](../azure-sql/database/long-term-backup-retention-configure.md) o modyfikowaniu ustawień po przeniesieniu.
+8. Przed przeniesieniem Usuń reguły zapory na poziomie serwera. Reguły zapory na poziomie bazy danych są kopiowane z serwera źródłowego na serwer docelowy podczas przenoszenia. Po przeniesieniu [Skonfiguruj reguły zapory](../azure-sql/database/firewall-create-server-level-portal-quickstart.md) dla SQL Server w regionie docelowym.
+9. Przed przeniesieniem Usuń ustawienia autodostrajania. Po przeniesieniu ponownie [Skonfiguruj ustawienia automatycznego dostrajania](../azure-sql/database/automatic-tuning-enable.md) .
+10. Przed przeniesieniem Usuń ustawienia alertów bazy danych. [Zresetuj](../azure-sql/database/alerts-insights-configure-portal.md) po przeniesieniu.
     
 ## <a name="select-resources"></a>Wybieranie zasobów
 
@@ -67,27 +67,27 @@ Wybierz zasoby, które chcesz przenieść.
 - Możesz wybrać dowolny obsługiwany typ zasobu w dowolnej grupie zasobów w wybranym regionie źródłowym.
 - Przenoszenie zasobów do regionu docelowego w tej samej subskrypcji co region źródłowy. Jeśli chcesz zmienić subskrypcję, możesz to zrobić po przeniesieniu zasobów.
 
-1. W Azure Portal Wyszukaj pozycję *przeniesienie zasobów*. Następnie w obszarze **usługi**wybierz pozycję **Azure Resource**przenosząca.
+1. W Azure Portal Wyszukaj pozycję *przeniesienie zasobów*. Następnie w obszarze **usługi** wybierz pozycję **Azure Resource** przenosząca.
 
      ![Wyniki wyszukiwania dla przenoszenia zasobów w Azure Portal](./media/tutorial-move-region-sql/search.png)
 
-2. W obszarze **Przegląd**kliknij pozycję **Rozpocznij**.
+2. W obszarze **Przegląd** kliknij pozycję **Rozpocznij**.
 
     ![Przycisk dodawania zasobów do przenoszenia do innego regionu](./media/tutorial-move-region-sql/get-started.png)
 
-3. W obszarze **Przenieś zasoby**  >  **Źródło + miejsce docelowe**wybierz źródłową subskrypcję i region.
-4. W obszarze **Lokalizacja docelowa**wybierz region, do którego chcesz przenieść zasoby. Następnie kliknij przycisk **Dalej**.
+3. W obszarze **Przenieś zasoby**  >  **Źródło + miejsce docelowe** wybierz źródłową subskrypcję i region.
+4. W obszarze **Lokalizacja docelowa** wybierz region, do którego chcesz przenieść zasoby. Następnie kliknij przycisk **Dalej**.
 
     ![Strona umożliwiająca wybranie regionu źródłowego i docelowego](./media/tutorial-move-region-sql/source-target.png)
 
-6. W obszarze **zasoby do przeniesienia**kliknij pozycję **Wybierz zasoby**.
-7. W obszarze **Wybierz zasoby**Wybierz zasoby. Można dodawać tylko zasoby obsługiwane do przenoszenia. Następnie kliknij przycisk **gotowe**.
+6. W obszarze **zasoby do przeniesienia** kliknij pozycję **Wybierz zasoby**.
+7. W obszarze **Wybierz zasoby** Wybierz zasoby. Można dodawać tylko zasoby obsługiwane do przenoszenia. Następnie kliknij przycisk **gotowe**.
 
     ![Strona umożliwiająca wybranie zasobów SQL do przeniesienia](./media/tutorial-move-region-sql/select-resources.png)
 
-8. W obszarze **zasoby do przeniesienia**kliknij przycisk **dalej**.
+8. W obszarze **zasoby do przeniesienia** kliknij przycisk **dalej**.
 
-9. W obszarze **Recenzja + Dodawanie**Sprawdź ustawienia źródłowe i docelowe. Upewnij się, że rozumiesz, że metadane dotyczące przeniesienia będą przechowywane w grupie zasobów utworzonej w tym celu w regionie metadanych.
+9. W obszarze **Recenzja + Dodawanie** Sprawdź ustawienia źródłowe i docelowe. Upewnij się, że rozumiesz, że metadane dotyczące przeniesienia będą przechowywane w grupie zasobów utworzonej w tym celu w regionie metadanych.
 
 
     ![Strona umożliwiająca przejrzenie ustawień i przejście do przenoszenia](./media/tutorial-move-region-sql/review.png)
@@ -111,7 +111,7 @@ Wybierz zasoby, które chcesz przenieść.
 
     ![Przycisk dodawania zależności](./media/tutorial-move-region-sql/add-dependencies.png)
    
-3. W obszarze **Dodaj zależności**Wybierz zasoby zależne > **Dodaj zależności**. Monitoruj postęp w powiadomieniach.
+3. W obszarze **Dodaj zależności** Wybierz zasoby zależne > **Dodaj zależności**. Monitoruj postęp w powiadomieniach.
 
 4. W razie konieczności Dodaj dodatkowe zależności i ponownie sprawdź zależności. 
 
@@ -127,7 +127,7 @@ Przypisz SQL Server docelowy w regionie docelowym i zatwierdź przeniesienie.
 
 ### <a name="assign-a-target-sql-server"></a>Przypisywanie SQL Server docelowej
 
-1. W **różnych regionach**dla zasobu SQL Server w kolumnie **Konfiguracja docelowa** kliknij pozycję **zasób nie przypisano**.
+1. W **różnych regionach** dla zasobu SQL Server w kolumnie **Konfiguracja docelowa** kliknij pozycję **zasób nie przypisano**.
 2. Wybierz istniejący zasób SQL Server w regionie docelowym. 
     
     ![Wpis pokazujący, że stan SQL Server jest ustawiony na zatwierdzanie przenoszenia oczekujących](./media/tutorial-move-region-sql/sql-server-commit-move-pending.png) 
@@ -138,8 +138,8 @@ Przypisz SQL Server docelowy w regionie docelowym i zatwierdź przeniesienie.
 
 ### <a name="commit-the-sql-server-move"></a>Zatwierdź SQL Server Przenieś
 
-1. W obszarze **między regionami**wybierz SQL Server, a następnie kliknij pozycję **Zatwierdź przeniesienie**.
-2. W obszarze **Zatwierdź zasoby**kliknij pozycję **Zatwierdź**.
+1. W obszarze **między regionami** wybierz SQL Server, a następnie kliknij pozycję **Zatwierdź przeniesienie**.
+2. W obszarze **Zatwierdź zasoby** kliknij pozycję **Zatwierdź**.
 
     ![Strona, aby zatwierdzić SQL Server Przenieś](./media/tutorial-move-region-sql/commit-sql-server.png)
 
@@ -155,11 +155,11 @@ Po przeniesieniu SQL Server źródłowej można przygotować się do przeniesien
 
 ## <a name="prepare-an-elastic-pool"></a>Przygotowywanie puli elastycznej
 
-1. W **wielu regionach**wybierz źródłową pulę elastyczną (Demonstracja-TEST1-elasticpool w naszym przewodniku), a następnie kliknij pozycję **Przygotuj**.
+1. W **wielu regionach** wybierz źródłową pulę elastyczną (Demonstracja-TEST1-elasticpool w naszym przewodniku), a następnie kliknij pozycję **Przygotuj**.
 
     ![Przycisk służący do przygotowywania zasobów](./media/tutorial-move-region-sql/prepare-elastic.png)
 
-2. W obszarze **Przygotowywanie zasobów**kliknij pozycję **Przygotuj**.
+2. W obszarze **Przygotowywanie zasobów** kliknij pozycję **Przygotuj**.
 3. Gdy powiadomienia pokazują, że proces przygotowania zakończył się pomyślnie, kliknij przycisk **Odśwież**.
 
 > [!NOTE]
@@ -167,11 +167,11 @@ Po przeniesieniu SQL Server źródłowej można przygotować się do przeniesien
 
 ## <a name="prepare-a-single-database"></a>Przygotowanie pojedynczej bazy danych
 
-1. W **różnych regionach**wybierz pojedynczą bazę danych (nie w puli elastycznej), a następnie kliknij pozycję **Przygotuj**.
+1. W **różnych regionach** wybierz pojedynczą bazę danych (nie w puli elastycznej), a następnie kliknij pozycję **Przygotuj**.
 
     ![Przycisk przygotowujący wybrane zasoby](./media/tutorial-move-region-sql/prepare-db.png)
 
-2. W obszarze **Przygotowywanie zasobów**kliknij pozycję **Przygotuj**.
+2. W obszarze **Przygotowywanie zasobów** kliknij pozycję **Przygotuj**.
 3. Gdy powiadomienia pokazują, że proces przygotowania zakończył się pomyślnie, kliknij przycisk **Odśwież**.
 
 > [!NOTE]
@@ -184,8 +184,8 @@ Aby przygotować bazy danych w puli elastycznej, Pula elastyczna musi znajdować
 
 #### <a name="initiate-move---elastic-pool"></a>Inicjowanie puli przenoszenia i elastyczności
 
-1. W **wielu regionach**wybierz źródłową pulę elastyczną (Demonstracja-TEST1-elasticpool w naszym przewodniku), a następnie kliknij pozycję **zainicjuj przenoszenie**.
-2. W obszarze **Przenieś zasoby**kliknij pozycję **Inicjuj przenoszenie**.
+1. W **wielu regionach** wybierz źródłową pulę elastyczną (Demonstracja-TEST1-elasticpool w naszym przewodniku), a następnie kliknij pozycję **zainicjuj przenoszenie**.
+2. W obszarze **Przenieś zasoby** kliknij pozycję **Inicjuj przenoszenie**.
 
     
     ![Przycisk inicjowania przenoszenia puli elastycznej](./media/tutorial-move-region-sql/initiate-elastic.png)
@@ -198,8 +198,8 @@ Aby przygotować bazy danych w puli elastycznej, Pula elastyczna musi znajdować
 
 #### <a name="prepare-database"></a>Przygotowywanie bazy danych
 
-1. W **różnych regionach**wybierz bazę danych (Demonstracja-TEST2-SQLDB w naszym przewodniku), a następnie kliknij pozycję **Przygotuj**.
-2. W obszarze **Przygotowywanie zasobów**kliknij pozycję **Przygotuj**.
+1. W **różnych regionach** wybierz bazę danych (Demonstracja-TEST2-SQLDB w naszym przewodniku), a następnie kliknij pozycję **Przygotuj**.
+2. W obszarze **Przygotowywanie zasobów** kliknij pozycję **Przygotuj**.
 
     ![Przycisk służący do przygotowywania bazy danych w puli elastycznej](./media/tutorial-move-region-sql/prepare-database-elastic.png) 
 
@@ -210,8 +210,8 @@ Podczas przygotowywania docelowa baza danych jest tworzona w regionie docelowym,
 ## <a name="move-databases"></a>Przenoszenie baz danych
 
 Rozpocznij przenoszenie baz danych.
-1. W **różnych regionach**wybierz pozycję zasoby z stanem **Inicjuj przenoszenie oczekujące**. Następnie kliknij pozycję **zainicjuj przenoszenie**.
-2. W obszarze **Przenieś zasoby**kliknij pozycję **Inicjuj przenoszenie**.
+1. W **różnych regionach** wybierz pozycję zasoby z stanem **Inicjuj przenoszenie oczekujące**. Następnie kliknij pozycję **zainicjuj przenoszenie**.
+2. W obszarze **Przenieś zasoby** kliknij pozycję **Inicjuj przenoszenie**.
 
     ![Strona umożliwiająca zainicjowanie przenoszenia](./media/tutorial-move-region-sql/initiate-move.png)
 
@@ -226,15 +226,15 @@ Rozpocznij przenoszenie baz danych.
 Po początkowym przeniesieniu możesz zdecydować, czy chcesz zatwierdzić przeniesienie, czy go odrzucić. 
 
 - **Odrzuć**: możesz chcieć odrzucić przeniesienie, jeśli testujesz, i nie chcesz faktycznie przenosić zasobu źródłowego. Odrzucanie przesunięcia spowoduje zwrócenie zasobu do stanu **inicjacja oczekującego przeniesienia**.
-- **Zatwierdzenie**: zatwierdzenie powoduje zakończenie przejścia do regionu docelowego. Po zatwierdzeniu zasób źródłowy będzie w stanie **oczekiwania na usunięcie źródła**i można zdecydować, czy ma zostać usunięty.
+- **Zatwierdzenie**: zatwierdzenie powoduje zakończenie przejścia do regionu docelowego. Po zatwierdzeniu zasób źródłowy będzie w stanie **oczekiwania na usunięcie źródła** i można zdecydować, czy ma zostać usunięty.
 
 
 ## <a name="discard-the-move"></a>Odrzuć przeniesienie 
 
 Możesz odrzucić przeniesienie w następujący sposób:
 
-1. W obszarze **między regionami**wybierz pozycję zasoby z **oczekującym przeniesieniem**stanu, a następnie kliknij pozycję **odrzuć przeniesienie**.
-2. W polu **Odrzuć przenoszenie**kliknij pozycję **Odrzuć**.
+1. W obszarze **między regionami** wybierz pozycję zasoby z **oczekującym przeniesieniem** stanu, a następnie kliknij pozycję **odrzuć przeniesienie**.
+2. W polu **Odrzuć przenoszenie** kliknij pozycję **Odrzuć**.
 3. Śledź postęp przenoszenia na pasku powiadomień.
 
 
@@ -254,8 +254,8 @@ Kończąc przeniesienie baz danych i pul elastycznych w następujący sposób:
 
 1. Sprawdź, czy SQL Server jest stanem *oczekiwania na usunięcie źródła* .
 2. Zaktualizuj parametry połączenia bazy danych do regionu docelowego przed zatwierdzeniem.
-3. W obszarze **między regionami**Wybierz zasoby SQL, a następnie kliknij pozycję **Zatwierdź przeniesienie**.
-4. W obszarze **Zatwierdź zasoby**kliknij pozycję **Zatwierdź**.
+3. W obszarze **między regionami** Wybierz zasoby SQL, a następnie kliknij pozycję **Zatwierdź przeniesienie**.
+4. W obszarze **Zatwierdź zasoby** kliknij pozycję **Zatwierdź**.
 
     ![Zatwierdź przeniesienie](./media/tutorial-move-region-sql/commit-sql-resources.png)
 
@@ -272,7 +272,7 @@ Kończąc przeniesienie baz danych i pul elastycznych w następujący sposób:
 
 Po przeniesieniu można opcjonalnie usunąć zasoby w regionie źródłowym. 
 
-1. W **różnych regionach**kliknij nazwę każdego zasobu źródłowego, który chcesz usunąć.
+1. W **różnych regionach** kliknij nazwę każdego zasobu źródłowego, który chcesz usunąć.
 2. Na stronie właściwości dla każdego zasobu wybierz pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki

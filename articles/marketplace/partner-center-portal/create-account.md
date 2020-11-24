@@ -8,12 +8,12 @@ ms.date: 11/02/2020
 author: parthpandyaMSFT
 ms.author: parthp
 ms.custom: contperfq2
-ms.openlocfilehash: e15937797077e3fa46a12e726a3ce690c3979cbd
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: ccdc87d03181bad1aba4dd362a651fa42381343a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628785"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542290"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Utwórz komercyjne konto witryny Marketplace w centrum partnerskim
 
@@ -22,7 +22,7 @@ Aby opublikować oferty w usłudze [Microsoft AppSource](https://appsource.micro
 >[!NOTE]
 >Jeśli masz konto w portal Cloud Partner (CPP), przeniesionomy je do Centrum partnerskiego. Nie musisz tworzyć nowego konta. Aby uzyskać więcej informacji, zobacz [wydawcy przeniesieni z Portal Cloud partner](#publishers-who-moved-from-the-cloud-partner-portal).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby utworzyć konto w centrum partnerskim, upewnij się, że spełniasz poniższe wymagania wstępne. Będziemy weryfikować te informacje podczas procesu tworzenia konta.
 
@@ -67,7 +67,7 @@ Twój profil wydawcy zawiera nazwę firmy i identyfikator MPN. Jeśli jeszcze te
 
     Po zakończeniu rejestracji nastąpi przekierowanie do strony Przegląd komercyjnego portalu Marketplace. Konto komercyjne witryny Marketplace zostanie wyświetlone w okienku po lewej stronie.
 
-1. Aby sprawdzić, czy konto komercyjnej witryny Marketplace jest wymienione jako zarejestrowane, wybierz pozycję **Ustawienia** (ikona koła zębatego) w prawym górnym rogu > programy **Ustawienia dewelopera**  >  **Programs**.
+1. Aby sprawdzić, czy konto komercyjnej witryny Marketplace jest wymienione jako zarejestrowane, wybierz pozycję **Ustawienia** (ikona koła zębatego) w prawym górnym rogu > programy **Ustawienia konta**  >  **Programs**.
 
 Konto komercyjnego portalu Marketplace zostało już utworzone w centrum partnerskim. Kontynuuj [Dodawanie nowych wydawców do komercyjnego portalu Marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -91,7 +91,7 @@ Korzystając z konta Microsoft Partner Network, łączy on służbową domenę k
 > Aby zalogować się do Microsoft Partner Network, musisz mieć uprawnienia **administratora konta** lub **administratora globalnego** .
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/) przy użyciu konta Microsoft Partner Network.
-1. Wybierz kolejno pozycje **Ustawienia**  >  **Ustawienia deweloperów**  >  **programy**  >  **wprowadzenie**.
+1. Wybierz kolejno pozycje **Ustawienia**  >  **Ustawienia**  >  **aplikacje programy**  >  **wprowadzenie**.
 
    Microsoft Partner Network wykrywa subskrypcję i wyświetla okienko **profilu wydawcy** .
 
@@ -103,7 +103,7 @@ Korzystając z konta Microsoft Partner Network, łączy on służbową domenę k
 
     Po zakończeniu rejestracji nastąpi przekierowanie do strony Przegląd komercyjnego portalu Marketplace. Konto komercyjne witryny Marketplace zostanie wyświetlone w okienku po lewej stronie.
 
-1. Aby sprawdzić, czy konto komercyjnego portalu jest wyświetlane jako zarejestrowane, wybierz kolejno pozycje **Ustawienia** ustawienia  >  **deweloperów**  >  **programy**.
+1. Aby sprawdzić, czy konto komercyjnej witryny Marketplace jest wyświetlane jako zarejestrowane, wybierz pozycję **Ustawienia**  >  **konta**  >  **programy**.
 
 Konto komercyjnego portalu Marketplace zostało już utworzone w centrum partnerskim. Kontynuuj [Dodawanie nowych wydawców do komercyjnego portalu Marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -119,7 +119,7 @@ Konto komercyjnego portalu Marketplace zostało już utworzone w centrum partner
 Gdy zarejestrujesz się w programie komercyjnym Marketplace przy użyciu tego samego konta co program dla deweloperów, możesz zobaczyć wszystkie istniejące rejestracje programu w lewym okienku Centrum partnerskiego.
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/) przy użyciu istniejącego konta.
-1. Wybierz kolejno pozycje **Ustawienia**  >  **Ustawienia deweloperów**  >  **programy**  >  **wprowadzenie** i wprowadź służbowy adres e-mail.
+1. Wybierz kolejno pozycje **Ustawienia** ustawienia  >  **konta**  >  **programy**  >  **wprowadzenie** i wprowadź służbowy adres e-mail.
 1. Uzupełnij szczegóły na stronie **profil wydawcy** .
 2. Przeczytaj warunki i postanowienia w [Umowie wydawcy firmy Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560), a następnie wybierz pozycję **Zaakceptuj i Kontynuuj** , aby zakończyć rejestrację.
 
@@ -128,7 +128,7 @@ Gdy zarejestrujesz się w programie komercyjnym Marketplace przy użyciu tego sa
 
     Po zakończeniu rejestracji nastąpi przekierowanie do strony Przegląd komercyjnego portalu Marketplace. Konto komercyjne witryny Marketplace zostanie wyświetlone w okienku po lewej stronie.
 
-1. Aby sprawdzić, czy konto komercyjnego portalu jest wyświetlane jako zarejestrowane, wybierz kolejno pozycje **Ustawienia** ustawienia  >  **deweloperów**  >  **programy**.
+1. Aby sprawdzić, czy konto komercyjnej witryny Marketplace jest wyświetlane jako zarejestrowane, wybierz pozycję **Ustawienia**  >  **konta**  >  **programy**.
 
 Konto komercyjnego portalu Marketplace zostało już utworzone w centrum partnerskim. Aby uzyskać pomoc dotyczącą dodawania wydawców, Kontynuuj [Dodawanie nowych wydawców do komercyjnego portalu Marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -142,7 +142,7 @@ Umowa dotycząca publikowania i informacje o profilu firmy przechodzą na nowe k
 
 ## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>Dodaj nowych wydawców do komercyjnego programu Marketplace
 
-Organizacja może mieć wielu wydawców skojarzonych z komercyjnym kontem witryny Marketplace. Istniejący użytkownik może dodać kolejnych wydawców po zalogowaniu się do Centrum partnerskiego, wybierając kolejno pozycje **Ustawienia**  >  **Ustawienia dewelopera**  >  **Publisher**  >  **Dodaj wydawcę**.
+Organizacja może mieć wielu wydawców skojarzonych z komercyjnym kontem witryny Marketplace. Istniejący użytkownik może dodać kolejnych wydawców po zalogowaniu się do Centrum partnerskiego, wybierając kolejno pozycje **Ustawienia**  >  **konta ustawienia**  >  **Organization Profile**  >  **identyfikatory** profilów  >  **Dodaj Wydawca**.
 
 >[!NOTE]
 >Przed dodaniem nowego wydawcy Przejrzyj listę istniejących wydawców, logując się do Centrum partnerskiego i wybierając pozycję **Ustawienia konta**  >  **wydawcy**.
@@ -150,14 +150,14 @@ Organizacja może mieć wielu wydawców skojarzonych z komercyjnym kontem witryn
 Dodatkowi użytkownicy z tej samej dzierżawy Azure Active Directory mogą wykonać poniższe kroki, aby dodać nowego wydawcę.
 
 1. Rozpocznij pracę z przepływem rejestracji w [centrum partnerskim firmy Microsoft](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership).
-2. Wybierz pozycję **Zaloguj się przy użyciu konta służbowego** , a następnie wprowadź swój służbowy adres e-mail.
+2. Wybierz pozycję **Zaloguj się przy użyciu konta służbowego**, a następnie wprowadź swój służbowy adres e-mail.
 3. Wybierz przycisk **Dodaj wydawcę** .
 4. Wybierz identyfikator MPN, który chcesz skojarzyć z wydawcą.
 5. Zaktualizuj **szczegóły wydawcy** w formularzu.
 
-   * **Nazwa wydawcy** : Nazwa wyświetlana w komercyjnej witrynie Marketplace z ofertą.  
-   * **PublisherID** : identyfikator używany przez centrum partnerskie do unikatowego identyfikowania wydawcy. Wartość domyślna tego pola jest mapowana na istniejący i unikatowy identyfikator wydawcy w systemie. Ponieważ nie można ponownie użyć identyfikatora wydawcy, to pole należy zaktualizować.  
-   * **Informacje kontaktowe** : w razie potrzeby Zaktualizuj informacje kontaktowe.
+   * **Nazwa wydawcy**: Nazwa wyświetlana w komercyjnej witrynie Marketplace z ofertą.  
+   * **PublisherID**: identyfikator używany przez centrum partnerskie do unikatowego identyfikowania wydawcy. Wartość domyślna tego pola jest mapowana na istniejący i unikatowy identyfikator wydawcy w systemie. Ponieważ nie można ponownie użyć identyfikatora wydawcy, to pole należy zaktualizować.  
+   * **Informacje kontaktowe**: w razie potrzeby Zaktualizuj informacje kontaktowe.
 
 Po zakończeniu tego procesu przejdź do konta komercyjnego portalu Marketplace, które znajduje się w okienku po lewej stronie, aby zarządzać nowo utworzonym wydawcą. Jeśli nie widzisz komercyjnego konta Marketplace, Odśwież stronę. Nowy Wydawca zostanie wyświetlony na liście **wydawcy** .
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/08/2019
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: dd87e1a9bcff55813dff420976df58351386fb34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dc1f8b8a7c46a3d6ad6f62d93bc91753e42c3ae
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75371942"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545044"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Równoległe przekazywanie dużych ilości danych losowych do usługi Azure Storage
 
@@ -62,7 +62,7 @@ Wpisz polecenie `dotnet run`, aby uruchomić aplikację. Przy pierwszym uruchomi
 dotnet run
 ```
 
-Aplikacja tworzy pięć losowo nazwanych kontenerów i rozpoczyna przekazywanie plików z katalogu przemieszczania do konta magazynu. Aplikacja ustawia minimalną liczbę wątków na 100, a wartość [DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(v=vs.110).aspx) na 100, aby zezwalać na dużą liczbę współbieżnych połączeń podczas uruchamiania aplikacji.
+Aplikacja tworzy pięć losowo nazwanych kontenerów i rozpoczyna przekazywanie plików z katalogu przemieszczania do konta magazynu. Aplikacja ustawia minimalną liczbę wątków na 100, a wartość [DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit) na 100, aby zezwalać na dużą liczbę współbieżnych połączeń podczas uruchamiania aplikacji.
 
 Oprócz skonfigurowania ustawień wątków oraz limitu połączeń, opcje [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) metody [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync) są konfigurowane tak, aby używać funkcji równoległości i wyłączyć sprawdzanie poprawności wartości skrótu MD5. Pliki są przekazywane w blokach po 100 MB. Ta konfiguracja zapewnia lepszą wydajność, ale może być kosztowna, jeśli jest używana w sieci o niskiej wydajności — jeśli wystąpi błąd, konieczne będzie ponowne przekazanie całego bloku 100 MB.
 

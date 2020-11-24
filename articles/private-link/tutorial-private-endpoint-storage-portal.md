@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: 64856d0c9a06f57eb25a0cbc9279d1c09992f0d3
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 97795b2a693b68d1bd73a00f7b3e5ee3d4679545
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147589"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522128"
 ---
 # <a name="tutorial-connect-to-a-storage-account-using-an-azure-private-endpoint"></a>Samouczek: łączenie się z kontem magazynu przy użyciu prywatnego punktu końcowego platformy Azure
 
@@ -32,7 +32,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 * Subskrypcja platformy Azure
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
@@ -44,16 +44,16 @@ Host bastionu zostanie użyty do nawiązania bezpiecznego połączenia z maszyn�
 
 1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób > Sieć > Sieć wirtualna** lub wyszukaj frazę **Sieć wirtualna** w polu wyszukiwania.
 
-2. W obszarze **Utwórz sieć wirtualną**wprowadź lub wybierz te informacje na karcie **podstawowe** :
+2. W obszarze **Utwórz sieć wirtualną** wprowadź lub wybierz te informacje na karcie **podstawowe** :
 
     | **Ustawienie**          | **Wartość**                                                           |
     |------------------|-----------------------------------------------------------------|
     | **Szczegóły projektu**  |                                                                 |
     | Subskrypcja     | Wybierz subskrypcję platformy Azure                                  |
-    | Resource Group   | Wybierz pozycję Moja **resourceName** |
+    | Grupa zasobów   | Wybierz pozycję Moja **resourceName** |
     | **Szczegóły wystąpienia** |                                                                 |
     | Nazwa             | Wprowadź **myVNet**                                    |
-    | Region           | Wybierz **Wschodnie stany USA** |
+    | Region (Region)           | Wybierz **Wschodnie stany USA** |
 
 3. Wybierz kartę **adresy IP** lub wybierz przycisk **Dalej: adresy IP** w dolnej części strony.
 
@@ -63,9 +63,9 @@ Host bastionu zostanie użyty do nawiązania bezpiecznego połączenia z maszyn�
     |--------------------|----------------------------|
     | Przestrzeń adresowa IPv4 | Wprowadź **10.1.0.0/16** |
 
-5. W obszarze **Nazwa podsieci**wybierz pozycję **domyślny**wyraz.
+5. W obszarze **Nazwa podsieci** wybierz pozycję **domyślny** wyraz.
 
-6. W obszarze **Edytuj podsieć**wprowadź następujące informacje:
+6. W obszarze **Edytuj podsieć** wprowadź następujące informacje:
 
     | Ustawienie            | Wartość                      |
     |--------------------|----------------------------|
@@ -76,13 +76,13 @@ Host bastionu zostanie użyty do nawiązania bezpiecznego połączenia z maszyn�
 
 8. Wybierz kartę **zabezpieczenia** .
 
-9. W obszarze **BastionHost**wybierz pozycję **enable (Włącz**). Wprowadź następujące informacje:
+9. W obszarze **BastionHost** wybierz pozycję **enable (Włącz**). Wprowadź następujące informacje:
 
     | Ustawienie            | Wartość                      |
     |--------------------|----------------------------|
     | Nazwa bastionu | Wprowadź **myBastionHost** |
     | Przestrzeń adresowa AzureBastionSubnet | Wprowadź **10.1.1.0/24** |
-    | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. </br> W obszarze **Nazwa**wprowadź **myBastionIP**. </br> Wybierz przycisk **OK**. |
+    | Publiczny adres IP | Wybierz pozycję **Utwórz nowy**. </br> W obszarze **Nazwa** wprowadź **myBastionIP**. </br> Wybierz pozycję **OK**. |
 
 
 8. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
@@ -96,18 +96,18 @@ W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowani
 
 1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób**  >  **obliczeniowy**  >  **maszyny wirtualnej** lub Wyszukaj **maszynę wirtualną** w polu wyszukiwania.
    
-2. W obszarze **Utwórz maszynę wirtualną**wpisz lub wybierz wartości z karty **podstawowe** :
+2. W obszarze **Utwórz maszynę wirtualną** wpisz lub wybierz wartości z karty **podstawowe** :
 
     | Ustawienie | Wartość                                          |
     |-----------------------|----------------------------------|
     | **Szczegóły projektu** |  |
     | Subskrypcja | Wybierz subskrypcję platformy Azure |
-    | Resource Group | Wybierz pozycję Moja **resourceName** |
+    | Grupa zasobów | Wybierz pozycję Moja **resourceName** |
     | **Szczegóły wystąpienia** |  |
     | Nazwa maszyny wirtualnej | Wprowadź **myVM** |
-    | Region | Wybierz **Wschodnie stany USA** |
+    | Region (Region) | Wybierz **Wschodnie stany USA** |
     | Opcje dostępności | Nie wybieraj **nadmiarowości infrastruktury** |
-    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter-Gen1** |
+    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter-Gen1** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |
@@ -128,7 +128,7 @@ W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowani
     | Grupa zabezpieczeń sieci karty sieciowej | **Podstawowe**|
     | Publiczne porty wejściowe | Wybierz pozycję **Brak**. |
    
-5. Wybierz pozycję **Przejrzyj i utwórz**. 
+5. Wybierz pozycję **Przeglądanie + tworzenie**. 
   
 6. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.
 
@@ -136,7 +136,7 @@ W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowani
 
 W tej sekcji utworzysz konto magazynu i skonfigurujesz prywatny punkt końcowy.
 
-1. W menu po lewej stronie wybierz pozycję **Utwórz zasób magazyn zasobów**  >  **Storage**  >  **Storage account**lub Wyszukaj **konto magazynu** w polu wyszukiwania.
+1. W menu po lewej stronie wybierz pozycję **Utwórz zasób magazyn zasobów**  >  **Storage**  >  **Storage account** lub Wyszukaj **konto magazynu** w polu wyszukiwania.
 
 2. Na karcie **podstawowe** w obszarze **Tworzenie konta magazynu** wprowadź lub wybierz następujące informacje:
 
@@ -144,7 +144,7 @@ W tej sekcji utworzysz konto magazynu i skonfigurujesz prywatny punkt końcowy.
     |-----------------------|----------------------------------|
     | **Szczegóły projektu** |  |
     | Subskrypcja | Wybierz subskrypcję platformy Azure |
-    | Resource Group | Wybierz pozycję Moja **resourceName** |
+    | Grupa zasobów | Wybierz pozycję Moja **resourceName** |
     | **Szczegóły wystąpienia** |  |
     | Nazwa konta magazynu | Wprowadź **mojekontomagazynu**. Jeśli nazwa jest niedostępna, wprowadź unikatową nazwę. |
     | Lokalizacja | Wybierz **Wschodnie stany USA** |
@@ -156,14 +156,14 @@ W tej sekcji utworzysz konto magazynu i skonfigurujesz prywatny punkt końcowy.
 
 4. Na karcie **Sieć** w obszarze **Metoda łączności** wybierz pozycję **prywatny punkt końcowy**.
 
-5. W obszarze **prywatny punkt końcowy**wybierz pozycję **+ Dodaj**.
+5. W obszarze **prywatny punkt końcowy** wybierz pozycję **+ Dodaj**.
 
 6. W obszarze **Utwórz prywatny punkt końcowy** wprowadź lub wybierz następujące informacje:
 
     | Ustawienie | Wartość                                          |
     |-----------------------|----------------------------------|
     | Subskrypcja | Wybierz subskrypcję platformy Azure |
-    | Resource Group | Wybierz pozycję Moja **resourceName** |
+    | Grupa zasobów | Wybierz pozycję Moja **resourceName** |
     | Lokalizacja | Wybierz **Wschodnie stany USA** |
     | Nazwa | Wprowadź **myPrivateEndpoint** |
     | Podzasób magazynu | Pozostaw domyślny **obiekt BLOB** |
@@ -174,9 +174,9 @@ W tej sekcji utworzysz konto magazynu i skonfigurujesz prywatny punkt końcowy.
     | Integruj z prywatną strefą DNS | Pozostaw wartość domyślną **tak** |
     | Prywatna strefa DNS | Pozostaw domyślne (nowe) privatelink.blob.core.windows.net |
 
-7. Wybierz przycisk **OK**.
+7. Wybierz pozycję **OK**.
 
-8. Wybierz pozycję **Przejrzyj i utwórz**.
+8. Wybierz pozycję **Przeglądanie + tworzenie**.
 
 9. Wybierz pozycję **Utwórz**.
 
@@ -200,7 +200,7 @@ W tej sekcji użyjesz maszyny wirtualnej utworzonej w poprzednim kroku, aby nawi
 
 3. Wybierz pozycję **myVM**.
 
-4. Na stronie Przegląd dla **myVM**wybierz pozycję **Połącz** , a następnie **bastionu**.
+4. Na stronie Przegląd dla **myVM** wybierz pozycję **Połącz** , a następnie **bastionu**.
 
 5. Wybierz przycisk **bastionu Użyj** niebieska.
 
@@ -222,7 +222,7 @@ W tej sekcji użyjesz maszyny wirtualnej utworzonej w poprzednim kroku, aby nawi
 
     Prywatny adres IP **10.1.0.5** jest zwracany dla nazwy konta magazynu.  Ten adres znajduje się w podsieci sieci wirtualnej, która została wcześniej utworzona.
 
-9. Zainstaluj [Eksplorator usługi Microsoft Azure Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows) na maszynie wirtualnej.
+9. Zainstaluj [Eksplorator usługi Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%252fazure%252fstorage%252fblobs%252ftoc.json) na maszynie wirtualnej.
 
 10. Po zainstalowaniu **Eksplorator usługi Microsoft Azure Storage** wybierz pozycję **Zakończ** .  Pozostaw zaznaczone pole, aby otworzyć aplikację.
 
@@ -232,7 +232,7 @@ W tej sekcji użyjesz maszyny wirtualnej utworzonej w poprzednim kroku, aby nawi
 
 13. Wprowadź nazwę konta magazynu z poprzednich kroków w polu **Nazwa wyświetlana**.
 
-14. W polu **Parametry połączenia**wklej parametry połączenia z konta magazynu skopiowanego w poprzednich krokach.
+14. W polu **Parametry połączenia** wklej parametry połączenia z konta magazynu skopiowanego w poprzednich krokach.
 
 15. Wybierz pozycję **Dalej**.
 
@@ -252,7 +252,7 @@ Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń sieć wirtualną, masz
 
 3. Wybierz pozycję **Usuń grupę zasobów**.
 
-4. W polu **wpisz nazwę grupy zasobów**wprowadź **adres** .
+4. W polu **wpisz nazwę grupy zasobów** wprowadź **adres** .
 
 5. Wybierz pozycję **Usuń**.
 

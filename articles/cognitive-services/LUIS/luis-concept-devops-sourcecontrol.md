@@ -4,13 +4,13 @@ description: Jak zachować aplikację Language Understanding (LUIS) pod kontrol�
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/28/2020
-ms.openlocfilehash: 9e322ac89d8ecad93c2002aa302c155f895911f4
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 11/18/2020
+ms.openlocfilehash: cf5c88df4e2ac6b95e99a3a78b1bf1e45bf534ed
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019198"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95535558"
 ---
 # <a name="devops-practices-for-luis"></a>DevOps praktyk dla LUIS
 
@@ -34,7 +34,7 @@ Korzystając z pojęć i wskazówek opisanych w tym dokumencie, można opracowyw
   - Istnieje możliwość zintegrowania zmian w aplikacji LUIS z jednej gałęzi do innej za pośrednictwem zmiany bazy lub scalenia.
   - Deweloperzy mogą scalić żądanie ściągnięcia z gałęzią nadrzędną.
 
-- **Obsługa wersji**
+- **Przechowywanie wersji**
   - Każdy składnik w dużej aplikacji powinien mieć niezależną wersję, dzięki czemu deweloperzy mogą wykrywać istotne zmiany lub aktualizacje bezpośrednio, sprawdzając numer wersji.
 
 - **Przeglądy kodu**
@@ -53,7 +53,7 @@ Aby zapisać aplikację LUIS w `.lu` formacie i umieścić ją pod kontrolą źr
 - LUB: Użyj edytora tekstów, aby utworzyć `.lu` plik dla aplikacji Luis i dodać go do repozytorium kontroli źródła
 
 > [!TIP]
-> Jeśli pracujesz z eksportem JSON aplikacji LUIS, możesz [ją skonwertować do LUDown](https://github.com/microsoft/botframework-cli/tree/master/packages/luis#bf-luisconvert) przy użyciu [interfejsu wiersza polecenia BOTBUILDER-Tools Luis](https://github.com/microsoft/botbuilder-tools/tree/master/packages/LUIS). Użyj `--sort` opcji, aby upewnić się, że intencje i wyrażenia długości są sortowane alfabetycznie.  
+> Jeśli pracujesz z eksportem JSON aplikacji LUIS, możesz [ją przekonwertować na LUDown](https://github.com/microsoft/botframework-cli/tree/master/packages/luis#bf-luisconvert).  Użyj `--sort` opcji, aby upewnić się, że intencje i wyrażenia długości są sortowane alfabetycznie.  
 > Należy pamiętać, że **. Funkcja eksportowania jednostki LU** wbudowana w Portal Luis już sortuje dane wyjściowe.
 
 ### <a name="build-the-luis-app-from-source"></a>Kompilowanie aplikacji LUIS ze źródła
@@ -181,7 +181,7 @@ Aby uzyskać więcej informacji na temat testowania dla LUIS DevOps, zobacz [tes
 
 Aplikacja LUIS w formacie LUDown jest czytelna dla człowieka, która obsługuje komunikację z zmianami w ramach żądania ściągnięcia, które jest odpowiednie do przeglądu. Pliki testów jednostkowych są również zapisywane w formacie LUDown, a także łatwo można je przeglądać w ramach żądania ściągnięcia.
 
-## <a name="versioning"></a>Obsługa wersji
+## <a name="versioning"></a>Przechowywanie wersji
 
 Aplikacja składa się z wielu składników, które mogą obejmować takie elementy, jak bot działające w [Azure bot Service](/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0), [QNA Maker](https://www.qnamaker.ai/), [Azure Speech Service](../speech-service/overview.md)i innych. Aby osiągnąć cel luźno sprzężonych aplikacji, należy użyć [kontroli wersji](/azure/devops/learn/git/what-is-version-control) , tak aby każdy składnik aplikacji miał niezależną wersję, dzięki czemu deweloperzy mogą wykrywać istotne zmiany lub aktualizacje bezpośrednio, sprawdzając numer wersji. Łatwiej jest w wersji aplikacji LUIS niezależnie od innych składników, Jeśli przechowujesz ją we własnym repozytorium.
 

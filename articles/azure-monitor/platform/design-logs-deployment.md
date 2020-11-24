@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 21da883867da41e81ed1787faa0ebe0e6dd25d99
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 034f2b3884d732487a9f7aff4d14740691983885
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107882"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536782"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Projektowanie wdrożenia dzienników usługi Azure Monitor
 
@@ -60,7 +60,7 @@ Jeśli używasz System Center Operations Manager 2012 R2 lub nowszego:
 
 ## <a name="access-control-overview"></a>Omówienie kontroli dostępu
 
-Za pomocą kontroli dostępu opartej na rolach (RBAC) można przyznać użytkownikom i grupom tylko dostęp do danych monitorowania w obszarze roboczym. Pozwala to na dostosowanie się do modelu operacyjnego organizacji IT przy użyciu jednego obszaru roboczego do przechowywania zebranych danych włączonych dla wszystkich zasobów. Można na przykład udzielić dostępu do zespołu odpowiedzialnego za usługi infrastruktury hostowane na maszynach wirtualnych platformy Azure, a w związku z tym będzie miał dostęp tylko do dzienników generowanych przez maszyny wirtualne. Jest to nasz nowy model dziennika kontekstu zasobów. Podstawą tego modelu jest dla każdego rekordu dziennika wyemitowanego przez zasób platformy Azure, który jest automatycznie kojarzony z tym zasobem. Dzienniki są przekazywane do centralnego obszaru roboczego, który szanuje zakres i RBAC w oparciu o zasoby.
+Za pomocą kontroli dostępu opartej na rolach (Azure RBAC) można przyznać użytkownikom i grupom tylko dostęp do danych monitorowania w obszarze roboczym. Pozwala to na dostosowanie się do modelu operacyjnego organizacji IT przy użyciu jednego obszaru roboczego do przechowywania zebranych danych włączonych dla wszystkich zasobów. Można na przykład udzielić dostępu do zespołu odpowiedzialnego za usługi infrastruktury hostowane na maszynach wirtualnych platformy Azure, a w związku z tym będzie miał dostęp tylko do dzienników generowanych przez maszyny wirtualne. Jest to nasz nowy model dziennika kontekstu zasobów. Podstawą tego modelu jest dla każdego rekordu dziennika wyemitowanego przez zasób platformy Azure, który jest automatycznie kojarzony z tym zasobem. Dzienniki są przekazywane do centralnego obszaru roboczego, który szanuje zakres i rolę RBAC na platformie Azure na podstawie zasobów.
 
 Dane, do których użytkownik ma dostęp, są określane przez kombinację czynników, które są wymienione w poniższej tabeli. Każdy z nich został opisany w poniższych sekcjach.
 
@@ -69,7 +69,7 @@ Dane, do których użytkownik ma dostęp, są określane przez kombinację czynn
 | [Tryb dostępu](#access-mode) | Metoda wykorzystywana przez użytkownika w celu uzyskania dostępu do obszaru roboczego.  Definiuje zakres dostępnych danych i tryb kontroli dostępu, który został zastosowany. |
 | [Tryb kontroli dostępu](#access-control-mode) | Ustawienie w obszarze roboczym, które określa, czy uprawnienia są stosowane na poziomie obszaru roboczego czy zasobu. |
 | [Uprawnienia](manage-access.md) | Uprawnienia zastosowane do poszczególnych lub grup użytkowników dla obszaru roboczego lub zasobu. Definiuje dane, do których użytkownik będzie miał dostęp. |
-| [Kontrola RBAC na poziomie tabeli](manage-access.md#table-level-rbac) | Opcjonalne, szczegółowe uprawnienia, które mają zastosowanie do wszystkich użytkowników niezależnie od ich trybu dostępu lub trybu kontroli dostępu. Określa typy danych, do których użytkownik może uzyskać dostęp. |
+| [Na poziomie tabeli Azure RBAC](manage-access.md#table-level-azure-rbac) | Opcjonalne, szczegółowe uprawnienia, które mają zastosowanie do wszystkich użytkowników niezależnie od ich trybu dostępu lub trybu kontroli dostępu. Określa typy danych, do których użytkownik może uzyskać dostęp. |
 
 ## <a name="access-mode"></a>Tryb dostępu
 
@@ -81,7 +81,7 @@ Użytkownicy mają dwie opcje uzyskiwania dostępu do danych:
 
     ![Log Analytics kontekstu z obszaru roboczego](./media/design-logs-deployment/query-from-workspace.png)
 
-* **Kontekst zasobu**: podczas uzyskiwania dostępu do obszaru roboczego dla określonego zasobu, grupy zasobów lub subskrypcji, na przykład po wybraniu opcji **dzienniki** z menu zasobów w Azure Portal, można wyświetlić dzienniki tylko dla zasobów we wszystkich tabelach, do których masz dostęp. Zapytania w tym trybie są ograniczone do danych skojarzonych z tym zasobem. Ten tryb umożliwia również szczegółową kontrolę RBAC.
+* **Kontekst zasobu**: podczas uzyskiwania dostępu do obszaru roboczego dla określonego zasobu, grupy zasobów lub subskrypcji, na przykład po wybraniu opcji **dzienniki** z menu zasobów w Azure Portal, można wyświetlić dzienniki tylko dla zasobów we wszystkich tabelach, do których masz dostęp. Zapytania w tym trybie są ograniczone do danych skojarzonych z tym zasobem. Ten tryb pozwala również na szczegółowe stosowanie RBAC platformy Azure.
 
     ![Log Analytics kontekstu z zasobu](./media/design-logs-deployment/query-from-resource.png)
 
@@ -103,22 +103,22 @@ Poniższa tabela zawiera podsumowanie trybów dostępu:
 |:---|:---|:---|
 | Dla kogo jest przeznaczony każdy model? | Administracja centralna. Administratorzy, którzy muszą skonfigurować zbieranie danych i użytkowników, którzy potrzebują dostępu do szerokiej gamy zasobów. Są one również wymagane dla użytkowników, którzy muszą uzyskać dostęp do dzienników dla zasobów poza platformą Azure. | Zespoły aplikacji. Administratorzy monitorowanych zasobów platformy Azure. |
 | Co jest wymagane przez użytkownika do wyświetlania dzienników? | Uprawnienia do obszaru roboczego. Zobacz **uprawnienia obszaru roboczego** w obszarze [Zarządzanie dostępem przy użyciu uprawnień obszaru roboczego](manage-access.md#manage-access-using-workspace-permissions). | Dostęp do odczytu do zasobu. Zobacz **uprawnienia zasobów** w obszarze [Zarządzanie dostępem przy użyciu uprawnień platformy Azure](manage-access.md#manage-access-using-azure-permissions). Uprawnienia mogą być dziedziczone (takie jak z grupy zasobów zawierających) lub bezpośrednio przypisane do zasobu. Uprawnienie do dzienników dla zasobu zostanie automatycznie przypisane. |
-| Jaki jest zakres uprawnień? | Obszary. Użytkownicy z dostępem do obszaru roboczego mogą wykonywać zapytania dotyczące wszystkich dzienników w obszarze roboczym z tabel, do których mają uprawnienia. Zobacz [tabelę kontroli dostępu](manage-access.md#table-level-rbac) | Zasób platformy Azure. Użytkownik może wysyłać zapytania do dzienników dla określonych zasobów, grup zasobów lub subskrypcji, do których mają dostęp z dowolnego obszaru roboczego, ale nie może wysyłać zapytań do dzienników innych zasobów. |
+| Jaki jest zakres uprawnień? | Obszary. Użytkownicy z dostępem do obszaru roboczego mogą wykonywać zapytania dotyczące wszystkich dzienników w obszarze roboczym z tabel, do których mają uprawnienia. Zobacz [tabelę kontroli dostępu](manage-access.md#table-level-azure-rbac) | Zasób platformy Azure. Użytkownik może wysyłać zapytania do dzienników dla określonych zasobów, grup zasobów lub subskrypcji, do których mają dostęp z dowolnego obszaru roboczego, ale nie może wysyłać zapytań do dzienników innych zasobów. |
 | Jak użytkownicy mogą uzyskiwać dostęp do dzienników? | <ul><li>Uruchom **dzienniki** z menu **Azure monitor** .</li></ul> <ul><li>Uruchom **dzienniki** z **log Analytics obszarów roboczych**.</li></ul> <ul><li>Ze [skoroszytów](../visualizations.md#workbooks)Azure monitor.</li></ul> | <ul><li>Uruchom **dzienniki** z menu dla zasobu platformy Azure</li></ul> <ul><li>Uruchom **dzienniki** z menu **Azure monitor** .</li></ul> <ul><li>Uruchom **dzienniki** z **log Analytics obszarów roboczych**.</li></ul> <ul><li>Ze [skoroszytów](../visualizations.md#workbooks)Azure monitor.</li></ul> |
 
 ## <a name="access-control-mode"></a>Tryb kontroli dostępu
 
 *Tryb kontroli dostępu* jest ustawieniem w każdym obszarze roboczym, który definiuje sposób określania uprawnień dla obszaru roboczego.
 
-* **Wymagaj uprawnień obszaru roboczego**: ten tryb kontroli nie zezwala na szczegółową kontrolę RBAC. Aby użytkownik mógł uzyskać dostęp do obszaru roboczego, muszą mieć przyznane uprawnienia do obszaru roboczego lub do określonych tabel.
+* **Wymagaj uprawnień obszaru roboczego**: ten tryb kontroli nie zezwala na szczegółowe żądanie RBAC platformy Azure. Aby użytkownik mógł uzyskać dostęp do obszaru roboczego, muszą mieć przyznane uprawnienia do obszaru roboczego lub do określonych tabel.
 
     Jeśli użytkownik uzyskuje dostęp do obszaru roboczego po trybie kontekstu obszaru roboczego, ma dostęp do wszystkich danych w dowolnej tabeli, do której udzielono dostępu. Jeśli użytkownik uzyskuje dostęp do obszaru roboczego po trybie kontekstu zasobów, ma dostęp tylko do danych dla tego zasobu w dowolnej tabeli, do której udzielono dostępu.
 
     Jest to ustawienie domyślne dla wszystkich obszarów roboczych utworzonych przed marcem 2019.
 
-* **Użyj uprawnień zasobu lub obszaru roboczego**: ten tryb kontroli zezwala na szczegółową kontrolę RBAC. Użytkownikom można udzielić dostępu tylko do danych skojarzonych z zasobami, które mogą być wyświetlane przez przypisanie `read` uprawnienia platformy Azure. 
+* **Użyj uprawnień zasobu lub obszaru roboczego**: ten tryb kontroli pozwala na szczegółowe stosowanie RBAC platformy Azure. Użytkownikom można udzielić dostępu tylko do danych skojarzonych z zasobami, które mogą być wyświetlane przez przypisanie `read` uprawnienia platformy Azure. 
 
-    Gdy użytkownik uzyskuje dostęp do obszaru roboczego w trybie kontekstu obszaru roboczego, mają zastosowanie uprawnienia obszaru roboczego. Gdy użytkownik uzyskuje dostęp do obszaru roboczego w trybie kontekstu zasobów, sprawdzane są tylko uprawnienia do zasobów, a uprawnienia obszaru roboczego są ignorowane. Włącz funkcję RBAC dla użytkownika, usuwając je z uprawnień obszaru roboczego i zezwalając na ich rozpoznanie.
+    Gdy użytkownik uzyskuje dostęp do obszaru roboczego w trybie kontekstu obszaru roboczego, mają zastosowanie uprawnienia obszaru roboczego. Gdy użytkownik uzyskuje dostęp do obszaru roboczego w trybie kontekstu zasobów, sprawdzane są tylko uprawnienia do zasobów, a uprawnienia obszaru roboczego są ignorowane. Włącz funkcję RBAC platformy Azure dla użytkownika, usuwając je z uprawnień obszaru roboczego i zezwalając na ich rozpoznanie.
 
     Jest to ustawienie domyślne dla wszystkich obszarów roboczych utworzonych po marcu 2019.
 

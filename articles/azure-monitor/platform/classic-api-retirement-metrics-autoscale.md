@@ -4,12 +4,12 @@ description: Metryki i automatyczne skalowanie klasycznych interfejsów API, naz
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 38a30f2adc0de7ccb9a9a3a4ba7ed53fd5fda3f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8900d238e7542864e3dc53f9d192e579e2c96d1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87317386"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536697"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor wycofywanie interfejsów API klasycznego modelu wdrażania dla metryk i skalowania automatycznego
 
@@ -53,7 +53,7 @@ Jeśli nie masz pewności, czy Twój kod lub narzędzia niestandardowe wywołuje
 
 Wszystkie istniejące możliwości skalowania automatycznego i metryk będą nadal działały za pośrednictwem nowych interfejsów API.  
 
-Migrowanie do nowszych interfejsów API wiąże się z możliwościami opartymi na Menedżer zasobów, takimi jak obsługa spójnych Role-Based Access Control (RBAC) dla wszystkich usług monitorowania. Możesz również uzyskać dodatkową funkcjonalność dla metryk: 
+Migrowanie do nowszych interfejsów API wiąże się z możliwościami opartymi na Menedżer zasobów, takimi jak obsługa spójnej kontroli dostępu opartej na rolach (Azure RBAC) w ramach wszystkich usług monitorowania. Możesz również uzyskać dodatkową funkcjonalność dla metryk: 
 
 - Obsługa wymiarów
 - spójność 1-minutowego stopnia szczegółowości dla wszystkich usług 

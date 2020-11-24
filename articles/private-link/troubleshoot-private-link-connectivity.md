@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: 1e5253d617c87d5869cebc817da6d265ebfdfa7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45a7a146dd929408b50a0045fe2598726ee05505
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77539471"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544313"
 ---
 # <a name="troubleshoot-azure-private-link-connectivity-problems"></a>Rozwiązywanie problemów z łącznością usługi Azure Private Link
 
@@ -37,7 +37,7 @@ Oto scenariusze łączności, które są dostępne za pomocą linku prywatnego:
 
 ## <a name="deployment-troubleshooting"></a>Rozwiązywanie problemów z wdrażaniem
 
-Zapoznaj się z informacjami na temat [wyłączania zasad sieciowych w usłudze linku prywatnego](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy) w celu rozwiązywania problemów, gdy nie możesz wybrać źródłowego adresu IP z wybranej podsieci do usługi link prywatny.
+Zapoznaj się z informacjami na temat [wyłączania zasad sieciowych w usłudze linku prywatnego](./disable-private-link-service-network-policy.md) w celu rozwiązywania problemów, gdy nie możesz wybrać źródłowego adresu IP z wybranej podsieci do usługi link prywatny.
 
 Upewnij się, że ustawienie **privateLinkServiceNetworkPolicies** jest wyłączone dla podsieci, z której jest wybierany źródłowy adres IP.
 
@@ -99,7 +99,7 @@ Jeśli występują problemy z łącznością z konfiguracją linku prywatnego, z
        - Jeśli połączenie przyniesie je do puli zaplecza zgodnie z regułami równoważenia obciążenia, moduł równoważenia obciążenia działa.
        - Możesz również sprawdzić metrykę modułu równoważenia obciążenia za pomocą Azure Monitor, aby sprawdzić, czy dane przepływają przez moduł równoważenia obciążenia.
 
-1. Użyj [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview) , aby sprawdzić, czy dane przepływają.
+1. Użyj [Azure monitor](../azure-monitor/overview.md) , aby sprawdzić, czy dane przepływają.
 
     a. W obszarze zasób usługi link prywatny wybierz pozycję **metryki**.
      - Wybierz **bajty z lub w** **bajtach**.
@@ -111,5 +111,5 @@ Jeśli występują problemy z łącznością z konfiguracją linku prywatnego, z
 
 ## <a name="next-steps"></a>Następne kroki
 
- * [Tworzenie usługi linku prywatnego (CLI)](https://docs.microsoft.com/azure/private-link/create-private-link-service-cli)
+ * [Tworzenie usługi linku prywatnego (CLI)](./create-private-link-service-cli.md)
  * [Przewodnik rozwiązywania problemów z prywatnym punktem końcowym platformy Azure](troubleshoot-private-endpoint-connectivity.md)

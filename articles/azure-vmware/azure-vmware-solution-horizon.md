@@ -3,12 +3,12 @@ title: Wdróż horyzont w rozwiązaniu VMware platformy Azure
 description: Dowiedz się, jak wdrożyć platformę VMware w rozwiązaniu VMware platformy Azure.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: fb5e5b4c5f5da4c140f8d3575b963545f3a57db8
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 6d5d8e12e358e2289128af9840660be18f5f217a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423122"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95537445"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Wdróż horyzont w rozwiązaniu VMware platformy Azure 
 
@@ -139,22 +139,6 @@ W tabelach przedstawiono typowe obciążenia związane z logowaniem i obciążen
 #### <a name="power-worker-workloads"></a>Obciążenia związane z pracownikami
 
 :::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-power.png" alt-text="Tabela typowych profilów infrastruktury VDI dla programu VMware Horizon na potrzeby obciążeń VSIego procesu roboczego" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-power.png" border="false":::
-
-### <a name="azure-vmware-solution-host-instance"></a>Wystąpienie hosta rozwiązania VMware platformy Azure
-
-* Serwer PowerEdge R640-DSS z OGRANICZENIAmi
-
-* 36 rdzenie \@ 2,3 GHz
-
-* 576 GB PAMIĘCI RAM
-
-* Kontroler HBA SAS HBA330 12 GB/s (nie RAID)
-
-* 1,92 TB 10512 dysków SSD SATA mix użycie 6 GB/s 512 2,5 w gorącą
-
-* Intel 1,6 TB, NVMe, mieszane użycie Express Flash, 2,5 SFF dysk, U. 2, P4600 z operatorem
-
-* 2 sieci vSAN grupy dysków: 1,6 x 4 (1.92 TB)
 
 ### <a name="horizon-sizing-inputs"></a>Dane wejściowe zmiany zakresu
 

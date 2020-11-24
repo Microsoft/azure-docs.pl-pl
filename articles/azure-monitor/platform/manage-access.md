@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 7acd287964d25cc7e98c11ec1986c73d8ae265da
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 79e5b1ddde0ff5f0d09dc1c20e3b20ec4de3d925
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104142"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536680"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Zarządzanie dostępem do danych dziennika i obszarami roboczymi w usłudze Azure Monitor
 
@@ -23,7 +23,7 @@ W tym artykule wyjaśniono, jak zarządzać dostępem do dzienników i administr
 * Użytkownicy, którzy potrzebują dostępu do danych dzienników z określonych zasobów przy użyciu kontroli dostępu opartej na rolach (Azure RBAC) — znanego również jako [kontekst zasobów](design-logs-deployment.md#access-mode)
 * Użytkownicy, którzy potrzebują dostępu do danych dziennika w określonej tabeli w obszarze roboczym przy użyciu funkcji RBAC platformy Azure.
 
-Aby zrozumieć koncepcje dotyczące strategii RBAC i dostępu, przeczytaj artykuł [projektowanie wdrożenia dzienników Azure monitor](design-logs-deployment.md)
+Aby zrozumieć koncepcje dotyczące pojęć związanych z usługą Azure RBAC i strategiami dostępu, przeczytaj artykuł [projektowanie wdrożenia dzienników Azure monitor](design-logs-deployment.md)
 
 ## <a name="configure-access-control-mode"></a>Konfigurowanie trybu kontroli dostępu
 
@@ -194,9 +194,9 @@ Gdy użytkownicy wykonują zapytania dotyczące dzienników z obszaru roboczego 
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Przykłady:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Możliwość wyświetlania wszystkich danych dziennika dla zasobu.  |
 | `Microsoft.Insights/diagnosticSettings/write` | Możliwość skonfigurowania ustawień diagnostycznych w celu zezwolenia na Konfigurowanie dzienników dla tego zasobu. |
 
-`/read`uprawnienie jest zazwyczaj udzielane z roli obejmującej _ \* /Read lub_ _\*_ uprawnienia, takie jak wbudowane [czytniki](../../role-based-access-control/built-in-roles.md#reader) i role [współautor](../../role-based-access-control/built-in-roles.md#contributor) . Role niestandardowe zawierające określone akcje lub dedykowane role wbudowane mogą nie uwzględniać tego uprawnienia.
+`/read`uprawnienie jest zazwyczaj udzielane z roli obejmującej _\* /Read lub_ _\*_ uprawnienia, takie jak wbudowane [czytniki](../../role-based-access-control/built-in-roles.md#reader) i role [współautor](../../role-based-access-control/built-in-roles.md#contributor) . Role niestandardowe zawierające określone akcje lub dedykowane role wbudowane mogą nie uwzględniać tego uprawnienia.
 
-Zobacz [Definiowanie kontroli dostępu dla tabel](#table-level-rbac) poniżej, jeśli chcesz utworzyć inną kontrolę dostępu dla różnych tabel.
+Zobacz [Definiowanie kontroli dostępu dla tabel](#table-level-azure-rbac) poniżej, jeśli chcesz utworzyć inną kontrolę dostępu dla różnych tabel.
 
 ## <a name="custom-role-examples"></a>Przykłady ról niestandardowych
 
@@ -239,9 +239,9 @@ Zobacz [Definiowanie kontroli dostępu dla tabel](#table-level-rbac) poniżej, j
 
     * Udziel użytkownikom następujących uprawnień do swoich zasobów: `*/read` , przypisanych do roli czytelnik lub `Microsoft.Insights/logs/*/read` . 
 
-## <a name="table-level-rbac"></a>Kontrola RBAC na poziomie tabeli
+## <a name="table-level-azure-rbac"></a>Na poziomie tabeli Azure RBAC
 
-Kontrolka **RBAC na poziomie tabeli** umożliwia zdefiniowanie bardziej szczegółowej kontroli danych w obszarze roboczym log Analytics oprócz innych uprawnień. Ta kontrolka umożliwia definiowanie określonych typów danych, które są dostępne tylko dla określonego zestawu użytkowników.
+Na **poziomie tabeli usługa Azure RBAC** umożliwia zdefiniowanie bardziej szczegółowej kontroli nad danymi w obszarze roboczym log Analytics oprócz innych uprawnień. Ta kontrolka umożliwia definiowanie określonych typów danych, które są dostępne tylko dla określonego zestawu użytkowników.
 
 Aby udzielić dostępu do określonych [tabel](./data-platform-logs.md) w obszarze roboczym, zaimplementuj kontrolę dostępu do tabel przy użyciu [ról niestandardowych platformy Azure](../../role-based-access-control/custom-roles.md) . Te role są stosowane do obszarów roboczych z [trybami kontroli dostępu](design-logs-deployment.md#access-control-mode) do kontekstu obszaru roboczego lub zasobu, niezależnie od [trybu dostępu](design-logs-deployment.md#access-mode)użytkownika.
 
@@ -302,7 +302,7 @@ Czasami dzienniki niestandardowe pochodzą ze źródeł, które nie są bezpośr
 
 ### <a name="considerations"></a>Zagadnienia do rozważenia
 
-* Jeśli użytkownik otrzymuje globalne uprawnienie do odczytu ze standardowym czytnikiem lub rolą współautor, które zawiera akcję _ \* /Read_ , zastąpi kontrolę dostępu do tabeli i przekaże im dostęp do wszystkich danych dziennika.
+* Jeśli użytkownik otrzymuje globalne uprawnienie do odczytu ze standardowym czytnikiem lub rolą współautor, które zawiera akcję _\* /Read_ , zastąpi kontrolę dostępu do tabeli i przekaże im dostęp do wszystkich danych dziennika.
 * Jeśli użytkownik uzyska dostęp do tabeli, ale nie ma żadnych innych uprawnień, może uzyskać dostęp do danych dziennika z interfejsu API, ale nie z Azure Portal. Aby zapewnić dostęp z Azure Portal, Użyj czytnika Log Analytics jako roli podstawowej.
 * Administratorzy i właściciele subskrypcji będą mieć dostęp do wszystkich typów danych, niezależnie od innych ustawień uprawnień.
 * Właściciele obszarów roboczych są traktowani jak każdy inny użytkownik do kontroli dostępu do tabeli.

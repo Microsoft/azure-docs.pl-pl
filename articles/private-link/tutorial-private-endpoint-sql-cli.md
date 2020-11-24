@@ -7,18 +7,18 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: allensu
-ms.openlocfilehash: d28a3a304a42ec82ff18ad7f5e72518e2b77ec29
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 8cfe44b9433ee1daac028253aa45c97804c88ae5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280874"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544109"
 ---
 # <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-cli"></a>Samouczek — nawiązywanie połączenia z serwerem Azure SQL przy użyciu prywatnego punktu końcowego platformy Azure — interfejs wiersza polecenia platformy Azure
 
 Prywatny punkt końcowy platformy Azure to podstawowy blok konstrukcyjny dla prywatnego linku na platformie Azure. Dzięki temu zasoby platformy Azure, takie jak maszyny wirtualne, mogą komunikować się z prywatnymi prywatnymi zasobami.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Utwórz sieć wirtualną i hosta bastionu.
@@ -285,7 +285,7 @@ W tej sekcji użyjesz maszyny wirtualnej utworzonej w poprzednim kroku, aby nawi
     Prywatny adres IP **10.0.0.5** jest zwracany dla nazwy programu SQL Server.  Ten adres znajduje się w podsieci sieci wirtualnej, która została wcześniej utworzona.
 
 
-10. Zainstaluj [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017&preserve-view=true) w **myVM**.
+10. Zainstaluj [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?preserve-view=true&view=sql-server-2017) w **myVM**.
 
 11. Otwórz **SQL Server Management Studio**.
 

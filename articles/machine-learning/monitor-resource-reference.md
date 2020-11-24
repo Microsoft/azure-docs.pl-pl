@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2020
-ms.openlocfilehash: bab74a1db04bb557aa6604fe76c05ba3d087f8c0
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: d231de8e262194cd7dda2462a3f54d7d531eb63c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540794"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542086"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Monitorowanie odwołań do danych usługi Azure Machine Learning
 
@@ -26,7 +26,7 @@ W tej sekcji wymieniono wszystkie automatycznie zbierane metryki platformy zebra
 
 **Model**
 
-| Metryka | Jednostka | Opis |
+| Metric | Jednostka | Opis |
 | ----- | ----- | ----- |
 | Nie można wdrożyć modelu | Liczba | Liczba wdrożeń modelu zakończonych niepowodzeniem. |
 | Rozpoczęto Wdrażanie modelu | Liczba | Liczba uruchomionych wdrożeń modelu. |
@@ -38,7 +38,7 @@ W tej sekcji wymieniono wszystkie automatycznie zbierane metryki platformy zebra
 
 Informacje o limicie przydziału są przeznaczone tylko dla Azure Machine Learning obliczeń.
 
-| Metryka | Jednostka | Opis |
+| Metric | Jednostka | Opis |
 | ----- | ----- | ----- |
 | Aktywne rdzenie | Liczba | Liczba aktywnych rdzeni obliczeniowych. |
 | Aktywne węzły | Liczba | Liczba aktywnych węzłów. |
@@ -56,7 +56,7 @@ Informacje o limicie przydziału są przeznaczone tylko dla Azure Machine Learni
 
 **Zasób**
 
-| Metryka | Jednostka | Opis |
+| Metric | Jednostka | Opis |
 | ----- | ----- | ----- |
 | CpuUtilization | Procent | Procent użycia procesora CPU dla danego węzła podczas uruchamiania/zadania. Ta Metryka jest publikowana tylko wtedy, gdy zadanie jest uruchomione w węźle. Jedno zadanie może korzystać z co najmniej jednego węzła. Ta Metryka jest publikowana na węzeł. |
 | GpuUtilization | Procent | Stopień użycia procesora GPU dla danego węzła podczas uruchamiania/zadania. Jeden węzeł może mieć jeden lub więcej procesorów GPU. Ta Metryka jest publikowana na procesor GPU na węzeł. |
@@ -65,7 +65,7 @@ Informacje o limicie przydziału są przeznaczone tylko dla Azure Machine Learni
 
 Informacje o przebiegach szkoleniowych.
 
-| Metryka | Jednostka | Opis |
+| Metric | Jednostka | Opis |
 | ----- | ----- | ----- |
 | Ukończone uruchomienia | Liczba | Liczba ukończonych uruchomień. |
 | Nieudane uruchomienia | Liczba | Liczba nieudanych uruchomień. |
@@ -79,7 +79,7 @@ Azure Machine Learning ma powiązane z nimi wymiary.
 
 | Wymiar | Opis |
 | ---- | ---- |
-| Nazwa klastra | Nazwa wystąpienia obliczeniowego. Dostępne dla wszystkich metryk przydziału. |
+| Nazwa klastra | Nazwa zasobu klastra obliczeniowego. Dostępne dla wszystkich metryk przydziału. |
 | Nazwa rodziny maszyn wirtualnych | Nazwa rodziny maszyn wirtualnych używanej przez klaster. Dostępne dla procentu wykorzystania przydziałów. |
 | Priorytet maszyny wirtualnej | Priorytet maszyny wirtualnej. Dostępne dla procentu wykorzystania przydziałów.
 | CreatedTime | Dostępne tylko dla CpuUtilization i GpuUtilization. |

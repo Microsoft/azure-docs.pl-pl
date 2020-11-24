@@ -7,12 +7,12 @@ ms.date: 11/14/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: a19ff153ea0625a14401770de690dcfddeb74d88
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: af35927abfa491891dffe2c2397d6daf8c1ccde2
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87835752"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543123"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Transferowanie obiektów do i z usługi Azure Blob Storage za pomocą języka PHP
 Dzięki tej skróconej instrukcji dowiesz się, w jaki sposób za pomocą języka PHP przekazywać, pobierać i wyświetlać listę blokowych obiektów blob w kontenerze usługi Azure Blob Storage. 
@@ -91,7 +91,7 @@ Najpierw należy utworzyć odwołania do obiektów używane w celu uzyskania dos
 Gdy istnieje już obiekt kontenera **blobClient**, możesz utworzyć obiekt blob **Block** wskazujący konkretny obiekt blob, który Cię interesuje. Następnie możesz wykonać operacje, takie jak przekazywanie, pobieranie i kopiowanie.
 
 > [!IMPORTANT]
-> Nazwy kontenerów muszą być zapisane małymi literami. Aby uzyskać dodatkowe informacje o regułach nazewnictwa kontenerów i obiektów blob, zobacz [Nazewnictwo i odwoływanie się do kontenerów, obiektów blob i metadanych](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+> Nazwy kontenerów muszą być zapisane małymi literami. Aby uzyskać dodatkowe informacje o regułach nazewnictwa kontenerów i obiektów blob, zobacz [Nazewnictwo i odwoływanie się do kontenerów, obiektów blob i metadanych](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 Ta sekcja poświęcona jest konfigurowaniu wystąpienia klienta usługi Azure Storage, tworzeniu wystąpienia obiektu usługi Blob, tworzeniu nowego kontenera i ustawianiu uprawnień w kontenerze, aby obiekty blob były publiczne. Kontener nazywa się **quickstartblobs**. 
 

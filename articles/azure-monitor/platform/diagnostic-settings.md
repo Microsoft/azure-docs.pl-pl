@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: 517de5c4003655c5fea2f2e7949fb513b1a3c381
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 950fcdc5cd6a5bbf3fa61ebd5e23be89691c4370
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842434"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95535796"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Tworzenie ustawień diagnostycznych w celu wysyłania metryk i dzienników platformy do różnych miejsc docelowych
 [Dzienniki platformy](platform-logs-overview.md) na platformie Azure, w tym dziennik aktywności platformy Azure i dzienniki zasobów, zapewniają szczegółowe informacje diagnostyczne i inspekcji dla zasobów platformy Azure oraz platformy platformy Azure, od których zależą. [Metryki platformy](data-platform-metrics.md) są zbierane domyślnie i zazwyczaj przechowywane w bazie danych metryk Azure monitor. Ten artykuł zawiera szczegółowe informacje na temat tworzenia i konfigurowania ustawień diagnostycznych w celu wysyłania metryk platformy i dzienników platformy do różnych miejsc docelowych.
@@ -52,7 +52,7 @@ Dzienniki platformy i metryki mogą być wysyłane do miejsc docelowych w poniż
 
 ### <a name="destination-requirements"></a>Wymagania dotyczące miejsca docelowego
 
-Przed utworzeniem ustawień diagnostycznych należy utworzyć wszystkie miejsca docelowe dla tego ustawienia diagnostycznego. Lokalizacja docelowa nie musi znajdować się w tej samej subskrypcji co zasób wysyła dzienniki, dopóki użytkownik, który konfiguruje ustawienie, ma dostęp do obu subskrypcji. W poniższej tabeli przedstawiono unikatowe wymagania dla każdego miejsca docelowego, w tym wszystkie ograniczenia regionalne.
+Przed utworzeniem ustawień diagnostycznych należy utworzyć wszystkie miejsca docelowe dla tego ustawienia diagnostycznego. Lokalizacja docelowa nie musi znajdować się w tej samej subskrypcji co zasób, który wysyła dzienniki, dopóki użytkownik, który konfiguruje ustawienie, ma odpowiedni dostęp do obu subskrypcji na platformie Azure. W poniższej tabeli przedstawiono unikatowe wymagania dla każdego miejsca docelowego, w tym wszystkie ograniczenia regionalne.
 
 | Element docelowy | Wymagania |
 |:---|:---|
@@ -130,7 +130,7 @@ Ustawienia diagnostyczne można skonfigurować w Azure Portal z menu Azure Monit
         >
         > Jeśli na przykład ustawisz zasady przechowywania dla elementu *WorkflowRuntime* na 180 dni, a następnie 24 godziny później ustawisz go na 365 dni, dzienniki przechowywane w ciągu pierwszych 24 godzin zostaną automatycznie usunięte po 180 dni, a wszystkie kolejne dzienniki tego typu zostaną automatycznie usunięte po upływie 365 dni. Zmiana zasad przechowywania w późniejszym czasie nie powoduje, że pierwsze 24 godziny dzienników pozostanie na około 365 dni.
 
-6. Kliknij przycisk **Zapisz**.
+6. Kliknij pozycję **Zapisz**.
 
 Po kilku chwilach nowe ustawienie zostanie wyświetlone na liście ustawień dla tego zasobu, a dzienniki są przesyłane strumieniowo do określonych lokalizacji docelowych w miarę generowania nowych danych zdarzeń. Gdy zdarzenie jest emitowane i [pojawia się w obszarze roboczym log Analytics](data-ingestion-time.md), może upłynąć do 15 minut.
 

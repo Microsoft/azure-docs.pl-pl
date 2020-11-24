@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: a6bbb2abe24eba96fd2c55b7aaf15ccd8ae33530
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27dba675f82c4d34ec793cf492c18b293a6c8c77
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87760955"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544262"
 ---
 # <a name="what-is-azure-private-link-service"></a>Co to jest usługa Azure Private Link Service?
 
-Usługa link prywatny platformy Azure to odwołanie do własnej usługi, która jest obsługiwana przez link prywatny platformy Azure. Usługa, która jest uruchomiona za [Usługa Load Balancer w warstwie Standardowa platformy Azure](../load-balancer/load-balancer-standard-overview.md) , może być włączona do prywatnego dostępu do łączy, dzięki czemu konsumenci usługi mogą uzyskać do nich dostęp prywatnie z własnych sieci wirtualnych. Klienci mogą utworzyć prywatny punkt końcowy wewnątrz swojej sieci wirtualnej i zmapować ją na tę usługę. W tym artykule objaśniono koncepcje związane z dostawcą usług. 
+Usługa link prywatny platformy Azure to odwołanie do własnej usługi, która jest obsługiwana przez link prywatny platformy Azure. Usługa, która jest uruchomiona za [Usługa Load Balancer w warstwie Standardowa platformy Azure](../load-balancer/load-balancer-overview.md) , może być włączona do prywatnego dostępu do łączy, dzięki czemu konsumenci usługi mogą uzyskać do nich dostęp prywatnie z własnych sieci wirtualnych. Klienci mogą utworzyć prywatny punkt końcowy wewnątrz swojej sieci wirtualnej i zmapować ją na tę usługę. W tym artykule objaśniono koncepcje związane z dostawcą usług. 
 
 :::image type="content" source="./media/private-link-service-overview/consumer-provider-endpoint.png" alt-text="Przepływ pracy usługi link prywatny" border="true":::
 
@@ -57,7 +57,7 @@ Usługa link prywatny określa następujące właściwości:
 |---------|---------|
 |Stan aprowizacji (provisioningState)  |Właściwość tylko do odczytu, która wyświetla bieżący stan aprowizacji dla usługi linku prywatnego. Odpowiednie Stany aprowizacji: "Usuwanie; Awarii Powiodło się Aktualizowanie ". Gdy stan aprowizacji to "powodzenie", pomyślnie Zainicjowano obsługę linku prywatnego.        |
 |Alias (alias)     | Alias jest globalnie unikatowym ciągiem tylko do odczytu dla usługi. Ułatwia on maskowanie danych klienta usługi i w tym samym czasie tworzy łatwą do udostępnienia nazwę usługi. Podczas tworzenia usługi linku prywatnego platforma Azure generuje alias dla usługi, który można udostępnić klientom. Klienci mogą używać tego aliasu, aby zażądać połączenia z usługą.          |
-|Widoczność (widoczność)     | Widoczność to właściwość, która kontroluje ustawienia ekspozycji usługi link prywatny. Dostawcy usług mogą zdecydować się na ograniczenie podatności usługi na subskrypcje z uprawnieniami kontroli dostępu opartej na rolach (RBAC), ograniczonym zestawem subskrypcji lub wszystkimi subskrypcjami platformy Azure.          |
+|Widoczność (widoczność)     | Widoczność to właściwość, która kontroluje ustawienia ekspozycji usługi link prywatny. Dostawcy usług mogą zdecydować się na ograniczenie ich usługi do subskrypcji przy użyciu uprawnień kontroli dostępu opartej na rolach (Azure RBAC), ograniczonego zestawu subskrypcji lub wszystkich subskrypcji platformy Azure.          |
 |Autozatwierdzanie (autozatwierdzanie)    |   Automatyczne zatwierdzanie kontroluje zautomatyzowany dostęp do usługi łącza prywatnego. Subskrypcje określone na liście automatycznego zatwierdzania są zatwierdzane automatycznie po zażądaniu połączenia od prywatnych punktów końcowych w tych subskrypcjach.          |
 |Konfiguracja adresu IP frontonu Load Balancer (loadBalancerFrontendIpConfigurations)    |    Usługa link prywatny jest powiązana z adresem IP frontonu usługa Load Balancer w warstwie Standardowa. Cały ruch przychodzący do usługi będzie docierał do frontonu modułu równoważenia obciążenia. Można skonfigurować reguły modułu równoważenia obciążenia, aby skierować ten ruch do odpowiednich pul zaplecza, w których są uruchomione aplikacje. Konfiguracje adresów IP frontonu modułu równoważenia obciążenia różnią się od konfiguracji protokołu IP NAT.      |
 |Konfiguracja protokołu IP translatora adresów sieciowych (Ipconfiguration)    |    Ta właściwość odnosi się do konfiguracji protokołu IP NAT (translator adresów sieciowych) dla usługi link prywatny. Adres IP NAT można wybrać z dowolnej podsieci w sieci wirtualnej dostawcy usług. Usługa link prywatny Wykonuje translację NAT po stronie docelowej na ruch związany z linkiem prywatnym. Dzięki temu nie występuje konflikt adresów IP między źródłem (po stronie klienta) a miejscem docelowym (dostawcy usług). Po stronie docelowej (po stronie dostawcy usług) adres IP translatora adresów sieciowych będzie wyświetlany jako źródłowy IP dla wszystkich pakietów odebranych przez usługę i docelowy adres IP dla wszystkich pakietów wysłanych przez usługę.       |
@@ -76,7 +76,7 @@ Usługa link prywatny określa następujące właściwości:
  
 - Dostęp do pojedynczej usługi linku prywatnego można uzyskać z wielu prywatnych punktów końcowych należących do różnych sieci wirtualnych, subskrypcji i/lub Active Directory dzierżawców. Połączenie jest nawiązywane za pomocą przepływu pracy połączenia. 
  
-- Na tym samym usługa Load Balancer w warstwie Standardowa można utworzyć wiele usług łączy prywatnych przy użyciu różnych konfiguracji adresu IP frontonu. Istnieją limity dotyczące liczby prywatnych usług linków, które można utworzyć na usługa Load Balancer w warstwie Standardowa i na subskrypcję. Aby uzyskać szczegółowe informacje, zobacz [limity platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Na tym samym usługa Load Balancer w warstwie Standardowa można utworzyć wiele usług łączy prywatnych przy użyciu różnych konfiguracji adresu IP frontonu. Istnieją limity dotyczące liczby prywatnych usług linków, które można utworzyć na usługa Load Balancer w warstwie Standardowa i na subskrypcję. Aby uzyskać szczegółowe informacje, zobacz [limity platformy Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
  
 - Z usługą linku prywatnego może być połączona więcej niż jedna konfiguracja adresu IP NAT. Wybranie więcej niż jednej konfiguracji protokołu IP NAT może ułatwić dostawcom usług skalowanie. Obecnie dostawcy usług mogą przypisywać maksymalnie osiem adresów IP translatora adresów sieciowych na usługę łącza prywatnego. Każdy adres IP translatora adresów sieciowych umożliwia przypisanie więcej portów dla połączeń TCP, a tym samym skalowanie w poziomie. Po dodaniu wielu adresów IP translatora adresów sieciowych do usługi link prywatny nie można usunąć adresów IP translatora adresów sieciowych. Jest to wykonywane w celu upewnienia się, że podczas usuwania adresów IP NAT nie wpłynie to na aktywne połączenia.
 
@@ -95,7 +95,7 @@ Kompletny alias:  *prefiks*. {GUID}. *region*. Azure. privatelinkservice
 
 ## <a name="control-service-exposure"></a>Kontrola ekspozycji usługi
 
-Usługa link prywatny udostępnia opcje umożliwiające sterowanie ekspozycją usługi za pomocą ustawienia "widoczność". Usługa może być prywatna do użycia przez różne sieci wirtualnych (tylko uprawnienia RBAC), ograniczać ekspozycję do ograniczonego zestawu zaufanych subskrypcji lub udostępniać je publicznie, aby wszystkie subskrypcje platformy Azure mogły żądać połączeń w usłudze linku prywatnego. Ustawienia widoczności decydują o tym, czy konsument może połączyć się z usługą. 
+Usługa link prywatny udostępnia opcje umożliwiające sterowanie ekspozycją usługi za pomocą ustawienia "widoczność". Usługa może być prywatna do użycia przez różne sieci wirtualnych (tylko uprawnienia usługi Azure RBAC), ograniczać ekspozycję do ograniczonego zestawu zaufanych subskrypcji lub udostępniać je publicznie, aby wszystkie subskrypcje platformy Azure mogły żądać połączeń w usłudze linku prywatnego. Ustawienia widoczności decydują o tym, czy konsument może połączyć się z usługą. 
 
 ## <a name="control-service-access"></a>Kontrola dostępu do usługi
 
@@ -113,7 +113,7 @@ Szczegóły niestandardowego TLV:
 
 |Pole |Długość (oktety)  |Opis  |
 |---------|---------|----------|
-|Type  |1        |PP2_TYPE_AZURE (0xEE)|
+|Typ  |1        |PP2_TYPE_AZURE (0xEE)|
 |Długość  |2      |Długość wartości|
 |Wartość  |1     |PP2_SUBTYPE_AZURE_PRIVATEENDPOINT_LINKID (0x01)|
 |  |4        |UINT32 (4 bajty) reprezentujący LINKID prywatnego punktu końcowego. Zakodowane w formacie little endian.|

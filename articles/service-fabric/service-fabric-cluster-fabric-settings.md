@@ -3,12 +3,12 @@ title: Zmień ustawienia klastra Service Fabric platformy Azure
 description: W tym artykule opisano ustawienia sieci szkieletowej oraz zasady uaktualniania sieci szkieletowej, które można dostosować.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: a83d24b4badd78750756a3cb4564b1e53fd30593
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 1f16e89dd1131f6aea64e5e72a342b3b737f3728
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648229"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542647"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Dostosowywanie ustawień klastra usługi Service Fabric
 W tym artykule opisano różne ustawienia sieci szkieletowej dla klastra Service Fabric, które można dostosować. W przypadku klastrów hostowanych na platformie Azure można dostosować ustawienia za pomocą [Azure Portal](https://portal.azure.com) lub szablonu Azure Resource Manager. Aby uzyskać więcej informacji, zobacz [uaktualnianie konfiguracji klastra platformy Azure](service-fabric-cluster-config-upgrade-azure.md). W przypadku klastrów autonomicznych można dostosować ustawienia przez aktualizację *ClusterConfig.jsw* pliku i przeprowadzanie uaktualnienia konfiguracji w klastrze. Aby uzyskać więcej informacji, zobacz [uaktualnianie konfiguracji klastra autonomicznego](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -122,8 +122,8 @@ Poniżej znajduje się lista ustawień sieci szkieletowej, które można dostoso
 |ApplicationLogsFormatVersion |Int, wartość domyślna to 0 | Dynamiczny |Wersja formatu dzienników aplikacji. Obsługiwane wartości to 0 i 1. Wersja 1 zawiera więcej pól z rekordu zdarzenia ETW niż wersja 0. |
 |AuditHttpRequests |Bool, wartość domyślna to false | Dynamiczny | Włącz lub Wyłącz inspekcję HTTP. Celem inspekcji jest wyświetlenie działań, które zostały wykonane względem klastra; dołączenie do osoby, która zainicjowała żądanie. Należy zauważyć, że jest to Najlepsza próba zarejestrowania; mogą wystąpić utracone wyniki. Żądania HTTP z uwierzytelnianiem użytkownika nie są rejestrowane. |
 |CaptureHttpTelemetry|Bool, wartość domyślna to true | Dynamiczny | Włączać lub wyłączać dane telemetryczne protokołu HTTP. Celem telemetrii jest umożliwienie Service Fabric przechwycenia danych telemetrycznych w celu zaplanowania przyszłej pracy i zidentyfikowania obszarów problemów. Telemetrię nie rejestruje żadnych danych osobowych ani treści żądania. Dane telemetryczne przechwytują wszystkie żądania HTTP, o ile nie zostały skonfigurowane inaczej |
-|ClusterId |String | Dynamiczny |Unikatowy identyfikator klastra. Ta wartość jest generowana podczas tworzenia klastra. |
-|ConsumerInstances |String | Dynamiczny |Lista wystąpień konsumentów DCA. |
+|ClusterId |Ciąg | Dynamiczny |Unikatowy identyfikator klastra. Ta wartość jest generowana podczas tworzenia klastra. |
+|ConsumerInstances |Ciąg | Dynamiczny |Lista wystąpień konsumentów DCA. |
 |DiskFullSafetySpaceInMB |Int, wartość domyślna to 1024 | Dynamiczny |Pozostała ilość miejsca na dysku (w MB) do ochrony przed użyciem przez DCA. |
 |EnableCircularTraceSession |Bool, wartość domyślna to false | Static |Flaga wskazuje, czy należy używać cyklicznych sesji śledzenia. |
 |EnablePlatformEventsFileSink |Bool, wartość domyślna to false | Static |Włączanie/wyłączanie zdarzeń platformy zapisywanych na dysku |
@@ -131,7 +131,7 @@ Poniżej znajduje się lista ustawień sieci szkieletowej, które można dostoso
 |FailuresOnlyHttpTelemetry | Bool, wartość domyślna to false | Dynamiczny | Jeśli funkcja przechwytywania telemetrii HTTP jest włączona; Przechwyć tylko Nieudane żądania. Jest to pomocne w zmniejszeniu liczby zdarzeń wygenerowanych na potrzeby telemetrii. |
 |HttpTelemetryCapturePercentage | int, wartość domyślna to 50 | Dynamiczny | Jeśli funkcja przechwytywania telemetrii HTTP jest włączona; Przechwyć tylko losową wartość procentową żądań. Jest to pomocne w zmniejszeniu liczby zdarzeń wygenerowanych na potrzeby telemetrii. |
 |MaxDiskQuotaInMB |Int, wartość domyślna to 65536 | Dynamiczny |Przydział dysku w MB dla plików dziennika Windows Fabric. |
-|ProducerInstances |String | Dynamiczny |Lista wystąpień producentów DCA. |
+|ProducerInstances |Ciąg | Dynamiczny |Lista wystąpień producentów DCA. |
 
 ## <a name="dnsservice"></a>DnsService
 | **Parametr** | **Dozwolone wartości** |**Zasady uaktualniania**| **Wskazówki lub Krótki opis** |
@@ -141,6 +141,7 @@ Poniżej znajduje się lista ustawień sieci szkieletowej, które można dostoso
 |IsEnabled|bool, wartość domyślna to FALSE|Static|Włącza/wyłącza DnsService. DnsService jest domyślnie wyłączona i należy ustawić tę konfigurację, aby ją włączyć. |
 |PartitionPrefix|ciąg, wartość domyślna to "--"|Static|Kontroluje wartość ciągu prefiksu partycji w zapytaniach DNS dla usług partycjonowanych. Wartość: <ul><li>Powinna być zgodna ze specyfikacją RFC, ponieważ będzie częścią zapytania DNS.</li><li>Nie powinna zawierać kropki ".", ponieważ kropka zakłóca zachowanie sufiksu DNS.</li><li>Nie może być dłuższa niż 5 znaków.</li><li>Nie może być pustym ciągiem.</li><li>Jeśli ustawienie PartitionPrefix jest zastępowane, PartitionSuffix musi być zastąpione i na odwrót.</li></ul>Aby uzyskać więcej informacji, zobacz [Service Fabric usługi DNS.](service-fabric-dnsservice.md).|
 |PartitionSuffix|ciąg, wartość domyślna to ""|Static|Steruje wartością ciągu sufiksu partycji w zapytaniach DNS dla usług partycjonowanych. Wartość: <ul><li>Powinna być zgodna ze specyfikacją RFC, ponieważ będzie częścią zapytania DNS.</li><li>Nie powinna zawierać kropki ".", ponieważ kropka zakłóca zachowanie sufiksu DNS.</li><li>Nie może być dłuższa niż 5 znaków.</li><li>Jeśli ustawienie PartitionPrefix jest zastępowane, PartitionSuffix musi być zastąpione i na odwrót.</li></ul>Aby uzyskać więcej informacji, zobacz [Service Fabric usługi DNS.](service-fabric-dnsservice.md). |
+|RetryTransientFabricErrors|Bool, wartość domyślna to true|Static|Ustawienie kontroluje możliwości ponowienia próby podczas wywoływania Service Fabric interfejsów API z DnsService. Gdy ta funkcja jest włączona, ponawia próbę do 3 razy w przypadku wystąpienia błędu przejściowego.|
 
 ## <a name="eventstoreservice"></a>EventStoreService
 
@@ -423,7 +424,7 @@ Poniżej znajduje się lista ustawień sieci szkieletowej, które można dostoso
 |AzureStorageMaxConnections | Int, wartość domyślna to 5000 |Dynamiczny|Maksymalna liczba jednoczesnych połączeń z usługą Azure Storage. |
 |AzureStorageMaxWorkerThreads | Int, wartość domyślna to 25 |Dynamiczny|Jednocześnie Maksymalna liczba wątków roboczych. |
 |AzureStorageOperationTimeout | Czas w sekundach, wartość domyślna to 6000 |Dynamiczny|Określ wartość TimeSpan w sekundach. Przekroczono limit czasu na zakończenie operacji xstore. |
-|CleanupApplicationPackageOnProvisionSuccess|bool, wartość domyślna to FALSE |Dynamiczny|Włącza lub wyłącza automatyczne czyszczenie pakietu aplikacji po pomyślnym zainicjowaniu obsługi administracyjnej.<br/> *Najlepszym rozwiązaniem jest użycie `true` .*
+|CleanupApplicationPackageOnProvisionSuccess|bool, wartość domyślna to true |Dynamiczny|Włącza lub wyłącza automatyczne czyszczenie pakietu aplikacji po pomyślnym zainicjowaniu obsługi administracyjnej.
 |CleanupUnusedApplicationTypes|Bool, wartość domyślna to FALSE |Dynamiczny|Ta konfiguracja umożliwia automatyczne Wyrejestrowanie nieużywanych wersji typu aplikacji z pominięciem najnowszych trzech nieużywanych wersji, a tym samym przycinanie miejsca na dysku zajmowanego przez magazyn obrazów. Automatyczne czyszczenie zostanie wyzwolone po zakończeniu pomyślnego zainicjowania obsługi dla tego określonego typu aplikacji, a także będzie uruchamiane okresowo raz dziennie dla wszystkich typów aplikacji. Liczba nieużywanych wersji do pominięcia jest konfigurowalna przy użyciu parametru "MaxUnusedAppTypeVersionsToKeep". <br/> *Najlepszym rozwiązaniem jest użycie `true` .*
 |DisableChecksumValidation | Bool, wartość domyślna to false |Static| Ta konfiguracja umożliwia włączenie lub wyłączenie walidacji sumy kontrolnej podczas aprowizacji aplikacji. |
 |DisableServerSideCopy | Bool, wartość domyślna to false |Static|Ta konfiguracja włącza lub wyłącza kopie pakietu aplikacji po stronie serwera na magazynu ImageStore podczas aprowizacji aplikacji. |
@@ -505,7 +506,7 @@ Poniżej znajduje się lista ustawień sieci szkieletowej, które można dostoso
 
 | **Parametr** | **Dozwolone wartości** | **Zasady uaktualniania** | **Wskazówki lub Krótki opis** |
 | --- | --- | --- | --- |
-|Liczniki |String | Dynamiczny |Rozdzielana przecinkami lista liczników wydajności do zbierania. |
+|Liczniki |Ciąg | Dynamiczny |Rozdzielana przecinkami lista liczników wydajności do zbierania. |
 |IsEnabled |Bool, wartość domyślna to true | Dynamiczny |Flaga wskazuje, czy jest włączona kolekcja liczników wydajności w węźle lokalnym. |
 |MaxCounterBinaryFileSizeInMB |Int, wartość domyślna to 1 | Dynamiczny |Maksymalny rozmiar (w MB) dla każdego pliku binarnego licznika wydajności. |
 |NewCounterBinaryFileCreationIntervalInMinutes |Int, wartość domyślna to 10 | Dynamiczny |Maksymalny interwał (w sekundach), po którym tworzony jest nowy plik binarny licznika wydajności. |
@@ -520,6 +521,7 @@ Poniżej znajduje się lista ustawień sieci szkieletowej, które można dostoso
 |AutoDetectAvailableResources|bool, wartość domyślna to TRUE|Static|Ta konfiguracja spowoduje wyzwolenie automatycznego wykrywania dostępnych zasobów w węźle (procesor i pamięć), gdy ta konfiguracja zostanie ustawiona na wartość true — będziemy odczytywać rzeczywiste pojemności i poprawiać je, jeśli użytkownik określił nieprawidłowe pojemności węzłów lub nie zdefiniowano ich w ogóle, jeśli ta konfiguracja zostanie ustawiona na wartość false — zostanie wyświetlone ostrzeżenie informujące o tym, że użytkownik określił nieprawidłowe pojemności węzłów; ale nie zostaną one poprawione. oznacza to, że użytkownik chce mieć pojemności określone jako > niż w rzeczywistości czy w przypadku niezdefiniowania pojemności; przyjmie ona nieograniczoną pojemność |
 |BalancingDelayAfterNewNode | Czas w sekundach, wartość domyślna to 120 |Dynamiczny|Określ wartość TimeSpan w sekundach. Nie uruchamiaj działań równoważenia obciążenia w tym okresie po dodaniu nowego węzła. |
 |BalancingDelayAfterNodeDown | Czas w sekundach, wartość domyślna to 120 |Dynamiczny|Określ wartość TimeSpan w sekundach. Nie uruchamiaj działań równoważenia obciążenia w tym okresie po zdarzeniu w dół węzła. |
+|BlockNodeInUpgradeConstraintPriority | Int, wartość domyślna to 0 |Dynamiczny|Określa priorytet ograniczenia pojemności: 0: twarda; 1: nietrwałe; wartość ujemna: Ignoruj  |
 |CapacityConstraintPriority | Int, wartość domyślna to 0 | Dynamiczny|Określa priorytet ograniczenia pojemności: 0: twarda; 1: nietrwałe; wartość ujemna: Ignoruj. |
 |ConsecutiveDroppedMovementsHealthReportLimit | Int, wartość domyślna to 20 | Dynamiczny|Określa liczbę kolejnych porzuconych przesunięć ResourceBalancer przed wykonaniem diagnostyki i wyemitowaniu ostrzeżeń dotyczących kondycji. Wartość ujemna: żadne ostrzeżenia nie są emitowane w tym stanie. |
 |ConstraintFixPartialDelayAfterNewNode | Czas w sekundach, wartość domyślna to 120 |Dynamiczny| Określ wartość TimeSpan w sekundach. DDo nie naprawiaj naruszeń ograniczenia FaultDomain i UpgradeDomain w tym okresie po dodaniu nowego węzła. |
@@ -838,10 +840,10 @@ Poniżej znajduje się lista ustawień sieci szkieletowej, które można dostoso
 | --- | --- | --- | --- |
 |ContainerNetworkName|ciąg, wartość domyślna to ""| Static |Nazwa sieci do użycia podczas konfigurowania sieci kontenera.|
 |ContainerNetworkSetup|bool, wartość domyślna to FALSE (Linux), a wartość domyślna to TRUE (Windows)| Static |Określa, czy należy skonfigurować sieć kontenera.|
-|FabricDataRoot |String | Niedozwolone |Katalog główny danych Service Fabric. Wartość domyślna dla platformy Azure to d:\svcfab |
-|FabricLogRoot |String | Niedozwolone |Katalog główny dziennika usługi Service Fabric. Jest to miejsce, w którym są umieszczane dzienniki i ślady SF. |
+|FabricDataRoot |Ciąg | Niedozwolone |Katalog główny danych Service Fabric. Wartość domyślna dla platformy Azure to d:\svcfab |
+|FabricLogRoot |Ciąg | Niedozwolone |Katalog główny dziennika usługi Service Fabric. Jest to miejsce, w którym są umieszczane dzienniki i ślady SF. |
 |NodesToBeRemoved|ciąg, wartość domyślna to ""| Dynamiczny |Węzły, które powinny zostać usunięte w ramach uaktualnienia konfiguracji. (Tylko w przypadku wdrożeń autonomicznych)|
-|ServiceRunAsAccountName |String | Niedozwolone |Nazwa konta, pod którym zostanie uruchomiona usługa hosta sieci szkieletowej. |
+|ServiceRunAsAccountName |Ciąg | Niedozwolone |Nazwa konta, pod którym zostanie uruchomiona usługa hosta sieci szkieletowej. |
 |SkipContainerNetworkResetOnReboot|bool, wartość domyślna to FALSE|NotAllowed|Czy pominąć Resetowanie sieci kontenera przy ponownym uruchomieniu.|
 |SkipFirewallConfiguration |Bool, wartość domyślna to false | Niedozwolone |Określa, czy ustawienia zapory muszą być ustawiane przez system, czy nie. Ma to zastosowanie tylko wtedy, gdy używasz zapory systemu Windows. Jeśli są używane zapory innych firm, należy otworzyć porty dla systemu i aplikacji do użycia |
 

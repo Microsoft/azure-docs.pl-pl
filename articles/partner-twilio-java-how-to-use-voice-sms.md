@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.custom: devx-track-java
-ms.openlocfilehash: f2f30230418637b53826bd314e395e760db7087f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 053c120b7a1a6c50c16ff419a9e64666d83dc59a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87306018"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542494"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-java"></a>Jak używać funkcji Twilio do obsługi głosu i programu SMS w języku Java
 W tym przewodniku pokazano, jak wykonywać typowe zadania programistyczne za pomocą usługi interfejsu API Twilio na platformie Azure. Omówione scenariusze obejmują wykonywanie połączeń telefonicznych i wysyłanie wiadomości SMS. Aby uzyskać więcej informacji na temat Twilio i używania programów Voice i SMS w aplikacjach, zobacz sekcję [następne kroki](#NextSteps) .
@@ -37,21 +37,21 @@ Interfejs API Twilio jest interfejsem API RESTful, który zapewnia funkcje głos
 Kluczowe aspekty interfejsu API Twilio są czasownikami Twilio i Twilio Markup Language (TwiML).
 
 ### <a name="twilio-verbs"></a><a id="Verbs"></a>Zlecenia Twilio
-Interfejs API korzysta z czasowników Twilio; na przykład czasownik ** &lt; powiedzie &gt; ** nakazuje Twilio audibly dostarczenie komunikatu w wywołaniu.
+Interfejs API korzysta z czasowników Twilio; na przykład czasownik **&lt; powiedzie &gt;** nakazuje Twilio audibly dostarczenie komunikatu w wywołaniu.
 
 Poniżej znajduje się lista zleceń Twilio.
 
-* ** &lt; Wybierz &gt; **: łączy obiekt wywołujący z innym telefonem.
-* ** &lt; Zbieranie &gt; **: zbiera cyfry liczbowe wprowadzone na klawiaturze telefonicznej.
-* Rozłączenie: przerywa wywołanie. ** &lt; &gt; **
-* ** &lt; Odtwórz &gt; **: odtwarza plik audio.
-* ** &lt; Kolejka &gt; **: Dodaj do kolejki obiektów wywołujących.
-* ** &lt; Wstrzymaj &gt; **: czeka w trybie cichym przez określoną liczbę sekund.
-* ** &lt; Rekord &gt; **: rejestruje głos obiektu wywołującego i zwraca adres URL pliku, który zawiera nagranie.
-* ** &lt; Przekierowanie &gt; **: przenosi kontrolę nad wywołaniem lub wiadomością SMS do TwiML pod innym adresem URL.
-* ** &lt; Odrzuć &gt; **: odrzuca wywołanie przychodzące do numeru Twilio bez rozliczania.
-* ** &lt; Załóżmy &gt; **: konwertuje tekst na mowę, która jest wykonywana w wywołaniu.
-* ** &lt; SMS &gt; **: wysyła wiadomość SMS.
+* **&lt; Wybierz &gt;**: łączy obiekt wywołujący z innym telefonem.
+* **&lt; Zbieranie &gt;**: zbiera cyfry liczbowe wprowadzone na klawiaturze telefonicznej.
+* Rozłączenie: przerywa wywołanie. **&lt; &gt;**
+* **&lt; Odtwórz &gt;**: odtwarza plik audio.
+* **&lt; Kolejka &gt;**: Dodaj do kolejki obiektów wywołujących.
+* **&lt; Wstrzymaj &gt;**: czeka w trybie cichym przez określoną liczbę sekund.
+* **&lt; Rekord &gt;**: rejestruje głos obiektu wywołującego i zwraca adres URL pliku, który zawiera nagranie.
+* **&lt; Przekierowanie &gt;**: przenosi kontrolę nad wywołaniem lub wiadomością SMS do TwiML pod innym adresem URL.
+* **&lt; Odrzuć &gt;**: odrzuca wywołanie przychodzące do numeru Twilio bez rozliczania.
+* **&lt; Załóżmy &gt;**: konwertuje tekst na mowę, która jest wykonywana w wywołaniu.
+* **&lt; SMS &gt;**: wysyła wiadomość SMS.
 
 ### <a name="twiml"></a><a id="TwiML"></a>TwiML
 TwiML to zestaw instrukcji opartych na języku XML opartych na zleceniach Twilio, które informują Twilio o sposobie przetwarzania wywołania lub wiadomości SMS.
@@ -133,7 +133,7 @@ Aby uzyskać więcej informacji o parametrach, które zostały przesłane do met
 Jak wspomniano, ten kod używa witryny dostarczonej przez Twilio do zwrócenia odpowiedzi TwiML. Zamiast tego możesz użyć własnej lokacji, aby zapewnić odpowiedź TwiML; Aby uzyskać więcej informacji, zobacz [jak zapewnić odpowiedzi TwiML w aplikacji Java na platformie Azure](#howto_provide_twiml_responses).
 
 ## <a name="how-to-send-an-sms-message"></a><a id="howto_send_sms"></a>Instrukcje: wysyłanie wiadomości SMS
-Poniżej przedstawiono sposób wysyłania wiadomości SMS przy użyciu klasy **Message** . Numer **z** **4155992671**jest dostarczany przez Twilio dla kont próbnych do wysyłania wiadomości SMS. Przed uruchomieniem **kodu należy zweryfikować numer konta** usługi Twilio.
+Poniżej przedstawiono sposób wysyłania wiadomości SMS przy użyciu klasy **Message** . Numer **z** **4155992671** jest dostarczany przez Twilio dla kont próbnych do wysyłania wiadomości SMS. Przed uruchomieniem **kodu należy zweryfikować numer konta** usługi Twilio.
 
 ```java
     // Use your account SID and authentication token instead
@@ -157,7 +157,7 @@ Poniżej przedstawiono sposób wysyłania wiadomości SMS przy użyciu klasy **M
 Aby uzyskać więcej informacji o parametrach przekazaną do metody **Message. Creator** , zobacz [https://www.twilio.com/docs/api/rest/sending-sms][twilio_rest_sending_sms] .
 
 ## <a name="how-to-provide-twiml-responses-from-your-own-website"></a><a id="howto_provide_twiml_responses"></a>Instrukcje: udostępnianie odpowiedzi TwiML z własnej witryny sieci Web
-Gdy aplikacja inicjuje wywołanie interfejsu API Twilio, na przykład za pomocą metody **CallCreator. Create** , Twilio wyśle żądanie do adresu URL, który powinien zwrócić odpowiedź TwiML. Powyższy przykład używa adresu URL podanego przez Twilio [https://twimlets.com/message][twimlet_message_url] . (Podczas gdy TwiML jest przeznaczony do użycia przez usługi sieci Web, można wyświetlić TwiML w przeglądarce. Na przykład kliknij, [https://twimlets.com/message][twimlet_message_url] Aby wyświetlić pusty element ** &lt; odpowiedzi &gt; ** ; w innym przykładzie kliknij, [https://twimlets.com/message?Message%5B0%5D=Hello%20World%21][twimlet_message_url_hello_world] Aby zobaczyć element ** &lt; odpowiedzi &gt; ** , który zawiera element ** &lt; powiedz &gt; ** .).
+Gdy aplikacja inicjuje wywołanie interfejsu API Twilio, na przykład za pomocą metody **CallCreator. Create** , Twilio wyśle żądanie do adresu URL, który powinien zwrócić odpowiedź TwiML. Powyższy przykład używa adresu URL podanego przez Twilio [https://twimlets.com/message][twimlet_message_url] . (Podczas gdy TwiML jest przeznaczony do użycia przez usługi sieci Web, można wyświetlić TwiML w przeglądarce. Na przykład kliknij, [https://twimlets.com/message][twimlet_message_url] Aby wyświetlić pusty element **&lt; odpowiedzi &gt;** ; w innym przykładzie kliknij, [https://twimlets.com/message?Message%5B0%5D=Hello%20World%21][twimlet_message_url_hello_world] Aby zobaczyć element **&lt; odpowiedzi &gt;** , który zawiera element **&lt; powiedz &gt;** .).
 
 Zamiast polegać na adresie URL podanej przez Twilio, można utworzyć własną witrynę adresu URL, która zwraca odpowiedzi HTTP. Lokację można utworzyć w dowolnym języku, który zwraca odpowiedzi HTTP; w tym temacie przyjęto założenie, że adres URL będzie przechowywany na stronie JSP.
 
@@ -217,9 +217,9 @@ Teraz, gdy znasz już podstawy usługi Twilio, Skorzystaj z poniższych linków,
 
 [twilio_java]: https://github.com/twilio/twilio-java
 [twilio_api_service]: https://api.twilio.com
-[add_ca_cert]: java-add-certificate-ca-store.md
+[add_ca_cert]: /azure/developer/java/sdk/java-sdk-add-certificate-ca-store
 [howto_phonecall_java]: partner-twilio-java-phone-call-example.md
-[misc_role_config_settings]: https://msdn.microsoft.com/library/windowsazure/hh690945.aspx
+[misc_role_config_settings]: /previous-versions/azure/hh690945(v=azure.100)
 [twimlet_message_url]: https://twimlets.com/message
 [twimlet_message_url_hello_world]: https://twimlets.com/message?Message%5B0%5D=Hello%20World%21
 [twilio_rest_making_calls]: https://www.twilio.com/docs/api/rest/making-calls

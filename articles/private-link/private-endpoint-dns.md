@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: bb1f4b5e37cecc33cef115f26c44ad6375c7e327
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: d682495cb7add446adf1634de6e9ed6756d1468e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734382"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544381"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Konfiguracja usługi DNS prywatnego punktu końcowego platformy Azure
 
@@ -125,7 +125,7 @@ Ten model można rozszerzyć na wiele równorzędnych sieci wirtualnych, które 
 > [!IMPORTANT]
 > Jeśli używasz prywatnego punktu końcowego w modelu gwiazdy i gwiazdy z innej subskrypcji, Użyj tej samej prywatnej strefy DNS w centrum.
 
-W tym scenariuszu istnieje topologia sieci typu [Hub i szprych](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) z sieciami szprych, które udostępniają wspólny prywatny punkt końcowy, a wszystkie sieci wirtualne szprych są połączone z tą samą prywatną strefą DNS. 
+W tym scenariuszu istnieje topologia sieci typu [Hub i szprych](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) z sieciami szprych, które udostępniają wspólny prywatny punkt końcowy, a wszystkie sieci wirtualne szprych są połączone z tą samą prywatną strefą DNS. 
 
 :::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Centrum i szprycha z systemem DNS dostarczonym przez platformę Azure":::
 
@@ -141,7 +141,7 @@ Następujący scenariusz jest odpowiedni dla sieci lokalnej, która ma usługę 
 Aby prawidłowo skonfigurować program, potrzebne są następujące zasoby:
 
 - Sieć lokalna
-- Sieć wirtualna [podłączona do lokalnego](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- Sieć wirtualna [podłączona do lokalnego](/azure/architecture/reference-architectures/hybrid-networking/)
 - Usługa przesyłania dalej DNS wdrożona na platformie Azure 
 - Prywatna strefa DNS stref [privatelink.Database.Windows.NET](../dns/private-dns-privatednszone.md) z [rekordem typu A](../dns/dns-zones-records.md#record-types)
 - Prywatne informacje o punkcie końcowym (nazwa rekordu FQDN i prywatny adres IP)
@@ -158,7 +158,7 @@ Tę konfigurację można rozszerzyć dla sieci lokalnej, w której znajduje się
 Aby prawidłowo skonfigurować program, potrzebne są następujące zasoby:
 
 - Sieć lokalna z niestandardowym rozwiązaniem DNS 
-- Sieć wirtualna [podłączona do lokalnego](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- Sieć wirtualna [podłączona do lokalnego](/azure/architecture/reference-architectures/hybrid-networking/)
 - Usługa przesyłania dalej DNS wdrożona na platformie Azure
 - Prywatna strefa DNS stref [privatelink.Database.Windows.NET](../dns/private-dns-privatednszone.md)  z [rekordem typu A](../dns/dns-zones-records.md#record-types)
 - Prywatne informacje o punkcie końcowym (nazwa rekordu FQDN i prywatny adres IP)
@@ -187,7 +187,7 @@ Usługa przesyłania dalej DNS jest odpowiedzialna za rozpoznawanie wszystkich z
 Aby prawidłowo skonfigurować program, potrzebne są następujące zasoby:
 
 - Sieć lokalna
-- Sieć wirtualna [podłączona do lokalnego](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- Sieć wirtualna [podłączona do lokalnego](/azure/architecture/reference-architectures/hybrid-networking/)
 - [Równorzędna Sieć wirtualna](../virtual-network/virtual-network-peering-overview.md) 
 - Usługa przesyłania dalej DNS wdrożona na platformie Azure
 - Prywatna strefa DNS stref [privatelink.Database.Windows.NET](../dns/private-dns-privatednszone.md)  z [rekordem typu A](../dns/dns-zones-records.md#record-types)

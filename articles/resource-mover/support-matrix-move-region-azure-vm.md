@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: b59bc33698be516ec5a2e289b52dafcb9e9efcbe
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 4da707ab698599c8ea5dd8e1ea8647f543eb2a68
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341862"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95524253"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Obsługa przemieszczania maszyn wirtualnych platformy Azure między regionami platformy Azure
 
@@ -121,11 +121,11 @@ Ta tabela zawiera podsumowanie obsługi dysku systemu operacyjnego Azure VM, dys
 
 **Składnik** | **Pomoc techniczna** | **Szczegóły**
 --- | --- | ---
-Maksymalny rozmiar dysku systemu operacyjnego | 2048 GB | [Dowiedz się więcej](../virtual-machines/windows/managed-disks-overview.md) o dyskach maszyn wirtualnych.
-Dysk tymczasowy | Nieobsługiwane | Dysk tymczasowy jest zawsze wykluczony z procesu przygotowywania.<br/><br/> Nie przechowuj żadnych trwałych danych na dysku tymczasowym. [Dowiedz się więcej](../virtual-machines/windows/managed-disks-overview.md#temporary-disk).
+Maksymalny rozmiar dysku systemu operacyjnego | 2048 GB | [Dowiedz się więcej](../virtual-machines/managed-disks-overview.md) o dyskach maszyn wirtualnych.
+Dysk tymczasowy | Nieobsługiwane | Dysk tymczasowy jest zawsze wykluczony z procesu przygotowywania.<br/><br/> Nie przechowuj żadnych trwałych danych na dysku tymczasowym. [Dowiedz się więcej](../virtual-machines/managed-disks-overview.md#temporary-disk).
 Maksymalny rozmiar dysku danych | 8192 GB dla dysków zarządzanych
 Minimalny rozmiar dysku danych |  2 GB dla dysków zarządzanych |
-Maksymalna liczba dysków danych | Do 64, zgodnie z obsługą określonego rozmiaru maszyny wirtualnej platformy Azure | [Dowiedz się więcej](../virtual-machines/windows/sizes.md) o rozmiarach maszyn wirtualnych.
+Maksymalna liczba dysków danych | Do 64, zgodnie z obsługą określonego rozmiaru maszyny wirtualnej platformy Azure | [Dowiedz się więcej](../virtual-machines/sizes.md) o rozmiarach maszyn wirtualnych.
 Szybkość zmian dysku danych | Maksymalnie 10 MB/s na dysk dla usługi Premium Storage. Maksymalnie 2 MB/s na dysk w przypadku magazynu w warstwie Standardowa. | Jeśli średnia szybkość zmian danych na dysku jest ciągle wyższa niż wartość maksymalna, przygotowanie nie zostanie przełożone.<br/><br/>  Jeśli jednak maksimum zostanie przekroczone sporadycznie, przygotowanie może przechwycić, ale mogą być widoczne nieco opóźnione punkty odzyskiwania.
 Dysk danych (konto magazynu w warstwie Standardowa) | Nieobsługiwane. | Zmień typ magazynu na dysk zarządzany, a następnie spróbuj przenieść maszynę wirtualną.
 Dysk danych (konto magazynu Premium Storage) | Nieobsługiwane | Zmień typ magazynu na dysk zarządzany, a następnie spróbuj przenieść maszynę wirtualną.
@@ -172,8 +172,8 @@ Maszyny wirtualne platformy Azure, które chcesz przenieść, wymagają dostępu
 
 **Nazwa** | **Chmura publiczna Azure** | **Szczegóły** 
 --- | --- | --- 
-Magazyn | `*.blob.core.windows.net`  | Umożliwia zapisanie danych z maszyny wirtualnej na koncie magazynu pamięci podręcznej znajdującym się w regionie źródłowym. 
-Usługa Azure Active Directory | `login.microsoftonline.com`  | Umożliwia autoryzację i uwierzytelnianie przy użyciu adresów URL usługi Site Recovery. 
+Storage | `*.blob.core.windows.net`  | Umożliwia zapisanie danych z maszyny wirtualnej na koncie magazynu pamięci podręcznej znajdującym się w regionie źródłowym. 
+Azure Active Directory | `login.microsoftonline.com`  | Umożliwia autoryzację i uwierzytelnianie przy użyciu adresów URL usługi Site Recovery. 
 Replikacja | `*.hypervrecoverymanager.windowsazure.com` | Umożliwia komunikację między maszyną wirtualną a usługą Site Recovery. 
 Service Bus | `*.servicebus.windows.net` | Umożliwia maszynie wirtualnej zapisywanie danych monitorowania i danych diagnostycznych usługi Site Recovery. 
 

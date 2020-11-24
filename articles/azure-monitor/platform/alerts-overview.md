@@ -4,12 +4,12 @@ description: Przegląd alertów na platformie Azure. Alerty, alerty klasyczne i 
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: e71f048a0a96323552b426663a235ed66fa2ef87
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: b8d24eab79bdf16e4d883549be00431bd5372af8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108800"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536051"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Przegląd alertów na platformie Microsoft Azure 
 
@@ -80,7 +80,7 @@ Obsługiwane są następujące stany alertów.
 |:---|:---|
 | Nowy | Problem został wykryty i jeszcze nie został zweryfikowany. |
 | Potwierdzony | Administrator sprawdził alert i rozpoczął jego pracę. |
-| Zamknięte | Problem został rozwiązany. Po zamknięciu alertu można go otworzyć ponownie, zmieniając go na inny stan. |
+| Zamknięty | Problem został rozwiązany. Po zamknięciu alertu można go otworzyć ponownie, zmieniając go na inny stan. |
 
 *Stan alertu* jest różny i niezależny od *warunku monitora*. Stan alertu jest ustawiany przez użytkownika. Warunek monitora jest ustawiany przez system. Po uruchomieniu alertu warunek monitora alertu jest ustawiony na *"wyzwolone"*, a gdy podstawowy warunek, który spowodował wyczyszczenie alertu, ma stan " *rozwiązany"*. 
 
@@ -173,9 +173,9 @@ Strona szczegóły alertu zawiera następujące sekcje:
 | Historia | Wyświetla listę wszystkich akcji podejmowanych przez alert oraz wszelkich zmian wprowadzonych w alercie. Obecnie ograniczone do zmian stanu. |
 | Diagnostyka | Informacje o grupie inteligentnej, w której uwzględniony jest alert. *Liczba alertów* odnosi się do liczby alertów uwzględnionych w grupie inteligentnej. Zawiera inne alerty w tej samej grupie inteligentnej, które zostały utworzone w ciągu ostatnich 30 dni, niezależnie od filtru czasu na stronie listy alertów. Wybierz Alert, aby wyświetlić jego szczegóły. |
 
-## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>Kontrola dostępu oparta na rolach (RBAC) dla wystąpień alertów
+## <a name="azure-role-based-access-control-azure-rbac-for-your-alert-instances"></a>Kontrola dostępu oparta na rolach (Azure RBAC) dla wystąpień alertów
 
-Użycie i Zarządzanie wystąpieniami alertów wymaga, aby użytkownik miał wbudowaną rolę platformy Azure dla [współautora](../../role-based-access-control/built-in-roles.md#monitoring-contributor) lub [czytnika monitorowania](../../role-based-access-control/built-in-roles.md#monitoring-reader). Role te są obsługiwane w dowolnym zakresie Azure Resource Manager od poziomu subskrypcji do szczegółowych przypisań na poziomie zasobów. Jeśli na przykład użytkownik ma tylko kontrolę dostępu współautora dla maszyny wirtualnej `ContosoVM1` , może używać tylko alertów, które zostały wygenerowane `ContosoVM1` .
+Zużycie i zarządzanie wystąpieniami alertów wymaga, aby użytkownik miał wbudowane role platformy Azure, [współautor monitorowania](../../role-based-access-control/built-in-roles.md#monitoring-contributor) lub [czytelnik monitorowania](../../role-based-access-control/built-in-roles.md#monitoring-reader). Role te są obsługiwane w dowolnym zakresie usługi Azure Resource Manager, od poziomu subskrypcji do szczegółowych przypisań na poziomie zasobów. Jeśli na przykład użytkownik ma tylko kontrolę dostępu współautora dla maszyny wirtualnej `ContosoVM1` , może używać tylko alertów, które zostały wygenerowane `ContosoVM1` .
 
 ## <a name="manage-your-alert-instances-programmatically"></a>Programowe Zarządzanie wystąpieniami alertów
 
