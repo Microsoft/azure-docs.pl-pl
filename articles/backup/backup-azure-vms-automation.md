@@ -4,11 +4,11 @@ description: Zawiera opis sposobu tworzenia kopii zapasowych i odzyskiwania masz
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: ded2bc8a71bf564e31f40ca9f0d6c8049188768b
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094096"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95978373"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Tworzenie kopii zapasowej i przywracanie maszyn wirtualnych platformy Azure przy użyciu programu PowerShell
 
@@ -435,7 +435,7 @@ $backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -Work
 
 Użyj polecenia cmdlet [Get-AzRecoveryServicesBackupRecoveryPoint](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) , aby wyświetlić listę wszystkich punktów odzyskiwania dla elementu kopii zapasowej. Następnie wybierz punkt odzyskiwania do przywrócenia. Jeśli nie masz pewności, który punkt odzyskiwania jest używany, dobrym sposobem jest wybranie najnowszego punktu RecoveryPointType = AppConsistent z listy.
 
-W poniższym skrypcie zmienna **$RP**jest tablicą punktów odzyskiwania dla wybranego elementu kopii zapasowej w ciągu ostatnich siedmiu dni. Tablica jest posortowana w odwrotnej kolejności czasu z najnowszym punktem odzyskiwania pod indeksem 0. Użyj standardowego indeksowania tablicy programu PowerShell, aby wybrać punkt odzyskiwania. W przykładzie $rp [0] wybiera najnowszy punkt odzyskiwania.
+W poniższym skrypcie zmienna **$RP** jest tablicą punktów odzyskiwania dla wybranego elementu kopii zapasowej w ciągu ostatnich siedmiu dni. Tablica jest posortowana w odwrotnej kolejności czasu z najnowszym punktem odzyskiwania pod indeksem 0. Użyj standardowego indeksowania tablicy programu PowerShell, aby wybrać punkt odzyskiwania. W przykładzie $rp [0] wybiera najnowszy punkt odzyskiwania.
 
 ```powershell
 $startDate = (Get-Date).AddDays(-7)
@@ -824,7 +824,7 @@ $backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -Work
 
 Użyj polecenia cmdlet [Get-AzRecoveryServicesBackupRecoveryPoint](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) , aby wyświetlić listę wszystkich punktów odzyskiwania dla elementu kopii zapasowej. Następnie wybierz punkt odzyskiwania do przywrócenia. Jeśli nie masz pewności, który punkt odzyskiwania jest używany, dobrym sposobem jest wybranie najnowszego punktu RecoveryPointType = AppConsistent z listy.
 
-W poniższym skrypcie zmienna **$RP**jest tablicą punktów odzyskiwania dla wybranego elementu kopii zapasowej w ciągu ostatnich siedmiu dni. Tablica jest posortowana w odwrotnej kolejności czasu z najnowszym punktem odzyskiwania pod indeksem 0. Użyj standardowego indeksowania tablicy programu PowerShell, aby wybrać punkt odzyskiwania. W przykładzie $rp [0] wybiera najnowszy punkt odzyskiwania.
+W poniższym skrypcie zmienna **$RP** jest tablicą punktów odzyskiwania dla wybranego elementu kopii zapasowej w ciągu ostatnich siedmiu dni. Tablica jest posortowana w odwrotnej kolejności czasu z najnowszym punktem odzyskiwania pod indeksem 0. Użyj standardowego indeksowania tablicy programu PowerShell, aby wybrać punkt odzyskiwania. W przykładzie $rp [0] wybiera najnowszy punkt odzyskiwania.
 
 ```powershell
 $startDate = (Get-Date).AddDays(-7)
