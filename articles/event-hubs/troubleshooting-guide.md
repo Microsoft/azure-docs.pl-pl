@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z łącznością — Event Hubs platformy Azure
 description: Ten artykuł zawiera informacje dotyczące rozwiązywania problemów z łącznością z usługą Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: b85c0895d1c8f165f494d29013adea014187dd23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eddc0e8c598e4553b30759d179fecb6ae880829
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87039331"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96012684"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-hubs"></a>Rozwiązywanie problemów z łącznością — Event Hubs platformy Azure
 Istnieją różne przyczyny, dla których aplikacje klienckie nie mogą połączyć się z centrum zdarzeń. Problemy z łącznością mogą być stałe lub przejściowe. Jeśli problem występuje cały czas (trwały), możesz chcieć sprawdzić parametry połączenia, ustawienia zapory w organizacji, ustawienia zapory protokołu IP, ustawienia zabezpieczeń sieci (punkty końcowe usługi, prywatne punkty końcowe itp.) i inne. W przypadku problemów przejściowych należy uaktualnić do najnowszej wersji zestawu SDK, uruchamiać polecenia służące do sprawdzania porzuconych pakietów i uzyskiwania śladów sieci, które mogą pomóc w rozwiązywaniu problemów. 
@@ -26,54 +26,7 @@ Sprawdź, czy używane parametry połączenia są poprawne. Zobacz [pobieranie p
 
 W przypadku klientów Kafka upewnij się, że pliki producer.config lub consumer.config są prawidłowo skonfigurowane. Aby uzyskać więcej informacji, zobacz [wysyłanie i odbieranie komunikatów za pomocą Kafka w Event Hubs](event-hubs-quickstart-kafka-enabled-event-hubs.md#send-and-receive-messages-with-kafka-in-event-hubs).
 
-### <a name="check-if-the-ports-required-to-communicate-with-event-hubs-are-blocked-by-organizations-firewall"></a>Sprawdź, czy porty wymagane do komunikacji z Event Hubs są blokowane przez zaporę organizacji
-Sprawdź, czy porty używane podczas komunikowania się z platformą Azure Event Hubs nie są blokowane w zaporze organizacji. Zapoznaj się z poniższą tabelą dla portów wychodzących, które należy otworzyć, aby komunikować się z usługą Azure Event Hubs. 
-
-| Protokół | Porty | Szczegóły | 
-| -------- | ----- | ------- | 
-| AMQP | 5671 i 5672 | Zobacz [Przewodnik po protokole AMQP](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
-| HTTP, HTTPS | 80, 443 |  |
-| Kafka | 9093 | Zobacz [używanie Event Hubs z aplikacji Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-
-Oto przykładowe polecenie, które sprawdza, czy port 5671 jest zablokowany.
-
-```powershell
-tnc <yournamespacename>.servicebus.windows.net -port 5671
-```
-
-W systemie Linux:
-
-```shell
-telnet <yournamespacename>.servicebus.windows.net 5671
-```
-
-### <a name="verify-that-ip-addresses-are-allowed-in-your-corporate-firewall"></a>Sprawdź, czy adresy IP są dozwolone w zaporze firmowej
-Podczas pracy z platformą Azure czasami trzeba zezwolić na określone zakresy adresów IP lub adresy URL w firmowej zaporze lub serwerze proxy, aby uzyskać dostęp do wszystkich usług platformy Azure, których używasz lub których próbujesz użyć. Sprawdź, czy ruch jest dozwolony dla adresów IP używanych przez Event Hubs. Adresy IP używane przez usługę Azure Event Hubs: zobacz [zakres adresów IP platformy Azure i Tagi usług — chmura publiczna](https://www.microsoft.com/download/details.aspx?id=56519).
-
-Sprawdź również, czy adres IP dla przestrzeni nazw jest dozwolony. Aby znaleźć odpowiednie adresy IP w celu zezwolenia na połączenia, wykonaj następujące kroki:
-
-1. Uruchom następujące polecenie w wierszu polecenia: 
-
-    ```
-    nslookup <YourNamespaceName>.servicebus.windows.net
-    ```
-2. Zanotuj adres IP zwrócony w `Non-authoritative answer` . Jedyną zmianą jest to, że w przypadku przywracania przestrzeni nazw w innym klastrze.
-
-Jeśli używasz nadmiarowości strefy dla przestrzeni nazw, musisz wykonać kilka dodatkowych czynności: 
-
-1. Najpierw uruchom polecenie nslookup w przestrzeni nazw.
-
-    ```
-    nslookup <yournamespace>.servicebus.windows.net
-    ```
-2. Zanotuj nazwę w sekcji **Nieautorytatywna odpowiedź** , która znajduje się w jednym z następujących formatów: 
-
-    ```
-    <name>-s1.cloudapp.net
-    <name>-s2.cloudapp.net
-    <name>-s3.cloudapp.net
-    ```
-3. Uruchom polecenie nslookup dla każdego z sufiksów S1, S2 i S3, aby uzyskać adresy IP wszystkich trzech wystąpień uruchomionych w trzech strefach dostępności. 
+[!INCLUDE [event-hubs-connectivity](../../includes/event-hubs-connectivity.md)]
 
 ### <a name="verify-that-azureeventgrid-service-tag-is-allowed-in-your-network-security-groups"></a>Sprawdź, czy w sieciowej grupie zabezpieczeń jest dozwolony tag usługi AzureEventGrid
 Jeśli aplikacja działa w podsieci i istnieje skojarzona sieciowa Grupa zabezpieczeń, sprawdź, czy jest dozwolony ruch wychodzący z Internetu, czy też jest dostępny tag usługi AzureEventGrid. Zobacz [Tagi usługi sieci wirtualnej](../virtual-network/service-tags-overview.md) i Wyszukaj `EventHub` .
@@ -91,22 +44,6 @@ Domyślnie obszary nazw Event Hubs są dostępne z Internetu, o ile żądanie za
 Reguły zapory adresów IP są stosowane na poziomie przestrzeni nazw Event Hubs. W związku z tym reguły są stosowane do wszystkich połączeń z klientów przy użyciu dowolnego obsługiwanego protokołu. Wszystkie próby połączenia z adresu IP, które nie pasują do dozwolonej reguły adresów IP w przestrzeni nazw Event Hubs, są odrzucane jako nieautoryzowane. Odpowiedź nie zawiera wzmianki o regule adresów IP. Reguły filtrowania adresów IP są stosowane w podanej kolejności, a pierwsza reguła zgodna z adresem IP określa akcję Akceptuj lub Odrzuć.
 
 Aby uzyskać więcej informacji, zobacz [Konfigurowanie reguł zapory adresów IP dla przestrzeni nazw platformy Azure Event Hubs](event-hubs-ip-filtering.md). Aby sprawdzić, czy występują problemy z filtrowaniem adresów IP, siecią wirtualną lub łańcuchem certyfikatów, zobacz [Rozwiązywanie problemów związanych z siecią](#troubleshoot-network-related-issues).
-
-#### <a name="find-the-ip-addresses-blocked-by-ip-firewall"></a>Znajdź adresy IP blokowane przez zaporę IP
-Włącz dzienniki diagnostyczne dla [zdarzeń połączeń sieci wirtualnej Event Hubs](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) , postępując zgodnie z instrukcjami w temacie [Włączanie dzienników diagnostycznych](event-hubs-diagnostic-logs.md#enable-diagnostic-logs). Zostanie wyświetlony adres IP dla niedozwolonego połączenia.
-
-```json
-{
-    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
-    "NamespaceName": "namespace-name",
-    "IPAddress": "1.2.3.4",
-    "Action": "Deny Connection",
-    "Reason": "IPAddress doesn't belong to a subnet with Service Endpoint enabled.",
-    "Count": "65",
-    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name",
-    "Category": "EventHubVNetConnectionEvent"
-}
-```
 
 ### <a name="check-if-the-namespace-can-be-accessed-using-only-a-private-endpoint"></a>Sprawdź, czy można uzyskać dostęp do przestrzeni nazw tylko przy użyciu prywatnego punktu końcowego
 Jeśli przestrzeń nazw Event Hubs jest skonfigurowana tak, aby była dostępna tylko za pośrednictwem prywatnego punktu końcowego, upewnij się, że aplikacja kliencka uzyskuje dostęp do przestrzeni nazw za pośrednictwem prywatnego punktu końcowego. 
@@ -126,7 +63,7 @@ Przykład **pomyślnego komunikatu**:
 <feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Publicly Listed Services</title><subtitle type="text">This is the list of publicly-listed services currently available.</subtitle><id>uuid:27fcd1e2-3a99-44b1-8f1e-3e92b52f0171;id=30</id><updated>2019-12-27T13:11:47Z</updated><generator>Service Bus 1.1</generator></feed>
 ```
 
-Przykładowy **komunikat o błędzie**błędu:
+Przykładowy **komunikat o błędzie** błędu:
 
 ```json
 <Error>
