@@ -10,11 +10,11 @@ ms.date: 10/04/2018
 ms.topic: conceptual
 ms.custom: devx-track-js
 ms.openlocfilehash: 7fc878e0c9e099b201264c1c3981c603668214d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318385"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017767"
 ---
 # <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Dodaj niestandardową siatkę do interfejsu użytkownika sieci Web akceleratora rozwiązania do monitorowania zdalnego
 
@@ -29,7 +29,7 @@ W przykładowej siatce w tym artykule przedstawiono dane z usługi, które [doda
 
 Aby wykonać kroki opisane w tym przewodniku, musisz zainstalować następujące oprogramowanie na lokalnym komputerze deweloperskim:
 
-- [Git](https://git-scm.com/downloads)
+- [Narzędzia](https://git-scm.com/downloads)
 - [Node.js](https://nodejs.org/download/)
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
@@ -248,7 +248,7 @@ Jeśli użytkownik musi działać na wielu wierszach w tym samym czasie, Użyj p
 
 Jeśli użytkownik musi działać tylko na jednym wierszu, skonfiguruj link niezależny dla jednej lub kilku kolumn w **columnDefs**.
 
-1. W **exampleGridConfig.js**Dodaj **SoftSelectLinkRenderer** jako **cellRendererFramework** dla **columnDef**.
+1. W **exampleGridConfig.js** Dodaj **SoftSelectLinkRenderer** jako **cellRendererFramework** dla **columnDef**.
 
     ```js
     export const exampleColumnDefs = {

@@ -9,11 +9,11 @@ manager: gwallace
 description: Dowiedz się, jak skonfigurować ciągłą integrację/ciągłe wdrażanie przy użyciu usługi Azure DevOps z Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, kontenery
 ms.openlocfilehash: de409aa060034c9ba0faaaa56ce21f904b02cdac
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960392"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017784"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Korzystanie z potoków ciągłej integracji/ciągłego wdrażania za pomocą obszarów Azure Dev Spaces
 
@@ -78,7 +78,7 @@ Aby utworzyć potok z tego pliku:
 1. Na stronie głównej projektu DevOps przejdź do potoków > kompilacje.
 1. Wybierz opcję utworzenia **nowego** potoku kompilacji.
 1. W razie potrzeby wybierz pozycję **GitHub** jako źródło, Autoryzuj z kontem usługi GitHub, a następnie wybierz gałąź _azds_updates_ z wersji z rozwidleniem repozytorium aplikacji przykładowej dla _deweloperów_ .
-1. Wybierz pozycję **Konfiguracja jako kod**lub **YAML**, jako szablon.
+1. Wybierz pozycję **Konfiguracja jako kod** lub **YAML**, jako szablon.
 1. Zostanie wyświetlona strona konfiguracji potoku kompilacji. Jak wspomniano powyżej, przejdź do ścieżki **pliku YAML** , używając przycisku.. **.** . Na przykład `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
 1. Przejdź do karty **zmienne** .
 1. Ręcznie Dodaj _dockerId_ jako zmienną, która jest nazwą użytkownika [konta administratora Azure Container Registry](../../container-registry/container-registry-authentication.md#admin-account). (Wymienione w artykule wymagania wstępne artykułu)
@@ -98,7 +98,7 @@ Masz teraz rozwiązanie CI, które automatycznie kompiluje *mywebapi* i *webfron
 1. Kliknij przycisk **OK**. Zwróć uwagę, że okienko potoku zostało załadowane ze stroną edytowania definicji wersji. Zauważ również, że istnieją czerwone ikony ostrzeżeń wskazujące szczegóły dotyczące klastra, które nadal muszą zostać skonfigurowane.
 1. Po lewej stronie okienka potoku kliknij pozycję Dodaj dymek **artefaktu** .
 1. Z listy rozwijanej **Źródło** wybierz utworzony wcześniej potok kompilacji.
-1. W przypadku **wersji domyślnej**wybierz pozycję **Najnowsza z gałęzi domyślnej potok kompilacji z tagami**.
+1. W przypadku **wersji domyślnej** wybierz pozycję **Najnowsza z gałęzi domyślnej potok kompilacji z tagami**.
 1. Pozostaw **Tagi** puste.
 1. Ustaw **alias źródłowy** na `drop` . Wartość **aliasu Source** jest używana przez wstępnie zdefiniowane zadania wydania, aby musiała zostać ustawiona.
 1. Kliknij pozycję **Dodaj**.
@@ -120,7 +120,7 @@ Masz teraz rozwiązanie CI, które automatycznie kompiluje *mywebapi* i *webfron
 1. Zaktualizuj wartość **DevSpacesHostSuffix** z **UPDATE_ME** do sufiksu hosta. Sufiks hosta jest wyświetlany, gdy `azds show-context` polecenie zostało wcześniej uruchomione.
 1. Kliknij przycisk **Zapisz** w prawym górnym rogu i **OK**.
 1. Kliknij pozycję **+ wersja** (obok przycisku Zapisz) i **Utwórz wydanie**.
-1. W obszarze **artefakty**Sprawdź, czy jest wybrana Najnowsza kompilacja z potoku kompilacji.
+1. W obszarze **artefakty** Sprawdź, czy jest wybrana Najnowsza kompilacja z potoku kompilacji.
 1. Kliknij pozycję **Utwórz**.
 
 Proces zautomatyzowanej wersji rozpocznie się teraz, wdrażając wykresy *mywebapi* i *webfrontonu* w klastrze Kubernetes w _obszarze najwyższego_ poziomu. Postęp wydania można monitorować w portalu sieci Web usługi Azure DevOps:
