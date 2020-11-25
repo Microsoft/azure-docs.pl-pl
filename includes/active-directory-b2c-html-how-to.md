@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 03/19/2020
 ms.author: mimart
-ms.openlocfilehash: 9b660bf20c90a84780175e70573c96a0ce1b0b7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cb4cdef227c786b12790903037fdc02649592e3
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91376305"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95990888"
 ---
 ## <a name="use-custom-page-content"></a>Użyj niestandardowej zawartości strony
 
@@ -56,7 +56,7 @@ W poniższej tabeli wymieniono domyślną zawartość strony dostarczoną przez 
 
 ## <a name="hosting-the-page-content"></a>Hosting zawartości strony
 
-Korzystając z własnych plików HTML i CSS, aby dostosować interfejs użytkownika, hostować zawartość interfejsu użytkownika w dowolnym publicznie dostępnym punkcie końcowym HTTPS, który obsługuje mechanizm CORS. Na przykład [usługa Azure Blob Storage](../articles/storage/blobs/storage-blobs-introduction.md), [Azure App Services](/azure/app-service/), serwery sieci Web, sieci CDN, AWS S3 lub systemy udostępniania plików.
+Korzystając z własnych plików HTML i CSS, aby dostosować interfejs użytkownika, hostować zawartość interfejsu użytkownika w dowolnym publicznie dostępnym punkcie końcowym HTTPS, który obsługuje mechanizm CORS. Na przykład [usługa Azure Blob Storage](../articles/storage/blobs/storage-blobs-introduction.md), [Azure App Services](../articles/app-service/index.yml), serwery sieci Web, sieci CDN, AWS S3 lub systemy udostępniania plików.
 
 ## <a name="guidelines-for-using-custom-page-content"></a>Wskazówki dotyczące korzystania z niestandardowej zawartości strony
 
@@ -135,7 +135,7 @@ Aby utworzyć kontener publiczny w usłudze BLOB Storage, wykonaj następujące 
 1. W obszarze **BLOB Service** w menu po lewej stronie wybierz pozycję **obiekty blob**.
 1. Wybierz pozycję **+ kontener**.
 1. W obszarze **Nazwa wprowadź nazwę** *root*. Nazwa może być nazwą wybraną, na przykład *contoso*, ale w tym przykładzie używamy *elementu głównego* w celu uproszczenia.
-1. W obszarze **poziom dostępu publicznego**wybierz pozycję **obiekt BLOB**, a następnie kliknij **przycisk OK**.
+1. W obszarze **poziom dostępu publicznego** wybierz pozycję **obiekt BLOB**, a następnie kliknij **przycisk OK**.
 1. Wybierz pozycję **root** , aby otworzyć nowy kontener.
 
 #### <a name="22-upload-your-custom-page-content-files"></a>2,2 przekazywanie niestandardowych plików zawartości strony
@@ -154,18 +154,18 @@ Aby utworzyć kontener publiczny w usłudze BLOB Storage, wykonaj następujące 
 Skonfiguruj magazyn obiektów BLOB dla udostępniania zasobów między źródłami, wykonując następujące czynności:
 
 1. Z menu wybierz pozycję **CORS**.
-1. Dla **dozwolonych źródeł**wprowadź `https://your-tenant-name.b2clogin.com` . Zamień `your-tenant-name` na nazwę dzierżawy Azure AD B2C. Na przykład `https://fabrikam.b2clogin.com`. W przypadku wprowadzania nazwy dzierżawy używaj wszystkich małych liter.
-1. W przypadku **dozwolonych metod**zaznacz opcję oba `GET` i `OPTIONS` .
-1. Dla **dozwolonych nagłówków**Wprowadź gwiazdkę (*).
-1. W przypadku **widocznych nagłówków**Wprowadź gwiazdkę (*).
-1. W obszarze **Maksymalny wiek**wprowadź 200.
+1. Dla **dozwolonych źródeł** wprowadź `https://your-tenant-name.b2clogin.com` . Zamień `your-tenant-name` na nazwę dzierżawy Azure AD B2C. Na przykład `https://fabrikam.b2clogin.com`. W przypadku wprowadzania nazwy dzierżawy używaj wszystkich małych liter.
+1. W przypadku **dozwolonych metod** zaznacz opcję oba `GET` i `OPTIONS` .
+1. Dla **dozwolonych nagłówków** Wprowadź gwiazdkę (*).
+1. W przypadku **widocznych nagłówków** Wprowadź gwiazdkę (*).
+1. W obszarze **Maksymalny wiek** wprowadź 200.
 1. Wybierz pozycję **Zapisz**.
 
 #### <a name="31-test-cors"></a>3,1 testów CORS
 
 Sprawdź, czy wszystko jest gotowe, wykonując następujące czynności:
 
-1. Powtórz krok konfigurowania mechanizmu CORS. Dla **dozwolonych źródeł**wpisz `https://www.test-cors.org`
+1. Powtórz krok konfigurowania mechanizmu CORS. Dla **dozwolonych źródeł** wpisz `https://www.test-cors.org`
 1. Przejdź do [www.test-CORS.org](https://www.test-cors.org/) 
 1. W polu **zdalny adres URL** Wklej adres URL pliku HTML. Na przykład `https://your-account.blob.core.windows.net/root/azure-ad-b2c/unified.html`
 1. Wybierz pozycję **Wyślij żądanie**.
