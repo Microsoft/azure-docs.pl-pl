@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
-ms.openlocfilehash: 26dd255e6edff7c339ab9766bb71889cf4e2deaa
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 8f184de8953e8e8bfe982d2502ca476fb54a66c9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577647"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95903716"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>Pięć kroków związanych z integracją wszystkich aplikacji z usługą Azure AD
 
@@ -46,7 +46,7 @@ Na koniec możesz także zintegrować aplikacje opracowywane w firmie. Zostało 
 
 Następnie odkryj często używane aplikacje, a następnie określ priorytet swojej pracy, aby zintegrować je z usługą Azure AD.
 
-Możesz zacząć od używania narzędzi Microsoft Cloud App Security&#39;s [Cloud Discovery Tools](/cloud-app-security/tutorial-shadow-it) , aby odnajdywać i zarządzać nimi &quot; &quot; w sieci (czyli aplikacjami, które nie są zarządzane przez dział IT). Możesz [użyć zaawansowanej ochrony przed zagrożeniami (ATP) w usłudze Microsoft Defender](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) , aby uprościć i zwiększyć proces odnajdywania.
+Możesz zacząć od używania [narzędzi do wykrywania w chmurze](/cloud-app-security/tutorial-shadow-it) Microsoft Cloud App Security, aby odnaleźć "cień" w sieci (czyli aplikacje niezarządzane przez dział IT i zarządzać nim). Możesz [użyć zaawansowanej ochrony przed zagrożeniami (ATP) w usłudze Microsoft Defender](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) , aby uprościć i zwiększyć proces odnajdywania.
 
 Ponadto można użyć [raportu AD FS działania aplikacji](../manage-apps/migrate-adfs-application-activity.md) w Azure Portal, aby odnaleźć wszystkie AD FS aplikacje w organizacji, liczbę unikatowych użytkowników, którzy zalogowali się do nich i zgodność z integracją z usługą Azure AD.
 
@@ -66,7 +66,7 @@ Podczas procesu odnajdywania można znaleźć aplikacje, które nie są śledzon
 - Oszczędzaj pieniądze, eliminując konieczność lokalnego aprowizacji i uwierzytelniania użytkowników oraz opłaty licencyjne płacone innym dostawcom tożsamości w chmurze dla tej samej usługi.
 - Zmniejsz koszty administracyjne i zapewnij ściślejsze zabezpieczenia z mniejszą liczbą nadmiarowości w procesie zarządzania tożsamościami i dostępem.
 - Umożliwiaj pracownikom uzyskanie bezpiecznego logowania jednokrotnego do wszystkich aplikacji, których potrzebują za pośrednictwem [portalu aplikacji](../manage-apps/access-panel-collections.md).
-- Ulepszanie analizy usług Azure AD&#39;s usługi związane z [ochroną tożsamości](../identity-protection/overview-identity-protection.md) , takich jak dostęp warunkowy, zwiększając ilość danych pobieranych z użycia aplikacji i rozszerzając korzyści dla nowo dodanych aplikacji.
+- Zwiększ możliwości analizy usług związanych z [ochroną tożsamości](../identity-protection/overview-identity-protection.md) usługi Azure AD, takich jak dostęp warunkowy, zwiększając ilość danych pobieranych z użycia aplikacji i zwiększ korzyści dla nowo dodanych aplikacji.
 
 Opublikowano wskazówki dotyczące zarządzania procesem biznesowym integracji aplikacji z usługą Azure AD, w tym [plakatem](https://aka.ms/AppOnePager) i [prezentacją](https://aka.ms/AppGuideline) , za pomocą których można się dowiedzieć, czy właściciele firmy i aplikacji wiedzą. Możesz modyfikować te przykłady przy użyciu własnych oznaczeń i publikować je w swojej organizacji za pomocą portalu firmy, biuletynu lub innego nośnika, jak w przypadku kończenia tego procesu.
 
@@ -103,10 +103,10 @@ Ponadto można zintegrować kontrolery dostarczania aplikacji, takie jak F5 Big-
 
 W przypadku aplikacji, które są wbudowane w firmę, deweloperzy mogą używać [platformy tożsamości firmy Microsoft](../develop/index.yml) do implementowania uwierzytelniania i autoryzacji. Aplikacje zintegrowane z platformą mają być [zarejestrowane w usłudze Azure AD](../develop/quickstart-register-app.md) i zarządzane tak samo jak w przypadku dowolnej innej aplikacji w portfolio.
 
-Deweloperzy mogą używać platformy dla aplikacji wewnętrznych i aplikacji przeznaczonych dla klientów, a istnieją inne korzyści, które są dostępne w przypadku korzystania z platformy. [Biblioteki uwierzytelniania firmy Microsoft (MSAL)](../develop/msal-overview.md), które są częścią platformy, umożliwiają deweloperom tworzenie nowoczesnych środowisk, takich jak uwierzytelnianie wieloskładnikowe i korzystanie z kluczy zabezpieczeń do uzyskiwania dostępu do aplikacji bez konieczności ich wdrażania. Ponadto aplikacje zintegrowane z platformą tożsamości firmy Microsoft mogą uzyskać dostęp do [Microsoft Graph](../develop/microsoft-graph-intro.md) — ujednolicony punkt końcowy interfejsu API, który zapewnia Microsoft 365 dane, które opisują wzorce produktywności, tożsamości i zabezpieczeń w organizacji. Deweloperzy mogą używać tych informacji do implementowania funkcji, które zwiększają produktywność użytkowników. Na przykład, identyfikując osoby, z których użytkownik był ostatnio pracowali, i obłączy je w interfejsie użytkownika&#39;s aplikacji.
+Deweloperzy mogą używać platformy dla aplikacji wewnętrznych i aplikacji przeznaczonych dla klientów, a istnieją inne korzyści, które są dostępne w przypadku korzystania z platformy. [Biblioteki uwierzytelniania firmy Microsoft (MSAL)](../develop/msal-overview.md), które są częścią platformy, umożliwiają deweloperom tworzenie nowoczesnych środowisk, takich jak uwierzytelnianie wieloskładnikowe i korzystanie z kluczy zabezpieczeń do uzyskiwania dostępu do aplikacji bez konieczności ich wdrażania. Ponadto aplikacje zintegrowane z platformą tożsamości firmy Microsoft mogą uzyskać dostęp do [Microsoft Graph](../develop/microsoft-graph-intro.md) — ujednolicony punkt końcowy interfejsu API, który zapewnia Microsoft 365 dane, które opisują wzorce produktywności, tożsamości i zabezpieczeń w organizacji. Deweloperzy mogą używać tych informacji do implementowania funkcji, które zwiększają produktywność użytkowników. Na przykład, identyfikując osoby, z których użytkownik był ostatnio pracowali, i umieszcza je w interfejsie użytkownika aplikacji.
 
 Mamy [serię filmów wideo](https://www.youtube.com/watch?v=zjezqZPPOfc&amp;list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX) , która zapewnia kompleksowy wprowadzenie do platformy, a także [wiele przykładów kodu](../develop/sample-v2-code.md) w obsługiwanych językach i platformach.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Zasoby do migrowania aplikacji do Azure Active Directory](../manage-apps/migration-resources.md)
+- [Zasoby pomocne przy migrowaniu aplikacji do usługi Azure Active Directory](../manage-apps/migration-resources.md)

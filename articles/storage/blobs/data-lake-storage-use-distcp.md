@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 734ad2d45dbb27894e5da4fbeb11c0e8b60df8bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e69a97a86a357fb36dde572f292b5cac7963d14a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88035675"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912488"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Użyj pomocą distcp do kopiowania danych między obiektami BLOB usługi Azure Storage a Azure Data Lake Storage Gen2
 
@@ -27,7 +27,7 @@ Pomocą distcp udostępnia wiele parametrów wiersza polecenia i zdecydowanie za
 * Istniejące konto usługi Azure Storage bez możliwości Data Lake Storage Gen2 (hierarchiczny obszar nazw) jest włączone.
 * Konto usługi Azure Storage z włączonymi możliwościami Data Lake Storage Gen2 (hierarchiczny obszar nazw). Aby uzyskać instrukcje dotyczące sposobu tworzenia jednego z nich, zobacz [Tworzenie konta usługi Azure Storage](../common/storage-account-create.md) .
 * Kontener, który został utworzony na koncie magazynu z włączoną hierarchiczną przestrzenią nazw.
-* Klaster usługi Azure HDInsight z dostępem do konta magazynu z włączoną funkcją hierarchicznej przestrzeni nazw. Zobacz [Korzystanie z usługi Azure Data Lake Storage Gen2 w połączeniu z klastrami usługi Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Upewnij się, że Pulpit zdalny dla klastra są włączone.
+* Klaster usługi Azure HDInsight z dostępem do konta magazynu z włączoną funkcją hierarchicznej przestrzeni nazw. Zobacz [Korzystanie z usługi Azure Data Lake Storage Gen2 w połączeniu z klastrami usługi Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Upewnij się, że Pulpit zdalny dla klastra są włączone.
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Korzystanie z pomocą distcp z klastra usługi HDInsight w systemie Linux
 

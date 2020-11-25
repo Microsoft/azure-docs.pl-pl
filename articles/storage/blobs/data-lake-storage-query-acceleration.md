@@ -8,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 09/09/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: ae92828f08ae4abf9cc28f18872cca27ce747be4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc1d217dba64c36aa219abbd4d2220a494347689
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657641"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912760"
 ---
 # <a name="azure-data-lake-storage-query-acceleration"></a>Przyspieszenie kwerendy Azure Data Lake Storage
 
@@ -50,7 +50,7 @@ Na poniższym diagramie przedstawiono sposób, w jaki Typowa aplikacja używa pr
 
 Przyspieszenie zapytań optymalizuje wydajność, zmniejszając ilość danych, które są przesyłane i przetwarzane przez aplikację.
 
-Aby obliczyć zagregowaną wartość, aplikacje zwykle pobierają **wszystkie** dane z pliku, a następnie przetwarzają i filtrują dane lokalnie. Analiza wzorców wejścia/wyjścia dla obciążeń analitycznych ujawnia, że aplikacje wymagają zwykle tylko 20% danych, które są przez nich odczytywane w celu wykonania danego obliczenia. Ta statystyka jest prawdziwa nawet po zastosowaniu technik takich jak [oczyszczanie partycji](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-optimize-hive-query#hive-partitioning). Oznacza to, że 80% tych danych jest niepotrzebnie przesyłane przez sieć, przeanalizowane i filtrowane według aplikacji. Ten wzorzec, głównie przeznaczony do usuwania niepotrzebnych danych, wiąże się z istotnym kosztem obliczeniowym.  
+Aby obliczyć zagregowaną wartość, aplikacje zwykle pobierają **wszystkie** dane z pliku, a następnie przetwarzają i filtrują dane lokalnie. Analiza wzorców wejścia/wyjścia dla obciążeń analitycznych ujawnia, że aplikacje wymagają zwykle tylko 20% danych, które są przez nich odczytywane w celu wykonania danego obliczenia. Ta statystyka jest prawdziwa nawet po zastosowaniu technik takich jak [oczyszczanie partycji](../../hdinsight/hdinsight-hadoop-optimize-hive-query.md#hive-partitioning). Oznacza to, że 80% tych danych jest niepotrzebnie przesyłane przez sieć, przeanalizowane i filtrowane według aplikacji. Ten wzorzec, głównie przeznaczony do usuwania niepotrzebnych danych, wiąże się z istotnym kosztem obliczeniowym.  
 
 Mimo że platforma Azure oferuje wiodącą w branży sieć, pod względem przepływności i opóźnień, niepotrzebnie transfer danych w sieci jest w dalszym ciągu kosztowny dla wydajności aplikacji. Dzięki filtrowaniu niechcianych danych podczas żądania magazynu przyspieszenie zapytań eliminuje ten koszt.
 
@@ -76,5 +76,3 @@ Pomimo zmiany modelu rozliczeń, model cen przyspieszania zapytań został zapro
 
 - [Filtrowanie danych za pomocą przyspieszania zapytań Azure Data Lake Storage](data-lake-storage-query-acceleration-how-to.md)
 - [Dokumentacja języka SQL przyspieszania zapytań](query-acceleration-sql-reference.md)
-
-

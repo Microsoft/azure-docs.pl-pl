@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 909d64d3d32e8b9a314f7afb06b9c0121f624cec
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 32f8ab3f7e222108bec4ec81b14c113705370096
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358487"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913066"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Znane problemy z Azure Data Lake Storage Gen2
 
@@ -41,21 +41,21 @@ Interfejsy API obiektów blob i interfejsy API Data Lake Storage Gen2 mogą dzia
 
 W tej sekcji opisano problemy i ograniczenia dotyczące używania interfejsów API obiektów blob i interfejsów API Data Lake Storage Gen2 do działania na tych samych danych.
 
-* Nie można użyć interfejsu API obiektów blob i Data Lake Storage interfejsów API do zapisu w tym samym wystąpieniu pliku. W przypadku zapisywania do pliku przy użyciu Data Lake Storage Gen2 interfejsów API, bloki tego pliku nie będą widoczne dla wywołań interfejsu API [pobierania listy zablokowanych](https://docs.microsoft.com/rest/api/storageservices/get-block-list) . Jedynym wyjątkiem jest zastępowanie. Można zastąpić plik/obiekt BLOB przy użyciu dowolnego interfejsu API.
+* Nie można użyć interfejsu API obiektów blob i Data Lake Storage interfejsów API do zapisu w tym samym wystąpieniu pliku. W przypadku zapisywania do pliku przy użyciu Data Lake Storage Gen2 interfejsów API, bloki tego pliku nie będą widoczne dla wywołań interfejsu API [pobierania listy zablokowanych](/rest/api/storageservices/get-block-list) . Jedynym wyjątkiem jest zastępowanie. Można zastąpić plik/obiekt BLOB przy użyciu dowolnego interfejsu API.
 
-* W przypadku korzystania z operacji [list obiektów BLOB](https://docs.microsoft.com/rest/api/storageservices/list-blobs) bez określania ogranicznika wyniki będą obejmować zarówno katalogi, jak i obiekty blob. Jeśli zdecydujesz się użyć ogranicznika, użyj tylko ukośnika ( `/` ). Jest to jedyny obsługiwany ogranicznik.
+* W przypadku korzystania z operacji [list obiektów BLOB](/rest/api/storageservices/list-blobs) bez określania ogranicznika wyniki będą obejmować zarówno katalogi, jak i obiekty blob. Jeśli zdecydujesz się użyć ogranicznika, użyj tylko ukośnika ( `/` ). Jest to jedyny obsługiwany ogranicznik.
 
-* Jeśli używasz interfejsu API [usuwania obiektów BLOB](https://docs.microsoft.com/rest/api/storageservices/delete-blob) do usuwania katalogu, ten katalog zostanie usunięty tylko wtedy, gdy jest pusty. Oznacza to, że nie można używać usługi Blob API Delete katalogów rekursywnie.
+* Jeśli używasz interfejsu API [usuwania obiektów BLOB](/rest/api/storageservices/delete-blob) do usuwania katalogu, ten katalog zostanie usunięty tylko wtedy, gdy jest pusty. Oznacza to, że nie można używać usługi Blob API Delete katalogów rekursywnie.
 
 Te interfejsy API REST obiektów BLOB nie są obsługiwane:
 
-* [Umieść obiekt BLOB (strona)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-* [Umieść stronę](https://docs.microsoft.com/rest/api/storageservices/put-page)
-* [Pobierz zakresy stron](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
-* [Obiekt BLOB kopiowania przyrostowego](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
-* [Umieść stronę na podstawie adresu URL](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
-* [Dołącz blok](https://docs.microsoft.com/rest/api/storageservices/append-block)
-* [Dołącz blok z adresu URL](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
+* [Umieść obiekt BLOB (strona)](/rest/api/storageservices/put-blob)
+* [Umieść stronę](/rest/api/storageservices/put-page)
+* [Pobierz zakresy stron](/rest/api/storageservices/get-page-ranges)
+* [Obiekt BLOB kopiowania przyrostowego](/rest/api/storageservices/incremental-copy-blob)
+* [Umieść stronę na podstawie adresu URL](/rest/api/storageservices/put-page-from-url)
+* [Dołącz blok](/rest/api/storageservices/append-block)
+* [Dołącz blok z adresu URL](/rest/api/storageservices/append-block-from-url)
 
 
 Niezarządzane dyski maszyny wirtualnej nie są obsługiwane na kontach z hierarchiczną przestrzenią nazw. Jeśli chcesz włączyć hierarchiczną przestrzeń nazw na koncie magazynu, umieść niezarządzane dyski maszyn wirtualnych na koncie magazynu, w którym nie jest włączona funkcja hierarchicznej przestrzeni nazw.
@@ -70,7 +70,7 @@ Możliwość stosowania zmian listy ACL rekurencyjnie z katalogu nadrzędnego do
 
 ## <a name="azcopy"></a>AzCopy
 
-Użyj tylko najnowszej wersji AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Wcześniejsze wersje AzCopy, takie jak AzCopy v 8.1, nie są obsługiwane.
+Użyj tylko najnowszej wersji AzCopy ([AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Wcześniejsze wersje AzCopy, takie jak AzCopy v 8.1, nie są obsługiwane.
 
 <a id="storage-explorer"></a>
 
@@ -92,7 +92,7 @@ Aplikacje innych firm, które używają interfejsów API REST do pracy, będą n
 
 ## <a name="access-control-lists-acl-and-anonymous-read-access"></a>Listy kontroli dostępu (ACL) i anonimowy dostęp do odczytu
 
-Jeśli [anonimowy dostęp do odczytu](storage-manage-access-to-resources.md) został przyznany do kontenera, listy ACL nie mają wpływu na ten kontener ani pliki w tym kontenerze.
+Jeśli [anonimowy dostęp do odczytu](./anonymous-read-access-configure.md) został przyznany do kontenera, listy ACL nie mają wpływu na ten kontener ani pliki w tym kontenerze.
 
 ## <a name="diagnostic-logs"></a>Dzienniki diagnostyczne
 

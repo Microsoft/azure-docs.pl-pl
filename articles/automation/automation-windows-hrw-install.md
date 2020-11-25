@@ -3,14 +3,14 @@ title: Wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Windows
 description: W tym artykule opisano sposób wdrażania hybrydowego procesu roboczego elementu Runbook, którego można użyć do uruchamiania elementów Runbook na maszynach z systemem Windows w lokalnym centrum danych lub w środowisku chmury.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/23/2020
+ms.date: 11/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: cb501b954897beb73ae05bfdc7b5ded2221dc114
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 31bb0fac302a81c2523a2d2855ca1930cb266ac4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95493931"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95906623"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Windows
 
@@ -50,7 +50,7 @@ Funkcja hybrydowego procesu roboczego elementu Runbook obsługuje następujące 
 
 Minimalne wymagania dotyczące systemu Windows i hybrydowego procesu roboczego elementu Runbook użytkownika:
 
-* Windows PowerShell 5,1 lub nowszy ([pobieranie plików WMF 5,1](https://www.microsoft.com/download/details.aspx?id=54616))
+* Windows PowerShell 5,1 ([pobieranie plików WMF 5,1](https://www.microsoft.com/download/details.aspx?id=54616)). Program PowerShell Core nie jest obsługiwany.
 * .NET Framework 4.6.2 lub nowszy
 * Dwa rdzenie
 * 4 GB pamięci RAM

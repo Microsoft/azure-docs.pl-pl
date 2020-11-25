@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 49a89ee90d28c9c7a3f59424b773ee0f221381e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: add763b713b93604e089d7aec586876fecd2887c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89302728"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95895642"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-the-azure-portal"></a>Szybki Start: Tworzenie publicznego adresu IP przy użyciu Azure Portal
 
@@ -46,31 +46,6 @@ Wykonaj następujące kroki, aby utworzyć strefę standardowa — nadmiarowy pu
     | Strefa dostępności       | Wybierz **strefę nadmiarową** lub wybierz konkretną strefę (patrz Uwaga poniżej) |
 
 Należy pamiętać, że są to tylko prawidłowe wybory w regionach z [strefy dostępności](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).  (Można również wybrać określoną strefę w tych regionach, chociaż nie będzie ona odporna na awarie strefy).
-
-# <a name="standard-sku---no-zones"></a>[**Standardowa jednostka SKU — brak stref**](#tab/option-create-public-ip-standard)
-
-Wykonaj następujące kroki, aby utworzyć standardowy publiczny adres IP jako zasób niebędący strefą o nazwie **myStandardPublicIP**.
-
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. Wybierz pozycję **Utwórz zasób**. 
-3. W polu wyszukiwania wpisz *publiczny adres IP*.
-4. W wynikach wyszukiwania wybierz pozycję **publiczny adres IP**. Następnie na stronie **publiczny adres IP** wybierz pozycję **Utwórz**.
-5. Na stronie **Tworzenie publicznego adresu IP** wprowadź lub wybierz następujące informacje: 
-
-    | Ustawienie                 | Wartość                       |
-    | ---                     | ---                         |
-    | Wersja protokołu IP              | Wybierz protokół IPv4                 |    
-    | SKU                     | Wybierz pozycję **standardowa**         |
-    | Nazwa                    | Wprowadź *myStandardPublicIP*          |
-    | Przypisanie adresu IP   | Uwaga Ta wartość zostanie zablokowana jako "statyczna"                                        |
-    | Limit czasu bezczynności (minuty)  | Pozostaw wartość 4        |
-    | Etykieta nazwy DNS          | Pozostaw wartość pustą    |
-    | Subskrypcja            | Wybierz subskrypcję.   |
-    | Grupa zasobów          | Wybierz pozycję **Utwórz nowy** , wprowadź nazwę zasobu, a następnie wybierz przycisk **OK** . |
-    | Lokalizacja                | Wybierz **Wschodnie stany USA 2**      |
-    | Strefa dostępności       | Wybierz pozycję **Brak strefy** (i zobacz uwagi poniżej) |
-
-Ten wybór jest prawidłowy we wszystkich regionach i jest domyślnym wyborem dla standardowych publicznych adresów IP w regionach bez [strefy dostępności](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).
 
 # <a name="basic-sku"></a>[**Podstawowy SKU**](#tab/option-create-public-ip-basic)
 

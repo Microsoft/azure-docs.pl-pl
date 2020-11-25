@@ -7,12 +7,12 @@ ms.date: 11/07/2017
 ms.service: storage
 ms.subservice: blobs
 ms.topic: sample
-ms.openlocfilehash: 6cb866fbe7b6cbebd07d565df22d489a716143ce
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 1d343c952f01185d2360d6cf238dd3a7512849fb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95543555"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912131"
 ---
 # <a name="azure-powershell-samples-for-azure-blob-storage"></a>Przykłady programu Azure PowerShell dla usługi Azure Blob Storage
 
@@ -22,7 +22,7 @@ Poniższa tabela zawiera linki do przykładowych skryptów programu PowerShell, 
 |---|---|
 |**Konta magazynu**||
 | [Tworzenie konta magazynu i pobieranie/wymienianie kluczy dostępu](../scripts/storage-common-rotate-account-keys-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Umożliwia utworzenie konta usługi Azure Storage i pobranie oraz wymianę jednego z jego kluczy dostępu. |
-| [Migrowanie obiektów blob między kontami magazynu przy użyciu narzędzia AzCopy w systemie Windows](/previous-versions/azure/storage/storage-common-transfer-between-storage-accounts?toc=%252fpowershell%252fmodule%252ftoc.json)| Umożliwia migrowanie obiektów blob między kontami usługi Azure Storage przy użyciu narzędzia AzCopy w systemie Windows. |
+| [Migrowanie obiektów blob między kontami magazynu przy użyciu narzędzia AzCopy w systemie Windows](/previous-versions/azure/storage/storage-common-transfer-between-storage-accounts?toc=%2fpowershell%2fmodule%2ftoc.json)| Umożliwia migrowanie obiektów blob między kontami usługi Azure Storage przy użyciu narzędzia AzCopy w systemie Windows. |
 |**Blob Storage**||
 | [Obliczanie łącznego rozmiaru kontenera w usłudze Blob Storage](../scripts/storage-blobs-container-calculate-size-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Umożliwia obliczenie łącznego rozmiaru wszystkich obiektów blob w kontenerze. |
 | [Obliczanie rozmiaru kontenera w usłudze Blob Storage na potrzeby rozliczeń](../scripts/storage-blobs-container-calculate-billing-size-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Umożliwia obliczenie rozmiaru kontenera w usłudze Blob Storage na potrzeby szacowania kosztów rozliczeń. |

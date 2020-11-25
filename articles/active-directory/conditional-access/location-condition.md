@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 11/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 08e236d798f700a3c48dd41ba61941bc0037d613
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 888ed2fa24b82c0dda3361df1c63bb802e58f5fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88055381"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95904107"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Używanie warunku lokalizacji w zasadach dostępu warunkowego 
 
@@ -64,13 +64,13 @@ Ta opcja może być oparta na zasadach dostępu warunkowego, które mogą na prz
 Niektóre organizacje mogą zdecydować się na zdefiniowanie wszystkich krajów lub regionów granic adresów IP jako lokalizacji nazw dla zasad dostępu warunkowego. Mogą oni korzystać z tych lokalizacji podczas blokowania niepotrzebnego ruchu, gdy wiedzą, że Prawidłowi użytkownicy nigdy nie pochodzą z lokalizacji takiej jak Korea Północna. Te mapowania adresów IP do kraju są okresowo aktualizowane. 
 
 > [!NOTE]
-> Kraje nie obejmują zakresów adresów IPv6, tylko znanych zakresów adresów IPv4 i nie mogą być oznaczone jako zaufane.
+> Zakresów adresów IPv6 nie można mapować na kraje. Tylko adresy IPv4 są mapowane na kraje.
 
 ![Tworzenie nowego kraju lub lokalizacji na podstawie regionu w Azure Portal](./media/location-condition/new-named-location-country-region.png)
 
 #### <a name="include-unknown-areas"></a>Uwzględnij nieznane obszary
 
-Niektóre adresy IP nie są zamapowane do określonego kraju lub regionu. Aby przechwytywać te lokalizacje IP, zaznacz pole wyboru **Uwzględnij nieznane obszary** podczas definiowania lokalizacji. Ta opcja umożliwia wybranie, czy te adresy IP mają być uwzględnione w nazwanej lokalizacji. Użyj tego ustawienia, jeśli zasady używające nazwanej lokalizacji mają być stosowane do nieznanych lokalizacji.
+Niektóre adresy IP nie są zamapowane na określony kraj lub region, w tym wszystkie adresy IPv6. Aby przechwytywać te lokalizacje IP, zaznacz pole wyboru **Uwzględnij nieznane obszary** podczas definiowania lokalizacji. Ta opcja umożliwia wybranie, czy te adresy IP mają być uwzględnione w nazwanej lokalizacji. Użyj tego ustawienia, jeśli zasady używające nazwanej lokalizacji mają być stosowane do nieznanych lokalizacji.
 
 ### <a name="configure-mfa-trusted-ips"></a>Konfigurowanie zaufanych adresów IP usługi MFA
 
@@ -114,7 +114,7 @@ W wersji zapoznawczej dostępne są dwie opcje tworzenia:
 - **Lokalizacja zakresów adresów IP**
 
 > [!NOTE]
-> Kraje nie obejmują zakresów adresów IPv6, tylko znanych zakresów adresów IPv4 i nie mogą być oznaczone jako zaufane.
+> Zakresów adresów IPv6 nie można mapować na kraje. Tylko adresy IPv4 są mapowane na kraje.
 
 ![Interfejs wersji zapoznawczej lokalizacji](./media/location-condition/named-location-preview.png)
 
@@ -128,7 +128,7 @@ Podczas konfigurowania warunku lokalizacji można rozróżnić następujące opc
 
 ### <a name="any-location"></a>Dowolnej aplikacji.
 
-Domyślnie wybranie **dowolnej lokalizacji** powoduje, że zasady mają być stosowane do wszystkich adresów IP, co oznacza dowolny adres w Internecie. To ustawienie nie jest ograniczone do adresów IP skonfigurowanych jako nazwana lokalizacja. W przypadku wybrania **dowolnej lokalizacji**można nadal wykluczać określone lokalizacje z zasad. Na przykład można zastosować zasady do wszystkich lokalizacji, z wyjątkiem zaufanych lokalizacji, aby ustawić zakres dla wszystkich lokalizacji, z wyjątkiem sieci firmowej.
+Domyślnie wybranie **dowolnej lokalizacji** powoduje, że zasady mają być stosowane do wszystkich adresów IP, co oznacza dowolny adres w Internecie. To ustawienie nie jest ograniczone do adresów IP skonfigurowanych jako nazwana lokalizacja. W przypadku wybrania **dowolnej lokalizacji** można nadal wykluczać określone lokalizacje z zasad. Na przykład można zastosować zasady do wszystkich lokalizacji, z wyjątkiem zaufanych lokalizacji, aby ustawić zakres dla wszystkich lokalizacji, z wyjątkiem sieci firmowej.
 
 ### <a name="all-trusted-locations"></a>Wszystkie Zaufane lokalizacje
 
@@ -157,7 +157,7 @@ Większość ruchu IPv6, który jest serwerem proxy w usłudze Azure AD pochodzi
 Oto najczęstsze przyczyny, w których może być konieczne skonfigurowanie zakresów adresów IPv6 w nazwanych lokalizacjach. Ponadto, jeśli używasz usługi Azure sieci wirtualnych, będziesz mieć ruch pochodzący z adresu IPv6. Jeśli ruch sieci wirtualnej jest blokowany przez zasady dostępu warunkowego, sprawdź dziennik logowania usługi Azure AD. Po zidentyfikowaniu ruchu można uzyskać używany adres IPv6 i wykluczyć go z zasad. 
 
 > [!NOTE]
-> Aby określić zakres adresów IP CIDR dla pojedynczego adresu, należy zastosować maskę bitową/32. Jeśli adres IPv6 2607: fb90: b27a: 6f69: f8d5: dea0: fb39:74A i chciałeś wykluczyć ten pojedynczy adres jako zakres, należy użyć 2607: fb90: b27a: 6f69: f8d5: dea0: fb39:74A/32.
+> Aby określić zakres adresów IP CIDR dla pojedynczego adresu, należy zastosować maskę bitową/128. Jeśli adres IPv6 2607: fb90: b27a: 6f69: f8d5: dea0: fb39:74A i chciałeś wykluczyć ten pojedynczy adres jako zakres, należy użyć 2607: fb90: b27a: 6f69: f8d5: dea0: fb39:74A/128.
 
 ### <a name="identifying-ipv6-traffic-in-the-azure-ad-sign-in-activity-reports"></a>Identyfikowanie ruchu IPv6 w raportach działań związanych z logowaniem w usłudze Azure AD
 

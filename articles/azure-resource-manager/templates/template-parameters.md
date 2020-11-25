@@ -2,19 +2,21 @@
 title: Parametry w szablonach
 description: Opisuje sposób definiowania parametrów w szablonie Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/05/2019
-ms.openlocfilehash: 89c6984c587e8dae59c1825a99d4f8da1c06dafb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: 8cdc95037967a32c2d8464f4dc39b1e7369102bb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76122427"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95911417"
 ---
 # <a name="parameters-in-azure-resource-manager-templates"></a>Parametry w szablonach usługi Azure Resource Manager
 
 W tym artykule opisano sposób definiowania parametrów i używania ich w szablonie Azure Resource Manager. Dostarczając różne wartości parametrów, można ponownie użyć szablonu dla różnych środowisk.
 
 Menedżer zasobów rozwiązuje wartości parametrów przed rozpoczęciem operacji wdrażania. W każdym przypadku, gdy parametr jest używany w szablonie, Menedżer zasobów zastępuje go rozpoznaną wartością.
+
+Każdy parametr musi być ustawiony na jeden z [typów danych](template-syntax.md#data-types).
 
 ## <a name="define-parameter"></a>Zdefiniuj parametr
 
@@ -152,7 +154,7 @@ Odwoływanie się do właściwości obiektu za pomocą operatora kropki.
 
 W poniższych przykładach przedstawiono scenariusze używania parametrów.
 
-|Szablon  |Opis  |
+|Template  |Opis  |
 |---------|---------|
 |[parametry z funkcjami dla wartości domyślnych](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Pokazuje, jak używać funkcji szablonu podczas definiowania wartości domyślnych dla parametrów. Szablon nie wdraża żadnych zasobów. Konstruuje wartości parametrów i zwraca te wartości. |
 |[Parameter — obiekt](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Demonstruje użycie obiektu dla parametru. Szablon nie wdraża żadnych zasobów. Konstruuje wartości parametrów i zwraca te wartości. |

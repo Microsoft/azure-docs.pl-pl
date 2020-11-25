@@ -9,12 +9,12 @@ ms.date: 09/09/2020
 ms.author: normesta
 ms.reviewer: jamsbak
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: b7f566f85ebdb6b481797823cba78aa968747e9f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b02f5a7c390c5594a7c5692798a0691c8d9a42d0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746422"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912777"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Filtrowanie danych za pomocą przyspieszania zapytań Azure Data Lake Storage
 
@@ -26,11 +26,11 @@ Przyspieszenie zapytań umożliwia aplikacjom i platformom analitycznym znaczne 
 
 - Aby uzyskać dostęp do usługi Azure Storage, potrzebujesz subskrypcji platformy Azure. Jeśli nie masz jeszcze subskrypcji, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
-- Konto magazynu **ogólnego przeznaczenia w wersji 2** . Zobacz [Tworzenie konta magazynu](../common/storage-quickstart-create-account.md).
+- Konto magazynu **ogólnego przeznaczenia w wersji 2** . Zobacz [Tworzenie konta magazynu](../common/storage-account-create.md).
 
 - Wybierz kartę, aby wyświetlić wszystkie wymagania wstępne dotyczące zestawu SDK.
 
-  ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+  ### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
   Nie dotyczy
 
@@ -65,7 +65,7 @@ Aby używać przyspieszenia zapytań, należy zarejestrować funkcję przyspiesz
 
 Aby użyć przyspieszenia zapytania, musisz najpierw zarejestrować funkcję przyspieszenia zapytań w ramach subskrypcji. 
 
-#### <a name="powershell"></a>[PowerShell](#tab/powershell)
+#### <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 1. Otwórz okno poleceń programu Windows PowerShell.
 
@@ -92,7 +92,7 @@ Aby użyć przyspieszenia zapytania, musisz najpierw zarejestrować funkcję prz
 
 #### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-1. Otwórz [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)lub jeśli interfejs wiersza polecenia platformy Azure został [zainstalowany](https://docs.microsoft.com/cli/azure/install-azure-cli) lokalnie, Otwórz aplikację konsoli poleceń, taką jak Windows PowerShell.
+1. Otwórz [Azure Cloud Shell](../../cloud-shell/overview.md)lub jeśli interfejs wiersza polecenia platformy Azure został [zainstalowany](/cli/azure/install-azure-cli) lokalnie, Otwórz aplikację konsoli poleceń, taką jak Windows PowerShell.
 
 2. Jeśli Twoja tożsamość jest skojarzona z więcej niż jedną subskrypcją, ustaw aktywną subskrypcję na subskrypcję konta magazynu.
 
@@ -112,7 +112,7 @@ Aby użyć przyspieszenia zapytania, musisz najpierw zarejestrować funkcję prz
 
 ### <a name="step-2-verify-that-the-feature-is-registered"></a>Krok 2: sprawdzenie, czy funkcja jest zarejestrowana
 
-#### <a name="powershell"></a>[PowerShell](#tab/powershell)
+#### <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 Aby sprawdzić, czy rejestracja została ukończona, użyj polecenia [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) .
 
@@ -134,7 +134,7 @@ az feature show --namespace Microsoft.Storage --name BlobQuery
 
 Po zatwierdzeniu rejestracji należy ponownie zarejestrować dostawcę zasobów usługi Azure Storage. 
 
-#### <a name="powershell"></a>[PowerShell](#tab/powershell)
+#### <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 Aby zarejestrować dostawcę zasobów, użyj polecenia [register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) .
 
@@ -156,7 +156,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 ### <a name="step-1-install-packages"></a>Krok 1. Instalowanie pakietów 
 
-#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+#### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Zainstaluj program AZ module w wersji 4.6.0 lub nowszej.
 
@@ -234,7 +234,7 @@ Zainstaluj Data Lake bibliotekę kliencką dla języka JavaScript, otwierając o
 
 ### <a name="step-2-add-statements"></a>Krok 2. Dodawanie instrukcji
 
-#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+#### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Nie dotyczy
 
@@ -310,7 +310,7 @@ Aby określić predykaty filtru wierszy i projekcje kolumn w żądaniu przyspies
 
 - Odwołania do kolumn są określone, `_N` gdy pierwsza kolumna to `_1` . Jeśli plik źródłowy zawiera wiersz nagłówka, można odwoływać się do kolumn według nazwy określonej w wierszu nagłówka. 
 
-### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```powershell
 Function Get-QueryCsv($ctx, $container, $blob, $query, $hasheaders) {
@@ -328,7 +328,7 @@ Get-QueryCsv $ctx $container $blob "SELECT * FROM BlobStorage WHERE _3 = 'Heming
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-Metoda async `BlobQuickQueryClient.QueryAsync` wysyła zapytanie do interfejsu API przyspieszenia zapytania, a następnie strumieniuje wyniki z powrotem do aplikacji jako obiekt [strumienia](https://docs.microsoft.com/dotnet/api/system.io.stream) .
+Metoda async `BlobQuickQueryClient.QueryAsync` wysyła zapytanie do interfejsu API przyspieszenia zapytania, a następnie strumieniuje wyniki z powrotem do aplikacji jako obiekt [strumienia](/dotnet/api/system.io.stream) .
 
 ```cs
 static async Task QueryHemingway(BlockBlobClient blob)
@@ -482,7 +482,7 @@ Możesz ograniczyć zakres wyników do podzbioru kolumn. W ten sposób można po
 
 Ten kod pobiera tylko `BibNum` kolumnę dla wszystkich książek w zestawie danych. Używa również informacji z wiersza nagłówka w pliku źródłowym do odwoływania się do kolumn w zapytaniu.
 
-### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```powershell
 Function Get-QueryCsv($ctx, $container, $blob, $query, $hasheaders) {
@@ -540,7 +540,7 @@ async function queryBibNum(blob)
 
 Poniższy kod łączy filtrowanie wierszy i projekcje kolumn w tym samym zapytaniu. 
 
-### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```powershell
 Get-QueryCsv $ctx $container $blob $query $true

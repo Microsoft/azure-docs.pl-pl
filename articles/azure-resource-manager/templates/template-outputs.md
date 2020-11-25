@@ -2,17 +2,19 @@
 title: Dane wyjściowe w szablonach
 description: Opisuje sposób definiowania wartości wyjściowych w szablonie Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 203bfc66e9515ef14a5fe1315ef5b9ee07075041
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: 8f782a78e523ebc55faac98344643982172476fa
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79460028"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95911434"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Dane wyjściowe w szablonie Azure Resource Manager
 
 W tym artykule opisano sposób definiowania wartości wyjściowych w szablonie Azure Resource Manager. Dane wyjściowe są używane, gdy trzeba zwrócić wartości ze wdrożonych zasobów.
+
+Format każdej wartości wyjściowej musi być zgodny z jednym z [typów danych](template-syntax.md#data-types).
 
 ## <a name="define-output-values"></a>Definiowanie wartości wyjściowych
 
@@ -110,7 +112,7 @@ az deployment group show \
 
 W poniższych przykładach przedstawiono scenariusze używania danych wyjściowych.
 
-|Szablon  |Opis  |
+|Template  |Opis  |
 |---------|---------|
 |[Kopiuj zmienne](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Tworzy złożone zmienne i wyprowadza te wartości. Nie wdraża żadnych zasobów. |
 |[Publiczny adres IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Tworzy publiczny adres IP i wyprowadza identyfikator zasobu. |

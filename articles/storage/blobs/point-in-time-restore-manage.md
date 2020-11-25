@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 828b5c34aaccf2a53aa197f921a8ef02d46821ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2350177373bc99907c437d814d8f01193f18f3fd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91280474"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95895727"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Wykonaj przywracanie do punktu w czasie dla danych blokowych obiektów BLOB
 
@@ -29,19 +29,19 @@ Aby dowiedzieć się więcej o przywracaniu do punktu w czasie, zobacz [przywrac
 
 Przed włączeniem i skonfigurowaniem przywracania do punktu w czasie należy włączyć jego wymagania wstępne dla konta magazynu: usuwanie nietrwałe, Źródło zmian i przechowywanie wersji obiektów BLOB. Aby uzyskać więcej informacji na temat włączania każdej z tych funkcji, zobacz następujące artykuły:
 
-- [Włączanie usuwania nietrwałego dla obiektów blob](soft-delete-enable.md)
+- [Włączanie usuwania nietrwałego dla obiektów blob](./soft-delete-blob-enable.md)
 - [Włączanie i wyłączanie kanału informacyjnego zmiany](storage-blob-change-feed.md#enable-and-disable-the-change-feed)
 - [Włączanie obsługi wersji obiektów blob i zarządzanie nimi](versioning-enable.md)
 
 > [!IMPORTANT]
 > Włączenie usuwania nietrwałego, źródła zmian i przechowywania wersji obiektów BLOB może spowodować naliczenie dodatkowych opłat. Aby uzyskać więcej informacji, zobacz [usuwanie nietrwałe dla obiektów BLOB](soft-delete-blob-overview.md), [Obsługa kanałów zmian w systemie Azure Blob Storage](storage-blob-change-feed.md)i [przechowywanie wersji obiektów BLOB](versioning-overview.md).
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
 Aby skonfigurować przywracanie do punktu w czasie za pomocą Azure Portal, wykonaj następujące kroki:
 
 1. W witrynie Azure Portal przejdź do swojego konta magazynu.
-1. W obszarze **Ustawienia**wybierz pozycję **Ochrona danych**.
+1. W obszarze **Ustawienia** wybierz pozycję **Ochrona danych**.
 1. Wybierz pozycję **Włącz przywracanie do punktu w czasie** . Po wybraniu tej opcji jest również włączona funkcja usuwania nietrwałego dla obiektów blob, wersji i źródła zmian.
 1. Ustaw maksymalny punkt przywracania dla przywracania do określonego momentu (w dniach). Ta wartość musi być co najmniej jeden dzień krótszy niż okres przechowywania określony dla usuwania nietrwałego obiektu BLOB.
 1. Zapisz zmiany.
@@ -112,7 +112,7 @@ Przywracane są tylko blokowe obiekty blob. Stronicowe obiekty blob i dołączan
 
 Można przywrócić wszystkie kontenery na koncie magazynu, aby przywrócić ich poprzedni stan w danym momencie.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
 Aby przywrócić wszystkie kontenery i obiekty blob na koncie magazynu przy użyciu Azure Portal, wykonaj następujące czynności:
 
@@ -122,7 +122,7 @@ Aby przywrócić wszystkie kontenery i obiekty blob na koncie magazynu przy uży
 1. Potwierdź, że chcesz wykonać zaznaczenie pola wyboru.
 1. Wybierz pozycję **Przywróć** , aby rozpocząć operację przywracania.
 
-    :::image type="content" source="media/point-in-time-restore-manage/restore-all-containers-portal.png" alt-text="Zrzut ekranu przedstawiający sposób konfigurowania przywracania do punktu w czasie w Azure Portal":::
+    :::image type="content" source="media/point-in-time-restore-manage/restore-all-containers-portal.png" alt-text="Zrzut ekranu przedstawiający sposób przywracania wszystkich kontenerów do określonego punktu przywracania":::
 
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
@@ -158,7 +158,7 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
 
 Można przywrócić jeden lub więcej lexicographical zakresów obiektów BLOB w ramach jednego kontenera lub w wielu kontenerach, aby przywrócić te obiekty blob do ich poprzedniego stanu w danym momencie.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
 Aby przywrócić zakres obiektów BLOB w jednym lub większej liczbie kontenerów z Azure Portal, wykonaj następujące kroki:
 
@@ -169,19 +169,19 @@ Aby przywrócić zakres obiektów BLOB w jednym lub większej liczbie konteneró
 1. Określ zakresy do przywrócenia. Użyj ukośnika (/), aby odróżnić nazwę kontenera z prefiksu obiektu BLOB.
 1. Domyślnie okienko **Przywróć wybrane kontenery** określa zakres, który obejmuje wszystkie obiekty blob w kontenerze. Usuń ten zakres, jeśli nie chcesz przywrócić całego kontenera. Domyślny zakres jest pokazany na poniższej ilustracji.
 
-    :::image type="content" source="media/point-in-time-restore-manage/delete-default-blob-range.png" alt-text="Zrzut ekranu przedstawiający sposób konfigurowania przywracania do punktu w czasie w Azure Portal":::
+    :::image type="content" source="media/point-in-time-restore-manage/delete-default-blob-range.png" alt-text="Zrzut ekranu przedstawiający domyślny zakres obiektów BLOB do usunięcia przed określeniem zakresu niestandardowego":::
 
 1. Potwierdź, że chcesz wykonać zaznaczenie pola wyboru.
 1. Wybierz pozycję **Przywróć** , aby rozpocząć operację przywracania.
 
 Na poniższej ilustracji przedstawiono operację przywracania na zestawie zakresów.
 
-:::image type="content" source="media/point-in-time-restore-manage/restore-multiple-container-ranges-portal.png" alt-text="Zrzut ekranu przedstawiający sposób konfigurowania przywracania do punktu w czasie w Azure Portal":::
+:::image type="content" source="media/point-in-time-restore-manage/restore-multiple-container-ranges-portal.png" alt-text="Zrzut ekranu przedstawiający sposób przywracania zakresów obiektów BLOB w jednym lub większej liczbie kontenerów":::
 
 Operacja przywracania pokazana w obrazie wykonuje następujące czynności:
 
 - Przywraca kompletną zawartość *container1*.
-- Przywraca obiekty blob w lexicographical zakresie *blob1* przez *blob5* w *container2*. Ten zakres przywraca obiekty blob z nazwami, takimi jak *blob1*, *blob11*, *blob100*, *blob2*i tak dalej. Ponieważ koniec zakresu jest na wyłączność, przywraca obiekty blob, których nazwy zaczynają się od *blob4*, ale nie przywraca obiektów blob, których nazwy zaczynają się od *blob5*.
+- Przywraca obiekty blob w lexicographical zakresie *blob1* przez *blob5* w *container2*. Ten zakres przywraca obiekty blob z nazwami, takimi jak *blob1*, *blob11*, *blob100*, *blob2* i tak dalej. Ponieważ koniec zakresu jest na wyłączność, przywraca obiekty blob, których nazwy zaczynają się od *blob4*, ale nie przywraca obiektów blob, których nazwy zaczynają się od *blob5*.
 - Przywraca wszystkie obiekty blob w *container3* i *container4*. Ponieważ koniec zakresu jest na wyłączność, ten zakres nie przywraca *container5*.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
@@ -248,6 +248,6 @@ Aby uruchomić operację przywracania synchronicznie i zablokować wykonywanie d
 ## <a name="next-steps"></a>Następne kroki
 
 - [Przywracanie do punktu w czasie dla blokowych obiektów BLOB](point-in-time-restore-overview.md)
-- [Usuwanie nietrwałe](soft-delete-overview.md)
+- [Usuwanie nietrwałe](./soft-delete-blob-overview.md)
 - [Źródło zmian](storage-blob-change-feed.md)
 - [Przechowywanie wersji obiektów BLOB](versioning-overview.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: dc695cc36113430cb1820d978ed41f5250cad33e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3e040146673ba16c07856f30b88771d0063713e9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94974900"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95896887"
 ---
 # <a name="azure-security-baseline-for-azure-hpc-cache"></a>Podstawowa baza zabezpieczeń Azure dla pamięci podręcznej Azure HPC
 
@@ -305,7 +305,7 @@ Usługa Azure Advanced Threat Protection (ATP) to rozwiązanie zabezpieczeń, kt
 
 **Wskazówki**: pamięć podręczna HPC korzysta z usługi Azure RBAC, aby odizolować dostęp do systemów o krytycznym znaczeniu dla firmy przez ograniczenie kont, które mają przyznane uprzywilejowany dostęp do subskrypcji i grup zarządzania, do których się znajdują.
 
-Tworzenie standardowych procedur operacyjnych wokół korzystania z dedykowanych kont administracyjnych. W celu utworzenia pamięci podręcznej pamięć podręczna HPC wymaga od użytkowników posiadania wystarczających uprawnień w ramach subskrypcji w celu utworzenia kart sieciowych. W przypadku korzystania z usługi BLOB Storage Współautorzy kont usługi roli RBAC oraz współautor danych obiektów blob magazynu są wymagane dla pamięci podręcznej HPC w celu uzyskania dostępu do magazynu. 
+Tworzenie standardowych procedur operacyjnych wokół korzystania z dedykowanych kont administracyjnych. W celu utworzenia pamięci podręcznej pamięć podręczna HPC wymaga od użytkowników posiadania wystarczających uprawnień w ramach subskrypcji w celu utworzenia kart sieciowych. W przypadku korzystania z usługi BLOB Storage współautor i magazyn danych obiektów BLOB dla ról platformy Azure są wymagane w celu uzyskania dostępu do magazynu. 
 
 Upewnij się, że ograniczono również dostęp do systemów zarządzania, tożsamości i zabezpieczeń, które mają dostęp administracyjny do zasobów o znaczeniu krytycznym dla firmy, takich jak kontrolery domena usługi Active Directory (DC), narzędzia zabezpieczeń i narzędzia do zarządzania systemem z agentami zainstalowanymi w systemach krytycznych dla firmy. Osoby atakujące, którzy naruszają te systemy zarządzania i zabezpieczeń, mogą natychmiast weaponize je w celu naruszenia poziomu zasobów krytycznych dla firmy.
 

@@ -12,17 +12,20 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 38be8b97b3255e4e63301e693d2a5f295e8d801b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8881dc3f67ac1c9f699bd2bf7bcf1dbbcd5e9c0c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779972"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95905331"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell i interfejs wiersza polecenia platformy Azure: Włącz Transparent Data Encryption z kluczem zarządzanym przez klienta w programie Azure Key Vault
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 W tym artykule przedstawiono sposób użycia klucza z Azure Key Vault dla Transparent Data Encryption (TDE) na platformie Azure SQL Database lub Azure Synapse Analytics (dawniej SQL Data Warehouse). Aby dowiedzieć się więcej na temat obsługi TDE Azure Key Vault z integracją Bring Your Own Key (BYOK), odwiedź [TDE z kluczami zarządzanymi przez klienta w Azure Key Vault](transparent-data-encryption-byok-overview.md).
+
+> [!NOTE] 
+> Usługa Azure SQL obsługuje teraz użycie klucza RSA przechowywanego w zarządzanym module HSM jako funkcji ochrony TDE. Ta funkcja jest dostępna w **publicznej wersji zapoznawczej**. Azure Key Vault zarządzanym modułem HSM jest w pełni zarządzana usługa w chmurze o wysokiej dostępności, która jest zgodna ze standardami, która pozwala chronić klucze kryptograficzne dla aplikacji w chmurze przy użyciu zweryfikowanych sprzętowych modułów zabezpieczeń poziomu 3 w trybie FIPS 140-2. Dowiedz się więcej o [zarządzanym sprzętowych modułów zabezpieczeń](../../key-vault/managed-hsm/index.yml).
 
 ## <a name="prerequisites-for-powershell"></a>Wymagania wstępne dotyczące programu PowerShell
 
@@ -36,9 +39,10 @@ W tym artykule przedstawiono sposób użycia klucza z Azure Key Vault dla Transp
 - Klucz musi mieć następujące atrybuty, aby można było używać go dla TDE:
   - Brak daty wygaśnięcia
   - Niewyłączone
-  - Możliwość wykonania operacji *Get* , *zawijania klucza* , *odpakowania klucza*
+  - Możliwość wykonania operacji *Get*, *zawijania klucza*, *odpakowania klucza*
+- **(W wersji zapoznawczej)** Aby użyć zarządzanego klucza HSM, postępuj zgodnie z instrukcjami dotyczącymi [tworzenia i aktywowania zarządzanego modułu HSM przy użyciu interfejsu wiersza polecenia platformy Azure](../../key-vault/managed-hsm/quick-create-cli.md)
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Aby uzyskać instrukcje dotyczące instalacji modułu Az, zobacz [Instalowanie programu Azure PowerShell](/powershell/azure/install-az-ps). Aby poznać konkretne polecenia cmdlet, zobacz [AzureRM. SQL](/powershell/module/AzureRM.Sql/).
 
@@ -70,6 +74,8 @@ Użyj polecenia cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvau
    Set-AzKeyVaultAccessPolicy -VaultName <KeyVaultName> `
        -ObjectId $server.Identity.PrincipalId -PermissionsToKeys get, wrapKey, unwrapKey
    ```
+Aby dodać uprawnienia do serwera w zarządzanym module HSM, Dodaj lokalną rolę RBAC "zarządzana usługa kryptograficzna modułu HSM" do serwera. Spowoduje to umożliwienie serwerowi wykonania operacji get, zawijania klucza, odpakowania kluczowych działań na kluczach w zarządzanym module HSM.
+[Instrukcje dotyczące aprowizacji dostępu do serwera w zarządzanym module HSM](../../key-vault/managed-hsm/role-management.md)
 
 ## <a name="add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Dodaj klucz Key Vault do serwera i ustaw funkcję ochrony TDE
 
@@ -79,10 +85,15 @@ Użyj polecenia cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvau
 - Użyj polecenia cmdlet [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) , aby upewnić się, że funkcja ochrony TDE została skonfigurowana zgodnie z oczekiwaniami.
 
 > [!NOTE]
+> **(W wersji zapoznawczej)** W przypadku zarządzanych kluczy modułu HSM Użyj polecenia AZ. SQL 2.11.1 w wersji programu PowerShell.
+
+> [!NOTE]
 > Łączna długość nazwy magazynu kluczy i nazwy klucza nie może przekraczać 94 znaków.
 
 > [!TIP]
-> Przykład KeyId z Key Vault: https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+> Przykład KeyId z Key Vault:<br/>https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+>
+> Przykład KeyId z zarządzanego modułu HSM:<br/>https://contosoMHSM.managedhsm.azure.net/keys/myrsakey
 
 ```powershell
 # add the key from Key Vault to the server
@@ -184,7 +195,7 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
 
 ## <a name="useful-powershell-cmdlets"></a>Przydatne polecenia cmdlet programu PowerShell
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 - Aby wyłączyć TDE, należy użyć polecenia cmdlet [Set-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) .
 
@@ -223,7 +234,7 @@ Jeśli wystąpi problem, sprawdź następujące kwestie:
 
 - Jeśli nie można znaleźć magazynu kluczy, upewnij się, że jesteś w odpowiedniej subskrypcji.
 
-   # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+   # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
    ```powershell
    Get-AzSubscription -SubscriptionId <SubscriptionId>
@@ -239,7 +250,7 @@ Jeśli wystąpi problem, sprawdź następujące kwestie:
 
 - Jeśli nie można dodać nowego klucza do serwera lub nie można zaktualizować nowego klucza jako funkcji ochrony TDE, sprawdź następujące kwestie:
    - Klucz nie powinien mieć daty wygaśnięcia
-   - Klucz musi mieć włączone operacje *Get* , *zawijania* klucza i *dezawijania kluczy* .
+   - Klucz musi mieć włączone operacje *Get*, *zawijania* klucza i *dezawijania kluczy* .
 
 ## <a name="next-steps"></a>Następne kroki
 

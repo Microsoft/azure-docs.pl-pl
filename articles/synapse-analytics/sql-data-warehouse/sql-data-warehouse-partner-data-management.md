@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e029de19e6bdb635dfc4797367de29dfb87e32ce
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: da6387c55200bad3458705cf570f60ca40db1be0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325398"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95900616"
 ---
 # <a name="azure-synapse-analytics-data-management-partners"></a>Partnerzy zarządzania danymi usługi Azure Synapse Analytics
 
@@ -34,6 +34,7 @@ W tym artykule przedstawiono firmy partnerskie firmy Microsoft z narzędziami do
 | ![RedPoint globalne](./media/sql-data-warehouse-partner-data-management/redpoint-global-logo.png) |**RedPoint Zarządzanie danymi**<br>RedPoint Zarządzanie danymi umożliwia firmom rynkowym stosowanie wszystkich danych w celu kierowania międzykanałowego zaangażowania klientów podczas przeprowadzania strukturalnego i niestrukturalnego zarządzania danymi. Za pomocą RedPoint można zmaksymalizować wartości danych ze strukturą i bez struktury, aby zapewnić spersonalizowane i niestrukturalne interakcje, które są potrzebne do zaangażować się z klientem w kanale rozproszonego. Interfejs przeciągania i upuszczania ułatwia projektowanie i wykonywanie procesów zarządzania danymi. |[Strona produktu](https://www.redpointglobal.com/customer-data-management)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/redpoint-global.redpoint-rpdm)<br> |
 | ![Sentry jeden](./media/sql-data-warehouse-partner-data-management/sql-sentry-logo.png) |**SentryOne (DW Sentry)**<br>Dzięki pulpitowi nawigacyjnemu inteligentnego przenoszenia danych i kalendarzowi zdarzeń zawsze wiadomo, co ma wpływ na obciążenie. Zaprojektowano w celu zapewnienia wglądu w zapytania i zadania uruchomione w celu załadowania, wykonywania kopii zapasowej lub przywracania danych bez obaw o optymalne wykorzystanie zasobów platformy Azure. |[Strona produktu](https://sentryone.com/platform/azure-sql-dw-performance-monitoring/)<br>[Azure Marketplace](https://sentryone.com/platform/azure-sql-dw-performance-monitoring/)<br> |
 | ![SqlDBM](./media/sql-data-warehouse-partner-data-management/sqldbm-logo.png) |**SqlDBM**<br>SqlDBM to oparte na chmurze narzędzie do modelowania danych, które oferuje łatwy i wygodny sposób tworzenia bazy danych w dowolnym miejscu w dowolnej przeglądarce. Wszystkie z uwzględnieniem wszystkich wymaganych reguł bazy danych i obiektów, takich jak klucze bazy danych, schematy, indeksy, ograniczenia kolumn i relacje. |[Strona produktu](http://sqldbm.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/sqldbm1583438206845.sqldbm-data-modeling-tool?tab=Overview)<br>|
+| ![Tamr](./media/sql-data-warehouse-partner-data-management/tamr-logo.png) |**Tamr**<br>Dzięki Tamr organizacje mogą dostarczać usługę Azure Synapse z danymi zarządzanymi, umożliwiając im uzyskanie większości możliwości analitycznych platformy Azure Synapse. Natywne rozwiązania do tworzenia wzorców danych w chmurze Tamr korzystają z uczenia maszynowego w celu uzyskania dużego podnoszenia, aby łączyć, czyścić i klasyfikować dane przy użyciu intuicyjnych przepływów pracy z opiniami ludzkimi, dzięki czemu można mostkować przerwy między danymi i wynikami biznesowymi. Tamr integruje się z usługami danych platformy Azure, takimi jak Azure Synapse Analytics, Azure Databricks, Azure HDInsight, Azure Data Catalog, Azure Data Lake Storage i Azure Data Factory. Pozwala to na tworzenie wzorców danych na dużą skalę z niższym całkowitym kosztem posiadania, wykorzystując elastyczność i skalę systemu Azure. |[Strona produktu](https://www.tamr.com/tamr-partners/microsoft-azure/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/tamrinc.unify_v_2019?tab=Overview) |
 | ![Teleran](./media/sql-data-warehouse-partner-data-management/teleran-logo.jpg) |**Teleran**<br>Kontrolka zapytania Teleran zapobiega niewłaściwym i źle sformułowanym zapytaniami z osiągania Synapse i marnowania zasobów obliczeniowych. Wysyła ona inteligentne komunikaty do użytkowników analizy, którzy wykonują ich bardziej wydajną pracę z danymi. Celem jest zapewnienie dobrych wyników firmy bez niepotrzebnie kosztów związanych z platformą Azure. Analiza użycia Teleran zapewnia analizę aktywności użytkowników, aplikacji, zapytań i użycia danych. Dzięki temu można zawsze mieć cały rysunek dotyczący tego, co się dzieje. Pozwala to ulepszyć usługę, zwiększyć produktywność biznesową i zoptymalizować koszty użycia Synapse. |[Strona produktu](https://teleran.com/azure-synapse-optimization-cost-control/)<br>|
 
 ## <a name="next-steps"></a>Następne kroki

@@ -2,13 +2,13 @@
 title: Struktura i składnia szablonu
 description: Opisuje strukturę i właściwości szablonów Azure Resource Manager przy użyciu deklaracyjnej składni JSON.
 ms.topic: conceptual
-ms.date: 06/22/2020
-ms.openlocfilehash: ae2c5a5fe1440c3adbae475cd4c7652a3b01c285
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: b7cf30741cfd2b85046f64fddf01c414676a97e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86116543"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95911502"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Opis struktury i składni szablonów usługi ARM
 
@@ -46,6 +46,62 @@ W najprostszym strukturze szablon zawiera następujące elementy:
 
 Każdy element ma właściwości, które można ustawić. W tym artykule opisano bardziej szczegółowe sekcje szablonu.
 
+## <a name="data-types"></a>Typy danych
+
+W ramach szablonu ARM można używać następujących typów danych:
+
+* ciąg
+* SecureString
+* int
+* bool
+* object
+* secureObject
+* array
+
+Poniższy szablon przedstawia format typów danych. Każdy typ ma wartość domyślną w poprawnym formacie.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "stringParameter": {
+      "type": "string",
+      "defaultValue": "option 1"
+    },
+    "intParameter": {
+      "type": "int",
+      "defaultValue": 1
+    },
+    "boolParameter": {
+        "type": "bool",
+        "defaultValue": true
+    },
+    "objectParameter": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b"
+      }
+    },
+    "arrayParameter": {
+      "type": "array",
+      "defaultValue": [ 1, 2, 3 ]
+    }
+  },
+  "resources": [],
+  "outputs": {}
+}
+```
+
+Bezpieczny ciąg używa tego samego formatu co ciąg, a bezpieczny obiekt używa tego samego formatu co obiekt. Po ustawieniu parametru na bezpieczny ciąg lub zabezpieczony obiekt wartość parametru nie jest zapisywana w historii wdrożenia i nie jest rejestrowana. Jeśli jednak ustawisz tę bezpieczną wartość na właściwość, która nie oczekuje bezpiecznej wartości, wartość nie jest chroniona. Na przykład, jeśli ustawisz bezpieczny ciąg na tag, ta wartość jest przechowywana w postaci zwykłego tekstu. Użyj bezpiecznych ciągów dla haseł i wpisów tajnych.
+
+W przypadku liczb całkowitych przewidzianych jako parametry wbudowane zakres wartości może być ograniczony przez zestaw SDK lub narzędzie wiersza polecenia, które jest używane do wdrożenia. Na przykład w przypadku wdrażania szablonu przy użyciu programu PowerShell typy całkowite mogą przyjmować wartość od-2147483648 do 2147483647. Aby uniknąć tego ograniczenia, określ w [pliku parametrów](parameter-files.md)duże wartości całkowite. Typy zasobów stosują własne limity dla właściwości Integer.
+
+Podczas określania wartości logicznych i liczb całkowitych w szablonie nie należy ująć wartości ze znakami cudzysłowu. Początkową i końcową wartość ciągu z podwójnymi cudzysłowami.
+
+Obiekty zaczynają się od lewego nawiasu klamrowego i kończą z prawego nawiasu klamrowego. Tablice zaczynają się od lewego nawiasu i kończą się za pomocą prawego nawiasu.
+
 ## <a name="parameters"></a>Parametry
 
 W sekcji parameters (parametry) szablonu można określić, które wartości mają być wprowadzane podczas wdrażania zasobów. W szablonie można umieścić maksymalnie 256 parametrów. Można zmniejszyć liczbę parametrów za pomocą obiektów, które zawierają wiele właściwości.
@@ -72,32 +128,20 @@ Dostępne są następujące właściwości parametrów:
 | Nazwa elementu | Wymagane | Opis |
 |:--- |:--- |:--- |
 | Nazwa parametru |Tak |Nazwa parametru. Musi być prawidłowym identyfikatorem JavaScript. |
-| typ |Tak |Typ wartości parametru. Dozwolone typy i wartości to **String**, **SecureString**, **int**, **bool**, **Object**, **secureobject**i **Array**. Zobacz [typy danych](#data-types). |
+| typ |Tak |Typ wartości parametru. Dozwolone typy i wartości to **String**, **SecureString**, **int**, **bool**, **Object**, **secureobject** i **Array**. Zobacz [typy danych](#data-types). |
 | defaultValue |Nie |Wartość domyślna parametru, jeśli nie podano wartości dla parametru. |
 | allowedValues |Nie |Tablica dozwolonych wartości parametru, aby upewnić się, że podano odpowiednią wartość. |
 | minValue |Nie |Minimalna wartość parametrów typu int, ta wartość jest dopuszczalna. |
 | maxValue |Nie |Maksymalna wartość parametrów typu int, ta wartość jest dopuszczalna. |
 | minLength |Nie |Minimalna długość dla parametrów typu String, Secure String i Array, ta wartość jest włącznie. |
 | maxLength |Nie |Maksymalna długość parametrów ciągu, bezpiecznego ciągu i typu tablicy, ta wartość jest włącznie. |
-| description |Nie |Opis parametru, który jest wyświetlany użytkownikom w portalu. Aby uzyskać więcej informacji, zobacz [Komentarze w szablonach](#comments). |
+| description (opis) |Nie |Opis parametru, który jest wyświetlany użytkownikom w portalu. Aby uzyskać więcej informacji, zobacz [Komentarze w szablonach](#comments). |
 
 Aby uzyskać przykłady użycia parametrów, zobacz [Parametry w szablonach Azure Resource Manager](template-parameters.md).
 
-### <a name="data-types"></a>Typy danych
-
-W przypadku liczb całkowitych przewidzianych jako parametry wbudowane zakres wartości może być ograniczony przez zestaw SDK lub narzędzie wiersza polecenia, które jest używane do wdrożenia. Na przykład w przypadku wdrażania szablonu przy użyciu programu PowerShell typy całkowite mogą przyjmować wartość od-2147483648 do 2147483647. Aby uniknąć tego ograniczenia, określ w [pliku parametrów](parameter-files.md)duże wartości całkowite. Typy zasobów stosują własne limity dla właściwości Integer.
-
-Podczas określania wartości logicznych i liczb całkowitych w szablonie nie należy ująć wartości ze znakami cudzysłowu. Początkową i końcową wartość ciągu z podwójnymi cudzysłowami.
-
-Obiekty zaczynają się od lewego nawiasu klamrowego i kończą z prawego nawiasu klamrowego. Tablice zaczynają się od lewego nawiasu i kończą się za pomocą prawego nawiasu.
-
-Po ustawieniu parametru na bezpieczny ciąg lub zabezpieczony obiekt wartość parametru nie jest zapisywana w historii wdrożenia i nie jest rejestrowana. Jeśli jednak ustawisz tę bezpieczną wartość na właściwość, która nie oczekuje bezpiecznej wartości, wartość nie jest chroniona. Na przykład, jeśli ustawisz bezpieczny ciąg na tag, ta wartość jest przechowywana w postaci zwykłego tekstu. Użyj bezpiecznych ciągów dla haseł i wpisów tajnych.
-
-Przykłady typów danych formatowania można znaleźć w temacie [formaty typów parametrów](parameter-files.md#parameter-type-formats).
-
 ## <a name="variables"></a>Zmienne
 
-W sekcji zmienne można skonstruować wartości, które mogą być używane w całym szablonie. Nie musisz definiować zmiennych, ale często upraszczamy szablon przez zredukowanie złożonych wyrażeń.
+W sekcji zmienne można skonstruować wartości, które mogą być używane w całym szablonie. Nie musisz definiować zmiennych, ale często upraszczamy szablon przez zredukowanie złożonych wyrażeń. Format każdej zmiennej odpowiada jednemu z [typów danych](#data-types).
 
 W poniższym przykładzie przedstawiono dostępne opcje definiowania zmiennej:
 
@@ -169,7 +213,7 @@ Podczas definiowania funkcji użytkownika istnieją pewne ograniczenia:
 | namespace |Tak |Przestrzeń nazw dla funkcji niestandardowych. Użyj, aby uniknąć konfliktu nazw z funkcjami szablonu. |
 | Nazwa funkcji |Tak |Nazwa funkcji niestandardowej. Podczas wywoływania funkcji Połącz nazwę funkcji z przestrzenią nazw. Na przykład, aby wywołać funkcję o nazwie uniqueName w przestrzeni nazw contoso, użyj `"[contoso.uniqueName()]"` . |
 | Nazwa parametru |Nie |Nazwa parametru, który ma być używany w funkcji niestandardowej. |
-| wartość parametru-value |Nie |Typ wartości parametru. Dozwolone typy i wartości to **String**, **SecureString**, **int**, **bool**, **Object**, **secureobject**i **Array**. |
+| wartość parametru-value |Nie |Typ wartości parametru. Dozwolone typy i wartości to **String**, **SecureString**, **int**, **bool**, **Object**, **secureobject** i **Array**. |
 | Typ danych wyjściowych |Tak |Typ wartości wyjściowej. Wartości wyjściowe obsługują te same typy jak parametry wejściowe funkcji. |
 | Wartość wyjściowa |Tak |Wyrażenie języka szablonu, które jest oceniane i zwracane przez funkcję. |
 
@@ -325,7 +369,7 @@ Obiekt można dodać `metadata` niemal w dowolnym miejscu w szablonie. Menedżer
   },
 ```
 
-Dla **parametrów**Dodaj `metadata` obiekt z `description` właściwością.
+Dla **parametrów** Dodaj `metadata` obiekt z `description` właściwością.
 
 ```json
 "parameters": {
@@ -341,7 +385,7 @@ Podczas wdrażania szablonu za pomocą portalu, tekst w opisie jest automatyczni
 
 ![Pokaż poradę dotyczącą parametrów](./media/template-syntax/show-parameter-tip.png)
 
-W przypadku **zasobów**Dodaj `comments` element lub obiekt metadanych. W poniższym przykładzie pokazano zarówno element komentarzy, jak i obiekt metadanych.
+W przypadku **zasobów** Dodaj `comments` element lub obiekt metadanych. W poniższym przykładzie pokazano zarówno element komentarzy, jak i obiekt metadanych.
 
 ```json
 "resources": [
@@ -367,7 +411,7 @@ W przypadku **zasobów**Dodaj `comments` element lub obiekt metadanych. W poniż
 ]
 ```
 
-W **przypadku danych wyjściowych**Dodaj obiekt metadanych do wartości wyjściowej.
+W **przypadku danych wyjściowych** Dodaj obiekt metadanych do wartości wyjściowej.
 
 ```json
 "outputs": {

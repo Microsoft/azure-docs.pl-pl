@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 406371325ddf8b555ede481582e19635b85abe49
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 10a2ae71d8c26d82a4a730bab3ba16e7c62d1243
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461570"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95911740"
 ---
 # <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Zbierz dzienniki niestandardowe z agentem Log Analytics w programie Azure Monitor
 
@@ -30,6 +30,7 @@ Pliki dziennika do zebrania muszą być zgodne z następującymi kryteriami.
 
 - Plik dziennika nie może zezwalać na cykliczne rejestrowanie ani obracanie dzienników, w którym plik jest zastępowany nowymi wpisami.
 - Plik dziennika musi używać kodowania ASCII lub UTF-8.  Inne formaty, takie jak UTF-16, nie są obsługiwane.
+- W przypadku systemu Linux converesion strefy czasowej nie jest obsługiwana dla sygnatur czasowych w dziennikach.
 
 >[!NOTE]
 > Jeśli w pliku dziennika znajdują się zduplikowane wpisy, Azure Monitor będą zbierać te dane. Jednak wyniki zapytania będą niespójne, gdzie wyniki filtrowania pokazują więcej zdarzeń niż liczba wyników. Ważne jest, aby sprawdzić poprawność dziennika w celu ustalenia, czy aplikacja, która tworzy ten problem, jest przyczyną tego zachowania, a jeśli jest to możliwe, przed utworzeniem definicji kolekcji dzienników niestandardowych.  
@@ -53,7 +54,7 @@ Aby zdefiniować niestandardowy plik dziennika, należy wykonać czynności opis
 Kreator dziennika niestandardowego działa w Azure Portal i umożliwia zdefiniowanie nowego dziennika niestandardowego do zbierania.
 
 1. W Azure Portal wybierz pozycję **log Analytics obszary robocze** > obszarze roboczym > **Ustawienia zaawansowane**.
-2. Kliknij pozycję **Data**  >  **dzienniki niestandardowe**danych.
+2. Kliknij pozycję **Data**  >  **dzienniki niestandardowe** danych.
 3. Domyślnie wszystkie zmiany konfiguracji są automatycznie wypychane do wszystkich agentów. W przypadku agentów systemu Linux plik konfiguracji jest wysyłany do programu zbierającego dane.
 4. Kliknij przycisk **Dodaj +** , aby otworzyć Kreatora dziennika niestandardowego.
 
@@ -91,7 +92,7 @@ Poniższa tabela zawiera przykłady prawidłowych wzorców do określenia różn
 ### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Krok 4. Podaj nazwę i opis dziennika
 Określona nazwa zostanie użyta dla typu dziennika zgodnie z powyższym opisem.  Będzie ona zawsze kończyć się _CL, aby odróżnić ją jako dziennik niestandardowy.
 
-1. Wpisz nazwę dziennika.  Sufiks ** \_ CL** jest dostarczany automatycznie.
+1. Wpisz nazwę dziennika.  Sufiks **\_ CL** jest dostarczany automatycznie.
 2. Dodaj opcjonalny **Opis**.
 3. Kliknij przycisk **dalej** , aby zapisać definicję dziennika niestandardowego.
 

@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: dcf34d896deafad77d16619f3883ddd103fc55d4
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: c35ee7bcdefa5091d9c887430182638f066cb9fa
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95790681"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95900911"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Tworzenie, opracowywanie i konserwowanie notesów Synapse Studio (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
@@ -399,68 +399,6 @@ Dostęp do danych można uzyskać bezpośrednio na podstawowym koncie magazynu. 
 
 ![dane do komórki](./media/apache-spark-development-using-notebooks/synapse-data-to-cell.png)
 
-## <a name="visualize-data-in-a-notebook"></a>Wizualizowanie danych w notesie
-
-### <a name="produce-rendered-table-view"></a>Generuj renderowany widok tabeli
-
-Widok wyników tabelarycznych jest dostępny z opcją tworzenia wykresu słupkowego, wykresu liniowego, wykresu kołowego, wykresu punktowego i wykresu warstwowego. Możesz wizualizować dane bez konieczności pisania kodu. Wykresy można dostosować w **opcjach wykresu**. 
-
-Dane wyjściowe poleceń Magic **%% SQL** są wyświetlane domyślnie w widoku renderowanej tabeli. Możesz wywoływać <code>display(df)</code> na platformie Spark Dataframes, Pandas Dataframes, list lub odporną funkcję rozproszonego zestawu danych (RDD), aby utworzyć renderowany widok tabeli.
-
-   [![Wykresy wbudowane](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png#lightbox)
-
-### <a name="visualize-built-in-charts-from-large-scale-dataset"></a>Wizualizuj wbudowane wykresy z zestawu danych o dużej skali 
-
-Domyślnie <code>display(df)</code> funkcja będzie przyjmować wykresy tylko z pierwszych 1000 wierszy danych. Sprawdź **agregację dla wszystkich wyników** i wybierz przycisk **Zastosuj** . zostanie zastosowana generacja wykresu z całego zestawu danych. Zadanie Spark zostanie wyzwolone w przypadku zmiany ustawienia wykresu, trwa wykonywanie obliczeń i renderowanie wykresu. 
-    [![wbudowane — wykresy — agregacja — wszystko](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png#lightbox)
-
-
-
-### <a name="visualize-data-statistic-information"></a>Wizualizacja informacji statystycznych dotyczących danych
-Można użyć <code>display(df, summary = True)</code> do sprawdzenia podsumowania statystyk danej ramki danych platformy Spark, która zawiera nazwę kolumny, typ kolumny, unikatowe wartości i brakujące wartości dla każdej kolumny. Możesz również wybrać opcję dla konkretnej kolumny, aby zobaczyć jej wartość minimalną, wartość maksymalną, wartość średnią i odchylenie standardowe.
-    [![wbudowane — wykresy — podsumowanie ](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png#lightbox)
-
-### <a name="render-html-or-interactive-libraries"></a>Renderowanie bibliotek HTML lub interaktywnych
-
-Możesz renderować kod HTML, w tym JavaScript, CSS, D3 lub biblioteki interaktywne, takie jak **bokeh**, przy użyciu **displayHTML ()**.
-
-Na poniższej ilustracji przedstawiono przykład kreślenia symboli na mapie za pomocą **bokeh**.
-
-   ![bokeh — przykład](./media/apache-spark-development-using-notebooks/synapse-bokeh-image.png)
-   
-
-Uruchom następujący przykładowy kod, aby narysować Powyższy obraz.
-
-```python
-from bokeh.plotting import figure, output_file
-from bokeh.tile_providers import get_provider, Vendors
-from bokeh.embed import file_html
-from bokeh.resources import CDN
-from bokeh.models import ColumnDataSource
-
-tile_provider = get_provider(Vendors.CARTODBPOSITRON)
-
-# range bounds supplied in web mercator coordinates
-p = figure(x_range=(-9000000,-8000000), y_range=(4000000,5000000),
-           x_axis_type="mercator", y_axis_type="mercator")
-p.add_tile(tile_provider)
-
-# plot datapoints on the map
-source = ColumnDataSource(
-    data=dict(x=[ -8800000, -8500000 , -8800000],
-              y=[4200000, 4500000, 4900000])
-)
-
-p.circle(x="x", y="y", size=15, fill_color="blue", fill_alpha=0.8, source=source)
-
-# create an html document that embeds the Bokeh plot
-html = file_html(p, CDN, "my plot1")
-
-# display this html
-displayHTML(html)
-
-```
-
 ## <a name="save-notebooks"></a>Zapisuj notesy
 
 Możesz zapisać pojedynczy Notes lub wszystkie notesy w obszarze roboczym.
@@ -539,11 +477,11 @@ Podobnie jak w przypadku notesów Jupyter, notesy platformy Azure Synapse Studio
 
 1. Komórka jest w trybie polecenia, gdy nie ma kursora tekstu z monitem o wpisanie. Gdy komórka jest w trybie poleceń, można edytować Notes jako całość, ale nie do pojedynczych komórek. Przejdź do trybu polecenia, naciskając `ESC` lub używając myszy, aby zaznaczyć poza obszarem edytora komórki.
 
-   ![tryb polecenia](./media/apache-spark-development-using-notebooks/synapse-command-mode2.png)
+   ![tryb polecenia](./media/apache-spark-development-using-notebooks/synapse-command-mode-2.png)
 
 2. Tryb edycji jest wskazywany przez kursor tekstowy z monitem o wpisanie w obszarze edytora. Gdy komórka jest w trybie edycji, możesz wpisać ją w komórce. Przejdź do trybu edycji, naciskając `Enter` lub używając myszy, aby wybrać obszar edytora komórki.
    
-   ![edit-mode](./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
+   ![edit-mode](./media/apache-spark-development-using-notebooks/synapse-edit-mode-2.png)
 
 ### <a name="shortcut-keys-under-command-mode"></a>Klawisze skrótów w trybie polecenia
 

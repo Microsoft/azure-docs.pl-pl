@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/04/2019
-ms.openlocfilehash: ef34dbfd3af326dbf2d82e09a4c5c8c8e4a91a84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/11/2020
+ms.openlocfilehash: 5aa379f6601bc324bd08c53f251b2097141eec69
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87319800"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95911638"
 ---
 # <a name="log-analytics-data-security"></a>Zabezpieczenia danych Log Analytics
 Ten dokument ma na celu dostarczenie informacji specyficznych dla Log Analytics, które są funkcją Azure Monitor, aby uzupełnić informacje o [Centrum zaufania Azure](https://www.microsoft.com/en-us/trust-center?rtc=1).  
@@ -26,6 +26,12 @@ Usługa Log Analytics umożliwia bezpieczne zarządzanie danymi opartymi na chmu
 * Zarządzanie zdarzeniami
 * Zgodność
 * Certyfikaty standardów zabezpieczeń
+
+Można również użyć dodatkowych funkcji zabezpieczeń wbudowanych w Azure Monitor i Log Analytics. Te funkcje wymagają więcej zarządzania administratorami. 
+* Klucze zarządzane przez klienta
+* Magazyn prywatny platformy Azure
+* Sieci usługi Private Link 
+* Limity dostępu do pomocy technicznej platformy Azure ustawione przez skrytkę platformy Azure
 
 Skontaktuj się z nami, podając wszelkie pytania, sugestie lub problemy dotyczące dowolnych z poniższych informacji, w tym naszych zasad zabezpieczeń w [opcjach pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/).
 
@@ -69,11 +75,11 @@ W poniższej tabeli przedstawiono przykłady typów danych:
 | **Typ danych** | **Pola** |
 | --- | --- |
 | Alerty |Nazwa alertu, opis alertu, identyfikatorze basemanagedentityid, identyfikator problemu, IsMonitorAlert, RuleId, stanu rozpoznania, priorytet, ważność, Kategoria, właściciel, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
-| Konfiguracja |CustomerID, identyfikator agenta, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
-| Wydarzenie |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Uwaga:** Gdy zapisujesz zdarzenia z polami niestandardowymi w dzienniku zdarzeń systemu Windows, Log Analytics je gromadzić. |
+| Konfigurowanie |CustomerID, identyfikator agenta, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
+| Zdarzenie |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Uwaga:** Gdy zapisujesz zdarzenia z polami niestandardowymi w dzienniku zdarzeń systemu Windows, Log Analytics je gromadzić. |
 | Metadane |Identyfikatorze basemanagedentityid, upewnić, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, networkname, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, adres IP, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime |
 | Wydajność |ObjectName, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
-| State |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, identyfikatorze basemanagedentityid, elementu monitorid, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
+| Stan |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, identyfikatorze basemanagedentityid, elementu monitorid, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## <a name="physical-security"></a>Zabezpieczenia fizyczne
 Usługa Log Analytics jest zarządzana przez personel firmy Microsoft, a wszystkie działania są rejestrowane i mogą być poddawane inspekcji. Log Analytics działa jako usługa platformy Azure i spełnia wszystkie wymagania dotyczące zgodności i zabezpieczeń platformy Azure. Szczegółowe informacje o zabezpieczeniach fizycznych zasobów platformy Azure można wyświetlić na stronie 18 [przeglądu zabezpieczeń Microsoft Azure](https://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Prawa dostępu fizycznego do bezpiecznych obszarów są zmieniane w ciągu jednego dnia roboczego dla każdej osoby, która nie ma już odpowiedzialności za usługę Log Analytics, w tym transfer i zakończenie. Możesz zapoznać się z globalną infrastrukturą fizyczną używaną w [centrach danych firmy Microsoft](https://azure.microsoft.com/global-infrastructure/).
@@ -170,6 +176,15 @@ Okres przechowywania zebranych danych przechowywanych w bazie danych zależy od 
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Użyj Log Analytics, aby uzyskać dostęp do danych
 Aby uzyskać dostęp do obszaru roboczego Log Analytics, zaloguj się do Azure Portal przy użyciu konta organizacyjnego lub konto Microsoft utworzonego wcześniej. Cały ruch między portalem a usługą Log Analytics jest przesyłany za pośrednictwem bezpiecznego kanału HTTPS. W przypadku korzystania z portalu identyfikator sesji jest generowany przez klienta użytkownika (przeglądarki sieci Web), a dane są przechowywane w lokalnej pamięci podręcznej, dopóki sesja nie zostanie zakończona. Po zakończeniu pamięć podręczna zostanie usunięta. Pliki cookie po stronie klienta, które nie zawierają informacji umożliwiających identyfikację użytkownika, nie są automatycznie usuwane. Pliki cookie sesji są oznaczone jako HTTPOnly i są zabezpieczone. Po upływie wstępnie ustalonego okresu bezczynności sesja Azure Portal zostanie zakończona.
+
+
+## <a name="additional-security-features"></a>Dodatkowe funkcje zabezpieczeń
+Możesz użyć tych dodatkowych funkcji zabezpieczeń, aby dodatkowo zabezpieczyć środowisko Azure Monitor/Log Analytics. Te funkcje wymagają więcej zarządzania administratorami. 
+- [Klucze](customer-managed-keys.md) zarządzane przez klienta — można używać kluczy zarządzanych przez klienta do szyfrowania danych wysyłanych do obszarów roboczych log Analytics. Wymaga użycia Azure Key Vault. 
+- [Magazyn prywatny/zarządzany przez klienta — Zarządzanie osobistym](private-storage.md) kontem magazynu i informowanie log Analytics, aby używać go do przechowywania danych monitorowania 
+- [Połączenie prywatne sieci](private-link-security.md) — link prywatny platformy Azure umożliwia bezpieczne łączenie usług PaaS platformy Azure (w tym Azure monitor) z siecią wirtualną przy użyciu prywatnych punktów końcowych. 
+- [Skrytka klienta platformy Azure](/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-preview) — Skrytka klienta dla Microsoft Azure udostępnia interfejs umożliwiający klientom przeglądanie i zatwierdzanie lub odrzucanie żądań dostępu do danych klienta. Jest ona używana, gdy inżynier firmy Microsoft musi uzyskać dostęp do danych klientów podczas rozpatrywania wniosku o pomoc techniczną.
+
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się, jak zbierać dane za pomocą Log Analytics dla maszyn wirtualnych platformy Azure po [rozszybkim samouczku maszyny wirtualnej platformy Azure](../learn/quick-collect-azurevm.md).  

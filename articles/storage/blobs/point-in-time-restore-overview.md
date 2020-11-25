@@ -10,12 +10,12 @@ ms.date: 09/22/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: aed3116976d57df81da399495fd9da3722ba770a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ca09e41e6d5b83f14d2dfee4107135585b7e945a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960681"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95908799"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Przywracanie do punktu w czasie dla blokowych obiektów BLOB
 
@@ -49,7 +49,7 @@ Operacja **przywracania zakresów obiektów BLOB** zwraca identyfikator przywrac
 
 Przywracanie do punktu w czasie wymaga włączenia następujących funkcji usługi Azure Storage, aby można było włączyć przywracanie do punktu w czasie:
 
-- [Usuwanie nietrwałe](soft-delete-overview.md)
+- [Usuwanie nietrwałe](./soft-delete-blob-overview.md)
 - [Źródło zmian](storage-blob-change-feed.md)
 - [Przechowywanie wersji obiektów BLOB](versioning-overview.md)
 
@@ -92,5 +92,5 @@ Aby uzyskać więcej informacji na temat cen przywracania do punktu w czasie, zo
 
 - [Wykonaj przywracanie do punktu w czasie dla danych blokowych obiektów BLOB](point-in-time-restore-manage.md)
 - [Obsługa kanału informacyjnego zmiany w usłudze Azure Blob Storage](storage-blob-change-feed.md)
-- [Włączanie usuwania nietrwałego dla obiektów blob](soft-delete-enable.md)
+- [Włączanie usuwania nietrwałego dla obiektów blob](./soft-delete-blob-enable.md)
 - [Włączanie obsługi wersji obiektów blob i zarządzanie nimi](versioning-enable.md)

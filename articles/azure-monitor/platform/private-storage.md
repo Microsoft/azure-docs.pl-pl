@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: a487e6989792c63aaf5baf9ddb3875df549561a4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7cb427c83345a4603c6fe7727c1cc42c1943c456
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143986"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95908255"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Korzystanie z kont magazynu zarządzanych przez klienta w programie Azure Monitor Log Analytics
 
-Log Analytics opiera się na usłudze Azure Storage w różnych scenariuszach. To użycie jest zazwyczaj zarządzane automatycznie. Jednak niektóre przypadki wymagają podania konta magazynu i zarządzania nim, nazywanego również kontem magazynu zarządzanym przez klienta. Ten dokument zawiera szczegółowe informacje na temat użycia magazynu zarządzanego przez klienta na potrzeby pozyskiwania dzienników funkcji wad/LAD, prywatnych połączeń indywidualnych i szyfrowania CMK. 
+Log Analytics opiera się na usłudze Azure Storage w różnych scenariuszach. To użycie jest zazwyczaj zarządzane automatycznie. Jednak niektóre przypadki wymagają podania konta magazynu i zarządzania nim, nazywanego również kontem magazynu zarządzanym przez klienta. Ten dokument zawiera szczegółowe informacje o sposobie użycia magazynu zarządzanego przez klienta na potrzeby pozyskiwania dzienników funkcji wad/LAD, prywatnych połączeń indywidualnych oraz szyfrowania klucza zarządzanego przez klienta (CMK). 
 
 > [!NOTE]
 > Firma Microsoft zaleca, aby nie korzystać z zależności od zawartości Log Analytics przekazanej do magazynu zarządzanego przez klienta, biorąc pod względu na to, że formatowanie i zawartość mogą ulec zmianie.

@@ -3,14 +3,14 @@ title: Włącz Update Management Azure Automation z elementu Runbook
 description: W tym artykule opisano sposób włączania Update Management z elementu Runbook.
 services: automation
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 11/24/2020
 ms.custom: mvc
-ms.openlocfilehash: ec102015355e3312f5dc15fa526fa543da75e0de
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 5a9f12a823a22bfb48ccb4482d3402464aa77fea
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222667"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95908368"
 ---
 # <a name="enable-update-management-from-a-runbook"></a>Włączanie rozwiązania Update Management z poziomu elementu runbook
 
@@ -34,9 +34,9 @@ Ta metoda używa dwóch elementów Runbook:
     * *LASolutionSubscriptionId*: Identyfikator subskrypcji, w której znajduje się obszar roboczy log Analytics.
     * *LASolutionWorkspaceId*: identyfikator obszaru roboczego log Analyticsu połączony z kontem usługi Automation.
 
-    Te zmienne służą do konfigurowania obszaru roboczego dołączanej maszyny wirtualnej. Jeśli nie są one określone, skrypt najpierw szuka dowolnych maszyn wirtualnych dołączanych do Update Management w jej subskrypcji, po których następuje subskrypcja konta usługi Automation, a następnie wszystkie inne subskrypcje, do których konto użytkownika ma dostęp. Jeśli nie skonfigurowano prawidłowo, może to spowodować, że Twoje maszyny dołączyją się do niektórych losowo Log Analytics obszarów roboczych.
+    Te zmienne są używane do konfigurowania obszaru roboczego dołączanej maszyny wirtualnej i należy je utworzyć ręcznie. Jeśli nie są one określone, skrypt najpierw szuka dowolnych maszyn wirtualnych dołączanych do Update Management w jej subskrypcji, po których następuje subskrypcja konta usługi Automation, a następnie wszystkie inne subskrypcje, do których konto użytkownika ma dostęp. Jeśli nie skonfigurowano prawidłowo, może to spowodować, że Twoje maszyny dołączyją się do niektórych losowo Log Analytics obszarów roboczych.
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
@@ -52,7 +52,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 ## <a name="install-and-update-modules"></a>Instalowanie i aktualizowanie modułów
 
-Wymagane jest zaktualizowanie do najnowszych modułów platformy Azure i zaimportowanie modułu [AZ. OperationalInsights](/powershell/module/az.operationalinsights) w celu pomyślnego włączenia Update Management dla maszyn wirtualnych za pomocą elementu Runbook.
+Wymagane jest zaktualizowanie do najnowszych modułów platformy Azure i zaimportowanie modułu [AzureRM. OperationalInsights](/powershell/module/azurerm.operationalinsights) w celu pomyślnego włączenia Update Management dla maszyn wirtualnych za pomocą elementu Runbook.
 
 1. Na koncie usługi Automation wybierz pozycję **moduły** w obszarze **zasoby udostępnione**.
 
@@ -66,9 +66,9 @@ Wymagane jest zaktualizowanie do najnowszych modułów platformy Azure i zaimpor
 
 5. Wybierz pozycję **Przeglądaj Galerię** , aby otworzyć galerię modułów.
 
-6. Wyszukaj `Az.OperationalInsights` i zaimportuj ten moduł do konta usługi Automation.
+6. Wyszukaj `AzureRM.OperationalInsights` i zaimportuj ten moduł do konta usługi Automation.
 
-    ![Importowanie modułu OperationalInsights](media/enable-from-runbook/import-operational-insights-module.png)
+    ![Importowanie modułu OperationalInsights](media/enable-from-runbook/import-operational-insights-module-azurerm.png)
 
 ## <a name="select-azure-vm-to-manage"></a>Wybierz maszynę wirtualną platformy Azure do zarządzania
 

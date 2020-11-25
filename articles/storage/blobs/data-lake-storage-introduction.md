@@ -8,18 +8,18 @@ ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 4cf7d6fdc02affc425fd02eba794d573a59d2a45
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 5f2f3cfc5ccbdd6a3d3d3ede5bb39a3f6f548b19
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579372"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913100"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Wprowadzenie do usługi Azure Data Lake Storage Gen2
 
 Azure Data Lake Storage Gen2 to zestaw funkcji przeznaczonych do analizy danych Big Data, opartych na [usłudze Azure Blob Storage](storage-blobs-introduction.md). 
 
-Data Lake Storage Gen2 zbieżność możliwości [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index) z usługą Azure Blob Storage. Na przykład Data Lake Storage Gen2 zapewnia semantykę systemu plików, zabezpieczenia na poziomie plików i skalowanie. Ponieważ te możliwości są oparte na usłudze BLOB Storage, można również uzyskać niski koszt magazynu warstwowego z możliwościami wysokiej dostępności i odzyskiwania po awarii.
+Data Lake Storage Gen2 zbieżność możliwości [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml) z usługą Azure Blob Storage. Na przykład Data Lake Storage Gen2 zapewnia semantykę systemu plików, zabezpieczenia na poziomie plików i skalowanie. Ponieważ te możliwości są oparte na usłudze BLOB Storage, można również uzyskać niski koszt magazynu warstwowego z możliwościami wysokiej dostępności i odzyskiwania po awarii.
 
 ## <a name="designed-for-enterprise-big-data-analytics"></a>Zaprojektowana na potrzeby analizy danych Big Data w przedsiębiorstwie
 
@@ -39,13 +39,13 @@ Ponadto Data Lake Storage Gen2 jest bardzo opłacalne, ponieważ jest ona oparta
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Najważniejsze funkcje Data Lake Storage Gen2
 
--   **Dostęp zgodny** z usługą Hadoop: Data Lake Storage Gen2 umożliwia zarządzanie danymi i uzyskiwanie do nich dostępu tak samo jak w przypadku [rozproszony system plików Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Nowy [Sterownik ABFS](data-lake-storage-abfs-driver.md) (używany do uzyskiwania dostępu do danych) jest dostępny w ramach wszystkich środowisk Apache Hadoop. Te środowiska obejmują [usługi Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index)*,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index)i [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics).
+-   **Dostęp zgodny** z usługą Hadoop: Data Lake Storage Gen2 umożliwia zarządzanie danymi i uzyskiwanie do nich dostępu tak samo jak w przypadku [rozproszony system plików Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Nowy [Sterownik ABFS](data-lake-storage-abfs-driver.md) (używany do uzyskiwania dostępu do danych) jest dostępny w ramach wszystkich środowisk Apache Hadoop. Te środowiska obejmują [usługi Azure HDInsight](../../hdinsight/index.yml)*,* [Azure Databricks](/azure/databricks/)i [Azure Synapse Analytics](/azure/synapse-analytics).
 
--   **Nadzbiór uprawnień systemu POSIX** : model zabezpieczeń dla Data Lake Gen2 obsługuje uprawnienia ACL i POSIX oraz niezbędny stopień szczegółowości Data Lake Storage Gen2. Ustawienia można skonfigurować za poorednictwem Eksplorator usługi Storage lub platform, takich jak Hive i Spark.
+-   **Nadzbiór uprawnień systemu POSIX**: model zabezpieczeń dla Data Lake Gen2 obsługuje uprawnienia ACL i POSIX oraz niezbędny stopień szczegółowości Data Lake Storage Gen2. Ustawienia można skonfigurować za poorednictwem Eksplorator usługi Storage lub platform, takich jak Hive i Spark.
 
--   **Koszt ekonomiczny** : Data Lake Storage Gen2 oferuje niską wydajność magazynu i transakcji. Funkcje, takie jak [cykl życia usługi Azure Blob Storage](storage-lifecycle-management-concepts.md) , optymalizują koszty jako przejścia danych w całym cyklu życia.
+-   **Koszt ekonomiczny**: Data Lake Storage Gen2 oferuje niską wydajność magazynu i transakcji. Funkcje, takie jak [cykl życia usługi Azure Blob Storage](storage-lifecycle-management-concepts.md) , optymalizują koszty jako przejścia danych w całym cyklu życia.
 
--   **Zoptymalizowany sterownik** : Sterownik ABFS jest [zoptymalizowany pod](data-lake-storage-abfs-driver.md) kątem analizy danych Big Data. Odpowiednie interfejsy API REST są przyłączone do punktu końcowego `dfs.core.windows.net` .
+-   **Zoptymalizowany sterownik**: Sterownik ABFS jest [zoptymalizowany pod](data-lake-storage-abfs-driver.md) kątem analizy danych Big Data. Odpowiednie interfejsy API REST są przyłączone do punktu końcowego `dfs.core.windows.net` .
 
 ### <a name="scalability"></a>Skalowalność
 
@@ -86,5 +86,3 @@ Kilka platform Open Source obsługuje Data Lake Storage Gen2. Aby uzyskać pełn
 
 - [Znane problemy z Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 - [Dostęp z wieloprotokołem do Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)
-
-

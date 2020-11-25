@@ -9,12 +9,12 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
-ms.openlocfilehash: 1d720aed44358dd314bc4226adb9ad517139cd18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2b36dd600efa864913e0087c49bffd556e8330d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836313"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912403"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Korzystanie z interfejsu wiersza polecenia systemu plików HDFS z Data Lake Storage Gen2
 
@@ -29,7 +29,7 @@ Aby uzyskać więcej informacji na temat interfejsu systemu plików HDFS, zobacz
 
 ## <a name="use-the-hdfs-cli-with-an-hdinsight-hadoop-cluster-on-linux"></a>Korzystanie z interfejsu wiersza polecenia systemu plików HDFS z klastrem Hadoop usługi HDInsight w systemie Linux
 
-Najpierw Ustanów [dostęp zdalny do usług](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-information#remote-access-to-services). W przypadku wybrania protokołu [SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) przykładowy kod programu PowerShell będzie wyglądać następująco:
+Najpierw Ustanów [dostęp zdalny do usług](../../hdinsight/hdinsight-hadoop-linux-information.md#remote-access-to-services). W przypadku wybrania protokołu [SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md) przykładowy kod programu PowerShell będzie wyglądać następująco:
 
 ```powershell
 #Connect to the cluster via SSH.
@@ -120,4 +120,4 @@ Pełną listę poleceń można wyświetlić w witrynie sieci Web [podręcznika p
 
 * [Używanie Azure Data Lake Storage Gen2 konta obsługującego Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md)
 
-* [Informacje o listach kontroli dostępu do plików i katalogów](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
+* [Informacje o listach kontroli dostępu do plików i katalogów](./data-lake-storage-access-control.md)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dddad5692ab2eebb6ef9b427c091be449791d7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96d1eaff4d1b93ad3bb489f177020c351fe4d13d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91818358"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95904039"
 ---
 # <a name="conditional-access-conditions"></a>Dostęp warunkowy: warunki
 
@@ -57,7 +57,7 @@ W przypadku zablokowania starszego uwierzytelniania przy użyciu warunku **other
 
 Podczas konfigurowania lokalizacji jako warunku organizacje mogą zdecydować się na dołączenie lub wykluczenie lokalizacji. Te nazwane lokalizacje mogą zawierać publiczne informacje o sieci IPv4, kraj lub region, a nawet nieznane obszary, które nie są mapowane na określone kraje lub regiony. Tylko zakresy adresów IP można oznaczyć jako zaufaną lokalizację.
 
-W przypadku dołączenia **dowolnej lokalizacji**ta opcja obejmuje dowolny adres IP w Internecie, który nie jest właśnie skonfigurowany nazwanymi lokalizacjami. W przypadku wybrania **dowolnej lokalizacji**Administratorzy mogą zdecydować się na wykluczenie **wszystkich zaufanych** lub **wybranych lokalizacji**.
+W przypadku dołączenia **dowolnej lokalizacji** ta opcja obejmuje dowolny adres IP w Internecie, który nie jest właśnie skonfigurowany nazwanymi lokalizacjami. W przypadku wybrania **dowolnej lokalizacji** Administratorzy mogą zdecydować się na wykluczenie **wszystkich zaufanych** lub **wybranych lokalizacji**.
 
 Na przykład niektóre organizacje mogą zrezygnować z uwierzytelniania wieloskładnikowego w przypadku, gdy użytkownicy są połączeni z siecią w zaufanej lokalizacji, takiej jak ich fizyczna siedziba. Administratorzy mogą utworzyć zasadę, która obejmuje dowolną lokalizację, ale wyklucza wybrane lokalizacje dla swoich sieci centralnych.
 
@@ -158,13 +158,13 @@ To ustawienie ma wpływ na próby dostępu wykonane z następujących aplikacji 
 | Aplikacja poczty/kalendarza/osoby, Outlook 2016, Outlook 2013 (z nowoczesnego uwierzytelniania)| Exchange Online | Windows 10 |
 | Zasady usługi MFA i lokalizacji dla aplikacji. Zasady oparte na urządzeniach nie są obsługiwane.| Wszystkie aplikacje my App Service | Systemy Android i iOS |
 | Usługi Microsoft Teams — kontroluje wszystkie usługi obsługujące Microsoft Teams i wszystkie jej aplikacje klienckie — Windows Desktop, iOS, Android, WP i klient sieci Web | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android i macOS |
-| Aplikacje pakietu Office 2016, pakiet Office 2013 (z nowoczesnego uwierzytelniania), [klient synchronizacji usługi OneDrive](/onedrive/enable-conditional-access) | Sharepoint | Windows 8.1, Windows 7 |
+| Aplikacje pakietu Office 2016, pakiet Office 2013 (z nowoczesnego uwierzytelniania), [klient synchronizacji usługi OneDrive](/onedrive/enable-conditional-access) | SharePoint | Windows 8.1, Windows 7 |
 | Aplikacje pakietu Office 2016, uniwersalne aplikacje biurowe, Office 2013 (z nowoczesnego uwierzytelniania), [klient synchronizacji usługi OneDrive](/onedrive/enable-conditional-access) | SharePoint Online | Windows 10 |
-| Office 2016 (Word, Excel, PowerPoint, tylko OneNote). | Sharepoint | macOS |
-| Pakiet Office 2019| Sharepoint | Windows 10, macOS |
-| Aplikacje mobilne pakietu Office | Sharepoint | Android, iOS |
+| Office 2016 (Word, Excel, PowerPoint, tylko OneNote). | SharePoint | macOS |
+| Pakiet Office 2019| SharePoint | Windows 10, macOS |
+| Aplikacje mobilne pakietu Office | SharePoint | Android, iOS |
 | Aplikacja Yammera pakietu Office | Yammer | Windows 10, iOS, Android |
-| Outlook 2019 | Sharepoint | Windows 10, macOS |
+| Outlook 2019 | SharePoint | Windows 10, macOS |
 | Outlook 2016 (Office for macOS) | Exchange Online | macOS |
 | Outlook 2016, Outlook 2013 (z nowoczesnego uwierzytelniania), Skype dla firm (z nowoczesnego uwierzytelniania) | Exchange Online | Windows 8.1, Windows 7 |
 | Aplikacja mobilna Outlook | Exchange Online | Android, iOS |
@@ -174,13 +174,13 @@ To ustawienie ma wpływ na próby dostępu wykonane z następujących aplikacji 
 
 ### <a name="exchange-activesync-clients"></a>Klienci programu Exchange ActiveSync
 
-- W przypadku przypisywania zasad do użytkowników lub grup organizacje mogą wybierać tylko klienci programu Exchange ActiveSync. Po wybraniu opcji **Wszyscy użytkownicy**, wszyscy użytkownicy z **użytkownikami zewnętrznymi**lub **rolami katalogu** spowodują, że wszyscy użytkownicy staną się Zablokowani.
+- W przypadku przypisywania zasad do użytkowników lub grup organizacje mogą wybierać tylko klienci programu Exchange ActiveSync. Po wybraniu opcji **Wszyscy użytkownicy**, wszyscy użytkownicy z **użytkownikami zewnętrznymi** lub **rolami katalogu** spowodują, że wszyscy użytkownicy staną się Zablokowani.
 - Podczas tworzenia zasad przypisanych do klientów programu Exchange ActiveSync usługa **Exchange Online** powinna być jedyną aplikacją w chmurze przypisaną do zasad. 
 - Organizacje mogą zawęzić zakres tych zasad do określonych platform przy użyciu warunku **platformy urządzeń** .
 
 Jeśli funkcja kontroli dostępu przypisanej do zasad **wymaga zatwierdzonej aplikacji klienckiej**, użytkownik jest kierowany do instalacji i używania klienta mobilnego Outlook. W przypadku, gdy wymagane jest **uwierzytelnianie wieloskładnikowe** , których użytkownicy są Zablokowani, ponieważ uwierzytelnianie podstawowe nie obsługuje uwierzytelniania wieloskładnikowego.
 
-Aby uzyskać więcej informacji zobacz następujące artykuły:
+Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - [Blokuj starsze uwierzytelnianie przy użyciu dostępu warunkowego](block-legacy-authentication.md)
 - [Wymaganie zatwierdzonych aplikacji klienckich z dostępem warunkowym](app-based-conditional-access.md)
@@ -194,7 +194,7 @@ Wybierając **innych klientów**, można określić warunek, który ma wpływ na
 Warunek stanu urządzenia może służyć do wykluczenia urządzeń, które są przyłączone do hybrydowej usługi Azure AD i/lub urządzenia oznaczone jako zgodne z Microsoft Intune zasadami dostępu warunkowego w organizacji.
 
 Na przykład *Wszyscy użytkownicy* uzyskują dostęp do aplikacji usługi *Microsoft Azure Management* w chmurze, w tym **wszystkich stanów urządzeń** , z wyłączeniem **przyłączonych do urządzeń hybrydowych usług Azure AD** i **urządzenia oznaczone jako zgodne** oraz dla *kontroli dostępu* **.** 
-   - W tym przykładzie utworzysz zasady zezwalające na dostęp do Microsoft Azure zarządzania z urządzeń, które są przyłączone do hybrydowej usługi Azure AD i/lub urządzenia oznaczone jako zgodne.
+   - W tym przykładzie utworzysz zasady zezwalające na dostęp tylko do Microsoft Azure zarządzania przez urządzenia, które są przyłączone do hybrydowej usługi Azure AD lub urządzenia oznaczone jako zgodne.
 
 ## <a name="next-steps"></a>Następne kroki
 

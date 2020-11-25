@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: ed6d3b927254d44863b7fd0a597528813be791cf
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 10ae9e1356cea954435d15441d74f4f86a804578
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736615"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95893984"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Co nowego w usłudze Rozpoznawanie formularzy?
 
@@ -40,11 +40,14 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
 - **Obsługiwany nowy język: japoński** — teraz obsługiwane są następujące nowe języki: dla `AnalyzeLayout` i `AnalyzeCustomForm` : japoński ( `ja` ). [Obsługa języków](language-support.md)
 - **Oznaczenie stylu linii tekstowej (pismo odręczne/inne) (tylko języki łacińskie)** — aparat rozpoznawania formularzy teraz wyprowadza `appearance` obiekt sklasyfikowany niezależnie od tego, czy każdy wiersz tekstu jest stylem odręcznym, czy nie, wraz z oceną ufności. Ta funkcja jest obsługiwana tylko dla języków łacińskich.
 - **Udoskonalenia dotyczące jakości** — ulepszenia wyodrębniania, w tym ulepszenia wyodrębniania z jednej cyfry.
-- **Nowa funkcja try-it w narzędziu do tworzenia etykiet z przykładowym aparatem rozpoznawania formularzy** — możliwość wypróbowania wstępnie utworzonych modeli faktur, paragonów i kart służbowych oraz interfejsu API układu przy użyciu narzędzia do etykietowania przykładowego aparatu rozpoznawania formularzy. Zobacz, w jaki sposób dane będą wyodrębniane bez pisania kodu.
+- **Nowa funkcja try-The-out w narzędziu do rozpoznawania i etykietowania** aplikacji, która umożliwia wypróbowanie wstępnie skompilowanych modeli faktur, paragonów i kart służbowych oraz interfejsu API układu przy użyciu narzędzia do etykietowania przykładowego aparatu rozpoznawania formularzy. Zobacz, w jaki sposób dane będą wyodrębniane bez pisania kodu.
 
   > [Wypróbuj narzędzie przykładowe aparat rozpoznawania formularzy](https://fott-preview.azurewebsites.net/)
 
   ![Przykład FOTT](./media/ui-preview.jpg)
+  
+- **Pętla opinii** — podczas analizowania plików za pomocą przykładowego narzędzia do etykietowania można teraz również dodać je do zestawu szkoleniowego i adujst poszukiwaniu w razie potrzeby i pouczenie się, aby poprawić model.
+- **AutoLabel Documets** -Automitcally etykiety dodatkowe dokumenty oparte na poprzednich dokumentach oznaczonych w projekcie. 
 
 ## <a name="august-2020"></a>Sierpień 2020 r.
 
@@ -205,6 +208,6 @@ Odpowiedzi JSON dla wszystkich wywołań interfejsu API mają nowe formaty. Niek
 
 Ukończ [Przewodnik Szybki Start dla biblioteki klienta](quickstarts/client-library.md) , aby rozpocząć pisanie aplikacji przetwarzania formularzy przy użyciu aparatu rozpoznawania formularzy w wybranym języku.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Co to jest rozpoznawanie formularzy?](./overview.md)

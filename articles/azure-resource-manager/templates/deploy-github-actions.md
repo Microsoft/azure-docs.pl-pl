@@ -4,12 +4,12 @@ description: Opisuje sposób wdrażania szablonów Azure Resource Manager przy u
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: adb0b9d9a7da19c45904a5d222573e1880915b12
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3dcb246956aae274f17cf938ee3d406562b22941
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841686"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95905263"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Wdrażanie szablonów Azure Resource Manager przy użyciu akcji GitHub
 
@@ -112,7 +112,7 @@ Plik przepływu pracy musi być przechowywany w folderze **. GitHub/** Workflows
         steps:
 
           # Checkout code
-        - uses: actions/checkout@master
+        - uses: actions/checkout@main
 
           # Log into Azure
         - uses: azure/login@v1
@@ -137,7 +137,7 @@ Plik przepływu pracy musi być przechowywany w folderze **. GitHub/** Workflows
     Pierwsza sekcja pliku przepływu pracy zawiera:
 
     - **name**: Nazwa przepływu pracy.
-    - **włączone**: Nazwa zdarzeń usługi GitHub, które wyzwalają przepływ pracy. Przepływ pracy jest wyzwalany w przypadku wystąpienia zdarzenia push w gałęzi głównej, który modyfikuje co najmniej jeden z dwóch określonych plików. Te dwa pliki to plik przepływu pracy i plik szablonu.
+    - **włączone**: Nazwa zdarzeń usługi GitHub, które wyzwalają przepływ pracy. Przepływ pracy jest wyzwalany w przypadku wystąpienia zdarzenia push w głównej gałęzi, która modyfikuje co najmniej jeden z dwóch określonych plików. Te dwa pliki to plik przepływu pracy i plik szablonu.
 
 1. Wybierz pozycję **Start commit** (Rozpocznij zatwierdzanie).
 1. Wybierz pozycję **Zatwierdź bezpośrednio w gałęzi głównej**.
@@ -152,7 +152,6 @@ Ponieważ przepływ pracy jest skonfigurowany do wyzwalania przez plik przepływ
 1. Wybierz pozycję **Uruchom wdrożenie usługi ARM** z menu, aby zweryfikować wdrożenie.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
-
 Jeśli grupa zasobów i repozytorium nie są już potrzebne, Oczyść wdrożone zasoby, usuwając grupę zasobów i repozytorium GitHub. 
 
 ## <a name="next-steps"></a>Następne kroki
