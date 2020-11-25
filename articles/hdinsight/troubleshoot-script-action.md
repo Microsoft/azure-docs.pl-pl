@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: ef9322c17a20ab5bfcf348649a1272dd4f301c5c
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93284471"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000678"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Rozwiązywanie problemów z akcjami skryptu w usłudze Azure HDInsight
 
@@ -45,13 +45,13 @@ Jeśli utworzenie klastra zakończy się niepowodzeniem z powodu błędu skryptu
 
     ![Dzienniki akcji skryptu](./media/troubleshoot-script-action/script-action-logs-in-storage.png)
 
-    W tym katalogu dzienniki są zorganizowane osobno dla węzła **węzła głównego** , **Node-Worker** i **dozorcy**. Zobacz poniższe przykłady:
+    W tym katalogu dzienniki są zorganizowane osobno dla węzła **węzła głównego**, **Node-Worker** i **dozorcy**. Zobacz poniższe przykłady:
 
-    * **Węzła głównego** : `<ACTIVE-HEADNODE-NAME>.cloudapp.net`
+    * **Węzła głównego**: `<ACTIVE-HEADNODE-NAME>.cloudapp.net`
 
-    * **Węzeł procesu roboczego** : `<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
+    * **Węzeł procesu roboczego**: `<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
 
-    * **Węzeł dozorcy** : `<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
+    * **Węzeł dozorcy**: `<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
 
 * Wszystkie **stdout** i **stderr** odpowiedniego hosta są przekazywane do konta magazynu. Istnieje jedno **wyjście- \* . txt** i **Błędy- \* . txt** dla każdej akcji skryptu. Plik **Output-*. txt** zawiera informacje o identyfikatorze URI skryptu, który został uruchomiony na hoście. Poniżej przedstawiono przykład tych informacji:
 
@@ -59,7 +59,7 @@ Jeśli utworzenie klastra zakończy się niepowodzeniem z powodu błędu skryptu
     'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
     ```
 
-* Istnieje możliwość wielokrotnego utworzenia klastra akcji skryptu o tej samej nazwie. W takim przypadku można odróżnić odpowiednie dzienniki na podstawie nazwy folderu **daty** . Na przykład struktura folderów dla klastra, obiekt **webcluster** , utworzony w różnych datach, wygląda podobnie jak w przypadku następujących wpisów dziennika:
+* Istnieje możliwość wielokrotnego utworzenia klastra akcji skryptu o tej samej nazwie. W takim przypadku można odróżnić odpowiednie dzienniki na podstawie nazwy folderu **daty** . Na przykład struktura folderów dla klastra, obiekt **webcluster**, utworzony w różnych datach, wygląda podobnie jak w przypadku następujących wpisów dziennika:
 
     `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-04` `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-05`
 

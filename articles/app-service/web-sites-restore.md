@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
 ms.openlocfilehash: c1b0ce62905424032c2100a1a032fa43ba97578f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87084861"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999403"
 ---
 # <a name="restore-an-app-in-azure"></a>Przywracanie aplikacji na platformie Azure
 W tym artykule pokazano, jak przywrócić aplikację w [Azure App Service](../app-service/overview.md) , której kopię zapasową utworzono wcześniej (zobacz [Tworzenie kopii zapasowej aplikacji na platformie Azure](manage-backup.md)). Możesz przywrócić swoją aplikację ze swoimi połączonymi bazami danych na żądanie do poprzedniego stanu lub utworzyć nową aplikację na podstawie kopii zapasowych oryginalnej aplikacji. Azure App Service obsługuje następujące bazy danych na potrzeby tworzenia kopii zapasowych i przywracania:
@@ -39,7 +39,7 @@ Przywracanie z kopii zapasowych jest dostępne dla aplikacji działających w wa
     ![Zrzut ekranu pokazujący, gdzie należy określić miejsce docelowe przywracania aplikacji.](./media/web-sites-restore/022ChooseDestination1.png)
    
    > [!WARNING]
-   > W przypadku wybrania opcji **Zastąp**wszystkie istniejące dane w bieżącej aplikacji zostaną wymazane i zastąpione. Przed kliknięciem przycisku **OK**upewnij się, że jest dokładnie to, co chcesz zrobić.
+   > W przypadku wybrania opcji **Zastąp** wszystkie istniejące dane w bieżącej aplikacji zostaną wymazane i zastąpione. Przed kliknięciem przycisku **OK** upewnij się, że jest dokładnie to, co chcesz zrobić.
    > 
    > 
    

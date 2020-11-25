@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 tags: connectors
 ms.openlocfilehash: f4cad2b658547d56d00efdd5e1496110f8e4a5e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284017"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999585"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Tworzenie i monitorowanie plików FTP oraz zarządzanie nimi za pomocą usługi Azure Logic Apps
 
@@ -133,7 +133,7 @@ Akcja **Pobierz metadane pliku** pobiera właściwości pliku znajdującego się
 
    ![Utwórz połączenie z serwerem FTP](./media/connectors-create-api-ftp/create-ftp-connection-action.png)
 
-1. Gdy zostanie wyświetlona Akcja **Pobierz metadane pliku** , kliknij wewnątrz pola **plik** , aby wyświetlić listę zawartości dynamicznej. Teraz można wybrać właściwości danych wyjściowych z poprzednich kroków. Z listy zawartość dynamiczna w obszarze **Pobieranie metadanych pliku**wybierz właściwość **identyfikatora plików** , która odwołuje się do kolekcji, w której plik został dodany lub zaktualizowany.
+1. Gdy zostanie wyświetlona Akcja **Pobierz metadane pliku** , kliknij wewnątrz pola **plik** , aby wyświetlić listę zawartości dynamicznej. Teraz można wybrać właściwości danych wyjściowych z poprzednich kroków. Z listy zawartość dynamiczna w obszarze **Pobieranie metadanych pliku** wybierz właściwość **identyfikatora plików** , która odwołuje się do kolekcji, w której plik został dodany lub zaktualizowany.
 
    ![Znajdź i wybierz właściwość "Lista identyfikatorów plików"](./media/connectors-create-api-ftp/select-list-of-files-id-output.png)
 
@@ -145,7 +145,7 @@ Akcja **Pobierz metadane pliku** pobiera właściwości pliku znajdującego się
 
    ![Znajdź i wybierz akcję "Pobierz zawartość pliku"](./media/connectors-create-api-ftp/select-get-file-content-ftp-action.png)
 
-1. Gdy zostanie wyświetlona Akcja **Pobierz zawartość pliku** , kliknij wewnątrz pola **plik** , aby wyświetlić listę zawartości dynamicznej. Teraz można wybrać właściwości danych wyjściowych z poprzednich kroków. Z listy zawartość dynamiczna w obszarze **Pobierz metadane pliku**wybierz właściwość **identyfikatora** , która odwołuje się do pliku, który został dodany lub zaktualizowany.
+1. Gdy zostanie wyświetlona Akcja **Pobierz zawartość pliku** , kliknij wewnątrz pola **plik** , aby wyświetlić listę zawartości dynamicznej. Teraz można wybrać właściwości danych wyjściowych z poprzednich kroków. Z listy zawartość dynamiczna w obszarze **Pobierz metadane pliku** wybierz właściwość **identyfikatora** , która odwołuje się do pliku, który został dodany lub zaktualizowany.
 
    ![Znajdź i wybierz właściwość "ID"](./media/connectors-create-api-ftp/get-file-content-id-output.png)
 

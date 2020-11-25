@@ -3,18 +3,21 @@ title: Samouczek — wdrażanie i Konfigurowanie programu VMware HCX
 description: Dowiedz się, jak wdrożyć i skonfigurować rozwiązanie VMware HCX dla chmury prywatnej rozwiązania Azure VMware.
 ms.topic: tutorial
 ms.date: 11/18/2020
-ms.openlocfilehash: 57bcf1bd3023e56f6a64b5d82d8f1fc90be9dd47
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: afb5c653ce7c4b4a453a4031c5664042357de6c0
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888746"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95999635"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Wdrażanie i konfigurowanie usługi VMware HCX
 
 W tym artykule opisano sposób wdrażania i konfigurowania lokalnego łącznika VMware HCX dla chmury prywatnej rozwiązania Azure VMware. Dzięki oprogramowaniu VMware HCX można migrować obciążenia oprogramowania VMware do rozwiązania VMware platformy Azure i innych połączonych lokacji za pomocą różnych typów migracji. Ponieważ rozwiązanie VMware platformy Azure wdraża i konfiguruje program HCX Cloud Manager, należy pobrać, aktywować i skonfigurować łącznik HCX w lokalnym centrum danych VMware.
 
 Łącznik programu VMware HCX Advanced został wstępnie wdrożony w rozwiązaniu VMware platformy Azure. Obsługuje ona maksymalnie trzy połączenia z lokacją (lokalnie do chmury lub w chmurze do chmury). Jeśli potrzebujesz więcej niż trzech połączeń witryny, Prześlij [żądanie pomocy technicznej](https://portal.azure.com/#create/Microsoft.Support) , aby włączyć dodatek [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) . Dodatek jest obecnie w wersji zapoznawczej. 
+
+>[!Note]
+>Mimo że maksymalne narzędzie konfiguracji programu VMware zawiera opis par witryn, które są maksymalnie 25 między łącznikiem Premium a programem Cloud Manager, Licencjonowanie ponownie ogranicza tę wartość do 3 w przypadku wersji Advanced i 10 dla przedsiębiorstw.
 
 >[!NOTE]
 >Program VMware HCX Enterprise jest dostępny w ramach rozwiązania Azure VMware jako usługi w wersji zapoznawczej. Jest ona bezpłatna i podlega postanowieniom dotyczącym usługi w wersji zapoznawczej. Po ogólnym udostępnieniu usługi VMware HCX Enterprise uzyskasz 30-dniową informację o tym, że opłaty zostaną przełączone. Będziesz również mieć możliwość wyłączenia lub rezygnacji z usługi. Nie ma żadnej prostej ścieżki obniżenia poziomu oprogramowania VMware HCX Enterprise do programu VMware HCX Advanced. W przypadku podjęcia decyzji o obniżeniu poziomu należy przeprowadzić ponowne wdrożenie, co potrwa przestoje.
@@ -33,7 +36,7 @@ Następnie przeprowadzimy przez wszystkie niezbędne procedury, aby:
 
 Po zakończeniu postępuj zgodnie z zalecanymi następnymi krokami na końcu tego artykułu.  
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Podczas przygotowywania wdrożenia zalecamy przejrzenie następującej dokumentacji programu VMware:
 

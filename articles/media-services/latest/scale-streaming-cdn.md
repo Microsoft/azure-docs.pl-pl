@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 6bdf6015ca5633c77280111a55055a7394cee5bd
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057658"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001375"
 ---
 # <a name="stream-content-with-cdn-integration"></a>Przesyłanie strumieniowe zawartości z integracją z usługą CDN
 
@@ -32,7 +32,7 @@ Popularna zawartość będzie obsługiwana bezpośrednio z pamięci podręcznej 
 Należy również wziąć pod uwagę sposób działania adaptacyjnego przesyłania strumieniowego. Każdy pojedynczy fragment wideo jest buforowany jako jego własny obiekt. Na przykład załóżmy, że po raz pierwszy oglądasz film wideo. Jeśli podgląd pominie około zaledwie kilku sekund, a tylko fragmenty wideo skojarzone z tym, co ktoś ogląda w pamięci podręcznej w usłudze CDN. Dzięki adaptacyjnemu przesyłaniu strumieniowym zazwyczaj masz od 5 do 7 różnych szybkości transmisji wideo. Jeśli jedna osoba ogląda jedną szybkość transmisji bitów, a inna osoba ogląda inną szybkość transmisji bitów, to każda z nich jest buforowana osobno w sieci CDN. Nawet jeśli dwie osoby oglądają tę samą szybkość transmisji bitów, mogą one być przesyłane strumieniowo za pośrednictwem różnych protokołów. Każdy protokół (HLS, MPEG-KRESKa, Smooth Streaming) jest buforowany osobno. Dlatego każda szybkość transmisji bitów i protokół są buforowane oddzielnie, a tylko te fragmenty wideo, które zostały żądane, są buforowane.
 
 Z wyjątkiem środowiska testowego zalecamy włączenie usługi CDN dla punktów końcowych przesyłania strumieniowego w warstwach Standardowa i Premium. Każdy typ punktu końcowego przesyłania strumieniowego ma inny obsługiwany limit przepływności.
-Trudno jest precyzyjnie obliczyć maksymalną liczbę współbieżnych strumieni obsługiwanych przez punkt końcowy przesyłania strumieniowego, ponieważ istnieją różne czynniki, które należy wziąć pod uwagę. Należą do nich:
+Trudno jest precyzyjnie obliczyć maksymalną liczbę współbieżnych strumieni obsługiwanych przez punkt końcowy przesyłania strumieniowego, ponieważ istnieją różne czynniki, które należy wziąć pod uwagę. Są one następujące:
 
 - Maksymalna szybkość transmisji bitów użyta na potrzeby przesyłania strumieniowego
 - Zachowanie przed buforowaniem i przełączeniem odtwarzacza. Gracze próbują połączyć segmenty ze źródła i wykorzystać szybkość ładowania do obliczenia przełączania z adaptacyjną szybkością transmisji bitów. Jeśli punkt końcowy przesyłania strumieniowego zostanie zbliżony do nasycenia, czasy odpowiedzi mogą się różnić, a gracze zaczynają przełączać się do niższej jakości. Ponieważ zmniejsza to obciążenie odtwarzaczy punktów końcowych przesyłania strumieniowego, można skalować z powrotem do wyższej jakości, tworząc niepożądane wyzwalacze.
@@ -40,7 +40,7 @@ Ogólnie można bezpiecznie oszacować maksymalne współbieżne strumienie, prz
 
 W tym temacie omówiono Włączanie integracji z siecią [CDN](#enable-azure-cdn-integration). Opisano w nim również wstępne pobieranie (aktywne buforowanie) i koncepcję z [wyprzedzeniem](#origin-assist-cdn-prefetch) dotyczącej usługi CDN.
 
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 - [Punkt końcowy przesyłania strumieniowego](streaming-endpoint-concept.md) `hostname` i adres URL przesyłania strumieniowego pozostają takie same niezależnie od tego, czy jest włączona sieć CDN.
 - Jeśli potrzebujesz możliwości testowania zawartości z użyciem usługi CDN lub bez niej, Utwórz inny punkt końcowy przesyłania strumieniowego, który nie jest włączony w sieci CDN.

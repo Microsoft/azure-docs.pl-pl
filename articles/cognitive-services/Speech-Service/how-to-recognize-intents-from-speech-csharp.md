@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1138a970bf7c52182f13d0fd14d0178a2d0cfeba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93a3adf00203e317be912e3e72de7a3f7ca666c6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88918795"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001108"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Jak rozpoznać intencje z mowy przy użyciu zestawu Speech SDK dla języka C #
 
@@ -55,7 +55,7 @@ LUIS używa trzech rodzajów kluczy:
 | Starter (początkowy)   | Umożliwia testowanie aplikacji LUIS przy użyciu tylko tekstu   |
 | Punkt końcowy  | Autoryzuje dostęp do określonej aplikacji LUIS            |
 
-W tym przewodniku potrzebny jest typ klucza punktu końcowego. W tym przewodniku użyto przykładowej aplikacji LUIS Automation, którą można utworzyć, korzystając z przewodnika Szybki Start dla [aplikacji do automatyzacji domowej](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) . Jeśli utworzono własną aplikację LUIS, można jej użyć zamiast niej.
+W tym przewodniku potrzebny jest typ klucza punktu końcowego. W tym przewodniku użyto przykładowej aplikacji LUIS Automation, którą można utworzyć, korzystając z przewodnika Szybki Start dla [aplikacji do automatyzacji domowej](../luis/luis-get-started-create-app.md) . Jeśli utworzono własną aplikację LUIS, można jej użyć zamiast niej.
 
 Gdy tworzysz aplikację LUIS, LUIS automatycznie generuje klucz początkowy, aby można było przetestować aplikację przy użyciu zapytań tekstowych. Ten klucz nie umożliwia integracji usługi mowy i nie współpracuje z tym przewodnikiem. Utwórz zasób LUIS na pulpicie nawigacyjnym platformy Azure i przypisz go do aplikacji LUIS. W tym przewodniku możesz użyć bezpłatnej warstwy subskrypcji.
 
@@ -68,9 +68,9 @@ Na stronie **Ustawienia kluczy i punktu końcowego** :
 1. Przewiń w dół do sekcji **zasoby i klucze** , a następnie wybierz pozycję **Przypisz zasób**.
 1. W oknie dialogowym **przypisywanie klucza do aplikacji** wprowadź następujące zmiany:
 
-   - W obszarze **dzierżawca**wybierz pozycję **Microsoft**.
-   - W obszarze **Nazwa subskrypcji**wybierz subskrypcję platformy Azure zawierającą zasób Luis, którego chcesz użyć.
-   - W obszarze **klucz**wybierz zasób Luis, który ma być używany z aplikacją.
+   - W obszarze **dzierżawca** wybierz pozycję **Microsoft**.
+   - W obszarze **Nazwa subskrypcji** wybierz subskrypcję platformy Azure zawierającą zasób Luis, którego chcesz użyć.
+   - W obszarze **klucz** wybierz zasób Luis, który ma być używany z aplikacją.
 
    Za chwilę w tabeli w dolnej części strony zostanie wyświetlona nowa subskrypcja.
 
@@ -86,7 +86,7 @@ Na stronie **Ustawienia kluczy i punktu końcowego** :
 
 Następnie Dodaj kod do projektu.
 
-1. W **Eksplorator rozwiązań**otwórz plik **program.cs**.
+1. W **Eksplorator rozwiązań** otwórz plik **program.cs**.
 
 1. Zastąp blok `using` instrukcji na początku pliku następującym deklaracją:
 
@@ -201,4 +201,4 @@ Poszukaj kodu z tego artykułu w folderze **Samples/CSharp/sharedcontent/Console
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Szybki Start: Rozpoznawanie mowy z mikrofonu](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)
+> [Szybki Start: Rozpoznawanie mowy z mikrofonu](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore)

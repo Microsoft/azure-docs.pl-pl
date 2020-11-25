@@ -8,11 +8,11 @@ ms.date: 04/18/2020
 ms.author: lcozzens
 ms.custom: devx-track-java
 ms.openlocfilehash: 64ccc9c91d9ead567035b1f7f35e0a0088b6200b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124190"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001484"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Szybki Start: Dodawanie flag funkcji do aplikacji z rozruchem wiosny
 
@@ -45,12 +45,12 @@ Użyj [sprężyny Initializr](https://start.spring.io/) , aby utworzyć nowy pro
 
 1. Określ następujące opcje:
 
-   * Wygeneruj projekt **Maven** z użyciem języka **Java** .
+   * Wygeneruj projekt **Maven** z użyciem języka **Java**.
    * Określ wersję **rozruchu sprężynowego** , która jest równa lub większa niż 2,0.
    * Określ nazwy **Grupa** i **Artefakt** dla swojej aplikacji.  W tym artykule są stosowane `com.example` i `demo` .
    * Dodaj zależność **sieci Web sprężyny** .
 
-1. Po określeniu poprzednich opcji wybierz pozycję **Generuj projekt** . Po wyświetleniu monitu Pobierz projekt na komputer lokalny.
+1. Po określeniu poprzednich opcji wybierz pozycję **Generuj projekt**. Po wyświetleniu monitu Pobierz projekt na komputer lokalny.
 
 ## <a name="add-feature-management"></a>Dodawanie funkcji zarządzania funkcjami
 
@@ -242,7 +242,7 @@ Użyj [sprężyny Initializr](https://start.spring.io/) , aby utworzyć nowy pro
 
     ```
 
-1. Utwórz nowy folder o nazwie CSS w obszarze `static` i wewnątrz niego jako nowy plik CSS o nazwie *Main. css* .
+1. Utwórz nowy folder o nazwie CSS w obszarze `static` i wewnątrz niego jako nowy plik CSS o nazwie *Main. css*.
 
     ```css
     html {
@@ -288,7 +288,7 @@ Użyj [sprężyny Initializr](https://start.spring.io/) , aby utworzyć nowy pro
 
     ![Zrzut ekranu przedstawia okno przeglądarki z komunikatem powitalnym.](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 
-1. W portalu konfiguracji aplikacji wybierz pozycję **Menedżer funkcji** , a następnie Zmień stan klucza **beta** **na:**
+1. W portalu konfiguracji aplikacji wybierz pozycję **Menedżer funkcji**, a następnie Zmień stan klucza **beta** **na:**
 
     | Klucz | Stan |
     |---|---|

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
-ms.openlocfilehash: 17b070fea422268ec12e0ccd3357ae0549a78916
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: e803fa393d85f7f0b4849aed96356b7a4e77d83f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566269"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96000134"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Usługa Language Understanding — często zadawane pytania
 
@@ -108,7 +108,7 @@ Rozwiązania obejmują:
 
 * Możesz [zwiększyć swoją warstwę cenową](luis-how-to-azure-subscription.md#change-the-pricing-tier), jeśli nie masz najwyższej warstwy.
 * Jeśli użycie przekroczy najwyższą warstwę cenową, należy dodać więcej Language Understanding zasobów przy użyciu modułu równoważenia obciążenia przed nimi. [Language Understanding kontener](luis-container-howto.md) z Kubernetes lub Docker Compose może Ci pomóc.
-* Po otrzymaniu tego kodu stanu można posłużyć do żądania aplikacji klienckich przy użyciu [zasad ponawiania](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) .
+* Po otrzymaniu tego kodu stanu można posłużyć do żądania aplikacji klienckich przy użyciu [zasad ponawiania](/azure/architecture/best-practices/transient-faults#general-guidelines) .
 
 ### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>Zapytanie o punkt końcowy zwróciło nieoczekiwane wyniki. Co mam zrobić?
 
@@ -278,7 +278,7 @@ Jeśli używasz Azure Bot Service, a problem polega na tym, że **test w usłudz
 1. Otwórz Edytor kodu online.
 1. Na górnym, niebieskim pasku nawigacyjnym wybierz nazwę bot (drugi element w prawo).
 1. Z listy rozwijanej wyniki wybierz pozycję **Otwórz konsolę kudu**.
-1. Wybierz pozycję **LogFiles** , a następnie wybierz pozycję **aplikacja**. Przejrzyj wszystkie pliki dziennika. Jeśli błąd nie jest widoczny w folderze aplikacji, przejrzyj wszystkie pliki dziennika w **pliku dziennika**.
+1. Wybierz pozycję **LogFiles**, a następnie wybierz pozycję **aplikacja**. Przejrzyj wszystkie pliki dziennika. Jeśli błąd nie jest widoczny w folderze aplikacji, przejrzyj wszystkie pliki dziennika w **pliku dziennika**.
 1. Pamiętaj, aby ponownie skompilować projekt, jeśli używasz skompilowanego języka, takiego jak C#.
 
 > [!Tip]
@@ -286,7 +286,7 @@ Jeśli używasz Azure Bot Service, a problem polega na tym, że **test w usłudz
 
 #### <a name="resolve-issue-while-debugging-on-local-machine-with-bot-framework"></a>Rozwiąż problem podczas debugowania na maszynie lokalnej przy użyciu platformy bot Framework.
 
-Aby dowiedzieć się więcej na temat debugowania lokalnego bot, zobacz [debugowanie a bot](https://docs.microsoft.com/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
+Aby dowiedzieć się więcej na temat debugowania lokalnego bot, zobacz [debugowanie a bot](/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
 
 ## <a name="integrating-luis"></a>Integrowanie LUIS
 
@@ -296,7 +296,7 @@ Jeśli wybierzesz szablon LUIS, a następnie wybierzesz przycisk **Wybierz** w o
 ![LUIS szablon aplikacji sieci Web Bot region](./media/luis-faq/web-app-bot-location.png)
 
 ### <a name="what-luis-regions-support-bot-framework-speech-priming"></a>Jakie regiony LUIS obsługują bot Framework napełnianiu Speech?
-Funkcja [Speech napełnianiu](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming) jest obsługiwana tylko w przypadku aplikacji Luis w wystąpieniu centralnym (US).
+Funkcja [Speech napełnianiu](/bot-framework/bot-service-manage-speech-priming) jest obsługiwana tylko w przypadku aplikacji Luis w wystąpieniu centralnym (US).
 
 ## <a name="api-programming-strategies"></a>Strategie programowania interfejsu API
 
@@ -334,4 +334,4 @@ Filmy wideo:
 
 Aby dowiedzieć się więcej na temat LUIS, zobacz następujące zasoby:
 * [Pytania Stack Overflow oznaczone za pomocą LUIS](https://stackoverflow.com/questions/tagged/luis)
-* [Microsoft Q&stronę pytania dla usług MSDN Language Understanding Intelligent Services (LUIS)](https://docs.microsoft.com/answers/topics/azure-language-understanding.html)
+* [Microsoft Q&stronę pytania dla usług MSDN Language Understanding Intelligent Services (LUIS)](/answers/topics/azure-language-understanding.html)

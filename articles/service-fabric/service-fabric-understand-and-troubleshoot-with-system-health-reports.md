@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
 ms.openlocfilehash: 8e60ac5065c2f9543a641daf4f62299c00c61fc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260180"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000661"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Używanie raportów kondycji systemu do rozwiązywania problemów
 Składniki usługi Azure Service Fabric udostępniają raporty kondycji systemu na wszystkich jednostkach w klastrze, które są od razu do końca. [Magazyn kondycji](service-fabric-health-introduction.md#health-store) tworzy i usuwa jednostki na podstawie raportów systemowych. Organizuje także je w hierarchii, która przechwytuje interakcje jednostek.
@@ -116,7 +116,7 @@ HealthEvents          :
 
 
 ### <a name="certificate-expiration"></a>Wygaśnięcie certyfikatu
-**System. FabricNode** zgłasza ostrzeżenie, gdy certyfikaty używane przez węzeł są bliskie wygaśnięcia. Istnieją trzy certyfikaty na węzeł: **Certificate_cluster**, **Certificate_server**i **Certificate_default_client**. Gdy okres ważności wynosi co najmniej dwa tygodnie, stan kondycji raportu jest prawidłowy. Gdy wygaśnięcie ma wartość w ciągu dwóch tygodni, typ raportu jest ostrzeżeniem. Czas wygaśnięcia tych zdarzeń jest nieskończony i jest usuwany, gdy węzeł opuszcza klaster.
+**System. FabricNode** zgłasza ostrzeżenie, gdy certyfikaty używane przez węzeł są bliskie wygaśnięcia. Istnieją trzy certyfikaty na węzeł: **Certificate_cluster**, **Certificate_server** i **Certificate_default_client**. Gdy okres ważności wynosi co najmniej dwa tygodnie, stan kondycji raportu jest prawidłowy. Gdy wygaśnięcie ma wartość w ciągu dwóch tygodni, typ raportu jest ostrzeżeniem. Czas wygaśnięcia tych zdarzeń jest nieskończony i jest usuwany, gdy węzeł opuszcza klaster.
 
 * **SourceId**: System. FabricNode
 * **Właściwość**: rozpoczyna się od **certyfikatu** i zawiera więcej informacji na temat typu certyfikatu.
@@ -139,7 +139,7 @@ System. host zgłasza ostrzeżenie, jeśli zdefiniowane pojemności węzłów w 
 ## <a name="application-system-health-reports"></a>Raporty kondycji systemu aplikacji
 System.CM, który reprezentuje usługę Menedżera klastra, jest urzędem zarządzającym informacjami o aplikacji.
 
-### <a name="state"></a>State
+### <a name="state"></a>Stan
 System.CM raporty jako poprawne po utworzeniu lub zaktualizowaniu aplikacji. Informuje magazyn kondycji o usunięciu aplikacji, dzięki czemu można go usunąć ze sklepu.
 
 * **SourceId**: System.cm
@@ -172,7 +172,7 @@ HealthEvents                    :
 ## <a name="service-system-health-reports"></a>Raporty kondycji systemu usługi
 System.FM, który reprezentuje usługę Menedżer trybu failover, jest urzędem zarządzającym informacjami o usługach.
 
-### <a name="state"></a>State
+### <a name="state"></a>Stan
 System.FM raporty jako poprawne, gdy usługa została utworzona. Usuwa jednostkę z magazynu kondycji, gdy usługa zostanie usunięta.
 
 * **SourceId**: System.fm
@@ -214,7 +214,7 @@ HealthEvents          :
 ## <a name="partition-system-health-reports"></a>Partycjonowanie raportów kondycji systemu
 System.FM, który reprezentuje usługę Menedżer trybu failover, jest urzędem zarządzającym informacjami o partycjach usługi.
 
-### <a name="state"></a>State
+### <a name="state"></a>Stan
 System.FM raporty jako poprawne, gdy partycja została utworzona i jest w dobrej kondycji. Usuwa jednostkę z magazynu kondycji, gdy partycja zostanie usunięta.
 
 Jeśli partycja jest mniejsza niż minimalna liczba replik, zgłosi błąd. Jeśli partycja nie jest mniejsza niż minimalna liczba replik, ale znajduje się poniżej docelowej liczby replik, zgłosi ostrzeżenie. Jeśli partycja jest w utracie kworum, System.FM zgłasza błąd.
@@ -391,7 +391,7 @@ W przypadku, podobnie jak w przypadku przykładu, należy wykonać dalsze badani
 ## <a name="replica-system-health-reports"></a>Raporty kondycji systemu repliki
 **System. RA**, który reprezentuje składnik Agent rekonfiguracji, jest urzędem dla stanu repliki.
 
-### <a name="state"></a>State
+### <a name="state"></a>Stan
 Raporty system. RA są prawidłowe, gdy replika została utworzona.
 
 * **SourceId**: System. RA
@@ -425,7 +425,7 @@ Ta właściwość jest używana do wskazania ostrzeżeń lub błędów podczas p
 Te ostrzeżenia dotyczące kondycji są wywoływane po ponowieniu próby wykonania akcji lokalnie przez wiele razy (w zależności od zasad). Service Fabric ponawianie próby wykonania akcji do maksymalnej wartości progowej. Po osiągnięciu maksymalnego progu może spróbować rozwiązać problem. Ta próba może spowodować wyczyszczenie tych ostrzeżeń, ponieważ zawiera ona akcję w tym węźle. Na przykład jeśli nie można otworzyć repliki w węźle, Service Fabric zgłasza ostrzeżenie dotyczące kondycji. Jeśli nie można otworzyć repliki w dalszym ciągu, Service Fabric działa do samonaprawiania. Ta akcja może wiązać się z próbą wykonania tej samej operacji w innym węźle. Spowoduje to wyczyszczenie ostrzeżenia wygenerowanego przez tę replikę. 
 
 * **SourceId**: System. RA
-* **Właściwość**: **ReplicaOpenStatus**, **ReplicaCloseStatus**i **ReplicaChangeRoleStatus**.
+* **Właściwość**: **ReplicaOpenStatus**, **ReplicaCloseStatus** i **ReplicaChangeRoleStatus**.
 * **Następne kroki**: Zbadaj kod usługi lub Zrzuty awaryjne w celu zidentyfikowania przyczyny niepowodzenia operacji.
 
 W poniższym przykładzie przedstawiono kondycję repliki, która jest wyrzucana `TargetInvocationException` z metody Open. Opis zawiera punkt awarii, **IStatefulServiceReplica. Open**, typ wyjątku **TargetInvocationException —** i ślad stosu.

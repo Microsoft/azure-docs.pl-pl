@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/24/2018
 ms.openlocfilehash: 255e4085e24ee7520c603f8a00b3e46c23367a77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442007"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000831"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Kopiowanie przyrostowe z bazy danych z tabelą formantów
 
@@ -42,7 +42,7 @@ Szablon zawiera cztery działania:
 
 Szablon definiuje następujące parametry:
 - *Data_Source_Table_Name* to tabela w źródłowej bazie danych, z której mają zostać załadowane dane.
-- *Data_Source_WaterMarkColumn* to nazwa kolumny w tabeli źródłowej, która jest używana do identyfikowania nowych lub zaktualizowanych wierszy. Typem tej kolumny jest zwykle *DateTime*, *int*lub podobny.
+- *Data_Source_WaterMarkColumn* to nazwa kolumny w tabeli źródłowej, która jest używana do identyfikowania nowych lub zaktualizowanych wierszy. Typem tej kolumny jest zwykle *DateTime*, *int* lub podobny.
 - *Data_Destination_Container* jest ścieżką katalogu głównego miejsca, w którym dane są kopiowane do magazynu docelowego.
 - *Data_Destination_Directory* jest ścieżką katalogu w katalogu głównym miejsca, w którym dane są kopiowane do magazynu docelowego.
 - *Data_Destination_Table_Name* to miejsce, w którym dane są kopiowane do magazynu docelowego (ma zastosowanie w przypadku wybrania "usługa Azure Synapse Analytics (wcześniej SQL DW)" jako miejsca docelowego danych).
@@ -52,7 +52,7 @@ Szablon definiuje następujące parametry:
 
 ## <a name="how-to-use-this-solution-template"></a>Jak używać tego szablonu rozwiązania
 
-1. Zapoznaj się z tabelą źródłową, którą chcesz załadować, i zdefiniuj kolumnę High-limit, która może służyć do identyfikowania nowych lub zaktualizowanych wierszy. Typem tej kolumny może być *DateTime*, *int*lub podobny. Wartość tej kolumny zwiększa się w miarę dodawania nowych wierszy. Z poniższej przykładowej tabeli źródłowej (data_source_table) można użyć kolumny *LastModifytime* jako kolumny górnego limitu.
+1. Zapoznaj się z tabelą źródłową, którą chcesz załadować, i zdefiniuj kolumnę High-limit, która może służyć do identyfikowania nowych lub zaktualizowanych wierszy. Typem tej kolumny może być *DateTime*, *int* lub podobny. Wartość tej kolumny zwiększa się w miarę dodawania nowych wierszy. Z poniższej przykładowej tabeli źródłowej (data_source_table) można użyć kolumny *LastModifytime* jako kolumny górnego limitu.
 
     ```sql
             PersonID    Name    LastModifytime
@@ -110,11 +110,11 @@ Szablon definiuje następujące parametry:
   
     ![Przeglądanie potoku](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
 
-9. Wybierz **procedurę składowaną**. W obszarze **nazwa procedury składowanej**wybierz pozycję **[dbo]. [ update_watermark]**. Wybierz pozycję **Importuj parametr**, a następnie wybierz pozycję **Dodaj zawartość dynamiczną**.  
+9. Wybierz **procedurę składowaną**. W obszarze **nazwa procedury składowanej** wybierz pozycję **[dbo]. [ update_watermark]**. Wybierz pozycję **Importuj parametr**, a następnie wybierz pozycję **Dodaj zawartość dynamiczną**.  
 
     ![Ustaw działanie procedury składowanej](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png)  
 
-10. Napisz zawartość ** \@ {Activity ("LookupCurrentWaterMark"). Output. FirstRow. NewWatermarkValue}**, a następnie wybierz pozycję **Zakończ**.  
+10. Napisz zawartość **\@ {Activity ("LookupCurrentWaterMark"). Output. FirstRow. NewWatermarkValue}**, a następnie wybierz pozycję **Zakończ**.  
 
     ![Napisz zawartość dla parametrów procedury składowanej](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)       
      

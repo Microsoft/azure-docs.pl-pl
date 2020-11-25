@@ -6,11 +6,11 @@ ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.openlocfilehash: 2f1c703f2bd2e90e15c566b7e04e8a878c16f6de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91772825"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001273"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Uruchamianie elementów Runbook w hybrydowym procesie roboczym elementu Runbook
 
@@ -95,7 +95,7 @@ Aby określić konto Uruchom jako dla grupy hybrydowych procesów roboczych elem
 
 W ramach zautomatyzowanego procesu kompilacji na potrzeby wdrażania zasobów na platformie Azure może być konieczne uzyskanie dostępu do systemów lokalnych w celu obsługi zadania lub zestawu kroków w sekwencji wdrożenia. Aby zapewnić uwierzytelnianie na platformie Azure przy użyciu konta Uruchom jako, należy zainstalować certyfikat konta Uruchom jako.
 
-Następujący element Runbook programu PowerShell o nazwie **Export-RunAsCertificateToHybridWorker**eksportuje certyfikat Uruchom jako z konta Azure Automation. Element Runbook pobiera i importuje certyfikat do magazynu certyfikatów na komputerze lokalnym w hybrydowym procesie roboczym elementu Runbook, który jest podłączony do tego samego konta. Po zakończeniu tego kroku element Runbook sprawdzi, czy proces roboczy może pomyślnie uwierzytelnić się na platformie Azure przy użyciu konta Uruchom jako.
+Następujący element Runbook programu PowerShell o nazwie **Export-RunAsCertificateToHybridWorker** eksportuje certyfikat Uruchom jako z konta Azure Automation. Element Runbook pobiera i importuje certyfikat do magazynu certyfikatów na komputerze lokalnym w hybrydowym procesie roboczym elementu Runbook, który jest podłączony do tego samego konta. Po zakończeniu tego kroku element Runbook sprawdzi, czy proces roboczy może pomyślnie uwierzytelnić się na platformie Azure przy użyciu konta Uruchom jako.
 
 >[!NOTE]
 >Ten element Runbook programu PowerShell nie jest zaprojektowany ani przeznaczony do uruchamiania poza kontem usługi Automation jako skrypt na maszynie docelowej.
@@ -299,7 +299,7 @@ Po skonfigurowaniu weryfikacji podpisu użyj następującego polecenia GPG, aby 
 gpg –-clear-sign <runbook name>
 ```
 
-Podpisany element Runbook ma nazwę ** <runbook name> . asc**.
+Podpisany element Runbook ma nazwę **<runbook name> . asc**.
 
 Możesz teraz przekazać podpisany element Runbook do Azure Automation i wykonać go jak zwykłego elementu Runbook.
 
@@ -307,7 +307,7 @@ Możesz teraz przekazać podpisany element Runbook do Azure Automation i wykona�
 
 [Uruchom element Runbook w Azure Automation](start-runbooks.md) opisuje różne metody uruchamiania elementu Runbook. Uruchomienie elementu Runbook w hybrydowym procesie roboczym elementu Runbook powoduje użycie opcji **Uruchom na** , która umożliwia określenie nazwy grupy hybrydowych procesów roboczych elementu Runbook. Po określeniu grupy jeden z procesów roboczych w tej grupie pobiera i uruchamia element Runbook. Jeśli element Runbook nie określa tej opcji, Azure Automation uruchamia element Runbook w zwykły sposób.
 
-Po uruchomieniu elementu Runbook w Azure Portal zostanie wyświetlona opcja **Uruchom na** , dla której można wybrać **platformę Azure** lub **hybrydowy proces roboczy**. W przypadku wybrania opcji **hybrydowy proces roboczy**można wybrać grupę hybrydowych procesów roboczych elementu Runbook z listy rozwijanej.
+Po uruchomieniu elementu Runbook w Azure Portal zostanie wyświetlona opcja **Uruchom na** , dla której można wybrać **platformę Azure** lub **hybrydowy proces roboczy**. W przypadku wybrania opcji **hybrydowy proces roboczy** można wybrać grupę hybrydowych procesów roboczych elementu Runbook z listy rozwijanej.
 
 Podczas uruchamiania elementu Runbook przy użyciu programu PowerShell należy użyć `RunOn` parametru z poleceniem cmdlet [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook) . Poniższy przykład używa środowiska Windows PowerShell, aby uruchomić element Runbook o nazwie **test-Runbook** w grupie hybrydowych procesów roboczych elementu Runbook o nazwie Moja hybrydowa.
 

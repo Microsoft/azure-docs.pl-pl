@@ -11,11 +11,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4ecb5fef9c9b14bde72de29a45e29d7e16131bd1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321918"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001001"
 ---
 # <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Zadania dla pojedynczego współautora w procesie nauki danych zespołu
 
@@ -55,7 +55,7 @@ Aby sklonować repozytoria i zmodyfikować zawartość na komputerze lokalnym lu
 
 Aby lokalnie korzystać z repozytoriów i wypchnąć zmiany do współużytkowanego zespołu i repozytoriów projektu, należy najpierw skopiować lub *sklonować* repozytoria na komputerze lokalnym. 
 
-1. W usłudze Azure DevOps przejdź do strony podsumowania projektu zespołu przy *użyciu protokołu HTTPS \/ / \<server name> / \<organization name> / \<team name> :* , na przykład **https: \/ /dev.Azure.com/DataScienceUnit/myTeam**.
+1. W usłudze Azure DevOps przejdź do strony podsumowania projektu zespołu przy *użyciu protokołu HTTPS \/ / \<server name> / \<organization name> / \<team name> :*, na przykład **https: \/ /dev.Azure.com/DataScienceUnit/myTeam**.
    
 1. Wybierz pozycję **repozytoria** w lewym okienku nawigacji, a w górnej części strony wybierz repozytorium, które chcesz sklonować.
    

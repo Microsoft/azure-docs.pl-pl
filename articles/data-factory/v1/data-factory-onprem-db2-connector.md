@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: e5d2c6b0460c3a7566adb17601aceb57e57f4d0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74931784"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001069"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Przenoszenie danych z programu DB2 przy użyciu działania kopiowania Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -90,7 +90,7 @@ W poniższej tabeli wymieniono właściwości JSON, które są specyficzne dla p
 | **gatewayName** |Nazwa bramy, która ma być używana przez usługę Data Factory do łączenia się z lokalną bazą danych DB2. |Tak |
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
-Aby zapoznać się z listą sekcji i właściwości, które są dostępne do definiowania zestawów danych, zobacz artykuł [Tworzenie zestawów danych](data-factory-create-datasets.md) . Sekcje, takie jak **Struktura**, **dostępność**i **zasady** dla JSON zestawu danych, są podobne dla wszystkich typów zestawu danych (Azure SQL, Azure Blob Storage, Azure Table Storage itd.).
+Aby zapoznać się z listą sekcji i właściwości, które są dostępne do definiowania zestawów danych, zobacz artykuł [Tworzenie zestawów danych](data-factory-create-datasets.md) . Sekcje, takie jak **Struktura**, **dostępność** i **zasady** dla JSON zestawu danych, są podobne dla wszystkich typów zestawu danych (Azure SQL, Azure Blob Storage, Azure Table Storage itd.).
 
 Sekcja **typeProperties** jest inna dla każdego typu zestawu danych i zawiera informacje dotyczące lokalizacji danych w magazynie danych. Sekcja **typeProperties** dla zestawu danych typu **relacyjnego**, który zawiera zestaw danych DB2, ma następującą właściwość:
 
@@ -310,9 +310,9 @@ Następujące mapowania są używane, gdy działanie kopiowania konwertuje dane 
 | SmallInt |Int16 |
 | Liczba całkowita |Int32 |
 | BigInt |Int64 |
-| Rzeczywiste |Pojedynczy |
+| Rzeczywiste |Pojedyncze |
 | Double |Double |
-| Liczba zmiennoprzecinkowa |Double |
+| Float |Double |
 | Liczba dziesiętna |Liczba dziesiętna |
 | DecimalFloat |Liczba dziesiętna |
 | Numeryczne |Liczba dziesiętna |
@@ -336,9 +336,9 @@ Następujące mapowania są używane, gdy działanie kopiowania konwertuje dane 
 | SmallInt |Int16 |
 | Liczba całkowita |Int32 |
 | BigInt |Int64 |
-| Rzeczywiste |Pojedynczy |
+| Rzeczywiste |Pojedyncze |
 | Double |Double |
-| Liczba zmiennoprzecinkowa |Double |
+| Float |Double |
 | Liczba dziesiętna |Liczba dziesiętna |
 | DecimalFloat |Liczba dziesiętna |
 | Numeryczne |Liczba dziesiętna |

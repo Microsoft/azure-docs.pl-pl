@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 07a274bd4ac227b6260f7891b24dad0eacdfb4f7
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: a71c1a0df1a72e3831fa54a041539f62b38a0aca
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561525"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95999913"
 ---
 # <a name="create-luis-resources"></a>Tworzenie zasobów LUIS
 
@@ -29,8 +29,8 @@ LUIS umożliwia korzystanie z trzech typów zasobów platformy Azure i jednego z
 
 |Zasób|Przeznaczenie|Usługa poznawcze `kind`|Usługa poznawcze `type`|
 |--|--|--|--|
-|Tworzenie zasobu|Umożliwia tworzenie, uczenie, testowanie i publikowanie aplikacji oraz zarządzanie nimi. [Utwórz zasób tworzenia Luis](luis-how-to-azure-subscription.md#create-luis-resources-in-the-azure-portal) , jeśli zamierzasz tworzyć aplikacje Luis programowo lub w portalu Luis. Przed połączeniem zasobów tworzenia platformy Azure z aplikacją należy [przeprowadzić migrację konta usługi Luis](luis-migration-authoring.md#what-is-migration) . Uprawnienia do zasobu tworzenia można kontrolować, przypisując osobom [rolę współautor](#contributions-from-other-authors). <br><br> Dostępna jest jedna warstwa dla zasobu LUIS Authoring:<br> <ul> <li>**Bezpłatny zasób tworzenia F0** , który zapewnia 1 000 000 bezpłatnych transakcji tworzenia i 1 000 bezpłatne żądania punktów końcowych przewidywania testów. |`LUIS.Authoring`|`Cognitive Services`|
-|Zasób predykcyjny| Po opublikowaniu aplikacji LUIS Użyj zasobu predykcyjny/Key do wysyłania zapytań do żądań punktów końcowych przewidywania. Utwórz zasób przewidywania LUIS przed zażądaniem przez aplikację kliencką prognoz wykraczających poza żądania 1 000 dostarczone przez zasób tworzenia lub startu. <br><br> Dla zasobu przewidywania dostępne są dwie warstwy:<br><ul> <li> **Bezpłatny zasób predykcyjny F0** , który zapewnia 10 000 bezpłatnych żądań punktu końcowego przewidywania miesięcznie.<br> <li> **Standardowy zasób predykcyjny S0** , który jest warstwą płatną. [Dowiedz się więcej o cenach.](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
+|Tworzenie zasobu|Umożliwia tworzenie, uczenie, testowanie i publikowanie aplikacji oraz zarządzanie nimi. [Utwórz zasób tworzenia Luis](luis-how-to-azure-subscription.md#create-luis-resources-in-the-azure-portal) , jeśli zamierzasz tworzyć aplikacje Luis programowo lub w portalu Luis. Przed połączeniem zasobów tworzenia platformy Azure z aplikacją należy [przeprowadzić migrację konta usługi Luis](luis-migration-authoring.md#what-is-migration) . Uprawnienia do zasobu tworzenia można kontrolować, przypisując osobom [rolę współautor](#contributions-from-other-authors). <br><br> Dostępna jest jedna warstwa dla zasobu LUIS Authoring:<br> <ul> <li>**Bezpłatny zasób tworzenia F0**, który zapewnia 1 000 000 bezpłatnych transakcji tworzenia i 1 000 bezpłatne żądania punktów końcowych przewidywania testów. |`LUIS.Authoring`|`Cognitive Services`|
+|Zasób predykcyjny| Po opublikowaniu aplikacji LUIS Użyj zasobu predykcyjny/Key do wysyłania zapytań do żądań punktów końcowych przewidywania. Utwórz zasób przewidywania LUIS przed zażądaniem przez aplikację kliencką prognoz wykraczających poza żądania 1 000 dostarczone przez zasób tworzenia lub startu. <br><br> Dla zasobu przewidywania dostępne są dwie warstwy:<br><ul> <li> **Bezpłatny zasób predykcyjny F0**, który zapewnia 10 000 bezpłatnych żądań punktu końcowego przewidywania miesięcznie.<br> <li> **Standardowy zasób predykcyjny S0**, który jest warstwą płatną. [Dowiedz się więcej o cenach.](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
 |Zasób Starter/Wersja próbna|Umożliwia tworzenie, uczenie, testowanie i publikowanie aplikacji oraz zarządzanie nimi. Ten zasób jest tworzony domyślnie, jeśli wybierzesz opcję zasobów początkowych po pierwszym zalogowaniu się do LUIS. Klucz początkowy będzie ostatecznie przestarzały. Wszyscy użytkownicy LUIS będą musieli [migrować swoje konta](luis-migration-authoring.md#what-is-migration) i połączyć ich aplikacje Luis z zasobem tworzenia. W przeciwieństwie do zasobu tworzenia, ten zasób nie daje uprawnień do kontroli dostępu opartej na rolach platformy Azure. <br><br> Tak samo jak zasób tworzenia, zasób początkowy zapewnia 1 000 000 bezpłatnych transakcji tworzenia i 1 000 żądań punktów końcowych przewidywania bezpłatnych testów.|-|To nie jest zasób platformy Azure.|
 |[Cognitive Services klucz zasobu wielousługowego](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Żądania punktu końcowego przewidywania zapytań udostępniane w LUIS i innych obsługiwanych usługach poznawczych.|`CognitiveServices`|`Cognitive Services`|
 
@@ -118,7 +118,7 @@ Właściciel i wszyscy Współautorzy mają dostęp do tworzenia aplikacji.
 |Wersja importowana||
 |Tworzenie aplikacji jako publicznej|Gdy aplikacja jest publiczna, każda osoba, która ma klucz tworzenia lub punktu końcowego, może wysyłać zapytania do aplikacji.|
 |Modyfikuj model|
-|Opublikuj|
+|Publikowanie|
 |Zapoznaj się z punktem końcowym wyrażenia długości na potrzeby [aktywnego uczenia](luis-how-to-review-endpoint-utterances.md)|
 |Szkolenie|
 
@@ -176,7 +176,7 @@ Można kontrolować, kto może wyświetlać klucz punktu końcowego środowiska 
 
 ### <a name="create-resources-in-the-azure-cli"></a>Tworzenie zasobów w interfejsie wiersza polecenia platformy Azure
 
-Utwórz poszczególne zasoby przy użyciu [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) .
+Utwórz poszczególne zasoby przy użyciu [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) .
 
 Zasób `kind` :
 
@@ -214,7 +214,7 @@ Można przypisać zasób tworzenia dla jednej aplikacji lub dla wszystkich aplik
 
 1. Zaloguj się do [portalu Luis](https://www.luis.ai).
 1. W prawym górnym rogu wybierz swoje konto użytkownika, a następnie wybierz pozycję **Ustawienia**.
-1. Na stronie **Ustawienia użytkownika** wybierz pozycję **Dodaj zasób autorstwa** , a następnie wybierz istniejący zasób tworzenia. Wybierz pozycję **Zapisz**.
+1. Na stronie **Ustawienia użytkownika** wybierz pozycję **Dodaj zasób autorstwa**, a następnie wybierz istniejący zasób tworzenia. Wybierz pozycję **Zapisz**.
 
 ## <a name="assign-a-resource-to-an-app"></a>Przypisywanie zasobu do aplikacji
 
@@ -224,7 +224,7 @@ Można przypisać zasób tworzenia dla jednej aplikacji lub dla wszystkich aplik
 Za pomocą tej procedury można utworzyć zasób tworzenia lub przewidywania lub przypisać go do aplikacji: 
 
 1. Zaloguj się do [portalu Luis](https://www.luis.ai). Wybierz aplikację z listy **Moje aplikacje** .
-1. Przejdź do obszaru **Zarządzanie**  >  **zasobami platformy Azure** :
+1. Przejdź do obszaru **Zarządzanie**  >  **zasobami platformy Azure**:
 
     ![Zrzut ekranu przedstawiający stronę zasobów platformy Azure.](./media/luis-how-to-azure-subscription/manage-azure-resources-prediction.png)
 

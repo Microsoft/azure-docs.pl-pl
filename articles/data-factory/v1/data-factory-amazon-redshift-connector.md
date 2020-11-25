@@ -13,11 +13,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 290990e312a7f591539686ecce1eec1ac742dd60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89443028"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999301"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Przenoszenie danych z usługi Amazon RedShift przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -70,7 +70,7 @@ Poniższa tabela zawiera opisy elementów JSON, które są specyficzne dla poł�
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
 
-Aby zapoznać się z listą sekcji i właściwości, które są dostępne do definiowania zestawów danych, zobacz artykuł [Tworzenie zestawów danych](data-factory-create-datasets.md) . Sekcje **struktury**, **dostępności**i **zasad** są podobne do wszystkich typów zestawów danych. Przykłady typów zestawów danych: Azure SQL, Azure Blob Storage i Azure Table Storage.
+Aby zapoznać się z listą sekcji i właściwości, które są dostępne do definiowania zestawów danych, zobacz artykuł [Tworzenie zestawów danych](data-factory-create-datasets.md) . Sekcje **struktury**, **dostępności** i **zasad** są podobne do wszystkich typów zestawów danych. Przykłady typów zestawów danych: Azure SQL, Azure Blob Storage i Azure Table Storage.
 
 Sekcja **typeProperties** jest inna dla każdego typu zestawu danych i zawiera informacje dotyczące lokalizacji danych w sklepie. Sekcja **typeProperties** dla zestawu danych typu **relacyjnego**, który zawiera zestaw danych Amazon RedShift, ma następujące właściwości:
 
@@ -333,7 +333,7 @@ Następujące mapowania są używane, gdy działanie kopiowania konwertuje dane 
 | LICZBA CAŁKOWITA |Int32 |
 | BIGINT |Int64 |
 | DOKŁADNOŚCI |Liczba dziesiętna |
-| LICZBA RZECZYWISTA |Pojedynczy |
+| LICZBA RZECZYWISTA |Pojedyncze |
 | PODWÓJNA PRECYZJA |Double |
 | TYPU |Ciąg |
 | DELIKATN |Ciąg |

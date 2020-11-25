@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
 ms.openlocfilehash: 6bea9c9b7807ffb32b6071c968d3186965477009
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85513040"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000933"
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Korzystanie z internetowego interfejsu użytkownika do administrowania wirtualną macierzą StorSimple
 ![przepływ procesu instalacji](./media/storsimple-ova-web-ui-admin/manage4.png)
@@ -61,7 +61,7 @@ W niektórych przypadkach podczas konfigurowania urządzenia za pomocą lokalneg
 Pakiet dziennika składa się ze wszystkich odpowiednich dzienników, które mogą pomóc pomoc techniczna firmy Microsoft rozwiązywaniu problemów z urządzeniami. W tej wersji można generować pakiet dzienników za pośrednictwem lokalnego interfejsu użytkownika sieci Web.
 
 #### <a name="to-generate-the-log-package"></a>Aby wygenerować pakiet dzienników
-1. W lokalnym interfejsie użytkownika sieci Web przejdź do obszaru **Rozwiązywanie problemów**z  >  **dziennikami systemowymi**.
+1. W lokalnym interfejsie użytkownika sieci Web przejdź do obszaru **Rozwiązywanie problemów** z  >  **dziennikami systemowymi**.
    
     ![Generuj pakiet dziennika 1](./media/storsimple-ova-web-ui-admin/image31.png)
 2. W dolnej części strony kliknij pozycję **Utwórz pakiet dzienników**. Zostanie utworzony pakiet dzienników systemu. Zajmie to kilka minut.
@@ -77,7 +77,7 @@ Pakiet dziennika składa się ze wszystkich odpowiednich dzienników, które mog
 4. Można rozpakować pobrany pakiet dzienników i wyświetlić systemowe pliki dziennika.
 
 ## <a name="shut-down-and-restart-your-device"></a>Zamykanie i ponowne uruchamianie urządzenia
-Możesz zamknąć lub ponownie uruchomić urządzenie wirtualne przy użyciu lokalnego interfejsu użytkownika sieci Web. Zaleca się, aby przed ponownym uruchomieniem przełączyć woluminy lub udziały w tryb offline na hoście, a następnie na urządzeniu. Spowoduje to zminimalizowanie wszelkich możliwości uszkodzenia danych. 
+Urządzenie wirtualne można zamknąć lub ponownie uruchomić przy użyciu lokalnego internetowego interfejsu użytkownika. Zaleca się, aby przed ponownym uruchomieniem przełączyć woluminy lub udziały w tryb offline na hoście, a następnie na urządzeniu. Spowoduje to zminimalizowanie wszelkich możliwości uszkodzenia danych. 
 
 #### <a name="to-shut-down-your-virtual-device"></a>Aby zamknąć urządzenie wirtualne
 1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji ustawienia **trybu konserwacji**  >  **Power settings**.

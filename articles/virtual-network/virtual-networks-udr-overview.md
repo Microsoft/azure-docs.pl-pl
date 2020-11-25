@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: aldomel
 ms.openlocfilehash: ad0a5fc5940c36aa5d2d6912987b154532bc80a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83727121"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000882"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing ruchu w sieci wirtualnej
 
@@ -57,8 +57,8 @@ Platforma Azure dodaje dodatkowe domyślne trasy systemowe dla różnych funkcji
 
 |Źródło                 |Prefiksy adresów                       |Typ następnego przeskoku|Podsieć w sieci wirtualnej, której trasa jest dodawana|
 |-----                  |----                                   |---------                    |--------|
-|Domyślne                |Unikatowy dla sieci wirtualnej, na przykład: 10.1.0.0/16|Komunikacja równorzędna sieci wirtualnych                 |Wszystkie|
-|Brama sieci wirtualnej|Prefiksy anonsowane lokalnie za pośrednictwem protokołu BGP lub skonfigurowane w bramie sieci lokalnej     |Brama sieci wirtualnej      |Wszystkie|
+|Domyślne                |Unikatowy dla sieci wirtualnej, na przykład: 10.1.0.0/16|Komunikacja równorzędna sieci wirtualnych                 |Wszystko|
+|Brama sieci wirtualnej|Prefiksy anonsowane lokalnie za pośrednictwem protokołu BGP lub skonfigurowane w bramie sieci lokalnej     |Brama sieci wirtualnej      |Wszystko|
 |Domyślne                |Wiele                               |VirtualNetworkServiceEndpoint|Tylko podsieć, dla której jest włączony punkt końcowy usługi.|
 
 * **Komunikacja równorzędna sieci wirtualnej (VNet)**: podczas tworzenia komunikacji równorzędnej sieci wirtualnej między dwiema sieciami wirtualnymi dodawana jest trasa dla każdego zakresu adresów w obrębie przestrzeni adresowej w każdej sieci wirtualnej, dla której jest tworzona komunikacja równorzędna. Dowiedz się więcej o [komunikacji równorzędnej sieci wirtualnej](virtual-network-peering-overview.md).<br>
@@ -207,20 +207,20 @@ Strzałki oznaczają przepływu ruchu.
 
 Tabela tras dla podsieci *Subnet1* na ilustracji zawiera następujące trasy:
 
-|ID (Identyfikator)  |Element źródłowy |State  |Prefiksy adresów    |Typ następnego przeskoku          |Adres IP następnego przeskoku|Nazwa trasy zdefiniowanej przez użytkownika| 
+|ID (Identyfikator)  |Element źródłowy |Stan  |Prefiksy adresów    |Typ następnego przeskoku          |Adres IP następnego przeskoku|Nazwa trasy zdefiniowanej przez użytkownika| 
 |----|-------|-------|------              |-------                |--------           |--------      |
 |1   |Domyślne|Nieprawidłowy|10.0.0.0/16         |Sieć wirtualna        |                   |              |
-|2   |Użytkownik   |Aktywny |10.0.0.0/16         |Urządzenie wirtualne      |10.0.100.4         |W ramach sieci VNet1  |
-|3   |Użytkownik   |Aktywny |10.0.0.0/24         |Sieć wirtualna        |                   |W ramach podsieci Subnet1|
+|2   |Użytkownik   |Aktywna |10.0.0.0/16         |Urządzenie wirtualne      |10.0.100.4         |W ramach sieci VNet1  |
+|3   |Użytkownik   |Aktywna |10.0.0.0/24         |Sieć wirtualna        |                   |W ramach podsieci Subnet1|
 |4   |Domyślne|Nieprawidłowy|10.1.0.0/16         |Komunikacja równorzędna sieci wirtualnych           |                   |              |
 |5   |Domyślne|Nieprawidłowy|10.2.0.0/16         |Komunikacja równorzędna sieci wirtualnych           |                   |              |
-|6   |Użytkownik   |Aktywny |10.1.0.0/16         |Brak                   |                   |ToVNet2-1-porzuć|
-|7   |Użytkownik   |Aktywny |10.2.0.0/16         |Brak                   |                   |ToVNet2-2-porzuć|
+|6   |Użytkownik   |Aktywna |10.1.0.0/16         |Brak                   |                   |ToVNet2-1-porzuć|
+|7   |Użytkownik   |Aktywna |10.2.0.0/16         |Brak                   |                   |ToVNet2-2-porzuć|
 |8   |Domyślne|Nieprawidłowy|10.10.0.0/16        |Brama sieci wirtualnej|[X.X.X.X]          |              |
-|9   |Użytkownik   |Aktywny |10.10.0.0/16        |Urządzenie wirtualne      |10.0.100.4         |Do lokalnego    |
+|9   |Użytkownik   |Aktywna |10.10.0.0/16        |Urządzenie wirtualne      |10.0.100.4         |Do lokalnego    |
 |10  |Domyślne|Aktywna |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
 |11  |Domyślne|Nieprawidłowy|0.0.0.0/0           |Internet               |                   |              |
-|12  |Użytkownik   |Aktywny |0.0.0.0/0           |Urządzenie wirtualne      |10.0.100.4         |Domyślne NVA   |
+|12  |Użytkownik   |Aktywna |0.0.0.0/0           |Urządzenie wirtualne      |10.0.100.4         |Domyślne NVA   |
 
 Objaśnienia każdego identyfikatora trasy są następujące:
 
@@ -241,7 +241,7 @@ Objaśnienia każdego identyfikatora trasy są następujące:
 
 Tabela tras dla podsieci *Subnet2* na ilustracji zawiera następujące trasy:
 
-|Element źródłowy  |State  |Prefiksy adresów    |Typ następnego przeskoku             |Adres IP następnego przeskoku|
+|Element źródłowy  |Stan  |Prefiksy adresów    |Typ następnego przeskoku             |Adres IP następnego przeskoku|
 |------- |-------|------              |-------                   |--------           
 |Domyślne |Aktywna |10.0.0.0/16         |Sieć wirtualna           |                   |
 |Domyślne |Aktywna |10.1.0.0/16         |Komunikacja równorzędna sieci wirtualnych              |                   |

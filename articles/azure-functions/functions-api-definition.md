@@ -4,11 +4,11 @@ description: Omówienie obsługi OpenAPI w Azure Functions
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.openlocfilehash: 499d4f685e3802fcc37c8a3050ae367207f192d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87385827"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000213"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Obsługa metadanych OpenAPI 2,0 w Azure Functions (wersja zapoznawcza)
 Obsługa metadanych w programie OpenAPI 2,0 (dawniej Swagger) w Azure Functions jest funkcją w wersji zapoznawczej, której można użyć do zapisania definicji OpenAPI 2,0 w aplikacji funkcji. Następnie można hostować ten plik za pomocą aplikacji funkcji.
@@ -24,7 +24,7 @@ Obsługa metadanych w programie OpenAPI 2,0 (dawniej Swagger) w Azure Functions 
 >Zalecamy rozpoczęcie od [samouczka wprowadzającego](./functions-openapi-definition.md) , a następnie powrót do tego dokumentu, aby dowiedzieć się więcej o konkretnych funkcjach.
 
 ## <a name="enable-openapi-definition-support"></a><a name="enable"></a>Włącz obsługę definicji OpenAPI
-Wszystkie ustawienia OpenAPI można skonfigurować na stronie **definicji interfejsu API** w **funkcjach platformy**aplikacji funkcji.
+Wszystkie ustawienia OpenAPI można skonfigurować na stronie **definicji interfejsu API** w **funkcjach platformy** aplikacji funkcji.
 
 > [!NOTE]
 > Funkcja definicji interfejsu API funkcji nie jest obecnie obsługiwana w przypadku środowiska uruchomieniowego beta.
@@ -51,7 +51,7 @@ Poniższa tabela przedstawia ustawienia Azure Portal i odpowiadające im dane w 
 |[Host](https://swagger.io/specification/#fixed-fields-15)|**Ustawienia**  >  aplikacji funkcji **Ustawienia App Service**  >  **Przegląd**  >  **Adres URL**|*Nieobecne*
 |[Ścieżki](https://swagger.io/specification/#paths-object-29)|**Integracja**  >  **Wybrane metody http**|Powiązania: Route
 |[Element ścieżki](https://swagger.io/specification/#path-item-object-32)|**Integracja**  >  **Szablon trasy**|Powiązania: metody
-|[Zabezpieczenia](https://swagger.io/specification/#security-scheme-object-112)|**Klucze**|*Nieobecne*|
+|[Bezpieczeństwo](https://swagger.io/specification/#security-scheme-object-112)|**Klucze**|*Nieobecne*|
 |operationId|**Trasy + dozwolone czasowniki**|Trasy + dozwolone czasowniki|
 
 \*Identyfikator operacji jest wymagany tylko w przypadku integracji z usługą PowerApps i przepływem.

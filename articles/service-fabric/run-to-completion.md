@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: shsha
 ms.openlocfilehash: 6f2f6aa4380fcf6909957118bf682275350ce68c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86261210"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000270"
 ---
 # <a name="runtocompletion"></a>RunToCompletion
 
@@ -78,7 +78,7 @@ W poniższym ServiceManifest.xml opisano pakiet servicepackage składający się
 </ServiceManifest>
 ```
 
-W poniższym ApplicationManifest.xml opisano aplikację opartą na ServiceManifest.xml opisanej powyżej. Określa **RunToCompletion** **ExecutionPolicy** dla *WindowsRunToCompletionServicePackage* z zasadami ponownego uruchamiania o wartości **OnFailure**. Po aktywacji *WindowsRunToCompletionServicePackage*zostanie uruchomiony jego składnik CodePackages. *RunToCompletionCodePackage1* powinna zakończyć się powodzeniem przy pierwszej aktywacji. Jednak *RunToCompletionCodePackage2* może zakończyć się niepowodzeniem **(kod zakończenia inny niż zero)**, w tym przypadku zostanie on ponownie uruchomiony, ponieważ zasady ponownego uruchamiania **są błędne**.
+W poniższym ApplicationManifest.xml opisano aplikację opartą na ServiceManifest.xml opisanej powyżej. Określa **RunToCompletion** **ExecutionPolicy** dla *WindowsRunToCompletionServicePackage* z zasadami ponownego uruchamiania o wartości **OnFailure**. Po aktywacji *WindowsRunToCompletionServicePackage* zostanie uruchomiony jego składnik CodePackages. *RunToCompletionCodePackage1* powinna zakończyć się powodzeniem przy pierwszej aktywacji. Jednak *RunToCompletionCodePackage2* może zakończyć się niepowodzeniem **(kod zakończenia inny niż zero)**, w tym przypadku zostanie on ponownie uruchomiony, ponieważ zasady ponownego uruchamiania **są błędne**.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

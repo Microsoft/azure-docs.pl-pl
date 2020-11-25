@@ -11,11 +11,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: df7d2278487c1b098615a14562c498b9187c56eb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321208"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000032"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Zadania dla zespołu liderzy zespołu ds. procesów naukowych
 
@@ -85,11 +85,11 @@ W każdym przypadku liderzy zespołu muszą pozwolić, aby członkowie zespołu 
 
 Aby utworzyć oddzielny projekt dla zespołu:
 
-1. W przeglądarce internetowej przejdź do strony głównej organizacji usługi Azure DevOps w grupie pod adresem URL *https: \/ / \<server name> / \<organization name>* , a następnie wybierz pozycję **Nowy projekt**. 
+1. W przeglądarce internetowej przejdź do strony głównej organizacji usługi Azure DevOps w grupie pod adresem URL *https: \/ / \<server name> / \<organization name>*, a następnie wybierz pozycję **Nowy projekt**. 
    
    ![Wybierz nowy projekt](./media/team-lead-tasks/team-leads-2-create-new-team.png)
    
-1. W oknie dialogowym **Tworzenie projektu** wprowadź nazwę zespołu, na przykład *Webteam* , w obszarze **Nazwa projektu** , a następnie wybierz pozycję **Zaawansowane**. 
+1. W oknie dialogowym **Tworzenie projektu** wprowadź nazwę zespołu, na przykład *Webteam*, w obszarze **Nazwa projektu**, a następnie wybierz pozycję **Zaawansowane**. 
    
 1. W obszarze **Kontrola wersji** wybierz pozycję **git** i w obszarze **proces elementu pracy** wybierz pozycję **Agile**. Następnie wybierz przycisk **Utwórz**. 
    
@@ -110,7 +110,7 @@ Zostanie otwarta strona **Podsumowanie** projektu zespołowego z adresem URL str
    
    ![Wybierz pozycję Zmień nazwę repozytorium](./media/team-lead-tasks/team-leads-8-rename-team-project-repo-3.png)
    
-1. W oknie podręcznym **Zmień nazwę repozytorium elementu Webteam** wprowadź wartość *TeamUtilities* , a następnie wybierz pozycję **Zmień nazwę**. 
+1. W oknie podręcznym **Zmień nazwę repozytorium elementu Webteam** wprowadź wartość *TeamUtilities*, a następnie wybierz pozycję **Zmień nazwę**. 
 
 ### <a name="create-the-teamtemplate-repository"></a>Tworzenie repozytorium TeamTemplate
 
@@ -120,7 +120,7 @@ Zostanie otwarta strona **Podsumowanie** projektu zespołowego z adresem URL str
    
    Lub wybierz pozycję **repozytoria** z lewego obszaru nawigacji na stronie **Podsumowanie** projektu **Webteam** , zaznacz repozytorium w górnej części strony, a następnie wybierz pozycję **nowe repozytorium** z listy rozwijanej.
    
-1. W oknie dialogowym **Tworzenie nowego repozytorium** upewnij się, że wybrano opcję **git** w obszarze **Typ**. Wprowadź *TeamTemplate* w polu **Nazwa repozytorium** , a następnie wybierz pozycję **Utwórz**.
+1. W oknie dialogowym **Tworzenie nowego repozytorium** upewnij się, że wybrano opcję **git** w obszarze **Typ**. Wprowadź *TeamTemplate* w polu **Nazwa repozytorium**, a następnie wybierz pozycję **Utwórz**.
    
    ![Utwórz repozytorium](./media/team-lead-tasks/team-leads-10-create-team-utilities-2.png)
    
@@ -140,7 +140,7 @@ Aby wypełnić repozytoria zespołu zawartością grup wspólnych repozytoriów,
    
    ![Wybierz pozycję Importuj](./media/team-lead-tasks/import-repo.png)
    
-1. W oknie dialogowym **Importowanie repozytorium git** wybierz pozycję **git** jako **Typ źródła** , a następnie wprowadź adres URL repozytorium wspólnych szablonów grupy w obszarze **Klonowanie adresu URL**. Adres URL to *https: \/ / \<server name> / \<organization name> /_git/ \<repository name>*. Na przykład: *https: \/ /dev.Azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
+1. W oknie dialogowym **Importowanie repozytorium git** wybierz pozycję **git** jako **Typ źródła**, a następnie wprowadź adres URL repozytorium wspólnych szablonów grupy w obszarze **Klonowanie adresu URL**. Adres URL to *https: \/ / \<server name> / \<organization name> /_git/ \<repository name>*. Na przykład: *https: \/ /dev.Azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
    
 1. Wybierz pozycję **Importuj**. Zawartość repozytorium szablonów grup jest zaimportowana do repozytorium szablonów zespołu. 
    
@@ -148,7 +148,7 @@ Aby wypełnić repozytoria zespołu zawartością grup wspólnych repozytoriów,
    
 1. W górnej części strony **repozytoria** projektu rozwiń listę rozwijaną i wybierz repozytorium **TeamUtilities** .
    
-1. Powtórz proces importowania, aby zaimportować zawartość repozytorium wspólnych narzędzi grupy, na przykład *GroupUtilities* , do repozytorium **TeamUtilities** . 
+1. Powtórz proces importowania, aby zaimportować zawartość repozytorium wspólnych narzędzi grupy, na przykład *GroupUtilities*, do repozytorium **TeamUtilities** . 
    
 Każdy z dwóch repozytoriów zespołu zawiera teraz pliki z odpowiedniego repozytorium wspólnych grup. 
 
@@ -240,7 +240,7 @@ Aby dodać członków do zespołu:
 
 1. W usłudze Azure DevOps na stronie głównej projektu **Webteam** wybierz pozycję **Ustawienia projektu** na lewym pasku nawigacyjnym. 
    
-1. W lewym panelu nawigacyjnym **Ustawienia projektu** wybierz pozycję **zespoły** , a następnie na stronie **zespoły** wybierz **zespół Webteam**. 
+1. W lewym panelu nawigacyjnym **Ustawienia projektu** wybierz pozycję **zespoły**, a następnie na stronie **zespoły** wybierz **zespół Webteam**. 
    
    ![Konfigurowanie zespołów](./media/team-lead-tasks/teams.png)
    
@@ -259,7 +259,7 @@ Aby skonfigurować uprawnienia dla członków zespołu:
    
 1. Na stronie **uprawnienia** wybierz grupę, do której chcesz dodać członków. 
    
-1. Na stronie tej grupy wybierz pozycję **elementy członkowskie** , a następnie wybierz pozycję **Dodaj**. 
+1. Na stronie tej grupy wybierz pozycję **elementy członkowskie**, a następnie wybierz pozycję **Dodaj**. 
    
 1. W oknie podręcznym **zapraszanie członków** Wyszukaj i wybierz członków do dodania do grupy, a następnie wybierz pozycję **Zapisz**. 
    
@@ -296,7 +296,7 @@ Aby uzyskać informacje na temat udostępniania innym zasobom zespołu, na przyk
    
 1. Wybierz konto magazynu, które ma być używane, lub Utwórz nowe w ramach wybranej subskrypcji. W nazwie magazynu plików platformy Azure można używać małych liter, cyfr i łączników.
    
-1. Aby ułatwić instalowanie i udostępnianie magazynu, naciśnij klawisz ENTER lub wprowadź *Y* , aby zapisać informacje o usłudze Azure File Storage do pliku tekstowego w bieżącym katalogu. Możesz zaewidencjonować ten plik tekstowy do repozytorium **TeamTemplate** , najlepiej w obszarze **Docs\DataDictionaries** , tak aby wszystkie projekty w zespole mogły uzyskać do niego dostęp. Potrzebne są również informacje o pliku do zainstalowania usługi Azure File Storage na platformie Azure DSVM w następnej sekcji. 
+1. Aby ułatwić instalowanie i udostępnianie magazynu, naciśnij klawisz ENTER lub wprowadź *Y* , aby zapisać informacje o usłudze Azure File Storage do pliku tekstowego w bieżącym katalogu. Możesz zaewidencjonować ten plik tekstowy do repozytorium **TeamTemplate** , najlepiej w obszarze **Docs\DataDictionaries**, tak aby wszystkie projekty w zespole mogły uzyskać do niego dostęp. Potrzebne są również informacje o pliku do zainstalowania usługi Azure File Storage na platformie Azure DSVM w następnej sekcji. 
    
 ### <a name="mount-azure-file-storage-on-your-local-machine-or-dsvm"></a>Instalowanie usługi Azure File Storage na maszynie lokalnej lub DSVM
 

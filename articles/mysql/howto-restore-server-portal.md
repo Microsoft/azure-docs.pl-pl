@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 6/30/2020
 ms.openlocfilehash: 9bc31cf8fee2669634ff366caac77cb090baf075
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539145"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000304"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Jak utworzyć kopię zapasową i przywrócić serwer w Azure Database for MySQL przy użyciu Azure Portal
 
@@ -62,10 +62,10 @@ Poniższe kroki umożliwiają przywrócenie przykładowego serwera do punktu w c
 3. Wypełnij formularz Przywracanie wymaganymi informacjami:
 
    :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Azure Database for MySQL — przywracanie informacji":::
-   - **Punkt przywracania** : Wybierz punkt w czasie, do którego chcesz wykonać przywracanie.
-   - **Serwer docelowy** : Podaj nazwę nowego serwera.
-   - **Lokalizacja** : nie można wybrać regionu. Domyślnie jest to taka sama jak w przypadku serwera źródłowego.
-   - **Warstwa cenowa** : nie można zmienić tych parametrów podczas wykonywania przywracania do punktu w czasie. Jest taka sama jak w przypadku serwera źródłowego. 
+   - **Punkt przywracania**: Wybierz punkt w czasie, do którego chcesz wykonać przywracanie.
+   - **Serwer docelowy**: Podaj nazwę nowego serwera.
+   - **Lokalizacja**: nie można wybrać regionu. Domyślnie jest to taka sama jak w przypadku serwera źródłowego.
+   - **Warstwa cenowa**: nie można zmienić tych parametrów podczas wykonywania przywracania do punktu w czasie. Jest taka sama jak w przypadku serwera źródłowego. 
 
 4. Kliknij przycisk **OK** , aby przywrócić serwer do punktu w czasie. 
 
@@ -106,19 +106,19 @@ Jeśli serwer został skonfigurowany pod kątem kopii zapasowych geograficznie n
    
    :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Wybierz pozycję Kopia zapasowa.":::
 
-6. Serwer będzie domyślnie mieć wartości dla liczby **rdzeni wirtualnych** , **okresu przechowywania kopii zapasowej** , **opcji nadmiarowości kopii zapasowej** , **wersji aparatu** i **poświadczeń administratora**. Wybierz opcję **Kontynuuj**. 
+6. Serwer będzie domyślnie mieć wartości dla liczby **rdzeni wirtualnych**, **okresu przechowywania kopii zapasowej**, **opcji nadmiarowości kopii zapasowej**, **wersji aparatu** i **poświadczeń administratora**. Wybierz opcję **Kontynuuj**. 
    
    :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Kontynuuj tworzenie kopii zapasowej.":::
 
 7. Wypełnij resztę formularza z preferencjami. Można wybrać dowolną **lokalizację**.
 
-    Po wybraniu lokalizacji możesz wybrać pozycję **Konfiguruj serwer** , aby zaktualizować **generowanie obliczeń** (jeśli jest dostępna w wybranym regionie), liczbę **rdzeni wirtualnych** , **okres przechowywania kopii zapasowych** i **opcję nadmiarowości kopii zapasowych**. Zmiana **warstwy cenowej** (podstawowa, ogólnego przeznaczenia lub zoptymalizowana pod kątem pamięci) lub rozmiaru **magazynu** podczas przywracania nie jest obsługiwana.
+    Po wybraniu lokalizacji możesz wybrać pozycję **Konfiguruj serwer** , aby zaktualizować **generowanie obliczeń** (jeśli jest dostępna w wybranym regionie), liczbę **rdzeni wirtualnych**, **okres przechowywania kopii zapasowych** i **opcję nadmiarowości kopii zapasowych**. Zmiana **warstwy cenowej** (podstawowa, ogólnego przeznaczenia lub zoptymalizowana pod kątem pamięci) lub rozmiaru **magazynu** podczas przywracania nie jest obsługiwana.
 
    :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="Wypełnij formularz."::: 
 
 8. Wybierz pozycję **Recenzja + Utwórz** , aby przejrzeć wybrane opcje. 
 
-9. Wybierz pozycję **Utwórz** , aby aprowizować serwer. Ta operacja może potrwać kilka minut.
+9. Wybierz pozycję **Utwórz**, aby aprowizować serwer. Ta operacja może potrwać kilka minut.
 
 Nowy serwer utworzony przy użyciu przywracania geograficznego ma tę samą nazwę logowania administratora serwera i hasło, które były prawidłowe dla istniejącego serwera w momencie zainicjowania przywracania. Hasło można zmienić na stronie **Przegląd** nowego serwera.
 

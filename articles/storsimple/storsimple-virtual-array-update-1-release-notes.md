@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 2ec88e4e97d45b27c0226198491b3adec6448496
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94960244"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000899"
 ---
 # <a name="storsimple-virtual-array-update-10-release-notes"></a>StorSimple Virtual Array Update 1,0 — informacje o wersji
 
@@ -47,7 +47,7 @@ Aktualizacja 1,0 jest zgodna z wersją oprogramowania **10.0.10296.0**.
 
 Poniższa tabela zawiera podsumowanie problemów rozwiązanych w tej wersji.
 
-| Nie. | Obiekt feature | Problem |
+| Nie. | Cechy | Problem |
 | --- | --- | --- |
 | 1 |Uwierzytelnianie oparte na usłudze AAD| Ta wersja zawiera zmiany, które umożliwiają usłudze AAD uwierzytelnianie przy użyciu Menedżer urządzeń StorSimple.|
 | 2 |Wyrzucanie elementów bezużytecznych| Ten problem został zgłoszony w witrynie klienta, w której konta urządzeń i magazynu znajdują się w różnych regionach, a klient zgłosił sporadyczne błędy sieci, co wpływa na rozliczenia. W tej wersji ten problem został rozwiązany. |
@@ -58,7 +58,7 @@ Poniższa tabela zawiera podsumowanie problemów rozwiązanych w tej wersji.
 
 Poniższa tabela zawiera podsumowanie znanych problemów dotyczących macierzy wirtualnej StorSimple i obejmuje wydanie wydań z poprzednich wersji.
 
-| Nie. | Obiekt feature | Problem | Obejście/Komentarze |
+| Nie. | Cechy | Problem | Obejście/Komentarze |
 | --- | --- | --- | --- |
 | **1.** |Aktualizacje |Nie można zaktualizować macierzy wirtualnych utworzonych w wersji zapoznawczej do obsługiwanej ogólnej wersji dostępności. |Te tablice wirtualne muszą zostać przełączone w tryb failover w celu udostępnienia ogólnej wersji dostępności przy użyciu przepływu pracy odzyskiwania po awarii (DR). |
 | **2.** |Dysk danych z zainicjowaną obsługą |Po zainicjowaniu obsługi dysku danych o określonym określonym rozmiarze i utworzeniu odpowiedniej macierzy wirtualnej StorSimple nie należy rozwijać ani zmniejszać dysku z danymi. Próba wykonania spowoduje utratę wszystkich danych w warstwach lokalnych urządzenia. | |
@@ -83,7 +83,7 @@ Poniższa tabela zawiera podsumowanie znanych problemów dotyczących macierzy w
 ## <a name="next-steps"></a>Następne kroki
 [Zainstaluj aktualizację 1,0](storsimple-virtual-array-install-update-1.md) na wirtualnej macierzy StorSimple.
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 Szukasz starszej wersji uwagi? Przejdź do strony:
 *  [StorSimple Virtual Array Update 0,6 — informacje o wersji](storsimple-virtual-array-update-06-release-notes.md)
 * [StorSimple Virtual Array Update 0,5 — informacje o wersji](storsimple-virtual-array-update-05-release-notes.md)

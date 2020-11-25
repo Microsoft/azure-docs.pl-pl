@@ -11,11 +11,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 9d9b2546553e03d1555cf4c587d699d9a4ea7e51
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321940"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000984"
 ---
 # <a name="project-lead-tasks-in-the-team-data-science-process"></a>Zadania lidera projektu w procesie nauki danych zespołu
 
@@ -57,13 +57,13 @@ Aby sklonować repozytoria i zmodyfikować zawartość na komputerze lokalnym lu
 
 Aby utworzyć repozytorium projektu w projekcie **Webteam** zespołu:
 
-1. Przejdź do strony **podsumowania** projektu zespołu przy *użyciu protokołu HTTPS \/ / \<server name> / \<organization name> / \<team name> :* , na przykład **https: \/ /dev.Azure.com/DataScienceUnit/myTeam** , a następnie wybierz pozycję **repozytoria** z lewego obszaru nawigacji. 
+1. Przejdź do strony **podsumowania** projektu zespołu przy *użyciu protokołu HTTPS \/ / \<server name> / \<organization name> / \<team name> :*, na przykład **https: \/ /dev.Azure.com/DataScienceUnit/myTeam**, a następnie wybierz pozycję **repozytoria** z lewego obszaru nawigacji. 
    
 1. Wybierz nazwę repozytorium w górnej części strony, a następnie wybierz pozycję **nowe repozytorium** z listy rozwijanej.
    
    ![Wybierz nowe repozytorium](./media/project-lead-tasks/project-leads-9-select-repos.png)
    
-1. W oknie dialogowym **Tworzenie nowego repozytorium** upewnij się, że wybrano opcję **git** w obszarze **Typ**. Wprowadź *DSProject1* w polu **Nazwa repozytorium** , a następnie wybierz pozycję **Utwórz**.
+1. W oknie dialogowym **Tworzenie nowego repozytorium** upewnij się, że wybrano opcję **git** w obszarze **Typ**. Wprowadź *DSProject1* w polu **Nazwa repozytorium**, a następnie wybierz pozycję **Utwórz**.
    
    ![Utwórz repozytorium](./media/project-lead-tasks/project-leads-3-create-project-repo-2.png)
    
@@ -83,7 +83,7 @@ Aby wypełnić repozytorium projektu zawartością Twojego repozytorium szablon�
    
    ![Wybierz pozycję Importuj](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
    
-1. W oknie dialogowym **Importowanie repozytorium git** wybierz pozycję **git** jako **Typ źródła** , a następnie wprowadź adres URL repozytorium **TeamTemplate** w obszarze **Klonowanie adresu URL**. Adres URL to *https: \/ / \<server name> / \<organization name> / \<team name> /_git/ \<team template repository name>*. Na przykład: **https: \/ /dev.Azure.com/DataScienceUnit/myTeam/_git/TeamTemplate**. 
+1. W oknie dialogowym **Importowanie repozytorium git** wybierz pozycję **git** jako **Typ źródła**, a następnie wprowadź adres URL repozytorium **TeamTemplate** w obszarze **Klonowanie adresu URL**. Adres URL to *https: \/ / \<server name> / \<organization name> / \<team name> /_git/ \<team template repository name>*. Na przykład: **https: \/ /dev.Azure.com/DataScienceUnit/myTeam/_git/TeamTemplate**. 
    
 1. Wybierz pozycję **Importuj**. Zawartość repozytorium szablonów zespołu jest importowana do repozytorium projektu. 
    

@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/06/2020
 ms.openlocfilehash: 956406ec5ac99be5973f1928bbb89db10e68b339
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533771"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000503"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Uruchamianie zapytań Apache Hive z Apache Hadoop w usłudze HDInsight przy użyciu usługi REST
 
@@ -120,7 +120,7 @@ $clusterName
     {"module":"hive","version":"1.2.1000.2.6.5.3008-11"}
     ```
 
-1. Aby utworzyć tabelę o nazwie **log4jLogs** , wykonaj następujące czynności:
+1. Aby utworzyć tabelę o nazwie **log4jLogs**, wykonaj następujące czynności:
 
     ```bash
     jobid=$(curl -s -u admin:$password -d user.name=admin -d execute="DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/rest" https://$clusterName.azurehdinsight.net/templeton/v1/hive | jq -r .id)
@@ -156,7 +156,7 @@ $clusterName
 
    * `ROW FORMAT` — Jak są formatowane dane. Pola w każdym dzienniku są oddzielone spacjami.
    * `STORED AS TEXTFILE LOCATION` — Miejsce, w którym dane są przechowywane (przykład/katalog danych) i są przechowywane jako tekst.
-   * `SELECT` -Wybiera liczbę wszystkich wierszy, w których kolumna **T4** zawiera wartość **[Error]** . Ta instrukcja zwraca wartość **3** , ponieważ istnieją trzy wiersze, które zawierają tę wartość.
+   * `SELECT` -Wybiera liczbę wszystkich wierszy, w których kolumna **T4** zawiera wartość **[Error]**. Ta instrukcja zwraca wartość **3** , ponieważ istnieją trzy wiersze, które zawierają tę wartość.
 
      > [!NOTE]  
      > Należy zauważyć, że odstępy między instrukcjami HiveQL są zastępowane `+` znakiem, gdy jest używany z zwinięciem. Ujęte w cudzysłów wartości zawierające spację, takie jak ogranicznik, nie powinny być zastępowane przez `+` .
@@ -181,7 +181,7 @@ $clusterName
     (ConvertFrom-Json $fixDup).status.state
     ```
 
-    Jeśli zadanie zostało zakończone, stan zostanie **zakończony pomyślnie** .
+    Jeśli zadanie zostało zakończone, stan zostanie **zakończony pomyślnie**.
 
 1. Po zmianie stanu zadania na **powodzenie** można pobrać wyniki zadania z usługi Azure Blob Storage. `statusdir`Parametr przesłany z zapytaniem zawiera lokalizację pliku wyjściowego; w tym przypadku `/example/rest` . Ten adres przechowuje dane wyjściowe w `example/curl` katalogu w domyślnym magazynie klastrów.
 

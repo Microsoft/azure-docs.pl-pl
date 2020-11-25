@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/30/2020
 ms.openlocfilehash: dcf3db33818448116da53d8a01d0c62aca7bc1af
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280175"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000083"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Ładowanie danych do usługi Azure Synapse Analytics przy użyciu Azure Data Factory
 
@@ -28,10 +28,10 @@ Wprowadzenie do usługi Azure Synapse Analytics jest teraz łatwiejsze niż kied
 
 Azure Data Factory oferuje następujące korzyści związane z ładowaniem danych do usługi Azure Synapse Analytics:
 
-* **Łatwa konfiguracja** : Intuicyjny kreator 5-etapowy bez konieczności wykonywania skryptów.
-* **Obsługa rozbudowanych magazynów danych** : Wbudowana obsługa bogatego zestawu lokalnych i opartych na chmurze magazynów danych. Aby uzyskać szczegółową listę, zobacz tabelę [obsługiwanych magazynów danych](copy-activity-overview.md#supported-data-stores-and-formats).
-* **Bezpieczeństwo i zgodność** : dane są przesyłane za pośrednictwem protokołu HTTPS lub ExpressRoute. Globalna obecność usługi gwarantuje, że dane nigdy nie opuszczą granicy geograficznej.
-* **Niezrównana wydajność przy użyciu bazy danych bazowych** : baza jest najbardziej wydajnym sposobem, aby przenieść dane do usługi Azure Synapse Analytics. Funkcja tymczasowych obiektów BLOB umożliwia uzyskanie dużej szybkości ładowania ze wszystkich typów magazynów danych, w tym usługi Azure Blob Storage i Data Lake Store. (Baza danych jest domyślnie obsługiwana w usłudze Azure Blob Storage i Azure Data Lake Store). Aby uzyskać szczegółowe informacje, zobacz [wydajność działania kopiowania](copy-activity-performance.md).
+* **Łatwa konfiguracja**: Intuicyjny kreator 5-etapowy bez konieczności wykonywania skryptów.
+* **Obsługa rozbudowanych magazynów danych**: Wbudowana obsługa bogatego zestawu lokalnych i opartych na chmurze magazynów danych. Aby uzyskać szczegółową listę, zobacz tabelę [obsługiwanych magazynów danych](copy-activity-overview.md#supported-data-stores-and-formats).
+* **Bezpieczeństwo i zgodność**: dane są przesyłane za pośrednictwem protokołu HTTPS lub ExpressRoute. Globalna obecność usługi gwarantuje, że dane nigdy nie opuszczą granicy geograficznej.
+* **Niezrównana wydajność przy użyciu bazy danych bazowych**: baza jest najbardziej wydajnym sposobem, aby przenieść dane do usługi Azure Synapse Analytics. Funkcja tymczasowych obiektów BLOB umożliwia uzyskanie dużej szybkości ładowania ze wszystkich typów magazynów danych, w tym usługi Azure Blob Storage i Data Lake Store. (Baza danych jest domyślnie obsługiwana w usłudze Azure Blob Storage i Azure Data Lake Store). Aby uzyskać szczegółowe informacje, zobacz [wydajność działania kopiowania](copy-activity-performance.md).
 
 W tym artykule pokazano, jak za pomocą narzędzia Kopiowanie danych Data Factory _załadować dane z Azure SQL Database do usługi Azure Synapse Analytics_. Możesz wykonać podobne kroki, aby skopiować dane z innych typów magazynów danych.
 
@@ -47,26 +47,26 @@ W tym artykule pokazano, jak za pomocą narzędzia Kopiowanie danych Data Factor
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
-1. W menu po lewej stronie wybierz pozycję **Utwórz zasób**  >  **dane + analiza**  >  **Data Factory** :
+1. W menu po lewej stronie wybierz pozycję **Utwórz zasób**  >  **dane + analiza**  >  **Data Factory**:
 
 2. Na stronie **Nowa fabryka danych** podaj wartości następujących elementów:
 
-    * **Nazwa** : wprowadź *LoadSQLDWDemo* dla nazwy. Nazwa fabryki danych musi być * globalnie unikatowa. Jeśli zostanie wyświetlony komunikat o błędzie "Nazwa fabryki danych" LoadSQLDWDemo "jest niedostępna, wprowadź inną nazwę fabryki danych. Można na przykład _**użyć nazwy namename**_**ADFTutorialDataFactory**. Spróbuj ponownie utworzyć fabrykę danych. Artykuł [Data Factory naming rules (Zasady nazewnictwa fabryki danych)](naming-rules.md) zawiera zasady nazewnictwa artefaktów usługi Data Factory.
-    * **Subskrypcja** : wybierz subskrypcję platformy Azure, w której chcesz utworzyć fabrykę danych. 
-    * **Grupa zasobów** : wybierz istniejącą grupę zasobów z listy rozwijanej lub wybierz opcję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów. Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
-    * **Wersja** : Wybierz pozycję **Wersja 2**.
-    * **Lokalizacja** : Wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych używane przez fabrykę danych mogą znajdować się w innych lokalizacjach i regionach. Te magazyny danych obejmują Azure Data Lake Store, Azure Storage, Azure SQL Database i tak dalej.
+    * **Nazwa**: wprowadź *LoadSQLDWDemo* dla nazwy. Nazwa fabryki danych musi być * globalnie unikatowa. Jeśli zostanie wyświetlony komunikat o błędzie "Nazwa fabryki danych" LoadSQLDWDemo "jest niedostępna, wprowadź inną nazwę fabryki danych. Można na przykład _**użyć nazwy namename**_**ADFTutorialDataFactory**. Spróbuj ponownie utworzyć fabrykę danych. Artykuł [Data Factory naming rules (Zasady nazewnictwa fabryki danych)](naming-rules.md) zawiera zasady nazewnictwa artefaktów usługi Data Factory.
+    * **Subskrypcja**: wybierz subskrypcję platformy Azure, w której chcesz utworzyć fabrykę danych. 
+    * **Grupa zasobów**: wybierz istniejącą grupę zasobów z listy rozwijanej lub wybierz opcję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów. Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
+    * **Wersja**: Wybierz pozycję **Wersja 2**.
+    * **Lokalizacja**: Wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych używane przez fabrykę danych mogą znajdować się w innych lokalizacjach i regionach. Te magazyny danych obejmują Azure Data Lake Store, Azure Storage, Azure SQL Database i tak dalej.
 
-3. Wybierz przycisk **Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 4. Po zakończeniu tworzenia przejdź do fabryki danych. Zostanie wyświetlona strona główna **Data Factory** , jak pokazano na poniższej ilustracji:
 
    ![Strona główna fabryki danych](./media/doc-common-process/data-factory-home-page.png)
 
-   Wybierz kafelek **Tworzenie i monitorowanie** , aby w osobnej karcie uruchomić aplikację Integracja danych.
+   Wybierz kafelek **Tworzenie i monitorowanie**, aby w osobnej karcie uruchomić aplikację Integracja danych.
 
 ## <a name="load-data-into-azure-synapse-analytics"></a>Ładowanie danych do usługi Azure Synapse Analytics
 
-1. Na stronie **Wprowadzenie** wybierz kafelek **Kopiowanie danych** , aby uruchomić narzędzie do kopiowania danych.
+1. Na stronie **Wprowadzenie** wybierz kafelek **Kopiowanie danych**, aby uruchomić narzędzie do kopiowania danych.
 
 2. Na stronie **Właściwości** Określ **CopyFromSQLToSQLDW** dla pola **Nazwa zadania** , a następnie wybierz przycisk **dalej**.
 
@@ -74,7 +74,7 @@ W tym artykule pokazano, jak za pomocą narzędzia Kopiowanie danych Data Factor
 
 3. Na stronie **Magazyn danych źródłowych** wykonaj następujące czynności:
     >[!TIP]
-    >W tym samouczku jako typ uwierzytelniania dla źródłowego magazynu danych używasz *uwierzytelniania SQL* , ale możesz wybrać inne obsługiwane metody uwierzytelniania: *nazwę główną usługi* i *tożsamość zarządzaną* w razie potrzeby. Aby uzyskać szczegółowe informacje, zapoznaj się z odpowiednimi sekcjami w [tym artykule](./connector-azure-sql-database.md#linked-service-properties) .
+    >W tym samouczku jako typ uwierzytelniania dla źródłowego magazynu danych używasz *uwierzytelniania SQL* , ale możesz wybrać inne obsługiwane metody uwierzytelniania:*nazwę główną usługi* i *tożsamość zarządzaną* w razie potrzeby. Aby uzyskać szczegółowe informacje, zapoznaj się z odpowiednimi sekcjami w [tym artykule](./connector-azure-sql-database.md#linked-service-properties) .
     >Aby bezpiecznie przechowywać wpisy tajne dla magazynów danych, zaleca się również korzystanie z Azure Key Vault. Szczegółowe ilustracje znajdują się w [tym artykule](./store-credentials-in-key-vault.md) .
 
     a. Kliknij pozycję **+ Utwórz nowe połączenie**.
@@ -97,10 +97,10 @@ W tym artykule pokazano, jak za pomocą narzędzia Kopiowanie danych Data Factor
 
 6. Na stronie **docelowy magazyn danych** wykonaj następujące czynności:
     >[!TIP]
-    >W tym samouczku użyjesz *uwierzytelniania SQL* jako typu uwierzytelniania dla docelowego magazynu danych, ale możesz wybrać inne obsługiwane metody uwierzytelniania: *nazwę główną usługi* i *tożsamość zarządzaną* w razie potrzeby. Aby uzyskać szczegółowe informacje, zapoznaj się z odpowiednimi sekcjami w [tym artykule](./connector-azure-sql-data-warehouse.md#linked-service-properties) .
+    >W tym samouczku użyjesz *uwierzytelniania SQL* jako typu uwierzytelniania dla docelowego magazynu danych, ale możesz wybrać inne obsługiwane metody uwierzytelniania:*nazwę główną usługi* i *tożsamość zarządzaną* w razie potrzeby. Aby uzyskać szczegółowe informacje, zapoznaj się z odpowiednimi sekcjami w [tym artykule](./connector-azure-sql-data-warehouse.md#linked-service-properties) .
     >Aby bezpiecznie przechowywać wpisy tajne dla magazynów danych, zaleca się również korzystanie z Azure Key Vault. Szczegółowe ilustracje znajdują się w [tym artykule](./store-credentials-in-key-vault.md) .
 
-    a. Kliknij pozycję **+Utwórz nowe połączenie** , aby dodać połączenie.
+    a. Kliknij pozycję **+Utwórz nowe połączenie**, aby dodać połączenie.
 
     b. Wybierz pozycję **Azure Synapse Analytics (wcześniej SQL Data Warehouse)** z galerii, a następnie wybierz pozycję **Kontynuuj**. Możesz wpisać ciąg "SQL" w polu wyszukiwania, aby filtrować łączniki.
 
@@ -134,13 +134,13 @@ W tym artykule pokazano, jak za pomocą narzędzia Kopiowanie danych Data Factor
 
     ![Strona podsumowania](./media/load-azure-sql-data-warehouse/summary-page.png)
 
-11. Na **stronie Wdrażanie** wybierz pozycję **Monitorowanie** , aby monitorować potok (zadanie). 
+11. Na **stronie Wdrażanie** wybierz pozycję **Monitorowanie**, aby monitorować potok (zadanie). 
  
 12. Zwróć uwagę, że karta **Monitor** po lewej stronie jest automatycznie wybrana. Po pomyślnym zakończeniu przebiegu potoku wybierz łącze **CopyFromSQLToSQLDW** w kolumnie **Nazwa potoku** , aby wyświetlić szczegóły uruchomienia działania lub ponownie uruchomić potok.
 
     [![Monitorowanie uruchomień potoku](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png)](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png#lightbox)
 
-13. Aby przełączyć się z powrotem do widoku uruchomienia potoków, wybierz link **wszystkie uruchomienia potoku** u góry. Wybierz pozycję **Odśwież** , aby odświeżyć listę.
+13. Aby przełączyć się z powrotem do widoku uruchomienia potoków, wybierz link **wszystkie uruchomienia potoku** u góry. Wybierz pozycję **Odśwież**, aby odświeżyć listę.
 
     ![Monitorowanie uruchomień działania](./media/load-azure-sql-data-warehouse/activity-monitoring.png)
 

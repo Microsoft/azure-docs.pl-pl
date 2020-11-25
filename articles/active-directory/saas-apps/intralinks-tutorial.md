@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 79270f2484cedd81f39d2c393546bd4a1bdd3392
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459921"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999828"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intralinks"></a>Samouczek: integracja Azure Active Directory z usługą IntraLinks
 

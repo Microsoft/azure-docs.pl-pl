@@ -8,11 +8,11 @@ ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
 ms.openlocfilehash: 5da7f2a11be7562313b709a8af72ccd709165cfa
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684206"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000865"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Korzystanie z publicznej usługa Load Balancer w warstwie Standardowa w usłudze Azure Kubernetes Service (AKS)
 
@@ -233,7 +233,7 @@ Aby bezpiecznie przechodzić powyżej 100 węzłów, trzeba dodać więcej adres
 > [!IMPORTANT]
 > Aby uniknąć problemów z łącznością lub skalowaniem, należy [obliczyć wymagany limit przydziału i sprawdzić wymagania][requirements] przed rozpoczęciem dostosowywania *allocatedOutboundPorts* .
 
-Można również użyć **`load-balancer-outbound-ports`** parametrów podczas tworzenia klastra, ale należy również określić albo, **`load-balancer-managed-outbound-ip-count`** **`load-balancer-outbound-ips`** lub **`load-balancer-outbound-ip-prefixes`** .  Przykład:
+Można również użyć **`load-balancer-outbound-ports`** parametrów podczas tworzenia klastra, ale należy również określić albo, **`load-balancer-managed-outbound-ip-count`** **`load-balancer-outbound-ips`** lub **`load-balancer-outbound-ip-prefixes`** .  Na przykład:
 
 ```azurecli-interactive
 az aks create \

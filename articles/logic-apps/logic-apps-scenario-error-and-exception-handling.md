@@ -8,11 +8,11 @@ ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
 ms.openlocfilehash: fdf5f25ae6f89ccc06c95ee1be021691dab0047a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322431"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000355"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenariusz: Obsługa wyjątków i rejestrowanie błędów na potrzeby aplikacji logiki
 
@@ -396,7 +396,7 @@ Nasze rozwiązanie dodaliśmy możliwości z [Azure Cosmos DB](https://azure.mic
 
 ### <a name="error-management-portal"></a>Portal zarządzania błędami
 
-Aby wyświetlić błędy, można utworzyć aplikację sieci Web MVC do wyświetlania rekordów błędów z Cosmos DB. Operacje **list**, **szczegółów**, **edycji**i **usuwania** są zawarte w bieżącej wersji.
+Aby wyświetlić błędy, można utworzyć aplikację sieci Web MVC do wyświetlania rekordów błędów z Cosmos DB. Operacje **list**, **szczegółów**, **edycji** i **usuwania** są zawarte w bieżącej wersji.
 
 > [!NOTE]
 > Edycja operacji: Cosmos DB zamienia cały dokument. Rekordy widoczne na **liście** i w widokach **szczegółów** są tylko przykładami. Nie są to rzeczywiste rekordy terminów pacjenta.

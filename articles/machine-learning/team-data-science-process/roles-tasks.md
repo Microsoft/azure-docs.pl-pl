@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4bcbbd9378b6ea861c926eed16d2ceed8131b913
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082753"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000967"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Role i zadania procesu nauka danych zespołu
 
@@ -65,7 +65,7 @@ Menedżer grupy lub wyznaczeni administrator systemu przetwarzania TDSP wykonuje
 - Tworzy **repozytorium szablonu projektu** w projekcie grupy usługi Azure DevOps i wystawia je z repozytorium szablonu projektu opracowanego przez zespół programu Microsoft przetwarzania tdspe. Repozytorium szablonów projektów programu Microsoft przetwarzania TDSPe zawiera następujące informacje:
   - **Standardowa struktura katalogów**, w tym katalogi dla danych, kodu i dokumentów.
   - Zestaw **znormalizowanych szablonów dokumentów** , który prowadzi do wydajnego procesu nauki o danych.
-- Tworzy **repozytorium narzędzi**i nasiona z repozytorium narzędzi opracowanego przez zespół Microsoft przetwarzania tdspe. Repozytorium narzędzi przetwarzania TDSP firmy Microsoft udostępnia zestaw przydatnych narzędzi, które ułatwiają wydajniejsze działanie Analityka danych. Repozytorium narzędzi firmy Microsoft zawiera narzędzia do interaktywnej eksploracji, analizy, raportowania i modelowania linii bazowej oraz raportowania.
+- Tworzy **repozytorium narzędzi** i nasiona z repozytorium narzędzi opracowanego przez zespół Microsoft przetwarzania tdspe. Repozytorium narzędzi przetwarzania TDSP firmy Microsoft udostępnia zestaw przydatnych narzędzi, które ułatwiają wydajniejsze działanie Analityka danych. Repozytorium narzędzi firmy Microsoft zawiera narzędzia do interaktywnej eksploracji, analizy, raportowania i modelowania linii bazowej oraz raportowania.
 - Konfiguruje **zasady kontroli zabezpieczeń** dla konta organizacji.
 
 Aby uzyskać szczegółowe instrukcje, zobacz [zadania programu Group Manager dla zespołu ds. analizy danych](group-manager-tasks.md).

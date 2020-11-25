@@ -6,11 +6,11 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.openlocfilehash: 3940f060209ea5ba55957a3673020656d45de9e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776548"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000100"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Edytuj pary QnA w bazie wiedzy
 
@@ -60,7 +60,7 @@ Edycja tekstu odpowiedzi w postaci tekstu sformatowanego umożliwia przeprowadze
     |--|--|
     |Przełączaj się między edytorem tekstu sformatowanego i zaawansowaniem. `</>`|CTRL+M|
     |Zapis. **B**|Rob + LB|
-    |Kursywa, oznaczone kursywą ** _I_**|CTRL+I|
+    |Kursywa, oznaczone kursywą **_I_**|CTRL+I|
     |Listy nieuporządkowane||
     |Lista uporządkowana||
     |Styl akapitu||

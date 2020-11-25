@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 26f0006ad2b26757e335ba1819c2b82ba519f8cc
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 95560801d4132735435e4d45e8a588476636ec38
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491447"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001239"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Wyzwalacz usługi Azure queue storage dla Azure Functions
 
@@ -97,6 +97,22 @@ public static void Run(CloudQueueMessage myQueueItem,
 
 W sekcji [użycie](#usage) objaśniono `myQueueItem` , że nazwa jest określana przez `name` Właściwość w function.json.  W [sekcji metadane wiadomości](#message-metadata) objaśniono wszystkie inne wyświetlane zmienne.
 
+# <a name="java"></a>[Java](#tab/java)
+
+Poniższy przykład Java pokazuje funkcję wyzwalacza kolejki magazynu, która rejestruje wyzwolony komunikat umieszczony w kolejce `myqueuename` .
+
+ ```java
+ @FunctionName("queueprocessor")
+ public void run(
+    @QueueTrigger(name = "msg",
+                   queueName = "myqueuename",
+                   connection = "myconnvarname") String message,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Poniższy przykład pokazuje powiązanie wyzwalacza kolejki w *function.jsw* pliku oraz [funkcja języka JavaScript](functions-reference-node.md) , która używa powiązania. Funkcja sonduje `myqueue-items` kolejkę i zapisuje dziennik za każdym razem, gdy element kolejki jest przetwarzany.
@@ -141,6 +157,42 @@ module.exports = async function (context, message) {
 ```
 
 W sekcji [użycie](#usage) objaśniono `myQueueItem` , że nazwa jest określana przez `name` Właściwość w function.json.  W [sekcji metadane wiadomości](#message-metadata) objaśniono wszystkie inne wyświetlane zmienne.
+
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Poniższy przykład ilustruje sposób odczytywania komunikatu kolejki przekazanego do funkcji za pośrednictwem wyzwalacza.
+
+Wyzwalacz kolejki magazynu jest zdefiniowany w *function.jsw* pliku, gdzie `type` jest ustawiony na `queueTrigger` .
+
+```json
+{
+  "bindings": [
+    {
+      "name": "QueueItem",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "messages",
+      "connection": "MyStorageConnectionAppSetting"
+    }
+  ]
+}
+```
+
+Kod w pliku *Run.ps1* deklaruje parametr AS `$QueueItem` , który pozwala odczytać komunikat kolejki w funkcji.
+
+```powershell
+# Input bindings are passed in via param block.
+param([string] $QueueItem, $TriggerMetadata)
+
+# Write out the queue message and metadata to the information log.
+Write-Host "PowerShell queue trigger function processed work item: $QueueItem"
+Write-Host "Queue item expiration time: $($TriggerMetadata.ExpirationTime)"
+Write-Host "Queue item insertion time: $($TriggerMetadata.InsertionTime)"
+Write-Host "Queue item next visible time: $($TriggerMetadata.NextVisibleTime)"
+Write-Host "ID: $($TriggerMetadata.Id)"
+Write-Host "Pop receipt: $($TriggerMetadata.PopReceipt)"
+Write-Host "Dequeue count: $($TriggerMetadata.DequeueCount)"
+```
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -189,22 +241,6 @@ def main(msg: func.QueueMessage):
 
     logging.info(result)
 ```
-
-# <a name="java"></a>[Java](#tab/java)
-
-Poniższy przykład Java pokazuje funkcję wyzwalacza kolejki magazynu, która rejestruje wyzwolony komunikat umieszczony w kolejce `myqueuename` .
-
- ```java
- @FunctionName("queueprocessor")
- public void run(
-    @QueueTrigger(name = "msg",
-                   queueName = "myqueuename",
-                   connection = "myconnvarname") String message,
-     final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
- ```
 
  ---
 
@@ -270,14 +306,6 @@ Konto magazynu do użycia jest określane w następującej kolejności:
 
 Atrybuty nie są obsługiwane przez skrypt języka C#.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-Atrybuty nie są obsługiwane przez język JavaScript.
-
-# <a name="python"></a>[Python](#tab/python)
-
-Atrybuty nie są obsługiwane przez język Python.
-
 # <a name="java"></a>[Java](#tab/java)
 
 `QueueTrigger`Adnotacja zapewnia dostęp do kolejki, która wyzwala funkcję. Poniższy przykład powoduje, że komunikat kolejki jest dostępny dla funkcji za pośrednictwem `message` parametru.
@@ -305,9 +333,21 @@ public class QueueTriggerDemo {
 |`queueName`  | Deklaruje nazwę kolejki na koncie magazynu. |
 |`connection` | Wskazuje na parametry połączenia konta magazynu. |
 
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Atrybuty nie są obsługiwane przez język JavaScript.
+
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Atrybuty nie są obsługiwane przez program PowerShell.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Atrybuty nie są obsługiwane przez język Python.
+
 ---
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `QueueTrigger` atrybutu.
 
@@ -327,7 +367,7 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 
 Uzyskaj dostęp do danych komunikatów przy użyciu parametru metody, takiego jak `string paramName` . Można powiązać z dowolnym z następujących typów:
 
-* Object — środowisko uruchomieniowe funkcji deserializacji ładunek JSON do wystąpienia dowolnej klasy zdefiniowanej w kodzie. 
+* Object — środowisko uruchomieniowe funkcji deserializacji ładunek JSON do wystąpienia dowolnej klasy zdefiniowanej w kodzie.
 * `string`
 * `byte[]`
 * [CloudQueueMessage]
@@ -345,17 +385,21 @@ Uzyskaj dostęp do danych komunikatów przy użyciu parametru metody, takiego ja
 
 Jeśli próbujesz powiązać z `CloudQueueMessage` i otrzymać komunikat o błędzie, upewnij się, że masz odwołanie do [odpowiedniej wersji zestawu SDK magazynu](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
 
+# <a name="java"></a>[Java](#tab/java)
+
+Adnotacja [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable&preserve-view=true) daje dostęp do komunikatu kolejki, który wyzwolił funkcję.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Ładunek elementu kolejki jest dostępny za pośrednictwem `context.bindings.<NAME>` Where `<NAME>` , gdzie pasuje do nazwy zdefiniowanej w *function.jsna*. Jeśli ładunek jest w formacie JSON, wartość jest deserializowana do obiektu.
 
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Uzyskaj dostęp do komunikatu kolejki za pośrednictwem parametru ciągu, który pasuje do nazwy wskazanej przez `name` parametr powiązania w *function.js* w pliku.
+
 # <a name="python"></a>[Python](#tab/python)
 
-Uzyskaj dostęp do komunikatu kolejki za pośrednictwem parametru, który został określony jako [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage?view=azure-python).
-
-# <a name="java"></a>[Java](#tab/java)
-
-Adnotacja [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable) daje dostęp do komunikatu kolejki, który wyzwolił funkcję.
+Uzyskaj dostęp do komunikatu kolejki za pośrednictwem parametru, który został określony jako [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage?view=azure-python&preserve-view=true).
 
 ---
 

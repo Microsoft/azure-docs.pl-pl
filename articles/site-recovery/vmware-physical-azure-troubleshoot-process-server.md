@@ -8,11 +8,11 @@ ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
 ms.openlocfilehash: ad1bec66edaa3fcc6049f4911684f6e6d6c3e366
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369407"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999194"
 ---
 # <a name="troubleshoot-the-process-server"></a>Rozwiązywanie problemów z serwerem przetwarzania
 
@@ -113,7 +113,7 @@ Upewnij się, że żadne oprogramowanie antywirusowe na replikowanej maszynie ni
 3. Sprawdź, czy połączenie zostało nawiązane pomyślnie.
 
 
-**Łączność** | **Szczegóły** | **Akcja**
+**Połączenia** | **Szczegóły** | **Akcja**
 --- | --- | ---
 **Wybran** | Program Telnet wyświetla pusty ekran, a serwer przetwarzania jest osiągalny. | Nie są wymagane żadne dalsze działania.
 **Niepomyślnych** | Nie można nawiązać połączenia | Upewnij się, że na serwerze przetwarzania jest dozwolony port 9443 dla ruchu przychodzącego. Na przykład jeśli masz sieć obwodową lub podsieć z osłoną. Sprawdź połączenie ponownie.
@@ -168,7 +168,7 @@ Sprawdź, czy serwer przetwarzania aktywnie wypychanie danych do platformy Azure
 
   1. Na serwerze przetwarzania Otwórz Menedżera zadań (naciśnij klawisze CTRL + SHIFT + ESC).
   2. Wybierz kartę **wydajność** > **Otwórz Monitor zasobów**.
-  3. Na stronie **Monitor zasobów** wybierz kartę **Sieć** . W obszarze **procesy z aktywność sieci**Sprawdź, czy cbengine.exe aktywnie wysyła dużą ilość danych.
+  3. Na stronie **Monitor zasobów** wybierz kartę **Sieć** . W obszarze **procesy z aktywność sieci** Sprawdź, czy cbengine.exe aktywnie wysyła dużą ilość danych.
 
        ![Zrzut ekranu przedstawiający dużą liczbę woluminów w ramach procesów z aktywnością sieciową.](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
 
@@ -177,7 +177,7 @@ Sprawdź, czy serwer przetwarzania aktywnie wypychanie danych do platformy Azure
 ## <a name="step-9-check-the-process-server-connection-to-azure-blob-storage"></a>Krok 9. sprawdzenie połączenia serwera przetwarzania z usługą Azure Blob Storage
 
 1. W Monitor zasobów wybierz pozycję **cbengine.exe**.
-2. W obszarze **połączenia protokołu TCP**Sprawdź, czy istnieje łączność z serwerem przetwarzania do usługi Azure Storage.
+2. W obszarze **połączenia protokołu TCP** Sprawdź, czy istnieje łączność z serwerem przetwarzania do usługi Azure Storage.
 
   ![Zrzut ekranu przedstawiający łączność między cbengine.exe i adresem URL usługi Azure Blob Storage.](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
 
@@ -199,8 +199,8 @@ Jeśli nie ma łączności z serwerem przetwarzania do adresu URL usługi Azure 
 
 ## <a name="step-10-check-the-process-server-connection-to-azure-public-ip-address"></a>Krok 10. sprawdzenie połączenia serwera przetwarzania z publicznym adresem IP platformy Azure
 
-1. Na serwerze przetwarzania w **folderze%ProgramFiles%\Microsoft Azure Recovery Services Agent\Temp**Otwórz najnowszy plik CBEngineCurr. errlog.
-2. W pliku Wyszukaj wartość **443**lub dla **próby połączenia ciągu nie powiodło się**.
+1. Na serwerze przetwarzania w **folderze%ProgramFiles%\Microsoft Azure Recovery Services Agent\Temp** Otwórz najnowszy plik CBEngineCurr. errlog.
+2. W pliku Wyszukaj wartość **443** lub dla **próby połączenia ciągu nie powiodło się**.
 
   ![Dzienniki błędów w folderze tymczasowym](./media/vmware-physical-azure-troubleshoot-process-server/logdetails1.png)
 
@@ -235,7 +235,7 @@ Sprawdź, czy zapora oparta na adresie IP na serwerze przetwarzania blokuje dost
 
     a) Wyszukaj **Microsoft Azure Backup**.
 
-    b) Otwórz **Microsoft Azure Backup**i wybierz pozycję **Akcja**  >  **Zmień właściwości**.
+    b) Otwórz **Microsoft Azure Backup** i wybierz pozycję **Akcja**  >  **Zmień właściwości**.
 
     c) na karcie **Konfiguracja serwera proxy** adres serwera proxy powinien być taki sam jak adres serwera proxy, który jest wyświetlany w ustawieniach rejestru. Jeśli nie, Zmień ją na ten sam adres.
 

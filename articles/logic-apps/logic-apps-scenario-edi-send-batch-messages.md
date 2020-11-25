@@ -8,11 +8,11 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/19/2018
 ms.openlocfilehash: 6fc0833f70e3e9cd98100f193b52e5a1bfa4d651
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75666673"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000406"
 ---
 # <a name="exchange-edi-messages-as-batches-or-groups-between-trading-partners-in-azure-logic-apps"></a>Komunikaty programu Exchange EDI jako partie lub grupy między partnerami handlowymi w Azure Logic Apps
 
@@ -127,7 +127,7 @@ Aby upewnić się, że odbiornik usługi Batch działa zgodnie z oczekiwaniami, 
    |----------|-------------|
    | **Metoda** | Z tej listy wybierz pozycję **post**. | 
    | **Adresu** | Wygeneruj identyfikator URI dla pojemnika żądania, a następnie wprowadź ten identyfikator URI w tym polu. | 
-   | **Treść** | Kliknij wewnątrz tego pola i po otwarciu listy zawartości dynamicznej wybierz token **treści** , który jest wyświetlany w sekcji, **zakodować zadanie wsadowe według nazwy umowy**. <p>Jeśli nie widzisz tokenu **treści** , obok pozycji **Koduj zadanie wsadowe według nazwy umowy**wybierz pozycję **Zobacz więcej**. | 
+   | **Treść** | Kliknij wewnątrz tego pola i po otwarciu listy zawartości dynamicznej wybierz token **treści** , który jest wyświetlany w sekcji, **zakodować zadanie wsadowe według nazwy umowy**. <p>Jeśli nie widzisz tokenu **treści** , obok pozycji **Koduj zadanie wsadowe według nazwy umowy** wybierz pozycję **Zobacz więcej**. | 
    ||| 
 
    ![Podaj szczegóły akcji HTTP](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-add-http-action-details.png)
@@ -167,7 +167,7 @@ Teraz należy utworzyć co najmniej jedną aplikację logiki, która wysyła kom
 
       ![Wybierz aplikację logiki "odbiorca wsadowa"](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-receiver.png)
 
-   4. Wybierz tę akcję: **Batch_messages-<*użytkownika-Batch-Receiver* > **
+   4. Wybierz tę akcję: **Batch_messages-<*użytkownika-Batch-Receiver* >**
 
       ![Wybierz akcję "Batch_messages"](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-messages-action.png)
 

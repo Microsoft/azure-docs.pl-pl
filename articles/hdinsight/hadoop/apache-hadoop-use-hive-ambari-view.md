@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: cc04a891bb32ede6c7bb72a339b728642cf343ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207816"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000525"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Korzystanie z widoku programu Hive narzędzia Apache Ambari z usługą Apache Hadoop w usłudze HDInsight
 
@@ -29,7 +29,7 @@ Klaster usługi Hadoop w usłudze HDInsight. Zobacz Rozpoczynanie [pracy z usłu
 
 1. Na [Azure Portal](https://portal.azure.com/)wybierz swój klaster.  Instrukcje można znaleźć w temacie Wyświetlanie [i wyświetlanie klastrów](../hdinsight-administer-use-portal-linux.md#showClusters) . Klaster zostanie otwarty w nowym widoku portalu.
 
-1. W obszarze **pulpity nawigacyjne klastra**wybierz pozycję **widoki Ambari**. Po wyświetleniu monitu o uwierzytelnienie Użyj `admin` nazwy konta i hasła klastra, które zostały podane podczas tworzenia klastra. Możesz również przejść do `https://CLUSTERNAME.azurehdinsight.net/#/main/views` `CLUSTERNAME` okna przeglądarki, gdzie jest nazwą klastra.
+1. W obszarze **pulpity nawigacyjne klastra** wybierz pozycję **widoki Ambari**. Po wyświetleniu monitu o uwierzytelnienie Użyj `admin` nazwy konta i hasła klastra, które zostały podane podczas tworzenia klastra. Możesz również przejść do `https://CLUSTERNAME.azurehdinsight.net/#/main/views` `CLUSTERNAME` okna przeglądarki, gdzie jest nazwą klastra.
 
 1. Z listy widoki wybierz pozycję __Widok Hive__.
 
@@ -62,14 +62,14 @@ Klaster usługi Hadoop w usłudze HDInsight. Zobacz Rozpoczynanie [pracy z usłu
 
     |Instrukcja | Opis |
     |---|---|
-    |USUŃ TABELĘ|Usuwa tabelę i plik danych, jeśli tabela już istnieje.|
+    |DROP TABLE|Usuwa tabelę i plik danych, jeśli tabela już istnieje.|
     |TWORZENIE TABELI ZEWNĘTRZNEJ|Tworzy nową tabelę "zewnętrzna" w gałęzi Hive. Tabele zewnętrzne przechowują tylko definicję tabeli w programie Hive. Dane pozostaną w oryginalnej lokalizacji.|
     |FORMAT WIERSZA|Pokazuje, w jaki sposób dane są formatowane. W takim przypadku pola w każdym dzienniku są oddzielone spacją.|
     |PRZECHOWYWANE JAKO LOKALIZACJA TEXTFILE|Pokazuje, gdzie są przechowywane dane i czy są przechowywane jako tekst.|
     |SELECT|Wybiera liczbę wszystkich wierszy, w których kolumna T4 zawiera wartość [ERROR].|
 
    > [!IMPORTANT]  
-   > Pozostaw __Domyślnie__wybraną __bazę danych__ . Przykłady w tym dokumencie wykorzystują domyślną bazę danych dołączoną do usługi HDInsight.
+   > Pozostaw __Domyślnie__ wybraną __bazę danych__ . Przykłady w tym dokumencie wykorzystują domyślną bazę danych dołączoną do usługi HDInsight.
 
 1. Aby uruchomić zapytanie, wybierz pozycję **Wykonaj** poniżej arkusza. Przycisk zmieni kolor na pomarańczowy, a tekst zostanie zmieniony na **zatrzymany**.
 

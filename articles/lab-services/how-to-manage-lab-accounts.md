@@ -4,11 +4,11 @@ description: Dowiedz się, jak utworzyć konto laboratorium, wyświetlić wszyst
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 33e5e42f65fdd34bb37b12947b5173700ad7970c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91251664"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999505"
 ---
 # <a name="create-and-manage-lab-accounts"></a>Tworzenie kont laboratoriów i zarządzanie nimi
 W Azure Lab Services konto laboratorium jest kontenerem dla zarządzanych typów laboratorium, takich jak pracownie. Administrator konfiguruje konto laboratorium przy użyciu Azure Lab Services i zapewnia dostęp do właścicieli laboratorium, którzy mogą tworzyć laboratoria na koncie. W tym artykule opisano sposób tworzenia konta laboratorium, wyświetlania wszystkich kont laboratorium lub usuwania konta laboratorium.
@@ -34,7 +34,7 @@ Następujące kroki ilustrują tworzenie konta laboratorium w usłudze Azure Lab
 5. Wybierz pozycję **Dalej: Zaawansowane** w dolnej części strony, aby przejść do karty **Zaawansowane** , a następnie wykonaj następujące czynności: 
     1. Wybierz istniejącą **galerię obrazów udostępnionych** lub utwórz ją. Możesz zapisać maszynę wirtualną szablonu w galerii obrazów udostępnionych, aby mogła ona zostać ponownie użyta przez inne osoby. Aby uzyskać szczegółowe informacje na temat udostępnionych galerii obrazów, zobacz [Używanie galerii obrazów udostępnionych w Azure Lab Services](how-to-use-shared-image-gallery.md).
     2. Określ, czy chcesz **automatycznie zamykać maszyny wirtualne z systemem Windows** , gdy użytkownicy odłączają się od nich. Określ, jak długo maszyny wirtualne powinny czekać, aby użytkownik mógł ponownie nawiązać połączenie przed automatycznym zamknięciem. 
-    3. W przypadku **równorzędnej sieci wirtualnej**wybierz równorzędną sieć wirtualną (VNET) dla sieci laboratorium. Laboratoria utworzone w ramach tego konta są połączone z wybraną siecią wirtualną i mają dostęp do zasobów w wybranej sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [łączenie sieci wirtualnej laboratorium z równorzędną siecią wirtualną](how-to-connect-peer-virtual-network.md).    
+    3. W przypadku **równorzędnej sieci wirtualnej** wybierz równorzędną sieć wirtualną (VNET) dla sieci laboratorium. Laboratoria utworzone w ramach tego konta są połączone z wybraną siecią wirtualną i mają dostęp do zasobów w wybranej sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [łączenie sieci wirtualnej laboratorium z równorzędną siecią wirtualną](how-to-connect-peer-virtual-network.md).    
     8. Określ **zakres adresów** dla maszyn wirtualnych w laboratorium. Zakres adresów powinien znajdować się w notacji Classless Inter-Domain Routing (CIDR) (przykład: 10.20.0.0/23). Maszyny wirtualne w laboratorium zostaną utworzone w tym zakresie adresów. Aby uzyskać więcej informacji, zobacz [Określanie zakresu adresów dla maszyn wirtualnych w laboratorium](how-to-connect-peer-virtual-network.md#specify-an-address-range-for-vms-in-the-lab-account)  
 
         > [!NOTE]

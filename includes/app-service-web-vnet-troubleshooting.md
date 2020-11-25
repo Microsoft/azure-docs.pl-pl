@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
 ms.openlocfilehash: cec44bbabdb7d528c30a8d3396b819f2eb3c5386
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93235892"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999455"
 ---
 Ta funkcja jest łatwa do skonfigurowania, ale nie oznacza to, że Twoje doświadczenie będzie bezpłatne. Jeśli wystąpią problemy z uzyskaniem dostępu do żądanego punktu końcowego, istnieją pewne narzędzia, których można użyć do testowania łączności z poziomu konsoli aplikacji. Istnieją dwie konsole, których można użyć. Jedna z nich jest konsolą kudu, a druga jest konsolą w Azure Portal. Aby nawiązać połączenie z konsolą kudu z poziomu aplikacji, przejdź do pozycji **Narzędzia**  >  **kudu**. Możesz również uzyskać dostęp do konsoli Kudo na stronie [sitename]. SCM. azurewebsites. NET. Po załadowaniu witryny sieci Web przejdź do karty **konsola debugowania** . Aby uzyskać dostęp do konsoli obsługiwanej przez Azure Portal z poziomu aplikacji, przejdź **Tools** do  >  **konsoli** narzędzia.
 
 #### <a name="tools"></a>Narzędzia
-W natywnych aplikacjach systemu Windows narzędzia **ping** , **nslookup** i **tracert** nie działają przez konsolę ze względu na ograniczenia zabezpieczeń (działają w [niestandardowych kontenerach systemu Windows](../articles/app-service/quickstart-custom-container.md)). Aby wypełnić wartość void, dodawane są dwa osobne narzędzia. Aby przetestować funkcje DNS, dodaliśmy narzędzie o nazwie **nameresolver.exe**. Składnia jest następująca:
+W natywnych aplikacjach systemu Windows narzędzia **ping**, **nslookup** i **tracert** nie działają przez konsolę ze względu na ograniczenia zabezpieczeń (działają w [niestandardowych kontenerach systemu Windows](../articles/app-service/quickstart-custom-container.md)). Aby wypełnić wartość void, dodawane są dwa osobne narzędzia. Aby przetestować funkcje DNS, dodaliśmy narzędzie o nazwie **nameresolver.exe**. Składnia jest następująca:
 
 ```console
 nameresolver.exe hostname [optional: DNS Server]

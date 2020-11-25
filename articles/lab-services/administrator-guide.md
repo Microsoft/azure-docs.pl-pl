@@ -4,11 +4,11 @@ description: Ten przewodnik pomaga administratorom, którzy tworzą konta labora
 ms.topic: article
 ms.date: 10/20/2020
 ms.openlocfilehash: 08d2fea719ad67f666ea9da09721dc3f7ab54768
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024640"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999284"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services — Podręcznik administratora
 Administratorzy IT, którzy zarządzają zasobami w chmurze University, są zwykle odpowiedzialni za skonfigurowanie konta laboratorium dla swojej szkoły. Po skonfigurowaniu konta Laboratorium Administratorzy lub wykładowcy tworzą laboratoria, które są zawarte w ramach tego konta. Ten artykuł zawiera ogólne omówienie zasobów platformy Azure, które są wykorzystywane, oraz wskazówki dotyczące ich tworzenia.
