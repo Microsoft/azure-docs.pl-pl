@@ -10,11 +10,11 @@ ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: fc08adb2f71c49fad3c8574e9cfd5315f13d7f44
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92532768"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95982266"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Rozwiązywanie problemów z Apache Storm przy użyciu usługi Azure HDInsight
 
@@ -27,8 +27,8 @@ Dostępne są dwie opcje uzyskiwania dostępu do interfejsu użytkownika burzy z
 ### <a name="apache-ambari-ui"></a>Interfejs użytkownika Apache Ambari
 
 1. Przejdź do pulpitu nawigacyjnego Ambari.
-2. Na liście usług wybierz pozycję **burza** .
-3. W menu **szybkie linki** wybierz pozycję **interfejs użytkownika burzy** .
+2. Na liście usług wybierz pozycję **burza**.
+3. W menu **szybkie linki** wybierz pozycję **interfejs użytkownika burzy**.
 
 ### <a name="direct-link"></a>Link bezpośredni
 
