@@ -4,11 +4,11 @@ description: W tym artykule opisano, jak używać starych i nowych zdarzeń diag
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.openlocfilehash: 3d10053bae5148f33dba6d1207a81bdb16c37577
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89182602"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002889"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Użyj ustawień diagnostycznych dla Recovery Services magazynów
 
@@ -44,7 +44,7 @@ Aby wysłać dane diagnostyczne magazynu do Log Analytics:
 1. Przejdź do magazynu, a następnie wybierz pozycję **Ustawienia diagnostyczne**. Wybierz pozycję **+ Dodaj ustawienie diagnostyczne**.
 1. Nadaj nazwę ustawieniu diagnostyki.
 1. Zaznacz pole wyboru **Wyślij do log Analytics** a następnie wybierz obszar roboczy log Analytics.
-1. Wybierz pozycję **zasób specyficzny** dla przełącznika i wybierz następujące sześć zdarzeń: **CoreAzureBackup**, **AddonAzureBackupJobs**, **AddonAzureBackupAlerts**, **AddonAzureBackupPolicy**, **AddonAzureBackupStorage**i **AddonAzureBackupProtectedInstance**.
+1. Wybierz pozycję **zasób specyficzny** dla przełącznika i wybierz następujące sześć zdarzeń: **CoreAzureBackup**, **AddonAzureBackupJobs**, **AddonAzureBackupAlerts**, **AddonAzureBackupPolicy**, **AddonAzureBackupStorage** i **AddonAzureBackupProtectedInstance**.
 1. Wybierz pozycję **Zapisz**.
 
    ![Tryb specyficzny dla zasobów](./media/backup-azure-diagnostics-events/resource-specific-blade.png)
@@ -102,7 +102,7 @@ Obecnie nadal obsługujemy zdarzenia AzureBackupReport na potrzeby zgodności z 
 
 2. Użyj [wbudowanych definicji Azure Policy](./azure-policy-configure-diagnostics.md) w Azure Backup, aby dodać nowe ustawienie diagnostyki dla wszystkich magazynów w określonym zakresie. Ta zasada dodaje nowe ustawienie diagnostyczne do magazynów, które nie mają ustawienia diagnostyki lub mają tylko starsze ustawienia diagnostyki. Te zasady można przypisywać jednocześnie do całej subskrypcji lub grupy zasobów. Musisz mieć dostęp właściciela do każdej subskrypcji, do której zasady są przypisane.
 
-Możesz wybrać oddzielne ustawienia diagnostyki dla AzureBackupReport i sześciu nowych zdarzeń, dopóki nie zostaną zmigrowane wszystkie niestandardowe zapytania, aby używać danych z nowych tabel. Na poniższej ilustracji przedstawiono przykładowy magazyn, który ma dwa ustawienia diagnostyczne. Pierwsze ustawienie o nazwie **Setting1**wysyła dane zdarzenia AzureBackupReport do obszaru roboczego log Analytics w trybie diagnostyki platformy Azure. Drugie ustawienie o nazwie **Setting2**wysyła dane z sześciu nowych zdarzeń Azure Backup do log Analytics obszaru roboczego w trybie specyficznym dla zasobów.
+Możesz wybrać oddzielne ustawienia diagnostyki dla AzureBackupReport i sześciu nowych zdarzeń, dopóki nie zostaną zmigrowane wszystkie niestandardowe zapytania, aby używać danych z nowych tabel. Na poniższej ilustracji przedstawiono przykładowy magazyn, który ma dwa ustawienia diagnostyczne. Pierwsze ustawienie o nazwie **Setting1** wysyła dane zdarzenia AzureBackupReport do obszaru roboczego log Analytics w trybie diagnostyki platformy Azure. Drugie ustawienie o nazwie **Setting2** wysyła dane z sześciu nowych zdarzeń Azure Backup do log Analytics obszaru roboczego w trybie specyficznym dla zasobów.
 
 ![Dwa ustawienia](./media/backup-azure-diagnostics-events/two-settings-example.png)
 
@@ -114,17 +114,17 @@ Możesz wybrać oddzielne ustawienia diagnostyki dla AzureBackupReport i sześci
 
 ## <a name="send-azure-site-recovery-events-to-log-analytics"></a>Wyślij Azure Site Recovery zdarzenia do Log Analytics
 
-Zdarzenia Azure Backup i Azure Site Recovery są wysyłane z tego samego magazynu Recovery Services. Azure Site Recovery nie jest obecnie dostępna dla tabel specyficznych dla zasobów. Użytkownicy, którzy chcą wysyłać zdarzenia Azure Site Recovery do Log Analytics są kierowani do korzystania *tylko*z trybu diagnostyki platformy Azure, jak pokazano na obrazie. *Wybranie trybu specyficznego dla zasobów dla zdarzeń Azure Site Recovery uniemożliwi wysyłanie wymaganych danych do obszaru roboczego log Analytics*.
+Zdarzenia Azure Backup i Azure Site Recovery są wysyłane z tego samego magazynu Recovery Services. Azure Site Recovery nie jest obecnie dostępna dla tabel specyficznych dla zasobów. Użytkownicy, którzy chcą wysyłać zdarzenia Azure Site Recovery do Log Analytics są kierowani do korzystania *tylko* z trybu diagnostyki platformy Azure, jak pokazano na obrazie. *Wybranie trybu specyficznego dla zasobów dla zdarzeń Azure Site Recovery uniemożliwi wysyłanie wymaganych danych do obszaru roboczego log Analytics*.
 
 ![Zdarzenia Site Recovery](./media/backup-azure-diagnostics-events/site-recovery-settings.png)
 
 Podsumowując:
 
 * Jeśli masz już skonfigurowaną Log Analytics diagnostykę z Diagnostyka Azure i masz na niej zapisaną kwerendę niestandardową, Zachowaj to ustawienie *bez zmian* , dopóki nie zostaną zmigrowane zapytania, aby używać danych z nowych zdarzeń.
-* Jeśli chcesz również dodać do nowych tabel, zalecamy utworzenie **nowego** ustawienia diagnostycznego, wybierz opcję **specyficzne dla zasobów**i wybierz sześć nowych zdarzeń.
-* Jeśli aktualnie wysyłasz zdarzenia Azure Site Recovery do Log Analytics, *nie* wybieraj trybu specyficznego dla zasobów dla tych zdarzeń. W przeciwnym razie dane dla tych zdarzeń nie będą przepływać do obszaru roboczego Log Analytics. Zamiast tego Utwórz dodatkowe ustawienie diagnostyczne, wybierz pozycję **Diagnostyka Azure**i wybierz odpowiednie zdarzenia Azure Site Recovery.
+* Jeśli chcesz również dodać do nowych tabel, zalecamy utworzenie **nowego** ustawienia diagnostycznego, wybierz opcję **specyficzne dla zasobów** i wybierz sześć nowych zdarzeń.
+* Jeśli aktualnie wysyłasz zdarzenia Azure Site Recovery do Log Analytics, *nie* wybieraj trybu specyficznego dla zasobów dla tych zdarzeń. W przeciwnym razie dane dla tych zdarzeń nie będą przepływać do obszaru roboczego Log Analytics. Zamiast tego Utwórz dodatkowe ustawienie diagnostyczne, wybierz pozycję **Diagnostyka Azure** i wybierz odpowiednie zdarzenia Azure Site Recovery.
 
-Na poniższej ilustracji przedstawiono przykład użytkownika, który ma trzy ustawienia diagnostyki dla magazynu. Pierwsze ustawienie o nazwie **Setting1**wysyła dane ze zdarzenia AzureBackupReport do obszaru roboczego log Analytics w trybie diagnostyki platformy Azure. Drugie ustawienie o nazwie **Setting2**wysyła dane z sześciu nowych zdarzeń Azure Backup do obszaru roboczego log Analytics w trybie specyficznym dla zasobu. Trzecie ustawienie o nazwie **Setting3**wysyła dane ze zdarzeń Azure Site Recovery do obszaru roboczego log Analytics w trybie diagnostycznym platformy Azure.
+Na poniższej ilustracji przedstawiono przykład użytkownika, który ma trzy ustawienia diagnostyki dla magazynu. Pierwsze ustawienie o nazwie **Setting1** wysyła dane ze zdarzenia AzureBackupReport do obszaru roboczego log Analytics w trybie diagnostyki platformy Azure. Drugie ustawienie o nazwie **Setting2** wysyła dane z sześciu nowych zdarzeń Azure Backup do obszaru roboczego log Analytics w trybie specyficznym dla zasobu. Trzecie ustawienie o nazwie **Setting3** wysyła dane ze zdarzeń Azure Site Recovery do obszaru roboczego log Analytics w trybie diagnostycznym platformy Azure.
 
 ![Trzy ustawienia](./media/backup-azure-diagnostics-events/three-settings-example.png)
 

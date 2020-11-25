@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 37917e0ed663675677f1d0452b5796120ca2694e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75468723"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001748"
 ---
 ### <a name="azure-storage-linked-service"></a>Połączona usługa Azure Storage
 **Połączona usługa Azure Storage** umożliwia łączenie konta usługi Azure Storage z usługą Azure Data Factory przy użyciu **klucza konta**, który zapewnia fabrykę danych z dostępem globalnym do usługi Azure Storage. Poniższa tabela zawiera opis elementów JSON specyficznych dla połączonej usługi Azure Storage.
@@ -66,7 +66,7 @@ Połączona usługa Azure Storage SAS umożliwia łączenie konta usługi Azure 
 }
 ```
 
-Podczas tworzenia **identyfikatora URI sygnatury dostępu współdzielonego**Rozważ następujące kwestie:  
+Podczas tworzenia **identyfikatora URI sygnatury dostępu współdzielonego** Rozważ następujące kwestie:  
 
 * Ustaw odpowiednie **uprawnienia** do odczytu/zapisu dla obiektów na podstawie sposobu używania połączonej usługi (odczyt, zapis, odczyt/zapis) w fabryce danych.
 * Ustaw odpowiednio **czas wygaśnięcia** . Upewnij się, że dostęp do obiektów usługi Azure Storage nie wygasa w aktywnym okresie potoku.

@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: ef74c4b799c3a24636f88a8e704bf726104b034f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674324"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001596"
 ---
 # <a name="sensor-partner-integration"></a>Integracja z partnerami obsługującymi czujniki
 
@@ -93,7 +93,7 @@ access_token = token_response.get('access_token')
 Poniżej znajdują się najczęstsze nagłówki żądań, które należy określić podczas wywołania interfejsu API do FarmBeats Datahub.
 
 
-**Nagłówki** | **Opis i przykład**
+**Nagłówek** | **Opis i przykład**
 --- | ---
 Content-Type | Format żądania (Content-Type: Application/ <format> ). W przypadku interfejsów API FarmBeats Datahub format jest JSON. Content-Type: Application/JSON
 Autoryzacja | Określa token dostępu wymagany do wywołania interfejsu API. Autoryzacja: <okaziciela Access-Token>
@@ -126,10 +126,10 @@ JSON to typowy format danych niezależny od języka, który zapewnia prostą rep
 
 FarmBeats Datahub zawiera następujące interfejsy API, które umożliwiają partnerom urządzeń tworzenie metadanych urządzenia lub czujnika oraz zarządzanie nimi.
 
-- /**DeviceModel** : DeviceModel odpowiada metadanych urządzenia, takich jak producent i typ urządzenia, który jest bramą lub węzłem.
-- /**Urządzenie** : urządzenie odpowiada urządzeniu fizycznemu znajdującemu się w farmie.
-- /**SensorModel** : SensorModel odpowiada metadanych czujnika, takich jak producent, typ czujnika, który jest analogowy lub cyfrowy i pomiar czujnika, taki jak temperatura otoczenia i ciśnienie.
-- /**Czujnik** : czujnik odnosi się do czujnika fizycznego, który rejestruje wartości. Czujnik jest zwykle podłączony do urządzenia z IDENTYFIKATORem urządzenia.
+- /**DeviceModel**: DeviceModel odpowiada metadanych urządzenia, takich jak producent i typ urządzenia, który jest bramą lub węzłem.
+- /**Urządzenie**: urządzenie odpowiada urządzeniu fizycznemu znajdującemu się w farmie.
+- /**SensorModel**: SensorModel odpowiada metadanych czujnika, takich jak producent, typ czujnika, który jest analogowy lub cyfrowy i pomiar czujnika, taki jak temperatura otoczenia i ciśnienie.
+- /**Czujnik**: czujnik odnosi się do czujnika fizycznego, który rejestruje wartości. Czujnik jest zwykle podłączony do urządzenia z IDENTYFIKATORem urządzenia.
 
   DeviceModel | Opis |
   --- | ---
@@ -324,7 +324,7 @@ Partnerzy urządzeń mogą umożliwić klientom Edytowanie ustawień integracji 
 
 ## <a name="view-the-last-telemetry-sent"></a>Wyświetl ostatnie wysłane dane telemetryczne
 
-Partnerzy urządzeń mogą umożliwić klientom wyświetlanie sygnatury czasowej ostatniej wysyłanej telemetrii, która została znaleziona w obszarze **wysłane dane telemetryczne** . Jest to czas, w którym Najnowsza Telemetria została pomyślnie wysłana do FarmBeats.
+Partnerzy urządzeń mogą umożliwić klientom wyświetlanie sygnatury czasowej ostatniej wysyłanej telemetrii, która została znaleziona w obszarze **wysłane dane telemetryczne**. Jest to czas, w którym Najnowsza Telemetria została pomyślnie wysłana do FarmBeats.
 
 ## <a name="troubleshooting-and-error-management"></a>Rozwiązywanie problemów i zarządzanie błędami
 

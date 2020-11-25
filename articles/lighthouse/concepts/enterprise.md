@@ -4,11 +4,11 @@ description: Możliwości usługi Azure Lighthouse umożliwiają uproszczenie za
 ms.date: 08/12/2020
 ms.topic: conceptual
 ms.openlocfilehash: 3f452e6810fa6809b5ba1b83b664f8b38d82a895
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167353"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004249"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Usługa Azure Lighthouse w scenariuszach dla przedsiębiorstw
 
@@ -24,7 +24,7 @@ W przypadkach, gdy wymagana jest architektura wielodostępna, usługa Azure Ligh
 
 Aby korzystać z usługi Azure Lighthouse w przedsiębiorstwie, należy określić, która dzierżawa będzie obejmować użytkowników, którzy wykonują operacje zarządzania w innych dzierżawach. Innymi słowy, należy określić, który dzierżawca będzie dzierżawą zarządzającą dla innych dzierżawców.
 
-Załóżmy na przykład, że organizacja ma jedną dzierżawę, która wywoła *dzierżawę a*. Organizacja uzyskuje dostęp do *dzierżawy B* i *dzierżawy C*i ma powody biznesowe, które wymagają utrzymania ich jako osobnych dzierżawców.
+Załóżmy na przykład, że organizacja ma jedną dzierżawę, która wywoła *dzierżawę a*. Organizacja uzyskuje dostęp do *dzierżawy B* i *dzierżawy C* i ma powody biznesowe, które wymagają utrzymania ich jako osobnych dzierżawców.
 
 Organizacja chce używać tych samych definicji zasad, metod tworzenia kopii zapasowych i procesów zabezpieczeń we wszystkich dzierżawach. Ponieważ dzierżawca zawiera już użytkowników odpowiedzialnych za te zadania, można dołączyć subskrypcje w ramach dzierżawy B i dzierżawy C, umożliwiając tym samym użytkownikom w dzierżawie A wykonywanie tych zadań.
 

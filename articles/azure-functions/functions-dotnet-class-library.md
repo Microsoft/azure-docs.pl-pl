@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
 ms.openlocfilehash: 3c363d13933e6554a6eefbeaf02d87dc6b382628
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578777"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002402"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Dokumentacja dla deweloperów Azure Functions C#
 
@@ -21,7 +21,7 @@ Jako deweloper języka C# może być również interesujący jeden z następują
 
 | Wprowadzenie | Pojęcia| Nauka z przewodnikiem/przykłady |
 | -- | -- | -- | 
-| <ul><li>[Korzystanie z programu Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Korzystanie z narzędzia Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Korzystanie z narzędzi wiersza polecenia](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Opcje hostingu](functions-scale.md)</li><li>[&nbsp;Zagadnienia dotyczące wydajności](functions-best-practices.md)</li><li>[Opracowywanie zawartości w programie Visual Studio](functions-develop-vs.md)</li><li>[Wstrzykiwanie zależności](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Tworzenie aplikacji bezserwerowych](/learn/paths/create-serverless-applications/)</li><li>[Przykłady w języku C#](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
+| <ul><li>[Korzystanie z programu Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Korzystanie z narzędzia Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Korzystanie z narzędzi wiersza polecenia](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Opcje hostingu](functions-scale.md)</li><li>[&nbsp;Zagadnienia dotyczące wydajności](functions-best-practices.md)</li><li>[Opracowywanie zawartości w programie Visual Studio](functions-develop-vs.md)</li><li>[Iniekcja zależności](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Tworzenie aplikacji bezserwerowych](/learn/paths/create-serverless-applications/)</li><li>[Przykłady w języku C#](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
 
 Azure Functions obsługuje języki programowania skryptów C# i C#. Jeśli szukasz wskazówek dotyczących [używania języka C# w Azure Portal](functions-create-function-app-portal.md), zobacz [informacje dotyczące deweloperów skryptów C# (CSX)](functions-reference-csharp.md).
 
@@ -616,7 +616,7 @@ public static class IBinderExample
 
 ### <a name="multiple-attribute-example"></a>Przykład wielu atrybutów
 
-W poprzednim przykładzie jest pobierane ustawienie aplikacji dla głównych parametrów połączenia konta magazynu aplikacji funkcji (co to jest `AzureWebJobsStorage` ). Możesz określić niestandardowe ustawienie aplikacji do użycia dla konta magazynu, dodając [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) i przekazując tablicę atrybutów do `BindAsync<T>()` . Użyj `Binder` parametru, a nie `IBinder` .  Przykład:
+W poprzednim przykładzie jest pobierane ustawienie aplikacji dla głównych parametrów połączenia konta magazynu aplikacji funkcji (co to jest `AzureWebJobsStorage` ). Możesz określić niestandardowe ustawienie aplikacji do użycia dla konta magazynu, dodając [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) i przekazując tablicę atrybutów do `BindAsync<T>()` . Użyj `Binder` parametru, a nie `IBinder` .  Na przykład:
 
 ```cs
 public static class IBinderExampleMultipleAttributes

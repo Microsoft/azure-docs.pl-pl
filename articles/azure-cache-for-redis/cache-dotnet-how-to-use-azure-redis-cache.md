@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
 ms.date: 06/18/2020
 ms.openlocfilehash: 762fdf0aab0077cfbf8beceeb432dc85695e4176
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077068"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002470"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-net-framework"></a>Szybki Start: korzystanie z usługi Azure cache for Redis w .NET Framework
 
@@ -30,7 +30,7 @@ W tym przewodniku szybki start dodaliśmy usługę Azure cache for Redis do apli
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-Utwórz na swoim komputerze plik o nazwie *CacheSecrets.config* i umieść go w lokalizacji, gdzie nie zostanie zaewidencjonowany za pomocą kodu źródłowego przykładowej aplikacji. W tym przewodniku Szybki start plik *CacheSecrets.config* znajduje się tu: *C:\AppSecrets\CacheSecrets.config* .
+Utwórz na swoim komputerze plik o nazwie *CacheSecrets.config* i umieść go w lokalizacji, gdzie nie zostanie zaewidencjonowany za pomocą kodu źródłowego przykładowej aplikacji. W tym przewodniku Szybki start plik *CacheSecrets.config* znajduje się tu: *C:\AppSecrets\CacheSecrets.config*.
 
 Edytuj plik *CacheSecrets.config* i dodaj następującą zawartość:
 
@@ -47,9 +47,9 @@ Zastąp element `<access-key>` kluczem podstawowym pamięci podręcznej.
 
 ## <a name="create-a-console-app"></a>tworzenie aplikacji konsoli
 
-W programie Visual Studio kliknij pozycję **plik**  >  **Nowy**  >  **projekt** .
+W programie Visual Studio kliknij pozycję **plik**  >  **Nowy**  >  **projekt**.
 
-Wybierz pozycję **aplikacja konsoli (.NET Framework)** , a **następnie** Skonfiguruj aplikację. Wpisz **nazwę projektu** , a następnie kliknij przycisk **Utwórz** , aby utworzyć nową aplikację konsolową.
+Wybierz pozycję **aplikacja konsoli (.NET Framework)**, a **następnie** Skonfiguruj aplikację. Wpisz **nazwę projektu** , a następnie kliknij przycisk **Utwórz** , aby utworzyć nową aplikację konsolową.
 
 <a name="configure-the-cache-clients"></a>
 
@@ -68,7 +68,7 @@ Po ukończeniu instalacji klient pamięci podręcznej *StackExchange.Redis* będ
 
 ## <a name="connect-to-the-cache"></a>Łączenie z pamięcią podręczną
 
-W programie Visual Studio otwórz plik *App.config* i zaktualizuj go, aby uwzględnić atrybut `appSettings` `file`, który odwołuje się do pliku *CacheSecrets.config* .
+W programie Visual Studio otwórz plik *App.config* i zaktualizuj go, aby uwzględnić atrybut `appSettings` `file`, który odwołuje się do pliku *CacheSecrets.config*.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -81,9 +81,9 @@ W programie Visual Studio otwórz plik *App.config* i zaktualizuj go, aby uwzgl�
 </configuration>
 ```
 
-W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy pozycję **Odwołania** i kliknij pozycję **Dodaj odwołanie** . Dodaj odwołanie do zestawu **System.Configuration** .
+W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy pozycję **Odwołania** i kliknij pozycję **Dodaj odwołanie**. Dodaj odwołanie do zestawu **System.Configuration**.
 
-Dodaj następujące instrukcje `using` do pliku *Program.cs* :
+Dodaj następujące instrukcje `using` do pliku *Program.cs*:
 
 ```csharp
 using StackExchange.Redis;
@@ -173,7 +173,7 @@ Elementy pamięci podręcznej można zapisywać i pobierać za pomocą metod `St
 
 Usługa Redis przechowuje większość danych w formie ciągów Redis, ale ciągi te mogą zawierać wiele typów danych, w tym serializowane dane binarne, które mogą być używane podczas przechowywania obiektów platformy .NET w pamięci podręcznej.
 
-Naciśnij klawisze **Ctrl+F5** , aby skompilować i uruchomić aplikację konsolową.
+Naciśnij klawisze **Ctrl+F5**, aby skompilować i uruchomić aplikację konsolową.
 
 W poniższym przykładzie widać, że klucz `Message` miał już w pamięci podręcznej wartość, która została ustawiona za pomocą konsoli Redis w witrynie Azure Portal. Aplikacja zaktualizowała tę wartość w pamięci podręcznej. Aplikacja również wykonała polecenia `PING` i `CLIENT LIST`.
 
@@ -192,13 +192,13 @@ W programie Visual Studio kliknij kolejno pozycje **Narzędzia** Menedżer  >  *
 Install-Package Newtonsoft.Json
 ```
 
-Dodaj następującą instrukcję `using` na początku pliku *Program.cs* :
+Dodaj następującą instrukcję `using` na początku pliku *Program.cs*:
 
 ```csharp
 using Newtonsoft.Json;
 ```
 
-Dodaj następującą definicję klasy `Employee` do pliku *Program.cs* :
+Dodaj następującą definicję klasy `Employee` do pliku *Program.cs*:
 
 ```csharp
 class Employee
@@ -232,7 +232,7 @@ W dolnej części procedury `Main()` w pliku *Program.cs* i przed wywołaniem do
     Console.WriteLine("\tEmployee.Age  : " + e007FromCache.Age + "\n");
 ```
 
-Naciśnij klawisze **Ctrl+F5** , aby skompilować i uruchomić aplikację konsolową na potrzeby testowania serializacji obiektów platformy .NET. 
+Naciśnij klawisze **Ctrl+F5**, aby skompilować i uruchomić aplikację konsolową na potrzeby testowania serializacji obiektów platformy .NET. 
 
 ![Ukończono tworzenie aplikacji konsolowej](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-complete.png)
 
@@ -247,13 +247,13 @@ W przeciwnym razie po zakończeniu pracy z przykładową aplikacją poradnika Sz
 > Usunięcie grupy zasobów jest nieodwracalne i grupa zasobów oraz wszystkie zawarte w niej zasoby zostaną trwale usunięte. Uważaj, aby nie usunąć przypadkowo niewłaściwych zasobów lub grupy zasobów. Jeśli zasoby do hostowania tego przykładu zostały utworzone wewnątrz istniejącej grupy zasobów zawierającej zasoby, które chcesz zachować, możesz usunąć każdy zasób oddzielnie z odpowiadającego mu bloku zamiast usuwać całą grupę zasobów.
 >
 
-Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i kliknij pozycję **Grupy zasobów** .
+Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i kliknij pozycję **Grupy zasobów**.
 
-W polu tekstowym **Filtruj według nazwy...** wpisz nazwę grupy zasobów. Instrukcje w tym artykule używają grupy zasobów o nazwie *TestResources* . Dla grupy zasobów na liście wyników kliknij pozycję **...** , a następnie kliknij pozycję **Usuń grupę zasobów** .
+W polu tekstowym **Filtruj według nazwy...** wpisz nazwę grupy zasobów. Instrukcje w tym artykule używają grupy zasobów o nazwie *TestResources*. Dla grupy zasobów na liście wyników kliknij pozycję **...**, a następnie kliknij pozycję **Usuń grupę zasobów**.
 
 ![Usuń](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-delete-resource-group.png)
 
-Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Wpisz nazwę grupy zasobów w celu potwierdzenia, a następnie kliknij pozycję **Usuń** .
+Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Wpisz nazwę grupy zasobów w celu potwierdzenia, a następnie kliknij pozycję **Usuń**.
 
 Po krótkim czasie grupa zasobów i wszystkie zawarte w niej zasoby zostaną usunięte.
 

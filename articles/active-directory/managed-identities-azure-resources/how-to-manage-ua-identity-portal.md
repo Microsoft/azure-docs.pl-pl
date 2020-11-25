@@ -16,11 +16,11 @@ ms.date: 08/26/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7ad91c916a6134f2507e74df6e87478421a00f43
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977429"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003008"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Utwórz, Wyświetl, Usuń lub Przypisz rolę do zarządzanej tożsamości przypisanej przez użytkownika przy użyciu Azure Portal
 
@@ -38,7 +38,7 @@ W tym artykule dowiesz się, jak utworzyć, wyświetlić, usunąć lub przypisa�
 Do utworzenia tożsamości zarządzanej przypisanej przez użytkownika konto wymaga przypisania roli [współautor zarządzanej tożsamości](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) .
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta skojarzonego z subskrypcją platformy Azure w celu utworzenia tożsamości zarządzanej przypisanej przez użytkownika.
-2. W polu wyszukiwania wpisz *tożsamości zarządzane*, a w obszarze **usługi**kliknij pozycję **tożsamości zarządzane**.
+2. W polu wyszukiwania wpisz *tożsamości zarządzane*, a w obszarze **usługi** kliknij pozycję **tożsamości zarządzane**.
 3. Kliknij przycisk **Dodaj** i wprowadź wartości w następujących polach w obszarze **Tworzenie zarządzanej tożsamości przypisanej przez użytkownika** w okienku:
     - **Subskrypcja**: wybierz subskrypcję, aby utworzyć tożsamość zarządzaną przypisaną przez użytkownika.
     - **Grupa zasobów**: Wybierz grupę zasobów, aby utworzyć tożsamość zarządzaną przypisaną przez użytkownika w programie, lub kliknij pozycję **Utwórz nową** , aby utworzyć nową grupę zasobów.

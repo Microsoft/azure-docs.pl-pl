@@ -14,11 +14,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f49ae5139dc92ec1448e5dea05be8c8c216ef91e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361351"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002667"
 ---
 # <a name="how-to-use-perfinsights-in-azure"></a>Jak używać że program perfinsights na platformie Azure
 
@@ -123,10 +123,10 @@ Zbierane są informacje o konfiguracji maszyn wirtualnych systemu Windows, dysk�
 | Śledzenie Xperf                       |                            |                                    |                          |                      | Tak                  |
 | Ślad StorPort                    |                            |                                    |                          |                      | Tak                  |
 | Śledzenie sieci                     |                            |                                    |                          | Tak                  | Tak                  |
-| Śledzenie testu porównawczego narzędzia diskspd * * *       |                            | Tak                                |                          |                      |                      |
+| Narzędzia diskspd wyniki testów porównawczych * * _       |                            | Tak                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
-### <a name="performance-diagnostics-trace-"></a>Śledzenie diagnostyki wydajności (*)
+### <a name="performance-diagnostics-trace-_"></a>Śledzenie diagnostyki wydajności (_)
 
 Uruchamia aparat oparty na regułach w tle w celu zbierania danych i diagnozowania bieżących problemów z wydajnością. Obecnie obsługiwane są następujące reguły:
 
@@ -154,7 +154,7 @@ Zbiera następujące liczniki wydajności:
 #### <a name="for-azure-files"></a>Dla Azure Files
 \SMB udziały klientów
 
-### <a name="diskspd-benchmark-trace-"></a>Ślad testu porównawczego narzędzia diskspd (* * *)
+### <a name="diskspd-benchmark-trace-_"></a>Ślad testu porównawczego narzędzia diskspd (* * _)
 Narzędzia diskspd testów obciążenia wejścia/wyjścia (dysk systemu operacyjnego [zapis] i stacje puli [odczyt/zapis])
 
 ## <a name="run-the-perfinsights-tool-on-your-vm"></a>Uruchamianie narzędzia że program perfinsights na maszynie wirtualnej
@@ -165,8 +165,7 @@ Narzędzia diskspd testów obciążenia wejścia/wyjścia (dysk systemu operacyj
 
 -  To narzędzie musi być uruchomione na maszynie wirtualnej, na której występuje problem z wydajnością. 
 
--  Obsługiwane są następujące systemy operacyjne:
-   * Windows Server 2019
+-  Obsługiwane są następujące systemy operacyjne: _ Windows Server 2019
    * Windows Server 2016
    * Windows Server 2012 z dodatkiem R2
    * Windows Server 2012

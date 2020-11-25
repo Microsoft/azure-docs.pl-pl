@@ -12,11 +12,11 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 0538777cadf7935a6684932a17fadc10849518d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89490092"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001630"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Informacje o wersji bramy zarządzania danymi
 > [!NOTE]
@@ -128,7 +128,7 @@ Nie utrzymujemy jeszcze informacji o wersji. Pobierz najnowsze informacje o wers
     *  Dane można kopiować z magazynu za pomocą narzędzia do [kopiowania bez kodu](data-factory-copy-data-wizard-tutorial.md). Więcej informacji o tej funkcji znajduje się w sekcji [przygotowane kopie](data-factory-copy-activity-performance.md#staged-copy) .
 *  Za pomocą bramy Zarządzanie danymi można odbierać dane przychodzące bezpośrednio z SQL Serverj bazy danych w Azure Machine Learning.
 
-*  Usprawnienia wydajności
+*  Ulepszenia wydajności
 
     * Zwiększ wydajność wyświetlania schematu/podglądu w odniesieniu do SQL Server w narzędziu do kopiowania bez kodu.
 
@@ -144,7 +144,7 @@ Nie utrzymujemy jeszcze informacji o wersji. Pobierz najnowsze informacje o wers
 
 *  W przypadku niepowodzenia automatycznego aktualizowania Instalator bramy ponawia próbę automatycznego zaktualizowania.
 
-*  Usprawnienia wydajności
+*  Ulepszenia wydajności
 
     * Zwiększ wydajność ładowania dużych tabel z serwera lokalnego w scenariuszu kopiowania bez kodu.
 
@@ -152,7 +152,7 @@ Nie utrzymujemy jeszcze informacji o wersji. Pobierz najnowsze informacje o wers
 
 ## <a name="11058921"></a>1.10.5892.1
 
-*  Usprawnienia wydajności
+*  Ulepszenia wydajności
 
 *  Poprawki błędów
 
@@ -164,34 +164,34 @@ Nie utrzymujemy jeszcze informacji o wersji. Pobierz najnowsze informacje o wers
 *  Możliwość ustawienia czasu harmonogramu aktualizacji
 *  Skrypt programu PowerShell służący do przełączania lub wyłączania autoaktualizacji
 *  Obsługa formatu JSON  
-*  Usprawnienia wydajności
+*  Ulepszenia wydajności
 *  Poprawki błędów
 
 ## <a name="1858221"></a>1.8.5822.1
 
 *  Ulepszanie środowiska rozwiązywania problemów
-*  Usprawnienia wydajności
+*  Ulepszenia wydajności
 *  Poprawki błędów
 
 ### <a name="1757951"></a>1.7.5795.1
 
-*  Usprawnienia wydajności
+*  Ulepszenia wydajności
 *  Poprawki błędów
 
 ### <a name="1757641"></a>1.7.5764.1
 
-*  Usprawnienia wydajności
+*  Ulepszenia wydajności
 *  Poprawki błędów
 
 ### <a name="1657351"></a>1.6.5735.1
 
 *  Obsługa lokalnego źródła/ujścia systemu plików HDFS
-*  Usprawnienia wydajności
+*  Ulepszenia wydajności
 *  Poprawki błędów
 
 ### <a name="1656961"></a>1.6.5696.1
 
-*  Usprawnienia wydajności
+*  Ulepszenia wydajności
 *  Poprawki błędów
 
 ### <a name="1656761"></a>1.6.5676.1
@@ -208,7 +208,7 @@ Nie utrzymujemy jeszcze informacji o wersji. Pobierz najnowsze informacje o wers
 ### <a name="1656721"></a>1.6.5672.1
 
 *  Nazwa tabeli obsługi dla źródła danych ODBC dla Azure Data Factory
-*  Usprawnienia wydajności
+*  Ulepszenia wydajności
 *  Poprawki błędów
 
 ### <a name="1656581"></a>1.6.5658.1
@@ -229,13 +229,13 @@ Nie utrzymujemy jeszcze informacji o wersji. Pobierz najnowsze informacje o wers
 
 *  Obsługa pięciu relacyjnych baz danych dla Azure Data Factory (MySQL, PostgreSQL, DB2, Teradata i Sybase)
 *  Obsługa kompresji (gzip i Wklęśnięcie)
-*  Usprawnienia wydajności
+*  Ulepszenia wydajności
 *  Poprawki błędów
 
 ### <a name="1455491"></a>1.4.5549.1
 
 *  Dodaj obsługę programu Oracle Data Source dla Azure Data Factory
-*  Usprawnienia wydajności
+*  Ulepszenia wydajności
 *  Poprawki błędów
 
 ### <a name="1454921"></a>1.4.5492.1

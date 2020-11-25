@@ -8,11 +8,11 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: f38e23a3af1e2c81ee012a4f3c268cbff3fc1bee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86171469"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002821"
 ---
 # <a name="persist-state-in-windows"></a>Stan utrwalania w systemie Windows
 
@@ -35,7 +35,7 @@ Ten artykuł zawiera kroki niezbędne do wdrożenia modułu Event Grid z trwało
     docker -H npipe:////./pipe/iotedge_moby_engine volume create <your-volume-name-here>
     ```
 
-    Przykład:
+    Na przykład
 
    ```sh
    docker -H npipe:////./pipe/iotedge_moby_engine volume create myeventgridvol
@@ -46,7 +46,7 @@ Ten artykuł zawiera kroki niezbędne do wdrożenia modułu Event Grid z trwało
     docker -H npipe:////./pipe/iotedge_moby_engine volume inspect <your-volume-name-here>
     ```
 
-    Przykład:
+    Na przykład
 
    ```sh
    docker -H npipe:////./pipe/iotedge_moby_engine volume inspect myeventgridvol
@@ -74,10 +74,10 @@ Ten artykuł zawiera kroki niezbędne do wdrożenia modułu Event Grid z trwało
     1. Wybierz opcję **Zabezpieczenia**.
     1. W obszarze * nazwy grup lub użytkowników wybierz pozycję **Edytuj**.
     1. Wybierz pozycję **Dodaj**, wprowadź `Users` , wybierz pozycję **Sprawdź nazwy**, a następnie wybierz pozycję **OK**.
-    1. W obszarze *uprawnienia dla użytkowników*wybierz pozycję **Modyfikuj**, a następnie wybierz pozycję **OK**.
+    1. W obszarze *uprawnienia dla użytkowników* wybierz pozycję **Modyfikuj**, a następnie wybierz pozycję **OK**.
 1. Użyj **powiązań** , aby zainstalować ten wolumin i ponownie wdrożyć moduł Event Grid z Azure Portal
 
-   Przykład:
+   Na przykład
 
     ```json
         {
@@ -113,7 +113,7 @@ Ten artykuł zawiera kroki niezbędne do wdrożenia modułu Event Grid z trwało
    >Nie zmieniaj drugiej części wartości powiązania. Wskazuje on konkretną lokalizację w module. W przypadku modułu Event Grid w systemie Windows musi to być **C: \\ App \\ metadataDb**.
 
 
-    Przykład:
+    Na przykład
 
     ```json
     {
@@ -156,7 +156,7 @@ Zamiast instalować wolumin, można utworzyć katalog w systemie hosta i zainsta
    mkdir <your-directory-name-here>
    ```
 
-   Przykład:
+   Na przykład
 
    ```sh
    mkdir C:\myhostdir
@@ -176,7 +176,7 @@ Zamiast instalować wolumin, można utworzyć katalog w systemie hosta i zainsta
     >[!IMPORTANT]
     >Nie zmieniaj drugiej części wartości powiązania. Wskazuje on konkretną lokalizację w module. W przypadku modułu Event Grid w systemie Windows musi to być **C: \\ App \\ metadataDb**.
 
-    Przykład:
+    Na przykład
 
     ```json
     {

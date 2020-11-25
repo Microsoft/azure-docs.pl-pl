@@ -15,11 +15,11 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 8ed567ee20835cfe076c9b06234f2cba23f3a8bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86509131"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002572"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Rozwiązywanie problemów z wdrażaniem maszyny wirtualnej z systemem Windows na platformie Azure
 
@@ -38,7 +38,7 @@ productPesIds="1234, 5678"
 />
 - Spróbuj ponownie wykonać żądanie, używając mniejszego rozmiaru maszyny wirtualnej.
 - Jeśli nie można zmienić rozmiaru żądanej maszyny wirtualnej:
-    - Zatrzymaj wszystkie maszyny wirtualne w zestawie dostępności. Kliknij pozycję **grupy zasobów** , > grupę zasobów > **zasoby** > zestaw dostępności > **Virtual Machines** > **zatrzymać**maszynę wirtualną.
+    - Zatrzymaj wszystkie maszyny wirtualne w zestawie dostępności. Kliknij pozycję **grupy zasobów** , > grupę zasobów > **zasoby** > zestaw dostępności > **Virtual Machines** > **zatrzymać** maszynę wirtualną.
     - Po zatrzymaniu wszystkich maszyn wirtualnych Utwórz maszynę wirtualną w żądanym rozmiarze.
     - Najpierw uruchom nową maszynę wirtualną, a następnie wybierz każdą z zatrzymanych maszyn wirtualnych, a następnie kliknij przycisk Uruchom.
 

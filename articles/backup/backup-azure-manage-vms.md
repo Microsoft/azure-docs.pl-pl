@@ -3,12 +3,12 @@ title: Zarządzanie kopiami zapasowymi maszyn wirtualnych platformy Azure i ich 
 description: Dowiedz się, jak zarządzać kopiami zapasowymi maszyny wirtualnej platformy Azure i monitorować je za pomocą usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 2052d80428af89862b5348943b446f1b800ab36f
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: a56f13afa23a81b9cd2b34d34e1ca302c0c667f0
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174100"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "96002917"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Zarządzanie kopiami zapasowymi maszyn wirtualnych platformy Azure za pomocą usługi Azure Backup
 
@@ -101,11 +101,11 @@ Można uruchomić kopię zapasową maszyny wirtualnej na żądanie po skonfiguro
 
 Aby wyzwolić kopię zapasową na żądanie:
 
-1. Na [pulpicie nawigacyjnym elementu magazynu](#view-vms-on-the-dashboard)w obszarze **chroniony element**wybierz pozycję **kopia zapasowa**.
+1. Na [pulpicie nawigacyjnym elementu magazynu](#view-vms-on-the-dashboard)w obszarze **chroniony element** wybierz pozycję **kopia zapasowa**.
 
     ![Opcja Utwórz kopię zapasową teraz](./media/backup-azure-manage-vms/backup-now-button.png)
 
-2. W obszarze **Typ zarządzania kopiami zapasowymi**wybierz pozycję **maszyna wirtualna platformy Azure**. Zostanie wyświetlone okienko **element kopia zapasowa (maszyna wirtualna platformy Azure)** .
+2. W obszarze **Typ zarządzania kopiami zapasowymi** wybierz pozycję **maszyna wirtualna platformy Azure**. Zostanie wyświetlone okienko **element kopia zapasowa (maszyna wirtualna platformy Azure)** .
 3. Wybierz maszynę wirtualną i wybierz pozycję Utwórz **kopię zapasową teraz** , aby utworzyć kopię zapasową na żądanie. Zostanie wyświetlone okienko **Tworzenie kopii zapasowej teraz** .
 4. W polu **Zachowaj kopię zapasową** do Określ datę przechowywania kopii zapasowej.
 
@@ -131,7 +131,7 @@ Istnieją dwa sposoby na zatrzymanie ochrony maszyny wirtualnej:
 Aby zatrzymać ochronę i zachować dane maszyny wirtualnej:
 
 1. Na [pulpicie nawigacyjnym elementu magazynu](#view-vms-on-the-dashboard)wybierz pozycję **Zatrzymaj tworzenie kopii zapasowej**.
-2. Wybierz opcję **Zachowaj dane kopii zapasowej**i potwierdź wybór zgodnie z potrzebami. Dodaj komentarz, jeśli chcesz. Jeśli nie masz pewności co do nazwy elementu, umieść kursor nad wykrzyknikiem, aby wyświetlić nazwę.
+2. Wybierz opcję **Zachowaj dane kopii zapasowej** i potwierdź wybór zgodnie z potrzebami. Dodaj komentarz, jeśli chcesz. Jeśli nie masz pewności co do nazwy elementu, umieść kursor nad wykrzyknikiem, aby wyświetlić nazwę.
 
     ![Zachowaj dane kopii zapasowej](./media/backup-azure-manage-vms/retain-backup-data.png)
 
@@ -142,9 +142,9 @@ Powiadomienie informuje, że zadania tworzenia kopii zapasowej zostały zatrzyma
 Aby zatrzymać ochronę i usunąć dane maszyny wirtualnej:
 
 1. Na [pulpicie nawigacyjnym elementu magazynu](#view-vms-on-the-dashboard)wybierz pozycję **Zatrzymaj tworzenie kopii zapasowej**.
-2. Wybierz pozycję **Usuń dane kopii zapasowej**i w razie konieczności Potwierdź wybór. Wprowadź nazwę elementu kopii zapasowej i Dodaj komentarz, jeśli chcesz.
+2. Wybierz pozycję **Usuń dane kopii zapasowej** i w razie konieczności Potwierdź wybór. Wprowadź nazwę elementu kopii zapasowej i Dodaj komentarz, jeśli chcesz.
 
-    ![Usuwanie danych kopii zapasowej](./media/backup-azure-manage-vms/delete-backup-data1.png)
+    ![Usuwanie danych kopii zapasowej](./media/backup-azure-manage-vms/delete-backup-data.png)
 
 > [!NOTE]
 > Po zakończeniu operacji usuwania kopia zapasowa danych zostanie zachowana przez 14 dni w [stanie nietrwałego usunięcia](./soft-delete-virtual-machines.md). <br>Ponadto można również [włączyć lub wyłączyć usuwanie nietrwałe](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
@@ -177,7 +177,7 @@ Istnieją dwa sposoby usuwania danych kopii zapasowej maszyny wirtualnej:
   * Na [pulpicie nawigacyjnym elementu magazynu](#view-vms-on-the-dashboard)wybierz pozycję **Usuń dane kopii zapasowej**.
   * Wpisz nazwę elementu kopii zapasowej, aby potwierdzić, że chcesz usunąć punkty odzyskiwania.
 
-    ![Usuwanie danych kopii zapasowej](./media/backup-azure-manage-vms/delete-backup-data1.png)
+    ![Usuwanie danych kopii zapasowej](./media/backup-azure-manage-vms/delete-backup-data.png)
 
   * Aby usunąć dane kopii zapasowej dla elementu, wybierz pozycję **Usuń**. Komunikat z powiadomieniem informuje o tym, że dane kopii zapasowej zostały usunięte.
 
@@ -190,7 +190,7 @@ Aby chronić dane, Azure Backup obejmuje funkcję usuwania nietrwałego. W przyp
 
 * Jeśli maszyny wirtualne platformy Azure skonfigurowane dla Azure Backup są usuwane lub przenoszone bez zatrzymywania ochrony, wówczas zarówno zaplanowane zadania tworzenia kopii zapasowej, jak i zadania tworzenia kopii zapasowych na żądanie (ad hoc) zakończą się niepowodzeniem z powodu błędu UserErrorVmNotFoundV2. Wstępne sprawdzanie kopii zapasowej będzie wyświetlane jako krytyczne tylko dla nieudanych zadań tworzenia kopii zapasowej na żądanie (zakończone niepowodzeniem zaplanowane zadania nie są wyświetlane).
 * Te elementy kopii zapasowej pozostają aktywne w systemie zgodnie z zasadami tworzenia kopii zapasowych i przechowywania ustawionych przez użytkownika. Dane kopii zapasowej dla tych maszyn wirtualnych platformy Azure będą przechowywane zgodnie z zasadami przechowywania. Wygasłe punkty odzyskiwania (z wyjątkiem najnowszego punktu odzyskiwania) są czyszczone zgodnie z zakresem przechowywania określonym w zasadach tworzenia kopii zapasowych.
-* Zalecamy usunięcie elementów kopii zapasowej, w których pierwotne źródło danych już nie istnieje, aby uniknąć dodatkowego kosztu, jeśli element/dane kopii zapasowej dla zasobów usuwania nie są już wymagane, ponieważ ostatni punkt odzyskiwania jest zachowywany w nieskończoność, a użytkownik jest obciążany zgodnie z obowiązującymi cenami.
+* Aby uniknąć dodatkowych kosztów, zalecamy usunięcie elementów kopii zapasowej, w których podstawowe źródło danych już nie istnieje. Jest to w scenariuszu, w którym element kopii zapasowej/dane dla usuniętych zasobów nie są już wymagane, ponieważ ostatni punkt odzyskiwania jest zachowywany w nieskończoność, a opłaty są naliczone zgodnie z odpowiednimi cenami kopii zapasowych.
 
 ## <a name="next-steps"></a>Następne kroki
 

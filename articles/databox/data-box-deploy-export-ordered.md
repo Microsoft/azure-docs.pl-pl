@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 11/23/2020
 ms.author: alkohli
-ms.openlocfilehash: ad8a5a23361e721fd5d8d55d3555f51def94e768
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: b132368982e0013bfe6f3ffd52e7aacb7b1274eb
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442025"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96003351"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Samouczek: Tworzenie kolejności eksportu dla Azure Data Box (wersja zapoznawcza)
 
@@ -60,7 +60,7 @@ Wykonaj poniższe czynności w witrynie Azure Portal, aby zamówić urządzenie.
 
    ![Tworzenie zasobu](media/data-box-deploy-export-ordered/azure-data-box-export-order-create-resource.png)
 
-3. Wybierz przycisk **Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 
    ![Tworzenie zasobu Azure Data Box](media/data-box-deploy-export-ordered/azure-data-box-export-order-create-data-box-resource.png)
 
@@ -80,7 +80,7 @@ Wykonaj poniższe czynności w witrynie Azure Portal, aby zamówić urządzenie.
 
    ![Wybierz pojemność urządzenie Data Box](media/data-box-deploy-export-ordered/azure-data-box-export-order-capacity.png)
 
-6. W **kolejności** Określ **podstawowe** informacje o kolejności. Wprowadź lub wybierz poniższe informacje, a następnie wybierz przycisk **Dalej**.
+6. W **kolejności** Określ **podstawowe** informacje o kolejności. Wprowadź lub wybierz poniższe informacje.
 
     |Ustawienie  |Wartość  |
     |---------|---------|
@@ -88,13 +88,13 @@ Wykonaj poniższe czynności w witrynie Azure Portal, aby zamówić urządzenie.
     |Grupa zasobów | Wybrana wcześniej Grupa zasobów. |
     |Nazwa zamówienia eksportu     |  Podaj przyjazną nazwę, aby śledzić zamówienie. <br> Nazwa może zawierać od 3 do 24 znaków, które mogą być literami, cyframi i łącznikami. <br> Nazwa musi zaczynać i kończyć się literą lub cyfrą.      |
 
-    ![Podstawowe informacje o kolejności eksportu](media/data-box-deploy-export-ordered/azure-data-box-export-order-storage-account-export-type.png)
+    ![Podstawowe informacje o kolejności eksportu](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics-order-name.png)
 
     Wybierz pozycję **Dalej: wybór danych** , aby wykonać operację.
 
 7. W **obszarze Wybór danych** wybierz pozycję **Dodaj konto magazynu i typ eksportu**.
 
-    ![Dodaj konto magazynu i typ eksportu](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics.png)
+    ![Dodaj konto magazynu i typ eksportu](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics-add-storage.png)
 
 8. W obszarze **Wybierz opcję eksportu** Określ szczegóły opcji eksportowania. Wprowadź lub wybierz poniższe informacje, a następnie wybierz pozycję **Dodaj**.
 
@@ -102,7 +102,7 @@ Wykonaj poniższe czynności w witrynie Azure Portal, aby zamówić urządzenie.
     |---------|---------|
     |Konto magazynu     | Konto usługi Azure Storage, z którego chcesz wyeksportować dane. |
     |Typ eksportu     | Określa typ danych do wyeksportowania ze **wszystkich obiektów** i **Użyj pliku XML**.<ul><li> **Wszystkie obiekty** — określa, że zadanie eksportuje wszystkie dane w zależności od wyboru **opcji transferu**.</li><li> **Użyj pliku XML** — określa plik XML, który zawiera zestaw ścieżek i prefiksów obiektów blob i/lub plików, które mają zostać wyeksportowane z konta magazynu. Plik XML musi znajdować się w kontenerze wybranego konta magazynu, a wybieranie z udziałów plików nie jest obecnie obsługiwane. Plik musi być niepustym plikiem XML.</li></ul>        |
-    |Opcje transferu     |  Określa opcje transferu danych z opcji **Zaznacz wszystko** , **wszystkie obiekty blob** i **wszystkie pliki**. <ul><li> **Zaznacz wszystko** — określa, że wszystkie obiekty blob i Azure Files są eksportowane. Jeśli używasz konta magazynu, które obsługuje tylko obiekty blob (Blob Storage account), opcja **wszystkie pliki** nie zostanie wybrana.</li><li> **Wszystkie obiekty blob** — określa, że eksportowane są tylko obiekty blob blok i Page.</li><li> **Wszystkie pliki** — określa, że wszystkie pliki są eksportowane z wyjątkiem obiektów BLOB. Typ konta magazynu (GPv1 i GPv2, magazyn Premium Storage lub BLOB Storage) określa typy danych, które można wyeksportować. Aby uzyskać więcej informacji, zobacz [obsługiwane konta magazynu do eksportowania](../storage/common/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
+    |Opcje transferu     |  Określa opcje transferu danych z opcji **Zaznacz wszystko**, **wszystkie obiekty blob** i **wszystkie pliki**. <ul><li> **Zaznacz wszystko** — określa, że wszystkie obiekty blob i Azure Files są eksportowane. Jeśli używasz konta magazynu, które obsługuje tylko obiekty blob (Blob Storage account), opcja **wszystkie pliki** nie zostanie wybrana.</li><li> **Wszystkie obiekty blob** — określa, że eksportowane są tylko obiekty blob blok i Page.</li><li> **Wszystkie pliki** — określa, że wszystkie pliki są eksportowane z wyjątkiem obiektów BLOB. Typ konta magazynu (GPv1 i GPv2, magazyn Premium Storage lub BLOB Storage) określa typy danych, które można wyeksportować. Aby uzyskać więcej informacji, zobacz [obsługiwane konta magazynu do eksportowania](../storage/common/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
     |Dołącz pełny dziennik     | Wskazuje, czy chcesz uzyskać pełny plik dziennika zawierający listę wszystkich plików, które zostały pomyślnie wyeksportowane.        |
 
     > [!NOTE]
@@ -115,15 +115,88 @@ Wykonaj poniższe czynności w witrynie Azure Portal, aby zamówić urządzenie.
 
    Aby zobaczyć przykład danych wejściowych XML, zobacz [przykładowe dane wejściowe XML](data-box-deploy-export-ordered.md#sample-xml-file)
 
-9. W **obszarze Wybór danych** przejrzyj ustawienia, a następnie wybierz pozycję **dalej: zabezpieczenia>**.
+9. W **obszarze Wybór danych** przejrzyj ustawienia i wybierz pozycję **dalej: zabezpieczenia>** , aby kontynuować.
 
    ![Zamówienie eksportu, wybór danych](media/data-box-deploy-export-ordered/azure-data-box-export-order-data-selection.png)
 
-10. W obszarze **zabezpieczenia** , jeśli chcesz włączyć podwójne szyfrowanie oparte na oprogramowaniu, wybierz pozycję **Włącz podwójne szyfrowanie dla zamówienia**. 
+    Ekran **zabezpieczenia** umożliwia użycie własnego klucza szyfrowania i wybranie opcji szyfrowania podwójnego.
+
+    Wszystkie ustawienia na ekranie **zabezpieczenia** są opcjonalne. Jeśli nie zmienisz żadnych ustawień, zostaną zastosowane ustawienia domyślne.
+
+    ![Ekran zabezpieczeń Kreatora urządzenie Data Box zaimportowania](media/data-box-deploy-export-ordered/data-box-export-security-01.png)
+
+10. Jeśli chcesz użyć własnego klucza zarządzanego przez klienta, aby chronić klucz dostępu odblokowywania dla nowego zasobu, rozwiń pozycję **typ szyfrowania**.
+
+    Skonfigurowanie klucza zarządzanego przez klienta dla Azure Data Box jest opcjonalne. Domyślnie do ochrony klucza dostępu odblokowywania urządzenie Data Box jest stosowany klucz zarządzany przez firmę Microsoft.
+
+    Klucz zarządzany przez klienta nie ma wpływu na to, jak dane na urządzeniu są szyfrowane. Klucz służy tylko do szyfrowania klucza dostępu odblokowywania urządzenia.
+
+    Jeśli nie chcesz używać klucza zarządzanego przez klienta, przejdź do kroku 16.
+
+    ![Ekran zabezpieczenia z ustawieniami typu szyfrowania](./media/data-box-deploy-export-ordered/customer-managed-key-01.png)
+
+11. Jako typ klucza wybierz opcję **klucz zarządzany przez klienta** . Następnie wybierz pozycję **Wybierz magazyn kluczy i klucz**.
+   
+    ![Ekran zabezpieczeń, ustawienia klucza zarządzanego przez klienta](./media/data-box-deploy-export-ordered/customer-managed-key-02.png)
+
+12. Na ekranie **wybór klucza z Azure Key Vault** subskrypcja zostanie automatycznie wypełniona.
+
+    - W przypadku **magazynu kluczy** można wybrać istniejący magazyn kluczy z listy rozwijanej.
+
+      ![Ekran wybierania klucza z Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-03.png)
+
+    - Możesz również wybrać pozycję **Utwórz nowy** , aby utworzyć nowy magazyn kluczy. Na ekranie **Tworzenie magazynu kluczy** wprowadź grupę zasobów i nazwę magazynu kluczy. Upewnij się, że ochrona **usuwania nietrwałego** i **przeczyszczania** jest włączona. Zaakceptuj wszystkie inne ustawienia domyślne, a następnie wybierz pozycję **Recenzja + Utwórz**.
+
+      ![Utwórz nowe ustawienia Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-04.png)
+
+      Zapoznaj się z informacjami dotyczącymi magazynu kluczy, a następnie wybierz pozycję **Utwórz**. Poczekaj kilka minut na ukończenie tworzenia magazynu kluczy.
+
+      ![Nowy ekran przeglądu Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-05.png)
+
+13. Na ekranie **Wybieranie klucza z Azure Key Vault** można wybrać istniejący klucz w magazynie kluczy.
+
+    ![Wybierz istniejący klucz z Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-06.png)
+
+    Jeśli chcesz utworzyć nowy klucz, wybierz pozycję **Utwórz nowy**. Musisz użyć klucza RSA. Rozmiar może wynosić 2048 lub więcej. Wprowadź nazwę nowego klucza, zaakceptuj inne ustawienia domyślne, a następnie wybierz pozycję **Utwórz**.
+
+      ![Utwórz nową opcję klucza](./media/data-box-deploy-export-ordered/customer-managed-key-07.png)
+
+      Otrzymasz powiadomienie, gdy klucz został utworzony w magazynie kluczy.
+
+14. Wybierz **wersję** klucza, która ma zostać użyta, a następnie wybierz **pozycję Wybierz**.
+
+      ![Nowy klucz został utworzony w magazynie kluczy](./media/data-box-deploy-export-ordered/customer-managed-key-08.png)
+
+    Jeśli chcesz utworzyć nową wersję klucza, wybierz pozycję **Utwórz nową**.
+
+    ![Otwieranie okna dialogowego służącego do tworzenia nowej wersji klucza](./media/data-box-deploy-export-ordered/customer-managed-key-08-a.png)
+
+    Na ekranie **Utwórz nowy klucz** wybierz pozycję Ustawienia dla nowej wersji klucza, a następnie wybierz pozycję **Utwórz**.
+
+    ![Utwórz nową wersję klucza](./media/data-box-deploy-export-ordered/customer-managed-key-08-b.png)
+
+    Ustawienia **typ szyfrowania** na ekranie **zabezpieczenia** pokazują swój magazyn kluczy i klucz.
+
+    ![Klucz i Magazyn kluczy dla klucza zarządzanego przez klienta](./media/data-box-deploy-export-ordered/customer-managed-key-09.png)
+
+15. Wybierz tożsamość użytkownika, która będzie używana do zarządzania dostępem do tego zasobu. Wybierz **pozycję Wybierz tożsamość użytkownika**. W panelu po prawej stronie wybierz subskrypcję i zarządzaną tożsamość do użycia. Następnie wybierz opcję **Wybierz**.
+
+    Tożsamość zarządzana przypisana przez użytkownika to autonomiczny zasób platformy Azure, który może służyć do zarządzania wieloma zasobami. Aby uzyskać więcej informacji, zobacz [zarządzane typy tożsamości](/azure/active-directory/managed-identities-azure-resources/overview).  
+
+    Jeśli musisz utworzyć nową tożsamość zarządzaną, postępuj zgodnie ze wskazówkami zawartymi w temacie [Create, list, DELETE lub Assign a role do zarządzanej tożsamości przypisanej przez użytkownika przy użyciu Azure Portal](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+    
+    ![Wybierz tożsamość użytkownika](./media/data-box-deploy-export-ordered/customer-managed-key-10.png)
+
+    Tożsamość użytkownika jest wyświetlana w ustawieniach **typu szyfrowania** .
+
+    Ustawienia **typu szyfrowania** można zwinąć teraz.
+
+    ![Wybrana tożsamość użytkownika pokazana w ustawieniach typu szyfrowania](./media/data-box-deploy-export-ordered/customer-managed-key-11.png)
+
+16. Jeśli chcesz włączyć szyfrowanie podwójne oparte na oprogramowaniu, rozwiń pozycję **podwójne szyfrowanie (w przypadku środowisk o wysokim poziomie zabezpieczeń)**, a następnie wybierz pozycję **Włącz podwójne szyfrowanie dla zamówienia**. 
 
     Szyfrowanie oparte na oprogramowaniu jest wykonywane poza szyfrowaniem AES-256 bitowym danych na urządzenie Data Box.
 
-   
     > [!NOTE]
     > Włączenie tej opcji może spowodować wydłużenie przetwarzania zamówień i kopiowania danych. Po utworzeniu zamówienia nie można zmienić tej opcji.
 
@@ -171,7 +244,7 @@ W przypadku wybrania opcji **Użyj pliku XML** można określić określone kont
 
    ![Wybierz opcję Eksportuj, nowe ustawienia kontenera](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-container-settings.png)
 
-4. Wybierz przycisk **Utwórz**.
+4. Wybierz pozycję **Utwórz**.
 
    ![Wybierz opcję Eksportuj, Utwórz nowy kontener.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-create-container.png)
 
@@ -193,7 +266,7 @@ W przypadku wybrania opcji **Użyj pliku XML** można określić określone kont
 
 ## <a name="track-the-order"></a>Śledzenie zamówienia
 
-Po złożeniu zamówienia możesz śledzić jego stan w witrynie Azure Portal. Przejdź do zamówienia urządzenia Data Box, a następnie przejdź do obszaru **Omówienie** , aby sprawdzić stan. Zamówienie wyświetlone w portalu ma stan **Zamówione**.
+Po złożeniu zamówienia możesz śledzić jego stan w witrynie Azure Portal. Przejdź do zamówienia urządzenia Data Box, a następnie przejdź do obszaru **Omówienie**, aby sprawdzić stan. Zamówienie wyświetlone w portalu ma stan **Zamówione**.
 
 Po zakończeniu przygotowywania urządzenia kopia danych rozpocznie się z wybranych kont magazynu. W portalu jest wyświetlana kolejność **kopiowania danych w toku** .
 

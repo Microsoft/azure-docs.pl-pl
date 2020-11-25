@@ -13,11 +13,11 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: cff1298f12d26b1260213d75701c282e0a82511d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124156"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004159"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Aktualizowanie informacji o grupach w portalu Moje aplikacje
 
@@ -88,7 +88,7 @@ Jeśli administrator udzielił Ci uprawnień do wyświetlania kafelka **grupy** 
 
     - **Zasady grupy.** Wybierz opcję, aby umożliwić wszystkim dołączenie do grupy lub zezwalanie na dodawanie elementów członkowskich tylko właścicielowi grupy.
 
-3. Wybierz pozycję **Utwórz** .
+3. Wybierz pozycję **Utwórz**.
 
     Nowa grupa zostanie utworzona za pomocą użytkownika jako właściciel i zostanie wyświetlona na liście Twoich **grup** . Ponieważ jesteś właścicielem, ta grupa jest również wyświetlana na liście **grupy**
 
@@ -100,7 +100,7 @@ Po utworzeniu grupy można edytować jej szczegóły, w tym aktualizując dowoln
 
     Zostanie wyświetlone okno **Edytuj szczegóły** i można zaktualizować informacje dodane podczas pierwszego tworzenia grupy.
 
-2. Wprowadź wszystkie zmiany, a następnie wybierz pozycję **Aktualizuj** .
+2. Wprowadź wszystkie zmiany, a następnie wybierz pozycję **Aktualizuj**.
 
 ## <a name="add-or-remove-a-member"></a>Dodawanie lub usuwanie elementu członkowskiego
 
@@ -110,7 +110,7 @@ Możesz dodawać lub usuwać członków dla dowolnych grup, których jesteś cz�
 
     ![Dodawanie elementu członkowskiego grupy z wyróżnionym znakiem +](media/my-apps-portal/my-apps-portal-add-member-link.png)
 
-2. Wyszukaj element członkowski, który chcesz dodać, w polu **Dodaj członków** , a następnie wybierz pozycję **Dodaj** .
+2. Wyszukaj element członkowski, który chcesz dodać, w polu **Dodaj członków** , a następnie wybierz pozycję **Dodaj**.
 
     ![Dodawanie pola członków z nowym członkiem do dodania](media/my-apps-portal/my-apps-portal-add-member-page.png)
 
@@ -124,7 +124,7 @@ Możesz dodawać lub usuwać członków dla dowolnych grup, których jesteś cz�
 
 Jeśli Twoja organizacja zezwala na to, możesz odnowić grupę Office 365, rozszerzając datę wygaśnięcia.
 
-1. Wybierz grupę pakietu Office 365, którą chcesz odnowić, a następnie wybierz pozycję **Odnów grupę** .
+1. Wybierz grupę pakietu Office 365, którą chcesz odnowić, a następnie wybierz pozycję **Odnów grupę**.
 
     ![Odnów grupę pakietu Office 365, rozszerzając datę wygaśnięcia](media/my-apps-portal/my-apps-portal-renew-group-link.png)
 
@@ -154,11 +154,11 @@ Możesz dołączyć lub opuścić już istniejącą grupę ze strony **grup** .
 
     ![Strona Dołącz grupy z wyróżnionym przyciskiem Dołącz grupę](media/my-apps-portal/my-apps-portal-join-group-link.png)
 
-2. Na stronie **dołączanie grup** wybierz nazwę grupy, do której chcesz dołączyć, Wyświetl szczegóły skojarzonej grupy, a następnie, jeśli grupa jest dostępna, wybierz pozycję **Dołącz do grupy** .
+2. Na stronie **dołączanie grup** wybierz nazwę grupy, do której chcesz dołączyć, Wyświetl szczegóły skojarzonej grupy, a następnie, jeśli grupa jest dostępna, wybierz pozycję **Dołącz do grupy**.
 
-    Jeśli grupa wymaga zatwierdzenia członkostwa w grupie, użytkownik zostanie poproszony o podanie uzasadnienia biznesowego, w którym należy dołączyć do grupy, a następnie wybrać pozycję **Żądaj** . Jeśli grupa nie wymaga zatwierdzenia, zostanie natychmiast dodana jako element członkowski, a grupa pojawia się na liście Twoich **grup** .
+    Jeśli grupa wymaga zatwierdzenia członkostwa w grupie, użytkownik zostanie poproszony o podanie uzasadnienia biznesowego, w którym należy dołączyć do grupy, a następnie wybrać pozycję **Żądaj**. Jeśli grupa nie wymaga zatwierdzenia, zostanie natychmiast dodana jako element członkowski, a grupa pojawia się na liście Twoich **grup** .
 
-3. Jeśli dołączysz grupę przez pomyłkę lub jeśli nie musisz już jej częścią, możesz wybrać nazwę grupy na stronie **dołączanie grup** , a następnie wybrać pozycję **Opuść grupę** .
+3. Jeśli dołączysz grupę przez pomyłkę lub jeśli nie musisz już jej częścią, możesz wybrać nazwę grupy na stronie **dołączanie grup** , a następnie wybrać pozycję **Opuść grupę**.
 
     ![Strona Dołącz grupy z wyróżnionym przyciskiem Opuść grupę](media/my-apps-portal/my-apps-portal-leave-group-link.png)
 

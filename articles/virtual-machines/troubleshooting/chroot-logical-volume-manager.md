@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
 ms.openlocfilehash: 390443874ea63a8661ef8baea627015fcf679719
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167920"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002701"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Rozwiązywanie problemów z maszyną wirtualną z systemem Linux w przypadku braku dostępu do konsoli szeregowej platformy Azure, a układ dysku używa LVM (Menedżer woluminów logicznych)
 
@@ -65,9 +65,9 @@ W większości scenariuszy dołączony dysk migawki będzie widoczny jako **/dev
 
 ![Narzędzia](./media/chroot-logical-volume-manager/fdisk-output-sdc.png)
 
-**\*** Wskazuje partycję rozruchową, obie partycje mają być zainstalowane.
+* *\** _ Wskazuje partycję rozruchową, obie partycje mają być zainstalowane.
 
-Uruchom polecenie **lsblk** , aby wyświetlić LVMs maszyny wirtualnej, której to dotyczy
+Uruchom polecenie _ *lsblk**, aby zobaczyć LVMs maszyny wirtualnej, której to dotyczy
 
 `lsblk`
 

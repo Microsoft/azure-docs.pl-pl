@@ -15,11 +15,11 @@ ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 45144f64789a19390984c3f9f6a660e3c3300215
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84743154"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002497"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Wyświetlanie historii działań i inspekcji dla ról zasobów platformy Azure w Privileged Identity Management
 
@@ -86,11 +86,11 @@ Inspekcja zasobów umożliwia wyświetlenie wszystkich działań roli dla zasobu
 
     [![Lista inspekcji zasobów z filtrami](media/azure-pim-resource-rbac/rbac-resource-audit.png "Lista inspekcji zasobów z filtrami")](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
-1. W obszarze **Typ inspekcji**wybierz pozycję **Aktywuj (przypisane + aktywowane)**.
+1. W obszarze **Typ inspekcji** wybierz pozycję **Aktywuj (przypisane + aktywowane)**.
 
     [![Lista inspekcji zasobów filtrowana według typu](media/azure-pim-resource-rbac/rbac-audit-activity.png "Lista inspekcji zasobów filtrowana według aktywacji")](media/azure-pim-resource-rbac/rbac-audit-activity.png) ![ przeprowadzenia inspekcji Lista inspekcji zasobów filtrowana według typu przeprowadzenia inspekcji](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 
-1. W obszarze **Akcja**kliknij pozycję **(działanie)** dla użytkownika, aby zobaczyć szczegóły aktywności tego użytkownika w zasobach platformy Azure.
+1. W obszarze **Akcja** kliknij pozycję **(działanie)** dla użytkownika, aby zobaczyć szczegóły aktywności tego użytkownika w zasobach platformy Azure.
 
     ![Szczegóły aktywności użytkownika dla określonej akcji](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 

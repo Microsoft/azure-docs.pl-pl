@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: eebfa61632bc49d5df35c17ba2d2faca0382001c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 998d49e91d38a1f2fdc2503165ee99635e153027
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91336143"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001902"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -26,7 +26,7 @@ Dodatkowe zasoby:
 * [Dokumentacja referencyjna interfejsu API](/javascript/api/@azure/storage-blob)
 * [Kod źródłowy biblioteki](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
 * [Pakiet (npm)](https://www.npmjs.com/package/@azure/storage-blob)
-* [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+* [Samples](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -66,7 +66,7 @@ W tej sekcji omówiono przygotowanie projektu do pracy z biblioteką klienta us�
 
 ### <a name="create-a-cors-rule"></a>Tworzenie reguły CORS
 
-Zanim aplikacja sieci Web będzie mogła uzyskać dostęp do magazynu obiektów blob z klienta, należy skonfigurować konto, aby umożliwić [udostępnianie zasobów między źródłami](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)lub CORS.
+Zanim aplikacja sieci Web będzie mogła uzyskać dostęp do magazynu obiektów blob z klienta, należy skonfigurować konto, aby umożliwić [udostępnianie zasobów między źródłami](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)lub CORS.
 
 W Azure Portal wybierz konto magazynu. Aby zdefiniować nową regułę CORS, przejdź do sekcji **Ustawienia** i wybierz pozycję **CORS**. W tym przewodniku Szybki start utworzymy otwartą regułę CORS:
 
@@ -76,10 +76,10 @@ W poniższej tabeli przedstawiono poszczególne ustawienia mechanizmu CORS i wyj
 
 |Ustawienie  |Wartość  | Opis |
 |---------|---------|---------|
-| **DOZWOLONE ŹRÓDŁA** | **\*** | Dopuszczalne źródła można podać w postaci listy domen rozdzielonych przecinkami. Podanie wartości `*` umożliwia dostęp do konta magazynu ze wszystkich domen. |
-| **DOZWOLONE METODY** | **Usuwanie**, **pobieranie**, **Tworzenie**, **scalanie**, **Publikowanie**, **Opcje**i **Umieszczanie** | Wyświetla listę poleceń HTTP, które można wykonać na koncie magazynu. Na potrzeby tego przewodnika Szybki start wybierz wszystkie dostępne opcje. |
-| **DOZWOLONE NAGŁÓWKI** | **\*** | Definiuje listę nagłówków żądań (łącznie z nagłówkami z prefiksem) dozwolonych na koncie magazynu. Ustawienie wartości `*` zezwala na dostęp za pomocą wszystkich nagłówków. |
-| **UWIDOCZNIONE NAGŁÓWKI** | **\*** | Wyświetla listę dozwolonych nagłówków odpowiedzi według kont. Ustawienie wartości `*` zezwala kontu na wysyłanie dowolnego nagłówka. |
+| **DOZWOLONE ŹRÓDŁA** | **\** _ | Dopuszczalne źródła można podać w postaci listy domen rozdzielonych przecinkami. Podanie wartości `_` umożliwia dostęp do konta magazynu ze wszystkich domen. |
+| **DOZWOLONE METODY** | **Usuwanie**, **pobieranie**, **Tworzenie**, **scalanie**, **Publikowanie**, **Opcje** i **Umieszczanie** | Wyświetla listę poleceń HTTP, które można wykonać na koncie magazynu. Na potrzeby tego przewodnika Szybki start wybierz wszystkie dostępne opcje. |
+| **DOZWOLONE NAGŁÓWKI** | **\** _ | Definiuje listę nagłówków żądań (łącznie z nagłówkami z prefiksem) dozwolonych na koncie magazynu. Ustawienie wartości `_` zezwala na dostęp za pomocą wszystkich nagłówków. |
+| **UWIDOCZNIONE NAGŁÓWKI** | **\** _ | Wyświetla listę dozwolonych nagłówków odpowiedzi według kont. Ustawienie wartości `_` zezwala kontu na wysyłanie dowolnego nagłówka. |
 | **MAKSYMALNY WIEK** | **86400** | Maksymalny czas buforowania żądania opcji inspekcji wstępnej przez przeglądarkę w sekundach. Podanie wartości *86400* powoduje, że buforowanie trwa całą dobę. |
 
 Po wypełnieniu pól wartościami z tej tabeli kliknij przycisk **Zapisz** .
@@ -237,7 +237,7 @@ Aby uruchomić kod w debugerze Visual Studio Code, skonfiguruj *launch.jsna* pli
 Aby skonfigurować rozszerzenie debugera w Visual Studio Code:
 
 1. Wybierz pozycję **uruchom > Dodaj konfigurację**
-2. Wybierz pozycję **Edge**, **Chrome**lub **Firefox**, w zależności od tego, które rozszerzenie zostało zainstalowane wcześniej w sekcji [wymagania wstępne](#prerequisites) .
+2. Wybierz pozycję **Edge**, **Chrome** lub **Firefox**, w zależności od tego, które rozszerzenie zostało zainstalowane wcześniej w sekcji [wymagania wstępne](#prerequisites) .
 
 Dodanie nowej konfiguracji powoduje utworzenie *launch.jsw* pliku i otwarcie go w edytorze. Zmodyfikuj *launch.jsw* pliku, aby `url` wartość była `http://localhost:1234/index.html` , jak pokazano poniżej:
 
@@ -281,14 +281,14 @@ W [Azure Portal](https://portal.azure.com)można sprawdzić wyniki wywołań int
 
 #### <a name="step-3---delete-the-blob"></a>Krok 3. Usuwanie obiektu BLOB
 
-1. W aplikacji sieci Web w obszarze **pliki**wybierz plik testowy.
+1. W aplikacji sieci Web w obszarze **pliki** wybierz plik testowy.
 2. Wybierz pozycję **Usuń wybrane pliki**. Stan wskazuje, że plik został usunięty i kontener nie zawiera plików.
 3. W Azure Portal wybierz pozycję **Odśwież**. Sprawdź, czy **nie znaleziono obiektów BLOB**.
 
 #### <a name="step-4---delete-the-container"></a>Krok 4. Usuwanie kontenera
 
 1. W aplikacji sieci Web wybierz pozycję **Usuń kontener**. Stan wskazuje, że kontener został usunięty.
-2. W Azure Portal wybierz ** \<account-name\> | Link kontenerów** w lewym górnym rogu okienka portalu.
+2. W Azure Portal wybierz **\<account-name\> | Link kontenerów** w lewym górnym rogu okienka portalu.
 3. Wybierz pozycję **Odśwież**. Nowy kontener zniknie.
 4. Zamknij aplikację sieci Web.
 

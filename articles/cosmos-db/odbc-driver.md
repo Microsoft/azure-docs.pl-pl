@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
 ms.openlocfilehash: e7d6a67f5322c5bb640430f66ccb0917f6faada1
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339788"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003501"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Łączenie się z usługą Azure Cosmos DB przy użyciu narzędzi analizy biznesowej ze sterownikiem ODBC
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -54,22 +54,22 @@ Zacznijmy od sterownika ODBC.
 
 1. Po [zainstalowaniu Azure Cosmos DB sterownika ODBC](#install), w oknie **Administrator źródła danych ODBC** kliknij przycisk **Dodaj**. Można utworzyć użytkownika lub systemową nazwę DSN. W tym przykładzie tworzysz nazwę DSN użytkownika.
 
-1. W oknie **Tworzenie nowego źródła danych** wybierz pozycję **Microsoft Azure Cosmos DB sterownika ODBC** , a następnie kliknij przycisk **Zakończ**.
+1. W oknie **Tworzenie nowego źródła danych** wybierz pozycję **Microsoft Azure Cosmos DB sterownika ODBC**, a następnie kliknij przycisk **Zakończ**.
 
 1. W oknie **instalatora Azure Cosmos DB ODBC Driver SDN** wprowadź następujące informacje: 
 
     :::image type="content" source="./media/odbc-driver/odbc-driver-dsn-setup.png" alt-text="Okno instalacji DSN sterownika ODBC Azure Cosmos DB":::
-    - **Nazwa źródła danych** : przyjazna nazwa DSN ODBC. Ta nazwa jest unikatowa dla konta Azure Cosmos DB, więc nazwij ją odpowiednio, jeśli masz wiele kont.
-    - **Opis** : Krótki opis źródła danych.
-    - **Host** : identyfikator URI konta Azure Cosmos DB. Można go pobrać ze strony klucze Azure Cosmos DB w Azure Portal, jak pokazano na poniższym zrzucie ekranu. 
-    - **Klucz dostępu** : podstawowy lub pomocniczy klucz do odczytu lub zapisu ze strony Azure Cosmos DB klucze w Azure Portal, jak pokazano na poniższym zrzucie ekranu. Zalecamy użycie klucza tylko do odczytu, jeśli nazwa DSN jest używana do przetwarzania i raportowania danych tylko do odczytu.
+    - **Nazwa źródła danych**: przyjazna nazwa DSN ODBC. Ta nazwa jest unikatowa dla konta Azure Cosmos DB, więc nazwij ją odpowiednio, jeśli masz wiele kont.
+    - **Opis**: Krótki opis źródła danych.
+    - **Host**: identyfikator URI konta Azure Cosmos DB. Można go pobrać ze strony klucze Azure Cosmos DB w Azure Portal, jak pokazano na poniższym zrzucie ekranu. 
+    - **Klucz dostępu**: podstawowy lub pomocniczy klucz do odczytu lub zapisu ze strony Azure Cosmos DB klucze w Azure Portal, jak pokazano na poniższym zrzucie ekranu. Zalecamy użycie klucza tylko do odczytu, jeśli nazwa DSN jest używana do przetwarzania i raportowania danych tylko do odczytu.
     :::image type="content" source="./media/odbc-driver/odbc-cosmos-account-keys.png" alt-text="Strona kluczy Azure Cosmos DB":::
-    - **Szyfruj klucz dostępu dla** : Wybierz najlepszy wybór na podstawie użytkowników tego komputera. 
+    - **Szyfruj klucz dostępu dla**: Wybierz najlepszy wybór na podstawie użytkowników tego komputera. 
     
 1. Kliknij przycisk **Testuj** , aby upewnić się, że możesz nawiązać połączenie z kontem Azure Cosmos DB. 
 
 1.  Kliknij pozycję **Opcje zaawansowane** i ustaw następujące wartości:
-    *  **Wersja interfejsu API REST** : Wybierz [wersję interfejsu API REST](/rest/api/cosmos-db/) dla operacji. Wartość domyślna 2015-12-16. Jeśli masz kontenery z [dużymi kluczami partycji](large-partition-keys.md) i potrzebujesz interfejsu API REST w wersji 2018-12-31:
+    *  **Wersja interfejsu API REST**: Wybierz [wersję interfejsu API REST](/rest/api/cosmos-db/) dla operacji. Wartość domyślna 2015-12-16. Jeśli masz kontenery z [dużymi kluczami partycji](large-partition-keys.md) i potrzebujesz interfejsu API REST w wersji 2018-12-31:
         - Wpisz **2018-12-31** dla wersji interfejsu API REST
         - W menu **Start** wpisz ciąg "regedit", aby znaleźć i otworzyć aplikację **Edytor rejestru** .
         - W Edytorze rejestru przejdź do ścieżki: **Computer\HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI**
@@ -79,12 +79,12 @@ Zacznijmy od sterownika ODBC.
             - Nazwa wartości: **IgnoreSessionToken**
             - Dane wartości: **1** 
              :::image type="content" source="./media/odbc-driver/cosmos-odbc-edit-registry.png" alt-text="Ustawienia edytora rejestru":::
-    - **Spójność zapytań** : Wybierz [poziom spójności](consistency-levels.md) dla operacji. Wartość domyślna to Session.
-    - **Liczba ponownych prób** : Określ liczbę ponownych prób wykonania operacji, jeśli początkowe żądanie nie zostało ukończone z powodu ograniczenia szybkości usługi.
-    - **Plik schematu** : masz tutaj kilka opcji.
+    - **Spójność zapytań**: Wybierz [poziom spójności](consistency-levels.md) dla operacji. Wartość domyślna to Session.
+    - **Liczba ponownych prób**: Określ liczbę ponownych prób wykonania operacji, jeśli początkowe żądanie nie zostało ukończone z powodu ograniczenia szybkości usługi.
+    - **Plik schematu**: masz tutaj kilka opcji.
         - Domyślnie pozostawienie tego wpisu jako (pustego) powoduje, że sterownik skanuje pierwszą stronę danych dla wszystkich kontenerów, aby określić schemat każdego kontenera. Jest to tzw. mapowanie kontenerów. Bez zdefiniowanego pliku schematu, Sterownik musi wykonać skanowanie dla każdej sesji sterownika i może skutkować większym czasem uruchamiania aplikacji przy użyciu nazwy DSN. Zalecamy, aby zawsze skojarzyć plik schematu dla nazwy DSN.
-        - Jeśli masz już plik schematu (prawdopodobnie taki został utworzony za pomocą Edytora schematu), możesz kliknąć przycisk **Przeglądaj** , przejść do pliku, kliknąć przycisk **Zapisz** , a następnie kliknąć przycisk **OK**.
-        - Jeśli chcesz utworzyć nowy schemat, kliknij przycisk **OK** , a następnie kliknij przycisk **Edytor schematu** w oknie głównym. Następnie przechodzenie do informacji Edytora schematu. Po utworzeniu nowego pliku schematu Pamiętaj, aby wrócić do okna **Opcje zaawansowane** , aby uwzględnić nowo utworzony plik schematu.
+        - Jeśli masz już plik schematu (prawdopodobnie taki został utworzony za pomocą Edytora schematu), możesz kliknąć przycisk **Przeglądaj**, przejść do pliku, kliknąć przycisk **Zapisz**, a następnie kliknąć przycisk **OK**.
+        - Jeśli chcesz utworzyć nowy schemat, kliknij przycisk **OK**, a następnie kliknij przycisk **Edytor schematu** w oknie głównym. Następnie przechodzenie do informacji Edytora schematu. Po utworzeniu nowego pliku schematu Pamiętaj, aby wrócić do okna **Opcje zaawansowane** , aby uwzględnić nowo utworzony plik schematu.
 
 1. Po zakończeniu i zamknięciu okna **instalacji dsn Azure Cosmos DB ODBC** nowe DSN użytkownika zostanie dodane do karty DSN użytkownika.
 
@@ -107,9 +107,9 @@ Istnieją dwa typy metod próbkowania, których można użyć: **mapowania konte
     - Możesz ustawić **wartość true** dla opcji **Ukryj kolumnę** , jeśli chcesz wykluczyć tę kolumnę z wyników zapytania. Kolumny oznaczone jako Hide (Ukryj kolumnę = true) nie są zwracane do wyboru i projekcji, chociaż nadal są częścią schematu. Można na przykład ukryć wszystkie właściwości wymagane przez system Azure Cosmos DB, zaczynając od "_".
     - Kolumna **ID** jest jedynym polem, które nie może być ukryte, ponieważ jest używane jako klucz podstawowy w znormalizowanym schemacie. 
 
-1. Po zakończeniu definiowania **schematu kliknij pozycję**  |  **Zapisz** , przejdź do katalogu, aby zapisać schemat, a następnie kliknij przycisk **Zapisz**.
+1. Po zakończeniu definiowania **schematu kliknij pozycję**  |  **Zapisz**, przejdź do katalogu, aby zapisać schemat, a następnie kliknij przycisk **Zapisz**.
 
-1. Aby użyć tego schematu z DSN, Otwórz **okno instalacji Azure Cosmos DB ODBC Driver DSN** (za pomocą administratora źródła danych ODBC), kliknij przycisk **Opcje zaawansowane** , a następnie w polu **plik schematu** przejdź do zapisanego schematu. Zapisanie pliku schematu do istniejącej nazwy DSN powoduje modyfikację połączenia DSN do zakresu danych i struktury zdefiniowanej przez schemat.
+1. Aby użyć tego schematu z DSN, Otwórz **okno instalacji Azure Cosmos DB ODBC Driver DSN** (za pomocą administratora źródła danych ODBC), kliknij przycisk **Opcje zaawansowane**, a następnie w polu **plik schematu** przejdź do zapisanego schematu. Zapisanie pliku schematu do istniejącej nazwy DSN powoduje modyfikację połączenia DSN do zakresu danych i struktury zdefiniowanej przez schemat.
 
 ## <a name="step-4-create-a-schema-definition-using-the-table-delimiters-mapping-method"></a><a id="table-mapping"></a>Krok 4. Tworzenie definicji schematu przy użyciu metody mapowania tabeli ograniczników
 
@@ -130,14 +130,14 @@ Poniższe kroki tworzą schemat dla danych w jednym lub większej liczbie konten
 
     Na przykład jeśli dołączysz wartość **atrybutu** miasto i chcesz ograniczyć tabelę do uwzględnienia tylko wierszy z wartością miasto New York i Dubaj, wpisz miasto w polu atrybuty, a Nowy Jork, a następnie Dubaj w polu **wartości** .
 
-1. Kliknij pozycję **OK**. 
+1. Kliknij przycisk **OK**. 
 
 1. Po zakończeniu definiowania mapowania dla kontenerów, które chcesz próbkować, w oknie **Edytor schematu** kliknij **przykład**.
      Dla każdej kolumny można zmodyfikować nazwę SQL kolumny, typ SQL, Długość SQL (jeśli ma to zastosowanie), skalować (jeśli dotyczy), dokładnooć (jeśli dotyczy) i dopuszczać wartość null.
     - Możesz ustawić **wartość true** dla opcji **Ukryj kolumnę** , jeśli chcesz wykluczyć tę kolumnę z wyników zapytania. Kolumny oznaczone jako Hide (Ukryj kolumnę = true) nie są zwracane do wyboru i projekcji, chociaż nadal są częścią schematu. Można na przykład ukryć wszystkie właściwości wymagane przez system Azure Cosmos DB, zaczynając od `_` .
     - Kolumna **ID** jest jedynym polem, które nie może być ukryte, ponieważ jest używane jako klucz podstawowy w znormalizowanym schemacie. 
 
-1. Po zakończeniu definiowania **schematu kliknij pozycję**  |  **Zapisz** , przejdź do katalogu, aby zapisać schemat, a następnie kliknij przycisk **Zapisz**.
+1. Po zakończeniu definiowania **schematu kliknij pozycję**  |  **Zapisz**, przejdź do katalogu, aby zapisać schemat, a następnie kliknij przycisk **Zapisz**.
 
 1. W oknie **Konfiguracja DSN sterownika ODBC Azure Cosmos DB** kliknij przycisk **Opcje zaawansowane**. Następnie w polu **plik schematu** przejdź do zapisanego pliku schematu, a następnie kliknij przycisk **OK**. Kliknij ponownie przycisk **OK** , aby zapisać nazwę DSN. Spowoduje to zapisanie schematu utworzonego w DSN. 
 
@@ -203,7 +203,7 @@ Aby utworzyć widok dla danych, w oknie **Edytor schematu** w kolumnie **Definic
 
 Następnie w oknie **Definicje widoku** wykonaj następujące czynności:
 
-1. Kliknij pozycję **Nowy** , wprowadź nazwę widoku, na przykład EmployeesfromSeattleView, a następnie kliknij przycisk **OK**.
+1. Kliknij pozycję **Nowy**, wprowadź nazwę widoku, na przykład EmployeesfromSeattleView, a następnie kliknij przycisk **OK**.
 
 1. W oknie **Edycja widoku** wprowadź zapytanie Azure Cosmos DB. Musi to być [Azure Cosmos DB zapytania SQL](./sql-query-getting-started.md), na przykład `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"` , a następnie kliknąć przycisk **OK**.
 
@@ -240,7 +240,7 @@ Możesz użyć nowego DSN do łączenia się z Azure Cosmos DB przy użyciu dowo
 
 1. W Power BI Desktop po lewej stronie wybierz kartę dane, :::image type="icon" source="./media/odbc-driver/odbc-driver-data-tab.png"::: Aby potwierdzić, że dane zostały zaimportowane. 
 
-1. Możesz teraz tworzyć wizualizacje przy użyciu Power BI, klikając kartę Raport :::image type="icon" source="./media/odbc-driver/odbc-driver-report-tab.png"::: , klikając pozycję **Nowa Wizualizacja** , a następnie dostosowując kafelek. Aby uzyskać więcej informacji na temat tworzenia wizualizacji w Power BI Desktop, zobacz [typy wizualizacji w Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/). 
+1. Możesz teraz tworzyć wizualizacje przy użyciu Power BI, klikając kartę Raport :::image type="icon" source="./media/odbc-driver/odbc-driver-report-tab.png"::: , klikając pozycję **Nowa Wizualizacja**, a następnie dostosowując kafelek. Aby uzyskać więcej informacji na temat tworzenia wizualizacji w Power BI Desktop, zobacz [typy wizualizacji w Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/). 
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 

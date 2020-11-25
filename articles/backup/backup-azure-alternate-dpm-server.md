@@ -4,11 +4,11 @@ description: Odzyskaj dane chronione do magazynu Recovery Services z dowolnego A
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.openlocfilehash: 0cce45fbaaedad4cfcee0cda768aae2fa294312b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378070"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002974"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Odzyskiwanie danych z usługi Azure Backup Server
 
@@ -51,7 +51,7 @@ Aby odzyskać dane z Azure Backup Server:
 7. Wybierz opcję **Odzyskaj do lokalizacji alternatywnej**. **Przejdź** do odpowiedniej lokalizacji odzyskiwania.
 
     ![Alternatywna Lokalizacja odzyskiwania programu DPM](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-alternate-location.png)
-8. Wybierz opcję powiązaną z poleceniem **Utwórz kopię**, **Pomiń**lub **Zastąp**.
+8. Wybierz opcję powiązaną z poleceniem **Utwórz kopię**, **Pomiń** lub **Zastąp**.
 
    * **Utwórz kopię** — tworzy kopię pliku w przypadku kolizji nazw.
    * **Pomiń** — Jeśli występuje kolizja nazw, nie odzyska pliku, co pozostawia oryginalny plik.
@@ -62,7 +62,7 @@ Aby odzyskać dane z Azure Backup Server:
      Określ, czy po pomyślnym zakończeniu odzyskiwania zostanie wysłane **powiadomienie** .
 
      ![Powiadomienia o zewnętrznym odzyskiwaniu programu DPM](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-notifications.png)
-9. Ekran **Podsumowanie** zawiera listę opcji wybranych do tej pory. Po wybraniu opcji **Odzyskaj**dane zostaną odzyskane do odpowiedniej lokalizacji lokalnej.
+9. Ekran **Podsumowanie** zawiera listę opcji wybranych do tej pory. Po wybraniu opcji **Odzyskaj** dane zostaną odzyskane do odpowiedniej lokalizacji lokalnej.
 
     ![Podsumowanie opcji odzyskiwania zewnętrznego programu DPM](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-options-summary.png)
 

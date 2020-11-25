@@ -7,11 +7,11 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: devx-track-csharp, seodec18
 ms.openlocfilehash: 524df7805207ce517c7ae805fb17de1b041a2248
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876043"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002118"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Powiązania Azure Cosmos DB dla Azure Functions 1. x
 
@@ -180,9 +180,9 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 
 |function.jswłaściwości | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Wprowadź** | nie dotyczy | Musi być ustawiony na `cosmosDBTrigger` . |
-|**wskazywa** | nie dotyczy | Musi być ustawiony na `in` . Ten parametr jest ustawiany automatycznie podczas tworzenia wyzwalacza w Azure Portal. |
-|**Nazwij** | nie dotyczy | Nazwa zmiennej używana w kodzie funkcji, która reprezentuje listę dokumentów ze zmianami. |
+|**Wprowadź** | n/d | Musi być ustawiony na `cosmosDBTrigger` . |
+|**wskazywa** | n/d | Musi być ustawiony na `in` . Ten parametr jest ustawiany automatycznie podczas tworzenia wyzwalacza w Azure Portal. |
+|**Nazwij** | n/d | Nazwa zmiennej używana w kodzie funkcji, która reprezentuje listę dokumentów ze zmianami. |
 |**connectionStringSetting**|**ConnectionStringSetting** | Nazwa ustawienia aplikacji, które zawiera parametry połączenia używane do nawiązywania połączenia z monitorowanym kontem Azure Cosmos DB. |
 |**Bazy**|**DatabaseName**  | Nazwa bazy danych Azure Cosmos DB z monitorowaną kolekcją. |
 |**CollectionName** |**CollectionName** | Nazwa monitorowanej kolekcji. |
@@ -1117,9 +1117,9 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 
 |function.jswłaściwości | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Wprowadź**     | nie dotyczy | Musi być ustawiony na `documentdb` .        |
-|**wskazywa**     | nie dotyczy | Musi być ustawiony na `in` .         |
-|**Nazwij**     | nie dotyczy | Nazwa parametru powiązania, który reprezentuje dokument w funkcji.  |
+|**Wprowadź**     | n/d | Musi być ustawiony na `documentdb` .        |
+|**wskazywa**     | n/d | Musi być ustawiony na `in` .         |
+|**Nazwij**     | n/d | Nazwa parametru powiązania, który reprezentuje dokument w funkcji.  |
 |**Bazy** |**DatabaseName** |Baza danych zawierająca dokument.        |
 |**CollectionName** |**CollectionName** | Nazwa kolekcji zawierającej dokument. |
 |**id**    | **#C1** | Identyfikator dokumentu do pobrania. Ta właściwość obsługuje [wyrażenia powiązań](./functions-bindings-expressions-patterns.md). Nie ustawiaj zarówno właściwości **ID** , jak i **sqlQuery** . Jeśli nie ustawisz żadnej z nich, cała kolekcja zostanie pobrana. |
@@ -1458,9 +1458,9 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 
 |function.jswłaściwości | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Wprowadź**     | nie dotyczy | Musi być ustawiony na `documentdb` .        |
-|**wskazywa**     | nie dotyczy | Musi być ustawiony na `out` .         |
-|**Nazwij**     | nie dotyczy | Nazwa parametru powiązania, który reprezentuje dokument w funkcji.  |
+|**Wprowadź**     | n/d | Musi być ustawiony na `documentdb` .        |
+|**wskazywa**     | n/d | Musi być ustawiony na `out` .         |
+|**Nazwij**     | n/d | Nazwa parametru powiązania, który reprezentuje dokument w funkcji.  |
 |**Bazy** | **DatabaseName**|Baza danych zawierająca kolekcję, w której jest tworzony dokument.     |
 |**CollectionName** |**CollectionName**  | Nazwa kolekcji, w której jest tworzony dokument. |
 |**Metodę createifnotexists**  |**Metodę createifnotexists**    | Wartość logiczna określająca, czy kolekcja jest tworzona, gdy nie istnieje. Wartość domyślna to *false* , ponieważ nowe kolekcje są tworzone z zarezerwowaną przepływność, która ma wpływ na koszty. Aby uzyskać więcej informacji, odwiedź [stronę cennika](https://azure.microsoft.com/pricing/details/documentdb/).  |
@@ -1479,7 +1479,7 @@ Domyślnie podczas zapisu do parametru danych wyjściowych w funkcji jest tworzo
 
 ## <a name="exceptions-and-return-codes"></a>Wyjątki i kody powrotu
 
-| Wiązanie | Dokumentacja |
+| Wiązanie | Odwołanie |
 |---|---|
 | CosmosDB | [Kody błędów CosmosDB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 

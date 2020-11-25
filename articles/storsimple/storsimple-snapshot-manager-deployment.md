@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 5f94564c5e769d3cf0e0abbe92a309a1ee2117a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055082"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003875"
 ---
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>Wdróż przystawkę StorSimple Snapshot Manager MMC
 
@@ -171,7 +171,7 @@ Wykonaj następujące kroki, aby utworzyć i zapisać kopię bazy danych StorSim
    1. Uruchom Menedżera serwera.
    2. Na pulpicie nawigacyjnym Menedżer serwera w menu **Narzędzia** wybierz pozycję **usługi**.
    3. Na stronie **usługi** wybierz pozycję **Microsoft StorSimple Management Service**.
-   4. W prawym okienku w obszarze **usługi Microsoft StorSimple Management**kliknij pozycję **Zatrzymaj usługę**.
+   4. W prawym okienku w obszarze **usługi Microsoft StorSimple Management** kliknij pozycję **Zatrzymaj usługę**.
       
         ![Zatrzymaj usługę StorSimple Menedżer urządzeń](./media/storsimple-snapshot-manager-deployment/HCS_SSM_stop_service.png)
 2. Przejdź do C:\ProgramData\Microsoft\StorSimple\BACatalog. 
@@ -186,7 +186,7 @@ Wykonaj następujące kroki, aby utworzyć i zapisać kopię bazy danych StorSim
    
    1. Na pulpicie nawigacyjnym Menedżer serwera w menu **Narzędzia** wybierz pozycję **usługi**.
    2. Na stronie **usługi** wybierz **usługę Microsoft StorSimple Management**.
-   3. W prawym okienku w obszarze **usługi Microsoft StorSimple Management**kliknij pozycję **Uruchom ponownie usługę**. 
+   3. W prawym okienku w obszarze **usługi Microsoft StorSimple Management** kliknij pozycję **Uruchom ponownie usługę**. 
 
 ### <a name="step-3-reinstall-storsimple-snapshot-manager-and-restore-the-database"></a>Krok 3. ponowne zainstalowanie StorSimple Snapshot Manager i przywrócenie bazy danych
 Aby ponownie zainstalować program StorSimple Snapshot Manager, wykonaj kroki opisane w temacie [Install a New StorSimple Snapshot Manager](#install-a-new-storsimple-snapshot-manager). Następnie użyj poniższej procedury, aby przywrócić bazę danych StorSimple Snapshot Manager.
@@ -197,7 +197,7 @@ Aby ponownie zainstalować program StorSimple Snapshot Manager, wykonaj kroki op
    1. Uruchom Menedżera serwera.
    2. Na pulpicie nawigacyjnym Menedżer serwera w menu **Narzędzia** wybierz pozycję **usługi**.
    3. Na stronie **usługi** wybierz pozycję **Microsoft StorSimple Management Service**.
-   4. W prawym okienku w obszarze **usługi Microsoft StorSimple Management**kliknij pozycję **Zatrzymaj usługę**.
+   4. W prawym okienku w obszarze **usługi Microsoft StorSimple Management** kliknij pozycję **Zatrzymaj usługę**.
 2. Przejdź do C:\ProgramData\Microsoft\StorSimple\BACatalog.
    
    > [!NOTE]
@@ -209,7 +209,7 @@ Aby ponownie zainstalować program StorSimple Snapshot Manager, wykonaj kroki op
    
    1. Na pulpicie nawigacyjnym Menedżer serwera w menu **Narzędzia** wybierz pozycję **usługi**.
    2. Na stronie **usługi** wybierz pozycję **Microsoft StorSimple Management Service**.
-   3. W prawym okienku w obszarze **usługi Microsoft StorSimple Management**kliknij pozycję **Uruchom ponownie usługę**.
+   3. W prawym okienku w obszarze **usługi Microsoft StorSimple Management** kliknij pozycję **Uruchom ponownie usługę**.
 
 ## <a name="next-steps"></a>Następne kroki
 * Aby dowiedzieć się więcej na temat StorSimple Snapshot Manager, przejdź do [co to jest StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md).

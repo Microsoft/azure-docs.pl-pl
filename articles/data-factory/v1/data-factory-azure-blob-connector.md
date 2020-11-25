@@ -13,11 +13,11 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: a77a4808390f816bc3a6646520f4b542bee89d4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89438538"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001751"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Kopiowanie danych do lub z usługi Azure Blob Storage przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -54,7 +54,7 @@ Można utworzyć potok za pomocą działania kopiowania, które przenosi dane do
 
 Najprostszym sposobem utworzenia potoku jest użycie **Kreatora kopiowania**. [W tym](#walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage) artykule opisano tworzenie potoku w celu skopiowania danych z lokalizacji BLOB Storage platformy Azure do innej lokalizacji usługi Azure Blob Storage. Aby zapoznać się z samouczkiem dotyczącym tworzenia potoku w celu skopiowania danych z usługi Azure Blob Storage do Azure SQL Database, zobacz [Samouczek: Tworzenie potoku przy użyciu Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md).
 
-Do utworzenia potoku można także użyć następujących narzędzi: **Visual Studio**, **Azure PowerShell**, **szablon Azure Resource Manager**, interfejs API **platformy .NET**i **interfejs API REST**. Aby uzyskać instrukcje krok po kroku dotyczące tworzenia potoku za pomocą działania kopiowania, zobacz [Samouczek dotyczący działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+Do utworzenia potoku można także użyć następujących narzędzi: **Visual Studio**, **Azure PowerShell**, **szablon Azure Resource Manager**, interfejs API **platformy .NET** i **interfejs API REST**. Aby uzyskać instrukcje krok po kroku dotyczące tworzenia potoku za pomocą działania kopiowania, zobacz [Samouczek dotyczący działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 Niezależnie od tego, czy używasz narzędzi, czy interfejsów API, wykonaj następujące kroki, aby utworzyć potok służący do przenoszenia danych ze źródłowego magazynu danych do magazynu danych ujścia:
 
@@ -87,7 +87,7 @@ Sekcja **typeProperties** jest inna dla każdego typu zestawu danych i zawiera i
 | fileName |Nazwa obiektu BLOB. Nazwa pliku jest opcjonalna i uwzględnia wielkość liter.<br/><br/>W przypadku określenia nazwy pliku działanie (łącznie z kopią) działa w określonym obiekcie blob.<br/><br/>Jeśli nazwa pliku nie jest określona, Copy zawiera wszystkie obiekty blob w folderPath dla wejściowego zestawu danych.<br/><br/>Jeśli **Nazwa pliku** nie została określona dla wyjściowego zestawu danych, a **preserveHierarchy** nie jest określona w ujścia aktywności, nazwa wygenerowanego pliku będzie w następującym formacie: `Data.<Guid>.txt` (na przykład:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Nie |
 | partitionedBy |partitionedBy jest właściwością opcjonalną. Można jej użyć do określenia dynamicznego folderPath i nazwy pliku dla danych szeregów czasowych. Na przykład folderPath może być sparametryzowany dla każdej godziny danych. Zobacz [sekcję using partitionedBy](#using-partitionedby-property) , aby uzyskać szczegółowe informacje i przykłady. |Nie |
 | format | Obsługiwane są następujące typy formatów: **TextFormat**, **formatu jsonformat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ustaw właściwość **Type** w polu Format na jedną z tych wartości. Aby uzyskać więcej informacji, zobacz [format tekstowy](data-factory-supported-file-and-compression-formats.md#text-format), [Format JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Format Orc](data-factory-supported-file-and-compression-formats.md#orc-format)i sekcje [formatu Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) . <br><br> Jeśli chcesz **skopiować pliki** między magazynami opartymi na plikach (kopia binarna), Pomiń sekcję format w definicjach zestawu danych wejściowych i wyjściowych. |Nie |
-| kompresja | Określ typ i poziom kompresji danych. Obsługiwane typy to: **gzip**, **Wklęśnięcie**, **BZip2**i **ZipDeflate**. Obsługiwane poziomy to: **optymalne** i **najszybszy**. Aby uzyskać więcej informacji, zobacz [formaty plików i kompresji w Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nie |
+| kompresja | Określ typ i poziom kompresji danych. Obsługiwane typy to: **gzip**, **Wklęśnięcie**, **BZip2** i **ZipDeflate**. Obsługiwane poziomy to: **optymalne** i **najszybszy**. Aby uzyskać więcej informacji, zobacz [formaty plików i kompresji w Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nie |
 
 ### <a name="using-partitionedby-property"></a>Używanie właściwości partitionedBy
 Jak wspomniano w poprzedniej sekcji, można określić dynamiczne folderPath i nazwa pliku dla danych szeregów czasowych z właściwością **partitionedBy** , [funkcjami Data Factory i zmiennymi systemowymi](data-factory-functions-variables.md).
@@ -188,11 +188,11 @@ Przyjrzyjmy się sposobom szybkiego kopiowania danych do/z usługi Azure Blob St
 2. Kliknij pozycję **Utwórz zasób** w lewym górnym rogu, kliknij pozycję **Analiza i analiza**, a następnie kliknij pozycję **Data Factory**.
 3. W okienku **Nowa fabryka danych** :  
     1. Wprowadź **ADFBlobConnectorDF** dla **nazwy**. Nazwa fabryki danych Azure musi być globalnie unikatowa. Jeśli wystąpi błąd: `*Data factory name “ADFBlobConnectorDF” is not available` , Zmień nazwę fabryki danych (na przykład yournameADFBlobConnectorDF) i spróbuj utworzyć ją ponownie. Artykuł [Data Factory — Naming Rules](data-factory-naming-rules.md) (Fabryka danych — zasady nazewnictwa) zawiera zasady nazewnictwa artefaktów usługi Fabryka danych.
-    2. Wybierz swoją **subskrypcję**platformy Azure.
+    2. Wybierz swoją **subskrypcję** platformy Azure.
     3. W obszarze Grupa zasobów wybierz pozycję **Użyj istniejącej** , aby wybrać istniejącą grupę zasobów (lub) wybierz pozycję **Utwórz nową** , aby wprowadzić nazwę grupy zasobów.
     4. Wybierz **lokalizację** fabryki danych.
     5. Zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego** u dołu bloku.
-    6. Kliknij przycisk **Utwórz**.
+    6. Kliknij pozycję **Utwórz**.
 3. Po zakończeniu tworzenia zostanie wyświetlony blok **Data Factory** , jak pokazano na poniższej ilustracji:  ![ Strona główna fabryki danych](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
 
 ### <a name="copy-wizard"></a>Kreator kopiowania
@@ -203,7 +203,7 @@ Przyjrzyjmy się sposobom szybkiego kopiowania danych do/z usługi Azure Blob St
 2. Na stronie **Właściwości**:
     1. Wprowadź **CopyPipeline** dla **nazwy zadania**. Nazwa zadania to nazwa potoku w fabryce danych.
     2. Wprowadź **Opis** zadania (opcjonalnie).
-    3. W przypadku **zadania erze lub harmonogramu zadań**należy zachować **regularne uruchamianie przy** użyciu opcji harmonogram. Jeśli chcesz uruchomić to zadanie tylko raz, a nie uruchamiaj wielokrotnie zgodnie z harmonogramem, wybierz pozycję **Uruchom raz**. W przypadku wybrania opcji **Uruchom raz** , zostanie utworzony [potok jednorazowy](data-factory-create-pipelines.md#onetime-pipeline) .
+    3. W przypadku **zadania erze lub harmonogramu zadań** należy zachować **regularne uruchamianie przy** użyciu opcji harmonogram. Jeśli chcesz uruchomić to zadanie tylko raz, a nie uruchamiaj wielokrotnie zgodnie z harmonogramem, wybierz pozycję **Uruchom raz**. W przypadku wybrania opcji **Uruchom raz** , zostanie utworzony [potok jednorazowy](data-factory-create-pipelines.md#onetime-pipeline) .
     4. Zachowaj ustawienia **wzorca cyklicznego**. To zadanie jest uruchamiane codziennie między godzinami rozpoczęcia i zakończenia określonymi w następnym kroku.
     5. Zmień **datę i godzinę rozpoczęcia** na **04/21/2017**.
     6. Zmień **datę i godzinę zakończenia** na **04/25/2017**. Możesz chcieć wpisać datę zamiast przeglądać kalendarz.
@@ -242,19 +242,19 @@ Przyjrzyjmy się sposobom szybkiego kopiowania danych do/z usługi Azure Blob St
     4. Kliknij przycisk **schemat** na dole, aby zobaczyć schemat, który został wywnioskowany przez Kreatora kopiowania, przeglądając dane w pliku źródłowym.
     5. Po przejrzeniu ograniczników i wyświetleniu podglądu danych kliknij przycisk **Dalej**.
     ![Narzędzie kopiowania — ustawienia formatu pliku](./media/data-factory-azure-blob-connector/copy-tool-file-format-settings.png)
-8. Na **stronie docelowy magazyn danych**wybierz pozycję **Azure Blob Storage**i kliknij przycisk **dalej**. Używasz usługi Azure Blob Storage jako źródłowego i docelowego magazynu danych w tym instruktażu.  
+8. Na **stronie docelowy magazyn danych** wybierz pozycję **Azure Blob Storage** i kliknij przycisk **dalej**. Używasz usługi Azure Blob Storage jako źródłowego i docelowego magazynu danych w tym instruktażu.  
     ![Narzędzie kopiowania — Wybieranie docelowego magazynu danych](media/data-factory-azure-blob-connector/select-destination-data-store.png)
 9. Na stronie **Określanie konta usługi Azure Blob Storage** :  
     1. Wprowadź **AzureStorageLinkedService** dla pola **Nazwa połączenia** .
     2. Upewnij się, że wybrano opcję **Z subskrypcji Azure** dla ustawienia **Metoda wyboru konta**.
-    3. Wybierz swoją **subskrypcję**platformy Azure.
+    3. Wybierz swoją **subskrypcję** platformy Azure.
     4. Wybierz konto usługi Azure Storage.
     5. Kliknij przycisk **Dalej**.
 10. Na stronie **Wybieranie pliku lub folderu wyjściowego** :  
     1. Określ **ścieżkę folderu** jako **adfblobconnector/Output/{Year}/{Month}/{Day}**. Klawisz **Enter.**
-    1. W **roku**wybierz pozycję **rrrr**.
-    1. W **miesiącu**upewnij się, że jest ustawiona na **mm**.
-    1. Na **dzień**upewnij się, że ustawiono wartość **DD**.
+    1. W **roku** wybierz pozycję **rrrr**.
+    1. W **miesiącu** upewnij się, że jest ustawiona na **mm**.
+    1. Na **dzień** upewnij się, że ustawiono wartość **DD**.
     1. Upewnij się, że **Typ kompresji** ma wartość **none**.
     1. Upewnij się, że **zachowanie kopiowania** ma ustawioną wartość **Scal pliki**. Jeśli plik wyjściowy o tej samej nazwie już istnieje, Nowa zawartość zostanie dodana do tego samego pliku na końcu.
     1. Kliknij przycisk **Dalej**.

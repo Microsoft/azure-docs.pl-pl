@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 53f50e98bcec4b8ace342808f0bcfd96770834b0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312348"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002225"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Proces nauki danych zespołu w działaniu: Użyj klastrów Azure HDInsight Hadoop
 W tym instruktażu będziemy używać [procesu nauki o danych zespołowych (przetwarzania TDSP)](overview.md) w kompleksowym scenariuszu. Korzystamy z [klastra Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) do przechowywania, eksplorowania i tworzenia funkcji danych z dostępnych publicznie zestawów danych [podróży NYCych](https://www.andresmh.com/nyctaxitrips/) w postaci pośrednich oraz do próbkowania danych. Aby obsłużyć wieloklasowe i wieloklasy klasyfikacje i regresje zadań predykcyjnych, tworzymy modele danych za pomocą Azure Machine Learning. 
@@ -61,12 +61,12 @@ Unikatowy klucz do przyłączenia do \_ danych podróży i opłaty za podróż \
 ## <a name="examples-of-prediction-tasks"></a><a name="mltasks"></a>Przykłady zadań przewidywania
 Określ rodzaj prognoz, które chcesz utworzyć na podstawie analizy danych, aby ułatwić wyjaśnienie wymaganych zadań procesów. Poniżej przedstawiono trzy przykłady problemów przewidywania, które są używane w tym instruktażu, na podstawie *\_ kwoty* pozostałej:
 
-- **Klasyfikacja binarna** : przewidywanie, czy Porada została zapłacona za podróż. Oznacza to, że *\_ Kwota TIP* , która jest większa niż $0 jest dodatnim przykładem, podczas gdy pozostała *część $0 \_* jest ujemna.
+- **Klasyfikacja binarna**: przewidywanie, czy Porada została zapłacona za podróż. Oznacza to, że *\_ Kwota TIP* , która jest większa niż $0 jest dodatnim przykładem, podczas gdy pozostała *część $0 \_* jest ujemna.
 
   - Klasa 0: tip_amount = $0
   - Klasa 1: tip_amount > $0
 
-- **Klasyfikacja wieloklasowa** : przewidywanie zakresu kwot TIP płatnych za podróż. Podziel *\_ kwotę* na pięć klas:
+- **Klasyfikacja wieloklasowa**: przewidywanie zakresu kwot TIP płatnych za podróż. Podziel *\_ kwotę* na pięć klas:
 
   - Klasa 0: tip_amount = $0
   - Klasa 1: tip_amount > $0 i tip_amount <= $5
@@ -74,7 +74,7 @@ Określ rodzaj prognoz, które chcesz utworzyć na podstawie analizy danych, aby
   - Klasa 3: tip_amount > $10 i tip_amount <= $20
   - Klasa 4: tip_amount > $20
 
-- **Zadanie regresji** : przewidywanie kwoty Porada płatnej dla podróży.  
+- **Zadanie regresji**: przewidywanie kwoty Porada płatnej dla podróży.  
 
 ## <a name="set-up-an-hdinsight-hadoop-cluster-for-advanced-analytics"></a><a name="setup"></a>Skonfiguruj klaster usługi HDInsight Hadoop na potrzeby zaawansowanej analizy
 > [!NOTE]
@@ -130,7 +130,7 @@ To polecenie przekazuje dane podróży do katalogu _*_nyctaxitripraw_*_ w domyś
 "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxitripraw /DestKey:<storage account key> /S /Pattern:trip_data__.csv
 ```
 
-To polecenie przekazuje dane dotyczące taryfy do katalogu * **nyctaxifareraw** _ w domyślnym kontenerze klastra Hadoop.
+To polecenie przekazuje dane dotyczące taryfy do katalogu ***nyctaxifareraw** _ w domyślnym kontenerze klastra Hadoop.
 
 ```console
 "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare__.csv
@@ -156,7 +156,7 @@ set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataSc
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 ```
 
-Te dwa polecenia pobierają wszystkie pliki ". HQL", które są konieczne w tym instruktażu, do katalogu lokalnego * **C:\temp&#92;** _ w węźle głównym.
+Te dwa polecenia pobierają wszystkie pliki ". HQL", które są konieczne w tym instruktażu, do katalogu lokalnego ***C:\temp&#92;** _ w węźle głównym.
 
 ## <a name="create-hive-database-and-tables-partitioned-by-month"></a><a name="#hive-db-tables"></a>Tworzenie bazy danych i tabel programu Hive partycjonowane według miesiąca
 > [!NOTE]
@@ -182,7 +182,7 @@ W wierszu polecenia usługi Hive, uruchom następujące polecenie w wierszu pole
 hive -f "C:\temp\sample_hive_create_db_and_tables.hql"
 ```
 
-Poniżej przedstawiono zawartość pliku _ *C:\temp\sample \_ Hive \_ create \_ DB and Tables \_ \_ . HQL* *, który tworzy bazę danych Hive **nyctaxidb** oraz informacje o wykorzystaniu i **obtaryfie** **tabel.**
+Poniżej przedstawiono zawartość pliku _ *C:\temp\sample \_ Hive \_ create \_ DB and Tables \_ \_ . HQL**, który tworzy bazę danych Hive **nyctaxidb** oraz informacje o wykorzystaniu i **obtaryfie** **tabel.**
 
 ```hiveql
 create database if not exists nyctaxidb;
@@ -447,7 +447,7 @@ Całkowita liczba rekordów w obu tabelach jest również taka sama, co zapewnia
 > 
 > 
 
-W tym przykładzie zidentyfikowano Medallions (liczby taksówki) o długości większej niż 100 podróży w danym przedziale czasu. Zapytanie ma zalety dostępu do partycjonowanej tabeli, ponieważ jest ono warunkiem **miesiąca** zmiennej partycji. Wyniki zapytania są zapisywane w pliku lokalnym, **queryoutput. tsv** , w węźle głównym `C:\temp` .
+W tym przykładzie zidentyfikowano Medallions (liczby taksówki) o długości większej niż 100 podróży w danym przedziale czasu. Zapytanie ma zalety dostępu do partycjonowanej tabeli, ponieważ jest ono warunkiem **miesiąca** zmiennej partycji. Wyniki zapytania są zapisywane w pliku lokalnym, **queryoutput. tsv**, w węźle głównym `C:\temp` .
 
 ```console
 hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
@@ -639,7 +639,7 @@ hdfs dfs -mkdir wasb:///queryoutputdir
 hive -f "C:\temp\sample_hive_trip_direct_distance.hql"
 ```
 
-Wyniki zapytania są zapisywane do dziewięciu obiektów blob platformy Azure ( **queryoutputdir/000000 \_ 0** do  **queryoutputdir/000008 \_ 0** ) w obszarze domyślnego kontenera klastra Hadoop.
+Wyniki zapytania są zapisywane do dziewięciu obiektów blob platformy Azure (**queryoutputdir/000000 \_ 0** do  **queryoutputdir/000008 \_ 0**) w obszarze domyślnego kontenera klastra Hadoop.
 
 Aby wyświetlić rozmiar poszczególnych obiektów blob, uruchom następujące polecenie w wierszu polecenia katalogu Hive:
 
@@ -647,7 +647,7 @@ Aby wyświetlić rozmiar poszczególnych obiektów blob, uruchom następujące p
 hdfs dfs -ls wasb:///queryoutputdir
 ```
 
-Aby wyświetlić zawartość danego pliku, powiedz **000000 \_ 0** , użyj `copyToLocal` polecenia Hadoop.
+Aby wyświetlić zawartość danego pliku, powiedz **000000 \_ 0**, użyj `copyToLocal` polecenia Hadoop.
 
 ```hiveql
 hdfs dfs -copyToLocal wasb:///queryoutputdir/000000_0 C:\temp\tempfile
@@ -669,7 +669,7 @@ Główną zaletą, że te dane znajdują się w obiekcie blob platformy Azure, m
 Po fazie analizy danych w trakcie określania wartości badawczych możesz teraz przystąpić do powyższego próbkowania danych do tworzenia modeli w Machine Learning. W tej sekcji pokazano, jak za pomocą zapytania programu Hive wykonać przykładowe dane. Machine Learning następnie uzyskuje dostęp do niego z modułu [Importuj dane][import-data] .
 
 ### <a name="down-sampling-the-data"></a>Podwyższenie poziomu próbkowanie danych
-Ta procedura obejmuje dwie czynności. Najpierw dołączymy tabele **nyctaxidb. Trip** i **nyctaxidb. opłaty** za trzy klucze, które znajdują się we wszystkich rekordach: **Medallion** , **\_ licencja na hakery** i **Data i \_ godzina pobrania**. Następnie generujemy binarną etykietę klasyfikacji, **przechyloną** i wieloklasową etykietę klasyfikacji, **\_ klasę TIP**.
+Ta procedura obejmuje dwie czynności. Najpierw dołączymy tabele **nyctaxidb. Trip** i **nyctaxidb. opłaty** za trzy klucze, które znajdują się we wszystkich rekordach: **Medallion**, **\_ licencja na hakery** i **Data i \_ godzina pobrania**. Następnie generujemy binarną etykietę klasyfikacji, **przechyloną** i wieloklasową etykietę klasyfikacji, **\_ klasę TIP**.
 
 Aby można było korzystać z danych z próbką w dół bezpośrednio z modułu [Importuj dane][import-data] w Machine Learning, należy przechowywać wyniki poprzedniego zapytania w wewnętrznej tabeli programu Hive. W poniższym przykładzie utworzymy wewnętrzną tabelę programu Hive i zapełnimy jej zawartość danymi dołączonymi i w dół.
 
@@ -813,24 +813,24 @@ Aby uruchomić to zapytanie z poziomu wiersza polecenia w katalogu Hive:
 hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
 ```
 
-Mamy teraz wewnętrzną tabelę **nyctaxidb.nyctaxi_downsampled_dataset** , do której można uzyskać dostęp za pomocą modułu [Import danych][import-data] z Machine Learning. Ponadto możemy użyć tego zestawu danych do kompilowania modeli Machine Learning.  
+Mamy teraz wewnętrzną tabelę **nyctaxidb.nyctaxi_downsampled_dataset**, do której można uzyskać dostęp za pomocą modułu [Import danych][import-data] z Machine Learning. Ponadto możemy użyć tego zestawu danych do kompilowania modeli Machine Learning.  
 
 ### <a name="use-the-import-data-module-in-machine-learning-to-access-the-down-sampled-data"></a>Użyj modułu Importuj dane w Machine Learning, aby uzyskać dostęp do danych z próbką w dół
 Aby wystawić zapytania Hive w module [importu danych][import-data] Machine Learning, musisz mieć dostęp do Machine Learning obszaru roboczego. Wymagany jest również dostęp do poświadczeń klastra i skojarzonego z nim konta magazynu.
 
 Poniżej przedstawiono niektóre szczegóły dotyczące modułu [importowania danych][import-data] i parametrów do wprowadzenia:
 
-**Identyfikator URI serwera HCatalog** : Jeśli nazwa klastra to **abc123** , użyj: https: \/ /abc123.azurehdinsight.NET.
+**Identyfikator URI serwera HCatalog**: Jeśli nazwa klastra to **abc123**, użyj: https: \/ /abc123.azurehdinsight.NET.
 
-**Nazwa konta użytkownika usługi Hadoop** : Nazwa użytkownika wybrana dla klastra (nie nazwa użytkownika dostępu zdalnego).
+**Nazwa konta użytkownika usługi Hadoop**: Nazwa użytkownika wybrana dla klastra (nie nazwa użytkownika dostępu zdalnego).
 
-**Hasło konta użytkownika usługi Hadoop** : hasło wybrane dla klastra (nie hasło dostępu zdalnego).
+**Hasło konta użytkownika usługi Hadoop**: hasło wybrane dla klastra (nie hasło dostępu zdalnego).
 
-**Lokalizacja danych wyjściowych** : wybrano jako platformę Azure.
+**Lokalizacja danych wyjściowych**: wybrano jako platformę Azure.
 
-**Nazwa konta usługi Azure Storage** : Nazwa domyślnego konta magazynu skojarzonego z klastrem.
+**Nazwa konta usługi Azure Storage**: Nazwa domyślnego konta magazynu skojarzonego z klastrem.
 
-**Nazwa kontenera platformy Azure** : domyślna nazwa kontenera dla klastra i jest zwykle taka sama jak nazwa klastra. W przypadku klastra o nazwie **abc123** nazwa to abc123.
+**Nazwa kontenera platformy Azure**: domyślna nazwa kontenera dla klastra i jest zwykle taka sama jak nazwa klastra. W przypadku klastra o nazwie **abc123** nazwa to abc123.
 
 > [!IMPORTANT]
 > Każda tabela, do której chcemy wykonać zapytanie, przy użyciu modułu [Importuj dane][import-data] w Machine Learning musi być tabelą wewnętrzną.
@@ -858,11 +858,11 @@ Zestaw danych może być teraz używany jako punkt początkowy do kompilowania m
 ### <a name="build-models-in-machine-learning"></a><a name="mlmodel"></a>Tworzenie modeli w Machine Learning
 Teraz możesz przystąpić do tworzenia modeli i wdrażania modelu w [Machine Learning](https://studio.azureml.net). Dane są gotowe do użycia w przypadku rozwiązywania określonych wcześniej problemów przewidywania:
 
-- **Klasyfikacja binarna** : w celu przewidywania, czy Porada została zapłacona za podróż.
+- **Klasyfikacja binarna**: w celu przewidywania, czy Porada została zapłacona za podróż.
 
   **Używany przez Ciebie opis:** Regresja logistyczna dla dwóch klas
 
-  a. W przypadku tego problemu, etykieta docelowa (lub klasy **tipped** ) jest wyrzucana. Oryginalny, próbkowany zestaw danych zawiera kilka kolumn, które są docelowymi przeciekami dla tego eksperymentu klasyfikacji. W szczególności, **\_ Klasa etykietki** , **\_ Kwota Porada** i **łączna \_ Kwota** ujawniają informacje o etykiecie docelowej, która nie jest dostępna podczas testowania. Te kolumny są usuwane z rozważenia przy użyciu modułu [SELECT Columns in DataSet (Wybieranie kolumn w zestawie danych][select-columns] ).
+  a. W przypadku tego problemu, etykieta docelowa (lub klasy **tipped**) jest wyrzucana. Oryginalny, próbkowany zestaw danych zawiera kilka kolumn, które są docelowymi przeciekami dla tego eksperymentu klasyfikacji. W szczególności, **\_ Klasa etykietki**, **\_ Kwota Porada** i **łączna \_ Kwota** ujawniają informacje o etykiecie docelowej, która nie jest dostępna podczas testowania. Te kolumny są usuwane z rozważenia przy użyciu modułu [SELECT Columns in DataSet (Wybieranie kolumn w zestawie danych][select-columns] ).
 
   Na poniższym diagramie przedstawiono doświadczenia umożliwiające prognozowanie, czy Porada została zapłacona za daną podróż:
 
@@ -878,11 +878,11 @@ Teraz możesz przystąpić do tworzenia modeli i wdrażania modelu w [Machine Le
 
   ![Wykres wartości AUC](./media/hive-walkthrough/8JDT0F8.png)
 
-- **Klasyfikacja wieloklasowa** : aby przewidzieć zakres kwot TIP płatnych za podróż przy użyciu wcześniej zdefiniowanych klas.
+- **Klasyfikacja wieloklasowa**: aby przewidzieć zakres kwot TIP płatnych za podróż przy użyciu wcześniej zdefiniowanych klas.
 
   **Używany przez Ciebie opis:** Wieloklasowa regresja logistyczna
 
-  a. W przypadku tego problemu, nasza etykieta docelowa (lub klasy) to **\_ Klasa etykiet** , która może przyjmować jedną z pięciu wartości (0, 1, 2, 3, 4). Podobnie jak w przypadku klasyfikacji binarnej, mamy kilka kolumn, które są docelowymi przeciekami dla tego eksperymentu. W szczególności **przechylona** , **\_ Kwota Porada** i **łączna \_ Kwota** ujawniają informacje o etykiecie docelowej, która nie jest dostępna podczas testowania. Te kolumny zostaną usunięte przy użyciu modułu [SELECT Columns in DataSet (Wybieranie kolumn w zestawie danych][select-columns] ).
+  a. W przypadku tego problemu, nasza etykieta docelowa (lub klasy) to **\_ Klasa etykiet**, która może przyjmować jedną z pięciu wartości (0, 1, 2, 3, 4). Podobnie jak w przypadku klasyfikacji binarnej, mamy kilka kolumn, które są docelowymi przeciekami dla tego eksperymentu. W szczególności **przechylona**, **\_ Kwota Porada** i **łączna \_ Kwota** ujawniają informacje o etykiecie docelowej, która nie jest dostępna podczas testowania. Te kolumny zostaną usunięte przy użyciu modułu [SELECT Columns in DataSet (Wybieranie kolumn w zestawie danych][select-columns] ).
 
   Na poniższym diagramie przedstawiono eksperyment do przewidywania, w którym pojemniku może spaść Porada. Pojemniki: Klasa 0: TIP = $0, Klasa 1: TIP > $0 i TIP <= $5, Klasa 2: TIP > $5 i TIP <= $10, Klasa 3: TIP > $10 i TIP <= $20 i Klasa 4: TIP > $20.
 
@@ -898,11 +898,11 @@ Teraz możesz przystąpić do tworzenia modeli i wdrażania modelu w [Machine Le
 
   Chociaż nieścisłości klas w przypadku znanych klas są dobre, model nie wykonuje dobrego zadania "Uczenie się" na klasach rzadkich.
 
-- **Zadanie regresji** : przewidywanie kwoty Porada płatnej dla podróży.
+- **Zadanie regresji**: przewidywanie kwoty Porada płatnej dla podróży.
 
   **Używany przez Ciebie opis:** Drzewo podwyższanych decyzji
 
-  a. W przypadku tego problemu etykieta Target (lub Class) to **\_ Kwota Porada**. Przecieki docelowe w tym przypadku to: **przechylony** , **\_ Klasa TIP** i **łączna \_ Kwota**. Wszystkie te zmienne ujawniają informacje na temat kwoty TIP, która jest zwykle niedostępna w czasie testowania. Te kolumny zostaną usunięte przy użyciu modułu [SELECT Columns in DataSet (Wybieranie kolumn w zestawie danych][select-columns] ).
+  a. W przypadku tego problemu etykieta Target (lub Class) to **\_ Kwota Porada**. Przecieki docelowe w tym przypadku to: **przechylony**, **\_ Klasa TIP** i **łączna \_ Kwota**. Wszystkie te zmienne ujawniają informacje na temat kwoty TIP, która jest zwykle niedostępna w czasie testowania. Te kolumny zostaną usunięte przy użyciu modułu [SELECT Columns in DataSet (Wybieranie kolumn w zestawie danych][select-columns] ).
 
   Na poniższym diagramie przedstawiono eksperyment do przewidywania ilości danej pozostałej Porady:
 

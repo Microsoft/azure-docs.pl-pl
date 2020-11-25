@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: c17d3c7cd2cf6fe5bca725cf94344b2d2cb50bf2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88271145"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001528"
 ---
 # <a name="configure-storage"></a>Konfigurowanie magazynu
 
@@ -47,9 +47,9 @@ Wykonaj następujące kroki, aby dodać podstawowy plik NAS:
 
 1. W panelu sterowania avere kliknij kartę **Ustawienia** w górnej części ekranu.
 
-1. Kliknij pozycję **podstawowe**pliki  >  **zarządzanymi plikami głównymi** po lewej stronie.
+1. Kliknij pozycję **podstawowe** pliki  >  **zarządzanymi plikami głównymi** po lewej stronie.
 
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 
    ![Zrzut ekranu przedstawiający stronę Dodawanie nowej podstawowej klasy plików z kursorem nad przyciskiem Utwórz](media/avere-vfxt-add-core-filer-start.png)
 
@@ -137,7 +137,7 @@ Aby dodać magazyn obiektów BLOB po utworzeniu klastra, wykonaj następujące k
 
    ![Formularz ukończonych poświadczeń w chmurze w panelu sterowania avere](media/avere-vfxt-new-credential-submit.png)
 
-1. Następnie Utwórz podstawowy plik. W lewej części panelu sterowania avere kliknij pozycję **podstawowe**pliki  >   **zarządzania plikami podstawowymi**.
+1. Następnie Utwórz podstawowy plik. W lewej części panelu sterowania avere kliknij pozycję **podstawowe** pliki  >   **zarządzania plikami podstawowymi**.
 
 1. Kliknij przycisk **Utwórz** na stronie **Zarządzanie ustawieniami plików podstawowych** .
 
@@ -146,7 +146,7 @@ Aby dodać magazyn obiektów BLOB po utworzeniu klastra, wykonaj następujące k
    * Wybierz typ pliku **Cloud**.
    * Nazwij nowy plik podstawowy i kliknij przycisk **dalej**.
    * Zaakceptuj domyślne zasady pamięci podręcznej i przejdź do trzeciej strony.
-   * W obszarze **Typ usługi**wybierz pozycję **Azure Storage**.
+   * W obszarze **Typ usługi** wybierz pozycję **Azure Storage**.
    * Wybierz utworzone wcześniej poświadczenie.
    * Ustaw **zawartość zasobnika** na **pustą**
    * Zmień **weryfikację certyfikatu** na **wyłączony**
@@ -172,7 +172,7 @@ Więcej informacji o połączeniach można znaleźć w [sekcji przestrzeń nazw 
 
 Wykonaj następujące kroki w interfejsie avere panelu sterowania:
 
-* **VServer**  >  W lewym górnym rogu kliknij pozycję vserver**obszar nazw** .
+* **VServer**  >  W lewym górnym rogu kliknij pozycję vserver **obszar nazw** .
 * Podaj ścieżkę przestrzeni nazw rozpoczynającą się od znaku/(ukośnik), na przykład ``/vfxt/data`` .
 * Wybierz podstawowy plik.
 * Wybierz eksport pliku podstawowego.

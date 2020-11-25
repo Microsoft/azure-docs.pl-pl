@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: duau
 ms.openlocfilehash: 83dc432a1f88b443d500bf9a977abfed69211156
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401558"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003858"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Rozwiązywanie problemów ze stanem obniżonej wydajności usługi Azure Traffic Manager
 
-W tym artykule opisano sposób rozwiązywania problemów z profilem usługi Azure Traffic Manager, w którym jest wyświetlany stan obniżonej sprawności. Pierwszym krokiem w rozwiązywaniu problemów z nieobniżonym stanem Traffic Manager na platformie Azure jest włączenie rejestrowania.  Aby uzyskać więcej informacji, zapoznaj się z tematem [Włączanie dzienników zasobów](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs) . W tym scenariuszu należy zastanowić się, że skonfigurowano profil Traffic Manager wskazujący niektóre usługi hostowane w usłudze cloudapp.net. Jeśli kondycja Traffic Manager zostanie wyświetlony stan **obniżonej wydajności** , może to spowodować **spadek**stanu co najmniej jednego punktu końcowego:
+W tym artykule opisano sposób rozwiązywania problemów z profilem usługi Azure Traffic Manager, w którym jest wyświetlany stan obniżonej sprawności. Pierwszym krokiem w rozwiązywaniu problemów z nieobniżonym stanem Traffic Manager na platformie Azure jest włączenie rejestrowania.  Aby uzyskać więcej informacji, zapoznaj się z tematem [Włączanie dzienników zasobów](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs) . W tym scenariuszu należy zastanowić się, że skonfigurowano profil Traffic Manager wskazujący niektóre usługi hostowane w usłudze cloudapp.net. Jeśli kondycja Traffic Manager zostanie wyświetlony stan **obniżonej wydajności** , może to spowodować **spadek** stanu co najmniej jednego punktu końcowego:
 
 ![stan nieprawidłowego punktu końcowego](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 

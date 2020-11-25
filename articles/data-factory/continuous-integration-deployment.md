@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: b31931af7b8d1442a66333622a23d017ab7fb5a9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 93aeb088f82cae6dde215792e399997b592a5c14
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658693"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96003977"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Ciągła integracja i dostarczanie w Azure Data Factory
 
@@ -636,6 +636,14 @@ W przypadku wdrożenia fabryki w środowisku produkcyjnym i zapoznania się z us
 Obejrzyj film wideo poniżej szczegółowy samouczek wideo dotyczący sposobu naprawy środowiska. 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4I7fi]
+
+## <a name="exposure-control-and-feature-flags"></a>Kontrola ekspozycji i flagi funkcji
+
+Podczas pracy nad zespołem istnieją wystąpienia, w których można scalać zmiany, ale nie powinny być one uruchamiane w środowiskach z podwyższonym poziomem uprawnień, takich jak produkcja i pytania i odpowiedzi. Aby obsłużyć ten scenariusz, zespół ADF zaleca [DevOps koncepcji używania flag funkcji](https://docs.microsoft.com/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops). W module ADF można łączyć [parametry globalne](author-global-parameters.md) i [działanie warunku if](control-flow-if-condition-activity.md) w celu ukrycia zestawów logiki na podstawie tych flag środowiska.
+
+Aby dowiedzieć się, jak skonfigurować flagę funkcji, zobacz poniższy samouczek wideo:
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4IxdW]
 
 ## <a name="best-practices-for-cicd"></a>Najlepsze rozwiązania dotyczące ciągłej integracji/ciągłego wdrażania
 

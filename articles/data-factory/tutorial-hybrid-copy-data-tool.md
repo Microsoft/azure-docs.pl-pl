@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 11/09/2020
 ms.openlocfilehash: d9cf9729d8be77845572efd9ef6e2486ddceaaaf
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94562002"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002838"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Kopiowanie danych z bazy danych SQL Server do usługi Azure Blob Storage za pomocą narzędzia Kopiowanie danych
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -53,7 +53,7 @@ W tym samouczku użyjesz SQL Server bazy danych jako *źródłowego* magazynu da
 
 1. Połącz się z wystąpieniem programu SQL Server przy użyciu swoich poświadczeń.
 
-1. Utwórz przykładową bazę danych. W widoku drzewa kliknij prawym przyciskiem myszy pozycję **Bazy danych** , a następnie wybierz pozycję **Nowa baza danych**.
+1. Utwórz przykładową bazę danych. W widoku drzewa kliknij prawym przyciskiem myszy pozycję **Bazy danych**, a następnie wybierz pozycję **Nowa baza danych**.
 
 1. W oknie **Nowa baza danych** wprowadź nazwę bazy danych, a następnie wybierz przycisk **OK**.
 
@@ -81,7 +81,7 @@ W tym samouczku używasz nazwy i klucza swojego konta magazynu. Pobierz nazwę i
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) przy użyciu nazwy użytkownika i hasła do konta platformy Azure.
 
-1. W lewym okienku wybierz pozycję **Wszystkie usługi**. Zastosuj filtrowanie według słowa kluczowego **Magazyn** , a następnie wybierz pozycję **Konta magazynu**.
+1. W lewym okienku wybierz pozycję **Wszystkie usługi**. Zastosuj filtrowanie według słowa kluczowego **Magazyn**, a następnie wybierz pozycję **Konta magazynu**.
 
     ![Wyszukiwanie kont magazynu](media/doc-common-process/search-storage-account.png)
 
@@ -95,11 +95,11 @@ W tym samouczku używasz nazwy i klucza swojego konta magazynu. Pobierz nazwę i
 #### <a name="create-the-adftutorial-container"></a>Tworzenie kontenera adftutorial
 W tej sekcji utworzysz kontener obiektów blob o nazwie **adftutorial** w usłudze Blob Storage.
 
-1. W oknie **Konto magazynu** przełącz się do widoku **Przegląd** , a następnie wybierz pozycję **Obiekty blob**.
+1. W oknie **Konto magazynu** przełącz się do widoku **Przegląd**, a następnie wybierz pozycję **Obiekty blob**.
 
 1. W oknie **obiekty blob** wybierz pozycję **+ kontener**.
 
-1. W oknie **nowy kontener** w obszarze **Nazwa** wpisz **adftutorial** , a następnie wybierz przycisk **OK**.
+1. W oknie **nowy kontener** w obszarze **Nazwa** wpisz **adftutorial**, a następnie wybierz przycisk **OK**.
 
 1. Kliknij pozycję **adftutorial** na liście kontenerów.
 
@@ -121,9 +121,9 @@ W tej sekcji utworzysz kontener obiektów blob o nazwie **adftutorial** w usłud
 1. Wybierz **subskrypcję** platformy Azure, w której chcesz utworzyć fabrykę danych.
 1. W obszarze **Grupa zasobów** wykonaj jedną z następujących czynności:
 
-   - Wybierz pozycję **Użyj istniejącej** , a następnie wybierz istniejącą grupę zasobów z listy rozwijanej.
+   - Wybierz pozycję **Użyj istniejącej**, a następnie wybierz istniejącą grupę zasobów z listy rozwijanej.
 
-   - Wybierz pozycję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów. 
+   - Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę grupy zasobów. 
         
      Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources (Używanie grup zasobów do zarządzania zasobami platformy Azure)](../azure-resource-manager/management/overview.md).
 1. W obszarze **Wersja** wybierz pozycję **V2**.
@@ -133,11 +133,11 @@ W tej sekcji utworzysz kontener obiektów blob o nazwie **adftutorial** w usłud
 1. Po zakończeniu tworzenia zostanie wyświetlona strona **Data Factory** , jak pokazano na ilustracji.
 
      ![Strona główna fabryki danych](./media/doc-common-process/data-factory-home-page.png)
-1. Wybierz pozycję **Tworzenie i monitorowanie** , aby na osobnej karcie uruchomić interfejs użytkownika usługi Data Factory.
+1. Wybierz pozycję **Tworzenie i monitorowanie**, aby na osobnej karcie uruchomić interfejs użytkownika usługi Data Factory.
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>Tworzenie potoku za pomocą narzędzia do kopiowania danych
 
-1. Na stronie **Wprowadzenie** wybierz pozycję **Kopiowanie danych** , aby uruchomić narzędzie do kopiowania danych.
+1. Na stronie **Wprowadzenie** wybierz pozycję **Kopiowanie danych**, aby uruchomić narzędzie do kopiowania danych.
 
    ![Strona Wprowadzenie](./media/doc-common-process/get-started-page.png)
 
@@ -146,7 +146,7 @@ W tej sekcji utworzysz kontener obiektów blob o nazwie **adftutorial** w usłud
 
 1. Na stronie **Źródłowy magazyn danych** kliknij pozycję **Utwórz nowe połączenie**.
 
-1. W obszarze **Nowa połączona usługa** wyszukaj pozycję **SQL Server** , a następnie wybierz pozycję **Kontynuuj**.
+1. W obszarze **Nowa połączona usługa** wyszukaj pozycję **SQL Server**, a następnie wybierz pozycję **Kontynuuj**.
 
 1. W oknie dialogowym **Nowa połączona usługa (SQL Server)** w polu **Nazwa** wprowadź **SqlServerLinkedService**. Wybierz pozycję **+Nowy** w polu **Połącz za pośrednictwem środowiska Integration Runtime**. Należy utworzyć środowisko Integration Runtime (Self-hosted), pobrać je na komputer i zarejestrować w usłudze Data Factory. Środowisko Integration Runtime (Self-hosted) kopiuje dane między środowiskiem lokalnym a chmurą.
 
@@ -182,12 +182,12 @@ W tej sekcji utworzysz kontener obiektów blob o nazwie **adftutorial** w usłud
 
 1. Na stronie **Magazyn danych źródłowych** wybierz pozycję **dalej**.
 
-1. Na stronie **Wybieranie tabel, z których mają być kopiowane dane, lub używanie zapytania niestandardowego** wybierz z listy tabelę **[dbo].[emp]** , a następnie wybierz pozycję **Dalej**. Możesz wybrać dowolną inną tabelę, odpowiednio do bazy danych.
+1. Na stronie **Wybieranie tabel, z których mają być kopiowane dane, lub używanie zapytania niestandardowego** wybierz z listy tabelę **[dbo].[emp]**, a następnie wybierz pozycję **Dalej**. Możesz wybrać dowolną inną tabelę, odpowiednio do bazy danych.
 
 1. Na stronie **Docelowy magazyn danych** wybierz pozycję **Utwórz nowe połączenie**.
 
 
-1. W obszarze **Nowa połączona usługa** Wyszukaj i wybierz pozycję **obiekt blob platformy Azure** , a następnie wybierz pozycję **Kontynuuj**.
+1. W obszarze **Nowa połączona usługa** Wyszukaj i wybierz pozycję **obiekt blob platformy Azure**, a następnie wybierz pozycję **Kontynuuj**.
 
    ![Wybór usługi Blob Storage](./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png)
 
@@ -203,7 +203,7 @@ W tej sekcji utworzysz kontener obiektów blob o nazwie **adftutorial** w usłud
 
 1. Upewnij się, że w oknie dialogowym **docelowy magazyn danych** wybrano opcję **Azure Blob Storage** . Następnie wybierz przycisk **Dalej**.
 
-1. W oknie dialogowym **Wybieranie wyjściowego pliku lub folderu** w obszarze **Ścieżka folderu** wprowadź wartość **adftutorial/fromonprem**. Jako jedno z wymagań wstępnych został utworzony kontener **adftutorial**. Jeśli folder wyjściowy (w tym przykładzie **fromonprem** ) nie istnieje, usługa Data Factory utworzy go automatycznie. Możesz również użyć przycisku **Przeglądaj** , aby przeglądać magazyn obiektów blob i jego kontenerów/folderów. Jeśli nie wprowadzisz żadnej wartości w polu **Nazwa pliku** , domyślnie zostanie użyta nazwa źródła (w tym przykładzie **dbo.emp** ).
+1. W oknie dialogowym **Wybieranie wyjściowego pliku lub folderu** w obszarze **Ścieżka folderu** wprowadź wartość **adftutorial/fromonprem**. Jako jedno z wymagań wstępnych został utworzony kontener **adftutorial**. Jeśli folder wyjściowy (w tym przykładzie **fromonprem**) nie istnieje, usługa Data Factory utworzy go automatycznie. Możesz również użyć przycisku **Przeglądaj** , aby przeglądać magazyn obiektów blob i jego kontenerów/folderów. Jeśli nie wprowadzisz żadnej wartości w polu **Nazwa pliku**, domyślnie zostanie użyta nazwa źródła (w tym przykładzie **dbo.emp**).
 
    ![Wybieranie pliku lub folderu wyjściowego](./media/tutorial-hybrid-copy-data-tool/choose-output-file-folder.png)
 
@@ -213,7 +213,7 @@ W tej sekcji utworzysz kontener obiektów blob o nazwie **adftutorial** w usłud
 
 1. W oknie dialogowym **Podsumowanie** sprawdź wartości wszystkich ustawień, a następnie wybierz pozycję **Dalej**.
 
-1. Na **stronie Wdrażanie** wybierz pozycję **Monitorowanie** , aby monitorować potok (zadanie). 
+1. Na **stronie Wdrażanie** wybierz pozycję **Monitorowanie**, aby monitorować potok (zadanie). 
 
 1. Po zakończeniu przebiegu potoku można wyświetlić stan utworzonego potoku. 
 
@@ -223,7 +223,7 @@ W tej sekcji utworzysz kontener obiektów blob o nazwie **adftutorial** w usłud
 
 1. Upewnij się, że w folderze **fromonprem** kontenera **adftutorial** znajduje się plik wyjściowy.
 
-1. Wybierz kartę **Edycja** po lewej stronie, aby przełączyć się w tryb edytora. Za pomocą edytora można zaktualizować usługi połączone, zestawy danych i potoki utworzone przez narzędzie. Wybierz pozycję **Kod** , aby wyświetlić kod JSON skojarzony z jednostką otwartą w edytorze. Aby uzyskać szczegółowe informacje dotyczące sposobu edytowania tych jednostek w interfejsie użytkownika usługi Data Factory, zobacz [wersję witryny Azure Portal używaną w tym samouczku](tutorial-copy-data-portal.md).
+1. Wybierz kartę **Edycja** po lewej stronie, aby przełączyć się w tryb edytora. Za pomocą edytora można zaktualizować usługi połączone, zestawy danych i potoki utworzone przez narzędzie. Wybierz pozycję **Kod**, aby wyświetlić kod JSON skojarzony z jednostką otwartą w edytorze. Aby uzyskać szczegółowe informacje dotyczące sposobu edytowania tych jednostek w interfejsie użytkownika usługi Data Factory, zobacz [wersję witryny Azure Portal używaną w tym samouczku](tutorial-copy-data-portal.md).
 
 
 ## <a name="next-steps"></a>Następne kroki

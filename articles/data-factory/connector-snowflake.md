@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/28/2020
-ms.openlocfilehash: 5bb5599c6ab6e630e0f26c6d4a13e9c9af8a15a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: c0d0e3154360d787bfc2072c5ae1fe878fa1d138
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91405177"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96003665"
 ---
 # <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Skopiuj i Przekształć dane w śniegu przy użyciu Azure Data Factory
 
@@ -37,9 +37,7 @@ W przypadku działania kopiowania ten łącznik płatny śnieg obsługuje nastę
 - Skopiuj dane z płatnych śniegów, które wykorzystują kopiowanie śniegu [do polecenia [Location]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) w celu osiągnięcia najlepszej wydajności.
 - Skopiuj dane do płatnych śniegów, które wykorzystują kopiowanie płatne [do [Table] w](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) celu uzyskania najlepszej wydajności. Obsługuje ona płatki śnieg na platformie Azure. 
 
-W przypadku korzystania z obszaru roboczego usługi Azure Synapse Analytics jest nieobsługiwany płata śniegu.
-
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -113,7 +111,7 @@ Następujące właściwości są obsługiwane dla zestawu danych płatka śniegu
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | typ      | Właściwość Type zestawu danych musi być ustawiona na **Płatne**. | Tak                         |
 | schema | Nazwa schematu. Należy pamiętać, że w nazwie schematu jest rozróżniana wielkość liter. |Nie dla źródła, tak dla ujścia  |
-| tabela | Nazwa tabeli/widoku. Zwróć uwagę na to, że w nazwie tabeli jest rozróżniana wielkość liter. |Nie dla źródła, tak dla ujścia  |
+| table (stolik) | Nazwa tabeli/widoku. Zwróć uwagę na to, że w nazwie tabeli jest rozróżniana wielkość liter. |Nie dla źródła, tak dla ujścia  |
 
 **Przykład:**
 
@@ -152,8 +150,8 @@ Aby skopiować dane z płatnych śniegów, w sekcji **Źródło** działania kop
 | typ                         | Właściwość Type źródła działania Copy musi być ustawiona na wartość **SnowflakeSource**. | Tak      |
 | query          | Określa zapytanie SQL służące do odczytywania danych z płatki śniegu. Jeśli nazwy schematu, tabeli i kolumn zawierają małe litery, należy pomniejszyć identyfikator obiektu w kwerendzie, np. `select * from "schema"."myTable"` .<br>Wykonywanie procedury składowanej nie jest obsługiwane. | Nie       |
 | exportSettings | Ustawienia zaawansowane używane do pobierania danych z płatki śniegu. Można skonfigurować te obsługiwane przez KOPIę w poleceniu, które Data Factory zostanie przekazane po wywołaniu instrukcji. | Nie       |
-| ***W obszarze `exportSettings` :*** |  |  |
-| typ | Typ polecenia eksportu, ustawiony na **SnowflakeExportCopyCommand**. | Tak |
+| ***W obszarze `exportSettings` :** _ |  |  |
+| typ | Typ polecenia eksportu, ustawiony na _ * SnowflakeExportCopyCommand * *. | Tak |
 | additionalCopyOptions | Dodatkowe opcje kopiowania, które są dostępne jako słownik par klucz-wartość. Przykłady: MAX_FILE_SIZE, Zastąp. Aby uzyskać więcej informacji, zobacz [Opcje kopiowania płatka śniegu](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | Nie |
 | additionalFormatOptions | Dodatkowe opcje formatu pliku, które są dostępne do kopiowania polecenia jako słownik par klucz-wartość. Przykłady: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Aby uzyskać więcej informacji, zobacz [Opcje formatu śniegu](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). | Nie |
 
@@ -163,16 +161,16 @@ Jeśli magazyn danych ujścia i format spełniają kryteria opisane w tej sekcji
 
 - **Połączona usługa ujścia** to [**Magazyn obiektów blob platformy Azure**](connector-azure-blob-storage.md) z uwierzytelnianiem za pomocą **sygnatury dostępu współdzielonego** .
 
-- **Format danych ujścia** to **Parquet**, **rozdzielany tekstem**lub **JSON** z następującymi konfiguracjami:
+- **Format danych ujścia** to **Parquet**, **rozdzielany tekstem** lub **JSON** z następującymi konfiguracjami:
 
-    - W przypadku formatu **Parquet** kompresji koder-dekoder ma **wartość None**, **przyciąganie**lub **LZO**.
+    - W przypadku formatu **Parquet** kompresji koder-dekoder ma **wartość None**, **przyciąganie** lub **LZO**.
     - Format **tekstu rozdzielanego** :
-        - `rowDelimiter` jest **\r\n**lub pojedynczym znakiem.
-        - `compression` nie może to być **kompresja**, **gzip**, **bzip2**lub **Wklęśnięcie**.
+        - `rowDelimiter` jest **\r\n** lub pojedynczym znakiem.
+        - `compression` nie może to być **kompresja**, **gzip**, **bzip2** lub **Wklęśnięcie**.
         - `encodingName` jest pozostawiony jako domyślny lub ustawiony na **UTF-8**.
-        - `quoteChar` jest **podwójnym cudzysłowem**, **pojedynczym cudzysłowem**lub **pustym ciągiem** (bez cudzysłowu).
-    - W przypadku formatu **JSON** kopia bezpośrednia obsługuje tylko przypadek, gdy źródłowa tabela płatnych lub wynik zapytania zawiera tylko jedną kolumnę, a typ danych tej kolumny to **Variant**, **Object**lub **Array**.
-        - `compression` nie może to być **kompresja**, **gzip**, **bzip2**lub **Wklęśnięcie**.
+        - `quoteChar` jest **podwójnym cudzysłowem**, **pojedynczym cudzysłowem** lub **pustym ciągiem** (bez cudzysłowu).
+    - W przypadku formatu **JSON** kopia bezpośrednia obsługuje tylko przypadek, gdy źródłowa tabela płatnych lub wynik zapytania zawiera tylko jedną kolumnę, a typ danych tej kolumny to **Variant**, **Object** lub **Array**.
+        - `compression` nie może to być **kompresja**, **gzip**, **bzip2** lub **Wklęśnięcie**.
         - `encodingName` jest pozostawiony jako domyślny lub ustawiony na **UTF-8**.
         - `filePattern` w obszarze ujścia działania kopiowania jest pozostawiona wartość domyślna lub ustawiona na **setOfObjects**.
 
@@ -283,8 +281,8 @@ Aby skopiować dane do płatnych śniegów, w sekcji **ujścia** działania kopi
 | typ              | Właściwość Type ujścia działania Copy ustawiona na wartość **SnowflakeSink**. | Tak                                           |
 | preCopyScript     | Określ zapytanie SQL dla działania kopiowania, które ma zostać uruchomione przed zapisaniem danych do śniegu w każdym przebiegu. Ta właściwość służy do czyszczenia wstępnie załadowanych danych. | Nie                                            |
 | importSettings | Ustawienia zaawansowane służące do zapisywania danych w płatki śniegu. Można skonfigurować te obsługiwane przez KOPIę w poleceniu, które Data Factory zostanie przekazane po wywołaniu instrukcji. | Nie |
-| ***W obszarze `importSettings` :*** |                                                              |  |
-| typ | Typ polecenia importowania, ustawiony na **SnowflakeImportCopyCommand**. | Tak |
+| **_W obszarze `importSettings` :_* _ |                                                              |  |
+| typ | Typ polecenia importowania, ustawiony na _ * SnowflakeImportCopyCommand * *. | Tak |
 | additionalCopyOptions | Dodatkowe opcje kopiowania, które są dostępne jako słownik par klucz-wartość. Przykłady: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. Aby uzyskać więcej informacji, zobacz [Opcje kopiowania płatka śniegu](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | Nie |
 | additionalFormatOptions | Dodatkowe opcje formatu pliku dostarczone do polecenia COPY, dostarczone jako słownik par klucz-wartość. Przykłady: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Aby uzyskać więcej informacji, zobacz [Opcje formatu śniegu](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions). | Nie |
 
@@ -294,17 +292,17 @@ Jeśli źródłowy magazyn danych i format spełniają kryteria opisane w tej se
 
 - **Połączona usługa** jest usługą [**Azure Blob Storage**](connector-azure-blob-storage.md) z uwierzytelnianiem za pomocą **sygnatury dostępu współdzielonego** .
 
-- **Format danych źródłowych** to **Parquet**, **rozdzielany tekstem**lub **JSON** z następującymi konfiguracjami:
+- **Format danych źródłowych** to **Parquet**, **rozdzielany tekstem** lub **JSON** z następującymi konfiguracjami:
 
-    - W przypadku formatu **Parquet** kompresji koder-dekoder ma **wartość Brak**lub **przyciąganie**.
+    - W przypadku formatu **Parquet** kompresji koder-dekoder ma **wartość Brak** lub **przyciąganie**.
 
     - Format **tekstu rozdzielanego** :
-        - `rowDelimiter` jest **\r\n**lub pojedynczym znakiem. Jeśli ogranicznik wiersza nie jest "\r\n", `firstRowAsHeader` musi mieć **wartość false**i `skipLineCount` nie został określony.
-        - `compression` nie może to być **kompresja**, **gzip**, **bzip2**lub **Wklęśnięcie**.
+        - `rowDelimiter` jest **\r\n** lub pojedynczym znakiem. Jeśli ogranicznik wiersza nie jest "\r\n", `firstRowAsHeader` musi mieć **wartość false** i `skipLineCount` nie został określony.
+        - `compression` nie może to być **kompresja**, **gzip**, **bzip2** lub **Wklęśnięcie**.
         - `encodingName` jest pozostawiony jako domyślny lub ustawiony na wartość "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "Windows-1250", "Windows-1251", "Windows-1252", "Windows-1253", "Windows-1254"
-        - `quoteChar` jest **podwójnym cudzysłowem**, **pojedynczym cudzysłowem**lub **pustym ciągiem** (bez cudzysłowu).
-    - W przypadku formatu **JSON** kopia bezpośrednia obsługuje tylko przypadek, w którym tylko tabela "ujścia płatne" ma tylko jedną kolumnę, a typ danych tej kolumny to **Variant**, **Object**lub **Array**.
-        - `compression` nie może to być **kompresja**, **gzip**, **bzip2**lub **Wklęśnięcie**.
+        - `quoteChar` jest **podwójnym cudzysłowem**, **pojedynczym cudzysłowem** lub **pustym ciągiem** (bez cudzysłowu).
+    - W przypadku formatu **JSON** kopia bezpośrednia obsługuje tylko przypadek, w którym tylko tabela "ujścia płatne" ma tylko jedną kolumnę, a typ danych tej kolumny to **Variant**, **Object** lub **Array**.
+        - `compression` nie może to być **kompresja**, **gzip**, **bzip2** lub **Wklęśnięcie**.
         - `encodingName` jest pozostawiony jako domyślny lub ustawiony na **UTF-8**.
         - Nie określono mapowania kolumn.
 

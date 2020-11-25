@@ -11,11 +11,11 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: 766da55f2589e2a8eb09e0f1b1c9a0a5027c8c3c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320955"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002769"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Nauka danych za pomocą Data Science Virtual Machine systemu Windows
 
@@ -153,7 +153,7 @@ W programie Visual Studio można wykonać tę samą operację klonowania. Poniż
 Więcej informacji na temat używania usługi git do pracy z repozytorium GitHub można znaleźć z zasobów dostępnych w witrynie github.com. [Arkusz Ściągawka](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) jest przydatnym odwołaniem.
 
 ## <a name="access-azure-data-and-analytics-services"></a>Dostęp do usług Azure Data and Analytics
-### <a name="azure-blob-storage"></a>Azure Blob Storage
+### <a name="azure-blob-storage"></a>Usługa Azure Blob Storage
 Magazyn obiektów blob platformy Azure to niezawodna, ekonomiczna usługa magazynu w chmurze, w której dane są duże i małe. W tej sekcji opisano sposób przenoszenia danych do usługi BLOB Storage i uzyskiwania dostępu do danych przechowywanych w obiekcie blob platformy Azure.
 
 #### <a name="prerequisites"></a>Wymagania wstępne
@@ -197,7 +197,7 @@ Po uruchomieniu polecenia AzCopy w celu skopiowania do obiektu blob platformy Az
 Możesz również przekazać dane z lokalnego pliku na maszynę wirtualną przy użyciu Eksplorator usługi Azure Storage:
 
 * Aby przekazać dane do kontenera, wybierz kontener docelowy i wybierz przycisk **Przekaż** . ![ Zrzut ekranu przycisku przekazywania w Eksplorator usługi Azure Storage](./media/vm-do-ten-things/storage-accounts.png)
-* Wybierz wielokropek ( **...** ) z prawej strony pola **pliki** , wybierz co najmniej jeden plik do przekazania z systemu plików, a następnie wybierz pozycję **Przekaż** , aby rozpocząć przekazywanie plików. ![ Zrzut ekranu przedstawiający okno dialogowe przekazywanie plików](./media/vm-do-ten-things/upload-files-to-blob.png)
+* Wybierz wielokropek (**...**) z prawej strony pola **pliki** , wybierz co najmniej jeden plik do przekazania z systemu plików, a następnie wybierz pozycję **Przekaż** , aby rozpocząć przekazywanie plików. ![ Zrzut ekranu przedstawiający okno dialogowe przekazywanie plików](./media/vm-do-ten-things/upload-files-to-blob.png)
 
 #### <a name="read-data-from-an-azure-blob-python-odbc"></a>Odczytywanie danych z obiektu blob platformy Azure: Język Python ODBC
 

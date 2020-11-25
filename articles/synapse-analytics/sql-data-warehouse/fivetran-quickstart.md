@@ -12,11 +12,11 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 96e679c0b284cc649dbde3fba1b640f4e09df05e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201654"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001851"
 ---
 # <a name="quickstart-fivetran-with-data-warehouse"></a>Szybki Start: Fivetran z magazynem danych 
 
@@ -82,5 +82,5 @@ Aby nawiązać połączenie z magazynem danych z konta usługi Fivetran, wprowad
 * Host (nazwa serwera).
 * Przewożąc.
 * Database.
-* Użytkownik (nazwa użytkownika powinna być **fivetran \@ _server_name_ ** , gdzie *server_name* jest częścią identyfikatora URI hosta platformy Azure: ** _ \_ Nazwa serwera_. Database.Windows.NET**).
+* Użytkownik (nazwa użytkownika powinna być **fivetran \@ _server_name_** , gdzie *server_name* jest częścią identyfikatora URI hosta platformy Azure: **_\_ Nazwa serwera_. Database.Windows.NET**).
 * Hasło.

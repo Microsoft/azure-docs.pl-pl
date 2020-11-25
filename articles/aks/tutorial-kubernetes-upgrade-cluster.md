@@ -6,11 +6,11 @@ ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 2e9af5dcc00d8cadd0528d56ee73bc6aeba149d7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747740"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002038"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>Samouczek: uaktualnianie rozwiązania Kubernetes w usłudze Azure Kubernetes Service (AKS)
 
@@ -23,7 +23,7 @@ W tym samouczku (część siódma z siedmiu) jest uaktualniany klaster Kubernete
 > * Uaktualnianie węzłów rozwiązania Kubernetes
 > * Weryfikowanie pomyślnego uaktualnienia
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W poprzednich samouczkach aplikacja była spakowana do obrazu kontenera. Ten obraz został przekazany do usługi Azure Container Registry i utworzono klaster usługi AKS. Aplikacja została następnie wdrożona w klastrze usługi AKS. Jeśli nie wykonano tych kroków, a chcesz kontynuować pracę, wróć do części [Samouczek 1 — tworzenie obrazów kontenera][aks-tutorial-prepare-app].
 
@@ -37,7 +37,7 @@ Przed uaktualnieniem klastra użyj polecenia [az aks get-upgrades][], aby sprawd
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
-W poniższym przykładzie bieżąca wersja to *1.15.11* , a dostępne wersje są wyświetlane w obszarze *uaktualnienia* .
+W poniższym przykładzie bieżąca wersja to *1.15.11*, a dostępne wersje są wyświetlane w obszarze *uaktualnienia*.
 
 ```json
 {
@@ -80,9 +80,9 @@ az aks upgrade \
 ```
 
 > [!NOTE]
-> Jednocześnie można uaktualnić tylko jedną wersję pomocniczą. Na przykład można przeprowadzić uaktualnienie z wersji *1.14. x* do *1.15. x* , ale nie można przeprowadzić uaktualnienia z *1.14. x* do *1.16. x* bezpośrednio. Aby przeprowadzić uaktualnienie z wersji *1.14. x* do *1.16. x* , najpierw Uaktualnij z *1.14. x* do *1.15. x* , a następnie wykonaj kolejne uaktualnienie z *1.15. x* do *1.16. x* .
+> Jednocześnie można uaktualnić tylko jedną wersję pomocniczą. Na przykład można przeprowadzić uaktualnienie z wersji *1.14. x* do *1.15. x*, ale nie można przeprowadzić uaktualnienia z *1.14. x* do *1.16. x* bezpośrednio. Aby przeprowadzić uaktualnienie z wersji *1.14. x* do *1.16. x*, najpierw Uaktualnij z *1.14. x* do *1.15. x*, a następnie wykonaj kolejne uaktualnienie z *1.15. x* do *1.16. x*.
 
-Następujące wąskie przykładowe dane wyjściowe przedstawiają wynik uaktualniania do *1.16.8* . Zwróć uwagę na *kubernetesVersion* teraz raporty *1.16.8* :
+Następujące wąskie przykładowe dane wyjściowe przedstawiają wynik uaktualniania do *1.16.8*. Zwróć uwagę na *kubernetesVersion* teraz raporty *1.16.8*:
 
 ```json
 {
@@ -115,7 +115,7 @@ Potwierdź, że uaktualnienie powiodło się, używając polecenia [az aks show]
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-Następujące przykładowe dane wyjściowe przedstawiają AKS klaster *KubernetesVersion 1.16.8* :
+Następujące przykładowe dane wyjściowe przedstawiają AKS klaster *KubernetesVersion 1.16.8*:
 
 ```
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn

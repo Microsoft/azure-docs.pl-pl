@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 07/12/2017
 ms.author: jeedes
 ms.openlocfilehash: 5a104dcd6ccf500c115359a1b72c67b85359a802
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355162"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002191"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Samouczek: integracja Azure Active Directory z usługą Jobscience
 
@@ -71,7 +71,7 @@ Aby skonfigurować integrację programu Jobscience z usługą Azure AD, musisz d
 
     ![Zrzut ekranu przedstawia Dodawanie z galerii z wprowadzonym Jobscience.](./media/jobscience-tutorial/tutorial_jobscience_search.png)
 
-1. W panelu wyników wybierz pozycję **Jobscience** , a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+1. W panelu wyników wybierz pozycję **Jobscience**, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![Zrzut ekranu przedstawia wyniki, które obejmowały Jobscience.](./media/jobscience-tutorial/tutorial_jobscience_addfromgallery.png)
 
@@ -135,11 +135,11 @@ W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w Azure Portal
    
    ![Moja domena](./media/jobscience-tutorial/ic767825.png "Moja domena")
 
-1. Aby sprawdzić, czy domena została prawidłowo skonfigurowana, upewnij się, że znajduje się w sekcji " **krok 4 wdrożony dla użytkowników** " i przejrzyj " **Moje ustawienia domeny** ".
+1. Aby sprawdzić, czy domena została prawidłowo skonfigurowana, upewnij się, że znajduje się w sekcji "**krok 4 wdrożony dla użytkowników**" i przejrzyj "**Moje ustawienia domeny**".
 
     ![Domena wdrożona dla użytkownika](./media/jobscience-tutorial/ic784377.png "Domena wdrożona dla użytkownika")
 
-1. W witrynie firmy Jobscience kliknij pozycję **Security Controls** , a następnie kliknij pozycję **Single Sign-On Settings**.
+1. W witrynie firmy Jobscience kliknij pozycję **Security Controls**, a następnie kliknij pozycję **Single Sign-On Settings**.
     
     ![Zrzut ekranu przedstawia ustawienia pojedynczych Sign-On wybranych z poziomu formantów zabezpieczeń.](./media/jobscience-tutorial/ic784364.png "Mechanizmy zabezpieczeń")
 
@@ -157,21 +157,21 @@ W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w Azure Portal
     
     a. W polu tekstowym **Name** (Nazwa) wpisz nazwę konfiguracji.
 
-    b. W polu tekstowym **wystawcy** wklej wartość **identyfikatora jednostki SAML** , która została skopiowana z Azure Portal.
+    b. W polu tekstowym **wystawcy** wklej wartość **identyfikatora jednostki SAML**, która została skopiowana z Azure Portal.
 
     c. W polu tekstowym **Identyfikator jednostki** wpisz `https://salesforce-jobscience.com`
 
     d. Kliknij przycisk **Przeglądaj** , aby przekazać certyfikat usługi Azure AD.
 
-    e. Jako **Typ tożsamości SAML** , wybierz pozycję **potwierdzenie zawiera identyfikator Federacji z obiektu użytkownika**.
+    e. Jako **Typ tożsamości SAML**, wybierz pozycję **potwierdzenie zawiera identyfikator Federacji z obiektu użytkownika**.
 
-    f. Jako **lokalizację tożsamości SAML** , **w elemencie NameIdentfier instrukcji subject** wybierz pozycję Identity (tożsamość).
+    f. Jako **lokalizację tożsamości SAML**, **w elemencie NameIdentfier instrukcji subject** wybierz pozycję Identity (tożsamość).
 
-    przykład W polu tekstowym **adres URL logowania dostawcy tożsamości** wklej wartość **adresu URL usługi SAML Single Sign-On** , która została skopiowana z Azure Portal.
+    przykład W polu tekstowym **adres URL logowania dostawcy tożsamości** wklej wartość **adresu URL usługi SAML Single Sign-On**, która została skopiowana z Azure Portal.
 
-    h. W polu tekstowym **adres URL wylogowania dostawcy tożsamości** wklej wartość **adresu URL wylogowania** , który został skopiowany z Azure Portal.
+    h. W polu tekstowym **adres URL wylogowania dostawcy tożsamości** wklej wartość **adresu URL wylogowania**, który został skopiowany z Azure Portal.
 
-    i. Kliknij przycisk **Zapisz**.
+    i. Kliknij pozycję **Zapisz**.
 
 1. W okienku nawigacji po lewej stronie w sekcji **Administruj** kliknij pozycję **Zarządzanie domeną** , aby rozwinąć sekcję pokrewne, a następnie kliknij pozycję **moja domena** , aby otworzyć stronę **Moje domeny** . 
     
@@ -263,7 +263,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Jobscie
 
    f. W polu tekstowym **Nazwa nick** wpisz nazwę nick użytkownika, na przykład Simon.
 
-   przykład Kliknij przycisk **Zapisz**.
+   przykład Kliknij pozycję **Zapisz**.
 
     
 > [!NOTE]

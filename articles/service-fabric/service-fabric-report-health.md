@@ -7,11 +7,11 @@ ms.date: 2/28/2018
 ms.author: gwallace
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 6df434610a8f595ecca7f16e31f8a302373b02f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012657"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001868"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Dodawanie niestandardowych raportów o kondycji Service Fabric
 Na platformie Azure Service Fabric wprowadzono [model kondycji](service-fabric-health-introduction.md) umożliwiający Flagowanie klastra w złej kondycji i warunków aplikacji na określonych jednostkach. Model kondycji używa **raportów kondycji** (składniki systemowe i alarmy). Celem jest łatwe i Szybkie diagnozowanie i naprawa. Moduły zapisujące usługi muszą myśleć o kondycji. Każdy warunek, który może mieć wpływ na kondycję, powinien być raportowany w szczególności, jeśli może pomóc w oflagowaniu problemów blisko poziomu głównego. Informacje o kondycji mogą zaoszczędzić czas i wysiłku związane z debugowaniem i badaniem. Użyteczność jest szczególnie oczywista, gdy usługa jest uruchomiona i działa w dużej skali w chmurze (prywatnej lub na platformie Azure).
@@ -206,7 +206,7 @@ public static void SendReport(object obj)
 }
 ```
 
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 Wyślij raporty kondycji za pomocą elementu ***EntityType*-servicefabric HealthReport**.
 
 Poniższy przykład pokazuje okresowe raportowanie wartości procesora CPU w węźle. Raporty powinny być wysyłane co 30 sekund, a ich czas trwania wynosi dwie minuty. Jeśli wygasną, zgłaszany jest problem, więc węzeł zostanie oceniony z błędem. Gdy CPU przekracza wartość progową, raport ma stan kondycji ostrzeżenie. Gdy procesor CPU pozostanie powyżej progu przez czas dłuższy niż skonfigurowany, jest raportowany jako błąd. W przeciwnym razie program reporter wyśle stan kondycji OK.
@@ -246,7 +246,7 @@ HealthEvents          :
                         Transitions           : ->Warning = 4/21/2015 9:01:21 PM
 ```
 
-Poniższy przykład raportuje ostrzeżenie przejściowe na replice. Najpierw pobiera identyfikator partycji, a następnie identyfikator repliki dla interesującej Cię usługi. Następnie wysyła raport z **PowershellWatcher** na **ResourceDependency**właściwości. Raport jest interesujący tylko przez dwie minuty i jest automatycznie usuwany ze sklepu.
+Poniższy przykład raportuje ostrzeżenie przejściowe na replice. Najpierw pobiera identyfikator partycji, a następnie identyfikator repliki dla interesującej Cię usługi. Następnie wysyła raport z **PowershellWatcher** na **ResourceDependency** właściwości. Raport jest interesujący tylko przez dwie minuty i jest automatycznie usuwany ze sklepu.
 
 ```powershell
 PS C:\> $partitionId = (Get-ServiceFabricPartition -ServiceName fabric:/WordCount/WordCount.Service).PartitionId

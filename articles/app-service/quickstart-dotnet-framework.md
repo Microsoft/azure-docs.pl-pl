@@ -3,14 +3,14 @@ title: 'Szybki Start: Tworzenie aplikacji ASP.NET w języku C#'
 description: Dowiedz się, jak uruchamiać aplikacje sieci Web w Azure App Service, wdrażając domyślny szablon aplikacji sieci Web w języku C# ASP.NET z poziomu programu Visual Studio.
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
-ms.date: 08/06/2020
+ms.date: 11/20/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seodec18
-ms.openlocfilehash: 5bf774f2b5cf4a6275dc04248aadfd9a94f5122d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a4f7ba288bc27d6079deea9caf0ea315a55d0745
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88212549"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004095"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Tworzenie aplikacji internetowej środowiska ASP.NET Framework na platformie Azure
 
@@ -35,15 +35,15 @@ Utwórz aplikację internetową ASP.NET, wykonując następujące czynności:
 
 1. Otwórz program Visual Studio, a następnie wybierz pozycję **Utwórz nowy projekt**.
 
-2. W obszarze **Utwórz nowy projekt**Znajdź i wybierz pozycję **aplikacja sieci Web ASP.NET (.NET Framework)**, a następnie wybierz pozycję **dalej**.
+2. W obszarze **Utwórz nowy projekt** Znajdź i wybierz pozycję **aplikacja sieci Web ASP.NET (.NET Framework)**, a następnie wybierz pozycję **dalej**.
 
-3. W obszarze **Konfigurowanie nowego projektu**Nadaj nazwę aplikacji _myFirstAzureWebApp_, a następnie wybierz pozycję **Utwórz**.
+3. W obszarze **Konfigurowanie nowego projektu** Nadaj nazwę aplikacji _myFirstAzureWebApp_, a następnie wybierz pozycję **Utwórz**.
 
    ![Konfigurowanie projektu aplikacji sieci Web](./media/quickstart-dotnet-framework/configure-web-app-project-framework.png)
 
 4. Na platformie Azure można wdrożyć dowolny typ aplikacji internetowej platformy ASP.NET. Na potrzeby tego przewodnika Szybki Start wybierz szablon **MVC** .
 
-5. Upewnij się, że uwierzytelnianie jest ustawione na wartość **bez uwierzytelniania**. Wybierz przycisk **Utwórz**.
+5. Upewnij się, że uwierzytelnianie jest ustawione na wartość **bez uwierzytelniania**. Wybierz pozycję **Utwórz**.
 
    ![Tworzenie aplikacji sieci Web ASP.NET](./media/quickstart-dotnet-framework/select-mvc-template-vs2019.png)
 
@@ -53,32 +53,33 @@ Utwórz aplikację internetową ASP.NET, wykonując następujące czynności:
 
 ## <a name="publish-your-web-app"></a>Publikowanie aplikacji sieci Web <a name="launch-the-publish-wizard"></a>
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt **myFirstAzureWebApp** i wybierz polecenie **Publikuj**.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt **myFirstAzureWebApp** i wybierz polecenie **Publikuj**.
 
-1. Wybierz **App Service** a następnie wybierz pozycję **Utwórz profil**.
+1. W obszarze **Publikowanie** wybierz pozycję **Azure** , a następnie kliknij przycisk **dalej**.
 
-   ![Publikowanie ze strony przeglądu projektu](./media/quickstart-dotnet-framework/publish-app-framework-vs2019.png)
+1. Wybierz pozycję **Azure App Service (Windows)** , a następnie kliknij przycisk **dalej**.
 
-1. W **App Service utworzyć nowe**opcje zależą od tego, czy użytkownik jest zalogowany na platformie Azure, czy masz konto programu Visual Studio połączone z kontem platformy Azure. Wybierz pozycję **Dodaj konto** lub **Zaloguj** się, aby zalogować się do subskrypcji platformy Azure. Jeśli użytkownik jest już zalogowany, wybierz odpowiednie konto.
+   <!-- ![Publish from project overview page](./media/quickstart-dotnet-framework/publish-app-framework-vs2019.png) -->
 
-   > [!NOTE]
-   > Jeśli przeprowadzono już logowanie, nie wybieraj jeszcze pozycji **Utwórz**.
-   >
-   >
+1. Twoje opcje zależą od tego, czy użytkownik jest już zalogowany na platformie Azure i czy masz konto programu Visual Studio połączone z kontem platformy Azure. Wybierz pozycję **Dodaj konto** lub **Zaloguj** się, aby zalogować się do subskrypcji platformy Azure. Jeśli użytkownik jest już zalogowany, wybierz odpowiednie konto.
 
-   ![Logowanie do platformy Azure](./media/quickstart-dotnet-framework/sign-in-azure-framework-vs2019.png)
+   ![Logowanie się do platformy Azure](./media/quickstart-dotnet-framework/sign-in-azure-framework-vs2019.png)
 
    [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
-1. W obszarze **Grupa zasobów**wybierz pozycję **Nowy**.
+1. Po prawej stronie **wystąpień App Service** kliknij pozycję **+** .
+
+   ![Nowa aplikacja App Service](./media/quickstart-dotnet-framework/publish-new-app-service.png)
+
+1. W obszarze **Grupa zasobów** wybierz pozycję **Nowy**.
 
 1. W polu **Nazwa nowej grupy zasobów wprowadź nazwę** *zasobu* , a następnie wybierz **przycisk OK**.
 
    [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-1. W obszarze **Plan hostingu**wybierz pozycję **Nowy**.
+1. W obszarze **Plan hostingu** wybierz pozycję **Nowy**.
 
-1. W oknie dialogowym **Konfigurowanie planu hostingu** wprowadź wartości z poniższej tabeli, a następnie wybierz przycisk **OK**.
+1. W oknie dialogowym **Plan hostingu** wprowadź wartości z poniższej tabeli, a następnie wybierz przycisk **OK**.
 
    | Ustawienie | Sugerowana wartość | Opis |
    |-|-|-|
@@ -88,13 +89,15 @@ Utwórz aplikację internetową ASP.NET, wykonując następujące czynności:
 
    ![Tworzenie planu usługi App Service](./media/quickstart-dotnet-framework/app-service-plan-framework-vs2019.png)
 
-1. W polu **Nazwa**wprowadź unikatową nazwę aplikacji, która zawiera tylko prawidłowe znaki to `a-z` , `A-Z` , `0-9` i `-` . Możesz zaakceptować automatycznie wygenerowaną unikatową nazwę. Adres URL aplikacji internetowej to `http://<app-name>.azurewebsites.net`, gdzie `<app-name>` to nazwa aplikacji.
+1. W polu **Nazwa** wprowadź unikatową nazwę aplikacji, która zawiera tylko prawidłowe znaki to `a-z` , `A-Z` , `0-9` i `-` . Możesz zaakceptować automatycznie wygenerowaną unikatową nazwę. Adres URL aplikacji internetowej to `http://<app-name>.azurewebsites.net`, gdzie `<app-name>` to nazwa aplikacji.
 
-2. Wybierz pozycję **Utwórz**, aby rozpocząć tworzenie zasobów platformy Azure.
+2. Wybierz pozycję **Utwórz** , aby utworzyć zasoby platformy Azure.
 
    ![Konfigurowanie nazwy aplikacji](./media/quickstart-dotnet-framework/web-app-name-framework-vs2019.png)
 
     Po zakończeniu działania kreatora zasoby platformy Azure są tworzone dla Ciebie i wszystko jest gotowe do opublikowania.
+
+3. Wybierz pozycję **Zakończ** , aby zamknąć kreatora.
 
 3. Na stronie **Publikowanie** kliknij pozycję **Publikuj**. Program Visual Studio kompiluje, pakuje i publikuje aplikację na platformie Azure, a następnie uruchamia aplikację w domyślnej przeglądarce.
 
@@ -106,7 +109,7 @@ Nazwa aplikacji określona na **App Service Utwórz nową** stronę jest używan
 
 ## <a name="update-the-app-and-redeploy"></a>Aktualizowanie aplikacji i ponowne wdrażanie
 
-1. W **Eksplorator rozwiązań**w ramach projektu Otwórz **Widok**  >  **główny**  >  **index. cshtml**.
+1. W **Eksplorator rozwiązań** w ramach projektu Otwórz **Widok**  >  **główny**  >  **index. cshtml**.
 
 1. Znajdź tag HTML `<div class="jumbotron">` u góry i zastąp cały element następującym kodem:
 

@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 302f1a081ca44cf6436f2c318b03e227f6640489
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543087"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001970"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Użyj narzędzi Hive & platformy Spark dla Visual Studio Code
 
@@ -29,7 +29,7 @@ Aby wykonać kroki opisane w tym artykule, wymagane są następujące elementy:
 - [Program Visual Studio Code](https://code.visualstudio.com/)
 - [Mono](https://www.mono-project.com/docs/getting-started/install/). Narzędzie mono jest wymagane tylko dla systemów Linux i macOS.
 - [Środowisko interaktywne PySpark dla Visual Studio Code](set-up-pyspark-interactive-environment.md).
-- Katalog lokalny. W tym artykule jest używanych  **C:\HD\HDexample** .
+- Katalog lokalny. W tym artykule jest używanych  **C:\HD\HDexample**.
 
 ## <a name="install-spark--hive-tools"></a>Instalowanie narzędzi Hive & platformy Spark
 
@@ -37,11 +37,11 @@ Po spełnieniu wymagań wstępnych można zainstalować narzędzia Hive & platfo
 
 1. Otwórz program Visual Studio Code.
 
-2. Na pasku menu Przejdź do **widoku Wyświetl**  >  **rozszerzenia** .
+2. Na pasku menu Przejdź do **widoku Wyświetl**  >  **rozszerzenia**.
 
-3. W polu wyszukiwania wprowadź **gałąź & platformy Spark** .
+3. W polu wyszukiwania wprowadź **gałąź & platformy Spark**.
 
-4. W wynikach wyszukiwania wybierz pozycję **Narzędzia platformy Spark & Hive** , a następnie wybierz pozycję **Zainstaluj** :
+4. W wynikach wyszukiwania wybierz pozycję **Narzędzia platformy Spark & Hive** , a następnie wybierz pozycję **Zainstaluj**:
 
    ![Gałąź & platformy Spark dla Visual Studio Code instalacji języka Python](./media/hdinsight-for-vscode/install-hdInsight-plugin.png)
 
@@ -51,20 +51,20 @@ Po spełnieniu wymagań wstępnych można zainstalować narzędzia Hive & platfo
 
 Aby otworzyć folder roboczy i utworzyć plik w Visual Studio Code, wykonaj następujące kroki:
 
-1. Na pasku menu Przejdź do **pliku**  >  **Otwórz folder...**  >  **C:\HD\HDexample** , a następnie wybierz przycisk **Wybierz folder** . Folder zostanie wyświetlony w widoku **Eksploratora** po lewej stronie.
+1. Na pasku menu Przejdź do **pliku**  >  **Otwórz folder...**  >  **C:\HD\HDexample**, a następnie wybierz przycisk **Wybierz folder** . Folder zostanie wyświetlony w widoku **Eksploratora** po lewej stronie.
 
 2. W widoku **Eksploratora** wybierz folder **HDexample** , a następnie wybierz ikonę **nowy plik** obok folderu Work:
 
    ![ikona nowego pliku programu Visual Studio Code](./media/hdinsight-for-vscode/visual-studio-code-new-file.png)
 
-3. Nazwij nowy plik przy użyciu programu `.hql` (zapytania Hive) lub `.py` rozszerzenia pliku (skrypt platformy Spark). W tym przykładzie zastosowano **HelloWorld. HQL** .
+3. Nazwij nowy plik przy użyciu programu `.hql` (zapytania Hive) lub `.py` rozszerzenia pliku (skrypt platformy Spark). W tym przykładzie zastosowano **HelloWorld. HQL**.
 
 ## <a name="set-the-azure-environment"></a>Ustawianie środowiska platformy Azure
 
 W przypadku użytkownika w chmurze krajowej wykonaj następujące kroki, aby najpierw ustawić środowisko platformy Azure, a następnie zaloguj się do platformy Azure przy użyciu polecenia **Azure: Signing** :
 
 1. Przejdź do **File**  >  **Preferences**  >  **ustawień** preferencji plików.
-2. Wyszukaj następujący ciąg: **Azure: Cloud** .
+2. Wyszukaj następujący ciąg: **Azure: Cloud**.
 3. Wybierz z listy chmurę krajową:
 
    ![Ustaw domyślną konfigurację wpisu logowania](./media/hdinsight-for-vscode/set-default-login-entry-configuration.png)
@@ -73,7 +73,7 @@ W przypadku użytkownika w chmurze krajowej wykonaj następujące kroki, aby naj
 
 Aby można było przesłać skrypty do klastrów Visual Studio Code, użytkownik może zalogować się do subskrypcji platformy Azure lub [połączyć klaster usługi HDInsight](#link-a-cluster). Aby nawiązać połączenie z klastrem usługi HDInsight, użyj poświadczenia Ambari username/Password lub Join dołączone do domeny dla klastra ESP. Wykonaj następujące kroki, aby nawiązać połączenie z platformą Azure:
 
-1. Na pasku menu Przejdź do **widoku**  >  **paleta poleceń...** , a następnie wprowadź **Azure: Logowanie** :
+1. Na pasku menu Przejdź do **widoku**  >  **paleta poleceń...**, a następnie wprowadź **Azure: Logowanie**:
 
    ![Narzędzia programu Hive & platformy Spark dla Visual Studio Code logowania](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
@@ -85,15 +85,15 @@ Aby można było przesłać skrypty do klastrów Visual Studio Code, użytkownik
 
 Można połączyć normalny klaster przy użyciu nazwy użytkownika zarządzanej przez firmę [Apache Ambari](https://ambari.apache.org/)lub połączyć klaster usługi Hadoop z pakietem zabezpieczeń przedsiębiorstwa przy użyciu nazwy użytkownika domeny (takiej jak: `user1@contoso.com` ).
 
-1. Na pasku menu Przejdź do **widoku**  >  **paleta poleceń...** , a następnie wprowadź **Spark/Hive: Połącz klaster** .
+1. Na pasku menu Przejdź do **widoku**  >  **paleta poleceń...**, a następnie wprowadź **Spark/Hive: Połącz klaster**.
 
    ![Link do palety poleceń — polecenie cluster](./media/hdinsight-for-vscode/link-cluster-command.png)
 
-2. Wybierz pozycję połączony klaster wpisz **Azure HDInsight** .
+2. Wybierz pozycję połączony klaster wpisz **Azure HDInsight**.
 
 3. Wprowadź adres URL klastra usługi HDInsight.
 
-4. Wprowadź nazwę użytkownika Ambari; wartość domyślna to **admin** .
+4. Wprowadź nazwę użytkownika Ambari; wartość domyślna to **admin**.
 
 5. Wprowadź hasło Ambari.
 
@@ -108,15 +108,15 @@ Można połączyć normalny klaster przy użyciu nazwy użytkownika zarządzanej
 
 ### <a name="link-generic-livy-endpoint"></a>Link: ogólny punkt końcowy usługi Livy
 
-1. Na pasku menu Przejdź do **widoku**  >  **paleta poleceń...** , a następnie wprowadź **Spark/Hive: Połącz klaster** .
+1. Na pasku menu Przejdź do **widoku**  >  **paleta poleceń...**, a następnie wprowadź **Spark/Hive: Połącz klaster**.
 
-2. Wybierz pozycję połączony klaster typ **rodzajowy punkt końcowy usługi Livy** .
+2. Wybierz pozycję połączony klaster typ **rodzajowy punkt końcowy usługi Livy**.
 
 3. Wprowadź ogólny punkt końcowy usługi Livy. Na przykład: http \: //10.172.41.42:18080.
 
-4. Wybierz pozycję typ autoryzacji **podstawowa** lub **Brak** .  W przypadku wybrania opcji **podstawowa** :  
+4. Wybierz pozycję typ autoryzacji **podstawowa** lub **Brak**.  W przypadku wybrania opcji **podstawowa**:  
    
-   1. Wprowadź nazwę użytkownika Ambari; wartość domyślna to **admin** .  
+   1. Wprowadź nazwę użytkownika Ambari; wartość domyślna to **admin**.  
 
    2. Wprowadź hasło Ambari.
 
@@ -124,7 +124,7 @@ Można połączyć normalny klaster przy użyciu nazwy użytkownika zarządzanej
 
 ## <a name="list-clusters"></a>Wyświetl listę klastrów
 
-1. Na pasku menu Przejdź do **widoku**  >  **paleta poleceń...** , a następnie wprowadź **Spark/Hive: Lista klaster** .
+1. Na pasku menu Przejdź do **widoku**  >  **paleta poleceń...**, a następnie wprowadź **Spark/Hive: Lista klaster**.
 
 2. Wybierz żądaną subskrypcję.
 
@@ -138,7 +138,7 @@ Można połączyć normalny klaster przy użyciu nazwy użytkownika zarządzanej
 
 2. Wybierz plik **HelloWorld. HQL** , który został utworzony [wcześniej](#open-a-work-folder). Zostanie on otwarty w Edytorze skryptów.
 
-3. Kliknij prawym przyciskiem myszy Edytor skryptów, a następnie wybierz pozycję **Spark/Hive: Ustaw domyślny klaster** .  
+3. Kliknij prawym przyciskiem myszy Edytor skryptów, a następnie wybierz pozycję **Spark/Hive: Ustaw domyślny klaster**.  
 
 4. [Połącz](#connect-to-an-azure-account) się z kontem platformy Azure lub Połącz klaster, jeśli jeszcze tego nie zrobiono.
 
@@ -211,7 +211,7 @@ Aby przesłać zapytania przy użyciu polecenia PySpark Interactive, wykonaj nas
 
    ![pomyślnie zainstalowano pyspark](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
 
-7. Na pasku menu Przejdź do **widoku**  >  **paleta poleceń...** lub użyj skrótu klawiaturowego **Shift + Ctrl + P** , a następnie wprowadź **Python: Wybierz interpreter, aby uruchomić serwer Jupyter** .
+7. Na pasku menu Przejdź do **widoku**  >  **paleta poleceń...** lub użyj skrótu klawiaturowego **Shift + Ctrl + P** , a następnie wprowadź **Python: Wybierz interpreter, aby uruchomić serwer Jupyter**.
 
    ![Wybierz interpreter, aby uruchomić serwer Jupyter](./media/hdinsight-for-vscode/select-interpreter-to-start-jupyter-server.png)
 
@@ -219,7 +219,7 @@ Aby przesłać zapytania przy użyciu polecenia PySpark Interactive, wykonaj nas
 
    ![Wybierz poniższą opcję](./media/hdinsight-for-vscode/choose-the-below-option.png)
     
-9. Na pasku menu Przejdź do **widoku**  >  **paleta poleceń...** lub użyj skrótu klawiaturowego **Shift + Ctrl + P** , a następnie wprowadź **polecenie Deweloper: Załaduj ponownie okno** .
+9. Na pasku menu Przejdź do **widoku**  >  **paleta poleceń...** lub użyj skrótu klawiaturowego **Shift + Ctrl + P** , a następnie wprowadź **polecenie Deweloper: Załaduj ponownie okno**.
 
    ![Załaduj ponownie okno](./media/hdinsight-for-vscode/reload-window.png)
 
@@ -229,11 +229,11 @@ Aby przesłać zapytania przy użyciu polecenia PySpark Interactive, wykonaj nas
 
     ![interakcyjne menu kontekstowe pyspark](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
-12. Wybierz klaster, jeśli nie został określony domyślny klaster. Po kilku chwilach interaktywne wyniki języka **Python** pojawiają się na nowej karcie. Kliknij pozycję PySpark, aby przełączyć jądro do **PySpark/Synapse PySpark** , a kod zostanie uruchomiony pomyślnie. Jeśli chcesz przełączyć się na jądro Synapse Pyspark, zaleca się wyłączenie ustawień autosettings w Azure Portal. W przeciwnym razie może upłynąć dużo czasu, aby wznowić klaster i ustawić jądro Synapse przy pierwszym użyciu. Jeśli narzędzia umożliwiają również przesyłanie bloku kodu zamiast całego pliku skryptu za pomocą menu kontekstowego:
+12. Wybierz klaster, jeśli nie został określony domyślny klaster. Po kilku chwilach interaktywne wyniki języka **Python** pojawiają się na nowej karcie. Kliknij pozycję PySpark, aby przełączyć jądro do **PySpark/Synapse PySpark**, a kod zostanie uruchomiony pomyślnie. Jeśli chcesz przełączyć się na jądro Synapse Pyspark, zaleca się wyłączenie ustawień autosettings w Azure Portal. W przeciwnym razie może upłynąć dużo czasu, aby wznowić klaster i ustawić jądro Synapse przy pierwszym użyciu. Jeśli narzędzia umożliwiają również przesyłanie bloku kodu zamiast całego pliku skryptu za pomocą menu kontekstowego:
 
     ![interaktywne okno interaktywnego środowiska Python pyspark](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
-13. Wprowadź **%% info** , a następnie naciśnij klawisze SHIFT + ENTER, aby wyświetlić informacje o zadaniu (opcjonalnie):
+13. Wprowadź **%% info**, a następnie naciśnij klawisze SHIFT + ENTER, aby wyświetlić informacje o zadaniu (opcjonalnie):
 
     ![Informacje o zadaniach pyspark Interactive](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 
@@ -248,7 +248,7 @@ Narzędzie obsługuje również zapytanie **Spark SQL** :
 
    ![Dodaj #%%](./media/hdinsight-for-vscode/run-cell.png)
 
-2. Kliknij pozycję **Uruchom komórkę** . Po kilku chwilach interaktywne wyniki języka Python pojawiają się na nowej karcie. Kliknij pozycję PySpark, aby przełączyć jądro do PySpark/Synapse PySpark, a następnie kliknij ponownie przycisk **Uruchom komórkę** , a kod zostanie uruchomiony pomyślnie.
+2. Kliknij pozycję **Uruchom komórkę**. Po kilku chwilach interaktywne wyniki języka Python pojawiają się na nowej karcie. Kliknij pozycję PySpark, aby przełączyć jądro do PySpark/Synapse PySpark, a następnie kliknij ponownie przycisk **Uruchom komórkę** , a kod zostanie uruchomiony pomyślnie.
 
    ![wyniki przebiegu komórki](./media/hdinsight-for-vscode/run-cell-get-results.png)
 
@@ -260,7 +260,7 @@ Narzędzie obsługuje również zapytanie **Spark SQL** :
 
    ![Ustaw domyślną pulę platformy Spark i Załaduj ponownie](./media/hdinsight-for-vscode/set-the-default-spark-pool-and-reload.png)
 
-3. Kliknij pozycję PySpark, aby przełączyć jądro do **PySpark/Synapse PySpark** , a następnie kliknij opcję **Run Cell** (po czasie), gdy zostanie wyświetlony wynik.
+3. Kliknij pozycję PySpark, aby przełączyć jądro do **PySpark/Synapse PySpark**, a następnie kliknij opcję **Run Cell**(po czasie), gdy zostanie wyświetlony wynik.
 
    ![Uruchom wyniki ipynb](./media/hdinsight-for-vscode/run-ipynb-file-results.png)
 
@@ -305,7 +305,7 @@ Narzędzie obsługuje również zapytanie **Spark SQL** :
 
    ![Przesyłanie danych wyjściowych wyników zadania w języku Python](./media/hdinsight-for-vscode/submit-pythonjob-result.png)
 
-Po przesłaniu zadania w języku Python dzienniki przesyłania są wyświetlane w oknie _ *Output* * w Visual Studio Code. Wyświetlany jest również adres URL interfejsu użytkownika platformy Spark i adres URL interfejsu użytkownika przędzy. Jeśli zadanie wsadowe zostanie przesłane do puli Apache Spark, zostanie również wyświetlony adres URL interfejsu użytkownika historii platformy Spark i adres URL interfejsu użytkownika aplikacji zadań platformy Spark. Możesz otworzyć adres URL w przeglądarce sieci Web, aby śledzić stan zadania.
+Po przesłaniu zadania w języku Python dzienniki przesyłania są wyświetlane w oknie _ *Output** w Visual Studio Code. Wyświetlany jest również adres URL interfejsu użytkownika platformy Spark i adres URL interfejsu użytkownika przędzy. Jeśli zadanie wsadowe zostanie przesłane do puli Apache Spark, zostanie również wyświetlony adres URL interfejsu użytkownika historii platformy Spark i adres URL interfejsu użytkownika aplikacji zadań platformy Spark. Możesz otworzyć adres URL w przeglądarce sieci Web, aby śledzić stan zadania.
 
 ## <a name="integrate-with-hdinsight-identity-broker-hib"></a>Integracja z usługą HDInsight Identity Broker (HIB)
 
@@ -330,12 +330,12 @@ Konfiguracja [Apache usługi Livy](https://livy.incubator.apache.org/) jest obs�
 ### <a name="method-1"></a>Metoda 1  
 
 1. Na pasku menu Przejdź do **File**  >  **Preferences**  >  **ustawień** Preferencje plików.
-2. W polu **Wyszukaj ustawienia** wprowadź wartość **przesyłanie zadania usługi HDInsight: usługi Livy conf** .  
+2. W polu **Wyszukaj ustawienia** wprowadź wartość **przesyłanie zadania usługi HDInsight: usługi Livy conf**.  
 3. Wybierz pozycję **Edytuj w settings.js** , aby uzyskać odpowiedni wynik wyszukiwania.
 
 ### <a name="method-2"></a>Metoda 2
 
-Prześlij plik i zwróć uwagę, że `.vscode` folder jest automatycznie dodawany do folderu Work. Konfigurację usługi Livy można wyświetlić, wybierając pozycję **.vscode\settings.json** .
+Prześlij plik i zwróć uwagę, że `.vscode` folder jest automatycznie dodawany do folderu Work. Konfigurację usługi Livy można wyświetlić, wybierając pozycję **.vscode\settings.json**.
 
 - Ustawienia projektu:
 
@@ -353,20 +353,20 @@ Prześlij plik i zwróć uwagę, że `.vscode` folder jest automatycznie dodawan
   | name | description (opis) | typ |
   | --- | --- | --- |
   |  — plik | Plik zawierający aplikację do wykonania | Ścieżka (wymagana) |
-  | proxyUser | Użytkownik do personifikacji podczas uruchamiania zadania | String |
-  | Nazwą | Aplikacja Java/Spark klasy głównej | String |
+  | proxyUser | Użytkownik do personifikacji podczas uruchamiania zadania | Ciąg |
+  | Nazwą | Aplikacja Java/Spark klasy głównej | Ciąg |
   | args | Argumenty wiersza polecenia dla aplikacji | Lista ciągów |
   | jars | Jars do użycia w tej sesji | Lista ciągów | 
   | pyFiles | Pliki języka Python, które mają być używane w tej sesji | Lista ciągów |
   | files | Pliki, które mają być używane w tej sesji | Lista ciągów |
-  | driverMemory | Ilość pamięci do użycia w procesie sterownika | String |
+  | driverMemory | Ilość pamięci do użycia w procesie sterownika | Ciąg |
   | driverCores | Liczba rdzeni do użycia w procesie sterownika | int |
-  | executorMemory | Ilość pamięci do użycia na proces wykonawczy | String |
+  | executorMemory | Ilość pamięci do użycia na proces wykonawczy | Ciąg |
   | executorCores | Liczba rdzeni do użycia dla każdego wykonawcy | int |
   | numExecutors | Liczba uruchomień do uruchomienia dla tej sesji | int |
   | archiwizowan | Archiwa, które mają być używane w tej sesji | Lista ciągów |
-  | kolejka | Nazwa kolejki PRZĘDZy do przesłania| String |
-  | name | Nazwa tej sesji | String |
+  | kolejka | Nazwa kolejki PRZĘDZy do przesłania| Ciąg |
+  | name | Nazwa tej sesji | Ciąg |
   | produkt | Właściwości konfiguracji platformy Spark | Mapa klucza = Val |
 
   **Treść odpowiedzi** Utworzony obiekt wsadowy.
@@ -374,10 +374,10 @@ Prześlij plik i zwróć uwagę, że `.vscode` folder jest automatycznie dodawan
   | name | description (opis) | typ |
   | --- | ---| --- |
   | ID (Identyfikator) | Identyfikator sesji | int |
-  | appId | Identyfikator aplikacji dla tej sesji | String |
+  | appId | Identyfikator aplikacji dla tej sesji | Ciąg |
   | appInfo | Szczegółowe informacje o aplikacji | Mapa klucza = Val |
   | Dziennik | Wiersze dziennika | Lista ciągów |
-  | stan |Stan partii | String |
+  | stan |Stan partii | Ciąg |
 
   > [!NOTE]
   > Przypisana usługi Livy konfiguracja zostanie wyświetlona w okienku danych wyjściowych podczas przesyłania skryptu.
@@ -390,11 +390,11 @@ Tabelę programu Hive można wyświetlić w klastrach bezpośrednio za pomocą E
 
 2. Wybierz ikonę **platformy Azure** z kolumny z lewej strony.
 
-3. W okienku po lewej stronie rozwiń pozycję **Azure: HDINSIGHT** . Dostępne subskrypcje i klastry są wymienione na liście.
+3. W okienku po lewej stronie rozwiń pozycję **Azure: HDINSIGHT**. Dostępne subskrypcje i klastry są wymienione na liście.
 
 4. Rozwiń klaster, aby wyświetlić bazę danych metadanych programu Hive i schemat tabeli.
 
-5. Kliknij prawym przyciskiem myszy tabelę programu Hive. Na przykład: **hivesampletable** . Wybierz pozycję **Podgląd** .
+5. Kliknij prawym przyciskiem myszy tabelę programu Hive. Na przykład: **hivesampletable**. Wybierz pozycję **Podgląd**.
 
    ![Gałąź & platformy Spark dla Visual Studio Code wersji zapoznawczej tabeli Hive](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-hive-table.png)
 
@@ -422,12 +422,12 @@ Tabelę programu Hive można wyświetlić w klastrach bezpośrednio za pomocą E
 
 Gałąź & platformy Spark dla Visual Studio Code obsługuje również następujące funkcje:
 
-- **Autouzupełnianie funkcji IntelliSense** . Sugestie są wyskakujące dla słów kluczowych, metod, zmiennych i innych elementów programistycznych. Różne ikony reprezentują różne typy obiektów:
+- **Autouzupełnianie funkcji IntelliSense**. Sugestie są wyskakujące dla słów kluczowych, metod, zmiennych i innych elementów programistycznych. Różne ikony reprezentują różne typy obiektów:
 
     ![Narzędzia programu Hive & platformy Spark dla Visual Studio Code obiektów IntelliSense](./media/hdinsight-for-vscode/hdinsight-for-vscode-auto-complete-objects.png)
 
-- **Znacznik błędu funkcji IntelliSense** . Usługa językowa podkreśla błędy w skrypcie Hive.     
-- **Najważniejsze informacje o składni** . Usługa językowa używa różnych kolorów do odróżniania zmiennych, słów kluczowych, typu danych, funkcji i innych elementów programistycznych:
+- **Znacznik błędu funkcji IntelliSense**. Usługa językowa podkreśla błędy w skrypcie Hive.     
+- **Najważniejsze informacje o składni**. Usługa językowa używa różnych kolorów do odróżniania zmiennych, słów kluczowych, typu danych, funkcji i innych elementów programistycznych:
 
     ![Narzędzia programu Hive & platformy Spark dla Visual Studio Code składni](./media/hdinsight-for-vscode/hdinsight-for-vscode-syntax-highlights.png)
 
@@ -476,7 +476,7 @@ Prześlij zadanie do klastra usługi HDInsight przy użyciu Data Lake Storage Ge
 
 ## <a name="unlink-cluster"></a>Odłącz klaster
 
-1. Na pasku menu Przejdź do **widoku**  >  **paleta poleceń** , a następnie wprowadź **Spark/Hive: Odłącz klaster** .  
+1. Na pasku menu Przejdź do **widoku**  >  **paleta poleceń**, a następnie wprowadź **Spark/Hive: Odłącz klaster**.  
 
 2. Wybierz klaster do odłączenia.  
 
@@ -484,7 +484,7 @@ Prześlij zadanie do klastra usługi HDInsight przy użyciu Data Lake Storage Ge
 
 ## <a name="sign-out"></a>Wyloguj się  
 
-Na pasku menu Przejdź do **widoku**  >  **paleta poleceń** , a następnie wprowadź **Azure: Wyloguj się** .
+Na pasku menu Przejdź do **widoku**  >  **paleta poleceń**, a następnie wprowadź **Azure: Wyloguj się**.
 
 ## <a name="known-issues"></a>Znane problemy
 

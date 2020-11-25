@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: aahi
 keywords: lokalna, Docker, kontener
-ms.openlocfilehash: c65a81d9daed85b5bf056d24949e36ec227c19c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 778fe388ae3db68d836384299a8a1c7c06e31f41
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460989"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001811"
 ---
 # <a name="install-and-run-docker-containers-for-luis"></a>Instalowanie i uruchamianie kontenerów platformy Docker dla usługi LUIS
 
@@ -39,7 +39,7 @@ Aby uruchomić kontener LUIS, należy zwrócić uwagę na następujące wymagani
 
 |Wymagane|Przeznaczenie|
 |--|--|
-|Aparat platformy Docker| Aparat platformy Docker musi być zainstalowany na [komputerze-hoście](#the-host-computer). Platforma Docker udostępnia pakiety, które konfigurują środowisko platformy Docker w systemach [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) i [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Aby uzyskać podstawowe informacje na temat platformy Docker i kontenerów, zapoznaj się z artykułem [Docker overview](https://docs.docker.com/engine/docker-overview/) (Przegląd platformy Docker).<br><br> Program Docker musi być skonfigurowany tak, aby umożliwić kontenerom łączenie się z danymi rozliczeń i wysyłanie ich do platformy Azure. <br><br> **W systemie Windows**program Docker musi być również skonfigurowany do obsługi kontenerów systemu Linux.<br><br>|
+|Aparat platformy Docker| Aparat platformy Docker musi być zainstalowany na [komputerze-hoście](#the-host-computer). Platforma Docker udostępnia pakiety, które konfigurują środowisko platformy Docker w systemach [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) i [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Aby uzyskać podstawowe informacje na temat platformy Docker i kontenerów, zapoznaj się z artykułem [Docker overview](https://docs.docker.com/engine/docker-overview/) (Przegląd platformy Docker).<br><br> Program Docker musi być skonfigurowany tak, aby umożliwić kontenerom łączenie się z danymi rozliczeń i wysyłanie ich do platformy Azure. <br><br> **W systemie Windows** program Docker musi być również skonfigurowany do obsługi kontenerów systemu Linux.<br><br>|
 |Znajomość platformy Docker | Należy dysponować podstawową wiedzą na temat pojęć platformy Docker, takich jak rejestry, repozytoria, kontenery i obrazy kontenerów, a także znajomość podstawowych `docker` poleceń.|
 |Zasób platformy Azure `Cognitive Services` i plik Luis [spakowanej aplikacji](luis-how-to-start-new-app.md) |Aby można było używać kontenera, musisz mieć:<br><br>* Zasób platformy Azure _Cognitive Services_ i skojarzony klucz rozliczeniowy identyfikator URI punktu końcowego rozliczenia. Obie wartości są dostępne na stronach przeglądów i kluczy dla zasobu i są wymagane do uruchomienia kontenera. <br>* Przeszkolone lub opublikowana aplikacja spakowana jako zainstalowano dane wejściowe do kontenera ze skojarzonym IDENTYFIKATORem aplikacji. Spakowany plik można pobrać z portalu LUIS lub interfejsów API tworzenia. Jeśli otrzymujesz spakowaną aplikację LUIS z [interfejsów API tworzenia](#authoring-apis-for-package-file), będziesz również potrzebować _klucza tworzenia_.<br><br>Te wymagania są używane do przekazywania argumentów wiersza polecenia do następujących zmiennych:<br><br>**{AUTHORING_KEY}**: ten klucz służy do uzyskiwania spakowanej aplikacji z usługi Luis w chmurze i przekazywania dzienników zapytań z powrotem do chmury. Format to `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` .<br><br>**{App_id}**: ten identyfikator jest używany do wybierania aplikacji. Format to `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` .<br><br>**{API_KEY}**: ten klucz jest używany do uruchamiania kontenera. Klucz punktu końcowego można znaleźć w dwóch miejscach. Pierwszy to Azure Portal na liście kluczy zasobu _Cognitive Services_ . Klucz punktu końcowego jest również dostępny w portalu LUIS na stronie ustawień klucze i punkt końcowy. Nie używaj klucza początkowego.<br><br>**{ENDPOINT_URI}**: punkt końcowy określony na stronie Przegląd.<br><br>[Klucz tworzenia i klucz punktu końcowego](luis-limits.md#key-limits) mają różne cele. Nie należy ich używać zamiennie. |
 
@@ -108,7 +108,7 @@ Umieść plik pakietu w katalogu i odwołuje się do tego katalogu jako instalac
 
 ### <a name="package-types"></a>Typy pakietów
 
-Wejściowy katalog instalacji może jednocześnie zawierać modele **produkcyjne**, **przejściowe**i w **wersji** aplikacji. Wszystkie pakiety są zainstalowane.
+Wejściowy katalog instalacji może jednocześnie zawierać modele **produkcyjne**, **przejściowe** i w **wersji** aplikacji. Wszystkie pakiety są zainstalowane.
 
 |Typ pakietu|Interfejs API punktu końcowego zapytania|Dostępność zapytania|Format nazwy pliku pakietu|
 |--|--|--|--|
@@ -281,7 +281,7 @@ Parametry zapytania konfigurują sposób i wartość zwracaną w odpowiedzi na z
 |`staging`|boolean|Zwraca zapytanie z wyników środowiska przejściowego, jeśli ma wartość true. |
 |`log`|boolean|Rejestruje zapytania, które mogą być używane później w przypadku [aktywnej nauki](luis-how-to-review-endpoint-utterances.md). Wartość domyślna to „true”.|
 
-***
+**_
 
 ### <a name="query-the-luis-app"></a>Wysyłanie zapytań do aplikacji LUIS
 
@@ -299,7 +299,7 @@ curl -G \
 "http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/production/predict"
 ```
 
-Aby wykonać zapytania do środowiska **przejściowego** , Zastąp `production` w trasie `staging` :
+Aby wykonać zapytania w środowisku _ *przemieszczania** Zastąp `production` wartość w marszrucie `staging` :
 
 `http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/staging/predict`
 
@@ -335,7 +335,7 @@ curl -X GET \
 ```
 Nazwa wersji ma maksymalnie 10 znaków i zawiera tylko znaki dozwolone w adresie URL.
 
-***
+**_
 
 ## <a name="import-the-endpoint-logs-for-active-learning"></a>Importowanie dzienników punktów końcowych dla usługi Active Learning
 
@@ -346,11 +346,11 @@ W następującej lokalizacji przedstawiono zagnieżdżoną strukturę katalogów
 /output/luis/{INSTANCE_ID}/
 ```
 
-W portalu LUIS wybierz aplikację, a następnie wybierz pozycję **Importuj dzienniki punktów końcowych** , aby przekazać te dzienniki.
+W portalu LUIS wybierz aplikację, a następnie wybierz pozycję _ *Importuj dzienniki punktów końcowych*, aby przekazać te dzienniki.
 
 ![Importowanie plików dziennika kontenera do usługi Active Learning](./media/luis-container-how-to/upload-endpoint-log-files.png)
 
-Po przekazaniu dziennika [zapoznaj się z punktem końcowym](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) wyrażenia długości w portalu Luis.
+Po przekazaniu dziennika [zapoznaj się z punktem końcowym](./luis-concept-review-endpoint-utterances.md) wyrażenia długości w portalu Luis.
 
 <!--  ## Validate container is running -->
 

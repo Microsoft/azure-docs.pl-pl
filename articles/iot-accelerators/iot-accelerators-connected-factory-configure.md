@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: e015c6761b920ef37af2bbfd67ced5fc3218d532
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91290691"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002242"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Skonfiguruj Akcelerator rozwiązania połączonej fabryki
 
@@ -88,7 +88,7 @@ Poniższy fragment kodu przedstawia konspekt `ContosoTopologyDescription.json` p
 }
 ```
 
-Typowe właściwości,,  `<global_configuration>` `<factory_configuration>` `<production_line_configuration>` i `<station_configuration>` są:
+Typowe właściwości,, `<global_configuration>` `<factory_configuration>` `<production_line_configuration>` i `<station_configuration>` są:
 
 * **Nazwa** (ciąg typu)
 
@@ -265,7 +265,7 @@ Wszystkie właściwości używane w pliku konfiguracji można grupować w różn
 
 ### <a name="visual-appearance"></a>Wygląd wizualizacji
 
-Właściwości w tej kategorii definiują wygląd pulpitu nawigacyjnego połączonej fabryki. Przykłady:
+Właściwości w tej kategorii definiują wygląd pulpitu nawigacyjnego połączonej fabryki. Przykłady obejmują:
 
 * Nazwa
 * Opis

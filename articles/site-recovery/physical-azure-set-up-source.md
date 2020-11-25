@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: ramamill
 ms.openlocfilehash: 327e995a8fe2f66903548fba054804768d2538ab
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534298"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001567"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Konfigurowanie serwera konfiguracji na potrzeby odzyskiwania po awarii serwerów fizycznych na platformie Azure
 
@@ -39,7 +39,7 @@ W poniższej tabeli przedstawiono minimalne wymagania dotyczące sprzętu, oprog
 2. W menu **zasób** magazynu kliknij **wprowadzenie**  >  **Site Recovery**  >  **krok 1: przygotowanie**  >  **celu ochrony** infrastruktury.
 
     ![Zrzut ekranu pokazujący, gdzie wybrać cel ochrony.](./media/physical-azure-set-up-source/choose-goals.png)
-3. W obszarze **cel ochrony** wybierz pozycję **na platformie Azure** , a **nie zwirtualizowany/inny** , a następnie kliknij przycisk **OK** .
+3. W obszarze **cel ochrony** wybierz pozycję **na platformie Azure** , a **nie zwirtualizowany/inny**, a następnie kliknij przycisk **OK**.
 
     ![Wybieranie celów](./media/physical-azure-set-up-source/physical-protection-goal.png)
 
@@ -48,7 +48,7 @@ W poniższej tabeli przedstawiono minimalne wymagania dotyczące sprzętu, oprog
 1. Jeśli nie masz serwera konfiguracji, w obszarze **Przygotowywanie źródła** kliknij pozycję **+ serwer konfiguracji** , aby dodać jeden.
 
    ![Zrzut ekranu pokazujący sposób wybierania serwera konfiguracji.](./media/physical-azure-set-up-source/plus-config-srv.png)
-2. W bloku **Dodawanie serwera** Sprawdź, czy **serwer konfiguracji** jest wyświetlany w polu **Typ serwera** .
+2. W bloku **Dodawanie serwera** Sprawdź, czy **serwer konfiguracji** jest wyświetlany w polu **Typ serwera**.
 4. Pobierz plik instalacyjny programu Site Recovery Unified Setup.
 5. Pobierz klucz rejestracji magazynu. Po uruchomieniu ujednoliconej konfiguracji wymagany jest klucz rejestracji. Klucz jest ważny przez pięć dni po jego wygenerowaniu.
 

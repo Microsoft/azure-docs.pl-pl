@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: c9dce90b0dc563fb0fa7ecaaa0882167eef444a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019899"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003637"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Tworzenie i monitorowanie fabryk danych platformy Azure oraz zarządzanie nimi przy użyciu zestawu Azure Data Factory .NET SDK
 > [!NOTE]
@@ -51,7 +51,7 @@ Utwórz aplikację usługi Azure Active Directory, utwórz nazwę główną usł
     ```powershell
     Get-AzSubscription
     ```
-4. Uruchom poniższe polecenie, aby wybrać subskrypcję, z którą chcesz pracować. Zastąp ** &lt; ciąg nameofazuresubscription nazwą** &gt; nazwą swojej subskrypcji platformy Azure.
+4. Uruchom poniższe polecenie, aby wybrać subskrypcję, z którą chcesz pracować. Zastąp **&lt; ciąg nameofazuresubscription nazwą** &gt; nazwą swojej subskrypcji platformy Azure.
 
     ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
@@ -138,7 +138,7 @@ Działanie kopiowania wykonuje operację przenoszenia danych w usłudze Azure Da
         </appSettings>
     </configuration>
     ```
-5. W pliku App.Config zaktualizuj wartości dla ** &lt; identyfikatora &gt; aplikacji**, ** &lt; hasła &gt; **, ** &lt; identyfikatora &gt; subskrypcji**i ** &lt; identyfikatora &gt; dzierżawy** przy użyciu własnych wartości.
+5. W pliku App.Config zaktualizuj wartości dla **&lt; identyfikatora &gt; aplikacji**, **&lt; hasła &gt;**, **&lt; identyfikatora &gt; subskrypcji** i **&lt; identyfikatora &gt; dzierżawy** przy użyciu własnych wartości.
 6. Dodaj następujące instrukcje **using** do pliku **program.cs** w projekcie.
 
     ```csharp
@@ -446,7 +446,7 @@ Działanie kopiowania wykonuje operację przenoszenia danych w usłudze Azure Da
     }
     ```
 
-15. W Eksplorator rozwiązań rozwiń projekt: **DataFactoryAPITestApp**, kliknij prawym przyciskiem myszy pozycję **odwołania**i kliknij polecenie **Dodaj odwołanie**. Zaznacz pole wyboru dla `System.Configuration` zestawu i kliknij przycisk **OK**.
+15. W Eksplorator rozwiązań rozwiń projekt: **DataFactoryAPITestApp**, kliknij prawym przyciskiem myszy pozycję **odwołania** i kliknij polecenie **Dodaj odwołanie**. Zaznacz pole wyboru dla `System.Configuration` zestawu i kliknij przycisk **OK**.
 15. Skompiluj aplikację konsolową. Kliknij przycisk **Kompiluj** w menu i kliknij opcję **Kompiluj rozwiązanie**.
 16. Potwierdź, że istnieje co najmniej jeden plik w kontenerze adftutorial w magazynie obiektów blob platformy Azure. W przeciwnym razie utwórz w Notatniku plik Emp.txt o następującej treści i przekaż go do kontenera adftutorial.
 

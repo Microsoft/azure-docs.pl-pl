@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: redis-cache
 author: wesmc7777
 ms.service: cache
@@ -9,11 +9,11 @@ ms.date: 11/05/2019
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: a737e130d616a67bab28c7c96c0372216a6707af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73720306"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002468"
 ---
 ### <a name="retrieve-host-name-ports-and-access-keys-from-the-azure-portal"></a>Pobieranie nazwy hosta, portów i kluczy dostępu z Azure Portal
 
@@ -23,7 +23,7 @@ Aby nawiązać połączenie z usługą Azure cache for Redis, klienci pamięci p
   
   ![Klucze usługi Azure Cache for Redis](media/redis-cache-access-keys/redis-cache-keys.png)
 
-- Aby uzyskać nazwę hosta i porty, z okienka nawigacji po lewej stronie wybierz pozycję **Właściwości**. Nazwa hosta ma postać * \<DNS name> . Redis.cache.Windows.NET*.
+- Aby uzyskać nazwę hosta i porty, z okienka nawigacji po lewej stronie wybierz pozycję **Właściwości**. Nazwa hosta ma postać *\<DNS name> . Redis.cache.Windows.NET*.
 
   ![Właściwości usługi Azure Cache for Redis](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
 

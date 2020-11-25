@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 48078ed06e36a33b10ee2d761a249159d14c6220
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: e2d74519b9adf9a74e5af180a3da28918a9a8dab
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444507"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96001885"
 ---
 # <a name="blob-versioning"></a>Przechowywanie wersji obiektów BLOB
 
@@ -128,7 +128,7 @@ Na poniższym diagramie przedstawiono sposób modyfikowania obiektu BLOB po wyko
 
 ## <a name="blob-versioning-and-soft-delete"></a>Przechowywanie wersji obiektów blob i usuwanie nietrwałe
 
-Obsługa wersji obiektów blob i obiektów BLOB Soft Delete współpracują ze sobą w celu zapewnienia optymalnej ochrony danych. Po włączeniu usuwania nietrwałego należy określić, jak długo usługa Azure Storage ma przechowywać nietrwały obiekt BLOB. Wszystkie nietrwałe wersje obiektów BLOB są nadal w systemie i można cofnąć ich usunięcie w okresie przechowywania nietrwałego usuwania. Aby uzyskać więcej informacji na temat usuwania nietrwałego obiektów blob, zobacz [usuwanie nietrwałe dla obiektów BLOB usługi Azure Storage](storage-blob-soft-delete.md).
+Obsługa wersji obiektów blob i obiektów BLOB Soft Delete współpracują ze sobą w celu zapewnienia optymalnej ochrony danych. Po włączeniu usuwania nietrwałego należy określić, jak długo usługa Azure Storage ma przechowywać nietrwały obiekt BLOB. Wszystkie nietrwałe wersje obiektów BLOB są nadal w systemie i można cofnąć ich usunięcie w okresie przechowywania nietrwałego usuwania. Aby uzyskać więcej informacji na temat usuwania nietrwałego obiektów blob, zobacz [usuwanie nietrwałe dla obiektów BLOB usługi Azure Storage](./soft-delete-blob-overview.md).
 
 ### <a name="deleting-a-blob-or-version"></a>Usuwanie obiektu BLOB lub wersji
 
@@ -297,4 +297,4 @@ W poniższej tabeli opisano zachowanie dotyczące rozliczeń dla obiektu BLOB, k
 
 - [Włączanie obsługi wersji obiektów blob i zarządzanie nimi](versioning-enable.md)
 - [Tworzenie migawki obiektu BLOB](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
-- [Usuwanie nietrwałe dla obiektów BLOB usługi Azure Storage](storage-blob-soft-delete.md)
+- [Usuwanie nietrwałe dla obiektów BLOB usługi Azure Storage](./soft-delete-blob-overview.md)

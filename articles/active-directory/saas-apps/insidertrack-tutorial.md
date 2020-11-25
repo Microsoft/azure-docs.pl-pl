@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 4a1aa913c31b3fc310b23b8eafc47df4ab9a9779
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460128"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002650"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insider-track"></a>Samouczek: integracja Azure Active Directory ze śledzeniem niejawnego programu testów
 
