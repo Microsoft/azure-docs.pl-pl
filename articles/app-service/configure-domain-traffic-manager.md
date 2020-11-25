@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
 ms.openlocfilehash: 0e8d5fa14678a2a26234dfcd73f4a50af62ca7aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962880"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012951"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Konfigurowanie niestandardowej nazwy domeny w Azure App Service z integracją Traffic Manager
 
@@ -19,7 +19,7 @@ ms.locfileid: "88962880"
 > [!NOTE]
 > Aby uzyskać Cloud Services, zobacz [Konfigurowanie niestandardowej nazwy domeny dla usługi w chmurze platformy Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-W przypadku używania [usługi Azure Traffic Manager](../traffic-manager/index.yml) do równoważenia obciążenia ruchu do [Azure App Service](overview.md)dostęp do aplikacji App Service można uzyskać za pomocą ** \<traffic-manager-endpoint> . trafficmanager.NET**. Możesz przypisać niestandardową nazwę domeny, taką jak \. contoso.com www, za pomocą aplikacji App Service, aby zapewnić użytkownikom bardziej rozpoznawalną nazwę domeny.
+W przypadku używania [usługi Azure Traffic Manager](../traffic-manager/index.yml) do równoważenia obciążenia ruchu do [Azure App Service](overview.md)dostęp do aplikacji App Service można uzyskać za pomocą **\<traffic-manager-endpoint> . trafficmanager.NET**. Możesz przypisać niestandardową nazwę domeny, taką jak \. contoso.com www, za pomocą aplikacji App Service, aby zapewnić użytkownikom bardziej rozpoznawalną nazwę domeny.
 
 W tym artykule pokazano, jak skonfigurować niestandardową nazwę domeny za pomocą aplikacji App Service zintegrowanej z [Traffic Manager](../traffic-manager/traffic-manager-overview.md).
 
@@ -66,7 +66,7 @@ Gdy aplikacja App Service jest w obsługiwanej warstwie cenowej, zostanie wyświ
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
-Poszczególne dostawcy domen różnią się w zależności *od* [nazwy domeny niestandardowej innej niż główna](#what-about-root-domains) **(takiej**jak **www.contoso.com** *Traffic Manager), która jest* zintegrowana z aplikacją. 
+Poszczególne dostawcy domen różnią się w zależności *od* [nazwy domeny niestandardowej innej niż główna](#what-about-root-domains) **(takiej** jak **www.contoso.com** *Traffic Manager), która jest* zintegrowana z aplikacją. 
 
 > [!NOTE]
 > Jeśli rekord jest już używany i musisz zapobiegawczo powiązać z nim aplikacje, możesz utworzyć dodatkowy rekord CNAME. Aby na przykład zapobiegawczo powiązać **www \. contoso.com** z Twoją aplikacją, Utwórz rekord CNAME z **awverify. www** w **contoso.trafficmanager.NET**. Następnie można dodać "www \. contoso.com" do aplikacji bez konieczności zmiany rekordu CNAME "www". Aby uzyskać więcej informacji, zobacz [Migrowanie aktywnej nazwy DNS do Azure App Service](manage-custom-dns-migrate-domain.md).
@@ -92,7 +92,7 @@ Po rozpropagowaniu rekordów dla nazwy domeny Użyj przeglądarki, aby sprawdzi�
 4. Wpisz niestandardową nazwę domeny, która została zmapowana wcześniej, i wybierz pozycję **Weryfikuj**.
 5. Upewnij się, że **Typ rekordu nazwy hosta** ma wartość **CNAME ( \. example.com www lub dowolna poddomena)**.
 
-6. Ponieważ aplikacja App Service jest teraz zintegrowana z punktem końcowym Traffic Manager, w obszarze **Konfiguracja CNAME**powinna zostać wyświetlona nazwa domeny Traffic Manager. Zaznacz go i kliknij przycisk **Dodaj domenę niestandardową**.
+6. Ponieważ aplikacja App Service jest teraz zintegrowana z punktem końcowym Traffic Manager, w obszarze **Konfiguracja CNAME** powinna zostać wyświetlona nazwa domeny Traffic Manager. Zaznacz go i kliknij przycisk **Dodaj domenę niestandardową**.
 
     ![Dodawanie nazwy DNS do aplikacji](./media/configure-domain-traffic-manager/enable-traffic-manager-domain.png)
 

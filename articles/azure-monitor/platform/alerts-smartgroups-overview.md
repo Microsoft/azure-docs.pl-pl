@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/15/2018
 ms.openlocfilehash: dff59ac207e6078a264d1350d24c9e6f4a461d78
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108783"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012888"
 ---
 # <a name="smart-groups"></a>Grupy inteligentne
 
@@ -31,7 +31,7 @@ Obsługiwane są następujące inteligentne Stany grup.
 |:---|:---|
 | Nowy | Problem został właśnie wykryty i nie został jeszcze zweryfikowany. |
 | Potwierdzony | Administrator przejrzał grupę inteligentną i uruchomił ją. |
-| Zamknięte | Problem został rozwiązany. Po zamknięciu grupy inteligentnej można ją otworzyć ponownie, zmieniając ją na inny stan. |
+| Zamknięty | Problem został rozwiązany. Po zamknięciu grupy inteligentnej można ją otworzyć ponownie, zmieniając ją na inny stan. |
 
 [Dowiedz się, jak zmienić stan grupy inteligentnej.](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
 

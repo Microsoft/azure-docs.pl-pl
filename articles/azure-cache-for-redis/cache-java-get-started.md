@@ -9,11 +9,11 @@ ms.date: 05/22/2020
 ms.author: yegu
 ms.custom: mvc, seo-java-august2019, seo-java-september2019, devx-track-java
 ms.openlocfilehash: edb80ab3107cbd0a5ddd802d56a60ce77affb2f2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088118"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012922"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-java"></a>Szybki Start: korzystanie z usługi Azure cache for Redis w języku Java
 
@@ -32,7 +32,7 @@ W tym przewodniku szybki start dodaliśmy usługę Azure cache for Redis do apli
 
 ## <a name="setting-up-the-working-environment"></a>Konfigurowanie środowiska roboczego 
 
-W zależności od używanego systemu operacyjnego Dodaj zmienne środowiskowe dla **nazwy hosta** i **podstawowego klucza dostępu** . Otwórz wiersz polecenia lub okno terminalu i skonfiguruj następujące wartości:
+W zależności od używanego systemu operacyjnego Dodaj zmienne środowiskowe dla **nazwy hosta** i **podstawowego klucza dostępu**. Otwórz wiersz polecenia lub okno terminalu i skonfiguruj następujące wartości:
 
 ```CMD 
 set REDISCACHEHOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
@@ -127,7 +127,7 @@ public class App
 
 W tym kodzie pokazano sposób podłączania do wystąpienia usługi Azure Cache for Redis przy użyciu nazwy hosta w pamięci podręcznej i kluczowych zmiennych środowiskowych. W kodzie jest również przechowywana i pobierana wartość ciągu w pamięci podręcznej. Następuje wykonanie poleceń `PING` i `CLIENT LIST`. 
 
-Zapisz plik *App.java* .
+Zapisz plik *App.java*.
 
 ## <a name="build-and-run-the-app"></a>Skompiluj i uruchom aplikację
 
@@ -152,13 +152,13 @@ W przeciwnym razie po zakończeniu pracy z przykładową aplikacją poradnika Sz
 > Usunięcie grupy zasobów jest nieodwracalne i grupa zasobów oraz wszystkie zawarte w niej zasoby zostaną trwale usunięte. Uważaj, aby nie usunąć przypadkowo niewłaściwych zasobów lub grupy zasobów. Jeśli zasoby do hostowania tego przykładu zostały utworzone wewnątrz istniejącej grupy zasobów zawierającej zasoby, które chcesz zachować, możesz usunąć każdy zasób oddzielnie z odpowiadającego mu bloku zamiast usuwać całą grupę zasobów.
 >
 
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i wybierz pozycję **Grupy zasobów** .
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i wybierz pozycję **Grupy zasobów**.
 
-1. W polu tekstowym **Filtruj według nazwy** wpisz nazwę grupy zasobów. Instrukcje w tym artykule używają grupy zasobów o nazwie *TestResources* . W grupie zasobów na liście wynik wybierz pozycję **...** , a następnie **Usuń grupę zasobów** .
+1. W polu tekstowym **Filtruj według nazwy** wpisz nazwę grupy zasobów. Instrukcje w tym artykule używają grupy zasobów o nazwie *TestResources*. W grupie zasobów na liście wynik wybierz pozycję **...** , a następnie **Usuń grupę zasobów**.
 
    ![Usunięto grupę zasobów platformy Azure](./media/cache-java-get-started/azure-cache-redis-delete-resource-group.png)
 
-1. Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Wpisz nazwę grupy zasobów, aby potwierdzić, a następnie wybierz pozycję **Usuń** .
+1. Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Wpisz nazwę grupy zasobów, aby potwierdzić, a następnie wybierz pozycję **Usuń**.
 
 Po krótkim czasie grupa zasobów i wszystkie zawarte w niej zasoby zostaną usunięte.
 

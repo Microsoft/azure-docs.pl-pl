@@ -9,11 +9,11 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: af1850f77c1d13c761bfc2a143074b5067b349b4
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014056"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013007"
 ---
 # <a name="analysis-services-database-backup-and-restore"></a>Analysis Services kopii zapasowej i przywracania bazy danych
 
@@ -25,7 +25,7 @@ Tworzenie kopii zapasowych baz danych modeli tabelarycznych w Azure Analysis Ser
 > 
 
 > [!NOTE]
-> Jeśli konto magazynu znajduje się w innym regionie, skonfiguruj ustawienia zapory konta magazynu, aby zezwolić na dostęp z **wybranych sieci**. W obszarze **zakres adresów**zapory Określ zakres adresów IP dla regionu, w którym znajduje się serwer Analysis Services. Konfigurowanie ustawień zapory konta magazynu w celu zezwalania na dostęp ze wszystkich sieci jest obsługiwane, jednak wybranie opcji wybrane sieci i określenie zakresu adresów IP jest preferowane. Aby dowiedzieć się więcej, zobacz [często zadawane pytania dotyczące łączności sieciowej](analysis-services-network-faq.md#backup-and-restore).
+> Jeśli konto magazynu znajduje się w innym regionie, skonfiguruj ustawienia zapory konta magazynu, aby zezwolić na dostęp z **wybranych sieci**. W obszarze **zakres adresów** zapory Określ zakres adresów IP dla regionu, w którym znajduje się serwer Analysis Services. Konfigurowanie ustawień zapory konta magazynu w celu zezwalania na dostęp ze wszystkich sieci jest obsługiwane, jednak wybranie opcji wybrane sieci i określenie zakresu adresów IP jest preferowane. Aby dowiedzieć się więcej, zobacz [często zadawane pytania dotyczące łączności sieciowej](analysis-services-network-faq.md#backup-and-restore).
 
 Kopie zapasowe są zapisywane z rozszerzeniem ABF. Dla modeli tabelarycznych w pamięci są przechowywane zarówno dane modelu, jak i metadane. W przypadku modeli tabelarycznych zapytania bezpośredniego są przechowywane tylko metadane modelu. Kopie zapasowe mogą być kompresowane i szyfrowane w zależności od wybranych opcji.
 
@@ -59,7 +59,7 @@ Przed utworzeniem kopii zapasowej należy skonfigurować ustawienia magazynu dla
 
 1. W programie SSMS kliknij prawym przyciskiem myszy bazę danych > **utworzyć kopię zapasową**.
 
-2. W obszarze kopia zapasowa pliku kopii zapasowej **bazy danych**  >  **Backup file**kliknij przycisk **Przeglądaj**.
+2. W obszarze kopia zapasowa pliku kopii zapasowej **bazy danych**  >  **Backup file** kliknij przycisk **Przeglądaj**.
 
 3. W oknie dialogowym **Zapisz plik jako** Sprawdź ścieżkę folderu, a następnie wpisz nazwę pliku kopii zapasowej. 
 
@@ -91,11 +91,11 @@ Podczas przywracania plik kopii zapasowej musi znajdować się na koncie magazyn
 
 1. W programie SSMS kliknij prawym przyciskiem myszy bazę danych > **przywracanie**.
 
-2. W oknie dialogowym **kopia zapasowa bazy danych** w **pliku kopii zapasowej**kliknij przycisk **Przeglądaj**.
+2. W oknie dialogowym **kopia zapasowa bazy danych** w **pliku kopii zapasowej** kliknij przycisk **Przeglądaj**.
 
 3. W oknie dialogowym **Lokalizowanie plików bazy danych** wybierz plik, który chcesz przywrócić.
 
-4. W obszarze **Przywróć bazę danych**wybierz bazę danych.
+4. W obszarze **Przywróć bazę danych** wybierz bazę danych.
 
 5. Określ opcje. Opcje zabezpieczeń muszą być zgodne z opcjami tworzenia kopii zapasowych użytymi podczas tworzenia kopii zapasowej.
 

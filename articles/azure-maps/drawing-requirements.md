@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: philMea
 ms.openlocfilehash: 2c3e46bf386e70cbe35d96728ede896d6bf0dc7d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895838"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013126"
 ---
 # <a name="drawing-package-requirements"></a>Wymagania dotyczące pakietu do rysowania
 
@@ -50,9 +50,9 @@ Pliki DWG można organizować w dowolny sposób wewnątrz folderu, ale plik mani
 
 ## <a name="dwg-files-requirements"></a>Wymagania dotyczące plików DWG
 
-Dla każdego poziomu funkcji wymagany jest pojedynczy plik DWG. Dane poziomu muszą być zawarte w pojedynczym pliku DWG. Wszystkie odwołania zewnętrzne ( _XREFs_ ) muszą być powiązane z rysowaniem nadrzędnym. Ponadto każdy plik DWG:
+Dla każdego poziomu funkcji wymagany jest pojedynczy plik DWG. Dane poziomu muszą być zawarte w pojedynczym pliku DWG. Wszystkie odwołania zewnętrzne (_XREFs_) muszą być powiązane z rysowaniem nadrzędnym. Ponadto każdy plik DWG:
 
-* Należy zdefiniować warstwy _zewnętrzne_ i _jednostkowe_ . Opcjonalnie można zdefiniować następujące warstwy opcjonalne: _ściany_ , _drzwi_ , _UnitLabel_ , _strefy_ i _ZoneLabel_ .
+* Należy zdefiniować warstwy _zewnętrzne_ i _jednostkowe_ . Opcjonalnie można zdefiniować następujące warstwy opcjonalne: _ściany_, _drzwi_, _UnitLabel_, _strefy_ i _ZoneLabel_.
 * Nie może zawierać funkcji z wielu poziomów.
 * Nie może zawierać funkcji z wielu obiektów.
 
@@ -168,7 +168,7 @@ Przykład warstwy ZoneLabel można zobaczyć w przykładowym [pakiecie rysowania
 
 ## <a name="manifest-file-requirements"></a>Wymagania dotyczące pliku manifestu
 
-Folder zip musi zawierać plik manifestu na poziomie głównym katalogu, a plik musi mieć nazwę **manifest.jsna** . Opisano w nim pliki DWG umożliwiające przeanalizowanie zawartości przez [usługę konwersji Azure Maps](/rest/api/maps/conversion) . Zostaną pozyskane tylko pliki zidentyfikowane przez manifest. Pliki znajdujące się w folderze ZIP, ale nie są poprawnie wymienione w manifeście, są ignorowane.
+Folder zip musi zawierać plik manifestu na poziomie głównym katalogu, a plik musi mieć nazwę **manifest.jsna**. Opisano w nim pliki DWG umożliwiające przeanalizowanie zawartości przez [usługę konwersji Azure Maps](/rest/api/maps/conversion) . Zostaną pozyskane tylko pliki zidentyfikowane przez manifest. Pliki znajdujące się w folderze ZIP, ale nie są poprawnie wymienione w manifeście, są ignorowane.
 
 Ścieżki plików w `buildingLevels` obiekcie manifestu pliku muszą być względne względem katalogu głównego folderu zip. Nazwa pliku DWG musi być dokładnie zgodna z nazwą poziomu funkcji. Na przykład plik DWG dla poziomu "Basement" ma wartość "Basement. dwg". Plik DWG dla poziomu 2 ma nazwę "level_2. dwg". Jeśli nazwa poziomu zawiera spację, użyj znaku podkreślenia.
 
