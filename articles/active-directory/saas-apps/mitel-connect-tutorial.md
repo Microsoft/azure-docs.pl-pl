@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 07/31/2020
 ms.author: jeedes
 ms.openlocfilehash: b89ae74a1f4ead568a5454c9494d4a82b0eeea3e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521343"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015183"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect-or-cloudlink-platform"></a>Samouczek: integracja Azure Active Directory z roztocznym połączeniem MiCloud lub platformą CloudLink
 
@@ -102,7 +102,7 @@ Aby skonfigurować MiCloud łączenie z logowaniem jednokrotnym w usłudze Azure
 
     1. W menu **system telefoniczny** wybierz pozycję **funkcje dodatków**.
 
-    1. Z prawej strony **logowania jednokrotnego**wybierz pozycję **Aktywuj** lub **Ustawienia**.
+    1. Z prawej strony **logowania jednokrotnego** wybierz pozycję **Aktywuj** lub **Ustawienia**.
     
     Zostanie wyświetlone okno dialogowe Połącz pojedyncze Sign-On ustawienia.
     
@@ -172,7 +172,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w Azure Port
 
     1. Zaznacz pole wyboru **Pokaż hasło** , a następnie Zapisz wartość, która jest wyświetlana w polu **hasło** .
 
-    1. Wybierz przycisk **Utwórz**.
+    1. Wybierz pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -327,7 +327,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w Azure Port
 
     1. Zaznacz pole wyboru **Pokaż hasło** , a następnie Zapisz wartość, która jest wyświetlana w polu **hasło** .
 
-    1. Wybierz przycisk **Utwórz**.
+    1. Wybierz pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -377,7 +377,7 @@ W tej sekcji przedstawiono Testowanie konfiguracji logowania jednokrotnego usłu
 
 Po wybraniu kafelka ze zgięciem Połącz w panelu dostępu nastąpi automatyczne przekierowanie w celu zalogowania się do aplikacji CloudLink, która została skonfigurowana jako domyślna w polu **adres URL logowania** . Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
 

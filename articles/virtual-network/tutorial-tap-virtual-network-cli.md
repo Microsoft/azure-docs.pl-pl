@@ -17,11 +17,11 @@ ms.date: 03/18/2018
 ms.author: kaanan
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 8e3a56e4a6eb1fb6eb633021178ef78f8ac7287d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87488843"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014792"
 ---
 # <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>Współpraca z siecią wirtualną przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -53,7 +53,7 @@ Zapoznaj się z [wymaganiami wstępnymi](virtual-network-tap-overview.md#prerequ
 
 4. Jeśli miejsce docelowe dla sieci wirtualnej naciśnij pozycję interfejs sieciowy w urządzeniu wirtualnym sieci dla modułu zbierającego lub narzędzia analitycznego —
 
-   - Pobierz konfigurację adresu IP interfejsu sieciowego sieciowego urządzenia wirtualnego do zmiennej, która jest używana w późniejszym kroku. Identyfikator jest punktem końcowym, który będzie agregować ruch dla NACISKu. Poniższy przykład pobiera identyfikator *ipconfig1* IP dla interfejsu sieciowego o nazwie *myNetworkInterface*w grupie zasobów o nazwie Moja *zasobów*:
+   - Pobierz konfigurację adresu IP interfejsu sieciowego sieciowego urządzenia wirtualnego do zmiennej, która jest używana w późniejszym kroku. Identyfikator jest punktem końcowym, który będzie agregować ruch dla NACISKu. Poniższy przykład pobiera identyfikator *ipconfig1* IP dla interfejsu sieciowego o nazwie *myNetworkInterface* w grupie zasobów o nazwie Moja *zasobów*:
 
       ```azurecli-interactive
        IpConfigId=$(az network nic ip-config show \
@@ -77,7 +77,7 @@ Zapoznaj się z [wymaganiami wstępnymi](virtual-network-tap-overview.md#prerequ
 
 5. Jeśli lokalizacja docelowa dla sieci wirtualnej jest WYBIERAna jako wewnętrzny moduł równoważenia obciążenia platformy Azure:
   
-   - Pobierz konfigurację adresu IP frontonu wewnętrznego modułu równoważenia obciążenia platformy Azure do zmiennej, która jest używana w późniejszym kroku. Identyfikator jest punktem końcowym, który będzie agregować ruch dla NACISKu. Poniższy przykład pobiera identyfikator *frontendipconfig1ego* adresu IP frontonu dla modułu równoważenia obciążenia o nazwie *myInternalLoadBalancer*w grupie zasobów o nazwie Moja *zasobów*:
+   - Pobierz konfigurację adresu IP frontonu wewnętrznego modułu równoważenia obciążenia platformy Azure do zmiennej, która jest używana w późniejszym kroku. Identyfikator jest punktem końcowym, który będzie agregować ruch dla NACISKu. Poniższy przykład pobiera identyfikator *frontendipconfig1ego* adresu IP frontonu dla modułu równoważenia obciążenia o nazwie *myInternalLoadBalancer* w grupie zasobów o nazwie Moja *zasobów*:
 
       ```azurecli-interactive
       FrontendIpConfigId=$(az network lb frontend-ip show \

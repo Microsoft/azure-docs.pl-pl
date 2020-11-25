@@ -11,11 +11,11 @@ ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
 ms.openlocfilehash: 0000e7690ab92f469a7417e82cb375c524e0b343
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016847"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014766"
 ---
 # <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>Podłączanie Rigado kaskadowego urządzenia bramy 500 do aplikacji IoT Central platformy Azure
 
@@ -41,15 +41,15 @@ W celu dołączenia urządzenia bramy kaskadowej 500 do wystąpienia aplikacji p
 
 Aby dodać kaskadowy szablon urządzenia 500: 
 
-1. Przejdź do karty ***Szablony urządzeń*** w lewym okienku, wybierz pozycję **+ Nowy**: ![ Utwórz nowy szablon urządzenia](./media/howto-connect-rigado-cascade-500/device-template-new.png)
-1. Na stronie można ***utworzyć szablon niestandardowy*** lub ***użyć wstępnie skonfigurowanego szablonu urządzenia***
+1. Przejdź do karty ***Szablony urządzeń** _ w lewym okienku, wybierz _ * + nowy * *: ![ Utwórz nowy szablon urządzenia](./media/howto-connect-rigado-cascade-500/device-template-new.png)
+1. Strona udostępnia opcję **_Utwórz szablon niestandardowy_* _ lub _*_Użyj wstępnie skonfigurowanego szablonu urządzenia_*_
 1. Wybierz szablon urządzenia C500 z listy wstępnie skonfigurowanych szablonów urządzeń, jak pokazano poniżej: ![ Wybierz szablon urządzenia C500](./media/howto-connect-rigado-cascade-500/device-template-preconfigured.png)
-1. Wybierz pozycję ***Dalej: Dostosuj*** , aby przejść do następnego kroku. 
-1. Na następnym ekranie wybierz pozycję ***Utwórz*** , aby dołączyć szablon urządzenia C500 do aplikacji IoT Central.
+1. Wybierz pozycję _*_Dalej: Dostosuj_*_ , aby przejść do następnego kroku. 
+1. Na następnym ekranie wybierz pozycję _*_Utwórz_*_ , aby dołączyć szablon urządzenia C500 do aplikacji IoT Central.
 
 ## <a name="retrieve-application-connection-details"></a>Pobierz szczegóły połączenia z aplikacją
 
-Teraz musisz pobrać **Identyfikator zakresu** i **klucz podstawowy** aplikacji IoT Central platformy Azure, aby połączyć urządzenie kaskadowe 500. 
+Teraz musisz pobrać *Identyfikator zakresu** i **klucz podstawowy** dla aplikacji IoT Central platformy Azure, aby połączyć urządzenie kaskadowe 500. 
 
 1. W lewym okienku przejdź do obszarze **Administracja**  , a następnie kliknij pozycję **połączenie z urządzeniem**. 
 2. Zanotuj **Identyfikator zakresu** dla aplikacji IoT Central.

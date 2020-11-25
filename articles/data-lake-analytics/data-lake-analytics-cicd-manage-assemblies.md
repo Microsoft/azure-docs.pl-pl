@@ -7,11 +7,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 10/30/2018
 ms.openlocfilehash: e88616f45c69d33234aa35333e0d82ad8cc59bb6
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219364"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015285"
 ---
 # <a name="best-practices-for-managing-u-sql-assemblies-in-a-cicd-pipeline"></a>Najlepsze rozwiązania dotyczące zarządzania zestawami U-SQL w potoku ciągłej integracji/ciągłego wdrażania
 
@@ -57,7 +57,7 @@ Wykonaj następujące kroki, aby utworzyć projekty i dodać odwołania.
 
 1. Dodaj **zarządzane zależności** i **dodatkowe pliki**, jeśli istnieją. Po dodaniu dodatkowych plików narzędzie używa ścieżki względnej, aby upewnić się, że można znaleźć zestawy na komputerze lokalnym i na maszynie kompilacji w późniejszym czasie.
 
-** \@ _DeployTempDirectory** w oknie edytora u dołu jest wstępnie zdefiniowaną zmienną, która wskazuje narzędzie do folderu danych wyjściowych kompilacji. W folderze danych wyjściowych kompilacji każdy zestaw ma podfolder o nazwie z nazwą zestawu. Wszystkie biblioteki DLL i dodatkowe pliki znajdują się w tym podfolderze.
+**\@ _DeployTempDirectory** w oknie edytora u dołu jest wstępnie zdefiniowaną zmienną, która wskazuje narzędzie do folderu danych wyjściowych kompilacji. W folderze danych wyjściowych kompilacji każdy zestaw ma podfolder o nazwie z nazwą zestawu. Wszystkie biblioteki DLL i dodatkowe pliki znajdują się w tym podfolderze.
 
 ## <a name="build-a-u-sql-database-project"></a>Kompilowanie projektu bazy danych U-SQL
 

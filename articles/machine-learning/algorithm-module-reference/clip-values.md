@@ -10,11 +10,11 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
 ms.openlocfilehash: 99fb41542dff28997438881abad71da11e927a78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898807"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014894"
 ---
 # <a name="clip-values"></a>Obcinanie wartości
 
@@ -32,11 +32,11 @@ Moduł stosuje te same kryteria i metodę zastępującą do **wszystkich** kolum
 
 Jeśli musisz zastosować metody przycinające lub inne kryteria do niektórych kolumn, musisz użyć nowego wystąpienia **wartości klipów** dla każdego zestawu podobnych kolumn.
 
-1.  Dodaj moduł **wartości klipu** do potoku i połącz go z zestawem danych, który chcesz zmodyfikować. Ten moduł można znaleźć w obszarze **Przekształcanie danych**w kategorii **skalowanie i zmniejszanie** . 
+1.  Dodaj moduł **wartości klipu** do potoku i połącz go z zestawem danych, który chcesz zmodyfikować. Ten moduł można znaleźć w obszarze **Przekształcanie danych** w kategorii **skalowanie i zmniejszanie** . 
   
-1.  Na **liście kolumn**Użyj selektora kolumn, aby wybrać kolumny, do których zostaną zastosowane **wartości klipów** .  
+1.  Na **liście kolumn** Użyj selektora kolumn, aby wybrać kolumny, do których zostaną zastosowane **wartości klipów** .  
   
-1.  Dla **zestawu progów**wybierz jedną z następujących opcji z listy rozwijanej. Te opcje określają, jak ustawić górną i dolną granicę dla akceptowalnych wartości a wartości, które muszą być przycinane.  
+1.  Dla **zestawu progów** wybierz jedną z następujących opcji z listy rozwijanej. Te opcje określają, jak ustawić górną i dolną granicę dla akceptowalnych wartości a wartości, które muszą być przycinane.  
   
     - **ClipPeaks**: podczas przycinania wartości według szczytów należy określić tylko górną granicę. Wartości większe niż ta wartość granicy są zastępowane.
   
@@ -52,11 +52,11 @@ Jeśli musisz zastosować metody przycinające lub inne kryteria do niektórych 
 
     Dla każdego typu progu wybierz wartość **stała** lub **percentyl**.
 
-1. W przypadku wybrania opcji **stała**wpisz wartość maksymalną lub minimalną w polu tekstowym. Załóżmy na przykład, że wiesz, że wartość 999 została użyta jako wartość symbolu zastępczego. Można wybrać **stałą** dla górnego progu i typ 999 w **wartości stałej dla górnego progu**.
+1. W przypadku wybrania opcji **stała** wpisz wartość maksymalną lub minimalną w polu tekstowym. Załóżmy na przykład, że wiesz, że wartość 999 została użyta jako wartość symbolu zastępczego. Można wybrać **stałą** dla górnego progu i typ 999 w **wartości stałej dla górnego progu**.
   
-1. W przypadku wybrania **percentylu**należy ograniczyć wartości kolumn do zakresu percentylu. 
+1. W przypadku wybrania **percentylu** należy ograniczyć wartości kolumn do zakresu percentylu. 
 
-    Załóżmy na przykład, że chcesz zachować tylko wartości z zakresu od 10-80 do percentyla, i Zastąp wszystkie pozostałe. Wybierz **percentyl**, a następnie wpisz 10 dla **wartości percentyl dolnego progu**i wpisz 80 dla **wartości percentyl dla górnego progu**. 
+    Załóżmy na przykład, że chcesz zachować tylko wartości z zakresu od 10-80 do percentyla, i Zastąp wszystkie pozostałe. Wybierz **percentyl**, a następnie wpisz 10 dla **wartości percentyl dolnego progu** i wpisz 80 dla **wartości percentyl dla górnego progu**. 
 
     Zapoznaj się z sekcją [percentyla](#examples-for-clipping-using-percentiles) , aby poznać kilka przykładów użycia zakresów percentylu.  
   
@@ -96,17 +96,17 @@ Aby zrozumieć, jak działa przycinanie przy użyciu percentylów, weź pod uwag
   
 - Jeśli używasz percentylu jako dolnego progu, wartość dla dziesiątego percentylu, 10 procent wszystkich wartości w zestawie danych, musi być mniejsza niż ta wartość.  
   
-1.  Dla **zestawu progów**wybierz pozycję **ClipPeaksAndSubPeaks**.  
+1.  Dla **zestawu progów** wybierz pozycję **ClipPeaksAndSubPeaks**.  
   
-1.  W przypadku **górnego progu**wybierz **percentyl**, a dla **numeru percentylu**wpisz 90.  
+1.  W przypadku **górnego progu** wybierz **percentyl**, a dla **numeru percentylu** wpisz 90.  
   
-1.  W przypadku **górnej wartości zastępczej**wybierz **brakującą wartość**.  
+1.  W przypadku **górnej wartości zastępczej** wybierz **brakującą wartość**.  
   
-1.  W przypadku **dolnego progu**wybierz **percentyl**, a dla opcji **numer percentylu**wpisz 10.  
+1.  W przypadku **dolnego progu** wybierz **percentyl**, a dla opcji **numer percentylu** wpisz 10.  
   
-1.  W przypadku **dolnej wartości zastępczej**wybierz pozycję **brakująca wartość**.  
+1.  W przypadku **dolnej wartości zastępczej** wybierz pozycję **brakująca wartość**.  
   
-1.  Usuń zaznaczenie opcji **Zastąp flag**i wybierz opcję, **Dodaj kolumnę wskaźnika**.  
+1.  Usuń zaznaczenie opcji **Zastąp flag** i wybierz opcję, **Dodaj kolumnę wskaźnika**.  
   
 Teraz Wypróbuj ten sam potok, używając 60 jako progu górnego percentylu i 30 jako dolnego progu percentylu, a następnie użyj wartości progowej jako wartości zastępczej. W poniższej tabeli porównano te dwa wyniki:  
   
@@ -116,7 +116,7 @@ Teraz Wypróbuj ten sam potok, używając 60 jako progu górnego percentylu i 30
   
 |Oryginalne dane|Zamień na brak|Zamień na próg|  
 |-------------------|--------------------------|----------------------------|  
-|1<br /><br /> 2<br /><br /> 3<br /><br /> 4<br /><br /> 5<br /><br /> 6<br /><br /> 7<br /><br /> 8<br /><br /> 9<br /><br /> 10|Prawda<br /><br /> Prawda<br /><br /> 3, FAŁSZ<br /><br /> 4, FAŁSZ<br /><br /> 5, FAŁSZ<br /><br /> 6, FAŁSZ<br /><br /> 7, FAŁSZ<br /><br /> 8, FAŁSZ<br /><br /> 9, FAŁSZ<br /><br /> Prawda|4, PRAWDA<br /><br /> 4, PRAWDA<br /><br /> 4, PRAWDA<br /><br /> 4, PRAWDA<br /><br /> 5, FAŁSZ<br /><br /> 6, FAŁSZ<br /><br /> 7, PRAWDA<br /><br /> 7, PRAWDA<br /><br /> 7, PRAWDA<br /><br /> 7, PRAWDA| 
+|1<br /><br /> 2<br /><br /> 3<br /><br /> 4<br /><br /> 5<br /><br /> 6<br /><br /> 7<br /><br /> 8<br /><br /> 9<br /><br /> 10|Prawda<br /><br /> Prawda<br /><br /> 3, FAŁSZ<br /><br /> 4, FAŁSZ<br /><br /> 5, FAŁSZ<br /><br /> 6, FAŁSZ<br /><br /> 7, FAŁSZ<br /><br /> 8, FAŁSZ<br /><br /> 9, FAŁSZ<br /><br /> TRUE|4, PRAWDA<br /><br /> 4, PRAWDA<br /><br /> 4, PRAWDA<br /><br /> 4, PRAWDA<br /><br /> 5, FAŁSZ<br /><br /> 6, FAŁSZ<br /><br /> 7, PRAWDA<br /><br /> 7, PRAWDA<br /><br /> 7, PRAWDA<br /><br /> 7, PRAWDA| 
  
 ## <a name="next-steps"></a>Następne kroki
 

@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: jeedes
 ms.openlocfilehash: 456348f5492af44274a37a6400fb8d95e9bd55a4
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516030"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015149"
 ---
 # <a name="tutorial-integrate-mvision-cloud-azure-ad-sso-configuration-with-azure-active-directory"></a>Samouczek: Integrowanie konfiguracji rejestracji jednokrotnej usługi Azure AD w chmurze MVISION z usługą Azure Active Directory
 
@@ -125,7 +125,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

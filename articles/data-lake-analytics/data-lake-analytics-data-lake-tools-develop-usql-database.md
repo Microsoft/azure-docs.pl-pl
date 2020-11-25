@@ -8,11 +8,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 07/03/2018
 ms.openlocfilehash: 706457a602e20dd37e64e5f389948b351ac8ebcf
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219245"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015251"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Użyj projektu bazy danych U-SQL, aby utworzyć bazę danych U-SQL dla Azure Data Lake
 
@@ -68,7 +68,7 @@ Bazę danych U-SQL można wdrożyć za pomocą projektu bazy danych U-SQL lub pa
 
 1. Kliknij prawym przyciskiem myszy projekt bazy danych U-SQL, a następnie wybierz polecenie **Wdróż**.
 
-1. W **Kreatorze wdrażania U-SQL Database**wybierz **konto ADLA** , do którego chcesz wdrożyć bazę danych. Obsługiwane są zarówno konta lokalne, jak i konta ADLA.
+1. W **Kreatorze wdrażania U-SQL Database** wybierz **konto ADLA** , do którego chcesz wdrożyć bazę danych. Obsługiwane są zarówno konta lokalne, jak i konta ADLA.
 
 1. **Źródło bazy danych** jest wypełniane automatycznie i wskazuje na pakiet. usqldbpack w folderze danych wyjściowych kompilacji projektu.
 

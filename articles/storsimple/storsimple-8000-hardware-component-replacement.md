@@ -16,11 +16,11 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: 12ab5a9598cc0222f5a3e64985be2e2ea9e7e2fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85564290"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014860"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Zastępowanie składnika sprzętowego na urządzeniu z serii StorSimple 8000
 
@@ -46,7 +46,7 @@ W poniższej tabeli opisano ikony bezpieczeństwa używane w tych samouczkach. N
 | ![Ikona Odczytaj instrukcje](./media/storsimple-hardware-component-replacement/ReadInstructions.png) |**Najpierw przeczytaj wszystkie instrukcje** | |
 | ![Ikona zagrożenia Porada](./media/storsimple-hardware-component-replacement/TipHazard.png) |**Niebezpieczeństwo Porada** | |
 
-### <a name="before-you-begin"></a>Przed rozpoczęciem
+### <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Zapoznaj się z informacjami o bezpieczeństwie dotyczącymi Twojego urządzenia i ikon bezpieczeństwa używanych w tym samouczku. Aby uzyskać pełne informacje, przejdź do [bezpiecznej instalacji i obsłudze urządzenia StorSimple](storsimple-8000-safety.md) . Przed zainstalowaniem urządzenia StorSimple należy zapoznać się z jego [bezpieczeństwem](storsimple-8000-safety.md#handling-precautions) .
 

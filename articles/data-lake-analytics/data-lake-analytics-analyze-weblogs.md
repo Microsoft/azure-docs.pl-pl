@@ -6,11 +6,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 12/05/2016
 ms.openlocfilehash: d2764e5e3994eb7b80a8e7cf62fb7f437323c97e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219398"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015302"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analizowanie dzienników witryn sieci Web przy użyciu usługi Azure Data Lake Analytics
 Dowiedz się, jak analizować dzienniki witryn sieci Web przy użyciu Data Lake Analytics, szczególnie w przypadku szukania odwołujących się błędów podczas próby odwiedzenia witryny sieci Web.
@@ -35,7 +35,7 @@ Przed rozpoczęciem kompilowania i testowania skryptów U-SQL należy najpierw n
 
 1. Otwórz program Visual Studio.
 2. Kliknij **Data Lake > opcje i ustawienia**.
-3. Kliknij przycisk **Zaloguj**lub **Zmień użytkownika** , jeśli ktoś się zalogował, i postępuj zgodnie z instrukcjami.
+3. Kliknij przycisk **Zaloguj** lub **Zmień użytkownika** , jeśli ktoś się zalogował, i postępuj zgodnie z instrukcjami.
 4. Kliknij przycisk **OK** , aby zamknąć okno dialogowe Opcje i ustawienia.
 
 ### <a name="to-browse-your-data-lake-analytics-accounts"></a>Aby przeglądać konta Data Lake Analytics

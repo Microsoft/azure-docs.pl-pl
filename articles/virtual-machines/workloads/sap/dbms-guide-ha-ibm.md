@@ -9,11 +9,11 @@ ms.date: 10/16/2020
 ms.author: juergent
 ms.reviewer: cynthn
 ms.openlocfilehash: 0cd1458c90970e219f2929e26423e455ba647a28
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951319"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015115"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Wysoka dostępność programu IBM DB2 LUW na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server z Pacemaker
 
@@ -406,7 +406,7 @@ Aby skonfigurować Azure Load Balancer, zalecamy użycie [jednostki SKU usługa 
 
    c. Ustaw **przypisanie** na **static**, a następnie wprowadź adres IP **Virtual-IP** zdefiniowany na początku.
 
-   d. Wybierz przycisk **OK**.
+   d. Wybierz pozycję **OK**.
 
    e. Po utworzeniu nowej puli adresów IP frontonu Zanotuj adres IP puli.
 
@@ -422,7 +422,7 @@ Aby skonfigurować Azure Load Balancer, zalecamy użycie [jednostki SKU usługa 
 
    e. Wybierz Maszyny wirtualne w klastrze programu IBM DB2.
 
-   f. Wybierz przycisk **OK**.
+   f. Wybierz pozycję **OK**.
 
 1. Utwórz sondę kondycji:
 
@@ -432,7 +432,7 @@ Aby skonfigurować Azure Load Balancer, zalecamy użycie [jednostki SKU usługa 
 
    c. Wybierz pozycję **TCP** jako protokół i port **62500**. Pozostaw wartość **interwału** ustawioną na **5** i pozostaw wartość **progową złej kondycji** ustawioną na **2**.
 
-   d. Wybierz przycisk **OK**.
+   d. Wybierz pozycję **OK**.
 
 1. Utwórz reguły równoważenia obciążenia:
 
@@ -448,7 +448,7 @@ Aby skonfigurować Azure Load Balancer, zalecamy użycie [jednostki SKU usługa 
 
    f. Upewnij się, że **włączono zmiennoprzecinkowy adres IP**.
 
-   przykład Wybierz przycisk **OK**.
+   przykład Wybierz pozycję **OK**.
 
 
 ### <a name="make-changes-to-sap-profiles-to-use-virtual-ip-for-connection"></a>Wprowadzanie zmian w profilach SAP do używania wirtualnego adresu IP na potrzeby połączenia

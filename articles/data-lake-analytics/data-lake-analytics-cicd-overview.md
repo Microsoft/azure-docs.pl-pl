@@ -8,11 +8,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 09/14/2018
 ms.openlocfilehash: 95b638b85e0746d2995488f2a28a5fb2512b1063
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219330"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015268"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Jak skonfigurować potok ciągłej integracji/ciągłego wdrażania dla Azure Data Lake Analytics  
 
@@ -79,11 +79,11 @@ Definicje argumentów i wartości są następujące:
 - **USQLSDKPath = \<U-SQL Nuget package> \build\runtime**. Ten parametr odnosi się do ścieżki instalacji pakietu NuGet dla usługi języka U-SQL.
 - **USQLTargetType = Merge lub SyntaxCheck**:
 
-  - **Scal**. Tryb scalania kompiluje pliki związane z kodem. Przykłady to **. cs**, **. PR**i **. r** . Definiuje on utworzoną przez użytkownika bibliotekę kodu do skryptu U-SQL. Przykłady to kod binarny biblioteki DLL, Python lub R.
+  - **Scal**. Tryb scalania kompiluje pliki związane z kodem. Przykłady to **. cs**, **. PR** i **. r** . Definiuje on utworzoną przez użytkownika bibliotekę kodu do skryptu U-SQL. Przykłady to kod binarny biblioteki DLL, Python lub R.
 
   - **SyntaxCheck**. W trybie SyntaxCheck najpierw scala pliki związane z kodem do skryptu U-SQL. Następnie kompiluje skrypt U-SQL, aby sprawdzić poprawność kodu.
 
-- **Dataroot = \<DataRoot path> **. Element dataroot jest wymagany tylko w przypadku trybu SyntaxCheck. Gdy kompiluje skrypt w trybie SyntaxCheck, MSBuild sprawdza odwołania do obiektów bazy danych w skrypcie. Przed skompilowaniem Skonfiguruj zgodne środowisko lokalne, które zawiera przywoływane obiekty z bazy danych U-SQL w folderze głównym usługi Machine Build. Tymi zależnościami bazy danych można również zarządzać, [odwołując się do projektu bazy danych U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). Program MSBuild sprawdza tylko odwołania do obiektu bazy danych, a nie pliki.
+- **Dataroot = \<DataRoot path>**. Element dataroot jest wymagany tylko w przypadku trybu SyntaxCheck. Gdy kompiluje skrypt w trybie SyntaxCheck, MSBuild sprawdza odwołania do obiektów bazy danych w skrypcie. Przed skompilowaniem Skonfiguruj zgodne środowisko lokalne, które zawiera przywoływane obiekty z bazy danych U-SQL w folderze głównym usługi Machine Build. Tymi zależnościami bazy danych można również zarządzać, [odwołując się do projektu bazy danych U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). Program MSBuild sprawdza tylko odwołania do obiektu bazy danych, a nie pliki.
 
 - **EnableDeployment = true** lub **false**. EnableDeployment wskazuje, czy można wdrożyć przywoływane bazy danych U-SQL podczas procesu kompilacji. Jeśli odwołujesz się do projektu bazy danych U-SQL i zużywasz obiekty bazy danych w skrypcie U-SQL, ustaw ten parametr na **wartość true**.
 
@@ -463,7 +463,7 @@ Wykonaj następujące kroki, aby skonfigurować zadanie wdrażania bazy danych w
 | Parametr | Description | Wartość domyślna | Wymagane |
 |---------|-----------|-------------|--------|
 |Pakiet|Ścieżka pakietu wdrożeniowego bazy danych U-SQL, który ma zostać wdrożony.|wartość null|true|
-|Baza danych|Nazwa bazy danych, która ma zostać wdrożona lub utworzona.|master|fałsz|
+|baza danych|Nazwa bazy danych, która ma zostać wdrożona lub utworzona.|master|fałsz|
 |Pliki|Ścieżka pliku do rejestrowania. Domyślnie dla standardowego (konsoli).|wartość null|fałsz|
 |LogLevel|Poziom dziennika: verbose, Normal, Warning lub Error.|LogLevel. Normal|fałsz|
 

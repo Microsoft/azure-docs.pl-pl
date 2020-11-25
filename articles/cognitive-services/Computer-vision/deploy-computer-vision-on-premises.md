@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 10/30/2020
+ms.date: 11/23/2020
 ms.author: aahi
-ms.openlocfilehash: 1e77b5ea2bbd5bae79295a5680fa6e143efa5e99
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: dce8893cac156ce2941652e32409357cb8ec3b1a
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131534"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96015319"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Używanie kontenera przetwarzanie obrazów z Kubernetes i Helm
 
@@ -30,7 +30,7 @@ Poniższe wymagania wstępne przed użyciem kontenerów przetwarzanie obrazów l
 | Konto platformy Azure | Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto][free-azure-account]. |
 | Interfejs wiersza polecenia Kubernetes | [Interfejs wiersza polecenia Kubernetes][kubernetes-cli] jest wymagany do zarządzania poświadczeniami udostępnionymi z rejestru kontenerów. Kubernetes jest również wymagany przed Helm, który jest menedżerem pakietów Kubernetes. |
 | Interfejs wiersza polecenia Helm | Zainstaluj [interfejs wiersza polecenia Helm][helm-install], który służy do instalowania wykresu Helm (definicja pakietu kontenerów). |
-| Zasób przetwarzanie obrazów |Aby można było używać kontenera, musisz mieć:<br><br>Zasób usługi Azure **Przetwarzanie obrazów** i skojarzony klucz interfejsu API dla identyfikatora URI punktu końcowego. Obie wartości są dostępne na stronach przeglądów i kluczy dla zasobu i są wymagane do uruchomienia kontenera.<br><br>**{API_KEY}** : jeden z dwóch dostępnych kluczy zasobów na stronie **kluczy**<br><br>**{ENDPOINT_URI}** : punkt końcowy określony na stronie **Przegląd**|
+| Zasób przetwarzanie obrazów |Aby można było używać kontenera, musisz mieć:<br><br>Zasób usługi Azure **Przetwarzanie obrazów** i skojarzony klucz interfejsu API dla identyfikatora URI punktu końcowego. Obie wartości są dostępne na stronach przeglądów i kluczy dla zasobu i są wymagane do uruchomienia kontenera.<br><br>**{API_KEY}**: jeden z dwóch dostępnych kluczy zasobów na stronie **kluczy**<br><br>**{ENDPOINT_URI}**: punkt końcowy określony na stronie **Przegląd**|
 
 [!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -48,7 +48,7 @@ Oczekuje się, że komputer hosta ma dostępny klaster Kubernetes. Zapoznaj się
 
 ## <a name="configure-helm-chart-values-for-deployment"></a>Konfigurowanie wartości wykresu Helm na potrzeby wdrożenia
 
-Zacznij od utworzenia folderu o nazwie *Read* . Następnie wklej następującą zawartość YAML w nowym pliku o nazwie `chart.yaml` :
+Zacznij od utworzenia folderu o nazwie *Read*. Następnie wklej następującą zawartość YAML w nowym pliku o nazwie `chart.yaml` :
 
 ```yaml
 apiVersion: v2
@@ -76,7 +76,7 @@ read:
     name: cognitive-services-read
     registry:  mcr.microsoft.com/
     repository: azure-cognitive-services/vision/read
-    tag: 3.1-preview
+    tag: 3.2-preview.1
     args:
       eula: accept
       billing: # {ENDPOINT_URI}
@@ -105,7 +105,7 @@ read:
 > [!IMPORTANT]
 > - Jeśli `billing` wartości i `apikey` nie zostaną podane, usługi wygasną po 15 minutach. Podobnie weryfikacja nie powiedzie się, ponieważ usługi nie są dostępne.
 > 
-> - W przypadku wdrożenia wielu kontenerów odczytu za modułem równoważenia obciążenia, na przykład w obszarze Docker Compose lub Kubernetes, wymagana jest zewnętrzna pamięć podręczna. Ponieważ kontener przetwarzania i kontener żądania GET nie mogą być takie same, zewnętrzna pamięć podręczna przechowuje wyniki i udostępnia je między kontenerami. Aby uzyskać szczegółowe informacje na temat ustawień pamięci podręcznej, zobacz [Configure przetwarzanie obrazów Docker Containers](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-resource-container-config).
+> - W przypadku wdrożenia wielu kontenerów odczytu za modułem równoważenia obciążenia, na przykład w obszarze Docker Compose lub Kubernetes, wymagana jest zewnętrzna pamięć podręczna. Ponieważ kontener przetwarzania i kontener żądania GET nie mogą być takie same, zewnętrzna pamięć podręczna przechowuje wyniki i udostępnia je między kontenerami. Aby uzyskać szczegółowe informacje na temat ustawień pamięci podręcznej, zobacz [Configure przetwarzanie obrazów Docker Containers](./computer-vision-resource-container-config.md).
 >
 
 Utwórz folder *szablonów* w katalogu *Read* . Skopiuj i wklej następujący YAML do pliku o nazwie `deployment.yaml` . `deployment.yaml`Plik będzie używany jako szablon Helm.
@@ -192,7 +192,7 @@ Dostarczone *wykresy Helm* pobierają obrazy platformy Docker usługi przetwarza
 
 ## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Instalowanie wykresu Helm w klastrze Kubernetes
 
-Aby zainstalować *Wykres Helm* , należy wykonać [`helm install`][helm-install-cmd] polecenie. Upewnij się, że polecenie Install jest wykonane z katalogu znajdującego się powyżej `read` folderu.
+Aby zainstalować *Wykres Helm*, należy wykonać [`helm install`][helm-install-cmd] polecenie. Upewnij się, że polecenie Install jest wykonane z katalogu znajdującego się powyżej `read` folderu.
 
 ```console
 helm install read ./read
@@ -243,6 +243,106 @@ deployment.apps/read   1/1     1            1           17s
 NAME                              DESIRED   CURRENT   READY   AGE
 replicaset.apps/read-57cb76bcf7   1         1         1       17s
 ```
+
+## <a name="deploy-multiple-v3-containers-on-the-kubernetes-cluster"></a>Wdrażanie wielu kontenerów V3 w klastrze Kubernetes
+
+Począwszy od wersji v3 kontenera, można używać kontenerów równolegle na poziomie zadania i strony.
+
+Zgodnie z projektem każdy kontener v3 ma dyspozytora i proces roboczy rozpoznawania. Dyspozytor jest odpowiedzialny za dzielenie zadania wielostronicowego na wiele podzadań pojedynczej strony. Proces roboczy rozpoznawania jest zoptymalizowany pod kątem rozpoznawania jednostronicowego dokumentu. Aby osiągnąć równoległość na poziomie strony, wdróż wiele kontenerów v3 za modułem równoważenia obciążenia i pozwól kontenerom na udostępnianie uniwersalnego magazynu i kolejki. 
+
+> [!NOTE] 
+> Obecnie obsługiwane są tylko usługi Azure Storage i Azure Queue. 
+
+Kontener otrzymujący żądanie może podzielić zadanie na podrzędne podzadania pojedynczej strony i dodać je do kolejki uniwersalnej. Każdy proces roboczy rozpoznawania z kontenera mniej obciążony może korzystać z podzadań jednostronicowych z kolejki, przeprowadzać rozpoznawanie i przekazywać wynik do magazynu. Przepływność można ulepszyć do `n` czasu, w zależności od liczby wdrożonych kontenerów.
+
+Skopiuj i wklej następujący YAML do pliku o nazwie `deployment.yaml` . Zastąp `# {ENDPOINT_URI}` `# {API_KEY}` Komentarze i komentarz własnymi wartościami. Zastąp `# {AZURE_STORAGE_CONNECTION_STRING}` komentarz własnymi parametrami połączenia usługi Azure Storage. Skonfiguruj do pożądanej `replicas` liczby, która jest ustawiona na `3` w poniższym przykładzie.
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: read
+  labels:
+    app: read-deployment
+spec:
+  selector:
+    matchLabels:
+      app: read-app
+  replicas: # {NUMBER_OF_READ_CONTAINERS}
+  template:
+    metadata:
+      labels:
+        app: read-app
+    spec:
+      containers:
+      - name: cognitive-services-read
+        image: mcr.microsoft.com/azure-cognitive-services/vision/read
+        ports:
+        - containerPort: 5000
+        env:
+        - name: EULA
+          value: accept
+        - name: billing
+          value: # {ENDPOINT_URI}
+        - name: apikey
+          value: # {API_KEY}
+        - name: Storage__ObjectStore__AzureBlob__ConnectionString
+          value: # {AZURE_STORAGE_CONNECTION_STRING}
+        - name: Queue__Azure__ConnectionString
+          value: # {AZURE_STORAGE_CONNECTION_STRING}
+--- 
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-cognitive-service-read
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 5000
+    targetPort: 5000
+  selector:
+    app: read-app
+```
+
+Uruchom następujące polecenie. 
+
+```console
+kubectl apply -f deployment.yaml
+```
+
+Poniżej znajduje się przykładowe dane wyjściowe, które mogą zostać wyświetlone po pomyślnym wykonaniu wdrożenia:
+
+```console
+deployment.apps/read created
+service/azure-cognitive-service-read created
+```
+
+Wdrożenie Kubernetes może potrwać kilka minut. Aby upewnić się, że oba typy i usługi są poprawnie wdrożone i dostępne, wykonaj następujące polecenie:
+
+```console
+kubectl get all
+```
+
+Powinny pojawić się dane wyjściowe konsoli podobne do następujących:
+
+```console
+kubectl get all
+NAME                       READY   STATUS    RESTARTS   AGE
+pod/read-6cbbb6678-58s9t   1/1     Running   0          3s
+pod/read-6cbbb6678-kz7v4   1/1     Running   0          3s
+pod/read-6cbbb6678-s2pct   1/1     Running   0          3s
+
+NAME                                   TYPE           CLUSTER-IP   EXTERNAL-IP    PORT(S)          AGE
+service/azure-cognitive-service-read   LoadBalancer   10.0.134.0   <none>         5000:30846/TCP   17h
+service/kubernetes                     ClusterIP      10.0.0.1     <none>         443/TCP          78d
+
+NAME                   READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/read   3/3     3            3           3s
+
+NAME                             DESIRED   CURRENT   READY   AGE
+replicaset.apps/read-6cbbb6678   3         3         3       3s
+```
+
 <!--  ## Validate container is running -->
 
 [!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
@@ -257,7 +357,7 @@ Aby uzyskać więcej informacji na temat instalowania aplikacji z programem Helm
 <!-- LINKS - external -->
 [free-azure-account]: https://azure.microsoft.com/free
 [git-download]: https://git-scm.com/downloads
-[azure-cli]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [docker-engine]: https://www.docker.com/products/docker-engine
 [kubernetes-cli]: https://kubernetes.io/docs/tasks/tools/install-kubectl
 [helm-install]: https://helm.sh/docs/using_helm/#installing-helm

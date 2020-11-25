@@ -8,11 +8,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 08/30/2019
 ms.openlocfilehash: 7310c67ef20a4134d4f613ea969c96802958bf62
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219211"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015234"
 ---
 # <a name="test-your-azure-data-lake-analytics-code"></a>Przetestuj kod Azure Data Lake Analytics
 
@@ -34,7 +34,7 @@ Azure Data Lake Tools for Visual Studio pozwala utworzyć przypadki testowe skry
 
 ### <a name="manage-the-test-data-source"></a>Zarządzanie testowym źródłem danych
 
-Podczas testowania skryptów U-SQL należy przetestować pliki wejściowe. Aby zarządzać danymi testowymi, w **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt U-SQL i wybierz polecenie **Właściwości**. Możesz wprowadzić źródło w **testowym źródle danych**.
+Podczas testowania skryptów U-SQL należy przetestować pliki wejściowe. Aby zarządzać danymi testowymi, w **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt U-SQL i wybierz polecenie **Właściwości**. Możesz wprowadzić źródło w **testowym źródle danych**.
 
 ![Data Lake Tools for Visual Studio — Skonfiguruj źródło danych testu projektu](./media/data-lake-analytics-cicd-test/data-lake-tools-configure-project-test-data-source.png)
 
@@ -52,7 +52,7 @@ Aby uzyskać więcej informacji o sposobach zarządzania odwołaniami projektu b
 
 ### <a name="run-test-cases-in-visual-studio"></a>Uruchamianie przypadków testowych w programie Visual Studio
 
-Projekt testu skryptu U-SQL jest oparty na strukturze testów jednostkowych języka C#. Po skompilowaniu projektu wybierz pozycję **Testuj**  >  **Windows**  >  **Eksplorator testów**systemu Windows. Można uruchamiać przypadki testowe z **Eksploratora testów**. Alternatywnie kliknij prawym przyciskiem myszy plik CS w teście jednostkowym i wybierz polecenie **Uruchom testy**.
+Projekt testu skryptu U-SQL jest oparty na strukturze testów jednostkowych języka C#. Po skompilowaniu projektu wybierz pozycję **Testuj**  >  **Windows**  >  **Eksplorator testów** systemu Windows. Można uruchamiać przypadki testowe z **Eksploratora testów**. Alternatywnie kliknij prawym przyciskiem myszy plik CS w teście jednostkowym i wybierz polecenie **Uruchom testy**.
 
 ## <a name="test-c-udos"></a>Testowanie udo C#
 
@@ -105,7 +105,7 @@ Po wywołaniu funkcji UDO można sprawdzić wyniki za pomocą weryfikacji warto�
 
 ### <a name="run-test-cases-in-visual-studio"></a>Uruchamianie przypadków testowych w programie Visual Studio
 
-Po skompilowaniu projektu wybierz pozycję **Testuj**  >  **Windows**  >  **Eksplorator testów**systemu Windows. Można uruchamiać przypadki testowe z **Eksploratora testów**. Alternatywnie kliknij prawym przyciskiem myszy plik CS w teście jednostkowym i wybierz polecenie **Uruchom testy**.
+Po skompilowaniu projektu wybierz pozycję **Testuj**  >  **Windows**  >  **Eksplorator testów** systemu Windows. Można uruchamiać przypadki testowe z **Eksploratora testów**. Alternatywnie kliknij prawym przyciskiem myszy plik CS w teście jednostkowym i wybierz polecenie **Uruchom testy**.
 
 ## <a name="run-test-cases-in-azure-pipelines"></a>Uruchom przypadki testowe w Azure Pipelines<a name="run-test-cases-in-azure-devops"></a>
 
