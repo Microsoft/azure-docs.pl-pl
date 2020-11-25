@@ -6,11 +6,11 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
 ms.openlocfilehash: dc14334668b76ee8cbb81e48abfe1eecf17fa138
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86130406"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007362"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Rozwiązywanie problemów z replikacją w ramach odzyskiwania po awarii maszyny wirtualnej Azure
 
@@ -28,14 +28,14 @@ W poniższych sekcjach opisano przyczyny i rozwiązania.
 
 ## <a name="high-data-change-rate-on-the-source-virtual-machine"></a>Wysoki współczynnik zmian danych na źródłowej maszynie wirtualnej
 
-Azure Site Recovery tworzy zdarzenie, jeśli współczynnik zmian danych na źródłowej maszynie wirtualnej jest większy niż obsługiwane limity. Aby sprawdzić, czy problem jest spowodowany dużym zmianą, przejdź do **pozycji zreplikowane elementy**  >  zdarzenia**maszyny wirtualnej**  >  **— ostatnie 72 godzin**.
+Azure Site Recovery tworzy zdarzenie, jeśli współczynnik zmian danych na źródłowej maszynie wirtualnej jest większy niż obsługiwane limity. Aby sprawdzić, czy problem jest spowodowany dużym zmianą, przejdź do **pozycji zreplikowane elementy**  >  zdarzenia **maszyny wirtualnej**  >  **— ostatnie 72 godzin**.
 Powinna zostać wyświetlona **częstotliwość zmian danych zdarzeń poza obsługiwanymi limitami**:
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event.png" alt-text="Strona Azure Site Recovery, która pokazuje zbyt wysoki współczynnik zmian danych.":::
 
 W przypadku wybrania zdarzenia powinny zostać wyświetlone dokładne informacje o dysku:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png" alt-text="Strona Azure Site Recovery, która pokazuje zbyt wysoki współczynnik zmian danych.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png" alt-text="Strona wyświetlająca szczegóły zdarzenia dotyczącego szybkości zmiany danych.":::
 
 ### <a name="azure-site-recovery-limits"></a>Limity usługi Azure Site Recovery
 
@@ -54,11 +54,11 @@ Dysk w warstwie Premium P20, P30, P40 lub P50 | 16 KB lub większy |20 MB/s | 16
 
 ### <a name="solution"></a>Rozwiązanie
 
-Azure Site Recovery ma limity szybkości zmian danych, w zależności od typu dysku. Aby sprawdzić, czy ten problem jest cykliczny, czy tymczasowy, Znajdź szybkość zmian danych maszyny wirtualnej, której dotyczy problem. Przejdź do źródłowej maszyny wirtualnej, Znajdź metryki w obszarze **monitorowanie**i Dodaj metryki, jak pokazano na poniższym zrzucie ekranu:
+Azure Site Recovery ma limity szybkości zmian danych, w zależności od typu dysku. Aby sprawdzić, czy ten problem jest cykliczny, czy tymczasowy, Znajdź szybkość zmian danych maszyny wirtualnej, której dotyczy problem. Przejdź do źródłowej maszyny wirtualnej, Znajdź metryki w obszarze **monitorowanie** i Dodaj metryki, jak pokazano na poniższym zrzucie ekranu:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/churn.png" alt-text="Strona Azure Site Recovery, która pokazuje zbyt wysoki współczynnik zmian danych.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/churn.png" alt-text="Na stronie, na której jest wyświetlany proces trzech kroków służący do znajdowania współczynnika zmian danych.":::
 
-1. Wybierz pozycję **Dodaj metrykę**i Dodaj **Bajty zapisu dysku systemu operacyjnego/s** i **Bajty zapisu na dysku danych/s**.
+1. Wybierz pozycję **Dodaj metrykę** i Dodaj **Bajty zapisu dysku systemu operacyjnego/s** i **Bajty zapisu na dysku danych/s**.
 1. Monitoruj skok, jak pokazano na zrzucie ekranu.
 1. Wyświetlanie całkowitej liczby operacji zapisu wykonywanych między dyskami systemu operacyjnego a wszystkimi połączonymi dyskami danych. Te metryki mogą nie podawać informacji na poziomie dysku, ale wskazują łączny wzorzec zmian danych.
 

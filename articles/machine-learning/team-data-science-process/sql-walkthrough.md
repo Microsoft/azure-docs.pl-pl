@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 580181aaaea975ee07bcec8108297079c5373b92
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320417"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007413"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Proces nauki danych zespołu w działaniu: używanie SQL Server
 W tym samouczku przedstawiono proces kompilowania i wdrażania modelu uczenia maszynowego przy użyciu SQL Server i publicznie dostępnego zestawu danych — zestawu danych [podróży NYC z taksówkami](https://www.andresmh.com/nyctaxitrips/) . Procedura jest zgodna ze standardowym przepływem nauki o danych: pozyskiwanie i Eksplorowanie danych, inżynierów w celu ułatwienia uczenia się, a następnie kompilowania i wdrażania modelu.
@@ -55,7 +55,7 @@ Dane dotyczące rejsu z NYC taksówkami dotyczą 20 GB skompresowanych plików C
 Unikatowy klucz do przyłączenia \_ danych podróży i \_ opłaty za podróż są złożone z pól: Medallion, \_ licencja na hakera i \_ Data i godzina pobrania.
 
 ## <a name="examples-of-prediction-tasks"></a><a name="mltasks"></a>Przykłady zadań przewidywania
-Będziemy formułować trzy problemy z przewidywaniami na podstawie *\_ kwoty Porada* :
+Będziemy formułować trzy problemy z przewidywaniami na podstawie *\_ kwoty Porada*:
 
 * Klasyfikacja binarna: przewidywanie, czy Porada została zapłacona za podróż, to oznacza, że jest to $0 *dodatnia \_* *\_ wartość* , która jest większa niż $0
 * Klasyfikacja wieloklasowa: przewidywanie zakresu porady dla podróży. Podziel *\_ kwotę* na pięć przedziałów lub klas:
@@ -133,7 +133,7 @@ Wydajność ładowania/przenoszenia dużych ilości danych do SQL Database i kol
      
        ![SQL Database domyślne][15]  
 5. Aby utworzyć nową bazę danych i zestaw grup plików do przechowywania partycjonowanych tabel, Otwórz przykładowy skrypt **Utwórz \_ bazę danych \_ default. SQL**. Skrypt utworzy nową bazę danych o nazwie **TaxiNYC** i 12 grupach plików w domyślnej lokalizacji danych. Każda grupa plików będzie przechowywać jeden miesiąc danych \_ i opłat za podróż \_ . W razie potrzeby zmodyfikuj nazwę bazy danych. Kliknij przycisk **Execute (wykonaj** ), aby uruchomić skrypt.
-6. Następnie Utwórz dwie tabele partycji, jedną dla \_ danych podróży i drugą dla opłaty za podróż \_ . Otwórz przykładowy skrypt **Tworzenie \_ partycjonowanej \_ tabeli. SQL** , która będzie:
+6. Następnie Utwórz dwie tabele partycji, jedną dla \_ danych podróży i drugą dla opłaty za podróż \_ . Otwórz przykładowy skrypt **Tworzenie \_ partycjonowanej \_ tabeli. SQL**, która będzie:
    
    * Utwórz funkcję partycji, aby podzielić dane na miesiąc.
    * Utwórz schemat partycji, aby zamapować dane każdego miesiąca do innej grupy plików.
@@ -258,7 +258,7 @@ AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 ```
 
 #### <a name="feature-engineering-in-sql-queries"></a>Inżynieria funkcji w zapytaniach SQL
-Zapytania eksploracji generacji etykiet i przeprowadzenia konwersji geografii mogą również służyć do generowania etykiet/funkcji przez usunięcie części zliczania. Dodatkowe przykłady SQL dla inżynierów funkcji są dostępne w sekcji [eksplorowanie i opracowywanie funkcji w notesie IPython](#ipnb) . Bardziej wydajne jest uruchamianie zapytań generacji funkcji na pełnym zestawie danych lub w dużym podzestawie przy użyciu zapytań SQL, które są uruchamiane bezpośrednio w wystąpieniu bazy danych SQL Server. Zapytania mogą być wykonywane w **SQL Server Management Studio** , IPython notesie lub dowolnym narzędziu programistycznym lub środowisku, które może uzyskać dostęp do bazy danych lokalnie lub zdalnie.
+Zapytania eksploracji generacji etykiet i przeprowadzenia konwersji geografii mogą również służyć do generowania etykiet/funkcji przez usunięcie części zliczania. Dodatkowe przykłady SQL dla inżynierów funkcji są dostępne w sekcji [eksplorowanie i opracowywanie funkcji w notesie IPython](#ipnb) . Bardziej wydajne jest uruchamianie zapytań generacji funkcji na pełnym zestawie danych lub w dużym podzestawie przy użyciu zapytań SQL, które są uruchamiane bezpośrednio w wystąpieniu bazy danych SQL Server. Zapytania mogą być wykonywane w **SQL Server Management Studio**, IPython notesie lub dowolnym narzędziu programistycznym lub środowisku, które może uzyskać dostęp do bazy danych lokalnie lub zdalnie.
 
 #### <a name="preparing-data-for-model-building"></a>Przygotowywanie danych do kompilowania modelu
 Następujące zapytanie sprzęga **nyctaxie \_** i **nyctaxi opłaty za \_ przejazd** , generuje binarną etykietę klasyfikacji, **\_ klasę** etykietki klasyfikacji z wieloklasową **, a** następnie wyodrębnia losowo 1% próbek z pełnego dołączonego zestawu danych. To zapytanie można skopiować, a następnie wkleić bezpośrednio do modułu [Azure Machine Learning Studio](https://studio.azureml.net) [Importowanie danych][import-data] w celu bezpośredniego pozyskiwania danych z wystąpienia bazy danych SQL Server na platformie Azure. Zapytanie wyklucza rekordy z nieprawidłowymi współrzędnymi (0, 0).
@@ -437,7 +437,7 @@ Podczas przygotowywania danych do kompilowania modeli w [Azure Machine Learning 
 W tej sekcji utworzymy nową tabelę do przechowywania danych próbkowanych i przetworzonych. Przykład bezpośredniej kwerendy SQL na potrzeby konstruowania modelu znajduje się w sekcji [Eksploracja danych i inżynieria funkcji w SQL Server](#dbexplore) .
 
 #### <a name="create-a-sample-table-and-populate-with-1-of-the-joined-tables-drop-table-first-if-it-exists"></a>Utwórz przykładową tabelę i wypełnij ją 1% sprzężonych tabel. Najpierw Porzuć tabelę, jeśli istnieje.
-W tej sekcji dołączymy tabele **nyctaxie \_** i **\_ opłaty za nyctaxi** , Wyodrębnij losową próbę z 1% i Utrwalaj dane przykładowe w nowej tabeli o nazwie **nyctaxi 1 \_ \_ procent** :
+W tej sekcji dołączymy tabele **nyctaxie \_** i **\_ opłaty za nyctaxi**, Wyodrębnij losową próbę z 1% i Utrwalaj dane przykładowe w nowej tabeli o nazwie **nyctaxi 1 \_ \_ procent**:
 
 ```sql
 cursor = conn.cursor()

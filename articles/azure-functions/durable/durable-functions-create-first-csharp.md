@@ -7,11 +7,11 @@ ms.date: 03/18/2020
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
 ms.openlocfilehash: d5b6ecc12cee983cee0772da8b6f8f26a3b5a8ae
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890279"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008216"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Tworzenie pierwszej funkcji trwałej w języku C\#
 
@@ -49,7 +49,7 @@ W tej sekcji użyto Visual Studio Code do utworzenia projektu Azure Functions lo
 
     ![Tworzenie projektu funkcji](media/durable-functions-create-first-csharp/functions-vscode-create-project.png)
 
-1. Wybierz pustą lokalizację folderu dla projektu i wybierz **pozycję Wybierz** .
+1. Wybierz pustą lokalizację folderu dla projektu i wybierz **pozycję Wybierz**.
 
 1. Postępując zgodnie z instrukcjami, podaj następujące informacje:
 
@@ -76,7 +76,7 @@ Poniższe kroki używają szablonu do tworzenia trwałego kodu funkcji w projekc
     | Podaj nazwę funkcji | HelloOrchestration | Nazwa klasy, w której są tworzone funkcje |
     | Podaj przestrzeń nazw | Company. Function | Przestrzeń nazw wygenerowanej klasy |
 
-1. Gdy VS Code zostanie wyświetlony komunikat z pytaniem o wybranie konta magazynu, wybierz **pozycję Wybierz konto magazynu** . Postępując zgodnie z instrukcjami, podaj poniższe informacje, aby utworzyć nowe konto magazynu na platformie Azure.
+1. Gdy VS Code zostanie wyświetlony komunikat z pytaniem o wybranie konta magazynu, wybierz **pozycję Wybierz konto magazynu**. Postępując zgodnie z instrukcjami, podaj poniższe informacje, aby utworzyć nowe konto magazynu na platformie Azure.
 
     | Monit | Wartość | Opis |
     | ------ | ----- | ----------- |
@@ -84,7 +84,7 @@ Poniższe kroki używają szablonu do tworzenia trwałego kodu funkcji w projekc
     | Wybierz konto magazynu | Tworzenie nowego konta magazynu |  |
     | Wprowadź nazwę nowego konta magazynu | *Unikatowa nazwa* | Nazwa konta magazynu do utworzenia |
     | Wybieranie grupy zasobów | *Unikatowa nazwa* | Nazwa grupy zasobów do utworzenia |
-    | Wybieranie lokalizacji | *region* | Zaznacz region blisko siebie |
+    | Wybieranie lokalizacji | *okolicy* | Zaznacz region blisko siebie |
 
 Klasa zawierająca nowe funkcje jest dodawana do projektu. VS Code dodaje również parametry połączenia konta magazynu do *local.settings.jsna* i odwołanie do [`Microsoft.Azure.WebJobs.Extensions.DurableTask`](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) pakietu NuGet do pliku projektu *. csproj* .
 
@@ -102,7 +102,7 @@ Po utworzeniu projektu funkcji i funkcji trwałej można ją przetestować na ko
 
 Podstawowe narzędzia usługi Azure Functions umożliwiają uruchamianie projektu usługi Azure Functions na lokalnym komputerze deweloperskim. Monit o zainstalowanie tych narzędzi pojawia się przy pierwszym uruchomieniu funkcji w programie Visual Studio Code.
 
-1. Aby przetestować funkcję, należy ustawić punkt przerwania w `SayHello` kodzie funkcji działania i nacisnąć klawisz F5, aby uruchomić projekt aplikacji funkcji. Dane wyjściowe z pakietu Core Tools są wyświetlane na panelu **terminalu** .
+1. Aby przetestować funkcję, należy ustawić punkt przerwania w `SayHello` kodzie funkcji działania i nacisnąć klawisz F5, aby uruchomić projekt aplikacji funkcji. Dane wyjściowe z pakietu Core Tools są wyświetlane na panelu **terminalu**.
 
     > [!NOTE]
     > Aby uzyskać więcej informacji na temat debugowania, zapoznaj się z [diagnostyką Durable Functions](durable-functions-diagnostics.md#debugging) .
@@ -146,7 +146,7 @@ Gdy będziesz mieć pewność, że funkcja działa poprawnie na komputerze lokal
 
 ## <a name="test-your-function-in-azure"></a>Testowanie funkcji na platformie Azure
 
-1. Skopiuj adres URL wyzwalacza HTTP z panelu **Dane wyjściowe** . Adres URL, który wywołuje funkcję wyzwalaną przez protokół HTTP, powinien mieć następujący format:
+1. Skopiuj adres URL wyzwalacza HTTP z panelu **Dane wyjściowe**. Adres URL, który wywołuje funkcję wyzwalaną przez protokół HTTP, powinien mieć następujący format:
 
     `https://<functionappname>.azurewebsites.net/api/HelloOrchestration_HttpStart`
 
@@ -183,11 +183,11 @@ Szablon projektu usługi Azure Functions umożliwia utworzenie projektu, który 
 
 1. W programie Visual Studio wybierz pozycję **Nowy**  >  **projekt** z menu **plik** .
 
-1. W oknie dialogowym **Tworzenie nowego projektu** Wyszukaj `functions` , wybierz szablon **Azure Functions** i kliknij przycisk **dalej** . 
+1. W oknie dialogowym **Tworzenie nowego projektu** Wyszukaj `functions` , wybierz szablon **Azure Functions** i kliknij przycisk **dalej**. 
 
     ![Okno dialogowe Nowy projekt umożliwiające utworzenie funkcji w programie Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-project.png)
 
-1. Wpisz **nazwę projektu** , a następnie wybierz **przycisk OK** . Nazwa projektu musi być prawidłowa jako przestrzeń nazw języka C#, dlatego nie należy używać podkreśleń, łączników ani żadnych innych znaków niealfanumerycznych.
+1. Wpisz **nazwę projektu** , a następnie wybierz **przycisk OK**. Nazwa projektu musi być prawidłowa jako przestrzeń nazw języka C#, dlatego nie należy używać podkreśleń, łączników ani żadnych innych znaków niealfanumerycznych.
 
 1. W obszarze **Utwórz nową aplikację Azure Functions** Użyj ustawień określonych w tabeli, która następuje po obrazie.
 
@@ -205,11 +205,11 @@ Szablon projektu usługi Azure Functions umożliwia utworzenie projektu, który 
 
 Poniższe kroki używają szablonu do tworzenia trwałego kodu funkcji w projekcie.
 
-1. Kliknij prawym przyciskiem myszy projekt w programie Visual Studio i wybierz polecenie **Dodaj**  >  **nową funkcję platformy Azure** .
+1. Kliknij prawym przyciskiem myszy projekt w programie Visual Studio i wybierz polecenie **Dodaj**  >  **nową funkcję platformy Azure**.
 
     ![Dodawanie nowej funkcji](./media/durable-functions-create-first-csharp/functions-vs-add-function.png)
 
-1. Sprawdź, czy **Funkcja platformy Azure** została wybrana z menu Dodaj, wpisz nazwę pliku C#, a następnie wybierz pozycję **Dodaj** .
+1. Sprawdź, czy **Funkcja platformy Azure** została wybrana z menu Dodaj, wpisz nazwę pliku C#, a następnie wybierz pozycję **Dodaj**.
 
 1. Wybierz szablon **Durable Functions aranżacji** , a następnie wybierz przycisk **OK** .
 
@@ -261,7 +261,7 @@ Podstawowe narzędzia usługi Azure Functions umożliwiają uruchamianie projekt
     }
     ```
 
-5. Aby zatrzymać debugowanie, naciśnij klawisze **Shift + F5** .
+5. Aby zatrzymać debugowanie, naciśnij klawisze **Shift + F5**.
 
 Gdy będziesz mieć pewność, że funkcja działa poprawnie na komputerze lokalnym, możesz opublikować projekt na platformie Azure.
 

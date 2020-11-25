@@ -6,11 +6,11 @@ ms.author: gwallace
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: aa7a959128d3bcdfcce67d3abeac245975339a9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840306"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007379"
 ---
 # <a name="optimize-visual-studio-performance-for-service-fabric-mesh-projects"></a>Optymalizacja wydajności programu Visual Studio dla projektów usługi Service Fabric Mesh
 
@@ -18,7 +18,7 @@ W tym artykule przedstawiono, jak zoptymalizować wydajność programu Visual St
 
 ## <a name="change-visual-studio-settings"></a>Zmienianie ustawień programu Visual Studio
  
-W programie Visual Studio w obszarze **Narzędzia**  >  **Opcje**   >  **Service Fabric siatka narzędzia**  >  **Ogólne**można dostosować następujące ustawienia:
+W programie Visual Studio w obszarze **Narzędzia**  >  **Opcje**   >  **Service Fabric siatka narzędzia**  >  **Ogólne** można dostosować następujące ustawienia:
 
 - Ustawienie **Ściągaj wymagane obrazy platformy Docker przy ładowaniu projektu** umożliwia szybsze rozpoczęcie pierwszego debugowania (F5) przez uruchomienie procesu pobierania obrazu podczas ładowania projektu.  
 - Ustawienie **Wdróż aplikację przy otwieraniu projektu** umożliwia szybsze rozpoczęcie pierwszego debugowania (F5) przez uruchomienie procesu wdrażania przy otwieraniu projektu.  

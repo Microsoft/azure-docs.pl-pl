@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
 ms.openlocfilehash: f691eb6433907ed10737329de3edd78547f130f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258860"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008280"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Wprowadzenie do monitorowania kondycji usługi Service Fabric
 Na platformie Azure Service Fabric wprowadzono model kondycji, który zapewnia rozbudowane, elastyczne i rozszerzalne oceny kondycji oraz raportowanie. Model umożliwia monitorowanie stanu klastra i usług działających w czasie niemal w czasie rzeczywistym. Możesz łatwo uzyskać informacje o kondycji i rozwiązać potencjalne problemy, zanim staną się one kaskadowe i powodują ogromne przestoje. W typowym modelu usługi wysyłają raporty na podstawie widoków lokalnych, a informacje te są agregowane w celu zapewnienia ogólnego widoku poziomu klastra.
@@ -65,7 +65,7 @@ Możliwe są następujące [Stany kondycji](/dotnet/api/system.fabric.health.hea
 * **OK**. Jednostka jest w dobrej kondycji. Nie ma żadnych znanych problemów dotyczących IT lub jego elementów podrzędnych (jeśli ma zastosowanie).
 * **Ostrzeżenie**. Jednostka ma pewne problemy, ale nadal może działać poprawnie. Na przykład występują opóźnienia, ale nie powodują jeszcze żadnych problemów funkcjonalnych. W niektórych przypadkach warunek ostrzegawczy może zostać naprawiony bez interwencji zewnętrznego. W takich przypadkach raporty kondycji zgłaszają świadomość i zapewniają wgląd w to, co się dzieje. W innych przypadkach warunek ostrzegawczy może obniżyć poziom poważnych problemów bez interwencji użytkownika.
 * **Błąd**. Jednostka jest w złej kondycji. Należy wykonać akcję, aby naprawić stan jednostki, ponieważ nie może ona działać prawidłowo.
-* **Nieznany**. Jednostka nie istnieje w magazynie kondycji. Ten wynik można uzyskać z zapytań rozproszonych, które scalają wyniki z wielu składników. Na przykład zapytanie Get node list przechodzi do **trybu failovermanager**, **Clustermanager**i **HealthManager**; zapytanie Get list aplikacji przechodzi do programu **clustermanager** i **kondycji**. Te zapytania scalają wyniki z wielu składników systemu. Jeśli inny składnik systemowy zwraca jednostkę, która nie jest obecna w magazynie kondycji, scalony wynik ma nieznany stan kondycji. Jednostka nie znajduje się w magazynie, ponieważ raporty kondycji nie zostały jeszcze przetworzone lub jednostka została oczyszczona po usunięciu.
+* **Nieznany**. Jednostka nie istnieje w magazynie kondycji. Ten wynik można uzyskać z zapytań rozproszonych, które scalają wyniki z wielu składników. Na przykład zapytanie Get node list przechodzi do **trybu failovermanager**, **Clustermanager** i **HealthManager**; zapytanie Get list aplikacji przechodzi do programu **clustermanager** i **kondycji**. Te zapytania scalają wyniki z wielu składników systemu. Jeśli inny składnik systemowy zwraca jednostkę, która nie jest obecna w magazynie kondycji, scalony wynik ma nieznany stan kondycji. Jednostka nie znajduje się w magazynie, ponieważ raporty kondycji nie zostały jeszcze przetworzone lub jednostka została oczyszczona po usunięciu.
 
 ## <a name="health-policies"></a>Zasady dotyczące kondycji
 Magazyn kondycji stosuje zasady dotyczące kondycji, aby określić, czy jednostka jest w dobrej kondycji na podstawie raportów i jego elementów podrzędnych.
@@ -101,7 +101,7 @@ Poniższy przykład to fragment z manifestu klastra. Aby zdefiniować wpisy na m
 ```
 
 ### <a name="application-health-policy"></a>Zasady dotyczące kondycji aplikacji
-[Zasady kondycji aplikacji](/dotnet/api/system.fabric.health.applicationhealthpolicy) opisują sposób obliczania agregacji zdarzeń i Stanów podrzędnych w przypadku aplikacji i ich elementów podrzędnych. Można ją zdefiniować w manifeście aplikacji, **ApplicationManifest.xml**w pakiecie aplikacji. Jeśli nie określono żadnych zasad, Service Fabric zakłada, że jednostka jest w złej kondycji, jeśli ma raport o kondycji lub podrzędny stan kondycji ostrzeżenia lub błędu.
+[Zasady kondycji aplikacji](/dotnet/api/system.fabric.health.applicationhealthpolicy) opisują sposób obliczania agregacji zdarzeń i Stanów podrzędnych w przypadku aplikacji i ich elementów podrzędnych. Można ją zdefiniować w manifeście aplikacji, **ApplicationManifest.xml** w pakiecie aplikacji. Jeśli nie określono żadnych zasad, Service Fabric zakłada, że jednostka jest w złej kondycji, jeśli ma raport o kondycji lub podrzędny stan kondycji ostrzeżenia lub błędu.
 Konfigurowalne zasady są następujące:
 
 * [ConsiderWarningAsError](/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Określa, czy raporty kondycji ostrzeżeń mają być traktowane jako błędy podczas oceny kondycji. Wartość domyślna: false.
@@ -196,7 +196,7 @@ Aby wysłać dane o kondycji do magazynu kondycji, musi on identyfikować jednos
   * DeployedApplication. Nazwa aplikacji (URI) i nazwa węzła (ciąg).
   * DeployedServicePackage. Nazwa aplikacji (URI), nazwa węzła (ciąg) i nazwa manifestu usługi (ciąg).
 * **Właściwość**. *Ciąg* (nie stałe Wyliczenie), które umożliwia programowi reporter klasyfikowanie zdarzenia kondycji dla określonej właściwości jednostki. Na przykład program reporter A może zgłosić kondycję właściwości "Storage" Node01 i reporter B może zgłosić kondycję właściwości Node01 "Connectivity". W magazynie kondycji te raporty są traktowane jako osobne zdarzenia dotyczące kondycji dla jednostki Node01.
-* **Opis**. Ciąg, który umożliwia zgłaszanie szczegółowych informacji o zdarzeniu kondycji. Właściwości **SourceId**, **Property**i **HealthState** powinny w pełni opisać raport. Opis dodaje informacje, które można odczytać w celu odczytania raportu. Tekst ułatwia administratorom i użytkownikom zrozumienie raportu o kondycji.
+* **Opis**. Ciąg, który umożliwia zgłaszanie szczegółowych informacji o zdarzeniu kondycji. Właściwości **SourceId**, **Property** i **HealthState** powinny w pełni opisać raport. Opis dodaje informacje, które można odczytać w celu odczytania raportu. Tekst ułatwia administratorom i użytkownikom zrozumienie raportu o kondycji.
 * **HealthState**. [Wyliczenie](service-fabric-health-introduction.md#health-states) opisujące stan kondycji raportu. Akceptowane wartości to OK, ostrzeżenie i błąd.
 * **TimeToLive**. Obiekt TimeSpan, który wskazuje, jak długo Raport kondycji jest prawidłowy. W połączeniu z usługą **RemoveWhenExpired**, dzięki czemu magazyn kondycji wie, jak oszacować wygasłe zdarzenia. Domyślnie wartość jest nieskończona, a raport jest nieprawidłowy.
 * **RemoveWhenExpired**. Wartość logiczna. W przypadku ustawienia wartości true raport o kondycji wygasłej jest automatycznie usuwany z magazynu kondycji, a raport nie ma wpływu na ocenę kondycji jednostki. Używany, gdy raport jest ważny tylko przez określony przedział czasu, a raport nie musi wyraźnie czyścić go. Jest on również używany do usuwania raportów z magazynu kondycji (na przykład, gdy licznik alarmowy został zmieniony i zatrzyma wysyłanie raportów z poprzednią źródłem i właściwością). Może wysłać raport z krótkim TimeToLive wraz z RemoveWhenExpired, aby wyczyścić poprzedni stan z magazynu kondycji. Jeśli wartość jest równa false, wygasły raport jest traktowany jako błąd na ocenie kondycji. Wartość false powoduje sygnalizowanie magazynu kondycji, który Źródło powinien raportować okresowo według tej właściwości. Jeśli tak nie jest, może wystąpić problem z licznikiem licznika. Kondycja licznika danych jest przechwytywana przez rozważenie zdarzenia jako błędu.
