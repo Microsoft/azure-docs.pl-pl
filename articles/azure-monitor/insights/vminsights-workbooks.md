@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: 43cdb9de111bdea5486e49a56d58d38279b685c7
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996386"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95985547"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Tworzenie interakcyjnych raportów usługi Azure Monitor dla maszyn wirtualnych za pomocą skoroszytów
 
@@ -64,7 +64,7 @@ Skoroszyt składa się z sekcji składających się niezależnie od edytowalnych
 
 ## <a name="editing-workbook-sections"></a>Edytowanie sekcji skoroszytu
 
-Skoroszyty mają dwa tryby: **tryb edycji**i **tryb odczytywania**. Po pierwszym uruchomieniu nowego skoroszytu zostanie on otwarty w **trybie edycji**. Pokazuje całą zawartość skoroszytu, w tym wszelkie kroki i parametry, które są w inny sposób ukryte. **Tryb odczytu** przedstawia uproszczony widok stylu raportu. Tryb odczytywania pozwala na abstrakcję złożoności, która pomogła utworzyć raport przy zachowaniu zasadniczej Mechanics tylko kilku kliknięć, gdy jest to potrzebne do modyfikacji.
+Skoroszyty mają dwa tryby: **tryb edycji** i **tryb odczytywania**. Po pierwszym uruchomieniu nowego skoroszytu zostanie on otwarty w **trybie edycji**. Pokazuje całą zawartość skoroszytu, w tym wszelkie kroki i parametry, które są w inny sposób ukryte. **Tryb odczytu** przedstawia uproszczony widok stylu raportu. Tryb odczytywania pozwala na abstrakcję złożoności, która pomogła utworzyć raport przy zachowaniu zasadniczej Mechanics tylko kilku kliknięć, gdy jest to potrzebne do modyfikacji.
 
 ![Zrzut ekranu przedstawiający sekcję Virtual Machines skoroszyt w Azure Monitor pokazujący nowy skoroszyt w trybie edycji z wyróżnionymi kontrolkami edycji.](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
 

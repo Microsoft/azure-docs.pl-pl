@@ -7,18 +7,18 @@ author: bwren
 ms.author: bwren
 ms.date: 03/20/2020
 ms.openlocfilehash: 32ad92b333eda8cd429303177dba160f0b58af54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445535"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95985802"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-to-understand-application-components"></a>Użyj funkcji map Azure Monitor dla maszyn wirtualnych, aby zrozumieć składniki aplikacji
 W Azure Monitor dla maszyn wirtualnych można wyświetlić odnalezione składniki aplikacji na maszynach wirtualnych z systemem Windows i Linux, które działają na platformie Azure lub w środowisku. Można obserwować maszyny wirtualne na dwa sposoby. Wyświetl mapę bezpośrednio z maszyny wirtualnej lub Wyświetl mapę z Azure Monitor, aby wyświetlić składniki w różnych grupach maszyn wirtualnych. Ten artykuł pomoże Ci zrozumieć te dwie metody wyświetlania i sposób korzystania z funkcji map. 
 
 Informacje o konfigurowaniu Azure Monitor dla maszyn wirtualnych można znaleźć w temacie [Enable Azure monitor dla maszyn wirtualnych](vminsights-enable-overview.md).
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 ## <a name="introduction-to-the-map-experience"></a>Wprowadzenie do obsługi mapy
@@ -88,7 +88,7 @@ Jeśli grupa zawiera monitorowane i niemonitorowane serwery, możesz wybrać odp
 Aby uzyskać dostęp do Azure Monitor dla maszyn wirtualnych bezpośrednio z maszyny wirtualnej:
 
 1. W Azure Portal wybierz pozycję **Virtual Machines**. 
-2. Z listy wybierz maszynę wirtualną. W sekcji **monitorowanie** wybierz pozycję **szczegółowe**dane.  
+2. Z listy wybierz maszynę wirtualną. W sekcji **monitorowanie** wybierz pozycję **szczegółowe** dane.  
 3. Wybierz kartę **Mapa** .
 
 Mapa wizualizuje zależności maszyn wirtualnych przez odnajdywanie uruchomionych grup procesów i procesów, które mają aktywne połączenia sieciowe w określonym przedziale czasu.  
@@ -102,7 +102,7 @@ Domyślnie mapa pokazuje ostatnie 30 minut. Aby zobaczyć, jak wyszukiwane są z
 Aby uzyskać dostęp do Azure Monitor dla maszyn wirtualnych bezpośrednio z zestawu skalowania maszyn wirtualnych:
 
 1. W Azure Portal wybierz pozycję **zestawy skalowania maszyn wirtualnych**.
-2. Z listy wybierz maszynę wirtualną. Następnie w sekcji **monitorowanie** wybierz pozycję **szczegółowe**dane.  
+2. Z listy wybierz maszynę wirtualną. Następnie w sekcji **monitorowanie** wybierz pozycję **szczegółowe** dane.  
 3. Wybierz kartę **Mapa** .
 
 Mapa wizualizuje wszystkie wystąpienia w zestawie skalowania jako węzeł grupy wraz z zależnościami grupy. Rozwinięty węzeł zawiera listę wystąpień w zestawie skalowania. Można przewijać te wystąpienia 10 w danym momencie. 
