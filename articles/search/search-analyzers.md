@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 06/20/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 544509a8c90c9273b748591509b1fa86510d71c3
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421740"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013823"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analizatory do przetwarzania tekstu na platformie Azure Wyszukiwanie poznawcze
 
@@ -48,10 +48,10 @@ Na poniższej liście opisano, które analizatory są dostępne w usłudze Azure
 | Kategoria | Opis |
 |----------|-------------|
 | [Standardowy Analizator Lucene](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Domyślne. Nie jest wymagana Specyfikacja ani konfiguracja. Ten Analizator ogólnego przeznaczenia dobrze sprawdza się w wielu językach i scenariuszach.|
-| Wstępnie zdefiniowane analizatory | Oferowany jako gotowy produkt przeznaczony do użycia w przypadku, gdy jest to możliwe. <br/>Istnieją dwa typy: wyspecjalizowane i językowe. Co sprawia, że "wstępnie zdefiniowane" polega na odwoływaniu się do nich według nazwy, bez konfiguracji ani dostosowywania. <br/><br/>[Analizatory wyspecjalizowane (Language-niezależny od)](index-add-custom-analyzers.md#AnalyzerTable) są używane, gdy dane wejściowe wymagają wyspecjalizowanego przetwarzania lub minimalnego przetwarzania. Analizatory wstępnie zdefiniowane w języku innym niż język to **Asciifolding** , **słowo kluczowe** , **wzorzec** , **prosty** , **stop** , **biały** znak.<br/><br/>[Analizatory języka](index-add-language-analyzers.md) są używane, gdy potrzebna jest zaawansowana obsługa języków w poszczególnych językach. Platforma Azure Wyszukiwanie poznawcze obsługuje analizatory języków Lucene 50 i 35 analizatory przetwarzania języka naturalnego firmy Microsoft. |
+| Wstępnie zdefiniowane analizatory | Oferowany jako gotowy produkt przeznaczony do użycia w przypadku, gdy jest to możliwe. <br/>Istnieją dwa typy: wyspecjalizowane i językowe. Co sprawia, że "wstępnie zdefiniowane" polega na odwoływaniu się do nich według nazwy, bez konfiguracji ani dostosowywania. <br/><br/>[Analizatory wyspecjalizowane (Language-niezależny od)](index-add-custom-analyzers.md#AnalyzerTable) są używane, gdy dane wejściowe wymagają wyspecjalizowanego przetwarzania lub minimalnego przetwarzania. Analizatory wstępnie zdefiniowane w języku innym niż język to **Asciifolding**, **słowo kluczowe**, **wzorzec**, **prosty**, **stop**, **biały** znak.<br/><br/>[Analizatory języka](index-add-language-analyzers.md) są używane, gdy potrzebna jest zaawansowana obsługa języków w poszczególnych językach. Platforma Azure Wyszukiwanie poznawcze obsługuje analizatory języków Lucene 50 i 35 analizatory przetwarzania języka naturalnego firmy Microsoft. |
 |[Analizatory niestandardowe](/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Odnosi się do zdefiniowanej przez użytkownika konfiguracji kombinacji istniejących elementów, która składa się z jednego tokenizatora (wymagane) i opcjonalnych filtrów (Char lub token).|
 
-Kilka wstępnie zdefiniowanych analizatorów, takich jak **wzorzec** lub **Zatrzymywanie** , obsługują ograniczony zestaw opcji konfiguracji. Aby ustawić te opcje, można efektywnie utworzyć Analizator niestandardowy składający się z wstępnie zdefiniowanego analizatora i jedną z opcji alternatywnych udokumentowanych w [wstępnie zdefiniowanych odwołaniach analizatora](index-add-custom-analyzers.md#AnalyzerTable). Podobnie jak w przypadku dowolnej konfiguracji niestandardowej, należy podać nową konfigurację przy użyciu nazwy, takiej jak *myPatternAnalyzer* , aby odróżnić ją od analizatora wzorców Lucene.
+Kilka wstępnie zdefiniowanych analizatorów, takich jak **wzorzec** lub **Zatrzymywanie**, obsługują ograniczony zestaw opcji konfiguracji. Aby ustawić te opcje, można efektywnie utworzyć Analizator niestandardowy składający się z wstępnie zdefiniowanego analizatora i jedną z opcji alternatywnych udokumentowanych w [wstępnie zdefiniowanych odwołaniach analizatora](index-add-custom-analyzers.md#AnalyzerTable). Podobnie jak w przypadku dowolnej konfiguracji niestandardowej, należy podać nową konfigurację przy użyciu nazwy, takiej jak *myPatternAnalyzer* , aby odróżnić ją od analizatora wzorców Lucene.
 
 ## <a name="how-to-specify-analyzers"></a>Jak określić analizatory
 

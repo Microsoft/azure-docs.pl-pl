@@ -4,12 +4,12 @@ description: Funkcja błyskawicznego przywracania platformy Azure i często zada
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 95de22d8493181f098e480afc4f319c44c633e42
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 147fadc92429157ed2f9ba3eb68297a3e1d08d24
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173925"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96014452"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Uzyskiwanie ulepszonej wydajności tworzenia kopii zapasowych i przywracania dzięki funkcji Azure Backup natychmiastowego przywracania
 
@@ -117,3 +117,8 @@ Jeśli punkt odzyskiwania zawiera migawkę i jest dostępny najnowszy punkt odzy
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>Nie potrzebuję funkcji natychmiastowego przywracania. Czy można ją wyłączyć?
 
 Funkcja natychmiastowego przywracania jest włączona dla wszystkich i nie można jej wyłączyć. Przechowywanie migawek można zmniejszyć do co najmniej jednego dnia.
+
+### <a name="is-it-safe-to-restart-the-vm-during-the-transfer-process-which-can-take-many-hours-will-restarting-the-vm-interrupt-or-slow-down-the-transfer"></a>Czy można bezpiecznie ponownie uruchomić maszynę wirtualną w trakcie procesu transferu (może to potrwać wiele godzin)? Czy nastąpi ponowne uruchomienie przerwania maszyny wirtualnej lub spowolnienie transferu?
+
+Tak bezpieczne i nie ma żadnego wpływu na szybkość transferu danych.
+

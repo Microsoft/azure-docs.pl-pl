@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 596de459b888bb9973aca1c7d72f2f9e24c966eb
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445136"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013976"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Przewodnik dewelopera usługi Azure Key Vault
 
@@ -56,11 +56,11 @@ Key Vault używa uwierzytelniania usługi Azure AD, który wymaga podmiotu zabez
 Zalecane jest używanie tożsamości zarządzanej dla aplikacji wdrożonych na platformie Azure. W przypadku korzystania z usług platformy Azure, które nie obsługują tożsamości zarządzanej lub jeśli aplikacje są wdrażane lokalnie, jednostka [usługi z certyfikatem](../../active-directory/develop/howto-create-service-principal-portal.md) jest możliwym alternatywą. W tym scenariuszu certyfikat powinien być przechowywany w Key Vault i obrócony często. Nazwa główna usługi z wpisem tajnym może być używana w środowiskach deweloperskich i testowych, a także lokalnie lub w Cloud Shell przy użyciu podmiotu zabezpieczeń użytkownika.
 
 Zalecane podmioty zabezpieczeń na środowisko:
-- **Środowisko produkcyjne** :
+- **Środowisko produkcyjne**:
   - Zarządzana tożsamość lub jednostka usługi z certyfikatem
-- **Środowiska testowe i programistyczne** :
+- **Środowiska testowe i programistyczne**:
   - Tożsamość zarządzana, nazwa główna usługi z certyfikatem lub jednostką usługi z kluczem tajnym
-- **Programowanie lokalne** :
+- **Programowanie lokalne**:
   - Nazwa główna użytkownika lub nazwa główna usługi z kluczem tajnym
 
 Powyższe scenariusze uwierzytelniania są obsługiwane przez **bibliotekę klienta tożsamości platformy Azure** i są zintegrowane z zestawami SDK Key Vault. Biblioteka tożsamości platformy Azure może być używana w różnych środowiskach i platformach bez konieczności zmiany kodu. Usługa Azure Identity również automatycznie pobiera token uwierzytelniania z zalogowanego do użytkownika platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure, programu Visual Studio, Visual Studio Code i innych. 

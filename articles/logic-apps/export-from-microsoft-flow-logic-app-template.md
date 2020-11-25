@@ -7,11 +7,11 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.openlocfilehash: 1c2f0a2c54be7adbc7b8babd596f18e08c67a024
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269560"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014418"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Eksportowanie przepływów z usługi Power Automate i wdrażanie w usłudze Azure Logic Apps
 
@@ -48,7 +48,7 @@ Aby uzyskać więcej informacji, zobacz [zwiększanie do Azure Logic Apps](https
 
    ![Znajdź i wybierz pozycję "Template deployment"](./media/export-from-microsoft-flow-logic-app-template/select-template-deployment.png)
 
-1. W obszarze **wdrażanie niestandardowe**wybierz opcję **Kompiluj własny szablon w edytorze**.
+1. W obszarze **wdrażanie niestandardowe** wybierz opcję **Kompiluj własny szablon w edytorze**.
 
    ![Wybierz pozycję "Kompiluj własny szablon w edytorze"](./media/export-from-microsoft-flow-logic-app-template/build-template-in-editor.png)
 

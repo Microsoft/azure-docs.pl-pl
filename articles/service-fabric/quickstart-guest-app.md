@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 12/06/2017
 ms.custom: devx-track-js
 ms.openlocfilehash: dfd1fe9db54925bc17a53a7686fa34d5ea53cd5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614108"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013602"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Hostowanie aplikacji w technologii Node.js w usłudze Azure Service Fabric
 
@@ -86,7 +86,7 @@ Otwórz plik **ServiceManifest.xml** w projekcie. W dolnej części manifestu is
   </Resources>
 ```
 
-## <a name="deploy-to-azure"></a>Wdrażanie na platformie Azure
+## <a name="deploy-to-azure"></a>Wdróż na platformie Azure
 
 Jeśli naciśniesz klawisz **F5** i uruchomisz projekt, zostanie on wdrożony w klastrze lokalnym. Zamiast tego wdrożymy go jednak na platformie Azure.
 
@@ -98,13 +98,13 @@ Wybierz docelowy profil **PublishProfiles\Cloud.xml**.
 
 Jeśli nie zostało to wykonane wcześniej, wybierz konto platformy Azure, na którym ma się odbyć wdrożenie. Jeśli nie masz jeszcze konta, [utwórz je][create-account].
 
-W obszarze **Punkt końcowy połączenia** wybierz klaster usługi Service Fabric do wdrożenia. Jeśli go nie masz, wybierz pozycję ** &lt; Utwórz nowy klaster... &gt; ** otwiera okno przeglądarki sieci Web do Azure Portal. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [tworzenia klastra w portalu](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
+W obszarze **Punkt końcowy połączenia** wybierz klaster usługi Service Fabric do wdrożenia. Jeśli go nie masz, wybierz pozycję **&lt; Utwórz nowy klaster... &gt;** otwiera okno przeglądarki sieci Web do Azure Portal. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [tworzenia klastra w portalu](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
 
 Podczas tworzenia klastra usługi Service Fabric upewnij się, że ustawienie **Niestandardowe punkty końcowe** ma wartość **80**.
 
 ![Konfiguracja typu węzła usługi sieci szkieletowej z niestandardowym punktem końcowym][custom-endpoint]
 
-Tworzenie nowego klastra usługi Service Fabric zajmuje trochę czasu. Po jego utworzeniu Wróć do okna dialogowego publikowanie i wybierz pozycję ** &lt; Odśwież &gt; **. Nowy klaster znajduje się w polu listy rozwijanej; wybierz go.
+Tworzenie nowego klastra usługi Service Fabric zajmuje trochę czasu. Po jego utworzeniu Wróć do okna dialogowego publikowanie i wybierz pozycję **&lt; Odśwież &gt;**. Nowy klaster znajduje się w polu listy rozwijanej; wybierz go.
 
 Naciśnij przycisk **Publikuj** i poczekaj na zakończenie wdrożenia.
 

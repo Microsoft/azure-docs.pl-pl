@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
 ms.openlocfilehash: 390a8a49e9a47ee5e6845d85fe4fe02f514708e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362201"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013619"
 ---
 # <a name="how-does-hyper-v-replication-work"></a>Jak działa replikacja funkcji Hyper-V?
 
@@ -72,7 +72,7 @@ Można ograniczyć przepustowość używaną do przekazywania danych do platform
 1. Zaloguj się do hosta lub węzła klastra funkcji Hyper-V.
 2. Uruchom polecenie **C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.msc**, aby otworzyć przystawkę MMC Azure Backup systemu Windows.
 3. W przystawce wybierz pozycję **Zmień właściwości**.
-4. W obszarze **ograniczenie przepustowości**wybierz opcję **Włącz ograniczenie przepustowości Internetu dla operacji tworzenia kopii zapasowej**. Ustaw limity dla godzin pracy i czasu wolnego. Prawidłowe zakresy są z zakresu od 512 KB/s do 1 023 MB/s.
+4. W obszarze **ograniczenie przepustowości** wybierz opcję **Włącz ograniczenie przepustowości Internetu dla operacji tworzenia kopii zapasowej**. Ustaw limity dla godzin pracy i czasu wolnego. Prawidłowe zakresy są z zakresu od 512 KB/s do 1 023 MB/s.
 I
 
 ### <a name="influence-upload-efficiency"></a>Wpływ na wydajność przekazywania

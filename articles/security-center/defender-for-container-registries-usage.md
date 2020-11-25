@@ -7,14 +7,14 @@ ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 2471a19cf795d969644cb92e23b7a2926f2ee1a9
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: a5d66e43485ec66b6297ef11ed382e8fb82b7cb3
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372612"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96014582"
 ---
-# <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Korzystanie z usługi Azure Defender dla rejestrów kontenerów do skanowania obrazów pod kątem luk w zabezpieczeniach
+# <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Korzystanie z usługi Azure Defender dla rejestrów kontenerów w celu skanowania obrazów pod kątem luk w zabezpieczeniach
 
 Na tej stronie opisano sposób użycia wbudowanego skanera luk w zabezpieczeniach do skanowania obrazów kontenerów przechowywanych w Azure Container Registry opartych na Azure Resource Manager.
 
@@ -22,17 +22,7 @@ Gdy usługa **Azure Defender dla rejestrów kontenerów** jest włączona, wszys
 
 Gdy skaner zgłasza luki w zabezpieczeniach Security Center, Security Center przedstawia wyniki i powiązane informacje jako zalecenia. Ponadto, ustalenia obejmują powiązane informacje, takie jak czynności zaradcze, odpowiednie CVEs, wyniki CVSS i inne. Zidentyfikowane luki w zabezpieczeniach można wyświetlić dla jednej lub kilku subskrypcji lub dla określonego rejestru.
 
-## <a name="availability"></a>Dostępność
-
-|Aspekt|Szczegóły|
-|----|:----|
-|Stan wydania:|Ogólnie dostępna (GA)|
-|Wpisaną|Opłaty za **usługę Azure Defender dla rejestrów kontenerów** są rozliczane zgodnie z pokazaną na [stronie cennika](security-center-pricing.md)|
-|Obsługiwane rejestry i obrazy:|Obrazy systemu Linux w rejestrach ACR dostępnych z publicznej sieci Internet z dostępem do powłoki|
-|Nieobsługiwane rejestry i obrazy:|Obrazy systemu Windows<br>Rejestry prywatne<br>Rejestry z dostępem ograniczonym do zapory, punktu końcowego usługi lub prywatnych punktów końcowych, takich jak link prywatny platformy Azure<br>Obrazy Super minimalistyczny, takie jak obrazy wyłuskane [Docker](https://hub.docker.com/_/scratch/) lub obrazy "Distroless", które zawierają tylko aplikacje i ich zależności środowiska uruchomieniowego bez Menedżera pakietów, powłoki lub systemu operacyjnego|
-|Wymagane role i uprawnienia:|Rola **czytelnik zabezpieczeń** i [Azure Container Registry czytelnik](../container-registry/container-registry-roles.md)|
-|Połączeń|![Tak ](./media/icons/yes-icon.png) chmury komercyjne<br>![Tak ](./media/icons/yes-icon.png) US gov — tylko funkcja skanowania w trybie push jest obecnie obsługiwana. Dowiedz się więcej w [przypadku skanowania obrazów?](defender-for-container-registries-introduction.md#when-are-images-scanned)<br>![Brak ](./media/icons/no-icon.png) Chin gov, inne gov|
-|||
+[!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
 
 
 ## <a name="identify-vulnerabilities-in-images-in-azure-container-registries"></a>Identyfikowanie luk w zabezpieczeniach obrazów w rejestrach kontenerów platformy Azure 

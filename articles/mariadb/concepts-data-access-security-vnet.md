@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/17/2020
 ms.openlocfilehash: 0863ccda9f292f3da9f7064a78ba700ab5962eb2
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533467"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014639"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Używanie reguł i punktów końcowych usługi dla sieci wirtualnej w przypadku usługi Azure Database for MariaDB
 
@@ -34,7 +34,7 @@ Możesz również rozważyć użycie [prywatnego linku](concepts-data-access-sec
 
 **Podsieć:** Sieć wirtualna zawiera **podsieci**. Wszystkie maszyny wirtualne platformy Azure, które są przypisane do podsieci. Jedna podsieć może zawierać wiele maszyn wirtualnych lub innych węzłów obliczeniowych. Węzły obliczeniowe znajdujące się poza siecią wirtualną nie mogą uzyskać dostępu do sieci wirtualnej, chyba że skonfigurowano zabezpieczenia, aby zezwolić na dostęp.
 
-**Virtual Network punkt końcowy usługi:** [Punkt końcowy usługi Virtual Network][vm-virtual-network-service-endpoints-overview-649d] jest podsiecią, której wartości właściwości zawierają co najmniej jedną formalną nazwę typu usługi platformy Azure. W tym artykule interesuje Cię nazwę typu **Microsoft. SQL** , która odnosi się do usługi platformy Azure o nazwie SQL Database. Ten tag usługi dotyczy również usług Azure Database for MariaDB, MySQL i PostgreSQL. Należy pamiętać, że podczas stosowania znacznika usługi **Microsoft. SQL** do punktu końcowego usługi sieci wirtualnej zostanie skonfigurowany ruch punktu końcowego usługi dla wszystkich serwerów Azure SQL Database, Azure Database for MariaDB, Azure Database for MySQL i Azure Database for PostgreSQL w podsieci.
+**Virtual Network punkt końcowy usługi:** [Punkt końcowy usługi Virtual Network][vm-virtual-network-service-endpoints-overview-649d] jest podsiecią, której wartości właściwości zawierają co najmniej jedną formalną nazwę typu usługi platformy Azure. W tym artykule interesuje Cię nazwę typu **Microsoft. SQL**, która odnosi się do usługi platformy Azure o nazwie SQL Database. Ten tag usługi dotyczy również usług Azure Database for MariaDB, MySQL i PostgreSQL. Należy pamiętać, że podczas stosowania znacznika usługi **Microsoft. SQL** do punktu końcowego usługi sieci wirtualnej zostanie skonfigurowany ruch punktu końcowego usługi dla wszystkich serwerów Azure SQL Database, Azure Database for MariaDB, Azure Database for MySQL i Azure Database for PostgreSQL w podsieci.
 
 **Reguła sieci wirtualnej:** Reguła sieci wirtualnej dla serwera Azure Database for MariaDB to podsieć wymieniona na liście kontroli dostępu (ACL) serwera Azure Database for MariaDB. Aby znajdować się na liście ACL dla serwera Azure Database for MariaDB, podsieć musi zawierać nazwę typu **Microsoft. SQL** .
 

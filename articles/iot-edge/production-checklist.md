@@ -12,11 +12,11 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 7cabae837656611813d44017ce2e1112f06066ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89669604"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013296"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Przygotowanie do wdrożenia rozwiązania IoT Edge w środowisku produkcyjnym
 
@@ -132,7 +132,7 @@ Wartość domyślna parametru timeToLiveSecs to 7200 sekund, czyli dwie godziny.
 
 ### <a name="do-not-use-debug-versions-of-module-images"></a>Nie używaj debugowania wersji obrazów modułów
 
-Podczas przechodzenia z scenariuszy testowych do scenariuszy produkcyjnych należy pamiętać o usunięciu konfiguracji debugowania z manifestów wdrożenia. Sprawdź, czy żaden z obrazów modułu w manifestach wdrożenia ma sufiks ** \. debugowania** . Jeśli dodano opcje tworzenia w celu udostępnienia portów w modułach na potrzeby debugowania, Usuń również te opcje.
+Podczas przechodzenia z scenariuszy testowych do scenariuszy produkcyjnych należy pamiętać o usunięciu konfiguracji debugowania z manifestów wdrożenia. Sprawdź, czy żaden z obrazów modułu w manifestach wdrożenia ma sufiks **\. debugowania** . Jeśli dodano opcje tworzenia w celu udostępnienia portów w modułach na potrzeby debugowania, Usuń również te opcje.
 
 ## <a name="container-management"></a>Zarządzanie kontenerami
 
@@ -163,7 +163,7 @@ Aby uwierzytelnić się przy użyciu nazwy głównej usługi, podaj identyfikato
 * W przypadku hasła lub klucza tajnego klienta określ hasło nazwy głównej usługi.
 
 > [!NOTE]
-> Po wdrożeniu rozszerzonego uwierzytelniania zabezpieczeń należy wyłączyć ustawienie **użytkownika Administrator** , aby domyślny dostęp do nazwy użytkownika/hasła nie był już dostępny. W rejestrze kontenerów w Azure Portal z menu po lewej stronie w obszarze **Ustawienia**wybierz pozycję **klucze dostępu**.
+> Po wdrożeniu rozszerzonego uwierzytelniania zabezpieczeń należy wyłączyć ustawienie **użytkownika Administrator** , aby domyślny dostęp do nazwy użytkownika/hasła nie był już dostępny. W rejestrze kontenerów w Azure Portal z menu po lewej stronie w obszarze **Ustawienia** wybierz pozycję **klucze dostępu**.
 
 ### <a name="use-tags-to-manage-versions"></a>Używanie tagów do zarządzania wersjami
 
@@ -194,7 +194,7 @@ Następnie należy zaktualizować odwołania do obrazu w deployment.template.jsp
 
     `"image": "<registry name and server>/azureiotedge-hub:1.0",`
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 * **Pomaga**
   * Przejrzyj konfigurację wychodzącą/przychodzącą

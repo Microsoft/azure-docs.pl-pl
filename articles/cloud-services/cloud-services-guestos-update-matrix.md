@@ -13,11 +13,11 @@ ms.workload: tbd
 ms.date: 11/17/2020
 ms.author: yohaddad
 ms.openlocfilehash: a5cc0fdf0473cb8ceafd164a34df6f0bd66dd6d3
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94737442"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013704"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Wersje systemu operacyjnego gościa platformy Azure i macierz zgodności zestawu SDK
 Program udostępnia aktualne informacje o najnowszych wersjach systemu operacyjnego gościa platformy Azure dla Cloud Services. Te informacje ułatwiają zaplanowanie ścieżki uaktualnienia przed wyłączeniem systemu operacyjnego gościa. Jeśli skonfigurujesz role do korzystania z *automatycznych* aktualizacji systemu operacyjnego gościa zgodnie z opisem w [ustawieniach aktualizacji systemu operacyjnego gościa platformy Azure][Azure Guest OS Update Settings], nie trzeba przeczytywać tej strony.

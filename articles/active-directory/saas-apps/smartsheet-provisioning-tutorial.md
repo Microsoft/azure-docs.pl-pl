@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 06/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 79fa480e0cca590446a0251f43c45b2e04c97cd5
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359344"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013160"
 ---
 # <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie narzędzia Smartsheet na potrzeby automatycznego aprowizacji użytkowników
 
@@ -75,7 +75,7 @@ Przed skonfigurowaniem usługi narzędzia Smartsheet na potrzeby automatycznego 
 
     ![Zrzut ekranu przedstawiający okno dialogowe Ustawienia osobiste z dostępem do interfejsu API i Generuj nowe opcje tokenu dostępu o nazwie wychodzące.](media/smartsheet-provisioning-tutorial/Smartsheet06.png)
 
-7. Zdefiniuj nazwę tokenu dostępu interfejsu API. Kliknij pozycję **OK**.
+7. Zdefiniuj nazwę tokenu dostępu interfejsu API. Kliknij przycisk **OK**.
 
     ![Zrzut ekranu przedstawiający krok 1 z 2: generowanie tokenu dostępu API z opcją OK o nazwie out.](media/smartsheet-provisioning-tutorial/Smartsheet07.png)
 
@@ -107,7 +107,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-smartsheet-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla narzędzia Smartsheet w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -131,7 +131,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do narzędzia Smartsheet**.
 

@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: data-factory
 author: linda33wj
 ms.author: jingwang
@@ -9,11 +9,11 @@ ms.topic: include
 ms.custom: include file
 ms.date: 06/27/2019
 ms.openlocfilehash: a979cd0a4c2ee6466edebadf61e8a98b8f17c9f3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86544600"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013381"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -46,7 +46,7 @@ W tym przewodniku szybki start używasz konta usługi Azure Storage ogólnego pr
 Do tego przewodnika Szybki Start potrzebna jest nazwa konta usługi Azure Storage. Poniższa procedura zawiera opis czynności w celu uzyskania nazwy konta magazynu: 
 
 1. W przeglądarce internetowej przejdź do [Azure Portal](https://portal.azure.com) i zaloguj się przy użyciu nazwy użytkownika i hasła platformy Azure.
-2. Z menu Azure Portal wybierz pozycję **wszystkie usługi**, a następnie wybierz pozycję **Storage**  >  **konta magazynu**magazynu. Możesz również wyszukać i wybrać *konta magazynu* z dowolnej strony.
+2. Z menu Azure Portal wybierz pozycję **wszystkie usługi**, a następnie wybierz pozycję **Storage**  >  **konta magazynu** magazynu. Możesz również wyszukać i wybrać *konta magazynu* z dowolnej strony.
 3. Na stronie **konta magazynu** odfiltruj konto magazynu (w razie potrzeby), a następnie wybierz swoje konto magazynu. 
 
 Możesz również wyszukać i wybrać *konta magazynu* z dowolnej strony.
@@ -75,7 +75,7 @@ Zapisz plik w folderze **C:\ADFv2QuickStartPSH** . (Jeśli folder jeszcze nie is
 1. Na *\<Account name>*  -  stronie **kontenerów** , w której zostałeś pozostawiony, wybierz pozycję **adftutorial** z zaktualizowanej listy kontenerów.
 
    1. Jeśli zamknięto okno lub przeszedł do innej strony, zaloguj się ponownie do [Azure Portal](https://portal.azure.com) .
-   1. Z menu Azure Portal wybierz pozycję **wszystkie usługi**, a następnie wybierz pozycję **Storage**  >  **konta magazynu**magazynu. Możesz również wyszukać i wybrać *konta magazynu* z dowolnej strony.
+   1. Z menu Azure Portal wybierz pozycję **wszystkie usługi**, a następnie wybierz pozycję **Storage**  >  **konta magazynu** magazynu. Możesz również wyszukać i wybrać *konta magazynu* z dowolnej strony.
    1. Wybierz konto magazynu, a następnie wybierz pozycję **kontenery**  >  **adftutorial**.
 
 2. Na pasku narzędzi strony kontenera **adftutorial** wybierz pozycję **Przekaż**.

@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: Zhchia
 ms.openlocfilehash: 544e01ef96165cd6c96a97761a3e758b93b1b15b
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94352697"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014350"
 ---
 # <a name="tutorial-configure-rollbar-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Rollbar na potrzeby automatycznego aprowizacji użytkowników
 
@@ -81,7 +81,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-rollbar-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla Rollbar w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 

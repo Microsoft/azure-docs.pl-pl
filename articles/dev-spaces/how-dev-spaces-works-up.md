@@ -6,11 +6,11 @@ ms.topic: conceptual
 description: Opisuje procesy uruchamiania kodu w usłudze Azure Kubernetes Service przy użyciu Azure Dev Spaces
 keywords: azds. YAML, Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers
 ms.openlocfilehash: 1cace325f9415d46210636e5c04cc2d75589cc11
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975471"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014435"
 ---
 # <a name="how-running-your-code-with-azure-dev-spaces-works"></a>Jak działa kod przy użyciu Azure Dev Spaces Works
 
@@ -70,7 +70,7 @@ Zmiany plików, takie jak kod źródłowy lub pliki konfiguracji aplikacji, moż
 * Ponownie kompiluje aplikację
 * Uruchamia ponownie proces lub procesy skojarzone z aplikacją
 
-Sposób, w jaki *devhostagent* wykonuje powyższe kroki, jest [skonfigurowany w programie `azds.yaml` ][azds-yaml-section].
+Sposób, w jaki *devhostagent* wykonuje powyższe kroki, jest [skonfigurowany w programie `azds.yaml`][azds-yaml-section].
 
 Aktualizacje plików projektu, takie jak wieloetapowe dockerfile, csproj Files lub jakakolwiek część wykresu Helm, wymagają odbudowania i ponownego wdrożenia kontenera aplikacji. Po zsynchronizowaniu jednego z tych plików z miejscem deweloperskim kontroler uruchamia polecenie [uaktualnienia Helm][helm-upgrade] , a kontener aplikacji jest ponownie kompilowany i wdrażany.
 
@@ -132,11 +132,11 @@ Właściwość *install. Set* umożliwia skonfigurowanie co najmniej jednej wart
 
 W powyższym przykładzie właściwość *install. Set. replicaCount* informuje kontroler, ile wystąpień aplikacji ma działać w miejscu dev. W zależności od danego scenariusza można zwiększyć tę wartość, ale będzie to miało wpływ na dołączenie debugera do poziomu aplikacji. Aby uzyskać więcej informacji, zobacz [artykuł dotyczący rozwiązywania problemów][troubleshooting].
 
-Na wygenerowanym wykresie Helm obraz kontenera jest ustawiany na *{{. Values. Image. Repository}}: {{. Values. Image. tag}}*. `azds.yaml`Plik definiuje domyślnie Właściwość *install. Set. Image. tag* jako *$ (tag)* , która jest używana jako wartość dla *{{. Values. Image. tag}}*. Ustawiając właściwość *install. Set. Image. tag* w ten sposób, umożliwia ona oznakowanie obrazu kontenera dla aplikacji w sposób odrębny podczas uruchamiania Azure dev Spaces. W tym konkretnym przypadku obraz jest otagowany jako * \<value from image.repository> : $ (tag)*. Należy użyć zmiennej *$ (tag)* jako wartości   *install. Set. Image. tag* , aby funkcja Spaces dev rozpoznaje i ZLOKALIZOWAĆ kontener w klastrze AKS.
+Na wygenerowanym wykresie Helm obraz kontenera jest ustawiany na *{{. Values. Image. Repository}}: {{. Values. Image. tag}}*. `azds.yaml`Plik definiuje domyślnie Właściwość *install. Set. Image. tag* jako *$ (tag)* , która jest używana jako wartość dla *{{. Values. Image. tag}}*. Ustawiając właściwość *install. Set. Image. tag* w ten sposób, umożliwia ona oznakowanie obrazu kontenera dla aplikacji w sposób odrębny podczas uruchamiania Azure dev Spaces. W tym konkretnym przypadku obraz jest otagowany jako *\<value from image.repository> : $ (tag)*. Należy użyć zmiennej *$ (tag)* jako wartości   *install. Set. Image. tag* , aby funkcja Spaces dev rozpoznaje i ZLOKALIZOWAĆ kontener w klastrze AKS.
 
 W powyższym przykładzie `azds.yaml` definiuje *install. Set.* Transfers. Hosts. Właściwość *install. Set. Ingress. hosts* definiuje format nazwy hosta dla publicznych punktów końcowych. Ta właściwość używa również wartości *$ (spacePrefix)*, *$ (rootSpacePrefix)* i *$ (hostSuffix)*, które są wartościami dostarczonymi przez kontroler.
 
-*$ (SpacePrefix)* to nazwa podrzędnego miejsca dev, która przyjmuje postać *spacename. s*. *$ (RootSpacePrefix)* to nazwa przestrzeni nadrzędnej. Na przykład jeśli *azureuser* jest obszarem podrzędnym *domyślnym*, wartość *$ (rootSpacePrefix)* jest *Domyślna* , a wartość *$ (spacePrefix)* to *azureuser. s*. Jeśli przestrzeń nie jest przestrzenią podrzędną, *$ (spacePrefix)* jest pusty. Na przykład, jeśli *domyślne* miejsce nie ma miejsca nadrzędnego, wartość *$ (rootSpacePrefix)* jest *Domyślna* i wartość *$ (spacePrefix)* jest pusta. *$ (HostSuffix)* to sufiks DNS wskazujący Azure dev Spaces kontroler transferu danych przychodzących, który działa w klastrze AKS. Ten sufiks DNS odpowiada wpisowi DNS z symbolem wieloznacznym, na przykład * \* . RANDOM_VALUE. EUS. azds. IO*, który został utworzony, gdy kontroler Azure dev Spaces został dodany do klastra AKS.
+*$ (SpacePrefix)* to nazwa podrzędnego miejsca dev, która przyjmuje postać *spacename. s*. *$ (RootSpacePrefix)* to nazwa przestrzeni nadrzędnej. Na przykład jeśli *azureuser* jest obszarem podrzędnym *domyślnym*, wartość *$ (rootSpacePrefix)* jest *Domyślna* , a wartość *$ (spacePrefix)* to *azureuser. s*. Jeśli przestrzeń nie jest przestrzenią podrzędną, *$ (spacePrefix)* jest pusty. Na przykład, jeśli *domyślne* miejsce nie ma miejsca nadrzędnego, wartość *$ (rootSpacePrefix)* jest *Domyślna* i wartość *$ (spacePrefix)* jest pusta. *$ (HostSuffix)* to sufiks DNS wskazujący Azure dev Spaces kontroler transferu danych przychodzących, który działa w klastrze AKS. Ten sufiks DNS odpowiada wpisowi DNS z symbolem wieloznacznym, na przykład *\* . RANDOM_VALUE. EUS. azds. IO*, który został utworzony, gdy kontroler Azure dev Spaces został dodany do klastra AKS.
 
 W powyższym `azds.yaml` pliku można także zaktualizować *install. Set.* Transfers. hosts, aby zmienić nazwę hosta aplikacji. Na przykład jeśli chcesz uprościć nazwę hosta aplikacji z *$ (spacePrefix) $ (rootSpacePrefix) webfrontonu $ (hostSuffix)* do *$ (spacePrefix) $ (rootSpacePrefix) Web $ (hostSuffix)*.
 

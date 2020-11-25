@@ -8,11 +8,11 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 194b0f2ff94197fe11c189e97dbc65c9d0367932
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630587"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013925"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Zarządzanie zarejestrowanymi serwerami za pomocą Azure File Sync
 Usługa Azure File Sync umożliwia scentralizowanie udziałów plików Twojej organizacji w usłudze Azure Files bez rezygnacji z elastyczności, wydajności i zgodności lokalnego serwera plików. Robi to poprzez transformowanie serwerów z systemem Windows do szybkiej pamięci podręcznej udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS) i możesz mieć dowolną potrzebną Ci liczbę pamięci podręcznych na całym świecie.
@@ -20,7 +20,7 @@ Usługa Azure File Sync umożliwia scentralizowanie udziałów plików Twojej or
 W poniższym artykule przedstawiono sposób rejestrowania serwera i zarządzania nim za pomocą usługi synchronizacji magazynu. Zapoznaj się z artykułem [jak wdrożyć Azure File Sync](storage-sync-files-deployment-guide.md) , aby uzyskać informacje na temat sposobu wdrażania Azure File Sync na końcu.
 
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>Rejestrowanie/Wyrejestrowywanie serwera z usługą synchronizacji magazynu
-Zarejestrowanie serwera z Azure File Sync ustanawia relację zaufania między systemem Windows Server i platformą Azure. Ta relacja może następnie służyć do tworzenia *punktów końcowych serwera* na serwerze, które reprezentują konkretne foldery, które powinny być synchronizowane z udziałem plików platformy Azure (znanym także jako *punkt końcowy w chmurze* ). 
+Zarejestrowanie serwera z Azure File Sync ustanawia relację zaufania między systemem Windows Server i platformą Azure. Ta relacja może następnie służyć do tworzenia *punktów końcowych serwera* na serwerze, które reprezentują konkretne foldery, które powinny być synchronizowane z udziałem plików platformy Azure (znanym także jako *punkt końcowy w chmurze*). 
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 Aby zarejestrować serwer z usługą synchronizacji magazynu, należy najpierw przygotować serwer z wymaganiami wstępnymi:

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 7b586edd7adce8bcea61419005a3ce8cfc814fb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86254949"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013568"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Jak autoryzować konta deweloperów przy użyciu usługi Azure Active Directory B2C w usłudze Azure API Management
 
@@ -60,7 +60,7 @@ Azure Active Directory B2C to rozwiązanie do zarządzania tożsamościami w chm
 
    ![Rejestrowanie nowej aplikacji 3][api-management-howto-aad-b2c-app-details]
 
-1. Jeśli używasz nowego portalu dla deweloperów (nie starszego portalu dla deweloperów), Dołącz **podaną nazwę**, **nazwisko**i **Identyfikator obiektu użytkownika** w oświadczeniach aplikacji.
+1. Jeśli używasz nowego portalu dla deweloperów (nie starszego portalu dla deweloperów), Dołącz **podaną nazwę**, **nazwisko** i **Identyfikator obiektu użytkownika** w oświadczeniach aplikacji.
 
     ![Oświadczenia aplikacji](./media/api-management-howto-aad-b2c/api-management-application-claims.png)
 

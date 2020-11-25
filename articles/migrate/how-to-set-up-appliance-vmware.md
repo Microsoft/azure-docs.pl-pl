@@ -4,11 +4,11 @@ description: Dowiedz się, jak skonfigurować urządzenie Azure Migrate do oceni
 ms.topic: article
 ms.date: 04/16/2020
 ms.openlocfilehash: f20bb77c29d98ab4e3549bfed43d47d1f1f7dc0c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318220"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013636"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Konfigurowanie urządzenia dla maszyn wirtualnych VMware
 
@@ -35,8 +35,8 @@ Aby skonfigurować urządzenie przy użyciu szablonu komórki jajowe:
 ### <a name="generate-the-azure-migrate-project-key"></a>Generowanie klucza projektu Azure Migrate
 
 1. W obszarze **Cele migracji** > **Serwery** > **Azure Migrate: Server Assessment** wybierz pozycję **Odnajdź**.
-2. W obszarze **odnajdywanie**maszyn  >  **są zwirtualizowane maszyny?** wybierz pozycję **tak, aby uzyskać VMware vSphere funkcji hypervisor**.
-3. W obszarze **1: generowanie klucza projektu Azure Migrate**Podaj nazwę urządzenia Azure Migrate, które zostanie skonfigurowane do odnajdywania maszyn wirtualnych VMware. nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
+2. W obszarze **odnajdywanie** maszyn  >  **są zwirtualizowane maszyny?** wybierz pozycję **tak, aby uzyskać VMware vSphere funkcji hypervisor**.
+3. W obszarze **1: generowanie klucza projektu Azure Migrate** Podaj nazwę urządzenia Azure Migrate, które zostanie skonfigurowane do odnajdywania maszyn wirtualnych VMware. nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
 1. Kliknij pozycję **Generuj klucz** , aby rozpocząć tworzenie wymaganych zasobów platformy Azure. Nie zamykaj strony odnajdywanie maszyn podczas tworzenia zasobów.
 1. Po pomyślnym utworzeniu zasobów platformy Azure zostanie wygenerowany **klucz projektu Azure Migrate** .
 1. Skopiuj klucz, ponieważ będzie on potrzebny do ukończenia rejestracji urządzenia podczas jego konfiguracji.
@@ -69,12 +69,12 @@ Zaimportuj pobrany plik i Utwórz maszynę wirtualną.
 1. W konsoli klienta vSphere kliknij pozycję **plik**  >  **Wdróż OVF szablon**.
 ![Polecenie menu do wdrażania szablonu OVF](./media/tutorial-assess-vmware/deploy-ovf.png)
 
-2. W Kreatorze wdrażania szablonu OVF > **Źródło**Określ lokalizację pliku komórek jajowych.
-3. W polu **Nazwa** i **Lokalizacja**Określ przyjazną nazwę maszyny wirtualnej. Wybierz obiekt spisu, w którym będzie hostowana maszyna wirtualna.
-5. W obszarze **host/klaster**Określ hosta lub klaster, na którym będzie URUCHAMIANA maszyna wirtualna.
-6. W obszarze **Magazyn**określ miejsce docelowe magazynu dla maszyny wirtualnej.
+2. W Kreatorze wdrażania szablonu OVF > **Źródło** Określ lokalizację pliku komórek jajowych.
+3. W polu **Nazwa** i **Lokalizacja** Określ przyjazną nazwę maszyny wirtualnej. Wybierz obiekt spisu, w którym będzie hostowana maszyna wirtualna.
+5. W obszarze **host/klaster** Określ hosta lub klaster, na którym będzie URUCHAMIANA maszyna wirtualna.
+6. W obszarze **Magazyn** określ miejsce docelowe magazynu dla maszyny wirtualnej.
 7. W obszarze **Disk Format** (Format dysku) określ typ i rozmiar dysku.
-8. W polu **mapowanie sieci**Określ sieć, z którą zostanie nawiązane połączenie z maszyną wirtualną. Sieć wymaga łączności z Internetem, aby można było wysyłać metadane do oceny serwera Azure Migrate.
+8. W polu **mapowanie sieci** Określ sieć, z którą zostanie nawiązane połączenie z maszyną wirtualną. Sieć wymaga łączności z Internetem, aby można było wysyłać metadane do oceny serwera Azure Migrate.
 9. Sprawdź poprawność ustawień, a następnie kliknij pozycję **Finish** (Zakończ).
 
 
@@ -95,7 +95,7 @@ Skonfiguruj urządzenie po raz pierwszy.
 3. Otwórz przeglądarkę na dowolnym komputerze, który może nawiązać połączenie z maszyną wirtualną, a następnie otwórz adres URL aplikacji sieci Web urządzenia: **https://*Nazwa urządzenia lub adres IP*: 44368**.
 
    Możesz też otworzyć aplikację na pulpicie urządzenia, wybierając skrót do aplikacji.
-1. Zaakceptuj **postanowienia licencyjne**i przeczytaj informacje o innych firmach.
+1. Zaakceptuj **postanowienia licencyjne** i przeczytaj informacje o innych firmach.
 1. W aplikacji internetowej > **skonfigurować wymagania wstępne**, wykonaj następujące czynności:
    - **Łączność**: aplikacja sprawdza, czy maszyna wirtualna ma dostęp do Internetu. Jeśli maszyna wirtualna używa serwera proxy:
      - Kliknij pozycję **Skonfiguruj serwer proxy** , aby określić adres serwera proxy (w postaci http://ProxyIPAddress lub na http://ProxyFQDN) porcie nasłuchu.
@@ -131,7 +131,7 @@ Urządzenie musi połączyć się z vCenter Server, aby odnaleźć dane dotyczą
 1. W **kroku 2: podaj vCenter Server Szczegóły**, kliknij pozycję **Dodaj źródło odnajdywania** , aby wybrać przyjazną nazwę dla poświadczeń z listy rozwijanej, określ **adres IP/nazwę FQDN** wystąpienia vCenter Server. Możesz pozostawić **port** domyślny (443) lub określić port niestandardowy, dla którego vCenter Server nasłuchiwanie i kliknąć przycisk **Zapisz**.
 1. Po kliknięciu przycisku Zapisz Urządzenie spróbuje sprawdzić poprawność połączenia z vCenter Server przy użyciu podanych poświadczeń i wyświetlić **stan weryfikacji** w tabeli dotyczącej VCENTER Server adres IP/nazwa FQDN.
 1. Przed rozpoczęciem odnajdywania można ponownie **sprawdzić poprawność** łączności, aby vCenter Server w dowolnym momencie.
-1. W **kroku 3: podaj poświadczenia maszyny wirtualnej w celu odnalezienia zainstalowanych aplikacji i przeprowadzenia mapowania zależności bez agenta**, kliknij przycisk **Dodaj poświadczenia**i określ system operacyjny, dla którego podano poświadczenia, przyjazną nazwę dla poświadczeń oraz nazwę **użytkownika** i **hasło**. Następnie kliknij przycisk **Zapisz**.
+1. W **kroku 3: podaj poświadczenia maszyny wirtualnej w celu odnalezienia zainstalowanych aplikacji i przeprowadzenia mapowania zależności bez agenta**, kliknij przycisk **Dodaj poświadczenia** i określ system operacyjny, dla którego podano poświadczenia, przyjazną nazwę dla poświadczeń oraz nazwę **użytkownika** i **hasło**. Następnie kliknij przycisk **Zapisz**.
 
     - Opcjonalnie możesz dodać poświadczenia tutaj, jeśli utworzono konto do użycia dla [funkcji odnajdywania aplikacji](how-to-discover-applications.md)lub [Funkcja analizy zależności bez agenta](how-to-create-group-machine-dependencies-agentless.md).
     - Jeśli nie chcesz korzystać z tych funkcji, możesz kliknąć suwak, aby pominąć ten krok. Zamiar można zmienić w dowolnym momencie później.

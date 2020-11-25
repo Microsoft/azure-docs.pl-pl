@@ -3,14 +3,14 @@ title: 'Szybki Start: Tworzenie pierwszej funkcji na platformie Azure przy użyc
 description: W tym przewodniku szybki start dowiesz się, jak utworzyć i opublikować wyzwalacz HTTP platformy Azure przy użyciu programu Visual Studio.
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
-ms.date: 03/06/2020
+ms.date: 09/30/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: d7cfcd02c5e6c9ff57241288bd79efb45d4ac7ab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c9ddd6e74e25d8de415e24038e99da9d21dab867
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88213984"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "96014480"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Szybki Start: Tworzenie pierwszej funkcji na platformie Azure przy użyciu programu Visual Studio
 
@@ -36,7 +36,7 @@ Program Visual Studio tworzy projekt i klasę, która zawiera kod standardowy dl
 
 `FunctionName`Atrybut metody ustawia nazwę funkcji, która domyślnie jest generowana jako `Function1` . Ponieważ narzędzia nie umożliwiają przesłaniania domyślnej nazwy funkcji podczas tworzenia projektu, poświęć minutę, aby utworzyć lepszą nazwę klasy, pliku i metadanych funkcji.
 
-1. W **Eksploratorze plików**kliknij prawym przyciskiem myszy plik Function1.cs i zmień jego nazwę na `HttpExample.cs` .
+1. W **Eksploratorze plików** kliknij prawym przyciskiem myszy plik Function1.cs i zmień jego nazwę na `HttpExample.cs` .
 
 1. W kodzie zmień nazwę klasy Function1 na "HttpExample".
 
@@ -74,7 +74,7 @@ Przed opublikowaniem projektu musisz mieć aplikację funkcji w ramach subskrypc
 
 2. Przejdź do tego adresu URL i zobaczysz odpowiedź w przeglądarce do zdalnego żądania GET zwróconego przez funkcję, która wygląda podobnie do poniższego przykładu:
 
-    :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png" alt-text="Uruchomiona aplikacja funkcji":::
+    :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png" alt-text="Odpowiedź funkcji wyświetlona w przeglądarce":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
@@ -88,7 +88,7 @@ Aby ukończyć te przewodniki Szybki start, zostały utworzone zasoby. Za te zas
 
 1. Na stronie aplikacja funkcji wybierz kartę **Przegląd** , a następnie wybierz link w obszarze **Grupa zasobów**.
 
-   :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-app-delete-resource-group.png" alt-text="Uruchomiona aplikacja funkcji":::
+   :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-app-delete-resource-group.png" alt-text="Wybierz grupę zasobów do usunięcia ze strony aplikacji funkcji":::
 
 2. Na stronie **Grupa zasobów** zapoznaj się z listą uwzględnionych zasobów i sprawdź, czy są one tymi, które chcesz usunąć.
  

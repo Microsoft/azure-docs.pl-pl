@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
 ms.openlocfilehash: 1da86e36cf20dc15152aea74be6c43a4cb43d3b4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539772"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014248"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Monitorowanie wydajności klastra w usłudze Azure HDInsight
 
@@ -27,7 +27,7 @@ Klastry Hadoop mogą zapewnić optymalną wydajność, gdy obciążenie klastra 
 
 Aby uzyskać ogólne omówienie węzłów klastra i ich ładowania, zaloguj się do [interfejsu użytkownika sieci Web Ambari](hdinsight-hadoop-manage-ambari.md), a następnie wybierz kartę **hosty** . Hosty są wyświetlane na podstawie ich w pełni kwalifikowanych nazw domen. Stan operacyjny każdego hosta jest pokazywany przez kolorowy wskaźnik kondycji:
 
-| Kolor | Opis |
+| Color (Kolor) | Opis |
 | --- | --- |
 | Red (Czerwony) | Co najmniej jeden główny składnik na hoście nie działa. Umieść kursor w celu wyświetlenia etykietki narzędzia, która wyświetla listę składników, których to dotyczy. |
 | Orange | Co najmniej jeden składnik pomocniczy na hoście nie działa. Umieść kursor w celu wyświetlenia etykietki narzędzia, która wyświetla listę składników, których to dotyczy. |
@@ -66,13 +66,13 @@ Aby zapoznać się z bardziej szczegółowymi informacjami o kolejkach, na pulpi
 
 ![Menedżer zasobów linki menu interfejsu użytkownika](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu-link.png)
 
-W interfejsie użytkownika Menedżer zasobów wybierz pozycję **harmonogram** z menu po lewej stronie. Zostanie wyświetlona lista kolejek pod *kolejkami aplikacji* . W tym miejscu możesz zobaczyć pojemność użytą dla każdej z kolejek, jak również są dystrybuowane zadania między nimi oraz czy wszystkie zadania są ograniczone do zasobów.
+W interfejsie użytkownika Menedżer zasobów wybierz pozycję **harmonogram** z menu po lewej stronie. Zostanie wyświetlona lista kolejek pod *kolejkami aplikacji*. W tym miejscu możesz zobaczyć pojemność użytą dla każdej z kolejek, jak również są dystrybuowane zadania między nimi oraz czy wszystkie zadania są ograniczone do zasobów.
 
 ![Menu interfejsu użytkownika Menedżer zasobów Apache HAdoop](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
 ## <a name="storage-throttling"></a>Ograniczanie przepustowości magazynu
 
-Na poziomie magazynu mogą wystąpić wąskie gardła wydajności klastra. Ten typ wąskich gardeł najczęściej z powodu *blokowania* operacji wejścia/wyjścia (IO), które są wykonywane, gdy uruchomione zadania wysyłają więcej operacji we/wy niż może obsłużyć usługa magazynu. Ten blok umożliwia utworzenie kolejki żądań we/wy oczekujących na przetworzenie do momentu przetworzenia bieżącego systemu IOs. Bloki są spowodowane *ograniczeniami magazynu* , które nie jest limitem fizycznym, ale raczej limitem narzuconym przez usługę magazynu przez umowę dotyczącą poziomu usług (SLA). Ten limit gwarantuje, że żaden pojedynczy klient lub dzierżawca nie może monopolize usługi. Umowa SLA ogranicza liczbę operacji we/wy na sekundę (IOPS) dla usługi Azure Storage — Aby uzyskać szczegółowe informacje, zobacz [elementy docelowe skalowalności i wydajności dla kont magazynu w warstwie Standardowa](../storage/common/scalability-targets-standard-account.md).
+Na poziomie magazynu mogą wystąpić wąskie gardła wydajności klastra. Ten typ wąskich gardeł najczęściej z powodu *blokowania* operacji wejścia/wyjścia (IO), które są wykonywane, gdy uruchomione zadania wysyłają więcej operacji we/wy niż może obsłużyć usługa magazynu. Ten blok umożliwia utworzenie kolejki żądań we/wy oczekujących na przetworzenie do momentu przetworzenia bieżącego systemu IOs. Bloki są spowodowane *ograniczeniami magazynu*, które nie jest limitem fizycznym, ale raczej limitem narzuconym przez usługę magazynu przez umowę dotyczącą poziomu usług (SLA). Ten limit gwarantuje, że żaden pojedynczy klient lub dzierżawca nie może monopolize usługi. Umowa SLA ogranicza liczbę operacji we/wy na sekundę (IOPS) dla usługi Azure Storage — Aby uzyskać szczegółowe informacje, zobacz [elementy docelowe skalowalności i wydajności dla kont magazynu w warstwie Standardowa](../storage/common/scalability-targets-standard-account.md).
 
 Jeśli używasz usługi Azure Storage, aby uzyskać informacje na temat monitorowania problemów związanych z magazynem, w tym ograniczania przepustowości, zobacz [monitorowanie, diagnozowanie i rozwiązywanie problemów Microsoft Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
 

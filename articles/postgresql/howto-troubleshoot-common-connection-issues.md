@@ -8,11 +8,11 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.openlocfilehash: bff930153dc8941fbfe561edf963d5b1c1e7811f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708020"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014622"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Rozwiązywanie problemów z połączeniem do Azure Database for PostgreSQL-pojedynczego serwera
 
@@ -48,7 +48,7 @@ Jeśli aplikacja trwale nie może nawiązać połączenia z Azure Database for P
 
 * Konfiguracja zapory serwera: Upewnij się, że Zapora serwera Azure Database for PostgreSQL jest skonfigurowana tak, aby zezwalać na połączenia z klienta, w tym serwery proxy i bramy.
 * Konfiguracja zapory klienta: Zapora na kliencie musi zezwalać na połączenia z serwerem bazy danych. Adresy IP i porty serwera, które nie mogą być dozwolone, a także nazwy aplikacji, takie jak PostgreSQL w niektórych zaporach.
-* Błąd użytkownika: być może masz błędne parametry połączenia, takie jak nazwa serwera w parametrach połączenia lub brak sufiksu * \@ servername* w nazwie użytkownika.
+* Błąd użytkownika: być może masz błędne parametry połączenia, takie jak nazwa serwera w parametrach połączenia lub brak sufiksu *\@ servername* w nazwie użytkownika.
 * Jeśli zobaczysz, że _serwer błędów nie jest skonfigurowany do zezwalania na połączenia IPv6_, pamiętaj, że warstwa podstawowa nie obsługuje punktów końcowych usługi sieci wirtualnej. Musisz usunąć punkt końcowy Microsoft. SQL z podsieci, która próbuje nawiązać połączenie z serwerem podstawowym.
 * Jeśli zobaczysz błąd połączenia _sslmode wartość "* * *" nieprawidłowe, gdy obsługa protokołu SSL nie zostanie skompilowana w wyniku_ błędu, oznacza to, że klient PostgreSQL nie obsługuje protokołu SSL. Najprawdopodobniej libpq po stronie klienta nie został skompilowany przy użyciu flagi "--with-OpenSSL". Spróbuj nawiązać połączenie z klientem PostgreSQL z obsługą protokołu SSL. 
 

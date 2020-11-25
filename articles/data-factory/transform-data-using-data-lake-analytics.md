@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2018
 ms.openlocfilehash: d890f73ea8b2294755b14055cb11904d50160cc4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632128"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014010"
 ---
 # <a name="process-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Przetwarzanie danych przez uruchamianie skryptów U-SQL na Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -38,7 +38,7 @@ Poniższa tabela zawiera opis właściwości ogólnych używanych w definicji JS
 
 | Właściwość                 | Opis                              | Wymagane                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **Wprowadź**                 | Właściwość Type powinna mieć wartość: **AzureDataLakeAnalytics** . | Tak                                      |
+| **Wprowadź**                 | Właściwość Type powinna mieć wartość: **AzureDataLakeAnalytics**. | Tak                                      |
 | **accountName**          | Nazwa konta Azure Data Lake Analytics.  | Tak                                      |
 | **dataLakeAnalyticsUri** | Azure Data Lake Analytics identyfikator URI.           | Nie                                       |
 | **Identyfikator**       | Identyfikator subskrypcji platformy Azure                    | Nie                                       |
@@ -123,7 +123,7 @@ W poniższej tabeli opisano nazwy i opisy właściwości, które są specyficzne
 | :------------------ | :--------------------------------------- | :------- |
 | name                | Nazwa działania w potoku     | Tak      |
 | description (opis)         | Tekst opisujący działanie działania.  | Nie       |
-| typ                | W przypadku Data Lake Analytics działania U-SQL typ działania to  **DataLakeAnalyticsU-SQL** . | Tak      |
+| typ                | W przypadku Data Lake Analytics działania U-SQL typ działania to  **DataLakeAnalyticsU-SQL**. | Tak      |
 | linkedServiceName   | Połączona usługa do Azure Data Lake Analytics. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md) .  |Tak       |
 | scriptPath          | Ścieżka do folderu, który zawiera skrypt U-SQL. Nazwa pliku jest rozróżniana wielkość liter. | Tak      |
 | Elementu scriptlinkedservice | Połączona usługa łącząca **Azure Data Lake Store** lub **Magazyn platformy Azure** , który zawiera skrypt do fabryki danych | Tak      |

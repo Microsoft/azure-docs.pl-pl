@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2020
+ms.date: 11/22/2020
 ms.author: memildin
-ms.openlocfilehash: 3cc64d2721f73da36fdc4fce009cccb5fdfd6b6b
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 6d001e638b00cace1dd81d9631f498a911ca19a4
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372697"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96014605"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alerty zabezpieczeń — przewodnik informacyjny
 
@@ -160,6 +160,9 @@ W dolnej części tej strony znajduje się tabela opisująca łańcuch kasowania
 |**Luka w zabezpieczeniach xorg [wielokrotnie widoczna]**|Analiza danych hosta na hoście% {naruszony problem} wykryła, że użytkownik xorg z podejrzanymi argumentami. Osoby atakujące mogą korzystać z tej techniki w próbach eskalacji uprawnień. To zachowanie było widoczne [x] razy dzisiaj na następujących komputerach: [nazwy maszyn]|-|Średniaa|
 |**Wykryto uwidocznioną demona platformy Docker**|Dzienniki maszyn wskazują, że demon platformy Docker (dockerd) uwidacznia gniazdo TCP. Domyślnie konfiguracja platformy Docker nie korzysta z szyfrowania ani uwierzytelniania, gdy gniazdo TCP jest włączone. Zapewnia to pełen dostęp do demona platformy Docker przez każdą osobę mającą dostęp do odpowiedniego portu.|-|Średniaa|
 |**Niepowodzenie ataku za pośrednictwem protokołu SSH**|Wykryto nieudane ataki z wykorzystaniem oddziału firmy:% {atakujący}. Osoby atakujące próbują uzyskać dostęp do hosta z następującymi nazwami użytkowników:% {konta używane w nieudanych próbach logowania do hosta}.|-|Średniaa|
+| **Wykryto zachowanie ataków bezplikowych**<br>(AppServices_FilelessAttackBehaviorDetection)| Pamięć procesu określonego poniżej zawiera zachowania powszechnie używane przez ataki bezplikowe.<br>Określone zachowania obejmują: {Lista zachowań obserwowanych}                                                                                                                                                                                                                                                                                                                             | Wykonanie                             | Średniaa   |
+| **Wykryto bezplikową technikę ataków**<br>(VM_FilelessAttackTechnique. Linux)| Pamięć procesu określonego poniżej zawiera dowody technik ataku bezplikowego. Ataki bez plików są używane przez osoby atakujące do wykonywania kodu podczas uchylania wykrywania przez oprogramowanie zabezpieczające.<br>Określone zachowania obejmują: {Lista zachowań obserwowanych}                                                                                                                                                                                                                            | Wykonanie                             | Wysoki     |
+| **Wykryto bezplikowy zestaw narzędzi atakujący**<br>(VM_FilelessAttackToolkit. Linux)| Pamięć procesu określonego poniżej zawiera zestaw narzędzi do ataków bezplikowych: {ToolKit}. Zestaw narzędzi ataku bez plików zazwyczaj nie ma obecności w systemie plików, co utrudnia wykrywanie przez tradycyjne oprogramowanie chroniące przed wirusami.<br>Określone zachowania obejmują: {Lista zachowań obserwowanych}                                                                                                                                                                                    | DefenseEvasion, wykonywanie             | Wysoki     |
 |**Wykryto wykonywanie ukrytego pliku**|Analiza danych hosta wskazuje, że plik ukryty został wykonany przez% {User Name}. To działanie może być uzasadnionym działaniem lub oznaczeniem zagrożonego hosta.|-|Informacyjne|
 |**Wykryto wskaźniki skojarzone z zestawem narzędzi DDOS**|Analiza danych hosta na hoście% {naruszony problem} wykryto nazwy plików, które są częścią zestawu narzędzi skojarzonego ze złośliwym oprogramowaniem, które mogą uruchamiać ataki DDoS, otwierając porty i usługi oraz przejąć pełną kontrolę nad zainfekowanym systemem. Może to również być słuszne działanie. To zachowanie było widoczne [x] razy dzisiaj na następujących komputerach: [nazwy maszyn]|-|Średniaa|
 |**Wykryto wskaźniki skojarzone z zestawem narzędzi DDOS**|Analiza danych hosta na hoście% {naruszony problem} wykryto nazwy plików, które są częścią zestawu narzędzi skojarzonego ze złośliwym oprogramowaniem, które mogą uruchamiać ataki DDoS, otwierając porty i usługi oraz przejąć pełną kontrolę nad zainfekowanym systemem. Może to również być słuszne działanie.|-|Średniaa|

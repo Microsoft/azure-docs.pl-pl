@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: mbaldwin
 ms.openlocfilehash: 018570019b306dced76760fefa4441ee7d86ad2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88189837"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013959"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure Key Vault .NET 2,0 — informacje o wersji i przewodnik migracji
 Poniższe informacje ułatwiają migrowanie do wersji 2,0 biblioteki Azure Key Vault dla języków C# i .NET.  Aplikacje przeznaczone dla wcześniejszych wersji muszą zostać zaktualizowane w celu obsługi najnowszej wersji.  Te zmiany są konieczne, aby w pełni obsługiwać nowe i udoskonalone funkcje, takie jak **Key Vault Certificates**.
@@ -36,7 +36,7 @@ Key Vault certyfikaty zarządzają certyfikatami x509 i obsługują następując
 * **.NET Framework 4.5.2** jest obsługiwany przez wersję 2,0 biblioteki Azure Key Vault .NET
 * **.NET Standard 1,4** jest obsługiwana w wersji 2,0 biblioteki Azure Key Vault .NET
 
-## <a name="namespaces"></a>Namespaces
+## <a name="namespaces"></a>Przestrzenie nazw
 
 * Przestrzeń nazw dla **modeli** została zmieniona z **Microsoft. Azure. z magazynu** kluczy na **Microsoft. Azure. kluczy. models**.
 * **Magazyn Microsoft. Azure. kluczy. wewnętrzna** przestrzeń nazw została porzucona.
@@ -49,12 +49,12 @@ Key Vault certyfikaty zarządzają certyfikatami x509 i obsługują następując
 
 * *Wpis tajny* został zmieniony na *SecretBundle*
 * *Słownik* został zmieniony na *IDictionary*
-* *List \<T> , String []* zmieniono na *IList \<T> *
+* *List \<T> , String []* zmieniono na *IList \<T>*
 * *NextList* zmieniony na  *NextPageLink*
 
 ## <a name="return-types"></a>Typy zwracane
 
-* **Lista** i **SecretList** teraz zwracają *iPage \<T> * zamiast *ListKeysResponseMessage*
+* **Lista** i **SecretList** teraz zwracają *iPage \<T>* zamiast *ListKeysResponseMessage*
 * Wygenerowany **BackupKeyAsync** teraz zwraca *BackupKeyResult*, który zawiera *wartość* (obiekt BLOB tworzenia kopii zapasowej). Wcześniej Metoda została opakowana i zwróciła tylko wartość.
 
 ## <a name="exceptions"></a>Wyjątki
@@ -63,7 +63,7 @@ Key Vault certyfikaty zarządzają certyfikatami x509 i obsługują następując
 * Błąd usługi został zmieniony z *wyjątku. Błąd* do *wyjątku. Treść. Error. Message*.
 * Usunięto dodatkowe informacje z komunikatu o błędzie dla **[JsonExtensionData]**.
 
-## <a name="constructors"></a>Konstruktorów
+## <a name="constructors"></a>Konstruktory
 
 * Zamiast zaakceptowania *HttpClient* jako argumentu konstruktora, Konstruktor akceptuje tylko *HttpClientHandler* lub *DelegatingHandler []*.
 

@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 9c522d870a25b3df34ab6a0cf1c1e944a6462685
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93284489"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013993"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Użyj Logic Apps do otrzymywania wiadomości e-mail o zmianach stanu wpisów tajnych magazynu kluczy
 
@@ -60,7 +60,7 @@ Aby utworzyć subskrypcję Azure Event Grid, wykonaj następujące kroki:
 
 1. Kompiluj szablon wiadomości e-mail:
     - **Do:** Wprowadź adres e-mail, aby otrzymywać wiadomości e-mail z powiadomieniami. Na potrzeby tego samouczka użyj konta e-mail, do którego masz dostęp, w celach testowych.
-    - **Temat** i **Treść** : wpisz tekst wiadomości e-mail. Wybierz właściwości JSON przy użyciu narzędzia selektora, aby dodać zawartość dynamiczną na podstawie danych zdarzenia. Dane zdarzenia można pobrać przy użyciu polecenia `@{triggerBody()?['Data']}` .
+    - **Temat** i **Treść**: wpisz tekst wiadomości e-mail. Wybierz właściwości JSON przy użyciu narzędzia selektora, aby dodać zawartość dynamiczną na podstawie danych zdarzenia. Dane zdarzenia można pobrać przy użyciu polecenia `@{triggerBody()?['Data']}` .
 
     Twój szablon wiadomości e-mail może wyglądać podobnie do tego przykładu.
 
@@ -77,7 +77,7 @@ Aby utworzyć subskrypcję Azure Event Grid, wykonaj następujące kroki:
     
     ![Projektant aplikacji logiki — testowanie i weryfikowanie](../media/eventgrid-logicapps-kvnewsubs.png)
 
-1.  Przejdź do magazynu kluczy, wybierz pozycję wpisy **tajne** , a następnie wybierz pozycję **+ Generuj/Importuj**. Utwórz nowy wpis tajny dla celów testowych Nazwij klucz i Zachowaj pozostałe parametry w ustawieniach domyślnych.
+1.  Przejdź do magazynu kluczy, wybierz pozycję wpisy **tajne**, a następnie wybierz pozycję **+ Generuj/Importuj**. Utwórz nowy wpis tajny dla celów testowych Nazwij klucz i Zachowaj pozostałe parametry w ustawieniach domyślnych.
 
     ![Key Vault — Utwórz klucz tajny](../media/eventgrid-logicapps-kv-create-secret.png)
 

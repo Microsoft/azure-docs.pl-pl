@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 899bc3fdc94b8232acd3edf3e0cbab3c481ff8f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081852"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013733"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Powiązania dla Durable Functions (Azure Functions)
 
@@ -533,7 +533,7 @@ Jeśli używasz języków skryptów (na przykład plików *. CSX* lub *. js* ) d
 
 W programie .NET Functions zwykle wiąże się z `IDurableEntityClient` , który zapewnia pełny dostęp do wszystkich interfejsów API klienta obsługiwanych przez trwałe jednostki. Można również powiązać z `IDurableOrchestrationClient` interfejsem, który zapewnia dostęp do interfejsów API klienta zarówno dla jednostek, jak i aranżacji. Interfejsy API w obiekcie klienta obejmują:
 
-* **ReadEntityStateAsync \<T> **: odczytuje stan jednostki. Zwraca odpowiedź wskazującą, czy jednostka docelowa istnieje, a jeśli tak, to jaki jest jej stan.
+* **ReadEntityStateAsync \<T>**: odczytuje stan jednostki. Zwraca odpowiedź wskazującą, czy jednostka docelowa istnieje, a jeśli tak, to jaki jest jej stan.
 * **SignalEntityAsync**: wysyła komunikat jednokierunkowy do jednostki i czeka na jego przekolejkowanie.
 * **ListEntitiesAsync**: wykonuje zapytania dotyczące stanu wielu jednostek. Jednostki mogą być zapytania według *nazwy* i *czasu ostatniej operacji*.
 

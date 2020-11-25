@@ -3,17 +3,17 @@ title: Azure Defender for SQL — korzyści i funkcje
 description: Dowiedz się więcej o zaletach i funkcjach usługi Azure Defender dla programu SQL Server.
 author: memildin
 ms.author: memildin
-ms.date: 11/17/2020
+ms.date: 11/22/2020
 ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: b4f046339c027a5ae66f7f7510d8d2b311abd6df
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: bb24c04681b142aaa1c80738090afe2a13949495
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693464"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96014548"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Wprowadzenie do usługi Azure Defender dla programu SQL
 
@@ -25,7 +25,7 @@ Usługa Azure Defender dla programu SQL obejmuje dwa plany usługi Azure Defende
 |----|:----|
 |Stan wydania:|**Usługa Azure Defender dla serwerów usługi Azure SQL Database** — ogólnie dostępna (ga)<br>**Usługa Azure Defender dla serwerów SQL na komputerach** — wersja zapoznawcza<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Wpisaną|Na [stronie cennika](security-center-pricing.md) są naliczane opłaty za dwa plany tworzące **usługę Azure Defender for SQL** .|
-|Chronione wersje programu SQL:|Azure SQL Database <br>Wystąpienie zarządzane Azure SQL<br>Dedykowana Pula SQL na platformie Azure Synapse (dawniej: SQL DW)<br>SQL Server (wszystkie obsługiwane wersje)|
+|Chronione wersje programu SQL:|SQL na maszynach wirtualnych platformy Azure — [systemy Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) i [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md)<br>[Serwery SQL z włączonym łukem](https://docs.microsoft.com/sql/sql-server/azure-arc/overview) (w tym lokalne serwery SQL)<br>[Pojedyncze bazy danych](../azure-sql/database/single-database-overview.md) SQL Azure i [Pule elastyczne](../azure-sql/database/elastic-pool-overview.md)<br>[Wystąpienie zarządzane Azure SQL](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)<br>[Dedykowana Pula SQL usługi Azure Synapse Analytics (dawniej SQL DW)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse)|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Nie](./media/icons/no-icon.png) Chiny gov, inne gov|
 |||
 

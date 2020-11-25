@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
 ms.openlocfilehash: 7252a6ccd77212f75f5db54e5f3fcad7aa2df50a
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339734"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013806"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Uzyskaj widoczność dla całej dzierżawy dla Azure Security Center
 W tym artykule wyjaśniono, jak zarządzać stan zabezpieczeń organizacji na dużą skalę, stosując zasady zabezpieczeń do wszystkich subskrypcji platformy Azure połączonych z dzierżawą Azure Active Directory.
@@ -40,7 +40,7 @@ Subskrypcje można organizować w grupy zarządzania i stosować zasady zarządz
 
  
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Wybierz pozycję **wszystkie**  >  **grupy zarządzania**usług.
+2. Wybierz pozycję **wszystkie**  >  **grupy zarządzania** usług.
 3. Na stronie głównej wybierz pozycję **Nowa grupa zarządzania.** 
 
     ![Grupa główna](./media/security-center-management-groups/main.png) 
@@ -54,7 +54,7 @@ Subskrypcje można organizować w grupy zarządzania i stosować zasady zarządz
 ### <a name="view-management-groups-in-the-azure-portal"></a>Wyświetlanie grup zarządzania w Azure Portal
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Aby wyświetlić grupy zarządzania, wybierz pozycję **wszystkie usługi** w menu głównym platformy Azure.
-3. W obszarze **Ogólne**wybierz pozycję **grupy zarządzania**.
+3. W obszarze **Ogólne** wybierz pozycję **grupy zarządzania**.
 
     ![Tworzenie grupy zarządzania](./media/security-center-management-groups/all-services.png)
 
@@ -72,7 +72,7 @@ Administrator dzierżawy Azure Active Directory nie ma bezpośredniego dostępu 
 
    ![Właściwości usługi Azure AD — zrzut ekranu](./media/security-center-management-groups/aad-properties.png)
 
-3. W obszarze **Zarządzanie dostępem do zasobów platformy Azure**Ustaw przełącznik na **wartość tak**.
+3. W obszarze **Zarządzanie dostępem do zasobów platformy Azure** Ustaw przełącznik na **wartość tak**.
 
    ![Zarządzanie dostępem do zasobów platformy Azure — zrzut ekranu](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
 
@@ -146,7 +146,7 @@ Po uzyskaniu podwyższonego poziomu uprawnień Otwórz lub Odśwież Azure Secur
     ![Zrzut ekranu selektora subskrypcji](./media/security-center-management-groups/subscription-selector.png)
 
 1. Wybierz pozycję **wszystkie usługi** w menu głównym platformy Azure, a następnie wybierz pozycję **Security Center**.
-2. W **omówieniu**znajduje się wykres pokrycia subskrypcji.
+2. W **omówieniu** znajduje się wykres pokrycia subskrypcji.
 
     ![Zrzut ekranu przedstawiający wykres pokrycia subskrypcji](./media/security-center-management-groups/security-center-subscription-coverage.png)
 
@@ -161,7 +161,7 @@ Po przypisaniu ról platformy Azure do użytkowników Administrator dzierżawy p
 
 2. Na liście Nawigacja kliknij **Azure Active Directory** a następnie kliknij pozycję **Właściwości**.
 
-3. W obszarze **Zarządzanie dostępem do zasobów platformy Azure**Ustaw przełącznik na wartość **nie**.
+3. W obszarze **Zarządzanie dostępem do zasobów platformy Azure** Ustaw przełącznik na wartość **nie**.
 
 4. Kliknij przycisk **Zapisz** , aby zapisać ustawienia.
 
@@ -170,7 +170,7 @@ Po przypisaniu ról platformy Azure do użytkowników Administrator dzierżawy p
 ## <a name="adding-subscriptions-to-a-management-group"></a>Dodawanie subskrypcji do grupy zarządzania
 Możesz dodać subskrypcje do utworzonej grupy zarządzania. Te kroki nie są wymagane do uzyskania widoczności i globalnego zarządzania zasadami i dostępem na poziomie dzierżawy.
 
-1. W obszarze **grupy zarządzania**wybierz grupę zarządzania, do której chcesz dodać subskrypcję.
+1. W obszarze **grupy zarządzania** wybierz grupę zarządzania, do której chcesz dodać subskrypcję.
 
     ![Wybierz grupę zarządzania, do której chcesz dodać subskrypcję](./media/security-center-management-groups/management-group-subscriptions.png)
 

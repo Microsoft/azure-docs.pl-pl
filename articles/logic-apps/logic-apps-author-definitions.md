@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
 ms.openlocfilehash: 9163071237041d7c8510a644c573e3763434bb0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87060662"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014401"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Tworzenie, edytowanie lub rozszerzanie danych JSON dla definicji przepływu pracy aplikacji logiki w usłudze Azure Logic Apps
 
@@ -33,7 +33,7 @@ Jeśli dopiero zaczynasz tworzyć aplikacje logiki, zapoznaj [się z tematem jak
 2. Z menu po lewej stronie wybierz pozycję **wszystkie usługi**.
 W polu wyszukiwania Znajdź pozycję "Aplikacje logiki", a następnie z wyników wybierz aplikację logiki.
 
-3. W menu aplikacji logiki w obszarze **Narzędzia programistyczne**wybierz pozycję **Widok kodu aplikacji logiki**.
+3. W menu aplikacji logiki w obszarze **Narzędzia programistyczne** wybierz pozycję **Widok kodu aplikacji logiki**.
 
    Zostanie otwarty Edytor widoku kodu z definicją aplikacji logiki w formacie JSON.
 
@@ -67,7 +67,7 @@ Wybierz pozycję **Otwórz przy użyciu Projektanta aplikacji logiki**.
 
 Cykl życia wdrożenia ma zwykle różne środowiska do projektowania, testowania, przemieszczania i produkcji. Jeśli masz wartości, które chcesz ponownie użyć w całej aplikacji logiki bez zakodowana lub które różnią się w zależności od potrzeb wdrożenia, możesz utworzyć [szablon Azure Resource Manager](../azure-resource-manager/management/overview.md) dla definicji przepływu pracy, aby można było również zautomatyzować wdrażanie aplikacji logiki.
 
-Postępuj zgodnie z tymi ogólnymi krokami, aby *Sparametryzuj*lub definiować i używać parametrów dla tych wartości. Następnie można podać wartości w osobnym pliku parametrów, który przekazuje te wartości do szablonu. Dzięki temu można łatwiej zmieniać te wartości bez konieczności aktualizacji i ponownego wdrażania aplikacji logiki. Aby uzyskać szczegółowe informacje, zobacz [Omówienie: Automatyzowanie wdrażania dla usługi Logic Apps za pomocą szablonów Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
+Postępuj zgodnie z tymi ogólnymi krokami, aby *Sparametryzuj* lub definiować i używać parametrów dla tych wartości. Następnie można podać wartości w osobnym pliku parametrów, który przekazuje te wartości do szablonu. Dzięki temu można łatwiej zmieniać te wartości bez konieczności aktualizacji i ponownego wdrażania aplikacji logiki. Aby uzyskać szczegółowe informacje, zobacz [Omówienie: Automatyzowanie wdrażania dla usługi Logic Apps za pomocą szablonów Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
 
 1. W szablonie Zdefiniuj parametry szablonu i parametry definicji przepływu pracy służące do akceptowania wartości używanych odpowiednio do wdrożenia i środowiska uruchomieniowego.
 

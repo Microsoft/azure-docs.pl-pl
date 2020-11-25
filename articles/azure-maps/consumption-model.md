@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: b44186d783a249192a8c13ee97063034ee319df7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88036763"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013143"
 ---
 # <a name="consumption-model"></a>Model użycia
 
 Usługa routingu zawiera zestaw parametrów dla szczegółowego opisu modelu zużycia specyficznego dla pojazdu.
-W zależności od wartości **vehicleEngineType**obsługiwane są dwa główne modele użycia: _spalanie_ i _elektryczny_. Nie można określić parametrów, które należą do różnych modeli w tym samym żądaniu. Ponadto parametry modelu zużycia nie mogą być używane z następującymi wartościami **skokumode** : _rower_ i _pies_.
+W zależności od wartości **vehicleEngineType** obsługiwane są dwa główne modele użycia: _spalanie_ i _elektryczny_. Nie można określić parametrów, które należą do różnych modeli w tym samym żądaniu. Ponadto parametry modelu zużycia nie mogą być używane z następującymi wartościami **skokumode** : _rower_ i _pies_.
 
 ## <a name="parameter-constraints-for-consumption-model"></a>Ograniczenia parametrów dla modelu zużycia
 

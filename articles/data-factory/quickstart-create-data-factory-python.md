@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 01/22/2018
 ms.custom: seo-python-october2019, devx-track-python
 ms.openlocfilehash: e511b8b5505f1fa8713d81d0ce959df32ef28503
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89439116"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013330"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Szybki start: Tworzenie fabryki danych i potoku przy użyciu języka Python
 
@@ -44,7 +44,7 @@ Potoki mogą pozyskiwanie danych z różnych magazynów danych. Potoki przetwarz
 
 * [Eksplorator usługi Azure Storage](https://storageexplorer.com/) (opcjonalnie).
 
-* [Aplikacja w Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Należy pamiętać o następujących wartościach, które mają być używane w kolejnych krokach: **Identyfikator aplikacji**, **klucz uwierzytelniania**i **Identyfikator dzierżawy**. Przypisz aplikację do roli **współautor** , wykonując instrukcje opisane w tym samym artykule.
+* [Aplikacja w Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Należy pamiętać o następujących wartościach, które mają być używane w kolejnych krokach: **Identyfikator aplikacji**, **klucz uwierzytelniania** i **Identyfikator dzierżawy**. Przypisz aplikację do roli **współautor** , wykonując instrukcje opisane w tym samym artykule.
 
 ## <a name="create-and-upload-an-input-file"></a>Tworzenie i przekazywanie pliku wejściowego
 
@@ -58,7 +58,7 @@ Potoki mogą pozyskiwanie danych z różnych magazynów danych. Potoki przetwarz
 
 ## <a name="install-the-python-package"></a>Instalacja pakietu języka Python
 
-1. Otwórz terminal lub wiersz polecenia z uprawnieniami administratora. 
+1. Otwórz terminal lub wiersz polecenia z uprawnieniami administratora. 
 2. Najpierw zainstaluj pakiet języka Python dla zasobów zarządzania platformy Azure:
 
     ```python

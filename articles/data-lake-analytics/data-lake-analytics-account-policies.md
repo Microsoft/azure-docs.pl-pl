@@ -6,11 +6,11 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 04/30/2018
 ms.openlocfilehash: ba69098f32e131714a15923aef64c3f6ba17e18f
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219500"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013313"
 ---
 # <a name="manage-azure-data-lake-analytics-using-account-policies"></a>Zarządzanie Azure Data Lake Analytics przy użyciu zasad konta
 
@@ -26,7 +26,7 @@ Aby zmienić liczbę jednostek dla konta Data Lake Analytics:
 
 1. W Azure Portal przejdź do swojego konta Data Lake Analytics.
 2. Kliknij pozycję **limity i zasady**.
-3. W obszarze **Maksymalna**wartość pola wyboru przesuń suwak, aby wybrać wartości, lub wprowadź wartość w polu tekstowym.
+3. W obszarze **Maksymalna** wartość pola wyboru przesuń suwak, aby wybrać wartości, lub wprowadź wartość w polu tekstowym.
 4. Kliknij pozycję **Zapisz**.
 
    > [!NOTE]
@@ -40,7 +40,7 @@ Aby zmienić liczbę zadań, które mogą być uruchamiane jednocześnie:
 
 1. W Azure Portal przejdź do swojego konta Data Lake Analytics.
 2. Kliknij pozycję **limity i zasady**.
-3. W obszarze **Maksymalna liczba uruchomionych zadań**przesuń suwak, aby wybrać wartość, lub wprowadź wartość w polu tekstowym.
+3. W obszarze **Maksymalna liczba uruchomionych zadań** przesuń suwak, aby wybrać wartość, lub wprowadź wartość w polu tekstowym.
 4. Kliknij pozycję **Zapisz**.
 
    > [!NOTE]
@@ -78,7 +78,7 @@ Na każdym koncie są ustawione zasady domyślne. Zasady domyślne dotyczą wszy
 
 2. Kliknij pozycję **limity i zasady**.
 
-3. W obszarze **limity dostarczania zadania**kliknij przycisk **Dodaj zasady** . Następnie wybierz lub wprowadź następujące ustawienia:
+3. W obszarze **limity dostarczania zadania** kliknij przycisk **Dodaj zasady** . Następnie wybierz lub wprowadź następujące ustawienia:
 
    1. **Nazwa zasad obliczeniowych**: Wprowadź nazwę zasad, aby przypominać o przeznaczeniu zasad.
 
@@ -98,7 +98,7 @@ Na każdym koncie są ustawione zasady domyślne. Zasady domyślne dotyczą wszy
 
 2. Kliknij pozycję **limity i zasady**.
 
-3. W obszarze **Limity wysyłania zadań**Znajdź zasady, które chcesz edytować.
+3. W obszarze **Limity wysyłania zadań** Znajdź zasady, które chcesz edytować.
 
 4. Aby wyświetlić opcje **usuwania** i **edycji** , w kolumnie po prawej stronie tabeli kliknij pozycję `...` . # # dodatkowe zasoby dla zasad dotyczących zadań
 

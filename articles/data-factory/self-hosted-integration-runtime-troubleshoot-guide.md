@@ -2,17 +2,17 @@
 title: Rozwiązywanie problemów z własnym hostowanym środowiskiem Integration Runtime w Azure Data Factory
 description: Dowiedz się, jak rozwiązywać problemy z nieobsługiwanym środowiskiem Integration Runtime w Azure Data Factory.
 services: data-factory
-author: nabhishek
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 11/17/2020
 ms.author: lle
-ms.openlocfilehash: e3a517497a480995b8ce63d36d0427e3bfadfe43
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 93c35828444ec93a974769ed3a2f1981c0ec4368
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844101"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96013464"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Rozwiązywanie problemów z własnym hostowanym środowiskiem Integration Runtime
 
@@ -167,7 +167,7 @@ Podczas obsługi przypadków związanych z uzgadnianiem certyfikatów SSL/TLS mo
 
 `Could not load file or assembly 'XXXXXXXXXXXXXXXX, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
  
-Przykład: 
+Na przykład: 
 
 `Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
 
@@ -320,7 +320,7 @@ Jeśli błąd jest wyświetlany jak powyżej *UnauthorizedAccessException*, post
         1. Wyczyść, aby odinstalować bieżące środowisko IR samoobsługowego.
         1. Zainstaluj własne bity IR.
         1. Postępuj zgodnie z poniższymi instrukcjami, aby zmienić konto usługi: 
-            1. Przejdź do folderu instalacji środowiska IR selfhosted, przełącz się do folderu: *Microsoft Integration Runtime\4.0\Shared*.
+            1. Przejdź do folderu instalacji samoobsługowego środowiska IR, przełącz się do folderu: *Microsoft Integration Runtime\4.0\Shared*.
             1. Uruchom wiersz polecenia przy użyciu podwyższonego poziomu uprawnień. Zamień *\<user>* i *\<password>* przy użyciu własnej nazwy użytkownika i hasła, a następnie uruchom polecenie poniżej:
                        
                 ```
@@ -731,7 +731,7 @@ Dwie możliwe przyczyny tego problemu:
 - Główny urząd certyfikacji certyfikatu serwera usługi ADF nie jest zaufany na komputerze, na którym zainstalowano SHIR. 
 - Używasz serwera proxy w danym środowisku, a certyfikat serwera usługi ADF został zastąpiony przez serwer proxy, podczas gdy zastąpiony certyfikat serwera nie jest zaufany na komputerze, na którym zainstalowano SHIR.
 
-#### <a name="solution"></a>Rozwiązanie
+#### <a name="resolution"></a>Rozwiązanie
 
 - W przypadku przyczyny 1 Upewnij się, że certyfikat serwera ADF i jego łańcuch certyfikatów są zaufane przez maszynę, na której zainstalowano SHIR.
 - W przypadku przyczyny 2 należy zaufać zamienionemu głównemu urzędowi certyfikacji na maszynie SHIR lub skonfigurować serwer proxy, aby nie zastępować certyfikatu serwera ADF.
@@ -744,6 +744,7 @@ Wprowadzamy nowy certyfikat SSL, który jest podpisany z DigiCert, sprawdź, czy
   ![DigiCert Global root — G2](media/self-hosted-integration-runtime-troubleshoot-guide/trusted-root-ca-check.png)
 
 Jeśli nie, pobierz ją z tego [miejsca](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt ). 
+
 
 ## <a name="self-hosted-ir-sharing"></a>Udostępnianie własnego środowiska IR
 
@@ -764,7 +765,7 @@ Aby uzyskać pomoc dotyczącą rozwiązywania problemów, wypróbuj następując
 
 *  [Blog Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Żądania funkcji Data Factory](https://feedback.azure.com/forums/270578-data-factory)
-*  [Wideo na platformie Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+*  [Wideo dotyczące platformy Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Strona pytania&pytań i odpowiedzi](/answers/topics/azure-data-factory.html)
 *  [Forum przepełnienia stosu dla Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informacje o usłudze Twitter dotyczące Data Factory](https://twitter.com/hashtag/DataFactory)
