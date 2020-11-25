@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 11/18/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 20e635d606676a526fac4c3720931525beb66876
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: c58ee46a608ccdcbb01a082ee278d9e0f8a07f6e
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95790423"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030683"
 ---
 # <a name="azure-synapse-analytics-terminology"></a>Terminologia dotycząca usługi Azure Synapse Analytics
 
@@ -41,13 +41,11 @@ Obszar roboczy może zawierać dowolną liczbę **połączonych usług**, czyli 
 
 ## <a name="apache-spark-for-synapse"></a>Apache Spark Synapse
 
-Aby korzystać z usługi Spark Analytics, Utwórz i Użyj **bezserwerowych pul Apache Spark** w obszarze roboczym usługi Synapse.
+Aby korzystać z usługi Spark Analytics, Utwórz i Użyj **bezserwerowych pul Apache Spark** w obszarze roboczym usługi Synapse. Po rozpoczęciu korzystania z puli platformy Spark obszary robocze tworzą **sesję platformy Spark** do obsługi zasobów assosociated z tą sesją. 
 
-* W obszarze roboczym można wdrażać zasoby **puli Apache Spark** — od 0 do N platformy Spark z odpowiednimi bazami danych. Pulę platformy Spark można automatycznie wstrzymać, wznowić i skalować.  
-* **Aplikacja Spark** — składa się z procesu sterownika i zestawu procesów wykonujących testy. Aplikacja Spark działa w puli Spark bezserwerowej.            
-* **Sesja platformy Spark**— Zunifikowany punkt wejścia aplikacji platformy Spark. Zapewnia sposób współpracy z różnymi funkcjami platformy Spark i z mniejszą liczbą konstrukcji. Aby uruchomić Notes, należy utworzyć sesję. Sesję można skonfigurować do uruchamiania na określonej liczbie wykonawców o określonym rozmiarze. Domyślna konfiguracja sesji notesu jest uruchamiana w przypadku programów wykonawczych o rozmiarze 2 średnim.
-* **Notes** — interaktywny i reaktywny interfejs nauki i inżynierii danych obsługujący Scala, PySpark, C# i SparkSQL.
-* **Definicja zadania platformy Spark** — interfejs umożliwiający przesłanie zadania platformy Spark przez zestaw jar zawierający kod i jego zależności.
+Istnieją dwa sposoby używania platformy Spark w Synapse:
+* **Notesy platformy Spark** do tworzenia danych i inżynierii z użyciem danych Scala, PySpark, C# i SparkSQL
+* **Definicje zadań platformy Spark** do uruchamiania zadań usługi Batch Spark przy użyciu plików jar.
 
 Obsługa wersji:
 * Platforma Spark 2,4
@@ -56,7 +54,7 @@ Obsługa wersji:
 * .NET dla Apache Spark 1,0
 * Różnicowa Lake 0,3.  
 
-## <a name="pipelines"></a>Potoki
+## <a name="pipelines"></a>Pipelines
 
 * **Integracja danych** — umożliwia pozyskiwanie danych między różnymi źródłami i organizowanie działań uruchomionych w obszarze roboczym lub poza obszarem roboczym.
 * **Przepływ danych** — udostępnia w pełni wizualizację, bez konieczności kodowania danych Big Data. Wszystkie optymalizacje i wykonywanie są obsługiwane w sposób bezserwerowy.
