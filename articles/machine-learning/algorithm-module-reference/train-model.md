@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/11/2020
-ms.openlocfilehash: e3080836e8b9ed38e99c691c66e71a4620829c90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/25/2020
+ms.openlocfilehash: f9a7623fd27178e8b9c213a1759bb09863d16c72
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890205"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030700"
 ---
 # <a name="train-model-module"></a>Moduł uczenia modelu
 
@@ -40,16 +40,14 @@ W Azure Machine Learning tworzenie i Używanie modelu uczenia maszynowego jest z
 3. Po zakończeniu szkolenia Użyj modelu przeszkolonego z jednym z [modułów oceniania](./score-model.md), aby tworzyć przewidywania dotyczące nowych danych.
 
 ## <a name="how-to-use-train-model"></a>Jak używać modelu uczenia 
-  
-1.  W Azure Machine Learning Skonfiguruj model klasyfikacji lub model regresji.
     
-2. Dodaj moduł **uczenie modelu** do potoku.  Ten moduł można znaleźć pod kategorią **Machine Learning** . Rozwiń węzeł **uczenie**, a następnie przeciągnij moduł **uczenie modelu** do potoku.
+1. Dodaj moduł **uczenie modelu** do potoku.  Ten moduł można znaleźć pod kategorią **Machine Learning** . Rozwiń węzeł **uczenie**, a następnie przeciągnij moduł **uczenie modelu** do potoku.
   
-3.  Z lewej strony Dołącz tryb niepociąg. Dołącz zestaw danych szkoleniowych do prawego wejścia **modelu uczenia**.
+1.  Z lewej strony Dołącz tryb niepociąg. Dołącz zestaw danych szkoleniowych do prawego wejścia **modelu uczenia**.
 
     Zestaw danych szkoleniowych musi zawierać kolumnę Label. Wszystkie wiersze bez etykiet są ignorowane.
   
-4.  Dla **kolumny etykieta**kliknij pozycję **Edytuj kolumnę** w prawym panelu modułu, a następnie wybierz pojedynczą kolumnę zawierającą wyniki, które będą używane przez model do szkoleń.
+1.  Dla **kolumny etykieta** kliknij pozycję **Edytuj kolumnę** w prawym panelu modułu, a następnie wybierz pojedynczą kolumnę zawierającą wyniki, które będą używane przez model do szkoleń.
   
     - W przypadku problemów z klasyfikacją kolumna Label musi zawierać wartości **kategorii** lub wartości **dyskretnych** . Niektóre przykłady mogą być klasyfikacją tak/bez, kodem klasyfikacji lub grupą przychodów.  W przypadku wybrania kolumny noncategorical moduł zwróci błąd podczas szkolenia.
   
@@ -62,7 +60,10 @@ W Azure Machine Learning tworzenie i Używanie modelu uczenia maszynowego jest z
     > [!TIP] 
     > Jeśli masz problemy z użyciem selektora kolumn, zobacz artykuł [Wybieranie kolumn w zestawie danych](./select-columns-in-dataset.md) , aby uzyskać porady. Opisano niektóre typowe scenariusze i porady dotyczące korzystania **z reguł with** i **według nazwy** .
   
-5.  Prześlij potok. W przypadku dużej ilości danych może to chwilę potrwać.
+1.  Prześlij potok. W przypadku dużej ilości danych może to chwilę potrwać.
+
+    > [!IMPORTANT] 
+    > Jeśli masz kolumnę identyfikatora, która jest IDENTYFIKATORem każdego wiersza, **model uczenia** może wystąpić błąd, na przykład "Liczba unikatowych wartości w kolumnie:" {column_name} "jest większa niż dozwolona." Wynika to z faktu, że kolumna ID osiągnęła próg unikatowych wartości i może spowodować brak pamięci. Kolumna o IDENTYFIKATORze zwykle nie ma znaczenia podczas szkolenia. Możesz użyć opcji [Edytuj metadane](edit-metadata.md) , aby oznaczyć tę kolumnę jako **funkcję Clear** i nie będzie ona używana w szkoleniu. Aby uzyskać szczegółowe informacje o błędzie, zobacz [Kod błędu projektanta](././designer-error-codes.md) .
 
 ## <a name="results"></a>Wyniki
 
