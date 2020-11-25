@@ -6,14 +6,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/07/2020
+ms.date: 11/20/2020
 ms.author: aahi
-ms.openlocfilehash: a077d255648ff07cc88b43dece889a221c46c11f
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: ee7fd384a198c5eff672b14b6cb479aac26cfe54
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561514"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972520"
 ---
 <a name="create-luis-resources"></a>
 
@@ -37,7 +37,7 @@ ms.locfileid: "94561514"
     > [![Zrzut ekranu przedstawiający kartę podstawowe w obszarze Tworzenie.](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png)](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png#lightbox)
 
 1. Wybierz pozycję **Recenzja + Utwórz** i poczekaj na utworzenie zasobu.
-1. Po utworzeniu obu zasobów nadal w Azure Portal wybierz nowy zasób tworzenia. Następnie wybierz pozycję **Szybki Start** , aby uzyskać PROGRAMISTYCZNY adres URL i **klucz** **punktu końcowego** tworzenia.
+1. Po utworzeniu obu zasobów nadal w Azure Portal wybierz nowy zasób tworzenia. Następnie wybierz pozycję **klucze i punkt końcowy** , aby uzyskać PROGRAMISTYCZNY adres URL i **klucz** **punktu końcowego** tworzenia.
 
 > [!TIP]
 > Aby korzystać z zasobów, w portalu LUIS [Przypisz zasoby](../luis-how-to-azure-subscription.md#assign-an-authoring-resource-in-the-luis-portal-for-all-apps).

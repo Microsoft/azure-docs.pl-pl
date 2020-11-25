@@ -5,14 +5,14 @@ author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8d6c5efd1c72c4eca7e4cb03043dbe66ca0df491
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
-ms.translationtype: MT
+ms.openlocfilehash: fc18ddcb44a016348baed79ada273416e159aed5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95561531"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95971395"
 ---
-- Skorzystaj z usługi [Azure Cloud Shell](../articles/cloud-shell/quickstart.md) za pośrednictwem środowiska bash.
+- Skorzystaj z usługi [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart) za pośrednictwem środowiska bash.
 
    [![Uruchamianie osadzane](https://shell.azure.com/images/launchcloudshell.png "Uruchamianie usługi Azure Cloud Shell")](https://shell.azure.com)   
 - Jeśli chcesz, [zainstaluj](/cli/azure/install-azure-cli) interfejs wiersza polecenia platformy Azure, aby móc uruchamiać polecenia referencyjne interfejsu CLI.

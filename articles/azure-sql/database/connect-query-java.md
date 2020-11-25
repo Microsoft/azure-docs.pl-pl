@@ -11,11 +11,11 @@ ms.devlang: java
 ms.date: 06/26/2020
 ms.custom: devx-track-java, devx-track-azurecli
 ms.openlocfilehash: badf6b8887c356c2a7fc7308f6aa15f551e4bb67
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746733"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972678"
 ---
 # <a name="use-java-and-jdbc-with--azure-sql-database"></a>Używanie języka Java i JDBC z Azure SQL Database
 
@@ -30,7 +30,7 @@ JDBC jest standardowym interfejsem API języka Java do łączenia z tradycyjnymi
 - Obsługiwany [zestaw Java Development Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), wersja 8 (uwzględniony w Azure Cloud Shell).
 - Narzędzie kompilacji [Apache Maven](https://maven.apache.org/) .
 
-## <a name="prepare-the-working-environment"></a>Przygotowanie środowiska roboczego
+## <a name="prepare-the-working-environment"></a>Przygotowywanie środowiska roboczego
 
 Zamierzamy używać zmiennych środowiskowych, aby ograniczyć liczbę błędów i ułatwić dostosowanie poniższej konfiguracji do konkretnych potrzeb.
 
@@ -47,9 +47,9 @@ AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 
 Zastąp symbole zastępcze następującymi wartościami, które są używane w tym artykule:
 
-- `<YOUR_DATABASE_NAME>`: Nazwa serwera Azure SQL Database. Powinna być unikatowa w ramach platformy Azure.
-- `<YOUR_AZURE_REGION>`: Region świadczenia usługi Azure, który będzie używany. Można używać `eastus` Domyślnie, ale zalecamy skonfigurowanie regionu bliżej miejsca, w którym się znajdują. Aby uzyskać pełną listę dostępnych regionów, wprowadź `az account list-locations` .
-- `<AZ_SQL_SERVER_PASSWORD>`: Hasło serwera Azure SQL Database. To hasło powinno zawierać co najmniej osiem znaków. Znaki powinny pochodzić z trzech z następujących kategorii: wielkie litery angielskie, małe litery angielskie, cyfry (0-9) i znaki inne niż alfanumeryczne (!, $, #,% itd.).
+- `<YOUR_DATABASE_NAME>`: Nazwa serwera Azure SQL Database. Powinna być ona unikatowa w obrębie platformy Azure.
+- `<YOUR_AZURE_REGION>`: Region świadczenia usługi Azure, który będzie używany. Możesz domyślnie zastosować region `eastus`, ale zalecamy skonfigurowanie regionu bliżej Twojego miejsca zamieszkania. Aby uzyskać pełną listę dostępnych regionów, wprowadź `az account list-locations` .
+- `<AZ_SQL_SERVER_PASSWORD>`: Hasło serwera Azure SQL Database. To hasło powinno zawierać co najmniej osiem znaków. Znaki muszą pochodzić z trzech spośród następujących kategorii: wielkie litery angielskie, małe litery angielskie, cyfry (0–9) i znaki inne niż alfanumeryczne (!, $, #,% itd.).
 - `<YOUR_LOCAL_IP_ADDRESS>`: Adres IP komputera lokalnego, z którego będzie uruchamiana aplikacja Java. Jednym z wygody jest wskazanie, że Twoja przeglądarka ma być [whatismyip.Akamai.com](http://whatismyip.akamai.com/).
 
 Następnie utwórz grupę zasobów przy użyciu następującego polecenia:
@@ -62,7 +62,7 @@ az group create \
 ```
 
 > [!NOTE]
-> Używamy `jq` Narzędzia do wyświetlania danych JSON i zwiększania czytelności. To narzędzie jest instalowane domyślnie na [Azure Cloud Shell](https://shell.azure.com/). Jeśli nie lubisz tego narzędzia, możesz bezpiecznie usunąć `| jq` część wszystkich poleceń, które będą używane.
+> Używamy `jq` Narzędzia do wyświetlania danych JSON i zwiększania czytelności. To narzędzie jest instalowane domyślnie na [Azure Cloud Shell](https://shell.azure.com/). Jeśli nie lubisz tego narzędzia, możesz bezpiecznie usunąć część `| jq` ze wszystkich poleceń.
 
 ## <a name="create-an-azure-sql-database-instance"></a>Tworzenie wystąpienia Azure SQL Database
 
@@ -87,7 +87,7 @@ To polecenie tworzy serwer Azure SQL Database.
 
 ### <a name="configure-a-firewall-rule-for-your-azure-sql-database-server"></a>Konfigurowanie reguły zapory dla serwera Azure SQL Database
 
-Wystąpienia Azure SQL Database są zabezpieczone domyślnie. Mają zaporę, która nie zezwala na żadne połączenie przychodzące. Aby można było korzystać z bazy danych programu, należy dodać regułę zapory zezwalającą na dostęp lokalnego adresu IP do serwera bazy danych.
+Wystąpienia Azure SQL Database są zabezpieczone domyślnie. Ma ona zaporę, która nie zezwala na żadne połączenie przychodzące. Aby można było korzystać z bazy danych programu, należy dodać regułę zapory zezwalającą na dostęp lokalnego adresu IP do serwera bazy danych.
 
 Ze względu na to, że lokalny adres IP został skonfigurowany na początku tego artykułu, możesz otworzyć zaporę serwera, uruchamiając następujące polecenie:
 
@@ -170,7 +170,7 @@ DROP TABLE IF EXISTS todo;
 CREATE TABLE todo (id INT PRIMARY KEY, description VARCHAR(255), details VARCHAR(4096), done BIT);
 ```
 
-## <a name="code-the-application"></a>Kod aplikacji
+## <a name="code-the-application"></a>Kodowanie aplikacji
 
 ### <a name="connect-to-the-database"></a>Łączenie z bazą danych
 

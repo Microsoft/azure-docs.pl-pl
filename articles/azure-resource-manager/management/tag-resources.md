@@ -2,14 +2,14 @@
 title: Dodawanie tagów do zasobów, grup zasobów i subskrypcji dla organizacji logicznej
 description: Pokazuje, jak zastosować Tagi do organizowania zasobów platformy Azure na potrzeby rozliczeń i zarządzania nimi.
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 11/20/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3ffcb4a0f2f5dc64b165fcdec03f7c3ced258cc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e9ef96a712e5ac2ba483170fb8ef9c89115b4f8
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90086763"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95972570"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Używanie tagów do organizowania zasobów platformy Azure i hierarchii zarządzania
 
@@ -30,7 +30,7 @@ Aby zastosować Tagi do zasobu, musisz mieć dostęp do zapisu dla typu zasobu *
 
 Rola [współautor](../../role-based-access-control/built-in-roles.md#contributor) przyznaje również wymagany dostęp do stosowania tagów do dowolnej jednostki. Aby zastosować Tagi tylko do jednego typu zasobu, należy użyć roli współautor dla tego zasobu. Aby na przykład zastosować Tagi do maszyn wirtualnych, użyj [współautora maszyny wirtualnej](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
-## <a name="powershell"></a>Program PowerShell
+## <a name="powershell"></a>PowerShell
 
 ### <a name="apply-tags"></a>Zastosuj Tagi
 
@@ -107,7 +107,7 @@ Properties :
         Environment  Production
 ```
 
-Po ustawieniu parametru **-Operation** do **zastępowania**istniejące Tagi są zastępowane nowym zestawem tagów.
+Po ustawieniu parametru **-Operation** do **zastępowania** istniejące Tagi są zastępowane nowym zestawem tagów.
 
 ```azurepowershell-interactive
 $tags = @{"Project"="ECommerce"; "CostCenter"="00123"; "Team"="Web"}
@@ -240,107 +240,200 @@ Remove-AzTag -ResourceId "/subscriptions/$subscription"
 
 ### <a name="apply-tags"></a>Zastosuj Tagi
 
-Dodając Tagi do grupy zasobów lub zasobu, można zastąpić istniejące Tagi lub dołączyć nowe tagi do istniejących tagów.
+Interfejs wiersza polecenia platformy Azure oferuje dwa polecenia do stosowania tagów- [AZ tag Create](/cli/azure/tag#az_tag_create) i [AZ tag Update](/cli/azure/tag#az_tag_update). Musisz mieć interfejs wiersza polecenia platformy Azure 2.10.0 lub nowszy. Możesz sprawdzić swoją wersję za pomocą programu `az version` . Aby zaktualizować lub zainstalować, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
-Aby zastąpić Tagi w zasobie, użyj:
+Polecenie **AZ tag Create** zastępuje wszystkie znaczniki dla zasobu, grupy zasobów lub subskrypcji. Podczas wywoływania polecenia, należy przekazać identyfikator zasobu jednostki, którą chcesz oznaczyć.
 
-```azurecli-interactive
-az resource tag --tags 'Dept=IT' 'Environment=Test' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
-```
-
-Aby dołączyć tag do istniejących tagów w zasobie, użyj:
+W poniższym przykładzie zastosowano zestaw tagów do konta magazynu:
 
 ```azurecli-interactive
-az resource update --set tags.'Status'='Approved' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
+resource=$(az resource show -g demoGroup -n demoStorage --resource-type Microsoft.Storage/storageAccounts --query "id" --output tsv)
+az tag create --resource-id $resource --tags Dept=Finance Status=Normal
 ```
 
-Aby zastąpić istniejące Tagi w grupie zasobów, użyj:
+Po zakończeniu wykonywania polecenia należy zauważyć, że zasób ma dwa Tagi.
+
+```output
+"properties": {
+  "tags": {
+    "Dept": "Finance",
+    "Status": "Normal"
+  }
+},
+```
+
+Jeśli ponownie uruchomisz polecenie, ale tym razem z różnymi tagami, Zauważ, że wcześniejsze znaczniki są usuwane.
 
 ```azurecli-interactive
-az group update -n examplegroup --tags 'Environment=Test' 'Dept=IT'
+az tag create --resource-id $resource --tags Team=Compliance Environment=Production
 ```
 
-Aby dołączyć tag do istniejących tagów w grupie zasobów, użyj:
+```output
+"properties": {
+  "tags": {
+    "Environment": "Production",
+    "Team": "Compliance"
+  }
+},
+```
+
+Aby dodać tagi do zasobu, który ma już Tagi, użyj polecenie **AZ tag Update**. Ustaw parametr **--Operation** do **scalenia**.
 
 ```azurecli-interactive
-az group update -n examplegroup --set tags.'Status'='Approved'
+az tag update --resource-id $resource --operation Merge --tags Dept=Finance Status=Normal
 ```
 
-Obecnie w interfejsie wiersza polecenia platformy Azure nie jest dostępne polecenie do stosowania tagów do subskrypcji. Można jednak użyć interfejsu wiersza polecenia, aby wdrożyć szablon ARM, który stosuje Tagi do subskrypcji. Zobacz [stosowanie tagów do grup zasobów lub subskrypcji](#apply-tags-to-resource-groups-or-subscriptions).
+Zwróć uwagę, że dwa nowe Tagi zostały dodane do dwóch istniejących tagów.
+
+```output
+"properties": {
+  "tags": {
+    "Dept": "Finance",
+    "Environment": "Production",
+    "Status": "Normal",
+    "Team": "Compliance"
+  }
+},
+```
+
+Nazwy poszczególnych tagów mogą mieć tylko jedną wartość. Jeśli podano nową wartość dla tagu, stara wartość zostanie zamieniona nawet w przypadku użycia operacji scalania. Poniższy przykład zmienia tag stanu z normalny na zielony.
+
+```azurecli-interactive
+az tag update --resource-id $resource --operation Merge --tags Status=Green
+```
+
+```output
+"properties": {
+  "tags": {
+    "Dept": "Finance",
+    "Environment": "Production",
+    "Status": "Green",
+    "Team": "Compliance"
+  }
+},
+```
+
+Po ustawieniu parametru **--Operation** do **zastępowania** istniejące Tagi są zastępowane nowym zestawem tagów.
+
+```azurecli-interactive
+az tag update --resource-id $resource --operation Replace --tags Project=ECommerce CostCenter=00123 Team=Web
+```
+
+Tylko nowe Tagi pozostają w zasobie.
+
+```output
+"properties": {
+  "tags": {
+    "CostCenter": "00123",
+    "Project": "ECommerce",
+    "Team": "Web"
+  }
+},
+```
+
+Te same polecenia działają również z grupami zasobów lub subskrypcjami. Identyfikator dla grupy zasobów lub subskrypcji, który ma zostać oznakowany, jest przekazywany.
+
+Aby dodać nowy zestaw tagów do grupy zasobów, użyj:
+
+```azurecli-interactive
+group=$(az group show -n demoGroup --query id --output tsv)
+az tag create --resource-id $group --tags Dept=Finance Status=Normal
+```
+
+Aby zaktualizować Tagi dla grupy zasobów, użyj:
+
+```azurecli-interactive
+az tag update --resource-id $group --operation Merge --tags CostCenter=00123 Environment=Production
+```
+
+Aby dodać nowy zestaw tagów do subskrypcji, użyj:
+
+```azurecli-interactive
+sub=$(az account show --subscription "Demo Subscription" --query id --output tsv)
+az tag create --resource-id /subscriptions/$sub --tags CostCenter=00123 Environment=Dev
+```
+
+Aby zaktualizować Tagi dla subskrypcji, użyj:
+
+```azurecli-interactive
+az tag update --resource-id /subscriptions/$sub --operation Merge --tags Team="Web Apps"
+```
 
 ### <a name="list-tags"></a>Tworzenie listy tagów
 
-Aby wyświetlić istniejące Tagi dla zasobu, użyj:
+Aby uzyskać Tagi dla zasobu, grupy zasobów lub subskrypcji, użyj polecenia [AZ tag list](/cli/azure/tag#az_tag_list) i przekaż identyfikator zasobu dla jednostki.
+
+Aby wyświetlić Tagi dla zasobu, użyj:
 
 ```azurecli-interactive
-az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
+resource=$(az resource show -g demoGroup -n demoStorage --resource-type Microsoft.Storage/storageAccounts --query "id" --output tsv)
+az tag list --resource-id $resource
 ```
 
-Aby wyświetlić istniejące tagi dla grupy zasobów, użyj:
+Aby wyświetlić Tagi dla grupy zasobów, użyj:
 
 ```azurecli-interactive
-az group show -n examplegroup --query tags
+group=$(az group show -n demoGroup --query id --output tsv)
+az tag list --resource-id $group
 ```
 
-Ten skrypt zwraca następujący format:
+Aby wyświetlić Tagi dla subskrypcji, użyj:
 
-```json
-{
-  "Dept"        : "IT",
-  "Environment" : "Test"
-}
+```azurecli-interactive
+sub=$(az account show --subscription "Demo Subscription" --query id --output tsv)
+az tag list --resource-id /subscriptions/$sub
 ```
 
 ### <a name="list-by-tag"></a>Lista według tagu
 
-Aby uzyskać wszystkie zasoby, które mają określony tag i wartość, użyj `az resource list` :
+Aby uzyskać zasoby z określoną nazwą i wartością tagu, użyj:
 
 ```azurecli-interactive
-az resource list --tag Dept=Finance
+az resource list --tag CostCenter=00123 --query [].name
 ```
 
-Aby uzyskać grupy zasobów, które mają określony tag, użyj `az group list` :
+Aby uzyskać zasoby z określoną nazwą tagu z dowolną wartością tagu, użyj:
 
 ```azurecli-interactive
-az group list --tag Dept=IT
+az resource list --tag Team --query [].name
+```
+
+Aby uzyskać grupy zasobów z określoną nazwą i wartością tagu, użyj:
+
+```azurecli-interactive
+az group list --tag Dept=Finance
+```
+
+### <a name="remove-tags"></a>Usuń Tagi
+
+Aby usunąć określone Tagi, użyj polecenie **AZ tag Update** i Set **--Operation** do **usunięcia**. Przekaż Tagi, które chcesz usunąć.
+
+```azurecli-interactive
+az tag update --resource-id $resource --operation Delete --tags Project=ECommerce Team=Web
+```
+
+Określone Tagi są usuwane.
+
+```output
+"properties": {
+  "tags": {
+    "CostCenter": "00123"
+  }
+},
+```
+
+Aby usunąć wszystkie Tagi, użyj polecenia [AZ tag Delete](/cli/azure/tag#az_tag_delete) .
+
+```azurecli-interactive
+az tag delete --resource-id $resource
 ```
 
 ### <a name="handling-spaces"></a>Obsługa spacji
 
-Jeśli nazwy tagów lub wartości zawierają spacje, należy wykonać kilka dodatkowych kroków. 
-
-`--tags`Parametry w interfejsie wiersza polecenia platformy Azure mogą akceptować ciąg, który składa się z tablicy ciągów. Poniższy przykład zastępuje znaczniki w grupie zasobów, w której Tagi zawierają spacje i łącznik: 
+Jeśli nazwy tagów lub wartości zawierają spacje, należy ująć je w podwójne cudzysłowy.
 
 ```azurecli-interactive
-TAGS=("Cost Center=Finance-1222" "Location=West US")
-az group update --name examplegroup --tags "${TAGS[@]}"
-```
-
-Możesz użyć tej samej składni podczas tworzenia lub aktualizowania grupy zasobów lub zasobów przy użyciu `--tags` parametru.
-
-Aby zaktualizować Tagi przy użyciu `--set` parametru, należy przekazać klucz i wartość jako ciąg. Poniższy przykład dołącza jeden tag do grupy zasobów:
-
-```azurecli-interactive
-TAG="Cost Center='Account-56'"
-az group update --name examplegroup --set tags."$TAG"
-```
-
-W tym przypadku wartość tagu jest oznaczona pojedynczymi cudzysłowami, ponieważ wartość ma łącznik.
-
-Może być również konieczne zastosowanie tagów do wielu zasobów. Poniższy przykład stosuje wszystkie Tagi z grupy zasobów do jej zasobów, gdy Tagi mogą zawierać spacje:
-
-```azurecli-interactive
-jsontags=$(az group show --name examplegroup --query tags -o json)
-tags=$(echo $jsontags | tr -d '{}"' | sed 's/: /=/g' | sed "s/\"/'/g" | sed 's/, /,/g' | sed 's/ *$//g' | sed 's/^ *//g')
-origIFS=$IFS
-IFS=','
-read -a tagarr <<< "$tags"
-resourceids=$(az resource list -g examplegroup --query [].id --output tsv)
-for id in $resourceids
-do
-  az resource tag --tags "${tagarr[@]}" --id $id
-done
-IFS=$origIFS
+az tag update --resource-id $group --operation Merge --tags "Cost Center"=Finance-1222 Location="West US"
 ```
 
 ## <a name="templates"></a>Szablony

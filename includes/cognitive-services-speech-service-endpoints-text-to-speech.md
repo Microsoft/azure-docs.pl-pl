@@ -4,18 +4,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
-ms.openlocfilehash: a1de313245e826511a7e9c864165ac44bcb48530
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 650ce0cc9586118b30593767c6a3ddb92f494ac3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80234187"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972656"
 ---
 ### <a name="standard-and-neural-voices"></a>Głosy standardowe i neuronowych
 
 Użyj tej tabeli, aby określić dostępność standardowych i neuronowych głosów według regionu/punktu końcowego:
 
-| Region | Punkt końcowy | Głosy standardowe | Głosy neuronowych |
+| Region (Region) | Punkt końcowy | Głosy standardowe | Głosy neuronowych |
 |--------|----------|-----------------|---------------|
 | Australia Wschodnia | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Tak |
 | Brazil South | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Nie |
@@ -38,11 +38,14 @@ Użyj tej tabeli, aby określić dostępność standardowych i neuronowych głos
 | Zachodnie stany USA | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Nie |
 | Zachodnie stany USA 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Tak |
 
+> [!TIP]
+> [Głosy w wersji zapoznawczej](../articles/cognitive-services/Speech-Service/language-support.md#neural-voices-in-preview) są dostępne tylko w tych 3 regionach: Wschodnie stany USA, Europa Zachodnia i Azja Południowo-Wschodnia.
+
 ### <a name="custom-voices"></a>Głosy niestandardowe
 
 Jeśli utworzono niestandardową czcionkę głosową, użyj utworzonego przez siebie punktu końcowego. Możesz również użyć punktów końcowych wymienionych poniżej, zastępując `{deploymentId}` Identyfikator wdrożenia dla modelu głosu.
 
-| Region | Punkt końcowy |
+| Region (Region) | Punkt końcowy |
 |--------|----------|
 | Australia Wschodnia | `https://australiaeast.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Brazil South | `https://brazilsouth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |

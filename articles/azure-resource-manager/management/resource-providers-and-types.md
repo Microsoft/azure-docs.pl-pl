@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 11/09/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 702836e0dc98b06ccf6e0eeb0d0f373374c4e783
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426463"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972542"
 ---
 # <a name="azure-resource-providers-and-types"></a>Dostawcy i typy zasobów platformy Azure
 
@@ -49,7 +49,7 @@ Aby wyświetlić wszystkich dostawców zasobów i status rejestracji dla Twojej 
 
     ![Wybieranie subskrypcji](./media/resource-providers-and-types/select-all-services.png)
 
-3. W polu **wszystkie usługi** wprowadź **subskrypcję** , a następnie wybierz pozycję **subskrypcje**.
+3. W polu **wszystkie usługi** wprowadź **subskrypcję**, a następnie wybierz pozycję **subskrypcje**.
 4. Wybierz subskrypcję z listy subskrypcji do wyświetlenia.
 5. Wybierz pozycję **dostawcy zasobów** i Wyświetl listę dostępnych dostawców zasobów.
 
@@ -61,7 +61,7 @@ Aby wyświetlić informacje dotyczące konkretnego dostawcy zasobów:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. W menu witryny Azure Portal wybierz pozycję **Wszystkie usługi**.
-3. W polu **wszystkie usługi** wprowadź **Eksplorator zasobów** , a następnie wybierz pozycję **Eksplorator zasobów**.
+3. W polu **wszystkie usługi** wprowadź **Eksplorator zasobów**, a następnie wybierz pozycję **Eksplorator zasobów**.
 
     ![Wybierz wszystkie usługi](./media/resource-providers-and-types/select-resource-explorer.png)
 

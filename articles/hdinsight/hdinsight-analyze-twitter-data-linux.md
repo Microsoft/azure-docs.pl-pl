@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 12/16/2019
 ms.openlocfilehash: fe511ed2d6b724c1215f9986c9d6c50aae076935
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533295"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95971913"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Analizowanie danych usługi Twitter przy użyciu Apache Hive i Apache Hadoop w usłudze HDInsight
 
@@ -30,9 +30,9 @@ Serwis Twitter umożliwia pobieranie danych dla każdego tweetu jako dokumentu J
 
 1. W przeglądarce internetowej Zaloguj się do [https://developer.twitter.com/apps/](https://developer.twitter.com/apps/) . Wybierz link **Utwórz konto teraz** , jeśli nie masz konta w usłudze Twitter.
 
-2. Wybierz pozycję **Utwórz nową aplikację** .
+2. Wybierz pozycję **Utwórz nową aplikację**.
 
-3. Wprowadź **nazwę** , **Opis** , **witrynę sieci Web** . Możesz wprowadzić adres URL dla pola **Witryna sieci Web** . W poniższej tabeli przedstawiono niektóre przykładowe wartości do użycia:
+3. Wprowadź **nazwę**, **Opis**, **witrynę sieci Web**. Możesz wprowadzić adres URL dla pola **Witryna sieci Web** . W poniższej tabeli przedstawiono niektóre przykładowe wartości do użycia:
 
    | Pole | Wartość |
    |--- |--- |
@@ -40,21 +40,21 @@ Serwis Twitter umożliwia pobieranie danych dla każdego tweetu jako dokumentu J
    | Opis |MyHDInsightApp |
    | Witryna internetowa |`https://www.myhdinsightapp.com` |
 
-4. Wybierz pozycję **tak, zgadzam** się, a następnie wybierz pozycję **Utwórz aplikację w usłudze Twitter** .
+4. Wybierz pozycję **tak, zgadzam** się, a następnie wybierz pozycję **Utwórz aplikację w usłudze Twitter**.
 
-5. Wybierz kartę **uprawnienia** . Uprawnienie domyślne jest **tylko do odczytu** .
+5. Wybierz kartę **uprawnienia** . Uprawnienie domyślne jest **tylko do odczytu**.
 
 6. Wybierz kartę **klucze i tokeny dostępu** .
 
-7. Wybierz pozycję **Utwórz mój token dostępu** .
+7. Wybierz pozycję **Utwórz mój token dostępu**.
 
 8. Wybierz pozycję **Testuj OAuth** w prawym górnym rogu strony.
 
-9. Zapisz **klucz klienta** , wpis **tajny klienta** , **token dostępu** i **klucz tajny tokenu dostępu** .
+9. Zapisz **klucz klienta**, wpis **tajny klienta**, **token dostępu** i **klucz tajny tokenu dostępu**.
 
 ### <a name="download-tweets"></a>Pobierz tweety
 
-Poniższy kod języka Python pobiera 10 000 tweetów z serwisu Twitter i zapisuje je w pliku o nazwie **tweets.txt** .
+Poniższy kod języka Python pobiera 10 000 tweetów z serwisu Twitter i zapisuje je w pliku o nazwie **tweets.txt**.
 
 > [!NOTE]  
 > Poniższe kroki są wykonywane w klastrze usługi HDInsight, ponieważ język Python jest już zainstalowany.
@@ -78,7 +78,7 @@ Poniższy kod języka Python pobiera 10 000 tweetów z serwisu Twitter i zapisuj
    pip install tweepy progressbar pyOpenSSL requests[security]
    ```
 
-1. Użyj następującego polecenia, aby utworzyć plik o nazwie **gettweets.py** :
+1. Użyj następującego polecenia, aby utworzyć plik o nazwie **gettweets.py**:
 
    ```bash
    nano gettweets.py
@@ -143,7 +143,7 @@ Poniższy kod języka Python pobiera 10 000 tweetów z serwisu Twitter i zapisuj
     > [!TIP]  
     > Dostosuj filtr tematów w ostatnim wierszu, aby śledzić Popularne słowa kluczowe. Przy użyciu słów kluczowych popularnych w momencie uruchomienia skryptu można szybciej przechwytywać dane.
 
-1. Użyj **kombinacji klawiszy Ctrl + X** , a następnie **Y** , aby zapisać plik.
+1. Użyj **kombinacji klawiszy Ctrl + X**, a następnie **Y** , aby zapisać plik.
 
 1. Użyj następującego polecenia, aby uruchomić plik i pobrać tweety:
 
@@ -283,7 +283,7 @@ Te polecenia przechowują dane w lokalizacji, do której mogą uzyskać dostęp 
    WHERE (length(json_response) > 500);
    ```
 
-1. Naciśnij **klawisze Ctrl + X** , a następnie naciśnij klawisz **t** , aby zapisać plik.
+1. Naciśnij **klawisze Ctrl + X**, a następnie naciśnij klawisz **t** , aby zapisać plik.
 
 1. Użyj następującego polecenia, aby uruchomić HiveQL zawarty w pliku:
 

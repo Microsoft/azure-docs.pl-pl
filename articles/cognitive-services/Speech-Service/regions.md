@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: b0574c41042e172af78365bb273c81729ce204ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b872340c50c800ebe4d4d6c7ca56b3b327bf162
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88749315"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95972655"
 ---
 # <a name="speech-service-supported-regions"></a>Obsługiwane regiony usługi Speech
 
@@ -27,7 +27,7 @@ Portal mowy do wykonywania niestandardowych konfiguracji w środowisku mowy dla 
 Należy pamiętać o następujących kwestiach podczas rozważania regionów:
 
 * Jeśli aplikacja korzysta z [zestawu Speech SDK](speech-sdk.md), `westus` podczas tworzenia konfiguracji mowy należy podać identyfikator regionu, taki jak.
-* Jeśli aplikacja używa jednego z [interfejsów API REST](rest-apis.md)usługi mowy, region jest częścią identyfikatora URI punktu końcowego, który jest używany podczas tworzenia żądań.
+* Jeśli aplikacja używa jednego z [interfejsów API REST](./overview.md#reference-docs)usługi mowy, region jest częścią identyfikatora URI punktu końcowego, który jest używany podczas tworzenia żądań.
 * Klucze utworzone dla regionu są prawidłowe tylko w tym regionie. Próba użycia ich z innymi regionami spowoduje błędy uwierzytelniania.
 
 ## <a name="speech-sdk"></a>Zestaw SDK rozpoznawania mowy
@@ -38,7 +38,7 @@ W [zestawie mowy SDK](speech-sdk.md)regiony są określone jako ciąg (na przyk�
 
 Portal dostosowania mowy jest dostępny tutaj: https://speech.microsoft.com
 
-Usługa Speech jest dostępna w tych regionach na potrzeby **rozpoznawania mowy**, **zamiany tekstu na mowę**i **tłumaczenia**:
+Usługa Speech jest dostępna w tych regionach na potrzeby **rozpoznawania mowy**, **zamiany tekstu na mowę** i **tłumaczenia**:
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
@@ -48,7 +48,7 @@ Jeśli używasz [zestawu Speech SDK](speech-sdk.md), regiony są określane prze
 
 Dostępne regiony do **rozpoznawania intencji** za pośrednictwem zestawu Speech SDK są następujące:
 
-| Region globalny | Region           | Identyfikator regionu |
+| Region globalny | Region (Region)           | Identyfikator regionu |
 | ------------- | ---------------- | -------------------- |
 | Azja          | Azja Wschodnia        | `eastasia`           |
 | Azja          | Southeast Asia   | `southeastasia`      |
@@ -63,13 +63,13 @@ Dostępne regiony do **rozpoznawania intencji** za pośrednictwem zestawu Speech
 | Ameryka Północna | Zachodnie stany USA 2        | `westus2`            |
 | Ameryka Południowa | Brazil South     | `brazilsouth`        |
 
-Jest to podzestaw regionów publikowania obsługiwanych przez [usługę Language Understanding (Luis)](/azure/cognitive-services/luis/luis-reference-regions).
+Jest to podzestaw regionów publikowania obsługiwanych przez [usługę Language Understanding (Luis)](../luis/luis-reference-regions.md).
 
 ### <a name="voice-assistants"></a>Asystenci głosowi
 
 [Zestaw Speech SDK](speech-sdk.md) obsługuje funkcje **asystenta głosowego** w następujących regionach:
 
-| Region         | Identyfikator regionu |
+| Region (Region)         | Identyfikator regionu |
 | -------------- | -------------------- |
 | Zachodnie stany USA        | `westus`             |
 | Zachodnie stany USA 2      | `westus2`            |
