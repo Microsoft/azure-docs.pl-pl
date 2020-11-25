@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
 ms.openlocfilehash: b97ae5d4ba4295ebbb51c960e4cbb76c53dc88a8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148070"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009686"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>How to use the Azure WebJobs SDK for event-driven background processing (Jak używać zestawu SDK usługi Azure WebJobs w celu opartego na zdarzeniach przetwarzania w tle)
 
@@ -23,14 +23,14 @@ Ten artykuł zawiera wskazówki dotyczące sposobu pracy z zestawem SDK Azure We
 Są to kluczowe różnice między wersją 3. *x* i wersja 2. *x* zestawu SDK zadań WebJob:
 
 * Wersja 3. *x* dodaje obsługę programu .NET Core.
-* W wersji 3. *x*należy jawnie zainstalować rozszerzenie powiązania magazynu wymagane przez zestaw SDK zadań WebJob. W wersji 2. *x*, powiązania magazynu zostały uwzględnione w zestawie SDK.
-* Narzędzia programu Visual Studio dla platformy .NET Core (3.* x*) różni się od narzędzi dla .NET Framework (2.* x*). Aby dowiedzieć się więcej, zobacz [Tworzenie i wdrażanie zadań WebJob za pomocą programu Visual Studio — Azure App Service](webjobs-dotnet-deploy-vs.md).
+* W wersji 3. *x* należy jawnie zainstalować rozszerzenie powiązania magazynu wymagane przez zestaw SDK zadań WebJob. W wersji 2. *x*, powiązania magazynu zostały uwzględnione w zestawie SDK.
+* Narzędzia programu Visual Studio dla platformy .NET Core (3.*x*) różni się od narzędzi dla .NET Framework (2.*x*). Aby dowiedzieć się więcej, zobacz [Tworzenie i wdrażanie zadań WebJob za pomocą programu Visual Studio — Azure App Service](webjobs-dotnet-deploy-vs.md).
 
 Jeśli to możliwe, przykłady są dostępne dla obu wersji 3. *x* i wersja 2. *x*.
 
 > [!NOTE]
 > [Azure Functions](../azure-functions/functions-overview.md) jest oparty na zestawie SDK usługi WebJobs, a w tym artykule znajdują się linki do dokumentacji Azure Functions dla niektórych tematów. Należy pamiętać o następujących różnicach między funkcjami i zestawem SDK zadań WebJob:
-> * Azure Functions wersja 2. *x* odpowiada zestawowi SDK zadań WebJob w wersji 3. *x*i Azure Functions 1. *x* odpowiada zestawowi WebJobs SDK 2. *x*. Repozytoria kodu źródłowego używają numeracji zestawu SDK zadań WebJob.
+> * Azure Functions wersja 2. *x* odpowiada zestawowi SDK zadań WebJob w wersji 3. *x* i Azure Functions 1. *x* odpowiada zestawowi WebJobs SDK 2. *x*. Repozytoria kodu źródłowego używają numeracji zestawu SDK zadań WebJob.
 > * Przykładowy kod dla bibliotek klas Azure Functions C# jest podobny do kodu zestawu SDK usługi WebJobs, z wyjątkiem tego, że nie jest potrzebny `FunctionName` atrybut w projekcie zestawu SDK zadań WebJob.
 > * Niektóre typy powiązań są obsługiwane tylko w funkcjach, takich jak HTTP (webhook) i Event Grid (które są oparte na protokole HTTP).
 >
@@ -120,7 +120,7 @@ static void Main()
 }
 ```
 
-### <a name="managing-concurrent-connections-version-2x"></a><a name="jobhost-servicepointmanager-settings"></a>Zarządzanie jednoczesnymi połączeniami (wersja 2).* x*)
+### <a name="managing-concurrent-connections-version-2x"></a><a name="jobhost-servicepointmanager-settings"></a>Zarządzanie jednoczesnymi połączeniami (wersja 2).*x*)
 
 W wersji 3. *x*, połączenie jest ograniczone do nieskończonych połączeń. Jeśli z jakiegoś powodu trzeba zmienić ten limit, można użyć [`MaxConnectionsPerServer`](/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) właściwości [`WinHttpHandler`](/dotnet/api/system.net.http.winhttphandler) klasy.
 
@@ -369,7 +369,7 @@ Można skonfigurować następujące powiązania:
 * [Powiązanie SendGrid](#sendgrid-binding-configuration-version-3x)
 * [Wyzwalacz Service Bus](#service-bus-trigger-configuration-version-3x)
 
-### <a name="azure-cosmosdb-trigger-configuration-version-3x"></a>Konfiguracja wyzwalacza usługi Azure CosmosDB (wersja 3).* x*)
+### <a name="azure-cosmosdb-trigger-configuration-version-3x"></a>Konfiguracja wyzwalacza usługi Azure CosmosDB (wersja 3).*x*)
 
 Ten przykład pokazuje, jak skonfigurować wyzwalacz Azure Cosmos DB:
 
@@ -398,7 +398,7 @@ static async Task Main()
 
 Aby uzyskać więcej informacji, zobacz artykuł dotyczący [powiązań usługi Azure CosmosDB](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings) .
 
-### <a name="event-hubs-trigger-configuration-version-3x"></a>Konfiguracja wyzwalacza Event Hubs (wersja 3.* x*)
+### <a name="event-hubs-trigger-configuration-version-3x"></a>Konfiguracja wyzwalacza Event Hubs (wersja 3.*x*)
 
 Ten przykład pokazuje, jak skonfigurować wyzwalacz Event Hubs:
 
@@ -473,7 +473,7 @@ static void Main(string[] args)
 
 Aby uzyskać więcej informacji, zobacz [ Informacje ohost.jsw wersji 1. x](../azure-functions/functions-host-json-v1.md#queues).
 
-### <a name="sendgrid-binding-configuration-version-3x"></a>Konfiguracja powiązania SendGrid (wersja 3.* x*)
+### <a name="sendgrid-binding-configuration-version-3x"></a>Konfiguracja powiązania SendGrid (wersja 3.*x*)
 
 Ten przykład pokazuje, jak skonfigurować powiązanie danych wyjściowych SendGrid:
 
@@ -500,7 +500,7 @@ static async Task Main()
 
 Aby uzyskać więcej informacji, zobacz artykuł dotyczący [powiązań SendGrid](../azure-functions/functions-bindings-sendgrid.md#hostjson-settings) .
 
-### <a name="service-bus-trigger-configuration-version-3x"></a>Konfiguracja wyzwalacza Service Bus (wersja 3.* x*)
+### <a name="service-bus-trigger-configuration-version-3x"></a>Konfiguracja wyzwalacza Service Bus (wersja 3.*x*)
 
 Ten przykład pokazuje, jak skonfigurować wyzwalacz Service Bus:
 
@@ -847,7 +847,7 @@ Wersja 3. *x* zestawu SDK opiera się na filtrowaniu opartym na platformie .NET 
 using Microsoft.Azure.WebJobs.Logging; 
 ```
 
-Poniższy przykład tworzy filtr, który domyślnie filtruje wszystkie dzienniki na `Warning` poziomie. `Function`Kategorie i `results` (odpowiednik `Host.Results` w wersji 2.* x*) są filtrowane na `Error` poziomie. Filtr porównuje bieżącą kategorię ze wszystkimi zarejestrowanymi poziomami w `LogCategories` wystąpieniu i wybiera najdłuższe dopasowanie. Oznacza to, że `Debug` poziom zarejestrowany dla `Host.Triggers` dopasowania `Host.Triggers.Queue` lub `Host.Triggers.Blob` . Dzięki temu można kontrolować szersze kategorie bez konieczności dodawania każdej z nich.
+Poniższy przykład tworzy filtr, który domyślnie filtruje wszystkie dzienniki na `Warning` poziomie. `Function`Kategorie i `results` (odpowiednik `Host.Results` w wersji 2.*x*) są filtrowane na `Error` poziomie. Filtr porównuje bieżącą kategorię ze wszystkimi zarejestrowanymi poziomami w `LogCategories` wystąpieniu i wybiera najdłuższe dopasowanie. Oznacza to, że `Debug` poziom zarejestrowany dla `Host.Triggers` dopasowania `Host.Triggers.Queue` lub `Host.Triggers.Blob` . Dzięki temu można kontrolować szersze kategorie bez konieczności dodawania każdej z nich.
 
 ```cs
 static async Task Main(string[] args)
@@ -878,7 +878,7 @@ static async Task Main(string[] args)
 
 W wersji 2. *x* zestawu SDK, można użyć `LogCategoryFilter` klasy do kontrolowania filtrowania. `LogCategoryFilter`Ma `Default` Właściwość o wartości początkowej `Information` , co oznacza, że wszystkie komunikaty na `Information` `Warning` `Error` `Critical` poziomach są rejestrowane, ale wszystkie komunikaty na `Debug` `Trace` poziomach są odfiltrowane.
 
-Tak jak `LogCategories` w wersji 3.* x*, `CategoryLevels` Właściwość pozwala określić poziomy dziennika dla określonych kategorii, aby można było dostosować dane wyjściowe rejestrowania. Jeśli w słowniku nie znaleziono dopasowania `CategoryLevels` , filtr powróci do `Default` wartości podczas decydowania o tym, czy ma być filtrowany komunikat.
+Tak jak `LogCategories` w wersji 3.*x*, `CategoryLevels` Właściwość pozwala określić poziomy dziennika dla określonych kategorii, aby można było dostosować dane wyjściowe rejestrowania. Jeśli w słowniku nie znaleziono dopasowania `CategoryLevels` , filtr powróci do `Default` wartości podczas decydowania o tym, czy ma być filtrowany komunikat.
 
 Poniższy przykład tworzy filtr, który domyślnie filtruje wszystkie dzienniki na `Warning` poziomie. `Function`Kategorie i `Host.Results` są filtrowane na `Error` poziomie. `LogCategoryFilter`Porównuje bieżącą kategorię ze wszystkimi zarejestrowanymi `CategoryLevels` i wybiera najdłuższe dopasowanie. Tak więc `Debug` poziom zarejestrowany dla `Host.Triggers` będzie odpowiadał `Host.Triggers.Queue` lub `Host.Triggers.Blob` . Dzięki temu można kontrolować szersze kategorie bez konieczności dodawania każdej z nich.
 

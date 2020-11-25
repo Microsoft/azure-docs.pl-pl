@@ -7,15 +7,15 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/06/2020
 ms.openlocfilehash: 4070f373175f3497156ced011a57e2ed7bd6e770
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94364262"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009776"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Przegląd: Automatyzowanie wdrażania Azure Logic Apps przy użyciu szablonów Azure Resource Manager
 
-Gdy wszystko jest gotowe do automatyzowania tworzenia i wdrażania aplikacji logiki, można rozszerzyć podstawową definicję przepływu pracy aplikacji logiki do [szablonu Azure Resource Manager](../azure-resource-manager/management/overview.md). Ten szablon definiuje infrastrukturę, zasoby, parametry i inne informacje o aprowizacji i wdrażaniu aplikacji logiki. Definiując parametry dla wartości, które różnią się w zależności od wdrożenia, znanego również jako *parametryzacja* , można wielokrotnie i spójnie wdrażać aplikacje logiki na podstawie różnych potrzeb związanych z wdrażaniem.
+Gdy wszystko jest gotowe do automatyzowania tworzenia i wdrażania aplikacji logiki, można rozszerzyć podstawową definicję przepływu pracy aplikacji logiki do [szablonu Azure Resource Manager](../azure-resource-manager/management/overview.md). Ten szablon definiuje infrastrukturę, zasoby, parametry i inne informacje o aprowizacji i wdrażaniu aplikacji logiki. Definiując parametry dla wartości, które różnią się w zależności od wdrożenia, znanego również jako *parametryzacja*, można wielokrotnie i spójnie wdrażać aplikacje logiki na podstawie różnych potrzeb związanych z wdrażaniem.
 
 Na przykład w przypadku wdrażania w środowiskach na potrzeby programowania, testowania i produkcji można używać różnych parametrów połączenia dla każdego środowiska. Można zadeklarować parametry szablonu, które przyjmują różne parametry połączenia, a następnie przechowywać te ciągi w osobnym [pliku parametrów](../azure-resource-manager/templates/parameter-files.md). Dzięki temu można zmienić te wartości bez konieczności aktualizacji i ponownego wdrożenia szablonu. W scenariuszach, w których znajdują się wartości parametrów, które są poufne lub muszą być zabezpieczone, takie jak hasła i wpisy tajne, można przechowywać te wartości w [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md) i mieć pliki parametrów pobierają te wartości. Jednak w tych scenariuszach wdrożenie zostanie wdrożone ponownie w celu pobrania bieżących wartości.
 
@@ -1047,7 +1047,7 @@ Aby uzyskać więcej informacji na temat pracy z jednostkami usługi, zobacz nas
 
 ## <a name="references-to-parameters"></a>Odwołania do parametrów
 
-Aby odwołać się do parametrów szablonu, można użyć wyrażeń szablonu z [funkcjami szablonu](../azure-resource-manager/templates/template-functions.md), które są oceniane podczas wdrażania. Wyrażenia szablonu używają nawiasów kwadratowych ( **[]** ):
+Aby odwołać się do parametrów szablonu, można użyć wyrażeń szablonu z [funkcjami szablonu](../azure-resource-manager/templates/template-functions.md), które są oceniane podczas wdrażania. Wyrażenia szablonu używają nawiasów kwadratowych (**[]**):
 
 `"<attribute-name>": "[parameters('<template-parameter-name>')]"`
 

@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
 ms.openlocfilehash: 20d55de7ef0f7b7f49b922409f8cb61874fae0f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448147"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008977"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Połącz Configuration Manager z Azure Monitor
 Możesz połączyć środowisko Configuration Manager punktu końcowego firmy Microsoft w celu Azure Monitor synchronizacji danych kolekcji urządzeń i odwoływać się do tych kolekcji w Azure Monitor i Azure Automation.  
@@ -100,15 +100,15 @@ Zapoznaj się z artykułem [łączenie komputerów z systemem Windows w celu Azu
 
     4. Określ **Identyfikator klienta**, identyfikator aplikacji utworzonej wcześniej aplikacji usługi Azure AD.
 
-    5. Podaj klucz **tajny klienta dla utworzonej**aplikacji usługi Azure AD.
+    5. Podaj klucz **tajny klienta dla utworzonej** aplikacji usługi Azure AD.
 
     6. Określ jako **wygaśnięcie klucza tajnego**, datę wygaśnięcia klucza.
 
-    7. Określ identyfikator **URI identyfikatora aplikacji**utworzonej wcześniej aplikacji usługi Azure AD.
+    7. Określ identyfikator **URI identyfikatora aplikacji** utworzonej wcześniej aplikacji usługi Azure AD.
 
     8. Wybierz pozycję **Weryfikuj** i po prawej stronie wyniki powinny być wyświetlane **pomyślnie**.
 
-8. Na stronie **Konfiguracja** zapoznaj się z informacjami, aby sprawdzić, czy pola obszaru roboczego **platformy Azure**, **grupy zasobów platformy Azure**i **pakietu Operations Management Suite** zostały wstępnie wypełnione, wskazując, że aplikacja usługi Azure AD ma wystarczające uprawnienia w grupie zasobów. Jeśli pola są puste, oznacza to, że aplikacja nie ma wymaganych praw. Wybierz Kolekcje urządzeń do zebrania i przekierowania do obszaru roboczego, a następnie wybierz pozycję **Dodaj**.
+8. Na stronie **Konfiguracja** zapoznaj się z informacjami, aby sprawdzić, czy pola obszaru roboczego **platformy Azure**, **grupy zasobów platformy Azure** i **pakietu Operations Management Suite** zostały wstępnie wypełnione, wskazując, że aplikacja usługi Azure AD ma wystarczające uprawnienia w grupie zasobów. Jeśli pola są puste, oznacza to, że aplikacja nie ma wymaganych praw. Wybierz Kolekcje urządzeń do zebrania i przekierowania do obszaru roboczego, a następnie wybierz pozycję **Dodaj**.
 
 9. Przejrzyj opcje na stronie **Potwierdź ustawienia** , a następnie wybierz pozycję **dalej** , aby rozpocząć tworzenie i Konfigurowanie połączenia.
 

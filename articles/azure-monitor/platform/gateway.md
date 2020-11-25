@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
 ms.openlocfilehash: dc4d1b852b0a498de0834731b2b1cd1225b9748b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107780"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008858"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Łączenie komputerów bez dostępu do Internetu przy użyciu bramy Log Analytics w programie Azure Monitor
 
@@ -108,15 +108,15 @@ Aby uzyskać bramę Log Analytics z Azure Portal, wykonaj następujące kroki:
 
 1. Przejrzyj listę usług, a następnie wybierz pozycję **log Analytics**. 
 1. Wybierz obszar roboczy.
-1. W bloku obszaru roboczego w obszarze **Ogólne**wybierz pozycję **Szybki Start**. 
-1. W obszarze **Wybierz źródło danych, aby połączyć się z obszarem roboczym**wybierz pozycję **komputery**.
+1. W bloku obszaru roboczego w obszarze **Ogólne** wybierz pozycję **Szybki Start**. 
+1. W obszarze **Wybierz źródło danych, aby połączyć się z obszarem roboczym** wybierz pozycję **komputery**.
 1. W bloku **agenta bezpośredniego** wybierz pozycję **Pobierz log Analytics bramę**.
  
    ![Zrzut ekranu przedstawiający kroki pobierania bramy Log Analytics](./media/gateway/download-gateway.png)
 
 lub 
 
-1. W bloku obszaru roboczego w obszarze **Ustawienia**wybierz pozycję **Ustawienia zaawansowane**.
+1. W bloku obszaru roboczego w obszarze **Ustawienia** wybierz pozycję **Ustawienia zaawansowane**.
 1. Przejdź do pozycji **połączone źródła**  >  **serwery z systemem Windows** i wybierz pozycję **Pobierz log Analytics bramę**.
 
 ## <a name="install-log-analytics-gateway-using-setup-wizard"></a>Zainstaluj bramę Log Analytics przy użyciu Kreatora instalacji
@@ -206,7 +206,7 @@ Aby dowiedzieć się, jak projektować i wdrażać klaster równoważenia obcią
 Aby dowiedzieć się, jak projektować i wdrażać Azure Load Balancer, zobacz [co to jest Azure Load Balancer?](../../load-balancer/load-balancer-overview.md). Aby wdrożyć podstawowy moduł równoważenia obciążenia, wykonaj czynności opisane w tym [przewodniku szybki start](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) , z wyjątkiem kroków opisanych w sekcji **Tworzenie serwerów zaplecza**.   
 
 > [!NOTE]
-> Skonfigurowanie Azure Load Balancer przy użyciu **podstawowej jednostki SKU**wymaga, aby maszyny wirtualne platformy Azure należały do zestawu dostępności. Aby dowiedzieć się więcej na temat zestawów dostępności, zobacz [Zarządzanie dostępnością maszyn wirtualnych z systemem Windows na platformie Azure](../../virtual-machines/manage-availability.md). Aby dodać istniejące maszyny wirtualne do zestawu dostępności, zapoznaj się z poleceniem [set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
+> Skonfigurowanie Azure Load Balancer przy użyciu **podstawowej jednostki SKU** wymaga, aby maszyny wirtualne platformy Azure należały do zestawu dostępności. Aby dowiedzieć się więcej na temat zestawów dostępności, zobacz [Zarządzanie dostępnością maszyn wirtualnych z systemem Windows na platformie Azure](../../virtual-machines/manage-availability.md). Aby dodać istniejące maszyny wirtualne do zestawu dostępności, zapoznaj się z poleceniem [set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
 > 
 
 Po utworzeniu modułu równoważenia obciążenia należy utworzyć pulę zaplecza, która dystrybuuje ruch do jednego lub większej liczby serwerów bramy. Wykonaj kroki opisane w sekcji artykuł szybkiego startu [Tworzenie zasobów dla modułu równoważenia obciążenia](../../load-balancer/quickstart-load-balancer-standard-public-portal.md).  
@@ -262,7 +262,7 @@ Aby skonfigurować integrację, zaktualizuj konfigurację serwera proxy systemu 
 
 Po zakończeniu integracji z Log Analytics Usuń zmiany, uruchamiając polecenie `netsh winhttp reset proxy` . Następnie w konsoli operacje Użyj opcji **Konfiguruj serwer proxy** , aby określić serwer bramy log Analytics. 
 
-1. W konsoli Operations Manager w obszarze **Pakiet Operations Management Suite**wybierz pozycję **połączenie**, a następnie wybierz pozycję **Konfiguruj serwer proxy**.
+1. W konsoli Operations Manager w obszarze **Pakiet Operations Management Suite** wybierz pozycję **połączenie**, a następnie wybierz pozycję **Konfiguruj serwer proxy**.
 
    ![Zrzut ekranu przedstawiający Operations Manager, pokazując wybór opcji Konfiguruj serwer proxy](./media/gateway/scom01.png)
 
@@ -285,7 +285,7 @@ Aby skonfigurować określone serwery lub grupy do korzystania z serwera bramy L
 1. Otwórz konsolę Operations Manager i wybierz obszar roboczy **Tworzenie** .  
 1. W obszarze roboczym Tworzenie wybierz pozycję **reguły**. 
 1. Na pasku narzędzi Operations Manager wybierz przycisk **zakres** . Jeśli ten przycisk jest niedostępny, upewnij się, że w okienku **monitorowanie** został wybrany obiekt, a nie folder. W oknie dialogowym **zakres obiektów pakietu administracyjnego** zostanie wyświetlona lista wspólnych klas, grup lub obiektów przeznaczonych do użycia. 
-1. W polu **Wyszukaj** wpisz **Usługa kondycji** i wybierz go z listy. Wybierz przycisk **OK**.  
+1. W polu **Wyszukaj** wpisz **Usługa kondycji** i wybierz go z listy. Wybierz pozycję **OK**.  
 1. Wyszukaj **regułę ustawień serwera proxy usługi Advisor**. 
 1. Na pasku narzędzi Operations Manager wybierz pozycję **zastąpienia** , a następnie wskaż polecenie **Przesłoń Rule\For określony obiekt klasy: usługa kondycji** i wybierz obiekt z listy.  Lub Utwórz grupę niestandardową zawierającą obiekt usługi kondycji serwerów, do których chcesz zastosować to zastąpienie. Następnie Zastosuj zastąpienie do grupy niestandardowej.
 1. W oknie dialogowym **Właściwości przesłonięcia** Dodaj znacznik wyboru w kolumnie **Przesłoń** obok parametru **WebProxyAddress** .  W polu **wartość zastąpienia** wprowadź adres URL serwera bramy log Analytics. Ostrożnie Rozpocznij od prefiksu `http://` .  

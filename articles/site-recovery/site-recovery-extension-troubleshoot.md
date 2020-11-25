@@ -6,11 +6,11 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.openlocfilehash: c1915d108bf9465d3e5b8d6a55053b583ee4f580
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88184622"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009708"
 ---
 # <a name="troubleshoot-azure-vm-extension-issues"></a>Rozwiązywanie problemów z rozszerzeniem maszyny wirtualnej platformy Azure
 
@@ -67,7 +67,7 @@ Agent maszyny wirtualnej mógł zostać uszkodzony lub usługa mogła zostać za
 
 1. Ustal, czy usługa agenta gościa systemu Windows Azure jest uruchomiona w usługach VM Services (Services. msc). Uruchom ponownie usługę agenta gościa systemu Windows Azure.    
 1. Jeśli usługa agenta gościa platformy Microsoft Azure nie jest widoczna w obszarze usługi, Otwórz Panel sterowania. Przejdź do **apletu programy i funkcje** , aby sprawdzić, czy zainstalowano usługę agenta gościa systemu Windows.
-1. Jeśli w aplecie **programy i funkcje**zostanie wyświetlony Agent gościa platformy Microsoft Azure, Odinstaluj agenta gościa platformy Microsoft Azure.
+1. Jeśli w aplecie **programy i funkcje** zostanie wyświetlony Agent gościa platformy Microsoft Azure, Odinstaluj agenta gościa platformy Microsoft Azure.
 1. Pobierz i zainstaluj [najnowszą wersję pliku msi agenta](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Aby ukończyć instalację, musisz mieć uprawnienia administratora.
 1. Sprawdź, czy usługa agenta gościa systemu Windows Azure jest wyświetlana w obszarze usługi.
 1. Uruchom ponownie zadanie ochrony.

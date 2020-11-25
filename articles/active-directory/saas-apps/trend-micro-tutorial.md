@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 04/21/2020
 ms.author: jeedes
 ms.openlocfilehash: b76c41787d7a35fb3024fa18c0122bc966243bbc
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514541"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008399"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trend-micro-web-security-tmws"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą Trend Micro Web Security (TMWS)
 
@@ -116,9 +116,9 @@ W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon` .  
-   1. W polu **Nazwa użytkownika** wpisz **_username_ @ *formacie *.* rozszerzenie * * *. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wpisz **_username_ @* formacie *.* rozszerzenie * * *. Na przykład `B.Simon@contoso.com`.
    1. Wybierz pozycję **Pokaż hasło**, a następnie Zapisz wartość wyświetlaną w polu **hasło** .
-   1. Wybierz przycisk **Utwórz**.
+   1. Wybierz pozycję **Utwórz**.
 
 ### <a name="grant-the-azure-ad-test-user-access-to-tmws"></a>Przyznaj użytkownikowi testowemu usługi Azure AD dostęp do TMWS
 
@@ -142,17 +142,17 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. W lewym okienku wybierz pozycję **Azure Active Directory**.
 
-1. W obszarze **Zarządzaj**wybierz pozycję **rejestracje aplikacji**, a następnie wybierz nową aplikację dla przedsiębiorstw w obszarze **wszystkie aplikacje**.
+1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**, a następnie wybierz nową aplikację dla przedsiębiorstw w obszarze **wszystkie aplikacje**.
 
-1. W obszarze **Zarządzaj**wybierz pozycję **Certyfikaty & wpisy tajne**.
+1. W obszarze **Zarządzaj** wybierz pozycję **Certyfikaty & wpisy tajne**.
 
 1. W obszarze wpisy **tajne klienta** wybierz pozycję **nowy klucz tajny klienta**.
 
-1. Na **ekranie Dodawanie wpisu tajnego klienta**opcjonalnie Dodaj opis i wybierz okres ważności dla wpisu tajnego klienta, a następnie wybierz pozycję **Dodaj**. Nowy wpis tajny klienta pojawi się w obszarze **tajne klienta** .
+1. Na **ekranie Dodawanie wpisu tajnego klienta** opcjonalnie Dodaj opis i wybierz okres ważności dla wpisu tajnego klienta, a następnie wybierz pozycję **Dodaj**. Nowy wpis tajny klienta pojawi się w obszarze **tajne klienta** .
 
 1. Zapisz wartość klucza tajnego klienta. Później wprowadzisz ją do TMWS.
 
-1. W obszarze **Zarządzaj**wybierz pozycję **uprawnienia interfejsu API**. 
+1. W obszarze **Zarządzaj** wybierz pozycję **uprawnienia interfejsu API**. 
 
 1. W oknie **uprawnienia interfejsu API** wybierz pozycję **Dodaj uprawnienie**.
 
@@ -216,7 +216,7 @@ Wykonaj następujące kroki, aby skonfigurować Logowanie jednokrotne TMWS na st
 Po skonfigurowaniu usługi Azure AD i określeniu w usłudze Azure AD jako metody uwierzytelniania użytkownika możesz zalogować się do serwera proxy TMWS, aby zweryfikować konfigurację. Gdy logowanie za pomocą usługi Azure AD sprawdzi Twoje konto, możesz odwiedzić Internet.
 
 > [!NOTE]
-> TMWS nie obsługuje testowania logowania jednokrotnego z poziomu portalu usługi Azure AD, w obszarze **Przegląd**rejestracji jednokrotnej  >  **Single sign-on**  >  **Skonfiguruj Logowanie jednokrotne przy użyciu protokołu SAML**do  >  **testowania** nowej aplikacji dla przedsiębiorstw.
+> TMWS nie obsługuje testowania logowania jednokrotnego z poziomu portalu usługi Azure AD, w obszarze **Przegląd** rejestracji jednokrotnej  >  **Single sign-on**  >  **Skonfiguruj Logowanie jednokrotne przy użyciu protokołu SAML** do  >  **testowania** nowej aplikacji dla przedsiębiorstw.
 
 1. Wyczyść przeglądarkę wszystkich plików cookie, a następnie uruchom ponownie przeglądarkę. 
 
@@ -224,11 +224,11 @@ Po skonfigurowaniu usługi Azure AD i określeniu w usłudze Azure AD jako metod
 
 1. Odwiedź witrynę internetową. TMWS przekieruje Cię do portalu TMWS.
 
-1. Określ konto Active Directory (format: *domena* \\ *sAMAccountName* lub *sAMAccountName* @ *domain*), adres e-mail lub nazwa UPN, a następnie wybierz pozycję **Zaloguj**się. TMWS wysyła Cię do okna logowania do usługi Azure AD.
+1. Określ konto Active Directory (format: *domena* \\ *sAMAccountName* lub *sAMAccountName* @ *domain*), adres e-mail lub nazwa UPN, a następnie wybierz pozycję **Zaloguj** się. TMWS wysyła Cię do okna logowania do usługi Azure AD.
 
 1. W oknie Logowanie do usługi Azure AD wprowadź poświadczenia konta usługi Azure AD. Teraz należy zalogować się do TMWS.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Samouczki dotyczące integracji aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
 

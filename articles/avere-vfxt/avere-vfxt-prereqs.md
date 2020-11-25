@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
 ms.openlocfilehash: d87f57873a4bb84b20df3da3880017d9ef2484a5
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342114"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008416"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Przygotowanie do utworzenia systemu Avere vFXT
 
@@ -100,7 +100,7 @@ Utwórz punkt końcowy usługi magazynu na podstawie Azure Portal.
 1. Kliknij przycisk **Dodaj** w górnej części ekranu.
 1. Wybierz usługę ``Microsoft.Storage`` .
 1. Wybierz podsieć klastra.
-1. Kliknij przycisk **Dodaj**w dolnej części.
+1. Kliknij przycisk **Dodaj** w dolnej części.
 
    ![Zrzut ekranu Azure Portal z adnotacjami dotyczącymi kroków tworzenia punktu końcowego usługi](media/avere-vfxt-service-endpoint.png)
 

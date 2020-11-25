@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
 ms.openlocfilehash: 142cd876faafd47b870faa8f3146f359707a621c
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95557807"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009116"
 ---
 > [!div class="op_single_selector"]
 > * [Android](../articles/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md)
@@ -17,7 +17,7 @@ ms.locfileid: "95557807"
 > * [iOS](../articles/notification-hubs/ios-sdk-get-started.md)
 > * [Kindle](../articles/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md)
 > * [Windows Phone Silverlight 8.x](../articles/notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md)
-> * [platforma uniwersalna systemu Windows](../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
+> * [Platforma uniwersalna systemu Windows](../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
 > * [Xamarin.Android](../articles/notification-hubs/xamarin-notification-hubs-push-notifications-android-gcm.md)
 > * [Xamarin.iOS](../articles/notification-hubs/xamarin-notification-hubs-ios-push-notification-apns-get-started.md)
 > 

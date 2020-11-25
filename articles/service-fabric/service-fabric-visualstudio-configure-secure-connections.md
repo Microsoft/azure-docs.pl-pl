@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 8/04/2017
 ms.author: cawa
 ms.openlocfilehash: d4d6b781d97d481793e69cf2ca97cca5b93ce432
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86256097"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008535"
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Konfigurowanie bezpiecznych połączeń z klastrem Service Fabric z programu Visual Studio
 Dowiedz się, jak za pomocą programu Visual Studio bezpiecznie uzyskać dostęp do klastra usługi Azure Service Fabric przy użyciu skonfigurowanych zasad kontroli dostępu.
@@ -21,7 +21,7 @@ Klaster Service Fabric platformy Azure obsługuje dwa typy połączeń: połącz
 Narzędzia Service Fabric programu Visual Studio obsługują wszystkie typy uwierzytelniania do nawiązywania połączenia z klastrem w celu opublikowania. Zapoznaj się z tematem [Konfigurowanie klastra Service Fabric z poziomu Azure Portal,](service-fabric-cluster-creation-via-portal.md) Aby uzyskać instrukcje dotyczące konfigurowania bezpiecznego klastra Service Fabric.
 
 ## <a name="configure-cluster-connections-in-publish-profiles"></a>Konfigurowanie połączeń klastra w profilach publikowania
-Jeśli publikujesz projekt Service Fabric w programie Visual Studio, użyj okna dialogowego **publikowanie Service Fabric aplikacji** , aby wybrać klaster Service Fabric platformy Azure. W obszarze **punkt końcowy połączenia**wybierz istniejący klaster w ramach subskrypcji.
+Jeśli publikujesz projekt Service Fabric w programie Visual Studio, użyj okna dialogowego **publikowanie Service Fabric aplikacji** , aby wybrać klaster Service Fabric platformy Azure. W obszarze **punkt końcowy połączenia** wybierz istniejący klaster w ramach subskrypcji.
 
 ![W celu skonfigurowania połączenia Service Fabric służy okno dialogowe * * publikowanie Service Fabric aplikacji * *.][publishdialog]
 

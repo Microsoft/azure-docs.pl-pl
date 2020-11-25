@@ -1,19 +1,19 @@
 ---
 title: 'Szybki Start: Tworzenie aplikacji platformy Xamarin dla systemu iOS'
 description: W tym przewodniku szybki start dowiesz się, jak utworzyć aplikację dla systemu iOS za pomocą platformy Xamarin przy użyciu kotwic przestrzennych.
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 07/22/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 610112f9374f2ca39a8df4b849aeda4abf965e57
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: b62ca4b02a1bd28d150f233adf1dfb621995e1c4
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097426"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96009742"
 ---
 # <a name="quickstart-create-a-xamarin-ios-app-with-azure-spatial-anchors"></a>Szybki Start: Tworzenie aplikacji platformy Xamarin dla systemu iOS przy użyciu kotwic Azure przestrzennego
 

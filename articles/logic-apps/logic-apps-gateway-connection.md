@@ -7,11 +7,11 @@ ms.reviewer: arthii, divswa, logicappspm
 ms.topic: article
 ms.date: 08/18/2020
 ms.openlocfilehash: 2dd086ccc45458299cf6b8a7ad83d023055c96ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88661201"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009261"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Connect to on-premises data sources from Azure Logic Apps (Łączenie z lokalnymi źródłami danych z usługi Azure Logic Apps)
 
@@ -72,11 +72,11 @@ Po zainstalowaniu bramy na komputerze lokalnym Utwórz zasób platformy Azure dl
 
    ![Znajdź "lokalna Brama danych"](./media/logic-apps-gateway-connection/search-for-on-premises-data-gateway.png)
 
-1. W obszarze **lokalne bramy danych**wybierz pozycję **Dodaj**.
+1. W obszarze **lokalne bramy danych** wybierz pozycję **Dodaj**.
 
    ![Dodawanie nowego zasobu platformy Azure dla bramy danych](./media/logic-apps-gateway-connection/add-azure-data-gateway-resource.png)
 
-1. W obszarze **Utwórz bramę połączenia**podaj te informacje dla zasobu bramy. Gdy wszystko będzie gotowe, wybierz przycisk **Utwórz**.
+1. W obszarze **Utwórz bramę połączenia** podaj te informacje dla zasobu bramy. Gdy wszystko będzie gotowe, wybierz przycisk **Utwórz**.
 
    | Właściwość | Opis |
    |----------|-------------|
@@ -103,7 +103,7 @@ Po utworzeniu zasobu bramy i skojarzeniu subskrypcji platformy Azure z tym zasob
 
 1. Wybierz pozycję **Połącz za pośrednictwem lokalnej bramy danych**.
 
-1. W obszarze **bramy**z listy **subskrypcje** wybierz subskrypcję platformy Azure, dla której chcesz utworzyć żądany zasób bramy.
+1. W obszarze **bramy** z listy **subskrypcje** wybierz subskrypcję platformy Azure, dla której chcesz utworzyć żądany zasób bramy.
 
    Pod warunkiem posiadania dostępu do subskrypcji możesz wybrać różne subskrypcje platformy Azure, które są skojarzone z innym zasobem bramy. Twoja aplikacja logiki i zasób bramy nie muszą istnieć w tej samej subskrypcji platformy Azure.
 
@@ -128,7 +128,7 @@ Połączenie bramy jest teraz gotowe do użycia przez aplikację logiki.
 
 Aby zaktualizować ustawienia dla połączenia bramy, można edytować połączenie.
 
-1. Aby znaleźć wszystkie połączenia interfejsu API tylko dla aplikacji logiki, w menu aplikacji logiki, w obszarze **Narzędzia programistyczne**wybierz pozycję **połączenia interfejsu API**.
+1. Aby znaleźć wszystkie połączenia interfejsu API tylko dla aplikacji logiki, w menu aplikacji logiki, w obszarze **Narzędzia programistyczne** wybierz pozycję **połączenia interfejsu API**.
 
    ![W menu aplikacji logiki wybierz pozycję "połączenia interfejsu API"](./media/logic-apps-gateway-connection/logic-app-api-connections.png)
 
@@ -148,7 +148,7 @@ Aby znaleźć wszystkie połączenia interfejsu API skojarzone z subskrypcją pl
 
 Aby utworzyć inny zasób bramy, Połącz instalację bramy z innym zasobem bramy lub Usuń zasób bramy, a następnie usuń zasób bramy bez wpływu na instalację bramy.
 
-1. Z menu Azure Portal wybierz pozycję **wszystkie zasoby**lub Wyszukaj i wybierz pozycję **wszystkie zasoby** z dowolnej strony. Znajdź i wybierz zasób bramy.
+1. Z menu Azure Portal wybierz pozycję **wszystkie zasoby** lub Wyszukaj i wybierz pozycję **wszystkie zasoby** z dowolnej strony. Znajdź i wybierz zasób bramy.
 
 1. Jeśli jeszcze tego nie zrobiono, w menu zasobów bramy wybierz pozycję **lokalna Brama danych**. Na pasku narzędzi zasobów bramy wybierz pozycję **Usuń**.
 
@@ -161,7 +161,7 @@ Aby utworzyć inny zasób bramy, Połącz instalację bramy z innym zasobem bram
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
 **P**: Dlaczego nie jest wyświetlana żadna instalacja bramy podczas tworzenia zasobu bramy na platformie Azure? <br/>
-Odp.: ten problem może wystąpić **z**następujących powodów:
+Odp.: ten problem może wystąpić **z** następujących powodów:
 
 * Twoje konto platformy Azure nie jest tym samym kontem, które zostało użyte do zainstalowania bramy na komputerze lokalnym. Sprawdź, czy zalogowano się do Azure Portal z tą samą tożsamością, która była używana podczas instalacji bramy. Tylko administrator bramy może utworzyć zasób bramy na platformie Azure. Nazwy główne usług nie są obecnie obsługiwane.
 

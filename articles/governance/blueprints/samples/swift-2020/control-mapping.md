@@ -4,17 +4,17 @@ description: Kontrolowanie mapowania SWIFT przykładowego planu CSP-CSCF V2020. 
 ms.date: 08/18/2020
 ms.topic: sample
 ms.openlocfilehash: 5aa4ee556c4ec7348566f45592b5e9fbf00eaf20
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932196"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009402"
 ---
 # <a name="control-mapping-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Sterowanie mapowaniem SWIFT programu CSP-CSCF V2020 plan
 
 W poniższym artykule szczegółowo opisano sposób, w jaki usługa Azure planuje SWIFT programu CSP — przykład strategii CSCF V2020 Maps do kontrolek SWIFT CSP-CSCF V2020. Aby uzyskać więcej informacji na temat kontrolek, zobacz [SWIFT CSP-CSCF V2020](https://www.swift.com/myswift/customer-security-programme-csp).
 
-Następujące mapowania są do kontrolek **SWIFT CSP-CSCF V2020** . Użyj nawigacji po prawej stronie, aby przejść bezpośrednio do określonego mapowania formantów. Wiele zamapowanych formantów jest implementowanych z inicjatywą [Azure Policy](../../../policy/overview.md) . Aby zapoznać się z pełną inicjatywą, Otwórz **zasady** w Azure Portal i wybierz stronę **definicje** . Następnie Znajdź i wybierz pozycję ** \[ wersja zapoznawcza \] : Inspekcja SWIFT programu CSP — CSCF V2020 Controls i Wdróż określone rozszerzenia maszyn wirtualnych w celu obsługi funkcji inspekcji** wbudowanych w ramach zasad.
+Następujące mapowania są do kontrolek **SWIFT CSP-CSCF V2020** . Użyj nawigacji po prawej stronie, aby przejść bezpośrednio do określonego mapowania formantów. Wiele zamapowanych formantów jest implementowanych z inicjatywą [Azure Policy](../../../policy/overview.md) . Aby zapoznać się z pełną inicjatywą, Otwórz **zasady** w Azure Portal i wybierz stronę **definicje** . Następnie Znajdź i wybierz pozycję **\[ wersja zapoznawcza \] : Inspekcja SWIFT programu CSP — CSCF V2020 Controls i Wdróż określone rozszerzenia maszyn wirtualnych w celu obsługi funkcji inspekcji** wbudowanych w ramach zasad.
 
 > [!IMPORTANT]
 > Każda kontrolka poniżej jest skojarzona z co najmniej jedną definicją [Azure Policy](../../../policy/overview.md) . Te zasady mogą pomóc w [ocenie zgodności](../../../policy/how-to/get-compliance-data.md) z kontrolką; jednak często nie jest to jeden lub kompletny odpowiednik między kontrolką a co najmniej jedną zasadą. W związku z tym **zgodność** w Azure Policy odnosi się tylko do samych zasad; nie gwarantuje to, że jest w pełni zgodne ze wszystkimi wymaganiami formantu. Ponadto Standard zgodności zawiera kontrolki, które nie są obecnie rozwiązywane przez żadną Azure Policy definicje. W związku z tym zgodność w Azure Policy jest tylko częściowym widokiem ogólnego stanu zgodności. Skojarzenia między kontrolkami i definicjami Azure Policy dla tego przykładowego planu zgodności mogą ulec zmianie z upływem czasu. Aby wyświetlić historię zmian, zobacz [historię zatwierdzeń usługi GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/swift-2020/control-mapping.md).

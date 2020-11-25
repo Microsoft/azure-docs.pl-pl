@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 3b1f13fd1ce8bedcbe58385d4cee321f1d1405df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86505523"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009011"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Użyj akcji skalowania automatycznego do wysyłania powiadomień o alertach poczty e-mail i elementów webhook w Azure Monitor
 W tym artykule pokazano, jak skonfigurować wyzwalacze, aby umożliwić wywoływanie określonych adresów URL sieci Web lub wysyłanie wiadomości e-mail na podstawie akcji skalowania automatycznego na platformie Azure.  
@@ -17,7 +17,7 @@ W tym artykule pokazano, jak skonfigurować wyzwalacze, aby umożliwić wywoływ
 ## <a name="webhooks"></a>Elementy webhook
 Elementy webhook umożliwiają kierowanie powiadomień o alertach platformy Azure do innych systemów na potrzeby powiadomień po zakończeniu przetwarzania lub niestandardowych. Na przykład, kierowanie alertu do usług, które mogą obsługiwać przychodzące żądanie sieci Web w celu wysyłania wiadomości SMS, rejestrowania usterek, powiadamiania zespołu przy użyciu usług rozmowy lub Messaging itp. Identyfikator URI elementu webhook musi być prawidłowym punktem końcowym HTTP lub HTTPS.
 
-## <a name="email"></a>Poczta e-mail
+## <a name="email"></a>E-mail
 Wiadomości e-mail można wysyłać na dowolny prawidłowy adres e-mail. Administratorzy i współadministratorzy subskrypcji, w której uruchomiona jest reguła, również będą powiadamiani.
 
 ## <a name="cloud-services-and-app-services"></a>Cloud Services i App Services
@@ -58,13 +58,13 @@ W przypadku korzystania z interfejsu API REST lub szablonu Menedżer zasobów na
 
 | Pole | Wypełnione? | Opis |
 | --- | --- | --- |
-| operation |tak |wartość musi być równa "Skala" |
-| sendToSubscriptionAdministrator |tak |wartość musi być równa "true" lub "false" |
-| sendToSubscriptionCoAdministrators |tak |wartość musi być równa "true" lub "false" |
-| customEmails |tak |wartość może być równa null [] lub tablicy ciągów wiadomości e-mail |
-| elementy webhook |tak |wartość może być równa null lub być prawidłowym identyfikatorem URI |
-| identyfikator URI usługi |tak |prawidłowy identyfikator URI protokołu https |
-| properties |tak |wartość musi być pusta {} lub może zawierać pary klucz-wartość |
+| operation |yes |wartość musi być równa "Skala" |
+| sendToSubscriptionAdministrator |yes |wartość musi być równa "true" lub "false" |
+| sendToSubscriptionCoAdministrators |yes |wartość musi być równa "true" lub "false" |
+| customEmails |yes |wartość może być równa null [] lub tablicy ciągów wiadomości e-mail |
+| elementy webhook |yes |wartość może być równa null lub być prawidłowym identyfikatorem URI |
+| identyfikator URI usługi |yes |prawidłowy identyfikator URI protokołu https |
+| properties |yes |wartość musi być pusta {} lub może zawierać pary klucz-wartość |
 
 ## <a name="authentication-in-webhooks"></a>Uwierzytelnianie w elementach webhook
 Element webhook może uwierzytelniać się przy użyciu uwierzytelniania opartego na tokenach, w którym można zapisać identyfikator URI elementu webhook z IDENTYFIKATORem tokenu jako parametr zapytania. Na przykład https: \/ /mysamplealert/webcallback? obiektu tokenidd = sometokenid&someparameter = wartość someValue
@@ -101,10 +101,10 @@ Po wygenerowaniu powiadomienia skalowania automatycznego następujące metadane 
 
 | Pole | Wypełnione? | Opis |
 | --- | --- | --- |
-| status |tak |Stan wskazujący, że Wygenerowano akcję automatycznego skalowania |
-| operation |tak |W przypadku zwiększenia liczby wystąpień będzie to "skalowalne w poziomie", a w przypadku spadku wystąpień będzie to "skalowane". |
-| kontekst |tak |Kontekst akcji skalowania automatycznego |
-| sygnatura czasowa |tak |Sygnatura czasowa, gdy akcja skalowania automatycznego została wyzwolona |
+| status |yes |Stan wskazujący, że Wygenerowano akcję automatycznego skalowania |
+| operation |yes |W przypadku zwiększenia liczby wystąpień będzie to "skalowalne w poziomie", a w przypadku spadku wystąpień będzie to "skalowane". |
+| kontekst |yes |Kontekst akcji skalowania automatycznego |
+| sygnatura czasowa |yes |Sygnatura czasowa, gdy akcja skalowania automatycznego została wyzwolona |
 | identyfikator |Tak |Identyfikator Menedżer zasobów ustawienia skalowania automatycznego |
 | name |Tak |Nazwa ustawienia automatycznego skalowania |
 | uzyskać |Tak |Wyjaśnienie akcji podjętej przez usługę automatycznego skalowania i zmianę liczby wystąpień |

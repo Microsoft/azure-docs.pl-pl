@@ -8,11 +8,11 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: b80f27e490dd3b1890eab7740fb4650ba4280abb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88207804"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008994"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Zbieranie niestandardowych metryk dla maszyny wirtualnej z systemem Linux za pomocą agenta InfluxData telegraf
 
@@ -43,7 +43,7 @@ Utwórz nową maszynę wirtualną z systemem Linux:
 1. Wybierz pozycję **Ubuntu 16,04 LTS** i wybierz pozycję **Utwórz**. 
 1. Podaj nazwę maszyny wirtualnej, taką jak **MyTelegrafVM**.  
 1. Pozostaw typ dysku jako dysk **SSD**. Podaj **nazwę użytkownika**, taką jak **azureuser**. 
-1. W obszarze **Typ uwierzytelniania**wybierz pozycję **hasło**. Następnie wprowadź hasło, które będzie używane później do protokołu SSH do tej maszyny wirtualnej. 
+1. W obszarze **Typ uwierzytelniania** wybierz pozycję **hasło**. Następnie wprowadź hasło, które będzie używane później do protokołu SSH do tej maszyny wirtualnej. 
 1. Wybierz opcję **utworzenia nowej grupy zasobów**. Podaj nazwę **, na przykład.** Wybierz **lokalizację**. Następnie wybierz przycisk **OK**. 
 
     ![Tworzenie maszyny wirtualnej z systemem Ubuntu](./media/collect-custom-metrics-linux-telegraf/create-vm.png)
@@ -58,7 +58,7 @@ Utwórz nową maszynę wirtualną z systemem Linux:
 
 1. Maszyna wirtualna jest przypięta do pulpitu nawigacyjnego witryny Azure Portal. Po zakończeniu wdrożenia zostanie automatycznie otwarte podsumowanie maszyny wirtualnej. 
 
-1. W okienku maszyn wirtualnych przejdź do karty **tożsamość** . Upewnij się, że **na**maszynie wirtualnej jest ustawiona tożsamość przypisana do systemu. 
+1. W okienku maszyn wirtualnych przejdź do karty **tożsamość** . Upewnij się, że **na** maszynie wirtualnej jest ustawiona tożsamość przypisana do systemu. 
  
     ![Wersja zapoznawcza maszyny wirtualnej telegraf](./media/collect-custom-metrics-linux-telegraf/connect-to-VM.png)
  
@@ -68,7 +68,7 @@ Utwórz połączenie SSH z maszyną wirtualną. Na stronie przeglądu wybierz pr
 
 ![Strona omówienia maszyny wirtualnej telegraf](./media/collect-custom-metrics-linux-telegraf/connect-VM-button2.png)
 
-Na stronie **Nawiązywanie połączenia z maszyną wirtualną** zostaw opcje domyślne, aby połączyć się za pomocą nazwy DNS przez port 22. W obszarze **Logowanie przy użyciu lokalnego konta maszyny wirtualnej**jest wyświetlane polecenie połączenia. Wybierz przycisk, aby skopiować polecenie. W poniższym przykładzie pokazano, jak wygląda polecenie połączenia SSH: 
+Na stronie **Nawiązywanie połączenia z maszyną wirtualną** zostaw opcje domyślne, aby połączyć się za pomocą nazwy DNS przez port 22. W obszarze **Logowanie przy użyciu lokalnego konta maszyny wirtualnej** jest wyświetlane polecenie połączenia. Wybierz przycisk, aby skopiować polecenie. W poniższym przykładzie pokazano, jak wygląda polecenie połączenia SSH: 
 
 ```cmd
 ssh azureuser@XXXX.XX.XXX 

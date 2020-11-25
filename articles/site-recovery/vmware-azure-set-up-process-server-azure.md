@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: ramamill
 ms.openlocfilehash: 16214fa07b14c8db2f32fa2c69739b7fa3dc1907
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74083948"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008491"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Konfigurowanie serwera przetwarzania na platformie Azure na potrzeby powrotu po awarii
 
@@ -28,14 +28,14 @@ Dowiedz się więcej o procesie ponownego [zabezpieczania](vmware-azure-reprotec
 
 ## <a name="deploy-a-process-server-in-azure"></a>Wdrażanie serwera przetwarzania na platformie Azure
 
-1. W obszarze magazyn > **Site Recovery infrastruktura** >  **Zarządzanie**  >  **serwerami konfiguracji**wybierz serwer konfiguracji.
+1. W obszarze magazyn > **Site Recovery infrastruktura** >  **Zarządzanie**  >  **serwerami konfiguracji** wybierz serwer konfiguracji.
 2. Na stronie serwer kliknij pozycję **+ serwer przetwarzania**
 3. Na stronie **Dodawanie serwera przetwarzania** i wybierz opcję wdrożenia serwera przetwarzania na platformie Azure.
 4. Określ ustawienia platformy Azure, w tym subskrypcję używaną w trybie failover, grupę zasobów, region platformy Azure używany do pracy w trybie failover oraz sieć wirtualną, w której znajdują się maszyny wirtualne platformy Azure. Jeśli używasz wielu sieci platformy Azure, musisz mieć serwer przetwarzania w każdym z nich.
 
    ![Dodaj element galerii serwerów przetwarzania](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
 
-4. W polu **Nazwa serwera**, **Nazwa użytkownika**i **hasło**Określ nazwę serwera przetwarzania i poświadczenia, które zostaną przypisane uprawnienia administratora na serwerze.
+4. W polu **Nazwa serwera**, **Nazwa użytkownika** i **hasło** Określ nazwę serwera przetwarzania i poświadczenia, które zostaną przypisane uprawnienia administratora na serwerze.
 5. Określ konto magazynu, które będzie używane dla dysków maszyny wirtualnej serwera, podsieć, w której znajduje się maszyna wirtualna serwera przetwarzania, oraz adres IP serwera, który zostanie przypisany podczas uruchamiania maszyny wirtualnej.
 6. Kliknij przycisk **OK** , aby rozpocząć wdrażanie maszyny wirtualnej serwera przetwarzania. Serwer przetwarzania zostanie wdrożony w Standard_A8_v2 jednostki SKU. Upewnij się, że ta jednostka SKU maszyny wirtualnej jest dostępna dla Twojej subskrypcji.
 

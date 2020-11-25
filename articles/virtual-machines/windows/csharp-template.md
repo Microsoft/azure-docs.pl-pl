@@ -10,11 +10,11 @@ ms.date: 07/14/2017
 ms.author: cynthn
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 779a09532790ea272d8c95ac28f8c152216efc5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89002967"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008654"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Wdróż maszynę wirtualną platformy Azure przy użyciu języka C# i szablonu Menedżer zasobów
 
@@ -48,7 +48,7 @@ Pakiety NuGet to najprostszy sposób instalacji bibliotek, które należy wykona
 
 W tym kroku utworzysz plik szablonu służący do wdrażania zasobów i pliku parametrów, które dostarczają wartości parametrów do szablonu. Tworzony jest również plik autoryzacji służący do wykonywania Azure Resource Manager operacji.
 
-### <a name="create-the-template-file"></a>Utwórz plik szablonu
+### <a name="create-the-template-file"></a>Tworzenie pliku szablonu
 
 1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy pozycję *myDotnetProject*  >  **Dodaj**  >  **nowy element**, a następnie wybierz polecenie **plik tekstowy** w *elementach języka Visual C#*. Nazwij plik *CreateVMTemplate.jsna*, a następnie kliknij przycisk **Dodaj**.
 2. Dodaj ten kod JSON do utworzonego pliku:
@@ -196,7 +196,7 @@ Przed wdrożeniem szablonu upewnij się, że masz dostęp do jednostki [usługi 
     graphURL=https://graph.microsoft.com/
     ```
 
-    Zastąp ** &lt; Identyfikator Subscription &gt; -ID** identyfikatorem subskrypcji, ** &lt; identyfikatorem &gt; aplikacji** z identyfikatorem aplikacji Active Directory, ** &lt; &gt; kluczem uwierzytelniania** i kluczem aplikacji oraz ** &lt; identyfikatorem &gt; dzierżawy** .
+    Zastąp **&lt; Identyfikator Subscription &gt; -ID** identyfikatorem subskrypcji, **&lt; identyfikatorem &gt; aplikacji** z identyfikatorem aplikacji Active Directory, **&lt; &gt; kluczem uwierzytelniania** i kluczem aplikacji oraz **&lt; identyfikatorem &gt; dzierżawy** .
 
 3. Zapisz plik azureauth. Properties.
 4. Ustaw zmienną środowiskową w systemie Windows o nazwie AZURE_AUTH_LOCATION z pełną ścieżką do pliku autoryzacji, który został utworzony, na przykład możesz użyć następującego polecenia programu PowerShell:
@@ -287,7 +287,7 @@ var paramblob = container.GetBlockBlobReference("Parameters.json");
 paramblob.UploadFromFileAsync("..\\..\\Parameters.json").Result();
 ```
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 Wdróż szablon i parametry z utworzonego konta magazynu. 
 

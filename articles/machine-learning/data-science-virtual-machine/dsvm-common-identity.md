@@ -11,11 +11,11 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
 ms.openlocfilehash: 3dc6fb64f6e8695d84e292322293998e2f4cb0a3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324790"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009232"
 ---
 # <a name="set-up-a-common-identity-on-a-data-science-virtual-machine"></a>Skonfiguruj wspólną tożsamość na Data Science Virtual Machine
 
@@ -37,9 +37,9 @@ Usługa Azure AD DS ułatwia zarządzanie tożsamościami przez udostępnienie w
 
    1. Zaloguj się do [Centrum administracyjnego Azure Active Directory](https://aad.portal.azure.com) przy użyciu konta, które jest administratorem globalnym katalogu.
     
-   1. Wybierz pozycję **Azure Active Directory** , a następnie **Użytkownicy i grupy**.
+   1. Wybierz pozycję **Azure Active Directory**, a następnie **Użytkownicy i grupy**.
     
-   1. W obszarze **Użytkownicy i grupy** wybierz pozycję **Wszyscy użytkownicy** , a następnie wybierz pozycję **nowy użytkownik**.
+   1. W obszarze **Użytkownicy i grupy** wybierz pozycję **Wszyscy użytkownicy**, a następnie wybierz pozycję **nowy użytkownik**.
    
         Zostanie otwarte okienko **użytkownika** :
       
@@ -49,7 +49,7 @@ Usługa Azure AD DS ułatwia zarządzanie tożsamościami przez udostępnienie w
     
    1. Skopiuj lub w inny sposób zanotuj wygenerowane hasło użytkownika, aby przekazać je użytkownikowi po ukończeniu tego procesu.
     
-   1. Opcjonalnie możesz otworzyć sekcje **Profil** , **Grupy** lub **Rola katalogu** dla użytkownika i uzupełnić w nich informacje. 
+   1. Opcjonalnie możesz otworzyć sekcje **Profil**, **Grupy** lub **Rola katalogu** dla użytkownika i uzupełnić w nich informacje. 
     
    1. W obszarze **użytkownik** wybierz pozycję **Utwórz**.
     

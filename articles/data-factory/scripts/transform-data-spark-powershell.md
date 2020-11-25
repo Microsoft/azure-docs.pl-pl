@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
 ms.openlocfilehash: 3af38f4cae53807c7268f00017f02f1325116fb6
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637058"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008756"
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>Skrypt programu PowerShell — Przekształcanie danych w chmurze przy użyciu Azure Data Factory
 
@@ -26,7 +26,7 @@ Ten przykładowy skrypt programu PowerShell tworzy potok, który przekształca d
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* **Konto usługi Azure Storage** . Utwórz skrypt w języku Python i plik wejściowy, a następnie Przekaż je do usługi Azure Storage. Dane wyjściowe programu platformy Spark są przechowywane na tym koncie magazynu. Klaster platformy Spark na żądanie używa tego samego konta magazynu, jako swojego podstawowego magazynu.  
+* **Konto usługi Azure Storage**. Utwórz skrypt w języku Python i plik wejściowy, a następnie Przekaż je do usługi Azure Storage. Dane wyjściowe programu platformy Spark są przechowywane na tym koncie magazynu. Klaster platformy Spark na żądanie używa tego samego konta magazynu, jako swojego podstawowego magazynu.  
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>Przekazywanie skryptu w języku Python do konta usługi Blob Storage
 1. Utwórz plik w języku Python o nazwie **WordCount_Spark. PR** z następującą zawartością: 
@@ -55,10 +55,10 @@ Ten przykładowy skrypt programu PowerShell tworzy potok, który przekształca d
         main()
     ```
 2. Zastąp **&lt; storageAccountName &gt;** nazwą konta usługi Azure Storage. Następnie zapisz plik. 
-3. W usłudze Azure Blob Storage utwórz kontener o nazwie **adftutorial** , jeśli nie istnieje. 
-4. Utwórz folder o nazwie **spark** .
-5. Utwórz podfolder o nazwie **script** w folderze **spark** . 
-6. Przekaż plik **WordCount_Spark.py** do podfolderu **script** . 
+3. W usłudze Azure Blob Storage utwórz kontener o nazwie **adftutorial**, jeśli nie istnieje. 
+4. Utwórz folder o nazwie **spark**.
+5. Utwórz podfolder o nazwie **script** w folderze **spark**. 
+6. Przekaż plik **WordCount_Spark.py** do podfolderu **script**. 
 
 
 ### <a name="upload-the-input-file"></a>Przekazywanie pliku wejściowego

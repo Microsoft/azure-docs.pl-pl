@@ -5,21 +5,21 @@ ms.topic: include
 ms.date: 04/28/2019
 ms.author: raynew
 ms.openlocfilehash: 088cd5447b1f96dbf172b5918c29e4f3293289a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67534700"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008489"
 ---
 1. Nawiąż Podłączanie pulpitu zdalnego z maszyną z uruchomionym serwerem przetwarzania. 
 2. Uruchom cspsconfigtool.exe, aby uruchomić narzędzie konfiguracji serwera przetwarzania Azure Site Recovery.
     - Narzędzie jest uruchamiane automatycznie przy pierwszym zalogowaniu się do serwera przetwarzania.
     - Jeśli plik nie zostanie otwarty automatycznie, kliknij jego skrót na pulpicie.
 
-3. W polu Nazwa **FQDN lub adres IP serwera konfiguracji**Określ nazwę lub serwer konfiguracji, za pomocą którego ma zostać zarejestrowany serwer przetwarzania.
-4. Upewnij się, że w polu **port serwera konfiguracji**określono 443. Jest to port, na którym serwer konfiguracji nasłuchuje żądań.
-5. W polu **hasło połączenia**określ hasło określone podczas konfigurowania serwera konfiguracji. Aby znaleźć hasło:
-    -  Na serwerze konfiguracji przejdź do folderu instalacji Site Recovery **\home\svssystems\bin \* *:
+3. W polu Nazwa **FQDN lub adres IP serwera konfiguracji** Określ nazwę lub serwer konfiguracji, za pomocą którego ma zostać zarejestrowany serwer przetwarzania.
+4. Upewnij się, że w polu **port serwera konfiguracji** określono 443. Jest to port, na którym serwer konfiguracji nasłuchuje żądań.
+5. W polu **hasło połączenia** określ hasło określone podczas konfigurowania serwera konfiguracji. Aby znaleźć hasło:
+    -  Na serwerze konfiguracji przejdź do folderu instalacji Site Recovery **\home\svssystems\bin \**:
     ```
     cd %ProgramData%\ASR\home\svsystems\bin
     ```
@@ -28,7 +28,7 @@ ms.locfileid: "67534700"
     genpassphrase.exe -n
     ```
 
-6. W obszarze **transfer danych port**pozostaw wartość domyślną, chyba że określono port niestandardowy.
+6. W obszarze **transfer danych port** pozostaw wartość domyślną, chyba że określono port niestandardowy.
 
 7. Kliknij przycisk **Zapisz** Zapisz ustawienia i zarejestruj serwer przetwarzania.
 

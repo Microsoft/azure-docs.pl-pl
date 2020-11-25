@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: allensu
 ms.openlocfilehash: 5387fdc224cd77ee5273767df5033a51dc27608c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778867"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008365"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Przyspieszanie witryn dynamicznych za pośrednictwem Azure CDN
 
@@ -40,13 +40,13 @@ Aby skonfigurować punkt końcowy usługi CDN w celu zoptymalizowania dostarczan
 
 **Aby skonfigurować punkt końcowy usługi CDN na potrzeby optymalizacji DSA przy użyciu Azure Portal:**
 
-1. Na stronie **profil usługi CDN** wybierz pozycję **punkt końcowy** .
+1. Na stronie **profil usługi CDN** wybierz pozycję **punkt końcowy**.
 
    ![Dodaj nowy punkt końcowy usługi CDN](./media/cdn-dynamic-site-acceleration/cdn-endpoint-profile.png) 
 
-   Zostanie wyświetlone okienko **Dodawanie punktu końcowego** .
+   Zostanie wyświetlone okienko **Dodawanie punktu końcowego**.
 
-2. W obszarze **zoptymalizowane** pod kątem wybierz pozycję **przyspieszenie witryny dynamicznej** .
+2. W obszarze **zoptymalizowane** pod kątem wybierz pozycję **przyspieszenie witryny dynamicznej**.
 
     ![Utwórz nowy punkt końcowy usługi CDN przy użyciu agenta DSA](./media/cdn-dynamic-site-acceleration/cdn-endpoint-dsa.png)
 
@@ -54,7 +54,7 @@ Aby skonfigurować punkt końcowy usługi CDN w celu zoptymalizowania dostarczan
 
     Ścieżka sondy jest funkcją specyficzną dla DSA, a do utworzenia wymagana jest prawidłowa ścieżka. Agent DSA używa pliku z małym *sondowaniem* umieszczonym na serwerze źródłowym w celu zoptymalizowania konfiguracji routingu sieciowego dla sieci CDN. Plik z ścieżką sondy umożliwia pobranie i przekazanie przykładowego pliku do witryny lub użycie istniejącego elementu zawartości dla źródła o rozmiarze około 10 KB.
 
-4. Wprowadź inne wymagane opcje punktu końcowego (Aby uzyskać więcej informacji, zobacz [Tworzenie nowego punktu końcowego usługi CDN](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint)), a następnie wybierz pozycję **Dodaj** .
+4. Wprowadź inne wymagane opcje punktu końcowego (Aby uzyskać więcej informacji, zobacz [Tworzenie nowego punktu końcowego usługi CDN](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint)), a następnie wybierz pozycję **Dodaj**.
 
    Po utworzeniu punktu końcowego usługi CDN stosowane są optymalizacje DSA dla wszystkich plików spełniających określone kryteria. 
 
@@ -63,11 +63,11 @@ Aby skonfigurować punkt końcowy usługi CDN w celu zoptymalizowania dostarczan
 
 1. Na stronie **profil usługi CDN** wybierz punkt końcowy, który chcesz zmodyfikować.
 
-2. W okienku po lewej stronie wybierz pozycję **Optymalizacja** . 
+2. W okienku po lewej stronie wybierz pozycję **Optymalizacja**. 
 
    Zostanie wyświetlona strona **Optymalizacja** .
 
-3. W obszarze **zoptymalizowane** pod kątem wybierz pozycję **przyspieszenie witryny dynamicznej** , a następnie wybierz pozycję **Zapisz** .
+3. W obszarze **zoptymalizowane** pod kątem wybierz pozycję **przyspieszenie witryny dynamicznej**, a następnie wybierz pozycję **Zapisz**.
 
 > [!Note]
 > DSA wiąże się z dodatkowymi opłatami. Aby uzyskać więcej informacji, zobacz [Cennik usługi Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).
@@ -157,7 +157,7 @@ W przypadku **Azure CDN Standard from Verizon** i **Azure CDN Standard z profil�
 
 Aby uzyskać dostęp do reguł buforowania:
 
-1. Na stronie **profil usługi CDN** w obszarze Ustawienia wybierz pozycję **Zasady buforowania** .  
+1. Na stronie **profil usługi CDN** w obszarze Ustawienia wybierz pozycję **Zasady buforowania**.  
     
     ![Przycisk Reguły buforowania usługi CDN](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
 
@@ -169,13 +169,13 @@ W przypadku **Azure CDN Premium tylko w** profilach Verizon należy włączyć b
 
 Aby uzyskać dostęp do aparatu reguł:
     
-1. Na stronie **profil usługi CDN** wybierz pozycję **Zarządzaj** .  
+1. Na stronie **profil usługi CDN** wybierz pozycję **Zarządzaj**.  
     
     ![Przycisk zarządzania profilem CDN](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
     Zostanie otwarty portal zarządzania sieci CDN.
 
-2. W portalu zarządzania usługi CDN wybierz pozycję **wdrożenie** , a następnie wybierz pozycję **aparat reguł** . 
+2. W portalu zarządzania usługi CDN wybierz pozycję **wdrożenie**, a następnie wybierz pozycję **aparat reguł**. 
 
     ![Aparat reguł dla agenta DSA](./media/cdn-dynamic-site-acceleration/cdn-dsa-rules-engine.png)
 

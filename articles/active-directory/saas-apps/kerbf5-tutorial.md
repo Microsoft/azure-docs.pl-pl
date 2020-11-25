@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.openlocfilehash: 161348f7566ff64858d563f34ad8f3f4c7511adf
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459108"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009164"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu klawisza F5
 
@@ -211,7 +211,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Konieczne będzie zaimportowanie certyfikatu metadanych do F5, który będzie używany później w procesie instalacji.
 
-1. Przejdź do **systemu > zarządzanie certyfikatami > zarządzania certyfikatami, > listy certyfikatów SSL**. Wybierz pozycję **Importuj** z prawej strony. Określ **nazwę certyfikatu** (zostanie przywoływana później w konfiguracji). W **źródle certyfikatu**wybierz pozycję Przekaż plik Określ certyfikat pobrany z platformy Azure podczas konfigurowania logowania jednokrotnego SAML. Kliknij pozycję **Importuj**.
+1. Przejdź do **systemu > zarządzanie certyfikatami > zarządzania certyfikatami, > listy certyfikatów SSL**. Wybierz pozycję **Importuj** z prawej strony. Określ **nazwę certyfikatu** (zostanie przywoływana później w konfiguracji). W **źródle certyfikatu** wybierz pozycję Przekaż plik Określ certyfikat pobrany z platformy Azure podczas konfigurowania logowania jednokrotnego SAML. Kliknij pozycję **Importuj**.
 
     ![Zrzut ekranu przedstawiający stronę "S S L/Źródło klucza" z wyróżnioną nazwą "Nazwa certyfikatu", "Przekaż plik" i wybranym przyciskiem "Importuj".](./media/kerbf5-tutorial/configure01.png) 
 
@@ -232,7 +232,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Zrzut ekranu pokazujący właściwości "dostawca usług" z wyróżnionymi polami tekstowymi "Nazwa hosta" i "opis" oraz wybrany przycisk "Zapisz & dalej".](./media/kerbf5-tutorial/configure05.png) 
 
-1. W tym przykładzie tworzymy nowy serwer wirtualny jako 192.168.30.200 z portem 443. Określ adres IP serwera wirtualnego w **adresie docelowym**. Wybierz **profil SSL**klienta, a następnie wybierz pozycję Utwórz nowy. Określ wcześniej przekazany certyfikat aplikacji (certyfikat wieloznaczny w tym przykładzie) i skojarzony klucz, a następnie kliknij przycisk **zapisz & dalej**.
+1. W tym przykładzie tworzymy nowy serwer wirtualny jako 192.168.30.200 z portem 443. Określ adres IP serwera wirtualnego w **adresie docelowym**. Wybierz **profil SSL** klienta, a następnie wybierz pozycję Utwórz nowy. Określ wcześniej przekazany certyfikat aplikacji (certyfikat wieloznaczny w tym przykładzie) i skojarzony klucz, a następnie kliknij przycisk **zapisz & dalej**.
 
     >[!NOTE]
     >w tym przykładzie nasz wewnętrzny serwer WebServer jest uruchomiony na porcie 80 i chcemy opublikować go z 443.
@@ -243,7 +243,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Zrzut ekranu przedstawiający stronę "Ustawienia zewnętrznego łącznika dostawcy tożsamości" z wyróżnionym polem tekstowym "nazwa" i wybranym przyciskiem "Zapisz & dalej".](./media/kerbf5-tutorial/configure07.png)  
 
-1. W obszarze **wybierz pulę**określ pozycję **Utwórz nową** (Alternatywnie wybierz już istniejącą pulę). Zezwól na ustawienie wartości domyślnej.    W obszarze serwery puli wpisz adres IP w obszarze **adres IP/nazwa węzła**. Określ **port**. Kliknij przycisk **zapisz & dalej**.
+1. W obszarze **wybierz pulę** określ pozycję **Utwórz nową** (Alternatywnie wybierz już istniejącą pulę). Zezwól na ustawienie wartości domyślnej.    W obszarze serwery puli wpisz adres IP w obszarze **adres IP/nazwa węzła**. Określ **port**. Kliknij przycisk **zapisz & dalej**.
  
     ![Zrzut ekranu przedstawiający stronę "właściwości puli" z wyróżnionymi polami tekstowymi "adres IP/nazwa węzła" i "Port" oraz wybrany przycisk "Zapisz & dalej".](./media/kerbf5-tutorial/configure08.png)
 
@@ -291,7 +291,7 @@ Serwer Active Directory AAA można skonfigurować w Menedżerze zasad dostępu (
 
    * Wybierz pozycję **Direct** , aby skonfigurować serwer AAA dla funkcjonalności autonomicznej.
 
-6. W przypadku wybrania **bezpośrednie**wpisz nazwę w polu **kontroler domeny** .
+6. W przypadku wybrania **bezpośrednie** wpisz nazwę w polu **kontroler domeny** .
 
 7. Jeśli wybrano opcję Użyj **puli**, skonfiguruj pulę:
 
@@ -360,7 +360,7 @@ Serwer Active Directory AAA można skonfigurować w Menedżerze zasad dostępu (
 
      ![Zrzut ekranu, na którym jest wyświetlany przycisk "Edytuj S A M I d PS, który korzysta z tego okna.](./media/kerbf5-tutorial/configure28.png)
 
-1. Aby skonfigurować Logowanie jednokrotne protokołu Kerberos, przejdź do **dostępu > logowanie**jednokrotne > Kerberos, pełne informacje i kliknij przycisk **Zakończono**.
+1. Aby skonfigurować Logowanie jednokrotne protokołu Kerberos, przejdź do **dostępu > logowanie** jednokrotne > Kerberos, pełne informacje i kliknij przycisk **Zakończono**.
 
     >[!Note]
     > Konieczne będzie utworzenie i określenie konta delegowania protokołu Kerberos. Odwołaj się do KCD sekcji (zobacz dodatek dla odwołań do zmiennych)

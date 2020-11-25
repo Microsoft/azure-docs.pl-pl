@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 2b99d032b953caecfca2b34d5eadafe94f45f307
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87809378"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009538"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Zarządzanie wystąpieniami w Durable Functions na platformie Azure
 
@@ -158,11 +158,11 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 
 Wystąpienie można również uruchomić bezpośrednio przy użyciu polecenia [Azure Functions Core Tools](../functions-run-local.md) `durable start-new` . Przyjmuje następujące parametry:
 
-* ** `function-name` (wymagane)**: nazwa funkcji do uruchomienia.
-* ** `input` (opcjonalnie)**: dane wejściowe funkcji, wbudowane lub za pomocą pliku JSON. Dla plików Dodaj prefiks do ścieżki do pliku, na przykład `@` `@path/to/file.json` .
-* ** `id` (opcjonalnie)**: identyfikator wystąpienia aranżacji. Jeśli ten parametr nie jest określony, polecenie używa losowego identyfikatora GUID.
-* ** `connection-string-setting` (opcjonalnie)**: Nazwa ustawienia aplikacji zawierającego parametry połączenia magazynu do użycia. Wartość domyślna to AzureWebJobsStorage.
-* ** `task-hub-name` (opcjonalnie)**: nazwa centrum zadań Durable Functions do użycia. Wartość domyślna to DurableFunctionsHub. Możesz również ustawić tę wartość w [host.jsna](durable-functions-bindings.md#host-json) przy użyciu DurableTask: HubName.
+* **`function-name` (wymagane)**: nazwa funkcji do uruchomienia.
+* **`input` (opcjonalnie)**: dane wejściowe funkcji, wbudowane lub za pomocą pliku JSON. Dla plików Dodaj prefiks do ścieżki do pliku, na przykład `@` `@path/to/file.json` .
+* **`id` (opcjonalnie)**: identyfikator wystąpienia aranżacji. Jeśli ten parametr nie jest określony, polecenie używa losowego identyfikatora GUID.
+* **`connection-string-setting` (opcjonalnie)**: Nazwa ustawienia aplikacji zawierającego parametry połączenia magazynu do użycia. Wartość domyślna to AzureWebJobsStorage.
+* **`task-hub-name` (opcjonalnie)**: nazwa centrum zadań Durable Functions do użycia. Wartość domyślna to DurableFunctionsHub. Możesz również ustawić tę wartość w [host.jsna](durable-functions-bindings.md#host-json) przy użyciu DurableTask: HubName.
 
 > [!NOTE]
 > Polecenia podstawowych narzędzi zakładają, że są one uruchamiane z katalogu głównego aplikacji funkcji. Jeśli jawnie podano `connection-string-setting` Parametry i `task-hub-name` , można uruchomić polecenia z dowolnego katalogu. Chociaż można uruchamiać te polecenia bez uruchomienia hosta aplikacji funkcji, może się okazać, że nie można obserwować niektórych efektów, chyba że host jest uruchomiony. Na przykład `start-new` polecenie enqueues komunikat startowy w docelowym centrum zadań, ale aranżacja nie działa, chyba że jest uruchomiony proces hosta aplikacji funkcji, który może przetwarzać komunikat.
@@ -255,11 +255,11 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
 Istnieje również możliwość bezpośredniego pobrania stanu wystąpienia aranżacji przy użyciu polecenia [Azure Functions Core Tools](../functions-run-local.md) `durable get-runtime-status` . Przyjmuje następujące parametry:
 
-* ** `id` (wymagane)**: identyfikator wystąpienia aranżacji.
-* ** `show-input` (opcjonalnie)**: w przypadku ustawienia wartości `true` odpowiedź zawiera dane wejściowe funkcji. Wartość domyślna to `false`.
-* ** `show-output` (opcjonalnie)**: Jeśli wartość jest ustawiona na `true` , odpowiedź zawiera dane wyjściowe funkcji. Wartość domyślna to `false`.
-* ** `connection-string-setting` (opcjonalnie)**: Nazwa ustawienia aplikacji zawierającego parametry połączenia magazynu do użycia. Wartość domyślna to `AzureWebJobsStorage`.
-* ** `task-hub-name` (opcjonalnie)**: nazwa centrum zadań Durable Functions do użycia. Wartość domyślna to `DurableFunctionsHub`. Można ją również ustawić w [host.jsna](durable-functions-bindings.md#host-json), przy użyciu DurableTask: HubName.
+* **`id` (wymagane)**: identyfikator wystąpienia aranżacji.
+* **`show-input` (opcjonalnie)**: w przypadku ustawienia wartości `true` odpowiedź zawiera dane wejściowe funkcji. Wartość domyślna to `false`.
+* **`show-output` (opcjonalnie)**: Jeśli wartość jest ustawiona na `true` , odpowiedź zawiera dane wyjściowe funkcji. Wartość domyślna to `false`.
+* **`connection-string-setting` (opcjonalnie)**: Nazwa ustawienia aplikacji zawierającego parametry połączenia magazynu do użycia. Wartość domyślna to `AzureWebJobsStorage`.
+* **`task-hub-name` (opcjonalnie)**: nazwa centrum zadań Durable Functions do użycia. Wartość domyślna to `DurableFunctionsHub`. Można ją również ustawić w [host.jsna](durable-functions-bindings.md#host-json), przy użyciu DurableTask: HubName.
 
 Następujące polecenie pobiera stan (łącznie z danymi wejściowymi i wyjściowymi) wystąpienia z IDENTYFIKATORem wystąpienia aranżacji 0ab8c55a66644d68a3a8b220b12d209c. Przyjęto założenie, że uruchamiasz `func` polecenie z katalogu głównego aplikacji funkcji:
 
@@ -269,9 +269,9 @@ func durable get-runtime-status --id 0ab8c55a66644d68a3a8b220b12d209c --show-inp
 
 Możesz użyć polecenia, `durable get-history` Aby pobrać historię wystąpienia aranżacji. Przyjmuje następujące parametry:
 
-* ** `id` (wymagane)**: identyfikator wystąpienia aranżacji.
-* ** `connection-string-setting` (opcjonalnie)**: Nazwa ustawienia aplikacji zawierającego parametry połączenia magazynu do użycia. Wartość domyślna to `AzureWebJobsStorage`.
-* ** `task-hub-name` (opcjonalnie)**: nazwa centrum zadań Durable Functions do użycia. Wartość domyślna to `DurableFunctionsHub`. Można ją również ustawić w host.jsna, przy użyciu durableTask: HubName.
+* **`id` (wymagane)**: identyfikator wystąpienia aranżacji.
+* **`connection-string-setting` (opcjonalnie)**: Nazwa ustawienia aplikacji zawierającego parametry połączenia magazynu do użycia. Wartość domyślna to `AzureWebJobsStorage`.
+* **`task-hub-name` (opcjonalnie)**: nazwa centrum zadań Durable Functions do użycia. Wartość domyślna to `DurableFunctionsHub`. Można ją również ustawić w host.jsna, przy użyciu durableTask: HubName.
 
 ```bash
 func durable get-history --id 0ab8c55a66644d68a3a8b220b12d209c
@@ -347,10 +347,10 @@ Zobacz [Uruchamianie wystąpień](#javascript-function-json) function.jsw konfig
 
 Istnieje również możliwość bezpośredniego zapytania o wystąpienia przy użyciu polecenia [Azure Functions Core Tools](../functions-run-local.md) `durable get-instances` . Przyjmuje następujące parametry:
 
-* ** `top` (opcjonalnie)**: to polecenie obsługuje stronicowanie. Ten parametr odnosi się do liczby wystąpień pobranych dla żądania. Wartość domyślna to 10.
-* ** `continuation-token` (opcjonalnie)**: token wskazujący stronę lub sekcję wystąpień do pobrania. Każde `get-instances` wykonanie zwraca token do następnego zestawu wystąpień.
-* ** `connection-string-setting` (opcjonalnie)**: Nazwa ustawienia aplikacji zawierającego parametry połączenia magazynu do użycia. Wartość domyślna to `AzureWebJobsStorage`.
-* ** `task-hub-name` (opcjonalnie)**: nazwa centrum zadań Durable Functions do użycia. Wartość domyślna to `DurableFunctionsHub`. Można ją również ustawić w [host.jsna](durable-functions-bindings.md#host-json), przy użyciu DurableTask: HubName.
+* **`top` (opcjonalnie)**: to polecenie obsługuje stronicowanie. Ten parametr odnosi się do liczby wystąpień pobranych dla żądania. Wartość domyślna to 10.
+* **`continuation-token` (opcjonalnie)**: token wskazujący stronę lub sekcję wystąpień do pobrania. Każde `get-instances` wykonanie zwraca token do następnego zestawu wystąpień.
+* **`connection-string-setting` (opcjonalnie)**: Nazwa ustawienia aplikacji zawierającego parametry połączenia magazynu do użycia. Wartość domyślna to `AzureWebJobsStorage`.
+* **`task-hub-name` (opcjonalnie)**: nazwa centrum zadań Durable Functions do użycia. Wartość domyślna to `DurableFunctionsHub`. Można ją również ustawić w [host.jsna](durable-functions-bindings.md#host-json), przy użyciu DurableTask: HubName.
 
 ```bash
 func durable get-instances
@@ -453,13 +453,13 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 
 W Azure Functions Core Tools można również użyć `durable get-instances` polecenia z filtrami. Oprócz powyższych `top` `continuation-token` parametrów,, `connection-string-setting` i `task-hub-name` , można użyć trzech parametrów filtru ( `created-after` , `created-before` i `runtime-status` ).
 
-* ** `created-after` (opcjonalnie)**: Pobierz wystąpienia utworzone po tej dacie/godzinie (UTC). Zaakceptowane daty i godziny w formacie ISO 8601.
-* ** `created-before` (opcjonalnie)**: Pobierz wystąpienia utworzone przed tą datą/godziną (UTC). Zaakceptowane daty i godziny w formacie ISO 8601.
-* ** `runtime-status` (opcjonalnie)**: Pobierz wystąpienia z określonym stanem (na przykład uruchomioną lub ukończoną). Może zapewnić wiele stanów (rozdzielonych spacjami).
-* ** `top` (opcjonalnie)**: liczba wystąpień pobranych dla żądania. Wartość domyślna to 10.
-* ** `continuation-token` (opcjonalnie)**: token wskazujący stronę lub sekcję wystąpień do pobrania. Każde `get-instances` wykonanie zwraca token do następnego zestawu wystąpień.
-* ** `connection-string-setting` (opcjonalnie)**: Nazwa ustawienia aplikacji zawierającego parametry połączenia magazynu do użycia. Wartość domyślna to `AzureWebJobsStorage`.
-* ** `task-hub-name` (opcjonalnie)**: nazwa centrum zadań Durable Functions do użycia. Wartość domyślna to `DurableFunctionsHub`. Można ją również ustawić w [host.jsna](durable-functions-bindings.md#host-json), przy użyciu DurableTask: HubName.
+* **`created-after` (opcjonalnie)**: Pobierz wystąpienia utworzone po tej dacie/godzinie (UTC). Zaakceptowane daty i godziny w formacie ISO 8601.
+* **`created-before` (opcjonalnie)**: Pobierz wystąpienia utworzone przed tą datą/godziną (UTC). Zaakceptowane daty i godziny w formacie ISO 8601.
+* **`runtime-status` (opcjonalnie)**: Pobierz wystąpienia z określonym stanem (na przykład uruchomioną lub ukończoną). Może zapewnić wiele stanów (rozdzielonych spacjami).
+* **`top` (opcjonalnie)**: liczba wystąpień pobranych dla żądania. Wartość domyślna to 10.
+* **`continuation-token` (opcjonalnie)**: token wskazujący stronę lub sekcję wystąpień do pobrania. Każde `get-instances` wykonanie zwraca token do następnego zestawu wystąpień.
+* **`connection-string-setting` (opcjonalnie)**: Nazwa ustawienia aplikacji zawierającego parametry połączenia magazynu do użycia. Wartość domyślna to `AzureWebJobsStorage`.
+* **`task-hub-name` (opcjonalnie)**: nazwa centrum zadań Durable Functions do użycia. Wartość domyślna to `DurableFunctionsHub`. Można ją również ustawić w [host.jsna](durable-functions-bindings.md#host-json), przy użyciu DurableTask: HubName.
 
 Jeśli nie podano żadnych filtrów ( `created-after` , `created-before` lub `runtime-status` ), polecenie po prostu pobiera `top` wystąpienia bez względu na stan środowiska uruchomieniowego lub czas utworzenia.
 
@@ -528,10 +528,10 @@ Przerwane wystąpienie będzie ostatecznie przejść do `Terminated` stanu. Jedn
 
 Możesz również przerwać wystąpienie aranżacji bezpośrednio za pomocą polecenia [Azure Functions Core Tools](../functions-run-local.md) `durable terminate` . Przyjmuje następujące parametry:
 
-* ** `id` (wymagane)**: identyfikator wystąpienia aranżacji do przerwania.
-* ** `reason` (opcjonalnie)**: Przyczyna zakończenia.
-* ** `connection-string-setting` (opcjonalnie)**: Nazwa ustawienia aplikacji zawierającego parametry połączenia magazynu do użycia. Wartość domyślna to `AzureWebJobsStorage`.
-* ** `task-hub-name` (opcjonalnie)**: nazwa centrum zadań Durable Functions do użycia. Wartość domyślna to `DurableFunctionsHub`. Można ją również ustawić w [host.jsna](durable-functions-bindings.md#host-json), przy użyciu DurableTask: HubName.
+* **`id` (wymagane)**: identyfikator wystąpienia aranżacji do przerwania.
+* **`reason` (opcjonalnie)**: Przyczyna zakończenia.
+* **`connection-string-setting` (opcjonalnie)**: Nazwa ustawienia aplikacji zawierającego parametry połączenia magazynu do użycia. Wartość domyślna to `AzureWebJobsStorage`.
+* **`task-hub-name` (opcjonalnie)**: nazwa centrum zadań Durable Functions do użycia. Wartość domyślna to `DurableFunctionsHub`. Można ją również ustawić w [host.jsna](durable-functions-bindings.md#host-json), przy użyciu DurableTask: HubName.
 
 Następujące polecenie kończy wystąpienie aranżacji o IDENTYFIKATORze 0ab8c55a66644d68a3a8b220b12d209c:
 
@@ -604,11 +604,11 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
 Możesz również podnieść zdarzenie do wystąpienia aranżacji bezpośrednio za pomocą polecenia [Azure Functions Core Tools](../functions-run-local.md) `durable raise-event` . Przyjmuje następujące parametry:
 
-* ** `id` (wymagane)**: identyfikator wystąpienia aranżacji.
+* **`id` (wymagane)**: identyfikator wystąpienia aranżacji.
 * **`event-name`**: Nazwa zdarzenia do podniesienia.
-* ** `event-data` (opcjonalnie)**: dane do wysłania do wystąpienia aranżacji. Może to być ścieżka do pliku JSON lub można dostarczyć dane bezpośrednio w wierszu polecenia.
-* ** `connection-string-setting` (opcjonalnie)**: Nazwa ustawienia aplikacji zawierającego parametry połączenia magazynu do użycia. Wartość domyślna to `AzureWebJobsStorage`.
-* ** `task-hub-name` (opcjonalnie)**: nazwa centrum zadań Durable Functions do użycia. Wartość domyślna to `DurableFunctionsHub`. Można ją również ustawić w [host.jsna](durable-functions-bindings.md#host-json), przy użyciu DurableTask: HubName.
+* **`event-data` (opcjonalnie)**: dane do wysłania do wystąpienia aranżacji. Może to być ścieżka do pliku JSON lub można dostarczyć dane bezpośrednio w wierszu polecenia.
+* **`connection-string-setting` (opcjonalnie)**: Nazwa ustawienia aplikacji zawierającego parametry połączenia magazynu do użycia. Wartość domyślna to `AzureWebJobsStorage`.
+* **`task-hub-name` (opcjonalnie)**: nazwa centrum zadań Durable Functions do użycia. Wartość domyślna to `DurableFunctionsHub`. Można ją również ustawić w [host.jsna](durable-functions-bindings.md#host-json), przy użyciu DurableTask: HubName.
 
 ```bash
 func durable raise-event --id 0ab8c55a66644d68a3a8b220b12d209c --event-name MyEvent --event-data @eventdata.json
@@ -860,10 +860,10 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
 Możesz również bezpośrednio przewinąć wystąpienie aranżacji przy użyciu polecenia [Azure Functions Core Tools](../functions-run-local.md) `durable rewind` . Przyjmuje następujące parametry:
 
-* ** `id` (wymagane)**: identyfikator wystąpienia aranżacji.
-* ** `reason` (opcjonalnie)**: Przyczyna odwinięcia wystąpienia aranżacji.
-* ** `connection-string-setting` (opcjonalnie)**: Nazwa ustawienia aplikacji zawierającego parametry połączenia magazynu do użycia. Wartość domyślna to `AzureWebJobsStorage`.
-* ** `task-hub-name` (opcjonalnie)**: nazwa centrum zadań Durable Functions do użycia. Domyślnie jest używana nazwa centrum zadań w [host.jsna](durable-functions-bindings.md#host-json) pliku.
+* **`id` (wymagane)**: identyfikator wystąpienia aranżacji.
+* **`reason` (opcjonalnie)**: Przyczyna odwinięcia wystąpienia aranżacji.
+* **`connection-string-setting` (opcjonalnie)**: Nazwa ustawienia aplikacji zawierającego parametry połączenia magazynu do użycia. Wartość domyślna to `AzureWebJobsStorage`.
+* **`task-hub-name` (opcjonalnie)**: nazwa centrum zadań Durable Functions do użycia. Domyślnie jest używana nazwa centrum zadań w [host.jsna](durable-functions-bindings.md#host-json) pliku.
 
 ```bash
 func durable rewind --id 0ab8c55a66644d68a3a8b220b12d209c --reason "Orchestrator failed and needs to be revived."
@@ -997,17 +997,17 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 ---
 
 > [!NOTE]
-> Aby operacja przeczyszczania historii zakończyła się powodzeniem, stan czasu wykonywania wystąpienia docelowego musi **być zakończony**, **zakończony**lub **Niepowodzenie**.
+> Aby operacja przeczyszczania historii zakończyła się powodzeniem, stan czasu wykonywania wystąpienia docelowego musi **być zakończony**, **zakończony** lub **Niepowodzenie**.
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
 Historię wystąpienia aranżacji można przeczyścić, używając polecenia [Azure Functions Core Tools](../functions-run-local.md) `durable purge-history` . Podobnie jak w przypadku drugiego przykładu w języku C# w poprzedniej sekcji, Przeczyszcza historię wszystkich wystąpień aranżacji utworzonych w określonym przedziale czasu. Możliwe jest dalsze filtrowanie przeczyszczonych wystąpień według stanu środowiska uruchomieniowego. Polecenie ma kilka parametrów:
 
-* ** `created-after` (opcjonalnie)**: Przeczyść historię wystąpień utworzonych po tej dacie/godzinie (UTC). Zaakceptowane daty i godziny w formacie ISO 8601.
-* ** `created-before` (opcjonalnie)**: Przeczyść historię wystąpień utworzonych przed tą datą/godziną (UTC). Zaakceptowane daty i godziny w formacie ISO 8601.
-* ** `runtime-status` (opcjonalnie)**: Przeczyść historię wystąpień z określonym stanem (na przykład uruchomioną lub ukończoną). Może zapewnić wiele stanów (rozdzielonych spacjami).
-* ** `connection-string-setting` (opcjonalnie)**: Nazwa ustawienia aplikacji zawierającego parametry połączenia magazynu do użycia. Wartość domyślna to `AzureWebJobsStorage`.
-* ** `task-hub-name` (opcjonalnie)**: nazwa centrum zadań Durable Functions do użycia. Domyślnie jest używana nazwa centrum zadań w [host.jsna](durable-functions-bindings.md#host-json) pliku.
+* **`created-after` (opcjonalnie)**: Przeczyść historię wystąpień utworzonych po tej dacie/godzinie (UTC). Zaakceptowane daty i godziny w formacie ISO 8601.
+* **`created-before` (opcjonalnie)**: Przeczyść historię wystąpień utworzonych przed tą datą/godziną (UTC). Zaakceptowane daty i godziny w formacie ISO 8601.
+* **`runtime-status` (opcjonalnie)**: Przeczyść historię wystąpień z określonym stanem (na przykład uruchomioną lub ukończoną). Może zapewnić wiele stanów (rozdzielonych spacjami).
+* **`connection-string-setting` (opcjonalnie)**: Nazwa ustawienia aplikacji zawierającego parametry połączenia magazynu do użycia. Wartość domyślna to `AzureWebJobsStorage`.
+* **`task-hub-name` (opcjonalnie)**: nazwa centrum zadań Durable Functions do użycia. Domyślnie jest używana nazwa centrum zadań w [host.jsna](durable-functions-bindings.md#host-json) pliku.
 
 Następujące polecenie usuwa historię wszystkich wystąpień zakończonych niepowodzeniem, które zostały utworzone przed 14 listopada 2018 o 7:35 PM (UTC).
 
@@ -1019,8 +1019,8 @@ func durable purge-history --created-before 2018-11-14T19:35:00.0000000Z --runti
 
 Za pomocą polecenia [Azure Functions Core Tools](../functions-run-local.md) `durable delete-task-hub` można usunąć wszystkie artefakty magazynu skojarzone z konkretnym centrum zadań, w tym tabele, kolejki i obiekty blob usługi Azure Storage. Polecenie ma dwa parametry:
 
-* ** `connection-string-setting` (opcjonalnie)**: Nazwa ustawienia aplikacji zawierającego parametry połączenia magazynu do użycia. Wartość domyślna to `AzureWebJobsStorage`.
-* ** `task-hub-name` (opcjonalnie)**: nazwa centrum zadań Durable Functions do użycia. Domyślnie jest używana nazwa centrum zadań w [host.jsna](durable-functions-bindings.md#host-json) pliku.
+* **`connection-string-setting` (opcjonalnie)**: Nazwa ustawienia aplikacji zawierającego parametry połączenia magazynu do użycia. Wartość domyślna to `AzureWebJobsStorage`.
+* **`task-hub-name` (opcjonalnie)**: nazwa centrum zadań Durable Functions do użycia. Domyślnie jest używana nazwa centrum zadań w [host.jsna](durable-functions-bindings.md#host-json) pliku.
 
 Następujące polecenie usuwa wszystkie dane usługi Azure Storage skojarzone z `UserTest` centrum zadań.
 

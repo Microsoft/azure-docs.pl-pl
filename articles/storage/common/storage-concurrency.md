@@ -12,11 +12,11 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b83a8bfbc79af344c4d158ee65134034db714e9c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783967"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008909"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Zarządzanie współbieżnością w usłudze Microsoft Azure Storage
 
@@ -85,7 +85,7 @@ catch (StorageException ex)
 }
 ```
 
-Usługa Azure Storage obejmuje również obsługę nagłówków warunkowych, takich jak **If-Modified-** AS, **if-unmodifiedd — od** , **If-None-Match** i kombinacje tych nagłówków. Aby uzyskać więcej informacji, zobacz [Określanie nagłówków warunkowych dla operacji usługi BLOB Service](/rest/api/storageservices/Specifying-Conditional-Headers-for-Blob-Service-Operations).
+Usługa Azure Storage obejmuje również obsługę nagłówków warunkowych, takich jak **If-Modified-** AS, **if-unmodifiedd — od**, **If-None-Match** i kombinacje tych nagłówków. Aby uzyskać więcej informacji, zobacz [Określanie nagłówków warunkowych dla operacji usługi BLOB Service](/rest/api/storageservices/Specifying-Conditional-Headers-for-Blob-Service-Operations).
 
 Poniższa tabela zawiera podsumowanie operacji kontenera akceptujących nagłówki warunkowe, takie jak **if-Match** w żądaniu i zwracające wartość ETag w odpowiedzi.
 
@@ -130,7 +130,7 @@ Poniższa tabela zawiera podsumowanie operacji obiektów blob, które akceptują
 
 Aby zablokować obiekt BLOB do wyłącznego użytku, uzyskaj na nim [dzierżawę](/rest/api/storageservices/Lease-Blob) . Podczas uzyskiwania dzierżawy należy określić okres dla dzierżawy. Okres obejmuje wartości z zakresu od 15 do 60 sekund lub nieskończoności, które są przyłączane do wyłącznej blokady. Odnów skończoną dzierżawę, aby ją przedłużyć. Zwolnij dzierżawę po zakończeniu jej używania. Blob Storage automatycznie zwalnia skończone dzierżawy po ich wygaśnięciu.
 
-Dzierżawy umożliwiają obsługę różnych strategii synchronizacji. Strategie obejmują *wyłączne odczyty zapisu/udostępniania* , *wyłączne odczyty zapisu/wyłączność* oraz *udostępnianie zapisu/odczytu na wyłączność* . W przypadku istnienia dzierżawy usługa Azure Storage wymusza wykluczające operacje zapisu (Put, Set i Delete), jednak zapewnienie wyłączności operacji odczytu wymaga dewelopera, aby upewnić się, że wszystkie aplikacje klienckie używają identyfikatora dzierżawy i że tylko jeden klient w danym momencie ma prawidłowy identyfikator dzierżawy. Operacje odczytu, które nie zawierają identyfikatora dzierżawy, powodują odczyty udostępnione.
+Dzierżawy umożliwiają obsługę różnych strategii synchronizacji. Strategie obejmują *wyłączne odczyty zapisu/udostępniania*, *wyłączne odczyty zapisu/wyłączność* oraz *udostępnianie zapisu/odczytu na wyłączność*. W przypadku istnienia dzierżawy usługa Azure Storage wymusza wykluczające operacje zapisu (Put, Set i Delete), jednak zapewnienie wyłączności operacji odczytu wymaga dewelopera, aby upewnić się, że wszystkie aplikacje klienckie używają identyfikatora dzierżawy i że tylko jeden klient w danym momencie ma prawidłowy identyfikator dzierżawy. Operacje odczytu, które nie zawierają identyfikatora dzierżawy, powodują odczyty udostępnione.
 
 Poniższy fragment kodu w języku C# przedstawia przykład uzyskiwania wyłącznej dzierżawy przez 30 sekund na obiekcie blob, aktualizowania zawartości obiektu BLOB, a następnie zwalniania dzierżawy. Jeśli w obiekcie blob istnieje już prawidłowa dzierżawa podczas próby uzyskania nowej dzierżawy, Blob service zwróci wynik stanu "HTTP (409). Poniższy fragment kodu używa obiektu **AccessCondition** do hermetyzacji informacji o dzierżawie, gdy zgłasza żądanie zaktualizowania obiektu BLOB w usłudze Storage.  Pełny przykład można pobrać tutaj: [Zarządzanie współbieżnością przy użyciu usługi Azure Storage](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
@@ -184,7 +184,7 @@ Następujące operacje BLOB mogą używać dzierżaw do zarządzania pesymistycz
 
 ### <a name="pessimistic-concurrency-for-containers"></a>Współbieżność pesymistyczna dla kontenerów
 
-Dzierżawy w kontenerach umożliwiają korzystanie z tych samych strategii synchronizacji, jak w przypadku obiektów BLOB ( *wyłącznych odczyty zapisu/udostępniania* , *wyłączny zapis/odczyt* ) i *udostępnianie zapisu/wyłącznego odczytu* ) jednak w przeciwieństwie do obiektów BLOB usługa magazynu wymusza wyłączność operacji usuwania. Aby usunąć kontener z aktywną dzierżawą, klient musi uwzględnić aktywny identyfikator dzierżawy z żądaniem usuwania. Wszystkie inne operacje kontenera powiodły się w kontenerze dzierżawionym bez uwzględnienia identyfikatora dzierżawy, w takim przypadku są to operacje udostępnione. Jeśli wymagana jest niewyłączność operacji Update (put lub Set) lub odczytu, deweloperzy powinni upewnić się, że wszyscy klienci używają identyfikatora dzierżawy i że tylko jeden klient w danym momencie ma prawidłowy identyfikator dzierżawy.
+Dzierżawy w kontenerach umożliwiają korzystanie z tych samych strategii synchronizacji, jak w przypadku obiektów BLOB (*wyłącznych odczyty zapisu/udostępniania*, *wyłączny zapis/odczyt*) i *udostępnianie zapisu/wyłącznego odczytu*) jednak w przeciwieństwie do obiektów BLOB usługa magazynu wymusza wyłączność operacji usuwania. Aby usunąć kontener z aktywną dzierżawą, klient musi uwzględnić aktywny identyfikator dzierżawy z żądaniem usuwania. Wszystkie inne operacje kontenera powiodły się w kontenerze dzierżawionym bez uwzględnienia identyfikatora dzierżawy, w takim przypadku są to operacje udostępnione. Jeśli wymagana jest niewyłączność operacji Update (put lub Set) lub odczytu, deweloperzy powinni upewnić się, że wszyscy klienci używają identyfikatora dzierżawy i że tylko jeden klient w danym momencie ma prawidłowy identyfikator dzierżawy.
 
 Następujące operacje kontenera mogą używać dzierżaw do zarządzania pesymistyczną współbieżnością:
 

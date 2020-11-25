@@ -4,11 +4,11 @@ description: W tym artykule opisano niektóre typowe problemy związane z uaktua
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: d462f2c2482e0fbb4d252967754a9675ed362674
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75377926"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009351"
 ---
 # <a name="troubleshoot-application-upgrades"></a>Rozwiązywanie problemów z uaktualnieniami aplikacji
 
@@ -80,7 +80,7 @@ Polecenia **Get-ServiceFabricNode** można użyć do sprawdzenia, czy te dwa wę
 
 *UpgradePhase* *PreUpgradeSafetyCheck* oznacza, że wystąpiły problemy podczas przygotowywania domeny uaktualnienia przed wykonaniem. Najczęstszymi problemami w tym przypadku są błędy usługi w pobliżu i obniżanie poziomu podstawowych ścieżek kodu.
 
-Bieżącym **UpgradeStateem** jest *RollingBackCompleted*, dlatego oryginalne uaktualnienie musi zostać wykonane przy użyciu **FailureAction**wycofywania, które jest automatycznie wycofywane po awarii. Jeśli pierwotne uaktualnienie zostało wykonane z użyciem ręcznego **FailureAction**, uaktualnienie będzie miało miejsce w stanie wstrzymania, aby umożliwić debugowanie na żywo aplikacji.
+Bieżącym **UpgradeStateem** jest *RollingBackCompleted*, dlatego oryginalne uaktualnienie musi zostać wykonane przy użyciu **FailureAction** wycofywania, które jest automatycznie wycofywane po awarii. Jeśli pierwotne uaktualnienie zostało wykonane z użyciem ręcznego **FailureAction**, uaktualnienie będzie miało miejsce w stanie wstrzymania, aby umożliwić debugowanie na żywo aplikacji.
 
 W rzadkich przypadkach pole **UpgradeDomainProgressAtFailure** może być puste, jeśli ogólne uaktualnienie kończy się w przypadku zakończenia całego działania systemu dla bieżącej domeny uaktualnienia. W takim przypadku spróbuj zwiększyć wartości parametrów uaktualnienia **UpgradeTimeout** i **UpgradeDomainTimeout** i ponów próbę uaktualnienia.
 
@@ -148,7 +148,7 @@ Uaktualnienie zostało wstrzymane w przypadku niepowodzenia, określając **Fail
 
 ### <a name="recover-from-a-suspended-upgrade"></a>Odzyskaj po wstrzymanym uaktualnieniu
 
-W przypadku wycofania **FailureAction**nie jest wymagana odzyskanie, ponieważ uaktualnienie jest automatycznie wycofywane po awarii. W przypadku ręcznego **FailureAction**istnieje kilka opcji odzyskiwania:
+W przypadku wycofania **FailureAction** nie jest wymagana odzyskanie, ponieważ uaktualnienie jest automatycznie wycofywane po awarii. W przypadku ręcznego **FailureAction** istnieje kilka opcji odzyskiwania:
 
 1.  Wyzwalanie wycofywania
 2. Wykonaj pozostałą część uaktualnienia ręcznie

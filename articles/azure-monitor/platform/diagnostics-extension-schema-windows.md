@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
 ms.openlocfilehash: d2b1afea746410e966b43bef01a039a8471d4ae7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87007932"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008824"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Schemat rozszerzenia diagnostyki systemu Windows
 Diagnostyka Azure Extension to Agent w Azure Monitor, który zbiera dane monitorowania z systemu operacyjnego gościa i obciążeń zasobów obliczeniowych platformy Azure. W tym artykule opisano Schemat używany do konfiguracji rozszerzenia diagnostyki na maszynach wirtualnych z systemem Windows i innych zasobów obliczeniowych.
@@ -58,7 +58,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 |--------------------|-----------------|  
 |**WadCfg**|Wymagane. Zobacz opis w innym miejscu na tej stronie.|  
 |**StorageAccount**|Nazwa konta usługi Azure Storage do przechowywania danych. Może być również określony jako parametr podczas wykonywania Set-AzureServiceDiagnosticsExtension polecenia cmdlet.|  
-|**StorageType**|Może to być *tabela*, *obiekt BLOB*lub *TableAndBlob*. Tabela jest domyślna. Po wybraniu TableAndBlob dane diagnostyczne są zapisywane dwa razy do każdego typu.|  
+|**StorageType**|Może to być *tabela*, *obiekt BLOB* lub *TableAndBlob*. Tabela jest domyślna. Po wybraniu TableAndBlob dane diagnostyczne są zapisywane dwa razy do każdego typu.|  
 |**LocalResourceDirectory**|Katalog na maszynie wirtualnej, w której Agent monitorowania przechowuje dane zdarzenia. Jeśli nie, ustaw, domyślny katalog jest używany:<br /><br /> Dla roli proces roboczy/Sieć Web: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Dla maszyny wirtualnej: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Wymagane atrybuty:<br /><br /> - **ścieżka** — katalog w systemie, który ma być używany przez Diagnostyka Azure.<br /><br /> - **expandEnvironment** — określa, czy zmienne środowiskowe są rozwinięte w nazwie ścieżki.|  
 
 ## <a name="wadcfg-element"></a>WadCFG, element  
@@ -170,7 +170,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
 |**DefaultEvents**|Opcjonalny atrybut:<br/><br/> **eventDestination** — nazwa tabeli, w której mają być przechowywane zdarzenia|  
-|**Wydarzen**|Wymagany atrybut:<br /><br /> **Identyfikator** — identyfikator zdarzenia.<br /><br /> Opcjonalny atrybut:<br /><br /> **eventDestination** — nazwa tabeli, w której mają być przechowywane zdarzenia|  
+|**Zdarzenie**|Wymagany atrybut:<br /><br /> **Identyfikator** — identyfikator zdarzenia.<br /><br /> Opcjonalny atrybut:<br /><br /> **eventDestination** — nazwa tabeli, w której mają być przechowywane zdarzenia|  
 
 
 
@@ -180,7 +180,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
 |**DefaultEvents**|Opcjonalny atrybut:<br /><br /> **eventDestination** — nazwa tabeli, w której mają być przechowywane zdarzenia|  
-|**Wydarzen**|Wymagany atrybut:<br /><br /> **Identyfikator** — identyfikator zdarzenia.<br /><br /> Opcjonalny atrybut:<br /><br /> **eventDestination** — nazwa tabeli, w której mają być przechowywane zdarzenia|  
+|**Zdarzenie**|Wymagany atrybut:<br /><br /> **Identyfikator** — identyfikator zdarzenia.<br /><br /> Opcjonalny atrybut:<br /><br /> **eventDestination** — nazwa tabeli, w której mają być przechowywane zdarzenia|  
 
 
 
@@ -189,7 +189,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 
  Umożliwia generowanie tabeli liczników wydajności zoptymalizowanej pod kątem szybkich zapytań. Każdy licznik wydajności, który jest zdefiniowany w elemencie **liczniki wydajności** , jest przechowywany w tabeli metryk oprócz tabeli liczników wydajności.  
 
- Atrybut **ResourceID** jest wymagany.  Identyfikator zasobu maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych, który jest wdrażany Diagnostyka Azure. Pobierz identyfikator **zasobu** z [Azure Portal](https://portal.azure.com). Wybierz kolejno pozycje **Przeglądaj**  ->  **grupy zasobów**  ->  **<nazwa \> **. Kliknij kafelek **Właściwości** i skopiuj wartość z pola **Identyfikator** .  Ta właściwość resourceID służy do wysyłania metryk niestandardowych i dodawania właściwości resourceID do danych wysyłanych do Event Hubs. Uwaga należy dodać właściwość *ResourceID* w elemencie *Metrics* , jeśli chcesz, aby zdarzenia przekazane do Event Hubs miały identyfikator zasobu.
+ Atrybut **ResourceID** jest wymagany.  Identyfikator zasobu maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych, który jest wdrażany Diagnostyka Azure. Pobierz identyfikator **zasobu** z [Azure Portal](https://portal.azure.com). Wybierz kolejno pozycje **Przeglądaj**  ->  **grupy zasobów**  ->  **<nazwa \>**. Kliknij kafelek **Właściwości** i skopiuj wartość z pola **Identyfikator** .  Ta właściwość resourceID służy do wysyłania metryk niestandardowych i dodawania właściwości resourceID do danych wysyłanych do Event Hubs. Uwaga należy dodać właściwość *ResourceID* w elemencie *Metrics* , jeśli chcesz, aby zdarzenia przekazane do Event Hubs miały identyfikator zasobu.
 
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
@@ -237,9 +237,9 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 |Atrybut|Typ|Opis|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|Opcjonalny. Określa maksymalną ilość magazynu systemu plików, który jest dostępny dla określonych danych.<br /><br /> Wartość domyślna to 0.|  
-|**scheduledTransferLogLevelFilter**|**parametry**|Opcjonalny. Określa minimalny poziom ważności wpisów dziennika, które są transferowane. Wartość domyślna to **undefined**, która przenosi wszystkie dzienniki. Inne możliwe wartości (w kolejności od największej do najmniejszej ilości informacji) to **pełny**, **informacyjny**, **ostrzegawczy**, **błąd**i **krytyczny**.|  
+|**scheduledTransferLogLevelFilter**|**parametry**|Opcjonalny. Określa minimalny poziom ważności wpisów dziennika, które są transferowane. Wartość domyślna to **undefined**, która przenosi wszystkie dzienniki. Inne możliwe wartości (w kolejności od największej do najmniejszej ilości informacji) to **pełny**, **informacyjny**, **ostrzegawczy**, **błąd** i **krytyczny**.|  
 |**scheduledTransferPeriod**|**trwania**|Opcjonalny. Określa interwał między planowanymi transferami danych zaokrągloną w górę do najbliższej minuty.<br /><br /> Wartość domyślna to PT0S.|  
-|**ujścia** |**parametry**| Dodano w 1,5. Opcjonalny. Wskazuje lokalizację ujścia, aby również wysyłać dane diagnostyczne. Na przykład Application Insights lub Event Hubs. Uwaga należy dodać właściwość *ResourceID* w elemencie *Metrics* , jeśli chcesz, aby zdarzenia przekazane do Event Hubs miały identyfikator zasobu.|  
+|**ujścia** |**ciąg**| Dodano w 1,5. Opcjonalny. Wskazuje lokalizację ujścia, aby również wysyłać dane diagnostyczne. Na przykład Application Insights lub Event Hubs. Uwaga należy dodać właściwość *ResourceID* w elemencie *Metrics* , jeśli chcesz, aby zdarzenia przekazane do Event Hubs miały identyfikator zasobu.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Drzewo: root-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-DockerSources*
@@ -270,7 +270,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 |---------------|----------|-----------------|  
 |**Nazwij**|ciąg|Ciąg identyfikujący obiekt ujścianame.|  
 
-|Element|Type|Opis|  
+|Element|Typ|Opis|  
 |-------------|----------|-----------------|  
 |**Application Insights**|ciąg|Używane tylko w przypadku wysyłania danych do Application Insights. Zawiera klucz Instrumentacji dla aktywnego konta Application Insights, do którego masz dostęp.|  
 |**Kanały**|ciąg|Jeden dla każdego dodatkowego filtrowania, który przesyła strumieniowo|  
@@ -282,7 +282,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 
  Definiuje filtry strumieni danych dziennika przechodzących przez ujścia.  
 
-|Element|Type|Opis|  
+|Element|Typ|Opis|  
 |-------------|----------|-----------------|  
 |**Kanał**|ciąg|Zobacz opis w innym miejscu na tej stronie.|  
 
@@ -293,10 +293,10 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 
  Definiuje lokalizacje, do których mają być wysyłane dane diagnostyczne. Na przykład usługa Application Insights.  
 
-|Atrybuty|Type|Opis|  
+|Atrybuty|Typ|Opis|  
 |----------------|----------|-----------------|  
-|**logLevel**|**parametry**|Określa minimalny poziom ważności wpisów dziennika, które są transferowane. Wartość domyślna to **undefined**, która przenosi wszystkie dzienniki. Inne możliwe wartości (w kolejności od największej do najmniejszej ilości informacji) to **pełny**, **informacyjny**, **ostrzegawczy**, **błąd**i **krytyczny**.|  
-|**Nazwij**|**parametry**|Unikatowa nazwa kanału, do którego odwołuje się|  
+|**logLevel**|**ciąg**|Określa minimalny poziom ważności wpisów dziennika, które są transferowane. Wartość domyślna to **undefined**, która przenosi wszystkie dzienniki. Inne możliwe wartości (w kolejności od największej do najmniejszej ilości informacji) to **pełny**, **informacyjny**, **ostrzegawczy**, **błąd** i **krytyczny**.|  
+|**Nazwij**|**ciąg**|Unikatowa nazwa kanału, do którego odwołuje się|  
 
 
 ## <a name="privateconfig-element"></a>PrivateConfig, element
@@ -642,8 +642,8 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 
   </WadCfg>  
 
-  <StorageAccount>diagstorageaccount</StorageAccount>
-  <StorageType>TableAndBlob</StorageType> <!-- Added in 1.8 -->  
+  <StorageAccount>diagstorageaccount</StorageAccount>
+  <StorageType>TableAndBlob</StorageType> <!-- Added in 1.8 -->  
   </PublicConfig>  
 
   <PrivateConfig>  <!-- Added in 1.3 -->  

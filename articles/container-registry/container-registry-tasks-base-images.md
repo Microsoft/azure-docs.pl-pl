@@ -4,11 +4,11 @@ description: Informacje o obrazach podstawowych dla obrazów kontenerów aplikac
 ms.topic: article
 ms.date: 01/22/2019
 ms.openlocfilehash: 74e5fb81e3ef6f75b5ee2872ee44b99aae096fd8
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025769"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009827"
 ---
 # <a name="about-base-image-updates-for-acr-tasks"></a>Informacje o aktualizacjach obrazu podstawowego dla zadań ACR
 
@@ -16,7 +16,7 @@ Ten artykuł zawiera ogólne informacje dotyczące aktualizacji obrazu podstawow
 
 ## <a name="what-are-base-images"></a>Co to są obrazy podstawowe?
 
-Wieloetapowe dockerfile Definiowanie większości obrazów kontenerów określa obraz nadrzędny, na podstawie którego jest oparty obraz, często określany jako *obraz podstawowy* . Obrazy podstawowe przeważnie zawierają system operacyjny, na przykład [Alpine Linux][base-alpine] lub [Windows Nano Server][base-windows], w którym są stosowane pozostałe warstwy kontenera. Mogą również zawierać platformy aplikacji, takie jak [Node.js][base-node] lub [.NET Core][base-dotnet]. Te obrazy podstawowe są zwykle oparte na publicznych obrazach nadrzędnych. Kilka obrazów aplikacji może współużytkować wspólny obraz podstawowy.
+Wieloetapowe dockerfile Definiowanie większości obrazów kontenerów określa obraz nadrzędny, na podstawie którego jest oparty obraz, często określany jako *obraz podstawowy*. Obrazy podstawowe przeważnie zawierają system operacyjny, na przykład [Alpine Linux][base-alpine] lub [Windows Nano Server][base-windows], w którym są stosowane pozostałe warstwy kontenera. Mogą również zawierać platformy aplikacji, takie jak [Node.js][base-node] lub [.NET Core][base-dotnet]. Te obrazy podstawowe są zwykle oparte na publicznych obrazach nadrzędnych. Kilka obrazów aplikacji może współużytkować wspólny obraz podstawowy.
 
 Obraz podstawowy jest często aktualizowany przez element utrzymujący obrazu w celu uwzględnienia nowych funkcji lub ulepszeń systemu operacyjnego lub platformy w obrazie. Poprawki zabezpieczeń są kolejną typową przyczyną aktualizacji obrazu podstawowego. Gdy te aktualizacje nadrzędne wystąpią, należy również zaktualizować obrazy podstawowe w celu uwzględnienia poprawki krytycznej. Każdy obraz aplikacji należy również ponownie skompilować, aby uwzględnić te prefiksy nadrzędne teraz zawarte w obrazie podstawowym.
 
@@ -52,7 +52,7 @@ Czas między aktualizacją obrazu podstawowego a wyzwalaniem zależnego zadania 
 
 ## <a name="additional-considerations"></a>Dodatkowe zagadnienia
 
-* **Obrazy podstawowe dla obrazów aplikacji** — obecnie zadanie ACR śledzi jedynie podstawowe aktualizacje obrazu dla obrazów aplikacji ( *środowiska uruchomieniowego* ). Nie są śledzone aktualizacje obrazu podstawowego dla obrazów pośrednich ( *buildtime* ) używanych w wieloetapowym wieloetapowe dockerfile.  
+* **Obrazy podstawowe dla obrazów aplikacji** — obecnie zadanie ACR śledzi jedynie podstawowe aktualizacje obrazu dla obrazów aplikacji (*środowiska uruchomieniowego*). Nie są śledzone aktualizacje obrazu podstawowego dla obrazów pośrednich (*buildtime*) używanych w wieloetapowym wieloetapowe dockerfile.  
 
 * **Domyślnie włączone** — podczas tworzenia zadania ACR za pomocą polecenia [AZ ACR Task Create][az-acr-task-create] Domyślnie zadanie jest *włączone* dla wyzwalacza przez podstawową aktualizację obrazu. Oznacza to, że `base-image-trigger-enabled` Właściwość jest ustawiona na wartość true. Jeśli chcesz wyłączyć to zachowanie w zadaniu, zaktualizuj właściwość do wartości false. Na przykład uruchom następujące polecenie [AZ ACR Task Update][az-acr-task-update] :
 
@@ -60,7 +60,7 @@ Czas między aktualizacją obrazu podstawowego a wyzwalaniem zależnego zadania 
   az acr task update --myregistry --name mytask --base-image-trigger-enabled False
   ```
 
-* **Wyzwalacz do śledzenia zależności** — aby włączyć zadanie ACR w celu ustalenia i śledzenia zależności obrazu kontenera — w tym obrazu podstawowego — należy najpierw wyzwolić zadanie, aby utworzyć obraz **co najmniej raz** . Na przykład Wyzwól zadanie ręcznie przy użyciu polecenia [AZ ACR Task Run][az-acr-task-run] .
+* **Wyzwalacz do śledzenia zależności** — aby włączyć zadanie ACR w celu ustalenia i śledzenia zależności obrazu kontenera — w tym obrazu podstawowego — należy najpierw wyzwolić zadanie, aby utworzyć obraz **co najmniej raz**. Na przykład Wyzwól zadanie ręcznie przy użyciu polecenia [AZ ACR Task Run][az-acr-task-run] .
 
 * **Stabilny tag obrazu podstawowego** — aby wyzwolić zadanie w ramach aktualizacji obrazu podstawowego, podstawowy obraz musi mieć *stabilny* tag, taki jak `node:9-alpine` . Ten znakowanie jest typowe w przypadku obrazu podstawowego, który jest aktualizowany przy użyciu poprawek systemu operacyjnego i wersji Framework do najnowszej stabilnego wydania. Jeśli obraz podstawowy został zaktualizowany przy użyciu nowego tagu wersji, zadanie nie zostanie wyzwolone. Aby uzyskać więcej informacji na temat znakowania obrazu, zobacz [wskazówki dotyczące najlepszych](container-registry-image-tag-version.md)rozwiązań. 
 

@@ -11,12 +11,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: Przetwarzanie dokumentu
-ms.openlocfilehash: 5df8ced885768308369599d94c5734fa0620c507
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 7671d8d58ffbd0fca444eefe53c46c99a4e76d37
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360874"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96009334"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Uczenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu narzędzia do etykietowania przykładowego
 
@@ -32,18 +32,27 @@ Aby ukończyć ten przewodnik Szybki Start, musisz dysponować:
 * Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" Utwórz zasób aparatu rozpoznawania formularzy "  target="_blank"> Utwórz zasób aparatu rozpoznawania formularza <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
     * Będziesz potrzebować klucza i punktu końcowego z zasobu, który utworzysz, aby połączyć aplikację z interfejsem API rozpoznawania formularzy. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
     * Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
-* Zestaw składający się z co najmniej sześciu formularzy tego samego typu. Te dane będą używane do uczenia modelu i testowania formularza. Możesz użyć [przykładowego zestawu danych](https://go.microsoft.com/fwlink/?linkid=2090451) (Pobierz i wyodrębnij *sample_data.zip* ) dla tego przewodnika Szybki Start. Przekaż pliki szkoleniowe do katalogu głównego kontenera magazynu obiektów BLOB na koncie usługi Azure Storage w warstwie Standardowa wydajność.
+* Zestaw składający się z co najmniej sześciu formularzy tego samego typu. Te dane będą używane do uczenia modelu i testowania formularza. Możesz użyć [przykładowego zestawu danych](https://go.microsoft.com/fwlink/?linkid=2090451) (Pobierz i wyodrębnij *sample_data.zip*) dla tego przewodnika Szybki Start. Przekaż pliki szkoleniowe do katalogu głównego kontenera magazynu obiektów BLOB na koncie usługi Azure Storage w warstwie Standardowa wydajność.
 
 ## <a name="create-a-form-recognizer-resource"></a>Tworzenie zasobu aparatu rozpoznawania formularza
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-## <a name="try-it-out"></a>Wypróbowywanie działania
+## <a name="try-it-out"></a>Czas to wypróbować
 
 Aby wypróbować narzędzie do etykietowania próbek aparatu rozpoznawania w trybie online, przejdź do [witryny sieci Web FOTT](https://fott-preview.azurewebsites.net/).
 
+# <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
 > [!div class="nextstepaction"]
-> [Narzędzie do etykietowania przykładowego aparatu rozpoznawania formularzy](https://fott-preview.azurewebsites.net/)
+> [Wypróbuj wbudowane modele](https://fott.azurewebsites.net/)
+
+# <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1)
+> [!div class="nextstepaction"]
+> [Wypróbuj wbudowane modele](https://fott-preview.azurewebsites.net/)
+
+---
+
+Potrzebna jest subskrypcja platformy Azure ([Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)) i punkt końcowy [zasobu aparatu rozpoznawania formularzy](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) oraz klucz służący do wypróbowania usługi rozpoznawania formularzy. 
 
 
 ## <a name="set-up-the-sample-labeling-tool"></a>Konfigurowanie przykładowego narzędzia do etykietowania
@@ -68,8 +77,6 @@ Użyjesz aparatu platformy Docker, aby uruchomić przykładowe narzędzie do ety
 
 
 
-
-
 1. Pobierz kontener narzędzia do etykietowania przykładowego za pomocą `docker pull` polecenia.
 
     # <a name="v20"></a>[Wersja 2.0](#tab/v2-0)    
@@ -78,7 +85,7 @@ Użyjesz aparatu platformy Docker, aby uruchomić przykładowe narzędzie do ety
     ```
     # <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1)    
     ```
-    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview
+    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview
     ```
 
     ---
@@ -91,7 +98,7 @@ Użyjesz aparatu platformy Docker, aby uruchomić przykładowe narzędzie do ety
     ```
     # <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1)    
     ```
-    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview eula=accept    
+    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview eula=accept    
     ```
 
     --- 
@@ -130,7 +137,7 @@ Wypełnij pola następującymi wartościami:
 
 * **Nazwa wyświetlana** — nazwa wyświetlana połączenia.
 * **Opis** — opis projektu.
-* **Adres URL** sygnatury dostępu współdzielonego (SAS) dla kontenera BLOB Storage platformy Azure. Aby pobrać adres URL SAS, Otwórz Eksplorator usługi Microsoft Azure Storage, kliknij prawym przyciskiem myszy kontener i wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego**. Ustaw czas wygaśnięcia na dowolną godzinę po skorzystaniu z usługi. Upewnij się, że uprawnienia **Odczyt** , **zapis** , **usuwanie** i **Wyświetlanie listy** są zaznaczone, a następnie kliknij pozycję **Utwórz**. Następnie skopiuj wartość z sekcji **URL** . Powinna ona mieć postać: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* **Adres URL** sygnatury dostępu współdzielonego (SAS) dla kontenera BLOB Storage platformy Azure. Aby pobrać adres URL SAS, Otwórz Eksplorator usługi Microsoft Azure Storage, kliknij prawym przyciskiem myszy kontener i wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego**. Ustaw czas wygaśnięcia na dowolną godzinę po skorzystaniu z usługi. Upewnij się, że uprawnienia **Odczyt**, **zapis**, **usuwanie** i **Wyświetlanie listy** są zaznaczone, a następnie kliknij pozycję **Utwórz**. Następnie skopiuj wartość z sekcji **URL** . Powinna ona mieć postać: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 :::image type="content" source="../media/label-tool/connections.png" alt-text="Ustawienia połączenia przykładowego narzędzia do etykietowania.":::
 
@@ -193,7 +200,7 @@ Następnie utworzysz Tagi (etykiety) i zastosujemy je do elementów tekstowych, 
    1. Kliknij **+** , aby utworzyć nowy tag.
    1. Wprowadź nazwę tagu.
    1. Naciśnij klawisz ENTER, aby zapisać tag.
-1. W edytorze głównym kliknij, aby wybrać słowa z wyróżnionych elementów tekstowych. W _wersji zapoznawczej programu v 2.1_ można również kliknąć, aby wybrać _znaczniki wyboru_ , takie jak przyciski radiowe i pola wyboru jako pary klucz wartość. Aparat rozpoznawania formularzy zidentyfikuje, czy jako wartość jest zaznaczona opcja "wybrane" lub "niezaznaczona".
+1. W edytorze głównym kliknij, aby wybrać słowa z wyróżnionych elementów tekstowych. W _wersji zapoznawczej programu v 2.1.2_ można również kliknąć, aby wybrać _znaczniki wyboru_ , takie jak przyciski radiowe i pola wyboru jako pary klucz wartość. Aparat rozpoznawania formularzy zidentyfikuje, czy jako wartość jest zaznaczona opcja "wybrane" lub "niezaznaczona".
 1. Kliknij tag, który chcesz zastosować, lub naciśnij odpowiedni klawisz klawiatury. Klucze liczb są przypisywane jako klawisze dostępu dla pierwszych 10 tagów. Można zmienić kolejność tagów przy użyciu ikon strzałek w górę i w dół w okienku Edytora tagów.
     > [!Tip]
     > Podczas etykietowania formularzy należy pamiętać o następujących wskazówkach.

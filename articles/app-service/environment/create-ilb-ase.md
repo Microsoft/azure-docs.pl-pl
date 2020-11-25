@@ -8,11 +8,11 @@ ms.date: 09/16/2020
 ms.author: ccompy
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 27c9198558a730d0af49077d6f5baa6db4789416
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503525"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009555"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Tworzenie i używanie wewnętrznego Load Balancer App Service Environment 
 
@@ -48,7 +48,7 @@ Pewnych zadań nie można realizować w przypadku używania środowiska ASE z we
 
 Aby utworzyć środowisko ASE z wewnętrznym modułem równoważenia obciążenia:
 
-1. W Azure Portal wybierz pozycję **Utwórz zasób**  >  App Service Environment**sieci Web**  >  **App Service Environment**.
+1. W Azure Portal wybierz pozycję **Utwórz zasób**  >  App Service Environment **sieci Web**  >  **App Service Environment**.
 
 2. Wybierz subskrypcję.
 
@@ -78,7 +78,7 @@ Aby utworzyć środowisko ASE z wewnętrznym modułem równoważenia obciążeni
 
 Aplikację w środowisku ASE z wewnętrznym modułem równoważenia obciążenia tworzy się tak samo jak w normalnym środowisku ASE.
 
-1. W Azure Portal wybierz pozycję **Utwórz zasób**  >  **Sieć**Web Web  >  **App**.
+1. W Azure Portal wybierz pozycję **Utwórz zasób**  >  **Sieć** Web Web  >  **App**.
 
 1. Wprowadź nazwę aplikacji.
 
@@ -123,13 +123,13 @@ Strefa o nazwie. &lt; asename &gt; . appserviceenvironment.NET jest globalnie un
 
 ## <a name="publish-with-an-ilb-ase"></a>Publikowanie za pomocą środowiska ASE z wewnętrznym modułem równoważenia obciążenia
 
-Dla każdej tworzonej aplikacji istnieją dwa punkty końcowe. W środowisku ILB ASE masz * &lt; nazwę aplikacji &gt; . &lt; Domena &gt; * i * &lt; Nazwa aplikacji ILB ASE &gt; . SCM. &lt; &gt;Domena ILB ASE*. 
+Dla każdej tworzonej aplikacji istnieją dwa punkty końcowe. W środowisku ILB ASE masz *&lt; nazwę aplikacji &gt; . &lt; Domena &gt;* i *&lt; Nazwa aplikacji ILB ASE &gt; . SCM. &lt; &gt;Domena ILB ASE*. 
 
 Nazwa witryny SCM umożliwia przejście do konsoli Kudu, nazywanej **portalem zaawansowanym**, w witrynie Azure Portal. Konsola Kudu umożliwia między innymi wyświetlanie zmiennych środowiskowych, eksplorowanie dysku i używanie konsoli. Aby uzyskać więcej informacji, zobacz [Kudu console for Azure App Service][Kudu] (Konsola Kudu dla usługi Azure App Service). 
 
 Internetowe systemy ciągłej integracji, takie jak usługi GitHub i Azure DevOps, będą nadal działać ze środowiskiem ASE z wewnętrznym modułem równoważenia obciążenia, jeśli agent kompilacji jest dostępny w Internecie i w tej samej sieci co to środowisko. Dlatego w przypadku usługi Azure DevOps, jeśli agent kompilacji został utworzony w tej samej sieci wirtualnej co środowisko ASE z wewnętrznym modułem równoważenia obciążenia (być może w innej podsieci), to będzie mógł ściągnąć kod z usługi Git Azure DevOps i wdrożyć go w tym środowisku. Jeśli nie chcesz tworzyć własnego agenta kompilacji, musisz użyć systemu ciągłej integracji wykorzystującego model ściągania, takiego jak Dropbox.
 
-Punkty końcowe publikowania dla aplikacji w środowisku ASE z wewnętrznym modułem równoważenia obciążenia używają domeny, za pomocą której utworzono to środowisko. Ta domena jest wyświetlana w profilu publikowania aplikacji i w bloku portalu aplikacji (**Omówienie**  >  **podstawy** i **Właściwości**). Jeśli masz ILB ASE z sufiksem domeny * &lt; ASE name &gt; . appserviceenvironment.NET*i aplikacją o nazwie Moje *testy*, użyj *testu. &lt; Środowisko ASE Name &gt; . appserviceenvironment.NET* dla usługi FTP i *mytest.SCM.contoso.NET* na potrzeby wdrażania w sieci Web.
+Punkty końcowe publikowania dla aplikacji w środowisku ASE z wewnętrznym modułem równoważenia obciążenia używają domeny, za pomocą której utworzono to środowisko. Ta domena jest wyświetlana w profilu publikowania aplikacji i w bloku portalu aplikacji (**Omówienie**  >  **podstawy** i **Właściwości**). Jeśli masz ILB ASE z sufiksem domeny *&lt; ASE name &gt; . appserviceenvironment.NET* i aplikacją o nazwie Moje *testy*, użyj *testu. &lt; Środowisko ASE Name &gt; . appserviceenvironment.NET* dla usługi FTP i *mytest.SCM.contoso.NET* na potrzeby wdrażania w sieci Web.
 
 ## <a name="configure-an-ilb-ase-with-a-waf-device"></a>Konfigurowanie ILB ASE z urządzeniem WAF ##
 

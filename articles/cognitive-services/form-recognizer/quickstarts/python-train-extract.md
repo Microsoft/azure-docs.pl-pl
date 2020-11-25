@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 8c4e600e012268337a5e6c63d5b3ce4f532ccec0
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: aaf614846618f3781559ad7f9ce31cb47dd11b63
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970932"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96009572"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Szybki Start: uczenie modelu aparatu rozpoznawania formularzy i wyodrębnianie danych formularza przy użyciu interfejsu API REST w języku Python
 
@@ -50,6 +50,7 @@ Aby przeprowadzić uczenie modelu aparatu rozpoznawania formularzy przy użyciu 
 1. Zamień `<subscription key>` na klucz subskrypcji skopiowany z poprzedniego kroku.
 1. Zamień na `<endpoint>` adres URL punktu końcowego dla zasobu aparatu rozpoznawania formularza.
 1. Zamień na `<Blob folder name>` ścieżkę do folderu w magazynie obiektów blob, w którym znajdują się Twoje formularze. Jeśli Twoje formularze znajdują się w katalogu głównym kontenera, pozostaw ten ciąg pusty.
+1. Opcjonalnie Zamień na `<your model name>` przyjazną nazwę, którą chcesz nadać modelowi.
 
     # <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
     ```python
@@ -78,6 +79,7 @@ Aby przeprowadzić uczenie modelu aparatu rozpoznawania formularzy przy użyciu 
             "prefix": prefix,
             "includeSubFolders": includeSubFolders
         },
+        "modelName":"<your model name>",
         "useLabelFile": useLabelFile
     }
     
@@ -101,7 +103,7 @@ Aby przeprowadzić uczenie modelu aparatu rozpoznawania formularzy przy użyciu 
     
     # Endpoint URL
     endpoint = r"<endpoint>"
-    post_url = endpoint + r"/formrecognizer/v2.1-preview.1/custom/models"
+    post_url = endpoint + r"/formrecognizer/v2.1-preview.2/custom/models"
     source = r"<SAS URL>"
     prefix = "<Blob folder name>"
     includeSubFolders = False

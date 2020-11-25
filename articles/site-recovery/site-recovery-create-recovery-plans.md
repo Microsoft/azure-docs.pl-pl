@@ -4,11 +4,11 @@ description: Dowiedz się, jak tworzyć i dostosowywać plany odzyskiwania na po
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.openlocfilehash: 0dcde98e8dcaef12896c18c25429f0ba7b1b27d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84485341"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009725"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Tworzenie i dostosowywanie planów odzyskiwania
 
@@ -17,7 +17,7 @@ W tym artykule opisano sposób tworzenia i dostosowywania planu odzyskiwania dla
 ## <a name="create-a-recovery-plan"></a>Tworzenie planu odzyskiwania
 
 1. W magazynie Recovery Services wybierz pozycję **plany odzyskiwania (Site Recovery)**  >  **+ plan odzyskiwania**.
-2. W obszarze **Utwórz plan odzyskiwania**Określ nazwę planu.
+2. W obszarze **Utwórz plan odzyskiwania** Określ nazwę planu.
 3. Wybierz źródło i cel na podstawie maszyn w planie, a następnie wybierz **Menedżer zasobów** dla modelu wdrażania. Lokalizacja źródłowa musi mieć maszyny, na których włączono tryb failover i odzyskiwanie. 
 
     **Tryb failover** | **Element źródłowy** | **Obiektów** 
@@ -35,7 +35,7 @@ W tym artykule opisano sposób tworzenia i dostosowywania planu odzyskiwania dla
     - W tym samym planie można dołączyć maszyny wirtualne VMware i maszyny wirtualne funkcji Hyper-V zarządzane przez program VMM.
     - Maszyny wirtualne VMware i serwery fizyczne mogą znajdować się w tym samym planie.
 
-4. W obszarze **Wybierz elementy maszyny wirtualne**wybierz maszyny (lub grupę replikacji), które chcesz dodać do planu. Następnie kliknij przycisk **OK**.
+4. W obszarze **Wybierz elementy maszyny wirtualne** wybierz maszyny (lub grupę replikacji), które chcesz dodać do planu. Następnie kliknij przycisk **OK**.
     - Maszyny są dodawane do planu jako Grupa domyślna (Grupa 1). Po przejściu w tryb failover wszystkie maszyny w tej grupie są uruchamiane w tym samym czasie.
     - Można wybrać tylko te maszyny, które znajdują się w określonej lokalizacji źródłowej i docelowej. 
 5. Kliknij przycisk **OK** , aby utworzyć plan.
@@ -44,9 +44,9 @@ W tym artykule opisano sposób tworzenia i dostosowywania planu odzyskiwania dla
 
 Należy utworzyć dodatkowe grupy i dodać maszyny do różnych grup, aby można było określić inne zachowanie dla poszczególnych grup. Można na przykład określić, kiedy maszyny w grupie mają być uruchamiane po przejściu w tryb failover, lub określić niestandardowe akcje dla każdej grupy.
 
-1. W obszarze **plany odzyskiwania**kliknij prawym przyciskiem myszy plan > **Dostosuj**. Domyślnie po utworzeniu planu wszystkie dodane do niego maszyny znajdują się w grupie domyślnej 1.
+1. W obszarze **plany odzyskiwania** kliknij prawym przyciskiem myszy plan > **Dostosuj**. Domyślnie po utworzeniu planu wszystkie dodane do niego maszyny znajdują się w grupie domyślnej 1.
 2. Kliknij pozycję **+ Grupa**. Domyślnie Nowa grupa jest numerowana w kolejności, w jakiej została dodana. Możesz mieć maksymalnie siedem grup.
-3. Wybierz maszynę, którą chcesz przenieść do nowej grupy, kliknij pozycję **Zmień grupę**, a następnie wybierz nową grupę. Alternatywnie kliknij prawym przyciskiem myszy nazwę grupy > **chroniony element**i Dodaj maszyny do grupy. Maszyna lub grupa replikacji może należeć tylko do jednej grupy w planie odzyskiwania.
+3. Wybierz maszynę, którą chcesz przenieść do nowej grupy, kliknij pozycję **Zmień grupę**, a następnie wybierz nową grupę. Alternatywnie kliknij prawym przyciskiem myszy nazwę grupy > **chroniony element** i Dodaj maszyny do grupy. Maszyna lub grupa replikacji może należeć tylko do jednej grupy w planie odzyskiwania.
 
 
 ## <a name="add-a-script-or-manual-action"></a>Dodawanie skryptu lub akcji ręcznej
@@ -71,7 +71,7 @@ Możesz dostosować plan odzyskiwania, dodając skrypt lub akcję ręczną. Nale
 1. W planie odzyskiwania kliknij krok, do którego powinna zostać dodana akcja, a następnie określ, kiedy powinna wystąpić akcja:
     1. Jeśli chcesz wykonać akcję, zanim maszyny w grupie zostaną uruchomione po przejściu w tryb failover, wybierz pozycję **Dodaj przed akcją**.
     1. Jeśli chcesz, aby akcja miała miejsce po uruchomieniu maszyn w grupie po zakończeniu pracy w trybie failover, wybierz pozycję **Dodaj akcję post**. Aby przenieść pozycję akcji, wybierz przyciski **Przenieś w górę** lub **Przenieś w dół** .
-2. W obszarze **Wstaw akcję**wybierz pozycję **skrypt** lub **Akcja ręczna**.
+2. W obszarze **Wstaw akcję** wybierz pozycję **skrypt** lub **Akcja ręczna**.
 3. Jeśli chcesz dodać akcję ręczną, wykonaj następujące czynności:
     1. Wpisz nazwę akcji i wpisz instrukcje akcji. Osoba, na której działa przejście w tryb failover, zobaczy te instrukcje.
     1. Określ, czy chcesz dodać akcję ręczną dla wszystkich typów trybu failover (test, tryb failover, planowana praca w trybie failover (jeśli dotyczy)). Następnie kliknij przycisk **OK**.

@@ -9,11 +9,11 @@ ms.date: 01/17/2019
 ms.author: jowargo
 ms.custom: include file
 ms.openlocfilehash: 2ec602f056b339a1b1dcb78d6b8d7583aeaf0434
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376269"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009127"
 ---
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
@@ -35,7 +35,7 @@ ms.locfileid: "93376269"
 
     1. Wybierz istniejącą grupę zasobów w **grupie zasobów** lub Utwórz nazwę nowej grupy zasobów.
 
-    1. Wybierz przycisk **Utwórz**.
+    1. Wybierz pozycję **Utwórz**.
 
         ![Azure Portal — ustawianie właściwości centrum powiadomień](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
 

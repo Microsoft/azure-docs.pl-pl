@@ -4,11 +4,11 @@ description: Zawiera podsumowanie obsługi urządzenia Azure Migrate.
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: ac3c90f1c09d290d5112a0e0d7abc5218788caf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450038"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008705"
 ---
 # <a name="azure-migrate-appliance"></a>Urządzenie usługi Azure Migrate
 
@@ -69,8 +69,8 @@ Poniższa tabela zawiera podsumowanie wymagań dotyczących urządzeń Azure Mig
 **Limity odnajdywania** | Urządzenie może wykryć do 5000 maszyn wirtualnych funkcji Hyper-V.<br/> Urządzenie może połączyć się z maksymalnie 300 hostami funkcji Hyper-V.
 **Szablon wirtualnego dysku twardego** | Folder spakowany zawierający dysk VHD. Pobierz z portalu lub z tego [miejsca](https://go.microsoft.com/fwlink/?linkid=2140422).<br/><br/> Rozmiar pobieranych plików to 8,91 GB.<br/><br/> Pobrany szablon urządzenia zawiera licencję ewaluacyjną systemu Windows Server 2016, która jest ważna przez 180 dni. Jeśli okres próbny zbliża się do wygaśnięcia, zalecamy pobranie i wdrożenie nowego urządzenia albo Aktywowanie licencji na maszynę wirtualną urządzenia.
 **Skrypt programu PowerShell** | Zapoznaj się z tym [artykułem](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).<br/><br/> 
-**Oprogramowanie/sprzęt***   |  Urządzenie powinno działać na komputerze z systemem Windows Server 2016, 16 GB pamięci RAM, 8 procesorów wirtualnych vCPU, około 80 GB miejsca na dysku i zewnętrznym przełączniku wirtualnym.<br/> Urządzenie musi mieć statyczny lub dynamiczny adres IP i wymaga dostępu do Internetu, bezpośrednio lub za pomocą serwera proxy.<br/><br/> Jeśli urządzenie zostanie uruchomione jako maszyna wirtualna funkcji Hyper-V, na hoście funkcji Hyper-V potrzeba przydzielenia wymagań sprzętowych.<br/><br/> Jeśli urządzenie jest uruchamiane na komputerze fizycznym, upewnij się, że jest uruchomiony system Windows Server 2016 i spełnia wymagania sprzętowe. 
-**Wymagania dotyczące funkcji Hyper-V** | Jeśli urządzenie zostanie wdrożone przy użyciu szablonu VHD, maszyna wirtualna z urządzeniem udostępniona przez Azure Migrate jest maszyną wirtualną funkcji Hyper-V w wersji 5,0.<br/><br/> Na hoście funkcji Hyper-V musi być uruchomiony system Windows Server 2012 R2 lub nowszy. 
+**Oprogramowanie/sprzęt** _   |  Urządzenie powinno działać na komputerze z systemem Windows Server 2016, 16 GB pamięci RAM, 8 procesorów wirtualnych vCPU, około 80 GB miejsca na dysku i zewnętrznym przełączniku wirtualnym.<br/> Urządzenie musi mieć statyczny lub dynamiczny adres IP i wymaga dostępu do Internetu, bezpośrednio lub za pomocą serwera proxy.<br/><br/> Jeśli urządzenie zostanie uruchomione jako maszyna wirtualna funkcji Hyper-V, na hoście funkcji Hyper-V potrzeba przydzielenia wymagań sprzętowych.<br/><br/> Jeśli urządzenie jest uruchamiane na komputerze fizycznym, upewnij się, że jest uruchomiony system Windows Server 2016 i spełnia wymagania sprzętowe. 
+_ *Wymagania dotyczące funkcji Hyper-V** | Jeśli urządzenie zostanie wdrożone przy użyciu szablonu VHD, maszyna wirtualna z urządzeniem udostępniona przez Azure Migrate jest maszyną wirtualną funkcji Hyper-V w wersji 5,0.<br/><br/> Na hoście funkcji Hyper-V musi być uruchomiony system Windows Server 2012 R2 lub nowszy. 
 **Wartość skrótu — wirtualny dysk twardy** | [Sprawdź](tutorial-discover-hyper-v.md#verify-security) Wartości skrótu szablonu wirtualnego dysku twardego.
 **Wartość skrótu — skrypt programu PowerShell** | [Sprawdź](deploy-appliance-script.md#verify-file-security) wartości skrótu skryptu programu PowerShell.
 
@@ -152,8 +152,8 @@ Identyfikator maszyny wirtualnej | vm.Config. InstanceUuid
 Nazwa maszyny wirtualnej | vm.Config. Nazwij
 Identyfikator vCenter Server | VMwareClient. Instance. UUID
 Opis maszyny wirtualnej | vm.Summary.Config. Wskazani
-Nazwa produktu licencji | maszyn. Client. servicecontent. LicenseProductName
-Typ systemu operacyjnego | maszyn. SummaryConfig.GuestFullName
+Nazwa produktu licencji | VM. Client. servicecontent. informacje. LicenseProductName
+Typ systemu operacyjnego | VM. SummaryConfig. GuestFullName
 Typ rozruchu | vm.Config. Wbudowane
 Liczba rdzeni | vm.Config. Sprzęt. NumCPU
 Pamięć (MB) | vm.Config. Sprzęt. MemoryMB
@@ -175,8 +175,8 @@ Przepływność zapisu (MB na sekundę) | virtualDisk. Write. Average
 **Na szczegóły karty sieciowej** | 
 Nazwa karty sieciowej | 10/100/1000. Głównych
 Adres MAC | (Karta sieciowa (VirtualEthernetCard)). MacAddress
-Adresy IPv4 | maszyn. Guest.Net
-Adresy IPv6 | maszyn. Guest.Net
+Adresy IPv4 | vm.Guest.Net
+Adresy IPv6 | vm.Guest.Net
 Przepływność odczytu (MB na sekundę) | NET. Receive. Average
 Przepływność zapisu (MB na sekundę) | NET. reprzesłane. średnia
 **Szczegóły ścieżki spisu** | 
@@ -341,7 +341,7 @@ Nazwa/wersja systemu operacyjnego/nazwa FQDN | Msvm_KvpExchangeComponent | Dane 
 Stan zasilacza maszyny wirtualnej | Msvm_ComputerSystem | EnabledState
 **Szczegóły dysku** | 
 Identyfikator dysku | Msvm_VirtualHardDiskSettingData | VirtualDiskId
-Typ wirtualnego dysku twardego | Msvm_VirtualHardDiskSettingData | Type
+Typ wirtualnego dysku twardego | Msvm_VirtualHardDiskSettingData | Typ
 Rozmiar wirtualnego dysku twardego | Msvm_VirtualHardDiskSettingData | MaxInternalSize
 Element nadrzędny wirtualnego dysku twardego | Msvm_VirtualHardDiskSettingData | ParentPath
 **Na szczegóły karty sieciowej** | 

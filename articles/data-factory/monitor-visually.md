@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: ecb066c7269217af3f8cc84e0f59ab29b4b39a9e
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 45ebd793d96ed8cf0edf88d5631353fb6cd6a982
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331616"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96008773"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Wizualne monitorowanie fabryk danych platformy Azure
 
@@ -40,7 +40,7 @@ Siatka przebiegu potoku zawiera następujące kolumny:
 | Koniec przebiegu | Data i godzina zakończenia uruchomienia potoku (MM/DD/RRRR, gg: MM: SS AM/PM) |
 | Czas trwania | Czas trwania uruchomienia (HH: MM: SS) |
 | Wyzwolone przez | Nazwa wyzwalacza, który uruchomił potok |
-| Stan | **Zakończone niepowodzeniem** , **zakończone powodzeniem** , **w toku** , **anulowane** lub **umieszczone w kolejce** |
+| Stan | **Zakończone niepowodzeniem**, **zakończone powodzeniem**, **w toku**, **anulowane** lub **umieszczone w kolejce** |
 | Adnotacje | Tagi z możliwością filtrowania skojarzone z potokiem  |
 | Parametry | Parametry uruchomienia potoku (pary nazwa/wartość) |
 | Błąd | Jeśli potok nie powiódł się, błąd przebiegu |
@@ -62,16 +62,16 @@ Aby uzyskać szczegółowy widok poszczególnych przebiegów działania określo
 
 Widok listy pokazuje uruchomienia działania odpowiadające poszczególnym uruchomieniem potoku. Umieść kursor nad określonym uruchomieniem działania, aby uzyskać informacje dotyczące uruchamiania, takie jak dane wejściowe JSON, dane wyjściowe JSON i szczegółowe środowisko monitorowania specyficzne dla działania.
 
-![Widok listy dla uruchomionych działań monitorowania](media/monitor-visually/activity-runs.png)
+![Istnieją informacje o SalesAnalyticsMLPipeline, a następnie listę uruchomień działania.](media/monitor-visually/activity-runs.png)
 
 | **Nazwa kolumny** | **Opis** |
 | --- | --- |
 | Nazwa działania | Nazwa działania w potoku |
-| Typ działania | Typ działania, na przykład **copy** , **ExecuteDataFlow** lub **AzureMLExecutePipeline** |
+| Typ działania | Typ działania, na przykład **copy**, **ExecuteDataFlow** lub **AzureMLExecutePipeline** |
 | Akcje | Ikony, które umożliwiają wyświetlanie informacji wejściowych JSON, informacji wyjściowych JSON lub szczegółowych środowisk monitorowania właściwych dla działania | 
 | Uruchom uruchomienie | Data i godzina rozpoczęcia uruchomienia działania (MM/DD/RRRR, HH: MM: SS AM/PM) |
 | Czas trwania | Czas trwania uruchomienia (HH: MM: SS) |
-| Stan | **Zakończone niepowodzeniem** , **zakończone powodzeniem** , **w toku** lub **anulowane** |
+| Stan | **Zakończone niepowodzeniem**, **zakończone powodzeniem**, **w toku** lub **anulowane** |
 | Integration Runtime | Integration Runtime działanie zostało uruchomione |
 | Właściwości użytkownika | Właściwości działania zdefiniowane przez użytkownika |
 | Błąd | Jeśli działanie nie powiodło się, błąd przebiegu |
@@ -79,7 +79,7 @@ Widok listy pokazuje uruchomienia działania odpowiadające poszczególnym uruch
 
 Jeśli działanie nie powiodło się, zobaczysz szczegółowy komunikat o błędzie, klikając ikonę w kolumnie błędu. 
 
-![Widok listy dla uruchomionych działań monitorowania](media/monitor-visually/activity-run-error.png)
+![Zostanie wyświetlone powiadomienie zawierające szczegóły błędu, w tym kod błędu, typ błędu i szczegóły błędu.](media/monitor-visually/activity-run-error.png)
 
 ### <a name="promote-user-properties-to-monitor"></a>Podnieś poziom właściwości użytkownika do monitorowania
 
