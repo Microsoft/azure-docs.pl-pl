@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
 ms.openlocfilehash: 0179fd10e75af0ced55b4bb41f9525dc26b3efe5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540384"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023078"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Używanie funkcji języka Python zdefiniowanej przez użytkownika (UDF) z Apache Hive i Apache chlewnej w usłudze HDInsight
 
@@ -27,8 +27,8 @@ Usługa HDInsight zawiera również Jython, która jest implementacją języka P
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Klaster usługi Hadoop w usłudze HDInsight** . Zobacz Rozpoczynanie [pracy z usługą HDInsight w systemie Linux](apache-hadoop-linux-tutorial-get-started.md).
-* **Klient SSH** . Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Klaster usługi Hadoop w usłudze HDInsight**. Zobacz Rozpoczynanie [pracy z usługą HDInsight w systemie Linux](apache-hadoop-linux-tutorial-get-started.md).
+* **Klient SSH**. Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 * [Schemat identyfikatora URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) magazynu podstawowego klastrów. Dotyczy to `wasb://` usługi Azure Storage, `abfs://` Azure Data Lake Storage Gen2 lub adl://dla Azure Data Lake Storage Gen1. Jeśli w usłudze Azure Storage włączono opcję bezpiecznego transferu, identyfikator URI zostałby wasbs://.  Zobacz również [bezpieczny transfer](../../storage/common/storage-require-secure-transfer.md).
 * **Możliwa zmiana konfiguracji magazynu.**  Zobacz [Konfiguracja magazynu](#storage-configuration) , jeśli używany jest typ konta magazynu `BlobStorage` .
 * Opcjonalny.  Jeśli planujesz korzystanie z programu PowerShell, musisz mieć zainstalowaną pozycję [AZ module](/powershell/azure/new-azureps-module-az) .
@@ -300,8 +300,8 @@ Skrypt w języku Python może być używany jako UDF ze świń za pośrednictwem
 
 Aby określić interpreter języka Python, użyj go `register` podczas odwoływania się do skryptu języka Python. Poniższe przykłady rejestrują skrypty ze świnią jako `myfuncs` :
 
-* **Aby użyć Jython** : `register '/path/to/pigudf.py' using jython as myfuncs;`
-* **Aby użyć języka C Python** : `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
+* **Aby użyć Jython**: `register '/path/to/pigudf.py' using jython as myfuncs;`
+* **Aby użyć języka C Python**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
 > [!IMPORTANT]  
 > W przypadku korzystania z Jython ścieżka do pliku pig_jython może być ścieżką lokalną lub ścieżką WASBS://. Jednak w przypadku korzystania z języka C Python należy odwołać się do pliku w lokalnym systemie plików węzła, który jest używany do przesyłania danego zadania.
@@ -343,7 +343,7 @@ def create_structure(input):
 
 W przykładzie dla świni, `LINE` dane wejściowe są zdefiniowane jako CharArray, ponieważ nie istnieje spójny schemat danych wejściowych. Skrypt języka Python przekształca dane w spójny schemat dla danych wyjściowych.
 
-1. `@outputSchema`Instrukcja definiuje format danych, które są zwracane do świni. W tym przypadku jest to **zbiór danych** , który jest typem danych świni. Zbiór zawiera następujące pola, z których wszystkie są CharArray (ciągi):
+1. `@outputSchema`Instrukcja definiuje format danych, które są zwracane do świni. W tym przypadku jest to **zbiór danych**, który jest typem danych świni. Zbiór zawiera następujące pola, z których wszystkie są CharArray (ciągi):
 
    * Data — Data utworzenia wpisu dziennika.
    * godzina — godzina utworzenia wpisu dziennika.
@@ -423,7 +423,7 @@ W poniższych poleceniach Zastąp `sshuser` wartość rzeczywistą nazwą użytk
     #from pig_util import outputSchema
     ```
 
-    Ten wiersz modyfikuje skrypt języka Python, aby działał z językiem Python języka C zamiast Jython. Po dokonaniu zmiany **naciśnij klawisze Ctrl + X** , aby wyjść z edytora. Wybierz pozycję **Y** , a następnie **wprowadź** polecenie, aby zapisać zmiany.
+    Ten wiersz modyfikuje skrypt języka Python, aby działał z językiem Python języka C zamiast Jython. Po dokonaniu zmiany **naciśnij klawisze Ctrl + X** , aby wyjść z edytora. Wybierz pozycję **Y**, a następnie **wprowadź** polecenie, aby zapisać zmiany.
 
 6. Użyj `pig` polecenia, aby ponownie uruchomić powłokę. Po wyświetleniu `grunt>` monitu użyj poniższego polecenia, aby uruchomić skrypt języka Python przy użyciu interpretera języka C Python.
 

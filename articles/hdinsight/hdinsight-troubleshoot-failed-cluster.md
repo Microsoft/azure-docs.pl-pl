@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: 4fea7719d0aa375aad3d2795d240006222b6486c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535097"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022704"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Rozwiązywanie problemów dotyczących wolnego działania lub niepowodzenia zadania w klastrze usługi HDInsight
 
@@ -115,7 +115,7 @@ W poniższych sekcjach opisano, jak sprawdzić kondycję każdego węzła i cał
 
 ### <a name="check-your-webhcat-service"></a>Sprawdź usługę WebHCat
 
-Jeden typowy scenariusz dla zadań Apache Hive, Apache chlewnej lub Apache Sqoop kończy się niepowodzeniem z usługą [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md) (lub *Templeton* ). WebHCat to interfejs REST dla zdalnego wykonywania zadań, na przykład Hive, świnie, informacje i MapReduce. WebHCat tłumaczy żądania przesłania zadania na Apache Hadoop aplikacji PRZĘDZy i zwraca stan uzyskany na podstawie stanu aplikacji PRZĘDZy.  W poniższych sekcjach opisano typowe kody stanu HTTP WebHCat.
+Jeden typowy scenariusz dla zadań Apache Hive, Apache chlewnej lub Apache Sqoop kończy się niepowodzeniem z usługą [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md) (lub *Templeton*). WebHCat to interfejs REST dla zdalnego wykonywania zadań, na przykład Hive, świnie, informacje i MapReduce. WebHCat tłumaczy żądania przesłania zadania na Apache Hadoop aplikacji PRZĘDZy i zwraca stan uzyskany na podstawie stanu aplikacji PRZĘDZy.  W poniższych sekcjach opisano typowe kody stanu HTTP WebHCat.
 
 #### <a name="badgateway-502-status-code"></a>BadGateway (kod stanu 502)
 
@@ -172,7 +172,7 @@ Na poziomie PRZĘDZenia istnieją dwa typy limitów czasu:
 
     Jeśli otworzysz `/var/log/webhcat/webhcat.log` plik dziennika i wyszukasz "zadanie w kolejce", zobaczysz wiele wpisów, w których czas wykonywania jest zbyt długi (>2000 MS) z wpisami pokazującymi rosnące czasy oczekiwania.
 
-    Czas trwania zadań w kolejce nadal rośnie, ponieważ szybkość, z jaką są wysyłane nowe zadania, jest wyższa niż szybkość, z jaką są wykonywane stare zadania. Gdy pamięć PRZĘDZy jest używana do 100%, *Kolejka joblauncher* nie może już pożyczać zdolności produkcyjnych z *kolejki domyślnej* . W związku z tym nie można zaakceptować więcej nowych zadań w kolejce joblauncher. Takie zachowanie może spowodować dłuższe i dłuższe czas oczekiwania, powodując błąd przekroczenia limitu czasu, który zwykle występuje przez wiele innych.
+    Czas trwania zadań w kolejce nadal rośnie, ponieważ szybkość, z jaką są wysyłane nowe zadania, jest wyższa niż szybkość, z jaką są wykonywane stare zadania. Gdy pamięć PRZĘDZy jest używana do 100%, *Kolejka joblauncher* nie może już pożyczać zdolności produkcyjnych z *kolejki domyślnej*. W związku z tym nie można zaakceptować więcej nowych zadań w kolejce joblauncher. Takie zachowanie może spowodować dłuższe i dłuższe czas oczekiwania, powodując błąd przekroczenia limitu czasu, który zwykle występuje przez wiele innych.
 
     Na poniższej ilustracji przedstawiono kolejkę joblauncher na 714,4% nadużycia. Jest to akceptowalne, o ile nadal trwa bezpłatna pojemność w kolejce domyślnej. Jeśli jednak klaster jest w pełni wykorzystany i pojemność pamięci PRZĘDZy wynosi o 100%, nowe zadania muszą oczekiwać, co ostatecznie powoduje przekroczenie limitu czasu.
 
@@ -206,7 +206,7 @@ Aby zdiagnozować te problemy:
 
 ## <a name="step-4-review-the-environment-stack-and-versions"></a>Krok 4. przegląd stosu i wersji środowiska
 
-Na stronie **stos i wersja** interfejsu użytkownika Ambari dostępne są informacje na temat konfiguracji usług klastra i historii wersji usługi.  Niepoprawna wersja biblioteki usługi Hadoop może być przyczyną awarii klastra.  W interfejsie użytkownika Ambari wybierz menu **administrator** , a następnie kliknij  **stosy i wersje** .  Wybierz kartę **wersje** na stronie, aby wyświetlić informacje o wersji usługi:
+Na stronie **stos i wersja** interfejsu użytkownika Ambari dostępne są informacje na temat konfiguracji usług klastra i historii wersji usługi.  Niepoprawna wersja biblioteki usługi Hadoop może być przyczyną awarii klastra.  W interfejsie użytkownika Ambari wybierz menu **administrator** , a następnie kliknij  **stosy i wersje**.  Wybierz kartę **wersje** na stronie, aby wyświetlić informacje o wersji usługi:
 
 ![Stos i wersje oprogramowania Apache Ambari](./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png)
 

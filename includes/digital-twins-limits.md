@@ -5,18 +5,18 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: fe3c737e0cbf6831e3abc37443e27926ed5e62b8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 183d12b5e9d32c777c8acf01177c8cbbe1b6ca00
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091780"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025724"
 ---
 ### <a name="functional-limits"></a>Limity funkcjonalne
 
 Poniższa tabela zawiera listę limitów funkcjonalnych usługi Azure Digital bliźniaczych reprezentacji.
 
-| Warstwowy | Możliwość | Limit domyślny | Wraz? |
+| Obszar | Możliwość | Limit domyślny | Wraz? |
 | --- | --- | --- | --- |
 | Zasób platformy Azure | Liczba wystąpień bliźniaczych reprezentacji cyfrowych platformy Azure w regionie, na subskrypcję | 10 | Tak |
 | Digital Twins | Liczba bliźniaczych reprezentacji w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji | 200,000 | Tak |
@@ -29,7 +29,7 @@ Poniższa tabela zawiera listę limitów funkcjonalnych usługi Azure Digital bl
 | Modele | Liczba modeli w pojedynczym wystąpieniu usługi Azure Digital bliźniaczych reprezentacji | 10 000 | Tak |
 | Modele | Liczba modeli, które mogą być przekazane w jednym wywołaniu interfejsu API | 250 | Nie |
 | Modele | Liczba elementów zwróconych na jednej stronie | 100 | Nie |
-| Zapytanie | Liczba elementów zwróconych na jednej stronie | 100 | Nie |
+| Zapytanie | Liczba elementów zwróconych na jednej stronie | 100 | Tak |
 | Zapytanie | Liczba `AND`  /  `OR` wyrażeń w zapytaniu | 50 | Tak |
 | Zapytanie | Liczba elementów tablicy w `IN`  /  `NOT IN` klauzuli | 50 | Tak |
 | Zapytanie | Liczba znaków w zapytaniu | 8000 | Tak |

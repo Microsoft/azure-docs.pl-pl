@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
 ms.openlocfilehash: cad12a55332a6c7898f9709776c58d7dba8dd81a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86526439"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022840"
 ---
 # <a name="common-errors-within-the-azure-serial-console"></a>Typowe błędy w konsoli szeregowej platformy Azure
 Istnieje zestaw znanych błędów w konsoli szeregowej platformy Azure. Jest to lista błędów i czynności zaradczych.
@@ -36,7 +36,7 @@ Nie masz wymaganych uprawnień do korzystania z tej maszyny wirtualnej za pomoc�
 Nie można odnaleźć konta magazynu "" używanego na potrzeby diagnostyki rozruchu na tej maszynie wirtualnej. Sprawdź, czy dla tej maszyny wirtualnej włączono diagnostykę rozruchu, to konto magazynu nie zostało usunięte i masz dostęp do tego konta magazynu. | Sprawdź, czy nie usunięto konta magazynu diagnostyki rozruchu dla maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych
 Połączenie konsoli szeregowej z maszyną wirtualną napotkało błąd: "złe żądanie" (400) | Taka sytuacja może wystąpić, jeśli identyfikator URI diagnostyki rozruchu jest nieprawidłowy. Na przykład zamiast "https://" użyto elementu "http://". Identyfikator URI diagnostyki rozruchu można naprawić za pomocą tego polecenia: `az vm boot-diagnostics enable --name vmName --resource-group rgName --storage https://<storageAccountUri>.blob.core.windows.net/`
 Nie masz wymaganych uprawnień do zapisu na koncie magazynu diagnostyki rozruchu dla tej maszyny wirtualnej. Upewnij się, że masz co najmniej uprawnienia współautora maszyny wirtualnej | Konsola szeregowa dostęp wymaga dostępu na poziomie współautor na koncie magazynu diagnostyki rozruchu. Aby uzyskać więcej informacji, zobacz [stronę przegląd](serial-console-overview.md).
-Nie można określić grupy zasobów dla konta magazynu diagnostyki rozruchu * &lt; STORAGEACCOUNTNAME &gt; *. Sprawdź, czy Diagnostyka rozruchu jest włączona dla tej maszyny wirtualnej i czy masz dostęp do tego konta magazynu. | Konsola szeregowa dostęp wymaga dostępu na poziomie współautor na koncie magazynu diagnostyki rozruchu. Aby uzyskać więcej informacji, zobacz [stronę przegląd](serial-console-overview.md).
+Nie można określić grupy zasobów dla konta magazynu diagnostyki rozruchu *&lt; STORAGEACCOUNTNAME &gt;*. Sprawdź, czy Diagnostyka rozruchu jest włączona dla tej maszyny wirtualnej i czy masz dostęp do tego konta magazynu. | Konsola szeregowa dostęp wymaga dostępu na poziomie współautor na koncie magazynu diagnostyki rozruchu. Aby uzyskać więcej informacji, zobacz [stronę przegląd](serial-console-overview.md).
 Inicjowanie obsługi dla tej maszyny wirtualnej nie powiodło się. Upewnij się, że maszyna wirtualna jest w pełni wdrożona, i ponów próbę połączenia z konsolą szeregową. | Obsługa maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych nadal może być niedostępna. Poczekaj chwilę i spróbuj ponownie.
 Gniazdo sieci Web jest zamknięte lub nie można go otworzyć. | Może być konieczne dodanie dostępu do zapory `*.console.azure.com` . Bardziej szczegółowym, ale dłuższym podejściem jest umożliwienie dostępu zapory do [zakresów adresów IP centrum danych Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653), które zmieniają się dość często.
 Konsola szeregowa nie działa z kontem magazynu przy użyciu Azure Data Lake Storage Gen2 z hierarchicznymi przestrzeniami nazw. | Jest to znany problem z hierarchicznymi przestrzeniami nazw. Aby rozwiązać problem, upewnij się, że konto magazynu diagnostyki rozruchu maszyny wirtualnej nie zostało utworzone przy użyciu Azure Data Lake Storage Gen2. Tę opcję można ustawić tylko podczas tworzenia konta magazynu. Może być konieczne utworzenie oddzielnego konta magazynu diagnostyki rozruchu bez Azure Data Lake Storage Gen2 włączenia tego problemu.

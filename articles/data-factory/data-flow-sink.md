@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/17/2020
-ms.openlocfilehash: d45f5d5d1d61372ed959334519aa865c22d70748
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: fa048473f0f285b793dad88c7defdb6189ca1ccd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832521"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023010"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformacja ujścia w przepływie danych mapowania
 
@@ -107,6 +107,10 @@ Domyślnie dane są zapisywane w wielu ujściach w kolejności niedeterministycz
 ## <a name="error-row-handling"></a>Obsługa wierszy błędów
 
 Podczas zapisywania do baz danych niektóre wiersze danych mogą kończyć się niepowodzeniem z powodu ograniczeń ustawionych przez miejsce docelowe. Domyślnie uruchomienie przepływu danych zakończy się niepowodzeniem przy pierwszym błędzie, który pobiera. W niektórych łącznikach można wybrać opcję **Kontynuuj przy błędzie** , która pozwala na ukończenie przepływu danych, nawet jeśli pojedyncze wiersze mają Błędy. Obecnie ta funkcja jest dostępna tylko w Azure SQL Database. Aby uzyskać więcej informacji, zobacz [Obsługa wierszy błędów w usłudze Azure SQL DB](connector-azure-sql-database.md#error-row-handling).
+
+Poniżej znajduje się samouczek wideo dotyczący sposobu automatycznego używania wierszy błędów bazy danych w transformację ujścia.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4IWne]
 
 ## <a name="data-preview-in-sink"></a>Podgląd danych w usłudze ujścia
 

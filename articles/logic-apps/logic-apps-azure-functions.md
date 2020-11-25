@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.custom: devx-track-js
 ms.openlocfilehash: 75693c57a8d120aad53a15d03ae4054bac8262af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269305"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023061"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Wywoływanie funkcji platformy Azure z poziomu usługi Azure Logic Apps
 
@@ -65,7 +65,7 @@ Aby uzyskać bardziej zaawansowane środowisko pracy z parametrami funkcji w pro
 
       ![Wybierz aplikację funkcji > "funkcje platformy" > "CORS"](./media/logic-apps-azure-functions/function-platform-features-cors.png)
 
-   1. W obszarze **CORS**Dodaj **`*`** symbol wieloznaczny gwiazdki (), ale Usuń wszystkie inne źródła z listy i wybierz pozycję **Zapisz**.
+   1. W obszarze **CORS** Dodaj **`*`** symbol wieloznaczny gwiazdki (), ale Usuń wszystkie inne źródła z listy i wybierz pozycję **Zapisz**.
 
       ![Ustaw wartość "CORS * na symbol wieloznaczny" * "](./media/logic-apps-azure-functions/function-platform-features-cors-origins.png)
 
@@ -132,7 +132,7 @@ Jednak zanim będzie można utworzyć dowolną funkcję platformy Azure, musisz 
 
    ![Zdefiniuj funkcję](./media/logic-apps-azure-functions/add-code-function-definition.png)
 
-   W kodzie szablonu * `context` obiekt* odwołuje się do wiadomości wysyłanej przez aplikację logiki za pomocą pola **treści żądania** w późniejszym kroku. Aby uzyskać dostęp do `context` właściwości obiektu z wewnątrz funkcji, użyj następującej składni:
+   W kodzie szablonu *`context` obiekt* odwołuje się do wiadomości wysyłanej przez aplikację logiki za pomocą pola **treści żądania** w późniejszym kroku. Aby uzyskać dostęp do `context` właściwości obiektu z wewnątrz funkcji, użyj następującej składni:
 
    `context.body.<property-name>`
 
@@ -167,7 +167,7 @@ Aby wywołać istniejące funkcje platformy Azure z poziomu aplikacji logiki, mo
 
 1. W kroku, w którym chcesz dodać funkcję, wybierz pozycję **nowy krok**.
 
-1. W obszarze **Wybierz akcję**w polu wyszukiwania wprowadź ciąg "Azure Functions" jako filtr. Z listy Akcje wybierz akcję **Wybierz funkcję platformy Azure** .
+1. W obszarze **Wybierz akcję** w polu wyszukiwania wprowadź ciąg "Azure Functions" jako filtr. Z listy Akcje wybierz akcję **Wybierz funkcję platformy Azure** .
 
    ![Znajdź "usługa Azure Functions"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
@@ -195,7 +195,7 @@ Aby wywołać istniejące funkcje platformy Azure z poziomu aplikacji logiki, mo
 
 ## <a name="call-logic-apps-from-azure-functions"></a>Wywoływanie aplikacji logiki z usługi Azure Functions
 
-Gdy chcesz wyzwolić aplikację logiki z wewnątrz funkcji platformy Azure, aplikacja logiki musi rozpoczynać się od wyzwalacza, który udostępnia możliwy do naprawnego punktu końcowego. Na przykład możesz uruchomić aplikację logiki za pomocą wyzwalacza **http**, **żądania**, **Azure Queues**lub **Event Grid** . Wewnątrz funkcji Wyślij żądanie HTTP POST do adresu URL wyzwalacza i Dołącz ładunek, który ma być przetwarzany przez aplikację logiki. Aby uzyskać więcej informacji, zobacz [wywoływanie, wyzwalanie lub zagnieżdżanie aplikacji logiki](../logic-apps/logic-apps-http-endpoint.md).
+Gdy chcesz wyzwolić aplikację logiki z wewnątrz funkcji platformy Azure, aplikacja logiki musi rozpoczynać się od wyzwalacza, który udostępnia możliwy do naprawnego punktu końcowego. Na przykład możesz uruchomić aplikację logiki za pomocą wyzwalacza **http**, **żądania**, **Azure Queues** lub **Event Grid** . Wewnątrz funkcji Wyślij żądanie HTTP POST do adresu URL wyzwalacza i Dołącz ładunek, który ma być przetwarzany przez aplikację logiki. Aby uzyskać więcej informacji, zobacz [wywoływanie, wyzwalanie lub zagnieżdżanie aplikacji logiki](../logic-apps/logic-apps-http-endpoint.md).
 
 <a name="enable-authentication-functions"></a>
 
@@ -222,7 +222,7 @@ Aby użyć zarządzanej tożsamości aplikacji logiki w funkcji platformy Azure,
 
 1. W [Azure Portal](https://portal.azure.com)Znajdź i wybierz swoją aplikację funkcji. W tych krokach użyto "FabrikamFunctionApp" jako przykładowej aplikacji funkcji.
 
-1. W okienku aplikacja funkcji wybierz pozycję **funkcje platformy**. W obszarze **Narzędzia programistyczne**wybierz pozycję **Narzędzia zaawansowane (kudu)**.
+1. W okienku aplikacja funkcji wybierz pozycję **funkcje platformy**. W obszarze **Narzędzia programistyczne** wybierz pozycję **Narzędzia zaawansowane (kudu)**.
 
    ![Otwórz zaawansowane narzędzia dla kudu](./media/logic-apps-azure-functions/open-advanced-tools-kudu.png)
 
@@ -254,7 +254,7 @@ Przed rozpoczęciem tego zadania Znajdź i Umieść te wartości w celu późnie
 
   * Aby wygenerować ten identyfikator obiektu, [Włącz tożsamość przypisaną przez system do aplikacji logiki](../logic-apps/create-managed-service-identity.md#azure-portal-system-logic-app).
 
-  * W przeciwnym razie aby znaleźć ten identyfikator obiektu, Otwórz aplikację logiki w Projektancie aplikacji logiki. W menu aplikacji logiki w obszarze **Ustawienia**wybierz pozycję **Identity**  >  **przypisany system**tożsamości.
+  * W przeciwnym razie aby znaleźć ten identyfikator obiektu, Otwórz aplikację logiki w Projektancie aplikacji logiki. W menu aplikacji logiki w obszarze **Ustawienia** wybierz pozycję **Identity**  >  **przypisany system** tożsamości.
 
 * Identyfikator katalogu dla dzierżawy w Azure Active Directory (Azure AD)
 
@@ -264,7 +264,7 @@ Przed rozpoczęciem tego zadania Znajdź i Umieść te wartości w celu późnie
 
   1. Znajdź i wybierz dzierżawę usługi Azure AD. W tych krokach użyto "Fabrikam" jako przykładowej dzierżawy.
 
-  1. W menu dzierżawca w obszarze **Zarządzaj**wybierz pozycję **Właściwości**.
+  1. W menu dzierżawca w obszarze **Zarządzaj** wybierz pozycję **Właściwości**.
 
   1. Skopiuj identyfikator katalogu dzierżawy, na przykład i Zapisz ten identyfikator do późniejszego użycia.
 
@@ -283,11 +283,11 @@ Teraz możesz przystąpić do konfigurowania uwierzytelniania usługi Azure AD d
 
 1. W [Azure Portal](https://portal.azure.com)Znajdź i wybierz swoją aplikację funkcji.
 
-1. W okienku aplikacja funkcji wybierz pozycję **funkcje platformy**. W obszarze **Sieć**wybierz pozycję **uwierzytelnianie/autoryzacja**.
+1. W okienku aplikacja funkcji wybierz pozycję **funkcje platformy**. W obszarze **Sieć** wybierz pozycję **uwierzytelnianie/autoryzacja**.
 
    ![Wyświetlanie ustawień uwierzytelniania i autoryzacji](./media/logic-apps-azure-functions/view-authentication-authorization-settings.png)
 
-1. Zmień ustawienie **App Service Authentication** na **włączone**. Z listy **Akcja do wykonania w przypadku nieuwierzytelnionego żądania** wybierz pozycję **Zaloguj się przy użyciu Azure Active Directory**. W obszarze **dostawcy uwierzytelniania**wybierz pozycję **Azure Active Directory**.
+1. Zmień ustawienie **App Service Authentication** na **włączone**. Z listy **Akcja do wykonania w przypadku nieuwierzytelnionego żądania** wybierz pozycję **Zaloguj się przy użyciu Azure Active Directory**. W obszarze **dostawcy uwierzytelniania** wybierz pozycję **Azure Active Directory**.
 
    ![Włączanie uwierzytelniania za pomocą usługi Azure AD](./media/logic-apps-azure-functions/turn-on-authentication-azure-active-directory.png)
 

@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: b8dc63030c6791779ad90500747e4e2f5c4ffeef
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288976"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022670"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Rozwiązywanie problemów z platformą YARN usługi Apache Hadoop za pomocą usługi Azure HDInsight
 
@@ -24,7 +24,7 @@ Poznaj najważniejsze problemy i ich rozwiązania podczas pracy z Apache Hadoop 
 
 Wykonaj następujące kroki w programie Ambari, aby utworzyć nową kolejkę PRZĘDZy, a następnie Zrównoważ alokację pojemności między wszystkimi kolejkami.
 
-W tym przykładzie dwie istniejące kolejki ( **domyślne** i **thriftsvr** ) są zmieniane z pojemności 50% na 25% pojemności, która zapewnia nową kolejkę (Spark) 50% pojemności.
+W tym przykładzie dwie istniejące kolejki (**domyślne** i **thriftsvr**) są zmieniane z pojemności 50% na 25% pojemności, która zapewnia nową kolejkę (Spark) 50% pojemności.
 
 | Kolejka | Pojemność | Maksymalna pojemność |
 | --- | --- | --- |
@@ -129,7 +129,7 @@ Te zmiany są natychmiast widoczne w interfejsie użytkownika harmonogramu PRZĘ
 
     To polecenie tworzy plik dziennika o nazwie containerlogs.txt.
 
-### <a name="additional-reading"></a><a name="additional-reading-2"></a>Materiały uzupełniające
+### <a name="additional-reading"></a><a name="additional-reading-2"></a>Dodatkowy odczyt
 
 - [Nawiązywanie połączenia z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](./hdinsight-hadoop-linux-use-ssh-unix.md)
 - [Apache Hadoop koncepcji i aplikacji PRZĘDZy](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)

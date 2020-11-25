@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: a6fc1d6b831ae794907c59ab1af3328902f3a70a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb90c5776e67c1ba8fecdbf394a8098e96ca0652
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230113"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96022381"
 ---
 # <a name="soft-delete-for-blobs"></a>Usuwanie nietrwałe dla obiektów blob
 
 Nietrwałe usuwanie obiektów BLOB chroni dane przed przypadkowym lub błędnym modyfikacją lub usunięciem. Gdy usuwanie nietrwałe dla obiektów BLOB jest włączone dla konta magazynu, obiekty blob, wersje obiektów blob i migawki na tym koncie magazynu mogą zostać odzyskane po ich usunięciu w okresie przechowywania określonym przez użytkownika.
 
-Jeśli istnieje możliwość, że dane mogą zostać przypadkowo zmodyfikowane lub usunięte przez aplikację lub innego użytkownika konta magazynu, firma Microsoft zaleca włączenie usuwania nietrwałego. Aby uzyskać więcej informacji na temat włączania usuwania nietrwałego, zobacz [enable and Manage unsoft Delete for Blobs](soft-delete-enable.md).
+Jeśli istnieje możliwość, że dane mogą zostać przypadkowo zmodyfikowane lub usunięte przez aplikację lub innego użytkownika konta magazynu, firma Microsoft zaleca włączenie usuwania nietrwałego. Aby uzyskać więcej informacji na temat włączania usuwania nietrwałego, zobacz [enable and Manage unsoft Delete for Blobs](./soft-delete-blob-enable.md).
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -52,7 +52,7 @@ Wyłączenie usuwania nietrwałego pozwala nadal uzyskiwać dostęp do nietrwał
 
 Nietrwałe usuwanie zachowuje dane w wielu przypadkach, w których obiekty są usuwane lub zastępowane.
 
-Gdy obiekt BLOB zostanie zastąpiony przy użyciu funkcji **Put BLOB**, **Put Block list**lub **copy BLOB**, wersja lub migawka stanu obiektu BLOB przed operacją zapisu jest generowana automatycznie. Ten obiekt jest niewidoczny, jeśli nie zostały jawnie wymienione obiekty nietrwałe. Zobacz sekcję [odzyskiwanie](#recovery) , aby dowiedzieć się, jak wyświetlić nietrwałe obiekty usunięte.
+Gdy obiekt BLOB zostanie zastąpiony przy użyciu funkcji **Put BLOB**, **Put Block list** lub **copy BLOB**, wersja lub migawka stanu obiektu BLOB przed operacją zapisu jest generowana automatycznie. Ten obiekt jest niewidoczny, jeśli nie zostały jawnie wymienione obiekty nietrwałe. Zobacz sekcję [odzyskiwanie](#recovery) , aby dowiedzieć się, jak wyświetlić nietrwałe obiekty usunięte.
 
 ![Diagram przedstawiający sposób przechowywania migawek obiektów BLOB w trakcie ich nadpisania przy użyciu funkcji Put BLOB, Put Block list lub Copy BLOB.](media/soft-delete-blob-overview/storage-blob-soft-delete-overwrite.png)
 
@@ -149,7 +149,7 @@ Zapoznaj się z sekcją [następne kroki](#next-steps) , aby uzyskać wskaźnik 
 
 ## <a name="pricing-and-billing"></a>Cennik i rozliczenia
 
-Wszystkie usunięte nietrwałe dane są rozliczane według tej samej stawki co aktywne dane. Nie zostanie naliczona opłata za dane, które zostały trwale usunięte po upływie skonfigurowanego okresu przechowywania. Aby uzyskać bardziej szczegółowy szczegółowe migawek i sposób ich naliczania, zobacz [Opis sposobu naliczania opłat za migawki](storage-blob-snapshots.md).
+Wszystkie usunięte nietrwałe dane są rozliczane według tej samej stawki co aktywne dane. Nie zostanie naliczona opłata za dane, które zostały trwale usunięte po upływie skonfigurowanego okresu przechowywania. Aby uzyskać bardziej szczegółowy szczegółowe migawek i sposób ich naliczania, zobacz [Opis sposobu naliczania opłat za migawki](./snapshots-overview.md).
 
 Nie będą naliczane opłaty za transakcje związane z automatyczną generowaniem migawek. Opłaty są naliczane za **cofanie usuwania transakcji obiektów BLOB** według stawki za operacje zapisu.
 
@@ -159,7 +159,7 @@ Po pierwszym włączeniu usuwania nietrwałego firma Microsoft zaleca użycie kr
 
 Włączenie usuwania nietrwałego dla często zamienionych danych może spowodować zwiększenie opłat za pojemność magazynu i zwiększenie opóźnień podczas tworzenia listy obiektów BLOB. Aby wyeliminować ten dodatkowy koszt i czas oczekiwania, można przechowywać często zastąpione dane na osobnym koncie magazynu, w którym jest wyłączone usuwanie nietrwałe.
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 ### <a name="can-i-use-the-set-blob-tier-api-to-tier-blobs-with-soft-deleted-snapshots"></a>Czy można użyć zestawu API warstwy obiektów BLOB do warstwy obiektów blob z nietrwałymi usuniętymi migawkami?
 
@@ -183,7 +183,7 @@ Tak, ale najpierw należy wywołać cofanie usunięcia obiektu BLOB.
 
 ### <a name="is-soft-delete-available-for-virtual-machine-disks"></a>Czy dla dysków maszyny wirtualnej jest dostępne usuwanie nietrwałe?  
 
-Usuwanie nietrwałe jest dostępne dla dysków niezarządzanych w warstwie Premium i standardowa, które są stronicowymi obiektami BLOB w ramach okładek. Funkcja usuwania nietrwałego ułatwia odzyskanie danych usuniętych przez operacje **usuwania obiektów BLOB**, **Put obiektów BLOB**, **umieszczenia bloków list**i **kopiowania obiektów BLOB** . Dane zastąpione przez wywołanie **strony** nie są możliwe do odzyskania.
+Usuwanie nietrwałe jest dostępne dla dysków niezarządzanych w warstwie Premium i standardowa, które są stronicowymi obiektami BLOB w ramach okładek. Funkcja usuwania nietrwałego ułatwia odzyskanie danych usuniętych przez operacje **usuwania obiektów BLOB**, **Put obiektów BLOB**, **umieszczenia bloków list** i **kopiowania obiektów BLOB** . Dane zastąpione przez wywołanie **strony** nie są możliwe do odzyskania.
 
 Maszyna wirtualna platformy Azure zapisuje dane na dysku niezarządzanym przy użyciu wywołań do **umieszczania na stronie**, dlatego użycie nietrwałego usunięcia umożliwia cofnięcie operacji zapisu na dysku niezarządzanym z maszyny wirtualnej platformy Azure nie jest obsługiwanym scenariuszem.
 
@@ -193,5 +193,5 @@ Można korzystać z usuwania nietrwałego niezależnie od używanej wersji inter
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Włączanie usuwania nietrwałego dla obiektów blob](soft-delete-enable.md)
+- [Włączanie usuwania nietrwałego dla obiektów blob](./soft-delete-blob-enable.md)
 - [Przechowywanie wersji obiektów BLOB](versioning-overview.md)

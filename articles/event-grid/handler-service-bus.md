@@ -3,12 +3,12 @@ title: Service Bus kolejek i tematów jako programów obsługi zdarzeń dla zdar
 description: Opisuje, w jaki sposób można używać kolejek Service Bus i tematów jako programów obsługi zdarzeń Azure Event Grid zdarzeń.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: ab219f0dc6009dc01d5915995fc04094e72a88cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b18009f8fb31f1a5f057c7395781f63f182847f
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629509"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "96024218"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Service Bus kolejek i tematów jako programów obsługi zdarzeń dla zdarzeń Azure Event Grid
 Program obsługi zdarzeń jest miejscem, w którym zdarzenie jest wysyłane. Procedura obsługi wykonuje kilka dalszych działań w celu przetworzenia zdarzenia. Kilka usług platformy Azure jest automatycznie konfigurowanych do obsługi zdarzeń, a **Azure Service Bus** jest jednym z nich. 
@@ -50,18 +50,8 @@ az eventgrid event-subscription create \
     --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/topics/topic1
 ```
 
-## <a name="message-properties"></a>Właściwości komunikatu
-Jeśli używasz **tematu Service Bus lub kolejki** jako programu obsługi zdarzeń dla zdarzeń z Event Grid, są to właściwości, które otrzymujesz w nagłówkach wiadomości: 
+[!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
 
-| Nazwa właściwości | Opis |
-| ------------- | ----------- | 
-| AEG-Subscription-Name | Nazwa subskrypcji zdarzeń. |
-| AEG-Delivery-Count | <p>Liczba prób wykonanych dla zdarzenia.</p> <p>Przykład: "1"</p> |
-| AEG — typ zdarzenia | <p>Typ zdarzenia.</p><p> Przykład: "Microsoft. Storage. blobCreated"</p> | 
-| AEG — wersja metadanych | <p>Wersja metadanych zdarzenia.</p> <p>Przykład: "1".</p><p> W przypadku **schematu zdarzeń Event Grid**ta właściwość reprezentuje wersję metadanych i **schemat zdarzeń w chmurze**, który reprezentuje **wersję specyfikacji**. </p>|
-| AEG — wersja danych | <p>Wersja danych zdarzenia.</p><p>Przykład: "1".</p><p>W przypadku **schematu zdarzeń Event Grid**ta właściwość reprezentuje wersję danych i **schemat zdarzeń w chmurze**, nie ma zastosowania.</p> |
-
-## <a name="message-headers"></a>Nagłówki komunikatów
 W przypadku wysyłania zdarzenia do kolejki Service Bus lub tematu jako komunikatu obsługiwanego przez brokera `messageid` komunikat z brokerem jest wewnętrznym identyfikatorem systemu.
 
 Wewnętrzny identyfikator systemu dla wiadomości będzie utrzymywany przez ponowną dostawę zdarzenia, dzięki czemu można uniknąć zduplikowanych dostaw przez włączenie **wykrywania duplikatów** w jednostce usługi Service Bus. Zalecamy włączenie czasu trwania wykrywania duplikatów w jednostce Service Bus tak, aby był to czas wygaśnięcia (TTL) zdarzenia lub maksymalny czas trwania ponawiania prób, w zależności od tego, co jest dłuższe.

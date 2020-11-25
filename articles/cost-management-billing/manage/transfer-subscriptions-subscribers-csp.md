@@ -6,14 +6,14 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/22/2020
+ms.date: 11/17/2020
 ms.author: banders
-ms.openlocfilehash: 69d6544485e356741634749dd91ba6485cfbb31c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7cbb628f6af286141fb1c7b330117ded33142c4f
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460686"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94744242"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Przenoszenie subskrypcji platformy Azure między subskrybentami i dostawcami usług w chmurze
 
@@ -25,7 +25,7 @@ Jeśli masz jakiekolwiek rezerwacje, po przeniesieniu subskrypcji przestaną one
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Przenoszenie subskrypcji EA do partnera CSP
 
-Rozliczający się bezpośrednio partnerzy będący dostawcami usług w chmurze, którzy są certyfikowani jako dostawcy [Azure Expert Managed Services Provider (MSP)](https://partner.microsoft.com/membership/azure-expert-msp), mogą zażądać przeniesienia subskrypcji platformy Azure dla swoich klientów, którzy mają bezpośrednią umowę Enterprise Agreement (EA). Transfery subskrypcji są dozwolone tylko dla klientów, którzy zaakceptowali Umowę z Klientem Microsoft (MCA) i zakupili plan platformy Azure.
+Rozliczający się bezpośrednio partnerzy będący dostawcami usług w chmurze, którzy są certyfikowani jako dostawcy [Azure Expert Managed Services Provider (MSP)](https://partner.microsoft.com/membership/azure-expert-msp), mogą zażądać przeniesienia subskrypcji platformy Azure dla swoich klientów, którzy mają bezpośrednią umowę Enterprise Agreement (EA). Transfery subskrypcji są dozwolone tylko dla klientów, którzy zaakceptowali Umowę z Klientem Microsoft (MCA) i zakupili plan platformy Azure z programem CSP.
 
 Po zatwierdzeniu żądania dostawca usług w chmurze może udostępnić swoim klientom łączną fakturę. Aby dowiedzieć się więcej o tym, jak dostawcy usług w chmurze przenoszą subskrypcje, zobacz [Uzyskiwanie własności rozliczeń subskrypcji platformy Azure dla konta umowy partnerskiej firmy Microsoft](mpa-request-ownership.md).
 

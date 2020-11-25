@@ -8,11 +8,11 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
 ms.openlocfilehash: c57a3920dac3e18e248109fafdf61fdfa871c54d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123714"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023401"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Wykrywanie anomalii w Azure Stream Analytics
 
@@ -114,9 +114,9 @@ FROM AnomalyDetectionStep
 
 Wydajność tych modeli zależy od rozmiaru historii, czasu trwania okna, obciążenia zdarzenia oraz tego, czy jest używane partycjonowanie poziomu funkcji. W tej sekcji omówiono te konfiguracje i przedstawiono przykłady, w których można utrzymywać stawki za pozyskiwanie, 5 K i 10 000 zdarzeń na sekundę.
 
-* **Rozmiar historii** — te modele są wykonywane liniowo z **rozmiarem historii** . Im dłuższy rozmiar historii, tym dłużej modele trwają do oceny nowego zdarzenia. Wynika to z faktu, że modele porównują nowe zdarzenie z każdym z ostatnich zdarzeń w buforze historii.
+* **Rozmiar historii** — te modele są wykonywane liniowo z **rozmiarem historii**. Im dłuższy rozmiar historii, tym dłużej modele trwają do oceny nowego zdarzenia. Wynika to z faktu, że modele porównują nowe zdarzenie z każdym z ostatnich zdarzeń w buforze historii.
 * **Czas trwania okna** — **czas trwania okna** powinien odzwierciedlać, jak długo trwa odbieranie jak wielu zdarzeń określonych przez rozmiar historii. Bez tego, czy w oknie nie ma wielu zdarzeń, Azure Stream Analytics będzie mieć przypisane wartości. W związku z tym użycie procesora CPU jest funkcją rozmiaru historii.
-* **Obciążenie zdarzeniami** — im większa **obciążenie zdarzeń** , tym większa jest szybkość działania wykonywanego przez modele, która ma wpływ na użycie procesora CPU. Zadanie można skalować w poziomie, dzięki czemu zaskakująco się równolegle, zakładając, że logika biznesowa będzie używać większej liczby partycji wejściowych.
+* **Obciążenie zdarzeniami** — im większa **obciążenie zdarzeń**, tym większa jest szybkość działania wykonywanego przez modele, która ma wpływ na użycie procesora CPU. Zadanie można skalować w poziomie, dzięki czemu zaskakująco się równolegle, zakładając, że logika biznesowa będzie używać większej liczby partycji wejściowych.
 * **Partycjonowanie**  -  poziomu funkcji **Partycjonowanie poziomu funkcji** odbywa się przy użyciu ```PARTITION BY``` w ramach wywołania funkcji wykrywania anomalii. Ten typ partycjonowania dodaje obciążenie, ponieważ stan musi być utrzymywany jednocześnie dla wielu modeli. Partycjonowanie na poziomie funkcji jest używane w scenariuszach takich jak partycjonowanie na poziomie urządzenia.
 
 ### <a name="relationship"></a>Relacja
@@ -152,7 +152,7 @@ Przykładowy kod do uruchamiania powyższej konfiguracji, która nie jest partyc
 > Aby uzyskać dokładniejsze oszacowanie, Dostosuj przykłady tak, aby pasowały do Twojego scenariusza.
 
 ### <a name="identifying-bottlenecks"></a>Identyfikowanie wąskich gardeł
-Użyj okienka metryki w zadaniu Azure Stream Analytics, aby identyfikować wąskie gardła w potoku. Przejrzyj **zdarzenia wejściowe/wyjściowe** dla przepływności i ["opóźnienie znaku wodnego"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) lub **zaległe zdarzenia** , aby sprawdzić, czy zadanie jest zgodne z szybkością danych wejściowych. W przypadku metryk centrum zdarzeń należy poszukać **żądań z ograniczeniami** i odpowiednio dostosować jednostki progowe. W przypadku metryk Cosmos DB Sprawdź **maksymalną liczbę użytych jednostek ru/s na klucz partycji** w obszarze przepływność, aby upewnić się, że zakresy kluczy partycji są jednolicie używane. W przypadku usługi Azure SQL DB Monitoruj **operacje we/wy dziennika** i **procesora CPU** .
+Użyj okienka metryki w zadaniu Azure Stream Analytics, aby identyfikować wąskie gardła w potoku. Przejrzyj **zdarzenia wejściowe/wyjściowe** dla przepływności i ["opóźnienie znaku wodnego"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) lub **zaległe zdarzenia** , aby sprawdzić, czy zadanie jest zgodne z szybkością danych wejściowych. W przypadku metryk centrum zdarzeń należy poszukać **żądań z ograniczeniami** i odpowiednio dostosować jednostki progowe. W przypadku metryk Cosmos DB Sprawdź **maksymalną liczbę użytych jednostek ru/s na klucz partycji** w obszarze przepływność, aby upewnić się, że zakresy kluczy partycji są jednolicie używane. W przypadku usługi Azure SQL DB Monitoruj **operacje we/wy dziennika** i **procesora CPU**.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/06/2019
 ms.openlocfilehash: e99d68d31f1da4dcb3ef1086a2bbd90f0ab30410
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489000"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023129"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Korzystanie z funkcji zdefiniowanych przez użytkownika w języku C# przy użyciu Apache Hive i Apache chlewnej na Apache Hadoop w usłudze HDInsight
 
@@ -111,7 +111,7 @@ Aby utworzyć projekt C# dla Apache Hive UDF:
     }
     ```
 
-6. Na pasku menu wybierz kolejno opcje **Kompiluj**kompilacje  >  **rozwiązanie** , aby skompilować projekt.
+6. Na pasku menu wybierz kolejno opcje **Kompiluj** kompilacje  >  **rozwiązanie** , aby skompilować projekt.
 
 7. Zamknij rozwiązanie.
 
@@ -170,7 +170,7 @@ Następnie należy przekazać aplikacje Hive i UDF do magazynu w klastrze usług
 
 1. W programie Visual Studio przejdź do **widoku**  >  **Eksplorator serwera**.
 
-1. W **Eksplorator serwera**kliknij prawym przyciskiem myszy pozycję **Azure**, wybierz pozycję **Połącz z subskrypcją Microsoft Azure**i Ukończ proces logowania.
+1. W **Eksplorator serwera** kliknij prawym przyciskiem myszy pozycję **Azure**, wybierz pozycję **Połącz z subskrypcją Microsoft Azure** i Ukończ proces logowania.
 
 1. Rozwiń klaster usługi HDInsight, do którego chcesz wdrożyć tę aplikację. Zostanie wyświetlona pozycja z tekstem **(domyślne konto magazynu)** .
 
@@ -186,7 +186,7 @@ Następnie należy przekazać aplikacje Hive i UDF do magazynu w klastrze usług
 
         ![Ikona przekazywania do usługi HDInsight dla nowego projektu](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png)
 
-        W oknie dialogowym **Przekaż nowy plik** w obszarze **Nazwa pliku**wybierz pozycję **Przeglądaj**. W oknie dialogowym **przekazywanie obiektu BLOB** przejdź do folderu *bin\Debug* projektu *HiveCSharp* , a następnie wybierz plik *HiveCSharp.exe* . Na koniec wybierz pozycję **Otwórz** , a następnie kliknij **przycisk OK** , aby ukończyć przekazywanie.
+        W oknie dialogowym **Przekaż nowy plik** w obszarze **Nazwa pliku** wybierz pozycję **Przeglądaj**. W oknie dialogowym **przekazywanie obiektu BLOB** przejdź do folderu *bin\Debug* projektu *HiveCSharp* , a następnie wybierz plik *HiveCSharp.exe* . Na koniec wybierz pozycję **Otwórz** , a następnie kliknij **przycisk OK** , aby ukończyć przekazywanie.
 
     * Jeśli używasz **Azure Data Lake Storage**, kliknij prawym przyciskiem myszy pusty obszar na liście plików, a następnie wybierz polecenie **Przekaż**. Na koniec wybierz plik *HiveCSharp.exe* i wybierz pozycję **Otwórz**.
 
@@ -226,7 +226,7 @@ Teraz można uruchomić zapytanie programu Hive korzystające z aplikacji w form
 
 5. Zmień wartość domyślną **interaktywny** na **Batch**, a następnie wybierz pozycję **Prześlij** , aby przesłać zadanie do klastra usługi HDInsight. Zostanie otwarte okno **podsumowania zadania Hive** .
 
-6. Wybierz pozycję **Odśwież** , aby odświeżyć podsumowanie do czasu **zakończenia**zmiany **stanu zadania** . Aby wyświetlić dane wyjściowe zadania, wybierz pozycję **dane wyjściowe zadania**.
+6. Wybierz pozycję **Odśwież** , aby odświeżyć podsumowanie do czasu **zakończenia** zmiany **stanu zadania** . Aby wyświetlić dane wyjściowe zadania, wybierz pozycję **dane wyjściowe zadania**.
 
 ## <a name="run-an-apache-pig-job"></a>Uruchamianie zadania Apache świni
 

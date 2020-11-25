@@ -2,14 +2,14 @@
 title: Odbieraj zdarzenia z Azure Event Grid do punktu końcowego HTTP
 description: Opisuje, jak sprawdzać poprawność punktu końcowego HTTP, a następnie odbierać i deserializować zdarzenia z Azure Event Grid
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 11/19/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 42cf237f0c2fbe091307625fde70613ab9173b0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75c80fb85d39298f1130537971bc700897c039d0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326477"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96023729"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Odbieranie zdarzeń w punkcie końcowym HTTP
 
@@ -140,9 +140,11 @@ Przetestuj funkcję odpowiedzi walidacji, wklejając przykładowe zdarzenie do p
 }]
 ```
 
-Kliknięcie przycisku Uruchom powoduje, że dane wyjściowe powinny być 200 OK i `{"ValidationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` w treści:
+Kliknięcie przycisku Uruchom powoduje, że dane wyjściowe powinny być 200 OK i `{"validationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` w treści:
 
-![odpowiedź dotycząca walidacji](./media/receive-events/validation-response.png)
+:::image type="content" source="./media/receive-events/validation-request.png" alt-text="Żądanie weryfikacji":::
+
+:::image type="content" source="./media/receive-events/validation-output.png" alt-text="Dane wyjściowe walidacji":::
 
 ## <a name="handle-blob-storage-events"></a>Obsługa zdarzeń magazynu obiektów BLOB
 
@@ -394,6 +396,8 @@ Na koniec sprawdź, czy funkcja może teraz obsłużyć niestandardowy typ zdarz
 ```
 
 Możesz również przetestować tę funkcję na żywo, [wysyłając niestandardowe zdarzenie z zwinięciem z portalu](./custom-event-quickstart-portal.md) lub [ogłaszając w temacie niestandardowym](./post-to-custom-topic.md)  przy użyciu dowolnej usługi lub aplikacji, która może publikować w punkcie końcowym [, takim jak program](https://www.getpostman.com/). Utwórz temat niestandardowy i subskrypcję zdarzeń z punktem końcowym ustawionym jako adres URL funkcji.
+
+[!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

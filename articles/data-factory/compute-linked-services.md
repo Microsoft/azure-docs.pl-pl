@@ -10,12 +10,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.date: 05/08/2019
-ms.openlocfilehash: 6c0604e306333567628b4c71629699a718f02369
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: a454c1297b0f25c64b11217811999d4331148205
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638265"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96022466"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Środowiska obliczeniowe obsługiwane przez Azure Data Factory
 
@@ -106,7 +106,7 @@ Poniższy kod JSON definiuje połączoną usługę HDInsight na żądanie z syst
 ```
 
 > [!IMPORTANT]
-> Klaster usługi HDInsight tworzy **kontener domyślny** w magazynie obiektów BLOB określonym w kodzie JSON ( **linkedServiceName** ). Usługa HDInsight nie powoduje usunięcia tego kontenera w przypadku usunięcia klastra. To zachowanie jest celowe. W przypadku połączonej usługi HDInsight na żądanie klaster usługi HDInsight jest tworzony za każdym razem, gdy trzeba przetworzyć wycinek — o ile w tym momencie nie istnieje aktywny klaster ( **timeToLive** ) — i zostaje usunięty po zakończeniu przetwarzania. 
+> Klaster usługi HDInsight tworzy **kontener domyślny** w magazynie obiektów BLOB określonym w kodzie JSON (**linkedServiceName**). Usługa HDInsight nie powoduje usunięcia tego kontenera w przypadku usunięcia klastra. To zachowanie jest celowe. W przypadku połączonej usługi HDInsight na żądanie klaster usługi HDInsight jest tworzony za każdym razem, gdy trzeba przetworzyć wycinek — o ile w tym momencie nie istnieje aktywny klaster (**timeToLive**) — i zostaje usunięty po zakończeniu przetwarzania. 
 >
 > W przypadku większej liczby przebiegów działania zobaczysz wiele kontenerów w magazynie obiektów blob platformy Azure. Jeśli nie są potrzebne do rozwiązywania problemów z zadaniami, można je usunąć, aby zmniejszyć koszt przechowywania. Nazwy tych kontenerów są zgodne z następującym wzorcem: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Użyj narzędzi, takich jak [Eksplorator usługi Microsoft Azure Storage](https://storageexplorer.com/) , aby usunąć kontenery w usłudze Azure Blob Storage.
 
@@ -114,7 +114,7 @@ Poniższy kod JSON definiuje połączoną usługę HDInsight na żądanie z syst
 
 | Właściwość                     | Opis                              | Wymagane |
 | ---------------------------- | ---------------------------------------- | -------- |
-| typ                         | Właściwość Type powinna mieć wartość **HDInsightOnDemand** . | Tak      |
+| typ                         | Właściwość Type powinna mieć wartość **HDInsightOnDemand**. | Tak      |
 | clusterSize                  | Liczba węzłów procesu roboczego/danych w klastrze. Klaster usługi HDInsight jest tworzony z 2 węzłami głównymi wraz z liczbą węzłów procesu roboczego określonych dla tej właściwości. Węzły mają rozmiar Standard_D3, które mają 4 rdzenie, więc klaster z 4 węzłami roboczymi zajmuje 24 rdzenie (4 rdzenie \* dla węzłów procesu roboczego, a 2 \* 4 = 8 rdzeni dla węzłów głównych). Aby uzyskać szczegółowe informacje, zobacz [Konfigurowanie klastrów w usłudze HDInsight za pomocą usługi Hadoop, Spark, Kafka i innych](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) . | Tak      |
 | linkedServiceName            | Połączona usługa Azure Storage, która będzie używana przez klaster na żądanie do przechowywania i przetwarzania danych. Klaster HDInsight jest tworzony w tym samym regionie co konto usługi Azure Storage. Usługa Azure HDInsight ma ograniczenia całkowitej liczby rdzeni, których możesz użyć w każdym obsługiwanym przez nią regionie platformy Azure. Upewnij się, że masz wystarczającą liczbę podstawowych przydziałów w tym regionie platformy Azure, aby spełnić wymagania clusterSize. Aby uzyskać szczegółowe informacje, zobacz [Konfigurowanie klastrów w usłudze HDInsight za pomocą usługi Hadoop, Spark, Kafka i innych](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)<p>Obecnie nie można utworzyć klastra usługi HDInsight na żądanie, który używa Azure Data Lake Storage (Gen 2) jako magazynu. Jeśli chcesz przechowywać dane wynikowe z przetwarzania HDInsight w Azure Data Lake Storage (Gen 2), Użyj działania kopiowania, aby skopiować dane z usługi Azure Blob Storage do Azure Data Lake Storage (Gen 2). </p> | Tak      |
 | clusterResourceGroup         | Klaster usługi HDInsight jest tworzony w tej grupie zasobów. | Tak      |
@@ -299,12 +299,12 @@ Możesz utworzyć połączoną usługę Azure HDInsight, aby zarejestrować wła
 ### <a name="properties"></a>Właściwości
 | Właściwość          | Opis                                                  | Wymagane |
 | ----------------- | ------------------------------------------------------------ | -------- |
-| typ              | Właściwość Type powinna być ustawiona na **HDInsight** .            | Tak      |
+| typ              | Właściwość Type powinna być ustawiona na **HDInsight**.            | Tak      |
 | clusterUri        | Identyfikator URI klastra usługi HDInsight.                            | Tak      |
 | nazwa użytkownika          | Określ nazwę użytkownika, który ma być używany do nawiązywania połączenia z istniejącym klastrem usługi HDInsight. | Tak      |
 | hasło          | Określ hasło dla konta użytkownika.                       | Tak      |
 | linkedServiceName | Nazwa połączonej usługi Azure Storage odwołująca się do magazynu obiektów blob platformy Azure używanego przez klaster usługi HDInsight. <p>Obecnie nie można określić usługi połączonej Azure Data Lake Storage (Gen 2) dla tej właściwości. Jeśli klaster usługi HDInsight ma dostęp do Data Lake Store, możesz uzyskać dostęp do danych w Azure Data Lake Storage (Gen 2) ze skryptów Hive/wieprz. </p> | Tak      |
-| isEspEnabled      | Określ *wartość "true* ", Jeśli klaster usługi HDInsight jest [pakiet Enterprise Security](../hdinsight/domain-joined/apache-domain-joined-architecture.md) włączony. Wartość domyślna to " *false* ". | Nie       |
+| isEspEnabled      | Określ *wartość "true*", Jeśli klaster usługi HDInsight jest [pakiet Enterprise Security](../hdinsight/domain-joined/apache-domain-joined-architecture.md) włączony. Wartość domyślna to "*false*". | Nie       |
 | Właściwością connectvia        | Integration Runtime używany do wysyłania działań do tej połączonej usługi. Możesz użyć Azure Integration Runtime lub samodzielnego Integration Runtime. Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. <br />W przypadku pakiet Enterprise Security (ESP) klaster usługi HDInsight korzysta z własnego środowiska Integration Runtime, które ma linię wglądu w klaster lub należy ją wdrożyć w tym samym Virtual Network co klaster usługi HDInsight ESP. | Nie       |
 
 > [!IMPORTANT]
@@ -359,10 +359,10 @@ Jeśli jesteś nowym usługą Azure Batch Service, zobacz następujące artykuł
 ### <a name="properties"></a>Właściwości
 | Właściwość          | Opis                              | Wymagane |
 | ----------------- | ---------------------------------------- | -------- |
-| typ              | Właściwość Type powinna mieć wartość **AzureBatch** . | Tak      |
+| typ              | Właściwość Type powinna mieć wartość **AzureBatch**. | Tak      |
 | accountName       | Nazwa konta Azure Batch.         | Tak      |
 | accessKey         | Klucz dostępu dla konta Azure Batch.  | Tak      |
-| batchUri          | Adres URL konta Azure Batch w formacie https:// *batchaccountname. region* . Batch.Azure.com. | Tak      |
+| batchUri          | Adres URL konta Azure Batch w formacie https://*batchaccountname. region*. Batch.Azure.com. | Tak      |
 | poolName          | Nazwa puli maszyn wirtualnych.    | Tak      |
 | linkedServiceName | Nazwa połączonej usługi Azure Storage skojarzonej z tą Azure Batch połączoną usługą. Ta połączona usługa jest używana na potrzeby plików tymczasowych wymaganych do uruchomienia działania. | Tak      |
 | Właściwością connectvia        | Integration Runtime używany do wysyłania działań do tej połączonej usługi. Możesz użyć Azure Integration Runtime lub samodzielnego Integration Runtime. Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. | Nie       |
@@ -395,7 +395,7 @@ Utworzysz połączoną usługę Azure Machine Learning Studio (klasyczną), aby 
 ### <a name="properties"></a>Właściwości
 | Właściwość               | Opis                              | Wymagane                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
-| Typ                   | Właściwość Type powinna mieć wartość: **Azure** . | Tak                                      |
+| Typ                   | Właściwość Type powinna mieć wartość: **Azure**. | Tak                                      |
 | mlEndpoint             | Adres URL oceniania partii.                   | Tak                                      |
 | apiKey                 | Interfejs API opublikowanego modelu obszaru roboczego.     | Tak                                      |
 | Właściwości updateresourceendpoint | Adres URL aktualizacji zasobu dla Azure Machine Learning Studio (klasyczny) punkt końcowy usługi sieci Web używany do aktualizacji predykcyjnej usługi sieci Web przy użyciu pliku z wyszkolonym modelem | Nie                                       |
@@ -439,7 +439,7 @@ Tworzysz Azure Machine Learning połączonej usługi, aby połączyć obszar rob
 ### <a name="properties"></a>Właściwości
 | Właściwość               | Opis                              | Wymagane                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
-| Typ                   | Właściwość Type powinna mieć wartość: **AzureMLService** . | Tak                                      |
+| Typ                   | Właściwość Type powinna mieć wartość: **AzureMLService**. | Tak                                      |
 | subscriptionId         | Identyfikator subskrypcji platformy Azure              | Tak                                      |
 | resourceGroupName      | name | Tak                                      |
 | mlWorkspaceName        | Nazwa obszaru roboczego Azure Machine Learning | Tak  |
@@ -482,7 +482,7 @@ Tworzysz **Azure Data Lake Analytics** połączonej usługi, aby połączyć us�
 
 | Właściwość             | Opis                              | Wymagane                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
-| typ                 | Właściwość Type powinna mieć wartość: **AzureDataLakeAnalytics** . | Tak                                      |
+| typ                 | Właściwość Type powinna mieć wartość: **AzureDataLakeAnalytics**. | Tak                                      |
 | accountName          | Nazwa konta Azure Data Lake Analytics.  | Tak                                      |
 | dataLakeAnalyticsUri | Azure Data Lake Analytics identyfikator URI.           | Nie                                       |
 | subscriptionId       | Identyfikator subskrypcji platformy Azure                    | Nie                                       |
@@ -497,7 +497,7 @@ Tworzysz **Azure Data Lake Analytics** połączonej usługi, aby połączyć us�
 ## <a name="azure-databricks-linked-service"></a>Azure Databricks połączona usługa
 Można utworzyć **Azure Databricks połączonej usługi** , aby zarejestrować obszar roboczy datakostki, który jest używany do uruchamiania obciążeń datakostek (Notes, jar, Python). 
 > [!IMPORTANT]
-> Połączone usługi datakostki obsługują [Pule wystąpień](https://aka.ms/instance-pools). 
+> Połączone usługi datakostki obsługują [Pule wystąpień](https://aka.ms/instance-pools) & uwierzytelniania tożsamości zarządzanej przypisanego do systemu.
 
 ### <a name="example---using-new-job-cluster-in-databricks"></a>Przykład — używanie nowego klastra zadań w kostkach
 
@@ -545,9 +545,10 @@ Można utworzyć **Azure Databricks połączonej usługi** , aby zarejestrować 
 | Właściwość             | Opis                              | Wymagane                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | name                 | Nazwa połączonej usługi               | Tak   |
-| typ                 | Właściwość Type powinna mieć wartość: **Azure Databricks** . | Tak                                      |
+| typ                 | Właściwość Type powinna mieć wartość: **Azure Databricks**. | Tak                                      |
 | domena               | Określ odpowiednio region platformy Azure na podstawie regionu obszaru roboczego datakostki. Przykład: https://eastus.azuredatabricks.net | Tak                                 |
-| accessToken          | Token dostępu jest wymagany do uwierzytelniania Data Factory Azure Databricks. Token dostępu musi być wygenerowany z obszaru roboczego datakostki. Bardziej szczegółowe instrukcje znajdowania tokenu dostępu można znaleźć [tutaj](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | Tak                                       |
+| accessToken          | Token dostępu jest wymagany do uwierzytelniania Data Factory Azure Databricks. Token dostępu musi być wygenerowany z obszaru roboczego datakostki. Bardziej szczegółowe instrukcje znajdowania tokenu dostępu można znaleźć [tutaj](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | Nie                                       |
+| Tożsamość usługi zarządzanej          | Użyj zarządzanej tożsamości Data Factory (przypisanej do systemu) do uwierzytelniania, aby Azure Databricks. Nie potrzebujesz tokenu dostępu podczas korzystania z uwierzytelniania "MSI"  | Nie                                       |
 | existingClusterId    | Identyfikator klastra istniejącego klastra, w którym mają zostać uruchomione wszystkie zadania. Powinien to być już utworzony interaktywny klaster. Może być konieczne ręczne ponowne uruchomienie klastra, jeśli przestanie odpowiadać. Datakostki sugerują uruchomione zadania w nowych klastrach w celu zapewnienia większej niezawodności. Identyfikator klastra interaktywnego klastra można znaleźć w obszarze roboczym datakosteks — > klastrów — > Interactive Nazwa klastra — > Configuration-> Tagi. [Więcej szczegółów](https://docs.databricks.com/user-guide/clusters/tags.html) | Nie 
 | instancePoolId    | Identyfikator puli wystąpień istniejącej puli w obszarze roboczym datakosteks.  | Nie  |
 | newClusterVersion    | Wersja platformy Spark klastra. Tworzy klaster zadań w kostkach. | Nie  |
@@ -571,13 +572,13 @@ Utworzysz połączoną usługę SQL Server i użyj jej z [działaniem procedury 
 
 ## <a name="azure-function-linked-service"></a>Połączona usługa funkcji platformy Azure
 
-Utworzysz połączoną usługę funkcji platformy Azure i użyjesz jej razem z [działaniem funkcji platformy Azure](control-flow-azure-function-activity.md) , aby uruchamiać Azure Functions w potoku Data Factory. Zwracany typ funkcji platformy Azure musi być prawidłowy `JObject` . (Należy pamiętać, że [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) *nie* jest `JObject` .) Każdy typ zwracany inny niż błąd `JObject` i podnosi zawartość odpowiedzi na błędy użytkownika *nie jest prawidłowym JObject* .
+Utworzysz połączoną usługę funkcji platformy Azure i użyjesz jej razem z [działaniem funkcji platformy Azure](control-flow-azure-function-activity.md) , aby uruchamiać Azure Functions w potoku Data Factory. Zwracany typ funkcji platformy Azure musi być prawidłowy `JObject` . (Należy pamiętać, że [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) *nie* jest `JObject` .) Każdy typ zwracany inny niż błąd `JObject` i podnosi zawartość odpowiedzi na błędy użytkownika *nie jest prawidłowym JObject*.
 
 | **Właściwość** | **Opis** | **Wymagane** |
 | --- | --- | --- |
 | typ   | Właściwość Type musi mieć wartość: **AzureFunction** | yes |
 | adres URL aplikacji funkcji | Adres URL aplikacja funkcji platformy Azure. Format to `https://<accountname>.azurewebsites.net` . Ten adres URL jest wartością w sekcji **adresu URL** podczas wyświetlania aplikacja funkcji w Azure Portal  | yes |
-| klucz funkcji | Klucz dostępu dla funkcji platformy Azure. Kliknij sekcję **Zarządzanie** odpowiednią funkcją i skopiuj **klucz funkcji** lub **klucz hosta** . Dowiedz się więcej tutaj: [Azure Functions wyzwalacze i powiązania HTTP](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | tak |
+| klucz funkcji | Klucz dostępu dla funkcji platformy Azure. Kliknij sekcję **Zarządzanie** odpowiednią funkcją i skopiuj **klucz funkcji** lub **klucz hosta**. Dowiedz się więcej tutaj: [Azure Functions wyzwalacze i powiązania HTTP](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | tak |
 |   |   |   |
 
 ## <a name="next-steps"></a>Następne kroki

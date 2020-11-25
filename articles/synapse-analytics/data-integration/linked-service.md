@@ -10,11 +10,11 @@ ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: feabfe505601276269c2774e3b39dd5cbaa32087
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359973"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022925"
 ---
 # <a name="secure-a-linked-service-with-private-links"></a>Zabezpieczanie połączonej usługi za pomocą linków prywatnych
 
@@ -22,8 +22,8 @@ W tym artykule dowiesz się, jak zabezpieczyć połączoną usługę w Synapse z
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Subskrypcja platformy Azure** : Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
-* **Konto usługi Azure Storage** : używasz Azure Data Lake Gen 2 jako magazynu danych *źródłowych* . Jeśli nie masz konta magazynu, zobacz [Tworzenie konta usługi Azure Storage](../../storage/blobs/data-lake-storage-quickstart-create-account.md) , aby uzyskać instrukcje. Upewnij się, że konto magazynu ma filtrowanie adresów IP programu Synapse Studio, aby uzyskać do niego dostęp, i czy zezwolisz tylko **wybranym sieci** na dostęp do konta magazynu. Ustawienia w obszarze **zapory i sieci wirtualne** bloku powinny wyglądać jak na poniższej ilustracji.
+* **Subskrypcja platformy Azure**: Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
+* **Konto usługi Azure Storage**: używasz Azure Data Lake Gen 2 jako magazynu danych *źródłowych* . Jeśli nie masz konta magazynu, zobacz [Tworzenie konta usługi Azure Storage](../../storage/blobs/data-lake-storage-quickstart-create-account.md) , aby uzyskać instrukcje. Upewnij się, że konto magazynu ma filtrowanie adresów IP programu Synapse Studio, aby uzyskać do niego dostęp, i czy zezwolisz tylko **wybranym sieci** na dostęp do konta magazynu. Ustawienia w obszarze **zapory i sieci wirtualne** bloku powinny wyglądać jak na poniższej ilustracji.
 
 ![Zabezpieczone konto magazynu](./media/secure-storage-account.png)
 
@@ -37,7 +37,7 @@ W usłudze Azure Synapse Analytics, połączona Usługa polega na definiowaniu i
 1. Wybierz z listy kafelek Azure Data Lake Storage Gen2 i wybierz pozycję **Kontynuuj**.
 1. Upewnij się, że włączono funkcję **interaktywnego tworzenia**. Włączenie tej możliwości może potrwać około 1 minuty. 
 1. Wprowadź poświadczenia uwierzytelniania. Klucz konta, nazwa główna usługi i tożsamość zarządzana są obecnie obsługiwanymi typami uwierzytelniania. Wybierz pozycję Testuj połączenie, aby sprawdzić, czy Twoje poświadczenia są poprawne.
-1. Wybierz **Test connection** , powinna zakończyć się niepowodzeniem, ponieważ konto magazynu nie umożliwia dostępu do niego bez tworzenia i zatwierdzania prywatnego punktu końcowego. W komunikacie o błędzie powinien zostać wyświetlony link umożliwiający utworzenie **prywatnego punktu końcowego** , który można wykonać, aby przejść do następnej części. Jeśli użyjesz tego linku, Pomiń następną część.
+1. Wybierz **Test connection**, powinna zakończyć się niepowodzeniem, ponieważ konto magazynu nie umożliwia dostępu do niego bez tworzenia i zatwierdzania prywatnego punktu końcowego. W komunikacie o błędzie powinien zostać wyświetlony link umożliwiający utworzenie **prywatnego punktu końcowego** , który można wykonać, aby przejść do następnej części. Jeśli użyjesz tego linku, Pomiń następną część.
 1. Po zakończeniu wybierz pozycję **Utwórz**.
 
 ## <a name="create-a-managed-private-endpoint"></a>Tworzenie zarządzanego prywatnego punktu końcowego

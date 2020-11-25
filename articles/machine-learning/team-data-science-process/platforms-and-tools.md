@@ -11,11 +11,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d3f6a48815519499ddc39dcc12cafe0fe95e70e0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320229"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023809"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Platformy i narzędzia dla projektów do nauki o danych
 
@@ -101,14 +101,14 @@ Usługa R Services (in-Database) udostępnia platformę do tworzenia i wdrażani
 
 Usługa r Services (in-Database) obsługuje język R typu open source z kompleksowym zestawem SQL Server narzędzi i technologii. Oferują one najwyższą wydajność, bezpieczeństwo, niezawodność i możliwości zarządzania. Możesz wdrażać rozwiązania języka R przy użyciu wygodnych i dobrze znanych narzędzi. Aplikacje produkcyjne mogą wywołać środowisko uruchomieniowe języka R i pobrać prognozy i wizualizacje przy użyciu języka Transact-SQL. Możesz również użyć bibliotek skalowania, aby zwiększyć skalę i wydajność rozwiązań R. Aby uzyskać więcej informacji, zobacz [SQL Server R Services](/sql/advanced-analytics/r/sql-server-r-services).
 
-Zespół przetwarzania TDSP od firmy Microsoft opublikował dwa kompleksowe przewodniki, które pokazują, jak tworzyć rozwiązania do nauki o danych w SQL Server 2016 R Services: jeden dla programistów języka R i jeden dla deweloperów SQL. Dla **programistów języka R** , zobacz [Przewodnik po kompleksowej](/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)analizie danych. W przypadku **deweloperów SQL** zobacz [w temacie Advanced Analytics Database for SQL Developers (samouczek)](/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
+Zespół przetwarzania TDSP od firmy Microsoft opublikował dwa kompleksowe przewodniki, które pokazują, jak tworzyć rozwiązania do nauki o danych w SQL Server 2016 R Services: jeden dla programistów języka R i jeden dla deweloperów SQL. Dla **programistów języka R**, zobacz [Przewodnik po kompleksowej](/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)analizie danych. W przypadku **deweloperów SQL** zobacz [w temacie Advanced Analytics Database for SQL Developers (samouczek)](/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
 
 
 ## <a name="appendix-tools-to-set-up-data-science-projects"></a><a name="appendix"></a>Dodatek: narzędzia do konfigurowania projektów do nauki o danych
 
 ### <a name="install-git-credential-manager-on-windows"></a>Instalowanie programu Git Credential Manager w systemie Windows
 
-Jeśli korzystasz z usługi przetwarzania TDSP w **systemie Windows** , musisz zainstalować program **git Credential Manager (GCM)** , aby komunikować się z repozytoriami git. Aby zainstalować GCM, należy najpierw zainstalować **Chocolaty**. Aby zainstalować Chocolaty i GCM, uruchom następujące polecenia w programie Windows PowerShell jako **administrator** :  
+Jeśli korzystasz z usługi przetwarzania TDSP w **systemie Windows**, musisz zainstalować program **git Credential Manager (GCM)** , aby komunikować się z repozytoriami git. Aby zainstalować GCM, należy najpierw zainstalować **Chocolaty**. Aby zainstalować Chocolaty i GCM, uruchom następujące polecenia w programie Windows PowerShell jako **administrator**:  
 
 ```powershell
 iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
@@ -142,7 +142,7 @@ Jeśli używasz maszyn z systemem Linux (CentOS) do uruchamiania poleceń git, m
     
    ![Kliknij swoją nazwę, a następnie kliknij pozycję Zabezpieczenia.](./media/platforms-and-tools/resources-2-user-setting.png)
 
-1. Kliknij pozycję **klucze publiczne SSH** , a następnie kliknij pozycję **+ Dodaj**. 
+1. Kliknij pozycję **klucze publiczne SSH**, a następnie kliknij pozycję **+ Dodaj**. 
 
    ![Kliknij pozycję publiczne klucze SSH, a następnie kliknij pozycję + Dodaj.](./media/platforms-and-tools/resources-3-add-ssh.png)
 

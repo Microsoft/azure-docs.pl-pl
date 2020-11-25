@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: 6c6f71277c276bed603989774637bd95999de333
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079058"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023532"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Szyfrowanie ExpressRoute: IPsec przez ExpressRoute dla wirtualnej sieci WAN
 
@@ -54,7 +54,7 @@ W obu tych przykładach usługa Azure wyśle ruch do 10.0.1.0/24 przez połącze
 > Jeśli anonsuje te *same* prefiksy dla połączeń EXPRESSROUTE i VPN, platforma Azure będzie używać ścieżki ExpressRoute bezpośrednio bez ochrony sieci VPN.
 >
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
@@ -76,7 +76,7 @@ Zasób lokacji jest taki sam jak Lokacje sieci VPN inne niż ExpressRoute dla wi
 >
 
 1. Przejdź do Azure Portal w przeglądarce. 
-1. Wybierz utworzone centrum. Na stronie wirtualnego centrum sieci WAN w obszarze **łączność**wybierz pozycję **Lokacje sieci VPN**.
+1. Wybierz utworzone centrum. Na stronie wirtualnego centrum sieci WAN w obszarze **łączność** wybierz pozycję **Lokacje sieci VPN**.
 1. Na stronie **witryny sieci VPN** wybierz pozycję **+ Utwórz lokację**.
 1. Na stronie **Tworzenie lokacji** wypełnij następujące pola:
    * **Subskrypcja**: Sprawdź subskrypcję.
@@ -95,7 +95,7 @@ Zasób lokacji jest taki sam jak Lokacje sieci VPN inne niż ExpressRoute dla wi
 
    Jeśli protokół BGP jest włączony, będzie miał zastosowanie do wszystkich połączeń utworzonych dla tej witryny na platformie Azure. Konfigurowanie protokołu BGP w wirtualnej sieci WAN jest równoznaczne z skonfigurowaniem protokołu BGP na bramie sieci VPN platformy Azure. 
    
-   Adres lokalnego elementu równorzędnego protokołu BGP *nie może* być taki sam jak adres IP sieci VPN do urządzenia lub przestrzeń adresów sieci wirtualnej witryny sieci VPN. Użyj innego adresu IP na urządzeniu sieci VPN dla adresu IP elementu równorzędnego protokołu BGP. Może to być adres przypisany do interfejsu sprzężenia zwrotnego na urządzeniu. Jednak *nie może* to być adresowanie APIPA (169,254.* x*. *x*). Określ ten adres w odpowiedniej bramie sieci lokalnej reprezentującej lokalizację. Wymagania wstępne dotyczące protokołu BGP zawiera temat [Informacje o protokole BGP z platformą Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md).
+   Adres lokalnego elementu równorzędnego protokołu BGP *nie może* być taki sam jak adres IP sieci VPN do urządzenia lub przestrzeń adresów sieci wirtualnej witryny sieci VPN. Użyj innego adresu IP na urządzeniu sieci VPN dla adresu IP elementu równorzędnego protokołu BGP. Może to być adres przypisany do interfejsu sprzężenia zwrotnego na urządzeniu. Jednak *nie może* to być adresowanie APIPA (169,254.*x*. *x*). Określ ten adres w odpowiedniej bramie sieci lokalnej reprezentującej lokalizację. Wymagania wstępne dotyczące protokołu BGP zawiera temat [Informacje o protokole BGP z platformą Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md).
 
 1. Wybierz kolejno pozycje **Dalej: przegląd + utwórz >** , aby sprawdzić wartości ustawień i utworzyć witrynę sieci VPN. W przypadku wybrania **centrów** do połączenia zostanie nawiązane połączenie między siecią lokalną a centralną bramą sieci VPN.
 
@@ -105,16 +105,16 @@ Po utworzeniu witryny sieci VPN i nawiązaniu połączenia z centrum wykonaj nas
 
 1. Wróć do strony zasobów wirtualnej sieci WAN, a następnie wybierz zasób centrum. Lub przejdź między lokacją sieci VPN a podłączonym koncentratorem.
 
-   :::image type="content" source="./media/vpn-over-expressroute/hub-selection.png" alt-text="Sieć VPN przez ExpressRoute":::
-1. W obszarze **łączność**wybierz pozycję **Sieć VPN (lokacja-lokacja)**.
+   :::image type="content" source="./media/vpn-over-expressroute/hub-selection.png" alt-text="Wybierz centrum":::
+1. W obszarze **łączność** wybierz pozycję **Sieć VPN (lokacja-lokacja)**.
 
-   :::image type="content" source="./media/vpn-over-expressroute/vpn-select.png" alt-text="Sieć VPN przez ExpressRoute":::
+   :::image type="content" source="./media/vpn-over-expressroute/vpn-select.png" alt-text="Wybieranie sieci VPN (lokacja-lokacja)":::
 1. Wybierz wielokropek (**...**) w witrynie sieci VPN za pośrednictwem ExpressRoute, a następnie wybierz pozycję **Edytuj połączenie sieci VPN z tym centrum**.
 
-   :::image type="content" source="./media/vpn-over-expressroute/config-menu.png" alt-text="Sieć VPN przez ExpressRoute":::
-1. W obszarze **Użyj prywatnego adresu IP platformy Azure**wybierz pozycję **tak**. Ustawienie konfiguruje bramę sieci VPN Hub do używania prywatnych adresów IP w ramach zakresu adresów koncentratora na bramie dla tego połączenia zamiast publicznych adresów IP. Zapewni to, że ruch z sieci lokalnej przechodzi przez prywatne ścieżki komunikacji równorzędnej ExpressRoute zamiast używać publicznego Internetu dla tego połączenia sieci VPN. Poniższy zrzut ekranu przedstawia ustawienie:
+   :::image type="content" source="./media/vpn-over-expressroute/config-menu.png" alt-text="Menu Wprowadź konfigurację":::
+1. W obszarze **Użyj prywatnego adresu IP platformy Azure** wybierz pozycję **tak**. Ustawienie konfiguruje bramę sieci VPN Hub do używania prywatnych adresów IP w ramach zakresu adresów koncentratora na bramie dla tego połączenia zamiast publicznych adresów IP. Zapewni to, że ruch z sieci lokalnej przechodzi przez prywatne ścieżki komunikacji równorzędnej ExpressRoute zamiast używać publicznego Internetu dla tego połączenia sieci VPN. Poniższy zrzut ekranu przedstawia ustawienie:
 
-   :::image type="content" source="./media/vpn-over-expressroute/vpn-link-configuration.png" alt-text="Sieć VPN przez ExpressRoute" border="false":::
+   :::image type="content" source="./media/vpn-over-expressroute/vpn-link-configuration.png" alt-text="Ustawienie dla korzystania z prywatnego adresu IP dla połączenia sieci VPN" border="false":::
 1. Wybierz pozycję **Zapisz**.
 
 Po zapisaniu zmian Brama sieci VPN centrum będzie używać prywatnych adresów IP w bramie sieci VPN do nawiązywania połączeń protokołu IPsec/IKE z lokalnym urządzeniem sieci VPN za pośrednictwem usługi ExpressRoute.

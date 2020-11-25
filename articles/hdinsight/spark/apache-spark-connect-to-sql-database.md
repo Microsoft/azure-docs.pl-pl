@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
 ms.openlocfilehash: d979a68f4e3aa0071fb7654647610af1fbf95e90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86078820"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023980"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Korzystanie z klastra Spark w usłudze HDInsight w celu odczytywania i zapisywania danych w Azure SQL Database
 
@@ -172,7 +172,7 @@ W tej sekcji używamy przykładowego pliku CSV dostępnego w klastrze do utworze
 
     ![Nawiązywanie połączenia z SQL Database przy użyciu SSMS1](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms.png "Nawiązywanie połączenia z SQL Database przy użyciu SSMS1")
 
-    b. W obszarze **Eksplorator obiektów**rozwiń bazę danych i węzeł tabeli, aby wyświetlić utworzony obiekt **dbo. HVAC** .
+    b. W obszarze **Eksplorator obiektów** rozwiń bazę danych i węzeł tabeli, aby wyświetlić utworzony obiekt **dbo. HVAC** .
 
     ![Nawiązywanie połączenia z SQL Database przy użyciu SSMS2](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms-locate-table.png "Nawiązywanie połączenia z SQL Database przy użyciu SSMS2")
 

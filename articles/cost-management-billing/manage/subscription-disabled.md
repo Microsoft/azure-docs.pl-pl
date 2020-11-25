@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 11/17/2020
 ms.author: banders
-ms.openlocfilehash: 550be6c10402398b62af307281660b93981a0df3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cad3082981bcfc699bc230badf44e2ffc2e1bed3
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91308966"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94744429"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>Ponowne uaktywnianie wyłączonej subskrypcji platformy Azure
 
@@ -54,6 +54,10 @@ Jeśli jesteś administratorem konta i doszło do przypadkowego anulowania pojed
     ![Zrzut ekranu, na którym przedstawiono hiperlinki do ponownego uaktywnienia w okienku po prawej stronie](./media/subscription-disabled/reactivate-sub.png)
 
 W przypadku innych typów subskrypcji [skontaktuj się z pomocą techniczną](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) w celu ponownego uaktywnienia subskrypcji.
+
+## <a name="after-reactivation"></a>Po ponownym uaktywnieniu
+
+Po ponownym uaktywnieniu subskrypcji może wystąpić opóźnienie w tworzeniu zasobów lub zarządzaniu nimi. Jeśli opóźnienie przekroczy 30 minut, skontaktuj się z [pomocą techniczną platformy Azure](https://go.microsoft.com/fwlink/?linkid=2083458) w celu uzyskania pomocy. Działanie większości zasobów platformy Azure jest wznawiane automatycznie i nie wymaga żadnej akcji. Zalecamy jednak sprawdzenie zasobów usługi platformy Azure i ponowne uruchomienie wszystkich tych, których działanie nie zostanie wznowione automatycznie.
 
 ## <a name="need-help-contact-us"></a>Potrzebujesz pomocy? Skontaktuj się z nami.
 

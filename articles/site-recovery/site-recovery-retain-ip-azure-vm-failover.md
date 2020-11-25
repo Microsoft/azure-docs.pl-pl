@@ -7,11 +7,11 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: 650fb7f0877a98ef53ed3868550f9c084ecb5885
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84710205"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023554"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Zachowaj adresy IP podczas trybu failover
 
@@ -61,7 +61,7 @@ Poniżej przedstawiono architekturę przed przejściem w tryb failover.
 Jeśli wystąpi awaria regionalna, firma A może przełączyć wszystkie zasoby na region docelowy.
 
 - Przed przejściem w tryb failover firma A może organizować przechodzenie w tryb failover i automatycznie ustanawiać połączenia po przejściu w tryb failover między siecią **wirtualną odzyskiwania** i siecią **wirtualną platformy Azure**. Jest to zilustrowane na poniższym diagramie.
-- W zależności od wymagań aplikacji połączenia między dwiema sieci wirtualnych (siecią**wirtualną odzyskiwania** i siecią **wirtualną platformy Azure**) w regionie docelowym można ustalić przed, w trakcie (w ramach pośredniego kroku) lub po przejściu w tryb failover.
+- W zależności od wymagań aplikacji połączenia między dwiema sieci wirtualnych (siecią **wirtualną odzyskiwania** i siecią **wirtualną platformy Azure**) w regionie docelowym można ustalić przed, w trakcie (w ramach pośredniego kroku) lub po przejściu w tryb failover.
   - Firma może użyć [planów odzyskiwania](site-recovery-create-recovery-plans.md) , aby określić, kiedy będą nawiązywane połączenia.
   - Mogą łączyć się między sieci wirtualnych za pomocą komunikacji równorzędnej sieci wirtualnych lub VPN typu lokacja-lokacja.
       - W przypadku wirtualnych sieci równorzędnych nie jest używana brama sieci VPN i występują inne ograniczenia.
@@ -89,7 +89,7 @@ Przed przejściem w tryb failover architektura jest następująca:
     - **APP2** Maszyny wirtualne znajdują się w sieci wirtualnej **VNET 2**: 10.2.0.0/16.
     - **Źródłowa sieć wirtualna 1** ma dwie podsieci.
     - **Źródłowa sieć wirtualna 2** ma dwie podsieci.
-- Region pomocniczy (docelowy) to Południowo-Wschodnia Azja — Azja Południowo-Wschodnia ma sieci wirtualnych odzyskiwania (replikacja sieci**wirtualnej 1** i **Sieć wirtualna 2**), które są identyczne jak **źródłowa sieć wirtualna 1** i **źródłowa sieć wirtualna 2**.
+- Region pomocniczy (docelowy) to Południowo-Wschodnia Azja — Azja Południowo-Wschodnia ma sieci wirtualnych odzyskiwania (replikacja sieci **wirtualnej 1** i **Sieć wirtualna 2**), które są identyczne jak **źródłowa sieć wirtualna 1** i **źródłowa sieć wirtualna 2**.
         - Usługa **Recovery VNET 1** i **Sieć wirtualna odzyskiwania 2** każda z nich ma dwie podsieci, które pasują do podsieci w **źródłowej sieci wirtualnej 1** , a **źródłowa sieć wirtualna 2** — Azja Południowo-Wschodnia ma dodatkową sieć wirtualną (**Sieć wirtualna platformy Azure**) z przestrzenią adresową 10.3.0.0/16.
         - Sieć **wirtualna platformy Azure** zawiera podsieci (**podsieć 4**) z przestrzenią adresową 10.3.4.0/24.
         -Węzły repliki dla SQL Server zawsze włączone, kontroler domeny itp. znajdują się w **podsieci 4**.
@@ -109,7 +109,7 @@ Przed przejściem w tryb failover architektura jest następująca:
 W przypadku awarii lub problemu mającego wpływ na pojedynczą aplikację (w programie * * źródłowa sieć wirtualna 2 w naszym przykładzie) firma A może odzyskać zaatakowaną aplikację w następujący sposób:
 
 
-- Rozłączaj połączenia sieci VPN między **źródłem VNet1** a **źródłem VNet2**i między **źródłem VNet2** i siecią **wirtualną platformy Azure** .
+- Rozłączaj połączenia sieci VPN między **źródłem VNet1** a **źródłem VNet2** i między **źródłem VNet2** i siecią **wirtualną platformy Azure** .
 - Ustanów połączenia sieci VPN między elementami **Source VNet1** i **Recovery VNet2**, a następnie między **VNet2 Recovery** i sieci **wirtualnej platformy Azure**.
 - Przełączenie w tryb failover maszyn wirtualnych w **źródłowym VNet2** do **VNet2 odzyskiwania**.
 
@@ -148,7 +148,7 @@ Oto, jak wygląda architektura sieci przed przejściem w tryb failover.
 Jeśli wystąpi awaria regionalna, firma B może przełączyć wszystkie zasoby do trybu failover w regionie docelowym.
 
 - Po przejściu do trybu failover firma B może organizować przechodzenie w tryb failover i automatycznie ustanawiać połączenia po przejściu w tryb failover między siecią **wirtualną odzyskiwania** i siecią **wirtualną platformy Azure**.
-- W zależności od wymagań aplikacji połączenia między dwiema sieci wirtualnych (siecią**wirtualną odzyskiwania** i siecią **wirtualną platformy Azure**) w regionie docelowym można ustalić przed, w trakcie (w ramach pośredniego kroku) lub po przejściu w tryb failover. Firma może użyć [planów odzyskiwania](site-recovery-create-recovery-plans.md) , aby określić, kiedy będą nawiązywane połączenia.
+- W zależności od wymagań aplikacji połączenia między dwiema sieci wirtualnych (siecią **wirtualną odzyskiwania** i siecią **wirtualną platformy Azure**) w regionie docelowym można ustalić przed, w trakcie (w ramach pośredniego kroku) lub po przejściu w tryb failover. Firma może użyć [planów odzyskiwania](site-recovery-create-recovery-plans.md) , aby określić, kiedy będą nawiązywane połączenia.
 - Oryginalne połączenie między usługą Azure Azja Wschodnia i lokalnym centrum danych powinno zostać rozłączone przed nawiązaniem połączenia między Południowo-Wschodnia i lokalnym centrum danych platformy Azure.
 - Routing lokalny zostanie ponownie skonfigurowany w celu wskazywania regionu docelowego i bram po przejściu w tryb failover.
 

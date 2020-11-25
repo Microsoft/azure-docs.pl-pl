@@ -3,18 +3,18 @@ title: Administracja przy użyciu witryny Azure EA Portal
 description: W tym artykule opisano typowe zadania wykonywane przez administratora w witrynie Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/27/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperfq1
-ms.openlocfilehash: e83af5baa4ca38a8e81dffa8bb81ab3da64e1e95
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: edcc94050880544a6c2de54ff27f833f1c60f99f
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411043"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683649"
 ---
 # <a name="azure-ea-portal-administration"></a>Administracja przy użyciu witryny Azure EA Portal
 
@@ -68,7 +68,7 @@ Aby dodać dział:
 
 1. Zaloguj się w witrynie Azure Enterprise Portal.
 1. W lewym okienku wybierz pozycję **Zarządzaj**.
-1. Wybierz kartę **Dział** , a następnie wybierz pozycję **+ Dodaj dział**.
+1. Wybierz kartę **Dział**, a następnie wybierz pozycję **+ Dodaj dział**.
 1. Wprowadź informacje.
    Nazwa działu jest jedynym wymaganym polem. Musi zawierać co najmniej trzy znaki.
 1. Po zakończeniu wybierz pozycję **Dodaj**.
@@ -92,9 +92,9 @@ Jako administrator przedsiębiorstwa:
 
 1. Zaloguj się w witrynie Azure Enterprise Portal.
 1. W lewym okienku wybierz pozycję **Zarządzaj**.
-1. Wybierz kartę **Dział** , a następnie wybierz dział.
+1. Wybierz kartę **Dział**, a następnie wybierz dział.
 1. Wybierz pozycję **+ Dodaj administratora** i dodaj wymagane informacje.
-1. W przypadku dostępu tylko do odczytu dla opcji **Tylko do odczytu** ustaw wartość **Tak** , a następnie wybierz przycisk **Dodaj**.
+1. W przypadku dostępu tylko do odczytu dla opcji **Tylko do odczytu** ustaw wartość **Tak**, a następnie wybierz przycisk **Dodaj**.
 
 ![Przykładowe okno dialogowe Dodawanie administratora działu](./media/ea-portal-administration/ea-create-add-department-admin.png)
 
@@ -105,8 +105,8 @@ Administratorom działów można przyznać dostęp tylko do odczytu.
 - Tworząc konto administratora działu, ustaw wartość **Tak** dla opcji tylko do odczytu.
 
 - Aby edytować istniejącego administratora działu:
-   1. Wybierz dział, a następnie wybierz symbol ołówka obok **administratora działu** , którego chcesz edytować.
-   1. Dla opcji tylko do odczytu ustaw wartość **Tak** , a następnie wybierz pozycję **Zapisz**.
+   1. Wybierz dział, a następnie wybierz symbol ołówka obok **administratora działu**, którego chcesz edytować.
+   1. Dla opcji tylko do odczytu ustaw wartość **Tak**, a następnie wybierz pozycję **Zapisz**.
 
 Administratorzy przedsiębiorstwa automatycznie uzyskują uprawnienia administratora działu.
 
@@ -133,30 +133,22 @@ Aby potwierdzić własność konta:
 1. Wyświetl stan.
 
    Stan powinien ulec zmianie z **Oczekujące** na **Data początkowa/końcowa**. Data początkowa/końcowa to data pierwszego logowania użytkownika i data zakończenia obowiązywania umowy.
-1. Gdy zostanie wyświetlony komunikat **Ostrzeżenie** , właściciel konta musi wybrać przycisk **Kontynuuj** , aby aktywować konto podczas pierwszego logowania się w witrynie Azure Enterprise Portal.
+1. Gdy zostanie wyświetlony komunikat **Ostrzeżenie**, właściciel konta musi wybrać przycisk **Kontynuuj**, aby aktywować konto podczas pierwszego logowania się w witrynie Azure Enterprise Portal.
 
-## <a name="change-account-owner"></a>Zmienianie właściciela konta
+## <a name="change-azure-subscription-or-account-ownership"></a>Zmienianie własności subskrypcji platformy Azure lub konta
 
-Administratorzy przedsiębiorstwa mogą korzystać z witryny Azure Enterprise Portal do przenoszenia własności konta subskrypcji w ramach rejestracji. Działanie to powoduje przeniesienie wszystkich subskrypcji z konta użytkownika źródłowego na konto użytkownika docelowego.
+Administratorzy przedsiębiorstwa mogą korzystać z witryny Azure Enterprise Portal do przenoszenia własności konta dla wybranej lub wszystkich subskrypcji w ramach rejestracji.
 
-Przenosząc własność do konta, należy pamiętać o następujących kwestiach:
+Po zakończeniu przenoszenia własności subskrypcji lub konta firma Microsoft aktualizuje właściciela konta.
 
-- Obsługiwane są następujące transfery:
-  - Z konta służbowego na inne konto służbowe.
-  - Z konta Microsoft na konto służbowe.
-  - Z konta Microsoft na inne konto Microsoft.
+Przed przeprowadzeniem przenoszenia własności należy zrozumieć następujące zasady kontroli dostępu oparte na rolach (RBAC) platformy Azure:
 
-    Konto docelowe musi być prawidłowym kontem komercyjnym platformy Azure, aby być prawidłowym miejscem docelowym umożliwiającym przenoszenie. W przypadku nowych kont przed zalogowaniem do witryny Azure Enterprise Portal zostanie wyświetlony monit o utworzenie konta komercyjnego platformy Azure. W przypadku istniejących kont, aby konto było uprawnione, należy najpierw utworzyć nową subskrypcję platformy Azure.
-
-- Nie można przenieść subskrypcji z konta służbowego na konto Microsoft.
-
-- Po zakończeniu przenoszenia subskrypcji firma Microsoft aktualizuje właściciela konta.
-
-Należy pamiętać o następujących zasadach kontroli dostępu na podstawie ról (RBAC):
-
-- W przypadku przenoszenia subskrypcji między dwoma identyfikatorami organizacyjnymi w tej samej dzierżawie zasady kontroli dostępu opartej na rolach i istniejące role administratora usługi oraz współadministratora są zachowywane.
-- Inne przenoszenie subskrypcji powoduje utratę zasad kontroli dostępu na podstawie ról oraz przypisań ról.
+- W przypadku przenoszenia własności subskrypcji lub konta między dwoma identyfikatorami organizacyjnymi w tej samej dzierżawie zasady RBAC platformy Azure oraz istniejące role administratora i współadministratora usługi są zachowywane.
+- Przenoszenie własności subskrypcji lub konta między dzierżawami powoduje utratę zasad RBAC platformy Azure oraz przypisań ról.
 - Zasady i role administratorów nie są przenoszone między różnymi katalogami. Administratorzy usługi są aktualizowani do właściciela konta docelowego.
+- Aby uniknąć utraty zasad RBAC i przypisań ról przy przenoszeniu subskrypcji między dzierżawami, należy się upewnić, że pole wyboru **Przenieś subskrypcje do dzierżawy usługi Azure AD odbiorcy** pozostanie **niezaznaczone**. Spowoduje to zachowanie usług, ról RBAC i zasad w bieżącej dzierżawie usługi Azure AD i przeniesienie tylko własności rozliczeń dla konta.  
+    :::image type="content" source="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Obraz przedstawiający niezaznaczone pole wyboru do przenoszenia subskrypcji do dzierżawy usługi Azure AD" lightbox="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
+
 
 Przed zmianą właściciela konta:
 
@@ -168,26 +160,25 @@ Aby przenieść własność konta dla wszystkich subskrypcji:
 1. Zaloguj się w witrynie Azure Enterprise Portal.
 1. W obszarze nawigacji po lewej stronie wybierz pozycję **Zarządzaj**.
 1. Wybierz kartę **Konto** i zatrzymaj wskaźnik myszy na koncie.
-1. Wybierz ikonę zmiany właściciela konta po prawej stronie. Ikona przedstawia osobę.
-1. Wybierz kwalifikujące się konto, a następnie wybierz pozycję **Dalej**.
+1. Wybierz ikonę zmiany właściciela konta po prawej stronie. Ikona przedstawia osobę.  
+    ![Obraz przedstawiający symbol Zmiana właściciela konta](./media/ea-portal-administration/create-ea-create-sub-transfer-account-ownership-of-sub.png)
+1. Wybierz konto docelowe, na które chcesz wykonać przenoszenie, a następnie wybierz pozycję **Dalej**.
+1. Jeśli chcesz przenieść własność konta między dzierżawami usługi Azure AD, zaznacz pole wyboru **Przenieś subskrypcje do dzierżawy usługi Azure odbiorcy** .  
+    :::image type="content" source="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Obraz przedstawiający zaznaczone pole wyboru do przenoszenia subskrypcji do dzierżawy usługi Azure AD" lightbox="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 1. Potwierdź przeniesienie i wybierz pozycję **Prześlij**.
-
-![Obraz przedstawiający symbol Zmiana właściciela konta](./media/ea-portal-administration/create-ea-create-sub-transfer-account-ownership-of-sub.png)
 
 Aby przenieść własność konta dla jednej subskrypcji:
 
 1. Zaloguj się w witrynie Azure Enterprise Portal.
 1. W obszarze nawigacji po lewej stronie wybierz pozycję **Zarządzaj**.
 1. Wybierz kartę **Konto** i zatrzymaj wskaźnik myszy na koncie.
-1. Wybierz ikonę przenoszenia subskrypcji po prawej stronie. Ikona przedstawia stronę.
-1. Wybierz kwalifikującą się subskrypcję, a następnie wybierz pozycję **Dalej**.
+1. Wybierz ikonę przenoszenia subskrypcji po prawej stronie. Ikona przedstawia stronę.  
+    ![Obraz przedstawiający symbol Przenoszenie subskrypcji](./media/ea-portal-administration/ea-transfer-subscriptions.png)
+1. Wybierz konto docelowe, na które chcesz przenieść subskrypcję, a następnie wybierz pozycję **Dalej**.
+1. Jeśli chcesz przenieść własność subskrypcji między dzierżawami usługi Azure AD, zaznacz pole wyboru **Przenieś subskrypcje do dzierżawy usługi Azure odbiorcy** .  
+    :::image type="content" source="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Obraz przedstawiający zaznaczone pole wyboru do przenoszenia subskrypcji do dzierżawy usługi Azure AD" lightbox="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 1. Potwierdź przeniesienie, a następnie wybierz pozycję **Prześlij**.
 
-![Obraz przedstawiający symbol Przenoszenie subskrypcji](./media/ea-portal-administration/ea-transfer-subscriptions.png)
-
-W poniższym filmie przedstawiono zarządzanie użytkownikami w witrynie Azure Enterprise Portal:
-
-> [!VIDEO https://www.youtube.com/embed/621jVkvmwm8]
 
 ## <a name="associate-an-account-to-a-department"></a>Kojarzenie konta z działem
 
@@ -215,8 +206,8 @@ Jeśli masz już konto platformy Microsoft Azure w witrynie Azure Portal, wprowa
 1. Upewnij się, że konto to zostało skojarzone z istniejącym kontem platformy Azure.
 1. Podaj nazwę, której chcesz używać do identyfikowania tego konta na potrzeby raportowania.
 1. Wybierz pozycję **Dodaj**.
-1. Możesz dodać kolejne konto, wybierając ponownie opcję **+Dodaj konto** , lub wrócić do strony głównej, wybierając przycisk **Administrator**.
-1. Jeśli wyświetlisz stronę **Konto** , nowo dodane konto zostanie wyświetlone ze stanem **Oczekiwanie**.
+1. Możesz dodać kolejne konto, wybierając ponownie opcję **+Dodaj konto**, lub wrócić do strony głównej, wybierając przycisk **Administrator**.
+1. Jeśli wyświetlisz stronę **Konto**, nowo dodane konto zostanie wyświetlone ze stanem **Oczekiwanie**.
 
 ### <a name="confirm-account-ownership"></a>Potwierdzanie własności konta
 
@@ -264,7 +255,7 @@ Administrator działu może wyświetlić limit przydziału wydatków, ale tylko 
  1. Wybierz pozycję **Zarządzaj** w obszarze nawigacji po lewej.
  1. Wybierz kartę **Dział**.
  1. Wybierz dział.
- 1. Wybierz symbol ołówka w sekcji Szczegóły działu lub wybierz symbol **+ Dodaj dział** , aby dodać limit przydziału wydatków wraz z nowym działem.
+ 1. Wybierz symbol ołówka w sekcji Szczegóły działu lub wybierz symbol **+ Dodaj dział**, aby dodać limit przydziału wydatków wraz z nowym działem.
  1. W obszarze Szczegóły działu wprowadź kwotę limitu przydziału wydatków w walucie rejestracji w polu Limit przydziału wydatków $ (wartość musi być większa niż 0).
     - W tym miejscu można także edytować nazwę działu i centrum kosztów.
  1. Wybierz pozycję **Zapisz**.
@@ -342,15 +333,15 @@ _Microsoft Azure Enterprise_ jest domyślną nazwą tworzonej subskrypcji. Nazw�
 Aby dodać subskrypcję:
 
 1. Zaloguj się do konta w witrynie Azure Enterprise Portal.
-1. Wybierz kartę **Administrator** , a następnie wybierz pozycję **Subskrypcja** w górnej części strony.
+1. Wybierz kartę **Administrator**, a następnie wybierz pozycję **Subskrypcja** w górnej części strony.
 1. Sprawdź fakt zalogowania jako właściciel konta.
-1. Wybierz pozycję **+Dodaj subskrypcję** , a następnie pozycję **Kup**.
+1. Wybierz pozycję **+Dodaj subskrypcję**, a następnie pozycję **Kup**.
 
    Przy pierwszym dodawaniu subskrypcji do konta musisz podać swoje informacje kontaktowe. Podczas dodawania kolejnych subskrypcji Twoje informacje kontaktowe będą dodawane automatycznie.
 
-1. Wybierz pozycję **Subskrypcje** , a następnie wybierz utworzoną subskrypcję.
+1. Wybierz pozycję **Subskrypcje**, a następnie wybierz utworzoną subskrypcję.
 1. Wybierz pozycję **Edytuj szczegóły subskrypcji**.
-1. Zaktualizuj pola **Nazwa subskrypcji** i **Administrator usługi** , a następnie wybierz znacznik wyboru.
+1. Zaktualizuj pola **Nazwa subskrypcji** i **Administrator usługi**, a następnie wybierz znacznik wyboru.
 
    Wprowadzona nazwa subskrypcji będzie wyświetlana w raportach. Jest to nazwa projektu skojarzonego z subskrypcją w portalu deweloperskim.
 
@@ -365,7 +356,7 @@ Aby usunąć subskrypcję, w której jesteś właścicielem konta:
 
 1. Zaloguj się do witryny Azure Portal przy użyciu poświadczeń skojarzonych z Twoim kontem.
 1. W menu Centrum wybierz pozycję **Subskrypcje**.
-1. Na karcie subskrypcji w lewym górnym rogu strony wybierz subskrypcję, którą chcesz anulować, a następnie wybierz pozycję **Anuluj subskrypcję** , aby otworzyć kartę anulowania.
+1. Na karcie subskrypcji w lewym górnym rogu strony wybierz subskrypcję, którą chcesz anulować, a następnie wybierz pozycję **Anuluj subskrypcję**, aby otworzyć kartę anulowania.
 1. Wprowadź nazwę subskrypcji i wybierz przyczynę anulowania, a następnie wybierz pozycję **Anuluj subskrypcję**.
 
 Tylko administratorzy kont mogą anulować subskrypcje.
@@ -400,7 +391,7 @@ Aby dodać kontakt:
 2. Wprowadź adres e-mail, a następnie potwierdź go.
 3. Wybierz pozycję **Zapisz**.
 
-Nowy kontakt dla powiadomień zostanie wyświetlony w sekcji **Kontakt dla powiadomień**. Aby zmienić częstotliwość powiadamiania, wybierz kontakt dla powiadomień i wybierz symbol ołówka po prawej stronie wybranego wiersza. Ustaw częstotliwość na **codziennie** , **co tydzień** , **co miesiąc** lub **brak**.
+Nowy kontakt dla powiadomień zostanie wyświetlony w sekcji **Kontakt dla powiadomień**. Aby zmienić częstotliwość powiadamiania, wybierz kontakt dla powiadomień i wybierz symbol ołówka po prawej stronie wybranego wiersza. Ustaw częstotliwość na **codziennie**, **co tydzień**, **co miesiąc** lub **brak**.
 
 Możesz pominąć powiadomienia dotyczące cyklu życia ze _zbliżającą się datą zakończenia okresu pokrycia_ oraz _ze zbliżającą się datą wyłączenia i anulowania aprowizacji_. Wyłączenie powiadomień dotyczących cyklu życia powoduje pomijanie powiadomień o okresie pokrycia i dacie zakończenia obowiązywania umowy.
 
@@ -446,7 +437,7 @@ Tak, można przenieść własność subskrypcji na inne konto. Jeśli na przykł
 Aby przenieść subskrypcje:
 
 1. W witrynie Azure Enterprise Portal wybierz pozycję **Zarządzaj** > **Konto**.
-1. Umieść wskaźnik myszy na skrajnej prawej pozycji **Konto** , aby wyświetlić opcje **Przenieś własność** (ikona osoby) i **Przenieś subskrypcję** (ikona listy). Te opcje są widoczne tylko w przypadku aktywnych kont.
+1. Umieść wskaźnik myszy na skrajnej prawej pozycji **Konto**, aby wyświetlić opcje **Przenieś własność** (ikona osoby) i **Przenieś subskrypcję** (ikona listy). Te opcje są widoczne tylko w przypadku aktywnych kont.
 
 ### <a name="can-an-azure-account-owner-be-listed-under-more-than-one-department"></a>Czy właściciel konta platformy Azure może być wymieniony w więcej niż jednym dziale?
 
@@ -474,29 +465,29 @@ Aby utworzyć subskrypcję oferty typu Enterprise Azure, musisz mieć uprawnieni
 
 ## <a name="azure-ea-term-glossary"></a>Słownik terminów umowy EA platformy Azure
 
-- **Konto** : Jednostka organizacyjna w witrynie Azure Enterprise Portal. Służy ona do administrowania subskrypcjami i tworzenia raportów.
-- **Właściciel konta** : Osoba, która zarządza subskrypcjami i administratorami usług na platformie Azure. Może wyświetlać dane użycia na tym koncie i w skojarzonych z nim subskrypcjach.
-- **Aneks subskrypcji** : Jednoroczna lub współbieżna subskrypcja w ramach poprawki do rejestracji.
-- **Przedpłata** : Przedpłata rocznej kwoty pieniężnej dla usług platformy Azure z obniżoną stawką przedpłaty za korzystanie z tej przedpłaty.
-- **Administrator działu** : Osoba, która zarządza działem, tworzy nowe konta i właścicieli kont, wyświetla szczegóły użycia dla zarządzanych działów i może wyświetlać koszty po udzieleniu uprawnień.
-- **Numer rejestracji** : Unikatowy identyfikator przydzielany przez firmę Microsoft w celu identyfikowania konkretnej rejestracji skojarzonej z umową Enterprise Agreement.
-- **Administratora przedsiębiorstwa** : Osoba, która zarządza działami, właścicielami działów, kontami i właścicielami kont na platformie Azure. Ma możliwość zarządzania administratorami przedsiębiorstwa, a także wyświetlania danych użycia, rozliczonych ilości i nierozliczonych opłat na wszystkich kontach i we wszystkich subskrypcjach skojarzonych z rejestracją przedsiębiorstwa.
-- **Umowa Enterprise Agreement** : Umowa licencyjna firmy Microsoft dla klientów ze scentralizowanymi zakupami, którzy chcą ustandaryzować całą swoją organizację na technologii firmy Microsoft i utrzymać infrastrukturę technologii informatycznej na standardzie oprogramowania firmy Microsoft.
-- **Rejestracja umów Enterprise Agreement** : Rejestracja w programie Enterprise Agreement zapewniającym produkty firmy Microsoft w obniżonych cenach.
-- **Konto Microsoft** : Usługa internetowa, która umożliwia stronom uczestniczącym uwierzytelnianie użytkownika za pomocą jednego zestawu poświadczeń.
+- **Konto**: Jednostka organizacyjna w witrynie Azure Enterprise Portal. Służy ona do administrowania subskrypcjami i tworzenia raportów.
+- **Właściciel konta**: Osoba, która zarządza subskrypcjami i administratorami usług na platformie Azure. Może wyświetlać dane użycia na tym koncie i w skojarzonych z nim subskrypcjach.
+- **Aneks subskrypcji**: Jednoroczna lub współbieżna subskrypcja w ramach poprawki do rejestracji.
+- **Przedpłata**: Przedpłata rocznej kwoty pieniężnej dla usług platformy Azure z obniżoną stawką przedpłaty za korzystanie z tej przedpłaty.
+- **Administrator działu**: Osoba, która zarządza działem, tworzy nowe konta i właścicieli kont, wyświetla szczegóły użycia dla zarządzanych działów i może wyświetlać koszty po udzieleniu uprawnień.
+- **Numer rejestracji**: Unikatowy identyfikator przydzielany przez firmę Microsoft w celu identyfikowania konkretnej rejestracji skojarzonej z umową Enterprise Agreement.
+- **Administratora przedsiębiorstwa**: Osoba, która zarządza działami, właścicielami działów, kontami i właścicielami kont na platformie Azure. Ma możliwość zarządzania administratorami przedsiębiorstwa, a także wyświetlania danych użycia, rozliczonych ilości i nierozliczonych opłat na wszystkich kontach i we wszystkich subskrypcjach skojarzonych z rejestracją przedsiębiorstwa.
+- **Umowa Enterprise Agreement**: Umowa licencyjna firmy Microsoft dla klientów ze scentralizowanymi zakupami, którzy chcą ustandaryzować całą swoją organizację na technologii firmy Microsoft i utrzymać infrastrukturę technologii informatycznej na standardzie oprogramowania firmy Microsoft.
+- **Rejestracja umów Enterprise Agreement**: Rejestracja w programie Enterprise Agreement zapewniającym produkty firmy Microsoft w obniżonych cenach.
+- **Konto Microsoft**: Usługa internetowa, która umożliwia stronom uczestniczącym uwierzytelnianie użytkownika za pomocą jednego zestawu poświadczeń.
 - **Poprawka rejestracji umowy Microsoft Azure Enterprise (poprawka rejestracji)** : Poprawka podpisana przez przedsiębiorstwo, która zapewnia dostęp do platformy Azure w ramach rejestracji przedsiębiorstwa.
-- **Azure Enterprise Portal** : Portal używany przez naszych klientów korporacyjnych do zarządzania kontami platformy Azure i powiązanymi subskrypcjami.
-- **Ilość użytych zasobów** : Ilość pojedynczej usługi platformy Azure wykorzystana w danym miesiącu.
-- **Administrator usługi** : Osoba, która uzyskuje dostęp do subskrypcji i projektów programistycznych oraz zarządza nimi w witrynie Azure Enterprise Portal.
-- **Subskrypcja** : Reprezentuje subskrypcję w witrynie Azure Enterprise Portal i jest kontenerem usług platformy Azure zarządzanych przez tego samego administratora usługi.
-- **Konto służbowe** : Dla organizacji, które skonfigurowały usługę Azure Active Directory z federacją w chmurze i mają wszystkie konta w jednej dzierżawie.
+- **Azure Enterprise Portal**: Portal używany przez naszych klientów korporacyjnych do zarządzania kontami platformy Azure i powiązanymi subskrypcjami.
+- **Ilość użytych zasobów**: Ilość pojedynczej usługi platformy Azure wykorzystana w danym miesiącu.
+- **Administrator usługi**: Osoba, która uzyskuje dostęp do subskrypcji i projektów programistycznych oraz zarządza nimi w witrynie Azure Enterprise Portal.
+- **Subskrypcja**: Reprezentuje subskrypcję w witrynie Azure Enterprise Portal i jest kontenerem usług platformy Azure zarządzanych przez tego samego administratora usługi.
+- **Konto służbowe**: Dla organizacji, które skonfigurowały usługę Azure Active Directory z federacją w chmurze i mają wszystkie konta w jednej dzierżawie.
 
 ### <a name="enrollment-statuses"></a>Stany rejestracji
 
-- **Nowa** : Ten stan jest przypisywany do rejestracji utworzonej w ciągu 24 godzin i zostanie zaktualizowany do stanu Oczekująca w ciągu 24 godzin.
-- **Oczekująca** : Administrator rejestracji musi zalogować się w witrynie Azure Enterprise Portal. Po zalogowaniu rejestracja zostanie przełączona do stanu aktywnego.
-- **Aktywna** : Rejestracja jest aktywna i można tworzyć konta i subskrypcje w witrynie Azure Enterprise Portal. Rejestracja pozostanie aktywna do daty zakończenia umowy Enterprise Agreement.
-- **Przedłużenie na czas nieokreślony** : Przedłużenie na czas nieokreślony występuje po terminie zakończenia umowy Enterprise Agreement. Umożliwia to klientom z umowami EA platformy Azure, którzy wybrali opcję przedłużenia, dalsze korzystanie z usług platformy Azure przez czas nieokreślony po zakończeniu umowy Enterprise Agreement.
+- **Nowa**: Ten stan jest przypisywany do rejestracji utworzonej w ciągu 24 godzin i zostanie zaktualizowany do stanu Oczekująca w ciągu 24 godzin.
+- **Oczekująca**: Administrator rejestracji musi zalogować się w witrynie Azure Enterprise Portal. Po zalogowaniu rejestracja zostanie przełączona do stanu aktywnego.
+- **Aktywna**: Rejestracja jest aktywna i można tworzyć konta i subskrypcje w witrynie Azure Enterprise Portal. Rejestracja pozostanie aktywna do daty zakończenia umowy Enterprise Agreement.
+- **Przedłużenie na czas nieokreślony**: Przedłużenie na czas nieokreślony występuje po terminie zakończenia umowy Enterprise Agreement. Umożliwia to klientom z umowami EA platformy Azure, którzy wybrali opcję przedłużenia, dalsze korzystanie z usług platformy Azure przez czas nieokreślony po zakończeniu umowy Enterprise Agreement.
 
    Przed upływem terminu zakończenia umowy Enterprise Agreement związanej z rejestracją EA platformy Azure administrator rejestracji powinien zdecydować, która z poniższych opcji zostanie wybrana:
 
@@ -504,8 +495,8 @@ Aby utworzyć subskrypcję oferty typu Enterprise Azure, musisz mieć uprawnieni
   - Przeniesienie do nowej rejestracji.
   - Przeprowadzenie migracji do programu subskrypcji online firmy Microsoft (MOSP).
   - Potwierdzenie wyłączenia wszystkich usług skojarzonych z rejestracją.
-- **Wygasła** : Klient z umową EA platformy Azure zrezygnował z przedłużenia umowy, a rejestracja EA platformy Azure osiągnęła datę zakończenia umowy Enterprise Agreement. Rejestracja wygaśnie, a wszystkie skojarzone usługi zostaną wyłączone.
-- **Przeniesiona** : Rejestracje, dla których wszystkie konta i usługi zostały przeniesione do nowej rejestracji, będą wyświetlane ze stanem Przeniesiona.
+- **Wygasła**: Klient z umową EA platformy Azure zrezygnował z przedłużenia umowy, a rejestracja EA platformy Azure osiągnęła datę zakończenia umowy Enterprise Agreement. Rejestracja wygaśnie, a wszystkie skojarzone usługi zostaną wyłączone.
+- **Przeniesiona**: Rejestracje, dla których wszystkie konta i usługi zostały przeniesione do nowej rejestracji, będą wyświetlane ze stanem Przeniesiona.
   >[!NOTE]
   > Rejestracje nie są przenoszone automatycznie w przypadku wygenerowania nowego numeru rejestracji podczas odnawiania. Aby nastąpiło automatyczne przeniesienie, należy uwzględnić poprzedni numer rejestracji w dokumentacji dotyczącej odnawiania.
 

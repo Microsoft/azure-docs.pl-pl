@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
 ms.openlocfilehash: 8a39c2b06ca8a0f852891acb60ba199fc2c6db5c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142658"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024133"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Najlepsze rozwiązania dotyczące konfiguracji urządzeń w ramach rozwiązania IoT
 
@@ -78,7 +78,7 @@ Poniżej przedstawiono najlepsze rozwiązania dla operatorów rozwiązań IoT ko
 
 * **Organizuj urządzenia do zarządzania:** Rozwiązanie IoT powinno definiować lub zezwalać na tworzenie pierścieni jakości lub innych zestawów urządzeń w oparciu o różne strategie wdrażania, takie jak Kanaryjskie. Zestawy urządzeń będą używane do wdrożenia zmian konfiguracji i wykonywania innych operacji zarządzania urządzeniami w skali.
 
-* **Przeprowadź zmiany w konfiguracji przy użyciu etapowego wdrożenia:**  Etapowe wycofywanie jest procesem, w którym operator wdraża zmiany w rozszerzonym zestawie urządzeń IoT. Celem jest stopniowe wprowadzanie zmian w celu zmniejszenia ryzyka związanego z wprowadzaniem zmian w skali szerokiej.Operator powinien używać interfejsu rozwiązania, aby utworzyć [automatyczną konfigurację urządzenia](./iot-hub-automatic-device-management.md) , a warunek docelowy powinien wskazywać na początkowy zestaw urządzeń (na przykład grupę Kanaryjskie). Następnie operator powinien sprawdzić poprawność konfiguracji w początkowym zestawie urządzeń.
+* **Przeprowadź zmiany w konfiguracji przy użyciu etapowego wdrożenia:**  Etapowe wycofywanie jest procesem, w którym operator wdraża zmiany w rozszerzonym zestawie urządzeń IoT. Celem jest stopniowe wprowadzanie zmian w celu zmniejszenia ryzyka związanego z wprowadzaniem zmian w skali szerokiej.  Operator powinien używać interfejsu rozwiązania, aby utworzyć [automatyczną konfigurację urządzenia](./iot-hub-automatic-device-management.md) , a warunek docelowy powinien wskazywać na początkowy zestaw urządzeń (na przykład grupę Kanaryjskie). Następnie operator powinien sprawdzić poprawność konfiguracji w początkowym zestawie urządzeń.
 
    Po zakończeniu walidacji operator zaktualizuje automatyczną konfigurację urządzenia w celu uwzględnienia większego zestawu urządzeń. Operator powinien również ustawić priorytet konfiguracji na wyższy niż inne konfiguracje, które są obecnie przeznaczone dla tych urządzeń. Przeprowadzenie można monitorować, korzystając z metryk raportowanych przez automatyczną konfigurację urządzenia.
 

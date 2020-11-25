@@ -3,18 +3,18 @@ title: Wprowadzenie do usługi Azure Cost Management dla partnerów
 description: W tym artykule wyjaśniono, w jaki sposób partnerzy używają funkcji usługi Azure Cost Management i jak umożliwiają dostęp do usługi Cost Management swoim klientom.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/04/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 0076c70f64ec5cea8b92cb2b9ed27de05406316d
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: d2b90db18a31fff4190be4f84625ad52fcaae578
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91827573"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657316"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Wprowadzenie do usługi Azure Cost Management dla partnerów
 
@@ -126,7 +126,7 @@ Niezależnie od zasad administratorzy globalni i agenci administratora dostawcy 
 
 Aby wyświetlać i aktualizować zasady, musisz być członkiem grupy **agent administrator**. Użyj następujących informacji, aby włączyć zasady umożliwiające klientom wyświetlanie opłat za użycie platformy Azure.
 
-W witrynie Azure Portal zaloguj się do dzierżawy partnera i wybierz pozycję **Zarządzanie kosztami i rozliczenia**. Wybierz odpowiedni zakres rozliczeniowy w obszarze Zakres rozliczeniowy, a następnie wybierz pozycję **Klienci**. Lista klientów jest skojarzona z kontem rozliczeniowym.
+W witrynie Azure Portal zaloguj się do *dzierżawy partnera* i wybierz pozycję **Zarządzanie kosztami i rozliczenia**. Wybierz odpowiedni zakres rozliczeniowy w obszarze Zakres rozliczeniowy, a następnie wybierz pozycję **Klienci**. Lista klientów jest skojarzona z kontem rozliczeniowym. *Jeśli omyłkowo zalogujesz się do dzierżawy klienta, nie zobaczysz listy **Klienci**.*
 
 Na liście klientów wybierz klienta, który ma być uprawniony do wyświetlania kosztów.
 
@@ -188,7 +188,7 @@ Następujące pola danych znajdują się w plikach szczegółów użycia i inter
 | costCenter | Centrum kosztów skojarzone z subskrypcją. | Nie dotyczy |
 | billingPeriodStartDate | Data rozpoczęcia okresu rozliczeniowego pokazana na fakturze. | Nie dotyczy |
 | billingPeriodEndDate | Data zakończenia okresu rozliczeniowego pokazana na fakturze. | Nie dotyczy |
-| servicePeriodStartDate | Data rozpoczęcia okresu oceny, podczas którego użycie usługi zostało ocenione pod kątem opłat. Ceny usług platformy Azure są określane dla okresu oceny. | ChargeStartDate w Centrum partnerskim. Data rozpoczęcia cyklu rozliczeniowego z wyjątkiem przypadków, gdy są przedstawiane daty wcześniej nieodpłatnych ukrytych danych użycia z poprzedniego okresu rozliczeniowego. Godzina to zawsze początek dnia, 0:00. |
+| servicePeriodStartDate | Data rozpoczęcia okresu oceny, podczas którego użycie usługi zostało ocenione pod kątem opłat. Ceny usług platformy Azure są określane dla okresu oceny. | ChargeStartDate w Centrum partnerskim.  Data rozpoczęcia cyklu rozliczeniowego z wyjątkiem przypadków, gdy są przedstawiane daty wcześniej nieodpłatnych ukrytych danych użycia z poprzedniego okresu rozliczeniowego. Godzina to zawsze początek dnia, 0:00. |
 | servicePeriodEndDate | Data zakończenia okresu, w którym użycie usługi zostało ocenione pod kątem opłat. Ceny usług platformy Azure są ustalane na podstawie okresu oceny. | Nie dotyczy |
 | date | W przypadku danych dotyczących zużycia na platformie Azure pokazuje to datę użycia jako ocenioną. W przypadku wystąpienia zarezerwowanego jest wyświetlana data zakupu. W przypadku naliczania opłat cyklicznych i jednorazowych, takich jak usługa Marketplace i pomoc techniczna, jest wyświetlana data zakupu. | Nie dotyczy |
 | productID | Identyfikator produktu, dla którego naliczono opłaty według zużycia lub zakupu. Jest to połączenie klucza identyfikatorów productID i SKuID, jak pokazano w Centrum partnerskim. | Identyfikator produktu. |

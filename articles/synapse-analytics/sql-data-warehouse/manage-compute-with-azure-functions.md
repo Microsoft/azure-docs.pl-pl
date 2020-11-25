@@ -12,11 +12,11 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: bc615322c11a456699d2364cf44cad40e086e851
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517890"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022483"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Używanie Azure Functions do zarządzania zasobami obliczeniowymi w puli SQL usługi Azure Synapse Analytics
 
@@ -99,7 +99,7 @@ Obecnie szablon zawiera tylko dwie funkcje skalowania. Korzystając z tych funkc
 
    ![Zrzut ekranu pokazujący menu "aplikacje funkcji" z ikoną "plus" obok wybranej pozycji "Functions" (funkcje).](./media/manage-compute-with-azure-functions/create-new-function.png)
 
-2. W obszarze Język wybierz pozycję *JavaScript* , a następnie wybierz pozycję *TimerTrigger*.
+2. W obszarze Język wybierz pozycję *JavaScript*, a następnie wybierz pozycję *TimerTrigger*.
 
    ![Tworzenie nowej funkcji](./media/manage-compute-with-azure-functions/timertrigger-js.png)
 
@@ -139,7 +139,7 @@ W tej sekcji przedstawiono krótkie informacje o tym, co jest niezbędne do uzys
 
 Codzienne skalowanie w górę o 8:00 do DW600c i skalowanie w dół w 8pm do DW200c.
 
-| Function  | Zaplanuj     | Operacja                                |
+| Funkcja  | Zaplanuj     | Operacja                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW600c"}` |
 | Function2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200c"}` |
@@ -148,7 +148,7 @@ Codzienne skalowanie w górę o 8:00 do DW600c i skalowanie w dół w 8pm do DW2
 
 Codzienne skalowanie w górę o 8:00 do DW1000c, skalowanie w dół do wartości DW600 w 16:00 i skalowanie w dół o 10pm do DW200c.
 
-| Function  | Zaplanuj     | Operacja                                |
+| Funkcja  | Zaplanuj     | Operacja                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000c"}` |
 | Function2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600c"}` |
@@ -158,7 +158,7 @@ Codzienne skalowanie w górę o 8:00 do DW1000c, skalowanie w dół do wartości
 
 Skaluj w górę o 8:00 do DW1000c, Skaluj w dół do DW600c na 16:00 w dniach roboczych. Wstrzymanie w piątek o godz. 23:00, wznowienie w poniedziałek rano o godz. 7:00.
 
-| Function  | Zaplanuj       | Operacja                                |
+| Funkcja  | Zaplanuj       | Operacja                                |
 | :-------- | :------------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000c"}` |
 | Function2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600c"}` |

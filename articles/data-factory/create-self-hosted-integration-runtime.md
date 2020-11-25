@@ -10,13 +10,13 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
-ms.date: 06/09/2020
-ms.openlocfilehash: 80c837e640ef0d1739c329fb463e173e6c40be31
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.date: 11/25/2020
+ms.openlocfilehash: 22155083a71a9cbf615293a4f86a179aaefce2a9
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331722"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96023361"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Tworzenie i konfigurowanie własnego środowiska Integration Runtime
 
@@ -64,7 +64,7 @@ Wykonaj następujące kroki, aby utworzyć środowisko IR samodzielnego przy uż
 
    ![Tworzenie środowiska Integration Runtime](media/doc-common-process/manage-new-integration-runtime.png)
 
-1. Na stronie **Konfiguracja środowiska Integration Runtime** wybierz pozycję **Azure, pozycję samodzielny** , a następnie wybierz pozycję **Kontynuuj**. 
+1. Na stronie **Konfiguracja środowiska Integration Runtime** wybierz pozycję **Azure, pozycję samodzielny**, a następnie wybierz pozycję **Kontynuuj**. 
 
 1. Na poniższej stronie wybierz pozycję **samodzielna** , aby utworzyć Self-Hosted IR, a następnie wybierz pozycję **Kontynuuj**.
    ![Tworzenie selfhosted IR](media/create-self-hosted-integration-runtime/new-selfhosted-integration-runtime.png)
@@ -150,7 +150,7 @@ Poniżej znajduje się podsumowanie etapów przepływu danych do kopiowania przy
 - Użyj własnego środowiska Integration Runtime do obsługi integracji danych w ramach sieci wirtualnej platformy Azure.
 - Traktuj źródło danych jako lokalne źródło danych znajdujące się za zaporą, nawet jeśli korzystasz z usługi Azure ExpressRoute. Użyj własnego środowiska Integration Runtime, aby połączyć usługę ze źródłem danych.
 - Użyj własnego środowiska Integration Runtime, nawet jeśli magazyn danych znajduje się w chmurze na maszynie wirtualnej infrastruktury platformy Azure jako usługi (IaaS).
-- Zadania mogą zakończyć się niepowodzeniem w ramach własnego środowiska Integration Runtime zainstalowanego w systemie Windows Server, dla którego włączono szyfrowanie zgodne ze standardem FIPS. Aby obejść ten problem, masz dwie opcje: Przechowuj poświadczenia/wartości tajne w Azure Key Vault lub wyłącz szyfrowanie zgodne ze standardem FIPS na serwerze. Aby wyłączyć szyfrowanie zgodne ze standardem FIPS, należy zmienić wartość następującego podklucza rejestru z 1 (włączone) na 0 (wyłączone): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` .
+- Zadania mogą zakończyć się niepowodzeniem w ramach własnego środowiska Integration Runtime zainstalowanego w systemie Windows Server, dla którego włączono szyfrowanie zgodne ze standardem FIPS. Aby obejść ten problem, masz dwie opcje: Przechowuj poświadczenia/wartości tajne w Azure Key Vault lub wyłącz szyfrowanie zgodne ze standardem FIPS na serwerze. Aby wyłączyć szyfrowanie zgodne ze standardem FIPS, należy zmienić wartość następującego podklucza rejestru z 1 (włączone) na 0 (wyłączone): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` . Jeśli używasz [własnego środowiska Integration Runtime jako serwera proxy dla programu SSIS Integration Runtime](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis), szyfrowanie zgodne ze standardem FIPS może być włączone i będzie używane podczas przenoszenia danych z lokalizacji lokalnej na platformę Azure Blob Storage jako obszaru przejściowego.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -185,7 +185,7 @@ Możesz zainstalować własne środowisko Integration Runtime, pobierając pakie
 ## <a name="install-and-register-a-self-hosted-ir-from-microsoft-download-center"></a>Instalowanie i rejestrowanie samodzielnego środowiska IR z centrum pobierania firmy Microsoft
 
 1. Przejdź do [strony pobierania środowiska Microsoft Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-1. Wybierz pozycję **Pobierz** , wybierz wersję 64-bitową i wybierz pozycję **dalej**. Wersja 32-bitowa nie jest obsługiwana.
+1. Wybierz pozycję **Pobierz**, wybierz wersję 64-bitową i wybierz pozycję **dalej**. Wersja 32-bitowa nie jest obsługiwana.
 1. Uruchom bezpośrednio plik tożsamości zarządzanej lub Zapisz go na dysku twardym i uruchom go.
 1. W oknie **Zapraszamy** wybierz język i wybierz pozycję **dalej**.
 1. Zaakceptuj postanowienia licencyjne dotyczące oprogramowania firmy Microsoft i wybierz pozycję **dalej**.
@@ -239,7 +239,7 @@ Poniżej przedstawiono wymagania dotyczące certyfikatu TLS/SSL, który służy 
 
 - Certyfikat musi być publicznie zaufanym certyfikatem x509 v3. Zalecamy używanie certyfikatów wystawionych przez publiczny urząd certyfikacji partnera (CA).
 - Każdy węzeł Integration Runtime musi ufać temu certyfikatowi.
-- Nie zalecamy certyfikatów alternatywnej nazwy podmiotu (SAN), ponieważ jest używany tylko ostatni element sieci SAN. Wszystkie inne elementy sieci SAN są ignorowane. Jeśli na przykład masz certyfikat sieci SAN, którego sieci San są **Node1.domain.contoso.com** i **Node2.domain.contoso.com** , możesz użyć tego certyfikatu tylko na komputerze, którego w pełni KWALIFIKOWANA nazwa domeny (FQDN) to **Node2.domain.contoso.com**.
+- Nie zalecamy certyfikatów alternatywnej nazwy podmiotu (SAN), ponieważ jest używany tylko ostatni element sieci SAN. Wszystkie inne elementy sieci SAN są ignorowane. Jeśli na przykład masz certyfikat sieci SAN, którego sieci San są **Node1.domain.contoso.com** i **Node2.domain.contoso.com**, możesz użyć tego certyfikatu tylko na komputerze, którego w pełni KWALIFIKOWANA nazwa domeny (FQDN) to **Node2.domain.contoso.com**.
 - Certyfikat może używać dowolnego rozmiaru klucza obsługiwanego przez system Windows Server 2012 R2 dla certyfikatów TLS/SSL.
 - Certyfikaty używające kluczy CNG nie są obsługiwane.  
 
@@ -264,8 +264,8 @@ Aby zapoznać się z wprowadzeniem i pokazem tej funkcji, Obejrzyj następujący
 
 ### <a name="terminology"></a>Terminologia
 
-- **Udostępnione środowisko IR** : oryginalne środowisko IR, które działa w ramach infrastruktury fizycznej.  
-- **Połączone środowisko IR** : IR, który odwołuje się do innego udostępnionego środowiska IR. Połączone środowisko IR jest logicznym portem IR i używa infrastruktury innego udostępnionego samodzielnego środowiska IR.
+- **Udostępnione środowisko IR**: oryginalne środowisko IR, które działa w ramach infrastruktury fizycznej.  
+- **Połączone środowisko IR**: IR, który odwołuje się do innego udostępnionego środowiska IR. Połączone środowisko IR jest logicznym portem IR i używa infrastruktury innego udostępnionego samodzielnego środowiska IR.
 
 ### <a name="methods-to-share-a-self-hosted-integration-runtime"></a>Metody udostępniania środowiska Integration Runtime (własne)
 
@@ -351,9 +351,9 @@ Po skonfigurowaniu środowisko Integration runtime używa serwera proxy do łąc
 
 Dostępne są trzy opcje konfiguracji:
 
-- **Nie używaj serwera proxy** : własne środowisko Integration Runtime nie używa jawnie żadnego serwera proxy do nawiązywania połączenia z usługami w chmurze.
-- **Użyj systemowego serwera proxy** : własne środowisko Integration runtime używa ustawień serwera proxy skonfigurowanych w diahost.exe.config i diawp.exe.config. Jeśli te pliki nie określają konfiguracji serwera proxy, własne środowisko Integration Runtime łączy się bezpośrednio z usługą w chmurze bez przechodzenia przez serwer proxy.
-- **Użyj niestandardowego serwera proxy** : Skonfiguruj ustawienia serwera proxy HTTP, które ma być używane dla własnego środowiska Integration Runtime, zamiast korzystać z konfiguracji w diahost.exe.config i diawp.exe.config. Wartości **Address** i **port** są wymagane. Wartości **Nazwa użytkownika** i **hasło** są opcjonalne, w zależności od ustawienia uwierzytelniania serwera proxy. Wszystkie ustawienia są szyfrowane za pomocą funkcji DPAPI systemu Windows w ramach własnego środowiska Integration Runtime i przechowywane lokalnie na komputerze.
+- **Nie używaj serwera proxy**: własne środowisko Integration Runtime nie używa jawnie żadnego serwera proxy do nawiązywania połączenia z usługami w chmurze.
+- **Użyj systemowego serwera proxy**: własne środowisko Integration runtime używa ustawień serwera proxy skonfigurowanych w diahost.exe.config i diawp.exe.config. Jeśli te pliki nie określają konfiguracji serwera proxy, własne środowisko Integration Runtime łączy się bezpośrednio z usługą w chmurze bez przechodzenia przez serwer proxy.
+- **Użyj niestandardowego serwera proxy**: Skonfiguruj ustawienia serwera proxy HTTP, które ma być używane dla własnego środowiska Integration Runtime, zamiast korzystać z konfiguracji w diahost.exe.config i diawp.exe.config. Wartości **Address** i **port** są wymagane. Wartości **Nazwa użytkownika** i **hasło** są opcjonalne, w zależności od ustawienia uwierzytelniania serwera proxy. Wszystkie ustawienia są szyfrowane za pomocą funkcji DPAPI systemu Windows w ramach własnego środowiska Integration Runtime i przechowywane lokalnie na komputerze.
 
 Usługa hosta Integration Runtime jest uruchamiana automatycznie po zapisaniu zaktualizowanych ustawień serwera proxy.
 

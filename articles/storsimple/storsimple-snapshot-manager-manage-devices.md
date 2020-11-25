@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: dbb7e835d110bcb6cb81fd5425a2aafbb578e692
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90054854"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022976"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Używanie Snapshot Manager StorSimple do nawiązywania połączeń z urządzeniami StorSimple i zarządzania nimi
 ## <a name="overview"></a>Omówienie
@@ -193,7 +193,7 @@ Jeśli urządzenie StorSimple ulegnie awarii i zostanie zastąpione przez urząd
    1. Uruchom Menedżera serwera.
    2. Na pulpicie nawigacyjnym Menedżer serwera w menu **Narzędzia** wybierz pozycję **usługi**.
    3. W oknie **usługi** wybierz **usługę Microsoft StorSimple Management**.
-   4. W prawym okienku w obszarze **usługi Microsoft StorSimple Management**kliknij pozycję **Zatrzymaj usługę**.
+   4. W prawym okienku w obszarze **usługi Microsoft StorSimple Management** kliknij pozycję **Zatrzymaj usługę**.
 2. Usuń informacje o konfiguracji dotyczące starego urządzenia:
    
    1. W Eksploratorze plików przejdź do C:\ProgramData\Microsoft\StorSimple\BACatalog.
@@ -202,7 +202,7 @@ Jeśli urządzenie StorSimple ulegnie awarii i zostanie zastąpione przez urząd
    
    1. Na pulpicie nawigacyjnym Menedżer serwera w menu **Narzędzia** wybierz pozycję **usługi**.
    2. W oknie **usługi** wybierz **usługę Microsoft StorSimple Management**.
-   3. W prawym okienku w obszarze **usługi Microsoft StorSimple Management**kliknij pozycję **Uruchom ponownie usługę**.
+   3. W prawym okienku w obszarze **usługi Microsoft StorSimple Management** kliknij pozycję **Uruchom ponownie usługę**.
 4. Uruchom StorSimple Snapshot Manager.
 5. Aby skonfigurować nowe urządzenie StorSimple, wykonaj kroki opisane w sekcji Krok 2. Łączenie urządzenia StorSimple w programie [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 6. Kliknij prawym przyciskiem myszy węzeł najwyższego poziomu w okienku **zakres** (StorSimple Snapshot Manager w przykładzie), a następnie kliknij pozycję **Przełącz Importy**. 

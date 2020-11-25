@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
 ms.openlocfilehash: b6cc89cb082cd0ed32abd88e3a6683c60a27ba90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742183"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023044"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>Klonowanie z kopii zapasowej macierzy wirtualnej StorSimple
 
@@ -38,7 +38,7 @@ W tym artykule opisano krok po kroku, jak sklonować zestaw kopii zapasowych udz
    ![Klonowanie kopii zapasowej](./media/storsimple-virtual-array-clone/cloneshare1.png)
 2. W bloku **klonowania** kliknij pozycję **kopia zapasowa > wybierz** , a następnie wykonaj następujące czynności: 
    
-   a.    Odfiltruj kopię zapasową na tym urządzeniu w oparciu o zakres czasu. Możesz wybrać jedną z **ostatnich 7 dni**, **ostatnie 30 dni**i **ostatni rok**.
+   a.    Odfiltruj kopię zapasową na tym urządzeniu w oparciu o zakres czasu. Możesz wybrać jedną z **ostatnich 7 dni**, **ostatnie 30 dni** i **ostatni rok**.
    
    b.    Na wyświetlonej liście filtrowanych kopii zapasowych wybierz kopię zapasową do sklonowania.
    
@@ -78,7 +78,7 @@ Aby sklonować z kopii zapasowej, w Azure Portal należy wykonać kroki podobne 
    ![Klonowanie woluminu](./media/storsimple-virtual-array-clone/clonevolume1.png)
 2. W bloku **klonowania** kliknij pozycję **kopia zapasowa** , a następnie wykonaj następujące czynności: 
    
-   a.    Odfiltruj kopię zapasową na tym urządzeniu w oparciu o zakres czasu. Możesz wybrać jedną z **ostatnich 7 dni**, **ostatnie 30 dni**i **ostatni rok**. 
+   a.    Odfiltruj kopię zapasową na tym urządzeniu w oparciu o zakres czasu. Możesz wybrać jedną z **ostatnich 7 dni**, **ostatnie 30 dni** i **ostatni rok**. 
    
    b.    Na wyświetlonej liście filtrowanych kopii zapasowych wybierz kopię zapasową do sklonowania.
    
@@ -93,7 +93,7 @@ Aby sklonować z kopii zapasowej, w Azure Portal należy wykonać kroki podobne 
    
    c. Typ woluminu jest automatycznie ustawiany na oryginalny wolumin. Wolumin warstwowy jest sklonowany jako warstwowy i wolumin przypięty lokalnie jako przypięty lokalnie.
    
-   d. W przypadku **podłączonych hostów**kliknij przycisk **Wybierz**.
+   d. W przypadku **podłączonych hostów** kliknij przycisk **Wybierz**.
    
    ![Klonowanie woluminu 3](./media/storsimple-virtual-array-clone/clonevolume4.png)
 4. W bloku **połączone hosty** wybierz jedną z istniejących ACR lub Dodaj nową ACR. Aby dodać nowy ACR, należy podać nazwę ACR i IQN hosta. Kliknij pozycję **Wybierz**.

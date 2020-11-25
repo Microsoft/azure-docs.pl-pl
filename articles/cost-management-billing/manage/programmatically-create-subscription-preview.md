@@ -5,26 +5,34 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3ffdeb0add8622e1b9f28f9603dc146b78f742cd
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 68d890386d53b4115c773b128f8678bac9579e53
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043304"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844339"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-preview-apis"></a>Programowe tworzenie subskrypcji platformy Azure za pomocą interfejsów API w wersji zapoznawczej
 
-Ten artykuł ułatwia programowe tworzenie subskrypcji platformy Azure przy użyciu starszego interfejsu API w wersji zapoznawczej. Firma Microsoft wydała [nowszą wersję interfejsu API](programmatically-create-subscription.md). Informacje znajdujące się w tym artykule są przeznaczone dla osób, które nie chcą korzystać z najnowszej wersji. W tym artykule dowiesz się, jak programowo tworzyć subskrypcje za pomocą usługi Azure Resource Manager.
+Ten artykuł ułatwia programowe tworzenie subskrypcji platformy Azure przy użyciu starszego interfejsu API w wersji zapoznawczej. W tym artykule dowiesz się, jak programowo tworzyć subskrypcje za pomocą usługi Azure Resource Manager.
+
+Mamy nowe artykuły dotyczące najnowszej wersji interfejsu API dotyczące różnego typu subskrypcji umów platformy Azure:
+
+- [Programowe tworzenie subskrypcji umowy EA za pomocą najnowszego interfejsu API](programmatically-create-subscription-enterprise-agreement.md)
+- [Programowe tworzenie subskrypcji Umowy z Klientem Microsoft za pomocą najnowszego interfejsu API](programmatically-create-subscription-microsoft-customer-agreement.md)
+- [Programowe tworzenie subskrypcji umowy MPA za pomocą najnowszego interfejsu API](Programmatically-create-subscription-microsoft-customer-agreement.md)
+
+Nadal możesz jednak korzystać z informacji znajdujących się w tym artykule, jeśli nie chcesz korzystać z najnowszej wersji interfejsu API.
 
 Programowe tworzenie subskrypcji jest dostępne dla klientów platformy Azure z kontem rozliczeniowym dla następujących typów umów:
 
-- [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
-- [Umowa klienta firmy Microsoft (MCA)](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/)
-- [Umowa partnerska firmy Microsoft](https://www.microsoft.com/licensing/news/introducing-microsoft-partner-agreement)
+- Enterprise Agreement
+- Umowa klienta firmy Microsoft (MCA)
+- Umowa partnerska firmy Microsoft
 
 Subskrypcja platformy Azure utworzona programowo podlega warunkom umowy, w ramach której nabyto usługi platformy Azure od firmy Microsoft lub autoryzowanego odsprzedawcy. Aby dowiedzieć się więcej, zobacz [informacje prawne dotyczące platformy Microsoft Azure](https://azure.microsoft.com/support/legal/).
 

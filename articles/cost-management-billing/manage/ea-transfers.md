@@ -6,15 +6,15 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 11/11/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: 3222c934998febe79c36121ca816f949b78d374e
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: dc725839d018c281dc784f5f83b256e62d70884d
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411562"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635419"
 ---
 # <a name="azure-enterprise-transfers"></a>Transfery umowy Azure Enterprise
 
@@ -98,9 +98,9 @@ Podczas przenoszenia konta lub rejestracji nie występują przestoje. Można je 
 
 Aby przenieść subskrypcję Enterprise do pojedynczej subskrypcji ze stawkami płatności zgodnie z rzeczywistym użyciem, należy utworzyć nowy wniosek o pomoc techniczną w witrynie Azure Enterprise Portal. Aby utworzyć wniosek o pomoc techniczną, wybierz pozycję **Nowy wniosek o pomoc techniczną** w obszarze **Pomoc i obsługa techniczna**.
 
-## <a name="change-account-owner"></a>Zmienianie właściciela konta
+## <a name="change-azure-subscription-or-account-ownership"></a>Zmienianie własności subskrypcji platformy Azure lub konta
 
-W witrynie Azure EA Portal można przenosić subskrypcje od jednego właściciela konta do innego. Aby uzyskać więcej informacji, zobacz sekcję [Zmienianie właściciela konta](ea-portal-administration.md#change-account-owner).
+W witrynie Azure EA Portal można przenosić subskrypcje od jednego właściciela konta do innego. Aby uzyskać więcej informacji, zobacz [Zmienianie własności subskrypcji platformy Azure lub konta](ea-portal-administration.md#change-azure-subscription-or-account-ownership).
 
 ## <a name="subscription-transfer-effects"></a>Efekty przeniesienia subskrypcji
 
@@ -123,7 +123,7 @@ Jeśli odbiorca musi ograniczyć dostęp do swoich zasobów platformy Azure, pow
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. W menu Centrum wybierz pozycję **Wszystkie zasoby**.
 3. Wybierz zasób.
-4. Na stronie zasobu wybierz pozycję **Ustawienia** , aby wyświetlić i zaktualizować istniejące wpisy tajne.
+4. Na stronie zasobu wybierz pozycję **Ustawienia**, aby wyświetlić i zaktualizować istniejące wpisy tajne.
 
 ## <a name="next-steps"></a>Następne kroki
 

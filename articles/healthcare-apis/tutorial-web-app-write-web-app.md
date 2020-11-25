@@ -10,11 +10,11 @@ ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
 ms.openlocfilehash: bb9c206a17a11f0cf710ac4ee3ac7ccae0fa9eb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87848030"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023299"
 ---
 # <a name="write-azure-web-application-to-read-fhir-data"></a>Napisz aplikację sieci Web platformy Azure w celu odczytu danych FHIR
 Teraz, gdy masz możliwość nawiązywania połączenia z serwerem FHIR i publikowania danych, możesz napisać aplikację sieci Web, która będzie odczytywać dane FHIR. W tym ostatnim kroku samouczka przeprowadzimy przez proces pisania i uzyskiwania dostępu do aplikacji sieci Web.

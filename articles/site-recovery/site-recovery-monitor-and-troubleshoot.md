@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: raynew
 ms.openlocfilehash: d441284b265ab11dd5ece42ec3737e455d662435
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545807"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023571"
 ---
 # <a name="monitor-site-recovery"></a>Monitorowanie usługi Site Recovery
 
@@ -30,7 +30,7 @@ Przed rozpoczęciem warto zapoznać się z [typowymi pytaniami monitorowania](mo
 
 ## <a name="monitor-in-the-dashboard"></a>Monitorowanie na pulpicie nawigacyjnym
 
-1. W magazynie kliknij pozycję **Przegląd** . Pulpit nawigacyjny Recovery Services konsoliduje wszystkie informacje monitorowania dla magazynu w jednej lokalizacji. Istnieją strony dla obu Site Recovery i usługi Azure Backup, a także można przełączać się między nimi.
+1. W magazynie kliknij pozycję **Przegląd**. Pulpit nawigacyjny Recovery Services konsoliduje wszystkie informacje monitorowania dla magazynu w jednej lokalizacji. Istnieją strony dla obu Site Recovery i usługi Azure Backup, a także można przełączać się między nimi.
 
     ![Pulpit nawigacyjny Site Recovery](./media/site-recovery-monitor-and-troubleshoot/dashboard.png)
 
@@ -46,7 +46,7 @@ Przed rozpoczęciem warto zapoznać się z [typowymi pytaniami monitorowania](mo
 
 W obszarze **zreplikowane elementy** Monitoruj kondycję wszystkich maszyn w magazynie, dla których włączono replikację.
 
-**Państwu** | **Szczegóły**
+**Stan** | **Szczegóły**
 --- | ---
 Dobra kondycja | Replikacja postępuje normalnie. Nie wykryto błędów ani ostrzeżeń ostrzegawczych.
 Ostrzeżenie | Wykryto co najmniej jeden objaw ostrzegawczy, który może mieć wpływ na replikację.
@@ -60,7 +60,7 @@ W przypadku **powodzenia testów trybu failover** monitoruj stan trybu failover 
 - Zalecamy uruchomienie testowej pracy w trybie failover na replikowanych maszynach co najmniej raz na sześć miesięcy. Jest to sposób, aby sprawdzić, czy tryb failover działa zgodnie z oczekiwaniami, bez zakłócania pracy w środowisku produkcyjnym. 
 - Test pracy w trybie failover jest uznawany za pomyślny dopiero po pomyślnym zakończeniu przejścia w tryb failover i po przejściu po awarii.
 
-**Państwu** | **Szczegóły**
+**Stan** | **Szczegóły**
 --- | ---
 Zalecany test | Maszyny, które nie miały testowego przejścia w tryb failover, ponieważ włączono ochronę.
 Wykonane pomyślnie | Maszyny z lub więcej pomyślnych testów trybu failover.
@@ -73,7 +73,7 @@ W obszarze **problemy z konfiguracją** należy monitorować wszelkie problemy, 
 - Problemy z konfiguracją (z wyjątkiem dostępności aktualizacji oprogramowania) są wykrywane przez okresową operację sprawdzania poprawności, która domyślnie jest uruchamiana co 12 godzin. Można wymusić natychmiastowe uruchomienie operacji modułu sprawdzania poprawności, klikając ikonę odświeżenia obok nagłówka sekcji **problemy z konfiguracją** .
 - Kliknij linki, aby uzyskać więcej szczegółów. W przypadku problemów mających wpływ na określone maszyny kliknij pozycję **wymaga uwagi** w kolumnie **konfiguracje docelowe** . Szczegóły obejmują zalecenia dotyczące korygowania.
 
-**Państwu** | **Szczegóły**
+**Stan** | **Szczegóły**
 --- | ---
 Brakujące konfiguracje | Brak wymaganego ustawienia, takiego jak sieć odzyskiwania lub Grupa zasobów.
 Brakujące zasoby | Nie można znaleźć określonego zasobu lub nie jest on dostępny w subskrypcji. Na przykład zasób został usunięty lub poddany migracji. Monitorowane zasoby obejmują docelową grupę zasobów, docelową sieć wirtualną/podsieć, dziennik/docelowe konto magazynu, docelowy zestaw dostępności, docelowy adres IP.
@@ -107,7 +107,7 @@ W **widoku infrastruktura** Monitoruj składniki infrastruktury objęte replikac
 - Aby korzystać ze wszystkich funkcji w widoku infrastruktury, należy uruchomić [pakiet zbiorczy aktualizacji 22](https://support.microsoft.com/help/4072852) dla tych składników.
 - Aby skorzystać z widoku infrastruktura, wybierz odpowiedni scenariusz replikacji w danym środowisku. Aby uzyskać więcej informacji, możesz przejść do szczegółów w widoku. W poniższej tabeli przedstawiono, które scenariusze są reprezentowane.
 
-    **Scenariusz** | **Państwu**  | **Wyświetlić dostępne?**
+    **Scenariusz** | **Stan**  | **Wyświetlić dostępne?**
     --- |--- | ---
     **Replikacja między lokacjami lokalnymi** | Wszystkie stany | Nie 
     **Replikacja maszyny wirtualnej platformy Azure między regionami platformy Azure**  | Replikacja włączona/replikacja początkowa w toku | Tak
@@ -138,7 +138,7 @@ Monitoruj zadania w następujący sposób:
 2. Kliknij pozycję **Wyświetl wszystko** , aby wyświetlić wszystkie zadania w ciągu ostatnich 24 godzin.
 
     > [!NOTE]
-    > Możesz również uzyskać dostęp do informacji o zadaniu z menu magazynowego > **zadania Site Recovery** . 
+    > Możesz również uzyskać dostęp do informacji o zadaniu z menu magazynowego > **zadania Site Recovery**. 
 
 2. Na liście **zadania Site Recovery** zostanie wyświetlona lista zadań. W górnym menu możesz uzyskać szczegółowe informacje o błędach dla konkretnych zadań, filtrować listę zadań na podstawie określonych kryteriów i wyeksportować wybrane szczegóły zadania do programu Excel.
 3. Aby przejść do szczegółów zadania, kliknij je. 
@@ -153,13 +153,13 @@ W obszarze **zreplikowane elementy** Pobierz listę replikowanych maszyn.
 4. Kliknij przycisk **Filtruj** , aby wyświetlić informacje na podstawie określonych parametrów, takich jak kondycja replikacji lub określone zasady replikacji.
 5. Kliknij prawym przyciskiem myszy maszynę, aby zainicjować operacje, takie jak testowanie pracy w trybie failover lub wyświetlanie określonych szczegółów błędu skojarzonych z nim.
 6. Kliknij maszynę, aby przejść do szczegółów. Szczegóły obejmują:
-   - **Informacje o replikacji** : bieżący stan i kondycja maszyny.
+   - **Informacje o replikacji**: bieżący stan i kondycja maszyny.
    - **RPO** (cel punktu odzyskiwania): bieżący punkt odzyskiwania maszyny wirtualnej oraz godzina ostatniego obliczenia punktu odzyskiwania.
-   - **Punkty odzyskiwania** : Najnowsze dostępne punkty odzyskiwania dla maszyny.
-   - **Gotowość do pracy w trybie failover** : wskazuje, czy dla maszyny uruchomiono test pracy w trybie failover, czy wersja agenta uruchomiona na komputerze (dla maszyn z uruchomioną usługą mobilności) oraz problemy z konfiguracją.
-   - **Błędy** : Lista objawów błędów replikacji aktualnie zaobserwowanych na komputerze i możliwych przyczyn/akcji.
-   - **Zdarzenia** : chronologiczna lista ostatnich zdarzeń, które mają wpływ na maszynę. Szczegóły błędu przedstawia widoczne objawy błędów, natomiast zdarzenia są historycznym rekordem problemów, które mają wpływ na maszynę.
-   - **Widok infrastruktury** : pokazuje stan infrastruktury dla scenariusza, gdy maszyny są replikowane na platformę Azure.
+   - **Punkty odzyskiwania**: Najnowsze dostępne punkty odzyskiwania dla maszyny.
+   - **Gotowość do pracy w trybie failover**: wskazuje, czy dla maszyny uruchomiono test pracy w trybie failover, czy wersja agenta uruchomiona na komputerze (dla maszyn z uruchomioną usługą mobilności) oraz problemy z konfiguracją.
+   - **Błędy**: Lista objawów błędów replikacji aktualnie zaobserwowanych na komputerze i możliwych przyczyn/akcji.
+   - **Zdarzenia**: chronologiczna lista ostatnich zdarzeń, które mają wpływ na maszynę. Szczegóły błędu przedstawia widoczne objawy błędów, natomiast zdarzenia są historycznym rekordem problemów, które mają wpływ na maszynę.
+   - **Widok infrastruktury**: pokazuje stan infrastruktury dla scenariusza, gdy maszyny są replikowane na platformę Azure.
 
      ![Site Recovery szczegóły zreplikowanego elementu/przegląd](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 
@@ -173,8 +173,8 @@ Możesz subskrybować otrzymywanie powiadomień e-mail dotyczących tych krytycz
 
 Subskrybuj w następujący sposób:
 
-W sekcji **monitorowanie** > magazynu kliknij pozycję **zdarzenia Site Recovery** .
-1. Kliknij pozycję **Powiadomienia e-mail** .
+W sekcji **monitorowanie** > magazynu kliknij pozycję **zdarzenia Site Recovery**.
+1. Kliknij pozycję **Powiadomienia e-mail**.
 1. W obszarze **powiadomienia e-mail** Włącz opcję powiadomienia i określ, do kogo wysyłać. Możesz wysyłać do wszystkich administratorów subskrypcji, aby otrzymywać powiadomienia i opcjonalnie określone adresy e-mail.
 
     ![Powiadomienia e-mail](./media/site-recovery-monitor-and-troubleshoot/email.png)

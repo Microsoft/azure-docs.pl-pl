@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 04/28/2020
 ms.openlocfilehash: eb8201ea888b98250d452e0b0e1c48f30cbb1efc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742049"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022738"
 ---
 # <a name="use-azure-blob-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Używanie sygnatur dostępu współdzielonego usługi Azure Blob Storage w celu ograniczenia dostępu do danych w usłudze HDInsight
 
@@ -207,7 +207,7 @@ Otwórz `SASToken.py` plik i Zastąp `storage_account_name` `storage_account_key
 
 1. Otwórz rozwiązanie w programie Visual Studio.
 
-2. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt **SASExample** i wybierz polecenie **Właściwości** .
+2. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt **SASExample** i wybierz polecenie **Właściwości**.
 
 3. Wybierz pozycję **Ustawienia** i Dodaj wartości dla następujących wpisów:
 
@@ -353,27 +353,27 @@ Jeśli masz istniejący klaster, możesz dodać sygnaturę dostępu współdziel
 
 1. Otwórz interfejs użytkownika sieci Web Ambari dla klastra. Adres tej strony to `https://YOURCLUSTERNAME.azurehdinsight.net` . Po wyświetleniu monitu Uwierzytelnij się w klastrze przy użyciu nazwy administratora (administratora) i hasła użytego podczas tworzenia klastra.
 
-1. Przejdź do **HDFS**  >  **konfiguracji** systemu plików HDFS  >  **Advanced**  >  **— Zaawansowane niestandardowe podstawowe Lokacje** .
+1. Przejdź do **HDFS**  >  **konfiguracji** systemu plików HDFS  >  **Advanced**  >  **— Zaawansowane niestandardowe podstawowe Lokacje**.
 
-1. Rozwiń sekcję **niestandardowa lokacja podstawowa** , przewiń do końca, a następnie wybierz pozycję **Dodaj właściwość..** .. Użyj następujących wartości **klucza** i **wartości** :
+1. Rozwiń sekcję **niestandardowa lokacja podstawowa** , przewiń do końca, a następnie wybierz pozycję **Dodaj właściwość..**.. Użyj następujących wartości **klucza** i **wartości**:
 
-    * **Klucz** : `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
-    * **Wartość** : Sygnatura dostępu współdzielonego zwrócona przez jedną z metod wcześniej wykonanych.
+    * **Klucz**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+    * **Wartość**: Sygnatura dostępu współdzielonego zwrócona przez jedną z metod wcześniej wykonanych.
 
     Zamień na `CONTAINERNAME` nazwę kontenera używaną w aplikacji C# lub SAS. Zamień `STORAGEACCOUNTNAME` na użytą nazwę konta magazynu.
 
     Wybierz pozycję **Dodaj** , aby zapisać ten klucz i wartość
 
-1. Wybierz przycisk **Zapisz** , aby zapisać zmiany konfiguracji. Po wyświetleniu monitu Dodaj opis zmiany (na przykład "Dodawanie dostępu do magazynu SAS"), a następnie wybierz pozycję **Zapisz** .
+1. Wybierz przycisk **Zapisz** , aby zapisać zmiany konfiguracji. Po wyświetleniu monitu Dodaj opis zmiany (na przykład "Dodawanie dostępu do magazynu SAS"), a następnie wybierz pozycję **Zapisz**.
 
     Po zakończeniu wprowadzania zmian wybierz **przycisk OK** .
 
    > [!IMPORTANT]  
    > Aby zmiana zacznie obowiązywać, należy ponownie uruchomić kilka usług.
 
-1. Zostanie wyświetlona lista rozwijana **ponownego uruchomienia** . Z listy rozwijanej wybierz pozycję **Uruchom ponownie wszystkie, której dotyczy** , a następnie __Potwierdź ponowne uruchomienie wszystkich__ .
+1. Zostanie wyświetlona lista rozwijana **ponownego uruchomienia** . Z listy rozwijanej wybierz pozycję **Uruchom ponownie wszystkie, której dotyczy** , a następnie __Potwierdź ponowne uruchomienie wszystkich__.
 
-    Powtórz ten proces dla **MapReduce2** i **przędzy** .
+    Powtórz ten proces dla **MapReduce2** i **przędzy**.
 
 1. Po ponownym uruchomieniu usług wybierz każdą z nich i Wyłącz tryb konserwacji z listy rozwijanej **Akcje usługi** .
 
@@ -411,7 +411,7 @@ Wykonaj następujące kroki, aby sprawdzić, czy można tylko odczytywać i wyś
     hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log testfile.txt
     ```
 
-    To polecenie umożliwia pobranie pliku do pliku lokalnego o nazwie **testfile.txt** .
+    To polecenie umożliwia pobranie pliku do pliku lokalnego o nazwie **testfile.txt**.
 
 5. Użyj poniższego polecenia, aby przekazać plik lokalny do nowego pliku o nazwie **testupload.txt** w magazynie sygnatury dostępu współdzielonego:
 

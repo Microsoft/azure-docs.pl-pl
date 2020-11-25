@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 805ab0e78f0679ce483af3a73203b41132be2a59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90054776"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022959"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Tworzenie grup woluminów i zarządzanie nimi za pomocą StorSimple Snapshot Manager
 ## <a name="overview"></a>Omówienie
@@ -53,7 +53,7 @@ Po kliknięciu węzła **grupy woluminów** w okienku **wyników** zostaną wyś
 | Nazwa |Kolumna **name** zawiera nazwę grupy woluminów. |
 | Aplikacja |W kolumnie **aplikacje** jest wyświetlana liczba modułów ZAPISUJĄCYCH usługi VSS aktualnie zainstalowanych i uruchomionych na hoście z systemem Windows. |
 | Wybrane |W **zaznaczonej** kolumnie jest wyświetlana liczba woluminów znajdujących się w grupie woluminów. Zero (0) oznacza, że żadna aplikacja nie jest skojarzona z woluminami w grupie woluminów. |
-| Importu |**Zaimportowana** kolumna pokazuje liczbę zaimportowanych woluminów. Po ustawieniu na **wartość true**ta kolumna wskazuje, że grupa woluminów została zaimportowana z Azure Portal i nie została utworzona w Snapshot Manager StorSimple. |
+| Importu |**Zaimportowana** kolumna pokazuje liczbę zaimportowanych woluminów. Po ustawieniu na **wartość true** ta kolumna wskazuje, że grupa woluminów została zaimportowana z Azure Portal i nie została utworzona w Snapshot Manager StorSimple. |
 
 > [!NOTE]
 > StorSimple Snapshot Manager grupy woluminów są również wyświetlane na karcie **zasady tworzenia kopii zapasowych** w Azure Portal.
@@ -107,7 +107,7 @@ Aby edytować grupę woluminów, należy wykonać czynności opisane w poniższe
 #### <a name="to-edit-a-volume-group"></a>Aby edytować grupę woluminów
 1. Kliknij ikonę pulpitu, aby rozpocząć StorSimple Snapshot Manager.
 2. W okienku **zakres** rozwiń węzeł **grupy woluminów** , kliknij prawym przyciskiem myszy nazwę grupy woluminów, a następnie kliknij polecenie **Edytuj**.
-3. Zostanie wyświetlone okno dialogowe * * Tworzenie grupy woluminów * *. Można zmienić **nazwy**, **aplikacje**i wpisy **woluminów** .
+3. Zostanie wyświetlone okno dialogowe * * Tworzenie grupy woluminów * *. Można zmienić **nazwy**, **aplikacje** i wpisy **woluminów** .
 4. Kliknij przycisk **OK**, aby zapisać zmiany.
 
 ## <a name="delete-a-volume-group"></a>Usuń grupę woluminów

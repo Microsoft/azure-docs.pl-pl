@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 03/15/2020
 ms.author: cavoeg
 ms.openlocfilehash: cabacd5204f4a9ac5c17c7bd66924482b5bf688a
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339292"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023469"
 ---
 # <a name="quickstart-deploy-azure-api-for-fhir-using-azure-portal"></a>Szybki Start: wdrażanie interfejsu API platformy Azure dla usługi FHIR przy użyciu Azure Portal
 
@@ -37,13 +37,13 @@ Usługę Azure API for FHIR można znaleźć, wpisując ciąg "FHIR" w polu wysz
 
 Wybierz pozycję **Utwórz** , aby utworzyć nowe konto interfejsu API platformy Azure dla usługi FHIR:
 
-:::image type="content" source="media/quickstart-paas-portal/portal-create-healthcare-apis.png" alt-text="Wyszukaj interfejsy API usługi opieki zdrowotnej":::
+:::image type="content" source="media/quickstart-paas-portal/portal-create-healthcare-apis.png" alt-text="Tworzenie konta interfejsu API platformy Azure dla usługi FHIR":::
 
 ## <a name="enter-account-details"></a>Wprowadź szczegóły konta
 
 Wybierz istniejącą grupę zasobów lub Utwórz nową, wybierz nazwę konta, a na koniec kliknij pozycję **Przegląd + Utwórz**:
 
-:::image type="content" source="media/quickstart-paas-portal/portal-new-healthcareapi-details.png" alt-text="Wyszukaj interfejsy API usługi opieki zdrowotnej":::
+:::image type="content" source="media/quickstart-paas-portal/portal-new-healthcareapi-details.png" alt-text="Nowe szczegóły dotyczące interfejsu API usługi opieki zdrowotnej":::
 
 Potwierdź utworzenie i oczekiwanie na wdrożenie interfejsu API FHIR.
 
@@ -51,7 +51,7 @@ Potwierdź utworzenie i oczekiwanie na wdrożenie interfejsu API FHIR.
 
 Możesz również kliknąć przycisk **Dalej: Ustawienia dodatkowe** , aby wyświetlić ustawienia uwierzytelniania. Domyślną konfiguracją interfejsu API platformy Azure dla usługi FHIR jest [użycie funkcji RBAC platformy Azure do przypisywania ról płaszczyzny danych](configure-azure-rbac.md). Po skonfigurowaniu w tym trybie "urząd" dla usługi FHIR zostanie ustawiony na dzierżawę Azure Active Directory subskrypcji:
 
-:::image type="content" source="media/rbac/confirm-azure-rbac-mode-create.png" alt-text="Wyszukaj interfejsy API usługi opieki zdrowotnej":::
+:::image type="content" source="media/rbac/confirm-azure-rbac-mode-create.png" alt-text="Domyślne ustawienia uwierzytelniania":::
 
 Należy zauważyć, że pole umożliwiające wprowadzanie dozwolonych identyfikatorów obiektów jest wyszarzone, ponieważ w tym przypadku korzystamy z usługi Azure RBAC do konfigurowania przypisań ról.
 

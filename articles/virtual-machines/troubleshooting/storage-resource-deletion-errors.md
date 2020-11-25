@@ -12,11 +12,11 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 8d727bc8bdc8f015504baa57f9596b3bacac9712
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651637"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022874"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Rozwiązywanie problemów z błędami usuwania zasobów magazynu
 
@@ -43,7 +43,7 @@ Ponów próbę usunięcia konta magazynu, kontenera lub obiektu BLOB po zakończ
 
 ### <a name="scenario-1-deleting-a-blob--identify-attached-vm"></a>Scenariusz 1. Usuwanie obiektu BLOB — identyfikowanie dołączonej maszyny wirtualnej
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. W menu Centrum wybierz pozycję **Wszystkie zasoby**. Przejdź do konta magazynu, a następnie wybierz pozycję **kontenery**w obszarze **usługi BLOB** i przejdź do obiektu BLOB, który ma zostać usunięty.
+2. W menu Centrum wybierz pozycję **Wszystkie zasoby**. Przejdź do konta magazynu, a następnie wybierz pozycję **kontenery** w obszarze **usługi BLOB** i przejdź do obiektu BLOB, który ma zostać usunięty.
 3. Jeśli jest **dzierżawiony** **stan dzierżawy** obiektu BLOB, kliknij prawym przyciskiem myszy i wybierz polecenie **Edytuj metadane** , aby otworzyć okienko metadanych obiektu BLOB. 
 
     ![Zrzut ekranu portalu z obiektami BLOB konta magazynu i kliknij prawym przyciskiem myszy > wyróżnione "Edytuj metadane"](./media/troubleshoot-vhds/utd-edit-metadata-sm.png)
@@ -60,18 +60,18 @@ Ponów próbę usunięcia konta magazynu, kontenera lub obiektu BLOB po zakończ
 
 ### <a name="scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms"></a>Scenariusz 2. Usuwanie kontenera — Zidentyfikuj wszystkie obiekty blob w kontenerze, które są dołączone do maszyn wirtualnych
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. W menu Centrum wybierz pozycję **Wszystkie zasoby**. Przejdź do konta magazynu, w obszarze **Usługa BLOB** wybierz **kontenery**i Znajdź kontener do usunięcia.
+2. W menu Centrum wybierz pozycję **Wszystkie zasoby**. Przejdź do konta magazynu, w obszarze **Usługa BLOB** wybierz **kontenery** i Znajdź kontener do usunięcia.
 3. Kliknij, aby otworzyć kontener, a zostanie wyświetlona lista obiektów BLOB znajdujących się w nim. Zidentyfikuj wszystkie obiekty blob z typem obiektu BLOB = **Page BLOB** i State Lease = **wydzierżawione** z tej listy. Postępuj zgodnie z scenariuszem 1, aby zidentyfikować maszynę wirtualną skojarzoną z każdym z tych obiektów BLOB.
 
     ![Zrzut ekranu portalu z wyróżnionymi obiektami BLOB konta magazynu i "stanem dzierżawy" i "dzierżawa"](./media/troubleshoot-vhds/utd-disks-sm.png)
 
-4. Wykonaj [kroki krok 2](#step-2-delete-vm-to-detach-os-disk) i [3](#step-3-detach-data-disk-from-the-vm) , aby usunąć maszyny wirtualne z **OSDisk** i odłączyć **dysk**danych. 
+4. Wykonaj [kroki krok 2](#step-2-delete-vm-to-detach-os-disk) i [3](#step-3-detach-data-disk-from-the-vm) , aby usunąć maszyny wirtualne z **OSDisk** i odłączyć **dysk** danych. 
 
 ### <a name="scenario-3-deleting-storage-account---identify-all-blobs-within-storage-account-that-are-attached-to-vms"></a>Scenariusz 3. Usuwanie konta magazynu — identyfikowanie wszystkich obiektów BLOB w ramach konta magazynu, które są dołączone do maszyn wirtualnych
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. W menu Centrum wybierz pozycję **Wszystkie zasoby**. Przejdź do konta magazynu, a następnie wybierz pozycję **obiekty**BLOB w obszarze **usługi BLOB** .
+2. W menu Centrum wybierz pozycję **Wszystkie zasoby**. Przejdź do konta magazynu, a następnie wybierz pozycję **obiekty** BLOB w obszarze **usługi BLOB** .
 3. W okienku **kontenery** Zidentyfikuj wszystkie kontenery, w których jest **wydzierżawiony** **stan dzierżawy** , i postępuj zgodnie z [scenariuszem 2](#scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms) dla każdego kontenera **dzierżawy** .
-4. Wykonaj [kroki krok 2](#step-2-delete-vm-to-detach-os-disk) i [3](#step-3-detach-data-disk-from-the-vm) , aby usunąć maszyny wirtualne z **OSDisk** i odłączyć **dysk**danych. 
+4. Wykonaj [kroki krok 2](#step-2-delete-vm-to-detach-os-disk) i [3](#step-3-detach-data-disk-from-the-vm) , aby usunąć maszyny wirtualne z **OSDisk** i odłączyć **dysk** danych. 
 
 ## <a name="step-2-delete-vm-to-detach-os-disk"></a>Krok 2. usunięcie maszyny wirtualnej w celu odłączenia dysku systemu operacyjnego
 W przypadku dysku z systemem operacyjnym należy usunąć maszynę wirtualną przed usunięciem dołączonego wirtualnego dysku twardego. Po ukończeniu tych kroków nie będzie wymagana żadna dodatkowa akcja dla dysków danych podłączonych do tej samej maszyny wirtualnej:

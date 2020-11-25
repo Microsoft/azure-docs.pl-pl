@@ -8,11 +8,11 @@ ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: c271107b85e4903153c29b58aadadd37fb051b76
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94626745"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022568"
 ---
 # <a name="use-azure-files-with-linux"></a>Używanie usługi Azure Files z systemem Linux
 [Azure Files](storage-files-introduction.md) to łatwy w użyciu system plików w chmurze firmy Microsoft. Udziały plików platformy Azure można instalować w dystrybucjach systemu Linux przy użyciu [klienta jądra SMB](https://wiki.samba.org/index.php/LinuxCIFS). W tym artykule przedstawiono dwa sposoby instalowania udziału plików platformy Azure: na żądanie z `mount` poleceniem i przy rozruchu, tworząc wpis w `/etc/fstab` .
@@ -47,7 +47,7 @@ uname -r
     sudo apt install cifs-utils
     ```
 
-    W **Fedora** , **Red Hat Enterprise Linux 8 +** i **CentOS 8 +** , użyj `dnf` Menedżera pakietów:
+    W **Fedora**, **Red Hat Enterprise Linux 8 +** i **CentOS 8 +**, użyj `dnf` Menedżera pakietów:
 
     ```bash
     sudo dnf install cifs-utils
@@ -69,7 +69,7 @@ uname -r
 
 * **Najnowsza wersja interfejsu wiersza polecenia platformy Azure (CLI).** Aby uzyskać więcej informacji na temat instalowania interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) i wybieranie systemu operacyjnego. Jeśli wolisz używać modułu Azure PowerShell w programie PowerShell 6 lub nowszym, możesz jednak przedstawić poniższe instrukcje dla interfejsu wiersza polecenia platformy Azure.
 
-* **Upewnij się, że port 445 jest otwarty** : protokół SMB komunikuje się za pośrednictwem portu TCP 445 — Sprawdź, czy Zapora nie blokuje portów TCP 445 z komputera klienckiego.  Zastąp `<your-resource-group>` , a `<your-storage-account>` następnie uruchom następujący skrypt:
+* **Upewnij się, że port 445 jest otwarty**: protokół SMB komunikuje się za pośrednictwem portu TCP 445 — Sprawdź, czy Zapora nie blokuje portów TCP 445 z komputera klienckiego.  Zastąp `<your-resource-group>` , a `<your-storage-account>` następnie uruchom następujący skrypt:
     ```bash
     resourceGroupName="<your-resource-group>"
     storageAccountName="<your-storage-account>"
@@ -99,7 +99,7 @@ Aby używać udziału plików platformy Azure z dystrybucją systemu Linux, nale
 W razie potrzeby można zainstalować ten sam udział plików platformy Azure w wielu punktach instalacji.
 
 ### <a name="mount-the-azure-file-share-on-demand-with-mount"></a>Zainstaluj udział plików platformy Azure na żądanie z `mount`
-1. **Utwórz folder dla punktu instalacji** : Zastąp `<your-resource-group>` , `<your-storage-account>` , i `<your-file-share>` z odpowiednimi informacjami dla środowiska:
+1. **Utwórz folder dla punktu instalacji**: Zastąp `<your-resource-group>` , `<your-storage-account>` , i `<your-file-share>` z odpowiednimi informacjami dla środowiska:
 
     ```bash
     resourceGroupName="<your-resource-group>"
@@ -135,7 +135,7 @@ W razie potrzeby można zainstalować ten sam udział plików platformy Azure w 
 Po zakończeniu korzystania z udziału plików platformy Azure Możesz użyć `sudo umount $mntPath` programu do odinstalowania udziału.
 
 ### <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>Utwórz trwały punkt instalacji dla udziału plików platformy Azure `/etc/fstab`
-1. **Utwórz folder dla punktu instalacji** : folder dla punktu instalacji można utworzyć w dowolnym miejscu w systemie plików, ale jest to wspólna Konwencja do utworzenia tego elementu w obszarze/mnt. Na przykład następujące polecenie tworzy nowy katalog, zastępuje `<your-resource-group>` , `<your-storage-account>` i `<your-file-share>` z odpowiednimi informacjami dla środowiska:
+1. **Utwórz folder dla punktu instalacji**: folder dla punktu instalacji można utworzyć w dowolnym miejscu w systemie plików, ale jest to wspólna Konwencja do utworzenia tego elementu w obszarze/mnt. Na przykład następujące polecenie tworzy nowy katalog, zastępuje `<your-resource-group>` , `<your-storage-account>` i `<your-file-share>` z odpowiednimi informacjami dla środowiska:
 
     ```bash
     resourceGroupName="<your-resource-group>"
@@ -207,7 +207,7 @@ Po zakończeniu korzystania z udziału plików platformy Azure Możesz użyć `s
     sudo apt update
     sudo apt install autofs
     ```
-    W **Fedora** , **Red Hat Enterprise Linux 8 +** i **CentOS 8 +** , użyj `dnf` Menedżera pakietów:
+    W **Fedora**, **Red Hat Enterprise Linux 8 +** i **CentOS 8 +**, użyj `dnf` Menedżera pakietów:
     ```bash
     sudo dnf install autofs
     ```
@@ -219,7 +219,7 @@ Po zakończeniu korzystania z udziału plików platformy Azure Możesz użyć `s
     ```bash
     sudo zypper install autofs
     ```
-2. **Utwórz punkt instalacji dla udziałów** :
+2. **Utwórz punkt instalacji dla udziałów**:
    ```bash
     sudo mkdir /fileshares
     ```

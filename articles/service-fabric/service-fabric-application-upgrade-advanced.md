@@ -4,11 +4,11 @@ description: W tym artykule omówiono niektóre zaawansowane tematy dotyczące u
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.openlocfilehash: cc2fdc8f99b74078bd8d5274cbe52265ab8455ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86248088"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022993"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Uaktualnianie aplikacji Service Fabric: Tematy zaawansowane
 
@@ -28,13 +28,13 @@ Aby tego uniknąć, należy skonfigurować funkcję *RequestDrain* , dodając *c
 
 Istnieje kilka sposobów konfigurowania opóźnienia po stronie usługi.
 
- * **Podczas tworzenia nowej usługi**należy określić `-InstanceCloseDelayDuration` :
+ * **Podczas tworzenia nowej usługi** należy określić `-InstanceCloseDelayDuration` :
 
     ```powershell
     New-ServiceFabricService -Stateless [-ServiceName] <Uri> -InstanceCloseDelayDuration <TimeSpan>
     ```
 
- * **Podczas definiowania usługi w sekcji wartości domyślne w manifeście aplikacji**Przypisz `InstanceCloseDelayDurationSeconds` Właściwość:
+ * **Podczas definiowania usługi w sekcji wartości domyślne w manifeście aplikacji** Przypisz `InstanceCloseDelayDurationSeconds` Właściwość:
 
     ```xml
           <StatelessService ServiceTypeName="Web1Type" InstanceCount="[Web1_InstanceCount]" InstanceCloseDelayDurationSeconds="15">
@@ -42,13 +42,13 @@ Istnieje kilka sposobów konfigurowania opóźnienia po stronie usługi.
           </StatelessService>
     ```
 
- * **Podczas aktualizowania istniejącej usługi**należy określić `-InstanceCloseDelayDuration` :
+ * **Podczas aktualizowania istniejącej usługi** należy określić `-InstanceCloseDelayDuration` :
 
     ```powershell
     Update-ServiceFabricService [-Stateless] [-ServiceName] <Uri> [-InstanceCloseDelayDuration <TimeSpan>]`
     ```
 
- * **Podczas tworzenia lub aktualizowania istniejącej usługi za pomocą szablonu ARM**Określ `InstanceCloseDelayDuration` wartość (Minimalna obsługiwana wersja interfejsu API: 2019-11-01-Preview):
+ * **Podczas tworzenia lub aktualizowania istniejącej usługi za pomocą szablonu ARM** Określ `InstanceCloseDelayDuration` wartość (Minimalna obsługiwana wersja interfejsu API: 2019-11-01-Preview):
 
     ```ARM template to define InstanceCloseDelayDuration of 30seconds
     {
@@ -205,7 +205,7 @@ ApplicationParameters  : { "ImportantParameter" = "2"; "NewParameter" = "testAft
 
 ## <a name="roll-back-application-upgrades"></a>Wycofywanie uaktualnień aplikacji
 
-Podczas gdy uaktualnienia można przekazywać w jednym z trzech trybów (*monitorowane*, *UnmonitoredAuto*lub *UnmonitoredManual*), można je wycofać tylko w trybie *UnmonitoredAuto* lub *UnmonitoredManual* . Wycofywanie w trybie *UnmonitoredAuto* działa tak samo jak w przypadku przenoszonej do przodu z wyjątkiem, że wartość domyślna *UpgradeReplicaSetCheckTimeout* jest różna — zobacz [Parametry uaktualnienia aplikacji](service-fabric-application-upgrade-parameters.md). Wycofanie w trybie *UnmonitoredManual* działa tak samo jak w przypadku przenoszonego do przodu — wycofanie zostanie zawieszone po ukończeniu każdego ud i musi zostać jawnie wznowione przy użyciu [Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps) , aby kontynuować wycofywanie.
+Podczas gdy uaktualnienia można przekazywać w jednym z trzech trybów (*monitorowane*, *UnmonitoredAuto* lub *UnmonitoredManual*), można je wycofać tylko w trybie *UnmonitoredAuto* lub *UnmonitoredManual* . Wycofywanie w trybie *UnmonitoredAuto* działa tak samo jak w przypadku przenoszonej do przodu z wyjątkiem, że wartość domyślna *UpgradeReplicaSetCheckTimeout* jest różna — zobacz [Parametry uaktualnienia aplikacji](service-fabric-application-upgrade-parameters.md). Wycofanie w trybie *UnmonitoredManual* działa tak samo jak w przypadku przenoszonego do przodu — wycofanie zostanie zawieszone po ukończeniu każdego ud i musi zostać jawnie wznowione przy użyciu [Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps) , aby kontynuować wycofywanie.
 
 Wycofywanie mogą być wyzwalane automatycznie, gdy zasady kondycji uaktualnienia w *monitorowanym* trybie z *FailureAction* *wycofania* są naruszone (zobacz [Parametry uaktualnienia aplikacji](service-fabric-application-upgrade-parameters.md)) lub jawnie za pomocą polecenia [Start-ServiceFabricApplicationRollback](/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps).
 

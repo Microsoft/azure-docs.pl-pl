@@ -7,11 +7,11 @@ ms.date: 07/10/2019
 ms.author: vturecek
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f775608c6c349c93a43ef4aef26ad50707cd39b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743764"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023622"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Wprowadzenie do Reliable Actors
 > [!div class="op_single_selector"]
@@ -63,7 +63,7 @@ public interface IHelloWorld : IActor
 }
 ```
 
-W projekcie **HelloWorld** w **HelloWorld.cs**Zastąp całą definicję klasy w następujący sposób:
+W projekcie **HelloWorld** w **HelloWorld.cs** Zastąp całą definicję klasy w następujący sposób:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -100,7 +100,7 @@ Utwórz prostą aplikację konsolową, która wywoła usługę aktora.
     
     ![Właściwości kompilacji][8]
 
-4. Projekt klienta wymaga pakietu NuGet niezawodnych aktorów.  Kliknij kolejno pozycje **Narzędzia**Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów**.  W konsoli Menedżera pakietów wprowadź następujące polecenie:
+4. Projekt klienta wymaga pakietu NuGet niezawodnych aktorów.  Kliknij kolejno pozycje **Narzędzia** Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów**.  W konsoli Menedżera pakietów wprowadź następujące polecenie:
     
     ```powershell
     Install-Package Microsoft.ServiceFabric.Actors -IncludePrerelease -ProjectName ActorClient

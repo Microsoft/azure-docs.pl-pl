@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/21/2020
+ms.date: 11/03/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 638ab84658c36536966ef990570684a047521ee6
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 0aace1041eba771a26bed4c85361ea2551c71ba6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257453"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659424"
 ---
 ::: zone target="docs"
 
@@ -66,18 +66,18 @@ W przypadku zwrotu urządzenia w Stanach Zjednoczonych lub Kanadzie wykonaj nast
     - Jeśli nie podasz numeru śledzenia, firma UPS będzie wymagała uiszczenia dodatkowej opłaty podczas odbioru.
     - Zamiast planowania odbioru możesz także dostarczyć urządzenie Data Box Disk do najbliższego punktu UPS.
 
-### <a name="europe"></a>[Europa](#tab/in-europe)
 
-W przypadku zwrotu urządzenia w Europie wykonaj następujące czynności.
+### <a name="europe-or-uk"></a>[Europa lub Zjednoczone Królestwo](#tab/in-europe-or-uk)
+
+W przypadku zwrotu urządzenia w Europie lub Zjednoczonym Królestwie wykonaj następujące czynności.
 
 1. Użyj zwrotnej etykiety wysyłkowej z przezroczystą koszulką przyklejoną do opakowania. Jeśli etykieta została uszkodzona lub utracona:
     - Przejdź do pozycji **Przegląd > Pobierz etykietę wysyłkową** i pobierz zwrotną etykietę wysyłkową.
     - Umieść etykietę na urządzeniu.
 
 2. Zamknij i zaklej opakowanie wysyłkowe. Upewnij się, że zwrotna etykieta wysyłkowa jest widoczna.
-3. Jeśli zwracasz urządzenie w Europie za pośrednictwem firmy DHL, zamów odbiór paczki przez firmę DHL w witrynie internetowej firmy, podając numer listu przewozowego.
-4. Przejdź do lokalnej witryny internetowej firmy DHL Express i wybierz pozycję **Utwórz przesyłkę zwrotną**.
-5. Podaj numer listu przewozowego i kliknij przycisk **Zamówienie kuriera**, aby zaplanować odebranie przesyłki.
+3. Przejdź do witryny internetowej firmy DHL Express właściwej dla danego kraju/regionu i wybierz pozycję **Zamów odbiór**. W obszarze **Czy chcesz utworzyć etykietę wysyłkową?** wybierz pozycję **Nie** > **Mam numer listu przewozowego DHL**.
+4. Podaj numer listu przewozowego i kliknij przycisk **Zamówienie kuriera**, aby zaplanować odebranie przesyłki.
 
 ### <a name="australia"></a>[Australia](#tab/in-australia)
 

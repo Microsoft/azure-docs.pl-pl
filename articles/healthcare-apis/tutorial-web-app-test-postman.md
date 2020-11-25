@@ -10,11 +10,11 @@ ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
 ms.openlocfilehash: 1c64468a2e420734ca51a5b9308bb52e13712c51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852926"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023316"
 ---
 # <a name="testing-the-fhir-api"></a>Testowanie interfejsu API FHIR
 W poprzednich dwóch krokach wdrożono interfejs API platformy Azure dla FHIR i zarejestrowano aplikację kliencką. Teraz można przystąpić do testowania, czy interfejs API platformy Azure dla usługi FHIR został skonfigurowany za pomocą aplikacji klienckiej. 
@@ -46,7 +46,7 @@ Aby uzyskać dostęp, wymagany jest token dostępu.
 |Identyfikator klienta            |Identyfikator klienta skopiowany podczas poprzednich kroków             |
 |Klucz tajny klienta        |\<BLANK>                                                            |
 |Zakres                |\<BLANK>                                                            |
-|State                |1234                                                                |
+|Stan                |1234                                                                |
 |Uwierzytelnianie klienta|Wyślij poświadczenia klienta w treści                                     |
 
 4. Zaloguj się przy użyciu swoich poświadczeń i wybierz pozycję **Akceptuj**

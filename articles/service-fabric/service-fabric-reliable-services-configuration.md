@@ -7,11 +7,11 @@ ms.date: 10/02/2017
 ms.author: sumukhs
 ms.custom: devx-track-csharp
 ms.openlocfilehash: cda0a9f988afae58a60bff051885a5eec8afe434
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021973"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023588"
 ---
 # <a name="configure-stateful-reliable-services"></a>Konfigurowanie niezawodnych usług stanowych
 Istnieją dwa zestawy ustawień konfiguracji dla niezawodnych usług. Jeden zestaw jest globalny dla wszystkich niezawodnych usług w klastrze, podczas gdy drugi zestaw jest specyficzny dla konkretnej niezawodnej usługi.
@@ -119,7 +119,7 @@ ReplicatorConfig
 | SharedLogPath |W pełni kwalifikowana nazwa ścieżki |"" |Określa w pełni kwalifikowaną ścieżkę, w której zostanie utworzony udostępniony plik dziennika dla tej repliki. Zazwyczaj usługi nie powinny używać tego ustawienia. Jeśli jednak SharedLogPath jest określony, należy również określić SharedLogId. |
 | SlowApiMonitoringDuration |Sekundy |300 |Ustawia interwał monitorowania dla wywołań zarządzanych interfejsów API. Przykład: użytkownik podał funkcję wywołania zwrotnego kopii zapasowej. Po upływie interwału Raport kondycji ostrzeżeń zostanie wysłany do Menedżera kondycji. |
 | LogTruncationIntervalSeconds |Sekundy |0 |Konfigurowalny interwał, w którym zostanie zainicjowane obcinanie dziennika dla każdej repliki. Jest on używany do zapewnienia, że dziennik jest również obcinany w oparciu o czas, a nie tylko rozmiar dziennika. To ustawienie wymusza także przeczyszczanie usuniętych wpisów w niezawodnym słowniku. W związku z tym można go użyć w celu zapewnienia, że usunięte elementy są czyszczone w odpowiednim czasie. |
-| EnableStableReads |Boolean (wartość logiczna) |Fałsz |Włączenie stałych odczytów ogranicza repliki pomocnicze do zwracania wartości, które były potwierdzone kworum. |
+| EnableStableReads |Wartość logiczna |Fałsz |Włączenie stałych odczytów ogranicza repliki pomocnicze do zwracania wartości, które były potwierdzone kworum. |
 
 ### <a name="sample-configuration-via-code"></a>Przykładowa konfiguracja za pośrednictwem kodu
 ```csharp

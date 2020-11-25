@@ -7,12 +7,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 006c995217ced91690798ae68f04e3b6c3148228
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 27594ff4d7673038e9de38c5969a615be60aeadf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131959"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844697"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Tworzenie dodatkowej subskrypcji platformy Azure
 
@@ -73,7 +73,11 @@ Do tworzenia subskrypcji wymagane są następujące uprawnienia:
 
 ## <a name="create-an-additional-azure-subscription-programmatically"></a>Programowe tworzenie dodatkowej subskrypcji platformy Azure
 
-Dodatkowe subskrypcje można również tworzyć programowo. Aby uzyskać więcej informacji, zobacz [Programowe tworzenie subskrypcji platformy Azure](programmatically-create-subscription.md).
+Dodatkowe subskrypcje można również tworzyć programowo. Aby uzyskać więcej informacji, zobacz:
+
+- [Programowe tworzenie subskrypcji umowy EA za pomocą najnowszego interfejsu API](programmatically-create-subscription-enterprise-agreement.md)
+- [Programowe tworzenie subskrypcji Umowy z Klientem Microsoft za pomocą najnowszego interfejsu API](programmatically-create-subscription-microsoft-customer-agreement.md)
+- [Programowe tworzenie subskrypcji umowy MPA za pomocą najnowszego interfejsu API](Programmatically-create-subscription-microsoft-customer-agreement.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

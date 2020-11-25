@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: fc048f3da3156f5e17cfa32479b834b7320a60a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84753766"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023498"
 ---
 # <a name="azure-virtual-wan-and-supporting-remote-work"></a>Wirtualna sieć WAN platformy Azure i obsługa zdalna
 
@@ -53,7 +53,7 @@ Podstawowa wirtualna sieć WAN zapewnia tylko sieć VPN typu lokacja-lokacja. Ab
 
 Wirtualna sieć WAN obsługuje jeden koncentrator na region/lokalizację. Informacje o lokalizacji znajdują się w artykule dotyczącym [partnerów i lokalizacji wirtualnych sieci WAN](virtual-wan-locations-partners.md) . Każde centrum obsługuje do 10 000 połączeń użytkowników zdalnych, połączenie z gałęzią 1 000, cztery obwody usługi ExpressRoute oraz do 500 połączeń Virtual Network. Podczas skalowania w górę użytkowników zdalnych, jeśli masz jakieś pytania, nie niechętnie zezwalają, aby uzyskać pomoc, wysyłając wiadomość e-mail na adres azurevirtualwan@microsoft.com . Jeśli wymagana jest pomoc techniczna, pamiętaj, aby otworzyć bilet pomocy technicznej z Azure Portal i uzyskać pomoc.
 
-## <a name="faq"></a><a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a><a name="faq"></a>Często zadawane pytania
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 

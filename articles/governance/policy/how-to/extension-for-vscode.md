@@ -4,11 +4,11 @@ description: Dowiedz się, jak używać rozszerzenia Azure Policy Visual Studio 
 ms.date: 10/20/2020
 ms.topic: how-to
 ms.openlocfilehash: 233c9158c30d6c373dd6147090894dc83b83da3d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317612"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022432"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Użyj rozszerzenia Azure Policy dla Visual Studio Code
 
@@ -64,13 +64,13 @@ Aby oszacować zasoby i aliasy wyszukiwania, musisz nawiązać połączenie z ko
 
      Z poziomu rozszerzenia Azure Policy wybierz pozycję **Zaloguj się do platformy Azure**.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Zrzut ekranu przedstawiający wybór kraju logowania w chmurze platformy Azure dla Visual Studio Code." border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Zrzut ekranu przedstawiający Visual Studio Code i ikonę rozszerzenia Azure Policy." border="false":::
 
    - Paleta poleceń
 
-     Na pasku menu Przejdź do **widoku**  >  **paleta poleceń**i wprowadź **Azure: Zaloguj się**.
+     Na pasku menu Przejdź do **widoku**  >  **paleta poleceń** i wprowadź **Azure: Zaloguj się**.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Zrzut ekranu przedstawiający wybór kraju logowania w chmurze platformy Azure dla Visual Studio Code." border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Zrzut ekranu przedstawiający opcje logowania w chmurze platformy Azure dla Visual Studio Code z palety poleceń." border="false":::
 
 1. Postępuj zgodnie z instrukcjami logowania, aby zalogować się do platformy Azure. Po nawiązaniu połączenia nazwa konta platformy Azure zostanie wyświetlona na pasku stanu u dołu okna Visual Studio Code.
 
@@ -82,11 +82,11 @@ Po pierwszym zalogowaniu tylko domyślne zasoby i zasady subskrypcji są ładowa
 
    - Paleta poleceń: 
 
-     Na pasku menu Przejdź do **widoku** > **paleta poleceń**i wprowadź **Azure: wybierz subskrypcje**.
+     Na pasku menu Przejdź do **widoku** > **paleta poleceń** i wprowadź **Azure: wybierz subskrypcje**.
 
    - Stopka okna
 
-     W stopce okna u dołu ekranu wybierz segment pasujący do **platformy Azure: \<your account\> **.
+     W stopce okna u dołu ekranu wybierz segment pasujący do **platformy Azure: \<your account\>**.
 
 1. Użyj pola filtr, aby szybko znaleźć subskrypcje według nazwy. Następnie zaznacz lub usuń zaznaczenie każdej subskrypcji, aby ustawić subskrypcje widoczne przez rozszerzenie Azure Policy. Po zakończeniu dodawania lub usuwania subskrypcji do wyświetlenia wybierz **przycisk OK**.
 
@@ -99,7 +99,7 @@ Rozszerzenie Azure Policy wyświetla listę zasobów w wybranych subskrypcjach w
 - **Grupy zasobów**
   - Wszystkie zasoby według grupy zasobów, w której się znajdują
 
-Domyślnie rozszerzenie filtruje część "dostawca zasobów" według istniejących zasobów i zasobów, które mają aliasy zasad. Zmień to zachowanie w **Settings**  >  **rozszerzeniu**ustawienia  >  **Azure Policy** , aby wyświetlić wszystkich dostawców zasobów bez filtrowania.
+Domyślnie rozszerzenie filtruje część "dostawca zasobów" według istniejących zasobów i zasobów, które mają aliasy zasad. Zmień to zachowanie w **Settings**  >  **rozszerzeniu** ustawienia  >  **Azure Policy** , aby wyświetlić wszystkich dostawców zasobów bez filtrowania.
 
 Klienci, którzy mają setki lub tysiące zasobów w ramach jednej subskrypcji, mogą preferować możliwość wyszukiwania swoich zasobów. Rozszerzenie Azure Policy umożliwia wyszukanie określonego zasobu, wykonując następujące czynności:
 
@@ -111,7 +111,7 @@ Klienci, którzy mają setki lub tysiące zasobów w ramach jednej subskrypcji, 
 
    - Paleta poleceń:
 
-     Na pasku menu Przejdź do **widoku** > **paleta poleceń**i wprowadź **zasoby: wyszukaj zasoby**.
+     Na pasku menu Przejdź do **widoku** > **paleta poleceń** i wprowadź **zasoby: wyszukaj zasoby**.
 
 1. Jeśli wybrano więcej niż jedną subskrypcję do wyświetlania, Użyj filtru, aby wybrać subskrypcję do wyszukania.
 
@@ -125,7 +125,7 @@ Po wybraniu zasobu, niezależnie od tego, czy za pomocą interfejsu wyszukiwania
 
 Gdy zasób jest otwarty, wskaźnik myszy nad nazwą właściwości Menedżer zasobów lub wartością wyświetla alias Azure Policy, jeśli taki istnieje. W tym przykładzie zasób jest `Microsoft.Compute/virtualMachines` typem zasobu, a właściwość **właściwości. obszarze storageprofile. elementu imagereference. Offer** jest umieszczana na początku. Umieszczenie kursora powoduje wyświetlenie pasujących aliasów.
 
-:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Zrzut ekranu przedstawiający wybór kraju logowania w chmurze platformy Azure dla Visual Studio Code." border="false":::
+:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Zrzut ekranu rozszerzenia Azure Policy dla Visual Studio Code aktywowania właściwości w celu wyświetlenia nazw aliasów." border="false":::
 
 > [!NOTE]
 > Rozszerzenie VS Code uwidacznia tylko właściwości trybu Menedżer zasobów i nie wyświetla żadnych właściwości [trybu dostawcy zasobów](../concepts/definition-structure.md#mode) .
@@ -142,7 +142,7 @@ Rozszerzenie Azure Policy wyświetla listę typów zasad i przypisań zasad jako
 
    - Paleta poleceń:
 
-     Na pasku menu Przejdź do **widoku** > **paleta poleceń**i wprowadź **zasady: zasady wyszukiwania**.
+     Na pasku menu Przejdź do **widoku** > **paleta poleceń** i wprowadź **zasady: zasady wyszukiwania**.
 
 1. Jeśli wybrano więcej niż jedną subskrypcję do wyświetlania, Użyj filtru, aby wybrać subskrypcję do wyszukania.
 
@@ -165,7 +165,7 @@ Następujące obiekty można eksportować lokalnie:
   - Przypisania zasad
   - Wbudowane definicje zasad
   - Niestandardowe definicje zasad
-  - Inicjatyw
+  - Inicjatywy
 
 ## <a name="on-demand-evaluation-scan"></a>Skanowanie oceny na żądanie
 
