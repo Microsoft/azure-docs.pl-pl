@@ -10,11 +10,11 @@ ms.topic: how-to
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.openlocfilehash: cae29954211e62601debb35d76f938fb6a92779e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284612"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019807"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Używanie dysku D: jako dysku z danymi na maszynie wirtualnej z systemem Windows
 Jeśli aplikacja musi używać dysku D do przechowywania danych, postępuj zgodnie z tymi instrukcjami, aby użyć innej litery dysku dla dysku tymczasowego. Nie należy używać dysku tymczasowego do przechowywania danych, które należy zachować.
