@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
 ms.openlocfilehash: 0842efe304faa9a0d94fbf71075f1bc16ff34014
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217562"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018209"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Tworzenie i wyświetlanie alertów dzienników oraz zarządzanie nimi za pomocą Azure Monitor
 
@@ -34,7 +34,7 @@ Reguły alertów dzienników można także tworzyć przy użyciu szablonów Azur
 Poniżej przedstawiono procedurę tworzenia zapytań dotyczących alertów:
 
 1. Przejdź do zasobu, dla którego chcesz otrzymywać alerty.
-1. W obszarze **monitor**wybierz pozycję **dzienniki**.
+1. W obszarze **monitor** wybierz pozycję **dzienniki**.
 1. Wykonaj zapytanie o dane dziennika, które mogą wskazywać na problem. Możesz użyć [przykładu zapytania dotyczącego alertu](../log-query/saved-queries.md) , aby zrozumieć, co można odkryć lub [zacząć pisać przy tworzeniu własnych zapytań](../log-query/get-started-portal.md). Ponadto [dowiedz się, jak tworzyć zoptymalizowane zapytania alertów](alerts-log-query.md).
 1. Naciśnij przycisk "+ Nowa reguła alertu", aby uruchomić przepływ tworzenia alertu.
 
@@ -79,9 +79,9 @@ Poniżej przedstawiono procedurę tworzenia zapytań dotyczących alertów:
 
 1. Opcjonalnie można również ustawić [liczbę naruszeń wyzwalających alert](alerts-unified-log.md#number-of-violations-to-trigger-alert) przy użyciu **łącznych lub kolejnych naruszeń**.
 
-1. Wybierz pozycję **Gotowe**. 
+1. Kliknij **Gotowe**. 
 
-1. Zdefiniuj nazwę i **Opis** **reguły alertu**, a następnie wybierz **ważność**alertu. Te szczegóły są używane we wszystkich akcjach alertów. Ponadto możesz zrezygnować z aktywacji reguły alertu podczas tworzenia, wybierając pozycję **Włącz regułę podczas tworzenia**.
+1. Zdefiniuj nazwę i **Opis** **reguły alertu**, a następnie wybierz **ważność** alertu. Te szczegóły są używane we wszystkich akcjach alertów. Ponadto możesz zrezygnować z aktywacji reguły alertu podczas tworzenia, wybierając pozycję **Włącz regułę podczas tworzenia**.
 
 1. Wybierz, jeśli chcesz pominąć akcje reguły przez czas po uruchomieniu alertu, użyj opcji [**pomijania alertów**](alerts-unified-log.md#state-and-resolving-alerts) . Zasada będzie nadal działać i tworzyć alerty, ale akcje nie zostaną wyzwolone w celu uniemożliwienia szumu. Wartość wyciszania akcji musi być większa niż częstotliwość obowiązywania alertu.
 
@@ -126,7 +126,7 @@ Poniżej przedstawiono procedurę tworzenia zapytań dotyczących alertów:
 
     ![Tworzenie reguły](media/alerts-log/AlertsPreviewAdd.png)
 
-1. Naciśnij przycisk **Wybierz zasób** . Filtruj, wybierając pozycję *subskrypcja*, *Typ zasobu*i wybierz zasób. Upewnij się, że zasób ma dostępne dzienniki.
+1. Naciśnij przycisk **Wybierz zasób** . Filtruj, wybierając pozycję *subskrypcja*, *Typ zasobu* i wybierz zasób. Upewnij się, że zasób ma dostępne dzienniki.
 
    ![Wybierz zasób](media/alerts-log/Alert-SelectResourceLog.png)
 
@@ -176,7 +176,7 @@ Poniżej przedstawiono procedurę tworzenia zapytań dotyczących alertów:
 
     ![Karta akcje](media/alerts-log/actions-tab.png)
 
-1. Na karcie **szczegóły** Zdefiniuj **szczegóły reguły alertu**i **szczegóły projektu**. Opcjonalnie można określić, czy nie **uruchamiać teraz**ani [**wyciszać akcji**](alerts-unified-log.md#state-and-resolving-alerts) przez okres po uruchomieniu reguły alertu.
+1. Na karcie **szczegóły** Zdefiniuj **szczegóły reguły alertu** i **szczegóły projektu**. Opcjonalnie można określić, czy nie **uruchamiać teraz** ani [**wyciszać akcji**](alerts-unified-log.md#state-and-resolving-alerts) przez okres po uruchomieniu reguły alertu.
 
     > [!NOTE]
     > Reguły alertów dziennika są obecnie bezstanowe i wyzwalają akcję za każdym razem, gdy zostanie utworzony alert, chyba że zostanie zdefiniowany wyciszenie.

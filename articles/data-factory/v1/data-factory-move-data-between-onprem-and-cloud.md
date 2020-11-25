@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 7f07f08cd320d94495403b0f5ae65d60d8dc93b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84195991"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019688"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Przenoszenie danych między źródłami lokalnymi i chmurą przy użyciu bramy Zarządzanie danymi
 > [!NOTE]
@@ -52,7 +52,7 @@ Przed rozpoczęciem tego instruktażu należy spełnić następujące wymagania 
 ## <a name="create-data-factory"></a>Tworzenie fabryki danych
 W tym kroku użyjesz Azure Portal, aby utworzyć wystąpienie Azure Data Factory o nazwie **ADFTutorialOnPremDF**.
 
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com).
 2. Kliknij pozycję **Utwórz zasób**, kliknij pozycję **Analiza i analiza**, a następnie kliknij pozycję **Data Factory**.
 
    ![Nowy->Fabryka danych](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)  
@@ -127,7 +127,7 @@ W tym kroku użyjesz Azure Portal, aby utworzyć wystąpienie Azure Data Factory
    * **Zarejestrowanie** bramy przy użyciu klucza z Azure Portal przy użyciu przycisku Zarejestruj.
    * **Zatrzymaj** usługę hosta bramy zarządzanie danymi uruchomioną na maszynie bramy.
    * **Zaplanuj instalację aktualizacji** w określonym czasie dnia.
-   * Wyświetl **datę ostatniej aktualizacji**bramy.
+   * Wyświetl **datę ostatniej aktualizacji** bramy.
    * Określ godzinę, o której można zainstalować aktualizację bramy.
 8. Przejdź do karty **Ustawienia** . Certyfikat określony w sekcji **certyfikat** służy do szyfrowania/odszyfrowywania poświadczeń dla lokalnego magazynu danych określonego w portalu. obowiązkowe Kliknij przycisk **Zmień** , aby zamiast tego użyć własnego certyfikatu. Domyślnie brama używa certyfikatu, który jest automatycznie generowany przez usługę Data Factory.
 
@@ -148,23 +148,23 @@ W tym kroku użyjesz Azure Portal, aby utworzyć wystąpienie Azure Data Factory
    * Kliknij przycisk **Wyświetl dzienniki** , aby wyświetlić dziennik zarządzanie danymi bramy w oknie Podgląd zdarzeń.
    * Kliknij pozycję **Wyślij dzienniki** , aby przesłać plik zip z dziennikami z ostatnich siedmiu dni do firmy Microsoft w celu ułatwienia rozwiązywania problemów.
 10. Na karcie **Diagnostyka** w sekcji **Testuj połączenie** wybierz pozycję **SqlServer** dla typu magazynu danych, wprowadź nazwę serwera bazy danych, nazwę bazy danych, określ typ uwierzytelniania, wprowadź nazwę użytkownika i hasło, a następnie kliknij przycisk **Testuj** , aby sprawdzić, czy brama może nawiązać połączenie z bazą danych.
-11. Przejdź do przeglądarki sieci Web, a w **Azure Portal**kliknij przycisk **OK** na stronie **Konfigurowanie** , a następnie na stronie **Nowa brama danych** .
+11. Przejdź do przeglądarki sieci Web, a w **Azure Portal** kliknij przycisk **OK** na stronie **Konfigurowanie** , a następnie na stronie **Nowa brama danych** .
 12. W widoku drzewa po lewej stronie powinien być widoczny **adftutorialgateway** w obszarze **bramy danych** .  Jeśli klikniesz ją, zobaczysz skojarzony kod JSON.
 
 ## <a name="create-linked-services"></a>Tworzenie połączonych usług
 W tym kroku utworzysz dwie połączone usługi: **AzureStorageLinkedService** i **SqlServerLinkedService**. **SqlServerLinkedService** łączy SQL Server bazą danych, a połączona usługa **AzureStorageLinkedService** łączy magazyn obiektów blob platformy Azure z fabryką danych. W tym instruktażu utworzysz potok, który kopiuje dane z bazy danych SQL Server do magazynu obiektów blob platformy Azure.
 
 #### <a name="add-a-linked-service-to-a-sql-server-database"></a>Dodawanie połączonej usługi do bazy danych SQL Server
-1. W **edytorze Data Factory**kliknij pozycję **nowy magazyn danych** na pasku narzędzi i wybierz pozycję **SQL Server**.
+1. W **edytorze Data Factory** kliknij pozycję **nowy magazyn danych** na pasku narzędzi i wybierz pozycję **SQL Server**.
 
    ![Nowa SQL Server połączona usługa](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png)
 2. W **Edytorze JSON** po prawej stronie wykonaj następujące czynności:
 
-   1. Dla **bramy**Określ wartość **adftutorialgateway**.    
-   2. W **elemencie ConnectionString**wykonaj następujące czynności:    
+   1. Dla **bramy** Określ wartość **adftutorialgateway**.    
+   2. W **elemencie ConnectionString** wykonaj następujące czynności:    
 
-      1. W polu Nazwa **serwera**wprowadź nazwę serwera, który obsługuje bazę danych SQL Server.
-      2. W polu **DatabaseName**wprowadź nazwę bazy danych.
+      1. W polu Nazwa **serwera** wprowadź nazwę serwera, który obsługuje bazę danych SQL Server.
+      2. W polu **DatabaseName** wprowadź nazwę bazy danych.
       3. Kliknij przycisk **Szyfruj** na pasku narzędzi. Zostanie wyświetlona aplikacja Menedżer poświadczeń.
 
          ![Aplikacja Menedżera poświadczeń](./media/data-factory-move-data-between-onprem-and-cloud/credentials-manager-application.png)
@@ -177,7 +177,7 @@ W tym kroku utworzysz dwie połączone usługi: **AzureStorageLinkedService** i 
       ![SQL Server połączoną usługę w widoku drzewa](./media/data-factory-move-data-between-onprem-and-cloud/sql-linked-service-in-tree-view.png)    
 
 #### <a name="add-a-linked-service-for-an-azure-storage-account"></a>Dodawanie połączonej usługi dla konta usługi Azure Storage
-1. W **edytorze Data Factory**kliknij pozycję **nowy magazyn danych** na pasku poleceń, a następnie kliknij pozycję **Azure Storage**.
+1. W **edytorze Data Factory** kliknij pozycję **nowy magazyn danych** na pasku poleceń, a następnie kliknij pozycję **Azure Storage**.
 2. Wprowadź nazwę konta usługi Azure Storage w polu **nazwa konta**.
 3. Wprowadź klucz konta usługi Azure Storage dla **klucza konta**.
 4. Kliknij przycisk **Wdróż** , aby wdrożyć **AzureStorageLinkedService**.
@@ -210,7 +210,7 @@ W tym kroku utworzysz zestawy danych wejściowych i wyjściowych, które repreze
 
 ### <a name="create-input-dataset"></a>Tworzenie wejściowego zestawu danych
 
-1. W **edytorze Data Factory**kliknij pozycję **... Więcej**, kliknij przycisk **Nowy zestaw danych** na pasku poleceń, a następnie kliknij **SQL Server tabelę**.
+1. W **edytorze Data Factory** kliknij pozycję **... Więcej**, kliknij przycisk **Nowy zestaw danych** na pasku poleceń, a następnie kliknij **SQL Server tabelę**.
 2. Zastąp kod JSON w prawym okienku następującym tekstem:
 
     ```JSON   
@@ -249,7 +249,7 @@ W tym kroku utworzysz zestawy danych wejściowych i wyjściowych, które repreze
 
 ### <a name="create-output-dataset"></a>Tworzenie wyjściowego zestawu danych
 
-1. W **edytorze Data Factory**kliknij pozycję **Nowy zestaw danych** na pasku poleceń, a następnie kliknij pozycję **Azure Blob Storage**.
+1. W **edytorze Data Factory** kliknij pozycję **Nowy zestaw danych** na pasku poleceń, a następnie kliknij pozycję **Azure Blob Storage**.
 2. Zastąp kod JSON w prawym okienku następującym tekstem:
 
     ```JSON   
@@ -374,7 +374,7 @@ W tym kroku utworzysz **potok** z jednym **działaniem kopiowania** , który uż
 **Gratulacje!** Pomyślnie utworzono usługę Azure Data Factory, połączone usługi, zestawy danych i potok oraz zaplanowano potok.
 
 #### <a name="view-the-data-factory-in-a-diagram-view"></a>Wyświetlanie fabryki danych w widoku diagramu
-1. W **Azure Portal**kliknij kafelek **Diagram** na stronie głównej fabryki danych **ADFTutorialOnPremDF** . :
+1. W **Azure Portal** kliknij kafelek **Diagram** na stronie głównej fabryki danych **ADFTutorialOnPremDF** . :
 
     ![Link diagramu](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)
 2. Powinien zostać wyświetlony diagram podobny do tego na poniższej ilustracji:

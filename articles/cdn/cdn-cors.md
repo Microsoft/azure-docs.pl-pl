@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: f7edf790e526329dd285d03a31137a26220e52ee
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778935"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018651"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Używanie Azure CDN z mechanizmem CORS
 ## <a name="what-is-cors"></a>Co to jest mechanizm CORS?
@@ -69,10 +69,10 @@ W przypadku usługi Azure CDN Standard od firmy Microsoft można utworzyć regu�
 ![Przykład reguł z aparatem reguł standardowych](./media/cdn-cors/cdn-standard-cors.png)
 
 > [!TIP]
-> Możesz dodać dodatkowe akcje do reguły, aby zmodyfikować dodatkowe nagłówki odpowiedzi, takie jak **Access-Control-Allow-Methods** .
+> Możesz dodać dodatkowe akcje do reguły, aby zmodyfikować dodatkowe nagłówki odpowiedzi, takie jak **Access-Control-Allow-Methods**.
 > 
 
-W **Azure CDN standardowym z Akamai** , jedynym mechanizmem do zezwalania na wiele źródeł bez użycia symboli wieloznacznych jest użycie [buforowania ciągu zapytania](cdn-query-string.md). Włącz ustawienie ciągu zapytania dla punktu końcowego usługi CDN, a następnie użyj unikatowego ciągu zapytania dla żądań z każdej dozwolonej domeny. W efekcie Usługa CDN będzie buforować osobny obiekt dla każdego unikatowego ciągu zapytania. Takie podejście nie jest jednak idealne, ponieważ spowoduje to powstanie wielu kopii tego samego pliku w pamięci podręcznej w sieci CDN.  
+W **Azure CDN standardowym z Akamai**, jedynym mechanizmem do zezwalania na wiele źródeł bez użycia symboli wieloznacznych jest użycie [buforowania ciągu zapytania](cdn-query-string.md). Włącz ustawienie ciągu zapytania dla punktu końcowego usługi CDN, a następnie użyj unikatowego ciągu zapytania dla żądań z każdej dozwolonej domeny. W efekcie Usługa CDN będzie buforować osobny obiekt dla każdego unikatowego ciągu zapytania. Takie podejście nie jest jednak idealne, ponieważ spowoduje to powstanie wielu kopii tego samego pliku w pamięci podręcznej w sieci CDN.  
 
 ### <a name="azure-cdn-premium-from-verizon"></a>Azure CDN Premium od Verizon
 Korzystając z aparatu reguł Verizon Premium, musisz [utworzyć regułę](./cdn-verizon-premium-rules-engine.md) , aby sprawdzić nagłówek **źródła** żądania.  Jeśli jest to prawidłowe źródło, reguła ustawi nagłówek **Access-Control-Allow-Origin** ze źródłem podanym w żądaniu.  Jeśli źródło określone w nagłówku **źródła** jest niedozwolone, reguła powinna pominąć nagłówek **Access-Control-Allow-Origin** , co spowoduje odrzucenie żądania przez przeglądarkę. 
@@ -91,7 +91,7 @@ https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.co
 > 
 > 
 
-Jeśli wyrażenie regularne jest zgodne, reguła zastąpi nagłówek **Access-Control-Allow-Origin** (jeśli istnieje) z lokalizacji źródłowej, która wysłała żądanie.  Można również dodać dodatkowe nagłówki CORS, takie jak **Access-Control-Allow-Methods** .
+Jeśli wyrażenie regularne jest zgodne, reguła zastąpi nagłówek **Access-Control-Allow-Origin** (jeśli istnieje) z lokalizacji źródłowej, która wysłała żądanie.  Można również dodać dodatkowe nagłówki CORS, takie jak **Access-Control-Allow-Methods**.
 
 ![Przykład reguł z wyrażeniem regularnym](./media/cdn-cors/cdn-cors-regex.png)
 

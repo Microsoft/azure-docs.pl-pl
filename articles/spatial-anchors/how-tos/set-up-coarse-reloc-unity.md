@@ -1,20 +1,20 @@
 ---
 title: Duże przelokalizowanie w środowisku Unity
 description: Szczegółowe wyjaśnienie sposobu tworzenia i lokalizowania kotwic przy użyciu bardzo dużej lokalizacji w języku C#.
-author: bucurb
-manager: dacoghl
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: bobuc
-ms.date: 09/19/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 42a237caf03d4d3fb6dd9aa70668cbb84ff40072
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29ff255887dcd5f86f0b5fd72374df920a2618ee
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89008628"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96018005"
 ---
 # <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-c"></a>Jak utworzyć i zlokalizować kotwice przy użyciu bardzo dużej lokalizacji w języku C #
 

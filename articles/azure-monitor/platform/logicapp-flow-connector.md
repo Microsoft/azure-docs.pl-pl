@@ -8,11 +8,11 @@ author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
 ms.openlocfilehash: d06501abe69ce9b06656cfa8949c42bb53a03983
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439247"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019042"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Łącznik Azure Monitor Logs dla Logic Apps i automatyzacji
 [Azure Logic Apps](../../logic-apps/index.yml) i [Automatyzacja](https://flow.microsoft.com) — umożliwia tworzenie zautomatyzowanych przepływów pracy przy użyciu setek działań dla różnych usług. Łącznik Azure Monitor Logs umożliwia tworzenie przepływów pracy, które pobierają dane z obszaru roboczego Log Analytics lub aplikacji Application Insights w Azure Monitor. W tym artykule opisano akcje dołączone do łącznika i przedstawiono Przewodnik tworzenia przepływu pracy przy użyciu tych danych.
@@ -46,7 +46,7 @@ Poniższe samouczki ilustrują użycie łączników Azure Monitor w Azure Logic 
 
 ### <a name="create-a-logic-app"></a>Tworzenie aplikacji logiki
 
-Przejdź do **Logic Apps** w Azure Portal i kliknij przycisk **Dodaj**. Wybierz **subskrypcję**, **grupę zasobów**i **region** , aby zapisać nową aplikację logiki, a następnie nadaj jej unikatową nazwę. Możesz włączyć ustawienie **log Analytics** , aby zbierać informacje o danych i zdarzeniach środowiska uruchomieniowego zgodnie z opisem w temacie [Konfigurowanie Azure monitor dzienników i zbierać dane diagnostyczne dla Azure Logic Apps](../../logic-apps/monitor-logic-apps-log-analytics.md). To ustawienie nie jest wymagane w przypadku korzystania z łącznika dzienników Azure Monitor.
+Przejdź do **Logic Apps** w Azure Portal i kliknij przycisk **Dodaj**. Wybierz **subskrypcję**, **grupę zasobów** i **region** , aby zapisać nową aplikację logiki, a następnie nadaj jej unikatową nazwę. Możesz włączyć ustawienie **log Analytics** , aby zbierać informacje o danych i zdarzeniach środowiska uruchomieniowego zgodnie z opisem w temacie [Konfigurowanie Azure monitor dzienników i zbierać dane diagnostyczne dla Azure Logic Apps](../../logic-apps/monitor-logic-apps-log-analytics.md). To ustawienie nie jest wymagane w przypadku korzystania z łącznika dzienników Azure Monitor.
 
 ![Tworzenie aplikacji logiki](media/logicapp-flow-connector/create-logic-app.png)
 
@@ -54,7 +54,7 @@ Przejdź do **Logic Apps** w Azure Portal i kliknij przycisk **Dodaj**. Wybierz 
 Kliknij przycisk **Przegląd + Utwórz** , a następnie **Utwórz**. Po zakończeniu wdrażania kliknij pozycję **Przejdź do zasobu** , aby otworzyć **projektanta Logic Apps**.
 
 ### <a name="create-a-trigger-for-the-logic-app"></a>Tworzenie wyzwalacza dla aplikacji logiki
-W obszarze **Rozpocznij od typowego wyzwalacza**wybierz pozycję **cykl**. Spowoduje to utworzenie aplikacji logiki, która jest automatycznie uruchamiana w regularnych odstępach czasu. W polu **częstotliwość** akcji wybierz pozycję **dzień** , a następnie w polu **Interwał** wprowadź wartość **1** , aby uruchomić przepływ pracy raz dziennie.
+W obszarze **Rozpocznij od typowego wyzwalacza** wybierz pozycję **cykl**. Spowoduje to utworzenie aplikacji logiki, która jest automatycznie uruchamiana w regularnych odstępach czasu. W polu **częstotliwość** akcji wybierz pozycję **dzień** , a następnie w polu **Interwał** wprowadź wartość **1** , aby uruchomić przepływ pracy raz dziennie.
 
 ![Akcja cyklu](media/logicapp-flow-connector/recurrence-action.png)
 
@@ -62,7 +62,7 @@ W obszarze **Rozpocznij od typowego wyzwalacza**wybierz pozycję **cykl**. Spowo
 W poniższym samouczku pokazano, jak utworzyć aplikację logiki, która wysyła wyniki zapytania dziennika Azure Monitor za pośrednictwem poczty e-mail. 
 
 ### <a name="add-azure-monitor-logs-action"></a>Dodaj akcję dzienników Azure Monitor
-Kliknij pozycję **+ nowy krok** , aby dodać akcję, która jest uruchamiana po akcji cyklu. W obszarze **Wybierz akcję**wpisz **Azure monitor** , a następnie wybierz pozycję **dzienniki Azure monitor**.
+Kliknij pozycję **+ nowy krok** , aby dodać akcję, która jest uruchamiana po akcji cyklu. W obszarze **Wybierz akcję** wpisz **Azure monitor** , a następnie wybierz pozycję **dzienniki Azure monitor**.
 
 ![Akcja dzienników Azure Monitor](media/logicapp-flow-connector/select-azure-monitor-connector.png)
 
@@ -93,7 +93,7 @@ Wiadomość e-mail zostanie wysłana przez konto skojarzone z bieżącym połąc
 
 ### <a name="add-email-action"></a>Dodaj akcję poczty e-mail
 
-Kliknij pozycję **+ nowy krok**, a następnie kliknij pozycję **+ Dodaj akcję**. W obszarze **Wybierz akcję**wpisz **Outlook** , a następnie wybierz pozycję **Office 365 Outlook**.
+Kliknij pozycję **+ nowy krok**, a następnie kliknij pozycję **+ Dodaj akcję**. W obszarze **Wybierz akcję** wpisz **Outlook** , a następnie wybierz pozycję **Office 365 Outlook**.
 
 ![Wybieranie łącznika programu Outlook](media/logicapp-flow-connector/select-outlook-connector.png)
 

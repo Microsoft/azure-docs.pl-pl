@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/13/2019
 ms.author: allensu
 ms.openlocfilehash: aa2f00a732a3978524fc017481285859c9535387
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779173"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018685"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Omówienie rozliczania za usługę Azure CDN
 
@@ -48,7 +48,7 @@ Obszar rozliczeń Azure CDN jest oparty na lokalizacji serwera źródłowego dos
 Na przykład jeśli użytkownik znajdujący się w Meksyku wystawi żądanie, a to żądanie jest obsługiwany przez serwer znajdujący się w Stany Zjednoczone POP z powodu komunikacji równorzędnej lub ruchu, obszar rozliczeń będzie Stany Zjednoczone.
 
 ## <a name="what-is-a-billable-azure-cdn-transaction"></a>Co to jest transakcja Azure CDN rozliczana?
-Każde żądanie HTTP (S) kończące się w sieci CDN jest zdarzeniem rozliczanym, które obejmuje wszystkie typy odpowiedzi: sukces, Niepowodzenie lub inne. Jednak różne odpowiedzi mogą generować różne ilości ruchu. Na przykład *nie można modyfikować 304* i inne odpowiedzi tylko do nagłówka generują niewielki ruch, ponieważ są to niewielka odpowiedź nagłówka; Podobnie odpowiedzi na błędy (na przykład *nie znaleziono 404* ) są płatne, ale ponoszą niewielki koszt ze względu na mały ładunek odpowiedzi.
+Każde żądanie HTTP (S) kończące się w sieci CDN jest zdarzeniem rozliczanym, które obejmuje wszystkie typy odpowiedzi: sukces, Niepowodzenie lub inne. Jednak różne odpowiedzi mogą generować różne ilości ruchu. Na przykład *nie można modyfikować 304* i inne odpowiedzi tylko do nagłówka generują niewielki ruch, ponieważ są to niewielka odpowiedź nagłówka; Podobnie odpowiedzi na błędy (na przykład *nie znaleziono 404*) są płatne, ale ponoszą niewielki koszt ze względu na mały ładunek odpowiedzi.
 
 ## <a name="what-other-azure-costs-are-associated-with-azure-cdn-use"></a>Jakie inne koszty platformy Azure są skojarzone z Azure CDN użycia?
 Korzystanie z Azure CDN również wiąże się z niektórymi opłatami za użycie usług używanych jako źródło dla obiektów. Te koszty są zwykle małą częścią całkowitego kosztu użycia usługi CDN.
@@ -92,7 +92,7 @@ W przypadku korzystania z jednej z następujących usług platformy Azure jako �
 
 - Azure Storage
 - Azure Media Services
-- Azure Virtual Machines
+- Maszyny wirtualne platformy Azure
 - Virtual Network
 - Load Balancer
 - Application Gateway

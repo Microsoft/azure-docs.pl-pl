@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/22/2020
 tags: connectors
 ms.openlocfilehash: b6276ff940d8b156a671cb5386ce53ede30dd879
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426643"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019717"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Wymiana komunikatów w chmurze przy użyciu Azure Logic Apps i Azure Service Bus
 
@@ -47,7 +47,7 @@ Upewnij się, że aplikacja logiki ma uprawnienia do uzyskiwania dostępu do prz
 
 1. W [Azure Portal](https://portal.azure.com)Zaloguj się przy użyciu konta platformy Azure.
 
-1. Przejdź do *przestrzeni nazw*Service Bus. Na stronie przestrzeń nazw w obszarze **Ustawienia**wybierz pozycję **zasady dostępu współdzielonego**. W obszarze **oświadczenia**Sprawdź, czy masz uprawnienia do **zarządzania** tą przestrzenią nazw.
+1. Przejdź do *przestrzeni nazw* Service Bus. Na stronie przestrzeń nazw w obszarze **Ustawienia** wybierz pozycję **zasady dostępu współdzielonego**. W obszarze **oświadczenia** Sprawdź, czy masz uprawnienia do **zarządzania** tą przestrzenią nazw.
 
    ![Zarządzaj uprawnieniami dla Service Bus przestrzeni nazw](./media/connectors-create-api-azure-service-bus/azure-service-bus-namespace.png)
 
@@ -163,7 +163,7 @@ Upewnij się, że aplikacja logiki ma uprawnienia do uzyskiwania dostępu do prz
 
 ## <a name="send-correlated-messages-in-order"></a>Wysyłanie skorelowanych komunikatów w kolejności
 
-Gdy musisz wysyłać powiązane wiadomości w określonej kolejności, możesz użyć [wzorca *sekwencyjnego konwoju* ](/azure/architecture/patterns/sequential-convoy) za pomocą [łącznika Azure Service Bus](../connectors/connectors-create-api-servicebus.md). Skorelowane komunikaty mają właściwość definiującą relację między tymi komunikatami, na przykład identyfikator [sesji](../service-bus-messaging/message-sessions.md) w Service Bus.
+Gdy musisz wysyłać powiązane wiadomości w określonej kolejności, możesz użyć [wzorca *sekwencyjnego konwoju*](/azure/architecture/patterns/sequential-convoy) za pomocą [łącznika Azure Service Bus](../connectors/connectors-create-api-servicebus.md). Skorelowane komunikaty mają właściwość definiującą relację między tymi komunikatami, na przykład identyfikator [sesji](../service-bus-messaging/message-sessions.md) w Service Bus.
 
 Podczas tworzenia aplikacji logiki można wybrać **skorelowaną dostawę w kolejności przy użyciu szablonu sesji usługi Service Bus** , który implementuje wzorzec sekwencyjnej konwoju. Aby uzyskać więcej informacji, zobacz [wysyłanie powiązanych komunikatów w kolejności](../logic-apps/send-related-messages-sequential-convoy.md).
 

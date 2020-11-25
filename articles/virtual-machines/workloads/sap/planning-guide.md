@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: c186e7beeed3a1729560d7deb002d573e0014508
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: bd45b0e1070efae7ae69a74ad96e1fa94a136006
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950979"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96019399"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planowanie i wdrażanie Virtual Machines platformy Azure dla oprogramowania SAP NetWeaver
 
@@ -1951,7 +1951,7 @@ Kopia zapasowa offline będzie zasadniczo wymagała zamknięcia maszyny wirtualn
 
 
 Przywrócenie tego stanu będzie obejmować usunięcie podstawowej maszyny wirtualnej, a także oryginalnych dysków podstawowej maszyny wirtualnej i dysków zainstalowanych, skopiowanie zapisanych dysków na oryginalne konto magazynu lub grupę zasobów dla dysków zarządzanych, a następnie ponowne wdrożenie systemu.
-W tym artykule przedstawiono przykład sposobu tworzenia skryptu tego procesu w programie PowerShell: <http://www.westerndevs.com/azure-snapshots/>
+W tym artykule przedstawiono przykład sposobu tworzenia skryptu tego procesu w programie PowerShell: <https://www.westerndevs.com/_/azure-snapshots/>
 
 Pamiętaj, aby zainstalować nową licencję SAP od momentu przywrócenia kopii zapasowej maszyny wirtualnej, jak opisano powyżej, tworzy nowy klucz sprzętowy.
 

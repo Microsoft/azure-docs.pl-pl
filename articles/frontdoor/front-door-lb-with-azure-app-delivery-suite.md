@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: 50e047325ad17710794b1640715ab1938373fe85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542176"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019467"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Równoważenie obciążenia za pomocą pakietu dostarczania aplikacji platformy Azure
 
@@ -25,7 +25,7 @@ Microsoft Azure oferuje różne globalne i regionalne usługi do zarządzania sp
 
 * Application Gateway
 * Front Door 
-* Moduł równoważenia obciążenia  
+* Load Balancer  
 * Traffic Manager
 
 Wraz z wieloma regionami i architekturą strefowej platformy Azure korzystanie z tych usług razem może umożliwić tworzenie niezawodnych, skalowalnych i wysoko wydajnych aplikacji.
@@ -82,7 +82,7 @@ Ponadto domyślna pula maszyn wirtualnych obsługująca zawartość dynamiczną 
 
 Na poniższym diagramie przedstawiono architekturę tego scenariusza:
 
-:::image type="content" source="./media/front-door-lb-with-azure-app-delivery-suite/application-delivery-figure2.png" alt-text="Pakiet dostarczania aplikacji":::
+:::image type="content" source="./media/front-door-lb-with-azure-app-delivery-suite/application-delivery-figure2.png" alt-text="Szczegółowa Architektura pakietu dostarczania aplikacji":::
 
 > [!NOTE]
 > Ten przykład dotyczy tylko jednej z wielu możliwych konfiguracji usług równoważenia obciążenia oferowanej przez platformę Azure. Traffic Manager, przód, Application Gateway i Load Balancer mogą być mieszane i dopasowywane do potrzeb związanych z równoważeniem obciążenia. Na przykład jeśli przetwarzanie za pośrednictwem protokołu TLS/SSL lub z warstwy 7 nie jest konieczne, Load Balancer mogą być używane zamiast Application Gateway.

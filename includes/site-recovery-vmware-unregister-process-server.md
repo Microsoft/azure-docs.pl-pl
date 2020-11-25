@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 04/28/2019
 ms.author: ramamill
 ms.openlocfilehash: bff9457220efbb6a6b318550a5b2dd9af4ae230f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361397"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019200"
 ---
 Wykonaj kroki opisane w określonych okolicznościach.
 
 ### <a name="unregister-a-connected-process-server"></a>Wyrejestruj podłączony serwer przetwarzania
 
 1. Nawiąż połączenie zdalne z serwerem przetwarzania jako administrator.
-2. W **Panelu sterowania**Otwórz aplet **programy > Odinstaluj program**.
+2. W **Panelu sterowania** Otwórz aplet **programy > Odinstaluj program**.
 3. Odinstaluj program **Microsoft Azure Site Recovery usługa mobilności/główny serwer docelowy**.
 4. Odinstaluj program **Microsoft Azure Site Recovery Configuration/Process Server**.
 5. Po odinstalowaniu programów w krokach 3 i 4 Odinstaluj **Microsoft Azure Site Recovery zależności serwera konfiguracji/procesu**.

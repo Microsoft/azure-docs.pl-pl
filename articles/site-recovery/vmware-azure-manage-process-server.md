@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
 ms.openlocfilehash: a547a874c42d06d8453b154847561d8b5f0dabb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361396"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019201"
 ---
 # <a name="manage-process-servers"></a>Zarządzanie serwerami przetwarzania
 
@@ -43,7 +43,7 @@ Należy zrównoważyć obciążenie przez przeniesienie maszyn wirtualnych międ
 
     ![Zrzut ekranu przedstawia serwer przetwarzania, dla którego można równoważyć obciążenie ruchem.](media/vmware-azure-manage-process-server/LoadBalance.png)
 
-4. Kliknij pozycję **równoważenie obciążenia**i wybierz docelowy serwer przetwarzania, do którego chcesz przenieść maszyny. Następnie kliknij przycisk **OK** .
+4. Kliknij pozycję **równoważenie obciążenia** i wybierz docelowy serwer przetwarzania, do którego chcesz przenieść maszyny. Następnie kliknij przycisk **OK** .
 
     ![Zrzut ekranu przedstawia okienko równoważenia obciążenia z wybranym docelowym serwerem przetwarzania.](media/vmware-azure-manage-process-server/LoadPS.PNG)
 
@@ -91,7 +91,7 @@ Zarejestruj ponownie serwer przetwarzania działający lokalnie lub na maszynie 
 Po zapisaniu ustawień wykonaj następujące czynności:
 
 1. Na serwerze przetwarzania Otwórz wiersz polecenia z uprawnieniami administratora.
-2. Przejdź do folderu **%ProgramData%\ASR\Agent**i uruchom polecenie:
+2. Przejdź do folderu **%ProgramData%\ASR\Agent** i uruchom polecenie:
 
     ```
     cdpcli.exe --registermt
@@ -111,7 +111,7 @@ Jeśli lokalny serwer przetwarzania używa serwera proxy do łączenia się z pl
    net stop obengine
    net start obengine
    ```
-2. Przejdź do folderu **%ProgramData%\ASR\Agent**i uruchom następujące polecenie:
+2. Przejdź do folderu **%ProgramData%\ASR\Agent** i uruchom następujące polecenie:
    ```
    cmd
    cdpcli.exe --registermt

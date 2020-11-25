@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: ed63d148afa6f5674d36cc50c18351b2a06966eb
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636837"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019620"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory — przykłady
 > [!NOTE]
@@ -46,7 +46,7 @@ ms.locfileid: "92636837"
 ## <a name="azure-resource-manager-templates"></a>Szablony usługi Azure Resource Manager
 Poniższe szablony Azure Resource Manager dla Data Factory można znaleźć w witrynie GitHub.
 
-| Szablon | Opis |
+| Template | Opis |
 | --- | --- |
 | [Kopiuj z usługi Azure Blob Storage do Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |Wdrożenie tego szablonu powoduje utworzenie usługi Azure Data Factory z potokiem, który kopiuje dane z określonego magazynu obiektów blob platformy Azure do Azure SQL Database |
 | [Kopiuj z witryny Salesforce do usługi Azure Blob Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |Wdrożenie tego szablonu powoduje utworzenie usługi Azure Data Factory z potokiem, który kopiuje dane z określonego konta usług Salesforce do magazynu obiektów blob platformy Azure. |
@@ -79,37 +79,37 @@ Możesz użyć kafelka **przykładowe potoki** na stronie głównej fabryki dany
 Na komputerze muszą być zainstalowane następujące elementy:
 
 * Visual Studio 2013 lub Visual Studio 2015
-* Pobierz zestaw Azure SDK dla programu Visual Studio 2013 lub Visual Studio 2015. Przejdź do [strony plików do pobrania Azure](https://azure.microsoft.com/downloads/) i kliknij pozycję **VS 2013** lub **VS 2015** w sekcji **.NET** .
-* Pobierz najnowszą wtyczkę usługi Azure Data Factory dla programu Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) lub [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Jeśli używasz Visual Studio 2013, możesz także zaktualizować wtyczkę, wykonując następujące czynności: w menu kliknij kolejno opcje **Narzędzia**  ->  **rozszerzenia i aktualizacje**  ->  **online**  ->  **Galeria Visual Studio**  ->  **Microsoft Azure Data Factory Tools for Visual Studio**  ->  **Update** .
+* Pobierz zestaw Azure SDK dla programu Visual Studio 2013 lub Visual Studio 2015. Przejdź do [strony plików do pobrania Azure](https://azure.microsoft.com/downloads/) i kliknij pozycję **VS 2013** lub **VS 2015** w sekcji **.NET**.
+* Pobierz najnowszą wtyczkę usługi Azure Data Factory dla programu Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) lub [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Jeśli używasz Visual Studio 2013, możesz także zaktualizować wtyczkę, wykonując następujące czynności: w menu kliknij kolejno opcje **Narzędzia**  ->  **rozszerzenia i aktualizacje**  ->  **online**  ->  **Galeria Visual Studio**  ->  **Microsoft Azure Data Factory Tools for Visual Studio**  ->  **Update**.
 
 ### <a name="use-data-factory-templates"></a>Korzystanie z szablonów Data Factory
-1. Kliknij menu **plik** , wskaż polecenie **Nowy** , a następnie kliknij pozycję **projekt** .
+1. Kliknij menu **plik** , wskaż polecenie **Nowy**, a następnie kliknij pozycję **projekt**.
 2. W oknie dialogowym **Nowy projekt** wykonaj następujące kroki:
 
-   1. Wybierz pozycję **DataFactory** w obszarze **Szablony** .
+   1. Wybierz pozycję **DataFactory** w obszarze **Szablony**.
    2. W okienku po prawej stronie wybierz pozycję **szablony Data Factory** .
    3. Wprowadź **nazwę** dla projektu.
    4. Wybierz **lokalizację** dla projektu.
-   5. Kliknij pozycję **OK** .
+   5. Kliknij przycisk **OK**.
 
       ![Okno dialogowe Nowy projekt](./media/data-factory-samples/vs-new-project-adf-templates.png)
-3. W oknie dialogowym **Data Factory szablonów** wybierz przykładowy szablon z sekcji **Używanie szablonów przypadków użycia** , a następnie kliknij przycisk **dalej** . Poniższe kroki przeprowadzą Cię przez proces korzystania z szablonu **profilowania klienta** . Kroki są podobne do innych przykładów.
+3. W oknie dialogowym **Data Factory szablonów** wybierz przykładowy szablon z sekcji **Używanie szablonów przypadków użycia** , a następnie kliknij przycisk **dalej**. Poniższe kroki przeprowadzą Cię przez proces korzystania z szablonu **profilowania klienta** . Kroki są podobne do innych przykładów.
 
     ![Okno dialogowe szablony Data Factory](./media/data-factory-samples/vs-data-factory-templates-dialog.png)
 4. W oknie dialogowym **konfiguracja Data Factory** kliknij przycisk **dalej** na stronie **podstawowe informacje dotyczące Data Factory** .
 5. Na stronie **Konfigurowanie fabryki danych** wykonaj następujące czynności:
-   1. Wybierz pozycję **Utwórz nowe Data Factory** . Możesz również wybrać opcję **Użyj istniejącej fabryki danych** .
+   1. Wybierz pozycję **Utwórz nowe Data Factory**. Możesz również wybrać opcję **Użyj istniejącej fabryki danych**.
    2. Wprowadź **nazwę** fabryki danych.
    3. Wybierz **subskrypcję platformy Azure** , w której chcesz utworzyć fabrykę danych.
    4. Wybierz **grupę zasobów** dla fabryki danych.
-   5. Wybierz region **zachodnie stany USA** , **Wschodnie stany USA** i **Europa Północna** dla **regionu** .
-   6. Kliknij przycisk **Dalej** .
+   5. Wybierz region **zachodnie stany USA**, **Wschodnie stany USA** i **Europa Północna** dla **regionu**.
+   6. Kliknij przycisk **Dalej**.
 6. Na stronie **Konfigurowanie magazynów danych** Określ istniejącą **bazę danych w Azure SQL Database** i **konto usługi Azure Storage** (lub) Utwórz bazę danych/magazyn, a następnie kliknij przycisk Dalej.
-7. Na stronie **Konfigurowanie obliczeń** wybierz pozycję domyślne, a następnie kliknij przycisk **dalej** .
-8. Na stronie **Podsumowanie** Przejrzyj wszystkie ustawienia, a następnie kliknij przycisk **dalej** .
-9. Na stronie **stan wdrożenia** poczekaj na zakończenie wdrażania, a następnie kliknij przycisk **Zakończ** .
-10. Kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań, a następnie kliknij polecenie **Publikuj** .
-11. Jeśli zostanie wyświetlone okno dialogowe **Logowanie na koncie Microsoft** wprowadź poświadczenia dla konta z subskrypcją Azure i kliknij przycisk **Zaloguj** .
+7. Na stronie **Konfigurowanie obliczeń** wybierz pozycję domyślne, a następnie kliknij przycisk **dalej**.
+8. Na stronie **Podsumowanie** Przejrzyj wszystkie ustawienia, a następnie kliknij przycisk **dalej**.
+9. Na stronie **stan wdrożenia** poczekaj na zakończenie wdrażania, a następnie kliknij przycisk **Zakończ**.
+10. Kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań, a następnie kliknij polecenie **Publikuj**.
+11. Jeśli zostanie wyświetlone okno dialogowe **Logowanie na koncie Microsoft** wprowadź poświadczenia dla konta z subskrypcją Azure i kliknij przycisk **Zaloguj**.
 12. Powinno zostać wyświetlone następujące okno dialogowe:
 
     ![Okno dialogowe publikowania](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
@@ -117,9 +117,9 @@ Na komputerze muszą być zainstalowane następujące elementy:
 
     1. Upewnij się, że opcja **Użyj istniejącej fabryki danych** .
     2. Wybierz **fabrykę danych** wybraną podczas korzystania z szablonu.
-    3. Kliknij przycisk **Dalej** , aby przejść na stronę **Publikowanie elementów** . (Naciśnij przycisk **TAB** , aby wyjść z pola nazwy, jeśli przycisk **Dalej** jest wyłączony).
-14. Na stronie **Publikowanie elementów** upewnij się, że wszystkie jednostki usługi Fabryka danych zostały wybrane, i kliknij przycisk **Dalej** , aby przejść na stronę **Podsumowanie** .     
-15. Przejrzyj podsumowanie i kliknij przycisk **Dalej** , aby rozpocząć proces wdrożenia oraz wyświetlić stronę **Stan wdrożenia** .
+    3. Kliknij przycisk **Dalej**, aby przejść na stronę **Publikowanie elementów**. (Naciśnij przycisk **TAB**, aby wyjść z pola nazwy, jeśli przycisk **Dalej** jest wyłączony).
+14. Na stronie **Publikowanie elementów** upewnij się, że wszystkie jednostki usługi Fabryka danych zostały wybrane, i kliknij przycisk **Dalej**, aby przejść na stronę **Podsumowanie**.     
+15. Przejrzyj podsumowanie i kliknij przycisk **Dalej**, aby rozpocząć proces wdrożenia oraz wyświetlić stronę **Stan wdrożenia**.
 16. Na stronie **Stan wdrożenia** powinien zostać wyświetlony stan procesu wdrożenia. Po zakończeniu wdrożenia kliknij przycisk Zakończ.
 
 Zobacz [Tworzenie pierwszej fabryki danych (Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md) , aby uzyskać szczegółowe informacje o używaniu programu Visual Studio do tworzenia jednostek Data Factory i publikowania ich na platformie Azure.

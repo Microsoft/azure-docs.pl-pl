@@ -6,11 +6,11 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 02/09/2018
 ms.openlocfilehash: e7da5454581e0e414dc832d4fcec50277f3b7f40
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221251"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019059"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Korzystanie z narzędzi Azure Data Lake Tools for Visual Studio Code
 
@@ -20,7 +20,7 @@ W tym artykule dowiesz się, jak za pomocą kodu Azure Data Lake Tools for Visua
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Azure Data Lake Tools for VS Code obsługuje systemy Windows, Linux i macOS.Lokalne uruchamianie skryptu U-SQL i lokalne debugowanie działa tylko w systemie Windows.
+Azure Data Lake Tools for VS Code obsługuje systemy Windows, Linux i macOS. Lokalne uruchamianie skryptu U-SQL i lokalne debugowanie działa tylko w systemie Windows.
 
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)
 
@@ -65,18 +65,18 @@ Otwórz paletę poleceń (Ctrl + Shift + P) i wprowadź **ADL: Otwórz przykład
 4. Wprowadź następujący kod w pliku bez tytułu — 1:
 
    ```usql
-   @departments  =
-       SELECT * FROM
-           (VALUES
-               (31,    "Sales"),
-               (33,    "Engineering"),
-               (34,    "Clerical"),
-               (35,    "Marketing")
-           ) AS
-                 D( DepID, DepName );
+   @departments  =
+       SELECT * FROM
+           (VALUES
+               (31,    "Sales"),
+               (33,    "Engineering"),
+               (34,    "Clerical"),
+               (35,    "Marketing")
+           ) AS
+                 D( DepID, DepName );
    ```
 
-   Dane wyjściowe @departments      do "/Output/departments.csv" przy użyciu Outputters.Csv ();
+   Dane wyjściowe @departments     do "/Output/departments.csv" przy użyciu Outputters.Csv ();
 
     Skrypt tworzy plik departments.csv z danymi zawartymi w folderze/Output.
 
@@ -351,7 +351,7 @@ Innym sposobem na podgląd pliku jest użycie menu skrótów dla pełnej ścież
 ### <a name="upload-a-file-or-folder"></a>Przekaż plik lub folder
 
 1. Kliknij prawym przyciskiem myszy Edytor skryptów i wybierz polecenie **Przekaż plik** lub **Przekaż folder**.
-2. Wybierz jeden plik lub wiele plików w przypadku wybrania opcji **Przekaż plik**lub wybierz cały folder w przypadku wybrania opcji **Przekaż folder**. Następnie wybierz przycisk **Upload** (Przekaż).
+2. Wybierz jeden plik lub wiele plików w przypadku wybrania opcji **Przekaż plik** lub wybierz cały folder w przypadku wybrania opcji **Przekaż folder**. Następnie wybierz przycisk **Upload** (Przekaż).
 3. Wybierz folder Storage na liście lub wybierz pozycję **wprowadź ścieżkę** lub **Przejdź do lokalizacji głównej**. (Korzystamy z przykładu **wprowadź ścieżkę** ).
 4. Wybierz konto Data Lake Analytics.
 5. Przejdź do lokalizacji ścieżki folderu przechowywania lub wprowadź ją (na przykład/Output/).
@@ -410,7 +410,7 @@ Po zalogowaniu wszystkie subskrypcje Twojego konta platformy Azure są wyświetl
 
 ### <a name="data-lake-analytics-metadata-navigation"></a>Data Lake Analytics Nawigacja w metadanych
 
-Rozwiń swoją subskrypcję platformy Azure. W węźle **bazy danych u-SQL** można przeglądać bazę danych u-SQL i przeglądać foldery, takie jak **schematy**, **poświadczenia**, **zestawy**, **tabele**i **indeksy**.
+Rozwiń swoją subskrypcję platformy Azure. W węźle **bazy danych u-SQL** można przeglądać bazę danych u-SQL i przeglądać foldery, takie jak **schematy**, **poświadczenia**, **zestawy**, **tabele** i **indeksy**.
 
 ### <a name="data-lake-analytics-metadata-entity-management"></a>Data Lake Analytics zarządzanie jednostką metadanych
 
@@ -432,11 +432,11 @@ Możesz zarejestrować zestaw w odpowiedniej bazie danych, klikając prawym przy
 
 Przejdź do **Data Lake Store**:
 
-- Możesz kliknąć prawym przyciskiem myszy węzeł folderu, a następnie użyć polecenia **Odśwież**, **Usuń**, **Przekaż**, **Przekaż folder**, **Kopiuj ścieżkę względną**i **Kopiuj pełną ścieżkę** w menu skrótów.
+- Możesz kliknąć prawym przyciskiem myszy węzeł folderu, a następnie użyć polecenia **Odśwież**, **Usuń**, **Przekaż**, **Przekaż folder**, **Kopiuj ścieżkę względną** i **Kopiuj pełną ścieżkę** w menu skrótów.
 
    ![Polecenia menu skrótów dla węzła folderu w Eksploratorze Data Lake](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
 
-- Możesz kliknąć prawym przyciskiem myszy węzeł pliku, a następnie użyć okna **Podgląd**, **Pobierz**, **Usuń**, **Utwórz wyodrębnianie skryptu** (dostępne tylko dla plików CSV, TSV i txt), **skopiuj ścieżkę względną**i **Skopiuj polecenia pełna ścieżka** w menu skrótów.
+- Możesz kliknąć prawym przyciskiem myszy węzeł pliku, a następnie użyć okna **Podgląd**, **Pobierz**, **Usuń**, **Utwórz wyodrębnianie skryptu** (dostępne tylko dla plików CSV, TSV i txt), **skopiuj ścieżkę względną** i **Skopiuj polecenia pełna ścieżka** w menu skrótów.
 
    ![Polecenia menu skrótów dla węzła plik w Eksploratorze Data Lake](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-extract.png)
 
@@ -444,7 +444,7 @@ Przejdź do **Data Lake Store**:
 
 Przejdź do magazynu obiektów blob:
 
-- Możesz kliknąć prawym przyciskiem myszy węzeł kontenera obiektów blob, a następnie użyć polecenia **Odśwież**, **Usuń kontener obiektów BLOB**i **Przekaż obiekt BLOB** w menu skrótów.
+- Możesz kliknąć prawym przyciskiem myszy węzeł kontenera obiektów blob, a następnie użyć polecenia **Odśwież**, **Usuń kontener obiektów BLOB** i **Przekaż obiekt BLOB** w menu skrótów.
 
    ![Polecenia menu skrótów dla węzła kontenera obiektów BLOB w usłudze BLOB Storage](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-blob-container-node.png)
 
@@ -452,7 +452,7 @@ Przejdź do magazynu obiektów blob:
 
    ![Polecenia menu skrótów dla węzła folderu w usłudze BLOB Storage](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-folder-node.png)
 
-- Możesz kliknąć prawym przyciskiem myszy węzeł pliku, a następnie użyć okna **Podgląd/edycja**, **Pobierz**, **Usuń**, **Utwórz wyodrębnianie skryptu** (dostępne tylko dla plików CSV, TSV i txt), **skopiuj ścieżkę względną**i **Skopiuj polecenia pełna ścieżka** w menu skrótów.
+- Możesz kliknąć prawym przyciskiem myszy węzeł pliku, a następnie użyć okna **Podgląd/edycja**, **Pobierz**, **Usuń**, **Utwórz wyodrębnianie skryptu** (dostępne tylko dla plików CSV, TSV i txt), **skopiuj ścieżkę względną** i **Skopiuj polecenia pełna ścieżka** w menu skrótów.
 
     ![Polecenia menu skrótów dla węzła pliku w usłudze BLOB Storage](./media/data-lake-analytics-data-lake-tools-for-vscode/create-extract-script-from-context-menu-2.png)
 

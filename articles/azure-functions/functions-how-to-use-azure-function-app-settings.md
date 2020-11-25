@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47, devx-track-azurecli
 ms.openlocfilehash: f597e58c70d6ac9daff753f5c0a54199c2383c42
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746171"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019513"
 ---
 # <a name="manage-your-function-app"></a>Zarządzanie aplikacją funkcji 
 
@@ -29,11 +29,11 @@ W tym artykule opisano sposób konfigurowania aplikacji funkcji i zarządzania n
 
 1. Aby rozpocząć, przejdź do [Azure Portal] i zaloguj się na koncie platformy Azure. Na pasku wyszukiwania w górnej części portalu wprowadź nazwę aplikacji funkcji i wybierz ją z listy. 
 
-2. W obszarze **Ustawienia** w okienku po lewej stronie wybierz pozycję **Konfiguracja** .
+2. W obszarze **Ustawienia** w okienku po lewej stronie wybierz pozycję **Konfiguracja**.
 
     :::image type="content" source="./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png" alt-text="Przegląd aplikacji funkcji w Azure Portal":::
 
-Możesz przejść do wszystkiego, czego potrzebujesz do zarządzania aplikacją funkcji, na stronie przeglądu, w szczególności z **[ustawieniami aplikacji](#settings)** i **[funkcjami platformy](#platform-features)** .
+Możesz przejść do wszystkiego, czego potrzebujesz do zarządzania aplikacją funkcji, na stronie przeglądu, w szczególności z **[ustawieniami aplikacji](#settings)** i **[funkcjami platformy](#platform-features)**.
 
 ## <a name="application-settings"></a><a name="settings"></a>Ustawienia aplikacji
 

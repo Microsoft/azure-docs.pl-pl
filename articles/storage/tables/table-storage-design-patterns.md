@@ -10,11 +10,11 @@ ms.author: tamram
 ms.subservice: tables
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 20e776e649d13e435a7bc9215802fcd89efe0867
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307470"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019229"
 ---
 # <a name="table-design-patterns"></a>Wzorce projektowe tabel
 W tym artykule opisano niektóre wzorce odpowiednie do użycia z rozwiązaniami Table service. Ponadto zobaczysz, jak można praktycznie rozwiązać niektóre problemy i wady, które omówiono w innych artykułach dotyczących projektowania magazynów tabel. Poniższy diagram podsumowuje relacje między różnymi wzorcami:  
@@ -35,7 +35,7 @@ Table service automatycznie indeksuje jednostki przy użyciu wartości **Partiti
 Jeśli chcesz również znaleźć jednostkę pracownika na podstawie wartości innej właściwości, takiej jak adres e-mail, musisz użyć mniej wydajnego skanowania partycji, aby znaleźć dopasowanie. Wynika to z faktu, że usługa Table Service nie udostępnia indeksów pomocniczych. Ponadto nie ma możliwości zażądania listy pracowników posortowanych w innej kolejności niż kolejność **RowKey** .  
 
 ### <a name="solution"></a>Rozwiązanie
-Aby obejść brak indeksów pomocniczych, można przechowywać wiele kopii poszczególnych jednostek z każdą kopią przy użyciu innej wartości **RowKey** . Jeśli przechowujesz jednostkę z poniższymi strukturami, możesz efektywnie pobrać jednostki pracowników na podstawie adresu e-mail lub identyfikatora pracownika. Wartości prefiksów **RowKey** "empid_" i "email_" umożliwiają wykonywanie zapytań dotyczących jednego pracownika lub zakresu pracowników przy użyciu zakresu adresów E-mail lub identyfikatorów pracowników.  
+Aby obejść brak indeksów pomocniczych, można przechowywać wiele kopii poszczególnych jednostek z każdą kopią przy użyciu innej wartości **RowKey** . Jeśli przechowujesz jednostkę z poniższymi strukturami, możesz efektywnie pobrać jednostki pracowników na podstawie adresu e-mail lub identyfikatora pracownika. Wartości prefiksów **RowKey**"empid_" i "email_" umożliwiają wykonywanie zapytań dotyczących jednego pracownika lub zakresu pracowników przy użyciu zakresu adresów E-mail lub identyfikatorów pracowników.  
 
 ![Jednostki pracowników](media/storage-table-design-guide/storage-table-design-IMAGE07.png)
 
@@ -90,7 +90,7 @@ Jeśli chcesz również znaleźć jednostkę pracownika na podstawie wartości i
 Przewidujesz dużą liczbę transakcji w odniesieniu do tych jednostek i chcesz zminimalizować ryzyko Table service dławienia klienta.  
 
 ### <a name="solution"></a>Rozwiązanie
-Aby obejść brak indeksów pomocniczych, można przechowywać wiele kopii każdej jednostki przy użyciu różnych wartości **PartitionKey** i **RowKey** . Jeśli przechowujesz jednostkę z poniższymi strukturami, możesz efektywnie pobrać jednostki pracowników na podstawie adresu e-mail lub identyfikatora pracownika. Wartości prefiksów **PartitionKey** "empid_" i "email_" umożliwiają zidentyfikowanie indeksu, który ma być używany w zapytaniu.  
+Aby obejść brak indeksów pomocniczych, można przechowywać wiele kopii każdej jednostki przy użyciu różnych wartości **PartitionKey** i **RowKey** . Jeśli przechowujesz jednostkę z poniższymi strukturami, możesz efektywnie pobrać jednostki pracowników na podstawie adresu e-mail lub identyfikatora pracownika. Wartości prefiksów **PartitionKey**"empid_" i "email_" umożliwiają zidentyfikowanie indeksu, który ma być używany w zapytaniu.  
 
 ![Indeks podstawowy i pomocniczy](media/storage-table-design-guide/storage-table-design-IMAGE10.png)
 
@@ -156,14 +156,14 @@ W tym przykładzie krok 4 wstawia pracownika do tabeli **archiwum** . Może doda
 ### <a name="recovering-from-failures"></a>Odzyskiwanie po awarii
 Należy pamiętać, że operacje w krokach **4** i **5** muszą być *idempotentne* w przypadku, gdy rola proces roboczy wymaga ponownego uruchomienia operacji archiwizowania. Jeśli używasz Table service, w kroku **4** należy użyć operacji INSERT lub Replace. w kroku **5** należy użyć operacji "Usuń Jeśli istnieje" w używanej bibliotece klienckiej. W przypadku korzystania z innego systemu magazynu należy użyć odpowiedniej operacji idempotentne.  
 
-Jeśli rola proces roboczy nigdy nie kończy krok **6** , po upływie limitu czasu komunikat pojawi się ponownie w kolejce gotowej do przetworzenia przez rolę procesu roboczego. Rola proces roboczy może sprawdzić, ile razy wiadomość w kolejce została odczytana i w razie potrzeby flagą jest komunikat "Trująca" w celu zbadania przez wysłanie go do oddzielnej kolejki. Aby uzyskać więcej informacji o odczytywaniu komunikatów w kolejce i sprawdzaniu liczby odgałęzień, zobacz [pobieranie komunikatów](/rest/api/storageservices/Get-Messages).  
+Jeśli rola proces roboczy nigdy nie kończy krok **6**, po upływie limitu czasu komunikat pojawi się ponownie w kolejce gotowej do przetworzenia przez rolę procesu roboczego. Rola proces roboczy może sprawdzić, ile razy wiadomość w kolejce została odczytana i w razie potrzeby flagą jest komunikat "Trująca" w celu zbadania przez wysłanie go do oddzielnej kolejki. Aby uzyskać więcej informacji o odczytywaniu komunikatów w kolejce i sprawdzaniu liczby odgałęzień, zobacz [pobieranie komunikatów](/rest/api/storageservices/Get-Messages).  
 
 Niektóre błędy usług tabel i kolejek są błędami przejściowymi, a aplikacja kliencka powinna zawierać odpowiednią logikę ponawiania, aby je obsłużyć.  
 
 ### <a name="issues-and-considerations"></a>Problemy i kwestie do rozważenia
 Podczas podejmowania decyzji o sposobie wdrożenia tego wzorca należy rozważyć następujące punkty:  
 
-* To rozwiązanie nie zapewnia izolacji transakcji. Na przykład klient może odczytać **bieżące** i **archiwalne** tabele, gdy rola proces roboczy przeprowadzono między krokami **4** i **5** , i wyświetlić niespójny widok danych. Dane będą ostatecznie spójne.  
+* To rozwiązanie nie zapewnia izolacji transakcji. Na przykład klient może odczytać **bieżące** i **archiwalne** tabele, gdy rola proces roboczy przeprowadzono między krokami **4** i **5**, i wyświetlić niespójny widok danych. Dane będą ostatecznie spójne.  
 * Musisz się upewnić, że kroki 4 i 5 są idempotentne w celu zapewnienia spójności ostatecznej.  
 * Możesz skalować rozwiązanie przy użyciu wielu kolejek i wystąpień roli procesu roboczego.  
 
@@ -185,7 +185,7 @@ Podczas implementowania tego wzorca mogą być istotne następujące wzorce i ws
 Zachowaj jednostki indeksu, aby włączyć wydajne wyszukiwania zwracające listy jednostek.  
 
 ### <a name="context-and-problem"></a>Kontekst i problem
-Table service automatycznie indeksuje jednostki przy użyciu wartości **PartitionKey** i **RowKey** . Dzięki temu aplikacja kliencka może efektywnie pobrać jednostkę przy użyciu zapytania punktowego. Na przykład przy użyciu struktury tabeli pokazanej poniżej, aplikacja kliencka może efektywnie pobrać konkretną jednostkę pracownika przy użyciu nazwy działu i identyfikatora pracownika ( **PartitionKey** i **RowKey** ).  
+Table service automatycznie indeksuje jednostki przy użyciu wartości **PartitionKey** i **RowKey** . Dzięki temu aplikacja kliencka może efektywnie pobrać jednostkę przy użyciu zapytania punktowego. Na przykład przy użyciu struktury tabeli pokazanej poniżej, aplikacja kliencka może efektywnie pobrać konkretną jednostkę pracownika przy użyciu nazwy działu i identyfikatora pracownika ( **PartitionKey** i **RowKey**).  
 
 ![Jednostka Employee](media/storage-table-design-guide/storage-table-design-IMAGE13.png)
 
@@ -213,7 +213,7 @@ Właściwość **idpracownikas** zawiera listę identyfikatorów pracowników dl
 Poniższe kroki przedstawiają proces, który należy wykonać, gdy dodajesz nowego pracownika, jeśli używasz drugiej opcji. W tym przykładzie dodajemy pracownika o IDENTYFIKATORze 000152 i nazwisko Nowak w dziale sprzedaży:  
 
 1. Pobierz jednostkę indeksu z wartością **PartitionKey** "Sales" i wartością **RowKey** "Nowak". Zapisz element ETag tej jednostki do użycia w kroku 2.  
-2. Utwórz transakcję grupy jednostek (czyli operację wsadową), która wstawia nową jednostkę pracownika ( **PartitionKey** wartość "Sales" i **RowKey** Value "000152"), a następnie aktualizuje jednostkę indeksu (wartość **PartitionKey** "Sales" i **RowKey** Value "Nowak"), dodając nowy identyfikator pracownika do listy w polu idpracownikas. Aby uzyskać więcej informacji o transakcjach grupy jednostek, zobacz transakcje grupy jednostek.  
+2. Utwórz transakcję grupy jednostek (czyli operację wsadową), która wstawia nową jednostkę pracownika (**PartitionKey** wartość "Sales" i **RowKey** Value "000152"), a następnie aktualizuje jednostkę indeksu (wartość **PartitionKey** "Sales" i **RowKey** Value "Nowak"), dodając nowy identyfikator pracownika do listy w polu idpracownikas. Aby uzyskać więcej informacji o transakcjach grupy jednostek, zobacz transakcje grupy jednostek.  
 3. Jeśli transakcja grupy jednostek nie powiedzie się z powodu optymistycznego błędu współbieżności (ktoś inny zmodyfikował jednostkę indeksu), należy ponownie zacząć od początku krok 1.  
 
 Jeśli używasz drugiej opcji, możesz użyć podobnej metody do usuwania pracownika. Zmiana nazwiska pracownika jest nieco bardziej złożona, ponieważ należy wykonać transakcję grupy jednostek, która aktualizuje trzy jednostki: jednostki pracownika, jednostki indeksu dla starej nazwy i jednostki indeksu dla nowej nazwy. Każdą jednostkę należy pobrać przed wprowadzeniem jakichkolwiek zmian w celu pobrania wartości ETag, których można użyć do przeprowadzenia aktualizacji przy użyciu optymistycznej współbieżności.  
@@ -264,7 +264,7 @@ W relacyjnej bazie danych zazwyczaj normalizuje dane w celu usunięcia duplikat�
 ![Jednostka działu i jednostka Employee](media/storage-table-design-guide/storage-table-design-IMAGE16.png)
 
 ### <a name="solution"></a>Rozwiązanie
-Zamiast przechowywania danych w dwóch osobnych jednostkach, należy deznormalizować dane i zachować kopię szczegółów kierownika w jednostce działu. Przykład:  
+Zamiast przechowywania danych w dwóch osobnych jednostkach, należy deznormalizować dane i zachować kopię szczegółów kierownika w jednostce działu. Na przykład:  
 
 ![Jednostka działu](media/storage-table-design-guide/storage-table-design-IMAGE17.png)
 
@@ -372,7 +372,7 @@ Włącz usuwanie dużej liczby jednostek przez przechowywanie wszystkich jednost
 ### <a name="context-and-problem"></a>Kontekst i problem
 Wiele aplikacji usuwa stare dane, które nie muszą już być dostępne dla aplikacji klienckiej, lub że aplikacja została zarchiwizowana na innym nośniku magazynowania. Dane te są zwykle identyfikowane według daty: na przykład wymaga się usunięcia rekordów wszystkich żądań logowania, które są starsze niż 60 dni.  
 
-Jednym z możliwych wzorów jest użycie daty i godziny żądania logowania w **RowKey** :  
+Jednym z możliwych wzorów jest użycie daty i godziny żądania logowania w **RowKey**:  
 
 ![Data i godzina próby zalogowania](media/storage-table-design-guide/storage-table-design-IMAGE21.png)
 
@@ -686,7 +686,7 @@ employeeQuery.TakeCount = 50;
 ```
 
 ### <a name="server-side-projection"></a>Projekcja po stronie serwera
-Jedna jednostka może mieć do 255 właściwości i mieć rozmiar maksymalnie 1 MB. Podczas wykonywania zapytania dotyczącego tabeli i pobierania jednostek mogą nie być potrzebne wszystkie właściwości i mogą uniknąć niepotrzebnych transferów danych (aby pomóc w zmniejszeniu opóźnień i kosztów). Możesz użyć projekcji po stronie serwera, aby przetransferować tylko potrzebne właściwości. W poniższym przykładzie jest pobierana tylko właściwość **poczty e-mail** (wraz **z PartitionKey** , **RowKey** , **timestamp** i **ETag** ) z jednostek wybranych przez zapytanie.  
+Jedna jednostka może mieć do 255 właściwości i mieć rozmiar maksymalnie 1 MB. Podczas wykonywania zapytania dotyczącego tabeli i pobierania jednostek mogą nie być potrzebne wszystkie właściwości i mogą uniknąć niepotrzebnych transferów danych (aby pomóc w zmniejszeniu opóźnień i kosztów). Możesz użyć projekcji po stronie serwera, aby przetransferować tylko potrzebne właściwości. W poniższym przykładzie jest pobierana tylko właściwość **poczty e-mail** (wraz **z PartitionKey**, **RowKey**, **timestamp** i **ETag**) z jednostek wybranych przez zapytanie.  
 
 ```csharp
 string filter = TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Sales");
@@ -711,7 +711,7 @@ Wyjątki zgłaszane, gdy biblioteka klienta magazynu wykonuje EGT zazwyczaj zawi
 Należy również rozważyć, jak projekt ma wpływ na sposób, w jaki Twoja aplikacja kliencka obsługuje operacje współbieżności i aktualizacji.  
 
 ### <a name="managing-concurrency"></a>Zarządzanie współbieżnością
-Domyślnie usługa Table Service implementuje optymistyczne kontrole współbieżności na poziomie poszczególnych jednostek dla operacji **wstawiania** , **scalania** i **usuwania** , chociaż istnieje możliwość, aby klient wymusił ominięcie tych sprawdzeń przez klienta. Aby uzyskać więcej informacji o tym, jak usługa Table zarządza współbieżnością, zobacz  [Zarządzanie współbieżnością w Microsoft Azure Storage](../../storage/common/storage-concurrency.md).  
+Domyślnie usługa Table Service implementuje optymistyczne kontrole współbieżności na poziomie poszczególnych jednostek dla operacji **wstawiania**, **scalania** i **usuwania** , chociaż istnieje możliwość, aby klient wymusił ominięcie tych sprawdzeń przez klienta. Aby uzyskać więcej informacji o tym, jak usługa Table zarządza współbieżnością, zobacz  [Zarządzanie współbieżnością w Microsoft Azure Storage](../../storage/common/storage-concurrency.md).  
 
 ### <a name="merge-or-replace"></a>Scal lub Zamień
 Metoda **replace** klasy **TableOperation** zawsze zastępuje kompletną jednostkę w Table Service. Jeśli nie dołączysz właściwości w żądaniu, gdy ta właściwość istnieje w przechowywanej jednostce, żądanie usunie tę właściwość z przechowywanej jednostki. Jeśli nie chcesz usunąć właściwości jawnie z przechowywanej jednostki, musisz dołączyć każdą właściwość w żądaniu.  
@@ -743,7 +743,7 @@ Table service to magazyn tabel bez *schematu* , który oznacza, że pojedyncza t
 <th>FirstName (Imię)</th>
 <th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -763,7 +763,7 @@ Table service to magazyn tabel bez *schematu* , który oznacza, że pojedyncza t
 <th>FirstName (Imię)</th>
 <th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -800,7 +800,7 @@ Table service to magazyn tabel bez *schematu* , który oznacza, że pojedyncza t
 <th>FirstName (Imię)</th>
 <th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -813,9 +813,9 @@ Table service to magazyn tabel bez *schematu* , który oznacza, że pojedyncza t
 </tr>
 </table>
 
-Każda jednostka musi nadal mieć wartości **PartitionKey** , **RowKey** i **timestamp** , ale może mieć dowolny zestaw właściwości. Ponadto nie ma nic do wskazania typu jednostki, chyba że użytkownik zdecyduje się przechowywać te informacje w innym miejscu. Dostępne są dwie opcje identyfikacji typu jednostki:  
+Każda jednostka musi nadal mieć wartości **PartitionKey**, **RowKey** i **timestamp** , ale może mieć dowolny zestaw właściwości. Ponadto nie ma nic do wskazania typu jednostki, chyba że użytkownik zdecyduje się przechowywać te informacje w innym miejscu. Dostępne są dwie opcje identyfikacji typu jednostki:  
 
-* Dołącz typ jednostki do **RowKey** (lub prawdopodobnie **PartitionKey** ). Na przykład **EMPLOYEE_000123** lub **DEPARTMENT_SALES** jako wartości **RowKey** .  
+* Dołącz typ jednostki do **RowKey** (lub prawdopodobnie **PartitionKey**). Na przykład **EMPLOYEE_000123** lub **DEPARTMENT_SALES** jako wartości **RowKey** .  
 * Użyj oddzielnej właściwości, aby zarejestrować typ jednostki, jak pokazano w poniższej tabeli.  
 
 <table>
@@ -836,7 +836,7 @@ Każda jednostka musi nadal mieć wartości **PartitionKey** , **RowKey** i **ti
 <th>FirstName (Imię)</th>
 <th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td>Pracownik</td>
@@ -858,7 +858,7 @@ Każda jednostka musi nadal mieć wartości **PartitionKey** , **RowKey** i **ti
 <th>FirstName (Imię)</th>
 <th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td>Pracownik</td>
@@ -899,7 +899,7 @@ Każda jednostka musi nadal mieć wartości **PartitionKey** , **RowKey** i **ti
 <th>FirstName (Imię)</th>
 <th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td>Pracownik</td>
@@ -913,7 +913,7 @@ Każda jednostka musi nadal mieć wartości **PartitionKey** , **RowKey** i **ti
 </tr>
 </table>
 
-Pierwsza opcja, w zależności od typu obiektu do **RowKey** , jest przydatna, jeśli istnieje możliwość, że dwie jednostki różnych typów mogą mieć taką samą wartość klucza. Grupuje również jednostki tego samego typu razem w partycji.  
+Pierwsza opcja, w zależności od typu obiektu do **RowKey**, jest przydatna, jeśli istnieje możliwość, że dwie jednostki różnych typów mogą mieć taką samą wartość klucza. Grupuje również jednostki tego samego typu razem w partycji.  
 
 Techniki omówione w tej sekcji znajdują się szczególnie w odniesieniu do [relacji dziedziczenia](table-storage-design-modeling.md#inheritance-relationships) dyskusji wcześniej w tym przewodniku w [relacji modelowania](table-storage-design-modeling.md)artykułu.  
 
@@ -927,7 +927,7 @@ W pozostałej części tej sekcji opisano niektóre funkcje w bibliotece klienta
 ### <a name="retrieving-heterogeneous-entity-types"></a>Pobieranie typów jednostek heterogenicznych
 W przypadku korzystania z biblioteki klienta usługi Storage dostępne są trzy opcje pracy z wieloma typami jednostek.  
 
-Jeśli znasz typ jednostki przechowywanej przy użyciu określonych wartości **RowKey** i **PartitionKey** , możesz określić typ jednostki podczas pobierania jednostki, jak pokazano w poprzednich dwóch przykładach, które pobierają jednostki typu **EmployeeEntity** : [wykonywanie zapytania punktu przy użyciu biblioteki klienta magazynu](#executing-a-point-query-using-the-storage-client-library) i [pobieranie wielu jednostek przy użyciu LINQ](#retrieving-multiple-entities-using-linq).  
+Jeśli znasz typ jednostki przechowywanej przy użyciu określonych wartości **RowKey** i **PartitionKey** , możesz określić typ jednostki podczas pobierania jednostki, jak pokazano w poprzednich dwóch przykładach, które pobierają jednostki typu **EmployeeEntity**: [wykonywanie zapytania punktu przy użyciu biblioteki klienta magazynu](#executing-a-point-query-using-the-storage-client-library) i [pobieranie wielu jednostek przy użyciu LINQ](#retrieving-multiple-entities-using-linq).  
 
 Druga opcja to użycie typu **dynamictableentity lub** (zbiór właściwości) zamiast konkretnego typu jednostki poco (Ta opcja może również zwiększyć wydajność, ponieważ nie ma potrzeby serializacji i deserializacji jednostki do typów .NET). Poniższy kod w języku C# potencjalnie umożliwia pobranie wielu jednostek różnych typów z tabeli, ale zwraca wszystkie jednostki jako wystąpienia **dynamictableentity lub** . Następnie używa właściwości **EntityType** do określenia typu każdej jednostki:  
 

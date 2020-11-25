@@ -8,11 +8,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 07/03/2018
 ms.openlocfilehash: 5f9410cc91174420662bb5efc67c8904b5d5e647
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219687"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018991"
 ---
 # <a name="run-u-sql-scripts-on-your-local-machine"></a>Uruchamianie skryptów U-SQL na komputerze lokalnym
 
@@ -24,8 +24,8 @@ Poniższy wykres przedstawia składniki uruchamiania lokalnego oraz sposób mapo
 
 |Składnik|Uruchamianie lokalne|Uruchomienie w chmurze|
 |---------|---------|---------|
-|Magazyn|Lokalny folder danych głównych|Domyślne konto Azure Data Lake Store|
-|Obliczenia|Lokalny aparat uruchamiania U-SQL|Usługa Azure Data Lake Analytics|
+|Storage|Lokalny folder danych głównych|Domyślne konto Azure Data Lake Store|
+|Compute|Lokalny aparat uruchamiania U-SQL|Usługa Azure Data Lake Analytics|
 |Uruchom środowisko|Katalog roboczy na komputerze lokalnym|Klaster Azure Data Lake Analytics|
 
 Poniższe sekcje zawierają więcej informacji na temat składników uruchamiania lokalnego.
@@ -72,7 +72,7 @@ Projekt U-SQL zarządza izolowanym lokalnym środowiskiem uruchomieniowym za pom
 
 Projekt U-SQL tworzy lokalny folder główny danych i konfiguruje dane dla konta **lokalnego projektu** . Tymczasowy folder główny danych jest czyszczony i tworzony ponownie w katalogu roboczym projektu U-SQL za każdym razem, gdy następuje Odbudowywanie i lokalne uruchomienie. Wszystkie źródła danych, które są konfigurowane przez projekt U-SQL, są kopiowane do tego tymczasowego folderu głównego danych lokalnych przed uruchomieniem zadania lokalnego. 
 
-Folder główny źródeł danych można skonfigurować. Kliknij prawym przyciskiem myszy **U-SQL project**  >  **Property**  >  **Źródło danych test**właściwości U-SQL. Po uruchomieniu skryptu U-SQL na koncie w **projekcie lokalnym** wszystkie pliki i podfoldery w folderze **źródła danych testowych** są kopiowane do tymczasowego folderu głównego danych lokalnych. Pliki znajdujące się w podfolderach są uwzględniane. Po uruchomieniu zadania lokalnego wyniki wyjściowe można także znaleźć w folderze tymczasowych lokalnych danych w katalogu roboczym projektu. Wszystkie te dane wyjściowe są usuwane i czyszczone, gdy projekt zostanie odbudowany i oczyszczony. 
+Folder główny źródeł danych można skonfigurować. Kliknij prawym przyciskiem myszy **U-SQL project**  >  **Property**  >  **Źródło danych test** właściwości U-SQL. Po uruchomieniu skryptu U-SQL na koncie w **projekcie lokalnym** wszystkie pliki i podfoldery w folderze **źródła danych testowych** są kopiowane do tymczasowego folderu głównego danych lokalnych. Pliki znajdujące się w podfolderach są uwzględniane. Po uruchomieniu zadania lokalnego wyniki wyjściowe można także znaleźć w folderze tymczasowych lokalnych danych w katalogu roboczym projektu. Wszystkie te dane wyjściowe są usuwane i czyszczone, gdy projekt zostanie odbudowany i oczyszczony. 
 
 ![Konfigurowanie testowego źródła danych projektu](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-configure-project-test-data-source.png)
 

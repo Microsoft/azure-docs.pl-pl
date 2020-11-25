@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
 ms.openlocfilehash: c7e7509f18e7511cd60099a70785b4e2c890afad
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171626"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019297"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Tworzenie i Konfigurowanie magazynu Recovery Services
 
@@ -26,7 +26,7 @@ Azure Backup automatycznie obsługuje magazyn dla magazynu. Należy określić s
 >- Jeśli kopia zapasowa została już skonfigurowana i musi zostać przeniesiona z GRS do LRS, [zapoznaj się z tymi obejściami](#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
 1. W okienku **Recovery Services magazynów** wybierz nowy magazyn. W sekcji **Ustawienia** wybierz pozycję  **Właściwości**.
-1. W obszarze **Właściwości**w obszarze **Konfiguracja kopii zapasowej**wybierz pozycję **Aktualizuj**.
+1. W obszarze **Właściwości** w obszarze **Konfiguracja kopii zapasowej** wybierz pozycję **Aktualizuj**.
 
 1. Wybierz typ replikacji magazynu i wybierz pozycję **Zapisz**.
 

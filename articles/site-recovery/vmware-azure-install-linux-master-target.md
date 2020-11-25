@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: mayg
 ms.openlocfilehash: 9e1008f7acbfe0685b7a171176c7dc54592d1491
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146476"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019246"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalowanie głównego serwera docelowego z systemem Linux na potrzeby powrotu po awarii
 Po przełączeniu maszyn wirtualnych w tryb failover na platformę Azure można wrócić do trybu failover maszyn wirtualnych w lokacji lokalnej. Aby powrócić po awarii, należy ponownie włączyć ochronę maszyny wirtualnej z platformy Azure do lokacji lokalnej. W przypadku tego procesu wymagany jest lokalny główny serwer docelowy do odbierania ruchu. 
@@ -44,11 +44,11 @@ Zamieszczaj komentarze lub pytania na końcu tego artykułu lub na [stronie pyta
 ## <a name="sizing-guidelines-for-creating-master-target-server"></a>Wskazówki dotyczące ustalania wielkości na potrzeby tworzenia głównego serwera docelowego
 
 Utwórz główny obiekt docelowy zgodnie z następującymi wskazówkami dotyczącymi ustalania wielkości:
-- **Pamięć RAM** : 6 GB lub więcej
-- **Rozmiar dysku systemu operacyjnego** : 100 GB lub więcej (aby zainstalować system operacyjny)
-- **Dodatkowy rozmiar dysku dla dysku przechowywania** : 1 TB
-- **Rdzenie procesora CPU** : 4 rdzenie lub więcej
-- **Jądro** : 4,16. *
+- **Pamięć RAM**: 6 GB lub więcej
+- **Rozmiar dysku systemu operacyjnego**: 100 GB lub więcej (aby zainstalować system operacyjny)
+- **Dodatkowy rozmiar dysku dla dysku przechowywania**: 1 TB
+- **Rdzenie procesora CPU**: 4 rdzenie lub więcej
+- **Jądro**: 4,16. *
 
 ## <a name="deploy-the-master-target-server"></a>Wdróż główny serwer docelowy
 
@@ -59,81 +59,81 @@ Wykonaj następujące kroki, aby zainstalować system operacyjny Ubuntu 16.04.2 
 1.   Przejdź do [linku pobierania](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), wybierz najbliższy duplikat i Pobierz Ubuntu 16.04.2 minimalny 64-bitowy ISO.
 Zachowaj Ubuntu 16.04.2 minimalny 64-bitowy ISO w stacji dysków DVD i uruchom system.
 
-1.  Wybierz opcję **angielski** jako preferowany język, a następnie wybierz **klawisz ENTER** .
+1.  Wybierz opcję **angielski** jako preferowany język, a następnie wybierz **klawisz ENTER**.
     
     ![Wybierz język](./media/vmware-azure-install-linux-master-target/image1.png)
-1. Wybierz pozycję **Zainstaluj serwer Ubuntu** , a następnie wybierz klawisz **Enter** .
+1. Wybierz pozycję **Zainstaluj serwer Ubuntu**, a następnie wybierz klawisz **Enter**.
 
     ![Wybierz pozycję Zainstaluj serwer Ubuntu](./media/vmware-azure-install-linux-master-target/image2.png)
 
-1.  Wybierz opcję **angielski** jako preferowany język, a następnie wybierz **klawisz ENTER** .
+1.  Wybierz opcję **angielski** jako preferowany język, a następnie wybierz **klawisz ENTER**.
 
     ![Wybierz angielski jako preferowany język](./media/vmware-azure-install-linux-master-target/image3.png)
 
-1. Wybierz odpowiednią opcję z listy opcje **strefy czasowej** , a następnie wybierz **klawisz ENTER** .
+1. Wybierz odpowiednią opcję z listy opcje **strefy czasowej** , a następnie wybierz **klawisz ENTER**.
 
     ![Wybierz prawidłową strefę czasową](./media/vmware-azure-install-linux-master-target/image4.png)
 
-1. Wybierz pozycję **nie** (opcja domyślna), a następnie wybierz klawisz **Enter** .
+1. Wybierz pozycję **nie** (opcja domyślna), a następnie wybierz klawisz **Enter**.
 
      ![Konfigurowanie klawiatury](./media/vmware-azure-install-linux-master-target/image5.png)
-1. Wybierz opcję **angielski (Stany Zjednoczone)** jako kraj/region pochodzenia dla klawiatury, a następnie wybierz **klawisz ENTER** .
+1. Wybierz opcję **angielski (Stany Zjednoczone)** jako kraj/region pochodzenia dla klawiatury, a następnie wybierz **klawisz ENTER**.
 
-1. Wybierz opcję **angielski (US)** jako układ klawiatury, a następnie wybierz klawisz **Enter** .
+1. Wybierz opcję **angielski (US)** jako układ klawiatury, a następnie wybierz klawisz **Enter**.
 
-1. Wprowadź nazwę hosta serwera w polu **Nazwa hosta** , a następnie wybierz pozycję **Kontynuuj** .
+1. Wprowadź nazwę hosta serwera w polu **Nazwa hosta** , a następnie wybierz pozycję **Kontynuuj**.
 
-1. Aby utworzyć konto użytkownika, wprowadź nazwę użytkownika, a następnie wybierz pozycję **Kontynuuj** .
+1. Aby utworzyć konto użytkownika, wprowadź nazwę użytkownika, a następnie wybierz pozycję **Kontynuuj**.
 
       ![Tworzenie konta użytkownika](./media/vmware-azure-install-linux-master-target/image9.png)
 
-1. Wprowadź hasło dla nowego konta użytkownika, a następnie wybierz pozycję **Kontynuuj** .
+1. Wprowadź hasło dla nowego konta użytkownika, a następnie wybierz pozycję **Kontynuuj**.
 
-1.  Potwierdź hasło dla nowego użytkownika, a następnie wybierz pozycję **Kontynuuj** .
+1.  Potwierdź hasło dla nowego użytkownika, a następnie wybierz pozycję **Kontynuuj**.
 
     ![Potwierdź hasła](./media/vmware-azure-install-linux-master-target/image11.png)
 
-1.  W następnym zaznaczeniu w celu zaszyfrowania katalogu macierzystego wybierz pozycję **nie** (opcja domyślna), a następnie wybierz **klawisz ENTER** .
+1.  W następnym zaznaczeniu w celu zaszyfrowania katalogu macierzystego wybierz pozycję **nie** (opcja domyślna), a następnie wybierz **klawisz ENTER**.
 
-1. Jeśli wyświetlana strefa czasowa jest poprawna, wybierz opcję **tak** (opcja domyślna), a następnie wybierz **klawisz ENTER** . Aby zmienić konfigurację strefy czasowej, wybierz pozycję **nie** .
+1. Jeśli wyświetlana strefa czasowa jest poprawna, wybierz opcję **tak** (opcja domyślna), a następnie wybierz **klawisz ENTER**. Aby zmienić konfigurację strefy czasowej, wybierz pozycję **nie**.
 
-1. Na stronie opcje partycjonowania wybierz opcję z **przewodnikiem — Użyj całego dysku** , a następnie wybierz **klawisz ENTER** .
+1. Na stronie opcje partycjonowania wybierz opcję z **przewodnikiem — Użyj całego dysku**, a następnie wybierz **klawisz ENTER**.
 
      ![Wybierz opcję partycjonowania metody](./media/vmware-azure-install-linux-master-target/image14.png)
 
-1.  Wybierz odpowiedni dysk z opcji **Wybierz dysk do partycjonowania** , a następnie wybierz klawisz **Enter** .
+1.  Wybierz odpowiedni dysk z opcji **Wybierz dysk do partycjonowania** , a następnie wybierz klawisz **Enter**.
 
     ![Wybierz dysk](./media/vmware-azure-install-linux-master-target/image15.png)
 
-1.  Wybierz pozycję **tak** , aby zapisać zmiany na dysku, a następnie wybierz **klawisz ENTER** .
+1.  Wybierz pozycję **tak** , aby zapisać zmiany na dysku, a następnie wybierz **klawisz ENTER**.
 
     ![Wybierz opcję domyślną](./media/vmware-azure-install-linux-master-target/image16-ubuntu.png)
 
-1.  W obszarze Konfiguruj wybór serwera proxy wybierz opcję domyślną, wybierz pozycję **Kontynuuj** , a następnie wybierz klawisz **Enter** .
+1.  W obszarze Konfiguruj wybór serwera proxy wybierz opcję domyślną, wybierz pozycję **Kontynuuj**, a następnie wybierz klawisz **Enter**.
      
      ![Zrzut ekranu pokazujący, gdzie wybrać pozycję Kontynuuj, a następnie wybierz klawisz ENTER.](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
 
-1.  Wybierz opcję **Brak opcji aktualizacje automatyczne** w wyborze do zarządzania uaktualnieniami w systemie, a następnie wybierz klawisz **Enter** .
+1.  Wybierz opcję **Brak opcji aktualizacje automatyczne** w wyborze do zarządzania uaktualnieniami w systemie, a następnie wybierz klawisz **Enter**.
 
      ![Wybierz sposób zarządzania uaktualnieniami](./media/vmware-azure-install-linux-master-target/image18-ubuntu.png)
 
     > [!WARNING]
     > Ponieważ główny serwer docelowy Azure Site Recovery wymaga bardzo konkretnej wersji Ubuntu, należy upewnić się, że uaktualnienia jądra są wyłączone dla maszyny wirtualnej. Jeśli są włączone, wszystkie regularne uaktualnienia powodują, że główny serwer docelowy będzie działać nieprawidłowo. Upewnij się, że wybrano opcję **bez aktualizacji automatycznych** .
 
-1.  Wybierz opcje domyślne. Jeśli chcesz, aby program openSSH dla połączenia SSH, wybierz opcję **serwer OpenSSH** , a następnie wybierz pozycję **Kontynuuj** .
+1.  Wybierz opcje domyślne. Jeśli chcesz, aby program openSSH dla połączenia SSH, wybierz opcję **serwer OpenSSH** , a następnie wybierz pozycję **Kontynuuj**.
 
     ![Wybieranie oprogramowania](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
-1. W obszarze wyboru do instalacji modułu ładującego GRUB Boot wybierz pozycję **tak** , a następnie wybierz **klawisz ENTER** .
+1. W obszarze wyboru do instalacji modułu ładującego GRUB Boot wybierz pozycję **tak**, a następnie wybierz **klawisz ENTER**.
      
     ![Instalator rozruchu GRUB](./media/vmware-azure-install-linux-master-target/image20.png)
 
 
-1. Wybierz odpowiednie urządzenie do instalacji modułu ładującego rozruchu (najlepiej **/dev/SDA** ), a następnie wybierz **klawisz ENTER** .
+1. Wybierz odpowiednie urządzenie do instalacji modułu ładującego rozruchu (najlepiej **/dev/SDA**), a następnie wybierz **klawisz ENTER**.
      
     ![Wybierz odpowiednie urządzenie](./media/vmware-azure-install-linux-master-target/image21.png)
 
-1. Wybierz pozycję **Kontynuuj** , a następnie wybierz pozycję **Enter** , aby zakończyć instalację.
+1. Wybierz pozycję **Kontynuuj**, a następnie wybierz pozycję **Enter** , aby zakończyć instalację.
 
     ![Zakończ instalację](./media/vmware-azure-install-linux-master-target/image22.png)
 
@@ -150,11 +150,11 @@ Aby uzyskać identyfikator dla każdego dysku twardego SCSI na maszynie wirtualn
 
 1. Zamknij maszynę wirtualną.
 
-2. W lewym okienku kliknij prawym przyciskiem myszy wpis maszyny wirtualnej, a następnie wybierz pozycję **Edytuj ustawienia** .
+2. W lewym okienku kliknij prawym przyciskiem myszy wpis maszyny wirtualnej, a następnie wybierz pozycję **Edytuj ustawienia**.
 
 3. Wybierz kartę **Opcje** .
 
-4. W okienku po lewej stronie wybierz pozycję **Zaawansowane**  >  **Ogólne** , a następnie wybierz przycisk **Parametry konfiguracji** w prawej dolnej części ekranu.
+4. W okienku po lewej stronie wybierz pozycję **Zaawansowane**  >  **Ogólne**, a następnie wybierz przycisk **Parametry konfiguracji** w prawej dolnej części ekranu.
 
     ![Otwórz parametr konfiguracji](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
 
@@ -162,13 +162,13 @@ Aby uzyskać identyfikator dla każdego dysku twardego SCSI na maszynie wirtualn
 
 5. Sprawdź, czy wiersz z **dyskiem. EnableUUID** już istnieje.
 
-   - Jeśli wartość istnieje i jest ustawiona na **false** , Zmień wartość na **true** . (W wartościach nie jest rozróżniana wielkość liter).
+   - Jeśli wartość istnieje i jest ustawiona na **false**, Zmień wartość na **true**. (W wartościach nie jest rozróżniana wielkość liter).
 
-   - Jeśli wartość istnieje i jest ustawiona na **wartość true** , wybierz pozycję **Anuluj** .
+   - Jeśli wartość istnieje i jest ustawiona na **wartość true**, wybierz pozycję **Anuluj**.
 
-   - Jeśli wartość nie istnieje, wybierz pozycję **Dodaj wiersz** .
+   - Jeśli wartość nie istnieje, wybierz pozycję **Dodaj wiersz**.
 
-   - W kolumnie Nazwa Dodaj **dysk. EnableUUID** , a następnie ustaw wartość na **true** .
+   - W kolumnie Nazwa Dodaj **dysk. EnableUUID**, a następnie ustaw wartość na **true**.
 
      ![Sprawdzanie, czy dysk jest. EnableUUID już istnieje](./media/vmware-azure-install-linux-master-target/image25.png)
 
@@ -196,12 +196,12 @@ Aby pobrać go przy użyciu systemu Linux, wpisz:
 `wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz`
 
 > [!WARNING]
-> Pamiętaj, aby pobrać i rozpakować Instalatora w katalogu macierzystym. Po rozpakować do **/usr/local** , instalacja nie powiedzie się.
+> Pamiętaj, aby pobrać i rozpakować Instalatora w katalogu macierzystym. Po rozpakować do **/usr/local**, instalacja nie powiedzie się.
 
 
 #### <a name="access-the-installer-from-the-process-server"></a>Uzyskiwanie dostępu do Instalatora z serwera przetwarzania
 
-1. Na serwerze przetwarzania przejdź do **lokalizacji C:\Program Files (x86) \Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository** .
+1. Na serwerze przetwarzania przejdź do **lokalizacji C:\Program Files (x86) \Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository**.
 
 2. Skopiuj wymagany plik Instalatora z serwera przetwarzania i Zapisz go jako **latestlinuxmobsvc. tar. gz** w katalogu macierzystym.
 
@@ -238,7 +238,7 @@ Wykonaj następujące kroki, aby utworzyć dysk przechowywania:
 
     ![Identyfikator wielu ścieżek](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Sformatuj dysk, a następnie utwórz system plików na nowym dysku: **mkfs. ext4/dev/mapper/ \<Retention disk's multipath id>** .
+3. Sformatuj dysk, a następnie utwórz system plików na nowym dysku: **mkfs. ext4/dev/mapper/ \<Retention disk's multipath id>**.
     
     ![System plików](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -257,7 +257,7 @@ Wykonaj następujące kroki, aby utworzyć dysk przechowywania:
 
     **/dev/mapper/ \<Retention disks multipath id> /mnt/Retention ext4 rw 0 0**
 
-    Wybierz **klawisz ESC** , a następnie wpisz **: WQ** (Zapisz i Wyjdź), aby zamknąć okno edytora.
+    Wybierz **klawisz ESC**, a następnie wpisz **: WQ** (Zapisz i Wyjdź), aby zamknąć okno edytora.
 
 ### <a name="install-the-master-target"></a>Zainstaluj główny element docelowy
 
@@ -300,7 +300,7 @@ Poczekaj na zakończenie działania skryptu. Jeśli główny serwer docelowy rej
 
 #### <a name="install-the-master-target-by-using-interactive-installation"></a>Instalowanie głównego elementu docelowego przy użyciu instalacji interaktywnej
 
-1. Uruchom następujące polecenie, aby zainstalować główny serwer docelowy. W polu Rola agenta wybierz pozycję **główny element docelowy** .
+1. Uruchom następujące polecenie, aby zainstalować główny serwer docelowy. W polu Rola agenta wybierz pozycję **główny element docelowy**.
 
     ```
     ./install
@@ -329,7 +329,7 @@ Aby można było odnaleźć magazyny danych, należy zainstalować narzędzia VM
 
 ### <a name="upgrade-the-master-target-server"></a>Uaktualnianie głównego serwera docelowego
 
-Uruchom instalatora. Automatycznie wykryje, że Agent jest zainstalowany na głównym serwerze docelowym. W celu uaktualnienia wybierz pozycję **Y** .  Po zakończeniu instalacji sprawdź, czy wersja głównego elementu docelowego została zainstalowana przy użyciu następującego polecenia:
+Uruchom instalatora. Automatycznie wykryje, że Agent jest zainstalowany na głównym serwerze docelowym. W celu uaktualnienia wybierz pozycję **Y**.  Po zakończeniu instalacji sprawdź, czy wersja głównego elementu docelowego została zainstalowana przy użyciu następującego polecenia:
 
 `cat /usr/local/.vx_version`
 
@@ -352,7 +352,7 @@ Zobaczysz, że w polu **wersja** nadano numer wersji głównego elementu docelow
 
 
 ## <a name="next-steps"></a>Następne kroki
-Po zakończeniu instalacji i rejestracji głównego elementu docelowego można zobaczyć, że główny element docelowy pojawia się w **głównej sekcji docelowej** w **infrastrukturze Site Recovery** , w obszarze przegląd serwera konfiguracji.
+Po zakończeniu instalacji i rejestracji głównego elementu docelowego można zobaczyć, że główny element docelowy pojawia się w **głównej sekcji docelowej** w **infrastrukturze Site Recovery**, w obszarze przegląd serwera konfiguracji.
 
 Teraz możesz kontynuować ponowną [ochronę](vmware-azure-reprotect.md), a następnie powrócić po awarii.
 

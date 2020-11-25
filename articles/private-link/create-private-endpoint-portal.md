@@ -8,11 +8,11 @@ ms.topic: quickstart
 ms.date: 10/20/2020
 ms.author: allensu
 ms.openlocfilehash: 395912ae70c5a01bd7de9a80cf8a507dd516028e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895205"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018073"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-the-azure-portal"></a>Szybki Start: Tworzenie prywatnego punktu końcowego przy użyciu Azure Portal
 
@@ -50,7 +50,7 @@ Host bastionu zostanie użyty do nawiązania bezpiecznego połączenia z maszyn�
     | Grupa zasobów   | Wybierz pozycję **CreatePrivateEndpointQS — RG** |
     | **Szczegóły wystąpienia** |                                                                 |
     | Nazwa             | Wprowadź **myVNet**                                    |
-    | Region           | Wybierz pozycję **Europa Zachodnia** .|
+    | Region (Region)           | Wybierz pozycję **Europa Zachodnia**.|
 
 3. Wybierz kartę **adresy IP** lub wybierz przycisk **Dalej: adresy IP** w dolnej części strony.
 
@@ -69,22 +69,22 @@ Host bastionu zostanie użyty do nawiązania bezpiecznego połączenia z maszyn�
     | Nazwa podsieci | Wprowadź **maskę** |
     | Zakres adresów podsieci | Wprowadź **10.1.0.0/24** |
 
-7. Wybierz pozycję **Zapisz** .
+7. Wybierz pozycję **Zapisz**.
 
 8. Wybierz kartę **zabezpieczenia** .
 
-9. W obszarze **BastionHost** wybierz pozycję **enable (Włącz** ). Wprowadź następujące informacje:
+9. W obszarze **BastionHost** wybierz pozycję **enable (Włącz**). Wprowadź następujące informacje:
 
     | Ustawienie            | Wartość                      |
     |--------------------|----------------------------|
     | Nazwa bastionu | Wprowadź **myBastionHost** |
     | Przestrzeń adresowa AzureBastionSubnet | Wprowadź **10.1.1.0/24** |
-    | Publiczny adres IP | Wybierz pozycję **Utwórz nowy** . </br> W obszarze **Nazwa** wprowadź **myBastionIP** . </br> Wybierz przycisk **OK** . |
+    | Publiczny adres IP | Wybierz pozycję **Utwórz nowy**. </br> W obszarze **Nazwa** wprowadź **myBastionIP**. </br> Wybierz pozycję **OK**. |
 
 
 8. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
 
-9. Wybierz pozycję **Utwórz** .
+9. Wybierz pozycję **Utwórz**.
 
 ## <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
@@ -101,9 +101,9 @@ W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowani
     | Grupa zasobów | Wybierz pozycję **CreatePrivateEndpointQS — RG** |
     | **Szczegóły wystąpienia** |  |
     | Nazwa maszyny wirtualnej | Wprowadź **myVM** |
-    | Region | Wybierz pozycję **Europa Zachodnia** . |
+    | Region (Region) | Wybierz pozycję **Europa Zachodnia**. |
     | Opcje dostępności | Nie wybieraj **nadmiarowości infrastruktury** |
-    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter-Gen1** |
+    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter-Gen1** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |
@@ -111,7 +111,7 @@ W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowani
     | Hasło | Wprowadź hasło |
     | Potwierdź hasło | Ponownie wprowadź hasło |
 
-3. Wybierz kartę **Sieć** lub wybierz pozycję **Dalej: Dyski** , a następnie pozycję **Dalej: Sieć** .
+3. Wybierz kartę **Sieć** lub wybierz pozycję **Dalej: Dyski**, a następnie pozycję **Dalej: Sieć**.
   
 4. Na karcie Sieć wybierz lub wprowadź:
 
@@ -120,36 +120,36 @@ W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowani
     | **Interfejs sieciowy** |  |
     | Sieć wirtualna | **myVNet** |
     | Podsieć | **mySubnet** |
-    | Publiczny adres IP | Wybierz pozycję **Brak** . |
+    | Publiczny adres IP | Wybierz pozycję **Brak**. |
     | Grupa zabezpieczeń sieci karty sieciowej | **Podstawowe**|
-    | Publiczne porty wejściowe | Wybierz pozycję **Brak** . |
+    | Publiczne porty wejściowe | Wybierz pozycję **Brak**. |
    
-5. Wybierz pozycję **Przeglądanie + tworzenie** . 
+5. Wybierz pozycję **Przeglądanie + tworzenie**. 
   
-6. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz** .
+6. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.
 
 ## <a name="create-a-private-endpoint"></a>Tworzenie prywatnego punktu końcowego
 
 W tej sekcji utworzysz prywatny punkt końcowy dla aplikacji sieci Web utworzonej w sekcji wymagania wstępne.
 
-1. W lewym górnym rogu ekranu w portalu wybierz pozycję **Utwórz zasób**  >  **Sieć**  >  **prywatny link** lub w polu wyszukiwania wprowadź **łącze prywatne** .
+1. W lewym górnym rogu ekranu w portalu wybierz pozycję **Utwórz zasób**  >  **Sieć**  >  **prywatny link** lub w polu wyszukiwania wprowadź **łącze prywatne**.
 
-2. Wybierz pozycję **Utwórz** .
+2. Wybierz pozycję **Utwórz**.
 
 3. W **prywatnym centrum połączenia** wybierz pozycję **prywatne punkty końcowe** w menu po lewej stronie.
 
-4. W obszarze **prywatne punkty końcowe** wybierz pozycję **+ Dodaj** .
+4. W obszarze **prywatne punkty końcowe** wybierz pozycję **+ Dodaj**.
 
-5. Na karcie **podstawy** **Utwórz prywatny punkt końcowy** , wprowadź lub wybierz następujące informacje:
+5. Na karcie **podstawy** **Utwórz prywatny punkt końcowy**, wprowadź lub wybierz następujące informacje:
 
     | Ustawienie | Wartość |
     | ------- | ----- |
     | **Szczegóły projektu** | |
     | Subskrypcja | Wybierz subskrypcję. |
-    | Grupa zasobów | Wybierz pozycję **CreatePrivateEndpointQS-RG** . Ta grupa zasobów została utworzona w poprzedniej sekcji.|
+    | Grupa zasobów | Wybierz pozycję **CreatePrivateEndpointQS-RG**. Ta grupa zasobów została utworzona w poprzedniej sekcji.|
     | **Szczegóły wystąpienia** |  |
-    | Nazwa  | Wprowadź **myPrivateEndpoint** . |
-    | Region | Wybierz pozycję **Europa Zachodnia** . |
+    | Nazwa  | Wprowadź **myPrivateEndpoint**. |
+    | Region (Region) | Wybierz pozycję **Europa Zachodnia**. |
 
 6. Wybierz kartę **zasób** lub przycisk **Dalej: zasób** w dolnej części strony.
     
@@ -157,11 +157,11 @@ W tej sekcji utworzysz prywatny punkt końcowy dla aplikacji sieci Web utworzone
 
     | Ustawienie | Wartość |
     | ------- | ----- |
-    | Metoda połączenia | Wybierz pozycję **Połącz z zasobem platformy Azure w moim katalogu** . |
+    | Metoda połączenia | Wybierz pozycję **Połącz z zasobem platformy Azure w moim katalogu**. |
     | Subskrypcja | Wybierz subskrypcję. |
-    | Typ zasobu | Wybierz pozycję **Microsoft. Web/Sites** . |
-    | Zasób | Wybierz pozycję **\<your-web-app-name>** . </br> Wybierz nazwę aplikacji sieci Web utworzonej w sekcji wymagania wstępne. |
-    | Docelowy zasób podrzędny | Wybierz pozycję **Lokacje** . |
+    | Typ zasobu | Wybierz pozycję **Microsoft. Web/Sites**. |
+    | Zasób | Wybierz pozycję **\<your-web-app-name>**. </br> Wybierz nazwę aplikacji sieci Web utworzonej w sekcji wymagania wstępne. |
+    | Docelowy zasób podrzędny | Wybierz pozycję **Lokacje**. |
 
 8. Wybierz kartę **Konfiguracja** lub przycisk **Dalej: Konfiguracja** w dolnej części ekranu.
 
@@ -170,17 +170,17 @@ W tej sekcji utworzysz prywatny punkt końcowy dla aplikacji sieci Web utworzone
     | Ustawienie | Wartość |
     | ------- | ----- |
     | **Sieć** |  |
-    | Sieć wirtualna | Wybierz pozycję **myVNet** . |
-    | Podsieć | Wybierz pozycję Moja **podsieć** . |
+    | Sieć wirtualna | Wybierz pozycję **myVNet**. |
+    | Podsieć | Wybierz pozycję Moja **podsieć**. |
     | **Integracja Prywatna strefa DNS** |  |
-    | Integruj z prywatną strefą DNS | Pozostaw wartość domyślną **tak** . |
+    | Integruj z prywatną strefą DNS | Pozostaw wartość domyślną **tak**. |
     | Subskrypcja | Wybierz subskrypcję. |
-    | Prywatne strefy DNS | Pozostaw wartość domyślną **(New) privatelink.azurewebsites.NET** .
+    | Prywatne strefy DNS | Pozostaw wartość domyślną **(New) privatelink.azurewebsites.NET**.
     
 
-13. Wybierz pozycję **Przeglądanie + tworzenie** .
+13. Wybierz pozycję **Przeglądanie + tworzenie**.
 
-14. Wybierz pozycję **Utwórz** .
+14. Wybierz pozycję **Utwórz**.
 
 ## <a name="test-connectivity-to-private-endpoint"></a>Testowanie łączności z prywatnym punktem końcowym
 
@@ -188,11 +188,11 @@ W tej sekcji użyjesz maszyny wirtualnej utworzonej w poprzednim kroku, aby nawi
 
 1. W okienku nawigacji po lewej stronie wybierz pozycję **grupy zasobów** .
 
-2. Wybierz pozycję **CreatePrivateEndpointQS-RG** .
+2. Wybierz pozycję **CreatePrivateEndpointQS-RG**.
 
-3. Wybierz pozycję **myVM** .
+3. Wybierz pozycję **myVM**.
 
-4. Na stronie Przegląd dla **myVM** wybierz pozycję **Połącz** , a następnie **bastionu** .
+4. Na stronie Przegląd dla **myVM** wybierz pozycję **Połącz** , a następnie **bastionu**.
 
 5. Wybierz przycisk **bastionu Użyj** niebieska.
 
@@ -216,27 +216,27 @@ W tej sekcji użyjesz maszyny wirtualnej utworzonej w poprzednim kroku, aby nawi
 
 11. W bastionu połączenie z **myVM** Otwórz program Internet Explorer.
 
-12. Wprowadź adres URL aplikacji sieci Web, **https:// \<your-webapp-name> . azurewebsites.NET** .
+12. Wprowadź adres URL aplikacji sieci Web, **https:// \<your-webapp-name> . azurewebsites.NET**.
 
 13. Jeśli aplikacja nie została wdrożona, zostanie wyświetlona domyślna strona aplikacji sieci Web:
 
     :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Domyślna strona aplikacji sieci Web." border="true":::
 
-18. Zamknij połączenie z usługą **myVM** .
+18. Zamknij połączenie z usługą **myVM**.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń sieć wirtualną, maszynę wirtualną i aplikację sieci Web, wykonując następujące czynności:
 
-1. Z menu po lewej stronie wybierz pozycję **grupy zasobów** .
+1. Z menu po lewej stronie wybierz pozycję **grupy zasobów**.
 
-2. Wybierz pozycję **CreatePrivateEndpointQS-RG** .
+2. Wybierz pozycję **CreatePrivateEndpointQS-RG**.
 
-3. Wybierz pozycję **Usuń grupę zasobów** .
+3. Wybierz pozycję **Usuń grupę zasobów**.
 
-4. Wprowadź **CreatePrivateEndpointQS-RG** w polu **wpisz nazwę grupy zasobów** .
+4. Wprowadź **CreatePrivateEndpointQS-RG** w polu **wpisz nazwę grupy zasobów**.
 
-5. Wybierz pozycję **Usuń** .
+5. Wybierz pozycję **Usuń**.
 
 
 ## <a name="next-steps"></a>Następne kroki

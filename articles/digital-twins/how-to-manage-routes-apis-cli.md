@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Zobacz, jak skonfigurować punkty końcowe i trasy zdarzeń dla danych Digital bliźniaczych reprezentacji systemu Azure oraz zarządzać nimi.
 author: alexkarcher-msft
 ms.author: alkarche
-ms.date: 10/12/2020
+ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0b8bd9006482daf7c9218f0f3dbb16d2e08359bf
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: b836038aa2f8f60e25c51d1d5674d22497b3ce44
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533756"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "96018968"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Zarządzanie punktami końcowymi i trasami w usłudze Azure Digital bliźniaczych reprezentacji (interfejsy API i interfejs wiersza polecenia)
 
@@ -64,15 +64,15 @@ Po utworzeniu tematu można połączyć go z usługą Azure Digital bliźniaczyc
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-Teraz temat usługi Event Grid jest dostępny jako punkt końcowy wewnątrz Digital bliźniaczych reprezentacji systemu Azure, pod nazwą określoną za pomocą `--endpoint-name` argumentu. Ta nazwa będzie używana zazwyczaj jako obiekt docelowy **trasy zdarzenia** , którą utworzysz [w dalszej części tego artykułu](#create-an-event-route) przy użyciu interfejsu API usługi Digital bliźniaczych reprezentacji.
+Teraz temat usługi Event Grid jest dostępny jako punkt końcowy wewnątrz Digital bliźniaczych reprezentacji systemu Azure, pod nazwą określoną za pomocą `--endpoint-name` argumentu. Ta nazwa będzie używana zazwyczaj jako obiekt docelowy **trasy zdarzenia**, którą utworzysz [w dalszej części tego artykułu](#create-an-event-route) przy użyciu interfejsu API usługi Digital bliźniaczych reprezentacji.
 
 ### <a name="create-an-event-hubs-or-service-bus-endpoint"></a>Utwórz punkt końcowy Event Hubs lub Service Bus
 
 Proces tworzenia Event Hubs lub Service Bus punktów końcowych jest podobny do procesu Event Grid pokazanego powyżej.
 
 Najpierw utwórz zasoby, które będą używane jako punkt końcowy. Oto co jest wymagane:
-* Service Bus: _Service Bus przestrzeni nazw_ , _temat Service Bus_ , _reguła autoryzacji_
-* Event Hubs: _Event Hubs przestrzeń nazw_ , _centrum zdarzeń_ , _reguła autoryzacji_
+* Service Bus: _Service Bus przestrzeni nazw_, _temat Service Bus_, _reguła autoryzacji_
+* Event Hubs: _Event Hubs przestrzeń nazw_, _centrum zdarzeń_, _reguła autoryzacji_
 
 Następnie użyj następujących poleceń, aby utworzyć punkty końcowe w usłudze Azure Digital bliźniaczych reprezentacji: 
 
@@ -156,10 +156,10 @@ Aby faktycznie wysyłać dane z usługi Azure Digital bliźniaczych reprezentacj
 
 W przykładach w tej sekcji użyto [zestawu SDK platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
 
-**Wymaganie wstępne** : należy utworzyć punkty końcowe zgodnie z wcześniejszym opisem w tym artykule przed rozpoczęciem tworzenia trasy. Po zakończeniu konfigurowania punktów końcowych można utworzyć trasę zdarzenia.
+**Wymaganie wstępne**: należy utworzyć punkty końcowe zgodnie z wcześniejszym opisem w tym artykule przed rozpoczęciem tworzenia trasy. Po zakończeniu konfigurowania punktów końcowych można utworzyć trasę zdarzenia.
 
->[!NOTE]
->Jeśli ostatnio wdrożono punkty końcowe, sprawdź, czy są one gotowe do wdrożenia, **przed** podjęciem próby użycia ich dla nowej trasy zdarzeń. Jeśli wdrożenie trasy nie powiedzie się, ponieważ punkty końcowe nie są gotowe, odczekaj kilka minut i spróbuj ponownie.
+> [!NOTE]
+> Jeśli ostatnio wdrożono punkty końcowe, sprawdź, czy są one gotowe do wdrożenia, **przed** podjęciem próby użycia ich dla nowej trasy zdarzeń. Jeśli wdrożenie trasy nie powiedzie się, ponieważ punkty końcowe nie są gotowe, odczekaj kilka minut i spróbuj ponownie.
 >
 > W przypadku wykonywania skryptów w tym przepływie warto uwzględnić to przez utworzenie w ciągu 2-3 minut czasu oczekiwania na zakończenie wdrażania usługi punktu końcowego przed przejściem do konfiguracji trasy.
 
@@ -229,7 +229,7 @@ Bez filtrowania punkty końcowe otrzymują wiele zdarzeń z usługi Azure Digita
 
 Można ograniczyć wysyłane zdarzenia, dodając **Filtr** dla punktu końcowego do trasy zdarzenia.
 
-Aby dodać filtr, można użyć żądania PUT do *protokołu https://{YourHost}/EventRoutes/myNewRoute? API-Version = 2020-10-31* z następującą treścią:
+Aby dodać filtr, można użyć żądania PUT do *protokołu https://{The-Azure-Digital-bliźniaczych reprezentacji-hostname}/eventRoutes/{Event-Route-Name}? API-Version = 2020-10-31* z następującą treścią:
 
 ```json  
 {
@@ -237,7 +237,6 @@ Aby dodać filtr, można użyć żądania PUT do *protokołu https://{YourHost}/
     "filter": "<filter-text>"
 }
 ``` 
-
 Poniżej przedstawiono obsługiwane filtry tras. Użyj szczegółów w kolumnie *Filtruj schemat tekstu* , aby zastąpić `<filter-text>` symbol zastępczy w powyższej treści żądania.
 
 [!INCLUDE [digital-twins-route-filters](../../includes/digital-twins-route-filters.md)]

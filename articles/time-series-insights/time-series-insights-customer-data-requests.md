@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5565dd43689d0420fbb9b73f088f24a38a2d54db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5ecbabe4a5c3458c77d145fbce1281550470e00
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665909"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96019076"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Podsumowanie funkcji żądania danych klienta
 
@@ -34,7 +34,7 @@ Administrator dzierżawy może usunąć dane klienta przy użyciu Azure Portal.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-Jednak przed usunięciem danych klienta za pośrednictwem portalu należy usunąć zasady dostępu użytkownika ze środowiska Time Series Insights w Azure Portal. Aby uzyskać więcej informacji, przeczytaj temat [udzielanie dostępu do danych w środowisku Time Series Insights przy użyciu Azure Portal](time-series-insights-data-access.md).
+Jednak przed usunięciem danych klienta za pośrednictwem portalu należy usunąć zasady dostępu użytkownika ze środowiska Time Series Insights w Azure Portal. Aby uzyskać więcej informacji, przeczytaj temat [udzielanie dostępu do danych w środowisku Time Series Insights przy użyciu Azure Portal](./concepts-access-policies.md).
 
 Można również wykonywać operacje usuwania na zasadach dostępu przy użyciu interfejsu API REST. Aby uzyskać więcej informacji, zobacz [zasady dostępu do odczytu — usuwanie](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/delete).
 
@@ -46,7 +46,7 @@ Podobnie jak w przypadku usuwania danych, Administrator dzierżawy może wyświe
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-Jeśli jesteś administratorem dzierżawy, możesz wyświetlić zasady dostępu do danych w środowisku Time Series Insights w Azure Portal. Aby uzyskać więcej informacji, przeczytaj temat [udzielanie dostępu do danych w środowisku Time Series Insights przy użyciu Azure Portal](time-series-insights-data-access.md).
+Jeśli jesteś administratorem dzierżawy, możesz wyświetlić zasady dostępu do danych w środowisku Time Series Insights w Azure Portal. Aby uzyskać więcej informacji, przeczytaj temat [udzielanie dostępu do danych w środowisku Time Series Insights przy użyciu Azure Portal](./concepts-access-policies.md).
 
 Możliwe jest również wykonywanie operacji eksportowania na zasadach dostępu przy użyciu operacji "list by Environment" w podanym interfejsie API REST. Aby uzyskać więcej informacji, zobacz [zasady dostępu do odczytu — lista według środowiska](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/listbyenvironment).
 
@@ -68,7 +68,7 @@ Aby uzyskać więcej informacji, przeczytaj temat [Konfigurowanie przechowywania
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Przeczytaj więcej [na temat udzielania dostępu do danych w środowisku Azure Time Series Insights](./time-series-insights-data-access.md).
+* Przeczytaj więcej [na temat udzielania dostępu do danych w środowisku Azure Time Series Insights](./concepts-access-policies.md).
 
 * Wyświetl [Azure Time Series Insights Explorer](time-series-insights-explorer.md).
 

@@ -18,11 +18,11 @@ ms.date: 03/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ad9820cc3227c788582a9c2a452abe1886a4a2d3
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950316"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019331"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Konfiguracje obciążenia SAP ze strefami dostępności platformy Azure
 [Strefy dostępności platformy Azure](../../../availability-zones/az-overview.md) to jedna z funkcji wysokiej dostępności udostępniana przez platformę Azure. Użycie Strefy dostępności zwiększa ogólną dostępność obciążeń SAP na platformie Azure. Ta funkcja jest już dostępna w niektórych [regionach świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/regions/). W przyszłości będzie ona dostępna w większej liczbie regionów.

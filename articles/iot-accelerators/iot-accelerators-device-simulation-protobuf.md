@@ -10,11 +10,11 @@ ms.custom: mvc, amqp, devx-track-csharp
 ms.date: 11/06/2018
 ms.author: dobett
 ms.openlocfilehash: 12aa18c966745b450b3c9aa55e87e576b0c3f99b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075964"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018532"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serializowanie telemetrii przy użyciu buforów protokołu
 
@@ -63,7 +63,7 @@ Pobierz i rozpakuj [mikrousługę symulacji urządzenia z usługi](https://githu
 
 W Visual Studio Code Otwórz folder **Remote-Monitoring-Services-dotnet-master\storage-adapter** . Kliknij dowolne przyciski **przywracania** , aby naprawić nierozwiązane zależności.
 
-Otwórz plik **. programu vscode/launch.jsw** pliku i przypisz parametry połączenia Cosmos DB do zmiennej środowiskowej ** \_ STORAGEADAPTER \_ DOCUMENTDB \_ CONNSTRING** .
+Otwórz plik **. programu vscode/launch.jsw** pliku i przypisz parametry połączenia Cosmos DB do zmiennej środowiskowej **\_ STORAGEADAPTER \_ DOCUMENTDB \_ CONNSTRING** .
 
 > [!NOTE]
 > Po uruchomieniu mikrousługi lokalnie na maszynie nadal wymagane jest wystąpienie Cosmos DB na platformie Azure.
@@ -190,15 +190,15 @@ W tej sekcji przetestujesz urządzenie do śledzenia zasobów utworzone w poprze
 
 Otwórz plik **. programu vscode/launch.jsw** pliku i przypisz:
 
-* IoT Hub parametry połączenia z zmienną środowiskową ** \_ IOTHUB \_ CONNSTRING** .
-* Parametry połączenia konta magazynu z zmienną środowiskową ** \_ \_ \_ konta usługi Azure Storage** .
-* Cosmos DB parametry połączenia z zmienną środowiskową ** \_ STORAGEADAPTER \_ DOCUMENTDB \_ CONNSTRING** .
+* IoT Hub parametry połączenia z zmienną środowiskową **\_ IOTHUB \_ CONNSTRING** .
+* Parametry połączenia konta magazynu z zmienną środowiskową **\_ \_ \_ konta usługi Azure Storage** .
+* Cosmos DB parametry połączenia z zmienną środowiskową **\_ STORAGEADAPTER \_ DOCUMENTDB \_ CONNSTRING** .
 
 Otwórz plik **WebService/Properties/launchSettings.jsw** pliku i przypisz:
 
-* IoT Hub parametry połączenia z zmienną środowiskową ** \_ IOTHUB \_ CONNSTRING** .
-* Parametry połączenia konta magazynu z zmienną środowiskową ** \_ \_ \_ konta usługi Azure Storage** .
-* Cosmos DB parametry połączenia z zmienną środowiskową ** \_ STORAGEADAPTER \_ DOCUMENTDB \_ CONNSTRING** .
+* IoT Hub parametry połączenia z zmienną środowiskową **\_ IOTHUB \_ CONNSTRING** .
+* Parametry połączenia konta magazynu z zmienną środowiskową **\_ \_ \_ konta usługi Azure Storage** .
+* Cosmos DB parametry połączenia z zmienną środowiskową **\_ STORAGEADAPTER \_ DOCUMENTDB \_ CONNSTRING** .
 
 Otwórz plik **WebService\appsettings.ini** i zmodyfikuj ustawienia w następujący sposób:
 
@@ -249,7 +249,7 @@ Aby skonfigurować notkę:
 
 1. Kliknij **pozycję \> Importuj plik**. Następnie kliknij pozycję **Wybierz pliki**.
 
-1. Wybierz **Akcelerator rozwiązania do symulacji urządzeń Azure IoT. \_ Kolekcja ogłoszeń** i narzędzie **Azure IoT Device symulacja rozwiązania. \_ ** **Open**
+1. Wybierz **Akcelerator rozwiązania do symulacji urządzeń Azure IoT. \_ Kolekcja ogłoszeń** i narzędzie **Azure IoT Device symulacja rozwiązania. \_** **Open**
 
 1. Rozwiń **Akcelerator rozwiązania do symulacji urządzeń Azure IoT** , aby wyświetlić możliwe do wysłania żądania.
 
@@ -267,7 +267,7 @@ Aby zatrzymać symulację, wybierz żądanie **zatrzymania symulacji** w program
 
 ### <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Można zatrzymać dwa lokalnie działające mikrousługi w Visual Studio Code wystąpieniach (debugowanie** \> Zatrzymaj debugowanie**).
+Można zatrzymać dwa lokalnie działające mikrousługi w Visual Studio Code wystąpieniach (debugowanie **\> Zatrzymaj debugowanie**).
 
 Jeśli nie potrzebujesz już IoT Hub i Cosmos DB wystąpień, usuń je z subskrypcji platformy Azure, aby uniknąć niepotrzebnych opłat.
 
