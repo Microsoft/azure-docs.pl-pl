@@ -11,11 +11,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ceffc928a0cf8313723ff6193d9a6a63f8465f90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91266313"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994778"
 ---
 # <a name="tutorial-basic-active-directory-environment"></a>Samouczek: podstawowe środowisko Active Directory
 
@@ -199,7 +199,7 @@ Teraz musisz utworzyć dzierżawę usługi Azure AD, aby umożliwić synchroniza
 1. Przejdź do witryny [Azure Portal](https://portal.azure.com) i zaloguj się przy użyciu konta, które ma subskrypcję platformy Azure.
 2. Wybierz **ikonę plusa (+)** i wyszukaj pozycję **Azure Active Directory**.
 3. W wynikach wyszukiwania wybierz pozycję **Azure Active Directory**.
-4. Wybierz przycisk **Utwórz**.</br>
+4. Wybierz pozycję **Utwórz**.</br>
 ![Zrzut ekranu przedstawiający stronę Azure Active Directory w Azure Portal.](media/tutorial-single-forest/create1.png)</br>
 5. Podaj **nazwę organizacji** wraz z **początkową nazwą domeny**. Następnie wybierz przycisk **Utwórz**. Spowoduje to utworzenie katalogu.
 6. Po zakończeniu kliknij link **tutaj**, aby zarządzać katalogiem.
@@ -408,7 +408,7 @@ Teraz, gdy masz nasze środowisko Active Directory, musisz być kontem testowym.
     Set-ADUser -Identity $Identity -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Enabled $true
     ```
 
-## <a name="conclusion"></a>Podsumowanie
+## <a name="conclusion"></a>Wniosek
 Teraz masz środowisko, którego można użyć do istniejących samouczków i przetestowania dodatkowych funkcji zapewniania obsługi administracyjnej w chmurze.
 
 ## <a name="next-steps"></a>Następne kroki 

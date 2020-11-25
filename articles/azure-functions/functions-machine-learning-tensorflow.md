@@ -7,11 +7,11 @@ ms.date: 01/15/2020
 ms.author: antchu
 ms.custom: mvc, devx-track-python, devx-track-azurepowershell
 ms.openlocfilehash: ca9ce27583168dfee1a597fce559afad38a3a8c7
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422930"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994608"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Samouczek: stosowanie modeli uczenia maszynowego w Azure Functions przy użyciu języka Python i TensorFlow
 
@@ -21,7 +21,7 @@ W tym artykule dowiesz się, jak używać języka Python, TensorFlow i Azure Fun
 > * Zainicjuj lokalne środowisko do tworzenia Azure Functions w języku Python.
 > * Zaimportuj niestandardowy model uczenia maszynowego TensorFlow do aplikacji funkcji.
 > * Tworzenie bezserwerowego interfejsu API HTTP do klasyfikowania obrazu jako zawierającego pies lub kot.
-> * Korzystaj z interfejsu API z aplikacji sieci Web.
+> * Używanie interfejsu API z poziomu aplikacji internetowej.
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
@@ -79,7 +79,7 @@ Jeśli środowisko Python nie zainstalowało pakietu venv na dystrybucji systemu
 sudo apt-get install python3-venv
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 ```powershell
 cd start
@@ -133,7 +133,7 @@ W Azure Functions, projekt funkcji jest kontenerem dla jednej lub kilku poszczeg
     func new --name classify --template "HTTP trigger"
     ```
 
-    To polecenie tworzy folder pasujący do nazwy funkcji, *klasyfikowanie*. W tym folderze są dwa pliki: *\_ \_ init \_ \_ . PR* , który zawiera kod funkcji, i *function.json* , który opisuje wyzwalacz funkcji i powiązania wejściowe i wyjściowe. Aby uzyskać szczegółowe informacje na temat zawartości tych plików, zobacz sekcję [Sprawdź zawartość pliku](./create-first-function-cli-python.md#optional-examine-the-file-contents) w przewodniku szybki start dla języka Python.
+    To polecenie tworzy folder pasujący do nazwy funkcji, *klasyfikowanie*. W tym folderze są dwa pliki: *\_ \_ init \_ \_ . PR*, który zawiera kod funkcji, i *function.json*, który opisuje wyzwalacz funkcji i powiązania wejściowe i wyjściowe. Aby uzyskać szczegółowe informacje na temat zawartości tych plików, zobacz sekcję [Sprawdź zawartość pliku](./create-first-function-cli-python.md#optional-examine-the-file-contents) w przewodniku szybki start dla języka Python.
 
 
 ## <a name="run-the-function-locally"></a>Lokalne uruchamianie funkcji
@@ -166,7 +166,7 @@ Aby utworzyć własny model przy użyciu warstwy Bezpłatna Custom Vision Servic
     cp ../resources/model/* classify
     ```
     
-    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
     
     ```powershell
     copy ..\resources\model\* classify
@@ -190,7 +190,7 @@ Aby utworzyć własny model przy użyciu warstwy Bezpłatna Custom Vision Servic
     cp ../resources/predict.py classify
     ```
     
-    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
     
     ```powershell
     copy ..\resources\predict.py classify
@@ -274,7 +274,7 @@ Aby przetestować wywoływanie punktu końcowego funkcji z innej aplikacji sieci
     python -m http.server
     ```
     
-    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
     ```powershell
     py -m http.server

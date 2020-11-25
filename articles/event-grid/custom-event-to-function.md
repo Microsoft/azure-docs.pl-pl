@@ -4,11 +4,11 @@ description: 'Szybki Start: Użyj Azure Event Grid i interfejsu wiersza poleceni
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.openlocfilehash: aea52bcaa94d6f288e86e44e1a0f294796d8e4a3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91324432"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996353"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Szybki Start: kierowanie zdarzeń niestandardowych do funkcji platformy Azure za pomocą Event Grid
 
@@ -26,7 +26,7 @@ Przed zasubskrybowaniem tematu niestandardowego Utwórz funkcję do obsługi zda
         :::image type="content" source="./media/custom-event-to-function/function-event-grid-trigger.png" alt-text="Wybierz wyzwalacz Event Grid":::
 3. Na stronie **Nowa funkcja** wprowadź nazwę funkcji, a następnie wybierz pozycję **Utwórz funkcję**.
 
-    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="Wybierz wyzwalacz Event Grid":::
+    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="Nowa strona funkcji":::
 4. Użyj strony **Kod + test** , aby wyświetlić istniejący kod dla funkcji i zaktualizować ją. 
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
@@ -36,7 +36,7 @@ Przed zasubskrybowaniem tematu niestandardowego Utwórz funkcję do obsługi zda
 Temat usługi Event Grid udostępnia zdefiniowany przez użytkownika punkt końcowy, w którym publikowane są zdarzenia. 
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
-2. Wybierz pozycję **wszystkie usługi** w menu nawigacji po lewej stronie, wyszukaj pozycję **Event Grid**i wybierz pozycję **Event Grid tematy**. 
+2. Wybierz pozycję **wszystkie usługi** w menu nawigacji po lewej stronie, wyszukaj pozycję **Event Grid** i wybierz pozycję **Event Grid tematy**. 
 
     ![Wybierz tematy Event Grid](./media/custom-event-to-function/select-event-grid-topics.png)
 3. Na stronie **tematy Event Grid** wybierz pozycję **+ Dodaj** na pasku narzędzi. 
@@ -46,13 +46,13 @@ Temat usługi Event Grid udostępnia zdefiniowany przez użytkownika punkt końc
 4. Na stronie **Tworzenie tematu** wykonaj następujące kroki:
 
     1. Podaj unikatową **nazwę** tematu niestandardowego. Nazwa tematu musi być unikatowa, ponieważ jest reprezentowana przez wpis DNS. Nie należy używać nazwy widocznej na obrazie. Zamiast tego utwórz własną nazwę — musi mieć od 3 do 50 znaków i może zawierać wyłącznie wartości a–z, A–Z, 0–9 i „-”.
-    2. Wybierz swoją **subskrypcję**platformy Azure.
+    2. Wybierz swoją **subskrypcję** platformy Azure.
     3. Wybierz tę samą grupę zasobów z poprzednich kroków.
     4. Wybierz **lokalizację** tematu usługi Event Grid.
     5. Zachowaj wartość domyślną **Event Grid schemacie** dla pola **schemat zdarzenia** . 
 
        ![Utwórz stronę tematu](./media/custom-event-to-function/create-custom-topic.png)
-    6. Wybierz przycisk **Utwórz**. 
+    6. Wybierz pozycję **Utwórz**. 
 
 5. Po utworzeniu tematu niestandardowego zostanie wyświetlone powiadomienie z informacją o powodzeniu. Wybierz pozycję **Przejdź do grupy zasobów**. 
 
@@ -86,9 +86,9 @@ Zasubskrybowanie tematu pozwala poinformować usługę Event Grid o tym, które 
        ![Podawanie adresu URL punktu końcowego](./media/custom-event-to-function/provide-endpoint.png)
     6. Ten krok jest opcjonalny, ale zalecany dla scenariuszy produkcyjnych. Na stronie **Tworzenie subskrypcji zdarzeń** przejdź do karty **funkcje zaawansowane** , a następnie ustaw wartości w polu **Maksymalna liczba zdarzeń na partię** i **preferowany rozmiar partii (w kilobajtach**). 
     
-        Przetwarzanie wsadowe może zapewnić wysoką przepływność. W przypadku **maksymalnych zdarzeń na partię**Ustaw maksymalną liczbę zdarzeń obejmującą subskrypcję w partii. Preferowany rozmiar wsadu ustawia preferowaną górną granicę rozmiaru partii w kilobajtach, ale można ją przekroczyć, jeśli pojedyncze zdarzenie jest większe niż ten próg.
+        Przetwarzanie wsadowe może zapewnić wysoką przepływność. W przypadku **maksymalnych zdarzeń na partię** Ustaw maksymalną liczbę zdarzeń obejmującą subskrypcję w partii. Preferowany rozmiar wsadu ustawia preferowaną górną granicę rozmiaru partii w kilobajtach, ale można ją przekroczyć, jeśli pojedyncze zdarzenie jest większe niż ten próg.
     
-        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Wybierz wyzwalacz Event Grid":::
+        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Włącz przetwarzanie wsadowe":::
     6. Na stronie **Tworzenie subskrypcji zdarzeń** wybierz pozycję **Utwórz**.
 
 ## <a name="send-an-event-to-your-topic"></a>Wysyłanie zdarzenia do tematu

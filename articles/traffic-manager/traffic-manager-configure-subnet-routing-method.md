@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: duau
 ms.openlocfilehash: b1901ddce2eb9c8ff5ec9ac90a56379e74c11aa6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401371"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994897"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Bezpośrednie kierowanie ruchu do określonych punktów końcowych na podstawie podsieci użytkownika przy użyciu usługi Traffic Manager
 
@@ -169,13 +169,13 @@ W tej sekcji utworzysz maszynę wirtualną (*mVMEastUS* i *myVMWestEurope*) w ka
 ## <a name="create-a-traffic-manager-profile"></a>Tworzenie profilu usługi Traffic Manager
 Utwórz profil usługi Traffic Manager, który umożliwia zwracanie określonych punktów końcowych w oparciu o źródłowy adres IP żądania.
 
-1. W lewej górnej części ekranu wybierz kolejno pozycje **Utwórz zasób**  >  **Sieć**  >  **Traffic Manager**  >  **Utwórz**profil.
+1. W lewej górnej części ekranu wybierz kolejno pozycje **Utwórz zasób**  >  **Sieć**  >  **Traffic Manager**  >  **Utwórz** profil.
 2. W obszarze **Tworzenie profilu usługi Traffic Manager** wprowadź lub wybierz poniższe informacje, zaakceptuj wartości domyślne pozostałych ustawień, a następnie wybierz pozycję **Utwórz**:
 
     | Ustawienie                 | Wartość                                              |
     | ---                     | ---                                                |
     | Nazwa                   | Ta nazwa musi być unikatowa w obrębie strefy trafficmanager.net. Na jej podstawie zostanie utworzona nazwa DNS trafficmanager.net służąca do uzyskiwania dostępu do profilu usługi Traffic Manager.                                   |
-    | Metoda routingu          | Wybierz metodę routingu**Podsieć**.                                       |
+    | Metoda routingu          | Wybierz metodę routingu **Podsieć**.                                       |
     | Subskrypcja            | Wybierz subskrypcję.                          |
     | Grupa zasobów          | Wybierz pozycję **Istniejąca** i wprowadź *myResourceGroupTM1*. |
     | |                              |

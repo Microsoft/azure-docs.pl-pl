@@ -13,18 +13,20 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: cbfaf52a7c5bb5e44b85513d8e2c2ec5f1cea356
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 08ee000d8f801559fcf572b8ab489161fd090b77
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101987"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95996206"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-application"></a>Samouczek: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph z aplikacji systemu Android
 
-W tym samouczku dowiesz się, jak zintegrować aplikację systemu Android z platformą tożsamości firmy Microsoft przy użyciu biblioteki uwierzytelniania firmy Microsoft (MSAL) dla systemu Android. Dowiesz się, jak zalogować się i wylogować użytkownika, uzyskać token dostępu i wysłać żądanie do interfejsu API Microsoft Graph.
+W tym samouczku utworzysz aplikację dla systemu Android, która integruje się z platformą tożsamości firmy Microsoft w celu logowania użytkowników i uzyskiwania tokenu dostępu w celu wywołania interfejsu API Microsoft Graph.
 
 Po ukończeniu tego samouczka aplikacja będzie akceptować logowania do osobistych kont Microsoft (w tym outlook.com, live.com i innych), a także kont służbowych z dowolnej firmy lub organizacji korzystającej z Azure Active Directory.
+
+W tym samouczku: 
 
 > [!div class="checklist"]
 > * Tworzenie projektu aplikacji systemu Android w *Android Studio*
@@ -84,13 +86,13 @@ Jeśli nie masz jeszcze aplikacji systemu Android, wykonaj następujące kroki, 
    > KeyTool.exe jest instalowany jako część zestawu Java Development Kit (JDK). Należy również zainstalować narzędzie OpenSSL, aby wykonać polecenie Narzędzia. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją systemu Android dotyczącą generowania klucza](https://developer.android.com/studio/publish/app-signing#generate-key) .
 
 7. Wprowadź **skrót podpisu** wygenerowany przez narzędzie.
-8. Kliknij `Configure` i Zapisz **konfigurację MSAL** , która jest wyświetlana na stronie **konfiguracji systemu Android** , aby można ją było wprowadzić podczas późniejszej konfiguracji aplikacji.  Kliknij pozycję **Gotowe**.
+8. Kliknij `Configure` i Zapisz **konfigurację MSAL** , która jest wyświetlana na stronie **konfiguracji systemu Android** , aby można ją było wprowadzić podczas późniejszej konfiguracji aplikacji.  Kliknij przycisk **Gotowe**.
 
 ### <a name="configure-your-application"></a>Konfigurowanie aplikacji
 
 1. W okienku projektu Android Studio przejdź do **app\src\main\res**.
 2. Kliknij prawym przyciskiem myszy pozycję **res** i wybierz pozycję **Nowy**  >  **katalog**. Wprowadź `raw` nazwę nowego katalogu, a następnie kliknij przycisk **OK**.
-3. W oknie **App**  >  **src**  >  **Main**  >  **res**  >  **RAW**Utwórz nowy plik JSON o nazwie `auth_config_single_account.json` i wklej wcześniej zapisaną konfigurację MSAL.
+3. W oknie **App**  >  **src**  >  **Main**  >  **res**  >  **RAW** Utwórz nowy plik JSON o nazwie `auth_config_single_account.json` i wklej wcześniej zapisaną konfigurację MSAL.
 
     Poniżej identyfikatora URI przekierowania wklej:
     ```json
@@ -119,7 +121,7 @@ Jeśli nie masz jeszcze aplikacji systemu Android, wykonaj następujące kroki, 
    >[!NOTE]
    >W tym samouczku przedstawiono tylko sposób konfigurowania aplikacji w trybie jednego konta. Zapoznaj się z dokumentacją, aby uzyskać więcej informacji na temat [trybu pojedynczego i wielu kont](./single-multi-account.md) oraz [konfigurowania aplikacji](./msal-configuration.md)
 
-4. W **app**oknie  >  **src**  >  **main**  >  **AndroidManifest.xml**aplikacji głównej Dodaj `BrowserTabActivity` poniższe działanie do treści aplikacji. Ten wpis umożliwia firmie Microsoft wywoływanie z powrotem do aplikacji po zakończeniu uwierzytelniania:
+4. W **app** oknie  >  **src**  >  **main**  >  **AndroidManifest.xml** aplikacji głównej Dodaj `BrowserTabActivity` poniższe działanie do treści aplikacji. Ten wpis umożliwia firmie Microsoft wywoływanie z powrotem do aplikacji po zakończeniu uwierzytelniania:
 
     ```xml
     <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->

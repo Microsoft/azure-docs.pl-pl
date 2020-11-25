@@ -12,20 +12,20 @@ ms.date: 12/10/2019
 ms.author: kenwith
 ms.reviewer: celested
 ms.openlocfilehash: f459a804b4c375eea17cbc22ded2f41f808c1b82
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041176"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995373"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Pomiń usuwanie kont użytkowników, które wykraczają poza zakres
 
 Domyślnie aparat aprowizacji usługi Azure AD nie usuwa lub wyłącza użytkowników, którzy wykraczają poza zakres. Jednak w przypadku niektórych scenariuszy, takich jak Workday do użytkownika w ramach przychodzącej aprowizacji użytkowników usługi AD, to zachowanie może nie być oczekiwane i może chcieć zastąpić to zachowanie domyślne.  
 
-W tym artykule opisano, jak używać interfejsu API Microsoft Graph i Eksploratora interfejsu API Microsoft Graph do ustawiania flagi * **SkipOutOfScopeDeletions** _ kontrolującej przetwarzanie kont, które wykraczają poza zakres. _ Jeśli * **SkipOutOfScopeDeletions** _ ma wartość 0 (false), konta, które wykraczają poza zakres, zostaną wyłączone w miejscu docelowym.
-_ Jeśli * **SkipOutOfScopeDeletions** _ ma wartość 1 (true), konta, które wykraczają poza zakres, nie będą wyłączone w miejscu docelowym. Ta flaga jest ustawiona na poziomie _Provisioning App * i można ją skonfigurować przy użyciu interfejs API programu Graph. 
+W tym artykule opisano, jak używać interfejsu API Microsoft Graph i Eksploratora interfejsu API Microsoft Graph do ustawiania flagi ***SkipOutOfScopeDeletions** _ kontrolującej przetwarzanie kont, które wykraczają poza zakres. _ Jeśli ***SkipOutOfScopeDeletions** _ ma wartość 0 (false), konta, które wykraczają poza zakres, zostaną wyłączone w miejscu docelowym.
+_ Jeśli ***SkipOutOfScopeDeletions** _ ma wartość 1 (true), konta, które wykraczają poza zakres, nie będą wyłączone w miejscu docelowym. Ta flaga jest ustawiona na poziomie _Provisioning App * i można ją skonfigurować przy użyciu interfejs API programu Graph. 
 
-Ponieważ ta konfiguracja jest szeroko używana wraz z dniem *roboczym Active Directory aplikacji aprowizacji użytkowników* , następujące kroki obejmują zrzuty ekranu aplikacji Workday. Jednak konfiguracja może być również używana ze *wszystkimi innymi aplikacjami* , takimi jak usługi ServiceNow, Salesforce i Dropbox.
+Ponieważ ta konfiguracja jest szeroko używana wraz z dniem *roboczym Active Directory aplikacji aprowizacji użytkowników* , następujące kroki obejmują zrzuty ekranu aplikacji Workday. Jednak konfiguracja może być również używana ze *wszystkimi innymi aplikacjami*, takimi jak usługi ServiceNow, Salesforce i Dropbox.
 
 ## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Krok 1. Pobieranie inicjowania obsługi App Service Identyfikator podmiotu zabezpieczeń (identyfikator obiektu)
 
@@ -68,9 +68,9 @@ Oto blok JSON, który ma zostać dodany do mapowania.
 
 ## <a name="step-4-update-the-secrets-endpoint-with-the-skipoutofscopedeletions-flag"></a>Krok 4. aktualizowanie punktu końcowego tajemnicy przy użyciu flagi SkipOutOfScopeDeletions
 
-W Eksploratorze grafu uruchom poniższe polecenie, aby zaktualizować punkt końcowy Secret przy użyciu flagi * *_SkipOutOfScopeDeletions_* _. 
+W Eksploratorze grafu uruchom poniższe polecenie, aby zaktualizować punkt końcowy Secret przy użyciu flagi **_SkipOutOfScopeDeletions_* _. 
 
-W poniższym adresie URL Zamień [servicePrincipalId] na _ *servicePrincipalId* * wyodrębniony z [kroku 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id). 
+W poniższym adresie URL Zamień [servicePrincipalId] na _ *servicePrincipalId** wyodrębniony z [kroku 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id). 
 
 ```http
    PUT https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets

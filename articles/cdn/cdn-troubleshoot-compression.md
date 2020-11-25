@@ -15,11 +15,11 @@ ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: f49af1488a0c044639a72fc2ea52ba0a47727a24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89433674"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996155"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Rozwiązywanie problemów związanych z kompresją pliku CDN
 Ten artykuł pomaga w rozwiązywaniu problemów z [kompresją plików](cdn-improve-performance.md)w sieci CDN.
@@ -30,7 +30,7 @@ Jeśli potrzebujesz więcej pomocy w dowolnym punkcie tego artykułu, możesz sk
 Kompresja dla punktu końcowego jest włączona, ale pliki są zwracane jako nieskompresowane.
 
 > [!TIP]
-> Aby sprawdzić, czy pliki są zwracane jako skompresowane, musisz użyć narzędzia, takiego jak [programu Fiddler](https://www.telerik.com/fiddler) lub [Narzędzia deweloperskie](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)w przeglądarce.  Sprawdź nagłówki odpowiedzi HTTP zwrócone przez zawartość pamięci podręcznej sieci CDN.  Jeśli istnieje nagłówek o nazwie `Content-Encoding` z wartością **gzip**, **bzip2**lub **Wklęśnięcie**, zawartość jest skompresowana.
+> Aby sprawdzić, czy pliki są zwracane jako skompresowane, musisz użyć narzędzia, takiego jak [programu Fiddler](https://www.telerik.com/fiddler) lub [Narzędzia deweloperskie](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)w przeglądarce.  Sprawdź nagłówki odpowiedzi HTTP zwrócone przez zawartość pamięci podręcznej sieci CDN.  Jeśli istnieje nagłówek o nazwie `Content-Encoding` z wartością **gzip**, **bzip2** lub **Wklęśnięcie**, zawartość jest skompresowana.
 > 
 > ![Nagłówek Content-Encoding](./media/cdn-troubleshoot-compression/cdn-content-header.png)
 > 
@@ -54,7 +54,7 @@ Istnieje kilka możliwych przyczyn, w tym:
 Najpierw należy wykonać szybkie sprawdzanie Sanity na żądanie.  Możesz użyć [narzędzi programistycznych](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) przeglądarki, aby wyświetlić wykonywane żądania.
 
 * Sprawdź, czy żądanie jest wysyłane na adres URL punktu końcowego, `<endpointname>.azureedge.net` a nie do źródła.
-* Sprawdź, czy żądanie zawiera nagłówek **Accept-Encoding** , a wartość tego nagłówka zawiera **gzip**, **Wklęśnięcie**lub **bzip2**.
+* Sprawdź, czy żądanie zawiera nagłówek **Accept-Encoding** , a wartość tego nagłówka zawiera **gzip**, **Wklęśnięcie** lub **bzip2**.
 
 > [!NOTE]
 > **Azure CDN z profilów Akamai** obsługują tylko kodowanie **gzip** .
@@ -65,7 +65,7 @@ Najpierw należy wykonać szybkie sprawdzanie Sanity na żądanie.  Możesz uży
 
 ### <a name="verify-compression-settings-standard-cdn-profiles"></a>Weryfikowanie ustawień kompresji (standardowe profile usługi CDN)
 > [!NOTE]
-> Ten krok ma zastosowanie tylko wtedy, gdy profil usługi CDN jest **standardem Azure CDN firmy Microsoft**, **Azure CDN Standard from Verizon**lub **Azure CDN Standard from Akamai** profile. 
+> Ten krok ma zastosowanie tylko wtedy, gdy profil usługi CDN jest **standardem Azure CDN firmy Microsoft**, **Azure CDN Standard from Verizon** lub **Azure CDN Standard from Akamai** profile. 
 > 
 > 
 
@@ -118,5 +118,5 @@ Aby można było kwalifikować się do kompresji, plik musi spełniać następuj
 Nagłówek **za pośrednictwem** protokołu HTTP wskazuje serwerowi sieci Web, że żądanie jest przesyłane przez serwer proxy.  Serwery sieci Web programu Microsoft IIS domyślnie nie kompresują odpowiedzi, gdy żądanie zawiera nagłówek **Via** .  Aby zastąpić to zachowanie, wykonaj następujące czynności:
 
 * **IIS 6**: [Ustaw HCNOCOMPRESSIONFORPROXIES = "false" we właściwościach metabazy usług IIS](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90))
-* **IIS 7 i up**: [w konfiguracji serwera należy ustawić wartość false dla opcji **noCompressionForHttp10** i **noCompressionForProxies** ](https://www.iis.net/configreference/system.webserver/httpcompression)
+* **IIS 7 i up**: [w konfiguracji serwera należy ustawić wartość false dla opcji **noCompressionForHttp10** i **noCompressionForProxies**](https://www.iis.net/configreference/system.webserver/httpcompression)
 

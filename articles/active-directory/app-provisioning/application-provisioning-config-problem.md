@@ -12,11 +12,11 @@ ms.date: 09/03/2019
 ms.author: kenwith
 ms.reviewer: asteen
 ms.openlocfilehash: 306c3771c0392bbc97260a726e153cfd385cebcd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84782130"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994795"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Wystąpił problem podczas konfigurowania aprowizacji użytkowników w aplikacji z galerii usługi Azure AD
 
@@ -30,7 +30,7 @@ Po skonfigurowaniu usługi większość szczegółowych informacji o działaniu 
 
 -   **Dzienniki aprowizacji (wersja zapoznawcza)** — [dzienniki aprowizacji](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) rejestrują wszystkie operacje wykonywane przez usługę aprowizacji, w tym kwerendy usługi Azure AD dla przypisanych użytkowników, którzy znajdują się w zakresie aprowizacji. Zbadaj aplikację docelową pod kątem istnienia tych użytkowników, porównując obiekty użytkownika między systemem. Następnie Dodaj, zaktualizuj lub Wyłącz konto użytkownika w systemie docelowym na podstawie porównania. Możesz uzyskać dostęp do dzienników aprowizacji w Azure Portal, wybierając pozycję **Azure Active Directory** &gt; dzienniki aprowizacji **aplikacji w przedsiębiorstwie** &gt; **(wersja zapoznawcza)** w sekcji **działanie** .
 
--   **Bieżący stan —** Podsumowanie ostatniego przebiegu aprowizacji dla danej aplikacji można znaleźć w sekcji **Azure Active Directory &gt; aplikacje dla przedsiębiorstw &gt; \[ \] &gt; ** , w dolnej części ekranu w obszarze Ustawienia usługi programu. Bieżąca sekcja stanu pokazuje, czy cykl aprowizacji rozpoczął Inicjowanie obsługi kont użytkowników. Postęp cyklu można obejrzeć, sprawdzić, ilu użytkowników i grup została zainicjowana, i zobaczyć, ile ról zostało utworzonych. Jeśli występują błędy, szczegółowe informacje można znaleźć w temacie [dzienniki aprowizacji (... /Reports-monitoring/Concept-Provisioning-logs.MD? Context = Azure/Active-Directory/Manage-Apps/Context/Manage-Apps-Context).
+-   **Bieżący stan —** Podsumowanie ostatniego przebiegu aprowizacji dla danej aplikacji można znaleźć w sekcji **Azure Active Directory &gt; aplikacje dla przedsiębiorstw &gt; \[ \] &gt;** , w dolnej części ekranu w obszarze Ustawienia usługi programu. Bieżąca sekcja stanu pokazuje, czy cykl aprowizacji rozpoczął Inicjowanie obsługi kont użytkowników. Postęp cyklu można obejrzeć, sprawdzić, ilu użytkowników i grup została zainicjowana, i zobaczyć, ile ról zostało utworzonych. Jeśli występują błędy, szczegółowe informacje można znaleźć w temacie [dzienniki aprowizacji (... /Reports-monitoring/Concept-Provisioning-logs.MD? Context = Azure/Active-Directory/Manage-Apps/Context/Manage-Apps-Context).
 
 ## <a name="general-problem-areas-with-provisioning-to-consider"></a>Ogólne obszary problemów z obsługą administracyjną, które należy wziąć pod uwagę
 
@@ -42,7 +42,7 @@ Poniżej znajduje się lista ogólnych obszarów problemów, do których można 
 
 ## <a name="provisioning-service-does-not-appear-to-start"></a>Nie można uruchomić usługi aprowizacji
 
-W przypadku ustawienia **stanu aprowizacji** na **włączony** w sekcji **Azure Active Directory &gt; aplikacje dla przedsiębiorstw &gt; \[ \] &gt; ** w Azure Portal. Na tej stronie nie są jednak wyświetlane żadne inne szczegóły stanu po kolejnych ponownych ładowaniach. Prawdopodobnie usługa jest uruchomiona, ale nie ukończyła jeszcze cyklu początkowego. Sprawdź **dzienniki aprowizacji** opisane powyżej, aby określić operacje wykonywane przez usługę, a także błędy.
+W przypadku ustawienia **stanu aprowizacji** na **włączony** w sekcji **Azure Active Directory &gt; aplikacje dla przedsiębiorstw &gt; \[ \] &gt;** w Azure Portal. Na tej stronie nie są jednak wyświetlane żadne inne szczegóły stanu po kolejnych ponownych ładowaniach. Prawdopodobnie usługa jest uruchomiona, ale nie ukończyła jeszcze cyklu początkowego. Sprawdź **dzienniki aprowizacji** opisane powyżej, aby określić operacje wykonywane przez usługę, a także błędy.
 
 >[!NOTE]
 >Cykl początkowy może zająć od 20 minut do kilku godzin, w zależności od rozmiaru katalogu usługi Azure AD i liczby użytkowników w zakresie aprowizacji. Kolejne synchronizacje po początkowym cyklu są szybsze, ponieważ usługa aprowizacji przechowuje znaki wodne, które reprezentują stan obu systemów po cyklu początkowym, co poprawia wydajność kolejnych synchronizacji.

@@ -14,15 +14,15 @@ ms.author: ryanwi
 ms.reviewer: marsma, jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
 ms.openlocfilehash: 0c5b06fd14f526ca90b1b922be281af55ba00116
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077493"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995220"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Instrukcje: Logowanie się dowolnego użytkownika usługi Azure Active Directory za pomocą wzorca aplikacji wielodostępnych
 
-Jeśli oferujesz aplikację oprogramowanie jako usługa (SaaS) w wielu organizacjach, możesz skonfigurować aplikację tak, aby akceptowała logowania z dowolnej dzierżawy usługi Azure Active Directory (Azure AD). Ta konfiguracja jest nazywana *tworzeniem wielu dzierżawców aplikacji* . Użytkownicy w dowolnej dzierżawie usługi Azure AD będą mogli zalogować się do aplikacji po dojściu do korzystania z konta w aplikacji.
+Jeśli oferujesz aplikację oprogramowanie jako usługa (SaaS) w wielu organizacjach, możesz skonfigurować aplikację tak, aby akceptowała logowania z dowolnej dzierżawy usługi Azure Active Directory (Azure AD). Ta konfiguracja jest nazywana *tworzeniem wielu dzierżawców aplikacji*. Użytkownicy w dowolnej dzierżawie usługi Azure AD będą mogli zalogować się do aplikacji po dojściu do korzystania z konta w aplikacji.
 
 Jeśli masz istniejącą aplikację, która ma własny system kont lub obsługuje inne rodzaje logowań z innych dostawców chmury, Dodawanie logowania za pomocą usługi Azure AD z dowolnego dzierżawy jest proste. Po prostu zarejestruj aplikację, Dodaj kod logowania za pośrednictwem OAuth2, OpenID Connect Connect lub SAML i umieść [przycisk "Zaloguj się przy użyciu konta Microsoft"][AAD-App-Branding] w aplikacji.
 
@@ -40,7 +40,7 @@ Przyjrzyjmy się szczegółowym krokom. Możesz również przejść bezpośredni
 
 ## <a name="update-registration-to-be-multi-tenant"></a>Aktualizowanie rejestracji w ramach wielu dzierżawców
 
-Domyślnie Rejestracja aplikacji sieci Web/interfejsu API w usłudze Azure AD jest pojedynczą dzierżawą. Możesz dokonać rejestracji wielu dzierżawców, wyszukując ustawienia **obsługiwane typy kont** w okienku **uwierzytelnianie** rejestracji aplikacji w [Azure Portal][AZURE-portal] i ustawiając je na **konta w dowolnym katalogu organizacyjnym** .
+Domyślnie Rejestracja aplikacji sieci Web/interfejsu API w usłudze Azure AD jest pojedynczą dzierżawą. Możesz dokonać rejestracji wielu dzierżawców, wyszukując ustawienia **obsługiwane typy kont** w okienku **uwierzytelnianie** rejestracji aplikacji w [Azure Portal][AZURE-portal] i ustawiając je na **konta w dowolnym katalogu organizacyjnym**.
 
 Aby można było nawiązać aplikację z wieloma dzierżawcami, usługa Azure AD wymaga, aby identyfikator URI aplikacji był globalnie unikatowy. Identyfikator URI identyfikatora aplikacji jest jednym ze sposobów, w jaki aplikacja jest identyfikowana w komunikatach protokołu. W przypadku aplikacji jednodostępnej wystarczy, aby identyfikator URI identyfikatora aplikacji był unikatowy w obrębie tej dzierżawy. W przypadku aplikacji wielodostępnej ten identyfikator musi być globalnie unikatowy, dzięki czemu usługa Azure AD będzie mogła znaleźć aplikację we wszystkich dzierżawach. Globalna unikatowość jest wymuszana poprzez wymaganie, aby identyfikator URI identyfikatora aplikacji miał nazwę hosta, która jest zgodna ze zweryfikowaną domeną dzierżawy usługi Azure AD.
 
@@ -125,11 +125,11 @@ Niektóre uprawnienia delegowane wymagają również zgody administratora dzier�
 
 Jeśli aplikacja korzysta z uprawnień, które wymagają zgody administratora, należy mieć gest, taki jak przycisk lub link, w którym administrator może zainicjować akcję. Żądanie wysyłane przez aplikację dla tej akcji to zwykłe żądanie autoryzacji OAuth2/OpenID Connect połączenia, które zawiera również `prompt=admin_consent` parametr ciągu zapytania. Gdy administrator wyraził zgodę, a jednostka usługi zostanie utworzona w dzierżawie klienta, kolejne żądania logowania nie potrzebują `prompt=admin_consent` parametru. Ze względu na to, że administrator zdecydował się, że żądane uprawnienia są akceptowalne, żaden inny użytkownik w dzierżawie nie zostanie poproszony o zgodę od tego momentu.
 
-Administrator dzierżawy może wyłączyć możliwość wyrażania zgody na aplikacje przez zwykłych użytkowników. Jeśli ta funkcja jest wyłączona, zgoda administratora jest zawsze wymagana do używania aplikacji w dzierżawie. Jeśli chcesz przetestować aplikację z wyłączoną zgodą użytkownika końcowego, możesz znaleźć przełącznik konfiguracji w [Azure Portal][AZURE-portal] w sekcji **[Ustawienia użytkownika](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** w obszarze **aplikacje dla przedsiębiorstw** .
+Administrator dzierżawy może wyłączyć możliwość wyrażania zgody na aplikacje przez zwykłych użytkowników. Jeśli ta funkcja jest wyłączona, zgoda administratora jest zawsze wymagana do używania aplikacji w dzierżawie. Jeśli chcesz przetestować aplikację z wyłączoną zgodą użytkownika końcowego, możesz znaleźć przełącznik konfiguracji w [Azure Portal][AZURE-portal] w sekcji **[Ustawienia użytkownika](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** w obszarze **aplikacje dla przedsiębiorstw**.
 
 Ten `prompt=admin_consent` parametr może być również używany przez aplikacje żądające uprawnień, które nie wymagają zgody administratora. Przykładem sytuacji, w której będzie on używany, jest to, że aplikacja wymaga środowiska, w którym Administrator dzierżawy jest "jednokrotne", a inni użytkownicy nie otrzymują monitu o zgodę od tego momentu.
 
-Jeśli aplikacja wymaga zgody administratora, a administrator loguje się bez `prompt=admin_consent` wysyłanego parametru, gdy administrator pomyślnie wyraził zgodę na aplikację, zostanie ona zastosowana **tylko do konta użytkownika** . Regularne użytkownicy nadal nie będą mogli zalogować się ani wyrazić zgody na aplikację. Ta funkcja jest przydatna, jeśli chcesz dać administratorowi dzierżawy możliwość eksplorowania aplikacji przed zezwoleniem innym użytkownikom na dostęp.
+Jeśli aplikacja wymaga zgody administratora, a administrator loguje się bez `prompt=admin_consent` wysyłanego parametru, gdy administrator pomyślnie wyraził zgodę na aplikację, zostanie ona zastosowana **tylko do konta użytkownika**. Regularne użytkownicy nadal nie będą mogli zalogować się ani wyrazić zgody na aplikację. Ta funkcja jest przydatna, jeśli chcesz dać administratorowi dzierżawy możliwość eksplorowania aplikacji przed zezwoleniem innym użytkownikom na dostęp.
 
 ### <a name="consent-and-multi-tier-applications"></a>Zgody i wielowarstwowe aplikacje
 
@@ -137,7 +137,7 @@ Aplikacja może mieć wiele warstw, z których każda jest reprezentowana przez 
 
 #### <a name="multiple-tiers-in-a-single-tenant"></a>Wiele warstw w jednej dzierżawie
 
-Może to być problem, jeśli aplikacja logiczna składa się z co najmniej dwóch rejestracji aplikacji, na przykład oddzielnego klienta i zasobu. Jak należy najpierw pobrać zasób do dzierżawy klienta? Usługa Azure AD omawia ten przypadek, umożliwiając klientowi i zalogowanie się w jednym kroku. Użytkownik widzi łączną sumę uprawnień wymaganych przez klienta i zasób na stronie wyrażania zgody. Aby włączyć to zachowanie, Rejestracja aplikacji zasobu musi zawierać identyfikator aplikacji klienta jako element `knownClientApplications` w [manifeście aplikacji][AAD-App-Manifest]. Przykład:
+Może to być problem, jeśli aplikacja logiczna składa się z co najmniej dwóch rejestracji aplikacji, na przykład oddzielnego klienta i zasobu. Jak należy najpierw pobrać zasób do dzierżawy klienta? Usługa Azure AD omawia ten przypadek, umożliwiając klientowi i zalogowanie się w jednym kroku. Użytkownik widzi łączną sumę uprawnień wymaganych przez klienta i zasób na stronie wyrażania zgody. Aby włączyć to zachowanie, Rejestracja aplikacji zasobu musi zawierać identyfikator aplikacji klienta jako element `knownClientApplications` w [manifeście aplikacji][AAD-App-Manifest]. Na przykład:
 
 ```json
 "knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]

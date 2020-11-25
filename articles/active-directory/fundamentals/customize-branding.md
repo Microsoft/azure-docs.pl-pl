@@ -14,11 +14,11 @@ ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb138ade0f579a7545c0910646b6adfb7d5ac02a
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94650227"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996665"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Dodawanie znakowania do strony logowania Azure Active Directory organizacji
 Użyj logo organizacji i niestandardowych schematów kolorów, aby zapewnić spójny wygląd i działanie na stronach logowania Azure Active Directory (Azure AD). Strony logowania są wyświetlane, gdy użytkownicy logują się do aplikacji sieci Web w organizacji, takich jak Microsoft 365, które korzystają z usługi Azure AD jako dostawcy tożsamości.

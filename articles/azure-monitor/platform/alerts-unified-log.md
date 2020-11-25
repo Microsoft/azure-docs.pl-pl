@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
 ms.openlocfilehash: 8081c60833c3c02d55ae66ca695ba106dba01450
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294142"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995084"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alerty dzienników w Azure Monitor
 
@@ -74,7 +74,7 @@ Liczba wyników to domyślna miara. Idealny do pracy ze zdarzeniami, takimi jak 
 
 Alerty dzienników najlepiej sprawdzają się w przypadku próby wykrycia danych w dzienniku. Działa ono mniej dobrze podczas próby wykrywania braku danych w dziennikach. Na przykład alert dotyczący pulsu maszyny wirtualnej.
 
-W przypadku obszarów roboczych i Application Insights jest on wywoływany **w oparciu** o wybraną **liczbę wyników**. We wszystkich innych typach zasobów jest wywoływana **miara** z **wierszami tabeli**wyboru.
+W przypadku obszarów roboczych i Application Insights jest on wywoływany **w oparciu** o wybraną **liczbę wyników**. We wszystkich innych typach zasobów jest wywoływana **miara** z **wierszami tabeli** wyboru.
 
 > [!NOTE]
 > Ponieważ dzienniki są danymi z częściową strukturą, są one z natury bardziej ukryte niż Metryka, podczas próby wykrywania braku danych w dziennikach mogą wystąpić problemy, które należy wziąć pod uwagę przy użyciu [alertów metryk](alerts-metric-overview.md). Dane można wysyłać do magazynu metryk z dzienników przy użyciu [alertów metryk dla dzienników](alerts-metric-logs.md).
@@ -98,7 +98,7 @@ Następnie reguły alertów są monitorowane dla wszystkich żądań kończącyc
 
 #### <a name="calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value"></a>Obliczanie miary na podstawie kolumny liczbowej (takiej jak wartość licznika CPU)
 
-W przypadku obszarów roboczych i Application Insights jest ona wywoływana **w oparciu** o **pomiar metryki**wyboru. We wszystkich innych typach zasobów jest wywoływana **miara** z wyborem dowolnej nazwy kolumny liczb.
+W przypadku obszarów roboczych i Application Insights jest ona wywoływana **w oparciu** o **pomiar metryki** wyboru. We wszystkich innych typach zasobów jest wywoływana **miara** z wyborem dowolnej nazwy kolumny liczb.
 
 ### <a name="aggregation-type"></a>Typ agregacji
 
@@ -184,10 +184,10 @@ Zobacz ten przykład oceny alertu:
 
 | Godzina    | Szacowanie warunku dziennika | Wynik 
 | ------- | ----------| ----------| ------- 
-| 00:05 | Fałsz | Alert nie jest wyzwalany. Nie wywołano żadnych akcji.
-| 00:10 | Prawda  | Wyzwolone alerty i grupy akcji o nazwie. Nowy stan alertu jest aktywny.
-| 00:15 | Prawda  | Wyzwolone alerty i grupy akcji o nazwie. Nowy stan alertu jest aktywny.
-| 00:20 | Fałsz | Alert nie jest wyzwalany. Nie wywołano żadnych akcji. Stan alertów poprzedniej pozostaje aktywny.
+| 00:05 | FALSE | Alert nie jest wyzwalany. Nie wywołano żadnych akcji.
+| 00:10 | TRUE  | Wyzwolone alerty i grupy akcji o nazwie. Nowy stan alertu jest aktywny.
+| 00:15 | TRUE  | Wyzwolone alerty i grupy akcji o nazwie. Nowy stan alertu jest aktywny.
+| 00:20 | FALSE | Alert nie jest wyzwalany. Nie wywołano żadnych akcji. Stan alertów poprzedniej pozostaje aktywny.
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Cennik i rozliczanie alertów dziennika
 

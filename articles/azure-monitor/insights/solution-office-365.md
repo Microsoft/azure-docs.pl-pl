@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
 ms.openlocfilehash: eb20bf4164cb2153f6786dbec04f79453554fa25
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999743"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995866"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Rozwiązanie do zarządzania pakietem Office 365 na platformie Azure (wersja zapoznawcza)
 
@@ -121,7 +121,7 @@ Rozwiązanie do zarządzania pakietem Office 365 umożliwia monitorowanie środo
 - Rozwiązywanie problemów operacyjnych przy użyciu [zapytań dzienników](../log-query/log-query-overview.md) w oparciu o dane działania pakietu Office 365 w organizacji.
 
 
-## <a name="uninstall"></a>Odinstalowanie
+## <a name="uninstall"></a>Dezinstalacja
 
 Rozwiązanie do zarządzania pakietem Office 365 można usunąć, korzystając z procesu w temacie [usuwanie rozwiązania do zarządzania](solutions.md#remove-a-monitoring-solution). Nie spowoduje to zatrzymania zbierania danych z pakietu Office 365 do Azure Monitor. Wykonaj poniższą procedurę, aby anulować subskrypcję pakietu Office 365 i zatrzymać zbieranie danych.
 

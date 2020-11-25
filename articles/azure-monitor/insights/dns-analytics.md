@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
 ms.openlocfilehash: 947b509468857b98b868881bdd48adf67a5d60db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86499005"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994637"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Zbierz informacje o infrastrukturze DNS przy użyciu rozwiązania DNS Analytics w wersji zapoznawczej
 
@@ -44,7 +44,7 @@ W poniższej tabeli opisano połączone źródła obsługiwane przez to rozwiąz
 
 Rozwiązanie zbiera dane dotyczące spisu DNS i zdarzeń DNS z serwerów DNS, na których zainstalowano agenta Log Analytics. Te dane są następnie przekazywane do Azure Monitor i wyświetlane na pulpicie nawigacyjnym rozwiązania. Dane dotyczące spisu, takie jak liczba serwerów DNS, stref i rekordów zasobów, są zbierane przez uruchomienie poleceń cmdlet programu PowerShell dla usługi DNS. Dane są aktualizowane co dwa dni. Dane związane ze zdarzeniami są zbierane niemal w czasie rzeczywistym z [dzienników analitycznych i inspekcji](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)#enhanc) dostarczonych przez ulepszone rejestrowanie i diagnostykę DNS w systemie Windows Server 2012 R2.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Skorzystaj z poniższych informacji, aby skonfigurować rozwiązanie:
 
@@ -159,7 +159,7 @@ Tych zapytań można użyć jako punktu wyjścia do tworzenia własnych zapytań
 
 Na stronie przeszukiwanie dzienników można utworzyć zapytanie. Wyniki wyszukiwania można filtrować przy użyciu formantów aspektów. Możesz również tworzyć zaawansowane zapytania do przekształcania, filtrowania i raportowania wyników. Zacznij od następującej kwerendy:
 
-1. W **polu zapytania wyszukiwania**wpisz, `DnsEvents` Aby wyświetlić wszystkie zdarzenia DNS wygenerowane przez serwery DNS zarządzane przez rozwiązanie. Wyniki wyświetlają dane dziennika dla wszystkich zdarzeń związanych z zapytaniami wyszukiwania, rejestracjami dynamicznymi i zmianami konfiguracji.
+1. W **polu zapytania wyszukiwania** wpisz, `DnsEvents` Aby wyświetlić wszystkie zdarzenia DNS wygenerowane przez serwery DNS zarządzane przez rozwiązanie. Wyniki wyświetlają dane dziennika dla wszystkich zdarzeń związanych z zapytaniami wyszukiwania, rejestracjami dynamicznymi i zmianami konfiguracji.
 
     ![Przeszukiwanie dzienników DnsEvents](./media/dns-analytics/log-search-dnsevents.png)  
 
@@ -169,7 +169,7 @@ Na stronie przeszukiwanie dzienników można utworzyć zapytanie. Wyniki wyszuki
 
     c. Aby wyświetlić dane dziennika dla zmian konfiguracji, wybierz pozycję **zmianakonfiguracji** jako filtr **podtypu** z kontrolki aspekt po lewej stronie. Zostanie wyświetlona tabela zawierająca listę wszystkich zdarzeń zmiany konfiguracji w wybranym okresie.
 
-1. W **polu zapytania wyszukiwania**wpisz, `DnsInventory` Aby wyświetlić wszystkie dane dotyczące spisu DNS dla serwerów DNS zarządzanych przez rozwiązanie. Wyniki wyświetlają dane dziennika dla serwerów DNS, stref DNS i rekordów zasobów.
+1. W **polu zapytania wyszukiwania** wpisz, `DnsInventory` Aby wyświetlić wszystkie dane dotyczące spisu DNS dla serwerów DNS zarządzanych przez rozwiązanie. Wyniki wyświetlają dane dziennika dla serwerów DNS, stref DNS i rekordów zasobów.
 
     ![Przeszukiwanie dzienników DnsInventory](./media/dns-analytics/log-search-dnsinventory.png)
     

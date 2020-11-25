@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 10/22/2020
 ms.author: amikuma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: 52e6c70b76b83c73059dc887eaefe8403befac13
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: ac400efe66ab740f5fb87977ac531cbe465e3f91
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94594236"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95995163"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w aplikacji sieci Web Node przy użyciu przepływu kodu uwierzytelniania
 
-W tym przewodniku szybki start pobrano i uruchomimy przykład kodu, który pokazuje, jak aplikacja sieci Web Node.js może zalogować użytkowników przy użyciu przepływu kodu autoryzacji. Przykład kodu demonstruje również sposób uzyskiwania tokenu dostępu do wywoływania Microsoft Graph API. 
+W tym przewodniku szybki start pobrano i uruchomimy przykład kodu, który pokazuje, jak aplikacja sieci Web Node.js może zalogować użytkowników przy użyciu przepływu kodu autoryzacji. Przykład kodu demonstruje również sposób uzyskiwania tokenu dostępu do wywołania interfejsu API Microsoft Graph. 
 
 Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 
@@ -67,7 +67,7 @@ Ten przewodnik Szybki Start używa biblioteki uwierzytelniania firmy Microsoft d
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-node-app"></a>Krok 3. Konfigurowanie aplikacji węzła
 >
-> Wyodrębnij projekt i Otwórz folder *MS-Identity-Node-Main* , a następnie otwórz plik *index.js* .
+> Wyodrębnij projekt i Otwórz folder *MS-Identity-Node-Main*, a następnie otwórz plik *index.js* .
 > Ustaw wartość `clientID` przy użyciu **identyfikatora aplikacji (klienta)**.
 > Ustaw `clientSecret` wartość przy użyciu **wartości** **klucza tajnego klienta**.
 >
@@ -104,7 +104,7 @@ Ten przewodnik Szybki Start używa biblioteki uwierzytelniania firmy Microsoft d
 > ```
 >
 > > [!TIP]
-> > Aby znaleźć wartość **identyfikatora aplikacji (klienta)** , przejdź do strony **Przegląd** rejestracji aplikacji w Azure Portal. Przejdź do pozycji **certyfikaty & wpisy tajne** , aby pobrać lub wygenerować nowy **klucz tajny klienta**.
+> > Aby znaleźć wartość **identyfikatora aplikacji (klienta)**, przejdź do strony **Przegląd** rejestracji aplikacji w Azure Portal. Przejdź do pozycji **certyfikaty & wpisy tajne** , aby pobrać lub wygenerować nowy **klucz tajny klienta**.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Krok 3. Twoja aplikacja jest skonfigurowana i gotowa do uruchomienia

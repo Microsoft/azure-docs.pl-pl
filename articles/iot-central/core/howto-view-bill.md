@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 515f5f665e947ff9594cce6dbbaea9b5e0c50ebf
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999702"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995747"
 ---
 # <a name="manage-your-bill-in-an-iot-central-application"></a>Zarządzanie rozliczeniami w aplikacji IoT Central
 
@@ -42,7 +42,7 @@ Aby ukończyć ten proces samoobsługowy, wykonaj następujące kroki:
 
 1. Wybierz odpowiednie Azure Active Directory, a następnie subskrypcję platformy Azure, która ma być używana dla aplikacji korzystającej z płatnego planu.
 
-1. Po wybraniu opcji **Konwertuj**Twoja aplikacja korzysta z planu płatnego, a opłaty są naliczane.
+1. Po wybraniu opcji **Konwertuj** Twoja aplikacja korzysta z planu płatnego, a opłaty są naliczane.
 
 > [!Note]
 > Domyślnie jest konwertowany na plan cenowy w *warstwie Standardowa 2* .
@@ -59,11 +59,11 @@ W sekcji Cennik można w dowolnym momencie uaktualnić lub obniżyć plan cen us
 
 1. Wybierz **Plan** , a następnie wybierz pozycję **Zapisz** w celu uaktualnienia lub obniżenia poziomu.
 
-## <a name="view-your-bill"></a>Wyświetlanie rachunku
+## <a name="view-your-bill"></a>Wyświetl rachunek
 
 1. Wybierz odpowiednie Azure Active Directory, a następnie subskrypcję platformy Azure, która ma być używana dla aplikacji korzystającej z płatnego planu.
 
-1. Po wybraniu opcji **Konwertuj**Twoja aplikacja korzysta z planu płatnego, a opłaty są naliczane.
+1. Po wybraniu opcji **Konwertuj** Twoja aplikacja korzysta z planu płatnego, a opłaty są naliczane.
 
 > [!Note]
 > Domyślnie jest konwertowany na plan cenowy w *warstwie Standardowa 2* .

@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8aa45294de4ef644c20ef66b7163706dca9759d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91313420"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996529"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: uaktualnianie z narzędzia DirSync
 Program Azure AD Connect zastępuje narzędzie DirSync. W tym temacie opisano sposoby uaktualniania z narzędzia DirSync. Czynności te nie zadziałają w przypadku aktualizowania z innej wersji programu Azure AD Connect lub z narzędzia Azure AD Sync.

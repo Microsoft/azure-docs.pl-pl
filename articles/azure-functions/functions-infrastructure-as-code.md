@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 2403e3a4bfe7824659a9c34c407e55e6c56e6046
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107729"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994659"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatyzowanie wdrażania zasobów dla aplikacji funkcji w Azure Functions
 
@@ -112,7 +112,7 @@ Ponadto klucz Instrumentacji musi być dostarczany do aplikacji funkcji przy uż
 Definicja planu hostingu jest różna i może być jedną z następujących czynności:
 * [Plan zużycia](#consumption) (wartość domyślna)
 * [Plan Premium](#premium)
-* [Plan App Service](#app-service-plan)
+* [Plan usługi App Service](#app-service-plan)
 
 ### <a name="function-app"></a>Aplikacja funkcji
 

@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 396344ba90aa3850d7d23dc40d6df95f6d1f6c3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279520"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996580"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Prywatność użytkownika i uwierzytelnianie przekazywane usługi Azure Active Directory
 
@@ -46,7 +46,7 @@ Zdecydowanie zalecamy, aby druga opcja była łatwiejsza do wdrożenia i konserw
 
 ### <a name="delete-azure-ad-connect-trace-log-files"></a>Usuń pliki dziennika śledzenia Azure AD Connect
 
-Sprawdź zawartość folderu **%ProgramData%\AADConnect** i Usuń zawartość dziennika śledzenia (pliki**Trace- \* . log** ) tego folderu w ciągu 48 godzin od zainstalowania lub uaktualnienia Azure AD Connect lub modyfikacji konfiguracji uwierzytelniania przekazywanego, ponieważ ta akcja może utworzyć dane objęte Rodo.
+Sprawdź zawartość folderu **%ProgramData%\AADConnect** i Usuń zawartość dziennika śledzenia (pliki **Trace- \* . log** ) tego folderu w ciągu 48 godzin od zainstalowania lub uaktualnienia Azure AD Connect lub modyfikacji konfiguracji uwierzytelniania przekazywanego, ponieważ ta akcja może utworzyć dane objęte Rodo.
 
 >[!IMPORTANT]
 >Nie usuwaj pliku **PersistedState.xml** w tym folderze, ponieważ ten plik jest używany do zachowywania stanu poprzedniej instalacji Azure AD Connect i jest używany podczas instalacji uaktualnienia. Ten plik nigdy nie będzie zawierał żadnych danych dotyczących osoby i nigdy nie powinien być usunięty.
@@ -93,7 +93,7 @@ Aby zaplanować uruchamianie skryptu co 48 godzin, wykonaj następujące kroki:
 1.  Zapisz skrypt w pliku z ". Rozszerzenie PS1.
 2.  Otwórz **Panel sterowania** , a następnie kliknij pozycję **system i zabezpieczenia**.
 3.  W obszarze **Narzędzia administracyjne** kliknij pozycję "**Zaplanuj zadania**".
-4.  W **harmonogram zadań**kliknij prawym przyciskiem myszy pozycję "**Biblioteka harmonogramu zadań**" i kliknij polecenie "**Utwórz zadanie podstawowe...**".
+4.  W **harmonogram zadań** kliknij prawym przyciskiem myszy pozycję "**Biblioteka harmonogramu zadań**" i kliknij polecenie "**Utwórz zadanie podstawowe...**".
 5.  Wprowadź nazwę nowego zadania i kliknij przycisk **dalej**.
 6.  Wybierz pozycję "**codziennie**" dla **wyzwalacza zadania** , a następnie kliknij przycisk **dalej**.
 7.  Ustaw cykl na dwa dni i kliknij przycisk **dalej**.

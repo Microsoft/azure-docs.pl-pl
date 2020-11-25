@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/31/2020
 ms.openlocfilehash: 1f83f13564a64a0d9d8a5e0144ca95af6a769d6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76904994"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995050"
 ---
 # <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Rozwiązywanie problemów i diagnozowanie błędów przepływów pracy w usłudze Azure Logic Apps
 
@@ -27,7 +27,7 @@ Każde uruchomienie aplikacji logiki rozpoczyna się od próby wyzwalacza, więc
 
    ![Wyświetl stan i historię wyzwalacza](./media/logic-apps-diagnosing-failures/logic-app-trigger-history.png)
 
-1. Sprawdź dane wejściowe wyzwalacza, aby upewnić się, że są wyświetlane zgodnie z oczekiwaniami. W obszarze **link danych wejściowych**wybierz łącze, które wyświetla okienko **dane wejściowe** .
+1. Sprawdź dane wejściowe wyzwalacza, aby upewnić się, że są wyświetlane zgodnie z oczekiwaniami. W obszarze **link danych wejściowych** wybierz łącze, które wyświetla okienko **dane wejściowe** .
 
    Wyzwalacze wejściowe zawierają dane, których wyzwalacz oczekuje i które są wymagane do uruchomienia przepływu pracy. Przeglądanie tych danych wejściowych może pomóc w ustaleniu, czy dane wejściowe wyzwalacza są poprawne i czy warunek został spełniony, aby przepływ pracy mógł kontynuować działanie.
 
@@ -35,7 +35,7 @@ Każde uruchomienie aplikacji logiki rozpoczyna się od próby wyzwalacza, więc
 
    ![Przejrzyj dane wejściowe wyzwalacza pod kątem błędów](./media/logic-apps-diagnosing-failures/review-trigger-inputs-for-errors.png)
 
-1. Sprawdź wyjściowe Wyzwalacze (jeśli istnieją), aby upewnić się, że są wyświetlane zgodnie z oczekiwaniami. W obszarze link do danych **wyjściowych**wybierz link, który pokazuje okienko dane **wyjściowe** .
+1. Sprawdź wyjściowe Wyzwalacze (jeśli istnieją), aby upewnić się, że są wyświetlane zgodnie z oczekiwaniami. W obszarze link do danych **wyjściowych** wybierz link, który pokazuje okienko dane **wyjściowe** .
 
    Wyjściowe wyzwalacze obejmują dane przekazywane przez wyzwalacz do następnego kroku w przepływie pracy. Przeglądanie tych danych wyjściowych może pomóc w ustaleniu, czy poprawna lub oczekiwana wartość została przeniesiona do następnego kroku w przepływie pracy, na przykład:
 
@@ -60,7 +60,7 @@ Za każdym razem, gdy wyzwalacz jest wyzwalany dla elementu lub zdarzenia, apara
 
 1. Sprawdź dane wejściowe kroku zakończonego niepowodzeniem, aby upewnić się, że są wyświetlane zgodnie z oczekiwaniami.
 
-1. Przejrzyj szczegóły każdego kroku w określonym przebiegu. W obszarze **historia uruchamiania**wybierz przebieg, który chcesz przejrzeć.
+1. Przejrzyj szczegóły każdego kroku w określonym przebiegu. W obszarze **historia uruchamiania** wybierz przebieg, który chcesz przejrzeć.
 
    ![Przejrzyj historię uruchamiania](./media/logic-apps-diagnosing-failures/logic-app-runs-history.png)
 

@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: 9b190b5847c7412344e2bb09fd4000985816219b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085739"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995594"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Wdrażanie topologii Apache Storm w usłudze Azure HDInsight i zarządzanie nimi
 
@@ -48,9 +48,9 @@ Narzędzia Data Lake Tools for Visual Studio umożliwiają przesyłanie do klast
 
     ![Konfigurowanie okna nowego projektu, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png)
 
-1. W **Eksplorator serwera**kliknij prawym przyciskiem myszy pozycję **Azure** i wybierz pozycję **Połącz z Microsoft Azure subskrypcją...** i Ukończ proces logowania.
+1. W **Eksplorator serwera** kliknij prawym przyciskiem myszy pozycję **Azure** i wybierz pozycję **Połącz z Microsoft Azure subskrypcją...** i Ukończ proces logowania.
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Prześlij do burzy w usłudze HDInsight**.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Prześlij do burzy w usłudze HDInsight**.
 
     > [!NOTE]  
     > Jeśli zostanie wyświetlony monit, wprowadź poświadczenia logowania dla subskrypcji platformy Azure. Jeśli masz więcej niż jedną subskrypcję, zaloguj się do niej, która zawiera swoją burzę w klastrze usługi HDInsight.
@@ -226,9 +226,9 @@ Wybranie elementu Spout z sekcji **elementy Spout** lub **pioruns** wyświetla n
 | Elementu Spout Statystyka lub pioruna | Statystyka elementu Spout lub pioruna. Aby ustawić przedział czasu dla wpisu w tej sekcji, wybierz jego łącze w kolumnie **okno** . |
 | (Tylko dla piorunów)<br/>Statystyki wejściowe *(ramy czasowe)* | Informacje o strumieniach wejściowych używanych przez pioruna. |
 | Statystyki wyjściowe *(przedział czasu)* | Informacje o strumieniach emitowanych przez elementu Spout lub piorun. |
-| Profilowanie i debugowanie | Kontroluje profilowanie i debugowanie składników na tej stronie. Można ustawić wartość **stan/limit czasu (minuty)** i można wybrać przyciski dla **JStack**, **Uruchom ponownie proces roboczy**i **stertę**. |
+| Profilowanie i debugowanie | Kontroluje profilowanie i debugowanie składników na tej stronie. Można ustawić wartość **stan/limit czasu (minuty)** i można wybrać przyciski dla **JStack**, **Uruchom ponownie proces roboczy** i **stertę**. |
 | Wykonawcy *(ramy czasowe)* | Informacje o wystąpieniach elementu Spout lub piorunów. Aby wyświetlić dziennik informacji diagnostycznych generowanych dla tego wystąpienia, wybierz wpis **portu** dla określonego wykonawcy. Możesz również wyświetlić zasoby procesu roboczego skojarzone z określonym wykonawcą, wybierając jego łącze w kolumnie **hosta** . |
-| Errors | Wszystkie informacje o błędzie dla elementu Spout lub pioruna. |
+| błędy | Wszystkie informacje o błędzie dla elementu Spout lub pioruna. |
 
 Strona Podsumowanie pioruna burzy wygląda podobnie do tej strony sieci Web:
 
@@ -255,7 +255,7 @@ W pełni kwalifikowaną nazwę domeny (FQDN) węzła głównego klastra można z
 | Sieć Web Ambari | Na stronie sieci Web klastra Ambari ( `https://CLUSTERNAME.azurehdinsight.net` ) wybierz pozycję **usługi** w górnej części strony, a następnie wybierz pozycję **burza**. Na karcie **Podsumowanie** wybierz pozycję **serwer interfejsu użytkownika burzy**. W górnej części strony jest wyświetlana nazwa FQDN węzła, który hostuje interfejs użytkownika burzy i interfejs API REST. |
 | Interfejs API REST usługi Ambari | Użyj polecenia, `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` Aby pobrać informacje o węźle, w którym działają interfejs użytkownika burzy i interfejs API REST. Zastąp dwa wystąpienia elementu *ClusterName* nazwą klastra. Po wyświetleniu monitu wprowadź hasło dla konta użytkownika (administratora). W odpowiedzi wpis "host_name" danych wyjściowych JSON zawiera nazwę FQDN węzła. |
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
 Żądania kierowane do interfejsu API REST muszą używać *uwierzytelniania podstawowego*, dlatego należy użyć nazwy administratora i hasła dla klastra usługi HDInsight.
 

@@ -7,11 +7,11 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 11/12/2020
 ms.openlocfilehash: 19c9ec39d85bfc56b118498aba62c3752d6d771c
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616930"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996325"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Dostęp do zasobów platformy Azure Virtual Network z Azure Logic Apps przy użyciu środowisk usługi integracji (ISEs)
 
@@ -65,9 +65,9 @@ Podczas tworzenia i uruchamiania aplikacji logiki w ISE można korzystać z tych
 
   Z rzadkimi wyjątkami, jeśli łącznik ISE jest dostępny dla systemu lokalnego lub źródła danych, można połączyć się bezpośrednio bez korzystania z [lokalnej bramy danych](../logic-apps/logic-apps-gateway-connection.md). Aby uzyskać więcej informacji, zobacz [dostęp do systemów lokalnych](#on-premises) w dalszej części tego tematu.
 
-* Łączniki zarządzane, które nie wyświetlają etykiety **ISE** , nadal działają dla aplikacji LOGIKI wewnątrz ISE. Te łączniki są *zawsze uruchamiane w usłudze Logic Apps z wieloma dzierżawcami* , a nie w ISE.
+* Łączniki zarządzane, które nie wyświetlają etykiety **ISE** , nadal działają dla aplikacji LOGIKI wewnątrz ISE. Te łączniki są *zawsze uruchamiane w usłudze Logic Apps z wieloma dzierżawcami*, a nie w ISE.
 
-* Niestandardowe Łączniki tworzone *poza ISE* , niezależnie od tego, czy wymagają one [lokalnej bramy danych](../logic-apps/logic-apps-gateway-connection.md), nadal pracują z aplikacjami logiki wewnątrz ISE. Jednak łączniki niestandardowe tworzone *wewnątrz elementu ISE* nie będą działały z lokalną bramą danych. Aby uzyskać więcej informacji, zobacz [dostęp do systemów lokalnych](#on-premises).
+* Niestandardowe Łączniki tworzone *poza ISE*, niezależnie od tego, czy wymagają one [lokalnej bramy danych](../logic-apps/logic-apps-gateway-connection.md), nadal pracują z aplikacjami logiki wewnątrz ISE. Jednak łączniki niestandardowe tworzone *wewnątrz elementu ISE* nie będą działały z lokalną bramą danych. Aby uzyskać więcej informacji, zobacz [dostęp do systemów lokalnych](#on-premises).
 
 <a name="on-premises"></a>
 
@@ -83,7 +83,7 @@ Aplikacje logiki, które działają w ramach usługi ISE, mogą bezpośrednio uz
 
 * Łącznik niestandardowy
 
-  * Niestandardowe Łączniki tworzone *poza ISE* , niezależnie od tego, czy wymagają one [lokalnej bramy danych](../logic-apps/logic-apps-gateway-connection.md), nadal pracują z aplikacjami logiki wewnątrz ISE.
+  * Niestandardowe Łączniki tworzone *poza ISE*, niezależnie od tego, czy wymagają one [lokalnej bramy danych](../logic-apps/logic-apps-gateway-connection.md), nadal pracują z aplikacjami logiki wewnątrz ISE.
 
   * Łączniki niestandardowe tworzone *w ramach ISE* nie działają z lokalną bramą danych. Jednak te łączniki mogą bezpośrednio uzyskiwać dostęp do systemów lokalnych i źródeł danych, które znajdują się wewnątrz lub połączone z siecią wirtualną, która hostuje ISE. Dlatego Aplikacje logiki, które znajdują się w ISE, zwykle nie potrzebują bramy danych podczas uzyskiwania dostępu do tych zasobów.
 
@@ -117,7 +117,7 @@ Po utworzeniu ISE można użyć wewnętrznych lub zewnętrznych punktów końcow
 > [!IMPORTANT]
 > Punkt końcowy dostępu można wybrać tylko podczas tworzenia ISE i nie można zmienić tej opcji później.
 
-* **Wewnętrzne** : prywatne punkty końcowe umożliwiają wywoływanie aplikacji LOGIKI w ISE, w którym można wyświetlać i uzyskiwać dostęp do danych wejściowych i wyjściowych z historii uruchamiania usługi Logic Apps *tylko z wewnątrz sieci wirtualnej*.
+* **Wewnętrzne**: prywatne punkty końcowe umożliwiają wywoływanie aplikacji LOGIKI w ISE, w którym można wyświetlać i uzyskiwać dostęp do danych wejściowych i wyjściowych z historii uruchamiania usługi Logic Apps *tylko z wewnątrz sieci wirtualnej*.
 
   > [!IMPORTANT]
   > Jeśli musisz użyć tych wyzwalaczy opartych na elemencie webhook, użyj zewnętrznych punktów końcowych, a *nie* wewnętrznych punktów końcowych, tworząc ISE:
@@ -134,7 +134,7 @@ Po utworzeniu ISE można użyć wewnętrznych lub zewnętrznych punktów końcow
   >
   > Na przykład komputer kliencki może znajdować się w sieci wirtualnej ISE lub wewnątrz sieci wirtualnej, która jest połączona z siecią wirtualną ISE za pomocą komunikacji równorzędnej lub wirtualnej sieci prywatnej. 
 
-* **Zewnętrzne** : publiczne punkty końcowe umożliwiają wywoływanie aplikacji LOGIKI w ISE, w którym można wyświetlać i uzyskiwać dostęp do danych wejściowych i wyjściowych z historii uruchamiania aplikacji logiki *z spoza sieci wirtualnej*. Jeśli używasz sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń), upewnij się, że są one skonfigurowane przy użyciu reguł ruchu przychodzącego, aby zezwolić na dostęp do danych wejściowych i wyjściowych historii uruchamiania. Aby uzyskać więcej informacji, zobacz [Włączanie dostępu do ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
+* **Zewnętrzne**: publiczne punkty końcowe umożliwiają wywoływanie aplikacji LOGIKI w ISE, w którym można wyświetlać i uzyskiwać dostęp do danych wejściowych i wyjściowych z historii uruchamiania aplikacji logiki *z spoza sieci wirtualnej*. Jeśli używasz sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń), upewnij się, że są one skonfigurowane przy użyciu reguł ruchu przychodzącego, aby zezwolić na dostęp do danych wejściowych i wyjściowych historii uruchamiania. Aby uzyskać więcej informacji, zobacz [Włączanie dostępu do ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
 
 Aby określić, czy ISE używa wewnętrznego lub zewnętrznego punktu końcowego dostępu, w menu ISE w obszarze **Ustawienia** wybierz pozycję **Właściwości** i Znajdź właściwość **punkt końcowy dostępu** :
 

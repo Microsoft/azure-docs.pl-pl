@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 06/04/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 87337cf22bdb388c5873a2811bb9913c3e7f4d4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019780"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994965"
 ---
 # <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Filtry zabezpieczeń do przycinania wyników Wyszukiwanie poznawcze platformy Azure przy użyciu tożsamości Active Directory
 
@@ -183,7 +183,7 @@ DocumentSearchResult<SecuredFiles> results = _indexClient.Documents.Search<Secur
 
 Odpowiedź obejmuje przefiltrowaną listę dokumentów składającą się z tych, do których użytkownik ma uprawnienia do wyświetlania. W zależności od sposobu konstruowania strony wyników wyszukiwania możesz chcieć uwzględnić podpowiedzi wizualne, aby odzwierciedlić filtrowany zestaw wyników.
 
-## <a name="conclusion"></a>Podsumowanie
+## <a name="conclusion"></a>Wniosek
 
 W tym instruktażu przedstawiono metody używania logowań usługi AAD do filtrowania dokumentów w usłudze Azure Wyszukiwanie poznawcze wyniki, przycinania wyników dokumentów, które nie pasują do filtru dostarczonego w żądaniu.
 

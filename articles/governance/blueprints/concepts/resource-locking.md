@@ -4,11 +4,11 @@ description: Dowiedz się więcej na temat opcji blokowania w planach platformy 
 ms.date: 10/05/2020
 ms.topic: conceptual
 ms.openlocfilehash: 01f69cbfebe203407287392c2433181396b541b2
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92095998"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996104"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Zrozumienie blokowania zasobów w planach platformy Azure
 
@@ -19,10 +19,10 @@ Tworzenie spójnych środowisk na dużą skalę jest naprawdę cenne, jeśli ist
 
 ## <a name="locking-modes-and-states"></a>Tryby blokowania i Stany
 
-Tryb blokowania ma zastosowanie do przypisania planu i ma trzy opcje: **nie blokuj**, **tylko do odczytu**lub nie **usuwaj**. Tryb blokowania jest konfigurowany podczas wdrażania artefaktu podczas jego przypisywania. Inny tryb blokowania można ustawić, aktualizując przypisanie planu.
+Tryb blokowania ma zastosowanie do przypisania planu i ma trzy opcje: **nie blokuj**, **tylko do odczytu** lub nie **usuwaj**. Tryb blokowania jest konfigurowany podczas wdrażania artefaktu podczas jego przypisywania. Inny tryb blokowania można ustawić, aktualizując przypisanie planu.
 Nie można jednak zmienić trybów blokowania poza planami platformy Azure.
 
-Zasoby utworzone przez artefakty w przypisaniu planu mają cztery stany: **nie zablokowane**, **tylko do odczytu**, **nie można edytować/usuwać**ani **nie mogą go usunąć**. Każdy typ artefaktu może być w stanie **niezablokowanym** . Poniższa tabela może służyć do określenia stanu zasobu:
+Zasoby utworzone przez artefakty w przypisaniu planu mają cztery stany: **nie zablokowane**, **tylko do odczytu**, **nie można edytować/usuwać** ani **nie mogą go usunąć**. Każdy typ artefaktu może być w stanie **niezablokowanym** . Poniższa tabela może służyć do określenia stanu zasobu:
 
 |Tryb|Typ zasobu artefaktu|Stan|Opis|
 |-|-|-|-|
@@ -109,7 +109,7 @@ Akcja Odmów [przypisywania Odmów dostępu](../../../role-based-access-control/
 
 |Tryb |Uprawnienia. akcje |Uprawnienia. nonaruszone |Podmioty zabezpieczeń [i]. Wprowadź |ExcludePrincipals [i]. #C1 | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|Tylko do odczytu |**\*** |**\*/read**<br />**Microsoft. Authorization/Locks/Delete**<br />**Microsoft. Network/virtualNetwork/Subnets/Join/Action** |SystemDefined (wszyscy) |przypisanie strategii i zdefiniowane przez użytkownika w **excludedPrincipals** |Grupa zasobów — _true_; Zasób — _Fałsz_ |
+|Tylko do odczytu |**\** _ |_ *\* /Read **<br />** Microsoft. Authorization/Locks/Delete **<br />** Microsoft. Network/virtualNetwork/Subnets/Join/Action** |SystemDefined (wszyscy) |przypisanie strategii i zdefiniowane przez użytkownika w **excludedPrincipals** |Grupa zasobów — _true_; Zasób — _Fałsz_ |
 |Nie usuwaj |**\*/** | **Microsoft. Authorization/Locks/Delete**<br />**Microsoft. Network/virtualNetwork/Subnets/Join/Action** |SystemDefined (wszyscy) |przypisanie strategii i zdefiniowane przez użytkownika w **excludedPrincipals** |Grupa zasobów — _true_; Zasób — _Fałsz_ |
 
 > [!IMPORTANT]

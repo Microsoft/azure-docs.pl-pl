@@ -13,11 +13,11 @@ ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
 ms.openlocfilehash: 0dad7add63102d462a2111f1ecf12ae43dae123c
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979916"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996189"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Samouczek: Dodawanie logowania do firmy Microsoft do aplikacji sieci Web ASP.NET
 

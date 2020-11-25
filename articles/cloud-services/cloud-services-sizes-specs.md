@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: 52fad84c9ed145b4acec73ffad1fa470acf94532
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076950"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994591"
 ---
 # <a name="sizes-for-cloud-services"></a>Rozmiary dla Cloud Services
 W tym temacie opisano dostępne rozmiary i opcje dla wystąpień ról usługi w chmurze (ról sieci Web i procesów roboczych). Zawiera również zagadnienia dotyczące wdrażania, które należy wziąć pod uwagę podczas planowania użycia tych zasobów. Każdy rozmiar ma identyfikator, który został umieszczony w [pliku definicji usługi](cloud-services-model-and-package.md#csdef). Ceny za każdy rozmiar są dostępne na stronie [cennika Cloud Services](https://azure.microsoft.com/pricing/details/cloud-services/) .
@@ -63,7 +63,7 @@ Utworzyliśmy koncepcję jednostki obliczeniowej platformy Azure (ACU), aby zape
 | [D v3](#dv3-series) |160 – 190 * |
 | [E v3](#ev3-series) |160 – 190 * |
 | [G](#g-series) |180 - 240* |
-| [C](#h-series) |290 - 300* |
+| [H](#h-series) |290 - 300* |
 
 Jednostki ACU oznaczone gwiazdką (*) wykorzystują technologię Intel® Turbo w celu zwiększenia częstotliwości zegara procesora CPU i zapewniania większej wydajności. Skala zwiększenia wydajności może się różnić w zależności od rozmiaru maszyny wirtualnej, obciążenia i innych obciążeń uruchomionych na tym samym hoście.
 

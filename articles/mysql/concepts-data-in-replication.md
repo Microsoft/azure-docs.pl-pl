@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 8/7/2020
 ms.openlocfilehash: 99beddba470f73d6eadb448dfe1b77453ce6426d
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541593"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996223"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Replikowanie danych do Azure Database for MySQL
 
@@ -44,7 +44,7 @@ Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/
 - Jeśli na serwerze źródłowym jest włączony protokół SSL, upewnij się, że certyfikat urzędu certyfikacji SSL podany dla domeny został uwzględniony w `mysql.az_replication_change_master` procedurze składowanej. Zapoznaj się z poniższymi [przykładami](./howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication) i `master_ssl_ca` parametrem.
 - Upewnij się, że adres IP serwera źródłowego został dodany do reguł zapory serwera repliki Azure Database for MySQL. Zaktualizuj reguły zapory za pomocą [witryny Azure Portal](./howto-manage-firewall-using-portal.md) lub [interfejsu wiersza polecenia platformy Azure](./howto-manage-firewall-using-cli.md).
 - Upewnij się, że komputer obsługujący serwer źródłowy zezwala na ruch przychodzący i wychodzący na porcie 3306.
-- Upewnij się, że serwer źródłowy ma **publiczny adres IP** , usługa DNS jest publicznie dostępna lub ma w pełni kwalifikowaną nazwę domeny (FQDN).
+- Upewnij się, że serwer źródłowy ma **publiczny adres IP**, usługa DNS jest publicznie dostępna lub ma w pełni kwalifikowaną nazwę domeny (FQDN).
 
 ### <a name="other"></a>Inne
 - Replikacja danych jest obsługiwana tylko w warstwach cenowych Ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci.

@@ -14,11 +14,11 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 320d48535c4792a4d610888c6a7030568ccf16bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89459848"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995186"
 ---
 # <a name="configuration-requirements-and-troubleshooting-tips-for-xamarin-android-with-msalnet"></a>Wymagania dotyczące konfiguracji i wskazówki dotyczące rozwiązywania problemów z platformą Xamarin Android z MSAL.NET
 
@@ -145,7 +145,7 @@ Aby uzyskać więcej informacji, zobacz [Korzystanie z przeglądarek sieci Web d
 
 ### <a name="error-the-name-authenticationcontinuationhelper-doesnt-exist-in-the-current-context"></a>Błąd: Nazwa AuthenticationContinuationHelper nie istnieje w bieżącym kontekście
 
-Jeśli błąd wskazuje, że `AuthenticationContinuationHelper` nie istnieje w bieżącym kontekście, program Visual Studio mógł nieprawidłowo zaktualizować plik *Android. csproj \* * . Czasami ścieżka pliku w `<HintPath>` elemencie nieprawidłowo zawiera `netstandard13` `monoandroid90` .
+Jeśli błąd wskazuje, że `AuthenticationContinuationHelper` nie istnieje w bieżącym kontekście, program Visual Studio mógł nieprawidłowo zaktualizować plik *Android. csproj \** . Czasami ścieżka pliku w `<HintPath>` elemencie nieprawidłowo zawiera `netstandard13` `monoandroid90` .
 
 Ten przykład zawiera poprawną ścieżkę pliku:
 

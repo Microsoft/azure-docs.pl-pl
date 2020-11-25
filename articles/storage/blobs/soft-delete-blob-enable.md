@@ -10,12 +10,12 @@ ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 07e306c6c428a0e3a3f64a29a2574cb0378bb81f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a74860b7adf4dade5aedc71a4960595cbe55eaf0
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230232"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95995305"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Włączanie i zarządzanie nietrwałego usuwania dla obiektów BLOB
 
@@ -34,7 +34,7 @@ Włącz usuwanie nietrwałe dla obiektów BLOB na koncie magazynu przy użyciu A
 1. W witrynie [Azure Portal](https://portal.azure.com/) przejdź do swojego konta magazynu.
 1. Znajdź opcję **ochrony danych** w obszarze **BLOB Service**.
 1. Ustaw właściwość **usuwania nietrwałego obiektu BLOB** na wartość *włączone*.
-1. W obszarze **zasady przechowywania**Określ, jak długo usuwane nietrwałe obiekty blob są przechowywane przez usługę Azure Storage.
+1. W obszarze **zasady przechowywania** Określ, jak długo usuwane nietrwałe obiekty blob są przechowywane przez usługę Azure Storage.
 1. Zapisz zmiany.
 
 ![Zrzut ekranu witryny Azure Portal z wybraną usługą obiektów BLOB ochrony danych.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-configuration.png)
@@ -194,5 +194,5 @@ blockBlob.StartCopy(copySource);
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Usuwanie nietrwałe dla magazynu obiektów BLOB](soft-delete-overview.md)
+- [Usuwanie nietrwałe dla magazynu obiektów BLOB](./soft-delete-blob-overview.md)
 - [Przechowywanie wersji obiektów BLOB](versioning-overview.md)

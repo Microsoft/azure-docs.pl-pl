@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: duau
 ms.openlocfilehash: 46d71a38b79f449084f7353527f2dfb05d5b92a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401031"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994914"
 ---
 # <a name="configure-the-performance-traffic-routing-method"></a>Konfigurowanie metody routingu ruchu o wydajności
 
@@ -29,9 +29,9 @@ Metoda routingu ruchu wydajności umożliwia kierowanie ruchu do punktu końcowe
 2. Na pasku wyszukiwania portalu Wyszukaj **Traffic Manager profile** , a następnie kliknij nazwę profilu, dla którego chcesz skonfigurować metodę routingu.
 3. W bloku **Traffic Manager profilu** Sprawdź, czy istnieją zarówno usługi w chmurze, jak i witryny sieci Web, które mają zostać uwzględnione w konfiguracji.
 4. W sekcji **Ustawienia** kliknij pozycję **Konfiguracja**, a następnie w bloku **Konfiguracja** wykonaj następujące czynności:
-    1. W obszarze **Ustawienia metody routingu ruchu**w obszarze **Metoda routingu** wybierz pozycję **wydajność**.
+    1. W obszarze **Ustawienia metody routingu ruchu** w obszarze **Metoda routingu** wybierz pozycję **wydajność**.
     2. Ustaw **Ustawienia monitora punktu końcowego** identyczne dla wszystkich punktów końcowych w ramach tego profilu w następujący sposób:
-        1. Wybierz odpowiedni **Protokół**i określ numer **portu** . 
+        1. Wybierz odpowiedni **Protokół** i określ numer **portu** . 
         2. Dla **ścieżki** wpisz ukośnik */* . Aby monitorować punkty końcowe, należy określić ścieżkę i nazwę pliku. Ukośnik "/" jest prawidłowym wpisem ścieżki względnej i oznacza, że plik znajduje się w katalogu głównym (domyślnie).
         3. W górnej części strony kliknij pozycję **Zapisz**.
 5.  Przetestuj zmiany w konfiguracji w następujący sposób:

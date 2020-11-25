@@ -12,11 +12,11 @@ ms.date: 04/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: 21f16a0b9c8b3b603735520d5dcdbf61601e1480
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706498"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994829"
 ---
 # <a name="no-users-are-being-provisioned"></a>Żadni użytkownicy nie są aprowizowani 
 >[!NOTE]
@@ -42,7 +42,7 @@ Poniżej znajduje się lista ogólnych obszarów problemów, do których można 
 - [Dzienniki aprowizacji mówią, że użytkownicy są pomijani i nie są administracyjni, nawet jeśli są przypisani](#provisioning-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
 
 ## <a name="provisioning-service-does-not-appear-to-start"></a>Nie można uruchomić usługi aprowizacji
-W przypadku ustawienia **stanu aprowizacji** na **włączony** w sekcji **Azure Active Directory &gt; aplikacje dla przedsiębiorstw &gt; \[ \] &gt; ** w Azure Portal. Jednak na tej stronie nie są wyświetlane żadne inne szczegóły stanu po kolejnych ponownych ładowaniach, prawdopodobnie usługa jest uruchomiona, ale nie ukończyła jeszcze cyklu początkowego. Sprawdź **dzienniki aprowizacji (wersja zapoznawcza)** opisane powyżej, aby określić, jakie operacje usługa działa, i wystąpiły błędy.
+W przypadku ustawienia **stanu aprowizacji** na **włączony** w sekcji **Azure Active Directory &gt; aplikacje dla przedsiębiorstw &gt; \[ \] &gt;** w Azure Portal. Jednak na tej stronie nie są wyświetlane żadne inne szczegóły stanu po kolejnych ponownych ładowaniach, prawdopodobnie usługa jest uruchomiona, ale nie ukończyła jeszcze cyklu początkowego. Sprawdź **dzienniki aprowizacji (wersja zapoznawcza)** opisane powyżej, aby określić, jakie operacje usługa działa, i wystąpiły błędy.
 
 >[!NOTE]
 >Cykl początkowy może zająć od 20 minut do kilku godzin, w zależności od rozmiaru katalogu usługi Azure AD i liczby użytkowników w zakresie aprowizacji. Kolejne synchronizacje po początkowym cyklu są szybsze, ponieważ usługa aprowizacji przechowuje znaki wodne, które reprezentują stan obu systemów po cyklu początkowym. Cykl początkowy pozwala zwiększyć wydajność kolejnych synchronizacji.

@@ -12,12 +12,12 @@ ms.date: 11/17/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: lokalna, Docker, kontener
-ms.openlocfilehash: ad3f73276a2a965032fd2acf368bce4a0c146632
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 9ca5229200b39f0a3c68da152f4d89f842d021ca
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94744182"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95996463"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instalowanie i uruchamianie kontenerów platformy Docker dla interfejsów API usługi mowy 
 
@@ -41,10 +41,10 @@ Kontenery usługi Mowa umożliwiają klientom tworzenie architektury aplikacji m
 
 | Kontener | Funkcje | Najnowsza |
 |--|--|--|
-| Zamiana mowy na tekst | Analizuje tonacji i przekształca ciągłe nagrywanie mowy w czasie rzeczywistym lub nagrania audio wsadowe z wynikami pośrednimi.  | 2.6.0 |
-| Custom Speech do tekstu | Korzystając z modelu niestandardowego z [portalu Custom Speech](https://speech.microsoft.com/customspeech), przekształca ciągłe nagrywanie mowy w czasie rzeczywistym lub przetwarzanie wsadowe audio do tekstu z wynikami pośrednimi. | 2.6.0 |
-| Zamiana tekstu na mowę | Konwertuje tekst na mowę dźwiękową przy użyciu zwykłego tekstu lub języka SSML (Speech Syntezing Language). | 1.8.0 |
-| Niestandardowa Zamiana tekstu na mowę | Przy użyciu modelu niestandardowego z [niestandardowego portalu głosowego](https://aka.ms/custom-voice-portal)program konwertuje tekst na mowę dźwiękową przy użyciu zwykłego tekstu lub języka SSML (Speech syntezing Language). | 1.8.0 |
+| Zamiana mowy na tekst | Analizuje tonacji i przekształca ciągłe nagrywanie mowy w czasie rzeczywistym lub nagrania audio wsadowe z wynikami pośrednimi.  | 2.7.0 |
+| Custom Speech do tekstu | Korzystając z modelu niestandardowego z [portalu Custom Speech](https://speech.microsoft.com/customspeech), przekształca ciągłe nagrywanie mowy w czasie rzeczywistym lub przetwarzanie wsadowe audio do tekstu z wynikami pośrednimi. | 2.7.0 |
+| Zamiana tekstu na mowę | Konwertuje tekst na mowę dźwiękową przy użyciu zwykłego tekstu lub języka SSML (Speech Syntezing Language). | 1.9.0 |
+| Niestandardowa Zamiana tekstu na mowę | Przy użyciu modelu niestandardowego z [niestandardowego portalu głosowego](https://aka.ms/custom-voice-portal)program konwertuje tekst na mowę dźwiękową przy użyciu zwykłego tekstu lub języka SSML (Speech syntezing Language). | 1.9.0 |
 | wykrywanie języka mowy | Wykrywa język mówiony w plikach audio. | 1,0 |
 | Neuronowych Zamiana tekstu na mowę | Konwertuje tekst na naturalną dźwiękową mowę przy użyciu technologii sieci głębokiej neuronowych, co pozwala na bardziej naturalną syntezę mowy. | 1.3.0 |
 
@@ -322,7 +322,7 @@ Począwszy od 2.6.0 kontenera zamiany mowy na tekst, należy użyć punktu końc
 > [!NOTE]
 > `v3.0`Interfejs API analiza tekstu nie jest zgodny z analiza tekstu `v3.0-preview.1` . Aby uzyskać najnowszą obsługę funkcji tonacji, użyj `v2.6.0` obrazu kontenera zamiany mowy na tekst i analiza tekstu `v3.0` .
 
-Począwszy od 2.2.0 kontenera zamiany mowy na tekst, można wywołać [interfejs API analizy tonacji](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) w wersji 3 w danych wyjściowych. Aby wywołać analizę tonacji, wymagany jest punkt końcowy zasobów interfejs API analizy tekstu. Przykład: 
+Począwszy od 2.2.0 kontenera zamiany mowy na tekst, można wywołać [interfejs API analizy tonacji](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) w wersji 3 w danych wyjściowych. Aby wywołać analizę tonacji, wymagany jest punkt końcowy zasobów interfejs API analizy tekstu. Na przykład: 
 * `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
 * `https://localhost:5000/text/analytics/v3.0-preview.1/sentiment`
 
@@ -351,7 +351,7 @@ Począwszy od 2.6.0 w języku v kontenera zamiany mowy na tekst można uzyskać 
 
 * "Jest to zdanie **z wyższą** wielką literą."
 
-Aby skonfigurować listę fraz, należy dodać własne frazy podczas wywołania. Przykład:
+Aby skonfigurować listę fraz, należy dodać własne frazy podczas wywołania. Na przykład:
 
 ```python
     phrase="the tall man"
@@ -420,7 +420,7 @@ To polecenie:
 
 
 #### <a name="base-model-download-on-the-custom-speech-to-text-container"></a>Pobieranie modelu podstawowego z niestandardowego kontenera zamiany mowy na tekst  
-Począwszy od 2.6.0a niestandardowego kontenera-zamiany mowy na tekst można uzyskać dostępne informacje o modelu podstawowym przy użyciu opcji `BaseModelLocale=<locale>` . Ta opcja spowoduje udostępnienie listy dostępnych modeli bazowych dla tych ustawień regionalnych w ramach konta rozliczeniowego. Przykład:
+Począwszy od 2.6.0a niestandardowego kontenera-zamiany mowy na tekst można uzyskać dostępne informacje o modelu podstawowym przy użyciu opcji `BaseModelLocale=<locale>` . Ta opcja spowoduje udostępnienie listy dostępnych modeli bazowych dla tych ustawień regionalnych w ramach konta rozliczeniowego. Na przykład:
 
 ```bash
 docker run --rm -it \
@@ -436,7 +436,7 @@ To polecenie:
 * Uruchamia kontener *Custom Speech do tekstu* z obrazu kontenera.
 * Sprawdź i zwróć dostępne modele bazowe dla docelowych ustawień regionalnych.
 
-Dane wyjściowe umożliwiają utworzenie listy modeli podstawowych z informacjami o ustawieniach regionalnych, identyfikatorze modelu i dacie utworzenia. Możesz użyć identyfikatora modelu, aby pobrać preferowany model podstawowy i korzystać z niego. Przykład:
+Dane wyjściowe umożliwiają utworzenie listy modeli podstawowych z informacjami o ustawieniach regionalnych, identyfikatorze modelu i dacie utworzenia. Możesz użyć identyfikatora modelu, aby pobrać preferowany model podstawowy i korzystać z niego. Na przykład:
 ```
 Checking available base model for en-us
 2020/10/30 21:54:20 [Info] Searching available base models for en-us

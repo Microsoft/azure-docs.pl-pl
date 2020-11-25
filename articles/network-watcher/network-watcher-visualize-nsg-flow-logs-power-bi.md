@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: a4c97b8baaf5265f984622e2dc47e6c8c714172a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272641"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995730"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Wizualizacja dzienników przepływu sieciowych grup zabezpieczeń przy użyciu Power BI
 
@@ -103,7 +103,7 @@ Ten szablon zawiera następujące fragmentatory umożliwiające wyświetlenie ty
 
 ![Fragmentatory][13]
 
-## <a name="conclusion"></a>Podsumowanie
+## <a name="conclusion"></a>Wniosek
 
 W tym scenariuszu pokazano, jak za pomocą dzienników przepływu sieciowych grup zabezpieczeń zapewnianych przez Network Watcher i Power BI można wizualizować i zrozumieć ruch. Za pomocą podanego szablonu Power BI pobiera dzienniki bezpośrednio z magazynu i przetwarza je lokalnie. Czas potrzebny na załadowanie szablonu różni się w zależności od liczby żądanych plików i łącznego rozmiaru pobranych plików.
 

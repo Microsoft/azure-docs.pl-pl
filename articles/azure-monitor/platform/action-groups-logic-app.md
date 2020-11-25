@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.subservice: alerts
 ms.openlocfilehash: f76d28018fdf55314593dabc44ef1e9a1dab9494
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403130"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995101"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Jak wyzwolić złożone akcje z alertami Azure Monitor
 
@@ -39,7 +39,7 @@ Ten proces jest podobny, jeśli chcesz, aby aplikacja logiki wykonywała inną a
 
 2.  Wyszukaj i wybierz pozycję **aplikacja logiki**, a następnie wybierz pozycję **Utwórz**.
 
-3.  Nadaj **nazwę**aplikacji logiki, wybierz **grupę zasobów**i tak dalej.
+3.  Nadaj **nazwę** aplikacji logiki, wybierz **grupę zasobów** i tak dalej.
 
     ![Tworzenie aplikacji logiki](media/action-groups-logic-app/create-logic-app-dialog.png "Tworzenie aplikacji logiki")
 
@@ -126,7 +126,7 @@ Ten proces jest podobny, jeśli chcesz, aby aplikacja logiki wykonywała inną a
 
     ![Akcja Microsoft Teams: Publikowanie wiadomości](media/action-groups-logic-app/teams-action-post-message.png "Akcja Microsoft Teams: Publikowanie wiadomości")
 
-14. W górnej części **projektanta Logic Apps**wybierz pozycję **Zapisz** , aby zapisać aplikację logiki.
+14. W górnej części **projektanta Logic Apps** wybierz pozycję **Zapisz** , aby zapisać aplikację logiki.
 
 15. Otwórz istniejącą grupę akcji i Dodaj akcję odwołującą się do aplikacji logiki. Jeśli nie masz istniejącej grupy akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi w Azure Portal,](./action-groups.md) aby je utworzyć. Nie zapomnij zapisać zmian.
 

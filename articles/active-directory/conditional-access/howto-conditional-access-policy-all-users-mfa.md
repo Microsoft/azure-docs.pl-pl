@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6e6185c4bde71285fc163cae2af46f64ba052195
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366211"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994761"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>Dostęp warunkowy: Wymagaj uwierzytelniania wieloskładnikowego dla wszystkich użytkowników
 
@@ -44,17 +44,17 @@ Organizacje mogą korzystać z wielu aplikacji w chmurze. Nie wszystkie te aplik
 Poniższe kroki pomogą utworzyć zasady dostępu warunkowego, aby wymagać od wszystkich użytkowników przeprowadzenia uwierzytelniania wieloskładnikowego.
 
 1. Zaloguj się do **Azure Portal** jako Administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
-1. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego**zabezpieczeń.
+1. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego** zabezpieczeń.
 1. Wybierz pozycję **nowe zasady**.
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
-1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
-   1. W obszarze **dołączanie**wybierz pozycję **Wszyscy użytkownicy** .
-   1. W obszarze **Wyklucz**wybierz pozycję **Użytkownicy i grupy** , a następnie wybierz opcję dostęp awaryjny lub konta w ramach swojej organizacji. 
-   1. Wybierz pozycję **Gotowe**.
-1. W obszarze **aplikacje w chmurze lub akcje**  >  **Dołącz**wybierz pozycję **wszystkie aplikacje w chmurze**.
-   1. W obszarze **Wyklucz**wybierz wszystkie aplikacje, które nie wymagają uwierzytelniania wieloskładnikowego.
+1. W obszarze **przypisania** wybierz pozycję **Użytkownicy i grupy**
+   1. W obszarze **dołączanie** wybierz pozycję **Wszyscy użytkownicy** .
+   1. W obszarze **Wyklucz** wybierz pozycję **Użytkownicy i grupy** , a następnie wybierz opcję dostęp awaryjny lub konta w ramach swojej organizacji. 
+   1. Kliknij **Gotowe**.
+1. W obszarze **aplikacje w chmurze lub akcje**  >  **Dołącz** wybierz pozycję **wszystkie aplikacje w chmurze**.
+   1. W obszarze **Wyklucz** wybierz wszystkie aplikacje, które nie wymagają uwierzytelniania wieloskładnikowego.
 1. W obszarze **warunki**  >  **aplikacje klienckie (wersja zapoznawcza)** w obszarze **Wybierz aplikacje klienckie te zasady zostaną zastosowane, aby** pozostawić wszystkie ustawienia domyślne, a następnie wybierz pozycję **gotowe**.
-1. W obszarze **Kontrola dostępu**  >  **przyznawanie**wybierz pozycję **Udziel dostępu**, **Wymagaj uwierzytelniania wieloskładnikowego**, a następnie wybierz pozycję **Wybierz**.
+1. W obszarze **Kontrola dostępu**  >  **przyznawanie** wybierz pozycję **Udziel dostępu**, **Wymagaj uwierzytelniania wieloskładnikowego**, a następnie wybierz pozycję **Wybierz**.
 1. Potwierdź ustawienia i ustaw opcję **Włącz zasady** na **włączone**.
 1. Wybierz pozycję **Utwórz** , aby utworzyć zasady.
 
@@ -64,12 +64,12 @@ Organizacje mogą dołączać znane lokalizacje sieciowe znane jako **nazwane lo
 
 W przykładowych zasadach powyżej organizacja może zrezygnować z używania uwierzytelniania wieloskładnikowego w przypadku uzyskiwania dostępu do aplikacji w chmurze z sieci firmowej. W takim przypadku można dodać do zasad następującą konfigurację:
 
-1. W obszarze **przypisania**wybierz pozycję **warunki**  >  **Locations**.
+1. W obszarze **przypisania** wybierz pozycję **warunki**  >  **Locations**.
    1. Skonfiguruj **tak**.
    1. Uwzględnij **dowolną lokalizację**.
    1. Wyklucz **wszystkie Zaufane lokalizacje**.
-   1. Wybierz pozycję **Gotowe**.
-1. Wybierz pozycję **Gotowe**.
+   1. Kliknij **Gotowe**.
+1. Kliknij **Gotowe**.
 1. **Zapisz** zmiany zasad.
 
 ## <a name="next-steps"></a>Następne kroki

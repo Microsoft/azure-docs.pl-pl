@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: duau
 ms.openlocfilehash: 85e088dda767a6f6c80ac0a9f6eed84e8802e5ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401048"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994931"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Konfigurowanie metody routingu z wieloma wartościami w Traffic Manager
 
@@ -31,14 +31,14 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 Utwórz grupę zasobów dla profilu Traffic Manager.
 1. W lewym okienku Azure Portal wybierz pozycję **grupy zasobów**.
-2. W obszarze **grupy zasobów**w górnej części strony wybierz pozycję **Dodaj**.
-3. W polu **Nazwa grupy zasobów**wpisz nazwę *myResourceGroupTM1*. W obszarze **Lokalizacja grupy zasobów**wybierz pozycję **Wschodnie stany USA**, a następnie wybierz przycisk **OK**.
+2. W obszarze **grupy zasobów** w górnej części strony wybierz pozycję **Dodaj**.
+3. W polu **Nazwa grupy zasobów** wpisz nazwę *myResourceGroupTM1*. W obszarze **Lokalizacja grupy zasobów** wybierz pozycję **Wschodnie stany USA**, a następnie wybierz przycisk **OK**.
 
 ## <a name="create-a-traffic-manager-profile"></a>Tworzenie profilu usługi Traffic Manager
 Utwórz profil Traffic Manager, który kieruje ruchem użytkownika przez wysłanie ich do punktu końcowego z najniższym opóźnieniem.
 
-1. W lewej górnej części ekranu wybierz kolejno pozycje **Utwórz zasób**  >  **Sieć**  >  **Traffic Manager**  >  **Utwórz**profil.
-2. W obszarze **Utwórz profil Traffic Manager**wprowadź lub wybierz poniższe informacje, zaakceptuj wartości domyślne pozostałych ustawień, a następnie wybierz pozycję **Utwórz**:
+1. W lewej górnej części ekranu wybierz kolejno pozycje **Utwórz zasób**  >  **Sieć**  >  **Traffic Manager**  >  **Utwórz** profil.
+2. W obszarze **Utwórz profil Traffic Manager** wprowadź lub wybierz poniższe informacje, zaakceptuj wartości domyślne pozostałych ustawień, a następnie wybierz pozycję **Utwórz**:
     
     | Ustawienie                 | Wartość                                              |
     | ---                     | ---                                                |

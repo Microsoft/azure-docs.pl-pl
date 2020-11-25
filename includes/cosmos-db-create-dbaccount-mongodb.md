@@ -4,11 +4,11 @@ description: Plik dyrektywy include
 services: cosmos-db
 ms.custom: include file
 ms.openlocfilehash: ad4445cbea6553a7a96299e1276dbe8f3816e166
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504120"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994562"
 ---
 1. W nowym oknie przeglądarki zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 
@@ -29,7 +29,7 @@ ms.locfileid: "94504120"
     Nazwa konta|Wprowadź unikatową nazwę|Wprowadź unikatową nazwę do identyfikacji konta usługi Azure Cosmos DB. Identyfikator URI konta zostanie *Mongo.Cosmos.Azure.com* dołączony do unikatowej nazwy konta.<br><br>Nazwa konta może zawierać tylko małe litery, cyfry i łączniki (-) i musi mieć długość od 3 do 31 znaków.
     Interfejs API|Azure Cosmos DB dla interfejsu API usługi Mongo DB|Interfejs API określa typ konta do utworzenia. Azure Cosmos DB oferuje pięć interfejsów API: Core (SQL) dla baz danych dokumentów, Gremlin dla baz danych programu Graph, Azure Cosmos DB dla interfejsu API usługi Mongo DB dla baz danych dokumentów, Azure Table i Cassandra. Obecnie dla każdego interfejsu API należy utworzyć oddzielne konto. <br><br>Wybierz **Azure Cosmos DB dla interfejsu API usługi Mongo DB**  , ponieważ w tym przewodniku szybki start tworzysz kolekcję, która współpracuje z MongoDB.<br><br>[Dowiedz się więcej na temat Azure Cosmos DB interfejsu API MongoDB](../articles/cosmos-db/mongodb-introduction.md).|
     Lokalizacja|Wybierz region najbliżej Twoich użytkowników|Wybierz lokalizację geograficzną, w której będzie hostowane konto usługi Azure Cosmos DB. Użyj lokalizacji znajdującej się najbliżej Twoich użytkowników, aby zapewnić im najszybszy dostęp do danych.|
-    Tryb wydajności|Nieobsługiwana przepływność lub bezserwerowy|Wybierz opcję **zainicjowana przepływność** , aby utworzyć konto w trybie [przepływności aprowizacji](../articles/cosmos-db/set-throughput.md) . Wybierz opcję **Bezserwerowa** , aby utworzyć konto w trybie [bezserwerowym](../articles/cosmos-db/serverless.md) .<br><br>**Uwaga** : tylko interfejs API MongoDB w wersji 3,6 jest obsługiwany przez konta bezserwerowe. Wybranie 3,2 jako wersji spowoduje wymuszenie obsługi konta w trybie przepływności.
+    Tryb wydajności|Nieobsługiwana przepływność lub bezserwerowy|Wybierz opcję **zainicjowana przepływność** , aby utworzyć konto w trybie [przepływności aprowizacji](../articles/cosmos-db/set-throughput.md) . Wybierz opcję **Bezserwerowa** , aby utworzyć konto w trybie [bezserwerowym](../articles/cosmos-db/serverless.md) .<br><br>**Uwaga**: tylko interfejs API MongoDB w wersji 3,6 jest obsługiwany przez konta bezserwerowe. Wybranie 3,2 jako wersji spowoduje wymuszenie obsługi konta w trybie przepływności.
 
     Wybierz pozycję **Przeglądanie+tworzenie**. Możesz pominąć sekcje **Sieć** i **Tagi**. 
 

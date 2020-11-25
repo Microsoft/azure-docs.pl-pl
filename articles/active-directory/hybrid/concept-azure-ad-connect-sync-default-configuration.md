@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5e55526e0a63a0c603e2b62ccb3ac0efed911cff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295230"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996631"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Synchronizacja programu Azure AD Connect: opis konfiguracji domyślnej
 W tym artykule wyjaśniono, jakie są reguły konfiguracji. Dokumentuje reguły i sposób, w jaki te reguły wpływają na konfigurację. Przedstawiono w nim również domyślną konfigurację synchronizacji Azure AD Connect. Celem jest to, że czytelnik rozumie, jak model konfiguracji o nazwie deklaracyjne Inicjowanie obsługi działa w świecie rzeczywistym. W tym artykule przyjęto założenie, że już zainstalowano i skonfigurowano synchronizację Azure AD Connect przy użyciu Kreatora instalacji.
@@ -237,6 +237,6 @@ Teraz wiemy wystarczająco więcej o regułach synchronizacji, aby zrozumieć, j
 
 **Tematy dotyczące omówienia**
 
-* [Azure AD Connect Sync: omówienie i dostosowanie synchronizacji](how-to-connect-sync-whatis.md)
+* [Synchronizacja programu Azure AD Connect: omówienie i dostosowywanie synchronizacji](how-to-connect-sync-whatis.md)
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md)
 

@@ -10,11 +10,11 @@ ms.author: matjazl
 author: matjazl
 ms.date: 04/02/2019
 ms.openlocfilehash: 2e13a9fc32964781dda07e5534e5cab79868ddf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87846979"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995543"
 ---
 # <a name="tutorial-azure-active-directory-smart-on-fhir-proxy"></a>Samouczek: Azure Active Directory INTELIGENTNEgo serwera proxy FHIR
 
@@ -126,7 +126,7 @@ Po uruchomieniu INTELIGENTNEgo uruchamiania aplikacji FHIR możesz wskazać prze
 
 ![Inteligentne uruchamianie aplikacji FHIR](media/tutorial-smart-on-fhir/smart-on-fhir-app-launcher.png)
 
-Gdy wprowadzisz informacje o **pacjentach**, **napotykasz**lub **lekarzach** , zobaczysz, że **kontekst uruchamiania** został zaktualizowany. Gdy korzystasz z interfejsu API platformy Azure dla FHIR, kontekstem uruchamiania jest po prostu dokument JSON zawierający informacje o pacjentach, lekarzach i innych. Ten kontekst uruchamiania jest kodowany algorytmem Base64 i przeszedł do INTELIGENTNEj aplikacji FHIR jako `launch` parametr zapytania. Zgodnie ze specyfikacją SMART on FHIR ta zmienna jest nieprzezroczysta dla INTELIGENTNEj aplikacji FHIR i przenoszona do dostawcy tożsamości. 
+Gdy wprowadzisz informacje o **pacjentach**, **napotykasz** lub **lekarzach** , zobaczysz, że **kontekst uruchamiania** został zaktualizowany. Gdy korzystasz z interfejsu API platformy Azure dla FHIR, kontekstem uruchamiania jest po prostu dokument JSON zawierający informacje o pacjentach, lekarzach i innych. Ten kontekst uruchamiania jest kodowany algorytmem Base64 i przeszedł do INTELIGENTNEj aplikacji FHIR jako `launch` parametr zapytania. Zgodnie ze specyfikacją SMART on FHIR ta zmienna jest nieprzezroczysta dla INTELIGENTNEj aplikacji FHIR i przenoszona do dostawcy tożsamości. 
 
 INTELIGENTNY serwer proxy FHIR używa tych informacji do wypełniania pól w odpowiedzi na token. Aplikacja SMART on FHIR *może* używać tych pól do kontrolowania tego, którego pacjenta żąda dane, i sposobu renderowania aplikacji na ekranie. INTELIGENTNY serwer proxy FHIR obsługuje następujące pola:
 

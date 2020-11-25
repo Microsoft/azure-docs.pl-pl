@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
 ms.openlocfilehash: 2837f8c5b098b0502bd293ec2414ad7401cc4f95
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455208"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996172"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cornerstone-ondemand"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z OnDemandą kamień
 

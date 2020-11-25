@@ -11,15 +11,15 @@ ms.workload: identity
 ms.date: 03/19/2020
 ms.author: kenwith
 ms.openlocfilehash: e34656d6ce515cabe955c101f7b52ac0f2ade8db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88235821"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994812"
 ---
 # <a name="how-to-export-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Porada: eksportowanie konfiguracji aprowizacji i przywracanie do znanego dobrego stanu
 
-W tym artykule dowiesz się, jak:
+Ten artykuł obejmuje następujące zagadnienia:
 
 - Wyeksportuj i zaimportuj konfigurację aprowizacji z Azure Portal
 - Eksportowanie i Importowanie konfiguracji aprowizacji za pomocą interfejsu API Microsoft Graph
@@ -32,7 +32,7 @@ Aby wyeksportować konfigurację:
 
 1. W [Azure Portal](https://portal.azure.com/)w lewym panelu nawigacyjnym wybierz pozycję **Azure Active Directory**.
 1. W okienku **Azure Active Directory** wybierz pozycję **aplikacje dla przedsiębiorstw** i wybierz aplikację.
-1. W okienku nawigacji po lewej stronie wybierz opcję **Inicjowanie obsługi**. Na stronie Konfiguracja aprowizacji kliknij pozycję **mapowania atrybutów**, a następnie **Wyświetl opcje zaawansowane**i **na koniec Przejrzyj schemat**. Spowoduje to przejście do Edytora schematu.
+1. W okienku nawigacji po lewej stronie wybierz opcję **Inicjowanie obsługi**. Na stronie Konfiguracja aprowizacji kliknij pozycję **mapowania atrybutów**, a następnie **Wyświetl opcje zaawansowane** i **na koniec Przejrzyj schemat**. Spowoduje to przejście do Edytora schematu.
 1. Kliknij pozycję Pobierz na pasku poleceń w górnej części strony, aby pobrać schemat.
 
 ### <a name="disaster-recovery---roll-back-to-a-known-good-state"></a>Odzyskiwanie po awarii — przywracanie do znanego dobrego stanu

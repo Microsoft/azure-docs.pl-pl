@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/12/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 014c9759756a1da922a5141f064991827d593208
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: a0b7330485d3152a588d43added7d9feaa5c2a14
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630264"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "95994500"
 ---
 # <a name="upload-and-index-your-videos"></a>Przekazywanie i indeksowanie plików wideo  
 
@@ -74,27 +74,7 @@ Ten parametr umożliwia określenie identyfikatora, który zostanie skojarzony z
 
 #### <a name="callbackurl"></a>callbackUrl
 
-Adres URL używany do powiadamiania klienta (za pomocą żądania POST) o następujących zdarzeniach:
-
-- Zmiana stanu indeksowania: 
-    - Właściwości:    
-    
-        |Nazwa|Opis|
-        |---|---|
-        |identyfikator|Identyfikator wideo|
-        |stan|Stan wideo|  
-    - Przykład: https: \/ /test.com/notifyme?projectName=MyProject&ID = 1234abcd&State = przetworzone
-- Osoba rozpoznana na filmie wideo:
-  - Właściwości
-    
-      |Nazwa|Opis|
-      |---|---|
-      |identyfikator| Identyfikator wideo|
-      |faceId|Identyfikator Face ID w indeksie wideo|
-      |knownPersonId|Identyfikator osoby, unikatowy w ramach danego modelu twarzy|
-      |personName|Imię i nazwisko osoby|
-        
-    - Przykład: https: \/ /test.com/notifyme?projectName=MyProject&ID = 1234abcd&FaceID = 12&knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5&PersonName = Inigo_Montoya 
+[!INCLUDE [callback url](./includes/callback-url.md)]
 
 ##### <a name="other-considerations"></a>Inne zagadnienia
 
@@ -118,7 +98,7 @@ Cena zależy od wybranej opcji indeksowania.
 
 #### <a name="priority"></a>priority
 
-Usługa Video Indexer indeksuje filmy wideo zgodnie z ich priorytetem. Użyj parametru **priority** , aby określić priorytet indeksu. Prawidłowe są następujące wartości: **Low** (niski), **Normal** (normalny — wartość domyślna), **High** (wysoki).
+Usługa Video Indexer indeksuje filmy wideo zgodnie z ich priorytetem. Użyj parametru **priority**, aby określić priorytet indeksu. Prawidłowe są następujące wartości: **Low** (niski), **Normal** (normalny — wartość domyślna), **High** (wysoki).
 
 Parametr **priority** jest obsługiwany tylko w przypadku płatnych kont.
 

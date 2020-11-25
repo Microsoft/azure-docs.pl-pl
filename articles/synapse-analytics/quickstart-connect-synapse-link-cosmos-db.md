@@ -10,11 +10,11 @@ ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: 14c71d5888aefc11485c03935c5d8c7ff7d17045
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090560"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995883"
 ---
 # <a name="quickstart-connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Szybki Start: łączenie z linkiem usługi Azure Synapse dla Azure Cosmos DB
 
@@ -41,16 +41,16 @@ W obszarze roboczym usługi Synapse wybierz pozycję **Uruchom Synapse Studio**.
 
 Korzystając z Eksplorator obiektów danych, możesz połączyć się bezpośrednio z bazą danych Azure Cosmos DB, wykonując następujące czynności:
 
-1. Wybierz ***+*** ikonę obok danych
-2. Wybierz pozycję **Połącz z danymi zewnętrznymi**
+1. Wybierz *_+_* ikonę * _ obok danych
+2. Wybierz _ *Połącz z danymi zewnętrznymi**
 3. Wybierz interfejs API, z którym chcesz nawiązać połączenie: SQL lub MongoDB
-4. Wybierz przycisk ***Kontynuuj***
+4. Wybierz **_Kontynuuj_* _
 5. Nazwij połączoną usługę. Nazwa zostanie wyświetlona w Eksplorator obiektów i użyta przez Synapse Run-Times do łączenia się z bazą danych i kontenerami. Zalecamy używanie przyjaznej nazwy.
-6. Wybierz **nazwę konta Cosmos DB** i **nazwę bazy danych**
-7. Obowiązkowe Jeśli region nie zostanie określony, operacje czasu wykonywania Synapse będą kierowane do najbliższego regionu, w którym jest włączony magazyn analityczny. Można jednak ręcznie ustawić region, do którego użytkownicy mają uzyskiwać dostęp Cosmos DB do magazynu analitycznego. Wybierz opcję **dodatkowe właściwości połączenia** , a następnie pozycję **nowe**. W obszarze **Nazwa właściwości**wpisz ***PreferredRegions*** i ustaw **wartość** na żądany region (przykład: WestUS2, nie ma spacji między wyrazami i liczbami).
-8. Wybierz pozycję ***Utwórz***
+6. Wybierz _ *Cosmos DB nazwę konta** i **nazwę bazy danych**
+7. Obowiązkowe Jeśli region nie zostanie określony, operacje czasu wykonywania Synapse będą kierowane do najbliższego regionu, w którym jest włączony magazyn analityczny. Można jednak ręcznie ustawić region, do którego użytkownicy mają uzyskiwać dostęp Cosmos DB do magazynu analitycznego. Wybierz opcję **dodatkowe właściwości połączenia** , a następnie pozycję **nowe**. W obszarze **Nazwa właściwości** wpisz **_PreferredRegions_*_ i ustaw wartość _*** na żądany region (przykład: WestUS2, nie ma spacji między wyrazami i liczbami).
+8. SELECT **_Create_* _
 
-Bazy danych Azure Cosmos DB są widoczne na karcie **połączonej** w sekcji Azure Cosmos DB. Można odróżnić HTAP włączony kontener Azure Cosmos DB z kontenera tylko OLTP o następujących ikonach:
+Bazy danych Azure Cosmos DB są widoczne pod kartą _ *Linked** w sekcji Azure Cosmos DB. Można odróżnić HTAP włączony kontener Azure Cosmos DB z kontenera tylko OLTP o następujących ikonach:
 
 **Kontener Synapse**:
 

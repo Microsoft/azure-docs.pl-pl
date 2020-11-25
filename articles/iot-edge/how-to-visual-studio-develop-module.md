@@ -9,11 +9,11 @@ ms.date: 3/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.openlocfilehash: 1883ffdff20bbbef8efec1440854f01a21a281dc
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045724"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994523"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Użyj programu Visual Studio 2019 do tworzenia i debugowania modułów dla Azure IoT Edge
 
@@ -98,7 +98,7 @@ Szablon projektu Azure IoT Edge w programie Visual Studio tworzy projekt, który
 
    ![Tworzenie nowego projektu](./media/how-to-visual-studio-develop-csharp-module/create-new.png)
 
-1. W oknie **dodawanie IoT Edge aplikacji i modułu** wybierz pozycję **moduł C#** lub **moduł C** , a następnie określ nazwę modułu i repozytorium obrazu modułu. Program Visual Studio automatycznie wypełnia nazwę modułu nazwą **localhost: 5000/<nazwą \> modułu**. Zastąp go własnymi informacjami rejestru. Jeśli do testowania używasz lokalnego rejestru platformy Docker, **hosty localhost** jest w prawidłowym zakresie. Jeśli używasz Azure Container Registry, Użyj serwera logowania z ustawień rejestru. Serwer logowania wygląda jak ** _\<registry name\>_ . azurecr.IO**. Zastąp tylko część **localhost: 5000** ciągu, aby wynik końcowy wyglądał jak ** \<*registry name*\> . azurecr.IO/ _\<your module name\>_ **. Domyślna nazwa modułu to **IotEdgeModule1**
+1. W oknie **dodawanie IoT Edge aplikacji i modułu** wybierz pozycję **moduł C#** lub **moduł C** , a następnie określ nazwę modułu i repozytorium obrazu modułu. Program Visual Studio automatycznie wypełnia nazwę modułu nazwą **localhost: 5000/<nazwą \> modułu**. Zastąp go własnymi informacjami rejestru. Jeśli do testowania używasz lokalnego rejestru platformy Docker, **hosty localhost** jest w prawidłowym zakresie. Jeśli używasz Azure Container Registry, Użyj serwera logowania z ustawień rejestru. Serwer logowania wygląda jak **_\<registry name\>_ . azurecr.IO**. Zastąp tylko część **localhost: 5000** ciągu, aby wynik końcowy wyglądał jak **\<*registry name*\> . azurecr.IO/ _\<your module name\>_**. Domyślna nazwa modułu to **IotEdgeModule1**
 
    ![Dodaj aplikację i moduł](./media/how-to-visual-studio-develop-csharp-module/add-application-and-module.png)
 
@@ -135,7 +135,7 @@ Gdy wszystko jest gotowe do dostosowania szablonu modułu przy użyciu własnego
 
 Zazwyczaj należy przetestować i debugować każdy moduł przed uruchomieniem go w całym rozwiązaniu z wieloma modułami.
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy pozycję **IotEdgeModule1** i wybierz pozycję **Ustaw jako projekt startowy** z menu kontekstowego.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy pozycję **IotEdgeModule1** i wybierz pozycję **Ustaw jako projekt startowy** z menu kontekstowego.
 
    ![Ustaw projekt startowy](./media/how-to-visual-studio-develop-csharp-module/module-start-up-project.png)
 
@@ -166,7 +166,7 @@ Zazwyczaj należy przetestować i debugować każdy moduł przed uruchomieniem g
 
 Po zakończeniu opracowywania jednego modułu możesz chcieć uruchomić i debugować całe rozwiązanie z wieloma modułami.
 
-1. W **Eksplorator rozwiązań**Dodaj drugi moduł do rozwiązania, klikając prawym przyciskiem myszy pozycję **AzureIoTEdgeApp1** i wybierając pozycję **Dodaj**  >  **Nowy moduł IoT Edge**. Domyślną nazwą drugiego modułu jest **IotEdgeModule2** i będzie działać jako inny moduł potoku.
+1. W **Eksplorator rozwiązań** Dodaj drugi moduł do rozwiązania, klikając prawym przyciskiem myszy pozycję **AzureIoTEdgeApp1** i wybierając pozycję **Dodaj**  >  **Nowy moduł IoT Edge**. Domyślną nazwą drugiego modułu jest **IotEdgeModule2** i będzie działać jako inny moduł potoku.
 
 1. Otwórz plik `deployment.template.json` i zobaczysz, że w sekcji **modułów** został dodany **IotEdgeModule2** . Zastąp sekcję **Routes** poniższymi. Jeśli dostosowano nazwy modułów, upewnij się, że te nazwy zostały zaktualizowane tak, aby były zgodne.
 
@@ -192,7 +192,7 @@ Po zakończeniu opracowywania jednego modułu możesz chcieć uruchomić i debug
 1. Upewnij się, że **AzureIoTEdgeApp1** jest projektem startowym. Wybierz opcję **Debuguj** lub **Zwolnij** jako konfigurację, aby skompilować obrazy modułu.
 
     > [!NOTE]
-    > Podczas wybierania **debugowania**program Visual Studio używa `Dockerfile.(amd64|windows-amd64).debug` do tworzenia obrazów platformy Docker. Obejmuje to debuger wiersza polecenia platformy .NET Core VSDBG w obrazie kontenera podczas jego tworzenia. W przypadku modułów IoT Edge gotowych do produkcji zalecamy użycie konfiguracji **wydania** , która używa `Dockerfile.(amd64|windows-amd64)` bez VSDBG.
+    > Podczas wybierania **debugowania** program Visual Studio używa `Dockerfile.(amd64|windows-amd64).debug` do tworzenia obrazów platformy Docker. Obejmuje to debuger wiersza polecenia platformy .NET Core VSDBG w obrazie kontenera podczas jego tworzenia. W przypadku modułów IoT Edge gotowych do produkcji zalecamy użycie konfiguracji **wydania** , która używa `Dockerfile.(amd64|windows-amd64)` bez VSDBG.
 
 1. Jeśli używasz prywatnego rejestru, takiego jak Azure Container Registry (ACR), użyj następującego polecenia platformy Docker, aby zalogować się do niego.  Nazwę użytkownika i hasło można uzyskać ze strony **klucze dostępu** w rejestrze w Azure Portal. W przypadku korzystania z rejestru lokalnego można [uruchomić rejestr lokalny](https://docs.docker.com/registry/deploying/#run-a-local-registry).
 
@@ -216,15 +216,15 @@ Po zakończeniu opracowywania jednego modułu możesz chcieć uruchomić i debug
           }
     ```
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy pozycję **AzureIoTEdgeApp1** i wybierz pozycję **kompiluj i wypychanie modułów IoT Edge** , aby skompilować i wypchnąć obraz platformy Docker dla każdego modułu.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy pozycję **AzureIoTEdgeApp1** i wybierz pozycję **kompiluj i wypychanie modułów IoT Edge** , aby skompilować i wypchnąć obraz platformy Docker dla każdego modułu.
 
 ## <a name="deploy-the-solution"></a>Wdrażanie rozwiązania
 
 W artykule Szybki start, który był używany do skonfigurowania urządzenia usługi IoT Edge, wdrożono moduł za pomocą witryny Azure Portal. Moduły można także wdrażać za pomocą programu Cloud Explorer dla programu Visual Studio. Istnieje już manifest wdrożenia przygotowany dla danego scenariusza, `deployment.json` plik i wszystko, co należy zrobić, to wybierz urządzenie, które ma zostać odebrane.
 
-1. Otwórz program **Cloud Explorer** , klikając pozycję **Wyświetl**program  >  **Cloud Explorer**. Upewnij się, że zalogowano się do programu Visual Studio 2019.
+1. Otwórz program **Cloud Explorer** , klikając pozycję **Wyświetl** program  >  **Cloud Explorer**. Upewnij się, że zalogowano się do programu Visual Studio 2019.
 
-1. W programie **Cloud Explorer**Rozwiń swoją subskrypcję, Znajdź IoT Hub platformy Azure i urządzenie Azure IoT Edge, które chcesz wdrożyć.
+1. W programie **Cloud Explorer** Rozwiń swoją subskrypcję, Znajdź IoT Hub platformy Azure i urządzenie Azure IoT Edge, które chcesz wdrożyć.
 
 1. Kliknij prawym przyciskiem myszy urządzenie IoT Edge, aby utworzyć dla niego wdrożenie. Przejdź do manifestu wdrożenia skonfigurowanego dla Twojej platformy znajdującej się w folderze **konfiguracyjnym** w rozwiązaniu programu Visual Studio, na przykład `deployment.arm32v7.json` .
 

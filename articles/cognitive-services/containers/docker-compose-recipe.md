@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: aahi
 ms.openlocfilehash: cedcf8a3fcd656c4af0ca7493c598791d35d20d9
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130565"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996133"
 ---
 # <a name="use-docker-compose-to-deploy-multiple-containers"></a>Wdrażanie wielu kontenerów za pomocą narzędzia Docker Compose
 
@@ -39,7 +39,7 @@ Ta procedura wymaga kilku narzędzi, które muszą być zainstalowane i uruchomi
 
 ## <a name="docker-compose-file"></a>Plik Docker Compose
 
-Plik YAML definiuje wszystkie usługi, które mają zostać wdrożone. Te usługi korzystają z `DockerFile` lub istniejący obraz kontenera. W takim przypadku będziemy używać dwóch obrazów w wersji zapoznawczej. Skopiuj i wklej następujący plik YAML i Zapisz go jako *Docker-redagowanie. YAML* . Podaj odpowiednie wartości **apikey** , **rozliczeń** i **wartości endpointuri** w pliku.
+Plik YAML definiuje wszystkie usługi, które mają zostać wdrożone. Te usługi korzystają z `DockerFile` lub istniejący obraz kontenera. W takim przypadku będziemy używać dwóch obrazów w wersji zapoznawczej. Skopiuj i wklej następujący plik YAML i Zapisz go jako *Docker-redagowanie. YAML*. Podaj odpowiednie wartości **apikey**, **rozliczeń** i **wartości endpointuri** w pliku.
 
 ```yaml
 version: '3.7'

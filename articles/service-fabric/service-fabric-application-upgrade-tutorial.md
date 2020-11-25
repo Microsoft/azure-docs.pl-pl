@@ -4,16 +4,16 @@ description: W tym artykule omówiono środowisko wdrażania aplikacji Service F
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: acde2f4e51bee29d2eefb0d5fbb54fbe421a41f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82195871"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996240"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Samouczek uaktualniania aplikacji Service Fabric przy użyciu programu Visual Studio
 > [!div class="op_single_selector"]
 > * [Program PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
-> * [Program Visual Studio](service-fabric-application-upgrade-tutorial.md)
+> * [Visual Studio](service-fabric-application-upgrade-tutorial.md)
 > 
 > 
 
@@ -22,7 +22,7 @@ ms.locfileid: "82195871"
 Usługa Azure Service Fabric upraszcza proces uaktualniania aplikacji w chmurze, zapewniając uaktualnienie tylko zmienionych usług, a kondycja aplikacji jest monitorowana przez cały proces uaktualniania. Powoduje również automatyczne wycofanie aplikacji do poprzedniej wersji w przypadku wystąpienia problemów. Service Fabric uaktualnienia aplikacji mają *zero przestojów*, ponieważ aplikacja może zostać uaktualniona bez przestojów. W tym samouczku opisano, jak przeprowadzić uaktualnienie stopniowe z programu Visual Studio.
 
 ## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>Krok 1. Kompilowanie i publikowanie przykładowych obiektów wizualnych
-Najpierw pobierz aplikację [obiekty wizualne](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Actors/VisualObjects) z usługi GitHub. Następnie Skompiluj i Opublikuj aplikację, klikając prawym przyciskiem myszy projekt aplikacji, **VisualObjects**i wybierając polecenie **Publikuj** w elemencie menu Service Fabric.
+Najpierw pobierz aplikację [obiekty wizualne](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Actors/VisualObjects) z usługi GitHub. Następnie Skompiluj i Opublikuj aplikację, klikając prawym przyciskiem myszy projekt aplikacji, **VisualObjects** i wybierając polecenie **Publikuj** w elemencie menu Service Fabric.
 
 ![Menu kontekstowe dla aplikacji Service Fabric][image1]
 
@@ -37,7 +37,7 @@ Teraz możesz kliknąć przycisk **Publikuj** w oknie dialogowym. [Aby wyświetl
 ## <a name="step-2-update-the-visual-objects-sample"></a>Krok 2. Aktualizacja przykładu obiektów wizualnych
 Można zauważyć, że w wersji, która została wdrożona w kroku 1, obiekty wizualne nie są obracane. Uaktualnimy tę aplikację do jednego miejsca, w którym obiekty wizualne również są obracane.
 
-Wybierz projekt VisualObjects. ActorService w ramach rozwiązania VisualObjects i Otwórz plik **VisualObjectActor.cs** . W tym pliku przejdź do metody `MoveObject` , Skomentuj `visualObject.Move(false)` i Usuń komentarz `visualObject.Move(true)` . Ta zmiana kodu powoduje obrócenie obiektów po uaktualnieniu usługi.  **Teraz można skompilować (nie ponownie skompilować) rozwiązanie**, które kompiluje zmodyfikowane projekty. W przypadku wybrania opcji *Kompiluj ponownie wszystkie*należy zaktualizować wersje dla wszystkich projektów.
+Wybierz projekt VisualObjects. ActorService w ramach rozwiązania VisualObjects i Otwórz plik **VisualObjectActor.cs** . W tym pliku przejdź do metody `MoveObject` , Skomentuj `visualObject.Move(false)` i Usuń komentarz `visualObject.Move(true)` . Ta zmiana kodu powoduje obrócenie obiektów po uaktualnieniu usługi.  **Teraz można skompilować (nie ponownie skompilować) rozwiązanie**, które kompiluje zmodyfikowane projekty. W przypadku wybrania opcji *Kompiluj ponownie wszystkie* należy zaktualizować wersje dla wszystkich projektów.
 
 Potrzebujemy również wersji naszej aplikacji. Aby zmienić wersję po kliknięciu prawym przyciskiem myszy projektu **VisualObjects** , można użyć opcji **Edytuj wersje manifestu** programu Visual Studio. Wybranie tej opcji powoduje wyświetlenie okna dialogowego z wersjami w następujący sposób:
 

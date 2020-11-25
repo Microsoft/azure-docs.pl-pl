@@ -8,11 +8,11 @@ ms.date: 02/18/2020
 ms.author: tisande
 ms.reviewer: sngun
 ms.openlocfilehash: 27725b1a3dd6059010ce67977c39891a012c037e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097638"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995793"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Optymalizacja kosztów z użyciem pojemności zarezerwowanej w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,7 +26,7 @@ Azure Cosmos DB zarezerwowana pojemność obejmuje przepływność zainicjowaną
 Możesz kupić Azure Cosmos DB zarezerwowaną pojemność z [Azure Portal](https://portal.azure.com). Płatność za rezerwację jest wnoszona [z góry lub w ratach miesięcznych](../cost-management-billing/reservations/prepare-buy-reservation.md). Aby kupić pojemność zarezerwowaną:
 
 * Musisz być w roli właściciela dla co najmniej jednej subskrypcji przedsiębiorstwa lub indywidualnej, która ma stawki płatność zgodnie z rzeczywistym użyciem.  
-* W przypadku subskrypcji Enterprise w witrynie [EA Portal](https://ea.azure.com) musi być włączona opcja **Dodaj wystąpienia zarezerwowane** . Jeśli to ustawienie jest wyłączone, musisz być administratorem EA w subskrypcji.
+* W przypadku subskrypcji Enterprise w witrynie [EA Portal](https://ea.azure.com) musi być włączona opcja **Dodaj wystąpienia zarezerwowane**. Jeśli to ustawienie jest wyłączone, musisz być administratorem EA w subskrypcji.
 * W przypadku programu Cloud Solution Provider (CSP) tylko agenci administracyjni lub agenci sprzedaży mogą kupować Azure Cosmos DB zarezerwowaną pojemność.
 
 ## <a name="determine-the-required-throughput-before-purchase"></a>Określ wymaganą przepływność przed zakupem
@@ -37,9 +37,9 @@ Obliczamy zalecenia dotyczące zakupu w oparciu o wzorzec użycia godzinowego. J
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).  
 
-2. Wybierz kolejno pozycje **wszystkie usługi**  >  **rezerwacje**  >  **Dodaj** .
+2. Wybierz kolejno pozycje **wszystkie usługi**  >  **rezerwacje**  >  **Dodaj**.
 
-3. W okienku **rezerwacje zakupu** wybierz pozycję **Azure Cosmos DB** .
+3. W okienku **rezerwacje zakupu** wybierz pozycję **Azure Cosmos DB**.
 
 4. Wybierz kartę **zalecaną** , aby wyświetlić zalecane rezerwacje:
 
@@ -61,13 +61,13 @@ To zalecenie zakupu 30 000 RU/s oznacza, że w ciągu 3-letnich rezerwacji rozmi
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).  
 
-2. Wybierz kolejno pozycje **wszystkie usługi**  >  **rezerwacje**  >  **Dodaj** .  
+2. Wybierz kolejno pozycje **wszystkie usługi**  >  **rezerwacje**  >  **Dodaj**.  
 
 3. W okienku **rezerwacje zakupu** wybierz **Azure Cosmos DB** , aby kupić nową rezerwację.  
 
 4. Wypełnij pola wymagane zgodnie z opisem w poniższej tabeli:
 
-   :::image type="content" source="./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png" alt-text="Zalecenia dotyczące pojemności zastrzeżonej":::
+   :::image type="content" source="./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png" alt-text="Wypełnij formularz zarezerwowanej pojemności":::
 
    |Pole  |Opis  |
    |---------|---------|
@@ -83,9 +83,9 @@ To zalecenie zakupu 30 000 RU/s oznacza, że w ciągu 3-letnich rezerwacji rozmi
 
 6. W okienku **rezerwacje zakupu** Przejrzyj rabat i cenę rezerwacji. Ta cena rezerwacji dotyczy zasobów Azure Cosmos DB z obsługą przepływności we wszystkich regionach.  
 
-   :::image type="content" source="./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png" alt-text="Zalecenia dotyczące pojemności zastrzeżonej":::
+   :::image type="content" source="./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png" alt-text="Podsumowanie pojemności zarezerwowanych":::
 
-7. Wybierz pozycję **Recenzja + Kup** , a następnie **Kup teraz** . Po pomyślnym zakupie zostanie wyświetlona następująca strona:
+7. Wybierz pozycję **Recenzja + Kup** , a następnie **Kup teraz**. Po pomyślnym zakupie zostanie wyświetlona następująca strona:
 
 Po zakupieniu rezerwacji zostanie ona natychmiast zastosowana do wszystkich istniejących zasobów Azure Cosmos DB, które pasują do warunków rezerwacji. Jeśli nie masz żadnych istniejących zasobów Azure Cosmos DB, rezerwacja zostanie zastosowana podczas wdrażania nowego wystąpienia Cosmos DB, które pasuje do warunków rezerwacji. W obu przypadkach okres rezerwacji rozpoczyna się natychmiast po pomyślnym zakupie.
 

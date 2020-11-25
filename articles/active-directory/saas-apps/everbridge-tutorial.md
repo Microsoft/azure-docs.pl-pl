@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 732362ef7099e93697320d8e47180c1207e8cb32
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92453862"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995900"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Samouczek: integracja Azure Active Directory z usługą EverBridge
 
@@ -148,7 +148,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze **EverBridge** jako aplikacj
  
 1. W innym oknie przeglądarki sieci Web Zaloguj się do EverBridge jako administrator.
 
-1. W menu u góry wybierz kartę **Ustawienia** . W obszarze **zabezpieczenia**wybierz pozycję **Logowanie jednokrotne**.
+1. W menu u góry wybierz kartę **Ustawienia** . W obszarze **zabezpieczenia** wybierz pozycję **Logowanie jednokrotne**.
    
      ![Konfigurowanie logowania jednokrotnego](./media/everbridge-tutorial/tutorial_everbridge_002.png)
    
@@ -158,11 +158,11 @@ Aby skonfigurować Logowanie jednokrotne w usłudze **EverBridge** jako aplikacj
    
      c. Wybierz pozycję **Wybierz plik** , aby przekazać plik metadanych pobrany z Azure Portal.
    
-     d. W polu **Lokalizacja tożsamości SAML**zaznacz pozycję **tożsamość w elemencie NameIdentifier instrukcji subject**.
+     d. W polu **Lokalizacja tożsamości SAML** zaznacz pozycję **tożsamość w elemencie NameIdentifier instrukcji subject**.
    
      e. W polu **adres URL logowania dostawcy tożsamości** wklej wartość **adresu URL logowania** skopiowaną z Azure Portal.
    
-     f. W przypadku **powiązania żądania zainicjowane przez dostawcę usług**wybierz opcję **przekierowywanie http**.
+     f. W przypadku **powiązania żądania zainicjowane przez dostawcę usług** wybierz opcję **przekierowywanie http**.
 
      przykład Wybierz pozycję **Zapisz**.
 

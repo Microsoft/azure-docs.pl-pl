@@ -12,11 +12,11 @@ ms.date: 08/10/2020
 ms.author: juliako
 ms.custom: devx-track-js
 ms.openlocfilehash: 1bc751ae293abbb7aa330a99a4b66a917d150906
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268625"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994982"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Osadź Video Indexer widżety w aplikacjach
 
@@ -70,7 +70,7 @@ Za pomocą widżetu edytora można tworzyć nowe projekty i zarządzać szczegó
 
 W tej sekcji omówiono osadzanie zawartości publicznej i prywatnej w aplikacjach.
 
-`location`Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial` jest wartością domyślną dla `location` parametru. Przykład: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+`location`Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial` jest wartością domyślną dla `location` parametru. Na przykład: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 > [!IMPORTANT]
 > Udostępnienie linku dla widżetu **Player** lub **szczegółowych** informacji spowoduje uwzględnienie tokenu dostępu i przyznanie uprawnień tylko do odczytu kontu.
@@ -79,8 +79,8 @@ W tej sekcji omówiono osadzanie zawartości publicznej i prywatnej w aplikacjac
 
 1. Zaloguj się do witryny sieci Web [Video Indexer](https://www.videoindexer.ai/) .
 1. Wybierz wideo, z którym chcesz korzystać, i naciśnij klawisz **Play**.
-1. Wybierz odpowiedni typ widżetu (**poznawcze informacje**, **odtwarzacz**lub **Edytor**).
-1. Kliknij przycisk ** &lt; / &gt; Osadź**.
+1. Wybierz odpowiedni typ widżetu (**poznawcze informacje**, **odtwarzacz** lub **Edytor**).
+1. Kliknij przycisk **&lt; / &gt; Osadź**.
 5. Skopiuj kod osadzania (jest wyświetlany w obszarze **Kopiuj osadzony kod** w oknie dialogowym **udział & Osadź** ).
 6. Dodaj kod do aplikacji.
 

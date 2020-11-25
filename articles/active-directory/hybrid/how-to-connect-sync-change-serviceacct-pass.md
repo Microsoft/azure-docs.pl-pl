@@ -18,11 +18,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4dcc7ed6076c3bac723d709f50f1b3ab2ce8f58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319932"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996563"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Zmienianie hasła konta usługi ADSync
 Jeśli zmienisz hasło konta usługi ADSync, usługa synchronizacji nie będzie mogła zostać uruchomiona prawidłowo, dopóki nie powrócisz klucza szyfrowania i ponownie zainicjowano hasło konta usługi ADSync. 
@@ -97,7 +97,7 @@ Ponieważ istniejące hasła przechowywane wewnątrz bazy danych nie mogą być 
 </br>![Service Manager synchronizacji](./media/how-to-connect-sync-change-serviceacct-pass/startmenu.png)  
 2. Przejdź do karty **Łączniki** .
 3. Wybierz **Łącznik usługi AD** , który odnosi się do lokalnej usługi AD. Jeśli masz więcej niż jeden łącznik usługi AD, powtórz następujące kroki dla każdego z nich.
-4. W obszarze **Akcje**wybierz pozycję **Właściwości**.
+4. W obszarze **Akcje** wybierz pozycję **Właściwości**.
 5. W podręcznym oknie dialogowym wybierz pozycję **Połącz z lasem Active Directory**:
 6. Wprowadź hasło konta AD DS w polu tekstowym **hasło** . Jeśli hasło nie jest znane, przed wykonaniem tego kroku należy ustawić jego nazwę na znaną wartość.
 7. Kliknij przycisk **OK** , aby zapisać nowe hasło i zamknąć okno dialogowe.
@@ -122,6 +122,6 @@ Teraz, gdy usługa synchronizacji ma dostęp do klucza szyfrowania i wszystkich 
 ## <a name="next-steps"></a>Następne kroki
 **Tematy dotyczące omówienia**
 
-* [Azure AD Connect Sync: omówienie i dostosowanie synchronizacji](how-to-connect-sync-whatis.md)
+* [Synchronizacja programu Azure AD Connect: omówienie i dostosowywanie synchronizacji](how-to-connect-sync-whatis.md)
 
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md)

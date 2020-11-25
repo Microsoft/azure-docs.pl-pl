@@ -1,19 +1,19 @@
 ---
 title: 'Samouczek: Tworzenie nowej aplikacji HoloLens Unity'
 description: W ramach tego samouczka dowiesz się, jak utworzyć nową aplikację aparatu HoloLens Unity przy użyciu kotwic przestrzennych platformy Azure.
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 08/17/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e94ced70ad17286612328884d03d4d1253b7818b
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: ee0bf9b4ce009f37dd1931d4ed030defa24e7d38
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096542"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95996268"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Samouczek: instrukcje krok po kroku dotyczące tworzenia nowej aplikacji HoloLens Unity przy użyciu kotwic przestrzennych platformy Azure
 
@@ -33,7 +33,7 @@ Najpierw skonfigurujemy nasze sceny projektowe i Unity:
 1. Uruchom środowisko Unity.
 2. Wybierz pozycję **Nowy**.
 4. Upewnij się, że wybrano **3W** .
-5. Nazwij projekt i wprowadź **lokalizację**zapisywania.
+5. Nazwij projekt i wprowadź **lokalizację** zapisywania.
 6. Wybierz pozycję **Create project** (Utwórz projekt).
 7. Zapisz pustą domyślną scenę w nowym pliku przy użyciu polecenia: **plik**  >  **Zapisz jako**.
 8. Nazwij nową scenę **główną** i naciśnij przycisk **Zapisz** .
@@ -48,7 +48,7 @@ Po pierwsze Skonfigurujmy ustawienia jakości dla naszej aplikacji.
 
 Musimy skonfigurować naszą aplikację aparatu Unity z widokiem immersyjny, a nie widokiem 2D. Możemy utworzyć widok immersyjny, włączając obsługę wirtualnej rzeczywistości w aparacie Unity przeznaczonym dla zestawu SDK systemu Windows 10.
 1. Przejdź do pozycji **Edytuj**  >  **Ustawienia projektu**  >  **odtwarzacz**.
-2. W **panelu Inspektora** **Ustawienia odtwarzacza**wybierz ikonę **systemu Windows** .
+2. W **panelu Inspektora** **Ustawienia odtwarzacza** wybierz ikonę **systemu Windows** .
 3. Rozwiń grupę **ustawień XR** .
 4. W sekcji **renderowanie** zaznacz pole wyboru **Obsługa wirtualnej rzeczywistości** , aby dodać nową listę **zestawów SDK rzeczywistości wirtualnej** .
 5. Sprawdź, czy na liście pojawi się wartość **Windows Mixed Reality** . W przeciwnym razie wybierz **+** przycisk w dolnej części listy i wybierz pozycję **Windows Mixed Reality**.
@@ -58,17 +58,17 @@ Musimy skonfigurować naszą aplikację aparatu Unity z widokiem immersyjny, a n
 
 **Weryfikowanie konfiguracji zaplecza skryptów**
 1. Przejdź do pozycji **Edytuj**  >  **Ustawienia projektu**  >  **odtwarzacz** (nadal może być otwarty **odtwarzacz** z poprzedniego kroku).
-2. W **panelu Inspektora** **Ustawienia odtwarzacza**wybierz ikonę **sklepu Windows** .
+2. W **panelu Inspektora** **Ustawienia odtwarzacza** wybierz ikonę **sklepu Windows** .
 3. Upewnij **się, że** w sekcji Konfiguracja **innych ustawień** jest ustawiona wartość **IL2CPP**.
 
 **Ustaw możliwości**
 1. Przejdź do pozycji **Edytuj**  >  **Ustawienia projektu**  >  **odtwarzacz** (nadal może być otwarty **odtwarzacz** z poprzedniego kroku).
-2. W **panelu Inspektora** **Ustawienia odtwarzacza**wybierz ikonę **sklepu Windows** .
+2. W **panelu Inspektora** **Ustawienia odtwarzacza** wybierz ikonę **sklepu Windows** .
 3. W sekcji Konfiguracja **ustawień publikowania** Sprawdź **InternetClientServer** i **SpatialPerception**.
 
 **Skonfiguruj główną kamerę wirtualną**
-1. W **panelu hierarchia**wybierz pozycję **główny aparat**.
-2. W **Inspektorze**ustaw jego pozycję przekształcenia na **0, 0, 0**.
+1. W **panelu hierarchia** wybierz pozycję **główny aparat**.
+2. W **Inspektorze** ustaw jego pozycję przekształcenia na **0, 0, 0**.
 3. Znajdź właściwość **Clear flags** i zmień listę rozwijaną z **skybox** na **Kolor kryjący**.
 4. Kliknij pole **tło** , aby otworzyć selektor kolorów.
 5. Ustaw wartość **R, G, B i a** na **0**.
@@ -81,15 +81,15 @@ Musimy skonfigurować naszą aplikację aparatu Unity z widokiem immersyjny, a n
 4. Wybierz go, a w **Inspektorze** zmień jego nazwę **z** **MixedRealityCloud**. Wybierz pozycję **Dodaj składnik** i Wyszukaj i Dodaj **AzureSpatialAnchorsScript**.
 
 **Utwórz sferę PREFAB**
-1. Przejdź do **GameObject**  ->  sfery**obiektu 3D gry 3W**  ->  **Sphere**.
-2. W **Inspektorze**ustaw jej skalę na **0,25, 0,25, 0,25**.
+1. Przejdź do **GameObject**  ->  sfery **obiektu 3D gry 3W**  ->  **Sphere**.
+2. W **Inspektorze** ustaw jej skalę na **0,25, 0,25, 0,25**.
 3. Znajdź obiekt **Sphere** w okienku **Hierarchia** . Kliknij go i przeciągnij do folderu **Assets** w okienku **projektu** .
 4. Kliknij prawym przyciskiem myszy i **Usuń** oryginalną sferę utworzoną w okienku **Hierarchia** .
 
 W okienku **projektu** powinna być teraz dostępna sfera PREFAB.
 
 ## <a name="trying-it-out"></a>Trwa próba
-Aby sprawdzić, czy wszystko działa, skompiluj swoją aplikację w aparacie **Unity** i Wdróż ją z poziomu **programu Visual Studio**. Obserwuj rozdział 6 od firmy [ **MR podstawy 100: wprowadzenie** ](/windows/mixed-reality/holograms-100#chapter-6---build-and-deploy-to-device-from-visual-studio) do środowiska Unity. Powinien zostać wyświetlony ekran startowy środowiska Unity, a następnie przycisk Wyczyść.
+Aby sprawdzić, czy wszystko działa, skompiluj swoją aplikację w aparacie **Unity** i Wdróż ją z poziomu **programu Visual Studio**. Obserwuj rozdział 6 od firmy [ **MR podstawy 100: wprowadzenie**](/windows/mixed-reality/holograms-100#chapter-6---build-and-deploy-to-device-from-visual-studio) do środowiska Unity. Powinien zostać wyświetlony ekran startowy środowiska Unity, a następnie przycisk Wyczyść.
 
 ## <a name="place-an-object-in-the-real-world"></a>Umieść obiekt w świecie rzeczywistym
 Utwórzmy & umieścić obiekt przy użyciu aplikacji. Otwórz rozwiązanie programu Visual Studio, które zostało utworzone podczas [wdrażania naszej aplikacji](#trying-it-out).
@@ -103,12 +103,12 @@ Następnie Dodaj następujące zmienne elementów członkowskich do `AzureSpatia
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-47,53-57,65-84)]
 
 Przed kontynuowaniem musimy ustawić PREFAB sferę utworzoną na naszej zmiennej składowej spherePrefab. Wróć do **aparatu Unity**.
-1. W aparacie **Unity**wybierz obiekt **MixedRealityCloud** w okienku **Hierarchia** .
+1. W aparacie **Unity** wybierz obiekt **MixedRealityCloud** w okienku **Hierarchia** .
 2. Kliknij PREFAB **sferę** , która została zapisana w okienku **projektu** . Przeciągnij **sferę** klikniętą w obszarze **sfera PREFAB** w obszarze **skrypt zakotwiczenia przestrzenne platformy Azure** w okienku **Inspektor** .
 
 Teraz należy mieć rolę PREFAB **Sphere** w skrypcie. Skompiluj z **aparatu Unity** , a następnie ponownie otwórz powstałe rozwiązanie **programu Visual Studio** , tak jak właśnie [było to możliwe.](#trying-it-out)
 
-W programie **Visual Studio**ponownie otwórz program `AzureSpatialAnchorsScript.cs` . Dodaj następujący kod do `Start()` metody. Ten kod zostanie poddany `GestureRecognizer` , który zostanie wywołany `HandleTap` po wykryciu nacisku na środowisko powietrzne.
+W programie **Visual Studio** ponownie otwórz program `AzureSpatialAnchorsScript.cs` . Dodaj następujący kod do `Start()` metody. Ten kod zostanie poddany `GestureRecognizer` , który zostanie wywołany `HandleTap` po wykryciu nacisku na środowisko powietrzne.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=86-95,98&highlight=4-10)]
 
@@ -164,7 +164,7 @@ Ta metoda jest zgodna z wersjami Unity 2019.1 +.
 > [!WARNING]
 > Dystrybucja pakietu zasobów środowiska Unity zestawu Azure przestrzenny kotwice zostanie zaniechana po 2.5.0 wersji zestawu SDK.
 
-Pobierzmy zestaw SDK kotwic przestrzennych platformy Azure. Przejdź do [strony usługi GitHub dotyczącej zakotwiczenia przestrzennego platformy Azure](https://github.com/Azure/azure-spatial-anchors-samples/releases). W obszarze **zasoby**Pobierz **AzureSpatialAnchors. UNITYPACKAGE**. W środowisku Unity przejdź do pozycji **zasoby**, wybierz pozycję **Importuj**pakiet  >  **niestandardowy..**.. Przejdź do pakietu i wybierz pozycję **Otwórz**.
+Pobierzmy zestaw SDK kotwic przestrzennych platformy Azure. Przejdź do [strony usługi GitHub dotyczącej zakotwiczenia przestrzennego platformy Azure](https://github.com/Azure/azure-spatial-anchors-samples/releases). W obszarze **zasoby** Pobierz **AzureSpatialAnchors. UNITYPACKAGE**. W środowisku Unity przejdź do pozycji **zasoby**, wybierz pozycję **Importuj** pakiet  >  **niestandardowy..**.. Przejdź do pakietu i wybierz pozycję **Otwórz**.
 
 W oknie Nowy **Importuj pakiet Unity** , który zostanie wystawiony, usuń zaznaczenie **wtyczek** , a następnie wybierz pozycję **Importuj** w prawym dolnym rogu.
 
