@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 11/18/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: c58ee46a608ccdcbb01a082ee278d9e0f8a07f6e
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 8fd7562d1f8e38c79f739fdd2db7031e772874bc
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030683"
+ms.locfileid: "96122631"
 ---
 # <a name="azure-synapse-analytics-terminology"></a>Terminologia dotycząca usługi Azure Synapse Analytics
 
@@ -47,17 +47,11 @@ Istnieją dwa sposoby używania platformy Spark w Synapse:
 * **Notesy platformy Spark** do tworzenia danych i inżynierii z użyciem danych Scala, PySpark, C# i SparkSQL
 * **Definicje zadań platformy Spark** do uruchamiania zadań usługi Batch Spark przy użyciu plików jar.
 
-Obsługa wersji:
-* Platforma Spark 2,4
-* 3.6.1 Python
-* Scala 2.11.12
-* .NET dla Apache Spark 1,0
-* Różnicowa Lake 0,3.  
-
 ## <a name="pipelines"></a>Pipelines
 
-* **Integracja danych** — umożliwia pozyskiwanie danych między różnymi źródłami i organizowanie działań uruchomionych w obszarze roboczym lub poza obszarem roboczym.
-* **Przepływ danych** — udostępnia w pełni wizualizację, bez konieczności kodowania danych Big Data. Wszystkie optymalizacje i wykonywanie są obsługiwane w sposób bezserwerowy.
+Potoki to sposób, w jaki usługa Azure Synapse zapewnia integrację danych — umożliwia przenoszenie danych między usługami i organizowanie działań.
+
+* **Przepływy danych** zapewniają codine środowisko do przekształcania danych, które korzysta z Synapse Spark w środowisku.
 * **Potok** — logiczne grupowanie działań, które wspólnie wykonują zadanie.
 * **Działanie** — definiuje akcje do wykonania na danych, takich jak kopiowanie danych, uruchamianie notesu lub skryptu SQL.
 * **Trigger** -wykonuje potok. Może być uruchamiany ręcznie lub automatycznie (harmonogram, wirowania okno lub zdarzenia)

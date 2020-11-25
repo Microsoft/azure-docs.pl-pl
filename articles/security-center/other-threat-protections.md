@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: 0b80db15e4fafd5e5c63a4194039fbeca21d429b
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: d03416f390abb8656ac1aed81419864443122ce6
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900396"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122432"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Dodatkowa ochrona przed zagrożeniami w Azure Security Center
 Również wbudowane funkcje [ochrony usługi Azure Defender](azure-defender.md)Azure Security Center oferują również następujące możliwości ochrony przed zagrożeniami.
@@ -29,7 +29,7 @@ Również wbudowane funkcje [ochrony usługi Azure Defender](azure-defender.md)A
 ## <a name="threat-protection-for-azure-network-layer"></a>Ochrona przed zagrożeniami dla warstwy sieci platformy Azure <a name="network-layer"></a>
 Security Center analiza warstwy sieciowej opiera się na przykładowych [danych IPFIX](https://en.wikipedia.org/wiki/IP_Flow_Information_Export), które są nagłówkami pakietów zebranymi przez routery podstawowe platformy Azure. W oparciu o te strumieniowe źródło danych Security Center korzysta z modeli uczenia maszynowego do identyfikowania i flagowania złośliwych działań w zakresie ruchu. Security Center używa również bazy danych Microsoft Threat Intelligence do wzbogacania adresów IP.
 
-Niektóre konfiguracje sieci mogą ograniczać Security Center generowania alertów dotyczących podejrzanych działań w sieci. Aby Security Center wygenerować alerty sieciowe, upewnij się, że:
+Niektóre konfiguracje sieciowe ograniczają Security Center generowania alertów dotyczących podejrzanych działań w sieci. Aby Security Center wygenerować alerty sieciowe, upewnij się, że:
 - Maszyna wirtualna ma publiczny adres IP (lub znajduje się w usłudze równoważenia obciążenia z publicznym adresem IP).
 - Ruch wychodzący z sieci maszyny wirtualnej nie jest blokowany przez rozwiązanie identyfikatorów zewnętrznych.
 
@@ -47,10 +47,10 @@ Aby uzyskać listę alertów Azure Resource Manager (wersja zapoznawcza), zobacz
 >[!NOTE]
 > Niektóre z powyższych analiz są obsługiwane przez Microsoft Cloud App Security. Aby skorzystać z tych analiz, należy aktywować licencję Cloud App Securityową. Jeśli masz licencję na Cloud App Security, te alerty są domyślnie włączone. Aby wyłączyć alerty:
 >
-> 1. W menu Security Center wybierz pozycję **cennik & ustawienia** .
+> 1. W menu Security Center wybierz pozycję **cennik & ustawienia**.
 > 1. Wybierz subskrypcję, którą chcesz zmienić.
-> 1. Wybierz pozycję **wykrywanie zagrożeń** .
-> 1. Wyczyść pole wyboru **zezwalaj Microsoft Cloud App Security na dostęp do danych** i wybierz pozycję **Zapisz** .
+> 1. Wybierz pozycję **wykrywanie zagrożeń**.
+> 1. Wyczyść pole wyboru **zezwalaj Microsoft Cloud App Security na dostęp do danych** i wybierz pozycję **Zapisz**.
 
 
 >[!NOTE]
@@ -58,7 +58,7 @@ Aby uzyskać listę alertów Azure Resource Manager (wersja zapoznawcza), zobacz
 
 1. Ustaw obszar roboczy, w którym jest instalowany Agent. Upewnij się, że obszar roboczy znajduje się w tej samej subskrypcji, której używasz w Security Center i że masz uprawnienia do odczytu/zapisu w obszarze roboczym.
 
-1. Włącz **usługę Azure Defender** i wybierz pozycję **Zapisz** .
+1. Włącz **usługę Azure Defender** i wybierz pozycję **Zapisz**.
 
 
 ## <a name="threat-protection-for-azure-cosmos-db-preview"></a>Ochrona przed zagrożeniami dla Azure Cosmos DB (wersja zapoznawcza)<a name="cosmos-db"></a>

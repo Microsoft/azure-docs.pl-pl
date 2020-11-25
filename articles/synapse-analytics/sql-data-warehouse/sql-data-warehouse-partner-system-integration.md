@@ -9,18 +9,18 @@ ms.subservice: ''
 ms.date: 11/24/2020
 ms.author: procha
 ms.reviewer: jrasnick
-ms.openlocfilehash: 94872d3765a992fd025f30feaab95248ce6831ec
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 19941963b5200b3ffdb9f2360301d30fe9df4823
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "95920158"
+ms.locfileid: "96121850"
 ---
 # <a name="azure-synapse-analytics-system-integration-partners"></a>Partnerzy integracji systemu Azure Synapse Analytics
 
 W tym artykule przedstawiono firmy partnerskie firmy Microsoft do tworzenia rozwiązań za pomocą usługi Azure Synapse.
 
-## <a name="our-public-preview-launch-partners"></a>Nasze partnerzy do uruchamiania publicznej wersji zapoznawczej
+## <a name="system-integration-partners"></a>Partnerzy integracji systemu
 | Partner | Opis | Link do witryny sieci Web/produktu |
 | ------- | ----------- | -------------------- |
 | ![Accenture](./media/sql-data-warehouse-partner-public-preview/accenture-logo.png) |**Accenture**<br>Łącząc się z 45000ą i wyspecjalizowanymi specjalistami, Accenture Microsoft Business Group — obsługiwane przez firma Avanade — pomaga przedsiębiorstwom w rozwiązaniu do oceny zagrożenia dla działania cyfrowych.|[Strona partnera](https://www.accenture.com/us-en/services/microsoft-index)<br>|

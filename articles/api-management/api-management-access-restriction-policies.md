@@ -4,21 +4,17 @@ description: Dowiedz się więcej na temat zasad ograniczeń dostępu dostępnyc
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: erikre
-editor: ''
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/23/2020
 ms.author: apimpm
-ms.openlocfilehash: 711a973f13c8e292578703518df4c4302c31eb57
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 70be2000d3b01e55cd52d161072c3249870310b9
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071391"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122576"
 ---
 # <a name="api-management-access-restriction-policies"></a>Zasady ograniczeń dostępu usługi API Management
 
@@ -26,13 +22,13 @@ Ten temat zawiera informacje dotyczące następujących zasad API Management. Ab
 
 ## <a name="access-restriction-policies"></a><a name="AccessRestrictionPolicies"></a> Zasady ograniczeń dostępu
 
--   [Sprawdź nagłówek HTTP](api-management-access-restriction-policies.md#CheckHTTPHeader) — wymusza istnienie i/lub wartość nagłówka HTTP.
--   [Ogranicz częstotliwość wywołań przez subskrypcję](api-management-access-restriction-policies.md#LimitCallRate) — uniemożliwia użycie interfejsu API przez ograniczenie liczby wywołań dla każdej subskrypcji.
+-   [Sprawdź nagłówek HTTP](#CheckHTTPHeader) — wymusza istnienie i/lub wartość nagłówka HTTP.
+-   [Ogranicz częstotliwość wywołań przez subskrypcję](#LimitCallRate) — uniemożliwia użycie interfejsu API przez ograniczenie liczby wywołań dla każdej subskrypcji.
 -   [Ogranicz częstotliwość wywołań według klucza](#LimitCallRateByKey) — uniemożliwia użycie interfejsu API przez ograniczenie liczby wywołań na podstawie poszczególnych kluczy.
--   [Ogranicz adresy IP wywołującego](api-management-access-restriction-policies.md#RestrictCallerIPs) — filtry (dozwolone/odmawiające) wywołania z określonych adresów i/lub zakresów adresów.
--   [Ustawianie limitu przydziału użycia według subskrypcji](api-management-access-restriction-policies.md#SetUsageQuota) — umożliwia wymuszenie naliczania i/lub przydziału przepustowości dla każdej subskrypcji.
+-   [Ogranicz adresy IP wywołującego](#RestrictCallerIPs) — filtry (dozwolone/odmawiające) wywołania z określonych adresów i/lub zakresów adresów.
+-   [Ustawianie limitu przydziału użycia według subskrypcji](#SetUsageQuota) — umożliwia wymuszenie naliczania i/lub przydziału przepustowości dla każdej subskrypcji.
 -   [Ustawianie przydziału użycia według klucza](#SetUsageQuotaByKey) — umożliwia wymuszenie naliczania i/lub przydziału przepustowości dla każdego klucza.
--   [Sprawdzanie poprawności tokenu JWT](api-management-access-restriction-policies.md#ValidateJWT) — wymusza istnienie i ważność tokenu JWT wyodrębnionego z albo określonego nagłówka HTTP lub określonego parametru zapytania.
+-   [Sprawdzanie poprawności tokenu JWT](#ValidateJWT) — wymusza istnienie i ważność tokenu JWT wyodrębnionego z albo określonego nagłówka HTTP lub określonego parametru zapytania.
 
 > [!TIP]
 > Zasad ograniczeń dostępu można używać w różnych zakresach w różnych celach. Na przykład można zabezpieczyć cały interfejs API z uwierzytelnianiem w usłudze AAD, stosując `validate-jwt` zasady na poziomie interfejsu API lub można zastosować go na poziomie operacji interfejsu API i użyć `claims` do dokładniejszego sterowania.
@@ -63,7 +59,7 @@ Użyj `check-header` zasad, aby wymusić, że żądanie ma określony nagłówek
 | Nazwa         | Opis                                                                                                                                   | Wymagane |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | znacznik wyboru | Element główny.                                                                                                                                 | Tak      |
-| wartość        | Dozwolona wartość nagłówka HTTP. Gdy określono wiele elementów wartości, sprawdzanie jest uznawane za sukces, jeśli jedna z wartości jest zgodna. | Nie       |
+| value        | Dozwolona wartość nagłówka HTTP. Gdy określono wiele elementów wartości, sprawdzanie jest uznawane za sukces, jeśli jedna z wartości jest zgodna. | Nie       |
 
 ### <a name="attributes"></a>Atrybuty
 
@@ -384,12 +380,12 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 
 ## <a name="validate-jwt"></a><a name="ValidateJWT"></a> Weryfikuj token JWT
 
-`validate-jwt`Zasady wymuszają istnienie i ważność tokenu JWT wyodrębnionego z określonego nagłówka HTTP lub określonego parametru zapytania.
+`validate-jwt`Zasady wymuszają istnienie i ważność tokenu sieci Web JSON (JWT) wyodrębnionego z albo określonego nagłówka HTTP, albo określonego parametru zapytania.
 
 > [!IMPORTANT]
 > `validate-jwt`Zasady wymagają, aby `exp` zarejestrowane zastrzeżenie zostało uwzględnione w tokenie JWT, chyba że `require-expiration-time` atrybut jest określony i ma ustawioną wartość `false` .
-> `validate-jwt`Zasady obsługują algorytmy podpisywania HS256 i RS256. W przypadku HS256 klucz musi być podany w postaci wbudowanej w ramach zasad w postaci kodowanej algorytmem Base64. W przypadku RS256 klucz musi być udostępniany za pośrednictwem punktu końcowego konfiguracji otwartego identyfikatora.
-> `validate-jwt`Zasady obsługują tokeny szyfrowane za pomocą kluczy symetrycznych przy użyciu następujących algorytmów szyfrowania A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
+> `validate-jwt`Zasady obsługują algorytmy podpisywania HS256 i RS256. W przypadku HS256 klucz musi być podany w postaci wbudowanej w ramach zasad w postaci kodowanej algorytmem Base64. W przypadku RS256 klucz można dostarczyć za pośrednictwem punktu końcowego konfiguracji otwartego identyfikatora lub podając identyfikator przekazanego certyfikatu, który zawiera klucz publiczny lub parę wykładników modulo klucza publicznego.
+> `validate-jwt`Zasady obsługują tokeny szyfrowane za pomocą kluczy symetrycznych przy użyciu następujących algorytmów szyfrowania: A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
 
 ### <a name="policy-statement"></a>Instrukcja zasad
 
@@ -440,6 +436,22 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 <validate-jwt header-name="Authorization" require-scheme="Bearer">
     <issuer-signing-keys>
         <key>{{jwt-signing-key}}</key>  <!-- signing key specified as a named value -->
+    </issuer-signing-keys>
+    <audiences>
+        <audience>@(context.Request.OriginalUrl.Host)</audience>  <!-- audience is set to API Management host name -->
+    </audiences>
+    <issuers>
+        <issuer>http://contoso.com/</issuer>
+    </issuers>
+</validate-jwt>
+```
+
+#### <a name="token-validation-with-rsa-certificate"></a>Sprawdzanie poprawności tokenu przy użyciu certyfikatu RSA
+
+```xml
+<validate-jwt header-name="Authorization" require-scheme="Bearer">
+    <issuer-signing-keys>
+        <key certficate-id="my-rsa-cert" />  <!-- signing key specified as certificate ID, enclosed in double-quotes -->
     </issuer-signing-keys>
     <audiences>
         <audience>@(context.Request.OriginalUrl.Host)</audience>  <!-- audience is set to API Management host name -->
@@ -519,8 +531,8 @@ Ten przykład pokazuje, jak używać zasad [weryfikacji tokenu JWT](api-manageme
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | Walidacja — JWT        | Element główny.                                                                                                                                                                                                                                                                                                                                         | Tak      |
 | odbiorców           | Zawiera listę dopuszczalnych oświadczeń odbiorców, które mogą znajdować się na tokenie. Jeśli są obecne wiele wartości odbiorców, każda wartość zostanie ponowiona, dopóki wszystkie nie zostaną wyczerpane (w której przypadku niepowodzenie walidacji nie powiedzie się) lub dopóki jeden z nich się nie powiedzie. Należy określić co najmniej jedną grupę odbiorców.                                                                     | Nie       |
-| wystawca — klucze podpisywania | Lista kluczy zabezpieczeń zakodowanych algorytmem Base64 służących do weryfikowania podpisanych tokenów. Jeśli są obecne wiele kluczy zabezpieczeń, każdy klucz zostanie ponowiony, dopóki wszystkie nie zostaną wyczerpane (w przypadku niepowodzenia walidacji przypadku nie powiedzie się) lub dopóki jeden z nich nie powiedzie się (przydatne w przypadku przerzucania tokenów). Elementy klucza mają opcjonalny `id` atrybut używany do dopasowywania do `kid` roszczeń.               | Nie       |
-| Odszyfrowywanie — klucze     | Lista kluczy zakodowanych algorytmem Base64 używana do odszyfrowywania tokenów. Jeśli istnieją wiele kluczy zabezpieczeń, każdy klucz zostanie ponowiony, dopóki wszystkie klucze nie zostaną wyczerpane (w którym przypadku niepowodzenie sprawdzania poprawności) lub do momentu pomyślnego przeprowadzenia klucza. Elementy klucza mają opcjonalny `id` atrybut używany do dopasowywania do `kid` roszczeń.                                                 | Nie       |
+| wystawca — klucze podpisywania | Lista kluczy zabezpieczeń zakodowanych algorytmem Base64 służących do weryfikowania podpisanych tokenów. Jeśli istnieją wiele kluczy zabezpieczeń, każdy klucz zostanie ponowiony, dopóki wszystkie nie zostaną wyczerpane (w tym przypadku sprawdzanie poprawności nie powiedzie się) lub jeden z nich powiedzie się (przydatne w przypadku przerzucania tokenów). Elementy klucza mają opcjonalny `id` atrybut używany do dopasowywania do `kid` roszczeń. <br/><br/>Alternatywnie Podaj klucz podpisywania wystawcy przy użyciu:<br/><br/> - `certificate-id` w polu Format `<key certificate-id="mycertificate" />` , aby określić identyfikator jednostki certyfikatu [przekazanej](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity#Add) do API Management<br/>-Para modułu RSA `n` i wykładnik `e` w formacie `<key n="<modulus>" e="<exponent>" />` , aby określić parametry RSA w formacie base64url-Encoded               | Nie       |
+| Odszyfrowywanie — klucze     | Lista kluczy zakodowanych algorytmem Base64 używana do odszyfrowywania tokenów. Jeśli są obecne wiele kluczy zabezpieczeń, każdy klucz zostanie ponowiony, dopóki wszystkie klucze nie zostaną wyczerpane (w przypadku niepowodzenia walidacji nie powiedzie się) lub klucz powiedzie się. Elementy klucza mają opcjonalny `id` atrybut używany do dopasowywania do `kid` roszczeń.<br/><br/>Alternatywnie Podaj klucz odszyfrowujący przy użyciu:<br/><br/> - `certificate-id` w polu Format `<key certificate-id="mycertificate" />` , aby określić identyfikator jednostki certyfikatu [przekazanej](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity#Add) do API Management                                                 | Nie       |
 | wystawców             | Lista akceptowalnych podmiotów, które wystawiły token. Jeśli istnieją wiele wartości wystawcy, każda wartość zostanie ponowiona, dopóki wszystkie nie zostaną wyczerpane (w której przypadku sprawdzanie poprawności nie powiedzie się) lub dopóki jeden z nich się nie powiedzie.                                                                                                                                         | Nie       |
 | OpenID Connect-config       | Element służący do określania zgodnego punktu końcowego konfiguracji otwartego identyfikatora, z którego można uzyskać klucze podpisywania i wystawca.                                                                                                                                                                                                                        | Nie       |
 | wymagane — oświadczenia     | Zawiera listę oświadczeń, które powinny być obecne w tokenie, aby mógł być uznawany za ważny. Gdy `match` atrybut jest ustawiony na `all` wszystkie wartości w zasadach, muszą być obecne w tokenie, aby Walidacja zakończyła się pomyślnie. Jeśli `match` atrybut jest ustawiony na `any` co najmniej jedno zastrzeżenie, musi być obecne w tokenie, aby Walidacja zakończyła się pomyślnie. | Nie       |

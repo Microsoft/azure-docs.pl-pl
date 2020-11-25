@@ -7,12 +7,12 @@ ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: aeb1e5ee00bd52ebb4bd93dec2f4a1eacb002fb9
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 992fb4422974dad7a48e5fea953ac4530bb52d5c
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94986535"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122591"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Korzystanie z właściwości w rozwiązaniu IoT Central platformy Azure
 
@@ -160,11 +160,7 @@ hubClient.getTwin((err, twin) => {
 });
 ```
 
-W tym artykule użyto Node.js dla uproszczenia. Aby uzyskać pełne informacje na temat przykładów aplikacji urządzeń, zobacz następujące samouczki:
-
-* [Tworzenie i łączenie aplikacji klienckiej z aplikacją usługi Azure IoT Central (Node.js)](tutorial-connect-device-nodejs.md)
-* [Tworzenie i łączenie aplikacji klienckiej z aplikacją usługi Azure IoT Central (Python)](tutorial-connect-device-python.md)
-* [Tworzenie i łączenie aplikacji klienckiej z aplikacją usługi Azure IoT Central (Java)](tutorial-connect-device-java.md)
+W tym artykule użyto Node.js dla uproszczenia. Aby uzyskać pełne informacje na temat przykładów aplikacji urządzeń, zobacz następujące instrukcje: [Tworzenie i łączenie aplikacji klienckiej z samouczkiem aplikacji platformy Azure IoT Central](tutorial-connect-device.md) .
 
 Poniższy widok aplikacji IoT Central platformy Azure przedstawia właściwości, które można wyświetlić. Widok automatycznie powoduje, że właściwość **model urządzenia** jest _właściwością urządzenia tylko do odczytu_.
 
@@ -236,4 +232,4 @@ W poniższym widoku są wyświetlane właściwości z możliwością zapisu. Po 
 Teraz, gdy wiesz już, jak używać właściwości w aplikacji IoT Central platformy Azure, zobacz:
 
 * [Ładunków](concepts-telemetry-properties-commands.md)
-* [Tworzenie i łączenie aplikacji klienckiej z aplikacją usługi Azure IoT Central (Node.js)](tutorial-connect-device-nodejs.md)
+* [Tworzenie i łączenie aplikacji klienckiej z aplikacją usługi Azure IoT Central](tutorial-connect-device.md)

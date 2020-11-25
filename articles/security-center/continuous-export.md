@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: 59cfe7b990523e5cb165d1037291b3c1b1301624
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 43b66a59062a230aa2fba6909172deb5f1740b28
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289238"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122330"
 ---
 # <a name="continuously-export-security-center-data"></a>Ciągłe eksportowanie danych Security Center
 
@@ -61,7 +61,11 @@ Poniższe kroki są niezbędne, niezależnie od tego, czy konfigurujesz ciągły
 1. Na pasku bocznym Security Center wybierz pozycję **cennik & ustawienia**.
 1. Wybierz określoną subskrypcję, dla której chcesz skonfigurować eksportowanie danych.
 1. Na pasku bocznym strony Ustawienia dla tej subskrypcji wybierz pozycję **eksport ciągły**.
-    [ ![ Opcje eksportowania w Azure Security Center](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox) tym miejscu są wyświetlane opcje eksportowania. Dla każdego dostępnego elementu docelowego eksportu istnieje karta. 
+
+    :::image type="content" source="./media/continuous-export/continuous-export-options-page.png" alt-text="Opcje eksportu w Azure Security Center":::
+
+    W tym miejscu są wyświetlane opcje eksportowania. Dla każdego dostępnego elementu docelowego eksportu istnieje karta. 
+
 1. Wybierz typ danych, który chcesz wyeksportować, i wybierz spośród filtrów dla każdego typu (na przykład wyeksportuj tylko alerty o wysokiej ważności).
 1. Opcjonalnie, jeśli wybór obejmuje jedno z czterech zaleceń, można dołączyć do nich wyniki oceny luk w zabezpieczeniach:
     - Oceny luk w zabezpieczeniach baz danych SQL należy skorygować
@@ -163,7 +167,7 @@ Aby wyświetlić schematy zdarzeń wyeksportowanych typów danych, odwiedź [log
 
 ##  <a name="view-exported-alerts-and-recommendations-in-azure-monitor"></a>Wyświetlanie wyeksportowanych alertów i zaleceń w Azure Monitor
 
-W niektórych przypadkach można wyświetlić wyeksportowane alerty zabezpieczeń i/lub zalecenia w [Azure monitor](../azure-monitor/platform/alerts-overview.md). 
+Możesz również wyświetlić wyeksportowane alerty zabezpieczeń i/lub zalecenia w [Azure monitor](../azure-monitor/platform/alerts-overview.md). 
 
 Azure Monitor zapewnia ujednolicone środowisko alertów dla różnych alertów platformy Azure, w tym dzienników diagnostycznych, alertów metryk i alertów niestandardowych opartych na zapytaniach Log Analytics obszaru roboczego.
 
@@ -207,7 +211,7 @@ Dowiedz się więcej na temat [cennika usługi Azure Event Hub](https://azure.mi
 
 ### <a name="does-the-export-include-data-about-the-current-state-of-all-resources"></a>Czy eksport obejmuje dane dotyczące bieżącego stanu wszystkich zasobów?
 
-Nie. Eksport ciągły jest zbudowany na potrzeby przesyłania strumieniowego **zdarzeń** :
+Nie. Eksport ciągły jest zbudowany na potrzeby przesyłania strumieniowego **zdarzeń**:
 
 - **Alerty** otrzymane przed włączeniem eksportu nie zostaną wyeksportowane.
 - **Zalecenia** są wysyłane po każdym zmianie stanu zgodności zasobu. Na przykład gdy zasób zmieni się z zdrowe na zła kondycja. W związku z tym, zgodnie z alertami, zalecenia dotyczące zasobów, które nie zmieniły stanu od momentu włączenia eksportu, nie zostaną wyeksportowane.

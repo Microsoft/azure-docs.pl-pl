@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 3a2de9b167fcbe9dc603d33fd816e70d5c3705e5
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 7aa65cb8e37ce48a59c276fdf2631f75397d3236
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372782"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122511"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Połącz konta AWS z Azure Security Center
 
@@ -70,14 +70,14 @@ Istnieją dwa sposoby zezwalania Security Center na uwierzytelnianie AWS:
 - **AWS użytkownika Security Center** -mniej bezpieczna opcja, jeśli nie masz włączonej usługi IAM
 
 #### <a name="create-an-iam-role-for-security-center"></a>Utwórz rolę usługi IAM dla Security Center
-1. Z poziomu konsoli Amazon Web Services w obszarze **zabezpieczenia, tożsamość & zgodność** , wybierz pozycję **IAM**.
+1. Z poziomu konsoli Amazon Web Services w obszarze **zabezpieczenia, tożsamość & zgodność**, wybierz pozycję **IAM**.
     :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="Usługi AWS":::
 
 1. Wybierz **role** i **Utwórz rolę**.
 1. Wybierz **inne konto AWS**.
 1. Wprowadź następujące wartości:
 
-    - **Identyfikator konta** — wprowadź identyfikator konta Microsoft ( **158177204117** ), jak pokazano na stronie łącznika AWS w Security Center.
+    - **Identyfikator konta** — wprowadź identyfikator konta Microsoft (**158177204117**), jak pokazano na stronie łącznika AWS w Security Center.
     - **Wymagaj zewnętrznego identyfikatora** — należy wybrać
     - **Identyfikator zewnętrzny** — wprowadź identyfikator subskrypcji, jak pokazano na stronie łącznika AWS w Security Center 
 
@@ -152,7 +152,7 @@ Menedżer systemów AWS jest wymagany do automatyzowania zadań w ramach zasobó
     1. Wybierz **grupę zasobów** i **region platformy Azure** , w ramach której zostaną dołączone odnalezione AWS EC2s w ramach wybranej subskrypcji.
     1. Wprowadź **Identyfikator jednostki usługi** i **klucz tajny klienta jednostki usługi** dla usługi Azure ARC, zgodnie z opisem w tym miejscu Utwórz jednostkę [usługi na potrzeby](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) dołączania na dużą skalę
     1. Jeśli komputer nawiązuje połączenie z Internetem za pośrednictwem serwera proxy, określ adres IP serwera proxy lub nazwę i numer portu używanego przez maszynę do komunikacji z serwerem proxy. Wprowadź wartość w formacie ```http://<proxyURL>:<proxyport>```
-    1. Wybierz pozycję **Przejrzyj i utwórz**.
+    1. Wybierz pozycję **Przeglądanie + tworzenie**.
 
         Przejrzyj informacje podsumowujące
 

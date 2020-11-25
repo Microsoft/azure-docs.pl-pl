@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2458b5f3f0c0091bb6ec24e62a1d5614e4e1ecd8
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 90a5afb19c9ba5061b9304c739914262bcdbee15
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888593"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122721"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Jak używać funkcji OPENROWSET przy użyciu bezserwerowej puli SQL (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
@@ -147,7 +147,7 @@ W poniższym przykładzie, jeśli unstructured_data_path = `https://mystorageacc
 
 Klauzula WITH umożliwia określenie kolumn, które mają być odczytywane z plików.
 
-- W przypadku plików danych CSV odczytywanie wszystkich kolumn, dostarczanie nazw kolumn i ich typów danych. Jeśli chcesz podzbiór kolumn, Użyj numerów porządkowych, aby wybrać kolumny z plików danych źródłowych według liczby porządkowej. Kolumny będą powiązane z oznaczeniem porządkowym. 
+- W przypadku plików danych CSV odczytywanie wszystkich kolumn, dostarczanie nazw kolumn i ich typów danych. Jeśli chcesz podzbiór kolumn, Użyj numerów porządkowych, aby wybrać kolumny z plików danych źródłowych według liczby porządkowej. Kolumny będą powiązane z oznaczeniem porządkowym. Jeśli jest używana wartość HEADER_ROW = TRUE, powiązanie kolumny jest wykonywane według nazwy kolumny zamiast pozycji porządkowej.
     > [!TIP]
     > Można również pominąć klauzulę WITH dla plików CSV. Typy danych zostaną automatycznie wywnioskowane z zawartości pliku. Można użyć argumentu HEADER_ROW, aby określić istnienie wiersza nagłówka, w którym nazwy kolumn przypadków będą odczytywane z wiersza nagłówka. Aby uzyskać szczegółowe informacje, sprawdź [automatyczne odnajdowanie schematów](#automatic-schema-discovery).
     
@@ -231,7 +231,7 @@ Specyficzne dla analizatora CSV wersja 2,0:
 
 HEADER_ROW = {TRUE | FALSE
 
-Określa, czy plik CSV zawiera wiersz nagłówka. Wartość domyślna to FALSE. Obsługiwane w PARSER_VERSION = "2.0". Jeśli wartość jest równa TRUE, nazwy kolumn są odczytywane z pierwszego wiersza zgodnie z argumentem FIRSTROW.
+Określa, czy plik CSV zawiera wiersz nagłówka. Wartość domyślna to FALSE. Obsługiwane w PARSER_VERSION = "2.0". Jeśli wartość jest równa TRUE, nazwy kolumn są odczytywane z pierwszego wiersza zgodnie z argumentem FIRSTROW. Jeśli wartość jest równa TRUE i schemat jest określony przy użyciu WITH, powiązanie nazw kolumn będzie odbywać się według nazwy kolumny, a nie pozycji porządkowej.
 
 DataFileType = {"char" | "widechar"}
 
@@ -281,7 +281,7 @@ Pliki Parquet zawierają opisy typów dla każdej kolumny. W poniższej tabeli o
 | ELEMENTEM |INT (8, FAŁSZ) |tinyint |
 | ELEMENTEM |INT (16, FAŁSZ) |int |
 | ELEMENTEM |INT (32, false) |bigint |
-| ELEMENTEM |DATE |data |
+| ELEMENTEM |DATE |date |
 | ELEMENTEM |DOKŁADNOŚCI |decimal |
 | ELEMENTEM |CZAS (MŁYNER)|time |
 | INT64 |INT (64, true) |bigint |

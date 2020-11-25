@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: 82818c8db326889079948cd2b32b2ed0be6ab50d
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: e33f48c9496ffa3cca9d8b1aa71d524be9a311bb
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990758"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122250"
 ---
 # <a name="iot-central-device-development-overview"></a>Omówienie tworzenia urządzenia usługi IoT Central
 
@@ -135,7 +135,7 @@ Aby zaimplementować zachowanie urządzenia, użyj jednego z [zestawów SDK urz�
 
 Aby uzyskać więcej informacji na temat roli szablonów urządzeń, zobacz [co to są szablony urządzeń?](./concepts-device-templates.md)
 
-Aby zapoznać się z przykładowym kodem, zobacz [Tworzenie i łączenie aplikacji klienckiej Node.js](./tutorial-connect-device-nodejs.md) lub [Tworzenie i łączenie aplikacji klienckiej języka Python](./tutorial-connect-device-python.md).
+Aby zapoznać się z przykładowym kodem, zobacz [Tworzenie i łączenie aplikacji klienckiej](./tutorial-connect-device.md).
 
 ### <a name="languages-and-sdks"></a>Języki i zestawy SDK
 
@@ -143,6 +143,6 @@ Aby uzyskać więcej informacji na temat obsługiwanych języków i zestawów SD
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli jesteś deweloperem urządzenia i chcesz szczegółowe do pewnego kodu, sugerowanym następnym krokiem jest [utworzenie i podłączenie aplikacji klienckiej do aplikacji IoT Central platformy Azure](./tutorial-connect-device-nodejs.md).
+Jeśli jesteś deweloperem urządzenia i chcesz szczegółowe do pewnego kodu, sugerowanym następnym krokiem jest [utworzenie i podłączenie aplikacji klienckiej do aplikacji IoT Central platformy Azure](./tutorial-connect-device.md).
 
 Jeśli chcesz dowiedzieć się więcej o korzystaniu z IoT Central, sugerowane następne kroki to wypróbowanie przewodnika Szybki Start, rozpoczynając od [tworzenia aplikacji IoT Central platformy Azure](./quick-deploy-iot-central.md).
