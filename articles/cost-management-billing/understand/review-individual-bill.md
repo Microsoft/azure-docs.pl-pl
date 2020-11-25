@@ -11,11 +11,11 @@ ms.date: 10/26/2020
 ms.author: banders
 ms.custom: contentperfq2
 ms.openlocfilehash: c4a9a981017becd0d9343d9c287a4fe9341d7c43
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678138"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006153"
 ---
 # <a name="tutorial-review-your-individual-azure-subscription-bill"></a>Samouczek: Przeglądanie indywidualnego rachunku za subskrypcję platformy Azure
 
@@ -33,7 +33,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Musisz mieć płatne konto rozliczeniowe *programu Microsoft Online Services Program* . Konto to jest tworzone podczas rejestrowania się na platformie Azure za pomocą witryny internetowej platformy Azure. Na przykład jeśli masz konto z płatnością zgodnie z rzeczywistym użyciem lub subskrypcję programu Visual Studio.
+Musisz mieć płatne konto rozliczeniowe *programu Microsoft Online Services Program*. Konto to jest tworzone podczas rejestrowania się na platformie Azure za pomocą witryny internetowej platformy Azure. Na przykład jeśli masz konto z płatnością zgodnie z rzeczywistym użyciem lub subskrypcję programu Visual Studio.
 
 Faktury dla kont bezpłatnych na platformie Azure są tworzone tylko w przypadku przekroczenia kwoty miesięcznych środków.
 
@@ -49,19 +49,19 @@ Od dnia zasubskrybowania platformy Azure musi upłynąć więcej niż 30 dni. Na
 
 Pierwszym krokiem w celu porównania użycia i kosztów jest pobranie faktury i pliku użycia. Plik CSV ze szczegółami użycia przedstawia opłaty według okresu rozliczeniowego i dziennego użycia. Nie zawiera on żadnych informacji podatkowych. Aby pobrać pliki, musisz być administratorem konta lub mieć rolę właściciela.
 
-W witrynie Azure Portal wpisz *subskrypcje* w polu wyszukiwania, a następnie kliknij pozycję **Subskrypcje** .
+W witrynie Azure Portal wpisz *subskrypcje* w polu wyszukiwania, a następnie kliknij pozycję **Subskrypcje**.
 
 [![Przechodzenie do subskrypcji](./media/review-individual-bill/navigate-subscriptions.png)](./media/review-individual-bill/navigate-subscriptions.png#lightbox)
 
 Na liście subskrypcji kliknij daną subskrypcję.
 
-W obszarze **Rozliczenia** kliknij pozycję **Faktury** .
+W obszarze **Rozliczenia** kliknij pozycję **Faktury**.
 
 Na liście faktur poszukaj faktury, którą chcesz pobrać, a następnie kliknij symbol pobierania. Może zajść potrzeba zmiany przedziału czasu, aby wyświetlić starsze faktury. Generowanie pliku szczegółów użycia i faktury może potrwać kilka minut.
 
 ![Zrzut ekranu pokazujący okresy rozliczeniowe, opcję pobierania i łączne opłaty za każdy okres rozliczeniowy](./media/review-individual-bill/download-invoice.png)
 
-W oknie Pobierz użycie i opłaty kliknij pozycję **Pobierz plik CSV** oraz pozycję **Pobierz fakturę** .
+W oknie Pobierz użycie i opłaty kliknij pozycję **Pobierz plik CSV** oraz pozycję **Pobierz fakturę**.
 
 ![Zrzut ekranu przedstawiający stronę Pobieranie faktur i danych użycia](./media/review-individual-bill/usageandinvoice.png)
 
@@ -98,7 +98,7 @@ Opłaty za użycie są wyświetlane na poziomie miernika. Poniższe warunki ozna
 |Stawka | EffectivePrice|
 | Wartość | Koszty |
 
-Sekcja **Opłaty za użycie** Twojej faktury zawiera łączną wartość (koszt) poszczególnych mierników zużytą w okresie rozliczeniowym. Na przykład na poniższej ilustracji przedstawiono opłaty za użycie usługi Azure Storage dla zasobu *P10 Disks* .
+Sekcja **Opłaty za użycie** Twojej faktury zawiera łączną wartość (koszt) poszczególnych mierników zużytą w okresie rozliczeniowym. Na przykład na poniższej ilustracji przedstawiono opłaty za użycie usługi Azure Storage dla zasobu *P10 Disks*.
 
 ![Fakturowanie opłat za użycie](./media/review-individual-bill/invoice-usage-charges.png)
 
@@ -110,7 +110,7 @@ Zsumowana wartość kolumny *Cost* (Koszt) powinna odpowiadać dokładnie koszto
 
 ## <a name="compare-billed-charges-and-usage-in-cost-analysis"></a>Porównywanie naliczonych opłat i użycia w analizie kosztów
 
-Analiza kosztów w witrynie Azure Portal może również pomóc w sprawdzeniu opłat. Aby uzyskać dostęp do krótkiego przeglądu zafakturowanego użycia i opłat, wybierz swoją subskrypcję na stronie Subskrypcje w witrynie Azure Portal. Kliknij pozycję **Analiza kosztów** , a następnie na liście widoków kliknij pozycję **Szczegóły faktury** .
+Analiza kosztów w witrynie Azure Portal może również pomóc w sprawdzeniu opłat. Aby uzyskać dostęp do krótkiego przeglądu zafakturowanego użycia i opłat, wybierz swoją subskrypcję na stronie Subskrypcje w witrynie Azure Portal. Kliknij pozycję **Analiza kosztów**, a następnie na liście widoków kliknij pozycję **Szczegóły faktury**.
 
 ![Przykład pokazujący wybór pozycji Szczegóły faktury](./media/review-individual-bill/cost-analysis-select-invoice-details.png)
 
@@ -157,7 +157,7 @@ Liczniki, które zostały użyte do obliczenia rachunku, są pokazywane w pliku 
 
 <a name="payment"></a>
 
-W przypadku skonfigurowania karty kredytowej jako formy płatności opłata zostanie naliczona automatycznie w ciągu 10 dni od zakończenia okresu rozliczeniowego. Na wyciągu z karty kredytowej będzie to uwzględnione jako **MSFT Azure** .
+W przypadku skonfigurowania karty kredytowej jako formy płatności opłata zostanie naliczona automatycznie w ciągu 10 dni od zakończenia okresu rozliczeniowego. Na wyciągu z karty kredytowej będzie to uwzględnione jako **MSFT Azure**.
 
 Aby zmienić kartę kredytową, która będzie obciążana, zobacz temat [Add, update, or remove a credit card for Azure](../manage/change-credit-card.md) (Dodawanie, aktualizowanie lub usuwanie karty kredytowej dla platformy Azure).
 
