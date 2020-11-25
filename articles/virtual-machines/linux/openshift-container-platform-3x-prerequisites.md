@@ -10,11 +10,11 @@ ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
 ms.openlocfilehash: 68bd748e890659e4b79d76e4ccab038f251a937a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87368187"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016033"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Wspólne wymagania wstępne dotyczące wdrażania OpenShift Container platform 3,11 na platformie Azure
 
@@ -46,7 +46,7 @@ W tym przewodniku opisano sposób tworzenia artefaktów skojarzonych z wymagania
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure 
+## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure 
 Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [AZ login](/cli/azure/reference-index) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie lub kliknij przycisk **Wypróbuj** , aby użyć Cloud Shell.
 
 ```azurecli
@@ -138,7 +138,7 @@ Aby uzyskać więcej informacji o jednostkach usługi, zobacz [Tworzenie jednost
 
 ## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>Wymagania wstępne dotyczące Menedżer zasobów szablonu
 
-Należy utworzyć wpisy tajne dla prywatnego klucza SSH (**sshPrivateKey**), klucza tajnego klienta usługi Azure AD (**aadClientSecret**), hasła administratora OpenShift (**OpenshiftPassword**) oraz hasła Menedżera subskrypcji Red Hat lub klucza aktywacji (**rhsmPasswordOrActivationKey**).  Ponadto jeśli są używane niestandardowe certyfikaty TLS/SSL, należy utworzyć sześć dodatkowych kluczy tajnych — **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile**i **masterkeyfile**.  Te parametry zostaną omówione bardziej szczegółowo.
+Należy utworzyć wpisy tajne dla prywatnego klucza SSH (**sshPrivateKey**), klucza tajnego klienta usługi Azure AD (**aadClientSecret**), hasła administratora OpenShift (**OpenshiftPassword**) oraz hasła Menedżera subskrypcji Red Hat lub klucza aktywacji (**rhsmPasswordOrActivationKey**).  Ponadto jeśli są używane niestandardowe certyfikaty TLS/SSL, należy utworzyć sześć dodatkowych kluczy tajnych — **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile** i **masterkeyfile**.  Te parametry zostaną omówione bardziej szczegółowo.
 
 Szablon odwołuje się do określonych nazw wpisów tajnych, więc **należy** użyć pogrubionych nazw wymienionych powyżej (z uwzględnieniem wielkości liter).
 

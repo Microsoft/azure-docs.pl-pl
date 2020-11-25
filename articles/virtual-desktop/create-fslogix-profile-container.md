@@ -7,11 +7,11 @@ ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 6a9f2c62d8e7f17f6ea8377982c79fef3dfbb97c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88002814"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016832"
 ---
 # <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Tworzenie kontenera profilu przy użyciu Azure NetApp Files i AD DS
 
@@ -75,10 +75,10 @@ Aby rozpocząć, musisz skonfigurować konto Azure NetApp Files.
 8. Wybierz przycisk **Add** (Dodaj).
 9. Gdy zostanie otwarta karta **nowe konto NetApp** , wprowadź następujące wartości:
 
-    - W obszarze **Nazwa**wprowadź nazwę konta usługi NetApp.
-    - W obszarze **subskrypcja**wybierz subskrypcję dla konta magazynu skonfigurowanego w kroku 4 z menu rozwijanego.
-    - W obszarze **Grupa zasobów**wybierz istniejącą grupę zasobów z menu rozwijanego lub Utwórz nową, wybierając pozycję **Utwórz nowe**.
-    - W polu **Lokalizacja**wybierz region konta usługi NetApp z menu rozwijanego. Ten region musi być tym samym regionem co maszyny wirtualne hosta sesji.
+    - W obszarze **Nazwa** wprowadź nazwę konta usługi NetApp.
+    - W obszarze **subskrypcja** wybierz subskrypcję dla konta magazynu skonfigurowanego w kroku 4 z menu rozwijanego.
+    - W obszarze **Grupa zasobów** wybierz istniejącą grupę zasobów z menu rozwijanego lub Utwórz nową, wybierając pozycję **Utwórz nowe**.
+    - W polu **Lokalizacja** wybierz region konta usługi NetApp z menu rozwijanego. Ten region musi być tym samym regionem co maszyny wirtualne hosta sesji.
 
    >[!NOTE]
    >Azure NetApp Files obecnie nie obsługuje instalowania woluminu w różnych regionach.
@@ -94,8 +94,8 @@ Następnie utwórz nową pulę pojemności:
 3. Wybierz pozycję **Dodaj pulę**.
 4. Gdy zostanie otwarta karta **Nowa pula pojemności** , wprowadź następujące wartości:
 
-    - W polu **Nazwa**wprowadź nazwę nowej puli pojemności.
-    - W obszarze **poziom usług**wybierz żądaną wartość z menu rozwijanego. Zalecamy korzystanie z wersji **Premium** dla większości środowisk.
+    - W polu **Nazwa** wprowadź nazwę nowej puli pojemności.
+    - W obszarze **poziom usług** wybierz żądaną wartość z menu rozwijanego. Zalecamy korzystanie z wersji **Premium** dla większości środowisk.
        >[!NOTE]
        >Ustawienie Premium zapewnia minimalną przepływność dostępną dla poziomu usługi Premium, czyli 256 MB/s. Może być konieczne dostosowanie tej przepływności dla środowiska produkcyjnego. Końcowa przepływność jest oparta na relacji opisanej w obszarze [limity przepływności](../azure-netapp-files/azure-netapp-files-service-levels.md).
     - Dla **rozmiaru (TIB)** wprowadź rozmiar puli pojemności, który najlepiej odpowiada Twoim potrzebom. Minimalny rozmiar to 4 TiB.
@@ -113,11 +113,11 @@ Po tym celu należy przyłączyć połączenie Active Directory.
 
 2. Wprowadź następujące wartości na stronie **Dołączanie Active Directory** , aby dołączyć do połączenia:
 
-    - W przypadku **podstawowej usługi DNS**wprowadź adres IP serwera DNS w środowisku, który może rozpoznać nazwę domeny.
-    - W obszarze **domena**wprowadź w pełni kwalifikowaną nazwę domeny (FQDN).
+    - W przypadku **podstawowej usługi DNS** wprowadź adres IP serwera DNS w środowisku, który może rozpoznać nazwę domeny.
+    - W obszarze **domena** wprowadź w pełni kwalifikowaną nazwę domeny (FQDN).
     - Dla **prefiksu serwer SMB (konto komputera)** wpisz ciąg, który ma zostać dołączony do nazwy konta komputera.
-    - W polu **Nazwa użytkownika**wprowadź nazwę konta z uprawnieniami do wykonywania przyłączania do domeny.
-    - W polu **hasło**wprowadź hasło konta.
+    - W polu **Nazwa użytkownika** wprowadź nazwę konta z uprawnieniami do wykonywania przyłączania do domeny.
+    - W polu **hasło** wprowadź hasło konta.
 
 ## <a name="create-a-new-volume"></a>Utwórz nowy wolumin
 
@@ -127,11 +127,11 @@ Następnie musisz utworzyć nowy wolumin.
 
 2. Po otwarciu karty **Utwórz wolumin** wprowadź następujące wartości:
 
-    - W polu **Nazwa woluminu**wprowadź nazwę nowego woluminu.
-    - W obszarze **Pula pojemności**wybierz właśnie utworzoną pulę pojemności z menu rozwijanego.
+    - W polu **Nazwa woluminu** wprowadź nazwę nowego woluminu.
+    - W obszarze **Pula pojemności** wybierz właśnie utworzoną pulę pojemności z menu rozwijanego.
     - Dla **limitu przydziału (GIB)** wprowadź rozmiar woluminu odpowiedni dla danego środowiska.
-    - W obszarze **Sieć wirtualna**wybierz istniejącą sieć wirtualną z połączeniem z kontrolerem domeny z menu rozwijanego.
-    - W obszarze **podsieć**wybierz pozycję **Utwórz nową**. Należy pamiętać, że ta podsieć zostanie delegowana do Azure NetApp Files.
+    - W obszarze **Sieć wirtualna** wybierz istniejącą sieć wirtualną z połączeniem z kontrolerem domeny z menu rozwijanego.
+    - W obszarze **podsieć** wybierz pozycję **Utwórz nową**. Należy pamiętać, że ta podsieć zostanie delegowana do Azure NetApp Files.
 
 3.  Wybierz pozycję **Dalej: \> \> Protokół** , aby otworzyć kartę Protokół i skonfigurować parametry dostępu do woluminu.
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: f2dd7cac8370c261f24f5587e801bd621fbdb0f0
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151381"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017002"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Uwierzytelnianie urządzenia podrzędnego w usłudze Azure IoT Hub
 
@@ -144,7 +144,7 @@ Ta sekcja jest oparta na instrukcji przedstawionych w IoT Hub artykule [Konfigur
 
 2. Postępuj zgodnie z instrukcjami znajdującymi się w sekcji [Rejestrowanie certyfikatów urzędu certyfikacji x. 509 w usłudze IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub) tematu *Konfigurowanie zabezpieczeń X. 509 w usłudze Azure IoT Hub*. W tej sekcji wykonaj następujące czynności:
 
-   1. Przekaż certyfikat głównego urzędu certyfikacji. Jeśli używasz certyfikatów demonstracyjnych, główny urząd certyfikacji jest ** \<path> /certs/Azure-IoT-test-Only.root.ca.CERT.pem**.
+   1. Przekaż certyfikat głównego urzędu certyfikacji. Jeśli używasz certyfikatów demonstracyjnych, główny urząd certyfikacji jest **\<path> /certs/Azure-IoT-test-Only.root.ca.CERT.pem**.
 
    2. Sprawdź, czy jesteś własnym certyfikatem głównego urzędu certyfikacji.
 

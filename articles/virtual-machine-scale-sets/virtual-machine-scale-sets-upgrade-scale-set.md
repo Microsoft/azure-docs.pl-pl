@@ -10,11 +10,11 @@ ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
 ms.openlocfilehash: 7577c8510746d1140c1f8b70081f600d992ae512
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745829"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016679"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modify a virtual machine scale set (Modyfikowanie zestawu skalowania maszyn wirtualnych)
 
@@ -354,7 +354,7 @@ Niektóre właściwości można zmienić z wyjątkami w zależności od bieżąc
 ### <a name="properties-that-require-deallocation-to-change"></a>Właściwości, które wymagają zmiany alokacji
 Niektóre właściwości można zmienić tylko na określone wartości, jeśli nie zostaną cofnięte alokacje maszyn wirtualnych w zestawie skalowania. Te właściwości obejmują:
 
-- **Nazwa jednostki SKU** — Jeśli nowa jednostka SKU maszyny wirtualnej nie jest obsługiwana na urządzeniu, na którym znajduje się zestaw skalowania, musisz cofnąć alokację maszyn wirtualnych w zestawie skalowania Przed zmodyfikowaniem nazwy jednostki SKU. Aby uzyskać więcej informacji, zobacz [jak zmienić rozmiar maszyny wirtualnej platformy Azure](../virtual-machines/windows/resize-vm.md).
+- **Nazwa jednostki SKU**— Jeśli nowa jednostka SKU maszyny wirtualnej nie jest obsługiwana na urządzeniu, na którym znajduje się zestaw skalowania, musisz cofnąć alokację maszyn wirtualnych w zestawie skalowania Przed zmodyfikowaniem nazwy jednostki SKU. Aby uzyskać więcej informacji, zobacz [jak zmienić rozmiar maszyny wirtualnej platformy Azure](../virtual-machines/windows/resize-vm.md).
 
 
 ## <a name="vm-specific-updates"></a>Aktualizacje specyficzne dla maszyny wirtualnej
@@ -364,7 +364,7 @@ Niektóre modyfikacje mogą być stosowane do określonych maszyn wirtualnych za
 ## <a name="scenarios"></a>Scenariusze
 
 ### <a name="application-updates"></a>Aktualizacje aplikacji
-Jeśli aplikacja jest wdrażana w zestawie skalowania za pomocą rozszerzeń, aktualizacja konfiguracji rozszerzenia powoduje, że aplikacja zostanie zaktualizowana zgodnie z zasadami uaktualniania. Na przykład jeśli masz nową wersję skryptu do uruchomienia w niestandardowym rozszerzeniu skryptu, możesz zaktualizować właściwość *fileUris* , aby wskazywała na nowy skrypt. W niektórych przypadkach można wymusić aktualizację, nawet jeśli konfiguracja rozszerzenia nie zmieniła się (na przykład skrypt został zaktualizowany bez zmiany identyfikatora URI skryptu). W takich przypadkach można zmodyfikować *forceUpdateTag* , aby wymusić aktualizację. Platforma Azure nie interpretuje tej właściwości. W przypadku zmiany wartości nie ma wpływu na sposób uruchamiania rozszerzenia. Zmiana po prostu wymusza ponowne uruchomienie rozszerzenia. Aby uzyskać więcej informacji na temat *forceUpdateTag* , zobacz [dokumentację interfejsu API REST dla rozszerzeń](/rest/api/compute/virtualmachineextensions/createorupdate). Należy pamiętać, że *forceUpdateTag* można używać ze wszystkimi rozszerzeniami, a nie tylko z rozszerzeniem niestandardowego skryptu.
+Jeśli aplikacja jest wdrażana w zestawie skalowania za pomocą rozszerzeń, aktualizacja konfiguracji rozszerzenia powoduje, że aplikacja zostanie zaktualizowana zgodnie z zasadami uaktualniania. Na przykład jeśli masz nową wersję skryptu do uruchomienia w niestandardowym rozszerzeniu skryptu, możesz zaktualizować właściwość *fileUris* , aby wskazywała na nowy skrypt. W niektórych przypadkach można wymusić aktualizację, nawet jeśli konfiguracja rozszerzenia nie zmieniła się (na przykład skrypt został zaktualizowany bez zmiany identyfikatora URI skryptu). W takich przypadkach można zmodyfikować *forceUpdateTag* , aby wymusić aktualizację. Platforma Azure nie interpretuje tej właściwości. W przypadku zmiany wartości nie ma wpływu na sposób uruchamiania rozszerzenia. Zmiana po prostu wymusza ponowne uruchomienie rozszerzenia. Aby uzyskać więcej informacji na temat *forceUpdateTag*, zobacz [dokumentację interfejsu API REST dla rozszerzeń](/rest/api/compute/virtualmachineextensions/createorupdate). Należy pamiętać, że *forceUpdateTag* można używać ze wszystkimi rozszerzeniami, a nie tylko z rozszerzeniem niestandardowego skryptu.
 
 Jest ona również powszechna w przypadku aplikacji wdrażanych za pomocą obrazu niestandardowego. Ten scenariusz został omówiony w poniższej sekcji.
 
@@ -379,7 +379,7 @@ W przypadku używania obrazów niestandardowych można zaktualizować obraz, akt
 ## <a name="examples"></a>Przykłady
 
 ### <a name="update-the-os-image-for-your-scale-set"></a>Aktualizowanie obrazu systemu operacyjnego dla zestawu skalowania
-Może istnieć zestaw skalowania, który uruchamia starą wersję Ubuntu LTS 16,04. Chcesz zaktualizować do nowszej wersji Ubuntu LTS 16,04, takiej jak wersja *16.04.201801090* . Właściwość wersji odwołania do obrazu nie jest częścią listy, dlatego można bezpośrednio modyfikować te właściwości przy użyciu jednego z następujących poleceń:
+Może istnieć zestaw skalowania, który uruchamia starą wersję Ubuntu LTS 16,04. Chcesz zaktualizować do nowszej wersji Ubuntu LTS 16,04, takiej jak wersja *16.04.201801090*. Właściwość wersji odwołania do obrazu nie jest częścią listy, dlatego można bezpośrednio modyfikować te właściwości przy użyciu jednego z następujących poleceń:
 
 - Azure PowerShell z opcją [Update-AzVmss](/powershell/module/az.compute/update-azvmss) w następujący sposób:
 
@@ -447,7 +447,7 @@ Załóżmy, że masz zestaw skalowania z Azure Load Balancer i chcesz zamienić 
     ```
 
 >[!NOTE]
-> W tych poleceniach przyjęto założenie, że na zestawie skalowania jest tylko jedna konfiguracja IP i moduł równoważenia obciążenia. Jeśli istnieje wiele, może być konieczne użycie indeksu listy innego niż *0* .
+> W tych poleceniach przyjęto założenie, że na zestawie skalowania jest tylko jedna konfiguracja IP i moduł równoważenia obciążenia. Jeśli istnieje wiele, może być konieczne użycie indeksu listy innego niż *0*.
 
 
 ## <a name="next-steps"></a>Następne kroki

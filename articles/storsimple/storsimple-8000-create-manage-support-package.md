@@ -7,11 +7,11 @@ ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 4a847b273472ecc9d2aaa3993ec9d88aa46f2e7f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973873"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017172"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Utwórz pakiet pomocy technicznej dla serii StorSimple 8000 i Zarządzaj nim
 
@@ -43,7 +43,7 @@ Możesz udostępnić ręcznie wygenerowany pakiet pomocy technicznej pomoc techn
    2. W otwartym oknie dialogowym wprowadź hasło administratora urządzenia. Domyślne hasło to _Password1_.
      
       ![Okno dialogowe poświadczeń programu PowerShell](./media/storsimple-8000-create-manage-support-package/IC740962.png)
-   3. Wybierz przycisk **OK**.
+   3. Wybierz pozycję **OK**.
    4. W wierszu polecenia wprowadź:
      
       `Enter-PSSession $MS`

@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ms.openlocfilehash: 5427077a4b07917c8852d0a63c815195e776b9de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085195"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017036"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Zarządzanie zasobami klastra Apache Spark w usłudze Azure HDInsight
 
@@ -29,12 +29,12 @@ Za pomocą interfejsu użytkownika PRZĘDZy można monitorować aplikacje, któr
 
 1. W [Azure Portal](https://portal.azure.com/)Otwórz klaster Spark. Aby uzyskać więcej informacji, zobacz Wyświetlanie [i wyświetlanie klastrów](../hdinsight-administer-use-portal-linux.md#showClusters).
 
-2. Z **pulpitów nawigacyjnych klastra**wybierz pozycję **przędza**. Po wyświetleniu monitu wprowadź poświadczenia administratora dla klastra Spark.
+2. Z **pulpitów nawigacyjnych klastra** wybierz pozycję **przędza**. Po wyświetleniu monitu wprowadź poświadczenia administratora dla klastra Spark.
 
     ![Uruchom interfejs użytkownika PRZĘDZy](./media/apache-spark-resource-manager/azure-portal-dashboard-yarn.png)
 
    > [!TIP]  
-   > Alternatywnie można również uruchomić interfejs użytkownika PRZĘDZy z interfejsu użytkownika Ambari. W interfejsie użytkownika Ambari **Przejdź do**  >  **łącza szybkie linki**do usługi  >  **Active**  >  **Menedżer zasobów**.
+   > Alternatywnie można również uruchomić interfejs użytkownika PRZĘDZy z interfejsu użytkownika Ambari. W interfejsie użytkownika Ambari **Przejdź do**  >  **łącza szybkie linki** do usługi  >  **Active**  >  **Menedżer zasobów**.
 
 ## <a name="optimize-clusters-for-spark-applications"></a>Optymalizowanie klastrów dla aplikacji platformy Spark
 

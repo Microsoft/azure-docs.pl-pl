@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 6fb3c9b6dbbab036ddb00edd7e1d5980bb425ebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 881a7fc915ab986577599b85f8412fa8107f7902
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326120"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017393"
 ---
 # <a name="encryption-scopes-for-blob-storage-preview"></a>Zakresy szyfrowania dla usługi BLOB Storage (wersja zapoznawcza)
 
@@ -52,8 +52,8 @@ Po wyłączeniu zakresu szyfrowania nie są już naliczane opłaty. Wyłącz wsz
 
 Jeśli zakres szyfrowania jest chroniony przy użyciu kluczy zarządzanych przez klienta, można również usunąć skojarzony klucz w magazynie kluczy, aby wyłączyć zakres szyfrowania. Należy pamiętać, że klucze zarządzane przez klienta są chronione przez nietrwałe usuwanie i przeczyszczanie ochrony w magazynie kluczy, a usunięty klucz podlega zachowaniem zdefiniowanym przez te właściwości. Aby uzyskać więcej informacji, zobacz jeden z następujących tematów w dokumentacji Azure Key Vault:
 
-- [Jak używać nietrwałego usuwania przy użyciu programu PowerShell](../../key-vault/general/soft-delete-powershell.md)
-- [Jak używać nietrwałego usuwania przy użyciu interfejsu wiersza polecenia](../../key-vault/general/soft-delete-cli.md)
+- [Jak używać nietrwałego usuwania przy użyciu programu PowerShell](../../key-vault/general/key-vault-recovery.md)
+- [Jak używać nietrwałego usuwania przy użyciu interfejsu wiersza polecenia](../../key-vault/general/key-vault-recovery.md)
 
 > [!NOTE]
 > Nie można usunąć zakresu szyfrowania.

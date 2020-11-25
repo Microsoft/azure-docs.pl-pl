@@ -1,5 +1,5 @@
 ---
-title: plik dołączany
+title: Plik dyrektywy include
 description: Plik dyrektywy include, który zawiera kod służący tworzenia projektu zaplecza interfejsu WebAPI platformy ASP.NET.
 services: notification-hubs
 author: spelluru
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 3db9811322d27ab287fa568eeeffcb5f4d57bdf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f490b6f25112ed8a10bbd865070bd07ea3ee84f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86530180"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016958"
 ---
 ## <a name="create-the-webapi-project"></a>Tworzenie projektu interfejsu WebAPI
 
@@ -40,7 +40,7 @@ Utwórz nowe zaplecze interfejsu WebAPI na platformie ASP.NET, wykonując nastę
 2. Wybierz pozycję **Eksplorator serwera** i zaloguj się do konta platformy Azure. Aby tworzyć zasoby witryny internetowej na swoim koncie, musisz się zalogować.
 
 3. W programie Visual Studio kliknij prawym przyciskiem myszy rozwiązanie programu Visual Studio, wskaż polecenie **Dodaj** i kliknij pozycję **Nowy projekt**.
-4. Rozwiń węzeł **Visual C#**, wybierz pozycję **Internet**i kliknij pozycję **Aplikacja internetowa ASP.NET**.
+4. Rozwiń węzeł **Visual C#**, wybierz pozycję **Internet** i kliknij pozycję **Aplikacja internetowa ASP.NET**.
 
 5. W polu **Nazwa** wpisz ciąg **AppBackend**, a następnie wybierz przycisk **OK**.
 
@@ -63,7 +63,7 @@ Utwórz nowe zaplecze interfejsu WebAPI na platformie ASP.NET, wykonując nastę
 
 ## <a name="authenticate-clients-to-the-webapi-backend"></a>Uwierzytelnianie klientów w zapleczu interfejsu WebAPI
 
-W tej sekcji tworzysz nową klasę procedury obsługi komunikatów o nazwie **AuthenticationTestHandler** dla nowego zaplecza. Ta klasa pochodzi od klasy [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) i jest dodawana jako procedura obsługi komunikatów, aby umożliwić przetwarzanie wszystkich żądań przychodzących do zaplecza.
+W tej sekcji tworzysz nową klasę procedury obsługi komunikatów o nazwie **AuthenticationTestHandler** dla nowego zaplecza. Ta klasa pochodzi od klasy [DelegatingHandler](/previous-versions/visualstudio/hh193679(v=vs.118)) i jest dodawana jako procedura obsługi komunikatów, aby umożliwić przetwarzanie wszystkich żądań przychodzących do zaplecza.
 
 1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt **AppBackend**, wybierz polecenie **Dodaj**, a następnie wybierz pozycję **Klasa**.
 2. Nadaj nowej klasie nazwę **AuthenticationTestHandler.cs**, a następnie wybierz pozycję **Dodaj**, aby wygenerować klasę. Ta klasa służy do uwierzytelniania użytkowników za pomocą *Uwierzytelniania podstawowego* dla uproszczenia. Twoja aplikacja może używać dowolnego schematu uwierzytelniania.
@@ -88,7 +88,7 @@ W tej sekcji tworzysz nową klasę procedury obsługi komunikatów o nazwie **Au
 
    W przeciwnym razie żądanie jest odrzucane. To uwierzytelnianie nie reprezentuje rzeczywistego podejścia do uwierzytelniania i autoryzacji. Jest to wyłącznie prosty przykład na potrzeby tego samouczka.
 
-   Jeśli komunikat żądania jest uwierzytelniany i autoryzowany przez klasę `AuthenticationTestHandler`, użytkownik uwierzytelniania podstawowego jest dołączany do bieżącego żądania w obiekcie [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). Informacje o użytkowniku w obiekcie HttpContext zostaną później użyte przez inny kontroler (RegisterController) w celu dodania [tagu](https://msdn.microsoft.com/library/azure/dn530749.aspx) do żądania rejestracji powiadomienia.
+   Jeśli komunikat żądania jest uwierzytelniany i autoryzowany przez klasę `AuthenticationTestHandler`, użytkownik uwierzytelniania podstawowego jest dołączany do bieżącego żądania w obiekcie [HttpContext](/dotnet/api/system.web.httpcontext.current). Informacje o użytkowniku w obiekcie HttpContext zostaną później użyte przez inny kontroler (RegisterController) w celu dodania [tagu](/previous-versions/azure/azure-services/dn530749(v=azure.100)) do żądania rejestracji powiadomienia.
 
     ```csharp
     public class AuthenticationTestHandler : DelegatingHandler
@@ -333,7 +333,7 @@ W tej sekcji dodasz nowego kontrolera, który opisuje sposób wysyłania powiado
 
     Ten kod wysyła typ powiadomienia na podstawie parametru `pns` usługi powiadomień platformy (PNS, Platform Notification Service). Wartość `to_tag` służy do ustawiania tagu *username* w komunikacie. Ten tag musi być zgodny z tagiem username aktywnej rejestracji centrum powiadomień. Komunikat powiadomienia jest pobierany z treści żądania POST i formatowany dla docelowej usługi PNS.
 
-    W zależności od usługi PNS używanej do odbierania powiadomień przez obsługiwane urządzenia powiadomienia są obsługiwane przy użyciu różnych formatów. Na przykład w przypadku urządzeń z systemem Windows można użyć [wyskakujących powiadomień za pomocą usługi WNS](https://msdn.microsoft.com/library/windows/apps/br230849.aspx), które nie są bezpośrednio obsługiwane przez inną usługę PNS. W takim przypadku zaplecze musi sformatować powiadomienie jako obsługiwane powiadomienie w przypadku usługi PNS urządzeń, które planujesz obsługiwać. Następnie użyj odpowiedniego interfejsu API wysyłania w [klasie NotificationHubClient](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx).
+    W zależności od usługi PNS używanej do odbierania powiadomień przez obsługiwane urządzenia powiadomienia są obsługiwane przy użyciu różnych formatów. Na przykład w przypadku urządzeń z systemem Windows można użyć [wyskakujących powiadomień za pomocą usługi WNS](/uwp/schemas/tiles/toastschema/schema-root), które nie są bezpośrednio obsługiwane przez inną usługę PNS. W takim przypadku zaplecze musi sformatować powiadomienie jako obsługiwane powiadomienie w przypadku usługi PNS urządzeń, które planujesz obsługiwać. Następnie użyj odpowiedniego interfejsu API wysyłania w [klasie NotificationHubClient](/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient).
 
     ```csharp
     public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)
@@ -392,7 +392,7 @@ Następnie wdrożysz tę aplikację w witrynie internetowej platformy Azure, aby
 
 3. W oknie **Tworzenie usługi App Service** wybierz swoje konto platformy Azure. Wybierz pozycję **Zmień typ**  >  **aplikacji sieci Web**. Zachowaj wartość domyślną w polu **Nazwa aplikacji internetowej** i wybierz wartości w polach **Subskrypcja**, **Grupa zasobów** i **Plan usługi App Service**.
 
-4. Wybierz przycisk **Utwórz**.
+4. Wybierz pozycję **Utwórz**.
 
 5. Zanotuj wartość właściwości **Adres URL witryny** w sekcji **Podsumowanie**. Ten adres URL jest Twoim *punktem końcowym zaplecza* w dalszej części samouczka.
 

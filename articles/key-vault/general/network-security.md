@@ -11,11 +11,11 @@ ms.date: 10/01/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: d1b1c27fe0136220d5a1851af4a5c24102a37da1
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288624"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015557"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Konfigurowanie zapór Azure Key Vault i sieci wirtualnych
 
@@ -71,7 +71,7 @@ Aby dowiedzieć się, jak skonfigurować połączenie z linkiem prywatnym w maga
 > [!NOTE]
 > Należy pamiętać o następujących ograniczeniach konfiguracji:
 > * Dozwolone są maksymalnie 127 reguły sieci wirtualnej i 127. 
-> * Reguły sieci IP są dozwolone tylko dla publicznych adresów IP. Zakresy adresów IP zarezerwowane dla sieci prywatnych (zgodnie z definicją w dokumencie RFC 1918) nie są dozwolone w regułach adresów IP. Sieci prywatne obejmują adresy, które zaczynają się od **10.** , **172.16-31** i **192,168.** 
+> * Reguły sieci IP są dozwolone tylko dla publicznych adresów IP. Zakresy adresów IP zarezerwowane dla sieci prywatnych (zgodnie z definicją w dokumencie RFC 1918) nie są dozwolone w regułach adresów IP. Sieci prywatne obejmują adresy, które zaczynają się od **10.**, **172.16-31** i **192,168.** 
 > * W tej chwili są obsługiwane tylko adresy IPv4.
 
 ## <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
@@ -79,8 +79,8 @@ Aby dowiedzieć się, jak skonfigurować połączenie z linkiem prywatnym w maga
 Poniżej przedstawiono sposób konfigurowania zapór Key Vault i sieci wirtualnych przy użyciu Azure Portal:
 
 1. Przejdź do magazynu kluczy, który chcesz zabezpieczyć.
-2. Wybierz pozycję **Sieć** , a następnie wybierz kartę **zapory i sieci wirtualne** .
-3. W obszarze **Zezwalaj na dostęp z** , wybierz opcję **wybrane sieci**.
+2. Wybierz pozycję **Sieć**, a następnie wybierz kartę **zapory i sieci wirtualne** .
+3. W obszarze **Zezwalaj na dostęp z**, wybierz opcję **wybrane sieci**.
 4. Aby dodać istniejące sieci wirtualne do zapór i reguł sieci wirtualnej, wybierz pozycję **+ Dodaj istniejące sieci wirtualne**.
 5. W nowym bloku, który zostanie otwarty, wybierz subskrypcję, sieci wirtualne i podsieci, dla których chcesz zezwolić na dostęp do tego magazynu kluczy. Jeśli wybrane sieci wirtualne i podsieci nie mają włączonych punktów końcowych usługi, potwierdź, że chcesz włączyć punkty końcowe usługi, a następnie wybierz pozycję **Włącz**. Wprowadzenie zmian może potrwać do 15 minut.
 6. W obszarze **sieci IP** Dodaj zakresy adresów IPv4, wpisując zakresy adresów IPv4 w [notacji CIDR (bezklasowe Routing między domenami)](https://tools.ietf.org/html/rfc4632) lub pojedynczych adresów IP.

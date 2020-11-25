@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: cynthn
 ms.openlocfilehash: eee32dc7edd4256dd2bd120609504042d7ab78ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836890"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016084"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Instalowanie bazy danych MySQL na maszynie wirtualnej z systemem OpenSUSE Linux na platformie Azure
 
@@ -98,7 +98,7 @@ sudo reboot
 
 ## <a name="mysql-password"></a>Hasło MySQL
 
-Po zakończeniu instalacji hasło główne programu MySQL jest domyślnie puste. Uruchom skrypt ** \_ \_ instalacji bezpiecznego MySQL** , aby zabezpieczyć MySQL. Skrypt poprosi o zmianę hasła głównego programu MySQL, usunięcie kont użytkowników anonimowych, wyłączenie zdalnego logowania się, usunięcie testów baz danych i ponowne załadowanie tabeli uprawnień. 
+Po zakończeniu instalacji hasło główne programu MySQL jest domyślnie puste. Uruchom skrypt **\_ \_ instalacji bezpiecznego MySQL** , aby zabezpieczyć MySQL. Skrypt poprosi o zmianę hasła głównego programu MySQL, usunięcie kont użytkowników anonimowych, wyłączenie zdalnego logowania się, usunięcie testów baz danych i ponowne załadowanie tabeli uprawnień. 
 
 Po ponownym uruchomieniu serwera należy ponownie przeprowadzić protokół SSH do maszyny wirtualnej.
 

@@ -8,11 +8,11 @@ ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
 ms.openlocfilehash: 0806c6e0ed89c2c0f4712ec985599810119fcf89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999024"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015523"
 ---
 # <a name="monitoring-scheduled-events"></a>Scheduled Events monitorowania
 
@@ -110,7 +110,7 @@ Teraz chcemy połączyć obszar roboczy Log Analytics z maszyną wirtualną modu
     ![Nawiązywanie połączenia z maszyną wirtualną jako źródłem danych](./media/notifications/connect-to-data-source.png)
 
 1. Wyszukaj i wybierz pozycję **myCollectorVM**. 
-1. Na stronie New for **myCollectorVM**wybierz pozycję **Połącz**.
+1. Na stronie New for **myCollectorVM** wybierz pozycję **Połącz**.
 
 Spowoduje to zainstalowanie [programu Microsoft Monitoring Agent](../extensions/oms-windows.md) na maszynie wirtualnej. Połączenie maszyny wirtualnej z obszarem roboczym i zainstalowanie rozszerzenia potrwa kilka minut. 
 
@@ -118,11 +118,11 @@ Spowoduje to zainstalowanie [programu Microsoft Monitoring Agent](../extensions/
 
 1. Otwórz stronę obszaru roboczego i wybierz pozycję **Ustawienia zaawansowane**.
 1. Z menu po lewej stronie wybierz pozycję **dane** , a następnie wybierz pozycję **dzienniki zdarzeń systemu Windows**.
-1. W obszarze **zbieranie danych z poniższych dzienników zdarzeń**zacznij pisać *aplikację* , a następnie wybierz **aplikację** z listy.
+1. W obszarze **zbieranie danych z poniższych dzienników zdarzeń** zacznij pisać *aplikację* , a następnie wybierz **aplikację** z listy.
 
     ![Wybierz ustawienia zaawansowane](./media/notifications/advanced.png)
 
-1. Pozostaw zaznaczone pole wyboru **błąd**, **Ostrzeżenie**i **informacje** , a następnie wybierz pozycję **Zapisz** , aby zapisać ustawienia.
+1. Pozostaw zaznaczone pole wyboru **błąd**, **Ostrzeżenie** i **informacje** , a następnie wybierz pozycję **Zapisz** , aby zapisać ustawienia.
 
 
 > [!NOTE]
@@ -156,16 +156,16 @@ Po wypchnięciu zdarzeń do Log Analytics można uruchomić następujące [zapyt
 
 1. Wybierz przycisk **Nowa reguła alertu**. 
 1. Na stronie **Tworzenie reguły** pozostaw `collectorworkspace` jako **zasób**.
-1. W obszarze **warunek**wybierz wpis *za każdym razem, gdy przeszukiwane są <login undefined> dzienniki klienta *. Zostanie otwarta strona **Konfigurowanie logiki sygnału** .
-1. W obszarze **wartość progowa**wprowadź *0* , a następnie wybierz pozycję **gotowe**.
-1. W obszarze **Akcje**wybierz pozycję **Utwórz grupę akcji**. Zostanie otwarta strona **Dodaj grupę akcji** .
-1. W polu **Nazwa grupy akcji**wpisz *Akcja*.
-1. W polu **krótka nazwa**wpisz **Akcja**.
-1. W obszarze **Grupa zasobów**wybierz pozycję **myResourceGroupAvailability**.
+1. W obszarze **warunek** wybierz wpis *za każdym razem, gdy przeszukiwane są <login undefined> dzienniki klienta*. Zostanie otwarta strona **Konfigurowanie logiki sygnału** .
+1. W obszarze **wartość progowa** wprowadź *0* , a następnie wybierz pozycję **gotowe**.
+1. W obszarze **Akcje** wybierz pozycję **Utwórz grupę akcji**. Zostanie otwarta strona **Dodaj grupę akcji** .
+1. W polu **Nazwa grupy akcji** wpisz *Akcja*.
+1. W polu **krótka nazwa** wpisz **Akcja**.
+1. W obszarze **Grupa zasobów** wybierz pozycję **myResourceGroupAvailability**.
 1. W obszarze Akcje w polu **Nazwa akcji** wpisz **adres e-mail**, a następnie wybierz pozycję **poczta e-mail/SMS/wypychanie/głos**. Zostanie otwarta strona **wiadomości e-mail/SMS/wypychana/głosowa** .
 1. Wybierz pozycję **poczta e-mail**, wpisz adres e-mail, a następnie wybierz przycisk **OK**.
 1. Na stronie **Dodaj grupę akcji** wybierz pozycję **OK**. 
-1. Na stronie **Tworzenie reguły** w obszarze **szczegóły alertu**wpisz *alert* dla **nazwy reguły alertu**, a następnie wpisz w polu **Opis** *regułę alertu e-mail* .
+1. Na stronie **Tworzenie reguły** w obszarze **szczegóły alertu** wpisz *alert* dla **nazwy reguły alertu**, a następnie wpisz w polu **Opis** *regułę alertu e-mail* .
 1. Po zakończeniu wybierz pozycję **Utwórz regułę alertu**.
 1. Uruchom ponownie jedną z maszyn wirtualnych w zestawie dostępności. W ciągu kilku minut otrzymasz wiadomość e-mail z informacją, że alert został wyzwolony.
 

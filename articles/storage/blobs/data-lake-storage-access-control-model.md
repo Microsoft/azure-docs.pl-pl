@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.author: normesta
-ms.openlocfilehash: 3ddcbe57112251a428e11d6c164cdb1224553f98
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 65d1ef76ffae113a4b526eec75301abbfea751e7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959207"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017716"
 ---
 # <a name="access-control-model-in-azure-data-lake-storage-gen2"></a>Model kontroli dostępu w Azure Data Lake Storage Gen2
 
@@ -33,17 +33,17 @@ Ten artykuł koncentruje się na RBAC i listach kontroli dostępu platformy Azur
 
 ## <a name="role-based-access-control-azure-rbac"></a>Kontrola dostępu oparta na rolach (Azure RBAC)
 
-Funkcja RBAC platformy Azure używa przypisań ról do stosowania zestawów uprawnień do [podmiotów zabezpieczeń](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal). Podmiot zabezpieczeń to obiekt, który reprezentuje użytkownika, grupę, jednostkę usługi lub zarządzaną tożsamość, która jest zdefiniowana w Azure Active Directory (AD). Zestaw uprawnień może dać podmiotowi zabezpieczeń "duże ziarno" poziom dostępu, taki jak dostęp do odczytu lub zapisu do **wszystkich** danych na koncie magazynu lub **wszystkich** danych w kontenerze. 
+Funkcja RBAC platformy Azure używa przypisań ról do stosowania zestawów uprawnień do [podmiotów zabezpieczeń](../../role-based-access-control/overview.md#security-principal). Podmiot zabezpieczeń to obiekt, który reprezentuje użytkownika, grupę, jednostkę usługi lub zarządzaną tożsamość, która jest zdefiniowana w Azure Active Directory (AD). Zestaw uprawnień może dać podmiotowi zabezpieczeń "duże ziarno" poziom dostępu, taki jak dostęp do odczytu lub zapisu do **wszystkich** danych na koncie magazynu lub **wszystkich** danych w kontenerze. 
 
 Poniższe role zezwalają podmiotowi zabezpieczeń na dostęp do danych na koncie magazynu. 
 
 |Rola|Opis|
 |--|--|
-| [Właściciel danych obiektu blob usługi Storage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) | Pełny dostęp do kontenerów i danych magazynu obiektów BLOB. Ten dostęp pozwala podmiotowi zabezpieczeń ustawić właściciela elementu i zmodyfikować listy ACL wszystkich elementów. |
-| [Współautor danych obiektu blob usługi Storage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) | Dostęp do odczytu, zapisu i usuwania kontenerów obiektów BLOB Storage i obiektów BLOB. Ten dostęp nie zezwala podmiotowi zabezpieczeń na ustawienie własności elementu, ale może modyfikować listę kontroli dostępu elementów należących do podmiotu zabezpieczeń. |
-| [Czytelnik danych obiektu blob usługi Storage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) | Odczytywanie i wyświetlanie listy kontenerów i obiektów blob magazynu obiektów BLOB. |
+| [Właściciel danych obiektu blob usługi Storage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) | Pełny dostęp do kontenerów i danych magazynu obiektów BLOB. Ten dostęp pozwala podmiotowi zabezpieczeń ustawić właściciela elementu i zmodyfikować listy ACL wszystkich elementów. |
+| [Współautor danych obiektu blob usługi Storage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) | Dostęp do odczytu, zapisu i usuwania kontenerów obiektów BLOB Storage i obiektów BLOB. Ten dostęp nie zezwala podmiotowi zabezpieczeń na ustawienie własności elementu, ale może modyfikować listę kontroli dostępu elementów należących do podmiotu zabezpieczeń. |
+| [Czytelnik danych obiektu blob usługi Storage](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) | Odczytywanie i wyświetlanie listy kontenerów i obiektów blob magazynu obiektów BLOB. |
 
-Role, takie jak [właściciel](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner), [współautor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor), [czytelnik](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)i [konto magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) , umożliwiają podmiotowi zabezpieczeń Zarządzanie kontem magazynu, ale nie zapewniają dostępu do danych w ramach tego konta. Jednak te role (z wyłączeniem **czytnika**) mogą uzyskać dostęp do kluczy magazynu, które mogą być używane w różnych narzędziach klienta, aby uzyskać dostęp do danych.
+Role, takie jak [właściciel](../../role-based-access-control/built-in-roles.md#owner), [współautor](../../role-based-access-control/built-in-roles.md#contributor), [czytelnik](../../role-based-access-control/built-in-roles.md#reader)i [konto magazynu](../../role-based-access-control/built-in-roles.md#storage-account-contributor) , umożliwiają podmiotowi zabezpieczeń Zarządzanie kontem magazynu, ale nie zapewniają dostępu do danych w ramach tego konta. Jednak te role (z wyłączeniem **czytnika**) mogą uzyskać dostęp do kluczy magazynu, które mogą być używane w różnych narzędziach klienta, aby uzyskać dostęp do danych.
 
 ## <a name="access-control-lists-acls"></a>Listy kontroli dostępu (ACL)
 
@@ -73,7 +73,7 @@ Na poniższym diagramie przedstawiono przepływ uprawnień dla trzech typowych o
 
 W poniższej tabeli przedstawiono sposób łączenia ról platformy Azure i wpisów listy kontroli dostępu, dzięki czemu podmiot zabezpieczeń może wykonywać operacje wymienione w kolumnie **operacja** . W tej tabeli przedstawiono kolumnę, która reprezentuje każdy poziom fikcyjnej hierarchii katalogów. Istnieje kolumna katalogu głównego kontenera ( `/` ), podkatalog o nazwie **Oregon**, podkatalog katalogu Oregon o nazwie **Portland** oraz plik tekstowy w katalogu w Portland o nazwie **Data.txt**. Pojawiające się w tych kolumnach są [krótkimi](data-lake-storage-access-control.md#short-forms-for-permissions) reprezentacjami wpisów listy kontroli dostępu wymaganych do udzielenia uprawnień. **N/A** _Nie dotyczy (nie ma zastosowania_) pojawia się w kolumnie, Jeśli wpis listy ACL nie jest wymagany do wykonania operacji.
 
-|    Operacja             | Przypisana rola RBAC               |    /        | Oregon     | Biura | Data.txt |             
+|    Operacja             | Przypisana rola platformy Azure               |    /        | Oregon     | Biura | Data.txt |             
 |--------------------------|----------------------------------|-------------|-------------|-----------|----------|
 | Odczytaj Data.txt            |   Właściciel danych obiektu blob usługi Storage        | NIE DOTYCZY      | NIE DOTYCZY      | NIE DOTYCZY       | NIE DOTYCZY    |  
 |                          |   Współautor danych obiektu blob usługi Storage  | NIE DOTYCZY      | NIE DOTYCZY      | NIE DOTYCZY       | NIE DOTYCZY    |
@@ -106,7 +106,7 @@ W poniższej tabeli przedstawiono sposób łączenia ról platformy Azure i wpis
 
 
 > [!NOTE] 
-> Aby wyświetlić zawartość kontenera w Eksplorator usługi Azure Storage, podmioty zabezpieczeń muszą [zalogować się do Eksplorator usługi Storage za pomocą usługi Azure AD](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#add-a-resource-via-azure-ad), a (co najmniej) mieć dostęp do odczytu (R--) do folderu głównego ( `\` ) kontenera. Ten poziom uprawnień daje im możliwość wyświetlania zawartości folderu głównego. Jeśli nie chcesz, aby zawartość folderu głównego była widoczna, możesz przypisać im rolę [czytelnik](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) . Dzięki tej roli będzie można wyświetlić listę kontenerów na koncie, ale nie zawartość kontenera. Następnie można udzielić dostępu do określonych katalogów i plików przy użyciu list ACL.   
+> Aby wyświetlić zawartość kontenera w Eksplorator usługi Azure Storage, podmioty zabezpieczeń muszą [zalogować się do Eksplorator usługi Storage za pomocą usługi Azure AD](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#add-a-resource-via-azure-ad), a (co najmniej) mieć dostęp do odczytu (R--) do folderu głównego ( `\` ) kontenera. Ten poziom uprawnień daje im możliwość wyświetlania zawartości folderu głównego. Jeśli nie chcesz, aby zawartość folderu głównego była widoczna, możesz przypisać im rolę [czytelnik](../../role-based-access-control/built-in-roles.md#reader) . Dzięki tej roli będzie można wyświetlić listę kontenerów na koncie, ale nie zawartość kontenera. Następnie można udzielić dostępu do określonych katalogów i plików przy użyciu list ACL.   
 
 ## <a name="security-groups"></a>Grupy zabezpieczeń
 
@@ -120,7 +120,7 @@ Korzystanie z grup zmniejsza maksymalną liczbę przypisań ról na subskrypcję
 
 ## <a name="shared-key-and-shared-access-signature-sas-authorization"></a>Autoryzacja klucza współdzielonego i sygnatury dostępu współdzielonego (SAS)
 
-Azure Data Lake Storage Gen2 obsługuje również metody uwierzytelniania [klucza współużytkowanego](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key) i [sygnatury](https://docs.microsoft.com/azure/storage/common/storage-sas-overview?toc=/azure/storage/blobs/toc.json) dostępu współdzielonego. Charakterystyka tych metod uwierzytelniania polega na tym, że żadna tożsamość nie jest skojarzona z obiektem wywołującym i dlatego nie można wykonać autoryzacji podmiotu zabezpieczeń na podstawie uprawnień.
+Azure Data Lake Storage Gen2 obsługuje również metody uwierzytelniania [klucza współużytkowanego](/rest/api/storageservices/authorize-with-shared-key) i [sygnatury](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) dostępu współdzielonego. Charakterystyka tych metod uwierzytelniania polega na tym, że żadna tożsamość nie jest skojarzona z obiektem wywołującym i dlatego nie można wykonać autoryzacji podmiotu zabezpieczeń na podstawie uprawnień.
 
 W przypadku klucza współużytkowanego obiekt wywołujący skutecznie uzyskuje dostęp "Administrator", co oznacza pełny dostęp do wszystkich operacji na wszystkich zasobach, takich jak dane, Ustawianie właściciela i zmienianie list kontroli dostępu.
 
@@ -129,4 +129,3 @@ Tokeny sygnatury dostępu współdzielonego zawierają dozwolone uprawnienia jak
 ## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się więcej na temat list kontroli dostępu, zobacz  [listy kontroli dostępu (ACL) w Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
-

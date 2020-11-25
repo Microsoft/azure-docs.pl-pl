@@ -6,11 +6,11 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: 152a000939f74b1852073742e501ac66246389a5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88961441"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015887"
 ---
 # <a name="create-a-php-web-app-in-azure-app-service"></a>Tworzenie aplikacji sieci Web w języku PHP w Azure App Service
 
@@ -116,7 +116,7 @@ Utworzono pustą nową aplikację sieci Web z włączonym wdrożeniem usługi gi
 > Adres URL zdalnego repozytorium Git jest wyświetlany we właściwości `deploymentLocalGitUrl` w formacie `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Zapisz ten adres URL, ponieważ będzie on potrzebny później.
 >
 
-Przejdź do nowo utworzonej aplikacji internetowej. Zastąp _ &lt; ciąg App-Name>_ unikatową nazwą aplikacji utworzoną w poprzednim kroku.
+Przejdź do nowo utworzonej aplikacji internetowej. Zastąp _&lt; ciąg App-Name>_ unikatową nazwą aplikacji utworzoną w poprzednim kroku.
 
 ```bash
 http://<app-name>.azurewebsites.net
@@ -196,7 +196,7 @@ Po zakończeniu wdrożenia wróć do okna przeglądarki otwartego w kroku **prze
 
     ![Nawigacja w portalu do aplikacji platformy Azure](./media/quickstart-php/php-docs-hello-world-app-service-list.png)
 
-    Zostanie wyświetlona strona **przeglądu** aplikacji sieci Web. W tym miejscu można wykonywać podstawowe zadania zarządzania, takie jak **przeglądanie**, **Zatrzymywanie**, **Ponowne uruchamianie**i **usuwanie**.
+    Zostanie wyświetlona strona **przeglądu** aplikacji sieci Web. W tym miejscu można wykonywać podstawowe zadania zarządzania, takie jak **przeglądanie**, **Zatrzymywanie**, **Ponowne uruchamianie** i **usuwanie**.
 
     ![Strona usługi App Service w witrynie Azure Portal](media/quickstart-php/php-docs-hello-world-app-service-detail.png)
 

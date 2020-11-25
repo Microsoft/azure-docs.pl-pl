@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -9,11 +9,11 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 433e909563602a2ef32b7986959b428c9afaf9f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82789005"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016002"
 ---
 | Zasób | Opis|
 |----------|------------|

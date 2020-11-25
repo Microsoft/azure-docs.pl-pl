@@ -9,11 +9,11 @@ ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
 ms.openlocfilehash: 7079f0b1060be1a260b41e07b9d9299bab57127f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410814"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016305"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Usługa Azure Disk Encryption dla maszyn wirtualnych z systemem Linux 
 
@@ -58,7 +58,7 @@ Azure Disk Encryption jest obsługiwane w podzestawie [dystrybucji systemu Linux
 
 Dystrybucje serwera z systemem Linux, które nie są zatwierdzone przez platformę Azure, nie obsługują Azure Disk Encryption; z tych, które są zatwierdzone, obsługiwane są tylko następujące dystrybucje i wersje Azure Disk Encryption:
 
-| Publisher | Oferta | Jednostka SKU | Nazwa URN | Typ woluminu obsługiwany na potrzeby szyfrowania |
+| Publisher | Oferta | SKU | Nazwa URN | Typ woluminu obsługiwany na potrzeby szyfrowania |
 | --- | --- |--- | --- |
 | Canonical | Ubuntu | 18,04 – LTS | Kanoniczny: UbuntuServer: 18.04-LTS: Najnowsza | System operacyjny i dysk z danymi |
 | Canonical | Ubuntu 18.04 | 18,04 — CODZIENNIE — LTS | Kanoniczny: UbuntuServer: 18.04-DAILy-LTS: Najnowsza | System operacyjny i dysk z danymi |

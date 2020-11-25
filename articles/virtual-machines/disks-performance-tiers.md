@@ -1,60 +1,27 @@
 ---
-title: Zmienianie wydajności usługi Azure Managed disks
-description: Dowiedz się więcej o warstwach wydajności dla dysków zarządzanych i Dowiedz się, jak zmienić warstwy wydajności dla istniejących dysków zarządzanych przy użyciu modułu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure.
+title: Zmienianie wydajności usługi Azure Managed disks — CLI/PowerShell
+description: Dowiedz się, jak zmienić warstwy wydajności dla istniejących dysków zarządzanych przy użyciu modułu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure.
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 11/11/2020
+ms.date: 11/19/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions
-ms.openlocfilehash: 923c5970183bd192ac1a2f20fb775d96dcc06865
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 8a21a78bf27847b41c0af7bc4361f7c6c8071949
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540641"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "96016531"
 ---
-# <a name="performance-tiers-for-managed-disks-preview"></a>Warstwy wydajności dla dysków zarządzanych (wersja zapoznawcza)
+# <a name="change-your-performance-tier-using-the-azure-powershell-module-or-the-azure-cli"></a>Zmienianie warstwy wydajności przy użyciu modułu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
-Azure Disk Storage oferuje wbudowaną funkcję tworzenia seryjnego w celu zapewnienia wyższej wydajności do obsługi nieoczekiwanego ruchu. Dysków SSD Premium zapewnia elastyczność zwiększania wydajności dysku bez zwiększania rzeczywistego rozmiaru dysku. Ta funkcja umożliwia dopasowanie wydajności obciążeń i obniżenie kosztów. 
-
-> [!NOTE]
-> Ta funkcja jest obecnie w wersji zapoznawczej. 
-
-Ta funkcja jest idealnym rozwiązaniem w przypadku zdarzeń, które tymczasowo wymagają stałego wyższego poziomu wydajności, takich jak zakupy wolne, testowanie wydajności lub Uruchamianie środowiska szkoleniowego. Aby obsłużyć te zdarzenia, można użyć wyższej warstwy wydajności, o ile będzie potrzebna. Następnie można wrócić do oryginalnej warstwy, gdy nie potrzebujesz już dodatkowej wydajności.
-
-## <a name="how-it-works"></a>Jak to działa
-
-Podczas pierwszego wdrażania lub inicjowania obsługi administracyjnej dysku podstawowa warstwa wydajności dla tego dysku jest ustawiana na podstawie rozmiaru dysku. Możesz użyć wyższej warstwy wydajności, aby sprostać wyższym zapotrzebowaniu. Gdy poziom wydajności nie jest już potrzebny, można powrócić do początkowej warstwy wydajności.
-
-Zmiany w rozliczeniach są zmieniane w miarę zmiany warstwy. Na przykład jeśli zainicjujesz dysk P10 (128 GiB), warstwa wydajności linii bazowej zostanie ustawiona jako P10 (500 IOPS i 100 MB/s). Zostanie naliczona stawka za P10. Warstwę można uaktualnić, aby pasowała do wydajności P50 (7 500 IOPS i 250 MB/s) bez zwiększania rozmiaru dysku. W czasie uaktualniania zostanie naliczona stawka za P50. Gdy nie potrzebujesz już wyższej wydajności, możesz powrócić do warstwy P10. Po ponownym rozliczeniu dysku zostanie naliczona stawka za P10.
-
-| Rozmiar dysku | Warstwa wydajności linii bazowej | Można uaktualnić do programu |
-|----------------|-----|-------------------------------------|
-| 4 GiB | P1 | P2, P3, P4, P6, P10, P15, P20, P30, P40, P50 |
-| 8 GiB | P2 | P3, P4, P6, P10, P15, P20, P30, P40, P50 |
-| 16 GiB | P3 | P4, P6, P10, P15, P20, P30, P40, P50 | 
-| 32 GiB | P4 | P6, P10, P15, P20, P30, P40, P50 |
-| 64 GiB | P6 | P10, P15, P20, P30, P40, P50 |
-| 128 GiB | P10 | P15, P20, P30, P40, P50 |
-| 256 GiB | P15 | P20, P30, P40, P50 |
-| 512 GiB | P20 | P30, P40, P50 |
-| 1 TiB | P30 | P40, P50 |
-| 2 TiB | P40 | P50 |
-| 4 TiB | P50 | Brak |
-| 8 TiB | P60 |  P70, P80 |
-| 16 TiB | P70 | P80 |
-| 32 TiB | P80 | Brak |
-
-Aby uzyskać informacje dotyczące rozliczeń, zobacz [Cennik dysku zarządzanego](https://azure.microsoft.com/pricing/details/managed-disks/).
+[!INCLUDE [virtual-machines-disks-performance-tiers-intro](../../includes/virtual-machines-disks-performance-tiers-intro.md)]
 
 ## <a name="restrictions"></a>Ograniczenia
 
-- Ta funkcja jest obecnie obsługiwana tylko w przypadku wersji Premium dysków SSD.
-- Aby można było zmienić warstwę dysku, należy cofnąć przydział maszyny wirtualnej lub odłączyć dysk od uruchomionej maszyny wirtualnej.
-- Użycie warstw wydajności P60, P70 i P80 jest ograniczone do dysków 4 096 GiB lub wyższych.
-- Warstwę wydajności dysku można zmienić na starszą wersję co 24 godziny.
+[!INCLUDE [virtual-machines-disks-performance-tiers-restrictions](../../includes/virtual-machines-disks-performance-tiers-restrictions.md)]
 
 ## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Utwórz pusty dysk danych o warstwie wyższej niż warstwa bazowa
 

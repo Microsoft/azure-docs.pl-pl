@@ -10,11 +10,11 @@ ms.date: 05/18/2018
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurecli
 ms.openlocfilehash: 68f311a949d6c7663c5602c444d1b7b9af09dcad
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517499"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016730"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Samouczek: automatyczne skalowanie zestawu skalowania maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -55,7 +55,7 @@ az vmss create \
 
 ## <a name="define-an-autoscale-profile"></a>Definiowanie profilu skalowania automatycznego
 
-Aby włączyć skalowanie automatyczne na zestawie skalowania, najpierw zdefiniuj profil skalowania automatycznego. Ten profil obejmuje definiowanie domyślnej, minimalnej i maksymalnej pojemności zestawu skalowania. Dzięki tym limitom możesz kontrolować koszty, ponieważ wystąpienia maszyn wirtualnych nie są tworzone w sposób ciągły, zaś akceptowalna wydajność jest zrównoważona z minimalną liczbą wystąpień, które pozostają w zdarzeniu skalowania w pionie. Utwórz profil skalowania automatycznego za pomocą polecenia [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). W poniższym przykładzie ustawiono wartość domyślną i minimalną, pojemność wynoszącą *2* wystąpienia maszyn wirtualnych, a maksymalnie *10* :
+Aby włączyć skalowanie automatyczne na zestawie skalowania, najpierw zdefiniuj profil skalowania automatycznego. Ten profil obejmuje definiowanie domyślnej, minimalnej i maksymalnej pojemności zestawu skalowania. Dzięki tym limitom możesz kontrolować koszty, ponieważ wystąpienia maszyn wirtualnych nie są tworzone w sposób ciągły, zaś akceptowalna wydajność jest zrównoważona z minimalną liczbą wystąpień, które pozostają w zdarzeniu skalowania w pionie. Utwórz profil skalowania automatycznego za pomocą polecenia [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). W poniższym przykładzie ustawiono wartość domyślną i minimalną, pojemność wynoszącą *2* wystąpienia maszyn wirtualnych, a maksymalnie *10*:
 
 ```azurecli-interactive
 az monitor autoscale create \
@@ -123,7 +123,7 @@ Połącz się przez protokół SSH z pierwszym wystąpieniem maszyny wirtualnej.
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
-Po zalogowaniu zainstaluj narzędzie **stress**. Uruchom *10 procesów roboczych narzędzia* **stress** , które generują obciążenie procesora CPU. Procesy robocze będą działać przez *420* sekund, co wystarczy do zaimplementowania odpowiedniej akcji przez reguły skalowania automatycznego.
+Po zalogowaniu zainstaluj narzędzie **stress**. Uruchom *10 procesów roboczych narzędzia* **stress**, które generują obciążenie procesora CPU. Procesy robocze będą działać przez *420* sekund, co wystarczy do zaimplementowania odpowiedniej akcji przez reguły skalowania automatycznego.
 
 ```console
 sudo apt-get update
@@ -131,15 +131,15 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-Gdy narzędzie **stress** wyświetli dane wyjściowe podobne do *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* , naciśnij klawisz *Enter* , aby powrócić do wiersza polecenia.
+Gdy narzędzie **stress** wyświetli dane wyjściowe podobne do *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, naciśnij klawisz *Enter*, aby powrócić do wiersza polecenia.
 
-Aby potwierdzić obecność wygenerowanego obciążenia procesora CPU przez narzędzie **stress** , sprawdź aktywne obciążenie systemu za pomocą narzędzia **top** :
+Aby potwierdzić obecność wygenerowanego obciążenia procesora CPU przez narzędzie **stress**, sprawdź aktywne obciążenie systemu za pomocą narzędzia **top**:
 
 ```console
 top
 ```
 
-Zakończ działanie narzędzia **top** , a następnie zamknij połączenie z wystąpieniem maszyny wirtualnej. Narzędzie **stress** będzie kontynuować działanie na wystąpieniu maszyny wirtualnej.
+Zakończ działanie narzędzia **top**, a następnie zamknij połączenie z wystąpieniem maszyny wirtualnej. Narzędzie **stress** będzie kontynuować działanie na wystąpieniu maszyny wirtualnej.
 
 ```console
 Ctrl-c
@@ -152,14 +152,14 @@ Połącz się z drugim wystąpieniem maszyny wirtualnej przy użyciu numeru port
 ssh azureuser@13.92.224.66 -p 50003
 ```
 
-Zainstaluj i uruchom narzędzie **stress** , a następnie uruchom dziesięć procesów roboczych na drugim wystąpieniu maszyny wirtualnej.
+Zainstaluj i uruchom narzędzie **stress**, a następnie uruchom dziesięć procesów roboczych na drugim wystąpieniu maszyny wirtualnej.
 
 ```console
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-I ponownie, gdy narzędzie **stress** wyświetli dane wyjściowe podobne do *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* , naciśnij klawisz *Enter* , aby powrócić do wiersza polecenia.
+I ponownie, gdy narzędzie **stress** wyświetli dane wyjściowe podobne do *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, naciśnij klawisz *Enter*, aby powrócić do wiersza polecenia.
 
 Zamknij połączenie z drugim wystąpieniem maszyny wirtualnej. Narzędzie **stress** będzie kontynuować działanie na wystąpieniu maszyny wirtualnej.
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2020
 ms.author: kumud
 ms.openlocfilehash: c8fdba59a8d31c064745c7a1904204359b386a7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84707858"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015948"
 ---
 # <a name="configure-a-private-ip-address-for-a-vm-using-the-azure-portal"></a>Konfigurowanie prywatnego adresu IP dla maszyny wirtualnej przy użyciu Azure Portal
 
@@ -49,7 +49,7 @@ Aby utworzyć maszynę wirtualną o nazwie *DNS01* w podsieci *frontonu* sieci w
 2. Wybierz pozycję **Oblicz**  >  **maszynę wirtualną**.
 
     ![Tworzenie maszyny wirtualnej, Azure Portal](./media/virtual-networks-static-ip-arm-pportal/compute-virtual-machine.png)
-3. W obszarze **podstawowe**Określ wartości dla elementów zgodnie z opisem w poniższej tabeli. Następnie wybierz kolejno pozycje **dalej &nbsp; : &nbsp; dyski** , a następnie **dalej &nbsp; : &nbsp; sieci**.
+3. W obszarze **podstawowe** Określ wartości dla elementów zgodnie z opisem w poniższej tabeli. Następnie wybierz kolejno pozycje **dalej &nbsp; : &nbsp; dyski** , a następnie **dalej &nbsp; : &nbsp; sieci**.
 
     | Element | Wartość |
     | --- | --- |
@@ -64,7 +64,7 @@ Aby utworzyć maszynę wirtualną o nazwie *DNS01* w podsieci *frontonu* sieci w
     | **Potwierdź hasło** | Hasło ponownie |
 
     ![Karta podstawy — Tworzenie maszyny wirtualnej, Azure Portal](./media/virtual-networks-static-ip-arm-pportal/create-a-virtual-machine-basics.png)
-4. W obszarze **Sieć**Określ wartości dla elementów zgodnie z opisem w poniższej tabeli, a następnie wybierz przycisk **dalej**.
+4. W obszarze **Sieć** Określ wartości dla elementów zgodnie z opisem w poniższej tabeli, a następnie wybierz przycisk **dalej**.
 
     | Element | Wartość |
     | --- | --- |
@@ -72,10 +72,10 @@ Aby utworzyć maszynę wirtualną o nazwie *DNS01* w podsieci *frontonu* sieci w
     | **Podsieć** | **Frontonu** |
 
     ![Karta Sieć, Tworzenie maszyny wirtualnej, Azure Portal](./media/virtual-networks-static-ip-arm-pportal/create-a-virtual-machine-networking.png)
-5. W obszarze **Zarządzanie**w obszarze **konto magazynu diagnostyki**wybierz pozycję **vnetstorage**. Jeśli konto magazynu nie pojawia się na liście, wybierz opcję **Utwórz nową**, określ **nazwę** *vnetstorage*i wybierz **przycisk OK**. Na koniec wybierz pozycję **Przegląd &nbsp; + &nbsp; Utwórz**.
+5. W obszarze **Zarządzanie** w obszarze **konto magazynu diagnostyki** wybierz pozycję **vnetstorage**. Jeśli konto magazynu nie pojawia się na liście, wybierz opcję **Utwórz nową**, określ **nazwę** *vnetstorage* i wybierz **przycisk OK**. Na koniec wybierz pozycję **Przegląd &nbsp; + &nbsp; Utwórz**.
 
     ![Karta Zarządzanie, Tworzenie maszyny wirtualnej, Azure Portal](./media/virtual-networks-static-ip-arm-pportal/create-a-virtual-machine-management.png)
-6. W oknie **Recenzja + tworzenie**Przejrzyj informacje przeglądowe, a następnie wybierz pozycję **Utwórz**.
+6. W oknie **Recenzja + tworzenie** Przejrzyj informacje przeglądowe, a następnie wybierz pozycję **Utwórz**.
 
     ![Przejrzyj i Utwórz kartę, Utwórz maszynę wirtualną, Azure Portal](./media/virtual-networks-static-ip-arm-pportal/create-a-virtual-machine-review-create.png)
 
@@ -102,7 +102,7 @@ Aby wyświetlić informacje o prywatnym adresie IP dla nowej maszyny wirtualnej:
 
     ![Konfiguracja protokołu IP, interfejs sieciowy, Sieć, maszyna wirtualna, Azure Portal](./media/virtual-networks-static-ip-arm-pportal/network-interface-ip-configurations.png)
 
-5. W obszarze **Ustawienia prywatnych adresów IP**w obszarze Sieć wirtualna/podsieć **TestVNet/frontonu** Zanotuj wartość **przypisania** (**dynamiczna** lub **statyczna**) oraz **adres IP**.
+5. W obszarze **Ustawienia prywatnych adresów IP** w obszarze Sieć wirtualna/podsieć **TestVNet/frontonu** Zanotuj wartość **przypisania** (**dynamiczna** lub **statyczna**) oraz **adres IP**.
 
     ![Dynamiczne lub statyczne przypisanie, stare ustawienia prywatnych adresów IP, Konfiguracja protokołu IP, interfejs sieciowy, Sieć, maszyna wirtualna, Azure Portal](./media/virtual-networks-static-ip-arm-pportal/private-ip-address-settings-old.png)
 

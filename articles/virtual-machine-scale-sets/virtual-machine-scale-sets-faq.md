@@ -10,11 +10,11 @@ ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: 8170cfcbbf200c6ba5030aff5716f46b537d8c97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87080475"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016713"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Często zadawane pytania dotyczące usługi Azure Virtual Machine Scale Sets
 
@@ -465,7 +465,7 @@ Istnieją dwa podstawowe sposoby zmiany hasła dla maszyn wirtualnych w zestawac
     Update-AzVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
     ```
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 ### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-applies-to-all-the-vm-nics-in-the-set"></a>Czy można przypisać sieciową grupę zabezpieczeń (sieciowej grupy zabezpieczeń) do zestawu skalowania, aby odnosił się do wszystkich kart sieciowych maszyn wirtualnych w zestawie?
 
@@ -660,7 +660,7 @@ Wymagane identyfikator obszaru roboczego i workspaceKey można znaleźć w obsza
 
 ### <a name="how-do-i-turn-on-boot-diagnostics"></a>Jak mogę włączyć diagnostykę rozruchu?
 
-Aby włączyć diagnostykę rozruchu, najpierw utwórz konto magazynu. Następnie umieść ten blok JSON w zestawie skalowania maszyn wirtualnych **virtualMachineProfile**i zaktualizuj zestaw skalowania maszyn wirtualnych:
+Aby włączyć diagnostykę rozruchu, najpierw utwórz konto magazynu. Następnie umieść ten blok JSON w zestawie skalowania maszyn wirtualnych **virtualMachineProfile** i zaktualizuj zestaw skalowania maszyn wirtualnych:
 
 ```json
 "diagnosticsProfile": {

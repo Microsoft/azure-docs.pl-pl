@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 03/14/2019
 ms.author: alkohli
 ms.openlocfilehash: 36ed87a75d590a8647e5347b3e90e6f5159dc6b5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961837"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016849"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Używanie usługi StorSimple Menedżer urządzeń do wyświetlania alertów StorSimple i zarządzania nimi
 
@@ -91,7 +91,7 @@ Kliknięcie alertu na liście zawiera dodatkowe szczegóły dotyczące alertu, w
 
 Możesz skopiować szczegóły alertu do pliku tekstowego, jeśli trzeba wysłać informacje do pomoc techniczna firmy Microsoft. Po wykonaniu zalecenia i rozwiązaniu lokalnego stanu alertu należy wyczyścić alert z urządzenia, wybierając alert w bloku **alerty** , a następnie klikając przycisk **Wyczyść**. Aby wyczyścić wiele alertów, zaznacz poszczególne alerty, kliknij dowolną kolumnę poza kolumną **alertu** , a następnie kliknij przycisk **Wyczyść** po wybraniu wszystkich alertów do wyczyszczenia. Należy zauważyć, że niektóre alerty są automatycznie czyszczone po rozwiązaniu problemu lub gdy system aktualizuje alert przy użyciu nowych informacji.
 
-Po kliknięciu przycisku **Wyczyść**będziesz mieć możliwość udostępnienia komentarzy dotyczących alertu i kroków, które należy wykonać w celu rozwiązania problemu. Niektóre zdarzenia zostaną wyczyszczone przez system, jeśli inne zdarzenie zostanie wyzwolone przy użyciu nowych informacji. W takim przypadku zostanie wyświetlony następujący komunikat.
+Po kliknięciu przycisku **Wyczyść** będziesz mieć możliwość udostępnienia komentarzy dotyczących alertu i kroków, które należy wykonać w celu rozwiązania problemu. Niektóre zdarzenia zostaną wyczyszczone przez system, jeśli inne zdarzenie zostanie wyzwolone przy użyciu nowych informacji. W takim przypadku zostanie wyświetlony następujący komunikat.
 
 ![Wyczyść komunikat alertu](./media/storsimple-manage-alerts/admin_alerts_system_clear.png)
 

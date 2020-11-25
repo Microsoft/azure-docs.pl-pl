@@ -8,11 +8,11 @@ ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
 ms.openlocfilehash: 6a5d4f388d9e5f47a13812687489525590c520c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87085490"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016101"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Instalowanie usługi Azure File Storage na maszynach wirtualnych z systemem Linux przy użyciu protokołu SMB
 
@@ -35,7 +35,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 
-Utwórz nowe konto magazynu w utworzonej grupie zasobów przy użyciu polecenia [AZ Storage account Create](/cli/azure/storage/account). Ten przykład tworzy konto magazynu o nazwie *ciąg mystorageacct \<random number> * i umieszcza nazwę tego konta magazynu w zmiennej **STORAGEACCT**. Nazwy kont magazynu muszą być unikatowe, korzystając z `$RANDOM` dołączania liczby do końca, aby uczynić ją unikatową.
+Utwórz nowe konto magazynu w utworzonej grupie zasobów przy użyciu polecenia [AZ Storage account Create](/cli/azure/storage/account). Ten przykład tworzy konto magazynu o nazwie *ciąg mystorageacct \<random number>* i umieszcza nazwę tego konta magazynu w zmiennej **STORAGEACCT**. Nazwy kont magazynu muszą być unikatowe, korzystając z `$RANDOM` dołączania liczby do końca, aby uczynić ją unikatową.
 
 ```azurecli
 STORAGEACCT=$(az storage account create \

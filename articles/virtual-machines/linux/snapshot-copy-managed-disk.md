@@ -10,11 +10,11 @@ ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 6374108247b9bfb950c42495b13b501ded8a02d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89317999"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015965"
 ---
 # <a name="create-a-snapshot-using-the-portal-or-azure-cli"></a>Tworzenie migawki przy użyciu portalu lub interfejsu wiersza polecenia platformy Azure
 
@@ -63,9 +63,9 @@ az snapshot list \
 3. W bloku **migawka** kliknij pozycję **Utwórz**.
 4. Wprowadź **nazwę** migawki.
 5. Wybierz istniejącą grupę zasobów lub wpisz nazwę nowej grupy. 
-7. W polu **dysk źródłowy**wybierz dysk zarządzany do utworzenia migawki.
+7. W polu **dysk źródłowy** wybierz dysk zarządzany do utworzenia migawki.
 8. Wybierz **Typ konta** , który ma być używany do przechowywania migawki. Użyj **HDD w warstwie Standardowa** , chyba że będzie to konieczne w przypadku dysku SSD o wysokiej wydajności.
-9. Kliknij przycisk **Utwórz**.
+9. Kliknij pozycję **Utwórz**.
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 12/17/2019
 ms.author: raynew
 ms.openlocfilehash: 2994f68e4159c7c4aa7d82bef7a5891deb5055a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292819"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017427"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Przełączenie w tryb failover i powrót po awarii serwerów fizycznych replikowanych do platformy Azure
 
@@ -34,11 +34,11 @@ W tym samouczku opisano sposób przełączenia w tryb failover lokalnych serwer�
 
 Sprawdź właściwości serwera i upewnij się, że jest ono zgodne z [wymaganiami platformy Azure](vmware-physical-azure-support-matrix.md#replicated-machines) dla maszyn wirtualnych platformy Azure.
 
-1. W obszarze **chronione elementy**kliknij pozycję **zreplikowane elementy**, a następnie wybierz maszynę.
+1. W obszarze **chronione elementy** kliknij pozycję **zreplikowane elementy**, a następnie wybierz maszynę.
 2. W okienku **replikowany element** znajduje się podsumowanie informacji o maszynie, kondycji i najnowszych dostępnych punktów odzyskiwania. Kliknij przycisk **Właściwości**, aby wyświetlić więcej szczegółów.
-3. W obszarze **obliczenia i sieć**można zmodyfikować nazwę platformy Azure, grupę zasobów, rozmiar docelowy, [zestaw dostępności](../virtual-machines/windows/tutorial-availability-sets.md)i ustawienia dysku zarządzanego.
+3. W obszarze **obliczenia i sieć** można zmodyfikować nazwę platformy Azure, grupę zasobów, rozmiar docelowy, [zestaw dostępności](../virtual-machines/windows/tutorial-availability-sets.md)i ustawienia dysku zarządzanego.
 4. Możesz wyświetlać i modyfikować ustawienia sieciowe, w tym sieć/podsieć, w której zlokalizowana będzie maszyna wirtualna na platformie Azure po wejściu w tryb failover, oraz adres IP, który będzie do niej przypisany.
-5. W obszarze **dyski**można wyświetlić informacje o systemie operacyjnym komputera i dyskach z danymi.
+5. W obszarze **dyski** można wyświetlić informacje o systemie operacyjnym komputera i dyskach z danymi.
 
 ### <a name="fail-over-to-azure"></a>Przełączenie do trybu failover na platformie Azure
 
@@ -95,7 +95,7 @@ Po przejściu w tryb failover na platformę Azure należy ponownie włączyć oc
 
 Ta procedura zakłada, że lokalna maszyna wirtualna jest niedostępna.
 
-1. W obszarze **Ustawienia**> magazynu  >  **zreplikowane elementy**kliknij prawym przyciskiem myszy maszynę, która została przełączona w tryb failover > **ponownie włączyć ochronę**.
+1. W obszarze **Ustawienia**> magazynu  >  **zreplikowane elementy** kliknij prawym przyciskiem myszy maszynę, która została przełączona w tryb failover > **ponownie włączyć ochronę**.
 2. W obszarze **Włącz ponownie ochronę** sprawdź, czy wybrano opcję **Z platformy Azure do serwera lokalnego**.
 3. Określ lokalny główny serwer docelowy oraz serwer przetwarzania.
 4. W obszarze **Magazyn danych** wybierz główny docelowy magazyn danych, do którego chcesz odzyskać dyski w środowisku lokalnym.

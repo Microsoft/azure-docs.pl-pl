@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: ff612b7c052ead5658ea4bbfafd7aace51ba3c02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86132488"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017444"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Zarządzanie serwerem konfiguracji na potrzeby odzyskiwania po awarii serwera fizycznego
 
@@ -58,12 +58,12 @@ Najnowsza wersja pliku instalacyjnego serwera konfiguracji jest dostępna w port
 ## <a name="install-and-register-the-server"></a>Instalowanie i rejestrowanie serwera
 
 1. Uruchom plik instalacyjny ujednoliconego instalatora.
-2. W obszarze **przed rozpoczęciem**wybierz pozycję **Zainstaluj serwer konfiguracji i serwer przetwarzania**.
+2. W obszarze **przed rozpoczęciem** wybierz pozycję **Zainstaluj serwer konfiguracji i serwer przetwarzania**.
 
     ![Przed rozpoczęciem](./media/physical-manage-configuration-server/combined-wiz1.png)
 
 3. W obszarze **Licencja na oprogramowanie innej firmy** kliknij pozycję **Akceptuję**, aby pobrać i zainstalować program MySQL.
-4. W obszarze **Ustawienia internetowe**Określ, jak dostawca działający na serwerze konfiguracji łączy się z Azure Site Recovery przez Internet. Upewnij się, że adresy URL są dozwolone.
+4. W obszarze **Ustawienia internetowe** Określ, jak dostawca działający na serwerze konfiguracji łączy się z Azure Site Recovery przez Internet. Upewnij się, że adresy URL są dozwolone.
 
     - Jeśli chcesz nawiązać połączenie z serwerem proxy, który jest aktualnie skonfigurowany na komputerze, wybierz pozycję **Połącz z Azure Site Recovery przy użyciu serwera proxy**.
     - Jeśli chcesz, aby dostawca łączył się bezpośrednio, wybierz opcję **Połącz bezpośrednio z Azure Site Recovery bez serwera proxy**.
@@ -79,7 +79,7 @@ Najnowsza wersja pliku instalacyjnego serwera konfiguracji jest dostępna w port
 9. W obszarze **Lokalizacja instalacji** wybierz, gdzie mają zostać zainstalowane pliki binarne i gdzie ma być przechowywana pamięć podręczną. Na wybranym dysku musi być co najmniej 5 GB dostępnego miejsca, ale zalecamy dysk pamięci podręcznej z co najmniej 600 GB wolnego miejsca.
 
     ![Lokalizacja instalacji](./media/physical-manage-configuration-server/combined-wiz8.png)
-10. W **obszarze Wybór sieci**najpierw wybierz kartę interfejsu sieciowego używaną przez serwer przetwarzania na potrzeby odnajdywania i instalacji wypychanej usługi mobilności na maszynach źródłowych, a następnie wybierz kartę sieciową używaną przez serwer konfiguracji do łączności z platformą Azure. Port 9443 jest domyślnym portem używanym do wysyłania i odbierania ruchu związanego z replikacją, ale możesz zmienić ten numer portu tak, aby odpowiadał wymaganiom Twojego środowiska. Oprócz portu 9443 otwieramy też port 443, który jest używany przez serwer sieci Web do organizowania operacji replikacji. Nie należy używać portu 443 do wysyłania lub otrzymywania ruchu związanego z replikacją.
+10. W **obszarze Wybór sieci** najpierw wybierz kartę interfejsu sieciowego używaną przez serwer przetwarzania na potrzeby odnajdywania i instalacji wypychanej usługi mobilności na maszynach źródłowych, a następnie wybierz kartę sieciową używaną przez serwer konfiguracji do łączności z platformą Azure. Port 9443 jest domyślnym portem używanym do wysyłania i odbierania ruchu związanego z replikacją, ale możesz zmienić ten numer portu tak, aby odpowiadał wymaganiom Twojego środowiska. Oprócz portu 9443 otwieramy też port 443, który jest używany przez serwer sieci Web do organizowania operacji replikacji. Nie należy używać portu 443 do wysyłania lub otrzymywania ruchu związanego z replikacją.
 
     ![Wybór sieci](./media/physical-manage-configuration-server/combined-wiz9.png)
 
@@ -108,7 +108,7 @@ Uruchom plik instalacyjny w następujący sposób:
 
 ### <a name="parameters"></a>Parametry
 
-|Nazwa parametru| Type | Opis| Wartości|
+|Nazwa parametru| Typ | Opis| Wartości|
 |-|-|-|-|
 | /ServerMode|Wymagane|Określa, czy mają zostać zainstalowane oba serwery, konfiguracji i przetwarzania, czy tylko serwer przetwarzania|CS<br>PS|
 |/InstallLocation|Wymagane|Folder, w którym są instalowane składniki| Dowolny folder na komputerze|
@@ -303,7 +303,7 @@ W przypadku wdrożeń serwera konfiguracji przed 2016 maja wartość wygaśnięc
 
 ### <a name="renew-the-certificate"></a>Odnów certyfikat
 
-1. W magazynie Otwórz **Site Recovery**  >  **serwer konfiguracji**infrastruktury i kliknij wymagany serwer konfiguracji.
+1. W magazynie Otwórz **Site Recovery**  >  **serwer konfiguracji** infrastruktury i kliknij wymagany serwer konfiguracji.
 2. Data wygaśnięcia jest wyświetlana w obszarze **kondycja serwera konfiguracji**
 3. Kliknij pozycję **Odnów certyfikaty**. 
 

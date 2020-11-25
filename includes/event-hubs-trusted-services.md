@@ -9,11 +9,11 @@ ms.date: 11/09/2020
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: d828a0c3eb2582a833ee8ad07bdf4f18002c9dca
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427199"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015585"
 ---
 ## <a name="trusted-microsoft-services"></a>Zaufane usługi firmy Microsoft
 Po włączeniu ustawienia **Zezwalaj zaufanym usługom firmy Microsoft na pominięcie tej zapory** zostanie udzielony dostęp do zasobów Event Hubs za pomocą następujących usług.

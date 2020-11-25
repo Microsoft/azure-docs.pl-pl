@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
 ms.openlocfilehash: 17ea965758150adb72d8e8f9fee9937bd5387a48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87371927"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016322"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Wdrażanie programu IBM DB2 pureScale na platformie Azure
 
@@ -75,7 +75,7 @@ Repozytorium GitHub zawiera plik odpowiedzi DB2server. rsp, odpowiedź (. RSP), 
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | Powitanie                   |                                              | Nowa instalacja                                                                                           |
 | Wybierz produkt          |                                              | 11.1.3.3 wersja programu DB2. Wersje serwera z programem DB2 pureScale                                              |
-| Konfiguracja             | Katalog                                    | /data1/opt/ibm/db2/V11.1                                                                              |
+| Konfigurowanie             | Katalog                                    | /data1/opt/ibm/db2/V11.1                                                                              |
 |                           | Wybierz typ instalacji                 | Normalne                                                                                               |
 |                           | Akceptuję warunki firmy IBM                     | Zaznaczono                                                                                               |
 | Właściciel wystąpienia            | Istniejący użytkownik na przykład, nazwa użytkownika        | DB2sdin1                                                                                              |
@@ -111,7 +111,7 @@ Repozytorium GitHub zawiera plik odpowiedzi DB2server. rsp, odpowiedź (. RSP), 
 
 - Skrypty Instalatora używają aliasów dysków iSCSI, aby można było łatwo znaleźć rzeczywiste nazwy.
 
-- Gdy skrypt Instalatora jest uruchamiany w d0, wartości **/dev/DM- \* ** mogą być różne w odniesieniu do D1, cf0 i CF1. Różnica w wartości nie ma wpływu na konfigurację programu DB2 pureScale.
+- Gdy skrypt Instalatora jest uruchamiany w d0, wartości **/dev/DM- \*** mogą być różne w odniesieniu do D1, cf0 i CF1. Różnica w wartości nie ma wpływu na konfigurację programu DB2 pureScale.
 
 ## <a name="troubleshooting-and-known-issues"></a>Znane problemy i rozwiązywanie problemów
 

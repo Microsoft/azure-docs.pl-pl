@@ -10,11 +10,11 @@ ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
 ms.openlocfilehash: 234834af4fcf4ad809f548d171a4c1c406d85895
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747832"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016696"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Obsługa sieci w kontekście zestawów skalowania maszyn wirtualnych platformy Azure
 
@@ -23,7 +23,7 @@ W przypadku wdrażania zestawu skalowania maszyn wirtualnych platformy Azure za 
 Wszystkie funkcje omówione w tym artykule można skonfigurować za pomocą szablonów usługi Azure Resource Manager. Dla wybranych funkcji dołączono też przykłady związane z interfejsem wiersza polecenia platformy Azure i programem PowerShell.
 
 ## <a name="accelerated-networking"></a>Accelerated Networking
-Usługa Azure Accelerated Networking zwiększa wydajność sieci, umożliwiając wirtualizację we/wy z jednym elementem głównym (SR-IOV) do maszyny wirtualnej. Aby dowiedzieć się więcej o korzystaniu z usługi Accelerated Networking, zobacz temat dotyczący usługi Accelerated Networking dla maszyn wirtualnych z systemem [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) lub [Linux](../virtual-network/create-vm-accelerated-networking-cli.md). Aby korzystać z tej funkcji przyspieszania sieci wraz z zestawami skalowania, w ustawieniach networkInterfaceConfigurations zestawu skalowania ustaw dla właściwości enableAcceleratedNetworking wartość **true** . Na przykład:
+Usługa Azure Accelerated Networking zwiększa wydajność sieci, umożliwiając wirtualizację we/wy z jednym elementem głównym (SR-IOV) do maszyny wirtualnej. Aby dowiedzieć się więcej o korzystaniu z usługi Accelerated Networking, zobacz temat dotyczący usługi Accelerated Networking dla maszyn wirtualnych z systemem [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) lub [Linux](../virtual-network/create-vm-accelerated-networking-cli.md). Aby korzystać z tej funkcji przyspieszania sieci wraz z zestawami skalowania, w ustawieniach networkInterfaceConfigurations zestawu skalowania ustaw dla właściwości enableAcceleratedNetworking wartość **true**. Na przykład:
 
 ```json
 "networkProfile": {
@@ -69,7 +69,7 @@ Aby utworzyć zestaw skalowania, który używa bramy aplikacji, należy odwoła�
 Domyślnie zestawy skalowania przyjmują konkretne ustawienia DNS sieci VNET i podsieci, w których je utworzono. Można jednak skonfigurować ustawienia DNS zestawu skalowania bezpośrednio.
 
 ### <a name="creating-a-scale-set-with-configurable-dns-servers"></a>Tworzenie zestawu skalowania z konfigurowalnymi serwerami DNS
-Aby utworzyć zestaw skalowania z niestandardową konfiguracją DNS przy użyciu interfejsu wiersza polecenia platformy Azure, dodaj do polecenia **vmss create** argument **--dns-servers** , a po nim podaj oddzielane spacjami adresy IP serwerów. Na przykład:
+Aby utworzyć zestaw skalowania z niestandardową konfiguracją DNS przy użyciu interfejsu wiersza polecenia platformy Azure, dodaj do polecenia **vmss create** argument **--dns-servers**, a po nim podaj oddzielane spacjami adresy IP serwerów. Na przykład:
 
 ```bash
 --dns-servers 10.0.0.6 10.0.0.5
@@ -84,9 +84,9 @@ Aby skonfigurować niestandardowe serwery DNS w szablonie platformy Azure, do se
 ```
 
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>Tworzenie zestawu skalowania z konfigurowalnymi nazwami domen maszyn wirtualnych
-Aby utworzyć zestaw skalowania z niestandardową nazwą DNS maszyn wirtualnych przy użyciu interfejsu wiersza polecenia, dodaj do polecenia **virtual machine scale set create** argument **--vm-domain-name** , a po nim podaj ciąg reprezentujący nazwę domeny.
+Aby utworzyć zestaw skalowania z niestandardową nazwą DNS maszyn wirtualnych przy użyciu interfejsu wiersza polecenia, dodaj do polecenia **virtual machine scale set create** argument **--vm-domain-name**, a po nim podaj ciąg reprezentujący nazwę domeny.
 
-Aby ustawić nazwę domeny w szablonie platformy Azure, do sekcji **networkInterfaceConfigurations** zestawu skalowania dodaj właściwość **dnsSettings** . Na przykład:
+Aby ustawić nazwę domeny w szablonie platformy Azure, do sekcji **networkInterfaceConfigurations** zestawu skalowania dodaj właściwość **dnsSettings**. Na przykład:
 
 ```json
 "networkProfile": {
@@ -130,9 +130,9 @@ Ogólnie maszyny wirtualne zestawu skalowania platformy Azure nie muszą mieć w
 Jednak w niektórych scenariuszach maszyny wirtualne zestawu skalowania muszą mieć własne publiczne adresy IP. Przykładem są gry — gdy konsola musi nawiązać bezpośrednie połączenie z maszyną wirtualną w chmurze obsługującą przetwarzanie symulacji świata fizycznego w grze. Innym przykładem jest sytuacja, w której maszyny wirtualne muszą nawiązywać ze sobą połączenia zewnętrzne między regionami w rozproszonej bazie danych.
 
 ### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>Tworzenie zestawu skalowania z publicznym adresem IP dla każdej maszyny wirtualnej
-Aby utworzyć zestaw skalowania, w którym każdej maszynie wirtualnej zostanie przypisany publiczny adres IP, przy użyciu interfejsu wiersza polecenia, dodaj do polecenia **vmss create** parametr **--public-ip-per-vm** . 
+Aby utworzyć zestaw skalowania, w którym każdej maszynie wirtualnej zostanie przypisany publiczny adres IP, przy użyciu interfejsu wiersza polecenia, dodaj do polecenia **vmss create** parametr **--public-ip-per-vm**. 
 
-Aby utworzyć zestaw skalowania przy użyciu szablonu platformy Azure, upewnij się, że interfejs API zasobu Microsoft.Compute/virtualMachineScaleSets ma wersję co najmniej **2017-03-30** , i dodaj właściwość JSON **publicIpAddressConfiguration** do sekcji ipConfigurations zestawu skalowania. Na przykład:
+Aby utworzyć zestaw skalowania przy użyciu szablonu platformy Azure, upewnij się, że interfejs API zasobu Microsoft.Compute/virtualMachineScaleSets ma wersję co najmniej **2017-03-30**, i dodaj właściwość JSON **publicIpAddressConfiguration** do sekcji ipConfigurations zestawu skalowania. Na przykład:
 
 ```json
 "publicIpAddressConfiguration": {
@@ -146,9 +146,9 @@ Aby utworzyć zestaw skalowania przy użyciu szablonu platformy Azure, upewnij s
 Przykład szablonu: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
 
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>Badanie publicznych adresów IP maszyn wirtualnych w zestawie skalowania
-Aby uzyskać listę publicznych adresów IP przypisanych do maszyn wirtualnych w zestawie skalowania przy użyciu interfejsu wiersza polecenia, użyj polecenia **az vmss list-instance-public-ips** .
+Aby uzyskać listę publicznych adresów IP przypisanych do maszyn wirtualnych w zestawie skalowania przy użyciu interfejsu wiersza polecenia, użyj polecenia **az vmss list-instance-public-ips**.
 
-Aby uzyskać listę publicznych adresów IP zestawu skalowania przy użyciu programu PowerShell, użyj polecenia _Get-AzPublicIpAddress_ . Na przykład:
+Aby uzyskać listę publicznych adresów IP zestawu skalowania przy użyciu programu PowerShell, użyj polecenia _Get-AzPublicIpAddress_. Na przykład:
 
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
@@ -160,7 +160,7 @@ Publiczne adresy IP można także badać, odwołując się bezpośrednio do iden
 Get-AzPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
 
-Możesz też wyświetlić publiczne adresy IP przypisane do maszyn wirtualnych w zestawie skalowania przez wysłanie zapytania do witryny [Azure Resource Explorer](https://resources.azure.com) lub interfejsu API REST platformy Azure w wersji co najmniej **2017-03-30** .
+Możesz też wyświetlić publiczne adresy IP przypisane do maszyn wirtualnych w zestawie skalowania przez wysłanie zapytania do witryny [Azure Resource Explorer](https://resources.azure.com) lub interfejsu API REST platformy Azure w wersji co najmniej **2017-03-30**.
 
 Aby wysłać zapytanie do witryny [Azure Resource Explorer](https://resources.azure.com):
 
@@ -168,11 +168,11 @@ Aby wysłać zapytanie do witryny [Azure Resource Explorer](https://resources.az
 1. Rozwiń pozycję *subskrypcje* po lewej stronie, klikając znak *+* obok niej. Jeśli w obszarze *subskrypcje* znajduje się tylko jeden element, może to oznaczać, że subskrypcje są już rozwinięte.
 1. Rozwiń subskrypcję.
 1. Rozwiń grupę zasobów.
-1. Rozwiń pozycję *dostawcy* .
-1. Rozwiń pozycję *Microsoft. COMPUTE* .
-1. Rozwiń pozycję *virtualMachineScaleSets* .
+1. Rozwiń pozycję *dostawcy*.
+1. Rozwiń pozycję *Microsoft. COMPUTE*.
+1. Rozwiń pozycję *virtualMachineScaleSets*.
 1. Rozwiń zestaw skalowania.
-1. Kliknij pozycję *publicipaddresses* .
+1. Kliknij pozycję *publicipaddresses*.
 
 Aby wysłać zapytanie do interfejsu API REST platformy Azure:
 

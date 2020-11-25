@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: rogarana
 ms.openlocfilehash: 2168b3e3c55eaf06b93358f4623b181f134b4f9e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974198"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017354"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Konwertowanie dysków niezarządzanych maszyny wirtualnej z systemem Windows na dyski zarządzane
 
@@ -20,7 +20,7 @@ Jeśli masz istniejące maszyny wirtualne z systemem Windows, które korzystają
 
  
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 
 * Przejrzyj [plan migracji do Managed disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).

@@ -13,11 +13,11 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 49a0e48977393aeab7ff93b79e28acc55a87b51a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87504623"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016186"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Jak zainstalować i skonfigurować MongoDB na maszynie wirtualnej z systemem Linux
 
@@ -125,7 +125,7 @@ Aby można było utworzyć to środowisko, należy zainstalować najnowszy [inte
 az group create --name myResourceGroup --location eastus
 ```
 
-Następnie wdróż szablon MongoDB za pomocą [AZ Group Deployment Create](/cli/azure/group/deployment). Po wyświetleniu monitu wprowadź własne unikatowe wartości dla *newStorageAccountName*, *dnsNameForPublicIP*i nazwę użytkownika i hasło administratora:
+Następnie wdróż szablon MongoDB za pomocą [AZ Group Deployment Create](/cli/azure/group/deployment). Po wyświetleniu monitu wprowadź własne unikatowe wartości dla *newStorageAccountName*, *dnsNameForPublicIP* i nazwę użytkownika i hasło administratora:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -176,7 +176,7 @@ Aby można było utworzyć to środowisko, należy zainstalować najnowszy [inte
 az group create --name myResourceGroup --location eastus
 ```
 
-Następnie wdróż szablon MongoDB za pomocą [AZ Group Deployment Create](/cli/azure/group/deployment). Zdefiniuj własne nazwy zasobów i rozmiary, jeśli są one używane, jak w przypadku *mongoAdminUsername*, *sizeOfDataDiskInGB*i *configNodeVmSize*:
+Następnie wdróż szablon MongoDB za pomocą [AZ Group Deployment Create](/cli/azure/group/deployment). Zdefiniuj własne nazwy zasobów i rozmiary, jeśli są one używane, jak w przypadku *mongoAdminUsername*, *sizeOfDataDiskInGB* i *configNodeVmSize*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \

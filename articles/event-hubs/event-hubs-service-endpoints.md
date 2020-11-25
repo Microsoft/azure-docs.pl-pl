@@ -4,11 +4,11 @@ description: Ten artykuł zawiera informacje na temat dodawania punktu końcoweg
 ms.topic: article
 ms.date: 07/29/2020
 ms.openlocfilehash: 029338e3835d03b1a66ff6629e872c84113b0ff2
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427210"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015586"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Zezwalaj na dostęp do przestrzeni nazw platformy Azure Event Hubs z określonych sieci wirtualnych 
 
@@ -55,7 +55,7 @@ W tej sekcji pokazano, jak dodać punkt końcowy usługi sieci wirtualnej przy u
 
     ![Zapora — wybrana opcja Wszystkie sieci](./media/event-hubs-firewall/firewall-all-networks-selected.png)
 1. Aby ograniczyć dostęp do określonych sieci, wybierz opcję **wybrane sieci** w górnej części strony, jeśli nie została jeszcze wybrana.
-2. W sekcji **Virtual Network** strony wybierz pozycję **+ Dodaj istniejącą sieć wirtualną** _. Wybierz _ *+ Utwórz nową sieć wirtualną* *, jeśli chcesz utworzyć nową VNET. 
+2. W sekcji **Virtual Network** strony wybierz pozycję **+ Dodaj istniejącą sieć wirtualną** _. Wybierz _ *+ Utwórz nową sieć wirtualną**, jeśli chcesz utworzyć nową VNET. 
 
     ![dodawanie istniejącej sieci wirtualnej](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
 3. Wybierz sieć wirtualną z listy sieci wirtualnych, a następnie wybierz **podsieć**. Przed dodaniem sieci wirtualnej do listy musisz włączyć punkt końcowy usługi. Jeśli punkt końcowy usługi nie jest włączony, w portalu zostanie wyświetlony monit o jego włączenie.

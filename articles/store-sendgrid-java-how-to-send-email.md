@@ -17,14 +17,14 @@ ms.author: erikre
 ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
 ms.custom: devx-track-java
 ms.openlocfilehash: 9ff006b74b6202b02a2767aee4d853b1206ce60d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87304483"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015455"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Jak wysyłać wiadomości E-mail przy użyciu programu SendGrid z języka Java
-W tym przewodniku pokazano, jak wykonywać typowe zadania programistyczne przy użyciu usługi poczty e-mail SendGrid na platformie Azure. Przykłady są zapisywane w języku Java. Omówione scenariusze obejmują **konstruowanie poczty e-mail**, **wysyłanie wiadomości e-mail**, **Dodawanie załączników**, **Używanie filtrów**i **Aktualizowanie właściwości**. Aby uzyskać więcej informacji na temat SendGrid i wysyłania wiadomości e-mail, zobacz sekcję [następne kroki](#next-steps) .
+W tym przewodniku pokazano, jak wykonywać typowe zadania programistyczne przy użyciu usługi poczty e-mail SendGrid na platformie Azure. Przykłady są zapisywane w języku Java. Omówione scenariusze obejmują **konstruowanie poczty e-mail**, **wysyłanie wiadomości e-mail**, **Dodawanie załączników**, **Używanie filtrów** i **Aktualizowanie właściwości**. Aby uzyskać więcej informacji na temat SendGrid i wysyłania wiadomości e-mail, zobacz sekcję [następne kroki](#next-steps) .
 
 ## <a name="what-is-the-sendgrid-email-service"></a>Co to jest usługa poczty E-mail SendGrid?
 SendGrid to [oparta na chmurze usługa poczty e-mail] , która zapewnia niezawodne [dostarczanie transakcyjnych wiadomości e-mail], skalowalność i analizę w czasie rzeczywistym oraz elastyczne interfejsy API, które ułatwiają integrację niestandardową. Typowe scenariusze użycia SendGrid obejmują:
@@ -86,7 +86,7 @@ Uzyskaj biblioteki javax. mail, na przykład z <https://www.oracle.com/technetwo
     Authenticator auth = new SMTPAuthenticator();
     Session mailSession = Session.getDefaultInstance(properties, auth);
     ```
-3. Utwórz wiadomość i przypisz **do**wartości, **z**, **temat** i zawartość. Jest to pokazane w sekcji [How to: Create a email](#how-to-create-an-email) .
+3. Utwórz wiadomość i przypisz **do** wartości, **z**, **temat** i zawartość. Jest to pokazane w sekcji [How to: Create a email](#how-to-create-an-email) .
 4. Wyślij wiadomość za pomocą obiektu *javax. mail. Transport* . Jest to pokazane w sekcji [jak: wysyłanie wiadomości E-mail] [#how-to-Send-a-e-mail].
 
 ## <a name="how-to-create-an-email"></a>Instrukcje: tworzenie wiadomości e-mail

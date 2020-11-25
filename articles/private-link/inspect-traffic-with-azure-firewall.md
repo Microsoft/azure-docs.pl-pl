@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 734d52dadbb849925303febb0d3d1195bbddb0df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cbfd90ca65a1fb75c9cbe5602ac2a69741e378f
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89236759"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96017240"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Używanie zapory platformy Azure do sprawdzania ruchu kierowanego do prywatnego punktu końcowego
 
@@ -55,7 +55,7 @@ Aby uzyskać więcej informacji na temat opłat związanych z połączeniami z r
 
 ## <a name="scenario-2-hub-and-spoke-architecture---shared-virtual-network-for-private-endpoints-and-virtual-machines"></a>Scenariusz 2: architektura Hub i szprych — udostępniona Sieć wirtualna dla prywatnych punktów końcowych i maszyn wirtualnych
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/shared-spoke.png" alt-text="Dedykowane Virtual Network dla prywatnych punktów końcowych" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/shared-spoke.png" alt-text="Prywatne punkty końcowe i Virtual Machines w tym samym Virtual Network" border="true":::
 
 Ten scenariusz jest implementowany, gdy:
 
@@ -78,7 +78,7 @@ Aby uzyskać więcej informacji na temat opłat związanych z połączeniami z r
 
 ## <a name="scenario-3-single-virtual-network"></a>Scenariusz 3: pojedyncza Sieć wirtualna
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Dedykowane Virtual Network dla prywatnych punktów końcowych" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Pojedyncza Sieć wirtualna" border="true":::
 
 Istnieją pewne ograniczenia dotyczące implementacji: migracja do architektury gwiazdy i szprych nie jest możliwa. Zastosowanie mają takie same zagadnienia jak w przypadku scenariusza 2. W tym scenariuszu opłaty za komunikację równorzędną sieci wirtualnych nie mają zastosowania.
 
@@ -87,7 +87,7 @@ Istnieją pewne ograniczenia dotyczące implementacji: migracja do architektury 
 
 ## <a name="scenario-4-on-premises-traffic-to-private-endpoints"></a>Scenariusz 4: ruch lokalny do prywatnych punktów końcowych
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-premises.png" alt-text="Dedykowane Virtual Network dla prywatnych punktów końcowych" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-premises.png" alt-text="Ruch lokalny do prywatnych punktów końcowych" border="true":::
 
 Tę architekturę można zaimplementować, jeśli skonfigurowano łączność z siecią lokalną przy użyciu: 
 
@@ -106,7 +106,7 @@ Należy zastosować takie same kwestie jak w scenariuszu 2 powyżej. W tym scena
 * Subskrypcja platformy Azure.
 * Obszar roboczy usługi Log Analytics.  
 
-Zobacz temat [Tworzenie obszaru roboczego log Analytics w Azure Portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) , aby utworzyć obszar roboczy, jeśli nie znajduje się on w subskrypcji.
+Zobacz temat [Tworzenie obszaru roboczego log Analytics w Azure Portal](../azure-monitor/learn/quick-create-workspace.md) , aby utworzyć obszar roboczy, jeśli nie znajduje się on w subskrypcji.
 
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
@@ -174,7 +174,7 @@ Zastąp następujące parametry w krokach poniższymi informacjami:
     | Grupa zasobów | Wybierz pozycję **myResourceGroup**. Ta grupa zasobów została utworzona w poprzedniej sekcji.  |
     | **Szczegóły wystąpienia** |  |
     | Nazwa maszyny wirtualnej | Wprowadź **myVM**. |
-    | Region | Wybierz pozycję **(USA) Południowo-środkowe stany USA**. |
+    | Region (Region) | Wybierz pozycję **(USA) Południowo-środkowe stany USA**. |
     | Opcje dostępności | Pozostaw wartość domyślną **Brak wymaganej nadmiarowości infrastruktury**. |
     | Obraz | Wybierz pozycję **Ubuntu Server 18,04 LTS-Gen1**. |
     | Rozmiar | Wybierz **Standard_B2s**. |
@@ -223,7 +223,7 @@ Zastąp następujące parametry w krokach poniższymi informacjami:
     | Grupa zasobów | Wybierz pozycję **myResourceGroup**.  |
     | **Szczegóły wystąpienia** |  |
     | Nazwa | Wprowadź **myAzureFirewall**. |
-    | Region | Wybierz pozycję **Południowo-środkowe stany USA**. |
+    | Region (Region) | Wybierz pozycję **Południowo-środkowe stany USA**. |
     | Strefa dostępności | Pozostaw wartość domyślną **Brak**. |
     | Wybieranie sieci wirtualnej    |    Wybierz pozycję **Użyj istniejącej**.    |
     | Sieć wirtualna    |    Wybierz pozycję **myAzFwVNet**.    |
@@ -246,7 +246,7 @@ W tej sekcji można włączyć Dzienniki zapory.
 
 4. Wybierz pozycję **+ Dodaj ustawienie diagnostyczne** w ustawieniach diagnostycznych.
 
-5. W polu **Ustawienia diagnostyczne**wprowadź lub wybierz następujące informacje:
+5. W polu **Ustawienia diagnostyczne** wprowadź lub wybierz następujące informacje:
 
     | Ustawienie | Wartość |
     | ------- | ----- |
@@ -263,9 +263,9 @@ W tej sekcji można włączyć Dzienniki zapory.
 
 W tej sekcji utworzysz prywatny SQL Database.
 
-1. W lewym górnym rogu ekranu w Azure Portal wybierz pozycję **Utwórz**  >  **bazę danych**zasobów  >  **SQL Database**.
+1. W lewym górnym rogu ekranu w Azure Portal wybierz pozycję **Utwórz**  >  **bazę danych** zasobów  >  **SQL Database**.
 
-2. W obszarze **tworzenie SQL Database — podstawowe**wprowadź lub wybierz następujące informacje:
+2. W obszarze **tworzenie SQL Database — podstawowe** wprowadź lub wybierz następujące informacje:
 
     | Ustawienie | Wartość |
     | ------- | ----- |
@@ -300,7 +300,7 @@ W tej sekcji utworzysz prywatny punkt końcowy dla bazy danych Azure SQL Databas
 
 4. Wybierz pozycję **+ prywatny punkt końcowy**.
 
-5. W obszarze **Utwórz prywatny punkt końcowy**wprowadź lub wybierz te informacje na karcie **podstawowe** :
+5. W obszarze **Utwórz prywatny punkt końcowy** wprowadź lub wybierz te informacje na karcie **podstawowe** :
 
     | Ustawienie | Wartość |
     | ------- | ----- |
@@ -309,7 +309,7 @@ W tej sekcji utworzysz prywatny punkt końcowy dla bazy danych Azure SQL Databas
     | Grupa zasobów | Wybierz pozycję **myResourceGroup**. |
     | **Szczegóły wystąpienia** | |
     | Nazwa | Wprowadź **SQLPrivateEndpoint**. |
-    | Region | Wybierz pozycję **(USA) Południowo-środkowe stany USA.** |
+    | Region (Region) | Wybierz pozycję **(USA) Południowo-środkowe stany USA.** |
 
 6. Wybierz kartę **zasób** lub wybierz pozycję **Dalej: zasób** w dolnej części strony.
 
@@ -339,11 +339,11 @@ W tej sekcji utworzysz prywatny punkt końcowy dla bazy danych Azure SQL Databas
 
 10. Wybierz kartę **Recenzja + tworzenie** lub wybierz pozycję **Przegląd + Utwórz** w dolnej części strony.
 
-11. Wybierz przycisk **Utwórz**.
+11. Wybierz pozycję **Utwórz**.
 
 12. Po utworzeniu punktu końcowego wybierz pozycję **zapory i sieci wirtualne** w obszarze **zabezpieczenia**.
 
-13. W obszarze **zapory i sieci wirtualne**wybierz pozycję **tak** dalej, aby **zezwolić usługom i zasobom platformy Azure na dostęp do tego serwera**.
+13. W obszarze **zapory i sieci wirtualne** wybierz pozycję **tak** dalej, aby **zezwolić usługom i zasobom platformy Azure na dostęp do tego serwera**.
 
 14. Wybierz pozycję **Zapisz**.
 
@@ -377,7 +377,7 @@ W tej sekcji połączymy sieci wirtualne **myVMVNet** i **MyPEVNet** z usługą 
     | Zezwalaj na tranzyt bramy | Pozostaw niezaznaczone |
     |||
 
-4. Wybierz przycisk **OK**.
+4. Wybierz pozycję **OK**.
 
 5. Wybierz pozycję **+ Dodaj**.
 
@@ -402,7 +402,7 @@ W tej sekcji połączymy sieci wirtualne **myVMVNet** i **MyPEVNet** z usługą 
     | **Konfigurowanie ustawień tranzytu bramy** | |
     | Zezwalaj na tranzyt bramy | Pozostaw niezaznaczone |
 
-7. Wybierz przycisk **OK**.
+7. Wybierz pozycję **OK**.
 
 ## <a name="link-the-virtual-networks-to-the-private-dns-zone"></a>Łączenie sieci wirtualnych z prywatną strefą DNS
 
@@ -417,7 +417,7 @@ W tej sekcji połączymy sieci wirtualne **myVMVNet** i **myAzFwVNet** z prywatn
 
 2. W wynikach wyszukiwania wybierz pozycję **privatelink.Database.Windows.NET** .
 
-3. W obszarze **Ustawienia**wybierz pozycję **linki sieci wirtualnej** .
+3. W obszarze **Ustawienia** wybierz pozycję **linki sieci wirtualnej** .
 
 4. Wybierz pozycję **+ Dodaj**
 
@@ -434,7 +434,7 @@ W tej sekcji połączymy sieci wirtualne **myVMVNet** i **myAzFwVNet** z prywatn
     | Włącz rejestrację autorejestrowania | Pozostaw niezaznaczone.    |
 
 
-6. Wybierz przycisk **OK**.
+6. Wybierz pozycję **OK**.
 
 ## <a name="configure-an-application-rule-with-sql-fqdn-in-azure-firewall"></a>Konfigurowanie reguły aplikacji przy użyciu nazwy FQDN programu SQL w zaporze platformy Azure
 
@@ -464,7 +464,7 @@ Ta reguła umożliwia komunikację przez zaporę utworzoną w poprzednich krokac
     | Nazwa  | Pozostaw to pole puste.  |
     | Typ źródła | Pozostaw domyślny **adres IP**.    |
     | Element źródłowy | Pozostaw to pole puste. |
-    | Tagi w pełni kwalifikowanych nazw domen | Pozostaw **wybraną**wartość domyślną 0. |
+    | Tagi w pełni kwalifikowanych nazw domen | Pozostaw **wybraną** wartość domyślną 0. |
     | **Docelowe nazwy FQDN** | |
     | Nazwa | Wprowadź **SQLPrivateEndpoint**.    |
     | Typ źródła | Pozostaw domyślny **adres IP**. |
@@ -481,7 +481,7 @@ Nie utworzono komunikacji równorzędnej sieci wirtualnej bezpośrednio między 
 
 W tej sekcji utworzymy tabelę tras z trasą niestandardową. 
 
-Trasa wysyła ruch z podsieci **myVM** do przestrzeni adresowej sieci wirtualnej **myPEVNet**za pośrednictwem zapory platformy Azure.
+Trasa wysyła ruch z podsieci **myVM** do przestrzeni adresowej sieci wirtualnej **myPEVNet** za pośrednictwem zapory platformy Azure.
 
 1. W menu witryny Azure Portal lub na **stronie głównej** wybierz pozycję **Utwórz zasób**.
 
@@ -497,7 +497,7 @@ Trasa wysyła ruch z podsieci **myVM** do przestrzeni adresowej sieci wirtualnej
     | Subskrypcja | Wybierz subskrypcję. |
     | Grupa zasobów | Wybierz pozycję **myResourceGroup**.  |
     | **Szczegóły wystąpienia** |  |
-    | Region | Wybierz pozycję **Południowo-środkowe stany USA**. |
+    | Region (Region) | Wybierz pozycję **Południowo-środkowe stany USA**. |
     | Nazwa | Wprowadź **podsieć VMsubnet do AzureFirewall**. |
     | Propaguj trasy bramy | Wybierz pozycję **Nie**. |
 
@@ -520,9 +520,9 @@ Trasa wysyła ruch z podsieci **myVM** do przestrzeni adresowej sieci wirtualnej
     | Typ następnego przeskoku | Wybierz pozycję **Urządzenie wirtualne**. |
     | Adres następnego skoku | Wprowadź **10.0.0.4**. |
 
-11. Wybierz przycisk **OK**.
+11. Wybierz pozycję **OK**.
 
-12. W obszarze **Ustawienia**wybierz pozycję **podsieci** .
+12. W obszarze **Ustawienia** wybierz pozycję **podsieci** .
 
 13. Wybierz pozycję **+ Skojarz**.
 
@@ -533,7 +533,7 @@ Trasa wysyła ruch z podsieci **myVM** do przestrzeni adresowej sieci wirtualnej
     | Sieć wirtualna | Wybierz pozycję **myVMVNet**. |
     | Podsieć | Wybierz pozycję **podsieć VMSubnet**.  |
 
-15. Wybierz przycisk **OK**.
+15. Wybierz pozycję **OK**.
 
 ## <a name="connect-to-the-virtual-machine-from-your-client-computer"></a>Nawiązywanie połączenia z maszyną wirtualną z komputera klienckiego
 
@@ -575,7 +575,7 @@ W tej sekcji połączysz się prywatnie z SQL Database przy użyciu prywatnego p
     Address: 10.2.0.4
     ```
 
-2. Zainstaluj [SQL Server narzędzia wiersza polecenia](https://docs.microsoft.com/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15#tools).
+2. Zainstaluj [SQL Server narzędzia wiersza polecenia](/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15#tools).
 
 3. Uruchom następujące polecenie, aby połączyć się z SQL Server. Użyj administratora serwera i hasła zdefiniowanego podczas tworzenia SQL Server w poprzednich krokach.
 

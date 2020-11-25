@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: cbd6f821326c86983ceb3ae5b90969e522c187fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bdeef537556db94338ed50fcfa6e9d88431f25a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82204510"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96016265"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
 
@@ -29,9 +29,9 @@ W systemie Windows następujące polecenie zainstaluje lub zaktualizuje istniej�
 ```PowerShell
 Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
 ```
-W systemie Linux instalacja interfejsu wiersza polecenia różni się w zależności od wersji systemu operacyjnego.  Zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) dla konkretnej wersji systemu Linux.
+W systemie Linux instalacja interfejsu wiersza polecenia różni się w zależności od wersji systemu operacyjnego.  Zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) dla konkretnej wersji systemu Linux.
 
-Aby utworzyć migawkę przyrostową, użyj [AZ Snapshot Create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) z `--incremental` parametrem.
+Aby utworzyć migawkę przyrostową, użyj [AZ Snapshot Create](/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) z `--incremental` parametrem.
 
 Poniższy przykład obejmuje tworzenie przyrostowych migawek, zastępowanie `<yourDesiredSnapShotNameHere>` , `<yourResourceGroupNameHere>` , `<exampleDiskName>` , i `<exampleLocation>` przy użyciu własnych wartości, a następnie uruchomienie przykładu:
 

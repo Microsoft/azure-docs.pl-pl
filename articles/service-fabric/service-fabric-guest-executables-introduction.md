@@ -4,11 +4,11 @@ description: Dowiedz się więcej o pakowaniu istniejącej aplikacji jako pliku 
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: 8b808d092001196a4d2150e44d508e031db95554
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86247391"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017750"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Wdróż istniejący plik wykonywalny w Service Fabric
 Możesz uruchomić dowolny typ kodu, taki jak Node.js, Java lub C++ na platformie Azure Service Fabric jako usługa. Service Fabric odnosi się do tych typów usług jako plików wykonywalnych gościa.

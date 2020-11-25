@@ -11,11 +11,11 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 2661715164cc6aa5f5ff587f2ddf28c0918445d4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843574"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016016"
 ---
 # <a name="create-a-shared-image-gallery-using-the-portal"></a>Tworzenie udostępnionej galerii obrazów przy użyciu portalu
 
@@ -36,7 +36,7 @@ Funkcja galerii obrazów udostępnionych ma wiele typów zasobów. Firma Microso
 
 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby ukończyć ten przykład w tym artykule, musisz mieć istniejący obraz zarządzany uogólnionej maszyny wirtualnej lub migawkę wyspecjalizowanej maszyny wirtualnej. Możesz skorzystać z [samouczka: Tworzenie niestandardowego obrazu maszyny wirtualnej platformy Azure za pomocą Azure PowerShell](tutorial-custom-images.md) w celu utworzenia obrazu zarządzanego lub [utworzenia migawki](../windows/snapshot-copy-managed-disk.md) dla wyspecjalizowanej maszyny wirtualnej. W przypadku obrazów zarządzanych i migawek rozmiar dysku danych nie może być większy niż 1 TB.
 

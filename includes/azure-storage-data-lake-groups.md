@@ -6,14 +6,14 @@ ms.topic: include
 ms.date: 09/29/2020
 ms.author: normesta
 ms.custom: include file
-ms.openlocfilehash: 73a8f20122e21c4557289995c15b008401285011
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 9750eabf2aa5af4f431f2db17e113b07d3bce863
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131653"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017689"
 ---
-Zawsze używaj [grup zabezpieczeń usługi Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups) jako przypisanego podmiotu zabezpieczeń w pozycji listy ACL. Odporne na możliwość bezpośredniego przypisywania poszczególnych użytkowników lub podmiotów usługi. Użycie tej struktury umożliwi Dodawanie i usuwanie użytkowników lub jednostek usług bez konieczności ponownego stosowania list kontroli dostępu do całej struktury katalogów. Zamiast tego można po prostu dodać lub usunąć użytkowników i jednostki usługi z odpowiedniej grupy zabezpieczeń usługi Azure AD. 
+Zawsze używaj [grup zabezpieczeń usługi Azure AD](../articles/active-directory/fundamentals/active-directory-manage-groups.md) jako przypisanego podmiotu zabezpieczeń w pozycji listy ACL. Odporne na możliwość bezpośredniego przypisywania poszczególnych użytkowników lub podmiotów usługi. Użycie tej struktury umożliwi Dodawanie i usuwanie użytkowników lub jednostek usług bez konieczności ponownego stosowania list kontroli dostępu do całej struktury katalogów. Zamiast tego można po prostu dodać lub usunąć użytkowników i jednostki usługi z odpowiedniej grupy zabezpieczeń usługi Azure AD. 
 
 Istnieje wiele różnych sposobów konfigurowania grup. Załóżmy na przykład, że masz katalog o nazwie **/LogData** , który przechowuje dane dziennika, które są generowane przez serwer. Azure Data Factory (ADF) pobiera dane do tego folderu. Określeni użytkownicy z zespołu ds. obsługi technicznej będą przekazywać dzienniki i zarządzać innymi użytkownikami tego folderu, a różne klastry datakostki będą analizować dzienniki z tego folderu. 
 
@@ -27,4 +27,4 @@ Aby włączyć te działania, można utworzyć `LogsWriter` grupę i `LogsReader
 
 Jeśli użytkownik w zespole inżynierów usług opuści firmę, można po prostu usunąć ją z `LogsWriter` grupy. Jeśli ten użytkownik nie został dodany do grupy, ale zamiast tego został dodany dedykowany wpis listy kontroli dostępu dla tego użytkownika, należy usunąć ten wpis listy ACL z katalogu **/LogData** . Należy również usunąć wpis ze wszystkich podkatalogów i plików w całej hierarchii katalogów katalogu **/LogData** . 
 
-Aby utworzyć grupę i dodać członków, zobacz [Tworzenie grupy podstawowej i Dodawanie członków przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
+Aby utworzyć grupę i dodać członków, zobacz [Tworzenie grupy podstawowej i Dodawanie członków przy użyciu Azure Active Directory](../articles/active-directory/fundamentals/active-directory-groups-create-azure-portal.md).

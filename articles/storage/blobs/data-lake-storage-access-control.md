@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 03117b9f0c3cbaea22f36703f689264549b851e8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 485b23d9b7ebac4f7d183239d035fbd53b09f4ee
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959139"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017687"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Listy kontroli dostępu (ACL) w Azure Data Lake Storage Gen2
 
@@ -23,7 +23,7 @@ Azure Data Lake Storage Gen2 implementuje model kontroli dostępu, który obsłu
 
 ## <a name="about-acls"></a>Listy ACL — informacje
 
-[Podmiot zabezpieczeń](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) można skojarzyć z poziomem dostępu dla plików i katalogów. Te skojarzenia są przechwytywane z *listy kontroli dostępu (ACL)*. Każdy plik i katalog na koncie magazynu ma listę kontroli dostępu. Gdy podmiot zabezpieczeń próbuje wykonać operację na pliku lub katalogu, kontrola listy kontroli dostępu określa, czy podmiot zabezpieczeń (użytkownik, Grupa, nazwa główna usługi lub tożsamość zarządzana) ma prawidłowy poziom uprawnień do wykonania tej operacji.
+[Podmiot zabezpieczeń](../../role-based-access-control/overview.md#security-principal) można skojarzyć z poziomem dostępu dla plików i katalogów. Te skojarzenia są przechwytywane z *listy kontroli dostępu (ACL)*. Każdy plik i katalog na koncie magazynu ma listę kontroli dostępu. Gdy podmiot zabezpieczeń próbuje wykonać operację na pliku lub katalogu, kontrola listy kontroli dostępu określa, czy podmiot zabezpieczeń (użytkownik, Grupa, nazwa główna usługi lub tożsamość zarządzana) ma prawidłowy poziom uprawnień do wykonania tej operacji.
 
 > [!NOTE]
 > Listy ACL dotyczą tylko podmiotów zabezpieczeń w tej samej dzierżawie i nie mają zastosowania do użytkowników korzystających z uwierzytelniania za pomocą klucza współużytkowanego lub sygnatury dostępu współdzielonego (SAS). Dzieje się tak dlatego, że żadna tożsamość nie jest skojarzona z obiektem wywołującym i dlatego nie można wykonać autoryzacji podmiotu zabezpieczeń na podstawie uprawnień.  
@@ -40,7 +40,7 @@ Aby ustawić uprawnienia na poziomie plików i katalogów, zobacz dowolny z nast
 |Python|[Używanie języka Python do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md#manage-access-control-lists-acls)|
 |PowerShell|[Użyj programu PowerShell do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-powershell.md#manage-access-control-lists-acls)|
 |Interfejs wiersza polecenia platformy Azure|[Korzystanie z interfejsu wiersza polecenia platformy Azure do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md#manage-access-control-lists-acls)|
-|Interfejs API REST |[Ścieżka — aktualizacja](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
+|Interfejs API REST |[Ścieżka — aktualizacja](/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
 > Jeśli podmiot zabezpieczeń jest jednostką *usługi* , ważne jest użycie identyfikatora obiektu nazwy głównej usługi, a nie identyfikatora obiektu powiązanej rejestracji aplikacji. Aby uzyskać identyfikator obiektu jednostki usługi, Otwórz interfejs wiersza polecenia platformy Azure, a następnie użyj następujące polecenie: `az ad sp show --id <Your App ID> --query objectId` . Pamiętaj, aby zastąpić `<Your App ID>` symbol zastępczy identyfikatorem aplikacji rejestracji aplikacji.
@@ -92,7 +92,8 @@ W poniższej tabeli przedstawiono wpisy listy kontroli dostępu wymagane do umo�
 
 W tej tabeli przedstawiono kolumnę, która reprezentuje każdy poziom fikcyjnej hierarchii katalogów. Istnieje kolumna katalogu głównego kontenera ( `\` ), podkatalog o nazwie **Oregon**, podkatalog katalogu Oregon o nazwie **Portland** oraz plik tekstowy w katalogu w Portland o nazwie **Data.txt**. 
 
-> [! IMPORANT] w tej tabeli założono, że używasz **tylko** list ACL bez żadnych przypisań ról platformy Azure. Aby wyświetlić podobną tabelę, która łączy usługę Azure RBAC wraz z listami ACL, zobacz [tabela uprawnień: łączenie RBAC i listy ACL platformy Azure](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
+> [!IMPORTANT]
+> W tej tabeli założono, że używasz **tylko** list ACL bez żadnych przypisań ról platformy Azure. Aby wyświetlić podobną tabelę, która łączy usługę Azure RBAC wraz z listami ACL, zobacz [tabela uprawnień: łączenie RBAC i listy ACL platformy Azure](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
 
 |    Operacja             |    /    | Oregon | Biura | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
@@ -330,7 +331,7 @@ Jeśli masz prawidłowy identyfikator OID dla jednostki usługi, przejdź do str
 
 Nie. Kontener nie ma listy ACL. Można jednak ustawić listę kontroli dostępu dla katalogu głównego kontenera. Każdy kontener ma katalog główny i ma taką samą nazwę jak kontener. Na przykład jeśli kontener ma nazwę `my-container` , katalog główny ma nazwę `myContainer/` . 
 
-Interfejs API REST usługi Azure Storage zawiera operację o nazwie [list ACL kontenera zestawu](https://docs.microsoft.com/rest/api/storageservices/set-container-acl), ale tej operacji nie można użyć do ustawienia listy ACL kontenera lub katalogu głównego kontenera. Zamiast tego ta operacja służy do wskazywania, czy dostęp do obiektów BLOB w kontenerze można [uzyskać publicznie](anonymous-read-access-configure.md). 
+Interfejs API REST usługi Azure Storage zawiera operację o nazwie [list ACL kontenera zestawu](/rest/api/storageservices/set-container-acl), ale tej operacji nie można użyć do ustawienia listy ACL kontenera lub katalogu głównego kontenera. Zamiast tego ta operacja służy do wskazywania, czy dostęp do obiektów BLOB w kontenerze można [uzyskać publicznie](anonymous-read-access-configure.md). 
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Gdzie można dowiedzieć się więcej na temat modelu kontroli dostępu POSIX?
 
@@ -343,6 +344,6 @@ Interfejs API REST usługi Azure Storage zawiera operację o nazwie [list ACL ko
 * [Listy ACL modelu POSIX w systemie Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [Listy ACL korzystające z list kontroli dostępu w systemie Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Model kontroli dostępu w Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md)

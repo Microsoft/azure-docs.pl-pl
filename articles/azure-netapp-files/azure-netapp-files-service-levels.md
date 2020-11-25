@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: b-juche
 ms.openlocfilehash: 7eac6a40476cffe875a03de49c9c9311ffbf4d39
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016046"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017070"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Poziomy usług dla usługi Azure NetApp Files
 Poziomy usług są atrybutem puli pojemności. Poziomy usług są zdefiniowane i odróżniane przez maksymalną przepustowość dla woluminu w puli pojemności na podstawie przydziału przypisanego do woluminu.
 
 ## <a name="supported-service-levels"></a>Obsługiwane poziomy usług
 
-Azure NetApp Files obsługuje trzy poziomy usługi: *Ultra*, *Premium*i *Standard*. 
+Azure NetApp Files obsługuje trzy poziomy usługi: *Ultra*, *Premium* i *Standard*. 
 
 * <a name="Ultra"></a>Ultra Storage
 
@@ -45,7 +45,7 @@ Azure NetApp Files obsługuje trzy poziomy usługi: *Ultra*, *Premium*i *Standar
 Limit przepływności dla woluminu jest określany przez połączenie następujących czynników:
 * Poziom usługi puli pojemności, do której należy wolumin
 * Przydział przypisany do woluminu  
-* Typ*QoS (* autolub *ręczny*) puli pojemności  
+* Typ *QoS (* autolub *ręczny*) puli pojemności  
 
 ### <a name="throughput-limit-examples-of-volumes-in-an-auto-qos-capacity-pool"></a>Przykładowe limity przepływności woluminów w puli pojemności usługi autoqos
 
