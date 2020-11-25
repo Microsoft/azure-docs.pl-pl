@@ -10,11 +10,11 @@ ms.date: 11/03/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
 ms.openlocfilehash: 44d17bafe534fea2d408c92a3a01efb699250a78
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317786"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95974429"
 ---
 # <a name="ingest-data-into-a-dedicated-sql-pool"></a>Pozyskiwanie danych do dedykowanej puli SQL
 
@@ -22,9 +22,9 @@ W tym artykule dowiesz się, jak pozyskiwać dane z konta magazynu Azure Data La
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Subskrypcja platformy Azure** : Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
-* **Konto usługi Azure Storage** : używasz Azure Data Lake Storage Gen 2 jako magazynu danych *źródłowych* . Jeśli nie masz konta magazynu, zobacz [Tworzenie konta usługi Azure Storage](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) , aby uzyskać instrukcje.
-* **Azure Synapse Analytics** : dedykowana Pula SQL jest używana jako magazyn danych *ujścia* . Jeśli nie masz wystąpienia usługi Azure Synapse Analytics, zapoznaj się z tematem [Tworzenie dedykowanej puli SQL](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) w celu wykonania czynności, aby ją utworzyć.
+* **Subskrypcja platformy Azure**: Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
+* **Konto usługi Azure Storage**: używasz Azure Data Lake Storage Gen 2 jako magazynu danych *źródłowych* . Jeśli nie masz konta magazynu, zobacz [Tworzenie konta usługi Azure Storage](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) , aby uzyskać instrukcje.
+* **Azure Synapse Analytics**: dedykowana Pula SQL jest używana jako magazyn danych *ujścia* . Jeśli nie masz wystąpienia usługi Azure Synapse Analytics, zapoznaj się z tematem [Tworzenie dedykowanej puli SQL](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) w celu wykonania czynności, aby ją utworzyć.
 
 ## <a name="create-linked-services"></a>Tworzenie połączonych usług
 

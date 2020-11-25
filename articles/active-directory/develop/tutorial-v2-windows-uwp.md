@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: cbfb5c598a2a56b0b14a3a90cf29ce23366b9b6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 774c17af88e45e25cf1e8edc0df60ab55fe53e0e
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627673"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95974338"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Samouczek: wywoływanie interfejsu API Microsoft Graph z aplikacji platforma uniwersalna systemu Windows (platformy UWP)
 
-W tym przewodniku wyjaśniono, jak aplikacja natywna platforma uniwersalna systemu Windows (platformy UWP) może zażądać tokenu dostępu. Aplikacja następnie wywołuje interfejs API Microsoft Graph. Przewodnik dotyczy również innych interfejsów API, które wymagają tokenów dostępu z punktu końcowego platformy tożsamości firmy Microsoft.
+W tym samouczku utworzysz natywną aplikację platforma uniwersalna systemu Windows (platformy UWP), która loguje się do użytkowników i pobiera token dostępu do wywoływania interfejsu API Microsoft Graph. 
 
 Na końcu tego przewodnika aplikacja wywołuje chroniony interfejs API przy użyciu kont osobistych. Przykłady to outlook.com, live.com i inne. Aplikacja wywołuje również konta służbowe z dowolnej firmy lub organizacji, która ma Azure Active Directory (Azure AD).
 
@@ -65,15 +65,15 @@ Ten przewodnik tworzy aplikację, która wyświetla przycisk, który wysyła zap
 ### <a name="create-your-application"></a>Tworzenie aplikacji
 
 1. Otwórz program Visual Studio, a następnie wybierz pozycję **Utwórz nowy projekt**.
-1. W obszarze **Utwórz nowy projekt**wybierz pozycję **pusta aplikacja (uniwersalna platforma Windows)** dla języka C# i wybierz pozycję **dalej**.
-1. W obszarze **Konfigurowanie nowego projektu**Nadaj nazwę aplikacji, a następnie wybierz pozycję **Utwórz**.
-1. Jeśli zostanie wyświetlony monit, w oknie **Nowy projekt platforma uniwersalna systemu Windows**wybierz dowolną wersję dla wersji **docelowej** i **minimalnej** , a następnie wybierz **przycisk OK**.
+1. W obszarze **Utwórz nowy projekt** wybierz pozycję **pusta aplikacja (uniwersalna platforma Windows)** dla języka C# i wybierz pozycję **dalej**.
+1. W obszarze **Konfigurowanie nowego projektu** Nadaj nazwę aplikacji, a następnie wybierz pozycję **Utwórz**.
+1. Jeśli zostanie wyświetlony monit, w oknie **Nowy projekt platforma uniwersalna systemu Windows** wybierz dowolną wersję dla wersji **docelowej** i **minimalnej** , a następnie wybierz **przycisk OK**.
 
    ![Wersje minimalne i docelowe](./media/tutorial-v2-windows-uwp/select-uwp-target-minimum.png)
 
 ### <a name="add-microsoft-authentication-library-to-your-project"></a>Dodawanie biblioteki uwierzytelniania firmy Microsoft do projektu
 
-1. W programie Visual Studio wybierz kolejno pozycje **Narzędzia**Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów**.
+1. W programie Visual Studio wybierz kolejno pozycje **Narzędzia** Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów**.
 1. Skopiuj i wklej następujące polecenia w oknie **konsola Menedżera pakietów** :
 
     ```powershell
@@ -107,7 +107,7 @@ Program Visual Studio tworzy *MainPage. XAML* jako część szablonu projektu. O
 
 W tej sekcji przedstawiono sposób korzystania z biblioteki uwierzytelniania firmy Microsoft w celu uzyskania tokenu dla interfejsu API Microsoft Graph. Wprowadź zmiany w pliku *MainPage.XAML.cs* .
 
-1. W *MainPage.XAML.cs*Dodaj następujące odwołania:
+1. W *MainPage.XAML.cs* Dodaj następujące odwołania:
 
     ```csharp
     using Microsoft.Identity.Client;
@@ -347,23 +347,23 @@ private async Task DisplayMessageAsync(string message)
 Teraz musisz zarejestrować aplikację:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. Wybierz **Azure Active Directory**  >  **rejestracje aplikacji**Azure Active Directory.
+1. Wybierz **Azure Active Directory**  >  **rejestracje aplikacji** Azure Active Directory.
 1. Wybierz pozycję **Nowa rejestracja**. Wprowadź zrozumiałą nazwę aplikacji, która będzie wyświetlana użytkownikom aplikacji, na przykład *platformy UWP-App-Call-MSGraph*.
-1. W obszarze **obsługiwane typy kont**wybierz pozycję **konta w dowolnym katalogu organizacyjnym i osobiste konta Microsoft (np. Skype, Xbox)**. Następnie wybierz pozycję **zarejestruj** , aby kontynuować.
-1. Na stronie Przegląd Znajdź wartość **Identyfikator aplikacji (klienta)** i skopiuj ją. Wróć do programu Visual Studio, Otwórz *MainPage.XAML.cs*i Zastąp wartość `ClientId` tą wartością.
+1. W obszarze **obsługiwane typy kont** wybierz pozycję **konta w dowolnym katalogu organizacyjnym i osobiste konta Microsoft (np. Skype, Xbox)**. Następnie wybierz pozycję **zarejestruj** , aby kontynuować.
+1. Na stronie Przegląd Znajdź wartość **Identyfikator aplikacji (klienta)** i skopiuj ją. Wróć do programu Visual Studio, Otwórz *MainPage.XAML.cs* i Zastąp wartość `ClientId` tą wartością.
 
 Skonfiguruj uwierzytelnianie dla aplikacji:
 
-1. Wróć do [Azure Portal](https://portal.azure.com), w obszarze **Zarządzaj**wybierz pozycję **uwierzytelnianie**.
+1. Wróć do [Azure Portal](https://portal.azure.com), w obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**.
 1. W sekcji **adresy URI przekierowania**  |  **sugerowane identyfikatory URI dla klientów publicznych (Mobile, Desktop)** zaznacz pole wyboru https://login.microsoftonline.com/common/oauth2/nativeclient .
 1. Wybierz pozycję **Zapisz**.
 
 Skonfiguruj uprawnienia interfejsu API dla aplikacji:
 
-1. W obszarze **Zarządzaj**wybierz pozycję **uprawnienia interfejsu API**.
+1. W obszarze **Zarządzaj** wybierz pozycję **uprawnienia interfejsu API**.
 1. Wybierz pozycję **Dodaj uprawnienia**, a następnie upewnij się, że zostały wybrane **interfejsy API firmy Microsoft**.
 1. Wybierz **Microsoft Graph**.
-1. Wybierz pozycję **uprawnienia delegowane**, Wyszukaj *użytkownika. Odczytaj*i sprawdź, czy wybrano pozycję **użytkownik. odczyt** .
+1. Wybierz pozycję **uprawnienia delegowane**, Wyszukaj *użytkownika. Odczytaj* i sprawdź, czy wybrano pozycję **użytkownik. odczyt** .
 1. Jeśli wprowadzono jakiekolwiek zmiany, wybierz pozycję **Dodaj uprawnienia** , aby je zapisać.
 
 ## <a name="enable-integrated-authentication-on-federated-domains-optional"></a>Włącz uwierzytelnianie zintegrowane w domenach federacyjnych (opcjonalnie)
@@ -371,7 +371,7 @@ Skonfiguruj uprawnienia interfejsu API dla aplikacji:
 Aby włączyć zintegrowane uwierzytelnianie systemu Windows, gdy jest on używany z federacyjną domeną usługi Azure AD, manifest aplikacji musi włączyć dodatkowe możliwości. Wróć do aplikacji w programie Visual Studio.
 
 1. Otwórz *pakiet Package. appxmanifest*.
-1. Wybierz pozycję **możliwości**i Włącz następujące ustawienia:
+1. Wybierz pozycję **możliwości** i Włącz następujące ustawienia:
 
    * **Uwierzytelnianie w przedsiębiorstwie**
    * **Sieci prywatne (serwer & klienta)**

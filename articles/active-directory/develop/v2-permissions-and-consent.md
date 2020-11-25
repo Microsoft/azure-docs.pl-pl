@@ -13,11 +13,11 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperfq1, identityplatformtop40
 ms.openlocfilehash: 9c8a911bef5fb92f5bf9aa447e9e810a85317208
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365854"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95974157"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Uprawnienia i zgoda w punkcie końcowym platformy tożsamości firmy Microsoft
 
@@ -144,7 +144,7 @@ Jeśli aplikacja wymaga dostępu do zakresów z ograniczeniami administratora dl
 
 Jeśli aplikacja żąda uprawnień delegowanych o wysokim poziomie uprawnień, a administrator przyznaje te uprawnienia za pośrednictwem punktu końcowego zgody na administratora, zostanie udzielony zgodę na wszystkich użytkowników w dzierżawie.
 
-Jeśli aplikacja żąda uprawnień aplikacji, a administrator przyznaje te uprawnienia za pośrednictwem punktu końcowego zgody na administratora, to to uprawnienie nie jest wykonywane w imieniu określonego użytkownika. Zamiast tego do aplikacji klienckiej uzyskuje się *bezpośrednie*uprawnienia. Te typy uprawnień są używane tylko przez usługi demona i inne nieinteraktywne aplikacje działające w tle.
+Jeśli aplikacja żąda uprawnień aplikacji, a administrator przyznaje te uprawnienia za pośrednictwem punktu końcowego zgody na administratora, to to uprawnienie nie jest wykonywane w imieniu określonego użytkownika. Zamiast tego do aplikacji klienckiej uzyskuje się *bezpośrednie* uprawnienia. Te typy uprawnień są używane tylko przez usługi demona i inne nieinteraktywne aplikacje działające w tle.
 
 ## <a name="using-the-admin-consent-endpoint"></a>Korzystanie z punktu końcowego zgody administratora
 
@@ -179,7 +179,7 @@ Po podpisaniu użytkownika do aplikacji można zidentyfikować organizację, do 
 
 ### <a name="request-the-permissions-from-a-directory-admin"></a>Żądanie uprawnień od administratora katalogu
 
-Gdy wszystko będzie gotowe do zażądania uprawnień od administratora organizacji, możesz przekierować użytkownika do *punktu końcowego zgody administratora*platformy tożsamości firmy Microsoft.
+Gdy wszystko będzie gotowe do zażądania uprawnień od administratora organizacji, możesz przekierować użytkownika do *punktu końcowego zgody administratora* platformy tożsamości firmy Microsoft.
 
 ```HTTP
 // Line breaks are for legibility only.

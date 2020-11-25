@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 7d92cbc25411f5cc2d528ccf6ecec4539494d380
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84ae5f6adfe2a02f62b5d4b1e776d8b5ac1d731b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533278"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95975358"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Role, uprawnienia i zabezpieczenia w Azure Monitor
 
@@ -68,7 +68,7 @@ Osoby przypisane do roli współautor monitorowania mogą wyświetlać wszystkie
 > 
 
 ## <a name="monitoring-permissions-and-azure-custom-roles"></a>Monitorowanie uprawnień i ról niestandardowych platformy Azure
-Jeśli powyższe wbudowane role nie są zgodne z dokładnymi potrzebami zespołu, można [utworzyć rolę niestandardową platformy Azure](../../role-based-access-control/custom-roles.md) z bardziej szczegółowymi uprawnieniami. Poniżej przedstawiono typowe operacje RBAC Azure Monitor z ich opisami.
+Jeśli powyższe wbudowane role nie są zgodne z dokładnymi potrzebami zespołu, można [utworzyć rolę niestandardową platformy Azure](../../role-based-access-control/custom-roles.md) z bardziej szczegółowymi uprawnieniami. Poniżej przedstawiono typowe operacje RBAC platformy Azure dotyczące Azure Monitor z ich opisami.
 
 | Operacja | Opis |
 | --- | --- |
@@ -135,7 +135,7 @@ $token = New-AzStorageAccountSASToken -ResourceType Service -Service Blob -Permi
 
 Następnie można przekazać token do jednostki, która musi odczytywać z tego konta magazynu, a także wyświetlać i odczytywać wszystkie obiekty blob w ramach tego konta magazynu.
 
-Alternatywnie, jeśli konieczne jest kontrolowanie tego uprawnienia za pomocą RBAC, można przyznać tej jednostce uprawnienia Microsoft. Storage/storageAccounts/ListKeys/Action na tym konkretnym koncie magazynu. Jest to konieczne w przypadku użytkowników, którzy muszą mieć możliwość ustawienia ustawień diagnostycznych lub profilu dziennika na potrzeby archiwizowania na koncie magazynu. Można na przykład utworzyć następującą rolę niestandardową platformy Azure dla użytkownika lub aplikacji, która musi tylko odczytać z jednego konta magazynu:
+Alternatywnie, jeśli konieczne jest kontrolowanie tego uprawnienia za pomocą usługi Azure RBAC, można przyznać tej jednostce uprawnienia Microsoft. Storage/storageAccounts/ListKeys/Action na tym konkretnym koncie magazynu. Jest to konieczne w przypadku użytkowników, którzy muszą mieć możliwość ustawienia ustawień diagnostycznych lub profilu dziennika na potrzeby archiwizowania na koncie magazynu. Można na przykład utworzyć następującą rolę niestandardową platformy Azure dla użytkownika lub aplikacji, która musi tylko odczytać z jednego konta magazynu:
 
 ```powershell
 $role = Get-AzRoleDefinition "Reader"
@@ -159,7 +159,7 @@ New-AzRoleDefinition -Role $role
 Podobny wzorzec może być stosowany w przypadku centrów zdarzeń, ale najpierw należy utworzyć dedykowaną regułę autoryzacji nasłuchiwania. Aby udzielić dostępu do aplikacji, która musi nasłuchiwać tylko centrów zdarzeń związanych z monitorowaniem, wykonaj następujące czynności:
 
 1. Utwórz zasady dostępu współdzielonego dla centrów zdarzeń utworzonych na potrzeby przesyłania strumieniowego danych monitorowania tylko przy użyciu oświadczeń nasłuchujących. Można to zrobić w portalu. Można na przykład wywołać "monitoringReadOnly". Jeśli to możliwe, należy przekazać ten klucz bezpośrednio do konsumenta i pominąć następny krok.
-2. Jeśli konsument musi mieć możliwość uzyskania klucza ad hoc, Udziel użytkownikowi akcji ListKeys dla tego centrum zdarzeń. Jest to również konieczne w przypadku użytkowników, którzy muszą mieć możliwość ustawienia ustawień diagnostycznych lub profilu dziennika na potrzeby przesyłania strumieniowego do centrów zdarzeń. Na przykład możesz utworzyć regułę RBAC:
+2. Jeśli konsument musi mieć możliwość uzyskania klucza ad hoc, Udziel użytkownikowi akcji ListKeys dla tego centrum zdarzeń. Jest to również konieczne w przypadku użytkowników, którzy muszą mieć możliwość ustawienia ustawień diagnostycznych lub profilu dziennika na potrzeby przesyłania strumieniowego do centrów zdarzeń. Na przykład możesz utworzyć regułę RBAC platformy Azure:
    
    ```powershell
    $role = Get-AzRoleDefinition "Reader"
@@ -187,6 +187,6 @@ Dane monitorowania są często zapisywane na koncie magazynu. Można upewnić si
 Aby uzyskać więcej informacji, zobacz [zabezpieczenia sieci i usługa Azure Storage](../../storage/common/storage-network-security.md)
 
 ## <a name="next-steps"></a>Następne kroki
-* [Przeczytaj informacje na temat RBAC i uprawnień w Menedżer zasobów](../../role-based-access-control/overview.md)
+* [Przeczytaj informacje o RBAC i uprawnieniach platformy Azure w Menedżer zasobów](../../role-based-access-control/overview.md)
 * [Zapoznaj się z omówieniem monitorowania na platformie Azure](../overview.md)
 

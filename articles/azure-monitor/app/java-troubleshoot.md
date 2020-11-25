@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.custom: devx-track-java
 ms.openlocfilehash: 8d11eaa76f2133b9fdc66ba4e6bc91e2cc38c51c
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379540"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972866"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Rozwiązywanie problemów i narzędzia pytań i odpowiedzi dla Application Insights for Java SDK
 
@@ -89,7 +89,7 @@ Przy użyciu metody XML, należy ponownie uruchomić aplikację po zmianie warto
 **Jak mogę zmienić zasób platformy Azure, do którego mój projekt wysyła dane?**
 
 * [Pobierz klucz Instrumentacji nowego zasobu.][java]
-* Jeśli dodano Application Insights do projektu przy użyciu Azure Toolkit for Eclipse, kliknij prawym przyciskiem myszy projekt sieci Web, wybierz pozycję **Azure** , **Skonfiguruj Application Insights** i Zmień klucz.
+* Jeśli dodano Application Insights do projektu przy użyciu Azure Toolkit for Eclipse, kliknij prawym przyciskiem myszy projekt sieci Web, wybierz pozycję **Azure**, **Skonfiguruj Application Insights** i Zmień klucz.
 * Jeśli klucz Instrumentacji został skonfigurowany jako zmienna środowiskowa, zaktualizuj wartość zmiennej środowiskowej przy użyciu nowego iKey.
 * W przeciwnym razie zaktualizuj klucz w ApplicationInsights.xml w folderze Resources w projekcie.
 

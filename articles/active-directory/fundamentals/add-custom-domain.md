@@ -14,17 +14,17 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 28847ece3c08e93d14d381b35fc93fb16dad95a1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370869"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95973902"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Dodaj niestandardową nazwę domeny przy użyciu portalu Azure Active Directory
 
-Każda nowa dzierżawa usługi Azure AD zawiera początkową nazwę domeny * \<domainname> . onmicrosoft.com*. Nie można zmienić ani usunąć początkowej nazwy domeny, ale można dodać nazwy swojej organizacji. Dodawanie niestandardowych nazw domen ułatwia tworzenie nazw użytkowników, które są znane użytkownikom, takich jak *alain \@ contoso.com*.
+Każda nowa dzierżawa usługi Azure AD zawiera początkową nazwę domeny *\<domainname> . onmicrosoft.com*. Nie można zmienić ani usunąć początkowej nazwy domeny, ale można dodać nazwy swojej organizacji. Dodawanie niestandardowych nazw domen ułatwia tworzenie nazw użytkowników, które są znane użytkownikom, takich jak *alain \@ contoso.com*.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby można było dodać niestandardową nazwę domeny, należy utworzyć nazwę domeny przy użyciu rejestratora domen. W przypadku akredytowanego rejestratora domen zobacz [rejestratory akredytowane przez ICANN](https://www.icann.org/registrar-reports/accredited-list.html).
 
@@ -54,12 +54,12 @@ Po utworzeniu katalogu możesz dodać swoją niestandardową nazwę domeny.
 
     ![Strona niestandardowe nazwy domen z pokazaną opcją Dodaj domenę niestandardową](media/add-custom-domain/add-custom-domain.png)
 
-1. W polu **nazwa domeny niestandardowej**wprowadź nową nazwę organizacji, w tym przykładzie *contoso.com*. Wybierz pozycję **Dodaj domenę**.
+1. W polu **nazwa domeny niestandardowej** wprowadź nową nazwę organizacji, w tym przykładzie *contoso.com*. Wybierz pozycję **Dodaj domenę**.
 
     ![Strona niestandardowe nazwy domen, z dodawaniem strony domeny niestandardowej](media/add-custom-domain/add-custom-domain-blade.png)
 
     >[!IMPORTANT]
-    >Do poprawnego działania należy dołączyć *. com*, *.NET*lub inne rozszerzenie najwyższego poziomu.
+    >Do poprawnego działania należy dołączyć *. com*, *.NET* lub inne rozszerzenie najwyższego poziomu.
 
     Dodaliśmy niezweryfikowaną domenę. Zostanie wyświetlona strona **contoso.com** przedstawiająca informacje DNS. Zapisz te informacje. Będzie on potrzebny później do utworzenia rekordu TXT w celu skonfigurowania systemu DNS.
 
@@ -84,7 +84,7 @@ Aby zweryfikować niestandardową nazwę domeny, wykonaj następujące kroki:
 
 1. Wyszukaj i wybierz *Azure Active Directory* z dowolnej strony, a następnie wybierz pozycję **niestandardowe nazwy domen**.
 
-1. W obszarze **niestandardowe nazwy domen**wybierz niestandardową nazwę domeny. W tym przykładzie wybierz pozycję **contoso.com**.
+1. W obszarze **niestandardowe nazwy domen** wybierz niestandardową nazwę domeny. W tym przykładzie wybierz pozycję **contoso.com**.
 
     ![Fabrikam — Strona nazw domen niestandardowych z wyróżnioną contoso](media/add-custom-domain/custom-blade-with-contoso-highlighted.png)
 

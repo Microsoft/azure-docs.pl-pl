@@ -17,11 +17,11 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad03942a2200c57475cf8a81d0fb08d475ec6964
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458036"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95973222"
 ---
 # <a name="risky-ip-report-public-preview"></a>Raport dotyczący ryzykownych adresów IP (publiczna wersja zapoznawcza)
 AD FS klienci mogą uwidaczniać punkty końcowe uwierzytelniania hasła w Internecie w celu zapewnienia usług uwierzytelniania dla użytkowników końcowych w celu uzyskania dostępu do aplikacji SaaS, takich jak Microsoft 365. W takim przypadku możliwe są nieuprawnione próby logowania przy użyciu systemu AD FS w celu odgadnięcia hasła użytkownika końcowego i uzyskania dostępu do zasobów aplikacji. Od wersji 2012 R2 systemu Windows Server usługi AD FS udostępniają funkcję blokady konta na ekstranecie, która uniemożliwia przeprowadzenie takich ataków. Jeśli korzystasz ze starszej wersji, zdecydowanie zalecamy uaktualnienie systemu AD FS do wersji 2016 systemu Windows Server. <br />

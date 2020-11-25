@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: b82193fda64f2cf265c879c5cda9141be1b576f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0408d43fe897882fe09f6dd61a22d46349f2978e
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627894"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95974395"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Samouczek: wywoływanie interfejsu API Microsoft Graph z aplikacji klasycznej systemu Windows
 
-W tym przewodniku pokazano, jak Natywna aplikacja Windows Desktop .NET (XAML) używa tokenu dostępu do wywoływania interfejsu API Microsoft Graph. Aplikacja może również uzyskiwać dostęp do innych interfejsów API, które wymagają tokenów dostępu z platformy tożsamości firmy Microsoft.
+W tym samouczku utworzysz natywną aplikację platformy .NET dla systemu Windows (XAML), która loguje się do użytkowników i pobiera token dostępu w celu wywołania interfejsu API Microsoft Graph. 
 
 Po zakończeniu przewodnika aplikacja będzie mogła wywołać chroniony interfejs API, który korzysta z kont osobistych (w tym outlook.com, live.com i innych). Aplikacja będzie również używać kont służbowych z dowolnej firmy lub organizacji korzystającej z Azure Active Directory.
 
@@ -74,12 +74,12 @@ Aplikacja utworzona za pomocą tego przewodnika wyświetla przycisk, który słu
 Aby utworzyć aplikację, wykonaj następujące czynności:
 
 1. W programie Visual Studio wybierz pozycję **plik**  >  **Nowy**  >  **projekt**.
-2. W obszarze **Szablony**wybierz pozycję **Visual C#**.
+2. W obszarze **Szablony** wybierz pozycję **Visual C#**.
 3. Wybierz pozycję **Aplikacja WPF (.NET Framework)**, w zależności od używanej wersji programu Visual Studio.
 
 ## <a name="add-msal-to-your-project"></a>Dodawanie MSAL do projektu
 
-1. W programie Visual Studio wybierz kolejno pozycje **Narzędzia**Menedżer  >  **pakietów NuGet** >  **konsola Menedżera pakietów**.
+1. W programie Visual Studio wybierz kolejno pozycje **Narzędzia** Menedżer  >  **pakietów NuGet** >  **konsola Menedżera pakietów**.
 2. W oknie Konsola Menedżera pakietów Wklej następujące polecenie Azure PowerShell:
 
     ```powershell
