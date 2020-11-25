@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: f98021d1e94b3796b2aeb6ba2e883e4e1380b8ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504336"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004827"
 ---
 # <a name="apache-phoenix-in-azure-hdinsight"></a>Apache Phoenix w usłudze Azure HDInsight
 
@@ -37,7 +37,7 @@ Utwórz indeks pomocniczy za pomocą `CREATE INDEX` polecenia:
 CREATE INDEX ix_purchasetype on SALTEDWEBLOGS (purchasetype, transactiondate) INCLUDE (bookname, quantity);
 ```
 
-Takie podejście może przynieść znaczący wzrost wydajności nad wykonywaniem zapytań z pojedynczym indeksem. Ten typ pomocniczego indeksu jest **indeksem pokrywającym**zawierającym wszystkie kolumny zawarte w zapytaniu. W związku z tym wyszukiwanie w tabeli nie jest wymagane, a indeks spełnia całe zapytanie.
+Takie podejście może przynieść znaczący wzrost wydajności nad wykonywaniem zapytań z pojedynczym indeksem. Ten typ pomocniczego indeksu jest **indeksem pokrywającym** zawierającym wszystkie kolumny zawarte w zapytaniu. W związku z tym wyszukiwanie w tabeli nie jest wymagane, a indeks spełnia całe zapytanie.
 
 ### <a name="views"></a>Widoki
 

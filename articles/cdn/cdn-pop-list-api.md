@@ -16,17 +16,17 @@ ms.date: 08/22/2019
 ms.author: allensu
 ms.custom: ''
 ms.openlocfilehash: 43b4bcaee447d84efa088e84340ccfc717fe2777
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778315"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005184"
 ---
 # <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Pobierz bieżącą listę punktów obecności IP dla Azure CDN
 
 ## <a name="retrieve-the-current-verizon-pop-ip-list-for-azure-cdn"></a>Pobierz bieżącą listę punktów obecności Verizon IP dla Azure CDN
 
-Za pomocą interfejsu API REST można pobrać zestaw adresów IP dla serwerów punktu obecności (POP) Verizon. Te serwery POP wysyłają żądania do serwerów pochodzenia, które są skojarzone z punktami końcowymi usługi Azure Content Delivery Network (CDN) w profilu Verizon ( **Azure CDN Standard z Verizon** lub **Azure CDN Premium from Verizon** ). Należy zauważyć, że ten zestaw adresów IP różni się od adresów IP, które zobaczy klient podczas wykonywania żądań do punktów obecności. 
+Za pomocą interfejsu API REST można pobrać zestaw adresów IP dla serwerów punktu obecności (POP) Verizon. Te serwery POP wysyłają żądania do serwerów pochodzenia, które są skojarzone z punktami końcowymi usługi Azure Content Delivery Network (CDN) w profilu Verizon (**Azure CDN Standard z Verizon** lub **Azure CDN Premium from Verizon**). Należy zauważyć, że ten zestaw adresów IP różni się od adresów IP, które zobaczy klient podczas wykonywania żądań do punktów obecności. 
 
 Aby zapoznać się z składnią operacji interfejsu API REST na potrzeby pobierania listy punktów obecności, zobacz [Edge nodes-list](/rest/api/cdn/edgenodes/list).
 

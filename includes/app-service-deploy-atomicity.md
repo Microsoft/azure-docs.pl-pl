@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: app-service
 author: cephalin
 ms.service: app-service
@@ -9,11 +9,11 @@ ms.date: 01/07/2020
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: feed8b21833d4244d027d64d5e6547b94e4fa66f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75945145"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004356"
 ---
 ## <a name="what-happens-to-my-app-during-deployment"></a>Co się stanie z moją aplikacją podczas wdrażania?
 

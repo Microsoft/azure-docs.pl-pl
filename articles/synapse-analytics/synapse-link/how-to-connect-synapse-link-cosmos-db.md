@@ -10,11 +10,11 @@ ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: 3434953de3460d3eff066768474f03aa0e14165e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668598"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004997"
 ---
 # <a name="connect-to-azure-synapse-link-preview-for-azure-cosmos-db"></a>Połącz z linkiem usługi Azure Synapse (wersja zapoznawcza) dla Azure Cosmos DB
 
@@ -36,7 +36,7 @@ Aby uruchomić analizę na dużą skalę w Azure Cosmos DB bez wpływu na wydajn
 
 ## <a name="go-to-synapse-studio"></a>Przejdź do Synapse Studio
 
-W obszarze roboczym usługi Azure Synapse wybierz pozycję **Uruchom Synapse Studio** . Na stronie głównej programu Synapse Studio wybierz pozycję **dane** , co spowoduje przejście do Eksplorator obiektów danych.
+W obszarze roboczym usługi Azure Synapse wybierz pozycję **Uruchom Synapse Studio**. Na stronie głównej programu Synapse Studio wybierz pozycję **dane**, co spowoduje przejście do Eksplorator obiektów danych.
 
 ## <a name="connect-an-azure-cosmos-db-database-to-an-azure-synapse-workspace"></a>Łączenie bazy danych Azure Cosmos DB z obszarem roboczym usługi Azure Synapse
 
@@ -44,22 +44,22 @@ W obszarze roboczym usługi Azure Synapse wybierz pozycję **Uruchom Synapse Stu
 
 Korzystając z Eksplorator obiektów danych, możesz połączyć się bezpośrednio z bazą danych Azure Cosmos DB, wykonując następujące czynności:
 
-1. Wybierz **+** ikonę obok **danych** .
-1. Wybierz pozycję **Połącz z danymi zewnętrznymi** .
-1. Wybierz interfejs API, z którym chcesz nawiązać połączenie, na przykład **SQL API** lub **API for MongoDB** .
-1. Wybierz opcję **Kontynuuj** .
+1. Wybierz **+** ikonę obok **danych**.
+1. Wybierz pozycję **Połącz z danymi zewnętrznymi**.
+1. Wybierz interfejs API, z którym chcesz nawiązać połączenie, na przykład **SQL API** lub **API for MongoDB**.
+1. Wybierz opcję **Kontynuuj**.
 1. Użyj przyjaznej nazwy, aby nazwać połączoną usługę. Nazwa zostanie wyświetlona w Eksplorator obiektów danych i będzie używana przez środowisko uruchomieniowe usługi Azure Synapse do łączenia się z bazą danych i kontenerami.
-1. Wybierz **nazwę konta Azure Cosmos DB** i **nazwę bazy danych** .
-1. Obowiązkowe Jeśli region nie zostanie określony, operacje środowiska uruchomieniowego usługi Azure Synapse są kierowane do najbliższego regionu, w którym jest włączony magazyn analityczny. Można również ręcznie ustawić region, w którym użytkownicy mają uzyskiwać dostęp do magazynu analitycznego Azure Cosmos DB. Wybierz pozycję **dodatkowe właściwości połączenia** , a następnie wybierz pozycję **Nowy** . W obszarze **Nazwa właściwości** wprowadź **PreferredRegions** . Ustaw **wartość** na żądany region, na przykład **WestUS2** . (Nie ma spacji między wyrazami i cyfrą).
-1. Wybierz pozycję **Utwórz** .
+1. Wybierz **nazwę konta Azure Cosmos DB** i **nazwę bazy danych**.
+1. Obowiązkowe Jeśli region nie zostanie określony, operacje środowiska uruchomieniowego usługi Azure Synapse są kierowane do najbliższego regionu, w którym jest włączony magazyn analityczny. Można również ręcznie ustawić region, w którym użytkownicy mają uzyskiwać dostęp do magazynu analitycznego Azure Cosmos DB. Wybierz pozycję **dodatkowe właściwości połączenia**, a następnie wybierz pozycję **Nowy**. W obszarze **Nazwa właściwości** wprowadź **PreferredRegions**. Ustaw **wartość** na żądany region, na przykład **WestUS2**. (Nie ma spacji między wyrazami i cyfrą).
+1. Wybierz pozycję **Utwórz**.
 
 Bazy danych Azure Cosmos DB są wyświetlane na karcie **połączonej** w sekcji **Azure Cosmos DB** . Za pomocą Azure Cosmos DB można odróżnić kontener z obsługą HTAP z kontenera "tylko OLTP" przez następujące ikony:
 
-**Kontener tylko OLTP** :
+**Kontener tylko OLTP**:
 
 ![Wizualizacja pokazująca ikonę kontenera OLTP.](../media/quickstart-connect-synapse-link-cosmosdb/oltp-container.png)
 
-**Kontener z włączonym HTAP** :
+**Kontener z włączonym HTAP**:
 
 ![Wizualizacja pokazująca ikonę kontenera HTAP.](../media/quickstart-connect-synapse-link-cosmosdb/htap-container.png)
 

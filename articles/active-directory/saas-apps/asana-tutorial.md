@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.openlocfilehash: 05c89c8628b4d4ce10ca4ba12c720b410b72601f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457728"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005150"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asana"></a>Samouczek: integracja Azure Active Directory z usługą Asana
 
@@ -123,7 +123,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD przy użyciu aplikacji
 
 ### <a name="configure-asana-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w aplikacji Asana
 
-1. W innym oknie przeglądarki zaloguj się do aplikacji Asana. Aby skonfigurować logowanie jednokrotne w aplikacji Asana, uzyskaj dostęp do ustawień obszaru roboczego, klikając nazwę obszaru roboczego w prawym górnym rogu ekranu. Następnie kliknij pozycję ** \<your workspace name\> Ustawienia**.
+1. W innym oknie przeglądarki zaloguj się do aplikacji Asana. Aby skonfigurować logowanie jednokrotne w aplikacji Asana, uzyskaj dostęp do ustawień obszaru roboczego, klikając nazwę obszaru roboczego w prawym górnym rogu ekranu. Następnie kliknij pozycję **\<your workspace name\> Ustawienia**.
 
     ![Ustawienia logowania jednokrotnego w aplikacji Asana](./media/asana-tutorial/tutorial_asana_09.png)
 

@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: ade70c884a3ef01db45273e4789f34b629473661
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537989"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005031"
 ---
 # <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>Zarządzanie serwerem Azure Database for MariaDB przy użyciu Azure Portal
 W tym artykule pokazano, jak zarządzać serwerami Azure Database for MariaDB. Zadania zarządzania obejmują skalowanie obliczeniowe i magazynowe, Resetowanie hasła administratora oraz wyświetlanie szczegółów serwera.
@@ -32,7 +32,7 @@ Możesz skalować od Ogólnego przeznaczenia do zoptymalizowanej pod kątem pami
 
 1. Wybierz serwer w Azure Portal. Wybierz pozycję **warstwa cenowa** znajdująca się w sekcji **Ustawienia** .
 
-2. Wybierz **ogólnego przeznaczenia** lub **zoptymalizowane pod kątem pamięci** , w zależności od tego, na czym polegasz skalowaniu. 
+2. Wybierz **ogólnego przeznaczenia** lub **zoptymalizowane pod kątem pamięci**, w zależności od tego, na czym polegasz skalowaniu. 
 
     ![Zrzut ekranu przedstawia Azure Portal z wybraną warstwą cenową i wybraną wartością zoptymalizowaną pod kątem pamięci.](./media/howto-create-manage-server-portal/change-pricing-tier.png)
 

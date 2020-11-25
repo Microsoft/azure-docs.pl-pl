@@ -5,11 +5,11 @@ ms.date: 03/05/2020
 ms.topic: how-to
 ms.reviewer: brendal
 ms.openlocfilehash: 696f1f2f96034f7a044f6a39182774c02804518f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87003070"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004844"
 ---
 # <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Korzystanie z interfejsu API REST usługi Azure łańcucha bloków Workbench Preview
 
@@ -24,11 +24,11 @@ Interfejsy API usługi łańcucha bloków Workbench są dostępne za poorednictw
 1. Wybierz nazwę grupy zasobów wdrożonej łańcucha bloków Workbench.
 1. Wybierz nagłówek kolumny **Typ** , aby posortować listę alfabetycznie według typu.
 1. Istnieją dwa zasoby z typem **App Service**. Wybierz zasób typu **App Service** *z* sufiksem "-API".
-1. W App Service **Przegląd**skopiuj wartość **adresu URL** , która reprezentuje adres URL punktu końcowego interfejsu API do wdrożonego łańcucha bloków Workbench.
+1. W App Service **Przegląd** skopiuj wartość **adresu URL** , która reprezentuje adres URL punktu końcowego interfejsu API do wdrożonego łańcucha bloków Workbench.
 
     ![Adres URL punktu końcowego interfejsu API usługi App Service](media/use-api/app-service-api.png)
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 Żądania do interfejsu API REST usługi łańcucha bloków Workbench są chronione za pomocą Azure Active Directory (Azure AD).
 

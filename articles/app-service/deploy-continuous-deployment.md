@@ -7,11 +7,11 @@ ms.date: 03/20/2020
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: b7730558e2a660b0cf00a5b6962d1e2275dd472c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984393"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004357"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Ciągłe wdrażanie do Azure App Service
 
@@ -66,19 +66,19 @@ Wbudowanego kudu App Service Build Server można użyć do ciągłego wdrażania
    
 1. Na stronie **Konfigurowanie** :
    
-   - W witrynie GitHub wybierz pozycję **organizacja**, **repozytorium**i **gałąź** , którą chcesz stale wdrożyć.
+   - W witrynie GitHub wybierz pozycję **organizacja**, **repozytorium** i **gałąź** , którą chcesz stale wdrożyć.
      
      > [!NOTE]
      > Jeśli nie widzisz żadnych repozytoriów, może być konieczne autoryzowanie Azure App Service w serwisie GitHub. Przejdź do repozytorium GitHub i przejdź do pozycji **Ustawienia**  >  **aplikacje**  >  **autoryzowane aplikacje uwierzytelniania OAuth**. Wybierz pozycję **Azure App Service**, a następnie wybierz pozycję **Udziel**. W przypadku repozytoriów organizacji musisz być właścicielem organizacji, aby przyznać uprawnienia.
      
-   - W przypadku BitBucket wybierz **zespół**BitBucket, **repozytorium**i **gałąź** , które chcesz wdrożyć w sposób ciągły.
+   - W przypadku BitBucket wybierz **zespół** BitBucket, **repozytorium** i **gałąź** , które chcesz wdrożyć w sposób ciągły.
      
-   - W obszarze Azure Repos wybierz organizację, **projekt**, **repozytorium**i **gałąź** **usługi Azure DevOps**, która ma być ciągle wdrażana.
+   - W obszarze Azure Repos wybierz organizację, **projekt**, **repozytorium** i **gałąź** **usługi Azure DevOps**, która ma być ciągle wdrażana.
      
      > [!NOTE]
      > Jeśli Twoja organizacja usługi Azure DevOps nie jest wymieniona na liście, upewnij się, że została połączona z subskrypcją platformy Azure. Aby uzyskać więcej informacji, zobacz [Konfigurowanie konta Azure DevOps Services, aby można było je wdrożyć w aplikacji sieci Web](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops&preserve-view=true).
      
-1. Wybierz pozycję **Continue** (Kontynuuj).
+1. Wybierz opcję **Kontynuuj**.
    
    ![Wypełnij pola informacje o repozytorium, a następnie wybierz pozycję Kontynuuj.](media/app-service-continuous-deployment/configure-kudu.png)
    
@@ -108,26 +108,26 @@ Aby uzyskać Azure App Service tworzenia ciągłego dostarczania przy użyciu Az
    
 1. Na stronie aplikacja wybierz pozycję **centrum wdrażania** w menu po lewej stronie.
 
-1. Wybierz pozycję **GitHub** jako dostawcę kontroli źródła na stronie **centrum wdrażania** , a następnie wybierz pozycję **Kontynuuj**. W przypadku usługi **GitHub**możesz wybrać pozycję **Zmień konto** , aby zmienić autoryzowane konto.
+1. Wybierz pozycję **GitHub** jako dostawcę kontroli źródła na stronie **centrum wdrażania** , a następnie wybierz pozycję **Kontynuuj**. W przypadku usługi **GitHub** możesz wybrać pozycję **Zmień konto** , aby zmienić autoryzowane konto.
 
     :::image type="content" source="media/app-service-continuous-deployment/deployment-center-src-control.png" alt-text="Zrzut ekranu przedstawiający stronę centrum wdrażania App Service.":::
    
 1. Na stronie **dostawca kompilacji** wybierz pozycję **Azure Pipelines (wersja zapoznawcza)**, a następnie wybierz pozycję **Kontynuuj**.
 
-    :::image type="content" source="media/app-service-continuous-deployment/select-build-provider.png" alt-text="Zrzut ekranu przedstawiający stronę centrum wdrażania App Service.":::
+    :::image type="content" source="media/app-service-continuous-deployment/select-build-provider.png" alt-text="Zrzut ekranu przedstawiający stronę centrum wdrażania z wybraną Azure Pipelines (wersja zapoznawcza).":::
    
-1. Na stronie **Konfigurowanie** w sekcji **kod** wybierz **organizację**, **repozytorium**i **gałąź** , którą chcesz wdrożyć w sposób ciągły, a następnie wybierz pozycję **Kontynuuj**.
+1. Na stronie **Konfigurowanie** w sekcji **kod** wybierz **organizację**, **repozytorium** i **gałąź** , którą chcesz wdrożyć w sposób ciągły, a następnie wybierz pozycję **Kontynuuj**.
      
      > [!NOTE]
      > Jeśli nie widzisz żadnych repozytoriów, może być konieczne autoryzowanie Azure App Service w serwisie GitHub. Przejdź do repozytorium GitHub i przejdź do pozycji **Ustawienia**  >  **aplikacje**  >  **autoryzowane aplikacje uwierzytelniania OAuth**. Wybierz pozycję **Azure App Service**, a następnie wybierz pozycję **Udziel**. W przypadku repozytoriów organizacji musisz być właścicielem organizacji, aby przyznać uprawnienia.
        
     W sekcji **kompilacja** Określ organizację usługi Azure DevOps, projekt, strukturę języka, która Azure Pipelines powinna być używana do uruchamiania zadań kompilacji, a następnie wybierz pozycję **Kontynuuj**.
 
-   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Zrzut ekranu przedstawiający stronę centrum wdrażania App Service.":::
+   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Zrzut ekranu przedstawiający sekcję Build z przykładowym tekstem w polach.":::
 
 1. Po skonfigurowaniu dostawcy kompilacji przejrzyj ustawienia na stronie **Podsumowanie** , a następnie wybierz pozycję **Zakończ**.
 
-   :::image type="content" source="media/app-service-continuous-deployment/summary.png" alt-text="Zrzut ekranu przedstawiający stronę centrum wdrażania App Service.":::
+   :::image type="content" source="media/app-service-continuous-deployment/summary.png" alt-text="Zrzut ekranu przedstawiający stronę centrum wdrażania, w której są wyświetlane zatwierdzenia i wdrożenia z wyróżnionym przyciskiem odświeżania.":::
    
 1. Nowe zatwierdzenia w wybranym repozytorium i rozgałęzieniu teraz wdrażają się w sposób ciągły w App Service. Zatwierdzenia i wdrożenia można śledzić na stronie **centrum wdrażania** .
    
@@ -141,24 +141,24 @@ Aby uzyskać Azure App Service tworzenia ciągłego dostarczania przy użyciu Az
 
 1. Wybierz **Azure Repos** jako dostawcę kontroli źródła na stronie **centrum wdrażania** , a następnie wybierz pozycję **Kontynuuj**.
 
-    :::image type="content" source="media/app-service-continuous-deployment/deployment-center-src-control.png" alt-text="Zrzut ekranu przedstawiający stronę centrum wdrażania App Service.":::
+    :::image type="content" source="media/app-service-continuous-deployment/deployment-center-src-control.png" alt-text="Zrzut ekranu przedstawiający stronę centrum wdrażania z wybranymi opcjami ciągłego wdrażania (CI/CD).":::
 
 1. Na stronie **dostawca kompilacji** wybierz pozycję **Azure Pipelines (wersja zapoznawcza)**, a następnie wybierz pozycję **Kontynuuj**.
 
-    :::image type="content" source="media/app-service-continuous-deployment/azure-pipelines.png" alt-text="Zrzut ekranu przedstawiający stronę centrum wdrażania App Service.":::
+    :::image type="content" source="media/app-service-continuous-deployment/azure-pipelines.png" alt-text="Zrzut ekranu przedstawiający centrum wdrażania z Azure Pipelines (wersja zapoznawcza).":::
 
-1. Na stronie **Konfigurowanie** w sekcji **kod** wybierz **organizację**, **repozytorium**i **gałąź** , którą chcesz wdrożyć w sposób ciągły, a następnie wybierz pozycję **Kontynuuj**.
+1. Na stronie **Konfigurowanie** w sekcji **kod** wybierz **organizację**, **repozytorium** i **gałąź** , którą chcesz wdrożyć w sposób ciągły, a następnie wybierz pozycję **Kontynuuj**.
 
    > [!NOTE]
    > Jeśli istniejąca organizacja usługi Azure DevOps nie jest wymieniona, może być konieczne połączenie jej z subskrypcją platformy Azure. Aby uzyskać więcej informacji, zobacz [Definiowanie potoku wydania dysku CD](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd).
 
    W sekcji **kompilacja** Określ organizację usługi Azure DevOps, projekt, strukturę języka, która Azure Pipelines powinna być używana do uruchamiania zadań kompilacji, a następnie wybierz pozycję **Kontynuuj**.
 
-   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Zrzut ekranu przedstawiający stronę centrum wdrażania App Service.":::
+   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Zrzut ekranu przedstawiający sekcję Build z informacjami o organizacji usługi Azure DevOps i polach projektu wypełnionymi przykładami.":::
 
 1. Po skonfigurowaniu dostawcy kompilacji przejrzyj ustawienia na stronie **Podsumowanie** , a następnie wybierz pozycję **Zakończ**.  
      
-   :::image type="content" source="media/app-service-continuous-deployment/summary-azure-pipelines.png" alt-text="Zrzut ekranu przedstawiający stronę centrum wdrażania App Service.":::
+   :::image type="content" source="media/app-service-continuous-deployment/summary-azure-pipelines.png" alt-text="Zrzut ekranu przedstawiający wybrane ustawienia na stronie Podsumowanie.":::
 
 1. Nowe zatwierdzenia w wybranym repozytorium i rozgałęzieniu teraz wdrażają się w sposób ciągły w App Service. Zatwierdzenia i wdrożenia można śledzić na stronie **centrum wdrażania** .
 
@@ -174,7 +174,7 @@ Aby wyłączyć ciągłe wdrażanie, wybierz pozycję **Rozłącz** w górnej cz
 
 W przypadku aplikacji systemu Windows możesz ręcznie skonfigurować ciągłe wdrażanie z repozytorium Git lub Mercurial w chmurze, które nie jest bezpośrednio obsługiwane przez portal, na przykład [GitLab](https://gitlab.com/). Możesz to zrobić, wybierając pole zewnętrzne na stronie **centrum wdrażania** . Aby uzyskać więcej informacji, zobacz [Konfigurowanie ciągłego wdrażania przy użyciu kroków ręcznych](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zbadaj typowe problemy związane z ciągłym wdrażaniem](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
 * [Korzystanie z programu Azure PowerShell](/powershell/azure/)

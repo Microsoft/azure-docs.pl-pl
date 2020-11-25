@@ -5,20 +5,20 @@ author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 11/23/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 565b3429f8e8398a93f981969f96984bdac52db0
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e808f6f56041e6cdc577164140910af8d6c42731
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93334994"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004402"
 ---
 # <a name="st_within-azure-cosmos-db"></a>ST_WITHIN (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
- Zwraca wyrażenie logiczne wskazujące, czy obiekt GEOJSON (punkt, wielokąt lub LineString) określony w pierwszym argumencie znajduje się w obrębie GEOJSON (punkt, wielokąt lub LineString) w drugim argumencie.  
+ Zwraca wyrażenie logiczne wskazujące, czy obiekt GEOJSON (Point, Wielokąt, MultiPolygon lub LineString) określony w pierwszym argumencie znajduje się w obrębie GEOJSON (Point, Wielokąt, MultiPolygon lub LineString) w drugim argumencie.  
   
 ## <a name="syntax"></a>Składnia
   

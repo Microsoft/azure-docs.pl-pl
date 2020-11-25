@@ -13,11 +13,11 @@ ms.custom: seo-lt-2019
 ms.date: 11/11/2020
 ms.author: jingwang
 ms.openlocfilehash: ef9ac29735289d5c7a60ff0fca3b9e9f360f6e08
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555400"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005133"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Kopiowanie danych z usługi Azure Blob Storage do bazy danych w Azure SQL Database przy użyciu Azure Data Factory
 
@@ -49,7 +49,7 @@ Teraz przygotuj swój magazyn obiektów blob i bazę danych SQL na potrzeby tego
 
 #### <a name="create-a-source-blob"></a>Tworzenie źródłowego obiektu Blob
 
-1. Uruchom program Notatnik. Skopiuj poniższy tekst i zapisz go na dysku jako plik **emp.txt** :
+1. Uruchom program Notatnik. Skopiuj poniższy tekst i zapisz go na dysku jako plik **emp.txt**:
 
     ```
     FirstName,LastName
@@ -90,16 +90,16 @@ W tym kroku utworzysz fabrykę danych i uruchomisz interfejs użytkownika usług
 4. Wybierz **subskrypcję** platformy Azure, w której chcesz utworzyć fabrykę danych.
 5. W obszarze **Grupa zasobów** wykonaj jedną z następujących czynności:
 
-    a. Wybierz pozycję **Użyj istniejącej** , a następnie wybierz istniejącą grupę zasobów z listy rozwijanej.
+    a. Wybierz pozycję **Użyj istniejącej**, a następnie wybierz istniejącą grupę zasobów z listy rozwijanej.
 
-    b. Wybierz pozycję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów. 
+    b. Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę grupy zasobów. 
          
     Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources (Używanie grup zasobów do zarządzania zasobami platformy Azure)](../azure-resource-manager/management/overview.md). 
 6. W obszarze **Wersja** wybierz pozycję **V2**.
 7. W obszarze **Lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (np. usługi Azure Storage i SQL Database) oraz jednostki obliczeniowe (np. usługa Azure HDInsight) używane przez fabrykę danych mogą znajdować się w innych regionach.
-8. Wybierz przycisk **Utwórz**.
+8. Wybierz pozycję **Utwórz**.
 9. Po zakończeniu tworzenia zobaczysz powiadomienie w centrum powiadomień. Wybierz pozycję **Przejdź do zasobu** , aby przejść do strony Fabryka danych.
-10. Wybierz pozycję **Tworzenie i monitorowanie** , aby uruchomić interfejs użytkownika usługi Data Factory na osobnej karcie.
+10. Wybierz pozycję **Tworzenie i monitorowanie**, aby uruchomić interfejs użytkownika usługi Data Factory na osobnej karcie.
 
 
 ## <a name="create-a-pipeline"></a>Tworzenie potoku
@@ -124,12 +124,12 @@ W tym samouczku zaczniesz od utworzenia potoku. Następnie utworzysz usługi po�
 ### <a name="configure-source"></a>Konfigurowanie źródła
 
 >[!TIP]
->W tym samouczku użyto *klucza konta* jako typu uwierzytelniania dla źródłowego magazynu danych, ale można wybrać inne obsługiwane metody uwierzytelniania: *Identyfikator URI SAS* , *nazwę główną usługi* i *tożsamość zarządzaną* , jeśli jest to konieczne. Aby uzyskać szczegółowe informacje, zapoznaj się z odpowiednimi sekcjami w [tym artykule](./connector-azure-blob-storage.md#linked-service-properties) .
+>W tym samouczku użyto *klucza konta* jako typu uwierzytelniania dla źródłowego magazynu danych, ale można wybrać inne obsługiwane metody uwierzytelniania: *Identyfikator URI SAS*,*nazwę główną usługi* i *tożsamość zarządzaną* , jeśli jest to konieczne. Aby uzyskać szczegółowe informacje, zapoznaj się z odpowiednimi sekcjami w [tym artykule](./connector-azure-blob-storage.md#linked-service-properties) .
 >Aby bezpiecznie przechowywać wpisy tajne dla magazynów danych, zaleca się również korzystanie z Azure Key Vault. Szczegółowe ilustracje znajdują się w [tym artykule](./store-credentials-in-key-vault.md) .
 
 1. Przejdź do karty **Źródło** . Wybierz pozycję **+ Nowy** , aby utworzyć źródłowy zestaw danych.
 
-1. W oknie dialogowym **Nowy zestaw danych** wybierz pozycję **Azure Blob Storage** , a następnie wybierz pozycję **Kontynuuj**. Dane źródłowe znajdują się w magazynie obiektów blob, musisz więc wybrać usługę **Azure Blob Storage** dla źródłowego zestawu danych.
+1. W oknie dialogowym **Nowy zestaw danych** wybierz pozycję **Azure Blob Storage**, a następnie wybierz pozycję **Kontynuuj**. Dane źródłowe znajdują się w magazynie obiektów blob, musisz więc wybrać usługę **Azure Blob Storage** dla źródłowego zestawu danych.
 
 1. W oknie dialogowym **Wybieranie formatu** wybierz typ formatu danych, a następnie wybierz pozycję **Kontynuuj**.
 
@@ -141,7 +141,7 @@ W tym samouczku zaczniesz od utworzenia potoku. Następnie utworzysz usługi po�
 
 1. Przejdź do folderu **adftutorial/Input** , wybierz plik **emp.txt** , a następnie wybierz przycisk **OK**.
 
-1. Wybierz przycisk **OK**. Automatycznie przechodzi do strony potoku. Na karcie **Źródło** upewnij się, że wybrano opcję **SourceBlobDataset** . Aby wyświetlić podgląd danych na tej stronie, wybierz pozycję **Podgląd danych**.
+1. Wybierz pozycję **OK**. Automatycznie przechodzi do strony potoku. Na karcie **Źródło** upewnij się, że wybrano opcję **SourceBlobDataset** . Aby wyświetlić podgląd danych na tej stronie, wybierz pozycję **Podgląd danych**.
 
     ![Zestaw danych źródłowych](./media/tutorial-copy-data-portal/source-dataset-selected.png)
 
@@ -150,9 +150,9 @@ W tym samouczku zaczniesz od utworzenia potoku. Następnie utworzysz usługi po�
 >W tym samouczku jako typ uwierzytelniania dla magazynu danych ujścia używasz *uwierzytelniania SQL* , ale możesz wybrać inne obsługiwane metody uwierzytelniania: *nazwę główną usługi* i *tożsamość zarządzaną* , jeśli jest to konieczne. Aby uzyskać szczegółowe informacje, zapoznaj się z odpowiednimi sekcjami w [tym artykule](./connector-azure-sql-database.md#linked-service-properties) .
 >Aby bezpiecznie przechowywać wpisy tajne dla magazynów danych, zaleca się również korzystanie z Azure Key Vault. Szczegółowe ilustracje znajdują się w [tym artykule](./store-credentials-in-key-vault.md) .
 
-1. Przejdź do karty **Ujście** , a następnie wybierz pozycję **+ Nowy** , aby utworzyć zestaw danych będący ujściem.
+1. Przejdź do karty **Ujście**, a następnie wybierz pozycję **+ Nowy**, aby utworzyć zestaw danych będący ujściem.
 
-1. W oknie dialogowym **Nowy zestaw danych** wprowadź wartość "SQL" w polu wyszukiwania, aby odfiltrować łączniki, wybierz pozycję **Azure SQL Database** , a następnie wybierz pozycję **Kontynuuj**. W tym samouczku skopiujesz dane do bazy danych SQL.
+1. W oknie dialogowym **Nowy zestaw danych** wprowadź wartość "SQL" w polu wyszukiwania, aby odfiltrować łączniki, wybierz pozycję **Azure SQL Database**, a następnie wybierz pozycję **Kontynuuj**. W tym samouczku skopiujesz dane do bazy danych SQL.
 
 1. W oknie dialogowym **Ustawianie właściwości** wpisz **OutputSqlDataset** w polu Nazwa. Z listy rozwijanej **połączona usługa** wybierz pozycję **+ Nowy**. Zestaw danych musi być skojarzony z połączoną usługą. Połączona usługa ma parametry połączenia, których Data Factory używa do nawiązywania połączenia z SQL Database w czasie wykonywania. Zestaw danych określa kontener, folder i plik (opcjonalnie), do którego dane są kopiowane.
 
@@ -168,7 +168,7 @@ W tym samouczku zaczniesz od utworzenia potoku. Następnie utworzysz usługi po�
 
     e. W polu **Hasło** wprowadź hasło użytkownika.
 
-    f. Wybierz pozycję **Testuj połączenie** , aby przetestować połączenie.
+    f. Wybierz pozycję **Testuj połączenie**, aby przetestować połączenie.
 
     przykład Wybierz pozycję **Utwórz** , aby wdrożyć połączoną usługę.
 
@@ -183,7 +183,7 @@ W tym samouczku zaczniesz od utworzenia potoku. Następnie utworzysz usługi po�
 Opcjonalnie można zmapować schemat źródła do odpowiedniego schematu docelowego przez następujące [Mapowanie schematu w działaniu kopiowania](copy-activity-schema-and-type-mapping.md).
 
 ## <a name="validate-the-pipeline"></a>Weryfikowanie potoku
-Wybierz na pasku narzędzi pozycję **Weryfikuj** , aby zweryfikować potok.
+Wybierz na pasku narzędzi pozycję **Weryfikuj**, aby zweryfikować potok.
 
 Kod JSON skojarzony z potokiem można zobaczyć, klikając **kod** w prawym górnym rogu.
 
@@ -234,7 +234,7 @@ W tym kroku utworzysz wyzwalacz harmonogramu potoku. Wyzwalacz uruchamia potok z
 
     f. Dla opcji **aktywowana** wybierz pozycję **tak**.
 
-    przykład Wybierz przycisk **OK**.
+    przykład Wybierz pozycję **OK**.
 
     > [!IMPORTANT]
     > Za poszczególne uruchomienia potoku są naliczane opłaty, zatem określ stosowną datę zakończenia.

@@ -8,16 +8,16 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 434f112e78938c94d887423316fccea270059b6b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 641117414c855a044d3ed55004b6e6ea15b259ac
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109021"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004742"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Szybki Start: Biblioteka kliencka usługi Azure Blob Storage V12 z platformą Xamarin
 
-Rozpocznij pracę z biblioteką klienta usługi Azure Blob Storage V12 za pomocą platformy Xamarin. Azure Blob Storage to rozwiązanie do magazynowania obiektów w chmurze firmy Microsoft. Postępuj zgodnie z instrukcjami, aby zainstalować pakiet, i wypróbuj przykładowy kod dla podstawowych zadań. Usługa Blob Storage jest zoptymalizowana pod kątem przechowywania olbrzymich ilości danych bez struktury.
+Rozpocznij pracę z biblioteką klienta usługi Azure Blob Storage V12 za pomocą platformy Xamarin. Azure Blob Storage to rozwiązanie do magazynowania obiektów w chmurze firmy Microsoft. Postępuj zgodnie z instrukcjami, aby zainstalować pakiet, i wypróbuj przykładowy kod dla podstawowych zadań. Magazyn obiektów blob jest zoptymalizowany pod kątem przechowywania olbrzymich ilości danych bez struktury.
 
 Użyj biblioteki klienta usługi Azure Blob Storage V12 z platformą Xamarin, aby:
 
@@ -39,8 +39,8 @@ Linki odwołań:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
-* Konto magazynu platformy Azure — [Tworzenie konta magazynu](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* Visual Studio z [programowaniem dla urządzeń przenośnych na potrzeby obciążeń .NET](https://docs.microsoft.com/xamarin/get-started/installation/?pivots=windows) lub [Visual Studio dla komputerów Mac](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019)
+* Konto magazynu platformy Azure — [Tworzenie konta magazynu](../common/storage-account-create.md)
+* Visual Studio z [programowaniem dla urządzeń przenośnych na potrzeby obciążeń .NET](/xamarin/get-started/installation/?pivots=windows) lub [Visual Studio dla komputerów Mac](/visualstudio/mac/installation?view=vsmac-2019)
 
 ## <a name="setting-up"></a>Konfigurowanie
     

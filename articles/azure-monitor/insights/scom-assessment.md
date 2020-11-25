@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
 ms.openlocfilehash: 97d7d21374062462248e1b86f2bde2fef2d25331
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326056"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004912"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optymalizowanie środowiska za pomocą rozwiązania System Center Operations Manager Health Check (wersja zapoznawcza)
 
@@ -77,18 +77,18 @@ Przed kontynuowaniem konto Uruchom jako musi spełniać następujące wymagania:
 * Jeśli konto nie ma uprawnień administratora systemu SQL, wykonaj [skrypt](#sql-script-to-grant-granular-permissions-to-the-run-as-account) , aby udzielić szczegółowych uprawnień do konta w każdym wystąpieniu SQL Server, w którym znajduje się jedna lub wszystkie bazy danych Operations Manager.
 
 1. W konsoli Operations Manager wybierz przycisk nawigacji **Administracja** .
-2. W obszarze **Konfiguracja Uruchom jako**kliknij pozycję **konta**.
+2. W obszarze **Konfiguracja Uruchom jako** kliknij pozycję **konta**.
 3. W kreatorze **tworzenia konta Uruchom jako** na stronie **wprowadzenie** kliknij przycisk **dalej**.
 4. Na stronie **Właściwości ogólne** wybierz pozycję **Windows** na liście **Typ konta Uruchom jako** .
 5. Wpisz nazwę wyświetlaną w polu tekstowym **Nazwa wyświetlana** i opcjonalnie wpisz opis w polu **Opis** , a następnie kliknij przycisk **dalej**.
 6. Na stronie **zabezpieczenia dystrybucji** **Wybierz pozycję bezpieczniejsze.**
-7. Kliknij przycisk **Utwórz**.  
+7. Kliknij pozycję **Utwórz**.  
 
 Teraz, gdy tworzone jest konto Uruchom jako, musi ono być docelowe serwery zarządzania w grupie zarządzania i skojarzone ze wstępnie zdefiniowanym profilem Uruchom jako, aby przepływy pracy były uruchamiane przy użyciu poświadczeń.  
 
 1. W obszarze **Konfiguracja Uruchom jako**, **konta**, w okienku wyników kliknij dwukrotnie utworzone wcześniej konto.
 2. Na karcie **dystrybucja** kliknij pozycję **Dodaj** w polu **wybrane komputery** i Dodaj serwer zarządzania, do którego ma zostać dystrybuowane konto.  Dwa razy kliknij przycisk **OK** , aby zapisać zmiany.
-3. W obszarze **Konfiguracja Uruchom jako**kliknij pozycję **Profile**.
+3. W obszarze **Konfiguracja Uruchom jako** kliknij pozycję **Profile**.
 4. Wyszukaj *profil oceny programu SCOM*.
 5. Nazwa profilu powinna być następująca: *Microsoft System Center Operations Manager Health Check profil Uruchom jako*.
 6. Kliknij prawym przyciskiem myszy i zaktualizuj jej właściwości, a następnie Dodaj ostatnio utworzone konto Uruchom jako utworzone wcześniej.
@@ -214,7 +214,7 @@ Wyświetl podsumowanie ocen zgodności dla infrastruktury, a następnie zapoznaj
 4. Na stronie **Przegląd** kliknij kafelek **System Center Operations Manager Health Check** .
 5. Na stronie **System Center Operations Manager Health Check** Przejrzyj informacje podsumowujące w jednym z fragmentów obszaru fokus, a następnie kliknij jeden, aby wyświetlić zalecenia dotyczące tego obszaru.
 6. Na dowolnej stronie obszaru fokusu można wyświetlić zalecenia z priorytetami wykonane dla danego środowiska. Kliknij zalecenie w obszarze powiązane **obiekty** , aby wyświetlić szczegóły dotyczące przyczyny tego zalecenia.<br><br> ![obszar koncentracji uwagi](./media/scom-assessment/log-analytics-scom-healthcheck-dashboard-02.png)<br>
-7. W **sugerowanych akcjach**można wykonać akcje naprawcze. Gdy element został rozkierowany, późniejsze oceny będą rejestrować te zalecane akcje, a Ocena zgodności ulegnie zwiększeniu. Poprawione elementy są wyświetlane jako **obiekty zakończone**.
+7. W **sugerowanych akcjach** można wykonać akcje naprawcze. Gdy element został rozkierowany, późniejsze oceny będą rejestrować te zalecane akcje, a Ocena zgodności ulegnie zwiększeniu. Poprawione elementy są wyświetlane jako **obiekty zakończone**.
 
 ## <a name="ignore-recommendations"></a>Ignorowanie zaleceń
 

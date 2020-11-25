@@ -8,11 +8,11 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 230e158a970f8c815b1575403c013e30749124c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87462024"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005065"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Samouczek: reagowanie na zdarzenia Blob Storage w IoT Edge (wersja zapoznawcza)
 W tym artykule opisano sposób wdrażania Blob Storage platformy Azure w module IoT, który mógłby pełnić rolę Event Grid wydawcy do wysyłania zdarzeń dotyczących tworzenia obiektów blob i usuwania obiektów BLOB do Event Grid.  
@@ -45,7 +45,7 @@ Istnieje kilka sposobów wdrażania modułów na urządzeniu IoT Edge i wszystki
 
 ### <a name="configure-a-deployment-manifest"></a>Konfigurowanie manifestu wdrożenia
 
-Manifest wdrożenia to dokument JSON, który opisuje moduły do wdrożenia, sposób przepływu danych między modułami i żądane właściwości modułu bliźniaczych reprezentacji. Azure Portal zawiera kreatora, który przeprowadzi Cię przez proces tworzenia manifestu wdrożenia, zamiast ręcznego tworzenia dokumentu JSON.  Składa się z trzech kroków: **Dodawanie modułów**, **Określanie tras**i **przeglądanie wdrożenia**.
+Manifest wdrożenia to dokument JSON, który opisuje moduły do wdrożenia, sposób przepływu danych między modułami i żądane właściwości modułu bliźniaczych reprezentacji. Azure Portal zawiera kreatora, który przeprowadzi Cię przez proces tworzenia manifestu wdrożenia, zamiast ręcznego tworzenia dokumentu JSON.  Składa się z trzech kroków: **Dodawanie modułów**, **Określanie tras** i **przeglądanie wdrożenia**.
 
 ### <a name="add-modules"></a>Dodaj moduły
 
@@ -144,7 +144,7 @@ W tej sekcji pokazano, jak wdrożyć moduł Blob Storage platformy Azure, który
    - Zamień `<event grid module name>` na nazwę modułu Event Grid.
    - Zamień `<storage mount>` według systemu operacyjnego kontenera.
      - W przypadku kontenerów **systemu Linux woluminy my-Volume:/blobroot**
-     - W przypadku kontenerów systemu Windows**mój wolumin: C:/BlobRoot**
+     - W przypadku kontenerów systemu Windows **mój wolumin: C:/BlobRoot**
 
 5. Kliknij pozycję **Zapisz**
 6. Kliknij przycisk **dalej** , aby przejść do sekcji trasy
@@ -171,7 +171,7 @@ Zachowaj trasy domyślne, a następnie wybierz pozycję **dalej** , aby przejś�
 
 ## <a name="publish-blobcreated-and-blobdeleted-events"></a>Publikuj zdarzenia BlobCreated i BlobDeleted
 
-1. Ten moduł automatycznie tworzy **MicrosoftStorage**tematu. Sprawdź, czy istnieje
+1. Ten moduł automatycznie tworzy **MicrosoftStorage** tematu. Sprawdź, czy istnieje
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview
     ```
@@ -324,7 +324,7 @@ Gratulacje! Samouczek został ukończony. Poniższe sekcje zawierają szczegół
 
 Poniżej znajduje się lista obsługiwanych właściwości zdarzeń oraz ich typów i opisów. 
 
-| Właściwość | Type | Opis |
+| Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
 | temat | ciąg | Pełna ścieżka zasobu do źródła zdarzeń. To pole nie umożliwia zapisu. Ta wartość jest podawana przez usługę Event Grid. |
 | subject | ciąg | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
@@ -337,7 +337,7 @@ Poniżej znajduje się lista obsługiwanych właściwości zdarzeń oraz ich typ
 
 Obiekt danych ma następujące właściwości:
 
-| Właściwość | Type | Opis |
+| Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
 | api | ciąg | Operacja, która wyzwoliła zdarzenie. Może to być jedna z następujących wartości: <ul><li>BlobCreated — dozwolone wartości to: `PutBlob` i `PutBlockList`</li><li>BlobDeleted — dozwolone wartości to `DeleteBlob` , `DeleteAfterUpload` i `AutoDelete` . <p>`DeleteAfterUpload`Zdarzenie jest generowane, gdy obiekt BLOB jest automatycznie usuwany, ponieważ żądana Właściwość deleteAfterUpload ma wartość true. </p><p>`AutoDelete` zdarzenie jest generowane, gdy obiekt BLOB zostanie automatycznie usunięty, ponieważ deleteAfterMinutes żądana wartość właściwości wygasła.</p></li></ul>|
 | Identyfikatorem żądania klienta | ciąg | Identyfikator żądania dostarczonego przez klienta dla operacji interfejsu API magazynu. Tego identyfikatora można użyć do skorelowania dzienników diagnostycznych usługi Azure Storage przy użyciu pola "Client-Request-ID" w dziennikach i można go podać w żądaniach klientów przy użyciu nagłówka "x-MS-Client-Request-ID". Aby uzyskać szczegółowe informacje, zobacz [format dziennika](/rest/api/storageservices/storage-analytics-log-format). |
@@ -346,7 +346,7 @@ Obiekt danych ma następujące właściwości:
 | contentType | ciąg | Typ zawartości określony dla obiektu BLOB. |
 | contentLength | liczba całkowita | Rozmiar obiektu BLOB w bajtach. |
 | Obiekt blobtype | ciąg | Typ obiektu BLOB. Prawidłowe wartości to "BlockBlob" lub "PageBlob". |
-| url | ciąg | Ścieżka do obiektu BLOB. <br>Jeśli klient używa interfejsu API REST usługi BLOB, ten adres URL ma następującą strukturę: * \<storage-account-name\> . blob.Core.Windows.NET/ \<container-name\> / \<file-name\> *. <br>Jeśli klient używa interfejsu API REST Data Lake Storage, ten adres URL ma następującą strukturę: * \<storage-account-name\> . DFS.Core.Windows.NET/ \<file-system-name\> / \<file-name\> *. |
+| url | ciąg | Ścieżka do obiektu BLOB. <br>Jeśli klient używa interfejsu API REST usługi BLOB, ten adres URL ma następującą strukturę: *\<storage-account-name\> . blob.Core.Windows.NET/ \<container-name\> / \<file-name\>*. <br>Jeśli klient używa interfejsu API REST Data Lake Storage, ten adres URL ma następującą strukturę: *\<storage-account-name\> . DFS.Core.Windows.NET/ \<file-system-name\> / \<file-name\>*. |
 
 
 ## <a name="next-steps"></a>Następne kroki

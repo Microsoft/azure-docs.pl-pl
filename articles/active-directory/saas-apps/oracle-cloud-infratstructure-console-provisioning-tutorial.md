@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: Zhchia
 ms.openlocfilehash: 92aeedd25a4a60b49de54aaaa90ee4a31490c444
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359837"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004385"
 ---
 # <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie konsoli infrastruktury w chmurze firmy Oracle do automatycznego aprowizacji użytkowników
 
@@ -90,7 +90,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-oracle-cloud-infrastructure-console-in-azure-ad"></a>Aby skonfigurować automatyczną obsługę administracyjną dla konsoli infrastruktury chmury firmy Oracle w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -140,7 +140,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
       |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
       |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|Ciąg|
       |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|Ciąg|
-      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
+      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Odwołanie|
       |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|Ciąg|
       |urn: IETF: params: Standard scim: schematy: Oracle: IDCs: Extension: User: User: bypassNotification|Wartość logiczna|
       |urn: IETF: params: Standard scim: schematy: Oracle: IDCs: Extension: User: User: isFederatedUser|Wartość logiczna|

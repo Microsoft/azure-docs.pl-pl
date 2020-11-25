@@ -8,11 +8,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 543050bc899c257c4ad5e0d0c399a1de6f0f58f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86220579"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005213"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Jak utworzyć App Service Environment v1 
 
@@ -36,7 +36,7 @@ Ważne jest, aby mieć świadomość, że nie można zmienić. Te aspekty nie mo
 Podczas wybierania sieci wirtualnej i określania podsieci upewnij się, że jest wystarczająco duża, aby pomieścić przyszłe przyrosty. 
 
 ### <a name="creating-an-app-service-environment-v1"></a>Tworzenie App Service Environment v1
-Aby utworzyć App Service Environment V1, możesz przeszukać witrynę Azure Marketplace pod kątem ***App Service Environment V1***lub przejść przez polecenie **Utwórz zasób**  ->  **Sieć Web + aplikacje mobilne**  ->  **App Service Environment**. Aby utworzyć środowiska asev1:
+Aby utworzyć App Service Environment V1, możesz przeszukać witrynę Azure Marketplace pod kątem ***App Service Environment V1** _ lub przejść przez _ *Utwórz zasób** > **Sieć Web + aplikacje mobilne**  ->  **App Service Environment**. Aby utworzyć środowiska asev1:
 
 1. Podaj nazwę środowiska ASE. Nazwa określona dla środowiska ASE zostanie użyta dla aplikacji utworzonych w środowisku ASE. Jeśli nazwa środowiska ASE to appsvcenvdemo, nazwą domeny podrzędnej byłaby: *appsvcenvdemo.p.azurewebsites.NET*. Jeśli w ten sposób utworzysz aplikację o nazwie *MojaAplikacja*, będzie ona adresować w *mytestapp.appsvcenvdemo.p.azurewebsites.NET*. Nie można użyć odstępu w nazwie środowiska ASE. Jeśli w nazwie używane są wielkie litery, nazwa domeny będzie sumą małych liter tej nazwy. Jeśli używasz ILB, Nazwa środowiska ASE nie zostanie użyta w poddomenie, ale zamiast tego zostanie jawnie określona podczas tworzenia środowiska ASE.
    

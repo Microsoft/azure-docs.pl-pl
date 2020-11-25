@@ -14,11 +14,11 @@ caps.latest.revision: 55
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: 26225442c72fb209bb1ac4cd2bf4777fb39542fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79534375"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005167"
 ---
 # <a name="azure-cloud-services-definition-workerrole-schema"></a>Schemat rola procesu roboczego definicji Cloud Services platformy Azure
 Rola procesu roboczego platformy Azure to rola, która jest przydatna do uogólnionego programowania i może wykonywać przetwarzanie w tle dla roli sieci Web.
@@ -118,7 +118,7 @@ Plik definicji usługi zawiera te elementy, które opisano szczegółowo w kolej
 
 [Importowania](#Imports)
 
-[Import](#Import)
+[Importuj](#Import)
 
 [Środowisko uruchomieniowe](#Runtime)
 
@@ -349,7 +349,7 @@ W poniższej tabeli opisano atrybuty `NetFxEntryPoint` elementu.
 
 | Atrybut | Typ | Opis |
 | --------- | ---- | ----------- |
-|assemblyName|ciąg|Wymagane. Ścieżka i nazwa pliku zestawu zawierającego punkt wejścia. Ścieżka jest względna w stosunku do folderu ** \\ %ROLEROOT%\Approot** (nie określaj ** \\ %ROLEROOT%\Approot** w `commandLine` , założono). **% ROLEROOT%** to zmienna środowiskowa obsługiwana przez platformę Azure, która reprezentuje lokalizację folderu głównego dla Twojej roli. Folder ** \\ %ROLEROOT%\Approot** reprezentuje folder aplikacji dla Twojej roli.|
+|assemblyName|ciąg|Wymagane. Ścieżka i nazwa pliku zestawu zawierającego punkt wejścia. Ścieżka jest względna w stosunku do folderu **\\ %ROLEROOT%\Approot** (nie określaj **\\ %ROLEROOT%\Approot** w `commandLine` , założono). **% ROLEROOT%** to zmienna środowiskowa obsługiwana przez platformę Azure, która reprezentuje lokalizację folderu głównego dla Twojej roli. Folder **\\ %ROLEROOT%\Approot** reprezentuje folder aplikacji dla Twojej roli.|
 |targetFrameworkVersion|ciąg|Wymagane. Wersja programu .NET Framework, na którym został skompilowany zestaw. Na przykład `targetFrameworkVersion="v4.0"`.|
 
 ##  <a name="programentrypoint"></a><a name="ProgramEntryPoint"></a> ProgramEntryPoint

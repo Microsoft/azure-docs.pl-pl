@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 2f33369c013e2ff56b7fb745ddb0fc959793f12a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: de8d63fb5181e324738e082cbb36a40ee59e36b0
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016160"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "96005252"
 ---
 # <a name="add-ipv6-to-an-ipv4-application-in-azure-virtual-network---azure-cli"></a>Dodawanie protokołu IPv6 do aplikacji IPv4 w usłudze Azure Virtual Network — interfejs wiersza polecenia platformy Azure
 
@@ -93,13 +93,13 @@ Dodaj zakresy adresów IPv6 do sieci wirtualnej i podsieci obsługujących modu�
 az network vnet update \
 --name myVnet  \
 --resource-group MyResourceGroupSLB \
---address-prefixes  "10.0.0.0/16"  "2001:db8:deca::/48"
+--address-prefixes  "10.0.0.0/16"  "fd00:db8:deca::/48"
 
 az network vnet subnet update \
 --vnet-name myVnet \
 --name mySubnet \
 --resource-group MyResourceGroupSLB \
---address-prefixes  "10.0.0.0/24"  "2001:db8:deca:deed::/64"  
+--address-prefixes  "10.0.0.0/24"  "fd00:db8:deca:deed::/64"  
 ```
 
 ## <a name="add-ipv6-configuration-to-nics"></a>Dodawanie konfiguracji protokołu IPv6 do kart sieciowych

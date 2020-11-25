@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 28849620863f8593e5187dbef9fc6cc978de1824
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f944a793d721e93d818723eae25a9ce80d9c15bc
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961798"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96005093"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Uczenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu interfejsu API REST i języka Python
 
@@ -30,7 +30,7 @@ Aby ukończyć ten przewodnik Szybki Start, musisz dysponować:
 - Zestaw składający się z co najmniej sześciu formularzy tego samego typu. Te dane będą używane do uczenia modelu i testowania formularza. Możesz użyć [przykładowego zestawu danych](https://go.microsoft.com/fwlink/?linkid=2090451) dla tego przewodnika Szybki Start. Pobierz i Wyodrębnij *sample_data.zip*. Przekaż pliki szkoleniowe do katalogu głównego kontenera magazynu obiektów BLOB na koncie usługi Azure Storage w warstwie Standardowa wydajność.
 
 > [!NOTE]
-> Ten przewodnik Szybki Start korzysta z dokumentów zdalnych, do których dostęp odbywa się za pomocą Aby zamiast tego użyć plików lokalnych, zapoznaj się z [dokumentacją referencyjną programu v 2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) oraz [dokumentację referencyjną dla programu v 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/TrainCustomModelAsync).
+> Ten przewodnik Szybki Start korzysta z dokumentów zdalnych, do których dostęp odbywa się za pomocą Aby zamiast tego użyć plików lokalnych, zapoznaj się z [dokumentacją referencyjną programu v 2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) oraz [dokumentację referencyjną dla programu v 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/TrainCustomModelAsync).
 
 ## <a name="create-a-form-recognizer-resource"></a>Tworzenie zasobu aparatu rozpoznawania formularza
 
@@ -308,7 +308,7 @@ from requests import get, post
 
 # Endpoint URL
 endpoint = r"<Endpoint>"
-post_url = endpoint + r"/formrecognizer/v2.1-preview.1/custom/models"
+post_url = endpoint + r"/formrecognizer/v2.1-preview.2/custom/models"
 source = r"<SAS URL>"
 prefix = "<Blob folder name>"
 includeSubFolders = False
@@ -588,7 +588,7 @@ Po zakończeniu procesu otrzymasz `202 (Success)` odpowiedź z zawartością JSO
   }
 }
 ```
-# <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1) 
+# <a name="v-2"></a>[Wersja 2](#tab/v2-1) 
 ```json   
 {
   "status": "succeeded",

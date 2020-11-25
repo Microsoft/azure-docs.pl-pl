@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: 85577a428f803e31aa33468496d7efca77933835
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 1b568687ffe646a91544c1bb75d26d552a23f49c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579315"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96005286"
 ---
 # <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>Optymalizowanie kosztów dzięki automatyzowaniu warstw dostępu Blob Storage platformy Azure
 
@@ -39,7 +39,7 @@ Rozważmy scenariusz, w którym dane są często dostępne podczas wczesnych eta
 
 Funkcja zarządzania cyklem życia jest dostępna we wszystkich regionach platformy Azure dla kont Ogólnego przeznaczenia v2 (GPv2), kont usługi BLOB Storage, kont magazynu obiektów BLOB bloków Premium i kont Azure Data Lake Storage Gen2. W Azure Portal można uaktualnić istniejące konto Ogólnego przeznaczenia (GPv1) do konta GPv2. Aby uzyskać więcej informacji na temat kont magazynu, zobacz [Omówienie konta usługi Azure Storage](../common/storage-account-overview.md).
 
-Funkcja zarządzania cyklem życia jest bezpłatna. Klienci są obciążani kosztami zwykłych operacji dla wywołań interfejsu API [zestawu warstwy obiektów BLOB](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) . Operacja usuwania jest bezpłatna. Aby uzyskać więcej informacji na temat cen, zobacz temat [Block BLOB — Cennik](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Funkcja zarządzania cyklem życia jest bezpłatna. Klienci są obciążani kosztami zwykłych operacji dla wywołań interfejsu API [zestawu warstwy obiektów BLOB](/rest/api/storageservices/set-blob-tier) . Operacja usuwania jest bezpłatna. Aby uzyskać więcej informacji na temat cen, zobacz temat [Block BLOB — Cennik](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="add-or-remove-a-policy"></a>Dodawanie lub usuwanie zasad
 
@@ -47,13 +47,13 @@ Można dodawać, edytować lub usuwać zasady przy użyciu dowolnej z następuj�
 
 * [Azure Portal](https://portal.azure.com)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
-* [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
-* [Interfejsy API REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies)
+* [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)
+* [Interfejsy API REST](/rest/api/storagerp/managementpolicies)
 
 Zasady mogą być odczytywane lub zapisywane w całości. Aktualizacje częściowe nie są obsługiwane. 
 
 > [!NOTE]
-> Jeśli włączysz reguły zapory dla konta magazynu, żądania zarządzania cyklem życia mogą zostać zablokowane. Można odblokować te żądania, dostarczając wyjątki dla zaufanych usług firmy Microsoft. Aby uzyskać więcej informacji, zobacz sekcję wyjątki w artykule [Konfigurowanie zapór i sieci wirtualnych](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+> Jeśli włączysz reguły zapory dla konta magazynu, żądania zarządzania cyklem życia mogą zostać zablokowane. Można odblokować te żądania, dostarczając wyjątki dla zaufanych usług firmy Microsoft. Aby uzyskać więcej informacji, zobacz sekcję wyjątki w artykule [Konfigurowanie zapór i sieci wirtualnych](../common/storage-network-security.md#exceptions).
 
 W tym artykule pokazano, jak zarządzać zasadami przy użyciu portalu i metod programu PowerShell.
 
@@ -74,7 +74,7 @@ Istnieją dwa sposoby dodawania zasad za pomocą Azure Portal.
 
 1. Wybierz kartę **Widok listy** .
 
-1. Wybierz pozycję **Dodaj regułę** i nadaj jej nazwę w formularzu **szczegóły** . Można również ustawić **Zakres reguły** , **Typ obiektu BLOB** i wartości **podtypu obiektu BLOB** . W poniższym przykładzie ustawiono zakres filtrowania obiektów BLOB. Powoduje to dodanie karty **zestawu filtrów** .
+1. Wybierz pozycję **Dodaj regułę** i nadaj jej nazwę w formularzu **szczegóły** . Można również ustawić **Zakres reguły**, **Typ obiektu BLOB** i wartości **podtypu obiektu BLOB** . W poniższym przykładzie ustawiono zakres filtrowania obiektów BLOB. Powoduje to dodanie karty **zestawu filtrów** .
 
    :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-details.png" alt-text="Zarządzanie cyklem życia Dodawanie strony szczegółów reguły w Azure Portal":::
 
@@ -247,8 +247,8 @@ Każda reguła w ramach zasad ma kilka parametrów:
 
 | Nazwa parametru | Typ parametru | Uwagi | Wymagane |
 |----------------|----------------|-------|----------|
-| `name`         | String |Nazwa reguły może zawierać do 256 znaków alfanumerycznych. W nazwie reguły jest rozróżniana wielkość liter. Musi być unikatowa w ramach zasad. | Prawda |
-| `enabled`      | Boolean | Opcjonalna wartość logiczna zezwalająca na tymczasowe wyłączenie reguły. Wartość domyślna to true, jeśli nie została ustawiona. | Fałsz | 
+| `name`         | Ciąg |Nazwa reguły może zawierać do 256 znaków alfanumerycznych. W nazwie reguły jest rozróżniana wielkość liter. Musi być unikatowa w ramach zasad. | Prawda |
+| `enabled`      | Wartość logiczna | Opcjonalna wartość logiczna zezwalająca na tymczasowe wyłączenie reguły. Wartość domyślna to true, jeśli nie została ustawiona. | Fałsz | 
 | `type`         | Wartość wyliczenia | Bieżący prawidłowy typ to `Lifecycle` . | Prawda |
 | `definition`   | Obiekt, który definiuje regułę cyklu życia | Każda definicja składa się z zestawu filtrów i zestawu akcji. | Prawda |
 
@@ -322,7 +322,7 @@ Dostępne są następujące filtry:
 | blobIndexMatch | Tablica wartości słownika składająca się z klucza znacznika indeksu obiektów blob i warunków wartości do dopasowania. Każda reguła może definiować do 10 warunek tagu indeksu obiektów BLOB. Na przykład, jeśli chcesz dopasować wszystkie obiekty blob w `Project = Contoso` ramach `https://myaccount.blob.core.windows.net/` reguły, blobIndexMatch to `{"name": "Project","op": "==","value": "Contoso"}` . | Jeśli nie zdefiniujesz blobIndexMatch, reguła będzie stosowana do wszystkich obiektów BLOB w ramach konta magazynu. | Nie |
 
 > [!NOTE]
-> Indeks obiektów BLOB jest w publicznej wersji zapoznawczej i jest dostępny w regionach **Kanada środkowa** , **Kanada Wschodnia** , **Francja środkowa** i **Francja Południowa** . Aby dowiedzieć się więcej na temat tej funkcji wraz z znanymi problemami i ograniczeniami, zobacz artykuł [Zarządzanie danymi na platformie Azure Blob Storage przy użyciu indeksu obiektów BLOB (wersja zapoznawcza)](storage-manage-find-blobs.md).
+> Indeks obiektów BLOB jest w publicznej wersji zapoznawczej i jest dostępny w regionach **Kanada środkowa**, **Kanada Wschodnia**, **Francja środkowa** i **Francja Południowa** . Aby dowiedzieć się więcej na temat tej funkcji wraz z znanymi problemami i ograniczeniami, zobacz artykuł [Zarządzanie danymi na platformie Azure Blob Storage przy użyciu indeksu obiektów BLOB (wersja zapoznawcza)](storage-manage-find-blobs.md).
 
 ### <a name="rule-actions"></a>Akcje reguły
 
@@ -450,7 +450,7 @@ Każda aktualizacja czasu ostatniego dostępu jest traktowana jako [inna operacj
 Niektóre dane pozostają w stanie bezczynności w chmurze i są rzadko, jeśli kiedykolwiek są dostępne. Następujące zasady cyklu życia są skonfigurowane tak, aby dane były archiwizowane wkrótce po ich pozyskaniu. Ten przykład przechodzi do blokowych obiektów BLOB na koncie magazynu w ramach kontenera `archivecontainer` do warstwy archiwum. Przejście jest realizowane przez działanie w przypadku obiektów BLOB 0 dni od czasu ostatniej modyfikacji:
 
 > [!NOTE] 
-> Zaleca się przekazywanie obiektów BLOB bezpośrednio do warstwy archiwum, aby zwiększyć efektywność. Możesz użyć nagłówka x-MS-Access-Version dla [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) lub [PUTBLOCKLIST](https://docs.microsoft.com/rest/api/storageservices/put-block-list) z wersją REST 2018-11-09 lub nowszą lub najnowszymi bibliotekami klienta usługi BLOB Storage. 
+> Zaleca się przekazywanie obiektów BLOB bezpośrednio do warstwy archiwum, aby zwiększyć efektywność. Możesz użyć nagłówka x-MS-Access-Version dla [PutBlob](/rest/api/storageservices/put-blob) lub [PUTBLOCKLIST](/rest/api/storageservices/put-block-list) z wersją REST 2018-11-09 lub nowszą lub najnowszymi bibliotekami klienta usługi BLOB Storage. 
 
 ```json
 {
@@ -592,7 +592,7 @@ Gdy obiekt BLOB jest przenoszony z jednej warstwy dostępu do innej, jego Ostatn
 
 Dowiedz się, jak odzyskiwać dane po przypadkowym usunięciu:
 
-- [Soft delete for Azure Storage blobs](../blobs/storage-blob-soft-delete.md) (Usuwanie nietrwałe dla obiektów blob usługi Azure Storage)
+- [Soft delete for Azure Storage blobs](./soft-delete-blob-overview.md) (Usuwanie nietrwałe dla obiektów blob usługi Azure Storage)
 
 Dowiedz się, jak zarządzać danymi i znajdować je za pomocą indeksu obiektów blob:
 

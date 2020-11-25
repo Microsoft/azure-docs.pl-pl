@@ -10,11 +10,11 @@ ms.date: 10/10/2019
 ms.subservice: tables
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 71b1f3cfa1df86b417c468d56f67cd7fe8d71d73
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316188"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004708"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Lista kontrolna wydajności i skalowalności dla usługi Table Storage
 
@@ -40,11 +40,11 @@ Ten artykuł organizuje sprawdzone rozwiązania dotyczące wydajności w ramach 
 | &nbsp; |Konfiguracja platformy .NET |[Czy skonfigurowano klienta tak, aby używał wystarczającej liczby jednoczesnych połączeń?](#increase-default-connection-limit) |
 | &nbsp; |Konfiguracja platformy .NET |[Czy w przypadku aplikacji .NET skonfigurowano platformę .NET do używania wystarczającej liczby wątków?](#increase-minimum-number-of-threads) |
 | &nbsp; |Równoległości |[Czy istnieje pewność, że równoległość jest odpowiednio ograniczona, aby nie można było przeciążać możliwości klienta ani podejścia do celów skalowalności?](#unbounded-parallelism) |
-| &nbsp; |narzędzia |[Czy używasz najnowszych wersji bibliotek i narzędzi klienta dostarczonych przez firmę Microsoft?](#client-libraries-and-tools) |
+| &nbsp; |Narzędzia |[Czy używasz najnowszych wersji bibliotek i narzędzi klienta dostarczonych przez firmę Microsoft?](#client-libraries-and-tools) |
 | &nbsp; |Ponowne próby |[Czy zasady ponawiania są używane z wykładniczą wycofywaniaą do ograniczania błędów i przekroczeń limitu czasu?](#timeout-and-server-busy-errors) |
 | &nbsp; |Ponowne próby |[Czy aplikacja unika ponawiania prób w przypadku błędów, które nie są ponawiane?](#non-retryable-errors) |
-| &nbsp; |Konfiguracja |[Czy używasz formatu JSON dla żądań tabeli?](#use-json) |
-| &nbsp; |Konfiguracja |[Czy wyłączono algorytm nagle, aby zwiększyć wydajność małych żądań?](#disable-nagle) |
+| &nbsp; |Konfigurowanie |[Czy używasz formatu JSON dla żądań tabeli?](#use-json) |
+| &nbsp; |Konfigurowanie |[Czy wyłączono algorytm nagle, aby zwiększyć wydajność małych żądań?](#disable-nagle) |
 | &nbsp; |Tabele i partycje |[Czy masz poprawnie partycjonowane dane?](#schema) |
 | &nbsp; |Partycje aktywne |[Czy unikasz wzorców tylko do dołączania i tylko do prefiksu?](#append-only-and-prepend-only-patterns) |
 | &nbsp; |Partycje aktywne |[Czy operacje wstawiania/aktualizowania są rozłożone na wiele partycji?](#high-traffic-data) |
@@ -189,7 +189,7 @@ Biblioteki klienta obsługują ponawianie prób z świadomością, które błęd
 
 Aby uzyskać więcej informacji na temat kodów błędów usługi Azure Storage, zobacz informacje o [stanie i kodach błędów](/rest/api/storageservices/status-and-error-codes2).
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Ta sekcja zawiera kilka ustawień szybkiego konfigurowania, których można użyć w celu zwiększenia wydajności Table service:
 
@@ -243,7 +243,7 @@ W tej sekcji opisano sprawdzone praktyki dotyczące wykonywania zapytań dotycz�
 
 Istnieje kilka sposobów określania zakresu jednostek do zapytania. Na poniższej liście opisano każdą opcję zakresu zapytania.
 
-- **Zapytania dotyczące punktów:** — zapytanie o punkt pobiera dokładnie jedną jednostkę przez określenie klucza partycji i klucza wiersza jednostki do pobrania. Te zapytania są wydajne i należy ich używać wszędzie tam, gdzie jest to możliwe.
+- **Zapytania dotyczące punktów:**— zapytanie o punkt pobiera dokładnie jedną jednostkę przez określenie klucza partycji i klucza wiersza jednostki do pobrania. Te zapytania są wydajne i należy ich używać wszędzie tam, gdzie jest to możliwe.
 - **Zapytania dotyczące partycji:** Zapytanie partycji to zapytanie, które pobiera zestaw danych, które współużytkują wspólny klucz partycji. Zwykle zapytanie określa zakres wartości klucza wiersza lub zakres wartości dla niektórych właściwości jednostki oprócz klucza partycji. Te zapytania są mniej wydajne niż zapytania punktowe i powinny być używane oszczędnie.
 - **Zapytania tabeli:** Zapytanie tabeli to zapytanie, które pobiera zestaw jednostek, które nie korzystają ze wspólnego klucza partycji. Te zapytania są niewydajne i należy je unikać, jeśli jest to możliwe.
 
@@ -273,10 +273,10 @@ Transakcje usługi Batch są nazywane transakcjami grupy jednostek w usłudze Az
 
 #### <a name="upsert"></a>Upsert
 
-W miarę możliwości używaj tabeli **upsert** . Istnieją dwa typy **upsert** , które mogą być bardziej wydajne niż tradycyjne operacje **wstawiania** i **aktualizacji** :  
+W miarę możliwości używaj tabeli **upsert** . Istnieją dwa typy **upsert**, które mogą być bardziej wydajne niż tradycyjne operacje **wstawiania** i **aktualizacji** :  
 
-- **InsertOrMerge** : Użyj tej operacji, gdy chcesz przekazać podzestaw właściwości jednostki, ale nie ma pewności, czy jednostka już istnieje. Jeśli jednostka istnieje, to wywołanie aktualizuje właściwości zawarte w operacji **upsert** i pozostawia wszystkie istniejące właściwości, jeśli są one, jeśli jednostka nie istnieje, wstawia nową jednostkę. Jest to podobne do użycia projekcji w zapytaniu, w którym należy jedynie przekazać właściwości, które są zmieniane.
-- **InsertOrReplace** : Użyj tej operacji, jeśli chcesz przekazać całkowicie nową jednostkę, ale nie masz pewności, czy już istnieje. Użyj tej operacji, Jeśli wiesz, że nowo przekazana jednostka jest całkowicie poprawna, ponieważ całkowicie zastępuje starą jednostkę. Na przykład, chcesz zaktualizować jednostkę, która przechowuje bieżącą lokalizację użytkownika, niezależnie od tego, czy aplikacja ma poprzednio przechowywane dane lokalizacji dla użytkownika; Nowa jednostka lokalizacji została ukończona i nie są potrzebne żadne informacje z poprzedniej jednostki.
+- **InsertOrMerge**: Użyj tej operacji, gdy chcesz przekazać podzestaw właściwości jednostki, ale nie ma pewności, czy jednostka już istnieje. Jeśli jednostka istnieje, to wywołanie aktualizuje właściwości zawarte w operacji **upsert** i pozostawia wszystkie istniejące właściwości, jeśli są one, jeśli jednostka nie istnieje, wstawia nową jednostkę. Jest to podobne do użycia projekcji w zapytaniu, w którym należy jedynie przekazać właściwości, które są zmieniane.
+- **InsertOrReplace**: Użyj tej operacji, jeśli chcesz przekazać całkowicie nową jednostkę, ale nie masz pewności, czy już istnieje. Użyj tej operacji, Jeśli wiesz, że nowo przekazana jednostka jest całkowicie poprawna, ponieważ całkowicie zastępuje starą jednostkę. Na przykład, chcesz zaktualizować jednostkę, która przechowuje bieżącą lokalizację użytkownika, niezależnie od tego, czy aplikacja ma poprzednio przechowywane dane lokalizacji dla użytkownika; Nowa jednostka lokalizacji została ukończona i nie są potrzebne żadne informacje z poprzedniej jednostki.
 
 #### <a name="storing-data-series-in-a-single-entity"></a>Przechowywanie serii danych w jednej jednostce
 

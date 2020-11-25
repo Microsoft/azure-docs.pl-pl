@@ -14,17 +14,17 @@ ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
 ms.openlocfilehash: 7d937542201792c0d1c0be69df9bd1c2b34edea3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89434473"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004946"
 ---
 # <a name="virtual-network-service-endpoints"></a>Punkty końcowe usługi dla sieci wirtualnej
 
 Punkt końcowy usługi Virtual Network (VNet) zapewnia bezpieczną i bezpośrednią łączność z usługami platformy Azure za pośrednictwem zoptymalizowanej trasy za pośrednictwem sieci szkieletowej platformy Azure. Punkty końcowe umożliwiają zabezpieczanie krytycznych zasobów usługi platformy Azure tylko do sieci wirtualnych. Punkty końcowe usługi umożliwiają używanie prywatnych adresów IP w sieci wirtualnej w celu uzyskania dostępu do punktu końcowego usługi platformy Azure bez konieczności publicznego adresu IP w sieci wirtualnej.
 
-Ta funkcja jest dostępna dla następujących regionów i usług platformy Azure. *Microsoft. \* * Resource znajduje się w nawiasach. Włącz ten zasób ze strony podsieci podczas konfigurowania punktów końcowych usługi dla usługi:
+Ta funkcja jest dostępna dla następujących regionów i usług platformy Azure. *Microsoft. \** Resource znajduje się w nawiasach. Włącz ten zasób ze strony podsieci podczas konfigurowania punktów końcowych usługi dla usługi:
 
 **Ogólnie dostępne**
 
@@ -77,11 +77,11 @@ Punkty końcowe usługi oferują następujące korzyści:
 
   Domyślnie zasoby usługi platformy Azure zabezpieczone za pośrednictwem sieci wirtualnych nie są dostępne z sieci lokalnych. Jeśli chcesz zezwolić na ruch z lokalnego, musisz również zezwolić na publiczne (zazwyczaj NAT) adresy IP z lokalnego lub ExpressRoute. Te adresy IP można dodać za pomocą konfiguracji zapory adresów IP dla zasobów usługi platformy Azure.
 
-  ExpressRoute: Jeśli korzystasz z usługi [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do publicznej komunikacji równorzędnej lub komunikacji równorzędnej firmy Microsoft z miejsca lokalnego, musisz zidentyfikować używane adresy IP translatora adresów sieciowych. W przypadku publicznej komunikacji równorzędnej każdy obwód usługi ExpressRoute domyślnie używa dwóch adresów IP translatora adresów sieciowych, które są stosowane do ruchu usług platformy Azure, gdy ruch przechodzi do Microsoft Azure sieci szkieletowej. W przypadku komunikacji równorzędnej firmy Microsoft adresy IP translatora adresów sieciowych są udostępniane przez dostawcę usług lub przez niego udostępniane.Aby umożliwić dostęp do zasobów usługi, musisz zezwolić na te publiczne adresy IP w ustawieniu zapory adresu IP zasobu.Aby znaleźć adresy IP obwodów usługi ExpressRoute publicznej komunikacji równorzędnej, [otwórz bilet pomocy technicznej przy użyciu usługi ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) w witrynie Azure Portal. Aby uzyskać więcej informacji na temat translatora adresów sieciowych dla usługi ExpressRoute Public i komunikacji równorzędnej firmy Microsoft, zobacz [wymagania dotyczące EXPRESSROUTE NAT](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering).
+  ExpressRoute: Jeśli korzystasz z usługi [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do publicznej komunikacji równorzędnej lub komunikacji równorzędnej firmy Microsoft z miejsca lokalnego, musisz zidentyfikować używane adresy IP translatora adresów sieciowych. W przypadku publicznej komunikacji równorzędnej każdy obwód usługi ExpressRoute domyślnie używa dwóch adresów IP translatora adresów sieciowych, które są stosowane do ruchu usług platformy Azure, gdy ruch przechodzi do Microsoft Azure sieci szkieletowej. W przypadku komunikacji równorzędnej firmy Microsoft adresy IP translatora adresów sieciowych są udostępniane przez dostawcę usług lub przez niego udostępniane. Aby umożliwić dostęp do zasobów usługi, musisz zezwolić na te publiczne adresy IP w ustawieniu zapory adresu IP zasobu. Aby znaleźć adresy IP obwodów usługi ExpressRoute publicznej komunikacji równorzędnej, [otwórz bilet pomocy technicznej przy użyciu usługi ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) w witrynie Azure Portal. Aby uzyskać więcej informacji na temat translatora adresów sieciowych dla usługi ExpressRoute Public i komunikacji równorzędnej firmy Microsoft, zobacz [wymagania dotyczące EXPRESSROUTE NAT](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering).
 
 ![Zabezpieczanie usług platformy Azure w sieciach wirtualnych](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
-### <a name="configuration"></a>Konfiguracja
+### <a name="configuration"></a>Konfigurowanie
 
 - Skonfiguruj punkty końcowe usługi w podsieci w sieci wirtualnej. Punkty końcowe współpracują z wystąpieniami obliczeniowymi dowolnego typu uruchomionymi w danej podsieci.
 - W podsieci można skonfigurować wiele punktów końcowych usługi dla wszystkich obsługiwanych usług platformy Azure (na przykład Azure Storage lub Azure SQL Database).
@@ -152,4 +152,4 @@ Często zadawane pytania można znaleźć w temacie [Virtual Network często zad
 - [Zabezpieczanie usługi Azure Synapse Analytics w sieci wirtualnej](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - [Integracja usług platformy Azure w sieciach wirtualnych](virtual-network-for-azure-services.md)
 - [Zasady punktu końcowego usługi Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
-- [Szablon usługi Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
+- [Szablon Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)

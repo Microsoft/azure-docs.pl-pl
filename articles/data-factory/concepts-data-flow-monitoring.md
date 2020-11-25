@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/19/2020
-ms.openlocfilehash: a9636e7227671cd5a8ed31904e6bc27782d3bd6a
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.date: 11/22/2020
+ms.openlocfilehash: 9ca5ea5cdebe297af5081ae6e219935c56ba942e
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025837"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004883"
 ---
 # <a name="monitor-data-flows"></a>Monitorowanie przepływów danych
 
@@ -81,6 +81,16 @@ Możesz również zobaczyć szczegółowy chronometraż dla każdego kroku przek
 
 Gdy wybierzesz ikonę przekształcenia ujścia na mapie, panel slajdu po prawej stronie wyświetli dodatkowy punkt danych o nazwie "czas przetwarzania" w dolnej części. Jest to ilość czasu poświęcanego na wykonanie zadania w klastrze Spark *po* załadowaniu i zapisaniu danych. Ten czas może obejmować zamykanie pul połączeń, zamykanie sterowników, usuwanie plików, łączenie plików itp. Gdy wykonujesz akcje w przepływie, takie jak "Przenieś pliki" i "dane wyjściowe do pojedynczego pliku", prawdopodobnie zobaczysz wzrost wartości czasu przetwarzania.
   
+## <a name="error-rows"></a>Wiersze błędów
+
+Włączenie obsługi wiersza błędów w ujścia przepływu danych będzie odzwierciedlone w danych wyjściowych monitorowania. Po ustawieniu ujścia na "powodzenie raportu po błędzie" w danych wyjściowych monitorowania zostanie wyświetlona liczba wierszy sukces i niepowodzenie po kliknięciu węzła Monitorowanie ujścia.
+
+![Zrzut ekranu przedstawia wiersze błędów.](media/data-flow/error-row-2.png "Powodzenie monitorowania wiersza błędu")
+
+Po wybraniu opcji "Zgłoś niepowodzenie w przypadku błędu" te same dane wyjściowe będą wyświetlane tylko w tekście wyjściowym monitorowania działania. Dzieje się tak, ponieważ działanie przepływu danych zwróci błąd podczas wykonywania, a szczegółowy widok monitorowania będzie niedostępny.
+
+![Zrzut ekranu przedstawia wiersze błędów w działaniu.](media/data-flow/error-rows-4.png "Niepowodzenie monitorowania wiersza błędu")
+
 ## <a name="monitor-icons"></a>Monitoruj ikony
 
 Ta ikona oznacza, że dane przekształcenia zostały już zapisane w pamięci podręcznej, więc czasy i ścieżki wykonywania zostały wzięte pod uwagę:

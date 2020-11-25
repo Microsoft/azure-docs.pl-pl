@@ -13,17 +13,17 @@ ms.workload: infrastructure
 ms.date: 02/21/2020
 ms.author: rdhillon
 ms.openlocfilehash: bdf0e87c92a55d0dbb5bbe34334a6de4580cb350
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84708182"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004963"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Tworzenie, zmienianie lub usuwanie zasad punktu końcowego usługi przy użyciu Azure Portal
 
 Zasady punktu końcowego usługi umożliwiają filtrowanie ruchu w sieci wirtualnej do określonych zasobów platformy Azure za pośrednictwem punktów końcowych usługi. Jeśli nie znasz zasad punktu końcowego usługi, zobacz [Omówienie zasad punktu końcowego usługi](virtual-network-service-endpoint-policies-overview.md) , aby dowiedzieć się więcej.
 
- Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie zasad punktu końcowego usługi
@@ -78,7 +78,7 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 ## <a name="view-endpoint-policies"></a>Wyświetl zasady punktu końcowego 
 
 1. W polu *wszystkie usługi* w portalu zacznij pisać *zasady punktu końcowego usługi*. Wybierz pozycję **zasady punktu końcowego usługi**.
-2. W obszarze **subskrypcje**wybierz swoją subskrypcję i grupę zasobów, jak pokazano na poniższej ilustracji.
+2. W obszarze **subskrypcje** wybierz swoją subskrypcję i grupę zasobów, jak pokazano na poniższej ilustracji.
 
    ![Pokaż zasady](./media/virtual-network-service-endpoint-policies-portal/sep-view.png)
        

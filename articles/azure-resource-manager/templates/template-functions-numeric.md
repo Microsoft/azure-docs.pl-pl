@@ -2,13 +2,13 @@
 title: Funkcje szablonu — wartość liczbowa
 description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager do pracy z liczbami.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 00b44d971a487a0bbec27f3fc2d0746cedd6f874
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/18/2020
+ms.openlocfilehash: 26f4b846c67ee7b926ea984ceefd84bf9ea56952
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84677920"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96004538"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>Funkcje liczbowe dla szablonów ARM
 
@@ -20,16 +20,18 @@ Menedżer zasobów udostępnia następujące funkcje do pracy z liczbami całkow
 * [liczba zmiennoprzecinkowa](#float)
 * [int](#int)
 * [Maksymalny](#max)
-* [długości](#min)
+* [min](#min)
 * [Funkcja](#mod)
 * [mul](#mul)
 * [Sub](#sub)
+
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## <a name="add"></a>add
 
 `add(operand1, operand2)`
 
-Zwraca sumę dwóch podanych liczb całkowitych.
+Zwraca sumę dwóch podanych liczb całkowitych. `add`Funkcja nie jest obsługiwana w Bicep. `+`Zamiast tego użyj operatora.
 
 ### <a name="parameters"></a>Parametry
 
@@ -46,36 +48,49 @@ Liczba całkowita, która zawiera sumę parametrów.
 
 Poniższy [przykładowy szablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/add.json) dodaje dwa parametry.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "first": {
-            "type": "int",
-            "defaultValue": 5,
-            "metadata": {
-                "description": "First integer to add"
-            }
-        },
-        "second": {
-            "type": "int",
-            "defaultValue": 3,
-            "metadata": {
-                "description": "Second integer to add"
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "first": {
+      "type": "int",
+      "defaultValue": 5,
+      "metadata": {
+        "description": "First integer to add"
+      }
     },
-    "resources": [
-    ],
-    "outputs": {
-        "addResult": {
-            "type": "int",
-            "value": "[add(parameters('first'), parameters('second'))]"
-        }
+    "second": {
+      "type": "int",
+      "defaultValue": 3,
+      "metadata": {
+        "description": "Second integer to add"
+      }
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "addResult": {
+      "type": "int",
+      "value": "[add(parameters('first'), parameters('second'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param first int = 5
+param second int = 3
+
+output addResult int = first + second
+```
+
+---
 
 Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następujące:
 
@@ -113,36 +128,45 @@ Aby uzyskać więcej informacji o korzystaniu z kopii, zobacz:
 
 Poniższy przykład przedstawia pętlę kopiowania i wartość indeksu zawartą w nazwie.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storageCount": {
-            "type": "int",
-            "defaultValue": 2
-        }
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2019-04-01",
-            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-            "location": "[resourceGroup().location]",
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {},
-            "copy": {
-                "name": "storagecopy",
-                "count": "[parameters('storageCount')]"
-            }
-        }
-    ],
-    "outputs": {}
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageCount": {
+      "type": "int",
+      "defaultValue": 2
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-04-01",
+      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {},
+      "copy": {
+        "name": "storagecopy",
+        "count": "[parameters('storageCount')]"
+      }
+    }
+  ],
+  "outputs": {}
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+> [!NOTE]
+> Pętle i `copyIndex` nie zostały jeszcze zaimplementowane w Bicep.  Zobacz [pętle](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md).
+
+---
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -152,7 +176,7 @@ Liczba całkowita reprezentująca bieżący indeks iteracji.
 
 `div(operand1, operand2)`
 
-Zwraca podział liczby całkowitej z dwóch podanych liczb całkowitych.
+Zwraca podział liczby całkowitej z dwóch podanych liczb całkowitych. `div`Funkcja nie jest obsługiwana w Bicep. `/`Zamiast tego użyj operatora.
 
 ### <a name="parameters"></a>Parametry
 
@@ -169,36 +193,49 @@ Liczba całkowita reprezentująca podział.
 
 Poniższy [przykładowy szablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/div.json) dzieli jeden parametr przez inny parametr.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "first": {
-            "type": "int",
-            "defaultValue": 8,
-            "metadata": {
-                "description": "Integer being divided"
-            }
-        },
-        "second": {
-            "type": "int",
-            "defaultValue": 3,
-            "metadata": {
-                "description": "Integer used to divide"
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "first": {
+      "type": "int",
+      "defaultValue": 8,
+      "metadata": {
+        "description": "Integer being divided"
+      }
     },
-    "resources": [
-    ],
-    "outputs": {
-        "divResult": {
-            "type": "int",
-            "value": "[div(parameters('first'), parameters('second'))]"
-        }
+    "second": {
+      "type": "int",
+      "defaultValue": 3,
+      "metadata": {
+        "description": "Integer used to divide"
+      }
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "divResult": {
+      "type": "int",
+      "value": "[div(parameters('first'), parameters('second'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param first int = 8
+param second int = 3
+
+output addResult int = first / second
+```
+
+---
 
 Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następujące:
 
@@ -210,7 +247,7 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 
 `float(arg1)`
 
-Konwertuje wartość na liczbę zmiennoprzecinkową. Ta funkcja jest używana tylko podczas przekazywania parametrów niestandardowych do aplikacji, na przykład aplikacji logiki.
+Konwertuje wartość na liczbę zmiennoprzecinkową. Ta funkcja jest używana tylko podczas przekazywania parametrów niestandardowych do aplikacji, na przykład aplikacji logiki. `float`Funkcja nie jest obsługiwana w Becip.  Zobacz [obsługiwane typy liczbowe inne niż 32-bitowe liczby całkowite](https://github.com/Azure/bicep/issues/486).
 
 ### <a name="parameters"></a>Parametry
 
@@ -226,19 +263,28 @@ Liczba zmiennoprzecinkowa.
 
 Poniższy przykład pokazuje, jak używać metody zmiennoprzecinkowej do przekazywania parametrów do aplikacji logiki:
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "type": "Microsoft.Logic/workflows",
-    "properties": {
-        ...
-        "parameters": {
-            "custom1": {
-                "value": "[float('3.0')]"
-            },
-            "custom2": {
-                "value": "[float(3)]"
-            },
+  "type": "Microsoft.Logic/workflows",
+  "properties": {
+    ...
+    "parameters": {
+      "custom1": {
+        "value": "[float('3.0')]"
+      },
+      "custom2": {
+        "value": "[float(3)]"
+      },
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+> [!NOTE]
+> `float`Funkcja nie jest obsługiwana w Bicep.  Zobacz [obsługiwane typy liczbowe inne niż 32-bitowe liczby całkowite](https://github.com/Azure/bicep/issues/486).
+
+---
 
 ## <a name="int"></a>int
 
@@ -260,26 +306,38 @@ Liczba całkowita przekonwertowanej wartości.
 
 Poniższy [przykładowy szablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/int.json) konwertuje wartość parametru dostarczoną przez użytkownika na liczbę całkowitą.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "stringToConvert": {
-            "type": "string",
-            "defaultValue": "4"
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "intResult": {
-            "type": "int",
-            "value": "[int(parameters('stringToConvert'))]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "stringToConvert": {
+      "type": "string",
+      "defaultValue": "4"
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "intResult": {
+      "type": "int",
+      "value": "[int(parameters('stringToConvert'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param stringToConvert string = '4'
+
+output inResult int = int(stringToConvert)
+```
+
+---
 
 Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następujące:
 
@@ -307,29 +365,48 @@ Liczba całkowita reprezentująca wartość maksymalną z kolekcji.
 
 Poniższy [przykładowy szablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json) pokazuje, jak używać Max z tablicą i listą liczb całkowitych:
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": [0,3,2,5,4]
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "arrayOutput": {
-            "type": "int",
-            "value": "[max(parameters('arrayToTest'))]"
-        },
-        "intOutput": {
-            "type": "int",
-            "value": "[max(0,3,2,5,4)]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ 0, 3, 2, 5, 4 ]
     }
+  },
+  "resources": [],
+  "outputs": {
+    "arrayOutput": {
+      "type": "int",
+      "value": "[max(parameters('arrayToTest'))]"
+    },
+    "intOutput": {
+      "type": "int",
+      "value": "[max(0,3,2,5,4)]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param arrayToTest array = [
+  0
+  3
+  2
+  5
+  4
+]
+
+output arrayOutPut int = max(arrayToTest)
+output intOutput int = max(0,3,2,5,4)
+```
+
+---
 
 Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następujące:
 
@@ -358,29 +435,48 @@ Liczba całkowita reprezentująca wartość minimalną z kolekcji.
 
 Poniższy [przykładowy szablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json) pokazuje, jak używać min z tablicą i listą liczb całkowitych:
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": [0,3,2,5,4]
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "arrayOutput": {
-            "type": "int",
-            "value": "[min(parameters('arrayToTest'))]"
-        },
-        "intOutput": {
-            "type": "int",
-            "value": "[min(0,3,2,5,4)]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ 0, 3, 2, 5, 4 ]
     }
+  },
+  "resources": [],
+  "outputs": {
+    "arrayOutput": {
+      "type": "int",
+      "value": "[min(parameters('arrayToTest'))]"
+    },
+    "intOutput": {
+      "type": "int",
+      "value": "[min(0,3,2,5,4)]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param arrayToTest array = [
+  0
+  3
+  2
+  5
+  4
+]
+
+output arrayOutPut int = min(arrayToTest)
+output intOutput int = min(0,3,2,5,4)
+```
+
+---
 
 Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następujące:
 
@@ -393,7 +489,7 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 
 `mod(operand1, operand2)`
 
-Zwraca resztę z dzielenia liczb całkowitych przy użyciu dwóch podanych liczb całkowitych.
+Zwraca resztę z dzielenia liczb całkowitych przy użyciu dwóch podanych liczb całkowitych. `mod`Funkcja nie jest obsługiwana w Bicep. `%`Zamiast tego użyj operatora.
 
 ### <a name="parameters"></a>Parametry
 
@@ -410,36 +506,49 @@ Liczba całkowita reprezentująca resztę.
 
 Poniższy [przykładowy szablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mod.json) Zwraca resztę z dzielenia jednego parametru przez inny parametr.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "first": {
-            "type": "int",
-            "defaultValue": 7,
-            "metadata": {
-                "description": "Integer being divided"
-            }
-        },
-        "second": {
-            "type": "int",
-            "defaultValue": 3,
-            "metadata": {
-                "description": "Integer used to divide"
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "first": {
+      "type": "int",
+      "defaultValue": 7,
+      "metadata": {
+        "description": "Integer being divided"
+      }
     },
-    "resources": [
-    ],
-    "outputs": {
-        "modResult": {
-            "type": "int",
-            "value": "[mod(parameters('first'), parameters('second'))]"
-        }
+    "second": {
+      "type": "int",
+      "defaultValue": 3,
+      "metadata": {
+        "description": "Integer used to divide"
+      }
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "modResult": {
+      "type": "int",
+      "value": "[mod(parameters('first'), parameters('second'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param first int = 7
+param second int = 3
+
+output modResult int = first % second
+```
+
+---
 
 Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następujące:
 
@@ -451,7 +560,7 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 
 `mul(operand1, operand2)`
 
-Zwraca iloczyn dwóch podanych liczb całkowitych.
+Zwraca iloczyn dwóch podanych liczb całkowitych. `mul`Funkcja nie jest obsługiwana w Bicep. `*`Zamiast tego użyj operatora.
 
 ### <a name="parameters"></a>Parametry
 
@@ -468,36 +577,49 @@ Liczba całkowita reprezentująca iloczyn.
 
 Poniższy [przykładowy szablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mul.json) mnoży jeden parametr przez inny parametr.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "first": {
-            "type": "int",
-            "defaultValue": 5,
-            "metadata": {
-                "description": "First integer to multiply"
-            }
-        },
-        "second": {
-            "type": "int",
-            "defaultValue": 3,
-            "metadata": {
-                "description": "Second integer to multiply"
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "first": {
+      "type": "int",
+      "defaultValue": 5,
+      "metadata": {
+        "description": "First integer to multiply"
+      }
     },
-    "resources": [
-    ],
-    "outputs": {
-        "mulResult": {
-            "type": "int",
-            "value": "[mul(parameters('first'), parameters('second'))]"
-        }
+    "second": {
+      "type": "int",
+      "defaultValue": 3,
+      "metadata": {
+        "description": "Second integer to multiply"
+      }
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "mulResult": {
+      "type": "int",
+      "value": "[mul(parameters('first'), parameters('second'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param first int = 5
+param second int = 3
+
+output mulResult int = first * second
+```
+
+---
 
 Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następujące:
 
@@ -509,7 +631,7 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 
 `sub(operand1, operand2)`
 
-Zwraca odejmowanie dwóch podanych liczb całkowitych.
+Zwraca odejmowanie dwóch podanych liczb całkowitych. `sub`Funkcja nie jest obsługiwana w Bicep. `-`Zamiast tego użyj operatora.
 
 ### <a name="parameters"></a>Parametry
 
@@ -526,36 +648,49 @@ Liczba całkowita reprezentująca odejmowanie.
 
 Poniższy [przykładowy szablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/sub.json) odejmuje jeden parametr z innego parametru.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "first": {
-            "type": "int",
-            "defaultValue": 7,
-            "metadata": {
-                "description": "Integer subtracted from"
-            }
-        },
-        "second": {
-            "type": "int",
-            "defaultValue": 3,
-            "metadata": {
-                "description": "Integer to subtract"
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "first": {
+      "type": "int",
+      "defaultValue": 7,
+      "metadata": {
+        "description": "Integer subtracted from"
+      }
     },
-    "resources": [
-    ],
-    "outputs": {
-        "subResult": {
-            "type": "int",
-            "value": "[sub(parameters('first'), parameters('second'))]"
-        }
+    "second": {
+      "type": "int",
+      "defaultValue": 3,
+      "metadata": {
+        "description": "Integer to subtract"
+      }
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "subResult": {
+      "type": "int",
+      "value": "[sub(parameters('first'), parameters('second'))]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param first int = 7
+param second int = 3
+
+output subResult int = first - second
+```
+
+---
 
 Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następujące:
 
