@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
 ms.openlocfilehash: f2687909a7067bc135f6fcf27fce2e1694325887
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504145"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95988063"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tas"></a>Samouczek: integracja Azure Active Directory z ZADANIAmi
 
@@ -182,7 +182,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -192,7 +192,7 @@ Ta sekcja umożliwia włączenie usługi Britta Simon w celu korzystania z logow
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście **aplikacje wybierz pozycję**zadanie.
+2. Na liście **aplikacje wybierz pozycję** zadanie.
 
     ![Link do zadania na liście aplikacji](common/all-applications.png)
 

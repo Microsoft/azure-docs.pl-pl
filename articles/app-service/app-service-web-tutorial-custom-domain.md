@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6a74f105525ec8ce28559b47ed4fc9624f518a06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a74a3b7542a8d683e9bbf16f99c9b2646d95e00d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488341"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95986551"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Samouczek: mapowanie istniejącej niestandardowej nazwy DNS na Azure App Service
 
@@ -20,7 +20,7 @@ ms.locfileid: "89488341"
 
 ![Zrzut ekranu pokazujący Azure Portal nawigację do aplikacji platformy Azure.](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Mapowanie domeny podrzędnej (na przykład `www.contoso.com` ) przy użyciu rekordu CNAME.
@@ -47,7 +47,7 @@ Aby zmapować niestandardową nazwę DNS na aplikację sieci Web, [plan App Serv
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
 Otwórz [Azure Portal](https://portal.azure.com)i zaloguj się przy użyciu konta platformy Azure.
 
@@ -83,7 +83,7 @@ Zostanie wyświetlona strona zarządzania aplikacji usługi App Service.
 
 1. Wybierz jedną z płatnych warstw (**D1**, **B1**, **B2**, **B3** lub dowolną warstwę z kategorii **Produkcja**). Aby uzyskać dodatkowe opcje, wybierz opcję **Zobacz dodatkowe opcje**.
 
-1. Wybierz przycisk **Zastosuj**.
+1. Wybierz pozycję **Zastosuj**.
 
    ![Zrzut ekranu pokazujący sprawdzanie warstwy cenowej.](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
@@ -100,7 +100,7 @@ Aby dodać domenę niestandardową do aplikacji, musisz zweryfikować własnoś�
 ![Zrzut ekranu pokazujący identyfikator w polu Identyfikator weryfikacji domeny niestandardowej.](./media/app-service-web-tutorial-custom-domain/get-custom-domain-verification-id.png)
 
 > [!WARNING]
-> Dodawanie identyfikatorów weryfikacji domeny do domeny niestandardowej może uniemożliwić zawieszonego wpisów DNS i pomaga uniknąć przejęcia domen podrzędnych. Aby uzyskać więcej informacji o tym typowym zagrożeniu o wysokiej ważności, zobacz [przejęcie domeny](../security/fundamentals/subdomain-takeover.md)podrzędnej.
+> Dodawanie identyfikatorów weryfikacji domeny do domeny niestandardowej może uniemożliwić zawieszonego wpisów DNS i pomaga uniknąć przejęcia domen podrzędnych. W przypadku domen niestandardowych, które zostały wcześniej skonfigurowane bez tego identyfikatora weryfikacyjnego, należy chronić je przed tym samym ryzykiem przez dodanie identyfikatora weryfikacji do rekordu DNS. Aby uzyskać więcej informacji o tym typowym zagrożeniu o wysokiej ważności, zobacz [przejęcie domeny](../security/fundamentals/subdomain-takeover.md)podrzędnej.
 
 ## <a name="map-your-domain"></a>Mapowanie domeny
 

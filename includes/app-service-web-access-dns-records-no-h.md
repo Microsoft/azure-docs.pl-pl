@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: 2f490a5b12484a91e963d068810b292d7761521a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89484305"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95986562"
 ---
 > [!NOTE]
 > Aby skonfigurować niestandardową nazwę DNS dla Azure App Service, można użyć Azure DNS. Aby uzyskać więcej informacji, zobacz [Use Azure DNS to provide custom domain settings for an Azure service](../articles/dns/dns-custom-domain.md#app-service-web-apps) (Korzystanie z usługi Azure DNS w celu udostępnienia niestandardowych ustawień domeny dla usługi platformy Azure).
@@ -20,7 +20,7 @@ ms.locfileid: "89484305"
 
 1. Znajdź stronę służącą do zarządzania rekordami DNS. Każdy dostawca domeny ma własny interfejs rekordów DNS, dlatego zapoznaj się z dokumentacją dostawcy. Poszukaj obszarów witryny z etykietą **Nazwa domeny**, **DNS** lub **Zarządzanie serwerami nazw**.
 
-   Często można znaleźć stronę rekordów DNS, wyświetlając informacje o koncie, a następnie szukając linku, takiego jak **Moje domeny**. Przejdź do tej strony, a następnie poszukaj linku o nazwie, takiego jak **plik strefy**, **rekordy DNS**lub **Konfiguracja zaawansowana**.
+   Często można znaleźć stronę rekordów DNS, wyświetlając informacje o koncie, a następnie szukając linku, takiego jak **Moje domeny**. Przejdź do tej strony, a następnie poszukaj linku o nazwie, takiego jak **plik strefy**, **rekordy DNS** lub **Konfiguracja zaawansowana**.
 
    Poniższy zrzut ekranu przedstawia przykład strony rekordów DNS:
 
