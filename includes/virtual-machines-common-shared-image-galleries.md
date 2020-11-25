@@ -7,11 +7,11 @@ ms.date: 10/14/2020
 ms.author: olayemio
 ms.custom: include file
 ms.openlocfilehash: 29cbb2f6a7f0faf91852e520f15b779b3fe229c8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95555146"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027565"
 ---
 Udostępniona Galeria obrazów to usługa, która ułatwia tworzenie struktury i organizacji na całym obrazie. Udostępnione Galerie obrazów zapewniają następujące:
 

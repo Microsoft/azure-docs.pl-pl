@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 11/10/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 955990ed9209ea1e12eed824241e8a5a456ed73b
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 4e64d866b5bd2f725db3be31d0fdd2f8663cfd7c
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444881"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029697"
 ---
 # <a name="azure-tls-certificate-changes"></a>Zmiany certyfikatu protokołu TLS platformy Azure  
 
@@ -30,6 +30,7 @@ Szczegóły dotyczące usługi:
 - [Usługi Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) i [DPS](../../iot-dps/index.yml) POzostaną w głównym urzędzie certyfikacji Baltimore CyberTrust, ale ich pośrednie urzędy certyfikacji zmienią się. [Kliknij tutaj, aby uzyskać szczegółowe informacje](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
 - [Usługa Azure Storage](../../storage/index.yml) pozostanie w głównym urzędzie certyfikacji Baltimore CyberTrust, ale ich pośrednie urzędy certyfikacji zmienią się. [Kliknij tutaj, aby uzyskać szczegółowe informacje](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
 - [Usługa Azure cache for Redis](../../azure-cache-for-redis/index.yml) pozostanie w głównym urzędzie certyfikacji Baltimore CyberTrust, ale ich pośrednie urzędy certyfikacji zmienią się. [Kliknij tutaj, aby uzyskać szczegółowe informacje](../../azure-cache-for-redis/cache-whats-new.md).
+- Usługa Azure Instance Metadata Service pozostanie w głównym urzędzie certyfikacji Baltimore CyberTrust, ale ich pośrednie urzędy certyfikacji zmienią się. [Kliknij tutaj, aby uzyskać szczegółowe informacje](https://docs.microsoft.com/answers/questions/172717/action-required-for-attested-data-tls-with-azure-i.html).
 
 > [!IMPORTANT]
 > Aby uniknąć błędów łączności podczas próby nawiązania połączenia z usługami platformy Azure, klienci mogą wymagać aktualizacji aplikacji po tej zmianie.
@@ -70,11 +71,11 @@ Oto kilka sposobów na wykrycie, czy ma to wpływ na aplikację:
 - Jeśli masz aplikację, która integruje się z interfejsami API platformy Azure lub innymi usługami platformy Azure i nie masz pewności, czy używa ona przypinania certyfikatów, skontaktuj się z dostawcą aplikacji.
 
 - Różne systemy operacyjne i środowiska uruchomieniowe języka, które komunikują się z usługami platformy Azure, mogą wymagać dodatkowych kroków w celu poprawnego skompilowania łańcucha certyfikatów przy użyciu tych nowych katalogów głównych:
-    - **Linux** : wiele dystrybucji wymaga dodania urzędów certyfikacji do/etc/SSL/certs. Aby uzyskać szczegółowe instrukcje, zapoznaj się z dokumentacją dystrybucji.
-    - **Java** : Upewnij się, że magazyn kluczy Java zawiera wymienione powyżej urzędy certyfikacji.
-    - **System Windows działający w odłączonych środowiskach** : systemy działające w środowiskach odłączonych muszą mieć dodane nowe katalogi główne do magazynu zaufanych głównych urzędów certyfikacji, a następnie pośrednicy dodani do magazynu pośrednich urzędów certyfikacji.
-    - **Android** : Zapoznaj się z dokumentacją urządzenia i wersji systemu Android.
-    - **Inne urządzenia sprzętowe, zwłaszcza IoT** : skontaktuj się z producentem urządzenia.
+    - **Linux**: wiele dystrybucji wymaga dodania urzędów certyfikacji do/etc/SSL/certs. Aby uzyskać szczegółowe instrukcje, zapoznaj się z dokumentacją dystrybucji.
+    - **Java**: Upewnij się, że magazyn kluczy Java zawiera wymienione powyżej urzędy certyfikacji.
+    - **System Windows działający w odłączonych środowiskach**: systemy działające w środowiskach odłączonych muszą mieć dodane nowe katalogi główne do magazynu zaufanych głównych urzędów certyfikacji, a następnie pośrednicy dodani do magazynu pośrednich urzędów certyfikacji.
+    - **Android**: Zapoznaj się z dokumentacją urządzenia i wersji systemu Android.
+    - **Inne urządzenia sprzętowe, zwłaszcza IoT**: skontaktuj się z producentem urządzenia.
 
 - Jeśli masz środowisko, w którym reguły zapory są ustawione tak, aby zezwalały na połączenia wychodzące tylko na pobieranie określonych list odwołania certyfikatów (CRL) i/lub lokalizacje weryfikacyjne protokołu stanu certyfikatów (OCSP). Musisz zezwolić na następującą listę CRL i adresy URL protokołu OCSP:
 

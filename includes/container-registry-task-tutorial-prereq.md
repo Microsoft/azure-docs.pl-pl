@@ -4,12 +4,12 @@ ms.service: container-registry
 ms.topic: include
 ms.date: 05/02/2019
 ms.author: danlep
-ms.openlocfilehash: 40cc1856a5e943ca5596e7d11712febadd30e3ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79e2ca71d6b8178be63c3429edba89cf3bb523e2
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67132991"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029997"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -21,13 +21,13 @@ W samouczku założono, że zostały już wykonane kroki z [poprzedniego samoucz
 
 Aby ukończyć ten samouczek, w Twojej subskrypcji platformy Azure musisz posiadać rejestr kontenerów platformy Azure. Jeśli potrzebujesz rejestru, zobacz [poprzedni samouczek](../articles/container-registry/container-registry-tutorial-quick-task.md) lub [Szybki start: tworzenie rejestru kontenerów za pomocą interfejsu wiersza polecenia platformy Azure](../articles/container-registry/container-registry-get-started-azure-cli.md).
 
-## <a name="create-a-github-personal-access-token"></a>Tworzenie osobistego tokenu dostępu GitHub
+### <a name="create-a-github-personal-access-token"></a>Tworzenie osobistego tokenu dostępu GitHub
 
 Aby wyzwolić zadanie po zatwierdzeniu do repozytorium git, do uzyskania dostępu do repozytorium zadania ACR potrzebują osobistego tokenu dostępu. Jeśli nie masz jeszcze elementu, wykonaj następujące kroki, aby wygenerować go w usłudze GitHub:
 
 1. Przejdź do strony tworzenia tokenu PAT w witrynie GitHub pod adresem https://github.com/settings/tokens/new
 1. Wprowadź krótki **opis** dla tokenu, na przykład „Przykładowe zadanie ACR Tasks”
-1. Wybierz zakresy ACR, aby uzyskać dostęp do repozytorium. Aby uzyskać dostęp do repozytorium publicznego jak w tym samouczku, w obszarze **repozytorium**Włącz **repozytorium: stan** i **public_repo**
+1. Wybierz zakresy ACR, aby uzyskać dostęp do repozytorium. Aby uzyskać dostęp do repozytorium publicznego jak w tym samouczku, w obszarze **repozytorium** Włącz **repozytorium: stan** i **public_repo**
 
    ![Zrzut ekranu strony generowania osobistego tokenu dostępu w usłudze GitHub][build-task-01-new-token]
 

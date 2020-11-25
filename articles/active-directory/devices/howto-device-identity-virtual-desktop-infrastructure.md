@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9020e364a5c8d7a59dad5549e88036dc9edaad7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c30ad26f079e6353dc4763b9ae968c33882d8ab6
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089670"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029351"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Tożsamość urządzenia i Wirtualizacja pulpitu
 
@@ -56,12 +56,11 @@ Przed skonfigurowaniem tożsamości urządzeń w usłudze Azure AD dla środowis
 |   |   | System Windows niższego poziomu | Nietrwałe | Tak<sup>6</sup> |
 | Dołączone do usługi Azure AD | Federacyjni | Bieżące dla systemu Windows | Stale | Nie |
 |   |   |   | Nietrwałe | Nie |
-|   | Zarządzani | Bieżące dla systemu Windows | Stale | Nie |
+|   | Zarządzany | Bieżące dla systemu Windows | Stale | Nie |
 |   |   |   | Nietrwałe | Nie |
 | Zarejestrowane w usłudze Azure AD | Federacyjne/zarządzane | Windows na poziomie bieżącym/Windows | Trwały/nietrwały | Nie dotyczy |
 
-<sup>1</sup> **bieżące urządzenia systemu Windows** reprezentują systemy Windows 10, Windows Server 2016 i Windows Server 2019.
-
+<sup>1</sup> **bieżące urządzenia systemu Windows** reprezentują system Windows 10, Windows Server 2016 V1803 lub nowszy i system Windows Server 2019.
 <sup>dwa</sup> urządzenia **niskiego poziomu systemu Windows** reprezentują systemy Windows 7, Windows 8.1, Windows Server 2008 R2, Windows Server 2012 i Windows Server 2012 R2. Aby uzyskać informacje o pomocy technicznej w systemie Windows 7, zobacz temat [Obsługa systemu Windows 7 kończy się](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support). Aby uzyskać informacje na temat pomocy technicznej dotyczącej systemu Windows Server 2008 R2, zobacz [przygotowanie do systemu Windows server 2008 koniec wsparcia](https://www.microsoft.com/cloud-platform/windows-server-2008).
 
 <sup>3</sup> środowisko infrastruktury tożsamości **federacyjnych** reprezentuje środowisko z dostawcą tożsamości, takim jak AD FS lub inne dostawcy tożsamości innych firm.

@@ -9,11 +9,11 @@ ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
 ms.openlocfilehash: daed8dc62fdfd86ecf785a0bfd83b2b6c0b4cc03
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95563935"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027414"
 ---
 Umieszczanie maszyn wirtualnych w jednym regionie zmniejsza odległość fizyczną między wystąpieniami. Umieszczenie ich w ramach pojedynczej strefy dostępności spowoduje również, że zostaną one fizycznie bliżej siebie. Jednak w miarę zwiększania się rozmiaru platformy Azure jedna strefa dostępności może obejmować wiele fizycznych centrów danych, co może skutkować opóźnieniami sieciowymi wpływającymi na aplikację. 
 

@@ -9,11 +9,11 @@ ms.date: 12/05/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 6684c4269f14b91ded651dadff3f0a2e0878a4f2
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95564287"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027816"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>Czy niestandardowe zasady protokołu IPsec/IKE są obsługiwane na wszystkich jednostkach SKU bramy sieci VPN platformy Azure?
 Niestandardowe zasady protokołu IPsec/IKE są obsługiwane we wszystkich jednostkach SKU platformy Azure z wyjątkiem podstawowej jednostki SKU.

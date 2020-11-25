@@ -16,12 +16,12 @@ ms.date: 09/28/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96106cc1d9f9040f98c7d9201f05b4cff87af7e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1cdf983dc8fed64c7d283ac216eb803746add95
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449888"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029374"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Dodawanie połączonej organizacji w zarządzaniu prawami usługi Azure AD
 
@@ -93,7 +93,7 @@ Aby dodać zewnętrzny katalog lub domenę usługi Azure AD jako podłączoną o
 
     Sponsorzy są wewnętrznymi lub zewnętrznymi użytkownikami już w katalogu, które są punktem kontaktu dla relacji z tą połączoną organizacją. Wewnętrzni Sponsorzy są użytkownikami należącymi do katalogu. Zewnętrzne sponsorzy to użytkownicy-Goście z połączonej organizacji, którzy zostali wcześniej zaproszeni i znajdują się już w katalogu. Sponsorzy mogą być używani jako osoby zatwierdzające, gdy użytkownicy w tej połączonej organizacji żądają dostępu do tego pakietu dostępu. Aby uzyskać informacje na temat zapraszania użytkownika-gościa do katalogu, zobacz [dodawanie Azure Active Directory użytkowników współpracy B2B w Azure Portal](../external-identities/add-users-administrator.md).
 
-    Po wybraniu opcji **Dodaj/Usuń**zostanie otwarte okienko, w którym można wybrać wewnętrznych lub zewnętrznych sponsorów. W okienku zostanie wyświetlona niefiltrowana lista użytkowników i grup w Twoim katalogu.
+    Po wybraniu opcji **Dodaj/Usuń** zostanie otwarte okienko, w którym można wybrać wewnętrznych lub zewnętrznych sponsorów. W okienku zostanie wyświetlona niefiltrowana lista użytkowników i grup w Twoim katalogu.
 
     ![Okienko sponsorzy](./media/entitlement-management-organization/organization-sponsors.png)
 
@@ -148,12 +148,12 @@ Istnieją dwa różne typy właściwości stanu dla połączonych organizacji, k
 
 - Proponowana połączona organizacja to połączona organizacja, która została utworzona automatycznie, ale nie miała uprawnienia administratora ani nie utworzyła organizacji. Gdy użytkownik loguje się w celu uzyskania dostępu do pakietu, który należy do skonfigurowanej połączonej organizacji, wszystkie automatycznie utworzone połączone organizacje będą w stanie **zaproponować** , ponieważ nie ma żadnego administratora w zestawie dzierżawców. 
     
-    Proponowane połączone organizacje nie są wyświetlane w selektorach dla skonfigurowanych połączonych organizacji i nie są w zakresie dla ustawienia "wszystkie skonfigurowane połączone organizacje" dla wszystkich zasad. 
+    Proponowane połączone organizacje nie są w zakresie dla ustawienia "wszystkie skonfigurowane połączone organizacje" w żadnej z zasad, ale mogą być używane w zasadach tylko dla zasad przeznaczonych dla konkretnych organizacji. 
 
-Tylko użytkownicy z skonfigurowanych połączonych organizacji mogą żądać pakietów dostępu, które są dostępne dla użytkowników ze wszystkich skonfigurowanych organizacji. Użytkownicy z proponowanych połączonych organizacji mają doświadczenie, ponieważ nie istnieje połączona organizacja dla tej domeny i nie będzie miał dostępu do pakietu dostępu do momentu zmiany stanu przez administratora.
+Tylko użytkownicy z skonfigurowanych połączonych organizacji mogą żądać pakietów dostępu, które są dostępne dla użytkowników ze wszystkich skonfigurowanych organizacji. Użytkownicy z proponowanych połączonych organizacji mają doświadczenie, tak jakby nie istnieje połączona organizacja dla tej domeny. może wyświetlać i żądać pakietów dostępu tylko do określonych organizacji lub do zakresu dla dowolnego użytkownika.
 
 > [!NOTE]
-> W ramach wdrażania tej nowej funkcji zostały uznane za **skonfigurowane**wszystkie połączone organizacje utworzone przed 09/09/20. Jeśli masz pakiet dostępu, który zezwala użytkownikom z dowolnej organizacji na rejestrację, należy przejrzeć listę połączonych organizacji, które zostały utworzone przed tą datą, aby upewnić się, że żadna z nich nie została sklasyfikowana jako **skonfigurowana**.  Administrator może zaktualizować właściwość **stanu** stosownie do potrzeb. Aby uzyskać wskazówki, zobacz [Aktualizowanie połączonej organizacji](#update-a-connected-organization).
+> W ramach wdrażania tej nowej funkcji zostały uznane za **skonfigurowane** wszystkie połączone organizacje utworzone przed 09/09/20. Jeśli masz pakiet dostępu, który zezwala użytkownikom z dowolnej organizacji na rejestrację, należy przejrzeć listę połączonych organizacji, które zostały utworzone przed tą datą, aby upewnić się, że żadna z nich nie została sklasyfikowana jako **skonfigurowana**.  Administrator może zaktualizować właściwość **stanu** stosownie do potrzeb. Aby uzyskać wskazówki, zobacz [Aktualizowanie połączonej organizacji](#update-a-connected-organization).
 
 ## <a name="next-steps"></a>Następne kroki
 

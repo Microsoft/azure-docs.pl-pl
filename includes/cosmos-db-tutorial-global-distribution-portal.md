@@ -9,11 +9,11 @@ ms.topic: include
 ms.date: 12/26/2018
 ms.custom: include file
 ms.openlocfilehash: 58788d6194454c8bd40730c9c350aa901924ba3d
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95563684"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027021"
 ---
 ## <a name="add-global-database-regions-using-the-azure-portal"></a><a id="addregion"></a>Dodawanie regionów globalnej bazy danych przy użyciu witryny Azure Portal
 Azure Cosmos DB jest dostępna we wszystkich [regionach świadczenia usługi Azure][azureregions] na całym świecie. Po wybraniu domyślnego poziomu spójności dla Twojego konta bazy danych możesz skojarzyć co najmniej jeden region (w zależności od wybranego domyślnego poziomu spójności i globalnych potrzeb dystrybucji).

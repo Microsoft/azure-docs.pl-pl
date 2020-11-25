@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.author: allensu
-ms.openlocfilehash: 81fad1c77b917c1e3eaf7ddd200c3fea83cb0e0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3934946dd8e20b7888fc41a4fd6ecc233381f1ff
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589677"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029731"
 ---
 # <a name="backend-pool-management"></a>Zarządzanie pulą zaplecza
 Pula zaplecza jest krytycznym składnikiem modułu równoważenia obciążenia. Pula zaplecza definiuje grupę zasobów, która będzie obsługiwała ruch dla danej reguły równoważenia obciążenia.
@@ -43,16 +43,16 @@ Poniższe przykłady koncentrują się na operacjach tworzenia i wypełniania dl
   >[!NOTE] 
   >Należy pamiętać, że pule zaplecza skonfigurowane za pośrednictwem interfejsu sieciowego nie mogą zostać zaktualizowane w ramach operacji w puli zaplecza. Dodawanie lub usuwanie zasobów zaplecza musi odbywać się w interfejsie sieciowym zasobu.
 
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 Utwórz nową pulę zaplecza:
- 
+ 
 ```azurepowershell-interactive
 $resourceGroup = "myResourceGroup"
 $loadBalancerName = "myLoadBalancer"
 $backendPoolName = "myBackendPool"
 
-$backendPool = 
-New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName  
+$backendPool = 
+New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName  
 ```
 
 Utwórz nowy interfejs sieciowy i dodaj go do puli zaplecza:
@@ -81,7 +81,7 @@ $backendPoolName = "myBackendPool"
 
 $lb =
 Get-AzLoadBalancer -ResourceGroupName $res
-Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName 
+Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName 
 ```
 
 Utwórz nową maszynę wirtualną i Dołącz interfejs sieciowy, aby umieścić go w puli zaplecza:
@@ -115,7 +115,7 @@ Utwórz pulę zaplecza:
 
 ```azurecli-interactive
 az network lb address-pool create \
---resourceGroup myResourceGroup \
+--resource-group myResourceGroup \
 --lb-name myLB \
 --name myBackendPool 
 ```
@@ -262,7 +262,7 @@ Wszystkie zarządzanie pulą zaplecza odbywa się bezpośrednio w obiekcie puli 
   >* Kontenery ACI nie są obecnie obsługiwane przez tę funkcję
   >* Moduły równoważenia obciążenia lub usługi frontonu nie mogą być umieszczane w puli zaplecza modułu równoważenia obciążenia
   
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 Utwórz nową pulę zaplecza:
 
 ```azurepowershell-interactive
@@ -273,18 +273,18 @@ $vnetName = "myVnet"
 $location = "eastus"
 $nicName = "myNic"
 
-$backendPool = New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -Name $backendPoolName  
+$backendPool = New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -Name $backendPoolName  
 ```
 
 Zaktualizuj pulę zaplecza przy użyciu nowego adresu IP z istniejącej sieci wirtualnej:
- 
+ 
 ```azurepowershell-interactive
-$virtualNetwork = 
-Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup 
- 
-$ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress "10.0.0.5" -Name "TestVNetRef" -VirtualNetwork $virtualNetwork  
- 
-$backendPool.LoadBalancerBackendAddresses.Add($ip1) 
+$virtualNetwork = 
+Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup 
+ 
+$ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress "10.0.0.5" -Name "TestVNetRef" -VirtualNetwork $virtualNetwork  
+ 
+$backendPool.LoadBalancerBackendAddresses.Add($ip1) 
 
 Set-AzLoadBalancerBackendAddressPool -InputObject $backendPool
 ```
@@ -292,7 +292,7 @@ Set-AzLoadBalancerBackendAddressPool -InputObject $backendPool
 Pobierz informacje o puli zaplecza dla modułu równoważenia obciążenia, aby upewnić się, że adresy zaplecza są dodawane do puli zaplecza:
 
 ```azurepowershell-interactive
-Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -Name $backendPoolName 
+Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -Name $backendPoolName 
 ```
 Utwórz interfejs sieciowy i dodaj go do puli zaplecza. Ustaw adres IP na jeden z adresów zaplecza:
 

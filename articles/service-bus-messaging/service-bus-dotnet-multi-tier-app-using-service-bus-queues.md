@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 746257195220d26ad5d011a39022a3957e8cb1ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40529df5195a29fbf2ff4887311932c2ffbf471d
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021786"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029899"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplikacja wielowarstwowa platformy .NET używająca kolejek usługi Azure Service Bus
 
@@ -52,7 +52,7 @@ W poniższych sekcjach omówiono kod, który implementuje tę architekturę.
 
 ## <a name="create-a-namespace"></a>Tworzenie przestrzeni nazw
 
-Pierwszym krokiem jest utworzenie *przestrzeni nazw*i uzyskanie klucza [sygnatury dostępu współdzielonego (SAS)](service-bus-sas.md) dla tej przestrzeni nazw. Przestrzeń nazw wyznacza granice każdej aplikacji uwidacznianej za pośrednictwem usługi Service Bus. Klucz sygnatury dostępu współdzielonego jest generowany przez system po utworzeniu przestrzeni nazw. Kombinacja nazwy przestrzeni nazw i klucza sygnatury dostępu współdzielonego dostarcza poświadczenia dla usługi Service Bus w celu uwierzytelnienia dostępu do aplikacji.
+Pierwszym krokiem jest utworzenie *przestrzeni nazw* i uzyskanie klucza [sygnatury dostępu współdzielonego (SAS)](service-bus-sas.md) dla tej przestrzeni nazw. Przestrzeń nazw wyznacza granice każdej aplikacji uwidacznianej za pośrednictwem usługi Service Bus. Klucz sygnatury dostępu współdzielonego jest generowany przez system po utworzeniu przestrzeni nazw. Kombinacja nazwy przestrzeni nazw i klucza sygnatury dostępu współdzielonego dostarcza poświadczenia dla usługi Service Bus w celu uwierzytelnienia dostępu do aplikacji.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -63,7 +63,7 @@ Następnie dodaje się kod, który przesyła elementy do kolejki usługi Service
 
 ### <a name="create-the-project"></a>Tworzenie projektu
 
-1. Używając uprawnień administratora, uruchom program Visual Studio: kliknij prawym przyciskiem myszy ikonę programu **Visual Studio**, a następnie kliknij polecenie **Uruchom jako administrator**. Emulator obliczeń platformy Azure, który zostanie omówiony w dalszej części tego artykułu, wymaga uruchomienia programu Visual Studio z uprawnieniami administratora.
+1. Używając uprawnień administratora, uruchom program Visual Studio: kliknij prawym przyciskiem myszy ikonę programu **Visual Studio**, a następnie kliknij polecenie **Uruchom jako administrator**. Emulator obliczeń platformy Azure opisany w dalszej części tego artykułu wymaga uruchomienia programu Visual Studio z uprawnieniami administratora.
    
    W menu **Plik** programu Visual Studio kliknij pozycję **Nowy**, a następnie kliknij pozycję **Projekt**.
 2. W pozycji **Zainstalowane szablony** w obszarze **Visual C#** kliknij pozycję **Chmura**, a następnie kliknij pozycję **Usługa w chmurze Azure**. Nazwij projekt **MultiTierApp**. Następnie kliknij przycisk **OK**.

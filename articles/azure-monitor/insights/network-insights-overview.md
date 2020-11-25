@@ -1,24 +1,24 @@
 ---
-title: Azure Monitor w wersji zapoznawczej sieci
+title: Usługa Azure Monitor dla sieci
 description: Przegląd Azure Monitor dla sieci, który zapewnia kompleksowy wgląd w kondycję i metryki dla wszystkich wdrożonych zasobów sieciowych bez żadnej konfiguracji.
 ms.subservice: ''
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 09/24/2020
-ms.openlocfilehash: e2a43c4d0423b286984631fda75e5ff806ae9a57
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+author: KumudD
+ms.author: kumud
+ms.date: 11/25/2020
+ms.openlocfilehash: 52ca879d5a680d0e62cc469e768236eac11f3719
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102765"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030222"
 ---
-# <a name="azure-monitor-for-networks-preview"></a>Azure Monitor w wersji zapoznawczej sieci
+# <a name="azure-monitor-for-networks"></a>Usługa Azure Monitor dla sieci
 Azure Monitor dla sieci zapewnia kompleksowy wgląd w [kondycję](../../service-health/resource-health-checks-resource-types.md) i [metryki](../platform/metrics-supported.md) dla wszystkich wdrożonych zasobów sieciowych, bez konieczności konfigurowania. Zapewnia również dostęp do funkcji monitorowania sieci, takich jak [monitor połączeń](../../network-watcher/connection-monitor-preview.md), [Rejestrowanie przepływów dla sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)i [Analiza ruchu](../../network-watcher/traffic-analytics.md). Zapewnia inne funkcje [diagnostyki](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) sieci.
 
 Azure Monitor dla sieci ma strukturę następujących najważniejszych składników monitorowania:
 - [Kondycja sieci i metryki](#networkhealth)
-- [Łączność](#connectivity)
+- [Połączenia](#connectivity)
 - [Ruch](#traffic)
 - [Zestaw narzędzi diagnostycznych](#diagnostictoolkit)
 
@@ -26,14 +26,14 @@ Azure Monitor dla sieci ma strukturę następujących najważniejszych składnik
 
 Strona **przegląd** Azure monitor dla sieci zapewnia łatwy sposób wizualizacji spisu zasobów sieciowych wraz z kondycją zasobów i alertami. Jest on podzielony na cztery kluczowe obszary funkcjonalne: wyszukiwanie i filtrowanie, Kondycja zasobów i metryki, alerty i widok zależności.
 
-![Zrzut ekranu przedstawiający stronę przegląd.](media/network-insights-overview/overview.png)
+[ ![ Zrzut ekranu przedstawiający stronę przeglądu](media/network-insights-overview/overview.png)](media/network-insights-overview/overview.png)#lightbox)
 
 ### <a name="search-and-filtering"></a>Wyszukiwanie i filtrowanie
-Widok Kondycja zasobów i alerty można dostosować za pomocą filtrów, takich jak **subskrypcja**, **Grupa zasobów**i **Typ**.
+Widok Kondycja zasobów i alerty można dostosować za pomocą filtrów, takich jak **subskrypcja**, **Grupa zasobów** i **Typ**.
 
 Możesz użyć pola wyszukiwania do wyszukiwania zasobów i skojarzonych z nimi zasobów. Na przykład publiczny adres IP jest skojarzony z bramą aplikacji. Wyszukiwanie nazwy DNS publicznego adresu IP spowoduje zwrócenie zarówno publicznego adresu IP, jak i skojarzonej bramy aplikacji:
 
-![Zrzut ekranu przedstawiający Azure Monitor wyników wyszukiwania w sieciach.](media/network-insights-overview/search.png)
+[![Zrzut ekranu przedstawiający Azure Monitor wyników wyszukiwania w sieciach.](media/network-insights-overview/search.png)](media/network-insights-overview/search.png#lightbox)
 
 
 ### <a name="resource-health-and-metrics"></a>Kondycja zasobów i metryki
@@ -57,7 +57,7 @@ Widok zależności ułatwia wizualizowanie sposobu konfiguracji zasobu. Widok za
 
 Widok zależności dla Application Gateway zawiera uproszczony widok sposobu, w jaki adresy IP frontonu są połączone z odbiornikami, regułami i pulą zaplecza. Linie łączące są kodowane kolorami i zawierają dodatkowe informacje na podstawie kondycji puli zaplecza. Widok zawiera również szczegółowy widok Application Gateway metryk i metryki dla wszystkich powiązanych pul zaplecza, takich jak zestaw skalowania maszyn wirtualnych i wystąpienia maszyn wirtualnych.
 
-![Zrzut ekranu pokazujący widok zależności w Azure Monitor dla sieci.](media/network-insights-overview/dependency-view.png)
+[![Zrzut ekranu pokazujący widok zależności w Azure Monitor dla sieci.](media/network-insights-overview/dependency-view.png)](media/network-insights-overview/dependency-view.png#lightbox)
 
 Wykres zależności zapewnia łatwą nawigację do ustawień konfiguracji. Kliknij prawym przyciskiem myszy pulę zaplecza, aby uzyskać dostęp do innych informacji. Na przykład, jeśli Pula zaplecza jest maszyną wirtualną, możesz bezpośrednio uzyskać dostęp do usługi VM Insights i rozwiązania Azure Network Watcher Connection, aby zidentyfikować problemy z łącznością:
 
@@ -73,17 +73,17 @@ Wybierz pozycję **Wyświetl szczegółowe metryki** , aby otworzyć wstępnie s
 
 ## <a name="connectivity"></a><a name="connectivity"></a>Łączność
 
-Karta **łączność** zapewnia łatwy sposób wizualizacji wszystkich testów skonfigurowanych za pomocą monitora połączeń i [monitora połączeń (wersja zapoznawcza)](../../network-watcher/connection-monitor-preview.md) dla wybranego zestawu subskrypcji.
+Karta **łączność** zapewnia łatwy sposób wizualizacji wszystkich testów skonfigurowanych za pomocą [monitora połączeń](../../network-watcher/connection-monitor-overview.md) i monitora połączeń (klasycznego) dla wybranego zestawu subskrypcji.
 
 ![Zrzut ekranu przedstawiający kartę łączność w Azure Monitor dla sieci.](media/network-insights-overview/azure-monitor-for-networks-connectivity-tab.png)
 
 Testy są pogrupowane według kafelków **źródła** i **miejsca docelowe** i wyświetlają stan osiągalności dla każdego testu. Dostępne ustawienia zapewniają łatwy dostęp do konfiguracji dla kryteriów osiągalności, na podstawie testów zakończonych niepowodzeniem (%) i RTT (MS). Po ustawieniu wartości stan każdej testowej aktualizacji na podstawie kryteriów wyboru.
 
-![Zrzut ekranu przedstawiający testy łączności w Azure Monitor dla sieci.](media/network-insights-overview/azure-monitor-for-networks-connectivity-tests.png)
+[![Zrzut ekranu przedstawiający testy łączności w Azure Monitor dla sieci.](media/network-insights-overview/azure-monitor-for-networks-connectivity-tests.png)](media/network-insights-overview/azure-monitor-for-networks-connectivity-tests.png#lightbox)
 
 Możesz wybrać dowolny kafelek źródłowy lub docelowy, aby otworzyć widok metryk:
 
-![Zrzut ekranu pokazujący metryki łączności w Azure Monitor dla sieci.](media/network-insights-overview/azure-monitor-for-networks-connectivity-metrics.png)
+[![Zrzut ekranu pokazujący metryki łączności w Azure Monitor dla sieci.](media/network-insights-overview/azure-monitor-for-networks-connectivity-metrics.png)](media/network-insights-overview/azure-monitor-for-networks-connectivity-metrics.png#lightbox)
 
 
 Możesz wybrać dowolny element w widoku siatki. Wybierz ikonę w kolumnie **osiągalność** , aby przejść do strony portalu monitora połączeń i wyświetlić topologię przeskoków przez przeskok oraz łączność, która ma wpływ na zidentyfikowane problemy. Wybierz wartość w kolumnie **alert** , aby przejść do alertów. Wybierz wykresy w kolumnach **sprawdzaj pomyślność** i **czas błądzenia (MS)** , aby przejść do strony metryki wybranego monitora połączeń.
@@ -93,11 +93,11 @@ Pole **alert** po prawej stronie zawiera widok wszystkich alertów wygenerowan
 ## <a name="traffic"></a><a name="traffic"></a>Ruch
 Karta **ruch** zapewnia dostęp do wszystkich sieciowych grup zabezpieczeń skonfigurowanych dla [dzienników przepływów sieciowej grupy zabezpieczeń](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) i [Analiza ruchu](../../network-watcher/traffic-analytics.md) dla wybranego zestawu subskrypcji, pogrupowane według lokalizacji. Funkcja wyszukiwania dostępna na tej karcie umożliwia zidentyfikowanie sieciowych grup zabezpieczeń skonfigurowanych dla przeszukanego adresu IP. Możesz wyszukać dowolny adres IP w swoim środowisku. Widok regionalny z rozdziałami będzie wyświetlał wszystkie sieciowych grup zabezpieczeń wraz z dziennikami przepływów sieciowej grupy zabezpieczeń i stanem konfiguracji Analiza ruchu.
 
-![Zrzut ekranu przedstawiający kartę ruch w Azure Monitor dla sieci.](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png)
+[![Zrzut ekranu przedstawiający kartę ruch w Azure Monitor dla sieci.](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png)](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png#lightbox)
 
 W przypadku wybrania dowolnego kafelka obszaru zostanie wyświetlony widok siatki. Siatka zawiera dzienniki przepływu sieciowej grupy zabezpieczeń i Analiza ruchu w widoku, który można łatwo odczytać i skonfigurować:  
 
-![Zrzut ekranu pokazujący widok obszaru ruchu w Azure Monitor dla sieci.](media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png)
+[![Zrzut ekranu pokazujący widok obszaru ruchu w Azure Monitor dla sieci.](media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png)](media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png#lightbox)
 
 Możesz wybrać dowolny element w widoku siatki. Wybierz ikonę w kolumnie **stan konfiguracji Flowlog** , aby edytować dziennik przepływu sieciowej grupy zabezpieczeń i konfigurację Analiza ruchu. Wybierz wartość w kolumnie **alert** , aby przejść do alertów ruchu skonfigurowanych dla wybranych sieciowej grupy zabezpieczeń. Analogicznie, możesz przejść do widoku Analiza ruchu, wybierając **obszar roboczy Analiza ruchu**.  
 

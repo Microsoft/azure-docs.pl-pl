@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: jeedes
-ms.openlocfilehash: 9dacbfacdbb9a1ecc103b0cec224d861b42b1576
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 3e4d3145263b4b0379f85dea86d075480935a28c
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370575"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029357"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-panorays"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Panorays
 
@@ -75,20 +75,9 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-1. W sekcji **Podstawowa konfiguracja protokołu SAML** użytkownik nie musi wykonywać żadnych kroków, ponieważ aplikacja jest już wstępnie zintegrowana z platformą Azure.
+1. W sekcji **Podstawowa konfiguracja języka SAML** aplikacja została wstępnie skonfigurowana i wymagane adresy URL są już wstępnie wypełnione na platformie Azure. Użytkownik musi zapisać konfigurację, klikając przycisk Zapisz.
 
-1. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
-
-    W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: 
-
-    | Adres URL logowania |
-    |--------------|
-    | `https://www.panoraysapp.com` |
-    | `https://auth.panoraysapp.com` |
-
-1. Kliknij przycisk **Zapisz**.
-
-1. Aplikacja Panorays oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych, podczas gdy **unikatowy identyfikator użytkownika** jest mapowany przy użyciu atrybutu **User. userPrincipalName**. Aplikacja Panorays oczekuje **unikatowego identyfikatora użytkownika** do zmapowania do **User. mail** , dlatego należy edytować Mapowanie atrybutów, klikając ikonę **Edytuj** i zmieniając mapowanie atrybutu.
+1. Aplikacja Panorays oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych, podczas gdy **unikatowy identyfikator użytkownika** jest mapowany przy użyciu atrybutu **User. userPrincipalName**. Aplikacja Panorays oczekuje **unikatowego identyfikatora użytkownika** do zmapowania do **User. mail**, dlatego należy edytować Mapowanie atrybutów, klikając ikonę **Edytuj** i zmieniając mapowanie atrybutu.
 
     ![image (obraz)](common/default-attributes.png)
 
@@ -100,7 +89,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
-1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory** , wybierz pozycję **Użytkownicy** , a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
@@ -112,10 +101,10 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
 W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi Panorays.
 
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Na liście Aplikacje wybierz pozycję **Panorays**.
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
-1. Wybierz pozycję **Dodaj użytkownika** , a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
+1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
@@ -134,9 +123,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 #### <a name="sp-initiated"></a>Zainicjowano SP:
 
-1. Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do adresu URL logowania Panorays, w którym można zainicjować przepływ logowania.  
-
-1. Przejdź bezpośrednio do adresu URL logowania Panorays i zainicjuj w nim przepływ logowania.
+Przejdź bezpośrednio do [adresu URL logowania Panorays](https://www.panoraysapp.com) i zainicjuj w nim przepływ logowania.
 
 #### <a name="idp-initiated"></a>DOSTAWCY tożsamości zainicjowane:
 

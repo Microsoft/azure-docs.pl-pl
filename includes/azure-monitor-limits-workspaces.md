@@ -9,11 +9,11 @@ ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
 ms.openlocfilehash: 2ed5cbc8c855d2f81986964c93009d75ed28fb8e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95557062"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026772"
 ---
 **Wolumin zbierania danych i ich przechowywanie** 
 
@@ -62,7 +62,7 @@ ms.locfileid: "95557062"
 |:---|:---|:---|
 | Maksymalna liczba kolumn w tabeli         | 500 | |
 | Maksymalna liczba znaków w nazwie kolumny | 500 | |
-| Eksport danych | Obecnie niedostępne | Agreguj i Eksportuj dane przy użyciu funkcji platformy Azure lub aplikacji logiki. | 
+| Eksportowanie danych | Obecnie niedostępne | Agreguj i Eksportuj dane przy użyciu funkcji platformy Azure lub aplikacji logiki. | 
 
 **<a name="data-ingestion-volume-rate">Współczynnik ilości woluminu pozyskiwania danych</a>**
 

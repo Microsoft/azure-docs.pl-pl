@@ -9,11 +9,11 @@ ms.service: azure-powershell
 ms.devlang: azurepowershell
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 2ef86d27be47c6cd1ed73a52157dd429937535b4
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95559643"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028550"
 ---
 ### <a name="requirements"></a>Wymagania
 

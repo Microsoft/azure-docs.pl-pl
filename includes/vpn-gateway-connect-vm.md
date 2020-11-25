@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/23/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a8d1b27fc040e6aed0bdeeb86b2e6c4df13f87c3
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 6986651d2b48d82382aa26a0a3947104c7e09981
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "92540905"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028082"
 ---
 Z maszyną wirtualną, która jest wdrażana w sieci wirtualnej, można się połączyć, tworząc połączenie pulpitu zdalnego z tą maszyną. Najlepszym sposobem na zweryfikowanie, czy można połączyć się z maszyną wirtualną, jest połączenie się z nią za pomocą jej prywatnego adresu IP, a nie nazwy komputera. W ten sposób można przetestować możliwość połączenia się, a nie poprawność skonfigurowania rozpoznawania nazw.
 
@@ -37,7 +37,7 @@ Z maszyną wirtualną, która jest wdrażana w sieci wirtualnej, można się po�
      ```
 
 1. Sprawdź, czy masz połączenie z siecią wirtualną przez połączenie sieci VPN punkt-lokacja.
-1. Otwórz program **Podłączanie pulpitu zdalnego** , wpisując „RDP” lub „Podłączanie pulpitu zdalnego” w polu wyszukiwania na pasku zadań, a następnie wybierając pozycję Podłączanie pulpitu zdalnego. Program Podłączanie pulpitu zdalnego możesz także otworzyć za pomocą polecenia „mstsc” w programie PowerShell. 
+1. Otwórz program **Podłączanie pulpitu zdalnego**, wpisując „RDP” lub „Podłączanie pulpitu zdalnego” w polu wyszukiwania na pasku zadań, a następnie wybierając pozycję Podłączanie pulpitu zdalnego. Program Podłączanie pulpitu zdalnego możesz także otworzyć za pomocą polecenia „mstsc” w programie PowerShell. 
 1. W programie Podłączanie pulpitu zdalnego wprowadź prywatny adres IP maszyny wirtualnej. Możesz kliknąć pozycję „Pokaż opcje”, aby dostosować dodatkowe ustawienia. Następnie nawiąż połączenie.
 
 **Rozwiązywanie problemów z połączeniem**
@@ -50,4 +50,4 @@ Jeśli masz problemy z łączeniem się z maszyną wirtualną za pośrednictwem 
 
 * Jeśli możesz połączyć się z maszyną wirtualną za pomocą prywatnego adresu IP, ale nie za pomocą nazwy komputera, sprawdź, czy usługa DNS została prawidłowo skonfigurowana. Aby uzyskać więcej informacji na temat tego, jak działa rozpoznawanie nazw dla maszyn wirtualnych, zobacz [Name Resolution for VMs](../articles/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) (Rozpoznawanie nazw dla maszyn wirtualnych).
 
-* Aby uzyskać więcej informacji na temat połączeń pulpitu zdalnego, zobacz [Rozwiązywanie problemów z połączeniami pulpitu zdalnego z maszyną wirtualną](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md).
+* Aby uzyskać więcej informacji na temat połączeń pulpitu zdalnego, zobacz [Rozwiązywanie problemów z połączeniami pulpitu zdalnego z maszyną wirtualną](../articles/virtual-machines/troubleshooting/troubleshoot-rdp-connection.md).

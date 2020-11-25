@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
 ms.openlocfilehash: 78573cfe00d8e2e7ddcbf705dffdd5530f82c4e0
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998603"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024201"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Wdróż lokalnie Akcelerator rozwiązania do monitorowania zdalnego — IntelliJ
 
@@ -33,7 +33,7 @@ Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka
 
 Aby ukończyć lokalne wdrożenie, potrzebne są następujące narzędzia zainstalowane na lokalnym komputerze deweloperskim:
 
-* [Git](https://git-scm.com/)
+* [Narzędzia](https://git-scm.com/)
 * [Docker](https://www.docker.com)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [IntelliJ Community Edition](https://www.jetbrains.com/idea/download/)
@@ -95,10 +95,10 @@ Jeśli nie utworzono jeszcze wymaganych zasobów platformy Azure, wykonaj nastę
 
    Skrypt tworzy grupę zasobów na platformie Azure, która ma nazwę rozwiązania. Ta grupa zasobów zawiera zasoby platformy Azure używane przez Akcelerator rozwiązania. Tę grupę zasobów można usunąć, gdy nie są już potrzebne odpowiednie zasoby.
 
-   Skrypt dodaje również zestaw zmiennych środowiskowych do komputera lokalnego. Każda nazwa zmiennej ma **komputery**z prefiksem. Te zmienne środowiskowe zawierają szczegóły, które umożliwiają zdalne monitorowanie Odczytywanie wartości konfiguracji z zasobu Azure Key Vault.
+   Skrypt dodaje również zestaw zmiennych środowiskowych do komputera lokalnego. Każda nazwa zmiennej ma **komputery** z prefiksem. Te zmienne środowiskowe zawierają szczegóły, które umożliwiają zdalne monitorowanie Odczytywanie wartości konfiguracji z zasobu Azure Key Vault.
 
    > [!TIP]
-   > Po zakończeniu działania skryptu zapisuje zmienne środowiskowe do pliku o nazwie ** \<your home folder\> \\ . PCs \\ \<solution name\> . env**. Można ich używać do przyszłych wdrożeń akceleratora rozwiązań. Należy pamiętać, że wszystkie zmienne środowiskowe ustawione na maszynie lokalnej przesłaniają wartości w pliku ** \\ \\ \\ . env skryptów usług** , gdy uruchamiasz **platformę Docker**.
+   > Po zakończeniu działania skryptu zapisuje zmienne środowiskowe do pliku o nazwie **\<your home folder\> \\ . PCs \\ \<solution name\> . env**. Można ich używać do przyszłych wdrożeń akceleratora rozwiązań. Należy pamiętać, że wszystkie zmienne środowiskowe ustawione na maszynie lokalnej przesłaniają wartości w pliku **\\ \\ \\ . env skryptów usług** , gdy uruchamiasz **platformę Docker**.
 
 1. Zamknij środowisko wiersza polecenia.
 
@@ -109,7 +109,7 @@ Jeśli zostały już utworzone wymagane zasoby platformy Azure, ustaw odpowiedni
 * **PCS_AAD_APPID**: identyfikator aplikacji Azure Active Directory (Azure AD).
 * **PCS_AAD_APPSECRET**: wpis tajny aplikacji usługi Azure AD.
 
-Wartości konfiguracyjne zostaną odczytane z tego zasobu Key Vault. Te zmienne środowiskowe można zapisać w pliku ** \<your home folder\> \\ PCs \\ \<solution name\> . env** z wdrożenia. Należy pamiętać, że zmienne środowiskowe ustawione na wartości Zastąp na komputerze lokalnym w pliku ** \\ \\ Local \\ . env skryptów usług** po uruchomieniu **platformy Docker — tworzenie**.
+Wartości konfiguracyjne zostaną odczytane z tego zasobu Key Vault. Te zmienne środowiskowe można zapisać w pliku **\<your home folder\> \\ PCs \\ \<solution name\> . env** z wdrożenia. Należy pamiętać, że zmienne środowiskowe ustawione na wartości Zastąp na komputerze lokalnym w pliku **\\ \\ Local \\ . env skryptów usług** po uruchomieniu **platformy Docker — tworzenie**.
 
 Niektóre konfiguracje wymagające mikrousługi są przechowywane w wystąpieniu Key Vault, które zostało utworzone podczas początkowego wdrożenia. Odpowiednie zmienne w magazynie kluczy powinny być modyfikowane w razie konieczności.
 
@@ -176,7 +176,7 @@ Na przykład na poniższej ilustracji przedstawiono sposób dodawania konfigurac
 
 #### <a name="create-a-compound-configuration"></a>Tworzenie konfiguracji złożonej
 
-1. Aby uruchomić wszystkie usługi razem, wybierz pozycję **Dodaj nowy**  >  **związek**konfiguracji.
+1. Aby uruchomić wszystkie usługi razem, wybierz pozycję **Dodaj nowy**  >  **związek** konfiguracji.
 1. Wprowadź **nazwę**, a następnie wybierz pozycję **Dodaj zadania SBT**.
 1. Wybierz pozycję **Zastosuj**  >  **OK** , aby zapisać wybrane opcje.
 

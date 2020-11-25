@@ -4,16 +4,16 @@ description: Typowe problemy związane z alertami metryk Azure Monitor i możliw
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 10/05/2020
+ms.date: 11/25/2020
 ms.subservice: alerts
-ms.openlocfilehash: 2e68a780890b8ddf857bf8f52a0ecf9a4c24b36c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 5a57e8b7f3bf2c3e820a3befee0ee69c48a2afa9
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342131"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029880"
 ---
-# <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Rozwiązywanie problemów z alertami metryk Azure Monitor 
+# <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Rozwiązywanie problemów z alertami metryk usługi Azure Monitor 
 
 W tym artykule omówiono typowe problemy w Azure Monitor [alertach metryk](alerts-metric-overview.md) i sposobach ich rozwiązywania.
 
@@ -44,7 +44,7 @@ Jeśli uważasz, że alert dotyczący metryki powinien zostać wywołany, ale ni
 
 Jeśli uważasz, że alert dotyczący metryk nie powinien zostać wywołany, ale Poniższa procedura może pomóc w rozwiązaniu problemu.
 
-1. Przejrzyj [listę wywołanych alertów](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) , aby zlokalizować wygenerowanego alertu, a następnie kliknij, aby wyświetlić jego szczegóły. Przejrzyj informacje podane w sekcji **dlaczego ten alert** jest uruchamiany? aby wyświetlić wykres metryki, **wartość metryki**i **wartość progową** w momencie wyzwolenia alertu.
+1. Przejrzyj [listę wywołanych alertów](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) , aby zlokalizować wygenerowanego alertu, a następnie kliknij, aby wyświetlić jego szczegóły. Przejrzyj informacje podane w sekcji **dlaczego ten alert** jest uruchamiany? aby wyświetlić wykres metryki, **wartość metryki** i **wartość progową** w momencie wyzwolenia alertu.
 
     > [!NOTE] 
     > Jeśli używany jest typ warunku progów dynamicznych i uważasz, że użyte progi są niepoprawne, Prześlij opinię przy użyciu ikony niezadowolenia. Ta opinia będzie miała wpływ na badania algorytmów uczenia maszynowego i pomaga ulepszyć w przyszłości.
@@ -142,7 +142,7 @@ Eksportowanie Menedżer zasobów szablonu reguły alertu dotyczącego metryki u�
 2. W sekcji Przegląd zaznacz pole wyboru **Pokaż ukryte typy** .
 3. W polu Filtr **typu** wybierz pozycję *Microsoft. Insights/metricalerts*.
 4. Wybierz odpowiednią regułę alertu, aby wyświetlić jej szczegóły.
-5. W obszarze **Ustawienia**wybierz pozycję **Eksportuj szablon**.
+5. W obszarze **Ustawienia** wybierz pozycję **Eksportuj szablon**.
 
 ## <a name="metric-alert-rules-quota-too-small"></a>Zbyt mały przydział reguł alertów dotyczących metryk
 
@@ -241,6 +241,8 @@ Należy wziąć pod uwagę następujące ograniczenia dotyczące nazw reguł ale
 - Nazwy reguł alertów metryk nie mogą zawierać następujących znaków: * # & +:  < > ? @ % { } \ / 
 - Nazwy reguł alertów metryk nie mogą kończyć się spacją ani kropką
 
+> [!NOTE] 
+> Jeśli nazwa reguły alertu zawiera znaki, które nie są alfanumeryczne lub liczbowe (na przykład: spacje, znaki interpunkcyjne lub symbole), te znaki mogą być kodowane przy użyciu adresu URL w przypadku pobrania przez niektórych klientów.
 
 ## <a name="restrictions-when-using-dimensions-in-a-metric-alert-rule-with-multiple-conditions"></a>Ograniczenia w przypadku używania wymiarów w regule alertu metryki z wieloma warunkami
 

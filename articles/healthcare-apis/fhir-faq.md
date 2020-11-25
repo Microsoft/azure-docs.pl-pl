@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 744bcfe196629f76c5505f36ef9c8c224fefe601
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d013af82a862f1bc6b5324e7523aeea5593a4f94
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "95909071"
+ms.locfileid: "96030666"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Często zadawane pytania dotyczące interfejsu API platformy Azure dla usługi FHIR
 
@@ -122,7 +122,7 @@ W witrynie [GitHub architektury kondycji](https://github.com/microsoft/health-ar
 
 ### <a name="where-can-i-see-an-example-of-connecting-a-web-application-to-azure-api-for-fhir"></a>Gdzie można zobaczyć przykład łączenia aplikacji sieci Web z usługą Azure API for FHIR?
 
-Mamy stronę usługi [GitHub o architekturze kondycji](https://github.com/microsoft/health-architectures) , która zawiera przykładowe aplikacje i scenariusze. Pokazano, jak połączyć aplikację sieci Web z interfejsem API platformy Azure dla FHIR.  
+Mamy stronę usługi [GitHub o architekturze kondycji](https://aka.ms/health-architectures) , która zawiera przykładowe aplikacje i scenariusze. Pokazano, jak połączyć aplikację sieci Web z interfejsem API platformy Azure dla FHIR.  
 
 ## <a name="azure-api-for-fhir-features-and-services"></a>Interfejs API platformy Azure dla funkcji i usług FHIR 
 

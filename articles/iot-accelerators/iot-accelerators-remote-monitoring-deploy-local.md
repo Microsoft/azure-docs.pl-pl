@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: a1eba1fceb959bd475d205176c2c53f6409fdc77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73890887"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024150"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Wdrażanie akceleratora rozwiązań zdalnego monitorowania lokalnie — Visual Studio
 
@@ -33,9 +33,9 @@ Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka
 
 Aby ukończyć lokalne wdrożenie, potrzebne są następujące narzędzia zainstalowane na lokalnym komputerze deweloperskim:
 
-* [Git](https://git-scm.com/)
+* [Narzędzia](https://git-scm.com/)
 * [Docker](https://www.docker.com)
-* [Program Visual Studio](https://visualstudio.microsoft.com/)
+* [Visual Studio](https://visualstudio.microsoft.com/)
 * [Nginx](https://nginx.org/en/download.html)
 * [Node.js V8](https://nodejs.org/) — to oprogramowanie jest warunkiem wstępnym dla komputerów, które są używane przez skrypty do tworzenia zasobów platformy Azure. Nie używaj Node.js v10.
 
@@ -64,7 +64,7 @@ Poniższe kroki pokazują, jak uruchomić mikrousługi zdalnego monitorowania w 
 
 1. Uruchom program Visual Studio.
 1. Otwórz rozwiązanie **Remote-Monitoring. sln** w folderze **Services** w lokalnej kopii repozytorium.
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy rozwiązanie, a następnie kliknij pozycję **Właściwości**.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy rozwiązanie, a następnie kliknij pozycję **Właściwości**.
 1. Wybierz pozycję **wspólne właściwości, > projekt startowy**.
 1. Wybierz **wiele projektów startowych** i ustaw **akcję** do **uruchomienia** dla następujących projektów:
     * Usługa sieci Web (asa-manager\WebService)

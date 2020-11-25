@@ -9,11 +9,11 @@ ms.date: 09/30/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 76e52758bf88dde9cdc68dad974f0b65fd55140f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95556339"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027416"
 ---
 Włączenie dysków udostępnionych jest możliwe tylko dla podzbioru typów dysków. Obecnie tylko Ultra disks i Premium dysków SSD mogą włączać dyski udostępnione. Każdy dysk zarządzany z włączonymi dyskami udostępnionymi podlega następującym ograniczeniom zorganizowanym według typu dysku:
 

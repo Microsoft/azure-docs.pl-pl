@@ -2,13 +2,13 @@
 title: Konfigurowanie analizy zależności opartej na agentach w ocenie serwera Azure Migrate
 description: W tym artykule opisano sposób konfigurowania analizy zależności opartej na agentach w ramach oceny serwera Azure Migrate.
 ms.topic: how-to
-ms.date: 6/09/2020
-ms.openlocfilehash: c5c019ec995f59b61fb96917bed50bd8ba3f61d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/25/2020
+ms.openlocfilehash: 17c6e3e24596727350b11946bdf6896e22d41529
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022381"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028966"
 ---
 # <a name="set-up-dependency-visualization"></a>Konfigurowanie wizualizacji zależności
 
@@ -40,11 +40,11 @@ W tym artykule opisano sposób konfigurowania analizy zależności bez agentów 
 
 1. Po wykryciu maszyn do oceny w obszarze **serwery**  >  **Azure Migrate: Ocena serwera**, kliknij przycisk **Przegląd**.  
 2. W **Azure Migrate: Ocena serwera**, kliknij przycisk **Essentials**.
-3. W **obszarze roboczym pakietu OMS**kliknij pozycję **wymaga konfiguracji**.
+3. W **obszarze roboczym pakietu OMS** kliknij pozycję **wymaga konfiguracji**.
 
-     ![Konfigurowanie obszaru roboczego Log Analytics](./media/how-to-create-group-machine-dependencies/oms-workspace-select.png)   
+     ![Konfigurowanie obszaru roboczego usługi Log Analytics](./media/how-to-create-group-machine-dependencies/oms-workspace-select.png)   
 
-4. W **obszarze Konfiguracja obszaru roboczego pakietu OMS**Określ, czy chcesz utworzyć nowy obszar roboczy, czy użyć istniejącego.
+4. W **obszarze Konfiguracja obszaru roboczego pakietu OMS** Określ, czy chcesz utworzyć nowy obszar roboczy, czy użyć istniejącego.
     - Możesz wybrać istniejący obszar roboczy ze wszystkich obszarów roboczych w subskrypcji Migrowanie projektu.
     - Potrzebujesz dostępu czytelnika do obszaru roboczego, aby go skojarzyć.
 5. Jeśli tworzysz nowy obszar roboczy, wybierz dla niego lokalizację.
@@ -62,7 +62,7 @@ Na każdej maszynie, którą chcesz analizować, zainstaluj agentów.
 1. W **Azure Migrate: Ocena serwera**, kliknij przycisk **odnalezione serwery**.
 2. Dla każdej maszyny, którą chcesz analizować za pomocą wizualizacji zależności, w kolumnie **zależności** kliknij pozycję **wymagana instalacja agenta**.
 3. Na stronie **zależności** Pobierz agenta MMA i zależności dla systemu Windows lub Linux.
-4. W obszarze **Konfigurowanie agenta MMA**Skopiuj identyfikator i klucz obszaru roboczego. Są one potrzebne podczas instalacji agenta MMA.
+4. W obszarze **Konfigurowanie agenta MMA** Skopiuj identyfikator i klucz obszaru roboczego. Są one potrzebne podczas instalacji agenta MMA.
 
     ![Zainstaluj agentów](./media/how-to-create-group-machine-dependencies/dependencies-install.png)
 
@@ -77,13 +77,13 @@ Aby zainstalować agenta na komputerze z systemem Windows:
 
 1. Kliknij dwukrotnie pobranego agenta.
 2. Na **stronie powitalnej** kliknij przycisk **Dalej**. Na stronie **postanowienia licencyjne** kliknij przycisk **zgadzam** się, aby zaakceptować licencję.
-3. W **folderze docelowym**Zachowaj lub zmodyfikuj domyślny Folder instalacji > **dalej**.
-4. W obszarze **Opcje instalacji agenta**wybierz pozycję **Azure log Analytics**  >  **dalej**.
+3. W **folderze docelowym** Zachowaj lub zmodyfikuj domyślny Folder instalacji > **dalej**.
+4. W obszarze **Opcje instalacji agenta** wybierz pozycję **Azure log Analytics**  >  **dalej**.
 5. Kliknij przycisk **Dodaj** , aby dodać nowy obszar roboczy log Analytics. Wklej w obszarze Identyfikator i klucz obszaru roboczego skopiowane z portalu. Kliknij przycisk **Dalej**.
 
 Agenta można zainstalować z wiersza polecenia lub przy użyciu metody zautomatyzowanej, takiej jak Configuration Manager lub [Intigua](https://www.intigua.com/intigua-for-azure-migration).
 - [Dowiedz się więcej](../azure-monitor/platform/log-analytics-agent.md#installation-options) na temat korzystania z tych metod w celu zainstalowania agenta MMA.
-- Agenta programu MMA można również zainstalować za pomocą [tego](https://go.microsoft.com/fwlink/?linkid=2104394) skryptu.
+- Agenta programu MMA można również zainstalować za pomocą [tego](https://github.com/brianbar-MSFT/Install-MMA) skryptu.
 - [Dowiedz się więcej](../azure-monitor/platform/agents-overview.md#supported-operating-systems) o systemach operacyjnych Windows obsługiwanych przez MMA.
 
 ### <a name="install-mma-on-a-linux-machine"></a>Instalowanie MMA na komputerze z systemem Linux
@@ -152,9 +152,9 @@ Możesz badać dane zależności przechwycone przez Service Map w obszarze roboc
 Uruchom zapytanie dotyczące danych zależności w następujący sposób:
 
 1. Po zainstalowaniu agentów przejdź do portalu, a następnie kliknij pozycję **Przegląd**.
-2. W **Azure Migrate: Ocena serwera**, kliknij przycisk **Przegląd**. Kliknij strzałkę w dół, aby rozwinąć **podstawowe**elementy.
-3. W **obszarze roboczym pakietu OMS**kliknij nazwę obszaru roboczego.
-3. Na stronie obszaru roboczego Log Analytics > **Ogólne**kliknij pozycję **dzienniki**.
+2. W **Azure Migrate: Ocena serwera**, kliknij przycisk **Przegląd**. Kliknij strzałkę w dół, aby rozwinąć **podstawowe** elementy.
+3. W **obszarze roboczym pakietu OMS** kliknij nazwę obszaru roboczego.
+3. Na stronie obszaru roboczego Log Analytics > **Ogólne** kliknij pozycję **dzienniki**.
 4. Napisz zapytanie i kliknij przycisk **Uruchom**.
 
 ### <a name="sample-queries"></a>Przykładowe zapytania

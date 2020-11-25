@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 51e1fd18b52d7e215ba43be540156199fb41778e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f08a6b3f7abfc79bff6baff2a339053905612535
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67183265"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027182"
 ---
 #### <a name="to-attach-the-sas-cables"></a>Aby dołączyć kable SAS
 1. Zidentyfikuj podstawowe i EBOD obudowy. Dwie obudowy można zidentyfikować, patrząc na odpowiednie płaszczyzny wsteczne. Zapoznaj się z poniższym obrazem, aby uzyskać wskazówki. 
@@ -22,7 +22,7 @@ ms.locfileid: "67183265"
    |:--- |:--- |
    | 1 |Obudowa podstawowa |
    | 2 |Obudowa EBOD |
-2. Znajdź numery seryjne w obudowach podstawowych i EBOD. Naklejka z numerami seryjnymi jest umieszczana na odwrocie każdej obudowy. Numery seryjne muszą być takie same dla obu obudów. [Skontaktuj się pomoc techniczna firmy Microsoft](../articles/storsimple/storsimple-contact-microsoft-support.md) natychmiast, jeśli numery seryjne nie są zgodne. Zapoznaj się z poniższą ilustracją, aby znaleźć numery seryjne.
+2. Znajdź numery seryjne w obudowach podstawowych i EBOD. Naklejka z numerami seryjnymi jest umieszczana na odwrocie każdej obudowy. Numery seryjne muszą być takie same dla obu obudów. [Skontaktuj się pomoc techniczna firmy Microsoft](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) natychmiast, jeśli numery seryjne nie są zgodne. Zapoznaj się z poniższą ilustracją, aby znaleźć numery seryjne.
    
     ![Widok z tyłu obudowy pokazujący numer seryjny](./media/storsimple-sas-cable-8600/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
    
@@ -51,4 +51,3 @@ ms.locfileid: "67183265"
       | 4 |Kontroler EBOD 1 |
       | 5, 6 |Porty SAS w obudowie podstawowej (z etykietą EBOD) |
       | 7, 8 |Porty SAS w obudowie EBOD (Port A) |
-

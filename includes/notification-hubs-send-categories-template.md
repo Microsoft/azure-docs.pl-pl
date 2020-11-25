@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: notification-hubs
 author: sethmanheim
 ms.service: notification-hubs
@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 11/07/2019
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: 48907713082ebb1008ad963121671b36af7f2731
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfd5d42d83046c9c5b0bc3a78fabec08da5da646
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74228180"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027322"
 ---
 W tej sekcji wyślesz najważniejsze wiadomości w formie oznaczonych tagami powiadomień szablonu z aplikacji konsoli .NET.
 
 1. W programie Visual Studio utwórz nową aplikację konsoli języka Visual C#:
     1. Z menu wybierz pozycję **plik**  >  **Nowy**  >  **projekt**.
-    1. W obszarze **Utwórz nowy projekt**wybierz pozycję **aplikacja konsoli (.NET Framework)** dla języka C# na liście szablonów, a następnie wybierz pozycję **dalej**.
+    1. W obszarze **Utwórz nowy projekt** wybierz pozycję **aplikacja konsoli (.NET Framework)** dla języka C# na liście szablonów, a następnie wybierz pozycję **dalej**.
     1. wprowadź nazwę aplikacji.
-    1. W polu **rozwiązanie**wybierz opcję **Dodaj do rozwiązania**, a następnie wybierz pozycję **Utwórz** , aby utworzyć projekt.
+    1. W polu **rozwiązanie** wybierz opcję **Dodaj do rozwiązania**, a następnie wybierz pozycję **Utwórz** , aby utworzyć projekt.
 
-1. Wybierz kolejno pozycje **Narzędzia**Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów** , a następnie w oknie konsoli Uruchom następujące polecenie:
+1. Wybierz kolejno pozycje **Narzędzia** Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów** , a następnie w oknie konsoli Uruchom następujące polecenie:
 
    ```powershell
    Install-Package Microsoft.Azure.NotificationHubs
@@ -83,7 +83,7 @@ W tej sekcji wyślesz najważniejsze wiadomości w formie oznaczonych tagami pow
 
 <!-- URLs. -->
 [Get started with Notification Hubs]: ../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[Notification Hubs REST interface]: https://msdn.microsoft.com/library/windowsazure/dn223264.aspx
-[Add push notifications for Mobile Apps]: ../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md
+[Notification Hubs REST interface]: /previous-versions/azure/reference/dn223264(v=azure.100)
+[Add push notifications for Mobile Apps]: /previous-versions/azure/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push
 [How to use Notification Hubs from Java or PHP]: ../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md
 [Microsoft. Azure. NotificationHubs]: http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/

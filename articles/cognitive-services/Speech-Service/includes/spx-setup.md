@@ -5,35 +5,39 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 4b04558077f6b59d0fef613308a6ab96680d7ff8
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 6f80d41001d11c52a00454ea2a593f3f1fce32db
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470711"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026932"
 ---
 ## <a name="download-and-install"></a>Pobieranie i instalowanie
 
 #### <a name="windows-install"></a>[Instalacja systemu Windows](#tab/windowsinstall)
 
-> [!NOTE]
-> W systemie Windows wymagany jest [Microsoft Visual C++ redystrybucyjny dla programu Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) dla danej platformy. Zainstalowanie tego programu po raz pierwszy może wymagać ponownego uruchomienia systemu Windows.
-
 Wykonaj następujące kroki, aby zainstalować interfejs wiersza polecenia mowy w systemie Windows:
 
-1. Pobierz [archiwum zip](https://aka.ms/speech/spx-zips.zip)interfejsu wiersza polecenia mowy, a następnie wyodrębnij je.
-2. Przejdź do katalogu głównego `spx-zips` wyodrębnionego z pobrania i Wyodrębnij wymagany podkatalog ( `spx-net471` dla .NET Framework 4,7 lub `spx-netcore-win-x64` dla platformy .NET Core 3,0 na procesorze x64).
+1. W systemie Windows wymagany jest [Microsoft Visual C++ redystrybucyjny dla programu Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) dla danej platformy. Zainstalowanie tego po raz pierwszy może wymagać ponownego uruchomienia.
+2. Pobierz [archiwum zip](https://aka.ms/speech/spx-zips.zip)interfejsu wiersza polecenia mowy, a następnie wyodrębnij je.
+3. Przejdź do katalogu, w którym został wyodrębniony `spx-zips` . Ten folder zawiera pliki programu dla interfejsu wiersza polecenia mowy na różnych platformach. 
+4. Wyodrębnij pliki dla swojej platformy ( `spx-net471` dla .NET Framework 4,7 lub `spx-netcore-win-x64` dla platformy .net Core 3,0 na procesorze x64). Pamiętaj, że będziesz uruchamiać `spx` z tego katalogu.
 
-W wierszu polecenia Zmień katalog na tę lokalizację, a następnie wpisz polecenie, `spx` Aby wyświetlić pomoc dla interfejsu wiersza polecenia mowy.
+### <a name="run-the-speech-cli"></a>Uruchamianie interfejsu wiersza polecenia mowy
 
-> [!NOTE]
-> W systemie Windows interfejs wiersza polecenia mowy może wyświetlać tylko czcionki dostępne dla wiersza poleceń na komputerze lokalnym.
-> [Terminal systemu Windows](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701) obsługuje wszystkie czcionki opracowane interaktywnie przez interfejs wiersza polecenia mowy.
-> Jeśli dane wyjściowe są wyprowadzane do pliku, Edytor tekstu, taki jak Notatnik lub przeglądarka sieci Web, np. Microsoft Edge, może również wyświetlać wszystkie czcionki.
+1. Otwórz wiersz polecenia lub program PowerShell, a następnie przejdź do katalogu, w którym został wyodrębniony interfejs użytkownika funkcji rozpoznawania mowy.  
+2. Wpisz `spx` , aby wyświetlić polecenia pomocy dla interfejsu wiersza polecenia mowy.
 
 > [!NOTE]
 > Program PowerShell nie sprawdza katalogu lokalnego podczas wyszukiwania polecenia. W programie PowerShell Zmień katalog na lokalizację `spx` i Wywołaj narzędzie, wprowadzając polecenie `.\spx` .
 > Jeśli dodasz ten katalog do ścieżki, program PowerShell i wiersz polecenia systemu Windows znajdą się `spx` z dowolnego katalogu bez `.\` prefiksu.
+
+### <a name="font-limitations"></a>Ograniczenia dotyczące czcionek
+
+W systemie Windows interfejs wiersza polecenia mowy może wyświetlać tylko czcionki dostępne dla wiersza poleceń na komputerze lokalnym.
+[Terminal systemu Windows](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701) obsługuje wszystkie czcionki opracowane interaktywnie przez interfejs wiersza polecenia mowy.
+
+Jeśli dane wyjściowe są wyprowadzane do pliku, Edytor tekstu, taki jak Notatnik lub przeglądarka sieci Web, np. Microsoft Edge, może również wyświetlać wszystkie czcionki.
 
 #### <a name="linux-install"></a>[Instalacja systemu Linux](#tab/linuxinstall)
 

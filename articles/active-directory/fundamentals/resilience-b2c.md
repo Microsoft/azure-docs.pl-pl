@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fda9378a41e0d98276957a6fad75db2c20e6e4e9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ba7b8ff2555fd7014cf16f66745721c6425ff868
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "95920050"
+ms.locfileid: "96029527"
 ---
 # <a name="build-resilience-in-your-customer-identity-and-access-management-with-azure-active-directory-b2c"></a>Tworzenie odporności w ramach zarządzania tożsamościami i dostępem klientów przy użyciu Azure Active Directory B2C
 
@@ -46,10 +46,6 @@ Podczas opracowywania aplikacji zalecamy rozważenie [zwiększenia odporności u
 
 - [Monitorowanie i analiza](resilience-with-monitoring-alerting.md): ocenianie kondycji usługi przez monitorowanie kluczowych wskaźników i wykrywanie błędów i zakłócenia wydajności za pomocą alertów.
 
-- Zasoby dotyczące odporności dla deweloperów Azure AD B2C
-  - [Odporne środowisko użytkownika końcowego](resilient-end-user-experience.md)
-  - [Odporne interfejsy z procesami zewnętrznymi](resilient-external-processes.md)
-  - [Odporność na najlepsze rozwiązania dla deweloperów](resilience-b2c-developer-best-practices.md)
-  - [Odporność dzięki monitorowaniu i analizie](resilience-with-monitoring-alerting.md)
 - [Tworzenie odporności w infrastrukturze uwierzytelniania](resilience-in-infrastructure.md)
+
 - [Zwiększanie odporności uwierzytelniania i autoryzacji w aplikacjach](resilience-app-development-overview.md)

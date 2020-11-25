@@ -9,11 +9,11 @@ ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 1b5905046fdde4d5574fd4d39f40dce1bbf11e32
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95554537"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027365"
 ---
 W poniższych tabelach przedstawiono limity przydziału i limity dotyczące [usługi Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Aby uzyskać informacje na temat cennika Event Hubs, zobacz [Cennik usługi Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -49,10 +49,10 @@ W przypadku oferty Event Hubs — warstwa Dedykowana jest naliczana stała cena 
 
 Zapoznaj się z tym [dokumentem](../articles/event-hubs/event-hubs-dedicated-cluster-create-portal.md) , jak utworzyć dedykowany klaster Event Hubs przy użyciu Azure Portal.
 
-| Cecha | Standardowa | Dedykowane |
+| Cechy | Standardowa | Dedykowane |
 | --- |:---|:---|
 | Przepustowość | 20 TUs (do 40 TUs) | 20 jednostek |
-| Namespaces |  1 | 50 na CU |
+| Przestrzenie nazw |  1 | 50 na CU |
 | Event Hubs |  10 na przestrzeń nazw | 1000 na przestrzeń nazw |
 | Zdarzenia związane z transferem danych przychodzących | Płatność za milion zdarzeń | Dołączono |
 | Rozmiar komunikatu | 1 000 000 bajtów | 1 000 000 bajtów |
@@ -66,7 +66,7 @@ Zapoznaj się z tym [dokumentem](../articles/event-hubs/event-hubs-dedicated-clu
 ## <a name="schema-registry-limitations"></a>Ograniczenia rejestru schematu
 
 ### <a name="limits-that-are-the-same-for-standard-and-dedicated-tiers"></a>Limity, które są takie same dla warstw **standardowa** i **dedykowana** 
-| Cecha | Limit | 
+| Cechy | Limit | 
 |---|---|--|
 | Maksymalna długość nazwy grupy schematu | 50 |  
 | Maksymalna długość nazwy schematu | 100 |    

@@ -2,20 +2,20 @@
 title: 'Samouczek: Wdrażanie modeli ML przy użyciu narzędzia Projektant'
 titleSuffix: Azure Machine Learning
 description: Tworzenie rozwiązania do analizy predykcyjnej w programie Azure Machine Learning Designer. Uczenie, ocenę i wdrożenie modelu uczenia maszynowego przy użyciu modułów przeciągania i upuszczania.
-author: peterclu
-ms.author: peterlu
+author: likebupt
+ms.author: keli19
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 11/13/2020
+ms.date: 11/25/2020
 ms.custom: designer
-ms.openlocfilehash: 5a5d166e36b2870ceb081c1c6d2635e01ab43a4d
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 28358db2e538867957fcc8d4984cf1c028f9ab2c
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592553"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030372"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Samouczek: Wdrażanie modelu uczenia maszynowego za pomocą narzędzia Projektant
 
@@ -59,7 +59,7 @@ Aby wdrożyć potok, należy najpierw skonwertować potok szkoleniowy do potoku 
     > Domyślnie dane **wejściowe usługi sieci Web** będą oczekiwać tego samego schematu danych co dane szkoleniowe, które są używane do tworzenia potoku predykcyjnego. W tym scenariuszu cena jest uwzględniona w schemacie. Cena nie jest jednak używana jako współczynnik podczas przewidywania.
     >
 
-1. Wybierz pozycję **Prześlij** , a następnie użyj tego samego elementu docelowego obliczeń i eksperymentu, który został użyty w części pierwszej.
+1. Wybierz pozycję **Prześlij**, a następnie użyj tego samego elementu docelowego obliczeń i eksperymentu, który został użyty w części pierwszej.
 
     Jeśli jest to pierwsze uruchomienie, ukończenie działania potoku może potrwać do 20 minut. Domyślne ustawienia obliczeń mają minimalny rozmiar węzła równy 0, co oznacza, że projektant musi przydzielić zasoby po stanie bezczynności. Powtarzające się uruchomienia potoku będą trwać krócej od czasu przydziału zasobów obliczeniowych. Ponadto projektant używa buforowanych wyników dla każdego modułu, aby zwiększyć wydajność.
 

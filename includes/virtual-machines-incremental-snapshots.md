@@ -9,11 +9,11 @@ ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: a662598efdca05769c7da9fbeecdf692dccdacb5
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95553760"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027240"
 ---
 ## <a name="overview"></a>Omówienie
 Usługa Azure Storage oferuje możliwość tworzenia migawek obiektów BLOB. Migawki przechwytują stan obiektu BLOB w tym momencie. W tym artykule opisano scenariusz, w którym można zachować kopie zapasowe dysków maszyny wirtualnej za pomocą migawek. Tej metody można użyć w przypadku wybrania opcji nie używać usługi Azure Backup i odzyskiwania oraz chcesz utworzyć niestandardową strategię tworzenia kopii zapasowych dla dysków maszyny wirtualnej. W przypadku maszyn wirtualnych z podstawowymi obciążeniami biznesowymi lub strategicznymi zaleca się używanie [Azure Backup](../articles/backup/backup-azure-vms-introduction.md) w ramach strategii tworzenia kopii zapasowych.  

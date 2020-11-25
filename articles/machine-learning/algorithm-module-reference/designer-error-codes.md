@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
-ms.date: 04/16/2020
-ms.openlocfilehash: 569cf130b464d97e0ac10904ffd86365b57610a5
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 11/25/2020
+ms.openlocfilehash: af7ac49fd6c1a31a8363c4ba0bf925787613ecc2
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420839"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030411"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>Wyjątki i kody błędów dla projektanta
 
@@ -187,7 +187,7 @@ Sprawdź również, czy konto, kontener lub obiekt BLOB został usunięty. Użyj
 
 Niektóre nowsze typy kont nie są obsługiwane przez Azure Machine Learning. Na przykład nowe typy magazynów "gorąca" lub "zimne" nie mogą być używane do uczenia maszynowego. Zarówno klasyczne konta magazynu, jak i konta magazynu utworzone jako "ogólnego przeznaczenia" działają prawidłowo.
 
-Jeśli podano pełną ścieżkę do obiektu BLOB, należy sprawdzić, czy ścieżka jest określona jako **Container/blobname** , i czy zarówno kontener, jak i obiekt BLOB istnieją na koncie.  
+Jeśli podano pełną ścieżkę do obiektu BLOB, należy sprawdzić, czy ścieżka jest określona jako **Container/blobname**, i czy zarówno kontener, jak i obiekt BLOB istnieją na koncie.  
 
  Ścieżka nie powinna zawierać ukośnika wiodącego. Na przykład **/Container/BLOB** jest niepoprawny i powinien zostać wprowadzony jako **kontener/obiekt BLOB**.  
 
@@ -281,11 +281,18 @@ Jeśli model został przeszkolony przy użyciu dowolnego z wyspecjalizowanych mo
 
  Ten błąd występuje, gdy kolumna zawiera zbyt wiele unikatowych wartości.  Na przykład ten błąd może pojawić się, jeśli określisz, że kolumna będzie obsługiwana jako dane kategorii, ale w kolumnie jest zbyt wiele unikatowych wartości, aby zezwolić na ukończenie przetwarzania. Ten błąd może również pojawić się, jeśli występuje niezgodność między liczbą unikatowych wartości w dwóch danych wejściowych.   
 
+Błąd unikatowych wartości jest większy niż dozwolona, jeśli spełnione **są następujące warunki** :
+
+- Więcej niż 97% wystąpień jednej kolumny to unikatowe wartości, co oznacza, że prawie wszystkie kategorie różnią się od siebie.
+- Jedna kolumna ma więcej niż 1000 unikatowych wartości.
+
 **Rozwiązanie:**
 
 Otwórz moduł, który wygenerował błąd, i zidentyfikuj kolumny używane jako dane wejściowe. W przypadku niektórych modułów można kliknąć prawym przyciskiem myszy dane wejściowe zestawu danych i wybrać polecenie **Wizualizuj** , aby uzyskać statystyki dla poszczególnych kolumn, w tym liczbę unikatowych wartości i ich rozkład.
 
 W przypadku kolumn, które mają być używane do grupowania lub kategoryzacji, wykonaj kroki, aby zmniejszyć liczbę unikatowych wartości w kolumnach. Możesz zmniejszyć różne sposoby, w zależności od typu danych kolumny. 
+
+Zwykle w tym scenariuszu kolumna będąca przyczyną błędu jest bez znaczenia jako funkcja do uczenia modeli. W związku z tym możesz użyć opcji [Edytuj metadane](../algorithm-module-reference/edit-metadata.md) , aby oznaczyć tę kolumnę jako **funkcję czyszczenia** i nie będzie ona używana podczas uczenia modelu. 
 <!--
 + For text data, you might be able to use [Preprocess Text](preprocess-text.md) to collapse similar entries. 
 + For numeric data, you can create a smaller number of bins using [Group Data into Bins](group-data-into-bins.md), remove or truncate values using [Clip Values](clip-values.md), or use machine learning methods such as [Principal Component Analysis](principal-component-analysis.md) or [Learning with Counts](data-transformation-learning-with-counts.md) to reduce the dimensionality of the data.  
@@ -1106,8 +1113,8 @@ Zapoznaj się z następującymi artykułami, aby uzyskać pomoc dotyczącą zapy
  Sprawdź, czy zapytanie działa prawidłowo poza platformą Azure, logując się do serwera bazy danych bezpośrednio i uruchamiając zapytanie.  
 
  Jeśli w wyjątku modułu jest raportowany komunikat generowany przez program SQL, należy wykonać akcję na podstawie zgłoszonego błędu. Na przykład komunikaty o błędach czasami zawierają określone wskazówki dotyczące przyczyny błędu:
-+ *Nie ma takiej kolumny ani brakującej bazy danych* , co oznacza, że być może wpisano nieprawidłową nazwę kolumny. Jeśli masz pewność, że nazwa kolumny jest poprawna, spróbuj użyć nawiasów lub znaków cudzysłowu, aby ująć identyfikator kolumny.
-+ *Błąd logiki SQL w \<SQL keyword\> sąsiedztwie* , wskazujący, że może wystąpić błąd składniowy przed określonym słowem kluczowym
++ *Nie ma takiej kolumny ani brakującej bazy danych*, co oznacza, że być może wpisano nieprawidłową nazwę kolumny. Jeśli masz pewność, że nazwa kolumny jest poprawna, spróbuj użyć nawiasów lub znaków cudzysłowu, aby ująć identyfikator kolumny.
++ *Błąd logiki SQL w \<SQL keyword\> sąsiedztwie*, wskazujący, że może wystąpić błąd składniowy przed określonym słowem kluczowym
 
   
 |Komunikaty o wyjątkach|

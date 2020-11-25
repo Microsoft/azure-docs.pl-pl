@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 11/13/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 59dd1dadc7d037ff253812e4d3e1a1955d98e944
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 4335c1e81ead36d14ee1794fffbdd4cc1ff72a0a
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95809138"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029612"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-net"></a>Wysyłanie komunikatów do i odbieranie komunikatów z kolejek Azure Service Bus (.NET)
 W tym samouczku utworzysz aplikację konsolową .NET Core w celu wysyłania komunikatów do i odbierania komunikatów z kolejki Service Bus przy użyciu pakietu **Azure. Messaging. ServiceBus** . 
@@ -55,8 +55,29 @@ Uruchom program Visual Studio i Utwórz nowy projekt **Aplikacja konsolowa (.NET
         static string queueName = "<QUEUE NAME>";
     ```
 
-    Zamień na `<NAMESPACE CONNECTION STRING>` Parametry połączenia z przestrzenią nazw Service Bus. I Zamień na `<QUEUE NAME>` nazwę kolejki.     
-2. Dodaj metodę o nazwie `SendMessageAsync` , która wysyła jeden komunikat do kolejki. 
+    Wprowadź parametry połączenia dla przestrzeni nazw jako `ServiceBusConnectionString` zmienną. Wprowadź nazwę kolejki.
+
+1. Zastąp `Main()` metodę następującą metodą **asynchroniczną** `Main` . Wywołuje `SendMessagesAsync()` metodę, która zostanie dodana w następnym kroku, aby wysyłać komunikaty do kolejki. 
+
+    ```csharp
+    public static async Task Main(string[] args)
+    {    
+        const int numberOfMessages = 10;
+        queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
+
+        Console.WriteLine("======================================================");
+        Console.WriteLine("Press ENTER key to exit after sending all the messages.");
+        Console.WriteLine("======================================================");
+
+        // Send messages.
+        await SendMessagesAsync(numberOfMessages);
+
+        Console.ReadKey();
+
+        await queueClient.CloseAsync();
+    }
+    ```
+1. Bezpośrednio po `Main()` metodzie Dodaj następującą metodę, `SendMessagesAsync()` która wykonuje zadania wysyłania liczby komunikatów określonych przez `numberOfMessagesToSend` (obecnie ustawiono 10):
 
     ```csharp
         static async Task SendMessageAsync()

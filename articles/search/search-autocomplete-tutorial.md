@@ -7,22 +7,22 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 11/24/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1bf0a4a86ccc36960f218fabebda5bc82eb29019
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 5b498b8f49f2f0636b010e3c4d86f13ad44ac090
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426174"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029017"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Dodawanie funkcji Autouzupełnianie i sugestii do aplikacji klienckich
 
-Wyszukiwanie zgodnie z oczekiwaniami to typowa technika ulepszania produktywności zapytań inicjowanych przez użytkownika. Na platformie Azure Wyszukiwanie poznawcze to środowisko jest obsługiwane przez *funkcję autouzupełniania* , która kończy termin lub frazę w oparciu o częściowe dane wejściowe (kończąc "mikro" "Microsoft"). Inny formularz zawiera *sugestie* : krótka lista pasujących dokumentów (zwracająca tytuły książek z identyfikatorem, aby można było utworzyć łącze do strony szczegółów). Zarówno Autouzupełnianie, jak i sugestie są predykatem według dopasowania w indeksie. Usługa nie będzie oferować zapytań, które zwracają wyniki zerowe.
+Wyszukiwanie zgodnie z oczekiwaniami to typowa technika ulepszania produktywności zapytań inicjowanych przez użytkownika. Na platformie Azure Wyszukiwanie poznawcze to środowisko jest obsługiwane przez *funkcję autouzupełniania*, która kończy termin lub frazę w oparciu o częściowe dane wejściowe (kończąc "mikro" "Microsoft"). Drugie środowisko użytkownika to *sugestie* lub krótka lista pasujących dokumentów (zwracająca tytuły książek z identyfikatorem, aby można było utworzyć link do strony szczegółów dotyczącej tej książki). Zarówno Autouzupełnianie, jak i sugestie są predykatem według dopasowania w indeksie. Usługa nie będzie oferować zapytań, które zwracają wyniki zerowe.
 
 Aby zaimplementować te środowiska na platformie Azure Wyszukiwanie poznawcze, potrzebne są:
 
-+ *Sugestia* na zapleczu.
++ Definicja programu *sugerującego* , która jest osadzona w schemacie indeksu.
 + *Zapytanie* określające interfejs API [funkcji Autouzupełnianie](/rest/api/searchservice/autocomplete) lub [sugestii](/rest/api/searchservice/suggestions) dla żądania.
 + *Kontrolka interfejsu użytkownika* do obsługi interakcji typu "Wyszukaj jako" w aplikacji klienckiej. Zalecamy używanie w tym celu istniejącej biblioteki języka JavaScript.
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 06/08/2020
 ms.author: alkohli
 ms.openlocfilehash: 0e1b70ba3f1359c7cf9c6633ab5e0e05c7b6e946
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95556831"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027693"
 ---
 Ta sekcja zawiera opis limitów usługi Azure Storage oraz wymaganych konwencji nazewnictwa dla Azure Files, blokowych obiektów blob platformy Azure i obiektów BLOB na stronie platformy Azure, które dotyczą usługi urządzenie Data Box. Uważnie Przejrzyj limity magazynu i postępuj zgodnie ze wszystkimi zaleceniami.
 

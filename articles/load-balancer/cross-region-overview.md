@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 8b2f8e82cac1d26689659286a5a0f81f06fb68ca
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: f0630599c7c52f11a4cf3153bae38ad2d515b6bc
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695065"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029765"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Moduł równoważenia obciążenia między regionami (wersja zapoznawcza)
 
@@ -35,7 +35,7 @@ Usługa Azure usługa Load Balancer w warstwie Standardowa obsługuje międzyreg
 * [Kompiluj na istniejącym rozwiązaniu modułu równoważenia obciążenia](#build-cross-region-solution-on-existing-azure-load-balancer) bez krzywej uczenia
 
 > [!IMPORTANT]
-> Moduł równoważenia obciążenia między regionami jest obecnie w wersji zapoznawczej i nie jest ogólnie dostępny.  Aby uzyskać dostęp do wersji zapoznawczej modułu równoważenia obciążenia obejmującego wiele regionów, skontaktuj się z: [crossregionlb@microsoft.com](mailto:crossregionlb@microsoft.com) . </br> </br>
+> Moduł równoważenia obciążenia między regionami jest obecnie w wersji zapoznawczej i ukryty w portalu w wersji zapoznawczej. Zaloguj się, aby **https://preview.portal.azure.com/?feature.globallb=true** wyświetlić i wdrożyć funkcję... </br> </br>
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Równoważenie obciążenia między regionami zapewnia te same korzyści wynikające z wysokiej wydajności i małych opóźnień jako regionalnej standardowej usługi równoważenia obciążenia. 
@@ -149,6 +149,6 @@ Moduł równoważenia obciążenia dla wielu regionów, udostępnia umowę [SLA]
  
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby rozpocząć korzystanie z usługi równoważenia obciążenia, zobacz [Tworzenie publicznego standardowego modułu równoważenia obciążenia](quickstart-load-balancer-standard-public-portal.md) .
+- Zobacz [Samouczek: Tworzenie międzyregionowego modułu równoważenia obciążenia przy użyciu Azure Portal,](tutorial-cross-region-portal.md) aby utworzyć moduł równoważenia obciążenia między regionami.
+- Aby utworzyć standardowy moduł równoważenia obciążenia, zobacz [Tworzenie publicznego](quickstart-load-balancer-standard-public-portal.md) modułu równoważenia obciążenia.
 - Dowiedz się więcej o [Azure Load Balancer](load-balancer-overview.md).
-- [Często zadawane pytania](load-balancer-faqs.md) dotyczące usługi równoważenia obciążenia
