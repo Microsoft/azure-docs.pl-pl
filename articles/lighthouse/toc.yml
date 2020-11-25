@@ -24,9 +24,6 @@
     - name: Oferty usługi zarządzanej w witrynie Azure Marketplace
       displayName: 'azure marketplace, marketplace, managed service, private, plan'
       href: ./concepts/managed-services-offers.md
-    - name: Zalecane najlepsze rozwiązania dotyczące zabezpieczeń
-      displayName: 'mfa, authentication, secure, group'
-      href: ./concepts/recommended-security-practices.md
     - name: Zagadnienia dotyczące programu Cloud Solution Provider
       displayName: 'csp, aobo, partner'
       href: ./concepts/cloud-solution-provider.md
@@ -38,6 +35,9 @@
       href: ./concepts/managed-applications.md
     - name: Zabezpieczenia
       items:
+        - name: Zalecane najlepsze rozwiązania dotyczące zabezpieczeń
+          displayName: 'mfa, authentication, secure, group'
+          href: ./concepts/recommended-security-practices.md
         - name: Punkt odniesienia zabezpieczeń
           href: security-baseline.md
 - name: Przewodniki z instrukcjami

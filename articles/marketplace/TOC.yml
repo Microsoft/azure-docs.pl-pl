@@ -125,12 +125,12 @@
       items:
         - name: Planowanie oferty kontenera platformy Azure
           href: marketplace-containers.md
+        - name: Przygotowywanie zasobów technicznych
+          href: create-azure-container-technical-assets.md
         - name: Tworzenie i publikowanie oferty kontenera platformy Azure
           items:
-            - name: Przygotowywanie zasobów technicznych
-              href: partner-center-portal/create-azure-container-technical-assets.md
             - name: Tworzenie oferty kontenera platformy Azure
-              href: partner-center-portal/create-azure-container-offer.md
+              href: create-azure-container-offer.md
     - name: Oferty maszyn wirtualnych platformy Azure
       items:
         - name: Planowanie oferty maszyny wirtualnej

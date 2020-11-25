@@ -35,6 +35,8 @@
           href: claim-sets.md
     - name: Przepływ pracy
       href: workflow.md
+    - name: Wyświetlanie dzienników inspekcji
+      href: audit-logs.md
 - name: Odwołania
   items:
     - name: Najczęściej zadawane pytania

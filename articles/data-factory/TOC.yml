@@ -752,6 +752,8 @@
           href: connector-troubleshoot-guide.md
         - name: Przepływy danych
           href: data-flow-troubleshoot-guide.md
+        - name: Zabezpieczenia i kontrola dostępu
+          href: security-and-access-control-troubleshoot-guide.md
         - name: Własne środowiska Integration Runtime
           href: self-hosted-integration-runtime-troubleshoot-guide.md
         - name: Infrastruktura Azure SSIS Integration Runtime

@@ -1,5 +1,5 @@
 - name: Dokumentacja usługi Azure Blob Storage
-  href: /azure/storage/blobs/
+  href: ./index.yml
 - name: Omówienie
   items:
     - name: Co to jest Azure Blob Storage?
@@ -590,7 +590,7 @@
             - name: Ułatwienia dostępu Eksploratora usługi Storage
               href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Usługa Blob Storage w witrynie Microsoft Q&A
-          href: 'https://docs.microsoft.com/answers/topics/azure-blob-storage.html'
+          href: /answers/topics/azure-blob-storage.html
         - name: Usługa Blob Storage w witrynie Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/azure-blob-storage'
         - name: Cennik blokowych obiektów blob
@@ -654,7 +654,7 @@
 - name: Usługa Data Lake Storage 2. generacji
   items:
     - name: Dokumentacja dotycząca przełączania do usługi Azure Data Lake Storage 1. generacji
-      href: /azure/data-lake-store/
+      href: ../../data-lake-store/index.yml
     - name: Omówienie
       items:
         - name: Wprowadzenie do usługi Data Lake Storage
@@ -666,7 +666,7 @@
     - name: Samouczki
       items:
         - name: 'Wyodrębnianie, przekształcanie i ładowanie danych przy użyciu usługi Azure Databricks'
-          href: ../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          href: /azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Uzyskiwanie dostępu do danych usługi Azure Data Lake Storage za pomocą usługi Databricks przy użyciu platformy Spark
           href: data-lake-storage-use-databricks-spark.md
         - name: 'Wyodrębnianie, przekształcanie i ładowanie danych przy użyciu oprogramowania Apache Hive w usłudze Azure HDInsight'
@@ -712,7 +712,7 @@
         - name: Monitorowanie
           items:
             - name: Monitorowanie usługi Blob Storage
-              href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              href: ./monitor-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Przejście z metryk klasycznych
               href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Monitorowanie (klasyczne)
@@ -874,7 +874,7 @@
             - name: Ułatwienia dostępu Eksploratora usługi Storage
               href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Pytania i odpowiedzi Microsoft — strona pytania
-          href: 'https://docs.microsoft.com/answers/topics/azure-blob-storage.html'
+          href: /answers/topics/azure-blob-storage.html
         - name: Usługa Azure Storage w witrynie Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
         - name: Cennik

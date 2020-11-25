@@ -278,8 +278,6 @@
       items:
         - name: Pytania ogólne
           href: faq-general.md
-        - name: Pytania dotyczące rozliczeń
-          href: faq-billing.md
         - name: Pytania dotyczące uprawnień
           href: faq-permissions.md
         - name: Pytania dotyczące zbierania danych i agentów
