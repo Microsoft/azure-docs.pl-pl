@@ -11,11 +11,11 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.openlocfilehash: 5b0bcdd66e17fb93a560b6073c13e3170e3ab37b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81409262"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010150"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Przekształcanie danych w chmurze za pomocą działania platformy Spark w usłudze Azure Data Factory
 
@@ -71,7 +71,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
     if __name__ == "__main__":
         main()
     ```
-1. Zastąp * &lt; storageAccountName &gt; * nazwą konta usługi Azure Storage. Następnie zapisz plik. 
+1. Zastąp *&lt; storageAccountName &gt;* nazwą konta usługi Azure Storage. Następnie zapisz plik. 
 1. W usłudze Azure Blob Storage utwórz kontener o nazwie **adftutorial**, jeśli nie istnieje. 
 1. Utwórz folder o nazwie **spark**.
 1. Utwórz podfolder o nazwie **script** w folderze **spark**. 
@@ -93,7 +93,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
       
    ![Okienko „Nowa fabryka danych”](./media/tutorial-transform-data-spark-portal/new-azure-data-factory.png)
  
-   Nazwa fabryki danych Azure musi być *globalnie unikatowa*. Jeśli zostanie wyświetlony poniższy błąd, zmień nazwę fabryki danych. (Na przykład użyj elementuname ** &lt; &gt; ADFTutorialDataFactory**). Artykuł [Usługa Data Factory — reguły nazewnictwa](naming-rules.md) zawiera reguły nazewnictwa artefaktów usługi Data Factory.
+   Nazwa fabryki danych Azure musi być *globalnie unikatowa*. Jeśli zostanie wyświetlony poniższy błąd, zmień nazwę fabryki danych. (Na przykład użyj elementuname **&lt; &gt; ADFTutorialDataFactory**). Artykuł [Usługa Data Factory — reguły nazewnictwa](naming-rules.md) zawiera reguły nazewnictwa artefaktów usługi Data Factory.
   
    ![Komunikat o błędzie występujący, jeśli nazwa jest niedostępna](./media/tutorial-transform-data-spark-portal/name-not-available-error.png)
 1. W obszarze **Subskrypcja** wybierz subskrypcję platformy Azure, w której chcesz utworzyć fabrykę danych. 
@@ -108,7 +108,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
    Aby uzyskać listę regionów platformy Azure, w których obecnie jest dostępna usługa Data Factory, wybierz dane regiony na poniższej stronie, a następnie rozwiń węzeł **Analiza**, aby zlokalizować pozycję **Data Factory**: [Produkty dostępne według regionu](https://azure.microsoft.com/global-infrastructure/services/). Magazyny danych (na przykład Azure Storage lub Azure SQL Database) i jednostki obliczeniowe (takie jak HDInsight) używane przez usługę Data Factory mogą znajdować się w innych regionach.
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 1. Po zakończeniu tworzenia zostanie wyświetlona strona **Fabryka danych**. Wybierz kafelek **Tworzenie i monitorowanie**, aby na osobnej karcie uruchomić aplikację interfejsu użytkownika usługi Data Factory.
 
@@ -149,7 +149,7 @@ W tej sekcji zredagujesz dwie połączone usługi:
    
    b. Upewnij się, że w polu **Typ** wybrano wartość **HDInsight na żądanie**.
    
-   c. W przypadku **połączonej usługi Azure Storage**wybierz pozycję **AzureBlobStorage1**. Ta połączona usługa została utworzona wcześniej. Jeśli użyto innej nazwy, podaj w tym miejscu prawidłową nazwę. 
+   c. W przypadku **połączonej usługi Azure Storage** wybierz pozycję **AzureBlobStorage1**. Ta połączona usługa została utworzona wcześniej. Jeśli użyto innej nazwy, podaj w tym miejscu prawidłową nazwę. 
    
    d. W polu **Typ klastra** wybierz wartość **spark**.
    
@@ -191,7 +191,7 @@ W tej sekcji zredagujesz dwie połączone usługi:
    ![Określanie połączonej usługi HDInsight](./media/tutorial-transform-data-spark-portal/select-hdinsight-linked-service.png)
 1. Przejdź do karty **Skrypt/Jar** i wykonaj następujące czynności: 
 
-   a. W obszarze **połączona usługa**wybierz pozycję **AzureBlobStorage1**.
+   a. W obszarze **połączona usługa** wybierz pozycję **AzureBlobStorage1**.
    
    b. Wybierz pozycję **Przeglądaj magazyn**.
 

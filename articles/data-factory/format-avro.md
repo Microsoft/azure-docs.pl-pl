@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: jingwang
 ms.openlocfilehash: 7d61121b4c80b7b89ec29ade4ab1bfab91a660d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334348"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010558"
 ---
 # <a name="avro-format-in-azure-data-factory"></a>Format Avro w Azure Data Factory
 
@@ -67,7 +67,7 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 ### <a name="avro-as-source"></a>Avro jako źródło
 
-W sekcji *** \* Źródło \* *** działania kopiowania są obsługiwane następujące właściwości.
+W sekcji działanie copy **_ \_ Source \**** są obsługiwane następujące właściwości.
 
 | Właściwość      | Opis                                                  | Wymagane |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -76,7 +76,7 @@ W sekcji *** \* Źródło \* *** działania kopiowania są obsługiwane następu
 
 ### <a name="avro-as-sink"></a>Avro jako ujścia
 
-W sekcji *** \* ujścia \* *** działania kopiowania są obsługiwane następujące właściwości.
+W sekcji działanie kopiowania **_ \_ ujścia \**** są obsługiwane następujące właściwości.
 
 | Właściwość      | Opis                                                  | Wymagane |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -130,6 +130,6 @@ Podczas pracy z plikami Avro w przepływach danych można odczytywać i zapisywa
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Omówienie działania kopiowania](copy-activity-overview.md)
+- [Przegląd działania kopiowania](copy-activity-overview.md)
 - [Działanie Lookup](control-flow-lookup-activity.md)
 - [Działanie GetMetadata](control-flow-get-metadata-activity.md)

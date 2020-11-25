@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: iot-fundamentals
 author: robinsh
 ms.service: iot-fundamentals
@@ -9,11 +9,11 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 08cca67455df4b2d28bba0a7410fccc11446fcdc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76748823"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010706"
 ---
 Ten artykuł zawiera następny poziom szczegółowości w zakresie zabezpieczania infrastruktury Internet rzeczy (IoT) opartej na usłudze Azure IoT. Łączy się on z szczegółowymi informacjami na temat konfigurowania i wdrażania każdego składnika. Zawiera również porównania i wybory między różnymi metodami konkurującymi.
 
@@ -109,6 +109,6 @@ Dane pozyskane przez usługę Azure IoT Hub mogą być używane przez różne us
 
 * [Usługa Azure Blob Storage](https://azure.microsoft.com/services/storage/): niezawodny i ekonomiczny magazyn w chmurze dla danych wysyłanych przez urządzenia do chmury.
 
-## <a name="conclusion"></a>Podsumowanie
+## <a name="conclusion"></a>Wniosek
 
 Ten artykuł zawiera omówienie szczegółowych poziomów implementacji związanych z projektowaniem i wdrażaniem infrastruktury IoT przy użyciu usługi Azure IoT. Skonfigurowanie każdego składnika do zabezpieczenia jest kluczem do zabezpieczania ogólnej infrastruktury IoT. Opcje projektowe dostępne w usłudze Azure IoT zapewniają pewien poziom elastyczności i wyboru; Jednak każdy wybór może mieć wpływ na bezpieczeństwo. Zaleca się, aby każda z tych opcji była oceniana przez ocenę ryzyka/kosztów.

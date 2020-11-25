@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 3e6e060f4af2addba66ed02e82d76dd520375f25
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 76af225b6f93e0a47799234e3e2b430344f68787
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516411"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009997"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-cli"></a>Szybki Start: Tworzenie publicznego adresu IP przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -37,6 +37,9 @@ Utwórz grupę zasobów za pomocą funkcji [AZ Group Create](https://docs.micros
     --name myResourceGroup \
     --location eastus2
 ```
+
+## <a name="create-public-ip"></a>Utwórz publiczny adres IP
+
 ---
 # <a name="standard-sku---using-zones"></a>[**Standardowa jednostka SKU — używanie stref**](#tab/option-create-public-ip-standard-zones)
 
@@ -56,7 +59,7 @@ Użyj [AZ Network Public-IP Create](https://docs.microsoft.com/cli/azure/network
 > W przypadku wersji interfejsu API starszej niż 2020-08-01 Uruchom polecenie powyżej bez określania parametru strefy, aby utworzyć nadmiarowy adres IP strefy. 
 >
 
-Aby utworzyć standardowy publiczny adres IP stref w Strefa 2 o nazwie **myStandardZonalPublicIP** w liście **zasobów** , użyj następującego polecenia:
+Aby utworzyć standardowy publiczny adres IP stref w Strefa 2 o nazwie **myStandardZonalPublicIP** w liście **zasobów**, użyj następującego polecenia:
 
 ```azurecli-interactive
   az network public-ip create \

@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
 ms.openlocfilehash: 329c4b40f11b36de80581d4a1396813bc8de5c73
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097332"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010320"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Przechodzenie do społeczności Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Żyjące w wysoce niepołączonym świecie polega na tym, że w pewnym momencie Life staje się częścią **sieci społecznościowej** . Sieci społecznościowe umożliwiają kontaktowanie się ze znajomymi, współpracownikami i rodziną, a czasami udostępnianie pasją użytkownikom z typowymi zainteresowaniami.
+Żyjące w wysoce niepołączonym świecie polega na tym, że w pewnym momencie Life staje się częścią **sieci społecznościowej**. Sieci społecznościowe umożliwiają kontaktowanie się ze znajomymi, współpracownikami i rodziną, a czasami udostępnianie pasją użytkownikom z typowymi zainteresowaniami.
 
 Jak inżynierowie lub deweloperzy, prawdopodobnie zastanawiasz się, jak te sieci przechowują i współdziałają z danymi. Możesz również mieć jeszcze zadanie tworzenia lub projektowania nowej sieci społecznościowej dla określonego rynku. To jest ważne pytanie: jak są przechowywane wszystkie te dane?
 
@@ -172,7 +172,7 @@ Przechodźmy na przykład informacje o użytkowniku:
 
 Przeglądając te informacje, można szybko wykryć, które są krytycznymi informacjami, a tym samym nie, tworząc "drabinę":
 
-:::image type="content" source="./media/social-media-apps/social-media-apps-ladder.png" alt-text="Diagram ilustrujący względny model relacyjny" border="false":::
+:::image type="content" source="./media/social-media-apps/social-media-apps-ladder.png" alt-text="Diagram wzorca drabiny" border="false":::
 
 Najmniejszy krok jest nazywany UserChunk, minimalną ilością informacji identyfikujących użytkownika i używaną do duplikacji danych. Zmniejszając rozmiar zduplikowanych danych tylko do informacji, które będą wyświetlane, można zmniejszyć możliwość aktualizowania.
 
@@ -239,9 +239,9 @@ Kolejną dostępną opcją jest użycie [usługi Azure Cognitive Services](https
 
 ## <a name="a-planet-scale-social-experience"></a>Środowisko społecznościowe w skali globalnej
 
-Istnieje ostatni, ale nie najmniejsza, istotny artykuł, który należy rozwiązać: **skalowalność** . Podczas projektowania architektury każdy składnik powinien być skalowany samodzielnie. Ostatecznie trzeba będzie przetworzyć więcej danych lub zwiększyć pokrycie geograficzne. Thankfully, osiągnięcie obu zadań to **środowisko gotowe** z Cosmos DB.
+Istnieje ostatni, ale nie najmniejsza, istotny artykuł, który należy rozwiązać: **skalowalność**. Podczas projektowania architektury każdy składnik powinien być skalowany samodzielnie. Ostatecznie trzeba będzie przetworzyć więcej danych lub zwiększyć pokrycie geograficzne. Thankfully, osiągnięcie obu zadań to **środowisko gotowe** z Cosmos DB.
 
-Cosmos DB obsługuje dynamiczne partycjonowanie. Automatycznie tworzy partycje na podstawie danego **klucza partycji** , który jest zdefiniowany jako atrybut w dokumentach. Definiowanie poprawnego klucza partycji musi odbywać się w czasie projektowania. Aby uzyskać więcej informacji, zobacz [partycjonowanie w Azure Cosmos DB](partitioning-overview.md).
+Cosmos DB obsługuje dynamiczne partycjonowanie. Automatycznie tworzy partycje na podstawie danego **klucza partycji**, który jest zdefiniowany jako atrybut w dokumentach. Definiowanie poprawnego klucza partycji musi odbywać się w czasie projektowania. Aby uzyskać więcej informacji, zobacz [partycjonowanie w Azure Cosmos DB](partitioning-overview.md).
 
 W przypadku korzystania z społecznościowych należy wyrównać strategię partycjonowania w sposób wykonywania zapytań i pisania. (Na przykład odczyty w obrębie tej samej partycji są pożądane i należy unikać operacji "gorąca") poprzez rozłożenie zapisu na wielu partycjach. Niektóre opcje są następujące: partycje oparte na kluczu czasowym (dzień/miesiąc/tydzień) według kategorii zawartości według regionu geograficznego lub przez użytkownika. Wszystko to jest zależne od tego, w jaki sposób będziesz wykonywać zapytania dotyczące danych i wyświetlać dane w środowisku społecznościowym.
 
@@ -249,23 +249,23 @@ Cosmos DB będą uruchamiać zapytania (łącznie z [agregacjami](https://azure.
 
 Od momentu ostatecznie zwiększy się ruch, a użycie zasobów (mierzone w [jednostek ru](request-units.md), lub jednostki żądań) zwiększy się. Często przeczytasz i zapisujesz w miarę zwiększania się bazy danych. Baza użytkownika zacznie tworzyć i czytać więcej zawartości. Dzięki temu możliwość **skalowania przepływności** jest istotna. Zwiększenie jednostek ru jest łatwe. Można to zrobić za pomocą kilku kliknięć na Azure Portal lub przez [wystawienie poleceń za pomocą interfejsu API](/rest/api/cosmos-db/replace-an-offer).
 
-:::image type="content" source="./media/social-media-apps/social-media-apps-scaling.png" alt-text="Diagram ilustrujący względny model relacyjny":::
+:::image type="content" source="./media/social-media-apps/social-media-apps-scaling.png" alt-text="Skalowanie w górę i Definiowanie klucza partycji":::
 
 Co się stanie, jeśli problemy są lepsze? Załóżmy, że użytkownicy z innego regionu, kraju lub kontynentu zauważają platformę i zaczynają z niej korzystać. To świetny niespodziewany!
 
-To nie wszystko! Wkrótce zapoznaj się z platformą, która nie jest optymalna. Są one daleko od regionu operacyjnego, który jest jaszczurów opóźnienia. Oczywiście nie chcesz, aby zostały zamknięte. Jeśli było to prosty sposób **rozszerzania Twojego dostępu globalnego** ? Istnieje!
+To nie wszystko! Wkrótce zapoznaj się z platformą, która nie jest optymalna. Są one daleko od regionu operacyjnego, który jest jaszczurów opóźnienia. Oczywiście nie chcesz, aby zostały zamknięte. Jeśli było to prosty sposób **rozszerzania Twojego dostępu globalnego**? Istnieje!
 
 Cosmos DB umożliwia [globalną replikację danych](../cosmos-db/tutorial-global-distribution-sql-api.md) i przezroczystość za pomocą kilku kliknięć i automatyczne wybór spośród dostępnych regionów z [kodu klienta](../cosmos-db/tutorial-global-distribution-sql-api.md). Ten proces oznacza również, że można mieć [wiele regionów trybu failover](high-availability.md).
 
 W przypadku globalnej replikacji danych należy upewnić się, że klienci mogą korzystać z niej. W przypadku korzystania z frontonu sieci Web lub uzyskiwania dostępu do interfejsów API z klientów mobilnych można wdrożyć [usługę Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) i sklonować Azure App Service we wszystkich żądanych regionach przy użyciu konfiguracji wydajności do obsługi rozszerzonego globalnego pokrycia. Gdy klienci uzyskują dostęp do frontonu lub interfejsów API, będą kierowani do najbliższej App Service, która z kolei nawiąże połączenie z lokalną repliką Cosmos DB.
 
-:::image type="content" source="./media/social-media-apps/social-media-apps-global-replicate.png" alt-text="Diagram ilustrujący względny model relacyjny" border="false":::
+:::image type="content" source="./media/social-media-apps/social-media-apps-global-replicate.png" alt-text="Dodawanie globalnego pokrycia do platformy społecznościowej" border="false":::
 
-## <a name="conclusion"></a>Podsumowanie
+## <a name="conclusion"></a>Wniosek
 
 W tym artykule przedstawiono część niedrogiego tworzenia sieci społecznościowych na platformie Azure. zapewnia ona wyniki poprzez zachęcanie do korzystania z wielowarstwowego rozwiązania magazynu i dystrybucji danych o nazwie "drabina".
 
-:::image type="content" source="./media/social-media-apps/social-media-apps-azure-solution.png" alt-text="Diagram ilustrujący względny model relacyjny" border="false":::
+:::image type="content" source="./media/social-media-apps/social-media-apps-azure-solution.png" alt-text="Diagram interakcji między usługami platformy Azure dla sieci społecznościowych" border="false":::
 
 W rzeczywistości jest to, że dla tego rodzaju scenariuszy nie ma punktora Silver. Jest to synergia utworzona przez połączenie doskonałych usług, które pozwalają nam budować wspaniałe środowiska: szybkość i swoboda Azure Cosmos DB zapewniania doskonałej aplikacji społecznościowej, analizy za pierwszą klasą rozwiązania do wyszukiwania, takiego jak Azure Wyszukiwanie poznawcze, elastyczności App Services platformy Azure do hostowania nienawet aplikacji języka niezależny od, ale zaawansowane procesy w tle i rozszerzalny magazyny platformy Azure oraz Azure SQL Database do przechowywania dużych ilości danych i możliwości analitycznych w usłudze Azure Machine Zapoznaj się z artykułem dotyczącym tworzenia wiedzy i analizy, dzięki której możesz dostarczać opinie dotyczące procesów i pomóc nam w dostarczaniu odpowiedniej zawartości do odpowiednich użytkowników.
 

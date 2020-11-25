@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 675f68a36963d19f42cb7c0c5d49ae8c4f0006f2
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103428"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010541"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Tworzenie klastrów usługi HDInsight z Azure Data Lake Storage Gen1 jako magazyn domyślny przy użyciu programu PowerShell
 
 > [!div class="op_single_selector"]
-> * [Użyj Azure Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+> * [Korzystanie z witryny Azure Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 > * [Korzystanie z programu PowerShell (dla magazynu domyślnego)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 > * [Korzystanie z programu PowerShell (do dodatkowego magazynu)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [Użyj Menedżer zasobów](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
@@ -236,7 +236,7 @@ W tej sekcji utworzysz klaster usługi HDInsight Hadoop Linux z Data Lake Storag
     Po pomyślnym ukończeniu tego polecenia cmdlet powinny zostać wyświetlone dane wyjściowe zawierające szczegółowe informacje o klastrze.
 
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>Uruchom zadania testowe w klastrze usługi HDInsight, aby używać Data Lake Storage Gen1
-Po skonfigurowaniu klastra usługi HDInsight można uruchomić na nim zadania testowe, aby upewnić się, że może on uzyskać dostęp do Data Lake Storage Gen1. Aby to zrobić, uruchom przykładowe zadanie Hive w celu utworzenia tabeli korzystającej z przykładowych danych, które są już dostępne w Data Lake Storage Gen1 w * \<cluster root> /example/Data/Sample.log*.
+Po skonfigurowaniu klastra usługi HDInsight można uruchomić na nim zadania testowe, aby upewnić się, że może on uzyskać dostęp do Data Lake Storage Gen1. Aby to zrobić, uruchom przykładowe zadanie Hive w celu utworzenia tabeli korzystającej z przykładowych danych, które są już dostępne w Data Lake Storage Gen1 w *\<cluster root> /example/Data/Sample.log*.
 
 W tej sekcji utworzysz połączenie Secure Shell (SSH) z utworzonym klastrem usługi HDInsight Linux, a następnie uruchamiasz przykładowe zapytanie Hive.
 
@@ -281,7 +281,7 @@ hdfs dfs -ls adl:///
 
 Możesz również użyć `hdfs dfs -put` polecenia, aby przekazać pliki do Data Lake Storage Gen1, a następnie użyć `hdfs dfs -ls` do sprawdzenia, czy pliki zostały pomyślnie przekazane.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Używanie Data Lake Storage Gen1 z klastrami usługi Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md)
 * [Azure Portal: Tworzenie klastra usługi HDInsight do użycia Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 

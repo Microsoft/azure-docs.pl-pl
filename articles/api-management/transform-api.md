@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 09/28/2020
 ms.author: apimpm
 ms.openlocfilehash: 979bdaa1e0dac4f45a321abda2a208f46983f9cd
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108137"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010235"
 ---
 # <a name="tutorial-transform-and-protect-your-api"></a>Samouczek: przekształcanie i ochrona interfejsu API
 
@@ -58,7 +58,7 @@ Aby zobaczyć oryginalną odpowiedź:
 
 Oryginalna odpowiedź powinna wyglądać podobnie do następującej:
 
-:::image type="content" source="media/transform-api/original-response.png" alt-text="Zasady w portalu":::
+:::image type="content" source="media/transform-api/original-response.png" alt-text="Oryginalna odpowiedź interfejsu API":::
 
 Jak widać, odpowiedź obejmuje nagłówki **x-ASPNET-Version** i **X-d-by** .
 
@@ -67,12 +67,12 @@ Jak widać, odpowiedź obejmuje nagłówki **x-ASPNET-Version** i **X-d-by** .
 1. Wybierz pozycję **demonstracyjny interfejs API**  >  **projektowania**  >  **wszystkie operacje**.
 4. W sekcji **Przetwarzanie wychodzące** wybierz ikonę Edytor kodu ( **</>** ).
 
-   :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png" alt-text="Zasady w portalu" border="false":::
+   :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png" alt-text="Przejdź do zasad wychodzących" border="false":::
 
-1. Umieść kursor wewnątrz elementu ** &lt; wychodzącego &gt; ** i wybierz pozycję **Pokaż fragmenty kodu** w prawym górnym rogu.
-1. W oknie po prawej stronie w obszarze **zasady przekształcania**wybierz dwa razy pozycję **Ustaw nagłówek HTTP** (aby wstawić dwa fragmenty kodu zasad).
+1. Umieść kursor wewnątrz elementu **&lt; wychodzącego &gt;** i wybierz pozycję **Pokaż fragmenty kodu** w prawym górnym rogu.
+1. W oknie po prawej stronie w obszarze **zasady przekształcania** wybierz dwa razy pozycję **Ustaw nagłówek HTTP** (aby wstawić dwa fragmenty kodu zasad).
 
-   :::image type="content" source="media/transform-api/transform-api.png" alt-text="Zasady w portalu":::
+   :::image type="content" source="media/transform-api/transform-api.png" alt-text="Ustawianie zasad nagłówka HTTP":::
 
 1. Zmodyfikuj swój **\<outbound>** kod, aby wyglądać następująco:
 
@@ -81,7 +81,7 @@ Jak widać, odpowiedź obejmuje nagłówki **x-ASPNET-Version** i **X-d-by** .
    <set-header name="X-AspNet-Version" exists-action="delete" />
    ```
 
-   :::image type="content" source="media/transform-api/set-policy.png" alt-text="Zasady w portalu":::
+   :::image type="content" source="media/transform-api/set-policy.png" alt-text="Ustaw nagłówek HTTP":::
 
 1. Wybierz pozycję **Zapisz**.
 
@@ -98,15 +98,15 @@ Aby zobaczyć oryginalną odpowiedź:
 
     Jak widać, odpowiedź zawiera oryginalne adresy URL zaplecza:
 
-    :::image type="content" source="media/transform-api/original-response2.png" alt-text="Zasady w portalu":::
+    :::image type="content" source="media/transform-api/original-response2.png" alt-text="Oryginalne adresy URL w odpowiedzi":::
 
 
 ### <a name="set-the-transformation-policy"></a>Ustawianie zasad przekształcania
 
 1.  Wybierz pozycję **Demonstracja interfejs API konferencji**  >  **wszystkie operacje**  >  **projektowe**.
 1.  W sekcji **Przetwarzanie wychodzące** wybierz ikonę Edytor kodu ( **</>** ).
-1.  Umieść kursor wewnątrz elementu ** &lt; wychodzącego &gt; ** i wybierz pozycję **Pokaż fragmenty kodu** w prawym górnym rogu.
-1.  W oknie po prawej stronie w obszarze **zasady przekształcania**wybierz pozycję **maska adresów URL w obszarze zawartość**. 
+1.  Umieść kursor wewnątrz elementu **&lt; wychodzącego &gt;** i wybierz pozycję **Pokaż fragmenty kodu** w prawym górnym rogu.
+1.  W oknie po prawej stronie w obszarze **zasady przekształcania** wybierz pozycję **maska adresów URL w obszarze zawartość**. 
 1.  Wybierz pozycję **Zapisz**.
 
 ## <a name="protect-an-api-by-adding-rate-limit-policy-throttling"></a>Ochrona interfejsu API poprzez dodanie zasad limitu szybkości (ograniczanie przepustowości)
@@ -115,11 +115,11 @@ W tej sekcji przedstawiono sposób dodawania zabezpieczeń do interfejsu API zap
 
 1.  Wybierz pozycję **Demonstracja interfejs API konferencji**  >  **wszystkie operacje**  >  **projektowe**.
 1.  W sekcji **Przetwarzanie przychodzące** wybierz ikonę Edytor kodu ( **</>** ).
-1.  Umieść kursor wewnątrz elementu ** &lt; przychodzącego &gt; ** i wybierz pozycję **Pokaż fragmenty kodu** w prawym górnym rogu.
+1.  Umieść kursor wewnątrz elementu **&lt; przychodzącego &gt;** i wybierz pozycję **Pokaż fragmenty kodu** w prawym górnym rogu.
 
-    :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png" alt-text="Zasady w portalu" border="false":::
+    :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png" alt-text="Ustawianie zasad danych przychodzących" border="false":::
 
-1.  W oknie po prawej stronie w obszarze **zasady ograniczeń dostępu**wybierz pozycję **+ Ogranicz częstotliwość wywołań na klucz**.
+1.  W oknie po prawej stronie w obszarze **zasady ograniczeń dostępu** wybierz pozycję **+ Ogranicz częstotliwość wywołań na klucz**.
 1.  Zmodyfikuj kod **Rate-limit-by-Key** (w **\<inbound\>** elemencie) do następującego kodu:
 
     ```
@@ -160,7 +160,7 @@ Pozostała część tej sekcji testuje przekształcenia zasad ustawione w tym ar
 
     Jak widać, nagłówki zostały usunięte:
 
-    :::image type="content" source="media/transform-api/final-response1.png" alt-text="Zasady w portalu":::
+    :::image type="content" source="media/transform-api/final-response1.png" alt-text="Usunięte nagłówki odpowiedzi":::
 
 ### <a name="test-the-replaced-url"></a>Testowanie zamienionego adresu URL
 
@@ -169,7 +169,7 @@ Pozostała część tej sekcji testuje przekształcenia zasad ustawione w tym ar
 
     Jak widać, adres URL został zastąpiony.
 
-    :::image type="content" source="media/transform-api/final-response2.png" alt-text="Zasady w portalu":::
+    :::image type="content" source="media/transform-api/final-response2.png" alt-text="Zastąpiony adres URL":::
 
 ### <a name="test-the-rate-limit-throttling"></a>Testowanie limitu szybkości (ograniczania przepustowości)
 
@@ -178,7 +178,7 @@ Pozostała część tej sekcji testuje przekształcenia zasad ustawione w tym ar
 
     Po wysłaniu żądania trzy razy otrzymujesz **429 zbyt wiele** odpowiedzi na żądania.
 
-    :::image type="content" source="media/transform-api/test-throttling.png" alt-text="Zasady w portalu":::
+    :::image type="content" source="media/transform-api/test-throttling.png" alt-text="Zbyt wiele żądań":::
 
 1. Zaczekaj 15 sekund lub, a następnie wybierz pozycję **Wyślij** ponownie. Teraz interfejs powinien zwrócić odpowiedź **200 OK**.
 

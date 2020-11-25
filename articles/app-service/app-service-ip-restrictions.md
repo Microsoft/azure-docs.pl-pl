@@ -8,11 +8,11 @@ ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: e1549dda367105db34272eab8a90c1760dd5bb5c
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576448"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010184"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Konfigurowanie ograniczeń dostępu Azure App Service
 
@@ -65,14 +65,14 @@ W okienku **Dodaj ograniczenie adresów IP** podczas tworzenia reguły wykonaj n
 1. Opcjonalnie wprowadź nazwę i opis reguły.  
 1. Z listy rozwijanej **Typ** wybierz typ reguły.  
 1. W polu **priorytet** wprowadź wartość priorytetu.  
-1. Z listy rozwijanej **subskrypcja** , **Virtual Network** i **podsieć** wybierz, do czego chcesz ograniczyć dostęp.  
+1. Z listy rozwijanej **subskrypcja**, **Virtual Network** i **podsieć** wybierz, do czego chcesz ograniczyć dostęp.  
 
 ### <a name="set-an-ip-address-based-rule"></a>Ustawianie reguły opartej na adresie IP
 
 Postępuj zgodnie z procedurą przedstawioną w poprzedniej sekcji, ale z następującą różnicą:
 * W kroku 3 z listy rozwijanej **Typ** wybierz pozycję **IPv4** lub **IPv6**. 
 
-Określ adres IP w notacji CIDR (Classless Inter-Domain Routing) dla adresów IPv4 i IPv6. Aby określić adres, można użyć czegoś takiego jak *1.2.3.4/32* , gdzie pierwsze cztery oktety reprezentują adres IP i */32* jest maską. Notacja CIDR protokołu IPv4 dla wszystkich adresów ma wartość 0.0.0.0/0. Aby dowiedzieć się więcej na temat notacji CIDR, zobacz [Inter-Domain Routing bezklasowy](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
+Określ adres IP w notacji CIDR (Classless Inter-Domain Routing) dla adresów IPv4 i IPv6. Aby określić adres, można użyć czegoś takiego jak *1.2.3.4/32*, gdzie pierwsze cztery oktety reprezentują adres IP i */32* jest maską. Notacja CIDR protokołu IPv4 dla wszystkich adresów ma wartość 0.0.0.0/0. Aby dowiedzieć się więcej na temat notacji CIDR, zobacz [Inter-Domain Routing bezklasowy](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
 
 ## <a name="use-service-endpoints"></a>Korzystanie z punktów końcowych usługi
 
@@ -112,7 +112,7 @@ Można edytować lub usunąć istniejącą regułę ograniczenia dostępu.
 
 ### <a name="delete-a-rule"></a>Usuwanie reguły
 
-Aby usunąć regułę, na stronie **ograniczenia dostępu** wybierz wielokropek ( **...** ) obok reguły, którą chcesz usunąć, a następnie wybierz pozycję **Usuń**.
+Aby usunąć regułę, na stronie **ograniczenia dostępu** wybierz wielokropek (**...**) obok reguły, którą chcesz usunąć, a następnie wybierz pozycję **Usuń**.
 
 ![Zrzut ekranu strony "ograniczenia dostępu" pokazujący wielokropek obok reguły ograniczenia dostępu do usunięcia.](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
@@ -134,14 +134,14 @@ Oprócz możliwości kontrolowania dostępu do aplikacji można ograniczyć dost
 
 Ograniczenia dostępu można dodać programowo, wykonując jedną z następujących czynności: 
 
-* Użyj [interfejsu wiersza polecenia platformy Azure](/cli/azure/webapp/config/access-restriction?view=azure-cli-latest&preserve-view=true). Przykład:
+* Użyj [interfejsu wiersza polecenia platformy Azure](/cli/azure/webapp/config/access-restriction?view=azure-cli-latest&preserve-view=true). Na przykład:
    
   ```azurecli-interactive
   az webapp config access-restriction add --resource-group ResourceGroup --name AppName \
   --rule-name 'IP example rule' --action Allow --ip-address 122.133.144.0/24 --priority 100
   ```
 
-* Użyj [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-3.1.0&preserve-view=true). Przykład:
+* Użyj [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-3.1.0&preserve-view=true). Na przykład:
 
 
   ```azurepowershell-interactive
@@ -153,7 +153,7 @@ Możesz również ustawić wartości ręcznie, wykonując jedną z następujący
 
 * Użyj operacji Put [interfejsu API REST platformy Azure](/rest/api/azure/) w konfiguracji aplikacji w Azure Resource Manager. Lokalizacja tych informacji w Azure Resource Manager:
 
-  **Identyfikator subskrypcji** Management.Azure.com/subscriptions//resourceGroups/ **grupy zasobów** /Providers/Microsoft.Web/Sites/ **Nazwa aplikacji sieci Web** /config/Web? API-Version = 2018 r-02-01
+  **Identyfikator subskrypcji** Management.Azure.com/subscriptions//resourceGroups/**grupy zasobów**/Providers/Microsoft.Web/Sites/**Nazwa aplikacji sieci Web**/config/Web? API-Version = 2018 r-02-01
 
 * Użyj szablonu ARM. Na przykład można użyć resources.azure.com i edytować blok ipSecurityRestrictions, aby dodać wymagany kod JSON.
 

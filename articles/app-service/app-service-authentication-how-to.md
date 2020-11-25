@@ -5,11 +5,11 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: ad83e7ad5e1ffc03bf7c62df9b28512e19a62100
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739791"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010201"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Zaawansowane użycie uwierzytelniania i autoryzacji w Azure App Service
 
@@ -31,7 +31,7 @@ Konfiguracja portalu nie oferuje możliwości podkluczego sposobu prezentowania 
 
 Najpierw na stronie **uwierzytelnianie/autoryzacja** w Azure Portal Skonfiguruj każdy dostawca tożsamości, który ma zostać włączony.
 
-W obszarze **Akcja do wykonania, gdy żądanie nie zostanie uwierzytelnione** , wybierz opcję **Zezwalaj na żądania anonimowe (bez akcji)** .
+W obszarze **Akcja do wykonania, gdy żądanie nie zostanie uwierzytelnione**, wybierz opcję **Zezwalaj na żądania anonimowe (bez akcji)**.
 
 Na stronie logowania lub na pasku nawigacyjnym lub w dowolnej innej lokalizacji aplikacji Dodaj łącze logowania do każdego z włączonych dostawców ( `/.auth/login/<provider>` ). Na przykład:
 
@@ -154,7 +154,7 @@ W kodzie serwera tokeny specyficzne dla dostawcy są wstawiane do nagłówka ż�
 
 | Dostawca | Nazwy nagłówków |
 |-|-|
-| Usługa Azure Active Directory | `X-MS-TOKEN-AAD-ID-TOKEN` <br/> `X-MS-TOKEN-AAD-ACCESS-TOKEN` <br/> `X-MS-TOKEN-AAD-EXPIRES-ON`  <br/> `X-MS-TOKEN-AAD-REFRESH-TOKEN` |
+| Azure Active Directory | `X-MS-TOKEN-AAD-ID-TOKEN` <br/> `X-MS-TOKEN-AAD-ACCESS-TOKEN` <br/> `X-MS-TOKEN-AAD-EXPIRES-ON`  <br/> `X-MS-TOKEN-AAD-REFRESH-TOKEN` |
 | Token Facebook | `X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN` <br/> `X-MS-TOKEN-FACEBOOK-EXPIRES-ON` |
 | Google | `X-MS-TOKEN-GOOGLE-ID-TOKEN` <br/> `X-MS-TOKEN-GOOGLE-ACCESS-TOKEN` <br/> `X-MS-TOKEN-GOOGLE-EXPIRES-ON` <br/> `X-MS-TOKEN-GOOGLE-REFRESH-TOKEN` |
 | Konto Microsoft | `X-MS-TOKEN-MICROSOFTACCOUNT-ACCESS-TOKEN` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-EXPIRES-ON` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-AUTHENTICATION-TOKEN` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-REFRESH-TOKEN` |
@@ -170,21 +170,21 @@ Na podstawie kodu klienta (takiego jak aplikacja mobilna lub JavaScript w przegl
 
 Gdy token dostępu dostawcy (nie [token sesji](#extend-session-token-expiration-grace-period)) wygaśnie, należy ponownie uwierzytelnić użytkownika przed ponownym użyciem tego tokenu. Możesz uniknąć wygaśnięcia tokenu, wykonując `GET` wywołanie do `/.auth/refresh` punktu końcowego aplikacji. Gdy jest wywoływana, App Service automatycznie odświeża tokeny dostępu w [magazynie tokenów](overview-authentication-authorization.md#token-store) dla uwierzytelnionego użytkownika. Kolejne żądania dotyczące tokenów przez kod aplikacji otrzymują odświeżone tokeny. Jednak aby odświeżanie tokenów działało, magazyn tokenów musi zawierać [tokeny odświeżania](https://auth0.com/learn/refresh-tokens/) dla dostawcy. Sposób uzyskania tokenów odświeżania jest udokumentowany przez każdego dostawcę, ale Poniższa lista zawiera krótkie podsumowanie:
 
-- **Google** : Dołącz `access_type=offline` parametr ciągu zapytania do `/.auth/login/google` wywołania interfejsu API. Jeśli używasz zestawu SDK Mobile Apps, możesz dodać parametr do jednego z `LogicAsync` przeciążeń (zobacz [tokeny usługi Google Refresh](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
-- **Facebook** : nie udostępnia tokenów odświeżania. Tokeny długotrwałe wygasają w ciągu 60 dni (zobacz temat [wygaśnięcie i rozszerzanie tokenów dostępu w serwisie Facebook](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
-- **Twitter** : tokeny dostępu nie wygasną (zobacz [często zadawane pytania dotyczące usługi Twitter OAuth](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
-- **Konto Microsoft** : podczas [konfigurowania ustawień uwierzytelniania konta Microsoft](configure-authentication-provider-microsoft.md)wybierz `wl.offline_access` zakres.
-- **Azure Active Directory** : w [https://resources.azure.com](https://resources.azure.com) , wykonaj następujące czynności:
-    1. W górnej części strony wybierz pozycję **Odczyt/zapis** .
-    2. W lewej przeglądarce przejdź do **subskrypcji** > * * _\<subscription\_name_** > **resourceGroups** > * *_ \<resource\_group\_name> _* * > **dostawcy**  >  **Microsoft. Web**  >  **sites** > * *_ \<app\_name> _ * * > **config**  >  **authsettings** . 
-    3. Kliknij pozycję **Edytuj** .
+- **Google**: Dołącz `access_type=offline` parametr ciągu zapytania do `/.auth/login/google` wywołania interfejsu API. Jeśli używasz zestawu SDK Mobile Apps, możesz dodać parametr do jednego z `LogicAsync` przeciążeń (zobacz [tokeny usługi Google Refresh](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
+- **Facebook**: nie udostępnia tokenów odświeżania. Tokeny długotrwałe wygasają w ciągu 60 dni (zobacz temat [wygaśnięcie i rozszerzanie tokenów dostępu w serwisie Facebook](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
+- **Twitter**: tokeny dostępu nie wygasną (zobacz [często zadawane pytania dotyczące usługi Twitter OAuth](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
+- **Konto Microsoft**: podczas [konfigurowania ustawień uwierzytelniania konta Microsoft](configure-authentication-provider-microsoft.md)wybierz `wl.offline_access` zakres.
+- **Azure Active Directory**: w [https://resources.azure.com](https://resources.azure.com) , wykonaj następujące czynności:
+    1. W górnej części strony wybierz pozycję **Odczyt/zapis**.
+    2. W lewej przeglądarce przejdź do **subskrypcji** > * *_\<subscription\_name_** > **resourceGroups** > * *_ \<resource\_group\_name> _* * > **dostawcy**  >  **Microsoft. Web**  >  **sites** > * *_ \<app\_name> _ * * > **config**  >  **authsettings**. 
+    3. Kliknij pozycję **Edytuj**.
     4. Zmodyfikuj następującą właściwość. Zamień na _\<app\_id>_ Identyfikator aplikacji Azure Active Directory usługi, do której chcesz uzyskać dostęp.
 
         ```json
         "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
         ```
 
-    5. Kliknij przycisk **Put** . 
+    5. Kliknij przycisk **Put**. 
 
 Po skonfigurowaniu dostawcy można [znaleźć token odświeżania i czas wygaśnięcia tokenu dostępu](#retrieve-tokens-in-app-code) w magazynie tokenów. 
 
@@ -221,11 +221,11 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 ## <a name="limit-the-domain-of-sign-in-accounts"></a>Ogranicz domenę kont logowania
 
-Zarówno konto Microsoft, jak i Azure Active Directory umożliwiają logowanie się z wielu domen. Na przykład konto Microsoft umożliwia korzystanie z kont _Outlook.com_ , _Live.com_ i _hotmail.com_ . Usługa Azure AD umożliwia dowolna liczba domen niestandardowych dla kont logowania. Można jednak przyspieszyć użytkowników bezpośrednio do własnej, oznakowanej strony logowania usługi Azure AD (np `contoso.com` .). Aby zasugerować nazwę domeny kont logowania, wykonaj następujące kroki.
+Zarówno konto Microsoft, jak i Azure Active Directory umożliwiają logowanie się z wielu domen. Na przykład konto Microsoft umożliwia korzystanie z kont _Outlook.com_, _Live.com_ i _hotmail.com_ . Usługa Azure AD umożliwia dowolna liczba domen niestandardowych dla kont logowania. Można jednak przyspieszyć użytkowników bezpośrednio do własnej, oznakowanej strony logowania usługi Azure AD (np `contoso.com` .). Aby zasugerować nazwę domeny kont logowania, wykonaj następujące kroki.
 
-W programie [https://resources.azure.com](https://resources.azure.com) Przejdź do **subskrypcji** > * * _\<subscription\_name_** > **resourceGroups** > * *_ * \<resource\_group\_name> _* > **dostawcy**  >  **Microsoft. Web**  >  **sites** > * *_ \<app\_name> _ * * > **config**  >  **authsettings** . 
+W programie [https://resources.azure.com](https://resources.azure.com) Przejdź do **subskrypcji** > * *_\<subscription\_name_** > **resourceGroups** > * *_* \<resource\_group\_name> _* > **dostawcy**  >  **Microsoft. Web**  >  **sites** > * *_ \<app\_name> _ * * > **config**  >  **authsettings**. 
 
-Kliknij przycisk **Edytuj** , zmodyfikuj następującą właściwość, a następnie kliknij przycisk **Put** . Pamiętaj, aby zamienić na _\<domain\_name>_ wybraną domenę.
+Kliknij przycisk **Edytuj**, zmodyfikuj następującą właściwość, a następnie kliknij przycisk **Put**. Pamiętaj, aby zamienić na _\<domain\_name>_ wybraną domenę.
 
 ```json
 "additionalLoginParams": ["domain_hint=<domain_name>"]
@@ -247,13 +247,13 @@ Chociaż App Service zajmuje się najprostszym przypadkiem autoryzacji (tj. odrz
 
 ### <a name="server-level-windows-apps-only"></a>Poziom serwera (tylko aplikacje systemu Windows)
 
-W przypadku dowolnej aplikacji systemu Windows można zdefiniować zachowanie autoryzacji serwera sieci Web usług IIS, edytując plik *Web.config* . Aplikacje systemu Linux nie używają usług IIS i nie można ich skonfigurować za pomocą *Web.config* .
+W przypadku dowolnej aplikacji systemu Windows można zdefiniować zachowanie autoryzacji serwera sieci Web usług IIS, edytując plik *Web.config* . Aplikacje systemu Linux nie używają usług IIS i nie można ich skonfigurować za pomocą *Web.config*.
 
 1. Przejdź do strony `https://<app-name>.scm.azurewebsites.net/DebugConsole`
 
-1. W Eksploratorze przeglądarki plików App Service przejdź do *lokalizacji site/wwwroot* . Jeśli *Web.config* nie istnieje, utwórz ją, wybierając pozycję **+**  >  **nowy plik** . 
+1. W Eksploratorze przeglądarki plików App Service przejdź do *lokalizacji site/wwwroot*. Jeśli *Web.config* nie istnieje, utwórz ją, wybierając pozycję **+**  >  **nowy plik**. 
 
-1. Wybierz ołówek do *Web.config* , aby go edytować. Dodaj następujący kod konfiguracji i kliknij przycisk **Zapisz** . Jeśli *Web.config* już istnieje, po prostu Dodaj `<authorization>` element ze wszystkimi elementami. Dodaj konta, które mają być dozwolone w `<allow>` elemencie.
+1. Wybierz ołówek do *Web.config* , aby go edytować. Dodaj następujący kod konfiguracji i kliknij przycisk **Zapisz**. Jeśli *Web.config* już istnieje, po prostu Dodaj `<authorization>` element ze wszystkimi elementami. Dodaj konta, które mają być dozwolone w `<allow>` elemencie.
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>

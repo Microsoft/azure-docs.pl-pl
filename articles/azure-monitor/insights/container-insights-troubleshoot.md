@@ -4,11 +4,11 @@ description: W tym artykule opisano, jak rozwiązywać problemy z Azure Monitora
 ms.topic: conceptual
 ms.date: 07/21/2020
 ms.openlocfilehash: 5727702ff973523ce7ab6400c1c7748e0584acbf
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890364"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010592"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Rozwiązywanie problemów z usługą Azure Monitor dla kontenerów
 
@@ -23,9 +23,9 @@ Podczas procesu dołączania lub aktualizacji należy podjąć próbę przypisan
 Możesz również ręcznie udzielić tej roli z Azure Portal, wykonując następujące czynności:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. W witrynie Azure Portal kliknij pozycję **Wszystkie usługi** w lewym górnym rogu. Na liście zasobów wpisz **Kubernetes** . Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz pozycję **Azure Kubernetes** .
+2. W witrynie Azure Portal kliknij pozycję **Wszystkie usługi** w lewym górnym rogu. Na liście zasobów wpisz **Kubernetes**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz pozycję **Azure Kubernetes**.
 3. Na liście klastrów Kubernetes wybierz jedną z listy.
-2. W menu po lewej stronie kliknij pozycję **Kontrola dostępu (IAM)** .
+2. W menu po lewej stronie kliknij pozycję **Kontrola dostępu (IAM)**.
 3. Wybierz pozycję **+ Dodaj** , aby dodać przypisanie roli i wybierz rolę **wydawcy metryk monitorowania** i w obszarze **Wybierz** typ **AKS** , aby filtrować wyniki tylko do podmiotów usługi klastrów zdefiniowanych w ramach subskrypcji. Wybierz z listy odpowiedni dla tego klastra.
 4. Wybierz pozycję **Zapisz** , aby zakończyć Przypisywanie roli.
 
@@ -112,7 +112,7 @@ Azure Monitor dla programu Containers Agent, który zbiera metryki wydajności, 
 
 ## <a name="non-azure-kubernetes-cluster-are-not-showing-in-azure-monitor-for-containers"></a>Klaster Kubernetes spoza platformy Azure nie jest wyświetlany w Azure Monitor dla kontenerów
 
-Aby wyświetlić klaster programu spoza platformy Azure Kubernetes w Azure Monitor dla kontenerów, należy uzyskać dostęp do odczytu w obszarze roboczym Log Analytics, który obsługuje tę usługę Insights, oraz na platformie Azure Insights Resource **ContainerInsights ( *obszar roboczy* )** .
+Aby wyświetlić klaster programu spoza platformy Azure Kubernetes w Azure Monitor dla kontenerów, należy uzyskać dostęp do odczytu w obszarze roboczym Log Analytics, który obsługuje tę usługę Insights, oraz na platformie Azure Insights Resource **ContainerInsights (*obszar roboczy*)**.
 
 ## <a name="next-steps"></a>Następne kroki
 

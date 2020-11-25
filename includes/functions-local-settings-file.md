@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 04/14/2019
 ms.author: glenga
-ms.openlocfilehash: ca8d8edd334d89e03624793a35c49971ba8161ec
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d944d1d3e9c72471fab2435430a7d13e1770e807
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94885445"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010486"
 ---
 ## <a name="local-settings-file"></a>Plik ustawień lokalnych
 
@@ -46,7 +46,7 @@ Te ustawienia są obsługiwane podczas lokalnego uruchamiania projektów:
 | **`LocalHttpPort`** | Ustawia domyślny port używany podczas uruchamiania hosta funkcji lokalnych ( `func host start` i `func run` ). `--port`Opcja wiersza polecenia ma pierwszeństwo przed tym ustawieniem. |
 | **`CORS`** | Definiuje źródła dozwolone dla [udostępniania zasobów między źródłami (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Źródła są dostarczane jako rozdzielana przecinkami lista bez spacji. Wartość symbolu wieloznacznego ( \* ) jest obsługiwana, co pozwala na żądania z dowolnego źródła. |
 | **`CORSCredentials`** |  Gdy ustawiona na `true` , zezwala na `withCredentials` żądania. |
-| **`ConnectionStrings`** | Kolekcja. Nie używaj tej kolekcji dla parametrów połączenia używanych przez powiązania funkcji. Ta kolekcja jest używana tylko przez platformy, które zazwyczaj pobierają parametry połączenia z `ConnectionStrings` sekcji pliku konfiguracji, na przykład [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Parametry połączenia w tym obiekcie są dodawane do środowiska z typem dostawcy [System. Data. SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Elementy w tej kolekcji nie są publikowane na platformie Azure przy użyciu innych ustawień aplikacji. Należy jawnie dodać te wartości do `Connection strings` kolekcji ustawień aplikacji funkcji. Jeśli tworzysz [`SqlConnection`](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) w kodzie funkcji, należy przechowywać wartość parametrów połączenia z innymi połączeniami w **ustawieniach aplikacji** w portalu. |
+| **`ConnectionStrings`** | Kolekcja. Nie używaj tej kolekcji dla parametrów połączenia używanych przez powiązania funkcji. Ta kolekcja jest używana tylko przez platformy, które zazwyczaj pobierają parametry połączenia z `ConnectionStrings` sekcji pliku konfiguracji, na przykład [Entity Framework](/ef/ef6/). Parametry połączenia w tym obiekcie są dodawane do środowiska z typem dostawcy [System. Data. SqlClient](/dotnet/api/system.data.sqlclient). Elementy w tej kolekcji nie są publikowane na platformie Azure przy użyciu innych ustawień aplikacji. Należy jawnie dodać te wartości do `Connection strings` kolekcji ustawień aplikacji funkcji. Jeśli tworzysz [`SqlConnection`](/dotnet/api/system.data.sqlclient.sqlconnection) w kodzie funkcji, należy przechowywać wartość parametrów połączenia z innymi połączeniami w **ustawieniach aplikacji** w portalu. |
 
 Następujące ustawienia aplikacji mogą być dołączone do macierzy w **`Values`** przypadku uruchamiania lokalnego:
 

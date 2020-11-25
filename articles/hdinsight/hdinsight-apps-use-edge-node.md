@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
 ms.openlocfilehash: ddd1a6fa2fc25add30664da5b739338e87e7e74f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547847"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010116"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Używanie pustych węzłów brzegowych w klastrach Apache Hadoop w usłudze HDInsight
 
@@ -86,7 +86,7 @@ W tej sekcji użyjesz szablonu Menedżer zasobów, aby dodać węzeł brzegowy d
     |Lokalizacja|Wybierz lokalizację istniejącego klastra usługi HDInsight.|
     |Nazwa klastra|Wprowadź nazwę istniejącego klastra usługi HDInsight.|
 
-1. Zaznacz pole wyboru Akceptuję **warunki i postanowienia podane powyżej** , a następnie wybierz pozycję  **Kup** , aby utworzyć węzeł brzegowy.
+1. Zaznacz pole wyboru Akceptuję **warunki i postanowienia podane powyżej**, a następnie wybierz pozycję  **Kup** , aby utworzyć węzeł brzegowy.
 
 > [!IMPORTANT]  
 > Upewnij się, że wybrano grupę zasobów platformy Azure dla istniejącego klastra usługi HDInsight.  W przeciwnym razie zostanie wyświetlony komunikat o błędzie "nie można wykonać wymaganej operacji na zasobie zagnieżdżonym. Nie znaleziono zasobu nadrzędnego " &lt; clustername>". "
@@ -109,9 +109,9 @@ W tej sekcji użyjesz szablonu Menedżer zasobów, aby utworzyć klaster usługi
     |Grupa zasobów|Utwórz nową grupę zasobów używaną w klastrze.|
     |Lokalizacja|Wybierz lokalizację dla grupy zasobów.|
     |Nazwa klastra|Wprowadź nazwę nowego klastra do utworzenia.|
-    |Nazwa użytkownika logowania klastra|Wprowadź nazwę użytkownika HTTP usługi Hadoop.  Nazwa domyślna to **admin** .|
+    |Nazwa użytkownika logowania klastra|Wprowadź nazwę użytkownika HTTP usługi Hadoop.  Nazwa domyślna to **admin**.|
     |Hasło logowania klastra|Wprowadź hasło użytkownika protokołu HTTP usługi Hadoop.|
-    |Nazwa użytkownika SSH|Wprowadź nazwę użytkownika SSH. Nazwa domyślna to **sshuser** .|
+    |Nazwa użytkownika SSH|Wprowadź nazwę użytkownika SSH. Nazwa domyślna to **sshuser**.|
     |Hasło ssh|Wprowadź hasło użytkownika SSH.|
     |Akcja instalacji skryptu|Pozostaw wartość domyślną, aby przejść przez ten artykuł.|
 
@@ -133,7 +133,7 @@ Węzeł brzegowy jest wyświetlany jako aplikacja na Azure Portal.  Portal udost
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Otwórz klaster usługi HDInsight z węzłem krawędzi.
-3. Wybierz pozycję **aplikacje** . Zobaczysz węzeł brzegowy.  Nazwa domyślna to **New-edgenode** .
+3. Wybierz pozycję **aplikacje**. Zobaczysz węzeł brzegowy.  Nazwa domyślna to **New-edgenode**.
 4. Wybierz węzeł brzegowy. Zobaczysz punkt końcowy SSH.
 
 **Aby użyć programu Hive na węźle brzegowym**
@@ -158,9 +158,9 @@ Węzeł brzegowy można usunąć z Azure Portal.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Otwórz klaster usługi HDInsight z węzłem krawędzi.
-3. Wybierz pozycję **aplikacje** . Zobaczysz listę węzłów brzegowych.  
-4. Kliknij prawym przyciskiem myszy węzeł brzegowy, który chcesz usunąć, a następnie wybierz polecenie **Usuń** .
-5. Kliknij przycisk **Tak** , aby potwierdzić.
+3. Wybierz pozycję **aplikacje**. Zobaczysz listę węzłów brzegowych.  
+4. Kliknij prawym przyciskiem myszy węzeł brzegowy, który chcesz usunąć, a następnie wybierz polecenie **Usuń**.
+5. Kliknij przycisk **Tak**, aby potwierdzić.
 
 ## <a name="next-steps"></a>Następne kroki
 

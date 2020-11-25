@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: allensu
 ms.openlocfilehash: a226682c2580a871e1b2fc4db71f369f3bcc3abb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778622"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010167"
 ---
 # <a name="how-caching-works"></a>Jak działa buforowanie
 
@@ -129,9 +129,9 @@ W poniższej tabeli opisano domyślne zachowanie buforowania dla produktów Azur
 | **Pochodzenie honorowe**       | Tak    | Tak   | Nie   | Tak    | Nie   | Tak   | Tak    |
 | **Czas trwania pamięci podręcznej usługi CDN** | 2 dni |7 dni | Brak | 7 dni | Brak | 1 dzień | 1 rok |
 
-**Pochodzenie** : określa, czy w odpowiedzi HTTP z serwera pochodzenia mają być uznawane obsługiwane nagłówki dyrektywy Cache-dyrektyw.
+**Pochodzenie**: określa, czy w odpowiedzi HTTP z serwera pochodzenia mają być uznawane obsługiwane nagłówki dyrektywy Cache-dyrektyw.
 
-**Czas trwania pamięci podręcznej usługi CDN** : określa ilość czasu, przez który zasób jest buforowany w Azure CDN. Jeśli jednak **pochodzenie Honor** ma wartość tak, a odpowiedź HTTP z serwera pochodzenia zawiera nagłówek dyrektywy Cache-dyrektywa `Expires` lub `Cache-Control: max-age` Azure CDN używa wartości czasu trwania określonej przez nagłówek zamiast tego. 
+**Czas trwania pamięci podręcznej usługi CDN**: określa ilość czasu, przez który zasób jest buforowany w Azure CDN. Jeśli jednak **pochodzenie Honor** ma wartość tak, a odpowiedź HTTP z serwera pochodzenia zawiera nagłówek dyrektywy Cache-dyrektywa `Expires` lub `Cache-Control: max-age` Azure CDN używa wartości czasu trwania określonej przez nagłówek zamiast tego. 
 
 ## <a name="next-steps"></a>Następne kroki
 

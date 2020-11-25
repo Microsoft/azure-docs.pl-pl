@@ -9,12 +9,12 @@ ms.date: 11/13/2020
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 39fdde572e269bb4f5648e91bf85539d02236ff6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: acb2ebb0d7ce70c6b5963a8a6c3e392091e4bb1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658557"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010065"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Przechowywanie kluczowych dla działalności danych obiektów blob z niezmiennym magazynem
 
@@ -76,7 +76,7 @@ Zasady przechowywania dotyczą następujących ograniczeń:
 
 ### <a name="allow-protected-append-blobs-writes"></a>Zezwalaj na chronione operacje dołączania obiektów BLOB
 
-Dołączane obiekty blob składają się z bloków danych i są zoptymalizowane pod kątem operacji dołączania danych wymaganych przez scenariusze inspekcji i rejestrowania. Po zaprojektowaniu, dołączanie obiektów BLOB zezwala tylko na dodanie nowych bloków do końca obiektu BLOB. Niezależnie od niezmienności, modyfikowanie lub usuwanie istniejących bloków w dołączanym obiekcie BLOB jest zasadniczo niedozwolone. Aby dowiedzieć się więcej na temat dołączania obiektów blob, zobacz [temat Dodawanie obiektów BLOB](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
+Dołączane obiekty blob składają się z bloków danych i są zoptymalizowane pod kątem operacji dołączania danych wymaganych przez scenariusze inspekcji i rejestrowania. Po zaprojektowaniu, dołączanie obiektów BLOB zezwala tylko na dodanie nowych bloków do końca obiektu BLOB. Niezależnie od niezmienności, modyfikowanie lub usuwanie istniejących bloków w dołączanym obiekcie BLOB jest zasadniczo niedozwolone. Aby dowiedzieć się więcej na temat dołączania obiektów blob, zobacz [temat Dodawanie obiektów BLOB](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
 
 Tylko zasady przechowywania oparte na czasie mają `allowProtectedAppendWrites` ustawienie, które umożliwia zapisanie nowych bloków do obiektu BLOB dołączania przy zachowaniu ochrony i zgodności niezmienności. Jeśli to ustawienie jest włączone, można utworzyć obiekt BLOB dołączania bezpośrednio w kontenerze chronionym przez zasady i kontynuować dodawanie nowych bloków danych na końcu istniejących dołączanych obiektów BLOB przy użyciu interfejsu API *AppendBlock* . Można dodawać tylko nowe bloki i nie można modyfikować ani usuwać żadnych istniejących bloków. Nadal obowiązuje ochrona niezmiennościa czasu przechowywania, uniemożliwiając usuwanie dołączanego obiektu BLOB do czasu, aż upłynie okres przechowywania. Włączenie tego ustawienia nie wpływa na zachowanie niezmienności blokowych obiektów blob lub stronicowych obiektów BLOB.
 
@@ -103,7 +103,7 @@ Następujące ograniczenia mają zastosowanie do posiadanych przepisów prawnych
 
 ## <a name="scenarios"></a>Scenariusze
 
-W poniższej tabeli przedstawiono typy operacji magazynu obiektów blob, które są wyłączone dla różnych niezmiennych scenariuszy. Aby uzyskać więcej informacji, zobacz dokumentację [interfejsu API REST usługi Azure Blob Service](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) .
+W poniższej tabeli przedstawiono typy operacji magazynu obiektów blob, które są wyłączone dla różnych niezmiennych scenariuszy. Aby uzyskać więcej informacji, zobacz dokumentację [interfejsu API REST usługi Azure Blob Service](/rest/api/storageservices/blob-service-rest-api) .
 
 | Scenariusz | Stan obiektu BLOB | Odrzucone operacje obiektu BLOB | Ochrona kontenera i konta |
 |--|--|--|--|
@@ -116,7 +116,7 @@ W poniższej tabeli przedstawiono typy operacji magazynu obiektów blob, które 
 <sup>2</sup> blok Append jest dozwolony tylko dla zasad przechowywania opartych na czasie z `allowProtectedAppendWrites` włączoną właściwością. Aby uzyskać więcej informacji, zobacz sekcję [Zezwalaj na chronione Dodawanie obiektów BLOB](#allow-protected-append-blobs-writes) .
 
 > [!IMPORTANT]
-> Niektóre obciążenia, takie jak [kopia zapasowa SQL do adresu URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url), tworzą obiekt BLOB, a następnie Dodaj do niego. Jeśli kontener ma aktywne zasady przechowywania oparte na czasie lub blokadę prawną, ten wzorzec nie powiedzie się.
+> Niektóre obciążenia, takie jak [kopia zapasowa SQL do adresu URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url), tworzą obiekt BLOB, a następnie Dodaj do niego. Jeśli kontener ma aktywne zasady przechowywania oparte na czasie lub blokadę prawną, ten wzorzec nie powiedzie się.
 
 ## <a name="pricing"></a>Cennik
 
@@ -170,11 +170,11 @@ Tak. Po pierwszym utworzeniu zasad przechowywania na podstawie czasu jest ona w 
 
 **Czy można używać nietrwałego usuwania wraz z niezmiennymi zasadami obiektów BLOB?**
 
-Tak, jeśli wymagania dotyczące zgodności umożliwiają włączenie usuwania nietrwałego. [Usuwanie nietrwałe dla magazynu obiektów blob platformy Azure](storage-blob-soft-delete.md) ma zastosowanie do wszystkich kontenerów w ramach konta magazynu, niezależnie od zasad przechowywania z przyczyn prawnych lub opartych na czasie. Zalecamy włączenie usuwania nietrwałego w celu zapewnienia dodatkowej ochrony przed zastosowaniem i potwierdzeniem jakichkolwiek niemodyfikowalnych zasad ROBAKów.
+Tak, jeśli wymagania dotyczące zgodności umożliwiają włączenie usuwania nietrwałego. [Usuwanie nietrwałe dla magazynu obiektów blob platformy Azure](./soft-delete-blob-overview.md) ma zastosowanie do wszystkich kontenerów w ramach konta magazynu, niezależnie od zasad przechowywania z przyczyn prawnych lub opartych na czasie. Zalecamy włączenie usuwania nietrwałego w celu zapewnienia dodatkowej ochrony przed zastosowaniem i potwierdzeniem jakichkolwiek niemodyfikowalnych zasad ROBAKów.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Ustawianie zasad niezmienności dla usługi BLOB Storage i zarządzanie nimi](storage-blob-immutability-policies-manage.md)
 - [Ustaw reguły automatycznej warstwy i Usuń dane obiektów BLOB za pomocą zarządzania cyklem życia](storage-lifecycle-management-concepts.md)
-- [Soft delete for Azure Storage blobs](../blobs/storage-blob-soft-delete.md) (Usuwanie nietrwałe dla obiektów blob usługi Azure Storage)
+- [Soft delete for Azure Storage blobs](./soft-delete-blob-overview.md) (Usuwanie nietrwałe dla obiektów blob usługi Azure Storage)
 - [Ochrona subskrypcji, grup zasobów i zasobów przy użyciu blokad Azure Resource Manager](../../azure-resource-manager/management/lock-resources.md).

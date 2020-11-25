@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
 ms.openlocfilehash: c851f5284b87f224932b027fd10ce720327639c2
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167903"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010514"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Opracowywanie funkcji usługi Azure Functions przy użyciu programu Visual Studio Code
 
@@ -60,7 +60,7 @@ Inne zasoby, które są potrzebne, takie jak konto usługi Azure Storage, są tw
 
 Rozszerzenie Functions umożliwia utworzenie projektu aplikacji funkcji wraz z pierwszą funkcją. Poniższe kroki pokazują, jak utworzyć funkcję wyzwalaną przez protokół HTTP w nowym projekcie funkcji. [Wyzwalacz http](functions-bindings-http-webhook.md) jest najprostszym szablonem wyzwalacza funkcji do zademonstrowania.
 
-1. Na **platformie Azure: funkcje**wybierz ikonę **Utwórz funkcję** :
+1. Na **platformie Azure: funkcje** wybierz ikonę **Utwórz funkcję** :
 
     ![Tworzenie funkcji](./media/functions-develop-vs-code/create-function.png)
 
@@ -373,7 +373,7 @@ Podobnie jak w przypadku przekazywania, jeśli plik lokalny jest szyfrowany, zos
 
 Po [uruchomieniu funkcji lokalnie](#run-functions-locally)dane dziennika są przesyłane strumieniowo do konsoli terminalowej. Możesz również uzyskać dane dziennika, gdy projekt funkcji działa w aplikacji funkcji na platformie Azure. Możesz połączyć się z dziennikami przesyłania strumieniowego na platformie Azure, aby zobaczyć dane dziennika niemal w czasie rzeczywistym lub można włączyć Application Insights, aby zrozumieć, jak działa aplikacja funkcji.
 
-### <a name="streaming-logs"></a>Dzienniki przesyłania strumieniowego
+### <a name="streaming-logs"></a>Przesyłanie strumieniowe dzienników
 
 Podczas tworzenia aplikacji często warto zobaczyć informacje o rejestrowaniu w czasie niemal rzeczywistym. Można wyświetlić strumień plików dziennika generowanych przez funkcje. Dane wyjściowe to przykład dzienników przesyłania strumieniowego dla żądania do funkcji wyzwalanej przez protokół HTTP:
 
@@ -396,7 +396,7 @@ Aby dowiedzieć się więcej na temat monitorowania za pomocą Application Insig
 
 Domyślnie wszystkie projekty C# są tworzone jako [projekty bibliotek klas skompilowanych w języku c#](functions-dotnet-class-library.md). Jeśli wolisz pracować z projektami skryptów C# zamiast tego, musisz wybrać opcję skrypt C# jako język domyślny w ustawieniach rozszerzenia Azure Functions:
 
-1. Wybierz **File**pozycję  >  **Preferences**  >  **Ustawienia**preferencji pliku.
+1. Wybierz **File** pozycję  >  **Preferences**  >  **Ustawienia** preferencji pliku.
 
 1. Przejdź do pozycji **Ustawienia użytkownika**  >  **Extensions**  >  **Azure Functions**.
 

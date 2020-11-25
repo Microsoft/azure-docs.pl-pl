@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 19b4ac619ec3e72c787efc8e9f043f42dbd8b09b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85505158"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010303"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Uwierzytelnianie między usługami Azure Data Lake Storage Gen1 przy użyciu zestawu .NET SDK
 > [!div class="op_single_selector"]
@@ -32,9 +32,9 @@ Ten artykuł zawiera informacje na temat korzystania z zestawu SDK platformy .NE
 * **Utwórz Azure Active Directory aplikacji "Web"**. Należy wykonać kroki opisane w temacie [uwierzytelnianie między usługami Data Lake Storage Gen1 przy użyciu Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 ## <a name="create-a-net-application"></a>Tworzenie aplikacji .NET
-1. W programie Visual Studio wybierz menu **plik** , **Nowy**i **projekt**.
+1. W programie Visual Studio wybierz menu **plik** , **Nowy** i **projekt**.
 2. Wybierz pozycję **aplikacja konsoli (.NET Framework)**, a następnie wybierz przycisk **dalej**.
-3. W polu **Nazwa projektu**wprowadź, `CreateADLApplication` a następnie wybierz pozycję **Utwórz**.
+3. W polu **Nazwa projektu** wprowadź, `CreateADLApplication` a następnie wybierz pozycję **Utwórz**.
 
 4. Dodaj pakiety NuGet do swojego projektu.
 

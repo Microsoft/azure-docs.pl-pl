@@ -8,11 +8,11 @@ ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
 ms.openlocfilehash: ceb8b8b31963317ccbbd1aee9f1b2606afc5a5db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91279029"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010253"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Jak wdrożyć system Windows 10 na platformie Azure z wielodostępnymi prawami hostingu 
 W przypadku klientów z systemem Windows 10 Enterprise E3/E5 na użytkownika lub dostęp do pulpitu wirtualnego systemu Windows dla użytkownika (licencje subskrypcyjne użytkownika lub licencje subskrypcyjne użytkownika), wielodostępne prawa hostingu dla systemu Windows 10 umożliwiają przenoszenie licencji systemu Windows 10 do chmury i uruchamianie systemu Windows 10 Virtual Machines na platformie Azure bez płacenia za inną licencję. Aby uzyskać więcej informacji, zobacz [Obsługa wielu dzierżawców dla systemu Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
