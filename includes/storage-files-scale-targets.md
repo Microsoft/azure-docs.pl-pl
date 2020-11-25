@@ -2,14 +2,14 @@
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 05/06/2019
+ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: a71762010984928b93c19c7256c2ba4f0fe0f64b
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: e7b7fae094ad15bc1732778b6a4a3259fb4dd3b5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504153"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026049"
 ---
 | Zasób | Standardowe udziały plików\* | Udziały plików w warstwie Premium |
 |----------|---------------|------------------------------------------|
@@ -27,6 +27,7 @@ ms.locfileid: "94504153"
 | Maksymalna długość nazwy obiektu (katalogów i plików) | 2 048 znaków | 2 048 znaków |
 | Maksymalna część ścieżki składnika (w ścieżce \A\B\C\D każda litera jest składnikiem) | 255 znaków | 255 znaków |
 | Limit linków twardych (tylko system plików NFS) | Nie dotyczy | 178 |
+| Maksymalna liczba kanałów wielokanałowe protokołu SMB | Nie dotyczy | 4 |
 
 \* Limity dla standardowych udziałów plików mają zastosowanie do wszystkich trzech warstw dostępnych dla standardowych udziałów plików: transakcja zoptymalizowana, gorąca i chłodna.
 

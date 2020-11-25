@@ -9,11 +9,11 @@ ms.date: 07/15/2020
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 764d75872eb1bad0647235cd70f9984ebd7789bd
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95562368"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026048"
 ---
 W poniższej tabeli wymieniono informacje o limicie przydziału dotyczące Azure Service Bus komunikatów. Aby uzyskać informacje na temat cen i innych przydziałów Service Bus, zobacz [Cennik usługi Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 

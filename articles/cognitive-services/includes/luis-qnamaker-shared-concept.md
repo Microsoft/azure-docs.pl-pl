@@ -1,18 +1,18 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.custom: include file
 ms.date: 04/16/2020
-ms.openlocfilehash: ac0192da3afa76c3c21056f218f2b249c44d1c36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78b93c05621754ae499e4ae8ca6b66c5bbfaad1b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87133886"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026073"
 ---
 Cognitive Services oferuje dwie usługi przetwarzania języka naturalnego, [Language Understanding](../luis/what-is-luis.md) i [QNA Maker](../qnamaker/overview/overview.md), z których każdy ma inny cel. Informacje o tym, kiedy należy używać każdej usługi i od siebie nawzajem.
 
@@ -71,9 +71,9 @@ Tę odpowiedź innej firmy można przedstawić użytkownikowi na potrzeby weryfi
 
 Jeśli rozmowa bot potrzebuje więcej informacji niż zapewnia usługa, aby kontynuować przez drzewo decyzyjne, należy użyć obu tych usług i przetworzyć obie odpowiedzi w aplikacji klienckiej.
 
-Użyj narzędzia **[interfejsu wiersza polecenia do wysyłania](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** bot Framework, aby pomóc w tworzeniu procesu do pracy z obiema usługami. To narzędzie służy do tworzenia najwyższej aplikacji LUIS, które są wysyłane między LUIS i QnA Maker jako aplikacje podrzędne. [Dowiedz się więcej](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=cs) o integrowaniu z LUIS, QNA Maker i bot Framework.
+Użyj narzędzia **[interfejsu wiersza polecenia do wysyłania](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** bot Framework, aby pomóc w tworzeniu procesu do pracy z obiema usługami. To narzędzie służy do tworzenia najwyższej aplikacji LUIS, które są wysyłane między LUIS i QnA Maker jako aplikacje podrzędne. [Dowiedz się więcej](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs&view=azure-bot-service-4.0) o integrowaniu z LUIS, QNA Maker i bot Framework.
 
-Użyj przykładu bot Builder, **NLP z wysyłaniem**w [języku C#](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) lub [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch), aby zaimplementować ten typ rozmowy bot.
+Użyj przykładu bot Builder, **NLP z wysyłaniem** w [języku C#](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) lub [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch), aby zaimplementować ten typ rozmowy bot.
 
 ## <a name="best-practices"></a>Najlepsze rozwiązania
 
@@ -88,6 +88,6 @@ Zaimplementuj najlepsze rozwiązania dla każdej usługi:
 * [QnA Maker](../qnamaker/overview/overview.md)
 * [Interfejs wiersza polecenia wysyłania](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)
 * [Przykłady struktury bot Framework](https://github.com/Microsoft/BotBuilder-Samples)
-* [Usługa Azure bot](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0)
+* [Usługa Azure bot](/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0)
 * [Emulator usługi Azure bot](https://github.com/Microsoft/BotFramework-Emulator)
 * [Czat w sieci Web bot Framework](https://github.com/microsoft/BotFramework-WebChat)

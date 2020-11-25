@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: dobett
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 817c41a969f03ad04d372c516a16ef6b770f3e18
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e3eed0e7378f513e45e0eb9ac719a92e87ec1d53
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92756058"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026169"
 ---
 ## <a name="access-the-virtual-machine"></a>Uzyskaj dostęp do maszyny wirtualnej
 
@@ -35,7 +35,7 @@ Poniższe kroki pokazują, jak skonfigurować maszynę wirtualną platformy Azur
     az network nsg rule update --name SSH --nsg-name contoso-simulation-nsg -g contoso-simulation --access Allow -o table
     ```
 
-    Włącz dostęp SSH tylko podczas testowania i programowania. W przypadku włączenia protokołu SSH należy [go ponownie wyłączyć najszybciej, jak to możliwe](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices#disable-rdpssh-access-to-virtual-machines).
+    Włącz dostęp SSH tylko podczas testowania i programowania. W przypadku włączenia protokołu SSH należy [go ponownie wyłączyć najszybciej, jak to możliwe](../articles/security/fundamentals/network-best-practices.md#disable-rdpssh-access-to-virtual-machines).
 
 1. Zaktualizuj hasło do konta usługi **azureuser** na maszynie wirtualnej, aby poznać hasło, które znasz. Po uruchomieniu następującego polecenia wybierz własne hasło:
 

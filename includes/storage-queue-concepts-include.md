@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 08/21/2020
 ms.author: tamram
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 3aa21fb99ac5ab24674bf5d4b62fd3fca98de632
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45df30f4f1444b6148af9f3c7d47b94909ccef3d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88853660"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026172"
 ---
 ## <a name="what-is-queue-storage"></a>Co to jest magazyn kolejek?
 
@@ -23,7 +23,7 @@ Usługa kolejki platformy Azure zawiera następujące składniki:
 ![Składniki usługi Azure usługa kolejki](./media/storage-queue-concepts-include/azure-queue-service-components.png)
 
 * **Konto magazynu:** cały dostęp do usługi Azure Storage odbywa się przez konto magazynu. Aby uzyskać więcej informacji na temat kont magazynu, zobacz [Omówienie konta magazynu](../articles/storage/common/storage-account-overview.md).
-* **Kolejka:** kolejka zawiera zestaw komunikatów. Wszystkie komunikaty muszą być w kolejce. Pamiętaj, że nazwa kolejki może zawierać tylko małe litery. Informacje dotyczące nazewnictwa kolejek można znaleźć w temacie [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx) (Nazewnictwo kolejek i metadanych).
+* **Kolejka:** kolejka zawiera zestaw komunikatów. Wszystkie komunikaty muszą być w kolejce. Pamiętaj, że nazwa kolejki może zawierać tylko małe litery. Informacje dotyczące nazewnictwa kolejek można znaleźć w temacie [Naming Queues and Metadata](/rest/api/storageservices/Naming-Queues-and-Metadata) (Nazewnictwo kolejek i metadanych).
 * **Komunikat**: komunikat w dowolnym formacie, o maksymalnym rozmiarze 64 KB. Maksymalny czas pozostawania komunikatu w kolejce wynosi 7 dni. W wersji 2017-07-29 lub nowszej maksymalny czas wygaśnięcia może być dowolną liczbą dodatnią lub-1 oznacza, że komunikat nie wygasa. Jeśli ten parametr zostanie pominięty, domyślny czas wygaśnięcia wynosi siedem dni.
 * **Format adresu URL:** Kolejki są adresowane przy użyciu następującego formatu adresu URL: http:// `<storage account>` . Queue.Core.Windows.NET/`<queue>`
 
