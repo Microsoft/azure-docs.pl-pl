@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
 ms.openlocfilehash: 5010dc08b695a0376ace5dde935c63caf0c39633
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84711412"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012083"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal"></a>Samouczek: Tworzenie bramy NAT przy użyciu Azure Portal
 
@@ -28,7 +28,7 @@ W tym samouczku przedstawiono sposób korzystania z usługi Azure Virtual Networ
 
 Jeśli wolisz, możesz wykonać te kroki przy użyciu [interfejsu wiersza polecenia platformy Azure](quickstart-create-nat-gateway-cli.md), [Azure PowerShell](quickstart-create-nat-gateway-powershell.md)lub wdrożyć [szablon ARM](quickstart-create-nat-gateway-powershell.md) zamiast portalu.
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
@@ -53,14 +53,14 @@ W tej sekcji należy zamienić następujące parametry w krokach z poniższymi i
 
 Teraz utworzymy maszynę wirtualną do korzystania z usługi translatora adresów sieciowych. Ta maszyna wirtualna ma publiczny adres IP do użycia jako publiczny adres IP na poziomie wystąpienia, który umożliwia dostęp do maszyny wirtualnej. Usługa translatora adresów sieciowych obsługuje kierunek przepływu i zastępuje domyślne miejsce docelowe w podsieci. Publiczny adres IP maszyny wirtualnej nie będzie używany dla połączeń wychodzących.
 
-1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób**  >  **obliczeniowy**  >  **Ubuntu Server 18,04 LTS**lub Wyszukaj **Ubuntu Server 18,04 LTS** w obszarze wyszukiwania w portalu Marketplace.
+1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób**  >  **obliczeniowy**  >  **Ubuntu Server 18,04 LTS** lub Wyszukaj **Ubuntu Server 18,04 LTS** w obszarze wyszukiwania w portalu Marketplace.
 
 2. W obszarze **Tworzenie maszyny wirtualnej** wpisz lub wybierz następujące wartości na karcie **Podstawowe**:
    - **Subskrypcja**  >  **Grupa zasobów**: wybierz pozycję **myResourceGroupNAT**.
    - **Szczegóły wystąpienia**  >  **Nazwa maszyny wirtualnej**: wpisz **myVM**.
    - **Szczegóły wystąpienia**  >  **Region** > wybierz pozycję **Wschodnie stany USA 2**.
    - **Konto administratora**  >  **Typ uwierzytelniania**: wybierz opcję **hasło**.
-   - **Konto administratora** > wprowadź **nazwę użytkownika**, **hasło**i potwierdź informacje o **haśle** .
+   - **Konto administratora** > wprowadź **nazwę użytkownika**, **hasło** i potwierdź informacje o **haśle** .
    - Reguły portów ruchu **przychodzącego**  >  **Publiczne porty przychodzące**: wybierz opcję **Zezwalaj na wybrane porty**.
    - Reguły portów ruchu **przychodzącego**  >  **Wybierz porty wejściowe**: wybierz pozycję **SSH (22)**
    - Wybierz kartę **Sieć** lub wybierz pozycję **Dalej: Dyski**, a następnie pozycję **Dalej: Sieć**.
@@ -73,7 +73,7 @@ Teraz utworzymy maszynę wirtualną do korzystania z usługi translatora adresó
    - **Publiczne porty przychodzące**: wybierz opcję **Zezwalaj na wybrane porty**.
    - **Wybierz porty wejściowe**: Upewnij się, że wybrano protokół **SSH** .
 
-4. Na karcie **Zarządzanie** w obszarze **monitorowanie**ustaw opcję **Diagnostyka rozruchu** na **wyłączona**.
+4. Na karcie **Zarządzanie** w obszarze **monitorowanie** ustaw opcję **Diagnostyka rozruchu** na **wyłączona**.
 
 5. Wybierz pozycję **Przeglądanie + tworzenie**. 
 
@@ -89,9 +89,9 @@ W tej sekcji szczegółowo opisano, jak utworzyć i skonfigurować następujące
 
 ### <a name="create-a-public-ip-address"></a>Tworzenie publicznego adresu IP
 
-1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób**  >  **Sieć**  >  **publiczny adres IP**lub Wyszukaj **publiczny adres IP** w obszarze wyszukiwania w portalu Marketplace.
+1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób**  >  **Sieć**  >  **publiczny adres IP** lub Wyszukaj **publiczny adres IP** w obszarze wyszukiwania w portalu Marketplace.
 
-2. W obszarze **Utwórz publiczny adres IP**wprowadź lub wybierz następujące informacje:
+2. W obszarze **Utwórz publiczny adres IP** wprowadź lub wybierz następujące informacje:
 
     | Ustawienie | Wartość |
     | ------- | ----- |
@@ -106,9 +106,9 @@ W tej sekcji szczegółowo opisano, jak utworzyć i skonfigurować następujące
 
 ### <a name="create-a-public-ip-prefix"></a>Tworzenie publicznego prefiksu adresu IP
 
-1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób**  >  **Sieć**  >  **publiczny prefiks adresu IP**lub Wyszukaj pozycję **publiczny adres IP** w obszarze wyszukiwania w portalu Marketplace. 
+1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób**  >  **Sieć**  >  **publiczny prefiks adresu IP** lub Wyszukaj pozycję **publiczny adres IP** w obszarze wyszukiwania w portalu Marketplace. 
 
-2. W obszarze **Utwórz publiczny prefiks adresu IP**wpisz lub wybierz następujące wartości z karty **podstawowe** :
+2. W obszarze **Utwórz publiczny prefiks adresu IP** wpisz lub wybierz następujące wartości z karty **podstawowe** :
    - **Subskrypcja**  >  **Grupa zasobów**: wybierz pozycję **myResourceGroupNAT**>
    - **Szczegóły wystąpienia**  >  **Nazwa**: wpisz **myPublicIPprefix**.
    - **Szczegóły wystąpienia**  >  **Region**: wybierz pozycję **Wschodnie stany USA 2**.
@@ -121,7 +121,7 @@ W tej sekcji szczegółowo opisano, jak utworzyć i skonfigurować następujące
 
 ### <a name="create-a-nat-gateway-resource"></a>Tworzenie zasobu bramy NAT
 
-1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób**  >  **Sieć**  >  **brama translatora adresów sieciowych**lub Wyszukaj **bramę translatora adresów sieciowych** w obszarze wyszukiwania w portalu Marketplace.
+1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób**  >  **Sieć**  >  **brama translatora adresów sieciowych** lub Wyszukaj **bramę translatora adresów sieciowych** w obszarze wyszukiwania w portalu Marketplace.
 
 2. W obszarze **Utwórz bramę translacji adresów sieciowych (NAT)** wpisz lub wybierz następujące wartości z karty **podstawowe** :
    - **Subskrypcja**  >  **Grupa zasobów**: wybierz pozycję **myResourceGroupNAT**.
@@ -148,7 +148,7 @@ W tej sekcji szczegółowo opisano, jak utworzyć i skonfigurować następujące
 1. Po lewej stronie portalu wybierz pozycję **grupy zasobów**.
 2. Wybierz pozycję **myResourceGroupNAT**.
 3. Wybierz pozycję **myVM**.
-4. W obszarze **Przegląd**skopiuj wartość **publiczny adres IP** i wklej ją do programu Notepad, aby można było korzystać z niej w celu uzyskania dostępu do maszyny wirtualnej.
+4. W obszarze **Przegląd** skopiuj wartość **publiczny adres IP** i wklej ją do programu Notepad, aby można było korzystać z niej w celu uzyskania dostępu do maszyny wirtualnej.
 
 >[!IMPORTANT]
 >Skopiuj publiczny adres IP, a następnie wklej go do Notatnika, aby można było używać go do uzyskiwania dostępu do maszyny wirtualnej.

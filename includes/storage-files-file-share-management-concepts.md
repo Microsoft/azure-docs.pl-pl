@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: storage
 author: roygara
 ms.service: storage
@@ -9,11 +9,11 @@ ms.date: 12/26/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 8d26b6c92462abc13c42257d2c6e571156eacc0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563459"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011760"
 ---
 Udziały plików platformy Azure są wdrażane na *kontach magazynu*, które są obiektami najwyższego poziomu reprezentującymi udostępnioną pulę magazynu. Ta pula magazynu może służyć do wdrażania wielu udziałów plików, a także innych zasobów magazynu, takich jak kontenery obiektów blob, kolejki lub tabele. Wszystkie zasoby magazynu, które są wdrożone na koncie magazynu, współużytkują limity, które mają zastosowanie do tego konta magazynu. Aby wyświetlić bieżące limity dla konta magazynu, zobacz [Azure Files cele dotyczące skalowalności i wydajności](../articles/storage/files/storage-files-scale-targets.md).
 

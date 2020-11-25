@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: e9f175e2585a5254922c9e859cf5ece2afbbc3e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91264137"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011352"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Interfejs API usługi Application Insights dla niestandardowych zdarzeń i metryk
 
@@ -690,7 +690,7 @@ Jeśli aplikacja grupuje użytkowników, możesz również przekazać identyfika
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-W [Eksplorator metryk](../platform/metrics-charts.md)można utworzyć wykres, który zlicza **użytkowników, uwierzytelnione**i **konta użytkowników**.
+W [Eksplorator metryk](../platform/metrics-charts.md)można utworzyć wykres, który zlicza **użytkowników, uwierzytelnione** i **konta użytkowników**.
 
 Możesz również [wyszukać](./diagnostic-search.md) punkty danych klienta przy użyciu określonych nazw użytkowników i kont.
 
@@ -918,9 +918,9 @@ gameTelemetry.TrackEvent({name: "WinGame"});
 
 Poszczególne wywołania telemetrii mogą przesłonić wartości domyślne w swoich słownikach właściwości.
 
-*W przypadku klientów sieci Web w języku JavaScript*używaj inicjatorów telemetrycznych języka JavaScript.
+*W przypadku klientów sieci Web w języku JavaScript* używaj inicjatorów telemetrycznych języka JavaScript.
 
-*Aby dodać właściwości do wszystkich danych telemetrycznych*, w tym dane ze standardowych modułów kolekcji, [Zaimplementuj `ITelemetryInitializer` ](./api-filtering-sampling.md#add-properties).
+*Aby dodać właściwości do wszystkich danych telemetrycznych*, w tym dane ze standardowych modułów kolekcji, [Zaimplementuj `ITelemetryInitializer`](./api-filtering-sampling.md#add-properties).
 
 ## <a name="sampling-filtering-and-processing-telemetry"></a>Próbkowanie, filtrowanie i przetwarzanie danych telemetrycznych
 

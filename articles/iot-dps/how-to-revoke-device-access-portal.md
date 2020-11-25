@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: 120446472038076e34f62b47ba79348e5de8b972
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951081"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010932"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Jak wyrejestrować urządzenie z usługi Azure IoT Hub Device Provisioning Service
 

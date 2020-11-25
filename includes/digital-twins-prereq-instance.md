@@ -6,11 +6,11 @@ ms.topic: include
 ms.date: 10/29/2020
 ms.author: baanders
 ms.openlocfilehash: f56cc5b028f07964236fc42a1ca468aa28aae440
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358083"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011284"
 ---
 Aby można było korzystać z usługi Azure Digital bliźniaczych reprezentacji w tym artykule, należy najpierw skonfigurować wystąpienie usługi Azure Digital bliźniaczych reprezentacji i wymagane uprawnienia do korzystania z niego. Jeśli masz już skonfigurowane wystąpienie usługi Azure Digital bliźniaczych reprezentacji na podstawie poprzedniej pracy, możesz użyć tego wystąpienia.
 

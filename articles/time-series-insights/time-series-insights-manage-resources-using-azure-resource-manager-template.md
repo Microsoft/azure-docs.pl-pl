@@ -11,19 +11,19 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: ee4d3957403e169d41fb9e3befa0d62e4b0d9075
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 493750e69b1fdc935b04d6dc705cfd046b6b086e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597856"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96011663"
 ---
 # <a name="create-azure-time-series-insights-gen-1-resources-using-azure-resource-manager-templates"></a>Tworzenie Azure Time Series Insights zasobów generacji 1 przy użyciu szablonów Azure Resource Manager
 
 > [!CAUTION]
 > To jest artykuł Gen1.
 
-W tym artykule opisano sposób tworzenia i wdrażania zasobów Azure Time Series Insights przy użyciu [szablonów Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/), programu PowerShell i dostawcy zasobów Azure Time Series Insights.
+W tym artykule opisano sposób tworzenia i wdrażania zasobów Azure Time Series Insights przy użyciu [szablonów Azure Resource Manager](../azure-resource-manager/index.yml), programu PowerShell i dostawcy zasobów Azure Time Series Insights.
 
 Azure Time Series Insights obsługuje następujące zasoby:
 
@@ -32,7 +32,7 @@ Azure Time Series Insights obsługuje następujące zasoby:
    | Środowisko | Środowisko Azure Time Series Insights jest logicznym grupą zdarzeń odczytywanych z brokerów zdarzeń, przechowywanych i udostępnionych dla zapytań. Aby uzyskać więcej informacji, przeczytaj temat [Planowanie środowiska Azure Time Series Insightsowego](time-series-insights-environment-planning.md) |
    | Źródło zdarzeń | Źródłem zdarzenia jest połączenie z brokerem zdarzeń, z którego Azure Time Series Insights odczytuje i pobiera zdarzenia do środowiska. Obecnie obsługiwane źródła zdarzeń to IoT Hub i centrum zdarzeń. |
    | Zestaw danych referencyjnych | Zestawy danych referencyjnych zapewniają metadane dotyczące zdarzeń w środowisku. Metadane w zestawach danych referencyjnych zostaną dołączone do zdarzeń w czasie wykonywania operacji we/wychodzącym. Zestawy danych referencyjnych są definiowane jako zasoby według ich właściwości klucza zdarzenia. Rzeczywiste metadane, które tworzą zestaw danych referencyjnych, są przekazywane lub modyfikowane za pomocą interfejsów API płaszczyzny danych. |
-   | Zasady dostępu | Zasady dostępu udzielają uprawnień do wydawania zapytań dotyczących danych, manipulowania danymi referencyjnymi w środowisku oraz udostępniania zapisanych zapytań i perspektyw skojarzonych ze środowiskiem. Aby uzyskać więcej informacji, przeczytaj temat [udzielanie dostępu do danych do środowiska Azure Time Series Insights przy użyciu Azure Portal](time-series-insights-data-access.md) |
+   | Zasady dostępu | Zasady dostępu udzielają uprawnień do wydawania zapytań dotyczących danych, manipulowania danymi referencyjnymi w środowisku oraz udostępniania zapisanych zapytań i perspektyw skojarzonych ze środowiskiem. Aby uzyskać więcej informacji, przeczytaj temat [udzielanie dostępu do danych do środowiska Azure Time Series Insights przy użyciu Azure Portal](./concepts-access-policies.md) |
 
 Szablon Menedżer zasobów to plik JSON, który definiuje infrastrukturę i konfigurację zasobów w grupie zasobów. Poniższe dokumenty opisują pliki szablonów bardziej szczegółowo:
 
@@ -48,7 +48,7 @@ Szablon [201-timeseriesinsights-Environment-with-eventhub](https://github.com/Az
 
 Poniższa procedura opisuje sposób użycia programu PowerShell do wdrożenia szablonu Azure Resource Manager, który tworzy środowisko Azure Time Series Insights, podrzędne źródło zdarzeń skonfigurowane do korzystania z zdarzeń z centrum zdarzeń i dostępu do danych środowiska. Jeśli nie określono istniejącego centrum zdarzeń, zostanie ono utworzone przy użyciu wdrożenia.
 
-1. Zainstaluj Azure PowerShell, postępując zgodnie z instrukcjami w temacie Rozpoczynanie [pracy z Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+1. Zainstaluj Azure PowerShell, postępując zgodnie z instrukcjami w temacie Rozpoczynanie [pracy z Azure PowerShell](/powershell/azure/get-started-azureps).
 
 1. Sklonuj lub Skopiuj szablon [201-timeseriesinsights-Environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) z usługi GitHub.
 
@@ -127,7 +127,7 @@ Poniższa procedura opisuje sposób użycia programu PowerShell do wdrożenia sz
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>Wdrażanie szablonu szybkiego startu przy użyciu programu PowerShell
 
 > [!IMPORTANT]
-> Poniższe operacje wiersza polecenia opisują [AZ PowerShell module](https://docs.microsoft.com/powershell/azure/).
+> Poniższe operacje wiersza polecenia opisują [AZ PowerShell module](/powershell/azure/).
 
 1. W programie PowerShell Zaloguj się do konta platformy Azure.
 
@@ -197,7 +197,7 @@ Poniższa procedura opisuje sposób użycia programu PowerShell do wdrożenia sz
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
       ```
 
-    - Aby uruchomić [kompletne](../azure-resource-manager/templates/deployment-modes.md) wdrożenie **, należy ustawić**parametr **mode** na:
+    - Aby uruchomić [kompletne](../azure-resource-manager/templates/deployment-modes.md) wdrożenie **, należy ustawić** parametr **mode** na:
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
@@ -255,4 +255,4 @@ Poniższa procedura opisuje sposób użycia programu PowerShell do wdrożenia sz
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać informacje na temat programistycznego zarządzania zasobami Azure Time Series Insights przy użyciu interfejsów API REST, Odczytaj [Azure Time Series Insights zarządzania](https://docs.microsoft.com/rest/api/time-series-insights-management/).
+- Aby uzyskać informacje na temat programistycznego zarządzania zasobami Azure Time Series Insights przy użyciu interfejsów API REST, Odczytaj [Azure Time Series Insights zarządzania](/rest/api/time-series-insights-management/).

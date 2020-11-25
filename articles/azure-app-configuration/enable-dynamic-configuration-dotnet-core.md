@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
 ms.openlocfilehash: aebe7772c673162d60f35d6a81725ba1452d16a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88207073"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012360"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Samouczek: używanie konfiguracji dynamicznej w aplikacji .NET Core
 
@@ -32,7 +32,7 @@ W tym samouczku pokazano, jak zaimplementować dynamiczne aktualizacje konfigura
 
 Aby wykonać kroki opisane w tym samouczku, można użyć dowolnego edytora kodu. [Visual Studio Code](https://code.visualstudio.com/) jest doskonałym rozwiązaniem dostępnym na platformach Windows, MacOS i Linux.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Skonfiguruj aplikację platformy .NET Core w celu zaktualizowania jej konfiguracji w odpowiedzi na zmiany w magazynie konfiguracji aplikacji.
@@ -99,7 +99,7 @@ Ta `ConfigureRefresh` Metoda służy do określania ustawień służących do ak
 
 ## <a name="build-and-run-the-app-locally"></a>Lokalne kompilowanie i uruchamianie aplikacji
 
-1. Ustaw zmienną środowiskową o nazwie **ConnectionString**i ustaw ją na klucz dostępu do magazynu konfiguracji aplikacji. Jeśli używasz wiersza polecenia systemu Windows, uruchom następujące polecenie i ponownie uruchom wiersz polecenia, aby zezwolić na wprowadzenie zmiany:
+1. Ustaw zmienną środowiskową o nazwie **ConnectionString** i ustaw ją na klucz dostępu do magazynu konfiguracji aplikacji. Jeśli używasz wiersza polecenia systemu Windows, uruchom następujące polecenie i ponownie uruchom wiersz polecenia, aby zezwolić na wprowadzenie zmiany:
 
     ```console
      setx ConnectionString "connection-string-of-your-app-configuration-store"
@@ -133,7 +133,7 @@ Ta `ConfigureRefresh` Metoda służy do określania ustawień służących do ak
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **wszystkie zasoby**, a następnie wybierz wystąpienie magazynu konfiguracji aplikacji utworzone w ramach przewodnika Szybki Start.
 
-1. Wybierz pozycję **Eksplorator konfiguracji**i zaktualizuj wartości następujących kluczy:
+1. Wybierz pozycję **Eksplorator konfiguracji** i zaktualizuj wartości następujących kluczy:
 
     | Klucz | Wartość |
     |---|---|

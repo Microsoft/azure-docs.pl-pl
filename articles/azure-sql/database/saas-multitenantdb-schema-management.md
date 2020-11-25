@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: d222234cd6ff3d910e6dbc51a394695ce467edce
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793300"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011862"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-databases"></a>Zarządzanie schematem w aplikacji SaaS, która używa baz danych z wieloma dzierżawcami podzielonej na fragmenty
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -75,8 +75,8 @@ Wingtip bilety SaaS wielodostępnych skryptów bazy danych i kodu źródłowego 
 
 Ten samouczek wymaga użycia programu PowerShell do utworzenia bazy danych i agenta zadań agenta zadań. Podobnie jak w przypadku bazy danych MSDB używanej przez program SQL Agent, Agent zadań korzysta z bazy danych w Azure SQL Database do przechowywania definicji zadań, stanu zadania i historii. Po utworzeniu agenta zadań można natychmiast utworzyć i monitorować zadania.
 
-1. W programie **POWERSHELL ISE** Otwórz *... \\ \\ \\Demo-SchemaManagement.ps1zarządzania schematami modułów szkoleniowych* .
-2. Naciśnij klawisz **F5** , aby uruchomić skrypt.
+1. W programie **POWERSHELL ISE** Otwórz *... \\ \\ \\Demo-SchemaManagement.ps1zarządzania schematami modułów szkoleniowych*.
+2. Naciśnij klawisz **F5**, aby uruchomić skrypt.
 
 Skrypt *Demo-SchemaManagement.ps1* wywołuje skrypt *Deploy-SchemaManagement.ps1* , aby utworzyć bazę danych o nazwie _jobagent_ na serwerze wykazu. Następnie skrypt tworzy agenta zadania, przekazując bazę danych _jobagent_ jako parametr.
 
@@ -84,7 +84,7 @@ Skrypt *Demo-SchemaManagement.ps1* wywołuje skrypt *Deploy-SchemaManagement.ps1
 
 #### <a name="prepare"></a>Przygotowywanie
 
-Baza danych każdej dzierżawy zawiera zestaw typów miejsc w tabeli **VenueTypes** . Każdy typ miejsca określa rodzaj zdarzeń, które mogą być hostowane w miejscu. Te typy miejsc odpowiadają obrazom tła widocznym w aplikacji zdarzenia dzierżawców.  W tym ćwiczeniu wdrażasz aktualizację do wszystkich baz danych, aby dodać dwa dodatkowe typy miejsc: *wyścigi motocykla* i *Trefl* .
+Baza danych każdej dzierżawy zawiera zestaw typów miejsc w tabeli **VenueTypes** . Każdy typ miejsca określa rodzaj zdarzeń, które mogą być hostowane w miejscu. Te typy miejsc odpowiadają obrazom tła widocznym w aplikacji zdarzenia dzierżawców.  W tym ćwiczeniu wdrażasz aktualizację do wszystkich baz danych, aby dodać dwa dodatkowe typy miejsc: *wyścigi motocykla* i *Trefl*.
 
 Najpierw przejrzyj typy miejsc zawarte w każdej bazie danych dzierżawcy. Połącz się z jedną z baz danych dzierżaw w SQL Server Management Studio (SSMS) i sprawdź tabelę VenueTypes.  Możesz również zbadać tę tabelę w edytorze zapytań w Azure Portal dostępnym ze strony baza danych.
 
@@ -105,15 +105,15 @@ Aby utworzyć nowe zadanie, należy użyć zestawu zadań procedury składowane,
 
 3. Zbadaj tabelę *VenueTypes* , aby upewnić się *, że na* liście wyników nie ma jeszcze *klubu i trefl* .
 
-4. Połącz się z serwerem wykazu, który jest *katalogiem-MT- &lt; user &gt; . Database.Windows.NET* .
+4. Połącz się z serwerem wykazu, który jest *katalogiem-MT- &lt; user &gt; . Database.Windows.NET*.
 
 5. Nawiąż połączenie z bazą danych _jobagent_ na serwerze wykazu.
 
-6. W programie SSMS Otwórz plik *... \\ Moduły uczenia \\ zarządzania schematami \\ DeployReferenceData. SQL* .
+6. W programie SSMS Otwórz plik *... \\ Moduły uczenia \\ zarządzania schematami \\ DeployReferenceData. SQL*.
 
 7. Zmodyfikuj instrukcję: set @User = &lt; User i Zastąp &gt; wartość użytkownika używaną podczas wdrażania wielodostępnej aplikacji bazy danych SaaS biletów Wingtip.
 
-8. Naciśnij klawisz **F5** , aby uruchomić skrypt.
+8. Naciśnij klawisz **F5**, aby uruchomić skrypt.
 
 #### <a name="observe"></a>Obserwacj
 
@@ -125,10 +125,10 @@ Obserwuj następujące elementy w skrypcie *DeployReferenceData. SQL* :
     - Typ elementu członkowskiego *serwera* docelowego.
         - Jest to serwer *tenants1-MT- &lt; User &gt;* , który zawiera bazy danych dzierżawców.
         - Uwzględnienie serwera obejmuje bazy danych dzierżawy, które istnieją w czasie wykonywania zadania.
-    - Docelowy typ elementu członkowskiego *bazy danych* dla bazy danych szablonów ( *basetenantdb* ), który znajduje się w *katalogu-MT- &lt; User &gt;* Server,
+    - Docelowy typ elementu członkowskiego *bazy danych* dla bazy danych szablonów (*basetenantdb*), który znajduje się w *katalogu-MT- &lt; User &gt;* Server,
     - Docelowy typ elementu członkowskiego *bazy danych* do uwzględnienia bazy danych *adhocreporting* , która jest używana w późniejszym samouczku.
 
-- **SP \_ Add \_ Job** tworzy zadanie o nazwie *wdrożenie danych referencyjnych* .
+- **SP \_ Add \_ Job** tworzy zadanie o nazwie *wdrożenie danych referencyjnych*.
 
 - **SP \_ Add \_ JobStep** tworzy krok zadania zawierający tekst polecenia T-SQL w celu zaktualizowania tabeli referencyjnej, VenueTypes.
 
@@ -142,15 +142,15 @@ To ćwiczenie tworzy zadanie w celu odbudowania indeksu klucza podstawowego tabe
 
 1. W programie SSMS Nawiąż połączenie z bazą danych _jobagent_ w *katalogu-MT- &lt; User &gt; . Database.Windows.NET* .
 
-2. W programie SSMS Otwórz pozycję *... \\ Moduły uczenia \\ zarządzania schematami \\ OnlineReindex. SQL* .
+2. W programie SSMS Otwórz pozycję *... \\ Moduły uczenia \\ zarządzania schematami \\ OnlineReindex. SQL*.
 
-3. Naciśnij klawisz **F5** , aby uruchomić skrypt.
+3. Naciśnij klawisz **F5**, aby uruchomić skrypt.
 
 #### <a name="observe"></a>Obserwacj
 
 Obserwuj następujące elementy w skrypcie *OnlineReindex. SQL* :
 
-* **SP \_ Add \_ Job** tworzy nowe zadanie o nazwie *online reindex PK \_ \_ VenueTyp \_ \_ 265E44FD7FD4C885* .
+* **SP \_ Add \_ Job** tworzy nowe zadanie o nazwie *online reindex PK \_ \_ VenueTyp \_ \_ 265E44FD7FD4C885*.
 
 * **SP \_ Add \_ JobStep** tworzy krok zadania zawierający tekst polecenia T-SQL w celu zaktualizowania indeksu.
 

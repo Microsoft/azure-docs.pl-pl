@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: e5cc5b557aa4dff793f7e87093eeb65028da4f8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839796"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010949"
 ---
 # <a name="how-to-reprovision-devices"></a>Jak ponownie zainicjować obsługę urządzeń
 
@@ -39,7 +39,7 @@ Poniższe kroki konfigurują zasady alokacji na potrzeby rejestracji urządzenia
 
 2. Kliknij pozycję **Zarządzaj rejestracjami**, a następnie kliknij grupę rejestracji lub rejestrację indywidualną, którą chcesz skonfigurować do ponownego aprowizacji. 
 
-3. W obszarze **Wybierz sposób przypisywania urządzeń do centrów**wybierz jedną z następujących zasad alokacji:
+3. W obszarze **Wybierz sposób przypisywania urządzeń do centrów** wybierz jedną z następujących zasad alokacji:
 
     * **Najniższe opóźnienie**: te zasady przypisuje urządzenia do połączonej IoT Hub, co spowoduje, że komunikacja między urządzeniem i IoT Hub jest najmniejsza. Ta opcja umożliwia urządzeniu komunikację z najbliższym centrum IoT Hub w oparciu o lokalizację. 
     
@@ -55,7 +55,7 @@ Poniższe kroki konfigurują zasady alokacji na potrzeby rejestracji urządzenia
 
     Za pomocą zasad **statycznej alokacji konfiguracji** wybierz Centrum IoT, do którego chcesz przypisać urządzenia.
 
-4. Kliknij przycisk **Zapisz**lub przejdź do następnej sekcji, aby ustawić zasady ponownego inicjowania obsługi administracyjnej.
+4. Kliknij przycisk **Zapisz** lub przejdź do następnej sekcji, aby ustawić zasady ponownego inicjowania obsługi administracyjnej.
 
     ![Wybieranie zasad alokacji rejestracji](./media/how-to-reprovision/enrollment-allocation-policy.png)
 

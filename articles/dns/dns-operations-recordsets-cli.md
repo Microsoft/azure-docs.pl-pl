@@ -11,18 +11,18 @@ ms.workload: infrastructure-services
 ms.date: 05/15/2018
 ms.author: rohink
 ms.openlocfilehash: 2d3989b3c477a35d602f1ccf3e45d6f597f5d78d
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737386"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011573"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli"></a>Zarządzanie rekordami i zestawami nazw DNS w Azure DNS przy użyciu interfejsu wiersza polecenia platformy Azure
 
 > [!div class="op_single_selector"]
 > * [Witryna Azure Portal](dns-operations-recordsets-portal.md)
 > * [Interfejs wiersza polecenia platformy Azure](dns-operations-recordsets-cli.md)
-> * [PowerShell](dns-operations-recordsets.md)
+> * [Program PowerShell](dns-operations-recordsets.md)
 
 W tym artykule pokazano, jak zarządzać rekordami DNS dla strefy DNS przy użyciu międzyplatformowego interfejsu wiersza polecenia platformy Azure, który jest dostępny dla systemów Windows, Mac i Linux. Rekordy DNS można także zarządzać za pomocą [Azure PowerShell](dns-operations-recordsets.md) lub [Azure Portal](dns-operations-recordsets-portal.md).
 
@@ -46,7 +46,7 @@ Jeśli zestaw rekordów jeszcze nie istnieje, to polecenie utworzy go dla Ciebie
 
 Jeśli jest tworzony nowy rekord, używany jest domyślny czas wygaśnięcia wynoszący 3600. Aby uzyskać instrukcje dotyczące używania różnych TTLs, zobacz [Tworzenie zestawu rekordów DNS](#create-a-dns-record-set).
 
-Poniższy przykład tworzy rekord A o nazwie *www* w strefie *contoso.com* w grupie zasobów *MyResourceGroup* . Adres IP rekordu A to *1.2.3.4* .
+Poniższy przykład tworzy rekord A o nazwie *www* w strefie *contoso.com* w grupie zasobów *MyResourceGroup*. Adres IP rekordu A to *1.2.3.4*.
 
 ```azurecli
 az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
@@ -60,7 +60,7 @@ az network dns record-set a add-record --resource-group myresourcegroup --zone-n
 
 ## <a name="create-a-dns-record-set"></a>Tworzenie zestawu rekordów DNS
 
-W powyższych przykładach rekord DNS został dodany do istniejącego zestawu rekordów lub zestaw rekordów został utworzony *niejawnie* . Możesz również utworzyć zestaw rekordów *jawnie* przed dodaniem do niego rekordów. Azure DNS obsługuje zestawy rekordów "Empty", które mogą działać jako symbol zastępczy w celu zarezerwowania nazwy DNS przed utworzeniem rekordów DNS. Puste zestawy rekordów są widoczne na płaszczyźnie kontroli Azure DNS, ale nie są wyświetlane na serwerach nazw Azure DNS.
+W powyższych przykładach rekord DNS został dodany do istniejącego zestawu rekordów lub zestaw rekordów został utworzony *niejawnie*. Możesz również utworzyć zestaw rekordów *jawnie* przed dodaniem do niego rekordów. Azure DNS obsługuje zestawy rekordów "Empty", które mogą działać jako symbol zastępczy w celu zarezerwowania nazwy DNS przed utworzeniem rekordów DNS. Puste zestawy rekordów są widoczne na płaszczyźnie kontroli Azure DNS, ale nie są wyświetlane na serwerach nazw Azure DNS.
 
 Zestawy rekordów są tworzone za pomocą `az network dns record-set <record-type> create` polecenia. Aby uzyskać pomoc, zobacz `az network dns record-set <record-type> create --help`.
 
@@ -167,7 +167,7 @@ az network dns record-set a show --resource-group myresourcegroup --zone-name co
 
 Wszystkie rekordy w strefie DNS można wyświetlić za pomocą `az network dns record-set list` polecenia. Aby uzyskać pomoc, zobacz `az network dns record-set list --help`.
 
-Ten przykład zwraca wszystkie zestawy rekordów w strefie *contoso.com* , *w grupie zasobów Grupa zasobu,* niezależnie od nazwy lub typu rekordu:
+Ten przykład zwraca wszystkie zestawy rekordów w strefie *contoso.com*, *w grupie zasobów Grupa zasobu,* niezależnie od nazwy lub typu rekordu:
 
 ```azurecli
 az network dns record-set list --resource-group myresourcegroup --zone-name contoso.com
@@ -193,7 +193,7 @@ To polecenie usuwa rekord DNS z zestawu rekordów. W przypadku usunięcia ostatn
 
 Należy określić rekord, który ma zostać usunięty, oraz strefę, z której należy ją usunąć, przy użyciu tych samych parametrów co podczas tworzenia rekordu przy użyciu `az network dns record-set <record-type> add-record` . Te parametry są opisane w artykule [Tworzenie rekordu DNS](#create-a-dns-record) i [tworzenie rekordów innych typów](#create-records-of-other-types) powyżej.
 
-Poniższy przykład usuwa rekord A o wartości "1.2.3.4" z zestawu rekordów o nazwie *www* w strefie *contoso.com* , *w grupie zasobów Grupa zasobu.*
+Poniższy przykład usuwa rekord A o wartości "1.2.3.4" z zestawu rekordów o nazwie *www* w strefie *contoso.com*, *w grupie zasobów Grupa zasobu.*
 
 ```azurecli
 az network dns record-set a remove-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "www" --ipv4-address 1.2.3.4
@@ -222,7 +222,7 @@ W przeciwieństwie do większości innych typów rekordów, zestaw rekordów CNA
 
 Zamiast tego, aby zmodyfikować rekord CNAME, użyj polecenia `az network dns record-set cname set-record` . Aby uzyskać pomoc, zobacz `az network dns record-set cname set-record --help`
 
-Przykład modyfikuje zestaw rekordów CNAME *www* w strefie *contoso.com* , *w grupie zasobów zasobu,* do punktu "www.fabrikam.NET" zamiast istniejącej wartości:
+Przykład modyfikuje zestaw rekordów CNAME *www* w strefie *contoso.com*, *w grupie zasobów zasobu,* do punktu "www.fabrikam.NET" zamiast istniejącej wartości:
 
 ```azurecli
 az network dns record-set cname set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-cname --cname www.fabrikam.net
@@ -234,7 +234,7 @@ W przeciwieństwie do większości innych typów rekordów, zestaw rekordów CNA
 
 Zamiast tego, aby zmodyfikować rekord SOA, użyj polecenia `az network dns record-set soa update` . Aby uzyskać pomoc, zobacz `az network dns record-set soa update --help`.
 
-W poniższym przykładzie pokazano, jak ustawić właściwość "email" rekordu SOA dla strefy *contoso.com* *w grupie zasobów* :
+W poniższym przykładzie pokazano, jak ustawić właściwość "email" rekordu SOA dla strefy *contoso.com* *w grupie zasobów*:
 
 ```azurecli
 az network dns record-set soa update --resource-group myresourcegroup --zone-name contoso.com --email admin.contoso.com

@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 04/22/2020
 ms.author: apimpm
 ms.openlocfilehash: 81ded79ee72fb7c2d89898595602cb3e6d7ae5e2
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146981"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011068"
 ---
 # <a name="import-soap-api"></a>Importowanie interfejsu API protokołu SOAP
 
@@ -39,7 +39,7 @@ Wykonaj procedury przedstawione w następującym przewodniku Szybki start: [Twor
 ## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importowanie i publikowanie interfejsu API zaplecza
 
 1. Przejdź do usługi API Management w Azure Portal i wybierz opcję **interfejsy API** z menu.
-2. Wybierz pozycję **WSDL** z listy **Dodaj nowy interfejs API** .
+2. Wybierz pozycję **WSDL** z listy **Dodaj nowy interfejs API**.
 
     ![interfejs api protokołu soap](./media/import-soap-api/wsdl-api.png)
 3. W obszarze **Specyfikacja WSDL** wprowadź adres URL, pod którym znajduje się Twój interfejs API protokołu SOAP.
@@ -50,7 +50,7 @@ Wykonaj procedury przedstawione w następującym przewodniku Szybki start: [Twor
 
     Następujące pola są wypełniane przy użyciu informacji z interfejsu API protokołu SOAP: Nazwa wyświetlana, Nazwa, Opis.
 6. Dodaj sufiks adresu URL interfejsu API. Sufiks to nazwa, która identyfikuje dany interfejs API w tym wystąpieniu usługi API Management. Musi być unikatowa w tym wystąpieniu API Management.
-7. Opublikuj interfejs API przez skojarzenie go z produktem. W takim przypadku jest używany produkt typu „ *Nieograniczony* ”.  Jeśli chcesz, aby interfejs API został opublikowany i był dostępny dla deweloperów, dodaj go do produktu. Możesz to zrobić podczas tworzenia interfejsu API lub ustawić tę opcję później.
+7. Opublikuj interfejs API przez skojarzenie go z produktem. W takim przypadku jest używany produkt typu „*Nieograniczony*”.  Jeśli chcesz, aby interfejs API został opublikowany i był dostępny dla deweloperów, dodaj go do produktu. Możesz to zrobić podczas tworzenia interfejsu API lub ustawić tę opcję później.
 
     Produkty to skojarzenia co najmniej jednego interfejsu API. Możesz uwzględnić wiele interfejsów API i zaoferować je deweloperom za pośrednictwem portalu deweloperów. Przed uzyskaniem dostępu do interfejsu API deweloperzy muszą najpierw zasubskrybować produkt. Podczas subskrybowania otrzymują oni klucz subskrypcji działający dla każdego interfejsu API w tym produkcie. Jeśli utworzono wystąpienie API Management, jesteś administratorem, więc domyślnie subskrybujesz każdy produkt.
 
@@ -59,18 +59,18 @@ Wykonaj procedury przedstawione w następującym przewodniku Szybki start: [Twor
     * **Starter (początkowy)**
     * **Nieograniczona liczba**   
 8. Wprowadź inne ustawienia interfejsu API. Możesz ustawić wartości podczas tworzenia lub skonfigurować je później, przechodząc do karty **Ustawienia** . Ustawienia są wyjaśnione w samouczku [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md#import-and-publish-a-backend-api) .
-9. Wybierz pozycję **Utwórz** .
+9. Wybierz pozycję **Utwórz**.
 
 ### <a name="test-the-new-api-in-the-administrative-portal"></a>Testowanie nowego interfejsu API w portalu administracyjnym
 
 Operacje mogą być wywoływane bezpośrednio z portalu administracyjnego, który zapewnia wygodny sposób wyświetlania i testowania operacji interfejsu API.  
 
 1. Wybierz interfejs API utworzony w poprzednim kroku.
-2. Naciśnij kartę **Test** .
+2. Naciśnij kartę **Test**.
 3. Wybierz operację.
 
     Na stronie zostaną wyświetlone pola parametrów zapytania i pola nagłówków. Jeden z nagłówków to „Ocp-Apim-Subscription-Key” dla klucza subskrypcji produktu, który został skojarzony z tym interfejsem API. Jeśli utworzono wystąpienie API Management, oznacza to, że już jesteś administratorem, więc klucz zostanie uzupełniony automatycznie. 
-1. Kliknij pozycję **Wyślij** .
+1. Kliknij pozycję **Wyślij**.
 
     Zaplecze odpowiada wartością **200 OK** i pewnymi danymi.
 

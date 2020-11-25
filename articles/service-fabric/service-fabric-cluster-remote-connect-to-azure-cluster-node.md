@@ -4,11 +4,11 @@ description: Dowiedz się, jak zdalnie połączyć się z wystąpieniem zestawu 
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.openlocfilehash: 98d573af4fc2026134e75d4caf24a09e57e52c87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268098"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012548"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Połączenie zdalne z wystąpieniem zestawu skalowania maszyn wirtualnych lub węzłem klastra
 W klastrze Service Fabric działającym na platformie Azure każdy zdefiniowany typ węzła klastra [konfiguruje maszynę wirtualną w osobnym skalowaniu](service-fabric-cluster-nodetypes.md).  Można połączyć się zdalnie z określonymi wystąpieniami zestawu skalowania (węzły klastra).  W przeciwieństwie do maszyn wirtualnych z pojedynczym wystąpieniem, wystąpienia zestawu skalowania nie mają własnych wirtualnych adresów IP. Może to być trudne, gdy szukasz adresu IP i portu, których można użyć do zdalnego łączenia się z konkretnym wystąpieniem.

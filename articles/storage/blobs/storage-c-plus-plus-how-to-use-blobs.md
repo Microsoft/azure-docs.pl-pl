@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: 332d6da35af0eaae9d9d15258a152734f0a9eba6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64069292ea0059216d06bfc41316c2aed7484dd0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88033635"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011102"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Jak używać usługi BLOB Storage w języku C++
 
@@ -51,7 +51,7 @@ Dodaj następujące instrukcje include na początku pliku języka C++, w którym
 ```
 
 ## <a name="setup-an-azure-storage-connection-string"></a>Konfigurowanie parametrów połączenia usługi Azure Storage
-W kliencie usługi Azure Storage punkty końcowe i poświadczenia wymagane do uzyskania dostępu do usług zarządzania danymi są przechowywane w parametrach połączenia magazynu. W przypadku uruchamiania w aplikacji klienckiej należy podać parametry połączenia magazynu w następującym formacie, używając nazwy konta magazynu i klucza dostępu do magazynu dla konta magazynu wymienionego w [Azure Portal](https://portal.azure.com) wartości *AccountName* i *AccountKey* . Aby uzyskać informacje na temat kont magazynu i kluczy dostępu, zobacz [Informacje o kontach usługi Azure Storage](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). W tym przykładzie pokazano, jak można zadeklarować pole statyczne w celu przechowywania parametrów połączenia:
+W kliencie usługi Azure Storage punkty końcowe i poświadczenia wymagane do uzyskania dostępu do usług zarządzania danymi są przechowywane w parametrach połączenia magazynu. W przypadku uruchamiania w aplikacji klienckiej należy podać parametry połączenia magazynu w następującym formacie, używając nazwy konta magazynu i klucza dostępu do magazynu dla konta magazynu wymienionego w [Azure Portal](https://portal.azure.com) wartości *AccountName* i *AccountKey* . Aby uzyskać informacje na temat kont magazynu i kluczy dostępu, zobacz [Informacje o kontach usługi Azure Storage](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). W tym przykładzie pokazano, jak można zadeklarować pole statyczne w celu przechowywania parametrów połączenia:
 
 ```cpp
 // Define the connection-string with your values.
@@ -184,7 +184,7 @@ for (auto it = container.list_blobs(); it != end_of_results; ++it)
 }
 ```
 
-Aby uzyskać więcej informacji o operacjach związanych z wyświetlaniem, zobacz [Lista zasobów usługi Azure Storage w języku C++](../storage-c-plus-plus-enumeration.md).
+Aby uzyskać więcej informacji o operacjach związanych z wyświetlaniem, zobacz [Lista zasobów usługi Azure Storage w języku C++](../common/storage-c-plus-plus-enumeration.md).
 
 ## <a name="how-to-download-blobs"></a>Instrukcje: pobieranie obiektów BLOB
 Aby pobrać obiekty blob, najpierw Pobierz odwołanie do obiektu BLOB, a następnie Wywołaj metodę **download_to_stream** . W poniższym przykładzie zastosowano metodę **download_to_stream** , aby przesłać zawartość obiektu BLOB do obiektu strumienia, który można następnie zachować do pliku lokalnego.
@@ -257,10 +257,9 @@ blockBlob.delete_blob();
 ## <a name="next-steps"></a>Następne kroki
 Teraz, gdy znasz już podstawy usługi BLOB Storage, Skorzystaj z poniższych linków, aby dowiedzieć się więcej o usłudze Azure Storage.
 
-- [Jak używać usługi Queue Storage z poziomu języka C++](../storage-c-plus-plus-how-to-use-queues.md)
+- [Jak używać usługi Queue Storage z poziomu języka C++](../queues/storage-c-plus-plus-how-to-use-queues.md)
 - [Jak używać Table Storage z C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-- [Wyświetlanie listy zasobów usługi Azure Storage w języku C++](../storage-c-plus-plus-enumeration.md)
+- [Wyświetlanie listy zasobów usługi Azure Storage w języku C++](../common/storage-c-plus-plus-enumeration.md)
 - [Dokumentacja biblioteki klienta usługi Storage dla języka C++](https://azure.github.io/azure-storage-cpp)
 - [Dokumentacja usługi Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
-- [Transferowanie danych za pomocą narzędzia wiersza polecenia AzCopy](../storage-use-azcopy.md)
-
+- [Transferowanie danych za pomocą narzędzia wiersza polecenia AzCopy](../common/storage-use-azcopy-v10.md)

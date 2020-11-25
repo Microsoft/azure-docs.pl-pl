@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,11 +9,11 @@ ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 1643b20c6c157c43e93967cef364e703dbf4478e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74828973"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010827"
 ---
 |**<br>Generowanie bramy sieci VPN <br>** |**SKU**   | **Połączenia typu lokacja-lokacja/Połączenia między sieciami wirtualnymi<br>Tunele** | **Połączenia typu punkt-lokacja<br> Połączenia SSTP** | **P2S <br> połączenia IKEv2/OpenVPN** | **Test porównawczy<br>agregowanej przepływności** | **BGP** | **Strefa nadmiarowa** |
 |---            |---         | ---        | ---       | ---            | ---       | ---       | ---|

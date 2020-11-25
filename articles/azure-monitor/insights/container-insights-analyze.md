@@ -4,11 +4,11 @@ description: W tym artykule opisano sposób wyświetlania i analizowania wydajno
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.openlocfilehash: de61e8e5b2716a3ca212a0a830a4d48b8bd2c3ef
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92368761"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011085"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorowanie wydajności klastra Kubernetes za pomocą Azure Monitor dla kontenerów
 
@@ -72,17 +72,17 @@ W poniższej tabeli przedstawiono podział obliczeń kontrolujących Stany kondy
 | |Dobra kondycja |100% |
 | |Ostrzeżenie |90 – 99% |
 | |Krytyczne |<90% |
-| |Nieznane |Jeśli nie zgłoszono w ciągu ostatnich 30 minut |
+| |Nieznany |Jeśli nie zgłoszono w ciągu ostatnich 30 minut |
 |**System pod**| | |
 | |Dobra kondycja |100% |
 | |Ostrzeżenie |Nie dotyczy |
 | |Krytyczne |<100% |
-| |Nieznane |Jeśli nie zgłoszono w ciągu ostatnich 30 minut |
+| |Nieznany |Jeśli nie zgłoszono w ciągu ostatnich 30 minut |
 |**Węzeł** | | |
 | |Dobra kondycja |>85% |
 | |Ostrzeżenie |60 – 84% |
 | |Krytyczne |<60% |
-| |Nieznane |Jeśli nie zgłoszono w ciągu ostatnich 30 minut |
+| |Nieznany |Jeśli nie zgłoszono w ciągu ostatnich 30 minut |
 
 Z listy klastrów możesz przejść do szczegółów na stronie **klaster** , wybierając nazwę klastra. Następnie przejdź do strony wydajność **węzłów** , wybierając pakiet zbiorczy węzłów w kolumnie **węzły** dla danego klastra. Możesz też przejść do szczegółów na stronie wydajność **kontrolerów** , wybierając zestawienie z kolumną **zasobników użytkownika** lub **system** .
 
@@ -104,8 +104,8 @@ Zostanie otwarta strona domyślna i zostaną wyświetlone cztery liniowe wykresy
 
 Na wykresach wydajności są wyświetlane cztery metryki wydajności:
 
-- ** &nbsp; Użycie % procesora CPU przez węzeł**: zagregowana perspektywa użycia procesora CPU dla całego klastra. Aby przefiltrować wyniki dla zakresu czasu, wybierz opcję **średnie**, **minimum**, **pięćdziesiąt**, **90**, **używany 95.** lub **Max** w selektorze percentyly powyżej wykresu. Filtry mogą być używane pojedynczo lub łącznie.
-- ** &nbsp; Użycie % pamięci przez węzeł**: zagregowana perspektywa wykorzystania pamięci dla całego klastra. Aby przefiltrować wyniki dla zakresu czasu, wybierz opcję **średnie**, **minimum**, **pięćdziesiąt**, **90**, **używany 95.** lub **Max** w selektorze percentyly powyżej wykresu. Filtry mogą być używane pojedynczo lub łącznie.
+- **&nbsp; Użycie % procesora CPU przez węzeł**: zagregowana perspektywa użycia procesora CPU dla całego klastra. Aby przefiltrować wyniki dla zakresu czasu, wybierz opcję **średnie**, **minimum**, **pięćdziesiąt**, **90**, **używany 95.** lub **Max** w selektorze percentyly powyżej wykresu. Filtry mogą być używane pojedynczo lub łącznie.
+- **&nbsp; Użycie % pamięci przez węzeł**: zagregowana perspektywa wykorzystania pamięci dla całego klastra. Aby przefiltrować wyniki dla zakresu czasu, wybierz opcję **średnie**, **minimum**, **pięćdziesiąt**, **90**, **używany 95.** lub **Max** w selektorze percentyly powyżej wykresu. Filtry mogą być używane pojedynczo lub łącznie.
 - **Liczba węzłów**: liczba węzłów i stan z Kubernetes. Stanem reprezentowanego węzła klastra są łącznie, gotowe i niegotowe. Można je filtrować pojedynczo lub łączyć w selektorze powyżej wykresu.
 - **Liczba aktywnych pod**: liczba i stan z Kubernetes. Stany reprezentowanego obszaru są całkowite, oczekujące, uruchomione, nieznane, zakończone powodzeniem lub niepowodzeniem. Można je filtrować pojedynczo lub łączyć w selektorze powyżej wykresu.
 
@@ -117,7 +117,7 @@ Azure Monitor for Containers obsługują również [Eksploratora metryk](../plat
 
 W Eksploratorze metryk można wyświetlić zagregowane metryki dotyczące węzła i użycia z Azure Monitor dla kontenerów. W poniższej tabeli zestawiono szczegółowe informacje ułatwiające zrozumienie sposobu używania wykresów metryk do wizualizacji metryk kontenera.
 
-|Przestrzeń nazw | Metryka | Opis |
+|Przestrzeń nazw | Metric | Opis |
 |----------|--------|-------------|
 | Szczegółowe informacje. kontenery/węzły | |
 | | cpuUsageMillicores | Zagregowane pomiary użycia procesora CPU w klastrze. Jest to rdzeń procesora CPU podzielony na 1000 jednostek (Milli = 1000). Służy do określania użycia rdzeni w kontenerze, w którym wiele aplikacji może korzystać z jednego rdzenia.|
@@ -139,11 +139,11 @@ Można [podzielić](../platform/metrics-charts.md#apply-splitting-to-a-chart) me
 
 ## <a name="analyze-nodes-controllers-and-container-health"></a>Analizowanie węzłów, kontrolerów i kondycji kontenera
 
-Po przełączeniu do kart **węzły**, **Kontrolery**i **kontenery** okienko właściwości zostanie automatycznie wyświetlone po prawej stronie. Wyświetla właściwości wybranego elementu, w tym etykiety zdefiniowane do organizowania obiektów Kubernetes. Po wybraniu węzła systemu Linux w sekcji **pojemność dysku lokalnego** wyświetlana jest również ilość dostępnego miejsca na dysku oraz wartość procentowa użyta dla każdego dysku prezentowanego w węźle. Wybierz **>>** łącze w okienku, aby wyświetlić lub ukryć okienko.
+Po przełączeniu do kart **węzły**, **Kontrolery** i **kontenery** okienko właściwości zostanie automatycznie wyświetlone po prawej stronie. Wyświetla właściwości wybranego elementu, w tym etykiety zdefiniowane do organizowania obiektów Kubernetes. Po wybraniu węzła systemu Linux w sekcji **pojemność dysku lokalnego** wyświetlana jest również ilość dostępnego miejsca na dysku oraz wartość procentowa użyta dla każdego dysku prezentowanego w węźle. Wybierz **>>** łącze w okienku, aby wyświetlić lub ukryć okienko.
 
 Po rozwinięciu obiektów w hierarchii okienko właściwości jest aktualizowane w zależności od wybranego obiektu. W okienku można także wyświetlać dzienniki kontenerów Kubernetes (stdout/stderr), zdarzenia i metryki pod, wybierając link **Wyświetl dane na żywo (wersja zapoznawcza)** w górnej części okienka. Aby uzyskać więcej informacji na temat konfiguracji wymaganej do udzielenia i kontroli dostępu do wyświetlania tych danych, zobacz [Konfigurowanie danych na żywo (wersja zapoznawcza)](container-insights-livedata-setup.md). Podczas przeglądania zasobów klastra można zobaczyć te dane z kontenera w czasie rzeczywistym. Aby uzyskać więcej informacji na temat tej funkcji, zobacz [jak wyświetlać dzienniki Kubernetes, zdarzenia i metryki pod w czasie rzeczywistym](container-insights-livedata-overview.md). Aby wyświetlić dane dziennika Kubernetes przechowywane w obszarze roboczym w oparciu o wstępnie zdefiniowane przeszukiwania dzienników, wybierz opcję **Wyświetl dzienniki kontenerów** z listy rozwijanej **Widok w analizie** . Aby uzyskać dodatkowe informacje na temat tego tematu, zobacz [dzienniki wyszukiwania w celu przeanalizowania danych](container-insights-log-search.md#search-logs-to-analyze-data).
 
-Użyj opcji **+ Dodaj filtr** w górnej części strony, aby odfiltrować wyniki widoku według **usługi**, **węzła**, **przestrzeni nazw**lub **puli węzłów**. Po wybraniu zakresu filtru wybierz jedną z wartości wyświetlanych w polu **Wybierz wartości** . Po skonfigurowaniu filtru jest on stosowany globalnie podczas wyświetlania dowolnej perspektywy klastra AKS. Formuła obsługuje tylko znak równości. Możesz dodać dodatkowe filtry od pierwszego z nich, aby jeszcze bardziej zawęzić wyniki. Na przykład, jeśli określisz **węzeł**Filtruj według, możesz wybrać tylko **usługę** lub **przestrzeń nazw** dla drugiego filtru.
+Użyj opcji **+ Dodaj filtr** w górnej części strony, aby odfiltrować wyniki widoku według **usługi**, **węzła**, **przestrzeni nazw** lub **puli węzłów**. Po wybraniu zakresu filtru wybierz jedną z wartości wyświetlanych w polu **Wybierz wartości** . Po skonfigurowaniu filtru jest on stosowany globalnie podczas wyświetlania dowolnej perspektywy klastra AKS. Formuła obsługuje tylko znak równości. Możesz dodać dodatkowe filtry od pierwszego z nich, aby jeszcze bardziej zawęzić wyniki. Na przykład, jeśli określisz **węzeł** Filtruj według, możesz wybrać tylko **usługę** lub **przestrzeń nazw** dla drugiego filtru.
 
 Określanie filtru na jednej karcie jest kontynuowane po wybraniu innej. Jest ona usuwana po wybraniu symbolu **x** obok określonego filtru.
 
@@ -163,7 +163,7 @@ Z rozwiniętego węzła możesz przejść do szczegółów z lub kontenera, któ
 
 ![Zrzut ekranu przedstawia przechodzenie do szczegółów z węzła do kontrolera w widoku wydajności](./media/container-insights-analyze/drill-down-node-controller.png)
 
-Wybierz pozycję Kontrolery lub kontenery w górnej części strony, aby przejrzeć stan i wykorzystanie zasobów dla tych obiektów. Aby przejrzeć użycie pamięci, na liście rozwijanej **Metryka** wybierz pozycję **pamięć RSS** lub **zestaw roboczy pamięci**. **Pamięć RSS** jest obsługiwana tylko dla Kubernetes w wersji 1,8 lub nowszej. W przeciwnym razie można wyświetlić wartości **dla &nbsp; % minimum** jako *NaN &nbsp; % *, czyli liczbowej wartości typu danych, która reprezentuje niezdefiniowaną lub niereprezentującą wartość.
+Wybierz pozycję Kontrolery lub kontenery w górnej części strony, aby przejrzeć stan i wykorzystanie zasobów dla tych obiektów. Aby przejrzeć użycie pamięci, na liście rozwijanej **Metryka** wybierz pozycję **pamięć RSS** lub **zestaw roboczy pamięci**. **Pamięć RSS** jest obsługiwana tylko dla Kubernetes w wersji 1,8 lub nowszej. W przeciwnym razie można wyświetlić wartości **dla &nbsp; % minimum** jako *NaN &nbsp; %*, czyli liczbowej wartości typu danych, która reprezentuje niezdefiniowaną lub niereprezentującą wartość.
 
 ![Widok wydajności węzłów kontenera](./media/container-insights-analyze/containers-node-metric-dropdown.png)
 
@@ -235,7 +235,7 @@ Informacje wyświetlane podczas przeglądania kontrolerów są opisane w poniżs
 | Kolumna | Opis |
 |--------|-------------|
 | Nazwa | Nazwa kontrolera.|
-| Stan | Stan zbiorczy kontenerów po zakończeniu działania z stanem takim jak *OK*, *przerwany*, *Niepowodzenie*, *zatrzymano*lub *wstrzymano*. Jeśli kontener jest uruchomiony, ale stan nie był prawidłowo wyświetlany lub nie został pobrany przez agenta i nie odpowiedział przez dłużej niż 30 minut, stan jest *nieznany*. Dodatkowe szczegóły ikony stanu znajdują się w poniższej tabeli.|
+| Stan | Stan zbiorczy kontenerów po zakończeniu działania z stanem takim jak *OK*, *przerwany*, *Niepowodzenie*, *zatrzymano* lub *wstrzymano*. Jeśli kontener jest uruchomiony, ale stan nie był prawidłowo wyświetlany lub nie został pobrany przez agenta i nie odpowiedział przez dłużej niż 30 minut, stan jest *nieznany*. Dodatkowe szczegóły ikony stanu znajdują się w poniższej tabeli.|
 | Minimum &nbsp; %, średnia &nbsp; %, 50 &nbsp; %, 90 &nbsp; %, używany 95. &nbsp; %, maksimum&nbsp;%| Średnia Zbiorcza średniej wartości procentowej każdej jednostki dla wybranej metryki i percentylu. |
 | Minimum, AVG, pięćdziesiąt, 90, używany 95., Max  | Rzutowanie średniej millicore procesora CPU lub wydajności pamięci kontenera dla wybranego percentylu. Średnia wartość jest mierzona na podstawie limitu procesora CPU/pamięci ustawionego dla elementu. |
 | Kontenery | Łączna liczba kontenerów dla kontrolera lub pod. |

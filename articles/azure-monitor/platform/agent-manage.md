@@ -6,11 +6,11 @@ author: bwren
 ms.author: bwren
 ms.date: 06/14/2019
 ms.openlocfilehash: 4d0ceacd37748e9761903d02fd7e052d70b10e15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871902"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011884"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Managing and maintaining the Log Analytics agent for Windows and Linux (Konserwacja agenta usługi Log Analytics dla systemów Windows i Linux oraz zarządzanie nim)
 
@@ -231,9 +231,9 @@ Aby odinstalować agenta systemu Windows lub Linux przy użyciu wiersza poleceni
 #### <a name="uninstall-from-control-panel"></a>Odinstaluj z panelu sterowania
 1. Zaloguj się na komputerze przy użyciu konta z uprawnieniami administracyjnymi.
 
-2. W **Panelu sterowania**kliknij pozycję **programy i funkcje**.
+2. W **Panelu sterowania** kliknij pozycję **programy i funkcje**.
 
-3. W obszarze **programy i funkcje**kliknij pozycję **Microsoft Monitoring Agent**, kliknij przycisk **Odinstaluj**, a następnie kliknij przycisk **tak**.
+3. W obszarze **programy i funkcje** kliknij pozycję **Microsoft Monitoring Agent**, kliknij przycisk **Odinstaluj**, a następnie kliknij przycisk **tak**.
 
 >[!NOTE]
 >Kreatora instalacji agenta można również uruchomić, klikając dwukrotnie plik **MMASetup- \<platform\> . exe**, który jest dostępny do pobrania z obszaru roboczego w Azure Portal.
@@ -275,7 +275,7 @@ Wykonaj następujące kroki, aby skonfigurować Log Analytics agenta dla systemu
 
 8. W polu **port serwera zarządzania** wpisz numer portu TCP.
 
-9. W obszarze **konto działania agenta**wybierz konto systemu lokalnego lub lokalne konto domeny.
+9. W obszarze **konto działania agenta** wybierz konto systemu lokalnego lub lokalne konto domeny.
 
 10. Kliknij przycisk **OK** , aby zamknąć okno dialogowe **Dodawanie grupy zarządzania** , a następnie kliknij przycisk **OK** , aby zamknąć okno dialogowe **właściwości Microsoft Monitoring Agent** .
 

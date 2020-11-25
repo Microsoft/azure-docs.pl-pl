@@ -10,11 +10,11 @@ ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.openlocfilehash: 0240510a2232bd12a94d5cdd59672270289e5e8f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547524"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011833"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Często zadawane pytania
 
@@ -213,7 +213,7 @@ LLAP jest włączona ze względów bezpieczeństwa (Apache Ranger), a nie wydajn
 Istnieją dwa sposoby osiągnięcia tego celu: 1 — można utworzyć ponownie klaster i dodać dodatkową grupę podczas tworzenia klastra. Jeśli używasz synchronizacji w zakresie w usłudze AAD-DS, upewnij się, że Grupa B jest uwzględniona w synchronizacji z zakresem.
 2. Dodaj grupę jako zagnieżdżoną podgrupę poprzedniej grupy, która została użyta do utworzenia klastra ESP. Na przykład, jeśli utworzono klaster ESP z grupą `A` , można później dodać grupę `B` jako zagnieżdżoną podgrupę `A` i po upływie około godziny, będzie ona synchronizowana i dostępna w klastrze automatycznie. 
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 
 ### <a name="can-i-add-an-azure-data-lake-storage-gen2-to-an-existing-hdinsight-cluster-as-an-additional-storage-account"></a>Czy można dodać Azure Data Lake Storage Gen2 do istniejącego klastra usługi HDInsight jako dodatkowe konto magazynu?
 
@@ -272,7 +272,7 @@ Zobacz [używanie pustych węzłów brzegowych w klastrach Apache Hadoop w usłu
 
 ### <a name="how-can-i-connect-to-an-edge-node"></a>Jak połączyć się z węzłem brzegowym?
 
-Po utworzeniu węzła brzegowego można nawiązać z nim połączenie przy użyciu protokołu SSH na porcie 22. Nazwę węzła krawędzi można znaleźć w portalu klastra. Zazwyczaj nazwy kończą się od *-Ed* .
+Po utworzeniu węzła brzegowego można nawiązać z nim połączenie przy użyciu protokołu SSH na porcie 22. Nazwę węzła krawędzi można znaleźć w portalu klastra. Zazwyczaj nazwy kończą się od *-Ed*.
 
 ### <a name="why-are-persisted-scripts-not-running-automatically-on-newly-created-edge-nodes"></a>Dlaczego utrwalone skrypty nie są automatycznie uruchamiane w nowo utworzonych węzłach brzegowych?
 

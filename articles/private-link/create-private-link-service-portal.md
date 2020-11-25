@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: allensu
-ms.openlocfilehash: 0d873401d377a03581a319769604f3d976f365be
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5b7bc8be89068f0d3cf6722c36ae7fd5cc560736
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87927242"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96012122"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Szybki Start: Tworzenie usługi linku prywatnego przy użyciu Azure Portal
 
@@ -101,7 +101,7 @@ Aby utworzyć sondę kondycji do monitorowania kondycji zasobów:
    - **Interwał**: wprowadź **15**. Ta wartość to liczba sekund między próbami sondy.
    - **Próg złej kondycji**: wprowadź wartość **2**. Ta wartość jest liczbą kolejnych niepowodzeń sondy, które wystąpiły, zanim maszyna wirtualna zostanie uznana za złą.
 
-1. Wybierz przycisk **OK**.
+1. Wybierz pozycję **OK**.
 
 #### <a name="create-a-load-balancer-rule"></a>Tworzenie reguły modułu równoważenia obciążenia
 
@@ -117,7 +117,7 @@ Aby utworzyć regułę modułu równoważenia obciążenia:
 
 1. Wybierz pozycję **wszystkie zasoby** w menu po lewej stronie, a następnie wybierz pozycję **myLoadBalancer** z listy zasobów.
 
-1. W obszarze **Ustawienia**wybierz pozycję **reguły równoważenia obciążenia**, a następnie wybierz pozycję **Dodaj**.
+1. W obszarze **Ustawienia** wybierz pozycję **reguły równoważenia obciążenia**, a następnie wybierz pozycję **Dodaj**.
 
 1. Na stronie **Dodaj regułę równoważenia obciążenia** wprowadź lub wybierz następujące wartości, jeśli nie są one jeszcze obecne:
 
@@ -129,7 +129,7 @@ Aby utworzyć regułę modułu równoważenia obciążenia:
    - **Pula zaplecza**: wybierz pozycję **myBackendPool**.
    - **Sonda kondycji**: wybierz pozycję **myHealthProbe**. 
 
-1. Wybierz przycisk **OK**.
+1. Wybierz pozycję **OK**.
 
 ## <a name="create-a-private-link-service"></a>Tworzenie usługi łącza prywatnego
 
@@ -139,7 +139,7 @@ W tej sekcji utworzysz usługę linku prywatnego za pomocą usługi równoważen
 
 1. W **centrum linków prywatnych — Omówienie**  >  **udostępniania własnej usługi, aby inne osoby mogły nawiązać połączenie**, wybierz pozycję **Uruchom**.
 
-1. W obszarze **Tworzenie usługi link prywatny — podstawowe**wprowadź lub wybierz następujące informacje:
+1. W obszarze **Tworzenie usługi link prywatny — podstawowe** wprowadź lub wybierz następujące informacje:
 
     | Ustawienie           | Wartość                                                                        |
     |-------------------|------------------------------------------------------------------------------|
@@ -152,7 +152,7 @@ W tej sekcji utworzysz usługę linku prywatnego za pomocą usługi równoważen
 
 1. Wybierz pozycję **Dalej: ustawienia wychodzące**.
 
-1. W obszarze **Tworzenie usługi link prywatny — ustawienia wychodzące**wprowadź lub wybierz następujące informacje:
+1. W obszarze **Tworzenie usługi link prywatny — ustawienia wychodzące** wprowadź lub wybierz następujące informacje:
 
     | Ustawienie                           | Wartość                                                                           |
     |-----------------------------------|---------------------------------------------------------------------------------|
@@ -165,7 +165,7 @@ W tej sekcji utworzysz usługę linku prywatnego za pomocą usługi równoważen
 
 1. Wybierz pozycję **Dalej: zabezpieczenia dostępu**.
 
-1. W obszarze **Tworzenie usługi link prywatny — zabezpieczenia dostępu**wybierz pozycję **widoczność**, a następnie wybierz pozycję **Kontrola dostępu oparta na rolach**.
+1. W obszarze **Tworzenie usługi link prywatny — zabezpieczenia dostępu** wybierz pozycję **widoczność**, a następnie wybierz pozycję **Kontrola dostępu oparta na rolach**.
   
 1. Wybierz pozycję **Dalej:**  >  **Przegląd tagów + Utwórz** lub wybierz kartę **Recenzja + tworzenie** w górnej części strony.
 
@@ -177,9 +177,9 @@ Po zakończeniu korzystania z usługi link prywatny Usuń grupę zasobów, aby w
 
 1. Wprowadź **myResourceGroupLB** w polu wyszukiwania w górnej części portalu, a następnie wybierz pozycję **myResourceGroupLB** w wynikach wyszukiwania.
 1. Wybierz pozycję **Usuń grupę zasobów**.
-1. W polu **wpisz nazwę grupy zasobów**wprowadź wartość **WebResource**.
+1. W polu **wpisz nazwę grupy zasobów** wprowadź wartość **WebResource**.
 1. Wybierz pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono wewnętrzny moduł równoważenia obciążenia platformy Azure i usługę łącza prywatnego. Możesz również dowiedzieć się, jak [utworzyć prywatny punkt końcowy przy użyciu Azure Portal](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal).
+W tym przewodniku szybki start utworzono wewnętrzny moduł równoważenia obciążenia platformy Azure i usługę łącza prywatnego. Możesz również dowiedzieć się, jak [utworzyć prywatny punkt końcowy przy użyciu Azure Portal](./create-private-endpoint-portal.md).

@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: storage
 author: roygara
 ms.service: storage
@@ -9,11 +9,11 @@ ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 814bf085ca910ef07a13df779eef25e0e6510e57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563458"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011742"
 ---
 Wszystkie dane przechowywane w Azure Files są szyfrowane przy użyciu funkcji szyfrowania usługi Azure Storage (SSE). Szyfrowanie usługi Storage działa podobnie do funkcji BitLocker w systemie Windows: dane są szyfrowane poniżej poziomu systemu plików. Ponieważ dane są szyfrowane pod systemem plików udziału plików platformy Azure, ponieważ są one zakodowane na dysk, nie trzeba mieć dostępu do klucza bazowego na kliencie w celu odczytu lub zapisu w udziale plików platformy Azure. Szyfrowanie w spoczynku dotyczy protokołów SMB i NFS.
 

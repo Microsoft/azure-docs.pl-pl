@@ -8,11 +8,11 @@ ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
 ms.openlocfilehash: 3225fff1c82822dee990804f934ada86068841e8
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280252"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011306"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Samouczek: kodowanie za pomocą cyfrowych interfejsów API usługi Azure bliźniaczych reprezentacji
 
@@ -43,7 +43,7 @@ Co należy zrobić:
 
 Gdy wszystko będzie gotowe do pracy z wystąpieniem usługi Azure Digital bliźniaczych reprezentacji, Rozpocznij Konfigurowanie projektu aplikacji klienckiej. 
 
-Otwórz wiersz polecenia lub inne okno konsoli na maszynie i Utwórz pusty katalog projektu, w którym chcesz przechowywać swoją służbę w trakcie tego samouczka. Nazwij katalog, którego chcesz dotyczyć (na przykład *DigitalTwinsCodeTutorial* ).
+Otwórz wiersz polecenia lub inne okno konsoli na maszynie i Utwórz pusty katalog projektu, w którym chcesz przechowywać swoją służbę w trakcie tego samouczka. Nazwij katalog, którego chcesz dotyczyć (na przykład *DigitalTwinsCodeTutorial*).
 
 Przejdź do nowego katalogu.
 
@@ -213,7 +213,7 @@ await foreach (DigitalTwinsModelData md in modelDataList)
 }
 ```
 
-**Przed ponownym uruchomieniem programu w celu przetestowania nowego kodu** , należy odwołać się do ostatniego uruchomienia programu, przekazano już swój model. Usługa Azure Digital bliźniaczych reprezentacji nie pozwoli na przekazanie tego samego modelu dwa razy, więc jeśli spróbujesz ponownie przekazać ten sam model, program powinien zgłosić wyjątek.
+**Przed ponownym uruchomieniem programu w celu przetestowania nowego kodu**, należy odwołać się do ostatniego uruchomienia programu, przekazano już swój model. Usługa Azure Digital bliźniaczych reprezentacji nie pozwoli na przekazanie tego samego modelu dwa razy, więc jeśli spróbujesz ponownie przekazać ten sam model, program powinien zgłosić wyjątek.
 
 Z tego względu należy ponownie uruchomić program przy użyciu tego polecenia w oknie poleceń:
 
@@ -267,7 +267,7 @@ for(int i=0; i<3; i++) {
 }
 ```
 
-W oknie polecenia Uruchom program z `dotnet run` . W danych wyjściowych poszukaj wiadomości drukowania, które *sampleTwin-0* , *sampleTwin-1* i *sampleTwin-2* zostały utworzone. 
+W oknie polecenia Uruchom program z `dotnet run` . W danych wyjściowych poszukaj wiadomości drukowania, które *sampleTwin-0*, *sampleTwin-1* i *sampleTwin-2* zostały utworzone. 
 
 Następnie ponownie uruchom program. 
 

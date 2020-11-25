@@ -8,11 +8,11 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: cynthn
 ms.openlocfilehash: 6a14e2bd7385430c3d0fbec06259a876af556e38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82190405"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010728"
 ---
 # <a name="create-a-proximity-placement-group-using-the-portal"></a>Tworzenie grupy umieszczania w pobliżu przy użyciu portalu
 
@@ -31,7 +31,7 @@ Grupa umieszczania bliskości jest grupą logiczną używaną w celu upewnienia 
 1. W polu wyszukiwania wpisz **bliską grupę umieszczania** .
 1. W obszarze **usługi** w wynikach wyszukiwania wybierz pozycję **grupy położenia zbliżeniowe**.
 1. Na stronie **grupy umieszczania sąsiedztwa** wybierz pozycję **Dodaj**.
-1. Na karcie **podstawy** w obszarze **szczegóły projektu**upewnij się, że wybrano poprawną subskrypcję.
+1. Na karcie **podstawy** w obszarze **szczegóły projektu** upewnij się, że wybrano poprawną subskrypcję.
 1. W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową** , aby utworzyć nową grupę, lub Wybierz pustą grupę zasobów, która już istnieje, z listy rozwijanej. 
 1. W **obszarze region** wybierz lokalizację, w której ma zostać utworzona grupa umieszczania sąsiedztwa.
 1. W polu **Nazwa grupy położenia zbliżeniowe** wpisz nazwę, a następnie wybierz pozycję **Przegląd + Utwórz**.
@@ -59,7 +59,7 @@ Jeśli maszyna wirtualna jest częścią zestawu dostępności, przed dodaniem m
 1. Stop\deallocate każdą maszynę wirtualną w zestawie dostępności, wybierając maszynę wirtualną, a następnie wybierając pozycję **Zatrzymaj** na stronie dla maszyny wirtualnej, a następnie wybierz **przycisk OK** , aby zatrzymać maszynę wirtualną.
 1. Na stronie zestawu dostępności upewnij się, że wszystkie maszyny wirtualne mają **stan** " **zatrzymane" (cofnięto przydział)**.
 1. W menu po lewej stronie wybierz pozycję **Konfiguracja**.
-1. W obszarze **Grupa położenia zbliżeniowe**wybierz grupę umieszczania z listy rozwijanej, a następnie wybierz pozycję **Zapisz**.
+1. W obszarze **Grupa położenia zbliżeniowe** wybierz grupę umieszczania z listy rozwijanej, a następnie wybierz pozycję **Zapisz**.
 1. Wybierz pozycję **Przegląd** z menu po lewej stronie, aby ponownie wyświetlić listę maszyn wirtualnych. 
 1. Zaznacz każdą maszynę wirtualną w zestawie dostępności, a następnie wybierz pozycję **Uruchom** na stronie dla każdej maszyny wirtualnej. 
 
@@ -69,7 +69,7 @@ Jeśli maszyna wirtualna jest częścią zestawu dostępności, przed dodaniem m
 
 1. Na stronie maszyny wirtualnej wybierz pozycję **Zatrzymaj**.
 1. Gdy stan maszyny wirtualnej zostanie wyświetlony jako **zatrzymana (bez przydziału)**, wybierz pozycję **Konfiguracja** w menu po lewej stronie.
-1. W obszarze **Grupa położenia zbliżeniowe**wybierz grupę umieszczania z listy rozwijanej, a następnie wybierz pozycję **Zapisz**.
+1. W obszarze **Grupa położenia zbliżeniowe** wybierz grupę umieszczania z listy rozwijanej, a następnie wybierz pozycję **Zapisz**.
 1. Z menu po lewej stronie wybierz pozycję **Przegląd** , a następnie wybierz pozycję **Uruchom** , aby ponownie uruchomić maszynę wirtualną.
 
  

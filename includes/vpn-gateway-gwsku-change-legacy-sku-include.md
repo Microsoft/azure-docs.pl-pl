@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,11 +9,11 @@ ms.date: 03/15/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 4c232e1ce183c6935d625b5bc9987a4981865ae4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67183111"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010839"
 ---
 Jeśli pracujesz z modelem wdrażania Menedżer zasobów, możesz przejść do nowych jednostek SKU bramy. W przypadku zmiany ze starszej jednostki SKU bramy na nową jednostkę SKU należy usunąć istniejącą bramę sieci VPN i utworzyć nową bramę sieci VPN.
 

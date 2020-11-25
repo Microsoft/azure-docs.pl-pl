@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: f8bd47a8fde700382f9789ab1c77ff35e9b1f4f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d921a968f50f64788ccbd7637bc04c8492a3f90
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999534"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96010898"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Obliczanie łącznego rozmiaru kontenera obiektów blob
 
@@ -31,7 +31,7 @@ Ten skrypt oblicza rozmiar kontenera w usłudze Azure Blob Storage na potrzeby s
 
 Całkowity rozmiar kontenera obiektów blob obejmuje rozmiar samego kontenera i rozmiar wszystkich obiektów blob w kontenerze.
 
-W poniższej sekcji opisano sposób obliczania pojemności magazynu dla kontenerów obiektów blob i obiektów blob.W poniższej sekcji Len(X) oznacza liczbę znaków w ciągu.
+W poniższej sekcji opisano sposób obliczania pojemności magazynu dla kontenerów obiektów blob i obiektów blob. W poniższej sekcji Len(X) oznacza liczbę znaków w ciągu.
 
 ### <a name="blob-containers"></a>Kontenery obiektów blob
 
@@ -120,6 +120,6 @@ Podział jest następujący:
 
 - Aby uzyskać więcej informacji na temat rozliczeń za usługę Azure Storage, zobacz [Informacje o rozliczeniach usługi Windows Azure Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
-- Aby uzyskać więcej informacji na temat modułu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+- Aby uzyskać więcej informacji na temat modułu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](/powershell/azure/).
 
 - Więcej przykładowych skryptów programu PowerShell dla usługi Storage można znaleźć w artykule [Przykładowe skrypty programu PowerShell dla usługi Azure Storage](../blobs/storage-samples-blobs-powershell.md).

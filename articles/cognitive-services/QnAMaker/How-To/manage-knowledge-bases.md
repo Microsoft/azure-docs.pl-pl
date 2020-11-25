@@ -6,11 +6,11 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.openlocfilehash: 890b555703f922168a820a0535296b9f55218752
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777735"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011051"
 ---
 # <a name="create-knowledge-base-and-manage-settings"></a>Tworzenie bazy wiedzy i zarządzanie ustawieniami
 
@@ -34,13 +34,13 @@ QnA Maker pozwala zarządzać bazami wiedzy, zapewniając dostęp do ustawień b
 
     Po zakończeniu tworzenia zasobu w Azure Portal Wróć do portalu QnA Maker, Odśwież stronę przeglądarki i przejdź do **kroku 2**.
 
-1. W **kroku 3**wybierz pozycję Active Directory, subskrypcję, usługę (zasób) i język dla wszystkich baz wiedzy utworzonych w usłudze.
+1. W **kroku 3** wybierz pozycję Active Directory, subskrypcję, usługę (zasób) i język dla wszystkich baz wiedzy utworzonych w usłudze.
 
    ![Zrzut ekranu przedstawiający wybór bazy wiedzy usługi QnA Maker Service](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
 
-1. W **kroku 3**Nazwij bazę wiedzy `My Sample QnA KB` .
+1. W **kroku 3** Nazwij bazę wiedzy `My Sample QnA KB` .
 
-1. W **kroku 4**Skonfiguruj ustawienia w następującej tabeli:
+1. W **kroku 4** Skonfiguruj ustawienia w następującej tabeli:
 
     |Ustawienie|Wartość|
     |--|--|
@@ -49,7 +49,7 @@ QnA Maker pozwala zarządzać bazami wiedzy, zapewniając dostęp do ustawień b
     |**+ Dodaj adres URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
     |**Pogawędka**|Wybierz **profesjonalne**|
 
-1. W **kroku 5**wybierz pozycję **Utwórz swoją KB**.
+1. W **kroku 5** wybierz pozycję **Utwórz swoją KB**.
 
     Proces wyodrębniania zajmuje kilka chwil, aby odczytać dokument i zidentyfikować pytania i odpowiedzi.
 
@@ -73,7 +73,7 @@ QnA Maker pozwala zarządzać bazami wiedzy, zapewniając dostęp do ustawień b
        |Usuwanie adresu URL|Istniejące adresy URL można usunąć, wybierając ikonę Usuń.|
        |Odśwież zawartość|Jeśli chcesz, aby baza wiedzy przeszukał najnowszą zawartość istniejących adresów URL, zaznacz pole wyboru **Odśwież** . Spowoduje to zaktualizowanie bazy wiedzy przy użyciu najnowszej zawartości adresu URL. Nie jest to ustawienie regularnego harmonogramu aktualizacji.|
        |Dodaj plik|Możesz dodać obsługiwany dokument pliku, który będzie częścią bazy wiedzy, wybierając pozycję **Zarządzaj bazą wiedzy**, a następnie wybierając pozycję **+ Dodaj plik**|
-    |Import|Możesz również zaimportować każdą istniejącą bazę wiedzy, wybierając przycisk **Importuj bazę wiedzy** . |
+    |Importuj|Możesz również zaimportować każdą istniejącą bazę wiedzy, wybierając przycisk **Importuj bazę wiedzy** . |
     |Aktualizacja|Aktualizacja bazy wiedzy zależy od **warstwy cenowej zarządzania** używanej podczas tworzenia usługi QNA Maker skojarzonej z bazą wiedzy. W razie potrzeby można również zaktualizować warstwę zarządzania z Azure Portal.
 
   1. Po zakończeniu wprowadzania zmian w bazie wiedzy wybierz pozycję **Zapisz i Wyszkol** w prawym górnym rogu strony, aby zachować zmiany.

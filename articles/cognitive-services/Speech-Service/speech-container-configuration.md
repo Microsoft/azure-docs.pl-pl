@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: aahi
 ms.openlocfilehash: e65bb7c7d8fc04baec6b50a53519e689e748fbe1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90900289"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012173"
 ---
 # <a name="configure-speech-service-containers"></a>Konfigurowanie kontenerów usługi mowy
 
@@ -111,7 +111,7 @@ To polecenie powoduje zainstalowanie katalogu _C:\input_ komputera hosta w katal
 W poniższych przykładach użyto ustawień konfiguracji, aby zilustrować sposób pisania i używania `docker run` poleceń. Po uruchomieniu kontenera kontynuuje działanie, dopóki nie zostanie [zatrzymane](speech-container-howto.md#stop-the-container) .
 
 - **Znak kontynuacji wiersza**: polecenia platformy Docker w poniższych sekcjach używają ukośnika odwrotnego, `\` jako znaku kontynuacji wiersza. Zastąp lub usuń to w zależności od wymagań systemu operacyjnego hosta.
-- **Kolejnooć**argumentów: nie zmieniaj kolejności argumentów, chyba że znasz kontenery Docker.
+- **Kolejnooć** argumentów: nie zmieniaj kolejności argumentów, chyba że znasz kontenery Docker.
 
 Zastąp ciąg {_argument_name_} własnymi wartościami:
 

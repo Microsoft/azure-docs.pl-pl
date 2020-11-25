@@ -4,12 +4,12 @@ description: W tym artykule opisano, jak można przestać kontynuować monitorow
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: af5f49dfe5e668f39f105a62ad20858e273b34cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15ec102632258870745f510a98773f70242118be
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87489490"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96011646"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Jak zatrzymać monitorowanie usługi Azure Kubernetes Service z usługą Azure Monitor dla kontenerów
 
@@ -35,7 +35,7 @@ Jeśli nie znasz koncepcji wdrażania zasobów przy użyciu szablonu, zobacz:
 * [Wdrażanie zasobów za pomocą szablonów Menedżer zasobów i interfejsu wiersza polecenia platformy Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
 >[!NOTE]
->Szablon musi zostać wdrożony w tej samej grupie zasobów klastra. Jeśli pominięto wszystkie inne właściwości lub dodatki podczas korzystania z tego szablonu, może to spowodować usunięcie z klastra. Na przykład *enableRBAC* dla zasad RBAC wdrożonych w klastrze lub *aksResourceTagValues* , jeśli Tagi są określone dla klastra AKS.  
+>Szablon musi zostać wdrożony w tej samej grupie zasobów klastra. Jeśli pominięto wszystkie inne właściwości lub dodatki podczas korzystania z tego szablonu, może to spowodować usunięcie z klastra. Na przykład *enableRBAC* dla zasad RBAC Kubernetes wdrożonych w klastrze lub *aksResourceTagValues* , jeśli Tagi są określone dla klastra AKS.  
 >
 
 Jeśli zdecydujesz się na korzystanie z interfejsu wiersza polecenia platformy Azure, musisz najpierw zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie. Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.27 lub nowszej. Aby zidentyfikować swoją wersję, uruchom polecenie `az --version` . Jeśli konieczne jest zainstalowanie lub uaktualnienie interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).

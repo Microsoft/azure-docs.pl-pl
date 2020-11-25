@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
 ms.openlocfilehash: 109e96f862ec2f3ddf879bccba114c44aecfe3c8
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440607"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012599"
 ---
 # <a name="collect-windows-event-log-data-sources-with-log-analytics-agent"></a>Zbieranie źródeł danych dziennika zdarzeń systemu Windows za pomocą agenta Log Analytics
 Dzienniki zdarzeń systemu Windows to jedno z najpopularniejszych [źródeł danych](agent-data-sources.md) dla agentów log Analytics na maszynach wirtualnych z systemem Windows, ponieważ wiele aplikacji zapisuje je w dzienniku zdarzeń systemu Windows.  Można zbierać zdarzenia z dzienników standardowych, takich jak system i aplikacja, oprócz określania dzienników niestandardowych utworzonych przez aplikacje, które mają być monitorowane.
@@ -37,7 +37,7 @@ Podczas wpisywania nazwy dziennika zdarzeń Azure Monitor zawiera sugestie typow
 Azure Monitor zbiera każde zdarzenie, które jest zgodne z wybraną ważnością z monitorowanego dziennika zdarzeń w miarę tworzenia zdarzenia.  Agent rejestruje swoje miejsce w dzienniku zdarzeń, z którego zbiera dane.  Jeśli Agent przejdzie w tryb offline przez pewien czas, zbiera zdarzenia z miejsca, w którym został on ostatnio pozostawiony, nawet jeśli te zdarzenia zostały utworzone, gdy agent był w trybie offline.  Istnieje możliwość, że te zdarzenia nie są zbierane, jeśli dziennik zdarzeń zostanie zawinięty przez zastępowanie niezebranych zdarzeń, gdy Agent jest w trybie offline.
 
 >[!NOTE]
->Azure Monitor nie zbiera zdarzeń inspekcji utworzonych przez SQL Server ze źródłowego *MSSQLSERVER* z identyfikatorem zdarzenia 18453, który zawiera słowa kluczowe — *klasyczne* lub *inspekcji sukces* i *0xa0000000000000*słów kluczowych.
+>Azure Monitor nie zbiera zdarzeń inspekcji utworzonych przez SQL Server ze źródłowego *MSSQLSERVER* z identyfikatorem zdarzenia 18453, który zawiera słowa kluczowe — *klasyczne* lub *inspekcji sukces* i *0xa0000000000000* słów kluczowych.
 >
 
 ## <a name="windows-event-records-properties"></a>Właściwości rekordów zdarzeń systemu Windows
@@ -65,7 +65,7 @@ W poniższej tabeli przedstawiono różne przykłady zapytań dzienników, któr
 
 | Zapytanie | Opis |
 |:---|:---|
-| Wydarzenie |Wszystkie zdarzenia systemu Windows. |
+| Zdarzenie |Wszystkie zdarzenia systemu Windows. |
 | &#124; zdarzeń, gdzie EventLevelName = = "Error" |Wszystkie zdarzenia systemu Windows o ważności błędu. |
 | Licznik podsumowania &#124; zdarzeń () według źródła |Liczba zdarzeń systemu Windows według źródła. |
 | &#124; zdarzeń, gdzie EventLevelName = = "Error" &#124; Sumuj liczbę () według źródła |Liczba zdarzeń błędów systemu Windows według źródła. |

@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.openlocfilehash: d2d916f3cba27f6b38a781b81e403ee9b6f0fab3
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541049"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011476"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mariadb"></a>Łączność SSL/TLS w Azure Database for MariaDB
 Azure Database for MariaDB obsługuje łączenie serwera bazy danych z aplikacjami klienckimi przy użyciu protokołu SSL (SSL). Wymuszanie połączeń SSL między serwerem bazy danych a aplikacją kliencką ułatwia ochronę przed atakami typu man-in-the-middle dzięki szyfrowaniu strumienia danych między serwerem a aplikacją.

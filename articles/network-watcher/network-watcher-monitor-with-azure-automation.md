@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: af671996722524de9af1a90ae8dfde27f814c8c2
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951642"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011816"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Monitorowanie bram sieci VPN za pomocą Network Watcher rozwiązywania problemów
 
@@ -36,7 +36,7 @@ W tym scenariuszu zostaną:
 - Utwórz element Runbook wywołujący `Start-AzureRmNetworkWatcherResourceTroubleshooting` polecenie cmdlet w celu rozwiązania problemu ze stanem połączenia
 - Łączenie harmonogramu z elementem Runbook
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Przed rozpoczęciem tego scenariusza wymagane są następujące wymagania wstępne:
 

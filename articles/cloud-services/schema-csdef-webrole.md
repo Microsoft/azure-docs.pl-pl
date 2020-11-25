@@ -14,11 +14,11 @@ caps.latest.revision: 60
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: 4368bb38a280461fdd77348de60a0e5793ee9582
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79535684"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011323"
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Schemat roli webrole webCloud Services platformy Azure
 Rola sieci Web platformy Azure jest rolą dostosowaną do programowania aplikacji sieci Web, która jest obsługiwana przez usługi IIS 7, takie jak ASP.NET, PHP, Windows Communication Foundation i FastCGI.
@@ -124,7 +124,7 @@ Plik definicji usługi zawiera te elementy, które opisano szczegółowo w kolej
 
 [Importowania](#Imports)
 
-[Import](#Import)
+[Importuj](#Import)
 
 [Środowisko uruchomieniowe](#Runtime)
 
@@ -363,7 +363,7 @@ W poniższej tabeli opisano atrybuty `NetFxEntryPoint` elementu.
 
 | Atrybut | Typ | Opis |  
 | --------- | ---- | ----------- |  
-|assemblyName|ciąg|Wymagane. Ścieżka i nazwa pliku zestawu zawierającego punkt wejścia. Ścieżka jest względna w stosunku do folderu ** \\ %ROLEROOT%\Approot** (nie określaj ** \\ %ROLEROOT%\Approot** w `commandLine` , założono). **% ROLEROOT%** to zmienna środowiskowa obsługiwana przez platformę Azure, która reprezentuje lokalizację folderu głównego dla Twojej roli. Folder ** \\ %ROLEROOT%\Approot** reprezentuje folder aplikacji dla Twojej roli.<br /><br /> W przypadku ról obsługiwane ścieżka jest zawsze określana w odniesieniu do folderu ** \\ %ROLEROOT%\Approot\bin** .<br /><br /> W przypadku pełnych usług IIS i IIS Express ról sieci Web, jeśli nie można znaleźć zestawu w odniesieniu do folderu ** \\ %ROLEROOT%\Approot** , przeszukiwane są ** \\ %ROLEROOT%\Approot\bin** .<br /><br /> To powraca zachowanie dla pełnych usług IIS nie jest zalecanym najlepszym rozwiązaniem i może zostać usunięte w przyszłych wersjach.|  
+|assemblyName|ciąg|Wymagane. Ścieżka i nazwa pliku zestawu zawierającego punkt wejścia. Ścieżka jest względna w stosunku do folderu **\\ %ROLEROOT%\Approot** (nie określaj **\\ %ROLEROOT%\Approot** w `commandLine` , założono). **% ROLEROOT%** to zmienna środowiskowa obsługiwana przez platformę Azure, która reprezentuje lokalizację folderu głównego dla Twojej roli. Folder **\\ %ROLEROOT%\Approot** reprezentuje folder aplikacji dla Twojej roli.<br /><br /> W przypadku ról obsługiwane ścieżka jest zawsze określana w odniesieniu do folderu **\\ %ROLEROOT%\Approot\bin** .<br /><br /> W przypadku pełnych usług IIS i IIS Express ról sieci Web, jeśli nie można znaleźć zestawu w odniesieniu do folderu **\\ %ROLEROOT%\Approot** , przeszukiwane są **\\ %ROLEROOT%\Approot\bin** .<br /><br /> To powraca zachowanie dla pełnych usług IIS nie jest zalecanym najlepszym rozwiązaniem i może zostać usunięte w przyszłych wersjach.|  
 |targetFrameworkVersion|ciąg|Wymagane. Wersja programu .NET Framework, na którym został skompilowany zestaw. Na przykład `targetFrameworkVersion="v4.0"`.|  
 
 ##  <a name="sites"></a><a name="Sites"></a> Teren  

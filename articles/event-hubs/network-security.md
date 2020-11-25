@@ -4,11 +4,11 @@ description: W tym artykule opisano sposób konfigurowania dostępu z prywatnych
 ms.topic: conceptual
 ms.date: 10/20/2020
 ms.openlocfilehash: 9503fc26c22d7dbff13c5754288f577b7bb3242f
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331315"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011000"
 ---
 # <a name="network-security-for-azure-event-hubs"></a>Zabezpieczenia sieciowe dla Event Hubs platformy Azure 
 W tym artykule opisano sposób korzystania z następujących funkcji zabezpieczeń w usłudze Azure Event Hubs: 
@@ -26,7 +26,7 @@ Za pomocą tagów usługi można definiować kontrolę dostępu do sieci w [grup
 
 | Tag usługi | Przeznaczenie | Może korzystać z ruchu przychodzącego lub wychodzącego? | Może być regionalna? | Czy można używać z zaporą platformy Azure? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **EventHub** | Event Hubs platformy Azure. | Outbound | Tak | Tak |
+| **EventHub** | Event Hubs platformy Azure. | Wychodzący | Tak | Tak |
 
 
 ## <a name="ip-firewall"></a>Zapora IP 

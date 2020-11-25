@@ -7,15 +7,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 08/17/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 5e27aaebc015f47e0fcdb5da81770d49b86ad000
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 67a21dd86059f6cf1f017ce3eada285d2faab1e6
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88934331"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96012428"
 ---
 # <a name="quickstart-extract-business-card-data-using-the-form-recognizer-rest-api-with-python"></a>Szybki Start: wyodrębnianie danych z kart służbowych przy użyciu interfejsu API REST usługi rozpoznawania formularzy w języku Python
 
@@ -30,7 +30,7 @@ Aby ukończyć ten przewodnik Szybki Start, musisz dysponować:
 - Obraz karty biznesowej. Możesz użyć [przykładowego obrazu](../media/business-card-english.jpg) dla tego przewodnika Szybki Start.
 
 > [!NOTE]
-> Ten przewodnik Szybki Start używa pliku lokalnego. Aby zamiast tego użyć zdalnego obrazu karty biznesowej, do którego uzyskuje się dostęp za pomocą adresu URL, zobacz [dokumentację referencyjną](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync).
+> Ten przewodnik Szybki Start używa pliku lokalnego. Aby zamiast tego użyć zdalnego obrazu karty biznesowej, do którego uzyskuje się dostęp za pomocą adresu URL, zobacz [dokumentację referencyjną](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync).
 
 ## <a name="create-a-form-recognizer-resource"></a>Tworzenie zasobu aparatu rozpoznawania formularza
 
@@ -38,7 +38,7 @@ Aby ukończyć ten przewodnik Szybki Start, musisz dysponować:
 
 ## <a name="analyze-a-business-card"></a>Analizowanie karty biznesowej
 
-Aby rozpocząć analizowanie karty biznesowej, należy wywołać interfejs API **[analizy biznesowej](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)** przy użyciu poniższego skryptu języka Python. Przed uruchomieniem skryptu wprowadź następujące zmiany:
+Aby rozpocząć analizowanie karty biznesowej, należy wywołać interfejs API **[analizy biznesowej](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync)** przy użyciu poniższego skryptu języka Python. Przed uruchomieniem skryptu wprowadź następujące zmiany:
 
 1. Zamień na `<endpoint>` punkt końcowy uzyskany w ramach subskrypcji aparatu rozpoznawania formularza.
 1. Zamień na `<path to your business card>` ścieżkę lokalną do obrazu lub pliku PDF karty biznesowej.
@@ -55,7 +55,7 @@ Aby rozpocząć analizowanie karty biznesowej, należy wywołać interfejs API *
     # Endpoint URL
     endpoint = r"<endpoint>"
     apim_key = "<subscription key>"
-    post_url = endpoint + "/formrecognizer/v2.1-preview.1/prebuilt/businessCard/analyze"
+    post_url = endpoint + "/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyze"
     source = r"<path to your business card>"
     content_type = "<file type>"
     
@@ -91,12 +91,12 @@ Aby rozpocząć analizowanie karty biznesowej, należy wywołać interfejs API *
 Otrzymasz `202 (Success)` odpowiedź, która zawiera nagłówek **operacji-Location** , który skrypt będzie drukowany w konsoli programu. Ten nagłówek zawiera identyfikator wyniku, którego można użyć w celu zbadania stanu długotrwałej operacji i uzyskania wyników. W poniższym przykładzie wartość ciąg po `operations/` to identyfikator wyniku.
 
 ```console
-https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/businessCard/analyzeResults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyzeResults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
 ## <a name="get-the-business-card-results"></a>Pobierz wyniki z karty biznesowej
 
-Po wywołaniu interfejsu API **analizy biznesowej** należy wywołać interfejs API **[wyników uzyskiwania analizy biznesowej](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeBusinessCardResult)** , aby uzyskać stan operacji i wyodrębnionych danych. Dodaj następujący kod w dolnej części skryptu języka Python. Spowoduje to użycie wartości identyfikatora wyniku w nowym wywołaniu interfejsu API. Ten skrypt wywołuje interfejs API w regularnych odstępach czasu, dopóki wyniki nie będą dostępne. Zalecamy interwał co najmniej jednej sekundy.
+Po wywołaniu interfejsu API **analizy biznesowej** należy wywołać interfejs API **[wyników uzyskiwania analizy biznesowej](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeBusinessCardResult)** , aby uzyskać stan operacji i wyodrębnionych danych. Dodaj następujący kod w dolnej części skryptu języka Python. Spowoduje to użycie wartości identyfikatora wyniku w nowym wywołaniu interfejsu API. Ten skrypt wywołuje interfejs API w regularnych odstępach czasu, dopóki wyniki nie będą dostępne. Zalecamy interwał co najmniej jednej sekundy.
 
 ```python
 n_tries = 10
@@ -253,4 +253,4 @@ Skrypt będzie drukował odpowiedzi do konsoli do momentu zakończenia operacji 
 W tym przewodniku szybki start użyto interfejsu API REST aparatu rozpoznawania formularzy w języku Python w celu wyodrębnienia zawartości karty biznesowej. Następnie zapoznaj się z dokumentacją referencyjną w celu eksplorowania interfejsu API rozpoznawania formularzy.
 
 > [!div class="nextstepaction"]
-> [Dokumentacja interfejsu API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
+> [Dokumentacja interfejsu API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync)

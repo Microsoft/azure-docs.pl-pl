@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
 ms.openlocfilehash: f314394d3a0ac453d525079e096162d8739f67cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314731"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011799"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Zabezpieczenia w usłudze Azure Wyszukiwanie poznawcze — Omówienie
 
@@ -94,7 +94,7 @@ Dla każdego żądania wymagane jest uwierzytelnianie, gdzie każde żądanie sk
 
 Aby dodatkowo kontrolować dostęp do usługi wyszukiwania, można utworzyć reguły zapory dla ruchu przychodzącego, które zezwalają na dostęp do określonego adresu IP lub zakresu adresów IP. Wszystkie połączenia klientów muszą mieć dozwolony adres IP lub nastąpi odmowa połączenia.
 
-:::image type="content" source="media/search-security-overview/inbound-firewall-ip-restrictions.png" alt-text="Diagram przedstawiający różne typy zabezpieczeń na każdym poziomie zaangażowania usługi":::
+:::image type="content" source="media/search-security-overview/inbound-firewall-ip-restrictions.png" alt-text="Przykładowy diagram architektury dla ograniczonego dostępu do adresów IP":::
 
 Za pomocą portalu można [skonfigurować dostęp przychodzący](service-configure-firewall.md).
 
@@ -106,7 +106,7 @@ Alternatywnie możesz użyć interfejsów API REST zarządzania. Począwszy od i
 
 Prywatny punkt końcowy używa adresu IP z przestrzeni adresowej sieci wirtualnej na potrzeby połączeń z usługą wyszukiwania. Ruch sieciowy między klientem a usługą wyszukiwania odbywa się za pośrednictwem sieci wirtualnej i łączy prywatnych w sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu. Sieć wirtualna umożliwia bezpieczną komunikację między zasobami, z siecią lokalną oraz Internetem.
 
-:::image type="content" source="media/search-security-overview/inbound-private-link-azure-cog-search.png" alt-text="Diagram przedstawiający różne typy zabezpieczeń na każdym poziomie zaangażowania usługi":::
+:::image type="content" source="media/search-security-overview/inbound-private-link-azure-cog-search.png" alt-text="Przykładowy diagram architektury dla dostępu do prywatnego punktu końcowego":::
 
 Chociaż to rozwiązanie jest najbezpieczniejsze, korzystanie z dodatkowych usług jest kosztem dodatkowym, dlatego należy upewnić się, że masz jasne zrozumienie korzyści przed nadaniem się do niego. lub więcej informacji o kosztach, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/private-link/). Aby uzyskać więcej informacji o tym, jak te składniki współpracują ze sobą, Obejrzyj wideo w górnej części tego artykułu. Pokrycie opcji prywatnego punktu końcowego zaczyna się od 5:48 do wideo. Aby uzyskać instrukcje dotyczące sposobu konfigurowania punktu końcowego, zobacz [Tworzenie prywatnego punktu końcowego dla wyszukiwanie poznawcze platformy Azure](service-create-private-endpoint.md).
 
@@ -142,7 +142,7 @@ Z kolei prawa administratora do zawartości hostowanej w usłudze, takie jak mo�
 
 ## <a name="certifications-and-compliance"></a>Certyfikaty i zgodność
 
-Usługa Azure Wyszukiwanie poznawcze ma certyfikowaną zgodność z wieloma standardami globalnymi, regionalnymi i branżowymi dla chmury publicznej i Azure Government. Aby zapoznać się z pełną listą, Microsoft Azure Pobierz oficjalny dokument dotyczący [ **ofert zgodności** ](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/) na stronie oficjalne raporty inspekcji.
+Usługa Azure Wyszukiwanie poznawcze ma certyfikowaną zgodność z wieloma standardami globalnymi, regionalnymi i branżowymi dla chmury publicznej i Azure Government. Aby zapoznać się z pełną listą, Microsoft Azure Pobierz oficjalny dokument dotyczący [ **ofert zgodności**](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/) na stronie oficjalne raporty inspekcji.
 
 Aby zapewnić zgodność, można użyć [Azure Policy](../governance/policy/overview.md) do wdrożenia najlepszych rozwiązań dotyczących [zabezpieczeń platformy Azure](../security/benchmarks/introduction.md). Usługa Azure Security test jest zbiorem zaleceń dotyczących zabezpieczeń, które zostały zamapowane na funkcje kontroli zabezpieczeń, które mapują na kluczowe akcje, które należy podjąć w celu ograniczenia zagrożeń dla usług i danych. Obecnie istnieją 11 kontroli zabezpieczeń, w tym [zabezpieczenia sieci](../security/benchmarks/security-control-network-security.md), [Rejestrowanie i monitorowanie](../security/benchmarks/security-control-logging-monitoring.md)oraz [Ochrona danych](../security/benchmarks/security-control-data-protection.md) .
 

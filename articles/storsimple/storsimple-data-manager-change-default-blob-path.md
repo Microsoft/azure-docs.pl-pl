@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: 6af095c7abdb9aa61e57d543ff2ab2f9192dadc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743577"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011442"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Zmiana ścieżki obiektu blob ze ścieżki domyślnej
 
@@ -31,7 +31,7 @@ Aby utworzyć funkcję platformy Azure, wykonaj następujące czynności:
 
     ![Wpisz "aplikacja funkcji" w polu wyszukiwania](./media/storsimple-data-manager-change-default-blob-path/search-function-app.png)
 
-3. Kliknij przycisk **Utwórz**.
+3. Kliknij pozycję **Utwórz**.
 
     ![Przycisk "Utwórz" okna aplikacja funkcji](./media/storsimple-data-manager-change-default-blob-path/create-function-app.png)
 
@@ -46,7 +46,7 @@ Aby utworzyć funkcję platformy Azure, wykonaj następujące czynności:
 
         ![Wprowadź nowe dane konfiguracji aplikacja funkcji](./media/storsimple-data-manager-change-default-blob-path/function-app-parameters.png)
 
-    7. Kliknij przycisk **Utwórz**. Zostanie utworzona aplikacja funkcji.
+    7. Kliknij pozycję **Utwórz**. Zostanie utworzona aplikacja funkcji.
      
         ![Utworzono aplikacja funkcji](./media/storsimple-data-manager-change-default-blob-path/function-app-created.png)
 
@@ -60,11 +60,11 @@ Aby utworzyć funkcję platformy Azure, wykonaj następujące czynności:
 
     1. Wprowadź **nazwę** funkcji.
     2. W polu **Nazwa kolejki** wpisz nazwę definicji zadania transformacji danych.
-    3. W obszarze **połączenie konta magazynu**kliknij pozycję **Nowy**. Z listy kont magazynu wybierz konto skojarzone z definicją zadania. Zanotuj nazwę połączenia (wyróżnioną). Nazwa jest wymagana w dalszej części funkcji platformy Azure.
+    3. W obszarze **połączenie konta magazynu** kliknij pozycję **Nowy**. Z listy kont magazynu wybierz konto skojarzone z definicją zadania. Zanotuj nazwę połączenia (wyróżnioną). Nazwa jest wymagana w dalszej części funkcji platformy Azure.
 
         ![Tworzenie nowej funkcji języka C#](./media/storsimple-data-manager-change-default-blob-path/new-function-parameters.png)
 
-    4. Kliknij przycisk **Utwórz**. Zostanie utworzona **Funkcja** .
+    4. Kliknij pozycję **Utwórz**. Zostanie utworzona **Funkcja** .
 
      
 10. W oknie funkcji Uruchom plik _. CSX_ .
@@ -209,7 +209,7 @@ Aby utworzyć funkcję platformy Azure, wykonaj następujące czynności:
         ```
 
     
-    4. Kliknij przycisk **Zapisz**.
+    4. Kliknij pozycję **Zapisz**.
 
         ![Nowy plik JSON projektu funkcji](./media/storsimple-data-manager-change-default-blob-path/new-function-project-json.png)
 

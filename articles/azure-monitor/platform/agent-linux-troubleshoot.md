@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
 ms.openlocfilehash: 13959c4a3c798656efdc72b5c8e5f96e4fb2392a
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94375356"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011901"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Jak rozwiązywać problemy z agentem usługi Log Analytics dla systemu Linux 
 
@@ -92,9 +92,9 @@ Zaobserwowano, że czysta ponowna instalacja agenta naprawi większość problem
 | NOT_DEFINED | Ponieważ niepotrzebne zależności nie są zainstalowane, wtyczka poddawana inspekcji auoms nie zostanie zainstalowana | Instalacja elementu auoms nie powiodła się, zainstaluj pakiet inspekcji. |
 | 2 | Podano nieprawidłową opcję dla pakietu powłoki. Uruchom `sudo sh ./omsagent-*.universal*.sh --help` do użycia |
 | 3 | Nie dostarczono żadnej opcji do pakietu powłoki. Uruchom `sudo sh ./omsagent-*.universal*.sh --help` w celu użycia. |
-| 4 | Nieprawidłowy typ pakietu lub nieprawidłowe ustawienia serwera proxy; pakiety omsagent- *RPM*. sh można zainstalować tylko w systemach z procesorem RPM, a pakiety omsagent- *deb*. sh można zainstalować tylko w systemach opartych na debian. Zalecamy używanie Instalatora uniwersalnego z [najnowszej wersji](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Zapoznaj się również z tematem Sprawdzanie ustawień serwera proxy. |
+| 4 | Nieprawidłowy typ pakietu lub nieprawidłowe ustawienia serwera proxy; pakiety omsagent-*RPM*. sh można zainstalować tylko w systemach z procesorem RPM, a pakiety omsagent-*deb*. sh można zainstalować tylko w systemach opartych na debian. Zalecamy używanie Instalatora uniwersalnego z [najnowszej wersji](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Zapoznaj się również z tematem Sprawdzanie ustawień serwera proxy. |
 | 5 | Pakiet powłoki należy wykonać jako element główny lub wystąpił błąd 403 podczas dołączania. Uruchom polecenie za pomocą polecenia `sudo` . |
-| 6 | Nieprawidłowa Architektura pakietu lub wystąpił błąd 200 podczas dołączania; pakiety omsagent- *x64.sh można zainstalować tylko w systemach 64-bitowych, a pakiety omsagent-* x86.sh można zainstalować tylko w systemach 32-bitowych. Pobierz prawidłowy pakiet dla swojej architektury z [najnowszej wersji](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
+| 6 | Nieprawidłowa Architektura pakietu lub wystąpił błąd 200 podczas dołączania; pakiety omsagent-*x64.sh można zainstalować tylko w systemach 64-bitowych, a pakiety omsagent-* x86.sh można zainstalować tylko w systemach 32-bitowych. Pobierz prawidłowy pakiet dla swojej architektury z [najnowszej wersji](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
 | 17 | Instalacja pakietu OMS nie powiodła się. Poszukaj danych wyjściowych polecenia dla błędu głównego. |
 | 19 | Instalacja pakietu OMI nie powiodła się. Poszukaj danych wyjściowych polecenia dla błędu głównego. |
 | 20 | Instalacja pakietu SCX nie powiodła się. Poszukaj danych wyjściowych polecenia dla błędu głównego. |

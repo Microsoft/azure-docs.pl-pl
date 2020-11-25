@@ -13,11 +13,11 @@ ms.custom: seo-lt-2019
 ms.topic: how-to
 ms.date: 02/20/2020
 ms.openlocfilehash: 01370092c5e272fe64f4ffdad577b69d3a532810
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963032"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012156"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-managed-instance"></a>Migrowanie pakietów SQL Server Integration Services do wystąpienia zarządzanego usługi Azure SQL
 Jeśli używasz SQL Server Integration Services (SSIS) i chcesz migrować projekty SSIS/pakiety z SSISDB źródłowego hostowanego przez SQL Server do SSISDB docelowego hostowanego przez wystąpienie zarządzane Azure SQL, możesz użyć Azure Database Migration Service.

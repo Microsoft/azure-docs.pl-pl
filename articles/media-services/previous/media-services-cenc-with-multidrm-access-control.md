@@ -16,11 +16,11 @@ ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b98b66d8f0350c32e89d62d776ee1288d9271712
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841156"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010915"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Projektowanie systemu ochrony zawartości z kontrolą dostępu przy użyciu Azure Media Services
 
@@ -349,7 +349,7 @@ Aby zarejestrować i skonfigurować aplikację wskaźnika w usłudze Azure AD, w
 
 3. Zaktualizuj plik manifestu aplikacji tak, aby Właściwość groupMembershipClaims miała wartość "groupMembershipClaims": "All".
 
-4. W aplikacji usługi Azure AD, która wskazuje aplikację sieci Web odtwarzacza, w sekcji **uprawnienia do innych aplikacji**Dodaj aplikację zasobu, która została dodana w kroku 1. W obszarze **delegowane uprawnienia**wybierz pozycję **dostęp [resource_name]**. Ta opcja zapewnia aplikacji sieci Web uprawnienia do tworzenia tokenów dostępu, które uzyskują dostęp do aplikacji zasobów. Zrób to zarówno dla lokalnej, jak i wdrożonej wersji aplikacji sieci Web, jeśli pracujesz z programem Visual Studio i aplikacją internetową platformy Azure.
+4. W aplikacji usługi Azure AD, która wskazuje aplikację sieci Web odtwarzacza, w sekcji **uprawnienia do innych aplikacji** Dodaj aplikację zasobu, która została dodana w kroku 1. W obszarze **delegowane uprawnienia** wybierz pozycję **dostęp [resource_name]**. Ta opcja zapewnia aplikacji sieci Web uprawnienia do tworzenia tokenów dostępu, które uzyskują dostęp do aplikacji zasobów. Zrób to zarówno dla lokalnej, jak i wdrożonej wersji aplikacji sieci Web, jeśli pracujesz z programem Visual Studio i aplikacją internetową platformy Azure.
 
 Token dostępu wystawiony przez usługę Azure AD jest używany do uzyskiwania dostępu do zasobu wskaźnika.
 

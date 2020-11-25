@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: caedcf313ab809e9607907545f26ca1b62bbeca7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76720048"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012411"
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Zadania w celu przygotowania danych do rozszerzonego uczenia maszynowego
 Wstępne przetwarzanie i czyszczenie danych to ważne zadania, które należy wykonać, aby można było użyć zestawu danych do uczenia modelu. Dane pierwotne często są zakłóceniami i niezawodnymi i mogą mieć brakujące wartości. Użycie takich danych do modelowania może dawać mylące wyniki. Te zadania są częścią procesu nauki o danych zespołowych (przetwarzania TDSP) i zwykle postępują zgodnie z początkową eksploracją zestawu danych służącego do odnajdywania i planowania wymaganego przetwarzania wstępnego. Więcej szczegółowych instrukcji dotyczących procesu przetwarzania TDSP można znaleźć w opisie kroków przedstawionych w [procesie nauka danych zespołu](overview.md).
