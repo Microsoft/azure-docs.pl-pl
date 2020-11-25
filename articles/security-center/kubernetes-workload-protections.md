@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: ed9c3c86336a7b0a2fe989cbe9bd0dd825c5575b
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 08bcb74fd50be0eeb7a73c0743db2c4f3a57be32
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372635"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030853"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Ochrona obciążeń Kubernetes
 
@@ -47,23 +47,32 @@ Security Center oferuje więcej funkcji zabezpieczeń kontenerów po włączeniu
 
 Azure Security Center obejmuje pakiet zaleceń, które są dostępne po zainstalowaniu **dodatku Azure Policy dla Kubernetes**.
 
-1. Aby skonfigurować zalecenia, najpierw należy zainstalować dodatek:
+### <a name="step-1-deploy-the-add-on"></a>Krok 1. wdrażanie dodatku
 
-    1. Na stronie zalecenia Znajdź zalecenie o nazwie **Azure Policy dodatek dla Kubernetes powinno być zainstalowane i włączone w klastrach**.
+Aby skonfigurować zalecenia, zainstaluj  **dodatek Azure Policy dla Kubernetes**. 
+
+- Ten dodatek można wdrożyć ponownie, jak wyjaśniono w temacie [Włączanie obsługi autoaprowizacji rozszerzeń](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions). Gdy funkcja autoaprowizacji dla dodatku jest ustawiona na wartość "on", rozszerzenie jest domyślnie włączone we wszystkich istniejących i przyszłych klastrach (które spełniają wymagania instalacji dodatku).
+
+- Aby ręcznie wdrożyć dodatek:
+
+    1. Na stronie zalecenia Wyszukaj zalecenie "**Azure Policy dodatek dla Kubernetes powinien być zainstalowany i włączony w klastrach**". 
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes.png" alt-text="Zalecenie * * Azure Policy dodatku dla Kubernetes powinny być zainstalowane i włączone w klastrach * *":::
 
         > [!TIP]
         > Zalecenie jest zawarte w pięciu różnych kontrolach zabezpieczeń i nie ma znaczenia, która z nich została wybrana w następnym kroku.
 
-    1. Z dowolnego z formantów zabezpieczeń wybierz zalecenie, aby zobaczyć zasoby, na których można zainstalować dodatek, a następnie wybierz pozycję **Koryguj**. 
+    1. Z dowolnego z formantów zabezpieczeń wybierz zalecenie, aby zobaczyć zasoby, na których można zainstalować dodatek.
+    1. Wybierz odpowiedni klaster i **skoryguj** go.
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Strona szczegółów rekomendacji dla * * Azure Policy dodatku dla Kubernetes powinna być zainstalowana i włączona w klastrach * *":::
+
+### <a name="step-2-view-and-configure-the-bundle-of-13-recommendations"></a>Krok 2. Wyświetl i skonfiguruj pakiet 13 zaleceń
 
 1. Około 30 minut po zakończeniu instalacji dodatku Security Center pokazuje stan kondycji klastrów dla następujących zaleceń, każdy w odpowiedniej kontroli zabezpieczeń, jak pokazano poniżej:
 
     > [!TIP]
-    > Niektóre zalecenia mają parametry, które muszą być dostosowane za pośrednictwem Azure Policy, aby efektywnie korzystać z nich. Na przykład aby skorzystać z **obrazów kontenerów rekomendacji, należy wdrożyć tylko z zaufanych rejestrów** , należy zdefiniować zaufane rejestry.
+    > Niektóre zalecenia mają parametry, które muszą być dostosowane za pośrednictwem Azure Policy, aby efektywnie korzystać z nich. Na przykład aby skorzystać z **obrazów kontenerów rekomendacji, należy wdrożyć tylko z zaufanych rejestrów**, należy zdefiniować zaufane rejestry.
     > 
     > Jeśli nie wprowadzisz wymaganych parametrów dla zaleceń, które wymagają konfiguracji, Twoje obciążenia będą wyświetlane jako w złej kondycji.
 
@@ -82,6 +91,7 @@ Azure Security Center obejmuje pakiet zaleceń, które są dostępne po zainstal
     | Użycie sieci i portów hosta powinno być ograniczone                     | Ogranicz nieautoryzowany dostęp do sieci     | **Tak**                |
     | Zastępowanie lub wyłączanie profilowania AppArmor profil powinien być ograniczony | Korygowanie konfiguracji zabezpieczeń        | **Tak**                |
     | Obrazy kontenerów powinny być wdrażane tylko z zaufanych rejestrów            | Koryguj luki w zabezpieczeniach                | **Tak**                |
+    |||
 
 
 1. Aby zalecenia z parametrami muszą być dostosowane, należy ustawić parametry:
@@ -97,7 +107,7 @@ Azure Security Center obejmuje pakiet zaleceń, które są dostępne po zainstal
 
 1. Aby wymusić dowolne zalecenia, 
 
-    1. Otwórz stronę szczegóły rekomendacji i wybierz pozycję **Odmów** :
+    1. Otwórz stronę szczegóły rekomendacji i wybierz pozycję **Odmów**:
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Opcja odmowy dla parametru Azure Policy":::
 

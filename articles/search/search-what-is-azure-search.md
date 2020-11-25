@@ -7,38 +7,47 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 10/22/2020
+ms.date: 11/24/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 0062caff7d8d25b263a9b1202f61691c056469af
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 19be1155476ca7c295e2d0311e8285bc2128dd1d
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701086"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030768"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Co to jest usługa Azure Cognitive Search?
 
-Wyszukiwanie poznawcze platformy Azure ([dawniej znana jako "Azure Search"](whats-new.md#new-service-name)) to usługa wyszukiwania w chmurze, która zapewnia deweloperom interfejsy API i narzędzia do tworzenia bogatego środowiska wyszukiwania za pośrednictwem prywatnej, niejednorodnej zawartości w aplikacjach sieci Web, mobilnych i firmowych.
+Wyszukiwanie poznawcze platformy Azure ([dawniej znana jako "Azure Search"](whats-new.md#new-service-name)) to usługa wyszukiwania w chmurze, która zapewnia deweloperom interfejsy API i narzędzia do tworzenia bogatego środowiska wyszukiwania za pośrednictwem prywatnej, niejednorodnej zawartości w aplikacjach sieci Web, mobilnych i firmowych. 
 
-Podczas tworzenia usługi Wyszukiwanie poznawcze jest uzyskiwany aparat wyszukiwania, który wykonuje indeksowanie i wykonywanie zapytań, trwały magazyn tworzonych indeksów i zarządzanie nim oraz język zapytań umożliwiający tworzenie prostych i złożonych zapytań. Opcjonalnie usługa wyszukiwania integruje się z innymi usługami platformy Azure w postaci *indeksatorów* , które automatyzują pozyskiwanie/pobieranie danych ze źródeł danych platformy Azure, a także *umiejętności* , które obejmują możliwość konsumowania zawartości AI z Cognitive Services, takich jak analiza obrazów i tekstu, lub niestandardowy AI, tworzony w Azure Machine Learning lub zawijania w Azure Functions.
+Po utworzeniu usługi Wyszukiwanie poznawcze otrzymujesz następujące polecenie:
+
++ aparat wyszukiwania, który wykonuje indeksowanie i wykonywanie zapytań
++ Analiza i transformacja obrazów oraz nierozróżniane teksty podczas indeksowania
++ trwały magazyn indeksów wyszukiwania, które tworzysz i którymi zarządzasz
++ język zapytań umożliwiający tworzenie prostych i złożonych zapytań
+
+W sposób architektoniczny usługa wyszukiwania znajduje się między zewnętrznymi magazynami danych, które zawierają dane nieindeksowane, i aplikacji klienckiej, która wysyła żądania zapytań do indeksu wyszukiwania i obsługuje odpowiedź.
 
 ![Architektura usługi Azure Wyszukiwanie poznawcze](media/search-what-is-azure-search/azure-search-diagram.svg "Architektura usługi Azure Wyszukiwanie poznawcze")
 
-W sposób architektoniczny usługa wyszukiwania znajduje się między zewnętrznymi magazynami danych, które zawierają dane nieindeksowane, i aplikacji klienckiej, która wysyła żądania zapytań do indeksu wyszukiwania i obsługuje odpowiedź.  Schemat indeksu określa strukturę zawartości z możliwością wyszukiwania. 
+Poza tym usługa wyszukiwania integruje się z innymi usługami platformy Azure w postaci *indeksatorów* , które automatyzują pozyskiwanie/pobieranie danych ze źródeł danych platformy Azure, a także *umiejętności* , które obejmują możliwe do użycia AI z Cognitive Services, takie jak analiza obrazów i tekstu, lub niestandardowy AI, utworzony w Azure Machine Learning lub zawijania w Azure Functions.
 
-Dwa podstawowe obciążenia usługi wyszukiwania to *indeksowanie* i *wykonywanie zapytań*.
+W samej usłudze wyszukiwania dwa podstawowe obciążenia są *indeksami* i *wykonywaniem zapytań*. 
 
-+ Indeksowanie powoduje przeniesienie tekstu do usługi wyszukiwania i przeszukiwanie. Wewnętrznie tekst przychodzący jest przetwarzany do tokenów i przechowywany w odwróconych indeksach w celu szybkiego skanowania. Podczas indeksowania istnieje możliwość dodawania *umiejętności poznawczych*, wstępnie zdefiniowanych z firmy Microsoft lub niestandardowych umiejętności, które tworzysz. Kolejna analiza i przekształcenia mogą spowodować powstanie nowych informacji i struktur, które jeszcze nie istniały, co zapewnia duże narzędzia do wykonywania wielu wyszukiwania i scenariuszy wyszukiwania w bazie wiedzy.
++ Indeksowanie powoduje przeniesienie tekstu do usługi wyszukiwania i przeszukiwanie. Wewnętrznie tekst przychodzący jest przetwarzany do tokenów i przechowywany w odwróconych indeksach w celu szybkiego skanowania. 
+
+  W ramach indeksowania można dodać *wzbogacanie AI* za pomocą [umiejętności poznawczych](cognitive-search-working-with-skillsets.md), wstępnie zdefiniowanych przez firmę Microsoft lub niestandardowych umiejętności, które tworzysz. Kolejna analiza i przekształcenia mogą spowodować powstanie nowych informacji i struktur, które jeszcze nie istniały, co zapewnia duże narzędzia do wykonywania wielu wyszukiwania i scenariuszy wyszukiwania w bazie wiedzy.
 
 + Gdy indeks zostanie wypełniony danymi z możliwością wyszukiwania, aplikacja kliencka wysyła żądania zapytań do usługi Search i obsługuje odpowiedzi. Wszystkie wykonywanie zapytań znajduje się nad indeksem wyszukiwania tworzonym, własnym i przechowywanym w usłudze. W aplikacji klienckiej środowisko wyszukiwania jest definiowane przy użyciu interfejsów API z platformy Azure Wyszukiwanie poznawcze i może obejmować dostrajanie istotności, Autouzupełnianie, dopasowywanie synonimów, dopasowywanie rozmyte, dopasowywanie do wzorców, filtrowanie i sortowanie.
 
 Funkcje są uwidaczniane za pośrednictwem prostego [interfejsu API REST](/rest/api/searchservice/) lub [zestawu SDK platformy .NET](search-howto-dotnet-sdk.md), które pozwalają zamaskować złożoność związaną z używaniem pobierania informacji. Za pomocą narzędzi do tworzenia prototypów i wykonywania zapytań dotyczących indeksów i umiejętności można także używać Azure Portal do administrowania usługą i zarządzania zawartością. Ponieważ usługa ta działa w chmurze, zarządzaniem infrastrukturą i dostępnością zajmuje się firma Microsoft.
 
-## <a name="when-to-use-cognitive-search"></a>Kiedy używać Wyszukiwanie poznawcze
+## <a name="why-use-cognitive-search"></a>Dlaczego warto używać Wyszukiwanie poznawcze
 
 Wyszukiwanie poznawcze platformy Azure są odpowiednie dla następujących scenariuszy aplikacji:
 
-+ Konsolidacja niejednorodnych typów zawartości w prywatnym, zdefiniowanym przez użytkownika indeksem wyszukiwania. Indeks wyszukiwania można wypełniać strumieniami dokumentów JSON z dowolnego źródła. W przypadku obsługiwanych źródeł na platformie Azure za pomocą *indeksatora* można zautomatyzować indeksowanie. Kontrola nad schematem indeksu i harmonogramem odświeżania jest kluczowym powodem korzystania z Wyszukiwanie poznawcze.
++ Konsolidowanie niejednorodnej zawartości do prywatnego, zdefiniowanego przez użytkownika indeksu wyszukiwania. Indeks wyszukiwania można wypełniać strumieniami dokumentów JSON z dowolnego źródła. W przypadku obsługiwanych źródeł na platformie Azure za pomocą *indeksatora* można zautomatyzować indeksowanie. Kontrola nad schematem indeksu i harmonogramem odświeżania jest kluczowym powodem korzystania z Wyszukiwanie poznawcze.
 
 + Łatwa implementacja funkcji związanych z wyszukiwaniem. Interfejsy API wyszukiwania upraszczają konstruowanie zapytań, nawigację aspektową, filtry (w tym wyszukiwanie geoprzestrzenne), mapowanie synonimów, Autouzupełnianie i dostrajanie istotności. Korzystając z wbudowanych funkcji, można zaspokoić oczekiwania użytkowników końcowych w przypadku wyszukiwania podobnego do komercyjnych aparatów wyszukiwania w sieci Web.
 
@@ -48,39 +57,20 @@ Wyszukiwanie poznawcze platformy Azure są odpowiednie dla następujących scena
 
 Aby uzyskać więcej informacji o konkretnych funkcjach, zobacz [funkcje platformy Azure wyszukiwanie poznawcze](search-features-list.md)
 
-## <a name="how-to-use-cognitive-search"></a>Jak używać Wyszukiwanie poznawcze
+## <a name="how-to-get-started"></a>Jak zacząć
 
-### <a name="step-1-provision-service"></a>Krok 1. Aprowizowanie usługi
+Kompleksowa Eksploracja podstawowych funkcji wyszukiwania można osiągnąć w czterech krokach:
 
-Możesz [utworzyć bezpłatną usługę](search-create-service-portal.md) udostępnioną z innymi subskrybentami lub [warstwę płatną](https://azure.microsoft.com/pricing/details/search/) , która rezerwuje zasoby używane tylko przez usługę. Wszystkie samouczki i przewodniki Szybki Start można ukończyć, korzystając z bezpłatnej usługi.
+1. [**Utwórz usługę wyszukiwania**](search-create-service-portal.md) w warstwie Bezpłatna współdzielona z innymi subskrybentami lub [warstwę płatną](https://azure.microsoft.com/pricing/details/search/) dla dedykowanych zasobów używanych tylko przez usługę. Wszystkie samouczki i przewodniki Szybki Start można ukończyć, korzystając z bezpłatnej usługi.
 
-W przypadku warstw płatnych można skalować usługę w dwóch wymiarach, aby skalibrować odzyskanie na podstawie wymagań produkcyjnych:
+1. [**Utwórz indeks wyszukiwania**](search-what-is-an-index.md) przy użyciu portalu, [interfejsu API REST](/rest/api/searchservice/create-index). [Zestaw SDK platformy .NET](search-howto-dotnet-sdk.md)lub inny zestaw SDK. Schemat indeksu definiuje strukturę zawartości z możliwością wyszukiwania.
 
-+ Dodaj repliki, aby zwiększyć pojemność do obsługi dużych obciążeń zapytań
-+ Dodawanie partycji w celu rozbudowy magazynu dla większej liczby dokumentów
+1. [**Przekaż zawartość**](search-what-is-data-import.md) do indeksu. Użyj [modelu "push"](tutorial-optimize-indexing-push-api.md) , aby wypchnąć dokumenty JSON z dowolnego źródła lub użyć [modelu "pull" (indeksatory)](search-indexer-overview.md) , jeśli dane źródłowe są na platformie Azure.
 
-### <a name="step-2-create-an-index"></a>Krok 2. Tworzenie indeksu
-
-Zdefiniuj schemat indeksu do zmapowania, aby odzwierciedlał strukturę dokumentów, które chcesz wyszukać, podobnie jak pola w bazie danych. Indeks wyszukiwania to wyspecjalizowana struktura danych zoptymalizowana pod kątem szybkiego wykonywania zapytań.
-
-Często można [utworzyć schemat indeksu w Azure Portal](search-what-is-an-index.md)lub programowo przy użyciu [zestawu .NET SDK](search-howto-dotnet-sdk.md) lub [interfejsu API REST](/rest/api/searchservice/).
+1. Tworzenie [**zapytań względem indeksu**](search-query-overview.md) przy użyciu [Eksploratora wyszukiwania](search-explorer.md) w portalu, [interfejsie API REST](search-get-started-rest.md), [zestawie .NET SDK](/dotnet/api/azure.search.documents.searchclient.search)lub innym zestawie SDK.
 
 > [!TIP]
-> Rozpocznij pracę z [kreatorem szybkiego startu: Importowanie danych](search-get-started-portal.md) , aby utworzyć, załadować i zbadać indeks w ciągu kilku minut.
-
-### <a name="step-3-load-data"></a>Krok 3. Ładowanie danych
-
-Po zdefiniowaniu indeksu możesz zacząć przekazywać zawartość. Możesz użyć modelu wypychania lub modelu ściągania.
-
-Model wypychania "wypychaje" Dokumenty JSON do indeksu przy użyciu interfejsów API z [zestawu SDK](search-howto-dotnet-sdk.md) lub [rest](/rest/api/searchservice/addupdate-or-delete-documents). Zewnętrzny zestaw danych może być praktycznie dowolnym źródłem danych, o ile dokumenty są w formacie JSON.
-
-Model ściągania ściąga dane ze źródeł na platformie Azure i wysyła je do indeksu wyszukiwania. Model ściągania jest wdrażany za pomocą [*indeksatorów*](/rest/api/searchservice/Indexer-operations) , które upraszczają i automatyzują aspekty pozyskiwania danych, takie jak łączenie z, odczytywanie i Serializowanie danych. Obsługiwane źródła danych obejmują Azure Cosmos DB, Azure SQL i Azure Storage.
-
-### <a name="step-4-send-queries-and-handle-responses"></a>Krok 4. Wysyłanie zapytań i obsługa odpowiedzi
-
-Po wypełnieniu indeksu możesz [wydać zapytania wyszukiwania](search-query-overview.md) do punktu końcowego usługi przy użyciu prostych żądań HTTP z [interfejsem API REST](/rest/api/searchservice/Search-Documents) lub [zestawem SDK platformy .NET](/dotnet/api/azure.search.documents.searchclient.search).
-
-Przejdź do sekcji [Tworzenie pierwszej aplikacji wyszukiwania](tutorial-csharp-create-first-app.md) , aby skompilować, a następnie rozwiń stronę sieci Web, która zbiera dane wejściowe użytkownika i obsługuje wyniki. Można również użyć programu [Poster lub Visual Studio Code](search-get-started-rest.md)  dla interaktywnych wywołań REST lub wbudowanego [eksploratora wyszukiwania](search-explorer.md) w Azure Portal, aby zbadać istniejący indeks.
+> Konsolidowanie kroków można wykonać, rozpoczynając od [**Kreatora importu danych**](search-get-started-portal.md) i źródła danych platformy Azure w celu tworzenia, ładowania i wykonywania zapytań względem indeksu w ciągu kilku minut.
 
 ## <a name="how-it-compares"></a>Porównanie z innymi rozwiązaniami
 

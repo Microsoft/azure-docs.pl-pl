@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 11/25/2020
 ms.author: jingwang
-ms.openlocfilehash: 6699178e514f4d25666305f3251e8eaf9d28e6dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6d6c830eec8e711e700733a90611c353b68439d
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417453"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030802"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Kopiowanie danych z Concur za pomocą Azure Data Factory (wersja zapoznawcza)
 
@@ -36,8 +36,6 @@ Ten łącznik Concur jest obsługiwany dla następujących działań:
 
 Dane z Concur można skopiować do dowolnego obsługiwanego magazynu danych ujścia. Listę magazynów danych obsługiwanych jako źródła/ujścia przez działanie kopiowania można znaleźć w tabeli [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) .
 
-Azure Data Factory udostępnia wbudowany sterownik umożliwiający połączenie, dlatego nie trzeba ręcznie instalować żadnego sterownika przy użyciu tego łącznika.
-
 > [!NOTE]
 > Konto partnera nie jest obecnie obsługiwane.
 
@@ -54,14 +52,53 @@ Dla połączonej usługi Concur są obsługiwane następujące właściwości:
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type musi mieć wartość: **Concur** | Tak |
-| clientId | Client_id aplikacji dostarczana przez Zarządzanie aplikacjami Concur.  | Tak |
-| nazwa użytkownika | Nazwa użytkownika służąca do uzyskiwania dostępu do usługi Concur.  | Tak |
+| connectionProperties | Grupa właściwości, która definiuje sposób nawiązywania połączenia z Concur. | Tak |
+| **_W obszarze `connectionProperties` :_* _ | | |
+| authenticationType | Dozwolone wartości to `OAuth_2.0_Bearer` i `OAuth_2.0` (starsza wersja). Opcja uwierzytelniania OAuth 2,0 działa z starym interfejsem API Concur, który został uznany za przestarzały od lutego 2017. | Tak |
+| host | Punkt końcowy serwera Concur, np. `implementation.concursolutions.com` .  | Tak |
+| baseUrl | Podstawowy adres URL autoryzacji adresu URL Concur. | Tak na potrzeby `OAuth_2.0_Bearer` uwierzytelniania |
+| clientId | Identyfikator klienta aplikacji dostarczany przez Concur zarządzania aplikacjami.  | Tak |
+| clientSecret | Wpis tajny klienta odpowiadający IDENTYFIKATORowi klienta. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak na potrzeby `OAuth_2.0_Bearer` uwierzytelniania |
+| nazwa użytkownika | Nazwa użytkownika służąca do uzyskiwania dostępu do usługi Concur. | Tak |
 | hasło | Hasło odpowiadające nazwie użytkownika podanej w polu Nazwa użytkownika. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
 | useEncryptedEndpoints | Określa, czy punkty końcowe źródła danych są szyfrowane przy użyciu protokołu HTTPS. Wartością domyślną jest true.  | Nie |
 | useHostVerification | Określa, czy nazwa hosta ma być wymagana w certyfikacie serwera, aby odpowiadała nazwie hosta serwera podczas łączenia się za pośrednictwem protokołu TLS. Wartością domyślną jest true.  | Nie |
 | usePeerVerification | Określa, czy należy zweryfikować tożsamość serwera podczas łączenia za pośrednictwem protokołu TLS. Wartością domyślną jest true.  | Nie |
 
-**Przykład:**
+_ *Przykład:**
+
+```json
+{ 
+    "name": "ConcurLinkedService", 
+    "properties": {
+        "type": "Concur",
+        "typeProperties": {
+            "connectionProperties": {
+                "host":"<host e.g. implementation.concursolutions.com>",
+                "baseUrl": "<base URL for authorization e.g. us-impl.api.concursolutions.com>",
+                "authenticationType": "OAuth_2.0_Bearer",
+                "clientId": "<client id>",
+                "clientSecret": {
+                    "type": "SecureString",
+                    "value": "<client secret>"
+                },
+                "username": "fakeUserName",
+                "password": {
+                    "type": "SecureString",
+                    "value": "<password>"
+                },
+                "useEncryptedEndpoints": true,
+                "useHostVerification": true,
+                "usePeerVerification": true
+            }
+        }
+    }
+} 
+```
+
+**Przykład (starsza wersja):**
+
+Zwróć uwagę, że poniżej znajduje się starszy model połączonej usługi bez `connectionProperties` użycia `OAuth_2.0` uwierzytelniania.
 
 ```json
 {
@@ -120,7 +157,7 @@ Aby skopiować dane z Concur, ustaw typ źródła w działaniu Copy na **ConcurS
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **ConcurSource** | Tak |
-| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Przykład: `"SELECT * FROM Opportunities where Id = xxx "`. | Nie (Jeśli określono "TableName" w zestawie danych) |
+| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM Opportunities where Id = xxx "`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**
 

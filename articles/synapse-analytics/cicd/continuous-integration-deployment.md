@@ -1,0 +1,126 @@
+---
+title: Ciągła integracja i dostarczanie dla obszaru roboczego Synapse
+description: Dowiedz się, jak korzystać z ciągłej integracji i dostarczania, aby wdrażać zmiany w obszarze roboczym z jednego środowiska (opracowywanie, testowanie i produkcja).
+services: synapse-analytics
+author: liud
+ms.service: synapse-analytics
+ms.topic: conceptual
+ms.date: 11/20/2020
+ms.author: liud
+ms.reviewer: pimorano
+ms.openlocfilehash: 2f2221ad10a2e07a3443cab9f957c8ec26969a3b
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96031296"
+---
+# <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Ciągła integracja i dostarczanie dla obszaru roboczego usługi Azure Synapse
+
+## <a name="overview"></a>Omówienie
+
+Ciągła integracja (CI) to proces automatyzacji kompilowania i testowania kodu za każdym razem, gdy członek zespołu zatwierdza zmiany w kontroli wersji. Ciągłe wdrażanie (CD) to proces kompilowania, testowania, konfigurowania i wdrażania wielu środowisk testowych lub przejściowych w środowisku produkcyjnym.
+
+W przypadku usługi Azure Synapse Workspace, ciągłej integracji i dostarczania (CI/CD) przenosi wszystkie jednostki z jednego środowiska (Programowanie, testowanie, produkcja) do innego. Aby podwyższyć poziom obszaru roboczego do innego obszaru roboczego, istnieją dwie części: Użyj [szablonów Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) do tworzenia lub aktualizowania zasobów obszaru roboczego (pul i obszarów roboczych); Migrowanie artefaktów (skrypty SQL, Notes, definicja zadań platformy Spark, potoki, zestawy danych, przepływy, dane itp.) dzięki narzędziom CI/CD Synapse na platformie Azure DevOps. 
+
+W tym artykule zawarto informacje na temat korzystania z potoku wersji platformy Azure w celu zautomatyzowania wdrożenia obszaru roboczego Synapse w wielu środowiskach.
+
+## <a name="pre-requirements"></a>Wymagania wstępne
+
+-   Obszar roboczy używany do tworzenia aplikacji został skonfigurowany z repozytorium Git w programie Studio, patrz [Kontrola źródła w programie Synapse Studio](source-control.md).
+-   Projekt usługi Azure DevOps został przygotowany do uruchomienia potoku wydania.
+
+## <a name="set-up-a-release-pipelines"></a>Konfigurowanie potoków wydania
+
+1.  W [usłudze Azure DevOps](https://dev.azure.com/)Otwórz projekt utworzony dla tego wydania.
+
+1.  W lewej części strony wybierz pozycję **potoki**, a następnie wybierz pozycję **wersje**.
+
+    ![Wybieranie potoków, wydań](media/create-release-1.png)
+
+1.  Wybierz pozycję **Nowy potok** lub, jeśli masz istniejące potoki, wybierz pozycję **Nowy** , a następnie **nowe potoku wydania**.
+
+1.  Wybierz **pusty szablon zadania** .
+
+    ![Wybierz puste zadanie](media/create-release-select-empty.png)
+
+1.  W polu **Nazwa etapu** wprowadź nazwę środowiska.
+
+1.  Wybierz pozycję **Dodaj artefakt**, a następnie wybierz repozytorium git skonfigurowane przy użyciu programu Development Synapse Studio. Wybierz repozytorium git, które zostało użyte do zarządzania szablonami ARM pul i obszaru roboczego. Jeśli używasz usługi GitHub jako źródła, musisz utworzyć połączenie z usługą dla konta w usłudze GitHub i pobrać repozytoria. Aby uzyskać więcej informacji na temat [połączenia z usługą](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints) 
+
+    ![Dodaj gałąź publikowania](media/release-creation-github.png)
+
+1.  Wybierz gałąź szablonu usługi ARM dla aktualizacji zasobów. W polu **wersja domyślna** wybierz pozycję **Najnowsza z gałęzi domyślnej**.
+
+    ![Dodaj szablon ARM](media/release-creation-arm-branch.png)
+
+1.  Wybierz [gałąź Publikuj](source-control.md#configure-publishing-settings) repozytorium dla **gałęzi domyślnej**. Domyślnie ta gałąź publikowania to `workspace_publish` . W polu **wersja domyślna** wybierz pozycję **Najnowsza z gałęzi domyślnej**.
+
+    ![Dodawanie artefaktu](media/release-creation-publish-branch.png)
+
+## <a name="set-up-a-stage-task-for-arm-resource-create-and-update"></a>Skonfiguruj zadanie etapowe tworzenia i aktualizowania zasobów usługi ARM 
+
+Dodaj zadanie wdrażania Azure Resource Manager, aby tworzyć lub aktualizować zasoby, w tym obszary robocze i pule:
+
+1. W widoku etap wybierz pozycję **Wyświetl zadania etapowe**.
+
+    ![Widok etapu](media/release-creation-stage-view.png)
+
+1. Utwórz nowe zadanie. Wyszukaj **wdrożenie szablonu ARM**, a następnie wybierz pozycję **Dodaj**.
+
+1. W zadaniu wdrażania wybierz subskrypcję, grupę zasobów i lokalizację docelowego obszaru roboczego. W razie potrzeby podaj poświadczenia.
+
+1. Na liście **Akcja** wybierz pozycję **Utwórz lub Zaktualizuj grupę zasobów**.
+
+1. Wybierz przycisk wielokropka (**...**) obok pola **szablon** . Przeglądaj w poszukiwaniu szablonu Azure Resource Manager docelowego obszaru roboczego
+
+1. Wybierz **...** obok pola **Parametry szablonu** , aby wybrać plik parametrów.
+
+1. Wybierz **...** obok pola **Przesłoń parametry szablonu** wprowadź odpowiednie wartości parametrów dla docelowego obszaru roboczego. 
+
+1. Wybierz opcję **przyrostowy** dla **trybu wdrożenia**.
+    
+    ![Wdrażanie obszarów roboczych i pul](media/pools-resource-deploy.png)
+
+1. Obowiązkowe Dodaj **Azure PowerShell** do przypisania roli obszaru roboczego Grant i Update. W przypadku tworzenia obszaru roboczego usługi Synapse przy użyciu potoku wydania należy dodać nazwę główną potoku jako domyślnego administratora obszaru roboczego. Możesz uruchomić program PowerShell, aby przyznać innym kontom dostęp do obszaru roboczego. 
+    
+    ![Udziel uprawnienia](media/release-creation-grant-permission.png)
+
+ > [!WARNING]
+> W trybie ukończenia wdrożenia zasoby istniejące w grupie zasobów, ale nie są określone w nowym szablonie Menedżer zasobów, zostaną **usunięte**. Aby uzyskać więcej informacji, zobacz [tryby wdrażania Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes)
+
+## <a name="set-up-a-stage-task-for-artifacts-deployment"></a>Konfigurowanie zadania etapowego dla wdrożenia artefaktów 
+
+Za pomocą [Synapse obszarów roboczych Kompiluj zadanie wydania &](https://marketplace.visualstudio.com/items?itemName=PraveenMathamsetty.synapsecicd-deploy) , aby wdrożyć inne elementy w obszarze roboczym Synapse, takie jak zestaw danych, skrypt SQL, Notes, definicja zadania platformy Spark, przepływu danych, potok, połączona usługa, poświadczenia i IR (Integration Runtime).  
+
+1. Upewnij się, że z zasadą usługi potoku usługi Azure DevOps udzielono uprawnienia do subskrypcji, a także przypisano ją jako administratora obszaru roboczego. 
+
+1. Utwórz nowe zadanie. Wyszukaj **obszary robocze Synapse Build & Release**, a następnie wybierz pozycję **Dodaj**.
+
+1.  W zadaniu podaj informacje o powiązanym repozytorium git **workspace_publish** , a następnie wybierz pozycję Grupa zasobów, region, nazwa i środowisko chmury dla docelowego obszaru roboczego. W razie potrzeby podaj parametry i wartości.
+
+    ![Wdrażanie obszaru roboczego Synapse](media/create-release-artifacts-deployment.png)
+
+> [!IMPORTANT]
+> W scenariuszach ciągłej integracji/ciągłego wdrażania typ środowiska Integration Runtime (IR) w różnych środowiskach musi być taki sam. Na przykład jeśli masz własne środowisko IR w środowisku deweloperskim, ten sam IR musi być również typu samodzielnego w innych środowiskach, na przykład test i środowisko produkcyjne. Podobnie, jeśli udostępniasz środowiska Integration Runtime na wielu etapach, musisz skonfigurować środowisko Integration Runtime jako połączone samodzielnie hostowane we wszystkich środowiskach, takich jak programowanie, testowanie i środowisko produkcyjne.
+
+## <a name="create-release-for-deployment"></a>Utwórz wydanie do wdrożenia 
+
+Po zapisaniu wszystkich zmian możesz wybrać pozycję **Utwórz wydanie** , aby ręcznie utworzyć wydanie. Aby zautomatyzować tworzenie wydań, zobacz [Azure DevOps Release Triggers](https://docs.microsoft.com/azure/devops/pipelines/release/triggers)
+
+   ![Wybierz pozycję Utwórz wydanie](media/release-creation-manually.png)
+
+## <a name="best-practices-for-cicd"></a>Najlepsze rozwiązania dotyczące ciągłej integracji/ciągłego wdrażania
+
+Jeśli korzystasz z integracji narzędzia Git z obszarem roboczym usługi Synapse i masz potoku CI/CD, który przenosi zmiany z programowania na test, a następnie do środowiska produkcyjnego, zalecamy następujące najlepsze rozwiązania:
+
+-   **Integracja** z usługą git. Skonfiguruj tylko obszar roboczy programu Development Synapse z integracją narzędzia Git. Zmiany dotyczące testów i produkcyjnych obszarów roboczych są wdrażane za pośrednictwem ciągłej integracji/ciągłego wdrażania, a nie potrzebna jest integracja z usługą git.
+-   **Przygotuj pule przed migracją artefaktów**. W przypadku dołączania pul do skryptu SQL lub notesu w obszarze roboczym programowanie oczekiwana jest taka sama nazwa pul w różnych środowiskach. 
+-   **Inne osoby**. Zobacz [inne najlepsze rozwiązania](/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd)
+
+## <a name="unsupported-features"></a>Nieobsługiwane funkcje
+
+- Synapse Studio nie zezwala na wybór zatwierdzeń lub selektywne Publikowanie zasobów. 
+- Synapse Studio nie obsługuje dostosowywania komunikatu zatwierdzania.
+- Po zaprojektowaniu Akcja usuwania zostanie przekazana bezpośrednio do usługi git
+

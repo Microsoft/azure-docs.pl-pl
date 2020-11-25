@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: thvankra
-ms.openlocfilehash: 3436a0edf69efc71d3528bffaefd613668426fad
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1368a3174af08f557b6d08f298fba015601d568c
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995827"
+ms.locfileid: "96030836"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Często zadawane pytania dotyczące interfejs API Cassandra w programie Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -176,7 +176,7 @@ Nie. Interfejs API Cassandra obsługuje [indeksy pomocnicze](cassandra-secondary
 
 ### <a name="can-i-use-the-new-cassandra-api-sdk-locally-with-the-emulator"></a>Czy mogę użyć nowego zestawu interfejs API Cassandra SDK lokalnie z emulatorem?
 
-Tak, takie rozwiązanie jest obsługiwane. Aby uzyskać szczegółowe informacje na temat tego, jak to zrobić, [Skorzystaj z emulatora usługi Azure Cosmos na potrzeby lokalnego projektowania i testowania](local-emulator.md#cassandra-api) .
+Tak, takie rozwiązanie jest obsługiwane. Aby uzyskać szczegółowe informacje na temat tego, jak to zrobić, [Użyj emulatora Azure Cosmos DB na potrzeby lokalnego projektowania i testowania](local-emulator.md#cassandra-api) .
 
 
 ### <a name="how-can-i-migrate-data-from-apache-cassandra-clusters-to-azure-cosmos-db"></a>Jak przeprowadzić migrację danych z klastrów Apache Cassandra do Azure Cosmos DB?

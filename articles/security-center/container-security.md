@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 6b57428aeba702dc8cf06ec4ae7984854a94ac7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7265195f9614928a2150a56a780ea7b36bc2e266
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449173"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030870"
 ---
-# <a name="container-security-in-security-center"></a>Zabezpieczenia kontenera w Security Center
+# <a name="container-security-in-security-center"></a>Zabezpieczenia kontenerów w usłudze Security Center
 
 Azure Security Center to rozwiązanie natywne platformy Azure służące do zabezpieczania kontenerów.
 
@@ -78,11 +78,11 @@ Aby uzyskać szczegółowe informacje dotyczące odpowiednich Security Center za
 
 ###  <a name="workload-protection-best-practices-using-kubernetes-admission-control"></a>Najlepsze rozwiązania w zakresie ochrony obciążeń przy użyciu funkcji Kubernetes Admission Control
 
-Zainstaluj  **dodatek Azure Policy dla Kubernetes** , aby uzyskać pakiet zaleceń dotyczących ochrony obciążeń kontenerów Kubernetes.
+Aby uzyskać pakiet zaleceń dotyczących ochrony obciążeń kontenerów usługi Kubernetes, zainstaluj  **dodatek Azure Policy dla Kubernetes**. Ten dodatek można również wdrożyć w sposób opisany w temacie [Włączanie obsługi autoaprowizacji rozszerzeń](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions). Gdy funkcja autoaprowizacji dla dodatku jest ustawiona na wartość "on", rozszerzenie jest domyślnie włączone we wszystkich istniejących i przyszłych klastrach (które spełniają wymagania instalacji dodatku).
 
 Jak wyjaśniono w [tym Azure Policy stronie Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md), dodatek rozszerza element webhook kontrolera Open-Source [strażnik v3](https://github.com/open-policy-agent/gatekeeper)   dla programu [Open Policy Agent](https://www.openpolicyagent.org/). Kubernetes Admission Controls to wtyczki, które wymuszają sposób użycia klastrów. Dodatek, który jest rejestrem sieci Web, w celu Kubernetes kontroli wpływu i umożliwia stosowanie zasad wymuszania na skalę i zabezpieczeń w klastrach w scentralizowany, spójny sposób. 
 
-Po zainstalowaniu dodatku w klastrze AKS każde żądanie do serwera interfejsu API Kubernetes będzie monitorowane względem wstępnie zdefiniowanego zestawu najlepszych rozwiązań przed utrwaleniem w klastrze. Następnie można skonfigurować w celu **wymuszenia** najlepszych rozwiązań i ich upoważnienia do przyszłych obciążeń. 
+Wraz z dodatkiem w klastrze AKS każde żądanie do serwera interfejsu API Kubernetes będzie monitorowane względem wstępnie zdefiniowanego zestawu najlepszych rozwiązań przed utrwaleniem w klastrze. Następnie można skonfigurować w celu **wymuszenia** najlepszych rozwiązań i ich upoważnienia do przyszłych obciążeń. 
 
 Na przykład można przystąpić do tego, że kontenery uprzywilejowane nie powinny być tworzone, a wszystkie przyszłe żądania, które należy wykonać, zostaną zablokowane.
 

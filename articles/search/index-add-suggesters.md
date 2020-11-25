@@ -7,18 +7,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 11/24/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 81bcfdf5e63d49280fb798773559310cbd912a26
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4390291eb96c11b8fb7fdb48eb92abaf802b80c0
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013585"
+ms.locfileid: "96030785"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Utwórz sugestię umożliwiającą włączenie autouzupełniania i sugerowanych wyników w zapytaniu
 
-Na platformie Azure Wyszukiwanie poznawcze wartość "wyszukiwanie w trakcie pisania" jest włączana za pomocą konstrukcji **sugerującej** dodanej do [indeksu wyszukiwania](search-what-is-an-index.md). Program sugerujący obsługuje dwa środowiska: *Autouzupełnianie*, które uzupełnia częściowe dane wejściowe dla zapytania obejmującego całą kadencję, oraz *sugestie* , które zapraszają klikanie do określonego dopasowania. Funkcja autouzupełniania tworzy zapytanie. Sugestie tworzą pasujący dokument.
+Na platformie Azure Wyszukiwanie poznawcze wartość "wyszukiwanie w trakcie pisania" jest włączana za pomocą narzędzia do *sugerowania*. Sugerował jest wewnętrzną strukturą danych, która składa się z kolekcji Fields. Pola są poddawane dodatkowej tokenizacji, generując sekwencje prefiksu w celu obsługi dopasowań w przypadku częściowych warunków.
+
+Na przykład, jeśli sugerował zawiera pole miasto, powstałe kombinacje prefiksów "Sea", "siedzenie", "siedzisko" i "Seattl" dla terminu "Seattle". Prefiksy są przechowywane w odwróconych indeksach, po jednym dla każdego pola określonego w kolekcji pól sugerujących.
+
+## <a name="typeahead-experiences-in-cognitive-search"></a>Typeahead środowiska w Wyszukiwanie poznawcze
+
+Program sugerujący obsługuje dwa środowiska: *Autouzupełnianie*, które uzupełnia częściowe dane wejściowe dla zapytania obejmującego całą kadencję, oraz *sugestie* , które zapraszają klikanie do określonego dopasowania. Funkcja autouzupełniania tworzy zapytanie. Sugestie tworzą pasujący dokument.
 
 Poniższy zrzut ekranu przedstawiający [Tworzenie pierwszej aplikacji w języku C#](tutorial-csharp-type-ahead-and-suggestions.md) ilustruje oba te elementy. Funkcja Autouzupełnianie przewiduje potencjalną kadencję, kończąc "TW" z "in". Sugestie to wyniki wyszukiwania mini, gdzie pole takie jak nazwa hotelu reprezentuje pasujący dokument wyszukiwania hotelowego z indeksu. W przypadku sugestii można wyświetlić dowolne pole, które zawiera opisowe informacje.
 
@@ -31,10 +37,6 @@ Tych funkcji można używać osobno lub razem. Aby zaimplementować te zachowani
 + Wywołaj zapytanie z włączoną sugestią, w formie żądania sugestii lub żądania autouzupełniania, używając jednego z [interfejsów API wymienionych poniżej](#how-to-use-a-suggester).
 
 Obsługa wyszukiwania jako typu jest włączana dla poszczególnych pól dla pól ciągów. Można zaimplementować oba zachowania typeahead w ramach tego samego rozwiązania wyszukiwania, jeśli chcesz, aby środowisko było podobne do określonego na zrzucie ekranu. Oba żądania są kierowane do kolekcji *dokumenty* określonego indeksu i odpowiedzi są zwracane po podaniu przez użytkownika co najmniej trzech ciągów wejściowych znaku.
-
-## <a name="what-is-a-suggester"></a>Co to jest sugerował?
-
-Program sugerowany jest wewnętrzną strukturą danych, która obsługuje zachowania typu "Wyszukaj jako" przez przechowywanie prefiksów do dopasowania w przypadku zapytań częściowych. Podobnie jak w przypadku terminów z tokenami, prefiksy są przechowywane w odwróconych indeksach, po jednym dla każdego pola określonego w kolekcji pól sugerujących.
 
 ## <a name="how-to-create-a-suggester"></a>Jak utworzyć sugestię
 

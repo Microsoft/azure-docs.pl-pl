@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: a73d155d20d09573ad5e1b2597678291aea4c92b
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: c7db48a1df61472de8676192f267493232139b6e
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980594"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030819"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Planowanie i zarządzanie kosztami Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -52,7 +52,7 @@ Jeśli planujesz używać Azure Cosmos DB w trybie bezserwerowym, należy oszaco
 | Wykonaj zapytanie | 10 jednostek RU | Średni koszt zapytania, które w pełni wykorzystuje [indeksowanie](index-overview.md) i zwraca 100 wyników lub mniej |
 
 > [!IMPORTANT] 
-> Zwróć uwagę na uwagi z powyższej tabeli. Aby uzyskać dokładniejsze oszacowanie rzeczywistych kosztów operacji, możesz użyć [emulatora usługi Azure Cosmos](local-emulator.md) i [zmierzyć dokładny koszt operacji na ru](find-request-unit-charge.md). Chociaż emulator usługi Azure Cosmos nie obsługuje bezserwerowego, raport jest naliczany jako standardowy RU dla operacji bazy danych i może służyć do tego oszacowania.
+> Zwróć uwagę na uwagi z powyższej tabeli. Aby uzyskać dokładniejsze oszacowanie rzeczywistych kosztów operacji, można użyć [emulatora Azure Cosmos DB](local-emulator.md) i [zmierzyć dokładny koszt operacji](find-request-unit-charge.md)na jednostkę ru. Chociaż emulator Azure Cosmos DB nie obsługuje bezserwerowego programu, raport jest naliczany przez standardowy RU dla operacji bazy danych i może służyć do tego oszacowania.
 
 Po przeprowadzeniu obliczenia łącznej liczby jednostek żądań i GB miejsca w magazynie, które prawdopodobnie będą zużywane przez miesiąc, następująca formuła zwróci oszacowanie kosztów: **([liczba jednostek żądań]/1 000 000 * $0,25) + ([GB magazynu] * $0,25)**.
 
