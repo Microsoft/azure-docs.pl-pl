@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 08/12/2020
-ms.openlocfilehash: 055cdf7b6cec12eb8c3e7fde891d155b831a6523
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/24/2020
+ms.openlocfilehash: cc06f12317f5e30721452e07bd4dc5f50dfdb7ec
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637874"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022364"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Przewodnik dotyczący wydajności i dostrajania przepływu danych
 
@@ -87,6 +87,12 @@ Jeśli masz dobrą wiedzę o kardynalności danych, partycjonowanie kluczy może
 > [!TIP]
 > Ręczne ustawienie schematu partycjonowania powoduje oddzielenie danych i może przesunięte korzyści wynikające z optymalizacji programu Spark. Najlepszym rozwiązaniem jest nie ręczne ustawianie partycjonowania, chyba że jest to konieczne.
 
+## <a name="logging-level"></a>Poziom rejestrowania
+
+Jeśli nie jest wymagane każde wykonanie potoku działań przepływu danych w celu pełnego rejestrowania wszystkich pełnych dzienników telemetrii, możesz opcjonalnie ustawić poziom rejestrowania na "podstawowa" lub "Brak". Podczas wykonywania przepływów danych w trybie "verbose" (ustawienie domyślne), żądanie ADF można w pełni rejestrować na poszczególnych poziomach partycji podczas przekształcania danych. Może to być kosztowna operacja, dzięki czemu można ją włączyć tylko wtedy, gdy Rozwiązywanie problemów może poprawić ogólny przepływ danych i wydajność potoku. Tryb "podstawowy" spowoduje rejestrowanie tylko czasów trwania transformacji, gdy wartość "Brak" spowoduje jedynie podsumowanie czasu trwania.
+
+![Poziom rejestrowania](media/data-flow/logging.png "Ustaw poziom rejestrowania")
+
 ## <a name="optimizing-the-azure-integration-runtime"></a><a name="ir"></a> Optymalizacja Azure Integration Runtime
 
 Przepływy danych są uruchamiane w klastrach Spark, które są w czasie wykonywania. Konfiguracja używanego klastra jest definiowana w środowisku Integration Runtime (IR) działania. Podczas definiowania środowiska Integration runtime można utworzyć trzy zagadnienia dotyczące wydajności: typ klastra, rozmiar klastra i czas do wygaśnięcia.
@@ -155,7 +161,7 @@ Azure SQL Database ma unikatową opcję partycjonowania o nazwie partycjonowanie
 
 #### <a name="isolation-level"></a>Poziom izolacji
 
-Poziom izolacji odczytu w systemie źródłowym Azure SQL ma wpływ na wydajność. Wybranie opcji "Odczytaj niezatwierdzone" zapewni najszybszą wydajność i uniemożliwi wszystkie blokady bazy danych. Aby dowiedzieć się więcej na temat poziomów izolacji SQL, zobacz [Opis poziomów izolacji](/sql/connect/jdbc/understanding-isolation-levels?view=sql-server-ver15).
+Poziom izolacji odczytu w systemie źródłowym Azure SQL ma wpływ na wydajność. Wybranie opcji "Odczytaj niezatwierdzone" zapewni najszybszą wydajność i uniemożliwi wszystkie blokady bazy danych. Aby dowiedzieć się więcej na temat poziomów izolacji SQL, zobacz [Opis poziomów izolacji](https://docs.microsoft.com/sql/connect/jdbc/understanding-isolation-levels).
 
 #### <a name="read-using-query"></a>Przeczytaj przy użyciu zapytania
 
@@ -163,7 +169,7 @@ Możesz czytać z Azure SQL Database przy użyciu tabeli lub zapytania SQL. Jeś
 
 ### <a name="azure-synapse-analytics-sources"></a>Źródła analiz usługi Azure Synapse
 
-W przypadku korzystania z usługi Azure Synapse Analytics w opcjach źródła istnieje ustawienie o nazwie **Włącz przemieszczanie** . Pozwala to na odczytywanie ADF z Synapse przy użyciu [bazy](/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15), która znacznie zwiększa wydajność odczytu. Włączenie układu wielobase wymaga określenia Blob Storage platformy Azure Azure Data Lake Storage lub lokalizacji tymczasowej Gen2 w ustawieniach działania przepływu danych.
+W przypadku korzystania z usługi Azure Synapse Analytics w opcjach źródła istnieje ustawienie o nazwie **Włącz przemieszczanie** . Pozwala to na odczytywanie ADF z Synapse przy użyciu ```Polybase``` , co znacznie zwiększa wydajność odczytu. Włączenie ```Polybase``` wymaga określenia Azure Data Lake Storage usługi Azure Blob Storage lub lokalizacji tymczasowej Gen2 w ustawieniach działania przepływu danych.
 
 ![Włączanie trybu przejściowego](media/data-flow/enable-staging.png "Włączanie trybu przejściowego")
 
@@ -183,6 +189,10 @@ Gdy dane są zapisywane w ujściach, wszelkie niestandardowe partycjonowanie bę
 
 W przypadku Azure SQL Database domyślne partycjonowanie powinno być wykonywane w większości przypadków. Istnieje prawdopodobieństwo, że ujścia może mieć zbyt wiele partycji, aby Twoja baza danych SQL mogła obsłużyć. Jeśli używasz tego programu, zmniejsz liczbę partycji przeszukanych przez SQL Database ujścia.
 
+#### <a name="impact-of-error-row-handling-to-performance"></a>Wpływ obsługi wiersza błędu na wydajność
+
+Po włączeniu obsługi wierszy błędów ("Kontynuuj przy błędzie") w transformacji ujścia funkcja ADF zajmie dodatkowy krok przed zapisaniem zgodnych wierszy w tabeli docelowej. Ten dodatkowy krok będzie miał niewielką spadek wydajności, który może znajdować się w zakresie 5% dodanym dla tego kroku z dodatkowym niewielkim trafieniem wydajności, który zostanie również dodany, jeśli ustawisz opcję, aby również z niezgodnymi wierszami w pliku dziennika.
+
 #### <a name="disabling-indexes-using-a-sql-script"></a>Wyłączanie indeksów przy użyciu skryptu SQL
 
 Wyłączenie indeksów przed obciążeniem w bazie danych SQL może znacznie poprawić wydajność zapisu w tabeli. Uruchom poniższe polecenie przed zapisaniem w usłudze SQL sink.
@@ -198,7 +208,7 @@ Mogą one być wykonywane w sposób natywny za pomocą skryptów poprzedzającyc
 ![Wyłącz indeksy](media/data-flow/disable-indexes-sql.png "Wyłącz indeksy")
 
 > [!WARNING]
-> Podczas wyłączania indeksów przepływ danych efektywnie pobiera kontrolę nad bazą danych, a w tej chwili nie można pomyślnie wykonać zapytań. W związku z tym wiele zadań ETL jest wyzwalanych w połowie nocy, aby uniknąć tego konfliktu. Aby uzyskać więcej informacji, zapoznaj się z [ograniczeniami wyłączania indeksów](/sql/relational-databases/indexes/disable-indexes-and-constraints?view=sql-server-ver15) .
+> Podczas wyłączania indeksów przepływ danych efektywnie pobiera kontrolę nad bazą danych, a w tej chwili nie można pomyślnie wykonać zapytań. W związku z tym wiele zadań ETL jest wyzwalanych w połowie nocy, aby uniknąć tego konfliktu. Aby uzyskać więcej informacji, zapoznaj się z [ograniczeniami wyłączania indeksów](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints) .
 
 #### <a name="scaling-up-your-database"></a>Skalowanie bazy danych w górę
 
@@ -226,7 +236,7 @@ Wybranie opcji **domyślnej** spowoduje zapisanie najszybciej. Każda partycja b
 
 Ustawienie **wzorca** nazewnictwa zmieni nazwę każdego pliku partycji na bardziej przyjazną nazwę użytkownika. Ta operacja jest wykonywana po zapisie i jest nieco wolniejsza niż wybór domyślny. Na partycję można ręcznie nazwać poszczególne partycje.
 
-Jeśli kolumna odnosi się do sposobu wyprowadzania danych, można wybrać **jako dane w kolumnie** . Spowoduje to ponowne rozłożenie danych i może mieć wpływ na wydajność, jeśli kolumny nie są równomiernie dystrybuowane.
+Jeśli kolumna odnosi się do sposobu wyprowadzania danych, można wybrać **jako dane w kolumnie**. Spowoduje to ponowne rozłożenie danych i może mieć wpływ na wydajność, jeśli kolumny nie są równomiernie dystrybuowane.
 
 Dane **wyjściowe do pojedynczego pliku** łączą wszystkie dane w jedną partycję. Prowadzi to do długotrwałych czasów zapisu, szczególnie w przypadku dużych zestawów danych. Zespół Azure Data Factory zdecydowanie zaleca **rezygnację** z tej opcji, chyba że istnieje wyraźny powód firmy.
 
@@ -240,14 +250,13 @@ Podczas zapisywania w CosmosDB, zmiana przepływności i rozmiaru partii podczas
 
 **Budżet przepływności zapisu:** Użyj wartości, która jest mniejsza niż łączna liczba jednostek ru na minutę. Jeśli istnieje przepływ danych o dużej liczbie partycji platformy Spark, ustawienie przepływności budżetu pozwoli na zwiększenie równowagi między tymi partycjami.
 
-
 ## <a name="optimizing-transformations"></a>Optymalizowanie transformacji
 
 ### <a name="optimizing-joins-exists-and-lookups"></a>Optymalizowanie sprzężeń, EXISTS i Lookups
 
 #### <a name="broadcasting"></a>Emisji
 
-W sprzężeniach, wyszukiwaniu i istniejących przekształceniach, jeśli jeden lub oba strumienie danych są wystarczająco małe, aby mieściły się w pamięci węzła procesu roboczego, można zoptymalizować wydajność, włączając **emisję** . Emisja jest wysyłana w przypadku wysyłania małych ramek danych do wszystkich węzłów w klastrze. Umożliwia to przełączenie aparatu Spark bez reshuffling danych w dużym strumieniu. Domyślnie aparat Spark automatycznie zdecyduje, czy rozgłaszać po jednej stronie sprzężenia. Jeśli znasz dane przychodzące i wiesz, że jeden strumień będzie znacznie mniejszy niż drugi, możesz wybrać opcję **stała** emisja. Naprawiono wymuszanie rozgłaszania wybranego strumienia przez platformę Spark. 
+W sprzężeniach, wyszukiwaniu i istniejących przekształceniach, jeśli jeden lub oba strumienie danych są wystarczająco małe, aby mieściły się w pamięci węzła procesu roboczego, można zoptymalizować wydajność, włączając **emisję**. Emisja jest wysyłana w przypadku wysyłania małych ramek danych do wszystkich węzłów w klastrze. Umożliwia to przełączenie aparatu Spark bez reshuffling danych w dużym strumieniu. Domyślnie aparat Spark automatycznie zdecyduje, czy rozgłaszać po jednej stronie sprzężenia. Jeśli znasz dane przychodzące i wiesz, że jeden strumień będzie znacznie mniejszy niż drugi, możesz wybrać opcję **stała** emisja. Naprawiono wymuszanie rozgłaszania wybranego strumienia przez platformę Spark. 
 
 Jeśli rozmiar emitowanych danych jest zbyt duży dla węzła Spark, może wystąpić błąd braku pamięci. Aby uniknąć błędów w pamięci, użyj klastrów **zoptymalizowanych pod kątem pamięci** . Jeśli podczas wykonywania przepływu danych wystąpią limity czasu emisji, można wyłączyć optymalizację emisji. Spowoduje to jednak wolniejsze wykonywanie przepływów danych.
 

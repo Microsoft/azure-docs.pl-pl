@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
 ms.openlocfilehash: 9e60903aaa61cae63d406d459937d33317eee394
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545637"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022255"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Rozwiązywanie problemów z platformą Apache Spark za pomocą usługi Azure HDInsight
 
@@ -25,31 +25,31 @@ Wartości konfiguracji platformy Spark można dostrajać w celu uniknięcia wyj�
 
 1. Zaloguj się do Ambari przy `https://CLUSTERNAME.azurehdidnsight.net` użyciu poświadczeń klastra. Na ekranie początkowym zostanie wyświetlony pulpit nawigacyjny przegląd. Istnieją niewielkie różnice między usługami HDInsight 3,6 i 4,0.
 
-1. Przejdź do **Spark2**  >  **configs** .
+1. Przejdź do **Spark2**  >  **configs**.
 
     ![Wybierz kartę konfiguracje](./media/apache-troubleshoot-spark/apache-spark-ambari-config2.png)
 
-1. Na liście konfiguracji wybierz i rozwiń pozycję **Custom-spark2-Defaults** .
+1. Na liście konfiguracji wybierz i rozwiń pozycję **Custom-spark2-Defaults**.
 
-1. Wyszukaj ustawienie wartości, które należy dostosować, takie jak **spark.executor. Memory** . W tym przypadku wartość **9728m** jest zbyt wysoka.
+1. Wyszukaj ustawienie wartości, które należy dostosować, takie jak **spark.executor. Memory**. W tym przypadku wartość **9728m** jest zbyt wysoka.
 
     ![Wybierz pozycję niestandardowe-Spark-Defaults](./media/apache-troubleshoot-spark/apache-spark-ambari-config4.png)
 
 1. Ustaw wartość na zalecane ustawienie. Wartość **2048m** jest zalecana dla tego ustawienia.
 
-1. Zapisz wartość, a następnie Zapisz konfigurację. Wybierz pozycję **Zapisz** .
+1. Zapisz wartość, a następnie Zapisz konfigurację. Wybierz pozycję **Zapisz**.
 
     ![Zmień wartość na 2048m](./media/apache-troubleshoot-spark/apache-spark-ambari-config6a.png)
 
-    Napisz uwagi dotyczące zmian konfiguracji, a następnie wybierz pozycję **Zapisz** .
+    Napisz uwagi dotyczące zmian konfiguracji, a następnie wybierz pozycję **Zapisz**.
 
     ![Wprowadź adnotację dotyczącą wprowadzonych zmian](./media/apache-troubleshoot-spark/apache-spark-ambari-config6c.png)
 
-    Otrzymasz powiadomienie, jeśli jakieś konfiguracje wymagają uwagi. Zanotuj elementy, a następnie wybierz pozycję **kontynuować mimo wszystko** .
+    Otrzymasz powiadomienie, jeśli jakieś konfiguracje wymagają uwagi. Zanotuj elementy, a następnie wybierz pozycję **kontynuować mimo wszystko**.
 
     ![Wybierz pozycję nadal pomimo](./media/apache-troubleshoot-spark/apache-spark-ambari-config6b.png)
 
-1. Po zapisaniu konfiguracji zostanie wyświetlony monit o ponowne uruchomienie usługi. Wybierz pozycję **Uruchom ponownie** .
+1. Po zapisaniu konfiguracji zostanie wyświetlony monit o ponowne uruchomienie usługi. Wybierz pozycję **Uruchom ponownie**.
 
     ![Wybierz pozycję Uruchom ponownie](./media/apache-troubleshoot-spark/apache-spark-ambari-config7a.png)
 
@@ -61,13 +61,13 @@ Wartości konfiguracji platformy Spark można dostrajać w celu uniknięcia wyj�
 
     ![Przeglądanie uruchomionych procesów](./media/apache-troubleshoot-spark/apache-spark-ambari-config7c.png)
 
-1. Można dodać konfiguracje. Na liście konfiguracji wybierz pozycję **Custom-spark2-Defaults** , a następnie wybierz pozycję **Dodaj właściwość** .
+1. Można dodać konfiguracje. Na liście konfiguracji wybierz pozycję **Custom-spark2-Defaults**, a następnie wybierz pozycję **Dodaj właściwość**.
 
     ![Wybierz pozycję Dodaj właściwość](./media/apache-troubleshoot-spark/apache-spark-ambari-config8.png)
 
 1. Zdefiniuj nową właściwość. Można zdefiniować pojedynczą właściwość przy użyciu okna dialogowego dla określonych ustawień, takich jak typ danych. Lub można zdefiniować wiele właściwości przy użyciu jednej definicji dla każdego wiersza.
 
-    W tym przykładzie właściwość **Spark. Driver. Memory** jest zdefiniowana z wartością **4G** .
+    W tym przykładzie właściwość **Spark. Driver. Memory** jest zdefiniowana z wartością **4G**.
 
     ![Definiuj nową właściwość](./media/apache-troubleshoot-spark/apache-spark-ambari-config9.png)
 
