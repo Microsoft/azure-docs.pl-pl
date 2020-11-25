@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
 ms.openlocfilehash: 5d2760415e4f4ef3b181f2fb69802659fec3ef66
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397879"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95975959"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Tworzenie niestandardowej sondy dla Application Gateway przy użyciu portalu
 
@@ -24,7 +24,7 @@ ms.locfileid: "93397879"
 
 W tym artykule opisano Dodawanie niestandardowej sondy kondycji do istniejącej bramy aplikacji za pomocą Azure Portal. Korzystając z sond kondycji, platforma Azure Application Gateway monitoruje kondycję zasobów w puli zaplecza.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Jeśli nie masz jeszcze bramy aplikacji, odwiedź stronę [tworzenie Application Gateway](./quick-create-portal.md) , aby utworzyć bramę aplikacji do pracy.
 

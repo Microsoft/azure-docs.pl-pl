@@ -9,11 +9,11 @@ ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
 ms.openlocfilehash: 8df24b44d648343c46532eed443717f444bd0058
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397794"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95975653"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Często zadawane pytania dotyczące Application Gateway
 
@@ -434,9 +434,9 @@ Nie, dodatek AGIC jest usługą zarządzaną, co oznacza, że firma Microsoft b�
 
 Application Gateway udostępnia trzy dzienniki: 
 
-* **ApplicationGatewayAccessLog** : Dziennik dostępu zawiera wszystkie żądania przesłane do frontonu bramy aplikacji. Dane obejmują adres IP obiektu wywołującego, żądanie adresu URL, opóźnienie odpowiedzi, Kod powrotu i bajty. Zawiera jeden rekord na bramę aplikacji.
-* **ApplicationGatewayPerformanceLog** : Dziennik wydajności przechwytuje informacje o wydajności dla każdej bramy aplikacji. Informacje obejmują przepływność w bajtach, Łączna Liczba obsłużonych żądań, liczbę żądań zakończonych niepowodzeniem oraz liczbę wystąpień zaplecza w dobrej kondycji
-* **ApplicationGatewayFirewallLog** : w przypadku bram aplikacji skonfigurowanych za pomocą usługi WAF Dziennik zapory zawiera żądania, które są rejestrowane w trybie wykrywania lub w trybie zapobiegania.
+* **ApplicationGatewayAccessLog**: Dziennik dostępu zawiera wszystkie żądania przesłane do frontonu bramy aplikacji. Dane obejmują adres IP obiektu wywołującego, żądanie adresu URL, opóźnienie odpowiedzi, Kod powrotu i bajty. Zawiera jeden rekord na bramę aplikacji.
+* **ApplicationGatewayPerformanceLog**: Dziennik wydajności przechwytuje informacje o wydajności dla każdej bramy aplikacji. Informacje obejmują przepływność w bajtach, Łączna Liczba obsłużonych żądań, liczbę żądań zakończonych niepowodzeniem oraz liczbę wystąpień zaplecza w dobrej kondycji
+* **ApplicationGatewayFirewallLog**: w przypadku bram aplikacji skonfigurowanych za pomocą usługi WAF Dziennik zapory zawiera żądania, które są rejestrowane w trybie wykrywania lub w trybie zapobiegania.
 
 Wszystkie dzienniki są zbierane co 60 sekund. Aby uzyskać więcej informacji, zobacz temat [kondycja zaplecza, dzienniki diagnostyczne i metryki dla Application Gateway](application-gateway-diagnostics.md).
 

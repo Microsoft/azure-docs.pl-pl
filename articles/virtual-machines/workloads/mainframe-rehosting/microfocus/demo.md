@@ -7,11 +7,11 @@ ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 7fb72b9a7d0d655f99d1e5cf194f7c6f26976a37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86508053"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95976197"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Konfigurowanie mikrofokusu CICS BankDemo dla deweloperów Enterprise Developer 4,0 na platformie Azure
 
@@ -50,7 +50,7 @@ Po zainstalowaniu dewelopera Enterprise 4,0 na maszynie wirtualnej należy skonf
     - Narzędzia i skrypty zarządzania usługami IIS
     - Usługa zarządzania usługami IIS
 
-4. Wybierz pozycję **World Wide Web Services**i sprawdź następujące opcje:
+4. Wybierz pozycję **World Wide Web Services** i sprawdź następujące opcje:
 
      Funkcje projektowania aplikacji:
     - Rozszerzenia architektury .NET
@@ -63,12 +63,12 @@ Po zainstalowaniu dewelopera Enterprise 4,0 na maszynie wirtualnej należy skonf
 
 5. Wybierz pozycję **Usługa aktywacji procesów systemu Windows** i jej wszystkie elementy podrzędne.
 
-6. W przypadku **funkcji**Sprawdź **Microsoft .NET Framework 3.5.1**i sprawdź następujące opcje:
+6. W przypadku **funkcji** Sprawdź **Microsoft .NET Framework 3.5.1** i sprawdź następujące opcje:
 
     - Windows Communication Foundation Aktywacja HTTP
     - Windows Communication Foundation Aktywacja bez HTTP
 
-7. W przypadku **funkcji**Sprawdź **Microsoft .NET Framework 4,6**i sprawdź następujące opcje:
+7. W przypadku **funkcji** Sprawdź **Microsoft .NET Framework 4,6** i sprawdź następujące opcje:
 
    - Aktywacja nazwanego potoku
    - Aktywacja TCP
@@ -98,9 +98,9 @@ Niektóre procesy serwera przedsiębiorstwa muszą mieć możliwość logowania 
 
 2. Po lewej stronie rozwiń folder **zabezpieczenia** i wybierz pozycję **logowania**.
 
-3. Wybierz pozycję ** \\ system uwierzytelniania NT** i wybierz pozycję **Właściwości**.
+3. Wybierz pozycję **\\ system uwierzytelniania NT** i wybierz pozycję **Właściwości**.
 
-4. Wybierz pozycję **role serwera** i sprawdź **administratora**systemu.
+4. Wybierz pozycję **role serwera** i sprawdź **administratora** systemu.
 
      ![Okno programu SSMS Eksplorator obiektów: Właściwości logowania](media/02-demo-explorer.png)
 
@@ -132,7 +132,7 @@ Zapytanie powinno być uruchamiane bez błędów. Po zakończeniu będzie dostę
 
 1. Otwórz program Visual Studio i zaloguj się.
 
-2. W menu **plik** wybierz pozycję **Otwórz projekt/rozwiązanie**, przejdź do **C: \\ Użytkownicy \\ publiczne \\ dokumenty \\ Micro Focus \\ Enterprise Developer \\ przykłady \\ mainframe \\ CICS \\ dotnet \\ BankDemo**i wybierz plik **sln** .
+2. W menu **plik** wybierz pozycję **Otwórz projekt/rozwiązanie**, przejdź do **C: \\ Użytkownicy \\ publiczne \\ dokumenty \\ Micro Focus \\ Enterprise Developer \\ przykłady \\ mainframe \\ CICS \\ dotnet \\ BankDemo** i wybierz plik **sln** .
 
 3. Poświęć trochę czasu na przeanalizowanie obiektów. Programy COBOL są wyświetlane w Eksplorator rozwiązań z rozszerzeniem CBL wraz z CopyBooks (CPY) i JCL.
 
@@ -141,7 +141,7 @@ Zapytanie powinno być uruchamiane bez błędów. Po zakończeniu będzie dostę
     > [!NOTE]
     > Projekt BankDemo korzysta z HCOSS (opcja zgodności hosta dla SQL Server), która nie jest używana w tej wersji demonstracyjnej.
 
-5. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt **BankDemo2** i wybierz polecenie **Kompiluj**.
+5. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt **BankDemo2** i wybierz polecenie **Kompiluj**.
 
     > [!NOTE]
     > Kompilowanie na poziomie rozwiązania powoduje błędy, ponieważ HCOSS nie został skonfigurowany.
@@ -201,7 +201,7 @@ Zapytanie powinno być uruchamiane bez błędów. Po zakończeniu będzie dostę
 
      ![Ekran definicji zasobu XA nowej bazy danych](media/09-demo-xa.png)
 
-6. Kliknij przycisk wielokropka (**...**), aby wyświetlić Kreatora parametrów połączenia. W obszarze **Nazwa serwera**wpisz **(local) \\ SQLExpress**. W obszarze **Logowanie**wybierz pozycję **uwierzytelnianie systemu Windows**. W obszarze Nazwa bazy danych wpisz **BANKDEMO**
+6. Kliknij przycisk wielokropka (**...**), aby wyświetlić Kreatora parametrów połączenia. W obszarze **Nazwa serwera** wpisz **(local) \\ SQLExpress**. W obszarze **Logowanie** wybierz pozycję **uwierzytelnianie systemu Windows**. W obszarze Nazwa bazy danych wpisz **BANKDEMO**
 
      ![Ekran edycji parametrów połączenia](media/10-demo-string.png)
 
@@ -212,7 +212,7 @@ Zapytanie powinno być uruchamiane bez błędów. Po zakończeniu będzie dostę
 > [!NOTE]
 > Pierwszy krok jest ważny: należy ustawić region, aby używał właśnie utworzonej definicji zasobu XA.
 
-1. Przejdź do **regionu BANDEMO CICS** w obszarze **kontenera regiony**, a następnie wybierz pozycję **Edytuj plik startowy regionu** z okienka **Akcje** . Przewiń w dół do właściwości SQL i wprowadź **bankdemo** dla **nazwy zasobu XA**lub użyj wielokropka, aby go zaznaczyć.
+1. Przejdź do **regionu BANDEMO CICS** w obszarze **kontenera regiony**, a następnie wybierz pozycję **Edytuj plik startowy regionu** z okienka **Akcje** . Przewiń w dół do właściwości SQL i wprowadź **bankdemo** dla **nazwy zasobu XA** lub użyj wielokropka, aby go zaznaczyć.
 
 2. Kliknij ikonę **Zapisz** , aby zapisać zmiany.
 
@@ -234,13 +234,13 @@ Utwórz odbiornik dla sesji protokołu TN3270, które uzyskują dostęp do aplik
 
 3. Zwróć uwagę na to, że dwa zdefiniowane wcześniej regiony (ESDEMO i JCLDEMO).
 
-4. Aby utworzyć nowy region dla BANKDEMO, kliknij prawym przyciskiem myszy **regiony**i wybierz polecenie **Dodaj region**.
+4. Aby utworzyć nowy region dla BANKDEMO, kliknij prawym przyciskiem myszy **regiony** i wybierz polecenie **Dodaj region**.
 
 5. Wybierz **region BANKDEMO**.
 
 6. Dodaj kanał protokołu TN3270, klikając prawym przyciskiem myszy **region BANKDEMO** i wybierając pozycję **Dodaj kanał**.
 
-7. W obszarze **Nazwa**wprowadź **protokołu TN3270**. W obszarze **port**wprowadź **9024**. Aplikacja ESDEMO korzysta z portu 9230, dlatego należy użyć innego portu.
+7. W obszarze **Nazwa** wprowadź **protokołu TN3270**. W obszarze **port** wprowadź **9024**. Aplikacja ESDEMO korzysta z portu 9230, dlatego należy użyć innego portu.
 
 8. Aby zapisać plik, kliknij ikonę **zapisywania** lub wybierz **plik** \> **Zapisz**.
 
