@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7ca5361d8500ecd4ea22a577d0a4dc7ced606eab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89275906"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997651"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Jak usunąć limit 10 GB dla lokalnej bazy danych
 Program Azure AD Connect wymaga bazy danych programu SQL Server do przechowywania danych tożsamości. Możesz korzystać z domyślnego programu SQL Server 2012 Express LocalDB zainstalowanego z programem Azure AD Connect lub użyć własnego pełnego programu SQL. Program SQL Server Express narzuca limit rozmiaru w wysokości 10 GB. Jeśli jest używany program LocalDB i limit zostanie osiągnięty, usługa synchronizacji programu Azure AD Connect nie będzie mogła uruchomić się ani prawidłowo wykonywać synchronizacji. Ten artykuł zawiera kroki odzyskiwania.
@@ -31,7 +31,7 @@ Istnieją dwa typowe objawy:
 
 * Usługa synchronizacji Azure AD Connect **jest uruchomiona** , ale nie można przeprowadzić synchronizacji z błędem *"zatrzymana-baza danych-Full"* .
 
-* **Nie można uruchomić**usługi synchronizacji Azure AD Connect. Próba uruchomienia usługi kończy się niepowodzeniem ze zdarzeniem 6323 i komunikatem o błędzie *"Serwer napotkał błąd, ponieważ SQL Server brakuje miejsca na dysku".*
+* **Nie można uruchomić** usługi synchronizacji Azure AD Connect. Próba uruchomienia usługi kończy się niepowodzeniem ze zdarzeniem 6323 i komunikatem o błędzie *"Serwer napotkał błąd, ponieważ SQL Server brakuje miejsca na dysku".*
 
 ## <a name="short-term-recovery-steps"></a>Krótkoterminowe kroki odzyskiwania
 Ta sekcja zawiera instrukcje dotyczące odzyskiwania obszaru bazy danych wymaganego do wznowienia działania usługi synchronizacji Azure AD Connect. Kroki obejmują:
@@ -85,9 +85,9 @@ Domyślnie Azure AD Connect przechowuje dane historii uruchamiania do siedmiu dn
 
 2. Przejdź do karty **operacje** .
 
-3. W obszarze **Akcje**wybierz pozycję **Wyczyść uruchomienia**...
+3. W obszarze **Akcje** wybierz pozycję **Wyczyść uruchomienia**...
 
-4. Można wybrać opcję **Wyczyść wszystkie uruchomienia** lub **Wyczyść uruchomienia przed... \<date> ** Zalecamy rozpoczęcie od czyszczenia danych historii uruchamiania, które są starsze niż dwa dni. Jeśli chcesz kontynuować pracę z problemem z rozmiarem bazy danych, wybierz opcję **Wyczyść wszystkie uruchomienia** .
+4. Można wybrać opcję **Wyczyść wszystkie uruchomienia** lub **Wyczyść uruchomienia przed... \<date>** Zalecamy rozpoczęcie od czyszczenia danych historii uruchamiania, które są starsze niż dwa dni. Jeśli chcesz kontynuować pracę z problemem z rozmiarem bazy danych, wybierz opcję **Wyczyść wszystkie uruchomienia** .
 
 ### <a name="shorten-retention-period-for-run-history-data"></a>Skrócenie okresu przechowywania danych historii uruchamiania
 Ten krok polega na zmniejszeniu prawdopodobieństwa uruchomienia do 10 GB problemów z limitem po kilku cyklach synchronizacji.

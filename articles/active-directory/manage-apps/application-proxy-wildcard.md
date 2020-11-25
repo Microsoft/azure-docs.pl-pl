@@ -17,11 +17,11 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9b2563b238bae310d662220d2c244e863249c9c4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651944"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997515"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplikacje wieloznaczne w Azure Active Directory serwerze proxy aplikacji
 
@@ -74,7 +74,7 @@ W przypadku korzystania z domen niestandardowych należy utworzyć wpis DNS z re
 
 Aby upewnić się, że rekord CNAME został prawidłowo skonfigurowany, można użyć [polecenia nslookup](/windows-server/administration/windows-commands/nslookup) na jednym z docelowych punktów końcowych, na przykład `expenses.adventure-works.com` .  Odpowiedź powinna zawierać już wymieniony alias ( `<yourAADTenantId>.tenant.runtime.msappproxy.net` ).
 
-## <a name="considerations"></a>Kwestie do rozważenia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 Poniżej przedstawiono kilka kwestii, które należy wziąć pod uwagę w przypadku aplikacji wieloznacznych.
 

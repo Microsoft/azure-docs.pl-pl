@@ -1,15 +1,15 @@
 ---
-author: ramonarguelles
+author: msftradford
 ms.service: spatial-anchors
 ms.topic: include
-ms.date: 8/27/2020
-ms.author: rgarcia
-ms.openlocfilehash: 50e4799f09322eab05b4f8ddf7004c2e0078fdab
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 11/20/2020
+ms.author: parkerra
+ms.openlocfilehash: 9554e04c82299016076f09f85f604af10a94ab4a
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971493"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95998487"
 ---
 ## <a name="android"></a>[Android](#tab/Android)
 
@@ -83,7 +83,7 @@ Zaloguj się na urządzeniu z systemem Android i połącz je z komputerem przy u
 
 Otwórz obszar **Build Settings (Ustawienia kompilacji)**, wybierając pozycje **File (Plik)** > **Build Settings (Ustawienia kompilacji)**.
 
-W obszarze **sceny w kompilacji**upewnij się, że obok każdej sceny znajduje się znacznik wyboru.
+W obszarze **sceny w kompilacji** upewnij się, że obok każdej sceny znajduje się znacznik wyboru.
 
 Upewnij się, że **projekt eksportu** nie ma znacznika wyboru. Wybierz opcję **Kompiluj i uruchom**. Zostanie wyświetlony monit o zapisanie pliku *. apk* . Możesz wybrać dla niego dowolną nazwę.
 
@@ -93,7 +93,7 @@ Upewnij się, że **projekt eksportu** nie ma znacznika wyboru. Wybierz opcję *
 
 Otwórz obszar **Build Settings (Ustawienia kompilacji)**, wybierając pozycje **File (Plik)** > **Build Settings (Ustawienia kompilacji)**.
 
-W obszarze **sceny w kompilacji**upewnij się, że obok każdej sceny znajduje się znacznik wyboru.
+W obszarze **sceny w kompilacji** upewnij się, że obok każdej sceny znajduje się znacznik wyboru.
 
 [!INCLUDE [Configure Xcode](spatial-anchors-unity-ios-xcode.md)]
 

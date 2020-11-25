@@ -8,11 +8,11 @@ ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 69ec25348c3056536a2e09fd889b48e1e63ea7bb
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992771"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998162"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profilowanie ASP.NET Core aplikacji sieci Web systemu Linux Azure z Application Insights Profiler
 

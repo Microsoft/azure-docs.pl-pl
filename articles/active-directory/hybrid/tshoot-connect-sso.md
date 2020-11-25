@@ -14,11 +14,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60f23efa4f46849e1fe8b0ebe05cdd83ec16f49e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294822"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997685"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Rozwiązywanie problemów Azure Active Directory bezproblemowe pojedyncze Sign-On
 
@@ -35,7 +35,7 @@ Ten artykuł ułatwia znalezienie informacji o rozwiązywaniu problemów dotycz�
 - Bezproblemowe logowanie jednokrotne nie działa w przeglądarkach mobilnych w systemach iOS i Android.
 - Jeśli użytkownik jest częścią zbyt wielu grup w Active Directory, bilet protokołu Kerberos użytkownika będzie prawdopodobnie zbyt duży do przetworzenia i spowoduje to niepowodzenie bezproblemowego logowania jednokrotnego. Żądania HTTPS usługi Azure AD mogą mieć nagłówki o maksymalnym rozmiarze 50 KB; Bilety protokołu Kerberos muszą być mniejsze niż ten limit, aby pomieścić inne artefakty usługi Azure AD (zazwyczaj 2-5 KB), takie jak pliki cookie. Naszym zaleceniem jest zredukowanie członkostwa w grupach użytkowników i spróbuj ponownie.
 - W przypadku synchronizacji co najmniej 30 Active Directory lasów nie można włączyć bezproblemowego logowania jednokrotnego za pomocą Azure AD Connect. Aby obejść ten element, można [ręcznie włączyć](#manual-reset-of-the-feature) tę funkcję w dzierżawie.
-- Dodanie adresu URL usługi Azure AD ( `https://autologon.microsoftazuread-sso.com` ) do strefy Zaufane witryny zamiast lokalnej strefy intranetowej *uniemożliwia użytkownikom logowanie*się.
+- Dodanie adresu URL usługi Azure AD ( `https://autologon.microsoftazuread-sso.com` ) do strefy Zaufane witryny zamiast lokalnej strefy intranetowej *uniemożliwia użytkownikom logowanie* się.
 - Bezproblemowe logowanie jednokrotne obsługuje typy szyfrowania AES256_HMAC_SHA1, AES128_HMAC_SHA1 i RC4_HMAC_MD5 dla protokołu Kerberos. Zaleca się, aby w celu zwiększenia bezpieczeństwa typ szyfrowania dla konta AzureADSSOAcc $ miał wartość AES256_HMAC_SHA1 lub jeden z typów AES a RC4. Typ szyfrowania jest przechowywany w atrybucie msDS-Supportedencryptiontypes konta konta w Active Directory.  Jeśli typ szyfrowania AzureADSSOAcc $ Account jest ustawiony na RC4_HMAC_MD5 i chcesz zmienić go na jeden z typów szyfrowania AES, upewnij się, że najpierw przeniesiesz klucz odszyfrowujący protokołu Kerberos konta AzureADSSOAcc $ zgodnie z opisem w [dokumencie często zadawane pytania](how-to-connect-sso-faq.md) , w przeciwnym razie bezproblemowe logowanie jednokrotne nie następuje.
 -  Jeśli masz więcej niż jeden las z zaufaniem lasu, włączenie logowania jednokrotnego w jednym z lasów spowoduje włączenie logowania jednokrotnego we wszystkich zaufanych lasach. Jeśli włączysz logowanie jednokrotne w lesie, w którym logowanie jednokrotne jest już włączone, zostanie wyświetlony komunikat o błędzie informujący o tym, że logowanie jednokrotne jest już włączone w lesie.
 

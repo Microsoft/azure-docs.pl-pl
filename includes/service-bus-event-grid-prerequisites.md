@@ -9,11 +9,11 @@ ms.date: 10/15/2020
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 163df5e639f4babb0d4302819f9f5b9538a6708c
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95819459"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999085"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 Jeśli nie masz [subskrypcji platformy Azure](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) .

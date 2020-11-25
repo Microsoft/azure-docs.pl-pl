@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/18/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5ffab4eaf63844057a3872730f91634cb2df5669
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 4784bb8a396a30e9002c789c7aad382640f04a5c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94918222"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "95996908"
 ---
 # <a name="create-a-transform"></a>Tworzenie przekształcenia
 
@@ -47,7 +47,7 @@ Skrypt interfejsu wiersza polecenia platformy Azure w tym artykule pokazuje spos
 
 ## <a name="rest"></a>[REST](#tab/rest/)
 
-[!INCLUDE [task general transform creation](./includes/task-create-transform-rest.md)]
+[!INCLUDE [task general transform creation](./includes/task-create-basic-audio-rest.md)]
 
 ---
 

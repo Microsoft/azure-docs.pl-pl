@@ -7,11 +7,11 @@ ms.topic: article
 ms.date: 07/15/2019
 ms.author: raynew
 ms.openlocfilehash: bcc6f41d7cc08764266ffb6705d1b8937d355199
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86109726"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997838"
 ---
 # <a name="customize-an-assessment"></a>Dostosowywanie oceny
 
@@ -88,7 +88,7 @@ Aby edytować właściwości oceny po utworzeniu oceny, wykonaj następujące cz
 
 1. W projekcie Azure Migrate kliknij pozycję **serwery**.
 2. W **Azure Migrate: Ocena serwera**, kliknij licznik oceny wydajności.
-3. W obszarze **Ocena**kliknij odpowiednią ocenę > **Edytuj właściwości**.
+3. W obszarze **Ocena** kliknij odpowiednią ocenę > **Edytuj właściwości**.
 5. Dostosuj właściwości oceny zgodnie z powyższymi tabelami.
 6. Kliknij przycisk **Zapisz** , aby zaktualizować ocenę.
 

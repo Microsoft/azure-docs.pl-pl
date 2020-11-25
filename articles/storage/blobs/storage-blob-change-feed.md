@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 105978daeb93a2e5646222ff10055ba20a1dc481
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 7174f7dd53387de9a569a5ddcadc08c32692c749
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172905"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997107"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Obsługa kanału informacyjnego zmiany w usłudze Azure Blob Storage
 
@@ -21,7 +21,7 @@ Celem źródła zmian jest dostarczenie dzienników transakcji wszystkich zmian,
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
-Źródło zmian jest przechowywane jako [obiekty blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) w specjalnym kontenerze na koncie magazynu przy użyciu standardowego kosztu [cennika obiektów BLOB](https://azure.microsoft.com/pricing/details/storage/blobs/) . Możesz kontrolować okres przechowywania tych plików zgodnie z wymaganiami (zobacz [warunki](#conditions) bieżącej wersji). Zdarzenia zmiany są dołączane do źródła zmian jako rekordy w specyfikacji formatu [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) : kompaktowy, szybki i binarny format, który zapewnia rozbudowane struktury danych z wbudowanym schematem. Ten format jest szeroko używany w ekosystemie Hadoop, Stream Analytics i Azure Data Factory.
+Źródło zmian jest przechowywane jako [obiekty blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) w specjalnym kontenerze na koncie magazynu przy użyciu standardowego kosztu [cennika obiektów BLOB](https://azure.microsoft.com/pricing/details/storage/blobs/) . Możesz kontrolować okres przechowywania tych plików zgodnie z wymaganiami (zobacz [warunki](#conditions) bieżącej wersji). Zdarzenia zmiany są dołączane do źródła zmian jako rekordy w specyfikacji formatu [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) : kompaktowy, szybki i binarny format, który zapewnia rozbudowane struktury danych z wbudowanym schematem. Ten format jest szeroko używany w ekosystemie Hadoop, Stream Analytics i Azure Data Factory.
 
 Można przetwarzać te dzienniki asynchronicznie, przyrostowo lub w całości. Dowolna liczba aplikacji klienckich może niezależnie odczytywać Źródło zmian, równolegle i we własnym tempie. Aplikacje analityczne, takie jak [Apache drążenie](https://drill.apache.org/docs/querying-avro-files/) lub [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) , mogą zużywać dzienniki bezpośrednio jako pliki Avro, dzięki czemu można przetwarzać je przy niskich kosztach, z wysoką przepustowością i bez konieczności pisania niestandardowej aplikacji.
 
@@ -105,7 +105,7 @@ Użyj szablonu Azure Resource Manager, aby włączyć Źródło zmian na istniej
 
 1. W Azure Portal wybierz pozycję **Utwórz zasób**.
 
-2. W obszarze **Wyszukaj w portalu Marketplace**wpisz **wdrożenie szablonu**, a następnie naciśnij klawisz **Enter**.
+2. W obszarze **Wyszukaj w portalu Marketplace** wpisz **wdrożenie szablonu**, a następnie naciśnij klawisz **Enter**.
 
 3. Wybierz **[Wdróż szablon niestandardowy](https://portal.azure.com/#create/Microsoft.Template)**, a następnie wybierz opcję **Kompiluj własny szablon w edytorze**.
 
@@ -206,7 +206,7 @@ Plik manifestu segmentu ( `meta.json` ) pokazuje ścieżkę plików kanału info
 
 Pliki kanału informacyjnego zmiany zawierają serię rekordów zdarzeń zmiany. Każdy rekord zdarzenia zmiany odnosi się do jednej zmiany w pojedynczym obiekcie blob. Rekordy są serializowane i zapisywane w pliku przy użyciu specyfikacji formatu [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) . Rekordy można odczytać przy użyciu specyfikacji formatu pliku Avro. Istnieje kilka bibliotek dostępnych do przetwarzania plików w tym formacie.
 
-Pliki kanału informacyjnego zmiany są przechowywane w `$blobchangefeed/log/` katalogu wirtualnym jako [dołączane obiekty blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). Pierwszy plik kanału informacyjnego zmiany w każdej ścieżce będzie miał `00000` nazwę pliku (na przykład `00000.avro` ). Nazwa każdego kolejnego pliku dziennika dodanego do tej ścieżki zostanie zwiększona o 1 (na przykład: `00001.avro` ).
+Pliki kanału informacyjnego zmiany są przechowywane w `$blobchangefeed/log/` katalogu wirtualnym jako [dołączane obiekty blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). Pierwszy plik kanału informacyjnego zmiany w każdej ścieżce będzie miał `00000` nazwę pliku (na przykład `00000.avro` ). Nazwa każdego kolejnego pliku dziennika dodanego do tej ścieżki zostanie zwiększona o 1 (na przykład: `00001.avro` ).
 
 Następujące typy zdarzeń są przechwytywane w rekordach źródła zmian:
 - BlobCreated
@@ -243,7 +243,7 @@ Oto przykład zmiany rekordu zdarzenia z pliku źródła zmian konwertowanego na
 }
 ```
 
-Aby uzyskać opis każdej właściwości, zobacz [Azure Event Grid schemacie zdarzenia dla BLOB Storage](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties). Zdarzenia BlobPropertiesUpdated i BlobSnapshotCreated są obecnie wyłączne, aby można było zmienić źródło danych i nie były jeszcze obsługiwane dla zdarzeń Blob Storage.
+Aby uzyskać opis każdej właściwości, zobacz [Azure Event Grid schemacie zdarzenia dla BLOB Storage](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties). Zdarzenia BlobPropertiesUpdated i BlobSnapshotCreated są obecnie wyłączne, aby można było zmienić źródło danych i nie były jeszcze obsługiwane dla zdarzeń Blob Storage.
 
 > [!NOTE]
 > Pliki źródła zmian dla segmentu nie są natychmiast wyświetlane po utworzeniu segmentu. Długość opóźnienia jest w normalnym interwale opóźnienia publikowania źródła zmian, które jest w ciągu kilku minut od zmiany.

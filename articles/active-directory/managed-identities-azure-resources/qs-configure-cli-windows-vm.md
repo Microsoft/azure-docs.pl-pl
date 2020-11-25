@@ -16,11 +16,11 @@ ms.date: 09/26/2019
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 31e4f80aa8ffec96538b53ac64df6918c632a950
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92892472"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997447"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 

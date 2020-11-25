@@ -14,11 +14,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: de529a8ffb0c72854904717c71dbc322c919f1a8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370818"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996699"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Dodawanie lub usuwanie użytkowników przy użyciu Azure Active Directory
 
@@ -44,7 +44,7 @@ Aby dodać nowego użytkownika, wykonaj następujące kroki:
 
    - **Nazwa użytkownika**. Wymagane. Nazwa użytkownika nowego użytkownika. Na przykład `mary@contoso.com`.
 
-     Część domeny nazwa użytkownika musi używać początkowej domyślnej nazwy domeny, * \<yourdomainname> . onmicrosoft.com*lub niestandardowej nazwy domeny, takiej jak *contoso.com*. Aby uzyskać więcej informacji na temat tworzenia niestandardowej nazwy domeny, zobacz [Dodawanie niestandardowej nazwy domeny za pomocą portalu Azure Active Directory](add-custom-domain.md).
+     Część domeny nazwa użytkownika musi używać początkowej domyślnej nazwy domeny, *\<yourdomainname> . onmicrosoft.com* lub niestandardowej nazwy domeny, takiej jak *contoso.com*. Aby uzyskać więcej informacji na temat tworzenia niestandardowej nazwy domeny, zobacz [Dodawanie niestandardowej nazwy domeny za pomocą portalu Azure Active Directory](add-custom-domain.md).
 
    - **Grupy**. Opcjonalnie możesz dodać użytkownika do jednej lub kilku istniejących grup. Możesz również dodać użytkownika do grup w późniejszym czasie. Aby uzyskać więcej informacji na temat dodawania użytkowników do grup, zobacz [Tworzenie grupy podstawowej i Dodawanie członków przy użyciu Azure Active Directory](active-directory-groups-create-azure-portal.md).
 

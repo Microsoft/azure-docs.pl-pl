@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 544aa1a4a859a9c328eb1d36e72d0f9f9ddb55b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ad45d5f0e313c06619fa9c998515e434de957ea
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327905"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997566"
 ---
 # <a name="redirect-hard-coded-links-for-apps-published-with-azure-ad-application-proxy"></a>Przekieruj trwale kodowane linki dla aplikacji opublikowanych przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -47,14 +47,14 @@ Te trzy funkcje przechowują swoje linki niezależnie od tego, gdzie znajdują s
 > [!NOTE]
 > Ostatnia opcja dotyczy tylko dzierżawców, które z jakiegoś powodu nie mogą używać domen niestandardowych, aby mieć te same wewnętrzne i zewnętrzne adresy URL dla swoich aplikacji. Przed włączeniem tej funkcji Sprawdź, czy [w usłudze Azure serwer proxy aplikacji usługi Azure AD można korzystać z domen niestandardowych](application-proxy-configure-custom-domain.md) . 
 > 
-> Lub, jeśli aplikacja, którą chcesz skonfigurować przy użyciu translacji łączy, to SharePoint, zobacz [Konfigurowanie mapowań dostępu alternatywnego dla programu sharepoint 2013](https://technet.microsoft.com/library/cc263208.aspx) , aby uzyskać inne podejście do mapowania linków. 
+> Lub, jeśli aplikacja, którą chcesz skonfigurować przy użyciu translacji łączy, to SharePoint, zobacz [Konfigurowanie mapowań dostępu alternatywnego dla programu sharepoint 2013](/SharePoint/administration/configure-alternate-access-mappings) , aby uzyskać inne podejście do mapowania linków. 
 
  
 ### <a name="option-1-microsoft-edge-integration"></a>Opcja 1: integracja z programem Microsoft Edge 
 
 Aby zapewnić lepszą ochronę aplikacji i zawartości, możesz użyć przeglądarki Microsoft Edge. Aby można było korzystać z tego rozwiązania, należy wymagać/zalecać użytkownikom dostęp do aplikacji za pomocą przeglądarki Microsoft Edge. Wszystkie wewnętrzne adresy URL opublikowane przy użyciu serwera proxy aplikacji zostaną rozpoznane przez brzeg i przekierowane do odpowiedniego zewnętrznego adresu URL. Gwarantuje to, że wszystkie zakodowane wewnętrzne adresy URL działają i jeśli użytkownik przejdzie do przeglądarki i bezpośrednio wpisze wewnętrzny adres URL, działa nawet wtedy, gdy użytkownik jest zdalny.  
 
-Aby dowiedzieć się więcej, w tym o sposobie konfigurowania tej opcji, zobacz artykuł [Zarządzanie dostępem do sieci Web za pomocą programu Edge dla systemów iOS i Android z Microsoft Intune](https://docs.microsoft.com/mem/intune/apps/manage-microsoft-edge) dokumentacją.  
+Aby dowiedzieć się więcej, w tym o sposobie konfigurowania tej opcji, zobacz artykuł [Zarządzanie dostępem do sieci Web za pomocą programu Edge dla systemów iOS i Android z Microsoft Intune](/mem/intune/apps/manage-microsoft-edge) dokumentacją.  
 
 ### <a name="option-2-myapps-browser-extension"></a>Opcja 2: rozszerzenie przeglądarki Moje aplikacje 
 
@@ -62,7 +62,7 @@ Dzięki rozszerzeniu przeglądarki Moje aplikacje wszystkie wewnętrzne adresy U
 
 Aby użyć tej funkcji, użytkownik musi pobrać rozszerzenie i być zalogowany. Dla administratorów lub użytkowników nie jest wymagana żadna inna konfiguracja. 
 
-Aby dowiedzieć się więcej, w tym o sposobie konfigurowania tej opcji, zobacz dokumentację [rozszerzenia przeglądarki Moje aplikacje](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension) .
+Aby dowiedzieć się więcej, w tym o sposobie konfigurowania tej opcji, zobacz dokumentację [rozszerzenia przeglądarki Moje aplikacje](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) .
 
 ### <a name="option-3-link-translation-setting"></a>Opcja 3: łączenie ustawienia tłumaczenia 
 
@@ -152,4 +152,4 @@ Chcemy, aby Twoja funkcja działała we wszystkich aplikacjach. Przeszukiwane s�
 ## <a name="next-steps"></a>Następne kroki
 [Używanie domen niestandardowych w usłudze Azure serwer proxy aplikacji usługi Azure AD](application-proxy-configure-custom-domain.md) w celu posiadania tego samego wewnętrznego i zewnętrznego adresu URL
 
-[Konfigurowanie mapowań dostępu alternatywnego dla programu SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)
+[Konfigurowanie mapowań dostępu alternatywnego dla programu SharePoint 2013](/SharePoint/administration/configure-alternate-access-mappings)

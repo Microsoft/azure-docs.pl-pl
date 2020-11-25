@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e7f8dd49f3668b8f68753681123a04d21edac46c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60381493"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997736"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Zagadnienia dotyczące projektowania tożsamości hybrydowej usługi Azure Active Directory
 Urządzenia oparte na konsumentach stanowią prostą chmurę firmową, a aplikacje typu "oprogramowanie jako usługa" (SaaS) oparte na chmurze można łatwo zastosować. W związku z tym, zachowanie kontroli dostępu aplikacji użytkowników w wewnętrznych centrach danych i na platformach w chmurze jest trudne.  

@@ -1,27 +1,27 @@
 ---
-author: ramonarguelles
+author: msftradford
 ms.service: spatial-anchors
 ms.topic: include
-ms.date: 1/30/2019
-ms.author: rgarcia
-ms.openlocfilehash: 0e6f68daf22659b880827ad027268d9757c60063
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 11/20/2020
+ms.author: parkerra
+ms.openlocfilehash: 80685dee7907b81832c94044d1feb8fcf2e41bde
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971429"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95998485"
 ---
 ### <a name="open-the-publish-wizard"></a>Otwieranie Kreatora publikacji
 
-W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt **SharingService** , a następnie wybierz pozycję **Publikuj**.
+W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt **SharingService** , a następnie wybierz pozycję **Publikuj**.
 
 Zostanie uruchomiony Kreator publikowania. 
 
 Wybierz pozycję **App Service**  >  **Opublikuj** , aby otworzyć okienko **Tworzenie App Service** .
 
-### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
-Zaloguj się do Portalu Azure.
+Zaloguj się w witrynie Azure Portal.
 
 W okienku **tworzenie App Service** wybierz pozycję **Dodaj konto**, a następnie zaloguj się do subskrypcji platformy Azure. Jeśli użytkownik jest już zalogowany, wybierz żądane konto z listy rozwijanej.
 
@@ -51,11 +51,11 @@ W okienku **Konfigurowanie planu hostingu** Użyj następujących ustawień:
 | Lokalizacja | Zachodnie stany USA | Centrum danych, w którym jest hostowana aplikacja sieci Web |
 | Rozmiar | Bezpłatna | [Warstwa cenowa](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) , która określa funkcje hostingu |
 
-Wybierz przycisk **OK**.
+Wybierz pozycję **OK**.
 
 ### <a name="create-and-publish-the-web-app"></a>Tworzenie i publikowanie aplikacji internetowej
 
-W polu **Nazwa aplikacji**wprowadź unikatową nazwę aplikacji. Prawidłowe znaki to a-z, 0-9 i kreski (-) lub akceptują automatycznie wygenerowaną unikatową nazwę. Adres URL aplikacji internetowej to `https://<app_name>.azurewebsites.net`, gdzie `<app_name>` to nazwa aplikacji.
+W polu **Nazwa aplikacji** wprowadź unikatową nazwę aplikacji. Prawidłowe znaki to a-z, 0-9 i kreski (-) lub akceptują automatycznie wygenerowaną unikatową nazwę. Adres URL aplikacji internetowej to `https://<app_name>.azurewebsites.net`, gdzie `<app_name>` to nazwa aplikacji.
 
 Wybierz pozycję **Utwórz**, aby rozpocząć tworzenie zasobów platformy Azure.
 

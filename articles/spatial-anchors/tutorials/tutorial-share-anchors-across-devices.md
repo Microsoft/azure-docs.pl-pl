@@ -1,19 +1,19 @@
 ---
 title: 'Samouczek: udostępnianie kotwic między sesjami i urządzeniami'
 description: W tym samouczku dowiesz się, jak udostępnić identyfikatory kotwic Azure w środowisku z systemem Android/iOS w środowisku Unity przy użyciu usługi zaplecza.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: rgarcia
-ms.date: 07/31/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b29873e161b64c52abbfdf3f2611714f6b012361
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 3048eb1ca7f9312a43bc1ab5885bf19d4c2e7931
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097290"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95998486"
 ---
 # <a name="tutorial-share-spatial-anchors-across-sessions-and-devices"></a>Samouczek: udostępnianie kotwic przestrzenny między sesjami i urządzeniami
 
@@ -46,7 +46,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 ## <a name="deploy-the-sharing-anchors-service"></a>Wdrażanie usługi zakotwiczenia udostępniania
 
-## <a name="visual-studio"></a>[Program Visual Studio](#tab/VS)
+## <a name="visual-studio"></a>[Visual Studio](#tab/VS)
 
 Otwórz program Visual Studio, a następnie otwórz projekt w folderze *Sharing\SharingServiceSample* .
 
@@ -56,7 +56,7 @@ Otwórz program Visual Studio, a następnie otwórz projekt w folderze *Sharing\
 
 Przed wdrożeniem usługi w programie Visual Studio Code należy utworzyć grupę zasobów i plan App Service.
 
-### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
 Przejdź do <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>, a następnie zaloguj się do swojej subskrypcji platformy Azure.
 
@@ -82,7 +82,7 @@ W okienku **Konfigurowanie planu hostingu** Użyj następujących ustawień:
 | Lokalizacja | Zachodnie stany USA | Centrum danych, w którym jest hostowana aplikacja sieci Web |
 | Rozmiar | Bezpłatna | [Warstwa cenowa](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) , która określa funkcje hostingu |
 
-Wybierz przycisk **OK**.
+Wybierz pozycję **OK**.
 
 Otwórz Visual Studio Code, a następnie otwórz projekt w folderze *Sharing\SharingServiceSample* . 
 

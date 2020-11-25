@@ -9,11 +9,11 @@ ms.date: 09/04/2020
 ms.topic: how-to
 ms.service: key-vault
 ms.openlocfilehash: ac3ee108fc63441b2a9381b9e7624631bdca4e5b
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289838"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998110"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Uwierzytelnianie między usługami Azure Key Vault przy użyciu platformy .NET
 
@@ -65,19 +65,19 @@ W przypadku lokalnego projektowania istnieją dwa podstawowe scenariusze uwierzy
 
 Maszyny lokalne nie obsługują tożsamości zarządzanych dla zasobów platformy Azure. W związku z tym `Microsoft.Azure.Services.AppAuthentication` Biblioteka używa poświadczeń dewelopera do uruchamiania w lokalnym środowisku programistycznym. Gdy rozwiązanie zostanie wdrożone na platformie Azure, biblioteka używa zarządzanej tożsamości w celu przełączenia się do przepływu przydzielenia poświadczeń klienta OAuth 2,0. Takie podejście oznacza, że można testować ten sam kod lokalnie i zdalnie bez obaw.
 
-W przypadku lokalnego programowania program `AzureServiceTokenProvider` Pobiera tokeny przy użyciu **programu Visual Studio** , **interfejsu wiersza polecenia platformy Azure** lub **zintegrowanego uwierzytelniania usługi Azure AD**. Każda opcja jest podejmowana sekwencyjnie, a Biblioteka używa pierwszej opcji, która się powiedzie. Jeśli żadna opcja nie działa, `AzureServiceTokenProviderException` zostanie zgłoszony wyjątek ze szczegółowymi informacjami.
+W przypadku lokalnego programowania program `AzureServiceTokenProvider` Pobiera tokeny przy użyciu **programu Visual Studio**, **interfejsu wiersza polecenia platformy Azure** lub **zintegrowanego uwierzytelniania usługi Azure AD**. Każda opcja jest podejmowana sekwencyjnie, a Biblioteka używa pierwszej opcji, która się powiedzie. Jeśli żadna opcja nie działa, `AzureServiceTokenProviderException` zostanie zgłoszony wyjątek ze szczegółowymi informacjami.
 
 #### <a name="authenticating-with-visual-studio"></a>Uwierzytelnianie za pomocą programu Visual Studio
 
 Aby uwierzytelnić się za pomocą programu Visual Studio:
 
-1. Zaloguj się do programu Visual Studio i użyj opcji **narzędzi** , &nbsp; > &nbsp; **Options** aby otworzyć **Opcje**.
+1. Zaloguj się do programu Visual Studio i użyj opcji **narzędzi**, &nbsp; > &nbsp; **Options** aby otworzyć **Opcje**.
 
-1. Wybierz pozycję **uwierzytelnianie usługi platformy Azure** , wybierz konto do lokalnego tworzenia i wybierz pozycję **OK**.
+1. Wybierz pozycję **uwierzytelnianie usługi platformy Azure**, wybierz konto do lokalnego tworzenia i wybierz pozycję **OK**.
 
 W przypadku problemów z używaniem programu Visual Studio, takich jak błędy, które obejmują plik dostawcy tokenu, należy uważnie przejrzeć powyższe kroki.
 
-Może być konieczne ponowne uwierzytelnienie tokenu dewelopera. W tym celu wybierz pozycję **Narzędzia** &nbsp; > &nbsp; **Opcje** , a następnie wybierz **pozycję &nbsp; &nbsp; uwierzytelnianie usługi platformy Azure**. Poszukaj linku **ponowne uwierzytelnianie** w ramach wybranego konta. Wybierz go do uwierzytelnienia.
+Może być konieczne ponowne uwierzytelnienie tokenu dewelopera. W tym celu wybierz pozycję **Narzędzia** &nbsp; > &nbsp; **Opcje**, a następnie wybierz **pozycję &nbsp; &nbsp; uwierzytelnianie usługi platformy Azure**. Poszukaj linku **ponowne uwierzytelnianie** w ramach wybranego konta. Wybierz go do uwierzytelnienia.
 
 #### <a name="authenticating-with-azure-cli"></a>Uwierzytelnianie za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -167,7 +167,7 @@ Istnieją trzy podstawowe metody używania nazwy głównej usługi do uruchamian
           CertificateStoreLocation={CertificateStore}
     ```
 
-    Zastąp *{AppID}* , *{TenantId}* i *{odcisk palca}* wartościami wygenerowanymi w kroku 1. Zastąp element *{CertificateStore}* atrybutem *LocalMachine* ' lub *CurrentUser* na podstawie planu wdrożenia.
+    Zastąp *{AppID}*, *{TenantId}* i *{odcisk palca}* wartościami wygenerowanymi w kroku 1. Zastąp element *{CertificateStore}* atrybutem *LocalMachine*' lub *CurrentUser* na podstawie planu wdrożenia.
 
 1. Uruchom aplikację.
 
@@ -185,7 +185,7 @@ Istnieją trzy podstawowe metody używania nazwy głównej usługi do uruchamian
     RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}
     ```
 
-    Zastąp zmienne _{AppID}_ , _{TenantId}_ i _{ClientSecret}_ wartościami wygenerowanymi w kroku 1.
+    Zastąp zmienne _{AppID}_, _{TenantId}_ i _{ClientSecret}_ wartościami wygenerowanymi w kroku 1.
 
 1. Uruchom aplikację.
 
@@ -217,7 +217,7 @@ Aby użyć certyfikatu klienta do uwierzytelniania jednostki usługi:
     RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}
     ```
 
-    Na przykład, Jeśli Twój Magazyn kluczy został wywołany *myKeyVault* i został utworzony certyfikat o nazwie Moje *Certyfikaty* , identyfikator certyfikatu:
+    Na przykład, Jeśli Twój Magazyn kluczy został wywołany *myKeyVault* i został utworzony certyfikat o nazwie Moje *Certyfikaty*, identyfikator certyfikatu:
 
     ```azurecli
     RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier=https://myKeyVault.vault.azure.net/secrets/myCert
@@ -262,7 +262,7 @@ Aby wyświetlić `Microsoft.Azure.Services.AppAuthentication` bibliotekę w dzia
 
 #### <a name="azure-cli-is-not-installed-youre-not-logged-in-or-you-dont-have-the-latest-version"></a>Interfejs wiersza polecenia platformy Azure nie jest zainstalowany, nie jest zalogowany lub nie masz najnowszej wersji
 
-Uruchom *AZ Account Get-Access-token* , aby sprawdzić, czy w interfejsie wiersza polecenia platformy Azure jest wyświetlany token. Jeśli **nie ma takiego programu** , zainstaluj [najnowszą wersję interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Może zostać wyświetlony monit o zalogowanie się.
+Uruchom *AZ Account Get-Access-token* , aby sprawdzić, czy w interfejsie wiersza polecenia platformy Azure jest wyświetlany token. Jeśli **nie ma takiego programu**, zainstaluj [najnowszą wersję interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Może zostać wyświetlony monit o zalogowanie się.
 
 #### <a name="azureservicetokenprovider-cant-find-the-path-for-azure-cli"></a>AzureServiceTokenProvider nie może znaleźć ścieżki dla interfejsu wiersza polecenia platformy Azure
 

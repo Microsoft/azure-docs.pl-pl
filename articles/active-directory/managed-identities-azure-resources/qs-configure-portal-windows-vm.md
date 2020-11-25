@@ -16,11 +16,11 @@ ms.date: 11/10/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e35366e35fc127057020906ac6d3dfb0f207ab72
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91331339"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997430"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-vm-using-the-azure-portal"></a>Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej przy użyciu Azure Portal
 
@@ -97,7 +97,7 @@ Obecnie Azure Portal nie obsługuje przypisywania tożsamości zarządzanej przy
 Do przypisywania tożsamości przypisanej przez użytkownika do maszyny wirtualnej wymagane są przypisania ról współautor i [operator tożsamości zarządzanej](../../role-based-access-control/built-in-roles.md#managed-identity-operator) [maszyny wirtualnej](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) . Nie są wymagane żadne dodatkowe przypisania ról w katalogu usługi Azure AD.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta skojarzonego z subskrypcją platformy Azure, która zawiera maszynę wirtualną.
-2. Przejdź do odpowiedniej maszyny wirtualnej i kliknij pozycję **tożsamość**, **przypisane przez użytkownika** , a następnie ** \+ Dodaj**.
+2. Przejdź do odpowiedniej maszyny wirtualnej i kliknij pozycję **tożsamość**, **przypisane przez użytkownika** , a następnie **\+ Dodaj**.
 
    ![Zrzut ekranu pokazujący stronę "tożsamość" z wybraną pozycją "użytkownik przypisany" oraz wyróżniony przycisk "Dodaj".](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot1.png)
 

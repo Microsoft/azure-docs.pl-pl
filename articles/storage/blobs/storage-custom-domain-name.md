@@ -9,12 +9,12 @@ ms.date: 01/23/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 5e6289fb4e3b5bb695b79589d544d0ae475f9774
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: dcc6f3bca80cb5860679327226d3e034c3e9b14a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314667"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95996869"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Mapowanie domeny niestandardowej na punkt końcowy usługi Azure Blob Storage
 
@@ -58,7 +58,7 @@ Nazwa hosta to adres URL punktu końcowego magazynu bez identyfikatora protokoł
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do konta magazynu.
 
-2. W okienku menu w obszarze **Ustawienia**wybierz pozycję **Właściwości**.  
+2. W okienku menu w obszarze **Ustawienia** wybierz pozycję **Właściwości**.  
 
 3. Skopiuj wartość **podstawowego punktu końcowego usługi BLOB** lub **podstawowego statycznego punktu końcowego witryny sieci Web** do pliku tekstowego. 
 
@@ -79,11 +79,11 @@ Utwórz rekord CNAME, aby wskazywał nazwę hosta. Rekord CNAME jest typem rekor
 
 1. Zaloguj się do witryny sieci Web rejestratora domen, a następnie przejdź do strony, aby zarządzać ustawieniami DNS.
 
-   Stronę można znaleźć w sekcji Nazwa **domeny**, **DNS**lub **Zarządzanie serwerem nazw**.
+   Stronę można znaleźć w sekcji Nazwa **domeny**, **DNS** lub **Zarządzanie serwerem nazw**.
 
 2. Znajdź sekcję do zarządzania rekordami CNAME. 
 
-   Może zajść potrzeba przejścia do strony ustawień zaawansowanych i poszukania **rekordu CNAME**, **aliasu**lub **poddomen**.
+   Może zajść potrzeba przejścia do strony ustawień zaawansowanych i poszukania **rekordu CNAME**, **aliasu** lub **poddomen**.
 
 3. Utwórz rekord CNAME. W ramach tego rekordu podaj następujące elementy: 
 
@@ -97,7 +97,7 @@ Utwórz rekord CNAME, aby wskazywał nazwę hosta. Rekord CNAME jest typem rekor
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do konta magazynu.
 
-2. W okienku menu w obszarze **Usługa BLOB**wybierz pozycję **domena niestandardowa**.  
+2. W okienku menu w obszarze **Usługa BLOB** wybierz pozycję **domena niestandardowa**.  
 
    ![Opcja domeny niestandardowej](./media/storage-custom-domain-name/custom-domain-button.png "Domena niestandardowa")
 
@@ -144,7 +144,7 @@ Nazwa hosta to adres URL punktu końcowego magazynu bez identyfikatora protokoł
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do konta magazynu.
 
-2. W okienku menu w obszarze **Ustawienia**wybierz pozycję **Właściwości**.  
+2. W okienku menu w obszarze **Ustawienia** wybierz pozycję **Właściwości**.  
 
 3. Skopiuj wartość **podstawowego punktu końcowego usługi BLOB** lub **podstawowego statycznego punktu końcowego witryny sieci Web** do pliku tekstowego. 
 
@@ -163,11 +163,11 @@ Utwórz tymczasowy rekord CNAME, aby wskazywał nazwę hosta. Rekord CNAME jest 
 
 1. Zaloguj się do witryny sieci Web rejestratora domen, a następnie przejdź do strony, aby zarządzać ustawieniami DNS.
 
-   Stronę można znaleźć w sekcji Nazwa **domeny**, **DNS**lub **Zarządzanie serwerem nazw**.
+   Stronę można znaleźć w sekcji Nazwa **domeny**, **DNS** lub **Zarządzanie serwerem nazw**.
 
 2. Znajdź sekcję do zarządzania rekordami CNAME. 
 
-   Może zajść potrzeba przejścia do strony ustawień zaawansowanych i poszukania **rekordu CNAME**, **aliasu**lub **poddomen**.
+   Może zajść potrzeba przejścia do strony ustawień zaawansowanych i poszukania **rekordu CNAME**, **aliasu** lub **poddomen**.
 
 3. Utwórz rekord CNAME. W ramach tego rekordu podaj następujące elementy: 
 
@@ -189,7 +189,7 @@ Po wstępnym zarejestrowaniu domeny niestandardowej na platformie Azure zezwolis
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do konta magazynu.
 
-2. W okienku menu w obszarze **Usługa BLOB**wybierz pozycję **domena niestandardowa**.  
+2. W okienku menu w obszarze **Usługa BLOB** wybierz pozycję **domena niestandardowa**.  
 
    ![Opcja domeny niestandardowej](./media/storage-custom-domain-name/custom-domain-button.png "Domena niestandardowa")
 
@@ -211,11 +211,11 @@ Utwórz tymczasowy rekord CNAME, aby wskazywał nazwę hosta.
 
 1. Zaloguj się do witryny sieci Web rejestratora domen, a następnie przejdź do strony, aby zarządzać ustawieniami DNS.
 
-   Stronę można znaleźć w sekcji Nazwa **domeny**, **DNS**lub **Zarządzanie serwerem nazw**.
+   Stronę można znaleźć w sekcji Nazwa **domeny**, **DNS** lub **Zarządzanie serwerem nazw**.
 
 2. Znajdź sekcję do zarządzania rekordami CNAME. 
 
-   Może zajść potrzeba przejścia do strony ustawień zaawansowanych i poszukania **rekordu CNAME**, **aliasu**lub **poddomen**.
+   Może zajść potrzeba przejścia do strony ustawień zaawansowanych i poszukania **rekordu CNAME**, **aliasu** lub **poddomen**.
 
 3. Utwórz rekord CNAME. W ramach tego rekordu podaj następujące elementy: 
 
@@ -239,7 +239,7 @@ Aby usunąć ustawienie domeny niestandardowej, wykonaj następujące czynności
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do konta magazynu.
 
-2. W okienku menu w obszarze **Usługa BLOB**wybierz pozycję **domena niestandardowa**.  
+2. W okienku menu w obszarze **Usługa BLOB** wybierz pozycję **domena niestandardowa**.  
    Zostanie otwarte okienko **domena niestandardowa** .
 
 3. Wyczyść zawartość pola tekstowego zawierającego swoją niestandardową nazwę domeny.
@@ -250,7 +250,7 @@ Po pomyślnym usunięciu domeny niestandardowej zobaczysz powiadomienie portalu,
 
 #### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Aby usunąć niestandardową rejestrację domeny, użyj polecenia [AZ Storage account Update](https://docs.microsoft.com/cli/azure/storage/account) CLI polecenie, a następnie określ pusty ciąg ( `""` ) dla `--custom-domain` wartości argumentu.
+Aby usunąć niestandardową rejestrację domeny, użyj polecenia [AZ Storage account Update](/cli/azure/storage/account) CLI polecenie, a następnie określ pusty ciąg ( `""` ) dla `--custom-domain` wartości argumentu.
 
 * Format polecenia:
 
@@ -320,11 +320,11 @@ Aby zmapować domenę niestandardową i włączyć dostęp do protokołu HTTPS, 
 
 4. Obowiązkowe Zapoznaj się z następującymi wskazówkami:
 
-   * [Tokeny sygnatury dostępu współdzielonego (SAS) z Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#shared-access-signatures).
+   * [Tokeny sygnatury dostępu współdzielonego (SAS) z Azure CDN](../../cdn/cdn-storage-custom-domain-https.md#shared-access-signatures).
 
-   * [Przekierowywanie protokołu HTTP do protokołu HTTPS za pomocą Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#http-to-https-redirection).
+   * [Przekierowywanie protokołu HTTP do protokołu HTTPS za pomocą Azure CDN](../../cdn/cdn-storage-custom-domain-https.md#http-to-https-redirection).
 
-   * [Ceny i rozliczanie w przypadku korzystania z BLOB Storage z Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#http-to-https-redirection).
+   * [Ceny i rozliczanie w przypadku korzystania z BLOB Storage z Azure CDN](../../cdn/cdn-storage-custom-domain-https.md#http-to-https-redirection).
 
 ## <a name="next-steps"></a>Następne kroki
 

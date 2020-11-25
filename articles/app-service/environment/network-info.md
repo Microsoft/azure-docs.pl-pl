@@ -8,11 +8,11 @@ ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 91b6134e7c809a8af75aa1cf23523e352e0a1a0e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150249"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997345"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Networking considerations for an App Service Environment (Zagadnienia dotyczące sieci w środowisku App Service Environment) #
 
@@ -25,7 +25,7 @@ ms.locfileid: "92150249"
 
 Wszystkie środowisk ASE, zewnętrzne i ILB mają publiczny adres VIP używany przez ruch przychodzący zarządzania i jako adres od podczas wykonywania wywołań z programu ASE do Internetu. Wywołania z programu ASE, które przechodzą do Internetu, opuszczają sieć wirtualną za pośrednictwem adresu VIP przypisanego do środowiska ASE. Publiczny adres IP tego adresu VIP jest źródłowym adresem IP dla wszystkich wywołań z programu ASE, które przechodzą do Internetu. Jeśli aplikacje w środowisku ASE powodują wywoływanie zasobów w sieci wirtualnej lub przez sieć VPN, źródłowy adres IP jest jednym z adresów IP w podsieci używanej przez środowisko ASE. Ze względu na to, że środowisko ASE znajduje się w sieci wirtualnej, może również uzyskać dostęp do zasobów w sieci wirtualnej bez żadnej dodatkowej konfiguracji. Jeśli sieć wirtualna jest połączona z siecią lokalną, aplikacje w środowisku ASE mają również dostęp do zasobów bez dodatkowej konfiguracji.
 
-![Zewnętrzne środowisko ASE][1] 
+![Zewnętrzne środowisko ASE][1] 
 
 Jeśli masz zewnętrzny ASE, publiczny adres VIP jest również punktem końcowym, do którego są rozpoznawane aplikacje środowiska ASE:
 
@@ -157,7 +157,7 @@ Wymagane wpisy w sieciowej grupy zabezpieczeń, dla których środowisko ASE ma 
 * TCP z modułu równoważenia obciążenia na porcie 16001
 * z podsieci środowiska ASE do podsieci środowiska ASE na wszystkich portach
 
-**Outbound**
+**Wychodzący**
 * UDP do wszystkich adresów IP na porcie 53
 * UDP do wszystkich adresów IP na porcie 123
 * TCP do wszystkich adresów IP na portach 80, 443
@@ -180,9 +180,9 @@ W przypadku uwzględnienia wymagań dotyczących ruchu przychodzącego i wychodz
 
 ![Reguły zabezpieczeń dla ruchu przychodzącego][4]
 
-Reguła domyślna umożliwia komunikację między adresami IP w sieci wirtualnej w podsieci środowiska ASE. Inna domyślna reguła umożliwia modułowi równoważenia obciążenia, znanym również jako publiczny adres VIP, komunikowanie się ze środowiskiem ASE. Aby wyświetlić reguły domyślne, wybierz opcję **domyślne reguły** obok ikony **Dodaj** . Jeśli przed regułami domyślnymi zostanie umieszczona reguła Odmów wszystkiego innego, zapobiegasz ruchu między wirtualnym adresem IP a środowiskiem ASE. Aby zapobiec ruchowi pochodzącemu z sieci wirtualnej, Dodaj własną regułę, aby zezwolić na przychodzący. Użyj źródła równego AzureLoadBalancer z miejscem docelowym **dowolnego** i zakresu portów **\*** . Ponieważ reguła sieciowej grupy zabezpieczeń jest stosowana do podsieci środowiska ASE, nie musisz być konkretna w miejscu docelowym.
+Reguła domyślna umożliwia komunikację między adresami IP w sieci wirtualnej w podsieci środowiska ASE. Inna domyślna reguła umożliwia modułowi równoważenia obciążenia, znanym również jako publiczny adres VIP, komunikowanie się ze środowiskiem ASE. Aby wyświetlić reguły domyślne, wybierz opcję **domyślne reguły** obok ikony **Dodaj** . Jeśli przed regułami domyślnymi zostanie umieszczona reguła Odmów wszystkiego innego, zapobiegasz ruchu między wirtualnym adresem IP a środowiskiem ASE. Aby zapobiec ruchowi pochodzącemu z sieci wirtualnej, Dodaj własną regułę, aby zezwolić na przychodzący. Użyj źródła równego AzureLoadBalancer z miejscem docelowym **dowolnego** elementu i zakresem portów * *\** _. Ponieważ reguła sieciowej grupy zabezpieczeń jest stosowana do podsieci środowiska ASE, nie musisz być konkretna w miejscu docelowym.
 
-Jeśli do aplikacji został przypisany adres IP, upewnij się, że porty są otwarte. Aby wyświetlić porty, wybierz pozycję **App Service Environment**  >  **adresy IP**.  
+Jeśli do aplikacji został przypisany adres IP, upewnij się, że porty są otwarte. Aby wyświetlić porty, wybierz _ *App Service Environment** > **adresy IP**.  
 
 Wszystkie elementy wyświetlane w następujących regułach wychodzących są zbędne, z wyjątkiem ostatniego elementu. Umożliwiają one dostęp sieciowy do zależności środowiska ASE, które zostały zanotowane we wcześniejszej części tego artykułu. Jeśli zablokujesz dowolne z nich, środowisko ASE przestanie działać. Ostatni element na liście umożliwia firmie ASE komunikowanie się z innymi zasobami w sieci wirtualnej.
 

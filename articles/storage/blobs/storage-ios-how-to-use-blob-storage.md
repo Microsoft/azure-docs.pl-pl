@@ -7,12 +7,12 @@ ms.date: 11/20/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: 378c21a6904acad16847bb32955e4bc091e587df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fc1b2638c2ab17c4cd58ca8d4508d2e6d244cfa
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84465494"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95996823"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Jak korzystać z usługi BLOB Storage z systemu iOS
 
@@ -62,7 +62,7 @@ Aby można było korzystać z tej biblioteki, potrzebne są następujące elemen
 Innym sposobem korzystania z biblioteki jest ręczne skompilowanie struktury:
 
 1. Najpierw pobierz lub Sklonuj [repozytorium Azure-Storage-iOS](https://github.com/azure/azure-storage-ios).
-2. Przejdź do biblioteki klienta usługi Azure Storage dla *systemu iOS*  ->  *Lib*  ->  *Azure Storage Client Library*i otwórz ją `AZSClient.xcodeproj` w Xcode.
+2. Przejdź do biblioteki klienta usługi Azure Storage dla *systemu iOS*  ->  *Lib*  ->  *Azure Storage Client Library* i otwórz ją `AZSClient.xcodeproj` w Xcode.
 3. W lewym górnym rogu Xcode Zmień aktywny schemat z "Biblioteka klienta usługi Azure Storage" na "Framework".
 4. Kompiluj projekt (⌘ + B). Spowoduje to utworzenie `AZSClient.framework` pliku na pulpicie.
 
@@ -99,7 +99,7 @@ Jeśli używasz SWIFT, musisz utworzyć nagłówek mostkowania i zaimportować g
 
 ## <a name="create-a-container"></a>Tworzenie kontenera
 
-Każdy obiekt BLOB w usłudze Azure Storage musi znajdować się w kontenerze. Poniższy przykład pokazuje, jak utworzyć kontener o nazwie *newcontainer*w swoim koncie magazynu, jeśli jeszcze nie istnieje. Po wybraniu nazwy kontenera należy zanotować powyższe zasady nazewnictwa.
+Każdy obiekt BLOB w usłudze Azure Storage musi znajdować się w kontenerze. Poniższy przykład pokazuje, jak utworzyć kontener o nazwie *newcontainer* w swoim koncie magazynu, jeśli jeszcze nie istnieje. Po wybraniu nazwy kontenera należy zanotować powyższe zasady nazewnictwa.
 
 ```objc
 -(void)createContainer{
@@ -391,8 +391,8 @@ Teraz, gdy wiesz już, jak korzystać z Blob Storage z systemu iOS, Skorzystaj z
 
 - [Biblioteka klienta usługi Azure Storage dla systemu iOS](https://github.com/azure/azure-storage-ios)
 - [Dokumentacja dotycząca systemu iOS w usłudze Azure Storage](https://azure.github.io/azure-storage-ios/)
-- [Interfejs API REST usług Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-- [Blog zespołu usługi Azure Storage](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
+- [Interfejs API REST usług Azure Storage](/rest/api/storageservices/)
+- [Blog zespołu usługi Azure Storage](/archive/blogs/windowsazurestorage/)
 
-Jeśli masz pytania dotyczące tej biblioteki, możesz bezpłatnie ogłosić na naszej stronie pytania i [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files)w [firmie Microsoft Q&](https://docs.microsoft.com/answers/topics/azure-blob-storage.html) .
+Jeśli masz pytania dotyczące tej biblioteki, możesz bezpłatnie ogłosić na naszej stronie pytania i [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files)w [firmie Microsoft Q&](/answers/topics/azure-blob-storage.html) .
 Jeśli masz sugestie dotyczące funkcji usługi Azure Storage, Opublikuj je w usłudze [Azure Storage](https://feedback.azure.com/forums/217298-storage/).

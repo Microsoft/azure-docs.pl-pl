@@ -9,11 +9,11 @@ ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
 ms.openlocfilehash: 930c1f94446eb145a093bf7a8706485d40eec210
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379675"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998179"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Zarządzane prywatne punkty końcowe Synapse (wersja zapoznawcza)
 

@@ -9,11 +9,11 @@ ms.date: 10/15/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 0ffc9c2ee17862497d3fd986da8e003f7a497056
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107287"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998774"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Samouczek: łączenie sieci wirtualnej z obwodem usługi ExpressRoute przy użyciu portalu
 
@@ -65,25 +65,25 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 1. Teraz można rozpocząć Inicjowanie obsługi połączenia w celu połączenia bramy sieci wirtualnej z obwodem usługi ExpressRoute. Wybierz pozycję **połączenie**  >  **Dodaj** , aby otworzyć stronę **Dodawanie połączenia** .
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/add-connection.png" alt-text="Zrzut ekranu obwodu ExpressRoute":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/add-connection.png" alt-text="Dodaj zrzut ekranu połączenia":::
 
 1. Wprowadź nazwę połączenia, a następnie wybierz pozycję **Next (dalej): Settings >**.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/create-connection-basic.png" alt-text="Zrzut ekranu obwodu ExpressRoute":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/create-connection-basic.png" alt-text="Utwórz stronę podstawową połączenia":::
 
 1. Wybierz bramę, która należy do sieci wirtualnej, którą chcesz połączyć z obwodem, a następnie wybierz kolejno pozycje **Przegląd + Utwórz**. Następnie wybierz pozycję **Utwórz** po zakończeniu walidacji.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/create-connection-settings.png" alt-text="Zrzut ekranu obwodu ExpressRoute":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/create-connection-settings.png" alt-text="Strona tworzenia ustawień połączenia":::
 
 1. Po pomyślnym skonfigurowaniu połączenia obiekt połączenia będzie wyświetlał informacje dotyczące połączenia.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-object.png" alt-text="Zrzut ekranu obwodu ExpressRoute":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-object.png" alt-text="Zrzut ekranu obiektu połączenia":::
 
 ## <a name="connect-a-vnet-to-a-circuit---different-subscription"></a>Łączenie sieci wirtualnej z inną subskrypcją obwodu
 
 Obwód ExpressRoute można udostępnić w wielu subskrypcjach. Na poniższej ilustracji przedstawiono prosty schemat działania udostępniania dla obwodów usługi ExpressRoute w wielu subskrypcjach.
 
-:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/cross-subscription.png" alt-text="Zrzut ekranu obwodu ExpressRoute":::
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/cross-subscription.png" alt-text="Łączność między subskrypcjami":::
 
 Każda z mniejszych chmur w ramach dużej chmury służy do reprezentowania subskrypcji należących do różnych działów w organizacji. Każda z działów w organizacji korzysta z własnej subskrypcji na potrzeby wdrażania ich usług — ale może współdzielić jeden obwód usługi ExpressRoute, aby połączyć się z siecią lokalną. Pojedynczy dział (w tym przykładzie:) może być własnym obwodem ExpressRoute. Inne subskrypcje w organizacji mogą korzystać z obwodu ExpressRoute.
 
@@ -109,21 +109,21 @@ Właściciel obwodu tworzy autoryzację, która tworzy klucz autoryzacji, który
 
 1. Na stronie ExpressRoute wybierz pozycję **autoryzacje** , a następnie wpisz **nazwę** autoryzacji i wybierz pozycję **Zapisz**.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png" alt-text="Zrzut ekranu obwodu ExpressRoute":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png" alt-text="Autoryzacje":::
 
 2. Po zapisaniu konfiguracji Skopiuj **Identyfikator zasobu** i **klucz autoryzacji**.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/authorization-key.png" alt-text="Zrzut ekranu obwodu ExpressRoute":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/authorization-key.png" alt-text="Klucz autoryzacji":::
 
 **Aby usunąć autoryzację połączenia**
 
 Połączenie można usunąć, wybierając ikonę **usuwania** dla klucza autoryzacji dla danego połączenia.
 
-:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-authorization-key.png" alt-text="Zrzut ekranu obwodu ExpressRoute":::
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-authorization-key.png" alt-text="Usuń klucz autoryzacji":::
 
 Jeśli chcesz usunąć połączenie, ale zachować klucz autoryzacji, możesz usunąć połączenie ze strony połączenie obwodu.
 
-:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-connection-owning-circuit.png" alt-text="Zrzut ekranu obwodu ExpressRoute":::
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-connection-owning-circuit.png" alt-text="Usuwanie obwodu będącego właścicielem połączenia":::
 
 ### <a name="circuit-user-operations"></a>Operacje użytkownika obwodowego
 
@@ -133,31 +133,31 @@ Użytkownik obwodu potrzebuje identyfikatora zasobu i klucza autoryzacji od wła
 
 1. Wybierz przycisk **+ Utwórz zasób** . Wyszukaj **połączenie** i wybierz pozycję **Utwórz**.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/create-new-resources.png" alt-text="Zrzut ekranu obwodu ExpressRoute":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/create-new-resources.png" alt-text="Tworzenie nowych zasobów":::
 
 1. Upewnij się, że *Typ połączenia* to **ExpressRoute**. Wybierz *grupę zasobów* i *lokalizację*, a następnie na stronie podstawowe wybierz pozycję **OK** .
 
     > [!NOTE]
     > Lokalizacja *musi* być zgodna z lokalizacją bramy sieci wirtualnej, dla której tworzysz połączenie.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-basics.png" alt-text="Zrzut ekranu obwodu ExpressRoute":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-basics.png" alt-text="Strona Podstawy":::
 
-1. Na stronie **Ustawienia** wybierz *bramę sieci wirtualnej* i zaznacz pole wyboru Wykorzystaj **autoryzację** . Wprowadź *klucz autoryzacji* i *Identyfikator URI obwodu równorzędnego* i nadaj nazwę połączenie. Wybierz przycisk **OK**. 
+1. Na stronie **Ustawienia** wybierz *bramę sieci wirtualnej* i zaznacz pole wyboru Wykorzystaj **autoryzację** . Wprowadź *klucz autoryzacji* i *Identyfikator URI obwodu równorzędnego* i nadaj nazwę połączenie. Wybierz pozycję **OK**. 
  
     > [!NOTE]
     > *URI obwodu równorzędnego* jest identyfikatorem zasobu obwodu ExpressRoute (który można znaleźć w okienku ustawienia właściwości obwodu ExpressRoute).
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-settings.png" alt-text="Zrzut ekranu obwodu ExpressRoute":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-settings.png" alt-text="Strona Ustawienia":::
 
 1. Przejrzyj informacje na stronie **Podsumowanie** i wybierz **przycisk OK**.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-summary.png" alt-text="Zrzut ekranu obwodu ExpressRoute":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-summary.png" alt-text="Strona podsumowania":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Możesz usunąć połączenie i odłączyć sieć wirtualną do obwodu usługi ExpressRoute, wybierając ikonę **usuwania** na stronie połączenia.
 
-:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-connection.png" alt-text="Zrzut ekranu obwodu ExpressRoute":::
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-connection.png" alt-text="Usuwanie połączenia":::
 
 ## <a name="next-steps"></a>Następne kroki
 

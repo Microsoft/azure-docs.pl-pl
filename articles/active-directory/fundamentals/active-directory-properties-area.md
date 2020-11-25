@@ -14,11 +14,11 @@ ms.reviewer: bpham
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f47ae9b087615a77f6bd4d3f14f1b0052037cba6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89321977"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996762"
 ---
 # <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Dodaj informacje o ochronie prywatności w organizacji za pomocą Azure Active Directory
 W tym artykule wyjaśniono, jak Administrator dzierżawy może dodać do dzierżawy usługi Azure Active Directory (Azure AD) informacje związane z prywatnością, korzystając z Azure Portal.
@@ -49,7 +49,7 @@ Informacje o ochronie prywatności organizacji są dodawane w obszarze **Właśc
     - **Adres URL zasad zachowania poufności informacji.** Wpisz link do dokumentu organizacji, który opisuje, jak Twoja organizacja obsługuje zarówno prywatność danych wewnętrznych, jak i zewnętrznych.
 
         >[!Important]
-        >Jeśli nie dołączysz własnych zasad zachowania poufności informacji lub kontaktu z prywatnością, zobaczysz tekst w polu **uprawnienia przeglądu** , które informuje, że ** < _Nazwa organizacji_> nie podano linków do ich terminów do przejrzenia**. Na przykład użytkownik-Gość zobaczy ten komunikat, gdy otrzyma zaproszenie do uzyskania dostępu do organizacji za pomocą współpracy B2B.
+        >Jeśli nie dołączysz własnych zasad zachowania poufności informacji lub kontaktu z prywatnością, zobaczysz tekst w polu **uprawnienia przeglądu** , które informuje, że **< _Nazwa organizacji_> nie podano linków do ich terminów do przejrzenia**. Na przykład użytkownik-Gość zobaczy ten komunikat, gdy otrzyma zaproszenie do uzyskania dostępu do organizacji za pomocą współpracy B2B.
 
         ![Pole uprawnień przeglądu współpracy B2B z komunikatem](media/active-directory-properties-area/active-directory-no-privacy-statement-or-contact.png)
 

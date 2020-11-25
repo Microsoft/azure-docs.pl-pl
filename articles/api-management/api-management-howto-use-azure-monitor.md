@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: apimpm
 ms.openlocfilehash: 2317e61111c3ad328e8f112e7d9567f3f5d47990
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379419"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997051"
 ---
 # <a name="tutorial-monitor-published-apis"></a>Samouczek: monitorowanie opublikowanych interfejsów API
 
 Za pomocą Azure Monitor można wizualizować, wykonywać zapytania, kierować, archiwizować i wykonywać akcje dotyczące metryk lub dzienników pochodzących z usługi Azure API Management.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Wyświetlanie metryk interfejsu API 
@@ -56,7 +56,7 @@ Aby uzyskać dostęp do metryk:
 
 1. Z listy rozwijanej wybierz interesujące Cię metryki. Na przykład **żądania**. 
 1. Wykres przedstawia łączną liczbę wywołań interfejsu API.
-1. Wykres może być filtrowany przy użyciu wymiarów metryk **żądań** . Na przykład wybierz pozycję **Dodaj filtr** , wybierz **kategorię kod odpowiedzi zaplecza** , wprowadź 500 jako wartość. Teraz wykres pokazuje liczbę żądań, które zakończyły się niepowodzeniem w zapleczu interfejsu API.   
+1. Wykres może być filtrowany przy użyciu wymiarów metryk **żądań** . Na przykład wybierz pozycję **Dodaj filtr**, wybierz **kategorię kod odpowiedzi zaplecza**, wprowadź 500 jako wartość. Teraz wykres pokazuje liczbę żądań, które zakończyły się niepowodzeniem w zapleczu interfejsu API.   
 
 ## <a name="set-up-an-alert-rule"></a>Konfigurowanie reguły alertu 
 

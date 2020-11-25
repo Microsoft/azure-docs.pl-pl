@@ -10,11 +10,11 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: ee32749e2c6f0118507fcfc6d4994a04ea3a6d69
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896804"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997277"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Samouczek: Konfigurowanie geofencingu przy użyciu usługi Azure Maps
 
@@ -44,9 +44,9 @@ W tym samouczku przekażemy geoplikowanie GEOJSON dane, które zawierają `Featu
 >[!TIP]
 >W dowolnym momencie możesz zaktualizować dane dotyczące geofencingu. Aby uzyskać więcej informacji, zobacz [interfejs API przekazywania danych](/rest/api/maps/data/uploadpreview).
 
-1. Otwórz aplikację Poster. W górnej części wybierz pozycję **Nowy** . W oknie **Tworzenie nowego** okna wybierz pozycję **Kolekcja** . Nadaj kolekcji nazwę i wybierz pozycję **Utwórz** .
+1. Otwórz aplikację Poster. W górnej części wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Kolekcja**. Nadaj kolekcji nazwę i wybierz pozycję **Utwórz**.
 
-2. Aby utworzyć żądanie, wybierz pozycję **nowe** ponownie. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj** . Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w poprzednim kroku, a następnie wybierz pozycję **Zapisz** .
+2. Aby utworzyć żądanie, wybierz pozycję **nowe** ponownie. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w poprzednim kroku, a następnie wybierz pozycję **Zapisz**.
 
 3. Wybierz metodę **post** http na karcie Konstruktor i wprowadź następujący adres URL, aby przekazać dane geofencingu do Azure Maps. W przypadku tego żądania i innych żądań wymienionych w tym artykule Zastąp `{Azure-Maps-Primary-Subscription-key}` klucz subskrypcji podstawowym.
 
@@ -56,7 +56,7 @@ W tym samouczku przekażemy geoplikowanie GEOJSON dane, które zawierają `Featu
 
     `geojson`Parametr w ścieżce URL reprezentuje format danych przekazywanych danych.
 
-4. Wybierz kartę **treść** . Wybierz pozycję **RAW** , a następnie wartość **JSON** jako format wejściowy. Skopiuj i wklej następujące dane GEOJSON w obszarze tekstu **treści** :
+4. Wybierz kartę **treść** . Wybierz pozycję **RAW**, a następnie wartość **JSON** jako format wejściowy. Skopiuj i wklej następujące dane GEOJSON w obszarze tekstu **treści** :
 
    ```JSON
    {
@@ -190,11 +190,11 @@ Następnie utworzysz dwa punkty końcowe [aplikacji logiki](../event-grid/handle
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. W lewym górnym rogu Azure Portal wybierz pozycję **Utwórz zasób** .
+2. W lewym górnym rogu Azure Portal wybierz pozycję **Utwórz zasób**.
 
-3. W polu **Wyszukaj w witrynie Marketplace** wpisz **aplikacja logiki** .
+3. W polu **Wyszukaj w witrynie Marketplace** wpisz **aplikacja logiki**.
 
-4. Z wyników wybierz pozycję **aplikacja logiki**  >  **Utwórz** .
+4. Z wyników wybierz pozycję **aplikacja logiki**  >  **Utwórz**.
 
 5. Na stronie **aplikacja logiki** wprowadź następujące wartości:
     * **Subskrypcja** , która ma być używana dla tej aplikacji logiki.
@@ -205,28 +205,28 @@ Następnie utworzysz dwa punkty końcowe [aplikacji logiki](../event-grid/handle
 
     :::image type="content" source="./media/tutorial-geofence/logic-app-create.png" alt-text="Zrzut ekranu przedstawiający tworzenie aplikacji logiki.":::
 
-6. Wybierz pozycję **Recenzja + Utwórz** . Przejrzyj ustawienia i wybierz pozycję **Utwórz** , aby przesłać wdrożenie. Po pomyślnym zakończeniu wdrożenia wybierz pozycję **Przejdź do zasobu** . Nastąpi przekierowanie do **projektanta aplikacji logiki** .
+6. Wybierz pozycję **Recenzja + Utwórz**. Przejrzyj ustawienia i wybierz pozycję **Utwórz** , aby przesłać wdrożenie. Po pomyślnym zakończeniu wdrożenia wybierz pozycję **Przejdź do zasobu**. Nastąpi przekierowanie do **projektanta aplikacji logiki**.
 
-7. Wybierz typ wyzwalacza. Przewiń w dół do sekcji **Rozpocznij od typowego wyzwalacza** . Wybierz **po odebraniu żądania HTTP** .
+7. Wybierz typ wyzwalacza. Przewiń w dół do sekcji **Rozpocznij od typowego wyzwalacza** . Wybierz **po odebraniu żądania HTTP**.
 
-     :::image type="content" source="./media/tutorial-geofence/logic-app-trigger.png" alt-text="Zrzut ekranu przedstawiający tworzenie aplikacji logiki.":::
+     :::image type="content" source="./media/tutorial-geofence/logic-app-trigger.png" alt-text="Zrzut ekranu przedstawiający tworzenie wyzwalacza HTTP aplikacji logiki.":::
 
-8. W prawym górnym rogu projektanta aplikacji logiki wybierz pozycję **Zapisz** . **Adres URL post protokołu HTTP** jest generowany automatycznie. Zapisz adres URL. Jest ona potrzebna w następnej sekcji, aby utworzyć punkt końcowy zdarzenia.
+8. W prawym górnym rogu projektanta aplikacji logiki wybierz pozycję **Zapisz**. **Adres URL post protokołu HTTP** jest generowany automatycznie. Zapisz adres URL. Jest ona potrzebna w następnej sekcji, aby utworzyć punkt końcowy zdarzenia.
 
-    :::image type="content" source="./media/tutorial-geofence/logic-app-httprequest.png" alt-text="Zrzut ekranu przedstawiający tworzenie aplikacji logiki.":::
+    :::image type="content" source="./media/tutorial-geofence/logic-app-httprequest.png" alt-text="Zrzut ekranu przedstawiający adres URL żądania HTTP aplikacji logiki i kod JSON.":::
 
-9. Wybierz pozycję **+ nowy krok** . Teraz wybierzesz akcję. Wpisz `outlook.com email` w polu wyszukiwania. Na liście **Akcje** przewiń w dół i wybierz pozycję **Wyślij wiadomość E-mail (wersja 2)** .
+9. Wybierz pozycję **+ nowy krok**. Teraz wybierzesz akcję. Wpisz `outlook.com email` w polu wyszukiwania. Na liście **Akcje** przewiń w dół i wybierz pozycję **Wyślij wiadomość E-mail (wersja 2)**.
   
-    :::image type="content" source="./media/tutorial-geofence/logic-app-designer.png" alt-text="Zrzut ekranu przedstawiający tworzenie aplikacji logiki.":::
+    :::image type="content" source="./media/tutorial-geofence/logic-app-designer.png" alt-text="Zrzut ekranu przedstawiający tworzenie projektanta aplikacji logiki.":::
 
 10. Zaloguj się do konta programu Outlook. Upewnij się, że wybierz opcję **tak** , aby zezwolić aplikacji logiki na dostęp do konta. Wypełnij pola do wysyłania wiadomości e-mail.
 
-    :::image type="content" source="./media/tutorial-geofence/logic-app-email.png" alt-text="Zrzut ekranu przedstawiający tworzenie aplikacji logiki.":::
+    :::image type="content" source="./media/tutorial-geofence/logic-app-email.png" alt-text="Zrzut ekranu przedstawiający krok tworzenia wiadomości e-mail z aplikacji logiki.":::
 
     >[!TIP]
     > Możesz pobrać dane odpowiedzi GEOJSON, takie jak `geometryId` lub `deviceId` , w powiadomieniach e-mail. Logic Apps można skonfigurować w celu odczytania danych wysyłanych przez Event Grid. Aby uzyskać informacje na temat sposobu konfigurowania Logic Apps do korzystania z danych zdarzeń i przekazywania ich do powiadomień e-mail, zobacz [Samouczek: wysyłanie powiadomień e-mail dotyczących zdarzeń platformy Azure IoT Hub przy użyciu Event Grid i Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md).
 
-11. W lewym górnym rogu projektanta aplikacji logiki wybierz pozycję **Zapisz** .
+11. W lewym górnym rogu projektanta aplikacji logiki wybierz pozycję **Zapisz**.
 
 Aby utworzyć drugą aplikację logiki w celu powiadomienia Menedżera, gdy sprzęt opuszcza lokację konstrukcyjną, powtórz kroki 3-11. Nazwij aplikację logiki `Equipment-Exit` .
 
@@ -236,25 +236,25 @@ Azure Maps obsługuje [trzy typy zdarzeń](../event-grid/event-schema-azure-maps
 
 Poniższe kroki pokazują, jak utworzyć subskrypcję zdarzeń dla zdarzeń wejścia geofencingu. Istnieje możliwość subskrybowania zdarzeń zakończenia geoogrodzenia przez powtarzanie kroków w podobny sposób.
 
-1. Przejdź do swojego konta Azure Maps. Na pulpicie nawigacyjnym wybierz pozycję **subskrypcje** . Wybierz nazwę subskrypcji, a następnie wybierz pozycję **zdarzenia** z menu Ustawienia.
+1. Przejdź do swojego konta Azure Maps. Na pulpicie nawigacyjnym wybierz pozycję **subskrypcje**. Wybierz nazwę subskrypcji, a następnie wybierz pozycję **zdarzenia** z menu Ustawienia.
 
-    :::image type="content" source="./media/tutorial-geofence/events-tab.png" alt-text="Zrzut ekranu przedstawiający tworzenie aplikacji logiki.":::
+    :::image type="content" source="./media/tutorial-geofence/events-tab.png" alt-text="Zrzut ekranu przedstawiający przechodzenie do Azure Maps zdarzeń konta.":::
 
 2. Aby utworzyć subskrypcję zdarzeń, wybierz pozycję **+ subskrypcja zdarzeń** na stronie zdarzenia.
 
-    :::image type="content" source="./media/tutorial-geofence/create-event-subscription.png" alt-text="Zrzut ekranu przedstawiający tworzenie aplikacji logiki.":::
+    :::image type="content" source="./media/tutorial-geofence/create-event-subscription.png" alt-text="Zrzut ekranu przedstawiający tworzenie subskrypcji zdarzeń Azure Maps.":::
 
 3. Na stronie **Tworzenie subskrypcji zdarzeń** wprowadź następujące wartości:
     * **Nazwa** subskrypcji zdarzeń.
-    * **Schemat zdarzenia** powinien być *Event Grid schemacie* .
+    * **Schemat zdarzenia** powinien być *Event Grid schemacie*.
     * **Nazwa tematu systemu** dla tej subskrypcji zdarzeń, która w tym przypadku jest `Contoso-Construction` .
     * Dla opcji **Filtruj do typów zdarzeń** wybierz `Geofence Entered` jako typ zdarzenia.
     * W obszarze **Typ punktu końcowego** wybierz opcję `Web Hook` .
     * W przypadku **punktu końcowego** Skopiuj adres URL post protokołu HTTP dla aplikacji logiki wprowadź punkt końcowy, który został utworzony w poprzedniej sekcji. Jeśli nie pamiętasz go zapisać, możesz po prostu wrócić do projektanta aplikacji logiki i skopiować go z kroku wyzwalacza HTTP.
 
-    :::image type="content" source="./media/tutorial-geofence/events-subscription.png" alt-text="Zrzut ekranu przedstawiający tworzenie aplikacji logiki.":::
+    :::image type="content" source="./media/tutorial-geofence/events-subscription.png" alt-text="Zrzut ekranu przedstawiający szczegóły subskrypcji zdarzeń Azure Maps.":::
 
-4. Wybierz pozycję **Utwórz** .
+4. Wybierz pozycję **Utwórz**.
 
 Powtórz kroki 1-4 dla punktu końcowego aplikacji logiki, który został utworzony w poprzedniej sekcji. W kroku 3 Upewnij się, że wybrano opcję `Geofence Exited` jako typ zdarzenia.
 
@@ -274,7 +274,7 @@ Każda z poniższych sekcji wykonuje żądania interfejsu API przy użyciu pięc
 
 ### <a name="equipment-location-1-47638237-122132483"></a>Lokalizacja sprzętu 1 (47.638237,-122,132483)
 
-1. W górnej części aplikacji Poster wybierz pozycję **Nowy** . W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj** . Wprowadź **nazwę żądania** dla żądania. Ustaw *lokalizację 1* . Wybierz kolekcję utworzoną w [sekcji Przekaż dane GEOnotacji GEOJSON](#upload-geofencing-geojson-data), a następnie wybierz pozycję **Zapisz** .
+1. W górnej części aplikacji Poster wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** dla żądania. Ustaw *lokalizację 1*. Wybierz kolekcję utworzoną w [sekcji Przekaż dane GEOnotacji GEOJSON](#upload-geofencing-geojson-data), a następnie wybierz pozycję **Zapisz**.
 
 2. Wybierz metodę **Get** http na karcie Konstruktor i wprowadź następujący adres URL. Pamiętaj, aby zamienić `{Azure-Maps-Primary-Subscription-key}` klucz subskrypcji na swój podstawowy i `{udid}` `udid` zapisany w [sekcji przekazywanie geonotacji GEOJSON](#upload-geofencing-geojson-data).
 
@@ -282,7 +282,7 @@ Każda z poniższych sekcji wykonuje żądania interfejsu API przy użyciu pięc
    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
    ```
 
-3. Wybierz pozycję **Wyślij** . Poniższy geoplik JSON pojawi się w oknie odpowiedzi.
+3. Wybierz pozycję **Wyślij**. Poniższy geoplik JSON pojawi się w oknie odpowiedzi.
 
     ```json
     {
@@ -314,7 +314,7 @@ W poprzedniej odpowiedzi GEOJSON, ujemna odległość od geoogrodzenia lokacji g
 
 ### <a name="location-2-4763800-122132531"></a>Lokalizacja 2 (47.63800,-122,132531)
 
-1. W górnej części aplikacji Poster wybierz pozycję **Nowy** . W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj** . Wprowadź **nazwę żądania** dla żądania. Ustaw *lokalizację 2* . Wybierz kolekcję utworzoną w [sekcji Przekaż dane GEOnotacji GEOJSON](#upload-geofencing-geojson-data), a następnie wybierz pozycję **Zapisz** .
+1. W górnej części aplikacji Poster wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** dla żądania. Ustaw *lokalizację 2*. Wybierz kolekcję utworzoną w [sekcji Przekaż dane GEOnotacji GEOJSON](#upload-geofencing-geojson-data), a następnie wybierz pozycję **Zapisz**.
 
 2. Wybierz metodę **Get** http na karcie Konstruktor i wprowadź następujący adres URL. Pamiętaj, aby zamienić `{Azure-Maps-Primary-Subscription-key}` klucz subskrypcji na swój podstawowy i `{udid}` `udid` zapisany w [sekcji przekazywanie geonotacji GEOJSON](#upload-geofencing-geojson-data).
 
@@ -322,7 +322,7 @@ W poprzedniej odpowiedzi GEOJSON, ujemna odległość od geoogrodzenia lokacji g
    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
    ```
 
-3. Wybierz pozycję **Wyślij** . Poniższy GEOJSON zostanie wyświetlony w oknie odpowiedzi:
+3. Wybierz pozycję **Wyślij**. Poniższy GEOJSON zostanie wyświetlony w oknie odpowiedzi:
 
     ```json
     {
@@ -354,7 +354,7 @@ W powyższej odpowiedzi GEOJSON urządzenie pozostawało w głównym obszarze ge
 
 ### <a name="location-3-4763810783315048-12213336020708084"></a>Lokalizacja 3 (47.63810783315048,-122.13336020708084)
 
-1. W górnej części aplikacji Poster wybierz pozycję **Nowy** . W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj** . Wprowadź **nazwę żądania** dla żądania. Utwórz *lokalizację 3* . Wybierz kolekcję utworzoną w [sekcji Przekaż dane GEOnotacji GEOJSON](#upload-geofencing-geojson-data), a następnie wybierz pozycję **Zapisz** .
+1. W górnej części aplikacji Poster wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** dla żądania. Utwórz *lokalizację 3*. Wybierz kolekcję utworzoną w [sekcji Przekaż dane GEOnotacji GEOJSON](#upload-geofencing-geojson-data), a następnie wybierz pozycję **Zapisz**.
 
 2. Wybierz metodę **Get** http na karcie Konstruktor i wprowadź następujący adres URL. Pamiętaj, aby zamienić `{Azure-Maps-Primary-Subscription-key}` klucz subskrypcji na swój podstawowy i `{udid}` `udid` zapisany w [sekcji przekazywanie geonotacji GEOJSON](#upload-geofencing-geojson-data).
 
@@ -362,7 +362,7 @@ W powyższej odpowiedzi GEOJSON urządzenie pozostawało w głównym obszarze ge
       https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
       ```
 
-3. Wybierz pozycję **Wyślij** . Poniższy GEOJSON zostanie wyświetlony w oknie odpowiedzi:
+3. Wybierz pozycję **Wyślij**. Poniższy GEOJSON zostanie wyświetlony w oknie odpowiedzi:
 
     ```json
     {
@@ -397,7 +397,7 @@ W powyższej odpowiedzi GEOJSON urządzenie pozostawało w głównym ogrodzeniu 
 
 ### <a name="location-4-47637988-1221338344"></a>Lokalizacja 4 (47.637988,-122,1338344)
 
-1. W górnej części aplikacji Poster wybierz pozycję **Nowy** . W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj** . Wprowadź **nazwę żądania** dla żądania. Przekształć w *lokalizację 4* . Wybierz kolekcję utworzoną w [sekcji Przekaż dane GEOnotacji GEOJSON](#upload-geofencing-geojson-data), a następnie wybierz pozycję **Zapisz** .
+1. W górnej części aplikacji Poster wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** dla żądania. Przekształć w *lokalizację 4*. Wybierz kolekcję utworzoną w [sekcji Przekaż dane GEOnotacji GEOJSON](#upload-geofencing-geojson-data), a następnie wybierz pozycję **Zapisz**.
 
 2. Wybierz metodę **Get** http na karcie Konstruktor i wprowadź następujący adres URL. Pamiętaj, aby zamienić `{Azure-Maps-Primary-Subscription-key}` klucz subskrypcji na swój podstawowy i `{udid}` `udid` zapisany w [sekcji przekazywanie geonotacji GEOJSON](#upload-geofencing-geojson-data).
 
@@ -405,7 +405,7 @@ W powyższej odpowiedzi GEOJSON urządzenie pozostawało w głównym ogrodzeniu 
     https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&userTime=2023-01-16&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
     ```
 
-3. Wybierz pozycję **Wyślij** . Poniższy GEOJSON zostanie wyświetlony w oknie odpowiedzi:
+3. Wybierz pozycję **Wyślij**. Poniższy GEOJSON zostanie wyświetlony w oknie odpowiedzi:
 
     ```json
     {
@@ -431,7 +431,7 @@ W powyższej odpowiedzi GEOJSON sprzęt pozostawał w głównym ogrodzeniu lokac
 
 ### <a name="location-5-4763799--122134505"></a>Lokalizacja 5 (47,63799,-122,134505)
 
-1. W górnej części aplikacji Poster wybierz pozycję **Nowy** . W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj** . Wprowadź **nazwę żądania** dla żądania. Ustaw *lokalizację na 5* . Wybierz kolekcję utworzoną w [sekcji Przekaż dane GEOnotacji GEOJSON](#upload-geofencing-geojson-data), a następnie wybierz pozycję **Zapisz** .
+1. W górnej części aplikacji Poster wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** dla żądania. Ustaw *lokalizację na 5*. Wybierz kolekcję utworzoną w [sekcji Przekaż dane GEOnotacji GEOJSON](#upload-geofencing-geojson-data), a następnie wybierz pozycję **Zapisz**.
 
 2. Wybierz metodę **Get** http na karcie Konstruktor i wprowadź następujący adres URL. Pamiętaj, aby zamienić `{Azure-Maps-Primary-Subscription-key}` klucz subskrypcji na swój podstawowy i `{udid}` `udid` zapisany w [sekcji przekazywanie geonotacji GEOJSON](#upload-geofencing-geojson-data).
 
@@ -439,7 +439,7 @@ W powyższej odpowiedzi GEOJSON sprzęt pozostawał w głównym ogrodzeniu lokac
     https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63799&lon=-122.134505&searchBuffer=5&isAsync=True&mode=EnterAndExit
     ```
 
-3. Wybierz pozycję **Wyślij** . Poniższy GEOJSON zostanie wyświetlony w oknie odpowiedzi:
+3. Wybierz pozycję **Wyślij**. Poniższy GEOJSON zostanie wyświetlony w oknie odpowiedzi:
 
     ```json
     {

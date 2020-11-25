@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
 ms.openlocfilehash: 0eb9afc179f1dd2559f0db7b212f6b3a1da15824
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790920"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998757"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Tworzenie klastra kończy się niepowodzeniem z InvalidNetworkConfigurationErrorCode w usłudze Azure HDInsight
 
@@ -66,7 +66,7 @@ Usługi Azure Storage i SQL nie mają stałych adresów IP, dlatego musimy zezwo
 
     Przejdź do Azure Portal i zidentyfikuj tabelę tras skojarzoną z podsiecią, w której jest wdrażany klaster. Po znalezieniu tabeli tras dla podsieci Sprawdź w niej sekcję **trasy** .
 
-    Jeśli istnieją zdefiniowane trasy, upewnij się, że istnieją trasy dla adresów IP dla regionu, w którym wdrożono klaster, a **NextHopType** dla każdej trasy to **Internet** . Powinna istnieć trasa zdefiniowana dla każdego wymaganego adresu IP opisanego w wymienionym artykule.
+    Jeśli istnieją zdefiniowane trasy, upewnij się, że istnieją trasy dla adresów IP dla regionu, w którym wdrożono klaster, a **NextHopType** dla każdej trasy to **Internet**. Powinna istnieć trasa zdefiniowana dla każdego wymaganego adresu IP opisanego w wymienionym artykule.
 
 ## <a name="failed-to-establish-an-outbound-connection-from-the-cluster-for-the-communication-with-the-hdinsight-resource-provider-please-ensure-that-outbound-connectivity-is-allowed"></a>"Nie można nawiązać połączenia wychodzącego z klastra w celu komunikacji z dostawcą zasobów usługi HDInsight. Upewnij się, że łączność wychodząca jest dozwolona. "
 
@@ -108,7 +108,7 @@ Sprawdź, czy 168.63.129.16 znajduje się w niestandardowym łańcuchu DNS. Serw
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Wykonaj następujące polecenie:
+1. Uruchom następujące polecenie:
 
     ```bash
     cat /etc/resolv.conf | grep nameserver*

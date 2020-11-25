@@ -7,11 +7,11 @@ ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: 56d8078347b5de775b30c8db2c9412598070046c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285370"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998888"
 ---
 # <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Powiązanie danych wyjściowych usługi Azure Blob Storage dla Azure Functions
 
@@ -346,18 +346,18 @@ Aby uzyskać pełny przykład, zobacz [przykład danych wyjściowych](#example).
 
 Możesz użyć `StorageAccount` atrybutu, aby określić konto magazynu na poziomie klasy, metody lub parametru. Aby uzyskać więcej informacji, zobacz [wyzwalacz-atrybuty](./functions-bindings-storage-blob-trigger.md#attributes-and-annotations).
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `Blob` atrybutu.
 
 |function.jswłaściwości | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Wprowadź** | nie dotyczy | Musi być ustawiony na `blob` . |
-|**wskazywa** | nie dotyczy | Musi być ustawiona na `out` dla powiązania danych wyjściowych. Wyjątki są zanotowane w sekcji [użycie](#usage) . |
-|**Nazwij** | nie dotyczy | Nazwa zmiennej, która reprezentuje obiekt BLOB w kodzie funkcji.  Ustaw, aby `$return` odwoływać się do zwracanej wartości funkcji.|
+|**Wprowadź** | n/d | Musi być ustawiony na `blob` . |
+|**wskazywa** | n/d | Musi być ustawiona na `out` dla powiązania danych wyjściowych. Wyjątki są zanotowane w sekcji [użycie](#usage) . |
+|**Nazwij** | n/d | Nazwa zmiennej, która reprezentuje obiekt BLOB w kodzie funkcji.  Ustaw, aby `$return` odwoływać się do zwracanej wartości funkcji.|
 |**ścieżka** |**Blobpath ścieżką** | Ścieżka do kontenera obiektów BLOB. |
 |**połączenia** |**Połączenie**| Nazwa ustawienia aplikacji, które zawiera parametry połączenia magazynu, które będą używane dla tego powiązania. Jeśli nazwa ustawienia aplikacji zaczyna się od "AzureWebJobs", w tym miejscu możesz określić tylko resztę nazwy. Jeśli na przykład ustawisz opcję `connection` "Moja magazyn", środowisko uruchomieniowe funkcji wyszukuje ustawienie aplikacji o nazwie "AzureWebJobsMyStorage". Jeśli pozostawisz `connection` puste, środowisko uruchomieniowe funkcji używa domyślnych parametrów połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage` .<br><br>Parametry połączenia muszą być kontem magazynu ogólnego przeznaczenia, a nie [kontem magazynu obsługującym tylko obiekty blob](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
-|nie dotyczy | **Dostęp** | Wskazuje, czy będą odczytywane i zapisywane. |
+|n/d | **Dostęp** | Wskazuje, czy będą odczytywane i zapisywane. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -392,7 +392,7 @@ Ten `@BlobOutput` atrybut daje dostęp do obiektu BLOB, który wyzwolił funkcj�
 
 ## <a name="exceptions-and-return-codes"></a>Wyjątki i kody powrotu
 
-| Wiązanie |  Tematy pomocy |
+| Wiązanie |  Odwołanie |
 |---|---|
 | Obiekt blob | [Kody błędów obiektów BLOB](/rest/api/storageservices/fileservices/blob-service-error-codes) |
 | Obiekt BLOB, tabela, kolejka |  [Kody błędów magazynu](/rest/api/storageservices/fileservices/common-rest-api-error-codes) |

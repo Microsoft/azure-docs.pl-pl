@@ -16,11 +16,11 @@ ms.date: 02/20/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 43b986b6bb25dff1227247b1d249ce565553877a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91329137"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997413"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Skonfiguruj zarządzane tożsamości dla zasobów platformy Azure w zestawie skalowania maszyn wirtualnych przy użyciu Azure Portal
 
@@ -86,7 +86,7 @@ Obecnie Azure Portal nie obsługuje przypisywania tożsamości zarządzanej przy
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-virtual-machine-scale-set"></a>Przypisywanie tożsamości zarządzanej przypisanej przez użytkownika do istniejącego zestawu skalowania maszyn wirtualnych
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta skojarzonego z subskrypcją platformy Azure, która zawiera zestaw skalowania maszyn wirtualnych.
-2. Przejdź do żądanego zestawu skalowania maszyn wirtualnych, a następnie kliknij pozycję **tożsamość**, **przypisane przez użytkownika** , a następnie ** \+ Dodaj**.
+2. Przejdź do żądanego zestawu skalowania maszyn wirtualnych, a następnie kliknij pozycję **tożsamość**, **przypisane przez użytkownika** , a następnie **\+ Dodaj**.
 
    ![Zrzut ekranu pokazujący stronę "tożsamość" z wybraną pozycją "użytkownik przypisany" oraz wyróżniony przycisk "Dodaj".](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vmss-screenshot1.png)
 
@@ -97,7 +97,7 @@ Obecnie Azure Portal nie obsługuje przypisywania tożsamości zarządzanej przy
 ### <a name="remove-a-user-assigned-managed-identity-from-a-virtual-machine-scale-set"></a>Usuwanie tożsamości zarządzanej przypisanej przez użytkownika z zestawu skalowania maszyn wirtualnych
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta skojarzonego z subskrypcją platformy Azure, która zawiera maszynę wirtualną.
-2. Przejdź do żądanego zestawu skalowania maszyn wirtualnych, a następnie kliknij pozycję **tożsamość**, **przypisana**do użytkownika, nazwę zarządzanej tożsamości przypisanej przez użytkownika, która ma zostać usunięta, a następnie kliknij przycisk **Usuń** (kliknij przycisk **tak** w okienku potwierdzenia).
+2. Przejdź do żądanego zestawu skalowania maszyn wirtualnych, a następnie kliknij pozycję **tożsamość**, **przypisana** do użytkownika, nazwę zarządzanej tożsamości przypisanej przez użytkownika, która ma zostać usunięta, a następnie kliknij przycisk **Usuń** (kliknij przycisk **tak** w okienku potwierdzenia).
 
    ![Usuwanie tożsamości przypisanej przez użytkownika z VMSS](./media/msi-qs-configure-portal-windows-vm/remove-user-assigned-identity-vmss-screenshot.png)
 

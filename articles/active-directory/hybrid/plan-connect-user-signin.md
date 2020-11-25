@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3365a58a0c667ca55b74a5120cdd7a78ad0abc79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299914"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997787"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect opcje logowania użytkownika
 Program Azure Active Directory (Azure AD) Connect umożliwia użytkownikom logowanie do zasobów w chmurze i lokalnych przy użyciu tych samych haseł. W tym artykule opisano kluczowe koncepcje dotyczące poszczególnych modeli tożsamości, które ułatwiają wybranie tożsamości, która ma być używana do logowania się do usługi Azure AD.
@@ -155,7 +155,7 @@ Aby uzyskać poniższe informacje, Załóżmy, że będziemy zainteresowani cont
 
 ###### <a name="express-settingspassword-hash-synchronization"></a>Ustawienia ekspresowe/synchronizacja skrótów haseł
 
-| State | Wpływ na środowisko logowania użytkownika platformy Azure |
+| Stan | Wpływ na środowisko logowania użytkownika platformy Azure |
 |:---:|:--- |
 | Nie dodano |W takim przypadku żadna domena niestandardowa dla contoso.com nie została dodana do katalogu usługi Azure AD. Użytkownicy posiadający nazwę UPN lokalną z sufiksem @contoso.com nie będą mogli korzystać z lokalnej nazwy UPN do logowania się do platformy Azure. Zamiast tego będą musieli używać nowej nazwy UPN udostępnionej przez usługę Azure AD, dodając sufiks dla domyślnego katalogu usługi Azure AD. Na przykład Jeśli synchronizujesz użytkowników z katalogiem usługi Azure AD azurecontoso.onmicrosoft.com, wówczas użytkownik lokalny user@contoso.com otrzyma nazwę UPN user@azurecontoso.onmicrosoft.com . |
 | Niezweryfikowane |W tym przypadku mamy niestandardową contoso.com domeny, która jest dodawana do katalogu usługi Azure AD. Nie jest on jednak jeszcze zweryfikowany. Jeśli przejdziesz do synchronizacji użytkowników bez weryfikowania domeny, użytkownicy otrzymają nową nazwę UPN przez usługę Azure AD, podobnie jak w przypadku scenariusza "nie dodano". |
@@ -164,9 +164,9 @@ Aby uzyskać poniższe informacje, Załóżmy, że będziemy zainteresowani cont
 ###### <a name="ad-fs-federation"></a>AD FS Federacja
 Nie można utworzyć Federacji z domyślną domeną. onmicrosoft.com w usłudze Azure AD lub niezweryfikowaną domeną niestandardową w usłudze Azure AD. Gdy uruchamiasz kreatora Azure AD Connect, w przypadku wybrania niezweryfikowanej domeny w celu utworzenia Federacji z programem Azure AD Connect wyświetli monit o wprowadzenie wymaganych rekordów, w których serwer DNS jest hostowany dla domeny. Aby uzyskać więcej informacji, zobacz temat [Weryfikowanie domeny usługi Azure AD wybranej dla Federacji](how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation).
 
-W przypadku wybrania Federacji opcji logowania użytkownika **z AD FS**należy mieć domenę niestandardową, aby kontynuować tworzenie federacji w usłudze Azure AD. W naszej dyskusji oznacza to, że w katalogu usługi Azure AD powinna zostać dodana niestandardowa contoso.com domeny.
+W przypadku wybrania Federacji opcji logowania użytkownika **z AD FS** należy mieć domenę niestandardową, aby kontynuować tworzenie federacji w usłudze Azure AD. W naszej dyskusji oznacza to, że w katalogu usługi Azure AD powinna zostać dodana niestandardowa contoso.com domeny.
 
-| State | Wpływ na środowisko logowania użytkownika platformy Azure |
+| Stan | Wpływ na środowisko logowania użytkownika platformy Azure |
 |:---:|:--- |
 | Nie dodano |W takim przypadku Azure AD Connect nie znalazł pasującej domeny niestandardowej dla sufiksu UPN contoso.com w katalogu usługi Azure AD. Aby użytkownicy mogli się zalogować przy użyciu AD FS z lokalną nazwą UPN (na przykład), należy dodać niestandardową domenę contoso.com user@contoso.com . |
 | Niezweryfikowane |W takim przypadku Azure AD Connect wyświetli odpowiednie informacje o tym, jak można zweryfikować domenę na późniejszym etapie. |

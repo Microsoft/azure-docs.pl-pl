@@ -14,11 +14,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 476cf8013f5dc8b5d54efb573cf305d81fc690b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89319155"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996716"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Co to jest architektura Azure Active Directory?
 
@@ -91,8 +91,8 @@ Repliki usługi Azure AD są przechowywane w centrach danych znajdujących się 
 Usługa Azure AD działa w centrach danych o następujących cechach:
 
 * Uwierzytelnianie, Graf i inne usługi AD znajdują się za usługą bramy. Brama zarządza równoważeniem obciążenia tych usług. Zostanie automatycznie przełączona w tryb failover w przypadku wykrycia wszelkich serwerów w złej kondycji przy użyciu transakcyjnych sond kondycji. W oparciu o te sondy kondycji Brama dynamicznie kieruje ruch do centrów danych w dobrej kondycji.
-* W przypadku operacji *odczytu*katalog ma repliki pomocnicze i odpowiadające im usługi frontonu w konfiguracji aktywne-aktywne działające w wielu centrach danych. W przypadku awarii całego centrum danych ruch zostanie automatycznie przekierowany do innego centrum.
- * W przypadku *operacji zapisu*katalog przejdzie do trybu failover (Master) repliki w centrach danych przez zaplanowaną (Nowa podstawowa jest synchronizowana z poprzednimi podstawowymi) lub awaryjnymi procedurami pracy awaryjnej. Trwałość danych jest uzyskiwana przez replikację wszelkich zatwierdzeń do co najmniej dwóch centrum danych.
+* W przypadku operacji *odczytu* katalog ma repliki pomocnicze i odpowiadające im usługi frontonu w konfiguracji aktywne-aktywne działające w wielu centrach danych. W przypadku awarii całego centrum danych ruch zostanie automatycznie przekierowany do innego centrum.
+ * W przypadku *operacji zapisu* katalog przejdzie do trybu failover (Master) repliki w centrach danych przez zaplanowaną (Nowa podstawowa jest synchronizowana z poprzednimi podstawowymi) lub awaryjnymi procedurami pracy awaryjnej. Trwałość danych jest uzyskiwana przez replikację wszelkich zatwierdzeń do co najmniej dwóch centrum danych.
 
 #### <a name="data-consistency"></a>Spójność danych
 

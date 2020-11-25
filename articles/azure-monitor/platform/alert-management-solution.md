@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 01/19/2018
 ms.openlocfilehash: adc29916c6b674531d7b0e8fcdd4e151b4a17bde
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677565"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997260"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Alert Management rozwiązanie na platformie Azure Log Analytics
 
@@ -20,13 +20,13 @@ ms.locfileid: "92677565"
 Alert Management rozwiązanie pomaga analizować wszystkie alerty w repozytorium Log Analytics.  Te alerty mogą pochodzić z różnych źródeł, w tym źródeł [utworzonych przez log Analytics](./alerts-overview.md) lub [zaimportowanych z Nagios lub Zabbix](../learn/quick-collect-linux-computer.md). Rozwiązanie importuje również alerty z dowolnych [połączonych System Center Operations Manager grup zarządzania](./om-agents.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Rozwiązanie działa z dowolnymi rekordami w repozytorium Log Analytics z typem **alertu** , dlatego należy wykonać dowolną konfigurację wymaganą do zebrania tych rekordów.
+Rozwiązanie działa z dowolnymi rekordami w repozytorium Log Analytics z typem **alertu**, dlatego należy wykonać dowolną konfigurację wymaganą do zebrania tych rekordów.
 
 - W przypadku alertów Log Analytics [Utwórz reguły alertów](./alerts-overview.md) , aby utworzyć rekordy alertów bezpośrednio w repozytorium.
 - W przypadku alertów Nagios i Zabbix [Skonfiguruj te serwery](../learn/quick-collect-linux-computer.md) do wysyłania alertów do log Analytics.
 - W przypadku alertów System Center Operations Manager [Połącz grupę zarządzania Operations Manager z obszarem roboczym log Analytics](./om-agents.md).  Wszystkie alerty utworzone w System Center Operations Manager są importowane do Log Analytics.  
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 Dodaj Alert Management rozwiązanie do obszaru roboczego Log Analytics przy użyciu procesu opisanego w temacie [Dodawanie rozwiązań](../insights/solutions.md). Nie są wymagane żadne dalsze czynności konfiguracyjne.
 
 ## <a name="management-packs"></a>Pakiety administracyjne
@@ -63,7 +63,7 @@ Kliknij kafelek **alert Management** , aby otworzyć pulpit nawigacyjny **alert 
 | Alerty krytyczne |Wszystkie alerty o ważności krytyczne pogrupowane według nazwy alertu.  Kliknij nazwę alertu, aby uruchomić przeszukiwanie dziennika zwracające wszystkie rekordy dla tego alertu. |
 | Alerty ostrzegawcze |Wszystkie alerty o ważności ostrzeżenie pogrupowane według nazwy alertu.  Kliknij nazwę alertu, aby uruchomić przeszukiwanie dziennika zwracające wszystkie rekordy dla tego alertu. |
 | Alerty aktywnych System Center Operations Manager |Wszystkie alerty zebrane z Operations Manager z dowolnym stanem innym niż *zamknięte* pogrupowane według źródła, które wygenerowały alert. |
-| Wszystkie aktywne alerty |Wszystkie alerty o ważności pogrupowane według nazwy alertu. Zawiera tylko alerty Operations Manager z dowolnym stanem innym niż *zamknięty* . |
+| Wszystkie aktywne alerty |Wszystkie alerty o ważności pogrupowane według nazwy alertu. Zawiera tylko alerty Operations Manager z dowolnym stanem innym niż *zamknięty*. |
 
 W przypadku przewijania po prawej stronie Pulpit nawigacyjny zawiera kilka typowych zapytań, które można kliknąć, aby wykonać [Wyszukiwanie w dzienniku](../log-query/log-query-overview.md) dla danych alertów.
 
@@ -71,9 +71,9 @@ W przypadku przewijania po prawej stronie Pulpit nawigacyjny zawiera kilka typow
 
 
 ## <a name="log-analytics-records"></a>Rekordy usługi Log Analytics
-Rozwiązanie Alert Management analizuje każdy rekord z typem **alertu** .  Alerty utworzone przez Log Analytics lub zebrane z Nagios lub Zabbix nie są bezpośrednio zbierane przez rozwiązanie.
+Rozwiązanie Alert Management analizuje każdy rekord z typem **alertu**.  Alerty utworzone przez Log Analytics lub zebrane z Nagios lub Zabbix nie są bezpośrednio zbierane przez rozwiązanie.
 
-Rozwiązanie wykonuje Importowanie alertów z System Center Operations Manager i tworzy odpowiadające im rekordy dla każdego typu **alertu** i SourceSystem **OpsManager** .  Te rekordy mają właściwości w poniższej tabeli:  
+Rozwiązanie wykonuje Importowanie alertów z System Center Operations Manager i tworzy odpowiadające im rekordy dla każdego typu **alertu** i SourceSystem **OpsManager**.  Te rekordy mają właściwości w poniższej tabeli:  
 
 | Właściwość | Opis |
 |:--- |:--- |

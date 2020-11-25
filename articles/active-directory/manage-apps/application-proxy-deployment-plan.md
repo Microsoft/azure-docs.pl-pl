@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: kenwith
 ms.openlocfilehash: 9736e1b71f5e129989aba9a045581bae8a1c5f93
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658285"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997549"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planowanie wdrożenia serwera proxy aplikacji usługi Azure AD
 
@@ -120,7 +120,7 @@ Poniżej znajdują się obszary, dla których należy zdefiniować wymagania biz
 
 * Administratorzy mogą definiować i monitorować cykl życia przypisań użytkowników do aplikacji publikowanych za pomocą serwera proxy aplikacji.
 
-**Zabezpieczenia**
+**Bezpieczeństwo**
 
 * Tylko użytkownicy przypisani do aplikacji za pośrednictwem członkostwa w grupie lub indywidualnie mogą uzyskiwać dostęp do tych aplikacji.
 

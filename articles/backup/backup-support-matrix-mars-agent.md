@@ -4,11 +4,11 @@ description: Ten artykuł zawiera podsumowanie Azure Backup pomocy technicznej p
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.openlocfilehash: 26a47c2648d1307d2e7da2b25455f3f036cbf32d
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363242"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997243"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Macierz obsługi kopii zapasowej za pomocą agenta Microsoft Azure Recovery Services (MARS)
 
@@ -46,7 +46,7 @@ W celu utworzenia kopii zapasowej danych przy użyciu agenta MARS Agent tworzy m
 Rozmiar |  Ilość wolnego miejsca w folderze pamięci podręcznej powinna wynosić co najmniej 5 do 10 procent całkowitego rozmiaru danych kopii zapasowej.
 Lokalizacja | Folder pamięci podręcznej musi być przechowywany lokalnie na komputerze, na którym jest wykonywana kopia zapasowa, i musi być w trybie online. Folder pamięci podręcznej nie powinien znajdować się w udziale sieciowym na nośniku wymiennym ani w woluminie w trybie offline.
 Folder | Folder pamięci podręcznej nie powinien być szyfrowany na deduplikowanym woluminie lub w folderze skompresowanym, który jest rozrzedzony, lub ma punkt ponownej analizy.
-Zmiany lokalizacji | Można zmienić lokalizację pamięci podręcznej, zatrzymując aparat kopii zapasowych ( `net stop bengine` ) i kopiując folder pamięci podręcznej na nowy dysk. (Upewnij się, że nowy dysk ma wystarczającą ilość miejsca). Następnie zaktualizuj dwa wpisy rejestru w obszarze **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** ( **config/ScratchLocation** i **config/CloudBackupProvider/ScratchLocation** ) do nowej lokalizacji i ponownie uruchom aparat.
+Zmiany lokalizacji | Można zmienić lokalizację pamięci podręcznej, zatrzymując aparat kopii zapasowych ( `net stop bengine` ) i kopiując folder pamięci podręcznej na nowy dysk. (Upewnij się, że nowy dysk ma wystarczającą ilość miejsca). Następnie zaktualizuj dwa wpisy rejestru w obszarze **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**config/ScratchLocation** i **config/CloudBackupProvider/ScratchLocation**) do nowej lokalizacji i ponownie uruchom aparat.
 
 ## <a name="networking-and-access-support"></a>Obsługa sieci i dostępu
 
@@ -67,7 +67,7 @@ I na te adresy IP:
 
 Dostęp do wszystkich adresów URL i adresów IP wymienionych powyżej używa protokołu HTTPS na porcie 443.
 
-Podczas tworzenia kopii zapasowych plików i folderów z maszyn wirtualnych platformy Azure przy użyciu agenta MARS należy również skonfigurować usługę Azure Virtual Network tak, aby zezwalała na dostęp. Jeśli używasz sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń), Użyj znacznika usługi *AzureBackup* , aby zezwolić na dostęp wychodzący do Azure Backup. Oprócz znacznika Azure Backup należy również zezwolić na połączenie z uwierzytelnianiem i transferem danych, tworząc podobne [reguły sieciowej grupy zabezpieczeń](../virtual-network/network-security-groups-overview.md#service-tags) dla usługi Azure AD ( *usługi azureactivedirectory* ) i usługi Azure Storage ( *Magazyn* ). Poniższe kroki opisują proces tworzenia reguły dla tagu Azure Backup:
+Podczas tworzenia kopii zapasowych plików i folderów z maszyn wirtualnych platformy Azure przy użyciu agenta MARS należy również skonfigurować usługę Azure Virtual Network tak, aby zezwalała na dostęp. Jeśli używasz sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń), Użyj znacznika usługi *AzureBackup* , aby zezwolić na dostęp wychodzący do Azure Backup. Oprócz znacznika Azure Backup należy również zezwolić na połączenie z uwierzytelnianiem i transferem danych, tworząc podobne [reguły sieciowej grupy zabezpieczeń](../virtual-network/network-security-groups-overview.md#service-tags) dla usługi Azure AD (*usługi azureactivedirectory*) i usługi Azure Storage (*Magazyn*). Poniższe kroki opisują proces tworzenia reguły dla tagu Azure Backup:
 
 1. W obszarze **wszystkie usługi** przejdź do pozycji **sieciowe grupy zabezpieczeń** i wybierz grupę zabezpieczeń sieci.
 2. W obszarze **Ustawienia** wybierz pozycję **reguły zabezpieczeń dla ruchu wychodzącego** .

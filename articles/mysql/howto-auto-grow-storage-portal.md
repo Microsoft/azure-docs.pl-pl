@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: 9355c2b2c780b6ccd63100e576850fe5566db3cc
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546844"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998604"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mysql-using-the-azure-portal"></a>Powiększ magazyn w Azure Database for MySQL przy użyciu Azure Portal
 W tym artykule opisano, jak można skonfigurować magazyn serwera Azure Database for MySQL do wzrostu bez wpływu na obciążenie.
@@ -34,11 +34,11 @@ Wykonaj następujące kroki, aby ustawić funkcję autowzrostu magazynu serwera 
 
     :::image type="content" source="./media/howto-auto-grow-storage-portal/3-auto-grow.png" alt-text="Azure Database for MySQL-Settings_Pricing_tier — autoprzyrost":::
 
-4. Kliknij przycisk **OK** , aby zapisać zmiany.
+4. Kliknij przycisk **OK**, aby zapisać zmiany.
 
 5. Powiadomienie zostanie potwierdzone, że funkcja autozwiększania została pomyślnie włączona.
 
-    :::image type="content" source="./media/howto-auto-grow-storage-portal/5-auto-grow-success.png" alt-text="Azure Database for MySQL-Settings_Pricing_tier — autoprzyrost":::
+    :::image type="content" source="./media/howto-auto-grow-storage-portal/5-auto-grow-success.png" alt-text="Azure Database for MySQL — powodzenie automatycznego wzrostu":::
 
 ## <a name="next-steps"></a>Następne kroki
 
