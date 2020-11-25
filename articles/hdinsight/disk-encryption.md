@@ -9,11 +9,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
 ms.openlocfilehash: a9a90fbb2eedd6db2873d4ac2a5fea94c05c7eed
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844748"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005660"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Podwójne szyfrowanie usługi Azure HDInsight dla danych magazynowanych
 
@@ -119,7 +119,7 @@ Usługa HDInsight obsługuje tylko Azure Key Vault. Jeśli masz własny magazyn 
 
 Teraz możesz utworzyć nowy klaster usługi HDInsight. Klucze zarządzane przez klienta mogą być stosowane tylko do nowych klastrów podczas tworzenia klastra. Nie można usunąć szyfrowania z klastrów kluczy zarządzanych przez klienta, a klucze zarządzane przez klienta nie mogą być dodawane do istniejących klastrów.
 
-#### <a name="using-the-azure-portal"></a>Za pomocą witryny Azure Portal
+#### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
 Podczas tworzenia klastra Podaj pełny **Identyfikator klucza**, w tym wersję klucza. Na przykład `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Należy również przypisać zarządzaną tożsamość do klastra i podać identyfikator URI klucza.
 
@@ -357,7 +357,7 @@ Zawartość szablonu zarządzania zasobami `azuredeploy.json` :
 
 Mogą wystąpić sytuacje, w których warto zmienić klucze szyfrowania używane przez klaster usługi HDInsight po jego utworzeniu. Można to łatwo zrobić za pośrednictwem portalu. W przypadku tej operacji klaster musi mieć dostęp zarówno do bieżącego klucza, jak i do zamierzonego nowego klucza. w przeciwnym razie operacja zamiany klucza zakończy się niepowodzeniem.
 
-#### <a name="using-the-azure-portal"></a>Za pomocą witryny Azure Portal
+#### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
 Aby obrócić klucz, potrzebny jest podstawowy identyfikator URI magazynu kluczy. Po wykonaniu tej czynności przejdź do sekcji Właściwości klastra usługi HDInsight w portalu, a następnie kliknij pozycję **Zmień klucz** w obszarze **adres URL klucza szyfrowania dysku**. Wprowadź adres URL nowego klucza i prześlij go, aby obrócić klucz.
 

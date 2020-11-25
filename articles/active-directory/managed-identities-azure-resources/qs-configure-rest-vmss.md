@@ -16,11 +16,11 @@ ms.date: 06/25/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c79942aad2ce450bc22aa0a0cfc32e67a667bd48
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895957"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006238"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na zestawie skalowania maszyn wirtualnych przy użyciu wywołań interfejsu API REST
 
@@ -170,7 +170,7 @@ Aby włączyć tożsamość zarządzaną przypisaną przez system w istniejącym
    az account get-access-token
    ```
 
-2. Użyj następującego polecenia zapełnienia, aby wywołać punkt końcowy Azure Resource Manager REST w celu włączenia zarządzanej tożsamości przypisanej przez system do zestawu skalowania maszyn wirtualnych, zgodnie z definicją w treści żądania przez wartość `{"identity":{"type":"SystemAssigned"}` zestawu skalowania maszyn wirtualnych o nazwie *myVMSS* .  Zamień na `<ACCESS TOKEN>` wartość otrzymaną w poprzednim kroku, gdy zażądano tokenu dostępu okaziciela oraz `<SUBSCRIPTION ID>` wartości odpowiedniej dla danego środowiska.
+2. Użyj następującego polecenia zapełnienia, aby wywołać punkt końcowy Azure Resource Manager REST w celu włączenia zarządzanej tożsamości przypisanej przez system do zestawu skalowania maszyn wirtualnych, zgodnie z definicją w treści żądania przez wartość `{"identity":{"type":"SystemAssigned"}` zestawu skalowania maszyn wirtualnych o nazwie *myVMSS*.  Zamień na `<ACCESS TOKEN>` wartość otrzymaną w poprzednim kroku, gdy zażądano tokenu dostępu okaziciela oraz `<SUBSCRIPTION ID>` wartości odpowiedniej dla danego środowiska.
    
    > [!IMPORTANT]
    > Aby upewnić się, że nie usunięto żadnych istniejących tożsamości zarządzanych przypisanych przez użytkownika przypisanych do zestawu skalowania maszyn wirtualnych, należy listę zarządzanych tożsamości przypisanych przez użytkownika przy użyciu tego polecenia ZWINIĘCIE: `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"` . Jeśli do zestawu skalowania maszyn wirtualnych są przypisane skojarzone tożsamości przypisane przez użytkownika, które zostały określone w `identity` wartości odpowiedzi, przejdź do kroku 3, który pokazuje, jak zachować tożsamość zarządzaną przez użytkownika podczas włączania zarządzanej tożsamości przypisanej do systemu w zestawie skalowania maszyn wirtualnych.
@@ -281,7 +281,7 @@ Aby wyłączyć tożsamość przypisaną przez system w istniejącym zestawie sk
    az account get-access-token
    ```
 
-2. Zaktualizuj zestaw skalowania maszyn wirtualnych przy użyciu programu ZWINIĘCIE, aby wywołać punkt końcowy Azure Resource Manager REST w celu wyłączenia zarządzanej tożsamości przypisanej do systemu.  W poniższym przykładzie jest wyłączona tożsamość zarządzana przypisana przez system zgodnie z definicją w treści żądania przez wartość `{"identity":{"type":"None"}}` z zestawu skalowania maszyn wirtualnych o nazwie *myVMSS* .  Zamień na `<ACCESS TOKEN>` wartość otrzymaną w poprzednim kroku, gdy zażądano tokenu dostępu okaziciela oraz `<SUBSCRIPTION ID>` wartości odpowiedniej dla danego środowiska.
+2. Zaktualizuj zestaw skalowania maszyn wirtualnych przy użyciu programu ZWINIĘCIE, aby wywołać punkt końcowy Azure Resource Manager REST w celu wyłączenia zarządzanej tożsamości przypisanej do systemu.  W poniższym przykładzie jest wyłączona tożsamość zarządzana przypisana przez system zgodnie z definicją w treści żądania przez wartość `{"identity":{"type":"None"}}` z zestawu skalowania maszyn wirtualnych o nazwie *myVMSS*.  Zamień na `<ACCESS TOKEN>` wartość otrzymaną w poprzednim kroku, gdy zażądano tokenu dostępu okaziciela oraz `<SUBSCRIPTION ID>` wartości odpowiedniej dla danego środowiska.
 
    > [!IMPORTANT]
    > Aby upewnić się, że nie usunięto żadnych istniejących tożsamości zarządzanych przypisanych przez użytkownika przypisanych do zestawu skalowania maszyn wirtualnych, należy listę zarządzanych tożsamości przypisanych przez użytkownika przy użyciu tego polecenia ZWINIĘCIE: `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"` . Jeśli masz zarządzaną tożsamość przypisaną przez użytkownika do zestawu skalowania maszyn wirtualnych, przejdź do kroku 3, który pokazuje, jak zachować tożsamości zarządzane przypisane przez użytkownika podczas usuwania zarządzanej tożsamości przypisanej do systemu z zestawu skalowania maszyn wirtualnych.
@@ -311,7 +311,7 @@ Aby wyłączyć tożsamość przypisaną przez system w istniejącym zestawie sk
     }
    ```
 
-   Aby usunąć tożsamość zarządzaną przypisaną przez system z zestawu skalowania maszyn wirtualnych z tożsamościami zarządzanymi przez użytkownika, Usuń `SystemAssigned` z tej wartości, zachowując `{"identity":{"type:" "}}` `UserAssigned` wartość i `userAssignedIdentities` wartości słownikowe, jeśli używasz **interfejsu API w wersji 2018-06-01** . Jeśli używasz **interfejsu API w wersji 2017-12-01** lub starszej, Zachowaj `identityIds` tablicę.
+   Aby usunąć tożsamość zarządzaną przypisaną przez system z zestawu skalowania maszyn wirtualnych z tożsamościami zarządzanymi przez użytkownika, Usuń `SystemAssigned` z tej wartości, zachowując `{"identity":{"type:" "}}` `UserAssigned` wartość i `userAssignedIdentities` wartości słownikowe, jeśli używasz **interfejsu API w wersji 2018-06-01**. Jeśli używasz **interfejsu API w wersji 2017-12-01** lub starszej, Zachowaj `identityIds` tablicę.
 
 ## <a name="user-assigned-managed-identity"></a>Tożsamość zarządzana przypisana przez użytkownika
 

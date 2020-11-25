@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: lokalna, OCR, Docker, kontener
-ms.openlocfilehash: 33fc13722a4d0f26c71aa85809a605188b610014
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: b89d02107365872471f1dd5a7df07902b08f2031
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539016"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96006914"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Instalowanie kontenerów platformy Docker OCR (wersja zapoznawcza) 
 
@@ -27,12 +27,12 @@ Kontenery umożliwiają uruchamianie interfejsów API przetwarzania obrazów w T
 
 Kontener OCR do *odczytu* umożliwia wyodrębnienie tekstu napisanego i odręcznego z obrazów i dokumentów z obsługą formatów plików JPEG, PNG, BMP, PDF i TIFF. Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API odczytu](concept-recognizing-text.md#read-api).
 
-## <a name="read-31-container"></a>Odczytaj kontener 3,1
+## <a name="read-32-preview-container"></a>Odczyt kontenera 3,2-Preview
 
 > [!NOTE]
 > Kontener Read 3,0-Preview został uznany za przestarzały. 
 
-Kontener Read 3,1-Preview zawiera następujące informacje:
+Kontener Read 3,2-Preview zawiera następujące informacje:
 * Nowe modele na potrzeby ulepszonej dokładności.
 * Obsługa wielu języków w tym samym dokumencie
 * Obsługa: holenderski, angielski, francuski, niemiecki, włoski, portugalski i hiszpański.
@@ -54,7 +54,7 @@ Przed użyciem kontenerów należy spełnić następujące wymagania wstępne:
 |--|--|
 |Aparat platformy Docker| Aparat platformy Docker musi być zainstalowany na [komputerze-hoście](#the-host-computer). Platforma Docker udostępnia pakiety, które konfigurują środowisko platformy Docker w systemach [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) i [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Aby uzyskać podstawowe informacje na temat platformy Docker i kontenerów, zapoznaj się z artykułem [Docker overview](https://docs.docker.com/engine/docker-overview/) (Przegląd platformy Docker).<br><br> Program Docker musi być skonfigurowany tak, aby umożliwić kontenerom łączenie się z danymi rozliczeń i wysyłanie ich do platformy Azure. <br><br> **W systemie Windows** program Docker musi być również skonfigurowany do obsługi kontenerów systemu Linux.<br><br>|
 |Znajomość platformy Docker | Należy dysponować podstawową wiedzą na temat pojęć platformy Docker, takich jak rejestry, repozytoria, kontenery i obrazy kontenerów, a także znajomość podstawowych `docker` poleceń.| 
-|Zasób przetwarzanie obrazów |Aby można było używać kontenera, musisz mieć:<br><br>Zasób usługi Azure **Przetwarzanie obrazów** i skojarzony klucz interfejsu API dla identyfikatora URI punktu końcowego. Obie wartości są dostępne na stronach przeglądów i kluczy dla zasobu i są wymagane do uruchomienia kontenera.<br><br>**{API_KEY}** : jeden z dwóch dostępnych kluczy zasobów na stronie **kluczy**<br><br>**{ENDPOINT_URI}** : punkt końcowy określony na stronie **Przegląd**|
+|Zasób przetwarzanie obrazów |Aby można było używać kontenera, musisz mieć:<br><br>Zasób usługi Azure **Przetwarzanie obrazów** i skojarzony klucz interfejsu API dla identyfikatora URI punktu końcowego. Obie wartości są dostępne na stronach przeglądów i kluczy dla zasobu i są wymagane do uruchomienia kontenera.<br><br>**{API_KEY}**: jeden z dwóch dostępnych kluczy zasobów na stronie **kluczy**<br><br>**{ENDPOINT_URI}**: punkt końcowy określony na stronie **Przegląd**|
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).
 
@@ -92,16 +92,16 @@ Dostępne są obrazy kontenerów do odczytu.
 | Kontener | Container Registry/repozytorium/nazwa obrazu |
 |-----------|------------|
 | Przeczytaj 2,0 — wersja zapoznawcza | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
-| Przeczytaj 3,1 — wersja zapoznawcza | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
+| Przeczytaj 3,2 — wersja zapoznawcza | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1` |
 
 Użyj [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) polecenia, aby pobrać obraz kontenera.
 
 ### <a name="docker-pull-for-the-read-container"></a>Wypychanie platformy Docker dla kontenera odczytu
 
-# <a name="version-31-preview"></a>[Wersja 3,1-Preview](#tab/version-3-1)
+# <a name="version-32-preview"></a>[Wersja 3,2-Preview](#tab/version-3-2)
 
 ```bash
-docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1
 ```
 
 # <a name="version-20-preview"></a>[Wersja 2,0-Preview](#tab/version-2)
@@ -127,11 +127,11 @@ Użyj polecenia [Docker Run](https://docs.docker.com/engine/reference/commandlin
 
 [Przykłady](computer-vision-resource-container-config.md#example-docker-run-commands) `docker run` polecenia są dostępne.
 
-# <a name="version-31-preview"></a>[Wersja 3,1-Preview](#tab/version-3-1)
+# <a name="version-32-preview"></a>[Wersja 3,2-Preview](#tab/version-3-2)
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -169,9 +169,9 @@ Więcej [przykładów](./computer-vision-resource-container-config.md#example-do
 > [!IMPORTANT]
 > `Eula` `Billing` `ApiKey` Aby można było uruchomić kontener, należy określić opcje, i. w przeciwnym razie kontener nie zostanie uruchomiony.  Aby uzyskać więcej informacji, zobacz [rozliczenia](#billing).
 
-Jeśli potrzebujesz większej przepływności (na przykład podczas przetwarzania plików wielostronicowych), rozważ wdrożenie wielu kontenerów [w klastrze Kubernetes](deploy-computer-vision-on-premises.md)przy użyciu [usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-create) i [usługi Azure Queue](https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction).
+Jeśli potrzebujesz większej przepływności (na przykład podczas przetwarzania plików wielostronicowych), rozważ wdrożenie wielu kontenerów [w klastrze Kubernetes](deploy-computer-vision-on-premises.md)przy użyciu [usługi Azure Storage](../../storage/common/storage-account-create.md) i [usługi Azure Queue](../../storage/queues/storage-queues-introduction.md).
 
-Jeśli używasz usługi Azure Storage do przechowywania obrazów do przetworzenia, możesz utworzyć [Parametry połączenia](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string) , które będą używane podczas wywoływania kontenera.
+Jeśli używasz usługi Azure Storage do przechowywania obrazów do przetworzenia, możesz utworzyć [Parametry połączenia](../../storage/common/storage-configure-connection-string.md) , które będą używane podczas wywoływania kontenera.
 
 Aby znaleźć parametry połączenia:
 
@@ -189,9 +189,9 @@ Aby znaleźć parametry połączenia:
 
 Kontener udostępnia oparte na interfejsie REST interfejsy API punktu końcowego przewidywania zapytań. 
 
-# <a name="version-31-preview"></a>[Wersja 3,1-Preview](#tab/version-3-1)
+# <a name="version-32-preview"></a>[Wersja 3,2-Preview](#tab/version-3-2)
 
-Użyj hosta `http://localhost:5000` dla interfejsów API kontenera. Ścieżkę Swagger można wyświetlić w: `http://localhost:5000/swagger/vision-v3.1-preview-read/swagger.json` .
+Użyj hosta `http://localhost:5000` dla interfejsów API kontenera. Ścieżkę Swagger można wyświetlić w: `http://localhost:5000/swagger/vision-v3.2-preview-read/swagger.json` .
 
 # <a name="version-20-preview"></a>[Wersja 2,0-Preview](#tab/version-2)
 
@@ -202,9 +202,9 @@ Użyj hosta `http://localhost:5000` dla interfejsów API kontenera. Ścieżkę S
 ### <a name="asynchronous-read"></a>Odczyt asynchroniczny
 
 
-# <a name="version-31-preview"></a>[Wersja 3,1-Preview](#tab/version-3-1)
+# <a name="version-32-preview"></a>[Wersja 3,2-Preview](#tab/version-3-2)
 
-Możesz użyć `POST /vision/v3.1/read/analyze` `GET /vision/v3.1/read/operations/{operationId}` operacji i w drodze do asynchronicznego odczytywania obrazu, podobnie jak usługa przetwarzanie obrazów używa tych odpowiednich operacji Rest. Asynchroniczna Metoda POST zwróci wartość `operationId` , która jest używana jako identyfikator do żądania HTTP GET.
+Możesz użyć `POST /vision/v3.2/read/analyze` `GET /vision/v3.2/read/operations/{operationId}` operacji i w drodze do asynchronicznego odczytywania obrazu, podobnie jak usługa przetwarzanie obrazów używa tych odpowiednich operacji Rest. Asynchroniczna Metoda POST zwróci wartość `operationId` , która jest używana jako identyfikator do żądania HTTP GET.
 
 
 W interfejsie użytkownika programu Swagger wybierz pozycję, `asyncBatchAnalyze` Aby rozwinąć ją w przeglądarce. Następnie wybierz opcję **Wypróbuj**  >  **plik**. W tym przykładzie użyjemy poniższej ilustracji:
@@ -216,7 +216,7 @@ Po pomyślnym uruchomieniu asynchronicznego wpisu zwraca kod stanu **HTTP 202** 
 ```http
  content-length: 0
  date: Fri, 04 Sep 2020 16:23:01 GMT
- operation-location: http://localhost:5000/vision/v3.1/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
+ operation-location: http://localhost:5000/vision/v3.2/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
  server: Kestrel
 ```
 
@@ -228,7 +228,7 @@ Po pomyślnym uruchomieniu asynchronicznego wpisu zwraca kod stanu **HTTP 202** 
   "createdDateTime": "2020-09-02T10:30:14Z",
   "lastUpdatedDateTime": "2020-09-02T10:30:15Z",
   "analyzeResult": {
-    "version": "3.1.0",
+    "version": "3.2.0",
     "readResults": [
       {
         "page": 1,
@@ -344,15 +344,15 @@ Po pomyślnym uruchomieniu asynchronicznego wpisu zwraca kod stanu **HTTP 202** 
 ---
 
 > [!IMPORTANT]
-> W przypadku wdrożenia wielu kontenerów odczytu za modułem równoważenia obciążenia, na przykład w obszarze Docker Compose lub Kubernetes, wymagana jest zewnętrzna pamięć podręczna. Ponieważ kontener przetwarzania i kontener żądania GET nie mogą być takie same, zewnętrzna pamięć podręczna przechowuje wyniki i udostępnia je między kontenerami. Aby uzyskać szczegółowe informacje na temat ustawień pamięci podręcznej, zobacz [Configure przetwarzanie obrazów Docker Containers](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-resource-container-config).
+> W przypadku wdrożenia wielu kontenerów odczytu za modułem równoważenia obciążenia, na przykład w obszarze Docker Compose lub Kubernetes, wymagana jest zewnętrzna pamięć podręczna. Ponieważ kontener przetwarzania i kontener żądania GET nie mogą być takie same, zewnętrzna pamięć podręczna przechowuje wyniki i udostępnia je między kontenerami. Aby uzyskać szczegółowe informacje na temat ustawień pamięci podręcznej, zobacz [Configure przetwarzanie obrazów Docker Containers](./computer-vision-resource-container-config.md).
 
 ### <a name="synchronous-read"></a>Odczyt synchroniczne
 
 Aby synchronicznie odczytywać obraz, można użyć następującej operacji. 
 
-# <a name="version-31-preview"></a>[Wersja 3,1-Preview](#tab/version-3-1)
+# <a name="version-32-preview"></a>[Wersja 3,2-Preview](#tab/version-3-2)
 
-`POST /vision/v3.1/read/syncAnalyze` 
+`POST /vision/v3.2/read/syncAnalyze` 
 
 # <a name="version-20-preview"></a>[Wersja 2,0-Preview](#tab/version-2)
 

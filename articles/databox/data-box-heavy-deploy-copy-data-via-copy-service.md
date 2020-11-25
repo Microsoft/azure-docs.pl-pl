@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 601e5cf15c47b16c53ff9ca81a56cb613bcfc3f5
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127152"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006563"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-heavy-preview"></a>Samouczek: używanie usługi kopiowania danych do kopiowania danych do Azure Data Box Heavy (wersja zapoznawcza)
 
@@ -53,16 +53,16 @@ Aby skopiować dane za pomocą usługi kopiowania danych, należy utworzyć zada
 
     ![Wybierz pozycję Utwórz na stronie „Kopiowanie danych”](media/data-box-deploy-copy-data-via-copy-service/click-create.png)
 
-3. W oknie dialogowym **Skonfiguruj zadanie i uruchom ** wypełnij następujące pola:
+3. W oknie dialogowym **Skonfiguruj zadanie i uruchom** wypełnij następujące pola:
     
     |Pole                          |Wartość    |
     |-------------------------------|---------|
     |**Nazwa zadania**                       |Unikatową nazwę zadania składającą się z mniej niż 230 znaków. Te znaki nie są dozwolone w nazwie zadania:,,,,,, \<, \> \| \? \* \\ \: \/ , i \\\.         |
     |**Lokalizacja źródła**                |Podaj ścieżkę SMB do źródła danych w formacie: `\\<ServerIPAddress>\<ShareName>` lub `\\<ServerName>\<ShareName>`.        |
     |**Nazwa użytkownika**                       |Nazwa użytkownika w formacie `\\<DomainName><UserName>` używana do uzyskiwania dostępu do źródła danych. Jeśli administrator lokalny nawiązuje połączenie, będą musieli mieć jawne uprawnienia zabezpieczeń. Kliknij prawym przyciskiem myszy folder, wybierz pozycję **Właściwości** , a następnie wybierz pozycję **zabezpieczenia**. Powinno to spowodować dodanie administratora lokalnego na karcie **zabezpieczenia** .       |
-    |**Password** (Hasło)                       |Hasło używane do uzyskiwania dostępu do źródła danych.           |
+    |**Hasło**                       |Hasło używane do uzyskiwania dostępu do źródła danych.           |
     |**Docelowe konto magazynu**    |Z listy wybierz docelowe konto magazynu, do którego będą przekazywane dane.         |
-    |**Typ docelowy**       |Wybierz docelowy typ magazynu z listy: **blokowy obiekt BLOB**, **stronicowy obiekt BLOB**lub **Azure Files**.        |
+    |**Typ docelowy**       |Wybierz docelowy typ magazynu z listy: **blokowy obiekt BLOB**, **stronicowy obiekt BLOB** lub **Azure Files**.        |
     |**Docelowy kontener/udział**    |Wprowadź nazwę kontenera lub udziału, do którego chcesz przekazać dane w ramach docelowego konta magazynu. Może to być nazwa udziału lub kontenera. Użyj na przykład nazwy `myshare` lub `mycontainer`. Nazwę możesz również wprowadzić w formacie `sharename\directory_name` lub `containername\virtual_directory_name`.        |
     |**Kopiowanie plików pasujących do wzorca**    | Nazwę pliku pasującą do wzorca możesz wprowadzić na następujące dwa sposoby:<ul><li>**Używaj wyrażeń wieloznacznych:** Tylko `*` i `?` są obsługiwane w wyrażeniach wieloznacznych. Na przykład do wyrażenia `*.vhd` będą pasowały wszystkie pliki z rozszerzeniem `.vhd`. Podobnie do wyrażenia `*.dl?` będą pasowały wszystkie pliki z rozszerzeniem `.dl` i zaczynające się od `.dl`, na przykład `.dll`. Wyrażenie `*foo` będzie pasowało do wszystkich plików, których nazwy kończą się na `foo`.<br>Wyrażenie wieloznaczne można wprowadzić bezpośrednio w polu. Domyślnie wartość wprowadzona w polu jest traktowana jako wyrażenie wieloznaczne.</li><li>**Używaj wyrażeń regularnych:** Obsługiwane są wyrażenia regularne oparte na standardzie POSIX. Na przykład wyrażenie regularne `.*\.vhd` będzie zgodne ze wszystkimi plikami z rozszerzeniem `.vhd`. Dla wyrażeń regularnych podaj `<pattern>` bezpośrednio jako `regex(<pattern>)`. Aby uzyskać więcej informacji na temat wyrażeń regularnych, przejdź do tematu [Język wyrażeń regularnych — krótki przewodnik](/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
     |**Optymalizacja pliku**              |Kiedy ta funkcja jest włączona, pliki mniejsze niż 1 MB są pakowane podczas pozyskiwania. Przyspiesza to kopiowanie danych w przypadku małych plików. Pozwala to także zaoszczędzić czas, gdy liczba plików znacznie przekracza liczbę katalogów.        |
@@ -112,9 +112,9 @@ Aby skopiować dane za pomocą usługi kopiowania danych, należy utworzyć zada
 6. Podczas przetwarzania zadania na stronie **Kopiowanie danych** można zauważyć następujące elementy:
 
     - W kolumnie **Stan** można wyświetlić stan zadania kopiowania. Możliwe stany to:
-        - **Uruchomienie**
-        - **Awarii**
-        - **Powiodło się**
+        - **Uruchomiono**
+        - **Niepowodzenie**
+        - **Powodzenie**
         - **Wstrzymywanie**
         - **Wstrzymano**
         - **Anulowanie**

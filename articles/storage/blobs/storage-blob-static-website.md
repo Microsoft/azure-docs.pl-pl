@@ -9,16 +9,16 @@ ms.reviewer: dineshm
 ms.date: 09/04/2020
 ms.subservice: blobs
 ms.custom: devx-track-js
-ms.openlocfilehash: 952d0acb00a25fe7d84738825cbad017e5b18029
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: b9eb65311951706863c3b18c5fc91bae8c41c7dc
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91892697"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96007345"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hostowanie statycznej witryny internetowej w usłudze Azure Storage
 
-Zawartości statycznej (HTML, CSS, JavaScript i plików obrazów) można obsłużyć bezpośrednio w kontenerze magazynu o nazwie *$Web*. Hosting zawartości w usłudze Azure Storage umożliwia korzystanie z architektur bezserwerowych, które obejmują [Azure Functions](/azure/azure-functions/functions-overview) i innych usług platformy jako usługi (PaaS). Hostowanie statycznej witryny sieci Web usługi Azure Storage to świetna opcja w przypadkach, gdy nie jest wymagane, aby serwer sieci Web mógł renderować zawartość.
+Zawartości statycznej (HTML, CSS, JavaScript i plików obrazów) można obsłużyć bezpośrednio w kontenerze magazynu o nazwie *$Web*. Hosting zawartości w usłudze Azure Storage umożliwia korzystanie z architektur bezserwerowych, które obejmują [Azure Functions](../../azure-functions/functions-overview.md) i innych usług platformy jako usługi (PaaS). Hostowanie statycznej witryny sieci Web usługi Azure Storage to świetna opcja w przypadkach, gdy nie jest wymagane, aby serwer sieci Web mógł renderować zawartość.
 
 [App Service static Web Apps](https://azure.microsoft.com/services/app-service/static/) to świetna alternatywa dla hostingu statycznej witryny sieci Web usługi Azure Storage i jest również odpowiednia w przypadkach, gdy nie jest wymagane, aby serwer sieci Web wyświetlał zawartość. App Service statyczne Web Apps zapewniają w pełni zarządzane przepływy pracy ciągłej integracji i ciągłego dostarczania (CI/CD) ze źródła GitHub do wdrożenia globalnego.
 
@@ -60,7 +60,7 @@ Użytkownicy mogą wyświetlać zawartość witryny z przeglądarki przy użyciu
 Jeśli serwer zwróci błąd 404 i nie został określony dokument błędu po włączeniu witryny sieci Web, do użytkownika zostanie zwrócona domyślna strona 404.
 
 > [!NOTE]
-> [Obsługa udostępniania zasobów między źródłami (CORS) dla usługi Azure Storage](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) nie jest obsługiwana w przypadku statycznej witryny sieci Web.
+> [Obsługa udostępniania zasobów między źródłami (CORS) dla usługi Azure Storage](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) nie jest obsługiwana w przypadku statycznej witryny sieci Web.
 
 ### <a name="regional-codes"></a>Kody regionalne
 
@@ -103,13 +103,13 @@ Jeśli konto magazynu jest skonfigurowane tak, aby [wymagało bezpiecznego trans
 
 ## <a name="adding-http-headers"></a>Dodawanie nagłówków HTTP
 
-Nie ma możliwości skonfigurowania nagłówków w ramach funkcji statycznej witryny sieci Web. Można jednak użyć Azure CDN do dodawania nagłówków i dołączania (lub zastępowania) wartości nagłówka. Zobacz [Dokumentacja aparatu reguł standardowych dla Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-standard-rules-engine-reference).
+Nie ma możliwości skonfigurowania nagłówków w ramach funkcji statycznej witryny sieci Web. Można jednak użyć Azure CDN do dodawania nagłówków i dołączania (lub zastępowania) wartości nagłówka. Zobacz [Dokumentacja aparatu reguł standardowych dla Azure CDN](../../cdn/cdn-standard-rules-engine-reference.md).
 
-Jeśli chcesz użyć nagłówków do sterowania buforowaniem, zobacz temat [kontrola Azure CDN buforowania przy użyciu reguł buforowania](https://docs.microsoft.com/azure/cdn/cdn-caching-rules).
+Jeśli chcesz użyć nagłówków do sterowania buforowaniem, zobacz temat [kontrola Azure CDN buforowania przy użyciu reguł buforowania](../../cdn/cdn-caching-rules.md).
 
 ## <a name="multi-region-website-hosting"></a>Obsługa wieloregionowej witryny sieci Web
 
-Jeśli planujesz hostowanie witryny sieci Web w wielu lokalizacje geograficzne, zalecamy użycie [Content Delivery Network](https://docs.microsoft.com/azure/cdn/) do buforowania regionalnego. Skorzystaj z [platformy Azure](https://docs.microsoft.com/azure/frontdoor/) , jeśli chcesz udostępniać inną zawartość w poszczególnych regionach. Udostępnia również możliwości pracy w trybie failover. Nie zaleca się korzystania z [platformy Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/) , jeśli planujesz używanie domeny niestandardowej. Problemy mogą wynikać z tego, jak usługa Azure Storage weryfikuje niestandardowe nazwy domen.
+Jeśli planujesz hostowanie witryny sieci Web w wielu lokalizacje geograficzne, zalecamy użycie [Content Delivery Network](../../cdn/index.yml) do buforowania regionalnego. Skorzystaj z [platformy Azure](../../frontdoor/index.yml) , jeśli chcesz udostępniać inną zawartość w poszczególnych regionach. Udostępnia również możliwości pracy w trybie failover. Nie zaleca się korzystania z [platformy Azure Traffic Manager](../../traffic-manager/index.yml) , jeśli planujesz używanie domeny niestandardowej. Problemy mogą wynikać z tego, jak usługa Azure Storage weryfikuje niestandardowe nazwy domen.
 
 
 ## <a name="pricing"></a>Cennik
@@ -126,7 +126,7 @@ Aby włączyć metryki na stronach statycznej witryny sieci Web, zobacz temat [W
 
 * [Hostowanie statycznej witryny sieci Web w usłudze Azure Storage](storage-blob-static-website-how-to.md)
 * [Mapowanie domeny niestandardowej na punkt końcowy usługi Azure Blob Storage](storage-custom-domain-name.md)
-* [Azure Functions](/azure/azure-functions/functions-overview)
-* [Azure App Service](/azure/app-service/overview)
-* [Tworzenie pierwszej aplikacji sieci Web bezserwerowej](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
+* [Azure Functions](../../azure-functions/functions-overview.md)
+* [Azure App Service](../../app-service/overview.md)
+* [Tworzenie pierwszej aplikacji sieci Web bezserwerowej](/azure/functions/tutorial-static-website-serverless-api-with-database)
 * [Samouczek: hostowanie własnej domeny w usłudze Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)

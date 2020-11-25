@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/29/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b571b2b8e0d334a02631e3f443ec54398117ee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cd1fb7f33c56aefe76bc55181ae92ca3d149754
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532673"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006976"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Samouczek: używanie przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Windows do uzyskiwania dostępu do usługi Azure Cosmos DB
 
@@ -59,7 +59,7 @@ Jeśli jeszcze nie masz konta usługi Cosmos DB, utwórz je. Możesz pominąć t
 3. Wprowadź **identyfikator** konta usługi Cosmos DB do późniejszego użycia.  
 4. **Interfejs API** należy ustawić na „SQL”. Podejście opisane w tym samouczku można stosować w przypadku innych dostępnych typów interfejsu API, ale kroki opisane w tym samouczku dotyczą interfejsu API SQL.
 5. Upewnij się, że **Subskrypcja** i **Grupa zasobów** pasują do wartości określonych podczas tworzenia maszyny wirtualnej w poprzednim kroku.  Wybierz **lokalizację**, w której jest dostępna usługa Cosmos DB.
-6. Kliknij przycisk **Utwórz**.
+6. Kliknij pozycję **Utwórz**.
 
 ### <a name="create-a-collection"></a>Tworzenie kolekcji 
 
@@ -82,7 +82,7 @@ New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Read
 ```
 
 >[!NOTE]
-> Należy pamiętać, że jeśli nie możesz wykonać operacji, możesz nie mieć odpowiednich uprawnień. Jeśli chcesz uzyskać dostęp do zapisu do kluczy, musisz użyć roli RBAC, takiej jak współautor konta DocumentDB lub utworzyć rolę niestandardową. Więcej informacji na temat [kontroli dostępu opartej na rolach znajduje się w Azure Cosmos DB](../../cosmos-db/role-based-access-control.md)
+> Należy pamiętać, że jeśli nie możesz wykonać operacji, możesz nie mieć odpowiednich uprawnień. Jeśli chcesz uzyskać dostęp do zapisu do kluczy, musisz użyć roli platformy Azure, takiej jak współautor konta DocumentDB lub utworzyć rolę niestandardową. Aby uzyskać więcej informacji, zobacz temat [Kontrola dostępu oparta na rolach na platformie Azure w Azure Cosmos DB](../../cosmos-db/role-based-access-control.md)
 
 ## <a name="access-data"></a>Uzyskiwanie dostępu do danych
 

@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 5d61c0f5f26bc46b9c4a5bc4a793df1e10710004
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130871"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006733"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Tworzenie tabel programu Hive i ładowanie danych z usługi Azure Blob Storage
 
@@ -34,7 +34,7 @@ Jeśli utworzono maszynę wirtualną platformy Azure, postępując zgodnie z ins
 
 Załóżmy, że dane dla tabel programu Hive znajdują się w **nieskompresowanym** formacie tabelarycznym i że dane zostały przekazane do domyślnego (lub do dodatkowego) kontenera konta magazynu używanego przez klaster usługi Hadoop.
 
-Jeśli chcesz mieć na celu podwyższenie poziomu **danych o podróży z NYC taksówkami** , musisz:
+Jeśli chcesz mieć na celu podwyższenie poziomu **danych o podróży z NYC taksówkami**, musisz:
 
 * **Pobierz** pliki danych o podróży z 24 [NYC taksówkami](https://www.andresmh.com/nyctaxitrips) (12 plików podróży i 12-tańszych plików),
 * **Rozpakuj** wszystkie pliki do plików CSV, a następnie
@@ -147,12 +147,12 @@ STORED AS TEXTFILE LOCATION '<storage location>' TBLPROPERTIES("skip.header.line
 
 Poniżej przedstawiono opisy pól, które należy podłączyć i inne konfiguracje:
 
-* **\<database name\>** : Nazwa bazy danych, którą chcesz utworzyć. Jeśli chcesz tylko użyć domyślnej bazy danych, można pominąć zapytanie " *CREATE DATABASE...* ".
-* **\<table name\>** : Nazwa tabeli, która ma zostać utworzona w ramach określonej bazy danych. Jeśli chcesz użyć domyślnej bazy danych, tabela może być bezpośrednio określona przez *\<table name\>* nie \<database name\> .
-* **\<field separator\>** : separator, który ogranicza pola w pliku danych do przekazania do tabeli programu Hive.
-* **\<line separator\>** : separator, który ogranicza wiersze w pliku danych.
-* **\<storage location\>** : Lokalizacja usługi Azure Storage w celu zapisania danych tabel programu Hive. Jeśli nie określisz *lokalizacji \<storage location\>* , baza danych i tabele są domyślnie przechowywane w kontenerze */magazynie/* w katalogu domyślnym dla klastra Hive. Jeśli chcesz określić lokalizację magazynu, lokalizacja przechowywania musi znajdować się w domyślnym kontenerze dla bazy danych i tabel. Ta lokalizacja musi być określana jako lokalizacja względem domyślnego kontenera klastra w formacie *"wasb:/// \<directory 1> /"* lub *"wasb:/// \<directory 1> / \<directory 2> /"* itp. Po wykonaniu zapytania, katalogi względne są tworzone w domyślnym kontenerze.
-* **TBLPROPERTIES ("Skip. Header. line. Count" = "1")** : Jeśli plik danych zawiera wiersz nagłówka, należy dodać tę właściwość **na końcu** zapytania *CREATE TABLE* . W przeciwnym razie wiersz nagłówka jest ładowany jako rekord do tabeli. Jeśli plik danych nie ma wiersza nagłówka, ta konfiguracja może zostać pominięta w zapytaniu.
+* **\<database name\>**: Nazwa bazy danych, którą chcesz utworzyć. Jeśli chcesz tylko użyć domyślnej bazy danych, można pominąć zapytanie "*CREATE DATABASE...*".
+* **\<table name\>**: Nazwa tabeli, która ma zostać utworzona w ramach określonej bazy danych. Jeśli chcesz użyć domyślnej bazy danych, tabela może być bezpośrednio określona przez *\<table name\>* nie \<database name\> .
+* **\<field separator\>**: separator, który ogranicza pola w pliku danych do przekazania do tabeli programu Hive.
+* **\<line separator\>**: separator, który ogranicza wiersze w pliku danych.
+* **\<storage location\>**: Lokalizacja usługi Azure Storage w celu zapisania danych tabel programu Hive. Jeśli nie określisz *lokalizacji \<storage location\>*, baza danych i tabele są domyślnie przechowywane w kontenerze */magazynie/* w katalogu domyślnym dla klastra Hive. Jeśli chcesz określić lokalizację magazynu, lokalizacja przechowywania musi znajdować się w domyślnym kontenerze dla bazy danych i tabel. Ta lokalizacja musi być określana jako lokalizacja względem domyślnego kontenera klastra w formacie *"wasb:/// \<directory 1> /"* lub *"wasb:/// \<directory 1> / \<directory 2> /"* itp. Po wykonaniu zapytania, katalogi względne są tworzone w domyślnym kontenerze.
+* **TBLPROPERTIES ("Skip. Header. line. Count" = "1")**: Jeśli plik danych zawiera wiersz nagłówka, należy dodać tę właściwość **na końcu** zapytania *CREATE TABLE* . W przeciwnym razie wiersz nagłówka jest ładowany jako rekord do tabeli. Jeśli plik danych nie ma wiersza nagłówka, ta konfiguracja może zostać pominięta w zapytaniu.
 
 ## <a name="load-data-to-hive-tables"></a><a name="load-data"></a>Ładowanie danych do tabel programu Hive
 Oto zapytanie programu Hive ładujące dane do tabeli programu Hive.
@@ -161,7 +161,7 @@ Oto zapytanie programu Hive ładujące dane do tabeli programu Hive.
 LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 ```
 
-* **\<path to blob data\>** : Jeśli plik BLOB do przekazania do tabeli programu Hive znajduje się w domyślnym kontenerze klastra usługi HDInsight Hadoop, *\<path to blob data\>* powinien mieć format *"wasb:// \<directory in this container> / \<blob file name> "* . Plik BLOB może również znajdować się w dodatkowym kontenerze klastra usługi HDInsight Hadoop. W tym przypadku *\<path to blob data\>* powinna mieć format *"wasb:// \<container name> @ \<storage account name> . blob.Core.Windows.NET/ \<blob file name> "* .
+* **\<path to blob data\>**: Jeśli plik BLOB do przekazania do tabeli programu Hive znajduje się w domyślnym kontenerze klastra usługi HDInsight Hadoop, *\<path to blob data\>* powinien mieć format *"wasb:// \<directory in this container> / \<blob file name> "*. Plik BLOB może również znajdować się w dodatkowym kontenerze klastra usługi HDInsight Hadoop. W tym przypadku *\<path to blob data\>* powinna mieć format *"wasb:// \<container name> @ \<storage account name> . blob.Core.Windows.NET/ \<blob file name> "*.
 
   > [!NOTE]
   > Dane obiektów BLOB do przekazania do tabeli programu Hive musi znajdować się w domyślnym lub dodatkowym kontenerze konta magazynu dla klastra Hadoop. W przeciwnym razie zapytanie o *dane ładowania* nie powiedzie się, ponieważ nie może uzyskać dostępu do danych.
@@ -249,7 +249,7 @@ INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition va
     WHERE <partition variable>=<partition value>;
 ```
 
-Podczas wstawiania wszystkich danych do programu bezpieczne jest porzucanie przy *\<external text file table name\>* użyciu następującego zapytania *\<database name\> . \<ORC table name\>* :
+Podczas wstawiania wszystkich danych do programu bezpieczne jest porzucanie przy *\<external text file table name\>* użyciu następującego zapytania *\<database name\> . \<ORC table name\>*:
 
 ```hiveql
     DROP TABLE IF EXISTS <database name>.<external textfile table name>;

@@ -7,11 +7,11 @@ ms.date: 11/03/2017
 ms.author: bharatn
 ms.custom: devx-track-csharp
 ms.openlocfilehash: fd8e6dd712801de49971c1ef27cea664d73a4cb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012776"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005915"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Zwrotny serwer proxy na platformie Azure Service Fabric
 Zwrotny serwer proxy wbudowany w usługę Azure Service Fabric ułatwia mikrousługi działające w klastrze Service Fabric odnajdywania i komunikowania się z innymi usługami, które mają punkty końcowe http.
@@ -72,7 +72,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 * **ServiceInstanceName:** Jest to w pełni kwalifikowana nazwa wdrożonego wystąpienia usługi, do którego próbujesz uzyskać dostęp bez "sieci szkieletowej:/" równaniu. Na przykład, aby uzyskać dostęp do *sieci szkieletowej:/MojaApl/WebService/* Service, należy użyć *MojaApl/* moje usługi.
 
     W nazwie wystąpienia usługi jest rozróżniana wielkość liter. Użycie innej wielkości liter dla nazwy wystąpienia usługi w adresie URL powoduje, że żądania kończą się niepowodzeniem z 404 (nie znaleziono).
-* **Ścieżka sufiksu:** Jest to rzeczywista ścieżka URL, na przykład *myapi/Values/Add/3*dla usługi, z którą chcesz nawiązać połączenie.
+* **Ścieżka sufiksu:** Jest to rzeczywista ścieżka URL, na przykład *myapi/Values/Add/3* dla usługi, z którą chcesz nawiązać połączenie.
 * **PartitionKey:** W przypadku usługi partycjonowanej jest to obliczony klucz partycji partycji, która ma zostać osiągnięta. Należy zauważyć, że *nie* jest to identyfikator GUID identyfikatora partycji. Ten parametr nie jest wymagany w przypadku usług, które korzystają z schematu partycji pojedynczej.
 * **PartitionKind:** To jest schemat partycji usług. Może to być "Int64Range" lub "nazwa". Ten parametr nie jest wymagany w przypadku usług, które korzystają z schematu partycji pojedynczej.
 * Nr **odbiornika** Punkty końcowe usługi mają postać {"Endpoints": {"Listener1": "Endpoint1", "Listener2": "Endpoint2"...}}. Gdy usługa ujawnia wiele punktów końcowych, identyfikuje punkt końcowy, do którego żądanie klienta powinno być przekazywane. Można to pominąć, jeśli usługa ma tylko jeden odbiornik.

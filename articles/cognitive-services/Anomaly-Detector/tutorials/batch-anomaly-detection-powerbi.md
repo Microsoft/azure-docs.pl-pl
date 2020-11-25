@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: mbullwin
 ms.openlocfilehash: a17301e0807877662ae1bf34ade48e90a1d30c0c
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368648"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006204"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Samouczek: wizualizacja anomalii przy użyciu wykrywania partii i Power BI
 
@@ -48,7 +48,7 @@ W oknie głównym Power BI Desktop kliknij Wstążkę **Narzędzia główne** . 
 
 ![Obraz przycisku "Pobierz dane" w Power BI](../media/tutorials/power-bi-get-data-button.png)
 
-Po wyświetleniu okna dialogowego przejdź do folderu, w którym został pobrany przykładowy plik. xlsx, i zaznacz go. Po wyświetleniu okna dialogowego **nawigatora** kliknij opcję **Arkusz1** , a następnie pozycję **Edytuj**.
+Po wyświetleniu okna dialogowego przejdź do folderu, w którym został pobrany przykładowy plik. xlsx, i zaznacz go. Po wyświetleniu okna dialogowego **nawigatora** kliknij opcję **Arkusz1**, a następnie pozycję **Edytuj**.
 
 ![Obraz ekranu "Nawigator" źródła danych w Power BI](../media/tutorials/navigator-dialog-box.png)
 
@@ -112,7 +112,7 @@ W Edytor zaawansowany Użyj poniższego fragmentu Power Query M, aby wyodrębni�
  in results
 ```
 
-Wywołaj zapytanie w arkuszu danych `Sheet1` , wybierając poniżej opcję **wprowadź parametr** , a następnie kliknij pozycję **Wywołaj**.
+Wywołaj zapytanie w arkuszu danych `Sheet1` , wybierając poniżej opcję **wprowadź parametr**, a następnie kliknij pozycję **Wywołaj**.
 
 ![Obraz funkcji Invoke](../media/tutorials/invoke-function-screenshot.png)
 
@@ -125,7 +125,7 @@ Podczas próby uruchomienia zapytania może zostać wyświetlony komunikat ostrz
 
 ![Obraz przedstawiający ostrzeżenie utworzone przez Power BI](../media/tutorials/blocked-function.png)
 
-Aby rozwiązać ten problem, kliknij menu **plik** , a następnie **Opcje i ustawienia**. Następnie kliknij pozycję **Opcje**. Poniżej **bieżącego pliku** wybierz opcję **prywatność** i **zignoruj poziomy prywatności i potencjalnie poprawić wydajność**.
+Aby rozwiązać ten problem, kliknij menu **plik**, a następnie **Opcje i ustawienia**. Następnie kliknij pozycję **Opcje**. Poniżej **bieżącego pliku** wybierz opcję **prywatność** i **zignoruj poziomy prywatności i potencjalnie poprawić wydajność**.
 
 Ponadto może zostać wyświetlony komunikat z prośbą o określenie, w jaki sposób chcesz połączyć się z interfejsem API.
 
@@ -156,7 +156,7 @@ Po dodaniu pól kliknij wykres i zmień jego rozmiar, aby pokazać wszystkie pun
 
 ### <a name="display-anomaly-data-points"></a>Wyświetlanie nietypowych punktów danych
 
-Po prawej stronie okna Power BI, poniżej okienka **pola** , kliknij prawym przyciskiem myszy **wartość** w obszarze **zapytania wywoływanej funkcji** , a następnie kliknij pozycję **Nowa szybka miara**.
+Po prawej stronie okna Power BI, poniżej okienka **pola** , kliknij prawym przyciskiem myszy **wartość** w obszarze **zapytania wywoływanej funkcji**, a następnie kliknij pozycję **Nowa szybka miara**.
 
 ![Obraz nowego ekranu szybkiej miary](../media/tutorials/new-quick-measure.png)
 

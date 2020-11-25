@@ -11,11 +11,11 @@ ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
 ms.openlocfilehash: 7cf0d31895eaeaa41c23f9f07664b27bed1d3126
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016762"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006391"
 ---
 # <a name="connect-a-ruuvitag-sensor-to-your-azure-iot-central-application"></a>Łączenie czujnika RuuviTag z aplikacją IoT Central platformy Azure
 
@@ -45,10 +45,10 @@ Aby dołączyć czujnik RuuviTag do wystąpienia aplikacji platformy Azure IoT C
 
 Aby dodać szablon urządzenia RuuviTag:
 
-1. Przejdź do karty ***Szablony urządzeń*** w lewym okienku, wybierz pozycję **+ Nowy**:  ![ Utwórz nowy szablon urządzenia ](./media/howto-connect-ruuvi/devicetemplate-new.png) strona umożliwia ***utworzenie szablonu niestandardowego*** lub ***użycie wstępnie skonfigurowanego szablonu urządzenia***
+1. Przejdź do karty ***Szablony urządzeń** _ w lewym okienku, wybierz pozycję _* + Nowy * *: ![ Utwórz nowy szablon urządzenia ](./media/howto-connect-ruuvi/devicetemplate-new.png) Strona udostępnia opcję **_Utwórz szablon niestandardowy_*_ lub _*_Użyj wstępnie skonfigurowanego szablonu urządzenia_*_
 1. Wybierz szablon urządzenia RuuviTag z listy wstępnie skonfigurowanych szablonów urządzeń, jak pokazano poniżej:  ![ Wybierz szablon urządzenia RuuviTag](./media/howto-connect-ruuvi/devicetemplate-preconfigured.png)
-1. Wybierz pozycję ***Dalej: Dostosuj*** , aby przejść do następnego kroku.
-1. Na następnym ekranie wybierz pozycję ***Utwórz*** , aby dołączyć szablon urządzenia C500 do aplikacji IoT Central.
+1. Wybierz pozycję _*_Dalej: Dostosuj_*_ , aby przejść do następnego kroku.
+1. Na następnym ekranie wybierz pozycję _*_Utwórz_*_ , aby dołączyć szablon urządzenia C500 do aplikacji IoT Central.
 
 ## <a name="connect-a-ruuvitag-sensor"></a>Łączenie czujnika RuuviTag
 
@@ -68,11 +68,11 @@ Jeśli nie masz fizycznego urządzenia RuuviTag, możesz utworzyć symulowaną s
 
 Aby utworzyć symulowaną RuuviTag:
 
-1. Wybierz pozycję **urządzenia > RuuviTag**.
+1. Wybierz _ * Devices > RuuviTag * *.
 1. Wybierz pozycję **+ Nowe**.
 1. Określ unikatowy **Identyfikator urządzenia** i przyjazną **nazwę urządzenia**.  
 1. Włącz ustawienie **symulowane** .
-1. Wybierz przycisk **Utwórz**.  
+1. Wybierz pozycję **Utwórz**.  
 
 ## <a name="next-steps"></a>Następne kroki
 

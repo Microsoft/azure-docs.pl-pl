@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: storage
 author: tamram
 ms.service: storage
@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 09/25/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: bed8475e5d6c7bf26003672b6cf9ce51a82384ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8959904482bda8dc26e4df626377027e1ab4bd1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91377522"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005552"
 ---
 Aby utworzyć konto magazynu ogólnego przeznaczenia w wersji 2 w witrynie Azure Portal, wykonaj następujące kroki:
 
 1. W menu witryny Azure Portal wybierz pozycję **Wszystkie usługi**. Na liście zasobów wpisz wartość **Konta magazynu**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz pozycję **konta magazynu**.
 1. W oknie **Konta magazynu**, które zostanie wyświetlone, wybierz pozycję **Dodaj**.
 1. Na karcie **podstawowe** wybierz subskrypcję, w ramach której chcesz utworzyć konto magazynu.
-1. W polu **Grupa zasobów** wybierz żądaną grupę zasobów lub Utwórz nową grupę zasobów.  Aby uzyskać więcej informacji na temat grup zasobów platformy Azure, zobacz [omówienie Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
+1. W polu **Grupa zasobów** wybierz żądaną grupę zasobów lub Utwórz nową grupę zasobów.  Aby uzyskać więcej informacji na temat grup zasobów platformy Azure, zobacz [omówienie Azure Resource Manager](../articles/azure-resource-manager/management/overview.md).
 1. Następnie wprowadź nazwę konta magazynu. Wybrana nazwa musi być unikatowa w obrębie całej platformy Azure. Nazwa musi mieć długość od 3 do 24 znaków i może zawierać tylko cyfry i małe litery.
 1. Wybierz lokalizację konta magazynu lub użyj lokalizacji domyślnej.
 1. Wybierz warstwę wydajności. Warstwa domyślna to *standardowa*.
@@ -29,7 +29,7 @@ Aby utworzyć konto magazynu ogólnego przeznaczenia w wersji 2 w witrynie Azure
 1. Określ warstwę dostępu dla obiektów BLOB na koncie magazynu. Warstwa domyślna to *gorąca*. Aby uzyskać więcej informacji na temat warstw dostępu do obiektów blob, zobacz [warstwy dostępu gorąca, chłodna i archiwalna dla obiektów BLOB](../articles/storage/blobs/storage-blob-storage-tiers.md).
 1. Aby użyć Azure Data Lake Storage, wybierz kartę **Zaawansowane** , a następnie ustaw **hierarchiczną przestrzeń nazw** na wartość **włączone**. Aby uzyskać więcej informacji, zobacz [wprowadzenie Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md)
 1. Wybierz pozycję **Przejrzyj i utwórz**, aby przejrzeć ustawienia konta magazynu i utworzyć konto.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 Na poniższej ilustracji przedstawiono ustawienia na karcie **podstawowe** dla nowego konta magazynu:
 

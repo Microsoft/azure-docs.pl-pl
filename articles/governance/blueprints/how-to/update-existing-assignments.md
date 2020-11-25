@@ -4,11 +4,11 @@ description: Dowiedz się więcej o mechanizmie aktualizowania istniejącego prz
 ms.date: 08/27/2020
 ms.topic: how-to
 ms.openlocfilehash: ddaac8110885d817bc96745965c1af7e522b1919
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651376"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007192"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Jak zaktualizować istniejące przypisanie strategii
 
@@ -28,15 +28,15 @@ Po przypisaniu planu można zaktualizować przypisanie. Istnieje kilka powodów,
 
    :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="Zrzut ekranu strony przypisania strategii z wyróżnionym przyciskiem &quot;Aktualizuj przydział&quot;." border="false":::
 
-1. Strona **Przypisz plan** ładuje wstępnie wypełnione wszystkie wartości z oryginalnego przypisania. Można zmienić **wersję definicji**planu, stan **przypisania blokady** i wszystkie parametry dynamiczne, które istnieją w definicji strategii. Wybierz pozycję **Przypisz** po wprowadzeniu zmian.
+1. Strona **Przypisz plan** ładuje wstępnie wypełnione wszystkie wartości z oryginalnego przypisania. Można zmienić **wersję definicji** planu, stan **przypisania blokady** i wszystkie parametry dynamiczne, które istnieją w definicji strategii. Wybierz pozycję **Przypisz** po wprowadzeniu zmian.
 
 1. Na stronie zaktualizowane informacje o przypisaniu Zobacz nowy stan. W tym przykładzie dodaliśmy **blokadę** do przypisania.
 
-   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Zrzut ekranu strony przypisania strategii z wyróżnionym przyciskiem &quot;Aktualizuj przydział&quot;." border="false":::
+   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Zrzut ekranu przedstawiający zaktualizowane przypisanie do planu, w którym został zmieniony tryb blokady." border="false":::
 
 1. Poznaj szczegółowe informacje o innych **operacjach przypisywania** przy użyciu listy rozwijanej. Tabela aktualizacji **zarządzanych zasobów** według wybranej operacji przypisania.
 
-   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Zrzut ekranu strony przypisania strategii z wyróżnionym przyciskiem &quot;Aktualizuj przydział&quot;." border="false":::
+   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Zrzut ekranu przedstawiający zaktualizowane przypisanie planu pokazujący operacje przypisywania i ich stan." border="false":::
 
 ## <a name="rules-for-updating-assignments"></a>Reguły dotyczące aktualizowania przypisań
 

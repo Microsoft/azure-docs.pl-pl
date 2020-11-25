@@ -4,11 +4,11 @@ description: Ten Azure Policy wzorzec zawiera przykład użycia operatora Count 
 ms.date: 10/14/2020
 ms.topic: sample
 ms.openlocfilehash: 1339dff7f8bc92a8e38ec5635690cc2069dd8df4
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076406"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005422"
 ---
 # <a name="azure-policy-pattern-the-count-operator"></a>Wzorzec Azure Policy: operator Count
 
@@ -20,12 +20,12 @@ Ta definicja zasad przeprowadza [inspekcję](../concepts/effects.md#audit) sieci
 
 :::code language="json" source="~/policy-templates/patterns/pattern-count-operator.json":::
 
-### <a name="explanation"></a>Objaśnienie
+### <a name="explanation"></a>Wyjaśnienie
 
-Podstawowe składniki operatora **Count** to _pola_, _gdzie_i warunek. Każdy z nich został wyróżniony w poniższym fragmencie kodu.
+Podstawowe składniki operatora **Count** to _pola_, _gdzie_ i warunek. Każdy z nich został wyróżniony w poniższym fragmencie kodu.
 
-- _pole_ wskazuje, który [alias](../concepts/definition-structure.md#aliases) ma być obliczany przez członków. Tutaj szukamy _tablicy_ aliasów **securityRules \[ \* \] ** sieciowej grupy zabezpieczeń.
-- _gdzie_ używa języka zasad do definiowania, które elementy członkowskie _tablicy_ spełniają kryteria. W tym przykładzie operator logiczny **allOf** grupuje trzy różne oceny warunku właściwości _tablicy_ aliasów: _kierunek_, _dostęp_i _destinationPortRange_.
+- _pole_ wskazuje, który [alias](../concepts/definition-structure.md#aliases) ma być obliczany przez członków. Tutaj szukamy _tablicy_ aliasów **securityRules \[ \* \]** sieciowej grupy zabezpieczeń.
+- _gdzie_ używa języka zasad do definiowania, które elementy członkowskie _tablicy_ spełniają kryteria. W tym przykładzie operator logiczny **allOf** grupuje trzy różne oceny warunku właściwości _tablicy_ aliasów: _kierunek_, _dostęp_ i _destinationPortRange_.
 - Warunek liczby w tym przykładzie jest **większy**. Licznik ma wartość true, jeśli co najmniej jeden element członkowski _tablicy_ aliasu jest zgodny z klauzulą _WHERE_ .
 
 :::code language="json" source="~/policy-templates/patterns/pattern-count-operator.json" range="12-32" highlight="3,4,20":::

@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: mikhegn
 ms.openlocfilehash: 4e96a732cffd70b0a5c24e7ebafe214297a72720
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75644634"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006051"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Jak Sparametryzuj pliki konfiguracji w Service Fabric
 
@@ -20,7 +20,7 @@ W tym artykule opisano sposób Sparametryzuj pliku konfiguracji w Service Fabric
 
 W tym przykładzie zastąpisz wartość konfiguracji przy użyciu parametrów we wdrożeniu aplikacji.
 
-1. Otwórz plik * \<MyService>\PackageRoot\Config\Settings.xml* w projekcie usługi.
+1. Otwórz plik *\<MyService>\PackageRoot\Config\Settings.xml* w projekcie usługi.
 1. Ustaw nazwę i wartość parametru konfiguracji, na przykład rozmiar pamięci podręcznej równej 25, dodając następujący kod XML:
 
    ```xml
@@ -30,7 +30,7 @@ W tym przykładzie zastąpisz wartość konfiguracji przy użyciu parametrów we
    ```
 
 1. Zapisz i zamknij plik.
-1. Otwórz plik * \<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml* .
+1. Otwórz plik *\<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml* .
 1. W pliku ApplicationManifest.xml Zadeklaruj parametr i wartość domyślną w `Parameters` elemencie.  Zaleca się, aby nazwa parametru zawierała nazwę usługi (na przykład "Moja usługa").
 
    ```xml

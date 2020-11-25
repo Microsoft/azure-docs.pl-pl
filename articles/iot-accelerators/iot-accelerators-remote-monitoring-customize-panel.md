@@ -10,11 +10,11 @@ ms.date: 10/05/2018
 ms.topic: conceptual
 ms.custom: devx-track-js
 ms.openlocfilehash: 1dcca8409022ba4cf1f988b7c777e3a1fa511060
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318368"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006068"
 ---
 # <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>Dodawanie niestandardowego panelu do pulpitu nawigacyjnego w interfejsie użytkownika sieci Web akceleratora rozwiązania do monitorowania zdalnego
 
@@ -29,7 +29,7 @@ Panel przykładowy w tym artykule jest wyświetlany na istniejącej stronie pulp
 
 Aby wykonać kroki opisane w tym przewodniku, musisz zainstalować następujące oprogramowanie na lokalnym komputerze deweloperskim:
 
-- [Git](https://git-scm.com/downloads)
+- [Narzędzia](https://git-scm.com/downloads)
 - [Node.js](https://nodejs.org/download/)
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem

@@ -4,11 +4,11 @@ description: 'Szybki Start: używanie Azure Event Grid i Azure Portal do tworzen
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.openlocfilehash: 46cd88558334239a1a9971c63b8b2608def3c4d3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87421607"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005694"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Szybki Start: kierowanie zdarzeń magazynu obiektów BLOB do punktu końcowego sieci Web za pomocą Azure Portal
 
@@ -34,7 +34,7 @@ Po zakończeniu przekonasz się, że dane zdarzenia zostały wysłane do aplikac
    
 1. Na stronie **Tworzenie konta magazynu** wykonaj następujące czynności:
     1. Wybierz swoją subskrypcję platformy Azure. 
-    2. W obszarze **Grupa zasobów**Utwórz nową grupę zasobów lub wybierz istniejącą. 
+    2. W obszarze **Grupa zasobów** Utwórz nową grupę zasobów lub wybierz istniejącą. 
     3. Wprowadź nazwę konta magazynu. 
     4. Wybierz pozycję **Przeglądanie + tworzenie**. 
 
@@ -52,9 +52,9 @@ Przed zasubskrybowaniem zdarzeń w ramach usługi Blob Storage utwórzmy punkt k
 
    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png" alt="Button to Deploy to Aquent." /></a>
 2. Na stronie **wdrożenie niestandardowe** wykonaj następujące czynności: 
-    1. W obszarze **Grupa zasobów**wybierz grupę zasobów, która została utworzona podczas tworzenia konta magazynu. Ułatwi to oczyszczenie po zakończeniu pracy z samouczkiem przez usunięcie grupy zasobów.  
-    2. W polu **Nazwa lokacji**wprowadź nazwę aplikacji sieci Web.
-    3. W polu **Nazwa planu hostingu**wpisz nazwę planu App Service, który będzie używany do hostowania aplikacji sieci Web.
+    1. W obszarze **Grupa zasobów** wybierz grupę zasobów, która została utworzona podczas tworzenia konta magazynu. Ułatwi to oczyszczenie po zakończeniu pracy z samouczkiem przez usunięcie grupy zasobów.  
+    2. W polu **Nazwa lokacji** wprowadź nazwę aplikacji sieci Web.
+    3. W polu **Nazwa planu hostingu** wpisz nazwę planu App Service, który będzie używany do hostowania aplikacji sieci Web.
     4. Zaznacz pole wyboru **Zgadzam się na powyższe warunki i postanowienia**. 
     5. Wybierz pozycję **Kup**. 
 
@@ -92,7 +92,7 @@ Subskrybowanie tematu ma poinformować usługę Event Grid o tym, które zdarzen
     2. Wybierz **element Hook sieci Web** dla **typu punktu końcowego**. 
 
        ![Wybierz typ punktu końcowego elementu webhook](./media/blob-event-quickstart-portal/select-web-hook-end-point-type.png)
-4. W przypadku **punktu końcowego**kliknij pozycję **Wybierz punkt końcowy**, a następnie wprowadź adres URL aplikacji sieci Web i Dodaj adres `api/updates` URL strony głównej (na przykład: `https://spegridsite.azurewebsites.net/api/updates` ), a następnie wybierz pozycję **Potwierdź wybór**.
+4. W przypadku **punktu końcowego** kliknij pozycję **Wybierz punkt końcowy**, a następnie wprowadź adres URL aplikacji sieci Web i Dodaj adres `api/updates` URL strony głównej (na przykład: `https://spegridsite.azurewebsites.net/api/updates` ), a następnie wybierz pozycję **Potwierdź wybór**.
 
    ![Potwierdź wybór punktu końcowego](./media/blob-event-quickstart-portal/confirm-endpoint-selection.png)
 5. Teraz na stronie **Tworzenie subskrypcji zdarzeń** wybierz pozycję **Utwórz** , aby utworzyć subskrypcję zdarzeń. 

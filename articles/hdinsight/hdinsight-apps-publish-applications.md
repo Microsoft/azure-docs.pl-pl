@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 05/14/2018
 ms.author: hrasheed
 ms.openlocfilehash: ca84cb6cdd6b47976eadbc5298701a46fe677426
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547830"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007141"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publikowanie aplikacji usługi HDInsight w portalu Azure Marketplace
 Aplikację Azure HDInsight można zainstalować w klastrze usługi HDInsight opartym na systemie Linux. W tym artykule dowiesz się, jak opublikować aplikację usługi HDInsight w portalu Azure Marketplace. Aby uzyskać ogólne informacje o publikowaniu w portalu Azure Marketplace, zobacz temat [Publikowanie oferty w portalu Azure Marketplace](../marketplace/overview.md).
@@ -63,7 +63,7 @@ Gdy aplikacja jest zainstalowana w klastrze (w istniejącym klastrze lub w nowym
   > * Łącznik, dla czytelności.
   > * Unikatowa funkcja ciągu z nazwą aplikacji jako parametrem.
   > 
-  > Powyższy przykład na liście akcji utrwalonego skryptu jest wyświetlany jako **odcień-Install-VO-4wkahss55hlas** . Zobacz [przykładowy ładunek JSON](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
+  > Powyższy przykład na liście akcji utrwalonego skryptu jest wyświetlany jako **odcień-Install-VO-4wkahss55hlas**. Zobacz [przykładowy ładunek JSON](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
   > 
 
 Skrypt instalacji musi mieć następującą charakterystykę:
@@ -87,14 +87,14 @@ Utwórz plik zip, który zawiera wszystkie pliki wymagane do zainstalowania apli
 Aby opublikować aplikację usługi HDInsight:
 
 1. Zaloguj się do [publikowania na platformie Azure](https://publish.windowsazure.com/).
-2. W menu po lewej stronie wybierz pozycję **Szablony rozwiązań** .
-3. Wprowadź tytuł, a następnie wybierz pozycję **Utwórz nowy szablon rozwiązania** .
-4. Jeśli Twoja organizacja nie została jeszcze zarejestrowana, wybierz pozycję **Utwórz konto Centrum deweloperów i Dołącz do programu Azure** .  Aby uzyskać więcej informacji, zobacz [Tworzenie konta dewelopera Microsoft](../marketplace/overview.md).
-5. Wybierz pozycję **Zdefiniuj pewne topologie, aby rozpocząć pracę** . Szablon rozwiązania jest "nadrzędny" dla wszystkich jego topologii. Można zdefiniować wiele topologii w jednej ofercie lub szablonie rozwiązania. Gdy oferta jest wypychana do przemieszczania, jest wypychana do wszystkich jej topologii. 
+2. W menu po lewej stronie wybierz pozycję **Szablony rozwiązań**.
+3. Wprowadź tytuł, a następnie wybierz pozycję **Utwórz nowy szablon rozwiązania**.
+4. Jeśli Twoja organizacja nie została jeszcze zarejestrowana, wybierz pozycję **Utwórz konto Centrum deweloperów i Dołącz do programu Azure**.  Aby uzyskać więcej informacji, zobacz [Tworzenie konta dewelopera Microsoft](../marketplace/overview.md).
+5. Wybierz pozycję **Zdefiniuj pewne topologie, aby rozpocząć pracę**. Szablon rozwiązania jest "nadrzędny" dla wszystkich jego topologii. Można zdefiniować wiele topologii w jednej ofercie lub szablonie rozwiązania. Gdy oferta jest wypychana do przemieszczania, jest wypychana do wszystkich jej topologii. 
 6. Wprowadź nazwę topologii, a następnie wybierz pozycję **+** .
 7. Wprowadź nową wersję, a następnie wybierz pozycję **+** .
 8. Przekaż plik zip, który został utworzony podczas pakowania aplikacji.  
-9. Wybierz pozycję **Żądaj certyfikacji** . Zespół certyfikacji firmy Microsoft przegląda pliki i poświadcza topologię.
+9. Wybierz pozycję **Żądaj certyfikacji**. Zespół certyfikacji firmy Microsoft przegląda pliki i poświadcza topologię.
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się, jak [instalować aplikacje usługi HDInsight](hdinsight-apps-install-applications.md) w klastrach.

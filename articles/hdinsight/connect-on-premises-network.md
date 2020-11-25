@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
 ms.openlocfilehash: 71ef902e909e552ade5174196f291630bc242ca0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543240"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005371"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Łączenie usługi HDInsight z siecią lokalną
 
@@ -65,7 +65,7 @@ Poniższe kroki służą do tworzenia maszyny wirtualnej platformy Azure przy u�
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
   
-1. W górnym menu wybierz pozycję **+ Utwórz zasób** .
+1. W górnym menu wybierz pozycję **+ Utwórz zasób**.
 
     ![Tworzenie maszyny wirtualnej Ubuntu](./media/connect-on-premises-network/azure-portal-create-resource.png)
 
@@ -77,14 +77,14 @@ Poniższe kroki służą do tworzenia maszyny wirtualnej platformy Azure przy u�
     | --- | --- |
     |Subskrypcja |Wybierz odpowiednią subskrypcję.|
     |Grupa zasobów |Wybierz grupę zasobów zawierającą wcześniej utworzoną sieć wirtualną.|
-    |Nazwa maszyny wirtualnej | Wprowadź przyjazną nazwę identyfikującą tę maszynę wirtualną. W tym przykładzie używa **DNSProxy** .|
-    |Region | Wybierz ten sam region, w którym utworzono wcześniej sieć wirtualną.  Nie wszystkie rozmiary maszyn wirtualnych są dostępne we wszystkich regionach.  |
-    |Opcje dostępności |  Wybierz żądany poziom dostępności.  Platforma Azure oferuje szeroką gamę opcji zarządzania dostępnością i odpornością aplikacji.  Zaarchitektj swoje rozwiązanie, aby używać zreplikowanych maszyn wirtualnych w Strefy dostępności lub zestawach dostępności w celu ochrony Twoich aplikacji i danych przed zdarzeniami awarii i konserwacji centrum danych. W tym przykładzie **nie jest wymagane użycie nadmiarowości infrastruktury** . |
-    |Obraz | Pozostaw na **serwerze Ubuntu Server 18,04 LTS** . |
-    |Typ uwierzytelniania | __Hasło__ lub __klucz publiczny SSH__ : Metoda uwierzytelniania dla konta SSH. Zalecamy korzystanie z kluczy publicznych, ponieważ są one bezpieczniejsze. Ten przykład używa **hasła** .  Aby uzyskać więcej informacji, zobacz dokument [dotyczący tworzenia i używania kluczy SSH dla maszyn wirtualnych z systemem Linux](../virtual-machines/linux/mac-create-ssh-keys.md) .|
-    |Nazwa użytkownika |Wprowadź nazwę użytkownika administratora dla maszyny wirtualnej.  W tym przykładzie używa **sshuser** .|
-    |Hasło lub klucz publiczny SSH | Dostępne pole jest określane przez wybór **typu uwierzytelniania** .  Wprowadź odpowiednią wartość.|
-    |Publiczne porty wejściowe|Wybierz pozycję **Zezwalaj na wybrane porty** . Następnie wybierz pozycję **SSH (22)** z listy rozwijanej **Wybieranie portów przychodzących** .|
+    |Nazwa maszyny wirtualnej | Wprowadź przyjazną nazwę identyfikującą tę maszynę wirtualną. W tym przykładzie używa **DNSProxy**.|
+    |Region (Region) | Wybierz ten sam region, w którym utworzono wcześniej sieć wirtualną.  Nie wszystkie rozmiary maszyn wirtualnych są dostępne we wszystkich regionach.  |
+    |Opcje dostępności |  Wybierz żądany poziom dostępności.  Platforma Azure oferuje szeroką gamę opcji zarządzania dostępnością i odpornością aplikacji.  Zaarchitektj swoje rozwiązanie, aby używać zreplikowanych maszyn wirtualnych w Strefy dostępności lub zestawach dostępności w celu ochrony Twoich aplikacji i danych przed zdarzeniami awarii i konserwacji centrum danych. W tym przykładzie **nie jest wymagane użycie nadmiarowości infrastruktury**. |
+    |Obraz | Pozostaw na **serwerze Ubuntu Server 18,04 LTS**. |
+    |Typ uwierzytelniania | __Hasło__ lub __klucz publiczny SSH__: Metoda uwierzytelniania dla konta SSH. Zalecamy korzystanie z kluczy publicznych, ponieważ są one bezpieczniejsze. Ten przykład używa **hasła**.  Aby uzyskać więcej informacji, zobacz dokument [dotyczący tworzenia i używania kluczy SSH dla maszyn wirtualnych z systemem Linux](../virtual-machines/linux/mac-create-ssh-keys.md) .|
+    |Nazwa użytkownika |Wprowadź nazwę użytkownika administratora dla maszyny wirtualnej.  W tym przykładzie używa **sshuser**.|
+    |Hasło lub klucz publiczny SSH | Dostępne pole jest określane przez wybór **typu uwierzytelniania**.  Wprowadź odpowiednią wartość.|
+    |Publiczne porty wejściowe|Wybierz pozycję **Zezwalaj na wybrane porty**. Następnie wybierz pozycję **SSH (22)** z listy rozwijanej **Wybieranie portów przychodzących** .|
 
     ![Podstawowa konfiguracja maszyny wirtualnej](./media/connect-on-premises-network/virtual-machine-basics.png)
 
@@ -100,7 +100,7 @@ Poniższe kroki służą do tworzenia maszyny wirtualnej platformy Azure przy u�
 
     ![Ustawienia sieci wirtualnej usługi HDInsight](./media/connect-on-premises-network/virtual-network-settings.png)
 
-    Pozostaw inne wpisy z wartościami domyślnymi, a następnie wybierz pozycję **Recenzja + Utwórz** .
+    Pozostaw inne wpisy z wartościami domyślnymi, a następnie wybierz pozycję **Recenzja + Utwórz**.
 
 5. Na karcie **Recenzja i tworzenie** wybierz pozycję **Utwórz** , aby utworzyć maszynę wirtualną.
 
@@ -108,7 +108,7 @@ Poniższe kroki służą do tworzenia maszyny wirtualnej platformy Azure przy u�
 
 Po utworzeniu maszyny wirtualnej otrzymasz powiadomienie o **pomyślnym wdrożeniu** za pomocą przycisku **Przejdź do zasobu** .  Wybierz pozycję **Przejdź do zasobu** , aby przejść do nowej maszyny wirtualnej.  Z widoku domyślnego dla nowej maszyny wirtualnej wykonaj następujące kroki, aby zidentyfikować skojarzone adresy IP:
 
-1. W obszarze **Ustawienia** wybierz pozycję **Właściwości** .
+1. W obszarze **Ustawienia** wybierz pozycję **Właściwości**.
 
 2. Zwróć uwagę na wartości dla **publicznego adresu IP/etykiety nazwy DNS** i **prywatnego adresu IP** do późniejszego użycia.
 
@@ -168,7 +168,7 @@ Po utworzeniu maszyny wirtualnej otrzymasz powiadomienie o **pomyślnym wdrożen
     sudo nano /etc/bind/named.conf.options
     ```
 
-    Aby zapisać plik, użyj __kombinacji klawiszy Ctrl + X__ , __Y__ , a następnie klawisz __Enter__ .
+    Aby zapisać plik, użyj __kombinacji klawiszy Ctrl + X__, __Y__, a następnie klawisz __Enter__.
 
 4. W sesji SSH Użyj następującego polecenia:
 
@@ -203,7 +203,7 @@ Po utworzeniu maszyny wirtualnej otrzymasz powiadomienie o **pomyślnym wdrożen
     sudo nano /etc/bind/named.conf.local
     ```
 
-    Aby zapisać plik, użyj __kombinacji klawiszy Ctrl + X__ , __Y__ , a następnie klawisz __Enter__ .
+    Aby zapisać plik, użyj __kombinacji klawiszy Ctrl + X__, __Y__, a następnie klawisz __Enter__.
 
 6. Aby rozpocząć tworzenie powiązania, użyj następującego polecenia:
 
@@ -238,15 +238,15 @@ Po utworzeniu maszyny wirtualnej otrzymasz powiadomienie o **pomyślnym wdrożen
 
 Aby skonfigurować sieć wirtualną do korzystania z niestandardowego serwera DNS zamiast programu rozpoznawania cyklicznego Azure, wykonaj następujące kroki w [Azure Portal](https://portal.azure.com):
 
-1. W menu po lewej stronie przejdź do **wszystkich usług**  >  **sieci**  >  **wirtualne sieci wirtualnych** .
+1. W menu po lewej stronie przejdź do **wszystkich usług**  >  **sieci**  >  **wirtualne sieci wirtualnych**.
 
 2. Z listy wybierz sieć wirtualną, która spowoduje otwarcie widoku domyślnego dla sieci wirtualnej.  
 
-3. W widoku domyślnym w obszarze **Ustawienia** wybierz pozycję **serwery DNS** .  
+3. W widoku domyślnym w obszarze **Ustawienia** wybierz pozycję **serwery DNS**.  
 
-4. Wybierz opcję __niestandardowy__ , a następnie wprowadź **prywatny adres IP** niestandardowego serwera DNS.
+4. Wybierz opcję __niestandardowy__, a następnie wprowadź **prywatny adres IP** niestandardowego serwera DNS.
 
-5. Wybierz pozycję __Zapisz__ .  <br />  
+5. Wybierz pozycję __Zapisz__.  <br />  
 
     ![Ustaw niestandardowy serwer DNS dla sieci](./media/connect-on-premises-network/configure-custom-dns.png)
 
@@ -254,7 +254,7 @@ Aby skonfigurować sieć wirtualną do korzystania z niestandardowego serwera DN
 
 W poprzedniej sekcji skonfigurowano niestandardowy serwer DNS do przesyłania żądań do lokalnego serwera DNS. Następnie należy skonfigurować lokalny serwer DNS, aby przekazywać żądania do niestandardowego serwera DNS.
 
-Aby uzyskać szczegółowe instrukcje dotyczące konfigurowania serwera DNS, zapoznaj się z dokumentacją oprogramowania serwera DNS. Zapoznaj się z instrukcjami dotyczącymi konfigurowania __usługi przesyłania dalej warunkowego__ .
+Aby uzyskać szczegółowe instrukcje dotyczące konfigurowania serwera DNS, zapoznaj się z dokumentacją oprogramowania serwera DNS. Zapoznaj się z instrukcjami dotyczącymi konfigurowania __usługi przesyłania dalej warunkowego__.
 
 Warunkowe przesyłanie dalej przesyła tylko żądania dla określonego sufiksu DNS. W takim przypadku należy skonfigurować usługę przesyłania dalej dla sufiksu DNS sieci wirtualnej. Żądania dla tego sufiksu powinny być przekazywane do adresu IP niestandardowego serwera DNS. 
 
@@ -267,7 +267,7 @@ zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
 };
 ```
 
-Aby uzyskać informacje na temat korzystania z usługi DNS w **systemie Windows Server 2016** , zobacz dokumentację [dodatku DnsServerConditionalForwarderZone](/powershell/module/dnsserver/add-dnsserverconditionalforwarderzone) ...
+Aby uzyskać informacje na temat korzystania z usługi DNS w **systemie Windows Server 2016**, zobacz dokumentację [dodatku DnsServerConditionalForwarderZone](/powershell/module/dnsserver/add-dnsserverconditionalforwarderzone) ...
 
 Po skonfigurowaniu lokalnego serwera DNS można użyć `nslookup` programu z sieci lokalnej, aby sprawdzić, czy można rozpoznać nazwy w sieci wirtualnej. Poniższy przykład 
 
@@ -288,8 +288,8 @@ Aby kontrolować ruch sieciowy, można użyć sieciowych grup zabezpieczeń (sie
 
 2. Adresy IP identyfikowane w kroku 1 zezwalają na ruch przychodzący z tych adresów IP.
 
-   * Jeśli używasz __sieciowej grupy zabezpieczeń__ : Zezwalaj na ruch __przychodzący__ na porcie __443__ dla adresów IP.
-   * Jeśli używasz __UDR__ : Ustaw typ __następnego przeskoku__ trasy na __Internet__ dla adresów IP.
+   * Jeśli używasz __sieciowej grupy zabezpieczeń__: Zezwalaj na ruch __przychodzący__ na porcie __443__ dla adresów IP.
+   * Jeśli używasz __UDR__: Ustaw typ __następnego przeskoku__ trasy na __Internet__ dla adresów IP.
 
 Przykład używania Azure PowerShell lub interfejsu wiersza polecenia platformy Azure do tworzenia sieciowych grup zabezpieczeń można znaleźć w dokumencie " [Rozszerzone usługi HDInsight z usługą Azure Virtual Networks](hdinsight-create-virtual-network.md#hdinsight-nsg) ".
 

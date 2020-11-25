@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
 ms.openlocfilehash: 8694c403b14234a70b0a67f9f4defb7817ba3ae3
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372212"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005388"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Wprowadzenie — przewodnik dla deweloperów platformy Azure
 
@@ -68,7 +68,7 @@ Istniejące aplikacje można migrować do App Service za pomocą [Narzędzia mig
 >
 > **Wypróbuj teraz**: App Service umożliwia obsługę krótkoterminowej aplikacji do wypróbowania platformy bez konieczności rejestrowania się w celu uzyskania konta platformy Azure. Wypróbuj platformę i [Utwórz aplikację Azure App Service](https://tryappservice.azure.com/).
 
-#### <a name="azure-virtual-machines"></a>Azure Virtual Machines
+#### <a name="azure-virtual-machines"></a>Maszyny wirtualne platformy Azure
 
 Jako dostawca infrastruktury jako usługi (IaaS), platforma Azure umożliwia wdrażanie aplikacji lub Migrowanie jej na maszyny wirtualne z systemem Windows lub Linux. Wraz z usługą Azure Virtual Network platforma Azure Virtual Machines obsługuje wdrażanie maszyn wirtualnych z systemem Windows lub Linux na platformie Azure. W przypadku maszyn wirtualnych masz całkowitą kontrolę nad konfiguracją maszyny. W przypadku korzystania z maszyn wirtualnych użytkownik jest odpowiedzialny za wszystkie instalacje oprogramowania serwera, konfigurację, konserwację i poprawki systemu operacyjnego.
 
@@ -269,7 +269,7 @@ Te wdrożenia są opracowywane przy użyciu szablonu Azure Resource Manager, kt�
 
 > **Kiedy używać**: użyj szablonów Menedżer zasobów, jeśli chcesz, aby wdrożenie oparte na szablonie dla aplikacji było zarządzane programowo przy użyciu interfejsów API REST, interfejsu wiersza polecenia platformy Azure i Azure PowerShell.
 >
-> **Wprowadzenie: aby**rozpocząć korzystanie z szablonów, zobacz [Tworzenie szablonów Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
+> **Wprowadzenie: aby** rozpocząć korzystanie z szablonów, zobacz [Tworzenie szablonów Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
 
 ## <a name="understanding-accounts-subscriptions-and-billing"></a>Omówienie kont, subskrypcji i rozliczeń
 
@@ -305,7 +305,7 @@ Gdy zezwolisz na dostęp do zasobów platformy Azure, zawsze najlepszym rozwiąz
 
 - **Obiekty główne usługi**: wraz z zapewnianiem dostępu do podmiotów zabezpieczeń i grup użytkowników można przyznać ten sam dostęp do nazwy głównej usługi.
 
-  > **Kiedy używać**programu: gdy program programowo zarządza zasobami platformy Azure lub udziela dostępu do aplikacji. Aby uzyskać więcej informacji, zobacz [tworzenie Active Directory aplikacji i nazwy głównej usługi](../../active-directory/develop/howto-create-service-principal-portal.md).
+  > **Kiedy używać** programu: gdy program programowo zarządza zasobami platformy Azure lub udziela dostępu do aplikacji. Aby uzyskać więcej informacji, zobacz [tworzenie Active Directory aplikacji i nazwy głównej usługi](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 #### <a name="tags"></a>Tagi
 

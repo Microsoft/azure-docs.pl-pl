@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 5/6/2019
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 71dac0b6ea2202e712280607a73e860ae68bdb73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704875"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005592"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Konfigurowanie i uzyskiwanie dostępu do dzienników serwera przy użyciu interfejsu wiersza polecenia platformy Azure
 Dzienniki błędów serwera PostgreSQL można pobrać przy użyciu interfejsu wiersza polecenia (Azure CLI). Jednak dostęp do dzienników transakcji nie jest obsługiwany. 
@@ -26,7 +26,7 @@ Aby krokowo poprowadzić ten przewodnik, musisz:
 ## <a name="configure-logging"></a>Konfigurowanie rejestrowania
 Serwer można skonfigurować tak, aby mógł uzyskiwać dostęp do dzienników zapytań i dzienników błędów. Dzienniki błędów mogą mieć informacje dotyczące autopróżni, połączeń i punktów kontrolnych.
 1. Włącz rejestrowanie.
-2. Aby włączyć rejestrowanie zapytań, zaktualizuj ** \_ instrukcję log** i **log \_ min \_ duration \_ **.
+2. Aby włączyć rejestrowanie zapytań, zaktualizuj **\_ instrukcję log** i **log \_ min \_ duration \_**.
 3. Aktualizowanie okresu przechowywania.
 
 Aby uzyskać więcej informacji, zobacz [Dostosowywanie parametrów konfiguracji serwera](howto-configure-server-parameters-using-cli.md).

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
-ms.openlocfilehash: 530aa17a165092fc9219629180c81014039c3dac
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: ab0ed536bd23aaf15d85af85e4f924bc2f51f3d4
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132690"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96006631"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Wysyłanie danych dziennika do Azure Monitor za pomocą interfejsu API modułu zbierającego dane HTTP (publiczna wersja zapoznawcza)
 W tym artykule pokazano, jak za pomocą interfejsu API modułu zbierającego dane HTTP wysyłać dane dziennika do Azure Monitor z klienta interfejsu API REST.  Opisano w nim sposób formatowania danych zbieranych przez skrypt lub aplikację, uwzględniania ich w żądaniu oraz żądania autoryzowane przez Azure Monitor.  Przykłady dla programu PowerShell, C# i Python.
@@ -49,7 +49,7 @@ Aby użyć interfejsu API modułu zbierającego dane HTTP, należy utworzyć ż�
 | Wersja interfejsu API |Wersja interfejsu API, która ma być używana z tym żądaniem. Obecnie jest to 2016-04-01. |
 
 ### <a name="request-headers"></a>Nagłówki żądań
-| Header | Opis |
+| Nagłówek | Opis |
 |:--- |:--- |
 | Autoryzacja |Podpis autoryzacji. W dalszej części artykułu można zapoznać się z informacjami na temat tworzenia nagłówka HMAC-SHA256. |
 | Log-Type |Określ typ rekordu przesyłanego danych. Może zawierać tylko litery, cyfry i znaki podkreślenia (_) i nie może przekraczać 100 znaków. |
@@ -148,7 +148,7 @@ Typ danych, który Azure Monitor używa dla każdej właściwości, zależy od t
 * Jeśli typ rekordu nie istnieje, Azure Monitor tworzy nowy, przy użyciu wnioskowania o typie JSON, aby określić typ danych dla każdej właściwości nowego rekordu.
 * Jeśli typ rekordu istnieje, Azure Monitor próbuje utworzyć nowy rekord na podstawie istniejących właściwości. Jeśli typ danych właściwości w nowym rekordzie nie jest zgodny i nie można go przekonwertować na istniejący typ lub jeśli rekord zawiera właściwość, która nie istnieje, Azure Monitor tworzy nową właściwość o odpowiednim sufiksie.
 
-Na przykład ten wpis przesłania spowoduje utworzenie rekordu z trzema właściwościami, **number_d**, **boolean_b**i **string_s**:
+Na przykład ten wpis przesłania spowoduje utworzenie rekordu z trzema właściwościami, **number_d**, **boolean_b** i **string_s**:
 
 ![Przykładowy rekord 1](media/data-collector-api/record-01.png)
 
@@ -160,7 +160,7 @@ Ale jeśli następnie zostanie wykonane następne zgłoszenie, Azure Monitor utw
 
 ![Przykładowy rekord 3](media/data-collector-api/record-03.png)
 
-Jeśli po utworzeniu typu rekordu zostanie przesłany następujący wpis, Azure Monitor utworzy rekord z trzema właściwościami, **number_s**, **boolean_s**i **string_s**. W tym wpisie każda z wartości początkowych jest formatowana jako ciąg:
+Jeśli po utworzeniu typu rekordu zostanie przesłany następujący wpis, Azure Monitor utworzy rekord z trzema właściwościami, **number_s**, **boolean_s** i **string_s**. W tym wpisie każda z wartości początkowych jest formatowana jako ciąg:
 
 ![Przykładowy rekord 4](media/data-collector-api/record-04.png)
 
@@ -211,8 +211,8 @@ Dla każdego przykładu wykonaj następujące kroki, aby ustawić zmienne nagł�
 
 1. W Azure Portal zlokalizuj obszar roboczy Log Analytics.
 2. Wybierz pozycję **Zarządzanie agentami**.
-2. Z prawej strony **identyfikatora obszaru roboczego**wybierz ikonę kopiowania, a następnie wklej identyfikator jako wartość zmiennej **identyfikatora klienta** .
-3. Na prawo od **klucza podstawowego**wybierz ikonę kopiowania, a następnie wklej identyfikator jako wartość zmiennej **klucza współużytkowanego** .
+2. Z prawej strony **identyfikatora obszaru roboczego** wybierz ikonę kopiowania, a następnie wklej identyfikator jako wartość zmiennej **identyfikatora klienta** .
+3. Na prawo od **klucza podstawowego** wybierz ikonę kopiowania, a następnie wklej identyfikator jako wartość zmiennej **klucza współużytkowanego** .
 
 Alternatywnie można zmienić zmienne dla typu dziennika i danych JSON.
 
@@ -651,7 +651,7 @@ Interfejs API modułu zbierającego dane powinien obejmować większość potrze
 |---|---|---|
 | [Zdarzenia niestandardowe](../app/api-custom-events-metrics.md?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): pozyskiwanie oparte na natywnym zestawie SDK w Application Insights | Application Insights, zazwyczaj Instrumentacja w ramach zestawu SDK w aplikacji, oferuje możliwość wysyłania niestandardowych danych za pomocą niestandardowych zdarzeń. | <ul><li> Dane, które są generowane w aplikacji, ale nie są pobierane przez zestaw SDK przy użyciu jednego z domyślnych typów danych (żądania, zależności, wyjątki itd.).</li><li> Dane, które najczęściej są skorelowane z innymi danymi aplikacji w Application Insights </li></ul> |
 | Interfejs API modułu zbierającego dane w dziennikach Azure Monitor | Interfejs API modułu zbierającego dane w dziennikach Azure Monitor jest całkowicie otwartym sposobem pozyskiwania danych. Wszystkie dane sformatowane w obiekcie JSON mogą być wysyłane w tym miejscu. Po wysłaniu zostanie on przetworzony i udostępniony w dziennikach w celu skorelowania z innymi danymi w dziennikach lub w odniesieniu do innych danych Application Insights. <br/><br/> Można stosunkowo łatwo przekazać dane jako pliki do obiektu blob platformy Azure, z którego te pliki zostaną przetworzone i przekazane do Log Analytics. Zobacz [ten](./create-pipeline-datacollector-api.md) artykuł, aby zapoznać się z przykładową implementacją tego potoku. | <ul><li> Dane, które nie są generowane w aplikacji w Application Insights.</li><li> Przykłady obejmują wyszukiwanie i tabele faktów, dane referencyjne, statystyki wstępnie zagregowane i tak dalej. </li><li> Zamierzone dla danych, które będą odwoływać się do innych Azure Monitor danych (Application Insights, inne typy danych dzienników, Security Center, Azure Monitor dla kontenerów/maszyn wirtualnych itd.). </li></ul> |
-| [Azure Data Explorer](/azure/data-explorer/ingest-data-overview) | Azure Eksplorator danych (ADX) to platforma danych, która umożliwia Application Insights analiz i Azure Monitor dzienników. Teraz ogólnie dostępne ("GA") korzystanie z platformy danych w jego pierwotnej postaci zapewnia pełną elastyczność (ale wymaganie obciążenia zarządzania) w ramach klastra (RBAC, szybkość przechowywania, schemat itp.). ADX zapewnia wiele [opcji](/azure/data-explorer/ingest-data-overview#ingestion-methods) pozyskiwania [, w tym pliki CSV, TSV i JSON](/azure/kusto/management/mappings?branch=master) . | <ul><li> Dane, które nie zostaną skorelowane do żadnych innych danych w Application Insights lub dzienników. </li><li> Dane wymagające zaawansowanych możliwości pozyskiwania lub przetwarzania nie są obecnie dostępne w dziennikach Azure Monitor. </li></ul> |
+| [Azure Data Explorer](/azure/data-explorer/ingest-data-overview) | Azure Eksplorator danych (ADX) to platforma danych, która umożliwia Application Insights analiz i Azure Monitor dzienników. Teraz ogólnie dostępne ("GA") korzystanie z platformy danych w jego pierwotnej postaci zapewnia pełną elastyczność (ale wymaganie obciążenia zarządzania) w ramach klastra (Kubernetes RBAC, szybkość przechowywania, schemat itp.). ADX zapewnia wiele [opcji](/azure/data-explorer/ingest-data-overview#ingestion-methods) pozyskiwania [, w tym pliki CSV, TSV i JSON](/azure/kusto/management/mappings?branch=master) . | <ul><li> Dane, które nie zostaną skorelowane do żadnych innych danych w Application Insights lub dzienników. </li><li> Dane wymagające zaawansowanych możliwości pozyskiwania lub przetwarzania nie są obecnie dostępne w dziennikach Azure Monitor. </li></ul> |
 
 
 ## <a name="next-steps"></a>Następne kroki

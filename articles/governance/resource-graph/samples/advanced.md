@@ -4,11 +4,11 @@ description: Za pomocą usługi Azure Resource Graph można uruchamiać pewne za
 ms.date: 10/14/2020
 ms.topic: sample
 ms.openlocfilehash: dff4b06cc5cf4385820c7f6251efaae792d9c22d
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057148"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005405"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Zaawansowane przykłady zapytania grafu zasobów
 
@@ -378,7 +378,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachi
 ## <a name="list-all-extensions-installed-on-a-virtual-machine"></a><a name="join-vmextension"></a>Wyświetl listę wszystkich rozszerzeń zainstalowanych na maszynie wirtualnej
 
 Najpierw to zapytanie używa `extend` typu zasobu maszyny wirtualne w celu uzyskania identyfikatora w postaci wielkich liter ( `toupper()` ) identyfikatora, pobrania nazwy i typu systemu operacyjnego i pobrania rozmiaru maszyny wirtualnej.
-Uzyskanie identyfikatora zasobu w Wielkiej litery jest dobrym sposobem na przygotowanie się do przyłączenia do innej właściwości. Następnie zapytanie używa `join` **typu** z _leftouter_ , aby uzyskać rozszerzenia maszyny wirtualnej, dopasowując wielkie litery `substring` w przypadku identyfikatora rozszerzenia. Część identyfikatora przed "/Extensions/ \<ExtensionName\> " jest w tym samym formacie co identyfikator maszyn wirtualnych, więc używamy tej właściwości `join` . `summarize` jest następnie używany z `make_list` nazwą rozszerzenia maszyny wirtualnej w celu połączenia nazwy każdego rozszerzenia, gdzie _ID_, _OSName_, _OSType_i _VmSize_ są takie same w jednej właściwości tablicy. `order by`Na koniec małe litery _OSName_ z użyciem **ASC**. Domyślnie `order by` jest to malejące.
+Uzyskanie identyfikatora zasobu w Wielkiej litery jest dobrym sposobem na przygotowanie się do przyłączenia do innej właściwości. Następnie zapytanie używa `join` **typu** z _leftouter_ , aby uzyskać rozszerzenia maszyny wirtualnej, dopasowując wielkie litery `substring` w przypadku identyfikatora rozszerzenia. Część identyfikatora przed "/Extensions/ \<ExtensionName\> " jest w tym samym formacie co identyfikator maszyn wirtualnych, więc używamy tej właściwości `join` . `summarize` jest następnie używany z `make_list` nazwą rozszerzenia maszyny wirtualnej w celu połączenia nazwy każdego rozszerzenia, gdzie _ID_, _OSName_, _OSType_ i _VmSize_ są takie same w jednej właściwości tablicy. `order by`Na koniec małe litery _OSName_ z użyciem **ASC**. Domyślnie `order by` jest to malejące.
 
 ```kusto
 Resources

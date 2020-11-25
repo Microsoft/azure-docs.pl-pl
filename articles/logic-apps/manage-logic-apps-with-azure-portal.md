@@ -10,11 +10,11 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 07/20/2020
 ms.openlocfilehash: d50f577a7170982be004cc8957114f79675fbc6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87078613"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006102"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Zarządzanie aplikacjami logiki w Azure Portal
 
@@ -50,7 +50,7 @@ Aby znaleźć i otworzyć aplikację logiki, wykonaj następujące kroki:
 
 1. W Azure Portal [Znajdź i Otwórz aplikację logiki](#find-logic-app).
 
-1. Z menu aplikacji logiki w obszarze **Ustawienia**wybierz pozycję **Właściwości**.
+1. Z menu aplikacji logiki w obszarze **Ustawienia** wybierz pozycję **Właściwości**.
 
 1. W okienku **Właściwości** można wyświetlać i kopiować następujące informacje o aplikacji logiki:
 
@@ -194,7 +194,7 @@ Azure Portal służy do kontroli wersji aplikacji logiki. Możesz znaleźć hist
 
 1. W Azure Portal [Znajdź aplikację logiki, którą chcesz zarządzać](#find-logic-app).
 
-1. W menu aplikacji logiki w obszarze **Narzędzia programistyczne**wybierz pozycję **wersje**.
+1. W menu aplikacji logiki w obszarze **Narzędzia programistyczne** wybierz pozycję **wersje**.
 
    ![Zrzut ekranu aplikacji logiki w Azure Portal, który pokazuje wybór strony wersje w obszarze Narzędzia programistyczne.](./media/manage-logic-apps-with-azure-portal/logic-apps-menu-versions.png)
 
@@ -214,7 +214,7 @@ Azure Portal służy do kontroli wersji aplikacji logiki. Możesz znaleźć hist
 
    ![Zrzut ekranu przedstawiający historię wersji aplikacji logiki, który pokazuje przycisk promowania poprzedniej wersji.](./media/manage-logic-apps-with-azure-portal/promote-button.png)
 
-1. Na stronie **projektanta Logic Apps** , która zostanie otwarta, Edytuj wersję, która jest podwyższana, w razie konieczności. Można przełączać się między trybami **projektanta** i **widoku kodu** . Można także aktualizować **Parametry**, **Szablony**i **Łączniki**.
+1. Na stronie **projektanta Logic Apps** , która zostanie otwarta, Edytuj wersję, która jest podwyższana, w razie konieczności. Można przełączać się między trybami **projektanta** i **widoku kodu** . Można także aktualizować **Parametry**, **Szablony** i **Łączniki**.
 
    ![Zrzut ekranu programu Logic Apps Designer, pokazujący przycisk umożliwiający podwyższenie poziomu poprzedniej wersji aplikacji logiki.](./media/manage-logic-apps-with-azure-portal/promote-page.png)
 

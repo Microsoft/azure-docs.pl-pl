@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: 889e298f64689748340713de6318f8ffcd181001
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123850"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006459"
 ---
 # <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>Gwarancja Stream Analytics niezawodność zadania podczas aktualizacji usługi
 
@@ -23,7 +23,7 @@ Częścią usługi jest w pełni zarządzaną usługą jest możliwość wprowad
 
 Stream Analytics gwarantuje, że zadania w sparowanych regionach są aktualizowane w oddzielnych partiach. W związku z tym istnieje wystarczająco dużo czasu między aktualizacjami do identyfikowania potencjalnych problemów i ich korygowania.
 
-_Z wyjątkiem Indii indyjskich_ (w przypadku których w przypadku sparowanego regionu, Indie Południowe, nie ma obecności Stream Analytics), wdrożenie aktualizacji Stream Analytics nie wystąpi w tym samym czasie w zestawie sparowanych regionów. Wdrożenia w wielu regionach **w tej samej grupie** mogą wystąpić w tym **samym czasie** .
+_Z wyjątkiem Indii indyjskich_ (w przypadku których w przypadku sparowanego regionu, Indie Południowe, nie ma obecności Stream Analytics), wdrożenie aktualizacji Stream Analytics nie wystąpi w tym samym czasie w zestawie sparowanych regionów. Wdrożenia w wielu regionach **w tej samej grupie** mogą wystąpić w tym **samym czasie**.
 
 Artykuł dotyczący **[dostępności i sparowanych regionów](../best-practices-availability-paired-regions.md)** zawiera najbardziej aktualne informacje na temat tego, które regiony są sparowane.
 

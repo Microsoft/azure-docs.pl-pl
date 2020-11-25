@@ -13,24 +13,24 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 670aef4f6f866788ef7a1a4502de242e765f5cc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89e0d6873ebfd8f8396c36185730c57a66af0dd9
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89017655"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96007045"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Rozpoczynanie pracy z usługą Azure Blob Storage i usługami połączonymi programu Visual Studio (projekty usług Cloud Services)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>Omówienie
-W tym artykule opisano sposób rozpoczynania pracy z usługą Azure Blob Storage po utworzeniu konta usługi Azure Storage lub przywoływaniu go za pomocą okna dialogowego **Dodawanie usług połączonych** programu Visual Studio w projekcie usług w chmurze programu Pokażemy Ci, jak uzyskać dostęp do kontenerów obiektów blob oraz jak wykonywać typowe zadania, takie jak przekazywanie, tworzenie list i pobieranie obiektów BLOB. Przykłady są zapisywane w języku C \# i używają [Microsoft Azure Storage biblioteki klienckiej dla platformy .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+W tym artykule opisano sposób rozpoczynania pracy z usługą Azure Blob Storage po utworzeniu konta usługi Azure Storage lub przywoływaniu go za pomocą okna dialogowego **Dodawanie usług połączonych** programu Visual Studio w projekcie usług w chmurze programu Pokażemy Ci, jak uzyskać dostęp do kontenerów obiektów blob oraz jak wykonywać typowe zadania, takie jak przekazywanie, tworzenie list i pobieranie obiektów BLOB. Przykłady są zapisywane w języku C \# i używają [Microsoft Azure Storage biblioteki klienckiej dla platformy .NET](/previous-versions/azure/dn261237(v=azure.100)).
 
 Azure Blob Storage to usługa do przechowywania dużych ilości danych bez struktury, do których można uzyskiwać dostęp z dowolnego miejsca na świecie za pośrednictwem protokołu HTTP lub HTTPS. Pojedynczy obiekt BLOB może być dowolnym rozmiarem. Obiekty blob mogą być takie jak obrazy, pliki audio i wideo, dane pierwotne i pliki dokumentów.
 
 Równie jak pliki aktywne w folderach, Magazyn obiektów BLOB na żywo w kontenerach. Po utworzeniu magazynu należy utworzyć co najmniej jeden kontener w magazynie. Na przykład w magazynie o nazwie "album" można utworzyć kontenery w magazynie o nazwie "images", aby przechowywać obrazy i inne o nazwie "audio" do przechowywania plików audio. Po utworzeniu kontenerów można przekazać do nich pojedyncze pliki obiektów BLOB.
 
-* Aby uzyskać więcej informacji na temat programistycznego manipulowania obiektami BLOB, zobacz [Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
+* Aby uzyskać więcej informacji na temat programistycznego manipulowania obiektami BLOB, zobacz [Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md).
 * Aby uzyskać ogólne informacje na temat usługi Azure Storage, zobacz [dokumentację magazynu](https://azure.microsoft.com/documentation/services/storage/).
 * Aby uzyskać ogólne informacje na temat usługi Azure Cloud Services, zobacz [dokumentację dotyczącą Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/).
 * Aby uzyskać więcej informacji na temat programowania aplikacji ASP.NET, zobacz [ASP.NET](https://www.asp.net).
@@ -73,7 +73,7 @@ Aby programowo uzyskać dostęp do obiektów BLOB w projektach usług w chmurze,
 
 ## <a name="create-a-container-in-code"></a>Tworzenie kontenera w kodzie
 > [!NOTE]
-> Niektóre interfejsy API, które wykonują wywołania do usługi Azure Storage w ASP.NET, są asynchroniczne. Aby uzyskać więcej informacji [, zobacz Programowanie asynchroniczne z Async i await](https://msdn.microsoft.com/library/hh191443.aspx) . W poniższym przykładzie założono, że korzystasz z metod programowania asynchronicznego.
+> Niektóre interfejsy API, które wykonują wywołania do usługi Azure Storage w ASP.NET, są asynchroniczne. Aby uzyskać więcej informacji [, zobacz Programowanie asynchroniczne z Async i await](/previous-versions/hh191443(v=vs.140)) . W poniższym przykładzie założono, że korzystasz z metod programowania asynchronicznego.
 > 
 > 
 
@@ -114,7 +114,7 @@ using (var fileStream = System.IO.File.OpenRead(@"path\myfile"))
 ```
 
 ## <a name="list-the-blobs-in-a-container"></a>Wyświetlanie listy obiektów blob w kontenerze
-Aby wyświetlić listę obiektów blob w kontenerze, należy najpierw uzyskać odwołanie do kontenera. Następnie można użyć metody **ListBlobs** kontenera, aby pobrać obiekty blob i/lub zawarte w nim katalogi. Aby uzyskać dostęp do bogatego zestawu właściwości i metod dla zwracanych **zwróconego ilistblobitem**, należy rzutować go na obiekt **CloudBlockBlob**, **CloudPageBlob**lub **CloudBlobDirectory** . Jeśli typ jest nieznany, można zastosować sprawdzanie typu, aby określić, do którego obiektu rzutować obiekt. Poniższy kod przedstawia sposób pobierania i zwracania identyfikatora URI poszczególnych elementów w kontenerze **photos**:
+Aby wyświetlić listę obiektów blob w kontenerze, należy najpierw uzyskać odwołanie do kontenera. Następnie można użyć metody **ListBlobs** kontenera, aby pobrać obiekty blob i/lub zawarte w nim katalogi. Aby uzyskać dostęp do bogatego zestawu właściwości i metod dla zwracanych **zwróconego ilistblobitem**, należy rzutować go na obiekt **CloudBlockBlob**, **CloudPageBlob** lub **CloudBlobDirectory** . Jeśli typ jest nieznany, można zastosować sprawdzanie typu, aby określić, do którego obiektu rzutować obiekt. Poniższy kod przedstawia sposób pobierania i zwracania identyfikatora URI poszczególnych elementów w kontenerze **photos**:
 
 ```csharp
 // Loop over items within the container and output the length and URI.
@@ -188,7 +188,7 @@ Block blob of length 399751: https://<accountname>.blob.core.windows.net/photos/
 Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 ```
 
-Aby uzyskać więcej informacji, zobacz [CloudBlobContainer. ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx).
+Aby uzyskać więcej informacji, zobacz [CloudBlobContainer. ListBlobs](/rest/api/storageservices/List-Blobs).
 
 ## <a name="download-blobs"></a>Pobieranie obiektów blob
 Aby pobrać obiekty blob, należy najpierw pobrać odwołanie do obiektu blob, a następnie wywołać metodę **DownloadToStream**. W poniższym przykładzie użyto metody **DownloadToStream**, aby przesłać zawartość obiektu blob do obiektu strumienia, który można następnie zachować w pliku lokalnym.
@@ -270,4 +270,3 @@ async public static Task ListBlobsSegmentedInFlatListing(CloudBlobContainer cont
 
 ## <a name="next-steps"></a>Następne kroki
 [!INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
-

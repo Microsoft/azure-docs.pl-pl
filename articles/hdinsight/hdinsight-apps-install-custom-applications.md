@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 11/29/2019
 ms.openlocfilehash: d110f4ee0248b6ea069c6033dd69840eec1a18f3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741605"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007158"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Instalowanie niestandardowych aplikacji Apache Hadoop w usłudze Azure HDInsight
 
@@ -49,9 +49,9 @@ Pliki potrzebne do wdrożenia tej aplikacji (Hue):
 
 1. Wprowadź nazwę klastra, w którym chcesz zainstalować aplikację. Musi to być istniejący klaster.
 
-1. Zaznacz pole wyboru **Akceptuję warunki i postanowienia podane powyżej** .
+1. Zaznacz pole wyboru **Akceptuję warunki i postanowienia podane powyżej**.
 
-1. Wybierz pozycję **Kup** .
+1. Wybierz pozycję **Kup**.
 
 Możesz sprawdzić stan instalacji na kafelku przypiętym do pulpitu nawigacyjnego portalu i w powiadomieniu portalu (kliknij ikonę dzwonka w górnej części portalu).  Instalowanie aplikacji trwa około 10 minut.
 
@@ -75,11 +75,11 @@ Możesz zobaczyć stan aplikacji w witrynie Azure Portal, aby sprawdzić poprawn
 
 W przypadku **odcienia** można wykonać następujące czynności:
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wybierz klaster, w którym zainstalowano aplikację.
-1. Z menu **Ustawienia** wybierz pozycję **aplikacje** .
+1. Z menu **Ustawienia** wybierz pozycję **aplikacje**.
 1. Wybierz **odcień** z listy, aby wyświetlić właściwości.  
 1. Wybierz link do strony sieci Web, aby sprawdzić poprawność witryny sieci Web.
 
@@ -123,13 +123,13 @@ Jeśli instalacja aplikacji nie powiodła się, można zobaczyć komunikaty o b�
 
 ## <a name="remove-hdinsight-applications"></a>Usuwanie aplikacji usługi HDInsight
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wybierz klaster, w którym zainstalowano aplikację.
-1. Z menu **Ustawienia** wybierz pozycję **aplikacje** .
-1. Kliknij prawym przyciskiem myszy aplikację, którą chcesz usunąć, a następnie wybierz polecenie **Usuń** .
-1. Wybierz pozycję **Tak** , aby potwierdzić.
+1. Z menu **Ustawienia** wybierz pozycję **aplikacje**.
+1. Kliknij prawym przyciskiem myszy aplikację, którą chcesz usunąć, a następnie wybierz polecenie **Usuń**.
+1. Wybierz pozycję **Tak**, aby potwierdzić.
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 

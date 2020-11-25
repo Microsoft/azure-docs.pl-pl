@@ -9,11 +9,11 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/22/2020
 ms.openlocfilehash: b0df55e59bd519a816c4022f2434edfcd4460780
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570770"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006527"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Wymiana komunikatów EDIFACT w przypadku integracji B2B dla przedsiębiorstw w usłudze Logic Apps za pomocą pakietu integracyjnego dla przedsiębiorstw
 
@@ -45,7 +45,7 @@ Po [utworzeniu konta integracji](../logic-apps/logic-apps-enterprise-integration
    > [!TIP]
    > Jeśli nie zostaną wyświetlone **wszystkie usługi** , może być konieczne pierwsze rozszerzenie menu. W górnej części zwiniętego menu wybierz pozycję **Pokaż etykiety tekstu**.
 
-3. W obszarze **konta integracji**wybierz konto integracji, w którym chcesz utworzyć umowę.
+3. W obszarze **konta integracji** wybierz konto integracji, w którym chcesz utworzyć umowę.
 
    ![Wybierz konto integracji, dla którego chcesz utworzyć umowę](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
 
@@ -57,7 +57,7 @@ Po [utworzeniu konta integracji](../logic-apps/logic-apps-enterprise-integration
 
    ![Wybierz pozycję "Dodaj"](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
 
-6. W obszarze **Dodaj**wpisz **nazwę** umowy. W obszarze **typ umowy**wybierz pozycję **EDIFACT**. Wybierz **partnera hosta**, **tożsamość hosta**, **partnera gościa**i **tożsamość gościa** dla Twojej umowy.
+6. W obszarze **Dodaj** wpisz **nazwę** umowy. W obszarze **typ umowy** wybierz pozycję **EDIFACT**. Wybierz **partnera hosta**, **tożsamość hosta**, **partnera gościa** i **tożsamość gościa** dla Twojej umowy.
 
    ![Podaj szczegóły umowy](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
 
@@ -81,7 +81,7 @@ Po ustawieniu właściwości umowy można skonfigurować, w jaki sposób ta umow
 > Łącznik EDIFACT obsługuje tylko znaki UTF-8.
 > Jeśli dane wyjściowe zawierają nieoczekiwane znaki, sprawdź, czy w komunikatach EDIFACT jest używany zestaw znaków UTF-8.
 
-1. W obszarze **Dodaj**wybierz pozycję **Odbierz ustawienia**.
+1. W obszarze **Dodaj** wybierz pozycję **Odbierz ustawienia**.
 Skonfiguruj te właściwości na podstawie umowy z partnerem, który wymienia z nim wiadomości. Opisy właściwości znajdują się w tabelach w tej sekcji.
 
    **Ustawienia odbierania** są zorganizowane w następujące sekcje: identyfikatory, potwierdzenia, schematy, numery kontrolne, walidacja i ustawienia wewnętrzne.
@@ -155,7 +155,7 @@ Po ukończeniu każdego wiersza walidacji zostanie automatycznie dodany inny. Je
 
 Można skonfigurować sposób, w jaki ta umowa identyfikuje i obsługuje wiadomości wychodzące wysyłane do partnerów w ramach niniejszej umowy.
 
-1.  W obszarze **Dodaj**wybierz pozycję **Wyślij ustawienia**.
+1.  W obszarze **Dodaj** wybierz pozycję **Wyślij ustawienia**.
 Skonfiguruj te właściwości na podstawie umowy z partnerem, którzy wymieniają wiadomości. Opisy właściwości znajdują się w tabelach w tej sekcji.
 
     **Ustawienia wysyłania** są zorganizowane w następujące sekcje: identyfikatory, potwierdzenia, schematy, koperty, zestawy znaków i separatory, numery kontroli i walidacji.
@@ -202,7 +202,7 @@ Teraz Twoja umowa jest gotowa do obsługi wiadomości wychodzących, które są 
 | UNB10 (Umowa komunikacyjna) |Wprowadź wartość alfanumeryczną zawierającą co najmniej jeden znak i maksymalnie 40 znaków. |
 | UNB11 (wskaźnik testu) |Zaznacz to pole wyboru, aby wskazać, że wygenerowanej wymiany są dane testowe |
 | Zastosuj segment segmentu UNA (wskazówki dotyczące ciągu usługi) |Zaznacz to pole wyboru, aby wygenerować segment segmentu UNA dla wymiany, która ma zostać wysłana. |
-| Zastosuj segmenty UNG (nagłówek grupy funkcji) |Zaznacz to pole wyboru, aby utworzyć segmenty grupowania w nagłówku grupy funkcjonalnej w komunikatach wysyłanych do partnera gościa. Do tworzenia segmentów UNG są używane następujące wartości: <p>Dla **UNG1**wprowadź wartość alfanumeryczną zawierającą co najmniej jeden znak i maksymalnie sześć znaków. <p>Dla **ung 2.1**wprowadź wartość alfanumeryczną zawierającą co najmniej jeden znak i maksymalnie 35 znaków. <p>Dla **ung 2.2**wprowadź wartość alfanumeryczną z maksymalnie czterema znakami. <p>Dla **ung 3.1**wprowadź wartość alfanumeryczną zawierającą co najmniej jeden znak i maksymalnie 35 znaków. <p>Dla **ung 3.2**wprowadź wartość alfanumeryczną z maksymalnie czterema znakami. <p>Dla **UNG6**wprowadź wartość alfanumeryczną z co najmniej jedną i maksymalnie trzema znakami. <p>Dla **ung 7.1**wprowadź wartość alfanumeryczną zawierającą co najmniej jeden znak i maksymalnie trzy znaki. <p>W przypadku **ung 7.2**wprowadź wartość alfanumeryczną zawierającą co najmniej jeden znak i maksymalnie trzy znaki. <p>Dla **ung 7.3**wprowadź wartość alfanumeryczną zawierającą co najmniej 1 znak i maksymalnie 6 znaków. <p>Dla **UNG8**wprowadź wartość alfanumeryczną z co najmniej jednym znakiem i maksymalnie 14 znakami. |
+| Zastosuj segmenty UNG (nagłówek grupy funkcji) |Zaznacz to pole wyboru, aby utworzyć segmenty grupowania w nagłówku grupy funkcjonalnej w komunikatach wysyłanych do partnera gościa. Do tworzenia segmentów UNG są używane następujące wartości: <p>Dla **UNG1** wprowadź wartość alfanumeryczną zawierającą co najmniej jeden znak i maksymalnie sześć znaków. <p>Dla **ung 2.1** wprowadź wartość alfanumeryczną zawierającą co najmniej jeden znak i maksymalnie 35 znaków. <p>Dla **ung 2.2** wprowadź wartość alfanumeryczną z maksymalnie czterema znakami. <p>Dla **ung 3.1** wprowadź wartość alfanumeryczną zawierającą co najmniej jeden znak i maksymalnie 35 znaków. <p>Dla **ung 3.2** wprowadź wartość alfanumeryczną z maksymalnie czterema znakami. <p>Dla **UNG6** wprowadź wartość alfanumeryczną z co najmniej jedną i maksymalnie trzema znakami. <p>Dla **ung 7.1** wprowadź wartość alfanumeryczną zawierającą co najmniej jeden znak i maksymalnie trzy znaki. <p>W przypadku **ung 7.2** wprowadź wartość alfanumeryczną zawierającą co najmniej jeden znak i maksymalnie trzy znaki. <p>Dla **ung 7.3** wprowadź wartość alfanumeryczną zawierającą co najmniej 1 znak i maksymalnie 6 znaków. <p>Dla **UNG8** wprowadź wartość alfanumeryczną z co najmniej jednym znakiem i maksymalnie 14 znakami. |
 
 ### <a name="character-sets-and-separators"></a>Zestawy znaków i separatory
 

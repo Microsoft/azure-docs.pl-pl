@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 03/28/2018
 ms.author: b-juche
 ms.openlocfilehash: e5e0c43aa8c4fbf0db89065e0fab93ee174a4ede
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85483673"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006597"
 ---
 # <a name="create-a-netapp-account"></a>Tworzenie konta usługi NetApp
 Utworzenie konta usługi NetApp umożliwia skonfigurowanie puli pojemności, w której następnie można utworzyć wolumin. Nowe konto usługi NetApp możesz utworzyć w bloku usługi Azure NetApp Files.
@@ -31,7 +31,7 @@ Ponadto należy zarejestrować swoją subskrypcję do korzystania z dostawcy zas
 
 ## <a name="steps"></a>Kroki 
 
-1. Zaloguj się do Portalu Azure. 
+1. Zaloguj się w witrynie Azure Portal. 
 2. Przejdź do bloku usługi Azure NetApp Files za pomocą jednej z następujących metod:  
    * Wyszukaj usługę **Azure NetApp Files** w polu wyszukiwania witryny Azure Portal.  
    * Kliknij przycisk **Wszystkie usługi** w obszarze nawigacji, a następnie wprowadź nazwę usługi Azure NetApp Files w filtrze.  
@@ -54,7 +54,7 @@ Ponadto należy zarejestrować swoją subskrypcję do korzystania z dostawcy zas
      ![Nowe konto usługi NetApp](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
 
 
-5. Kliknij przycisk **Utwórz**.     
+5. Kliknij pozycję **Utwórz**.     
    Utworzone konto usługi NetApp znajduje się teraz w bloku usługi Azure NetApp Files. 
 
 > [!NOTE] 

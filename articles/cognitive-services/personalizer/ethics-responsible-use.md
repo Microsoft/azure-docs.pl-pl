@@ -9,11 +9,11 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.openlocfilehash: 602da28f0c235fb0e797a493bc1160631c042a9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132725"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005983"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Wytyczne dotyczące odpowiedzialnej implementacji personalizacji
 
@@ -54,7 +54,7 @@ Przykłady użycia programu personalizacji z podwyższonym prawdopodobieństwem 
 * **Finanse**: Personalizowanie ofert dotyczących pożyczek, finansów i produktów ubezpieczeniowych, w przypadku których czynniki ryzyka opierają się na danych, na których nie wiadomo, nie mogą uzyskać ani nie mogą się zakwestionować.
 * **Edukacja**: Personalizowanie rang dla kursów szkolnych i instytucji edukacyjnych, w których zalecenia mogą propagować bias i zmniejszać świadomość użytkowników w innych opcjach.
 * **Demokracja i projektowi Civic Innovation uczestnictwo**: Personalizowanie zawartości dla użytkowników mających na celu wpływanie opinii jest wynikowe i manipulowane.
-* **Ocena nagrody**innych firm: Personalizacja elementów w przypadku, gdy wynagrodzenie jest oparte na drugiej ocenie użytkownika przez inną firmę, a nie z wynagrodzeniem wygenerowanym przez własne zachowanie użytkownika.
+* **Ocena nagrody** innych firm: Personalizacja elementów w przypadku, gdy wynagrodzenie jest oparte na drugiej ocenie użytkownika przez inną firmę, a nie z wynagrodzeniem wygenerowanym przez własne zachowanie użytkownika.
 * **Nietolerancja do eksploracji**: każda sytuacja, w której zachowanie eksplorowania może spowodować szkody.
 
 Podczas wybierania przypadków użycia dla personalizacji:
@@ -149,10 +149,10 @@ Poniżej przedstawiono obszary projektowania dla odpowiedzialnych implementacji 
 * *Wykonywanie częstych ocen w trybie offline*. Pomoże to monitorować trendy i upewnić się, że efektywność jest znana.
 * *Ustanów proces wykrywania i działania w przypadku złośliwego manipulowania*. Istnieją aktory korzystające z możliwości uczenia maszynowego i systemu AI do uczenia się w ich środowisku w celu przesunięcia wyników do ich celów. Jeśli korzystanie z programu Personalizujer ma wpływ na ważne wybory, upewnij się, że masz odpowiednie środki na wykrycie i złagodzenie tych klas ataków, w tym przegląd ludzki w odpowiednich okolicznościach.
 
-### <a name="security-and-privacy"></a>Zabezpieczenia i prywatność
+### <a name="security-and-privacy"></a>Zabezpieczenia i ochrona prywatności
 *Systemy AI powinny być bezpieczne i uwzględniać ochronę prywatności*. W przypadku korzystania z narzędzia Personalizacja:
 
-* *Poinformuj użytkowników o zbieranych danych i sposobie ich użycia i uzyskaj ich zgodę wcześniej*zgodnie z obowiązującymi przepisami lokalnymi i branżowymi.
+* *Poinformuj użytkowników o zbieranych danych i sposobie ich użycia i uzyskaj ich zgodę wcześniej* zgodnie z obowiązującymi przepisami lokalnymi i branżowymi.
 * *Zapewnienie ochrony prywatności — Ochrona formantów użytkownika.* W przypadku aplikacji, które przechowują dane osobowe, należy rozważyć udostępnienie przycisku łatwej do znalezienia dla funkcji takich jak:
    * `Show me all you know about me`
    * `Forget my last interaction`

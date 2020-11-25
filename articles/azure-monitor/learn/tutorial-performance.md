@@ -8,11 +8,11 @@ ms.author: lagayhar
 ms.date: 06/15/2020
 ms.custom: mvc
 ms.openlocfilehash: df7cfff7d5bf1b89f88105f79c072d1d7e731b31
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592570"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005490"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Znajdowanie i diagnozowanie problemów z wydajnością za pomocą usługi Azure Application Insights
 
@@ -41,8 +41,8 @@ Zaloguj się do Azure Portal pod adresem [https://portal.azure.com](https://port
 ## <a name="identify-slow-server-operations"></a>Identyfikowanie wolnych operacji serwera
 Usługa Application Insights zbiera informacje o wydajności różnych operacji w aplikacji. Identyfikując operacje o najdłuższym czasie trwania, możesz zdiagnozować potencjalne problemy albo najlepiej ukierunkować trwające prace programistyczne w celu podniesienia ogólnej wydajności aplikacji.
 
-1. Wybierz pozycję **Application Insights** , a następnie wybierz swoją subskrypcję.  
-1. Aby otworzyć panel **Wydajność** , wybierz pozycję **Wydajność** z menu **Zbadaj** albo kliknij wykres **Czas odpowiedzi serwera**.
+1. Wybierz pozycję **Application Insights**, a następnie wybierz swoją subskrypcję.  
+1. Aby otworzyć panel **Wydajność**, wybierz pozycję **Wydajność** z menu **Zbadaj** albo kliknij wykres **Czas odpowiedzi serwera**.
 
     ![Wydajność](media/tutorial-performance/1-overview.png)
 
@@ -67,7 +67,7 @@ Usługa Application Insights zbiera informacje o wydajności różnych operacji 
 
     ![Szczegóły profilera](media/tutorial-performance/5-hot-path.png)
 
-7.  Obszar **Porada dotycząca wydajności** u góry ekranu potwierdza ocenę, że nadmierny czas trwania wynika z oczekiwania.  Kliknij link **oczekiwanie** , aby otworzyć dokumentację omawiającą interpretowanie różnych typów zdarzeń.
+7.  Obszar **Porada dotycząca wydajności** u góry ekranu potwierdza ocenę, że nadmierny czas trwania wynika z oczekiwania.  Kliknij link **oczekiwanie**, aby otworzyć dokumentację omawiającą interpretowanie różnych typów zdarzeń.
 
     ![Porada dotycząca wydajności](media/tutorial-performance/6-perf-tip.png)
 

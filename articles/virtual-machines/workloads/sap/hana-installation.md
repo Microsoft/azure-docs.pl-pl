@@ -15,11 +15,11 @@ ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a1430b32c0e74be7a0e50fa4c5c183018b2b55e0
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967775"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006306"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Jak zainstalować i skonfigurować SAP HANA (duże wystąpienia) na platformie Azure
 
@@ -125,7 +125,7 @@ W przypadku SAP HANA na platformie Azure (duże wystąpienia) synchronizacja cza
 W związku z tym należy skonfigurować oddzielny serwer czasu, który może być używany przez serwery aplikacji SAP działające na maszynach wirtualnych platformy Azure oraz wystąpienia bazy danych SAP HANA, które działają w dużych wystąpieniach HANA. Infrastruktura magazynu w sygnaturach dużych wystąpień jest synchronizowana z serwerami NTP.
 
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 Przyjęto założenie, że wykonano zalecenia dotyczące projektowania sieci wirtualnych platformy Azure oraz łączenia tych sieci wirtualnych z dużymi wystąpieniami HANA, zgodnie z opisem w następujących dokumentach:
 
 - [Omówienie i architektura SAP HANA (duże wystąpienie) na platformie Azure](./hana-overview-architecture.md)
@@ -135,7 +135,7 @@ Istnieją pewne szczegóły dotyczące sieci pojedynczych jednostek. Każda jedn
 
 Aby uzyskać więcej informacji na temat informacji o architekturze sieci Ethernet dla architektury, zobacz [obsługiwane scenariusze](hana-supported-scenario.md)dotyczące usługi HLI.
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 
 Układ magazynu dla SAP HANA na platformie Azure (duże wystąpienia) jest konfigurowany przez SAP HANA na platformie Azure `service management` za pomocą zalecanych wytycznych dotyczących protokołu SAP. Te wytyczne zostały udokumentowane w dokumencie [SAP HANA wymagania dotyczące magazynu](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) . 
 

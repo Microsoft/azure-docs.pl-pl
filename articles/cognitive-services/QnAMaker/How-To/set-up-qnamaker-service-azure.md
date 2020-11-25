@@ -6,11 +6,11 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.openlocfilehash: 5185e7d0bd60eec239f1233db7f9789cbefc2c10
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873543"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006170"
 ---
 # <a name="manage-qna-maker-resources"></a>Zarządzanie zasobami QnA Maker
 
@@ -256,7 +256,7 @@ Dowiedz się, jak uaktualnić zasoby używane przez bazę wiedzy. QnA Maker zarz
 
 Jeśli planujesz posiadanie wielu baz wiedzy, Uaktualnij warstwę cenową usługi Azure Wyszukiwanie poznawcze Service.
 
-Obecnie nie można przeprowadzić uaktualnienia w miejscu jednostki SKU usługi Azure Search. Można jednak utworzyć nowy zasób usługi Azure Search z odpowiednią jednostką SKU, przywrócić dane do nowego zasobu, a następnie połączyć je z stosem QnA Maker. W tym celu wykonaj następujące czynności:
+Obecnie nie można przeprowadzić uaktualnienia w miejscu jednostki SKU usługi Azure Search. Można jednak utworzyć nowy zasób usługi Azure Search z odpowiednią jednostką SKU, przywrócić dane do nowego zasobu, a następnie połączyć je z stosem QnA Maker. W tym celu wykonaj następujące kroki:
 
 1. Utwórz nowy zasób usługi Azure Search w Azure Portal i wybierz żądaną jednostkę SKU.
 
@@ -345,7 +345,7 @@ Bezpłatne zasoby wyszukiwania są usuwane po 90 dniach bez otrzymania wywołani
 
 Jeśli planujesz posiadanie wielu baz wiedzy, Uaktualnij warstwę cenową usługi Azure Wyszukiwanie poznawcze Service.
 
-Obecnie nie można przeprowadzić uaktualnienia w miejscu jednostki SKU usługi Azure Search. Można jednak utworzyć nowy zasób usługi Azure Search z odpowiednią jednostką SKU, przywrócić dane do nowego zasobu, a następnie połączyć je z stosem QnA Maker. W tym celu wykonaj następujące czynności:
+Obecnie nie można przeprowadzić uaktualnienia w miejscu jednostki SKU usługi Azure Search. Można jednak utworzyć nowy zasób usługi Azure Search z odpowiednią jednostką SKU, przywrócić dane do nowego zasobu, a następnie połączyć je z stosem QnA Maker. W tym celu wykonaj następujące kroki:
 
 1. Utwórz nowy zasób usługi Azure Search w Azure Portal i wybierz żądaną jednostkę SKU.
 
@@ -365,7 +365,7 @@ Jeśli utworzysz usługę QnA Managed (wersja zapoznawcza) i jej zależności (t
 
     ![Zrzut ekranu przedstawiający stronę konfiguracji zarządzania (wersja zapoznawcza) QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-configuration.png)
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 > [!NOTE]
 > Jeśli zmienisz usługę Azure Search skojarzoną z QnA Maker, utracisz dostęp do wszystkich już obecnych baz wiedzy. Przed zmianą usługi Azure Search upewnij się, że zostały wyeksportowane istniejące bazy wiedzy.

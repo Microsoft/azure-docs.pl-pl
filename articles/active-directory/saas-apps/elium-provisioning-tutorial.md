@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 08/19/2019
 ms.author: Zhchia
 ms.openlocfilehash: e8f027ccc577df79e561fca7194c20b6cc7ef2c6
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94356777"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005507"
 ---
 # <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Elium na potrzeby automatycznego aprowizacji użytkowników
 
@@ -49,7 +49,7 @@ Podczas przypisywania użytkownika do Elium należy wybrać prawidłową rolę s
 
 ## <a name="set-up-elium-for-provisioning"></a>Konfigurowanie Elium na potrzeby aprowizacji
 
-Przed skonfigurowaniem usługi Elium na potrzeby automatycznego inicjowania obsługi administracyjnej użytkowników w usłudze Azure AD należy włączyć opcję System na potrzeby aprowizacji międzydomenowego zarządzania tożsamościami (standard scim) na Elium. Wykonaj następujące czynności:
+Przed skonfigurowaniem usługi Elium na potrzeby automatycznego inicjowania obsługi administracyjnej użytkowników w usłudze Azure AD należy włączyć opcję System na potrzeby aprowizacji międzydomenowego zarządzania tożsamościami (standard scim) na Elium. Wykonaj następujące kroki:
 
 1. Zaloguj się do Elium i przejdź do pozycji **Moje**  >  **Ustawienia** profilu.
 
@@ -65,13 +65,13 @@ Przed skonfigurowaniem usługi Elium na potrzeby automatycznego inicjowania obs�
 
 ## <a name="add-elium-from-the-gallery"></a>Dodaj Elium z galerii
 
-Aby skonfigurować Elium automatycznej aprowizacji użytkowników w usłudze Azure AD, należy również dodać Elium z galerii aplikacji usługi Azure AD do listy zarządzanych aplikacji typu "oprogramowanie jako usługa" (SaaS). Wykonaj następujące czynności:
+Aby skonfigurować Elium automatycznej aprowizacji użytkowników w usłudze Azure AD, należy również dodać Elium z galerii aplikacji usługi Azure AD do listy zarządzanych aplikacji typu "oprogramowanie jako usługa" (SaaS). Wykonaj następujące kroki:
 
 1. W [Azure Portal](https://portal.azure.com)w lewym panelu nawigacyjnym wybierz pozycję **Azure Active Directory**.
 
     ![Element menu Azure Active Directory](common/select-azuread.png)
 
-1. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 
      ![Blok aplikacji Azure AD Enterprise](common/enterprise-applications.png)
 
@@ -79,7 +79,7 @@ Aby skonfigurować Elium automatycznej aprowizacji użytkowników w usłudze Azu
 
     ![Link nowej aplikacji](common/add-new-app.png)
 
-1. W polu wyszukiwania wpisz **Elium** , na liście wyników wybierz pozycję **Elium** , a następnie wybierz pozycję **Dodaj** , aby dodać aplikację.
+1. W polu wyszukiwania wpisz **Elium**, na liście wyników wybierz pozycję **Elium** , a następnie wybierz pozycję **Dodaj** , aby dodać aplikację.
 
     ![Pole wyszukiwania galerii](common/search-new-app.png)
 
@@ -92,7 +92,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla Elium w usłudze Azure AD, wykonaj następujące kroki:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com), wybierz pozycję **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com), wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok aplikacji Azure AD Enterprise](common/enterprise-applications.png)
 
@@ -116,7 +116,7 @@ Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla Elium w 
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 1. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do Elium**.
 

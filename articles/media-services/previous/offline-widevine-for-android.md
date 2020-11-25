@@ -16,11 +16,11 @@ ms.date: 04/16/2019
 ms.author: willzhan
 ms.reviewer: dwgeo
 ms.openlocfilehash: 4b3b2b8c39b5b2552b5ce9f508bacd1ea86b2638
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269594"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006369"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Przesyłanie strumieniowe przy użyciu technologii Widevine w trybie offline dla systemu Android
 
@@ -131,7 +131,7 @@ Deweloperzy powinni odwoływać się do [przewodnika dla deweloperów ExoPlayer]
 
 ### <a name="working-with-older-android-devices"></a>Praca ze starszymi urządzeniami z systemem Android
 
-W przypadku niektórych starszych urządzeń z systemem Android należy ustawić wartości następujących **policy_overrides** właściwości (zdefiniowane w [szablonie licencji Widevine](media-services-widevine-license-template-overview.md): **rental_duration_seconds**, **playback_duration_seconds**i **license_duration_seconds**. Alternatywnie można ustawić je na zero, co oznacza nieskończony/nieograniczony czas trwania.  
+W przypadku niektórych starszych urządzeń z systemem Android należy ustawić wartości następujących **policy_overrides** właściwości (zdefiniowane w [szablonie licencji Widevine](media-services-widevine-license-template-overview.md): **rental_duration_seconds**, **playback_duration_seconds** i **license_duration_seconds**. Alternatywnie można ustawić je na zero, co oznacza nieskończony/nieograniczony czas trwania.  
 
 Wartości muszą być ustawione tak, aby uniknąć błędów przepełnienia liczby całkowitej. Aby uzyskać więcej informacji o tym problemie, zobacz https://github.com/google/ExoPlayer/issues/3150 i https://github.com/google/ExoPlayer/issues/3112 . <br/>Jeśli nie ustawisz jawnie wartości, zostaną przypisane bardzo duże wartości dla  **PlaybackDurationRemaining** i **LicenseDurationRemaining** , (na przykład 9223372036854775807, która jest maksymalną wartością dodatnią dla 64-bitowej liczby całkowitej). W związku z tym licencja Widevine zostanie wyświetlona, a więc odszyfrowywanie nie zostanie wykonane. 
 

@@ -8,11 +8,11 @@ author: trkeya
 ms.author: trkeya
 ms.date: 09/04/2020
 ms.openlocfilehash: 3b2fc1ea37b09f6e4813d2a3c2333bc6d744293d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491498"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006510"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Wskazówki dotyczące wyświetlania w portalu Azure Marketplace
 
@@ -31,7 +31,7 @@ W tym artykule wyjaśniono wymagania i wskazówki dotyczące wyświetlania nowyc
 | 7 | Filmy wideo | <ul><li>Film wideo nie jest wymagany, ale jeśli jest podany, musi odtworzyć się bez błędów.</li><li>Jeśli to możliwe, może nie odnosić się do firm konkurencyjnych, *chyba że* wykazuje rozwiązanie migracji. |<ul><li>W idealnym przypadku długość wynosi 3 minuty.</li><li>Oferta rozwiązania jest łatwa do zrozumienia przez zawartość wideo.</li><li>Oferuje demonstrację możliwości rozwiązania. |
 | 8 | Stan listy (opcje wyświetlania) | <ul><li>Musi być oznaczony jako jeden z następujących typów: <ul><li>*Skontaktuj się z nami*</li><li>*Wersja próbna* / *Uzyskaj wersję próbną teraz* / *Rozpocznij okres próbny* / Wersja *testowa*</li><li>*Kup teraz* / *Pobierz teraz*</li></ul></ul> | Klient może łatwo zrozumieć, co to są następujące czynności: <ol><li>Wypróbuj wersję próbną.</li><li>Kup teraz.</li><li>Skontaktuj się z pośrednictwem poczty e-mail lub numeru telefonu, aby przygotować się do weryfikacji koncepcji, oceny lub krótkiej.</li></ol> | 
 | 9 | Cennik rozwiązania | Musi mieć kartę/Szczegóły cennika rozwiązania, a Cennik musi być w walucie lokalnej oferty rozwiązania partnerskiego. | Aby zapewnić opcje klienta, można uzyskać dostęp do wielu opcji rozliczeń przy użyciu cen warstwowych. |
-| 10 | Więcej tutaj | Linki u dołu (w obszarze Opis, a nie linki do portalu Azure Marketplace po lewej stronie) prowadzą do większej ilości informacji na temat rozwiązania i są publicznie dostępne i wyświetlane poprawnie. |    Linki do określonych elementów (na przykład stron specyfikacji w witrynie partnerskiej), a nie tylko na stronie głównej partnera. | 
+| 10 | Dowiedz się więcej | Linki u dołu (w obszarze Opis, a nie linki do portalu Azure Marketplace po lewej stronie) prowadzą do większej ilości informacji na temat rozwiązania i są publicznie dostępne i wyświetlane poprawnie. |    Linki do określonych elementów (na przykład stron specyfikacji w witrynie partnerskiej), a nie tylko na stronie głównej partnera. | 
 | 11 | Obsługa rozwiązań i pomoc | Połącz się z co najmniej jedną z następujących czynności: <ul><li>Numery telefonów</li><li>Obsługa poczty e-mail</li><li>Agenci rozmowy</li><li>Fora społeczności |<ul><li>Zostaną wyświetlone wszystkie metody obsługi.</li><li>Płatna pomoc techniczna jest oferowana bezpłatnie w okresie *próbnym* lub *testowym* . |
 | 12 | Informacje prawne | Zasady lub warunki są dostępne za pośrednictwem publicznego adresu URL. |  |
 |||
@@ -40,7 +40,7 @@ W tym artykule wyjaśniono wymagania i wskazówki dotyczące wyświetlania nowyc
 
 | Nie. | Element list | Wymagania podstawowe | Optymalne wymagania | 
 |:--- |:--- |:--- |:--- |
-|  | Stan listy (opcja wyświetlania) | Link musi prowadzić do korzystania z *wersji próbnej* klienta. | Dostępne są również inne opcje wyświetlania listy (na przykład *Kup teraz* ). | 
+|  | Stan listy (opcja wyświetlania) | Link musi prowadzić do korzystania z *wersji próbnej* klienta. | Dostępne są również inne opcje wyświetlania listy (na przykład *Kup teraz*). | 
 |||
 
 ## <a name="saas-application-requirements"></a>Wymagania dotyczące aplikacji SaaS
@@ -48,7 +48,7 @@ W tym artykule wyjaśniono wymagania i wskazówki dotyczące wyświetlania nowyc
 | Nie. | Element list | Wymagania podstawowe | Optymalne wymagania | 
 |:--- |:--- |:--- |:--- |
 | 1 | Tytuł oferty |<ul><li>Musi zawierać tylko małe litery, znaki alfanumeryczne, łączniki i podkreślenia. Nie można zmodyfikować tytułu po jego opublikowaniu.</li><li>Opisuje ofertę rozwiązania.</li><li>Dopasowuje promocję rozwiązania w trybie online w witrynie sieci Web partnera. | Zawiera słowa wyszukiwania klucza. |
-| 2 | Informacje techniczne: Konfiguracja |<ul><li>W przypadku aplikacji oprogramowanie jako usługa (SaaS) wybierz, czy chcesz tylko wyświetlać listę aplikacji, czy zezwolić klientom na kupowanie aplikacji za pomocą platformy Azure.</li><li>Zaznacz tekst, który ma być dostępny na przycisku pozyskiwania oferty: *bezpłatna* , *bezpłatna wersja próbna* lub *skontaktuj się z* nami.</li><li>W oknie podręcznym wybierz tylko jeden odpowiedni produkt, jeśli aplikacja korzysta z technologii: Cortana Intelligence, Power BI szablony rozwiązań lub aplikacje zaawansowane. |  |
+| 2 | Informacje techniczne: Konfiguracja |<ul><li>W przypadku aplikacji oprogramowanie jako usługa (SaaS) wybierz, czy chcesz tylko wyświetlać listę aplikacji, czy zezwolić klientom na kupowanie aplikacji za pomocą platformy Azure.</li><li>Zaznacz tekst, który ma być dostępny na przycisku pozyskiwania oferty: *bezpłatna*, *bezpłatna wersja próbna* lub *skontaktuj się z* nami.</li><li>W oknie podręcznym wybierz tylko jeden odpowiedni produkt, jeśli aplikacja korzysta z technologii: Cortana Intelligence, Power BI szablony rozwiązań lub aplikacje zaawansowane. |  |
 | 3 | Wersja testowa | Wybierz opcję *Tak* lub *Nie* | Klient może łatwo zrozumieć, co to są następujące czynności: <ol><li>Wypróbuj wersję próbną.</li><li>Kup teraz.</li><li>Skontaktuj się z pośrednictwem poczty e-mail lub numeru telefonu, aby uzgodnić koncepcji, oceny lub skrócić.</li></ol> |
 | 4 | Szczegóły sklepu online: Podsumowanie oferty | Pojawia się na stronie wyszukiwania aplikacji i zawiera maksymalnie 100 znaków. | |
 | 5 | Szczegóły sklepu online: branże | Branże (maks. 2): Wybierz branże, dla których aplikacja jest Najlepsza i która ma zastosowanie. | |
@@ -85,7 +85,7 @@ W tym artykule wyjaśniono wymagania i wskazówki dotyczące wyświetlania nowyc
 | 9 | Kompetencje | Musi mieć kompetencje co najmniej jedną z następujących czynności:<ul><li>Projektowanie aplikacji</li><li>Integracja aplikacji</li><li>Zarządzanie cyklem życia aplikacji</li><li>Platforma w chmurze<li>Analiza danych</li><li>Centrum danych</li><li>Platforma danych</li><li>DevOps |
 | 10 | Produkty | Muszą być produktami platformy Azure. | |
 | 11 | Kraj/region | Upewnij się, że kraj/region są zgodne z wybraną walutą. | |
-| 12 | Więcej tutaj  | <ul><li>Linki u dołu (w obszarze Opis, a nie linki w witrynie Azure Marketplace po lewej stronie) prowadzą do większej ilości informacji o rozwiązaniu i są dostępne publicznie i są poprawnie wyświetlane.</li><li>Linki muszą mieć "przyjazną nazwę" i nie są wyświetlane jako nazwa pliku do pobrania. | |
+| 12 | Dowiedz się więcej  | <ul><li>Linki u dołu (w obszarze Opis, a nie linki w witrynie Azure Marketplace po lewej stronie) prowadzą do większej ilości informacji o rozwiązaniu i są dostępne publicznie i są poprawnie wyświetlane.</li><li>Linki muszą mieć "przyjazną nazwę" i nie są wyświetlane jako nazwa pliku do pobrania. | |
 ||||
 
 ## <a name="next-steps"></a>Następne kroki

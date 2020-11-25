@@ -6,20 +6,28 @@ author: kromerm
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 11/22/2020
 ms.author: makromer
-ms.openlocfilehash: 3f8ac2d1434019548b01d8468015a543d89d0fba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49d11dfe3d42d99c610fae9fa64079a5fd87501f
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85254416"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96006795"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Obsługa wierszy błędów obcięcia SQL w Data Factory mapowania przepływów danych
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Typowym scenariuszem w Data Factory podczas korzystania z mapowania przepływów danych jest zapisanie przekształconych danych do bazy danych w Azure SQL Database. W tym scenariuszu typowym warunkiem błędu, które należy zablokować, jest możliwość obcięcia kolumny. Wykonaj następujące kroki, aby zapewnić rejestrowanie kolumn, które nie mieszczą się w docelowej kolumnie ciągu, co pozwoli na kontynuowanie przepływu danych w tych scenariuszach.
+Typowym scenariuszem w Data Factory podczas korzystania z mapowania przepływów danych jest zapisanie przekształconych danych do bazy danych w Azure SQL Database. W tym scenariuszu typowym warunkiem błędu, które należy zablokować, jest możliwość obcięcia kolumny.
+
+Istnieją dwie podstawowe metody, które umożliwiają płynne obsłudze błędów podczas zapisywania danych do ujścia bazy danych w przepływach danych ADF:
+
+* Ustaw [obsługę wiersza błędu](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#error-row-handling) ujścia na "Kontynuuj przy błędzie" podczas przetwarzania danych bazy danych. To jest zautomatyzowana Metoda catch-all, która nie wymaga logiki niestandardowej w przepływie danych.
+* Alternatywnie wykonaj poniższe kroki, aby podać rejestrowanie kolumn, które nie mieszczą się w docelowej kolumnie ciągu, co pozwoli na kontynuowanie przepływu danych.
+
+> [!NOTE]
+> Podczas włączania automatycznej obsługi wierszy błędów, w przeciwieństwie do metody poniżej pisania własnej logiki obsługi błędów, nastąpi Mała wydajność i dodatkowy krok wykonany przez funkcję ADF w celu przeprowadzenia wielofazowej operacji w przypadku błędów pułapek.
 
 ## <a name="scenario"></a>Scenariusz
 
@@ -49,6 +57,10 @@ Ten film wideo analizuje przykład logiki obsługi wierszy błędów konfiguracj
 4. Ukończony przepływ danych jest przedstawiony poniżej. Teraz można rozdzielić wiersze błędów, aby uniknąć błędów obcinania SQL i umieścić te wpisy w pliku dziennika. W tym czasie udane wiersze mogą nadal zapisywać w naszej docelowej bazie danych.
 
     ![Ukończ przepływ danych](media/data-flow/error2.png)
+
+5. Jeśli wybierzesz opcję obsługi wierszy błędów w transformację ujścia i ustawisz "dane wyjściowe wierszy błędów", funkcja ADF automatycznie wygeneruje dane wyjściowe pliku CSV z danymi wierszy wraz z komunikatami o błędach zgłoszonymi przez sterowniki. Nie trzeba ręcznie dodawać tej logiki do przepływu danych przy użyciu tej opcji alternatywnej. W przypadku tej opcji nastąpi mała spadek wydajności, dzięki czemu ADF może zaimplementować 2-fazowyą metodologię do błędów pułapek i rejestrować je.
+
+    ![Ukończ przepływ danych z wierszami błędów](media/data-flow/error-row-3.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

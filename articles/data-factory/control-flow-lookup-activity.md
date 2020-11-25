@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.openlocfilehash: 66a17b61fef652160dc6d4a02bf330adbf0c7362
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425695"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006830"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Działanie Lookup w Azure Data Factory
 
@@ -85,7 +85,7 @@ Wynik wyszukiwania jest zwracany w `output` sekcji wyniku uruchomienia działani
     }
     ```
 
-* **Gdy `firstRowOnly` jest ustawiona na `false` **, format danych wyjściowych jest tak jak pokazano w poniższym kodzie. `count`Pole wskazuje liczbę rekordów, które są zwracane. Szczegółowe wartości są wyświetlane pod stałą `value` tablicą. W takim przypadku działanie Lookup jest [wykonywane przez działanie foreach](control-flow-for-each-activity.md). Można przekazać `value` tablicę do pola działania ForEach przy `items` użyciu wzorca `@activity('MyLookupActivity').output.value` . Aby uzyskać dostęp do elementów w `value` tablicy, użyj następującej składni: `@{activity('lookupActivity').output.value[zero based index].propertyname}` . Może to być na przykład `@{activity('lookupActivity').output.value[0].schema}`.
+* **Gdy `firstRowOnly` jest ustawiona na `false`**, format danych wyjściowych jest tak jak pokazano w poniższym kodzie. `count`Pole wskazuje liczbę rekordów, które są zwracane. Szczegółowe wartości są wyświetlane pod stałą `value` tablicą. W takim przypadku działanie Lookup jest [wykonywane przez działanie foreach](control-flow-for-each-activity.md). Można przekazać `value` tablicę do pola działania ForEach przy `items` użyciu wzorca `@activity('MyLookupActivity').output.value` . Aby uzyskać dostęp do elementów w `value` tablicy, użyj następującej składni: `@{activity('lookupActivity').output.value[zero based index].propertyname}` . Może to być na przykład `@{activity('lookupActivity').output.value[0].schema}`.
 
     ```json
     {

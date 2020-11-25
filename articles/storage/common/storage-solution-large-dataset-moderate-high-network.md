@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 962bb7a4484f28d52ffd4f0cae985140ec2f0d28
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792926"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006034"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Transfer dużych zestawów danych w przypadku umiarkowanej lub wysokiej przepustowości sieci
  
@@ -27,9 +27,9 @@ Duże zbiory danych odnoszą się do rozmiarów, w kolejności od usług TBs do 
 
 ## <a name="recommended-options"></a>Zalecane opcje
 
-Opcje zalecane w tym scenariuszu zależą od tego, czy masz umiarkowaną przepustowość sieci czy dużą przepustowość sieci.
+Opcje zalecane w tym scenariuszu zależą od tego, czy przepustowość sieci jest średnia, czy wysoka.
 
-### <a name="moderate-network-bandwidth-100-mbps---1-gbps"></a>Umiarkowana przepustowość sieci (100 MB/s — 1 GB/s)
+### <a name="moderate-network-bandwidth-100-mbps---1-gbps"></a>Średnia przepustowość sieci (100 Mb/s–1 Gb/s)
 
 W przypadku umiarkowanej przepustowości sieci należy zaprojektować czas przesyłania danych przez sieć.
 
@@ -39,20 +39,20 @@ Skorzystaj z poniższej tabeli, aby oszacować czas i na podstawie tego, wybrać
 
 - Jeśli transfer sieciowy jest rzutowany, aby był zbyt wolny, należy użyć urządzenia fizycznego. Zalecanymi opcjami w tym przypadku są urządzenia transferu w trybie offline z rodziny Azure Data Box lub importowania/eksportowania platformy Azure przy użyciu własnych dysków.
 
-    - **Azure Data Box rodzina do transferów w trybie offline** — używanie urządzeń z urządzeń urządzenie Data Box dostarczonych przez firmę Microsoft do przenoszenia dużych ilości danych na platformę Azure, gdy są one ograniczone przez czas, dostępność sieci lub koszty. Skopiuj dane lokalne przy użyciu narzędzi, takich jak Robocopy. W zależności od rozmiaru danych przeznaczonego do transferu można wybrać jedną z Data Box Disk, urządzenie Data Box lub Data Box Heavy.
-    - **Azure Import/Export** — usługa Azure Import/Export umożliwia dostarczenie własnych stacji dysków w celu bezpiecznego zaimportowania dużych ilości danych do usługi Azure Blob storage i Azure Files. Ta usługa może również służyć do transferowania danych z usługi Azure Blob Storage do stacji dysków i dostarczania ich do lokacji lokalnych.
+    - **Azure Data Box rodzina do transferów w trybie offline** — używanie urządzeń z urządzeń urządzenie Data Box dostarczonych przez firmę Microsoft do przenoszenia dużych ilości danych na platformę Azure, gdy są one ograniczone przez czas, dostępność sieci lub koszty. Kopiuj dane lokalne za pomocą narzędzi takich jak Robocopy. W zależności od rozmiaru danych, które mają zostać przesłane, wybierz urządzenie Data Box Disk, Data Box lub Data Box Heavy.
+    - **Azure Import/Export** — usługa Azure Import/Export umożliwia dostarczenie własnych stacji dysków w celu bezpiecznego zaimportowania dużych ilości danych do usługi Azure Blob storage i Azure Files. Ta usługa może również służyć do transferu danych z usługi Azure Blob Storage na stacje dysków wysyłane do lokacji lokalnych.
 
 - Jeśli transfer sieciowy jest przewidywany jako rozsądny, można użyć dowolnego z poniższych narzędzi w celu zapewnienia [wysokiego obciążenia sieci](#high-network-bandwidth).
 
 
-### <a name="high-network-bandwidth-1-gbps---100-gbps"></a>Wysoka przepustowość sieci (1 GB/s — 100 GB/s)
+### <a name="high-network-bandwidth-1-gbps---100-gbps"></a>Wysoka przepustowość sieci (1 Gb/s–100 Gb/s)
 
 Jeśli dostępna przepustowość sieci jest wysoka, użyj jednego z następujących narzędzi.
 
-- **AzCopy** — za pomocą tego narzędzia wiersza polecenia można łatwo kopiować dane do i z obiektów blob platformy Azure, plików i magazynu tabel z optymalną wydajnością. AzCopy obsługuje współbieżność i równoległość oraz możliwość wznowienia operacji kopiowania po przerwaniu.
+- **AzCopy** — za pomocą tego narzędzia wiersza polecenia można łatwo kopiować dane do i z obiektów blob platformy Azure, plików i magazynu tabel z optymalną wydajnością. Narzędzie AzCopy obsługuje współbieżność i równoległość oraz umożliwia wznawianie operacji kopiowania, gdy zostaną przerwane.
 - **Interfejsy API REST usługi Azure Storage/zestawy SDK** — podczas kompilowania aplikacji można opracowywać aplikację pod kątem interfejsów API REST usługi Azure Storage i korzystać z zestawów SDK platformy Azure oferowanych w wielu językach.
-- **Azure Data Box rodzina do transferów online** — Data Box Edge i Data Box Gateway są urządzeniami sieciowymi online, które umożliwiają przenoszenie danych do i z platformy Azure. Użyj Data Box Edge urządzenia fizycznego, gdy istnieje równoczesna potrzeba ciągłego pozyskiwania i wstępnego przetwarzania danych przed przekazaniem. Data Box Gateway to wirtualna wersja urządzenia z takimi samymi możliwościami transferu danych. W każdym przypadku transfer danych jest zarządzany przez urządzenie.
-- **Azure Data Factory** — Data Factory należy użyć do skalowania operacji transferu oraz, jeśli istnieje potrzeba organizowania i monitorowania klasy korporacyjnej. Użyj Data Factory do regularnego transferu plików między kilkoma usługami platformy Azure, lokalnymi lub kombinacjami tych dwóch. za pomocą Data Factory można tworzyć i planować przepływy pracy oparte na danych (nazywane potokami), które pozyskiwanie danych z różnych magazynów danych i automatyzowanie przenoszenia danych i przekształcania danych.
+- **Azure Data Box rodzina do transferów online** — Data Box Edge i Data Box Gateway są urządzeniami sieciowymi online, które umożliwiają przenoszenie danych do i z platformy Azure. Użyj fizycznego urządzenia Data Box Edge, jeśli konieczne jest jednoczesne ciągłe pozyskiwanie oraz wstępne przetwarzanie danych przed ich przekazaniem. Data Box Gateway jest wirtualną wersją urządzenia z takimi samymi możliwościami transferu danych. W każdym przypadku za zarządzanie transferem danych odpowiada urządzenie.
+- **Azure Data Factory** — Data Factory należy użyć do skalowania operacji transferu oraz, jeśli istnieje potrzeba organizowania i monitorowania klasy korporacyjnej. Użyj usługi Data Factory do regularnego przesyłania plików pomiędzy kilkoma usługami platformy Azure, w środowisku lokalnym lub gdy konieczne jest połączenie tych dwóch wymagań. Za pomocą usługi Data Factory można tworzyć oparte na danych przepływy pracy (nazywane potokami) i ustalać ich harmonogram. Te przepływy pracy pozyskują dane z wielu różnych magazynów danych i automatyzują przenoszenie i przekształcanie danych.
 
 ## <a name="comparison-of-key-capabilities"></a>Porównanie kluczowych możliwości
 
