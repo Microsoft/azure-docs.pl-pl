@@ -12,11 +12,11 @@ ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: cba8837fc738884fc187b13083487c2ab62d25f0
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392581"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020096"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Dodawanie kont innych niż Microsoft do aplikacji Microsoft Authenticator
 
@@ -44,7 +44,7 @@ Dodaj swoje konto Google, włączając weryfikację dwuskładnikową, a następn
 
 ### <a name="turn-on-two-factor-verification"></a>Włącz weryfikację dwuskładnikową
 
-1. Na komputerze przejdź do https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome , wybierz pozycję **Rozpocznij pracę** , a następnie zweryfikuj swoją tożsamość.
+1. Na komputerze przejdź do https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome , wybierz pozycję **Rozpocznij pracę**, a następnie zweryfikuj swoją tożsamość.
 
 2. Postępuj zgodnie z instrukcjami na stronie, aby włączyć weryfikację dwuetapową dla osobistego konta Google.
 
@@ -138,7 +138,7 @@ Dodaj konto usługi GitHub, włączając weryfikację dwuskładnikową, a nastę
 
     Strona zmieni się, aby wyświetlić kod QR. Nie zamykaj tej strony.
 
-4. Otwórz aplikację Microsoft Authenticator, wybierz pozycję **Dodaj konto** z ikony **Dostosowywanie i kontrola** w prawym górnym rogu, wybierz pozycję **inne konto (Google, Facebook itp.)** , a następnie wybierz opcję **wprowadź ten kod tekstowy** z tekstu w górnej części strony.
+4. Otwórz aplikację Microsoft Authenticator, wybierz pozycję **Dodaj konto** z ikony **Dostosowywanie i kontrola** w prawym górnym rogu, wybierz pozycję **inne konto (Google, Facebook itp.)**, a następnie wybierz opcję **wprowadź ten kod tekstowy** z tekstu w górnej części strony.
 
     Aplikacja Microsoft Authenticator nie może zeskanować kodu QR, więc musisz ręcznie wprowadzić kod.
 
@@ -159,7 +159,7 @@ Dodaj konto Amazon, włączając weryfikację dwuskładnikową, a następnie dod
 
 1. Na komputerze otwórz pozycję Amazon, zaznacz menu rozwijane **konto & listy** , a następnie wybierz **konto**.
 
-2. Wybierz pozycję **zaloguj & zabezpieczenia** , zaloguj się do konta Amazon, a następnie wybierz pozycję **Edytuj** w obszarze **Zaawansowane ustawienia zabezpieczeń** .
+2. Wybierz pozycję **zaloguj & zabezpieczenia**, zaloguj się do konta Amazon, a następnie wybierz pozycję **Edytuj** w obszarze **Zaawansowane ustawienia zabezpieczeń** .
 
     Zostanie wyświetlona strona **Zaawansowane ustawienia zabezpieczeń** .
 

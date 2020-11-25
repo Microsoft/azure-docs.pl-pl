@@ -16,11 +16,11 @@ ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9b616b03698e83d256a7b81e4548edbf21dba058
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89264644"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021133"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Jak utworzyć Smooth Streaming aplikacji ze sklepu Windows
 
@@ -72,7 +72,7 @@ Aby uzyskać więcej informacji na temat tworzenia aplikacji do sklepu Windows, 
     | Nazwa | Wartość |
     | --- | --- |
     | Grupa szablonów |Zainstalowane/szablony/sklep Visual C#/Windows |
-    | Szablon |Pusta aplikacja (XAML) |
+    | Template |Pusta aplikacja (XAML) |
     | Nazwa |SSPlayer |
     | Lokalizacja |C:\SSTutorials |
     | Nazwa rozwiązania |SSPlayer |
@@ -89,7 +89,7 @@ Aby uzyskać więcej informacji na temat tworzenia aplikacji do sklepu Windows, 
     | Nazwa | Wartość |
     | --- | --- |
     | Grupa odwołań |Okna/rozszerzenia |
-    | Tematy pomocy |Wybierz zestaw SDK klienta Microsoft Smooth Streaming dla systemu Windows 8 i pakiet środowiska uruchomieniowego Microsoft Visual C++ |
+    | Odwołanie |Wybierz zestaw SDK klienta Microsoft Smooth Streaming dla systemu Windows 8 i pakiet środowiska uruchomieniowego Microsoft Visual C++ |
 
 1. Kliknij przycisk **OK**. 
 
@@ -98,7 +98,7 @@ Po dodaniu odwołań należy wybrać platformę dodającą (x64 lub x86), Dodawa
 ### <a name="to-design-the-player-user-interface"></a>Aby zaprojektować interfejs użytkownika odtwarzacza
 
 1. W Eksplorator rozwiązań kliknij dwukrotnie plik **MainPage. XAML** , aby otworzyć go w widoku projektu.
-2. Znajdź ** &lt; siatkę &gt; ** i ** &lt; /Grid &gt; ** Tagi pliku XAML i wklej następujący kod między dwoma tagami:
+2. Znajdź **&lt; siatkę &gt;** i **&lt; /Grid &gt;** Tagi pliku XAML i wklej następujący kod między dwoma tagami:
 
    ```xml
          <Grid.RowDefinitions>

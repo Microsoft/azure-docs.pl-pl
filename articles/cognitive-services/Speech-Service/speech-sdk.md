@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: ad26fe0d869a2e892a419b1732727c3ff1d1e9a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9356cbb6eb210d6745d90e8ad001917e73592cd3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88870718"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96021994"
 ---
 # <a name="about-the-speech-sdk"></a>Informacje o zestawie SDK usługi Mowa
 
@@ -29,7 +29,7 @@ Zestaw Speech SDK uwidacznia wiele funkcji usługi Speech, ale nie wszystkie z n
 
 ### <a name="speech-to-text"></a>Zamiana mowy na tekst
 
-Funkcja [zamiany mowy na tekst](speech-to-text.md) (znana także jako *rozpoznawanie mowy*) przekształca strumienie audio do tekstu, który mogą być używane przez aplikacje, narzędzia lub urządzenia. Używaj zamiany mowy na tekst za pomocą [Language Understanding (Luis)](../luis/index.yml) , aby uzyskać intencje użytkownika z uzyskanego mowy i korzystać z poleceń głosowych. Użyj [tłumaczenia mowy](speech-translation.md) , aby przetłumaczyć dane wejściowe mowy na inny język przy użyciu jednego wywołania. Aby uzyskać więcej informacji, zobacz podstawowe informacje o [zamiany mowy na tekst](speech-to-text-basics.md).
+Funkcja [zamiany mowy na tekst](speech-to-text.md) (znana także jako *rozpoznawanie mowy*) przekształca strumienie audio do tekstu, który mogą być używane przez aplikacje, narzędzia lub urządzenia. Używaj zamiany mowy na tekst za pomocą [Language Understanding (Luis)](../luis/index.yml) , aby uzyskać intencje użytkownika z uzyskanego mowy i korzystać z poleceń głosowych. Użyj [tłumaczenia mowy](speech-translation.md) , aby przetłumaczyć dane wejściowe mowy na inny język przy użyciu jednego wywołania. Aby uzyskać więcej informacji, zobacz podstawowe informacje o [zamiany mowy na tekst](./get-started-speech-to-text.md).
 
 Funkcja **rozpoznawania mowy (SR), lista fraz, zamierzenia, tłumaczenia i kontenery lokalne** są dostępne na następujących platformach:
 
@@ -68,7 +68,7 @@ Funkcja **zamiany tekstu na mowę (TTS)** jest dostępna na następujących plat
 
 #### <a name="keyword-spotting"></a>Wykrywania trendów słowa kluczowego
 
-Koncepcja [wykrywania trendów słowa kluczowego](speech-devices-sdk-create-kws.md) jest obsługiwana w zestawie mowy SDK. Wykrywania trendów słowa kluczowego to czynność identyfikująca słowo kluczowe w zamiany, a następnie akcję po wysłuchaniu słowa kluczowego. Na przykład "Hey Cortana" spowoduje uaktywnienie asystenta Cortany.
+Koncepcja [wykrywania trendów słowa kluczowego](./custom-keyword-basics.md) jest obsługiwana w zestawie mowy SDK. Wykrywania trendów słowa kluczowego to czynność identyfikująca słowo kluczowe w zamiany, a następnie akcję po wysłuchaniu słowa kluczowego. Na przykład "Hey Cortana" spowoduje uaktywnienie asystenta Cortany.
 
 **Słowo kluczowe wykrywania trendów (KWS)** jest dostępne na następujących platformach:
 
@@ -180,4 +180,4 @@ Niestandardowa Zamiana tekstu na mowę, nazywana również niestandardowym głos
 ## <a name="next-steps"></a>Następne kroki
 
 * [Tworzenie bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/cognitive-services/)
-* [Zobacz jak rozpoznać mowę w języku C #](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+* [Zobacz jak rozpoznać mowę w języku C #](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet)

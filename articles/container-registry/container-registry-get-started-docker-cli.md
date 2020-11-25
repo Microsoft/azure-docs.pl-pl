@@ -5,11 +5,11 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.custom: seodec18, H1Hack27Feb2017, devx-track-azurecli
 ms.openlocfilehash: 067b5749332c2c41b86d22e7de60083d5f61a442
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746628"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020062"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Wypchnij swój pierwszy obraz do prywatnego rejestru kontenerów platformy Docker za pomocą interfejsu wiersza polecenia platformy Docker
 
@@ -24,7 +24,7 @@ W poniższych krokach pobierasz oficjalny [obraz Nginx](https://store.docker.com
 
 ## <a name="log-in-to-a-registry"></a>Zaloguj się do rejestru
 
-Istnieje [kilka sposobów uwierzytelniania](container-registry-authentication.md) do prywatnego rejestru kontenerów. Zalecaną metodą podczas pracy z wierszem polecenia jest polecenie [AZ ACR login](/cli/azure/acr?view=azure-cli-latest#az-acr-login). Na przykład, aby zalogować się do rejestru o nazwie Moje *Rejestr* :
+Istnieje [kilka sposobów uwierzytelniania](container-registry-authentication.md) do prywatnego rejestru kontenerów. Zalecaną metodą podczas pracy z wierszem polecenia jest polecenie [AZ ACR login](/cli/azure/acr?view=azure-cli-latest#az-acr-login). Na przykład, aby zalogować się do rejestru o nazwie Moje *Rejestr*:
 
 ```azurecli
 az acr login --name myregistry
@@ -39,7 +39,7 @@ docker login myregistry.azurecr.io
 Oba polecenia są zwracane `Login Succeeded` po zakończeniu.
 
 > [!TIP]
-> Zawsze określaj w pełni kwalifikowaną nazwę rejestru (wszystkie małe litery) podczas korzystania z programu `docker login` i podczas oznaczania obrazów do wypchnięcia do rejestru. W przykładach w tym artykule, w pełni kwalifikowana nazwa to *myregistry.azurecr.IO* .
+> Zawsze określaj w pełni kwalifikowaną nazwę rejestru (wszystkie małe litery) podczas korzystania z programu `docker login` i podczas oznaczania obrazów do wypchnięcia do rejestru. W przykładach w tym artykule, w pełni kwalifikowana nazwa to *myregistry.azurecr.IO*.
 
 ## <a name="pull-the-official-nginx-image"></a>Ściąganie oficjalnego obrazu Nginx
 

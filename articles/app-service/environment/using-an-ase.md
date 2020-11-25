@@ -8,11 +8,11 @@ ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: 86d0569d95df18924ed47682b75d7491c71d4483
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833558"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021031"
 ---
 # <a name="use-an-app-service-environment"></a>Używanie środowiska usługi App Service
 
@@ -169,7 +169,7 @@ Punkty końcowe publikowania dla aplikacji w środowisku ASE z wewnętrznym modu
 
 Możesz zintegrować środowisko ASE z Azure Monitor, aby wysyłać dzienniki dotyczące środowiska ASE do usługi Azure Storage, Azure Event Hubs lub Log Analytics. Te elementy są rejestrowane Dzisiaj:
 
-| Istniał | Komunikat |
+| Istniał | Wiadomość |
 |---------|----------|
 | Środowisko ASE jest w złej kondycji | Określony środowisko ASE jest w złej kondycji ze względu na nieprawidłową konfigurację sieci wirtualnej. Środowisko ASE zostanie zawieszone w przypadku kontynuowania stanu złej kondycji. Upewnij się, że zostały wykonane następujące wytyczne: https://docs.microsoft.com/azure/app-service/environment/network-info . |
 | Za mało miejsca w podsieci ASE | Określone środowisko ASE znajduje się w podsieci, która jest w prawie nieprawidłowym miejscu. Istnieją {0} adresy. Po wyczerpaniu tych adresów środowisko ASE nie będzie w stanie skalować.  |
@@ -185,7 +185,7 @@ Możesz zintegrować środowisko ASE z Azure Monitor, aby wysyłać dzienniki do
 Aby włączyć rejestrowanie w środowisku ASE:
 
 1. W portalu przejdź do pozycji **Ustawienia diagnostyki**.
-1. Wybierz pozycję **Dodaj ustawienie diagnostyczne**.
+1. Wybierz pozycję **Dodaj ustawienia diagnostyczne**.
 1. Podaj nazwę dla integracji dzienników.
 1. Wybierz i skonfiguruj lokalizacje docelowe dzienników.
 1. Wybierz pozycję **AppServiceEnvironmentPlatformLogs**.
@@ -250,7 +250,7 @@ Aby usunąć środowisko ASE:
 
     ![Usuwanie środowiska ASE][3]
 
-1. Wybierz przycisk **OK**.
+1. Wybierz pozycję **OK**.
 
 ## <a name="ase-cli"></a>INTERFEJS WIERSZA POLECENIA ŚRODOWISKA ASE
 

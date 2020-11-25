@@ -6,11 +6,11 @@ ms.author: flborn
 ms.date: 06/16/2020
 ms.topic: tutorial
 ms.openlocfilehash: 12407d6344c69c747230e9db6fa4d53b4520dc82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331815"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020283"
 ---
 # <a name="tutorial-set-up-physically-based-rendering-materials-in-3ds-max"></a>Samouczek: Konfigurowanie materiałów renderowania fizycznie opartych na protokole 3ds Max
 
@@ -50,7 +50,7 @@ Aby rozpocząć, utworzymy kilka obiektów Box, z których każdy reprezentuje i
 
 Poniższy zrzut ekranu przedstawia kroki konfigurowania jednostek systemu do liczników w tabeli 3ds Max. 
 
-1. W menu głównym przejdź do pozycji **Dostosuj**  >  **jednostki**konfiguracja  >  **jednostki systemowe konfiguracja**. W obszarze **Skala jednostki systemowej**wybierz pozycję **liczniki**: ![ zrzut ekranu przedstawiający sposób ustawiania jednostek systemowych.](media/3dsmax/system-units.jpg)
+1. W menu głównym przejdź do pozycji **Dostosuj**  >  **jednostki** konfiguracja  >  **jednostki systemowe konfiguracja**. W obszarze **Skala jednostki systemowej** wybierz pozycję **liczniki**: ![ zrzut ekranu przedstawiający sposób ustawiania jednostek systemowych.](media/3dsmax/system-units.jpg)
 
 1. Teraz można rozpocząć tworzenie modeli. W przykładowej scenie utworzymy kilka obiektów Box, z których każdy reprezentuje inny typ materiału. Na przykład metalowe, gumowe i plastikowe. 
 
@@ -75,7 +75,7 @@ Teraz, gdy mamy kilka obiektów w naszej scenie, w tym przypadku wiele modułów
 
     W edytorze materiałów można wybierać spośród szerokiego wyboru typów materiału, w zależności od potrzeb. Typowo, typ materiału jest domyślnie ustawiony na wartość **standardowa** . Ten materiał jest elitarnym materiałem, który nie jest odpowiedni do instalacji usługi PBR. Dlatego musimy zmienić typ materiału na materiał PBR. Materiał fizyczny to preferowany materiał z maksymalnymi 3DS dla projektów zdalnego renderowania na platformie Azure.
 
-1. W edytorze materiału wybierz kartę **Standardowy** . W **przeglądarce materiały/Mapa**wybierz pozycję **materiał fizyczny**. Ta akcja konwertuje przypisany materiał **Standardowy** do materiału fizycznego PBR.
+1. W edytorze materiału wybierz kartę **Standardowy** . W **przeglądarce materiały/Mapa** wybierz pozycję **materiał fizyczny**. Ta akcja konwertuje przypisany materiał **Standardowy** do materiału fizycznego PBR.
 
    ![Zrzut ekranu pokazujący sposób zmiany materiału.](media/3dsmax/physical-material.jpg)
 
@@ -128,7 +128,7 @@ Teraz przypiszemy mapę normalną do materiału PBR. Ta akcja różni się nieco
 
 1. W sekcji **mapy specjalne** właściwości materiału fizycznego (w edytorze materiału) zaznacz pozycję **Brak gniazda mapy** obok pozycji **Mapa nierówności**. 
 
-1. W **przeglądarce materiały/Mapa**Znajdź i wybierz pozycję **normalne nierówności**. Ta akcja dodaje do materiału **normalny modyfikator nierówności** .
+1. W **przeglądarce materiały/Mapa** Znajdź i wybierz pozycję **normalne nierówności**. Ta akcja dodaje do materiału **normalny modyfikator nierówności** .
 
 1. W modyfikatorze **normalnych nierówności** wybierz pozycję **Brak mapy** obok pozycji **normalny**. Znajdź i Załaduj mapę normalną.
 
@@ -161,13 +161,13 @@ Ta akcja tworzy wystąpienie obiektu, które można przenieść, obrócić lub s
 
 Przed przejściem do procesu eksportu należy wziąć pod uwagę, jak warto umieścić scenę/zasób do udostępnienia. Najlepiej, Jeśli przekażesz zasób do klientów lub członków zespołu, chcesz, aby mogli oni otworzyć i wyświetlić element zawartości, ponieważ powinien on być widoczny przy minimalnej liczbie Fuss. Ważne jest, aby zachować ścieżki tekstury zasobów względem pliku sceny. Jeśli ścieżki tekstury dla danego elementu zawartości wskazują dysk lokalny lub ścieżkę bezwzględną/lokalizację, nie będą ładowane do sceny, jeśli są otwarte na innym komputerze, nawet jeśli plik. Max znajduje się w tym samym folderze co tekstury. Zastosowanie ścieżek tekstury względem wartości 3ds Max rozwiązuje ten problem i jest dość proste.
 
-1. Na głównym pasku narzędzi przejdź do **File**  >  **Reference**  >  **pozycji**odwołanie do pliku. 
+1. Na głównym pasku narzędzi przejdź do **File**  >  **Reference**  >  **pozycji** odwołanie do pliku. 
 
 1. W oknie śledzenia zasobów zobaczysz wszystkie lub większość tekstur, które zostały zastosowane do materiałów PBR wymienionych w kolumnie **mapy/cieniowanie** .
 
 1. Obok nich w kolumnie **pełna ścieżka** zostanie wyświetlona ścieżka lokalizacji tekstury najprawdopodobniej ścieżka lokalizacji na komputerze lokalnym.
 
-1. Na koniec zobaczysz kolumnę o nazwie **status**. Ta kolumna wskazuje, czy dana tekstura została zlokalizowana i zastosowana do Twojej sceny. Jest ona flagą tekstury z jednym z następujących warunków: **OK**, **znaleziono**lub **Brak pliku**. Pierwsze dwa wskazują, że plik został znaleziony i załadowany. Ostatnim oczywiście oznacza, że moduł śledzący nie mógł zlokalizować pliku.
+1. Na koniec zobaczysz kolumnę o nazwie **status**. Ta kolumna wskazuje, czy dana tekstura została zlokalizowana i zastosowana do Twojej sceny. Jest ona flagą tekstury z jednym z następujących warunków: **OK**, **znaleziono** lub **Brak pliku**. Pierwsze dwa wskazują, że plik został znaleziony i załadowany. Ostatnim oczywiście oznacza, że moduł śledzący nie mógł zlokalizować pliku.
  
    ![Zrzut ekranu przedstawiający okno śledzenia zasobów.](media/3dsmax/texture-paths.jpg)
 
@@ -177,7 +177,7 @@ Możesz zauważyć, że nie wszystkie tekstury są wyświetlane w oknie śledzen
 
 1. Kliknij prawym przyciskiem myszy zaznaczenie i wybierz polecenie **Ustaw ścieżkę**.
 
-1. W polu **Określ ścieżkę elementu zawartości** wybierz ścieżkę lokalną do tekstury i Zastąp ją opcją `.\` .  Wybierz przycisk **OK**. 
+1. W polu **Określ ścieżkę elementu zawartości** wybierz ścieżkę lokalną do tekstury i Zastąp ją opcją `.\` .  Wybierz pozycję **OK**. 
 
     Zostanie zaktualizowane okno śledzenia zasobów, jak pokazano na poniższym zrzucie ekranu. Ta aktualizacja może chwilę potrwać, w zależności od tego, ile tekstury jest w Twojej scenie, i od dużej sceny.
 ![Screensthot, który pokazuje zaktualizowane okno śledzenia zasobów.](media/3dsmax/resolve-textures.jpg)
@@ -227,7 +227,7 @@ Teraz, gdy wprowadziliśmy ścieżki tekstury względem, możemy przejść do FB
 
 1. Wybierz **przycisk OK** , aby zakończyć proces i zamknąć okno.
 
-## <a name="conclusion"></a>Podsumowanie
+## <a name="conclusion"></a>Wniosek
 
 Ogólnie rzecz biorąc, ten typ materiału wygląda bardziej realistycznie, ponieważ jest oparty na rzeczywistej fizyki ziemskiej. Tworzy dodatkowy efekt immersyjny, aby sceny pojawiły się w świecie rzeczywistym.
 
@@ -236,4 +236,4 @@ Ogólnie rzecz biorąc, ten typ materiału wygląda bardziej realistycznie, poni
 Teraz wiesz, jak skonfigurować materiały z zaawansowanymi oświetleniem dla obiektów w scenie. Wiesz również, jak eksportować obiekty do formatu FBX, który jest obsługiwany przez zdalne renderowanie na platformie Azure. Następnym krokiem jest przekonwertowanie pliku FBX i wizualizacja go w ramach renderowania zdalnego na platformie Azure.
 
 >[!div class="nextstepaction"]
->[Szybki Start: konwertowanie modelu do renderowania](../../quickstarts\convert-model.md)
+>[Szybki start: Konwertowanie modelu do renderowania](../../quickstarts\convert-model.md)

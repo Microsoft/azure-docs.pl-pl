@@ -8,11 +8,11 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/15/2019
 ms.openlocfilehash: c05db2d9ba184da89665a236994c851355cc2644
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127437"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019858"
 ---
 # <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Użyj pakietu NuGet pozostałej CI/CD Azure Stream Analytics na potrzeby integracji i programowania 
 W tym artykule opisano sposób użycia pakietu NuGet Azure Stream Analytics/CD w celu skonfigurowania ciągłego procesu integracji i wdrażania.
@@ -26,7 +26,7 @@ Dostępny jest pakiet NuGet: [Microsoft. Azure. Stream Analytics. CICD](https://
 Aby uzyskać więcej informacji, zobacz [Stream Analytics Tools for Visual Studio](./stream-analytics-quick-create-vs.md).
 
 ## <a name="msbuild"></a>MSBuild
-Podobnie jak w przypadku standardowego środowiska MSBuild programu Visual Studio, w celu utworzenia projektu dostępne są dwie opcje. Możesz kliknąć prawym przyciskiem myszy projekt, a następnie wybrać polecenie **Kompiluj** . Można również użyć programu **MSBuild** w pakiecie NuGet z wiersza polecenia.
+Podobnie jak w przypadku standardowego środowiska MSBuild programu Visual Studio, w celu utworzenia projektu dostępne są dwie opcje. Możesz kliknąć prawym przyciskiem myszy projekt, a następnie wybrać polecenie **Kompiluj**. Można również użyć programu **MSBuild** w pakiecie NuGet z wiersza polecenia.
 ```
 ./build/msbuild /t:build [Your Project Full Path] /p:CompilerTaskAssemblyFile=Microsoft.WindowsAzure.StreamAnalytics.Common.CompileService.dll  /p:ASATargetsFilePath="[NuGet Package Local Path]\build\StreamAnalytics.targets"
 
@@ -60,7 +60,7 @@ Aby użyć tożsamości zarządzanej dla Azure Data Lake Store Gen1 jako ujścia
 ## <a name="command-line-tool"></a>Narzędzie wiersza polecenia
 
 ### <a name="build-the-project"></a>Kompilowanie projektu
-Pakiet NuGet ma narzędzie wiersza polecenia o nazwie **SA.exe** . Obsługuje ona kompilację projektu i testowanie lokalne na dowolnym komputerze, którego można użyć w procesie ciągłej integracji i ciągłego dostarczania. 
+Pakiet NuGet ma narzędzie wiersza polecenia o nazwie **SA.exe**. Obsługuje ona kompilację projektu i testowanie lokalne na dowolnym komputerze, którego można użyć w procesie ciągłej integracji i ciągłego dostarczania. 
 
 Pliki wdrożenia są domyślnie umieszczane w bieżącym katalogu. Ścieżkę wyjściową można określić za pomocą następującego parametru-OutputPath:
 

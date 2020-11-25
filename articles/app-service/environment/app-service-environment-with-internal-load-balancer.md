@@ -8,11 +8,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: c4e5dedf2075a2e13cc91c5eed2c0f03ba498b97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962557"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021524"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Używanie wewnętrznego Load Balancer z App Service Environment
 
@@ -58,17 +58,17 @@ Tworzenie środowiska ILB ASE nie różni się od tworzenia w normalnych warunka
 
 W okienku Virtual Network jest dostępna opcja konfiguracji sieci wirtualnej, która umożliwia wybranie między zewnętrznym adresem VIP lub wewnętrznym adresem VIP. Wartość domyślna to Zewnętrzny. Jeśli jest ustawiona na zewnętrzny, środowisko ASE używa adresu VIP dostępnego z Internetu. W przypadku wybrania opcji Wewnętrzny środowisko ASE jest skonfigurowane z wewnętrznym modułem równoważenia obciążenia i adresem IP w sieci wirtualnej. 
 
-Po wybraniu opcji wewnętrzna możliwość dodawania większej liczby adresów IP do środowiska ASE jest usuwana, a zamiast tego należy udostępnić poddomenę ASE. W środowisku ASE z zewnętrznym adresem VIP Nazwa środowiska ASE jest używana w poddomenie dla aplikacji utworzonych w tym środowisku ASE. Jeśli środowisko ASE ma nazwę ***contosotest*** , a aplikacja w tym środowisku ASE nosi nazwę "Moje ***testy***", poddomena ma format ***contosotest.p.azurewebsites.NET*** i adres URL tej aplikacji to ***mytest.contosotest.p.azurewebsites.NET***. Jeśli ustawisz typ adresu VIP na wewnętrzny, Nazwa środowiska ASE nie zostanie użyta w poddomenie dla środowiska ASE. Należy jawnie określić poddomenę. Jeśli poddomeną jest ***contoso.Corp.NET*** , a aplikacja w tym środowisku ASE nosi nazwę ***raportowanieczasu***, adres URL dla tej aplikacji to ***timereporting.contoso.Corp.NET***.
+Po wybraniu opcji wewnętrzna możliwość dodawania większej liczby adresów IP do środowiska ASE jest usuwana, a zamiast tego należy udostępnić poddomenę ASE. W środowisku ASE z zewnętrznym adresem VIP Nazwa środowiska ASE jest używana w poddomenie dla aplikacji utworzonych w tym środowisku ASE. Jeśli środowisko ASE ma nazwę **_contosotest_* _, a aplikacja w tym środowisku ASE nosi nazwę "Moje _*_testy_*_", poddomena ma format _*_contosotest.p.azurewebsites.NET_*_ i adres URL dla tej aplikacji to _*_mytest.contosotest.p.azurewebsites.NET_*_. Jeśli ustawisz typ adresu VIP na wewnętrzny, Nazwa środowiska ASE nie zostanie użyta w poddomenie dla środowiska ASE. Należy jawnie określić poddomenę. Jeśli poddomeną jest _*_contoso.Corp.NET_*_ , a aplikacja w tym środowisku ASE nosi nazwę _*_raportowanieczasu_*_, adres URL dla tej aplikacji to _*_timereporting.contoso.Corp.NET_*_.
 
 ## <a name="apps-in-an-ilb-ase"></a>Aplikacje w środowisku ILB ASE
 Tworzenie aplikacji w środowisku ILB ASE jest takie samo jak w przypadku normalnego tworzenia aplikacji w środowisku ASE. 
 
-1. W Azure Portal wybierz pozycję **Utwórz zasób > Sieć Web + aplikacje mobilne > aplikacji sieci Web** lub **mobilnej** lub **interfejsu API**.
+1. W Azure Portal wybierz pozycję _ *Utwórz zasób > sieć Web + aplikacje mobilne-> Web** lub **Mobile** lub **aplikacja interfejsu API**.
 2. Wprowadź nazwę aplikacji.
 3. Wybierz subskrypcję.
 4. Wybierz lub utwórz grupę zasobów.
 5. Wybierz lub Utwórz plan App Service (ASP). W przypadku tworzenia nowego środowiska ASP Wybierz środowisko ASE jako lokalizację i wybierz pulę procesów roboczych, w której ma zostać utworzona wartość ASP. Podczas tworzenia środowiska ASP należy wybrać środowisko ASE jako lokalizację i pulę procesów roboczych. Po określeniu nazwy aplikacji zobaczysz, że poddomena w ramach nazwy aplikacji jest zastępowana poddomeną dla środowiska ASE. 
-6. Wybierz przycisk **Utwórz**. Zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego** , jeśli chcesz, aby aplikacja była wyświetlana na pulpicie nawigacyjnym. 
+6. Wybierz pozycję **Utwórz**. Zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego** , jeśli chcesz, aby aplikacja była wyświetlana na pulpicie nawigacyjnym. 
 
 ![Pokazuje, jak utworzyć aplikację w ILB ASE w Azure Portal.][2]
 
@@ -77,7 +77,7 @@ W obszarze Nazwa aplikacji nazwa poddomeny zostanie zaktualizowana w celu odzwie
 ## <a name="post-ilb-ase-creation-validation"></a>Sprawdzanie poprawności tworzenia ILB ASE
 Środowisko ASE z wewnętrznym modułem równoważenia obciążenia różni się nieco od wersji bez tego modułu. Jak już zauważono, musisz zarządzać własnym systemem DNS i należy również udostępnić własny certyfikat dla połączeń HTTPS. 
 
-Po utworzeniu środowiska ASE należy zauważyć, że poddomena zawiera określoną poddomenę, a w menu **Ustawienia** o nazwie **certyfikat ILB**jest dostępny nowy element. Środowisko ASE jest tworzone z certyfikatem z podpisem własnym, co ułatwia testowanie protokołu HTTPS. Portal informuje o tym, że musisz podać własny certyfikat dla protokołu HTTPS, ale ma to na celu zachęcanie do posiadania certyfikatu z poddomeną. 
+Po utworzeniu środowiska ASE należy zauważyć, że poddomena zawiera określoną poddomenę, a w menu **Ustawienia** o nazwie **certyfikat ILB** jest dostępny nowy element. Środowisko ASE jest tworzone z certyfikatem z podpisem własnym, co ułatwia testowanie protokołu HTTPS. Portal informuje o tym, że musisz podać własny certyfikat dla protokołu HTTPS, ale ma to na celu zachęcanie do posiadania certyfikatu z poddomeną. 
 
 ![Pokazuje poddomenę określoną podczas tworzenia środowiska ASE.][3]
 

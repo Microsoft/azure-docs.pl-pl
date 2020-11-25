@@ -9,17 +9,17 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/10/2020
 ms.openlocfilehash: 0941e3d5141b5b8841f5d37e3db0d0b1b1474547
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130276"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019824"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Analiza opinii w usłudze Twitter w czasie rzeczywistym za pomocą usługi Azure Stream Analytics
 
 W tym artykule przedstawiono sposób tworzenia rozwiązania do analizy mediów społecznościowych tonacji przez umieszczenie zdarzeń w czasie rzeczywistym w usłudze Azure Event Hubs. Napisz Azure Stream Analytics zapytanie, aby analizować dane i przechowywać wyniki do późniejszego użycia, lub utworzyć pulpit nawigacyjny [Power BI](https://powerbi.com/) , aby uzyskać wgląd w dane w czasie rzeczywistym.
 
-Narzędzia analizy mediów społecznościowych pomagają organizacjom zrozumieć tematy trendów. Trendy dotyczące trendów to tematy i stanowiska, które mają wysoką ilość ogłoszeń na mediach społecznościowych. Analiza tonacji, która jest również nazywana *opinią* , używa narzędzi analitycznych mediów społecznościowych do określenia postanowień w kierunku produktu lub pomysłu. 
+Narzędzia analizy mediów społecznościowych pomagają organizacjom zrozumieć tematy trendów. Trendy dotyczące trendów to tematy i stanowiska, które mają wysoką ilość ogłoszeń na mediach społecznościowych. Analiza tonacji, która jest również nazywana *opinią*, używa narzędzi analitycznych mediów społecznościowych do określenia postanowień w kierunku produktu lub pomysłu. 
 
 Analiza trendów w czasie rzeczywistym jest doskonałym przykładem narzędzia analitycznego, ponieważ model subskrypcji hasztagów pozwala na nasłuchiwanie określonych słów kluczowych (hasztagów) i opracowywanie analizy tonacjii źródła danych.
 
@@ -48,34 +48,34 @@ Przykładowa aplikacja generuje zdarzenia i wypycha je do centrum zdarzeń platf
 ### <a name="create-an-event-hub-namespace-and-event-hub"></a>Tworzenie centrum zdarzeń w przestrzeni nazw i centrum zdarzeń
 W tej sekcji utworzysz przestrzeń nazw centrum zdarzeń i dodasz centrum zdarzeń do tej przestrzeni nazw. Przestrzenie nazw centrum zdarzeń są używane do logicznego pogrupowania powiązanych wystąpień magistrali zdarzeń. 
 
-1. Zaloguj się do Azure Portal i wybierz pozycję **Utwórz zasób** . Następnie. Wyszukaj **Event Hubs** a następnie wybierz pozycję **Utwórz** .
+1. Zaloguj się do Azure Portal i wybierz pozycję **Utwórz zasób**. Następnie. Wyszukaj **Event Hubs** a następnie wybierz pozycję **Utwórz**.
 
 2. Na stronie **Tworzenie przestrzeni nazw** wprowadź nazwę przestrzeni nazw. Możesz użyć dowolnej nazwy dla przestrzeni nazw, ale nazwa musi być prawidłowa dla adresu URL i musi być unikatowa na platformie Azure. 
     
-3. Wybierz warstwę cenową i subskrypcję, a następnie Utwórz lub wybierz grupę zasobów. Następnie wybierz lokalizację i wybierz pozycję **Utwórz** . 
+3. Wybierz warstwę cenową i subskrypcję, a następnie Utwórz lub wybierz grupę zasobów. Następnie wybierz lokalizację i wybierz pozycję **Utwórz**. 
  
 4. Po zakończeniu wdrażania obszaru nazw przejdź do grupy zasobów i Znajdź przestrzeń nazw centrum zdarzeń na liście zasobów platformy Azure. 
 
-5. Z nowej przestrzeni nazw wybierz pozycję **+ &nbsp; centrum zdarzeń** . 
+5. Z nowej przestrzeni nazw wybierz pozycję **+ &nbsp; centrum zdarzeń**. 
 
-6. Nazwij nowe centrum zdarzeń *socialtwitter-EH* . Możesz użyć innej nazwy. Jeśli to zrobisz, zanotuj je, ponieważ potrzebujesz tej nazwy później. Nie trzeba ustawiać żadnych innych opcji centrum zdarzeń.
+6. Nazwij nowe centrum zdarzeń *socialtwitter-EH*. Możesz użyć innej nazwy. Jeśli to zrobisz, zanotuj je, ponieważ potrzebujesz tej nazwy później. Nie trzeba ustawiać żadnych innych opcji centrum zdarzeń.
  
-7. Wybierz pozycję **Utwórz** .
+7. Wybierz pozycję **Utwórz**.
 
 ### <a name="grant-access-to-the-event-hub"></a>Udzielanie dostępu do centrum zdarzeń
 
 Aby proces mógł wysyłać dane do centrum zdarzeń, centrum zdarzeń musi mieć zasady zezwalające na dostęp. Zasady dostępu generują parametry połączenia, które zawierają informacje o autoryzacji.
 
-1.  Na pasku nawigacyjnym po lewej stronie przestrzeni nazw centrów zdarzeń wybierz pozycję **Event Hubs** , która znajduje się w sekcji **jednostki** . Następnie wybierz właśnie utworzony centrum zdarzeń.
+1.  Na pasku nawigacyjnym po lewej stronie przestrzeni nazw centrów zdarzeń wybierz pozycję **Event Hubs**, która znajduje się w sekcji **jednostki** . Następnie wybierz właśnie utworzony centrum zdarzeń.
 
-2.  Na pasku nawigacyjnym po lewej stronie wybierz pozycję **zasady dostępu współdzielonego** w obszarze **Ustawienia** .
+2.  Na pasku nawigacyjnym po lewej stronie wybierz pozycję **zasady dostępu współdzielonego** w obszarze **Ustawienia**.
 
     >[!NOTE]
     >W obszarze dla przestrzeni nazw centrum zdarzeń i centrum zdarzeń jest dostępna opcja zasad dostępu współdzielonego. Upewnij się, że Pracujesz w kontekście centrum zdarzeń, a nie do ogólnej przestrzeni nazw centrum zdarzeń.
 
-3.  Na stronie zasady dostępu wybierz pozycję **+ Dodaj** . Następnie wprowadź *socialtwitter — dostęp* do **nazwy zasad** i zaznacz pole wyboru **Zarządzaj** .
+3.  Na stronie zasady dostępu wybierz pozycję **+ Dodaj**. Następnie wprowadź *socialtwitter — dostęp* do **nazwy zasad** i zaznacz pole wyboru **Zarządzaj** .
  
-4.  Wybierz pozycję **Utwórz** .
+4.  Wybierz pozycję **Utwórz**.
 
 5.  Po wdrożeniu zasad wybierz zasady z listy zasad dostępu współdzielonego.
 
@@ -104,15 +104,15 @@ Jeśli nie masz jeszcze aplikacji usługi Twitter, której możesz użyć do teg
 > [!NOTE]
 > Dokładny proces w serwisie Twitter służący do tworzenia aplikacji i uzyskiwania kluczy, wpisów tajnych i tokenu może ulec zmianie. Jeśli te instrukcje nie pasują do zawartości widocznej w witrynie Twitter, zapoznaj się z dokumentacją dla deweloperów w usłudze Twitter.
 
-1. W przeglądarce internetowej przejdź do usługi [Twitter dla deweloperów](https://developer.twitter.com/en/apps), Utwórz konto dewelopera i wybierz pozycję **Utwórz aplikację** . Może zostać wyświetlony komunikat informujący o konieczności zastosowania konta dewelopera usługi Twitter. Możesz to zrobić bezpłatnie, a po zatwierdzeniu aplikacji powinna zostać wyświetlona wiadomość e-mail z potwierdzeniem. Zatwierdzenie konta dewelopera może potrwać kilka dni.
+1. W przeglądarce internetowej przejdź do usługi [Twitter dla deweloperów](https://developer.twitter.com/en/apps), Utwórz konto dewelopera i wybierz pozycję **Utwórz aplikację**. Może zostać wyświetlony komunikat informujący o konieczności zastosowania konta dewelopera usługi Twitter. Możesz to zrobić bezpłatnie, a po zatwierdzeniu aplikacji powinna zostać wyświetlona wiadomość e-mail z potwierdzeniem. Zatwierdzenie konta dewelopera może potrwać kilka dni.
 
    ![Zrzut ekranu przedstawia przycisk Utwórz aplikację.](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "Szczegóły aplikacji usługi Twitter")
 
-2. Na stronie **Create an application (Tworzenie aplikacji)** podaj szczegóły nowej aplikacji, a następnie wybierz pozycję **Create your Twitter application (Utwórz aplikację usługi Twitter)** .
+2. Na stronie **Create an application (Tworzenie aplikacji)** podaj szczegóły nowej aplikacji, a następnie wybierz pozycję **Create your Twitter application (Utwórz aplikację usługi Twitter)**.
 
    ![Zrzut ekranu przedstawia okienko szczegółów aplikacji, w którym można wprowadzać wartości dla aplikacji.](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details-create.png "Szczegóły aplikacji usługi Twitter")
 
-3. Na stronie aplikacja wybierz kartę **klucze i tokeny** , a następnie skopiuj wartości **klucza interfejsu API klienta** i **klucza tajnego interfejsu API konsumenta** . Ponadto w celu wygenerowania tokenów dostępu wybierz pozycję **Utwórz** w obszarze **klucz dostępu token i dostęp do klucza tajnego tokenu** dostępu. Skopiuj wartości pól **Access Token (Token dostępu)** i **Access Token Secret (Klucz tajny tokenu dostępu)** .
+3. Na stronie aplikacja wybierz kartę **klucze i tokeny** , a następnie skopiuj wartości **klucza interfejsu API klienta** i **klucza tajnego interfejsu API konsumenta**. Ponadto w celu wygenerowania tokenów dostępu wybierz pozycję **Utwórz** w obszarze **klucz dostępu token i dostęp do klucza tajnego tokenu** dostępu. Skopiuj wartości pól **Access Token (Token dostępu)** i **Access Token Secret (Klucz tajny tokenu dostępu)**.
 
    Zapisz wartości dotyczące aplikacji usługi Twitter. Potrzebujesz wartości później.
 
@@ -142,29 +142,29 @@ Przed uruchomieniem aplikacji wymagane są pewne informacje, takie jak klucze se
 
 Teraz, gdy zdarzenia tweetu są przesyłane strumieniowo w czasie rzeczywistym z serwisu Twitter, można skonfigurować zadanie Stream Analytics, aby analizować te zdarzenia w czasie rzeczywistym.
 
-1. W Azure Portal przejdź do grupy zasobów, a następnie wybierz pozycję **+ Dodaj** . Następnie wyszukaj **zadanie Stream Analytics** i wybierz pozycję **Utwórz** .
+1. W Azure Portal przejdź do grupy zasobów, a następnie wybierz pozycję **+ Dodaj**. Następnie wyszukaj **zadanie Stream Analytics** i wybierz pozycję **Utwórz**.
 
 2. Nazwij zadanie `socialtwitter-sa-job` i określ subskrypcję, grupę zasobów i lokalizację.
 
     Dobrym pomysłem jest umieszczenie zadania i centrum zdarzeń w tym samym regionie w celu uzyskania najlepszej wydajności, aby nie zapłaciła za transfer danych między regionami.
 
-3. Wybierz pozycję **Utwórz** . Następnie przejdź do zadania po zakończeniu wdrożenia.
+3. Wybierz pozycję **Utwórz**. Następnie przejdź do zadania po zakończeniu wdrożenia.
 
 ## <a name="specify-the-job-input"></a>Określ dane wejściowe zadania
 
-1. W zadaniu Stream Analytics wybierz pozycję **dane wejściowe** z menu po lewej stronie w obszarze **topologia zadania** .
+1. W zadaniu Stream Analytics wybierz pozycję **dane wejściowe** z menu po lewej stronie w obszarze **topologia zadania**.
 
-2. Wybierz pozycję Dodaj centrum zdarzeń **+ &nbsp; wejścia strumienia**  >  **Event Hub** . Wypełnij nowy formularz **wejściowy** z następującymi informacjami:
+2. Wybierz pozycję Dodaj centrum zdarzeń **+ &nbsp; wejścia strumienia**  >  **Event Hub**. Wypełnij nowy formularz **wejściowy** z następującymi informacjami:
 
    |**Ustawienie**  |**Sugerowana wartość**  |**Opis**  |
    |---------|---------|---------|
    |Alias danych wejściowych| *TwitterStream* | Wprowadź alias dla danych wejściowych. |
    |Subskrypcja  | \<Your subscription\> |  Wybierz subskrypcję platformy Azure, której chcesz użyć. |
    |Przestrzeń nazw centrum zdarzeń | *ASA-Twitter-eventhub* |
-   |Nazwa centrum zdarzeń | *socialtwitter — EH* | Wybierz pozycję *Użyj istniejącej* . Następnie wybierz utworzony centrum zdarzeń.|
+   |Nazwa centrum zdarzeń | *socialtwitter — EH* | Wybierz pozycję *Użyj istniejącej*. Następnie wybierz utworzony centrum zdarzeń.|
    |Typ kompresji zdarzenia| GZip | Typ kompresji danych.|
 
-   Pozostaw pozostałe wartości domyślne i wybierz pozycję **Zapisz** .
+   Pozostaw pozostałe wartości domyślne i wybierz pozycję **Zapisz**.
 
 ## <a name="specify-the-job-query"></a>Określ zapytanie dotyczące zadania
 
@@ -181,11 +181,11 @@ Aby porównać liczbę wzmianki między tematami, można użyć [okna wirowania]
    FROM TwitterStream
    ```
 
-3. Dane zdarzenia z komunikatów powinny pojawić się w oknie **podglądu danych wejściowych** poniżej zapytania. Upewnij się, że **Widok** jest ustawiony na **Format JSON** . Jeśli nie widzisz żadnych danych, upewnij się, że Generator danych wysyła zdarzenia do centrum zdarzeń i że wybrano **gzip** jako typ kompresji dla danych wejściowych.
+3. Dane zdarzenia z komunikatów powinny pojawić się w oknie **podglądu danych wejściowych** poniżej zapytania. Upewnij się, że **Widok** jest ustawiony na **Format JSON**. Jeśli nie widzisz żadnych danych, upewnij się, że Generator danych wysyła zdarzenia do centrum zdarzeń i że wybrano **gzip** jako typ kompresji dla danych wejściowych.
 
 4. Wybierz **kwerendę testową** i zwróć uwagę na wyniki w oknie **wyników testu** poniżej zapytania.
 
-5. Zmień zapytanie w edytorze kodu na następujące i wybierz **zapytanie testowe** :
+5. Zmień zapytanie w edytorze kodu na następujące i wybierz **zapytanie testowe**:
 
    ```sql
    SELECT System.Timestamp as Time, text
@@ -193,7 +193,7 @@ Aby porównać liczbę wzmianki między tematami, można użyć [okna wirowania]
    WHERE text LIKE '%Azure%'
    ```
 
-6. To zapytanie zwraca wszystkie tweety, które zawierają słowo kluczowe *Azure* .
+6. To zapytanie zwraca wszystkie tweety, które zawierają słowo kluczowe *Azure*.
 
 ## <a name="create-an-output-sink"></a>Tworzenie ujścia danych wyjściowych
 
@@ -203,16 +203,16 @@ W tym przewodniku krok po kroku napiszesz zagregowane zdarzenia tweetu z kwerend
 
 ## <a name="specify-the-job-output"></a>Określ dane wyjściowe zadania
 
-1. W sekcji **topologia zadania** w menu nawigacji po lewej stronie wybierz pozycję dane **wyjściowe** . 
+1. W sekcji **topologia zadania** w menu nawigacji po lewej stronie wybierz pozycję dane **wyjściowe**. 
 
-2. Na stronie dane **wyjściowe** kliknij pozycje **+ &nbsp; Dodaj** i **Magazyn obiektów BLOB/Data Lake Storage Gen2** :
+2. Na stronie dane **wyjściowe** kliknij pozycje **+ &nbsp; Dodaj** i **Magazyn obiektów BLOB/Data Lake Storage Gen2**:
 
-   * **Alias wyjściowy** : Użyj nazwy `TwitterStream-Output` . 
-   * **Opcje importowania** : Wybierz **pozycję Wybierz magazyn z subskrypcji** .
-   * **Konto magazynu** . Wybierz swoje konto magazynu.
-   * **Kontener** . Wybierz pozycję **Utwórz nowy** i wprowadź `socialtwitter` .
+   * **Alias wyjściowy**: Użyj nazwy `TwitterStream-Output` . 
+   * **Opcje importowania**: Wybierz **pozycję Wybierz magazyn z subskrypcji**.
+   * **Konto magazynu**. Wybierz swoje konto magazynu.
+   * **Kontener**. Wybierz pozycję **Utwórz nowy** i wprowadź `socialtwitter` .
    
-4. Wybierz pozycję **Zapisz** .   
+4. Wybierz pozycję **Zapisz**.   
 
 ## <a name="start-the-job"></a>Uruchamianie zadania
 
@@ -220,9 +220,9 @@ Określono dane wejściowe zadania, zapytania i wyjścia. Możesz przystąpić d
 
 1. Upewnij się, że aplikacja TwitterClientCore jest uruchomiona. 
 
-2. W obszarze przegląd zadania wybierz pozycję **Rozpocznij** .
+2. W obszarze przegląd zadania wybierz pozycję **Rozpocznij**.
 
-3. Na stronie **Uruchamianie zadania** , w polu **czas rozpoczęcia zadania** , wybierz pozycję **teraz** , a następnie wybierz pozycję **Uruchom** .
+3. Na stronie **Uruchamianie zadania** , w polu **czas rozpoczęcia zadania**, wybierz pozycję **teraz** , a następnie wybierz pozycję **Uruchom**.
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 Aby uzyskać dalszą pomoc, Wypróbuj naszą [stronę pytań firmy&Microsoft dotyczącą Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).

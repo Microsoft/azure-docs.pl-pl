@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 10/15/2020
 ms.author: cherylmc
 ms.openlocfilehash: 325f39b695d80c14ed7097d071380b937458546c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150430"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021490"
 ---
 # <a name="quickstart-connect-to-a-vm-securely-through-a-browser-via-private-ip-address"></a>Szybki Start: łączenie z maszyną wirtualną bezpiecznie za pośrednictwem przeglądarki za pomocą prywatnego adresu IP
 
@@ -47,7 +47,7 @@ Podczas tworzenia tej konfiguracji można użyć następujących przykładowych 
 | --- | --- |
 | Maszyna wirtualna| TestVM |
 | Grupa zasobów | TestRG |
-| Region | East US |
+| Region (Region) | East US |
 | Sieć wirtualna | TestVNet1 |
 | Przestrzeń adresowa | 10.0.0.0/16 |
 | Podsieci | Fronton: 10.0.0.0/24 |
@@ -75,7 +75,7 @@ Istnieje kilka różnych sposobów konfigurowania hosta bastionu. W poniższych 
 1. Z listy rozwijanej wybierz pozycję **bastionu**.
 1. Na **TestVM | Połącz się ze stroną**, wybierz pozycję **Użyj bastionu**.
 
-   :::image type="content" source="./media/quickstart-host-portal/select-bastion.png" alt-text="ustawienia maszyny wirtualnej" border="false":::
+   :::image type="content" source="./media/quickstart-host-portal/select-bastion.png" alt-text="Wybierz bastionu" border="false":::
 
 1. Na stronie **bastionu** wypełnij następujące pola ustawień:
 
@@ -84,20 +84,20 @@ Istnieje kilka różnych sposobów konfigurowania hosta bastionu. W poniższych 
    * Wybierz pozycję **Zarządzaj konfiguracją podsieci**.
 1. Na stronie **podsieci** wybierz pozycję **+ podsieć**.
 
-   :::image type="content" source="./media/quickstart-host-portal/subnet.png" alt-text="ustawienia maszyny wirtualnej":::
+   :::image type="content" source="./media/quickstart-host-portal/subnet.png" alt-text="+ Podsieć":::
     
 1. Na stronie **Dodawanie podsieci** wpisz **nazwę** **AzureBastionSubnet**.
    * W polu Zakres adresów podsieci wybierz adres podsieci znajdujący się w przestrzeni adresowej sieci wirtualnej.
    * Nie dostosowuj żadnych innych ustawień. Wybierz **przycisk OK** , aby zaakceptować i zapisać zmiany w podsieci.
 
-   :::image type="content" source="./media/quickstart-host-portal/add-subnet.png" alt-text="ustawienia maszyny wirtualnej":::
+   :::image type="content" source="./media/quickstart-host-portal/add-subnet.png" alt-text="Dodaj podsieć":::
 1. Kliknij przycisk Wstecz w przeglądarce, aby przejść z powrotem do strony **bastionu** , i Kontynuuj Określanie wartości.
    * **Publiczny adres IP**: pozostaw to pole **Utwórz nowy**.
    * **Nazwa publicznego adresu IP**: nazwa zasobu publicznego adresu IP.
    * **Przypisanie**: wartość domyślna to static. Nie można użyć dynamicznego przypisywania dla usługi Azure bastionu.
    * **Grupa zasobów**: ta sama Grupa zasobów co maszyna wirtualna.
 
-   :::image type="content" source="./media/quickstart-host-portal/validate.png" alt-text="ustawienia maszyny wirtualnej":::
+   :::image type="content" source="./media/quickstart-host-portal/validate.png" alt-text="Tworzenie hosta bastionu":::
 1. Wybierz pozycję **Utwórz** , aby utworzyć hosta bastionu. Platforma Azure weryfikuje ustawienia, a następnie tworzy hosta. Tworzenie i wdrażanie hosta i jego zasobów trwa około 5 minut.
 
 ## <a name="connect"></a><a name="connect"></a>Połącz
@@ -106,10 +106,10 @@ Po wdrożeniu bastionu w sieci wirtualnej, ekran zmieni się na stronę Połącz
 
 1. Wpisz nazwę użytkownika i hasło dla swojej maszyny wirtualnej. Następnie wybierz pozycję **Połącz**.
 
-   :::image type="content" source="./media/quickstart-host-portal/connect-vm.png" alt-text="ustawienia maszyny wirtualnej":::
+   :::image type="content" source="./media/quickstart-host-portal/connect-vm.png" alt-text="Zrzut ekranu przedstawia okno dialogowe nawiązywanie połączenia przy użyciu usługi Azure bastionu.":::
 1. Połączenie RDP z tą maszyną wirtualną zostanie otwarte bezpośrednio w Azure Portal (za pośrednictwem HTML5) przy użyciu portu 443 i usługi bastionu.
 
-   :::image type="content" source="./media/quickstart-host-portal/connected.png" alt-text="ustawienia maszyny wirtualnej":::
+   :::image type="content" source="./media/quickstart-host-portal/connected.png" alt-text="Połączenie RDP":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

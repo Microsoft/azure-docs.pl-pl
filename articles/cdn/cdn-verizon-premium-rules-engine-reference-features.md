@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 06/02/2020
 ms.author: allensu
 ms.openlocfilehash: 0ea4f167b992ccfbc4156ac06c8f636d2ef4a355
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84343204"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020419"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Azure CDN z funkcji aparatu reguł Verizon Premium
 
@@ -35,7 +35,7 @@ Dostępne typy funkcji to:
 * [Adres URL](#url)
 * [Web Application Firewall](#waf)
 
-### <a name="access"></a><a name="access"></a>Dostęp
+### <a name="access"></a><a name="access"></a>Access
 
 Te funkcje zostały zaprojektowane w celu kontrolowania dostępu do zawartości.
 
@@ -59,7 +59,7 @@ Te funkcje zostały zaprojektowane w celu dostosowania, kiedy i w jaki sposób z
 | [Ograniczanie przepustowości](https://docs.vdms.com/cdn/Content/HRE/F/Bandwidth-Throttling.htm) | Ogranicza przepustowość odpowiedzi udostępnionej przez serwery brzegowe. |
 | [Pomiń pamięć podręczną](https://docs.vdms.com/cdn/Content/HRE/F/Bypass-Cache.htm) | Określa, czy żądanie może korzystać z naszej technologii buforowania. |
 | [Przetwarzanie nagłówka kontroli pamięci podręcznej](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Control-Header-Treatment.htm) |  Steruje generowaniem nagłówków Cache-Control przez serwer graniczny, gdy funkcja Max-Age zewnętrzna jest aktywna. |
-| [Ciąg zapytania klucza pamięci podręcznej](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Query-String.htm) | Określa, czy **klucz pamięci podręcznej*** zostanie uwzględniony lub wykluczony parametry ciągu zapytania skojarzone z żądaniem. <br> _* Ścieżka względna, która jednoznacznie identyfikuje element zawartości na potrzeby buforowania.  Nasze serwery brzegowe używają tej ścieżki względnej podczas sprawdzania zawartości w pamięci podręcznej.  Domyślnie klucz pamięci podręcznej nie będzie zawierał parametrów ciągu zapytania._ |
+| [Ciąg zapytania klucza pamięci podręcznej](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Query-String.htm) | Określa, czy **klucz pamięci podręcznej** _ będzie uwzględniał lub wyklucza parametry ciągu zapytania skojarzone z żądaniem. <br> __ Ścieżka względna, która jednoznacznie identyfikuje zasób na potrzeby buforowania.  Nasze serwery brzegowe używają tej ścieżki względnej podczas sprawdzania zawartości w pamięci podręcznej.  Domyślnie klucz pamięci podręcznej nie będzie zawierał ciągu zapytania parameters._ |
 | [Pamięć podręczna — ponowne zapisywanie klucza](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Rewrite.htm) | Ponownie zapisuje klucz pamięci podręcznej skojarzony z żądaniem. |
 | [Wypełnienie kompletnej pamięci podręcznej](https://docs.vdms.com/cdn/Content/HRE/F/Complete-Cache-Fill.htm) | Określa, co się dzieje, gdy żądanie spowoduje przeznaczenie częściowej pamięci podręcznej na serwerze brzegowym. |
 | [Kompresuj typy plików](https://docs.vdms.com/cdn/Content/HRE/F/Compress-File-Types.htm) | Definiuje formaty plików, które zostaną skompresowane na serwerze. | 
@@ -161,7 +161,7 @@ Te funkcje umożliwiają przekierowanie lub zapisanie żądania w innym adresie 
 
 **[Powrót do początku](#top)**
 
-### <a name="web-application-firewall"></a><a name="waf"></a>Zapora aplikacji internetowej
+### <a name="web-application-firewall"></a><a name="waf"></a>Web Application Firewall
 
 Funkcja [Zapora aplikacji sieci Web](https://docs.vdms.com/cdn/Content/HRE/F/Web_Application_Firewall.htm) określa, czy żądanie będzie sprawdzane przez zaporę aplikacji sieci Web.
 

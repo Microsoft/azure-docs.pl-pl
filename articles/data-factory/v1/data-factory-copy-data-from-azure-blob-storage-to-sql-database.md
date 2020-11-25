@@ -14,19 +14,19 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 15bce219b96268124729de2f475e33fc386348a8
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631737"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021218"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Samouczek: kopiowanie danych z Blob Storage do SQL Database przy użyciu Data Factory
 > [!div class="op_single_selector"]
 > * [Przegląd i wymagania wstępne](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Kreator kopiowania](data-factory-copy-data-wizard-tutorial.md)
-> * [Program Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-> * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-> * [Szablon usługi Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+> * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+> * [Program PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+> * [Szablon Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [Interfejs API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [Interfejs API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
@@ -45,42 +45,42 @@ Działanie kopiowania wykonuje operację przenoszenia danych w usłudze Azure Da
 ## <a name="prerequisites-for-the-tutorial"></a>Wymagania wstępne dotyczące samouczka
 Przed rozpoczęciem pracy z tym samouczkiem należy spełnić następujące wymagania wstępne:
 
-* **Subskrypcja platformy Azure** .  Jeśli nie masz subskrypcji, możesz utworzyć konto bezpłatnej wersji próbnej w zaledwie kilka minut. Szczegółowe informacje można znaleźć w artykule dotyczącym [bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/) .
-* **Konto usługi Azure Storage** . Magazyn obiektów BLOB jest używany jako magazyn danych **źródłowych** w tym samouczku. Jeśli nie masz konta usługi Azure Storage, zapoznaj się z artykułem [Tworzenie konta magazynu](../../storage/common/storage-account-create.md) , aby dowiedzieć się, jak go utworzyć.
-* **Azure SQL Database** . W tym samouczku używasz Azure SQL Database jako **docelowego** magazynu danych. Jeśli nie masz bazy danych w Azure SQL Database, której można użyć w samouczku, zobacz [jak utworzyć i skonfigurować bazę danych w Azure SQL Database](../../azure-sql/database/single-database-create-quickstart.md) , aby ją utworzyć.
-* **SQL Server 2012/2014 lub Visual Studio 2013** . Za pomocą SQL Server Management Studio lub Visual Studio można utworzyć przykładową bazę danych i wyświetlić dane wynikowe w bazie danych.  
+* **Subskrypcja platformy Azure**.  Jeśli nie masz subskrypcji, możesz utworzyć konto bezpłatnej wersji próbnej w zaledwie kilka minut. Szczegółowe informacje można znaleźć w artykule dotyczącym [bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/) .
+* **Konto usługi Azure Storage**. Magazyn obiektów BLOB jest używany jako magazyn danych **źródłowych** w tym samouczku. Jeśli nie masz konta usługi Azure Storage, zapoznaj się z artykułem [Tworzenie konta magazynu](../../storage/common/storage-account-create.md) , aby dowiedzieć się, jak go utworzyć.
+* **Azure SQL Database**. W tym samouczku używasz Azure SQL Database jako **docelowego** magazynu danych. Jeśli nie masz bazy danych w Azure SQL Database, której można użyć w samouczku, zobacz [jak utworzyć i skonfigurować bazę danych w Azure SQL Database](../../azure-sql/database/single-database-create-quickstart.md) , aby ją utworzyć.
+* **SQL Server 2012/2014 lub Visual Studio 2013**. Za pomocą SQL Server Management Studio lub Visual Studio można utworzyć przykładową bazę danych i wyświetlić dane wynikowe w bazie danych.  
 
 ## <a name="collect-blob-storage-account-name-and-key"></a>Zbierz nazwę i klucz konta magazynu obiektów BLOB
 Do wykonania tego samouczka potrzebna jest nazwa konta i klucz konta usługi Azure Storage. Zanotuj **nazwę konta** i **klucz konta** dla konta usługi Azure Storage.
 
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
-2. W menu po lewej stronie kliknij pozycję **wszystkie usługi** , a następnie wybierz pozycję **konta magazynu** .
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
+2. W menu po lewej stronie kliknij pozycję **wszystkie usługi** , a następnie wybierz pozycję **konta magazynu**.
 
     ![Przeglądanie kont magazynu](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png)
 3. W bloku **konta magazynu** wybierz **konto usługi Azure Storage** , którego chcesz użyć w tym samouczku.
 4. W obszarze **Ustawienia** wybierz pozycję **klucze dostępu** .
 5. Kliknij przycisk **Kopiuj** (obraz) obok pola tekstowego **nazwa konta magazynu** i Zapisz/wklej go w dowolnym miejscu (na przykład w pliku tekstowym).
-6. Powtórz poprzedni krok, aby skopiować lub zanotować **Klucz1** .
+6. Powtórz poprzedni krok, aby skopiować lub zanotować **Klucz1**.
 
     ![Klucz dostępu do magazynu](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
-7. Zamknij wszystkie bloki, klikając przycisk **X** .
+7. Zamknij wszystkie bloki, klikając przycisk **X**.
 
 ## <a name="collect-sql-server-database-user-names"></a>Zbierz dane programu SQL Server, bazy danych, nazwy użytkowników
-Do wykonania tego samouczka potrzebne są nazwy logicznego serwera SQL, bazy danych i użytkownika. Zanotuj nazwy **serwerów** , **baz danych** i **użytkownika** Azure SQL Database.
+Do wykonania tego samouczka potrzebne są nazwy logicznego serwera SQL, bazy danych i użytkownika. Zanotuj nazwy **serwerów**, **baz danych** i **użytkownika** Azure SQL Database.
 
-1. W **Azure Portal** kliknij pozycję **wszystkie usługi** po lewej stronie, a następnie wybierz pozycję **bazy danych SQL** .
-2. W **bloku bazy danych SQL** wybierz **bazę danych** , która ma być używana w tym samouczku. Zanotuj **nazwę bazy danych** .  
-3. W bloku **bazy danych SQL** kliknij pozycję **Właściwości** w obszarze **Ustawienia** .
-4. Zanotuj wartości w polu **Nazwa serwera** i **Identyfikator logowania administratora serwera** .
-5. Zamknij wszystkie bloki, klikając przycisk **X** .
+1. W **Azure Portal** kliknij pozycję **wszystkie usługi** po lewej stronie, a następnie wybierz pozycję **bazy danych SQL**.
+2. W **bloku bazy danych SQL** wybierz **bazę danych** , która ma być używana w tym samouczku. Zanotuj **nazwę bazy danych**.  
+3. W bloku **bazy danych SQL** kliknij pozycję **Właściwości** w obszarze **Ustawienia**.
+4. Zanotuj wartości w polu **Nazwa serwera** i **Identyfikator logowania administratora serwera**.
+5. Zamknij wszystkie bloki, klikając przycisk **X**.
 
 ## <a name="allow-azure-services-to-access-sql-server"></a>Zezwalaj usługom platformy Azure na dostęp do programu SQL Server
 Upewnij się, że ustawienie **Zezwalaj na dostęp do usług platformy Azure** **jest włączone dla** serwera, aby usługa Data Factory mogła uzyskać dostęp do serwera. W celu sprawdzenia i włączenia tego ustawienia wykonaj następujące kroki:
 
-1. Kliknij pozycję **wszystkie centrum usług** po lewej stronie, a następnie kliknij pozycję **serwery SQL** .
-2. Wybierz swój serwer, a następnie kliknij przycisk **Zapora** w obszarze **USTAWIENIA** .
-3. W bloku **Ustawienia zapory** kliknij pozycję **WŁĄCZ** dla ustawienia **Zezwalaj na dostęp do usług Azure** .
-4. Zamknij wszystkie bloki, klikając przycisk **X** .
+1. Kliknij pozycję **wszystkie centrum usług** po lewej stronie, a następnie kliknij pozycję **serwery SQL**.
+2. Wybierz swój serwer, a następnie kliknij przycisk **Zapora** w obszarze **USTAWIENIA**.
+3. W bloku **Ustawienia zapory** kliknij pozycję **WŁĄCZ** dla ustawienia **Zezwalaj na dostęp do usług Azure**.
+4. Zamknij wszystkie bloki, klikając przycisk **X**.
 
 ## <a name="prepare-blob-storage-and-sql-database"></a>Przygotuj Blob Storage i SQL Database
 Teraz przygotuj magazyn obiektów blob platformy Azure i Azure SQL Database dla tego samouczka, wykonując następujące czynności:  
@@ -115,9 +115,9 @@ Teraz przygotuj magazyn obiektów blob platformy Azure i Azure SQL Database dla 
 Wymagania wstępne zostały spełnione. Fabrykę danych można utworzyć, korzystając z jednego z następujących sposobów. Kliknij jedną z opcji na liście rozwijanej u góry lub poniższe linki, aby wykonać samouczek.     
 
 * [Kreator kopiowania](data-factory-copy-data-wizard-tutorial.md)
-* [Program Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-* [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-* [Szablon usługi Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+* [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+* [Program PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+* [Szablon Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 * [Interfejs API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 * [Interfejs API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 

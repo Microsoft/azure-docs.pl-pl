@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: 895c8e51e16cb0b82ebf3edcf954dabe62b08ff4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537136"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021779"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>Tworzenie reguł zapory Azure Database for MariaDB i zarządzanie nimi za pomocą Azure Portal
 Reguły zapory na poziomie serwera mogą służyć do zarządzania dostępem do serwera Azure Database for MariaDB z określonego adresu IP lub zakresu adresów IP.
@@ -49,10 +49,10 @@ Aby umożliwić aplikacjom z platformy Azure Łączenie się z serwerem Azure Da
 
 ## <a name="manage-existing-firewall-rules-in-the-azure-portal"></a>Zarządzanie istniejącymi regułami zapory w Azure Portal
 Powtórz kroki, aby zarządzać regułami zapory.
-* Aby dodać bieżący komputer, kliknij przycisk **+ Dodaj mój adres IP**. Kliknij przycisk **Zapisz** , aby zapisać zmiany.
-* Aby dodać dodatkowe adresy IP, wpisz **nazwę reguły** , **początkowy adres IP** i **końcowy adres IP**. Kliknij przycisk **Zapisz** , aby zapisać zmiany.
-* Aby zmodyfikować istniejącą regułę, kliknij dowolne pole w regule, a następnie zmodyfikuj. Kliknij przycisk **Zapisz** , aby zapisać zmiany.
-* Aby usunąć istniejącą regułę, kliknij przycisk wielokropka [...], a następnie kliknij przycisk **Usuń**. Kliknij przycisk **Zapisz** , aby zapisać zmiany.
+* Aby dodać bieżący komputer, kliknij przycisk **+ Dodaj mój adres IP**. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
+* Aby dodać dodatkowe adresy IP, wpisz **nazwę reguły**, **początkowy adres IP** i **końcowy adres IP**. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
+* Aby zmodyfikować istniejącą regułę, kliknij dowolne pole w regule, a następnie zmodyfikuj. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
+* Aby usunąć istniejącą regułę, kliknij przycisk wielokropka [...], a następnie kliknij przycisk **Usuń**. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
 
 ## <a name="next-steps"></a>Następne kroki
  - Podobnie można utworzyć skrypt do [tworzenia reguł zapory Azure Database for MariaDB i zarządzania nimi za pomocą interfejsu wiersza polecenia platformy Azure](howto-manage-firewall-cli.md).

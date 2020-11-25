@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
 ms.openlocfilehash: ed5768e89482d32bb140e9ba7064de2d20809892
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148709"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020725"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Optymalizacja pobierania dużych plików przy użyciu Azure CDN
 

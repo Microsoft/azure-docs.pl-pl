@@ -4,12 +4,12 @@ description: Szybka nauka tworzenia rejestru prywatnego platformy Docker przy u�
 ms.topic: quickstart
 ms.date: 06/12/2020
 ms.custom: seodec18, H1Hack27Feb2017, mvc, devx-track-azurecli
-ms.openlocfilehash: f4e69616d30c6a7b853c5cc854adee147ebde206
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 226e50aec8f7c76a1b4c81d1a07d57583059ef0e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87486548"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020079"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Szybki Start: Tworzenie prywatnego rejestru kontenerów za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -69,10 +69,16 @@ Zanotuj wartość `loginServer` w danych wyjściowych, która jest w pełni kwal
 
 ## <a name="log-in-to-registry"></a>Logowanie do rejestru
 
-Przed wypychaniem i ściąganiem obrazów kontenerów musisz zalogować się do rejestru. Aby to zrobić, użyj polecenia [az acr login][az-acr-login].
+Przed wypychaniem i ściąganiem obrazów kontenerów musisz zalogować się do rejestru. Aby to zrobić, użyj polecenia [az acr login][az-acr-login]. Po zalogowaniu się za pomocą interfejsu wiersza polecenia platformy Azure podaj tylko nazwę rejestru. Nie używaj nazwy serwera logowania, która zawiera sufiks domeny, taki jak `azurecr.io` . 
 
 ```azurecli
 az acr login --name <registry-name>
+```
+
+Przykład:
+
+```azurecli
+az acr login --name mycontainerregistry
 ```
 
 Po ukończeniu polecenie zwraca komunikat `Login Succeeded`.

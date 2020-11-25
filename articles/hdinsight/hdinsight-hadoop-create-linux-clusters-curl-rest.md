@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 12/10/2019
 ms.openlocfilehash: 3ce104e9340c3e93d64b68dcab6f5bd6d2f62493
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748731"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020635"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Tworzenie klastrów Apache Hadoop przy użyciu interfejsu API REST platformy Azure
 
@@ -242,13 +242,13 @@ Wykonaj kroki opisane w temacie [Rozpoczynanie pracy z interfejsem wiersza polec
 
    Wartością zwracaną z tego polecenia jest __Identyfikator aplikacji__ dla nowej aplikacji. Zapisz tę wartość.
 
-3. Użyj następującego polecenia, aby utworzyć nazwę główną usługi przy użyciu **identyfikatora aplikacji** .
+3. Użyj następującego polecenia, aby utworzyć nazwę główną usługi przy użyciu **identyfikatora aplikacji**.
 
    ```azurecli
    az ad sp create --id <App ID> --query 'objectId'
    ```
 
-     Wartością zwracaną z tego polecenia jest __Identyfikator obiektu__ . Zapisz tę wartość.
+     Wartością zwracaną z tego polecenia jest __Identyfikator obiektu__. Zapisz tę wartość.
 
 4. Przypisz rolę **właściciela** do jednostki usługi przy użyciu wartości **identyfikatora obiektu** . Użyj pozyskanego wcześniej **identyfikatora subskrypcji** .
 
@@ -274,7 +274,7 @@ Ustaw `$TENANTID` , `$APPID` i `$PASSWORD` do wartości uzyskanych lub użytych 
 
 Jeśli to żądanie powiedzie się, otrzymasz odpowiedź serii 200, a treść odpowiedzi zawiera dokument JSON.
 
-Dokument JSON zwrócony przez to żądanie zawiera element o nazwie **access_token** . Wartość **access_token** jest używana do uwierzytelniania żądań do interfejsu API REST.
+Dokument JSON zwrócony przez to żądanie zawiera element o nazwie **access_token**. Wartość **access_token** jest używana do uwierzytelniania żądań do interfejsu API REST.
 
 ```json
 {

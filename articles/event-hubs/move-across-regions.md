@@ -4,11 +4,11 @@ description: W tym artykule pokazano, jak przenieść przestrzeń nazw platformy
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.openlocfilehash: b177c3916919e3d97325f9d8c6b6027c00cb476f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89375197"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019926"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Przenoszenie przestrzeni nazw Event Hubs platformy Azure do innego regionu
 W tym artykule pokazano, jak wyeksportować szablon Azure Resource Manager dla istniejącej przestrzeni nazw Event Hubs, a następnie użyć szablonu, aby utworzyć przestrzeń nazw z tymi samymi ustawieniami konfiguracji w innym regionie. Jednak ten proces nie powoduje przeniesienia zdarzeń, które nie zostały jeszcze przetworzone. Przed usunięciem należy przetworzyć zdarzenia z oryginalnej przestrzeni nazw.
@@ -41,13 +41,13 @@ Wdróż szablon w celu utworzenia Event Hubs przestrzeni nazw w regionie docelow
 
 
 1. W Azure Portal wybierz pozycję **Utwórz zasób**.
-2. W obszarze **Wyszukaj w portalu Marketplace**wpisz **wdrożenie szablonu**i wybierz **Template Deployment (Wdróż przy użyciu szablonów niestandardowych)**.
+2. W obszarze **Wyszukaj w portalu Marketplace** wpisz **wdrożenie szablonu** i wybierz **Template Deployment (Wdróż przy użyciu szablonów niestandardowych)**.
 5. Wybierz opcję **Kompiluj własny szablon w edytorze**.
 6. Wybierz pozycję **Załaduj plik**, a następnie postępuj zgodnie z instrukcjami, aby załadować **template.js** pliku pobranego w ostatniej sekcji.
 1. Zaktualizuj wartość `location` właściwości, aby wskazywała na nowy region. Aby uzyskać kody lokalizacji, zapoznaj się z tematem [lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/). Kod regionu to nazwa regionu bez spacji, na przykład, `West US` jest równa `westus` .
 1. Wybierz pozycję **Zapisz** , aby zapisać szablon. 
 1. Na stronie **wdrożenie niestandardowe** wykonaj następujące kroki: 
-    1. Wybierz **subskrypcję**platformy Azure. 
+    1. Wybierz **subskrypcję** platformy Azure. 
     2. Wybierz istniejącą **grupę zasobów** lub utwórz ją. Jeśli źródłowa przestrzeń nazw znajdowała się w klastrze Event Hubs, wybierz grupę zasobów zawierającą klaster w regionie docelowym. 
     3. Wybierz **lokalizację** docelową lub region. W przypadku wybrania istniejącej grupy zasobów to ustawienie jest tylko do odczytu. 
     4. W sekcji **Ustawienia** wykonaj następujące czynności:    
@@ -68,13 +68,13 @@ Wdróż szablon w celu utworzenia Event Hubs przestrzeni nazw w regionie docelow
     1. Na stronie **Recenzja i tworzenie** przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.   
 
 ## <a name="discard-or-clean-up"></a>Odrzucanie lub czyszczenie
-Jeśli po wdrożeniu chcesz zacząć od początku, możesz usunąć **docelową przestrzeń nazw Event Hubs**i powtórzyć kroki opisane w sekcjach [przygotowanie](#prepare) i [przeniesienie](#move) tego artykułu.
+Jeśli po wdrożeniu chcesz zacząć od początku, możesz usunąć **docelową przestrzeń nazw Event Hubs** i powtórzyć kroki opisane w sekcjach [przygotowanie](#prepare) i [przeniesienie](#move) tego artykułu.
 
 Aby zatwierdzić zmiany i zakończyć przenoszenie przestrzeni nazw Event Hubs, Usuń **przestrzeń nazw Event Hubs** w pierwotnym regionie. Upewnij się, że wszystkie zdarzenia w przestrzeni nazw zostały przetworzone przed usunięciem przestrzeni nazw. 
 
 Aby usunąć Event Hubs przestrzeń nazw (źródłowa lub docelowa) przy użyciu Azure Portal:
 
-1. W oknie wyszukiwania w górnej części Azure Portal wpisz **Event Hubs**i wybierz **Event Hubs** z wyników wyszukiwania. Na liście są widoczne Event Hubs przestrzenie nazw.
+1. W oknie wyszukiwania w górnej części Azure Portal wpisz **Event Hubs** i wybierz **Event Hubs** z wyników wyszukiwania. Na liście są widoczne Event Hubs przestrzenie nazw.
 2. Wybierz docelową przestrzeń nazw do usunięcia, a następnie wybierz pozycję **Usuń** z paska narzędzi. 
 
     ![Usuń przestrzeń nazw — przycisk](./media/move-across-regions/delete-namespace-button.png)

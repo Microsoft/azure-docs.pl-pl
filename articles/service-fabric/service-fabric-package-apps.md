@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 11a3fdd5dbaef53af321342952f786ed8119689c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012402"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021065"
 ---
 # <a name="package-an-application"></a>Tworzenie pakietu aplikacji
 
@@ -40,7 +40,7 @@ D:\TEMP\MYAPPLICATIONTYPE
             init.dat
 ```
 
-Nazwy folderów odpowiadają atrybutom **nazw** każdego odpowiadającego elementu. Na przykład, Jeśli manifest usługi zawiera dwa pakiety kodu **o nazwach** **MyCodeB**i, wówczas dwa foldery o tych samych nazwach będą zawierać dane binarne niezbędne dla każdego pakietu kodu.
+Nazwy folderów odpowiadają atrybutom **nazw** każdego odpowiadającego elementu. Na przykład, Jeśli manifest usługi zawiera dwa pakiety kodu **o nazwach** **MyCodeB** i, wówczas dwa foldery o tych samych nazwach będą zawierać dane binarne niezbędne dla każdego pakietu kodu.
 
 ## <a name="use-setupentrypoint"></a>Użyj SetupEntryPoint
 

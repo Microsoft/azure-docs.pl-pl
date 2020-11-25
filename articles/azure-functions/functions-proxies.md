@@ -4,11 +4,11 @@ description: Omówienie sposobu używania serwery proxy usługi Azure Functions
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.openlocfilehash: 3e08b9cf633162cc7015f47774b043cf58c115a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87385878"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020402"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Pracuj z serwery proxy usługi Azure Functions
 
@@ -28,7 +28,7 @@ W tej sekcji pokazano, jak utworzyć serwer proxy w portalu funkcji.
 3. Podaj nazwę serwera proxy.
 4. Skonfiguruj punkt końcowy, który jest udostępniany w tej aplikacji funkcji, określając **szablon trasy** i **metody http**. Te parametry zachowują się zgodnie z regułami dla [wyzwalaczy http].
 5. Ustaw **adres URL zaplecza** na inny punkt końcowy. Ten punkt końcowy może być funkcją w innej aplikacji funkcji lub być innym interfejsem API. Wartość nie musi być statyczna i może odwoływać się do [ustawień] i parametrów aplikacji [z oryginalnego żądania klienta].
-6. Kliknij przycisk **Utwórz**.
+6. Kliknij pozycję **Utwórz**.
 
 Twój serwer proxy istnieje teraz jako nowy punkt końcowy w aplikacji funkcji. Z punktu widzenia klienta jest on równoznaczny z HttpTrigger w Azure Functions. Możesz wypróbować nowy serwer proxy przez skopiowanie adresu URL serwera proxy i przetestowanie go za pomocą ulubionego klienta HTTP.
 
@@ -215,7 +215,7 @@ Obiekt requestOverrides definiuje zmiany wprowadzane do odpowiedzi, które są p
 * **Response. StatusCode**: kod stanu HTTP do zwrócenia klientowi.
 * **Response. statusReason**: fraza przyczyny http, która ma zostać zwrócona do klienta.
 * **Response. Body**: ciąg reprezentujący treść, która ma zostać zwrócona do klienta.
-* **Response. Headers \<HeaderName\> **: nagłówek, który można ustawić dla odpowiedzi dla klienta. Zamień *\<HeaderName\>* na nazwę nagłówka, który ma zostać ustawiony. Jeśli podano pusty ciąg, nagłówek nie zostanie uwzględniony w odpowiedzi.
+* **Response. Headers \<HeaderName\>**: nagłówek, który można ustawić dla odpowiedzi dla klienta. Zamień *\<HeaderName\>* na nazwę nagłówka, który ma zostać ustawiony. Jeśli podano pusty ciąg, nagłówek nie zostanie uwzględniony w odpowiedzi.
 
 Wartości mogą odwoływać się do ustawień aplikacji, parametrów z oryginalnego żądania klienta i parametrów z odpowiedzi zaplecza.
 
@@ -241,7 +241,7 @@ Przykładowa konfiguracja może wyglądać następująco:
 > [!NOTE] 
 > W tym przykładzie treść odpowiedzi jest ustawiana bezpośrednio, więc żadna `backendUri` Właściwość nie jest wymagana. W przykładzie pokazano, jak można użyć serwery proxy usługi Azure Functions do tworzenia interfejsów API.
 
-[Azure Portal]: https://portal.azure.com
+[Witryna Azure Portal]: https://portal.azure.com
 [Wyzwalacze HTTP]: ./functions-bindings-http-webhook.md
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response

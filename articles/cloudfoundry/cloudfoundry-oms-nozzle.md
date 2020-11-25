@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
 ms.openlocfilehash: fde0afcd37cd464b0b87e5ccd257d4a7a684eeb0
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040764"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021592"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Wdrażanie usługi Azure Log Analytics dysz dla monitorowania systemu Cloud Foundry
 
@@ -59,13 +59,13 @@ Obszar roboczy Log Analytics można utworzyć ręcznie lub za pomocą szablonu. 
 #### <a name="to-create-the-workspace-manually"></a>Aby ręcznie utworzyć obszar roboczy:
 
 1. Na Azure Portal Przeszukaj listę usług w witrynie Azure Marketplace, a następnie wybierz pozycję Log Analytics obszary robocze.
-2. Wybierz pozycję **Utwórz** , a następnie wybierz opcje dla następujących elementów:
+2. Wybierz pozycję **Utwórz**, a następnie wybierz opcje dla następujących elementów:
 
-   * **Log Analytics obszar roboczy** : wpisz nazwę obszaru roboczego.
-   * **Subskrypcja** : Jeśli masz wiele subskrypcji, wybierz tę, która jest taka sama jak w przypadku wdrożenia CF.
-   * **Grupa zasobów** : można utworzyć nową grupę zasobów lub użyć tej samej grupy z wdrożeniem CF.
-   * **Lokalizacja** : wprowadź lokalizację.
-   * **Warstwa cenowa** : wybierz pozycję **OK** , aby zakończyć.
+   * **Log Analytics obszar roboczy**: wpisz nazwę obszaru roboczego.
+   * **Subskrypcja**: Jeśli masz wiele subskrypcji, wybierz tę, która jest taka sama jak w przypadku wdrożenia CF.
+   * **Grupa zasobów**: można utworzyć nową grupę zasobów lub użyć tej samej grupy z wdrożeniem CF.
+   * **Lokalizacja**: wprowadź lokalizację.
+   * **Warstwa cenowa**: wybierz pozycję **OK** , aby zakończyć.
 
 Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z dziennikami Azure monitor](../azure-monitor/overview.md).
 
@@ -76,13 +76,13 @@ Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z dziennikami Azure
 1. W oknie wyszukiwania wpisz "Cloud Foundry", wybierz pozycję "Cloud Foundry monitorowanie rozwiązania".
 1. Zostanie załadowana strona frontonu szablonu rozwiązania monitorowania Cloud Foundry, kliknij przycisk "Utwórz", aby uruchomić blok szablonu.
 1. Wprowadź wymagane parametry:
-    * **Subskrypcja** : wybierz subskrypcję platformy Azure dla obszaru roboczego log Analytics, zazwyczaj tym samym w przypadku wdrożenia Cloud Foundry.
-    * **Grupa zasobów** : wybierz istniejącą grupę zasobów lub Utwórz nową dla obszaru roboczego log Analytics.
-    * **Lokalizacja grupy zasobów** : Wybierz lokalizację grupy zasobów.
-    * **OMS_Workspace_Name** : Wprowadź nazwę obszaru roboczego, jeśli obszar roboczy nie istnieje, szablon utworzy nowy.
-    * **OMS_Workspace_Region** : Wybierz lokalizację obszaru roboczego.
-    * **OMS_Workspace_Pricing_Tier** : Wybierz jednostkę SKU log Analytics obszaru roboczego. Zapoznaj się ze [wskazówkami](https://azure.microsoft.com/pricing/details/log-analytics/) dotyczącymi cen.
-    * **Postanowienia prawne** : kliknij pozycję postanowienia prawne, a następnie kliknij pozycję "Utwórz", aby zaakceptować termin prawny.
+    * **Subskrypcja**: wybierz subskrypcję platformy Azure dla obszaru roboczego log Analytics, zazwyczaj tym samym w przypadku wdrożenia Cloud Foundry.
+    * **Grupa zasobów**: wybierz istniejącą grupę zasobów lub Utwórz nową dla obszaru roboczego log Analytics.
+    * **Lokalizacja grupy zasobów**: Wybierz lokalizację grupy zasobów.
+    * **OMS_Workspace_Name**: Wprowadź nazwę obszaru roboczego, jeśli obszar roboczy nie istnieje, szablon utworzy nowy.
+    * **OMS_Workspace_Region**: Wybierz lokalizację obszaru roboczego.
+    * **OMS_Workspace_Pricing_Tier**: Wybierz jednostkę SKU log Analytics obszaru roboczego. Zapoznaj się ze [wskazówkami](https://azure.microsoft.com/pricing/details/log-analytics/) dotyczącymi cen.
+    * **Postanowienia prawne**: kliknij pozycję postanowienia prawne, a następnie kliknij pozycję "Utwórz", aby zaakceptować termin prawny.
 1. Po określeniu wszystkich parametrów kliknij przycisk "Utwórz", aby wdrożyć szablon. Po zakończeniu wdrażania stan zostanie wyświetlony na karcie powiadomienie.
 
 
@@ -185,7 +185,7 @@ Jeśli utworzono ręcznie obszar roboczy Log Analytics, wykonaj poniższe czynno
 
 W portalu pakietu OMS przejdź do **widoku widok**  >  **importowania** projektanta  >  **Browse** i wybierz jeden z plików omsview. Na przykład wybierz *Cloud Foundry. omsview* i Zapisz widok. Teraz kafelek zostanie wyświetlony na stronie **Przegląd** . Wybierz go, aby zobaczyć wizualizacje metryki.
 
-Można dostosować te widoki lub utworzyć nowe widoki za poorednictwem **projektanta widoków** .
+Można dostosować te widoki lub utworzyć nowe widoki za poorednictwem **projektanta widoków**.
 
 *"Cloud Foundry. omsview"* jest wersją zapoznawczą szablonu widoku OMS Cloud Foundry. Jest to w pełni skonfigurowany, szablon domyślny. Jeśli masz sugestie lub opinie na temat szablonu, wyślij je do [sekcji problemu](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues).
 

@@ -4,11 +4,11 @@ description: Użyj Azure Backup Server, aby utworzyć kopię zapasową stanu sys
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: c5096158ca0e76ca03577347d8dd3e1419a33ca0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86538704"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021626"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Tworzenie kopii zapasowej stanu systemu i przywracanie na komputerach bez systemu operacyjnego przy użyciu Azure Backup Server
 
@@ -19,7 +19,7 @@ Azure Backup Server Tworzenie kopii zapasowej stanu systemu i zapewnia ochronę 
   * Kontroler domeny: Windows Server Active Directory (NTDS), pliki rozruchowe, baza danych rejestracji klasy COM+, rejestr, wolumin systemowy (SYSVOL)
   * Komputer z uruchomionymi usługami klastra: metadane serwera klastra
   * Komputer z uruchomionymi usługami certyfikatów: dane certyfikatu
-* **Kopia zapasowa bez systemu**operacyjnego: tworzy kopie zapasowe plików systemów operacyjnych i wszystkich danych na woluminach krytycznych, z wyjątkiem danych użytkownika. Zgodnie z definicją kopia zapasowa BMR obejmuje kopię zapasową stanu systemu. Zapewnia ochronę, gdy komputer nie zostanie uruchomiony i konieczne będzie odzyskanie wszystkiego.
+* **Kopia zapasowa bez systemu** operacyjnego: tworzy kopie zapasowe plików systemów operacyjnych i wszystkich danych na woluminach krytycznych, z wyjątkiem danych użytkownika. Zgodnie z definicją kopia zapasowa BMR obejmuje kopię zapasową stanu systemu. Zapewnia ochronę, gdy komputer nie zostanie uruchomiony i konieczne będzie odzyskanie wszystkiego.
 
 Poniższa tabela zawiera podsumowanie informacji o tym, co można utworzyć i odzyskać. Aby uzyskać informacje o wersjach aplikacji, których stan systemu i BMR mogą być chronione, zobacz [co to jest Azure Backup Server kopia zapasowa?](backup-mabs-protection-matrix.md).
 
@@ -122,8 +122,8 @@ Aby utworzyć kopię zapasową stanu systemu i bez systemu operacyjnego:
     Krótkoterminowe kopie zapasowe zawsze są na dysku, z opcją tworzenia kopii zapasowych z dysku na platformę Azure przy użyciu Azure Backup (krótkoterminowe lub długoterminowe). Alternatywą dla długoterminowej kopii zapasowej w chmurze jest skonfigurowanie długoterminowej kopii zapasowej na autonomicznym urządzeniu taśmowym lub w bibliotece taśm połączonej z serwerem kopii zapasowych.
 
 1. Na stronie **Wybierz cele Short-Term** wybierz sposób tworzenia kopii zapasowej do krótkoterminowego przechowywania na dysku:
-    * W obszarze **Zakres przechowywania**Określ, jak długo mają być przechowywane dane na dysku.
-    * W obszarze **częstotliwość synchronizacji**Określ, jak często mają być uruchamiane przyrostowe kopie zapasowe na dysku. Jeśli nie chcesz ustawiać interwału kopii zapasowych, możesz wybrać opcję **tuż przed punktem odzyskiwania**. Serwer kopii zapasowej będzie uruchamiał ekspresową pełną kopię zapasową tuż przed zaplanowaniem każdego punktu odzyskiwania.
+    * W obszarze **Zakres przechowywania** Określ, jak długo mają być przechowywane dane na dysku.
+    * W obszarze **częstotliwość synchronizacji** Określ, jak często mają być uruchamiane przyrostowe kopie zapasowe na dysku. Jeśli nie chcesz ustawiać interwału kopii zapasowych, możesz wybrać opcję **tuż przed punktem odzyskiwania**. Serwer kopii zapasowej będzie uruchamiał ekspresową pełną kopię zapasową tuż przed zaplanowaniem każdego punktu odzyskiwania.
 
 1. Jeśli chcesz przechowywać dane na taśmie w celu przechowywania długoterminowego, na stronie **określ Long-Term cele** wybierz, jak długo chcesz przechowywać dane na taśmie (od 1 do 99 lat).
     1. Aby uzyskać **częstotliwość tworzenia kopii zapasowych**, wybierz częstotliwość wykonywania kopii zapasowej na taśmie. Częstotliwość zależy od wybranego zakresu przechowywania:
@@ -159,7 +159,7 @@ Aby utworzyć kopię zapasową stanu systemu i bez systemu operacyjnego:
 
     Można replikować za pośrednictwem sieci lub tworzyć kopie zapasowe w trybie offline (w trybie offline). Kopia zapasowa offline używa funkcji importowania platformy Azure. Aby uzyskać więcej informacji, zobacz [przepływ pracy kopii zapasowej offline w Azure Backup](offline-backup-azure-data-box.md).
 
-1. Na stronie  **Podsumowanie** przejrzyj ustawienia. Po wybraniu opcji **Utwórz grupę**następuje Replikacja początkowa danych. Po zakończeniu replikacji danych na stronie **stan** Grupa ochrony ma stan **OK**. Kopie zapasowe są następnie wykonywane zgodnie z ustawieniami grupy ochrony.
+1. Na stronie  **Podsumowanie** przejrzyj ustawienia. Po wybraniu opcji **Utwórz grupę** następuje Replikacja początkowa danych. Po zakończeniu replikacji danych na stronie **stan** Grupa ochrony ma stan **OK**. Kopie zapasowe są następnie wykonywane zgodnie z ustawieniami grupy ochrony.
 
 ## <a name="recover-system-state-or-bmr"></a>Odzyskiwanie stanu systemu lub odzyskiwanie systemu od zera (BMR)
 

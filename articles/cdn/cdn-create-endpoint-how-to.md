@@ -15,11 +15,11 @@ ms.date: 06/12/2018
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: 43718f8ebc851f27035f2999bfb4ff3ec12ca5b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84887722"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021966"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Tworzenie punktu końcowego Azure CDN
 W tym artykule opisano wszystkie ustawienia dotyczące tworzenia punktu końcowego [usługi Azure Content Delivery Network (CDN)](cdn-overview.md) w istniejącym profilu CDN. Po utworzeniu profilu i punktu końcowego możesz rozpocząć dostarczanie zawartości do klientów. Aby zapoznać się z przewodnikiem Szybki Start dotyczącym tworzenia profilu i punktu końcowego, zobacz [Szybki Start: tworzenie Azure CDN profilu i punktu końcowego](cdn-create-new-endpoint.md).
@@ -46,15 +46,15 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com) przy użyciu ko
 
 3. W polu **Nazwa** wprowadź unikatową nazwę nowego punktu końcowego CDN. Ta nazwa służy do uzyskiwania dostępu do buforowanych zasobów w domenie _\<endpointname>_ . azureedge.NET.
 
-4. W **polu Typ źródła**wybierz jeden z następujących typów źródła: 
+4. W **polu Typ źródła** wybierz jeden z następujących typów źródła: 
    - **Magazyn** dla usługi Azure Storage
    - **Usługa w chmurze** dla platformy Azure Cloud Services
    - **Aplikacja sieci Web** dla usługi Azure Web Apps
    - **Niestandardowe źródło** dla wszystkich innych publicznie dostępnych źródeł serwera sieci Web (hostowanych na platformie Azure lub w innym miejscu)
 
-5. W polu **Nazwa hosta źródła**wybierz lub wprowadź domenę serwera pochodzenia. Na liście rozwijanej są wyświetlane wszystkie dostępne serwery źródłowe typu określonego w kroku 4. Jeśli wybrano opcję **Źródło niestandardowe** jako typ źródła, wprowadź domenę serwera niestandardowego źródła danych.
+5. W polu **Nazwa hosta źródła** wybierz lub wprowadź domenę serwera pochodzenia. Na liście rozwijanej są wyświetlane wszystkie dostępne serwery źródłowe typu określonego w kroku 4. Jeśli wybrano opcję **Źródło niestandardowe** jako typ źródła, wprowadź domenę serwera niestandardowego źródła danych.
     
-6. W polu **ścieżka do źródła**wprowadź ścieżkę do zasobów, które mają być buforowane. Aby umożliwić buforowanie dowolnego zasobu w domenie określonej w kroku 5, pozostaw to ustawienie puste.
+6. W polu **ścieżka do źródła** wprowadź ścieżkę do zasobów, które mają być buforowane. Aby umożliwić buforowanie dowolnego zasobu w domenie określonej w kroku 5, pozostaw to ustawienie puste.
     
 7. W polu **Nagłówek hosta źródła** wprowadź nagłówek hosta, który usługa Azure CDN ma wysłać z każdym żądaniem, lub pozostaw wartość domyślną.
    
@@ -62,7 +62,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com) przy użyciu ko
    > Niektóre typy źródeł, takie jak usługi Azure Storage i Web Apps, wymagają, aby nagłówek hosta był zgodny z domeną źródła. Pozostaw wartość domyślną, chyba że masz źródło, które wymaga nagłówka hosta innego niż jego domena.
    > 
     
-8. Dla **protokołu** i **portu pochodzenia**Określ protokoły i porty, które mają być używane do uzyskiwania dostępu do zasobów na serwerze źródłowym. Należy wybrać co najmniej jeden protokół (HTTP lub HTTPS). Użyj domeny dostarczonej przez usługę CDN ( _\<endpointname>_ azureedge.NET) w celu uzyskania dostępu do zawartości https. 
+8. Dla **protokołu** i **portu pochodzenia** Określ protokoły i porty, które mają być używane do uzyskiwania dostępu do zasobów na serwerze źródłowym. Należy wybrać co najmniej jeden protokół (HTTP lub HTTPS). Użyj domeny dostarczonej przez usługę CDN ( _\<endpointname>_ azureedge.NET) w celu uzyskania dostępu do zawartości https. 
    
    > [!NOTE]
    > Wartość **portu źródła** określa tylko port wykorzystywany przez punkt końcowy do pobierania informacji z serwera pochodzenia. Sam punkt końcowy jest dostępny dla klientów końcowych tylko na domyślnych portach HTTP i HTTPS (80 i 443), niezależnie od wartości **Port źródła**.  
@@ -71,7 +71,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com) przy użyciu ko
    > 
    > Obsługa protokołu HTTPS dla Azure CDN domen niestandardowych nie jest obsługiwana w przypadku **Azure CDN z produktów Akamai** . Aby uzyskać więcej informacji, zobacz [Konfigurowanie protokołu HTTPS w domenie niestandardowej usługi Azure CDN](cdn-custom-ssl.md).
     
-9. Dla opcji **zoptymalizowane pod kątem**wybierz typ optymalizacji, który najlepiej pasuje do scenariusza i typu zawartości, która ma być dostarczany przez punkt końcowy. Aby uzyskać więcej informacji, zobacz [optymalizacja Azure CDN dla typu dostarczania zawartości](cdn-optimization-overview.md).
+9. Dla opcji **zoptymalizowane pod kątem** wybierz typ optymalizacji, który najlepiej pasuje do scenariusza i typu zawartości, która ma być dostarczany przez punkt końcowy. Aby uzyskać więcej informacji, zobacz [optymalizacja Azure CDN dla typu dostarczania zawartości](cdn-optimization-overview.md).
 
     Obsługiwane są następujące ustawienia typu optymalizacji, zgodnie z typem profilu:
     - **Standard Azure CDN z profilów firmy Microsoft** :

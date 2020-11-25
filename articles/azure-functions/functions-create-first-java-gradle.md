@@ -7,11 +7,11 @@ ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
 ms.openlocfilehash: 48a732e3935d78bdbf8b81fe989b59be1fbe2203
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422811"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020436"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Tworzenie i publikowanie funkcji na platformie Azure przy użyciu języka Java i Gradle
 
@@ -142,7 +142,7 @@ Możesz uzyskać adres URL wymagany do wyzwolenia funkcji przy użyciu klucza fu
 
 1. Przejdź do [Azure Portal], zaloguj się, _wpisz nazwę aplikacji funkcji w polu_ **wyszukiwania** w górnej części strony, a następnie naciśnij klawisz ENTER.
  
-1. W aplikacji funkcji wybierz pozycję **funkcje** , wybierz funkcję, a następnie kliknij pozycję **</> Pobierz adres URL funkcji** w prawym górnym rogu. 
+1. W aplikacji funkcji wybierz pozycję **funkcje**, wybierz funkcję, a następnie kliknij pozycję **</> Pobierz adres URL funkcji** w prawym górnym rogu. 
 
     :::image type="content" source="./media/functions-create-first-java-gradle/get-function-url-portal.png" alt-text="Kopiowanie adresu URL funkcji z witryny Azure Portal":::
 

@@ -1,6 +1,6 @@
 ---
-title: Samouczek — aplikacja sieci Web uzyskuje dostęp do magazynu przy użyciu tożsamości zarządzanych | Azure
-description: W tym samouczku dowiesz się, jak uzyskać dostęp do usługi Azure Storage w imieniu aplikacji przy użyciu tożsamości zarządzanych.
+title: Samouczek — dostęp do aplikacji sieci Web za pomocą tożsamości zarządzanych | Azure
+description: W tym samouczku dowiesz się, jak uzyskać dostęp do usługi Azure Storage dla aplikacji za pomocą zarządzanych tożsamości.
 services: storage, app-service-web
 author: rwike77
 manager: CelesteDG
@@ -10,28 +10,30 @@ ms.workload: identity
 ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: de179ad1e310df1fdeaed2173a83076922f3dccc
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 250e95b33b985aedcc1b1537f57338d29e848451
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428944"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96020215"
 ---
 # <a name="tutorial-access-azure-storage-from-a-web-app"></a>Samouczek: uzyskiwanie dostępu do usługi Azure Storage z poziomu aplikacji sieci Web
 
-Dowiedz się, jak uzyskać dostęp do usługi Azure Storage w imieniu aplikacji sieci Web (a nie zalogowanego użytkownika) działającego na Azure App Service przy użyciu tożsamości zarządzanych.
+Dowiedz się, jak uzyskać dostęp do usługi Azure Storage dla aplikacji sieci Web (a nie zalogowanego użytkownika) działającego na Azure App Service przy użyciu tożsamości zarządzanych.
 
-:::image type="content" alt-text="Dostęp do magazynu" source="./media/scenario-secure-app-access-storage/web-app-access-storage.svg" border="false":::
+:::image type="content" alt-text="Diagram przedstawiający sposób uzyskiwania dostępu do magazynu." source="./media/scenario-secure-app-access-storage/web-app-access-storage.svg" border="false":::
 
-Chcesz dodać dostęp do płaszczyzny danych platformy Azure (Azure Storage, SQL Azure, Azure Key Vault lub innych usług) z aplikacji sieci Web.  Możesz użyć klucza współużytkowanego, ale musisz się martwić o bezpieczeństwo operacyjne użytkowników, którzy mogą tworzyć, wdrażać i zarządzać wpisami tajnymi.  Możliwe jest również, że klucz można zaewidencjonować w serwisie GitHub, którego hakerzy wiedzą, jak przeprowadzić skanowanie. Bezpieczniejszym sposobem zapewnienia dostępu aplikacji sieci Web do danych jest użycie [tożsamości zarządzanych](/azure/active-directory/managed-identities-azure-resources/overview). Zarządzana tożsamość z Azure Active Directory umożliwia App Services dostępu do zasobów za pośrednictwem Role-Based Access Control (RBAC), bez konieczności używania poświadczeń aplikacji. Po przypisaniu zarządzanej tożsamości do aplikacji sieci Web, platforma Azure bierze pod uwagę tworzenie i dystrybucję certyfikatu.  Osoby nie muszą martwić się o zarządzanie wpisami tajnymi lub poświadczeniami aplikacji.
+Chcesz dodać dostęp do płaszczyzny danych platformy Azure (Azure Storage, Azure SQL Database, Azure Key Vault lub innych usług) z aplikacji sieci Web. Możesz użyć klucza współużytkowanego, ale musisz się martwić o bezpieczeństwo operacyjne użytkowników, którzy mogą tworzyć, wdrażać i zarządzać wpisami tajnymi. Możliwe jest również, że klucz można zaewidencjonować w serwisie GitHub, którego hakerzy wiedzą, jak przeprowadzić skanowanie. Bezpieczniejszym sposobem zapewnienia dostępu aplikacji sieci Web do danych jest użycie [tożsamości zarządzanych](/azure/active-directory/managed-identities-azure-resources/overview).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Zarządzana tożsamość z usługi Azure Active Directory (Azure AD) umożliwia App Service dostępu do zasobów za pośrednictwem kontroli dostępu opartej na rolach (RBAC), bez konieczności używania poświadczeń aplikacji. Po przypisaniu zarządzanej tożsamości do aplikacji sieci Web, platforma Azure bierze pod uwagę tworzenie i dystrybucję certyfikatu. Osoby nie muszą martwić się o zarządzanie wpisami tajnymi lub poświadczeniami aplikacji.
+
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
-> * Tworzenie tożsamości zarządzanej przypisanej przez system w aplikacji sieci Web
-> * Tworzenie konta magazynu i kontenera magazynu obiektów BLOB
-> * Dostęp do magazynu z aplikacji sieci Web przy użyciu tożsamości zarządzanych
+> * Tworzenie tożsamości zarządzanej przypisanej przez system w aplikacji sieci Web.
+> * Utwórz konto magazynu i kontener Blob Storage platformy Azure.
+> * Dostęp do magazynu z aplikacji sieci Web przy użyciu tożsamości zarządzanych.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,17 +41,17 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 * Aplikacja sieci Web działająca na Azure App Service z [włączonym modułem uwierzytelniania App Service/autoryzacji](scenario-secure-app-authentication-app-service.md).
 
-## <a name="enable-managed-identity-on-app"></a>Włącz zarządzaną tożsamość w aplikacji
+## <a name="enable-managed-identity-on-an-app"></a>Włączanie tożsamości zarządzanej w aplikacji
 
-Jeśli utworzysz i opublikujesz aplikację sieci Web za pomocą programu Visual Studio, zarządzana tożsamość została włączona w Twojej aplikacji. W usłudze App Service wybierz pozycję **Identity (tożsamość** ) w okienku nawigacji po lewej stronie, a następnie polecenie **przypisane do systemu**.  Sprawdź, czy **stan** jest ustawiony na wartość **włączone**.  Jeśli nie, kliknij przycisk **Zapisz** , a następnie pozycję **tak** , aby włączyć zarządzaną tożsamość systemu.  Gdy zarządzana tożsamość jest włączona, stan jest ustawiony na *włączone* , a identyfikator obiektu jest dostępny.
+Jeśli utworzysz i opublikujesz aplikację sieci Web za pomocą programu Visual Studio, zarządzana tożsamość została włączona w Twojej aplikacji. W usłudze App Service wybierz pozycję **Identity (tożsamość** ) w okienku po lewej stronie, a następnie wybierz pozycję **przypisane do systemu**. Sprawdź, czy **stan** jest ustawiony na wartość **włączone**. W przeciwnym razie wybierz pozycję **Zapisz** , a następnie wybierz pozycję **tak** , aby włączyć zarządzane przez system tożsamość zarządzaną. Gdy zarządzana tożsamość jest włączona, stan jest ustawiony na **włączone** , a identyfikator obiektu jest dostępny.
 
-:::image type="content" alt-text="Tożsamość przypisana przez system" source="./media/scenario-secure-app-access-storage/create-system-assigned-identity.png":::
+:::image type="content" alt-text="Zrzut ekranu pokazujący opcję tożsamości przypisanej do systemu." source="./media/scenario-secure-app-access-storage/create-system-assigned-identity.png":::
 
-Spowoduje to utworzenie nowego identyfikatora obiektu, innego niż identyfikator aplikacji utworzony w bloku **uwierzytelnianie/autoryzacja** .  Skopiuj identyfikator obiektu przypisanej tożsamości zarządzanej przez system. będzie on potrzebny później.
+Ten krok powoduje utworzenie nowego obiektu o IDENTYFIKATORze innym niż identyfikator aplikacji utworzony w okienku **uwierzytelnianie/autoryzacja** . Skopiuj identyfikator obiektu zarządzanej tożsamości przypisanej do systemu. Będzie on potrzebny później.
 
-## <a name="create-a-storage-account-and-blob-storage-container"></a>Tworzenie konta magazynu i kontenera magazynu obiektów BLOB
+## <a name="create-a-storage-account-and-blob-storage-container"></a>Tworzenie konta magazynu i kontenera Blob Storage
 
-Teraz możesz przystąpić do tworzenia konta magazynu i kontenera magazynu obiektów BLOB.
+Teraz możesz przystąpić do tworzenia konta magazynu i kontenera Blob Storage.
 
 Każde konto magazynu musi należeć do grupy zasobów platformy Azure. Grupa zasobów to logiczny kontener przeznaczony do grupowania usług platformy Azure. Podczas tworzenia konta magazynu masz możliwość utworzenia nowej grupy zasobów lub użycia istniejącej grupy zasobów. W tym artykule pokazano, jak utworzyć nową grupę zasobów.
 
@@ -59,39 +61,39 @@ Obiekty blob w usłudze Azure Storage są zorganizowane w kontenery. Zanim będz
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Aby utworzyć konto magazynu ogólnego przeznaczenia w wersji 2 w witrynie Azure Portal, wykonaj następujące kroki:
+Aby utworzyć konto magazynu ogólnego przeznaczenia w wersji 2 w Azure Portal, wykonaj następujące kroki.
 
-1. W menu witryny Azure Portal wybierz pozycję **Wszystkie usługi**. Na liście zasobów wpisz wartość **Konta magazynu**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz pozycję **konta magazynu**.
+1. W menu witryny Azure Portal wybierz pozycję **Wszystkie usługi**. Na liście zasobów wprowadź **konto magazynu**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz pozycję **konta magazynu**.
 
-1. W oknie **Konta magazynu** , które zostanie wyświetlone, wybierz pozycję **Dodaj**.
+1. W wyświetlonym oknie **konta magazynu** wybierz pozycję **Dodaj**.
 
 1. Wybierz subskrypcję, w ramach której chcesz utworzyć konto magazynu.
 
 1. W polu **Grupa zasobów** wybierz grupę zasobów zawierającą aplikację sieci Web z menu rozwijanego.
 
-1. Następnie wprowadź nazwę konta magazynu. Wybrana nazwa musi być unikatowa w obrębie całej platformy Azure. Ponadto nazwa musi mieć długość od 3 do 24 znaków i może zawierać tylko cyfry i małe litery.
+1. Następnie wprowadź nazwę konta magazynu. Wybrana nazwa musi być unikatowa w obrębie całej platformy Azure. Nazwa musi mieć długość od 3 do 24 znaków i może zawierać tylko cyfry i małe litery.
 
 1. Wybierz lokalizację konta magazynu lub użyj lokalizacji domyślnej.
 
 1. Pozostaw poniższe pola ustawione na wartości domyślne:
 
-|Pole|Wartość|
-|--|--|
-|Model wdrażania|Resource Manager|
-|Wydajność|Standardowa|
-|Rodzaj konta|StorageV2 (ogólnego przeznaczenia wersja 2)|
-|Replikacja|Magazyn geograficznie nadmiarowy dostępny do odczytu (RA-GRS)|
-|Warstwa dostępu|Gorąca|
+    |Pole|Wartość|
+    |--|--|
+    |Model wdrażania|Resource Manager|
+    |Wydajność|Standardowa|
+    |Rodzaj konta|StorageV2 (ogólnego przeznaczenia wersja 2)|
+    |Replikacja|Magazyn geograficznie nadmiarowy dostępny do odczytu (RA-GRS)|
+    |Warstwa dostępu|Gorąca|
 
-1. Wybierz pozycję **Przejrzyj i utwórz** , aby przejrzeć ustawienia konta magazynu i utworzyć konto.
+1. Wybierz pozycję **Przejrzyj i utwórz**, aby przejrzeć ustawienia konta magazynu i utworzyć konto.
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
-Aby utworzyć kontener magazynu obiektów BLOB w usłudze Azure Storage, wykonaj następujące kroki:
+Aby utworzyć kontener Blob Storage w usłudze Azure Storage, wykonaj następujące kroki.
 
-1. W witrynie Azure Portal przejdź do swojego nowego konta magazynu.
+1. Przejdź do nowego konta magazynu w Azure Portal.
 
-1. W menu po lewej stronie konta magazynu przewiń do sekcji **BLOB Service** , a następnie wybierz pozycję **Containers (kontenery** ).
+1. W menu po lewej stronie konta magazynu przewiń do sekcji **BLOB Service** , a następnie wybierz pozycję **Containers (kontenery**).
 
 1. Wybierz przycisk **+ Kontener**.
 
@@ -99,11 +101,13 @@ Aby utworzyć kontener magazynu obiektów BLOB w usłudze Azure Storage, wykonaj
 
 1. Ustaw poziom dostępu publicznego do kontenera. Domyślny poziom to **Prywatny (bez dostępu anonimowego)**.
 
-1. Wybierz przycisk **OK** , aby utworzyć kontener.
+1. Wybierz przycisk **OK**, aby utworzyć kontener.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-Aby utworzyć konto magazynu ogólnego przeznaczenia w wersji 2 i kontener magazynu obiektów blob, uruchom następujący skrypt. Określ nazwę grupy zasobów zawierającej aplikację sieci Web. Wprowadź nazwę konta magazynu. Wybrana nazwa musi być unikatowa w obrębie całej platformy Azure. Ponadto nazwa musi mieć długość od 3 do 24 znaków i może zawierać tylko cyfry i małe litery. Określ lokalizację dla konta magazynu.  Aby wyświetlić listę lokalizacji prawidłowych dla uruchomienia subskrypcji ```Get-AzLocation | select Location``` . Nazwa kontenera musi być zapisana małymi literami, zaczynać się literą lub cyfrą i może zawierać tylko litery, cyfry i znak kreski (-).
+Aby utworzyć konto magazynu ogólnego przeznaczenia w wersji 2 i kontener Blob Storage, uruchom następujący skrypt. Określ nazwę grupy zasobów zawierającej aplikację sieci Web. Wprowadź nazwę konta magazynu. Wybrana nazwa musi być unikatowa w obrębie całej platformy Azure. Nazwa musi mieć długość od 3 do 24 znaków i może zawierać tylko cyfry i małe litery.
+
+Określ lokalizację dla konta magazynu. Aby wyświetlić listę lokalizacji prawidłowych dla Twojej subskrypcji, uruchom polecenie ```Get-AzLocation | select Location``` . Nazwa kontenera musi być zapisana małymi literami, zaczynać się literą lub cyfrą i może zawierać tylko litery, cyfry i znak kreski (-).
 
 Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach ostrych własnymi wartościami.
 
@@ -128,7 +132,9 @@ New-AzStorageContainer -Name $containerName -Context $ctx -Permission blob
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Aby utworzyć konto magazynu ogólnego przeznaczenia w wersji 2 i kontener magazynu obiektów blob, uruchom następujący skrypt. Określ nazwę grupy zasobów zawierającej aplikację sieci Web. Wprowadź nazwę konta magazynu. Wybrana nazwa musi być unikatowa w obrębie całej platformy Azure. Ponadto nazwa musi mieć długość od 3 do 24 znaków i może zawierać tylko cyfry i małe litery. Określ lokalizację dla konta magazynu.  Nazwa kontenera musi być zapisana małymi literami, zaczynać się literą lub cyfrą i może zawierać tylko litery, cyfry i znak kreski (-).
+Aby utworzyć konto magazynu ogólnego przeznaczenia w wersji 2 i kontener Blob Storage, uruchom następujący skrypt. Określ nazwę grupy zasobów zawierającej aplikację sieci Web. Wprowadź nazwę konta magazynu. Wybrana nazwa musi być unikatowa w obrębie całej platformy Azure. Nazwa musi mieć długość od 3 do 24 znaków i może zawierać tylko cyfry i małe litery. 
+
+Określ lokalizację dla konta magazynu. Nazwa kontenera musi być zapisana małymi literami, zaczynać się literą lub cyfrą i może zawierać tylko litery, cyfry i znak kreski (-).
 
 W poniższym przykładzie używane jest konto usługi Azure AD do autoryzacji operacji tworzenia kontenera. Przed utworzeniem kontenera Przypisz do siebie rolę współautor danych obiektu blob magazynu. Nawet jeśli jesteś właścicielem konta, potrzebujesz jawnych uprawnień do wykonywania operacji na danych na koncie magazynu.
 
@@ -161,20 +167,21 @@ az storage container create \
 
 ## <a name="grant-access-to-the-storage-account"></a>Udzielanie dostępu do konta magazynu
 
-Musisz udzielić aplikacji sieci Web dostępu do konta magazynu, aby można było tworzyć, odczytywać i usuwać obiekty blob. W poprzednim kroku skonfigurowano aplikację sieci Web działającą na App Service z tożsamością zarządzaną.  Korzystając z funkcji RBAC platformy Azure, można przyznać zarządzanej tożsamości dostęp do innego zasobu, podobnie jak każdy podmiot zabezpieczeń. Rola *współautor danych obiektów blob magazynu* zapewnia aplikacji sieci Web (reprezentowanej przez systemową tożsamość zarządzaną) dostęp do odczytu, zapisu i usuwania do kontenera obiektów blob i danych.
+Musisz udzielić aplikacji sieci Web dostępu do konta magazynu, aby można było tworzyć, odczytywać i usuwać obiekty blob. W poprzednim kroku została skonfigurowana aplikacja internetowa działająca na App Service z tożsamością zarządzaną. Korzystając z funkcji RBAC systemu Azure, można przyznać zarządzanej tożsamości dostęp do innego zasobu, podobnie jak każdy podmiot zabezpieczeń. Rola współautor danych obiektów blob magazynu udostępnia aplikację internetową (reprezentowaną przez zarządzaną przez system tożsamość skojarzoną) do odczytu, zapisu i usuwania dla kontenera obiektów blob i danych.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-W [Azure Portal](https://portal.azure.com)przejdź do konta magazynu, aby udzielić dostępu do aplikacji sieci Web.  Wybierz pozycję **Kontrola dostępu (IAM)** w lewym okienku nawigacji, a następnie **przypisań ról**.  Zostanie wyświetlona lista osób mających dostęp do konta magazynu.  Teraz chcesz dodać przypisanie roli do robotów, usługi App Service, która wymaga dostępu do konta magazynu.  Wybierz pozycję **Dodaj** -> **Dodaj przypisanie roli**.
 
-W obszarze **rola** wybierz opcję **współautor danych obiektów blob magazynu** , aby umożliwić aplikacji sieci Web dostęp do odczytu obiektów blob magazynu.  W obszarze **Przypisz dostęp do** wybierz pozycję **App Service**.  W obszarze **subskrypcja** wybierz swoją subskrypcję.  Następnie wybierz App Service, do którego chcesz uzyskać dostęp.  Kliknij pozycję **Zapisz**.
+W [Azure Portal](https://portal.azure.com)przejdź do konta magazynu, aby udzielić dostępu do aplikacji sieci Web. W lewym okienku wybierz pozycję **Kontrola dostępu (IAM)** , a następnie wybierz pozycję **przypisania ról**. Zostanie wyświetlona lista osób mających dostęp do konta magazynu. Teraz chcesz dodać przypisanie roli do robotów, usługi App Service, która wymaga dostępu do konta magazynu. Wybierz pozycję **Dodaj**  >  **Dodaj przypisanie roli**.
 
-:::image type="content" alt-text="Dodaj przypisanie roli" source="./media/scenario-secure-app-access-storage/add-role-assignment.png":::
+W obszarze **rola** wybierz opcję **współautor danych obiektów blob magazynu** , aby umożliwić aplikacji sieci Web dostęp do odczytu obiektów blob magazynu. W obszarze **Przypisz dostęp do** wybierz pozycję **App Service**. W obszarze **subskrypcja** wybierz swoją subskrypcję. Następnie wybierz usługę App Service, do której chcesz uzyskać dostęp. Wybierz pozycję **Zapisz**.
+
+:::image type="content" alt-text="Zrzut ekranu przedstawiający ekran Dodawanie przypisania roli." source="./media/scenario-secure-app-access-storage/add-role-assignment.png":::
 
 Aplikacja sieci Web ma teraz dostęp do konta magazynu.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-Uruchom następujący skrypt, aby przypisać aplikację sieci Web (reprezentowanej przez systemową tożsamość zarządzaną) roli *współautor danych obiektów blob magazynu* na koncie magazynu.
+Uruchom następujący skrypt, aby przypisać aplikację sieci Web (reprezentowana przez przypisaną przez system tożsamość zarządzaną) rolę współautor danych obiektów blob magazynu na koncie magazynu.
 
 ```powershell
 $resourceGroup = "securewebappresourcegroup"
@@ -188,7 +195,7 @@ New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Storage Blob Data Cont
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Uruchom następujący skrypt, aby przypisać aplikację sieci Web (reprezentowanej przez systemową tożsamość zarządzaną) roli *współautor danych obiektów blob magazynu* na koncie magazynu.
+Uruchom następujący skrypt, aby przypisać aplikację sieci Web (reprezentowana przez przypisaną przez system tożsamość zarządzaną) rolę współautor danych obiektów blob magazynu na koncie magazynu.
 
 ```azurecli-interactive
 spID=$(az resource list -n SecureWebApp20201102125811 --query [*].identity.principalId --out tsv)
@@ -200,19 +207,19 @@ az role assignment create --assignee $spID --role 'Storage Blob Data Contributor
 
 ---
 
-## <a name="access-blob-storage-net"></a>Dostęp do magazynu obiektów BLOB (.NET)
+## <a name="access-blob-storage-net"></a>Blob Storage dostępu (.NET)
 
-Klasa [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) jest używana do uzyskiwania poświadczeń tokenu dla kodu w celu autoryzowania żądań do usługi Azure Storage.  Utwórz wystąpienie klasy [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) , która używa tożsamości zarządzanej do pobierania tokenów i dołączania ich do klienta usługi. Poniższy przykład kodu Pobiera poświadczenia uwierzytelnionego tokenu i używa go do utworzenia obiektu klienta usługi, który przekazuje nowy obiekt BLOB.  
+Klasa [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) jest używana do uzyskiwania poświadczeń tokenu dla kodu w celu autoryzowania żądań do usługi Azure Storage. Utwórz wystąpienie klasy [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) , która używa tożsamości zarządzanej do pobierania tokenów i dołączania ich do klienta usługi. Poniższy przykład kodu Pobiera poświadczenia uwierzytelnionego tokenu i używa go do utworzenia obiektu klienta usługi, który przekazuje nowy obiekt BLOB.
 
 ### <a name="install-client-library-packages"></a>Zainstaluj pakiety biblioteki klienta
 
-Zainstaluj [pakiet NuGet magazynu obiektów BLOB](https://www.nuget.org/packages/Azure.Storage.Blobs/) , aby współpracują z usługą BLOB Storage i [biblioteką klienta tożsamości platformy Azure dla programu .NET NuGet](https://www.nuget.org/packages/Azure.Identity/) w celu uwierzytelniania przy użyciu poświadczeń usługi Azure AD.  Zainstaluj biblioteki klienckie przy użyciu interfejsu wiersza polecenia platformy .NET Core lub konsoli Menedżera pakietów w programie Visual Studio.
+Zainstaluj [pakiet nuget BLOB Storage](https://www.nuget.org/packages/Azure.Storage.Blobs/) , aby współpracował z BLOB Storage i [biblioteką klienta usługi Azure Identity dla platformy .NET na potrzeby](https://www.nuget.org/packages/Azure.Identity/) uwierzytelniania przy użyciu poświadczeń usługi Azure AD. Zainstaluj biblioteki klienckie przy użyciu interfejsu wiersza polecenia platformy .NET Core lub konsoli Menedżera pakietów w programie Visual Studio.
 
 # <a name="command-line"></a>[Wiersz polecenia](#tab/command-line)
 
 Otwórz wiersz polecenia i przejdź do katalogu, który zawiera plik projektu.
 
-Uruchom polecenia instalacji:
+Uruchom polecenia instalacji.
 
 ```dotnetcli
 dotnet add package Azure.Storage.Blobs
@@ -222,9 +229,9 @@ dotnet add package Azure.Identity
 
 # <a name="package-manager"></a>[Menedżer pakietów](#tab/package-manager)
 
-Otwórz projekt/rozwiązanie w programie Visual Studio i Otwórz konsolę programu przy użyciu **Narzędzia** Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów** .
+Otwórz projekt lub rozwiązanie w programie Visual Studio i Otwórz konsolę programu przy użyciu narzędzia Menedżer **Tools**  >  **pakietów NuGet**  >  **konsola Menedżera pakietów** .
 
-Uruchom polecenia instalacji:
+Uruchom polecenia instalacji.
 ```powershell
 Install-Package Azure.Storage.Blobs
 
@@ -280,7 +287,7 @@ static public async Task UploadBlob(string accountName, string containerName, st
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli wykonujesz ten samouczek i nie potrzebujesz już aplikacji sieci Web lub skojarzonych zasobów, [Wyczyść utworzone zasoby](scenario-secure-app-clean-up-resources.md).
+Jeśli skończysz pracę z tym samouczkiem i nie potrzebujesz już aplikacji sieci Web ani skojarzonych zasobów, [Wyczyść utworzone zasoby](scenario-secure-app-clean-up-resources.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -288,9 +295,9 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 > [!div class="checklist"]
 >
-> * Tworzenie tożsamości zarządzanej przypisanej przez system
-> * Tworzenie konta magazynu i kontenera magazynu obiektów BLOB
-> * Dostęp do magazynu z aplikacji sieci Web przy użyciu tożsamości zarządzanych
+> * Utwórz tożsamość zarządzaną przypisaną przez system.
+> * Utwórz konto magazynu i kontener Blob Storage.
+> * Dostęp do magazynu z aplikacji sieci Web przy użyciu tożsamości zarządzanych.
 
 > [!div class="nextstepaction"]
-> [Microsoft Graph dostępu do usługi App Service w imieniu użytkownika](scenario-secure-app-access-microsoft-graph-as-user.md)
+> [App Service dostępu Microsoft Graph w imieniu użytkownika](scenario-secure-app-access-microsoft-graph-as-user.md)

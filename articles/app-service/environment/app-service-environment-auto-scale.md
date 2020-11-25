@@ -8,11 +8,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 4f071c0d09fc2fa97eeea45bd82228b7eb8434a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74687285"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021660"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Skalowanie automatyczne i App Service Environment v1
 
@@ -20,7 +20,7 @@ ms.locfileid: "74687285"
 > Ten artykuł dotyczy App Service Environment v1.  Istnieje nowsza wersja App Service Environment ułatwiająca korzystanie z bardziej wydajną infrastrukturą. Aby dowiedzieć się więcej o nowej wersji, Zacznij od [wprowadzenia do App Service Environment](intro.md).
 > 
 
-Środowiska Azure App Service obsługują *skalowanie*automatyczne. Można automatycznie skalować poszczególne pule procesów roboczych na podstawie metryk lub harmonogramu.
+Środowiska Azure App Service obsługują *skalowanie* automatyczne. Można automatycznie skalować poszczególne pule procesów roboczych na podstawie metryk lub harmonogramu.
 
 ![Opcje skalowania automatycznego dla puli procesów roboczych.][intro]
 

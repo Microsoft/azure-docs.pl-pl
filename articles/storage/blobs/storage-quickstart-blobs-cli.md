@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c9797024315a8fdc744d08863a42fba0b0b16420
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: fa502f5ca95b1726da7f00f987b35be362ae865a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660342"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021762"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Szybki Start: Tworzenie, pobieranie i wyświetlanie listy obiektów BLOB za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -35,7 +35,7 @@ Interfejs wiersza polecenia platformy Azure to środowisko wiersza polecenia pla
 
 Dostęp do magazynu obiektów BLOB można autoryzować z poziomu interfejsu wiersza polecenia platformy Azure przy użyciu poświadczeń usługi Azure AD lub klucza dostępu do konta magazynu. Zalecane jest korzystanie z poświadczeń usługi Azure AD. W tym artykule przedstawiono sposób autoryzacji operacji usługi BLOB Storage przy użyciu usług Azure AD.
 
-Polecenie interfejsu wiersza polecenia platformy Azure dla operacji na danych w usłudze BLOB Storage obsługuje `--auth-mode` parametr, który umożliwia określenie sposobu autoryzacji danej operacji. Ustaw `--auth-mode` parametr na `login` , aby autoryzować się przy użyciu poświadczeń usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Autoryzuj dostęp do danych obiektu BLOB lub kolejki za pomocą interfejsu wiersza polecenia platformy Azure](../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Polecenie interfejsu wiersza polecenia platformy Azure dla operacji na danych w usłudze BLOB Storage obsługuje `--auth-mode` parametr, który umożliwia określenie sposobu autoryzacji danej operacji. Ustaw `--auth-mode` parametr na `login` , aby autoryzować się przy użyciu poświadczeń usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Autoryzuj dostęp do danych obiektu BLOB lub kolejki za pomocą interfejsu wiersza polecenia platformy Azure](./authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 Tylko operacje na danych magazynu obiektów BLOB obsługują ten `--auth-mode` parametr. Operacje zarządzania, takie jak tworzenie grupy zasobów lub konta magazynu, automatycznie używają poświadczeń usługi Azure AD do autoryzacji.
 
@@ -89,7 +89,7 @@ az storage container create \
 > [!IMPORTANT]
 > Propagowanie przypisań ról platformy Azure może potrwać kilka minut.
 
-Możesz również użyć klucza konta magazynu do autoryzacji operacji do utworzenia kontenera. Aby uzyskać więcej informacji na temat autoryzacji operacji na danych za pomocą interfejsu wiersza polecenia platformy Azure, zobacz temat [Autoryzuj dostęp do danych obiektu BLOB lub kolejki za pomocą interfejsu wiersza polecenia platformy Azure](../common/authorize-data-operations-cli.md?toc=/azure/storage/blobs/toc.json).
+Możesz również użyć klucza konta magazynu do autoryzacji operacji do utworzenia kontenera. Aby uzyskać więcej informacji na temat autoryzacji operacji na danych za pomocą interfejsu wiersza polecenia platformy Azure, zobacz temat [Autoryzuj dostęp do danych obiektu BLOB lub kolejki za pomocą interfejsu wiersza polecenia platformy Azure](./authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="upload-a-blob"></a>Przekazywanie obiektu blob
 
@@ -169,4 +169,4 @@ az group delete \
 W tym przewodniku szybki start przedstawiono sposób transferu plików między lokalnym systemem plików i kontenerem w usłudze Azure Blob Storage. Aby dowiedzieć się więcej na temat pracy z usługą BLOB Storage za pomocą interfejsu wiersza polecenia platformy Azure, zobacz przykłady interfejsu wiersza polecenia platformy Azure dla usługi BLOB Storage.
 
 > [!div class="nextstepaction"]
-> [Przykłady interfejsu wiersza polecenia platformy Azure dla usługi BLOB Storage](/azure/storage/blobs/storage-samples-blobs-cli?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Przykłady interfejsu wiersza polecenia platformy Azure dla usługi BLOB Storage](./storage-samples-blobs-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

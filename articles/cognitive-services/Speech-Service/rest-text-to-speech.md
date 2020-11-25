@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: c7c43e02e6bdf75c9551ccdbb9dd8f75bf37a806
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77a8321ba8bac0ecaf577bce6c3c05d10508128e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534985"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96020164"
 ---
 # <a name="text-to-speech-rest-api"></a>Interfejs API REST zamiany tekstu na mowę
 
@@ -34,7 +34,7 @@ Przed użyciem tego interfejsu API należy zrozumieć następujące informacje:
 * Interfejs API REST zamiany tekstu na mowę wymaga nagłówka autoryzacji. Oznacza to, że należy zakończyć wymianę tokenów, aby uzyskać dostęp do usługi. Aby uzyskać więcej informacji, zobacz [Authentication](#authentication) (Uwierzytelnianie).
 
 > [!TIP]
-> Zobacz punkty końcowe dla systemu [Azure dla instytucji rządowych](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) (FairFax).
+> Zobacz punkty końcowe dla systemu [Azure dla instytucji rządowych](../../azure-government/compare-azure-government-global-azure.md) (FairFax).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -44,7 +44,7 @@ Przed użyciem tego interfejsu API należy zrozumieć następujące informacje:
 
 ### <a name="regions-and-endpoints"></a>Regiony i punkty końcowe
 
-| Region | Punkt końcowy |
+| Region (Region) | Punkt końcowy |
 |--------|----------|
 | Australia Wschodnia | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Brazil South | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -70,7 +70,7 @@ Przed użyciem tego interfejsu API należy zrozumieć następujące informacje:
 
 Ta tabela zawiera listę wymaganych i opcjonalnych nagłówków dla żądań zamiany tekstu na mowę.
 
-| Header | Opis | Wymagane/opcjonalne |
+| Nagłówek | Opis | Wymagane/opcjonalne |
 |--------|-------------|---------------------|
 | `Authorization` | Token autoryzacji poprzedzony słowem `Bearer` . Aby uzyskać więcej informacji, zobacz [Authentication](#authentication) (Uwierzytelnianie). | Wymagane |
 
@@ -147,7 +147,7 @@ Ta odpowiedź została obcięta w celu zilustrowania struktury odpowiedzi.
 
 Kod stanu HTTP dla każdej odpowiedzi oznacza powodzenie lub typowe błędy.
 
-| Kod stanu HTTP | Opis | Możliwa przyczyna |
+| Kod stanu HTTP | Opis | Możliwe przyczyny |
 |------------------|-------------|-----------------|
 | 200 | OK | Żądanie zakończyło się pomyślnie. |
 | 400 | Nieprawidłowe żądanie | Brak wymaganego parametru, jest on pusty lub ma wartość null. Lub wartość przeniesiona do wymaganego lub opcjonalnego parametru jest nieprawidłowa. Typowy problem to nagłówek, który jest zbyt długi. |
@@ -170,7 +170,7 @@ Te regiony są obsługiwane dla zamiany tekstu na mowę przy użyciu interfejsu 
 
 Ta tabela zawiera listę wymaganych i opcjonalnych nagłówków dla żądań zamiany tekstu na mowę.
 
-| Header | Opis | Wymagane/opcjonalne |
+| Nagłówek | Opis | Wymagane/opcjonalne |
 |--------|-------------|---------------------|
 | `Authorization` | Token autoryzacji poprzedzony słowem `Bearer` . Aby uzyskać więcej informacji, zobacz [Authentication](#authentication) (Uwierzytelnianie). | Wymagane |
 | `Content-Type` | Określa typ zawartości dla podanego tekstu. Zaakceptowana wartość: `application/ssml+xml` . | Wymagane |
@@ -222,15 +222,15 @@ Authorization: Bearer [Base64 access_token]
 
 Zobacz nasze Przewodniki Szybki Start, aby poznać przykłady dotyczące języka:
 
-* [.NET Core, C #](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
-* [Python](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python)
-* [Node.js](quickstart-nodejs-text-to-speech.md)
+* [.NET Core, C #](./get-started-text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
+* [Python](./get-started-text-to-speech.md?pivots=programming-language-python)
+* [Node.js](./get-started-text-to-speech.md)
 
 ### <a name="http-status-codes"></a>Kody stanu HTTP
 
 Kod stanu HTTP dla każdej odpowiedzi oznacza powodzenie lub typowe błędy.
 
-| Kod stanu HTTP | Opis | Możliwa przyczyna |
+| Kod stanu HTTP | Opis | Możliwe przyczyny |
 |------------------|-------------|-----------------|
 | 200 | OK | Żądanie zakończyło się pomyślnie. treść odpowiedzi to plik audio. |
 | 400 | Nieprawidłowe żądanie | Brak wymaganego parametru, jest on pusty lub ma wartość null. Lub wartość przeniesiona do wymaganego lub opcjonalnego parametru jest nieprawidłowa. Typowy problem to nagłówek, który jest zbyt długi. |
@@ -245,5 +245,5 @@ Jeśli stan HTTP to `200 OK` , treść odpowiedzi zawiera plik audio w żądanym
 ## <a name="next-steps"></a>Następne kroki
 
 - [Tworzenie bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/cognitive-services/)
-- [Synteza asynchroniczna dla długich postaci audio](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
+- [Synteza asynchroniczna dla długich postaci audio](./long-audio-api.md)
 - [Wprowadzenie do usługi Custom Voice](how-to-custom-voice.md)

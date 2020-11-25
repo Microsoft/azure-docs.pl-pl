@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
 ms.openlocfilehash: bcebc568db4a0d2b4b287045ba0a67c88d9b8c92
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312683"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020606"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Testowanie kodu analizy danych na platformie Azure z zespołowym procesem nauki danych i Azure DevOps Services
 W tym artykule przedstawiono wstępne wskazówki dotyczące testowania kodu w przepływie pracy analizy danych. Takie testowanie umożliwia analitykom danych systematyczne i wydajne sprawdzanie jakości i oczekiwanego wyniku ich kodu. Korzystamy z projektu zespołowego przetwarzania danych (przetwarzania TDSP) [, który korzysta z zestawu danych dochodów dla dorosłych](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) , który został opublikowany wcześniej, aby pokazać, jak można przeprowadzić testowanie kodu. 
@@ -89,7 +89,7 @@ Wykonaj następujące kroki, aby skonfigurować i uruchomić testy kodu oraz zau
 
       ![Kod do sprawdzania wartości przewidywania](./media/code-test/check_prediction_values.PNG)
 
-1. Umieść wszystkie funkcje testowe w skrypcie języka Python o nazwie **test_funcs. PR** :
+1. Umieść wszystkie funkcje testowe w skrypcie języka Python o nazwie **test_funcs. PR**:
 
     ![Skrypt języka Python dla funkcji testowych](./media/code-test/create_file_test_func.PNG)
 
@@ -112,7 +112,7 @@ Wykonaj następujące kroki, aby skonfigurować i uruchomić testy kodu oraz zau
 
 1. Skonfiguruj automatyczne Kompilowanie i testowanie w usłudze Azure DevOps:
 
-    a. W repozytorium projektu wybierz pozycję **kompilacja i wydanie** , a następnie wybierz pozycję **+ Nowy** , aby utworzyć nowy proces kompilacji.
+    a. W repozytorium projektu wybierz pozycję **kompilacja i wydanie**, a następnie wybierz pozycję **+ Nowy** , aby utworzyć nowy proces kompilacji.
 
     ![Wybory dotyczące rozpoczynania nowego procesu kompilacji](./media/code-test/create_new_build.PNG)
 

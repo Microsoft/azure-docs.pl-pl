@@ -7,11 +7,11 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.openlocfilehash: 85ad78eeb095b427b1a6334f57c351e926022dff
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217817"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021881"
 ---
 # <a name="tutorial-add-cluster-nodes-to-an-azure-fxt-edge-filer-cluster"></a>Samouczek: Dodawanie węzłów klastra do klastra plików usługi Azure FXT Edge
 
@@ -73,7 +73,7 @@ Aby dowiedzieć się więcej na temat opcji na tej stronie, Przeczytaj [ **Clust
 
 ## <a name="3-click-the-allow-to-join-button"></a>3. kliknij przycisk "Zezwól na przyłączenie"
 
-Kliknij przycisk **Zezwól na przyłączenie*** w kolumnie **Akcje** dla węzła, który chcesz dodać.
+Kliknij przycisk **Zezwól na przyłączenie** _ w kolumnie _ *Actions** dla węzła, który chcesz dodać.
 
 Po kliknięciu przycisku stan węzła może ulec zmianie, ponieważ jego oprogramowanie zostało zaktualizowane w celu dodania go do klastra.
 

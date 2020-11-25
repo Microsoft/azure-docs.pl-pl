@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
-ms.openlocfilehash: e377f910e1c1ddda864ea312b40fe3608c166376
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1da43d0ef208d61ced6c8ca8dbc7603e0ef51155
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541394"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96021575"
 ---
 # <a name="language-and-region-support-for-luis"></a>Obsługa języka i regionu w programie LUIS
 
@@ -28,7 +28,7 @@ Jeśli potrzebujesz LUIS aplikacji klienckiej z obsługą wielu języków, takie
 
 LUIS rozumie wyrażenia długości w następujących językach:
 
-| Język |Regionalne  |  Preskompilowana domena | Wstępnie utworzona jednostka | Zalecenia dotyczące listy fraz | **[Analiza tekstu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Tonacji i<br>Służąc|
+| Język |Regionalne  |  Preskompilowana domena | Wstępnie utworzona jednostka | Zalecenia dotyczące listy fraz | **[Analiza tekstu](../text-analytics/language-support.md)<br>(Tonacji i<br>Służąc|
 |--|--|:--:|:--:|:--:|:--:|
 | Angielski (Stany Zjednoczone) |`en-US` | ✔ | ✔  |✔|✔|
 | Arabski (wersja zapoznawcza — nowoczesny Standard arabski) |`ar-AR`|-|-|-|-|
@@ -69,7 +69,7 @@ Obsługa języków jest różna w przypadku [wstępnie utworzonych jednostek](lu
 Zobacz [języki obsługiwane](../speech-service/speech-to-text.md) przez mowę dla języków trybu dyktowania mowy.
 
 ### <a name="bing-spell-check-supported-languages"></a>Obsługiwane języki sprawdzanie pisowni Bing
-Zapoznaj się z listą obsługiwanych języków i Stanów w sprawdzanie pisowni Bing [obsługiwanych językach](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) .
+Zapoznaj się z listą obsługiwanych języków i Stanów w sprawdzanie pisowni Bing [obsługiwanych językach](../bing-spell-check/language-support.md) .
 
 ## <a name="rare-or-foreign-words-in-an-application"></a>Rzadkie lub obce słowa w aplikacji
 W `en-us` kulturze Luis się z rozróżnieniem większości wyrazów angielskich, w tym żargonu. W `zh-cn` kulturze Luis się z rozróżnieniem większości znaków w języku chińskim. Jeśli używasz rzadkich wyrazów w `en-us` znakach `zh-cn` i zobaczysz, że Luis nie można odróżnić tego wyrazu lub znaku, możesz dodać ten wyraz lub znak do [funkcji listy fraz](luis-how-to-add-features.md). Na przykład słowa poza kulturą aplikacji — czyli słowa obce — należy dodać do funkcji listy fraz.

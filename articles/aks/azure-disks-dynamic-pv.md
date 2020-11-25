@@ -6,22 +6,22 @@ services: container-service
 ms.topic: article
 ms.date: 09/21/2020
 ms.openlocfilehash: ad51bfdf8c494e763921de880926b839cdb7be62
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900748"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021643"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Dynamiczne tworzenie i używanie woluminu trwałego z dyskami platformy Azure w usłudze Azure Kubernetes Service (AKS)
 
 Wolumin trwały reprezentuje część magazynu, która została zainicjowana do użycia z Kubernetes. Wolumin trwały może być używany przez jeden lub wiele zasobników i może być dynamicznie lub statycznie inicjowany. W tym artykule opisano sposób dynamicznego tworzenia woluminów trwałych za pomocą dysków platformy Azure do użycia przez jeden element w klastrze usługi Azure Kubernetes Service (AKS).
 
 > [!NOTE]
-> Dysk platformy Azure można zainstalować tylko przy użyciu typu *trybu dostępu* *ReadWriteOnce* , który sprawia, że jest dostępny dla jednego węzła w AKS. Jeśli musisz udostępnić wolumin trwały w wielu węzłach, użyj [Azure Files][azure-files-pvc].
+> Dysk platformy Azure można zainstalować tylko przy użyciu typu *trybu dostępu* *ReadWriteOnce*, który sprawia, że jest dostępny dla jednego węzła w AKS. Jeśli musisz udostępnić wolumin trwały w wielu węzłach, użyj [Azure Files][azure-files-pvc].
 
 Aby uzyskać więcej informacji na temat woluminów Kubernetes, zobacz [Opcje magazynu dla aplikacji w AKS][concepts-storage].
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
 
@@ -78,7 +78,7 @@ spec:
 ```
 
 > [!TIP]
-> Aby utworzyć dysk korzystający ze standardowego magazynu, użyj `storageClassName: default` zamiast *Managed-Premium* .
+> Aby utworzyć dysk korzystający ze standardowego magazynu, użyj `storageClassName: default` zamiast *Managed-Premium*.
 
 Utwórz wartość trwałego wystąpienia woluminu za pomocą polecenia [polecenia kubectl Apply][kubectl-apply] i określ plik *Azure-Premium. YAML* :
 
@@ -90,7 +90,7 @@ persistentvolumeclaim/azure-managed-disk created
 
 ## <a name="use-the-persistent-volume"></a>Użyj woluminu trwałego
 
-Po utworzeniu trwałego wystąpienia woluminu i zainicjowaniu obsługi dysku można utworzyć element pod za pomocą dostępu do dysku. Poniższy manifest tworzy podstawowy NGINX pod, który używa trwałego żądania o nazwie *Azure-Managed-Disk* do zainstalowania dysku platformy Azure na ścieżce `/mnt/azure` . W przypadku kontenerów systemu Windows Server należy określić *mountPath* przy użyciu konwencji ścieżki systemu Windows, takiej jak *'d: '* .
+Po utworzeniu trwałego wystąpienia woluminu i zainicjowaniu obsługi dysku można utworzyć element pod za pomocą dostępu do dysku. Poniższy manifest tworzy podstawowy NGINX pod, który używa trwałego żądania o nazwie *Azure-Managed-Disk* do zainstalowania dysku platformy Azure na ścieżce `/mnt/azure` . W przypadku kontenerów systemu Windows Server należy określić *mountPath* przy użyciu konwencji ścieżki systemu Windows, takiej jak *'d: '*.
 
 Utwórz plik o nazwie `azure-pvc-disk.yaml` i skopiuj go do poniższego manifestu.
 
@@ -159,7 +159,7 @@ Aby korzystać z Ultra Disk, zobacz [Korzystanie z Ultra disks w usłudze Azure 
 
 Aby utworzyć kopię zapasową danych w woluminie trwałym, należy wykonać migawkę dysku zarządzanego dla tego woluminu. Następnie można użyć tej migawki do utworzenia przywróconego dysku i dołączenia do zasobników jako metody przywracania danych.
 
-Najpierw Pobierz nazwę woluminu za pomocą `kubectl get pvc` polecenia, na przykład dla obwodu PVC o nazwie *Azure-Managed-Disk* :
+Najpierw Pobierz nazwę woluminu za pomocą `kubectl get pvc` polecenia, na przykład dla obwodu PVC o nazwie *Azure-Managed-Disk*:
 
 ```console
 $ kubectl get pvc azure-managed-disk
@@ -176,7 +176,7 @@ $ az disk list --query '[].id | [?contains(@,`pvc-faf0f176-8b8d-11e8-923b-deb28c
 /subscriptions/<guid>/resourceGroups/MC_MYRESOURCEGROUP_MYAKSCLUSTER_EASTUS/providers/MicrosoftCompute/disks/kubernetes-dynamic-pvc-faf0f176-8b8d-11e8-923b-deb28c58d242
 ```
 
-Użyj identyfikatora dysku, aby utworzyć migawkę dysku za pomocą [AZ Snapshot Create][az-snapshot-create]. Poniższy przykład tworzy migawkę o nazwie *pvcSnapshot* w tej samej grupie zasobów co klaster AKS ( *MC_myResourceGroup_myAKSCluster_eastus* ). W przypadku tworzenia migawek i przywracania dysków w grupach zasobów, do których nie ma dostępu klaster AKS, mogą wystąpić problemy z uprawnieniami.
+Użyj identyfikatora dysku, aby utworzyć migawkę dysku za pomocą [AZ Snapshot Create][az-snapshot-create]. Poniższy przykład tworzy migawkę o nazwie *pvcSnapshot* w tej samej grupie zasobów co klaster AKS (*MC_myResourceGroup_myAKSCluster_eastus*). W przypadku tworzenia migawek i przywracania dysków w grupach zasobów, do których nie ma dostępu klaster AKS, mogą wystąpić problemy z uprawnieniami.
 
 ```azurecli-interactive
 $ az snapshot create \
@@ -189,7 +189,7 @@ W zależności od ilości danych na dysku utworzenie migawki może potrwać kilk
 
 ## <a name="restore-and-use-a-snapshot"></a>Przywracanie i używanie migawki
 
-Aby przywrócić dysk i użyć go z Kubernetes pod, użyj migawki jako źródła podczas tworzenia dysku za pomocą polecenie [AZ Disk Create][az-disk-create]. Ta operacja zachowuje pierwotny zasób, jeśli trzeba będzie uzyskać dostęp do oryginalnej migawki danych. Poniższy przykład tworzy dysk o nazwie *pvcRestored* z migawki o nazwie *pvcSnapshot* :
+Aby przywrócić dysk i użyć go z Kubernetes pod, użyj migawki jako źródła podczas tworzenia dysku za pomocą polecenie [AZ Disk Create][az-disk-create]. Ta operacja zachowuje pierwotny zasób, jeśli trzeba będzie uzyskać dostęp do oryginalnej migawki danych. Poniższy przykład tworzy dysk o nazwie *pvcRestored* z migawki o nazwie *pvcSnapshot*:
 
 ```azurecli-interactive
 az disk create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name pvcRestored --source pvcSnapshot
@@ -201,7 +201,7 @@ Aby użyć przywróconego dysku z systemem, określ identyfikator dysku w manife
 az disk show --resource-group MC_myResourceGroup_myAKSCluster_eastus --name pvcRestored --query id -o tsv
 ```
 
-Utwórz manifest pod nazwą `azure-restored.yaml` i określ identyfikator URI dysku uzyskany w poprzednim kroku. Poniższy przykład tworzy podstawowy serwer sieci Web NGINX z przywróconym dyskiem zainstalowanym jako wolumin w */mnt/Azure* :
+Utwórz manifest pod nazwą `azure-restored.yaml` i określ identyfikator URI dysku uzyskany w poprzednim kroku. Poniższy przykład tworzy podstawowy serwer sieci Web NGINX z przywróconym dyskiem zainstalowanym jako wolumin w */mnt/Azure*:
 
 ```yaml
 kind: Pod

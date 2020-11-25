@@ -4,11 +4,11 @@ description: W tym artykule opisano sposób przywracania SAP HANA baz danych uru
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.openlocfilehash: c502b7741acd343baefe5e2bf8b95cfc02e46688
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986127"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021677"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Przywracanie SAP HANA baz danych na maszynach wirtualnych platformy Azure
 
@@ -38,15 +38,15 @@ Przed przywróceniem bazy danych należy zwrócić uwagę na następujące kwest
 
   1. Otwórz magazyn, w którym zarejestrowano wystąpienie SAP HANA docelowego.
 
-  1. Na pulpicie nawigacyjnym magazynu w obszarze **wprowadzenie**wybierz pozycję **kopia zapasowa**.
+  1. Na pulpicie nawigacyjnym magazynu w obszarze **wprowadzenie** wybierz pozycję **kopia zapasowa**.
 
       ![Tworzenie kopii zapasowej na pulpicie nawigacyjnym magazynu](media/sap-hana-db-restore/getting-started-backup.png)
 
-  1. W obszarze **kopia zapasowa**w obszarze **co chcesz utworzyć kopię zapasową?** wybierz **SAP HANA na maszynie wirtualnej platformy Azure**.
+  1. W obszarze **kopia zapasowa** w obszarze **co chcesz utworzyć kopię zapasową?** wybierz **SAP HANA na maszynie wirtualnej platformy Azure**.
 
       ![Wybierz SAP HANA na maszynie wirtualnej platformy Azure](media/sap-hana-db-restore/sap-hana-backup.png)
 
-  1. W obszarze **odnajdywanie baz danych na maszynach wirtualnych**wybierz pozycję **Wyświetl szczegóły**.
+  1. W obszarze **odnajdywanie baz danych na maszynach wirtualnych** wybierz pozycję **Wyświetl szczegóły**.
 
       ![Wyświetl szczegóły](media/sap-hana-db-restore/view-details.png)
 
@@ -68,11 +68,11 @@ Do przywrócenia wymagane są następujące uprawnienia:
 
 1. Otwórz magazyn, w którym zarejestrowano bazę danych SAP HANA, która ma zostać przywrócona
 
-1. Na pulpicie nawigacyjnym magazynu w obszarze **chronione elementy**wybierz pozycję **elementy kopii zapasowej** .
+1. Na pulpicie nawigacyjnym magazynu w obszarze **chronione elementy** wybierz pozycję **elementy kopii zapasowej** .
 
     ![Elementy kopii zapasowej](media/sap-hana-db-restore/backup-items.png)
 
-1. W obszarze **elementy kopii zapasowej**w obszarze **Typ zarządzania kopiami zapasowymi** wybierz pozycję **SAP HANA na maszynie wirtualnej platformy Azure**
+1. W obszarze **elementy kopii zapasowej** w obszarze **Typ zarządzania kopiami zapasowymi** wybierz pozycję **SAP HANA na maszynie wirtualnej platformy Azure**
 
     ![Typ zarządzania kopiami zapasowymi](media/sap-hana-db-restore/backup-management-type.png)
 
@@ -90,17 +90,17 @@ Do przywrócenia wymagane są następujące uprawnienia:
 
 1. Wybierz pozycję **Przywróć bazę danych**
 
-1. W obszarze **Przywracanie konfiguracji**Określ, gdzie (lub jak) przywrócić dane:
+1. W obszarze **Przywracanie konfiguracji** Określ, gdzie (lub jak) przywrócić dane:
 
     * **Lokalizacja alternatywna**: Przywracanie bazy danych do alternatywnej lokalizacji i zachowywanie oryginalnej źródłowej bazy danych.
 
-    * **Zastąp bazę**danych: Przywróć dane do tego samego wystąpienia SAP HANA co oryginalne źródło. Ta opcja zastępuje oryginalną bazę danych.
+    * **Zastąp bazę** danych: Przywróć dane do tego samego wystąpienia SAP HANA co oryginalne źródło. Ta opcja zastępuje oryginalną bazę danych.
 
       ![Przywróć konfigurację](media/sap-hana-db-restore/restore-configuration.png)
 
 ### <a name="restore-to-alternate-location"></a>Przywróć do lokalizacji alternatywnej
 
-1. W menu **Przywróć konfigurację** w obszarze **gdzie należy przywrócić**wybierz pozycję **Lokalizacja alternatywna**.
+1. W menu **Przywróć konfigurację** w obszarze **gdzie należy przywrócić** wybierz pozycję **Lokalizacja alternatywna**.
 
     ![Przywróć do lokalizacji alternatywnej](media/sap-hana-db-restore/restore-alternate-location.png)
 
@@ -112,19 +112,19 @@ Do przywrócenia wymagane są następujące uprawnienia:
     > Przywracanie kontenerów pojedyncza baza danych (SDC) musi być zgodne z tymi [sprawdzeniami](backup-azure-sap-hana-database-troubleshoot.md#single-container-database-sdc-restore).
 
 1. Jeśli ma to zastosowanie, wybierz opcję **Zastąp, jeśli baza danych o takiej samej nazwie już istnieje w wybranym wystąpieniu platformy Hana**.
-1. Wybierz przycisk **OK**.
+1. Wybierz pozycję **OK**.
 
     ![Przywracanie konfiguracji — Ekran końcowy](media/sap-hana-db-restore/restore-configuration-last.png)
 
-1. W obszarze **Wybierz punkt przywracania**wybierz pozycję **dzienniki (punkt w czasie)** , aby [przywrócić do określonego punktu w czasie](#restore-to-a-specific-point-in-time). Lub wybierz opcję **pełna & różnicowa** , aby [przywrócić do określonego punktu odzyskiwania](#restore-to-a-specific-recovery-point).
+1. W obszarze **Wybierz punkt przywracania** wybierz pozycję **dzienniki (punkt w czasie)** , aby [przywrócić do określonego punktu w czasie](#restore-to-a-specific-point-in-time). Lub wybierz opcję **pełna & różnicowa** , aby [przywrócić do określonego punktu odzyskiwania](#restore-to-a-specific-recovery-point).
 
 ### <a name="restore-and-overwrite"></a>Przywróć i Zastąp
 
-1. W menu **Przywróć konfigurację** w obszarze **gdzie można przywrócić**wybierz pozycję **Zastąp bazę danych**  >  **OK**.
+1. W menu **Przywróć konfigurację** w obszarze **gdzie można przywrócić** wybierz pozycję **Zastąp bazę danych**  >  **OK**.
 
     ![Zastąp bazę danych](media/sap-hana-db-restore/overwrite-db.png)
 
-1. W obszarze **Wybierz punkt przywracania**wybierz pozycję **dzienniki (punkt w czasie)** , aby [przywrócić do określonego punktu w czasie](#restore-to-a-specific-point-in-time). Lub wybierz opcję **pełna & różnicowa** , aby [przywrócić do określonego punktu odzyskiwania](#restore-to-a-specific-recovery-point).
+1. W obszarze **Wybierz punkt przywracania** wybierz pozycję **dzienniki (punkt w czasie)** , aby [przywrócić do określonego punktu w czasie](#restore-to-a-specific-point-in-time). Lub wybierz opcję **pełna & różnicowa** , aby [przywrócić do określonego punktu odzyskiwania](#restore-to-a-specific-recovery-point).
 
 ### <a name="restore-as-files"></a>Przywróć jako pliki
 
@@ -132,7 +132,7 @@ Aby przywrócić dane kopii zapasowej jako pliki zamiast bazy danych, wybierz po
 
 1. W menu **Przywróć konfigurację** , w obszarze **gdzie i jak przywrócić**, wybierz pozycję **Przywróć jako pliki**.
 1. Wybierz nazwę serwera **hosta** /platformy Hana, do którego chcesz przywrócić pliki kopii zapasowej.
-1. W **ścieżce docelowej na serwerze**wprowadź ścieżkę folderu na serwerze wybranym w kroku 2. Jest to lokalizacja, w której usługa będzie zrzucać wszystkie niezbędne pliki kopii zapasowej.
+1. W **ścieżce docelowej na serwerze** wprowadź ścieżkę folderu na serwerze wybranym w kroku 2. Jest to lokalizacja, w której usługa będzie zrzucać wszystkie niezbędne pliki kopii zapasowej.
 
     Zrzuty plików są następujące:
 
@@ -262,7 +262,7 @@ Aby sprawdzić, czy CRR jest włączona, postępuj zgodnie z instrukcjami podany
 
 Jeśli CRR jest włączona, można wyświetlić elementy kopii zapasowej w regionie pomocniczym.
 
-1. W portalu przejdź do pozycji **Recovery Services**  >  **elementy kopii zapasowej**magazynu.
+1. W portalu przejdź do pozycji **Recovery Services**  >  **elementy kopii zapasowej** magazynu.
 1. Wybierz **region pomocniczy** , aby wyświetlić elementy w regionie pomocniczym.
 
 >[!NOTE]

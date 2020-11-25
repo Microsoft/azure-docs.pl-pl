@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 ms.openlocfilehash: dc0cf718ee51e23fb749bdf57d5344977de009d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88182225"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021864"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Wdróż StorSimple wirtualną macierzy dla programu Cloud Solution Provider
 
@@ -64,7 +64,7 @@ Dodanie klienta powoduje automatyczne utworzenie subskrypcji. Aby dodać klienta
 
     ![Wyszukaj klienta](./media/storsimple-partner-csp-deploy/image6.png)  
 
-7. W okienku po lewej stronie wybierz pozycję **Zarządzanie usługami**. W okienku po prawej stronie w obszarze **Administruj usługami**kliknij pozycję **Portal zarządzania Microsoft Azure** , aby zalogować się jako administrator platformy Azure dla klienta.
+7. W okienku po lewej stronie wybierz pozycję **Zarządzanie usługami**. W okienku po prawej stronie w obszarze **Administruj usługami** kliknij pozycję **Portal zarządzania Microsoft Azure** , aby zalogować się jako administrator platformy Azure dla klienta.
 
     ![Logowanie do witryny Azure Portal](./media/storsimple-partner-csp-deploy/image9.png)
 
@@ -93,7 +93,7 @@ W niektórych przypadkach użytkownik może mieć istniejącego klienta i musi d
 
     ![Wyszukaj klienta](./media/storsimple-partner-csp-deploy/image6.png)  
 
-7. W okienku po lewej stronie wybierz pozycję **Zarządzanie usługami**. W okienku po prawej stronie w obszarze **Administruj usługami**kliknij pozycję **Portal zarządzania Microsoft Azure** , aby zalogować się jako administrator platformy Azure dla klienta.
+7. W okienku po lewej stronie wybierz pozycję **Zarządzanie usługami**. W okienku po prawej stronie w obszarze **Administruj usługami** kliknij pozycję **Portal zarządzania Microsoft Azure** , aby zalogować się jako administrator platformy Azure dla klienta.
 
     ![Logowanie do witryny Azure Portal](./media/storsimple-partner-csp-deploy/image9.png)
 

@@ -4,11 +4,11 @@ description: W tym artykule opisano sposób zarządzania i monitorowania SQL Ser
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: b0df22002521c8148cac1200e79aeb0ae5a60546
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89146525"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021507"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Zarządzanie kopiami zapasowymi baz danych programu SQL Server i ich monitorowanie
 
@@ -40,7 +40,7 @@ Aby monitorować alerty kopii zapasowej bazy danych:
 
    ![Wybieranie pozycji Alerty i zdarzenia](./media/backup-azure-sql-database/vault-menu-alerts-events.png)
 
-3. W obszarze **alerty i zdarzenia**wybierz pozycję **alerty kopii zapasowych**.
+3. W obszarze **alerty i zdarzenia** wybierz pozycję **alerty kopii zapasowych**.
 
    ![Wybieranie pozycji Alerty kopii zapasowej](./media/backup-azure-sql-database/backup-alerts-dashboard.png)
 
@@ -61,7 +61,7 @@ Aby zatrzymać ochronę bazy danych:
 
 1. Na pulpicie nawigacyjnym magazynu wybierz pozycję **elementy kopii zapasowej**.
 
-2. W obszarze **Typ zarządzania kopiami zapasowymi**wybierz pozycję **SQL na maszynie wirtualnej platformy Azure**.
+2. W obszarze **Typ zarządzania kopiami zapasowymi** wybierz pozycję **SQL na maszynie wirtualnej platformy Azure**.
 
     ![Wybieranie pozycji SQL na maszynie wirtualnej platformy Azure](./media/backup-azure-sql-database/sql-restore-backup-items.png)
 
@@ -142,7 +142,7 @@ Możesz naprawić wersję zasad dla wszystkich elementów, których dotyczy prob
 
 Wyrejestruj wystąpienie SQL Server po wyłączeniu ochrony, ale przed usunięciem magazynu:
 
-1. Na pulpicie nawigacyjnym magazynu w obszarze **Zarządzaj**wybierz pozycję **infrastruktura kopii zapasowych**.  
+1. Na pulpicie nawigacyjnym magazynu w obszarze **Zarządzaj** wybierz pozycję **infrastruktura kopii zapasowych**.  
 
    ![Wybieranie pozycji Infrastruktura zapasowa](./media/backup-azure-sql-database/backup-infrastructure-button.png)
 
@@ -150,7 +150,7 @@ Wyrejestruj wystąpienie SQL Server po wyłączeniu ochrony, ale przed usunięci
 
    ![Wybieranie pozycji Serwery chronione](./media/backup-azure-sql-database/protected-servers.png)
 
-3. W obszarze **serwery chronione**wybierz serwer do wyrejestrowania. Aby usunąć magazyn, musisz wyrejestrować wszystkie serwery.
+3. W obszarze **serwery chronione** wybierz serwer do wyrejestrowania. Aby usunąć magazyn, musisz wyrejestrować wszystkie serwery.
 
 4. Kliknij prawym przyciskiem myszy serwer chroniony, a następnie wybierz polecenie **Wyrejestruj**.
 

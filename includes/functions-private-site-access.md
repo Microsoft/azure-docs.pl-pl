@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 05/06/2020
 ms.author: glenga
 ms.openlocfilehash: 2d66e7f497f85141de172c59b67676e1bb93955e
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578833"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021002"
 ---
 [Prywatny punkt końcowy platformy Azure](../articles/private-link/private-endpoint-overview.md) to interfejs sieciowy, który nawiązuje prywatne i bezpieczne połączenie z usługą obsługiwaną przez usługę Azure Private Link.  Prywatny punkt końcowy używa prywatnego adresu IP z Twojej sieci wirtualnej, skutecznie przenosząc usługę do sieci wirtualnej.
 

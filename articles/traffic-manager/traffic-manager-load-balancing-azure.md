@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 10/27/2016
 ms.author: duau
 ms.openlocfilehash: 431eaff9da95063648d3e80acb54be9cc5c25bc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89393072"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021694"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Korzystanie z usług równoważenia obciążenia na platformie Azure
 
@@ -80,12 +80,12 @@ Na poniższym diagramie przedstawiono architekturę tego scenariusza:
 
 ### <a name="step-2-create-the-application-gateways"></a>Krok 2. Tworzenie bram aplikacji
 
-1. W Azure Portal w lewym okienku kliknij pozycję **Utwórz zasób**  >  **Networking**  >  **Application Gateway**sieci.
+1. W Azure Portal w lewym okienku kliknij pozycję **Utwórz zasób**  >  **Networking**  >  **Application Gateway** sieci.
 2. Wprowadź następujące podstawowe informacje o bramie aplikacji:
 
    * **Name**: Nazwa bramy aplikacji.
    * **Rozmiar jednostki SKU**: rozmiar bramy aplikacji, dostępny jako mały, średni lub duży.
-   * **Liczba**wystąpień: liczba wystąpień, wartość z przenoszącą od 2 do 10.
+   * **Liczba** wystąpień: liczba wystąpień, wartość z przenoszącą od 2 do 10.
    * **Grupa zasobów**: Grupa zasobów zawierająca bramę aplikacji. Może to być istniejąca Grupa zasobów lub nowa.
    * **Lokalizacja**: region bramy aplikacji, który jest tą samą lokalizacją jak grupa zasobów. Lokalizacja jest ważna, ponieważ sieć wirtualna i publiczny adres IP muszą znajdować się w tej samej lokalizacji co brama.
 3. Kliknij przycisk **OK**.
@@ -101,7 +101,7 @@ W przypadku wybrania puli zaplecza Brama aplikacji, która jest skonfigurowana z
 ![Application Gateway diagram warstwy sieci Web](./media/traffic-manager-load-balancing-azure/web-tier-diagram.png)
 
 1. Z poziomu grupy zasobów przejdź do wystąpienia bramy aplikacji utworzonej w poprzedniej sekcji.
-2. W obszarze **Ustawienia**wybierz pozycję **Pule zaplecza**, a następnie wybierz pozycję **Dodaj** , aby dodać maszyny wirtualne, które mają zostać skojarzone z pulami zaplecza warstwy sieci Web.
+2. W obszarze **Ustawienia** wybierz pozycję **Pule zaplecza**, a następnie wybierz pozycję **Dodaj** , aby dodać maszyny wirtualne, które mają zostać skojarzone z pulami zaplecza warstwy sieci Web.
 3. Wprowadź nazwę puli zaplecza i wszystkie adresy IP maszyn znajdujących się w puli. W tym scenariuszu nawiązujemy połączenie dwóch pul serwerów zaplecza maszyn wirtualnych.
 
    ![Application Gateway "Dodaj pulę zaplecza"](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
@@ -144,7 +144,7 @@ W tym scenariuszu Traffic Manager jest połączony z bramami aplikacji (zgodnie 
 
    * **Typ**: Wybierz typ punktu końcowego do równoważenia obciążenia. W tym scenariuszu wybierz pozycję **punkt końcowy platformy Azure** , ponieważ łączymy ją z wystąpieniami usługi Application Gateway, które zostały wcześniej skonfigurowane.
    * **Nazwa**: Wprowadź nazwę punktu końcowego.
-   * **Typ zasobu docelowego**: wybierz pozycję **publiczny adres IP** , a następnie w obszarze **zasób docelowy**wybierz publiczny IP bramy aplikacji, która została wcześniej skonfigurowana.
+   * **Typ zasobu docelowego**: wybierz pozycję **publiczny adres IP** , a następnie w obszarze **zasób docelowy** wybierz publiczny IP bramy aplikacji, która została wcześniej skonfigurowana.
 
    ![Traffic Manager "Dodaj punkt końcowy"](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
 
@@ -161,15 +161,15 @@ Aby uzyskać więcej informacji o konfigurowaniu wewnętrznego modułu równowa�
 1. W Azure Portal w lewym okienku kliknij pozycję **Utwórz zasób**  >  **Sieć**  >  **moduł równoważenia obciążenia**.
 2. Wybierz nazwę modułu równoważenia obciążenia.
 3. Ustaw **Typ** na **Internal**, a następnie wybierz odpowiednią sieć wirtualną i podsieć dla usługi równoważenia obciążenia, w której ma się znajdować.
-4. W obszarze **przypisywanie adresów IP**wybierz opcję **dynamiczny** lub **statyczny**.
-5. W obszarze **Grupa zasobów**wybierz grupę zasobów dla usługi równoważenia obciążenia.
-6. W obszarze **Lokalizacja**wybierz odpowiedni region dla modułu równoważenia obciążenia.
+4. W obszarze **przypisywanie adresów IP** wybierz opcję **dynamiczny** lub **statyczny**.
+5. W obszarze **Grupa zasobów** wybierz grupę zasobów dla usługi równoważenia obciążenia.
+6. W obszarze **Lokalizacja** wybierz odpowiedni region dla modułu równoważenia obciążenia.
 7. Kliknij przycisk **Utwórz** , aby wygenerować moduł równoważenia obciążenia.
 
 #### <a name="connect-a-back-end-database-tier-to-the-load-balancer"></a>Podłączanie warstwy bazy danych zaplecza do modułu równoważenia obciążenia
 
 1. W grupie zasobów Znajdź moduł równoważenia obciążenia, który został utworzony w poprzednich krokach.
-2. W obszarze **Ustawienia**kliknij pozycję **Pule zaplecza**, a następnie kliknij przycisk **Dodaj** , aby dodać pulę zaplecza.
+2. W obszarze **Ustawienia** kliknij pozycję **Pule zaplecza**, a następnie kliknij przycisk **Dodaj** , aby dodać pulę zaplecza.
 
    ![Load Balancer "Dodaj pulę zaplecza"](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
 
@@ -178,27 +178,27 @@ Aby uzyskać więcej informacji o konfigurowaniu wewnętrznego modułu równowa�
 
 #### <a name="configure-a-probe"></a>Konfigurowanie sondy
 
-1. W module równoważenia obciążenia w obszarze **Ustawienia**wybierz pozycję **sondy**, a następnie kliknij przycisk **Dodaj** , aby dodać sondę.
+1. W module równoważenia obciążenia w obszarze **Ustawienia** wybierz pozycję **sondy**, a następnie kliknij przycisk **Dodaj** , aby dodać sondę.
 
    ![Load Balancer "Dodaj sondę"](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
 
 2. Wprowadź nazwę sondy.
 3. Wybierz **Protokół** dla sondy. W przypadku bazy danych może być potrzebna sonda TCP, a nie sonda HTTP. Aby dowiedzieć się więcej o sondach modułu równoważenia obciążenia, zobacz [Omówienie sond modułu równoważenia obciążenia](../load-balancer/load-balancer-custom-probe-overview.md).
 4. Wprowadź **port** bazy danych, który ma być używany do uzyskiwania dostępu do sondy.
-5. W obszarze **Interwał**określ częstotliwość sondowania aplikacji.
-6. W obszarze **próg złej kondycji**Określ liczbę niepowodzeń ciągłego sondowania, które muszą wystąpić, aby maszyna wirtualna zaplecza była uznawana za złą.
+5. W obszarze **Interwał** określ częstotliwość sondowania aplikacji.
+6. W obszarze **próg złej kondycji** Określ liczbę niepowodzeń ciągłego sondowania, które muszą wystąpić, aby maszyna wirtualna zaplecza była uznawana za złą.
 7. Kliknij przycisk **OK** , aby utworzyć sondę.
 
 #### <a name="configure-the-load-balancing-rules"></a>Konfigurowanie reguł równoważenia obciążenia
 
 1. W obszarze **Ustawienia** modułu równoważenia obciążenia wybierz pozycję **reguły równoważenia obciążenia**, a następnie kliknij przycisk **Dodaj** , aby utworzyć regułę.
 2. Wprowadź **nazwę** reguły równoważenia obciążenia.
-3. Wybierz **adres IP frontonu** modułu równoważenia obciążenia, **protokołu**i **portu**.
-4. W obszarze **port zaplecza**określ port, który ma być używany w puli zaplecza.
+3. Wybierz **adres IP frontonu** modułu równoważenia obciążenia, **protokołu** i **portu**.
+4. W obszarze **port zaplecza** określ port, który ma być używany w puli zaplecza.
 5. Wybierz **pulę zaplecza** i **sondę** , która została utworzona w poprzednich krokach, aby zastosować regułę do programu.
-6. W obszarze **trwałość sesji**wybierz sposób, w jaki sesje mają być utrwalane.
-7. W obszarze **limity czasu bezczynności**Określ liczbę minut przed upływem limitu czasu bezczynności.
-8. W obszarze **zmiennoprzecinkowy adres IP**wybierz opcję **wyłączone** lub **włączone**.
+6. W obszarze **trwałość sesji** wybierz sposób, w jaki sesje mają być utrwalane.
+7. W obszarze **limity czasu bezczynności** Określ liczbę minut przed upływem limitu czasu bezczynności.
+8. W obszarze **zmiennoprzecinkowy adres IP** wybierz opcję **wyłączone** lub **włączone**.
 9. Kliknij przycisk **OK**, aby utworzyć regułę.
 
 ### <a name="step-5-connect-web-tier-vms-to-the-load-balancer"></a>Krok 5. Łączenie maszyn wirtualnych warstwy internetowej z usługą równoważenia obciążenia
