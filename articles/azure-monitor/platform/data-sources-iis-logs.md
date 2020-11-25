@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/13/2020
 ms.openlocfilehash: a089631ab199b0fe997bba001561c6b027034e2c
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628751"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993690"
 ---
 # <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Zbierz dzienniki usług IIS z agentem Log Analytics w programie Azure Monitor
 Internet Information Services (IIS) przechowuje aktywność użytkownika w plikach dziennika, które mogą być zbierane przez agenta Log Analytics i przechowywane w [dziennikach Azure monitor](data-platform.md).
@@ -30,10 +30,10 @@ Skonfiguruj dzienniki usług IIS w Azure Monitor z poziomu [menu Ustawienia zaaw
 
 
 ## <a name="data-collection"></a>Zbieranie danych
-Azure Monitor zbiera wpisy dziennika usług IIS z każdego agenta przy każdej zmianie sygnatury czasowej dziennika. Dziennik jest odczytywany co **5 minut**. Jeśli z jakiegokolwiek powodu usługi IIS nie zaktualizują sygnatury czasowej przed upływem czasu przerzucenia podczas tworzenia nowego pliku, zostaną zebrane wpisy po utworzeniu nowego pliku. Częstotliwość tworzenia nowych plików jest kontrolowana przez ustawienie **harmonogramu przerzucania pliku dziennika** dla witryny IIS, która jest domyślnie raz dziennie. Jeśli ustawienie jest **co godzinę** , Azure monitor zbiera dziennik co godzinę. Jeśli to ustawienie ma wartość **codziennie** , Azure monitor zbiera dziennik co 24 godziny.
+Azure Monitor zbiera wpisy dziennika usług IIS z każdego agenta przy każdej zmianie sygnatury czasowej dziennika. Dziennik jest odczytywany co **5 minut**. Jeśli z jakiegokolwiek powodu usługi IIS nie zaktualizują sygnatury czasowej przed upływem czasu przerzucenia podczas tworzenia nowego pliku, zostaną zebrane wpisy po utworzeniu nowego pliku. Częstotliwość tworzenia nowych plików jest kontrolowana przez ustawienie **harmonogramu przerzucania pliku dziennika** dla witryny IIS, która jest domyślnie raz dziennie. Jeśli ustawienie jest **co godzinę**, Azure monitor zbiera dziennik co godzinę. Jeśli to ustawienie ma wartość **codziennie**, Azure monitor zbiera dziennik co 24 godziny.
 
 > [!IMPORTANT]
-> Zaleca się skonfigurowanie **harmonogramu przerzucania pliku dziennika** na **co godzinę**. Jeśli jest ustawiona na **codzienne** , można napotkać w danych, że dane będą zbierane tylko raz dziennie.
+> Zaleca się skonfigurowanie **harmonogramu przerzucania pliku dziennika** na **co godzinę**. Jeśli jest ustawiona na **codzienne**, można napotkać w danych, że dane będą zbierane tylko raz dziennie.
 
 ## <a name="iis-log-record-properties"></a>Właściwości rekordu dziennika usług IIS
 Rekordy dziennika usług IIS mają typ **W3CIISLog** i mają właściwości w poniższej tabeli:

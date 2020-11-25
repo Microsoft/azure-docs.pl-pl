@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
 ms.openlocfilehash: 4967991b0edaa854acbf6b308596859d662311fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316764"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993360"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed zapisaniem kodu zarządzania CDN należy wykonać pewne przygotowania, aby umożliwić współpracującie kodu z Azure Resource Manager. Aby to zrobić, należy wykonać następujące czynności:
@@ -37,7 +37,7 @@ Istnieją dwa podejścia do uwierzytelniania aplikacji przy użyciu Azure Active
 Tworzenie jednostki usługi składa się z kilku kroków, w tym do tworzenia aplikacji Azure Active Directory.  Aby go utworzyć, [postępuj zgodnie z tym samouczkiem](../articles/active-directory/develop/howto-create-service-principal-portal.md).
 
 > [!IMPORTANT]
-> Pamiętaj, aby wykonać wszystkie kroki w [połączonym samouczku](../articles/active-directory/develop/howto-create-service-principal-portal.md).  *Ważne* jest, aby wypełnić je dokładnie zgodnie z opisem.  Pamiętaj, aby zanotować swój **Identyfikator dzierżawy**, **nazwę domeny dzierżawy** (zwykle domenę *. onmicrosoft.com* , chyba że określono domenę niestandardową), **Identyfikator klienta**i **klucz uwierzytelniania klienta**, ponieważ te informacje będą potrzebne później.  Należy zachować ostrożność w celu ochrony **identyfikatora klienta** i **klucza uwierzytelniania klienta**, ponieważ mogą one być używane przez każdego użytkownika do wykonywania operacji jako nazwy głównej usługi.
+> Pamiętaj, aby wykonać wszystkie kroki w [połączonym samouczku](../articles/active-directory/develop/howto-create-service-principal-portal.md).  *Ważne* jest, aby wypełnić je dokładnie zgodnie z opisem.  Pamiętaj, aby zanotować swój **Identyfikator dzierżawy**, **nazwę domeny dzierżawy** (zwykle domenę *. onmicrosoft.com* , chyba że określono domenę niestandardową), **Identyfikator klienta** i **klucz uwierzytelniania klienta**, ponieważ te informacje będą potrzebne później.  Należy zachować ostrożność w celu ochrony **identyfikatora klienta** i **klucza uwierzytelniania klienta**, ponieważ mogą one być używane przez każdego użytkownika do wykonywania operacji jako nazwy głównej usługi.
 >
 > Po wyświetleniu kroku o nazwie Konfiguruj wielodostępną aplikację wybierz pozycję **nie**.
 >

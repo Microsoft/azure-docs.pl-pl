@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 46c27fa2073ea1178fdf01ea3cbf96fe86954a6a
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 3fc2475569765116d46a175629f25d9d49634942
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95255155"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993957"
 ---
 W tym artykule wymieniono wersje i funkcje agenta aprowizacji Azure Active Directory Connect, który został wystawiony. Zespół usługi Azure AD regularnie aktualizuje agenta aprowizacji za pomocą nowych funkcji i funkcjonalności. Agent aprowizacji jest automatycznie aktualizowany po wydaniu nowej wersji. 
 
@@ -14,12 +14,12 @@ Firma Microsoft zapewnia bezpośrednią pomoc techniczną dotyczącą najnowszej
 
 ### <a name="release-status"></a>Stan wydania
 
-Listopad, 2020: wydano do pobrania
+23 listopada 2020: wydano do pobrania
 
 ### <a name="new-features-and-improvements"></a>Nowe funkcje i ulepszenia
 
 * Obsługa [gMSA](../articles/active-directory/cloud-provisioning/how-to-prerequisites.md#group-managed-service-accounts)
-* Obsługa grup o rozmiarze do 1500 elementów członkowskich (podczas synchronizacji różnicowej)
+* Obsługa grup o rozmiarze mniejszym niż 1500 członków w cyklu synchronizacji przyrostowej lub różnicowej. Ma to zastosowanie w przypadku korzystania z filtru określania zakresu grup
 * Obsługa dużych grup z rozmiarem elementu członkowskiego do 15 tys.
 * Ulepszenia synchronizacji początkowej
 * Zaawansowane rejestrowanie pełne

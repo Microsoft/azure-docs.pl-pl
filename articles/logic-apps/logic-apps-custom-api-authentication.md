@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 5e0dcd478c6eb6696a0e07d35d4dccddac68ac1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80656235"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993171"
 ---
 # <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Zwiększ bezpieczeństwo wywołań niestandardowych interfejsów API z Azure Logic Apps
 
@@ -51,9 +51,9 @@ Aplikacja logiki używa tej tożsamości aplikacji usługi Azure AD do uwierzyte
 2. Upewnij się, że jesteś w tym samym katalogu, co aplikacja sieci Web lub aplikacja interfejsu API.
 
    > [!TIP]
-   > Aby przełączyć katalogi, wybierz swój profil i wybierz inny katalog. Lub wybierz opcję **Overview**  >  **katalog przełączników**przegląd.
+   > Aby przełączyć katalogi, wybierz swój profil i wybierz inny katalog. Lub wybierz opcję **Overview**  >  **katalog przełączników** przegląd.
 
-3. W menu katalog w obszarze **Zarządzaj**wybierz pozycję **rejestracje aplikacji**  >  **rejestracja nowej aplikacji**.
+3. W menu katalog w obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**  >  **rejestracja nowej aplikacji**.
 
    > [!TIP]
    > Domyślnie lista rejestracji aplikacji zawiera wszystkie rejestracje aplikacji w Twoim katalogu. Aby wyświetlić tylko rejestracje aplikacji, obok pola wyszukiwania wybierz pozycję **Moje aplikacje**. 
@@ -74,13 +74,13 @@ Aplikacja logiki używa tej tożsamości aplikacji usługi Azure AD do uwierzyte
 
 6. Jeśli ustawienia tożsamości aplikacji nie są widoczne, wybierz pozycję **Ustawienia** lub **wszystkie ustawienia**.
 
-7. W obszarze **dostęp do interfejsu API**wybierz pozycję **klucze**. W obszarze **Opis**Podaj nazwę klucza. W obszarze **wygaśnięcie**wybierz czas trwania dla klucza.
+7. W obszarze **dostęp do interfejsu API** wybierz pozycję **klucze**. W obszarze **Opis** Podaj nazwę klucza. W obszarze **wygaśnięcie** wybierz czas trwania dla klucza.
 
    Tworzony klucz działa jako "klucz tajny" tożsamości aplikacji lub hasło aplikacji logiki.
 
    ![Utwórz klucz dla tożsamości aplikacji logiki](./media/logic-apps-custom-api-authentication/create-logic-app-identity-key-secret-password.png)
 
-8. Na pasku narzędzi wybierz pozycję **Zapisz**. W obszarze **wartość**zostanie wyświetlony klucz. 
+8. Na pasku narzędzi wybierz pozycję **Zapisz**. W obszarze **wartość** zostanie wyświetlony klucz. 
 **Pamiętaj o skopiowaniu i zapisaniu klucza** do późniejszego użycia, ponieważ klucz jest ukryty, gdy opuścisz stronę **klucze** .
 
    Podczas konfigurowania aplikacji logiki w części 3 należy określić ten klucz jako klucz tajny lub hasło.
@@ -103,7 +103,7 @@ To zadanie można wykonać za pomocą Azure Resource Manager za pomocą programu
 
 1. `New-AzADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
 
-1. Pamiętaj o skopiowaniu **identyfikatora dzierżawy** (identyfikatora GUID dla dzierżawy usługi Azure AD), **identyfikatora aplikacji**i użytego hasła.
+1. Pamiętaj o skopiowaniu **identyfikatora dzierżawy** (identyfikatora GUID dla dzierżawy usługi Azure AD), **identyfikatora aplikacji** i użytego hasła.
 
 Aby uzyskać więcej informacji, Dowiedz się, jak [utworzyć jednostkę usługi przy użyciu programu PowerShell, aby uzyskać dostęp do zasobów](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
@@ -115,7 +115,7 @@ Jeśli aplikacja sieci Web lub aplikacja interfejsu API została już wdrożona,
 
 1. W [Azure Portal](https://portal.azure.com "https://portal.azure.com")Znajdź i wybierz aplikację sieci Web lub aplikację interfejsu API. 
 
-2. W obszarze **Ustawienia**wybierz pozycję **uwierzytelnianie/autoryzacja**. W obszarze **uwierzytelnianie App Service**Włącz uwierzytelnianie **.** W obszarze **dostawcy uwierzytelniania**wybierz pozycję **Azure Active Directory**.
+2. W obszarze **Ustawienia** wybierz pozycję **uwierzytelnianie/autoryzacja**. W obszarze **uwierzytelnianie App Service** Włącz uwierzytelnianie **.** W obszarze **dostawcy uwierzytelniania** wybierz pozycję **Azure Active Directory**.
 
    ![Włącz uwierzytelnianie](./media/logic-apps-custom-api-authentication/custom-web-api-app-authentication.png)
 
@@ -129,13 +129,13 @@ Teraz musisz znaleźć identyfikator klienta i identyfikator dzierżawy dla toż
 
 **Znajdź identyfikator klienta i identyfikator dzierżawy tożsamości aplikacji dla aplikacji sieci Web lub aplikacji interfejsu API w Azure Portal**
 
-1. W obszarze **dostawcy uwierzytelniania**wybierz pozycję **Azure Active Directory**. 
+1. W obszarze **dostawcy uwierzytelniania** wybierz pozycję **Azure Active Directory**. 
 
    ![Wybieranie pozycji „Azure Active Directory”](./media/logic-apps-custom-api-authentication/custom-api-app-identity-client-id-tenant-id.png)
 
 2. Na stronie **ustawienia Azure Active Directory** Ustaw **tryb zarządzania** na **Zaawansowane**.
 
-3. Skopiuj **Identyfikator klienta**i Zapisz ten identyfikator GUID do użycia w części 3.
+3. Skopiuj **Identyfikator klienta** i Zapisz ten identyfikator GUID do użycia w części 3.
 
    > [!TIP] 
    > Jeśli **Identyfikator klienta** i **adres URL wystawcy** nie są wyświetlane, spróbuj odświeżyć Azure Portal i powtórz krok 1.

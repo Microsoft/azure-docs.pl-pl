@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9e7386e21442b5a76aae656a36e2858b52ecef65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 895a81df858e51a266cd87c96a161695a4bf2cc1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87102878"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95992852"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
 
@@ -34,7 +34,7 @@ Install-Module -Name Az -AllowClobber -Scope CurrentUser
 
 Po zakończeniu instalacji zaloguj się do sesji programu PowerShell przy użyciu polecenia `Connect-AzAccount` .
 
-Aby utworzyć przyrostową migawkę z Azure PowerShell, należy ustawić konfigurację przy użyciu parametru [New-AzSnapShotConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) z `-Incremental` parametrem, a następnie przekazać ją jako zmienną do [nowego-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) za pomocą `-Snapshot` parametru.
+Aby utworzyć przyrostową migawkę z Azure PowerShell, należy ustawić konfigurację przy użyciu parametru [New-AzSnapShotConfig](/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) z `-Incremental` parametrem, a następnie przekazać ją jako zmienną do [nowego-AzSnapshot](/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) za pomocą `-Snapshot` parametru.
 
 ```PowerShell
 $diskName = "yourDiskNameHere>"

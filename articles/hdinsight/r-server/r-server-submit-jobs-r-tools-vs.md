@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.openlocfilehash: 08426c74b26c18b15466578d9921520da1e9c923
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536236"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993792"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Przesyłanie zadań z narzędzi R Tools for Visual Studio
 
@@ -27,7 +27,7 @@ RTVS ulepsza przepływ pracy w języku R, oferując narzędzia, takie jak [okno 
 
     ![Instalowanie RTVS w programie Visual Studio 2017](./media/r-server-submit-jobs-r-tools-vs/install-r-tools-for-vs.png)
 
-2. Wybierz obciążenie analizy *danych i aplikacji analitycznych* , a następnie wybierz opcję **Obsługa języka r** , **Obsługa środowiska uruchomieniowego w środowisku r** i opcje **Microsoft R Client** .
+2. Wybierz obciążenie analizy *danych i aplikacji analitycznych* , a następnie wybierz opcję **Obsługa języka r**, **Obsługa środowiska uruchomieniowego w środowisku r** i opcje **Microsoft R Client** .
 
 3. Musisz mieć klucze publiczny i prywatny na potrzeby uwierzytelniania SSH.
    <!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
@@ -37,9 +37,9 @@ RTVS ulepsza przepływ pracy w języku R, oferując narzędzia, takie jak [okno 
 5. Zainstaluj [program](https://www.putty.org/) , aby udostępnić kontekst obliczeniowy służący do uruchamiania `RevoScaleR` funkcji z lokalnego klienta do klastra usługi HDInsight.
 
 6. Istnieje możliwość zastosowania Nauka o danych — ustawienia do środowiska programu Visual Studio, które udostępnia nowy układ obszaru roboczego dla narzędzi języka R.
-   1. Aby zapisać bieżące ustawienia programu Visual Studio, użyj **narzędzia > Importuj i Eksportuj ustawienia** , a następnie wybierz opcję **Eksportuj wybrane ustawienia środowiska** i określ nazwę pliku. Aby przywrócić te ustawienia, użyj tego samego polecenia i wybierz opcję **Importuj wybrane ustawienia środowiska** .
+   1. Aby zapisać bieżące ustawienia programu Visual Studio, użyj **narzędzia > Importuj i Eksportuj ustawienia** , a następnie wybierz opcję **Eksportuj wybrane ustawienia środowiska** i określ nazwę pliku. Aby przywrócić te ustawienia, użyj tego samego polecenia i wybierz opcję **Importuj wybrane ustawienia środowiska**.
 
-   2. Przejdź do elementu menu **Narzędzia języka R** , a następnie wybierz pozycję **nauka o danych — ustawienia...** .
+   2. Przejdź do elementu menu **Narzędzia języka R** , a następnie wybierz pozycję **nauka o danych — ustawienia...**.
 
        ![Nauka o danych — ustawienia programu Visual Studio](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 
@@ -121,7 +121,7 @@ Za pomocą ML Server lub Microsoft R Client firmy Microsoft z komputera z system
 
         ![Kontenery usługi Azure HDInsight Storage](./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png)
 
-    4. Wybierz nazwę kontenera klastra, przejdź do folderu **User** (może być konieczne kliknięcie przycisku *Załaduj więcej* w dolnej części listy), a następnie wybierz pozycję *RevoShare* , a następnie **newUser** . `people.json`Plik powinien być wyświetlony w `newUser` folderze.
+    4. Wybierz nazwę kontenera klastra, przejdź do folderu **User** (może być konieczne kliknięcie przycisku *Załaduj więcej* w dolnej części listy), a następnie wybierz pozycję *RevoShare*, a następnie **newUser**. `people.json`Plik powinien być wyświetlony w `newUser` folderze.
 
         ![Lokalizacja folderu skopiowanego pliku usługi HDInsight](./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png)
 

@@ -8,17 +8,17 @@ ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.openlocfilehash: 5747de399e7ae0cfe99ba013f8da376be0ba1b2a
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544957"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993639"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Samouczek: Konfigurowanie zasad Apache HBase w usłudze HDInsight przy użyciu pakiet Enterprise Security
 
 Dowiedz się, jak skonfigurować zasady platformy Apache Ranger na potrzeby klastrów Apache HBase pakietów Enterprise Security Package (ESP). Klastry ESP są łączone z domeną, co pozwala użytkownikom na uwierzytelnianie przy użyciu poświadczeń domeny. W tym samouczku utworzysz dwie zasady platformy Ranger, aby ograniczyć dostęp do różnych rodzin kolumn w tabeli bazy danych HBase.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie użytkowników domeny
@@ -26,7 +26,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Tworzenie tabel w klastrze bazy danych HBase
 > * Testowanie zasad platformy Ranger
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 * Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
@@ -45,7 +45,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="create-domain-users"></a>Tworzenie użytkowników domeny
 
-Zapoznaj się z sekcją dotyczącą [tworzenia klastra usługi HDInsight przy użyciu pakietu Enterprise Security](./apache-domain-joined-configure-using-azure-adds.md), aby dowiedzieć się, jak utworzyć użytkowników domeny **sales_user1** i **marketing_user1** . W scenariuszu produkcyjnym użytkownicy domeny pochodzą z dzierżawy usługi Active Directory.
+Zapoznaj się z sekcją dotyczącą [tworzenia klastra usługi HDInsight przy użyciu pakietu Enterprise Security](./apache-domain-joined-configure-using-azure-adds.md), aby dowiedzieć się, jak utworzyć użytkowników domeny **sales_user1** i **marketing_user1**. W scenariuszu produkcyjnym użytkownicy domeny pochodzą z dzierżawy usługi Active Directory.
 
 ## <a name="create-hbase-tables-and-import-sample-data"></a>Tworzenie tabel bazy danych HBase i importowanie przykładowych danych
 
@@ -93,13 +93,13 @@ Protokół SSH umożliwia połączenie z klastrami HBase, a następnie korzystan
 
 ## <a name="create-ranger-policies"></a>Tworzenie zasad platformy Ranger
 
-Utwórz zasady platformy Ranger dla użytkowników **sales_user1** i **marketing_user1** .
+Utwórz zasady platformy Ranger dla użytkowników **sales_user1** i **marketing_user1**.
 
-1. Otwórz **interfejs użytkownika administratora platformy Ranger** . Kliknij **\<ClusterName> _hbase** w obszarze **HBase** .
+1. Otwórz **interfejs użytkownika administratora platformy Ranger**. Kliknij **\<ClusterName> _hbase** w obszarze **HBase**.
 
    ![Interfejs użytkownika administratora usługi HDInsight Apache Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
 
-2. Na ekranie **Lista zasad** zostaną wyświetlone wszystkie zasady platformy Ranger utworzone dla tego klastra. Lista może zawierać tylko jedne wstępnie skonfigurowane zasady. Kliknij pozycję **Dodaj nowe zasady** .
+2. Na ekranie **Lista zasad** zostaną wyświetlone wszystkie zasady platformy Ranger utworzone dla tego klastra. Lista może zawierać tylko jedne wstępnie skonfigurowane zasady. Kliknij pozycję **Dodaj nowe zasady**.
 
     ![Lista zasad HBase Apache Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
 
@@ -191,7 +191,7 @@ Zgodnie ze skonfigurowanymi zasadami platformy Ranger użytkownik **sales_user1*
 
 ### <a name="access-data-as-marketing_user1"></a>Uzyskiwanie dostępu do danych jako marketing_user1
 
-1. Otwórz nowe połączenie SSH z klastrem. Użyj następującego polecenia, aby zalogować się jako użytkownik **marketing_user1** :
+1. Otwórz nowe połączenie SSH z klastrem. Użyj następującego polecenia, aby zalogować się jako użytkownik **marketing_user1**:
 
    ```bash
    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -236,10 +236,10 @@ Zgodnie ze skonfigurowanymi zasadami platformy Ranger użytkownik **sales_user1*
 Jeśli nie zamierzasz nadal korzystać z tej aplikacji, usuń utworzony klaster bazy danych HBase, wykonując następujące czynności:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. W polu **Wyszukaj** w górnej części wpisz **HDInsight** . 
-1. Wybierz pozycję **Klastry usługi HDInsight** w obszarze **Usługi** .
+2. W polu **Wyszukaj** w górnej części wpisz **HDInsight**. 
+1. Wybierz pozycję **Klastry usługi HDInsight** w obszarze **Usługi**.
 1. Na wyświetlonej liście klastrów usługi HDInsight kliknij symbol **...** obok klastra utworzonego na potrzeby tego samouczka. 
-1. Kliknij polecenie **Usuń** . Kliknij przycisk **Yes** (Tak).
+1. Kliknij polecenie **Usuń**. Kliknij przycisk **Yes** (Tak).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -4,11 +4,11 @@ description: Dodaj znaczniki wdrożenia lub kompilacji do wykresów Eksploratora
 ms.topic: conceptual
 ms.date: 08/14/2020
 ms.openlocfilehash: 58f6603687838713fafbf4cd5cc3f100e22b7401
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758187"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993724"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Adnotacje na wykresach metryk w Application Insights
 
@@ -49,7 +49,7 @@ Utwórz oddzielny klucz interfejsu API dla każdego z Azure Pipelines szablonów
    > [!NOTE]
    > Zadanie adnotacji wydania obecnie obsługuje tylko agentów opartych na systemie Windows; nie będzie działać w systemach Linux, macOS i innych typach agentów.
    
-1. W obszarze **Identyfikator aplikacji**wklej identyfikator Application Insights skopiowany z karty dostęp do **interfejsu API** .
+1. W obszarze **Identyfikator aplikacji** wklej identyfikator Application Insights skopiowany z karty dostęp do **interfejsu API** .
    
    ![Wklej identyfikator Application Insights](./media/annotations/4-paste-app-id.png)
    
@@ -63,7 +63,7 @@ Utwórz oddzielny klucz interfejsu API dla każdego z Azure Pipelines szablonów
    
 1. W oknie szablon zlecenia na karcie **zmienne** wybierz pozycję **Dodaj** , aby utworzyć definicję zmiennej dla nowego klucza interfejsu API.
 
-1. W polu **Nazwa**wprowadź `ApiKey` i w obszarze **wartość**Wklej klucz interfejsu API skopiowany z karty dostęp do **interfejsu API** .
+1. W polu **Nazwa** wprowadź `ApiKey` i w obszarze **wartość** Wklej klucz interfejsu API skopiowany z karty dostęp do **interfejsu API** .
    
    ![Na karcie zmienne usługi Azure DevOps wybierz pozycję Dodaj, nazwij zmienną ApiKey i Wklej klucz interfejsu API w polu wartość.](./media/annotations/7-paste-api-key.png)
    

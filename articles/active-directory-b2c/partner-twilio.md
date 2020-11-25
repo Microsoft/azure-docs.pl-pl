@@ -12,11 +12,11 @@ ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 953653a758577ed3d48ca2d81403b4cb363ea294
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259072"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994047"
 ---
 # <a name="integrating-twilio-verify-app-with-azure-active-directory-b2c"></a>Integrowanie Twilio Weryfikuj aplikację z Azure Active Directory B2C
 
@@ -90,7 +90,7 @@ Następujące składniki tworzą rozwiązanie Twilio:
 
 6. Znajdź profil techniczny interfejsu API REST Twilio **Custom-SMS — Rejestracja**. Zaktualizuj  `ServiceURL`   program za pomocą Twilio AccountSID i numeru od do zakupionego numeru telefonu.
 
-7. Znajdź profile techniczne interfejsu API REST usługi Twilio, **TwilioRestAPI-verify-krok 1**   i **TwilioRestAPI-verify-step2**i zaktualizuj je  `ServiceURL`   za pomocą Twilio AccountSID.
+7. Znajdź profile techniczne interfejsu API REST usługi Twilio, **TwilioRestAPI-verify-krok 1**   i **TwilioRestAPI-verify-step2** i zaktualizuj je  `ServiceURL`   za pomocą Twilio AccountSID.
 
 ## <a name="integrate-with-azure-ad-b2c"></a>Integracja z usługą Azure AD B2C
 
@@ -102,11 +102,11 @@ Dodaj pliki zasad do Azure AD B2C:
 
 3. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
 
-4. Przejdź do **Azure AD B2C**  >  kluczy zasad programu**Identity Experience Framework**  >  **Policy Keys**.
+4. Przejdź do **Azure AD B2C**  >  kluczy zasad programu **Identity Experience Framework**  >  **Policy Keys**.
 
-5. Dodaj nowy klucz o nazwie **B2cRestTwilioClientId**. Wybierz pozycję **Ręczne**i podaj wartość Twilio AccountSID.
+5. Dodaj nowy klucz o nazwie **B2cRestTwilioClientId**. Wybierz pozycję **Ręczne** i podaj wartość Twilio AccountSID.
 
-6. Dodaj nowy klucz o nazwie **B2cRestTwilioClientSecret**. Wybierz pozycję **Ręczne**i podaj wartość tokenu uwierzytelniania Twilio.
+6. Dodaj nowy klucz o nazwie **B2cRestTwilioClientSecret**. Wybierz pozycję **Ręczne** i podaj wartość tokenu uwierzytelniania Twilio.
 
 7. Przekaż wszystkie pliki zasad do dzierżawy.
 

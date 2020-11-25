@@ -1,19 +1,19 @@
 ---
 title: 'Szybki Start: Tworzenie aplikacji HoloLens przy użyciu technologii DirectX'
 description: Z tego przewodnika Szybki start dowiesz się, jak utworzyć aplikację dla urządzenia HoloLens, używając usługi Spatial Anchors.
-author: craigktreasure
-manager: virivera
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 66b8008312c1cf81d4fca7fb8ee5f26fc4c98f60
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: c96c45869ee1c9c96cd77d0b3eb10c733199666e
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096167"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95993520"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>Szybki Start: Tworzenie aplikacji HoloLens z zakotwiczeniami przestrzennymi platformy Azure w językach C++/WinRT i DirectX
 
@@ -60,7 +60,7 @@ Znajdź `SpatialAnchorsAccountDomain` pole i Zastąp `Set me` je domeną konta.
 
 Zmień **konfigurację rozwiązania** na **Wydanie**, zmień **platformę rozwiązania** na **x86** i wybierz **urządzenie** spośród opcji miejsc docelowych wdrażania.
 
-W przypadku korzystania z urządzenia HoloLens 2 Użyj **arm64** jako **platformy rozwiązania**zamiast **architektury x86**.
+W przypadku korzystania z urządzenia HoloLens 2 Użyj **arm64** jako **platformy rozwiązania** zamiast **architektury x86**.
 
 ![Konfiguracja programu Visual Studio](./media/get-started-hololens/visual-studio-configuration.png)
 

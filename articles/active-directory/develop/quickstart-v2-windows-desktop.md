@@ -11,16 +11,16 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 25c5e6445bb5d673db1cfb755f320302a9e9c5b5
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: f63dbad398afcd0a9756cc1e9d4f70f1303d00b0
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561866"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95993860"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Szybki start: uzyskiwanie tokenu i wywoływanie interfejsu API programu Microsoft Graph z poziomu aplikacji klasycznej w systemie Windows
 
-W tym przewodniku szybki start pobrano i uruchomiono przykład kodu, który pokazuje, jak aplikacja Windows Desktop .NET (WPF) może zalogować użytkowników i uzyskać token dostępu do wywoływania interfejsu API Microsoft Graph. 
+W tym przewodniku szybki start pobrano i uruchomiono przykład kodu, który pokazuje, jak aplikacja Windows Desktop .NET (WPF) może zalogować użytkowników i uzyskać token dostępu do wywołania interfejsu API Microsoft Graph. 
 
 Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 
@@ -51,7 +51,7 @@ Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 > 1. Wybierz pozycję **Nowa rejestracja**.
 >      - W sekcji **Nazwa** podaj znaczącą nazwę aplikacji, która będzie wyświetlana użytkownikom aplikacji, na przykład `Win-App-calling-MsGraph`.
 >      - W sekcji **Obsługiwane typy kont** wybierz pozycję **Konta w dowolnym katalogu organizacyjnym i konta osobiste Microsoft (na przykład Skype, Xbox, Outlook.com)**.
->      - Wybierz pozycję **Zarejestruj** , aby utworzyć aplikację.
+>      - Wybierz pozycję **Zarejestruj**, aby utworzyć aplikację.
 > 1. Na liście stron dla aplikacji wybierz pozycję **Uwierzytelnianie**.
 > 1. W sekcji **adresy URI przekierowania**  |  **sugerowane identyfikatory URI dla klientów publicznych (Mobile, Desktop)** Użyj **https://login.microsoftonline.com/common/oauth2/nativeclient** .
 > 1. Wybierz pozycję **Zapisz**.
@@ -97,12 +97,12 @@ Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 > Gdzie:
 > - `Enter_the_Application_Id_here` jest **identyfikatorem aplikacji (klienta)** dla zarejestrowanej aplikacji.
 > - `Enter_the_Tenant_Info_Here` to wartość ustawiana na jedną z następujących opcji:
->   - Jeśli aplikacja obsługuje tryb **Konta w tym katalogu organizacyjnym** , zastąp tę wartość za pomocą wartości **Identyfikator dzierżawy** lub **Nazwa dzierżawy** (na przykład contoso.microsoft.com)
->   - Jeśli aplikacja obsługuje tryb **Konta w dowolnym katalogu organizacyjnym** , zastąp tę wartość za pomocą wartości `organizations`
->   - Jeśli aplikacja obsługuje tryb **Konta w moim katalogu organizacyjnym i osobiste konta Microsoft** , zastąp tę wartość za pomocą wartości `common`
+>   - Jeśli aplikacja obsługuje tryb **Konta w tym katalogu organizacyjnym**, zastąp tę wartość za pomocą wartości **Identyfikator dzierżawy** lub **Nazwa dzierżawy** (na przykład contoso.microsoft.com)
+>   - Jeśli aplikacja obsługuje tryb **Konta w dowolnym katalogu organizacyjnym**, zastąp tę wartość za pomocą wartości `organizations`
+>   - Jeśli aplikacja obsługuje tryb **Konta w moim katalogu organizacyjnym i osobiste konta Microsoft**, zastąp tę wartość za pomocą wartości `common`
 >
 > > [!TIP]
-> > Aby znaleźć wartości **Identyfikator aplikacji (klienta)** , **Identyfikator katalogu (dzierżawy)** i **Obsługiwane typy kont** , przejdź do strony **Przegląd** w witrynie Azure Portal.
+> > Aby znaleźć wartości **Identyfikator aplikacji (klienta)**, **Identyfikator katalogu (dzierżawy)** i **Obsługiwane typy kont**, przejdź do strony **Przegląd** w witrynie Azure Portal.
 
 ## <a name="more-information"></a>Więcej informacji
 

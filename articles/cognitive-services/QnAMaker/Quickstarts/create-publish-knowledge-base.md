@@ -6,11 +6,11 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/09/2020
 ms.openlocfilehash: b22c73b3f0626b9938608e88c3382e3f5e8d97fc
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427483"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993150"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Szybki Start: Tworzenie, uczenie i publikowanie bazy wiedzy QnA Maker
 
@@ -73,7 +73,7 @@ Na podstawie własnej zawartości, takiej jak często zadawane pytania lub podr�
 
     :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/connect-your-knowledge-base.png" alt-text="Zrzut ekranu przedstawiający wybór zarządzanej wersji zapoznawczej bazy wiedzy usługi QnA Maker Service":::
 
-5. W **kroku 2** , jeśli tworzysz pierwszą bazę wiedzy dla usługi, będziesz mieć możliwość ustawienia języka dla każdej bazy wiedzy. Po zdefiniowaniu ustawienia języka dla pierwszej bazy wiedzy nie będzie można później modyfikować ustawień usługi.
+5. W **kroku 2**, jeśli tworzysz pierwszą bazę wiedzy dla usługi, będziesz mieć możliwość ustawienia języka dla każdej bazy wiedzy. Po zdefiniowaniu ustawienia języka dla pierwszej bazy wiedzy nie będzie można później modyfikować ustawień usługi.
 
 6. W **kroku 3** nazwij swoją bazę wiedzy **QNA KB**. 
 
@@ -101,7 +101,7 @@ Na podstawie własnej zawartości, takiej jak często zadawane pytania lub podr�
 
     `How many Azure services are used by a knowledge base?`
 
-1. Dodaj odpowiedź sformatowaną z uwzględnieniem _promocji_ :
+1. Dodaj odpowiedź sformatowaną z uwzględnieniem _promocji_:
 
     ` * Azure QnA Maker service\n* Azure Cognitive Search\n* Azure web app\n* Azure app plan`
 
@@ -126,7 +126,7 @@ W prawym górnym rogu wybierz pozycję **Zapisz i pouczenie** , aby zapisać zmi
 
     :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png" alt-text="Wprowadź przykładowe zapytanie użytkownika w polu tekstowym.":::
 
-3. Wybierz pozycję **Zbadaj** , aby bardziej szczegółowo sprawdzić odpowiedź. Okno testowe służy do testowania zmian w bazie wiedzy przed opublikowaniem bazy wiedzy.
+3. Wybierz pozycję **Zbadaj**, aby bardziej szczegółowo sprawdzić odpowiedź. Okno testowe służy do testowania zmian w bazie wiedzy przed opublikowaniem bazy wiedzy.
 
 4. Ponownie wybierz **test** , aby zamknąć panel **testu** .
 

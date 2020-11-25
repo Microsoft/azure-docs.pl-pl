@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: batch
 documentationcenter: ''
 author: JnHs
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.date: 06/16/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 3e4bca058f554f60dfa5c237633d1fecf06dfea7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4f17fbfad1e7e550b3a1e95c93e4b061d0f1c3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87507579"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993430"
 ---
 ### <a name="general-requirements"></a>Wymagania ogólne
 
@@ -69,7 +69,7 @@ Skonfiguruj ruch przychodzący na porcie 3389 (Windows) lub 22 (Linux) tylko wte
 
 | Źródłowe adresy IP | Tag usługi źródłowej | Porty źródłowe | Element docelowy | Porty docelowe | Protokół | Akcja |
 | --- | --- | --- | --- | --- | --- | --- |
-| Nie dotyczy | `BatchNodeManagement`[Tag usługi](../articles/virtual-network/security-overview.md#service-tags) (jeśli jest używany wariant regionalny w tym samym regionie, w którym znajduje się konto usługi Batch) | * | Dowolne | 29876-29877 | TCP | Zezwalaj |
+| Nie dotyczy | `BatchNodeManagement`[Tag usługi](../articles/virtual-network/network-security-groups-overview.md#service-tags) (jeśli jest używany wariant regionalny w tym samym regionie, w którym znajduje się konto usługi Batch) | * | Dowolne | 29876-29877 | TCP | Zezwalaj |
 | Adresy IP źródeł użytkowników umożliwiające zdalne uzyskiwanie dostępu do węzłów obliczeniowych i/lub podsieć węzłów obliczeniowych dla zadań z wielowystąpieniami systemu Linux, jeśli jest to wymagane. | Nie dotyczy | * | Dowolne | 3389 (Windows), 22 (Linux) | TCP | Zezwalaj |
 
 > [!WARNING]
@@ -79,7 +79,7 @@ Skonfiguruj ruch przychodzący na porcie 3389 (Windows) lub 22 (Linux) tylko wte
 
 | Element źródłowy | Porty źródłowe | Element docelowy | Docelowy tag usługi | Porty docelowe | Protokół | Akcja |
 | --- | --- | --- | --- | --- | --- | --- |
-| Dowolne | * | [Tag usługi](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (Jeśli używany jest odmiana regionalna, w tym samym regionie, w którym znajduje się konto usługi Batch) | 443 | TCP | Zezwalaj |
+| Dowolne | * | [Tag usługi](../articles/virtual-network/network-security-groups-overview.md#service-tags) | `Storage` (Jeśli używany jest odmiana regionalna, w tym samym regionie, w którym znajduje się konto usługi Batch) | 443 | TCP | Zezwalaj |
 
 ### <a name="pools-in-the-cloud-services-configuration"></a>Pule w konfiguracji usługi Cloud Services
 

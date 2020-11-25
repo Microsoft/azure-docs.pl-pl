@@ -7,17 +7,17 @@ ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: apimpm
 ms.openlocfilehash: 2f298f240d8aa7a38b42a8c78ee3c90fe3423d10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630582"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993554"
 ---
 # <a name="tutorial-create-and-publish-a-product"></a>Samouczek: Tworzenie i publikowanie produktu  
 
 Na platformie Azure API Management [*produkt*](api-management-terminology.md#term-definitions) zawiera jeden lub więcej interfejsów API, a także limit przydziału użycia i warunki użytkowania. Po opublikowaniu produktu deweloperzy mogą go zasubskrybować i zacząć korzystać z jego interfejsów API.  
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie i publikowanie produktu
@@ -38,13 +38,13 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 1. W lewym okienku nawigacji wybierz pozycję **produkty**  >  **+ Dodaj**.
 1.  W oknie **Dodawanie produktu** wprowadź wartości opisane w poniższej tabeli, aby utworzyć produkt.
 
-    :::image type="content" source="media/api-management-howto-add-products/02-create-publish-product-01.png" alt-text="API Management produkty w portalu":::
+    :::image type="content" source="media/api-management-howto-add-products/02-create-publish-product-01.png" alt-text="Dodawanie produktu w portalu":::
 
     | Nazwa                     | Opis                                                                                                                                                                                                                                                                                                             |
     |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Nazwa wyświetlana             | Nazwa, która ma być wyświetlana w [portalu dla deweloperów](api-management-howto-developer-portal.md).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
     | Opis              | Podaj informacje o produkcie, takie jak jego przeznaczenie, interfejsy API, do których zapewnia dostęp, oraz inne szczegóły.                                                                                                                                               |
-    | State                    | Wybierz pozycję **opublikowano** , jeśli chcesz opublikować produkt. Aby możliwe było wywołanie interfejsów API w produkcie, produkt musi zostać najpierw opublikowany. Domyślnie nowe produkty nie są publikowane i są widoczne tylko dla grupy  **administratorzy** .                                                                                      |
+    | Stan                    | Wybierz pozycję **opublikowano** , jeśli chcesz opublikować produkt. Aby możliwe było wywołanie interfejsów API w produkcie, produkt musi zostać najpierw opublikowany. Domyślnie nowe produkty nie są publikowane i są widoczne tylko dla grupy  **administratorzy** .                                                                                      |
     | Wymaga subskrypcji    | Wybierz, czy użytkownik musi subskrybować korzystanie z produktu.                                                                                                                                                                                                                                   |
     | Wymaga zatwierdzenia        | Wybierz, czy chcesz, aby administrator przeglądał i akceptował lub odrzucał próby subskrypcji tego produktu. Jeśli nie zostanie wybrana, próby subskrypcji są zatwierdzane domyślnie.                                                                                                                         |
     | Limit liczby subskrypcji | Opcjonalnie można ograniczyć liczbę równoczesnych subskrypcji.                                                                                                                                                                                                                                |
@@ -80,7 +80,7 @@ Przed uzyskaniem dostępu do interfejsu API deweloperzy muszą najpierw zasubskr
 1. Wybierz pozycję **+ Dodaj**.
 1. Wybierz co najmniej jeden interfejs API, a następnie **Wybierz opcję**.
 
-:::image type="content" source="media/api-management-howto-add-products/02-create-publish-product-02.png" alt-text="API Management produkty w portalu":::
+:::image type="content" source="media/api-management-howto-add-products/02-create-publish-product-02.png" alt-text="Dodawanie interfejsu API do istniejącego produktu":::
 
 > [!TIP]
 > Możesz utworzyć lub zaktualizować subskrypcję użytkownika do produktu przy użyciu niestandardowych kluczy subskrypcji za pomocą [interfejsu API REST](/rest/api/apimanagement/2019-12-01/subscription/createorupdate) lub polecenia programu PowerShell.

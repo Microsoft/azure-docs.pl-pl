@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
 ms.openlocfilehash: ceed62d466627d6a23554229bd6f4b96c674c7e9
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148751"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993673"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Poprawianie wydajności poprzez kompresowanie plików w usłudze Azure CDN
 Kompresja plików to prosta i skuteczna metoda zwiększania szybkości transferu plików i zwiększania wydajności ładowania strony poprzez zmniejszenie rozmiaru pliku przed jego wysłaniem z serwera. Kompresja plików pozwala zmniejszyć koszty przepustowości i zapewnić użytkownikom większą wydajność.
@@ -42,7 +42,7 @@ Warstwy usługi CDN w warstwie Standardowa i Premium zapewniają te same funkcje
 
 ### <a name="standard-cdn-profiles"></a>Profile standardowego sieci CDN 
 > [!NOTE]
-> Ta sekcja ma zastosowanie do **Azure CDN Standard od firmy Microsoft**, **Azure CDN Standard from Verizon**i **Azure CDN Standard from Akamai** profile.
+> Ta sekcja ma zastosowanie do **Azure CDN Standard od firmy Microsoft**, **Azure CDN Standard from Verizon** i **Azure CDN Standard from Akamai** profile.
 > 
 > 
 

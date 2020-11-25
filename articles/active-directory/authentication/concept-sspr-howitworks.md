@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8fa1c2627917bfe386c488470f6a78db4c51f2ec
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363678"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994268"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Jak to działa: Samoobsługowe resetowania hasła usługi Azure AD
 
@@ -182,7 +182,7 @@ Rozważmy następujący przykładowy scenariusz:
 
 * W środowisku znajdują się cztery Administratorzy.
 * Administrator *A* resetuje swoje hasło przy użyciu SSPR.
-* Administratorzy *B*, *C*i *D* otrzymują wiadomość e-mail z alertami dotyczącymi resetowania hasła.
+* Administratorzy *B*, *C* i *D* otrzymują wiadomość e-mail z alertami dotyczącymi resetowania hasła.
 
 ## <a name="on-premises-integration"></a>Integracja lokalna
 
@@ -215,7 +215,7 @@ Możesz włączyć funkcję zapisywania zwrotnego haseł przy użyciu Azure Port
 
 Domyślnie usługa Azure AD odblokowuje konta, gdy wykonuje Resetowanie hasła. Aby zapewnić elastyczność, można zezwolić użytkownikom na odblokowanie kont lokalnych bez konieczności resetowania hasła. Użyj tego ustawienia, aby oddzielić te dwie operacje.
 
-* W przypadku wybrania opcji **tak**użytkownicy mogą zresetować swoje hasło i odblokować konto lub odblokować konto bez konieczności resetowania hasła.
+* W przypadku wybrania opcji **tak** użytkownicy mogą zresetować swoje hasło i odblokować konto lub odblokować konto bez konieczności resetowania hasła.
 * Jeśli ustawiono wartość **nie**, użytkownicy będą mogli wykonywać operacje resetowania hasła i odblokowywania konta.
 
 ### <a name="on-premises-active-directory-password-filters"></a>Filtry haseł Active Directory lokalnych

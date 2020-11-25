@@ -5,14 +5,14 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
-ms.openlocfilehash: f941f67105227b3973386b015344d5fa787c3485
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8d8ffe8c1802a5cf67b7dc2b0fb071b572d76e8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84317553"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994365"
 ---
-Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego nowego środowiska **rejestracje aplikacji** lub naszych starszych  **aplikacji (starsza wersja)** . [Dowiedz się więcej na temat nowego środowiska](https://aka.ms/b2cappregtraining).
+Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego nowego środowiska **rejestracje aplikacji** lub naszych starszych  **aplikacji (starsza wersja)** . [Dowiedz się więcej na temat nowego środowiska](../articles/active-directory-b2c/app-registrations-training-guide.md).
 
 #### <a name="app-registrations"></a>[Rejestracje aplikacji](#tab/app-reg-ga/)
 
@@ -23,9 +23,9 @@ Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego
 1. Wprowadź **nazwę** aplikacji. Na przykład *ROPC_Auth_app*.
 1. Pozostaw inne wartości, jeśli są, a następnie wybierz pozycję **zarejestruj**.
 1. Zapisz **Identyfikator aplikacji (klienta)** do użycia w późniejszym kroku.
-1. W obszarze **Zarządzaj**wybierz pozycję **uwierzytelnianie**.
+1. W obszarze **Zarządzaj** wybierz pozycję **uwierzytelnianie**.
 1. Wybierz opcję **Wypróbuj nowe środowisko** (jeśli zostało wyświetlone).
-1. W obszarze **domyślny typ klienta**wybierz pozycję **tak** , aby traktować aplikację jako klienta publicznego. To ustawienie jest wymagane dla przepływu ROPC.
+1. W obszarze **domyślny typ klienta** wybierz pozycję **tak** , aby traktować aplikację jako klienta publicznego. To ustawienie jest wymagane dla przepływu ROPC.
 1. Wybierz pozycję **Zapisz**.
 1. W menu po lewej stronie wybierz pozycję **manifest** , aby otworzyć Edytor manifestu. 
 1. Ustaw atrybut **oauth2AllowImplicitFlow** na *true*:
@@ -41,6 +41,6 @@ Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego
 1. W menu po lewej stronie wybierz pozycję **Azure AD B2C**. Lub wybierz pozycję **wszystkie usługi** i Wyszukaj i wybierz pozycję **Azure AD B2C**.
 1. Wybierz pozycję **aplikacje (starsza wersja)**, a następnie wybierz pozycję **Dodaj**.
 1. Wprowadź nazwę aplikacji. Na przykład *ROPC_Auth_app*.
-1. W przypadku **klienta natywnego**wybierz pozycję **tak**.
+1. W przypadku **klienta natywnego** wybierz pozycję **tak**.
 1. Pozostaw inne wartości, jeśli są, a następnie wybierz pozycję **Utwórz**.
 1. Zapisz **Identyfikator aplikacji** do użycia w późniejszym kroku.

@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.openlocfilehash: e1ccd337851f8242526362675a11280e33584082
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92513833"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993928"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Samouczek: integracja Azure Active Directory z usługą PageDNA
 
@@ -51,7 +51,7 @@ Program PageDNA obsługuje następujące funkcje:
 
 Aby skonfigurować integrację programu PageDNA z usługą Azure AD, musisz dodać PageDNA z portalu Azure Marketplace do listy zarządzanych aplikacji SaaS:
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com?azure-portal=true).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com?azure-portal=true).
 1. W lewym okienku wybierz pozycję **Azure Active Directory**.
 
     ![Opcja Azure Active Directory](common/select-azuread.png)
@@ -156,11 +156,11 @@ W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w witrynie A
 
     1. W polu **Nazwa** wpisz **BrittaSimon**.
   
-    1. W polu **Nazwa użytkownika** wprowadź **BrittaSimon \@ \<yourcompanydomain> . \<extension> **. Na przykład **BrittaSimon \@ contoso.com**.
+    1. W polu **Nazwa użytkownika** wprowadź **BrittaSimon \@ \<yourcompanydomain> . \<extension>**. Na przykład **BrittaSimon \@ contoso.com**.
 
     1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
 
-    1. Wybierz przycisk **Utwórz**.
+    1. Wybierz pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -174,7 +174,7 @@ W tej sekcji można włączyć funkcję logowania jednokrotnego dla użytkownika
 
     ![PageDNA na liście aplikacji](common/all-applications.png)
 
-1. W lewym okienku w obszarze **Zarządzaj**wybierz pozycję **Użytkownicy i grupy**.
+1. W lewym okienku w obszarze **Zarządzaj** wybierz pozycję **Użytkownicy i grupy**.
 
     ![Opcja "Użytkownicy i grupy"](common/users-groups-blade.png)
 
@@ -198,7 +198,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po wybraniu opcji **PageDNA** w portalu Moje aplikacje należy automatycznie zalogować się do subskrypcji usługi PageDNA, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat portalu Moje aplikacje, zobacz [dostęp i używanie aplikacji w portalu Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Lista samouczków dotyczących integrowania aplikacji SaaS z Azure Active Directory](./tutorial-list.md)
 

@@ -5,11 +5,11 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: seodec18
 ms.openlocfilehash: cb5cda16cd9405f0cbe91a3f88be7dc3f582d21b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86142767"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993429"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Tworzenie puli Azure Batch w sieci wirtualnej
 
@@ -35,15 +35,15 @@ Aby umożliwić węzłom obliczeniowym bezpieczne komunikowanie się z innymi ma
 
 ## <a name="create-a-pool-with-a-vnet-in-the-azure-portal"></a>Utwórz pulę z siecią wirtualną w Azure Portal
 
-Po utworzeniu sieci wirtualnej i przypisaniu do niej podsieci można utworzyć pulę wsadową z tą siecią wirtualną. Wykonaj następujące kroki, aby utworzyć pulę na podstawie Azure Portal: 
+Po utworzeniu sieci wirtualnej i przypisaniu do niej podsieci można utworzyć pulę wsadową z tą siecią wirtualną. Wykonaj następujące kroki, aby utworzyć pulę na podstawie Azure Portal: 
 
 1. W witrynie Azure Portal przejdź do swojego konta usługi Batch. To konto musi znajdować się w tej samej subskrypcji i regionie co grupa zasobów zawierająca sieć wirtualną, która ma być używana.
 2. W oknie **Ustawienia** po lewej stronie wybierz element menu **Pule** .
 3. W oknie **Pule** wybierz pozycję **Dodaj**.
 4. W oknie **Dodawanie puli** wybierz opcję, która ma zostać użyta z listy rozwijanej **Typ obrazu** .
 5. Wybierz prawidłową **wersję wydawcy/oferty/jednostki SKU** dla obrazu niestandardowego.
-6. Określ pozostałe wymagane ustawienia, w tym **rozmiar węzła**, **docelowe węzły dedykowane**i **węzły o niskim priorytecie**, a także wszystkie wymagane ustawienia opcjonalne.
-7. W **Virtual Network**wybierz sieć wirtualną i podsieć, której chcesz użyć.
+6. Określ pozostałe wymagane ustawienia, w tym **rozmiar węzła**, **docelowe węzły dedykowane** i **węzły o niskim priorytecie**, a także wszystkie wymagane ustawienia opcjonalne.
+7. W **Virtual Network** wybierz sieć wirtualną i podsieć, której chcesz użyć.
 
    ![Dodawanie puli przy użyciu sieci wirtualnej](./media/batch-virtual-network/add-vnet-pool.png)
 

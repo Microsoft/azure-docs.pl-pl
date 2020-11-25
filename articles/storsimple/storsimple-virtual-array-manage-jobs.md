@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
 ms.openlocfilehash: d806d8a04dc1bd8547808d20c77bfec310f7dd06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85507487"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95992990"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Użyj usługi StorSimple Menedżer urządzeń, aby wyświetlić zadania dla macierzy wirtualnej StorSimple
 ## <a name="overview"></a>Omówienie
@@ -32,8 +32,8 @@ Możesz szybko znaleźć interesujące Cię zadania, filtrując pola, takie jak:
 * **Zakres czasu** — zadania można filtrować na podstawie daty i zakresu czasu.
 * **Urządzenia** — zadania są inicjowane na określonym urządzeniu podłączonym do usługi. Przefiltrowane zadania są następnie wykonywane na podstawie następujących atrybutów:
   
-  * **Nazwa** — nazwa zadania może mieć wartość **wszystkie**, **kopia zapasowa**, **klonowanie**, **przełączanie**do trybu failover, **pobieranie aktualizacji**lub **Instalowanie aktualizacji**.
-  * **Stan** — zadania mogą być **wszystkie**, **w toku**, **zakończone powodzeniem**lub **niepowodzeniem**lub **anulowane**.
+  * **Nazwa** — nazwa zadania może mieć wartość **wszystkie**, **kopia zapasowa**, **klonowanie**, **przełączanie** do trybu failover, **pobieranie aktualizacji** lub **Instalowanie aktualizacji**.
+  * **Stan** — zadania mogą być **wszystkie**, **w toku**, **zakończone powodzeniem** lub **niepowodzeniem** lub **anulowane**.
   * **Entity** — zadania mogą być skojarzone z woluminem, udziałem lub urządzeniem.
   * **Urządzenie** — nazwa urządzenia, na którym uruchomiono zadanie.
   * **Uruchomiono** — czas rozpoczęcia zadania.

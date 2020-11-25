@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: joflore
 ms.openlocfilehash: f5ebe594f1f50c7b7490e5ead8cb3fe7636f0ce7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967481"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994030"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Samouczek: Konfigurowanie bezpiecznego protokołu LDAP dla domeny zarządzanej Azure Active Directory Domain Services
 
@@ -109,11 +109,11 @@ Aby użyć bezpiecznego protokołu LDAP, ruch sieciowy jest szyfrowany przy uży
 
 * Klucz **prywatny** jest stosowany do domeny zarządzanej.
     * Ten klucz prywatny jest używany do *odszyfrowywania* bezpiecznego ruchu LDAP. Klucz prywatny powinien być stosowany tylko do domeny zarządzanej i nie jest rozpowszechniany na komputerach klienckich.
-    * Certyfikat zawierający klucz prywatny używa *. * Format pliku PFX.
+    * Certyfikat zawierający klucz prywatny używa *.* Format pliku PFX.
     * Algorytm szyfrowania dla certyfikatu musi być *TripleDES-SHA1*.
 * Na komputerach klienckich jest stosowany klucz **publiczny** .
     * Ten klucz publiczny jest używany do *szyfrowania* bezpiecznego ruchu LDAP. Klucz publiczny może być dystrybuowany do komputerów klienckich.
-    * Certyfikaty bez klucza prywatnego korzystają z programu *. * Format pliku CER.
+    * Certyfikaty bez klucza prywatnego korzystają z programu *.* Format pliku CER.
 
 Te dwa klucze, *prywatne* i *publiczne* klucze, należy upewnić się, że tylko odpowiednie komputery mogą pomyślnie komunikować się ze sobą. Jeśli używasz publicznego urzędu certyfikacji lub urzędu certyfikacji przedsiębiorstwa, zostanie wystawiony certyfikat zawierający klucz prywatny i można go zastosować do domeny zarządzanej. Klucz publiczny powinien już być znany i zaufany przez komputery klienckie.
 
@@ -121,7 +121,7 @@ W tym samouczku utworzono certyfikat z podpisem własnym z kluczem prywatnym, dl
 
 ### <a name="export-a-certificate-for-azure-ad-ds"></a>Eksportowanie certyfikatu dla AD DS platformy Azure
 
-Aby można było użyć certyfikatu cyfrowego utworzonego w poprzednim kroku z domeną zarządzaną, należy wyeksportować certyfikat do programu *. * Plik certyfikatu PFX, który zawiera klucz prywatny.
+Aby można było użyć certyfikatu cyfrowego utworzonego w poprzednim kroku z domeną zarządzaną, należy wyeksportować certyfikat do programu *.* Plik certyfikatu PFX, który zawiera klucz prywatny.
 
 1. Aby otworzyć okno dialogowe *uruchamiania* , wybierz klucze **systemu Windows**  +  **R** .
 1. Otwórz program Microsoft Management Console (MMC), wprowadzając **program MMC** w oknie dialogowym *uruchamiania* , a następnie wybierz przycisk **OK**.
@@ -138,11 +138,11 @@ Aby można było użyć certyfikatu cyfrowego utworzonego w poprzednim kroku z d
 
     ![Eksportowanie certyfikatu w programie Microsoft Management Console](./media/tutorial-configure-ldaps/export-cert.png)
 
-1. W **Kreatorze eksportu certyfikatów**wybierz pozycję **dalej**.
+1. W **Kreatorze eksportu certyfikatów** wybierz pozycję **dalej**.
 1. Należy wyeksportować klucz prywatny dla certyfikatu. Jeśli klucz prywatny nie jest uwzględniony w wyeksportowanym certyfikacie, Akcja włączenia bezpiecznego protokołu LDAP dla domeny zarządzanej nie powiedzie się.
 
     Na stronie **Eksportowanie klucza prywatnego** wybierz opcję **tak, eksportuj klucz prywatny**, a następnie wybierz przycisk **dalej**.
-1. Domeny zarządzane obsługują tylko *. * Format pliku certyfikatu PFX, który zawiera klucz prywatny. Nie Eksportuj certyfikatu jako *. * Format pliku certyfikatu CER bez klucza prywatnego.
+1. Domeny zarządzane obsługują tylko *.* Format pliku certyfikatu PFX, który zawiera klucz prywatny. Nie Eksportuj certyfikatu jako *.* Format pliku certyfikatu CER bez klucza prywatnego.
 
     Na stronie **Format pliku eksportu** wybierz opcję **wymiana informacji osobistych — PKCS #12 (. PFX)** jako format pliku dla wyeksportowanego certyfikatu. Zaznacz pole wyboru *Dołącz wszystkie certyfikaty ze ścieżki certyfikacji, jeśli jest to możliwe*:
 
@@ -150,9 +150,9 @@ Aby można było użyć certyfikatu cyfrowego utworzonego w poprzednim kroku z d
 
 1. Ponieważ ten certyfikat jest używany do odszyfrowywania danych, należy dokładnie kontrolować dostęp. Hasło może służyć do ochrony korzystania z certyfikatu. Bez poprawnego hasła nie można zastosować certyfikatu do usługi.
 
-    Na stronie **zabezpieczenia** wybierz opcję **hasła** , aby chronić *. * Plik certyfikatu PFX. Algorytm szyfrowania musi być *TripleDES-SHA1*. Wprowadź i Potwierdź hasło, a następnie wybierz pozycję **dalej**. To hasło jest używane w następnej sekcji w celu włączenia bezpiecznego protokołu LDAP dla domeny zarządzanej.
+    Na stronie **zabezpieczenia** wybierz opcję **hasła** , aby chronić *.* Plik certyfikatu PFX. Algorytm szyfrowania musi być *TripleDES-SHA1*. Wprowadź i Potwierdź hasło, a następnie wybierz pozycję **dalej**. To hasło jest używane w następnej sekcji w celu włączenia bezpiecznego protokołu LDAP dla domeny zarządzanej.
 1. Na stronie **Eksport pliku** Określ nazwę pliku i lokalizację, w której chcesz wyeksportować certyfikat, taki jak *C:\Users\accountname\azure-AD-DS.pfx*. Zanotuj hasło i lokalizację *. Plik PFX* , ponieważ te informacje będą wymagane w następnych krokach.
-1. Na stronie Przegląd wybierz pozycję **Zakończ** , aby wyeksportować certyfikat do programu *. * Plik certyfikatu PFX. W przypadku pomyślnego wyeksportowania certyfikatu zostanie wyświetlone okno dialogowe potwierdzenia.
+1. Na stronie Przegląd wybierz pozycję **Zakończ** , aby wyeksportować certyfikat do programu *.* Plik certyfikatu PFX. W przypadku pomyślnego wyeksportowania certyfikatu zostanie wyświetlone okno dialogowe potwierdzenia.
 1. Pozostaw otwarty program MMC do użycia w poniższej sekcji.
 
 ### <a name="export-a-certificate-for-client-computers"></a>Eksportowanie certyfikatu dla komputerów klienckich
@@ -162,20 +162,20 @@ Komputery klienckie muszą ufać wystawcy certyfikatu bezpiecznego protokołu LD
 W tym samouczku zostanie użyty certyfikat z podpisem własnym i Wygenerowano certyfikat zawierający klucz prywatny w poprzednim kroku. Teraz wyeksportuj i Zainstaluj certyfikat z podpisem własnym w zaufanym magazynie certyfikatów na komputerze klienckim:
 
 1. Wróć do programu MMC dla *certyfikatów (komputer lokalny) > magazynu certyfikatów > osobistych* . Pokazany jest certyfikat z podpisem własnym utworzony w poprzednim kroku, taki jak *aaddscontoso.com*. Wybierz pozycję Ten certyfikat prawym przyciskiem myszy, a następnie wybierz pozycję **wszystkie zadania > Eksportuj...**
-1. W **Kreatorze eksportu certyfikatów**wybierz pozycję **dalej**.
+1. W **Kreatorze eksportu certyfikatów** wybierz pozycję **dalej**.
 1. Ponieważ nie potrzebujesz klucza prywatnego dla klientów, na stronie **Eksportowanie klucza prywatnego** wybierz pozycję **nie Eksportuj klucza prywatnego**, a następnie wybierz przycisk **dalej**.
 1. Na stronie **Format pliku eksportu** wybierz pozycję **Base-64 encoded X. 509 (. CER)** jako format pliku dla wyeksportowanego certyfikatu:
 
     ![Wybierz opcję Wyeksportuj certyfikat w formacie X. 509 z kodowaniem Base-64 (. CER) — format pliku](./media/tutorial-configure-ldaps/export-cert-to-cer-file.png)
 
 1. Na stronie **Eksport pliku** Określ nazwę pliku i lokalizację, w której chcesz wyeksportować certyfikat, taki jak *C:\Users\accountname\azure-AD-DS-Client.cer*.
-1. Na stronie Przegląd wybierz pozycję **Zakończ** , aby wyeksportować certyfikat do programu *. * Plik certyfikatu CER. W przypadku pomyślnego wyeksportowania certyfikatu zostanie wyświetlone okno dialogowe potwierdzenia.
+1. Na stronie Przegląd wybierz pozycję **Zakończ** , aby wyeksportować certyfikat do programu *.* Plik certyfikatu CER. W przypadku pomyślnego wyeksportowania certyfikatu zostanie wyświetlone okno dialogowe potwierdzenia.
 
-*. *Plik certyfikatu CER może być teraz dystrybuowany do komputerów klienckich, które muszą ufać bezpiecznemu połączeniu LDAP z domeną zarządzaną. Zainstalujmy certyfikat na komputerze lokalnym.
+*.* Plik certyfikatu CER może być teraz dystrybuowany do komputerów klienckich, które muszą ufać bezpiecznemu połączeniu LDAP z domeną zarządzaną. Zainstalujmy certyfikat na komputerze lokalnym.
 
-1. Otwórz Eksploratora plików i przejdź do lokalizacji, w której zapisano plik *. * Plik certyfikatu cer, taki jak *C:\Users\accountname\azure-AD-DS-Client.cer*.
-1. Kliknij prawym przyciskiem myszy *. * Plik certyfikatu cer, a następnie wybierz pozycję **Zainstaluj certyfikat**.
-1. W **Kreatorze importu certyfikatów**wybierz opcję przechowywania certyfikatu na *komputerze lokalnym*, a następnie wybierz pozycję **dalej**:
+1. Otwórz Eksploratora plików i przejdź do lokalizacji, w której zapisano plik *.* Plik certyfikatu cer, taki jak *C:\Users\accountname\azure-AD-DS-Client.cer*.
+1. Kliknij prawym przyciskiem myszy *.* Plik certyfikatu cer, a następnie wybierz pozycję **Zainstaluj certyfikat**.
+1. W **Kreatorze importu certyfikatów** wybierz opcję przechowywania certyfikatu na *komputerze lokalnym*, a następnie wybierz pozycję **dalej**:
 
     ![Wybierz opcję importowania certyfikatu do lokalnego magazynu maszynowego](./media/tutorial-configure-ldaps/import-cer-file.png)
 
@@ -211,7 +211,7 @@ Zostanie wyświetlone powiadomienie, że dla domeny zarządzanej jest konfigurow
 
 Włączenie bezpiecznego protokołu LDAP dla domeny zarządzanej może potrwać kilka minut. Jeśli certyfikat bezpiecznego protokołu LDAP, który nie jest zgodny z wymaganymi kryteriami, Akcja włączenia bezpiecznego protokołu LDAP dla domeny zarządzanej nie powiedzie się.
 
-Niektóre typowe przyczyny niepowodzenia to jeśli nazwa domeny jest nieprawidłowa, algorytm szyfrowania dla certyfikatu nie jest *TripleDES-SHA1*lub certyfikat wygaśnie wkrótce lub już wygasł. Możesz ponownie utworzyć certyfikat z prawidłowymi parametrami, a następnie włączyć bezpieczny protokół LDAP przy użyciu tego zaktualizowanego certyfikatu.
+Niektóre typowe przyczyny niepowodzenia to jeśli nazwa domeny jest nieprawidłowa, algorytm szyfrowania dla certyfikatu nie jest *TripleDES-SHA1* lub certyfikat wygaśnie wkrótce lub już wygasł. Możesz ponownie utworzyć certyfikat z prawidłowymi parametrami, a następnie włączyć bezpieczny protokół LDAP przy użyciu tego zaktualizowanego certyfikatu.
 
 ## <a name="lock-down-secure-ldap-access-over-the-internet"></a>Zablokuj bezpieczny dostęp do protokołu LDAP za pośrednictwem Internetu
 
@@ -266,7 +266,7 @@ Następnie powiąż z domeną zarządzaną. Użytkownicy (i konta usług) nie mo
 
 1. Wybierz opcję menu **połączenie** , a następnie wybierz pozycję **bind...**.
 1. Podaj poświadczenia konta użytkownika należącego do domeny zarządzanej. Wprowadź hasło konta użytkownika, a następnie wprowadź domenę, na przykład *aaddscontoso.com*.
-1. W **polu Typ powiązania**wybierz opcję *powiązania z poświadczeniami*.
+1. W **polu Typ powiązania** wybierz opcję *powiązania z poświadczeniami*.
 1. Wybierz **przycisk OK** , aby powiązać z domeną zarządzaną.
 
 Aby wyświetlić obiekty przechowywane w domenie zarządzanej:

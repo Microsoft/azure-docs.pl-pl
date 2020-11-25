@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: kenwith
 ms.openlocfilehash: 1765c6a7d19a11730567acd5e41deebc0a20cec2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88235828"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993996"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Inicjowanie obsługi aplikacji opartej na atrybutach przy użyciu filtrów zakresu
 Celem tego artykułu jest wyjaśnienie, jak używać filtrów zakresu do definiowania reguł opartych na atrybutach, które określają, którzy użytkownicy są obsługiwani do aplikacji.
@@ -72,11 +72,11 @@ Filtry zakresu są konfigurowane jako część mapowań atrybutów dla każdego 
 
 6. Wybierz pozycję **Dodaj filtr określania zakresu**.
 
-7. Zdefiniuj klauzulę, wybierając **nazwę atrybutu**źródłowego, **operatora**i **wartość atrybutu** do dopasowania. Obsługiwane są następujące operatory:
+7. Zdefiniuj klauzulę, wybierając **nazwę atrybutu** źródłowego, **operatora** i **wartość atrybutu** do dopasowania. Obsługiwane są następujące operatory:
 
-   a. **Równa**się. Klauzula zwraca wartość "true", jeśli obliczony atrybut jest zgodny z wartością ciągu wejściowego dokładnie (z uwzględnieniem wielkości liter).
+   a. **Równa** się. Klauzula zwraca wartość "true", jeśli obliczony atrybut jest zgodny z wartością ciągu wejściowego dokładnie (z uwzględnieniem wielkości liter).
 
-   b. **nie równa**się. Klauzula zwraca wartość "true", jeśli oceniony atrybut nie jest zgodny z wartością ciągu wejściowego (z uwzględnieniem wielkości liter).
+   b. **nie równa** się. Klauzula zwraca wartość "true", jeśli oceniony atrybut nie jest zgodny z wartością ciągu wejściowego (z uwzględnieniem wielkości liter).
 
    c. **ma wartość true**. Klauzula zwraca wartość "true", jeśli obliczony atrybut zawiera wartości logicznej true.
 
@@ -103,9 +103,9 @@ Filtry zakresu są konfigurowane jako część mapowań atrybutów dla każdego 
 
 9. Opcjonalnie powtórz kroki 7-8, aby dodać więcej klauzul określania zakresu.
 
-10. W polu **tytuł filtru określania zakresu**Dodaj nazwę filtru określania zakresu.
+10. W polu **tytuł filtru określania zakresu** Dodaj nazwę filtru określania zakresu.
 
-11. Wybierz przycisk **OK**.
+11. Wybierz pozycję **OK**.
 
 12. Ponownie wybierz **przycisk OK** na ekranie **filtry zakresu** . Opcjonalnie powtórz kroki 6-11, aby dodać inny filtr określania zakresu.
 

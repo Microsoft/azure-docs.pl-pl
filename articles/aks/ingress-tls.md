@@ -6,11 +6,11 @@ services: container-service
 ms.topic: article
 ms.date: 08/17/2020
 ms.openlocfilehash: 5032880ddc5d23f824adec28aee85c652bad29d2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129664"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993165"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Tworzenie kontrolera protokołu HTTPS w usłudze Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,7 @@ Możesz również wykonać następujące czynności:
 - [Tworzenie kontrolera transferu danych przychodzących korzystającego z własnych certyfikatów TLS][aks-ingress-own-tls]
 - [Utwórz kontroler transferu danych przychodzących, który używa szyfrowania, aby automatycznie generować certyfikaty TLS ze statycznym publicznym adresem IP][aks-ingress-static-tls]
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
 
@@ -38,15 +38,15 @@ Ten artykuł wymaga również uruchomienia interfejsu wiersza polecenia platform
 
 ## <a name="create-an-ingress-controller"></a>Tworzenie kontrolera transferu danych przychodzących
 
-Aby utworzyć kontroler transferu danych przychodzących, użyj polecenia, `helm` Aby zainstalować *Nginx — ruch przychodzący* . W celu zwiększenia nadmiarowości za pomocą parametru `--set controller.replicaCount` wdrażane są dwie repliki kontrolerów wejściowych NGINX. Aby w pełni korzystać z uruchamiania replik kontrolera transferu danych przychodzących, upewnij się, że w klastrze AKS znajduje się więcej niż jeden węzeł.
+Aby utworzyć kontroler transferu danych przychodzących, użyj polecenia, `helm` Aby zainstalować *Nginx — ruch przychodzący*. W celu zwiększenia nadmiarowości za pomocą parametru `--set controller.replicaCount` wdrażane są dwie repliki kontrolerów wejściowych NGINX. Aby w pełni korzystać z uruchamiania replik kontrolera transferu danych przychodzących, upewnij się, że w klastrze AKS znajduje się więcej niż jeden węzeł.
 
 Kontroler wejściowy należy również zaplanować w węźle z systemem Linux. Nie należy go uruchamiać w węzłach z systemem Windows Server. Za pomocą parametru `--set nodeSelector` podaje się selektor węzła, który nakazuje harmonogramowi usługi Kubernetes uruchomienie kontrolera wejściowego NGINX w węźle opartym na systemie Linux.
 
 > [!TIP]
-> Poniższy przykład tworzy przestrzeń nazw Kubernetes dla zasobów przychodzących o nazwie transfery *-Basic* . W razie potrzeby określ przestrzeń nazw dla własnego środowiska.
+> Poniższy przykład tworzy przestrzeń nazw Kubernetes dla zasobów przychodzących o nazwie transfery *-Basic*. W razie potrzeby określ przestrzeń nazw dla własnego środowiska.
 
 > [!TIP]
-> Jeśli chcesz włączyć [zachowywanie źródłowych adresów IP klienta][client-source-ip] dla żądań do kontenerów w klastrze, Dodaj `--set controller.service.externalTrafficPolicy=Local` do polecenia instalacji Helm. Adres IP źródła klienta jest przechowywany w nagłówku żądania w obszarze *X-forwardd-for* . W przypadku korzystania z kontrolera transferu danych przychodzących z włączonym zachowywaniem źródłowych adresów IP klienta protokół TLS nie będzie działał.
+> Jeśli chcesz włączyć [zachowywanie źródłowych adresów IP klienta][client-source-ip] dla żądań do kontenerów w klastrze, Dodaj `--set controller.service.externalTrafficPolicy=Local` do polecenia instalacji Helm. Adres IP źródła klienta jest przechowywany w nagłówku żądania w obszarze *X-forwardd-for*. W przypadku korzystania z kontrolera transferu danych przychodzących z włączonym zachowywaniem źródłowych adresów IP klienta protokół TLS nie będzie działał.
 
 ```console
 # Create a namespace for your ingress resources
@@ -265,7 +265,7 @@ Obie aplikacje działają teraz w klastrze Kubernetes. Jednak są skonfigurowane
 W poniższym przykładzie ruch do adresu *Hello-World-Ingress. MY_CUSTOM_DOMAIN* jest kierowany do usługi *AKS-HelloWorld* . Ruch do adresu *Hello-World-Ingres. MY_CUSTOM_DOMAIN/Hello-World-Two* jest kierowany do usługi *AKS-HelloWorld-2* . Ruch do *Hello-World — dane wejściowe. MY_CUSTOM_DOMAIN/static* jest kierowany do usługi o nazwie *AKS-HelloWorld* dla zasobów statycznych.
 
 > [!NOTE]
-> Jeśli skonfigurowano nazwę FQDN dla adresu IP kontrolera transferu danych przychodzących zamiast domeny niestandardowej, użyj nazwy FQDN zamiast *Hello-World-Ingres. MY_CUSTOM_DOMAIN* . Jeśli na przykład nazwa FQDN to *demo-AKS-Ingress.eastus.cloudapp.Azure.com* , zastąp opcję *Hello-World-Transfered. MY_CUSTOM_DOMAIN* z *demo-AKS-Ingress.eastus.cloudapp.Azure.com* w `hello-world-ingress.yaml` .
+> Jeśli skonfigurowano nazwę FQDN dla adresu IP kontrolera transferu danych przychodzących zamiast domeny niestandardowej, użyj nazwy FQDN zamiast *Hello-World-Ingres. MY_CUSTOM_DOMAIN*. Jeśli na przykład nazwa FQDN to *demo-AKS-Ingress.eastus.cloudapp.Azure.com*, zastąp opcję *Hello-World-Transfered. MY_CUSTOM_DOMAIN* z *demo-AKS-Ingress.eastus.cloudapp.Azure.com* w `hello-world-ingress.yaml` .
 
 Utwórz plik o nazwie `hello-world-ingress.yaml` using poniżej przykład YAML. Zaktualizuj *hosty* i *host* na nazwę DNS utworzoną w poprzednim kroku.
 
@@ -335,7 +335,7 @@ kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
 
 Następnie należy utworzyć zasób certyfikatu. Zasób certyfikatu definiuje żądany certyfikat X. 509. Aby uzyskać więcej informacji, zobacz [Certyfikaty Menedżera][cert-manager-certificates]certyfikatów. Menedżer certyfikatów automatycznie utworzył obiekt certyfikatu przy użyciu funkcji transferu danych przychodzących-podkładki, która jest automatycznie wdrażana z menedżerem certyfikatów od 0.2.2. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją dotyczącą podkładki][ingress-shim].
 
-Aby sprawdzić, czy certyfikat został utworzony pomyślnie, użyj `kubectl get certificate --namespace ingress-basic` polecenia i sprawdź, *READY* czy jest to *prawdziwe* , co może potrwać kilka minut.
+Aby sprawdzić, czy certyfikat został utworzony pomyślnie, użyj `kubectl get certificate --namespace ingress-basic` polecenia i sprawdź, *READY* czy jest to *prawdziwe*, co może potrwać kilka minut.
 
 ```
 $ kubectl get certificate --namespace ingress-basic
@@ -368,7 +368,7 @@ Alternatywnie, bardziej szczegółowe podejście polega na usunięciu utworzonyc
 kubectl delete -f cluster-issuer.yaml --namespace ingress-basic
 ```
 
-Utwórz listę wersji Helm za pomocą `helm list` polecenia. Wyszukaj wykresy o nazwach *Nginx* i *Menedżer certyfikatów* , jak pokazano w następujących przykładowych danych wyjściowych:
+Utwórz listę wersji Helm za pomocą `helm list` polecenia. Wyszukaj wykresy o nazwach *Nginx* i *Menedżer certyfikatów*, jak pokazano w następujących przykładowych danych wyjściowych:
 
 ```
 $ helm list --namespace ingress-basic

@@ -13,16 +13,16 @@ ms.date: 10/05/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: d50a953c9593c9ae78889be336697686e59d965f
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: d732d2fd8b97ca61222accc21c9930ed8c5c5d3a
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592751"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95993894"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Szybki Start: uzyskiwanie tokenu i wywoływanie Microsoft Graph interfejsu API przy użyciu tożsamości aplikacji konsoli
 
-W tym przewodniku szybki start pobrano i uruchomimy przykład kodu, który demonstruje, jak Aplikacja konsolowa .NET Core może uzyskać token dostępu, aby wywołać interfejs API Microsoft Graph i wyświetlić [listę użytkowników](/graph/api/user-list) w katalogu. Przykład kodu demonstruje również, jak zadanie lub usługa systemu Windows mogą być uruchamiane przy użyciu tożsamości aplikacji, a nie tożsamości użytkownika. 
+W tym przewodniku szybki start pobrano i uruchomiono przykład kodu, który pokazuje, jak Aplikacja konsolowa .NET Core może uzyskać token dostępu do wywołania interfejsu API Microsoft Graph i wyświetlić [listę użytkowników](/graph/api/user-list) w katalogu. Przykład kodu demonstruje również, jak zadanie lub usługa systemu Windows mogą być uruchamiane przy użyciu tożsamości aplikacji, a nie tożsamości użytkownika. 
 
 Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 
@@ -54,12 +54,12 @@ Ten przewodnik Szybki Start wymaga [programu .NET Core 3,1](https://www.microsof
 > 1. Przejdź do strony Microsoft Identity Platform for Developers [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) , wyszukując **rejestracje aplikacji** na pasku wyszukiwania w witrynie Azure Portal.
 > 1. Wybierz pozycję **Nowa rejestracja**.
 > 1. Gdy zostanie wyświetlona strona **zarejestruj aplikację** , wprowadź informacje rejestracyjne swojej aplikacji.
-> 1. W sekcji **Nazwa** podaj zrozumiałą nazwę aplikacji, która będzie widoczna dla użytkowników, na przykład `Daemon-console`, a następnie wybierz pozycję **Zarejestruj** , aby utworzyć aplikację.
+> 1. W sekcji **Nazwa** podaj zrozumiałą nazwę aplikacji, która będzie widoczna dla użytkowników, na przykład `Daemon-console`, a następnie wybierz pozycję **Zarejestruj**, aby utworzyć aplikację.
 > 1. Po jej zarejestrowaniu wybierz menu **Certyfikaty i klucze tajne**.
 > 1. W obszarze **Klucze tajne klienta** wybierz pozycję **+ Nowy klucz tajny klienta**. Nadaj kluczowi nazwę i wybierz pozycję **Dodaj**. Skopiuj klucz tajny do bezpiecznej lokalizacji. Będzie ona potrzebna do użycia w kodzie i nie będzie ponownie wyświetlana w portalu.
-> 1. Wybierz menu **Uprawnienia interfejsu API** , wybierz przycisk **+ Dodaj uprawnienie** , a następnie wybierz pozycję **Microsoft Graph**.
+> 1. Wybierz menu **Uprawnienia interfejsu API**, wybierz przycisk **+ Dodaj uprawnienie**, a następnie wybierz pozycję **Microsoft Graph**.
 > 1. Wybierz pozycję **Uprawnienia aplikacji**.
-> 1. W węźle **Użytkownik** wybierz pozycję **User.Read.All** , a następnie wybierz pozycję **Dodaj uprawnienia**.
+> 1. W węźle **Użytkownik** wybierz pozycję **User.Read.All**, a następnie wybierz pozycję **Dodaj uprawnienia**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > ### <a name="download-and-configure-your-quickstart-app"></a>Pobieranie i konfigurowanie aplikacji Szybki Start
@@ -108,7 +108,7 @@ Ten przewodnik Szybki Start wymaga [programu .NET Core 3,1](https://www.microsof
 
 > [!div renderon="docs"]
 > > [!TIP]
-> > Aby znaleźć wartości **Identyfikator aplikacji (klienta)** , **Identyfikator katalogu (dzierżawy)** , przejdź do strony **Przegląd** aplikacji w witrynie Azure Portal. Aby wygenerować nowy klucz, przejdź do strony **Certyfikaty i klucze tajne**.
+> > Aby znaleźć wartości **Identyfikator aplikacji (klienta)**, **Identyfikator katalogu (dzierżawy)**, przejdź do strony **Przegląd** aplikacji w witrynie Azure Portal. Aby wygenerować nowy klucz, przejdź do strony **Certyfikaty i klucze tajne**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-admin-consent"></a>Krok 3. zgoda administratora

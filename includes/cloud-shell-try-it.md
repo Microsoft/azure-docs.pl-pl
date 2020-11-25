@@ -5,11 +5,11 @@ author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
 ms.openlocfilehash: 40f243ce0044b8e1172fb03a1366f37314a0c550
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85367816"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993474"
 ---
 ## <a name="use-azure-cloud-shell"></a>Używanie usługi Azure Cloud Shell
 
@@ -20,7 +20,7 @@ Aby uruchomić środowisko Azure Cloud Shell:
 | Opcja | Przykład/link |
 |-----------------------------------------------|---|
 | Wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Wybranie pozycji **Wypróbuj** nie spowoduje automatycznego skopiowania kodu do środowiska Cloud Shell. | ![Przykład funkcji Wypróbuj w środowisku Azure Cloud Shell](./media/cloud-shell-try-it/hdi-azure-cli-try-it.png) |
-| Przejdź do witryny [https://shell.azure.com](https://shell.azure.com) lub wybierz przycisk **Uruchom Cloud Shell** , aby otworzyć środowisko Cloud Shell w przeglądarce. | [![Uruchamianie środowiska Cloud Shell w nowym oknie](media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
+| Przejdź do witryny [https://shell.azure.com](https://shell.azure.com) lub wybierz przycisk **Uruchom Cloud Shell**, aby otworzyć środowisko Cloud Shell w przeglądarce. | [![Uruchamianie środowiska Cloud Shell w nowym oknie](media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
 | Wybierz przycisk **Cloud Shell** na pasku menu w prawym górnym rogu witryny [Azure Portal](https://portal.azure.com). | ![Przycisk Cloud Shell w witrynie Azure Portal](./media/cloud-shell-try-it/hdi-cloud-shell-menu.png) |
 
 Aby uruchomić kod z tego artykułu w środowisku Azure Cloud Shell:
@@ -31,4 +31,4 @@ Aby uruchomić kod z tego artykułu w środowisku Azure Cloud Shell:
 
 1. Wklej kod w sesji Cloud Shell, naciskając klawisze **Ctrl**+**Shift**+**V** w systemach Windows i Linux lub klawisze **Cmd**+**Shift**+**V** w systemie macOS.
 
-1. Naciśnij klawisz **Enter** , aby uruchomić kod.
+1. Naciśnij klawisz **Enter**, aby uruchomić kod.

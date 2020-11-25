@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bf8fe68c28457fd01704762e537fe259a96a6bce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d6fb23d7325347a1b27165d3e9bc3bf33797682
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116236"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95994364"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Konfigurowanie przepływu poświadczeń hasła właściciela zasobu w Azure Active Directory B2C przy użyciu zasad niestandardowych
 
@@ -60,7 +60,7 @@ Wykonaj kroki opisane w temacie Wprowadzenie [do zasad niestandardowych w Azure 
     </ClaimsSchema>
     ```
 
-3. Po **ClaimsSchema**Dodaj element **ClaimsTransformations** i jego elementy podrzędne do elementu **BuildingBlocks** :
+3. Po **ClaimsSchema** Dodaj element **ClaimsTransformations** i jego elementy podrzędne do elementu **BuildingBlocks** :
 
     ```xml
     <ClaimsTransformations>
@@ -247,7 +247,7 @@ Następnie zaktualizuj plik jednostki uzależnionej inicjujący utworzoną przez
 
 Użyj ulubionej aplikacji do programowania interfejsów API do wygenerowania wywołania interfejsu API i przejrzyj odpowiedź na Debugowanie zasad. Utwórz wywołanie podobne do tego przykładu, używając następujących informacji jako treści żądania POST:
 
-`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token`
 
 - Zamień `<tenant-name>` na nazwę dzierżawy Azure AD B2C.
 - Zastąp `B2C_1A_ROPC_Auth` pełną nazwą zasad poświadczeń hasła właściciela zasobu.
@@ -269,7 +269,7 @@ Użyj ulubionej aplikacji do programowania interfejsów API do wygenerowania wyw
 Rzeczywiste żądanie POST wygląda podobnie do poniższego przykładu:
 
 ```https
-POST /<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
+POST /<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?B2C_1A_ROPC_Auth HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -292,7 +292,7 @@ Pomyślna odpowiedź z dostępem w trybie offline wygląda podobnie do poniższe
 
 Utwórz wywołanie POST podobne do pokazanego tutaj. Użyj informacji w poniższej tabeli jako treści żądania:
 
-`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token`
 
 - Zamień `<tenant-name>` na nazwę dzierżawy Azure AD B2C.
 - Zastąp `B2C_1A_ROPC_Auth` pełną nazwą zasad poświadczeń hasła właściciela zasobu.

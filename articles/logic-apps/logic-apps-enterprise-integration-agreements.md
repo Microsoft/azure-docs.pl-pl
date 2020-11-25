@@ -9,11 +9,11 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: c8cbfb619c9eed325161503f705bf5c4c0746265
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82612337"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95992939"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Tworzenie umów z partnerami handlowymi w usłudze Azure Logic Apps i zarządzanie nimi
 
@@ -45,22 +45,22 @@ W głównym menu platformy Azure wybierz pozycję **wszystkie usługi**. W polu 
 
    ![Znajdowanie konta integracji](./media/logic-apps-enterprise-integration-agreements/find-integration-accounts.png)
 
-1. W obszarze **konta integracji**wybierz konto integracji, w którym chcesz utworzyć umowę.
+1. W obszarze **konta integracji** wybierz konto integracji, w którym chcesz utworzyć umowę.
 
    ![Wybierz konto integracji, dla którego chcesz utworzyć umowę](./media/logic-apps-enterprise-integration-agreements/select-integration-account.png)
 
-1. W okienku po prawej stronie w obszarze **składniki**wybierz kafelek **umowy** .
+1. W okienku po prawej stronie w obszarze **składniki** wybierz kafelek **umowy** .
 
    ![Wybieranie "umów"](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
 
-1. W obszarze **umowy**wybierz pozycję **Dodaj**. W okienku **Dodaj** podaj informacje o Twojej umowie, na przykład:
+1. W obszarze **umowy** wybierz pozycję **Dodaj**. W okienku **Dodaj** podaj informacje o Twojej umowie, na przykład:
 
    ![Wybierz pozycję "Dodaj"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
 
    | Właściwość | Wymagany | Wartość | Opis |
    |----------|----------|-------|-------------|
    | **Nazwa** | Tak | <*Umowa — nazwa*> | Nazwa umowy |
-   | **Typ umowy** | Tak | **AS2**, **X12**lub **EDIFACT** | Typ protokołu dla umowy. Podczas tworzenia pliku umowy zawartość tego pliku musi być zgodna z typem umowy. | |  
+   | **Typ umowy** | Tak | **AS2**, **X12** lub **EDIFACT** | Typ protokołu dla umowy. Podczas tworzenia pliku umowy zawartość tego pliku musi być zgodna z typem umowy. | |  
    | **Partner hosta** | Tak | <*Nazwa partnera hosta*> | Partner hosta reprezentuje organizację, która określa umowę |
    | **Tożsamość hosta** | Tak | <*Identyfikator partnera hosta*> | Identyfikator partnera hosta |
    | **Partner gościa** | Tak | <*Gość — nazwa partnera*> | Partner gościa reprezentuje organizację, która wykonuje działalność z partnerem hosta |
@@ -87,11 +87,11 @@ W głównym menu platformy Azure wybierz pozycję **wszystkie usługi**. W polu 
 
 1. W polu wyszukiwania wprowadź "integrację" jako filtr. Z wyników wybierz pozycję ten zasób: **konta integracji**
 
-1. W obszarze **konta integracji**wybierz konto integracji z umową, którą chcesz edytować.
+1. W obszarze **konta integracji** wybierz konto integracji z umową, którą chcesz edytować.
 
-1. W okienku po prawej stronie w obszarze **składniki**wybierz kafelek **umowy** .
+1. W okienku po prawej stronie w obszarze **składniki** wybierz kafelek **umowy** .
 
-1. W obszarze **umowy**wybierz swoją umowę, a następnie wybierz pozycję **Edytuj**.
+1. W obszarze **umowy** wybierz swoją umowę, a następnie wybierz pozycję **Edytuj**.
 
 1. Utwórz i Zapisz zmiany.
 
@@ -101,11 +101,11 @@ W głównym menu platformy Azure wybierz pozycję **wszystkie usługi**. W polu 
 
 1. W polu wyszukiwania wprowadź "integrację" jako filtr. Z wyników wybierz pozycję ten zasób: **konta integracji**
 
-1. W obszarze **konta integracji**wybierz konto integracji z umową, którą chcesz usunąć.
+1. W obszarze **konta integracji** wybierz konto integracji z umową, którą chcesz usunąć.
 
-1. W okienku po prawej stronie w obszarze **składniki**wybierz kafelek **umowy** .
+1. W okienku po prawej stronie w obszarze **składniki** wybierz kafelek **umowy** .
 
-1. W obszarze **umowy**wybierz swoją umowę, a następnie wybierz pozycję **Usuń**.
+1. W obszarze **umowy** wybierz swoją umowę, a następnie wybierz pozycję **Usuń**.
 
 1. Potwierdź, że chcesz usunąć wybraną umowę.
 

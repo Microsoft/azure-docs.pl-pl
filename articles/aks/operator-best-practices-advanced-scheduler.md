@@ -6,11 +6,11 @@ services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.openlocfilehash: c0c1f587b4e52607e9466300f976a52874c9e5ad
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125635"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993707"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące zaawansowanych funkcji harmonogramu w usłudze Azure Kubernetes Service (AKS)
 
@@ -36,7 +36,7 @@ Harmonogram Kubernetes może używać przyniesień i tolerowanych elementów w c
 * Do **węzła jest stosowany** obiekt, który wskazuje na ich zaplanowanie tylko określonych zasobników.
 * **Tolerowana** jest następnie stosowana do elementu, który umożliwia im *tolerowanie* kształtu węzła.
 
-W przypadku wdrażania programu pod kątem klastra AKS, Kubernetes tylko planuje w węzłach, które są wyrównane z przydziałami. Załóżmy na przykład, że masz pulę węzłów w klastrze AKS dla węzłów z obsługą procesora GPU. Należy zdefiniować nazwę, na przykład *GPU* , a następnie wartość planowania. Jeśli ustawisz tę wartość na *NoSchedule* , usługa Kubernetes Scheduler nie będzie mogła zaplanować w węźle, czy nie zdefiniują odpowiednich wartości dopuszczalnych.
+W przypadku wdrażania programu pod kątem klastra AKS, Kubernetes tylko planuje w węzłach, które są wyrównane z przydziałami. Załóżmy na przykład, że masz pulę węzłów w klastrze AKS dla węzłów z obsługą procesora GPU. Należy zdefiniować nazwę, na przykład *GPU*, a następnie wartość planowania. Jeśli ustawisz tę wartość na *NoSchedule*, usługa Kubernetes Scheduler nie będzie mogła zaplanować w węźle, czy nie zdefiniują odpowiednich wartości dopuszczalnych.
 
 ```console
 kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
@@ -79,15 +79,15 @@ Po uaktualnieniu puli węzłów w AKS, jego przypisaniach i tolerowaniu stosują
 
 - **Domyślne klastry korzystające z zestawów skalowania maszyn wirtualnych**
   - Można zmienić rozmiar [elementu nodepool][taint-node-pool] z interfejsu API AKS, aby nowo skalowane węzły mogły odbierać zmiany w węzłach interfejsu API.
-  - Załóżmy, że masz klaster z dwoma węzłami — *Węzeł1* i *Węzeł2* . Należy uaktualnić pulę węzłów.
-  - Tworzone są dwa dodatkowe węzły, *Węzeł3* i *Węzeł4* , a ich przekazanie odbywa się odpowiednio.
+  - Załóżmy, że masz klaster z dwoma węzłami — *Węzeł1* i *Węzeł2*. Należy uaktualnić pulę węzłów.
+  - Tworzone są dwa dodatkowe węzły, *Węzeł3* i *Węzeł4*, a ich przekazanie odbywa się odpowiednio.
   - Oryginalne *Węzeł1* i *Węzeł2* są usuwane.
 
 - **Klastry bez obsługi zestawu skalowania maszyn wirtualnych**
-  - Załóżmy, że masz klaster z dwoma węzłami — *Węzeł1* i *Węzeł2* . Podczas uaktualniania jest tworzony dodatkowy węzeł ( *Węzeł3* ).
-  - *Węzeł1* są stosowane do *Węzeł3* , a następnie *Węzeł1* jest usuwana.
-  - Tworzony jest inny nowy węzeł (o nazwie *Węzeł1* , ponieważ poprzedni *Węzeł1* został usunięty), a do nowego *Węzeł1* są stosowane *węzeł2y* . Następnie *Węzeł2* jest usuwany.
-  - W zasadzie *Węzeł1* staną się *Węzeł3* , a *Węzeł2* zostanie *Węzeł1* .
+  - Załóżmy, że masz klaster z dwoma węzłami — *Węzeł1* i *Węzeł2*. Podczas uaktualniania jest tworzony dodatkowy węzeł (*Węzeł3*).
+  - *Węzeł1* są stosowane do *Węzeł3*, a następnie *Węzeł1* jest usuwana.
+  - Tworzony jest inny nowy węzeł (o nazwie *Węzeł1*, ponieważ poprzedni *Węzeł1* został usunięty), a do nowego *Węzeł1* są stosowane *węzeł2y* . Następnie *Węzeł2* jest usuwany.
+  - W zasadzie *Węzeł1* staną się *Węzeł3*, a *Węzeł2* zostanie *Węzeł1*.
 
 W przypadku skalowania puli węzłów w AKS, zmiany czasu i tolerowania nie są przenoszone przez projektowanie.
 
@@ -131,9 +131,9 @@ Aby uzyskać więcej informacji na temat używania selektorów węzłów, zobacz
 
 ### <a name="node-affinity"></a>Koligacja węzłów
 
-Selektor węzła to podstawowy sposób przypisywania do danego węzła. Większa elastyczność jest dostępna przy użyciu *koligacji węzłów* . W przypadku koligacji węzłów należy określić, co się stanie, jeśli nie można dopasować elementu pod węzłem. Można *wymagać* , aby harmonogram Kubernetes był zgodny z hostem z etykietą. Lub można *preferować* dopasowanie, ale zezwolić na zaplanowanie pod innym hostem, jeśli nie jest zgodny.
+Selektor węzła to podstawowy sposób przypisywania do danego węzła. Większa elastyczność jest dostępna przy użyciu *koligacji węzłów*. W przypadku koligacji węzłów należy określić, co się stanie, jeśli nie można dopasować elementu pod węzłem. Można *wymagać* , aby harmonogram Kubernetes był zgodny z hostem z etykietą. Lub można *preferować* dopasowanie, ale zezwolić na zaplanowanie pod innym hostem, jeśli nie jest zgodny.
 
-W poniższym przykładzie koligacja węzła jest ustawiana na *requiredDuringSchedulingIgnoredDuringExecution* . Ta koligacja wymaga, aby harmonogram Kubernetes używał węzła ze zgodną etykietą. Jeśli żaden węzeł nie jest dostępny, musi on oczekiwać na kontynuowanie planowania. Aby umożliwić planowanie pod innym węzłem, można ustawić wartość *preferredDuringSchedulingIgnoreDuringExecution* :
+W poniższym przykładzie koligacja węzła jest ustawiana na *requiredDuringSchedulingIgnoredDuringExecution*. Ta koligacja wymaga, aby harmonogram Kubernetes używał węzła ze zgodną etykietą. Jeśli żaden węzeł nie jest dostępny, musi on oczekiwać na kontynuowanie planowania. Aby umożliwić planowanie pod innym węzłem, można ustawić wartość *preferredDuringSchedulingIgnoreDuringExecution*:
 
 ```yaml
 kind: Pod

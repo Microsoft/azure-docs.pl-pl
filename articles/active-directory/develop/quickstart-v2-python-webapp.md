@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: eaac8bdf828d2dd9a8e2dfae0b1b2b5985d1951d
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 1a8d851d2e70850155950786c6aa67c1d5086eb2
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592706"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95993877"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Szybki Start: Dodawanie logowania z firmą Microsoft do aplikacji sieci Web w języku Python
 
-W tym przewodniku szybki start pobrano i uruchomiono przykład kodu, który pokazuje, jak aplikacja sieci Web w języku Python może zalogować użytkowników i uzyskać token dostępu do wywoływania interfejsu API Microsoft Graph. Użytkownicy korzystający z osobistego konta Microsoft lub konta w dowolnej organizacji Azure Active Directory (Azure AD) mogą zalogować się do aplikacji.
+W tym przewodniku szybki start pobrano i uruchomiono przykład kodu, który pokazuje, jak aplikacja sieci Web w języku Python może zalogować użytkowników i uzyskać token dostępu do wywołania interfejsu API Microsoft Graph. Użytkownicy korzystający z osobistego konta Microsoft lub konta w dowolnej organizacji Azure Active Directory (Azure AD) mogą zalogować się do aplikacji.
 
 Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 

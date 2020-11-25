@@ -12,11 +12,11 @@ ms.date: 09/03/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: 307a97b71fe453c89617a86a88063e60fcf28fa3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88235064"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994013"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Sprawdź stan aprowizacji użytkowników
 
@@ -35,7 +35,7 @@ Podczas pierwszej konfiguracji automatycznej aprowizacji, **Bieżąca sekcja sta
 
 Po zakończeniu cyklu aprowizacji sekcja **statystyki do daty** pokazuje skumulowaną liczbę użytkowników i grup, których zainicjowano na dzień, wraz z datą ukończenia i czasem trwania ostatniego cyklu. **Identyfikator działania** jednoznacznie identyfikuje najnowszy cykl aprowizacji. **Identyfikator zadania** jest unikatowym identyfikatorem zadania aprowizacji i jest specyficzny dla aplikacji w dzierżawie.
 
-Postęp aprowizacji można wyświetlić w Azure Portal z poziomu karty ** &gt; aplikacje Azure Active Directory Enterprise &gt; \[ aplikacji \] &gt; ** .
+Postęp aprowizacji można wyświetlić w Azure Portal z poziomu karty **&gt; aplikacje Azure Active Directory Enterprise &gt; \[ aplikacji \] &gt;** .
 
 ![Pasek postępu strony aprowizacji](./media/application-provisioning-when-will-provisioning-finish-specific-user/provisioning-progress-bar-section.png)
 
@@ -59,7 +59,7 @@ W przypadku korzystania z automatycznej aprowizacji użytkowników w aplikacji u
 
 Czas, w którym dany użytkownik ma zostać zainicjowany, zależy głównie od tego, czy zadanie aprowizacji wykonuje cykl początkowy czy cykl przyrostowy.
 
-- W przypadku **cyklu początkowego**czas zadania zależy od wielu czynników, takich jak liczba użytkowników i grup w zakresie dla aprowizacji oraz łączna liczba użytkowników i grup w systemie źródłowym. Pierwsza synchronizacja między usługą Azure AD a aplikacją może zająć od 20 minut do kilku godzin, w zależności od rozmiaru katalogu usługi Azure AD i liczby użytkowników w zakresie aprowizacji. Kompleksowa lista czynników wpływających na wydajność cyklu początkowego znajduje się w dalszej części tej sekcji.
+- W przypadku **cyklu początkowego** czas zadania zależy od wielu czynników, takich jak liczba użytkowników i grup w zakresie dla aprowizacji oraz łączna liczba użytkowników i grup w systemie źródłowym. Pierwsza synchronizacja między usługą Azure AD a aplikacją może zająć od 20 minut do kilku godzin, w zależności od rozmiaru katalogu usługi Azure AD i liczby użytkowników w zakresie aprowizacji. Kompleksowa lista czynników wpływających na wydajność cyklu początkowego znajduje się w dalszej części tej sekcji.
 
 - W przypadku **cykli przyrostowych** po cyklu początkowym czasy zadań mają być szybsze (np. w ciągu 10 minut), ponieważ usługa aprowizacji przechowuje znaki wodne, które reprezentują stan obu systemów po cyklu początkowym, co poprawia wydajność kolejnych synchronizacji. Czas zadania zależy od liczby zmian wykrytych w tym cyklu aprowizacji. Jeśli istnieje mniej niż 5 000 zmian członkostwa użytkowników lub grup, zadanie może zakończyć się w ramach pojedynczego przyrostowego cyklu udostępniania. 
 
@@ -77,7 +77,7 @@ Poniższa tabela zawiera podsumowanie czasów synchronizacji typowych scenariusz
 | Synchronizuj wszystkich użytkowników w usłudze Azure AD|  < 1 000  | < 30 minut | < 30 minut |
 | Synchronizuj wszystkich użytkowników w usłudze Azure AD | 1 000 – 10 000  | 43 – 86 minut | < 30 minut |
 
-W przypadku **tylko przypisanego użytkownika i grup dla synchronizacji**konfiguracji można użyć następujących formuł, aby określić przybliżoną minimalną i maksymalną oczekiwany czas **cykli początkowej** :
+W przypadku **tylko przypisanego użytkownika i grup dla synchronizacji** konfiguracji można użyć następujących formuł, aby określić przybliżoną minimalną i maksymalną oczekiwany czas **cykli początkowej** :
 
 - Minimum minut = 0,01 x [liczba przypisanych użytkowników, grup i członków grupy]
 - Maksymalna liczba minut = 0,08 x [liczba przypisanych użytkowników, grup i członków grupy]

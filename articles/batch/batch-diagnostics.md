@@ -5,11 +5,11 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: seodec18
 ms.openlocfilehash: fe2697c73f2a5f3f0b33cfb598f11f39420ed723
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108103"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994115"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Metryki, alerty i dzienniki usługi Batch na potrzeby oceny i monitorowania diagnostyki
 
@@ -62,8 +62,8 @@ Można na przykład skonfigurować alert metryki, gdy liczba rdzeni o niskim pri
 Aby skonfigurować alert dotyczący metryki w Azure Portal:
 
 1. Wybierz kolejno pozycje **wszystkie usługi Usługa**  >  **Batch konta**, a następnie wybierz nazwę swojego konta w usłudze Batch.
-2. W obszarze **monitorowanie**wybierz pozycję **alerty**, a następnie wybierz pozycję **Nowa reguła alertu**.
-3. Kliknij pozycję **Wybierz warunek**, a następnie wybierz metrykę. Potwierdź wartości **okresu wykresu**, **typu progu**, **operatora**i **typu agregacji**, a następnie wprowadź **wartość progową**. Następnie wybierz pozycję **Done** (Gotowe).
+2. W obszarze **monitorowanie** wybierz pozycję **alerty**, a następnie wybierz pozycję **Nowa reguła alertu**.
+3. Kliknij pozycję **Wybierz warunek**, a następnie wybierz metrykę. Potwierdź wartości **okresu wykresu**, **typu progu**, **operatora** i **typu agregacji**, a następnie wprowadź **wartość progową**. Następnie wybierz pozycję **Done** (Gotowe).
 4. Dodaj grupę akcji do alertu, wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
 5. W sekcji **szczegóły reguły alertu** wprowadź nazwę i **Opis** **reguły alertu** , a następnie wybierz **ważność**
 6. Wybierz pozycję **Utwórz regułę alertu**.
@@ -99,10 +99,10 @@ Aby utworzyć nowe ustawienie diagnostyczne w Azure Portal, wykonaj poniższe kr
 
 1. W Azure Portal wybierz pozycję **wszystkie usługi**  >  **Batch konta**, a następnie wybierz nazwę swojego konta w usłudze Batch.
 2. W obszarze **Monitorowanie** wybierz pozycję **Ustawienia diagnostyczne**.
-3. W obszarze **Ustawienia diagnostyczne**wybierz pozycję **Dodaj ustawienie diagnostyczne**.
+3. W obszarze **Ustawienia diagnostyczne** wybierz pozycję **Dodaj ustawienie diagnostyczne**.
 4. Wprowadź nazwę tego ustawienia.
-5. Wybierz lokalizację docelową: **wysyłanie do log Analytics**, **Archiwizowanie na koncie magazynu**lub **przesyłanie strumieniowe do centrum zdarzeń**. W przypadku wybrania konta magazynu można opcjonalnie ustawić zasady przechowywania. Jeśli nie określisz liczby dni przechowywania danych, dane są zachowywane w trakcie okresu istnienia konta magazynu.
-6. Wybierz opcję **ServiceLog**, **AllMetrics**lub Both.
+5. Wybierz lokalizację docelową: **wysyłanie do log Analytics**, **Archiwizowanie na koncie magazynu** lub **przesyłanie strumieniowe do centrum zdarzeń**. W przypadku wybrania konta magazynu można opcjonalnie ustawić zasady przechowywania. Jeśli nie określisz liczby dni przechowywania danych, dane są zachowywane w trakcie okresu istnienia konta magazynu.
+6. Wybierz opcję **ServiceLog**, **AllMetrics** lub Both.
 7. Wybierz pozycję **Zapisz** , aby utworzyć ustawienie diagnostyczne.
 
 Można również [włączyć zbieranie za pośrednictwem Azure monitor w Azure Portal w](../azure-monitor/platform/diagnostic-settings.md) celu skonfigurowania ustawień diagnostycznych, przy użyciu [szablonu Menedżer zasobów](../azure-monitor/samples/resource-manager-diagnostic-settings.md)lub z Azure PowerShell lub interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [Omówienie dzienników platformy Azure](../azure-monitor/platform/platform-logs-overview.md).

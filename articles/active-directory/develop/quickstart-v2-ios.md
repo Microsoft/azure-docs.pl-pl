@@ -13,16 +13,16 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 1b15330d368a93ac4ba176df129df212a259f3e2
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 3ea3c3990a9319a81c841de8a7109850fcab5179
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561900"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95993911"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Szybki Start: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph z aplikacji dla systemu iOS lub macOS
 
-W tym przewodniku szybki start pobierasz i uruchamiasz przykładowy kod, który pokazuje, w jaki sposób Natywna aplikacja systemu iOS lub macOS może zalogować użytkowników i uzyskać token dostępu w celu wywołania interfejsu API Microsoft Graph.
+W tym przewodniku szybki start pobrano i uruchomimy przykład kodu, który pokazuje, jak Natywna aplikacja systemu iOS lub macOS może zalogować użytkowników i uzyskać token dostępu do wywołania interfejsu API Microsoft Graph.
 
 Przewodnik Szybki Start dotyczy aplikacji dla systemu iOS i macOS. Niektóre kroki są wymagane tylko w przypadku aplikacji dla systemu iOS i będą wskazywane jako takie.
 
@@ -62,7 +62,7 @@ Przewodnik Szybki Start dotyczy aplikacji dla systemu iOS i macOS. Niektóre kro
 >      - Pomiń inne konfiguracje na tej stronie.
 >      - Wybierz pozycję `Register`.
 > 1. W sekcji **Zarządzanie** wybierz pozycję `Authentication`  >  `Add Platform`  >  `iOS` .
->      - Wprowadź *_Identyfikator pakietu_* * dla aplikacji. Identyfikator pakietu jest tylko unikatowym ciągiem, który jednoznacznie identyfikuje aplikację, na przykład `com.<yourname>.identitysample.MSALMacOS` . Zanotuj wartość, której używasz.
+>      - Wprowadź *_Identyfikator pakietu_** dla aplikacji. Identyfikator pakietu jest tylko unikatowym ciągiem, który jednoznacznie identyfikuje aplikację, na przykład `com.<yourname>.identitysample.MSALMacOS` . Zanotuj wartość, której używasz.
 >      - Należy pamiętać, że konfiguracja systemu iOS ma również zastosowanie do aplikacji macOS.
 > 1. Wybierz `Configure` i Zapisz szczegóły _*_konfiguracji MSAL_*_ w dalszej części tego przewodnika Szybki Start.
 > [!div renderon="portal" class="sxs-lookup"]
@@ -101,7 +101,7 @@ W oknie terminalu przejdź do folderu z pobranym przykładem kodu i uruchom pole
 >#### <a name="step-4-configure-your-project"></a>Krok 4. Konfigurowanie projektu
 > W przypadku wybrania opcji 1 powyżej można pominąć te kroki.
 > 1. Wyodrębnij plik zip i otwórz projekt w programie XCode.
-> 1. Edytuj _ *plik viewcontroller. Swift* * i Zastąp wiersz zaczynający się od "Let kClientID" następującym fragmentem kodu. Pamiętaj, aby zaktualizować wartość `kClientID` clientID, która została zapisana podczas rejestrowania aplikacji w portalu wcześniej w tym przewodniku szybki start:
+> 1. Edytuj _ *plik viewcontroller. Swift** i Zastąp wiersz zaczynający się od "Let kClientID" następującym fragmentem kodu. Pamiętaj, aby zaktualizować wartość `kClientID` clientID, która została zapisana podczas rejestrowania aplikacji w portalu wcześniej w tym przewodniku szybki start:
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
@@ -117,7 +117,7 @@ W oknie terminalu przejdź do folderu z pobranym przykładem kodu i uruchom pole
 >     ```
 > 1. Otwórz ustawienia projektu. W sekcji **tożsamość** wprowadź **Identyfikator pakietu** wprowadzony w portalu.
 > 1. Kliknij prawym przyciskiem myszy pozycję **info. plist** i wybierz pozycję **Otwórz jako**  >  **kod źródłowy**.
-> 1. W węźle głównym DICT Zastąp ciąg `Enter_the_bundle_Id_Here` *_identyfikatorem pakietu_* * użytym w portalu.
+> 1. W węźle głównym DICT Zastąp ciąg `Enter_the_bundle_Id_Here` *_identyfikatorem pakietu_** użytym w portalu.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -213,7 +213,7 @@ Twoja aplikacja musi mieć również następujące elementy `AppDelegate` . Dzi�
     }
  ```
 
-Na koniec aplikacja musi mieć `LSApplicationQueriesSchemes` wpis * **info. plist** _ obok elementu `CFBundleURLTypes` . Przykład zawiera.
+Na koniec aplikacja musi mieć `LSApplicationQueriesSchemes` wpis ***info. plist** _ obok elementu `CFBundleURLTypes` . Przykład zawiera.
 
    ```xml
    <key>LSApplicationQueriesSchemes</key>
@@ -229,7 +229,7 @@ Biblioteka MSAL oferuje dwie metody uzyskiwania tokenów: `acquireToken` i `acqu
 
 #### <a name="acquiretoken-get-a-token-interactively"></a>acquireToken: uzyskiwanie tokenu interaktywnie
 
-Niektóre sytuacje wymagają, aby użytkownicy mogli korzystać z platformy tożsamości firmy Microsoft. W takich przypadkach może być wymagane, aby użytkownik końcowy mógł wybrać swoje konto, wprowadzić swoje poświadczenia lub wyrazić zgodę na uprawnienia aplikacji. Przykład:
+Niektóre sytuacje wymagają, aby użytkownicy mogli korzystać z platformy tożsamości firmy Microsoft. W takich przypadkach może być wymagane, aby użytkownik końcowy mógł wybrać swoje konto, wprowadzić swoje poświadczenia lub wyrazić zgodę na uprawnienia aplikacji. Na przykład
 
 Użytkownik po raz pierwszy loguje się do aplikacji
 * Jeśli użytkownik resetuje hasło, musi wprowadzić swoje poświadczenia
