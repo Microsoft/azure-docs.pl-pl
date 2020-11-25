@@ -10,16 +10,16 @@ ms.date: 05/18/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ee461193be81297c6577ce4c264cabbf08e72417
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 42359eb8a2bfdad23589e0302b80e7806b388510
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359446"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913610"
 ---
 # <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2
 
-W tym artykule pokazano, jak za pomocą [interfejsu wiersza polecenia platformy Command-Line Azure](https://docs.microsoft.com/cli/azure/) można tworzyć katalogi, pliki i uprawnienia oraz zarządzać nimi w ramach kont magazynu, które mają hierarchiczną przestrzeń nazw. 
+W tym artykule pokazano, jak za pomocą [interfejsu wiersza polecenia platformy Command-Line Azure](/cli/azure/) można tworzyć katalogi, pliki i uprawnienia oraz zarządzać nimi w ramach kont magazynu, które mają hierarchiczną przestrzeń nazw. 
 
 [Przykłady](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)  |  [Przekaż opinię](https://github.com/Azure/azure-cli-extensions/issues)
 
@@ -27,19 +27,19 @@ W tym artykule pokazano, jak za pomocą [interfejsu wiersza polecenia platformy 
 
 > [!div class="checklist"]
 > * Subskrypcja platformy Azure. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
-> * Konto magazynu z włączoną hierarchiczną przestrzenią nazw (SNS). Postępuj zgodnie z [tymi](data-lake-storage-quickstart-create-account.md) instrukcjami, aby je utworzyć.
+> * Konto magazynu z włączoną hierarchiczną przestrzenią nazw (SNS). Postępuj zgodnie z [tymi](../common/storage-account-create.md) instrukcjami, aby je utworzyć.
 > * Interfejs wiersza polecenia platformy Azure w wersji `2.6.0` lub nowszej.
 
 ## <a name="ensure-that-you-have-the-correct-version-of-azure-cli-installed"></a>Upewnij się, że masz zainstalowaną odpowiednią wersję interfejsu wiersza polecenia platformy Azure
 
-1. Otwórz [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)lub jeśli interfejs wiersza polecenia platformy Azure został [zainstalowany](https://docs.microsoft.com/cli/azure/install-azure-cli) lokalnie, Otwórz aplikację konsoli poleceń, taką jak Windows PowerShell.
+1. Otwórz [Azure Cloud Shell](../../cloud-shell/overview.md)lub jeśli interfejs wiersza polecenia platformy Azure został [zainstalowany](/cli/azure/install-azure-cli) lokalnie, Otwórz aplikację konsoli poleceń, taką jak Windows PowerShell.
 
 2. Sprawdź, czy wersja interfejsu wiersza polecenia platformy Azure z zainstalowanym systemem jest `2.6.0` lub nowsza przy użyciu następującego polecenia.
 
    ```azurecli
     az --version
    ```
-   Jeśli wersja interfejsu wiersza polecenia platformy Azure jest niższa niż `2.6.0` , zainstaluj nowszą wersję. Zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+   Jeśli wersja interfejsu wiersza polecenia platformy Azure jest niższa niż `2.6.0` , zainstaluj nowszą wersję. Zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 ## <a name="connect-to-the-account"></a>Połącz z kontem
 
@@ -53,7 +53,7 @@ W tym artykule pokazano, jak za pomocą [interfejsu wiersza polecenia platformy 
 
    W przeciwnym razie Otwórz stronę przeglądarki pod adresem [https://aka.ms/devicelogin](https://aka.ms/devicelogin) i wprowadź kod autoryzacji wyświetlany w terminalu. Następnie zaloguj się przy użyciu poświadczeń konta w przeglądarce.
 
-   Aby dowiedzieć się więcej na temat różnych metod uwierzytelniania, zobacz [Autoryzuj dostęp do danych obiektu BLOB lub kolejki za pomocą interfejsu wiersza polecenia platformy Azure](../common/authorize-data-operations-cli.md).
+   Aby dowiedzieć się więcej na temat różnych metod uwierzytelniania, zobacz [Autoryzuj dostęp do danych obiektu BLOB lub kolejki za pomocą interfejsu wiersza polecenia platformy Azure](./authorize-data-operations-cli.md).
 
 2. Jeśli Twoja tożsamość jest skojarzona z więcej niż jedną subskrypcją, ustaw aktywną subskrypcję na konto magazynu, które będzie hostować statyczną witrynę sieci Web.
 
@@ -64,7 +64,7 @@ W tym artykule pokazano, jak za pomocą [interfejsu wiersza polecenia platformy 
    Zastąp `<subscription-id>` wartość symbolu zastępczego identyfikatorem subskrypcji.
 
 > [!NOTE]
-> W przykładzie przedstawionym w tym artykule przedstawiono autoryzację Azure Active Directory (AD). Aby dowiedzieć się więcej o metodach autoryzacji, zobacz [Autoryzuj dostęp do danych obiektu BLOB lub kolejki za pomocą interfejsu wiersza polecenia platformy Azure](../common/authorize-data-operations-cli.md).
+> W przykładzie przedstawionym w tym artykule przedstawiono autoryzację Azure Active Directory (AD). Aby dowiedzieć się więcej o metodach autoryzacji, zobacz [Autoryzuj dostęp do danych obiektu BLOB lub kolejki za pomocą interfejsu wiersza polecenia platformy Azure](./authorize-data-operations-cli.md).
 
 ## <a name="create-a-container"></a>Tworzenie kontenera
 
@@ -221,7 +221,7 @@ az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --accou
 Uprawnienia dostępu do katalogów i plików można uzyskiwać, ustawiać i aktualizować.
 
 > [!NOTE]
-> Jeśli używasz Azure Active Directory (Azure AD) do autoryzacji poleceń, upewnij się, że podmiot zabezpieczeń ma przypisaną [rolę właściciela danych obiektu blob magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Aby dowiedzieć się więcej na temat sposobu stosowania uprawnień ACL i skutków ich zmiany, zobacz  [Kontrola dostępu w Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+> Jeśli używasz Azure Active Directory (Azure AD) do autoryzacji poleceń, upewnij się, że podmiot zabezpieczeń ma przypisaną [rolę właściciela danych obiektu blob magazynu](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). Aby dowiedzieć się więcej na temat sposobu stosowania uprawnień ACL i skutków ich zmiany, zobacz  [Kontrola dostępu w Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
 
 ### <a name="get-an-acl"></a>Pobieranie listy ACL
 
@@ -319,5 +319,3 @@ Można dodawać, aktualizować i usuwać listy ACL cyklicznie na istniejących e
 * [Samples](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
 * [Prześlij opinię](https://github.com/Azure/azure-cli-extensions/issues)
 * [Znane problemy](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-
-

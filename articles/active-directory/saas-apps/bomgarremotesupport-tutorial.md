@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 11/12/2020
 ms.author: jeedes
-ms.openlocfilehash: f5839b5df4cdaf4abf863587b5f84f87aa63b5a0
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: c11d8aaa578006c7dbd96b457399df5b17fd9bd8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456929"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95914984"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-beyondtrust-remote-support"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą BeyondTrust Remote support
 
@@ -25,8 +25,6 @@ W tym samouczku dowiesz się, jak zintegrować zdalną obsługę BeyondTrust z u
 * Kontrolka w usłudze Azure AD, która ma dostęp do zdalnej pomocy technicznej BeyondTrust.
 * Zezwól użytkownikom na automatyczne logowanie do BeyondTrust zdalnej pomocy technicznej przy użyciu kont usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
-
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -46,7 +44,7 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 
 Aby skonfigurować integrację zdalnej obsługi BeyondTrust z usługą Azure AD, musisz dodać zdalną obsługę BeyondTrust z galerii do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
 1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
@@ -57,7 +55,7 @@ Aby skonfigurować integrację zdalnej obsługi BeyondTrust z usługą Azure AD,
 
 Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą zdalnej obsługi BeyondTrust przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w usłudze BeyondTrust Remote support.
 
-Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą zdalnej obsługi BeyondTrust, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą zdalnej obsługi BeyondTrust, wykonaj następujące czynności:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
     * **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
@@ -70,7 +68,7 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **BeyondTrust Remote support** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. W Azure Portal na stronie integracja aplikacji **BeyondTrust Remote support** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
@@ -95,12 +93,11 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     | Nazwa |  Atrybut źródłowy|
     | ---------------| ----------|
-    | GivenName | user.givenname |
-    | EmailAddress | user.mail |
-    | Nazwa | user.userprincipalname |
     | Nazwa użytkownika | user.userprincipalname |
+    | FirstName (Imię) | user.givenname |
+    | LastName (Nazwisko) | user.surname |
+    | E-mail | user.mail |
     | Grupy | User. Groups |
-    | Unikatowy identyfikator użytkownika | user.userprincipalname |
 
     > [!NOTE]
     > W przypadku przypisywania grup usługi Azure AD dla aplikacji BeyondTrust Remote support należy zmodyfikować opcję "grupy zwrócone w" z brakiem na grupę zabezpieczeń. Grupy zostaną zaimportowane do aplikacji jako ich identyfikatory obiektów. Identyfikator obiektu grupy usługi Azure AD można znaleźć, sprawdzając właściwości w interfejsie Azure Active Directory. Będzie to wymagane do odwoływania się do grup usługi Azure AD i przypisywania ich do odpowiednich zasad grupy.
@@ -138,63 +135,62 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Na liście Aplikacje wybierz pozycję **BeyondTrust Remote Support (obsługa zdalna**).
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
-
-   ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
-
 1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
-
-    ![Link Dodaj użytkownika](common/add-assign-user.png)
-
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
 ## <a name="configure-beyondtrust-remote-support-sso"></a>Konfigurowanie zdalnej obsługi logowania jednokrotnego BeyondTrust
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się, aby uzyskać pomoc zdalną BeyondTrust jako administrator.
 
-1. Kliknij menu **stan** i skopiuj **Identyfikator**, **adres URL odpowiedzi** i **adres URL logowania** , a następnie użyj tych wartości w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
+1. Przejdź do obszarze **Użytkownicy &**  >  **dostawcy zabezpieczeń** zabezpieczeń.
 
-    ![Zrzut ekranu przedstawia menu stan w BeyondTrust zdalnej pomocy technicznej, gdzie można zebrać te informacje.](./media/bomgarremotesupport-tutorial/config-url-values.png)
+1. Kliknij ikonę **Edytuj** w obszarze **dostawcy protokołu SAML**.
 
-1. Przejdź do interfejsu BeyondTrust zdalnej pomocy technicznej w miejscu, `https://support.example.com/login` gdzie **support.example.com** jest podstawową nazwą hosta urządzenia i Uwierzytelnij się przy użyciu poświadczeń administracyjnych.
+    ![Ikona edycji dostawców SAML](./media/bomgarremotesupport-tutorial/saml-providers.png)
 
-1. Przejdź do obszarze **Użytkownicy &**  >  **dostawcy zabezpieczeń**zabezpieczeń.
+1. Rozwiń sekcję **Ustawienia dostawcy usług** .
 
-1. Z menu rozwijanego wybierz pozycję **SAML** i kliknij przycisk **Utwórz dostawcę** .
+1. Kliknij pozycję **Pobierz metadane dostawcy usług** lub skopiuj wartości **Identyfikator jednostki** i **adres URL ACS** i Użyj tych wartości w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
 
-1. W sekcji Ustawienia dostawcy tożsamości istnieje możliwość przekazania metadanych dostawcy tożsamości. Znajdź plik XML metadanych pobrany z Azure Portal i kliknij przycisk **Przekaż** . **Identyfikator jednostki**, **adres URL i certyfikat usługi Single Sign-On** zostaną automatycznie przekazane, a **powiązanie protokołu** należy zmienić na **post protokołu HTTP**. Zobacz zrzut ekranu poniżej:
+    ![Pobierz metadane dostawcy usług](./media/bomgarremotesupport-tutorial/service-provider-metadata.png)
 
-    ![Zrzut ekranu przedstawia sekcję ustawień dostawcy tożsamości, w której są wykonywane te akcje.](./media/bomgarremotesupport-tutorial/config-uploadfile.png)
+
+1. W sekcji Ustawienia dostawcy tożsamości kliknij pozycję **Przekaż metadane dostawcy tożsamości** i Znajdź plik XML metadanych pobrany z Azure Portal.
+
+1.  **Identyfikator jednostki**, **adres url usługi Single Sign-On** i **certyfikat serwera** zostaną automatycznie przekazane, a **powiązanie protokołu adresu URL logowania jednokrotnego** należy zmienić na **post protokołu HTTP**.
+
+    ![Zrzut ekranu przedstawia sekcję ustawień dostawcy tożsamości, w której są wykonywane te akcje.](./media/bomgarremotesupport-tutorial/identity-provider.png)
+
+1. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-beyondtrust-remote-support-test-user"></a>Utwórz użytkownika testowego wsparcia zdalnego BeyondTrust
 
 Skonfigurujemy tutaj ustawienia udostępniania użytkownika. Wartości użytych w tej sekcji są przywoływane w sekcji **atrybuty użytkownika & oświadczenia** w Azure Portal. Ta wartość została skonfigurowana tak, aby była wartością domyślną, która została już zaimportowana w momencie tworzenia, ale w razie potrzeby można dostosować ją.
 
-![Zrzut ekranu przedstawia ustawienia inicjowania obsługi użytkowników, w których można skonfigurować wartości użytkownika.](./media/bomgarremotesupport-tutorial/config-user1.png)
+![Zrzut ekranu przedstawia ustawienia inicjowania obsługi użytkowników, w których można skonfigurować wartości użytkownika.](./media/bomgarremotesupport-tutorial/user-attribute.png)
 
 > [!NOTE]
 > Te grupy i atrybuty poczty e-mail nie są niezbędne dla tej implementacji. W przypadku używania grup usługi Azure AD i przypisywania ich do zasad grupy obsługi zdalnej BeyondTrust dla uprawnień, identyfikator obiektu grupy musi być przywoływany za pośrednictwem jego właściwości w Azure Portal i umieszczony w sekcji "dostępne grupy". Po zakończeniu tej operacji identyfikator obiektu/Grupa usługi AD będzie teraz dostępna do przypisywania do zasad grupy w celu uzyskania uprawnień.
 
 ![Zrzut ekranu przedstawia sekcję I T z członkostwem typu, źródło, typ i obiekt I D.](./media/bomgarremotesupport-tutorial/config-user2.png)
 
-![Zrzut ekranu przedstawia stronę Ustawienia podstawowe dla zasad grupy.](./media/bomgarremotesupport-tutorial/config-user3.png)
+![Zrzut ekranu przedstawia stronę Ustawienia podstawowe dla zasad grupy.](./media/bomgarremotesupport-tutorial/group-policy.png)
 
 > [!NOTE]
 > Alternatywnie można ustawić domyślne zasady grupy dla dostawcy zabezpieczeń SAML2. Zdefiniowanie tej opcji spowoduje przypisanie wszystkich użytkowników, którzy uwierzytelniają się za pomocą protokołu SAML w ramach zasad grupy. Ogólne zasady składowe są zawarte w BeyondTrust zdalnej pomocy technicznej/uprzywilejowanego dostępu zdalnego z ograniczonymi uprawnieniami, które mogą służyć do testowania uwierzytelniania i przypisywania użytkowników do odpowiednich zasad. Użytkownicy nie będą zapełniać listy użytkowników SAML2 za pomocą parametru/login > użytkowników & zabezpieczenia do momentu pierwszego pomyślnego uwierzytelnienia. Dodatkowe informacje na temat zasad grupy można znaleźć w następującym łączu: `https://www.beyondtrust.com/docs/remote-support/getting-started/admin/group-policies.htm`
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji. 
 
-Po kliknięciu kafelka obsługa zdalna BeyondTrust w panelu dostępu należy automatycznie zalogować się do zdalnej pomocy technicznej usługi BeyondTrust, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do adresu URL logowania do obsługi zdalnej BeyondTrust, w którym można zainicjować przepływ logowania. 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+* Przejdź do adresu URL logowania zdalnej pomocy technicznej BeyondTrust bezpośrednio i zainicjuj tam przepływ logowania.
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka obsługa zdalna BeyondTrust w obszarze Moje aplikacje zostanie ono przekierowany do adresu URL logowania do zdalnej obsługi BeyondTrust. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Następne kroki
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
-
-- [Wypróbuj zdalną obsługę usługi BeyondTrust w usłudze Azure AD](https://aad.portal.azure.com/)
+Po skonfigurowaniu obsługi zdalnej BeyondTrust można wymusić kontrolki sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolki sesji rozciągają się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)

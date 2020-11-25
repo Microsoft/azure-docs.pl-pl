@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: e008bad2043d8cd633f0849aefc62c4ed7a7e89d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0efcdfd1b14479edf84dc1892e7e1d9afabd5a81
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86104881"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913559"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Najlepsze rozwiązania dotyczące korzystania z Azure Data Lake Storage Gen2
 
@@ -21,7 +21,7 @@ Ten artykuł zawiera informacje o najlepszych rozwiązaniach i kwestiach związa
 
 ## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
 
-Azure Data Lake Storage Gen2 oferuje funkcje kontroli dostępu w systemie POSIX dla użytkowników, grup Azure Active Directory (Azure AD) i jednostek usługi. Te kontrolki dostępu można ustawić na istniejące pliki i katalogi. Kontroli dostępu można także użyć do tworzenia uprawnień domyślnych, które mogą być automatycznie stosowane do nowych plików lub katalogów. Więcej szczegółów na temat list ACL Data Lake Storage Gen2 są dostępne w [programie w programie Azure Data Lake Storage Gen2](storage-data-lake-storage-access-control.md).
+Azure Data Lake Storage Gen2 oferuje funkcje kontroli dostępu w systemie POSIX dla użytkowników, grup Azure Active Directory (Azure AD) i jednostek usługi. Te kontrolki dostępu można ustawić na istniejące pliki i katalogi. Kontroli dostępu można także użyć do tworzenia uprawnień domyślnych, które mogą być automatycznie stosowane do nowych plików lub katalogów. Więcej szczegółów na temat list ACL Data Lake Storage Gen2 są dostępne w [programie w programie Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
 
 ### <a name="use-security-groups-versus-individual-users"></a>Korzystanie z grup zabezpieczeń i poszczególnych użytkowników
 
@@ -31,7 +31,7 @@ Gdy grupa zabezpieczeń ma przypisane uprawnienia, Dodawanie lub usuwanie użytk
 
 ### <a name="security-for-groups"></a>Zabezpieczenia dla grup
 
-Gdy użytkownik lub użytkownicy będą musieli uzyskać dostęp do danych na koncie magazynu z włączoną hierarchiczną przestrzenią nazw, najlepiej jest używać Azure Active Directory grup zabezpieczeń. Niektóre zalecane grupy do rozpoczęcia z programu to **ReadOnlyUsers**, **WriteAccessUsers**i **FullAccessUsers** dla katalogu głównego kontenera, a nawet oddzielne dla podkatalogów kluczy. Jeśli istnieją inne przewidywane grupy użytkowników, które mogą zostać później dodane, ale nie zostały jeszcze zidentyfikowane, warto rozważyć utworzenie fikcyjnych grup zabezpieczeń, które mają dostęp do niektórych folderów. Dzięki użyciu grupy zabezpieczeń można uniknąć długiego czasu przetwarzania podczas przypisywania nowych uprawnień do tysięcy plików.
+Gdy użytkownik lub użytkownicy będą musieli uzyskać dostęp do danych na koncie magazynu z włączoną hierarchiczną przestrzenią nazw, najlepiej jest używać Azure Active Directory grup zabezpieczeń. Niektóre zalecane grupy do rozpoczęcia z programu to **ReadOnlyUsers**, **WriteAccessUsers** i **FullAccessUsers** dla katalogu głównego kontenera, a nawet oddzielne dla podkatalogów kluczy. Jeśli istnieją inne przewidywane grupy użytkowników, które mogą zostać później dodane, ale nie zostały jeszcze zidentyfikowane, warto rozważyć utworzenie fikcyjnych grup zabezpieczeń, które mają dostęp do niektórych folderów. Dzięki użyciu grupy zabezpieczeń można uniknąć długiego czasu przetwarzania podczas przypisywania nowych uprawnień do tysięcy plików.
 
 ### <a name="security-for-service-principals"></a>Zabezpieczenia dla podmiotów usługi
 
@@ -41,7 +41,7 @@ Nazwy główne usług Azure Active Directory są zwykle używane przez usługi, 
 
 Data Lake Storage Gen2 obsługuje opcję włączania zapory i ograniczania dostępu tylko do usług platformy Azure, co jest zalecane do ograniczenia wektora ataków zewnętrznych. Zaporę można włączyć na koncie magazynu w Azure Portal za pomocą **zapory**  >  **Włącz zaporę (włączona)**  >  **Zezwalaj na dostęp do opcji usług platformy Azure** .
 
-Aby uzyskać dostęp do konta magazynu z Azure Databricks, wdróż Azure Databricks w sieci wirtualnej, a następnie Dodaj tę sieć wirtualną do zapory. Zobacz [Konfigurowanie zapór usługi Azure Storage i sieci wirtualnych](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Aby uzyskać dostęp do konta magazynu z Azure Databricks, wdróż Azure Databricks w sieci wirtualnej, a następnie Dodaj tę sieć wirtualną do zapory. Zobacz [Konfigurowanie zapór usługi Azure Storage i sieci wirtualnych](../common/storage-network-security.md).
 
 ## <a name="resiliency-considerations"></a>Zagadnienia związane z odpornością
 

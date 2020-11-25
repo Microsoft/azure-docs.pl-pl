@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
-ms.reviewer: jrasnick,
-ms.openlocfilehash: 979e360bb920fc3b34a201b1287b50b141bffa9b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.reviewer: jrasnick
+ms.openlocfilehash: e6708874fee3e15349b4389f1ecafa3d48a628dd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313628"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95917197"
 ---
 # <a name="tutorial-run-experiments-using-azure-automated-ml-and-apache-spark"></a>Samouczek: uruchamianie eksperymentów przy użyciu zautomatyzowanej platformy Azure i Apache Spark
 
@@ -28,7 +28,7 @@ W tym samouczku przedstawiono następujące zadania:
 - Uczenie zautomatyzowanego modelu regresji uczenia maszynowego
 - Oblicz dokładność modelu
 
-### <a name="before-you-begin"></a>Przed rozpoczęciem
+### <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 - Utwórz bezserwerową pulę Apache Spark, wykonując czynności opisane w obszarze [Utwórz bezserwerową pulę Apache Spark szybki start](../quickstart-create-apache-spark-pool-studio.md).
 - Ukończ [samouczek konfiguracji obszaru roboczego Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/tutorial-1st-experiment-sdk-setup) , jeśli nie masz istniejącego obszaru roboczego Azure Machine Learning. 
@@ -50,51 +50,52 @@ W tym przykładzie użyjesz platformy Spark do przeprowadzenia analizy danych TI
 
 1. Utwórz Notes przy użyciu jądra PySpark. Aby uzyskać instrukcje, zobacz [Tworzenie notesu](https://docs.microsoft.com/azure/synapse-analytics/quickstart-apache-spark-notebook#create-a-notebook.)
    
-   > [!Note]
-   > 
-   > Ze względu na jądro PySpark nie trzeba jawnie tworzyć kontekstów. Kontekst platformy Spark jest tworzony automatycznie po uruchomieniu pierwszej komórki kodu.
-   >
+> [!Note]
+> 
+> Ze względu na jądro PySpark nie trzeba jawnie tworzyć kontekstów. Kontekst platformy Spark jest tworzony automatycznie po uruchomieniu pierwszej komórki kodu.
+>
 
 2. Ponieważ dane pierwotne są w formacie Parquet, można użyć kontekstu Spark, aby ściągnąć plik do pamięci jako element danych bezpośrednio. Utwórz ramkę danych Spark, pobierając dane za pośrednictwem interfejsu API Open DataSets. W tym miejscu będziemy używać schematu Spark Dataframe *dla właściwości odczytu* w celu wywnioskowania typów danych i schematu. 
    
-   ```python
-   blob_account_name = "azureopendatastorage"
-   blob_container_name = "nyctlc"
-   blob_relative_path = "yellow"
-   blob_sas_token = r""
+```python
+blob_account_name = "azureopendatastorage"
+blob_container_name = "nyctlc"
+blob_relative_path = "yellow"
+blob_sas_token = r""
 
-   # Allow Spark to read from Blob remotely
-   wasbs_path = 'wasbs://%s@%s.blob.core.windows.net/%s' % (blob_container_name, blob_account_name, blob_relative_path)
-   spark.conf.set('fs.azure.sas.%s.%s.blob.core.windows.net' % (blob_container_name, blob_account_name),blob_sas_token)
+# Allow Spark to read from Blob remotely
+wasbs_path = 'wasbs://%s@%s.blob.core.windows.net/%s' % (blob_container_name, blob_account_name, blob_relative_path)
+spark.conf.set('fs.azure.sas.%s.%s.blob.core.windows.net' % (blob_container_name, blob_account_name),blob_sas_token)
 
-   # Spark read parquet, note that it won't load any data yet by now
-   df = spark.read.parquet(wasbs_path)
-   ```
+# Spark read parquet, note that it won't load any data yet by now
+df = spark.read.parquet(wasbs_path)
+
+```
 
 3. W zależności od rozmiaru puli Spark (wersja zapoznawcza) dane pierwotne mogą być zbyt duże lub zbyt dużo czasu na wykonanie operacji. Te dane można filtrować do mniejszej liczby przy użyciu ```start_date``` ```end_date``` filtrów i. Powoduje to zastosowanie filtru, który zwraca miesiąc danych. Po przefiltrowaniu ramki danych zostanie również uruchomiona ```describe()``` Funkcja w nowej ramce Dataframe, aby wyświetlić statystyki podsumowania dla każdego pola. 
 
    Na podstawie statystyk podsumowania możemy zobaczyć, że w danych znajdują się pewne nieprawidłowości i wartości. Na przykład statystyka pokazuje, że minimalna odległość podróży jest mniejsza niż 0. Będziemy musieli odfiltrować te nieregularne punkty danych.
    
-   ```python
-   # Create an ingestion filter
-   start_date = '2015-01-01 00:00:00'
-   end_date = '2015-12-31 00:00:00'
+```python
+# Create an ingestion filter
+start_date = '2015-01-01 00:00:00'
+end_date = '2015-12-31 00:00:00'
 
-   filtered_df = df.filter('tpepPickupDateTime > "' + start_date + '" and tpepPickupDateTime < "' + end_date + '"')
+filtered_df = df.filter('tpepPickupDateTime > "' + start_date + '" and tpepPickupDateTime < "' + end_date + '"')
 
-   filtered_df.describe().show()
-   ```
+filtered_df.describe().show()
+```
 
 4. Teraz będziemy generować funkcje z zestawu danych, wybierając zestaw kolumn i tworząc różne funkcje oparte na czasie w polu Data/godzina pobrania. Przefiltruje również elementy odstające, które zostały zidentyfikowane w poprzednim kroku, a następnie usuniemy kilka ostatnich kolumn, które nie są potrzebne do uczenia się.
    
-   ```python
-   from datetime import datetime
-   from pyspark.sql.functions import *
+```python
+from datetime import datetime
+from pyspark.sql.functions import *
 
-   # To make development easier, faster and less expensive down sample for now
-   sampled_taxi_df = filtered_df.sample(True, 0.001, seed=1234)
+# To make development easier, faster and less expensive down sample for now
+sampled_taxi_df = filtered_df.sample(True, 0.001, seed=1234)
 
-   taxi_df = sampled_taxi_df.select('vendorID', 'passengerCount', 'tripDistance',  'startLon', 'startLat', 'endLon' \
+taxi_df = sampled_taxi_df.select('vendorID', 'passengerCount', 'tripDistance',  'startLon', 'startLat', 'endLon' \
                                 , 'endLat', 'paymentType', 'fareAmount', 'tipAmount'\
                                 , column('puMonth').alias('month_num') \
                                 , date_format('tpepPickupDateTime', 'hh').alias('hour_of_day')\
@@ -108,12 +109,13 @@ W tym przykładzie użyjesz platformy Spark do przeprowadzenia analizy danych TI
                                 & (sampled_taxi_df.tripDistance > 0) & (sampled_taxi_df.tripDistance <= 200)\
                                 & (sampled_taxi_df.rateCodeId <= 5)\
                                 & (sampled_taxi_df.paymentType.isin({"1", "2"})))
-   taxi_df.show(10)
-   ```
+taxi_df.show(10)
+```
    
-Jak widać, spowoduje to utworzenie nowej ramki danych z dodatkowymi kolumnami na dzień miesiąca, godzinę pobrania, dzień tygodnia i łączny czas podróży. 
+   Jak widać, spowoduje to utworzenie nowej ramki danych z dodatkowymi kolumnami na dzień miesiąca, godzinę pobrania, dzień tygodnia i łączny czas podróży. 
 
-![Ilustracja ramki danych o taksówkach.](./media/apache-spark-machine-learning-aml-notebook/aml-dataset.png)
+
+![Ilustracja ramki danych o taksówkach.](./media/azure-machine-learning-spark-notebook/dataset.png#lightbox)
 
 ## <a name="generate-test-and-validation-datasets"></a>Generowanie zestawów danych testowych i walidacji
 
@@ -124,7 +126,6 @@ Po naszym ostatnim zestawie danych możemy podzielić dane na zestawy szkoleniow
 training_data, validation_data = taxi_df.randomSplit([0.8,0.2], 223)
 
 ```
-
 Ten krok zapewnia, że punkty danych przetestują gotowy model, który nie był używany do uczenia modelu. 
 
 ## <a name="connect-to-an-azure-machine-learning-workspace"></a>Nawiązywanie połączenia z Obszar roboczy usługi Azure Machine Learning
@@ -165,43 +166,41 @@ datastore.upload_files(files = ['training_pd.csv'],
                        show_progress = True)
 dataset_training = Dataset.Tabular.from_delimited_files(path = [(datastore, 'train-dataset/tabular/training_pd.csv')])
 ```
-
-![Obraz przekazanego zestawu danych.](./media/apache-spark-machine-learning-aml-notebook/upload-dataset.png)
+![Obraz przekazanego zestawu danych.](./media/azure-machine-learning-spark-notebook/upload-dataset.png)
 
 ## <a name="submit-an-automl-experiment"></a>Przesyłanie eksperymentu AutoML
 
 #### <a name="define-training-settings"></a>Definiowanie ustawień szkoleniowych
-
 1. Aby przesłać eksperyment, konieczne będzie zdefiniowanie parametrów eksperymentu i ustawień modelu na potrzeby szkolenia. Pełną listę ustawień można wyświetlić w [tym miejscu](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train).
 
-   ```python
-   import logging
+```python
+import logging
 
-   automl_settings = {
-       "iteration_timeout_minutes": 10,
-       "experiment_timeout_minutes": 30,
-       "enable_early_stopping": True,
-       "primary_metric": 'r2_score',
-       "featurization": 'auto',
-       "verbosity": logging.INFO,
-       "n_cross_validations": 2}
-   ```
+automl_settings = {
+    "iteration_timeout_minutes": 10,
+    "experiment_timeout_minutes": 30,
+    "enable_early_stopping": True,
+    "primary_metric": 'r2_score',
+    "featurization": 'auto',
+    "verbosity": logging.INFO,
+    "n_cross_validations": 2}
+```
 
-2. Teraz będziemy przekazywać zdefiniowane ustawienia szkoleniowe jako \* \* parametr kwargs do obiektu AutoMLConfig. Ze względu na to, że firma Microsoft prowadzi szkolenia w usłudze Spark, musimy również przekazać kontekst Spark, który jest automatycznie dostępny dla ```sc``` zmiennej. Dodatkowo określimy dane szkoleniowe i typ modelu, który jest regresją w tym przypadku.
+2. Teraz przejdziemy zdefiniowane ustawienia szkoleniowe jako parametr * * kwargs do obiektu AutoMLConfig. Ze względu na to, że firma Microsoft prowadzi szkolenia w usłudze Spark, musimy również przekazać kontekst Spark, który jest automatycznie dostępny dla ```sc``` zmiennej. Dodatkowo określimy dane szkoleniowe i typ modelu, który jest regresją w tym przypadku.
 
-   ```python
-   from azureml.train.automl import AutoMLConfig
+```python
+from azureml.train.automl import AutoMLConfig
 
-   automl_config = AutoMLConfig(task='regression',
+automl_config = AutoMLConfig(task='regression',
                              debug_log='automated_ml_errors.log',
                              training_data = dataset_training,
                              spark_context = sc,
                              model_explainability = False, 
                              label_column_name ="fareAmount",**automl_settings)
-   ```
+```
 
 > [!NOTE]
-> Zautomatyzowane kroki wstępnego przetwarzania w usłudze Machine Learning (normalizacja funkcji, obsługa brakujących danych, konwertowanie tekstu na liczbowe itp.) staje się częścią modelu źródłowego. Przy użyciu modelu dla prognoz te same kroki przetwarzania wstępnego zastosowane podczas uczenia są automatycznie stosowane do danych wejściowych.
+>Zautomatyzowane kroki wstępnego przetwarzania w usłudze Machine Learning (normalizacja funkcji, obsługa brakujących danych, konwertowanie tekstu na liczbowe itp.) staje się częścią modelu źródłowego. Przy użyciu modelu dla prognoz te same kroki przetwarzania wstępnego zastosowane podczas uczenia są automatycznie stosowane do danych wejściowych.
 
 #### <a name="train-the-automatic-regression-model"></a>Trenowanie automatycznego modelu regresji 
 Teraz utworzymy obiekt eksperymentu w obszarze roboczym Azure Machine Learning. Eksperyment działa jako kontener dla poszczególnych uruchomień. 
@@ -217,10 +216,9 @@ local_run = experiment.submit(automl_config, show_output=True, tags = tags)
 # Use the get_details function to retrieve the detailed output for the run.
 run_details = local_run.get_details()
 ```
-
 Po zakończeniu eksperymentu dane wyjściowe będą zwracać szczegółowe informacje o zakończonych iteracjach. W każdej iteracji widać typ modelu, czas trwania i dokładność treningu. Pole najlepiej śledzi najlepszy wynik szkolenia w oparciu o typ metryki.
 
-![Zrzut ekranu przedstawiający dane wyjściowe modelu.](./media/apache-spark-machine-learning-aml-notebook/aml-model-output.png)
+![Zrzut ekranu przedstawiający dane wyjściowe modelu.](./media/azure-machine-learning-spark-notebook/model-output.png)
 
 > [!NOTE]
 > Po przesłaniu eksperymentu AutoML uruchomi różne iteracje i typy modeli. Ten przebieg zazwyczaj trwa 1 – 1,5 godzin. 
@@ -234,94 +232,92 @@ best_run, fitted_model = local_run.get_output()
 ```
 
 #### <a name="test-model-accuracy"></a>Dokładność modelu testu
-
 1. Aby przetestować dokładność modelu, będziemy używać najlepszego modelu do uruchamiania prognoz opłat za taksówkę na zestawie danych testowych. ```predict```Funkcja używa najlepszego modelu i przewiduje wartości y (opłata za opłaty) z zestawu danych walidacji. 
 
-   ```python
-   # Test best model accuracy
-   validation_data_pd = validation_data.toPandas()
-   y_test = validation_data_pd.pop("fareAmount").to_frame()
-   y_predict = fitted_model.predict(validation_data_pd)
-   ```
+```python
+# Test best model accuracy
+validation_data_pd = validation_data.toPandas()
+y_test = validation_data_pd.pop("fareAmount").to_frame()
+y_predict = fitted_model.predict(validation_data_pd)
+```
 
 2. Błąd elementu głównego-średnika (RMSE) to często używany pomiar różnic między przykładowymi wartościami przewidzianymi przez model i zaobserwowane wartości. Obliczamy wartość średniego kwadratowego błędu w wyniku, porównując y_test Dataframe z wartościami przewidywanymi przez model. 
 
    Funkcja ```mean_squared_error``` przyjmuje dwie tablice i oblicza średniy kwadratowy błąd między nimi. Następnie przyjmmy pierwiastek kwadratowy wyniku. Ta Metryka wskazuje na to, jak daleko opłaty za przejazd z oddziałami są z rzeczywistych wartości opłat.
 
-   ```python
-   from sklearn.metrics import mean_squared_error
-   from math import sqrt
+```python
+from sklearn.metrics import mean_squared_error
+from math import sqrt
 
-   # Calculate Root Mean Square Error
-   y_actual = y_test.values.flatten().tolist()
-   rmse = sqrt(mean_squared_error(y_actual, y_predict))
+# Calculate Root Mean Square Error
+y_actual = y_test.values.flatten().tolist()
+rmse = sqrt(mean_squared_error(y_actual, y_predict))
 
-   print("Root Mean Square Error:")
-   print(rmse)
-   ```
+print("Root Mean Square Error:")
+print(rmse)
+```
 
-   ```Output
-   Root Mean Square Error:
-   2.309997102577151
-   ```
-   
-   Główny-średniy błąd jest dobrym pomiarem, jak dokładnie model przewiduje odpowiedź. Na podstawie wyników zobaczysz, że model jest dość dobry przy przewidywaniu opłat za taksówkę z funkcji zestawu danych, zazwyczaj w zakresie od + do $2,00
+```Output
+Root Mean Square Error:
+2.309997102577151
+```
+Główny-średniy błąd jest dobrym pomiarem, jak dokładnie model przewiduje odpowiedź. Na podstawie wyników zobaczysz, że model jest dość dobry przy przewidywaniu opłat za taksówkę z funkcji zestawu danych, zazwyczaj w zakresie od + do $2,00
 
 3. Uruchom następujący kod, aby obliczyć średni procent bezwzględnego błędu (MAPE). Ta Metryka wyraża dokładność jako wartość procentową błędu. Robi to poprzez Obliczanie różnicy bezwzględnej między każdą przewidywaną i rzeczywistą wartością, a następnie sumowanie wszystkich różnic. Następnie wyrażenie to sumuje jako procent sumy wartości rzeczywistych.
 
-   ```python
-   # Calculate MAPE and Model Accuracy 
-   sum_actuals = sum_errors = 0
+```python
+# Calculate MAPE and Model Accuracy 
+sum_actuals = sum_errors = 0
 
-   for actual_val, predict_val in zip(y_actual, y_predict):
-       abs_error = actual_val - predict_val
-       if abs_error < 0:
-           abs_error = abs_error * -1
+for actual_val, predict_val in zip(y_actual, y_predict):
+    abs_error = actual_val - predict_val
+    if abs_error < 0:
+        abs_error = abs_error * -1
 
-       sum_errors = sum_errors + abs_error
-       sum_actuals = sum_actuals + actual_val
+    sum_errors = sum_errors + abs_error
+    sum_actuals = sum_actuals + actual_val
 
-   mean_abs_percent_error = sum_errors / sum_actuals
+mean_abs_percent_error = sum_errors / sum_actuals
 
-   print("Model MAPE:")
-   print(mean_abs_percent_error)
-   print()
-   print("Model Accuracy:")
-   print(1 - mean_abs_percent_error)
-   ```
+print("Model MAPE:")
+print(mean_abs_percent_error)
+print()
+print("Model Accuracy:")
+print(1 - mean_abs_percent_error)
+```
 
-   ```Output
-   Model MAPE:
-   0.03655071038487368
+```Output
+Model MAPE:
+0.03655071038487368
 
-   Model Accuracy:
-   0.9634492896151263
-   ```
-   Na podstawie dwóch metryk dokładności przewidywania zobaczysz, że model jest dość dobry przy przewidywaniu opłat za taksówkę z funkcji zestawu danych. 
+Model Accuracy:
+0.9634492896151263
+```
+Na podstawie dwóch metryk dokładności przewidywania zobaczysz, że model jest dość dobry przy przewidywaniu opłat za taksówkę z funkcji zestawu danych. 
 
 4. Po dopasowaniu modelu regresji liniowej będziemy teraz musieli określić, jak dobrze model dopasowuje dane. W tym celu będziemy wykreślać rzeczywiste wartości opłat w odniesieniu do przewidywanych danych wyjściowych. Ponadto zostanie również obliczona miara R-kwadratowa, aby zrozumieć, jak zamknąć dane, do dopasowanej linii regresji.
 
-   ```python
-   import matplotlib.pyplot as plt
-   import numpy as np
-   from sklearn.metrics import mean_squared_error, r2_score
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.metrics import mean_squared_error, r2_score
 
-   # Calculate the R2 score using the predicted and actual fare prices
-   y_test_actual = y_test["fareAmount"]
-   r2 = r2_score(y_test_actual, y_predict)
+# Calculate the R2 score using the predicted and actual fare prices
+y_test_actual = y_test["fareAmount"]
+r2 = r2_score(y_test_actual, y_predict)
 
-   # Plot the Actual vs Predicted Fare Amount Values
-   plt.style.use('ggplot')
-   plt.figure(figsize=(10, 7))
-   plt.scatter(y_test_actual,y_predict)
-   plt.plot([np.min(y_test_actual), np.max(y_test_actual)], [np.min(y_test_actual), np.max(y_test_actual)], color='lightblue')
-   plt.xlabel("Actual Fare Amount")
-   plt.ylabel("Predicted Fare Amount")
-   plt.title("Actual vs Predicted Fare Amont R^2={}".format(r2))
-   plt.show()
-   ```
-   
-   ![Zrzut ekranu przedstawiający wykres regresji.](./media/apache-spark-machine-learning-aml-notebook/aml-fare-amount.png)
+# Plot the Actual vs Predicted Fare Amount Values
+plt.style.use('ggplot')
+plt.figure(figsize=(10, 7))
+plt.scatter(y_test_actual,y_predict)
+plt.plot([np.min(y_test_actual), np.max(y_test_actual)], [np.min(y_test_actual), np.max(y_test_actual)], color='lightblue')
+plt.xlabel("Actual Fare Amount")
+plt.ylabel("Predicted Fare Amount")
+plt.title("Actual vs Predicted Fare Amont R^2={}".format(r2))
+plt.show()
+
+```
+![Zrzut ekranu przedstawiający wykres regresji.](./media/azure-machine-learning-spark-notebook/fare-amount.png)
 
    Wyniki można zobaczyć, że miary R-kwadratowe są rozliczeń na 95% z naszej wariancji. Jest to również sprawdzane przez rzeczywiste zaobserwowane wiersze. Im większa WARIANCJA, która jest uwzględniana przez model regresji, tym bliżej punktów danych nastąpi zastosowana linia regresji.  
 
@@ -334,15 +330,13 @@ model_path='outputs/model.pkl'
 model = best_run.register_model(model_name = 'NYCGreenTaxiModel', model_path = model_path, description = description)
 print(model.name, model.version)
 ```
-
 ```Output
 NYCGreenTaxiModel 1
 ```
-
 ## <a name="view-results-in-azure-machine-learning"></a>Wyświetl wyniki w Azure Machine Learning
 Na koniec można także uzyskać dostęp do wyników iteracji, przechodząc do eksperymentu w Obszar roboczy usługi Azure Machine Learning. W tym miejscu będzie można Dig dodatkowe szczegóły dotyczące stanu przebiegu, próby modeli i inne metryki modelu. 
 
-![Zrzut ekranu przedstawiający obszar roboczy AML.](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-aml-workspace.png)
+![Zrzut ekranu przedstawiający obszar roboczy AML.](./media/azure-machine-learning-spark-notebook/azure-machine-learning-workspace.png)
 
 ## <a name="next-steps"></a>Następne kroki
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)

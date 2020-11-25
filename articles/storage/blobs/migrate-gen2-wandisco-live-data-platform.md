@@ -9,12 +9,12 @@ ms.date: 11/06/2020
 ms.service: storage
 ms.custom: references_regions
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 9da6ea7abf57ffecc900a6dbef065a8c6b123e61
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: db95f22a17c3776d84f12249693fb23b3d2d94e6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94810999"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95914443"
 ---
 # <a name="meet-demanding-migration-requirements-with-wandisco-livedata-platform-for-azure-preview"></a>Zapoznaj się z wymaganymi wymaganiami dotyczącymi migracji przy użyciu platformy WANdisco LiveData dla platformy Azure
 
@@ -30,7 +30,7 @@ Platforma składa się z dwóch usług: [LiveData Migrator for Azure](https://ww
 
 Tymi usługami można zarządzać przy użyciu Azure Portal i interfejsu wiersza polecenia platformy Azure, a oba te modele są zgodne z modelem rozliczeń płatności zgodnie z rzeczywistym użyciem, co w przypadku wszystkich innych usług platformy Azure. Platforma LiveData dla korzystania z platformy Azure zostanie wyświetlona na tym samym miesięcznym rachunku na korzystanie z platformy Azure i będzie zapewnić spójny i wygodny sposób śledzenia i monitorowania użycia.
 
-W przeciwieństwie do migracji danych w _trybie offline_ przez [Kopiowanie informacji statycznych do Azure Data Box](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster)lub przy użyciu narzędzi Hadoop, takich jak [pomocą distcp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html), można zachować pełną eksploatację systemów firmy podczas migracji w _trybie online_ z WANdisco LiveData dla platformy Azure. Przechowuj swoje środowiska danych Big Data nawet podczas przenoszenia ich na platformę Azure.
+W przeciwieństwie do migracji danych w _trybie offline_ przez [Kopiowanie informacji statycznych do Azure Data Box](./data-lake-storage-migrate-on-premises-hdfs-cluster.md)lub przy użyciu narzędzi Hadoop, takich jak [pomocą distcp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html), można zachować pełną eksploatację systemów firmy podczas migracji w _trybie online_ z WANdisco LiveData dla platformy Azure. Przechowuj swoje środowiska danych Big Data nawet podczas przenoszenia ich na platformę Azure.
 
 ## <a name="key-features-of-wandisco-livedata-platform-for-azure"></a>Najważniejsze funkcje platformy WANdisco LiveData dla platformy Azure
 
@@ -99,7 +99,7 @@ Płaszczyzna LiveData na platformie Azure zapewnia spójność danych bez nakła
 
 - Wypróbuj Migrator LiveData bez konieczności posiadania lokalnego klastra Hadoop przy użyciu [piaskownicy](https://docs.wandisco.com/live-data-platform/docs/create-sandbox-intro/)systemu plików HDFS.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [LiveData Migrator for Azure w witrynie Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.ldm?tab=Overview)
 

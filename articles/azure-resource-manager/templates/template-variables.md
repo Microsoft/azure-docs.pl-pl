@@ -2,19 +2,21 @@
 title: Zmienne w szablonach
 description: Opisuje sposób definiowania zmiennych w szablonie Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/05/2019
-ms.openlocfilehash: cf135959d30702ea58b7a1d4fdd82625a39245d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: 7758451747503cb8c42566dc081a91f84bafa375
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75483819"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95916007"
 ---
 # <a name="variables-in-azure-resource-manager-template"></a>Zmienne w szablonie usługi Azure Resource Manager
 
 W tym artykule opisano sposób definiowania i używania zmiennych w szablonie Azure Resource Manager. Do uproszczenia szablonu używane są zmienne. Zamiast powtarzać skomplikowane wyrażenia w całym szablonie, należy zdefiniować zmienną, która zawiera wyrażenie złożone. Następnie należy odwołać się do tej zmiennej w zależności od potrzeb w szablonie.
 
 Menedżer zasobów rozpoznaje zmienne przed rozpoczęciem operacji wdrażania. Wszędzie tam, gdzie w szablonie jest używana zmienna, usługa Resource Manager zastępuje ją rozpoznaną wartością.
+
+Format każdej zmiennej musi być zgodny z jednym z [typów danych](template-syntax.md#data-types).
 
 ## <a name="define-variable"></a>Zdefiniuj zmienną
 
@@ -85,7 +87,7 @@ Aby pobrać ustawienia dla określonego środowiska, użyj razem zmiennej i para
 
 W poniższych przykładach pokazano scenariusze dotyczące używania zmiennych.
 
-|Szablon  |Opis  |
+|Template  |Opis  |
 |---------|---------|
 | [Definicje zmiennych](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Pokazuje różne typy zmiennych. Szablon nie wdraża żadnych zasobów. Konstruuje wartości zmiennych i zwraca te wartości. |
 | [Zmienna konfiguracyjna](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Demonstruje użycie zmiennej, która definiuje wartości konfiguracyjne. Szablon nie wdraża żadnych zasobów. Konstruuje wartości zmiennych i zwraca te wartości. |

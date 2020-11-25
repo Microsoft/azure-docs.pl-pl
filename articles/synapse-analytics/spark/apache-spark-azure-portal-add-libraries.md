@@ -6,20 +6,23 @@ author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.author: euang
+ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 6f777b605c5050b7fa4b3b9e3671f3638ad67372
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 8d478b35b702e02f303358972526c091ceb3657e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016262"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95917129"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Zarządzanie bibliotekami Apache Spark w usłudze Azure Synapse Analytics
 
 Biblioteki zapewniają kod wielokrotnego użytku, który może być dołączany do programów lub projektów. Aby udostępnić innym firmom lub lokalnie skompilowany kod dla aplikacji, możesz zainstalować bibliotekę na jednym z pul Apache Spark bezserwerowych (wersja zapoznawcza). Po zainstalowaniu biblioteki dla puli platformy Spark będzie ona dostępna dla wszystkich sesji korzystających z tej samej puli. 
 
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
+- Aby zainstalować i zaktualizować biblioteki, musisz mieć uprawnienia **współautora danych obiektów blob magazynu** lub **dane obiektu blob magazynu** na podstawowym koncie magazynu Gen2, które jest połączone z obszarem roboczym usługi Azure Synapse Analytics.
+  
 ## <a name="default-installation"></a>Instalacja domyślna
 Apache Spark w usłudze Azure Synapse Analytics ma kompletną instalację Anacondas plus dodatkowe biblioteki. Listę pełnych bibliotek można znaleźć w obszarze [Obsługa wersji Apache Spark](apache-spark-version-support.md). 
 
@@ -35,6 +38,7 @@ Po zidentyfikowaniu bibliotek, które mają być używane dla aplikacji platform
 > - Jeśli instalowany pakiet jest duży lub zajmuje dużo czasu, ma to wpływ na czas uruchamiania wystąpienia platformy Spark.
 > - Pakiety, które wymagają obsługi kompilatora w czasie instalacji, takie jak w przypadku programu, nie są obsługiwane.
 > - Pakiety nie mogą być obniżane, tylko dodawane lub uaktualniane.
+> - Aby zainstalować biblioteki, musisz mieć uprawnienia współautora danych obiektów blob lub magazyn danych obiektów blob magazynu na podstawowym koncie magazynu Gen2 połączonym z obszarem roboczym Synapse.
 
 ### <a name="requirements-format"></a>Format wymagań
 

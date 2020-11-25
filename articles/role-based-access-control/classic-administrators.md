@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/22/2020
+ms.date: 11/24/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d61d49fdd90f1f916141ca636e2c2a4dbe0b9bcd
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 935c0bf76e298ab1e2e4d25fab8685ac4ce617db
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657747"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95916169"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Klasyczni administratorzy subskrypcji platformy Azure
 
@@ -99,25 +99,25 @@ Aby uzyskać informacje, które porównują użytkowników i użytkowników-Goś
 
 Tylko administrator konta może zmienić administratora usługi dla subskrypcji. Domyślnie podczas rejestrowania się w celu uzyskania subskrypcji platformy Azure administrator usługi jest taki sam jak administrator konta. Użytkownik z rolą administratora konta nie ma dostępu do Azure Portal. Użytkownik z rolą administratora usługi ma pełny dostęp do Azure Portal. Jeśli administrator konta i administrator usługi są tego samego użytkownika, a administrator usługi zostanie zmieniony na innego użytkownika, administrator konta utraci dostęp do Azure Portal. Jednak administrator konta zawsze może użyć centrum kont, aby zmienić administratora usługi z powrotem na siebie.
 
-Wykonaj następujące kroki, aby zmienić administratora usługi w **centrum konta**.
-
-### <a name="account-center"></a>Centrum konta
+Wykonaj następujące kroki, aby zmienić administratora usługi w Azure Portal.
 
 1. Upewnij się, że scenariusz jest obsługiwany, sprawdzając [ograniczenia dotyczące zmiany administratora usługi](#limitations-for-changing-the-service-administrator).
 
-1. Zaloguj się do [centrum konta](https://account.windowsazure.com/subscriptions) jako administrator konta.
+1. Zaloguj się w [witrynie Azure Portal](https://portal.azure.com) jako administrator konta.
 
-1. Kliknij subskrypcję.
+1. Otwórz blok [Subskrypcje](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) i wybierz subskrypcję.
 
-1. Po prawej stronie kliknij pozycję **Edytuj szczegóły subskrypcji**.
+1. W lewym okienku nawigacji kliknij pozycję **Właściwości**.
 
-    ![Zrzut ekranu przedstawiający przycisk Edytuj subskrypcję w centrum konta](./media/classic-administrators/editsub.png)
+1. Kliknij pozycję **administrator usługi**.
 
-1. W polu **administrator usługi** wprowadź adres E-mail nowego administratora usługi.
+    ![Zrzut ekranu przedstawiający właściwości subskrypcji w Azure Portal](./media/classic-administrators/service-admin.png)
 
-    ![Zrzut ekranu przedstawiający pole umożliwiające zmianę adresu e-mail administratora usługi](./media/classic-administrators/change-service-admin.png)
+1. Na stronie **Edytuj administratora usługi** wprowadź adres E-mail nowego administratora usługi.
 
-1. Kliknij znacznik wyboru, aby zapisać zmiany.
+    ![Zrzut ekranu przedstawiający stronę Edytowanie administratora usługi](./media/classic-administrators/service-admin-edit.png)
+
+1. Aby zapisać wprowadzone zmiany, kliknij przycisk **OK** .
 
 ### <a name="limitations-for-changing-the-service-administrator"></a>Ograniczenia dotyczące zmiany administratora usługi
 
@@ -142,7 +142,7 @@ Wykonaj następujące kroki, aby wyświetlić administratora konta.
 
 1. Otwórz blok [Subskrypcje](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) i wybierz subskrypcję.
 
-1. Kliknij pozycję **Właściwości**.
+1. W lewym okienku nawigacji kliknij pozycję **Właściwości**.
 
     Administrator konta w subskrypcji zostanie wyświetlony w polu **administrator konta** .
 
