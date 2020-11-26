@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 576b9c11f167f7c0d5fcb06e484347c643589a66
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: abdfbc92af3617a7a13a2e4f603de9c1cc3959af
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839067"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174334"
 ---
 # <a name="integrate-your-existing-network-policy-server-nps-infrastructure-with-azure-ad-multi-factor-authentication"></a>Integrowanie istniejącej infrastruktury serwera zasad sieciowych (NPS) z usługą Azure AD Multi-Factor Authentication
 
@@ -72,7 +72,7 @@ Rozszerzenie serwera NPS jest przeznaczone do pracy z istniejącą infrastruktur
 
 ### <a name="licenses"></a>Licencje
 
-Rozszerzenie serwera NPS dla usługi Azure AD Multi-Factor Authentication jest dostępne dla klientów z [licencjami na usługę Azure ad Multi-Factor Authentication](multi-factor-authentication.md). Licencje oparte na użyciu usługi Azure AD Multi-Factor Authentication, na przykład na użytkownika lub licencje uwierzytelniania, nie są zgodne z rozszerzeniem serwera NPS.
+Rozszerzenie serwera NPS dla usługi Azure AD Multi-Factor Authentication jest dostępne dla klientów z [licencjami na usługę Azure ad Multi-Factor Authentication](./concept-mfa-howitworks.md). Licencje oparte na użyciu usługi Azure AD Multi-Factor Authentication, na przykład na użytkownika lub licencje uwierzytelniania, nie są zgodne z rozszerzeniem serwera NPS.
 
 ### <a name="software"></a>Oprogramowanie
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: b6eb571c7c37a628d11f07b4e1b207e38830250b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5b593add9c9d7be446798eecdd03b396c3fe513a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88235404"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174734"
 ---
 # <a name="what-is-automated-saas-app-user-provisioning-in-azure-ad"></a>Co to jest zautomatyzowana obsługa użytkowników aplikacji SaaS w usłudze Azure AD?
 
@@ -59,7 +59,7 @@ Funkcje usługi Azure AD są wstępnie zintegrowane z obsługą wielu popularnyc
 
    ![Logo usługi Salesforce](./media/user-provisioning/gallery-app-logos.png)
 
-   Jeśli chcesz zażądać nowej aplikacji do aprowizacji, możesz [poprosić o integrację aplikacji z naszą galerią aplikacji](../azuread-dev/howto-app-gallery-listing.md). W przypadku żądania aprowizacji użytkowników wymagamy, aby aplikacja miała punkt końcowy zgodny z standard scim. Zażądaj, aby Dostawca aplikacji był zgodny ze standardem Standard scim, dzięki czemu możemy szybko dodać aplikację do naszej platformy.
+   Jeśli chcesz zażądać nowej aplikacji do aprowizacji, możesz [poprosić o integrację aplikacji z naszą galerią aplikacji](../develop/v2-howto-app-gallery-listing.md). W przypadku żądania aprowizacji użytkowników wymagamy, aby aplikacja miała punkt końcowy zgodny z standard scim. Zażądaj, aby Dostawca aplikacji był zgodny ze standardem Standard scim, dzięki czemu możemy szybko dodać aplikację do naszej platformy.
 
 * **Aplikacje obsługujące standard scim 2,0**. Aby uzyskać informacje na temat ogólnych połączeń aplikacji, które implementują interfejsy API zarządzania użytkownikami opartymi na systemie Standard scim 2,0, zobacz [Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników](use-scim-to-provision-users-and-groups.md).
 
@@ -79,7 +79,7 @@ Aplikacje w galerii usługi Azure AD obsługują jeden z dwóch trybów aprowiza
 
 * **Automatyczne** oznacza, że dla tej aplikacji opracowano łącznik aprowizacji usługi Azure AD. Należy postępować zgodnie z samouczkiem Instalatora specyficznym dla konfigurowania aprowizacji aplikacji. Samouczki aplikacji można znaleźć na [liście samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](../saas-apps/tutorial-list.md).
 
-W galerii usługi Azure AD aplikacje obsługujące automatyczną obsługę administracyjną są oznaczone ikoną **aprowizacji** . Przejdź do nowego środowiska w wersji zapoznawczej galerii, aby wyświetlić te ikony (na transparencie w górnej części **strony Dodawanie aplikacji**wybierz link, który wskazuje na **kliknięcie tutaj, aby wypróbować nową i udoskonaloną galerię aplikacji**).
+W galerii usługi Azure AD aplikacje obsługujące automatyczną obsługę administracyjną są oznaczone ikoną **aprowizacji** . Przejdź do nowego środowiska w wersji zapoznawczej galerii, aby wyświetlić te ikony (na transparencie w górnej części **strony Dodawanie aplikacji** wybierz link, który wskazuje na **kliknięcie tutaj, aby wypróbować nową i udoskonaloną galerię aplikacji**).
 
 ![Ikona aprowizacji w galerii aplikacji](./media/user-provisioning/browse-gallery.png)
 

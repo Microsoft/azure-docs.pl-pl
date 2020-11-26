@@ -13,12 +13,12 @@ ms.date: 10/09/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 77cb3b0c13a6bfe41c6f7a1a5a0f9d7278aea1db
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: b82e300128a41f8315132e1ff93af33c853edb15
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930156"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173519"
 ---
 # <a name="microsoft-identity-web-authentication-library"></a>Biblioteka uwierzytelniania w sieci Web firmy Microsoft
 
@@ -58,14 +58,14 @@ dotnet new --install Microsoft.Identity.Web.ProjectTemplates::1.0.0
 
 Na poniższym diagramie przedstawiono ogólny widok obsługiwanych typów aplikacji oraz ich odpowiednie argumenty:
 
-:::image type="content" source="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" lightbox="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" alt-text="Diagram dostępnych szablonów projektów interfejsu wiersza polecenia platformy .NET dla usługi Microsoft Identity Web&quot;:::
+:::image type="content" source="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" lightbox="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" alt-text="Diagram dostępnych szablonów projektów interfejsu wiersza polecenia platformy .NET dla usługi Microsoft Identity Web":::
 <br /><sup><b>*</b></sup>`MultiOrg`program nie jest obsługiwany w programie `webapi2` , ale można go włączyć w *appsettings.jsna* podstawie ustawienia dzierżawcy na `common` lub`organizations`
 <br /><sup><b>**</b></sup>`--calls-graph`nie jest obsługiwane w przypadku Azure AD B2C
 
 To przykładowe polecenie interfejsu wiersza polecenia platformy .NET, które zostało wykonane z naszego [samouczka dotyczącego serwera Blazor](tutorial-blazor-server.md), generuje nowy projekt serwera Blazor, który zawiera odpowiednie pakiety i początkowy kod (pokazane wartości zastępcze):
 
 ```dotnetcli
-dotnet new blazorserver2 --auth SingleOrg --calls-graph --client-id &quot;00000000-0000-0000-0000-000000000000&quot; --tenant-id &quot;11111111-1111-1111-1111-111111111111" --output my-blazor-app
+dotnet new blazorserver2 --auth SingleOrg --calls-graph --client-id "00000000-0000-0000-0000-000000000000" --tenant-id "11111111-1111-1111-1111-111111111111" --output my-blazor-app
 ```
 
 #### <a name="github"></a>GitHub
@@ -78,11 +78,11 @@ Microsoft Identity Web to projekt Open Source hostowany w witrynie GitHub: <a hr
 
 Program Microsoft Identity Web zawiera kilka funkcji, które nie są dostępne w przypadku używania domyślnych szablonów projektów ASP.NET 3,1.
 
-| Cecha                                                                                  | ASP.NET Core 3,1                                                     | Microsoft Identity Web                                                                                  |
+| Cechy                                                                                  | ASP.NET Core 3,1                                                     | Microsoft Identity Web                                                                                  |
 |------------------------------------------------------------------------------------------|----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 | [Logowanie użytkowników](scenario-web-app-sign-user-app-configuration.md) w usłudze Web Apps             | <li>Konta służbowe<li>Tożsamości społecznościowe (z Azure AD B2Cem) | <li>Konta służbowe<li>Osobiste konta Microsoft<li>Tożsamości społecznościowe (z Azure AD B2Cem)     |
 | [Ochrona internetowych interfejsów API](scenario-protected-web-api-app-configuration.md#microsoftidentityweb) | <li>Konta służbowe<li>Tożsamości społecznościowe (z Azure AD B2Cem) | <li>Konta służbowe<li>Osobiste konta Microsoft<li>Tożsamości społecznościowe (z Azure AD B2Cem)     |
-| Walidacja wystawcy w aplikacjach wielodostępnych                                                   | Nie                                                                   | Tak, dla [wszystkich chmur](authentication-national-cloud.md) i [Azure AD B2C](/azure/active-directory-b2c) |
+| Walidacja wystawcy w aplikacjach wielodostępnych                                                   | Nie                                                                   | Tak, dla [wszystkich chmur](authentication-national-cloud.md) i [Azure AD B2C](../../active-directory-b2c/index.yml) |
 | Aplikacja sieci Web/interfejs API [wywołania programu Microsoft Graph] [scenariusz-API-Call-Graph]                             | Nie                                                                   | Tak                                                                                                     |
 | Aplikacja sieci Web/interfejs API [wywołania interfejsu Web API] [scenariusz-API-Call-API]                                       | Nie                                                                   | Tak                                                                                                     |
 | Obsługuje poświadczenia certyfikatu                                                         | Nie                                                                   | Tak, w tym Azure Key Vault                                                                          |

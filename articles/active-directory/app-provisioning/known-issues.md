@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 11/19/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: 8a1c789759f1119a6170fffc2c70874cd9a32fde
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: e0a77e1e4757c8951756c3e41479628c293dfd8f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94919690"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174836"
 ---
 # <a name="known-issues-application-provisioning"></a>Znane problemy: Inicjowanie obsługi aplikacji
 Znane problemy, które należy wziąć pod uwagę podczas pracy z obsługą aplikacji. Aby przekazać opinię na temat usługi Application Provisioning w witrynie UserVoice, zobacz temat [udostępnianie aplikacji usługi Azure AD](https://aka.ms/appprovisioningfeaturerequest)w usłudze UserVoice. Uważnie obserwujemy usługę UserVoice, abyśmy mogli ulepszyć usługi. 
@@ -28,7 +28,7 @@ Znane problemy, które należy wziąć pod uwagę podczas pracy z obsługą apli
 
 **Nie można zapisać po pomyślnym teście połączenia**
 
-Jeśli można pomyślnie przetestować połączenie, ale nie można go zapisać, Przekroczono limit dozwolonych magazynów dla poświadczeń. Aby dowiedzieć się więcej, zobacz [problem z zapisywaniem poświadczeń administratora](application-provisioning-config-problem-storage-limit.md).
+Jeśli można pomyślnie przetestować połączenie, ale nie można go zapisać, Przekroczono limit dozwolonych magazynów dla poświadczeń. Aby dowiedzieć się więcej, zobacz [problem z zapisywaniem poświadczeń administratora](./user-provisioning.md).
 
 **Nie można zapisać**
 

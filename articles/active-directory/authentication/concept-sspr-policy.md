@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 695d47c839a9436f4fad9399f7995b3197e1c0eb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b1583307771dd58053128d71cb0ae5dd7e709f68
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964999"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174385"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Zasady haseł i ograniczenia kont w Azure Active Directory
 
@@ -180,4 +180,4 @@ Po zainstalowaniu modułu wykonaj następujące kroki, aby wykonać każde zadan
 
 Aby rozpocząć pracę z usługą SSPR, zobacz [Samouczek: umożliwienie użytkownikom odblokowania konta lub resetowania haseł przy użyciu Azure Active Directory samoobsługowego resetowania hasła](tutorial-enable-sspr.md).
 
-Jeśli masz problemy z SSPR, zobacz Rozwiązywanie problemów z funkcją samoobsługowego [resetowania hasła](active-directory-passwords-troubleshoot.md)
+Jeśli masz problemy z SSPR, zobacz Rozwiązywanie problemów z funkcją samoobsługowego [resetowania hasła](./troubleshoot-sspr.md)

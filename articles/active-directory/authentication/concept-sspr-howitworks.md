@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fa1c2627917bfe386c488470f6a78db4c51f2ec
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fae9872593b48355d4ad3711e8e5092481b16213
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994268"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174534"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Jak to działa: Samoobsługowe resetowania hasła usługi Azure AD
 
@@ -195,9 +195,9 @@ Usługa Azure AD sprawdza bieżącą łączność hybrydową i udostępnia jeden
 * Lokalny klient zapisywania zwrotnego jest uruchomiony.
 * Usługa Azure AD jest w trybie online i jest połączona z lokalnym klientem zapisywania zwrotnego. Jednak wygląda na to, że zainstalowana wersja Azure AD Connect jest nieaktualna. Rozważ [uaktualnienie Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) , aby mieć pewność, że dysponujesz najnowszymi funkcjami łączności i ważnymi poprawkami błędów.
 * Niestety, nie możemy sprawdzić stanu lokalnego klienta zapisywania zwrotnego, ponieważ zainstalowana wersja Azure AD Connect jest nieaktualna. [Uaktualnij Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) , aby sprawdzić stan połączenia.
-* Niestety, wygląda na to, że nie możemy teraz połączyć się z lokalnym klientem funkcji zapisywania zwrotnego. [Rozwiązywanie problemów z Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) , aby przywrócić połączenie.
+* Niestety, wygląda na to, że nie możemy teraz połączyć się z lokalnym klientem funkcji zapisywania zwrotnego. [Rozwiązywanie problemów z Azure AD Connect](./troubleshoot-sspr-writeback.md) , aby przywrócić połączenie.
 * Niestety, nie można nawiązać połączenia z lokalnym klientem zapisywania zwrotnego, ponieważ nie skonfigurowano poprawnie funkcji zapisywania zwrotnego haseł. [Skonfiguruj funkcję zapisywania zwrotnego haseł](./tutorial-enable-sspr-writeback.md) , aby przywrócić połączenie.
-* Niestety, wygląda na to, że nie możemy teraz połączyć się z lokalnym klientem funkcji zapisywania zwrotnego. Może to być spowodowane tymczasowymi problemami na naszym końcu. Jeśli problem będzie się powtarzał, [Rozwiązywanie problemów Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) , aby przywrócić połączenie.
+* Niestety, wygląda na to, że nie możemy teraz połączyć się z lokalnym klientem funkcji zapisywania zwrotnego. Może to być spowodowane tymczasowymi problemami na naszym końcu. Jeśli problem będzie się powtarzał, [Rozwiązywanie problemów Azure AD Connect](./troubleshoot-sspr-writeback.md) , aby przywrócić połączenie.
 
 Aby rozpocząć pracę z funkcją zapisywania zwrotnego SSPR, wykonaj następujące czynności:
 

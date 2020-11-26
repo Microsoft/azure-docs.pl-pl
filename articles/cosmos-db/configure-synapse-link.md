@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: a487d984fe4b8f5d6313e181863872c4ea150059
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 3355b502033451f58ac2289a81414e62823e459b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93334543"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175954"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Konfigurowanie i używanie linku Azure Synapse dla Azure Cosmos DB (wersja zapoznawcza)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -63,7 +63,7 @@ Możesz włączyć magazyn analityczny w kontenerze usługi Azure Cosmos podczas
 
 ### <a name="azure-portal"></a>Azure Portal
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/) lub w [Eksploratorze usługi Azure Cosmos](https://cosmos.azure.com/).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/) lub [Eksploratora Azure Cosmos DB](https://cosmos.azure.com/).
 
 1. Przejdź do konta Azure Cosmos DB i Otwórz kartę **Eksplorator danych** .
 
@@ -73,9 +73,9 @@ Możesz włączyć magazyn analityczny w kontenerze usługi Azure Cosmos podczas
 
 1. Jeśli na tym koncie nie włączono wcześniej linku Synapse, zostanie wyświetlony monit z pytaniem, że jest to wymaganie wstępne do utworzenia kontenera z włączonym magazynem analitycznym. Jeśli zostanie wyświetlony monit, wybierz pozycję **Włącz łącze Synapse**. Ten proces może potrwać od 1 do 5 minut.
 
-1. Wybierz pozycję **OK** , aby utworzyć magazyn analityczny z włączoną obsługą usługi Azure Cosmos.
+1. Wybierz pozycję **OK**, aby utworzyć magazyn analityczny z włączoną obsługą usługi Azure Cosmos.
 
-1. Po utworzeniu kontenera Sprawdź, czy magazyn analityczny został włączony, klikając pozycję **Ustawienia** , znajdującą się poniżej dokumenty w Eksplorator danych i sprawdź, czy opcja **czas trwania magazynu analitycznego** jest włączona.
+1. Po utworzeniu kontenera Sprawdź, czy magazyn analityczny został włączony, klikając pozycję **Ustawienia**, znajdującą się poniżej dokumenty w Eksplorator danych i sprawdź, czy opcja **czas trwania magazynu analitycznego** jest włączona.
 
 ### <a name="net-sdk"></a>Zestaw SDK .NET
 
@@ -171,7 +171,7 @@ Po włączeniu magazynu analitycznego z określoną wartością czasu wygaśnię
 
 Jeśli utworzono kontener z włączonym magazynem analitycznym za pomocą Azure Portal, zawiera on domyślny analityczny czas wygaśnięcia wynoszący-1. Aby zaktualizować tę wartość, wykonaj następujące kroki:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/) lub w [Eksploratorze usługi Azure Cosmos](https://cosmos.azure.com/).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/) lub [Eksploratora Azure Cosmos DB](https://cosmos.azure.com/).
 
 1. Przejdź do konta Azure Cosmos DB i Otwórz kartę **Eksplorator danych** .
 
@@ -180,7 +180,7 @@ Jeśli utworzono kontener z włączonym magazynem analitycznym za pomocą Azure 
   * Otwórz okno **Skalowanie i ustawienia**.
   * W obszarze **ustawienie** Znajdź, * * czas magazynu analitycznego na Live * *.
   * Wybierz pozycję **Włączony (brak wartości domyślnej)** lub wybierz pozycję **Włączony** i ustaw wartość TTL.
-  * Kliknij przycisk **Zapisz** , aby zapisać zmiany.
+  * Kliknij przycisk **Zapisz**, aby zapisać zmiany.
 
 #### <a name="net-sdk"></a>Zestaw SDK .NET
 
@@ -238,7 +238,7 @@ Aby dowiedzieć się więcej, zobacz następujące dokumenty:
 
 * [Link Synapse platformy Azure dla Azure Cosmos DB.](synapse-link.md)
 
-* [Azure Cosmos DB Omówienie magazynu analitycznego.](analytical-store-introduction.md)
+* [Omówienie magazynu analitycznego usługi Azure Cosmos DB.](analytical-store-introduction.md)
 
 * [Często zadawane pytania dotyczące Azure Cosmos DB.](synapse-link-frequently-asked-questions.md)
 

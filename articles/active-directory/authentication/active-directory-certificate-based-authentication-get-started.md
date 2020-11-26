@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 96f1e3983f3c093cdf643e7674221b04631eeabd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ddff11caba9d83e9ed21748fd50a3480d866d8a9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965628"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174568"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Wprowadzenie do uwierzytelniania opartego na certyfikacie w usłudze Azure Active Directory
 
@@ -31,7 +31,7 @@ Skonfigurowanie tej funkcji eliminuje konieczność wprowadzenia kombinacji nazw
 Ten temat:
 
 - Zawiera instrukcje dotyczące konfigurowania i używania uwierzytelniania opartego na certyfikatach dla użytkowników dzierżaw w planach Office 365 Enterprise, Business, Education i USA. Ta funkcja jest dostępna w wersji zapoznawczej w pakiecie Office 365 Chiny, obrony rządowe USA i plany federalne dla instytucji rządowych USA.
-- Przyjęto założenie, że masz już skonfigurowaną [infrastrukturę kluczy publicznych (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) i [AD FS](../hybrid/how-to-connect-fed-whatis.md) .
+- Przyjęto założenie, że masz już skonfigurowaną [infrastrukturę kluczy publicznych (PKI)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831740(v=ws.11)) i [AD FS](../hybrid/how-to-connect-fed-whatis.md) .
 
 ## <a name="requirements"></a>Wymagania
 
@@ -154,7 +154,7 @@ Aby zmodyfikować zaufany urząd certyfikacji, użyj polecenia cmdlet [Set-Azure
 
 ## <a name="step-3-configure-revocation"></a>Krok 3. Konfigurowanie odwołania
 
-Aby odwołać certyfikat klienta, program Azure Active Directory pobiera listę odwołania certyfikatów (CRL) z adresów URL przekazanych w ramach informacji o urzędzie certyfikacji i buforuje ją. Ostatnia sygnatura czasowa publikacji (Właściwość**Data wprowadzenia** ) w liście CRL jest używana, aby upewnić się, że lista CRL jest nadal ważna. Lista CRL jest okresowo przywoływana, aby odwołać dostęp do certyfikatów, które są częścią listy.
+Aby odwołać certyfikat klienta, program Azure Active Directory pobiera listę odwołania certyfikatów (CRL) z adresów URL przekazanych w ramach informacji o urzędzie certyfikacji i buforuje ją. Ostatnia sygnatura czasowa publikacji (Właściwość **Data wprowadzenia** ) w liście CRL jest używana, aby upewnić się, że lista CRL jest nadal ważna. Lista CRL jest okresowo przywoływana, aby odwołać dostęp do certyfikatów, które są częścią listy.
 
 Jeśli jest wymagane bardziej natychmiastowe odwołanie (na przykład jeśli użytkownik utraci urządzenie), token autoryzacji użytkownika może być unieważniony. Aby unieważnić Token autoryzacji, należy ustawić pole **StsRefreshTokenValidFrom** dla tego określonego użytkownika przy użyciu programu Windows PowerShell. Należy zaktualizować pole **StsRefreshTokenValidFrom** dla każdego użytkownika, dla którego ma zostać odwołany dostęp.
 

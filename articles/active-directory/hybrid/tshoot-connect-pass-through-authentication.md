@@ -16,12 +16,12 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 224ccaeace91288171db42d2b8b8cf8c21a352e0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 99da9b787bfe06bece8b8dafdafc257336dddf63
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94652522"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96176192"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Rozwiązywanie problemów z uwierzytelnianiem przekazywanym usługi Azure Active Directory
 
@@ -72,7 +72,7 @@ Aby upewnić się, że jest to problem, najpierw Przetestuj, że Agent uwierzyte
  ``` 
 4. Gdy zostanie wyświetlony monit o wprowadzenie poświadczeń, wprowadź tę samą nazwę użytkownika i hasło, które są używane do logowania się do programu ( https://login.microsoftonline.com) .
 
-Jeśli zostanie wyświetlony ten sam błąd nazwy użytkownika/hasła, oznacza to, że Agent uwierzytelniania przekazywanego działa prawidłowo, a problem może polegać na tym, że lokalna nazwa UPN nie jest w trakcie routingu. Aby dowiedzieć się więcej, zobacz [Konfigurowanie alternatywnego identyfikatora logowania]( /windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
+Jeśli zostanie wyświetlony ten sam błąd nazwy użytkownika/hasła, oznacza to, że Agent uwierzytelniania przekazywanego działa prawidłowo, a problem może polegać na tym, że lokalna nazwa UPN nie jest w trakcie routingu. Aby dowiedzieć się więcej, zobacz [Konfigurowanie alternatywnego identyfikatora logowania](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
 
 > [!IMPORTANT]
 > Jeśli serwer Azure AD Connect nie jest przyłączony do domeny, Azure AD Connect wymagane są [następujące](./how-to-connect-install-prerequisites.md#installation-prerequisites)problemy dotyczące nieprawidłowej nazwy użytkownika i hasła.

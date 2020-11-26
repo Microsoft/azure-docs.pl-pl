@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: 4ced7331daa116e237d9628d12d16a67687db5b9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 43731f84066943b991b566ff5936e4288aa669eb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968093"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175223"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Zagadnienia dotyczące projektowania sieci wirtualnej i opcje konfiguracji Azure Active Directory Domain Services
 
@@ -104,11 +104,11 @@ Domena zarządzana tworzy pewne zasoby sieciowe podczas wdrażania. Te zasoby s�
 
 ## <a name="network-security-groups-and-required-ports"></a>Sieciowe grupy zabezpieczeń i wymagane porty
 
-[Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń)](../virtual-network/security-overview.md) zawiera listę reguł, które zezwalają na ruch sieciowy w sieci wirtualnej platformy Azure lub odmawiają go. Grupa zabezpieczeń sieci jest tworzona podczas wdrażania domeny zarządzanej zawierającej zestaw reguł umożliwiających usłudze udostępnianie funkcji uwierzytelniania i zarządzania. Ta domyślna grupa zabezpieczeń sieci jest skojarzona z podsiecią sieci wirtualnej, w której wdrożono domenę zarządzaną.
+[Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń)](../virtual-network/network-security-groups-overview.md) zawiera listę reguł, które zezwalają na ruch sieciowy w sieci wirtualnej platformy Azure lub odmawiają go. Grupa zabezpieczeń sieci jest tworzona podczas wdrażania domeny zarządzanej zawierającej zestaw reguł umożliwiających usłudze udostępnianie funkcji uwierzytelniania i zarządzania. Ta domyślna grupa zabezpieczeń sieci jest skojarzona z podsiecią sieci wirtualnej, w której wdrożono domenę zarządzaną.
 
 Następujące reguły sieciowej grupy zabezpieczeń są wymagane dla domeny zarządzanej w celu zapewnienia usług uwierzytelniania i zarządzania. Nie Edytuj ani nie usuwaj tych reguł sieciowej grupy zabezpieczeń dla podsieci sieci wirtualnej, w której jest wdrożona domena zarządzana.
 
-| Numer portu | Protokół | Element źródłowy                             | Element docelowy | Akcja | Wymagane | Przeznaczenie |
+| Numer portu | Protokół | Element źródłowy                             | Element docelowy | Akcja | Wymagany | Przeznaczenie |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
 | 443         | TCP      | AzureActiveDirectoryDomainServices | Dowolne         | Zezwalaj  | Tak      | Synchronizacja z dzierżawą usługi Azure AD. |
 | 3389        | TCP      | CorpNetSaw                         | Dowolne         | Zezwalaj  | Tak      | Zarządzanie domeną. |
@@ -123,7 +123,7 @@ W razie potrzeby można [utworzyć wymaganą grupę zabezpieczeń sieci i reguł
 >
 > W przypadku korzystania z bezpiecznego protokołu LDAP można dodać wymaganą regułę portu 636 protokołu TCP, aby zezwolić na ruch zewnętrzny w razie potrzeby. Dodanie tej reguły nie powoduje umieszczenia w nieobsługiwanym stanie reguł sieciowej grupy zabezpieczeń. Aby uzyskać więcej informacji, zobacz [blokowanie bezpiecznego dostępu do protokołu LDAP za pośrednictwem Internetu](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet) .
 >
-> Dla sieciowej grupy zabezpieczeń istnieje również reguła domyślna dla *AllowVnetInBound*, *AllowAzureLoadBalancerInBound*, *DenyAllInBound*, *AllowVnetOutBound*, *AllowInternetOutBound*i *DenyAllOutBound* . Nie należy edytować ani usuwać tych domyślnych reguł.
+> Dla sieciowej grupy zabezpieczeń istnieje również reguła domyślna dla *AllowVnetInBound*, *AllowAzureLoadBalancerInBound*, *DenyAllInBound*, *AllowVnetOutBound*, *AllowInternetOutBound* i *DenyAllOutBound* . Nie należy edytować ani usuwać tych domyślnych reguł.
 >
 > Umowa SLA platformy Azure nie ma zastosowania do wdrożeń, w których zastosowano nieprawidłowo skonfigurowaną tabelę zabezpieczeń sieci i/lub zdefiniowane przez użytkownika tabele tras, które blokują platformę Azure AD DS aktualizowania i zarządzania domeną.
 
@@ -140,7 +140,7 @@ W razie potrzeby można [utworzyć wymaganą grupę zabezpieczeń sieci i reguł
 * Domyślna reguła grupy zabezpieczeń sieci używa znacznika usługi *CorpNetSaw* w celu dodatkowego ograniczenia ruchu.
     * Ten tag usługi zezwala na dostęp do domeny zarządzanej tylko komputerom lokalnym stacjom roboczym firmy Microsoft w sieci firmowej.
     * Dostęp jest dozwolony tylko w przypadku uzasadnienia biznesowego, na przykład w przypadku scenariuszy zarządzania lub rozwiązywania problemów.
-* Dla tej reguły można ustawić wartość *Odmów*i ustawić wartość *Zezwalaj* tylko wtedy, gdy jest to wymagane. Większość zadań związanych z zarządzaniem i monitorowaniem odbywa się przy użyciu komunikacji zdalnej programu PowerShell. Protokół RDP jest używany tylko w rzadkich przypadkach, gdy firma Microsoft musi połączyć się zdalnie z domeną zarządzaną w celu zaawansowania rozwiązywania problemów.
+* Dla tej reguły można ustawić wartość *Odmów* i ustawić wartość *Zezwalaj* tylko wtedy, gdy jest to wymagane. Większość zadań związanych z zarządzaniem i monitorowaniem odbywa się przy użyciu komunikacji zdalnej programu PowerShell. Protokół RDP jest używany tylko w rzadkich przypadkach, gdy firma Microsoft musi połączyć się zdalnie z domeną zarządzaną w celu zaawansowania rozwiązywania problemów.
 
 > [!NOTE]
 > Nie można ręcznie wybrać znacznika usługi *CorpNetSaw* w portalu, jeśli próbujesz edytować tę regułę sieciowej grupy zabezpieczeń. Musisz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, aby ręcznie skonfigurować regułę, która używa znacznika usługi *CorpNetSaw* .
@@ -154,7 +154,7 @@ W razie potrzeby można [utworzyć wymaganą grupę zabezpieczeń sieci i reguł
 * Służy do wykonywania zadań zarządzania przy użyciu komunikacji zdalnej programu PowerShell w domenie zarządzanej.
 * Bez dostępu do tego portu nie można zaktualizować, skonfigurować, utworzyć kopii zapasowej ani monitorować domeny zarządzanej.
 * W przypadku domen zarządzanych, które używają sieci wirtualnej opartej na Menedżer zasobów, można ograniczyć dostęp przychodzący do tego portu do znacznika usługi *AzureActiveDirectoryDomainServices* .
-    * W przypadku starszych domen zarządzanych korzystających z klasycznej sieci wirtualnej można ograniczyć dostęp przychodzący do tego portu do następujących źródłowych adresów IP: *52.180.183.8*, *23.101.0.70*, *52.225.184.198*, *52.179.126.223*, *13.74.249.156*, *52.187.117.83*, *52.161.13.95*, *104.40.156.18*i *104.40.87.209*.
+    * W przypadku starszych domen zarządzanych korzystających z klasycznej sieci wirtualnej można ograniczyć dostęp przychodzący do tego portu do następujących źródłowych adresów IP: *52.180.183.8*, *23.101.0.70*, *52.225.184.198*, *52.179.126.223*, *13.74.249.156*, *52.187.117.83*, *52.161.13.95*, *104.40.156.18* i *104.40.87.209*.
 
     > [!NOTE]
     > W 2017 Azure AD Domain Services stało się dostępne do hostowania w sieci Azure Resource Manager. Od tego czasu mogliśmy stworzyć bezpieczniejsze usługi przy użyciu nowoczesnych możliwości Azure Resource Manager. Ponieważ wdrożenia Azure Resource Manager w pełni zastępują wdrożenia klasyczne, wdrożenia usługi Azure AD DS klasycznej sieci wirtualnej zostaną wycofane 1 marca 2023.
@@ -176,4 +176,4 @@ Aby uzyskać więcej informacji na temat niektórych zasobów sieciowych i opcji
 
 * [Komunikacja równorzędna sieci wirtualnej platformy Azure](../virtual-network/virtual-network-peering-overview.md)
 * [Bramy sieci VPN platformy Azure](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md)
-* [Sieciowe grupy zabezpieczeń platformy Azure](../virtual-network/security-overview.md)
+* [Sieciowe grupy zabezpieczeń platformy Azure](../virtual-network/network-security-groups-overview.md)

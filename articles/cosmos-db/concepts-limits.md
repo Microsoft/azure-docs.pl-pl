@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: f1a7ffc8225ea20b48df4e1d9a049655ca4776a4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: de74d7e3cf854f36d122be6a32c7fb4d449c5fe5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964664"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175920"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Przydziały usługi Azure Cosmos DB
 
@@ -91,7 +91,6 @@ W zależności od bieżących zasobów i ustawień zainicjowanych przez program 
 
 | Zasób | Limit |
 | --- | --- |
-| Maksymalna wartość RU/s na kontener | 5000 |
 | Maksymalna liczba jednostek RU na sekundę (logiczne) | 5000 |
 | Maksymalny rozmiar magazynu na partycję wszystkie elementy na (logiczne) | 20 GB |
 | Maksymalna liczba różnych (logicznych) kluczy partycji | Nieograniczona liczba |

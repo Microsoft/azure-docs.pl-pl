@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 010e2a206ef08677651572c274cfc38fd516ecc9
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: e741bd6c87ea32b0d92b1dd53112a1bed3e4cd38
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041129"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174921"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planowanie wdrożenia automatycznego aprowizowania użytkowników
 
@@ -34,13 +34,13 @@ Inicjowanie obsługi użytkowników tworzy podstawę do ciągłego zarządzania 
 
 Najważniejsze zalety włączenia automatycznego aprowizacji użytkowników są następujące:
 
-* **Zwiększona produktywność** . Tożsamościami użytkowników można zarządzać w aplikacjach SaaS za pomocą jednego interfejsu zarządzania aprowizacji użytkownika. Ten interfejs ma jeden zestaw zasad aprowizacji.
+* **Zwiększona produktywność**. Tożsamościami użytkowników można zarządzać w aplikacjach SaaS za pomocą jednego interfejsu zarządzania aprowizacji użytkownika. Ten interfejs ma jeden zestaw zasad aprowizacji.
 
-* **Zarządzanie ryzykiem** . Aby zwiększyć bezpieczeństwo, można zautomatyzować zmiany w zależności od stanu pracownika lub członkostwa w grupach, które definiują role i/lub dostęp.
+* **Zarządzanie ryzykiem**. Aby zwiększyć bezpieczeństwo, można zautomatyzować zmiany w zależności od stanu pracownika lub członkostwa w grupach, które definiują role i/lub dostęp.
 
-* **Adresowanie zgodności i zarządzania** . Usługa Azure AD obsługuje natywne dzienniki inspekcji dla każdego żądania aprowizacji użytkownika. Żądania są wykonywane zarówno w systemie źródłowym, jak i docelowym. Dzięki temu można śledzić, kto ma dostęp do aplikacji z jednego ekranu.
+* **Adresowanie zgodności i zarządzania**. Usługa Azure AD obsługuje natywne dzienniki inspekcji dla każdego żądania aprowizacji użytkownika. Żądania są wykonywane zarówno w systemie źródłowym, jak i docelowym. Dzięki temu można śledzić, kto ma dostęp do aplikacji z jednego ekranu.
 
-* **Obniżyć koszty** . Automatyczne Inicjowanie obsługi użytkowników zmniejsza koszty, unikając nieefektywności i błędu ludzkiego związanego z obsługą ręczną. Zmniejsza to potrzebę niestandardowo rozwiniętych rozwiązań użytkowników, skryptów i dzienników inspekcji.
+* **Obniżyć koszty**. Automatyczne Inicjowanie obsługi użytkowników zmniejsza koszty, unikając nieefektywności i błędu ludzkiego związanego z obsługą ręczną. Zmniejsza to potrzebę niestandardowo rozwiniętych rozwiązań użytkowników, skryptów i dzienników inspekcji.
 
 ### <a name="licensing"></a>Licencjonowanie
 
@@ -157,7 +157,7 @@ Rzeczywiste kroki wymagane do włączenia i skonfigurowania automatycznej aprowi
 
 Jeśli nie, wykonaj następujące czynności:
 
-1. [Utwórz żądanie](../azuread-dev/howto-app-gallery-listing.md) dla wstępnie zintegrowanego łącznika aprowizacji użytkowników. Nasz zespół będzie współpracować z ty i deweloperem aplikacji, aby dołączyć swoją aplikację do naszej platformy, jeśli obsługuje standard scim.
+1. [Utwórz żądanie](../develop/v2-howto-app-gallery-listing.md) dla wstępnie zintegrowanego łącznika aprowizacji użytkowników. Nasz zespół będzie współpracować z ty i deweloperem aplikacji, aby dołączyć swoją aplikację do naszej platformy, jeśli obsługuje standard scim.
 
 1. Użyj [BYOA Standard scim](../app-provisioning/use-scim-to-provision-users-and-groups.md) ogólnej obsługi administracyjnej użytkowników dla aplikacji. Jest to wymaganie, aby usługa Azure AD mogła udostępnić użytkownikom aplikację bez wstępnie zintegrowanego łącznika aprowizacji.
 
@@ -300,11 +300,11 @@ Skorzystaj z poniższych linków, aby rozwiązać wszelkie problemy, które mog�
 
 * [Synchronizowanie atrybutu z Active Directory lokalnego z usługą Azure AD w celu aprowizacji aplikacji](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md)
 
-* [Wystąpił problem podczas zapisywania poświadczeń administratora podczas konfigurowania aprowizacji użytkowników w aplikacji Galerii Azure Active Directory](../app-provisioning/application-provisioning-config-problem-storage-limit.md)
+* [Wystąpił problem podczas zapisywania poświadczeń administratora podczas konfigurowania aprowizacji użytkowników w aplikacji Galerii Azure Active Directory](./user-provisioning.md)
 
 * [Nie zainicjowano obsługi użytkowników w aplikacji z galerii usługi Azure AD](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md)
 
-* [W aplikacji z galerii usługi Azure AD jest inicjowany niewłaściwy zestaw użytkowników](../app-provisioning/application-provisioning-config-problem-wrong-users-provisioned.md)
+* [W aplikacji z galerii usługi Azure AD jest inicjowany niewłaściwy zestaw użytkowników](../manage-apps/add-application-portal-assign-users.md)
 
 ### <a name="helpful-documentation"></a>Przydatna dokumentacja
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0143da9c1961b4123467120210135f7db2c582c8
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b4c06e53d3ddfb5f344a759e31d83cb22ce6d4d3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839577"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174140"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planowanie wdrożenia uwierzytelniania bezhaseł w Azure Active Directory
 
@@ -78,7 +78,7 @@ Przed rozpoczęciem wdrażania bezhaseł organizacje muszą spełniać następuj
 
 Wymagania wstępne dotyczące usługi Windows Hello są wysoce zależne od tego, czy są wdrażane w konfiguracji lokalnej, hybrydowej czy w chmurze. Aby uzyskać więcej informacji, zobacz [pełną listę wymagań wstępnych dotyczących usługi Windows Hello dla firm](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
-### <a name="azure-ad-multi-factor-authentication"></a>Multi-Factor Authentication usługi Azure AD
+### <a name="azure-ad-multi-factor-authentication"></a>Uwierzytelnianie wieloskładnikowe w usłudze Azure AD
 
 Użytkownicy rejestrują metodę bezhaseł w ramach przepływu rejestracji Multi-Factor Authentication usługi Azure AD. Uwierzytelnianie wieloskładnikowe przy użyciu nazwy użytkownika i hasła wraz z inną zarejestrowanej metody może być używane jako rezerwa w przypadku, gdy nie mogą korzystać z swojego telefonu ani klucza zabezpieczeń w niektórych scenariuszach.
 
@@ -98,7 +98,7 @@ W poniższej tabeli przedstawiono przypadki użycia do wdrożenia w ramach tego 
 | **Dostęp** | Logowanie bez hasła jest dostępne z urządzenia firmowego lub osobistego w sieci firmowej lub poza nią. |
 | **Inspekcja** | Dane użycia są dostępne dla administratorów w celu przeprowadzania inspekcji niemal w czasie rzeczywistym. <br> Dane użycia są pobierane do systemów firmowych co najmniej co 29 dni lub używane jest narzędzie SIEM. |
 | **Nadzór** | Cykl życia przypisań użytkowników do odpowiedniej metody uwierzytelniania i skojarzonych grup jest zdefiniowany i monitorowany. |
-| **Zabezpieczenia** | Dostęp do odpowiedniej metody uwierzytelniania jest kontrolowany za pośrednictwem przypisań użytkowników i grup. <br> Tylko autoryzowani użytkownicy mogą korzystać z logowania bezhasłem. |
+| **Bezpieczeństwo** | Dostęp do odpowiedniej metody uwierzytelniania jest kontrolowany za pośrednictwem przypisań użytkowników i grup. <br> Tylko autoryzowani użytkownicy mogą korzystać z logowania bezhasłem. |
 | **Wydajność** | Osie czasu propagacji przydziału dostępu są udokumentowane i monitorowane. <br> Czasy logowania są mierzone w celu ułatwienia użycia. |
 | **Środowisko użytkownika** | Użytkownicy są świadomi zgodności urządzeń przenośnych. <br> Użytkownicy mogą konfigurować logowanie za pomocą hasła aplikacji uwierzytelniania. |
 | **Pomoc techniczna** | Użytkownicy wiedzą, jak znaleźć pomoc techniczną dla problemów związanych z logowaniem. |
@@ -126,7 +126,7 @@ W przypadku wdrażania uwierzytelniania bezhaseł należy najpierw włączyć co
 
 Grupy można synchronizować z katalogu lokalnego lub z usługi Azure AD. Gdy będziesz zadowolony z wyników pilotażu, możesz przełączyć się na uwierzytelnianie bez hasła dla wszystkich użytkowników.
 
-Zapoznaj [się z najlepszymi rozwiązaniami dla pilotażu](https://aka.ms/deploymentplans) na stronie plany wdrożenia.
+Zapoznaj [się z najlepszymi rozwiązaniami dla pilotażu](../fundamentals/active-directory-deployment-plans.md) na stronie plany wdrożenia.
 
 ## <a name="plan-passwordless-authentication-with-the-microsoft-authenticator-app"></a>Planowanie uwierzytelniania bezhasła przy użyciu aplikacji Microsoft Authenticator
 

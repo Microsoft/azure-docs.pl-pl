@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06c37eaf63b79b171e5a21d807262cfb359d416c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 765bfe0f805ae4219110d689e8f7f8fd54a26cf3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994166"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173940"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planowanie Azure Active Directory samoobsługowego resetowania hasła
 
@@ -123,7 +123,7 @@ Podczas określania strategii tego wdrożenia w danym środowisku należy wzią�
 
 ### <a name="engage-the-right-stakeholders"></a>Zaangażuj odpowiednich uczestników projektu
 
-Gdy projekty technologii kończą się niepowodzeniem, zazwyczaj są to spowodowane niezgodnością oczekiwań, rezultatów i obowiązków. Aby uniknąć tych pułapek, [należy się upewnić, że angażuje się w odpowiednie osoby zainteresowane](https://aka.ms/deploymentplans) i że role udziałowców w projekcie są zrozumiałe w celu udokumentowania uczestników projektu i ich danych wejściowych i accountabilities.
+Gdy projekty technologii kończą się niepowodzeniem, zazwyczaj są to spowodowane niezgodnością oczekiwań, rezultatów i obowiązków. Aby uniknąć tych pułapek, [należy się upewnić, że angażuje się w odpowiednie osoby zainteresowane](../fundamentals/active-directory-deployment-plans.md) i że role udziałowców w projekcie są zrozumiałe w celu udokumentowania uczestników projektu i ich danych wejściowych i accountabilities.
 
 #### <a name="required-administrator-roles"></a>Wymagane role administratorów
 
@@ -325,7 +325,7 @@ Dzienniki inspekcji na potrzeby rejestracji i resetowania haseł są dostępne p
 
 ### <a name="troubleshoot"></a>Rozwiązywanie problemów
 
-* Zobacz [Rozwiązywanie problemów z samoobsługowym resetowaniem hasła](./active-directory-passwords-troubleshoot.md) 
+* Zobacz [Rozwiązywanie problemów z samoobsługowym resetowaniem hasła](./troubleshoot-sspr.md) 
 
 * Śledź [często zadawane pytania dotyczące zarządzania hasłami](./active-directory-passwords-faq.md) 
 

@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 690d4761657b8bf6e5ba63ddfbce7163584e64e2
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964574"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174038"
 ---
 # <a name="troubleshooting-for-hybrid-deployments-of-fido2-security-keys-in-azure-ad-preview"></a>Rozwiązywanie problemów z wdrożeniami hybrydowymi kluczy zabezpieczeń FIDO2 w usłudze Azure AD (wersja zapoznawcza)
 
@@ -78,7 +78,7 @@ Aby zbierać dane ułatwiające rozwiązywanie problemów z logowaniem się do s
 1. Przełącz pole wyboru *wysyłania dołączonych plików i diagnostyki do firmy Microsoft wraz z moją opinią*.
 1. Wybierz pozycję *Utwórz ponownie moje problemy*, a następnie *Rozpocznij przechwytywanie*.
 1. Zablokuj i Odblokuj maszynę z kluczem zabezpieczeń FIDO2. Jeśli wystąpi problem, spróbuj odblokować przy użyciu innych poświadczeń.
-1. Wróć do **centrum opinii**, wybierz pozycję **Zatrzymaj przechwytywanie**i Prześlij swoją opinię.
+1. Wróć do **centrum opinii**, wybierz pozycję **Zatrzymaj przechwytywanie** i Prześlij swoją opinię.
 1. Przejdź do strony *Opinie* , a następnie kartę *moje opinie* . Wybierz ostatnio przesłaną opinię.
 1. Wybierz przycisk *Udostępnij* w prawym górnym rogu, aby uzyskać link do opinii. Dołącz ten link w przypadku otwarcia zgłoszenia do pomocy technicznej lub Odpowiedz inżynierowi przypisanemu do istniejącego przypadku pomocy technicznej.
 

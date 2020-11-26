@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: ce8b792beb8652bedfddff470444240bc3edf148
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 64418a727ecb9a300912a4766a9ea2066328ad31
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363661"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174904"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planowanie aplikacji w chmurze w celu Azure Active Directory aprowizacji użytkowników
 
@@ -404,9 +404,9 @@ Aby rozwiązać problemy, które mogą zostać przełączane podczas aprowizacji
 
 - [Wystąpił problem podczas konfigurowania aprowizacji użytkowników w aplikacji z galerii usługi Azure AD](application-provisioning-config-problem.md)
 - [Synchronizowanie atrybutu z Active Directory lokalnego z usługą Azure AD w celu aprowizacji aplikacji](user-provisioning-sync-attributes-for-mapping.md)
-- [Wystąpił problem podczas zapisywania poświadczeń administratora podczas konfigurowania aprowizacji użytkowników w aplikacji Galerii Azure Active Directory](application-provisioning-config-problem-storage-limit.md)
+- [Wystąpił problem podczas zapisywania poświadczeń administratora podczas konfigurowania aprowizacji użytkowników w aplikacji Galerii Azure Active Directory](./user-provisioning.md)
 - [Nie zainicjowano obsługi użytkowników w aplikacji z galerii usługi Azure AD](application-provisioning-config-problem-no-users-provisioned.md)
-- [W aplikacji z galerii usługi Azure AD jest inicjowany niewłaściwy zestaw użytkowników](application-provisioning-config-problem-wrong-users-provisioned.md)
+- [W aplikacji z galerii usługi Azure AD jest inicjowany niewłaściwy zestaw użytkowników](../manage-apps/add-application-portal-assign-users.md)
 - [Konfigurowanie Podgląd zdarzeń systemu Windows na potrzeby rozwiązywania problemów z agentem](../saas-apps/workday-inbound-tutorial.md#setting-up-windows-event-viewer-for-agent-troubleshooting)
 - [Konfigurowanie dzienników inspekcji Azure Portal na potrzeby rozwiązywania problemów z usługą](../saas-apps/workday-inbound-tutorial.md#setting-up-azure-portal-audit-logs-for-service-troubleshooting)
 - [Omówienie dzienników dla operacji tworzenia konta użytkownika usługi AD](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-ad-user-account-create-operations)

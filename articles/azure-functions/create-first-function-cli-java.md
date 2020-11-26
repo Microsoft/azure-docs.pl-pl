@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-java
 - devx-track-azurecli
-ms.openlocfilehash: 5c8993bdf892ceb7d9886d0d2b97063dedec720c
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: db24fa4721e2e502c5098b415c4cf06da80f697d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635555"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175682"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Szybki Start: Tworzenie funkcji języka Java na platformie Azure z poziomu wiersza polecenia
 
@@ -34,7 +34,7 @@ Przed rozpoczęciem należy wykonać następujące czynności:
 
 + [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) w wersji 2,4 lub nowszej.
 
-+ [Zestaw Java developer Kit](https://aka.ms/azure-jdks), wersja 8 lub 11. `JAVA_HOME`Zmienna środowiskowa musi być ustawiona na lokalizację instalacji poprawnej wersji JDK.     
++ [Zestaw Java developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), wersja 8 lub 11. `JAVA_HOME`Zmienna środowiskowa musi być ustawiona na lokalizację instalacji poprawnej wersji JDK.     
 
 + [Apache Maven](https://maven.apache.org), wersja 3,0 lub nowsza.
 
@@ -88,7 +88,7 @@ W Azure Functions, projekt funkcji jest kontenerem dla jednej lub kilku poszczeg
 
 1. Wpisz `Y` lub naciśnij klawisz ENTER, aby potwierdzić.
 
-    Maven tworzy pliki projektu w nowym folderze o nazwie _artifactId_ , w tym przykładzie `fabrikam-functions` . 
+    Maven tworzy pliki projektu w nowym folderze o nazwie _artifactId_, w tym przykładzie `fabrikam-functions` . 
 
 1. Przejdź do folderu projektu:
 
@@ -192,7 +192,7 @@ Aplikacja funkcji i powiązane zasoby są tworzone na platformie Azure podczas p
     + Grupa zasobów. Nazwana jako _Java-Functions-Group_.
     + Konto magazynu. Wymagane przez funkcje. Nazwa jest generowana losowo na podstawie wymagań dotyczących nazw kont magazynu.
     + Plan hostingu. Hosting bezserwerowy dla aplikacji funkcji w regionie _zachodnim_ . Nazwa to _Java-Functions-App-Service-plan_.
-    + Aplikacja funkcji. Aplikacja funkcji jest jednostką wdrażania i wykonywania dla funkcji. Nazwa jest generowana losowo na podstawie _artifactId_ , z uwzględnieniem losowo wygenerowanego numeru.
+    + Aplikacja funkcji. Aplikacja funkcji jest jednostką wdrażania i wykonywania dla funkcji. Nazwa jest generowana losowo na podstawie _artifactId_, z uwzględnieniem losowo wygenerowanego numeru.
     
     Wdrożenie pakuje pliki projektu i wdraża je w nowej aplikacji funkcji przy użyciu polecenia [zip Deployment](functions-deployment-technologies.md#zip-deploy). Kod jest uruchamiany z pakietu wdrożeniowego na platformie Azure.
 
@@ -200,7 +200,7 @@ Aplikacja funkcji i powiązane zasoby są tworzone na platformie Azure podczas p
 
 [!INCLUDE [functions-streaming-logs-cli-qs](../../includes/functions-streaming-logs-cli-qs.md)]
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli przejdziesz do [następnego kroku](#next-steps) i dodasz powiązanie danych wyjściowych kolejki usługi Azure Storage, Zachowaj wszystkie swoje zasoby w miejscu, w którym będziesz kompilować zawartość już wykonane.
 

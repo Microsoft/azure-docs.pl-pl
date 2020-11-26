@@ -13,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 90efdd560735a112c2a4c5eb5740f211b587a241
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: f462a78790e73f3e0f67f55b6417589c7826a75d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275759"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173672"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Instrukcje: Dostosowywanie oświadczeń wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw
 
@@ -56,7 +56,7 @@ Z listy rozwijanej **Wybierz format identyfikatora nazwy** można wybrać jedną
 
 | Format NameID | Opis |
 |---------------|-------------|
-| **Domyślny** | Platforma tożsamości firmy Microsoft będzie używać domyślnego formatu źródła. |
+| **Wartooć** | Platforma tożsamości firmy Microsoft będzie używać domyślnego formatu źródła. |
 | **Stale** | Platforma tożsamości firmy Microsoft będzie używać trwałego formatu NameID. |
 | **EmailAddress (Adres e-mail)** | Platforma tożsamości firmy Microsoft będzie używać EmailAddress jako formatu NameID. |
 | **Nie określono** | Platforma tożsamości firmy Microsoft będzie używać nieokreślone jako formatu NameID. |
@@ -109,7 +109,7 @@ Można również użyć funkcji przekształcenia oświadczeń.
 
 Aby dodać oświadczenia specyficzne dla aplikacji:
 
-1. W polu **atrybuty użytkownika & oświadczenia**wybierz pozycję **Dodaj nowe oświadczenie** , aby otworzyć stronę **Zarządzanie oświadczeniami użytkowników** .
+1. W polu **atrybuty użytkownika & oświadczenia** wybierz pozycję **Dodaj nowe oświadczenie** , aby otworzyć stronę **Zarządzanie oświadczeniami użytkowników** .
 1. Wprowadź **nazwę** oświadczenia. Wartość nie musi być ściśle zgodna ze wzorcem URI dla specyfikacji SAML. Jeśli potrzebujesz wzorca URI, możesz go umieścić w polu **przestrzeń nazw** .
 1. Wybierz **Źródło** , do którego ma zostać pobrana wartość. Można wybrać atrybut użytkownika z listy rozwijanej atrybutów źródłowych lub zastosować transformację do atrybutu użytkownika przed wyemitowaniem go jako roszczeń.
 
@@ -117,7 +117,7 @@ Aby dodać oświadczenia specyficzne dla aplikacji:
 
 Aby zastosować transformację do atrybutu użytkownika:
 
-1. W obszarze **Zarządzaj roszczeń**wybierz pozycję *transformacja* jako źródło roszczeń, aby otworzyć stronę **Zarządzanie transformacjęm** .
+1. W obszarze **Zarządzaj roszczeń** wybierz pozycję *transformacja* jako źródło roszczeń, aby otworzyć stronę **Zarządzanie transformacjęm** .
 2. Wybierz funkcję z listy rozwijanej transformacja. W zależności od wybranej funkcji należy podać parametry i stałą wartość, aby obliczyć transformację. Więcej informacji o dostępnych funkcjach znajduje się w poniższej tabeli.
 3. Aby zastosować wiele transformacji, kliknij pozycję **Dodaj transformację**. Można zastosować maksymalnie dwa przekształcenia do żądania. Na przykład można najpierw wyodrębnić prefiks wiadomości e-mail `user.mail` . Następnie wprowadź wielką literę w postaci ciągu.
 
@@ -162,7 +162,7 @@ Jeden z nich jest przydatny, gdy źródło roszczeń jest inne dla gościa, a pr
 
 Aby dodać warunek roszczeń:
 
-1. W obszarze **Zarządzanie roszczeń**rozwiń warunki dotyczące roszczeń.
+1. W obszarze **Zarządzanie roszczeń** rozwiń warunki dotyczące roszczeń.
 2. Wybierz typ użytkownika.
 3. Wybierz grupy, do których należy użytkownik. Można wybrać maksymalnie 50 grup unikatowych dla wszystkich oświadczeń dla danej aplikacji. 
 4. Wybierz **Źródło** , do którego ma zostać pobrana wartość. Można wybrać atrybut użytkownika z listy rozwijanej atrybutów źródłowych lub zastosować transformację do atrybutu użytkownika przed wyemitowaniem go jako roszczeń.
@@ -178,5 +178,5 @@ Najpierw platforma tożsamości firmy Microsoft sprawdza, czy Britta typ użytko
 ## <a name="next-steps"></a>Następne kroki
 
 * [Zarządzanie aplikacjami w usłudze Azure AD](../manage-apps/what-is-application-management.md)
-* [Konfigurowanie logowania jednokrotnego w aplikacjach, które nie znajdują się w galerii aplikacji usługi Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Rozwiązywanie problemów z logowaniem jednokrotnym opartym na języku SAML](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+* [Konfigurowanie logowania jednokrotnego w aplikacjach, które nie znajdują się w galerii aplikacji usługi Azure AD](../manage-apps/configure-saml-single-sign-on.md)
+* [Rozwiązywanie problemów z logowaniem jednokrotnym opartym na języku SAML](../manage-apps/debug-saml-sso-issues.md)

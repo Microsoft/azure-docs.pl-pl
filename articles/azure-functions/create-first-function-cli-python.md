@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 0aea0425123cab4da1939e85a2cfd6071f772737
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 5f8bf6fb6f464bcb74d34e2d99fac16c24b12615
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95795752"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175716"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>Szybki Start: Tworzenie funkcji języka Python na platformie Azure z poziomu wiersza polecenia
 
@@ -203,7 +203,7 @@ Użyj następujących poleceń, aby utworzyć te elementy. Obsługiwane są zar�
     New-AzResourceGroup -Name AzureFunctionsQuickstart-rg -Location westeurope
     ```
 
-    Polecenie [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) tworzy grupę zasobów. Zazwyczaj tworzysz grupę zasobów i zasoby w regionie, w którym wiesz, przy użyciu dostępnego regionu zwróconego przez polecenie cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation) .
+    Polecenie [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) tworzy grupę zasobów. Zazwyczaj tworzysz grupę zasobów i zasoby w regionie, w którym wiesz, przy użyciu dostępnego regionu zwróconego przez polecenie cmdlet [Get-AzLocation](/powershell/module/az.resources/get-azlocation) .
 
     ---
 

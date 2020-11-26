@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: joflore
-ms.openlocfilehash: a66268c0cd0c2382b412873ec7f78b87d3491594
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: aae665b5982ab2b5c1163bb9297eda5f2e5d344a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968178"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175376"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Przeprowadź migrację Azure Active Directory Domain Services z modelu klasycznej sieci wirtualnej do Menedżer zasobów
 
@@ -154,8 +154,8 @@ Migracja do modelu wdrażania Menedżer zasobów i sieci wirtualnej jest podziel
 | Krok    | Wykonywane przez  | Szacowany czas  | Downtime (Przestoje)  | Czy wycofać/przywrócić? |
 |---------|--------------------|-----------------|-----------|-------------------|
 | [Krok 1 — aktualizowanie i lokalizowanie nowej sieci wirtualnej](#update-and-verify-virtual-network-settings) | Azure Portal | 15 minut | Brak wymaganego przestoju | Nie dotyczy |
-| [Krok 2. Przygotowanie domeny zarządzanej do migracji](#prepare-the-managed-domain-for-migration) | Program PowerShell | średnio 15 – 30 minut | Czas przestoju AD DS platformy Azure zostanie uruchomiony po zakończeniu tego polecenia. | Wycofaj i Przywróć dostępne. |
-| [Krok 3. przeniesienie domeny zarządzanej do istniejącej sieci wirtualnej](#migrate-the-managed-domain) | Program PowerShell | 1 – 3 godziny średnio | Po zakończeniu tego polecenia jest dostępny jeden kontroler domeny, przestoje zakończy się. | W przypadku niepowodzenia dostępne są zarówno wycofywanie (samoobsługowe) i przywracanie. |
+| [Krok 2. Przygotowanie domeny zarządzanej do migracji](#prepare-the-managed-domain-for-migration) | PowerShell | średnio 15 – 30 minut | Czas przestoju AD DS platformy Azure zostanie uruchomiony po zakończeniu tego polecenia. | Wycofaj i Przywróć dostępne. |
+| [Krok 3. przeniesienie domeny zarządzanej do istniejącej sieci wirtualnej](#migrate-the-managed-domain) | PowerShell | 1 – 3 godziny średnio | Po zakończeniu tego polecenia jest dostępny jeden kontroler domeny, przestoje zakończy się. | W przypadku niepowodzenia dostępne są zarówno wycofywanie (samoobsługowe) i przywracanie. |
 | [Krok 4. testowanie i oczekiwanie na replikę kontrolera domeny](#test-and-verify-connectivity-after-the-migration)| PowerShell i Azure Portal | 1 godzina lub więcej, w zależności od liczby testów | Oba kontrolery domeny są dostępne i powinny działać normalnie. | Nie dotyczy. Po pomyślnym przeprowadzeniu migracji pierwszej maszyny wirtualnej nie jest dostępna opcja wycofywania ani przywracania. |
 | [Krok 5 — opcjonalne kroki konfiguracji](#optional-post-migration-configuration-steps) | Azure Portal i maszyny wirtualne | Nie dotyczy | Brak wymaganego przestoju | Nie dotyczy |
 
@@ -230,7 +230,7 @@ Po przygotowaniu i wykonaniu kopii zapasowej domeny zarządzanej można migrowa�
 
 Uruchom `Migrate-Aadds` polecenie cmdlet przy użyciu parametru *-commit* . Podaj wartość *-ManagedDomainFqdn* dla własnej domeny zarządzanej, która została przygotowana w poprzedniej sekcji, na przykład *aaddscontoso.com*:
 
-Określ docelową grupę zasobów zawierającą sieć wirtualną, do której chcesz migrować AD DS platformy Azure, na przykład grupa *zasobów*. Podaj docelową sieć wirtualną, taką jak *myVnet*i podsieć, taką jak *DomainServices*.
+Określ docelową grupę zasobów zawierającą sieć wirtualną, do której chcesz migrować AD DS platformy Azure, na przykład grupa *zasobów*. Podaj docelową sieć wirtualną, taką jak *myVnet* i podsieć, taką jak *DomainServices*.
 
 Po uruchomieniu tego polecenia nie można wycofać:
 
@@ -302,7 +302,7 @@ W razie potrzeby można zaktualizować szczegółowe zasady haseł w taki sposó
 
 1. [Skonfiguruj zasady haseł][password-policy] dla mniejszej liczby ograniczeń w domenie zarządzanej i obserwuj zdarzenia w dziennikach inspekcji.
 1. Jeśli jakieś konta usług używają wygasłych haseł określonych w dziennikach inspekcji, zaktualizuj te konta przy użyciu poprawnego hasła.
-1. Jeśli maszyna wirtualna jest dostępna w Internecie, przejrzyj nazwy kont ogólnych, takich jak *administrator*, *użytkownik*lub *gość* z dużymi próbami logowania. Jeśli to możliwe, zaktualizuj te maszyny wirtualne tak, aby używały mniej ogólnych nazw kont.
+1. Jeśli maszyna wirtualna jest dostępna w Internecie, przejrzyj nazwy kont ogólnych, takich jak *administrator*, *użytkownik* lub *gość* z dużymi próbami logowania. Jeśli to możliwe, zaktualizuj te maszyny wirtualne tak, aby używały mniej ogólnych nazw kont.
 1. Użyj funkcji śledzenia sieci na maszynie wirtualnej, aby zlokalizować źródło ataków i zablokować te adresy IP, aby umożliwić podejmowanie prób logowania.
 1. W przypadku wystąpienia minimalnych problemów z blokadą należy zaktualizować szczegółowe zasady haseł, aby były tak restrykcyjne, jak to konieczne.
 
@@ -360,7 +360,7 @@ Po przeprowadzeniu migracji domeny zarządzanej do modelu wdrażania Menedżer z
 [notifications]: notifications.md
 [password-policy]: password-policy.md
 [secure-ldap]: tutorial-configure-ldaps.md
-[migrate-iaas]: ../virtual-machines/windows/migration-classic-resource-manager-overview.md
+[migrate-iaas]: ../virtual-machines/migration-classic-resource-manager-overview.md
 [join-windows]: join-windows-vm.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
 [troubleshoot-domain-join]: troubleshoot-domain-join.md

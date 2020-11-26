@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6aa31d0b8c68f38d2b4fc41a6bbaaeab8a3ffac
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3f2c5b37c713b69df56e938fdaa2a9134402d765
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363610"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173906"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Reporting options for Azure AD password management (Opcje raportowania dotyczące zarządzania hasłami w usłudze Azure AD)
 
@@ -53,7 +53,7 @@ W Azure Portal środowisku ulepszono sposób wyświetlania operacji resetowania 
 
 ### <a name="combined-registration"></a>Rejestracja łączona
 
-Jeśli włączono [rejestrację łączną](./concept-registration-mfa-sspr-combined.md), informacje dotyczące aktywności użytkownika w dziennikach inspekcji będą znajdować się **Security**w obszarze  >  **metody uwierzytelniania**zabezpieczeń.
+Jeśli włączono [rejestrację łączną](./concept-registration-mfa-sspr-combined.md), informacje dotyczące aktywności użytkownika w dziennikach inspekcji będą znajdować się **Security** w obszarze  >  **metody uwierzytelniania** zabezpieczeń.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Opis kolumn raportu w Azure Portal
 
@@ -181,7 +181,7 @@ Poniższa lista zawiera szczegółowy opis tego działania:
 * [Jakie są opcje zasad dla funkcji samoobsługowego resetowania haseł?](concept-sspr-policy.md)
 * [Co to jest funkcja zapisywania zwrotnego haseł i dlaczego jest ona tak ważna?](./tutorial-enable-sspr-writeback.md)
 * [Jakie są dostępne opcje funkcji samoobsługowego resetowania haseł i do czego one służą?](concept-sspr-howitworks.md)
-* [Myślę, że coś jest zerwane. Jak mogę Rozwiązywanie problemów z SSPR?](active-directory-passwords-troubleshoot.md)
+* [Myślę, że coś jest zerwane. Jak mogę Rozwiązywanie problemów z SSPR?](./troubleshoot-sspr.md)
 * [Mam pytanie, na które nie mogę znaleźć odpowiedzi](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Przykład dzienników inspekcji działań SSPR w usłudze Azure AD"

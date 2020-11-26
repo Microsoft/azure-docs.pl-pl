@@ -244,7 +244,7 @@
     - name: Interfejs API REST usługi Microsoft Graph w wersji beta
       href: /graph/api/resources/authenticationmethods-overview?view=graph-rest-beta
     - name: Ograniczenia i limity usługi
-      href: ../users-groups-roles/directory-service-limits-restrictions.md
+      href: ../enterprise-users/directory-service-limits-restrictions.md
 - name: Zasoby
   items:
     - name: Forum z opiniami na temat platformy Azure

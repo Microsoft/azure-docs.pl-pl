@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58f0ffa8bd43a8428603334b6c89fa1cf36315b5
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: ba22745923f1b157c477dce0b5704c7e278e748e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94987341"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96176005"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Często zadawane pytania dotyczące ochrony tożsamości w programie Azure Active Directory
 
@@ -38,7 +38,7 @@ Jeśli jesteś klientem Azure AD Identity Protection, przejdź do widoku [ryzyko
 ## <a name="why-was-my-sign-in-blocked-but-identity-protection-didnt-generate-a-risk-detection"></a>Dlaczego moje logowanie zostało zablokowane, ale Ochrona tożsamości nie wygenerowała wykrywania ryzyka?
 Logowania można blokować z kilku powodów. Należy pamiętać, że program Identity Protection generuje wyłącznie wykrywanie ryzyka, gdy w żądaniu uwierzytelniania są używane poprawne poświadczenia. Jeśli użytkownik używa nieprawidłowych poświadczeń, nie zostanie oflagowany przez ochronę tożsamości, ponieważ nie ma ryzyka naruszenia bezpieczeństwa poświadczeń, chyba że nieprawidłowy aktor używa poprawnych poświadczeń. Niektóre powody, dla których użytkownik może zostać zablokowany do podpisywania, który nie będzie generował usługi Identity Protection, obejmuje następujące kwestie:
 * Adres **IP można zablokować** ze względu na złośliwe działanie z adresu IP. Komunikat zablokowany przez adres IP nie różni się od tego, czy poświadczenia były poprawne. Jeśli adres IP jest zablokowany i nie są używane poprawne poświadczenia, nie spowoduje to wygenerowania wykrywania ochrony tożsamości
-* **[Inteligentna blokada](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout)** może blokować logowanie się po wielu nieudanych próbach
+* **[Inteligentna blokada](../authentication/howto-password-smart-lockout.md)** może blokować logowanie się po wielu nieudanych próbach
 * Można wymusić **zasady dostępu warunkowego** , które używają warunków innych niż poziom ryzyka, aby zablokować żądanie uwierzytelniania.
 
 ### <a name="how-can-i-get-a-report-of-detections-of-a-specific-type"></a>Jak mogę uzyskać raport wykrywania określonego typu?
@@ -93,6 +93,4 @@ Ze względu na to, że ryzyko związane z użytkownikiem ma charakter zbiorczy i
 
 ### <a name="why-does-a-sign-in-have-a-sign-in-risk-aggregate-score-of-high-when-the-detections-associated-with-it-are-of-low-or-medium-risk"></a>Dlaczego logowanie ma wynik "ryzyko związane z logowaniem (zagregowany)" o wysokim stopniu, gdy powiązane z nim środki wykrywania mają niski lub średniego ryzyka?
 
-Wysoki zagregowany wskaźnik ryzyka może opierać się na innych funkcjach logowania lub w przypadku, gdy wygenerowane jest więcej niż jedno wykrycie dla tego logowania. Z drugiej strony Logowanie może mieć ryzyko związane z logowaniem (zagregowany), nawet jeśli wykrycie skojarzone z logowaniem ma wysokie ryzyko. 
-
-
+Wysoki zagregowany wskaźnik ryzyka może opierać się na innych funkcjach logowania lub w przypadku, gdy wygenerowane jest więcej niż jedno wykrycie dla tego logowania. Z drugiej strony Logowanie może mieć ryzyko związane z logowaniem (zagregowany), nawet jeśli wykrycie skojarzone z logowaniem ma wysokie ryzyko.

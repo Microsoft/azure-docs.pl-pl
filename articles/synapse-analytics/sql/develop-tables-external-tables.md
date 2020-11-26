@@ -10,11 +10,11 @@ ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.openlocfilehash: a9f58a9cdf8dea9631443d499548f2aee61eda69
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553679"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175410"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Używanie tabel zewnętrznych z Synapse SQL
 
@@ -332,7 +332,7 @@ Tworzenie tabeli zewnętrznej obsługuje możliwość konfigurowania nazwy kolum
 
 Podczas odczytu z plików Parquet można określić tylko kolumny, które mają zostać odczytane, i pominąć resztę.
 
-LOCATION = " *folder_or_filepath* "
+LOCATION = "*folder_or_filepath*"
 
 Określa folder lub ścieżkę pliku i nazwę pliku dla rzeczywistych danych w usłudze Azure Blob Storage. Lokalizacja jest uruchamiana z folderu głównego. Folder główny to lokalizacja danych określona w zewnętrznym źródle danych.
 

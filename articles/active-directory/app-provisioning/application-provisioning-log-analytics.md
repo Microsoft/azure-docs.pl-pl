@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 68e47fe3cc674542a807ecbabd37cc6b624d5c03
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 167ed7e5c00452db4ee77e10236fec3ff86f0439
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145591"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175104"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>Informacje o sposobie integracji aprowizacji z dziennikami Azure Monitor
 
@@ -30,13 +30,13 @@ Po skonfigurowaniu monitorowania platformy Azure można włączyć obsługę adm
 
 :::image type="content" source="media/application-provisioning-log-analytics/diagnostic-settings.png" alt-text="Dostęp do ustawień diagnostycznych" lightbox="media/application-provisioning-log-analytics/diagnostic-settings.png":::
 
-:::image type="content" source="media/application-provisioning-log-analytics/enable-log-analytics.png" alt-text="Dostęp do ustawień diagnostycznych" lightbox="media/application-provisioning-log-analytics/enable-log-analytics.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/enable-log-analytics.png" alt-text="Włącz dzienniki aprowizacji aplikacji" lightbox="media/application-provisioning-log-analytics/enable-log-analytics.png":::
 
 > [!NOTE]
 > Jeśli niedawno zainicjowano już obszar roboczy, może upłynąć trochę czasu, zanim będzie można wysłać do niego dzienniki. Jeśli wystąpi błąd, że subskrypcja nie jest zarejestrowana do korzystania z usługi *Microsoft. Insights* , sprawdź ponownie za kilka minut.
  
 ## <a name="understanding-the-data"></a>Zrozumienie danych
-Źródłowy strumień danych, który umożliwia wysyłanie podglądów dzienników, jest prawie identyczny. Dzienniki Azure Monitor są niemal takie same jak interfejs użytkownika Azure Portal i interfejs API platformy Azure. Istnieją tylko pewne **różnice** w polach dziennika, które opisano w poniższej tabeli. Aby dowiedzieć się więcej na temat tych pól, zobacz [Lista provisioningObjectSummary](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http&preserve-view=true).
+Źródłowy strumień danych, który umożliwia wysyłanie podglądów dzienników, jest prawie identyczny. Dzienniki Azure Monitor są niemal takie same jak interfejs użytkownika Azure Portal i interfejs API platformy Azure. Istnieją tylko pewne **różnice** w polach dziennika, które opisano w poniższej tabeli. Aby dowiedzieć się więcej na temat tych pól, zobacz [Lista provisioningObjectSummary](/graph/api/provisioningobjectsummary-list?preserve-view=true&tabs=http&view=graph-rest-beta).
 
 |Dzienniki usługi Azure Monitor   |Interfejs użytkownika Azure Portal   |Interfejs API platformy Azure |
 |----------|-----------|------------|
@@ -51,9 +51,9 @@ Azure Monitor skoroszyty zapewniają elastyczną kanwę do analizy danych. Umoż
 
 Inicjowanie obsługi aplikacji zawiera zestaw wstępnie skompilowanych skoroszytów. Można je znaleźć na stronie skoroszytów. Aby wyświetlić dane, należy upewnić się, że wszystkie filtry (timeRange, jobID, nazwa_aplikacji) są wypełnione. Należy również upewnić się, że zainicjowano udostępnianie aplikacji. w przeciwnym razie nie będzie żadnych danych w dziennikach.
 
-:::image type="content" source="media/application-provisioning-log-analytics/workbooks.png" alt-text="Dostęp do ustawień diagnostycznych" lightbox="media/application-provisioning-log-analytics/workbooks.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/workbooks.png" alt-text="Skoroszyty aprowizacji aplikacji" lightbox="media/application-provisioning-log-analytics/workbooks.png":::
 
-:::image type="content" source="media/application-provisioning-log-analytics/report.png" alt-text="Dostęp do ustawień diagnostycznych" lightbox="media/application-provisioning-log-analytics/report.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/report.png" alt-text="Pulpit nawigacyjny aprowizacji aplikacji" lightbox="media/application-provisioning-log-analytics/report.png":::
 
 ## <a name="custom-queries"></a>Zapytania niestandardowe
 
@@ -100,15 +100,15 @@ Aby dowiedzieć się więcej o alertach, zobacz [reagowanie na zdarzenia przy u�
 
 Zgłoś alert, gdy wystąpią błędy. Zastąp jobID identyfikatorem jobID dla aplikacji.
 
-:::image type="content" source="media/application-provisioning-log-analytics/alert1.png" alt-text="Dostęp do ustawień diagnostycznych" lightbox="media/application-provisioning-log-analytics/alert1.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/alert1.png" alt-text="Zgłoś alert, gdy wystąpią błędy." lightbox="media/application-provisioning-log-analytics/alert1.png":::
 
 Może wystąpić problem, który spowodował zatrzymanie działania usługi aprowizacji. Użyj poniższego alertu, aby wykryć, kiedy nie ma żadnych zdarzeń aprowizacji w danym przedziale czasu.
 
-:::image type="content" source="media/application-provisioning-log-analytics/alert2.png" alt-text="Dostęp do ustawień diagnostycznych" lightbox="media/application-provisioning-log-analytics/alert2.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/alert2.png" alt-text="Może wystąpić problem, który spowodował zatrzymanie działania usługi aprowizacji." lightbox="media/application-provisioning-log-analytics/alert2.png":::
 
 Zgłoś alert, gdy nastąpi wyłączenie lub usunięcie elementu.
 
-:::image type="content" source="media/application-provisioning-log-analytics/alert3.png" alt-text="Dostęp do ustawień diagnostycznych" lightbox="media/application-provisioning-log-analytics/alert3.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/alert3.png" alt-text="Zgłoś alert, gdy nastąpi wyłączenie lub usunięcie elementu." lightbox="media/application-provisioning-log-analytics/alert3.png":::
 
 
 ## <a name="community-contributions"></a>Materiały przekazywane przez społeczność
@@ -121,4 +121,4 @@ Podejmujemy podejście oparte na metodzie "open source" i "społeczność" do za
 - [Rozpoczynanie pracy z zapytaniami w dziennikach Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 - [Tworzenie grup alertów i zarządzanie nimi w Azure Portal](../../azure-monitor/platform/action-groups.md)
 - [Instalowanie i Używanie widoków usługi log Analytics na potrzeby Azure Active Directory](../reports-monitoring/howto-install-use-log-analytics-views.md)
-- [Interfejs API dzienników aprowizacji](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta.md&preserve-view=true)
+- [Interfejs API dzienników aprowizacji](/graph/api/resources/provisioningobjectsummary?preserve-view=true&view=graph-rest-beta.md)

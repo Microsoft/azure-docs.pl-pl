@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: b9656b62e2c689d0993fb16c1f1d66b14d3430c6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b4fb5c1dcb2bb34b472c2a3eda88ca4c219303d0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967736"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175172"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Włącz inspekcje zabezpieczeń dla Azure Active Directory Domain Services
 
@@ -95,7 +95,7 @@ Aby włączyć zdarzenia inspekcji usługi Azure AD DS Security przy użyciu Azu
 1. Utwórz zasób docelowy dla zdarzeń inspekcji zabezpieczeń.
 
     * **Usługa Azure Storage**  -  [Tworzenie konta magazynu przy użyciu Azure PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell)
-    * Centra zdarzeń platformy **Azure**  -  [Utwórz centrum zdarzeń przy użyciu Azure PowerShell](../event-hubs/event-hubs-quickstart-powershell.md). Może być również konieczne użycie polecenia cmdlet [New-AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) w celu utworzenia reguły autoryzacji, która przyznaje uprawnienia AD DS platformy Azure do *przestrzeni nazw*centrum zdarzeń. Reguła autoryzacji musi zawierać prawa do **zarządzania**, **nasłuchiwania**i **wysyłania** .
+    * Centra zdarzeń platformy **Azure**  -  [Utwórz centrum zdarzeń przy użyciu Azure PowerShell](../event-hubs/event-hubs-quickstart-powershell.md). Może być również konieczne użycie polecenia cmdlet [New-AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) w celu utworzenia reguły autoryzacji, która przyznaje uprawnienia AD DS platformy Azure do *przestrzeni nazw* centrum zdarzeń. Reguła autoryzacji musi zawierać prawa do **zarządzania**, **nasłuchiwania** i **wysyłania** .
 
         > [!IMPORTANT]
         > Upewnij się, że zasada autoryzacji jest ustawiona w przestrzeni nazw centrum zdarzeń, a nie w centrum zdarzeń.
@@ -141,7 +141,7 @@ Aby włączyć zdarzenia inspekcji usługi Azure AD DS Security przy użyciu Azu
 Obszary robocze analityczne dzienników umożliwiają wyświetlanie i analizowanie zdarzeń inspekcji zabezpieczeń przy użyciu Azure Monitor i języka zapytań Kusto. Ten język zapytań jest przeznaczony do użycia tylko do odczytu, który boasts możliwości analityczne, dzięki łatwemu do odczytu składni. Aby uzyskać więcej informacji na temat rozpoczynania pracy z językami zapytań Kusto, zobacz następujące artykuły:
 
 * [Dokumentacja usługi Azure Monitor](../azure-monitor/index.yml)
-* [Wprowadzenie do usługi Log Analytics w usłudze Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
+* [Wprowadzenie do usługi Log Analytics w usłudze Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
 * [Wprowadzenie do zapytań dotyczących dzienników w usłudze Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 * [Tworzenie i udostępnianie pulpitów nawigacyjnych z danymi usługi Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 

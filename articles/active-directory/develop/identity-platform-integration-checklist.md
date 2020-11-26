@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 036c40395e5da5ebc09a87e420893d7dbd2ec668
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94da22fbb2940bddaad1324bedc8759706eca37b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116805"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173570"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Najlepsze rozwiązania i zalecenia dotyczące platformy tożsamości firmy Microsoft
 
@@ -32,19 +32,19 @@ Użyj poniższej listy kontrolnej, aby upewnić się, że aplikacja jest efektyw
 
 ## <a name="basics"></a>Podstawy
 
-![pole wyboru ](./media/active-directory-integration-checklist/checkbox-two.svg) Odczytaj i zapoznaj się z [zasadami platformy firmy Microsoft](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409). Upewnij się, że aplikacja jest zgodna z warunkami, które zostały zaprojektowane w celu ochrony użytkowników i platformy.
+![pole wyboru ](./media/active-directory-integration-checklist/checkbox-two.svg) Odczytaj i zapoznaj się z [zasadami platformy firmy Microsoft](/legal/microsoft-identity-platform/terms-of-use). Upewnij się, że aplikacja jest zgodna z warunkami, które zostały zaprojektowane w celu ochrony użytkowników i platformy.
 
 ## <a name="ownership"></a>Własność
 
 ![pole wyboru](./media/active-directory-integration-checklist/checkbox-two.svg) Upewnij się, że informacje skojarzone z kontem używanym do rejestrowania aplikacji i zarządzania nimi są aktualne.
 
-## <a name="branding"></a>Znakowanie
+## <a name="branding"></a>Marka
 
 ![pole wyboru ](./media/active-directory-integration-checklist/checkbox-two.svg) jest zgodne ze [wskazówkami dotyczącymi oznakowania dla aplikacji](howto-add-branding-in-azure-ad-apps.md).
 
 ![pole wyboru ](./media/active-directory-integration-checklist/checkbox-two.svg) udostępnia opisową nazwę i logo dla aplikacji. Te informacje są wyświetlane w [monicie o zgodę aplikacji](application-consent-experience.md). Upewnij się, że Twoja nazwa i logo są reprezentatywne dla Twojej firmy/produktu, aby użytkownicy mogli podejmować świadome decyzje. Upewnij się, że nie są naruszane żadne znaki towarowe.
 
-## <a name="privacy"></a>Prywatność
+## <a name="privacy"></a>Ochrona prywatności
 
 ![pole wyboru](./media/active-directory-integration-checklist/checkbox-two.svg) Podaj linki do warunków użytkowania i zasad zachowania poufności informacji aplikacji.
 
@@ -100,7 +100,7 @@ Użyj poniższej listy kontrolnej, aby upewnić się, że aplikacja jest efektyw
 
 ![pole wyboru](./media/active-directory-integration-checklist/checkbox-two.svg) Przetestuj swoją aplikację ze wszystkimi możliwymi kontami, które planujesz obsługiwać (na przykład konta służbowe, osobiste konta Microsoft, konta podrzędne i suwerenne konta).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 Uzyskaj szczegółowe informacje na temat wersji 2.0:
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/10/2020
 ms.author: kenwith
-ms.openlocfilehash: f65fb37a4cc6640bc998af1c56e7852cccaba234
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 5f6e5de61c9f43d5958e68c545105c4373996f7c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955524"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175070"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Samouczek — Dostosowywanie mapowania atrybutów aprowizacji użytkowników dla aplikacji SaaS w Azure Active Directory
 
@@ -239,7 +239,7 @@ Wykonaj poniższe kroki, aby zainicjować obsługę ról dla użytkownika w apli
    }
    ]
    ```  
-Format żądania w POPRAWKAch i POST różni się. Aby upewnić się, że poczta i poprawka są wysyłane w tym samym formacie, można użyć flagi funkcji opisanej [tutaj](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility#flags-to-alter-the-scim-behavior). 
+Format żądania w POPRAWKAch i POST różni się. Aby upewnić się, że poczta i poprawka są wysyłane w tym samym formacie, można użyć flagi funkcji opisanej [tutaj](./application-provisioning-config-problem-scim-compatibility.md#flags-to-alter-the-scim-behavior). 
 
 - **AppRoleAssignmentsComplex** 
   - **Kiedy używać:** Użyj wyrażenia AppRoleAssignmentsComplex, aby zainicjować obsługę wielu ról dla użytkownika. 

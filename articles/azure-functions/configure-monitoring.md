@@ -4,12 +4,12 @@ description: Dowiedz się, jak połączyć aplikację funkcji, aby Application I
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperfq2, devx-track-azurecli
-ms.openlocfilehash: f5b1b00c534abf1e7f82d2aca69dd4763b40d5ad
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0b8aae707f0fb055677af111f1e88c0a2e19b227
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833082"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175750"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Jak skonfigurować monitorowanie dla Azure Functions
 
@@ -230,7 +230,7 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
 
 Aby aplikacja funkcji mogła wysyłać dane do Application Insights, musi znać klucz Instrumentacji zasobu Application Insights. Klucz musi być w ustawieniu aplikacji o nazwie **APPINSIGHTS_INSTRUMENTATIONKEY**.
 
-Podczas tworzenia aplikacji funkcji [w Azure Portal](functions-create-first-azure-function.md)z wiersza polecenia przy użyciu [Azure Functions Core Tools](functions-create-first-azure-function-azure-cli.md)lub przy użyciu [Visual Studio Code](functions-create-first-function-vs-code.md)integracja Application Insights jest włączona domyślnie. Zasób Application Insights ma taką samą nazwę jak aplikacja funkcji i jest tworzony w tym samym regionie lub w najbliższym regionie.
+Podczas tworzenia aplikacji funkcji [w Azure Portal](functions-create-first-azure-function.md)z wiersza polecenia przy użyciu [Azure Functions Core Tools](./create-first-function-cli-csharp.md)lub przy użyciu [Visual Studio Code](./create-first-function-vs-code-csharp.md)integracja Application Insights jest włączona domyślnie. Zasób Application Insights ma taką samą nazwę jak aplikacja funkcji i jest tworzony w tym samym regionie lub w najbliższym regionie.
 
 ### <a name="new-function-app-in-the-portal"></a>Nowa aplikacja funkcji w portalu
 

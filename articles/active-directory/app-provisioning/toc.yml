@@ -51,7 +51,7 @@
         - name: Aprowidowanie raportów
           href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: Automatyzowanie konfiguracji przy użyciu programu MS Graph
-      href: 'https://docs.microsoft.com/graph/application-provisioning-configure-api'
+      href: /graph/application-provisioning-configure-api
     - name: Rozwiązywanie problemów z aprowizacją aplikacji
       items:
         - name: Znane problemy
