@@ -90,6 +90,10 @@
                   href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Harmonogram obsługi
           href: ./sql-data-warehouse/maintenance-scheduling.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Kontrola źródła
+          href: ./cicd/source-control.md
+        - name: Ciągła integracja i ciągłe dostarczanie
+          href: ./cicd/continuous-integration-deployment.md
         - name: Zabezpieczenia
           items:
             - name: Punkt odniesienia zabezpieczeń
@@ -1068,7 +1072,5 @@
           href: ./sql-data-warehouse/sql-data-warehouse-partner-machine-learning-ai.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Integracja systemu
           href: ./sql-data-warehouse/sql-data-warehouse-partner-system-integration.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Partnerzy publicznej wersji zapoznawczej
-          href: ./sql-data-warehouse/sql-data-warehouse-partner-launch.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Problemy ze zgodnością aplikacji innych firm
           href: ./sql-data-warehouse/sql-data-warehouse-partner-compatibility-issues.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
