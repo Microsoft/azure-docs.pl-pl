@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 846c47017ba2887c287dd080c44c46b372660d0e
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 016a2917c02deaecf35c526426cb2a6dbc89e338
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443606"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173196"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Aplikacja sieci Web, która wywołuje interfejsy API sieci Web: wywoływanie interfejsu API sieci Web
 
@@ -29,7 +29,7 @@ Wywoływanie chronionego internetowego interfejsu API zależy od języka i struk
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Gdy korzystasz z *Microsoft. Identity. Web* , masz trzy opcje użycia na potrzeby wywoływania interfejsu API:
+Gdy korzystasz z *Microsoft. Identity. Web*, masz trzy opcje użycia na potrzeby wywoływania interfejsu API:
 
 - [Opcja 1: Wywołaj Microsoft Graph z zestawem SDK Microsoft Graph](#option-1-call-microsoft-graph-with-the-sdk)
 - [Opcja 2: wywoływanie podrzędnego interfejsu API sieci Web z klasą pomocnika](#option-2-call-a-downstream-web-api-with-the-helper-class)
@@ -152,7 +152,7 @@ public async Task<IActionResult> Profile()
 > [!NOTE]
 > Tej samej zasady można użyć do wywołania dowolnego internetowego interfejsu API.
 >
-> Większość interfejsów API sieci Web platformy Azure udostępnia zestaw SDK, który upraszcza wywoływanie interfejsu API, tak jak w przypadku Microsoft Graph. Zobacz, na przykład, [Utwórz aplikację sieci Web, która autoryzuje dostęp do usługi BLOB Storage w usłudze Azure AD](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=dotnet) , na przykład aplikację sieci Web używającą Microsoft. Identity. Web i korzystającą z zestawu SDK usługi Azure Storage.
+> Większość interfejsów API sieci Web platformy Azure udostępnia zestaw SDK, który upraszcza wywoływanie interfejsu API, tak jak w przypadku Microsoft Graph. Zobacz, na przykład, [Utwórz aplikację sieci Web, która autoryzuje dostęp do usługi BLOB Storage w usłudze Azure AD](../../storage/common/storage-auth-aad-app.md?tabs=dotnet&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) , na przykład aplikację sieci Web używającą Microsoft. Identity. Web i korzystającą z zestawu SDK usługi Azure Storage.
 
 # <a name="java"></a>[Java](#tab/java)
 

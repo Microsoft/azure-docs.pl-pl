@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: 3df96f5576829694b5eb12fd1811de112279884d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5481dbfe1f7b185e87ee13f26f23ea563350b0fa
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963231"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171793"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Samouczek: dołączanie maszyny wirtualnej z systemem Windows Server do domeny zarządzanej Azure Active Directory Domain Services
 
@@ -58,17 +58,17 @@ Jeśli masz już maszynę wirtualną do przyłączenia do domeny, przejdź do se
 
 1. W menu Azure Portal lub na stronie **głównej** wybierz pozycję **Utwórz zasób**.
 
-1. W obszarze **wprowadzenie**wybierz pozycję **Windows Server 2016 Datacenter**.
+1. W obszarze **wprowadzenie** wybierz pozycję **Windows Server 2016 Datacenter**.
 
     ![Wybierz, aby utworzyć maszynę wirtualną z systemem Windows Server 2016 Datacenter w Azure Portal](./media/join-windows-vm/select-vm-image.png)
 
-1. W oknie **podstawy** Skonfiguruj podstawowe ustawienia dla maszyny wirtualnej. Pozostaw wartości domyślne *opcji dostępności*, *obrazu*i *rozmiaru*.
+1. W oknie **podstawy** Skonfiguruj podstawowe ustawienia dla maszyny wirtualnej. Pozostaw wartości domyślne *opcji dostępności*, *obrazu* i *rozmiaru*.
 
     | Parametr            | Sugerowana wartość   |
     |----------------------|-------------------|
     | Grupa zasobów       | Wybierz lub Utwórz grupę zasobów, na przykład grupa *zasobów* |
     | Nazwa maszyny wirtualnej | Wprowadź nazwę maszyny wirtualnej, na przykład *myVM* |
-    | Region               | Wybierz region, w którym chcesz utworzyć maszynę wirtualną, na przykład *Wschodnie stany USA* |
+    | Region (Region)               | Wybierz region, w którym chcesz utworzyć maszynę wirtualną, na przykład *Wschodnie stany USA* |
     | Nazwa użytkownika             | Wprowadź nazwę użytkownika dla konta administratora lokalnego, które ma zostać utworzone na maszynie wirtualnej, na przykład *azureuser* |
     | Hasło             | Wprowadź wartość, a następnie potwierdź hasło do konta administratora lokalnego na maszynie wirtualnej. Nie określaj poświadczeń konta użytkownika domeny. |
 
@@ -76,10 +76,10 @@ Jeśli masz już maszynę wirtualną do przyłączenia do domeny, przejdź do se
 
     Protokół RDP powinien być włączony tylko w razie potrzeby i ograniczony do zestawu autoryzowanych zakresów adresów IP. Ta konfiguracja pozwala ulepszyć zabezpieczenia maszyny wirtualnej i zmniejsza obszar pod kątem potencjalnego ataku. Możesz również utworzyć hosta usługi Azure bastionu i użyć Azure Portal go, który umożliwia dostęp tylko za pośrednictwem protokołu TLS. W następnym kroku tego samouczka użyjesz hosta usługi Azure bastionu, aby bezpiecznie połączyć się z maszyną wirtualną.
 
-    W obszarze **publiczne porty przychodzące**zaznacz opcję *Brak*.
+    W obszarze **publiczne porty przychodzące** zaznacz opcję *Brak*.
 
 1. Gdy skończysz, wybierz pozycję **Dalej: dyski**.
-1. Z menu rozwijanego **typ dysku systemu operacyjnego**wybierz *SSD w warstwie Standardowa*, a następnie wybierz **Dalej: sieć**.
+1. Z menu rozwijanego **typ dysku systemu operacyjnego** wybierz *SSD w warstwie Standardowa*, a następnie wybierz **Dalej: sieć**.
 1. Maszyna wirtualna musi nawiązać połączenie z podsiecią sieci wirtualnej platformy Azure, która może komunikować się z podsiecią, w której wdrożono domenę zarządzaną. Zalecamy, aby domena zarządzana została wdrożona w swojej własnej dedykowanej podsieci. Nie Wdrażaj maszyny wirtualnej w tej samej podsieci, w której znajduje się domena zarządzana.
 
     Istnieją dwa główne sposoby wdrożenia maszyny wirtualnej i łączenia się z odpowiednią podsiecią sieci wirtualnej:
@@ -110,7 +110,7 @@ Jeśli masz już maszynę wirtualną do przyłączenia do domeny, przejdź do se
 
 1. Utworzenie podsieci trwa kilka sekund. Po jego utworzeniu wybierz pozycję *X* , aby zamknąć okno podsieć.
 1. Wróć do okienka **Sieć** , aby utworzyć maszynę wirtualną, wybierz podsieć utworzoną z menu rozwijanego, na przykład *Zarządzanie*. Upewnij się, że wybrano poprawną podsieć i nie Wdróż maszyny wirtualnej w tej samej podsieci, w której znajduje się domena zarządzana.
-1. W polu **publiczny adres IP**wybierz pozycję *Brak* z menu rozwijanego. Gdy korzystasz z usługi Azure bastionu w tym samouczku, aby nawiązać połączenie z zarządzaniem, nie potrzebujesz publicznego adresu IP przypisanego do maszyny wirtualnej.
+1. W polu **publiczny adres IP** wybierz pozycję *Brak* z menu rozwijanego. Gdy korzystasz z usługi Azure bastionu w tym samouczku, aby nawiązać połączenie z zarządzaniem, nie potrzebujesz publicznego adresu IP przypisanego do maszyny wirtualnej.
 1. Pozostaw wartości domyślne innych opcji, a następnie wybierz pozycję **Zarządzanie**.
 1. Ustaw wartość ustawienia **Diagnostyka rozruchu** *.* Pozostaw wartości domyślne innych opcji, a następnie wybierz pozycję **Przegląd + Utwórz**.
 1. Przejrzyj ustawienia maszyny wirtualnej, a następnie wybierz pozycję **Utwórz**.
@@ -178,7 +178,7 @@ Po utworzeniu maszyny wirtualnej i połączeniu RDP opartym na sieci Web przy u�
 
 Po ponownym uruchomieniu maszyny wirtualnej z systemem Windows Server wszystkie zasady zastosowane w domenie zarządzanej są wypychane do maszyny wirtualnej. Teraz możesz także zalogować się do maszyny wirtualnej z systemem Windows Server przy użyciu odpowiednich poświadczeń domeny.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 W następnym samouczku użyjesz tej maszyny wirtualnej systemu Windows Server, aby zainstalować narzędzia do zarządzania, które umożliwiają administrowanie domeną zarządzaną. Jeśli nie chcesz kontynuować korzystania z tej serii samouczków, przejrzyj następujące kroki czyszczenia, aby [usunąć maszynę wirtualną](#delete-the-vm). W przeciwnym razie [Przejdź do następnego samouczka](#next-steps).
 
@@ -246,5 +246,5 @@ Aby administrować domeną zarządzaną, skonfiguruj maszynę wirtualną zarząd
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [password-sync]: ./tutorial-create-instance.md
 [add-computer]: /powershell/module/microsoft.powershell.management/add-computer
-[azure-bastion]: ../bastion/bastion-create-host-portal.md
+[azure-bastion]: ../bastion/tutorial-create-host-portal.md
 [set-azvmaddomainextension]: /powershell/module/az.compute/set-azvmaddomainextension

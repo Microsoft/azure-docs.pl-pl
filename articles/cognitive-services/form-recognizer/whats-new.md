@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 10ae9e1356cea954435d15441d74f4f86a804578
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 929aed28df2725ccde62c348a18ef7b41334e233
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95893984"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172133"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Co nowego w usłudze Rozpoznawanie formularzy?
 
@@ -37,6 +37,7 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
  
   > [Dowiedz się więcej o wyodrębnianiu układu](concept-layout.md)
 
+- **Aktualizacja biblioteki klienta** — [biblioteki klienckie](quickstarts/client-library.md) dla platform .NET, Python, Java i JavaScript są ogólnie dostępne.
 - **Obsługiwany nowy język: japoński** — teraz obsługiwane są następujące nowe języki: dla `AnalyzeLayout` i `AnalyzeCustomForm` : japoński ( `ja` ). [Obsługa języków](language-support.md)
 - **Oznaczenie stylu linii tekstowej (pismo odręczne/inne) (tylko języki łacińskie)** — aparat rozpoznawania formularzy teraz wyprowadza `appearance` obiekt sklasyfikowany niezależnie od tego, czy każdy wiersz tekstu jest stylem odręcznym, czy nie, wraz z oceną ufności. Ta funkcja jest obsługiwana tylko dla języków łacińskich.
 - **Udoskonalenia dotyczące jakości** — ulepszenia wyodrębniania, w tym ulepszenia wyodrębniania z jednej cyfry.
@@ -46,8 +47,8 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
 
   ![Przykład FOTT](./media/ui-preview.jpg)
   
-- **Pętla opinii** — podczas analizowania plików za pomocą przykładowego narzędzia do etykietowania można teraz również dodać je do zestawu szkoleniowego i adujst poszukiwaniu w razie potrzeby i pouczenie się, aby poprawić model.
-- **AutoLabel Documets** -Automitcally etykiety dodatkowe dokumenty oparte na poprzednich dokumentach oznaczonych w projekcie. 
+- **Pętla opinii** — podczas analizowania plików za pomocą przykładowego narzędzia do etykietowania można teraz również dodać je do zestawu szkoleniowego i dostosować etykiety w razie potrzeby i pouczenie się, aby poprawić model.
+- **Automatyczne etykietowanie dokumentów** — automatyczne etykietowanie dodatkowych dokumentów w oparciu o poprzednie dokumenty etykietowane w projekcie.
 
 ## <a name="august-2020"></a>Sierpień 2020 r.
 

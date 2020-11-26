@@ -9,12 +9,12 @@ ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7cde23372f6a3af0320e2d48c78a0d7fe69a2600
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 3916855a62e506b12f72de713ccb56e89f846938
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045707"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171810"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Aktualizowanie demona zabezpieczeń i środowiska uruchomieniowego usługi IoT Edge
 
@@ -48,7 +48,7 @@ Pobierz najnowszą konfigurację repozytorium od firmy Microsoft:
    curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
    ```
 
-* **Rozciągnij raspbian**:
+* **Rozciąganie systemu operacyjnego Raspberry Pi**:
 
    ```bash
    curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
@@ -108,7 +108,7 @@ Na urządzeniach z systemem Windows należy zaktualizować demona zabezpieczeń 
 
 Uruchomienie Update-IoTEdge polecenie powoduje usunięcie i zaktualizowanie demona zabezpieczeń z urządzenia wraz z dwoma obrazami kontenera środowiska uruchomieniowego. Plik config. YAML jest przechowywany na urządzeniu, a także dane z aparatu kontenera Moby (Jeśli używasz kontenerów systemu Windows). Przechowywanie informacji o konfiguracji oznacza, że nie trzeba podawać parametrów połączenia ani informacji o usłudze Device Provisioning dla urządzenia ponownie w trakcie procesu aktualizacji.
 
-Jeśli chcesz przeprowadzić aktualizację do określonej wersji demona zabezpieczeń, Znajdź wersję, której chcesz użyć w [wersjach IoT Edge](https://github.com/Azure/azure-iotedge/releases). W tej wersji Pobierz plik **Microsoft-Azure-IoTEdge.cab** . Następnie użyj parametru, `-OfflineInstallationPath` Aby wskazać lokalizację pliku lokalnego. Na przykład:
+Jeśli chcesz przeprowadzić aktualizację do określonej wersji demona zabezpieczeń, Znajdź wersję, której chcesz użyć w [wersjach IoT Edge](https://github.com/Azure/azure-iotedge/releases). W tej wersji Pobierz plik **Microsoft-Azure-IoTEdge.cab** . Następnie użyj parametru, `-OfflineInstallationPath` Aby wskazać lokalizację pliku lokalnego. Przykład:
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux> -OfflineInstallationPath <absolute path to directory>
@@ -160,7 +160,7 @@ Jeśli używasz określonych tagów we wdrożeniu (na przykład mcr.microsoft.co
 
    ![Konfigurowanie ustawień środowiska uruchomieniowego](./media/how-to-update-iot-edge/configure-runtime.png)
 
-1. W obszarze **Ustawienia środowiska uruchomieniowego**zaktualizuj wartość **obrazu** dla **centrum brzegowego** z odpowiednią wersją. Nie wybieraj jeszcze opcji **Zapisz** .
+1. W obszarze **Ustawienia środowiska uruchomieniowego** zaktualizuj wartość **obrazu** dla **centrum brzegowego** z odpowiednią wersją. Nie wybieraj jeszcze opcji **Zapisz** .
 
    ![Aktualizuj wersję obrazu centrum brzegowego](./media/how-to-update-iot-edge/runtime-settings-edgehub.png)
 
@@ -194,7 +194,7 @@ Do zaktualizowania urządzenia IoT Edge służą dwa składniki:
 
 3. Jeśli pobrany plik cab ma sufiks architektury, Zmień nazwę pliku na tylko **Microsoft-Azure-IoTEdge.cab**.
 
-4. Aby zaktualizować program za pomocą składników trybu [offline, należy](/powershell/module/microsoft.powershell.core/about/about_scripts?view=powershell-7#script-scope-and-dot-sourcing) uzyskać kopię lokalną skryptu programu PowerShell. Następnie użyj `-OfflineInstallationPath` parametru jako części `Update-IoTEdge` polecenia i podaj ścieżkę bezwzględną do katalogu plików. Przykład:
+4. Aby zaktualizować program za pomocą składników trybu [offline, należy](/powershell/module/microsoft.powershell.core/about/about_scripts?view=powershell-7#script-scope-and-dot-sourcing) uzyskać kopię lokalną skryptu programu PowerShell. Następnie użyj `-OfflineInstallationPath` parametru jako części `Update-IoTEdge` polecenia i podaj ścieżkę bezwzględną do katalogu plików. Na przykład
 
    ```powershell
    . <path>\IoTEdgeSecurityDaemon.ps1

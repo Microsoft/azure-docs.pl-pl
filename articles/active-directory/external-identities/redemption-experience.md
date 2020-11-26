@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2427d974f96c0905ea2eb33daea7c89de277ec9
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8520afdd05ecce8604ce72596bdf06053217cc2e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441814"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173094"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory realizacji zaproszeń do współpracy B2B
 
@@ -25,7 +25,7 @@ W tym artykule opisano sposób, w jaki użytkownicy-Goście mogą uzyskać dost�
 Po dodaniu użytkownika-gościa do katalogu konto użytkownika-gościa ma stan zgody (widoczny w programie PowerShell) początkowo ustawiony na **PendingAcceptance**. To ustawienie pozostanie do momentu zaakceptowania zaproszenia przez gościa i zgody na zasady ochrony prywatności oraz warunki użytkowania. Następnie stan zgody zmieni się na **zaakceptowane**, a strony zgody nie będą już widoczne dla gościa.
 
    > [!IMPORTANT]
-   > **Od 31 marca 2021**firma Microsoft nie będzie już obsługiwać wykupu zaproszeń przez tworzenie niezarządzanych kont usługi Azure AD i dzierżawców na potrzeby scenariuszy współpracy B2B. W przygotowaniu Zachęcamy klientów do samodzielnego [uwierzytelniania kodu dostępu za pośrednictwem poczty e-mail](one-time-passcode.md). Prosimy o opinię na temat tej publicznej funkcji w wersji zapoznawczej i przyjemnością, aby utworzyć jeszcze więcej sposobów współpracy.
+   > **Od 31 marca 2021** firma Microsoft nie będzie już obsługiwać wykupu zaproszeń przez tworzenie niezarządzanych kont usługi Azure AD i dzierżawców na potrzeby scenariuszy współpracy B2B. W przygotowaniu Zachęcamy klientów do samodzielnego [uwierzytelniania kodu dostępu za pośrednictwem poczty e-mail](one-time-passcode.md). Prosimy o opinię na temat tej publicznej funkcji w wersji zapoznawczej i przyjemnością, aby utworzyć jeszcze więcej sposobów współpracy.
 
 ## <a name="redemption-through-the-invitation-email"></a>Wykup za pośrednictwem wiadomości e-mail z zaproszeniem
 
@@ -33,7 +33,7 @@ Po dodaniu użytkownika-gościa do katalogu przy [użyciu Azure Portal](./b2b-qu
 
 1. Gość otrzymuje [wiadomość e-mail z zaproszeniem](./invitation-email-elements.md) , która jest wysyłana z **zaproszeń firmy Microsoft**.
 2. Gość wybierze opcję **Akceptuj zaproszenie** w wiadomości e-mail.
-3. Gość będzie używać swoich własnych poświadczeń do logowania się do katalogu. Jeśli gość nie ma konta, które może być federacyjne dla katalogu i nie jest włączona funkcja [jednorazowego kodu dostępu (OTP) wiadomości e-mail](./one-time-passcode.md) . Gość jest monitowany o utworzenie osobistego elementu [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) lub [konta samoobsługi usługi Azure AD](../users-groups-roles/directory-self-service-signup.md). Szczegóły można znaleźć w [przepływie wykupu zaproszenia](#invitation-redemption-flow) .
+3. Gość będzie używać swoich własnych poświadczeń do logowania się do katalogu. Jeśli gość nie ma konta, które może być federacyjne dla katalogu i nie jest włączona funkcja [jednorazowego kodu dostępu (OTP) wiadomości e-mail](./one-time-passcode.md) . Gość jest monitowany o utworzenie osobistego elementu [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) lub [konta samoobsługi usługi Azure AD](../enterprise-users/directory-self-service-signup.md). Szczegóły można znaleźć w [przepływie wykupu zaproszenia](#invitation-redemption-flow) .
 4. Gościa jest przeprowadzana [w opisany poniżej](#consent-experience-for-the-guest) sposób.
 
 ## <a name="redemption-through-a-direct-link"></a>Umorzenie za pośrednictwem bezpośredniego linku
@@ -74,9 +74,9 @@ Gdy użytkownik kliknie link **Zaakceptuj zaproszenie** w [wiadomości e-mail z 
 
 7. Jeśli [dla Gości zostanie włączona jednorazowy kod dostępu do wiadomości e-mail](./one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode), kod dostępu zostanie wysłany do użytkownika za pośrednictwem zaproszonej wiadomości e-mail. Użytkownik będzie pobierać i wprowadzać ten kod dostępu na stronie logowania usługi Azure AD.
 
-8. Jeżeli jednorazowy kod dostępu wiadomości e-mail dla Gości jest wyłączony, usługa Azure AD sprawdza sufiks domeny w celu ustalenia, czy należy on do konta odbiorcy. Jeśli tak, użytkownik jest monitowany o utworzenie osobistego [konto Microsoft](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create). Jeśli nie, użytkownik jest monitowany o utworzenie [konta samoobsługi usługi Azure AD](../users-groups-roles/directory-self-service-signup.md).
+8. Jeżeli jednorazowy kod dostępu wiadomości e-mail dla Gości jest wyłączony, usługa Azure AD sprawdza sufiks domeny w celu ustalenia, czy należy on do konta odbiorcy. Jeśli tak, użytkownik jest monitowany o utworzenie osobistego [konto Microsoft](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create). Jeśli nie, użytkownik jest monitowany o utworzenie [konta samoobsługi usługi Azure AD](../enterprise-users/directory-self-service-signup.md).
 
-9. Usługa Azure AD próbuje utworzyć [konto samoobsługi usługi Azure AD](../users-groups-roles/directory-self-service-signup.md) , sprawdzając dostęp do wiadomości e-mail. Sprawdzanie, czy konto jest wykonywane przez wysłanie kodu do wiadomości e-mail i pobranie i przesłanie go do usługi Azure AD. Jeśli jednak dzierżawca zaproszonego użytkownika jest federacyjny lub jeśli pole AllowEmailVerifiedUsers jest ustawione na wartość false w dzierżawie zaproszonego użytkownika, użytkownik nie może zakończyć realizacji, a przepływ spowoduje wystąpienie błędu. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów Azure Active Directory współpracy B2B](./troubleshoot.md#the-user-that-i-invited-is-receiving-an-error-during-redemption).
+9. Usługa Azure AD próbuje utworzyć [konto samoobsługi usługi Azure AD](../enterprise-users/directory-self-service-signup.md) , sprawdzając dostęp do wiadomości e-mail. Sprawdzanie, czy konto jest wykonywane przez wysłanie kodu do wiadomości e-mail i pobranie i przesłanie go do usługi Azure AD. Jeśli jednak dzierżawca zaproszonego użytkownika jest federacyjny lub jeśli pole AllowEmailVerifiedUsers jest ustawione na wartość false w dzierżawie zaproszonego użytkownika, użytkownik nie może zakończyć realizacji, a przepływ spowoduje wystąpienie błędu. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów Azure Active Directory współpracy B2B](./troubleshoot.md#the-user-that-i-invited-is-receiving-an-error-during-redemption).
 
 10. Użytkownik jest monitowany o utworzenie osobistego [konto Microsoft (MSA)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create).
 

@@ -11,18 +11,18 @@ ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 705df6ddc6b665ac3d0d62ec3dad93e38f5e513e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 6a9f3b864bd8aba2140c7d32d4b5474ff7b95f88
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953104"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171232"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Samouczek: Włączanie uwierzytelniania w aplikacji jednostronicowej przy użyciu Azure AD B2C
 
 W tym samouczku pokazano, jak używać programu Azure Active Directory B2C (Azure AD B2C) do rejestrowania i logowania użytkowników w aplikacji jednostronicowej (SPA) przy użyciu:
-* [Przepływ kodu autoryzacji OAuth 2,0](https://docs.microsoft.com/azure/active-directory-b2c/authorization-code-flow) (przy użyciu [MSAL.js 2. x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser))
-* [Niejawny przepływ uwierzytelniania OAuth 2,0](https://docs.microsoft.com/azure/active-directory-b2c/implicit-flow-single-page-application) (przy użyciu [MSAL.js 1. x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core))
+* [Przepływ kodu autoryzacji OAuth 2,0](./authorization-code-flow.md) (przy użyciu [MSAL.js 2. x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser))
+* [Niejawny przepływ uwierzytelniania OAuth 2,0](./implicit-flow-single-page-application.md) (przy użyciu [MSAL.js 1. x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core))
 
 W tym samouczku pierwszy z serii dwóch części:
 
@@ -51,7 +51,7 @@ Ponadto w lokalnym środowisku programistycznym są potrzebne następujące elem
 
 ## <a name="update-the-application"></a>Aktualizowanie aplikacji
 
-W [drugim samouczku](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-spa) , który został ukończony w ramach wymagań wstępnych, zarejestrowano aplikację jednostronicową w Azure AD B2C. Aby włączyć komunikację z przykładem kodu w tym samouczku, Dodaj adres URL odpowiedzi (nazywany także identyfikatorem URI przekierowania) do rejestracji aplikacji.
+W [drugim samouczku](./tutorial-register-spa.md) , który został ukończony w ramach wymagań wstępnych, zarejestrowano aplikację jednostronicową w Azure AD B2C. Aby włączyć komunikację z przykładem kodu w tym samouczku, Dodaj adres URL odpowiedzi (nazywany także identyfikatorem URI przekierowania) do rejestracji aplikacji.
 
 Aby zaktualizować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego nowego środowiska **rejestracje aplikacji** lub naszych starszych  **aplikacji (starsza wersja)** . [Dowiedz się więcej na temat nowego środowiska](./app-registrations-training-guide.md).
 

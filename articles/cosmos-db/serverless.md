@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: c811a2ea5c06250068e7c0276e4b79e9108d920d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.date: 11/25/2020
+ms.openlocfilehash: cabc243c6ba74217873b5b0a5fa51a7cb410512e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490359"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170841"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB bezserwerowe (wersja zapoznawcza)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -33,9 +33,8 @@ W przypadku korzystania z Azure Cosmos DB każda operacja bazy danych ma koszt w
 
 Azure Cosmos DB najwygodniejsze dla serwera scenariusze, których oczekujesz:
 
-- **Lekki ruch** : ponieważ pojemność aprowizacji w takich sytuacjach nie jest wymagana i może być kosztowna
-- **Umiarkowana** możliwość naliczania: ponieważ kontenery bezserwerowe mogą dostarczyć do 5 000 jednostek żądań na sekundę
-- **Średnia wydajność** : ponieważ kontenery bezserwerowe mają [określone charakterystyki wydajności](#performance)
+- **Niski, sporadyczny i nieprzewidywalny ruch**: ponieważ pojemność aprowizacji w takich sytuacjach nie jest wymagana i może być kosztowna
+- **Średnia wydajność**: ponieważ kontenery bezserwerowe mają [określone charakterystyki wydajności](#performance)
 
 Z tego względu należy rozważyć Azure Cosmos DB bezserwerowym dla następujących typów obciążeń:
 
@@ -62,7 +61,6 @@ Każdy kontener tworzony na koncie bezserwerowym jest kontenerem bezserwerowym. 
     - Nie można przekazać żadnej przepływności podczas tworzenia kontenera bezserwerowego, co spowoduje zwrócenie błędu.
     - Nie można odczytać ani zaktualizować przepływności w kontenerze bezserwerowym, co spowoduje zwrócenie błędu.
     - Nie można utworzyć udostępnionej bazy danych przepływności na koncie bezserwerowym, co spowoduje zwrócenie błędu.
-- Kontenery bezserwerowe mogą zapewnić maksymalną przepustowość 5 000 jednostek żądań na sekundę.
 - Kontenery bezserwerowe mogą przechowywać maksymalnie 50 GB danych i indeksów.
 
 ## <a name="monitoring-your-consumption"></a>Monitorowanie użycia
@@ -79,8 +77,8 @@ Ten sam wykres można znaleźć podczas korzystania z Azure Monitor, zgodnie z o
 
 Zasoby bezserwerowe mają szczególne cechy wydajności, które różnią się od obsługiwanych zasobów przepływności:
 
-- **Dostępność** : gdy oferta bezserwerowa stanie się ogólnie dostępna, dostępność kontenerów bezserwerowych zostanie objęta umowa dotycząca poziomu usług (SLA) 99,9%, gdy strefy dostępności (nadmiarowość strefy) nie są używane. W przypadku używania Strefy dostępności umowa SLA wynosi 99,99%.
-- **Opóźnienie** : po ogólnym udostępnieniu oferty bezserwerowej opóźnienie kontenerów bezserwerowych zostanie objęte przeznaczeniem poziomu usługi (SLO) wynoszącym 10 milisekund lub mniej w przypadku operacji odczytu i 30 milisekund. Operacja odczytu punktu polega na pobieraniu pojedynczego elementu przez jego identyfikator i wartość klucza partycji.
+- **Dostępność**: gdy oferta bezserwerowa stanie się ogólnie dostępna, dostępność kontenerów bezserwerowych zostanie objęta umowa dotycząca poziomu usług (SLA) 99,9%, gdy strefy dostępności (nadmiarowość strefy) nie są używane. W przypadku używania Strefy dostępności umowa SLA wynosi 99,99%.
+- **Opóźnienie**: po ogólnym udostępnieniu oferty bezserwerowej opóźnienie kontenerów bezserwerowych zostanie objęte przeznaczeniem poziomu usługi (SLO) wynoszącym 10 milisekund lub mniej w przypadku operacji odczytu i 30 milisekund. Operacja odczytu punktu polega na pobieraniu pojedynczego elementu przez jego identyfikator i wartość klucza partycji.
 - Możliwości **przenoszenia: gdy** oferta bezserwerowa będzie ogólnie dostępna, możliwości przenoszenia kontenerów bezserwerowych będą objęte celem poziomu usługi (SLO) wynoszącym 95%. Oznacza to, że maksymalne możliwości można osiągnąć przez co najmniej 95% czasu.
 
 > [!NOTE]

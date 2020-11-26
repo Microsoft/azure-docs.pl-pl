@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: dd6e760fe8052463491f249b54c3af3d2636d46d
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 337275cef0f2159cb5fac40ac0435408baf3bbef
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376888"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170926"
 ---
 # <a name="tutorial-for-configuring-theaccesshub-admin-tool-with-azure-active-directory-b2c"></a>Samouczek dotyczący konfigurowania narzędzia administracyjnego TheAccessHub z Azure Active Directory B2C
 
@@ -38,13 +38,13 @@ Aby rozpocząć, musisz:
 
 - Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
 
-- [Dzierżawa Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant). Dzierżawca musi być połączony z subskrypcją platformy Azure.
+- [Dzierżawa Azure AD B2C](./tutorial-create-tenant.md). Dzierżawca musi być połączony z subskrypcją platformy Azure.
 
 - Środowisko narzędzia administracyjnego TheAccessHub: kontakt z [tożsamością N8](https://n8id.com/contact/) w celu aprowizacji nowego środowiska.
 
 - Obowiązkowe Informacje dotyczące połączenia i poświadczeń dla wszystkich baz danych lub protokołów LDAP (Lightweight Directory Access Protocol), z których mają być migrowane dane klientów.
 
-- Obowiązkowe Skonfigurowane środowisko Azure AD B2C do używania [zasad niestandardowych](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started), jeśli chcesz zintegrować narzędzie administracyjne TheAccessHub z przepływem zasad rejestrowania.
+- Obowiązkowe Skonfigurowane środowisko Azure AD B2C do używania [zasad niestandardowych](./custom-policy-get-started.md), jeśli chcesz zintegrować narzędzie administracyjne TheAccessHub z przepływem zasad rejestrowania.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -162,9 +162,9 @@ Uprawnienia do zarządzania użytkownikami klienta i CSR/pomoc techniczna w narz
 
 3. Wybierz > **Dodaj grupę**
 
-4. Wprowadź **nazwę grupy** , **Opis grupy** i **właściciela grupy**
+4. Wprowadź **nazwę grupy**, **Opis grupy** i **właściciela grupy**
 
-5. Wyszukaj i zaznacz pola współpracowników, które mają należeć do grupy, a następnie wybierz pozycję > **Dodaj**
+5. Wyszukaj i zaznacz pola współpracowników, które mają należeć do grupy, a następnie wybierz pozycję >**Dodaj**
 
 6. W dolnej części strony można zobaczyć wszystkich członków grupy.
 
@@ -180,7 +180,7 @@ Uprawnienia do zarządzania użytkownikami klienta i CSR/pomoc techniczna w narz
 
 3. Wybierz > **Dodaj organizację**
 
-4. Podaj **nazwę organizacji** , **właściciela organizacji** i **organizację nadrzędną**.
+4. Podaj **nazwę organizacji**, **właściciela organizacji** i **organizację nadrzędną**.
 
     a. Nazwa organizacji idealnie nanosi wartość odpowiadającą danym klienta. Podczas ładowania danych o współpracownikach i klientach w przypadku podania nazwy organizacji w obciążeniu, współpracownik może zostać automatycznie umieszczony w organizacji.
 
@@ -250,7 +250,7 @@ Za pomocą narzędzia administracyjnego TheAccessHub można importować dane z r
 
    f. **Zapytanie** — wprowadź zapytanie SQL, aby wyodrębnić szczegóły klienta. Takie jak: ``SELECT * FROM mytable;``
 
-   przykład Wybierz pozycję **Testuj połączenie** , zobaczysz przykład danych, aby upewnić się, że połączenie działa.
+   przykład Wybierz pozycję **Testuj połączenie**, zobaczysz przykład danych, aby upewnić się, że połączenie działa.
 
    **Dla LDAPs**
 
@@ -272,7 +272,7 @@ Za pomocą narzędzia administracyjnego TheAccessHub można importować dane z r
 
    i. **Atrybuty** — wprowadź rozdzieloną przecinkami listę atrybutów z rekordów klientów do przekazania do narzędzia administracyjnego TheAccessHub
 
-   j. Wybierz **połączenie testowe** , aby zobaczyć przykładowe dane, aby upewnić się, że połączenie działa.
+   j. Wybierz **połączenie testowe**, aby zobaczyć przykładowe dane, aby upewnić się, że połączenie działa.
 
    **Dla usługi OneDrive**
 
@@ -280,7 +280,7 @@ Za pomocą narzędzia administracyjnego TheAccessHub można importować dane z r
 
    b. Wybierz opcję **Autoryzuj połączenie**
 
-   c. Nowe okno wyświetli monit o zalogowanie do **usługi OneDrive** , zaloguj się przy użyciu użytkownika z dostępem do odczytu do konta w usłudze OneDrive. Narzędzie administracyjne TheAccessHub, będzie działać dla tego użytkownika w celu odczytania plików ładowania woluminu CSV.
+   c. Nowe okno wyświetli monit o zalogowanie do **usługi OneDrive**, zaloguj się przy użyciu użytkownika z dostępem do odczytu do konta w usłudze OneDrive. Narzędzie administracyjne TheAccessHub, będzie działać dla tego użytkownika w celu odczytania plików ładowania woluminu CSV.
 
    d. Postępuj zgodnie z monitami i wybierz pozycję **Akceptuj** , aby przyznać narzędziu administratora TheAccessHub żądane uprawnienia.
 
@@ -296,7 +296,7 @@ Za pomocą narzędzia administracyjnego TheAccessHub można importować dane z r
 
 4. Wybierz **Typ współpracownika** Azure AD B2C użytkownika
 
-5. Wybierz pozycję **Źródło** , w oknie dialogowym podręcznym wybierz źródło danych. Jeśli utworzono źródło danych w usłudze OneDrive, należy również wybrać plik.
+5. Wybierz pozycję **Źródło**, w oknie dialogowym podręcznym wybierz źródło danych. Jeśli utworzono źródło danych w usłudze OneDrive, należy również wybrać plik.
 
 6. Jeśli nie chcesz tworzyć nowych kont klienta przy użyciu tego obciążenia, Zmień pierwsze zasady: **Jeśli współpracownik nie został znaleziony w TheAccessHub** , aby **nic nie robić**
 
@@ -358,7 +358,7 @@ Aby synchronizować dane z Azure AD B2C do narzędzia administracyjnego TheAcces
 
 ## <a name="configure-azure-ad-b2c-policies"></a>Konfigurowanie zasad Azure AD B2C
 
-Okresowe synchronizowanie narzędzia administracyjnego TheAccessHub jest ograniczone w celu zachowania aktualności stanu w Azure AD B2C. Firma Microsoft może korzystać z interfejsu API i zasad Azure AD B2C narzędzia administracyjnego TheAccessHub, aby informować narzędzie administracyjne TheAccessHub o zmianach w miarę ich występowania. To rozwiązanie wymaga wiedzy technicznej dotyczącej [Azure AD B2C zasad niestandardowych](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started#:~:text=%20Get%20started%20with%20custom%20policies%20in%20Azure,Experience%20Framework%20applications.%20Azure%20AD%20B2C...%20More%20). W następnej sekcji przedstawimy przykładowe kroki zasad i bezpieczny certyfikat do powiadamiania narzędzia administracyjnego TheAccessHub o nowych kontach w zasadach niestandardowych Sign-Up.
+Okresowe synchronizowanie narzędzia administracyjnego TheAccessHub jest ograniczone w celu zachowania aktualności stanu w Azure AD B2C. Firma Microsoft może korzystać z interfejsu API i zasad Azure AD B2C narzędzia administracyjnego TheAccessHub, aby informować narzędzie administracyjne TheAccessHub o zmianach w miarę ich występowania. To rozwiązanie wymaga wiedzy technicznej dotyczącej [Azure AD B2C zasad niestandardowych](./custom-policy-get-started.md). W następnej sekcji przedstawimy przykładowe kroki zasad i bezpieczny certyfikat do powiadamiania narzędzia administracyjnego TheAccessHub o nowych kontach w zasadach niestandardowych Sign-Up.
 
 ### <a name="create-a-secure-credential-to-invoke-theaccesshub-admin-tools-api"></a>Utwórz bezpieczne poświadczenie, aby wywołać interfejs API narzędzia administracyjnego TheAccessHub
 
@@ -372,7 +372,7 @@ Okresowe synchronizowanie narzędzia administracyjnego TheAccessHub jest ogranic
 
 5. Wybierz pozycję **Pobierz** , aby pobrać certyfikat klienta.
 
-6. Postępuj zgodnie z tym [samouczkiem](https://docs.microsoft.com/azure/active-directory-b2c/secure-rest-api#https-client-certificate-authentication ) , aby dodać certyfikat klienta do Azure AD B2C.
+6. Postępuj zgodnie z tym [samouczkiem](./secure-rest-api.md#https-client-certificate-authentication ) , aby dodać certyfikat klienta do Azure AD B2C.
 
 ### <a name="retrieve-your-custom-policy-examples"></a>Pobierz niestandardowe przykłady zasad
 
@@ -386,12 +386,12 @@ Okresowe synchronizowanie narzędzia administracyjnego TheAccessHub jest ogranic
 
 5. Wybierz pozycję **Pobierz** , aby pobrać plik zip z podstawowymi zasadami, które umożliwiają dodawanie klientów do narzędzia administracyjnego TheAccessHub podczas rejestrowania klientów.
 
-6. Postępuj zgodnie z tym [samouczkiem](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started) , aby rozpocząć projektowanie zasad niestandardowych w Azure AD B2C.
+6. Postępuj zgodnie z tym [samouczkiem](./custom-policy-get-started.md) , aby rozpocząć projektowanie zasad niestandardowych w Azure AD B2C.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać dodatkowe informacje, zapoznaj się z następującymi artykułami:
 
-- [Zasady niestandardowe w usłudze Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Zasady niestandardowe w usłudze Azure AD B2C](./custom-policy-overview.md)
 
-- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

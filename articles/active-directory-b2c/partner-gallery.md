@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3bf65fd2cc6feb338c1cd7d0742fb3d2a4289eff
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: c695a08e25512720c542c2a94048c5390b452591
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287191"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171006"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Azure Active Directory B2C partnerów niezależnych dostawców oprogramowania
 
@@ -37,6 +37,7 @@ Nasza sieć partnera niezależnego dostawcy oprogramowania rozszerza możliwośc
 | ![Zrzut ekranu przedstawiający logo Jumio.](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) to usługa weryfikacji identyfikatora, która umożliwia automatyczne weryfikację identyfikatora w czasie rzeczywistym, chroniąc dane klientów. |
 | ![Zrzut ekranu przedstawiający logo LexisNexis.](./media/partner-gallery/lexisnexis-logo.png) | [LexisNexis](./partner-lexisnexis.md) jest dostawcą profilowania i weryfikacji tożsamości, który weryfikuje tożsamość użytkownika i zapewnia kompleksową ocenę ryzyka opartą na urządzeniu użytkownika. |
 | ![Zrzut ekranu przedstawiający logo tożsamości N8.](./media/partner-gallery/n8identity-logo.png) | [N8 Identity](./partner-n8identity.md) to platforma ładu typu "tożsamość jako usługa", która zapewnia rozwiązanie do obsługi migracji kont klientów i administrowania żądaniami obsługi klienta (CSR) działającym na Microsoft Azure. |
+| ![Zrzut ekranu przedstawiający logo firmy Nevis.](./media/partner-gallery/nevis-logo.png) | Usługa [Nevis](./partner-nevis.md) zapewnia mobilny, w pełni oznakowany interfejs użytkownika końcowego z dostępem do aplikacji firmy Nevis, aby zapewnić silne uwierzytelnianie klienta i zgodność z wymaganiami transakcji dyrektywy 2 (PSD2). |
 | ![Zrzut ekranu przedstawiający logo Onfido.](./media/partner-gallery/onfido-logo.png) | [Onfido](./partner-onfido.md) to identyfikator dokumentu oraz rozwiązanie do weryfikacji twarzy biometryczne, które umożliwia firmom zaspokajanie wymagań *klienta* i tożsamości w czasie rzeczywistym.  |
 | ![Zrzut ekranu przedstawiający logo Saviynt.](./media/partner-gallery/saviynt-logo.png) | Platforma [Saviynt](./partner-saviynt.md) w chmurze używa inteligentnej analizy i zapewnia integrację między aplikacjami, aby usprawnić modernizację i wspierać lepsze zabezpieczenia, nadzór i zgodność. Modernizacja firmy zmienia sposób, w jaki firmy przeglądają żądania dostępu, przeprowadzają przeglądy dostępu, analizy raportów i usprawniają kampanie certyfikacyjne.  |
 | ![Zrzut ekranu przedstawiający logo o obwarstwie.](./media/partner-gallery/strata-logo.png) | Firma [strat](./partner-strata.md) chroni aplikacje lokalne przez wymuszanie spójnych zasad dostępu, utrzymywanie tożsamości w synchronizacji i ułatwia przenoszenie aplikacji ze starszych systemów tożsamości do opartej na standardach uwierzytelniania i kontroli dostępu zapewnianych przez Azure AD B2C. |

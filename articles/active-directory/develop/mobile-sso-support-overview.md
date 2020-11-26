@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 4a9282882d23ecbdc3c03ca158ea3de5566143e7
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 59924c1f876d08aa504f19c5d6c86dca32fbd1e2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94634858"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173468"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Obsługa logowania jednokrotnego i zasad ochrony aplikacji w aplikacjach mobilnych, które tworzysz
 
@@ -38,7 +38,7 @@ Zalecamy wykonanie poniższych czynności, aby umożliwić aplikacji korzystanie
 
 ### <a name="use-microsoft-authentication-library-msal"></a>Użyj biblioteki uwierzytelniania firmy Microsoft (MSAL)
 
-Najlepszym wyborem do implementowania logowania jednokrotnego w aplikacji jest użycie [biblioteki uwierzytelniania firmy Microsoft (MSAL)](msal-overview.md). Za pomocą MSAL można dodać uwierzytelnianie do aplikacji z minimalnymi wywołaniami kodu i interfejsu API, uzyskać pełne funkcje [platformy tożsamości firmy Microsoft](/azure/active-directory/develop/), a firma Microsoft może obsłużyć konserwację bezpiecznego rozwiązania do uwierzytelniania. Domyślnie MSAL dodaje obsługę logowania jednokrotnego dla aplikacji. Ponadto korzystanie z MSAL jest wymagane, jeśli planujesz również wdrożenie zasad ochrony aplikacji.
+Najlepszym wyborem do implementowania logowania jednokrotnego w aplikacji jest użycie [biblioteki uwierzytelniania firmy Microsoft (MSAL)](msal-overview.md). Za pomocą MSAL można dodać uwierzytelnianie do aplikacji z minimalnymi wywołaniami kodu i interfejsu API, uzyskać pełne funkcje [platformy tożsamości firmy Microsoft](./index.yml), a firma Microsoft może obsłużyć konserwację bezpiecznego rozwiązania do uwierzytelniania. Domyślnie MSAL dodaje obsługę logowania jednokrotnego dla aplikacji. Ponadto korzystanie z MSAL jest wymagane, jeśli planujesz również wdrożenie zasad ochrony aplikacji.
 
 > [!NOTE]
 > Można skonfigurować MSAL tak, aby korzystał z osadzonego widoku sieci Web. Uniemożliwi to Logowanie jednokrotne. Użyj zachowania domyślnego (czyli przeglądarki sieci Web systemu), aby upewnić się, że logowanie jednokrotne będzie działało.
@@ -64,17 +64,17 @@ Firma Apple ma wskazówki dotyczące tego działania w aplikacjach systemu iOS: 
 
 Aby włączyć zasady ochrony aplikacji, użyj [biblioteki Microsoft Authentication Library (MSAL)](msal-overview.md). MSAL to biblioteka uwierzytelniania i autoryzacji platformy tożsamości firmy Microsoft, a zestaw SDK usługi Intune jest opracowywany do współpracy z działem IT.
 
-Ponadto do uwierzytelniania należy użyć aplikacji brokera. Broker wymaga, aby aplikacja zapewniała informacje o aplikacji i urządzeniu w celu zapewnienia zgodności aplikacji. Użytkownicy systemu iOS będą korzystać z [aplikacji Microsoft Authenticator](../user-help/user-help-auth-app-sign-in.md) i użytkownicy systemu Android będą korzystać z aplikacji Microsoft Authenticator lub [aplikacji Portal firmy](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) na potrzeby uwierzytelniania obsługiwanego przez [brokera](brokered-auth.md). Domyślnie MSAL korzysta z brokera jako pierwszej opcji do realizacji żądania uwierzytelnienia, dlatego przy użyciu brokera do uwierzytelniania zostanie włączona automatyczna aplikacja podczas korzystania z MSAL.
+Ponadto do uwierzytelniania należy użyć aplikacji brokera. Broker wymaga, aby aplikacja zapewniała informacje o aplikacji i urządzeniu w celu zapewnienia zgodności aplikacji. Użytkownicy systemu iOS będą korzystać z [aplikacji Microsoft Authenticator](../user-help/user-help-auth-app-sign-in.md) i użytkownicy systemu Android będą korzystać z aplikacji Microsoft Authenticator lub [aplikacji Portal firmy](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) na potrzeby uwierzytelniania obsługiwanego przez [brokera](./msal-android-single-sign-on.md). Domyślnie MSAL korzysta z brokera jako pierwszej opcji do realizacji żądania uwierzytelnienia, dlatego przy użyciu brokera do uwierzytelniania zostanie włączona automatyczna aplikacja podczas korzystania z MSAL.
 
 Na koniec [Dodaj do aplikacji zestaw SDK usługi Intune](/mem/intune/developer/app-sdk-get-started) , aby włączyć zasady ochrony aplikacji. Zestaw SDK dla najbardziej części jest zgodny z modelem przechwytywania i automatycznie zastosuje zasady ochrony aplikacji w celu określenia, czy akcje podejmowane przez aplikację są dozwolone, czy nie. Istnieją również interfejsy API, które można wywoływać ręcznie, aby poinformować aplikację, jeśli istnieją ograniczenia dotyczące pewnych akcji.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Planowanie Azure Active Directory wdrożenia przy użyciu logowania jednokrotnego](../manage-apps/plan-sso-deployment.md)
 - [Instrukcje: Konfigurowanie logowania jednokrotnego w systemach macOS i iOS](single-sign-on-macos-ios.md)
 - [Wtyczka Microsoft Enterprise SSO dla urządzeń firmy Apple (wersja zapoznawcza)](apple-sso-plugin.md)
-- [Uwierzytelnianie obsługiwane przez brokera w systemie Android](brokered-auth.md)
-- [Agenci autoryzacji i sposoby ich włączania](authorization-agents.md)
+- [Uwierzytelnianie obsługiwane przez brokera w systemie Android](./msal-android-single-sign-on.md)
+- [Agenci autoryzacji i sposoby ich włączania](./msal-android-single-sign-on.md)
 - [Wprowadzenie do zestawu SDK aplikacji usługi Microsoft Intune](/mem/intune/developer/app-sdk-get-started)
 - [Konfigurowanie ustawień zestawu SDK aplikacji usługi Intune](/mem/intune/developer/app-sdk-ios#configure-settings-for-the-intune-app-sdk)
 - [Chronione aplikacje w usłudze Microsoft Intune](/mem/intune/apps/apps-supported-intune-apps)

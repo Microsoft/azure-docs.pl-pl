@@ -16,12 +16,12 @@ ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eccc0e71c73fb8bd2a5a50ebd0dda048d34dbea0
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 032b1ca945cf729f8a6682cf71d26a716b1e8863
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488404"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172351"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Wymagania wstępne dotyczące programu Azure AD Connect
 W tym artykule opisano wymagania wstępne i wymagania sprzętowe dotyczące programu Azure Active Directory (Azure AD) Connect.
@@ -42,8 +42,8 @@ Przed zainstalowaniem Azure AD Connect istnieje kilka rzeczy, które są potrzeb
 
 ### <a name="on-premises-active-directory"></a>Lokalna usługa Active Directory
 * Wersja schematu Active Directory i poziom funkcjonalności lasu muszą być systemu Windows Server 2003 lub nowszego. Kontrolery domeny mogą uruchamiać dowolną wersję, o ile są spełnione wymagania dotyczące wersji schematu i poziomu lasu.
-* Jeśli planujesz używać funkcji *zapisywania zwrotnego haseł* , kontrolery domeny muszą być w systemie Windows Server 2012 lub nowszym.
-* Kontroler domeny używany przez usługę Azure AD musi być zapisywalny. Korzystanie z kontrolera domeny tylko do odczytu (RODC) *nie jest obsługiwane* , a Azure AD Connect nie jest zgodna z przekierowaniami zapisu.
+* Jeśli planujesz używać funkcji *zapisywania zwrotnego haseł*, kontrolery domeny muszą być w systemie Windows Server 2012 lub nowszym.
+* Kontroler domeny używany przez usługę Azure AD musi być zapisywalny. Korzystanie z kontrolera domeny tylko do odczytu (RODC) *nie jest obsługiwane*, a Azure AD Connect nie jest zgodna z przekierowaniami zapisu.
 * Używanie lokalnych lasów lub domen przy użyciu "kropkowane" (nazwa zawiera kropkę ".") Nazwy NetBIOS *nie są obsługiwane*.
 * Zalecamy [włączenie kosza Active Directory](how-to-connect-sync-recycle-bin.md).
 
@@ -52,7 +52,7 @@ Azure Active Directory Connect uruchamia podpisane skrypty programu PowerShell w
 
 Zalecane zasady wykonywania podczas instalacji to "RemoteSigned".
 
-Aby uzyskać więcej informacji na temat ustawiania zasad wykonywania programu PowerShell, zobacz [Set-executionpolicy](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7).
+Aby uzyskać więcej informacji na temat ustawiania zasad wykonywania programu PowerShell, zobacz [Set-executionpolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7).
 
 
 ### <a name="azure-ad-connect-server"></a>Serwer Azure AD Connect
@@ -82,7 +82,7 @@ Zaleca się, aby zabezpieczyć serwer Azure AD Connect, aby zmniejszyć obszar a
 - Utwórz [dedykowane konto dla wszystkich pracowników z dostępem uprzywilejowanym](/windows-server/identity/securing-privileged-access/securing-privileged-access). Administratorzy nie powinni przeglądać sieci Web, sprawdzać ich pocztą e-mail ani codziennych zadań produkcyjnych przy użyciu wysoce uprzywilejowanych kont.
 - Postępuj zgodnie ze wskazówkami podanymi w temacie [Zabezpieczanie uprzywilejowanego dostępu](/windows-server/identity/securing-privileged-access/securing-privileged-access). 
 - Odmów używania uwierzytelniania NTLM z serwerem AADConnect. Oto kilka sposobów, aby to zrobić: [ograniczenia uwierzytelniania NTLM na serwerze AADConnect](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-outgoing-ntlm-traffic-to-remote-servers) i [ograniczania uwierzytelniania NTLM w domenie](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain)
-- Upewnij się, że każdy komputer ma unikatowe hasło administratora lokalnego. Aby uzyskać więcej informacji, zobacz [rozwiązanie hasła administratora lokalnego (](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) zależnie od) umożliwia skonfigurowanie unikatowych losowych haseł na każdej stacji roboczej i przechowywanie ich w Active Directory chronionych przez listę kontroli dostępu. Tylko uprawnieni autoryzowani użytkownicy mogą odczytywać lub żądać resetowania haseł konta administratora lokalnego. Możesz uzyskać dostęp do programu na stacjach roboczych i serwerach z [Centrum pobierania Microsoft](https://www.microsoft.com/download/details.aspx?id=46899#:~:text=The%20%22Local%20Administrator%20Password%20Solution,it%20or%20request%20its%20reset.). Dodatkowe wskazówki dotyczące działania środowiska z innymi i stacjami roboczymi dostępu uprzywilejowanego (dostępem uprzywilejowanym) można znaleźć w temacie [standardy operacyjne na podstawie zasad czystego źródła](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle). 
+- Upewnij się, że każdy komputer ma unikatowe hasło administratora lokalnego. Aby uzyskać więcej informacji, zobacz [rozwiązanie hasła administratora lokalnego (](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) zależnie od) umożliwia skonfigurowanie unikatowych losowych haseł na każdej stacji roboczej i przechowywanie ich w Active Directory chronionych przez listę kontroli dostępu. Tylko uprawnieni autoryzowani użytkownicy mogą odczytywać lub żądać resetowania haseł konta administratora lokalnego. Możesz uzyskać dostęp do programu na stacjach roboczych i serwerach z [Centrum pobierania Microsoft](https://www.microsoft.com/download/details.aspx?id=46899). Dodatkowe wskazówki dotyczące działania środowiska z innymi i stacjami roboczymi dostępu uprzywilejowanego (dostępem uprzywilejowanym) można znaleźć w temacie [standardy operacyjne na podstawie zasad czystego źródła](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle). 
 - Zaimplementuj dedykowane [stacje robocze dostępu uprzywilejowanego](/windows-server/identity/securing-privileged-access/privileged-access-workstations) dla wszystkich pracowników z dostępem uprzywilejowanym do systemów informatycznych w organizacji. 
 - Postępuj zgodnie z tymi [dodatkowymi wskazówkami](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) , aby zmniejszyć obszar ataków na środowisko Active Directory.
 
@@ -180,7 +180,7 @@ W przypadku używania Azure AD Connect do wdrażania AD FS lub serwera proxy apl
   * Na komputerze, na którym uruchomiony jest Kreator (Jeśli komputer docelowy nie jest przyłączony do domeny lub jest domeną niezaufaną):
     * W oknie wiersza polecenia programu PowerShell z podwyższonym poziomem uprawnień Użyj polecenia `Set-Item.WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate` .
     * W Menedżerze serwera:
-      * Dodaj hosta WAP w strefie DMZ do puli maszyn. W Menedżerze serwera wybierz pozycję **Zarządzaj**  >  **Dodaj serwery** , a następnie użyj karty **DNS** .
+      * Dodaj hosta WAP w strefie DMZ do puli maszyn. W Menedżerze serwera wybierz pozycję **Zarządzaj**  >  **Dodaj serwery**, a następnie użyj karty **DNS** .
       * Na karcie **Menedżer serwera wszystkie serwery** kliknij prawym przyciskiem myszy serwer WAP i wybierz polecenie **Zarządzaj jako**. Wprowadź poświadczenia lokalne (nie domeny) dla komputera WAP.
       * Aby sprawdzić poprawność łączności zdalnego programu PowerShell, na karcie **Menedżer serwera wszystkie serwery** kliknij prawym przyciskiem myszy serwer WAP i wybierz pozycję **Windows PowerShell**. Zdalna sesja programu PowerShell powinna zostać otwarta w celu zapewnienia, że można nawiązać zdalne sesje programu PowerShell.
 

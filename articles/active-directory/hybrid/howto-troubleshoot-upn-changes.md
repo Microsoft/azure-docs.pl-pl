@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a1acdbeb29091bae0be214b740023f13928506a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46ecc2cba96b07d9105020e69ae3198a3765be7c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319847"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172235"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Planowanie i rozwiązywanie problemów ze zmianami nazwy głównej użytkownika w Azure Active Directory
 
@@ -174,7 +174,7 @@ Organizacja może wymagać korzystania z [aplikacji Microsoft Authenticator](../
 
 * Uwierzytelnianie wieloskładnikowe za pośrednictwem powiadomienia wypychanego lub kodu weryfikacyjnego
 
-* Działaj jako Broker uwierzytelniania na urządzeniach z systemem iOS i Android w celu zapewnienia logowania jednokrotnego dla aplikacji korzystających z uwierzytelniania obsługiwanego przez [brokera](../develop/brokered-auth.md)
+* Działaj jako Broker uwierzytelniania na urządzeniach z systemem iOS i Android w celu zapewnienia logowania jednokrotnego dla aplikacji korzystających z uwierzytelniania obsługiwanego przez [brokera](../develop/msal-android-single-sign-on.md)
 
 * Rejestracja urządzeń (znana również jako Workplace Join) w usłudze Azure AD, która jest wymagana do innych funkcji, takich jak Intune App Protection i rejestracji urządzeń/zarządzania,
 

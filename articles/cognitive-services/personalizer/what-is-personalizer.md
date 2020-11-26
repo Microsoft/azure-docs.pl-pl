@@ -8,11 +8,11 @@ ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: Personalizacja, Personalizacja platformy Azure, uczenie maszynowe
 ms.openlocfilehash: f843e7bfa014ad8391e20efff83a3c21a9de11b9
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363905"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171963"
 ---
 # <a name="what-is-personalizer"></a>Co to jest usługa Personalizacja?
 
@@ -29,14 +29,14 @@ Zanim zaczniesz, możesz wypróbować program [Personalizuj przy użyciu tego in
 
 ## <a name="how-does-personalizer-select-the-best-content-item"></a>Jak Personalizował wybór najlepszego elementu zawartości?
 
-Personalizacja korzysta z **uczenia wzmacniania** , aby wybrać najlepszy element ( _akcję_ ) w oparciu o wspólne zachowanie i nagrody dla wszystkich użytkowników. Akcje to elementy zawartości, takie jak artykuły z wiadomościami, określone filmy lub produkty.
+Personalizacja korzysta z **uczenia wzmacniania** , aby wybrać najlepszy element (_akcję_) w oparciu o wspólne zachowanie i nagrody dla wszystkich użytkowników. Akcje to elementy zawartości, takie jak artykuły z wiadomościami, określone filmy lub produkty.
 
 Wywołanie **rangi** przyjmuje element akcji, a także funkcje akcji i funkcji kontekstu, aby wybrać górny element akcji:
 
 * **Akcje z funkcjami** — elementy zawartości z funkcjami specyficznymi dla każdego elementu
 * **Funkcje kontekstu** — funkcje użytkowników, ich kontekst lub środowisko w przypadku korzystania z aplikacji
 
-Wywołanie rangi zwraca identyfikator, dla którego element zawartości, __akcję__ , która ma być wyświetlana użytkownikowi, w polu **Identyfikator akcji nagrody** .
+Wywołanie rangi zwraca identyfikator, dla którego element zawartości, __akcję__, która ma być wyświetlana użytkownikowi, w polu **Identyfikator akcji nagrody** .
 
 __Akcja__ pokazywana użytkownikowi jest wybierana z modelami uczenia maszynowego, które próbują zmaksymalizować łączną ilość korzyści w czasie.
 
@@ -94,7 +94,7 @@ Ponieważ program Personalizujer używa informacji zbiorczych niemal w czasie rz
     |--|--|
     |Wybrany użytkownik: najlepszy, pojedynczy element _zawartości_ (Identyfikator akcji nagradzania)|**1**|
     |Użytkownik zaznaczył inną zawartość|**0**|
-    |Użytkownik wstrzymał pracę, przewijając się w sposób niedecydujący, przed wybraniem najlepszego, pojedynczego elementu _zawartości_ (Identyfikator akcji nagradzania)|**0.5**|
+    |Użytkownik wstrzymał pracę, przewijając się w sposób niedecydujący, przed wybraniem najlepszego, pojedynczego elementu _zawartości_ (Identyfikator akcji nagradzania)|**0,5**|
 
     1. Dodaj wywołanie **zarobkowe** wysyłające wynik nagrody z zakresu od 0 do 1
         * Natychmiast po pokazywania zawartości

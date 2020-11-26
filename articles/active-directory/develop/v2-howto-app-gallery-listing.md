@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 3b9f744e414e83c103f6b9249a0ccf5020588463
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 6374164bb5049742d63a669b4c1e552c93967977
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356352"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173383"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publikowanie aplikacji w galerii aplikacji usługi Azure AD
 
@@ -36,7 +36,7 @@ Ponadto istnieje wiele korzyści, gdy klienci korzystają z usługi Azure AD jak
 - Udostępnianie użytkownikom logowania jednokrotnego. Logowanie jednokrotne pozwala zmniejszyć koszty pomocy technicznej, ułatwiając klientom logowanie jednokrotne. Jeśli włączono Logowanie jednokrotne, Administratorzy IT klientów nie muszą dowiedzieć się, jak skonfigurować aplikację do użycia w organizacji. Aby dowiedzieć się więcej o logowaniu jednokrotnym, zobacz [co to jest logowanie jednokrotne?](../manage-apps/what-is-single-sign-on.md).
 - Aplikację można znaleźć w galerii aplikacji Microsoft 365, w obszarze uruchamiania aplikacji Microsoft 365 i w ramach wyszukiwania firmy Microsoft w witrynie Office.com. 
 - Zintegrowane zarządzanie aplikacjami. Aby dowiedzieć się więcej o zarządzaniu aplikacjami w usłudze Azure AD, zobacz [co to jest zarządzanie aplikacjami?](../manage-apps/what-is-application-management.md).
-- Twoja aplikacja może korzystać z [interfejs API programu Graph](https://docs.microsoft.com/graph/) , aby uzyskać dostęp do danych, które umożliwiają produktywność użytkowników w ekosystemie firmy Microsoft.
+- Twoja aplikacja może korzystać z [interfejs API programu Graph](/graph/) , aby uzyskać dostęp do danych, które umożliwiają produktywność użytkowników w ekosystemie firmy Microsoft.
 - Dokumentacja specyficzna dla aplikacji utworzona wspólnie z zespołem usługi Azure AD dla naszych wzajemnych klientów upraszcza wdrażanie.
 - Klienci mogą w całości zarządzać uwierzytelnianiem i autoryzacją tożsamości pracowników i Gości.
 - Zapewnienie odpowiedzialności za zarządzanie kontami i zgodność z właścicielem tych tożsamości przez klienta.
@@ -47,7 +47,7 @@ Ponadto istnieje wiele korzyści, gdy klienci korzystają z usługi Azure AD jak
 - Dodaj zabezpieczenia i wygodę, gdy użytkownicy logują się do aplikacji za pomocą logowania jednokrotnego usługi Azure AD i usuwając potrzebę oddzielenia poświadczeń.
 
 > [!TIP]
-> W przypadku oferowania aplikacji do użytku przez inne firmy za pomocą zakupu lub subskrypcji możesz udostępnić swoją aplikację klientom w ramach swoich dzierżaw platformy Azure. Jest to tzw. Tworzenie aplikacji z wieloma dzierżawcami. Aby zapoznać się z omówieniem tego pojęcia, zobacz wielodostępne [aplikacje na platformie Azure](https://docs.microsoft.com/azure/dotnet-develop-multitenant-applications) i [dzierżawę w Azure Active Directory](single-and-multi-tenant-apps.md).
+> W przypadku oferowania aplikacji do użytku przez inne firmy za pomocą zakupu lub subskrypcji możesz udostępnić swoją aplikację klientom w ramach swoich dzierżaw platformy Azure. Jest to tzw. Tworzenie aplikacji z wieloma dzierżawcami. Aby zapoznać się z omówieniem tego pojęcia, zobacz wielodostępne [aplikacje na platformie Azure](../../dotnet-develop-multitenant-applications.md) i [dzierżawę w Azure Active Directory](single-and-multi-tenant-apps.md).
 
 > [!IMPORTANT]
 > Aby opublikować aplikację w galerii usługi Azure AD, musisz wyrazić zgodę na określone warunki i postanowienia. Przed rozpoczęciem upewnij się, że Odczytuj i zgadzasz się na [warunki i postanowienia](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
@@ -162,7 +162,7 @@ Jeśli aplikacja obsługuje protokół SAML 2,0, możesz zintegrować go bezpoś
 Firma Microsoft nie udostępnia lub nie zaleca bibliotek dla implementacji SAML. Dostępnych jest wiele bibliotek Open Source.
 
 ### <a name="implement-ws-fed"></a>Implementowanie WS-Fed
-Aby dowiedzieć się więcej na temat WS-Fed w ASP.NET Core, zobacz temat [uwierzytelnianie użytkowników za pomocą WS-Federation w ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/authentication/ws-federation).
+Aby dowiedzieć się więcej na temat WS-Fed w ASP.NET Core, zobacz temat [uwierzytelnianie użytkowników za pomocą WS-Federation w ASP.NET Core](/aspnet/core/security/authentication/ws-federation).
 
 ### <a name="implement-password-vaulting"></a>Implementowanie magazynu haseł
 
@@ -173,7 +173,7 @@ Utwórz aplikację sieci Web, która ma stronę logowania w formacie HTML. Upewn
 
 Do przetestowania aplikacji potrzebna jest dzierżawa usługi Azure AD. Aby skonfigurować środowisko programistyczne, zobacz [Szybki Start: Konfigurowanie dzierżawy](quickstart-create-new-tenant.md).
 
-Alternatywnie dzierżawa usługi Azure AD jest dostarczana z każdą subskrypcją Microsoft 365. Aby skonfigurować bezpłatne środowisko deweloperskie Microsoft 365, zobacz [dołączanie do programu Microsoft 365 Developer](https://docs.microsoft.com/office/developer-program/microsoft-365-developer-program).
+Alternatywnie dzierżawa usługi Azure AD jest dostarczana z każdą subskrypcją Microsoft 365. Aby skonfigurować bezpłatne środowisko deweloperskie Microsoft 365, zobacz [dołączanie do programu Microsoft 365 Developer](/office/developer-program/microsoft-365-developer-program).
 
 Po uzyskaniu dzierżawy musisz włączyć i przetestować Logowanie jednokrotne. 
 
@@ -209,7 +209,7 @@ Zalecamy, aby dokumentacja w witrynie zawierała co najmniej następujące eleme
 
 ### <a name="documentation-on-the-microsoft-site"></a>Dokumentacja w witrynie firmy Microsoft
 
-Po wyświetleniu listy aplikacji za pomocą galerii aplikacji Azure Active Directory, która również publikuje aplikację w portalu Azure Marketplace, firma Microsoft będzie generować dokumentację dla naszych klientów, którzy objaśniają proces krok po kroku. Przykład można zobaczyć [tutaj](https://aka.ms/appstutorial). Ta dokumentacja jest tworzona na podstawie przesłanej do galerii i można ją łatwo zaktualizować w przypadku wprowadzania zmian w aplikacji przy użyciu konta usługi GitHub.
+Po wyświetleniu listy aplikacji za pomocą galerii aplikacji Azure Active Directory, która również publikuje aplikację w portalu Azure Marketplace, firma Microsoft będzie generować dokumentację dla naszych klientów, którzy objaśniają proces krok po kroku. Przykład można zobaczyć [tutaj](../saas-apps/tutorial-list.md). Ta dokumentacja jest tworzona na podstawie przesłanej do galerii i można ją łatwo zaktualizować w przypadku wprowadzania zmian w aplikacji przy użyciu konta usługi GitHub.
 
 
 ## <a name="step-5---submit-your-app"></a>Krok 5. przesyłanie aplikacji
@@ -254,7 +254,7 @@ Jeśli chcesz dodać aplikację do listy w galerii za pomocą OpenID Connect Con
 
 ![Wyświetlanie aplikacji OpenID Connect Connect w galerii](./media/howto-app-gallery-listing/openid.png)
 
-Jeśli chcesz dodać aplikację do listy w galerii za pomocą **saml 2,0** lub **WS-karmione** , wybierz pozycję **SAML 2.0/WS-karmione** , jak pokazano.
+Jeśli chcesz dodać aplikację do listy w galerii za pomocą **saml 2,0** lub **WS-karmione**, wybierz pozycję **SAML 2.0/WS-karmione** , jak pokazano.
 
 ![Wyświetlanie listy aplikacji SAML 2,0 lub WS-Fed w galerii](./media/howto-app-gallery-listing/saml.png)
 
@@ -262,7 +262,7 @@ Jeśli chcesz dodać aplikację do listy w galerii przy użyciu hasła logowania
 
 ![Wyświetlanie listy aplikacji Logowanie jednokrotne w galerii](./media/howto-app-gallery-listing/passwordsso.png)
 
-Jeśli wdrażasz punkt końcowy [standard scim](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) 2,0 na potrzeby aprowizacji użytkowników, wybierz opcję, jak pokazano. 
+Jeśli wdrażasz punkt końcowy [standard scim](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2,0 na potrzeby aprowizacji użytkowników, wybierz opcję, jak pokazano. 
 
    ![Żądanie aprowizacji użytkownika](./media/howto-app-gallery-listing/user-provisioning.png)
 

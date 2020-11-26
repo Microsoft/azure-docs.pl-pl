@@ -11,12 +11,12 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d54e1127207f0593f8d345b266d7db6e92b5c0d
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 65e1217041d85b66664792d9475cdfcb517559b9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335404"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172439"
 ---
 # <a name="what-is-identity-lifecycle-management"></a>Co to jest zarządzanie cyklem życia tożsamości?
 
@@ -70,7 +70,7 @@ Usługa Azure AD udostępnia obecnie następujące funkcje:
 ## <a name="next-steps"></a>Następne kroki 
 
 - [Co to jest aprowizacja?](what-is-provisioning.md)
-- [Zarządzanie dostępem użytkowników zewnętrznych w usłudze Azure AD upoważnienia](/azure/active-directory/governance/entitlement-management-external-users)
+- [Zarządzanie dostępem użytkowników zewnętrznych w usłudze Azure AD upoważnienia](./entitlement-management-external-users.md)
 - [Co to jest obsługa administracyjna oparta na HR?](what-is-hr-driven-provisioning.md)
 - [Co to jest aprowizacja aplikacji?](what-is-app-provisioning.md)
 - [Co to jest aprowizacja między katalogami?](what-is-inter-directory-provisioning.md)

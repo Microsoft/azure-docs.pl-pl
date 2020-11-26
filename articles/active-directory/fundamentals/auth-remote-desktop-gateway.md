@@ -13,16 +13,16 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57466cccb71444d5711a9221c324a107757c5e82
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 4baaf2de6fbe4a56f64d449644b8594217dc432c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576799"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172741"
 ---
 # <a name="remote-desktop-gateway-services"></a>Pulpit zdalny usług bramy
 
-Standardowe wdrożenie Usługi pulpitu zdalnego (RDS) obejmuje różne [usługi ról pulpit zdalny](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) działających w systemie Windows Server. Wdrożenie usług pulpitu zdalnego z serwerem proxy aplikacji Azure Active Directory (Azure AD) ma trwałe połączenie wychodzące z serwera, na którym działa usługa łącznika. Inne wdrożenia opuszczają otwarte połączenia przychodzące za pomocą modułu równoważenia obciążenia. Ten wzorzec uwierzytelniania umożliwia oferowanie więcej typów aplikacji przez publikowanie aplikacji lokalnych za pomocą Usługi pulpitu zdalnego. Zmniejsza również powierzchnię ataku na ich wdrożenie przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD.
+Standardowe wdrożenie Usługi pulpitu zdalnego (RDS) obejmuje różne [usługi ról pulpit zdalny](/windows-server/remote/remote-desktop-services/Desktop-hosting-logical-architecture) działających w systemie Windows Server. Wdrożenie usług pulpitu zdalnego z serwerem proxy aplikacji Azure Active Directory (Azure AD) ma trwałe połączenie wychodzące z serwera, na którym działa usługa łącznika. Inne wdrożenia opuszczają otwarte połączenia przychodzące za pomocą modułu równoważenia obciążenia. Ten wzorzec uwierzytelniania umożliwia oferowanie więcej typów aplikacji przez publikowanie aplikacji lokalnych za pomocą Usługi pulpitu zdalnego. Zmniejsza również powierzchnię ataku na ich wdrożenie przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD.
 
 ## <a name="use-when"></a>Zastosowania
 
@@ -32,20 +32,19 @@ Musisz zapewnić dostęp zdalny i chronić wdrożenie Usługi pulpitu zdalnego p
 
 ## <a name="components-of-system"></a>Składniki systemu
 
-* **Użytkownik** : uzyskuje dostęp do usług RDS obsłużonych przez serwer proxy aplikacji.
+* **Użytkownik**: uzyskuje dostęp do usług RDS obsłużonych przez serwer proxy aplikacji.
 
-* **Przeglądarka sieci Web** : składnik, z którym pracuje użytkownik, aby uzyskać dostęp do zewnętrznego adresu URL aplikacji.
+* **Przeglądarka sieci Web**: składnik, z którym pracuje użytkownik, aby uzyskać dostęp do zewnętrznego adresu URL aplikacji.
 
-* **Azure AD** : uwierzytelnia użytkownika. 
+* **Azure AD**: uwierzytelnia użytkownika. 
 
-* **Usługa serwera proxy aplikacji** : działa jako zwrotny serwer proxy do przesyłania dalej żądania od użytkownika do usług pulpitu zdalnego. Serwer proxy aplikacji może również wymusić wszelkie zasady dostępu warunkowego. 
+* **Usługa serwera proxy aplikacji**: działa jako zwrotny serwer proxy do przesyłania dalej żądania od użytkownika do usług pulpitu zdalnego. Serwer proxy aplikacji może również wymusić wszelkie zasady dostępu warunkowego. 
 
-* **Usługi pulpitu zdalnego** : działa jako platforma dla poszczególnych zwirtualizowanych aplikacji, zapewniając bezpieczny dostęp do pulpitu mobilnego i zdalnego oraz zapewnia użytkownikom końcowym możliwość uruchamiania aplikacji i pulpitów z chmury. 
+* **Usługi pulpitu zdalnego**: działa jako platforma dla poszczególnych zwirtualizowanych aplikacji, zapewniając bezpieczny dostęp do pulpitu mobilnego i zdalnego oraz zapewnia użytkownikom końcowym możliwość uruchamiania aplikacji i pulpitów z chmury. 
 
 ## <a name="implement-remote-desktop-gateway-services-with-azure-ad"></a>Implementowanie usług Pulpit zdalny Gateway za pomocą usługi Azure AD
 
-* [Publikowanie pulpitu zdalnego za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-integrate-with-remote-desktop-services) 
+* [Publikowanie pulpitu zdalnego za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD](../manage-apps/application-proxy-integrate-with-remote-desktop-services.md) 
 
-* [Dodawanie aplikacji lokalnej dla dostępu zdalnego za pomocą serwera proxy aplikacji w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application)
+* [Dodawanie aplikacji lokalnej dla dostępu zdalnego za pomocą serwera proxy aplikacji w usłudze Azure AD](../manage-apps/application-proxy-add-on-premises-application.md)
 
- 

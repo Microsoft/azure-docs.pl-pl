@@ -40,6 +40,10 @@
       href: threat-intelligence-settings.md
     - name: Nazwa FQDN w regułach sieci
       href: fqdn-filtering-network-rules.md
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Wdrażanie dostawców partnerów w zakresie zabezpieczeń

@@ -11,16 +11,16 @@ ms.date: 10/15/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 39d23313f9d00ef48f64327dd10356a91b9d13b7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8c150235dc6b867a69b539aba9c90d666122a210
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951897"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170450"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Włączanie uwierzytelniania wieloskładnikowego w Azure Active Directory B2C
 
-Azure Active Directory B2C (Azure AD B2C) integruje się bezpośrednio z [usługą Azure AD Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) , co umożliwia dodanie drugiej warstwy zabezpieczeń do tworzenia kont i logowania w aplikacjach. Uwierzytelnianie wieloskładnikowe można włączyć bez konieczności pisania pojedynczego wiersza kodu. Jeśli utworzono już przepływy rejestracji i logowania użytkowników, nadal możesz włączyć uwierzytelnianie wieloskładnikowe.
+Azure Active Directory B2C (Azure AD B2C) integruje się bezpośrednio z [usługą Azure AD Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) , co umożliwia dodanie drugiej warstwy zabezpieczeń do tworzenia kont i logowania w aplikacjach. Uwierzytelnianie wieloskładnikowe można włączyć bez konieczności pisania pojedynczego wiersza kodu. Jeśli utworzono już przepływy rejestracji i logowania użytkowników, nadal możesz włączyć uwierzytelnianie wieloskładnikowe.
 
 Ta funkcja ułatwia aplikacjom obsługę scenariuszy, takich jak:
 

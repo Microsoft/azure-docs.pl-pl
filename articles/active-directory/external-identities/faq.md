@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f92b95e38dea6555ca881d56ccf1cf2d68783e53
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 2825d3776f7b45f6726aaec05484900511ed1477
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896093"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172979"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory często zadawane pytania dotyczące współpracy B2B
 
@@ -30,7 +30,7 @@ Te często zadawane pytania dotyczące współpracy między firmami (AD-i Busine
 Jak najbardziej! Zapoznaj się z naszym [wpisem w blogu dotyczącym tej funkcji](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Aby uzyskać więcej informacji na temat sposobu dostosowywania strony logowania w organizacji, zobacz [Dodawanie znakowania firmowego do stron logowania i panelu dostępu](../fundamentals/customize-branding.md).
 
 ### <a name="can-b2b-collaboration-users-access-sharepoint-online-and-onedrive"></a>Czy użytkownicy współpracy B2B mogą uzyskiwać dostęp do usług SharePoint Online i OneDrive?
-Tak. Jednak możliwość wyszukiwania istniejących użytkowników-Gości w usłudze SharePoint Online przy użyciu selektora osób jest domyślnie **wyłączona** . Aby włączyć opcję wyszukiwania istniejących użytkowników-Gości, ustaw wartość **ShowPeoplePickerSuggestionsForGuestUsers** na **włączone** . To ustawienie można włączyć na poziomie dzierżawy lub na poziomie zbioru witryn. To ustawienie można zmienić za pomocą poleceń cmdlet Set-SPOTenant i Set-SPOSite. Za pomocą tych poleceń cmdlet członkowie mogą przeszukiwać wszystkich istniejących użytkowników-Gości w katalogu. Zmiany w zakresie dzierżawy nie wpływają na witryny usługi SharePoint Online, które zostały już zainicjowane.
+Tak. Jednak możliwość wyszukiwania istniejących użytkowników-Gości w usłudze SharePoint Online przy użyciu selektora osób jest domyślnie **wyłączona** . Aby włączyć opcję wyszukiwania istniejących użytkowników-Gości, ustaw wartość **ShowPeoplePickerSuggestionsForGuestUsers** na **włączone**. To ustawienie można włączyć na poziomie dzierżawy lub na poziomie zbioru witryn. To ustawienie można zmienić za pomocą poleceń cmdlet Set-SPOTenant i Set-SPOSite. Za pomocą tych poleceń cmdlet członkowie mogą przeszukiwać wszystkich istniejących użytkowników-Gości w katalogu. Zmiany w zakresie dzierżawy nie wpływają na witryny usługi SharePoint Online, które zostały już zainicjowane.
 
 ### <a name="is-the-csv-upload-feature-still-supported"></a>Czy funkcja przekazywania woluminów CSV jest nadal obsługiwana?
 Tak. Aby uzyskać więcej informacji na temat korzystania z funkcji przekazywania plików CSV, zobacz [ten przykład programu PowerShell](code-samples.md).
@@ -64,17 +64,17 @@ Jeśli użytkownik nie ma przypisanej roli administratora z ograniczonym dostęp
 Tak! Można utworzyć zasady dostępu warunkowego, które blokują dostęp do Azure Portal wszystkim Gościom i użytkownikom zewnętrznym. Podczas konfigurowania tych zasad należy zachować ostrożność, aby zapobiec przypadkowemu zablokowaniu dostępu do członków i administratorów.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) jako administrator zabezpieczeń lub administrator dostępu warunkowego.
-2. W Azure Portal wybierz pozycję **Azure Active Directory** . 
-3. W obszarze **Zarządzaj** wybierz pozycję **zabezpieczenia** .
-4. W obszarze **Ochrona** wybierz pozycję **dostęp warunkowy** . Wybierz pozycję **nowe zasady** .
+2. W witrynie Azure Portal wybierz pozycję **Azure Active Directory**. 
+3. W obszarze **Zarządzaj** wybierz pozycję **zabezpieczenia**.
+4. W obszarze **Ochrona** wybierz pozycję **dostęp warunkowy**. Wybierz pozycję **nowe zasady**.
 5. Na **nowej** stronie, w polu tekstowym **Nazwa** wprowadź nazwę zasad (na przykład "Blokuj Gościom dostęp do portalu").
-6. W obszarze **Przypisania** wybierz pozycję **Użytkownicy i grupy** .
-7. Na karcie **Dołącz** wybierz **pozycję Użytkownicy i grupy** , a następnie wybierz pozycję **Wszyscy użytkownicy i Goście (wersja zapoznawcza)** .
-9. Wybierz pozycję **Gotowe** .
-10. Na stronie **Nowy** w sekcji **przypisania** wybierz pozycję **aplikacje w chmurze lub akcje** .
-11. Na stronie **aplikacje lub akcje w chmurze** wybierz **pozycję Wybierz aplikacje** , a następnie wybierz **pozycję Wybierz** .
-12. Na stronie **Wybieranie** wybierz pozycję **Microsoft Azure Management** , a następnie wybierz pozycję **Wybierz** .
-13. Na stronie **aplikacje lub akcje w chmurze** wybierz pozycję **gotowe** .
+6. W obszarze **Przypisania** wybierz pozycję **Użytkownicy i grupy**.
+7. Na karcie **Dołącz** wybierz **pozycję Użytkownicy i grupy**, a następnie wybierz pozycję **Wszyscy użytkownicy i Goście (wersja zapoznawcza)**.
+9. Kliknij **Gotowe**.
+10. Na stronie **Nowy** w sekcji **przypisania** wybierz pozycję **aplikacje w chmurze lub akcje**.
+11. Na stronie **aplikacje lub akcje w chmurze** wybierz **pozycję Wybierz aplikacje**, a następnie wybierz **pozycję Wybierz**.
+12. Na stronie **Wybieranie** wybierz pozycję **Microsoft Azure Management**, a następnie wybierz pozycję **Wybierz**.
+13. Na stronie **aplikacje lub akcje w chmurze** wybierz pozycję **gotowe**.
 
 ### <a name="does-azure-ad-b2b-collaboration-support-multi-factor-authentication-and-consumer-email-accounts"></a>Czy współpraca B2B w usłudze Azure AD obsługuje uwierzytelnianie wieloskładnikowe i konta konsumentów poczty e-mail?
 Tak. Usługa Azure AD B2B obsługuje funkcje uwierzytelniania wieloskładnikowego i konsumenckiej poczty e-mail.
@@ -84,7 +84,7 @@ Jeśli Twoja dzierżawa usługi Azure AD jest katalogiem macierzystym dla użytk
  
 * Użytkownicy-Goście, którzy logują się za pomocą konto Microsoft (na przykład guestuser@live.com ) mogą zresetować swoje hasła przy użyciu funkcji konto Microsoft samoobsługowego resetowania hasła (SSPR). Zobacz [jak zresetować hasło konto Microsoft](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
 * Użytkownicy-Goście, którzy logują się za pomocą konta Google lub innego dostawcy tożsamości zewnętrznych, mogą resetować swoje hasła przy użyciu metody SSPR dostawcy tożsamości. Na przykład użytkownik-Gość z kontem Google guestuser@gmail.com może zresetować swoje hasło, postępując zgodnie z instrukcjami w temacie [zmiana lub Resetowanie hasła](https://support.google.com/accounts/answer/41078).
-* Jeśli dzierżawa tożsamości jest dzierżawą just-in-Time (JIT) lub "wirusowym" (co oznacza, że jest to oddzielna, niezarządzana dzierżawa platformy Azure), tylko użytkownik-Gość może zresetować swoje hasło. Czasami organizacja zajmie się [zarządzaniem wirusami](../users-groups-roles/domains-admin-takeover.md) , które są tworzone, gdy pracownicy używają służbowych adresów e-mail do rejestracji w usłudze. Gdy organizacja zajmie się wirusową dzierżawą, tylko administrator w tej organizacji może zresetować hasło użytkownika lub włączyć SSPR. Jeśli to konieczne, jako zapraszana organizacja możesz usunąć konto użytkownika-gościa z katalogu i ponownie wysłać zaproszenie.
+* Jeśli dzierżawa tożsamości jest dzierżawą just-in-Time (JIT) lub "wirusowym" (co oznacza, że jest to oddzielna, niezarządzana dzierżawa platformy Azure), tylko użytkownik-Gość może zresetować swoje hasło. Czasami organizacja zajmie się [zarządzaniem wirusami](../enterprise-users/domains-admin-takeover.md) , które są tworzone, gdy pracownicy używają służbowych adresów e-mail do rejestracji w usłudze. Gdy organizacja zajmie się wirusową dzierżawą, tylko administrator w tej organizacji może zresetować hasło użytkownika lub włączyć SSPR. Jeśli to konieczne, jako zapraszana organizacja możesz usunąć konto użytkownika-gościa z katalogu i ponownie wysłać zaproszenie.
 
 * Jeśli katalog macierzysty użytkownika gościa jest dzierżawą usługi Azure AD, możesz zresetować hasło użytkownika. Można na przykład utworzyć użytkownika lub zsynchronizować użytkownika z lokalnej Active Directory i ustawić dla nich wartość UserType na gość. Ponieważ ten użytkownik znajduje się w katalogu, możesz zresetować swoje hasło z Azure Portal.
 

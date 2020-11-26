@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: daf40a2ced3f753619e9c4723dbe78cd7e51ff21
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: c1604d79ce5eb9949028cd677b340bf3d4b09f6c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577910"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172843"
 ---
 # <a name="oauth-20-authentication-with-azure-active-directory"></a>Uwierzytelnianie OAuth 2,0 z Azure Active Directory
 
@@ -34,20 +34,19 @@ W przypadku rozbudowanego klienta & nowoczesne scenariusze aplikacji i dostęp d
 
 ## <a name="components-of-system"></a>Składniki systemu
 
-* **Użytkownik** : żąda usługi z aplikacji sieci Web (aplikacja). Użytkownik jest zazwyczaj właścicielem zasobu, który jest właścicielem danych i ma możliwość zezwalania klientom na dostęp do danych lub zasobów. 
+* **Użytkownik**: żąda usługi z aplikacji sieci Web (aplikacja). Użytkownik jest zazwyczaj właścicielem zasobu, który jest właścicielem danych i ma możliwość zezwalania klientom na dostęp do danych lub zasobów. 
 
-* **Przeglądarka sieci Web** : przeglądarka sieci Web, z którą współdziała użytkownik, to klient uwierzytelniania OAuth. 
+* **Przeglądarka sieci Web**: przeglądarka sieci Web, z którą współdziała użytkownik, to klient uwierzytelniania OAuth. 
 
-* **Aplikacja internetowa** : aplikacja internetowa lub serwer zasobów, w której znajdują się zasoby lub dane. Ufa serwerowi autoryzacji do bezpiecznego uwierzytelniania i autoryzacji klienta protokołu OAuth. 
+* **Aplikacja internetowa**: aplikacja internetowa lub serwer zasobów, w której znajdują się zasoby lub dane. Ufa serwerowi autoryzacji do bezpiecznego uwierzytelniania i autoryzacji klienta protokołu OAuth. 
 
-* **Azure AD** : usługa Azure AD jest serwerem autoryzacji, znanym również jako dostawca tożsamości (dostawcy tożsamości). W pełni obsługuje ona wszystkie czynności do wykonania z informacjami o użytkowniku, ich dostępem i relacją zaufania. Jest on odpowiedzialny za wydawanie tokenów udzielających i odwoływania dostępu do zasobów.
+* **Azure AD**: usługa Azure AD jest serwerem autoryzacji, znanym również jako dostawca tożsamości (dostawcy tożsamości). W pełni obsługuje ona wszystkie czynności do wykonania z informacjami o użytkowniku, ich dostępem i relacją zaufania. Jest on odpowiedzialny za wydawanie tokenów udzielających i odwoływania dostępu do zasobów.
 
 ## <a name="implement-oauth-20-with-azure-ad"></a>Implementowanie uwierzytelniania OAuth 2,0 przy użyciu usługi Azure AD
 
-* [Integrowanie aplikacji z usługą Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) 
+* [Integrowanie aplikacji z usługą Azure AD](../saas-apps/tutorial-list.md) 
 
-* [Protokoły uwierzytelniania OAuth 2,0 i OpenID Connect na platformie tożsamości firmy Microsoft](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols) 
+* [Protokoły uwierzytelniania OAuth 2,0 i OpenID Connect na platformie tożsamości firmy Microsoft](../develop/active-directory-v2-protocols.md) 
 
-* [Typy aplikacji i OAuth2](https://docs.microsoft.com/azure/active-directory/develop/v2-app-types) 
+* [Typy aplikacji i OAuth2](../develop/v2-app-types.md) 
 
- 

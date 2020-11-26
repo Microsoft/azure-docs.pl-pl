@@ -11,12 +11,12 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ef6f6068bce7a676e55eca10ae9198b2238a143
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 640367d1b833f61e8a83fe9ce6b14d6d799cf9b9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135427"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172456"
 ---
 # <a name="what-is-provisioning"></a>Co to jest aprowizacja?
 
@@ -59,7 +59,7 @@ Aby uzyskać więcej informacji, zobacz [co to jest funkcja aprowizacji oparta n
 
 ![Inicjowanie obsługi aplikacji](media/what-is-provisioning/cloud-3b.png)
 
-W usłudze Azure AD termin **[aprowizacji aplikacji](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)** dotyczy automatycznego tworzenia kopii tożsamości użytkowników w aplikacjach, do których użytkownicy potrzebują dostępu, w przypadku aplikacji, które mają własny magazyn danych, odrębnie od usługi Azure AD lub Active Directory. Oprócz tworzenia tożsamości użytkowników Inicjowanie obsługi aplikacji obejmuje konserwację i usuwanie tożsamości użytkowników z tych aplikacji, ponieważ zmienia się stan lub role użytkownika. Typowe scenariusze obejmują Inicjowanie obsługi użytkownika usługi Azure AD w aplikacjach, takich jak [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial)i [usługi ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial), ponieważ każda z tych aplikacji ma własne repozytorium użytkowników, które różnią się od usługi Azure AD.
+W usłudze Azure AD termin **[aprowizacji aplikacji](../app-provisioning/user-provisioning.md)** dotyczy automatycznego tworzenia kopii tożsamości użytkowników w aplikacjach, do których użytkownicy potrzebują dostępu, w przypadku aplikacji, które mają własny magazyn danych, odrębnie od usługi Azure AD lub Active Directory. Oprócz tworzenia tożsamości użytkowników Inicjowanie obsługi aplikacji obejmuje konserwację i usuwanie tożsamości użytkowników z tych aplikacji, ponieważ zmienia się stan lub role użytkownika. Typowe scenariusze obejmują Inicjowanie obsługi użytkownika usługi Azure AD w aplikacjach, takich jak [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md)i [usługi ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md), ponieważ każda z tych aplikacji ma własne repozytorium użytkowników, które różnią się od usługi Azure AD.
 
 Aby uzyskać więcej informacji, zobacz [co to jest inicjowanie obsługi aplikacji?](what-is-app-provisioning.md)
 
@@ -79,5 +79,5 @@ Aby uzyskać więcej informacji, zobacz [co to jest inicjowanie obsługi adminis
 ## <a name="next-steps"></a>Następne kroki 
 - [Co to jest zarządzanie cyklem życia tożsamości?](what-is-identity-lifecycle-management.md)
 - [Co to jest obsługa administracyjna oparta na HR?](what-is-hr-driven-provisioning.md)
-- [Co to jest inicjowanie obsługi aplikacji?](what-is-app-provisioning.md)
-- [Co to jest inicjowanie obsługi administracyjnej między katalogami?](what-is-inter-directory-provisioning.md)
+- [Co to jest aprowizacja aplikacji?](what-is-app-provisioning.md)
+- [Co to jest aprowizacja między katalogami?](what-is-inter-directory-provisioning.md)

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74815976036abafc56f97e622351a1018fe30504
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 5bd6a5c8af117bf6cb39969a5f1b1f17ff08681c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576936"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172826"
 ---
 # <a name="password-based-authentication-with-azure-active-directory"></a>Uwierzytelnianie oparte na hasłach z Azure Active Directory
 
@@ -35,20 +35,19 @@ Należy chronić się przed uwierzytelnianiem wstępnym i zapewnić Logowanie je
 
 ## <a name="components-of-system"></a>Składniki systemu
 
-* **Użytkownik** : uzyskuje dostęp do utworzonej aplikacji opartej na aplikacjach lub bezpośrednio odwiedzając witrynę. 
+* **Użytkownik**: uzyskuje dostęp do utworzonej aplikacji opartej na aplikacjach lub bezpośrednio odwiedzając witrynę. 
 
-* **Przeglądarka sieci Web** : składnik, z którym pracuje użytkownik, aby uzyskać dostęp do zewnętrznego adresu URL aplikacji. Użytkownik uzyskuje dostęp do aplikacji opartej na formularzach za pośrednictwem rozszerzenia moje aplikacje. 
+* **Przeglądarka sieci Web**: składnik, z którym pracuje użytkownik, aby uzyskać dostęp do zewnętrznego adresu URL aplikacji. Użytkownik uzyskuje dostęp do aplikacji opartej na formularzach za pośrednictwem rozszerzenia moje aplikacje. 
 
-* **Rozszerzenie moje aplikacje** : identyfikuje skonfigurowaną aplikację rejestracji jednokrotnej opartą na hasłach i dostarcza poświadczenia do formularza logowania. Rozszerzenie moje aplikacje jest zainstalowane w przeglądarce sieci Web. 
+* **Rozszerzenie moje aplikacje**: identyfikuje skonfigurowaną aplikację rejestracji jednokrotnej opartą na hasłach i dostarcza poświadczenia do formularza logowania. Rozszerzenie moje aplikacje jest zainstalowane w przeglądarce sieci Web. 
 
-* **Azure AD** : uwierzytelnia użytkownika.
+* **Azure AD**: uwierzytelnia użytkownika.
 
 ## <a name="implement-password-based-sso-with-azure-ad"></a>Implementowanie logowania jednokrotnego opartego na haśle za pomocą usługi Azure AD
 
-* [Co to jest logowanie jednokrotne na podstawie hasła](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) 
+* [Co to jest logowanie jednokrotne na podstawie hasła](../manage-apps/what-is-single-sign-on.md) 
 
-* [Konfigurowanie logowania jednokrotnego na podstawie hasła dla aplikacji w chmurze ](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-password-single-sign-on-non-gallery-applications)
+* [Konfigurowanie logowania jednokrotnego na podstawie hasła dla aplikacji w chmurze ](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
-* [Konfigurowanie logowania jednokrotnego opartego na hasłach dla aplikacji lokalnych przy użyciu serwera proxy aplikacji](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-password-vaulting)
+* [Konfigurowanie logowania jednokrotnego opartego na hasłach dla aplikacji lokalnych przy użyciu serwera proxy aplikacji](../manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md)
 
- 

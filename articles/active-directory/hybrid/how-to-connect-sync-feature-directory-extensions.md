@@ -16,12 +16,12 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a0765f5279eb41324691c431c5973bb55a8b52d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74bc659c11c4f43ab3cf85cdc53f704cd07a1cde
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662496"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172371"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect Synchronize: rozszerzenia katalogów
 Możesz użyć rozszerzeń katalogów, aby rozszerzać schemat w Azure Active Directory (Azure AD) z własnymi atrybutami z Active Directory lokalnych. Ta funkcja umożliwia tworzenie aplikacji biznesowych przez konsumowanie atrybutów, które nadal są zarządzane lokalnie. Te atrybuty mogą być używane przez [rozszerzenia](/graph/extensibility-overview
@@ -60,7 +60,7 @@ Podczas instalacji Azure AD Connect aplikacja jest zarejestrowana, w której te 
 
 Upewnij się, że wybrano pozycję **wszystkie aplikacje** , aby wyświetlić tę aplikację.
 
-Atrybuty są poprzedzone **rozszerzeniem {identyfikator \_ aplikacji} \_ **. Identyfikator aplikacji ma taką samą wartość dla wszystkich atrybutów w dzierżawie usługi Azure AD. Ta wartość będzie potrzebna dla wszystkich innych scenariuszy w tym temacie.
+Atrybuty są poprzedzone **rozszerzeniem {identyfikator \_ aplikacji} \_**. Identyfikator aplikacji ma taką samą wartość dla wszystkich atrybutów w dzierżawie usługi Azure AD. Ta wartość będzie potrzebna dla wszystkich innych scenariuszy w tym temacie.
 
 ## <a name="viewing-attributes-using-the-microsoft-graph-api"></a>Wyświetlanie atrybutów przy użyciu interfejsu API Microsoft Graph
 
@@ -70,6 +70,9 @@ Te atrybuty są teraz dostępne za pośrednictwem interfejsu API Microsoft Graph
 > W interfejsie API Microsoft Graph należy poproszony o zwrócenie atrybutów. Jawnie wybierz następujące atrybuty: `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division` .
 >
 > Aby uzyskać więcej informacji, zobacz [Microsoft Graph: Użyj parametrów zapytania](/graph/query-parameters#select-parameter).
+
+>[!NOTE]
+> Nie jest obsługiwana synchronizacja wartości atrybutów z AADConnect do atrybutów rozszerzenia, które nie są tworzone przez AADConnect. Wykonanie tej operacji może spowodować problemy z wydajnością i nieoczekiwane wyniki. Tylko atrybuty rozszerzenia, które są tworzone, jak pokazano w powyższym przykładzie, są obsługiwane na potrzeby synchronizacji.
 
 ## <a name="use-the-attributes-in-dynamic-groups"></a>Używanie atrybutów w grupach dynamicznych
 

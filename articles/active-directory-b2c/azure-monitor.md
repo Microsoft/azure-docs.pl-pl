@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 11/12/2020
-ms.openlocfilehash: b41f5e9a3bd4d3cbe52cf2e1c567d24de8a661f4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6d40eab12c9726459543d0b69e27b73178eba99f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95992832"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170620"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitoruj Azure AD B2C z Azure Monitor
 
@@ -140,9 +140,9 @@ Po wdrożeniu szablonu i poczekaniu kilku minut na ukończenie projekcji zasobó
 
 Ustawienia diagnostyczne definiują, gdzie należy wysyłać dzienniki i metryki dla zasobu. Możliwe miejsca docelowe to:
 
-- [Konto usługi Azure Storage](../azure-monitor/platform/resource-logs-collect-storage.md)
-- Rozwiązania [centrów zdarzeń](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
-- [Log Analytics obszar roboczy](../azure-monitor/platform/resource-logs-collect-workspace.md)
+- [Konto usługi Azure Storage](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- Rozwiązania [centrów zdarzeń](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)
+- [Log Analytics obszar roboczy](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)
 
 W tym przykładzie użyjemy obszaru roboczego Log Analytics, aby utworzyć pulpit nawigacyjny.
 
@@ -180,7 +180,7 @@ Teraz można skonfigurować obszar roboczy Log Analytics do wizualizacji danych 
 Zapytania dzienników ułatwiają całkowite wykorzystanie wartości danych zebranych w dziennikach Azure Monitor. Zaawansowany język zapytań umożliwia sprzęganie danych z wielu tabel, agregowanie dużych zestawów danych i wykonywanie złożonych operacji przy minimalnym kodzie. Niemal każde pytanie może być odpowiedzią i analizą wykonywaną, o ile dane pomocnicze zostały zebrane, i zrozumieć, jak utworzyć odpowiednie zapytanie. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z zapytaniami dzienników w Azure monitor](../azure-monitor/log-query/get-started-queries.md).
 
 1. W **obszarze roboczym log Analytics** wybierz pozycję **dzienniki**
-1. W edytorze zapytań Wklej następujące zapytanie dotyczące [języka zapytań Kusto](https://docs.microsoft.com/azure/data-explorer/kusto/query/) . To zapytanie pokazuje użycie zasad według operacji w ciągu ostatnich x dni. Domyślny czas trwania wynosi 90 dni (90d). Zwróć uwagę, że zapytanie jest skoncentrowane tylko na operacji, w której token/kod jest wystawiony przez zasady.
+1. W edytorze zapytań Wklej następujące zapytanie dotyczące [języka zapytań Kusto](/azure/data-explorer/kusto/query/) . To zapytanie pokazuje użycie zasad według operacji w ciągu ostatnich x dni. Domyślny czas trwania wynosi 90 dni (90d). Zwróć uwagę, że zapytanie jest skoncentrowane tylko na operacji, w której token/kod jest wystawiony przez zasady.
 
     ```kusto
     AuditLogs
@@ -205,7 +205,7 @@ Zapytania dzienników ułatwiają całkowite wykorzystanie wartości danych zebr
 
 1. Wybierz pozycję **Zapisz**.
 
-Możesz również zmienić zapytanie, aby wizualizować dane przy użyciu operatora [renderowania](https://docs.microsoft.com/azure/data-explorer/kusto/query/renderoperator?pivots=azuremonitor) .
+Możesz również zmienić zapytanie, aby wizualizować dane przy użyciu operatora [renderowania](/azure/data-explorer/kusto/query/renderoperator?pivots=azuremonitor) .
 
 ```kusto
 AuditLogs

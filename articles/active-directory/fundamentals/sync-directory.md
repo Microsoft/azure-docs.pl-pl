@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c340f973193f9c46735423c86112816003fecfcd
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 748f91b2fe77667969e9736f8084a9dd24018425
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578913"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172473"
 ---
 # <a name="directory-synchronization"></a>Synchronizacja katalogów
 
@@ -40,22 +40,22 @@ Należy synchronizować dane tożsamości z lokalnych środowisk Active Director
 
 ## <a name="components-of-system"></a>Składniki systemu
 
-* **Użytkownik** : uzyskuje dostęp do aplikacji za pomocą usługi Azure AD.
+* **Użytkownik**: uzyskuje dostęp do aplikacji za pomocą usługi Azure AD.
 
-* **Przeglądarka sieci Web** : składnik, z którym pracuje użytkownik, aby uzyskać dostęp do zewnętrznego adresu URL aplikacji.
+* **Przeglądarka sieci Web**: składnik, z którym pracuje użytkownik, aby uzyskać dostęp do zewnętrznego adresu URL aplikacji.
 
-* **Aplikacja** : aplikacja sieci Web, która korzysta z usługi Azure AD na potrzeby uwierzytelniania i autoryzacji.
+* **Aplikacja**: aplikacja sieci Web, która korzysta z usługi Azure AD na potrzeby uwierzytelniania i autoryzacji.
 
-* **Azure AD** : synchronizuje informacje o tożsamościach z katalogu lokalnego organizacji za pośrednictwem Azure AD Connect. 
+* **Azure AD**: synchronizuje informacje o tożsamościach z katalogu lokalnego organizacji za pośrednictwem Azure AD Connect. 
 
-* **Azure AD Connect** : Narzędzie do łączenia się z lokalnymi infrastrukturami tożsamości w celu Microsoft Azure AD. Kreator i środowisko z przewodnikiem pomagają wdrożyć i skonfigurować wymagania wstępne oraz składniki wymagane do połączenia, w tym synchronizację i logowanie się z aktywnych katalogów do usługi Azure AD. 
+* **Azure AD Connect**: Narzędzie do łączenia się z lokalnymi infrastrukturami tożsamości w celu Microsoft Azure AD. Kreator i środowisko z przewodnikiem pomagają wdrożyć i skonfigurować wymagania wstępne oraz składniki wymagane do połączenia, w tym synchronizację i logowanie się z aktywnych katalogów do usługi Azure AD. 
 
-* **Active Directory** : Active Directory to usługa katalogowa dostępna w większości systemów operacyjnych Windows Server. Serwery z systemem Active Directory Domain Services (AD DS) są nazywane kontrolerami domeny. Uwierzytelniają i autoryzują wszystkich użytkowników i komputery w domenie.
+* **Active Directory**: Active Directory to usługa katalogowa dostępna w większości systemów operacyjnych Windows Server. Serwery z systemem Active Directory Domain Services (AD DS) są nazywane kontrolerami domeny. Uwierzytelniają i autoryzują wszystkich użytkowników i komputery w domenie.
 
 ## <a name="implement-directory-synchronization-with-azure-ad"></a>Implementowanie synchronizacji katalogów za pomocą usługi Azure AD
 
-* [Co to jest aprowizacja tożsamości?](https://docs.microsoft.com/azure/active-directory/cloud-provisioning/what-is-provisioning) 
+* [Co to jest aprowizacja tożsamości?](../cloud-provisioning/what-is-provisioning.md) 
 
-* [Narzędzia integracji katalogu tożsamości hybrydowej](https://docs.microsoft.com/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-tools-comparison) 
+* [Narzędzia integracji katalogu tożsamości hybrydowej](../hybrid/plan-hybrid-identity-design-considerations-tools-comparison.md) 
 
-* [Plan instalacji Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-roadmap)
+* [Plan instalacji Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md)

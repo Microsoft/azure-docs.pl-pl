@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9510bd564ced2f458a9a78ff23200bb32358c3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb889298a09c30a629c69442ebf31bc735af31d1
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268540"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173128"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Roaming ustawień i danych — często zadawane pytania
 
@@ -76,8 +76,8 @@ W listopadzie 2015 lub nowszych wersjach systemu Windows 10 Enterprise State Roa
 
 Gdy wiele kont usługi Azure AD z różnych dzierżaw usługi Azure AD znajduje się na tym samym urządzeniu, należy zaktualizować rejestr urządzenia, aby komunikować się z usługą Azure Rights Management dla każdej dzierżawy usługi Azure AD.  
 
-1. Znajdź identyfikator GUID dla każdej dzierżawy usługi Azure AD. Otwórz Azure Portal i wybierz dzierżawę usługi Azure AD. Identyfikator GUID dla dzierżawy znajduje się na stronie właściwości wybranej dzierżawy ( https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties) , **Identyfikator katalogu**oznaczonego nazwą. 
-2. Po skonfigurowaniu identyfikatora GUID należy dodać klucz rejestru **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<tenant ID GUID> **.
+1. Znajdź identyfikator GUID dla każdej dzierżawy usługi Azure AD. Otwórz Azure Portal i wybierz dzierżawę usługi Azure AD. Identyfikator GUID dla dzierżawy znajduje się na stronie właściwości wybranej dzierżawy ( https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties) , **Identyfikator katalogu** oznaczonego nazwą. 
+2. Po skonfigurowaniu identyfikatora GUID należy dodać klucz rejestru **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<tenant ID GUID>**.
    W kluczu **GUID identyfikatora dzierżawy** Utwórz nową wartość ciągu wielociągowego (reg-wiele-SZ) o nazwie **AllowedRMSServerUrls**. W przypadku danych określ adresy URL punktów dystrybucji licencjonowania innych dzierżawców platformy Azure, do których uzyskuje dostęp urządzenie.
 3. Adresy URL punktów dystrybucji licencjonowania można znaleźć, uruchamiając polecenie cmdlet **Get-AadrmConfiguration** w module aadrm. Jeśli wartości dla **LicensingIntranetDistributionPointUrl** i **LicensingExtranetDistributionPointUrl** są różne, określ obie wartości. Jeśli wartości są takie same, określ wartość tylko raz.
 
@@ -85,7 +85,7 @@ Gdy wiele kont usługi Azure AD z różnych dzierżaw usługi Azure AD znajduje 
 
 Roaming działa tylko w przypadku aplikacji uniwersalnych systemu Windows. Dostępne są dwie opcje włączania roamingu w istniejącej aplikacji klasycznej systemu Windows:
 
-* [Mostek Desktop](https://aka.ms/desktopbridge) ułatwia przenoszenie istniejących aplikacji klasycznych systemu Windows do platforma uniwersalna systemu Windows. W tym miejscu wymagane są minimalne zmiany w kodzie, aby móc korzystać z roamingu danych aplikacji usługi Azure AD. Mostek Desktop oferuje aplikacje z tożsamością aplikacji, która jest wymagana do włączenia roamingu danych aplikacji dla istniejących aplikacji klasycznych.
+* [Mostek Desktop](/windows/msix/desktop/source-code-overview) ułatwia przenoszenie istniejących aplikacji klasycznych systemu Windows do platforma uniwersalna systemu Windows. W tym miejscu wymagane są minimalne zmiany w kodzie, aby móc korzystać z roamingu danych aplikacji usługi Azure AD. Mostek Desktop oferuje aplikacje z tożsamością aplikacji, która jest wymagana do włączenia roamingu danych aplikacji dla istniejących aplikacji klasycznych.
 * [Wirtualizacja środowiska użytkownika (UE-V)](/previous-versions//dn458947(v=vs.85)) pomaga utworzyć niestandardowy szablon ustawień dla istniejących aplikacji klasycznych systemu Windows i włączyć roaming dla aplikacji Win32. Ta opcja nie wymaga, aby Deweloper aplikacji zmienił kod aplikacji. W przypadku klientów, którzy kupili pakiet Microsoft Desktop Optimization Pack, są ograniczone do lokalnego Active Directory roamingu.
 
 Administratorzy mogą skonfigurować program UE-V do roamingu danych aplikacji klasycznych systemu Windows, zmieniając roaming ustawień systemu operacyjnego Windows i danych aplikacji uniwersalnej za pomocą [zasad grupy UE-V](/microsoft-desktop-optimization-pack/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2), w tym:

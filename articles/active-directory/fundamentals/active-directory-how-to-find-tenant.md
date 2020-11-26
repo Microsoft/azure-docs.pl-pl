@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbf23a32fdf5515402e18f70fe032a1a589dbcbe
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 32526a31a9d52fbfac57f1d384b25e0939b5e297
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424259"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172877"
 ---
 # <a name="how-to-find-your-azure-active-directory-tenant-id"></a>Jak znaleźć identyfikator dzierżawy Azure Active Directory
 
@@ -51,7 +51,7 @@ Aby uzyskać więcej informacji, zobacz ten Azure PowerShell dokumentacja polece
 ## <a name="find-tenant-id-with-cli"></a>Znajdowanie identyfikatora dzierżawy przy użyciu interfejsu wiersza polecenia
 Jeśli chcesz użyć interfejsu wiersza polecenia w celu znalezienia identyfikatora dzierżawy, możesz to zrobić za pomocą interfejsu użytkownika [platformy Azure](/cli/azure/install-azure-cli) lub interfejsu wiersza [Microsoft 365](https://pnp.github.io/cli-microsoft365/). 
 
-W przypadku interfejsu wiersza polecenia platformy Azure Użyj jednego z poleceń **AZ login** , **AZ Account List** lub **AZ Account dzierżawca** , jak pokazano w poniższym przykładzie. Zwróć uwagę na Właściwość **tenantId** dla każdej subskrypcji w danych wyjściowych z każdego polecenia.
+W przypadku interfejsu wiersza polecenia platformy Azure Użyj jednego z poleceń **AZ login**, **AZ Account List** lub **AZ Account dzierżawca** , jak pokazano w poniższym przykładzie. Zwróć uwagę na Właściwość **tenantId** dla każdej subskrypcji w danych wyjściowych z każdego polecenia.
 
 ```azurecli-interactive
 az login
@@ -77,4 +77,4 @@ Aby uzyskać więcej informacji, zobacz informacje dotyczące polecenia [Get ide
 
 - Aby dowiedzieć się, jak skojarzyć lub dodać subskrypcję do dzierżawy, zobacz [kojarzenie lub Dodawanie subskrypcji platformy Azure do dzierżawy Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 
-- Aby dowiedzieć się, jak znaleźć identyfikator obiektu, zobacz [Znajdowanie identyfikatora obiektu użytkownika](https://docs.microsoft.com/partner-center/find-ids-and-domain-names#find-the-user-object-id).
+- Aby dowiedzieć się, jak znaleźć identyfikator obiektu, zobacz [Znajdowanie identyfikatora obiektu użytkownika](/partner-center/find-ids-and-domain-names#find-the-user-object-id).
