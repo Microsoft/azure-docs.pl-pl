@@ -10,11 +10,11 @@ ms.date: 08/31/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to storage accounts on Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ms.openlocfilehash: c24970b30e522d593a491194dbbabb0421ad7f4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891062"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185565"
 ---
 # <a name="tutorial-transfer-data-via-storage-accounts-with-azure-stack-edge-pro-gpu"></a>Samouczek: przesyłanie danych za pomocą kont magazynu za pomocą Azure Stack Edge — procesor GPU 
 
@@ -24,7 +24,7 @@ W tym samouczku opisano, jak dodawać konta magazynu i łączyć się z nimi na 
 
 Wykonanie tej procedury może potrwać około 30 minut.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Dodawanie konta magazynu

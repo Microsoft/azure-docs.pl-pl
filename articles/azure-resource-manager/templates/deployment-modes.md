@@ -3,14 +3,14 @@ title: Tryby wdrażania
 description: Opisuje, w jaki sposób należy określić, czy ma być używany pełny czy przyrostowy tryb wdrażania z Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: e584acd4af1dc6adb5f5d383acd5d16da0815f32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc499be4185905af7eaf71b3515895de9bee46d3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87371587"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184046"
 ---
-# <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager tryby wdrażania
+# <a name="azure-resource-manager-deployment-modes"></a>Tryby wdrażania usługi Azure Resource Manager
 
 Podczas wdrażania zasobów należy określić, że wdrożenie jest aktualizacją przyrostową, albo pełną aktualizacją. Różnica między tymi dwoma trybami polega na tym, że Menedżer zasobów obsługuje istniejące zasoby w grupie zasobów, która nie znajduje się w szablonie.
 
@@ -29,7 +29,7 @@ Jeśli szablon zawiera zasób, który nie został wdrożony, ponieważ [warunek]
 
 Należy zachować ostrożność przy użyciu trybu kompletnego z [pętlami kopiowania](copy-resources.md). Wszystkie zasoby, które nie są określone w szablonie po rozwiązaniu pętli kopiowania, są usuwane.
 
-W przypadku wdrożenia w [więcej niż jednej grupie zasobów w szablonie](cross-scope-deployment.md)zasoby w grupie zasobów określonej w operacji wdrażania mogą zostać usunięte. Zasoby w dodatkowych grupach zasobów nie są usuwane.
+W przypadku wdrożenia w [więcej niż jednej grupie zasobów w szablonie](./deploy-to-resource-group.md)zasoby w grupie zasobów określonej w operacji wdrażania mogą zostać usunięte. Zasoby w dodatkowych grupach zasobów nie są usuwane.
 
 Istnieją pewne różnice w sposobie, w jaki typy zasobów obsługują operacje usuwania w trybie pełnym. Zasoby nadrzędne są automatycznie usuwane, gdy nie znajdują się w szablonie, który został wdrożony w trybie kompletnym. Niektóre zasoby podrzędne nie są automatycznie usuwane, gdy nie znajdują się w szablonie. Jednak te zasoby podrzędne zostaną usunięte, jeśli zasób nadrzędny zostanie usunięty.
 

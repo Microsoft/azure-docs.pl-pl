@@ -10,16 +10,16 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: mbullwin
-ms.openlocfilehash: de8d5d8e9fc5ce1df05cfd4c67ef146760e2c7e9
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: fb6eaf44967732d3a41ea92b0896540a40f694e3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043174"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184726"
 ---
 # <a name="how-to-manage-your-data-feeds"></a>Instrukcje: Zarządzanie źródłami danych
 
-Dowiedz się, jak zarządzać dołączonymi źródłami danych w usłudze Advisor metryk. Ten artykuł przeprowadzi Cię przez proces zarządzania źródłami danych w monitorze metryk.
+Dowiedz się, jak zarządzać dołączonymi źródłami danych w usłudze Advisor metryk. Ten artykuł przeprowadzi Cię przez proces zarządzania źródłami danych w usłudze Advisor metryk.
 
 ## <a name="edit-a-data-feed"></a>Edytowanie strumieniowego źródła danych
 
@@ -72,7 +72,7 @@ Istnieje kilka opcjonalnych ustawień zaawansowanych podczas tworzenia nowego ź
 
 ### <a name="ingestion-options"></a>Opcje pozyskiwania
 
-* **Przesunięcie czasu**pozyskiwania: Domyślnie dane są pozyskane zgodnie z podaną szczegółowością. Na przykład Metryka z *dzienną* sygnaturą czasową będzie pobierana jeden dzień po sygnaturze czasowej. Możesz użyć przesunięcia, aby opóźnić czas pozyskiwania z liczbą *dodatnią* , lub uzyskać wartość *ujemną* .
+* **Przesunięcie czasu** pozyskiwania: Domyślnie dane są pozyskane zgodnie z podaną szczegółowością. Na przykład Metryka z *dzienną* sygnaturą czasową będzie pobierana jeden dzień po sygnaturze czasowej. Możesz użyć przesunięcia, aby opóźnić czas pozyskiwania z liczbą *dodatnią* , lub uzyskać wartość *ujemną* .
 
 * **Maks. współbieżność**: Ustaw ten parametr, jeśli źródło danych obsługuje ograniczoną współbieżność. W przeciwnym razie pozostaw ustawienie domyślne.
 
@@ -89,7 +89,7 @@ Istnieje kilka opcjonalnych ustawień zaawansowanych podczas tworzenia nowego ź
     | :------------ | :--------------- |
     | Codziennie, niestandardowy (>= 1 dzień), co tydzień, co miesiąc     | 30 minut          |
     | Co godzinę, niestandardowy (< 1 dzień)      | 10 minut |
-    | Rocznie | 1 dzień          |
+    | Roczne | 1 dzień          |
  
 ### <a name="fill-gap-when-detecting"></a>Przerwanie wypełniania podczas wykrywania: 
 
@@ -97,7 +97,7 @@ Istnieje kilka opcjonalnych ustawień zaawansowanych podczas tworzenia nowego ź
 > To ustawienie nie będzie miało wpływu na źródło danych i nie będzie miało wpływu na wykresy danych wyświetlane w portalu. Funkcja automatycznego wypełniania występuje tylko podczas wykrywania anomalii.
 
 Niektóre serie czasowe nie są ciągłe. Gdy brakuje punktów danych, Doradca metryk użyje określonej wartości, aby wypełnić je przed anomalią wykrywania w celu uzyskania lepszej dokładności.
-Dostępne są następujące opcje: 
+Dostępne opcje to: 
 
 * Użycie wartości z poprzedniego rzeczywistego punktu danych. Ta wartość jest używana domyślnie.
 * Przy użyciu określonej wartości.
@@ -106,7 +106,7 @@ Dostępne są następujące opcje:
 
 Szablony linków akcji służą do wstępnego definiowania adresów URL http, które składają się z symboli zastępczych,,, `%datafeed` `%metric` `%timestamp` `%detect_config` i `%tagset` . Możesz użyć szablonu, aby przekierować z anomalii lub zdarzenia do określonego adresu URL w celu przechodzenia do szczegółów.
 
-:::image type="content" source="../media/action-link-template.png" alt-text="Strumieniowe źródło danych" lightbox="../media/action-link-template.png":::
+:::image type="content" source="../media/action-link-template.png" alt-text="Szablon łącza akcji" lightbox="../media/action-link-template.png":::
 
 Po wypełnieniu linku Akcja kliknij pozycję **Przejdź do linku akcja** na liście Akcja i kliknij prawym przyciskiem myszy drzewo zdarzeń. Zastąp symbole zastępcze w szablonie linku akcji odpowiednimi wartościami anomalii lub incydentu.
 
@@ -139,7 +139,7 @@ Aby skonfigurować alert, należy najpierw [utworzyć punkt zaczepienia](alerts.
 
 * **Okres prolongaty**: ustawienie okresu prolongaty służy do określania, kiedy ma być wysyłany alert, jeśli nie zostaną pozyskane żadne punkty danych. Punkt odniesienia to czas pierwszego pozyskiwania. Jeśli pozyskiwanie nie powiedzie się, Doradca metryk będzie podejmować próby w regularnych odstępach czasu określonych przez stopień szczegółowości. Jeśli okres prolongaty zostanie zakończony niepowodzeniem, zostanie wysłany alert.
 
-* **Odmowa: gdy**ta opcja jest ustawiona na zero, każdy znacznik czasu z *niedostępnym* wyzwala alert. Gdy określone jest ustawienie inne niż zero, ciągłe znaczniki czasu po pierwszej sygnaturze czasowej z *niedostępnymi* nie są wyzwalane zgodnie z określonym ustawieniem.
+* **Odmowa: gdy** ta opcja jest ustawiona na zero, każdy znacznik czasu z *niedostępnym* wyzwala alert. Gdy określone jest ustawienie inne niż zero, ciągłe znaczniki czasu po pierwszej sygnaturze czasowej z *niedostępnymi* nie są wyzwalane zgodnie z określonym ustawieniem.
 
 ## <a name="next-steps"></a>Następne kroki
 - [Konfigurowanie metryk i dostrajanie konfiguracji wykrywania](configure-metrics.md)

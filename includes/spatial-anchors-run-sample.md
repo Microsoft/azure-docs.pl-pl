@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/20/2020
 ms.author: parkerra
 ms.openlocfilehash: d73b3e0938d278e53648a6af7151cecb4ae67c70
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95998484"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185380"
 ---
 Dzięki **zakotwiczeniem tworzenia & udostępniania** można utworzyć kotwicę i zapisać ją w usłudze udostępniania. W polu Zwróć zostanie zwrócony identyfikator, którego można użyć, aby pobrać go z usługi udostępniania. Następnie można uruchomić drugi scenariusz, **zlokalizować zakotwiczenie udostępnione** na urządzeniu lub innym. 
 

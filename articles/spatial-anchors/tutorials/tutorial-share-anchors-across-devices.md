@@ -9,11 +9,11 @@ ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 3048eb1ca7f9312a43bc1ab5885bf19d4c2e7931
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95998486"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185391"
 ---
 # <a name="tutorial-share-spatial-anchors-across-sessions-and-devices"></a>Samouczek: udostępnianie kotwic przestrzenny między sesjami i urządzeniami
 
@@ -82,7 +82,7 @@ W okienku **Konfigurowanie planu hostingu** Użyj następujących ustawień:
 | Lokalizacja | Zachodnie stany USA | Centrum danych, w którym jest hostowana aplikacja sieci Web |
 | Rozmiar | Bezpłatna | [Warstwa cenowa](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) , która określa funkcje hostingu |
 
-Wybierz pozycję **OK**.
+Wybierz przycisk **OK**.
 
 Otwórz Visual Studio Code, a następnie otwórz projekt w folderze *Sharing\SharingServiceSample* . 
 

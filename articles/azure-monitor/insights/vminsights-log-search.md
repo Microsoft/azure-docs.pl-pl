@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 6b3fdf052ce7f0d6a5c3497aa1ac971d9249546a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 118bdcb6929abfc162ff05e91f1621f087b6c50c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015596"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186732"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Jak wykonywać zapytania dotyczące dzienników z Azure Monitor dla maszyn wirtualnych
 
@@ -473,7 +473,6 @@ Liczniki wydajności aktualnie zebrane w tabeli *InsightsMetrics* są wymienione
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Jeśli jesteś nowym sposobem pisania zapytań dzienników w Azure Monitor, zapoznaj się z [tematem jak używać log Analytics](../log-query/get-started-portal.md) w Azure Portal do zapisywania zapytań dzienników.
+* Jeśli jesteś nowym sposobem pisania zapytań dzienników w Azure Monitor, zapoznaj się z [tematem jak używać log Analytics](../log-query/log-analytics-tutorial.md) w Azure Portal do zapisywania zapytań dzienników.
 
-* Dowiedz się więcej na temat [pisania zapytań wyszukiwania](/azure/azure-monitor/log-query/get-started-queries).
-
+* Dowiedz się więcej na temat [pisania zapytań wyszukiwania](../log-query/get-started-queries.md).

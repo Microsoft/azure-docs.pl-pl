@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/22/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 940955c8ace956354a2747f5ad21430620c2a9d1
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: b84d24174771e8395677874c9dac863fa6f27a54
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95744572"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185916"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor    
 
@@ -78,7 +78,7 @@ Opłaty za Log Analytics są dodawane do rachunku na korzystanie z platformy Azu
 
 ## <a name="viewing-log-analytics-usage-on-your-azure-bill"></a>Wyświetlanie Log Analytics użycia na rachunku na platformie Azure 
 
-Platforma Azure oferuje bardzo przydatne funkcje w [Azure Cost Management i centrum rozliczeń](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%252fazure%252fbilling%252fTOC.json) . Na przykład funkcja "analiza kosztów" umożliwia wyświetlanie wydatków dotyczących zasobów platformy Azure. Najpierw Dodaj filtr "typ zasobu" (do Microsoft. operationalinsights/Workspace dla Log Analytics i Microsoft. operationalinsights/obszar roboczy dla klastrów Log Analytics) umożliwi śledzenie wydatków Log Analytics. Następnie dla opcji "Grupuj według" Wybierz "kategoria licznika" lub "licznik".  Należy zauważyć, że inne usługi, takie jak Azure Security Center i Azure — wskaźnik użytkowania, również rozliczają swoje użycie względem zasobów Log Analytics obszaru roboczego. Aby wyświetlić mapowanie do nazwy usługi, można wybrać widok tabeli zamiast wykresu. 
+Platforma Azure oferuje bardzo przydatne funkcje w [Azure Cost Management i centrum rozliczeń](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json) . Na przykład funkcja "analiza kosztów" umożliwia wyświetlanie wydatków dotyczących zasobów platformy Azure. Najpierw Dodaj filtr "typ zasobu" (do Microsoft. operationalinsights/Workspace dla Log Analytics i Microsoft. operationalinsights/obszar roboczy dla klastrów Log Analytics) umożliwi śledzenie wydatków Log Analytics. Następnie dla opcji "Grupuj według" Wybierz "kategoria licznika" lub "licznik".  Należy zauważyć, że inne usługi, takie jak Azure Security Center i Azure — wskaźnik użytkowania, również rozliczają swoje użycie względem zasobów Log Analytics obszaru roboczego. Aby wyświetlić mapowanie do nazwy usługi, można wybrać widok tabeli zamiast wykresu. 
 
 Aby lepiej zrozumieć użycie, można [pobrać informacje o użyciu z witryny Azure Portal](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). Pobrany arkusz kalkulacyjny zawiera dane o użyciu poszczególnych zasobów platformy Azure (np. obszaru roboczego usługi Log Analytics) na dzień. W tym arkuszu kalkulacyjnym programu Excel można znaleźć użycie z obszarów roboczych Log Analytics, wybierając najpierw filtrowanie w kolumnie "kategoria licznika", aby pokazać "Log Analytics", "szczegółowe informacje i analiza" (używane przez niektóre starsze warstwy cenowe) i "Azure Monitor" (używane przez warstwy cenowe rezerwacji zdolności produkcyjnych), a następnie Dodawanie filtru w kolumnie "identyfikator wystąpienia", która ma wartość "zawiera obszar roboczy" lub "zawiera klaster" (ten ostatni, aby uwzględnić użycie klastra Log Analytics). Użycie jest wyświetlane w kolumnie "zużyta ilość", a jednostka dla każdego wpisu jest pokazywana w kolumnie "jednostka miary".  Temat dotyczący [interpretacji rachunku za platformę Microsoft Azure](../../cost-management-billing/understand/review-individual-bill.md) zawiera więcej szczegółowych informacji. 
 
@@ -128,7 +128,7 @@ Dodatkowe szczegóły ograniczeń warstwy cenowej są dostępne w [ramach subskr
 
 ## <a name="log-analytics-and-security-center"></a>Log Analytics i Security Center
 
-Rozliczanie [Azure Security Center](https://docs.microsoft.com/azure/security-center/) jest ściśle powiązane z log Analytics rozliczeniami. Security Center zapewnia alokację 500 MB/węzeł/dzień względem zestawu [typów danych zabezpieczeń](https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) i typów danych Update i UpdateSummary, gdy rozwiązanie Update Management nie jest uruchomione w obszarze roboczym lub jest włączone Określanie elementu docelowego rozwiązania. Jeśli obszar roboczy znajduje się w starszej warstwie cenowej węzła, alokacje Security Center i Log Analytics są łączone i stosowane wspólnie do wszystkich danych pozyskanych z rozliczeniami.  
+Rozliczanie [Azure Security Center](../../security-center/index.yml) jest ściśle powiązane z log Analytics rozliczeniami. Security Center zapewnia alokację 500 MB/węzeł/dzień względem zestawu [typów danych zabezpieczeń](/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) i typów danych Update i UpdateSummary, gdy rozwiązanie Update Management nie jest uruchomione w obszarze roboczym lub jest włączone Określanie elementu docelowego rozwiązania. Jeśli obszar roboczy znajduje się w starszej warstwie cenowej węzła, alokacje Security Center i Log Analytics są łączone i stosowane wspólnie do wszystkich danych pozyskanych z rozliczeniami.  
 
 ## <a name="change-the-data-retention-period"></a>Change the data retention period (Zmienianie okresu przechowywania danych)
 
@@ -481,7 +481,7 @@ Niektóre sugestie dotyczące zmniejszenia ilości zbieranych dzienników obejmu
 | Liczniki wydajności       | Zmień [konfigurację licznika wydajności](data-sources-performance-counters.md) w następujący sposób: <br> — Zmniejsz częstotliwość gromadzenia <br> — Zmniejsz liczbę liczników wydajności |
 | Dzienniki zdarzeń                 | Zmień [konfigurację dziennika zdarzeń](data-sources-windows-events.md) w następujący sposób: <br> — Zmniejsz liczbę gromadzonych danych dzienników zdarzeń <br> — Zbieraj wyłącznie zdarzenia o wymaganym poziomie. Na przykład nie zbieraj zdarzeń na poziomie *Informacje*. |
 | Dziennik systemu                     | Zmień [konfigurację dziennika systemu](data-sources-syslog.md) w następujący sposób: <br> — Zmniejsz liczbę urządzeń, z których zbierane są dane <br> — Zbieraj wyłącznie zdarzenia o wymaganym poziomie. Na przykład nie zbieraj zdarzeń na poziomie *Informacje* i *Debugowanie*. |
-| AzureDiagnostics           | Zmień [kolekcję dzienników zasobów](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings#create-in-azure-portal) na: <br> — zmniejszyć liczbę dzienników zasobów wysyłanych do usługi Log Analytics, <br> — zbierać tylko wymagane dzienniki. |
+| AzureDiagnostics           | Zmień [kolekcję dzienników zasobów](./diagnostic-settings.md#create-in-azure-portal) na: <br> — zmniejszyć liczbę dzienników zasobów wysyłanych do usługi Log Analytics, <br> — zbierać tylko wymagane dzienniki. |
 | Dane rozwiązań z komputerów, które nie wymagają rozwiązania | Użyj funkcji [określania celu rozwiązania](../insights/solution-targeting.md) , aby zbierać dane tylko z wymaganych grup komputerów. |
 
 ### <a name="getting-nodes-as-billed-in-the-per-node-pricing-tier"></a>Pobieranie węzłów jako rozliczane w warstwie cenowej na węzeł

@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: alsin
-ms.openlocfilehash: 226a23bfdacb0f7423c7dafb8cae36af7333699d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 4694fa679c7bbff309a0452219ff39bacf2488c4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681843"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183706"
 ---
 # <a name="repair-an-automanage-account"></a>Naprawa konta Autozarządzanie
 [Konto usługi Azure automanage](./automanage-virtual-machines.md#automanage-account) to kontekst zabezpieczeń lub tożsamość, w ramach której występują operacje zautomatyzowane. Jeśli ostatnio przeniesiono subskrypcję zawierającą konto Autozarządzanie do nowej dzierżawy, należy zmienić konfigurację konta. Aby zmienić jego konfigurację, należy zresetować typ tożsamości i przypisać odpowiednie role dla konta.
@@ -22,8 +22,8 @@ ms.locfileid: "94681843"
 Zresetuj typ tożsamości konta Autozarządzanie przy użyciu następującego szablonu Azure Resource Manager (ARM). Zapisz plik lokalnie jako armdeploy.jslub podobną nazwę. Zanotuj nazwę konta i lokalizację autozarządzania, ponieważ są one wymaganymi parametrami w szablonie ARM.
 
 1. Utwórz wdrożenie Menedżer zasobów przy użyciu poniższego szablonu. Użyj polecenia `identityType = None`.
-    * Wdrożenie można utworzyć w interfejsie wiersza polecenia platformy Azure przy użyciu polecenia `az deployment sub create` . Aby uzyskać więcej informacji, zobacz [AZ Deployment sub](https://docs.microsoft.com/cli/azure/deployment/sub).
-    * Wdrożenie w programie PowerShell można utworzyć przy użyciu `New-AzDeployment` modułu. Aby uzyskać więcej informacji, zobacz polecenie [New-AzDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azdeployment).
+    * Wdrożenie można utworzyć w interfejsie wiersza polecenia platformy Azure przy użyciu polecenia `az deployment sub create` . Aby uzyskać więcej informacji, zobacz [AZ Deployment sub](/cli/azure/deployment/sub).
+    * Wdrożenie w programie PowerShell można utworzyć przy użyciu `New-AzDeployment` modułu. Aby uzyskać więcej informacji, zobacz polecenie [New-AzDeployment](/powershell/module/az.resources/new-azdeployment).
 
 1. Uruchom ponownie ten sam szablon ARM przy użyciu programu `identityType = SystemAssigned` .
 
@@ -63,7 +63,7 @@ Konto Autozarządzanie wymaga ról współautor i współautora zasad zasobów w
 
 Jeśli używasz szablonu ARM lub interfejsu wiersza polecenia platformy Azure, będziesz potrzebować identyfikatora podmiotu zabezpieczeń (znanego również jako identyfikator obiektu) konta autozarządzania. (Jeśli używasz Azure Portal, nie potrzebujesz tego identyfikatora.) Ten identyfikator można znaleźć, korzystając z następujących metod:
 
-- [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/ad/sp): Użyj polecenie `az ad sp list --display-name <name of your Automanage Account>` .
+- [Interfejs wiersza polecenia platformy Azure](/cli/azure/ad/sp): Użyj polecenie `az ad sp list --display-name <name of your Automanage Account>` .
 
 - Azure Portal: Przejdź do **Azure Active Directory** i Wyszukaj konto Autozarządzanie według nazwy. W obszarze **aplikacje dla przedsiębiorstw** wybierz nazwę konta autozarządzaj, gdy zostanie wyświetlona.
 

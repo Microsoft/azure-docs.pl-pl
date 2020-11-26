@@ -3,12 +3,12 @@ title: Usuwanie w trybie pełnym
 description: Pokazuje, jak typy zasobów obsługują usuwanie w trybie pełnym w szablonach Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: b1f7623d6eee1ff629412a4cc0d76e59e6c9e847
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e0c67bfcda81ad128e0018c4ab37c4b0cbe680f0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370128"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184029"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Usuwanie zasobów platformy Azure na potrzeby wdrożeń w trybie pełnym
 
@@ -18,7 +18,7 @@ Typy zasobów oznaczone **wartością tak** są usuwane, gdy typ nie jest w szab
 
 Typy zasobów oznaczone atrybutem **no** nie są automatycznie usuwane, gdy nie znajdują się w szablonie; Jednak są usuwane, jeśli zasób nadrzędny zostanie usunięty. Pełny opis zachowania można znaleźć w temacie [Azure Resource Manager Modes Deployments](deployment-modes.md).
 
-W przypadku wdrożenia w [więcej niż jednej grupie zasobów w szablonie](cross-scope-deployment.md)zasoby w grupie zasobów określonej w operacji wdrażania mogą zostać usunięte. Zasoby w dodatkowych grupach zasobów nie są usuwane.
+W przypadku wdrożenia w [więcej niż jednej grupie zasobów w szablonie](./deploy-to-resource-group.md)zasoby w grupie zasobów określonej w operacji wdrażania mogą zostać usunięte. Zasoby w dodatkowych grupach zasobów nie są usuwane.
 
 Zasoby są wyświetlane według przestrzeni nazw dostawcy zasobów. Aby dopasować przestrzeń nazw dostawcy zasobów przy użyciu nazwy usługi platformy Azure, zobacz [dostawcy zasobów dla usług platformy Azure](../management/azure-services-resource-providers.md).
 
@@ -837,7 +837,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Prognozy | Nie |
 > | ilości | Nie |
 > | Platform handlowych | Nie |
-> | Pricesheets | Nie |
+> | Arkusze cen | Nie |
 > | wyrobów | Nie |
 > | ReservationDetails | Nie |
 > | ReservationRecommendationDetails | Nie |

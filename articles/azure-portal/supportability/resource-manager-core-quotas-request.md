@@ -7,12 +7,12 @@ ms.date: 01/27/2020
 ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 7486cee351880dc0465a43b1259a5f07ef31c77b
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 550c011bb9f4aeb99a4dcb8da0e7ae2be4202788
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173287"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185882"
 ---
 # <a name="quota-increase-requests"></a>Żądania zwiększenia limitu przydziału
 
@@ -24,7 +24,6 @@ Można zażądać zwiększenia limitu przydziału procesorów wirtualnych vCPU d
 Po utworzeniu nowej subskrypcji domyślna łączna liczba procesorów wirtualnych vCPU regionalnych może nie być równa sumie domyślnych przydziałów vCPU dla wszystkich poszczególnych serii maszyn wirtualnych. Ten fakt może skutkować subskrypcją z wystarczającym limitem przydziału dla każdej pojedynczej serii maszyn wirtualnych, która ma zostać wdrożona. Może brakować wystarczającego limitu przydziału dla procesorów wirtualnych vCPU regionalnych wszystkich wdrożeń. W takim przypadku musisz przesłać żądanie, aby w sposób jawny zwiększyć łączny limit procesorów wirtualnych vCPU regionalny. Łączny limit procesorów wirtualnych vCPU regionalnych nie może przekroczyć sumy zatwierdzonego przydziału dla całej serii maszyn wirtualnych dla regionu.
 
 > [!NOTE]
-> Jeśli chcesz podnieść limit lub przydział powyżej domyślnego limitu, [Otwórz żądanie obsługi klienta online bez dodatkowych opłat](https://docs.microsoft.com/azure/azure-resource-manager/templates/error-resource-quota#solution).
+> Jeśli chcesz podnieść limit lub przydział powyżej domyślnego limitu, [Otwórz żądanie obsługi klienta online bez dodatkowych opłat](../../azure-resource-manager/templates/error-resource-quota.md#solution).
 
 Aby uzyskać więcej informacji na temat przydziałów, zobacz limity [przydziału vCPU maszyny wirtualnej](../../virtual-machines/windows/quotas.md) i [limitów subskrypcji i usług platformy Azure, przydziałów i ograniczeń](../../azure-resource-manager/management/azure-subscription-service-limits.md).
-

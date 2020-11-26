@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: ramakk
-ms.openlocfilehash: 50669dcce044988f2e45acc2a17ae43c140d1ab5
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 96d8ba058a33d408ec2ee2a1adfba9011f393da9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930309"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184488"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Wytyczne dotyczące planowania sieci usługi Azure NetApp Files
 
@@ -108,7 +108,7 @@ Rozważ użycie sieci VNet 2 i sieci wirtualnej 3 na powyższym diagramie. Jeśl
 
 Ponadto Rozważmy scenariusz, w którym sieć wirtualna 1 jest połączona z siecią VNet 2, a sieć wirtualna 2 jest połączona z siecią VNet 3 w tym samym regionie. Zasoby z sieci wirtualnej 1 mogą łączyć się z zasobami na platformie sieci wirtualnej 2, ale nie mogą łączyć się z zasobami w VNet 3, chyba że sieć wirtualna 1 i Sieć wirtualna 3 są połączone za pomocą komunikacji równorzędnej. 
 
-Na powyższym diagramie, chociaż maszyna wirtualna 3 może połączyć się z woluminem 1, maszyna wirtualna 4 nie może nawiązać połączenia z woluminem 2.  Przyczyną tego jest to, że sieci wirtualnych szprych nie są połączone za pomocą komunikacji równorzędnej, a _Routing tranzytowy nie jest obsługiwany w przypadku komunikacji równorzędnej sieci_wirtualnych.
+Na powyższym diagramie, chociaż maszyna wirtualna 3 może połączyć się z woluminem 1, maszyna wirtualna 4 nie może nawiązać połączenia z woluminem 2.  Przyczyną tego jest to, że sieci wirtualnych szprych nie są połączone za pomocą komunikacji równorzędnej, a _Routing tranzytowy nie jest obsługiwany w przypadku komunikacji równorzędnej sieci_ wirtualnych.
 
 ## <a name="hybrid-environments"></a>Środowiska hybrydowe
 
@@ -116,7 +116,7 @@ Na poniższym diagramie przedstawiono środowisko hybrydowe:
 
 ![Środowisko sieci hybrydowej](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
 
-W scenariuszu hybrydowym aplikacje z lokalnych centrów danych potrzebują dostępu do zasobów na platformie Azure.  W takim przypadku należy rozłożyć centrum danych na platformę Azure lub korzystać z usług natywnych platformy Azure lub odzyskiwania po awarii. Aby uzyskać informacje na temat sposobu łączenia wielu zasobów lokalnych z zasobami na platformie Azure za pośrednictwem sieci VPN typu lokacja-lokacja lub ExpressRoute, zobacz [VPN Gateway temat Opcje planowania](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%252fazure%252fvirtual-network%252ftoc.json#planningtable) .
+W scenariuszu hybrydowym aplikacje z lokalnych centrów danych potrzebują dostępu do zasobów na platformie Azure.  W takim przypadku należy rozłożyć centrum danych na platformę Azure lub korzystać z usług natywnych platformy Azure lub odzyskiwania po awarii. Aby uzyskać informacje na temat sposobu łączenia wielu zasobów lokalnych z zasobami na platformie Azure za pośrednictwem sieci VPN typu lokacja-lokacja lub ExpressRoute, zobacz [VPN Gateway temat Opcje planowania](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) .
 
 W hybrydowej topologii gwiazdy koncentratora Sieć wirtualna na platformie Azure działa jako centralny punkt łączności z siecią lokalną. Szprychy są sieci wirtualnych za pomocą komunikacji równorzędnej z centrum i mogą być używane do izolowania obciążeń.
 

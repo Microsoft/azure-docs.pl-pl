@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: b0c1a91df30ee6a88f055dc47cfdef339e2ee2b2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5ad40ca051677ced0c6d8b5c35e8563272ff598f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151054"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183978"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Dzienniki zasobów usługi Azure Signal Service
 
@@ -31,7 +31,7 @@ Możesz wyświetlić dzienniki zasobów usługi Azure Signal Service. Te dzienni
 
 Dzienniki zasobów są domyślnie wyłączone. Aby włączyć dzienniki zasobów, wykonaj następujące kroki:
 
-1. W [Azure Portal](https://portal.azure.com)w obszarze **monitorowanie**kliknij pozycję **Ustawienia diagnostyczne**.
+1. W [Azure Portal](https://portal.azure.com)w obszarze **monitorowanie** kliknij pozycję **Ustawienia diagnostyczne**.
 
     ![Nawigacja w okienku do ustawień diagnostycznych](./media/signalr-tutorial-diagnostic-logs/diagnostic-settings-menu-item.png)
 
@@ -122,7 +122,7 @@ Aby wyświetlić dzienniki zasobów, wykonaj następujące kroki:
 
     ![Element menu Log Analytics](./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png)
 
-2. Wprowadź `SignalRServiceDiagnosticLogs` i wybierz zakres czasu w celu zbadania dzienników zasobów. Aby uzyskać zaawansowaną kwerendę, zobacz Wprowadzenie do [log Analytics w Azure monitor](../azure-monitor/log-query/get-started-portal.md)
+2. Wprowadź `SignalRServiceDiagnosticLogs` i wybierz zakres czasu w celu zbadania dzienników zasobów. Aby uzyskać zaawansowaną kwerendę, zobacz Wprowadzenie do [log Analytics w Azure monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
 
     ![Zalogować się Log Analytics](./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png)
 
@@ -182,9 +182,9 @@ Jeśli otrzymasz 401 nieautoryzowanych żądań klientów, Sprawdź dzienniki za
 
 #### <a name="throttling"></a>Ograniczanie przepływności
 
-Jeśli okaże się, że nie można ustanowić połączeń klienta sygnalizującego z usługą Azure Signal Service, Sprawdź dzienniki zasobów. Jeśli wystąpią `Connection count reaches limit` w dzienniku zasobów, nawiążesz zbyt wiele połączeń z usługą sygnalizującego, która osiągnie limit liczby połączeń. Rozważ skalowanie w górę usługi sygnalizującej. Jeśli wystąpią `Message count reaches limit` w dzienniku zasobów, oznacza to, że używasz warstwy Bezpłatna i używasz limitu przydziału komunikatów. Jeśli chcesz wysłać więcej komunikatów, Rozważ zmianę usługi sygnalizującej na warstwę Standardowa w celu wysyłania dodatkowych komunikatów. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Signal](https://azure.microsoft.com/pricing/details/signalr-service/).
+Jeśli okaże się, że nie można ustanowić połączeń klienta sygnalizującego z usługą Azure Signal Service, Sprawdź dzienniki zasobów. Jeśli wystąpią `Connection count reaches limit` w dzienniku zasobów, nawiążesz zbyt wiele połączeń z usługą sygnalizującego, która osiągnie limit liczby połączeń. Rozważ skalowanie w górę usługi sygnalizującej. Jeśli wystąpią `Message count reaches limit` w dzienniku zasobów, oznacza to, że używasz warstwy Bezpłatna i używasz limitu przydziału komunikatów. Jeśli chcesz wysłać więcej komunikatów, Rozważ zmianę usługi sygnalizującej na warstwę Standardowa w celu wysyłania dodatkowych komunikatów. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Signal](https://azure.microsoft.com/pricing/details/signalr-service/).
 
-### <a name="get-help"></a>Uzyskiwanie pomocy
+### <a name="get-help"></a>Uzyskaj pomoc
 
 Zalecamy najpierw Rozwiązywanie problemów. Większość problemów jest spowodowana przez serwer aplikacji lub problemy z siecią. Skorzystaj [z przewodnika rozwiązywania problemów z dziennikiem zasobów](#troubleshooting-with-resource-logs) i [przewodnikiem z podstawowymi problemami](https://github.com/Azure/azure-signalr/blob/dev/docs/tsg.md) , aby znaleźć główną przyczynę.
 Jeśli problem nadal nie może zostać rozwiązany, rozważ otwarcie problemu w usłudze GitHub lub utworzenie biletu w witrynie Azure Portal.

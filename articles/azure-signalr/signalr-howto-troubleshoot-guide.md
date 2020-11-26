@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: 11ea348a80bc226b6a96bea1e7c023ee9c06b13a
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: cc17dcef7a554bee2715c79ba7d0c2356db2c6b3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684121"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185661"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Przewodnik rozwiązywania problemów z typowymi problemami dotyczącymi usługi Azure Signal
 
@@ -148,7 +148,7 @@ W przypadku sygnalizującego ASP.NET, gdy [połączenie z klientem zostanie porz
 
 W przypadku **bezpłatnych** wystąpień limit liczby połączeń **współbieżnych** wynosi 20 dla wystąpień **standardowych** , limit liczby połączeń **współbieżnych** **na jednostkę** to 1 K, co oznacza, że Unit100 umożliwia współbieżne połączenia 100-K.
 
-Połączenia obejmują zarówno połączenia klienta, jak i serwera. Sprawdź [,](https://docs.microsoft.com/azure/azure-signalr/signalr-concept-messages-and-connections#how-connections-are-counted) czy są zliczane połączenia.
+Połączenia obejmują zarówno połączenia klienta, jak i serwera. Sprawdź [,](./signalr-concept-messages-and-connections.md#how-connections-are-counted) czy są zliczane połączenia.
 
 ## <a name="500-error-when-negotiate-azure-signalr-service-is-not-connected-yet-please-try-again-later"></a>500 błąd podczas negocjowania: usługa Azure Signal nie jest jeszcze połączona, spróbuj ponownie później.
 
@@ -162,7 +162,7 @@ Włącz śledzenie po stronie serwera, aby sprawdzić szczegóły błędu, gdy s
 
 #### <a name="enable-server-side-logging-for-aspnet-core-signalr"></a>Włącz rejestrowanie po stronie serwera dla ASP.NET Core sygnalizującego
 
-Rejestrowanie po stronie serwera dla sygnalizującego ASP.NET Core jest integrowane z `ILogger` [rejestrowaniem](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&tabs=aspnetcore2x) na podstawie podanym w strukturze ASP.NET Core. Rejestrowanie po stronie serwera można włączyć za pomocą polecenia `ConfigureLogging` , korzystając z przykładowego użycia w następujący sposób:
+Rejestrowanie po stronie serwera dla sygnalizującego ASP.NET Core jest integrowane z `ILogger` [rejestrowaniem](/aspnet/core/fundamentals/logging/?tabs=aspnetcore2x&view=aspnetcore-2.1) na podstawie podanym w strukturze ASP.NET Core. Rejestrowanie po stronie serwera można włączyć za pomocą polecenia `ConfigureLogging` , korzystając z przykładowego użycia w następujący sposób:
 ```cs
 .ConfigureLogging((hostingContext, logging) =>
         {

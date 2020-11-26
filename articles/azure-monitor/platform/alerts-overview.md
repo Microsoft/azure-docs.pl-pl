@@ -4,12 +4,12 @@ description: Przegląd alertów na platformie Azure. Alerty, alerty klasyczne i 
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: b8d24eab79bdf16e4d883549be00431bd5372af8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: d0f71ebf8a7acab6d4b46f59049bf1efd5290284
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536051"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186647"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Przegląd alertów na platformie Microsoft Azure 
 
@@ -84,7 +84,7 @@ Obsługiwane są następujące stany alertów.
 
 *Stan alertu* jest różny i niezależny od *warunku monitora*. Stan alertu jest ustawiany przez użytkownika. Warunek monitora jest ustawiany przez system. Po uruchomieniu alertu warunek monitora alertu jest ustawiony na *"wyzwolone"*, a gdy podstawowy warunek, który spowodował wyczyszczenie alertu, ma stan " *rozwiązany"*. 
 
-Stan alertu nie jest zmieniany, dopóki użytkownik nie zmieni go. Dowiedz się [, jak zmienić stan alertów i grup inteligentnych](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json).
+Stan alertu nie jest zmieniany, dopóki użytkownik nie zmieni go. Dowiedz się [, jak zmienić stan alertów i grup inteligentnych](./alerts-managing-alert-states.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
 
 ## <a name="alerts-experience"></a>Środowisko alertów 
 Domyślna strona alerty zawiera podsumowanie alertów, które są tworzone w określonym zakresie czasu. Wyświetla łączną liczbę alertów dla każdej ważności, z kolumnami, które identyfikują sumę alertów w każdym stanie dla każdej ważności. Wybierz dowolną z serwerów, aby otworzyć stronę [wszystkie alerty](#all-alerts-page) odfiltrowaną o tej ważności.
@@ -204,12 +204,12 @@ Użyj [interfejsu API REST alert Management](/rest/api/monitor/alertsmanagement/
 
 ## <a name="smart-groups"></a>Grupy inteligentne
 
-Grupy inteligentne to agregacja alertów w oparciu o algorytmy uczenia maszynowego, co może pomóc w zmniejszeniu szumu i pomocy w rozwiązywaniu problemów. [Dowiedz się więcej o grupach inteligentnych](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json) i [sposobach zarządzania grupami inteligentnymi](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json).
+Grupy inteligentne to agregacja alertów w oparciu o algorytmy uczenia maszynowego, co może pomóc w zmniejszeniu szumu i pomocy w rozwiązywaniu problemów. [Dowiedz się więcej o grupach inteligentnych](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json) i [sposobach zarządzania grupami inteligentnymi](./alerts-managing-smart-groups.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dowiedz się więcej o grupach inteligentnych](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+- [Dowiedz się więcej o grupach inteligentnych](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 - [Więcej informacji na temat grup akcji](./action-groups.md)
-- [Zarządzanie wystąpieniami alertów na platformie Azure](./alerts-managing-alert-instances.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
-- [Zarządzanie grupami inteligentnymi](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+- [Zarządzanie wystąpieniami alertów na platformie Azure](./alerts-managing-alert-instances.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
+- [Zarządzanie grupami inteligentnymi](./alerts-managing-smart-groups.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 - [Dowiedz się więcej o cenniku usługi Azure Alerts](https://azure.microsoft.com/pricing/details/monitor/)

@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 61073ce7e8d3abc43d1db031608da72e6d3e0791
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 3f9779d2676d4d2b67efff37118d109664b84bd5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926805"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184607"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Używanie usługi Azure Private Link do bezpiecznego łączenia sieci z usługą Azure Monitor
 
@@ -90,18 +90,18 @@ W poniższej topologii:
 
 Zacznij od utworzenia zasobu zakresu prywatnego linku Azure Monitor.
 
-1. Przejdź do pozycji **Utwórz zasób** w Azure Portal i Wyszukaj **Azure monitor prywatny zakres linków** .
+1. Przejdź do pozycji **Utwórz zasób** w Azure Portal i Wyszukaj **Azure monitor prywatny zakres linków**.
 
    ![Znajdź Azure Monitor zakres linków prywatnych](./media/private-link-security/ampls-find-1c.png)
 
-2. Kliknij przycisk **Utwórz** .
+2. Kliknij przycisk **Utwórz**.
 3. Wybierz subskrypcję i grupę zasobów.
 4. Nadaj nazwę AMPLS. Najlepiej użyć nazwy, która jest jednoznaczne i granicą zabezpieczeń, której zakres będzie używany, aby ktoś nie pomógł przypadkowo przerwać granic zabezpieczeń sieci. Na przykład "AppServerProdTelem".
-5. Kliknij pozycję **Przejrzyj i utwórz** . 
+5. Kliknij pozycję **Przejrzyj i utwórz**. 
 
    ![Utwórz Azure Monitor zakres linków prywatnych](./media/private-link-security/ampls-create-1d.png)
 
-6. Pozwól na przekazanie walidacji, a następnie kliknij przycisk **Utwórz** .
+6. Pozwól na przekazanie walidacji, a następnie kliknij przycisk **Utwórz**.
 
 ## <a name="connect-azure-monitor-resources"></a>Łączenie Azure Monitor zasobów
 
@@ -119,23 +119,23 @@ Możesz połączyć AMPLS najpierw z prywatnymi punktami końcowymi, a następni
 
 Teraz, gdy masz zasoby połączone z AMPLS, Utwórz prywatny punkt końcowy, aby połączyć naszą sieć. To zadanie można wykonać w ramach [prywatnego centrum linków Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints)lub wewnątrz zakresu prywatnego linku Azure monitor, jak zostało to zrobione w tym przykładzie.
 
-1. W przystawce zasób zakresu kliknij pozycję **połączenia prywatnych punktów końcowych** w menu zasobów po lewej stronie. Kliknij pozycję **prywatny punkt końcowy** , aby uruchomić proces tworzenia punktu końcowego. Możesz także zatwierdzać połączenia, które zostały uruchomione w centrum linku prywatnego, wybierając je i klikając przycisk **Zatwierdź** .
+1. W przystawce zasób zakresu kliknij pozycję **połączenia prywatnych punktów końcowych** w menu zasobów po lewej stronie. Kliknij pozycję **prywatny punkt końcowy** , aby uruchomić proces tworzenia punktu końcowego. Możesz także zatwierdzać połączenia, które zostały uruchomione w centrum linku prywatnego, wybierając je i klikając przycisk **Zatwierdź**.
 
     ![Zrzut ekranu środowiska użytkownika połączenia z prywatnymi punktami końcowymi](./media/private-link-security/ampls-select-private-endpoint-connect-3.png)
 
 2. Wybierz subskrypcję, grupę zasobów i nazwę punktu końcowego oraz region, w którym powinien się znajdować. Region musi być tym samym regionem co sieć wirtualna, z którą zostanie nawiązane połączenie.
 
-3. Kliknij przycisk **Dalej: zasób** . 
+3. Kliknij przycisk **Dalej: zasób**. 
 
 4. Na ekranie zasób
 
    a. Wybierz **subskrypcję** zawierającą zasób zakresu prywatnego Azure monitor. 
 
-   b. W obszarze **Typ zasobu** wybierz pozycję **Microsoft. Insights/privateLinkScopes** . 
+   b. W obszarze **Typ zasobu** wybierz pozycję **Microsoft. Insights/privateLinkScopes**. 
 
    c. Z listy rozwijanej **zasób** wybierz swój prywatny zakres linków, który został utworzony wcześniej. 
 
-   d. Kliknij przycisk **Dalej: konfiguracja >** .
+   d. Kliknij przycisk **Dalej: konfiguracja >**.
       ![Zrzut ekranu przedstawiający pozycję Utwórz prywatny punkt końcowy](./media/private-link-security/ampls-select-private-endpoint-create-4.png)
 
 5. W okienku Konfiguracja,
@@ -144,13 +144,13 @@ Teraz, gdy masz zasoby połączone z AMPLS, Utwórz prywatny punkt końcowy, aby
  
    b.    Wybierz opcję **tak** dla **integracji z prywatną strefą DNS** i zezwól na automatyczne tworzenie nowej strefy prywatna strefa DNS. Rzeczywiste strefy DNS mogą się różnić od tego, co pokazano na poniższym zrzucie ekranu. 
    > [!NOTE]
-   > Jeśli wybierzesz opcję **nie** i wolisz ręcznie zarządzać rekordami DNS, najpierw Ukończ Konfigurowanie linku prywatnego — łącznie z tym prywatnym punktem końcowym i konfiguracją AMPLS. Następnie skonfiguruj system DNS zgodnie z instrukcjami w temacie [Konfiguracja DNS prywatnego punktu końcowego platformy Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-dns). Upewnij się, że nie chcesz tworzyć pustych rekordów jako przygotowania do konfiguracji linku prywatnego. Tworzone rekordy DNS mogą przesłaniać istniejące ustawienia i mieć wpływ na łączność z Azure Monitor.
+   > Jeśli wybierzesz opcję **nie** i wolisz ręcznie zarządzać rekordami DNS, najpierw Ukończ Konfigurowanie linku prywatnego — łącznie z tym prywatnym punktem końcowym i konfiguracją AMPLS. Następnie skonfiguruj system DNS zgodnie z instrukcjami w temacie [Konfiguracja DNS prywatnego punktu końcowego platformy Azure](../../private-link/private-endpoint-dns.md). Upewnij się, że nie chcesz tworzyć pustych rekordów jako przygotowania do konfiguracji linku prywatnego. Tworzone rekordy DNS mogą przesłaniać istniejące ustawienia i mieć wpływ na łączność z Azure Monitor.
  
-   c.    Kliknij pozycję **Przejrzyj i utwórz** .
+   c.    Kliknij pozycję **Przejrzyj i utwórz**.
  
    d.    Zezwalaj na weryfikację. 
  
-   e.    Kliknij pozycję **Utwórz** . 
+   e.    Kliknij przycisk **Utwórz**. 
 
     ![Zrzut ekranu przedstawiający pozycję Utwórz prywatny Endpoint2](./media/private-link-security/ampls-select-private-endpoint-create-5.png)
 
@@ -164,7 +164,7 @@ Przejdź do witryny Azure Portal. W obszarze Log Analytics zasobów obszaru robo
 
 Najpierw można połączyć ten zasób Log Analytics z dowolnymi Azure Monitor prywatnymi zakresami łączy, do których masz dostęp. Kliknij przycisk **Dodaj** i wybierz prywatny zakres linków Azure monitor.  Kliknij przycisk **Zastosuj** , aby nawiązać połączenie. Wszystkie połączone zakresy są wyświetlane na tym ekranie. Utworzenie tego połączenia zezwala na dostęp do tego obszaru roboczego przez ruch sieciowy podłączonych sieci wirtualnych. Nawiązywanie połączenia ma ten sam skutek, co połączenie z zakresem, tak jak w przypadku [łączenia Azure Monitor zasobów](#connect-azure-monitor-resources).  
 
-Następnie można kontrolować sposób, w jaki można uzyskać dostęp do tego zasobu spoza zakresów linków prywatnych wymienionych powyżej. Jeśli ustawisz opcję **Zezwalaj na dostęp do sieci publicznej na potrzeby** pozyskiwania na **nie** , maszyny spoza połączonych zakresów nie mogą przekazywać danych do tego obszaru roboczego. Jeśli ustawisz opcję **Zezwalaj na dostęp do sieci publicznej dla zapytań** na wartość **nie** , wówczas maszyny spoza zakresów nie mogą uzyskać dostępu do danych w tym obszarze roboczym. Te dane obejmują dostęp do skoroszytów, pulpitów nawigacyjnych, zapytań dotyczących środowiska klienta opartego na interfejsie API, szczegółowych informacji w Azure Portal i nie tylko. Środowiska działające poza Azure Portal i że zapytanie Log Analytics dane muszą być uruchomione w prywatnej sieci wirtualnej.
+Następnie można kontrolować sposób, w jaki można uzyskać dostęp do tego zasobu spoza zakresów linków prywatnych wymienionych powyżej. Jeśli ustawisz opcję **Zezwalaj na dostęp do sieci publicznej na potrzeby** pozyskiwania na **nie**, maszyny spoza połączonych zakresów nie mogą przekazywać danych do tego obszaru roboczego. Jeśli ustawisz opcję **Zezwalaj na dostęp do sieci publicznej dla zapytań** na wartość **nie**, wówczas maszyny spoza zakresów nie mogą uzyskać dostępu do danych w tym obszarze roboczym. Te dane obejmują dostęp do skoroszytów, pulpitów nawigacyjnych, zapytań dotyczących środowiska klienta opartego na interfejsie API, szczegółowych informacji w Azure Portal i nie tylko. Środowiska działające poza Azure Portal i że zapytanie Log Analytics dane muszą być uruchomione w prywatnej sieci wirtualnej.
 
 Ograniczanie dostępu w ten sposób nie ma zastosowania do Azure Resource Manager i dlatego ma następujące ograniczenia:
 * Dostęp do danych — podczas blokowania zapytań z sieci publicznych stosuje się do większości Log Analyticsych środowisk, ale niektóre środowiska wykonują zapytania dotyczące danych za pośrednictwem Azure Resource Manager i w związku z tym nie będą mogły wykonywać zapytań dotyczących danych, chyba że prywatne ustawienia linku są stosowane również do Menedżer zasobów (funkcja jest dostępna wkrótce). Dotyczy to na przykład Azure Monitor rozwiązań, skoroszytów i szczegółowych informacji oraz łącznika LogicApp.
@@ -190,9 +190,9 @@ Przejdź do witryny Azure Portal. W Azure Monitor Application Insights zasobów 
 
 ![Izolacja sieci AI](./media/private-link-security/ampls-application-insights-lan-network-isolation-6.png)
 
-Najpierw można podłączyć ten zasób Application Insights do Azure Monitor prywatnych zakresów łączy, do których masz dostęp. Kliknij przycisk **Dodaj** i wybierz **prywatny zakres linków Azure monitor** . Kliknij przycisk Zastosuj, aby nawiązać połączenie. Wszystkie połączone zakresy są wyświetlane na tym ekranie. Nawiązanie tego połączenia zezwala na dostęp do tego składnika przez ruch sieciowy podłączonych sieci wirtualnych. Nawiązywanie połączenia ma ten sam skutek, co połączenie z zakresem, tak jak w przypadku [łączenia Azure Monitor zasobów](#connect-azure-monitor-resources). 
+Najpierw można podłączyć ten zasób Application Insights do Azure Monitor prywatnych zakresów łączy, do których masz dostęp. Kliknij przycisk **Dodaj** i wybierz **prywatny zakres linków Azure monitor**. Kliknij przycisk Zastosuj, aby nawiązać połączenie. Wszystkie połączone zakresy są wyświetlane na tym ekranie. Nawiązanie tego połączenia zezwala na dostęp do tego składnika przez ruch sieciowy podłączonych sieci wirtualnych. Nawiązywanie połączenia ma ten sam skutek, co połączenie z zakresem, tak jak w przypadku [łączenia Azure Monitor zasobów](#connect-azure-monitor-resources). 
 
-Następnie można kontrolować sposób, w jaki można uzyskać dostęp do tego zasobu poza wymienionymi powyżej zakresami linków prywatnych. Jeśli ustawisz opcję **Zezwalaj na dostęp do sieci publicznej na potrzeby** pozyskiwania **nie** , wówczas maszyny lub zestawy SDK poza połączonymi zakresami nie mogą przekazywać danych do tego składnika. Jeśli ustawisz opcję **Zezwalaj na dostęp do sieci publicznej dla zapytań** na wartość **nie** , wówczas maszyny spoza zakresów nie mogą uzyskać dostępu do danych w tym zasobie Application Insights. Te dane obejmują dostęp do dzienników APM, metryk i strumienia metryk na żywo, a także wbudowanych środowisk, takich jak skoroszyty, pulpity nawigacyjne, zapytania dotyczące środowiska klienta opartego na interfejsie API, szczegółowe informacje w Azure Portal i inne. 
+Następnie można kontrolować sposób, w jaki można uzyskać dostęp do tego zasobu poza wymienionymi powyżej zakresami linków prywatnych. Jeśli ustawisz opcję **Zezwalaj na dostęp do sieci publicznej na potrzeby** pozyskiwania **nie**, wówczas maszyny lub zestawy SDK poza połączonymi zakresami nie mogą przekazywać danych do tego składnika. Jeśli ustawisz opcję **Zezwalaj na dostęp do sieci publicznej dla zapytań** na wartość **nie**, wówczas maszyny spoza zakresów nie mogą uzyskać dostępu do danych w tym zasobie Application Insights. Te dane obejmują dostęp do dzienników APM, metryk i strumienia metryk na żywo, a także wbudowanych środowisk, takich jak skoroszyty, pulpity nawigacyjne, zapytania dotyczące środowiska klienta opartego na interfejsie API, szczegółowe informacje w Azure Portal i inne. 
 
 Należy zauważyć, że środowiska użycia poza portalem również muszą być uruchomione w ramach prywatnej sieci wirtualnej, która obejmuje monitorowane obciążenia. 
 
@@ -240,7 +240,7 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace k
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Aby korzystać z środowisk Azure Monitor Portal, takich jak Application Insights i Log Analytics, należy zezwolić na dostęp rozszerzeń Azure Portal i Azure Monitor w sieciach prywatnych. Dodaj [znaczniki usługi](../../firewall/service-tags.md) **usługi azureactivedirectory** , **AzureResourceManager** , **AzureFrontDoor. FirstParty** i **AzureFrontDoor. frontonu** do sieciowej grupy zabezpieczeń.
+Aby korzystać z środowisk Azure Monitor Portal, takich jak Application Insights i Log Analytics, należy zezwolić na dostęp rozszerzeń Azure Portal i Azure Monitor w sieciach prywatnych. Dodaj [znaczniki usługi](../../firewall/service-tags.md) **usługi azureactivedirectory**, **AzureResourceManager**, **AzureFrontDoor. FirstParty** i **AzureFrontDoor. frontonu** do sieciowej grupy zabezpieczeń.
 
 ### <a name="programmatic-access"></a>Dostęp programowy
 

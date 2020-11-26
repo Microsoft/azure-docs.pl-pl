@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 391d9562bc73265a10976f485c78e3966aa4fe83
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: b770e4488b6edb1c2d3749066315b552c0b5b40a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536289"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186171"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor często zadawane pytania
 
@@ -31,7 +31,7 @@ We wrześniu 2018 firma Microsoft połączona Azure Monitor, Log Analytics i App
 Funkcje Azure Monitor, które są automatycznie włączone, takie jak zbieranie metryk i dzienników aktywności, są udostępniane bezpłatnie. Istnieje koszt związany z innymi funkcjami, takimi jak kwerendy dzienników i alerty. Szczegółowe informacje o cenach można znaleźć na [stronie cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/) .
 
 ### <a name="how-do-i-enable-azure-monitor"></a>Jak mogę włączyć Azure Monitor?
-Azure Monitor jest włączona, gdy tworzysz nową subskrypcję platformy Azure, a [metryki](platform/data-platform-metrics.md) [dzienników aktywności](./platform/platform-logs-overview.md) i platformy są zbierane automatycznie. Tworzenie [ustawień diagnostycznych](platform/diagnostic-settings.md) w celu zbierania bardziej szczegółowych informacji na temat działania zasobów platformy Azure oraz dodawania [rozwiązań do monitorowania](insights/solutions.md) i [szczegółowych](insights/insights-overview.md) danych w celu zapewnienia dodatkowej analizy zebranych dane dla konkretnych usług. 
+Azure Monitor jest włączona, gdy tworzysz nową subskrypcję platformy Azure, a [metryki](platform/data-platform-metrics.md) [dzienników aktywności](./platform/platform-logs-overview.md) i platformy są zbierane automatycznie. Tworzenie [ustawień diagnostycznych](platform/diagnostic-settings.md) w celu zbierania bardziej szczegółowych informacji na temat działania zasobów platformy Azure oraz dodawania [rozwiązań do monitorowania](insights/solutions.md) i [szczegółowych](./monitor-reference.md) danych w celu zapewnienia dodatkowej analizy zebranych dane dla konkretnych usług. 
 
 ### <a name="how-do-i-access-azure-monitor"></a>Jak mogę Azure Monitor dostępu?
 Dostęp do wszystkich funkcji Azure Monitor i danych z menu **monitor** w Azure Portal. Sekcja **monitorowanie** w menu dla różnych usług platformy Azure zapewnia dostęp do tych samych narzędzi z danymi filtrowanymi do określonego zasobu. Azure Monitor dane są również dostępne dla różnych scenariuszy przy użyciu interfejsu wiersza polecenia, programu PowerShell i API REST.
@@ -65,7 +65,7 @@ Szczegółowe informacje i rozwiązania zapewniają niestandardowe środowisko p
 ## <a name="solutions-and-insights"></a>Rozwiązania i szczegółowe informacje
 
 ### <a name="what-is-an-insight-in-azure-monitor"></a>Co to jest szczegółowe informacje w Azure Monitor?
-Szczegółowe informacje zapewniają dostosowane środowisko monitorowania dla określonych usług platformy Azure. Korzystają one z tych samych metryk i dzienników co inne funkcje w Azure Monitor ale mogą zbierać dodatkowe dane i zapewniać unikatowe środowisko w Azure Portal. Zobacz [szczegółowe informacje w Azure monitor](insights/insights-overview.md).
+Szczegółowe informacje zapewniają dostosowane środowisko monitorowania dla określonych usług platformy Azure. Korzystają one z tych samych metryk i dzienników co inne funkcje w Azure Monitor ale mogą zbierać dodatkowe dane i zapewniać unikatowe środowisko w Azure Portal. Zobacz [szczegółowe informacje w Azure monitor](./monitor-reference.md).
 
 Aby wyświetlić szczegółowe informacje w Azure Portal, zobacz sekcję **szczegółowe** informacje w menu **monitor** lub sekcji **monitorowanie** w menu usługi.
 
@@ -77,7 +77,7 @@ Aby wyświetlić rozwiązania w Azure Portal, kliknij przycisk **więcej** **w s
 ## <a name="logs"></a>Dzienniki
 
 ### <a name="whats-the-difference-between-azure-monitor-logs-and-azure-data-explorer"></a>Jaka jest różnica między dziennikami Azure Monitor i Eksplorator danych platformy Azure?
-Azure Data Explorer to szybka i wysoce skalowalna usługa eksploracji danych na potrzeby danych dziennika i telemetrycznych. Dzienniki Azure Monitor są oparte na usłudze Azure Eksplorator danych i korzystają z tego samego Kusto Query Language (KQL) z niewielkimi różnicami. Zobacz temat [różnice w języku zapytań dzienników Azure monitor](log-query/data-explorer-difference.md).
+Azure Data Explorer to szybka i wysoce skalowalna usługa eksploracji danych na potrzeby danych dziennika i telemetrycznych. Dzienniki Azure Monitor są oparte na usłudze Azure Eksplorator danych i korzystają z tego samego Kusto Query Language (KQL) z niewielkimi różnicami. Zobacz temat [różnice w języku zapytań dzienników Azure monitor](/azure/data-explorer/kusto/query/).
 
 ### <a name="how-do-i-retrieve-log-data"></a>Jak mogę pobrać danych dziennika?
 Wszystkie dane są pobierane z obszaru roboczego Log Analytics przy użyciu zapytania dziennika, które zapisano przy użyciu języka zapytań Kusto (KQL). Możesz pisać własne zapytania lub używać rozwiązań i szczegółowych informacji, które obejmują zapytania dzienników dla określonej aplikacji lub usługi. Zobacz [Omówienie zapytań dzienników w Azure monitor](log-query/log-query-overview.md).
@@ -224,7 +224,7 @@ Projektant widoków jest dostępny tylko dla użytkowników przypisanych z upraw
 * [Aplikacje środowiska Node.js](app/nodejs.md)
 * [Aplikacje sieci Web na platformie Azure](app/azure-web-apps.md)
 * [Cloud Services na platformie Azure](app/cloudservices.md)
-* [Serwery aplikacji działające w programie Docker](app/docker.md)
+* [Serwery aplikacji działające w programie Docker](./azure-monitor-app-hub.yml)
 * [Jednostronicowe aplikacje sieci Web](app/javascript.md)
 * [SharePoint](app/sharepoint.md)
 * [Aplikacja klasyczna systemu Windows](app/windows-desktop.md)
@@ -401,7 +401,7 @@ Każdy element, który jest przesyłany, przenosi `itemCount` Właściwość, kt
 
 Przeniesienie istniejących zasobów Application Insights z jednego regionu do innego **nie jest obecnie obsługiwane**. Zebranych danych historycznych **nie można migrować** do nowego regionu. Jedyne częściowe obejście to:
 
-1. Utwórz zupełnie nowy zasób Application Insights ([klasyczny](app/create-new-resource.md) lub [oparty na obszarze roboczym](/azure/azure-monitor/app/create-workspace-resource)) w nowym regionie.
+1. Utwórz zupełnie nowy zasób Application Insights ([klasyczny](app/create-new-resource.md) lub [oparty na obszarze roboczym](./app/create-workspace-resource.md)) w nowym regionie.
 2. Utwórz ponownie wszystkie unikatowe dostosowania specyficzne dla oryginalnego zasobu w nowym zasobie.
 3. Zmodyfikuj aplikację tak, aby korzystała z [klucza Instrumentacji](app/create-new-resource.md#copy-the-instrumentation-key) zasobu nowego regionu lub [parametrów połączenia](app/sdk-connection-string.md).  
 4. Przetestuj, aby upewnić się, że wszystko nadal działa zgodnie z oczekiwaniami przy użyciu nowego zasobu Application Insights. 
@@ -414,7 +414,7 @@ Unikatowe dostosowania, które często trzeba ręcznie odtworzyć lub zaktualizo
 - Utwórz ponownie alerty dostępności.
 - Utwórz ponownie wszystkie niestandardowe ustawienia kontroli dostępu opartej na rolach (Azure RBAC), które są wymagane, aby użytkownicy mieli dostęp do nowego zasobu. 
 - Replikowanie ustawień obejmujących pobieranie próbek, przechowywanie danych, dzienny limit i włączenie metryk niestandardowych. Te ustawienia są kontrolowane za pośrednictwem okienka **użycie i szacowane koszty** .
-- Dowolna integracja, która opiera się na kluczach interfejsu API, takich jak [Adnotacje wersji](/azure/azure-monitor/app/annotations), [kanał bezpiecznego sterowania metrykami na żywo](app/live-stream.md#secure-the-control-channel) itp. Musisz wygenerować nowe klucze interfejsu API i zaktualizować skojarzoną integrację. 
+- Dowolna integracja, która opiera się na kluczach interfejsu API, takich jak [Adnotacje wersji](./app/annotations.md), [kanał bezpiecznego sterowania metrykami na żywo](app/live-stream.md#secure-the-control-channel) itp. Musisz wygenerować nowe klucze interfejsu API i zaktualizować skojarzoną integrację. 
 - Eksport ciągły w klasycznych zasobach musi zostać skonfigurowany ponownie.
 - Ustawienia diagnostyczne w zasobach opartych na obszarze roboczym byłyby konieczne do ponownego skonfigurowania.
 

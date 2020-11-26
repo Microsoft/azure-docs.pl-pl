@@ -4,12 +4,12 @@ description: Application Insights przeprowadza inteligentnej analizy telemetrii 
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: c817e2c7f609bbbec52eff1b898a8d7c53209a28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28a32c714618a3b6b0c3126d8060295f134ddc7c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87321313"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186239"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Wykrywanie inteligentne — anomalie wydajności
 
@@ -57,7 +57,7 @@ Powiadomienia inteligentnego wykrywania są domyślnie włączone i wysyłane do
 
 Wiadomości e-mail dotyczące anomalii dotyczących wydajności wykrywania inteligentnego są ograniczone do jednej wiadomości e-mail dziennie na Application Insights zasób. Wiadomość e-mail zostanie wysłana tylko wtedy, gdy w tym dniu wykryjesz co najmniej jeden nowy problem. Nie zostaną powtórzone żadne komunikaty. 
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 * *Tak więc personel firmy Microsoft szuka moich danych?*
   * Nie. Usługa jest całkowicie automatyczna. Tylko otrzymujesz powiadomienia. Twoje dane są [prywatne](./data-retention-privacy.md).
@@ -175,11 +175,10 @@ Te narzędzia diagnostyczne ułatwiają inspekcję danych telemetrycznych z apli
 
 * [Profiler](profiler.md) 
 * [Debuger migawek](./snapshot-debugger.md)
-* [Analiza](../log-query/get-started-portal.md)
+* [Analiza](../log-query/log-analytics-tutorial.md)
 * [Inteligentna diagnostyka analityczna](../log-query/log-query-overview.md)
 
 Inteligentne wykrywanie są całkowicie automatyczne. Ale być może chcesz skonfigurować więcej alertów?
 
 * [Ręcznie skonfigurowane alerty metryk](../platform/alerts-log.md)
 * [Testy dostępności sieci Web](./monitor-web-app-availability.md)
-

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: db77df29d1b9b0adf07c7da377c028dee5312617
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: cd0fd7ac004d07b71a69a3e59c9cfd4727d98eb6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579202"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184675"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>Samouczek: Tworzenie hierarchii urządzeń IoT Edge (wersja zapoznawcza)
 
@@ -27,7 +27,7 @@ Hierarchię urządzeń można struktury w taki sposób, aby tylko warstwa najwy�
 
 Celem tego samouczka jest utworzenie hierarchii urządzeń IoT Edge, które symulują środowisko produkcyjne. Na koniec zostanie wdrożony [moduł symulowanej czujnika temperatury](https://azuremarketplace.microsoft.com/marketplace/apps/azure-iot.simulated-temperature-sensor) na niższym urządzeniu warstwy bez dostępu do Internetu przez pobranie obrazów kontenerów za pomocą hierarchii.
 
-Aby osiągnąć ten cel, ten samouczek przeprowadzi Cię przez proces tworzenia hierarchii IoT Edge urządzeń, wdrażania kontenerów środowiska uruchomieniowego IoT Edge na urządzeniach oraz lokalnego konfigurowania urządzeń. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Aby osiągnąć ten cel, ten samouczek przeprowadzi Cię przez proces tworzenia hierarchii IoT Edge urządzeń, wdrażania kontenerów środowiska uruchomieniowego IoT Edge na urządzeniach oraz lokalnego konfigurowania urządzeń. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -39,11 +39,11 @@ Aby osiągnąć ten cel, ten samouczek przeprowadzi Cię przez proces tworzenia 
 
 W tym samouczku zdefiniowano następujące warstwy sieci:
 
-* **Warstwa najwyższej warstwy** : urządzenia IoT Edge w tej warstwie mogą łączyć się bezpośrednio z chmurą.
+* **Warstwa najwyższej warstwy**: urządzenia IoT Edge w tej warstwie mogą łączyć się bezpośrednio z chmurą.
 
-* **Warstwa niższa** : urządzenia IoT Edge z tej warstwy nie mogą łączyć się bezpośrednio z chmurą. Aby wysyłać i odbierać dane, należy przejść przez co najmniej jedno IoT Edge urządzeń.
+* **Warstwa niższa**: urządzenia IoT Edge z tej warstwy nie mogą łączyć się bezpośrednio z chmurą. Aby wysyłać i odbierać dane, należy przejść przez co najmniej jedno IoT Edge urządzeń.
 
-W tym samouczku dla uproszczenia użyto dwóch hierarchii urządzeń. Jedno urządzenie, **topLayerDevice** , reprezentuje urządzenie w najwyższej warstwie hierarchii, które może połączyć się bezpośrednio z chmurą. To urządzenie będzie również określane jako **urządzenie nadrzędne**. Inne urządzenie, **lowerLayerDevice** , reprezentuje urządzenie w niższej warstwie hierarchii, które nie może połączyć się bezpośrednio z chmurą. To urządzenie będzie również określane jako **urządzenie podrzędne**. Do reprezentowania środowiska produkcyjnego można dodać dodatkowe mniejsze urządzenia warstwy. Konfiguracja wszelkich dodatkowych urządzeń warstwy niższej będzie zgodna z konfiguracją **lowerLayerDevice**.
+W tym samouczku dla uproszczenia użyto dwóch hierarchii urządzeń. Jedno urządzenie, **topLayerDevice**, reprezentuje urządzenie w najwyższej warstwie hierarchii, które może połączyć się bezpośrednio z chmurą. To urządzenie będzie również określane jako **urządzenie nadrzędne**. Inne urządzenie, **lowerLayerDevice**, reprezentuje urządzenie w niższej warstwie hierarchii, które nie może połączyć się bezpośrednio z chmurą. To urządzenie będzie również określane jako **urządzenie podrzędne**. Do reprezentowania środowiska produkcyjnego można dodać dodatkowe mniejsze urządzenia warstwy. Konfiguracja wszelkich dodatkowych urządzeń warstwy niższej będzie zgodna z konfiguracją **lowerLayerDevice**.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -73,7 +73,7 @@ Pierwszym krokiem tworzenia IoT Edge urządzeń można dokonać za pomocą Azure
 
 1. Ponownie wybierz pozycję **+ Dodaj urządzenie IoT Edge** . To urządzenie będzie urządzeniem warstwy niższej krawędzi, więc wprowadź odpowiedni unikatowy identyfikator urządzenia.
 
-1. Wybierz pozycję **Ustaw urządzenie nadrzędne** , wybierz z listy urządzeń urządzenie z najwyższą warstwą, a następnie wybierz **przycisk OK**. Wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **Ustaw urządzenie nadrzędne**, wybierz z listy urządzeń urządzenie z najwyższą warstwą, a następnie wybierz **przycisk OK**. Wybierz pozycję **Zapisz**.
 
    ![Ustawianie elementu nadrzędnego dla urządzenia warstwy niższej](./media/tutorial-nested-iot-edge/set-parent-device.png)
 
@@ -188,8 +188,8 @@ Zainstaluj IoT Edge, wykonując następujące kroki na obu urządzeniach.
 1. Instalowanie demona hsmlib i IoT Edge <!-- Update with proper image links on release -->
 
    ```bash
-   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/libiothsm-std_1.2.0.rc1-1-1_debian9_amd64.deb -o libiothsm-std.deb
-   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/iotedge_1.2.0_rc1-1_debian9_amd64.deb -o iotedge.deb
+   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc2/libiothsm-std_1.2.0.rc2-1-1_debian9_amd64.deb -o libiothsm-std.deb
+   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc2/iotedge_1.2.0_rc2-1_debian9_amd64.deb -o iotedge.deb
    sudo dpkg -i ./libiothsm-std.deb
    sudo dpkg -i ./iotedge.deb
    ```
@@ -261,7 +261,7 @@ Wykonaj te kroki i uruchom ponownie usługę IoT Edge, aby skonfigurować urząd
      type: "docker"
      env: {}
      config:
-       image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc1"
+       image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc2"
        auth: {}
    ```
 
@@ -273,7 +273,7 @@ Wykonaj te kroki i uruchom ponownie usługę IoT Edge, aby skonfigurować urząd
      type: "docker"
      env: {}
      config:
-       image: "<parent_device_fqdn_or_ip>:8000/azureiotedge-agent:1.2.0-rc1"
+       image: "<parent_device_fqdn_or_ip>:8000/azureiotedge-agent:1.2.0-rc2"
        auth: {}
    ```
 
@@ -305,7 +305,7 @@ W [Azure Portal](https://ms.portal.azure.com/):
 
 1. Wybierz pozycję **Ustawienia środowiska uruchomieniowego** obok ikony koła zębatego.
 
-1. W obszarze **centrum brzegowe** w polu obraz wprowadź `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc1` .
+1. W obszarze **centrum brzegowe** w polu obraz wprowadź `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2` .
 
    ![Edytuj obraz centrum brzegowego](./media/tutorial-nested-iot-edge/edge-hub-image.png)
 
@@ -318,7 +318,7 @@ W [Azure Portal](https://ms.portal.azure.com/):
 
    ![Edytuj zmienne środowiskowe centrum brzegowego](./media/tutorial-nested-iot-edge/edge-hub-environment-variables.png)
 
-1. W obszarze **Agent Edge** w polu obraz wprowadź wartość `mcr.microsoft.com/azureiotedge-agent:1.2.0-rc1` . Wybierz pozycję **Zapisz**.
+1. W obszarze **Agent Edge** w polu obraz wprowadź wartość `mcr.microsoft.com/azureiotedge-agent:1.2.0-rc2` . Wybierz pozycję **Zapisz**.
 
 1. Dodaj moduł Docker Registry do urządzenia warstwy najwyższego poziomu. Wybierz pozycję **+ Dodaj** i wybierz **moduł IoT Edge** z listy rozwijanej. Podaj nazwę `registry` modułu Docker Registry i wprowadź `registry:latest` dla identyfikatora URI obrazu. Następnie Dodaj zmienne środowiskowe i Utwórz opcje, aby wskazać lokalny moduł rejestru w usłudze Microsoft Container Registry w celu pobrania obrazów kontenerów z i do obsłużenia tych obrazów w rejestrze: 5000.
 
@@ -346,7 +346,7 @@ W [Azure Portal](https://ms.portal.azure.com/):
 
 1. Następnie Dodaj moduł proxy interfejsu API do urządzenia warstwy najwyższego poziomu. Wybierz pozycję **+ Dodaj** i wybierz **moduł Marketplace** z listy rozwijanej. Wyszukaj `IoT Edge API Proxy` i wybierz moduł. Serwer proxy interfejsu API IoT Edge korzysta z portu 8000 i jest skonfigurowany do używania modułu rejestru o nazwie `registry` Domyślnie na porcie 5000.
 
-1. Wybierz pozycję **Przegląd + Utwórz** , a następnie pozycję **Utwórz** , aby zakończyć wdrażanie. Środowisko uruchomieniowe IoT Edge urządzenia warstwy najwyższego poziomu, które ma dostęp do Internetu, spowoduje pobranie i uruchomienie **publicznej konfiguracji wersji zapoznawczej** dla IoT Edge hub i IoT Edge agenta.
+1. Wybierz pozycję **Przegląd + Utwórz**, a następnie pozycję **Utwórz** , aby zakończyć wdrażanie. Środowisko uruchomieniowe IoT Edge urządzenia warstwy najwyższego poziomu, które ma dostęp do Internetu, spowoduje pobranie i uruchomienie **publicznej konfiguracji wersji zapoznawczej** dla IoT Edge hub i IoT Edge agenta.
 
    ![Kompletne wdrożenie zawierające moduł usługi Edge Hub, agenta brzegowego, modułu rejestru i serwera proxy interfejsu API](./media/tutorial-nested-iot-edge/complete-top-layer-deployment.png)
 
@@ -412,14 +412,14 @@ W [Azure Portal](https://ms.portal.azure.com/):
                    "systemModules": {
                        "edgeAgent": {
                            "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc1",
+                               "image": "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc2",
                                "createOptions": ""
                            },
                            "type": "docker"
                        },
                        "edgeHub": {
                            "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-hub:1.2.0-rc1",
+                               "image": "mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2",
                                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                            },
                            "type": "docker",
@@ -478,7 +478,7 @@ W [Azure Portal](https://ms.portal.azure.com/):
 
 1. Wybierz pozycję **Ustawienia środowiska uruchomieniowego** obok ikony koła zębatego.
 
-1. W obszarze **centrum brzegowe** w polu obraz wprowadź `$upstream:8000/azureiotedge-hub:1.2.0-rc1` .
+1. W obszarze **centrum brzegowe** w polu obraz wprowadź `$upstream:8000/azureiotedge-hub:1.2.0-rc2` .
 
 1. Dodaj następujące zmienne środowiskowe do modułu centrum brzegowego:
 
@@ -487,13 +487,13 @@ W [Azure Portal](https://ms.portal.azure.com/):
     | `experimentalFeatures__enabled` | `true` |
     | `experimentalFeatures__nestedEdgeEnabled` | `true` |
 
-1. W obszarze **Agent Edge** w polu obraz wprowadź wartość `$upstream:8000/azureiotedge-agent:1.2.0-rc1` . Wybierz pozycję **Zapisz**.
+1. W obszarze **Agent Edge** w polu obraz wprowadź wartość `$upstream:8000/azureiotedge-agent:1.2.0-rc2` . Wybierz pozycję **Zapisz**.
 
 1. Dodaj moduł czujnika temperatury. Wybierz pozycję **+ Dodaj** i wybierz **moduł Marketplace** z listy rozwijanej. Wyszukaj `Simulated Temperature Sensor` i wybierz moduł.
 
 1. W obszarze **IoT Edge modułów** wybierz `Simulated Temperature Sensor` właśnie dodany moduł i zaktualizuj jego identyfikator URI obrazu, aby wskazywał `$upstream:8000/azureiotedge-simulated-temperature-sensor:1.0` .
 
-1. Wybierz pozycję **Zapisz** , **Przejrzyj + Utwórz** i **Utwórz** , aby zakończyć wdrażanie.
+1. Wybierz pozycję **Zapisz**, **Przejrzyj + Utwórz** i **Utwórz** , aby zakończyć wdrażanie.
 
    ![Kompletne wdrożenie zawierające centrum brzegowe, agenta brzegowego i symulowany czujnik temperatury](./media/tutorial-nested-iot-edge/complete-lower-layer-deployment.png)
 
@@ -534,14 +534,14 @@ W [Azure Portal](https://ms.portal.azure.com/):
                    "systemModules": {
                        "edgeAgent": {
                            "settings": {
-                               "image": "$upstream:8000/azureiotedge-agent:1.2.0-rc1",
+                               "image": "$upstream:8000/azureiotedge-agent:1.2.0-rc2",
                                "createOptions": ""
                            },
                            "type": "docker"
                        },
                        "edgeHub": {
                            "settings": {
-                               "image": "$upstream:8000/azureiotedge-hub:1.2.0-rc1",
+                               "image": "$upstream:8000/azureiotedge-hub:1.2.0-rc2",
                                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                            },
                            "type": "docker",
@@ -597,7 +597,7 @@ You can also view these messages through the [Azure Cloud Shell](https://shell.a
    az iot hub monitor-events -n <iothub_name> -d <lower-layer-device-name>
    ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Możesz usunąć konfiguracje lokalne i zasoby platformy Azure, które zostały utworzone w tym artykule, aby uniknąć naliczania opłat.
 

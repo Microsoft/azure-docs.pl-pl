@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: kgremban
-ms.openlocfilehash: 7ab62b04f8bea76c7efb587665f87ccaf123da24
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: a7794bcdfa4f82698fdc5875bc94dcf52b70166e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109004"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185100"
 ---
 # <a name="install-or-uninstall-the-azure-iot-edge-runtime"></a>Instalowanie lub Odinstalowywanie środowiska uruchomieniowego Azure IoT Edge
 
@@ -51,7 +51,7 @@ Przygotuj urządzenie w celu uzyskania dostępu do pakietów instalacyjnych firm
      curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
      ```
 
-   * **Rozciągnij raspbian**:
+   * **Rozciąganie systemu operacyjnego Raspberry Pi**:
 
      ```bash
      curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
@@ -278,7 +278,7 @@ Jeśli urządzenie będzie w trybie offline w trakcie instalacji lub jeśli chce
 
 5. Aby zainstalować program za pomocą składników trybu [offline, należy](/powershell/module/microsoft.powershell.core/about/about_scripts#script-scope-and-dot-sourcing) uzyskać kopię lokalną skryptu programu PowerShell. 
 
-6. Uruchom polecenie [Deploy-IoTEdge](reference-windows-scripts.md#deploy-iotedge) z `-OfflineInstallationPath` parametrem. Podaj ścieżkę bezwzględną do katalogu plików. Przykład:
+6. Uruchom polecenie [Deploy-IoTEdge](reference-windows-scripts.md#deploy-iotedge) z `-OfflineInstallationPath` parametrem. Podaj ścieżkę bezwzględną do katalogu plików. Na przykład
 
    ```powershell
    . <path>\IoTEdgeSecurityDaemon.ps1

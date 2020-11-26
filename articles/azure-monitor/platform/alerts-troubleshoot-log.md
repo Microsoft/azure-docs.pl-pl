@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
-ms.openlocfilehash: ec2ffe71a32781a855da258f3621738f1a5f6be4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9a1bef582053eccdbfef63c2159cf540ffd9bfb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294295"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186596"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Rozwiązywanie problemów z alertami dzienników w Azure Monitor  
 
 W tym artykule opisano sposób rozwiązywania typowych problemów z alertami dzienników w Azure Monitor. Zawiera również rozwiązania typowych problemów z funkcjonalnością i konfiguracją alertów dzienników.
 
-Alerty dzienników umożliwiają użytkownikom użycie zapytania [log Analytics](../log-query/get-started-portal.md) w celu obliczenia dzienników zasobów co określoną częstotliwość i wyzwolenia alertu na podstawie wyników. Reguły mogą wyzwalać jedną lub więcej akcji przy użyciu [grup akcji](./action-groups.md). [Dowiedz się więcej o funkcjach i terminologii alertów dzienników](alerts-unified-log.md).
+Alerty dzienników umożliwiają użytkownikom użycie zapytania [log Analytics](../log-query/log-analytics-tutorial.md) w celu obliczenia dzienników zasobów co określoną częstotliwość i wyzwolenia alertu na podstawie wyników. Reguły mogą wyzwalać jedną lub więcej akcji przy użyciu [grup akcji](./action-groups.md). [Dowiedz się więcej o funkcjach i terminologii alertów dzienników](alerts-unified-log.md).
 
 > [!NOTE]
 > W tym artykule nie są brane pod uwagę przypadki, w których Azure Portal pokazuje wyzwalaną regułę alertu, a powiadomienie nie jest wykonywane przez skojarzoną grupę akcji. W takich przypadkach należy zapoznać się z szczegółowymi informacjami na [temat rozwiązywania](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected)problemów.
@@ -131,7 +131,7 @@ Jeśli osiągnięto limit przydziału, następujące kroki mogą pomóc w rozwi�
 
     - Identyfikatory subskrypcji i identyfikatory zasobów, dla których należy zwiększyć limit przydziału.
     - Przyczyna zwiększenia limitu przydziału.
-    - Typ zasobu dla zwiększenia przydziału: **log Analytics**, **Application Insights**i tak dalej.
+    - Typ zasobu dla zwiększenia przydziału: **log Analytics**, **Application Insights** i tak dalej.
     - Żądany limit przydziału.
 
 

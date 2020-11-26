@@ -3,14 +3,14 @@ title: Rekordy DNS centrum danych platformy Azure używane przez Azure Automatio
 description: Ten artykuł zawiera rekordy DNS wymagane przez Azure Automation funkcje w przypadku ograniczenia komunikacji z określonym regionem świadczenia usługi Azure, w którym znajduje się to konto usługi Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/23/2020
+ms.date: 11/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: 17d0857a8979cfcc632ab8951fb255f97229a665
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4b8f48afc75c0a96937575bdad5bb884d0cb4d8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87117177"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183723"
 ---
 # <a name="dns-records-for-azure-regions-used-by-azure-automation"></a>Rekordy DNS dla regionów platformy Azure używanych przez Azure Automation
 
@@ -84,11 +84,14 @@ Aby zapewnić obsługę [prywatnego linku](../../private-link/private-link-overv
 | US Gov Teksas |`https://<accountId>.webhook.ussc.azure-automation.us`<br>`https://<accountId>.agentsvc.ussc.azure-automation.us`<br>`https://<accountId>.jrds.ussc.azure-automation.us` |
 | US Gov Arizona |`https://<accountId>.webhook.phx.azure-automation.us`<br>`https://<accountId>.agentsvc.phx.azure-automation.us`<br>`https://<accountId>.jrds.phx.azure-automation.us` |
 
-Zamień `<accountId>` rekord DNS na identyfikator GUID reprezentujący identyfikator konta usługi Automation na podstawie **adresu URL**wartości. Możesz uzyskać identyfikator wymagany z **kluczy** w obszarze **ustawienia konta** w Azure Portal.
+Zamień `<accountId>` rekord DNS na identyfikator GUID reprezentujący identyfikator konta usługi Automation na podstawie **adresu URL** wartości. Możesz uzyskać identyfikator wymagany z **kluczy** w obszarze **ustawienia konta** w Azure Portal.
 
 ![Strona klucza podstawowego konta usługi Automation](./media/automation-region-dns-records/automation-account-keys.png)
 
 Skopiuj wartość po *kont/* z pola **adresu URL**`https://<GUID>.agentsvc.<region>.azure-automation.net/accounts/<GUID>`
+
+> [!NOTE]
+> Wszystkie rekordy usługi webhook i agentservice DNS zostały zaktualizowane do nowych rekordów DNS w celu obsługi linku prywatnego. W przypadku rekordów DNS JRDS obsługiwane są zarówno stare, jak i nowe style DNS. Jeśli nie używasz linku prywatnego, będziesz widzieć stare rekordy DNS, podczas gdy przy użyciu linku prywatnego zobaczysz nowy styl rekordów DNS.
 
 Zalecamy korzystanie z adresów wymienionych podczas definiowania [wyjątków](../automation-runbook-execution.md#exceptions). Aby uzyskać listę adresów IP regionów zamiast nazw regionów, Pobierz plik JSON z centrum pobierania Microsoft dla następujących środowisk w chmurze:
 

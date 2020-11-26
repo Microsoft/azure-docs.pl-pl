@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/20/2020
 ms.author: parkerra
 ms.openlocfilehash: 80685dee7907b81832c94044d1feb8fcf2e41bde
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95998485"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185375"
 ---
 ### <a name="open-the-publish-wizard"></a>Otwieranie Kreatora publikacji
 
@@ -21,7 +21,7 @@ Wybierz pozycję **App Service**  >  **Opublikuj** , aby otworzyć okienko **Two
 
 ### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
-Zaloguj się w witrynie Azure Portal.
+Zaloguj się do witryny Azure Portal.
 
 W okienku **tworzenie App Service** wybierz pozycję **Dodaj konto**, a następnie zaloguj się do subskrypcji platformy Azure. Jeśli użytkownik jest już zalogowany, wybierz żądane konto z listy rozwijanej.
 
@@ -51,7 +51,7 @@ W okienku **Konfigurowanie planu hostingu** Użyj następujących ustawień:
 | Lokalizacja | Zachodnie stany USA | Centrum danych, w którym jest hostowana aplikacja sieci Web |
 | Rozmiar | Bezpłatna | [Warstwa cenowa](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) , która określa funkcje hostingu |
 
-Wybierz pozycję **OK**.
+Wybierz przycisk **OK**.
 
 ### <a name="create-and-publish-the-web-app"></a>Tworzenie i publikowanie aplikacji internetowej
 

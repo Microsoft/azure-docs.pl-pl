@@ -3,12 +3,12 @@ title: Ograniczenia i limity subskrypcji platformy Azure
 description: Zawiera listę typowych limitów subskrypcji i usług platformy Azure, przydziałów i ograniczeń. Ten artykuł zawiera informacje o sposobach zwiększania limitów oraz wartości maksymalnych.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 54eb25e302d49be9e3ab1febeb5c636d267d7e4f
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 810d503f1abdc14ad2d255a89aebe7c10954a889
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577842"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186205"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Limity subskrypcji i usług platformy Azure, przydziały i ograniczenia
 
@@ -96,7 +96,7 @@ Warstwy cenowe określają pojemność i limity usługi wyszukiwania. Warstwy ob
 
 * **Bezpłatna** usługa wielodostępna, współdzielona z innymi subskrybentami platformy Azure, jest przeznaczona do oceny i małych projektów deweloperskich.
 * Funkcja **Basic** zapewnia dedykowane zasoby obliczeniowe dla obciążeń produkcyjnych w mniejszej skali, z maksymalnie trzema replikami dla obciążeń zapytań o wysokiej dostępności.
-* **Standard** , który obejmuje wysoką gęstość S1, S2, S3 i S3, jest przeznaczony dla większych obciążeń produkcyjnych. W warstwie Standardowa istnieje wiele poziomów, dzięki czemu można wybrać konfigurację zasobów najlepiej zgodną z Twoim profilem obciążenia.
+* **Standard**, który obejmuje wysoką gęstość S1, S2, S3 i S3, jest przeznaczony dla większych obciążeń produkcyjnych. W warstwie Standardowa istnieje wiele poziomów, dzięki czemu można wybrać konfigurację zasobów najlepiej zgodną z Twoim profilem obciążenia.
 
 **Limity na subskrypcję**
 
@@ -398,7 +398,7 @@ Aby uzyskać więcej informacji, zobacz [rozmiary maszyn wirtualnych](../../virt
 
 #### <a name="disk-encryption-sets"></a>Zestawy szyfrowania dysków
 
-Istnieje ograniczenie 50 zestawów szyfrowania dysków na region, na subskrypcję. Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą szyfrowania dla maszyn wirtualnych z systemem [Linux](../../virtual-machines/linux/disk-encryption.md#restrictions) lub [Windows](../../virtual-machines/windows/disk-encryption.md#restrictions) . Jeśli musisz zwiększyć limit przydziału, skontaktuj się z pomocą techniczną platformy Azure.
+Istnieje ograniczenie 50 zestawów szyfrowania dysków na region, na subskrypcję. Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą szyfrowania dla maszyn wirtualnych z systemem [Linux](../../virtual-machines/disk-encryption.md#restrictions) lub [Windows](../../virtual-machines/disk-encryption.md#restrictions) . Jeśli musisz zwiększyć limit przydziału, skontaktuj się z pomocą techniczną platformy Azure.
 
 ### <a name="managed-virtual-machine-disks"></a>Zarządzane dyski maszyny wirtualnej
 

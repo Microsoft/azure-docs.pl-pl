@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
-ms.openlocfilehash: ed9942fa7b73418e3ef1ddf0651781d32b662995
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 04f1eb0d9db00a2be1a4619cafe38aa18145fc78
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92049949"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186001"
 ---
 # <a name="archive-data-from-log-analytics-workspace-to-azure-storage-using-logic-app"></a>Archiwizowanie danych z obszaru roboczego Log Analytics w usłudze Azure Storage przy użyciu aplikacji logiki
 W tym artykule opisano metodę używania [Azure Logic Apps](../../logic-apps/index.yml) do wykonywania zapytań dotyczących danych z log Analytics obszaru roboczego w Azure monitor i wysyłania do usługi Azure Storage. Tego procesu należy użyć, gdy trzeba wyeksportować dane dziennika Azure Monitor na potrzeby scenariuszy inspekcji i zgodności albo zezwolić innej usłudze na pobieranie tych danych.  
@@ -25,7 +25,7 @@ Metoda opisana w tym artykule opisuje zaplanowany eksport z zapytania dziennika 
 - Jednorazowe Eksportowanie do komputera lokalnego przy użyciu skryptu programu PowerShell. Zobacz [Invoke-AzOperationalInsightsQueryExport]] ( https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport) .
 
 ## <a name="overview"></a>Omówienie
-Ta procedura korzysta z [łącznika Azure monitor Logs](https://docs.microsoft.com/connectors/azuremonitorlogs/) , który umożliwia uruchamianie zapytania dziennika z aplikacji logiki i używanie jej w innych akcjach w przepływie pracy. [Łącznik usługi azure BLOB Storage](https://docs.microsoft.com/connectors/azureblob/) jest używany w tej procedurze do wysyłania zapytań wyjściowych do usługi Azure Storage. Inne akcje zostały opisane w poniższych sekcjach.
+Ta procedura korzysta z [łącznika Azure monitor Logs](/connectors/azuremonitorlogs/) , który umożliwia uruchamianie zapytania dziennika z aplikacji logiki i używanie jej w innych akcjach w przepływie pracy. [Łącznik usługi azure BLOB Storage](/connectors/azureblob/) jest używany w tej procedurze do wysyłania zapytań wyjściowych do usługi Azure Storage. Inne akcje zostały opisane w poniższych sekcjach.
 
 ![Omówienie aplikacji logiki](media/logs-export-logicapp/logic-app-overview.png)
 
@@ -61,7 +61,7 @@ Użyj procedury opisanej w [sekcji Tworzenie kontenera](../../storage/blobs/stor
 
 ## <a name="create-logic-app"></a>Tworzenie aplikacji logiki
 
-Przejdź do **Logic Apps** w Azure Portal i kliknij przycisk **Dodaj**. Wybierz **subskrypcję**, **grupę zasobów**i **region** , aby zapisać nową aplikację logiki, a następnie nadaj jej unikatową nazwę. Możesz włączyć ustawienie **log Analytics** , aby zbierać informacje o danych i zdarzeniach środowiska uruchomieniowego zgodnie z opisem w temacie [Konfigurowanie Azure monitor dzienników i zbierać dane diagnostyczne dla Azure Logic Apps](../../logic-apps/monitor-logic-apps-log-analytics.md). To ustawienie nie jest wymagane w przypadku korzystania z łącznika dzienników Azure Monitor.
+Przejdź do **Logic Apps** w Azure Portal i kliknij przycisk **Dodaj**. Wybierz **subskrypcję**, **grupę zasobów** i **region** , aby zapisać nową aplikację logiki, a następnie nadaj jej unikatową nazwę. Możesz włączyć ustawienie **log Analytics** , aby zbierać informacje o danych i zdarzeniach środowiska uruchomieniowego zgodnie z opisem w temacie [Konfigurowanie Azure monitor dzienników i zbierać dane diagnostyczne dla Azure Logic Apps](../../logic-apps/monitor-logic-apps-log-analytics.md). To ustawienie nie jest wymagane w przypadku korzystania z łącznika dzienników Azure Monitor.
 
 ![Tworzenie aplikacji logiki](media/logs-export-logicapp/create-logic-app.png)
 
@@ -69,13 +69,13 @@ Przejdź do **Logic Apps** w Azure Portal i kliknij przycisk **Dodaj**. Wybierz 
 Kliknij przycisk **Przegląd + Utwórz** , a następnie **Utwórz**. Po zakończeniu wdrażania kliknij pozycję **Przejdź do zasobu** , aby otworzyć **projektanta Logic Apps**.
 
 ## <a name="create-a-trigger-for-the-logic-app"></a>Tworzenie wyzwalacza dla aplikacji logiki
-W obszarze **Rozpocznij od typowego wyzwalacza**wybierz pozycję **cykl**. Spowoduje to utworzenie aplikacji logiki, która jest automatycznie uruchamiana w regularnych odstępach czasu. W polu **częstotliwość** akcji wybierz pozycję **godzina** i w polu **Interwał** wprowadź wartość **1** , aby uruchomić przepływ pracy raz dziennie.
+W obszarze **Rozpocznij od typowego wyzwalacza** wybierz pozycję **cykl**. Spowoduje to utworzenie aplikacji logiki, która jest automatycznie uruchamiana w regularnych odstępach czasu. W polu **częstotliwość** akcji wybierz pozycję **godzina** i w polu **Interwał** wprowadź wartość **1** , aby uruchomić przepływ pracy raz dziennie.
 
 ![Akcja cyklu](media/logs-export-logicapp/recurrence-action.png)
 
 
 ### <a name="add-azure-monitor-logs-action"></a>Dodaj akcję dzienników Azure Monitor
-Kliknij pozycję **+ nowy krok** , aby dodać akcję, która jest uruchamiana po akcji cyklu. W obszarze **Wybierz akcję**wpisz **Azure monitor** , a następnie wybierz pozycję **dzienniki Azure monitor**.
+Kliknij pozycję **+ nowy krok** , aby dodać akcję, która jest uruchamiana po akcji cyklu. W obszarze **Wybierz akcję** wpisz **Azure monitor** , a następnie wybierz pozycję **dzienniki Azure monitor**.
 
 ![Akcja dzienników Azure Monitor](media/logs-export-logicapp/select-azure-monitor-connector.png)
 
@@ -131,7 +131,7 @@ Dane wyjściowe akcji **Run Query i Results list** są sformatowane w formacie J
 Można podać schemat JSON, który opisuje oczekiwany ładunek. Projektant analizuje zawartość JSON przy użyciu tego schematu i generuje tokeny przyjazne dla użytkownika, które reprezentują właściwości w zawartości JSON. Następnie możesz łatwo odwoływać się do tych właściwości i używać ich w ramach przepływu pracy aplikacji logiki. 
 
 
-Kliknij pozycję **+ nowy krok**, a następnie kliknij pozycję **+ Dodaj akcję**. W obszarze **Wybierz akcję**wpisz dane **JSON** , a następnie wybierz pozycję **Analizuj dane JSON**.
+Kliknij pozycję **+ nowy krok**, a następnie kliknij pozycję **+ Dodaj akcję**. W obszarze **Wybierz akcję** wpisz dane **JSON** , a następnie wybierz pozycję **Analizuj dane JSON**.
 
 ![Wybieranie działania Przeanalizuj dane JSON](media/logs-export-logicapp/select-parse-json.png)
 
@@ -166,7 +166,7 @@ Kliknij pole **zawartość** , aby wyświetlić listę wartości z poprzednich d
 ## <a name="add-the-compose-action"></a>Dodaj akcję redagowania
 Akcja **redagowania** wykonuje przeanalizowane dane wyjściowe JSON i tworzy obiekt, który należy przechowywać w obiekcie blob.
 
-Kliknij pozycję **+ nowy krok**, a następnie kliknij pozycję **+ Dodaj akcję**. W obszarze **Wybierz akcję**wpisz polecenie **Zredaguj** , a następnie wybierz akcję **Utwórz** .
+Kliknij pozycję **+ nowy krok**, a następnie kliknij pozycję **+ Dodaj akcję**. W obszarze **Wybierz akcję** wpisz polecenie **Zredaguj** , a następnie wybierz akcję **Utwórz** .
 
 ![Wybierz akcję redagowania](media/logs-export-logicapp/select-compose.png)
 
@@ -179,7 +179,7 @@ Kliknij pole **dane wejściowe** , aby wyświetlić listę wartości z poprzedni
 ## <a name="add-the-create-blob-action"></a>Dodaj akcję tworzenia obiektu BLOB
 Akcja Utwórz obiekt BLOB zapisuje utworzony kod JSON w magazynie.
 
-Kliknij pozycję **+ nowy krok**, a następnie kliknij pozycję **+ Dodaj akcję**. W obszarze **Wybierz akcję**wpisz **obiekt BLOB** , a następnie wybierz akcję **Utwórz obiekt BLOB** .
+Kliknij pozycję **+ nowy krok**, a następnie kliknij pozycję **+ Dodaj akcję**. W obszarze **Wybierz akcję** wpisz **obiekt BLOB** , a następnie wybierz akcję **Utwórz obiekt BLOB** .
 
 ![Wybierz pozycję Utwórz obiekt BLOB](media/logs-export-logicapp/select-create-blob.png)
 

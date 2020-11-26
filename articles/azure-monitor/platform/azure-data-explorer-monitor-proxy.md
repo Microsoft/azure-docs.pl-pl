@@ -7,12 +7,12 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 9b434c426264fcfee0dfe663a7d1b21a354badec
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 2a21d7a06e8a92022b620704d1fb51a303da3ae0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491260"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185984"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Wykonywanie zapytań dotyczących danych w Azure Monitor przy użyciu usługi Azure Eksplorator danych (wersja zapoznawcza)
 Klaster usługi Azure Eksplorator danych proxy umożliwia wykonywanie zapytań między produktami między usługą Azure Eksplorator danych, obszarami roboczymi Log Analytics i klasycznymi aplikacjami Application Insights w Azure Monitor. Obszary robocze Log Analytics można mapować w aplikacjach Azure Monitor i klasycznych Application Insights jako klastrów proxy. Następnie można wykonać zapytanie dotyczące klastra proxy przy użyciu narzędzi usługi Azure Eksplorator danych i odwołać się do niego w zapytaniu między klastrami. W tym artykule pokazano, jak nawiązać połączenie z klastrem proxy, dodać klaster proxy do interfejsu użytkownika sieci Web usługi Azure Eksplorator danych i uruchamiać zapytania względem obszarów roboczych Log Analytics lub klasycznych aplikacji Application Insights z usługi Azure Eksplorator danych.
@@ -60,7 +60,7 @@ Można uruchamiać zapytania przy użyciu narzędzi klienckich, które obsługuj
 > * Nazwa bazy danych powinna mieć taką samą nazwę jak zasób określony w klastrze proxy. W nazwach jest uwzględniana wielkość liter.
 > * W przypadku zapytań między klastrami upewnij się, że nazwy aplikacji Application Insights i Log Analytics obszary robocze są poprawne.
 >     * Jeśli nazwy zawierają znaki specjalne, są one zastępowane przez kodowanie adresów URL w nazwie klastra proxy. 
->     * Jeśli nazwy zawierają znaki, które nie są zgodne z [regułami nazw identyfikatorów KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/entity-names), są zastępowane **-** znakiem kreski.
+>     * Jeśli nazwy zawierają znaki, które nie są zgodne z [regułami nazw identyfikatorów KQL](/azure/data-explorer/kusto/query/schema-entities/entity-names), są zastępowane **-** znakiem kreski.
 
 ### <a name="direct-query-from-your-log-analytics-or-application-insights-proxy-cluster"></a>Bezpośrednie zapytanie z klastra Log Analytics lub Application Insights proxy
 
@@ -93,9 +93,9 @@ Zapytania między dzierżawcami nie są obsługiwane przez serwer proxy usługi 
 
 Jeśli zasób Eksplorator danych platformy Azure znajduje się w dzierżawie "A", a obszar roboczy Log Analytics znajduje się w dzierżawie "B", użyj jednej z następujących dwóch metod:
 
-- Usługa Azure Eksplorator danych pozwala dodawać role dla podmiotów zabezpieczeń w różnych dzierżawach. Dodaj swój identyfikator użytkownika w dzierżawie "B" jako autoryzowany użytkownik w klastrze usługi Azure Eksplorator danych. Sprawdź, czy właściwość *["TrustedExternalTenant"](https://docs.microsoft.com/powershell/module/az.kusto/update-azkustocluster)* w klastrze Eksplorator danych platformy Azure zawiera dzierżawcę "B". Uruchom zapytanie krzyżowe w pełni w dzierżawie "B".
+- Usługa Azure Eksplorator danych pozwala dodawać role dla podmiotów zabezpieczeń w różnych dzierżawach. Dodaj swój identyfikator użytkownika w dzierżawie "B" jako autoryzowany użytkownik w klastrze usługi Azure Eksplorator danych. Sprawdź, czy właściwość *["TrustedExternalTenant"](/powershell/module/az.kusto/update-azkustocluster)* w klastrze Eksplorator danych platformy Azure zawiera dzierżawcę "B". Uruchom zapytanie krzyżowe w pełni w dzierżawie "B".
 
-- Użyj [Lighthouse](/azure/lighthouse/) , aby zaprojektować zasób Azure monitor w dzierżawie "A".
+- Użyj [Lighthouse](../../lighthouse/index.yml) , aby zaprojektować zasób Azure monitor w dzierżawie "A".
 
 ### <a name="connect-to-azure-data-explorer-clusters-from-different-tenants"></a>Nawiązywanie połączenia z klastrami Eksplorator danych platformy Azure od różnych dzierżawców
 
@@ -124,7 +124,7 @@ Podczas wywoływania Log Analytics lub Application Insights klastrów dostępne 
 
 |Opis składni  |Application Insights  |Log Analytics  |
 |----------------|---------|---------|
-| Baza danych w klastrze, która zawiera tylko zdefiniowany zasób w tej subskrypcji ( **zalecane w przypadku zapytań między klastrami** ) |   klaster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>` ) | klaster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>` )     |
+| Baza danych w klastrze, która zawiera tylko zdefiniowany zasób w tej subskrypcji (**zalecane w przypadku zapytań między klastrami**) |   klaster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>` ) | klaster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>` )     |
 | Klaster zawierający wszystkie aplikacje/obszary robocze w tej subskrypcji    |     klaster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>` )    |    klaster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>` )     |
 |Klaster zawierający wszystkie aplikacje/obszary robocze w subskrypcji i są członkami tej grupy zasobów    |   klaster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>` )      |    klaster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>` )      |
 |Klaster zawierający tylko zdefiniowany zasób w tej subskrypcji      |    klaster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>` )    |  klaster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>` )     |
@@ -132,4 +132,4 @@ Podczas wywoływania Log Analytics lub Application Insights klastrów dostępne 
 ## <a name="next-steps"></a>Następne kroki
 
 - Przeczytaj więcej na temat [struktury danych log Analytics obszarów roboczych i Application Insights](data-platform-logs.md).
-- Dowiedz się, jak [pisać zapytania w usłudze Azure Eksplorator danych](https://docs.microsoft.com/azure/data-explorer/write-queries).
+- Dowiedz się, jak [pisać zapytania w usłudze Azure Eksplorator danych](/azure/data-explorer/write-queries).

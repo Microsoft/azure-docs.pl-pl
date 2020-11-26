@@ -4,12 +4,12 @@ description: Dowiedz się, jak dodać powiązanie danych wyjściowych, aby poł�
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 0711516143839dbcdbafec56ab1d9643b4b8cdc7
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 635392212027c73e5aa954eb671be31228796a0d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167125"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185134"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Łączenie funkcji z usługą Azure Storage przy użyciu programu Visual Studio
 
@@ -29,15 +29,15 @@ Przed rozpoczęciem tego artykułu należy:
 
 ## <a name="download-the-function-app-settings"></a>Pobierz ustawienia aplikacji funkcji
 
-W [poprzednim artykule szybki start](functions-create-first-function-vs-code.md)utworzono aplikację funkcji na platformie Azure wraz z wymaganym kontem magazynu. Parametry połączenia dla tego konta są bezpiecznie przechowywane w ustawieniach aplikacji na platformie Azure. W tym artykule opisano pisanie komunikatów w kolejce magazynu w ramach tego samego konta. Aby nawiązać połączenie z kontem magazynu podczas lokalnego uruchamiania funkcji, musisz pobrać ustawienia aplikacji do *local.settings.js* pliku. 
+W [poprzednim artykule szybki start](./create-first-function-vs-code-csharp.md)utworzono aplikację funkcji na platformie Azure wraz z wymaganym kontem magazynu. Parametry połączenia dla tego konta są bezpiecznie przechowywane w ustawieniach aplikacji na platformie Azure. W tym artykule opisano pisanie komunikatów w kolejce magazynu w ramach tego samego konta. Aby nawiązać połączenie z kontem magazynu podczas lokalnego uruchamiania funkcji, musisz pobrać ustawienia aplikacji do *local.settings.js* pliku. 
 
 1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Opublikuj**. 
 
-1. W obszarze **Akcje**wybierz pozycję **Edytuj ustawienia Azure App Service**. 
+1. W obszarze **Akcje** wybierz pozycję **Edytuj ustawienia Azure App Service**. 
 
     ![Edytuj ustawienia aplikacji](media/functions-add-output-binding-storage-queue-vs/edit-app-settings.png)
 
-1. W obszarze **AzureWebJobsStorage**skopiuj wartość ciągu **zdalnego** do **lokalnego**, a następnie wybierz przycisk **OK**. 
+1. W obszarze **AzureWebJobsStorage** skopiuj wartość ciągu **zdalnego** do **lokalnego**, a następnie wybierz przycisk **OK**. 
 
 Powiązanie magazynu, które używa `AzureWebJobsStorage` Ustawienia dla połączenia, może teraz połączyć się z magazynem kolejki podczas lokalnego uruchamiania.
 
@@ -75,7 +75,7 @@ Nowa kolejka o nazwie `outqueue` zostanie utworzona na koncie magazynu przez śr
 
 1. W programie Visual Studio z menu **Widok** wybierz opcję **Eksplorator chmury**.
 
-1. W **Eksploratorze chmury**rozwiń swoje konta subskrypcji i **magazynu**platformy Azure, a następnie rozwiń konto magazynu używane przez funkcję. Jeśli nie pamiętasz nazwy konta magazynu, sprawdź `AzureWebJobsStorage` ustawienie parametrów połączenia w *local.settings.jsna* pliku.  
+1. W **Eksploratorze chmury** rozwiń swoje konta subskrypcji i **magazynu** platformy Azure, a następnie rozwiń konto magazynu używane przez funkcję. Jeśli nie pamiętasz nazwy konta magazynu, sprawdź `AzureWebJobsStorage` ustawienie parametrów połączenia w *local.settings.jsna* pliku.  
 
 1. Rozwiń węzeł **kolejki** , a następnie kliknij dwukrotnie kolejkę o nazwie **dequeueing** , aby wyświetlić zawartość kolejki w programie Visual Studio. 
 
@@ -89,13 +89,13 @@ Teraz można ponownie opublikować zaktualizowaną aplikację funkcji na platfor
 
 ## <a name="redeploy-and-verify-the-updated-app"></a>Wdróż ponownie i sprawdź zaktualizowaną aplikację
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Publikuj**, a następnie wybierz polecenie **Publikuj** , aby ponownie opublikować projekt na platformie Azure.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Publikuj**, a następnie wybierz polecenie **Publikuj** , aby ponownie opublikować projekt na platformie Azure.
 
 1. Po zakończeniu wdrażania możesz użyć przeglądarki, aby przetestować ponownie wdrożoną funkcję. Tak jak wcześniej, dołącz ciąg zapytania `&name=<yourname>` do adresu URL.
 
 1. Ponownie [Wyświetl komunikat w kolejce magazynu](#examine-the-output-queue) , aby sprawdzić, czy powiązanie danych wyjściowych ponownie generuje nowy komunikat w kolejce.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 

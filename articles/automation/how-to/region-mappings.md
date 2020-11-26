@@ -5,12 +5,12 @@ ms.date: 10/19/2020
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: bffd1cc0ce2a6a827c0bc708321a6bd2839aae2d
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 23e5293301a2fc311565d0c1c8ec5fd92bebe9b2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207329"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183570"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Obsługiwane regiony połączonego obszaru roboczego usługi Log Analytics
 
@@ -87,6 +87,6 @@ Alternatywnie możesz odłączyć obszar roboczy od konta usługi Automation w o
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej na temat Update Management w [Update Management Omówienie](../update-management/update-mgmt-overview.md).
+* Dowiedz się więcej na temat Update Management w [Update Management Omówienie](../update-management/overview.md).
 * Dowiedz się więcej na temat Change Tracking i spisu w temacie [Change Tracking i spisu](../change-tracking/overview.md).
 * Dowiedz się więcej na temat Start/Stop VMs during off-hours w [Start/Stop VMS during off-hours Omówienie](../automation-solution-vm-management.md).

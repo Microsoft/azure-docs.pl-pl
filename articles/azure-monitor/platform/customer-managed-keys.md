@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 11/18/2020
-ms.openlocfilehash: 7bfd951d7cec27e0b8264aaabf9bc3a17875256a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9715724fc0fbd25198dd3244215ac2c12638d2b8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000729"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185967"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Klucz zarządzany przez klienta usługi Azure Monitor 
 
@@ -72,7 +72,7 @@ Mają zastosowanie następujące zasady:
 1. Przyznawanie uprawnień do Key Vault
 1. Łączenie Log Analytics obszarów roboczych
 
-Konfiguracja klucza Customer-Managed nie jest obsługiwana w Azure Portal i Inicjowanie obsługi administracyjnej odbywa się za pośrednictwem [programu PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/), [interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/monitor/log-analytics) lub żądań [rest](https://docs.microsoft.com/rest/api/loganalytics/) .
+Konfiguracja klucza Customer-Managed nie jest obsługiwana w Azure Portal i Inicjowanie obsługi administracyjnej odbywa się za pośrednictwem [programu PowerShell](/powershell/module/az.operationalinsights/), [interfejsu wiersza polecenia](/cli/azure/monitor/log-analytics) lub żądań [rest](/rest/api/loganalytics/) .
 
 ### <a name="asynchronous-operations-and-status-check"></a>Operacje asynchroniczne i sprawdzanie stanu
 
@@ -107,7 +107,7 @@ Te ustawienia można aktualizować w Key Vault za pomocą interfejsu wiersza pol
 
 ### <a name="create-cluster"></a>Tworzenie klastra
 
-Postępuj zgodnie z procedurą przedstawioną w [artykule dedykowane klastry](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters#creating-a-cluster). 
+Postępuj zgodnie z procedurą przedstawioną w [artykule dedykowane klastry](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
 
 > [!IMPORTANT]
 > Skopiuj i Zapisz odpowiedź, ponieważ będziesz potrzebować szczegółowych informacji w następnych krokach.
@@ -212,7 +212,7 @@ Aby można było wykonać tę operację, musisz mieć uprawnienia "Write" do obs
 
 Ta operacja jest asynchroniczna i może zostać ukończona.
 
-Postępuj zgodnie z procedurą przedstawioną w [artykule dedykowane klastry](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters#link-a-workspace-to-the-cluster).
+Postępuj zgodnie z procedurą przedstawioną w [artykule dedykowane klastry](../log-query/logs-dedicated-clusters.md#link-a-workspace-to-the-cluster).
 
 ## <a name="key-revocation"></a>Odwoływanie klucza
 

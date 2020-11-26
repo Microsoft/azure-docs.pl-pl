@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/29/2019
-ms.openlocfilehash: 727792b110c3bc486d31214096be1934539f6d11
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 392f361f6fe487a15bdd63c2f3281ccc78b2f86d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790308"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184420"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Wprowadzenie do pojedynczych baz danych w usłudze Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -41,7 +41,7 @@ Możesz użyć programu PowerShell lub interfejsu wiersza polecenia platformy Az
 
 ## <a name="migrating-to-a-single-database-with-minimal-downtime"></a>Migrowanie do pojedynczej bazy danych z minimalnym przestojem
 
-Informacje w tych przewodnikach Szybki start umożliwiają szybkie utworzenie lub zaimportowanie bazy danych na platformę Azure za pomocą pliku `.bacpac`. `.bacpac` `.dacpac` Pliki i są jednak przeznaczone do szybkiego przenoszenia baz danych między różnymi wersjami SQL Server i w ramach usługi Azure SQL albo do wdrożenia ciągłej integracji w potoku DevOps. Jednak ta metoda nie jest przeznaczona do migracji produkcyjnych baz danych z minimalnym przestojem, ponieważ należy zaprzestać dodawać nowe dane, poczekać na wyeksportowanie źródłowej bazy danych do pliku `.bacpac`, a następnie poczekać na zakończenie importu do bazy danych Azure SQL Database. Wszystkie te czynniki powodują przestój aplikacji, szczególnie w przypadku dużych baz danych. Aby przenieść produkcyjną bazę danych, potrzebujesz lepszego sposobu migracji, który gwarantuje minimalny przestój. W tym celu należy przeprowadzić migrację bazy danych przy użyciu [usługi Data Migration Service (DMS)](../../dms/tutorial-sql-server-to-azure-sql.md?toc=%252fazure%252fsql-database%252ftoc.json) przy minimalnym przestoju. Usługa DMS realizuje to przez przyrostowe wypychanie zmian wprowadzanych w źródłowej bazie danych do przywracanej pojedynczej baza danych. Dzięki niej można szybko przełączyć aplikację ze źródłowej do docelowej bazy danych z możliwie najkrótszym przestojem.
+Informacje w tych przewodnikach Szybki start umożliwiają szybkie utworzenie lub zaimportowanie bazy danych na platformę Azure za pomocą pliku `.bacpac`. `.bacpac` `.dacpac` Pliki i są jednak przeznaczone do szybkiego przenoszenia baz danych między różnymi wersjami SQL Server i w ramach usługi Azure SQL albo do wdrożenia ciągłej integracji w potoku DevOps. Jednak ta metoda nie jest przeznaczona do migracji produkcyjnych baz danych z minimalnym przestojem, ponieważ należy zaprzestać dodawać nowe dane, poczekać na wyeksportowanie źródłowej bazy danych do pliku `.bacpac`, a następnie poczekać na zakończenie importu do bazy danych Azure SQL Database. Wszystkie te czynniki powodują przestój aplikacji, szczególnie w przypadku dużych baz danych. Aby przenieść produkcyjną bazę danych, potrzebujesz lepszego sposobu migracji, który gwarantuje minimalny przestój. W tym celu należy przeprowadzić migrację bazy danych przy użyciu [usługi Data Migration Service (DMS)](../../dms/tutorial-sql-server-to-azure-sql.md?toc=%2fazure%2fsql-database%2ftoc.json) przy minimalnym przestoju. Usługa DMS realizuje to przez przyrostowe wypychanie zmian wprowadzanych w źródłowej bazie danych do przywracanej pojedynczej baza danych. Dzięki niej można szybko przełączyć aplikację ze źródłowej do docelowej bazy danych z możliwie najkrótszym przestojem.
 
 ## <a name="hands-on-learning-modules"></a>Moduły uczenia się
 

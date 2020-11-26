@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/04/2020
-ms.openlocfilehash: 26d6bcb52099b15aeeb73a36a7144c14bdf481d6
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: ba27739ff9e9d992ffe6202629a1db19604b1409
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94497341"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186120"
 ---
 # <a name="overview-of-log-analytics-in-azure-monitor"></a>Omówienie Log Analytics w Azure Monitor
 Log Analytics jest narzędziem w Azure Portal używanym do edytowania i uruchamiania zapytań dzienników z danymi w dziennikach Azure Monitor. Można napisać proste zapytanie, które zwraca zestaw rekordów, a następnie użyć funkcji Log Analytics do sortowania, filtrowania i analizowania. Możesz też napisać bardziej zaawansowane zapytanie w celu przeprowadzenia analizy statystycznej i wizualizować wyniki na wykresie, aby zidentyfikować konkretny trend. Niezależnie od tego, czy pracujesz z wynikami zapytań interaktywnie, czy używasz ich z innymi Azure Monitormi funkcjami, takimi jak alerty lub skoroszyty zapytań, Log Analytics to narzędzie, za pomocą którego można pisać i testować. 
 
 
 > [!TIP]
-> Ten artykuł zawiera opis Log Analytics i każdej z jej funkcji. Jeśli chcesz przejść bezpośrednio do samouczka, zobacz [samouczek log Analytics](get-started-portal.md).
+> Ten artykuł zawiera opis Log Analytics i każdej z jej funkcji. Jeśli chcesz przejść bezpośrednio do samouczka, zobacz [samouczek log Analytics](./log-analytics-tutorial.md).
 
 
 
@@ -85,11 +85,11 @@ Wyświetla wyniki jako jeden z wielu dostępnych typów wykresów. Możesz okre�
 | **Oś X** | Kolumna w wynikach do użycia dla osi X 
 | **Oś Y** | Kolumna w wynikach, która ma być używana dla osi Y. Zwykle będzie to kolumna numeryczna. |
 | **Podział według** | Kolumna w wynikach, która definiuje serię na wykresie. Dla każdej wartości w kolumnie jest tworzona seria. |
-| **Agregacji** | Typ agregacji do wykonania na wartościach liczbowych na osi Y. |
+| **Agregacja** | Typ agregacji do wykonania na wartościach liczbowych na osi Y. |
 
 ## <a name="relationship-to-azure-data-explorer"></a>Relacja do Eksplorator danych platformy Azure
 Jeśli znasz już interfejs użytkownika usługi Azure Eksplorator danych Web, Log Analytics powinien wyglądać znajomo. Dzieje się tak, ponieważ jest ona oparta na usłudze Azure Eksplorator danych i używa tego samego języka zapytań Kusto (KQL). Log Analytics dodaje funkcje specyficzne dla Azure Monitor takich jak filtrowanie według zakresu czasu i możliwość tworzenia reguły alertu na podstawie zapytania. Oba narzędzia obejmują Eksploratora, który umożliwia przechodzenie przez strukturę dostępnych tabel, ale interfejs użytkownika usługi Azure Eksplorator danych Web działa przede wszystkim z tabelami w usłudze Azure Eksplorator danych Databases, podczas gdy Log Analytics działa z tabelami w obszarze roboczym Log Analytics. 
 
 ## <a name="next-steps"></a>Następne kroki
-- Zapoznaj się z [samouczkiem dotyczącym korzystania z log Analytics w Azure Portal](get-started-portal.md).
+- Zapoznaj się z [samouczkiem dotyczącym korzystania z log Analytics w Azure Portal](./log-analytics-tutorial.md).
 - Zapoznaj się z [samouczkiem dotyczącym pisania zapytań](get-started-queries.md).

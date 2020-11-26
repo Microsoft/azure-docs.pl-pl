@@ -4,12 +4,12 @@ description: Monitorowanie wydajności witryny sieci Web bez jej ponownego wdra�
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 6c27c78bf8e3f3b8af342a14a38c9be3821d781a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 53dbcc341fdd4bc194d34d40cdd2a975df496376
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020929"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186307"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentacja aplikacji sieci Web w środowisku uruchomieniowym z dołączaniem bez kodu Application Insights
 
@@ -93,7 +93,7 @@ Oto kilka kroków, które można wykonać, aby upewnić się, że instalacja zak
 
 - Upewnij się, że plik applicationInsights.config znajduje się w docelowym katalogu aplikacji i zawiera iKey.
 
-- Jeśli podejrzewasz, że brakuje danych, możesz uruchomić zapytanie w [analizie](../log-query/get-started-portal.md) , aby wyświetlić listę wszystkich ról w chmurze aktualnie wysyłających dane telemetryczne.
+- Jeśli podejrzewasz, że brakuje danych, możesz uruchomić zapytanie w [analizie](../log-query/log-analytics-tutorial.md) , aby wyświetlić listę wszystkich ról w chmurze aktualnie wysyłających dane telemetryczne.
   ```Kusto
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
@@ -340,4 +340,3 @@ Dodawanie kolejnych funkcji telemetrii:
 [qna]: ../faq.md
 [roles]: ./resources-roles-access-control.md
 [usage]: ./javascript.md
-

@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 066e9cf6c63c9f2073ba869e8b40e25bfc993cd8
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: ddb73de87789934aa66893bdbe6519011cf324b3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491379"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186103"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Zakres i zakres czasu zapytania dziennika w Azure Monitor Log Analytics
-Po uruchomieniu [zapytania dziennika](log-query-overview.md) w [log Analytics w Azure Portal](get-started-portal.md), zestaw danych ocenianych przez zapytanie zależy od zakresu i wybranego zakresu czasu. W tym artykule opisano zakres i zakres czasu oraz sposób, w jaki można ustawić każdą z nich w zależności od wymagań. Opisano w nim również zachowanie różnych typów zakresów.
+Po uruchomieniu [zapytania dziennika](log-query-overview.md) w [log Analytics w Azure Portal](./log-analytics-tutorial.md), zestaw danych ocenianych przez zapytanie zależy od zakresu i wybranego zakresu czasu. W tym artykule opisano zakres i zakres czasu oraz sposób, w jaki można ustawić każdą z nich w zależności od wymagań. Opisano w nim również zachowanie różnych typów zakresów.
 
 
 ## <a name="query-scope"></a>Zakres zapytania
@@ -71,11 +71,11 @@ Ustaw zakres czasu, wybierając go z selektora czas u góry okna Log Analytics. 
 
 ![Wybór godziny](media/scope/time-picker.png)
 
-W przypadku ustawienia filtru w zapytaniu, który używa kolumny czasu standardowego, jak pokazano w powyższej tabeli, selektor czasu zostanie zmieniony na **Ustaw w kwerendzie** , a selektor czasu jest wyłączony. W takim przypadku najlepiej jest umieścić filtr w górnej części zapytania, tak aby każde kolejne przetwarzanie działało tylko z filtrowanymi rekordami.
+W przypadku ustawienia filtru w zapytaniu, który używa kolumny czasu standardowego, jak pokazano w powyższej tabeli, selektor czasu zostanie zmieniony na **Ustaw w kwerendzie**, a selektor czasu jest wyłączony. W takim przypadku najlepiej jest umieścić filtr w górnej części zapytania, tak aby każde kolejne przetwarzanie działało tylko z filtrowanymi rekordami.
 
 ![Filtrowane zapytanie](media/scope/query-filtered.png)
 
-Jeśli używasz [obszaru roboczego](workspace-expression.md) lub [aplikacji](app-expression.md) do pobierania danych z innego obszaru roboczego lub aplikacji klasycznej, selektor czasu może zachowywać się inaczej. Jeśli zakres jest obszarem roboczym Log Analytics i używasz **aplikacji** lub jeśli zakres jest aplikacją klasyczną Application Insights i używasz **obszaru roboczego** , log Analytics może nie rozumieć, że kolumna użyta w filtrze powinna określać filtr czasu.
+Jeśli używasz [obszaru roboczego](workspace-expression.md) lub [aplikacji](app-expression.md) do pobierania danych z innego obszaru roboczego lub aplikacji klasycznej, selektor czasu może zachowywać się inaczej. Jeśli zakres jest obszarem roboczym Log Analytics i używasz **aplikacji** lub jeśli zakres jest aplikacją klasyczną Application Insights i używasz **obszaru roboczego**, log Analytics może nie rozumieć, że kolumna użyta w filtrze powinna określać filtr czasu.
 
 W poniższym przykładzie zakres jest ustawiany na obszar roboczy Log Analytics.  Zapytanie używa **obszaru roboczego** do pobierania danych z innego obszaru roboczego log Analytics. Selektor godziny zmienia się **w celu ustawienia w zapytaniu** , ponieważ widzi filtr, który używa oczekiwanej kolumny **TimeGenerated** .
 
@@ -87,5 +87,5 @@ Jeśli zapytanie używa **aplikacji** do pobierania danych z klasycznej aplikacj
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zapoznaj się z [samouczkiem dotyczącym korzystania z log Analytics w Azure Portal](get-started-portal.md).
+- Zapoznaj się z [samouczkiem dotyczącym korzystania z log Analytics w Azure Portal](./log-analytics-tutorial.md).
 - Zapoznaj się z [samouczkiem dotyczącym pisania zapytań](get-started-queries.md).

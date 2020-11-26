@@ -6,12 +6,12 @@ author: yunjchoi
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: yunjchoi
-ms.openlocfilehash: 9d06ad2f740394a4959f3665c5d6311e71841241
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: e8921152177d3e4534ca9fb48cf209aed6e1b27c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94960839"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183366"
 ---
 # <a name="azure-kubernetes-service-diagnostics-preview-overview"></a>Omówienie usługi Azure Kubernetes Service Diagnostics (wersja zapoznawcza)
 
@@ -83,6 +83,6 @@ Zarządzanie tożsamościami i zabezpieczeniami wykrywa błędy uwierzytelniania
 
 Zbierz dzienniki, aby ułatwić dalsze Rozwiązywanie problemów z klastrem za pomocą [AKS Periscope](https://aka.ms/aksperiscope).
 
-Zapoznaj się z [sekcją Klasyfikacja Practices](https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-practices) w Przewodniku obsługi AKS Day-2.
+Zapoznaj się z [sekcją Klasyfikacja Practices](/azure/architecture/operator-guides/aks/aks-triage-practices) w Przewodniku obsługi AKS Day-2.
 
 Opublikuj swoje pytania lub opinie w witrynie [UserVoice](https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks) , dodając w tytule "[diag]".

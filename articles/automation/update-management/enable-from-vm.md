@@ -5,12 +5,12 @@ services: automation
 ms.date: 11/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 1ed4ad3e1bae34b5007d13c7d092f46e972ac8a8
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 35feb136ca1fd7ea0be16a906f7d5193cf8570c7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347084"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183553"
 ---
 # <a name="enable-update-management-from-an-azure-vm"></a>Włączanie rozwiązania Update Management z poziomu maszyny wirtualnej platformy Azure
 
@@ -25,7 +25,7 @@ W tym artykule opisano, jak włączyć funkcję [Update Management](overview.md)
 * [Konto usługi Automation](../index.yml) do zarządzania maszynami.
 * [Maszyna wirtualna](../../virtual-machines/windows/quick-create-portal.md).
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
@@ -39,7 +39,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
     ![Wybierz pozycję Gość + aktualizacje hosta z okienka po lewej stronie](media/enable-from-vm/select-guest-and-os-updates.png)
 
-4. Musisz mieć `Microsoft.OperationalInsights/workspaces/read` uprawnienie do określenia, czy maszyna wirtualna jest włączona dla obszaru roboczego. Aby dowiedzieć się więcej o dodatkowych uprawnieniach, które są wymagane, zobacz [uprawnienia wymagane do włączania maszyn](../automation-role-based-access-control.md#feature-setup-permissions). Aby dowiedzieć się, jak jednocześnie włączyć wiele komputerów, zobacz [włączanie Update Management z konta usługi Automation](update-mgmt-enable-automation-account.md).
+4. Musisz mieć `Microsoft.OperationalInsights/workspaces/read` uprawnienie do określenia, czy maszyna wirtualna jest włączona dla obszaru roboczego. Aby dowiedzieć się więcej o dodatkowych uprawnieniach, które są wymagane, zobacz [uprawnienia wymagane do włączania maszyn](../automation-role-based-access-control.md#feature-setup-permissions). Aby dowiedzieć się, jak jednocześnie włączyć wiele komputerów, zobacz [włączanie Update Management z konta usługi Automation](./enable-from-automation-account.md).
 
 5. Na stronie Włączanie Update Management wybierz obszar roboczy Log Analytics i konto usługi Automation, a następnie kliknij pozycję **Włącz** , aby włączyć Update Management. Po włączeniu Update Management może upłynąć około 15 minut, zanim będzie możliwe wyświetlenie oceny aktualizacji z maszyny wirtualnej.
 

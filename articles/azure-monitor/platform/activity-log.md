@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 6543b629af8d67658afe61ef81e22eb7355e1de7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b49faabb1c61a10418bfce3ae2e8187429981ad
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91772808"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186086"
 ---
 # <a name="azure-activity-log"></a>Dziennik aktywności platformy Azure
-Dziennik aktywności to [Dziennik platformy](platform-logs-overview.md) na platformie Azure, który zapewnia wgląd w zdarzenia na poziomie subskrypcji. Obejmuje to takie informacje, jak w przypadku zmodyfikowania zasobu lub uruchomienia maszyny wirtualnej. Dziennik aktywności można wyświetlić w Azure Portal lub pobrać wpisów przy użyciu programu PowerShell i interfejsu wiersza polecenia. Aby uzyskać dodatkowe funkcje, należy utworzyć ustawienie diagnostyczne służące do wysyłania dziennika aktywności do [dzienników Azure monitor](data-platform-logs.md), do usługi Azure Event Hubs do przekazywania poza platformę Azure lub do usługi Azure Storage w celu archiwizacji. Ten artykuł zawiera szczegółowe informacje na temat wyświetlania dziennika aktywności i wysyłania go do różnych miejsc docelowych.
+Dziennik aktywności jest to [dziennik platformy](platform-logs-overview.md) Azure, który zapewnia wgląd w zdarzenia na poziomie subskrypcji. Zawiera on takie informacje jak czas zmodyfikowania zasobu lub czas uruchomienia maszyny wirtualnej. Dziennik aktywności można wyświetlić w Azure Portal lub pobrać wpisów przy użyciu programu PowerShell i interfejsu wiersza polecenia. Aby uzyskać dodatkowe funkcje, należy utworzyć ustawienie diagnostyczne służące do wysyłania dziennika aktywności do [dzienników Azure monitor](data-platform-logs.md), do usługi Azure Event Hubs do przekazywania poza platformę Azure lub do usługi Azure Storage w celu archiwizacji. Ten artykuł zawiera szczegółowe informacje na temat wyświetlania dziennika aktywności i wysyłania go do różnych miejsc docelowych.
 
 Zobacz [Tworzenie ustawień diagnostycznych, aby wysyłać dzienniki platformy i metryki do różnych miejsc docelowych](diagnostic-settings.md) w celu uzyskania szczegółowych informacji dotyczących tworzenia ustawień diagnostycznych.
 
@@ -23,7 +23,7 @@ Zobacz [Tworzenie ustawień diagnostycznych, aby wysyłać dzienniki platformy i
 > Wpisy w dzienniku aktywności są generowane przez system i nie można ich zmienić ani usunąć.
 
 ## <a name="view-the-activity-log"></a>Wyświetlanie dziennika aktywności
-Dostęp do dziennika aktywności można uzyskać z większości menu w Azure Portal. Menu, z którego jest otwierane, określa jego pierwotny filtr. Jeśli otworzysz go z menu **monitor** , jedynym filtrem będzie w subskrypcji. Jeśli otworzysz go z menu zasobów, filtr zostanie ustawiony na ten zasób. Filtr można zawsze zmienić, aby wyświetlić wszystkie pozostałe wpisy. Kliknij przycisk **Dodaj filtr** , aby dodać do filtru dodatkowe właściwości.
+Dostęp do dziennika aktywności można uzyskać z poziomu większości menu w witrynie Azure Portal. Menu, z poziomu którego jest otwierany, określa jego filtr początkowy. Jeśli otworzysz go z menu **monitor** , jedynym filtrem będzie w subskrypcji. Jeśli otworzysz go z menu zasobów, filtr zostanie ustawiony na ten zasób. Filtr można zawsze zmienić, aby wyświetlić wszystkie pozostałe wpisy. Kliknij przycisk **Dodaj filtr** , aby dodać do filtru dodatkowe właściwości.
 
 ![Wyświetl dziennik aktywności](./media/activity-logs-overview/view-activity-log.png)
 
@@ -58,9 +58,9 @@ Możesz również uzyskać dostęp do zdarzeń dziennika aktywności przy użyci
 - Przechowywanie wpisów dziennika aktywności przez dłużej niż 90 dni.
 - Brak opłat za pozyskiwanie danych lub pobieranie danych dla danych dziennika aktywności przechowywanych w obszarze roboczym Log Analytics.
 
-[Utwórz ustawienie diagnostyczne](diagnostic-settings.md) , aby wysłać dziennik aktywności do obszaru roboczego log Analytics. Dziennik aktywności można wysłać z dowolnej pojedynczej subskrypcji do maksymalnie pięciu obszarów roboczych. Zbieranie dzienników między dzierżawcami wymaga [platformy Azure Lighthouse](../../lighthouse/index.yml).
+[Utwórz ustawienie diagnostyczne](diagnostic-settings.md) , aby wysłać dziennik aktywności do obszaru roboczego log Analytics. Dziennik aktywności można wysłać z dowolnej pojedynczej subskrypcji do maksymalnie pięciu obszarów roboczych. Zbieranie dzienników z dzierżaw wymaga usługi [Azure Lighthouse](../../lighthouse/index.yml).
 
-Dane dziennika aktywności w obszarze roboczym Log Analytics są przechowywane w tabeli o nazwie *Azure* , którą można pobrać z [zapytaniem dziennika](../log-query/log-query-overview.md) w [log Analytics](../log-query/get-started-portal.md). Struktura tej tabeli różni się w zależności od [kategorii wpisu dziennika](activity-log-schema.md). Aby uzyskać opis właściwości tabeli, zobacz [informacje dotyczące Azure monitor danych](/azure/azure-monitor/reference/tables/azureactivity).
+Dane dziennika aktywności w obszarze roboczym Log Analytics są przechowywane w tabeli o nazwie *Azure* , którą można pobrać z [zapytaniem dziennika](../log-query/log-query-overview.md) w [log Analytics](../log-query/log-analytics-tutorial.md). Struktura tej tabeli różni się w zależności od [kategorii wpisu dziennika](activity-log-schema.md). Aby uzyskać opis właściwości tabeli, zobacz [informacje dotyczące Azure monitor danych](/azure/azure-monitor/reference/tables/azureactivity).
 
 Aby na przykład wyświetlić liczbę rekordów dziennika aktywności dla każdej kategorii, użyj poniższego zapytania.
 
@@ -199,14 +199,14 @@ Jeśli profil dziennika już istnieje, najpierw musisz usunąć istniejący prof
     Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
     ```
 
-    | Właściwość | Wymagane | Opis |
+    | Właściwość | Wymagany | Opis |
     | --- | --- | --- |
     | Nazwa |Tak |Nazwa profilu dziennika. |
     | StorageAccountId |Nie |Identyfikator zasobu konta magazynu, w którym ma zostać zapisany dziennik aktywności. |
     | serviceBusRuleId |Nie |Service Bus Identyfikator reguły dla przestrzeni nazw Service Bus, w której chcesz utworzyć Centra zdarzeń. Jest to ciąg o formacie: `{service bus resource ID}/authorizationrules/{key name}` . |
     | Lokalizacja |Tak |Rozdzielana przecinkami lista regionów, dla których chcesz zbierać zdarzenia dziennika aktywności. |
     | RetentionInDays |Tak |Liczba dni, przez jaką zdarzenia mają być przechowywane na koncie magazynu, z zakresu od 1 do 365. Wartość zero przechowuje dzienniki w nieskończoność. |
-    | Kategoria |Nie |Rozdzielana przecinkami lista kategorii zdarzeń, które mają być zbierane. Możliwe wartości to _Write_, _delete_i _Action_. |
+    | Kategoria |Nie |Rozdzielana przecinkami lista kategorii zdarzeń, które mają być zbierane. Możliwe wartości to _Write_, _delete_ i _Action_. |
 
 ### <a name="example-script"></a>Przykładowy skrypt
 Poniżej znajduje się przykładowy skrypt programu PowerShell służący do tworzenia profilu dziennika, który zapisuje dziennik aktywności zarówno do konta magazynu, jak i do centrum zdarzeń.
@@ -242,7 +242,7 @@ Jeśli profil dziennika już istnieje, należy najpierw usunąć istniejący pro
    az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
 
-    | Właściwość | Wymagane | Opis |
+    | Właściwość | Wymagany | Opis |
     | --- | --- | --- |
     | name |Tak |Nazwa profilu dziennika. |
     | Magazyn — identyfikator konta |Tak |Identyfikator zasobu konta magazynu, do którego mają zostać zapisane dzienniki aktywności. |
@@ -281,7 +281,7 @@ Kolumny w poniższej tabeli zostały zaniechane w zaktualizowanym schemacie. Nad
 | ResourceProvider  | ResourceProviderValue  |
 
 > [!IMPORTANT]
-> W niektórych przypadkach wartości w tych kolumnach mogą być pisane wielkimi literami. Jeśli masz zapytanie zawierające te kolumny, należy użyć [operatora = ~](/azure/kusto/query/datatypes-string-operators) do wykonania porównania bez uwzględniania wielkości liter.
+> W niektórych przypadkach wartości w tych kolumnach mogą być napisane wielkimi literami. Jeśli masz zapytanie zawierające te kolumny, do wykonania porównania bez uwzględniania wielkości liter należy użyć [operatora =~](/azure/kusto/query/datatypes-string-operators).
 
 Następująca kolumna została dodana do *usługi Azure* w zaktualizowanym schemacie:
 

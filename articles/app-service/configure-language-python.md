@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 11/16/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 149f8deb8839b3adce3555300c94b8ebdf587100
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: f12ed42755af64f024fdcb0452173134f7b58482
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873849"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183740"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Konfigurowanie aplikacji systemu Linux w języku Python dla Azure App Service
 
@@ -126,10 +126,10 @@ W poniższej tabeli opisano ustawienia produkcyjne odpowiednie dla platformy Azu
 
 | Ustawienie Django | Instrukcje dotyczące platformy Azure |
 | --- | --- |
-| `SECRET_KEY` | Zapisz wartość w ustawieniu App Service zgodnie z opisem w temacie [dostęp do ustawień aplikacji jako zmiennych środowiskowych](#access-app-settings-as-environment-variables). Możesz również [przechowywać wartości jako "tajne" w Azure Key Vault](/azure/key-vault/secrets/quick-create-python). |
+| `SECRET_KEY` | Zapisz wartość w ustawieniu App Service zgodnie z opisem w temacie [dostęp do ustawień aplikacji jako zmiennych środowiskowych](#access-app-settings-as-environment-variables). Możesz również [przechowywać wartości jako "tajne" w Azure Key Vault](../key-vault/secrets/quick-create-python.md). |
 | `DEBUG` | Utwórz `DEBUG` ustawienie na App Service z wartością 0 (false), a następnie załaduj wartość jako zmienną środowiskową. W środowisku deweloperskim Utwórz `DEBUG` zmienną środowiskową o wartości 1 (true). |
 | `ALLOWED_HOSTS` | W środowisku produkcyjnym Django wymaga dołączenia adresu URL aplikacji w `ALLOWED_HOSTS` tablicy *Settings.py*. Ten adres URL można pobrać w czasie wykonywania przy użyciu kodu, `os.environ['WEBSITE_HOSTNAME']` . App Service automatycznie ustawia `WEBSITE_HOSTNAME` zmienną środowiskową na adres URL aplikacji. |
-| `DATABASES` | Zdefiniuj ustawienia w App Service dla połączenia z bazą danych i załaduj je jako zmienne środowiskowe w celu wypełnienia [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES) słownika. Można na przykład zapisywać wartości (zwłaszcza nazwę użytkownika i hasło) jako Azure Key Vault wpisy [tajne](/azure/key-vault/secrets/quick-create-python). |
+| `DATABASES` | Zdefiniuj ustawienia w App Service dla połączenia z bazą danych i załaduj je jako zmienne środowiskowe w celu wypełnienia [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES) słownika. Można na przykład zapisywać wartości (zwłaszcza nazwę użytkownika i hasło) jako Azure Key Vault wpisy [tajne](../key-vault/secrets/quick-create-python.md). |
 
 ## <a name="container-characteristics"></a>Właściwości kontenera
 

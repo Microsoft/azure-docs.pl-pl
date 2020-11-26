@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 99aa4d9ed6552075b0da4d451201f48ba6adfb1b
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 9931dd9acb51e74c34a57b0475bca79fb9ba79cf
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578709"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184182"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>Przedpłata za usługę Azure cache dla zasobów obliczeniowych Redis z zarezerwowaną pojemnością
 
@@ -37,7 +37,7 @@ Załóżmy na przykład, że korzystasz z dwóch pamięci podręcznych — jeden
 
 ## <a name="buy-azure-cache-for-redis-reserved-capacity"></a>Kupowanie pamięci podręcznej platformy Azure pod kątem zarezerwowanej pojemności Redis
 
-Możesz kupić wystąpienie zarezerwowane maszyny wirtualnej w [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/). Płatność za rezerwację jest wnoszona [z góry lub w ratach miesięcznych](../cost-management-billing/reservations/monthly-payments-reservations.md).
+Możesz kupić wystąpienie zarezerwowane maszyny wirtualnej w [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/). Płatność za rezerwację jest wnoszona [z góry lub w ratach miesięcznych](../cost-management-billing/reservations/prepare-buy-reservation.md).
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. Wybierz pozycję **Wszystkie usługi** > **Rezerwacje**.
@@ -53,11 +53,11 @@ W poniższej tabeli opisano wymagane pola.
 | Pole | Opis |
 | :------------ | :------- |
 | Subskrypcja   | Subskrypcja używana do płacenia za pamięć podręczną platformy Azure na potrzeby rezerwacji zarezerwowanej pojemności Redis. W ramach metody płatności w ramach subskrypcji jest naliczana opłata za koszty z góry pamięci podręcznej platformy Azure na potrzeby rezerwacji zarezerwowanej pojemności Redis. Typ subskrypcji musi być umową Enterprise Agreement (Numer oferty: MS-AZR-0017P lub MS-AZR-0148P) lub indywidualna umowa z cennikiem z opcją płatność zgodnie z rzeczywistym użyciem (numery ofert: MS-AZR-0003P lub MS-AZR-0023P). W przypadku subskrypcji Enterprise opłaty są odliczane od salda zobowiązania pieniężnego rejestracji lub naliczane jako nadwyżka. W przypadku indywidualnej subskrypcji z płatnością zgodnie z rzeczywistym użyciem opłaty są naliczane za kartę kredytową lub formę płatności faktury dla subskrypcji.
-| Zakres | Zakres rezerwacji może obejmować jedną subskrypcję lub wiele subskrypcji (zakres udostępniony). W przypadku wybrania opcji: </br></br> **Udostępniony** rabat w ramach rezerwacji jest stosowany do usługi Azure cache dla wystąpień Redis uruchomionych w każdej subskrypcji w kontekście rozliczania. W przypadku klientów korporacyjnych zakresem udostępnionym jest rejestracja i uwzględnianie wszystkich subskrypcji w ramach rejestracji. W przypadku klientów z płatnością zgodnie z rzeczywistym użyciem zakresem udostępnionym są wszystkie subskrypcje z opcją płatności zgodnie z rzeczywistym użyciem utworzone przez administratora konta.</br></br> **Pojedyncza subskrypcja** rabat jest stosowany do usługi Azure cache dla wystąpień Redis w tej subskrypcji. </br></br> **Pojedynczej grupy zasobów** , Rabat rezerwacji jest stosowany do usługi Azure cache dla wystąpień Redis w ramach wybranej subskrypcji i wybranej grupy zasobów w ramach tej subskrypcji.
+| Zakres | Zakres rezerwacji może obejmować jedną subskrypcję lub wiele subskrypcji (zakres udostępniony). W przypadku wybrania opcji: </br></br> **Udostępniony** rabat w ramach rezerwacji jest stosowany do usługi Azure cache dla wystąpień Redis uruchomionych w każdej subskrypcji w kontekście rozliczania. W przypadku klientów korporacyjnych zakresem udostępnionym jest rejestracja i uwzględnianie wszystkich subskrypcji w ramach rejestracji. W przypadku klientów z płatnością zgodnie z rzeczywistym użyciem zakresem udostępnionym są wszystkie subskrypcje z opcją płatności zgodnie z rzeczywistym użyciem utworzone przez administratora konta.</br></br> **Pojedyncza subskrypcja** rabat jest stosowany do usługi Azure cache dla wystąpień Redis w tej subskrypcji. </br></br> **Pojedynczej grupy zasobów**, Rabat rezerwacji jest stosowany do usługi Azure cache dla wystąpień Redis w ramach wybranej subskrypcji i wybranej grupy zasobów w ramach tej subskrypcji.
 | Region (Region) | Region świadczenia usługi Azure, który jest objęty pamięcią podręczną platformy Azure na potrzeby rezerwacji zarezerwowanej pojemności Redis.
 | Warstwa cenowa | Warstwa usługi dla serwerów Redis w pamięci podręcznej platformy Azure.
-| Termin | Jeden rok lub trzy lata
-| Ilość | Ilość zasobów obliczeniowych zakupionych w pamięci podręcznej platformy Azure na potrzeby rezerwacji zarezerwowanej pojemności Redis. Ilość to liczba pamięci podręcznych w wybranym regionie platformy Azure i w warstwie usług, które są zarezerwowane i uzyskają rabat na rozliczenia. Na przykład w przypadku uruchamiania lub planowania uruchamiania pamięci podręcznej platformy Azure dla serwerów Redis z łączną pojemnością pamięci podręcznej wynoszącą 26 GB w regionie Wschodnie stany USA należy określić liczbę zapewniającą równowartość 26 GB, aby zmaksymalizować korzyść dla wszystkich pamięci podręcznych. Może to być 1 P3 lub 2 pamięci podręcznych.
+| Okres | Jeden rok lub trzy lata
+| Liczba | Ilość zasobów obliczeniowych zakupionych w pamięci podręcznej platformy Azure na potrzeby rezerwacji zarezerwowanej pojemności Redis. Ilość to liczba pamięci podręcznych w wybranym regionie platformy Azure i w warstwie usług, które są zarezerwowane i uzyskają rabat na rozliczenia. Na przykład w przypadku uruchamiania lub planowania uruchamiania pamięci podręcznej platformy Azure dla serwerów Redis z łączną pojemnością pamięci podręcznej wynoszącą 26 GB w regionie Wschodnie stany USA należy określić liczbę zapewniającą równowartość 26 GB, aby zmaksymalizować korzyść dla wszystkich pamięci podręcznych. Może to być 1 P3 lub 2 pamięci podręcznych.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Anulowanie, wymiana lub zwrot rezerwacji
 

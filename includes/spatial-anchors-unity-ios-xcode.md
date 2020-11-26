@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/20/2020
 ms.author: parkerra
 ms.openlocfilehash: d969b1639dbb39b920c985964abe1239f068d740
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95971574"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185347"
 ---
 Wybierz pozycję **kompilacja**. W otwartym okienku wybierz folder, do którego chcesz wyeksportować projekt Xcode.
 

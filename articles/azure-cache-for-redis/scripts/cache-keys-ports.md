@@ -9,12 +9,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9fef834e550f144075ec9cc72cac3b11cc1e99e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3e8e359a97c091e025049ac8a978e1beca1d759
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87504215"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184227"
 ---
 # <a name="get-the-hostname-ports-and-keys-for-azure-cache-for-redis"></a>Pobieranie nazwy hosta, portów i kluczy dla usługi Azure cache for Redis
 
@@ -33,12 +33,12 @@ Ten skrypt używa następujących poleceń w celu pobrania nazwy hosta, kluczy i
 
 | Polecenie | Uwagi |
 |---|---|
-| [AZ Redis show](https://docs.microsoft.com/cli/azure/redis) | Pobierz szczegóły wystąpienia usługi Azure cache for Redis. |
-| [AZ Redis list-Keys](https://docs.microsoft.com/cli/azure/redis) | Pobierz klucze dostępu dla wystąpienia usługi Azure cache for Redis. |
+| [AZ Redis show](/cli/azure/redis) | Pobierz szczegóły wystąpienia usługi Azure cache for Redis. |
+| [AZ Redis list-Keys](/cli/azure/redis) | Pobierz klucze dostępu dla wystąpienia usługi Azure cache for Redis. |
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure).
+Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure).
 
 Dodatkowe przykłady skryptów interfejsu wiersza polecenia usługi Azure cache for Redis znajdują się w [pamięci podręcznej platformy Azure w celu uzyskania dokumentacji Redis](../cli-samples.md).

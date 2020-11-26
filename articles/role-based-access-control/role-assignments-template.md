@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/13/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 563cd14d0eccdbe6d91ae09029da766dacbceb87
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: 9bdd70baa906d9dc03a37eecb0388eee5638f153
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616879"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184284"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Dodawanie przypisań ról platformy Azure przy użyciu szablonów Azure Resource Manager
 
@@ -380,7 +380,7 @@ W celu usunięcia dostępu do zasobu platformy Azure w usłudze Azure RBAC nale�
 
 - [Azure Portal](role-assignments-portal.md#remove-a-role-assignment)
 - [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)
-- [Interfejs wiersza polecenia platformy Azure](role-assignments-cli.md#remove-role-assignment)
+- [Interfejs wiersza polecenia platformy Azure](role-assignments-cli.md#remove-a-role-assignment)
 - [Interfejs API REST](role-assignments-rest.md#remove-a-role-assignment)
 
 ## <a name="next-steps"></a>Następne kroki

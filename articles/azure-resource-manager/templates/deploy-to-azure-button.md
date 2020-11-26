@@ -3,12 +3,12 @@ title: Przycisk Wdróż na platformie Azure
 description: Użyj przycisku, aby wdrożyć szablony Azure Resource Manager z repozytorium GitHub.
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 25ec5fd7a0c5b356097412ab6f1765cb0886522a
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 65891cace1cb17614abbfe091e1592d6f13feff4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555270"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185729"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Użyj przycisku wdrożenia, aby wdrożyć szablony z repozytorium GitHub
 
@@ -107,10 +107,10 @@ W przypadku języka HTML należy użyć:
 W przypadku usługi git z repozytorium Azure przycisk ma format:
 
 ```markdown
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fdev.azure.com%2Forgname%2Fprojectname%2F_apis%2Fgit%2Frepositories%2Freponame%2Fitems%3FscopePath%3D%252Freponame%252Fazuredeploy.json%26api-version%3D6.0)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fdev.azure.com%2Forgname%2Fprojectname%2F_apis%2Fgit%2Frepositories%2Freponame%2Fitems%3FscopePath%3D%2freponame%2fazuredeploy.json%26api-version%3D6.0)
 ```
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 Aby przetestować pełne rozwiązanie, wybierz następujący przycisk:
 

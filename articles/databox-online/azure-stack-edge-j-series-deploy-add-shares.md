@@ -10,11 +10,11 @@ ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ms.openlocfilehash: cd288926e6f7a3f454be2788479b5c9d414b167a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440279"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185491"
 ---
 # <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-pro-gpu"></a>Samouczek: przesyłanie danych za pośrednictwem udziałów przy użyciu procesora GPU w Azure Stack Edge
 
@@ -24,7 +24,7 @@ W tym samouczku opisano, jak dodawać i łączyć się z udziałami na urządzen
 
 Wykonanie tej procedury może zająć około 10 minut.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -56,14 +56,14 @@ Aby utworzyć udział, wykonaj następującą procedurę:
     a. W polu **Nazwa** podaj unikatową nazwę udziału.  
     Nazwa udziału może zawierać tylko litery, cyfry i łączniki. Musi mieć od 3 do 63 znaków i zaczynać się literą lub cyfrą. Za i przed łącznikiem musi znajdować się litera lub cyfra.
     
-    b. Wybierz **Typ** dla udziału.  
-    Dostępne są dwa typy — **SMB** i **NFS** — przy czym typ SMB jest domyślny. Typ SMB jest standardem dla klientów systemu Windows, natomiast typ NFS jest używany dla klientów systemu Linux.  
+    b. Wybierz **Typ** udziału.  
+    Typ może być typu **SMB** lub **NFS** z domyślnym protokołem SMB. Typ SMB jest standardem dla klientów systemu Windows, natomiast typ NFS jest używany dla klientów systemu Linux.  
     W zależności od tego, czy wybrano udział SMB, czy NFS, pozostałe opcje nieco się różnią. 
 
-    c. Podaj konto magazynu, na którym będzie znajdować się udział.
+    c. Podaj konto magazynu, na którym zostanie umieszczony udział.
 
     d. Na liście rozwijanej **Usługa magazynu** wybierz pozycję **Blokowy obiekt blob**, **Stronicowy obiekt blob** lub **Pliki**.  
-    Wybrany typ usługi zależy od tego, jaki format mają mieć dane do użycia na platformie Azure. W tym przykładzie, ponieważ chcemy przechowywać dane jako blokowe obiekty blob na platformie Azure, wybieramy **blokowy obiekt BLOB**. W przypadku wybrania opcji **stronicowego obiektu BLOB**upewnij się, że dane są wyrównane do 512 bajtów. Na przykład dysk VHDX jest zawsze wyrównany o 512 bajtów.
+    Wybrany typ usługi zależy od tego, jaki format mają mieć dane do użycia na platformie Azure. W tym przykładzie, ponieważ chcemy przechowywać dane jako blokowe obiekty blob na platformie Azure, wybieramy **blokowy obiekt BLOB**. W przypadku wybrania opcji **stronicowego obiektu BLOB** upewnij się, że dane są wyrównane do 512 bajtów. Na przykład dysk VHDX jest zawsze wyrównany o 512 bajtów.
 
    > [!IMPORTANT]
    > Upewnij się, że konto usługi Azure Storage, którego używasz, nie ma ustawionych zasad niezmiennościymi, jeśli są używane z urządzeniem Azure Stack EDGE Pro lub Data Box Gateway. Aby uzyskać więcej informacji, zobacz [Ustawianie zasad niezmienności dla usługi BLOB Storage i zarządzanie nimi](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
@@ -72,7 +72,7 @@ Aby utworzyć udział, wykonaj następującą procedurę:
    
     f. W zależności od tego, czy utworzono udział SMB, czy udział NFS, wykonaj jeden z następujących kroków: 
      
-    - **Udział SMB**: w obszarze **wszystkie uprawnienia użytkownika lokalnego**wybierz pozycję **Utwórz nowy** lub **Użyj istniejącej**. Jeśli tworzysz nowego użytkownika lokalnego, wprowadź nazwę użytkownika i hasło, a następnie potwierdź hasło. Ta akcja spowoduje przypisanie uprawnień do użytkownika lokalnego. Po przypisaniu uprawnień w tym miejscu możesz modyfikować je przy użyciu Eksploratora plików.
+    - **Udział SMB**: w obszarze **wszystkie uprawnienia użytkownika lokalnego** wybierz pozycję **Utwórz nowy** lub **Użyj istniejącej**. Jeśli tworzysz nowego użytkownika lokalnego, wprowadź nazwę użytkownika i hasło, a następnie potwierdź hasło. Ta akcja spowoduje przypisanie uprawnień do użytkownika lokalnego. Po przypisaniu uprawnień w tym miejscu możesz modyfikować je przy użyciu Eksploratora plików.
     W przypadku zaznaczenia pola wyboru **Zezwalaj tylko na operacje odczytu** dla danych tego udziału można określić użytkowników tylko do odczytu.
     
         ![Dodawanie udziału SMB](./media/azure-stack-edge-j-series-deploy-add-shares/add-share-smb-1.png)

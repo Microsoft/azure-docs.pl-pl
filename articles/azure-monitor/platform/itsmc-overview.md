@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 90a5f0f84c72895a8450a42260b07f6dbea15e37
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: b4e35296a999070a6f536f4a52cfb7c3a1d4f42a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428044"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186494"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Połącz platformę Azure z narzędziami narzędzia ITSM przy użyciu łącznik zarządzania usługami IT
 
@@ -50,11 +50,11 @@ Możesz rozpocząć korzystanie z ITSMC, wykonując następujące czynności:
 
 Aby można było utworzyć połączenie, należy dodać ITSMC.
 
-1. W Azure Portal wybierz pozycję **Utwórz zasób** :
+1. W Azure Portal wybierz pozycję **Utwórz zasób**:
 
    ![Zrzut ekranu pokazujący element menu Utwórz zasób.](media/itsmc-overview/azure-add-new-resource.png)
 
-2. Wyszukaj **Łącznik zarządzania usługami IT** w witrynie Azure Marketplace. Wybierz pozycję **Utwórz** :
+2. Wyszukaj **Łącznik zarządzania usługami IT** w witrynie Azure Marketplace. Wybierz pozycję **Utwórz**:
 
    ![Zrzut ekranu przedstawiający przycisk Utwórz w portalu Azure Marketplace.](media/itsmc-overview/add-itsmc-solution.png)
 
@@ -90,11 +90,11 @@ W oparciu o produkt narzędzia ITSM, z którym nawiązujesz połączenie, wybier
 
 Po jego narzędzi Narzędzia ITSM wykonaj następujące kroki, aby utworzyć połączenie:
 
-1. W obszarze **wszystkie zasoby** Znajdź pozycję **Servicedesk ( *Nazwa obszaru roboczego* )** :
+1. W obszarze **wszystkie zasoby** Znajdź pozycję **Servicedesk (*Nazwa obszaru roboczego*)**:
 
    ![Zrzut ekranu pokazujący najnowsze zasoby w Azure Portal.](media/itsmc-overview/itsm-connections.png)
 
-1. W obszarze **źródła danych obszaru roboczego** w okienku po lewej stronie wybierz pozycję **połączenia narzędzia ITSM** :
+1. W obszarze **źródła danych obszaru roboczego** w okienku po lewej stronie wybierz pozycję **połączenia narzędzia ITSM**:
 
    ![Zrzut ekranu pokazujący element menu Narzędzia ITSM Connections.](media/itsmc-overview/add-new-itsm-connection.png)
    Na tej stronie zostanie wyświetlona lista połączeń.
@@ -129,7 +129,7 @@ Grupy akcji umożliwiają modularne i wielokrotne użycie metody wyzwalania akcj
 Użyj następującej procedury, aby utworzyć elementy robocze:
 
 1. W Azure Portal wybierz pozycję  **alerty**.
-2. W menu w górnej części ekranu wybierz pozycję **Zarządzaj akcjami** :
+2. W menu w górnej części ekranu wybierz pozycję **Zarządzaj akcjami**:
 
     ![Zrzut ekranu pokazujący element menu Zarządzaj akcjami.](media/itsmc-overview/action-groups-selection-big.png)
 
@@ -145,7 +145,7 @@ Użyj następującej procedury, aby utworzyć elementy robocze:
 
 7. Wybierz typ **elementu pracy** .
 
-8. Jeśli chcesz wypełnić pola z ustalonymi wartościami, wybierz opcję **Użyj szablonu niestandardowego**. W przeciwnym razie wybierz istniejący [szablon](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) na liście **szablon** i wprowadź wartości ustalone w polach szablon.
+8. Jeśli chcesz wypełnić pola z ustalonymi wartościami, wybierz opcję **Użyj szablonu niestandardowego**. W przeciwnym razie wybierz istniejący [szablon](#template-definitions) na liście **szablon** i wprowadź wartości ustalone w polach szablon.
 
 9. W przypadku wybrania opcji **Utwórz poszczególne elementy robocze dla każdego elementu konfiguracji** każdy element konfiguracji będzie miał własny element roboczy. Dla każdego elementu konfiguracji będzie istniał jeden element roboczy. Zostanie ona zaktualizowana zgodnie z alertami, które zostaną utworzone.
 
@@ -329,4 +329,3 @@ Jeśli masz zapytania lub opinie na temat łącznik zarządzania usługami IT, s
 
 ## <a name="next-steps"></a>Następne kroki
 [Dodaj narzędzia ITSM produkty/usługi do łącznik zarządzania usługami IT](./itsmc-connections.md)
-

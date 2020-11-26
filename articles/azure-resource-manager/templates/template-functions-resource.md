@@ -3,12 +3,12 @@ title: Funkcje szablonu — zasoby
 description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager do pobierania wartości dotyczących zasobów.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 0d118b80439579b0c8be45fdf1180b9a03b54c1d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: b7bb726250c6d1ef8a597481b5f7e95f024a56d4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95994143"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183995"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funkcje zasobów dla szablonów ARM
 
@@ -37,7 +37,7 @@ Zwraca identyfikator zasobu dla [zasobu rozszerzenia](../management/extension-re
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagane | Typ | Opis |
+| Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | resourceId |Tak |ciąg |Identyfikator zasobu dla zasobu, do którego zastosowano zasób rozszerzenia. |
 | resourceType |Tak |ciąg |Typ zasobu, w tym przestrzeń nazw dostawcy zasobów. |
@@ -179,7 +179,7 @@ Składnia tej funkcji różni się od nazwy operacji na liście. Każda implemen
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagane | Typ | Opis |
+| Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | resourceName lub resourceIdentifier |Tak |ciąg |Unikatowy identyfikator zasobu. |
 | apiVersion |Tak |ciąg |Wersja interfejsu API stanu środowiska uruchomieniowego zasobu. Zwykle w formacie **rrrr-mm-dd**. |
@@ -438,7 +438,7 @@ Określa, czy typ zasobu obsługuje strefy dla regionu.
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagane | Typ | Opis |
+| Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | providerNamespace | Tak | ciąg | Przestrzeń nazw dostawcy zasobów dla typu zasobu, aby sprawdzić obsługę strefy. |
 | resourceType | Tak | ciąg | Typ zasobu służący do sprawdzania obsługi strefy. |
@@ -547,7 +547,7 @@ Zwraca informacje o dostawcy zasobów i jego obsługiwanych typach zasobów. Je�
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagane | Typ | Opis |
+| Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | providerNamespace |Tak |ciąg |Przestrzeń nazw dostawcy |
 | resourceType |Nie |ciąg |Typ zasobu w określonym obszarze nazw. |
@@ -635,7 +635,7 @@ Zwraca obiekt reprezentujący stan środowiska uruchomieniowego zasobu.
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagane | Typ | Opis |
+| Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | resourceName lub resourceIdentifier |Tak |ciąg |Nazwa lub unikatowy identyfikator zasobu. W przypadku odwoływania się do zasobu w bieżącym szablonie podaj tylko nazwę zasobu jako parametr. W przypadku odwoływania się do wcześniej wdrożonego zasobu lub gdy nazwa zasobu jest niejednoznaczna, podaj identyfikator zasobu. |
 | apiVersion |Nie |ciąg |Wersja interfejsu API określonego zasobu. **Ten parametr jest wymagany, jeśli zasób nie jest obsługiwany w ramach tego samego szablonu.** Zwykle w formacie **rrrr-mm-dd**. Aby uzyskać prawidłowe wersje interfejsu API dla zasobu, zobacz [Dokumentacja szablonu](/azure/templates/). |
@@ -798,7 +798,7 @@ W przypadku konstruowania w pełni kwalifikowanego odwołania do zasobu kolejno�
 
 **{Resource-Provider-Namespace}/{Parent-Resource-Type}/{Parent-Resource-Name} [/{Child-Resource-Type}/{Child-resource-name}]**
 
-Na przykład:
+Przykład:
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt``Microsoft.Compute/virtualMachines/extensions/myVM/myExt`jest niepoprawny
 
@@ -1030,7 +1030,7 @@ Właściwość **zarządzane** jest zwracana tylko dla grup zasobów zawierając
 
 ### <a name="remarks"></a>Uwagi
 
-`resourceGroup()`Nie można użyć funkcji w szablonie [wdrożonym na poziomie subskrypcji](deploy-to-subscription.md). Może być używany tylko w szablonach wdrożonych w grupie zasobów. Możesz użyć `resourceGroup()` funkcji w [połączonym lub zagnieżdżonym szablonie (z zakresem wewnętrznym)](linked-templates.md) , który jest przeznaczony dla grupy zasobów, nawet jeśli szablon nadrzędny został wdrożony w subskrypcji. W tym scenariuszu szablon połączony lub zagnieżdżony jest wdrażany na poziomie grupy zasobów. Aby uzyskać więcej informacji na temat określania docelowych grup zasobów w ramach wdrożenia na poziomie subskrypcji, zobacz [wdrażanie zasobów platformy Azure w więcej niż jednej subskrypcji lub grupie zasobów](cross-scope-deployment.md).
+`resourceGroup()`Nie można użyć funkcji w szablonie [wdrożonym na poziomie subskrypcji](deploy-to-subscription.md). Może być używany tylko w szablonach wdrożonych w grupie zasobów. Możesz użyć `resourceGroup()` funkcji w [połączonym lub zagnieżdżonym szablonie (z zakresem wewnętrznym)](linked-templates.md) , który jest przeznaczony dla grupy zasobów, nawet jeśli szablon nadrzędny został wdrożony w subskrypcji. W tym scenariuszu szablon połączony lub zagnieżdżony jest wdrażany na poziomie grupy zasobów. Aby uzyskać więcej informacji na temat określania docelowych grup zasobów w ramach wdrożenia na poziomie subskrypcji, zobacz [wdrażanie zasobów platformy Azure w więcej niż jednej subskrypcji lub grupie zasobów](./deploy-to-resource-group.md).
 
 Typowym zastosowaniem funkcji resourceing jest utworzenie zasobów w tej samej lokalizacji co grupa zasobów. Poniższy przykład używa lokalizacji grupy zasobów dla domyślnej wartości parametru.
 
@@ -1055,7 +1055,7 @@ param location string = resourceGroup().location
 
 Można również użyć funkcji grupy zasobów, aby zastosować do zasobu Tagi ze źródła danych. Aby uzyskać więcej informacji, zobacz [stosowanie tagów z grupy zasobów](../management/tag-resources.md#apply-tags-from-resource-group).
 
-W przypadku użycia szablonów zagnieżdżonych do wdrożenia w wielu grupach zasobów można określić zakres oceniania funkcji ResourceManager. Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów platformy Azure w więcej niż jednej subskrypcji lub grupie zasobów](cross-scope-deployment.md).
+W przypadku użycia szablonów zagnieżdżonych do wdrożenia w wielu grupach zasobów można określić zakres oceniania funkcji ResourceManager. Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów platformy Azure w więcej niż jednej subskrypcji lub grupie zasobów](./deploy-to-resource-group.md).
 
 ### <a name="resource-group-example"></a>Przykład grupy zasobów
 
@@ -1107,7 +1107,7 @@ Zwraca unikatowy identyfikator zasobu. Ta funkcja jest używana, gdy nazwa zasob
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagane | Typ | Opis |
+| Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Nie |ciąg (w formacie identyfikatora GUID) |Wartość domyślna to bieżąca subskrypcja. Określ tę wartość, jeśli chcesz pobrać zasób w innej subskrypcji. Podaj tę wartość tylko podczas wdrażania w zakresie grupy zasobów lub subskrypcji. |
 | resourceGroupName |Nie |ciąg |Wartość domyślna to bieżąca Grupa zasobów. Określ tę wartość, jeśli chcesz pobrać zasób z innej grupy zasobów. Podaj tę wartość tylko w przypadku wdrażania w zakresie grupy zasobów. |
@@ -1372,7 +1372,7 @@ Funkcja zwraca następujący format:
 
 ### <a name="remarks"></a>Uwagi
 
-W przypadku używania szablonów zagnieżdżonych do wdrażania w wielu subskrypcjach można określić zakres oceniania funkcji subskrypcji. Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów platformy Azure w więcej niż jednej subskrypcji lub grupie zasobów](cross-scope-deployment.md).
+W przypadku używania szablonów zagnieżdżonych do wdrażania w wielu subskrypcjach można określić zakres oceniania funkcji subskrypcji. Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów platformy Azure w więcej niż jednej subskrypcji lub grupie zasobów](./deploy-to-resource-group.md).
 
 ### <a name="subscription-example"></a>Przykład subskrypcji
 
@@ -1410,7 +1410,7 @@ Zwraca unikatowy identyfikator zasobu wdrożonego na poziomie subskrypcji.
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagane | Typ | Opis |
+| Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Nie |ciąg (w formacie identyfikatora GUID) |Wartość domyślna to bieżąca subskrypcja. Określ tę wartość, jeśli chcesz pobrać zasób w innej subskrypcji. |
 | resourceType |Tak |ciąg |Typ zasobu, w tym przestrzeń nazw dostawcy zasobów. |
@@ -1542,7 +1542,7 @@ Zwraca unikatowy identyfikator zasobu wdrożonego na poziomie dzierżawy.
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagane | Typ | Opis |
+| Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | resourceType |Tak |ciąg |Typ zasobu, w tym przestrzeń nazw dostawcy zasobów. |
 | resourceName1 |Tak |ciąg |Nazwa zasobu. |

@@ -15,12 +15,12 @@ ms.date: 11/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: 53628f5aa0bc5ab5dedde5deb9950c7b13fb4bf6
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: e30af9522d7c8fa81c4d93e11d252aefc4426586
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490750"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184267"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Rozwiązywanie problemów z usługą Azure RBAC
 
@@ -151,7 +151,7 @@ Podobnie jeśli zostanie wyświetlone to przypisanie roli przy użyciu interfejs
 }
 ```
 
-Nie jest to problem, aby opuścić te przypisania ról, w których podmiot zabezpieczeń został usunięty. Jeśli chcesz, możesz usunąć te przypisania ról, korzystając z kroków, które są podobne do innych przypisań ról. Informacje o sposobach usuwania przypisań ról można znaleźć w temacie [Azure Portal](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)lub [interfejs wiersza polecenia platformy Azure](role-assignments-cli.md#remove-role-assignment)
+Nie jest to problem, aby opuścić te przypisania ról, w których podmiot zabezpieczeń został usunięty. Jeśli chcesz, możesz usunąć te przypisania ról, korzystając z kroków, które są podobne do innych przypisań ról. Informacje o sposobach usuwania przypisań ról można znaleźć w temacie [Azure Portal](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)lub [interfejs wiersza polecenia platformy Azure](role-assignments-cli.md#remove-a-role-assignment)
 
 W programie PowerShell, jeśli spróbujesz usunąć przypisania roli przy użyciu identyfikatora obiektu i nazwy definicji roli, a więcej niż jedno przypisanie roli jest zgodne z parametrami, zostanie wyświetlony komunikat o błędzie: "podane informacje nie są mapowane na przypisanie roli". Poniższe dane wyjściowe pokazują przykład komunikatu o błędzie:
 
@@ -212,7 +212,7 @@ Elementy te wymagają dostępu do **zapisu** do **planu App Service** , który o
 Te elementy wymagają dostępu do **zapisu** w całej **grupie zasobów** zawierającej witrynę sieci Web:  
 
 * Certyfikaty i powiązania protokołu TLS/SSL (certyfikaty TLS/SSL mogą być współużytkowane między lokacjami w tej samej grupie zasobów i lokalizacji geograficznej)  
-* Reguły alertów  
+* Zasady alertów  
 * Ustawienia skalowania automatycznego  
 * Składniki usługi Application Insights  
 * Testy sieci Web  
@@ -223,18 +223,18 @@ Podobnie jak w przypadku aplikacji sieci Web, niektóre funkcje w bloku maszyny 
 
 Maszyny wirtualne są powiązane z nazwami domen, sieciami wirtualnymi, kontami magazynu i regułami alertów.
 
-Elementy te wymagają dostępu do **zapisu** dla **maszyny wirtualnej** :
+Elementy te wymagają dostępu do **zapisu** dla **maszyny wirtualnej**:
 
 * Punkty końcowe  
 * Adresy IP  
 * Dyski  
 * Rozszerzenia  
 
-Wymagają one dostępu do **zapisu** zarówno dla **maszyny wirtualnej** , jak i **grupy zasobów** (wraz z nazwą domeny), w której znajduje się:  
+Wymagają one dostępu do **zapisu** zarówno dla **maszyny wirtualnej**, jak i **grupy zasobów** (wraz z nazwą domeny), w której znajduje się:  
 
 * Zestaw dostępności  
 * Zestaw o zrównoważonym obciążeniu  
-* Reguły alertów  
+* Zasady alertów  
 
 Jeśli nie możesz uzyskać dostępu do żadnego z tych kafelków, poprosimy administratora o dostęp współautora do grupy zasobów.
 

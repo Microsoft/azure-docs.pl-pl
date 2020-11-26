@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 1813da8a8a812eeded235d71c351ec352c42707c
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: bd929d06bca370ffab53ce2023188bc12a1d8bd1
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920087"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186443"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics eksportu danych obszaru roboczego w Azure Monitor (wersja zapoznawcza)
 Log Analytics eksport danych obszaru roboczego w programie Azure Monitor umożliwia ciągłe eksportowanie danych z wybranych tabel w obszarze roboczym Log Analytics do konta usługi Azure Storage lub usługi Azure Event Hubs w miarę ich zbierania. Ten artykuł zawiera szczegółowe informacje dotyczące tej funkcji oraz czynności konfigurowania eksportu danych w obszarach roboczych.
@@ -68,7 +68,7 @@ Dane są wysyłane do kont magazynu co godzinę. Konfiguracja eksportu danych tw
 
 Ścieżka obiektu BLOB konta magazynu to *WorkspaceResourceId =/subscriptions/Subscription-ID/ResourceGroups/ \<resource-group\> /providers/Microsoft.operationalinsights/Workspaces/ \<workspace\> /y = \<four-digit numeric year\> /m = \<two-digit numeric month\> /d = \<two-digit numeric day\> /h = \<two-digit 24-hour clock hour\> /m = 00/PT1H.js*. Ponieważ dołączane obiekty blob są ograniczone do 50 000 zapisów w magazynie, liczba eksportowanych obiektów BLOB może zostać rozszerzona, jeśli liczba dołączeń jest wysoka. Wzorzec nazewnictwa dla obiektów BLOB w takich przypadkach zostałby PT1H_ #. JSON, gdzie # to przyrostowa liczba obiektów BLOB.
 
-Format danych konta magazynu to [wiersze JSON](diagnostic-logs-append-blobs.md). Oznacza to, że każdy rekord jest rozdzielony znakiem nowego wiersza, bez tablicy rekordów zewnętrznych i bez przecinków między rekordami JSON. 
+Format danych konta magazynu to [wiersze JSON](./resource-logs-blob-format.md). Oznacza to, że każdy rekord jest rozdzielony znakiem nowego wiersza, bez tablicy rekordów zewnętrznych i bez przecinków między rekordami JSON. 
 
 [![Dane przykładowe magazynu](media/logs-data-export/storage-data.png)](media/logs-data-export/storage-data.png#lightbox)
 
@@ -78,7 +78,7 @@ Log Analytics eksportu danych może pisać Dodawanie obiektów BLOB do niezmienn
 Dane są wysyłane do centrum zdarzeń niemal w czasie rzeczywistym, gdy osiągnie Azure Monitor. Centrum zdarzeń jest tworzone dla każdego typu danych, który jest eksportowany *z nazwą i nazwą tabeli* . Na przykład tabela *SecurityEvent* będzie wysyłana do centrum zdarzeń o nazwie *am-SecurityEvent*. Jeśli chcesz, aby wyeksportowane dane miały dostęp do określonego centrum zdarzeń, lub jeśli masz tabelę o nazwie przekraczającej limit znaków 47, możesz podać własną nazwę centrum zdarzeń i wyeksportować wszystkie dane do określonych tabel.
 
 Zagadnienia do rozważenia:
-1. Jednostka SKU centrum zdarzeń "Basic" obsługuje dolny [Limit](https://docs.microsoft.com/azure/event-hubs/event-hubs-quotas#basic-vs-standard-tiers) rozmiaru zdarzenia, a niektóre dzienniki w obszarze roboczym mogą przekraczać tę wartość i zostać porzucone. Zalecamy używanie "standardowego" lub "dedykowanego" centrum zdarzeń jako miejsca docelowego eksportu.
+1. Jednostka SKU centrum zdarzeń "Basic" obsługuje dolny [Limit](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers) rozmiaru zdarzenia, a niektóre dzienniki w obszarze roboczym mogą przekraczać tę wartość i zostać porzucone. Zalecamy używanie "standardowego" lub "dedykowanego" centrum zdarzeń jako miejsca docelowego eksportu.
 2. Ilość wyeksportowanych danych często rośnie wraz z upływem czasu, a skalowanie centrum zdarzeń należy zwiększyć, aby obsługiwać większe szybkości transferu i uniknąć opóźnień i opóźnienia danych. Należy użyć funkcji automatycznego rozbudowy Event Hubs, aby automatycznie skalować w górę i zwiększyć liczbę jednostek przepływności oraz spełnić wymagania dotyczące użycia. Aby uzyskać szczegółowe informacje, zobacz [Automatyczne skalowanie jednostek przepływności usługi Azure Event Hubs](../../event-hubs/event-hubs-auto-inflate.md) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -373,7 +373,7 @@ Obsługiwane tabele są obecnie ograniczone do określonych poniżej. Wszystkie 
 | DnsEvents | |
 | DnsInventory | |
 | Dynamics365Activity | |
-| Wydarzenie | Pomoc techniczna częściowa. Niektóre dane do tej tabeli są pozyskiwane za pomocą konta magazynu. Te dane nie są obecnie eksportowane. |
+| Zdarzenie | Pomoc techniczna częściowa. Niektóre dane do tej tabeli są pozyskiwane za pomocą konta magazynu. Te dane nie są obecnie eksportowane. |
 | ExchangeAssessmentRecommendation | |
 | FailedIngestion | |
 | FunctionAppLogs | |

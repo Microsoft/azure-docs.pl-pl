@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 42932d712d6c4a94cad28aec924b88fbc126662b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dec41a5e05d22891aae9d16280ebb6b0c8da3f20
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212794"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185117"
 ---
 # <a name="azure-cosmos-db-input-binding-for-azure-functions-2x-and-higher"></a>Azure Cosmos DB powiązania danych wejściowych dla Azure Functions 2. x i wyższych
 
@@ -20,7 +20,7 @@ Powiązanie wejściowe usługi Azure Cosmos DB używa interfejsu API SQL, aby po
 Aby uzyskać informacje na temat konfiguracji i szczegółów konfiguracji, zobacz [Omówienie](./functions-bindings-cosmosdb-v2.md).
 
 > [!NOTE]
-> Jeśli kolekcja jest [podzielona na partycje](../cosmos-db/partition-data.md#logical-partitions), operacje wyszukiwania muszą również określać wartość klucza partycji.
+> Jeśli kolekcja jest [podzielona na partycje](../cosmos-db/partitioning-overview.md#logical-partitions), operacje wyszukiwania muszą również określać wartość klucza partycji.
 >
 
 <a id="example" name="example"></a>
@@ -212,7 +212,7 @@ Poniższy przykład pokazuje [funkcję języka C#](functions-dotnet-class-librar
 W przykładzie pokazano, jak używać wyrażenia powiązania w `SqlQuery` parametrze. Dane trasy można przekazać do `SqlQuery` parametru, jak pokazano, ale obecnie [nie można przekazać wartości ciągu zapytania](https://github.com/Azure/azure-functions-host/issues/2554#issuecomment-392084583).
 
 > [!NOTE]
-> Jeśli zachodzi potrzeba przeszukiwania tylko identyfikatora, zaleca się użycie wyszukiwania, podobnie jak w [poprzednich przykładach](#http-trigger-look-up-id-from-query-string-c), ponieważ będzie zużywał mniej [jednostek żądania](../cosmos-db/request-units.md). Operacje odczytu punktu (GET) są [bardziej wydajne](../cosmos-db/optimize-cost-queries.md) niż zapytania według identyfikatora.
+> Jeśli zachodzi potrzeba przeszukiwania tylko identyfikatora, zaleca się użycie wyszukiwania, podobnie jak w [poprzednich przykładach](#http-trigger-look-up-id-from-query-string-c), ponieważ będzie zużywał mniej [jednostek żądania](../cosmos-db/request-units.md). Operacje odczytu punktu (GET) są [bardziej wydajne](../cosmos-db/optimize-cost-reads-writes.md) niż zapytania według identyfikatora.
 >
 
 ```cs
@@ -1315,7 +1315,7 @@ public class DocByIdFromRoute {
 Poniższy przykład pokazuje funkcję języka Java, która pobiera pojedynczy dokument. Funkcja jest wyzwalana przez żądanie HTTP, które używa parametru trasy do określenia identyfikatora do wyszukania. Ten identyfikator jest używany do pobierania dokumentu z określonej bazy danych i kolekcji, co umożliwia przekonwertowanie zestawu wyników na typ ```ToDoItem[]``` , ponieważ w zależności od kryteriów zapytania można zwrócić wiele dokumentów.
 
 > [!NOTE]
-> Jeśli zachodzi potrzeba przeszukiwania tylko identyfikatora, zaleca się użycie wyszukiwania, podobnie jak w [poprzednich przykładach](#http-trigger-look-up-id-from-query-string---pojo-parameter-java), ponieważ będzie zużywał mniej [jednostek żądania](../cosmos-db/request-units.md). Operacje odczytu punktu (GET) są [bardziej wydajne](../cosmos-db/optimize-cost-queries.md) niż zapytania według identyfikatora.
+> Jeśli zachodzi potrzeba przeszukiwania tylko identyfikatora, zaleca się użycie wyszukiwania, podobnie jak w [poprzednich przykładach](#http-trigger-look-up-id-from-query-string---pojo-parameter-java), ponieważ będzie zużywał mniej [jednostek żądania](../cosmos-db/request-units.md). Operacje odczytu punktu (GET) są [bardziej wydajne](../cosmos-db/optimize-cost-reads-writes.md) niż zapytania według identyfikatora.
 >
 
 ```java
@@ -1434,15 +1434,15 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 
 |function.jswłaściwości | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Wprowadź**     | nie dotyczy | Musi być ustawiony na `cosmosDB` .        |
-|**wskazywa**     | nie dotyczy | Musi być ustawiony na `in` .         |
-|**Nazwij**     | nie dotyczy | Nazwa parametru powiązania, który reprezentuje dokument w funkcji.  |
+|**Wprowadź**     | n/d | Musi być ustawiony na `cosmosDB` .        |
+|**wskazywa**     | n/d | Musi być ustawiony na `in` .         |
+|**Nazwij**     | n/d | Nazwa parametru powiązania, który reprezentuje dokument w funkcji.  |
 |**Bazy** |**DatabaseName** |Baza danych zawierająca dokument.        |
 |**CollectionName** |**CollectionName** | Nazwa kolekcji zawierającej dokument. |
 |**id**    | **#C1** | Identyfikator dokumentu do pobrania. Ta właściwość obsługuje [wyrażenia powiązań](./functions-bindings-expressions-patterns.md). Nie ustawiaj jednocześnie `id` właściwości i **sqlQuery** . Jeśli nie ustawisz żadnej z nich, cała kolekcja zostanie pobrana. |
 |**sqlQuery**  |**SqlQuery**  | Azure Cosmos DB zapytanie SQL używane do pobierania wielu dokumentów. Właściwość obsługuje powiązania środowiska uruchomieniowego, jak w tym przykładzie: `SELECT * FROM c where c.departmentId = {departmentId}` . Nie ustawiaj `id` właściwości i `sqlQuery` . Jeśli nie ustawisz żadnej z nich, cała kolekcja zostanie pobrana.|
 |**connectionStringSetting**     |**ConnectionStringSetting**|Nazwa ustawienia aplikacji zawierającego Azure Cosmos DB parametry połączenia. |
-|**partitionKey**|**PartitionKey**|Określa wartość klucza partycji dla wyszukiwania. Może zawierać parametry powiązania. Jest to wymagane w przypadku wyszukiwań w kolekcjach [partycjonowanych](../cosmos-db/partition-data.md#logical-partitions) .|
+|**partitionKey**|**PartitionKey**|Określa wartość klucza partycji dla wyszukiwania. Może zawierać parametry powiązania. Jest to wymagane w przypadku wyszukiwań w kolekcjach [partycjonowanych](../cosmos-db/partitioning-overview.md#logical-partitions) .|
 |**preferredLocations**| **PreferredLocations**| Obowiązkowe Definiuje preferowane lokalizacje (regiony) dla kont bazy danych replikowanych geograficznie w usłudze Azure Cosmos DB. Wartości powinny być rozdzielane przecinkami. Na przykład "Wschodnie stany USA, Południowo-środkowe stany USA, Europa Północna". |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

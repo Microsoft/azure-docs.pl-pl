@@ -7,12 +7,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
 ms.date: 08/07/2019
-ms.openlocfilehash: cf25ef59bc1ea5db61dcfb3c76c0d978cb1f95d0
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: b41575208d0793a33864556ec4313ae1a71f2db5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931840"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184471"
 ---
 # <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Zalecenia dotyczące testu wydajności dla usługi Azure NetApp Files
 
@@ -24,7 +24,7 @@ Aby poznać charakterystykę wydajności woluminu Azure NetApp Files, można uż
 
 ### <a name="vm-instance-sizing"></a>Rozmiar wystąpienia maszyny wirtualnej
 
-Aby uzyskać najlepsze wyniki, należy się upewnić, że używane jest wystąpienie maszyny wirtualnej o odpowiednim rozmiarze do przeprowadzenia testów. W poniższych przykładach użyto Standard_D32s_v3 wystąpienia. Aby uzyskać więcej informacji o rozmiarach wystąpień maszyn wirtualnych, zobacz [rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-network%252ftoc.json) dla maszyn wirtualnych z systemem Windows oraz [rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) dla maszyn wirtualnych opartych na systemie Linux.
+Aby uzyskać najlepsze wyniki, należy się upewnić, że używane jest wystąpienie maszyny wirtualnej o odpowiednim rozmiarze do przeprowadzenia testów. W poniższych przykładach użyto Standard_D32s_v3 wystąpienia. Aby uzyskać więcej informacji o rozmiarach wystąpień maszyn wirtualnych, zobacz [rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) dla maszyn wirtualnych z systemem Windows oraz [rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) dla maszyn wirtualnych opartych na systemie Linux.
 
 ### <a name="azure-netapp-files-volume-sizing"></a>Azure NetApp Files rozmiar woluminu
 

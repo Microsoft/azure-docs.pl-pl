@@ -4,12 +4,12 @@ description: Dowiedz się, jak używać serwerów z obsługą usługi Azure Arc 
 keywords: Azure Automation, DSC, PowerShell, Konfiguracja żądanego stanu, zarządzanie aktualizacjami, śledzenie zmian, spis, elementy Runbook, Python, graficzne, hybrydowe
 ms.date: 11/12/2020
 ms.topic: overview
-ms.openlocfilehash: 2df970f7c94f1e306243aba1480ee7023b8f76c1
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 8368f89b8e471698ede3e9e8eb691e69f494b6e2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578726"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183400"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Co to są serwery z obsługą usługi Azure Arc?
 
@@ -29,7 +29,7 @@ Po połączeniu maszyny z serwerami z obsługą usługi Azure Arc umożliwia ona
 
 - Uprość wdrażanie za pomocą innych usług platformy Azure, takich jak [Konfiguracja stanu](../../automation/automation-dsc-overview.md) Azure Automation i Azure monitor obszar roboczy log Analytics, korzystając z obsługiwanych [rozszerzeń maszyny wirtualnej platformy Azure](manage-vm-extensions.md) dla maszyny z systemem Windows lub Linux. Obejmuje to przeprowadzanie konfiguracji po wdrożeniu lub instalację oprogramowania przy użyciu niestandardowego rozszerzenia skryptu.
 
-- Użyj [Update Management](../../automation/update-management/update-mgmt-overview.md) w Azure Automation do zarządzania aktualizacjami systemu operacyjnego dla serwerów z systemami Windows i Linux
+- Użyj [Update Management](../../automation/update-management/overview.md) w Azure Automation do zarządzania aktualizacjami systemu operacyjnego dla serwerów z systemami Windows i Linux
 
     > [!NOTE]
     > W tej chwili Włączanie Update Management bezpośrednio z serwera z włączonymi Łukiemmi nie jest obsługiwane. Zapoznaj się z tematem [włączanie Update Management na koncie usługi Automation](../../automation/update-management/enable-from-automation-account.md) , aby poznać wymagania i jak włączyć serwer.

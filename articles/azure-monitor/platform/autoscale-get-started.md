@@ -4,12 +4,12 @@ description: Dowiedz się, jak skalować aplikację internetową zasobów, usłu
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 543ecc80abeb9a437a895224de6ade679698c4d7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5af60befeda9f0ed4ed76f7ab8449e94950352fb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020912"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186579"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Wprowadzenie do skalowania automatycznego na platformie Azure
 W tym artykule opisano sposób konfigurowania ustawień automatycznego skalowania dla zasobu w Microsoft Azure Portal.
@@ -57,7 +57,7 @@ Teraz przejdźmy do prostego przewodnika krok po kroku, aby utworzyć pierwsze u
 
    Teraz powinno być dostępne ustawienie skalowania, które umożliwia skalowanie w poziomie i skalowanie w zależności od użycia procesora CPU.
    ![Skalowanie w oparciu o procesor CPU][8]
-1. Kliknij pozycję **Zapisz**.
+1. Kliknij przycisk **Zapisz**.
 
 Gratulacje! Pomyślnie utworzono pierwsze ustawienie skalowania w celu automatycznego skalowania aplikacji sieci Web na podstawie użycia procesora CPU.
 
@@ -115,7 +115,7 @@ Zawsze możesz wrócić do automatycznego skalowania, klikając pozycję **Włą
 
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>Kierowanie ruchu do wystąpień w dobrej kondycji (App Service)
 
-Po skalowaniu do wielu wystąpień App Service może przeprowadzić kontrolę kondycji wystąpień w celu kierowania ruchu tylko do wystąpień w dobrej kondycji. Aby to zrobić, Otwórz Portal w App Service, a następnie wybierz pozycję **Sprawdzanie kondycji** w obszarze **monitorowanie**. Wybierz pozycję **Włącz** i podaj prawidłową ścieżkę URL w aplikacji, na przykład `/health` lub `/api/health` . Kliknij pozycję **Zapisz**.
+Po skalowaniu do wielu wystąpień App Service może przeprowadzić kontrolę kondycji wystąpień w celu kierowania ruchu tylko do wystąpień w dobrej kondycji. Aby to zrobić, Otwórz Portal w App Service, a następnie wybierz pozycję **Sprawdzanie kondycji** w obszarze **monitorowanie**. Wybierz pozycję **Włącz** i podaj prawidłową ścieżkę URL w aplikacji, na przykład `/health` lub `/api/health` . Kliknij przycisk **Zapisz**.
 
 Aby włączyć funkcję z szablonami ARM, należy ustawić `healthcheckpath` Właściwość `Microsoft.Web/sites` zasobu na ścieżkę kontroli kondycji w lokacji, na przykład: `"/api/health/"` . Aby wyłączyć tę funkcję, należy ustawić właściwość z powrotem na pusty ciąg, `""` .
 
@@ -151,12 +151,12 @@ W tej sekcji opisano, jak przenieść automatyczne skalowanie platformy Azure do
 1. Upewnij się, że funkcja automatycznego skalowania platformy Azure jest dostępna w [regionie świadczenia usługi Azure, do którego chcesz przejść](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all).
 
 ### <a name="move"></a>Move
-Użyj [interfejsu API REST](https://docs.microsoft.com/rest/api/monitor/autoscalesettings/createorupdate) , aby utworzyć ustawienie automatycznego skalowania w nowym środowisku. Ustawienie skalowania automatycznego utworzone w regionie docelowym będzie kopią ustawienia skalowania automatycznego w regionie źródłowym.
+Użyj [interfejsu API REST](/rest/api/monitor/autoscalesettings/createorupdate) , aby utworzyć ustawienie automatycznego skalowania w nowym środowisku. Ustawienie skalowania automatycznego utworzone w regionie docelowym będzie kopią ustawienia skalowania automatycznego w regionie źródłowym.
 
-Nie można przenieść [ustawień diagnostycznych](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) , które zostały utworzone w skojarzeniu z ustawieniem skalowania automatycznego w regionie źródłowym. Należy ponownie utworzyć ustawienia diagnostyczne w regionie docelowym po zakończeniu tworzenia ustawień autosprzedaży. 
+Nie można przenieść [ustawień diagnostycznych](./diagnostic-settings.md) , które zostały utworzone w skojarzeniu z ustawieniem skalowania automatycznego w regionie źródłowym. Należy ponownie utworzyć ustawienia diagnostyczne w regionie docelowym po zakończeniu tworzenia ustawień autosprzedaży. 
 
 ### <a name="learn-more-about-moving-resources-across-azure-regions"></a>Dowiedz się więcej o przenoszeniu zasobów między regionami platformy Azure
-Aby dowiedzieć się więcej o przenoszeniu zasobów między regionami i odzyskiwaniem po awarii na platformie Azure, zapoznaj się z tematem [przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources) .
+Aby dowiedzieć się więcej o przenoszeniu zasobów między regionami i odzyskiwaniem po awarii na platformie Azure, zapoznaj się z tematem [przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](../../azure-resource-manager/management/move-resource-group-and-subscription.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 - [Tworzenie alertu dziennika aktywności w celu monitorowania wszystkich operacji aparatu automatycznego skalowania w ramach subskrypcji](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

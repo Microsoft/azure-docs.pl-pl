@@ -9,11 +9,11 @@ ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: lcozzens
 ms.openlocfilehash: bb12224fd29d50765bc56a531787b7a0849cd06e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075794"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183519"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Szybki Start: Tworzenie aplikacji platformy .NET Core przy użyciu konfiguracji aplikacji
 
@@ -36,7 +36,7 @@ W tym przewodniku szybki start dołączysz konfigurację aplikacji platformy Azu
 
     Dla tej pory pozostaw pustą **etykietę** i **Typ zawartości** .
 
-8. Wybierz przycisk **Zastosuj**.
+8. Wybierz pozycję **Zastosuj**.
 
 ## <a name="create-a-net-core-console-app"></a>Tworzenie aplikacji konsolowej platformy .NET Core
 
@@ -64,7 +64,7 @@ Za pomocą [interfejsu wiersza polecenia platformy .NET Core](/dotnet/core/tools
     dotnet restore
     ```
 
-3. Otwórz *program.cs*i Dodaj odwołanie do dostawcy konfiguracji aplikacji .NET Core.
+3. Otwórz *program.cs* i Dodaj odwołanie do dostawcy konfiguracji aplikacji .NET Core.
 
     ```csharp
     using Microsoft.Extensions.Configuration;
@@ -86,7 +86,7 @@ Za pomocą [interfejsu wiersza polecenia platformy .NET Core](/dotnet/core/tools
 
 ## <a name="build-and-run-the-app-locally"></a>Lokalne kompilowanie i uruchamianie aplikacji
 
-1. Ustaw zmienną środowiskową o nazwie **ConnectionString**i ustaw ją na klucz dostępu do magazynu konfiguracji aplikacji. W wierszu polecenia Uruchom następujące polecenie:
+1. Ustaw zmienną środowiskową o nazwie **ConnectionString** i ustaw ją na klucz dostępu do magazynu konfiguracji aplikacji. W wierszu polecenia Uruchom następujące polecenie:
 
     ```cmd
     setx ConnectionString "connection-string-of-your-app-configuration-store"
@@ -118,7 +118,7 @@ Za pomocą [interfejsu wiersza polecenia platformy .NET Core](/dotnet/core/tools
     dotnet run
     ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

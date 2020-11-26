@@ -4,12 +4,12 @@ description: Opisuje sposób rozwiązywania typowych błędów podczas wdrażani
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 09/09/2020
-ms.openlocfilehash: fb7e476a5b4416282546d321a5e9a0127b7a4364
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 785a74184cae8523b99da7f647ca87fda53c8648
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000712"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185831"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Usuwanie typowych błędów wdrożeń na platformie Azure przy użyciu usługi Azure Resource Manager
 
@@ -76,10 +76,10 @@ Jeśli szukasz informacji o kodzie błędu i te informacje nie zostały podane w
 | StorageAccountAlreadyTaken | Podaj unikatową nazwę konta magazynu. | [Rozpoznawanie nazwy konta magazynu](error-storage-account-name.md) |
 | StorageAccountNotFound | Sprawdź subskrypcję, grupę zasobów i nazwę konta magazynu, którego próbujesz użyć. | |
 | SubnetsNotInSameVnet | Maszyna wirtualna może mieć tylko jedną sieć wirtualną. Podczas wdrażania kilku kart sieciowych upewnij się, że należą one do tej samej sieci wirtualnej. | [Wiele kart sieciowych](../../virtual-machines/windows/multiple-nics.md) |
-| SubscriptionNotFound | Nie można uzyskać dostępu do określonej subskrypcji dla wdrożenia. Może to być nieprawidłowy identyfikator subskrypcji, użytkownik wdrażający szablon nie ma wystarczających uprawnień do wdrożenia w ramach subskrypcji lub Identyfikator subskrypcji ma zły format. W przypadku wdrażania zagnieżdżonych wdrożeń w [różnych zakresach](cross-scope-deployment.md)podaj identyfikator GUID subskrypcji. | |
+| SubscriptionNotFound | Nie można uzyskać dostępu do określonej subskrypcji dla wdrożenia. Może to być nieprawidłowy identyfikator subskrypcji, użytkownik wdrażający szablon nie ma wystarczających uprawnień do wdrożenia w ramach subskrypcji lub Identyfikator subskrypcji ma zły format. W przypadku wdrażania zagnieżdżonych wdrożeń w [różnych zakresach](./deploy-to-resource-group.md)podaj identyfikator GUID subskrypcji. | |
 | SubscriptionNotRegistered | Podczas wdrażania zasobu dostawca zasobów musi być zarejestrowany dla Twojej subskrypcji. W przypadku użycia szablonu Azure Resource Manager do wdrożenia dostawca zasobów zostanie automatycznie zarejestrowany w subskrypcji. Czasami Rejestracja automatyczna nie kończy się w czasie. Aby uniknąć tego sporadycznego błędu, należy zarejestrować dostawcę zasobów przed wdrożeniem. | [Rozwiązywanie rejestracji](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Usuń niepotrzebne zależności. | [Rozwiązywanie zależności cyklicznych](error-invalid-template.md#circular-dependency) |
-| TooManyTargetResourceGroups | Zmniejsz liczbę grup zasobów dla jednego wdrożenia. | [Wdrożenie między zakresami](cross-scope-deployment.md) |
+| TooManyTargetResourceGroups | Zmniejsz liczbę grup zasobów dla jednego wdrożenia. | [Wdrożenie między zakresami](./deploy-to-resource-group.md) |
 
 ## <a name="find-error-code"></a>Znajdź kod błędu
 

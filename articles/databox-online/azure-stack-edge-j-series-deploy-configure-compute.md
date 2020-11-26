@@ -10,11 +10,11 @@ ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: 75428b28095b0e425a1670caffcf960aa6ae58f6
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504481"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185508"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>Samouczek: Przekształcanie danych za pomocą Azure Stack EDGE Pro
 
@@ -25,7 +25,7 @@ W tym samouczku opisano sposób konfigurowania roli obliczeniowej na urządzeniu
 Wykonanie tej procedury może potrwać około 10 do 15 minut.
 
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie obliczeń
@@ -90,7 +90,7 @@ W przypadku prostego wdrażania w tym samouczku potrzebne są dwa udziały: jede
 
     3. W bloku **Dodaj udział** Podaj nazwę udziału i wybierz typ udziału.
     4. Aby zainstalować udział brzegowy, zaznacz pole wyboru **Użyj opcji Udostępnij przy użyciu obliczeń brzegowych**.
-    5. Wybierz **konto magazynu** , **usługę magazynu** , istniejącego użytkownika, a następnie wybierz pozycję **Utwórz**.
+    5. Wybierz **konto magazynu**, **usługę magazynu**, istniejącego użytkownika, a następnie wybierz pozycję **Utwórz**.
 
         ![Dodawanie udziału brzegowego](./media/azure-stack-edge-j-series-deploy-configure-compute/add-edge-share-1.png) 
 

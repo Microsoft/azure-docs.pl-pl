@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.subservice: alerts
-ms.openlocfilehash: 23ebb513e55e6b61f608354ae1cb3bf3864a54ae
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 7c1e1d52b8434db930fcdd05c5c5441ba027abc8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108851"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186018"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Tworzenie alertów metryk dla dzienników w Azure Monitor
 
@@ -25,7 +25,7 @@ Można używać alertów metryk dla popularnych dzienników Log Analytics wyodr�
 
 - [Liczniki wydajności](./data-sources-performance-counters.md) dla maszyn z systemem Windows & Linux
 - [Rekordy pulsu dla Agent Health](../insights/solution-agenthealth.md)
-- [Aktualizowanie rekordów zarządzania](../../automation/update-management/update-mgmt-overview.md)
+- [Aktualizowanie rekordów zarządzania](../../automation/update-management/overview.md)
 - Dzienniki [danych zdarzeń](./data-sources-windows-events.md)
 
 Istnieje wiele korzyści związanych z korzystaniem z **alertów metryk w przypadku dzienników** w ramach [alertów dzienników](./alerts-log.md) opartych na kwerendach na platformie Azure. Poniżej wymieniono niektóre z nich:
@@ -55,7 +55,7 @@ Przed użyciem metryki dzienników zebranych na Log Analytics danych, należy sk
 
 1. **Obszar roboczy active log Analytics**: prawidłowy i aktywny obszar roboczy log Analytics musi być obecny. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego log Analytics w Azure Portal](../learn/quick-create-workspace.md).
 2. **Agent jest skonfigurowany dla log Analytics obszaru roboczego**: należy skonfigurować agenta dla maszyn wirtualnych platformy Azure (i/lub) lokalnych maszyn wirtualnych do wysyłania danych do log Analytics obszaru roboczego używanego we wcześniejszym kroku. Aby uzyskać więcej informacji, zobacz [log Analytics-Agent — Omówienie](./agents-overview.md).
-3. **Obsługiwane rozwiązania log Analytics są zainstalowane**: rozwiązanie log Analytics należy skonfigurować i wysyłać dane do log Analytics rozwiązania obsługiwane przez obszary robocze są [licznikami wydajności dla systemu Windows & Linux](./data-sources-performance-counters.md), [rekordy pulsu dla Agent Health](../insights/solution-agenthealth.md), [zarządzania aktualizacjami](../../automation/update-management/update-mgmt-overview.md)i [danych zdarzeń](./data-sources-windows-events.md).
+3. **Obsługiwane rozwiązania log Analytics są zainstalowane**: rozwiązanie log Analytics należy skonfigurować i wysyłać dane do log Analytics rozwiązania obsługiwane przez obszary robocze są [licznikami wydajności dla systemu Windows & Linux](./data-sources-performance-counters.md), [rekordy pulsu dla Agent Health](../insights/solution-agenthealth.md), [zarządzania aktualizacjami](../../automation/update-management/overview.md)i [danych zdarzeń](./data-sources-windows-events.md).
 4. **Log Analytics rozwiązania skonfigurowane do wysyłania dzienników**: rozwiązanie log Analytics powinno mieć wymagane dzienniki/dane odpowiadające [metrykom obsługiwanym dla log Analyticsych obszarów roboczych](./metrics-supported.md#microsoftoperationalinsightsworkspaces) . Na przykład dla licznika *% dostępnej pamięci* należy najpierw skonfigurować w rozwiązaniu [liczniki wydajności](./data-sources-performance-counters.md) .
 
 ## <a name="configuring-metric-alert-for-logs"></a>Konfigurowanie alertu metryki dla dzienników
@@ -67,7 +67,7 @@ Aby uzyskać szczegółowe informacje i przykłady — zobacz [tworzenie alertó
 - Element docelowy dla alertu metryki jest prawidłowym *obszarem roboczym log Analytics*
 - Wybrany sygnał dla alertu metryki dla wybranego *obszaru roboczego log Analytics* jest typu **Metric**
 - Filtrowanie określonych warunków lub zasobów przy użyciu filtrów wymiaru; metryki dzienników są wielowymiarowe
-- Podczas konfigurowania *logiki sygnałów*można utworzyć pojedynczy alert w celu rozdzielenia wielu wartości wymiaru (na przykład komputera).
+- Podczas konfigurowania *logiki sygnałów* można utworzyć pojedynczy alert w celu rozdzielenia wielu wartości wymiaru (na przykład komputera).
 - Jeśli **nie** używasz Azure Portal do tworzenia alertu metryki dla wybranego *obszaru roboczego log Analytics*; następnie użytkownik musi ręcznie utworzyć jawną regułę do konwertowania danych dziennika na metrykę przy użyciu [reguł zaplanowanych zapytań Azure monitor](/rest/api/monitor/scheduledqueryrules).
 
 > [!NOTE]

@@ -4,12 +4,12 @@ description: Skutecznie monitoruj role sieci Web i procesu roboczego za pomocą 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: cae2e4e1d5b5e199e772c5263a46d82289f5d6ac
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 29482403358936b95fc5e814b68238cc8c25f7a8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992840"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186358"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights dla usług Azure Cloud Services
 [Application Insights][start] mogą monitorować [aplikacje usługi w chmurze platformy Azure](https://azure.microsoft.com/services/cloud-services/) pod kątem dostępności, wydajności, błędów i użycia przez połączenie danych z zestawów sdk Application Insights z danymi [Diagnostyka Azure](../platform/diagnostics-extension-overview.md) z usług w chmurze. Dzięki uzyskiwanym opiniom dotyczącym wydajności i skuteczności aplikacji możesz dokonać opartych na informacjach wyborów dotyczących kierunku projektu w każdym cyklu życia.
@@ -85,9 +85,9 @@ Każdy zasób jest identyfikowany przez klucz Instrumentacji. Ten klucz może by
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Konfigurowanie diagnostyki platformy Azure dla każdej roli
 Ustaw tę opcję, aby monitorować aplikację za pomocą usługi Application Insights. W przypadku ról sieci Web Ta opcja zapewnia monitorowanie wydajności, alerty, diagnostykę i analizę użycia. W przypadku innych ról można wyszukiwać i monitorować Diagnostyka Azure, takie jak ponowne uruchamianie, liczniki wydajności i wywołania do System. Diagnostics. Trace. 
 
-1. W programie Visual Studio Eksplorator rozwiązań w obszarze **\<YourCloudService>**  >  **role**Otwórz właściwości każdej roli.
+1. W programie Visual Studio Eksplorator rozwiązań w obszarze **\<YourCloudService>**  >  **role** Otwórz właściwości każdej roli.
 
-1. W obszarze **Konfiguracja**zaznacz pole wyboru **Wyślij dane diagnostyczne do Application Insights** , a następnie wybierz utworzony wcześniej zasób Application Insights.
+1. W obszarze **Konfiguracja** zaznacz pole wyboru **Wyślij dane diagnostyczne do Application Insights** , a następnie wybierz utworzony wcześniej zasób Application Insights.
 
 Jeśli zamierzasz używać osobnego zasobu usługi Application Insights dla każdej konfiguracji kompilacji, najpierw wybierz konfigurację.
 
@@ -191,7 +191,7 @@ Aby wyświetlić liczniki wydajności i liczbę zdarzeń, Otwórz [Eksplorator m
 
 ![Diagnostyka Azure dane](./media/cloudservices/23-wad.png)
 
-Aby wyszukiwać w różnych dziennikach śledzenia, które są wysyłane przez Diagnostyka Azure, użyj [wyszukiwania](./diagnostic-search.md) lub [zapytania analizy](../log-query/get-started-portal.md). Załóżmy na przykład, że masz nieobsłużony wyjątek, który spowodował awarię i odtwarzanie roli. Te informacje będą wyświetlane w kanale aplikacji dziennika zdarzeń systemu Windows. Możesz użyć wyszukiwania, aby wyświetlić błąd dziennika zdarzeń systemu Windows i uzyskać pełny ślad stosu dla wyjątku. Dzięki temu można znaleźć główną przyczynę problemu.
+Aby wyszukiwać w różnych dziennikach śledzenia, które są wysyłane przez Diagnostyka Azure, użyj [wyszukiwania](./diagnostic-search.md) lub [zapytania analizy](../log-query/log-analytics-tutorial.md). Załóżmy na przykład, że masz nieobsłużony wyjątek, który spowodował awarię i odtwarzanie roli. Te informacje będą wyświetlane w kanale aplikacji dziennika zdarzeń systemu Windows. Możesz użyć wyszukiwania, aby wyświetlić błąd dziennika zdarzeń systemu Windows i uzyskać pełny ślad stosu dla wyjątku. Dzięki temu można znaleźć główną przyczynę problemu.
 
 ![Diagnostyka Azure wyszukiwanie](./media/cloudservices/25-wad.png)
 

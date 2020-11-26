@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 07c04274829530942bab0e3267200f6524c4ddc7
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 20683808c81b32560170b175edf1c37c332f47ad
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95793401"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183621"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Linux
 
@@ -73,7 +73,7 @@ Minimalne wymagania dotyczące systemu Linux i hybrydowego procesu roboczego ele
 Możesz dodać maszynę procesu roboczego do grupy hybrydowych procesów roboczych elementu Runbook na jednym z kont usługi Automation. W przypadku maszyn obsługujących systemowy hybrydowy proces roboczy elementu Runbook zarządzany przez Update Management można je dodać do grupy hybrydowych procesów roboczych elementu Runbook. Należy jednak użyć tego samego konta usługi Automation zarówno dla Update Management, jak i dla członkostwa w grupie hybrydowych procesów roboczych elementu Runbook.
 
 >[!NOTE]
->Azure Automation [Update Management](update-management/update-mgmt-overview.md) automatycznie instaluje hybrydowy proces roboczy elementu Runbook na platformie Azure lub na maszynie spoza platformy Azure, która jest włączona dla Update Management. Jednak ten proces roboczy nie jest zarejestrowany w żadnej z grup hybrydowych procesów roboczych elementu Runbook na Twoim koncie usługi Automation. Aby uruchomić elementy Runbook na tych komputerach, należy dodać je do grupy hybrydowych procesów roboczych elementu Runbook. Wykonaj krok 4 w sekcji [Instalowanie hybrydowego procesu roboczego elementu Runbook systemu Linux](#install-a-linux-hybrid-runbook-worker) w celu dodania go do grupy.
+>Azure Automation [Update Management](./update-management/overview.md) automatycznie instaluje hybrydowy proces roboczy elementu Runbook na platformie Azure lub na maszynie spoza platformy Azure, która jest włączona dla Update Management. Jednak ten proces roboczy nie jest zarejestrowany w żadnej z grup hybrydowych procesów roboczych elementu Runbook na Twoim koncie usługi Automation. Aby uruchomić elementy Runbook na tych komputerach, należy dodać je do grupy hybrydowych procesów roboczych elementu Runbook. Wykonaj krok 4 w sekcji [Instalowanie hybrydowego procesu roboczego elementu Runbook systemu Linux](#install-a-linux-hybrid-runbook-worker) w celu dodania go do grupy.
 
 ## <a name="supported-linux-hardening"></a>Obsługiwane Ograniczanie poziomu systemu Linux
 

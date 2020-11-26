@@ -4,12 +4,12 @@ description: Grupy inteligentne to agregacja alertów, które pomagają zredukow
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/15/2018
-ms.openlocfilehash: dff59ac207e6078a264d1350d24c9e6f4a461d78
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 743bd1a674c034cd6a0350f959289ac3ecb568de
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012888"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186613"
 ---
 # <a name="smart-groups"></a>Grupy inteligentne
 
@@ -33,7 +33,7 @@ Obsługiwane są następujące inteligentne Stany grup.
 | Potwierdzony | Administrator przejrzał grupę inteligentną i uruchomił ją. |
 | Zamknięty | Problem został rozwiązany. Po zamknięciu grupy inteligentnej można ją otworzyć ponownie, zmieniając ją na inny stan. |
 
-[Dowiedz się, jak zmienić stan grupy inteligentnej.](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+[Dowiedz się, jak zmienić stan grupy inteligentnej.](./alerts-managing-alert-states.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 
 > [!NOTE]
 >  Zmiana stanu grupy inteligentnej nie powoduje zmiany stanu alertów poszczególnych członków.
@@ -58,5 +58,5 @@ Nazwa grupy inteligentnej jest nazwą pierwszego alertu. Nie można utworzyć gr
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Zarządzanie grupami inteligentnymi](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
-- [Zmiana alertu i stanu grupy inteligentnej](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+- [Zarządzanie grupami inteligentnymi](./alerts-managing-smart-groups.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
+- [Zmiana alertu i stanu grupy inteligentnej](./alerts-managing-alert-states.md?toc=%2fazure%2fazure-monitor%2ftoc.json)

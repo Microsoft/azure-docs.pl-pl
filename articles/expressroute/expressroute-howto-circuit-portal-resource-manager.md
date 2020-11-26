@@ -8,11 +8,11 @@ ms.topic: quickstart
 ms.date: 10/21/2020
 ms.author: duau
 ms.openlocfilehash: b0fd844021e7398e061072d7939b782616580c1c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368693"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185202"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit"></a>Szybki Start: Tworzenie i modyfikowanie obwodu ExpressRoute
 
@@ -41,13 +41,13 @@ Obwód ExpressRoute można utworzyć, wybierając opcję tworzenia nowego zasobu
 
     :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/create-expressroute-circuit-menu.png" alt-text="Create an ExpressRoute circuit (Tworzenie obwodu usługi ExpressRoute)":::
 
-2. Po wybraniu **ExpressRoute**zostanie wyświetlona strona **Tworzenie ExpressRoute** . Podaj **grupę zasobów**, **region**i  **nazwę** obwodu. Następnie wybierz pozycję **Next (dalej): Configuration >**.
+2. Po wybraniu **ExpressRoute** zostanie wyświetlona strona **Tworzenie ExpressRoute** . Podaj **grupę zasobów**, **region** i  **nazwę** obwodu. Następnie wybierz pozycję **Next (dalej): Configuration >**.
 
-    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-basic.png" alt-text="Create an ExpressRoute circuit (Tworzenie obwodu usługi ExpressRoute)":::
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-basic.png" alt-text="Konfigurowanie grupy zasobów i regionu":::
 
 3. Podczas wypełniania wartości na tej stronie upewnij się, że określono poprawną warstwę SKU (lokalna, standardowa lub Premium) i model rozliczeń pomiaru danych (nieograniczoną lub taryfową).
 
-    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-configuration.png" alt-text="Create an ExpressRoute circuit (Tworzenie obwodu usługi ExpressRoute)":::
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-configuration.png" alt-text="Konfigurowanie obwodu":::
     
     * **Typ portu** określa, czy nawiązujesz połączenie z dostawcą usług lub bezpośrednio w sieci globalnej firmy Microsoft w lokalizacji komunikacji równorzędnej.
     * **Utwórz nowy lub Importuj z klasycznego** określa, czy jest tworzony nowy obwód, czy też w przypadku migrowania klasycznego obwodu do Azure Resource Manager.
@@ -74,17 +74,17 @@ Obwód ExpressRoute można utworzyć, wybierając opcję tworzenia nowego zasobu
 
 Można wyświetlić wszystkie utworzone przez Ciebie obwody, wybierając pozycję **wszystkie usługi > sieć > obwody ExpressRoute** w menu po lewej stronie.
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-menu.png" alt-text="Create an ExpressRoute circuit (Tworzenie obwodu usługi ExpressRoute)":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-menu.png" alt-text="Menu obwodu ExpressRoute":::
 
 W tym miejscu będą wyświetlane wszystkie obwody usługi ExpressRoute utworzone w ramach subskrypcji.
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-list.png" alt-text="Create an ExpressRoute circuit (Tworzenie obwodu usługi ExpressRoute)":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-list.png" alt-text="Lista obwodów ExpressRoute":::
 
 **Wyświetl właściwości**
 
 Możesz wyświetlić właściwości obwodu, zaznaczając go. Na stronie **Omówienie** obwodu w polu klucz usługi pojawi się klucz usługi. Zapoznaj się z kluczem usługi dla obwodu i podaj jej dostawcę usług w celu ukończenia procesu aprowizacji. Klucz usługi jest specyficzny dla obwodu.
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview.png" alt-text="Create an ExpressRoute circuit (Tworzenie obwodu usługi ExpressRoute)":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview.png" alt-text="Wyświetl właściwości":::
 
 ### <a name="send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>Wyślij klucz usługi do dostawcy połączenia w celu aprowizacji
 
@@ -95,7 +95,7 @@ Podczas tworzenia nowego obwodu ExpressRoute obwód jest w następującym stanie
 Stan dostawcy: **nie zainicjowano obsługi administracyjnej**<BR>
 Stan obwodu: **włączony**
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview-provisioning-state.png" alt-text="Create an ExpressRoute circuit (Tworzenie obwodu usługi ExpressRoute)":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview-provisioning-state.png" alt-text="Uruchamia proces aprowizacji":::
 
 Obwód zostanie zmieniony na następujący stan, gdy dostawca łączności aktualnie go włączy:
 
@@ -111,7 +111,7 @@ Stan obwodu: **włączony**
 
 Możesz wyświetlić właściwości obwodu, który Cię interesuje, zaznaczając go. Sprawdź **stan dostawcy** i upewnij się, że został przeniesiony do programu z **obsługą administracyjną** przed kontynuowaniem.
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/provisioned.png" alt-text="Create an ExpressRoute circuit (Tworzenie obwodu usługi ExpressRoute)":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/provisioned.png" alt-text="Stan obwodu i dostawcy":::
 
 ### <a name="create-your-routing-configuration"></a>Utwórz konfigurację routingu
 
@@ -159,7 +159,7 @@ W przypadku braku przestojów można wykonać następujące zadania:
 
 Aby zmodyfikować obwód ExpressRoute, wybierz pozycję **Konfiguracja**.
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-configuration.png" alt-text="Create an ExpressRoute circuit (Tworzenie obwodu usługi ExpressRoute)":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-configuration.png" alt-text="Modyfikuj obwód":::
 
 ## <a name="deprovisioning-an-expressroute-circuit"></a><a name="delete"></a>Anulowanie aprowizacji obwodu ExpressRoute
 
@@ -170,11 +170,11 @@ Jeśli stan aprowizacji dostawcy usługi obwodu ExpressRoute jest inicjowany lub
 >* Jeśli dostawca usług anulował obsługę administracyjną obwodu (stan aprowizacji dostawcy usług jest ustawiony na **nieinicjowany**), można usunąć obwód. Spowoduje to zatrzymanie naliczania opłat za obwód.
 
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Obwód ExpressRoute można usunąć, wybierając ikonę **Usuń** . Przed kontynuowaniem upewnij się, że stan dostawcy *nie jest zainicjowany* .
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-delete.png" alt-text="Create an ExpressRoute circuit (Tworzenie obwodu usługi ExpressRoute)":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-delete.png" alt-text="Usuń obwód":::
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: lcozzens
-ms.openlocfilehash: b2b903f259fdd2564fbcaed5eb0a750edf9c06e2
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 936be917d5b494c9d71386440c711ef6c29ffb45
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075879"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183502"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Ustawienia wypychania do konfiguracji aplikacji z Azure Pipelines
 
@@ -23,7 +23,7 @@ Zadanie [wypychania konfiguracji aplikacji platformy Azure](https://marketplace.
 - Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
 - Zasób konfiguracji aplikacji — utwórz go bezpłatnie w [Azure Portal](https://portal.azure.com).
 - Projekt usługi Azure DevOps — [Utwórz go bezpłatnie](https://go.microsoft.com/fwlink/?LinkId=2014881)
-- Zadanie wypychania konfiguracji aplikacji platformy Azure — Pobierz bezpłatnie z [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push#:~:text=Navigate%20to%20the%20Tasks%20tab,the%20Azure%20App%20Configuration%20instance.).
+- Zadanie wypychania konfiguracji aplikacji platformy Azure — Pobierz bezpłatnie z [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push).
 
 ## <a name="create-a-service-connection"></a>Utwórz połączenie usługi
 
@@ -49,7 +49,7 @@ Przypisz odpowiednie przypisania roli konfiguracji aplikacji do poświadczeń u�
 1. Przejdź do magazynu konfiguracji aplikacji docelowej. 
 1. Po lewej stronie wybierz pozycję **Kontrola dostępu (IAM)**.
 1. W górnej części wybierz pozycję **+ Dodaj** i wybierz opcję **Dodaj przypisanie roli**.
-1. W obszarze **rola**wybierz pozycję **właściciel danych konfiguracji aplikacji**. Ta rola umożliwia zadanie odczytu i zapisu w magazynie konfiguracji aplikacji. 
+1. W obszarze **rola** wybierz pozycję **właściciel danych konfiguracji aplikacji**. Ta rola umożliwia zadanie odczytu i zapisu w magazynie konfiguracji aplikacji. 
 1. Wybierz nazwę główną usługi skojarzoną z połączeniem usługi, które zostało utworzone w poprzedniej sekcji.
   
 ## <a name="use-in-builds"></a>Użyj w kompilacjach

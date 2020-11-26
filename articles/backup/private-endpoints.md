@@ -4,11 +4,11 @@ description: Zapoznaj się z procesem tworzenia prywatnych punktów końcowych d
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.openlocfilehash: 0ca4e7a83e18ac72e25131d320737ce9578b1cf3
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172247"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184755"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Prywatne punkty końcowe dla Azure Backup
 
@@ -73,11 +73,11 @@ Aby można było utworzyć wymagane prywatne punkty końcowe dla Azure Backup, m
 Zalecamy przyznanie roli **współautor** dla tych trzech grup zasobów do magazynu (tożsamość zarządzana). W poniższych krokach opisano, jak to zrobić dla określonej grupy zasobów (należy to zrobić dla każdej z trzech grup zasobów):
 
 1. Przejdź do grupy zasobów i przejdź do pozycji **Access Control (IAM)** na pasku po lewej stronie.
-1. Raz w **Access Control**przejdź do obszaru **Dodawanie przypisania roli**.
+1. Raz w **Access Control** przejdź do obszaru **Dodawanie przypisania roli**.
 
     ![Dodaj przypisanie roli](./media/private-endpoints/add-role-assignment.png)
 
-1. W okienku **Dodaj przypisanie roli** wybierz **współautor** jako **rolę**i Użyj **nazwy** magazynu jako **podmiotu zabezpieczeń**. Wybierz swój magazyn i wybierz pozycję **Zapisz** po zakończeniu.
+1. W okienku **Dodaj przypisanie roli** wybierz **współautor** jako **rolę** i Użyj **nazwy** magazynu jako **podmiotu zabezpieczeń**. Wybierz swój magazyn i wybierz pozycję **Zapisz** po zakończeniu.
 
     ![Wybieranie roli i podmiotu zabezpieczeń](./media/private-endpoints/choose-role-and-principal.png)
 

@@ -6,18 +6,18 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: yajin1
-ms.openlocfilehash: 4b0b85b08c3f813440d556c61ba5e290ac200049
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 413bb88deac96c1ca12e8a9d25fc9cd16edf4616
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686915"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183961"
 ---
 # <a name="how-to-troubleshoot-connectivity-and-message-delivery-issues"></a>Jak rozwiązywać problemy z dostarczaniem łączności i komunikatów
 
 W tych wskazówkach przedstawiono kilka sposobów, które ułatwiają samodiagnostyki znalezienie głównej przyczyny lub zawężenie problemu. Wynik samodiagnostyki jest również przydatny podczas zgłaszania go nam do dalszej analizy.
 
-Najpierw należy sprawdzić, czy Azure Portal, w którym [servicemode](https://docs.microsoft.com/azure/azure-signalr/concept-service-mode) jest usługa Azure Signal (znana także jako **ASRS**).
+Najpierw należy sprawdzić, czy Azure Portal, w którym [servicemode](./concept-service-mode.md) jest usługa Azure Signal (znana także jako **ASRS**).
 
 :::image type="content" source="./media/signalr-howto-troubleshoot-method/service-mode.png" alt-text="Servicemode":::
 
@@ -49,13 +49,13 @@ Istnieje kilka sposobów, które mogą pomóc w zawężaniu problemu.
 
 ### <a name="how-to-view-the-traffic-and-narrow-down-the-issue"></a>Jak wyświetlić ruch i zawęzić problem
 
-Przechwytywanie ruchu w toku to najbardziej prosty sposób na zawężenie problemu. [Ślady sieci](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#network-traces) można przechwytywać, korzystając z poniższych opcji:
+Przechwytywanie ruchu w toku to najbardziej prosty sposób na zawężenie problemu. [Ślady sieci](/aspnet/core/signalr/diagnostics#network-traces) można przechwytywać, korzystając z poniższych opcji:
 
-* [Zbieranie danych śledzenia sieci za pomocą programu Fiddler](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#network-traces)
+* [Zbieranie danych śledzenia sieci za pomocą programu Fiddler](/aspnet/core/signalr/diagnostics#network-traces)
 
-* [Zbieranie danych śledzenia sieci za pomocą tcpdump](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#collect-a-network-trace-with-tcpdump-macos-and-linux-only)
+* [Zbieranie danych śledzenia sieci za pomocą tcpdump](/aspnet/core/signalr/diagnostics#collect-a-network-trace-with-tcpdump-macos-and-linux-only)
 
-* [Zbieranie danych śledzenia sieci w przeglądarce](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#collect-a-network-trace-in-the-browser)
+* [Zbieranie danych śledzenia sieci w przeglądarce](/aspnet/core/signalr/diagnostics#collect-a-network-trace-in-the-browser)
 
 <a name="view_traffic_client"></a>
 
@@ -63,7 +63,7 @@ Przechwytywanie ruchu w toku to najbardziej prosty sposób na zawężenie proble
 
 W przypadku połączenia trwałego sygnalizującego należy najpierw znajdować się w `/negotiate` hostowanym serwerze aplikacji, a następnie przekierować do usługi Azure Signal, a następnie ustanowić rzeczywiste trwałe połączenie z usługą Azure Signal Service. Szczegółowe instrukcje znajdują się w sekcji [wewnętrzne usługi Azure Signal Service](https://github.com/Azure/azure-signalr/blob/dev/docs/internal.md) .
 
-Korzystając z funkcji śledzenia sieci po stronie klienta, sprawdź, które żądanie nie powiedzie się z kodem stanu i odpowiedzią, i poszukaj rozwiązań w [przewodniku rozwiązywania problemów](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide).
+Korzystając z funkcji śledzenia sieci po stronie klienta, sprawdź, które żądanie nie powiedzie się z kodem stanu i odpowiedzią, i poszukaj rozwiązań w [przewodniku rozwiązywania problemów](./signalr-howto-troubleshoot-guide.md).
 
 #### <a name="server-requests"></a>Żądania serwera
 
@@ -71,7 +71,7 @@ Korzystając z funkcji śledzenia sieci po stronie klienta, sprawdź, które ż�
 
 *Połączenie serwera* s może porzucić ze względu na niestabilność sieci lub regularną konserwację usługi Azure sygnalizującej lub aktualizacje/konserwację hostowanego serwera aplikacji. Tak długo, jak po stronie klienta jest mechanizm rozłączania/ponownego łączenia, wpływ jest minimalny, podobnie jak w przypadku wszystkich operacji po stronie klienta spowodowanych rozłączeniem.
 
-Wyświetl śledzenie sieci po stronie serwera, aby sprawdzić kod stanu i szczegóły błędu, dlaczego *połączenie z serwerem* zostało porzucone lub odrzucone przez *usługę*, i poszukaj głównej przyczyny w [przewodniku rozwiązywania problemów](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide).
+Wyświetl śledzenie sieci po stronie serwera, aby sprawdzić kod stanu i szczegóły błędu, dlaczego *połączenie z serwerem* zostało porzucone lub odrzucone przez *usługę*, i poszukaj głównej przyczyny w [przewodniku rozwiązywania problemów](./signalr-howto-troubleshoot-guide.md).
 
 
 ### <a name="how-to-add-logs"></a>Jak dodać dzienniki
@@ -86,18 +86,18 @@ Rejestrowanie po stronie klienta jest dokładnie takie samo, jak w przypadku kor
 
 ##### <a name="enable-client-side-logging-for-aspnet-core-signalr"></a>Włącz rejestrowanie po stronie klienta dla programu `ASP.NET Core SignalR`
 
-* [Rejestrowanie klientów JavaScript](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#javascript-client-logging)
+* [Rejestrowanie klientów JavaScript](/aspnet/core/signalr/diagnostics#javascript-client-logging)
 
-* [Rejestrowanie klienta platformy .NET](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#net-client-logging)
+* [Rejestrowanie klienta platformy .NET](/aspnet/core/signalr/diagnostics#net-client-logging)
 
 
 ##### <a name="enable-client-side-logging-for-aspnet-signalr"></a>Włącz rejestrowanie po stronie klienta dla programu `ASP.NET SignalR`
 
-* [Klient .NET](https://docs.microsoft.com/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-the-net-client-windows-desktop-apps)
+* [Klient .NET](/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-the-net-client-windows-desktop-apps)
 
-* [Włączanie śledzenia w przypadku klientów z Windows Phone 8](https://docs.microsoft.com/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-windows-phone-8-clients)
+* [Włączanie śledzenia w przypadku klientów z Windows Phone 8](/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-windows-phone-8-clients)
 
-* [Włączanie śledzenia w kliencie JavaScript](https://docs.microsoft.com/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-the-javascript-client)
+* [Włączanie śledzenia w kliencie JavaScript](/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-the-javascript-client)
 
 <a name="add_logs_server"></a>
 
@@ -105,7 +105,7 @@ Rejestrowanie po stronie klienta jest dokładnie takie samo, jak w przypadku kor
 
 ##### <a name="enable-server-side-logging-for-aspnet-core-signalr"></a>Włącz rejestrowanie po stronie serwera dla `ASP.NET Core SignalR`
 
-Rejestrowanie po stronie serwera dla usługi `ASP.NET Core SignalR` integruje się `ILogger` z [rejestrowaniem](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&tabs=aspnetcore2x) opartym na systemie `ASP.NET Core` . Rejestrowanie po stronie serwera można włączyć za pomocą polecenia `ConfigureLogging` , korzystając z przykładowego użycia w następujący sposób:
+Rejestrowanie po stronie serwera dla usługi `ASP.NET Core SignalR` integruje się `ILogger` z [rejestrowaniem](/aspnet/core/fundamentals/logging/?tabs=aspnetcore2x&view=aspnetcore-2.1) opartym na systemie `ASP.NET Core` . Rejestrowanie po stronie serwera można włączyć za pomocą polecenia `ConfigureLogging` , korzystając z przykładowego użycia w następujący sposób:
 
 ```cs
 .ConfigureLogging((hostingContext, logging) =>
@@ -162,7 +162,7 @@ Sprawdź, czy zarejestrowano nieprawidłowe dzienniki ostrzeżeń i błędów.
 
 #### <a name="how-to-enable-logs-inside-azure-signalr-service"></a>Jak włączyć dzienniki w usłudze Azure Signal Service
 
-Możesz również [włączyć dzienniki diagnostyczne](https://docs.microsoft.com/azure/azure-signalr/signalr-tutorial-diagnostic-logs) dla usługi Azure Signal, dzienniki te zawierają szczegółowe informacje o każdym połączeniu podłączonym do usługi Azure Signal.
+Możesz również [włączyć dzienniki diagnostyczne](./signalr-howto-diagnostic-logs.md) dla usługi Azure Signal, dzienniki te zawierają szczegółowe informacje o każdym połączeniu podłączonym do usługi Azure Signal.
 
 <a name="serverless_mode_tsg"></a>
 
@@ -188,13 +188,13 @@ Można sprawdzić kondycję interfejsu API usługi kondycji.
 
 * Kod stanu odpowiedzi:
   * 200: dobra kondycja.
-  * 503: usługa jest w złej kondycji. Możesz:
+  * 503: usługa jest w złej kondycji. Można:
     * Zaczekaj kilka minut na Autoodzyskiwanie.
     * Sprawdź, czy adres IP jest taki sam, jak w przypadku adresu IP z portalu.
     * Lub Uruchom ponownie wystąpienie.
     * Jeśli wszystkie powyższe opcje nie działają, skontaktuj się z nami, dodając nowe żądanie obsługi w Azure Portal.
 
-Więcej informacji na temat [odzyskiwania po awarii](https://docs.microsoft.com/azure/azure-signalr/signalr-concept-disaster-recovery).
+Więcej informacji na temat [odzyskiwania po awarii](./signalr-concept-disaster-recovery.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

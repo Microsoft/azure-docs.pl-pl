@@ -4,16 +4,16 @@ description: Zarządzanie grupami inteligentnymi utworzonymi w wystąpieniach al
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 09/24/2018
-ms.openlocfilehash: 763bfefcf71b0be43722b99f31641015a5991607
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 564440336bf6a90cbd40aba6c8284cbc6c5e3ff3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92105842"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186052"
 ---
 # <a name="manage-smart-groups"></a>Zarządzanie grupami inteligentnymi
 
-[Grupy inteligentne](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json) używają algorytmów uczenia maszynowego do grupowania alertów na podstawie współistnienia lub podobieństwa, dzięki czemu użytkownik może teraz zarządzać grupami inteligentnymi, a nie zarządzać indywidualnymi alertami. W tym artykule przedstawiono sposób uzyskiwania dostępu do inteligentnych grup i używania ich w programie Azure Monitor.
+[Grupy inteligentne](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json) używają algorytmów uczenia maszynowego do grupowania alertów na podstawie współistnienia lub podobieństwa, dzięki czemu użytkownik może teraz zarządzać grupami inteligentnymi, a nie zarządzać indywidualnymi alertami. W tym artykule przedstawiono sposób uzyskiwania dostępu do inteligentnych grup i używania ich w programie Azure Monitor.
 
 1. Aby wyświetlić grupy inteligentne utworzone dla wystąpień alertów, można wykonać jedną z:
 

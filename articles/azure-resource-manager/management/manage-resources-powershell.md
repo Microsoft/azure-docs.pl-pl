@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: d97390861200a0a7f3b04d951e0ca2a17796835d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce3b1d9f8d01e722e4ec5078d92ef4148072da25
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372505"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185746"
 ---
 # <a name="manage-azure-resources-by-using-azure-powershell"></a>Zarządzanie zasobami platformy Azure przy użyciu Azure PowerShell
 
@@ -63,7 +63,7 @@ Można utworzyć grupę zasobów i wdrożyć zasoby w grupie. Aby uzyskać więc
 
 ## <a name="deploy-resources-to-multiple-subscriptions-or-resource-groups"></a>Wdrażanie zasobów w wielu subskrypcjach lub grupach zasobów
 
-Zwykle wszystkie zasoby w szablonie są wdrażane w jednej grupie zasobów. Istnieją jednak scenariusze, w których należy wspólnie wdrożyć zestaw zasobów, ale umieścić je w różnych grupach zasobów lub subskrypcjach. Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów platformy Azure w wielu subskrypcjach lub grupach zasobów](../templates/cross-scope-deployment.md).
+Zwykle wszystkie zasoby w szablonie są wdrażane w jednej grupie zasobów. Istnieją jednak scenariusze, w których należy wspólnie wdrożyć zestaw zasobów, ale umieścić je w różnych grupach zasobów lub subskrypcjach. Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów platformy Azure w wielu subskrypcjach lub grupach zasobów](../templates/deploy-to-resource-group.md).
 
 ## <a name="delete-resources"></a>Usuwanie zasobów
 

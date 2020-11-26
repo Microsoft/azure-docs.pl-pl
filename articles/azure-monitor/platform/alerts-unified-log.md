@@ -6,28 +6,28 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: 8081c60833c3c02d55ae66ca695ba106dba01450
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 89cec12804f6fd2b8a3885248c42646d6c6dbb13
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995084"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186562"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alerty dzienników w Azure Monitor
 
 ## <a name="overview"></a>Omówienie
 
-Alerty dzienników są jednym z typów alertów, które są obsługiwane w [alertach platformy Azure](./alerts-overview.md). Alerty dzienników umożliwiają użytkownikom użycie zapytania [log Analytics](../log-query/get-started-portal.md) w celu obliczenia dzienników zasobów co określoną częstotliwość i wyzwolenia alertu na podstawie wyników. Reguły mogą wyzwalać jedną lub więcej akcji przy użyciu [grup akcji](./action-groups.md).
+Alerty dzienników są jednym z typów alertów, które są obsługiwane w [alertach platformy Azure](./alerts-overview.md). Alerty dzienników umożliwiają użytkownikom użycie zapytania [log Analytics](../log-query/log-analytics-tutorial.md) w celu obliczenia dzienników zasobów co określoną częstotliwość i wyzwolenia alertu na podstawie wyników. Reguły mogą wyzwalać jedną lub więcej akcji przy użyciu [grup akcji](./action-groups.md).
 
 > [!NOTE]
-> Dane dziennika z [obszaru roboczego log Analytics](../log-query/get-started-portal.md) mogą być wysyłane do magazynu metryk Azure monitor. Alerty metryk mają [różne zachowanie](alerts-metric-overview.md), co może być bardziej odpowiednie w zależności od danych, z którymi pracujesz. Aby uzyskać informacje na temat tego, co i jak można kierować dzienniki do metryk, zobacz [alert metryki dla dzienników](alerts-metric-logs.md).
+> Dane dziennika z [obszaru roboczego log Analytics](../log-query/log-analytics-tutorial.md) mogą być wysyłane do magazynu metryk Azure monitor. Alerty metryk mają [różne zachowanie](alerts-metric-overview.md), co może być bardziej odpowiednie w zależności od danych, z którymi pracujesz. Aby uzyskać informacje na temat tego, co i jak można kierować dzienniki do metryk, zobacz [alert metryki dla dzienników](alerts-metric-logs.md).
 
 > [!NOTE]
 > Obecnie nie ma dodatkowych opłat za wersję interfejsu API `2020-05-01-preview` i alerty dzienników zorientowanych na zasoby.  Cennik funkcji, które są w wersji zapoznawczej, zostanie ogłoszony w przyszłości, a powiadomienie podane przed rozpoczęciem rozliczania. W przypadku wybrania opcji kontynuowania korzystania z nowej wersji interfejsu API i zdarzeń dzienników skoncentrowanych na zasobach po upływie okresu wypowiedzenia zostanie naliczona stawka mająca zastosowanie.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Alerty dzienników uruchamiają zapytania dotyczące danych Log Analytics. Najpierw należy rozpocząć [zbieranie danych dziennika](resource-logs.md) i wykonywanie zapytań dotyczących danych dziennika pod kątem problemów. Możesz użyć [przykładowego zapytania dotyczącego alertu](../log-query/saved-queries.md) w log Analytics, aby zrozumieć, co można odkryć lub [zacząć pisać przy tworzeniu własnych zapytań](../log-query/get-started-portal.md).
+Alerty dzienników uruchamiają zapytania dotyczące danych Log Analytics. Najpierw należy rozpocząć [zbieranie danych dziennika](resource-logs.md) i wykonywanie zapytań dotyczących danych dziennika pod kątem problemów. Możesz użyć [przykładowego zapytania dotyczącego alertu](../log-query/example-queries.md) w log Analytics, aby zrozumieć, co można odkryć lub [zacząć pisać przy tworzeniu własnych zapytań](../log-query/log-analytics-tutorial.md).
 
 [Współautor monitorowania platformy Azure](./roles-permissions-security.md) to wspólna rola, która jest wymagana do tworzenia, modyfikowania i aktualizowania alertów dzienników. W przypadku dzienników zasobów należy również uzyskać uprawnienia dostępu & wykonywania zapytań. Częściowe dostęp do dzienników zasobów może kończyć się niepowodzeniem lub zwracać częściowe wyniki. [Dowiedz się więcej o konfigurowaniu alertów dziennika na platformie Azure](./alerts-log.md).
 
@@ -44,7 +44,7 @@ Definicja warunku reguł przeszukiwania dzienników zaczyna się od:
 W poniższych sekcjach opisano różne parametry, których można użyć w celu ustawienia powyższej logiki.
 
 ### <a name="log-query"></a>Zapytanie dziennika
-Zapytanie [log Analytics](../log-query/get-started-portal.md) używane do obliczania reguły. Wyniki zwrócone przez to zapytanie są używane do określenia, czy alert ma zostać wyzwolony. Do tego zapytania można domieścić zakresy:
+Zapytanie [log Analytics](../log-query/log-analytics-tutorial.md) używane do obliczania reguły. Wyniki zwrócone przez to zapytanie są używane do określenia, czy alert ma zostać wyzwolony. Do tego zapytania można domieścić zakresy:
 
 - Określony zasób, na przykład maszynę wirtualną.
 - Zasób o dużej skali, taki jak subskrypcja lub Grupa zasobów.
@@ -102,7 +102,7 @@ W przypadku obszarów roboczych i Application Insights jest ona wywoływana **w 
 
 ### <a name="aggregation-type"></a>Typ agregacji
 
-Obliczenia wykonywane na wielu rekordach w celu zagregowania ich do jednej wartości liczbowej. Na przykład:
+Obliczenia wykonywane na wielu rekordach w celu zagregowania ich do jednej wartości liczbowej. Przykład:
 - **Liczba** zwraca liczbę rekordów w zapytaniu
 - Wartość **średnia** zwraca średnią zdefiniowaną [**stopień szczegółowości agregacji**](#aggregation-granularity) kolumny miary.
 
@@ -209,4 +209,3 @@ Informacje o cenach znajdują się na [stronie cennika Azure monitor](https://az
 * Informacje [o elementach webhook w alertach dziennika na platformie Azure](alerts-log-webhook.md).
 * Dowiedz się więcej o [alertach platformy Azure](./alerts-overview.md).
 * Dowiedz się więcej o [log Analytics](../log-query/log-query-overview.md).
-

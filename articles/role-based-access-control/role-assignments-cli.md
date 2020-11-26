@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 09/28/2020
 ms.author: rolyon
 ms.custom: contperfq1, devx-track-azurecli
-ms.openlocfilehash: e23b6513751764063e3d8c85e063a24165d34648
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 94052b847f48a9fd676496601d85a8cb58a76944
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844884"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184301"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -183,17 +183,7 @@ Poniżej przedstawiono przykład danych wyjściowych po przypisaniu roli [wspó�
     
 ## <a name="add-role-assignment-examples"></a>Przykłady dodawania przypisywania ról
 
-### <a name="add-role-assignment-for-a-specific-blob-container-resource-scope"></a>Dodawanie przypisania roli dla określonego zakresu zasobów kontenera obiektów BLOB
-
-Przypisuje rolę [współautor danych obiektów blob magazynu](built-in-roles.md#storage-blob-data-contributor) do jednostki usługi z identyfikatorem obiektu *55555555-5555-5555-5555-555555555555* w zakresie zasobów dla kontenera obiektów BLOB o nazwie *BLOB-Container-01*.
-
-```azurecli
-az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
---role "Storage Blob Data Contributor" \
---scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345/blobServices/default/containers/blob-container-01"
-```
-
-### <a name="add-role-assignment-for-all-blob-containers-in-a-storage-account-resource-scope"></a>Dodawanie przypisania roli dla wszystkich kontenerów obiektów BLOB w zakresie zasobów konta magazynu
+#### <a name="add-role-assignment-for-all-blob-containers-in-a-storage-account-resource-scope"></a>Dodawanie przypisania roli dla wszystkich kontenerów obiektów BLOB w zakresie zasobów konta magazynu
 
 Przypisuje rolę [współautor danych obiektów blob magazynu](built-in-roles.md#storage-blob-data-contributor) do jednostki usługi z identyfikatorem obiektu *55555555-5555-5555-5555-555555555555* w zakresie zasobów dla konta magazynu o nazwie *storage12345*.
 
@@ -203,7 +193,17 @@ az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345"
 ```
 
-### <a name="add-role-assignment-for-a-group-in-a-specific-virtual-network-resource-scope"></a>Dodawanie przypisania roli dla grupy w określonym zakresie zasobów sieci wirtualnej
+#### <a name="add-role-assignment-for-a-specific-blob-container-resource-scope"></a>Dodawanie przypisania roli dla określonego zakresu zasobów kontenera obiektów BLOB
+
+Przypisuje rolę [współautor danych obiektów blob magazynu](built-in-roles.md#storage-blob-data-contributor) do jednostki usługi z identyfikatorem obiektu *55555555-5555-5555-5555-555555555555* w zakresie zasobów dla kontenera obiektów BLOB o nazwie *BLOB-Container-01*.
+
+```azurecli
+az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
+--role "Storage Blob Data Contributor" \
+--scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345/blobServices/default/containers/blob-container-01"
+```
+
+#### <a name="add-role-assignment-for-a-group-in-a-specific-virtual-network-resource-scope"></a>Dodawanie przypisania roli dla grupy w określonym zakresie zasobów sieci wirtualnej
 
 Przypisuje rolę [współautor maszyny wirtualnej](built-in-roles.md#virtual-machine-contributor) do grupy *zespołu Ann Mack* o identyfikatorze 22222222-2222-2222-2222-222222222222 w zakresie zasobów dla sieci wirtualnej o nazwie *Pharma-Sales-Project-Network*.
 
@@ -213,7 +213,7 @@ az role assignment create --assignee "22222222-2222-2222-2222-222222222222" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/pharma-sales/providers/Microsoft.Network/virtualNetworks/pharma-sales-project-network"
 ```
 
-### <a name="add-role-assignment-for-a-user-at-a-resource-group-scope"></a>Dodawanie przypisania roli dla użytkownika w zakresie grupy zasobów
+#### <a name="add-role-assignment-for-a-user-at-a-resource-group-scope"></a>Dodawanie przypisania roli dla użytkownika w zakresie grupy zasobów
 
 Przypisuje rolę [współautor maszyny wirtualnej](built-in-roles.md#virtual-machine-contributor) do użytkownika *patlong \@ contoso.com* w zakresie grupy zasobów *Pharma-Sales* .
 
@@ -223,7 +223,7 @@ az role assignment create --assignee "patlong@contoso.com" \
 --resource-group "pharma-sales"
 ```
 
-### <a name="add-role-assignment-for-a-user-using-the-unique-role-id-at-a-resource-group-scope"></a>Dodawanie przypisania roli dla użytkownika przy użyciu unikatowego identyfikatora roli w zakresie grupy zasobów
+#### <a name="add-role-assignment-for-a-user-using-the-unique-role-id-at-a-resource-group-scope"></a>Dodawanie przypisania roli dla użytkownika przy użyciu unikatowego identyfikatora roli w zakresie grupy zasobów
 
 Istnieje kilka razy więcej czasu, gdy nazwa roli może ulec zmianie, na przykład:
 
@@ -240,7 +240,7 @@ az role assignment create --assignee "patlong@contoso.com" \
 --resource-group "pharma-sales"
 ```
 
-### <a name="add-role-assignment-for-all-blob-containers-at-a-resource-group-scope"></a>Dodaj przypisanie roli dla wszystkich kontenerów obiektów BLOB w zakresie grupy zasobów
+#### <a name="add-role-assignment-for-all-blob-containers-at-a-resource-group-scope"></a>Dodaj przypisanie roli dla wszystkich kontenerów obiektów BLOB w zakresie grupy zasobów
 
 Przypisuje rolę [współautor danych obiektów blob magazynu](built-in-roles.md#storage-blob-data-contributor) do jednostki usługi z identyfikatorem obiektu *55555555-5555-5555-5555-555555555555* w zakresie grupy zasobów *przykład-Storage-RG* .
 
@@ -258,7 +258,7 @@ az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg"
 ```
 
-### <a name="add-role-assignment-for-an-application-at-a-resource-group-scope"></a>Dodawanie przypisania roli dla aplikacji w zakresie grupy zasobów
+#### <a name="add-role-assignment-for-an-application-at-a-resource-group-scope"></a>Dodawanie przypisania roli dla aplikacji w zakresie grupy zasobów
 
 Przypisuje rolę [współautor maszyny wirtualnej](built-in-roles.md#virtual-machine-contributor) do aplikacji z identyfikatorem obiektu jednostki usługi 44444444-4444-4444-4444-444444444444 w zakresie grupy zasobów *Pharma-Sales* .
 
@@ -268,7 +268,7 @@ az role assignment create --assignee "44444444-4444-4444-4444-444444444444" \
 --resource-group "pharma-sales"
 ```
 
-### <a name="add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope"></a>Dodawanie przypisania roli dla nowej nazwy głównej usługi w zakresie grupy zasobów
+#### <a name="add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope"></a>Dodawanie przypisania roli dla nowej nazwy głównej usługi w zakresie grupy zasobów
 
 Jeśli utworzysz nową nazwę główną usługi i natychmiast spróbujesz przypisać rolę do tej jednostki usługi, w niektórych przypadkach przypisanie roli może zakończyć się niepowodzeniem. Na przykład, jeśli używasz skryptu do utworzenia nowej tożsamości zarządzanej, a następnie spróbujesz przypisać rolę do tej jednostki usługi, przypisanie roli może zakończyć się niepowodzeniem. Przyczyną tego błędu jest prawdopodobnie opóźnienie replikacji. Nazwa główna usługi jest tworzona w jednym regionie; jednak przypisanie roli może wystąpić w innym regionie, który jeszcze nie replikuje jednostki usługi. Aby rozwiązać ten scenariusz, należy określić typ podmiotu podczas tworzenia przypisania roli.
 
@@ -291,7 +291,7 @@ az role assignment create --assignee-object-id "33333333-3333-3333-3333-33333333
 --resource-group "pharma-sales"
 ```
 
-### <a name="add-role-assignment-for-a-user-at-a-subscription-scope"></a>Dodawanie przypisania roli dla użytkownika w zakresie subskrypcji
+#### <a name="add-role-assignment-for-a-user-at-a-subscription-scope"></a>Dodawanie przypisania roli dla użytkownika w zakresie subskrypcji
 
 Przypisuje rolę [czytnika](built-in-roles.md#reader) do użytkownika *annm \@ example.com* w zakresie subskrypcji.
 
@@ -301,7 +301,7 @@ az role assignment create --assignee "annm@example.com" \
 --subscription "00000000-0000-0000-0000-000000000000"
 ```
 
-### <a name="add-role-assignment-for-a-group-at-a-subscription-scope"></a>Dodawanie przypisania roli dla grupy w zakresie subskrypcji
+#### <a name="add-role-assignment-for-a-group-at-a-subscription-scope"></a>Dodawanie przypisania roli dla grupy w zakresie subskrypcji
 
 Przypisuje rolę [czytnika](built-in-roles.md#reader) do grupy *zespołu Ann Mack* o identyfikatorze 22222222-2222-2222-2222-222222222222 w zakresie subskrypcji.
 
@@ -311,7 +311,7 @@ az role assignment create --assignee "22222222-2222-2222-2222-222222222222" \
 --subscription "00000000-0000-0000-0000-000000000000"
 ```
 
-### <a name="add-role-assignment-for-all-blob-containers-at-a-subscription-scope"></a>Dodaj przypisanie roli dla wszystkich kontenerów obiektów BLOB w zakresie subskrypcji
+#### <a name="add-role-assignment-for-all-blob-containers-at-a-subscription-scope"></a>Dodaj przypisanie roli dla wszystkich kontenerów obiektów BLOB w zakresie subskrypcji
 
 Przypisuje rolę [czytnika danych obiektów blob magazynu](built-in-roles.md#storage-blob-data-reader) do użytkownika *Alain \@ example.com* w zakresie subskrypcji.
 
@@ -321,7 +321,7 @@ az role assignment create --assignee "alain@example.com" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000"
 ```
 
-### <a name="add-role-assignment-for-a-user-at-a-management-group-scope"></a>Dodawanie przypisania roli dla użytkownika w zakresie grupy zarządzania
+#### <a name="add-role-assignment-for-a-user-at-a-management-group-scope"></a>Dodawanie przypisania roli dla użytkownika w zakresie grupy zarządzania
 
 Przypisuje rolę [czytnika rozliczeń](built-in-roles.md#billing-reader) do użytkownika *Alain \@ example.com* w zakresie grupy zarządzania.
 
@@ -331,7 +331,7 @@ az role assignment create --assignee "alain@example.com" \
 --scope "/providers/Microsoft.Management/managementGroups/marketing-group"
 ```
 
-## <a name="remove-role-assignment"></a>Usuń przypisanie roli
+## <a name="remove-a-role-assignment"></a>Usuwanie przypisania roli
 
 W celu usunięcia dostępu w usłudze Azure RBAC należy usunąć przypisanie roli za pomocą polecenia [AZ role przypisanie Delete](/cli/azure/role/assignment#az_role_assignment_delete).
 

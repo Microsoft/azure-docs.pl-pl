@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: 07d9ae0d7cdf8e823bb59cb376d40cdf846bb2cb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3cb01a8f1c06bad618ae5c7930920ee0f067038c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092759"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184539"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Monitoruj kondycję obszaru roboczego Log Analytics w Azure Monitor
-Aby zachować wydajność i dostępność obszaru roboczego Log Analytics w Azure Monitor, musisz mieć możliwość aktywnego wykrywania wszelkich powstających problemów. W tym artykule opisano sposób monitorowania kondycji obszaru roboczego Log Analytics przy użyciu danych z tabeli [operacje](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) . Ta tabela jest uwzględniona w każdym obszarze roboczym Log Analytics i zawiera błędy i ostrzeżenia, które występują w obszarze roboczym. Należy regularnie przeglądać te dane i tworzyć alerty w celu ich aktywnego powiadamiania o wszelkich ważnych zdarzeniach w obszarze roboczym.
+Aby zachować wydajność i dostępność obszaru roboczego Log Analytics w Azure Monitor, musisz mieć możliwość aktywnego wykrywania wszelkich powstających problemów. W tym artykule opisano sposób monitorowania kondycji obszaru roboczego Log Analytics przy użyciu danych z tabeli [operacje](/azure/azure-monitor/reference/tables/operation) . Ta tabela jest uwzględniona w każdym obszarze roboczym Log Analytics i zawiera błędy i ostrzeżenia, które występują w obszarze roboczym. Należy regularnie przeglądać te dane i tworzyć alerty w celu ich aktywnego powiadamiania o wszelkich ważnych zdarzeniach w obszarze roboczym.
 
 ## <a name="_logoperation-function"></a>Funkcja _LogOperation
 
-Dzienniki Azure Monitor wysyłają szczegóły wszelkich problemów do tabeli [operacji](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) w obszarze roboczym, w którym wystąpił problem. Funkcja system **_LogOperation** jest oparta na tabeli **operacji** i zawiera uproszczony zestaw informacji na potrzeby analizy i generowania alertów.
+Dzienniki Azure Monitor wysyłają szczegóły wszelkich problemów do tabeli [operacji](/azure/azure-monitor/reference/tables/operation) w obszarze roboczym, w którym wystąpił problem. Funkcja system **_LogOperation** jest oparta na tabeli **operacji** i zawiera uproszczony zestaw informacji na potrzeby analizy i generowania alertów.
 
 ## <a name="columns"></a>Kolumny
 
@@ -60,8 +60,8 @@ Operacje pozyskiwania to problemy, które wystąpiły podczas przyjmowania danyc
 | Metadane. | Błąd | Wykryto błąd konfiguracji. | |
 | Zbieranie danych | Błąd   | Dane zostały usunięte, ponieważ żądanie zostało utworzone wcześniej niż określona liczba dni. | [Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor](manage-cost-storage.md#alert-when-daily-cap-reached)
 | Zbieranie danych | Info    | Wykryto konfigurację maszyny kolekcji.| |
-| Zbieranie danych | Info    | Zbieranie danych zostało uruchomione z powodu nowego dnia. | [Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor](/azure/azure-monitor/platform/manage-cost-storage#alert-when-daily-cap-reached) |
-| Zbieranie danych | Ostrzeżenie | Zbieranie danych zostało zatrzymane z powodu osiągnięcia dziennego limitu.| [Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor](/azure/azure-monitor/platform/manage-cost-storage#alert-when-daily-cap-reached) |
+| Zbieranie danych | Info    | Zbieranie danych zostało uruchomione z powodu nowego dnia. | [Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor](./manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Zbieranie danych | Ostrzeżenie | Zbieranie danych zostało zatrzymane z powodu osiągnięcia dziennego limitu.| [Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor](./manage-cost-storage.md#alert-when-daily-cap-reached) |
 | Przetwarzanie danych | Błąd   | Nieprawidłowy format JSON. | [Wysyłanie danych dziennika do Azure Monitor za pomocą interfejsu API modułu zbierającego dane HTTP (publiczna wersja zapoznawcza)](data-collector-api.md#request-body) | 
 | Przetwarzanie danych | Ostrzeżenie | Wartość została przycięta do maksymalnego dozwolonego rozmiaru. | [Limity usługi Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Przetwarzanie danych | Ostrzeżenie | Osiągnięto limit rozmiaru wartości pola. | [Limity usługi Azure Monitor](../service-limits.md#log-analytics-workspaces) | 
@@ -74,7 +74,7 @@ Operacje pozyskiwania to problemy, które wystąpiły podczas przyjmowania danyc
 
    
 
-## <a name="alert-rules"></a>Reguły alertów
+## <a name="alert-rules"></a>Zasady alertów
 [Alerty zapytań dzienników](../platform/alerts-log-query.md) w programie Azure monitor być proaktywnie powiadamiane o wykryciu problemu w obszarze roboczym log Analytics. Należy używać strategii, która pozwala na czasowo reagować na problemy, jednocześnie minimalizując koszty. Opłata jest naliczana za każdą regułę alertu z kosztem w zależności od częstotliwości, która jest szacowana.
 
 Zalecaną strategią jest rozpoczęcie od dwóch reguł alertów na podstawie poziomu problemu. Aby uzyskać ostrzeżenia, należy użyć krótkiej częstotliwości, takiej jak co 5 minut. Ponieważ błędy wskazują na potencjalną utratę danych, chcesz szybko odpowiedzieć na nie, aby zminimalizować wszelkie straty. Ostrzeżenia zwykle wskazują na problem, który nie wymaga natychmiastowej uwagi, aby można było przejrzeć je codziennie.

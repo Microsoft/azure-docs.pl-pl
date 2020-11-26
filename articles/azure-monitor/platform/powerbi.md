@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2019
-ms.openlocfilehash: 8b9624313716081a039b12c73e54b9f7afc2a323
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53277f64c3d1b03572732157756da1fececbcd43
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86505316"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184573"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importuj Azure Monitor dane dziennika do Power BI
 
@@ -28,7 +28,7 @@ Aby zaimportować dane z [obszaru roboczego log Analytics](manage-access.md) w A
 ## <a name="export-query"></a>Eksportowanie zapytania
 Zacznij od utworzenia [zapytania dziennika](../log-query/log-query-overview.md) , które zwraca dane, które mają zostać wypełnione Power BI zestawu danych.  Następnie należy wyeksportować to zapytanie do [języka Power Query (M)](/powerquery-m/power-query-m-language-specification) , który może być używany przez Power BI Desktop.
 
-1. [Utwórz zapytanie dziennika w log Analytics](../log-query/get-started-portal.md) , aby wyodrębnić dane dla zestawu danych.
+1. [Utwórz zapytanie dziennika w log Analytics](../log-query/log-analytics-tutorial.md) , aby wyodrębnić dane dla zestawu danych.
 2. Wybierz pozycję **Eksportuj**  >  **Power BI zapytanie (M)**.  Spowoduje to wyeksportowanie zapytania do pliku tekstowego o nazwie **PowerBIQuery.txt**. 
 
     ![Eksportowanie przeszukiwania dzienników](media/powerbi/export-analytics.png)
@@ -39,7 +39,7 @@ Zacznij od utworzenia [zapytania dziennika](../log-query/log-query-overview.md) 
 Power BI Desktop to aplikacja klasyczna, która umożliwia tworzenie zestawów danych i raportów, które mogą być publikowane w programie Power BI.  Można go również użyć do utworzenia zapytania przy użyciu języka Power Query wyeksportowanego z Azure Monitor. 
 
 1. Zainstaluj [Power BI Desktop](https://powerbi.microsoft.com/desktop/) , jeśli jeszcze tego nie zrobiono, a następnie otwórz aplikację.
-2. Wybierz pozycję **Pobierz dane**  >  **puste zapytanie** , aby otworzyć nowe zapytanie.  Następnie wybierz pozycję **Edytor zaawansowany** i wklej zawartość wyeksportowanego pliku do zapytania. Kliknij pozycję **Gotowe**.
+2. Wybierz pozycję **Pobierz dane**  >  **puste zapytanie** , aby otworzyć nowe zapytanie.  Następnie wybierz pozycję **Edytor zaawansowany** i wklej zawartość wyeksportowanego pliku do zapytania. Kliknij przycisk **Gotowe**.
 
     ![Zapytanie Power BI Desktop](media/powerbi/desktop-new-query.png)
 

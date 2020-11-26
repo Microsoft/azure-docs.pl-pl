@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: fa7faf64e1889ef2d1abe644f23f0be363709a6b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b25bae460ff11c3dab84e80524acd2eaf878561c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322720"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184692"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Szybki Start: Tworzenie obszaru roboczego Synapse
 W tym przewodniku szybki start opisano kroki tworzenia obszaru roboczego usługi Azure Synapse za pomocą Azure Portal.
@@ -33,6 +33,9 @@ W tym przewodniku szybki start opisano kroki tworzenia obszaru roboczego usługi
 1. Obszar roboczy usługi Azure Synapse będzie używać tego konta magazynu jako konta magazynu "podstawowe" i kontenera do przechowywania danych obszaru roboczego. Obszar roboczy przechowuje dane w tabelach Apache Spark. Przechowuje dzienniki aplikacji platformy Spark w folderze o nazwie **/Synapse/WorkspaceName**.
 1. Wybierz pozycję **Przeglądanie + tworzenie** > **Utwórz**. Obszar roboczy jest gotowy w ciągu kilku minut.
 
+> [!NOTE]
+> Po utworzeniu obszaru roboczego usługi Azure Synapse nie będzie można przenieść obszaru roboczego do innej dzierżawy Azure Active Directory. W przypadku przeprowadzania migracji subskrypcji lub innych akcji można utracić dostęp do artefaktów w obszarze roboczym.  
+
 ## <a name="open-synapse-studio"></a>Otwórz Synapse Studio
 
 Po utworzeniu obszaru roboczego usługi Azure Synapse dostępne są dwa sposoby otwierania programu Synapse Studio:
@@ -49,7 +52,7 @@ Po utworzeniu obszaru roboczego usługi Azure Synapse dostępne są dwa sposoby 
     * Przypisz siebie do roli **właściciela danych obiektu blob magazynu** .
 1. W okienku po lewej stronie wybierz pozycję **kontenery** i Utwórz kontener.
 1. Można nadać kontenerowi dowolną nazwę. W tym dokumencie zmienimy nazwy **użytkowników** kontenera.
-1. Zaakceptuj domyślne ustawienie **poziomu dostępu publicznego** , a następnie wybierz pozycję **Utwórz**.
+1. Zaakceptuj domyślne ustawienie **poziomu dostępu publicznego**, a następnie wybierz pozycję **Utwórz**.
 
 ### <a name="configure-access-to-the-storage-account-from-your-workspace"></a>Konfigurowanie dostępu do konta magazynu z obszaru roboczego
 
@@ -67,4 +70,4 @@ Zarządzane tożsamości dla obszaru roboczego usługi Azure Synapse prawdopodob
 
 * [Tworzenie dedykowanej puli SQL](quickstart-create-sql-pool-studio.md) 
 * [Utwórz bezserwerową pulę Apache Spark](quickstart-create-apache-spark-pool-portal.md)
-* [Użyj bezserwerowej puli SQL](quickstart-sql-on-demand.md)
+* [Korzystanie z bezserwerowej puli SQL](quickstart-sql-on-demand.md)

@@ -3,12 +3,12 @@ title: Eksportuj szablon w Azure Portal
 description: Użyj Azure Portal, aby wyeksportować szablon Azure Resource Manager z zasobów w ramach subskrypcji.
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 6d0c9adb121372047336d2753df047f54f1e0fa2
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: ee97953a337bbb7cc9a8d1f042a3beae7bccdcae
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951761"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185695"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Eksport jednego i kilku zasobów do szablonu w Azure Portal
 
@@ -51,7 +51,7 @@ Podczas eksportowania z grupy zasobów lub zasobu wyeksportowany szablon jest ge
 
 Funkcja eksportowania szablonu nie obsługuje eksportowania zasobów Azure Data Factory. Aby dowiedzieć się, jak wyeksportować zasoby Data Factory, zobacz [kopiowanie lub klonowanie fabryki danych w Azure Data Factory](../../data-factory/copy-clone-data-factory.md).
 
-Aby wyeksportować zasoby utworzone za pomocą klasycznego modelu wdrażania, należy [je zmigrować do modelu wdrażania Menedżer zasobów](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+Aby wyeksportować zasoby utworzone za pomocą klasycznego modelu wdrażania, należy [je zmigrować do modelu wdrażania Menedżer zasobów](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
 Jeśli zostanie wyświetlone ostrzeżenie podczas eksportowania szablonu wskazującego, że typ zasobu nie został wyeksportowany, nadal można odnaleźć właściwości dla tego zasobu. Aby dowiedzieć się więcej o różnych opcjach wyświetlania właściwości zasobów, zobacz [odnajdywanie właściwości zasobów](view-resources.md). Możesz również przyjrzeć się [interfejsowi API REST platformy Azure](/rest/api/azure/) dla typu zasobu.
 

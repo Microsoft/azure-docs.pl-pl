@@ -9,25 +9,25 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/21/2020
-ms.openlocfilehash: 6231e4631c19aa3595fa85ca0aa7997861de65a3
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: e068ad01c07af4e5833399c0053da3362cd6aaa6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675040"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185644"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>Samouczek: tworzenie użytkowników usługi Azure AD przy użyciu aplikacji usługi Azure AD
 
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 > [!NOTE]
-> Ten artykuł jest w **publicznej wersji zapoznawczej** . Aby uzyskać więcej informacji, zobacz [Azure Active Directory jednostki usługi przy użyciu usługi Azure SQL](authentication-aad-service-principal.md). Ten artykuł będzie używać Azure SQL Database do zademonstrowania niezbędnych kroków samouczka, ale można go również zastosować do [analizy usługi Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
+> Ten artykuł jest w **publicznej wersji zapoznawczej**. Aby uzyskać więcej informacji, zobacz [Azure Active Directory jednostki usługi przy użyciu usługi Azure SQL](authentication-aad-service-principal.md). Ten artykuł będzie używać Azure SQL Database do zademonstrowania niezbędnych kroków samouczka, ale można go również zastosować do [analizy usługi Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
 
 Ten artykuł przeprowadzi Cię przez proces tworzenia użytkowników usługi Azure AD w Azure SQL Database przy użyciu jednostek usługi platformy Azure (aplikacji usługi Azure AD). Ta funkcja już istnieje w wystąpieniu zarządzanym usługi Azure SQL, ale jest teraz wprowadzana w Azure SQL Database i w usłudze Azure Synapse Analytics. Aby móc obsługiwać ten scenariusz, należy wygenerować tożsamość usługi Azure AD i przypisać ją do serwera logicznego usługi Azure SQL.
 
 Aby uzyskać więcej informacji na temat uwierzytelniania usługi Azure AD dla usługi Azure SQL, zobacz artykuł [używanie uwierzytelniania Azure Active Directory](authentication-aad-overview.md).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > - Przypisywanie tożsamości do serwera logicznego usługi Azure SQL
@@ -44,9 +44,9 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="assign-an-identity-to-the-azure-sql-logical-server"></a>Przypisywanie tożsamości do serwera logicznego usługi Azure SQL
 
-1. Połącz się z Azure Active Directory. Musisz znaleźć swój identyfikator dzierżawy. Można to znaleźć, przechodząc do [Azure Portal](https://portal.azure.com)i przechodząc do zasobu **Azure Active Directory** . W okienku **Przegląd** powinien zostać wyświetlony **Identyfikator dzierżawy** . Uruchom następujące polecenie programu PowerShell:
+1. Połącz się z Azure Active Directory. Musisz znaleźć swój identyfikator dzierżawy. Można to znaleźć, przechodząc do [Azure Portal](https://portal.azure.com)i przechodząc do zasobu **Azure Active Directory** . W okienku **Przegląd** powinien zostać wyświetlony **Identyfikator dzierżawy**. Uruchom następujące polecenie programu PowerShell:
 
-    - Zamień `<TenantId>` na **Identyfikator dzierżawy** .
+    - Zamień `<TenantId>` na **Identyfikator dzierżawy**.
 
     ```powershell
     Connect-AzAccount -Tenant <TenantId>
@@ -82,7 +82,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 1. Tożsamość można także sprawdzić, przechodząc do [Azure Portal](https://portal.azure.com).
 
-    - W obszarze zasób **Azure Active Directory** przejdź do pozycji **aplikacje dla przedsiębiorstw** . Wpisz nazwę serwera logicznego SQL. Zostanie wyświetlony komunikat o **identyfikatorze obiektu** dołączonym do zasobu.
+    - W obszarze zasób **Azure Active Directory** przejdź do pozycji **aplikacje dla przedsiębiorstw**. Wpisz nazwę serwera logicznego SQL. Zostanie wyświetlony komunikat o **identyfikatorze obiektu** dołączonym do zasobu.
     
     :::image type="content" source="media/authentication-aad-service-principals-tutorial/enterprise-applications-object-id.png" alt-text="Identyfikator obiektu":::
 
@@ -161,11 +161,11 @@ Aby poznać podobne podejście do sposobu ustawiania uprawnienia **czytelników 
 
 1. Postępuj zgodnie z przewodnikiem, aby [zarejestrować aplikację i ustawić uprawnienia](active-directory-interactive-connect-azure-sql-db.md#register-your-app-and-set-permissions).
 
-    Upewnij się, że dodano **uprawnienia aplikacji** oraz **uprawnienia delegowane** .
+    Upewnij się, że dodano **uprawnienia aplikacji** oraz **uprawnienia delegowane**.
 
-    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-apps.png" alt-text="Identyfikator obiektu":::
+    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-apps.png" alt-text="Zrzut ekranu przedstawiający stronę Rejestracje aplikacji dla Azure Active Directory. Aplikacja o nazwie wyświetlanej AppSP jest wyróżniona.":::
 
-    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-app-registration-api-permissions.png" alt-text="Identyfikator obiektu":::
+    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-app-registration-api-permissions.png" alt-text="Interfejs API — uprawnienia":::
 
 2. Należy również utworzyć klucz tajny klienta do logowania. Postępuj zgodnie z przewodnikiem w tym miejscu, aby [przekazać certyfikat lub utworzyć wpis tajny do logowania](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
 
@@ -173,15 +173,15 @@ Aby poznać podobne podejście do sposobu ustawiania uprawnienia **czytelników 
     - **Identyfikator aplikacji**
     - **Identyfikator dzierżawy** — powinien być taki sam jak poprzednio
 
-W tym samouczku będziemy używać usługi *AppSP* jako naszej głównej nazwy głównej usługi i *MojaApl* jako drugi użytkownik głównej usługi, który zostanie utworzony w usłudze Azure SQL przez *AppSP* . Należy utworzyć dwie aplikacje, *AppSP* i *MojaApl* .
+W tym samouczku będziemy używać usługi *AppSP* jako naszej głównej nazwy głównej usługi i *MojaApl* jako drugi użytkownik głównej usługi, który zostanie utworzony w usłudze Azure SQL przez *AppSP*. Należy utworzyć dwie aplikacje, *AppSP* i *MojaApl*.
 
 Aby uzyskać więcej informacji na temat tworzenia aplikacji usługi Azure AD, zobacz artykuł [jak: korzystanie z portalu do tworzenia aplikacji usługi Azure AD i nazwy głównej usługi, która może uzyskiwać dostęp do zasobów](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 ### <a name="permissions-required-to-set-or-unset-the-azure-ad-admin"></a>Uprawnienia wymagane do ustawienia lub nieustawienia administratora usługi Azure AD
 
-Aby nazwa główna usługi mogła określić lub cofnąć uprawnienia administratora usługi Azure AD dla usługi Azure SQL, wymagane jest dodatkowe uprawnienie interfejsu API. Do aplikacji w usłudze Azure AD należy dodać uprawnienie do [usługi Directory. Read. All](https://docs.microsoft.com/graph/permissions-reference#application-permissions-18) Application API.
+Aby nazwa główna usługi mogła określić lub cofnąć uprawnienia administratora usługi Azure AD dla usługi Azure SQL, wymagane jest dodatkowe uprawnienie interfejsu API. Do aplikacji w usłudze Azure AD należy dodać uprawnienie do [usługi Directory. Read. All](/graph/permissions-reference#application-permissions-18) Application API.
 
-:::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="Identyfikator obiektu":::
+:::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="Directory. Reader. wszystkie uprawnienia w usłudze Azure AD":::
 
 Nazwa główna usługi będzie również potrzebować roli [**współautor SQL Server**](../../role-based-access-control/built-in-roles.md#sql-server-contributor) dla SQL Database lub roli [**współautor wystąpienia zarządzanego SQL**](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) dla wystąpienia zarządzanego SQL.
 
@@ -199,7 +199,7 @@ Po utworzeniu jednostki usługi w usłudze Azure AD Utwórz użytkownika w SQL D
     GO
     ```
 
-2. Przyznaj `db_owner` uprawnienie *AppSP* , które umożliwia użytkownikowi tworzenie innych użytkowników usługi Azure AD w bazie danych.
+2. Przyznaj `db_owner` uprawnienie *AppSP*, które umożliwia użytkownikowi tworzenie innych użytkowników usługi Azure AD w bazie danych.
 
     ```sql
     EXEC sp_addrolemember 'db_owner', [AppSP]
@@ -223,7 +223,7 @@ Po utworzeniu jednostki usługi w usłudze Azure AD Utwórz użytkownika w SQL D
 > [!IMPORTANT]
 > Nazwa główna usługi użyta do zalogowania się do SQL Database musi mieć klucz tajny klienta. Jeśli go nie ma, wykonaj krok 2 tworzenia jednostki [usługi (aplikacji usługi Azure AD) w usłudze Azure AD](#create-a-service-principal-an-azure-ad-application-in-azure-ad). Ten klucz tajny klienta należy dodać jako parametr wejściowy w skrypcie poniżej.
 
-1. Użyj poniższego skryptu, aby utworzyć główny użytkownik usługi Azure AD *MojaApl* przy użyciu nazwy głównej usługi *AppSP* .
+1. Użyj poniższego skryptu, aby utworzyć główny użytkownik usługi Azure AD *MojaApl* przy użyciu nazwy głównej usługi *AppSP*.
 
     - Zamień `<TenantId>` na `TenantId` zebrane wcześniej.
     - Zamień `<ClientId>` na `ClientId` zebrane wcześniej.

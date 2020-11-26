@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: f7980ca7bc6f23c383ea013c2b017b3bd61e2d25
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 410281ce67faf345539701389d4b03351d403b99
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842298"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186069"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Łączenie produktów/usług ITSM za pomocą łącznika zarządzania usługami IT
 Ten artykuł zawiera informacje dotyczące sposobu konfigurowania połączenia między produktem narzędzia ITSM/usługą a łącznik zarządzania usługami IT (ITSMC) w Log Analytics, aby centralnie zarządzać elementami roboczymi. Aby uzyskać więcej informacji na temat ITSMC, zobacz [Omówienie](./itsmc-overview.md).
@@ -46,7 +46,7 @@ Upewnij się, że zostały spełnione następujące wymagania wstępne:
 > [!NOTE]
 > 
 > - Łącznik ITSM może łączyć się tylko z wystąpieniami usługi ServiceNow opartymi na chmurze. Lokalne wystąpienia usługi ServiceNow nie są obecnie obsługiwane.
-> - Aby można było używać [szablonów](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) niestandardowych jako części akcji, parametr "projekcja" w szablonie SCSM powinien być zamapowany na "IncidentManagement! System. robocze. incydent. projekcja "
+> - Aby można było używać [szablonów](./itsmc-overview.md#template-definitions) niestandardowych jako części akcji, parametr "projekcja" w szablonie SCSM powinien być zamapowany na "IncidentManagement! System. robocze. incydent. projekcja "
 
 ### <a name="connection-procedure"></a>Procedura połączenia
 
@@ -432,4 +432,3 @@ Aby wygenerować identyfikator klienta/klucz dla Cherwell, należy wykonać poni
 
 ## <a name="next-steps"></a>Następne kroki
  - [Tworzenie narzędzia ITSM elementów roboczych na podstawie alertów platformy Azure](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
-

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 2f2221ad10a2e07a3443cab9f957c8ec26969a3b
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 7b77a47acba6180df4a067887b79d8cdc0f56df6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96031296"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185083"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Ciągła integracja i dostarczanie dla obszaru roboczego usługi Azure Synapse
 
@@ -25,7 +25,7 @@ W przypadku usługi Azure Synapse Workspace, ciągłej integracji i dostarczania
 
 W tym artykule zawarto informacje na temat korzystania z potoku wersji platformy Azure w celu zautomatyzowania wdrożenia obszaru roboczego Synapse w wielu środowiskach.
 
-## <a name="pre-requirements"></a>Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 
 -   Obszar roboczy używany do tworzenia aplikacji został skonfigurowany z repozytorium Git w programie Studio, patrz [Kontrola źródła w programie Synapse Studio](source-control.md).
 -   Projekt usługi Azure DevOps został przygotowany do uruchomienia potoku wydania.
@@ -82,7 +82,7 @@ Dodaj zadanie wdrażania Azure Resource Manager, aby tworzyć lub aktualizować 
     
     ![Wdrażanie obszarów roboczych i pul](media/pools-resource-deploy.png)
 
-1. Obowiązkowe Dodaj **Azure PowerShell** do przypisania roli obszaru roboczego Grant i Update. W przypadku tworzenia obszaru roboczego usługi Synapse przy użyciu potoku wydania należy dodać nazwę główną potoku jako domyślnego administratora obszaru roboczego. Możesz uruchomić program PowerShell, aby przyznać innym kontom dostęp do obszaru roboczego. 
+1. Obowiązkowe Dodaj **Azure PowerShell** do przypisania roli obszaru roboczego Grant i Update. Jeśli używasz potoku wydania do tworzenia obszaru roboczego Synapse, jednostka usługi potoku zostanie dodana jako domyślny administrator obszaru roboczego. Możesz uruchomić program PowerShell, aby przyznać innym kontom dostęp do obszaru roboczego. 
     
     ![Udziel uprawnienia](media/release-creation-grant-permission.png)
 
@@ -115,12 +115,8 @@ Po zapisaniu wszystkich zmian możesz wybrać pozycję **Utwórz wydanie** , aby
 Jeśli korzystasz z integracji narzędzia Git z obszarem roboczym usługi Synapse i masz potoku CI/CD, który przenosi zmiany z programowania na test, a następnie do środowiska produkcyjnego, zalecamy następujące najlepsze rozwiązania:
 
 -   **Integracja** z usługą git. Skonfiguruj tylko obszar roboczy programu Development Synapse z integracją narzędzia Git. Zmiany dotyczące testów i produkcyjnych obszarów roboczych są wdrażane za pośrednictwem ciągłej integracji/ciągłego wdrażania, a nie potrzebna jest integracja z usługą git.
--   **Przygotuj pule przed migracją artefaktów**. W przypadku dołączania pul do skryptu SQL lub notesu w obszarze roboczym programowanie oczekiwana jest taka sama nazwa pul w różnych środowiskach. 
--   **Inne osoby**. Zobacz [inne najlepsze rozwiązania](/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd)
+-   **Przygotuj pule przed migracją artefaktów**. Jeśli masz skrypt SQL lub Notes dołączony do pul w obszarze roboczym programowanie, oczekiwana jest taka sama nazwa pul w różnych środowiskach. 
+-   **Infrastruktura jako kod (IaC)**. Zarządzanie infrastrukturą (sieciami, maszynami wirtualnymi, modułami równoważenia obciążenia i topologią połączenia) w modelu opisowym przy użyciu tej samej wersji, której zespół DevOps używa w przypadku kodu źródłowego. 
+-   **Inne osoby**. Zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi artefaktów ADF](/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd)
 
-## <a name="unsupported-features"></a>Nieobsługiwane funkcje
-
-- Synapse Studio nie zezwala na wybór zatwierdzeń lub selektywne Publikowanie zasobów. 
-- Synapse Studio nie obsługuje dostosowywania komunikatu zatwierdzania.
-- Po zaprojektowaniu Akcja usuwania zostanie przekazana bezpośrednio do usługi git
 

@@ -14,12 +14,12 @@ ms.reviewer: davidph, sstein
 manager: cgronlun
 ms.date: 05/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 62f1015bc945b5c01f719d7e96e6446c49ac8b8a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 2e32a4abeae78aa7105f21ecffbb18c2eae841a4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675164"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185627"
 ---
 # <a name="quickstart-use-r-with-azure-sql-database-machine-learning-services-preview-to-query-a-database"></a>Szybki Start: używanie języka R z Azure SQL Database Machine Learning Services (wersja zapoznawcza) w celu wykonywania zapytań względem bazy danych 
 
@@ -45,11 +45,11 @@ Machine Learning Services z R to funkcja Azure SQL Database używana do wykonywa
 
 Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z bazą danych w Azure SQL Database. W następnych procedurach będą potrzebne w pełni kwalifikowana nazwa serwera lub nazwa hosta, nazwa bazy danych i informacje logowania.
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 2. Przejdź do strony **bazy danych SQL**  lub **wystąpienia zarządzane SQL** .
 
-3. Na stronie **Przegląd** Sprawdź w pełni kwalifikowaną nazwę serwera obok pozycji **Nazwa serwera** dla bazy danych w Azure SQL Database lub w pełni kwalifikowana nazwa serwera obok **hosta** dla wystąpienia zarządzanego w wystąpieniu zarządzanym Azure SQL. Aby skopiować nazwę serwera lub hosta, umieść na niej wskaźnik myszy i wybierz ikonę **Kopiuj** .
+3. Na stronie **Przegląd** Sprawdź w pełni kwalifikowaną nazwę serwera obok pozycji **Nazwa serwera** dla bazy danych w Azure SQL Database lub w pełni kwalifikowana nazwa serwera obok **hosta** dla wystąpienia zarządzanego w wystąpieniu zarządzanym Azure SQL. Aby skopiować nazwę serwera lub hosta, umieść na niej wskaźnik myszy i wybierz ikonę **Kopiuj**.
 
 ## <a name="create-code-to-query-your-database"></a>Utwórz kod, aby wykonać zapytanie dotyczące bazy danych
 
@@ -84,4 +84,4 @@ Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z bazą 
 
 - [Projektuj swoją pierwszą bazę danych w Azure SQL Database](design-first-database-tutorial.md)
 - [Azure SQL Database Machine Learning Services (z językiem R)](../managed-instance/machine-learning-services-overview.md)
-- [Twórz i uruchamiaj proste skrypty języka R w Azure SQL Database Machine Learning Services (wersja zapoznawcza)](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context)
+- [Twórz i uruchamiaj proste skrypty języka R w Azure SQL Database Machine Learning Services (wersja zapoznawcza)](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context)

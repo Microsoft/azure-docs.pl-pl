@@ -4,12 +4,12 @@ description: Opisuje sposób wdrażania szablonów Azure Resource Manager przy u
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 3dcb246956aae274f17cf938ee3d406562b22941
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: cf705f68544c4c4e0db55d4a375e1e50530c8957
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95905263"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185712"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Wdrażanie szablonów Azure Resource Manager przy użyciu akcji GitHub
 
@@ -151,10 +151,10 @@ Ponieważ przepływ pracy jest skonfigurowany do wyzwalania przez plik przepływ
 1. Wybierz przepływ pracy, aby go otworzyć.
 1. Wybierz pozycję **Uruchom wdrożenie usługi ARM** z menu, aby zweryfikować wdrożenie.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 Jeśli grupa zasobów i repozytorium nie są już potrzebne, Oczyść wdrożone zasoby, usuwając grupę zasobów i repozytorium GitHub. 
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Tworzenie pierwszego szablonu ARM](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Tworzenie pierwszego szablonu ARM](./template-tutorial-create-first-template.md)

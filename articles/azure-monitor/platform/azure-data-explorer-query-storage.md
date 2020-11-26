@@ -7,12 +7,12 @@ ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 18ece47187e3f83277d7d925ad958d2ede7cb337
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 2735aec0f95f5e282bb1dffba6e4f42f966cf117
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030020"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186545"
 ---
 # <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer-preview"></a>Wyeksportuj dane z Azure Monitor przy użyciu usługi Azure Eksplorator danych (wersja zapoznawcza)
 Eksportowanie danych z Azure Monitor na konto usługi Azure Storage umożliwia przechowywanie w niskich kosztach i możliwość ponownego przydzielenia dzienników do różnych regionów. Użyj usługi Azure Eksplorator danych, aby wykonać zapytanie dotyczące danych, które zostały wyeksportowane z Log Analytics obszarów roboczych. Po skonfigurowaniu obsługiwane tabele, które są wysyłane z obszarów roboczych do konta usługi Azure Storage, będą dostępne jako źródło danych dla Eksplorator danych platformy Azure.
@@ -136,4 +136,4 @@ external_table("HBTest","map") | take 10000
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak [pisać zapytania w usłudze Azure Eksplorator danych](https://docs.microsoft.com/azure/data-explorer/write-queries)
+- Dowiedz się, jak [pisać zapytania w usłudze Azure Eksplorator danych](/azure/data-explorer/write-queries)

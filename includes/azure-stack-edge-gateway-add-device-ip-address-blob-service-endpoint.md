@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/21/2019
 ms.author: alkohli
 ms.openlocfilehash: 0c6845f081ccbe42e70964eaa939d58597e3b69b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89087794"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185547"
 ---
 1. Przejdź do lokalnego interfejsu użytkownika sieci Web urządzenia i zaloguj się na swoim urządzeniu. Upewnij się, że urządzenie jest odblokowane.
 

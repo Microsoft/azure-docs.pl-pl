@@ -6,17 +6,17 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: 8b3b6a41da6e3100739da920472d582711d1e9b1
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a949c9b34e299e0dc4eccbb62f4b4ebb38d6ccb9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024385"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186715"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Wprowadzenie do zapytań dotyczących dzienników w usłudze Azure Monitor
 
 > [!NOTE]
-> Można to zrobić w Twoim środowisku, jeśli zbierasz dane z co najmniej jednej maszyny wirtualnej. Jeśli nie, użyj naszego [środowiska demonstracyjnego](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), co obejmuje wiele przykładowych danych.  Jeśli wiesz już, jak wykonywać zapytania w usłudze KQL, ale wystarczy szybko utworzyć przydatne zapytania w oparciu o typy zasobów, zobacz [okienko zapisane przykładowe zapytania](saved-queries.md).
+> Można to zrobić w Twoim środowisku, jeśli zbierasz dane z co najmniej jednej maszyny wirtualnej. Jeśli nie, użyj naszego [środowiska demonstracyjnego](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), co obejmuje wiele przykładowych danych.  Jeśli wiesz już, jak wykonywać zapytania w usłudze KQL, ale wystarczy szybko utworzyć przydatne zapytania w oparciu o typy zasobów, zobacz [okienko zapisane przykładowe zapytania](./example-queries.md).
 
 W tym samouczku dowiesz się, jak pisać zapytania dzienników w Azure Monitor. Pouczysz się, jak:
 
@@ -28,7 +28,7 @@ W tym samouczku dowiesz się, jak pisać zapytania dzienników w Azure Monitor. 
 - Definiowanie i używanie pól niestandardowych
 - Agregowanie i grupowanie wyników
 
-Aby zapoznać się z samouczkiem dotyczącym używania Log Analytics w Azure Portal, zobacz [wprowadzenie do Azure Monitor Log Analytics](get-started-portal.md).<br>
+Aby zapoznać się z samouczkiem dotyczącym używania Log Analytics w Azure Portal, zobacz [wprowadzenie do Azure Monitor Log Analytics](./log-analytics-tutorial.md).<br>
 Aby uzyskać więcej informacji na temat zapytań dzienników w Azure Monitor, zobacz [Omówienie zapytań dzienników w programie Azure monitor](log-query-overview.md).
 
 Wykonaj poniższe czynności, korzystając z wersji wideo z tego samouczka:
@@ -44,7 +44,7 @@ Zapytania mogą rozpoczynać się od nazwy tabeli lub polecenia *wyszukiwania* .
 
 ### <a name="table-based-queries"></a>Zapytania oparte na tabelach
 
-Azure Monitor organizuje dane dziennika w tabelach, z których każda składa się z wielu kolumn. Wszystkie tabele i kolumny są wyświetlane w okienku schematu w Log Analytics w portalu analizy. Zidentyfikuj tabelę, która Cię interesuje, a następnie zapoznaj się z bitem danych:
+Usługa Azure Monitor organizuje dane dzienników w postaci tabel, z których każda składa się z wielu kolumn. Wszystkie tabele i kolumny są wyświetlane w okienku schematu w Log Analytics w portalu analizy. Zidentyfikuj tabelę, która Cię interesuje, a następnie zapoznaj się z bitem danych:
 
 ```Kusto
 SecurityEvent

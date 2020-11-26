@@ -6,16 +6,16 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.subservice: alerts
-ms.openlocfilehash: b23f1d455610222ffa5713773a0bfb947f23ce34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fb0288d592af8bd23415b31ecf6a6e3448b92ba
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91346075"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186035"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Tworzenie alertu dziennika za pomocą szablonu usługi Resource Manager
 
-Alerty dzienników umożliwiają użytkownikom użycie zapytania [log Analytics](../log-query/get-started-portal.md) w celu obliczenia dzienników zasobów co określoną częstotliwość i wyzwolenia alertu na podstawie wyników. Reguły mogą wyzwalać uruchomienie co najmniej jednej akcji przy użyciu [grup akcji](./action-groups.md). [Dowiedz się więcej o funkcjach i terminologii alertów dzienników](alerts-unified-log.md).
+Alerty dzienników umożliwiają użytkownikom użycie zapytania [log Analytics](../log-query/log-analytics-tutorial.md) w celu obliczenia dzienników zasobów co określoną częstotliwość i wyzwolenia alertu na podstawie wyników. Reguły mogą wyzwalać uruchomienie co najmniej jednej akcji przy użyciu [grup akcji](./action-groups.md). [Dowiedz się więcej o funkcjach i terminologii alertów dzienników](alerts-unified-log.md).
 
 W tym artykule pokazano, jak można użyć [szablonu Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) , aby skonfigurować [alerty dzienników](alerts-unified-log.md) w programie Azure monitor. Szablony Menedżer zasobów umożliwiają programistyczne Konfigurowanie alertów w sposób spójny i powtarzalny w środowiskach. Alerty dzienników są tworzone w `Microsoft.Insights/scheduledQueryRules` dostawcy zasobów. Zobacz Dokumentacja interfejsu API dla [zaplanowanych reguł zapytania API](/rest/api/monitor/scheduledqueryrules/).
 
@@ -26,7 +26,7 @@ Podstawowe kroki są następujące:
 4. Wdróż szablon przy użyciu dowolnej metody wdrażania.
 
 > [!NOTE]
-> Dane dziennika z [obszaru roboczego log Analytics](../log-query/get-started-portal.md) mogą być wysyłane do magazynu metryk Azure monitor. Alerty metryk mają [różne zachowanie](alerts-metric-overview.md), co może być bardziej odpowiednie w zależności od danych, z którymi pracujesz. Aby uzyskać informacje na temat tego, co i jak można kierować dzienniki do metryk, zobacz [alert metryki dla dzienników](alerts-metric-logs.md).
+> Dane dziennika z [obszaru roboczego log Analytics](../log-query/log-analytics-tutorial.md) mogą być wysyłane do magazynu metryk Azure monitor. Alerty metryk mają [różne zachowanie](alerts-metric-overview.md), co może być bardziej odpowiednie w zależności od danych, z którymi pracujesz. Aby uzyskać informacje na temat tego, co i jak można kierować dzienniki do metryk, zobacz [alert metryki dla dzienników](alerts-metric-logs.md).
 
 > [!NOTE]
 > Alerty dzienników dla Log Analytics używane do zarządzania przy użyciu starszego [interfejsu API alertów log Analytics](api-alerts.md) i starszych szablonów [log Analytics zapisanych wyszukiwań i alertów](../insights/solutions.md). [Dowiedz się więcej na temat przełączania do bieżącego interfejsu API ScheduledQueryRules](alerts-log-api-switch.md).

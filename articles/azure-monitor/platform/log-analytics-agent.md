@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: c09b50272ce73fe084e84d49be7d9d81cbe725aa
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8563f734db8524d6e90171bb2272723f14533055
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207142"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185933"
 ---
 # <a name="log-analytics-agent-overview"></a>Omówienie agenta Log Analytics
 Agent Log Analytics platformy Azure zbiera dane telemetryczne z maszyn wirtualnych z systemami Windows i Linux w dowolnej chmurze, maszynach lokalnych i monitorowane przez [System Center Operations Manager](/system-center/scom/) i wysyła je do obszaru roboczego Log Analytics w Azure monitor. Agent Log Analytics obsługuje także szczegółowe informacje i inne usługi w Azure Monitor, takie jak [Azure monitor dla maszyn wirtualnych](../insights/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml)i [Azure Automation](../../automation/automation-intro.md). Ten artykuł zawiera szczegółowe omówienie wymagań dotyczących agenta, systemu i sieci oraz metod wdrażania.
@@ -51,7 +51,7 @@ Poniższa tabela zawiera listę typów danych, które można skonfigurować dla 
 Agent Log Analytics wysyła dane do Log Analytics obszaru roboczego w Azure Monitor. Agent systemu Windows może być wieloadresowy w celu wysyłania danych do wielu obszarów roboczych i System Center Operations Manager grup zarządzania. Agent systemu Linux może wysyłać tylko do jednego miejsca docelowego, obszaru roboczego lub grupy zarządzania.
 
 ## <a name="other-services"></a>Inne usługi
-Agent dla systemów Linux i Windows nie tylko do łączenia się z Azure Monitor. Inne usługi, takie jak Azure Security Center i Azure, są zależne od agenta i połączonego Log Analytics obszaru roboczego. Agent obsługuje również Azure Automation do hostowania roli hybrydowego procesu roboczego elementu Runbook i innych usług, takich jak [Change Tracking](../../automation/change-tracking/overview.md), [Update Management](../../automation/update-management/update-mgmt-overview.md)i [Azure Security Center](../../security-center/security-center-intro.md). Aby uzyskać więcej informacji na temat roli hybrydowego procesu roboczego elementu Runbook, zobacz [Azure Automation hybrydowego procesu roboczego elementu Runbook](../../automation/automation-hybrid-runbook-worker.md).  
+Agent dla systemów Linux i Windows nie tylko do łączenia się z Azure Monitor. Inne usługi, takie jak Azure Security Center i Azure, są zależne od agenta i połączonego Log Analytics obszaru roboczego. Agent obsługuje również Azure Automation do hostowania roli hybrydowego procesu roboczego elementu Runbook i innych usług, takich jak [Change Tracking](../../automation/change-tracking/overview.md), [Update Management](../../automation/update-management/overview.md)i [Azure Security Center](../../security-center/security-center-introduction.md). Aby uzyskać więcej informacji na temat roli hybrydowego procesu roboczego elementu Runbook, zobacz [Azure Automation hybrydowego procesu roboczego elementu Runbook](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## <a name="workspace-and-management-group-limitations"></a>Ograniczenia obszarów roboczych i grup zarządzania
 
@@ -111,10 +111,10 @@ W poniższej tabeli wymieniono informacje o konfiguracji serwera proxy i zapory 
 
 |Zasób agenta|Porty |Kierunek |Obejście inspekcji HTTPS|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |port 443 |Outbound|Yes |  
-|*.oms.opinsights.azure.com |port 443 |Outbound|Yes |  
-|*.blob.core.windows.net |port 443 |Outbound|Yes |
-|*.azure-automation.net |port 443 |Outbound|Yes |
+|*.ods.opinsights.azure.com |port 443 |Wychodzący|Tak |  
+|*.oms.opinsights.azure.com |port 443 |Wychodzący|Tak |  
+|*.blob.core.windows.net |port 443 |Wychodzący|Tak |
+|*.azure-automation.net |port 443 |Wychodzący|Tak |
 
 Informacje dotyczące zapory wymagane do Azure Government można znaleźć w temacie [Azure Government Management](../../azure-government/compare-azure-government-global-azure.md#azure-monitor). 
 

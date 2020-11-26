@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 04d53dc213d5e992dc79e322b071025bdb447b1b
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 4527d871df3667f483efd529d93f044377f34651
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057505"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186188"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Szybki Start: zbieranie danych z komputera z systemem Linux w środowisku hybrydowym z Azure Monitor
 
@@ -32,7 +32,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com). 
 
-## <a name="create-a-workspace"></a>Tworzenie obszaru roboczego
+## <a name="create-a-workspace"></a>Utwórz obszar roboczy
 
 1. W Azure Portal wybierz pozycję **wszystkie usługi**. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz **log Analytics obszary robocze**.
 
@@ -115,7 +115,7 @@ Azure Monitor może zbierać zdarzenia z dzienników systemu Linux i liczników 
 
 1. W Azure Portal wybierz pozycję **wszystkie usługi**. Na liście zasobów wpisz Log Analytics. Podczas wpisywania lista jest filtrowana na podstawie danych wejściowych. Wybierz **log Analytics obszary robocze** i na liście log Analytics obszarów roboczych wybierz obszar roboczy, którego szukasz, a następnie wybierz pozycję **Ustawienia zaawansowane** w obszarze roboczym **log Analytics** .
 
-2. Wybierz pozycję **dane**, a następnie wybierz pozycję **Dziennik**systemowy.  
+2. Wybierz pozycję **dane**, a następnie wybierz pozycję **Dziennik** systemowy.  
 
 3. Aby dodać dziennik systemowy, wpisz nazwę dziennika. Wprowadź **Dziennik** systemowy, a następnie wybierz znak plus **+** .  
 
@@ -147,7 +147,7 @@ Teraz, po włączeniu zbierania danych, uruchomimy proste przykładowe wyszukiwa
 
     ![Wynik przeszukiwania dzienników w usłudze Log Analytics](media/quick-collect-linux-computer/log-analytics-search-perf.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy nie jest już potrzebny, można usunąć agenta z komputera z systemem Linux i usunąć obszar roboczy usługi Log Analytics.  
 
@@ -166,5 +166,4 @@ Teraz, kiedy są zbierane dane operacyjne i dane wydajności z lokalnego kompute
 Aby dowiedzieć się, jak wyświetlać i analizować dane, przejdź do następnego samouczka.
 
 > [!div class="nextstepaction"]
-> [Wyświetlanie i analizowanie danych w usłudze Log Analytics](../log-query/get-started-portal.md)
-
+> [Wyświetlanie i analizowanie danych w usłudze Log Analytics](../log-query/log-analytics-tutorial.md)

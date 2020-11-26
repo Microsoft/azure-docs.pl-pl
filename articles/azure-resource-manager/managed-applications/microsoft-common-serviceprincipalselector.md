@@ -5,16 +5,16 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: tomfitz
-ms.openlocfilehash: 9d41e41f110e927f436b38d6291719c138defa53
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 2fdbbad467d8c762db485fc7935e9cef78313fd0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94745768"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184454"
 ---
 # <a name="microsoftcommonserviceprincipalselector-ui-element"></a>Microsoft. Common. ServicePrincipalSelector — element interfejsu użytkownika
 
-Kontrolka, która umożliwia użytkownikom wybranie istniejącej jednostki [usługi](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) lub zarejestrowanie nowej aplikacji. Po wybraniu opcji **Utwórz nową** wykonaj kroki w celu zarejestrowania nowej aplikacji. Po wybraniu istniejącej aplikacji kontrolka zawiera pole tekstowe służące do wprowadzania hasła lub odcisku palca certyfikatu.
+Kontrolka, która umożliwia użytkownikom wybranie istniejącej jednostki [usługi](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) lub zarejestrowanie nowej aplikacji. Po wybraniu opcji **Utwórz nową** wykonaj kroki w celu zarejestrowania nowej aplikacji. Po wybraniu istniejącej aplikacji kontrolka zawiera pole tekstowe służące do wprowadzania hasła lub odcisku palca certyfikatu.
 
 ## <a name="ui-samples"></a>Przykłady interfejsu użytkownika
 

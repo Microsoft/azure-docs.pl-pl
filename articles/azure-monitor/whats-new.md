@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: 4fa00bffc35c4ed67ce70751c8882b74ad6b01a1
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: bf15e380eb1a88acc39ca63165d18d04a260b35d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95534504"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185899"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Co nowego w dokumentacji Azure Monitor?
 
@@ -230,7 +230,7 @@ Ten artykuł zawiera listę artykułów Azure Monitor, które są nowe lub zosta
 - [Azure monitor](platform/customer-managed-keys.md) komunikat o błędzie dodany przez klienta i sekcja CMK konfigurację dla zapytań.
 - [Azure monitor interfejs API modułu zbierającego dane http](platform/data-collector-api.md) — dodano przykład języka Python 3.
 - [Optymalizuj zapytania dzienników w sekcji Azure monitor](log-query/query-optimization.md) dodanej, unikając wielu skanów danych podczas korzystania z podzapytań.
-- [Samouczek: Rozpoczynanie pracy z zapytaniami log Analytics](log-query/get-started-portal.md) — dodano film wideo.
+- [Samouczek: Rozpoczynanie pracy z zapytaniami log Analytics](./log-query/log-analytics-tutorial.md) — dodano film wideo.
 
 ### <a name="platform-logs"></a>Dzienniki platformy
 - [Tworzenie ustawień diagnostycznych w celu wysyłania dzienników platformy i metryk do różnych](platform/diagnostic-settings.md) dodanych filmów wideo.

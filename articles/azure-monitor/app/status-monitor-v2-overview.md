@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: 0fa0b0d5e3620fc45a104ea31fd3bcbedd673da1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0ce969a4ab016d6a036d33a0e9bf027bb580a20
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318950"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186222"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Wdróż agenta Azure Monitor Application Insights dla serwerów lokalnych
 
@@ -50,7 +50,7 @@ Agent Application Insights znajduje się tutaj: https://www.powershellgallery.co
 - [Znane problemy](status-monitor-v2-troubleshoot.md#known-issues)
 
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 - Czy Agent Application Insights obsługuje instalacje serwera proxy?
 
@@ -67,7 +67,7 @@ Każda z tych opcji została opisana w [szczegółowym instrukcji](status-monito
   - Polecenia cmdlet [Get-ApplicationInsightsMonitoringStatus](./status-monitor-v2-api-reference.md#get-applicationinsightsmonitoringstatus) można użyć do sprawdzenia, czy Włączanie powiodło się.
   - Zalecamy używanie metryk na [żywo](./live-stream.md) , aby szybko określić, czy aplikacja wysyła dane telemetryczne.
 
-  - Możesz również użyć [log Analytics](../log-query/get-started-portal.md) , aby wyświetlić listę wszystkich ról w chmurze aktualnie wysyłających dane telemetryczne:
+  - Możesz również użyć [log Analytics](../log-query/log-analytics-tutorial.md) , aby wyświetlić listę wszystkich ról w chmurze aktualnie wysyłających dane telemetryczne:
       ```Kusto
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
@@ -86,4 +86,3 @@ Dodawanie kolejnych funkcji telemetrii:
 * [Tworzenie testów sieci Web](monitor-web-app-availability.md), aby upewnić się, że witryna pozostaje aktywna.
 * [Dodaj telemetrię klienta sieci Web](./javascript.md) , aby zobaczyć wyjątki z kodu strony sieci Web i włączyć wywołania śledzenia.
 * [Dodaj do kodu zestaw SDK Application Insights](./asp-net.md) , aby móc wstawiać wywołania śledzenia i rejestrowania.
-

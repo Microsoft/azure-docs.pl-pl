@@ -6,14 +6,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: d00ffb1cb9b9fd6231322d4ef5bfebfbe242eac7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 3c3a20d8401affc519e118c7f2295339990e7dee
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014241"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186511"
 ---
-# <a name="azure-monitor-logs-overview"></a>Omówienie dzienników Azure Monitor
+# <a name="azure-monitor-logs-overview"></a>Przegląd dzienników usługi Azure Monitor
 Azure Monitor logs to funkcja Azure Monitor, która gromadzi i organizuje dane dziennika i wydajności z [monitorowanych zasobów](../monitor-reference.md). Dane z różnych źródeł, takich jak [dzienniki platformy](platform-logs-overview.md) z usług platformy Azure, dane dziennika i wydajności z [agentów maszyn wirtualnych](agents-overview.md)oraz dane dotyczące użycia i wydajności z [aplikacji](../app/app-insights-overview.md) , można skonsolidować w jednym obszarze roboczym, dzięki czemu można je analizować przy użyciu zaawansowanego języka zapytań, który umożliwia szybkie analizowanie milionów rekordów. Można wykonać proste zapytanie, które po prostu Pobiera określony zestaw rekordów lub przeprowadza zaawansowane analizy danych w celu zidentyfikowania kluczowych wzorców w danych monitorowania. Pracuj z zapytaniami dzienników i ich wyniki interaktywnie przy użyciu Log Analytics, używaj ich w regułach alertów w celu uzyskania aktywnej powiadomienia o problemach i wizualizowania ich wyników w skoroszycie lub pulpicie nawigacyjnym.
 
 > [!NOTE]
@@ -25,11 +25,11 @@ W poniższej tabeli opisano niektóre różne sposoby używania dzienników w Az
 
 |  |  |
 |:---|:---|
-| **Analiza** | Użyj [log Analytics](../log-query/get-started-portal.md) w Azure Portal, aby napisać [zapytania dzienników](../log-query/log-query-overview.md) i interaktywnie analizować dane dzienników przy użyciu zaawansowanego aparatu analizy |
+| **Analiza** | Użyj [log Analytics](../log-query/log-analytics-tutorial.md) w Azure Portal, aby napisać [zapytania dzienników](../log-query/log-query-overview.md) i interaktywnie analizować dane dzienników przy użyciu zaawansowanego aparatu analizy |
 | **Alert** | Skonfiguruj [regułę alertu dziennika](alerts-log.md) , która wysyła powiadomienie lub wykonuje [automatyczne działanie](action-groups.md) , gdy wyniki zapytania pasują do określonego wyniku. |
-| **Wizualizacja** | Przypnij wyniki zapytania jako tabele lub wykresy do [pulpitu nawigacyjnego platformy Azure](../../azure-portal/azure-portal-dashboards.md).<br>Utwórz [skoroszyt](../app/usage-workbooks.md) , aby połączyć się z wieloma zestawami danych w raporcie interaktywnym. <br>Eksportuj wyniki zapytania, aby [Power BI](powerbi.md) do używania różnych wizualizacji i udostępniania użytkownikom spoza platformy Azure.<br>Eksportuj wyniki zapytania do [Grafana](grafana-plugin.md) , aby wykorzystać jego pulpit nawigacyjny i połączyć się z innymi źródłami danych.|
+| **Wizualizacja** | Przypnij wyniki zapytania jako tabele lub wykresy do [pulpitu nawigacyjnego platformy Azure](../../azure-portal/azure-portal-dashboards.md).<br>Utwórz [skoroszyt](./workbooks-overview.md) , aby połączyć się z wieloma zestawami danych w raporcie interaktywnym. <br>Eksportuj wyniki zapytania, aby [Power BI](powerbi.md) do używania różnych wizualizacji i udostępniania użytkownikom spoza platformy Azure.<br>Eksportuj wyniki zapytania do [Grafana](grafana-plugin.md) , aby wykorzystać jego pulpit nawigacyjny i połączyć się z innymi źródłami danych.|
 | **Insights** | Obsługa [szczegółowych](../monitor-reference.md#insights-and-core-solutions) informacji, które zapewniają dostosowane środowisko monitorowania dla określonych aplikacji i usług.  |
-| **Odczytać** | Uzyskiwanie dostępu do wyników zapytania dziennika z wiersza polecenia przy użyciu [interfejsu CLI platformy Azure](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Uzyskuj dostęp do wyników zapytania dziennika z wiersza polecenia przy użyciu [poleceń cmdlet programu PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Uzyskiwanie dostępu do wyników zapytania dziennika z aplikacji niestandardowej przy użyciu [interfejsu API REST](https://dev.loganalytics.io/). |
+| **Odczytać** | Uzyskiwanie dostępu do wyników zapytania dziennika z wiersza polecenia przy użyciu [interfejsu CLI platformy Azure](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Uzyskuj dostęp do wyników zapytania dziennika z wiersza polecenia przy użyciu [poleceń cmdlet programu PowerShell](/powershell/module/az.operationalinsights).<br>Uzyskiwanie dostępu do wyników zapytania dziennika z aplikacji niestandardowej przy użyciu [interfejsu API REST](https://dev.loganalytics.io/). |
 | **Eksportowanie** | Skonfiguruj [Automatyczne eksportowanie danych dziennika](logs-data-export.md) do konta usługi Azure Storage lub usługi Azure Event Hubs.<br>Utwórz przepływ pracy w celu pobrania danych dziennika i skopiuj go do lokalizacji zewnętrznej przy użyciu [Logic Apps](logicapp-flow-connector.md). |
 
 ![Dzienniki — Omówienie](media/data-platform-logs/logs-overview.png)
@@ -75,8 +75,8 @@ Dane są pobierane z obszaru roboczego Log Analytics przy użyciu zapytania dzie
 ## <a name="log-analytics"></a>Log Analytics
 Użyj Log Analytics, czyli narzędzia w Azure Portal, do edytowania i uruchamiania zapytań dzienników i interaktywnego analizowania ich wyników. Następnie można użyć tworzonych przez Ciebie kwerend do obsługi innych funkcji w Azure Monitor, takich jak alerty i skoroszyty zapytań dzienników. Log Analytics dostęp z poziomu opcji **dzienniki** w menu Azure monitor lub z większości innych usług w Azure Portal.
 
-- Opis Log Analytics można znaleźć [w temacie omówienie log Analytics w Azure monitor](/azure/azure-monitor/log-query/log-analytics-overview) . 
-- Zobacz [samouczek log Analytics](/azure/azure-monitor/log-query/log-analytics-tutorial) , aby dowiedzieć się, jak za pomocą funkcji log Analytics utworzyć prostą kwerendę dziennika i przeanalizować jej wyniki.
+- Opis Log Analytics można znaleźć [w temacie omówienie log Analytics w Azure monitor](../log-query/log-analytics-overview.md) . 
+- Zobacz [samouczek log Analytics](../log-query/log-analytics-tutorial.md) , aby dowiedzieć się, jak za pomocą funkcji log Analytics utworzyć prostą kwerendę dziennika i przeanalizować jej wyniki.
 
 
 

@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 05b1ea8e6daa9fae0588535534c4a8be45ab91d5
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: d9fdfc89c8c02749fdf677ad119f1eed5a4b1fa2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285259"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185185"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-python"></a>Szybki Start: Azure Key Vault Biblioteka kliencka certyfikatów dla języka Python
 
@@ -33,7 +33,7 @@ W tym przewodniku szybki start założono, że uruchomiono [interfejs wiersza po
 
 Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z interfejsem wiersza polecenia platformy Azure w celu uwierzytelniania użytkowników w usługach platformy Azure. Deweloperzy mogą również używać programu Visual Studio lub Visual Studio Code do uwierzytelniania wywołań, aby uzyskać więcej informacji, zobacz [uwierzytelnianie klienta przy użyciu biblioteki klienta tożsamości platformy Azure](/java/api/overview/azure/identity-readme)
 
-### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
 1. Uruchom polecenie `login`.
 
@@ -70,10 +70,10 @@ Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z inter
 
 ### <a name="grant-access-to-your-key-vault"></a>Udzielanie dostępu do magazynu kluczy
 
-Tworzenie zasad dostępu dla magazynu kluczy, który przyznaje poufne uprawnienia do konta użytkownika
+Tworzenie zasad dostępu dla magazynu kluczy, który przyznaje uprawnienia certyfikatu do konta użytkownika
 
 ```console
-az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --certificate-permissions delete get list create
 ```
 
 #### <a name="set-environment-variables"></a>Ustawianie zmiennych środowiskowych
@@ -200,7 +200,7 @@ Możesz sprawdzić, czy certyfikat został usunięty za pomocą polecenia interf
 
 Po usunięciu certyfikat pozostaje w stanie usunięty, ale jest w nim możliwy do odzyskania. Jeśli ponownie uruchomisz kod, użyj innej nazwy certyfikatu.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Aby eksperymentować z wpisami [tajnymi](../secrets/quick-create-python.md) i [kluczami](../keys/quick-create-python.md), możesz ponownie użyć Key Vault utworzonych w tym artykule.
 

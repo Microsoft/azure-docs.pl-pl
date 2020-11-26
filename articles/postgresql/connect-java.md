@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
 ms.openlocfilehash: 42547338c0f5f2f3105833b12e499d40b6209b05
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341420"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184709"
 ---
 # <a name="quickstart-use-java-and-jdbc-with-azure-database-for-postgresql"></a>Szybki Start: używanie języka Java i JDBC z Azure Database for PostgreSQL
 
@@ -28,7 +28,7 @@ JDBC jest standardowym interfejsem API języka Java do łączenia z tradycyjnymi
 - Obsługiwany [zestaw Java Development Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), wersja 8 (uwzględniony w Azure Cloud Shell).
 - Narzędzie kompilacji [Apache Maven](https://maven.apache.org/) .
 
-## <a name="prepare-the-working-environment"></a>Przygotowanie środowiska roboczego
+## <a name="prepare-the-working-environment"></a>Przygotowywanie środowiska roboczego
 
 Zamierzamy używać zmiennych środowiskowych, aby ograniczyć liczbę błędów i ułatwić dostosowanie poniższej konfiguracji do konkretnych potrzeb.
 
@@ -45,9 +45,9 @@ AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 
 Zastąp symbole zastępcze następującymi wartościami, które są używane w tym artykule:
 
-- `<YOUR_DATABASE_NAME>`: Nazwa serwera PostgreSQL. Powinna być unikatowa w ramach platformy Azure.
-- `<YOUR_AZURE_REGION>`: Region świadczenia usługi Azure, który będzie używany. Można używać `eastus` Domyślnie, ale zalecamy skonfigurowanie regionu bliżej miejsca, w którym się znajdują. Aby uzyskać pełną listę dostępnych regionów, wprowadź `az account list-locations` .
-- `<YOUR_POSTGRESQL_PASSWORD>`: Hasło serwera bazy danych PostgreSQL. To hasło powinno zawierać co najmniej osiem znaków. Znaki powinny pochodzić z trzech z następujących kategorii: wielkie litery angielskie, małe litery angielskie, cyfry (0-9) i znaki inne niż alfanumeryczne (!, $, #,% itd.).
+- `<YOUR_DATABASE_NAME>`: Nazwa serwera PostgreSQL. Powinna być ona unikatowa w obrębie platformy Azure.
+- `<YOUR_AZURE_REGION>`: Region świadczenia usługi Azure, który będzie używany. Możesz domyślnie zastosować region `eastus`, ale zalecamy skonfigurowanie regionu bliżej Twojego miejsca zamieszkania. Aby uzyskać pełną listę dostępnych regionów, wprowadź `az account list-locations` .
+- `<YOUR_POSTGRESQL_PASSWORD>`: Hasło serwera bazy danych PostgreSQL. To hasło powinno zawierać co najmniej osiem znaków. Znaki muszą pochodzić z trzech spośród następujących kategorii: wielkie litery angielskie, małe litery angielskie, cyfry (0–9) i znaki inne niż alfanumeryczne (!, $, #,% itd.).
 - `<YOUR_LOCAL_IP_ADDRESS>`: Adres IP komputera lokalnego, z którego będzie uruchamiana aplikacja Java. Jednym z wygody jest wskazanie, że Twoja przeglądarka ma być [whatismyip.Akamai.com](http://whatismyip.akamai.com/).
 
 Następnie utwórz grupę zasobów za pomocą następującego polecenia:
@@ -60,7 +60,7 @@ az group create \
 ```
 
 > [!NOTE]
-> Używamy `jq` Narzędzia do wyświetlania danych JSON i zwiększania czytelności. To narzędzie jest instalowane domyślnie na [Azure Cloud Shell](https://shell.azure.com/). Jeśli nie lubisz tego narzędzia, możesz bezpiecznie usunąć `| jq` część wszystkich poleceń, które będą używane.
+> Używamy `jq` Narzędzia do wyświetlania danych JSON i zwiększania czytelności. To narzędzie jest instalowane domyślnie na [Azure Cloud Shell](https://shell.azure.com/). Jeśli nie lubisz tego narzędzia, możesz bezpiecznie usunąć część `| jq` ze wszystkich poleceń.
 
 ## <a name="create-an-azure-database-for-postgresql-instance"></a>Tworzenie wystąpienia Azure Database for PostgreSQL
 
@@ -87,7 +87,7 @@ To polecenie tworzy mały serwer PostgreSQL.
 
 ### <a name="configure-a-firewall-rule-for-your-postgresql-server"></a>Konfigurowanie reguły zapory dla serwera PostgreSQL
 
-Wystąpienia Azure Database for PostgreSQL są zabezpieczone domyślnie. Mają zaporę, która nie zezwala na żadne połączenie przychodzące. Aby można było korzystać z bazy danych programu, należy dodać regułę zapory zezwalającą na dostęp lokalnego adresu IP do serwera bazy danych.
+Wystąpienia Azure Database for PostgreSQL są zabezpieczone domyślnie. Ma ona zaporę, która nie zezwala na żadne połączenie przychodzące. Aby można było korzystać z bazy danych programu, należy dodać regułę zapory zezwalającą na dostęp lokalnego adresu IP do serwera bazy danych.
 
 Ponieważ lokalny adres IP został skonfigurowany na początku tego artykułu, możesz otworzyć zaporę serwera, uruchamiając następujące polecenie:
 
@@ -173,7 +173,7 @@ DROP TABLE IF EXISTS todo;
 CREATE TABLE todo (id SERIAL PRIMARY KEY, description VARCHAR(255), details VARCHAR(4096), done BOOLEAN);
 ```
 
-## <a name="code-the-application"></a>Kod aplikacji
+## <a name="code-the-application"></a>Kodowanie aplikacji
 
 ### <a name="connect-to-the-database"></a>Łączenie z bazą danych
 
@@ -485,7 +485,7 @@ Wykonanie klasy głównej powinno teraz generować następujące dane wyjściowe
 [INFO   ] Closing database connection 
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gratulacje! Utworzono aplikację Java, która używa JDBC do przechowywania i pobierania danych z Azure Database for PostgreSQL.
 

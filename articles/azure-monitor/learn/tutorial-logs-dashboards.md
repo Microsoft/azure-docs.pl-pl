@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/28/2020
 ms.custom: mvc
-ms.openlocfilehash: d38a4ba04529e70ecfd772eef7f60179041f0273
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 880d173c6eef9d267e8860ebad805e071706de42
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927372"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186154"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Tworzenie i udostępnianie pulpitów nawigacyjnych z danymi usługi Log Analytics
 
@@ -57,7 +57,7 @@ Podczas tworzenia pulpitu nawigacyjnego jest on domyślnie prywatny, co oznacza,
 Zostanie wyświetlona prośba o wybór subskrypcji i grupy zasobów, dla których zostanie opublikowany pulpit nawigacyjny. Dla wygody środowisko publikowania w portalu skieruje Cię do wzorca, w którym umieszcza się pulpity nawigacyjne w grupie zasobów o nazwie **pulpity nawigacyjne**.  Sprawdź wybraną subskrypcję, a następnie kliknij przycisk **Publikuj**.  Dostęp do informacji wyświetlanych na pulpicie nawigacyjnym jest kontrolowany przy użyciu [kontroli dostępu opartej na rolach (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).   
 
 ## <a name="visualize-a-log-query"></a>Wizualizuj zapytanie dziennika
-[Log Analytics](../log-query/get-started-portal.md) to dedykowany portal używany do pracy z kwerendami dzienników i ich wynikami. Funkcje obejmują możliwość edytowania zapytania w wielu wierszach, selektywnego wykonywania kodu, kontekstowego używania funkcji IntelliSense oraz korzystania z funkcji analizy inteligentnej. W tym samouczku użyjesz Log Analytics, aby utworzyć widok wydajności w formie graficznej, zapisać go dla przyszłego zapytania i przypiąć go do udostępnionego pulpitu nawigacyjnego utworzonego wcześniej.
+[Log Analytics](../log-query/log-analytics-tutorial.md) to dedykowany portal używany do pracy z kwerendami dzienników i ich wynikami. Funkcje obejmują możliwość edytowania zapytania w wielu wierszach, selektywnego wykonywania kodu, kontekstowego używania funkcji IntelliSense oraz korzystania z funkcji analizy inteligentnej. W tym samouczku użyjesz Log Analytics, aby utworzyć widok wydajności w formie graficznej, zapisać go dla przyszłego zapytania i przypiąć go do udostępnionego pulpitu nawigacyjnego utworzonego wcześniej.
 
 Otwórz Log Analytics, wybierając pozycję **dzienniki** w menu Azure monitor. Rozpoczyna się od nowego pustego zapytania.
 

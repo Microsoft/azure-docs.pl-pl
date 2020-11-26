@@ -9,24 +9,24 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 3e0dce10d582006ab8c1dabf6d4b3efc82d8f39f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: c11f20286c514056d14b8faa941315345fea71f2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957116"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186341"
 ---
 # <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services"></a>Żądanie danych pogodowych w czasie rzeczywistym i prognozowanie przy użyciu Azure Maps usług pogodowych
 
-Usługa Azure Maps [Pogoda](https://docs.microsoft.com/rest/api/maps/weather) to zestaw interfejsów API RESTful, dzięki którym deweloperzy mogą integrować wysoce dynamiczne historyczne, w czasie rzeczywistym i dane pogodowe oraz wizualizacje do swoich rozwiązań. W tym artykule przedstawiono sposób żądania danych pogodowych w czasie rzeczywistym i prognozowanych.
+Usługa Azure Maps [Pogoda](/rest/api/maps/weather) to zestaw interfejsów API RESTful, dzięki którym deweloperzy mogą integrować wysoce dynamiczne historyczne, w czasie rzeczywistym i dane pogodowe oraz wizualizacje do swoich rozwiązań. W tym artykule przedstawiono sposób żądania danych pogodowych w czasie rzeczywistym i prognozowanych.
 
 W tym artykule dowiesz się, jak:
 
-* Żądaj danych pogody (Current) w czasie rzeczywistym za pomocą [interfejsu API uzyskiwania bieżących warunków](https://docs.microsoft.com/rest/api/maps/weather/getcurrentconditionspreview).
-* Żądaj poważnych alertów pogodowych przy użyciu [interfejsu API uzyskiwania poważnych alertów pogodowych](https://docs.microsoft.com/rest/api/maps/weather/getsevereweatheralertspreview).
-* Żądaj prognoz dziennych za pomocą [interfejsu API pobierania dziennej prognozy](https://docs.microsoft.com/rest/api/maps/weather/getdailyforecastpreview).
-* Żądaj prognoz godzinowych przy użyciu [interfejsu API uzyskiwania godzinnych prognoz](https://docs.microsoft.com/rest/api/maps/weather/gethourlyforecastpreview).
-* Zażądaj prognoz minutowo według minut przy użyciu [interfejsu API prognoz Get minut](https://docs.microsoft.com/rest/api/maps/weather/getminuteforecastpreview).
+* Żądaj danych pogody (Current) w czasie rzeczywistym za pomocą [interfejsu API uzyskiwania bieżących warunków](/rest/api/maps/weather/getcurrentconditionspreview).
+* Żądaj poważnych alertów pogodowych przy użyciu [interfejsu API uzyskiwania poważnych alertów pogodowych](/rest/api/maps/weather/getsevereweatheralertspreview).
+* Żądaj prognoz dziennych za pomocą [interfejsu API pobierania dziennej prognozy](/rest/api/maps/weather/getdailyforecastpreview).
+* Żądaj prognoz godzinowych przy użyciu [interfejsu API uzyskiwania godzinnych prognoz](/rest/api/maps/weather/gethourlyforecastpreview).
+* Zażądaj prognoz minutowo według minut przy użyciu [interfejsu API prognoz Get minut](/rest/api/maps/weather/getminuteforecastpreview).
 
 Ten film wideo zawiera omówienie usług pogodowych w Azure Maps z przykładami wywołania REST.
 
@@ -40,15 +40,15 @@ Ten film wideo zawiera omówienie usług pogodowych w Azure Maps z przykładami 
 2. [Uzyskaj podstawowy klucz subskrypcji](quick-demo-map-app.md#get-the-primary-key-for-your-account), nazywany także kluczem podstawowym lub kluczem subskrypcji. Aby uzyskać więcej informacji na temat uwierzytelniania w Azure Maps, zobacz [Zarządzanie uwierzytelnianiem w programie Azure Maps](./how-to-manage-authentication.md).
 
     >[!IMPORTANT]
-    >[Interfejs API prognozy Get minut](https://docs.microsoft.com/rest/api/maps/weather/getminuteforecastpreview) wymaga klucza warstwy cenowej S1. Wszystkie inne interfejsy API wymagają klucza warstwy cenowej S0.
+    >[Interfejs API prognozy Get minut](/rest/api/maps/weather/getminuteforecastpreview) wymaga klucza warstwy cenowej S1. Wszystkie inne interfejsy API wymagają klucza warstwy cenowej S0.
 
 W tym samouczku jest stosowana aplikacja programu [Poster](https://www.postman.com/) , ale można wybrać inne środowisko deweloperskie interfejsu API.
 
 ## <a name="request-real-time-weather-data"></a>Żądaj danych pogodowych w czasie rzeczywistym
 
-[Interfejs API uzyskiwania bieżących warunków](https://docs.microsoft.com/rest/api/maps/weather/getcurrentconditionspreview) zwraca szczegółowe warunki pogodowe, takie jak opadowanie, temperatura i wiatr dla danej lokalizacji współrzędnych. Ponadto można pobrać obserwacje z ostatnich 6 lub 24 godzin dla określonej lokalizacji. Odpowiedź zawiera szczegółowe informacje, takie jak Data i godzina obserwacji, Krótki opis warunków pogodowych, ikona Pogoda, flagi wskaźnika opadów oraz temperatura. Zwracany jest również indeks RealFeel™ temperatury i ultrafioletu (UV).
+[Interfejs API uzyskiwania bieżących warunków](/rest/api/maps/weather/getcurrentconditionspreview) zwraca szczegółowe warunki pogodowe, takie jak opadowanie, temperatura i wiatr dla danej lokalizacji współrzędnych. Ponadto można pobrać obserwacje z ostatnich 6 lub 24 godzin dla określonej lokalizacji. Odpowiedź zawiera szczegółowe informacje, takie jak Data i godzina obserwacji, Krótki opis warunków pogodowych, ikona Pogoda, flagi wskaźnika opadów oraz temperatura. Zwracany jest również indeks RealFeel™ temperatury i ultrafioletu (UV).
 
-W tym przykładzie użyjesz [interfejsu API Get Current Conditions](https://docs.microsoft.com/rest/api/maps/weather/getcurrentconditionspreview) , aby pobrać bieżące warunki pogodowe we współrzędnych znajdujących się w Seattle, WA.
+W tym przykładzie użyjesz [interfejsu API Get Current Conditions](/rest/api/maps/weather/getcurrentconditionspreview) , aby pobrać bieżące warunki pogodowe we współrzędnych znajdujących się w Seattle, WA.
 
 1. Otwórz aplikację Poster. W górnej części aplikacji Poster wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Kolekcja**.  Nadaj kolekcji nazwę i wybierz przycisk **Utwórz** . Ta kolekcja zostanie użyta w pozostałej części przykładów tego dokumentu.
 
@@ -235,9 +235,9 @@ W tym przykładzie użyjesz [interfejsu API Get Current Conditions](https://docs
 
 ## <a name="request-severe-weather-alerts"></a>Żądaj poważnych alertów pogodowych
 
-[Interfejs API uzyskiwania silnych alertów pogodowych](https://docs.microsoft.com/rest/api/maps/weather/getsevereweatheralertspreview) zwraca alerty o silnych pogodach, które są dostępne na całym świecie od oficjalnych agencji meteorologicznych instytucji rządowych i wiodących globalnych dla regionalnych dostawców alertów pogody. Azure Maps Usługa może zwrócić szczegóły, takie jak typ alertu, Kategoria, poziom i szczegółowe opisy aktywnych poważnych alertów dla żądanych lokalizacji, takich jak huragany), thunderstorms, pioruny, fale termiczne lub pożary lasu. Na przykład menedżerowie logistyczni mogą wizualizować poważne warunki pogodowe na mapie, wraz z lokalizacjami biznesowymi i planowanymi trasami, a także koordynować sterowniki i lokalnych procesów roboczych.
+[Interfejs API uzyskiwania silnych alertów pogodowych](/rest/api/maps/weather/getsevereweatheralertspreview) zwraca alerty o silnych pogodach, które są dostępne na całym świecie od oficjalnych agencji meteorologicznych instytucji rządowych i wiodących globalnych dla regionalnych dostawców alertów pogody. Azure Maps Usługa może zwrócić szczegóły, takie jak typ alertu, Kategoria, poziom i szczegółowe opisy aktywnych poważnych alertów dla żądanych lokalizacji, takich jak huragany), thunderstorms, pioruny, fale termiczne lub pożary lasu. Na przykład menedżerowie logistyczni mogą wizualizować poważne warunki pogodowe na mapie, wraz z lokalizacjami biznesowymi i planowanymi trasami, a także koordynować sterowniki i lokalnych procesów roboczych.
 
-W tym przykładzie użyjesz [interfejsu API alertów o silnych pogodach](https://docs.microsoft.com/rest/api/maps/weather/getsevereweatheralertspreview) , aby pobrać bieżące warunki pogodowe we współrzędnych, które znajdują się w Cheyenne, wy.
+W tym przykładzie użyjesz [interfejsu API alertów o silnych pogodach](/rest/api/maps/weather/getsevereweatheralertspreview) , aby pobrać bieżące warunki pogodowe we współrzędnych, które znajdują się w Cheyenne, wy.
 
 >[!NOTE]
 >Ten przykład pobiera poważne alerty pogodowe w momencie pisania. Prawdopodobnie nie ma już żadnych poważnych alertów pogodowych w wybranej lokalizacji. Aby pobrać rzeczywiste poważne dane alertu podczas uruchamiania tego przykładu, należy pobrać dane z innej lokalizacji współrzędnych.
@@ -287,12 +287,12 @@ W tym przykładzie użyjesz [interfejsu API alertów o silnych pogodach](https:/
 
 ## <a name="request-daily-weather-forecast-data"></a>Żądaj codziennych danych prognozy pogody
 
-[Interfejs API uzyskiwania dziennej prognozy](https://docs.microsoft.com/rest/api/maps/weather/getdailyforecastpreview) zwraca szczegółowe dzienne prognozy pogody, takie jak temperatura i wiatr. Żądanie może określić liczbę dni do zwrócenia: 1, 5, 10, 15, 25 lub 45 dni dla danej lokalizacji współrzędnych. Odpowiedź zawiera szczegółowe informacje, takie jak temperatura, wiatr, opady, jakość powietrza i indeks UV.  W tym przykładzie poprosimy o podanie pięciu dni przez ustawienie `duration=5` .
+[Interfejs API uzyskiwania dziennej prognozy](/rest/api/maps/weather/getdailyforecastpreview) zwraca szczegółowe dzienne prognozy pogody, takie jak temperatura i wiatr. Żądanie może określić liczbę dni do zwrócenia: 1, 5, 10, 15, 25 lub 45 dni dla danej lokalizacji współrzędnych. Odpowiedź zawiera szczegółowe informacje, takie jak temperatura, wiatr, opady, jakość powietrza i indeks UV.  W tym przykładzie poprosimy o podanie pięciu dni przez ustawienie `duration=5` .
 
 >[!IMPORTANT]
 >W warstwie cenowej S0 możesz zażądać codziennej prognozy dla następnych 1, 5, 10 i 15 dni. W warstwie cenowej S1 można także zażądać codziennej prognozy w ciągu następnych 25 dni i 45 dni.
 
-W tym przykładzie użyjesz [interfejsu API uzyskiwania dziennej prognozy](https://docs.microsoft.com/rest/api/maps/weather/getdailyforecastpreview) , aby pobrać 5-dniową prognozę pogody dla współrzędnych znajdujących się w Seattle, WA.
+W tym przykładzie użyjesz [interfejsu API uzyskiwania dziennej prognozy](/rest/api/maps/weather/getdailyforecastpreview) , aby pobrać 5-dniową prognozę pogody dla współrzędnych znajdujących się w Seattle, WA.
 
 1. Otwórz aplikację Poster, kliknij pozycję **New (nowy**), a następnie wybierz pozycję **żądanie**. Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w poprzedniej sekcji lub utworzoną nową, a następnie wybierz pozycję **Zapisz**.
 
@@ -535,12 +535,12 @@ W tym przykładzie użyjesz [interfejsu API uzyskiwania dziennej prognozy](https
 
 ## <a name="request-hourly-weather-forecast-data"></a>Żądaj danych prognozy pogody godzinowo
 
-[Interfejs API prognozy Get-hourd](https://docs.microsoft.com/rest/api/maps/weather/gethourlyforecastpreview) zwraca szczegółową prognozę pogody o godzinę dla następnego 1, 12, 24 (1 dzień), 72 (3 dni), 120 (5 dni) i 240 godz. (10 dni) dla danej lokalizacji współrzędnych. Interfejs API zwraca szczegóły, takie jak temperatura, wilgotność, wiatr, opady i indeks UV.
+[Interfejs API prognozy Get-hourd](/rest/api/maps/weather/gethourlyforecastpreview) zwraca szczegółową prognozę pogody o godzinę dla następnego 1, 12, 24 (1 dzień), 72 (3 dni), 120 (5 dni) i 240 godz. (10 dni) dla danej lokalizacji współrzędnych. Interfejs API zwraca szczegóły, takie jak temperatura, wilgotność, wiatr, opady i indeks UV.
 
 >[!IMPORTANT]
 >W warstwie cenowej S0 możesz zażądać prognozy co godzinę w ciągu następnych 1, 12, 24 godzin (1 dzień) i 72 godzin (3 dni). W warstwie cenowej S1 można także żądać prognozy co godzinę dla następnego 120 (5 dni) i 240 godzin (10 dni).
 
-W tym przykładzie użyjesz [interfejsu API prognozowania godzinowego](https://docs.microsoft.com/rest/api/maps/weather/gethourlyforecastpreview) , aby pobrać prognozę pogody godzinowego w ciągu następnych 12 godzin przy współrzędnych znajdujących się w Seattle, WA.
+W tym przykładzie użyjesz [interfejsu API prognozowania godzinowego](/rest/api/maps/weather/gethourlyforecastpreview) , aby pobrać prognozę pogody godzinowego w ciągu następnych 12 godzin przy współrzędnych znajdujących się w Seattle, WA.
 
 1. Otwórz aplikację Poster, kliknij pozycję **New (nowy**), a następnie wybierz pozycję **żądanie**. Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w poprzedniej sekcji lub utworzoną nową, a następnie wybierz pozycję **Zapisz**.
 
@@ -645,9 +645,9 @@ W tym przykładzie użyjesz [interfejsu API prognozowania godzinowego](https://d
     ```
 ## <a name="request-minute-by-minute-weather-forecast-data"></a>Żądaj danych prognozy pogody o minucie minutowej
 
- [Interfejs API prognozy Get minut](https://docs.microsoft.com/rest/api/maps/weather/getminuteforecastpreview) zwraca prognozy co minutę dla danej lokalizacji przez następne 120 minut. Użytkownicy mogą żądać prognoz pogody w odstępach od 1, 5 do 15 minut. Odpowiedź zawiera szczegóły, takie jak Typ opadu (w tym deszcz, śnieg lub kombinacja obu tych elementów), czas rozpoczęcia i wartość intensywności opadów (dBZ).
+ [Interfejs API prognozy Get minut](/rest/api/maps/weather/getminuteforecastpreview) zwraca prognozy co minutę dla danej lokalizacji przez następne 120 minut. Użytkownicy mogą żądać prognoz pogody w odstępach od 1, 5 do 15 minut. Odpowiedź zawiera szczegóły, takie jak Typ opadu (w tym deszcz, śnieg lub kombinacja obu tych elementów), czas rozpoczęcia i wartość intensywności opadów (dBZ).
 
-W tym przykładzie użyjesz [interfejsu API prognozowania minut](https://docs.microsoft.com/rest/api/maps/weather/getminuteforecastpreview) , aby pobrać prognozę pogody na minutę w czasie, w którym znajdują się w Seattle, WA. Prognoza pogody jest podawana w ciągu następnych 120 minut. Nasza kwerenda żąda, aby Prognoza była podawana w odstępach 15-minutowych, ale można dostosować wartość parametru do 1 lub 5 minut.
+W tym przykładzie użyjesz [interfejsu API prognozowania minut](/rest/api/maps/weather/getminuteforecastpreview) , aby pobrać prognozę pogody na minutę w czasie, w którym znajdują się w Seattle, WA. Prognoza pogody jest podawana w ciągu następnych 120 minut. Nasza kwerenda żąda, aby Prognoza była podawana w odstępach 15-minutowych, ale można dostosować wartość parametru do 1 lub 5 minut.
 
 1. Otwórz aplikację Poster, kliknij pozycję **New (nowy**), a następnie wybierz pozycję **żądanie**. Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w poprzedniej sekcji lub utworzoną nową, a następnie wybierz pozycję **Zapisz**.
 
@@ -751,8 +751,8 @@ W tym przykładzie użyjesz [interfejsu API prognozowania minut](https://docs.mi
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Azure Maps pojęcia dotyczące usługi pogodowej](https://docs.microsoft.com/azure/azure-maps/weather-services-concepts)
+> [Azure Maps pojęcia dotyczące usługi pogodowej](./weather-services-concepts.md)
 
 > [!div class="nextstepaction"]
-> [Interfejs API REST usługi Azure Maps pogody](https://docs.microsoft.com/rest/api/maps/weather
+> [Interfejs API REST usługi Azure Maps pogody](/rest/api/maps/weather
 )

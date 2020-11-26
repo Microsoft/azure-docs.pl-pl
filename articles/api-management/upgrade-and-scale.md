@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: c7f0e98b5ea2fdd13b1daa9fd9737998eb6cfaf1
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 466af29a3f073f73d4a0fc62d74709cd59f82425
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "96010218"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183791"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Uaktualnianie i skalowanie wystąpienia usługi Azure API Management  
 
@@ -74,13 +74,13 @@ Możesz uaktualnić i obniżyć wersję do i z dowolnej warstwy. Uaktualnianie l
 1. Przejdź do usługi API Management w [Azure Portal](https://portal.azure.com/).
 2. Kliknij **warstwę cenową** w menu.
 3. Wybierz żądaną warstwę usług z listy rozwijanej. Użyj suwaka, aby określić skalę usługi API Management po zmianie.
-4. Kliknij pozycję **Zapisz**.
+4. Kliknij przycisk **Zapisz**.
 
 ## <a name="downtime-during-scaling-up-and-down"></a>Przestoje podczas skalowania w górę i w dół
 W przypadku skalowania z lub do warstwy dewelopera wygaśnie Przestój. W przeciwnym razie nie ma przestojów. 
 
 ## <a name="compute-isolation"></a>Izolacja obliczeniowa
-Jeśli wymagania dotyczące zabezpieczeń obejmują [izolację obliczeniową](https://docs.microsoft.com/azure/azure-government/azure-secure-isolation-guidance#compute-isolation), można użyć warstwy cenowej **izolowanej** . Ta warstwa zapewnia, że zasoby obliczeniowe wystąpienia usługi API Management zużywają cały Host fizyczny i zapewniają wymagany poziom izolacji wymaganej do pomocy technicznej, na przykład działy zabezpieczeń na poziomie 5 (IL5) działu USA. Aby uzyskać dostęp do warstwy izolowanej, [Utwórz bilet pomocy technicznej](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). 
+Jeśli wymagania dotyczące zabezpieczeń obejmują [izolację obliczeniową](../azure-government/azure-secure-isolation-guidance.md#compute-isolation), można użyć warstwy cenowej **izolowanej** . Ta warstwa zapewnia, że zasoby obliczeniowe wystąpienia usługi API Management zużywają cały Host fizyczny i zapewniają wymagany poziom izolacji wymaganej do pomocy technicznej, na przykład działy zabezpieczeń na poziomie 5 (IL5) działu USA. Aby uzyskać dostęp do warstwy izolowanej, [Utwórz bilet pomocy technicznej](../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
 
 

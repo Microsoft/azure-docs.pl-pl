@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 85ff3bed2a648f852c311fefa8513622c2a48285
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 4d12a7ec76f3390aabc7b45aeb0cd8cedcc6febd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376540"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186477"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Łączenie platformy Azure z narzędziami narzędzia ITSM przy użyciu funkcji bezpiecznego eksportowania
 
@@ -28,8 +28,8 @@ ITSMC używa poświadczeń nazwy użytkownika i hasła. Bezpieczny eksport ma si
 
 Architektura bezpiecznego eksportu zawiera następujące nowe możliwości:
 
-* **Nowa grupa akcji** : alerty są wysyłane do narzędzia Narzędzia ITSM za pośrednictwem grupy akcji bezpiecznego elementu webhook, a nie do grupy akcji narzędzia ITSM używanej przez ITSMC.
-* **Uwierzytelnianie usługi Azure AD** : Uwierzytelnianie odbywa się za pomocą usługi Azure AD, a nie poświadczeń nazwy użytkownika/hasła.
+* **Nowa grupa akcji**: alerty są wysyłane do narzędzia Narzędzia ITSM za pośrednictwem grupy akcji bezpiecznego elementu webhook, a nie do grupy akcji narzędzia ITSM używanej przez ITSMC.
+* **Uwierzytelnianie usługi Azure AD**: Uwierzytelnianie odbywa się za pomocą usługi Azure AD, a nie poświadczeń nazwy użytkownika/hasła.
 
 ## <a name="secure-export-data-flow"></a>Przepływ danych bezpiecznego eksportu
 
@@ -49,9 +49,9 @@ Poniżej przedstawiono kroki przepływu danych bezpiecznego eksportu:
 
 Główne zalety integracji są następujące:
 
-* **Lepsze uwierzytelnianie** : usługa Azure AD zapewnia bezpieczniejsze uwierzytelnianie bez przekroczeń limitu czasu, które często występują w ITSMC.
-* **Alerty zostały rozwiązane w narzędziu narzędzia ITSM** : alerty metryk implementują Stany "uruchomiłne" i "rozwiązany". Gdy warunek jest spełniony, stan alertu to "wyzwolone". Gdy warunek nie zostanie już spełniony, stan alertu to "rozwiązany". W ITSMC nie można automatycznie rozwiązywać alertów. W przypadku bezpiecznego eksportu stan rozwiązanych przepływów do narzędzia Narzędzia ITSM, więc jest automatycznie aktualizowany.
-* **[Wspólny schemat alertów](./alerts-common-schema.md)** : w ITSMC schemat ładunku alertu różni się w zależności od typu alertu. W przypadku bezpiecznego eksportu istnieje wspólny schemat dla wszystkich typów alertów. Ten wspólny schemat zawiera element CI dla wszystkich typów alertów. Wszystkie typy alertów będą mogły powiązać ich CI z elementem CMDB.
+* **Lepsze uwierzytelnianie**: usługa Azure AD zapewnia bezpieczniejsze uwierzytelnianie bez przekroczeń limitu czasu, które często występują w ITSMC.
+* **Alerty zostały rozwiązane w narzędziu narzędzia ITSM**: alerty metryk implementują Stany "uruchomiłne" i "rozwiązany". Gdy warunek jest spełniony, stan alertu to "wyzwolone". Gdy warunek nie zostanie już spełniony, stan alertu to "rozwiązany". W ITSMC nie można automatycznie rozwiązywać alertów. W przypadku bezpiecznego eksportu stan rozwiązanych przepływów do narzędzia Narzędzia ITSM, więc jest automatycznie aktualizowany.
+* **[Wspólny schemat alertów](./alerts-common-schema.md)**: w ITSMC schemat ładunku alertu różni się w zależności od typu alertu. W przypadku bezpiecznego eksportu istnieje wspólny schemat dla wszystkich typów alertów. Ten wspólny schemat zawiera element CI dla wszystkich typów alertów. Wszystkie typy alertów będą mogły powiązać ich CI z elementem CMDB.
 
 Rozpocznij korzystanie z narzędzia łącznik ITSM, wykonując następujące czynności:
 
@@ -60,8 +60,8 @@ Rozpocznij korzystanie z narzędzia łącznik ITSM, wykonując następujące czy
 3. Skonfiguruj środowisko partnerskie. 
 
 Bezpieczny eksport obsługuje połączenia z następującymi narzędziami narzędzia ITSM:
-* [ServiceNow](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#connect-servicenow-to-azure-monitor)
-* [Kontroler BMC Helix](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#connect-bmc-helix-to-azure-monitor)
+* [ServiceNow](#connect-servicenow-to-azure-monitor)
+* [Kontroler BMC Helix](#connect-bmc-helix-to-azure-monitor)
 
 ## <a name="register-with-azure-active-directory"></a>Zarejestruj się w Azure Active Directory
 
@@ -90,7 +90,7 @@ Aby dodać element webhook do akcji, wykonaj następujące instrukcje dotyczące
 5. Wybierz pozycję **bezpieczny element webhook**.
 6. Wybierz następujące szczegóły:
    1. Wybierz identyfikator obiektu zarejestrowanego wystąpienia Azure Active Directory.
-   2. W przypadku identyfikatora URI Wklej w adresie URL elementu webhook skopiowanym ze [środowiska narzędzia Narzędzia ITSM](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#configure-the-partner-environment).
+   2. W przypadku identyfikatora URI Wklej w adresie URL elementu webhook skopiowanym ze [środowiska narzędzia Narzędzia ITSM](#configure-the-itsm-tool-environment).
    3. Ustaw opcję **Włącz wspólny schemat alertów** na **wartość tak**. 
 
    Na poniższej ilustracji przedstawiono konfigurację przykładowej akcji bezpiecznego elementu webhook:
@@ -156,12 +156,12 @@ Upewnij się, że zostały spełnione następujące wymagania wstępne:
    4. Wybierz pozycję **Konfiguracja**.
    5. Wybierz pozycję **Dodaj nową konfigurację połączenia** .
    6. Wypełnij informacje dotyczące sekcji Konfiguracja:
-      - **Nazwa** : Utwórz własne.
-      - **Typ autoryzacji** : **Brak**
-      - **Opis** : Utwórz własny.
-      - **Lokacja** : **chmura**
-      - **Liczba wystąpień** : **2** , wartość domyślna.
-      - **Sprawdź** : wybrane domyślnie, aby włączyć użycie.
+      - **Nazwa**: Utwórz własne.
+      - **Typ autoryzacji**: **Brak**
+      - **Opis**: Utwórz własny.
+      - **Lokacja**: **chmura**
+      - **Liczba wystąpień**: **2**, wartość domyślna.
+      - **Sprawdź**: wybrane domyślnie, aby włączyć użycie.
       - Identyfikator dzierżawy platformy Azure i identyfikator aplikacji platformy Azure są pobierane z aplikacji, która została wcześniej zdefiniowana.
 
 ![Zrzut ekranu pokazujący konfigurację składnika BMC.](media/it-service-management-connector-secure-webhook-connections/bmc-configuration.png)

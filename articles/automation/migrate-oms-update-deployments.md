@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: dabe914ffd4e84e8ded5c0e3b519036479fe33ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2226f55c829afa4316a92888d16f6dc68e1f931
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987598"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183604"
 ---
 # <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Migruj Azure Monitor dzienniki aktualizacji do Azure Portal
 
@@ -19,7 +19,7 @@ Portal pakietu Operations Management Suite (OMS) jest [przestarzały](../azure-m
 ## <a name="key-information"></a>Informacje o kluczu
 
 * Istniejące wdrożenia będą nadal działały. Po ponownym utworzeniu wdrożenia na platformie Azure można usunąć stare wdrożenie.
-* Wszystkie istniejące funkcje pakietu OMS są dostępne na platformie Azure. Aby dowiedzieć się więcej na temat Update Management, zobacz [Omówienie usługi Update Management](update-management/update-mgmt-overview.md).
+* Wszystkie istniejące funkcje pakietu OMS są dostępne na platformie Azure. Aby dowiedzieć się więcej na temat Update Management, zobacz [Omówienie usługi Update Management](./update-management/overview.md).
 
 ## <a name="access-the-azure-portal"></a>Uzyskiwanie dostępu do witryny Azure Portal
 
@@ -37,13 +37,13 @@ Portal pakietu Operations Management Suite (OMS) jest [przestarzały](../azure-m
 
 4. W Azure Portal wybierz pozycję **konta usługi Automation** w obszarze **wszystkie usługi**. 
 
-5. W obszarze **Narzędzia do zarządzania**wybierz odpowiednie konto usługi Automation, a następnie kliknij przycisk **Update Management**.
+5. W obszarze **Narzędzia do zarządzania** wybierz odpowiednie konto usługi Automation, a następnie kliknij przycisk **Update Management**.
 
 ## <a name="recreate-existing-deployments"></a>Utwórz ponownie istniejące wdrożenia
 
 Wszystkie wdrożenia aktualizacji utworzone w portalu pakietu OMS mają [zapisane wyszukiwanie](../azure-monitor/platform/computer-groups.md) znane również jako grupa komputerów o takiej samej nazwie jak wdrożenie aktualizacji, które już istnieje. Zapisane wyszukiwanie zawiera listę maszyn, które zostały zaplanowane we wdrożeniu aktualizacji.
 
-:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Zrzut ekranu strony zarządzania aktualizacjami.":::
+:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Zrzut ekranu strony aktualizacji wdrożenia z wyróżnionymi polami nazwa i serwery.":::
 
 Aby użyć istniejącego zapisanego wyszukiwania, wykonaj następujące kroki:
 
@@ -53,7 +53,7 @@ Aby użyć istniejącego zapisanego wyszukiwania, wykonaj następujące kroki:
 
 2. Zostanie otwarte okienko nowe wdrożenie aktualizacji. Wprowadź wartości dla właściwości opisanych w poniższej tabeli, a następnie kliknij pozycję **Utwórz**:
 
-3. W przypadku **maszyn do zaktualizowania**Wybierz zapisane wyszukiwanie używane przez wdrożenie pakietu OMS.
+3. W przypadku **maszyn do zaktualizowania** Wybierz zapisane wyszukiwanie używane przez wdrożenie pakietu OMS.
 
     | Właściwość | Opis |
     | --- | --- |
@@ -74,4 +74,4 @@ Aby użyć istniejącego zapisanego wyszukiwania, wykonaj następujące kroki:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat Update Management w Azure Automation, zobacz [omówienie Update Management](update-management/update-mgmt-overview.md).
+Aby dowiedzieć się więcej na temat Update Management w Azure Automation, zobacz [omówienie Update Management](./update-management/overview.md).

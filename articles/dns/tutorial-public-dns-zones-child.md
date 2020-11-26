@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 7/16/2020
 ms.author: jonbeck
 ms.openlocfilehash: d805fb926131e047572887758b10506e4edd5944
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94960771"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183383"
 ---
 # <a name="tutorial-creating-a-new-child-dns-zone"></a>Samouczek: Tworzenie nowej podrzędnej strefy DNS
 
@@ -100,7 +100,7 @@ Teraz w tym kroku przejdziemy do *contoso.com* nadrzędnej strefy DNS i sprawdź
 1.  Ten zestaw rekordów typu NS i nazwa poddomeny jest już utworzony w nadrzędnej strefie DNS. Sprawdź wartości dla tego zestawu rekordów, podobnie jak lista serwer nazw, która została pobrana z podrzędnej strefy DNS w powyższym kroku.
 
      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-inline.png" alt-text="Zrzut ekranu przedstawiający serwery nazw weryfikacji strefy podrzędnej" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-expanded.png":::
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 Jeśli zasoby utworzone w tym samouczku nie są już potrzebne, usuń je, usuwając **grupę zasobów.** Otwórz grupę **zasobów zasobu** i wybierz pozycję **Usuń grupę zasobów**.
 
 
