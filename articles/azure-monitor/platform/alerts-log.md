@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: 0842efe304faa9a0d94fbf71075f1bc16ff34014
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 61aba3e5792d1cc20da16686d052de91744dab76
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018209"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186783"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Tworzenie i wyświetlanie alertów dzienników oraz zarządzanie nimi za pomocą Azure Monitor
 
 ## <a name="overview"></a>Omówienie
 
-Alerty dzienników umożliwiają użytkownikom użycie zapytania [log Analytics](../log-query/get-started-portal.md) w celu obliczenia dzienników zasobów co określoną częstotliwość i wyzwolenia alertu na podstawie wyników. Reguły mogą wyzwalać jedną lub więcej akcji przy użyciu [grup akcji](./action-groups.md). [Dowiedz się więcej o funkcjach i terminologii alertów dzienników](alerts-unified-log.md).
+Alerty dzienników umożliwiają użytkownikom użycie zapytania [log Analytics](../log-query/log-analytics-tutorial.md) w celu obliczenia dzienników zasobów co określoną częstotliwość i wyzwolenia alertu na podstawie wyników. Reguły mogą wyzwalać jedną lub więcej akcji przy użyciu [grup akcji](./action-groups.md). [Dowiedz się więcej o funkcjach i terminologii alertów dzienników](alerts-unified-log.md).
 
 W tym artykule pokazano, jak tworzyć alerty dzienników i zarządzać nimi za pomocą Azure Monitor. Reguły alertów są definiowane przez trzy składniki:
 - Cel: określony zasób platformy Azure do monitorowania.
@@ -27,7 +27,7 @@ W tym artykule pokazano, jak tworzyć alerty dzienników i zarządzać nimi za p
 Reguły alertów dzienników można także tworzyć przy użyciu szablonów Azure Resource Manager, które są opisane w [osobnym artykule](alerts-log-create-templates.md).
 
 > [!NOTE]
-> Dane dziennika z [obszaru roboczego log Analytics](../log-query/get-started-portal.md) mogą być wysyłane do magazynu metryk Azure monitor. Alerty metryk mają [różne zachowanie](alerts-metric-overview.md), co może być bardziej odpowiednie w zależności od danych, z którymi pracujesz. Aby uzyskać informacje na temat tego, co i jak można kierować dzienniki do metryk, zobacz [alert metryki dla dzienników](alerts-metric-logs.md).
+> Dane dziennika z [obszaru roboczego log Analytics](../log-query/log-analytics-tutorial.md) mogą być wysyłane do magazynu metryk Azure monitor. Alerty metryk mają [różne zachowanie](alerts-metric-overview.md), co może być bardziej odpowiednie w zależności od danych, z którymi pracujesz. Aby uzyskać informacje na temat tego, co i jak można kierować dzienniki do metryk, zobacz [alert metryki dla dzienników](alerts-metric-logs.md).
 
 ## <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Tworzenie reguły alertu dziennika przy użyciu Azure Portal
 
@@ -35,7 +35,7 @@ Poniżej przedstawiono procedurę tworzenia zapytań dotyczących alertów:
 
 1. Przejdź do zasobu, dla którego chcesz otrzymywać alerty.
 1. W obszarze **monitor** wybierz pozycję **dzienniki**.
-1. Wykonaj zapytanie o dane dziennika, które mogą wskazywać na problem. Możesz użyć [przykładu zapytania dotyczącego alertu](../log-query/saved-queries.md) , aby zrozumieć, co można odkryć lub [zacząć pisać przy tworzeniu własnych zapytań](../log-query/get-started-portal.md). Ponadto [dowiedz się, jak tworzyć zoptymalizowane zapytania alertów](alerts-log-query.md).
+1. Wykonaj zapytanie o dane dziennika, które mogą wskazywać na problem. Możesz użyć [przykładu zapytania dotyczącego alertu](../log-query/example-queries.md) , aby zrozumieć, co można odkryć lub [zacząć pisać przy tworzeniu własnych zapytań](../log-query/log-analytics-tutorial.md). Ponadto [dowiedz się, jak tworzyć zoptymalizowane zapytania alertów](alerts-log-query.md).
 1. Naciśnij przycisk "+ Nowa reguła alertu", aby uruchomić przepływ tworzenia alertu.
 
     ![Alert Log Analytics — Ustawianie](media/alerts-log/AlertsAnalyticsCreate.png)
@@ -55,7 +55,7 @@ Poniżej przedstawiono procedurę tworzenia zapytań dotyczących alertów:
 
 1. Alerty dzienników mogą opierać się na dwóch typach [**miar**](alerts-unified-log.md#measure):
     1. **Liczba wyników** — liczba rekordów zwróconych przez zapytanie.
-    1. **Pomiar**  -  metryki *Wartość zagregowana* jest obliczana przy użyciu podsumowania pogrupowane według wybranych wyrażeń i zaznaczania [bin ()](/azure/kusto/query/binfunction) . Na przykład:
+    1. **Pomiar**  -  metryki *Wartość zagregowana* jest obliczana przy użyciu podsumowania pogrupowane według wybranych wyrażeń i zaznaczania [bin ()](/azure/kusto/query/binfunction) . Przykład:
 
     ```Kusto
     // Reported errors
@@ -327,4 +327,3 @@ Po pomyślnym utworzeniu zostanie zwrócona 201. Po pomyślnym wykonaniu aktuali
 * Tworzenie alertów dziennika przy użyciu [szablonów Azure Resource Manager](./alerts-log-create-templates.md).
 * Informacje [o akcjach elementu webhook dla alertów dziennika](./alerts-log-webhook.md).
 * Dowiedz się więcej o [zapytaniach dziennika](../log-query/log-query-overview.md).
-

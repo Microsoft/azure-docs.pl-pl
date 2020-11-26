@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: b7248a3a66e0eeca4d86568f80af82bf2d89701f
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: a5cb5831090987f1b620593843ddba817d8e68d4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96031238"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188126"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Kontrola źródła w usłudze Azure Synapse Studio
 
@@ -38,7 +38,7 @@ Na kanwie tworzenia Synapse Studio zaznacz menu rozwijane **Synapse Live** , a n
 
 ![Konfigurowanie ustawień repozytorium kodu na podstawie tworzenia](media/configure-repo-1.png)
 
-### <a name="configuration-method-2-management-hub"></a>Konfiguracja Metoda 2: centrum zarządzania
+### <a name="configuration-method-2-manage-hub"></a>Konfiguracja Metoda 2. zarządzanie centrum
 
 Przejdź do centrum zarządzania programu Synapse Studio. Wybierz pozycję **konfiguracja Git** w sekcji **Kontrola źródła** . Jeśli nie masz połączenia z repozytorium, kliknij przycisk **Konfiguruj**.
 
@@ -114,7 +114,7 @@ W okienku Konfiguracja są wyświetlane następujące ustawienia repozytorium Gi
 |:--- |:--- |:--- |
 | **Typ repozytorium** | Typ repozytorium kodu Azure Repos. | GitHub |
 | **Korzystanie z usługi GitHub Enterprise** | Zaznacz pole wyboru usługi GitHub Enterprise | niezaznaczony (domyślnie) |
-| **Adres URL przedsiębiorstwa usługi GitHub** | Główny adres URL przedsiębiorstwa usługi GitHub (musi być adresem HTTPS dla lokalnego serwera usługi GitHub Enterprise). Na przykład: `https://github.mydomain.com`. Wymagane tylko wtedy, gdy wybrano korzystanie z usługi **GitHub Enterprise** | `<your GitHub enterprise url>` |                                                           
+| **Adres URL przedsiębiorstwa usługi GitHub** | Główny adres URL przedsiębiorstwa usługi GitHub (musi być adresem HTTPS dla lokalnego serwera usługi GitHub Enterprise). Przykład: `https://github.mydomain.com`. Wymagane tylko wtedy, gdy wybrano korzystanie z usługi **GitHub Enterprise** | `<your GitHub enterprise url>` |                                                           
 | **Konto usługi GitHub** | Nazwa konta usługi GitHub. Tę nazwę można znaleźć z protokołu https: \/ /GitHub.com/{account name}/{Repository Name}. Przechodzenie na stronę z prośbą o wprowadzenie poświadczeń OAuth usługi GitHub na Twoje konto w usłudze GitHub. | `<your GitHub account name>` |
 | **Nazwa repozytorium**  | Nazwa repozytorium kodu usługi GitHub. Konta usługi GitHub zawierają repozytoria Git do zarządzania kodem źródłowym. Można utworzyć nowe repozytorium lub użyć istniejącego repozytorium, które już znajduje się na Twoim koncie. | `<your repository name>` |
 | **Rozgałęzienie współpracy** | Gałąź współpracy GitHub, która jest używana do publikowania. Domyślnie jego główna. Zmień to ustawienie, jeśli chcesz opublikować zasoby z innej gałęzi. | `<your collaboration branch>` |
@@ -217,6 +217,11 @@ Jeśli gałąź publikowania nie jest zsynchronizowana z gałęzią współpracy
 
 1. Utwórz żądanie ściągnięcia, aby scalić zmiany w gałęzi współpracy 
 
+## <a name="unsupported-features"></a>Nieobsługiwane funkcje
+
+- Synapse Studio nie zezwala na wybór zatwierdzeń lub selektywne Publikowanie zasobów. 
+- Synapse Studio nie obsługuje dostosowywania komunikatu zatwierdzania.
+- Po zaprojektowaniu Akcja usuwania w programie Studio zostanie przekazana bezpośrednio do usługi git
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: travisw
 ms.openlocfilehash: 2efe17bdf597b7e3ba7d0277f06d4b24e9b51db3
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096882"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187768"
 ---
 1. Uruchom Android Studio i wybierz pozycję **Rozpocznij nowy projekt Android Studio** w oknie **powitalnym** .
 
@@ -19,7 +19,7 @@ ms.locfileid: "92096882"
 
    ![Zrzut ekranu przedstawiający kreatora wyboru projektu](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-02-target-android-devices.png)
 
-1. Na ekranie **Konfigurowanie projektu** wprowadź *Szybki Start* jako **nazwę** i wprowadź *Samples.Speech.cognitiveservices.Microsoft.com* jako **nazwę pakietu**. Następnie wybierz katalog projektu. W obszarze **minimalny poziom interfejsu API**wybierz pozycję **interfejs API 23: Android 6,0 (Marshmallow)**. Pozostaw wszystkie inne pola wyboru Wyczyść, a następnie wybierz pozycję **Zakończ**.
+1. Na ekranie **Konfigurowanie projektu** wprowadź *Szybki Start* jako **nazwę** i wprowadź *Samples.Speech.cognitiveservices.Microsoft.com* jako **nazwę pakietu**. Następnie wybierz katalog projektu. W obszarze **minimalny poziom interfejsu API** wybierz pozycję **interfejs API 23: Android 6,0 (Marshmallow)**. Pozostaw wszystkie inne pola wyboru Wyczyść, a następnie wybierz pozycję **Zakończ**.
 
    ![Zrzut ekranu przedstawiający Kreatora konfigurowania projektu](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-03-create-android-project.png)
 
@@ -47,7 +47,7 @@ Skonfiguruj projekt do korzystania z zestawu Speech SDK. Otwórz okno **struktur
 
    ![Zrzut ekranu zestawu Speech SDK na liście zależności](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
 
-1. Wybierz kartę **Właściwości** . W przypadku **zgodności źródłowej** i **zgodności docelowej**wybierz pozycję **1,9**.
+1. Wybierz kartę **Właściwości** . W przypadku **zgodności źródłowej** i **zgodności docelowej** wybierz pozycję **1,9**.
 
    ![Zrzut ekranu przedstawiający zgodność źródłową i docelową zgodność](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-09-dependency-added.png)
 

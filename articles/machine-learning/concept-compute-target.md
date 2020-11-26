@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 2a19183f5ba5b1ea4d50cd5cfba6115f7dede6cd
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 1d3a7be429f730dd4dbd71bade1e3e51ea73c10f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540050"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188653"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>Co to są docelowe obiekty obliczeniowe w usłudze Azure Machine Learning?
 
@@ -119,6 +119,12 @@ Zapoznaj się z poniższą tabelą, aby dowiedzieć się więcej na temat obsłu
 
 
 Mimo że Azure Machine Learning obsługuje te serie maszyn wirtualnych, mogą one nie być dostępne we wszystkich regionach świadczenia usługi Azure. Aby sprawdzić, czy dostępne są serie maszyn wirtualnych, zobacz temat [produkty dostępne według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+
+> [!NOTE]
+> Azure Machine Learning nie obsługuje wszystkich rozmiarów maszyn wirtualnych obsługiwanych przez usługę Azure COMPUTE. Aby wyświetlić listę dostępnych rozmiarów maszyn wirtualnych, użyj jednej z następujących metod:
+> * [Interfejs API REST](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2020-08-01/examples/ListVMSizesResult.json)
+> * [Zestaw SDK dla języka Python](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py.md#supported-vmsizes-workspace--location-none-)
+>
 
 ### <a name="compute-isolation"></a>Izolacja obliczeniowa
 

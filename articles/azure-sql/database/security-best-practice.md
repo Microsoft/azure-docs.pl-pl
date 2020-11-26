@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: b309ce01595e2e62bea7f78ae728d83bc7d9b9be
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 803c9a98f0dc10ff8218ac7b7c20dcb117700034
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992169"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187106"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Element PlayBook do rozwiązywania typowych wymagań dotyczących zabezpieczeń w przypadku wystąpienia zarządzanego Azure SQL Database i usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -614,7 +614,7 @@ Ataki rozproszonego typu "odmowa usługi" (DDoS) są podejmowane przez złośliw
 
 Ochrona DDoS jest automatycznie włączana w ramach platformy Azure. Obejmuje ona zawsze włączone monitorowanie ruchu i łagodzenie w czasie rzeczywistym ataków na poziomie sieci na publicznych punktach końcowych.
 
-- Użyj [Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md) , aby monitorować publiczne adresy IP skojarzone z zasobami wdrożonymi w sieciach wirtualnych.
+- Użyj [Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md) , aby monitorować publiczne adresy IP skojarzone z zasobami wdrożonymi w sieciach wirtualnych.
 
 - Użyj [zaawansowanej ochrony przed zagrożeniami dla Azure SQL Database](threat-detection-overview.md) , aby wykrywać ataki typu "odmowa usługi" (DOS) do baz danych.
 

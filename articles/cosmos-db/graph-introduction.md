@@ -5,14 +5,14 @@ author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 07/10/2020
+ms.date: 11/25/2020
 ms.author: chrande
-ms.openlocfilehash: d0bd94037a75db8d69cfd44820a80ae8b403c9ea
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 56ed1e653547b3c0e3469f820eb33155aedb1bcb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357083"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187208"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Wprowadzenie do interfejsu API Gremlin w Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -24,6 +24,9 @@ ms.locfileid: "93357083"
 Ten artykuł zawiera omówienie interfejsu API usługi Azure Cosmos DB Gremlin i wyjaśnia, w jaki sposób należy używać ich do przechowywania ogromnego wykresu z miliardami wierzchołków i krawędzi. Można wysyłać zapytania o wykresy z opóźnieniem milisekund i łatwo rozwijać strukturę wykresu. Interfejs API Gremlin Azure Cosmos DB został zbudowany na podstawie platformy [Apache TinkerPop](https://tinkerpop.apache.org), opartej na programie Graph. Interfejs API Gremlin w Azure Cosmos DB używa języka zapytań Gremlin.
 
 Interfejs API Gremlin Azure Cosmos DB łączy możliwości algorytmów bazy danych grafów z wysoce skalowalną, zarządzaną infrastrukturą, zapewniając unikatowe, elastyczne rozwiązanie do najbardziej typowych problemów z danymi, które są związane z brakiem elastyczności i relacyjnych metod.
+
+> [!NOTE]
+> [Tryb wydajności bezserwerowej](serverless.md) jest teraz dostępny na Azure Cosmos DB interfejsie API Gremlin.
 
 ## <a name="features-of-azure-cosmos-dbs-gremlin-api"></a>Funkcje interfejsu API Gremlin Azure Cosmos DB
  
@@ -111,19 +114,19 @@ Przykładowy graf pomoże dowiedzieć się, jak można wyrazić zapytania w jęz
 
 Ten wykres ma następujące typy *wierzchołków* (są one również nazywane "etykietą" w Gremlin):
 
-* **Ludzie** : wykres ma trzy osoby, Robin, Thomas i Ben
-* **Zainteresowania** : ich zainteresowania, w tym przykładzie, gra piłkarskia
-* **Urządzenia** : urządzenia używane przez osoby
-* **Systemy operacyjne** : systemy operacyjne, na których działają urządzenia
-* **Miejsce** : miejsca, z których uzyskuje się dostęp do urządzeń
+* **Ludzie**: wykres ma trzy osoby, Robin, Thomas i Ben
+* **Zainteresowania**: ich zainteresowania, w tym przykładzie, gra piłkarskia
+* **Urządzenia**: urządzenia używane przez osoby
+* **Systemy operacyjne**: systemy operacyjne, na których działają urządzenia
+* **Miejsce**: miejsca, z których uzyskuje się dostęp do urządzeń
 
 Reprezentujemy relacje między tymi jednostkami za pośrednictwem następujących typów *krawędzi* :
 
-* **Wie** : na przykład "" Thomas wie Robin "
-* **Zainteresowani** : aby reprezentować interesy osób w naszym grafie, na przykład "Ben zainteresuje Cię"
-* **RunsOS** : Laptop działa w systemie operacyjnym Windows
-* **Używa** : do reprezentowania urządzenia, którego używa osoba. Na przykład Robin używa telefonu firmy Motorola o numerze seryjnym 77
-* **Zlokalizowane** : do reprezentowania lokalizacji, z której uzyskuje się dostęp do urządzeń
+* **Wie**: na przykład "" Thomas wie Robin "
+* **Zainteresowani**: aby reprezentować interesy osób w naszym grafie, na przykład "Ben zainteresuje Cię"
+* **RunsOS**: Laptop działa w systemie operacyjnym Windows
+* **Używa**: do reprezentowania urządzenia, którego używa osoba. Na przykład Robin używa telefonu firmy Motorola o numerze seryjnym 77
+* **Zlokalizowane**: do reprezentowania lokalizacji, z której uzyskuje się dostęp do urządzeń
 
 Konsola Gremlin to interaktywny Terminal oferowany przez Apache TinkerPop i ten terminal jest używany do interakcji z danymi grafu. Aby dowiedzieć się więcej, zobacz dokument szybkiego startu dotyczący [sposobu korzystania z konsoli Gremlin](create-graph-gremlin-console.md). Można również wykonywać te operacje przy użyciu sterowników Gremlin na wybranej platformie (Java, Node.js, Python lub .NET). W poniższych przykładach pokazano, jak uruchamiać zapytania dotyczące danych z tego wykresu przy użyciu konsoli programu Gremlin.
 

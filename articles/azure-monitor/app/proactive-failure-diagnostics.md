@@ -4,12 +4,12 @@ description: Ostrzega o nietypowych zmianach w przypadku żądań zakończonych 
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 0f93c7b185b292f8d9792a11807b7c99ad846d37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 329f5bc6f5c3523bc76876f946474eaeb897cfe9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565841"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186970"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Wykrywanie inteligentne — anomalie błędów
 [Application Insights](./app-insights-overview.md) automatycznie alarmuje użytkownika w czasie niemal rzeczywistym, jeśli aplikacja sieci Web napotyka nietypowy wzrost liczby żądań zakończonych niepowodzeniem. Wykrywa nietypowy wzrost liczby żądań HTTP lub wywołań zależności zgłaszanych jako zakończone niepowodzeniem. W przypadku żądań żądania zakończone niepowodzeniem zazwyczaj mają kody odpowiedzi 400 lub wyższe. Aby ułatwić Klasyfikacja i zdiagnozowanie problemu, analiza charakterystyk błędów i powiązanych danych aplikacji znajduje się w szczegółach alertu. Istnieją także linki do portalu Application Insights w celu przeprowadzenia dalszej diagnostyki. Ta funkcja nie wymaga konfigurowania ani konfiguracji, ponieważ używa algorytmów uczenia maszynowego do przewidywania normalnego współczynnika niepowodzeń.
@@ -73,11 +73,11 @@ Ta reguła alertu jest tworzona za pomocą skojarzonej [grupy akcji](../platform
 
 Otwórz stronę alerty. Reguły alertów o anomalii błędów są uwzględniane wraz z alertami, które zostały ustawione ręcznie, i można sprawdzić, czy jest ona aktualnie w stanie alertu.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/021.png" alt-text="Przykładowy alert wykrywania inteligentnego pokazujący, że analiza klastra nie powiodła się." lightbox="./media/proactive-failure-diagnostics/021.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/021.png" alt-text="Na stronie zasób Application Insights kliknij kafelek alerty, a następnie Zarządzaj regułami alertów." lightbox="./media/proactive-failure-diagnostics/021.png":::
 
 Kliknij alert, aby go skonfigurować.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/032.png" alt-text="Przykładowy alert wykrywania inteligentnego pokazujący, że analiza klastra nie powiodła się." lightbox="./media/proactive-failure-diagnostics/032.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/032.png" alt-text="Ekran konfiguracji reguły." lightbox="./media/proactive-failure-diagnostics/032.png":::
 
 Należy zauważyć, że można wyłączyć lub usunąć regułę alertów o anomalii niepowodzeń, ale nie można utworzyć kolejnej na tym samym Application Insights zasobów.
 
@@ -299,7 +299,7 @@ Możesz również otworzyć [Azure Portal](https://portal.azure.com), przejdź d
 
 Kliknięcie przycisku "Diagnozuj błędy" pomoże Ci uzyskać więcej szczegółów i rozwiązać problem.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/051.png" alt-text="Przykładowy alert wykrywania inteligentnego pokazujący, że analiza klastra nie powiodła się." lightbox="./media/proactive-failure-diagnostics/051.png#lightbox":::
+:::image type="content" source="./media/proactive-failure-diagnostics/051.png" alt-text="Wyszukiwanie diagnostyczne." lightbox="./media/proactive-failure-diagnostics/051.png#lightbox":::
 
 Od procentu żądań i liczby użytkowników, których to dotyczy, możesz zdecydować, jak pilnuje problem. W powyższym przykładzie Współczynnik awaryjności 78,5% porównuje z normalną szybkością 2,2%, wskazuje, że wystąpił problem. Z drugiej strony dotyczyły tylko 46 użytkowników. Jeśli była Twoją aplikacją, możesz ocenić, jak poważny jest.
 
@@ -307,13 +307,13 @@ W wielu przypadkach będzie możliwe szybkie zdiagnozowanie problemu przy użyci
 
 W tym przykładzie wystąpił wyjątek z SQL Database z powodu osiągnięcia limitu żądań.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/052.png" alt-text="Przykładowy alert wykrywania inteligentnego pokazujący, że analiza klastra nie powiodła się." lightbox="./media/proactive-failure-diagnostics/052.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/052.png" alt-text="Szczegóły żądania zakończonego niepowodzeniem." lightbox="./media/proactive-failure-diagnostics/052.png":::
 
 ## <a name="review-recent-alerts"></a>Przejrzyj Ostatnie alerty
 
 Kliknij pozycję **alerty** na stronie zasobów Application Insights, aby przejść do ostatnio wygenerowanego alertu:
 
-:::image type="content" source="./media/proactive-failure-diagnostics/070.png" alt-text="Przykładowy alert wykrywania inteligentnego pokazujący, że analiza klastra nie powiodła się." lightbox="./media/proactive-failure-diagnostics/070.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/070.png" alt-text="Podsumowanie alertów." lightbox="./media/proactive-failure-diagnostics/070.png":::
 
 ## <a name="whats-the-difference-"></a>Jaka jest różnica...
 Inteligentne wykrywanie anomalii o awarii uzupełnia inne podobne, ale odrębne funkcje Application Insights.
@@ -356,10 +356,9 @@ Te narzędzia diagnostyczne ułatwiają inspekcję danych w aplikacji:
 
 * [Eksplorator metryk](../platform/metrics-charts.md)
 * [Eksplorator wyszukiwania](./diagnostic-search.md)
-* [Analiza — zaawansowany język zapytań](../log-query/get-started-portal.md)
+* [Analiza — zaawansowany język zapytań](../log-query/log-analytics-tutorial.md)
 
 Inteligentne wykrywanie są automatyczne. Ale być może chcesz skonfigurować więcej alertów?
 
 * [Ręcznie skonfigurowane alerty metryk](../platform/alerts-log.md)
 * [Testy dostępności sieci Web](./monitor-web-app-availability.md)
-

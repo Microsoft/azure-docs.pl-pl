@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/02/2020
 ms.author: sideeksh
-ms.openlocfilehash: 53c5dc4920b6c50ee3c900db9626f4d283f7b846
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42d3c74229ab7eeec0ac716073a9e631775fd002
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426422"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187344"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Automatyczna aktualizacja usługi mobilności w replikacji na platformie Azure na platformę Azure
 
@@ -57,19 +57,19 @@ Po włączeniu replikacji dla maszyny wirtualnej, rozpoczynając [od widoku masz
 ### <a name="toggle-the-extension-update-settings-inside-the-vault"></a>Przełącz ustawienia aktualizacji rozszerzenia w magazynie
 
 1. W magazynie Recovery Services przejdź do pozycji **Zarządzaj**  >  **infrastrukturą Site Recovery**.
-1. W obszarze **dla**  >  **opcji Ustawienia aktualizacji rozszerzenia**Virtual Machines Azure  >  **Zezwalaj Site Recovery na zarządzanie**, wybierz pozycję **włączone**.
+1. W obszarze **dla**  >  **opcji Ustawienia aktualizacji rozszerzenia** Virtual Machines Azure  >  **Zezwalaj Site Recovery na zarządzanie**, wybierz pozycję **włączone**.
 
    Aby zarządzać rozszerzeniem ręcznie, wybierz pozycję **wyłączone**.
 
 1. Wybierz pozycję **Zapisz**.
 
-:::image type="content" source="./media/azure-to-azure-autoupdate/vault-toggle.png" alt-text="Ustawienia rozszerzenia":::
+:::image type="content" source="./media/azure-to-azure-autoupdate/vault-toggle.png" alt-text="Ustawienia aktualizacji rozszerzeń":::
 
 > [!IMPORTANT]
 > Po wybraniu opcji **zezwól Site Recovery na zarządzanie**, ustawienie jest stosowane do wszystkich maszyn wirtualnych w magazynie.
 
 > [!NOTE]
-> Każda opcja powiadamia użytkownika o koncie usługi Automation używanym do zarządzania aktualizacjami. Jeśli ta funkcja jest używana w magazynie po raz pierwszy, domyślnie tworzone jest nowe konto usługi Automation. Alternatywnie możesz dostosować ustawienie i wybrać istniejące konto usługi Automation. Wszystkie kolejne operacje mają na celu włączenie replikacji w tym samym magazynie będą używały wcześniej utworzonego konta usługi Automation. Obecnie menu rozwijane będzie wyświetlać tylko konta usługi Automation, które znajdują się w tej samej grupie zasobów co magazyn.
+> Każda opcja powiadamia użytkownika o koncie usługi Automation używanym do zarządzania aktualizacjami. Jeśli ta funkcja jest używana w magazynie po raz pierwszy, domyślnie tworzone jest nowe konto usługi Automation. Alternatywnie możesz dostosować ustawienie i wybrać istniejące konto usługi Automation. Po zdefiniowaniu wszystkie kolejne akcje umożliwiające replikację w tym samym magazynie będą używały wybranego konta usługi Automation. Obecnie menu rozwijane będzie wyświetlać tylko konta usługi Automation, które znajdują się w tej samej grupie zasobów co magazyn.
 
 > [!IMPORTANT]
 > Następujący skrypt musi zostać uruchomiony w kontekście konta usługi Automation.
@@ -460,12 +460,12 @@ Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -Dis
 
 1. Jeśli na maszynach wirtualnych są zainstalowane nowe aktualizacje usługi mobilności, zobaczysz następujące powiadomienie: **dostępna jest nowa aktualizacja agenta Site Recovery replikacji. Kliknij, aby zainstalować.**
 
-   :::image type="content" source="./media/vmware-azure-install-mobility-service/replicated-item-notif.png" alt-text="Ustawienia rozszerzenia":::
+   :::image type="content" source="./media/vmware-azure-install-mobility-service/replicated-item-notif.png" alt-text="Okno zreplikowane elementy":::
 
 1. Wybierz powiadomienie, aby otworzyć stronę wyboru maszyny wirtualnej.
 1. Wybierz Maszyny wirtualne, które chcesz uaktualnić, a następnie wybierz przycisk **OK**. Usługa mobilności aktualizacji rozpocznie się dla każdej wybranej maszyny wirtualnej.
 
-   :::image type="content" source="./media/vmware-azure-install-mobility-service/update-okpng.png" alt-text="Ustawienia rozszerzenia":::
+   :::image type="content" source="./media/vmware-azure-install-mobility-service/update-okpng.png" alt-text="Lista replikowanych elementów maszyn wirtualnych":::
 
 ## <a name="common-issues-and-troubleshooting"></a>Typowe problemy i rozwiązywanie problemów
 
@@ -479,7 +479,7 @@ Jeśli nie możesz włączyć funkcji Aktualizacje automatyczne, zobacz następu
 
   Aby rozwiązać większość problemów po włączeniu funkcji Aktualizacje automatyczne, wybierz pozycję **napraw**. Jeśli przycisk Napraw nie jest dostępny, Sprawdź komunikat o błędzie wyświetlany w okienku Ustawienia aktualizacji rozszerzenia.
 
-  :::image type="content" source="./media/azure-to-azure-autoupdate/repair.png" alt-text="Ustawienia rozszerzenia":::
+  :::image type="content" source="./media/azure-to-azure-autoupdate/repair.png" alt-text="Przycisk naprawy usługi Site Recovery w ustawieniach aktualizacji rozszerzenia":::
 
 - **Błąd**: konto Uruchom jako nie ma uprawnień dostępu do zasobu usługi Recovery Services.
 
@@ -495,7 +495,7 @@ Jeśli nie możesz włączyć funkcji Aktualizacje automatyczne, zobacz następu
 
   **Zalecana akcja**: Aby rozwiązać ten problem, wybierz pozycję **napraw** , a następnie **odnów certyfikat**.
 
-  :::image type="content" source="./media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG" alt-text="Ustawienia rozszerzenia":::
+  :::image type="content" source="./media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG" alt-text="Odnów certyfikat":::
 
   > [!NOTE]
   > Po odnowieniu certyfikatu Odśwież stronę, aby wyświetlić bieżący stan.

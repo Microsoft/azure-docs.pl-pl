@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 68daec6bb6682d2b488abacb2f79bdfadc4ae628
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: bedf4dd2a955a8ffe648b47c1691e77ac1fdb8f5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076576"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187803"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Rozwiązywanie problemów z rolami usługi w chmurze, których nie można uruchomić
 Poniżej przedstawiono niektóre typowe problemy i rozwiązania dotyczące ról Cloud Services platformy Azure, których nie można uruchomić.
@@ -27,11 +27,11 @@ Poniżej przedstawiono niektóre typowe problemy i rozwiązania dotyczące ról 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="missing-dlls-or-dependencies"></a>Brak bibliotek DLL lub zależności
-Nieodpowiadające role i role, które są cykliczne między **inicjalizacją**, **zajętą**i **zatrzymywaniem** , mogą być spowodowane brakującymi bibliotekami DLL lub zestawami.
+Nieodpowiadające role i role, które są cykliczne między **inicjalizacją**, **zajętą** i **zatrzymywaniem** , mogą być spowodowane brakującymi bibliotekami DLL lub zestawami.
 
 Objawy brakujących bibliotek DLL lub zestawów mogą być następujące:
 
-* Wystąpienie roli jest cykliczne przez **Inicjowanie**, **zajęte**i **Zatrzymywanie** Stanów.
+* Wystąpienie roli jest cykliczne przez **Inicjowanie**, **zajęte** i **Zatrzymywanie** Stanów.
 * Wystąpienie roli zostało przeniesione do **gotowe** , ale jeśli przejdziesz do aplikacji sieci Web, Strona nie zostanie wyświetlona.
 
 Istnieje kilka zalecanych metod badania tych problemów.
@@ -47,7 +47,7 @@ Więcej informacji o błędach można wyświetlić przez skonfigurowanie web.con
 Aby wyświetlić bardziej szczegółowe błędy bez używania Pulpit zdalny:
 
 1. Otwórz rozwiązanie w Microsoft Visual Studio.
-2. W **Eksplorator rozwiązań**znajdź plik web.config i otwórz go.
+2. W **Eksplorator rozwiązań** znajdź plik web.config i otwórz go.
 3. W pliku web.config zlokalizuj sekcję system. Web i Dodaj następujący wiersz:
 
     ```xml
@@ -77,7 +77,7 @@ Przechodzenie do witryny sieci Web spowoduje teraz zwrócenie bardziej jawnych k
 * Opis: Wystąpił nieobsługiwany wyjątek podczas wykonywania bieżącego żądania sieci Web. Przejrzyj ślad stosu, aby uzyskać więcej informacji o błędzie i o tym, skąd pochodzi w kodzie.
 * Szczegóły wyjątku: System. IO. FIleNotFoundException: nie można załadować pliku lub zestawu "Microsoft. WindowsAzure. StorageClient, Version = 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35" lub jednej z jego zależności. W systemie nie można odnaleźć określonego pliku.
 
-Na przykład:
+Przykład:
 
 ![Jawny błąd serwera w aplikacji "/"](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 
@@ -102,7 +102,7 @@ Wykonaj następujące kroki, aby wdrożyć usługę z włączonym IntelliTrace:
 1. Upewnij się, że zainstalowano zestaw Azure SDK 1,3 lub nowszy.
 2. Wdróż rozwiązanie przy użyciu programu Visual Studio. Podczas wdrażania zaznacz pole wyboru **Włącz role IntelliTrace for .NET 4** .
 3. Po uruchomieniu wystąpienia Otwórz **Eksplorator serwera**.
-4. Rozwiń węzeł ** \\ Cloud Services platformy Azure** i Znajdź wdrożenie.
+4. Rozwiń węzeł **\\ Cloud Services platformy Azure** i Znajdź wdrożenie.
 5. Rozwiń wdrożenie, dopóki nie zobaczysz wystąpień roli. Kliknij prawym przyciskiem myszy jedno z wystąpień.
 6. Wybierz pozycję **Wyświetl dzienniki IntelliTrace**. Zostanie otwarte **podsumowanie IntelliTrace** .
 7. Znajdź sekcję wyjątki podsumowania. Jeśli istnieją wyjątki, sekcja będzie zawierać etykiety **danych wyjątków**.
@@ -114,7 +114,7 @@ Wykonaj następujące kroki, aby wdrożyć usługę z włączonym IntelliTrace:
 Aby rozwiązać brakujące błędy bibliotek DLL i zestawów, wykonaj następujące kroki:
 
 1. Otwórz rozwiązanie w programie Visual Studio.
-2. W **Eksplorator rozwiązań**Otwórz folder **References** .
+2. W **Eksplorator rozwiązań** Otwórz folder **References** .
 3. Kliknij zestaw zidentyfikowany w błędzie.
 4. W okienku **Właściwości** Znajdź opcję **Kopiuj lokalną właściwość** i ustaw wartość na **true**.
 5. Wdróż ponownie usługę w chmurze.

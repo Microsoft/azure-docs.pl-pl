@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/22/2019
 ms.author: dech
-ms.openlocfilehash: c869069e40780b1fd399758e84b0ffba311398e3
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 7b52a066f80b686a0e424d8f63d520d46691a72a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93334195"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187820"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Włącz notesy dla kont Azure Cosmos DB (wersja zapoznawcza)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -30,12 +30,12 @@ Wbudowane notesy Jupyter w Azure Cosmos DB umożliwiają analizowanie i wizualiz
  
     :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks.png" alt-text="Opcja Wybierz notesy w Azure Cosmos DB Utwórz blok":::
 
-1. Wybierz pozycję **Przejrzyj i utwórz**. Możesz pominąć opcję **Sieć** i **Tagi** . 
+1. Wybierz pozycję **Przeglądanie + tworzenie**. Możesz pominąć opcję **Sieć** i **Tagi** . 
 1. Przejrzyj ustawienia konta, a następnie wybierz pozycję **Utwórz**. Utworzenie konta trwa kilka minut. Poczekaj na wyświetlenie komunikatu **Wdrożenie zostało ukończone** na stronie portalu. 
 
    :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks-complete.png" alt-text="Okienko Powiadomienia w witrynie Azure Portal":::
 
-1. Wybierz pozycję **Przejdź do zasobu** , aby przejść do strony konta usługi Azure Cosmos DB.
+1. Wybierz pozycję **Przejdź do zasobu**, aby przejść do strony konta usługi Azure Cosmos DB.
 
    :::image type="content" source="../../includes/media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created-3.png" alt-text="Strona konta usługi Azure Cosmos DB":::
 

@@ -1,6 +1,6 @@
 ---
-title: Szybki Start — Azure Key Vaulta Biblioteka kliencka dla platformy .NET (v4)
-description: Dowiedz się, jak tworzyć, pobierać i usuwać wpisy tajne z magazynu kluczy platformy Azure przy użyciu biblioteki klienckiej platformy .NET (v4)
+title: Szybki Start — Azure Key Vaulta Biblioteka kliencka dla platformy .NET (wersja 4)
+description: Dowiedz się, jak tworzyć, pobierać i usuwać wpisy tajne z magazynu kluczy platformy Azure przy użyciu biblioteki klienckiej platformy .NET (wersja 4)
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 09/23/2020
@@ -8,30 +8,37 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 20974367b9d4b75bb9746cd065bc7490011f37ad
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ecd5fd4f5af883d26f904181796a78f61669b37a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786160"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187361"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-net-sdk-v4"></a>Szybki Start: Azure Key Vault Secret Client Library for .NET (SDK v4)
 
-Rozpocznij pracę z biblioteką klienta Azure Key Vault Secret dla platformy .NET. Wykonaj poniższe kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.
+Rozpocznij pracę z biblioteką klienta Azure Key Vault Secret dla platformy .NET. [Azure Key Vault](../general/overview.md) to usługa w chmurze, która zapewnia bezpieczny magazyn dla wpisów tajnych. Możesz bezpiecznie przechowywać klucze, hasła, certyfikaty oraz inne wpisy tajne. Magazyny kluczy platformy Azure można tworzyć oraz nimi zarządzać za pośrednictwem witryny Azure Portal. W tym przewodniku szybki start dowiesz się, jak tworzyć, pobierać i usuwać wpisy tajne z magazynu kluczy platformy Azure przy użyciu biblioteki klienckiej platformy .NET.
+
+Key Vault zasoby biblioteki klienta:
 
 [Dokumentacja](/dotnet/api/azure.security.keyvault.secrets?view=azure-dotnet&preserve-view=true)  |  interfejsu API [Kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault)  |  źródłowy biblioteki [Pakiet (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
+
+Aby uzyskać więcej informacji na temat Key Vault i wpisów tajnych, zobacz:
+- [Przegląd Key Vault](../general/overview.md)
+- Wpisy [tajne](about-secrets.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/dotnet)
 * [.NET Core 3,1 SDK lub nowszy](https://dotnet.microsoft.com/download/dotnet-core)
 * [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)
+* Key Vault — można go utworzyć przy użyciu [Azure Portal](../general/quick-create-portal.md), [interfejsu wiersza polecenia platformy Azure](../general/quick-create-cli.md)lub [Azure PowerShell](../general/quick-create-powershell.md).
 
 Ten przewodnik Szybki Start korzysta z narzędzia `dotnet` i interfejsu wiersza polecenia platformy Azure
 
 ## <a name="setup"></a>Konfigurowanie
 
-Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z interfejsem wiersza polecenia platformy Azure w celu uwierzytelniania użytkowników w usługach platformy Azure. Deweloperzy mogą również używać programu Visual Studio lub Visual Studio Code do uwierzytelniania wywołań, aby uzyskać więcej informacji, zobacz [uwierzytelnianie klienta przy użyciu biblioteki klienta tożsamości platformy Azure](/dotnet/api/overview/azure/identity-readme#authenticate-the-client&preserve-view=true).
+Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z interfejsem wiersza polecenia platformy Azure w celu uwierzytelniania użytkowników w usługach platformy Azure. Deweloperzy mogą również używać programu Visual Studio lub Visual Studio Code do uwierzytelniania wywołań, aby uzyskać więcej informacji, zobacz [uwierzytelnianie klienta przy użyciu biblioteki klienta tożsamości platformy Azure](/dotnet/api/overview/azure/identity-readme?#authenticate-the-client&preserve-view=true).
 
 ### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
@@ -84,16 +91,12 @@ W tym przewodniku Szybki Start należy również zainstalować bibliotekę klien
 dotnet add package Azure.Identity
 ```
 
-### <a name="create-a-resource-group-and-key-vault"></a>Tworzenie grupy zasobów i magazynu kluczy
-
-[!INCLUDE[Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
-
 #### <a name="grant-access-to-your-key-vault"></a>Udzielanie dostępu do magazynu kluczy
 
 Tworzenie zasad dostępu dla magazynu kluczy, który przyznaje poufne uprawnienia do konta użytkownika
 
 ```console
-az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set purge
 ```
 
 #### <a name="set-environment-variables"></a>Ustawianie zmiennych środowiskowych
@@ -122,7 +125,7 @@ Biblioteka klienta Azure Key Vault Secret dla platformy .NET umożliwia zarządz
 
 ### <a name="add-directives"></a>Dodaj dyrektywy
 
-Dodaj następujące dyrektywy na początku *program.cs* :
+Dodaj następujące dyrektywy na początku *program.cs*:
 
 [!code-csharp[](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=directives)]
 
@@ -140,17 +143,11 @@ Teraz, gdy aplikacja konsoli jest uwierzytelniana, należy dodać wpis tajny do 
 
 ```csharp
 await client.SetSecretAsync(secretName, secretValue);
-``````
-
-Można sprawdzić, czy wpis tajny został ustawiony za pomocą polecenia [AZ The Secret show klucza tajnego](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show&preserve-view=true) :
-
-```azurecli
-az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 ```
 
-```azurepowershell
-(Get-AzKeyVaultSecret -VaultName <your-unique-keyvault-name> -Name mySecret).SecretValue | ConvertFrom-SecureString -AsPlainText
-```
+> [!NOTE]
+> Jeśli nazwa klucza tajnego istnieje, powyżej kodu zostanie utworzona nowa wersja tego klucza tajnego.
+
 
 ### <a name="retrieve-a-secret"></a>Pobierz klucz tajny
 
@@ -168,50 +165,6 @@ Na koniec Usuń wpis tajny z magazynu kluczy za pomocą metody [StartDeleteSecre
 
 ```csharp
 await client.StartDeleteSecretAsync(secretName);
-``````
-
-Możesz sprawdzić, czy klucz tajny został usunięty za pomocą polecenia [AZ The Secret show klucza tajnego](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show&preserve-view=true) :
-
-```azurecli
-az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
-```
-
-```azurepowershell
-(Get-AzKeyVaultSecret -VaultName <your-unique-keyvault-name> -Name mySecret).SecretValue | ConvertFrom-SecureString -AsPlainText
-```
-
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
-
-Gdy nie jest już potrzebne, możesz użyć interfejsu wiersza polecenia platformy Azure lub Azure PowerShell, aby usunąć magazyn kluczy i odpowiednią grupę zasobów.
-
-### <a name="delete-a-key-vault"></a>Usuwanie Key Vault
-
-```azurecli
-az keyvault delete --name <your-unique-keyvault-name>
-```
-
-```azurepowershell
-Remove-AzKeyVault -VaultName <your-unique-keyvault-name>
-```
-
-### <a name="purge-a-key-vault"></a>Przeczyszczanie Key Vault
-
-```azurecli
-az keyvault purge --location eastus --name <your-unique-keyvault-name>
-```
-
-```azurepowershell
-Remove-AzKeyVault -VaultName <your-unique-keyvault-name> -InRemovedState -Location eastus
-```
-
-### <a name="delete-a-resource-group"></a>Usuwanie grupy zasobów
-
-```azurecli
-az group delete -g "myResourceGroup"
-```
-
-```azurepowershell
-Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
 ## <a name="sample-code"></a>Przykładowy kod
@@ -222,6 +175,7 @@ Zmodyfikuj aplikację konsolową .NET Core, aby móc korzystać z Key Vault, wyk
 
     ```csharp
     using System;
+    using System.Threading.Tasks;
     using Azure.Identity;
     using Azure.Security.KeyVault.Secrets;
     
@@ -256,13 +210,16 @@ Zmodyfikuj aplikację konsolową .NET Core, aby móc korzystać z Key Vault, wyk
                 DeleteSecretOperation operation = await client.StartDeleteSecretAsync(secretName);
                 // You only need to wait for completion if you want to purge or recover the secret.
                 await operation.WaitForCompletionAsync();
-
-                await client.PurgeDeletedSecret(secretName);
+                Console.WriteLine(" done.");
+                
+                Console.Write($"Purging your secret from {keyVaultName} ...");
+                await client.PurgeDeletedSecretAsync(secretName);
                 Console.WriteLine(" done.");
             }
         }
     }
     ```
+### <a name="test-and-verify"></a>Testowanie i weryfikowanie
 
 1. Wykonaj następujące polecenie, aby uruchomić aplikację.
 
@@ -284,9 +241,42 @@ Zmodyfikuj aplikację konsolową .NET Core, aby móc korzystać z Key Vault, wyk
     Deleting your secret from <your-unique-keyvault-name> ... done.    
     ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-W tym przewodniku szybki start utworzono Magazyn kluczy, Zapisano wpis tajny i pobrano ten klucz tajny. Zobacz [całą aplikację konsolową w](https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app)serwisie GitHub.
+Gdy nie jest już potrzebne, możesz użyć interfejsu wiersza polecenia platformy Azure lub Azure PowerShell, aby usunąć magazyn kluczy i odpowiednią grupę zasobów.
+
+### <a name="delete-a-key-vault"></a>Usuwanie Key Vault
+
+```azurecli
+az keyvault delete --name <your-unique-keyvault-name>
+```
+
+```azurepowershell
+Remove-AzKeyVault -VaultName <your-unique-keyvault-name>
+```
+
+### <a name="purge-a-key-vault"></a>Przeczyszczanie Key Vault
+
+```azurecli
+az keyvault purge --location eastus --name <your-unique-keyvault-name>
+```
+
+```azurepowershell
+Remove-AzKeyVault -VaultName <your-unique-keyvault-name> -InRemovedState -Location eastus
+```
+
+### <a name="delete-a-resource-group"></a>Usuwanie grupy zasobów
+
+```azurecli
+az group delete -g "myResourceGroup"
+```
+
+```azurepowershell
+Remove-AzResourceGroup -Name "myResourceGroup"
+```
+
+
+## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się więcej na temat Key Vault i sposobu integrowania go z aplikacjami, zobacz następujące artykuły:
 

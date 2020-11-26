@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: d12244bce117d6a631fdb67dc460af18bc77028c
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: f8edeb452f01af88f0305cd0a3e3a2332ec09e4e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995756"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186953"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights kohorty
 
@@ -43,7 +43,7 @@ Twój zespół definiuje użytkownika zaangażowanego jako każdego, kto korzyst
     * **Okres**, definicja miesiąca.
     * **UsedAtLeastCustom**, liczba przypadków, w których użytkownicy będą musieli użyć elementu w okresie do zliczenia jako zaangażowany.
 
-4. Zmień wartość **UsedAtLeastCustom** na **5 dni**i pozostaw domyślny **okres** 28 dni.
+4. Zmień wartość **UsedAtLeastCustom** na **5 dni** i pozostaw domyślny **okres** 28 dni.
 
     ![Zazaangażowani użytkownicy](./media/usage-cohorts/003.png)
 
@@ -131,7 +131,7 @@ Kohorty i filtry są różne. Załóżmy, że masz kohorta użytkowników ze Zje
 
 ## <a name="learn-more"></a>Więcej tutaj
 
-* [Język zapytań usługi Analytics](../log-query/get-started-portal.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+* [Język zapytań usługi Analytics](../log-query/log-analytics-tutorial.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 * [Użytkownicy, sesje, zdarzenia](usage-segmentation.md)
-* [Przepływy użytkownika](usage-flows.md)
+* [Przepływy użytkowników](usage-flows.md)
 * [Przegląd użycia](usage-overview.md)

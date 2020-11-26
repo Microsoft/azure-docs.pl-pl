@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: 093d470052a639ad3d4e819d08fad7c34b547d44
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: bf7e99f6e6201afefd316deafe37e38088fb9fae
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789509"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187123"
 ---
 # <a name="what-is-azure-sql-database"></a>Co to jest usługa Azure SQL Database?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -26,7 +26,7 @@ Usługa Azure SQL Database to w pełni zarządzany aparat bazy danych typu platf
 
 Za pomocą usługi Azure SQL Database można utworzyć warstwę magazynów danych o wysokiej dostępności i wysokiej wydajności dla aplikacji i rozwiązań na platformie Azure. SQL Database może być właściwym wyborem dla różnych nowoczesnych aplikacji w chmurze, ponieważ umożliwia przetwarzanie zarówno danych relacyjnych, jak i [nierelacyjnych struktur](../multi-model-features.md), takich jak wykresy, JSON, przestrzenne i XML.
 
-Azure SQL Database jest oparta na najnowszej stabilnej wersji [aparatu bazy danych Microsoft SQL Server Database](/sql/sql-server/sql-server-technical-documentation?toc=%252fazure%252fsql-database%252ftoc.json). Można korzystać z zaawansowanych funkcji przetwarzania zapytań, takich jak [technologie w pamięci o wysokiej wydajności](../in-memory-oltp-overview.md) i [inteligentne przetwarzanie zapytań](/sql/relational-databases/performance/intelligent-query-processing?toc=%252fazure%252fsql-database%252ftoc.json). W rzeczywistości najnowsze możliwości programu SQL Server są najpierw udostępniane w usłudze SQL Database, a dopiero potem w programie SQL Server. Uzyskasz najnowsze możliwości programu SQL Server bez wysiłków związanych z instalacją poprawek lub uaktualnianiem, po przetestowaniu ich na milionach baz danych. 
+Azure SQL Database jest oparta na najnowszej stabilnej wersji [aparatu bazy danych Microsoft SQL Server Database](/sql/sql-server/sql-server-technical-documentation?toc=%2fazure%2fsql-database%2ftoc.json). Można korzystać z zaawansowanych funkcji przetwarzania zapytań, takich jak [technologie w pamięci o wysokiej wydajności](../in-memory-oltp-overview.md) i [inteligentne przetwarzanie zapytań](/sql/relational-databases/performance/intelligent-query-processing?toc=%2fazure%2fsql-database%2ftoc.json). W rzeczywistości najnowsze możliwości programu SQL Server są najpierw udostępniane w usłudze SQL Database, a dopiero potem w programie SQL Server. Uzyskasz najnowsze możliwości programu SQL Server bez wysiłków związanych z instalacją poprawek lub uaktualnianiem, po przetestowaniu ich na milionach baz danych. 
 
 SQL Database umożliwia łatwe definiowanie i skalowanie wydajności w ramach dwóch różnych modeli zakupów: [modelu zakupu opartego na rdzeń wirtualny](service-tiers-vcore.md) i [modelu zakupu opartego](service-tiers-dtu.md)na jednostkach DTU. SQL Database to w pełni zarządzana usługa, która ma wbudowaną wysoką dostępność, tworzenie kopii zapasowych i inne typowe operacje konserwacyjne. Firma Microsoft obsługuje wszystkie poprawki i aktualizacje kodu SQL i systemu operacyjnego. Nie musisz zarządzać podstawową infrastrukturą.
 
@@ -37,7 +37,7 @@ Jeśli dopiero zaczynasz Azure SQL Database, zapoznaj się z *omówieniem Azure 
 
 Azure SQL Database udostępnia następujące opcje wdrażania dla bazy danych:
 
-- [Pojedyncza baza danych](single-database-overview.md) reprezentuje w pełni zarządzaną, izolowaną bazę danych. Możesz użyć tej opcji, jeśli masz nowoczesne aplikacje i mikrousługi w chmurze, które wymagają pojedynczego wiarygodnego źródła danych. Pojedyncza baza danych jest podobna do [zawartej bazy danych](/sql/relational-databases/databases/contained-databases?toc=%252fazure%252fsql-database%252ftoc.json) w [aparacie SQL Server Database](/sql/sql-server/sql-server-technical-documentation?toc=%252fazure%252fsql-database%252ftoc.json).
+- [Pojedyncza baza danych](single-database-overview.md) reprezentuje w pełni zarządzaną, izolowaną bazę danych. Możesz użyć tej opcji, jeśli masz nowoczesne aplikacje i mikrousługi w chmurze, które wymagają pojedynczego wiarygodnego źródła danych. Pojedyncza baza danych jest podobna do [zawartej bazy danych](/sql/relational-databases/databases/contained-databases?toc=%2fazure%2fsql-database%2ftoc.json) w [aparacie SQL Server Database](/sql/sql-server/sql-server-technical-documentation?toc=%2fazure%2fsql-database%2ftoc.json).
 - [Elastyczna Pula](elastic-pool-overview.md) to zbiór [pojedynczych baz danych](single-database-overview.md) z współdzielonym zestawem zasobów, takich jak procesor CPU lub pamięć. Pojedyncze bazy danych można przenieść do i z puli elastycznej.
 
 > [!IMPORTANT]
@@ -53,7 +53,7 @@ Można zdefiniować przypisaną ilość zasobów.
 
 Możesz utworzyć swoją pierwszą aplikację w małej, pojedynczej bazie danych przy niskich kosztach miesięcznie w warstwie usług ogólnego przeznaczenia. Następnie można zmienić warstwę usługi ręcznie lub programowo w dowolnym momencie do warstwy usługi o krytycznym znaczeniu dla firmy, aby zaspokoić potrzeby rozwiązania. Wydajność można dostosować bez przestoju aplikacji i przerwy w świadczeniu usługi klientom. Dynamiczna skalowalność umożliwia bazie danych przezroczyste odpowiadanie na gwałtownie zmieniające się wymagania dotyczące zasobów. Płacisz tylko za zasoby, których potrzebujesz, gdy będą potrzebne.
 
-*Dynamiczna skalowalność* różni się od *skalowania automatycznego* . O skalowaniu automatycznym mówimy, gdy usługa jest skalowana automatycznie na podstawie kryteriów, natomiast dynamiczna skalowalność uwzględnia skalowanie ręczne bez przestojów. Opcja pojedynczej bazy danych obsługuje ręczną dynamiczną skalowalność, ale nie Skalowanie automatyczne. Aby zapewnić środowisko bardziej zautomatyzowane, rozważ użycie elastycznych pul baz danych, które umożliwiają bazom danych udostępnianie zasobów w puli w zależności od potrzeb. Innym rozwiązaniem jest użycie skryptów, które mogą pomóc zautomatyzować skalowalność dla pojedynczej bazy danych. Aby zapoznać się z przykładem, zobacz [Używanie programu PowerShell do monitorowania i skalowania pojedynczej bazy danych](scripts/monitor-and-scale-database-powershell.md).
+*Dynamiczna skalowalność* różni się od *skalowania automatycznego*. O skalowaniu automatycznym mówimy, gdy usługa jest skalowana automatycznie na podstawie kryteriów, natomiast dynamiczna skalowalność uwzględnia skalowanie ręczne bez przestojów. Opcja pojedynczej bazy danych obsługuje ręczną dynamiczną skalowalność, ale nie Skalowanie automatyczne. Aby zapewnić środowisko bardziej zautomatyzowane, rozważ użycie elastycznych pul baz danych, które umożliwiają bazom danych udostępnianie zasobów w puli w zależności od potrzeb. Innym rozwiązaniem jest użycie skryptów, które mogą pomóc zautomatyzować skalowalność dla pojedynczej bazy danych. Aby zapoznać się z przykładem, zobacz [Używanie programu PowerShell do monitorowania i skalowania pojedynczej bazy danych](scripts/monitor-and-scale-database-powershell.md).
 
 ### <a name="purchasing-models"></a>Modele zakupów
 
@@ -96,9 +96,9 @@ Azure SQL Database zapewnia zaawansowane funkcje monitorowania i rozwiązywania 
 
 Platforma Azure udostępnia wbudowane narzędzia do monitorowania i [generowania alertów](alerts-insights-configure-portal.md) [wydajności](performance-guidance.md) połączone z ocenami wydajności, które umożliwiają monitorowanie stanu tysięcy baz danych. Za pomocą tych narzędzi możesz szybko ocenić wpływ skalowania w górę lub w dół na podstawie bieżących lub przewidywanych wymagań dotyczących wydajności. Ponadto SQL Database mogą [emitować metryki i dzienniki zasobów](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) w celu łatwiejszego monitorowania. Usługę SQL Database można skonfigurować do przechowywania danych dotyczących użycia zasobów, pracowników i sesji oraz połączeń z jednym z następujących zasobów platformy Azure:
 
-- **Azure Storage** : w celu archiwizowania ogromnych ilości danych telemetrycznych w niewielkiej cenie.
-- **Event Hubs platformy Azure** : w celu integracji telemetrii SQL Database z niestandardowym rozwiązaniem monitorowania lub potokami aktywnymi.
-- **Dzienniki Azure monitor** : dla wbudowanego rozwiązania do monitorowania z raportowaniem, alertami i możliwościami ograniczającymi.
+- **Azure Storage**: w celu archiwizowania ogromnych ilości danych telemetrycznych w niewielkiej cenie.
+- **Event Hubs platformy Azure**: w celu integracji telemetrii SQL Database z niestandardowym rozwiązaniem monitorowania lub potokami aktywnymi.
+- **Dzienniki Azure monitor**: dla wbudowanego rozwiązania do monitorowania z raportowaniem, alertami i możliwościami ograniczającymi.
 
 ![Diagram architektury monitorowania platformy Azure](./media/sql-database-paas-overview/architecture.png)
 
@@ -114,7 +114,7 @@ Strefy dostępności platformy Azure próbuje chronić przed awarią pojedynczeg
 
 W rzeczywistości umowa dotycząca poziomu usług [(SLA)](https://azure.microsoft.com/support/legal/sla/) platformy Azure, obsługiwana przez globalną sieć centrów danych zarządzanych przez firmę Microsoft, pomaga zapewnić, że aplikacja działa 24/7. Platforma Azure w pełni zarządza każdą bazą danych i nie gwarantuje utraty danych i dużej wartości procentowej dostępności danych. Platforma Azure automatycznie obsługuje stosowanie poprawek, kopii zapasowych, replikacji, wykrywania awarii, bazowego potencjalnego sprzętu, błędów oprogramowania lub sieci, wdrażania poprawek błędów, przełączeń do trybu failover, uaktualnień baz danych i innych zadań konserwacyjnych. Dostępność w warstwie Standardowa jest osiągana przez oddzielenie warstw obliczeń i magazynu. Dostępność w warstwie Premium uzyskuje się przez integrację zasobów obliczeniowych i magazynu w jednym węźle w celu uzyskania wydajności, a następnie zaimplementowanie technologii podobnej do zawsze dostępnych grup dostępności. Pełne omówienie możliwości wysokiej dostępności Azure SQL Database można znaleźć w temacie [SQL Database Availability (dostępność](high-availability-sla.md)). 
 
-Ponadto SQL Database zapewnia wbudowaną [ciągłość biznesową i globalne funkcje skalowalności](business-continuity-high-availability-disaster-recover-hadr-overview.md) . Należą do nich:
+Ponadto SQL Database zapewnia wbudowaną [ciągłość biznesową i globalne funkcje skalowalności](business-continuity-high-availability-disaster-recover-hadr-overview.md) . Są one następujące:
 
 - [Automatyczne kopie zapasowe](automated-backups-overview.md):
 
@@ -149,8 +149,8 @@ Wielu naszych partnerów, którzy uruchamiają [aplikacje SaaS z wieloma dzierż
 
 [W SQL Database są dostępne](automatic-tuning-overview.md)dwa aspekty dostrajania automatycznego:
 
-- **Automatyczne zarządzanie indeksami** : identyfikuje indeksy, które powinny zostać dodane w bazie danych, i indeksy, które powinny zostać z niej usunięte.
-- **Automatyczna korekta planu** : identyfikuje plany problematyczne i rozwiązuje problemy z wydajnością planu SQL.
+- **Automatyczne zarządzanie indeksami**: identyfikuje indeksy, które powinny zostać dodane w bazie danych, i indeksy, które powinny zostać z niej usunięte.
+- **Automatyczna korekta planu**: identyfikuje plany problematyczne i rozwiązuje problemy z wydajnością planu SQL.
 
 ### <a name="adaptive-query-processing"></a>Adaptacyjne przetwarzanie zapytań
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
 ms.openlocfilehash: 6d20df031633df4642ce9fb5cbbc469fd7f0a5da
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097239"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188501"
 ---
 Aby utworzyć projekt programu Visual Studio dla wieloplatformowego programowania aplikacji mobilnych platformy .NET przy użyciu platformy Xamarin, należy:
 - Skonfiguruj opcje deweloperskie programu Visual Studio.
@@ -26,7 +26,7 @@ Aby rozpocząć, upewnij się, że program Visual Studio jest poprawnie skonfigu
 
    ![Zrzut ekranu pokazujący kartę obciążenia, modyfikowanie okna dialogowego i Instalator programu Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-workload.png)
 
-1. Na karcie **obciążenia** w obszarze **Windows**Znajdź pozycję **Programowanie aplikacji mobilnych za pomocą obciążenia .NET** . Jeśli pole wyboru obok tego obciążenia jest już zaznaczone, Zamknij okno dialogowe **Modyfikowanie** i przejdź do kroku 5.
+1. Na karcie **obciążenia** w obszarze **Windows** Znajdź pozycję **Programowanie aplikacji mobilnych za pomocą obciążenia .NET** . Jeśli pole wyboru obok tego obciążenia jest już zaznaczone, Zamknij okno dialogowe **Modyfikowanie** i przejdź do kroku 5.
 
 1. Zaznacz pole wyboru **Programowanie aplikacji mobilnych za pomocą platformy .NET** i wybierz polecenie **Modyfikuj**. W oknie dialogowym **przed rozpoczęciem** wybierz pozycję **Kontynuuj** , aby zainstalować Programowanie aplikacji mobilnych za pomocą obciążenia .NET. Instalacja nowej funkcji może trochę potrwać.
 
@@ -44,9 +44,9 @@ Aby rozpocząć, upewnij się, że program Visual Studio jest poprawnie skonfigu
 
    ![Zrzut ekranu pokazujący sposób konfigurowania nowego projektu w programie Visual Studio.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-configure-your-new-project.png)
 
-1. W polu **Nazwa projektu**wprowadź *HelloWorld*.
+1. W polu **Nazwa projektu** wprowadź *HelloWorld*.
 
-1. W obszarze **Lokalizacja**przejdź do i wybierz lub Utwórz folder, w którym ma zostać zapisany projekt.
+1. W obszarze **Lokalizacja** przejdź do i wybierz lub Utwórz folder, w którym ma zostać zapisany projekt.
 
 1. Wybierz pozycję **Utwórz** , aby przejść do **nowego okna projektu aplikacji mobilnej platformy Xamarin** .
 
@@ -54,7 +54,7 @@ Aby rozpocząć, upewnij się, że program Visual Studio jest poprawnie skonfigu
 
 1. Wybierz **pusty** szablon.
 
-1. Na **platformie**zaznacz pola wyboru dla systemów **Android**, **iOS**i **Windows (platformy UWP)**.
+1. Na **platformie** zaznacz pola wyboru dla systemów **Android**, **iOS** i **Windows (platformy UWP)**.
 
 1. Wybierz przycisk **OK**. Nastąpi powrót do środowiska IDE programu Visual Studio z nowym projektem utworzonym i widocznym w okienku **Eksplorator rozwiązań** .
 
@@ -66,13 +66,13 @@ Teraz wybierz docelową architekturę platformy i projekt startowy. Na pasku nar
 
 Zainstaluj [pakiet NuGet zestawu Speech SDK](https://aka.ms/csspeech/nuget)i odwołuje się do zestawu Speech SDK w projekcie.
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy rozwiązanie. Wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania** , aby przejść do okna **rozwiązania NuGet** .
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy rozwiązanie. Wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania** , aby przejść do okna **rozwiązania NuGet** .
 
 1. Wybierz pozycję **Przeglądaj**.
 
    ![Zrzut ekranu przedstawiający okno dialogowe Zarządzanie pakietami dla rozwiązania podczas instalowania zestawu Speech SDK.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-nuget-solution-browse.png)
 
-1. W obszarze **Źródło pakietu**wybierz pozycję NuGet.org.
+1. W obszarze **Źródło pakietu** wybierz pozycję NuGet.org.
 
 1. W polu **wyszukiwania** wprowadź *Microsoft. CognitiveServices. Speech*. Następnie wybierz ten pakiet po pojawieniu się w wynikach wyszukiwania.
 
@@ -81,7 +81,7 @@ Zainstaluj [pakiet NuGet zestawu Speech SDK](https://aka.ms/csspeech/nuget)i odw
    > [!NOTE] 
    > Biblioteka systemu iOS wewnątrz narzędzia `Microsoft.CognitiveServices.Speech` NuGet nie ma włączonej kodu bitowego. Jeśli potrzebujesz biblioteki kodu bitowego dla aplikacji, użyj narzędzia `Microsoft.CognitiveServices.Speech.Xamarin.iOS` NuGet dla projektu dla systemu iOS.
 
-1. W okienku stan pakietu obok wyników wyszukiwania wybierz pozycję Wszystkie projekty: **HelloWorld**, **HelloWorld. Android**, **HelloWorld. iOS**i **HelloWorld. PLATFORMY UWP**.
+1. W okienku stan pakietu obok wyników wyszukiwania wybierz pozycję Wszystkie projekty: **HelloWorld**, **HelloWorld. Android**, **HelloWorld. iOS** i **HelloWorld. PLATFORMY UWP**.
 
 1. Wybierz pozycję **Zainstaluj**.
 

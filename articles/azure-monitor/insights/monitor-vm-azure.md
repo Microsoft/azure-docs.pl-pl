@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 0c1e84695ce40b489fb1005325d501ea241cdaf1
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: fc89790c7d268bcfa0c08bd26249bc91979d7fca
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94738105"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186902"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Monitorowanie maszyn wirtualnych platformy Azure za pomocą Azure Monitor
 W tym artykule opisano, jak za pomocą Azure Monitor zbierać i analizować dane monitorowania z maszyn wirtualnych platformy Azure w celu utrzymania ich kondycji. Maszyny wirtualne mogą być monitorowane pod kątem dostępności i wydajności przy użyciu Azure Monitor jak dowolnego [innego zasobu platformy Azure](monitor-azure-resource.md), ale są unikatowe z innych zasobów, ponieważ konieczne jest również monitorowanie systemu operacyjnego i systemów gościa oraz obciążeń, które są w nim uruchomione. 
@@ -58,13 +58,13 @@ Aby włączyć wszystkie funkcje Azure Monitor na potrzeby monitorowania maszyny
 | Brak konfiguracji | — Metryki platformy hosta zbierane do metryk.<br>-Zebrano dziennik aktywności. | — Eksplorator metryk dla hosta.<br>-Metryki alertów dla hosta.<br>-Alerty dziennika aktywności. |
 | [Włącz Azure Monitor dla maszyn wirtualnych](#enable-azure-monitor-for-vms) | -Log Analytics zainstalowany agent.<br>Agent zależności został zainstalowany.<br>-Dane wydajności gościa zbierane do dzienników.<br>-Szczegóły procesu i zależności zbierane do dzienników. | -Schematy wydajności i skoroszyty dla danych wydajności gościa.<br>-Rejestruje zapytania dotyczące danych wydajności gościa.<br>-Rejestrowanie alertów dotyczących danych dotyczących wydajności gościa.<br>— Mapa zależności. |
 | [Zainstaluj rozszerzenie diagnostyki i agenta telegraf](#enable-diagnostics-extension-and-telegraf-agent) | -Dane wydajności gościa zbierane do metryk. | — Eksplorator metryk dla gościa.<br>-Metryki alertów dla gościa.  |
-| [Konfigurowanie obszaru roboczego Log Analytics](#configure-log-analytics-workspace) | -Zdarzenia zbierane z gościa. | -Rejestruj zapytania dla zdarzeń gościa.<br>-Rejestrowanie alertów dotyczących zdarzeń gościa. |
+| [Konfigurowanie obszaru roboczego usługi Log Analytics](#configure-log-analytics-workspace) | -Zdarzenia zbierane z gościa. | -Rejestruj zapytania dla zdarzeń gościa.<br>-Rejestrowanie alertów dotyczących zdarzeń gościa. |
 | [Utwórz ustawienie diagnostyczne dla maszyny wirtualnej](#collect-platform-metrics-and-activity-log) | — Metryki platformy zbierane do dzienników.<br>-Dziennik aktywności zebrany do dzienników. | -Rejestruje zapytania dotyczące metryk hosta.<br>-Rejestrowanie alertów dotyczących metryk hosta.<br>-Rejestruje zapytania dotyczące dziennika aktywności.
 
 Każdy z tych kroków konfiguracyjnych został opisany w poniższych sekcjach.
 
 ### <a name="enable-azure-monitor-for-vms"></a>Włącz Azure Monitor dla maszyn wirtualnych
-[Azure monitor dla maszyn wirtualnych](vminsights-overview.md) to [wgląd](insights-overview.md) w Azure monitor, który jest podstawowym narzędziem do monitorowania maszyn wirtualnych w Azure monitor. Zapewnia ona następującą dodatkową wartość za pośrednictwem standardowych funkcji Azure Monitor.
+[Azure monitor dla maszyn wirtualnych](vminsights-overview.md) to [wgląd](../monitor-reference.md) w Azure monitor, który jest podstawowym narzędziem do monitorowania maszyn wirtualnych w Azure monitor. Zapewnia ona następującą dodatkową wartość za pośrednictwem standardowych funkcji Azure Monitor.
 
 - Uproszczone dołączanie Log Analytics agenta i agenta zależności, aby umożliwić monitorowanie systemu operacyjnego gościa maszyny wirtualnej i obciążeń. 
 - Wstępnie zdefiniowane wykresy wydajności trendów i skoroszyty umożliwiające analizowanie podstawowych metryk wydajności z systemu operacyjnego gościa maszyny wirtualnej.
@@ -79,7 +79,7 @@ Włącz Azure Monitor dla maszyn wirtualnych z poziomu usługi **Insights** w me
 
 ![Włącz Azure Monitor dla maszyn wirtualnych](media/monitor-vm-azure/enable-vminsights.png)
 
-### <a name="configure-log-analytics-workspace"></a>Konfigurowanie obszaru roboczego Log Analytics
+### <a name="configure-log-analytics-workspace"></a>Konfigurowanie obszaru roboczego usługi Log Analytics
 Agent Log Analytics używany przez Azure Monitor dla maszyn wirtualnych wysyła dane do [obszaru roboczego log Analytics](../platform/data-platform-logs.md). Można włączyć zbieranie dodatkowych danych dotyczących wydajności, zdarzeń i innych danych monitorowania z agenta przez skonfigurowanie obszaru roboczego Log Analytics. Należy je skonfigurować tylko raz, ponieważ każdy agent łączący się z obszarem roboczym automatycznie pobierze konfigurację i natychmiast zacznie zbierać zdefiniowane dane. 
 
 Możesz uzyskać dostęp do konfiguracji obszaru roboczego bezpośrednio z Azure Monitor dla maszyn wirtualnych, wybierając pozycję **Konfiguracja obszaru roboczego** z **okna Wprowadzenie**. Kliknij nazwę obszaru roboczego, aby otworzyć jego menu.
@@ -140,7 +140,7 @@ Po skonfigurowaniu kolekcji danych monitorowania dla maszyny wirtualnej masz wie
 | Ustawienia diagnostyczne | Włącz i skonfiguruj [rozszerzenie diagnostyki](../platform/diagnostics-extension-overview.md) dla bieżącej maszyny wirtualnej. |
 | Zalecenia doradcy | Zalecenia dotyczące bieżącej maszyny wirtualnej z [Azure Advisor](../../advisor/index.yml). |
 | Dzienniki | Otwórz [log Analytics](../log-query/log-analytics-overview.md) z [zakresem](../log-query/scope.md) ustawionym na bieżącą maszynę wirtualną. |
-| Monitor połączeń | Otwórz [monitor połączeń Network Watcher](../../network-watcher/connection-monitor-preview.md) , aby monitorować połączenia między bieżącą maszyną wirtualną a innymi maszynami wirtualnymi. |
+| Monitor połączeń | Otwórz [monitor połączeń Network Watcher](../../network-watcher/connection-monitor-overview.md) , aby monitorować połączenia między bieżącą maszyną wirtualną a innymi maszynami wirtualnymi. |
 
 
 ## <a name="analyzing-metric-data"></a>Analizowanie danych metryki
@@ -242,4 +242,3 @@ Aby uzyskać szczegółowe informacje na temat łączenia istniejącej grupy zar
 
 * [Dowiedz się, jak analizować dane w dziennikach Azure Monitor przy użyciu zapytań dzienników.](../log-query/get-started-queries.md)
 * [Dowiedz się więcej o alertach korzystających z metryk i dzienników w Azure Monitor.](../platform/alerts-overview.md)
-

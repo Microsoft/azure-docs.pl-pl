@@ -7,12 +7,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: 11475de159cf3d59923d6f2129aa46ddf0ef8f2c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ef0e3a451a5687278acaf1e857012027a5e657a3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90084434"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186766"
 ---
 # <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Szybki Start: monitorowanie maszyny wirtualnej platformy Azure za pomocą Azure Monitor
 [Azure monitor](../overview.md) uruchamia zbieranie danych z maszyn wirtualnych platformy Azure w momencie ich tworzenia. W tym przewodniku szybki start zawarto krótkie wskazówki dotyczące danych, które są automatycznie zbierane dla maszyny wirtualnej platformy Azure oraz jak wyświetlać ją w Azure Portal. Następnie włączysz [Azure monitor dla maszyn wirtualnych](../insights/vminsights-overview.md) dla maszyny wirtualnej, która umożliwi agentom na maszynie wirtualnej zbieranie i analizowanie danych z systemu operacyjnego gościa, w tym procesów i ich zależności.
@@ -48,7 +48,7 @@ W trakcie zbierania metryk i dzienników aktywności dla maszyny wirtualnej host
 
 6. Zostanie wyświetlona Twoja maszyna wirtualna z innymi maszynami wirtualnymi w ramach subskrypcji, które są dołączane. Wybierz kartę **Niemonitorowane** , jeśli chcesz wyświetlić maszyny wirtualne w subskrypcji, które nie zostały dołączone.
 
-    ![Rozpoczęcie pracy](media/quick-monitor-azure-vm/get-started.png)
+    ![Wprowadzenie](media/quick-monitor-azure-vm/get-started.png)
 
 
 ## <a name="configure-workspace"></a>Konfigurowanie obszaru roboczego
@@ -77,7 +77,7 @@ Podczas tworzenia nowego obszaru roboczego Log Analytics należy go skonfigurowa
 
 2. Dodaj dziennik zdarzeń, wpisując nazwę dziennika.  Wpisz **Dziennik** systemowy, a następnie wybierz znak plus **+** .  
 
-3. W tabeli Usuń zaznaczenie **informacji o informacjach**dotyczących serwerów, **powiadomienia** i **debugowania**. 
+3. W tabeli Usuń zaznaczenie **informacji o informacjach** dotyczących serwerów, **powiadomienia** i **debugowania**. 
 
 4. Wybierz pozycję **Zapisz** w górnej części strony, aby zapisać konfigurację.
 
@@ -107,4 +107,4 @@ Podczas tworzenia nowego obszaru roboczego Log Analytics należy go skonfigurowa
 W tym przewodniku szybki start włączono Azure Monitor dla maszyn wirtualnych dla maszyny wirtualnej i skonfigurowano obszar roboczy Log Analytics do zbierania zdarzeń dla systemu operacyjnego gościa. Aby dowiedzieć się, jak wyświetlać i analizować dane, przejdź do następnego samouczka.
 
 > [!div class="nextstepaction"]
-> [Wyświetlanie i analizowanie danych w usłudze Log Analytics](../log-query/get-started-portal.md)
+> [Wyświetlanie i analizowanie danych w usłudze Log Analytics](../log-query/log-analytics-tutorial.md)

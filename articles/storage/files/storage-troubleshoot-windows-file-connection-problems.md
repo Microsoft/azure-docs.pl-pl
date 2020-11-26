@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: b684123068889e422080605fb9c50ef9aed0cb76
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: e446ec08d63c44566b2f45c1427999536d0be703
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630162"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188721"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Rozwiązywanie problemów z Azure Files w systemie Windows (SMB)
 
@@ -176,7 +176,7 @@ Sprawdź, czy reguły sieci wirtualnej i zapory są skonfigurowane poprawnie na 
 Przejdź do konta magazynu, na którym znajduje się udział plików platformy Azure, kliknij pozycję **Kontrola dostępu (IAM)** i sprawdź, czy konto użytkownika ma dostęp do konta magazynu. Aby dowiedzieć się więcej, zobacz [jak zabezpieczyć konto magazynu za pomocą kontroli dostępu opartej na rolach na platformie Azure (RBAC)](../blobs/security-recommendations.md#data-protection).
 
 <a id="open-handles"></a>
-## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Nie można usunąć pliku lub katalogu z udziału plików platformy Azure
+## <a name="unable-to-modify-moverename-or-delete-a-file-or-directory"></a>Nie można zmodyfikować, przenieść/zmienić nazwy lub usunąć pliku lub katalogu
 Jeden z najważniejszych celów udziału plików polega na tym, że wielu użytkowników i aplikacji może jednocześnie współdziałać z plikami i katalogami w udziale. Aby pomóc w tej interakcji, udziały plików zapewniają kilka sposobów mediating dostępu do plików i katalogów.
 
 Po otwarciu pliku z zainstalowanego udziału plików platformy Azure za pośrednictwem protokołu SMB aplikacja/system operacyjny żąda dojścia do pliku, który jest odwołaniem do pliku. Po zażądaniu dojścia do pliku aplikacja określa tryb udostępniania plików, który określa poziom wyłącznego dostępu do pliku wymuszonego przez Azure Files: 

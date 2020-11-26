@@ -3,12 +3,12 @@ title: Konfigurowanie usługi Azure Red Hat OpenShift v3. x z Azure Monitor dla 
 description: W tym artykule opisano sposób konfigurowania monitorowania klastra Kubernetes przy użyciu Azure Monitor hostowanego na platformie Azure Red Hat OpenShift w wersji 3 lub nowszej.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 1186056559d6497b2b48cb3533a0967d6d61f38e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 2cd39c13ce7d67b2bfcfaca0a6f627e19d289783
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216372"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186919"
 ---
 # <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>Konfigurowanie usługi Azure Red Hat OpenShift v3 przy użyciu Azure Monitor dla kontenerów
 
@@ -18,7 +18,7 @@ ms.locfileid: "92216372"
 > Od października 2020 nie będzie już można tworzyć nowych klastrów 3,11.
 > Istniejące klastry 3,11 będą nadal działać do 2022 czerwca, ale nie będą już obsługiwane po tej dacie.
 >
-> Postępuj zgodnie z tym przewodnikiem, aby [utworzyć klaster usługi Azure Red Hat OpenShift 4](https://docs.microsoft.com/azure/openshift/tutorial-create-cluster).
+> Postępuj zgodnie z tym przewodnikiem, aby [utworzyć klaster usługi Azure Red Hat OpenShift 4](../../openshift/tutorial-create-cluster.md).
 > Jeśli masz określone pytania, [skontaktuj się z nami](mailto:aro-feedback@microsoft.com).
 
 Azure Monitor dla kontenerów zapewnia rozbudowane środowisko monitorowania dla klastrów usługi Azure Kubernetes Service (AKS) i AKS Engine. W tym artykule opisano sposób włączania monitorowania klastrów Kubernetes hostowanych na [platformie Azure Red Hat OpenShift](../../openshift/intro-openshift.md) w wersji 3 i najnowszej obsługiwanej wersji wersji 3 w celu osiągnięcia podobnego środowiska monitorowania.
@@ -81,7 +81,7 @@ Azure Monitor for Containers obsługuje monitorowanie usługi Azure Red Hat Open
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-1. W danych wyjściowych Znajdź nazwę obszaru roboczego, a następnie skopiuj pełny identyfikator zasobu tego Log Analytics obszaru roboczego pod **identyfikatorem**pola.
+1. W danych wyjściowych Znajdź nazwę obszaru roboczego, a następnie skopiuj pełny identyfikator zasobu tego Log Analytics obszaru roboczego pod **identyfikatorem** pola.
 
 ## <a name="enable-for-a-new-cluster-using-an-azure-resource-manager-template"></a>Włącz dla nowego klastra przy użyciu szablonu Azure Resource Manager
 
@@ -123,7 +123,7 @@ Jeśli zdecydujesz się na korzystanie z interfejsu wiersza polecenia platformy 
 
     `curl -LO https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/onboarding/aro/enable_monitoring_to_new_cluster/newClusterWithMonitoringParam.json`
 
-2. Logowanie do platformy Azure
+2. Logowanie się do platformy Azure
 
     ```azurecli
     az login
@@ -210,7 +210,7 @@ Jeśli zdecydujesz się na korzystanie z interfejsu wiersza polecenia platformy 
 
     `curl -LO https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/onboarding/aro/enable_monitoring_to_existing_cluster/existingClusterParam.json`
 
-2. Logowanie do platformy Azure
+2. Logowanie się do platformy Azure
 
     ```azurecli
     az login

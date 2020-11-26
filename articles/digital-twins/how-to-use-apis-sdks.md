@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d349d07a66b21766ea529661c2f27d0c76ea4d3b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: cac0d8cb8a910b735454c9270060364cab2db5fb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024725"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187242"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Korzystanie z interfejsów API i zestawów SDK usługi Azure Digital Twins
 
@@ -20,7 +20,7 @@ Usługa Azure Digital bliźniaczych reprezentacji jest wyposażona w **interfejs
 * Interfejsy API płaszczyzny kontroli to interfejsy API [Azure Resource Manager (ARM)](../azure-resource-manager/management/overview.md) i obejmują operacje zarządzania zasobami, takie jak tworzenie i usuwanie wystąpienia. 
 * Interfejsy API płaszczyzny danych to interfejsy API Digital bliźniaczych reprezentacji systemu Azure, które są używane do operacji zarządzania danymi, takich jak Zarządzanie modelami, bliźniaczych reprezentacji i wykres.
 
-Ten artykuł zawiera omówienie dostępnych interfejsów API oraz metod współpracy z nimi. Możesz użyć interfejsów API REST bezpośrednio ze skojarzonymi z nimi strukturami Swagger lub za pomocą zestawu SDK.
+Ten artykuł zawiera omówienie dostępnych interfejsów API oraz metod współpracy z nimi. Możesz użyć interfejsów API REST bezpośrednio ze skojarzonymi z nimi strukturami Swagger (za pomocą narzędzia, takiego jak program [Poster](how-to-use-postman.md)) lub zestawu SDK.
 
 ## <a name="overview-control-plane-apis"></a>Przegląd: sterowanie płaszczyzną interfejsów API
 
@@ -32,7 +32,7 @@ Aby używać interfejsów API płaszczyzny kontroli:
 * Interfejsy API można wywoływać bezpośrednio, odwołując się do najnowszej struktury Swagger w [folderze płaszczyzny kontroli Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). To repozytorium zawiera również folder przykładów, które pokazują użycie.
 * Obecnie możesz uzyskiwać dostęp do zestawów SDK dla formantów API w...
   - [**.NET (C#)**](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([odwołanie [generowane automatycznie]](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true)) ([Źródło](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins))
-  - [**Java**](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar) ([odwołanie [generowane automatycznie]](/java/api/overview/azure/digitaltwins?view=azure-java-stable)) ([Źródło](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31))
+  - [**Java**](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar) ([odwołanie [generowane automatycznie]](/java/api/overview/azure/digitaltwins?view=azure-java-stable&preserve-view=true)) ([Źródło](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31))
   - [**JavaScript**](https://www.npmjs.com/package/@azure/arm-digitaltwins) ([Źródło](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins))
   - [**Python**](https://pypi.org/project/azure-mgmt-digitaltwins/) ([Źródło](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins))
   - [**Go**](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins) ([Źródło](https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins))
@@ -279,6 +279,7 @@ client.UpdateDigitalTwin("myTwin", updateTwinData);
 
 Poniższa lista zawiera dodatkowe szczegółowe informacje i ogólne wskazówki dotyczące korzystania z interfejsów API i zestawów SDK.
 
+* Możesz użyć narzędzia do testowania HTTP REST, takiego jak Poster, aby nawiązywać bezpośrednie wywołania interfejsów API Digital bliźniaczych reprezentacji platformy Azure. Aby uzyskać więcej informacji o tym procesie, zobacz [*How to: wykonywanie żądań za pomocą programu Poster*](how-to-use-postman.md).
 * Aby użyć zestawu SDK, Utwórz wystąpienie `DigitalTwinsClient` klasy. Konstruktor wymaga poświadczeń, które można uzyskać przy użyciu różnych metod uwierzytelniania w `Azure.Identity` pakiecie. Więcej informacji `Azure.Identity` można znaleźć w dokumentacji dotyczącej [przestrzeni nazw](/dotnet/api/azure.identity?preserve-view=true&view=azure-dotnet). 
 * Może się to okazać `InteractiveBrowserCredential` przydatne podczas rozpoczynania pracy, ale istnieje kilka innych opcji, w tym poświadczenia [zarządzanej tożsamości](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet), które prawdopodobnie będą używane do uwierzytelniania usługi [Azure Functions w](../app-service/overview-managed-identity.md?tabs=dotnet) usłudze Azure Digital bliźniaczych reprezentacji. Więcej informacji `InteractiveBrowserCredential` można znaleźć w [dokumentacji swojej klasy](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet).
 * Wszystkie wywołania interfejsu API usługi są udostępniane jako funkcje członkowskie w `DigitalTwinsClient` klasie.
@@ -303,8 +304,8 @@ W tym miejscu można wyświetlić metryki dla wystąpienia i utworzyć widoki ni
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z tematem jak używać interfejsów API do konfigurowania wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji:
-* [*Instrukcje: Konfigurowanie wystąpienia i uwierzytelniania*](how-to-set-up-instance-cli.md)
+Zobacz, jak wykonywać bezpośrednie żądania do interfejsów API za pomocą programu Poster:
+* [*Instrukcje: wykonywanie żądań za pomocą programu Poster*](how-to-use-postman.md)
 
-Lub zapoznaj się z instrukcjami, aby utworzyć aplikację kliencką, taką jak ta, która jest używana w tym przewodniku:
+Można też użyć zestawu .NET SDK, tworząc aplikację kliencką w tym samouczku:
 * [*Samouczek: kod aplikacji klienckiej*](tutorial-code.md)

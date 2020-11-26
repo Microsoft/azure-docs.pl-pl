@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 7d96b03598f90b45b7ecf88027be7408d8f161ea
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: 53130e395995b3533a45a96f897a0c6bcf1e4c71
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638771"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187191"
 ---
 # <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Inicjowanie obsługi administracyjnej agentów i rozszerzeń z Azure Security Center
 
@@ -23,8 +23,8 @@ Zbieranie danych jest wymagane w celu zapewnienia wglądu w brakujące aktualiza
 
 Dane są zbierane przy użyciu:
 
-- **Agent log Analytics** , który odczytuje różne konfiguracje związane z zabezpieczeniami i dzienniki zdarzeń z komputera i kopiuje dane do obszaru roboczego w celu przeprowadzenia analizy. Przykładami takich danych są: typ i wersja systemu operacyjnego, Dzienniki systemu operacyjnego (dzienniki zdarzeń systemu Windows), uruchomione procesy, Nazwa maszyny, adresy IP i zalogowany użytkownik.
-- **Rozszerzenia zabezpieczeń** , takie jak [dodatek Azure Policy dla Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md), które mogą również dostarczać dane do Security Center dotyczących wyspecjalizowanych typów zasobów.
+- **Agent log Analytics**, który odczytuje różne konfiguracje związane z zabezpieczeniami i dzienniki zdarzeń z komputera i kopiuje dane do obszaru roboczego w celu przeprowadzenia analizy. Przykładami takich danych są: typ i wersja systemu operacyjnego, Dzienniki systemu operacyjnego (dzienniki zdarzeń systemu Windows), uruchomione procesy, Nazwa maszyny, adresy IP i zalogowany użytkownik.
+- **Rozszerzenia zabezpieczeń**, takie jak [dodatek Azure Policy dla Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md), które mogą również dostarczać dane do Security Center dotyczących wyspecjalizowanych typów zasobów.
 
 > [!TIP]
 > Jak Security Center, typy zasobów, które mogą być monitorowane, również zostały nahodowane. Liczba rozszerzeń została również osiągnięta. Funkcja autoaprowizacji została rozszerzona o obsługę dodatkowych typów zasobów, wykorzystując możliwości Azure Policy.
@@ -222,7 +222,7 @@ Aby ręcznie zainstalować agenta Log Analytics:
 
 W następujących przypadkach użycia określono, jak funkcja automatycznego udostępniania będzie działać w przypadkach, gdy jest już zainstalowany agent lub rozszerzenie. 
 
-- **Agent log Analytics jest zainstalowany na komputerze, ale nie jako rozszerzenie (Agent bezpośredni)** — jeśli Agent log Analytics jest instalowany bezpośrednio na maszynie wirtualnej (nie jako rozszerzenie platformy Azure), Security Center zainstaluje rozszerzenie agenta log Analytics i może uaktualnić agenta log Analytics do najnowszej wersji.
+- **Agent log Analytics jest zainstalowany na komputerze, ale nie jako rozszerzenie (Agent bezpośredni)** — jeśli Agent log Analytics jest instalowany bezpośrednio na maszynie wirtualnej (nie jako rozszerzenie platformy Azure), Security Center zainstaluje rozszerzenie agenta log Analytics i będzie mógł uaktualnić agenta log Analytics do najnowszej wersji.
 Zainstalowany agent będzie kontynuował raportowanie do już skonfigurowanych obszarów roboczych, a ponadto przeprowadzi raport do obszaru roboczego skonfigurowanego w Security Center (wiele multihostingu jest obsługiwana na maszynach z systemem Windows).
 Jeśli skonfigurowany obszar roboczy jest obszarem roboczym użytkownika (nie Security Center domyślnym obszarem roboczym), należy zainstalować na nim rozwiązanie "Security/" securityFree "dla Security Center, aby rozpocząć przetwarzanie zdarzeń z maszyn wirtualnych i komputerów zgłaszanych do tego obszaru roboczego.
 
@@ -232,7 +232,7 @@ Jeśli skonfigurowany obszar roboczy jest obszarem roboczym użytkownika (nie Se
   
 - **Agent System Center Operations Manager jest zainstalowany na komputerze** — Centrum zabezpieczeń zainstaluje rozszerzenie agenta log Analytics obok istniejącej Operations Manager. Istniejący Agent Operations Manager będzie kontynuował raportowanie do serwera Operations Manager w normalny sposób. Agent Operations Manager i Agent Log Analytics mają wspólne biblioteki uruchomieniowe, które zostaną zaktualizowane do najnowszej wersji w trakcie tego procesu. Jeśli zainstalowano agenta **Operations Manager w wersji 2012, nie należy** włączać automatycznej aprowizacji.
 
-- **Istnieje już istniejące rozszerzenie maszyny wirtualnej** :
+- **Istnieje już istniejące rozszerzenie maszyny wirtualnej**:
     - Gdy Agent monitorowania jest zainstalowany jako rozszerzenie, konfiguracja rozszerzenia umożliwia raportowanie tylko jednego obszaru roboczego. Security Center nie przesłania istniejących połączeń z obszarami roboczymi użytkowników. Security Center będą przechowywać dane zabezpieczeń z maszyny wirtualnej w już podłączonym obszarze roboczym, pod warunkiem, że zostało na nim zainstalowane rozwiązanie "Security" lub "securityFree". Security Center może uaktualnić wersję rozszerzenia do najnowszej wersji w tym procesie.  
     - Aby zobaczyć, w którym obszarze roboczym jest wysyłane dane rozszerzenie, Uruchom test w celu [sprawdzenia łączności z Azure Security Center](/archive/blogs/yuridiogenes/validating-connectivity-with-azure-security-center). Alternatywnie możesz otworzyć obszary robocze Log Analytics, wybrać obszar roboczy, wybrać maszynę wirtualną i sprawdzić połączenie z agentem Log Analytics. 
     - Jeśli masz środowisko, w którym jest zainstalowany agent Log Analytics na stacjach roboczych klienta i raportowanie do istniejącego Log Analytics obszaru roboczego, przejrzyj listę [systemów operacyjnych obsługiwanych przez Azure Security Center](security-center-os-coverage.md) , aby upewnić się, że system operacyjny jest obsługiwany. Aby uzyskać więcej informacji, zobacz [istniejących klientów usługi log Analytics](./faq-azure-monitor-logs.md).

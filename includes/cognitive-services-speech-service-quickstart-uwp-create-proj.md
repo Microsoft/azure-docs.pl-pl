@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
 ms.openlocfilehash: df9dbdf61dbc7d83f1cf74871ddc864488ed9d47
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097222"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188343"
 ---
 Aby utworzyć projekt programu Visual Studio na potrzeby tworzenia platforma uniwersalna systemu Windows (platformy UWP), musisz skonfigurować opcje programistyczne programu Visual Studio, utworzyć projekt, wybrać architekturę docelową, skonfigurować funkcję przechwytywania audio i zainstalować zestaw Speech SDK.
 
@@ -27,7 +27,7 @@ Aby rozpocząć, upewnij się, że program Visual Studio jest poprawnie skonfigu
 
    ![Zrzut ekranu pokazujący kartę "obciążenia" okna dialogowego "Modyfikowanie" z wyróżnioną pozycją "platforma uniwersalna systemu Windows Development".](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-workload.png)
 
-1. Na karcie **obciążenia** w obszarze **systemu Windows**Znajdź **platforma uniwersalna systemu Windows obciążenie programowaniem** . Jeśli pole wyboru obok tego obciążenia jest już zaznaczone, Zamknij okno dialogowe **Modyfikowanie** i przejdź do kroku 6.
+1. Na karcie **obciążenia** w obszarze **systemu Windows** Znajdź **platforma uniwersalna systemu Windows obciążenie programowaniem** . Jeśli pole wyboru obok tego obciążenia jest już zaznaczone, Zamknij okno dialogowe **Modyfikowanie** i przejdź do kroku 6.
 
 1. Zaznacz pole wyboru **programowanie platforma uniwersalna systemu Windows** , wybierz pozycję **Modyfikuj**, a następnie w oknie dialogowym **przed** rozpoczęciem wybierz pozycję **Kontynuuj** , aby zainstalować obciążenie programowanie platformy UWP. Instalacja nowej funkcji może trochę potrwać.
 
@@ -47,9 +47,9 @@ Następnie utwórz projekt:
 
    ![Zrzut ekranu pokazujący ekran "Konfigurowanie nowego projektu" z wyróżnionymi polami "Nazwa projektu" i "lokalizacja" oraz przycisk "Utwórz".](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-configure-your-new-project.png)
 
-1. W polu **Nazwa projektu**wprowadź `helloworld` .
+1. W polu **Nazwa projektu** wprowadź `helloworld` .
 
-1. W obszarze **Lokalizacja**przejdź do, a następnie wybierz lub Utwórz folder, w którym ma zostać zapisany projekt.
+1. W obszarze **Lokalizacja** przejdź do, a następnie wybierz lub Utwórz folder, w którym ma zostać zapisany projekt.
 
 1. Wybierz pozycję **Utwórz** , aby przejść do okna **Nowy projekt platforma uniwersalna systemu Windows** .
 
@@ -72,7 +72,7 @@ Teraz wybierz architekturę platformy docelowej. Na pasku narzędzi programu Vis
 
 Zezwól projektowi na przechwytywanie danych wejściowych audio:
 
-1. W **Eksplorator rozwiązań**kliknij dwukrotnie plik **Package. appxmanifest** , aby otworzyć manifest aplikacji pakietu.
+1. W **Eksplorator rozwiązań** kliknij dwukrotnie plik **Package. appxmanifest** , aby otworzyć manifest aplikacji pakietu.
 
 1. Wybierz kartę **Capabilities** (Możliwości).
 
@@ -86,13 +86,13 @@ Zezwól projektowi na przechwytywanie danych wejściowych audio:
 
 Na koniec zainstaluj [pakiet NuGet zestawu Speech SDK](https://aka.ms/csspeech/nuget)i odwołuje się do zestawu Speech SDK w projekcie:
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy rozwiązanie, a następnie wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania** , aby przejść do okna **rozwiązania NuGet** .
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy rozwiązanie, a następnie wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania** , aby przejść do okna **rozwiązania NuGet** .
 
 1. Wybierz pozycję **Przeglądaj**.
 
    ![Zrzut ekranu przedstawiający okno dialogowe "Zarządzanie pakietami dla rozwiązania" z wyróżnioną kartą "Przeglądaj", "wyszukiwanie" i "Źródło pakietów".](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-nuget-solution-browse.png)
 
-1. W obszarze **Źródło pakietu**wybierz pozycję **NuGet.org**.
+1. W obszarze **Źródło pakietu** wybierz pozycję **NuGet.org**.
 
 1. W polu **wyszukiwania** wpisz `Microsoft.CognitiveServices.Speech` , a następnie wybierz ten pakiet po pojawieniu się w wynikach wyszukiwania.
 

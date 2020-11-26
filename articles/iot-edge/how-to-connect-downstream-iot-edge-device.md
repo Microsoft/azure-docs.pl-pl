@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: d5da6576258d3e33296781bbc262494220140ddc
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 37c237cdaf6c0d4f766d4b2e39c10e3e96215463
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489288"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187837"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway-preview"></a>Łączenie urządzenia podrzędnego IoT Edge z bramą Azure IoT Edge (wersja zapoznawcza)
 
@@ -34,15 +34,15 @@ Niektóre architektury sieciowe wymagają, aby tylko górne urządzenie IoT Edge
 
 Wszystkie kroki opisane w tym artykule umożliwiają kompilację na temat [konfigurowania urządzenia IoT Edge jako niejawnej bramy](how-to-create-transparent-gateway.md), która konfiguruje urządzenie IoT Edge jako bramę dla urządzeń z systemem IoT. Te same podstawowe kroki dotyczą wszystkich scenariuszy bramy:
 
-* **Uwierzytelnianie** : utwórz tożsamości IoT Hub dla wszystkich urządzeń w hierarchii bramy.
-* **Autoryzacja** : Skonfiguruj relację nadrzędną/podrzędną w IoT Hub, aby autoryzować urządzenia podrzędne do łączenia się z urządzeniem nadrzędnym, tak jak w przypadku łączenia się z IoT Hub.
-* **Odnajdywanie bramy** : Upewnij się, że urządzenie podrzędne może znaleźć swoje urządzenie nadrzędne w sieci lokalnej.
-* **Bezpieczne połączenie** : Ustanów bezpieczne połączenie z zaufanymi certyfikatami, które są częścią tego samego łańcucha.
+* **Uwierzytelnianie**: utwórz tożsamości IoT Hub dla wszystkich urządzeń w hierarchii bramy.
+* **Autoryzacja**: Skonfiguruj relację nadrzędną/podrzędną w IoT Hub, aby autoryzować urządzenia podrzędne do łączenia się z urządzeniem nadrzędnym, tak jak w przypadku łączenia się z IoT Hub.
+* **Odnajdywanie bramy**: Upewnij się, że urządzenie podrzędne może znaleźć swoje urządzenie nadrzędne w sieci lokalnej.
+* **Bezpieczne połączenie**: Ustanów bezpieczne połączenie z zaufanymi certyfikatami, które są częścią tego samego łańcucha.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Bezpłatna lub standardowa wersja Centrum IoT Hub.
-* Co najmniej dwa **urządzenia IoT Edge** , jeden to jako urządzenie warstwy najwyższego poziomu i jedno lub więcej urządzeń niższej warstwy. Jeśli nie masz dostępnych urządzeń IoT Edge, możesz [uruchomić Azure IoT Edge na maszynach wirtualnych Ubuntu](how-to-install-iot-edge-ubuntuvm.md).
+* Co najmniej dwa **urządzenia IoT Edge**, jeden to jako urządzenie warstwy najwyższego poziomu i jedno lub więcej urządzeń niższej warstwy. Jeśli nie masz dostępnych urządzeń IoT Edge, możesz [uruchomić Azure IoT Edge na maszynach wirtualnych Ubuntu](how-to-install-iot-edge-ubuntuvm.md).
 * Jeśli używasz interfejsu wiersza polecenia platformy Azure do tworzenia urządzeń i zarządzania nimi, użyj interfejsu wiersza polecenia platformy Azure w wersji 2.3.1 z zainstalowaną usługą Azure IoT Extension v 0.10.6 lub nowszą.
 
 Ten artykuł zawiera szczegółowe instrukcje i opcje ułatwiające utworzenie odpowiedniej hierarchii bramy dla danego scenariusza. Samouczek z przewodnikiem zawiera temat [Tworzenie hierarchii IoT Edge urządzeń przy użyciu bram](tutorial-nested-iot-edge.md).
@@ -99,7 +99,7 @@ W przypadku tej konfiguracji każde urządzenie podrzędne IoT Edge lub urządze
 
 Utwórz następujące certyfikaty:
 
-* **Certyfikat głównego urzędu certyfikacji** , który jest najwyżej udostępnionym certyfikatem dla wszystkich urządzeń w danej hierarchii bramy. Ten certyfikat jest instalowany na wszystkich urządzeniach.
+* **Certyfikat głównego urzędu certyfikacji**, który jest najwyżej udostępnionym certyfikatem dla wszystkich urządzeń w danej hierarchii bramy. Ten certyfikat jest instalowany na wszystkich urządzeniach.
 * Wszystkie **Certyfikaty pośrednie** , które mają zostać uwzględnione w łańcuchu certyfikatów głównych.
 * **Certyfikat urzędu certyfikacji urządzenia** i jego **klucz prywatny** generowane przez certyfikaty główne i pośrednie. Wymagany jest jeden unikatowy certyfikat urzędu certyfikacji dla każdego urządzenia IoT Edge w hierarchii bramy.
 
@@ -148,9 +148,9 @@ Upewnij się, że użytkownik **iotedge** ma uprawnienia do odczytu w katalogu z
 
 1. Znajdź sekcję **Certyfikaty** w pliku config. YAML. Zaktualizuj trzy pola certyfikatów, aby wskazywały swoje certyfikaty. Podaj ścieżki URI pliku, które mają format `file:///<path>/<filename>` .
 
-   * **device_ca_cert** : ścieżka identyfikatora URI pliku do certyfikatu urzędu certyfikacji urządzenia, który jest unikatowy dla tego urządzenia.
-   * **device_ca_pk** : ścieżka identyfikatora URI pliku do klucza prywatnego urzędu certyfikacji urządzenia unikatowy dla tego urządzenia.
-   * **trusted_ca_certs** : ścieżka identyfikatora URI pliku do certyfikatu głównego urzędu certyfikacji, który jest współużytkowany przez wszystkie urządzenia w hierarchii bramy.
+   * **device_ca_cert**: ścieżka identyfikatora URI pliku do certyfikatu urzędu certyfikacji urządzenia, który jest unikatowy dla tego urządzenia.
+   * **device_ca_pk**: ścieżka identyfikatora URI pliku do klucza prywatnego urzędu certyfikacji urządzenia unikatowy dla tego urządzenia.
+   * **trusted_ca_certs**: ścieżka identyfikatora URI pliku do certyfikatu głównego urzędu certyfikacji, który jest współużytkowany przez wszystkie urządzenia w hierarchii bramy.
 
 1. Znajdź parametr **hostname** w pliku config. YAML. Zaktualizuj nazwę hosta tak, aby była to w pełni kwalifikowana nazwa domeny (FQDN) lub adres IP urządzenia IoT Edge.
 
@@ -160,7 +160,7 @@ Upewnij się, że użytkownik **iotedge** ma uprawnienia do odczytu w katalogu z
 
    Być spójne ze wzorcem nazwy hosta w hierarchii bramy. Użyj nazw FQDN lub adresów IP, ale nie obu.
 
-1. **Jeśli to urządzenie jest urządzeniem podrzędnym** , znajdź parametr **parent_hostname** . Zaktualizuj pole **parent_hostname** tak, aby było to nazwa FQDN lub adres IP urządzenia nadrzędnego, dopasowanie dowolnego elementu jako nazwy hosta w pliku config. YAML.
+1. **Jeśli to urządzenie jest urządzeniem podrzędnym**, znajdź parametr **parent_hostname** . Zaktualizuj pole **parent_hostname** tak, aby było to nazwa FQDN lub adres IP urządzenia nadrzędnego, dopasowanie dowolnego elementu jako nazwy hosta w pliku config. YAML.
 
 1. Chociaż ta funkcja jest dostępna w publicznej wersji zapoznawczej, należy skonfigurować urządzenie IoT Edge w taki sposób, aby korzystało z publicznej wersji zapoznawczej agenta IoT Edge podczas jego uruchamiania.
 
@@ -172,7 +172,7 @@ Upewnij się, że użytkownik **iotedge** ma uprawnienia do odczytu w katalogu z
      type: "docker"
      env: {}
      config:
-       image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc1"
+       image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc2"
        auth: {}
    ```
 
@@ -202,7 +202,7 @@ Upewnij się, że użytkownik **iotedge** ma uprawnienia do odczytu w katalogu z
 
 Chociaż ta funkcja jest dostępna w publicznej wersji zapoznawczej, należy skonfigurować urządzenie IoT Edge, aby korzystało z publicznej wersji zapoznawczej modułów IoT Edge środowiska uruchomieniowego. W poprzedniej sekcji przedstawiono procedurę konfigurowania edgeAgent podczas uruchamiania. Należy również skonfigurować moduły środowiska uruchomieniowego w ramach wdrożeń dla urządzenia.
 
-1. Skonfiguruj moduł edgeHub do korzystania z obrazu publicznej wersji zapoznawczej: `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc1` .
+1. Skonfiguruj moduł edgeHub do korzystania z obrazu publicznej wersji zapoznawczej: `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2` .
 
 1. Skonfiguruj następujące zmienne środowiskowe dla modułu edgeHub:
 
@@ -211,7 +211,7 @@ Chociaż ta funkcja jest dostępna w publicznej wersji zapoznawczej, należy sko
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__nestedEdgeEnabled` | `true` |
 
-1. Skonfiguruj moduł edgeAgent do korzystania z obrazu publicznej wersji zapoznawczej: `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc1` .
+1. Skonfiguruj moduł edgeAgent do korzystania z obrazu publicznej wersji zapoznawczej: `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2` .
 
 ## <a name="network-isolate-downstream-devices"></a>Izolowanie sieci na urządzeniach podrzędnych
 
@@ -298,17 +298,17 @@ Moduł proxy interfejsu API został zaprojektowany tak, aby był dostosowany do 
 1. Wybierz pozycję **Zapisz** , aby zapisać zmiany w ustawieniach środowiska uruchomieniowego.
 1. Wybierz pozycję **Dodaj** ponownie, a następnie wybierz **moduł IoT Edge**.
 1. Podaj następujące wartości, aby dodać moduł Docker Registry do wdrożenia:
-   1. **Nazwa modułu IoT Edge** : `registry`
-   1. Na karcie **Ustawienia modułu** **Identyfikator URI obrazu** : `registry:latest`
+   1. **Nazwa modułu IoT Edge**: `registry`
+   1. Na karcie **Ustawienia modułu** **Identyfikator URI obrazu**: `registry:latest`
    1. Na karcie **zmienne środowiskowe** Dodaj następujące zmienne środowiskowe:
 
-      * **Nazwa** : `REGISTRY_PROXY_REMOTEURL` **wartość** : adres URL rejestru kontenerów, na który ma być mapowany ten moduł rejestru. Na przykład `https://myregistry.azurecr`.
+      * **Nazwa**: `REGISTRY_PROXY_REMOTEURL` **wartość**: adres URL rejestru kontenerów, na który ma być mapowany ten moduł rejestru. Na przykład `https://myregistry.azurecr`.
 
         Moduł rejestru może mapować tylko jeden rejestr kontenerów, dlatego zaleca się, aby wszystkie obrazy kontenerów były w jednym rejestrze prywatnym kontenerów.
 
-      * **Name** : `REGISTRY_PROXY_USERNAME` **Value** : username do uwierzytelniania w rejestrze kontenerów.
+      * **Name**: `REGISTRY_PROXY_USERNAME` **Value**: username do uwierzytelniania w rejestrze kontenerów.
 
-      * **Name** : `REGISTRY_PROXY_PASSWORD` **Value** : password do uwierzytelniania w rejestrze kontenerów.
+      * **Name**: `REGISTRY_PROXY_PASSWORD` **Value**: password do uwierzytelniania w rejestrze kontenerów.
 
    1. Na karcie **Opcje tworzenia kontenera** wklej:
 
@@ -328,9 +328,9 @@ Moduł proxy interfejsu API został zaprojektowany tak, aby był dostosowany do 
 
 1. Wybierz pozycję **Dodaj** , aby dodać moduł do wdrożenia.
 1. Wybierz pozycję **Dalej: trasy** , aby przejść do następnego kroku.
-1. Aby włączyć obsługę komunikatów z urządzenia do chmury z urządzeń podrzędnych w celu osiągnięcia IoT Hub, należy uwzględnić trasę przekazującą wszystkie komunikaty do IoT Hub. Na przykład:
-    1. **Nazwa** : `Route`
-    1. **Wartość** : `FROM /messages/* INTO $upstream`
+1. Aby włączyć obsługę komunikatów z urządzenia do chmury z urządzeń podrzędnych w celu osiągnięcia IoT Hub, należy uwzględnić trasę przekazującą wszystkie komunikaty do IoT Hub. Przykład:
+    1. **Nazwa**: `Route`
+    1. **Wartość**: `FROM /messages/* INTO $upstream`
 1. Wybierz pozycję **Recenzja + Utwórz** , aby przejść do ostatniego kroku.
 1. Wybierz pozycję **Utwórz** , aby wdrożyć na urządzeniu.
 
@@ -358,7 +358,7 @@ Agent IoT Edge to pierwszy składnik środowiska uruchomieniowego do uruchomieni
 
 Po przejściu do pliku config. YAML na urządzeniu IoT Edge, aby podać informacje o uwierzytelnianiu, certyfikatach i nadrzędnej nazwie hosta, należy również zaktualizować obraz kontenera edgeAgent.
 
-Jeśli urządzenie bramy najwyższego poziomu jest skonfigurowane do obsługi żądań obrazu kontenera, Zastąp `mcr.microsoft.com` wartość nadrzędną nazwą hosta i portem nasłuchu interfejsu API serwera proxy. W manifeście wdrożenia można użyć `$upstream` jako skrótu, ale wymaga modułu edgeHub do obsługi routingu i tego modułu nie uruchomiono w tym momencie. Na przykład:
+Jeśli urządzenie bramy najwyższego poziomu jest skonfigurowane do obsługi żądań obrazu kontenera, Zastąp `mcr.microsoft.com` wartość nadrzędną nazwą hosta i portem nasłuchu interfejsu API serwera proxy. W manifeście wdrożenia można użyć `$upstream` jako skrótu, ale wymaga modułu edgeHub do obsługi routingu i tego modułu nie uruchomiono w tym momencie. Przykład:
 
 ```yml
 agent:
@@ -366,7 +366,7 @@ agent:
   type: "docker"
   env: {}
   config:
-    image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.2.0-rc1"
+    image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.2.0-rc2"
     auth: {}
 ```
 
@@ -435,9 +435,9 @@ Moduł proxy interfejsu API został zaprojektowany tak, aby był dostosowany do 
 
 1. Wybierz pozycję **Zapisz** , aby zapisać zmiany w ustawieniach środowiska uruchomieniowego.
 1. Wybierz pozycję **Dalej: trasy** , aby przejść do następnego kroku.
-1. Aby włączyć obsługę komunikatów z urządzenia do chmury z urządzeń podrzędnych w celu uzyskania dostępu IoT Hub, Uwzględnij trasę przekazującą wszystkie komunikaty do programu `$upstream` . Parametr nadrzędny wskazuje urządzenie nadrzędne w przypadku niższych warstw urządzeń. Na przykład:
-    1. **Nazwa** : `Route`
-    1. **Wartość** : `FROM /messages/* INTO $upstream`
+1. Aby włączyć obsługę komunikatów z urządzenia do chmury z urządzeń podrzędnych w celu uzyskania dostępu IoT Hub, Uwzględnij trasę przekazującą wszystkie komunikaty do programu `$upstream` . Parametr nadrzędny wskazuje urządzenie nadrzędne w przypadku niższych warstw urządzeń. Przykład:
+    1. **Nazwa**: `Route`
+    1. **Wartość**: `FROM /messages/* INTO $upstream`
 1. Wybierz pozycję **Recenzja + Utwórz** , aby przejść do ostatniego kroku.
 1. Wybierz pozycję **Utwórz** , aby wdrożyć na urządzeniu.
 

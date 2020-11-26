@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 08/19/2019
 ms.custom: mvc, sec-javascript-october2019
-ms.openlocfilehash: fb7a32199117be76e411155910d558ef187398ab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6cc9c6af4592956b6498e826ef65b556e5780f34
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91448261"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186834"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Zbieranie danych z maszyny wirtualnej platformy Azure za pomocą Azure Monitor
 
@@ -24,7 +24,7 @@ W tym przewodniku Szybki start przyjęto założenie, że masz już maszynę wir
 
 Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com). 
 
-## <a name="create-a-workspace"></a>Tworzenie obszaru roboczego
+## <a name="create-a-workspace"></a>Utwórz obszar roboczy
 
 1. W Azure Portal wybierz pozycję **wszystkie usługi**. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz **log Analytics obszary robocze**.
 
@@ -99,7 +99,7 @@ Azure Monitor może zbierać zdarzenia z dzienników zdarzeń systemu Windows lu
 
 2. Dziennik zdarzeń dodaje się przez wpisanie nazwy dziennika.  Wpisz **Dziennik** systemowy, a następnie wybierz znak plus **+** .  
 
-3. W tabeli Usuń zaznaczenie **informacji o informacjach**dotyczących serwerów, **powiadomienia** i **debugowania**. 
+3. W tabeli Usuń zaznaczenie **informacji o informacjach** dotyczących serwerów, **powiadomienia** i **debugowania**. 
 
 4. Wybierz pozycję **Zapisz** w górnej części strony, aby zapisać konfigurację.
 
@@ -127,7 +127,7 @@ Teraz, po włączeniu zbierania danych, uruchomimy proste przykładowe wyszukiwa
 
     ![Wynik przeszukiwania dzienników w usłudze Log Analytics](media/quick-collect-azurevm/log-analytics-search-perf.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Obszar roboczy usługi Log Analytics można usunąć, gdy nie jest już potrzebny. W tym celu wybierz utworzony wcześniej obszar roboczy Log Analytics i na stronie zasób wybierz pozycję **Usuń**.
 
@@ -141,4 +141,4 @@ Teraz, kiedy są zbierane dane operacyjne i dane wydajności z maszyn wirtualnyc
 Aby dowiedzieć się, jak wyświetlać i analizować dane, przejdź do następnego samouczka.
 
 > [!div class="nextstepaction"]
-> [Wyświetlanie i analizowanie danych w usłudze Log Analytics](../log-query/get-started-portal.md)
+> [Wyświetlanie i analizowanie danych w usłudze Log Analytics](../log-query/log-analytics-tutorial.md)

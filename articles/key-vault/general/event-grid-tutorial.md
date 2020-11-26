@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 10/25/2019
 ms.author: mbaldwin
 ms.openlocfilehash: d7bb697879f40b45c886cd90bbb1e34906d35f66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530509"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187378"
 ---
 # <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid"></a>Odbieraj powiadomienia magazynu kluczy i odpowiadaj na nie za pomocą Azure Event Grid
 
@@ -133,7 +133,7 @@ Utwórz subskrypcję Event Grid przy użyciu [Azure Portal](https://portal.azure
 
 1.  **Zasób tematu** powinien być magazynem kluczy, który ma być monitorowany pod kątem zmian stanu.
 
-1.  W przypadku **filtru do typów zdarzeń**pozostaw wszystkie wybrane opcje (**9 wybrane**).
+1.  W przypadku **filtru do typów zdarzeń** pozostaw wszystkie wybrane opcje (**9 wybrane**).
 
 1.  W polu **Typ punktu końcowego** wybierz pozycję **Element webhook**.
 
@@ -159,7 +159,7 @@ Sprawdź, czy subskrypcja Event Grid została prawidłowo skonfigurowana. W tym 
 
 1.  Na karcie **zdarzenia** w magazynie kluczy Wybierz utworzoną subskrypcję Event Grid.
 
-1.  W obszarze **metryki**Sprawdź, czy zdarzenie zostało przechwycone. Oczekiwane są dwa zdarzenia: SecretNewVersion i SecretNearExpiry. Te zdarzenia sprawdzają, czy Event Grid pomyślnie przechwycić zmianę stanu wpisu tajnego w magazynie kluczy.
+1.  W obszarze **metryki** Sprawdź, czy zdarzenie zostało przechwycone. Oczekiwane są dwa zdarzenia: SecretNewVersion i SecretNearExpiry. Te zdarzenia sprawdzają, czy Event Grid pomyślnie przechwycić zmianę stanu wpisu tajnego w magazynie kluczy.
 
     ![Okienko metryk: sprawdzanie przechwytywanych zdarzeń](../media/event-grid-tutorial-11.png)
 

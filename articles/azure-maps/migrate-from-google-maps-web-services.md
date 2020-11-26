@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: f97d04ca40e69ba2516744adfc9f1f455cba97c0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 0bb252e227e4f23388929f2fca18769e0bd02e19
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896348"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187038"
 ---
 # <a name="tutorial---migrate-web-service-from-google-maps"></a>Samouczek — Migrowanie usługi sieci Web ze sklepu Google Maps
 
@@ -40,7 +40,7 @@ W tabeli przedstawiono interfejsy API usługi Azure Maps, które mają podobną 
 
 | Interfejs API usługi Mapy Google | Interfejs API usługi Azure Maps                                                                      |
 |-------------------------|---------------------------------------------------------------------------------------------|
-| Wskazówki              | [Trasa](/rest/api/maps/route)                                     |
+| Wskazówki              | [Szlak](/rest/api/maps/route)                                     |
 | Macierz odległości         | [Macierz trasy](/rest/api/maps/route/postroutematrixpreview)       |
 | Geokodowanie               | [Wyszukiwanie](/rest/api/maps/search)                                   |
 | Wyszukiwanie miejsc           | [Wyszukiwanie](/rest/api/maps/search)                                   |
@@ -116,7 +116,7 @@ Ta tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google 
 | `key`                       | `subscription-key` — Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](azure-maps-authentication.md) . |
 | `language`                  | `language` — Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
 | `latlng`                    | `query`  |
-| `location_type`             | *NIE DOTYCZY*     |
+| `location_type`             | *Nie dotyczy*     |
 | `result_type`               | `entityType`    |
 
 Zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi wyszukiwania](how-to-use-best-practices-for-search.md).
@@ -132,7 +132,7 @@ Interfejs API odtwarzania geokodowanej Azure Maps ma kilka dodatkowych funkcji, 
 Punkt danych zainteresowania można wyszukiwać w usłudze Google Maps przy użyciu interfejsu API wyszukiwania miejsc. Ten interfejs API udostępnia trzy różne sposoby wyszukiwania interesujących punktów:
 
 - **Znajdź miejsce z tekstu:** Wyszukuje punkt orientacyjny na podstawie jego nazwy, adresu lub numeru telefonu.
-- **Wyszukiwanie w pobliżu** : wyszukuje punkty zainteresowań, które znajdują się w określonej odległości od lokalizacji.
+- **Wyszukiwanie w pobliżu**: wyszukuje punkty zainteresowań, które znajdują się w określonej odległości od lokalizacji.
 - **Wyszukiwanie tekstu:** Wyszukuje miejsca przy użyciu swobodnego tekstu, który obejmuje punkt orientacyjny i informacje o lokalizacji. Na przykład "Pizza w Nowym Jorku" lub "Restauracje blisko głównego St".
 
 Azure Maps udostępnia kilka interfejsów API wyszukiwania dla interesujących punktów:
@@ -160,9 +160,9 @@ Tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google Map
 
 | Parametr interfejsu API usługi Google Maps | Porównywalny parametr interfejsu API Azure Maps |
 |---------------------------|-------------------------------------|
-| `fields`                  | *NIE DOTYCZY*                               |
+| `fields`                  | *Nie dotyczy*                               |
 | `input`                   | `query`                             |
-| `inputtype`               | *NIE DOTYCZY*                               |
+| `inputtype`               | *Nie dotyczy*                               |
 | `key`                     | `subscription-key` — Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](azure-maps-authentication.md) . |
 | `language`                | `language` — Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
 | `locationbias`            | `lat``lon`i`radius`<br/>`topLeft` i `btmRight`<br/>`countrySet`  |
@@ -179,13 +179,13 @@ W tabeli przedstawiono parametry interfejsu API usługi Google Maps z porównywa
 | `keyword`                   | `categorySet` i `brandSet`        |
 | `language`                  | `language` — Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
 | `location`                  | `lat` i `lon`                     |
-| `maxprice`                  | *NIE DOTYCZY*                               |
-| `minprice`                  | *NIE DOTYCZY*                               |
+| `maxprice`                  | *Nie dotyczy*                               |
+| `minprice`                  | *Nie dotyczy*                               |
 | `name`                      | `categorySet` i `brandSet`        |
-| `opennow`                   | *NIE DOTYCZY*                               |
+| `opennow`                   | *Nie dotyczy*                               |
 | `pagetoken`                 | `ofs` i `limit`                   |
 | `radius`                    | `radius`                            |
-| `rankby`                    | *NIE DOTYCZY*                               |
+| `rankby`                    | *Nie dotyczy*                               |
 | `type`                      | `categorySet –` Zapoznaj się z dokumentacją dotyczącą [obsługiwanych kategorii wyszukiwania](supported-search-categories.md) .   |
 
 ## <a name="calculate-routes-and-directions"></a>Obliczanie tras i wskazówek
@@ -265,10 +265,10 @@ Tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google Map
 | `markers`                   | `pins`                             |
 | `path`                      | `path`                             |
 | `region`                    | Nie *dotyczy — jest* to funkcja powiązana z geokodowaniem. Użyj `countrySet` parametru podczas korzystania z interfejsu API Azure Maps geokodowania.  |
-| `scale`                     | *NIE DOTYCZY*                              |
+| `scale`                     | *Nie dotyczy*                              |
 | `size`                      | `width` i `height` — może mieć rozmiar maksymalnie 8192x8192. |
-| `style`                     | *NIE DOTYCZY*                              |
-| `visible`                   | *NIE DOTYCZY*                              |
+| `style`                     | *Nie dotyczy*                              |
+| `visible`                   | *Nie dotyczy*                              |
 | `zoom`                      | `zoom`                             |
 
 > [!NOTE]
@@ -337,7 +337,7 @@ W Azure Maps lokalizacja numeru PIN musi być w formacie "Długość geograficzn
 - `custom` — Określa niestandardową ikonę, która ma być używana. Adres URL wskazujący ikonę obrazu można dodać na końcu `pins` parametru po informacjach o lokalizacji numeru PIN.
 - `{udid}` — Unikatowy identyfikator danych (UDID) dla ikony przechowywanej na platformie magazynu danych Azure Maps.
 
-Dodaj style kodu PIN w `optionNameValue` formacie. Oddziel wiele stylów znakami potoku ( \| ). Na przykład: `iconType|optionName1Value1|optionName2Value2`. Nazwy i wartości opcji nie są oddzielone. Użyj następujących nazw opcji stylu do znaczników stylu:
+Dodaj style kodu PIN w `optionNameValue` formacie. Oddziel wiele stylów znakami potoku ( \| ). Przykład: `iconType|optionName1Value1|optionName2Value2`. Nazwy i wartości opcji nie są oddzielone. Użyj następujących nazw opcji stylu do znaczników stylu:
 
 - `al` — Określa nieprzezroczystość (alfa) znacznika. Wybierz liczbę z zakresu od 0 do 1.
 - `an` — Określa kotwicę numeru PIN. Określ wartości X i y pikseli w formacie "X y".
@@ -501,10 +501,10 @@ Dowiedz się więcej o Azure Maps usługach REST:
 > [Najlepsze rozwiązania dotyczące routingu](how-to-use-best-practices-for-routing.md)
 
 > [!div class="nextstepaction"]
-> [Dokumentacja interfejsu API usługi REST Azure Maps](https://docs.microsoft.com/rest/api/maps/)
+> [Dokumentacja interfejsu API usługi REST Azure Maps](/rest/api/maps/)
 
 > [!div class="nextstepaction"]
-> [Przykłady kodu](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Przykłady kodu](/samples/browse/?products=azure-maps)
 
 > [!div class="nextstepaction"]
 > [Jak używać modułu usług (Web SDK)](how-to-use-best-practices-for-routing.md)

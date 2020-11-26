@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 3a523421c128ea26503c0848ad8fcf7d74636a04
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: bd8c5c31579ac22cd6c77dffd31103680e393f69
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341333"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187174"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>Szybki Start: Konfigurowanie Azure Security Center
 
@@ -47,7 +47,7 @@ Okno **Security Center — Przegląd** zapewnia ujednolicony wgląd w stan zabez
 
 Możesz wyświetlić i filtrować listę subskrypcji, wybierając element menu **subskrypcje** . Security Center dostosowuje wyświetlanie, aby odzwierciedlały stan zabezpieczeń wybranych subskrypcji. 
 
-W ciągu kilku minut od pierwszego uruchomienia usługi Security Center mogą zostać wyświetlone następujące informacje:
+W ciągu kilku minut od uruchomienia Security Center po raz pierwszy zobaczysz:
 
 - **Zalecenia** dotyczące sposobów zwiększania bezpieczeństwa połączonych zasobów.
 - Spis zasobów, które są teraz oceniane przez Security Center, wraz z stan zabezpieczeń każdego z nich.
@@ -63,7 +63,7 @@ Na potrzeby przewodników Szybki Start i samouczków Security Center należy wł
 
 1. Na pasku bocznym Security Center wybierz opcję **wprowadzenie**.
 
-    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Pulpit nawigacyjny przeglądu Security Center"::: 
+    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Karta Uaktualnij na stronie Wprowadzenie"::: 
 
     Karta **Uaktualnij** zawiera listę subskrypcji i obszarów roboczych kwalifikujących się do dołączenia.
 
@@ -84,7 +84,7 @@ Aby włączyć automatyczną obsługę administracyjną agenta Log Analytics:
 1. Na stronie **zbieranie danych** ustaw opcję **samoobsługowego udostępniania** na wartość **włączone**.
 1. Wybierz pozycję **Zapisz**.
 
-    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Pulpit nawigacyjny przeglądu Security Center":::
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Włączanie obsługi administracyjnej agenta Log Analytics":::
 
 >[!TIP]
 > Jeśli konieczne jest zainicjowanie obszaru roboczego, Instalacja agenta może trwać do 25 minut.

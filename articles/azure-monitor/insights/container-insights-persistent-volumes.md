@@ -3,12 +3,12 @@ title: Konfigurowanie monitorowania PV przy użyciu Azure Monitor dla konteneró
 description: W tym artykule opisano, jak można skonfigurować monitorowanie klastrów Kubernetes z woluminami trwałymi przy użyciu Azure Monitor dla kontenerów.
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: 30e99c2abbc66de257f9623dedc901fca51976c1
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e7c547c137fc84e6e6dfb2807b871ef0329a3c13
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92492176"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186851"
 ---
 # <a name="configure-pv-monitoring-with-azure-monitor-for-containers"></a>Konfigurowanie monitorowania PV przy użyciu Azure Monitor dla kontenerów
 
@@ -30,4 +30,4 @@ Azure Monitor kontenerów zawiera wstępnie skonfigurowane wykresy dla tej metry
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Więcej informacji na temat zebranych metryk PV [znajdziesz tutaj](https://aka.ms/ci/pvconfig).
+- Więcej informacji na temat zebranych metryk PV [znajdziesz tutaj](./container-insights-agent-config.md).

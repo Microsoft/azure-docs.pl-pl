@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: d203cb5ccef90fd09659ba64b7bcbc8b9be9e47a
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: d42a32e236eb73f2aa9f2f61d9708314783564dd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358103"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187305"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Przewodnik Szybki Start — Eksplorowanie przykładowego scenariusza usługi Azure Digital bliźniaczych reprezentacji za pomocą Eksploratora ADT
 
@@ -66,6 +66,7 @@ W przeciwnym razie możesz zainstalować lokalny interfejs wiersza polecenia pla
 1. Wykonaj czynności opisane w [tym linku instalacji](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) , aby zakończyć instalację zgodną z systemem operacyjnym.
 1. Otwórz okno konsoli na komputerze.
 1. Uruchom `az login` polecenie i postępuj zgodnie z monitami o uwierzytelnienie, aby zalogować się do konta platformy Azure.
+1. Możliwy ostatni krok: Jeśli używasz wielu subskrypcji platformy Azure w ramach tego konta, ustaw kontekst uwierzytelniania na subskrypcję platformy Azure zawierającą wystąpienie usługi Azure Digital bliźniaczych reprezentacji, uruchamiając polecenie `az account set --subscription "<your-subscription-name-or-ID>"` (nazwa lub wartość identyfikatora subskrypcji będzie działać).
 
 Po zalogowaniu się program ADT Explorer powinien automatycznie pobrać poświadczenia platformy Azure po uruchomieniu w następnej sekcji.
 
@@ -90,7 +91,7 @@ Otwórz okno konsoli w lokalizacji folderu **Azure_Digital_Twins__ADT__explorer/
 
    :::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="W Eksploratorze ADT Wyróżnij ikonę logowania w górnej części okna. Ikona pokazuje prostą Silhouette osoby nałożonej przy użyciu Silhouette klucza." lightbox="media/quickstart-adt-explorer/sign-in.png":::
 
-1. Wprowadź adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji, który został zebrany wcześniej w sekcji [wymagania wstępne](#prerequisites) , w formacie *https://{Nazwa hosta wystąpienia}*.
+1. Wprowadź adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji, który został zebrany wcześniej w sekcji [Konfigurowanie wystąpienia usługi Azure Digital bliźniaczych reprezentacji](#set-up-an-azure-digital-twins-instance) w formacie *https://{Nazwa hosta wystąpienia}*.
 
 >[!NOTE]
 > Te informacje można ponownie odwiedzać lub edytować w dowolnym momencie, wybierając tę samą ikonę w celu ponownego otwarcia pola **Zaloguj** . Dane zostaną zachowane.
@@ -108,7 +109,7 @@ Następnie zaimportujemy przykładowy scenariusz i wykres do Eksploratora ADT. P
 
 Pierwszym krokiem w rozwiązaniu Digital bliźniaczych reprezentacji na platformie Azure jest zdefiniowanie słownika dla danego środowiska. Utworzysz [modele](concepts-models.md) niestandardowe opisujące typy jednostek, które istnieją w danym środowisku.
 
-Każdy model jest pisany w języku, takim jak JSON-LD o nazwie Digital bliźniaczy Definition Language (DTDL). Każdy model opisuje pojedynczy typ jednostki pod względem *Właściwości* , *telemetrii* , *relacji* i *składników*. Później te modele będą używane jako podstawa bliźniaczych reprezentacji cyfrowych, która reprezentuje określone wystąpienia tych typów.
+Każdy model jest pisany w języku, takim jak JSON-LD o nazwie Digital bliźniaczy Definition Language (DTDL). Każdy model opisuje pojedynczy typ jednostki pod względem *Właściwości*, *telemetrii*, *relacji* i *składników*. Później te modele będą używane jako podstawa bliźniaczych reprezentacji cyfrowych, która reprezentuje określone wystąpienia tych typów.
 
 Zazwyczaj podczas tworzenia modelu należy wykonać trzy czynności:
 
@@ -130,7 +131,7 @@ Wykonaj następujące kroki, aby przekazać modele.
    :::image type="content" source="media/quickstart-adt-explorer/upload-model.png" alt-text="W polu widok modelu zostanie wyróżniona środkowa ikona. Pokazuje strzałkę wskazującą chmurę." lightbox="media/quickstart-adt-explorer/upload-model.png":::
  
 1. W wyświetlonym oknie dialogowym Wybieranie pliku przejdź do folderu **Azure_Digital_Twins__ADT__explorer/Client/examples** w pobranym repozytorium.
-1. Wybierz pozycję **Room.js** i **Floor.jsna** , a następnie wybierz **przycisk OK**. Jeśli chcesz, możesz przekazać dodatkowe modele, ale nie będą one używane w tym przewodniku Szybki Start.
+1. Wybierz pozycję **Room.js** i **Floor.jsna**, a następnie wybierz **przycisk OK**. Jeśli chcesz, możesz przekazać dodatkowe modele, ale nie będą one używane w tym przewodniku Szybki Start.
 1. Wykonaj podręczne okno dialogowe z prośbą o zalogowanie się do konta platformy Azure.
 
 >[!NOTE]
@@ -170,7 +171,7 @@ Wykonaj następujące kroki, aby zaimportować wykres.
 
    :::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="W polu widok wykresu zostanie wyróżniona ikona. Pokazuje strzałkę wskazującą chmurę." lightbox="media/quickstart-adt-explorer/import-graph.png":::
 
-2. W polu Selektor plików przejdź do folderu **Azure_Digital_Twins__ADT__explorer/Client/examples** i wybierz **buildingScenario.xlsx** plik arkusza kalkulacyjnego. Ten plik zawiera opis przykładowego wykresu. Wybierz pozycję **OK**.
+2. W polu Selektor plików przejdź do folderu **Azure_Digital_Twins__ADT__explorer/Client/examples** i wybierz **buildingScenario.xlsx** plik arkusza kalkulacyjnego. Ten plik zawiera opis przykładowego wykresu. Wybierz przycisk **OK**.
 
    Po kilku sekundach Eksplorator ADT otwiera widok **importu** , który pokazuje podgląd grafu do załadowania.
 
@@ -208,7 +209,7 @@ Teraz można zobaczyć przekazany wykres przykładowego scenariusza.
 
 :::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Widok wykresu z wykresem bliźniaczym w obrębie. Okrąg oznaczony etykietą &quot;floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;room1&quot;. Okrąg oznaczony etykietą &quot;floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;room0&quot;.":::
 
-Okręgi ("węzły grafu") reprezentują cyfrowe bliźniaczych reprezentacji. Wiersze reprezentują relacje. **Floor0** bliźniaczy zawiera **Room0** , a **Floor1a** zawiera **Room1**.
+Okręgi ("węzły grafu") reprezentują cyfrowe bliźniaczych reprezentacji. Wiersze reprezentują relacje. **Floor0** bliźniaczy zawiera **Room0**, a **Floor1a** zawiera **Room1**.
 
 Jeśli używasz myszy, możesz przeciągnąć fragmenty wykresu, aby przenieść je wokół siebie.
 
@@ -267,7 +268,7 @@ Za pomocą Eksploratora ADT można edytować właściwości bliźniaczych reprez
 
 Aby rozpocząć, wybierz pozycję **Room0** , aby wyświetlić jej listę właściwości w polu **Eksplorator właściwości** .
 
-Właściwości na tej liście są edytowalne. Wybierz wartość temperatury **70** , aby włączyć wprowadzanie nowej wartości. Wprowadź **76** , a następnie wybierz ikonę **Zapisz** , aby zaktualizować temperaturę do **76**.
+Właściwości na tej liście są edytowalne. Wybierz wartość temperatury **70** , aby włączyć wprowadzanie nowej wartości. Wprowadź **76**, a następnie wybierz ikonę **Zapisz** , aby zaktualizować temperaturę do **76**.
 
 :::row:::
     :::column:::

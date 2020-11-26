@@ -9,11 +9,11 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/27/2020
 ms.openlocfilehash: b038834df3889a8b4b7f4a749568635e99f8408e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129579"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188755"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Jak przejrzeć i opublikować ofertę w portalu komercyjnym
 
@@ -42,11 +42,11 @@ Gdy wszystko będzie gotowe do przesłania oferty do opublikowania, wybierz pozy
    - **Niekompletne** — Strona nie zawiera wymaganych informacji lub zawiera błędy, które muszą zostać naprawione. Musisz wrócić do strony i zaktualizować ją.
    - **Ukończono** — Strona została ukończona. Wszystkie wymagane dane zostały dostarczone i nie występują żadne błędy.
 
-Jeśli którakolwiek ze stron ma stan inny niż **ukończono** , należy rozwiązać problem na tej stronie, a następnie powrócić do strony **Przegląd i publikowanie** , aby potwierdzić, że stan jest teraz pokazywany jako **zakończony** . Niektóre typy ofert wymagają testowania. Jeśli tak, zobaczysz **uwagi dotyczące pola certyfikacji** , w którym należy dostarczyć instrukcje dotyczące testowania do zespołu certyfikacji oraz dodatkowe uwagi pomocne przy zrozumieniu swojej aplikacji.
+Jeśli którakolwiek ze stron ma stan inny niż **ukończono**, należy rozwiązać problem na tej stronie, a następnie powrócić do strony **Przegląd i publikowanie** , aby potwierdzić, że stan jest teraz pokazywany jako **zakończony**. Niektóre typy ofert wymagają testowania. Jeśli tak, zobaczysz **uwagi dotyczące pola certyfikacji** , w którym należy dostarczyć instrukcje dotyczące testowania do zespołu certyfikacji oraz dodatkowe uwagi pomocne przy zrozumieniu swojej aplikacji.
 
 Po zakończeniu wszystkich stron i wprowadzeniu odpowiednich uwag dotyczących testowania wybierz pozycję **Publikuj** , aby rozpocząć proces weryfikacji i publikowania. Fazy i ogólna sekwencja mogą się różnić w zależności od typu publikowanej oferty. W poniższej tabeli przedstawiono jeden możliwy do opublikowania przepływ. Poszczególne fazy zostały omówione bardziej szczegółowo w poniższych sekcjach.
 
-| Faza | Co się dzieje |
+| Etap | Co się dzieje |
 | ------------ | ------------- | ------------- |
 | [Automatyczne sprawdzanie poprawności](#automated-validation-phase) | Przetwarzamy zestaw zautomatyzowanych walidacji. |
 | [Certyfikacja](#certification-phase) | Przeprowadzamy ręczne walidacje. |
@@ -156,7 +156,7 @@ Na stronie **Przegląd oferty** zobaczysz linki do wersji zapoznawczej w obszarz
 
 Po zatwierdzeniu wersji zapoznawczej wybierz pozycję **Przejdź na żywo** , aby opublikować swoją ofertę na żywo w witrynie komercyjnej. 
 
-Jeśli chcesz wprowadzić zmiany po przejrzeniu oferty, możesz edytować i ponownie przesłać żądanie publikacji. Jeśli Twoja oferta już działa i jest dostępna publicznie w portalu Marketplace, wszystkie aktualizacje, które wprowadzisz, nie będą aktywne do momentu wybrania pozycji * *Przejdź na żywo* . Aby uzyskać więcej informacji, zobacz temat [Aktualizowanie istniejącej oferty w komercyjnej witrynie Marketplace](partner-center-portal/update-existing-offer.md)
+Jeśli chcesz wprowadzić zmiany po przejrzeniu oferty, możesz edytować i ponownie przesłać żądanie publikacji. Jeśli Twoja oferta już działa i jest dostępna publicznie w portalu Marketplace, wszystkie aktualizacje, które wprowadzisz, nie będą aktywne do momentu wybrania pozycji **Przejdź na żywo*. Aby uzyskać więcej informacji, zobacz temat [Aktualizowanie istniejącej oferty w komercyjnej witrynie Marketplace](partner-center-portal/update-existing-offer.md)
 
 ## <a name="publish-phase"></a>Faza publikowania
 
@@ -191,24 +191,24 @@ Na stronie **historia** w centrum partnerskim są wyświetlane zdarzenia publiko
 Aby wyświetlić historię oferty:
 
 1.    Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
-2.    W menu nawigacji po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview** .
+2.    W menu nawigacji po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
 3.    Wybierz ofertę.
 4.    Wybierz kartę **historia** w menu nawigacji po lewej stronie. Na stronie znajdują się szczegółowe informacje dotyczące następujących zdarzeń, które mają zastosowanie do oferty:
 
 |Zdarzenie    |Opis    |
 |---------|---------------|
 |Utworzono ofertę    |Oferta została utworzona w centrum partnerskim. Użytkownik zaznaczył typ oferty, identyfikator oferty oraz Alias oferty w **komercyjnym**  >  **przeglądzie** portalu Marketplace.    |
-|Utworzono plan: *Nazwa planu*    |Użytkownik utworzył nowy plan, wprowadzając identyfikator planu i nazwę planu na karcie **Przegląd planu** .</br>*To zdarzenie dotyczy tylko typów ofert, które obsługują plany* .    |
-|Usunięto plan    |Użytkownik usunął plan roboczy, który nie został opublikowany, wybierając pozycję **Usuń wersję roboczą** z strony **Przegląd planu** .</br>*To zdarzenie dotyczy tylko typów ofert, które obsługują plany* .    |
-|Zainicjowanie planu Wstrzymaj sprzedaż: *Nazwa planu*    |Użytkownik zainicjował plan zatrzymywania transakcji, wybierając pozycję **Zatrzymaj sprzedawanie** na stronie **Przegląd planu** .</br>*To zdarzenie dotyczy tylko typów ofert, które obsługują plany* .    |
-|Cofnij planowanie Zatrzymaj sprzedawanie: *Nazwa planu*    |Użytkownik anulował plan zaniechania sprzedaży, wybierając opcję Cofnij Zaplanuj **sprzedawanie** na stronie **Przegląd planu** .</br>*To zdarzenie dotyczy tylko typów ofert, które obsługują plany* .    |
+|Utworzono plan: *Nazwa planu*    |Użytkownik utworzył nowy plan, wprowadzając identyfikator planu i nazwę planu na karcie **Przegląd planu** .</br>*To zdarzenie dotyczy tylko typów ofert, które obsługują plany*.    |
+|Usunięto plan    |Użytkownik usunął plan roboczy, który nie został opublikowany, wybierając pozycję **Usuń wersję roboczą** z strony **Przegląd planu** .</br>*To zdarzenie dotyczy tylko typów ofert, które obsługują plany*.    |
+|Zainicjowanie planu Wstrzymaj sprzedaż: *Nazwa planu*    |Użytkownik zainicjował plan zatrzymywania transakcji, wybierając pozycję **Zatrzymaj sprzedawanie** na stronie **Przegląd planu** .</br>*To zdarzenie dotyczy tylko typów ofert, które obsługują plany*.    |
+|Cofnij planowanie Zatrzymaj sprzedawanie: *Nazwa planu*    |Użytkownik anulował plan zaniechania sprzedaży, wybierając opcję Cofnij Zaplanuj **sprzedawanie** na stronie **Przegląd planu** .</br>*To zdarzenie dotyczy tylko typów ofert, które obsługują plany*.    |
 |Przesłana oferta do wersji zapoznawczej    |Użytkownik przesłał ofertę do wersji zapoznawczej, wybierając pozycję **Publikuj** na stronie **Recenzja i publikowanie** .    |
-|Zainicjowano przesyłanie do anulowania wersji zapoznawczej    |Użytkownik zażądał anulowania publikacji oferty do wersji zapoznawczej, wybierając pozycję **Anuluj publikowanie** na stronie **przeglądu oferty** po przesłaniu do wersji zapoznawczej.</br>*To zdarzenie jest wyświetlane, gdy trwa przetwarzanie żądania anulowania* .    |
-|Anulowano przesłane do wersji zapoznawczej    |Użytkownik anulował publikację w wersji zapoznawczej, wybierając pozycję **Anuluj publikowanie** na stronie **przeglądu oferty** po przejściu do wersji zapoznawczej.</br>*To zdarzenie jest wyświetlane po pomyślnym przetworzeniu żądania anulowania* .    |
+|Zainicjowano przesyłanie do anulowania wersji zapoznawczej    |Użytkownik zażądał anulowania publikacji oferty do wersji zapoznawczej, wybierając pozycję **Anuluj publikowanie** na stronie **przeglądu oferty** po przesłaniu do wersji zapoznawczej.</br>*To zdarzenie jest wyświetlane, gdy trwa przetwarzanie żądania anulowania*.    |
+|Anulowano przesłane do wersji zapoznawczej    |Użytkownik anulował publikację w wersji zapoznawczej, wybierając pozycję **Anuluj publikowanie** na stronie **przeglądu oferty** po przejściu do wersji zapoznawczej.</br>*To zdarzenie jest wyświetlane po pomyślnym przetworzeniu żądania anulowania*.    |
 |Zaloguj się, aby przejść na żywo    |Użytkownik opublikował ofertę na komercyjnym rynku, wybierając pozycję **Przejdź na żywo** na stronie **Przegląd oferty** .    |
-|Zainicjowano anulowanie publikowania w witrynie Marketplace    |Użytkownik zażądał anulowania publikacji oferty, wybierając pozycję **Anuluj publikowanie** na stronie **przeglądu oferty** po zakończeniu rejestracji.</br>*To zdarzenie jest wyświetlane, gdy trwa przetwarzanie żądania anulowania* .    |
-|Anulowano publikowanie na rynku komercyjnym    |Użytkownik anulował publikację oferty, wybierając pozycję **Anuluj publikowanie** na stronie **przeglądu oferty** po zakończeniu rejestracji.</br>*To zdarzenie jest wyświetlane po pomyślnym przetworzeniu żądania anulowania* .    |
-|Synchronizuj odbiorców prywatnych    |Użytkownik zaktualizował i zsynchronizuje odbiorców prywatnych, wybierając pozycję **Synchronizuj odbiorców prywatnych** na stronie **Przegląd planu** lub stronie **dostępność planu &** .</br>*To zdarzenie dotyczy tylko typów ofert, które obsługują plany prywatne* .    |
+|Zainicjowano anulowanie publikowania w witrynie Marketplace    |Użytkownik zażądał anulowania publikacji oferty, wybierając pozycję **Anuluj publikowanie** na stronie **przeglądu oferty** po zakończeniu rejestracji.</br>*To zdarzenie jest wyświetlane, gdy trwa przetwarzanie żądania anulowania*.    |
+|Anulowano publikowanie na rynku komercyjnym    |Użytkownik anulował publikację oferty, wybierając pozycję **Anuluj publikowanie** na stronie **przeglądu oferty** po zakończeniu rejestracji.</br>*To zdarzenie jest wyświetlane po pomyślnym przetworzeniu żądania anulowania*.    |
+|Synchronizuj odbiorców prywatnych    |Użytkownik zaktualizował i zsynchronizuje odbiorców prywatnych, wybierając pozycję **Synchronizuj odbiorców prywatnych** na stronie **Przegląd planu** lub stronie **dostępność planu &** .</br>*To zdarzenie dotyczy tylko typów ofert, które obsługują plany prywatne*.    |
 |Zatrzymywanie oferty sprzedaży    |Użytkownik zatrzymał sprzedawanie oferty, wybierając pozycję **Zatrzymaj sprzedawanie** na stronie **przeglądu oferty** .    |
 
 > [!NOTE]
@@ -226,7 +226,7 @@ Istnieją cztery filtry:
 * Zdarzenia
 * Użytkownicy
 * Data
-* Strony
+* Pages
 
 Po wybraniu filtru **strony** można wybrać dowolne ze stron Centrum partnerskiego, które mają zastosowanie do danego typu oferty. Po zastosowaniu filtr **strony** pokazuje całą **przesłaną ofertę, aby wyświetlić podgląd** zdarzeń ze zmianami wybranej strony.
 

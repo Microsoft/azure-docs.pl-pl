@@ -3,18 +3,18 @@ title: Korzystanie z wyszukiwania w usłudze Azure Application Insights | Micros
 description: Wyszukiwanie i filtrowanie nieprzetworzonej telemetrii wysyłanej przez aplikację sieci Web.
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.openlocfilehash: f88e0fb8fbd7e9605635ede1e8f71b57de84b74e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f87a972b417bf6074de1c10b7a54bd2416f88daa
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324458"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187021"
 ---
 # <a name="using-search-in-application-insights"></a>Korzystanie z wyszukiwania w Application Insights
 
 Wyszukiwanie jest funkcją [Application Insights](./app-insights-overview.md) , która służy do znajdowania i eksplorowania poszczególnych elementów telemetrii, takich jak widoki stron, wyjątki lub żądania sieci Web. Można także wyświetlać dane śledzenia i zdarzenia dzienników.
 
-(Aby uzyskać bardziej skomplikowane zapytania dotyczące danych, użyj [analizy](../log-query/get-started-portal.md)).
+(Aby uzyskać bardziej skomplikowane zapytania dotyczące danych, użyj [analizy](../log-query/log-analytics-tutorial.md)).
 
 ## <a name="where-do-you-see-search"></a>Gdzie widzisz wyszukiwanie?
 
@@ -81,7 +81,7 @@ Aby znaleźć wszystkie elementy z tą samą wartością właściwości, wpisz j
 ## <a name="search-the-data"></a>Przeszukaj dane
 
 > [!NOTE]
-> Aby napisać bardziej złożone zapytania, Otwórz [**dzienniki (analiza)**](../log-query/get-started-portal.md) w górnej części bloku wyszukiwania.
+> Aby napisać bardziej złożone zapytania, Otwórz [**dzienniki (analiza)**](../log-query/log-analytics-tutorial.md) w górnej części bloku wyszukiwania.
 >
 
 Warunki można wyszukać w dowolnych wartościach właściwości. Jest to przydatne, jeśli masz zapisaną [zdarzenia niestandardowe](./api-custom-events-metrics.md) z wartościami właściwości.
@@ -145,8 +145,7 @@ Dane POST nie są rejestrowane automatycznie, ale można użyć [wywołań Track
 
 ## <a name="next-steps"></a><a name="add"></a>Następne kroki
 
-* [Zapisuj złożone zapytania w analizie](../log-query/get-started-portal.md)
+* [Zapisuj złożone zapytania w analizie](../log-query/log-analytics-tutorial.md)
 * [Wyślij dzienniki i niestandardową telemetrię do Application Insights](./asp-net-trace-logs.md)
 * [Konfigurowanie testów dostępności i czasu odpowiedzi](./monitor-web-app-availability.md)
 * [Rozwiązywanie problemów](../faq.md)
-

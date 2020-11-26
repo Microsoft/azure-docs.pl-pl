@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: ecf4229c95ff9103cd27fd161fdd19c9e7a0f76b
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 8c51450fb6ce5c381784e6aaf9b1a66c3c4ff153
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636966"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188551"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funkcje bazy danych Apache Cassandra obsługiwane przez interfejs API Cassandra usługi Azure Cosmos DB 
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -50,7 +50,7 @@ Interfejs API Cassandra usługi Azure Cosmos DB obsługuje następujące typy da
 | blob  | Tak |
 | boolean  | Tak |
 | counter  | Tak |
-| data  | Tak |
+| date  | Tak |
 | decimal  | Tak |
 | double  | Tak |
 | float  | Tak |
@@ -205,7 +205,7 @@ Interfejs API Cassandra usługi Azure Cosmos DB to platforma usług zarządzanyc
 
 ## <a name="hosted-cql-shell-preview"></a>Hostowana powłoka CQL (wersja zapoznawcza)
 
-Hostowaną natywną powłokę Cassandra (CQLSH v 5.0.1) można otworzyć bezpośrednio z Eksplorator danych w [Azure Portal](data-explorer.md) lub w [Eksploratorze Cosmos platformy Azure](https://cosmos.azure.com/). Przed włączeniem powłoki CQL należy [włączyć funkcję notesów](enable-notebooks.md) na koncie (jeśli nie została jeszcze włączona, zostanie wyświetlony monit po kliknięciu `Open Cassandra Shell` ). Zapoznaj się z wyróżnioną uwagą w temacie [Włączanie notesów dla kont Azure Cosmos DB](enable-notebooks.md) dla obsługiwanych regionów świadczenia usługi Azure.
+Hostowaną natywną powłokę Cassandra (CQLSH v 5.0.1) można otworzyć bezpośrednio z Eksplorator danych w [Azure Portal](data-explorer.md) lub w [Eksploratorze Azure Cosmos DB](https://cosmos.azure.com/). Przed włączeniem powłoki CQL należy [włączyć funkcję notesów](enable-notebooks.md) na koncie (jeśli nie została jeszcze włączona, zostanie wyświetlony monit po kliknięciu `Open Cassandra Shell` ). Zapoznaj się z wyróżnioną uwagą w temacie [Włączanie notesów dla kont Azure Cosmos DB](enable-notebooks.md) dla obsługiwanych regionów świadczenia usługi Azure.
 
 :::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Otwórz CQLSH":::
 

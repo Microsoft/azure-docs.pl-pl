@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 10/15/2020
 ms.author: duau
 ms.openlocfilehash: 29b3cdde328a994e5806df810db15b529a6da9af
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208117"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188670"
 ---
 # <a name="tutorial-configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Samouczek: Konfigurowanie metody routingu ruchu geograficznego za pomocą Traffic Manager
 
@@ -52,17 +52,17 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 1. Wybierz pozycję **Utwórz** , aby wdrożyć profil Traffic Manager.
 
-    :::image type="content" source="./media/traffic-manager-geographic-routing-method/create-traffic-manager-profile.png" alt-text="Tworzenie profilu usługi Traffic Manager":::
+    :::image type="content" source="./media/traffic-manager-geographic-routing-method/create-traffic-manager-profile.png" alt-text="Tworzenie strony profilu Traffic Manager":::
 
 ## <a name="add-endpoints"></a>Dodaj punkty końcowe
 
 1. Wybierz z listy profil Traffic Manager.
 
-    :::image type="content" source="./media/traffic-manager-geographic-routing-method/traffic-manager-list-geographic.png" alt-text="Tworzenie profilu usługi Traffic Manager":::
+    :::image type="content" source="./media/traffic-manager-geographic-routing-method/traffic-manager-list-geographic.png" alt-text="Traffic Managerna lista geograficzna":::
 
 1. Wybierz **punkty końcowe** w obszarze *Ustawienia* , a następnie wybierz pozycję **+ Dodaj** , aby dodać nowy punkt końcowy.
 
-    :::image type="content" source="./media/traffic-manager-geographic-routing-method/add-geographic-endpoint.png" alt-text="Tworzenie profilu usługi Traffic Manager":::
+    :::image type="content" source="./media/traffic-manager-geographic-routing-method/add-geographic-endpoint.png" alt-text="Dodaj punkty końcowe":::
 
 1. Wybierz lub wprowadź następujące ustawienia: 
 
@@ -83,23 +83,23 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 1. Powtórz ostatni krok dla wszystkich punktów końcowych, które chcesz dodać w ramach tego profilu, a następnie wybierz pozycję **Zapisz**.
 
-    :::image type="content" source="./media/traffic-manager-geographic-routing-method/traffic-manager-add-endpoint.png" alt-text="Tworzenie profilu usługi Traffic Manager":::
+    :::image type="content" source="./media/traffic-manager-geographic-routing-method/traffic-manager-add-endpoint.png" alt-text="Dodawanie punktu końcowego usługi Traffic Manager":::
 
 ## <a name="use-the-traffic-manager-profile"></a>Użyj profilu Traffic Manager
 
 1.  Na pasku wyszukiwania portalu Wyszukaj nazwę **profilu Traffic Manager** utworzonego w poprzedniej sekcji i wybierz profil usługi Traffic Manager w wyświetlonych wynikach.
     
-    :::image type="content" source="./media/traffic-manager-geographic-routing-method/search-traffic-manager-profile.png" alt-text="Tworzenie profilu usługi Traffic Manager":::
+    :::image type="content" source="./media/traffic-manager-geographic-routing-method/search-traffic-manager-profile.png" alt-text="Profil Menedżera ruchu wyszukiwania":::
 
 1. W obszarze **Profil usługi Traffic Manager** zostanie wyświetlona nazwa DNS nowo utworzonego profilu usługi Traffic Manager. Nazwa może być używana przez dowolnego klienta (na przykład przez przechodzenie do niego przy użyciu przeglądarki sieci Web) do kierowania do prawego punktu końcowego określonego przez typ routingu. Przy użyciu routingu geograficznego Traffic Manager sprawdza źródłowy adres IP żądania przychodzącego i określa region, z którego pochodzi. Jeśli ten region jest mapowany na punkt końcowy, ruch jest kierowany do tego miejsca. Jeśli ten region nie jest zamapowany na punkt końcowy, Traffic Manager zwraca odpowiedź na zapytanie NoData.
 
-    :::image type="content" source="./media/traffic-manager-geographic-routing-method/traffic-manager-geographic-overview.png" alt-text="Tworzenie profilu usługi Traffic Manager":::
+    :::image type="content" source="./media/traffic-manager-geographic-routing-method/traffic-manager-geographic-overview.png" alt-text="Przegląd Traffic Manager geograficznych":::
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli profil Traffic Manager nie jest już potrzebny, zlokalizuj profil i wybierz pozycję **Usuń profil**.
 
-:::image type="content" source="./media/traffic-manager-geographic-routing-method/delete-traffic-manager-profile.png" alt-text="Tworzenie profilu usługi Traffic Manager":::
+:::image type="content" source="./media/traffic-manager-geographic-routing-method/delete-traffic-manager-profile.png" alt-text="Usuwanie profilu Traffic Manager":::
 
 ## <a name="next-steps"></a>Następne kroki
 

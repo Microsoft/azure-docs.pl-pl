@@ -9,11 +9,11 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ms.openlocfilehash: 69525173aa5c4af536105a4e897ee4860f021b6c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91267435"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187440"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Co to jest usługa Azure Virtual WAN?
 
@@ -95,7 +95,7 @@ Wirtualna sieć WAN umożliwia przesyłanie połączeń między sieci wirtualnyc
 
 Router może mieć cztery Stany routingu: zainicjowane, Inicjowanie obsługi administracyjnej, Niepowodzenie lub brak. **Stan routingu** znajduje się w Azure Portal, przechodząc do strony centrum wirtualne.
 
-* Stan **Brak** oznacza, że koncentrator nie udostępnił routera. Taka sytuacja może wystąpić, Jeśli wirtualna sieć WAN jest typu *Basic*lub jeśli koncentrator wirtualny został wdrożony przed udostępnieniem usługi.
+* Stan **Brak** oznacza, że koncentrator nie udostępnił routera. Taka sytuacja może wystąpić, Jeśli wirtualna sieć WAN jest typu *Basic* lub jeśli koncentrator wirtualny został wdrożony przed udostępnieniem usługi.
 * Stan **niepowodzenia wskazuje** , że wystąpił błąd podczas tworzenia wystąpienia. W celu utworzenia wystąpienia lub zresetowania routera można zlokalizować opcję **Reset routera** , przechodząc do strony omówienia koncentratora wirtualnego w Azure Portal.
 
 Każdy router koncentratora wirtualnego obsługuje zagregowaną przepływność do 50 GB/s. Łączność między połączeniami sieci wirtualnej polega na przyłożeniu całkowitej 2000 obciążeń maszyny wirtualnej na wszystkie sieci wirtualnych połączone z jednym koncentratorem wirtualnym.
