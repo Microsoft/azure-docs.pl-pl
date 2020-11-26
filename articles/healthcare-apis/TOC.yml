@@ -90,12 +90,13 @@
           href: de-identified-export.md
     - name: Znajdowanie identyfikatorów obiektów tożsamości
       href: find-identity-object-ids.md
-    - name: Włączanie rejestrowania diagnostycznego w interfejsie Azure API for FHIR®
-      href: enable-diagnostic-logging.md
-    - name: Eksportowanie metryk usługi Azure IoT Connector for FHIR (wersja zapoznawcza) za pośrednictwem ustawień diagnostyki
-      href: iot-metrics-diagnostics-export.md
-    - name: Wyświetlanie i konfigurowanie metryk usługi Azure IoT Connector for FHIR (wersja zapoznawcza)
-      href: iot-metrics-display.md
+    - name: Rejestrowanie i metryki diagnostyki
+      expanded: false
+      items:
+        - name: Włączanie rejestrowania diagnostycznego w interfejsie Azure API for FHIR
+          href: enable-diagnostic-logging.md
+        - name: Wyświetlanie i konfigurowanie metryk usługi Azure IoT Connector for FHIR (wersja zapoznawcza)
+          href: iot-metrics-display.md
     - name: Uzyskiwanie tokenu interfejsu API platformy Azure dla standardu FHIR — interfejs wiersza polecenia
       href: get-healthcare-apis-access-token-cli.md
     - name: Rozwiązywanie problemów z błędami łącznika usługi Azure IoT dla platformy FHIR (wersja zapoznawcza)

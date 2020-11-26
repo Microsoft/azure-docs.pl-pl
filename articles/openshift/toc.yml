@@ -22,6 +22,12 @@
           href: howto-create-private-cluster-4x.md
         - name: Konfigurowanie przesyłania dalej w usłudze DNS
           href: dns-forwarding.md
+    - name: Storage
+      items:
+        - name: Tworzenie elementu Storageclass usługi Azure Files
+          href: howto-create-a-storageclass.md
+        - name: Korzystanie z wbudowanego rejestru kontenerów
+          href: built-in-container-registry.md
     - name: Zabezpieczenia i uwierzytelnianie
       items:
         - name: Konfigurowanie uwierzytelniania usługi Azure Active Directory (interfejs wiersza polecenia)
