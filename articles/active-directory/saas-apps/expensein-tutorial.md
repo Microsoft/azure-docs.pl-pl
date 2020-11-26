@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 07/17/2020
 ms.author: jeedes
 ms.openlocfilehash: eb7062b745ae6eb97dc2cd4ba2051cc221031630
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92453777"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96179167"
 ---
 # <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>Samouczek: integracja wydatków z Azure Active Directory
 
@@ -100,7 +100,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij pozycję **Utwórz**.
+   1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -151,7 +151,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     e. Otwórz certyfikat (base64) w Notatniku, skopiuj jego zawartość i wklej go w polu tekstowym **certyfikat** .
 
-    f. Kliknij pozycję **Utwórz**.
+    f. Kliknij przycisk **Utwórz**.
 
 ### <a name="create-expensein-test-user"></a>Utwórz użytkownika testowego wydatków
 
@@ -175,7 +175,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w celu zarejestrow
 
     c. W polu tekstowym **Email** (Adres e-mail) wprowadź adres e-mail użytkownika, na przykład `B.Simon@contoso.com`.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 

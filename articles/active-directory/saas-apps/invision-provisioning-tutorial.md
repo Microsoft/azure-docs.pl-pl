@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: Zhchia
-ms.openlocfilehash: f6a03a65b18d09000e93a1e0fa4a194321912211
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 75da1e2b2f1954b0126b08232046fe09b1c2b6e7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94354258"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96177947"
 ---
 # <a name="tutorial-configure-invision-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie InVision na potrzeby automatycznego aprowizacji użytkowników
 
@@ -39,7 +39,7 @@ W tym samouczku opisano kroki, które należy wykonać w programie InVision i Az
 Scenariusz opisany w tym samouczku założono, że masz już następujące wymagania wstępne:
 
 * [Dzierżawa usługi Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Konto użytkownika w usłudze Azure AD z [uprawnieniami ](../users-groups-roles/directory-assign-admin-roles.md) do konfigurowania aprowizacji (np. administratora aplikacji, administratora aplikacji w chmurze, właściciela aplikacji lub administratora globalnego). 
+* Konto użytkownika w usłudze Azure AD z [uprawnieniami ](../roles/permissions-reference.md) do konfigurowania aprowizacji (np. administratora aplikacji, administratora aplikacji w chmurze, właściciela aplikacji lub administratora globalnego). 
 * [Konto InVision przedsiębiorstwa](https://www.invisionapp.com/enterprise) z włączonym logowaniem jednokrotnym.
 * Konto użytkownika w InVision z uprawnieniami administratora.
 
@@ -86,7 +86,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-invision-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla InVision w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 

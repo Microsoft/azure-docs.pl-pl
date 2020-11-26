@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: Zhchia
-ms.openlocfilehash: dd625d082d15ce4a6ec59972483b06a84ea6d080
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ea2f25d6b03f002448079b16bd261729807d8a03
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355043"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96179707"
 ---
 # <a name="tutorial-configure-coda-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie formatu CODA do automatycznej aprowizacji użytkowników
 
@@ -39,7 +39,7 @@ W tym samouczku opisano kroki, które należy wykonać w obu polach Coda i Azure
 Scenariusz opisany w tym samouczku założono, że masz już następujące wymagania wstępne:
 
 * [Dzierżawa usługi Azure AD](../develop/quickstart-create-new-tenant.md)
-* Konto użytkownika w usłudze Azure AD z [uprawnieniami ](../users-groups-roles/directory-assign-admin-roles.md) do konfigurowania aprowizacji (np. administratora aplikacji, administratora aplikacji w chmurze, właściciela aplikacji lub administratora globalnego).
+* Konto użytkownika w usłudze Azure AD z [uprawnieniami ](../roles/permissions-reference.md) do konfigurowania aprowizacji (np. administratora aplikacji, administratora aplikacji w chmurze, właściciela aplikacji lub administratora globalnego).
 * Konto administratora przedsiębiorstwa w formacie [Coda](https://help.coda.io/en/articles/3520174-getting-started-with-sso) .
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Krok 1. Planowanie wdrożenia aprowizacji
@@ -75,7 +75,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-coda-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla formatu CODA w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 

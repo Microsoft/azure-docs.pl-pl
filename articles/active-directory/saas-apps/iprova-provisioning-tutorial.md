@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 3fe13d2fad2382e0e9fa8b93b79c5f27695ad898
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: dbaea9d4aaea982165c96af00f75524b15fa3015
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355196"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96178117"
 ---
 # <a name="tutorial-configure-iprova-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie iProva na potrzeby automatycznego aprowizacji użytkowników
 
@@ -39,7 +39,7 @@ Celem tego samouczka jest przedstawienie czynności, które należy wykonać w i
 Scenariusz opisany w tym samouczku założono, że masz już następujące wymagania wstępne:
 
 * [Dzierżawę usługi Azure AD](../develop/quickstart-create-new-tenant.md).
-* Konto użytkownika w usłudze Azure AD z [uprawnieniami ](../users-groups-roles/directory-assign-admin-roles.md) do konfigurowania aprowizacji (np. administratora aplikacji, administratora aplikacji w chmurze, właściciela aplikacji lub administratora globalnego).
+* Konto użytkownika w usłudze Azure AD z [uprawnieniami ](../roles/permissions-reference.md) do konfigurowania aprowizacji (np. administratora aplikacji, administratora aplikacji w chmurze, właściciela aplikacji lub administratora globalnego).
 * [Dzierżawa iProva](https://www.iProva.com/).
 * Konto użytkownika w iProva z uprawnieniami administratora.
 
@@ -86,7 +86,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-iprova-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla iProva w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 

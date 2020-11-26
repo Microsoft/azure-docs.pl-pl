@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/13/2020
 ms.author: jeedes
-ms.openlocfilehash: ef49a8a3ac1779071a4d4906bfd053530063102d
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: b70c50e7c2900f884dd4d91c6650205bc626326e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984468"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96178045"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Samouczek: integracja Azure Active Directory z menedżerem haseł programu opiekuna & magazynu cyfrowego
 
@@ -106,7 +106,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     | ------------| --------- |
     | Pierwsze | user.givenname |
     | Ostatnie | user.surname |
-    | Poczta e-mail | user.mail |
+    | E-mail | user.mail |
 
 5. Na **skonfigurować pojedyncze Sign-On przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz**. Spowoduje to pobranie **XML metadanych Federacji** z opcji zgodnie z wymaganiami i zapisanie go na komputerze.
 
@@ -126,7 +126,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie `B.Simon` 
    1. W obszarze **Nazwa** wprowadź `B.Simon` .  
    1. W polu **Nazwa użytkownika** wprowadź `username@companydomain.extension` . Na przykład `B.Simon@contoso.com`.
    1. Wybierz pozycję **Pokaż hasło**, a następnie Zapisz wartość wyświetlaną.
-   1. Wybierz pozycję **Utwórz**.
+   1. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -157,7 +157,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 * Możesz przejść bezpośrednio do adresu URL logowania dla aplikacji i zainicjować w tym miejscu logowanie.
 
-* Możesz użyć panelu programu Microsoft Access. Po wybraniu kafelka **Magazyn cyfrowy &** w panelu dostępu zostanie on przekierowany do adresu URL logowania dla aplikacji. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz artykuł [Logowanie i uruchamianie aplikacji z poziomu portalu Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Możesz użyć panelu programu Microsoft Access. Po wybraniu kafelka **Magazyn cyfrowy &** w panelu dostępu zostanie on przekierowany do adresu URL logowania dla aplikacji. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz artykuł [Logowanie i uruchamianie aplikacji z poziomu portalu Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Następne kroki

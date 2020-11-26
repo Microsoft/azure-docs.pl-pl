@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: Zhchia
-ms.openlocfilehash: 9335869797509171c71caffb0062aeccca207803
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 1658e6adf0c9de0cbd7412b963fb9a134f633430
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358919"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96179704"
 ---
 # <a name="tutorial-configure-clarizen-one-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Clarizen jeden dla automatycznej aprowizacji użytkowników
 
-W tym samouczku opisano kroki, które należy wykonać w ramach obu Clarizen i Azure Active Directory (Azure AD) w celu skonfigurowania automatycznego aprowizacji użytkowników. Po skonfigurowaniu usługa Azure AD automatycznie inicjuje i unieważnia użytkowników i grupy, aby [Clarizen je](https://www.clarizen.com/) za pomocą usługi Azure AD Provisioning. Aby uzyskać informacje na temat tego, jak działa ta usługa, jak to się dzieje, i często zadawanych pytań, zobacz [Automatyzacja aprowizacji użytkowników i cofanie obsługi w aplikacjach typu oprogramowanie jako usługa (SaaS) za pomocą usługi Azure AD](../manage-apps/user-provisioning.md).
+W tym samouczku opisano kroki, które należy wykonać w ramach obu Clarizen i Azure Active Directory (Azure AD) w celu skonfigurowania automatycznego aprowizacji użytkowników. Po skonfigurowaniu usługa Azure AD automatycznie inicjuje i unieważnia użytkowników i grupy, aby [Clarizen je](https://www.clarizen.com/) za pomocą usługi Azure AD Provisioning. Aby uzyskać informacje na temat tego, jak działa ta usługa, jak to się dzieje, i często zadawanych pytań, zobacz [Automatyzacja aprowizacji użytkowników i cofanie obsługi w aplikacjach typu oprogramowanie jako usługa (SaaS) za pomocą usługi Azure AD](../app-provisioning/user-provisioning.md).
 
 ## <a name="capabilities-supported"></a>Obsługiwane funkcje
 
@@ -33,21 +33,21 @@ W tym samouczku opisano kroki, które należy wykonać w ramach obu Clarizen i A
 > * Usuń użytkowników w Clarizen jeden, gdy nie wymagają już dostępu.
 > * Zachowaj synchronizację atrybutów użytkownika między usługą Azure AD a Clarizen.
 > * Udostępnianie grup i członkostwa w grupach w Clarizen.
-> * Zalecane jest logowanie jednokrotne [(SSO)](https://docs.microsoft.com/azure/active-directory/saas-apps/clarizen-tutorial) do Clarizen.
+> * Zalecane jest logowanie jednokrotne [(SSO)](./clarizen-tutorial.md) do Clarizen.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Scenariusz opisany w tym samouczku założono, że masz już następujące wymagania wstępne:
 
-* [Dzierżawę usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
-* Konto użytkownika w usłudze Azure AD z [uprawnieniami](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) do konfigurowania aprowizacji. Przykładami są administrator aplikacji, administrator aplikacji w chmurze, właściciel aplikacji lub Administrator globalny.
+* [Dzierżawę usługi Azure AD](../develop/quickstart-create-new-tenant.md).
+* Konto użytkownika w usłudze Azure AD z [uprawnieniami](../roles/permissions-reference.md) do konfigurowania aprowizacji. Przykładami są administrator aplikacji, administrator aplikacji w chmurze, właściciel aplikacji lub Administrator globalny.
 * Konto użytkownika w Clarizen jednym z uprawnieniami **użytkownika integracji** i **administratora uproszczonego** [permissions](https://success.clarizen.com/hc/articles/360011833079-API-Keys-Support).
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Krok 1. Planowanie wdrożenia aprowizacji
 
-1. Dowiedz się więcej na temat [sposobu działania usługi aprowizacji](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-1. Określ, kto znajdzie się [w zakresie aprowizacji](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-1. Określ, które dane mają być [mapowane między usługą Azure AD i Clarizen](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).
+1. Dowiedz się więcej na temat [sposobu działania usługi aprowizacji](../app-provisioning/user-provisioning.md).
+1. Określ, kto znajdzie się [w zakresie aprowizacji](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Określ, które dane mają być [mapowane między usługą Azure AD i Clarizen](../app-provisioning/customize-application-attributes.md).
 
 ## <a name="step-2-configure-clarizen-one-to-support-provisioning-with-azure-ad"></a>Krok 2. Skonfiguruj usługę Clarizen, aby obsługiwać obsługę administracyjną w usłudze Azure AD
 
@@ -61,14 +61,14 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 
 ## <a name="step-3-add-clarizen-one-from-the-azure-ad-application-gallery"></a>Krok 3. Dodaj Clarizen jeden z galerii aplikacji usługi Azure AD
 
-Dodaj Clarizen jeden z galerii aplikacji usługi Azure AD, aby rozpocząć zarządzanie aprowizacjim do Clarizen. Jeśli wcześniej skonfigurowano Clarizen jeden na potrzeby logowania jednokrotnego, możesz użyć tej samej aplikacji. Podczas wstępnego testowania integracji utwórz oddzielną aplikację. Aby dowiedzieć się więcej na temat dodawania aplikacji z galerii, zobacz [Dodawanie aplikacji do dzierżawy usługi Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app).
+Dodaj Clarizen jeden z galerii aplikacji usługi Azure AD, aby rozpocząć zarządzanie aprowizacjim do Clarizen. Jeśli wcześniej skonfigurowano Clarizen jeden na potrzeby logowania jednokrotnego, możesz użyć tej samej aplikacji. Podczas wstępnego testowania integracji utwórz oddzielną aplikację. Aby dowiedzieć się więcej na temat dodawania aplikacji z galerii, zobacz [Dodawanie aplikacji do dzierżawy usługi Azure AD](../manage-apps/add-application-portal.md).
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Krok 4. Określenie, kto znajdzie się w zakresie aprowizacji
 
-Za pomocą usługi Azure AD Provisioning można określić zakres, który zostanie zainicjowany na podstawie przydziału do aplikacji lub na podstawie atrybutów użytkownika lub grupy. Jeśli zdecydujesz się na określenie zakresu, który zostanie zainicjowany do aplikacji na podstawie przypisywania, wykonaj kroki opisane w sekcji [Zarządzanie przypisaniem użytkowników dla aplikacji w Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md) , aby przypisać użytkowników i grupy do aplikacji. Jeśli zdecydujesz się na określenie zakresu, który zostanie zainicjowany w oparciu o atrybuty użytkownika lub grupy, Użyj filtru określania zakresu, zgodnie z opisem w temacie [Inicjowanie obsługi aplikacji opartej na atrybutach z filtrami określania zakresu](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+Za pomocą usługi Azure AD Provisioning można określić zakres, który zostanie zainicjowany na podstawie przydziału do aplikacji lub na podstawie atrybutów użytkownika lub grupy. Jeśli zdecydujesz się na określenie zakresu, który zostanie zainicjowany do aplikacji na podstawie przypisywania, wykonaj kroki opisane w sekcji [Zarządzanie przypisaniem użytkowników dla aplikacji w Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md) , aby przypisać użytkowników i grupy do aplikacji. Jeśli zdecydujesz się na określenie zakresu, który zostanie zainicjowany w oparciu o atrybuty użytkownika lub grupy, Użyj filtru określania zakresu, zgodnie z opisem w temacie [Inicjowanie obsługi aplikacji opartej na atrybutach z filtrami określania zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* Po przypisaniu użytkowników i grup do Clarizen jednej, należy wybrać rolę inną niż **domyślny dostęp**. Użytkownicy z domyślną rolą dostępu są wykluczeni z aprowizacji i zostaną oznaczeni jako nieskutecznie uprawnieni do dzienników aprowizacji. Jeśli jedyną rolą dostępną w aplikacji jest domyślna rola dostępu, można [zaktualizować manifest aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) , aby dodać więcej ról.
-* Zacznij od mniejszej skali. Przetestuj przy użyciu małego zestawu użytkowników i grup, Zanim przeprowadzisz wszystko do wszystkich osób. W przypadku wybrania dla zakresu aprowizacji przypisanych użytkowników i grup można zachować kontrolę, przypisując do aplikacji jednego lub dwóch użytkowników lub grupy. Gdy zakres jest ustawiony dla wszystkich użytkowników i grup, można określić [Filtr określania zakresu oparty na atrybutach](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+* Po przypisaniu użytkowników i grup do Clarizen jednej, należy wybrać rolę inną niż **domyślny dostęp**. Użytkownicy z domyślną rolą dostępu są wykluczeni z aprowizacji i zostaną oznaczeni jako nieskutecznie uprawnieni do dzienników aprowizacji. Jeśli jedyną rolą dostępną w aplikacji jest domyślna rola dostępu, można [zaktualizować manifest aplikacji](../develop/howto-add-app-roles-in-azure-ad-apps.md) , aby dodać więcej ról.
+* Zacznij od mniejszej skali. Przetestuj przy użyciu małego zestawu użytkowników i grup, Zanim przeprowadzisz wszystko do wszystkich osób. W przypadku wybrania dla zakresu aprowizacji przypisanych użytkowników i grup można zachować kontrolę, przypisując do aplikacji jednego lub dwóch użytkowników lub grupy. Gdy zakres jest ustawiony dla wszystkich użytkowników i grup, można określić [Filtr określania zakresu oparty na atrybutach](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-clarizen-one"></a>Krok 5. Konfigurowanie automatycznej aprowizacji użytkowników w celu Clarizen jednego
 
@@ -76,7 +76,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="configure-automatic-user-provisioning-for-clarizen-one-in-azure-ad"></a>Konfigurowanie automatycznej aprowizacji użytkowników dla Clarizen w usłudze Azure AD
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com). Wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**.
 
     ![Zrzut ekranu przedstawiający okienko aplikacje dla przedsiębiorstw.](common/enterprise-applications.png)
 
@@ -104,7 +104,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 1. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkownicy, aby Clarizen jeden**.
 
-1. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługą Azure AD, aby Clarizen je w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w Clarizen jeden dla operacji aktualizacji. Jeśli zmienisz [pasujący atrybut docelowy](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), musisz się upewnić, że Clarizen jeden interfejs API obsługuje filtrowanie użytkowników na podstawie tego atrybutu. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
+1. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługą Azure AD, aby Clarizen je w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w Clarizen jeden dla operacji aktualizacji. Jeśli zmienisz [pasujący atrybut docelowy](../app-provisioning/customize-application-attributes.md), musisz się upewnić, że Clarizen jeden interfejs API obsługuje filtrowanie użytkowników na podstawie tego atrybutu. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
    |Atrybut|Typ|
    |---|---|
@@ -158,7 +158,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
       |externalId|Ciąg|
       |elementy członkowskie|Tematy pomocy|
 
-1. Aby skonfigurować filtry zakresu, zapoznaj się z instrukcjami w  [samouczku filtr zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Aby skonfigurować filtry zakresu, zapoznaj się z instrukcjami w  [samouczku filtr zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 1. Aby włączyć usługę Azure AD Provisioning for Clarizen, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
@@ -178,9 +178,9 @@ Ta operacja spowoduje rozpoczęcie cyklu synchronizacji początkowej wszystkich 
 
 Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania wdrożenia.
 
-1. Użyj [dzienników aprowizacji](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) , aby określić, którzy użytkownicy zostali zainicjowani pomyślnie lub niepomyślnie.
-1. Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
-1. Jeśli konfiguracja aprowizacji jest w złej kondycji, aplikacja przejdzie w stan kwarantanny. Aby dowiedzieć się więcej na temat stanów kwarantanny, zobacz [Inicjowanie obsługi aplikacji w stanie kwarantanny](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+1. Użyj [dzienników aprowizacji](../reports-monitoring/concept-provisioning-logs.md) , aby określić, którzy użytkownicy zostali zainicjowani pomyślnie lub niepomyślnie.
+1. Sprawdź [pasek postępu](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
+1. Jeśli konfiguracja aprowizacji jest w złej kondycji, aplikacja przejdzie w stan kwarantanny. Aby dowiedzieć się więcej na temat stanów kwarantanny, zobacz [Inicjowanie obsługi aplikacji w stanie kwarantanny](../app-provisioning/application-provisioning-quarantine-status.md).
 
 ## <a name="troubleshooting-tips"></a>Wskazówki dotyczące rozwiązywania problemów
 
@@ -196,9 +196,9 @@ Po przypisaniu użytkownika do aplikacji Clarizen z galerii wybierz tylko rolę 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../manage-apps/check-status-user-account-provisioning.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
