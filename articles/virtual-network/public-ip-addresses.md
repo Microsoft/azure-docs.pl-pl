@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 3f2dfb113f4c82dfea422a7c2be1c5fb07ffd60e
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ef79844cf2f90ce97ea30a1948a441f909255f98
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358171"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169939"
 ---
 # <a name="public-ip-addresses"></a>Publiczne adresy IP
 
@@ -37,7 +37,7 @@ W usłudze Azure Resource Manager [publiczny adres IP](virtual-network-public-ip
 
 Publiczne adresy IP są tworzone przy użyciu adresu IPv4 lub IPv6. 
 
-## <a name="sku"></a>Jednostka SKU
+## <a name="sku"></a>SKU
 
 Aby dowiedzieć się więcej o uaktualnieniu jednostki SKU, zapoznaj się z tematem [Public IP upgrade](../virtual-network/virtual-network-public-ip-address-upgrade.md).
 
@@ -54,7 +54,7 @@ Publiczne adresy IP jednostki SKU:
 - Ich dostosowywalny limit czasu bezczynności dla przepływu opartego na ruchu przychodzącym wynosi od 4 do 30 minut przy domyślnej wartości 4 minut, a stały limit czasu bezczynności dla przepływu opartego na ruchu wychodzącym wynosi 4 minuty.
 - Zabezpiecz domyślnie i zamknięto w ruchu przychodzącym. Zezwalaj na wyświetlanie listy ruchu przychodzącego z [sieciową grupą zabezpieczeń](security-overview.md#network-security-groups).
 - Przypisane do interfejsów sieciowych, standardowych publicznych modułów równoważenia obciążenia lub bram aplikacji. Aby uzyskać więcej informacji na temat usługi równoważenia obciążenia w warstwie Standardowa, zobacz [Azure usługa Load Balancer w warstwie Standardowa](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Może być strefowo nadmiarowy lub zona (można utworzyć strefę i zagwarantować w określonej strefie dostępności). Aby dowiedzieć się więcej o strefach dostępności, zobacz [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Omówienie stref dostępności) oraz [Usługa Load Balancer w warstwie Standardowa i strefy dostępności](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Mogą być nadmiarowe strefowo (pochodzące ze wszystkich 3 stref) lub zona (można utworzyć strefę i zagwarantować w określonej strefie dostępności). Aby dowiedzieć się więcej o strefach dostępności, zobacz [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Omówienie stref dostępności) oraz [Usługa Load Balancer w warstwie Standardowa i strefy dostępności](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Nadmiarowe adresy IP stref można tworzyć tylko w regionach, w których znajdują się [3 strefy dostępności](https://docs.microsoft.com/azure/availability-zones/az-region) .** Adresy IP utworzone przed na żywo nie będą strefowo nadmiarowe.
  
 > [!NOTE]
 > Próba obsługi komunikacji przychodzącej za pomocą standardowego zasobu SKU będzie kończyć się niepowodzeniem do momentu utworzenia i skojarzenia [sieciowej grupy zabezpieczeń](security-overview.md#network-security-groups), a następnie jawnego zezwolenia na żądany ruch przychodzący.
@@ -98,7 +98,7 @@ Na przykład zasób publicznego adresu IP jest publikowany z zasobu o nazwie **R
 Adres IP jest wydawany, gdy metoda alokacji jest zmieniana z **statyczne** na **dynamiczny**. Aby zapewnić, że adres IP skojarzonego zasobu pozostaje taki sam, ustaw metodę alokacji jawnie na **statyczną**. Statyczny adres IP jest przypisywany natychmiast.
 
 > [!NOTE]
-> Nawet gdy ustawisz metodę alokacji jako **statyczną** , nie możesz określić rzeczywistego adresu IP przypisanego do publicznego zasobu adresu IP. Platforma Azure przypisuje adres IP z puli adresów IP dostępnych w lokalizacji platformy Azure, w której zasób jest tworzony.
+> Nawet gdy ustawisz metodę alokacji jako **statyczną**, nie możesz określić rzeczywistego adresu IP przypisanego do publicznego zasobu adresu IP. Platforma Azure przypisuje adres IP z puli adresów IP dostępnych w lokalizacji platformy Azure, w której zasób jest tworzony.
 >
 
 Statyczne publiczne adresy IP są powszechnie używane w następujących scenariuszach:

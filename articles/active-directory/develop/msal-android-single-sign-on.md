@@ -14,18 +14,18 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: hahamil
 ms.reviewer: marsma
-ms.openlocfilehash: 7e53e21b6d929e2f0ba9a2e23e4e8e1b2278f828
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 3f5791bfcf6547b7fc4e84bee3d4c1c49453af9c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209901"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169498"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-msal"></a>Instrukcje: Włączanie logowania jednokrotnego dla aplikacji w systemie Android przy użyciu MSAL
 
 Logowanie jednokrotne (SSO) umożliwia użytkownikom wprowadzanie poświadczeń tylko raz i ich automatyczne działanie w wielu aplikacjach.
 
-[Platforma tożsamości firmy Microsoft](/azure/active-directory/develop/) i Biblioteka Microsoft Authentication Library (MSAL) umożliwiają włączenie logowania jednokrotnego w ramach własnego pakietu aplikacji. Za pomocą funkcji brokera i aplikacji uwierzytelniania można rozłożyć Logowanie jednokrotne za pośrednictwem całego urządzenia.
+[Platforma tożsamości firmy Microsoft](./index.yml) i Biblioteka Microsoft Authentication Library (MSAL) umożliwiają włączenie logowania jednokrotnego w ramach własnego pakietu aplikacji. Za pomocą funkcji brokera i aplikacji uwierzytelniania można rozłożyć Logowanie jednokrotne za pośrednictwem całego urządzenia.
 
 W tym instruktażu dowiesz się, jak skonfigurować zestawy SDK używane przez aplikację w celu zapewnienia logowania jednokrotnego do klientów.
 
@@ -33,7 +33,7 @@ W tym instruktażu dowiesz się, jak skonfigurować zestawy SDK używane przez a
 
 Ta procedura polega na tym, że wiesz, jak:
 
-- Inicjowanie obsługi administracyjnej aplikacji przy użyciu Azure Portal. Aby uzyskać więcej informacji na temat tego tematu, zobacz instrukcje dotyczące tworzenia aplikacji w [samouczku systemu Android](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android#create-a-project)
+- Inicjowanie obsługi administracyjnej aplikacji przy użyciu Azure Portal. Aby uzyskać więcej informacji na temat tego tematu, zobacz instrukcje dotyczące tworzenia aplikacji w [samouczku systemu Android](./tutorial-v2-android.md#create-a-project)
 - Zintegruj swoją aplikację z [biblioteką uwierzytelniania firmy Microsoft dla systemu Android](https://github.com/AzureAD/microsoft-authentication-library-for-android).
 
 ## <a name="methods-for-single-sign-on"></a>Metody logowania jednokrotnego
@@ -81,7 +81,7 @@ Jeśli na urządzeniu nie ma jeszcze zainstalowanej aplikacji brokera, MSAL naka
 
 Gdy na urządzeniu jest zainstalowany Broker, wszystkie kolejne żądania tokenu interakcyjnego (wywołania do `acquireToken()` ) są obsługiwane przez brokera, a nie lokalnie przez MSAL. Wszystkie Stany logowania jednokrotnego, wcześniej dostępne dla MSAL, nie są dostępne dla brokera. W związku z tym użytkownik będzie musiał ponownie przeprowadzić uwierzytelnienie lub wybrać konto z istniejącej listy kont znanych urządzeniu.
 
-Zainstalowanie brokera nie wymaga ponownego zalogowania użytkownika. Tylko wtedy, gdy użytkownik musi rozpoznać `MsalUiRequiredException` żądanie, zostanie przejdzie do brokera. `MsalUiRequiredException` mogą być zgłaszane z kilku powodów i muszą zostać rozwiązane interaktywnie. Na przykład:
+Zainstalowanie brokera nie wymaga ponownego zalogowania użytkownika. Tylko wtedy, gdy użytkownik musi rozpoznać `MsalUiRequiredException` żądanie, zostanie przejdzie do brokera. `MsalUiRequiredException` mogą być zgłaszane z kilku powodów i muszą zostać rozwiązane interaktywnie. Przykład:
 
 - Użytkownik zmienił hasło skojarzone z kontem.
 - Konto użytkownika nie spełnia już zasad dostępu warunkowego.
@@ -117,7 +117,7 @@ W systemie Windows:
 keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.keystore | openssl sha1 -binary | openssl base64
 ```
 
-Po wygenerowaniu skrótu podpisu za pomocą *Narzędzia*klucza Użyj Azure Portal, aby wygenerować identyfikator URI przekierowania:
+Po wygenerowaniu skrótu podpisu za pomocą *Narzędzia* klucza Użyj Azure Portal, aby wygenerować identyfikator URI przekierowania:
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz swoją aplikację dla systemu Android w **rejestracje aplikacji**.
 1. Wybierz pozycję **uwierzytelnianie**  >  **Dodaj platformę**  >  **Android**.

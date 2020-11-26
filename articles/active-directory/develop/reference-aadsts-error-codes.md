@@ -12,12 +12,12 @@ ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 59ed397f3bd54a324f8fa375a3ea870860c31142
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: fa6fc11441811589967ddd7728501b521f9f9155
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410933"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169277"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Kody błędów uwierzytelniania i autoryzacji usługi Azure AD
 
@@ -315,7 +315,7 @@ Na przykład jeśli wystąpił kod błędu "AADSTS50058", wykonaj wyszukiwanie w
 | AADSTS700022 | InvalidMultipleResourcesScope — podana wartość zakresu parametru wejściowego jest nieprawidłowa, ponieważ zawiera więcej niż jeden zasób. |
 | AADSTS700023 | InvalidResourcelessScope — podana wartość dla zakresu parametru wejściowego jest nieprawidłowa podczas żądania tokenu dostępu. |
 | AADSTS7000215 | Podano nieprawidłowy klucz tajny klienta. Błąd dewelopera — aplikacja próbuje zalogować się bez wymaganych lub poprawnych parametrów uwierzytelniania.|
-| AADSTS7000222 | InvalidClientSecretExpiredKeysProvided — wygasłe klucze tajne klienta. Odwiedź Azure Portal, aby utworzyć nowe klucze dla aplikacji, lub Rozważ użycie poświadczeń certyfikatu w celu zwiększenia bezpieczeństwa: [https://aka.ms/certCreds](https://aka.ms/certCreds) |
+| AADSTS7000222 | InvalidClientSecretExpiredKeysProvided — wygasłe klucze tajne klienta. Odwiedź Azure Portal, aby utworzyć nowe klucze dla aplikacji, lub Rozważ użycie poświadczeń certyfikatu w celu zwiększenia bezpieczeństwa: [https://aka.ms/certCreds](./active-directory-certificate-credentials.md) |
 | AADSTS700005 | Kod autoryzacji podany przez InvalidGrantRedeemAgainstWrongTenant jest przeznaczony do użycia w odniesieniu do innych dzierżawców, w rezultacie odrzucony. Kod autoryzacji OAuth2 musi zostać zrealizowany w odniesieniu do tej samej dzierżawy, dla którego uzyskano (odpowiednio/typowe lub/{tenant-ID}) |
 | AADSTS1000000 | UserNotBoundError — interfejs API bind wymaga, aby użytkownik usługi Azure AD mógł także uwierzytelniać się przy użyciu zewnętrznego dostawcy tożsamości, który jeszcze nie wystąpił. |
 | AADSTS1000002 | BindCompleteInterruptError — powiązanie zostało wykonane pomyślnie, ale użytkownik musi zostać poinformowany. |

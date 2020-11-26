@@ -12,12 +12,12 @@ ms.date: 10/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 1a08aa4261e8d2546d16bb60394829c83604b4cd
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 50f57f48ca839c5389df49fc5dc7586030916b6b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019963"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169753"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Instrukcje: dostarczanie opcjonalnych oświadczeń do aplikacji
 
@@ -67,7 +67,7 @@ Zestaw opcjonalnych oświadczeń dostępnych domyślnie dla aplikacji do użycia
 | `email`                    | Adres e-mail dla tego użytkownika, jeśli użytkownik go ma.  | JWT, SAML | MSA, Azure AD | Ta wartość jest uwzględniana domyślnie, jeśli użytkownik jest gościem w dzierżawie.  W przypadku użytkowników zarządzanych (użytkowników w ramach dzierżawy) należy zażądać ich przez to opcjonalne żądanie lub tylko w wersji 3.0, z zakresem OpenID Connect.  W przypadku użytkowników zarządzanych adres e-mail musi być ustawiony w [portalu administracyjnym pakietu Office](https://portal.office.com/adminportal/home#/users).|
 | `acct`                | Stan konta użytkowników w dzierżawie | JWT, SAML | | Jeśli użytkownik jest członkiem dzierżawy, wartość jest `0` . Jeśli jest gościem, wartość to `1` . |
 | `groups`| Opcjonalne formatowanie oświadczeń grupy |JWT, SAML| |Używany w połączeniu z ustawieniem GroupMembershipClaims w [manifeście aplikacji](reference-app-manifest.md), który musi być również ustawiony. Aby uzyskać szczegółowe informacje, zobacz poniższe [oświadczenia grupy](#configuring-groups-optional-claims) . Aby uzyskać więcej informacji na temat oświadczeń grup, zobacz [jak skonfigurować oświadczenia grupy](../hybrid/how-to-connect-fed-group-claims.md)
-| `upn`                      | UserPrincipalName | JWT, SAML  |           | Identyfikator dla użytkownika, którego można użyć z parametrem username_hint.  Nie jest to trwały identyfikator użytkownika i nie należy go używać do unikatowej tożsamości informacji o użytkowniku (np. klucza bazy danych). Zamiast tego należy użyć identyfikatora obiektu użytkownika ( `oid` ) jako klucza bazy danych. Użytkownicy logujący się przy użyciu [alternatywnego identyfikatora logowania](/azure/active-directory/authentication/howto-authentication-use-email-signin) nie powinny być pokazywane nazwy głównej użytkownika (UPN). Zamiast tego należy użyć następujących oświadczeń tokenu identyfikatora do wyświetlania stanu logowania dla użytkownika: `preferred_username` lub `unique_name` tokenów V1 oraz `preferred_username` tokenów v2. Chociaż to zgłoszenie jest automatycznie dołączane, można je określić jako opcjonalne, aby dołączyć dodatkowe właściwości, aby zmodyfikować jego zachowanie w przypadku użytkownika-gościa.  |
+| `upn`                      | UserPrincipalName | JWT, SAML  |           | Identyfikator dla użytkownika, którego można użyć z parametrem username_hint.  Nie jest to trwały identyfikator użytkownika i nie należy go używać do unikatowej tożsamości informacji o użytkowniku (np. klucza bazy danych). Zamiast tego należy użyć identyfikatora obiektu użytkownika ( `oid` ) jako klucza bazy danych. Użytkownicy logujący się przy użyciu [alternatywnego identyfikatora logowania](../authentication/howto-authentication-use-email-signin.md) nie powinny być pokazywane nazwy głównej użytkownika (UPN). Zamiast tego należy użyć następujących oświadczeń tokenu identyfikatora do wyświetlania stanu logowania dla użytkownika: `preferred_username` lub `unique_name` tokenów V1 oraz `preferred_username` tokenów v2. Chociaż to zgłoszenie jest automatycznie dołączane, można je określić jako opcjonalne, aby dołączyć dodatkowe właściwości, aby zmodyfikować jego zachowanie w przypadku użytkownika-gościa.  |
 | `idtyp`                    | Typ tokenu   | Tokeny dostępu JWT | Specjalne: tylko w tokenach dostępu tylko do aplikacji |  Wartość jest `app` , gdy token jest tokenem obsługującym tylko aplikację. Jest to najdokładniejszy sposób, aby określić, czy token jest tokenem aplikacji, czy aplikacją i tokenem użytkownika.|
 
 ## <a name="v20-specific-optional-claims-set"></a>v 2.0 — zestaw oświadczeń opcjonalnych specyficznych
@@ -85,7 +85,7 @@ Te oświadczenia są zawsze uwzględniane w tokenach usługi Azure AD w wersji 1
 | `in_corp`     | Wewnątrz sieci firmowej        | Sygnalizuje, czy klient loguje się z sieci firmowej. W przeciwnym razie oświadczenia nie są uwzględniane.   |  Na podstawie ustawień [zaufanych adresów IP](../authentication/howto-mfa-mfasettings.md#trusted-ips) w usłudze MFA.    |
 | `family_name` | Nazwisko                       | Zawiera nazwisko, nazwisko lub nazwę rodziny użytkownika, zgodnie z definicją w obiekcie użytkownika. <br>"family_name": "Miller" | Obsługiwane w usłudze MSA i usłudze Azure AD. Wymaga `profile` zakresu.   |
 | `given_name`  | Imię                      | Określa imię i nazwisko użytkownika, zgodnie z ustawieniem obiektu użytkownika.<br>"given_name": "Piotr"                   | Obsługiwane w usłudze MSA i usłudze Azure AD.  Wymaga `profile` zakresu. |
-| `upn`         | Nazwa główna użytkownika | Identyfikator dla użytkownika, którego można użyć z parametrem username_hint.  Nie jest to trwały identyfikator użytkownika i nie należy go używać do unikatowej tożsamości informacji o użytkowniku (np. klucza bazy danych). Zamiast tego należy użyć identyfikatora obiektu użytkownika ( `oid` ) jako klucza bazy danych. Użytkownicy logujący się przy użyciu [alternatywnego identyfikatora logowania](/azure/active-directory/authentication/howto-authentication-use-email-signin) nie powinny być pokazywane nazwy głównej użytkownika (UPN). Zamiast tego należy użyć następujących oświadczeń tokenu identyfikatora do wyświetlania stanu logowania dla użytkownika: `preferred_username` lub `unique_name` tokenów V1 oraz `preferred_username` tokenów v2. | Zapoznaj się z [dodatkowymi właściwościami](#additional-properties-of-optional-claims) poniżej w celu skonfigurowania żądania. Wymaga `profile` zakresu.|
+| `upn`         | Nazwa główna użytkownika | Identyfikator dla użytkownika, którego można użyć z parametrem username_hint.  Nie jest to trwały identyfikator użytkownika i nie należy go używać do unikatowej tożsamości informacji o użytkowniku (np. klucza bazy danych). Zamiast tego należy użyć identyfikatora obiektu użytkownika ( `oid` ) jako klucza bazy danych. Użytkownicy logujący się przy użyciu [alternatywnego identyfikatora logowania](../authentication/howto-authentication-use-email-signin.md) nie powinny być pokazywane nazwy głównej użytkownika (UPN). Zamiast tego należy użyć następujących oświadczeń tokenu identyfikatora do wyświetlania stanu logowania dla użytkownika: `preferred_username` lub `unique_name` tokenów V1 oraz `preferred_username` tokenów v2. | Zapoznaj się z [dodatkowymi właściwościami](#additional-properties-of-optional-claims) poniżej w celu skonfigurowania żądania. Wymaga `profile` zakresu.|
 
 ### <a name="additional-properties-of-optional-claims"></a>Dodatkowe właściwości oświadczeń opcjonalnych
 
@@ -139,7 +139,7 @@ Opcjonalne oświadczenia dla aplikacji można skonfigurować za pomocą interfej
 1. Wybierz pozycję **Dodaj**.
 
 > [!NOTE]
-> Blok **Konfiguracja tokenu** opcji interfejsu użytkownika nie jest dostępny dla aplikacji zarejestrowanych w dzierżawie Azure AD B2C. W przypadku aplikacji zarejestrowanych w dzierżawie B2C opcjonalne oświadczenia można skonfigurować przez modyfikację manifestu aplikacji. Aby uzyskać więcej informacji [, zobacz Dodawanie oświadczeń i dostosowywanie danych wejściowych użytkownika przy użyciu zasad niestandardowych w Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-configure-user-input) 
+> Blok **Konfiguracja tokenu** opcji interfejsu użytkownika nie jest dostępny dla aplikacji zarejestrowanych w dzierżawie Azure AD B2C. W przypadku aplikacji zarejestrowanych w dzierżawie B2C opcjonalne oświadczenia można skonfigurować przez modyfikację manifestu aplikacji. Aby uzyskać więcej informacji [, zobacz Dodawanie oświadczeń i dostosowywanie danych wejściowych użytkownika przy użyciu zasad niestandardowych w Azure Active Directory B2C](../../active-directory-b2c/custom-policy-configure-user-input.md) 
 
 **Konfigurowanie opcjonalnych oświadczeń za pomocą manifestu aplikacji:**
 

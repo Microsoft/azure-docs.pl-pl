@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ab14413de1f999747e5b3fb58b505e0a9258a55
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7cd2aa5e9ff8cbaeead69f11d2e3de7f760b53ec
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441219"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168648"
 ---
 # <a name="saml-authentication-with-azure-active-directory"></a>Uwierzytelnianie SAML za pomocą Azure Active Directory
 
@@ -53,8 +53,8 @@ Chociaż jednym z najważniejszych przypadków użycia adresów SAML jest logowa
 
 ## <a name="implement-saml-authentication-with-azure-ad"></a>Implementowanie uwierzytelniania SAML za pomocą usługi Azure AD
 
-* [Samouczki dotyczące integrowania aplikacji SaaS przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) 
+* [Samouczki dotyczące integrowania aplikacji SaaS przy użyciu Azure Active Directory](../saas-apps/tutorial-list.md) 
 
-* [Konfigurowanie logowania jednokrotnego opartego na protokole SAML dla aplikacji spoza galerii](https://docs.microsoft.com/azure/active-directory/manage-apps/add-non-gallery-app) 
+* [Konfigurowanie logowania jednokrotnego opartego na protokole SAML dla aplikacji spoza galerii](../manage-apps/add-application-portal.md) 
 
-* [Jak usługa Azure AD używa protokołu SAML](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-protocol-reference)
+* [Jak usługa Azure AD używa protokołu SAML](../develop/active-directory-saml-protocol-reference.md)

@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0b54a8227594a81c17dcaaaaa6c599d70217c498
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d899fe7f84a8708bb8ee32cc008567b272a885c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705864"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169379"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Korzystanie z MSAL w środowisku chmury krajowej
 
@@ -49,7 +49,7 @@ Po podjęciu decyzji, szczególnym zagadnieniem jest przeprowadzenie rejestracji
 
 ### <a name="get-an-azure-government-subscription"></a>Pobierz subskrypcję usługi Azure Government
 
-Aby uzyskać subskrypcję Azure Government, zobacz [Zarządzanie subskrypcją w programie Azure Government i nawiązywanie z nią połączenia](../../azure-government/documentation-government-manage-subscriptions.md).
+Aby uzyskać subskrypcję Azure Government, zobacz [Zarządzanie subskrypcją w programie Azure Government i nawiązywanie z nią połączenia](../../azure-government/compare-azure-government-global-azure.md).
 
 Jeśli nie masz subskrypcji Azure Government, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/global-infrastructure/government/request/) .
 
@@ -77,12 +77,12 @@ Aby włączyć aplikację MSAL.js dla suwerennych chmur:
 1. Jeśli Twoje konto zapewnia dostęp do więcej niż jednej dzierżawy, wybierz swoje konto w prawym górnym rogu, a następnie ustaw sesję portalu na żądaną dzierżawę usługi Azure AD.
 1. Przejdź do strony [rejestracje aplikacji](https://aka.ms/ra/ff) na platformie tożsamości firmy Microsoft dla deweloperów.
 1. Po wyświetleniu strony **Rejestrowanie aplikacji** wprowadź nazwę aplikacji.
-1. W obszarze **obsługiwane typy kont**wybierz pozycję **konta w dowolnym katalogu organizacyjnym**.
+1. W obszarze **obsługiwane typy kont** wybierz pozycję **konta w dowolnym katalogu organizacyjnym**.
 1. W sekcji **Identyfikator URI przekierowania** Wybierz platformę **sieci Web** i ustaw wartość na adres URL aplikacji na podstawie serwera sieci Web. Zobacz następne sekcje, aby uzyskać instrukcje dotyczące ustawiania i uzyskiwania adresu URL przekierowania w programie Visual Studio i węźle.
 1. Wybierz pozycję **Zarejestruj**.
 1. Na stronie **Przegląd** aplikacji zanotuj wartość **Identyfikator aplikacji (klienta)**.
 1. Ten samouczek wymaga włączenia [niejawnego przepływu dotacji](v2-oauth2-implicit-grant-flow.md). W lewym okienku zarejestrowanej aplikacji wybierz pozycję **uwierzytelnianie**.
-1. W obszarze **Ustawienia zaawansowane**w obszarze **niejawne przyznanie**zaznacz pola wyboru **tokeny identyfikatorów** i **tokeny dostępu** . Tokeny identyfikatorów i tokeny dostępu są wymagane, ponieważ ta aplikacja musi zalogować użytkowników i wywołać interfejs API.
+1. W obszarze **Ustawienia zaawansowane** w obszarze **niejawne przyznanie** zaznacz pola wyboru **tokeny identyfikatorów** i **tokeny dostępu** . Tokeny identyfikatorów i tokeny dostępu są wymagane, ponieważ ta aplikacja musi zalogować użytkowników i wywołać interfejs API.
 1. Wybierz pozycję **Zapisz**.
 
 ### <a name="step-2--set-up-your-web-server-or-project"></a>Krok 2. Konfigurowanie serwera lub projektu sieci Web
@@ -222,7 +222,7 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na następujące tematy:
+Dowiedz się więcej:
 
 - [Uwierzytelnianie w chmurach narodowych](authentication-national-cloud.md)
 - [Azure Government](../../azure-government/index.yml)

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2d7c1c0245649fdb7eed1033a953b8cc3933626
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e4f960819aa208dcc8d3e476fc45a766452b612c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442120"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168954"
 ---
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Ograniczenia dotyczące współpracy B2B usługi Azure AD
 Azure Active Directory (Azure AD) Współpraca B2B jest obecnie objęta ograniczeniami opisanymi w tym artykule.
@@ -28,7 +28,7 @@ Usługa Azure AD B2B umożliwia Wymuszanie uwierzytelniania wieloskładnikowego 
 W przepływach współpracy B2B dodamy użytkowników do katalogu i aktualizujesz je dynamicznie podczas realizacji zaproszeń, przypisywania aplikacji i tak dalej. Aktualizacje i zapisy są zwykle wykonywane w jednym wystąpieniu katalogu i muszą być replikowane we wszystkich wystąpieniach. Replikacja została ukończona po zaktualizowaniu wszystkich wystąpień. Czasami gdy obiekt jest zapisywana lub aktualizowana w jednym wystąpieniu, a wywołanie do pobrania tego obiektu jest innym wystąpieniem, mogą wystąpić opóźnienia replikacji. Jeśli tak się stanie, Odśwież lub Ponów próbę, aby uzyskać pomoc. W przypadku pisania aplikacji przy użyciu naszego interfejsu API, a następnie ponawiając próbę, aby rozwiązać ten problem.
 
 ## <a name="azure-ad-directories"></a>Katalogi usługi Azure AD
-Usługa Azure AD B2B podlega limitom katalogów usługi Azure AD. Aby uzyskać szczegółowe informacje o liczbie katalogów, które użytkownik może utworzyć, oraz o liczbie katalogów, do których może należeć użytkownik lub gość, zobacz [limity i ograniczenia usługi Azure AD](../users-groups-roles/directory-service-limits-restrictions.md).
+Usługa Azure AD B2B podlega limitom katalogów usługi Azure AD. Aby uzyskać szczegółowe informacje o liczbie katalogów, które użytkownik może utworzyć, oraz o liczbie katalogów, do których może należeć użytkownik lub gość, zobacz [limity i ograniczenia usługi Azure AD](../enterprise-users/directory-service-limits-restrictions.md).
 
 ## <a name="national-clouds"></a>Chmury narodowe
 [Chmury krajowe](../develop/authentication-national-cloud.md) to fizyczne izolowane wystąpienia platformy Azure. Współpraca B2B nie jest obsługiwana w granicach chmury krajowej. Na przykład jeśli dzierżawa platformy Azure znajduje się w publicznej, globalnej chmurze, nie można zaprosić użytkownika, którego konto znajduje się w chmurze krajowej. Aby współpracować z użytkownikiem, poproś o podanie innego adresu e-mail lub Utwórz konto użytkownika w Twoim katalogu.
@@ -39,7 +39,7 @@ W chmurze platformy Azure dla instytucji rządowych USA współpraca B2B jest ob
 ### <a name="how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant"></a>Jak mogę sprawdzić, czy w mojej dzierżawie platformy Azure USA jest dostępna współpraca B2B?
 Aby dowiedzieć się, czy dzierżawca w chmurze platformy Azure USA obsługuje współpracę B2B, wykonaj następujące czynności:
 
-1. W przeglądarce przejdź do następującego adresu URL, zastępując nazwę dzierżawcy * &lt; dzierżawcy &gt; *:
+1. W przeglądarce przejdź do następującego adresu URL, zastępując nazwę dzierżawcy *&lt; dzierżawcy &gt;*:
 
    `https://login.microsoftonline.com/<tenantname>/v2.0/.well-known/openid-configuration`
 

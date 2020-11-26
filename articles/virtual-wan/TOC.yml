@@ -67,6 +67,10 @@
           href: virtual-wan-ipsec.md
         - name: Wiele linków usługodawców internetowych — wybór ścieżki platformy Azure
           href: path-selection-multiple-links.md
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
     - name: Pojęcia dotyczące cen
       href: pricing-concepts.md
     - name: Informacje o urządzenie WUS w koncentratorze wirtualnym

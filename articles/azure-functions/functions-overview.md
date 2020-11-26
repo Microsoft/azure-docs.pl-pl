@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/20/2020
 ms.author: cshoe
 ms.custom: contperfq2
-ms.openlocfilehash: 6713c0d45a8b5363122c726d1d31e5c479ba8fff
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 514f2e9a82a50f95f9c054c6a54e7b5af3c0af15
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95504649"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96167781"
 ---
 # <a name="introduction-to-azure-functions"></a>Wprowadzenie do usługi Azure Functions
 
@@ -38,7 +38,7 @@ Poniżej znajdują się wspólne, _ale nie oznacza to wyczerpujący_ zestaw scen
 | --- | --- |
 | **Tworzenie internetowego interfejsu API** | Implementowanie punktu końcowego dla aplikacji sieci Web przy użyciu [wyzwalacza http](./functions-bindings-http-webhook.md) |
 | **Przetwarzaj operacje przekazywania plików** | Uruchom kod, gdy plik zostanie przekazany lub zmieniony w usłudze [BLOB Storage](./functions-bindings-storage-blob.md) |
-| **Tworzenie bezserwerowego przepływu pracy** | Łączenie szeregu funkcji przy użyciu [funkcji trwałych](./durable-functions-overview.md) |
+| **Tworzenie bezserwerowego przepływu pracy** | Łączenie szeregu funkcji przy użyciu [funkcji trwałych](./durable/durable-functions-overview.md) |
 | **Reagowanie na zmiany bazy danych** | Uruchamiaj logikę niestandardową, gdy dokument jest tworzony lub aktualizowany w [Cosmos DB](./functions-bindings-cosmosdb-v2.md) |
 | **Uruchamianie zaplanowanych zadań** | Wykonaj kod w [ustalonych godzinach](./functions-bindings-timer.md) |
 | **Tworzenie niezawodnych systemów kolejki komunikatów** | Przetwarzaj kolejki komunikatów przy użyciu [queue storage](./functions-bindings-storage-queue.md), [Service Bus](./functions-bindings-service-bus.md)lub [Event Hubs](./functions-bindings-event-hubs.md) |

@@ -4,12 +4,12 @@ description: Poznaj różne sposoby wdrażania kodu do Azure Functions.
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 3988f30d0e6429a8cac450711d4033e4b2603d46
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 7a75408008a90a2c40553b1f6c5c196775a48e61
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900167"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168104"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Technologie wdrażania w Azure Functions
 
@@ -86,7 +86,7 @@ Aby włączyć kompilację zdalną w systemie Linux, należy ustawić następuj�
 * `ENABLE_ORYX_BUILD=true`
 * `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
 
-Domyślnie zarówno [Azure Functions Core Tools](functions-run-local.md) , jak i [rozszerzenie Azure Functions dla Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) wykonują kompilacje zdalne podczas wdrażania w systemie Linux. W związku z tym oba narzędzia automatycznie tworzą te ustawienia na platformie Azure.
+Domyślnie zarówno [Azure Functions Core Tools](functions-run-local.md) , jak i [rozszerzenie Azure Functions dla Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) wykonują kompilacje zdalne podczas wdrażania w systemie Linux. W związku z tym oba narzędzia automatycznie tworzą te ustawienia na platformie Azure.
 
 Gdy aplikacje są kompilowane zdalnie w systemie Linux, są one [uruchamiane z pakietu wdrożeniowego](run-functions-from-deployment-package.md).
 
@@ -128,7 +128,7 @@ Można wdrożyć obraz kontenera systemu Linux zawierający aplikację funkcji.
 
 >__Jak z niej korzystać:__ Utwórz aplikację funkcji systemu Linux w planie Premium lub dedykowanym i określ, z którego obrazu kontenera chcesz korzystać. Możesz to zrobić na dwa sposoby:
 >
->* Utwórz aplikację funkcji systemu Linux na planie Azure App Service w Azure Portal. W obszarze **Publikowanie** wybierz opcję **obraz platformy Docker** , a następnie skonfiguruj kontener. Wprowadź lokalizację, w której jest hostowany obraz.
+>* Utwórz aplikację funkcji systemu Linux na planie Azure App Service w Azure Portal. W obszarze **Publikowanie** wybierz opcję **obraz platformy Docker**, a następnie skonfiguruj kontener. Wprowadź lokalizację, w której jest hostowany obraz.
 >* Tworzenie aplikacji funkcji systemu Linux w planie App Service przy użyciu interfejsu wiersza polecenia platformy Azure. Aby dowiedzieć się, jak to zrobić, zobacz [Tworzenie funkcji w systemie Linux przy użyciu obrazu niestandardowego](functions-create-function-linux-custom-image.md#create-supporting-azure-resources-for-your-function).
 >
 >Aby wdrożyć w istniejącej aplikacji przy użyciu niestandardowego kontenera, w [Azure Functions Core Tools](functions-run-local.md)Użyj [`func deploy`](functions-run-local.md#publish) polecenia.
@@ -185,9 +185,9 @@ W edytorze opartym na portalu można bezpośrednio edytować pliki znajdujące s
 
 >__Kiedy używać go:__ Portal jest dobrym sposobem na rozpoczęcie pracy z Azure Functions. Aby uzyskać więcej intensywnych prac programistycznych, zalecamy użycie jednego z następujących narzędzi klienta:
 >
->* [Visual Studio Code](functions-create-first-function-vs-code.md)
+>* [Visual Studio Code](./create-first-function-vs-code-csharp.md)
 >* [Azure Functions Core Tools (wiersz polecenia)](functions-run-local.md)
->* [Program Visual Studio](functions-create-your-first-function-visual-studio.md)
+>* [Visual Studio](functions-create-your-first-function-visual-studio.md)
 
 W poniższej tabeli przedstawiono systemy operacyjne i języki obsługujące edycję portalu:
 

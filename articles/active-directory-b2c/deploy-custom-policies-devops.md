@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4dd9f98f174144cef455157162694a470aa1065f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2652bd8ed33eb68e228f059fba9daa3c6e7c22da
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951767"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170161"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Wdrażanie zasad niestandardowych przy użyciu Azure Pipelines
 
@@ -29,7 +29,7 @@ Aby umożliwić Azure Pipelines Zarządzanie zasadami niestandardowymi w ramach 
 1. Konfigurowanie potoku platformy Azure
 
 > [!IMPORTANT]
-> Zarządzanie zasadami niestandardowymi Azure AD B2C przy użyciu potoku platformy Azure obecnie używa operacji w **wersji zapoznawczej** dostępnych w `/beta` punkcie końcowym interfejsu API Microsoft Graph. Te interfejsy API nie są obsługiwane w zastosowaniach produkcyjnych. Aby uzyskać więcej informacji, zobacz [Informacje o punkcie końcowym interfejsu API REST](/graph/api/overview?toc=.%252fref%252ftoc.json&view=graph-rest-beta)w usłudze Microsoft Graph.
+> Zarządzanie zasadami niestandardowymi Azure AD B2C przy użyciu potoku platformy Azure obecnie używa operacji w **wersji zapoznawczej** dostępnych w `/beta` punkcie końcowym interfejsu API Microsoft Graph. Te interfejsy API nie są obsługiwane w zastosowaniach produkcyjnych. Aby uzyskać więcej informacji, zobacz [Informacje o punkcie końcowym interfejsu API REST](/graph/api/overview?toc=.%2fref%2ftoc.json&view=graph-rest-beta)w usłudze Microsoft Graph.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

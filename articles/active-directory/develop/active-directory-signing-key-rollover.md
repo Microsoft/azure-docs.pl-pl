@@ -12,12 +12,12 @@ ms.date: 8/11/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b65ad1f22d20686a1ee47631f9209e1b15b0ab58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 981ac775e7153cfd03dc1760bbbc4e50fd9ecc57
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88948134"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169549"
 ---
 # <a name="signing-key-rollover-in-microsoft-identity-platform"></a>Przerzucanie klucza podpisywania na platformie tożsamości firmy Microsoft
 W tym artykule omówiono, co należy wiedzieć o kluczach publicznych używanych przez platformę tożsamości firmy Microsoft do podpisywania tokenów zabezpieczających. Należy pamiętać, że te klucze są okresowo przenoszone i w nagłych przypadkach mogą być natychmiast rzutowane. Wszystkie aplikacje korzystające z platformy tożsamości firmy Microsoft powinny być w stanie programowo obsłużyć proces przerzucania kluczy. Kontynuuj odczytywanie, aby zrozumieć, jak działają klucze, jak oceniać wpływ przerzucania do aplikacji oraz jak aktualizować aplikację lub ustanawiać okresowe ręczne Przerzucanie w razie potrzeby.
@@ -150,7 +150,7 @@ Jeśli aplikacja internetowego interfejsu API została utworzona w Visual Studio
 
 W przypadku ręcznego skonfigurowania uwierzytelniania postępuj zgodnie z poniższymi instrukcjami, aby dowiedzieć się, jak skonfigurować internetowy interfejs API do automatycznego aktualizowania informacji o kluczu.
 
-Poniższy fragment kodu pokazuje, jak pobrać najnowsze klucze z dokumentu metadanych Federacji, a następnie użyć [programu obsługi tokenów JWT](https://msdn.microsoft.com/library/dn205065.aspx) do walidacji tokenu. W fragmencie kodu założono, że będzie używany własny mechanizm buforowania w celu utrwalenia klucza w celu zweryfikowania przyszłych tokenów z platformy tożsamości firmy Microsoft, niezależnie od tego, czy znajduje się on w bazie danych, pliku konfiguracji czy w innym miejscu.
+Poniższy fragment kodu pokazuje, jak pobrać najnowsze klucze z dokumentu metadanych Federacji, a następnie użyć [programu obsługi tokenów JWT](/previous-versions/dotnet/framework/security/json-web-token-handler) do walidacji tokenu. W fragmencie kodu założono, że będzie używany własny mechanizm buforowania w celu utrwalenia klucza w celu zweryfikowania przyszłych tokenów z platformy tożsamości firmy Microsoft, niezależnie od tego, czy znajduje się on w bazie danych, pliku konfiguracji czy w innym miejscu.
 
 ```
 using System;
@@ -241,11 +241,11 @@ namespace JWTValidation
 ```
 
 ### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2012"></a><a name="vs2012"></a>Aplikacje sieci Web chroniące zasoby i utworzone za pomocą programu Visual Studio 2012
-Jeśli aplikacja została skompilowana w programie Visual Studio 2012, prawdopodobnie używasz narzędzia do tworzenia tożsamości i dostępu do konfigurowania aplikacji. Jest również prawdopodobnie używany do [sprawdzania poprawności rejestru Nazwa wystawcy (VINR)](https://msdn.microsoft.com/library/dn205067.aspx). VINR jest odpowiedzialny za utrzymywanie informacji o zaufanych dostawcach tożsamości (Microsoft Identity platform) oraz kluczy używanych do weryfikacji tokenów wystawionych przez nich. VINR ułatwia również automatyczne aktualizowanie informacji o kluczach przechowywanych w pliku Web.config przez pobranie najnowszego dokumentu metadanych Federacji skojarzonego z Twoim katalogiem, sprawdzenie, czy konfiguracja jest nieaktualna przy użyciu najnowszego dokumentu, i zaktualizowanie aplikacji tak, aby korzystała z nowego klucza w razie potrzeby.
+Jeśli aplikacja została skompilowana w programie Visual Studio 2012, prawdopodobnie używasz narzędzia do tworzenia tożsamości i dostępu do konfigurowania aplikacji. Jest również prawdopodobnie używany do [sprawdzania poprawności rejestru Nazwa wystawcy (VINR)](/previous-versions/dotnet/framework/security/validating-issuer-name-registry). VINR jest odpowiedzialny za utrzymywanie informacji o zaufanych dostawcach tożsamości (Microsoft Identity platform) oraz kluczy używanych do weryfikacji tokenów wystawionych przez nich. VINR ułatwia również automatyczne aktualizowanie informacji o kluczach przechowywanych w pliku Web.config przez pobranie najnowszego dokumentu metadanych Federacji skojarzonego z Twoim katalogiem, sprawdzenie, czy konfiguracja jest nieaktualna przy użyciu najnowszego dokumentu, i zaktualizowanie aplikacji tak, aby korzystała z nowego klucza w razie potrzeby.
 
 Jeśli aplikacja została utworzona przy użyciu którejkolwiek z przykładów kodu lub dokumentacji instruktażowej dostarczonej przez firmę Microsoft, kluczowa logika przerzucania jest już dołączona do projektu. Zobaczysz, że Poniższy kod już istnieje w projekcie. Jeśli aplikacja nie ma jeszcze tej logiki, wykonaj poniższe czynności, aby je dodać, i sprawdź, czy działa poprawnie.
 
-1. W **Eksplorator rozwiązań**Dodaj odwołanie do zestawu **System. IdentityModel** dla odpowiedniego projektu.
+1. W **Eksplorator rozwiązań** Dodaj odwołanie do zestawu **System. IdentityModel** dla odpowiedniego projektu.
 2. Otwórz plik **Global.asax.cs** i Dodaj następujące dyrektywy using:
    ```
    using System.Configuration;
@@ -290,14 +290,14 @@ Wykonaj poniższe kroki, aby sprawdzić, czy logika przerzucania kluczy działa.
 Jeśli aplikacja została utworzona w systemie WIF v 1.0, nie ma żadnego mechanizmu, aby automatycznie odświeżyć konfigurację aplikacji w celu użycia nowego klucza.
 
 * *Najprostszy sposób* Użyj narzędzi FedUtil zawartych w zestawie SDK WIF, które mogą pobrać najnowszy dokument metadanych i zaktualizować konfigurację.
-* Zaktualizuj aplikację do wersji .NET 4,5, która zawiera najnowszą wersję WIF znajdującą się w przestrzeni nazw System. Następnie można użyć [weryfikacji rejestru Nazwa wystawcy (VINR)](https://msdn.microsoft.com/library/dn205067.aspx) w celu przeprowadzenia automatycznych aktualizacji konfiguracji aplikacji.
+* Zaktualizuj aplikację do wersji .NET 4,5, która zawiera najnowszą wersję WIF znajdującą się w przestrzeni nazw System. Następnie można użyć [weryfikacji rejestru Nazwa wystawcy (VINR)](/previous-versions/dotnet/framework/security/validating-issuer-name-registry) w celu przeprowadzenia automatycznych aktualizacji konfiguracji aplikacji.
 * Wykonaj ręczne Przerzucanie zgodnie z instrukcjami znajdującymi się na końcu niniejszego dokumentu wskazówek.
 
 Instrukcje dotyczące aktualizowania konfiguracji przy użyciu FedUtil:
 
 1. Sprawdź, czy na komputerze deweloperskim jest zainstalowany zestaw SDK WIF v 1.0 dla programu Visual Studio 2008 lub 2010. Możesz [pobrać go z tego miejsca](https://www.microsoft.com/en-us/download/details.aspx?id=4451) , jeśli jeszcze go nie zainstalowano.
 2. W programie Visual Studio Otwórz rozwiązanie, a następnie kliknij prawym przyciskiem myszy odpowiedni projekt i wybierz polecenie **Aktualizuj metadane federacji**. Jeśli ta opcja jest niedostępna, FedUtil i/lub zestaw SDK WIF v 1.0 nie został zainstalowany.
-3. W wierszu polecenia wybierz pozycję **Aktualizuj** , aby rozpocząć aktualizowanie metadanych Federacji. Jeśli masz dostęp do środowiska serwera, w którym jest hostowana aplikacja, możesz opcjonalnie użyć [automatycznego harmonogramu aktualizacji metadanych](https://msdn.microsoft.com/library/ee517272.aspx)FedUtil.
+3. W wierszu polecenia wybierz pozycję **Aktualizuj** , aby rozpocząć aktualizowanie metadanych Federacji. Jeśli masz dostęp do środowiska serwera, w którym jest hostowana aplikacja, możesz opcjonalnie użyć [automatycznego harmonogramu aktualizacji metadanych](/previous-versions/windows-identity-foundation/ee517272(v=msdn.10))FedUtil.
 4. Kliknij przycisk **Zakończ** , aby ukończyć proces aktualizacji.
 
 ### <a name="web-applications--apis-protecting-resources-using-any-other-libraries-or-manually-implementing-any-of-the-supported-protocols"></a><a name="other"></a>Aplikacje sieci Web/interfejsy API chroniące zasoby przy użyciu innych bibliotek lub ręcznie implementujących dowolne z obsługiwanych protokołów

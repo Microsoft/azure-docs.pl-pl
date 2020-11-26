@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71726724e7c018f34b1175f323d0c8e55b604931
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b763cea18cec42eed2aac3318fc1510de7a017b1
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95973642"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168418"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Co nowego w Azure Active Directory?
 
@@ -65,7 +65,7 @@ Działanie [usługi Standard scim aprowizacji](../app-provisioning/user-provisio
 Udostępnimy aktualizację, gdy data zostanie zakończona. To wycofanie nie jest planowane dla roku kalendarzowego 2020. 
 
 > [!NOTE]
-> Nie ma to wpływu na wszystkie zdarzenia w dziennikach inspekcji poza zdarzeniami synchronizacji emitowanymi przez usługę aprowizacji. Zdarzenia, takie jak tworzenie aplikacji, zasady dostępu warunkowego, użytkownik w katalogu itp., będą nadal emitowane w dziennikach inspekcji. [Dowiedz się więcej](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/app-provisioning/context/app-provisioning-context).
+> Nie ma to wpływu na wszystkie zdarzenia w dziennikach inspekcji poza zdarzeniami synchronizacji emitowanymi przez usługę aprowizacji. Zdarzenia, takie jak tworzenie aplikacji, zasady dostępu warunkowego, użytkownik w katalogu itp., będą nadal emitowane w dziennikach inspekcji. [Dowiedz się więcej](../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context).
  
 
 ---
@@ -102,7 +102,7 @@ Wszystkie kombinacje klient-serwer i przeglądarka-serwer powinny korzystać z p
 
 Narażone są następujące środowiska:
 - US Gov platformy Azure
-- [Office 365 w zatoce High & DoD](https://docs.microsoft.com/microsoft-365/compliance/tls-1-2-in-office-365-gcc?view=o365-worldwide)
+- [Office 365 w zatoce High & DoD](/microsoft-365/compliance/tls-1-2-in-office-365-gcc?view=o365-worldwide)
  
 ---
 
@@ -177,7 +177,7 @@ Aby uzyskać więcej informacji o tym, jak lepiej zabezpieczyć organizację prz
 
 Teraz można wyświetlić identyfikator szablonu każdej roli usługi Azure AD w Azure Portal. W usłudze Azure AD wybierz pozycję  **Opis** wybranej roli. 
 
-Zaleca się, aby klienci używali identyfikatorów szablonów ról w skryptach i kodzie programu PowerShell zamiast nazwy wyświetlanej. Identyfikator szablonu roli jest obsługiwany dla obiektów [directoryRoles](https://docs.microsoft.com/graph/api/resources/directoryrole?view=graph-rest-1.0) i [definicji](https://docs.microsoft.com/graph/api/resources/unifiedroledefinition?view=graph-rest-beta) . Aby uzyskać więcej informacji na temat identyfikatorów szablonów ról, zobacz [identyfikatory szablonów ról](../roles/permissions-reference.md#role-template-ids).
+Zaleca się, aby klienci używali identyfikatorów szablonów ról w skryptach i kodzie programu PowerShell zamiast nazwy wyświetlanej. Identyfikator szablonu roli jest obsługiwany dla obiektów [directoryRoles](/graph/api/resources/directoryrole?view=graph-rest-1.0) i [definicji](/graph/api/resources/unifiedroledefinition?view=graph-rest-beta) . Aby uzyskać więcej informacji na temat identyfikatorów szablonów ról, zobacz [identyfikatory szablonów ról](../roles/permissions-reference.md#role-template-ids).
 
 ---
 
@@ -233,7 +233,7 @@ Dostęp warunkowy oparty na ryzyku i funkcje wykrywania ryzyka programu Identity
  
 W październiku 2020 dodaliśmy następujące 27 nowych aplikacji w galerii aplikacji z obsługą Federacji:
 
-[Sentry](../saas-apps/sentry-tutorial.md), [Bumblebee — produktywność superapp](https://app.yellowmessenger.com/user/login), [ABBYY FlexiCapture Cloud](../saas-apps/abbyy-flexicapture-cloud-tutorial.md), [EAComposer](../saas-apps/eacomposer-tutorial.md), [Genesys cloud Integration for Azure](https://apps.mypurecloud.com/msteams-integration/), [Portal technologii Zone](https://portail.zonetechnologie.com/signin), [Beautiful.AI](../saas-apps/beautiful.ai-tutorial.md), [Datawiza Access Broker](https://console.datawiza.com/), [ZOKRI](https://app.zokri.com/), [CheckProof](../saas-apps/checkproof-tutorial.md), [ecoChallenge.org](https://events.ecochallenge.org/users/login), [atSpoke](http://atspoke.com/login), [przypomnienie o terminie](https://app.appointmentreminder.co.nz/account/login), [chmura. rynek](https://cloud.market/), [TravelPerk](../saas-apps/travelperk-tutorial.md), [powitanie](https://app.greetly.com/), [OrgVitality SSO} (... /SaaS-Apps/orgvitality-SSO-tutorial.MD), [powietrze ładunków sieci Web](../saas-apps/web-cargo-air-tutorial.md), [Pętla Flow CRM](../saas-apps/loop-flow-crm-tutorial.md), [Starmind](../saas-apps/starmind-tutorial.md), [Workstem](https://hrm.workstem.com/login), [Retail zipline](../saas-apps/retail-zipline-tutorial.md), [Hoxhunt](../saas-apps/hoxhunt-tutorial.md), [MEVISIO](../saas-apps/mevisio-tutorial.md), [Samsara](../saas-apps/samsara-tutorial.md), [Nimbus](../saas-apps/nimbus-tutorial.md), [Pulse Secure Virtual Traffic Manager](https://docs.microsoft.com/azure/active-directory/saas-apps/pulse-secure-virtual-traffic-manager-tutorial)
+[Sentry](../saas-apps/sentry-tutorial.md), [Bumblebee — produktywność superapp](https://app.yellowmessenger.com/user/login), [ABBYY FlexiCapture Cloud](../saas-apps/abbyy-flexicapture-cloud-tutorial.md), [EAComposer](../saas-apps/eacomposer-tutorial.md), [Genesys cloud Integration for Azure](https://apps.mypurecloud.com/msteams-integration/), [Portal technologii Zone](https://portail.zonetechnologie.com/signin), [Beautiful.AI](../saas-apps/beautiful.ai-tutorial.md), [Datawiza Access Broker](https://console.datawiza.com/), [ZOKRI](https://app.zokri.com/), [CheckProof](../saas-apps/checkproof-tutorial.md), [ecoChallenge.org](https://events.ecochallenge.org/users/login), [atSpoke](http://atspoke.com/login), [przypomnienie o terminie](https://app.appointmentreminder.co.nz/account/login), [chmura. rynek](https://cloud.market/), [TravelPerk](../saas-apps/travelperk-tutorial.md), [powitanie](https://app.greetly.com/), [OrgVitality SSO} (... /SaaS-Apps/orgvitality-SSO-tutorial.MD), [powietrze ładunków sieci Web](../saas-apps/web-cargo-air-tutorial.md), [Pętla Flow CRM](../saas-apps/loop-flow-crm-tutorial.md), [Starmind](../saas-apps/starmind-tutorial.md), [Workstem](https://hrm.workstem.com/login), [Retail zipline](../saas-apps/retail-zipline-tutorial.md), [Hoxhunt](../saas-apps/hoxhunt-tutorial.md), [MEVISIO](../saas-apps/mevisio-tutorial.md), [Samsara](../saas-apps/samsara-tutorial.md), [Nimbus](../saas-apps/nimbus-tutorial.md), [Pulse Secure Virtual Traffic Manager](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md)
 
 W tym miejscu możesz również znaleźć dokumentację dotyczącą wszystkich aplikacji https://aka.ms/AppsTutorial
 
@@ -780,7 +780,7 @@ Usługa Azure serwer proxy aplikacji usługi Azure AD obsługuje teraz klienta s
  
 Uproszczone środowisko przepływu użytkownika oferuje dostępność funkcji w wersji zapoznawczej i jest domem dla wszystkich nowych funkcji. Użytkownicy będą mogli włączyć nowe funkcje w tym samym przepływie użytkownika, co zmniejsza konieczność tworzenia wielu wersji z każdą nową wersją funkcji. Nowe, przyjazne dla użytkownika środowisko upraszcza wybór i Tworzenie przepływów użytkowników. Wypróbuj teraz, [tworząc przepływ użytkownika](../../active-directory-b2c/tutorial-create-user-flows.md). 
 
-Aby uzyskać więcej informacji o przepływach użytkowników, zobacz [wersje przepływu użytkowników w Azure Active Directory B2C](../../active-directory-b2c/user-flow-versions.md#:~:text=    User flow  ,account. Usi ...  1 more rows ).
+Aby uzyskać więcej informacji o przepływach użytkowników, zobacz [wersje przepływu użytkowników w Azure Active Directory B2C](../../active-directory-b2c/user-flow-versions.md).
 
 ---
 

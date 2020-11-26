@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: 5cde4b539262c9e20bbcf2e7dd8c8e9de38035c3
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 643305057490cc550a5a8e39a892297b000cbc8e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94594253"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169413"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Szybki Start: Dodawanie logowania za pomocą usługi OpenID Connect nawiązywanie połączenia z aplikacją sieci Web Node.js
 
@@ -51,7 +51,7 @@ W tym przewodniku szybki start pobrano i uruchomimy przykład kodu, który pokaz
 1. Na liście stron dla aplikacji wybierz pozycję **Uwierzytelnianie**.
     - W sekcji **adresy URI przekierowania** wybierz pozycję **Sieć Web** w polu kombi i wprowadź następujący identyfikator URI przekierowania: `http://localhost:3000/auth/openid/return`
     - W sekcji **Ustawienia zaawansowane** ustaw pole **Adres URL wylogowywania** na wartość `https://localhost:3000`.
-    - W sekcji **Ustawienia zaawansowane > niejawnego** przypisywania Sprawdź **tokeny identyfikatorów** , ponieważ ten przykład wymaga włączenia [niejawnego przepływu dotacji](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-implicit-grant-flow) do logowania użytkownika.
+    - W sekcji **Ustawienia zaawansowane > niejawnego** przypisywania Sprawdź **tokeny identyfikatorów** , ponieważ ten przykład wymaga włączenia [niejawnego przepływu dotacji](./v2-oauth2-implicit-grant-flow.md) do logowania użytkownika.
 
 1. Wybierz pozycję **Zapisz**.
 

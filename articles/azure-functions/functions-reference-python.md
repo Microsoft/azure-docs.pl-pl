@@ -4,12 +4,12 @@ description: Informacje na temat tworzenia funkcji w języku Python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 7d97405a0b75129ddb0da581955728b393bf49ca
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 8254abda68949e6884143316d4b29b07ade129dc
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539077"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96167849"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Przewodnik dewelopera w języku Python Azure Functions
 
@@ -19,7 +19,7 @@ Jako deweloper języka Python może być również interesujący jeden z następ
 
 | Wprowadzenie | Pojęcia| Scenariusze/przykłady |
 | -- | -- | -- | 
-| <ul><li>[Funkcja języka Python wykorzystująca Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-python)</li><li>[Funkcja w języku Python z terminalem/wierszem polecenia](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python)</li></ul> | <ul><li>[Przewodnik dla deweloperów](functions-reference.md)</li><li>[Opcje hostingu](functions-scale.md)</li><li>[&nbsp;Zagadnienia dotyczące wydajności](functions-best-practices.md)</li></ul> | <ul><li>[Klasyfikacja obrazów za pomocą platformy PyTorch](machine-learning-pytorch.md)</li><li>[Przykład usługi Azure Automation](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Uczenie maszynowe przy użyciu biblioteki TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Przeglądaj przykłady w języku Python](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
+| <ul><li>[Funkcja języka Python wykorzystująca Visual Studio Code](./create-first-function-vs-code-csharp.md?pivots=programming-language-python)</li><li>[Funkcja w języku Python z terminalem/wierszem polecenia](./create-first-function-cli-csharp.md?pivots=programming-language-python)</li></ul> | <ul><li>[Przewodnik dla deweloperów](functions-reference.md)</li><li>[Opcje hostingu](functions-scale.md)</li><li>[&nbsp;Zagadnienia dotyczące wydajności](functions-best-practices.md)</li></ul> | <ul><li>[Klasyfikacja obrazów za pomocą platformy PyTorch](machine-learning-pytorch.md)</li><li>[Przykład usługi Azure Automation](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Uczenie maszynowe przy użyciu biblioteki TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Przeglądaj przykłady w języku Python](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
 
 ## <a name="programming-model"></a>Model programowania
 
@@ -93,22 +93,22 @@ Zalecana struktura folderów dla projektu funkcji w języku Python wygląda nast
 ```
 Główny folder projektu (<project_root>) może zawierać następujące pliki:
 
-* *local.settings.js* : służy do przechowywania ustawień aplikacji i parametrów połączenia podczas lokalnego uruchamiania. Ten plik nie jest publikowany na platformie Azure. Aby dowiedzieć się więcej, zobacz [Local. Settings. File](functions-run-local.md#local-settings-file).
-* *requirements.txt* : zawiera listę pakietów języka Python instalowanych przez system podczas publikowania na platformie Azure.
-* *host.js* : zawiera globalne opcje konfiguracji, które mają wpływ na wszystkie funkcje w aplikacji funkcji. Ten plik jest publikowany na platformie Azure. Nie wszystkie opcje są obsługiwane w przypadku uruchamiania lokalnego. Aby dowiedzieć się więcej, zobacz [host.json](functions-host-json.md).
-* *. programu vscode/* : (opcjonalnie) zawiera konfigurację programu vscode magazynu. Aby dowiedzieć się więcej, zobacz [ustawienie programu vscode](https://code.visualstudio.com/docs/getstarted/settings).
-* *. venv/* : (opcjonalnie) zawiera środowisko wirtualne języka Python używane przez lokalne projektowanie.
-* *Pliku dockerfile* : (opcjonalnie) używany podczas publikowania projektu w [kontenerze niestandardowym](functions-create-function-linux-custom-image.md).
-* *testy/* : (opcjonalne) zawierają przypadki testowe aplikacji funkcji.
-* *. funcignore* : (opcjonalnie) deklaruje pliki, które nie powinny zostać opublikowane na platformie Azure. Zazwyczaj ten plik zawiera `.vscode/` Ignorowanie ustawienia edytora, ignorowanie `.venv/` lokalnego środowiska wirtualnego języka Python, `tests/` Ignorowanie przypadków testowych i `local.settings.json` zapobieganie publikowaniu lokalnych ustawień aplikacji.
+* *local.settings.js*: służy do przechowywania ustawień aplikacji i parametrów połączenia podczas lokalnego uruchamiania. Ten plik nie jest publikowany na platformie Azure. Aby dowiedzieć się więcej, zobacz [Local. Settings. File](functions-run-local.md#local-settings-file).
+* *requirements.txt*: zawiera listę pakietów języka Python instalowanych przez system podczas publikowania na platformie Azure.
+* *host.js*: zawiera globalne opcje konfiguracji, które mają wpływ na wszystkie funkcje w aplikacji funkcji. Ten plik jest publikowany na platformie Azure. Nie wszystkie opcje są obsługiwane w przypadku uruchamiania lokalnego. Aby dowiedzieć się więcej, zobacz [host.json](functions-host-json.md).
+* *. programu vscode/*: (opcjonalnie) zawiera konfigurację programu vscode magazynu. Aby dowiedzieć się więcej, zobacz [ustawienie programu vscode](https://code.visualstudio.com/docs/getstarted/settings).
+* *. venv/*: (opcjonalnie) zawiera środowisko wirtualne języka Python używane przez lokalne projektowanie.
+* *Pliku dockerfile*: (opcjonalnie) używany podczas publikowania projektu w [kontenerze niestandardowym](functions-create-function-linux-custom-image.md).
+* *testy/*: (opcjonalne) zawierają przypadki testowe aplikacji funkcji.
+* *. funcignore*: (opcjonalnie) deklaruje pliki, które nie powinny zostać opublikowane na platformie Azure. Zazwyczaj ten plik zawiera `.vscode/` Ignorowanie ustawienia edytora, ignorowanie `.venv/` lokalnego środowiska wirtualnego języka Python, `tests/` Ignorowanie przypadków testowych i `local.settings.json` zapobieganie publikowaniu lokalnych ustawień aplikacji.
 
 Każda funkcja ma własny plik kodu i plik konfiguracji powiązania (function.json).
 
-Podczas wdrażania projektu w aplikacji funkcji na platformie Azure, cała zawartość folderu głównego projektu ( *<project_root>* ) powinna być uwzględniona w pakiecie, ale nie do samego folderu, co oznacza, `host.json` że musi znajdować się w katalogu głównym pakietu. Zalecane jest, aby zachować testy w folderze wraz z innymi funkcjami, w tym przykładzie `tests/` . Aby uzyskać więcej informacji, zobacz [testowanie jednostkowe](#unit-testing).
+Podczas wdrażania projektu w aplikacji funkcji na platformie Azure, cała zawartość folderu głównego projektu (*<project_root>*) powinna być uwzględniona w pakiecie, ale nie do samego folderu, co oznacza, `host.json` że musi znajdować się w katalogu głównym pakietu. Zalecane jest, aby zachować testy w folderze wraz z innymi funkcjami, w tym przykładzie `tests/` . Aby uzyskać więcej informacji, zobacz [testowanie jednostkowe](#unit-testing).
 
 ## <a name="import-behavior"></a>Zachowanie importowania
 
-Moduły w kodzie funkcji można zaimportować przy użyciu odwołań bezwzględnych i względnych. W oparciu o pokazaną powyżej strukturę folderów, następujące Importy pracują z pliku funkcji *<project_root> \Moje \_ Pierwsza \_ Funkcja \\ _ \_ init \_ \_ . PR* :
+Moduły w kodzie funkcji można zaimportować przy użyciu odwołań bezwzględnych i względnych. W oparciu o pokazaną powyżej strukturę folderów, następujące Importy pracują z pliku funkcji *<project_root> \Moje \_ Pierwsza \_ Funkcja \\ _ \_ init \_ \_ . PR*:
 
 ```python
 from shared_code import my_first_helper_function #(absolute)
@@ -491,7 +491,7 @@ func azure functionapp publish <APP_NAME>
 
 Pamiętaj, aby zamienić na `<APP_NAME>` nazwę aplikacji funkcji na platformie Azure.
 
-[Rozszerzenie Azure Functions dla Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) również domyślnie żąda kompilacji zdalnej.
+[Rozszerzenie Azure Functions dla Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) również domyślnie żąda kompilacji zdalnej.
 
 ### <a name="local-build"></a>Lokalna kompilacja
 

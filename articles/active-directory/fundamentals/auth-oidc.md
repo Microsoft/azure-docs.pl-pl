@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f38da0dd2dc2adc8049e2b307c861651a55ed700
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 0e5bf7e51de38d42e64f6737e687c5946a464160
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576992"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168665"
 ---
 # <a name="openid-connect-authentication-with-azure-active-directory"></a>OpenID Connect Połącz uwierzytelnianie z Azure Active Directory
 
@@ -38,24 +38,23 @@ Istnieje potrzeba zgody użytkownika i logowania do sieci Web.
 
 ## <a name="components-of-system"></a>Składniki systemu
 
-* **Użytkownik** : żąda usługi z aplikacji.
+* **Użytkownik**: żąda usługi z aplikacji.
 
-* **Zaufany Agent** : składnik, z którym użytkownik prowadzi interakcję. Ten zaufany Agent jest zazwyczaj przeglądarką sieci Web.
+* **Zaufany Agent**: składnik, z którym użytkownik prowadzi interakcję. Ten zaufany Agent jest zazwyczaj przeglądarką sieci Web.
 
-* **Aplikacja** : aplikacja lub serwer zasobów jest miejscem, w którym znajduje się zasób lub dane. Ufa dostawcy tożsamości do bezpiecznego uwierzytelniania i autoryzowania zaufanego agenta. 
+* **Aplikacja**: aplikacja lub serwer zasobów jest miejscem, w którym znajduje się zasób lub dane. Ufa dostawcy tożsamości do bezpiecznego uwierzytelniania i autoryzowania zaufanego agenta. 
 
-* **Azure AD** : dostawca OIDC, znany także jako dostawca tożsamości, bezpiecznie zarządza wszelkimi informacjami o użytkowniku, ich dostępie i relacjach zaufania między stronami w przepływie. Uwierzytelnia on tożsamość użytkownika, przyznaje i odwołuje dostęp do zasobów oraz wystawia tokeny. 
+* **Azure AD**: dostawca OIDC, znany także jako dostawca tożsamości, bezpiecznie zarządza wszelkimi informacjami o użytkowniku, ich dostępie i relacjach zaufania między stronami w przepływie. Uwierzytelnia on tożsamość użytkownika, przyznaje i odwołuje dostęp do zasobów oraz wystawia tokeny. 
 
 ## <a name="implement-oidc-with-azure-ad"></a>Implementowanie OIDC przy użyciu usługi Azure AD
 
-* [Integrowanie aplikacji z usługą Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) 
+* [Integrowanie aplikacji z usługą Azure AD](../saas-apps/tutorial-list.md) 
 
-* [Protokoły uwierzytelniania OAuth 2,0 i OpenID Connect na platformie tożsamości firmy Microsoft](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols) 
+* [Protokoły uwierzytelniania OAuth 2,0 i OpenID Connect na platformie tożsamości firmy Microsoft](../develop/active-directory-v2-protocols.md) 
 
-* [Microsoft Identity platform i OpenID Connect Connect Protocol](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) 
+* [Microsoft Identity platform i OpenID Connect Connect Protocol](../develop/v2-protocols-oidc.md) 
 
-* [Logowanie w sieci Web za pomocą OpenID Connect Connect in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/openid-connect) 
+* [Logowanie w sieci Web za pomocą OpenID Connect Connect in Azure Active Directory B2C](../../active-directory-b2c/openid-connect.md) 
 
-* [Zabezpieczanie aplikacji za pomocą warstwy OpenID Connect i usługi Azure AD](https://docs.microsoft.com/learn/modules/secure-app-with-oidc-and-azure-ad/) 
+* [Zabezpieczanie aplikacji za pomocą warstwy OpenID Connect i usługi Azure AD](/learn/modules/secure-app-with-oidc-and-azure-ad/) 
 
- 

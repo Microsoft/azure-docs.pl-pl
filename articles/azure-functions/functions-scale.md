@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 88e9d16a205df16a2be63e67f45cdbcf9144b30f
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f41354630f4885a30bd5c036495b216a2cc05599
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108460"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96167798"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Skalowanie i hosting usługi Azure Functions
 
@@ -204,7 +204,7 @@ W poniższej tabeli porównawczej przedstawiono wszystkie ważne aspekty pomocne
 | **[Plan Premium](#premium-plan)** | .NET Core<br/>Node.js<br/>Java<br/>Python|.NET Core<br/>Node.js<br/>Java<br/>Program PowerShell Core |.NET Core<br/>Node.js<br/>Java<br/>Program PowerShell Core<br/>Python  | 
 | **[Dedykowany plan](#app-service-plan)**<sup>4</sup> | .NET Core<br/>Node.js<br/>Java<br/>Python|.NET Core<br/>Node.js<br/>Java<br/>Program PowerShell Core |.NET Core<br/>Node.js<br/>Java<br/>Program PowerShell Core<br/>Python |
 | **[ASE](#app-service-plan)**<sup>4</sup> | .NET Core<br/>Node.js<br/>Java<br/>Python |.NET Core<br/>Node.js<br/>Java<br/>Program PowerShell Core  |.NET Core<br/>Node.js<br/>Java<br/>Program PowerShell Core<br/>Python | 
-| **[Kubernetes](functions-kubernetes-keda.md)** | nie dotyczy | nie dotyczy |.NET Core<br/>Node.js<br/>Java<br/>Program PowerShell Core<br/>Python |
+| **[Kubernetes](functions-kubernetes-keda.md)** | n/d | n/d |.NET Core<br/>Node.js<br/>Java<br/>Program PowerShell Core<br/>Python |
 
 <sup>1</sup> System Linux jest jedynym obsługiwanym systemem operacyjnym dla stosu środowiska uruchomieniowego języka Python.  
 <sup>2</sup> System Windows to jedyny obsługiwany system operacyjny dla stosu środowiska uruchomieniowego programu PowerShell.   
@@ -257,6 +257,6 @@ W poniższej tabeli porównawczej przedstawiono wszystkie ważne aspekty pomocne
 
 ## <a name="next-steps"></a>Następne kroki
 
-+ [Szybki Start: Tworzenie projektu Azure Functions przy użyciu Visual Studio Code](functions-create-first-function-vs-code.md)
++ [Szybki Start: Tworzenie projektu Azure Functions przy użyciu Visual Studio Code](./create-first-function-vs-code-csharp.md)
 + [Technologie wdrażania w Azure Functions](functions-deployment-technologies.md) 
 + [Azure Functions — przewodnik dla deweloperów](functions-reference.md)

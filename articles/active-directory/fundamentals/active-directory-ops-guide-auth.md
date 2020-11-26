@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: baa0aa01c94c4deb35db8a59f7b4f81224ae1fd3
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5f529e6148463ae384791985659378cb9d0a5046
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836992"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168869"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Przewodnik dotyczący operacji zarządzania uwierzytelnianiem Azure Active Directory
 
@@ -160,7 +160,7 @@ Zapewnienie standardowego mechanizmu logowania jednokrotnego do całego przedsi�
 > [!NOTE]
 > Jeśli nie masz mechanizmu odnajdywania niezarządzanych aplikacji w organizacji, zalecamy wdrożenie procesu odnajdywania przy użyciu rozwiązania brokera zabezpieczeń dostępu w chmurze (CASB), takiego jak [Microsoft Cloud App Security](https://www.microsoft.com/enterprise-mobility-security/cloud-app-security).
 
-Jeśli masz galerię aplikacji usługi Azure AD i używasz aplikacji, które obsługują Logowanie jednokrotne w usłudze Azure AD, zalecamy [wyświetlanie aplikacji w galerii aplikacji](../azuread-dev/howto-app-gallery-listing.md).
+Jeśli masz galerię aplikacji usługi Azure AD i używasz aplikacji, które obsługują Logowanie jednokrotne w usłudze Azure AD, zalecamy [wyświetlanie aplikacji w galerii aplikacji](../develop/v2-howto-app-gallery-listing.md).
 
 #### <a name="single-sign-on-recommended-reading"></a>Odczyt zalecający Logowanie jednokrotne
 
@@ -255,7 +255,7 @@ Dostęp warunkowy jest ważnym narzędziem do ulepszania stan zabezpieczeń orga
 
 #### <a name="conditional-access-recommended-reading"></a>Zalecane odczytywanie dostępu warunkowego
 
-- [Najlepsze rozwiązania dotyczące dostępu warunkowego w Azure Active Directory](../conditional-access/best-practices.md)
+- [Najlepsze rozwiązania dotyczące dostępu warunkowego w Azure Active Directory](../conditional-access/overview.md)
 - [Konfiguracje tożsamości i dostępu do urządzeń](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Azure Active Directory informacje o ustawieniach dostępu warunkowego](../conditional-access/concept-conditional-access-conditions.md)
 - [Typowe zasady dostępu warunkowego](../conditional-access/concept-conditional-access-policy-common.md)

@@ -54,6 +54,7 @@
     - name: Badanie danych wyjściowych usługi Video Indexer
       href: video-indexer-output-json-v2.md
     - name: Znajdowanie konkretnych momentów w wideo
+      displayName: search
       href: video-indexer-search.md
     - name: 'Wykrywanie scen, ujęć i klatek kluczowych'
       href: scenes-shots-keyframes.md

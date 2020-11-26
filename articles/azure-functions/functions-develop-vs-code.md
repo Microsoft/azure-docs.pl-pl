@@ -4,12 +4,12 @@ description: Dowiedz się, jak opracowywać i testować Azure Functions przy uż
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
-ms.openlocfilehash: c851f5284b87f224932b027fd10ce720327639c2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 573177615ff898326eb29649a7f766b5df34b587
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010514"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168439"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Opracowywanie funkcji usługi Azure Functions przy użyciu programu Visual Studio Code
 
@@ -34,7 +34,7 @@ Rozszerzenia można używać w następujących językach, które są obsługiwan
 
 W tym artykule przykłady są obecnie dostępne tylko w przypadku funkcji JavaScript (Node.js) i biblioteki klas języka C#.  
 
-W tym artykule przedstawiono szczegółowe informacje dotyczące sposobu tworzenia funkcji i publikowania ich na platformie Azure przy użyciu rozszerzenia Azure Functions. Przed przeczytaniem tego artykułu należy [utworzyć pierwszą funkcję przy użyciu Visual Studio Code](functions-create-first-function-vs-code.md).
+W tym artykule przedstawiono szczegółowe informacje dotyczące sposobu tworzenia funkcji i publikowania ich na platformie Azure przy użyciu rozszerzenia Azure Functions. Przed przeczytaniem tego artykułu należy [utworzyć pierwszą funkcję przy użyciu Visual Studio Code](./create-first-function-vs-code-csharp.md).
 
 > [!IMPORTANT]
 > Nie mieszaj programowania lokalnego i opracowywania portalu dla jednej aplikacji funkcji. W przypadku publikowania z projektu lokalnego w aplikacji funkcji proces wdrażania zastępuje wszystkie funkcje, które zostały opracowane w portalu.
@@ -93,7 +93,7 @@ Szablon projektu tworzy projekt w wybranym języku i instaluje wymagane zależno
 
 W zależności od języka tworzone są te inne pliki:
 
-# <a name="c"></a>[S\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 * [Plik biblioteki klas HttpExample.cs](functions-dotnet-class-library.md#functions-class-library-project) , który implementuje funkcję.
 
@@ -125,7 +125,7 @@ Możesz również [dodać nową funkcję do projektu](#add-a-function-to-your-pr
 
 Z wyjątkiem wyzwalaczy HTTP i Timer, powiązania są implementowane w pakietach rozszerzeń. Należy zainstalować pakiety rozszerzeń dla wyzwalaczy i powiązań, które ich potrzebują. Proces instalacji rozszerzeń powiązań zależy od języka projektu.
 
-# <a name="c"></a>[S\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 Uruchom polecenie [dotnet Add Package](/dotnet/core/tools/dotnet-add-package) w oknie terminalu, aby zainstalować pakiety rozszerzeń, które są potrzebne w projekcie. Następujące polecenie instaluje rozszerzenie usługi Azure Storage, które implementuje powiązania dla obiektów blob, Queue i Table Storage.
 
@@ -145,7 +145,7 @@ Nową funkcję można dodać do istniejącego projektu przy użyciu jednego ze w
 
 Wyniki tej akcji zależą od języka projektu:
 
-# <a name="c"></a>[S\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 Do projektu zostanie dodany nowy plik biblioteki klas C# (. cs).
 
@@ -161,7 +161,7 @@ Funkcję można rozszerzyć przez dodanie powiązań wejściowych i wyjściowych
 
 Poniższe przykłady nawiązują połączenie z kolejką magazynu o nazwie `outqueue` , gdzie parametry połączenia dla konta magazynu są ustawiane w `MyStorageConnection` ustawieniach aplikacji w local.settings.jsna.
 
-# <a name="c"></a>[S\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 Zaktualizuj metodę funkcji, aby dodać następujący parametr do `Run` definicji metody:
 
@@ -233,7 +233,7 @@ Przy publikowaniu z Visual Studio Code Skorzystaj z technologii [zip Deploy](fun
 
 ### <a name="quick-function-app-create"></a>Szybka funkcja tworzenia aplikacji
 
-Gdy wybierzesz pozycję **+ Utwórz nową aplikację funkcji na platformie Azure...**, rozszerzenie automatycznie generuje wartości zasobów platformy Azure wymaganych przez aplikację funkcji. Te wartości są zależne od wybranej nazwy aplikacji funkcji. Przykład użycia ustawień domyślnych do opublikowania projektu w nowej aplikacji funkcji na platformie Azure można znaleźć w artykule dotyczącym [szybkiego startu Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure).
+Gdy wybierzesz pozycję **+ Utwórz nową aplikację funkcji na platformie Azure...**, rozszerzenie automatycznie generuje wartości zasobów platformy Azure wymaganych przez aplikację funkcji. Te wartości są zależne od wybranej nazwy aplikacji funkcji. Przykład użycia ustawień domyślnych do opublikowania projektu w nowej aplikacji funkcji na platformie Azure można znaleźć w artykule dotyczącym [szybkiego startu Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure).
 
 Jeśli chcesz podać jawne nazwy dla utworzonych zasobów, musisz wybrać zaawansowane ścieżki tworzenia.
 

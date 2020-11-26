@@ -13,19 +13,19 @@ ms.date: 07/22/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: db25e0a9ebe01a45c594fe214efcdd3551cf6c14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fe48cf28ab3004087e2b022d7a9eca69a1e58e2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449356"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169634"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Obiekty aplikacji i jednostki usługi w usłudze Azure Active Directory
 
 W tym artykule opisano rejestrację aplikacji, obiekty aplikacji i jednostki usługi w Azure Active Directory: co to jest, jak są używane oraz jak są ze sobą powiązane. Przykładowy scenariusz z wieloma dzierżawcami został również przedstawiony do zilustrowania relacji między obiektem aplikacji aplikacji i odpowiadającymi obiektami głównych usług.
 
 ## <a name="application-registration"></a>Rejestracja aplikacji
-Aby delegować funkcje zarządzania tożsamościami i dostępem do usługi Azure AD, należy zarejestrować aplikację w [dzierżawie](developer-glossary.md#tenant)usługi Azure AD. Po zarejestrowaniu aplikacji w usłudze Azure AD tworzysz konfigurację tożsamości dla aplikacji, która umożliwia integrację z usługą Azure AD. Po zarejestrowaniu aplikacji w [Azure Portal][AZURE-Portal]należy określić, czy jest to jedyna dzierżawa (dostępna tylko w dzierżawie) czy wiele dzierżawców (dostępna dla innych dzierżawców) i opcjonalnie ustawić identyfikator URI przekierowania (do którego jest wysyłany token dostępu).
+Aby delegować funkcje zarządzania tożsamościami i dostępem do usługi Azure AD, należy zarejestrować aplikację w [dzierżawie](developer-glossary.md#tenant)usługi Azure AD. Po zarejestrowaniu aplikacji w usłudze Azure AD tworzysz konfigurację tożsamości dla aplikacji, która umożliwia integrację z usługą Azure AD. Po zarejestrowaniu aplikacji w [Azure Portal][AZURE-Portal]należy określić, czy jest to jedyna dzierżawa (dostępna tylko w dzierżawie) czy wiele dzierżawców (dostępną w innych dzierżawcach) i opcjonalnie może ustawić identyfikator URI przekierowania (do którego jest wysyłany token dostępu).
 
 :::image type="content" source="media/app-objects-and-service-principals/app-registration.png" alt-text="Zrzut ekranu przedstawiający okienko rejestrowania aplikacji Azure Portal":::
 

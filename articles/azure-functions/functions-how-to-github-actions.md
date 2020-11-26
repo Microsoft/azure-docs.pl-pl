@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, github-actions-azure
-ms.openlocfilehash: a2d5234b3c80456a98fde4547b9665ca1b0a83dd
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 651c1913491952c53af42abec5ce5d5009da06a0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913549"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168070"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Ciągłe dostarczanie za pomocą akcji GitHub
 
@@ -34,7 +34,7 @@ W przypadku przepływu pracy Azure Functions plik ma trzy sekcje:
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Konto usługi GitHub. Jeśli nie masz takiego konta, zarejestruj się [bezpłatnie](https://github.com/join).  
 - Aplikacja funkcji działającej hostowana na platformie Azure z repozytorium GitHub.   
-    - [Szybki start: Tworzenie funkcji na platformie Azure przy użyciu programu Visual Studio Code](functions-create-first-function-vs-code.md)
+    - [Szybki start: Tworzenie funkcji na platformie Azure przy użyciu programu Visual Studio Code](./create-first-function-vs-code-csharp.md)
 
 ## <a name="generate-deployment-credentials"></a>Generuj poświadczenia wdrożenia
 
@@ -46,7 +46,7 @@ Po zapisaniu poświadczenia profilu publikowania jako [wpisu tajnego usługi Git
 
 Aby pobrać profil publikowania aplikacji funkcji:
 
-1. Wybierz stronę **Przegląd** aplikacji funkcji, a następnie wybierz pozycję **Pobierz profil publikowania** .
+1. Wybierz stronę **Przegląd** aplikacji funkcji, a następnie wybierz pozycję **Pobierz profil publikowania**.
 
    :::image type="content" source="media/functions-how-to-github-actions/get-publish-profile.png" alt-text="Pobierz profil publikowania":::
 
@@ -55,11 +55,11 @@ Aby pobrać profil publikowania aplikacji funkcji:
 
 ### <a name="add-the-github-secret"></a>Dodawanie wpisu tajnego usługi GitHub
 
-1. W witrynie [GitHub](https://github.com)przejdź do repozytorium, wybierz pozycję **Ustawienia** wpisy  >  **tajne**  >  **Dodaj nowy wpis tajny** .
+1. W witrynie [GitHub](https://github.com)przejdź do repozytorium, wybierz pozycję **Ustawienia** wpisy  >  **tajne**  >  **Dodaj nowy wpis tajny**.
 
-   :::image type="content" source="media/functions-how-to-github-actions/add-secret.png" alt-text="Pobierz profil publikowania":::
+   :::image type="content" source="media/functions-how-to-github-actions/add-secret.png" alt-text="Dodaj klucz tajny":::
 
-1. Dodaj nowy wpis tajny przy użyciu `AZURE_FUNCTIONAPP_PUBLISH_PROFILE` **nazwy** , zawartości pliku profilu publikowania dla **wartości** , a następnie wybierz pozycję **Dodaj klucz tajny** .
+1. Dodaj nowy wpis tajny przy użyciu `AZURE_FUNCTIONAPP_PUBLISH_PROFILE` **nazwy**, zawartości pliku profilu publikowania dla **wartości**, a następnie wybierz pozycję **Dodaj klucz tajny**.
 
 Usługa GitHub umożliwia teraz uwierzytelnianie w aplikacji funkcji na platformie Azure.
 

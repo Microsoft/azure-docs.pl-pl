@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 5489feeeec64c7b3d4b5fc28eddfe8b780308796
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 09e922ffddcce732d9213eb91026561528c0728a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979882"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169141"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Samouczek: Logowanie użytkowników i wywoływanie chronionego interfejsu API z aplikacji Blazor webassembly
 
@@ -26,7 +26,7 @@ W tym samouczku:
 > [!div class="checklist"]
 >
 > * Utwórz nową aplikację Blazor webassembly skonfigurowaną do korzystania z Azure Active Directory (Azure AD) na potrzeby [uwierzytelniania i autoryzacji](authentication-vs-authorization.md) przy użyciu platformy tożsamości firmy Microsoft
-> * Pobieranie danych z chronionego internetowego interfejsu API, w tym przypadku [Microsoft Graph](https://docs.microsoft.com/graph/overview)
+> * Pobieranie danych z chronionego internetowego interfejsu API, w tym przypadku [Microsoft Graph](/graph/overview)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
