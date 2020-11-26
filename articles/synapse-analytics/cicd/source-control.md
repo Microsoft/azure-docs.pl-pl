@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: a5cb5831090987f1b620593843ddba817d8e68d4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 111b2b5b660133c20afdb3c56e1c3e3ed607398c
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188126"
+ms.locfileid: "96297055"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Kontrola źródła w usłudze Azure Synapse Studio
 
@@ -30,11 +30,11 @@ Aby zapewnić możliwość kontroli źródła, program Synapse Studio umożliwia
 
 ## <a name="configure-git-repository-in-synapse-studio"></a>Konfigurowanie repozytorium Git w programie Synapse Studio 
 
-Po uruchomieniu programu Synapse Studio można skonfigurować repozytorium Git w obszarze roboczym. Obszar roboczy programu Synapse Studio może być skojarzony tylko z jednym repozytorium git jednocześnie. 
+Po uruchomieniu programu Synapse Studio można skonfigurować repozytorium Git w obszarze roboczym. Obszar roboczy programu Synapse Studio może być skojarzony tylko z jednym repozytorium git naraz. 
 
-### <a name="configuration-method-1-authoring-canvas"></a>Konfiguracja Metoda 1: Kanwa tworzenia
+### <a name="configuration-method-1-global-bar"></a>Konfiguracja Metoda 1: pasek globalny
 
-Na kanwie tworzenia Synapse Studio zaznacz menu rozwijane **Synapse Live** , a następnie wybierz pozycję **Konfiguruj repozytorium kodu**.
+Na pasku globalnym Synapse Studio zaznacz menu rozwijane **Synapse Live** , a następnie wybierz pozycję **Konfiguruj repozytorium kodu**.
 
 ![Konfigurowanie ustawień repozytorium kodu na podstawie tworzenia](media/configure-repo-1.png)
 
@@ -51,7 +51,7 @@ W obszarze roboczym możesz połączyć repozytorium usługi Azure DevOps lub Gi
 
 ## <a name="connect-with-azure-devops-git"></a>Nawiązywanie połączenia z usługą Azure DevOps git 
 
-Możesz skojarzyć obszar roboczy Synapse z repozytorium Azure DevOps w celu kontroli źródła, współpracy, obsługi wersji i tak dalej. Jeśli nie masz repozytorium Azure DevOps, postępuj zgodnie z [tymi instrukcjami](/azure/devops/organizations/accounts/create-organization-msa-or-work-student) , aby najpierw utworzyć zasoby repozytorium.
+Możesz skojarzyć obszar roboczy Synapse z repozytorium Azure DevOps w celu kontroli źródła, współpracy, obsługi wersji i tak dalej. Jeśli nie masz repozytorium Azure DevOps, postępuj zgodnie z [tymi instrukcjami](/azure/devops/organizations/accounts/create-organization-msa-or-work-student) , aby utworzyć zasoby repozytorium.
 
 ### <a name="azure-devops-git-repository-settings"></a>Ustawienia repozytorium git usługi Azure DevOps
 
@@ -94,7 +94,7 @@ Aby skorzystać z osobistego konto Microsoft na potrzeby integracji z usługą g
 
 Po wykonaniu tych kroków konfiguracyjnych Twoje repozytorium osobiste będzie dostępne po skonfigurowaniu integracji usługi Git w programie Synapse Studio.
 
-Aby uzyskać więcej informacji na temat łączenia Azure Repos z Active Directory organizacji, zobacz [łączenie organizacji usługi Azure DevOps w celu Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
+Aby uzyskać więcej informacji na temat łączenia Azure Repos z Active Directory organizacji, zobacz [łączenie organizacji z Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
 
 ## <a name="connect-with-github"></a>Łączenie z usługą GitHub 
 

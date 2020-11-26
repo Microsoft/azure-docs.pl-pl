@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 11/18/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8fd7562d1f8e38c79f739fdd2db7031e772874bc
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 0e637a09a5305e314a32b1cac34b2da669eec614
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122631"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296203"
 ---
 # <a name="azure-synapse-analytics-terminology"></a>Terminologia dotycząca usługi Azure Synapse Analytics
 
@@ -47,13 +47,13 @@ Istnieją dwa sposoby używania platformy Spark w Synapse:
 * **Notesy platformy Spark** do tworzenia danych i inżynierii z użyciem danych Scala, PySpark, C# i SparkSQL
 * **Definicje zadań platformy Spark** do uruchamiania zadań usługi Batch Spark przy użyciu plików jar.
 
-## <a name="pipelines"></a>Pipelines
+## <a name="pipelines"></a>Potoki
 
 Potoki to sposób, w jaki usługa Azure Synapse zapewnia integrację danych — umożliwia przenoszenie danych między usługami i organizowanie działań.
 
-* **Przepływy danych** zapewniają codine środowisko do przekształcania danych, które korzysta z Synapse Spark w środowisku.
-* **Potok** — logiczne grupowanie działań, które wspólnie wykonują zadanie.
-* **Działanie** — definiuje akcje do wykonania na danych, takich jak kopiowanie danych, uruchamianie notesu lub skryptu SQL.
+* **Potok** jest logicznym grupą działań, które wykonują zadanie jednocześnie.
+* **Działania** definiują akcje w ramach potoku do wykonywania na danych, takich jak kopiowanie danych, uruchamianie notesu lub skryptu SQL.
+* **Przepływy danych** to specyficzny rodzaj działań, które zapewniają niekodowane środowisko do przekształcania danych, które korzysta z Synapse Spark w ramach okładek.
 * **Trigger** -wykonuje potok. Może być uruchamiany ręcznie lub automatycznie (harmonogram, wirowania okno lub zdarzenia)
 * **Zestaw danych integracji** — nazwany widok zawierający dane, które po prostu wskazują lub odwołują się do danych, które mają być używane w działaniu jako dane wejściowe i wyjściowe. Należy do połączonej usługi.
 

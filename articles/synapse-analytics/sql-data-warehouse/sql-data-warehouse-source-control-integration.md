@@ -10,18 +10,18 @@ ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 766837cacb4ef2acf874c2872b347b6d35633faa
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 862fa839c56746042c072ae3100832fb2b78451a
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701001"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296910"
 ---
 # <a name="source-control-integration-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Integracja kontroli źródła dla dedykowanej puli SQL w usłudze Azure Synapse Analytics
 
 W tym samouczku opisano sposób integrowania projektu bazy danych SQL Server Data Tools (SSDT) z kontrolą źródła.  Integracja kontroli źródła to pierwszy krok w tworzeniu potoku ciągłej integracji i wdrażania przy użyciu dedykowanego zasobu puli SQL w usłudze Azure Synapse Analytics.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 - Utwórz konto w [organizacji usługi Azure DevOps](https://azure.microsoft.com/services/devops/)
 - Przejdź do samouczka [Tworzenie i łączenie](create-data-warehouse-portal.md)
@@ -38,11 +38,13 @@ W tym samouczku opisano sposób integrowania projektu bazy danych SQL Server Dat
    ![Zarządzanie połączeniami](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Zarządzanie połączeniami")
 
 3. Połącz się z projektem, wybierając pozycję **Zarządzaj połączeniami**, a następnie połącz się z **projektem**.
- ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Połącz")
+ 
+    ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Połącz")
 
 
 4. Znajdź projekt utworzony w kroku jeden, wybierz pozycję **Połącz**.
-![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "Połącz")
+ 
+    ![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "Połącz")
 
 
 3. Sklonuj repozytorium Azure DevOps z projektu na komputerze lokalnym.
@@ -85,7 +87,7 @@ Aby uzyskać więcej informacji na temat łączenia projektów przy użyciu prog
 
    ![Sprawdź](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "Weryfikowanie zmian")
 
-4. (**Opcjonalnie**) Użyj opcji Porównaj schemat i zaktualizuj zmiany w docelowym hurtowni danych przy użyciu SSDT, aby upewnić się, że definicje obiektów w repozytorium Azure Repository i repozytorium lokalnym odzwierciedlają magazyn danych.
+4. (**Opcjonalnie**) Użyj opcji Porównaj schemat i zaktualizuj zmiany w docelowej dedykowanej puli SQL przy użyciu SSDT, aby upewnić się, że definicje obiektów w repozytorium Azure Repository i repozytorium lokalnym odzwierciedlają dedykowaną pulę SQL.
 
 ## <a name="next-steps"></a>Następne kroki
 

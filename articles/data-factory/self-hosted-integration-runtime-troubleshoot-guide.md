@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 11/17/2020
 ms.author: lle
-ms.openlocfilehash: 93c35828444ec93a974769ed3a2f1981c0ec4368
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 8195c4d072acce5345fa9752f97713aed22d962f
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96013464"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296958"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Rozwiązywanie problemów z własnym hostowanym środowiskiem Integration Runtime
 
@@ -167,7 +167,7 @@ Podczas obsługi przypadków związanych z uzgadnianiem certyfikatów SSL/TLS mo
 
 `Could not load file or assembly 'XXXXXXXXXXXXXXXX, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
  
-Na przykład: 
+Przykład: 
 
 `Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
 
@@ -458,6 +458,22 @@ Przed i po konwersji:
 ![Przed zmianą certyfikatu](media/self-hosted-integration-runtime-troubleshoot-guide/before-certificate-change.png)
 
 ![Po zmianie certyfikatu](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
+
+### <a name="self-hosted-integration-runtime-version-5x"></a>Samodzielna Integration Runtime w wersji 5. x
+W przypadku uaktualnienia do wersji 5. x Azure Data Factory samodzielnego środowiska Integration Runtime wymagany jest program **.NET Framework Runtime 4.7.2** lub nowszy. Na stronie pobierania dostępne są linki do pobrania dla najnowszej wersji 4. x i najnowszych wersji 5. x. 
+
+
+Dla klientów korzystających z usługi ADF w wersji 2:
+- Jeśli automatyczna aktualizacja jest włączona i już uaktualniono środowisko uruchomieniowe programu .NET Framework do 4.7.2 lub nowszego, środowisko Integration Runtime (własne) zostanie automatycznie uaktualnione do najnowszej wersji 5. x.
+- Jeśli automatyczna aktualizacja jest włączona i nie uaktualniono środowiska uruchomieniowego programu .NET Framework do 4.7.2 lub nowszego, środowisko Integration Runtime (własne) nie zostanie automatycznie uaktualnione do najnowszej wersji 5. x. Własne środowisko Integration Runtime pozostanie w bieżącej wersji 4. x. Można wyświetlić ostrzeżenie dotyczące uaktualniania środowiska uruchomieniowego programu .NET Framework w portalu i klienta Integration Runtime.
+- Jeśli funkcja automatycznej aktualizacji jest wyłączona i masz już uaktualniony środowisko uruchomieniowe programu .NET Framework do 4.7.2 lub nowszego, możesz ręcznie pobrać najnowszą wersję 5. x i zainstalować ją na maszynie.
+- Jeśli funkcja autoaktualizacji jest wyłączona i nie uaktualniono środowiska uruchomieniowego .NET Framework do 4.7.2 lub nowszego. Podczas próby ręcznego zainstalowania SHIR 5. x i zarejestrowania klucza należy najpierw uaktualnić środowisko uruchomieniowe programu .NET Framework.
+
+
+W przypadku klientów usługi ADF w wersji 1:
+- Własne środowisko Integration Runtime 5. X nie obsługuje funkcji ADF w wersji 1.
+- Własne środowisko Integration Runtime zostanie automatycznie uaktualnione do najnowszej wersji 4. x. A Ostatnia wersja 4. x nie wygaśnie. 
+- Jeśli spróbujesz ręcznie zainstalować środowisko Integration Runtime 5. x i zarejestrować klucz, otrzymasz informację o tym, że środowisko Integration Runtime 5. x nie obsługuje wersji 1.
 
 
 ## <a name="self-hosted-ir-connectivity-issues"></a>Własne problemy z łącznością IR
@@ -757,6 +773,7 @@ Użytkownik może zauważyć inne fabryki danych (w różnych dzierżawcach) pod
 #### <a name="cause"></a>Przyczyna
 
 Samoobsługowe środowisko IR nie może być współużytkowane przez wiele dzierżawców.
+
 
 
 ## <a name="next-steps"></a>Następne kroki

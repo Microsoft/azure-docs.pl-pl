@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: 18e32a0387119d235294d1126d869186ae28d2b2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: abc4529d6076496b34859eec2b931a8dcbd1ce93
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488983"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296594"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Często zadawane pytania dotyczące drzwi platformy Azure
 
@@ -147,7 +147,7 @@ Uwaga — niestandardowe aktualizacje certyfikatu TLS/SSL trwają około 30 minu
 Wszystkie aktualizacje tras lub pul zaplecza itp. są bezproblemowe i spowodują zero przestojów (Jeśli nowa konfiguracja jest poprawna). Aktualizacje certyfikatów są również niepodzielne i nie spowodują awarii, chyba że zostanie przełączone z "AFD Managed" na "Użyj własnego certyfikatu" lub na odwrót.
 
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 ### <a name="can-azure-front-door-load-balance-or-route-traffic-within-a-virtual-network"></a>Czy można zrównoważyć ruch z przodu platformy Azure lub kierowaniu ruchu w sieci wirtualnej?
 
@@ -235,13 +235,13 @@ Tak, zszywanie protokołu OCSP jest domyślnie obsługiwane przez frontony i nie
 
 ### <a name="does-azure-front-door-also-support-re-encryption-of-traffic-to-the-backend"></a>Czy usługa Azure front-drzwi obsługuje również ponowne szyfrowanie ruchu do zaplecza?
 
-Tak, platforma Azure Front-drzwiczk obsługuje odciążanie protokołu TLS/SSL i kompleksową transpozycję TLS, która powoduje ponowne zaszyfrowanie ruchu do zaplecza. W rzeczywistości, ponieważ połączenia z zapleczem odbywają się za pośrednictwem publicznego adresu IP, zaleca się skonfigurowanie drzwi frontonu do korzystania z protokołu HTTPS jako protokół przekazywania dalej.
+Tak, platforma Azure Front-drzwiczk obsługuje odciążanie protokołu TLS/SSL i kompleksową transpozycję TLS, która powoduje ponowne zaszyfrowanie ruchu do zaplecza. W rzeczywistości, ponieważ połączenia z zapleczem odbywają się za pośrednictwem jego publicznego adresu IP, zaleca się skonfigurowanie drzwi frontonu do używania protokołu HTTPS jako protokół przekazywania dalej.
 
 ### <a name="does-front-door-support-self-signed-certificates-on-the-backend-for-https-connection"></a>Czy drzwi z podpisem własnym obsługują certyfikaty z podpisem własnym w ramach zaplecza dla połączenia HTTPS?
 
 Nie, certyfikaty z podpisem własnym nie są obsługiwane w przypadku drzwi zewnętrznych, a ograniczenie dotyczy obydwu:
 
-1. **Zastąp: nie**można użyć certyfikatów z podpisem własnym podczas przekazywania ruchu jako sond kondycji protokołu HTTPS lub HTTPS lub wypełniania pamięci podręcznej z poziomu źródła dla reguł routingu z włączonym buforowaniem.
+1. **Zastąp: nie** można użyć certyfikatów z podpisem własnym podczas przekazywania ruchu jako sond kondycji protokołu HTTPS lub HTTPS lub wypełniania pamięci podręcznej z poziomu źródła dla reguł routingu z włączonym buforowaniem.
 2. **Fronton**: nie można używać certyfikatów z podpisem własnym podczas korzystania z własnego NIESTANDARDOWEGO certyfikatu TLS/SSL do włączania protokołu HTTPS w domenie niestandardowej.
 
 ### <a name="why-is-https-traffic-to-my-backend-failing"></a>Dlaczego ruch HTTPS do mojej wewnętrznej bazy danych kończy się niepowodzeniem?

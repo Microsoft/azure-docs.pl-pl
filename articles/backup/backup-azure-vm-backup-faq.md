@@ -4,12 +4,12 @@ description: W tym artykule znajdują się odpowiedzi na często zadawane pytani
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 74e2facfd9fd6073acc1f939c3d2ba922e3ac931
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: e6e14209a8df7160d103cb036d38c9fee29b34dd
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92925581"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296067"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Często zadawane pytania — tworzenie kopii zapasowych maszyn wirtualnych platformy Azure
 
@@ -87,11 +87,11 @@ Tak, Azure Backup obsługuje [dyski zarządzane w warstwie Standardowa SSD](http
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Czy można utworzyć kopię zapasową maszyny wirtualnej z dyskiem z obsługą akcelerator zapisu (WA)?
 
-Nie można wykonać migawek na dysku z obsługą WA. Jednak usługa Azure Backup może wykluczyć dysk z obsługą WA z kopii zapasowej.
+Migawki można wykonać tylko na dyskach z danymi, które są włączone i nie są dyskami systemu operacyjnego. Tylko dyski z danymi, które są włączone, mogą być chronione.
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Mam maszynę wirtualną z dyskami akcelerator zapisu (WA) i zainstalowaną SAP HANA. Jak mogę utworzyć kopię zapasową?
 
-Azure Backup nie może utworzyć kopii zapasowej dysku z obsługą WA, ale może go wykluczyć z kopii zapasowej. Jednak kopia zapasowa nie zapewni spójności bazy danych, ponieważ nie jest wykonywana kopia zapasowa informacji na dysku z obsługą WA. Można utworzyć kopię zapasową dysków przy użyciu tej konfiguracji, jeśli chcesz utworzyć kopię zapasową dysku systemu operacyjnego i utworzyć kopię zapasową dysków, które nie są włączone.
+Azure Backup może utworzyć kopię zapasową dysku danych z obsługą WA. Jednak kopia zapasowa nie zapewni spójności bazy danych.
 
 Azure Backup udostępnia rozwiązanie do tworzenia kopii zapasowych dla SAP HANA baz danych z celem punktu odzyskiwania wynoszącym 15 minut. Jest BACKINT certyfikowany przez SAP, aby zapewnić natywną obsługę kopii zapasowych, wykorzystującą natywne interfejsy API SAP HANA. Dowiedz się więcej [o tworzeniu kopii zapasowych baz danych SAP HANA na maszynach wirtualnych platformy Azure](./sap-hana-db-about.md).
 
@@ -149,7 +149,7 @@ Tak. Nawet jeśli usuniesz maszynę wirtualną, możesz przejść do odpowiednie
 
 ### <a name="how-do-i-restore-a-vm-to-the-same-availability-sets"></a>Jak mogę przywrócić maszynę wirtualną do tych samych zestawów dostępności?
 
-W przypadku maszyn wirtualnych platformy Azure z dyskami zarządzanymi przywracanie do zestawów dostępności jest włączone przez udostępnienie opcji w szablonie podczas przywracania jako dyski zarządzane. Ten szablon zawiera parametr wejściowy o nazwie **zestawy dostępności** .
+W przypadku maszyn wirtualnych platformy Azure z dyskami zarządzanymi przywracanie do zestawów dostępności jest włączone przez udostępnienie opcji w szablonie podczas przywracania jako dyski zarządzane. Ten szablon zawiera parametr wejściowy o nazwie **zestawy dostępności**.
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>Jak szybsze przywracanie wydajności?
 
@@ -185,7 +185,7 @@ Utworzono kopię zapasową maszyny wirtualnej przy użyciu ustawień harmonogram
 
    1. Znajdź lokalizację maszyny wirtualnej.
    2. Znajdź grupę zasobów o następującym wzorcu nazewnictwa: `AzureBackupRG_<location of your VM>_1` . Na przykład *AzureBackupRG_westus2_1*
-   3. W Azure Portal zaznacz opcję **Pokaż ukryte typy** .
+   3. W Azure Portal zaznacz opcję **Pokaż ukryte typy**.
    4. Znajdź zasób z typem **Microsoft. COMPUTE/restorePointCollections** , który ma wzorzec nazewnictwa `AzureBackup_<name of your VM that you're trying to move>_###########` .
    5. Usuń ten zasób. Ta operacja usuwa tylko natychmiastowe punkty odzyskiwania, a nie kopię zapasową danych w magazynie.
    6. Po zakończeniu operacji usuwania można przenieść maszynę wirtualną.

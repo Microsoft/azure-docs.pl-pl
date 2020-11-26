@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 55ec8be176dc7274a3b9a1feca53726d57eeb422
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2e96cbf0c1464e27b0a384e8a813118056103b91
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024469"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296689"
 ---
 # <a name="connect-to-workspace-resources-from-a-restricted-network"></a>Łączenie z zasobami obszaru roboczego z sieci z ograniczeniami
 
@@ -46,14 +46,11 @@ Aby uzyskać więcej informacji, zobacz [Omówienie tagów usług](/azure/virtua
 
 Następnie utwórz prywatne centra linków z Azure Portal. Aby znaleźć ten element w portalu, Wyszukaj pozycję *Azure Synapse Analytics (centra linków prywatnych)*, a następnie wprowadź wymagane informacje, aby je utworzyć. 
 
-> [!Note]
-> Upewnij się, że wartość **regionu** jest taka sama jak ta, w której znajduje się obszar roboczy usługi Azure Synapse Analytics.
-
 ![Zrzut ekranu przedstawiający centrum tworzenia prywatnego łącza Synapse.](./media/how-to-connect-to-workspace-from-restricted-network/private-links.png)
 
-## <a name="step-3-create-a-private-endpoint-for-your-gateway"></a>Krok 3. Tworzenie prywatnego punktu końcowego dla bramy
+## <a name="step-3-create-a-private-endpoint-for-your-synapse-studio"></a>Krok 3. Tworzenie prywatnego punktu końcowego dla programu Synapse Studio
 
-Aby uzyskać dostęp do bramy usługi Azure Synapse Analytics Studio, należy utworzyć prywatny punkt końcowy na podstawie Azure Portal. Aby go znaleźć w portalu, Wyszukaj *łącze prywatne*. W **centrum linku prywatnego** wybierz pozycję **Utwórz prywatny punkt końcowy**, a następnie wprowadź wymagane informacje, aby je utworzyć. 
+Aby uzyskać dostęp do usługi Azure Synapse Analytics Studio, należy utworzyć prywatny punkt końcowy na podstawie Azure Portal. Aby go znaleźć w portalu, Wyszukaj *łącze prywatne*. W **centrum linku prywatnego** wybierz pozycję **Utwórz prywatny punkt końcowy**, a następnie wprowadź wymagane informacje, aby je utworzyć. 
 
 > [!Note]
 > Upewnij się, że wartość **regionu** jest taka sama jak ta, w której znajduje się obszar roboczy usługi Azure Synapse Analytics.
@@ -118,6 +115,43 @@ Jeśli chcesz, aby Notes miał dostęp do połączonych zasobów magazynu w rama
 Po utworzeniu tego punktu końcowego stan zatwierdzenia wskazuje stan **oczekiwanie**. Zażądaj zatwierdzenia od właściciela tego konta magazynu, na karcie **połączenia prywatne punktów końcowych** tego konta magazynu w Azure Portal. Po jego zatwierdzeniu Notes może uzyskać dostęp do połączonych zasobów magazynu w ramach tego konta magazynu.
 
 Teraz wszystkie zestawy. Możesz uzyskać dostęp do zasobu obszaru roboczego usługi Azure Synapse Analytics Studio.
+
+## <a name="appendix-dns-registration-for-private-endpoint"></a>Dodatek: rejestracja DNS dla prywatnego punktu końcowego
+
+Jeśli nie włączono "integracji z prywatną strefą DNS" podczas tworzenia prywatnego punktu końcowego jako zrzutu ekranu poniżej, należy utworzyć "**prywatna strefa DNS strefę**" dla każdego z prywatnych punktów końcowych.
+![Zrzut ekranu przedstawiający Synapse prywatnej strefy DNS 1.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-1.png)
+
+Aby znaleźć **strefę prywatna strefa DNS** w portalu, wyszukaj pozycję *prywatna strefa DNS Zone*. W **obszarze prywatna strefa DNS** Wprowadź poniższe informacje, aby je utworzyć.
+
+* W polu **Nazwa** wprowadź nazwę prywatnej strefy DNS dedykowaną dla określonego prywatnego punktu końcowego w następujący sposób:
+  * **`privatelink.azuresynapse.net`** jest przeznaczony dla prywatnego punktu końcowego uzyskiwania dostępu do bramy usługi Azure Synapse Analytics Studio. Zobacz Tworzenie tego typu prywatnego punktu końcowego w kroku 3.
+  * **`privatelink.sql.azuresynapse.net`** jest przeznaczony dla tego typu prywatnego punktu końcowego wykonywania zapytań SQL w puli SQL i wbudowanej puli. Zobacz Tworzenie punktów końcowych w kroku 4.
+  * **`privatelink.dev.azuresynapse.net`** jest przeznaczony dla tego typu prywatnego punktu końcowego, który uzyskuje dostęp do wszystkich innych elementów w obszarze roboczym usługi Azure Synapse Analytics Studio. Zapoznaj się z tym typem prywatnego tworzenia punktów końcowych w kroku 4.
+  * **`privatelink.dfs.core.windows.net`** jest przeznaczony dla prywatnego punktu końcowego dostępu do połączonej Azure Data Lake Storage Gen2 obszaru roboczego. Zapoznaj się z tym typem prywatnego tworzenia punktów końcowych w kroku 5.
+  * **`privatelink.blob.core.windows.net`** jest przeznaczony dla prywatnego punktu końcowego dostępu do połączonego obszaru roboczego Blob Storage platformy Azure. Zapoznaj się z tym typem prywatnego tworzenia punktów końcowych w kroku 5.
+
+![Zrzut ekranu przedstawiający Synapse prywatną strefę DNS 2.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-2.png)
+
+Po utworzeniu **strefy prywatna strefa DNS** wprowadź utworzoną prywatną strefę DNS i wybierz **linki sieci wirtualnej** , aby dodać łącze do sieci wirtualnej. 
+
+![Zrzut ekranu przedstawiający Synapse prywatną strefę DNS 3.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-3.png)
+
+Wypełnij pola obowiązkowe w następujący sposób:
+* W polu **Nazwa łącza** wprowadź nazwę łącza.
+* W obszarze **Sieć wirtualna** wybierz sieć wirtualną.
+
+![Zrzut ekranu przedstawiający Synapse prywatną strefę DNS 4.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-4.png)
+
+Po dodaniu łącza do sieci wirtualnej należy dodać zestaw rekordów DNS w wcześniej utworzonej **strefie prywatna strefa DNS** .
+
+* W polu **Nazwa** wprowadź dedykowane ciągi nazw dla różnych prywatnych punktów końcowych: 
+  * **Internet** jest przeznaczony dla prywatnego punktu końcowego dostępu do usługi Azure Synapse Analytics Studio.
+  * "***YourWorkSpaceName * * _" jest przeznaczony dla prywatnego punktu końcowego wykonywania zapytań SQL w puli SQL, a także dla prywatnego punktu końcowego, który uzyskuje dostęp do wszystkich innych elementów w obszarach roboczych usługi Azure Synapse Analytics Studio. _ "*** YourWorkSpaceName *-OnDemand * *" jest przeznaczony dla prywatnego punktu końcowego wykonywania zapytań SQL w puli wbudowanej.
+* W obszarze **Typ** wybierz pozycję tylko rekord DNS typ **A** . 
+* W polu **adres IP** wprowadź odpowiedni adres IP każdego prywatnego punktu końcowego. Adres IP można uzyskać w **interfejsie sieciowym** z omówienia prywatnego punktu końcowego.
+
+![Zrzut ekranu przedstawiający Synapse prywatnej strefy DNS 5.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-5.png)
+
 
 ## <a name="next-steps"></a>Następne kroki
 

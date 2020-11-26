@@ -3,12 +3,12 @@ title: Informacje o kopii zapasowej bazy danych SAP HANA na maszynach wirtualnyc
 description: W tym artykule dowiesz się, jak tworzyć kopie zapasowe baz danych SAP HANA, które są uruchomione na maszynach wirtualnych platformy Azure.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: e30510817401fd8db23dc9f1d62fab495fac7ab2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efb9c3f786e429df404e261f053a9c9a9b032e11
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022313"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296458"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>Informacje o kopii zapasowej bazy danych SAP HANA na maszynach wirtualnych platformy Azure
 
@@ -60,15 +60,12 @@ Oprócz tworzenia kopii zapasowych i odzyskiwania na poziomie bazy danych za pom
 
 Do tworzenia kopii zapasowych i odzyskiwania bazy danych można używać [BACKINT certyfikowane rozwiązanie do tworzenia kopii zapasowych w usłudze Azure SAP HANA](#backup-architecture) .
 
-[Kopia zapasowa maszyny wirtualnej platformy Azure](backup-azure-vms-introduction.md) może służyć do tworzenia kopii zapasowej systemu operacyjnego i innych dysków nienależących do bazy danych. Kopia zapasowa maszyny wirtualnej jest wykonywana raz dziennie i zawiera kopie zapasowe wszystkich dysków (z wyjątkiem **dysków akcelerator zapisu (WA)** i **Ultra disks**). Ponieważ kopia zapasowa bazy danych jest tworzona przy użyciu rozwiązania do tworzenia kopii zapasowych w usłudze Azure SAP HANA, można wykonać kopię zapasową spójną na poziomie plików tylko dla dysków systemu operacyjnego i innych niż bazy danych za pomocą funkcji [tworzenia kopii zapasowych i przywracania dysków dla maszyn wirtualnych platformy Azure](selective-disk-backup-restore.md) .
-
->[!NOTE]
-> Używanie skryptów gotowych do utworzenia kopii zapasowej maszyny wirtualnej platformy Azure umożliwia tworzenie kopii zapasowych spójnych na poziomie aplikacji dla woluminów danych bazy danych. Jeśli jednak obszar dziennika znajduje się na dyskach WA, wykonanie migawki tych dysków może nie zagwarantować spójności obszaru dziennika. HANA ma jawny sposób generowania kopii zapasowych dzienników z tego powodu. Włącz te same w SAP HANA i można utworzyć ich kopię zapasową za pomocą usługi Azure SAP HANA Backup.
+[Kopia zapasowa maszyny wirtualnej platformy Azure](backup-azure-vms-introduction.md) może służyć do tworzenia kopii zapasowej systemu operacyjnego i innych dysków nienależących do bazy danych. Kopia zapasowa maszyny wirtualnej jest wykonywana raz dziennie i zawiera kopie zapasowe wszystkich dysków (z wyjątkiem **dysków systemu operacyjnego akcelerator zapisu (WA)** i **Ultra disks**). Ponieważ kopia zapasowa bazy danych jest tworzona przy użyciu rozwiązania do tworzenia kopii zapasowych w usłudze Azure SAP HANA, można wykonać kopię zapasową spójną na poziomie plików tylko dla dysków systemu operacyjnego i innych niż bazy danych za pomocą funkcji [tworzenia kopii zapasowych i przywracania dysków dla maszyn wirtualnych platformy Azure](selective-disk-backup-restore.md) .
 
 Aby przywrócić maszynę wirtualną z systemem SAP HANA, wykonaj następujące kroki:
 
 * [Przywróć nową maszynę wirtualną z kopii zapasowej maszyny wirtualnej platformy Azure](backup-azure-arm-restore-vms.md) z najnowszego punktu odzyskiwania. Lub Utwórz nową pustą maszynę wirtualną i Dołącz dyski z najnowszego punktu odzyskiwania.
-* Ponieważ nie są tworzone kopie zapasowe dysków WA, nie są one przywracane. Utwórz puste dyski WA i obszar dziennika.
+* W przypadku wykluczenia dysków WA nie są przywracane. W takim przypadku należy utworzyć puste dyski WA i obszar dziennika.
 * Po ustawieniu wszystkich innych konfiguracji (takich jak adres IP, nazwa systemu i tak dalej), maszyna wirtualna jest ustawiana na odbieranie danych z Azure Backup.
 * Teraz Przywróć bazę danych do maszyny wirtualnej z [kopii zapasowej usługi Azure SAP HANA DB](sap-hana-db-restore.md#restore-to-a-point-in-time-or-to-a-recovery-point) do żądanego punktu w czasie.
 

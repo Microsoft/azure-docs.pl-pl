@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/16/2019
-ms.openlocfilehash: b85e72ae6698cd9fa018c940e158bfcf25279ed5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/26/2020
+ms.openlocfilehash: 11e0d3336f085ccae9a7fb83ed050d69a15ce42b
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81410464"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296509"
 ---
 # <a name="copy-data-to-and-from-azure-database-for-postgresql-by-using-azure-data-factory"></a>Kopiowanie danych do i z Azure Database for PostgreSQL przy użyciu Azure Data Factory
 
@@ -55,7 +55,7 @@ Następujące właściwości są obsługiwane dla Azure Database for PostgreSQL 
 
 Typowe parametry połączenia to `Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>` . Poniżej przedstawiono więcej właściwości, które można ustawić dla danego przypadku:
 
-| Właściwość | Opis | Opcje | Wymagane |
+| Właściwość | Opis | Opcje | Wymagany |
 |:--- |:--- |:--- |:--- |
 | EncryptionMethod (EM)| Metoda wykorzystywana przez sterownik do szyfrowania danych przesyłanych między sterownikiem a serwerem bazy danych. Na przykład  `EncryptionMethod=<0/1/6>;`| 0 (bez szyfrowania) **(wartość domyślna)** /1 (SSL)/6 (RequestSSL) | Nie |
 | ValidateServerCertificate (VSC) | Określa, czy sterownik sprawdza poprawność certyfikatu wysyłanego przez serwer bazy danych, gdy włączone jest szyfrowanie SSL (metoda szyfrowania = 1). Na przykład  `ValidateServerCertificate=<0/1>;`| 0 (wyłączone) **(wartość domyślna)** /1 (włączone) | Nie |
@@ -76,7 +76,7 @@ Typowe parametry połączenia to `Server=<server>.postgres.database.azure.com;Da
 
 **Przykład**:
 
-***Zapisz hasło w Azure Key Vault***
+**_Zapisz hasło w Azure Key Vault_* _
 
 ```json
 {
@@ -85,13 +85,13 @@ Typowe parametry połączenia to `Server=<server>.postgres.database.azure.com;Da
         "type": "AzurePostgreSql",
         "typeProperties": {
             "connectionString": "Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;",
-            "password": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         }
     }
@@ -102,7 +102,7 @@ Typowe parametry połączenia to `Server=<server>.postgres.database.azure.com;Da
 
 Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania zestawów danych, zobacz [zestawy danych w Azure Data Factory](concepts-datasets-linked-services.md). Ta sekcja zawiera listę właściwości, które Azure Database for PostgreSQL obsługiwane w zestawach danych.
 
-Aby skopiować dane z Azure Database for PostgreSQL, ustaw właściwość Type zestawu danych na **AzurePostgreSqlTable**. Obsługiwane są następujące właściwości:
+Aby skopiować dane z Azure Database for PostgreSQL, ustaw właściwość Type zestawu danych na _ * AzurePostgreSqlTable * *. Obsługiwane są następujące właściwości:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
@@ -136,7 +136,7 @@ Aby skopiować dane z Azure Database for PostgreSQL, ustaw typ źródła w dzia�
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość **AzurePostgreSqlSource** | Tak |
-| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM MyTable"` | Nie (Jeśli określono Właściwość TableName w zestawie danych) |
+| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `SELECT * FROM mytable` lub `SELECT * FROM "MyTable"` . Uwaga w PostgreSQL Nazwa jednostki jest traktowana jako niezależna od wielkości liter, jeśli nie jest ujęta w cudzysłów. | Nie (Jeśli określono Właściwość TableName w zestawie danych) |
 
 **Przykład**:
 
@@ -160,7 +160,7 @@ Aby skopiować dane z Azure Database for PostgreSQL, ustaw typ źródła w dzia�
         "typeProperties": {
             "source": {
                 "type": "AzurePostgreSqlSource",
-                "query": "<custom query e.g. SELECT * FROM MyTable>"
+                "query": "<custom query e.g. SELECT * FROM mytable>"
             },
             "sink": {
                 "type": "<sink type>"

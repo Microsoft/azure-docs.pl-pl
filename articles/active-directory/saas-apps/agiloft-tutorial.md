@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: ab13d53e54317bac15b9e1b0067cbd29f72eb3c1
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: c56f1ab546327aaf281ff3616fa489728f3885a6
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319027"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96297087"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Samouczek: integracja Azure Active Directory z usługą Agiloft
 
@@ -105,14 +105,12 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Agiloft, w
     a. W polu tekstowym **Identyfikator** wpisz adres URL, korzystając z następującego wzorca: 
 
     ```http
-    https://<subdomain>.saas.enterprisewizard.com/project/<KB_NAME>
-    https://<subdomain>.agiloft.com/project/<KB_NAME>
+    https://<subdomain>.agiloft.com/<KB_NAME>
     ```
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: 
 
     ```http
-    https://<subdomain>.saas.enterprisewizard.com:443/gui2/spsamlsso?project=<KB_NAME>
     https://<subdomain>.agiloft.com:443/gui2/spsamlsso?project=<KB_NAME>
     ```
 
@@ -123,7 +121,6 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Agiloft, w
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: 
 
     ```http
-    https://<subdomain>.saas.enterprisewizard.com/gui2/samlssologin.jsp?project=<KB_NAME>
     https://<subdomain>.agiloft.com/gui2/samlssologin.jsp?project=<KB_NAME>
     ```
 
@@ -193,7 +190,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

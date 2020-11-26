@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 372ff1dc53f15a1338cad933fec64746b6736f40
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5645a2e0449a1929421f9444bf645f08ad0525e9
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368093"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296815"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Ochrona punktów końcowych za pomocą zintegrowanego rozwiązania EDR Security Center: Microsoft Defender for Endpoint
 
@@ -44,7 +44,7 @@ Microsoft Defender for Endpoint to całościowe, dostarczone w chmurze rozwiąza
 | Wpisaną                        | Wymaga [usługi Azure Defender dla serwerów](security-center-pricing.md)                                                                                                                                                                                                                                             |
 | Obsługiwane platformy:            | ![Tak](./media/icons/yes-icon.png) Maszyny platformy Azure z systemem Windows<br>![Tak](./media/icons/yes-icon.png) Komputery z systemem Windows w usłudze Azure Arc|
 | Obsługiwane wersje systemu Windows:  | Usługa Defender for Endpoint jest wbudowana w system Windows 10 1703 (i nowsze) i system Windows Server 2019.<br>Security Center obsługuje wykrywanie w systemach Windows Server 2016, 2012 R2 i 2008 R2 SP1.<br>Monitorowanie punktu końcowego serwera przy użyciu tej integracji zostało wyłączone dla klientów usługi Office 365 w zatoce. |
-| Wymagane role i uprawnienia: | Aby włączyć/wyłączyć integrację: **administrator zabezpieczeń** lub **właściciel**<br>Aby wyświetlić alerty MDATP w Security Center: **czytelnik zabezpieczeń**, **czytelnik**, **współautor grupy zasobów**, **właściciel grupy zasobów**, **administrator zabezpieczeń**, **właściciel subskrypcji**lub **współautor subskrypcji**                         |
+| Wymagane role i uprawnienia: | Aby włączyć/wyłączyć integrację: **administrator zabezpieczeń** lub **właściciel**<br>Aby wyświetlić alerty MDATP w Security Center: **czytelnik zabezpieczeń**, **czytelnik**, **współautor grupy zasobów**, **właściciel grupy zasobów**, **administrator zabezpieczeń**, **właściciel subskrypcji** lub **współautor subskrypcji**                         |
 | Połączeń                         | ![Tak](./media/icons/yes-icon.png) Chmury komercyjne.<br>![Nie](./media/icons/no-icon.png) Klienci korzystający z usług w ramach usługi w chmurze w globalnych chmurach platformy Azure<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Nie](./media/icons/no-icon.png) Chiny gov, inne gov                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
 
@@ -61,7 +61,7 @@ Usługa Microsoft Defender dla punktu końcowego oferuje następujące informacj
 
 Dzięki integracji usługi Defender dla punktów końcowych z Security Center można korzystać z następujących dodatkowych możliwości:
 
-- **Automatyczne**dołączanie. Security Center automatycznie włącza czujnik usługi Microsoft Defender for Endpoint dla wszystkich serwerów z systemem Windows monitorowanych przez Security Center (chyba że jest uruchomiony system Windows Server 2019).
+- **Automatyczne** dołączanie. Security Center automatycznie włącza czujnik usługi Microsoft Defender for Endpoint dla wszystkich serwerów z systemem Windows monitorowanych przez Security Center. Z wyjątkiem tych, które są uruchomione w systemie Windows Server 2019, które muszą zostać dołączone za pośrednictwem skryptu lokalnego, zasady grupy obiektu (GPO) lub [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/mem/configmgr/) (dawniej SCCM).
 
 - **Pojedyncze okienko szkła**. W konsoli Security Center są wyświetlane alerty usługi Microsoft Defender dla punktów końcowych. Aby dowiedzieć się więcej, Użyj usługi Microsoft Defender dla własnych stron portalu punktu końcowego, na których zobaczysz dodatkowe informacje, takie jak drzewo procesu alertu i wykres incydentu. Możesz również wyświetlić szczegółową oś czasu komputera, która pokazuje każde zachowanie w okresie historycznym przez maksymalnie sześć miesięcy.
 
@@ -85,9 +85,9 @@ Po skonfigurowaniu lokalizacji nie można jej zmienić. Jeśli musisz przenieś�
 1. W menu Security Center wybierz pozycję **cennik & ustawienia**.
 1. Wybierz subskrypcję, którą chcesz zmienić.
 1. Wybierz pozycję **wykrywanie zagrożeń**.
-1. Wybierz pozycję **Zezwalaj usłudze Microsoft Defender for Endpoint na dostęp do moich danych**i wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **Zezwalaj usłudze Microsoft Defender for Endpoint na dostęp do moich danych** i wybierz pozycję **Zapisz**.
 
-    :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Security Center własne usługi Microsoft Defender dla punktu końcowego":::
+    :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Włącz integrację między Azure Security Center i rozwiązaniem EDR firmy Microsoft, Microsoft Defender for Endpoint":::
 
     Azure Security Center automatycznie dołączać serwery do usługi Microsoft Defender dla punktu końcowego. Dołączanie może potrwać do 24 godzin.
 
@@ -112,7 +112,7 @@ Aby wygenerować niegroźny alert dotyczący programu Microsoft Defender for End
     ```powershell
     powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-MDATP-test\\invoice.exe'); Start-Process 'C:\\test-MDATP-test\\invoice.exe'
     ```
-    :::image type="content" source="./media/security-center-wdatp/generate-edr-alert.png" alt-text="Security Center własne usługi Microsoft Defender dla punktu końcowego":::
+    :::image type="content" source="./media/security-center-wdatp/generate-edr-alert.png" alt-text="Okno wiersza polecenia z poleceniem do wygenerowania alertu testowego.":::
 
 1. Jeśli polecenie zakończy się pomyślnie, zobaczysz nowy Alert na pulpicie nawigacyjnym Azure Security Center oraz w portalu usługi Microsoft Defender dla punktów końcowych. Ten alert może potrwać kilka minut.
 1. Aby sprawdzić alert w Security Center, przejdź do **alertów zabezpieczeń**  >  **podejrzany wiersz polecenia programu PowerShell**.

@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 11/26/2020
 ms.author: jingwang
-ms.openlocfilehash: 182e04625f829304168bfdefe000bb8797646c75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a48ac86e8f9814adef9be2360b2446335d368447
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87926896"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296560"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Kopiowanie danych z programu Teradata Vantage przy użyciu Azure Data Factory
 
@@ -41,7 +41,7 @@ Dane z programu Teradata Vantage można skopiować do dowolnego obsługiwanego m
 W każdym przypadku ten łącznik programu Teradata obsługuje:
 
 - Program Teradata w **wersji 14,10, 15,0, 15,10, 16,0, 16,10 i 16,20**.
-- Kopiowanie danych przy użyciu uwierzytelniania **podstawowego** lub **systemu Windows** .
+- Kopiowanie danych przy użyciu **podstawowego**, **systemu Windows** lub uwierzytelniania **LDAP** .
 - Równoległe kopiowanie ze źródła programu Teradata. Aby uzyskać szczegółowe informacje, zobacz sekcję [Kopiowanie równoległe z programu Teradata](#parallel-copy-from-teradata) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -72,9 +72,10 @@ Więcej właściwości połączenia, które można ustawić w parametrach połą
 
 | Właściwość | Opis | Wartość domyślna |
 |:--- |:--- |:--- |
-| UseDataEncryption | Określa, czy ma być szyfrowana cała komunikacja z bazą danych programu Teradata. Dozwolone wartości to 0 lub 1.<br><br/>- **0 (wyłączone, domyślnie)**: szyfruje wyłącznie informacje o uwierzytelnianiu.<br/>- **1 (włączone)**: szyfruje wszystkie dane przesyłane między sterownikiem a bazą danych. | Nie |
-| CharacterSet | Zestaw znaków, który ma być używany przez sesję. Np `CharacterSet=UTF16` ..<br><br/>Ta wartość może być zestawem znaków zdefiniowanym przez użytkownika lub jednym z następujących wstępnie zdefiniowanych zestawów znaków: <br/>-ASCII<br/>-UTF8<br/>-UTF16<br/>-LATIN1252_0A<br/>-LATIN9_0A<br/>-LATIN1_0A<br/>-Shift-JIS (Windows, zgodne z systemem DOS, KANJISJIS_0S)<br/>-EUC (zgodne z systemem UNIX, KANJIEC_0U)<br/>-IBM mainframe (KANJIEBCDIC5035_0I)<br/>-KANJI932_1S0<br/>-BIG5 (TCHBIG5_1R0)<br/>-GB (SCHGB2312_1T0)<br/>-SCHINESE936_6R0<br/>-TCHINESE950_8R0<br/>-NetworkKorean (HANGULKSC5601_2R4)<br/>-HANGUL949_7R0<br/>-ARABIC1256_6A0<br/>-CYRILLIC1251_2A0<br/>-HEBREW1255_5A0<br/>-LATIN1250_1A0<br/>-LATIN1254_7A0<br/>-LATIN1258_8A0<br/>-THAI874_4A0 | Wartość domyślna to `ASCII`. |
-| MaxRespSize |Maksymalny rozmiar buforu odpowiedzi dla żądań SQL w kilobajtach (artykułów bazy wiedzy). Np `MaxRespSize=‭10485760‬` ..<br/><br/>W przypadku bazy danych programu Teradata w wersji 16,00 lub nowszej wartość maksymalna to 7361536. Dla połączeń korzystających ze starszych wersji wartość maksymalna to 1048576. | Wartość domyślna to `65536`. |
+| UseDataEncryption | Określa, czy ma być szyfrowana cała komunikacja z bazą danych programu Teradata. Dozwolone wartości to 0 lub 1.<br><br/>- **0 (wyłączone, domyślnie)**: szyfruje wyłącznie informacje o uwierzytelnianiu.<br/>- **1 (włączone)**: szyfruje wszystkie dane przesyłane między sterownikiem a bazą danych. | `0` |
+| CharacterSet | Zestaw znaków, który ma być używany przez sesję. Np `CharacterSet=UTF16` ..<br><br/>Ta wartość może być zestawem znaków zdefiniowanym przez użytkownika lub jednym z następujących wstępnie zdefiniowanych zestawów znaków: <br/>-ASCII<br/>-UTF8<br/>-UTF16<br/>-LATIN1252_0A<br/>-LATIN9_0A<br/>-LATIN1_0A<br/>-Shift-JIS (Windows, zgodne z systemem DOS, KANJISJIS_0S)<br/>-EUC (zgodne z systemem UNIX, KANJIEC_0U)<br/>-IBM mainframe (KANJIEBCDIC5035_0I)<br/>-KANJI932_1S0<br/>-BIG5 (TCHBIG5_1R0)<br/>-GB (SCHGB2312_1T0)<br/>-SCHINESE936_6R0<br/>-TCHINESE950_8R0<br/>-NetworkKorean (HANGULKSC5601_2R4)<br/>-HANGUL949_7R0<br/>-ARABIC1256_6A0<br/>-CYRILLIC1251_2A0<br/>-HEBREW1255_5A0<br/>-LATIN1250_1A0<br/>-LATIN1254_7A0<br/>-LATIN1258_8A0<br/>-THAI874_4A0 | `ASCII` |
+| MaxRespSize |Maksymalny rozmiar buforu odpowiedzi dla żądań SQL w kilobajtach (artykułów bazy wiedzy). Np `MaxRespSize=‭10485760‬` ..<br/><br/>W przypadku bazy danych programu Teradata w wersji 16,00 lub nowszej wartość maksymalna to 7361536. Dla połączeń korzystających ze starszych wersji wartość maksymalna to 1048576. | `65536` |
+| O mechanizmie | Aby użyć protokołu LDAP do uwierzytelniania połączenia, określ `MechanismName=LDAP` . | Nie dotyczy |
 
 **Przykład użycia uwierzytelniania podstawowego**
 
@@ -105,6 +106,24 @@ Więcej właściwości połączenia, które można ustawić w parametrach połą
             "connectionString": "DBCName=<server>",
             "username": "<username>",
             "password": "<password>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Przykład użycia uwierzytelniania LDAP**
+
+```json
+{
+    "name": "TeradataLinkedService",
+    "properties": {
+        "type": "Teradata",
+        "typeProperties": {
+            "connectionString": "DBCName=<server>;MechanismName=LDAP;Uid=<username>;Pwd=<password>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -152,7 +171,7 @@ Aby skopiować dane z programu Teradata, obsługiwane są następujące właści
 |:--- |:--- |:--- |
 | typ | Właściwość Type zestawu danych musi być ustawiona na wartość `TeradataTable` . | Tak |
 | database | Nazwa wystąpienia programu Teradata. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
-| tabela | Nazwa tabeli w wystąpieniu programu Teradata. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
+| table (stolik) | Nazwa tabeli w wystąpieniu programu Teradata. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
 **Przykład:**
 
@@ -304,11 +323,11 @@ Podczas kopiowania danych z programu Teradata są stosowane następujące mapowa
 | ByteInt |Int16 |
 | Char |Ciąg |
 | Obiektów CLOB |Ciąg |
-| Date |DateTime |
+| Data |DateTime |
 | Liczba dziesiętna |Liczba dziesiętna |
 | Double |Double |
 | Zdjęć |Nieobsługiwane. Zastosuj jawne rzutowanie w zapytaniu źródłowym. |
-| Liczba całkowita |Int32 |
+| Integer |Int32 |
 | Dzień interwału |Nieobsługiwane. Zastosuj jawne rzutowanie w zapytaniu źródłowym. |
 | Interwał od dnia do godziny |Nieobsługiwane. Zastosuj jawne rzutowanie w zapytaniu źródłowym. |
 | Interwał od dnia do minuty |Nieobsługiwane. Zastosuj jawne rzutowanie w zapytaniu źródłowym. |

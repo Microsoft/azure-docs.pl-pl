@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 76f4f9ddaa1e4aec9409e96a0088ec51b8c2645e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 86de3e1199b00dff4e03f3b4292f86e6c19ea491
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097468"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296543"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optymalizacja zaaprowizowanej przepływności w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -31,7 +31,7 @@ Przepływność można aprowizować dla baz danych lub kontenerów, a każda str
 
 Poniżej przedstawiono kilka wytycznych dotyczących podejmowania decyzji dotyczących strategii dotyczącej przepływności.
 
-**Rozważ zainicjowanie przepływności dla bazy danych Azure Cosmos Database (zawierającej zestaw kontenerów), jeśli** :
+**Rozważ zainicjowanie przepływności dla bazy danych Azure Cosmos Database (zawierającej zestaw kontenerów), jeśli**:
 
 1. Masz kilka dziesiątych kontenerów usługi Azure Cosmos i chcesz podzielić przepływność na niektóre lub wszystkie z nich. 
 
@@ -137,7 +137,7 @@ Ze względu na to, że opłaty są naliczane zgodnie z zainicjowaną przepływno
 
 Aby określić zainicjowaną przepływność dla nowego obciążenia, można wykonać następujące czynności: 
 
-1. Wykonaj wstępną, przybliżoną ocenę przy użyciu planisty wydajności i Dostosuj swoje oszacowania za pomocą narzędzia Azure Cosmos Explorer w Azure Portal. 
+1. Wykonaj wstępną, przybliżoną ocenę przy użyciu planisty wydajności i Dostosuj swoje oszacowania za pomocą narzędzia Azure Cosmos DB Explorer w Azure Portal. 
 
 2. Zaleca się utworzenie kontenerów o wyższej przepływności niż oczekiwano, a następnie skalowanie w dół w razie potrzeby. 
 

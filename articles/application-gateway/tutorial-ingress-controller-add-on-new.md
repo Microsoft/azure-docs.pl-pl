@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: 43aadee627c7dc12a37a8f3895ba4dfed472808c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 627d5b15a861c3d564cb4db33b366d3227092d37
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182907"
+ms.locfileid: "96296271"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Samouczek: Włączanie dodatku usługi transferu danych przychodzących (wersja zapoznawcza) dla nowego klastra AKS z nowym wystąpieniem Application Gateway
 
@@ -34,7 +34,10 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - Ten samouczek wymaga wersji 2.0.4 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
+ - Ten samouczek wymaga wersji 2.0.4 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana. Jeśli korzystasz z interfejsu wiersza polecenia platformy Azure, musisz zainstalować rozszerzenie wersji zapoznawczej w interfejsie wiersza polecenia przy użyciu następujące polecenie, jeśli nie zostało to jeszcze zrobione:
+    ```azurecli-interactive
+    az extension add --name aks-preview
+    ```
 
  - Zarejestruj flagę funkcji *AKS-IngressApplicationGatewayAddon* za pomocą polecenia [AZ Feature Register](/cli/azure/feature#az-feature-register) , jak pokazano w poniższym przykładzie. Należy to zrobić tylko raz dla każdej subskrypcji, gdy dodatek jest nadal w wersji zapoznawczej.
     ```azurecli-interactive
@@ -113,7 +116,7 @@ Sprawdź, czy utworzona Przykładowa aplikacja jest uruchamiana przez:
 
 Uzyskanie aktualizacji Application Gateway może potrwać minutę. Jeśli Application Gateway nadal jest w stanie **aktualizacji** w portalu, pozwól na zakończenie przed próbą uzyskania dostępu do adresu IP. 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie są już potrzebne, Usuń grupę zasobów, wystąpienie Application Gateway i wszystkie powiązane zasoby:
 

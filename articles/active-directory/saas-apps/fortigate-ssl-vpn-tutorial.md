@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/11/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acb08d5430f13ad9a339b2cdd072fce9c196d05f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 021550598452516d45ae67c1139c2f891629a875
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92451489"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296577"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fortigate-ssl-vpn"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą FortiGate SSL sieci VPN
 
@@ -92,7 +92,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne w usłudze Azu
     d. W polu **adres URL wylogowywania** wprowadź adres URL we wzorcu `https://<FQDN>/remote/saml/logout` .
 
     > [!NOTE]
-    > Te wartości są tylko wzorcami. Musisz użyć rzeczywistego **adresu URL logowania**, **identyfikatora**, **adresu URL odpowiedzi**i **adresu URL wylogowywania**. Aby uzyskać rzeczywiste wartości, skontaktuj się z [zespołem obsługi klienta sieci VPN FORTIGATE SSL](mailto:tac_amer@fortinet.com) . Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości są tylko wzorcami. Musisz użyć rzeczywistego **adresu URL logowania**, **identyfikatora**, **adresu URL odpowiedzi** i **adresu URL wylogowywania**. Skontaktuj się z [pomocą techniczną platformy Fortinet](https://support.fortinet.com) , aby uzyskać wskazówki. Można także zapoznać się z przykładowymi wzorcami przedstawionymi w dokumentacji Fortinet i w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
 
 1. Aplikacja sieci VPN FortiGate SSL oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
@@ -107,15 +107,15 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne w usłudze Azu
    
    Aby utworzyć te dodatkowe oświadczenia:
    
-   1. Obok pozycji **atrybuty użytkownika & oświadczenia**wybierz pozycję **Edytuj**.
-   1. Wybierz pozycję **Dodaj nowe**zgłoszenie.
+   1. Obok pozycji **atrybuty użytkownika & oświadczenia** wybierz pozycję **Edytuj**.
+   1. Wybierz pozycję **Dodaj nowe** zgłoszenie.
    1. W obszarze **Nazwa wprowadź nazwę** **użytkownika**.
-   1. Dla **atrybutu Source**wybierz pozycję **User. userPrincipalName**.
+   1. Dla **atrybutu Source** wybierz pozycję **User. userPrincipalName**.
    1. Wybierz pozycję **Zapisz**.
    1. Wybierz pozycję **Dodaj zgłoszenie do grupy**.
    1. Wybierz pozycję **Wszystkie grupy**.
    1. Seect **Dostosuj nazwę** pola wyboru.
-   1. W obszarze **Nazwa**wprowadź polecenie **Grupuj**.
+   1. W obszarze **Nazwa** wprowadź polecenie **Grupuj**.
    1. Wybierz pozycję **Zapisz**.   
 
 1. Na stronie **Konfigurowanie pojedynczego Sign-On przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz łącze **pobierania** obok pozycji **certyfikat (base64)** , aby pobrać certyfikat i zapisać go na komputerze:
@@ -168,7 +168,7 @@ W tej sekcji utworzysz grupę zabezpieczeń w Azure Active Directory dla użytko
    1. W polu **Opis grupy** wprowadź wartość **Grupa, aby udzielić dostępu do sieci VPN Fortigate**.
    1. Aby **można było przypisać role usługi Azure AD do ustawień grupy (wersja zapoznawcza)** , wybierz pozycję **nie**.
    1. W polu **Typ członkostwa** wybierz pozycję **przypisano**.
-   1. W obszarze **Członkowie**wybierz pozycję **nie wybrano żadnych członków**.
+   1. W obszarze **Członkowie** wybierz pozycję **nie wybrano żadnych członków**.
    1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy **Użytkownicy** , a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
    1. Wybierz pozycję **Utwórz**.
 1. Po powrocie do sekcji **grupy** w Azure Active Directory Znajdź grupę **dostępu Fortigate** i zanotuj **Identyfikator obiektu**. Będzie ona potrzebna później.
@@ -181,11 +181,11 @@ Po zakończeniu konfiguracji protokołu SAML aplikacji FortiGate w dzierżawie z
 
 1. Zaloguj się do portalu zarządzania urządzenia FortiGate.
 1. W lewym okienku wybierz pozycję **system**.
-1. W obszarze **system**wybierz pozycję **Certyfikaty**.
+1. W obszarze **system** wybierz pozycję **Certyfikaty**.
 1. Wybierz pozycję **Importuj**  >  **certyfikat zdalny**.
 1. Przejdź do certyfikatu pobranego ze wdrożenia aplikacji FortiGate w dzierżawie platformy Azure, wybierz go, a następnie wybierz **przycisk OK**.
 
-Po przekazaniu certyfikatu Zanotuj jego nazwę w obszarze Certyfikaty **systemowe**  >  **Certificates**  >  **certyfikat zdalny**. Domyślnie zostanie nazwany REMOTE_Cert_*n*, gdzie *N* jest wartością całkowitą.
+Po przekazaniu certyfikatu Zanotuj jego nazwę w obszarze Certyfikaty **systemowe**  >  **Certificates**  >  **certyfikat zdalny**. Domyślnie zostanie nazwany REMOTE_Cert_ *n*, gdzie *N* jest wartością całkowitą.
 
 #### <a name="complete-fortigate-command-line-configuration"></a>Ukończ konfigurację wiersza polecenia FortiGate
 
@@ -199,10 +199,10 @@ Aby wykonać te kroki, należy zarejestrować zarejestrowane wcześniej wartośc
 - Adres URL logowania platformy Azure
 - Identyfikator usługi Azure AD
 - Adres URL wylogowywania platformy Azure
-- Nazwa certyfikatu SAML Base64 (REMOTE_Cert_*N*)
+- Nazwa certyfikatu SAML Base64 (REMOTE_Cert_ *N*)
 
 1. Ustanów sesję SSH z urządzeniem FortiGate i zaloguj się przy użyciu konta administratora FortiGate.
-1. Uruchom te polecenia:
+1. Uruchom następujące polecenia:
 
    ```console
     config user saml
@@ -234,7 +234,7 @@ W tej sekcji skonfigurujesz FortiGate do rozpoznawania identyfikatora obiektu gr
 Aby wykonać te kroki, wymagany jest identyfikator obiektu grupy zabezpieczeń FortiGateAccess utworzonej wcześniej w tym samouczku.
 
 1. Ustanów sesję SSH z urządzeniem FortiGate i zaloguj się przy użyciu konta administratora FortiGate.
-1. Uruchom te polecenia:
+1. Uruchom następujące polecenia:
 
    ```
     config user group
@@ -264,7 +264,7 @@ Po wybraniu kafelka sieci VPN FortiGate SSL w panelu dostępu należy automatycz
 
 Firma Microsoft i FortiGate zaleca korzystanie z platformy Fortinet VPN Client, FortiClient w celu uzyskania najlepszego środowiska użytkownika końcowego.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Samouczki dotyczące integracji aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
 

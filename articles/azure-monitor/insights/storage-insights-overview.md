@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 250a06d81f929d0e3d3befa1e7494db13044fc97
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2538bc91be59ff12b39ee3f5f629e4c016480a97
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101276"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296339"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitorowanie usługi magazynu za pomocą Azure Monitor dla magazynu
 
@@ -36,9 +36,6 @@ Ta funkcja nie wymaga włączenia ani skonfigurowania żadnych informacji. metry
 >[!NOTE]
 >Dostęp do tej funkcji nie jest naliczany, a opłaty są naliczane tylko za Azure Monitor podstawowe funkcje, które konfigurujesz lub włączasz, zgodnie z opisem na stronie [szczegóły cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/) .
 
->[!NOTE]
->Azure Monitor dla magazynu nie obsługuje [kont ogólnego przeznaczenia w wersji 1](../../storage/common/storage-account-overview.md#general-purpose-v1-accounts).
->
 
 ## <a name="view-from-azure-monitor"></a>Wyświetl od Azure Monitor
 
@@ -48,7 +45,7 @@ Aby wyświetlić wykorzystanie i dostępność kont magazynu we wszystkich subsk
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. Wybierz pozycję **monitor** z okienka po lewej stronie w Azure Portal i w sekcji **szczegółowe informacje** wybierz pozycję **konta magazynu** .
+2. Wybierz pozycję **monitor** z okienka po lewej stronie w Azure Portal i w sekcji **szczegółowe informacje** wybierz pozycję **konta magazynu**.
 
     ![Widok wielu kont magazynu](./media/storage-insights-overview/multiple-storage-accounts-view-01.png)
 
@@ -64,10 +61,10 @@ W skoroszycie **Przegląd** dla wybranej subskrypcji w tabeli są wyświetlane m
 
 Kafelek licznika pod listą rozwijaną podsumowuje łączną liczbę kont magazynu w subskrypcji i odzwierciedla liczbę wybranych opcji. Istnieje warunkowe kodowanie kolorami lub map cieplnych dla kolumn w skoroszycie, które raportują metryki lub błędy transakcji. Optymalny kolor ma najwyższą wartość, a jaśniejszy kolor jest oparty na najniższych wartościach. W przypadku kolumn opartych na błędach wartość jest czerwona i dla kolumn opartych na metrykach wartość jest niebieska.
 
-Wybierz wartość w polu **dostępność** kolumn, **opóźnienie E2E** , **opóźnienie serwera** i **Typ błędu transakcji/błędy** kierujesz raport dostosowany do określonego typu metryk magazynu, które pasują do kolumny wybranej dla tego konta magazynu. Aby uzyskać więcej informacji na temat skoroszytów dla każdej kategorii, zobacz sekcję [szczegółowy skoroszyty magazynu](#detailed-storage-workbooks) poniżej. 
+Wybierz wartość w polu **dostępność** kolumn, **opóźnienie E2E**, **opóźnienie serwera** i **Typ błędu transakcji/błędy** kierujesz raport dostosowany do określonego typu metryk magazynu, które pasują do kolumny wybranej dla tego konta magazynu. Aby uzyskać więcej informacji na temat skoroszytów dla każdej kategorii, zobacz sekcję [szczegółowy skoroszyty magazynu](#detailed-storage-workbooks) poniżej. 
 
 >[!NOTE]
->Aby uzyskać szczegółowe informacje o błędach, które mogą być wyświetlane w raporcie, zobacz [schemat typu odpowiedzi](../../storage/blobs/monitor-blob-storage-reference.md#metrics-dimensions) i Wyszukaj typy odpowiedzi, takie jak **ServerOtherError** , **ClientOtherError** , **ClientThrottlingError** . W zależności od wybranych kont magazynu, jeśli zgłoszono więcej niż trzy typy błędów, wszystkie inne błędy są reprezentowane w kategorii **innych** .
+>Aby uzyskać szczegółowe informacje o błędach, które mogą być wyświetlane w raporcie, zobacz [schemat typu odpowiedzi](../../storage/blobs/monitor-blob-storage-reference.md#metrics-dimensions) i Wyszukaj typy odpowiedzi, takie jak **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. W zależności od wybranych kont magazynu, jeśli zgłoszono więcej niż trzy typy błędów, wszystkie inne błędy są reprezentowane w kategorii **innych**.
 
 Domyślny próg **dostępności** :
 
@@ -104,13 +101,13 @@ W skoroszycie **Przegląd** dla konta magazynu przedstawiono kilka metryk wydajn
 
 * Kafelki metryk i Stanów wyróżniają dostępność usługi, łączną liczbę transakcji do usługi Storage, opóźnienie E2E i opóźnienie serwera.
 
-Wybranie jednego z przycisków dla **niepowodzeń** , **wydajności** , **dostępności** i **pojemności** spowoduje otwarcie odpowiedniego skoroszytu. 
+Wybranie jednego z przycisków dla **niepowodzeń**, **wydajności**, **dostępności** i **pojemności** spowoduje otwarcie odpowiedniego skoroszytu. 
 
 ![Strona przeglądu wybranego konta magazynu](./media/storage-insights-overview/storage-account-capacity-01.png)
 
 ## <a name="detailed-storage-workbooks"></a>Szczegółowe skoroszyty magazynu
 
-Niezależnie od tego, czy wybrano wartość w skoroszycie " **dostępność** kolumn, **opóźnienie E2E** , **opóźnienie serwera** i **Typ błędu transakcji/błędy** " z arkusza z **wieloma kontami** magazynu, lub wybierając jeden z przycisków dla **niepowodzeń** , **wydajności** , **dostępności** i **pojemności** ze skoroszytu **przeglądu** na określonym koncie magazynu, każdy dostarcza zestaw interaktywnych informacji związanych z magazynem, które są dostosowane do tej kategorii.  
+Niezależnie od tego, czy wybrano wartość w skoroszycie " **dostępność** kolumn, **opóźnienie E2E**, **opóźnienie serwera** i **Typ błędu transakcji/błędy** " z arkusza z **wieloma kontami** magazynu, lub wybierając jeden z przycisków dla **niepowodzeń**, **wydajności**, **dostępności** i **pojemności** ze skoroszytu **przeglądu** na określonym koncie magazynu, każdy dostarcza zestaw interaktywnych informacji związanych z magazynem, które są dostosowane do tej kategorii.  
 
 * **Dostępność** powoduje otwarcie skoroszytu **dostępności** . Przedstawia bieżący stan kondycji usługi Azure Storage, tabelę przedstawiającą dostępny stan kondycji każdego obiektu sklasyfikowanego według usługi danych zdefiniowanego w ramach konta magazynu z linią trendu reprezentującą wybrany zakres czasu oraz wykres trendu dostępności dla każdej usługi danych na koncie.  
 
@@ -120,7 +117,7 @@ Niezależnie od tego, czy wybrano wartość w skoroszycie " **dostępność** ko
 
     ![Przykład raportu wydajności](./media/storage-insights-overview/storage-account-performance-01.png)
 
-* Wybranie dowolnej kategorii błędów wymienionej w siatce Otwórz skoroszyt **niepowodzeń** . Raport przedstawia kafelki metryk wszystkich innych błędów po stronie klienta, z wyjątkiem opisanych i zakończonych powodzeniem żądań, błędów ograniczania liczby klientów, wykresu wydajności dla **typu odpowiedzi** transakcji dla metryki wymiaru dotyczącego atrybutu ClientOtherError oraz dwóch tabel — **transakcji według nazwy interfejsu API** i **transakcji według typu odpowiedzi** .
+* Wybranie dowolnej kategorii błędów wymienionej w siatce Otwórz skoroszyt **niepowodzeń** . Raport przedstawia kafelki metryk wszystkich innych błędów po stronie klienta, z wyjątkiem opisanych i zakończonych powodzeniem żądań, błędów ograniczania liczby klientów, wykresu wydajności dla **typu odpowiedzi** transakcji dla metryki wymiaru dotyczącego atrybutu ClientOtherError oraz dwóch tabel — **transakcji według nazwy interfejsu API** i **transakcji według typu odpowiedzi**.
 
    ![Przykładowy raport o błędach](./media/storage-insights-overview/storage-account-failures-01.png)
 
@@ -157,7 +154,7 @@ Można skonfigurować wiele subskrypcji i **przeglądanie** konta magazynu oraz 
 
 1. Wybierz pozycję **monitor** z portalu, a następnie wybierz pozycję **konta magazynu** w okienku po lewej stronie.
 
-2. W skoroszycie **Przegląd** , na pasku poleceń wybierz pozycję **Edytuj** .
+2. W skoroszycie **Przegląd** , na pasku poleceń wybierz pozycję **Edytuj**.
 
 3. Z listy rozwijanej **subskrypcje** wybierz co najmniej jedną subskrypcję, do której ma zostać ona domyślnie wybrana. Pamiętaj, że skoroszyt obsługuje wybieranie maksymalnie 10 subskrypcji.  
 
@@ -174,7 +171,7 @@ W naszym przykładzie pracujemy z skoroszytem pojemności dla wielosubskrypcji i
 * Usuń metrykę
 * Zmiana renderowania koloru
 
-Te same zmiany można wykonać w odniesieniu do jednego ze wstępnie skompilowanych skoroszytów **błędów** , **wydajności** , **dostępności** i **pojemności** .
+Te same zmiany można wykonać w odniesieniu do jednego ze wstępnie skompilowanych skoroszytów **błędów**, **wydajności**, **dostępności** i **pojemności** .
 
 1. Wybierz pozycję **monitor** z portalu, a następnie wybierz pozycję **konta magazynu** w okienku po lewej stronie.
 
@@ -182,7 +179,7 @@ Te same zmiany można wykonać w odniesieniu do jednego ze wstępnie skompilowan
 
     ![Wybierz pozycję Edytuj, aby zmodyfikować skoroszyt](./media/storage-insights-overview/workbook-edit-workbook.png)
 
-3. Obok sekcji metryki wybierz pozycję **Edytuj** .
+3. Obok sekcji metryki wybierz pozycję **Edytuj**.
 
     ![Wybierz pozycję Edytuj, aby zmodyfikować metryki skoroszytu dyspozycyjności](./media/storage-insights-overview/edit-metrics-capacity-workbook-01.png)
 
@@ -190,7 +187,7 @@ Te same zmiany można wykonać w odniesieniu do jednego ze wstępnie skompilowan
 
     ![Edytowanie ustawień kolumny](./media/storage-insights-overview/edit-capacity-workbook-resource-grid.png)
 
-5. W okienku **Edytowanie ustawień kolumny** wybierz pozycję w sekcji **kolumny** **Microsoft. Storage/Storageaccounts-pojemność-UsedCapacity oś czasu $ | Oś czasu o używanej pojemności $** , a w obszarze **renderowania kolumna** listy rozwijanej wybierz pozycję **ukryty** .
+5. W okienku **Edytowanie ustawień kolumny** wybierz pozycję w sekcji **kolumny** **Microsoft. Storage/Storageaccounts-pojemność-UsedCapacity oś czasu $ | Oś czasu o używanej pojemności $**, a w obszarze **renderowania kolumna** listy rozwijanej wybierz pozycję **ukryty**.
 
 6. Wybierz pozycję **Zapisz i Zamknij,** aby zatwierdzić zmianę.
 
@@ -198,7 +195,7 @@ Teraz Zmień motyw kolorów dla metryk pojemności w raporcie, tak aby używał 
 
 1. Wybierz pozycję **Ustawienia kolumny** w siatce metryk.
 
-2. W okienku **Edytowanie ustawień kolumny** wybierz pozycję w sekcji **kolumny** **Microsoft. Storage/storageaccounts-pojemność-UsedCapacity $ `|` Microsoft. Storage/Storageaccounts/blobservices-pojemność-BlobCapacity $ Microsoft. Storage/storageaccounts/FileServices-pojemność-FileCapacity $ Microsoft. Storage/storageaccounts/queueservices-pojemność-QueueCapacity $ `|` `|` `|` Microsoft. Storage/storageaccounts/tableservices** -pojemność-TableCapacity $. Na **palecie kolorów** listy rozwijanej wybierz pozycję **zielony** .
+2. W okienku **Edytowanie ustawień kolumny** wybierz pozycję w sekcji **kolumny** **Microsoft. Storage/storageaccounts-pojemność-UsedCapacity $ `|` Microsoft. Storage/Storageaccounts/blobservices-pojemność-BlobCapacity $ Microsoft. Storage/storageaccounts/FileServices-pojemność-FileCapacity $ Microsoft. Storage/storageaccounts/queueservices-pojemność-QueueCapacity $ `|` `|` `|` Microsoft. Storage/storageaccounts/tableservices**-pojemność-TableCapacity $. Na **palecie kolorów** listy rozwijanej wybierz pozycję **zielony**.
 
 3. Wybierz pozycję **Zapisz i Zamknij,** aby zatwierdzić zmianę.
 
@@ -214,13 +211,13 @@ W tym przykładzie pracujemy ze skoroszytem pojemności konta magazynu i ukazuj�
 
 3. W skoroszycie wybierz opcję **dostępność** , aby przełączyć się do skoroszytu dostępności, a następnie wybierz pozycję **Edytuj** na pasku poleceń. 
 
-4. Przewiń w dół do dołu strony i po lewej stronie obok pozycji **dostępność według siatki interfejsu API** wybierz pozycję **Edytuj** .
+4. Przewiń w dół do dołu strony i po lewej stronie obok pozycji **dostępność według siatki interfejsu API** wybierz pozycję **Edytuj**.
 
     ![Edytuj dostępność według ustawień siatki nazw interfejsów API](./media/storage-insights-overview/availability-workbook-avail-by-apiname.png)
 
-5. Wybierz pozycję **Ustawienia kolumny** , a następnie w okienku **Edytowanie ustawień kolumny** w obszarze **kolumny** wybierz **dostępność (%) (Progi + sformatowane)** .
+5. Wybierz pozycję **Ustawienia kolumny** , a następnie w okienku **Edytowanie ustawień kolumny** w obszarze **kolumny** wybierz **dostępność (%) (Progi + sformatowane)**.
 
-6. Zmień wartość **krytycznego** stanu kondycji z **90** na **85** , a następnie kliknij przycisk **Zapisz i Zamknij** .
+6. Zmień wartość **krytycznego** stanu kondycji z **90** na **85** , a następnie kliknij przycisk **Zapisz i Zamknij**.
 
     ![Modyfikowanie wartości progowej dostępności dla stanu krytycznego](./media/storage-insights-overview/edit-column-settings-capacity-workbook-01.png)
 
