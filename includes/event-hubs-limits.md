@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 1b5905046fdde4d5574fd4d39f40dce1bbf11e32
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 262783e83bdb846a3ea7e3015212c01048a00125
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "96027365"
+ms.locfileid: "96152623"
 ---
 W poniższych tabelach przedstawiono limity przydziału i limity dotyczące [usługi Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Aby uzyskać informacje na temat cennika Event Hubs, zobacz [Cennik usługi Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
-## <a name="common-limits-for-all-tiers"></a>Typowe limity dla wszystkich warstw
+### <a name="common-limits-for-all-tiers"></a>Typowe limity dla wszystkich warstw
 Poniższe limity są wspólne dla wszystkich warstw. 
 
 | Limit |  Uwagi | Wartość |
@@ -33,7 +33,7 @@ Poniższe limity są wspólne dla wszystkich warstw.
 | Liczba reguł sieci wirtualnej (VNet) i konfiguracji adresów IP | - | 128 | 
 
 
-## <a name="basic-vs-standard-tiers"></a>Warstwy Podstawowa i Standardowa
+### <a name="basic-vs-standard-tiers"></a>Warstwy Podstawowa i Standardowa
 W poniższej tabeli przedstawiono limity, które mogą być różne dla warstw Podstawowa i standardowa. 
 
 | Limit | Uwagi | Podstawowa | Standardowa (Standard) |
@@ -44,7 +44,7 @@ W poniższej tabeli przedstawiono limity, które mogą być różne dla warstw P
 | Maksymalny okres przechowywania danych zdarzenia | &nbsp; |1 dzień |1-7 dni |
 | Maksymalna liczba jednostek przepływności |Przekroczenie tego limitu powoduje ograniczenie danych i wygenerowanie [wyjątku zajętości serwera](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Aby zażądać większej liczby jednostek przepływności dla warstwy Standardowa, należy [wysłać żądanie pomocy technicznej](../articles/azure-portal/supportability/how-to-create-azure-support-request.md). [Dodatkowe jednostki przepływności](../articles/event-hubs/event-hubs-auto-inflate.md) są dostępne w blokach od 20 na podstawie zatwierdzonego zakupu. |20 | 20 | 
 
-## <a name="dedicated-tier-vs-standard-tier"></a>Warstwa dedykowana a warstwa standardowa
+### <a name="dedicated-tier-vs-standard-tier"></a>Warstwa dedykowana a warstwa standardowa
 W przypadku oferty Event Hubs — warstwa Dedykowana jest naliczana stała cena miesięczna, a co najmniej 4 godziny użytkowania. Warstwa dedykowana oferuje wszystkie funkcje planu Standard, ale z możliwością skalowania w przedsiębiorstwie i limitami dla klientów wymagających obciążeń. 
 
 Zapoznaj się z tym [dokumentem](../articles/event-hubs/event-hubs-dedicated-cluster-create-portal.md) , jak utworzyć dedykowany klaster Event Hubs przy użyciu Azure Portal.
@@ -63,11 +63,11 @@ Zapoznaj się z tym [dokumentem](../articles/event-hubs/event-hubs-dedicated-clu
 | Przechwytywanie | Płatność za godzinę | Dołączono |
 
 
-## <a name="schema-registry-limitations"></a>Ograniczenia rejestru schematu
+### <a name="schema-registry-limitations"></a>Ograniczenia rejestru schematu
 
-### <a name="limits-that-are-the-same-for-standard-and-dedicated-tiers"></a>Limity, które są takie same dla warstw **standardowa** i **dedykowana** 
+#### <a name="limits-that-are-the-same-for-standard-and-dedicated-tiers"></a>Limity, które są takie same dla warstw standardowa i dedykowana 
 | Cechy | Limit | 
-|---|---|--|
+|---|---|
 | Maksymalna długość nazwy grupy schematu | 50 |  
 | Maksymalna długość nazwy schematu | 100 |    
 | Rozmiar w bajtach na schemat | 1 MB |   
@@ -76,10 +76,10 @@ Zapoznaj się z tym [dokumentem](../articles/event-hubs/event-hubs-dedicated-clu
 | Rozmiar w bajtach na wartość właściwości grupy | 1024 | 
 
 
-### <a name="limits-that-are-different-for-standard-and-dedicated-tiers"></a>Limity różne dla warstw **standardowa** i **dedykowana** 
+#### <a name="limits-that-are-different-for-standard-and-dedicated-tiers"></a>Limity różne dla warstw standardowa i dedykowana 
 
 | Limit | Standardowa | Dedykowane | 
-|---|---|--|---|
+|---|---|--|
 | Rozmiar rejestru schematu (przestrzeń nazw) w bajtach. | 25 |  1024 |
 | Liczba grup schematu w rejestrze lub przestrzeni nazw schematu | 1 — wykluczanie grupy domyślnej | 1000 |
 | Liczba wersji schematu we wszystkich grupach schematu | 25 | 10 000 |
