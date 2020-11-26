@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/24/2020
 ms.author: Zhchia
-ms.openlocfilehash: e70ee06d696539f0b41c0a070f6f5b43391fda52
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ab261d4ca04fed04c8a3e1046c0a4c563767ad4c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357161"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182006"
 ---
 # <a name="tutorial-configure-mixpanel-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Mixpanel na potrzeby automatycznego aprowizacji użytkowników
 
@@ -35,7 +35,7 @@ W tym samouczku opisano kroki, które należy wykonać w programie Mixpanel i Az
 
 Scenariusz opisany w tym samouczku założono, że masz już następujące wymagania wstępne:
 * [Dzierżawa usługi Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Konto użytkownika w usłudze Azure AD z [uprawnieniami ](../users-groups-roles/directory-assign-admin-roles.md) do konfigurowania aprowizacji (np. administratora aplikacji, administratora aplikacji w chmurze, właściciela aplikacji lub administratora globalnego). 
+* Konto użytkownika w usłudze Azure AD z [uprawnieniami ](../roles/permissions-reference.md) do konfigurowania aprowizacji (np. administratora aplikacji, administratora aplikacji w chmurze, właściciela aplikacji lub administratora globalnego). 
 * Organizacja Mixpanel na poziomie przedsiębiorstwa
 * Konto Mixpanel z uprawnieniami administratora na wspomnianej organizacji
 * Logowanie jednokrotne włączone w Mixpanel z zażądaną domeną
@@ -70,7 +70,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-mixpanel-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla Mixpanel w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 

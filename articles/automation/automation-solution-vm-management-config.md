@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: b0bc23d515bebdd0d943bbad33c5ebba35a35605
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fdb3b2b23d07b79a8e9979450bee653d646196c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987215"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182805"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Konfigurowanie Start/Stop VMs during off-hours
 
@@ -63,13 +63,13 @@ W środowisku zawierającym co najmniej dwa składniki na wielu maszynach wirtua
 
 ### <a name="target-the-start-and-stop-actions-against-a-subscription-and-resource-group"></a>Kierowanie akcji uruchamiania i zatrzymywania względem subskrypcji i grupy zasobów
 
-1. Dodaj `sequencestart` `sequencestop` tag i z dodatnimi wartościami całkowitymi do maszyn wirtualnych, które są przeznaczone dla `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupNames` zmiennych i. Akcje uruchamiania i zatrzymywania są wykonywane w kolejności rosnącej. Aby dowiedzieć się, jak oznaczyć maszynę wirtualną, zobacz [znakowanie maszyny wirtualnej z systemem Windows na platformie Azure](../virtual-machines/windows/tag.md) i oznaczanie [maszyny wirtualnej z systemem Linux na platformie Azure](../virtual-machines/linux/tag.md).
+1. Dodaj `sequencestart` `sequencestop` tag i z dodatnimi wartościami całkowitymi do maszyn wirtualnych, które są przeznaczone dla `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupNames` zmiennych i. Akcje uruchamiania i zatrzymywania są wykonywane w kolejności rosnącej. Aby dowiedzieć się, jak oznaczyć maszynę wirtualną, zobacz [znakowanie maszyny wirtualnej z systemem Windows na platformie Azure](../virtual-machines/tag-portal.md) i oznaczanie [maszyny wirtualnej z systemem Linux na platformie Azure](../virtual-machines/tag-cli.md).
 
 2. Zmodyfikuj harmonogramy **Sequenced-StartVM** i **Sequenced-StopVM** do daty i godziny, które spełniają Twoje wymagania, i Włącz harmonogram.
 
 3. Uruchom **SequencedStartStop_Parent** element Runbook z **akcją** z ustawioną opcją **Start** i **WHATIF** o wartości true, aby wyświetlić podgląd zmian.
 
-4. Wyświetl podgląd akcji i wprowadź wszelkie niezbędne zmiany przed wdrożeniem na maszynach wirtualnych w środowisku produkcyjnym. Gdy wszystko będzie gotowe, ręcznie wykonaj element Runbook z parametrem ustawionym na **wartość false**lub pozwól, aby harmonogramy usługi Automation **StartVM** i **Sequenced-StopVM** działały automatycznie zgodnie z określonym harmonogramem.
+4. Wyświetl podgląd akcji i wprowadź wszelkie niezbędne zmiany przed wdrożeniem na maszynach wirtualnych w środowisku produkcyjnym. Gdy wszystko będzie gotowe, ręcznie wykonaj element Runbook z parametrem ustawionym na **wartość false** lub pozwól, aby harmonogramy usługi Automation **StartVM** i **Sequenced-StopVM** działały automatycznie zgodnie z określonym harmonogramem.
 
 ### <a name="target-the-start-and-stop-actions-by-vm-list"></a>Kierowanie akcji uruchamiania i zatrzymywania według maszyny wirtualnej
 
@@ -143,13 +143,13 @@ Aby zmienić powiadomienia e-mail po wdrożeniu Start/Stop VMs during off-hours,
 
 2. Na stronie StartStop_VM_Notification kliknij pozycję **Edytuj szczegóły** w obszarze **szczegóły**. Spowoduje to otwarcie strony wiadomości E-mail/SMS/wypychania/głosu. Zaktualizuj adres e-mail, a następnie kliknij przycisk **OK** , aby zapisać zmiany.
 
-    :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Zrzut ekranu strony monitorowanie — grupy akcji.":::
+    :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Zrzut ekranu strony wiadomości E-mail/SMS/wypychania/głosu z informacją o zaktualizowanym adresie e-mail.":::
 
     Alternatywnie możesz dodać dodatkowe akcje do grupy akcji, aby dowiedzieć się więcej na temat grup akcji, zobacz [grupy akcji](../azure-monitor/platform/action-groups.md)
 
 Poniżej znajduje się Przykładowa wiadomość e-mail, która jest wysyłana, gdy ta funkcja zamyka maszyny wirtualne.
 
-:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="Zrzut ekranu strony monitorowanie — grupy akcji.":::
+:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="Zrzut ekranu przykładowej wiadomości e-mail wysyłanej, gdy ta funkcja zamyka maszyny wirtualne.":::
 
 ## <a name="add-or-exclude-vms"></a><a name="add-exclude-vms"></a>Dodawanie lub wykluczanie maszyn wirtualnych
 

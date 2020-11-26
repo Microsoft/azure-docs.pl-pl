@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 93aeb088f82cae6dde215792e399997b592a5c14
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 728dda7c702d7fc52c9285c7cb15fc4b6dc3003c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96003977"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182065"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Ciągła integracja i dostarczanie w Azure Data Factory
 
@@ -639,7 +639,7 @@ Obejrzyj film wideo poniżej szczegółowy samouczek wideo dotyczący sposobu na
 
 ## <a name="exposure-control-and-feature-flags"></a>Kontrola ekspozycji i flagi funkcji
 
-Podczas pracy nad zespołem istnieją wystąpienia, w których można scalać zmiany, ale nie powinny być one uruchamiane w środowiskach z podwyższonym poziomem uprawnień, takich jak produkcja i pytania i odpowiedzi. Aby obsłużyć ten scenariusz, zespół ADF zaleca [DevOps koncepcji używania flag funkcji](https://docs.microsoft.com/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops). W module ADF można łączyć [parametry globalne](author-global-parameters.md) i [działanie warunku if](control-flow-if-condition-activity.md) w celu ukrycia zestawów logiki na podstawie tych flag środowiska.
+Podczas pracy nad zespołem istnieją wystąpienia, w których można scalać zmiany, ale nie powinny być uruchamiane w środowiskach z podwyższonym poziomem uprawnień, takich jak produkcja i pytania i odpowiedzi. Aby obsłużyć ten scenariusz, zespół ADF zaleca [DevOps koncepcji używania flag funkcji](https://docs.microsoft.com/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops). W module ADF można łączyć [parametry globalne](author-global-parameters.md) i [działanie warunku if](control-flow-if-condition-activity.md) w celu ukrycia zestawów logiki na podstawie tych flag środowiska.
 
 Aby dowiedzieć się, jak skonfigurować flagę funkcji, zobacz poniższy samouczek wideo:
 

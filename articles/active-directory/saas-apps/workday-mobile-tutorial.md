@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: e706649957bf427cd577d7995fb9ce104c687f4b
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: ef1ca41f54a15554a04fa3edf608bb13f5fb3398
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378996"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182023"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday-mobile-application"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) za pomocą aplikacji mobilnej Workday
 
@@ -33,13 +33,13 @@ W tym samouczku dowiesz się, jak zintegrować Azure Active Directory (Azure AD)
 Aby rozpocząć:
 
 * Integruj platformę Workday z usługą Azure AD.
-* Przeczytaj [Azure Active Directory integrację logowania jednokrotnego (SSO) z dniem roboczym](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-tutorial).
+* Przeczytaj [Azure Active Directory integrację logowania jednokrotnego (SSO) z dniem roboczym](./workday-tutorial.md).
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i testujesz zasady dostępu warunkowego usługi Azure AD oraz usługę Intune za pomocą aplikacji mobilnej Workday.
 
-Aby włączyć logowanie jednokrotne (SSO), można skonfigurować aplikację federacyjną w dniu Workday przy użyciu usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-tutorial).
+Aby włączyć logowanie jednokrotne (SSO), można skonfigurować aplikację federacyjną w dniu Workday przy użyciu usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą Workday](./workday-tutorial.md).
 
 > [!NOTE] 
 > Usługa Workday nie obsługuje zasad ochrony aplikacji usługi Intune. Aby korzystać z dostępu warunkowego, należy użyć zarządzania urządzeniami przenośnymi.
@@ -84,9 +84,9 @@ Aby skonfigurować program Workday jako urządzenie zarządzane, wykonaj następ
 
 1. Wybierz pozycję **Strona główna**  >  **Microsoft Intune**  >  **dostęp warunkowy — zasady**. Następnie wybierz pozycję **tylko urządzenia zarządzane**. 
 
-1. W obszarze **tylko urządzenia zarządzane** , w obszarze **Nazwa** wybierz pozycję **tylko urządzenia zarządzane** , a następnie wybierz pozycję **aplikacje w chmurze lub akcje**.
+1. W obszarze **tylko urządzenia zarządzane**, w obszarze **Nazwa** wybierz pozycję **tylko urządzenia zarządzane** , a następnie wybierz pozycję **aplikacje w chmurze lub akcje**.
 
-1. W **aplikacjach lub akcjach w chmurze** :
+1. W **aplikacjach lub akcjach w chmurze**:
 
     a. Przełącz **Wybierz, do czego dotyczy** aplikacja w **chmurze**.
 
@@ -94,7 +94,7 @@ Aby skonfigurować program Workday jako urządzenie zarządzane, wykonaj następ
 
     c. Z listy **Wybierz** wybierz pozycję **Workday**.
 
-    d. Wybierz pozycję **Gotowe**.
+    d. Kliknij **Gotowe**.
 
 1. Przełącz **opcję Włącz zasady** na **włączone**.
 
@@ -106,9 +106,9 @@ Aby **udzielić** dostępu, wykonaj następujące czynności:
 
 1. Wybierz pozycję **Strona główna**  >  **Microsoft Intune**  >  **dostęp warunkowy — zasady**. Następnie wybierz pozycję **tylko urządzenia zarządzane**. 
 
-1. Tylko w obszarze **urządzenia zarządzane** , w obszarze **Nazwa** wybierz pozycję **tylko urządzenia zarządzane**. W obszarze **Kontrole dostępu** wybierz pozycję **Udziel**.
+1. Tylko w obszarze **urządzenia zarządzane**, w obszarze **Nazwa** wybierz pozycję **tylko urządzenia zarządzane**. W obszarze **Kontrole dostępu** wybierz pozycję **Udziel**.
 
-1. W **Udziel** :
+1. W **Udziel**:
 
     a. Wybierz kontrolki, które mają zostać wymuszone przez **przyznanie dostępu**.
 
@@ -170,7 +170,7 @@ Aby umożliwić urządzeniom z systemem iOS logowanie się tylko za pomocą plat
     ```
 1. Wybierz pozycję **Dodaj**.
 1. Odśwież stronę i wybierz nowo utworzone zasady.
-1. Wybierz pozycję **przypisania** , a następnie wybierz, do kogo ma być stosowana aplikacja.
+1. Wybierz pozycję **przypisania**, a następnie wybierz, do kogo ma być stosowana aplikacja.
 1. Wybierz pozycję **Zapisz**.
 
 ## <a name="android-configuration-policies"></a>Zasady konfiguracji systemu Android
@@ -182,4 +182,3 @@ Aby umożliwić urządzeniom z systemem iOS logowanie się tylko za pomocą plat
 6. W obszarze **platforma** wybierz pozycję **Android**.
 7. W obszarze **skojarzona aplikacja** Wybierz dodaną aplikację Workday dla systemu Android.
 8. Wybierz pozycję **Ustawienia konfiguracji**. W obszarze **Format ustawień konfiguracji** wybierz pozycję **Wprowadź dane JSON**.
-

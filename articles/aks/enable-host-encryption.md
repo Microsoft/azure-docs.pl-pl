@@ -4,19 +4,19 @@ description: Dowiedz się, jak skonfigurować szyfrowanie oparte na hoście w kl
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 4b5deeec0b76520952345e9b03135fa094a1f78e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14ec39272bf2f434aaa57217a90667a62e82901a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87986869"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183298"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Szyfrowanie oparte na hoście w usłudze Azure Kubernetes Service (AKS) (wersja zapoznawcza)
 
 Przy użyciu szyfrowania opartego na hoście dane przechowywane na hoście maszyny wirtualnej maszyn wirtualnych węzłów agenta AKS są szyfrowane w stanie spoczynku i są zaszyfrowane w usłudze Storage. Oznacza to, że dyski tymczasowe są szyfrowane w stanie spoczynku przy użyciu kluczy zarządzanych przez platformę. Pamięć podręczna systemu operacyjnego i dysków z danymi jest szyfrowana przy użyciu kluczy zarządzanych przez platformę lub kluczy zarządzanych przez klienta w zależności od typu szyfrowania ustawionego na tych dyskach. Domyślnie w przypadku korzystania z AKS, dyski systemu operacyjnego i danych są szyfrowane w stanie spoczynku przy użyciu kluczy zarządzanych przez platformę, co oznacza, że pamięć podręczna dla tych dysków jest również domyślnie szyfrowana w stanie spoczynku przy użyciu kluczy zarządzanych przez platformę.  Możesz określić własne klucze zarządzane, aby przystąpić [do własnych kluczy (BYOK) z dyskami platformy Azure w usłudze Azure Kubernetes Service](azure-disk-customer-managed-keys.md). Pamięć podręczna dla tych dysków zostanie również zaszyfrowana przy użyciu klucza określonego w tym kroku.
 
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Tę funkcję można ustawić tylko podczas tworzenia klastra lub tworzenia puli węzłów.
 
@@ -41,7 +41,7 @@ az feature register --namespace "Microsoft.Compute" --name "EncryptionAtHost"
 az feature register --namespace "Microsoft.ContainerService"  --name "EnableEncryptionAtHostPreview"
 ```
 
-Wyświetlenie stanu *rejestracji*może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list][az-feature-list] :
+Wyświetlenie stanu *rejestracji* może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list][az-feature-list] :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.Compute/EncryptionAtHost')].{Name:name,State:properties.state}"
@@ -99,7 +99,7 @@ Jeśli chcesz utworzyć nowe pule węzłów bez funkcji szyfrowania opartego na 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi zabezpieczeń klastra AKS][best-practices-security] więcej informacji [na temat szyfrowania opartego na hoście](../virtual-machines/linux/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+Zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi zabezpieczeń klastra AKS][best-practices-security] więcej informacji [na temat szyfrowania opartego na hoście](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
 
 <!-- LINKS - external -->
@@ -108,8 +108,8 @@ Zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi zabezpieczeń klastra A
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [best-practices-security]: ./operator-best-practices-cluster-security.md
-[supported-regions]: ../virtual-machines/linux/disk-encryption.md#supported-regions
-[supported-sizes]: ../virtual-machines/linux/disk-encryption.md#supported-vm-sizes
+[supported-regions]: ../virtual-machines/disk-encryption.md#supported-regions
+[supported-sizes]: ../virtual-machines/disk-encryption.md#supported-vm-sizes
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list

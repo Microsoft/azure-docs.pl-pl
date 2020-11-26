@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 26424106098a8385faff5ab6d3de33d98576ef4e
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: a7f4682be2f7fbf308aba32768efa932f27b7a87
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381307"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181712"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-roadmunk"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Roadmunk
 
@@ -171,12 +171,10 @@ W tej sekcji włączysz funkcję B. Simon do korzystania z logowania jednokrotne
 
 W tej sekcji przetestujesz konfigurację rejestracji jednokrotnej usługi Azure AD za pomocą panelu dostępu.
 
-Po wybraniu kafelka **Roadmunk** w portalu Moje aplikacje należy automatycznie zalogować się do konta Roadmunk, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji, zobacz artykuł [Logowanie i uruchamianie aplikacji z poziomu portalu Moje aplikacje](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
+Po wybraniu kafelka **Roadmunk** w portalu Moje aplikacje należy automatycznie zalogować się do konta Roadmunk, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji, zobacz artykuł [Logowanie i uruchamianie aplikacji z poziomu portalu Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
 Po skonfigurowaniu Roadmunk można wymusić kontrolę sesji. Kontrola sesji chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. 
 
-Dowiedz się [, jak wymuszać kontrolę sesji przy użyciu Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Dowiedz się [, jak wymuszać kontrolę sesji przy użyciu Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

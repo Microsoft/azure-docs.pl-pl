@@ -7,12 +7,12 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: apimpm
-ms.openlocfilehash: 92d108304f788279a636b1dc5e1c4e6c103ede3d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 62f163b9ce649cd5ddb52b4325682570633dfb92
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088883"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183162"
 ---
 # <a name="cicd-for-api-management-using-azure-resource-manager-templates"></a>Ciągłej integracji/ciągłego dostarczania API Management przy użyciu szablonów Azure Resource Manager
 
@@ -36,19 +36,19 @@ Na poniższej ilustracji przedstawiono proponowane podejście.
 
 :::image type="content" source="media/devops-api-development-templates/apim-devops.png" alt-text="Diagram, który ilustruje DevOps z API Management.":::
 
-W tym przykładzie istnieją dwa środowiska wdrażania: *programowanie* i *produkcja* . Każdy z nich ma własne wystąpienie API Management. 
+W tym przykładzie istnieją dwa środowiska wdrażania: *programowanie* i *produkcja*. Każdy z nich ma własne wystąpienie API Management. 
 
 * Deweloperzy interfejsu API mają dostęp do wystąpienia programowania i mogą go używać do tworzenia i testowania interfejsów API. 
 * Wyznaczeni zespołu o nazwie *wydawcy interfejsu API* zarządza wystąpieniem produkcyjnym.
 
-Najważniejszym podejściem jest zachowanie wszystkich konfiguracji API Management w [szablonach Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Organizacja powinna zachować te szablony w systemie kontroli źródła, takim jak Git. Jak pokazano na obrazie, repozytorium wydawcy zawiera wszystkie konfiguracje wystąpienia API Management produkcyjnego w kolekcji szablonów:
+Najważniejszym podejściem jest zachowanie wszystkich konfiguracji API Management w [szablonach Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Organizacja powinna zachować te szablony w systemie kontroli źródła, takim jak Git. Jak pokazano na obrazie, repozytorium wydawcy zawiera wszystkie konfiguracje wystąpienia API Management produkcyjnego w kolekcji szablonów:
 
-|Szablon  |Opis  |
+|Template  |Opis  |
 |---------|---------|
 |Szablon usługi     | Konfiguracje na poziomie usług API Management wystąpienia, takie jak warstwa cenowa i domeny niestandardowe.         |
 |Szablony udostępnione     |  Udostępnione zasoby w ramach wystąpienia API Management, takie jak grupy, produkty i rejestratory.    |
 |Szablony interfejsu API     |  Konfiguracje interfejsów API i ich zasobów: operacje, zasady, ustawienia diagnostyczne.        |
-|Główny szablon (główny)     |   Łączy wszystko, [łącząc](../azure-resource-manager/resource-group-linked-templates.md) się ze wszystkimi szablonami i wdrażając je w określonej kolejności. Aby wdrożyć wszystkie konfiguracje w wystąpieniu API Management, wdróż szablon główny. Każdy szablon można również wdrożyć osobno.       |
+|Główny szablon (główny)     |   Łączy wszystko, [łącząc](../azure-resource-manager/templates/linked-templates.md) się ze wszystkimi szablonami i wdrażając je w określonej kolejności. Aby wdrożyć wszystkie konfiguracje w wystąpieniu API Management, wdróż szablon główny. Każdy szablon można również wdrożyć osobno.       |
 
 Deweloperzy interfejsu API będą rozwidlenia repozytorium wydawcy do repozytorium deweloperów i pracować nad zmianami dotyczącymi ich interfejsów API. W większości przypadków koncentrują się na szablonach interfejsu API dla swoich interfejsów API i nie trzeba zmieniać szablonów udostępnionych lub usług.
 

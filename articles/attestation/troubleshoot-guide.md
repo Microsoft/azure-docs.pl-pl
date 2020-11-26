@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: fe347983e2143c7a4bdf00ca0207356c881c66ac
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 72d7a40c38f3629a70260f223074b456dff9ce38
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95891286"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182839"
 ---
 # <a name="microsoft-azure-attestation-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów z zaświadczeniem Microsoft Azure
 
@@ -95,7 +95,7 @@ b. Weryfikowanie ustawień przypisywania ról platformy Azure
  
   ```
 
-c. Jeśli na liście nie znajduje się odpowiednie przypisanie roli, postępuj zgodnie z instrukcjami w [tym miejscu](/azure/role-based-access-control/role-assignments-powershell)
+c. Jeśli na liście nie znajduje się odpowiednie przypisanie roli, postępuj zgodnie z instrukcjami w [tym miejscu](../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="2-http--400-errors"></a>2. HTTP – błędy 400
 
@@ -123,7 +123,7 @@ G:\Az\security\Attestation\src\AttestationServices\Instance\Enclave\api.cpp(840)
 
 Wyślij żądanie zaświadczania interfejsu API, dostarczając tekst zasad w parametrze "draftPolicyForAttestation". Interfejs API AttestSgxEnclave użyje tego dokumentu zasad podczas wywołania zaświadczania i może służyć do testowania zasad zaświadczania przed ich użyciem. Token zaświadczania wygenerowany, gdy to pole jest obecne, będzie niezabezpieczony.
 
-Zobacz [przykłady zasad zaświadczania](/azure/attestation/policy-examples)
+Zobacz [przykłady zasad zaświadczania](./policy-examples.md)
 
 ### <a name="22-attestation-failure-due-to-invalid-input"></a>2.2. Niepowodzenie zaświadczania z powodu nieprawidłowych danych wejściowych
 
@@ -163,7 +163,7 @@ Upewnij się, że rozszerzenie podstawowych warunków ograniczających certyfika
 
 W przeciwnym razie łańcuch certyfikatów jest uznawany za nieprawidłowy.
 
-Zobacz przykłady dotyczące [podpisywania zasad](/azure/attestation/policy-signer-examples) i [zasad](/azure/attestation/policy-examples) 
+Zobacz przykłady dotyczące [podpisywania zasad](./policy-signer-examples.md) i [zasad](./policy-examples.md) 
 
 ### <a name="24-adddelete-policy-signer-failure"></a>2.4. Błąd dodawania/usuwania osoby podpisującej zasady
 
@@ -209,7 +209,7 @@ At line:1 char:1
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.Attestation.AddAzureAttestationPolicySigner
 ```
 
-**Kroki rozwiązywania problemów** Aby dodać/usunąć nowy certyfikat osoby podpisującej zasady, użyj tokenu sieci Web JSON RFC7519 (JWT) z zastrzeżeniem o nazwie "x-MS-policyCertificate". Wartość tego żądania jest kluczem sieci Web JSON RFC7517, który zawiera certyfikat do dodania. Token JWT musi być podpisany za pomocą klucza prywatnego dowolnego z prawidłowych certyfikatów podpisywania zasad skojarzonych z dostawcą. Zobacz [przykłady dotyczące podpisywania zasad](/azure/attestation/policy-signer-examples).
+**Kroki rozwiązywania problemów** Aby dodać/usunąć nowy certyfikat osoby podpisującej zasady, użyj tokenu sieci Web JSON RFC7519 (JWT) z zastrzeżeniem o nazwie "x-MS-policyCertificate". Wartość tego żądania jest kluczem sieci Web JSON RFC7517, który zawiera certyfikat do dodania. Token JWT musi być podpisany za pomocą klucza prywatnego dowolnego z prawidłowych certyfikatów podpisywania zasad skojarzonych z dostawcą. Zobacz [przykłady dotyczące podpisywania zasad](./policy-signer-examples.md).
 
 ### <a name="25-attestation-policy-configuration-failure"></a>2.5. Niepowodzenie konfiguracji zasad zaświadczania
 
@@ -255,7 +255,7 @@ Aby skonfigurować zasady w formacie tekstowym, należy bezpośrednio określić
 
 W programie PowerShell Określ PolicyFormat jako JWT, aby skonfigurować zasady w formacie JWT. Domyślny format zasad to Text.
 
-Zobacz [przykłady zasad](/azure/attestation/policy-examples) zaświadczania i [sposób tworzenia zasad zaświadczania](/azure/attestation/author-sign-policy) 
+Zobacz [przykłady zasad](./policy-examples.md) zaświadczania i [sposób tworzenia zasad zaświadczania](./author-sign-policy.md) 
 
 ## <a name="3-azattestation-installation-issues-in-powershell"></a>3. AZ. zaświadczanie problemów z instalacją w programie PowerShell
 
@@ -301,4 +301,3 @@ Get-InstalledModule
 Jeśli wersje nie są zgodne z wymaganiem minimalnym, uruchom polecenia Update-Module
 
 np.-Update-Module-Name AZ. zaświadczanie
-

@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć funkcję platformy Azure z poziomu subs
 Customer intent: As a student, I want to be able to create an HTTP triggered Function App within the Student Starter plan so that I can easily add APIs to any project.
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.openlocfilehash: ecb2cc20bec602101d683dbfdd3f82a2e199aa16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f40405c9325743da5d1963e3baea781606d2d8d9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87386966"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182533"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Tworzenie funkcji przy użyciu platformy Azure for Students Starter
 
@@ -27,7 +27,7 @@ Azure Functions umożliwia wykonywanie kodu w środowisku [bezserwerowym](https:
 
 ![Tworzenie aplikacji funkcji w witrynie Azure Portal](./media/functions-create-student-starter/function-app-in-portal-editor.png)
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
 Zaloguj się w [witrynie Azure Portal](https://portal.azure.com) przy użyciu danych konta Azure.
 
@@ -47,7 +47,7 @@ Następnie należy utworzyć funkcję w nowej aplikacji funkcji.
 
     ![Wybierz funkcję wyzwalacza HTTP](./media/functions-create-student-starter/function-app-select-http-trigger.png)
 
-1. W oknie **Nowa funkcja** Zaakceptuj nazwę domyślną **nowej funkcji**lub wprowadź nową nazwę. 
+1. W oknie **Nowa funkcja** Zaakceptuj nazwę domyślną **nowej funkcji** lub wprowadź nową nazwę. 
 
 1. Z listy rozwijanej **poziom autoryzacji** wybierz pozycję **anonimowe** , a następnie wybierz pozycję **Utwórz funkcję**.
 
@@ -75,7 +75,7 @@ Następnie należy utworzyć funkcję w nowej aplikacji funkcji.
 
    ![Podgląd dziennika usługi Functions w witrynie Azure Portal.](./media/functions-create-student-starter/function-view-logs.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
@@ -100,7 +100,7 @@ Na platformie Azure for Students Starter masz dostęp do większości funkcji ś
 Tworzenie aplikacji funkcji z prostą funkcją wyzwalacza HTTP zakończyło się pomyślnie. Następnie możesz eksplorować narzędzia lokalne, inne języki, monitorowanie i integracje.
 
  * [Tworzenie pierwszej funkcji przy użyciu programu Visual Studio](./functions-create-your-first-function-visual-studio.md)
- * [Tworzenie pierwszej funkcji przy użyciu programu Visual Studio Code](./functions-create-first-function-vs-code.md)
+ * [Tworzenie pierwszej funkcji przy użyciu programu Visual Studio Code](./create-first-function-vs-code-csharp.md)
  * [Przewodnik dla deweloperów Azure Functions JavaScript](./functions-reference-node.md)
  * [Użyj Azure Functions, aby nawiązać połączenie z Azure SQL Database](./functions-scenario-database-table-cleanup.md)
  * [Dowiedz się więcej o Azure Functions powiązaniach http](./functions-bindings-http-webhook.md).

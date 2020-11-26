@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 668976e9777b35e514746070f0f4039a12b4e02b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 9d620342d53bdae0b3a520000f6d240eb0e28d15
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651723"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180596"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Zdalny dostęp do aplikacji lokalnych za pośrednictwem serwera proxy aplikacji usługi Azure AD
 
@@ -36,7 +36,7 @@ Serwer proxy aplikacji to funkcja usługi Azure AD, która umożliwia użytkowni
 Serwer proxy aplikacji współpracuje z:
 
 * Aplikacje sieci Web, które używają [zintegrowanego uwierzytelniania systemu Windows](application-proxy-configure-single-sign-on-with-kcd.md) na potrzeby uwierzytelniania
-* Aplikacje sieci Web korzystające z dostępu opartego na formularzach lub [nagłówkach](/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-headers)
+* Aplikacje sieci Web korzystające z dostępu opartego na formularzach lub [nagłówkach](./application-proxy-configure-single-sign-on-with-headers.md)
 * Interfejsy API sieci Web, które mają zostać ujawnione w rozbudowanych aplikacjach na różnych urządzeniach
 * Aplikacje hostowane za [bramą pulpit zdalny](application-proxy-integrate-with-remote-desktop-services.md)
 * Rozbudowane aplikacje klienckie zintegrowane z biblioteką uwierzytelniania firmy Microsoft (MSAL)

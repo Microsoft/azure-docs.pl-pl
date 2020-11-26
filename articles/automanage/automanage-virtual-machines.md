@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: a51a4a95d3580912d9b727d1580e6f278831f677
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: ffbf3fa3e2d404b7bc5888ef01707cbd816600b3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891506"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182856"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Usługa Azure automanage dla maszyn wirtualnych
 
@@ -28,7 +28,7 @@ W tym artykule opisano informacje o usłudze Azure automanage dla maszyn wirtual
 
 ## <a name="overview"></a>Omówienie
 
-Azure automanage dla maszyn wirtualnych to usługa, która eliminuje potrzebę odnajdowania, znajomości sposobu dołączania i konfigurowania określonych usług na platformie Azure, które byłyby korzystne dla Twojej maszyny wirtualnej. Te usługi pomagają w ulepszaniu niezawodności, zabezpieczeń i zarządzania maszynami wirtualnymi. są one uznawane za usługi Azure Best Practices, takie jak [azure Update Management](../automation/update-management/update-mgmt-overview.md) i [Azure Backup](../backup/backup-overview.md) — tylko w przypadku nazw.
+Azure automanage dla maszyn wirtualnych to usługa, która eliminuje potrzebę odnajdowania, znajomości sposobu dołączania i konfigurowania określonych usług na platformie Azure, które byłyby korzystne dla Twojej maszyny wirtualnej. Te usługi pomagają w ulepszaniu niezawodności, zabezpieczeń i zarządzania maszynami wirtualnymi. są one uznawane za usługi Azure Best Practices, takie jak [azure Update Management](../automation/update-management/overview.md) i [Azure Backup](../backup/backup-overview.md) — tylko w przypadku nazw.
 
 Po dołączeniu maszyn wirtualnych do usługi Azure automanage usługa automatycznie konfiguruje każdą najlepszą usługę pod kątem zalecanych ustawień. Najlepsze rozwiązania są różne dla każdej usługi. Przykładem może być Azure Backup, w którym najlepszym rozwiązaniem może być utworzenie kopii zapasowej maszyny wirtualnej raz dziennie i okres przechowywania wynoszący sześć miesięcy.
 
@@ -69,7 +69,7 @@ W przypadku wszystkich tych usług będziemy automatycznie dołączać, konfigur
 
 W Azure Portal można włączyć Autozarządzanie na istniejącej maszynie wirtualnej lub podczas tworzenia nowej maszyny wirtualnej. Zwięzłe kroki tego procesu można znaleźć w sekcji [Autozarządzanie dla maszyn wirtualnych — szybki start](quick-create-virtual-machines-portal.md).
 
-Jeśli po raz pierwszy włączysz Autozarządzanie dla maszyny wirtualnej, możesz wyszukać w Azure Portal do **autozarządzania — najlepsze rozwiązania dotyczące maszyn wirtualnych platformy Azure** . Kliknij pozycję **Włącz na istniejącej maszynie wirtualnej** , wybierz maszyny wirtualne, które chcesz dołączyć, kliknij pozycję **Wybierz** , kliknij pozycję **Włącz** , a wszystko gotowe.
+Jeśli po raz pierwszy włączysz Autozarządzanie dla maszyny wirtualnej, możesz wyszukać w Azure Portal do **autozarządzania — najlepsze rozwiązania dotyczące maszyn wirtualnych platformy Azure**. Kliknij pozycję **Włącz na istniejącej maszynie wirtualnej**, wybierz maszyny wirtualne, które chcesz dołączyć, kliknij pozycję **Wybierz**, kliknij pozycję **Włącz**, a wszystko gotowe.
 
 Jedyną czynnością, którą należy wykonać, aby móc korzystać z tej maszyny wirtualnej w celu zarządzania tymi usługami, jest to, że podjęto próbę skorygowania maszyny wirtualnej, ale to nie powiodło się. W przypadku pomyślnego skorygowania maszyny wirtualnej nastąpi powrót do zgodności bez nawet powiadamiania użytkownika.
 
@@ -114,7 +114,7 @@ W Azure Portal środowiska, gdy włączasz funkcję autozarządzania na maszynac
 
 W Azure Portal przejdź do strony " **Autozarządzanie" najlepszych rozwiązań dotyczących maszyn wirtualnych platformy Azure** , w której znajduje się lista wszystkich maszyn wirtualnych zarządzanych przez program. W tym miejscu zobaczysz ogólny stan każdej maszyny wirtualnej.
 
-:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Usługi inteligentnego dołączania.":::
+:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Lista skonfigurowanych maszyn wirtualnych.":::
 
 Dla każdej z wymienionych maszyn wirtualnych wyświetlane są następujące informacje: nazwa, profil konfiguracji, preferencje konfiguracji, stan, konto, subskrypcja i Grupa zasobów.
 
@@ -123,7 +123,7 @@ W kolumnie **stan** można wyświetlić następujące stany:
 - *Skonfigurowane* — maszyna wirtualna jest skonfigurowana i nie wykryto dryfu
 - *Niepowodzenie* — maszyna wirtualna została przedryfna i nie można jej skorygować
 
-Jeśli zobaczysz **stan** jako *Niepowodzenie* , możesz rozwiązać problemy ze wdrożeniem za pomocą grupy zasobów, w której znajduje się maszyna wirtualna. Przejdź do pozycji **grupy zasobów** , wybierz grupę zasobów, kliknij pozycję **wdrożenia** , a następnie *Failed* Zobacz szczegóły błędu.
+Jeśli zobaczysz **stan** jako *Niepowodzenie*, możesz rozwiązać problemy ze wdrożeniem za pomocą grupy zasobów, w której znajduje się maszyna wirtualna. Przejdź do pozycji **grupy zasobów**, wybierz grupę zasobów, kliknij pozycję **wdrożenia** , a następnie *Failed* Zobacz szczegóły błędu.
 
 
 ## <a name="disabling-automanage-for-vms"></a>Wyłączanie autozarządzania dla maszyn wirtualnych
@@ -132,9 +132,9 @@ Aby wyłączyć funkcję autozarządzania na niektórych maszynach wirtualnych, 
 
 Aby to zrobić, w Azure Portal przejdź do strony **Autozarządzanie — najlepsze rozwiązania dotyczącej maszyn wirtualnych platformy Azure** , która zawiera listę wszystkich maszyn wirtualnych zarządzanych przez program. Zaznacz pole wyboru obok maszyny wirtualnej, która ma zostać wyłączona z opcji Autozarządzanie, a następnie kliknij przycisk **Wyłącz automanagment** .
 
-:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Usługi inteligentnego dołączania.":::
+:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Wyłączanie autozarządzania na maszynie wirtualnej.":::
 
-Uważnie przeczytaj wiadomości w wyskakującym okienku, aby wyrazić zgodę na **wyłączenie** .
+Uważnie przeczytaj wiadomości w wyskakującym okienku, aby wyrazić zgodę na **wyłączenie**.
 
 > [!NOTE]
 > Wyłączenie autozarządzania w maszynie wirtualnej powoduje następujące zachowanie:

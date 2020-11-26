@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.openlocfilehash: d9c9ac87e655cf9178d58f04b502f7e781d1fef7
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520544"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181412"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-spotinst"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Spotinst
 
@@ -78,10 +78,10 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 1. Jeśli chcesz skonfigurować aplikację w trybie inicjowania dostawcy tożsamości, w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
    1. Upewnij się, że **adres URL odpowiedzi** jest ustawiony na: https://console.spotinst.com/auth/saml .
-   1. W obszarze **Stan przekazywania**wprowadź identyfikator organizacji Spotinst, który można także potwierdzić na karcie **Logowanie jednokrotne** .
+   1. W obszarze **Stan przekazywania** wprowadź identyfikator organizacji Spotinst, który można także potwierdzić na karcie **Logowanie jednokrotne** .
    1. **Adres URL logowania** musi być pusty.
 
-1. Kliknij pozycję **Zapisz**.
+1. Kliknij przycisk **Zapisz**.
 
 1. Aplikacja Spotinst oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
@@ -185,7 +185,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Spotinst w panelu dostępu należy automatycznie zalogować się do Spotinst, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 

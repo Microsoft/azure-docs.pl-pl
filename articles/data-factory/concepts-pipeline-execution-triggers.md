@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: 73934521cc68dc8ec2e28f29e35df833651915d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e090b4c3b4ecc3870f060aba4b03be3abe2942ec
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83997013"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180714"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Wyzwalacze i wykonywanie potoku w usłudze Azure Data Factory
 
@@ -179,7 +179,7 @@ Potoki i wyzwalacze mają relację wiele-do-wielu (z wyjątkiem wyzwalacza okna 
 ## <a name="schedule-trigger"></a>Wyzwalacz harmonogramu
 Wyzwalacz harmonogramu uruchamia potoki zgodnie z harmonogramem zegarowym. Ten wyzwalacz obsługuje opcje okresowe i zaawansowane kalendarza. Obsługuje na przykład interwały takie jak „co tydzień” czy „w poniedziałek o godzinie 17:00 i czwartek o godzinie 21: 00”. Wyzwalacz harmonogramu jest elastyczny, ponieważ wzorzec zestawu jest niezależny, a wyzwalacz nie rozróżnia pomiędzy danymi serii czasowych a innymi.
 
-Aby uzyskać więcej informacji o wyzwalaczach harmonogramu i przykładach, zobacz [Tworzenie wyzwalacza harmonogramu](how-to-create-schedule-trigger.md).
+Aby uzyskać więcej informacji o wyzwalaczach harmonogramu i przykładach, zobacz [Tworzenie wyzwalacza, który uruchamia potok zgodnie z harmonogramem](how-to-create-schedule-trigger.md).
 
 ## <a name="schedule-trigger-definition"></a>Definicja wyzwalacza harmonogramu
 Tworząc wyzwalacz harmonogramu, należy określić planowanie i powtarzanie przy użyciu definicji JSON.
@@ -239,10 +239,10 @@ Poniższa tabela zawiera ogólne omówienie głównych elementów schematu odnos
 | --- | --- |
 | **Rozpoczęcia** | Wartość daty i godziny. W przypadku podstawowych harmonogramów wartość właściwości **startTime** dotyczy pierwszego wystąpienia. W przypadku harmonogramów złożonych wyzwalacz nie jest uruchamiany wcześniej niż określona wartość właściwości **startTime**. |
 | **endTime** | Data i godzina zakończenia wyzwalacza. Wyzwalacz nie jest wykonywany po określonej dacie i godzinie zakończenia. Wartość właściwości nie może odnosić się do przeszłości. <!-- This property is optional. --> |
-| **timeZone** | Strefa czasowa. Obecnie jest obsługiwana tylko strefa czasowa UTC. |
+| **timeZone** | Strefa czasowa. Aby uzyskać listę obsługiwanych stref czasowych, zobacz [Tworzenie wyzwalacza uruchamiającego potok zgodnie z harmonogramem](how-to-create-schedule-trigger.md#time-zone-option). |
 | **wystąpieniu** | Obiekt cyklu określający reguły powtarzania wyzwalacza. Obiekt cyklu obsługuje elementy właściwości **frequency**, **interval**, **endTime**, **count** i **schedule**. Po zdefiniowaniu obiektu cyklu wymagany jest element właściwości **frequency**. Inne elementy obiektu cyklu są opcjonalne. |
 | **frequency** | Jednostka częstotliwości powtarzania wyzwalacza. Obsługiwane wartości to „minute” („minuta”), „hour” („godzina”), „day” („dzień”), „week” („tydzień”) i „month” („miesiąc”). |
-| **interval** | Dodatnia liczba całkowita, która określa odstęp czasu dla wartości **frequency**. Wartość **frequency** określa, jak często jest uruchamiany wyzwalacz. Jeśli na przykład właściwość **interval** ma wartość 3, a właściwość **frequency** ma wartość „week” („tydzień”), wyzwalacz jest powtarzany co trzy tygodnie. |
+| **dat** | Dodatnia liczba całkowita, która określa odstęp czasu dla wartości **frequency**. Wartość **frequency** określa, jak często jest uruchamiany wyzwalacz. Jeśli na przykład właściwość **interval** ma wartość 3, a właściwość **frequency** ma wartość „week” („tydzień”), wyzwalacz jest powtarzany co trzy tygodnie. |
 | **rozkład** | Harmonogram cyklu wyzwalacza. Wyzwalacz z określoną wartością właściwości **frequency** zmienia swój cykl na podstawie harmonogramu cyklu. Właściwość **schedule** zawiera modyfikacje cyklu oparte na minutach, godzinach, dniach tygodnia, dniach miesiąca i numerze tygodnia. |
 
 ### <a name="schedule-trigger-example"></a>Przykładowy wyzwalacz harmonogramu
@@ -285,7 +285,7 @@ Poniższa tabela zawiera ogólne omówienie głównych elementów schematu odnos
 | --- | --- | --- | --- | --- | --- |
 | **Rozpoczęcia** | ciąg | Tak | Brak | Daty i godziny ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **wystąpieniu** | object | Tak | Brak | Obiekt cyklu | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **interval** | liczba | Nie | 1 | Od 1 do 1000 | `"interval":10` |
+| **dat** | liczba | Nie | 1 | Od 1 do 1000 | `"interval":10` |
 | **endTime** | ciąg | Tak | Brak | Wartość daty i godziny reprezentująca godzinę w przyszłości | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **rozkład** | object | Nie | Brak | Obiekt harmonogramu | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 

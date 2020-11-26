@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 2317e61111c3ad328e8f112e7d9567f3f5d47990
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 031b3bfd30e0272589c5c7ee2c546b9459767b33
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997051"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183196"
 ---
 # <a name="tutorial-monitor-published-apis"></a>Samouczek: monitorowanie opublikowanych interfejsów API
 
@@ -90,7 +90,7 @@ Aby skonfigurować przykładową regułę alertu na podstawie metryki żądania:
 
 1. Wprowadź nazwę i opis reguły alertu, a następnie wybierz poziom ważności. 
 1. Wybierz pozycję **Utwórz regułę alertu**.
-1. Teraz Przetestuj regułę alertu, wywołując interfejs API konferencji bez klucza interfejsu API. Na przykład:
+1. Teraz Przetestuj regułę alertu, wywołując interfejs API konferencji bez klucza interfejsu API. Przykład:
 
     ```bash
     curl GET https://apim-hello-world.azure-api.net/conference/speakers HTTP/1.1 
@@ -149,7 +149,7 @@ Włączenie kolekcji GatewayLogs lub metryk w obszarze roboczym Log Analytics mo
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/logs-menu-item.png" alt-text="Zrzut ekranu przedstawiający element Logs w menu monitorowanie":::
 
-Uruchom zapytania, aby wyświetlić dane. Dostępne są kilka [przykładowych zapytań](../azure-monitor/log-query/saved-queries.md) lub własne. Na przykład następujące zapytanie pobiera ostatnie 24 godziny danych z tabeli GatewayLogs:
+Uruchom zapytania, aby wyświetlić dane. Dostępne są kilka [przykładowych zapytań](../azure-monitor/log-query/example-queries.md) lub własne. Na przykład następujące zapytanie pobiera ostatnie 24 godziny danych z tabeli GatewayLogs:
 
 ```kusto
 ApiManagementGatewayLogs
@@ -158,7 +158,7 @@ ApiManagementGatewayLogs
 
 Aby uzyskać więcej informacji o korzystaniu z dzienników zasobów dla API Management, zobacz:
 
-* [Rozpocznij pracę z Azure Monitor Log Analytics](../azure-monitor/log-query/get-started-portal.md)lub wypróbuj [środowisko demonstracyjne log Analytics](https://portal.loganalytics.io/demo).
+* [Rozpocznij pracę z Azure Monitor Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)lub wypróbuj [środowisko demonstracyjne log Analytics](https://portal.loganalytics.io/demo).
 
 * [Przegląd zapytań dzienników w Azure monitor](../azure-monitor/log-query/log-query-overview.md).
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/04/2020
 ms.author: jeedes
-ms.openlocfilehash: 90623c6fd1c0eba3042688ae6fd6fdc92b088fd4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 914858471432979e5516a1f075ed4fcbb8061a5d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096999"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181858"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Samouczek: Integrowanie konsoli infrastruktury chmurowej Oracle z Azure Active Directory
 
@@ -45,14 +45,14 @@ Aby skonfigurować integrację konsoli infrastruktury w chmurze firmy Oracle z u
 
 1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
-1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje** .
-1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja** .
+1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
 1. W sekcji **Dodaj z galerii** wpisz w polu wyszukiwania pozycję **konsola infrastruktury w chmurze firmy Oracle** .
 1. Wybierz pozycję **Oracle Cloud Infrastructure Console** z panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
 ## <a name="configure-and-test-azure-ad-sso"></a>Konfigurowanie i testowanie rejestracji jednokrotnej usługi Azure AD
 
-Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą programu Oracle Cloud Infrastructure Console przy użyciu użytkownika testowego o nazwie **B. Simon** . Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w konsoli infrastruktury w chmurze firmy Oracle.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą programu Oracle Cloud Infrastructure Console przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w konsoli infrastruktury w chmurze firmy Oracle.
 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą programu Oracle Cloud Infrastructure Console, wykonaj następujące czynności:
 
@@ -67,8 +67,8 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W Azure Portal na stronie integracja aplikacji **konsoli infrastruktury w chmurze firmy Oracle** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne** .
-1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML** .
+1. W Azure Portal na stronie integracja aplikacji **konsoli infrastruktury w chmurze firmy Oracle** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
 1. Na stronie **Konfigurowanie pojedynczego Sign-On przy użyciu języka SAML** kliknij ikonę Edytuj/pióra, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
@@ -78,9 +78,9 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
    > [!NOTE]
    > Plik metadanych dostawcy usług zostanie pobrany z sekcji Konfigurowanie logowania jednokrotnego w **konsoli infrastruktury w chmurze firmy Oracle** w samouczku.
     
-   1. Kliknij pozycję **Przekaż plik metadanych** .
+   1. Kliknij pozycję **Przekaż plik metadanych**.
 
-   1. Kliknij **logo folderu** , aby wybrać plik metadanych, a następnie kliknij pozycję **Przekaż** .
+   1. Kliknij **logo folderu**, aby wybrać plik metadanych, a następnie kliknij pozycję **Przekaż**.
 
    1. Po pomyślnym przekazaniu pliku metadanych wartości **Identyfikator** i **adres URL odpowiedzi** są uzyskiwane automatycznie wypełniane w polu tekstowym **Podstawowa konfiguracja SAML** .
     
@@ -96,35 +96,35 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
    ![Link do pobierania certyfikatu](common/metadataxml.png)
 
-1. Aplikacja konsolowa usługi Oracle Cloud Infrastructure oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. Kliknij ikonę **Edytuj** , aby otworzyć okno dialogowe Atrybuty użytkownika.
+1. Aplikacja konsolowa usługi Oracle Cloud Infrastructure oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. Kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe Atrybuty użytkownika.
 
    ![image1](common/edit-attribute.png)
 
 1. Oprócz powyższych, Aplikacja konsolowa infrastruktury w chmurze firmy Oracle oczekuje kilku atrybutów do przekazania z powrotem do odpowiedzi SAML. W sekcji **atrybuty użytkownika & oświadczenia** w oknie dialogowym **oświadczenia grupy (wersja zapoznawcza)** wykonaj następujące czynności:
 
-   1. Kliknij **pióro** obok pozycji **Nazwa identyfikator wartość** .
+   1. Kliknij **pióro** obok pozycji **Nazwa identyfikator wartość**.
 
-   1. Wybierz pozycję **trwały** jako **Wybierz format identyfikatora nazwy** .
+   1. Wybierz pozycję **trwały** jako **Wybierz format identyfikatora nazwy**.
  
-   1. Kliknij pozycję **Zapisz** .
+   1. Kliknij przycisk **Zapisz**.
 
       ![image2](./media/oracle-cloud-tutorial/config07.png)
     
       ![image3](./media/oracle-cloud-tutorial/config11.png)
 
-   1. Kliknij **pióro** obok **grup zwróconych w ramach żądania** .
+   1. Kliknij **pióro** obok **grup zwróconych w ramach żądania**.
 
    1. Z listy radiowej wybierz pozycję **grupy zabezpieczeń** .
 
-   1. Wybierz **atrybut Source** **identyfikatora grupy** .
+   1. Wybierz **atrybut Source** **identyfikatora grupy**.
 
-   1. Zaznacz pole wyboru **Dostosuj nazwę tego żądania** .
+   1. Zaznacz pole wyboru **Dostosuj nazwę tego żądania**.
 
-   1. W polu tekstowym **Nazwa** wpisz **GroupName** .
+   1. W polu tekstowym **Nazwa** wpisz **GroupName**.
 
    1. W polu tekstowym **przestrzeń nazw (opcjonalnie)** wpisz polecenie `https://auth.oraclecloud.com/saml/claims` .
 
-   1. Kliknij pozycję **Zapisz** .
+   1. Kliknij przycisk **Zapisz**.
 
       ![image4](./media/oracle-cloud-tutorial/config08.png)
 
@@ -136,22 +136,22 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
-1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory** , wybierz pozycję **Użytkownicy** , a następnie wybierz pozycję **Wszyscy użytkownicy** .
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B. Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B. Simon@contoso.com`.
-   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło** .
-   1. Kliknij pozycję **Utwórz** .
+   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
+   1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
 W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do konsoli infrastruktury w chmurze firmy Oracle.
 
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje** .
-1. Na liście Aplikacje wybierz pozycję **konsola infrastruktury w chmurze firmy Oracle** .
-1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy** .
-1. Wybierz pozycję **Dodaj użytkownika** , a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Na liście Aplikacje wybierz pozycję **konsola infrastruktury w chmurze firmy Oracle**.
+1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
+1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
@@ -160,11 +160,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się do konsoli infrastruktury firmy Oracle jako administrator.
 
-1. Kliknij po lewej stronie menu i kliknij pozycję **tożsamość** , a następnie przejdź do **Federacji** .
+1. Kliknij po lewej stronie menu i kliknij pozycję **tożsamość** , a następnie przejdź do **Federacji**.
 
    ![Configuration1](./media/oracle-cloud-tutorial/config01.png)
 
-1. Zapisz **plik metadanych dostawcy usług** , klikając link **Pobierz ten dokument** i przekaż go do sekcji **Podstawowa konfiguracja SAML** w Azure Portal a następnie kliknij pozycję **Dodaj dostawcę tożsamości** .
+1. Zapisz **plik metadanych dostawcy usług** , klikając link **Pobierz ten dokument** i przekaż go do sekcji **Podstawowa konfiguracja SAML** w Azure Portal a następnie kliknij pozycję **Dodaj dostawcę tożsamości**.
 
    ![Configuration2](./media/oracle-cloud-tutorial/config02.png)
 
@@ -176,7 +176,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
    1. W polu tekstowym **Opis** wprowadź opis.
 
-   1. Wybierz pozycję **Microsoft Active Directory Federation Service (AD FS) lub dostawcę tożsamości zgodnego z protokołem SAML 2,0** jako **Typ** .
+   1. Wybierz pozycję **Microsoft Active Directory Federation Service (AD FS) lub dostawcę tożsamości zgodnego z protokołem SAML 2,0** jako **Typ**.
 
    1. Kliknij przycisk **Przeglądaj** , aby przesłać plik XML metadanych Federacji, który został pobrany z Azure Portal.
 
@@ -188,7 +188,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
    1. Możesz zmapować wiele grup zgodnie z konfiguracją w Azure Portal, a Twoja organizacja wymaga. Kliknij pozycję **+ Dodaj mapowanie** , aby dodać dowolną liczbę grup.
 
-   1. Kliknij przycisk **Prześlij** .
+   1. Kliknij przycisk **Prześlij**.
    
 ### <a name="create-oracle-cloud-infrastructure-console-test-user"></a>Utwórz użytkownika testowego konsoli infrastruktury w chmurze firmy Oracle
 
@@ -202,5 +202,4 @@ Po wybraniu kafelka konsola infrastruktury w chmurze Oracle w panelu dostępu na
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu konsoli infrastruktury w chmurze firmy Oracle można wymusić kontrolki sesji, które chronią eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolki sesji wykraczają poza dostęp warunkowy. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
-
+Po skonfigurowaniu konsoli infrastruktury w chmurze firmy Oracle można wymusić kontrolki sesji, które chronią eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolki sesji wykraczają poza dostęp warunkowy. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

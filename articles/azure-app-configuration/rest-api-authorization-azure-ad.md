@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 89c51e69a4274affcecb4d967deb96dcebcfd70f
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 0229b1941e40345f35cb7409533e54b0c4ea7d5d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95253374"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182618"
 ---
 # <a name="azure-active-directory-authorization---rest-api-reference"></a>Azure Active Directory autoryzacja — dokumentacja interfejsu API REST
 
@@ -43,4 +43,4 @@ HTTP/1.1 403 Forbidden
 
 ## <a name="managing-role-assignments"></a>Zarządzanie przypisaniami ról
 
-Przypisaniami ról można zarządzać przy użyciu [procedur RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) , które są standardowe dla wszystkich usług platformy Azure. Można to zrobić za pomocą interfejsu wiersza polecenia platformy Azure, programu PowerShell i Azure Portal. Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+Przypisaniami ról można zarządzać przy użyciu [procedur RBAC](../role-based-access-control/overview.md) , które są standardowe dla wszystkich usług platformy Azure. Można to zrobić za pomocą interfejsu wiersza polecenia platformy Azure, programu PowerShell i Azure Portal. Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](../role-based-access-control/role-assignments-portal.md).

@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a48a72aa021a17c59adb86bece66cec966e234bd
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 0c4fde22b1b8d72ae8ae775c090e0da25ce0665f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056144"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181173"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analizowanie dzienników aktywności usługi Azure AD za pomocą dzienników Azure Monitor
 
@@ -104,9 +104,9 @@ Możesz również skonfigurować alerty w zapytaniu. Na przykład, aby skonfigur
 
 Skoroszyty zawierają kilka raportów związanych z typowymi scenariuszami związanymi z inspekcją, logowaniem i inicjowaniem obsługi zdarzeń. Możesz również otrzymywać alerty dotyczące dowolnych danych zawartych w raportach, korzystając z kroków opisanych w poprzedniej sekcji.
 
-* **Analiza aprowizacji**: w tym [skoroszycie](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) przedstawiono raporty dotyczące aktywności związanej z obsługą administracyjną, takie jak liczba nowych użytkowników, których zainicjowano i zainicjowanie obsługi administracyjnej, liczba zaktualizowanych użytkowników i niepowodzenia aktualizacji oraz liczba użytkowników, którym cofnięto Inicjowanie obsługi administracyjnej, i odpowiednich błędów.    
+* **Analiza aprowizacji**: w tym [skoroszycie](../app-provisioning/application-provisioning-log-analytics.md) przedstawiono raporty dotyczące aktywności związanej z obsługą administracyjną, takie jak liczba nowych użytkowników, których zainicjowano i zainicjowanie obsługi administracyjnej, liczba zaktualizowanych użytkowników i niepowodzenia aktualizacji oraz liczba użytkowników, którym cofnięto Inicjowanie obsługi administracyjnej, i odpowiednich błędów.    
 * **Zdarzenia logowania**: ten skoroszyt pokazuje najbardziej odpowiednie raporty związane z monitorowaniem działania logowania, takie jak logowania według aplikacji, użytkownika, urządzenia, a także widok podsumowania, który śledzi liczbę logowań w czasie.
-* **Dostęp warunkowy szczegółowe informacje**: [skoroszyt](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-insights-reporting) usługi Dostęp warunkowy usługi Insights i raportowania pozwala zrozumieć wpływ zasad dostępu warunkowego w organizacji w miarę upływu czasu. 
+* **Dostęp warunkowy szczegółowe informacje**: [skoroszyt](../conditional-access/howto-conditional-access-insights-reporting.md) usługi Dostęp warunkowy usługi Insights i raportowania pozwala zrozumieć wpływ zasad dostępu warunkowego w organizacji w miarę upływu czasu. 
 
 ## <a name="next-steps"></a>Następne kroki
 

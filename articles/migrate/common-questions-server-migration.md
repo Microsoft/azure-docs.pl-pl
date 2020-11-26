@@ -4,11 +4,11 @@ description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące korzystan
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.openlocfilehash: b62110e6b2ce97cdd80ed91ee4b1e75d119c7c7d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315233"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180697"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migracja serwera Azure Migrate: typowe pytania
 
@@ -29,14 +29,14 @@ Azure Migrate: Narzędzie migracji serwera migruje maszyny oparte na interfejsie
 
 | **Systemy operacyjne obsługiwane w przypadku komputerów z interfejsem UEFI** | **VMware bez agentów do platformy Azure**                                                                                                             | **Funkcja Hyper-V bez agentów na platformie Azure** | **Oparty na agencie oprogramowanie VMware, fizyczne i inne chmury na platformie Azure** |
 | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ---------------------------------------------------------- |
-| Windows Server 2019, 2016, 2012 R2, 201                 | Y                                                                                                                                         | Y                              | Y                                                          |
-| Windows 10 Pro, Windows 10 Enterprise                   | Y                                                                                                                                         | Y                              | Y                                                          |
-| SUSE Linux Enterprise Server 15 SP1                     | Y                                                                                                                                         | Y                              | Y                                                          |
-| SUSE Linux Enterprise Server 12 SP4                     | Y                                                                                                                                         | Y                              | Y                                                          |
-| Ubuntu Server 16,04, 18,04, 19,04, 19,10                | Y                                                                                                                                         | Y                              | Y                                                          |
-| RHEL 8,1, 8,0, 7,8, 7,7, 7,6, 7,5, 7,4, 7,0, 6. x        | Y<br>                 _RHEL 8. x wymaga [ręcznego przygotowania](./prepare-for-migration.md#linux-machines)_   | Y                              | Y                                                          |
-| Cent OS 8,1, 8,0, 7,7, 7,6, 7,5, 7,4, 6. x               | Y<br>_Cent OS 8. x wymaga [przygotowania ręcznego](./prepare-for-migration.md#linux-machines)_ | Y                              | Y                                                          |
-| Oracle Linux 7,7, 7,7-CI                                |  Y                                                                                                                                        | Y                              | Y                                                          |
+| Windows Server 2019, 2016, 2012 R2, 201                 | T                                                                                                                                         | T                              | T                                                          |
+| Windows 10 Pro, Windows 10 Enterprise                   | T                                                                                                                                         | T                              | T                                                          |
+| SUSE Linux Enterprise Server 15 SP1                     | T                                                                                                                                         | T                              | T                                                          |
+| SUSE Linux Enterprise Server 12 SP4                     | T                                                                                                                                         | T                              | T                                                          |
+| Ubuntu Server 16,04, 18,04, 19,04, 19,10                | T                                                                                                                                         | T                              | T                                                          |
+| RHEL 8,1, 8,0, 7,8, 7,7, 7,6, 7,5, 7,4, 7,0, 6. x        | T<br>                 _RHEL 8. x wymaga [ręcznego przygotowania](./prepare-for-migration.md#linux-machines)_   | T                              | T                                                          |
+| Cent OS 8,1, 8,0, 7,7, 7,6, 7,5, 7,4, 6. x               | T<br>_Cent OS 8. x wymaga [przygotowania ręcznego](./prepare-for-migration.md#linux-machines)_ | T                              | T                                                          |
+| Oracle Linux 7,7, 7,7-CI                                |  T                                                                                                                                        | T                              | T                                                          |
 
 ## <a name="can-i-use-the-recovery-services-vault-created-by-azure-migrate-for-disaster-recovery-scenarios"></a>Czy mogę używać magazynu usługi Recovery Services utworzonego przez Azure Migrate na potrzeby scenariuszy odzyskiwania po awarii?
 Nie zalecamy korzystania z magazynu usługi Recovery Services utworzonego przez Azure Migrate na potrzeby scenariuszy odzyskiwania po awarii. Wykonanie tej czynności może skutkować uruchomieniem niepowodzeń replikacji w Azure Migrate. 
@@ -131,7 +131,7 @@ W przypadku metody replikacji opartej na agencie planista wdrożenia może pomó
 
 ## <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>Jak mogęnie przepustowości w przypadku używania urządzenia Azure Migrate do replikacji VMware bez agentów?  
 
-Można ograniczyć użycie NetQosPolicy. Na przykład:
+Można ograniczyć użycie NetQosPolicy. Przykład:
 
 AppNamePrefix do użycia w NetQosPolicy to "GatewayWindowsService.exe". Można utworzyć zasady na urządzeniu Azure Migrate, aby ograniczyć ruch związany z replikacją z urządzenia przez utworzenie zasad, takich jak:
 
@@ -143,7 +143,7 @@ Urządzenie Azure Migrate w przypadku replikacji bez agenta kompresuje dane i sz
 
 ## <a name="how-does-churn-rate-affect-agentless-replication"></a>Jak współczynnik zmian wpływa na replikację bezagentową?
 
-Ponieważ replikacja bez agentów jest składana w danych, *wzorzec* zmian jest ważniejszy niż *współczynnik*zmian. Gdy plik zostanie ponownie zapisany i ponownie, szybkość nie ma znacznie wpływu. Jednak wzorzec, w którym każdy inny sektor jest zapisywana, powoduje duże zmiany w następnym cyklu. Ze względu na to, że minimalizujemy ilość przesyłanych danych, będziemy mogli złożyć dane tak dużo, jak to możliwe, przed zaplanowaniem następnego cyklu.
+Ponieważ replikacja bez agentów jest składana w danych, *wzorzec* zmian jest ważniejszy niż *współczynnik* zmian. Gdy plik zostanie ponownie zapisany i ponownie, szybkość nie ma znacznie wpływu. Jednak wzorzec, w którym każdy inny sektor jest zapisywana, powoduje duże zmiany w następnym cyklu. Ze względu na to, że minimalizujemy ilość przesyłanych danych, będziemy mogli złożyć dane tak dużo, jak to możliwe, przed zaplanowaniem następnego cyklu.
 
 ## <a name="how-frequently-is-a-replication-cycle-scheduled"></a>Jak często zaplanowano cykl replikacji?
 

@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 51249c68407f6b4ca7793b2fdeceab5aa4f7bc5c
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 1cc7df755198461643703cac988c8c31f2ac25db
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94575989"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182890"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Rozwiązywanie problemów z App Service w programie Application Gateway
 
@@ -93,7 +93,7 @@ Usługa App Service wykonuje teraz przekierowanie (jeśli istnieje) w tym samym 
 
 Musisz być członkiem domeny niestandardowej i wykonać następujący proces:
 
-- Zarejestruj domenę na liście domen niestandardowych usługi App Service. W domenie niestandardowej musi znajdować się rekord CNAME, który wskazuje na nazwę FQDN usługi App Service. Aby uzyskać więcej informacji, zobacz [Mapowanie istniejącej niestandardowej nazwy DNS na Azure App Service](/azure/app-service/app-service-web-tutorial-custom-domain).
+- Zarejestruj domenę na liście domen niestandardowych usługi App Service. W domenie niestandardowej musi znajdować się rekord CNAME, który wskazuje na nazwę FQDN usługi App Service. Aby uzyskać więcej informacji, zobacz [Mapowanie istniejącej niestandardowej nazwy DNS na Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md).
 
     ![Niestandardowa lista domen usługi App Service](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 

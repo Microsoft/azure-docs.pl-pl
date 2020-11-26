@@ -5,11 +5,11 @@ ms.service: azure-app-configuration
 ms.topic: include
 ms.date: 1/31/2020
 ms.openlocfilehash: 48bf5d5df3c54e8b2894ad28fa08553d5add0437
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001483"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182706"
 ---
 1. Aby utworzyć nowy magazyn konfiguracji aplikacji, zaloguj się do [Azure Portal](https://portal.azure.com). W lewym górnym rogu strony głównej wybierz pozycję **Utwórz zasób**. W polu **Wyszukaj w witrynie Marketplace** wprowadź wartość *Konfiguracja aplikacji* , a następnie wybierz pozycję <kbd>wprowadź</kbd>.
 
@@ -31,6 +31,6 @@ ms.locfileid: "96001483"
 
 1. Wybierz pozycję **Przegląd + Utwórz** , aby sprawdzić poprawność ustawień.
 
-1. Wybierz pozycję **Utwórz**. Wdrożenie może potrwać kilka minut.
+1. Wybierz przycisk **Utwórz**. Wdrożenie może potrwać kilka minut.
 
 1. Po zakończeniu wdrażania przejdź do zasobu konfiguracja aplikacji. Wybierz pozycje **Ustawienia** > **Klucze dostępu**. Zanotuj podstawowe parametry połączenia klucza tylko do odczytu. Te parametry połączenia będą używane później, aby skonfigurować aplikację do komunikacji z utworzonym magazynem konfiguracji aplikacji.

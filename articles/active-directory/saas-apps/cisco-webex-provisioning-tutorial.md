@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: 069c8a8e2a595248afe45bbb90de877b3b6fc87d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc05e83ac6c7f0f7c5e9a571c1fa7397af858f44
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849349"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180102"
 ---
 # <a name="tutorial-configure-cisco-webex-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie programu Cisco WebEx do automatycznej aprowizacji użytkowników
 
@@ -91,21 +91,21 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 4. Ustaw **Tryb aprowizacji** na **Automatyczny**.
 
-    :::image type="content" source="common/provisioning-automatic.png" alt-text="Zrzut ekranu przedstawiający menu w Azure Portal. W obszarze Zarządzanie aprowizacji jest wyróżnione." border="false":::
+    :::image type="content" source="common/provisioning-automatic.png" alt-text="Zrzut ekranu przedstawiający pole listy Tryb aprowizacji z automatycznym wyróżnionym." border="false":::
 
-5. W sekcji **poświadczenia administratora** wprowadź **adres URL dzierżawy**i **token tajny** konta Cisco WebEx.
+5. W sekcji **poświadczenia administratora** wprowadź **adres URL dzierżawy** i **token tajny** konta Cisco WebEx.
 
-    :::image type="content" source="./media/cisco-webex-provisioning-tutorial/secrettoken1.png" alt-text="Zrzut ekranu przedstawiający menu w Azure Portal. W obszarze Zarządzanie aprowizacji jest wyróżnione." border="false":::
+    :::image type="content" source="./media/cisco-webex-provisioning-tutorial/secrettoken1.png" alt-text="Zrzut ekranu przedstawiający sekcję poświadczenia administratora. Pola tokenów dzierżawy U R L i Secret są wyróżnione, ale są puste." border="false":::
 
 6.  W polu **adres URL dzierżawy** wprowadź wartość w postaci `https://api.ciscospark.com/v1/scim/[OrgId]` . Aby uzyskać dostęp `[OrgId]` , zaloguj się do [centrum sterowania Cisco WebEx](https://admin.webex.com/login). Kliknij nazwę organizacji w lewym dolnym rogu i skopiuj wartość z **identyfikatora organizacji**. 
 
-    * Aby uzyskać wartość dla **tokenu tajnego**, przejdź do tego [adresu URL](https://idbroker.webex.com/idb/saml2/jsp/doSSO.jsp?type=login&goto=https%3A%2F%2Fidbroker.webex.com%2Fidb%2Foauth2%2Fv1%2Fauthorize%3Fresponse_type%3Dtoken%26client_id%3DC4ca14fe00b0e51efb414ebd45aa88c1858c3bfb949b2405dba10b0ca4bc37402%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A3000%252Fauth%252Fcode%26scope%3Dspark%253Apeople_read%2520spark%253Apeople_write%2520Identity%253ASCIM%26state%3Dthis-should-be-a-random-string-for-security-purpose). Na wyświetlonej stronie logowania WebEx Zaloguj się przy użyciu pełnego konta administratora Cisco WebEx dla swojej organizacji. Zostanie wyświetlona strona błędu z informacją, że nie można skontaktować się z lokacją, ale jest to normalne.
+    * Aby uzyskać wartość dla **tokenu tajnego**, przejdź do tego [adresu URL](https://idbroker.webex.com/idb/saml2/jsp/doSSO.jsp?type=login&goto=https%3A%2F%2Fidbroker.webex.com%2Fidb%2Foauth2%2Fv1%2Fauthorize%3Fresponse_type%3Dtoken%26client_id%3DC4ca14fe00b0e51efb414ebd45aa88c1858c3bfb949b2405dba10b0ca4bc37402%26redirect_uri%3Dhttp%253A%2f%2flocalhost%253A3000%2fauth%2fcode%26scope%3Dspark%253Apeople_read%2520spark%253Apeople_write%2520Identity%253ASCIM%26state%3Dthis-should-be-a-random-string-for-security-purpose). Na wyświetlonej stronie logowania WebEx Zaloguj się przy użyciu pełnego konta administratora Cisco WebEx dla swojej organizacji. Zostanie wyświetlona strona błędu z informacją, że nie można skontaktować się z lokacją, ale jest to normalne.
 
-        :::image type="content" source="./media/cisco-webex-provisioning-tutorial/test.png" alt-text="Zrzut ekranu przedstawiający menu w Azure Portal. W obszarze Zarządzanie aprowizacji jest wyróżnione." border="false":::
+        :::image type="content" source="./media/cisco-webex-provisioning-tutorial/test.png" alt-text="Zrzut ekranu przedstawiający stronę sieci Web wyświetlającą komunikat o błędzie. Komunikat informuje o tym, że nie można skontaktować się z witryną i zawiera kilka porad dotyczących rozwiązywania problemów." border="false":::
  
     * Skopiuj wartość wygenerowanego tokenu okaziciela z adresu URL, który został wyróżniony poniżej. Ten token jest ważny przez 365 dni.
         
-        :::image type="content" source="./media/cisco-webex-provisioning-tutorial/test1.png" alt-text="Zrzut ekranu przedstawiający menu w Azure Portal. W obszarze Zarządzanie aprowizacji jest wyróżnione." border="false":::
+        :::image type="content" source="./media/cisco-webex-provisioning-tutorial/test1.png" alt-text="Zrzut ekranu przedstawiający Long U R L. część adresu jest nierozpoznawalny, ale jest wyróżniony i oznaczony tokenem okaziciela." border="false":::
 
 7. Po wypełnieniu pól przedstawionych w kroku 5 kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z usługą Cisco WebEx. Jeśli połączenie nie powiedzie się, upewnij się, że konto Cisco WebEx ma uprawnienia administratora, a następnie spróbuj ponownie.
 
@@ -119,11 +119,11 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do programu Cisco WebEx**.
 
-    :::image type="content" source="./media/cisco-webex-provisioning-tutorial/usermapping.png" alt-text="Zrzut ekranu przedstawiający menu w Azure Portal. W obszarze Zarządzanie aprowizacji jest wyróżnione." border="false":::
+    :::image type="content" source="./media/cisco-webex-provisioning-tutorial/usermapping.png" alt-text="Zrzut ekranu przedstawiający sekcję mapowania w Azure Portal. W obszarze Nazwa zsynchronizuj Azure Active Directory użytkownicy z CiscoSpark jest wyróżniony." border="false":::
 
 11. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do Cisco WebEx w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane w celu dopasowania do kont użytkowników w programie Cisco WebEx for Update. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-    :::image type="content" source="./media/cisco-webex-provisioning-tutorial/usermappingattributes.png" alt-text="Zrzut ekranu przedstawiający menu w Azure Portal. W obszarze Zarządzanie aprowizacji jest wyróżnione." border="false":::
+    :::image type="content" source="./media/cisco-webex-provisioning-tutorial/usermappingattributes.png" alt-text="Zrzut ekranu sekcji mapowania atrybutów przedstawiający atrybuty Azure Active Directory, odpowiednie atrybuty CiscoSpark i pasujący stan." border="false":::
 
 12. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -148,7 +148,7 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 * Cisco WebEx jest obecnie w fazie testowania wczesnego (EFT) firmy Cisco. Aby uzyskać więcej informacji, skontaktuj się z [zespołem pomocy technicznej firmy Cisco](https://www.webex.co.in/support/support-overview.html). 
 * Więcej informacji na temat konfiguracji Cisco WebEx można znaleźć [w dokumentacji firmy](https://help.webex.com/en-us/aumpbz/Synchronize-Azure-Active-Directory-Users-into-cisco-webex-Control-Hub)Cisco.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

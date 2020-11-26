@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: 250e95b33b985aedcc1b1537f57338d29e848451
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: c596b0d218c0b935fa1f3e971067160e52d87af1
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96020215"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183128"
 ---
 # <a name="tutorial-access-azure-storage-from-a-web-app"></a>Samouczek: uzyskiwanie dostępu do usługi Azure Storage z poziomu aplikacji sieci Web
 
@@ -23,7 +23,7 @@ Dowiedz się, jak uzyskać dostęp do usługi Azure Storage dla aplikacji sieci 
 
 :::image type="content" alt-text="Diagram przedstawiający sposób uzyskiwania dostępu do magazynu." source="./media/scenario-secure-app-access-storage/web-app-access-storage.svg" border="false":::
 
-Chcesz dodać dostęp do płaszczyzny danych platformy Azure (Azure Storage, Azure SQL Database, Azure Key Vault lub innych usług) z aplikacji sieci Web. Możesz użyć klucza współużytkowanego, ale musisz się martwić o bezpieczeństwo operacyjne użytkowników, którzy mogą tworzyć, wdrażać i zarządzać wpisami tajnymi. Możliwe jest również, że klucz można zaewidencjonować w serwisie GitHub, którego hakerzy wiedzą, jak przeprowadzić skanowanie. Bezpieczniejszym sposobem zapewnienia dostępu aplikacji sieci Web do danych jest użycie [tożsamości zarządzanych](/azure/active-directory/managed-identities-azure-resources/overview).
+Chcesz dodać dostęp do płaszczyzny danych platformy Azure (Azure Storage, Azure SQL Database, Azure Key Vault lub innych usług) z aplikacji sieci Web. Możesz użyć klucza współużytkowanego, ale musisz się martwić o bezpieczeństwo operacyjne użytkowników, którzy mogą tworzyć, wdrażać i zarządzać wpisami tajnymi. Możliwe jest również, że klucz można zaewidencjonować w serwisie GitHub, którego hakerzy wiedzą, jak przeprowadzić skanowanie. Bezpieczniejszym sposobem zapewnienia dostępu aplikacji sieci Web do danych jest użycie [tożsamości zarządzanych](../active-directory/managed-identities-azure-resources/overview.md).
 
 Zarządzana tożsamość z usługi Azure Active Directory (Azure AD) umożliwia App Service dostępu do zasobów za pośrednictwem kontroli dostępu opartej na rolach (RBAC), bez konieczności używania poświadczeń aplikacji. Po przypisaniu zarządzanej tożsamości do aplikacji sieci Web, platforma Azure bierze pod uwagę tworzenie i dystrybucję certyfikatu. Osoby nie muszą martwić się o zarządzanie wpisami tajnymi lub poświadczeniami aplikacji.
 
@@ -87,7 +87,7 @@ Aby utworzyć konto magazynu ogólnego przeznaczenia w wersji 2 w Azure Portal, 
 
 1. Wybierz pozycję **Przejrzyj i utwórz**, aby przejrzeć ustawienia konta magazynu i utworzyć konto.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 Aby utworzyć kontener Blob Storage w usłudze Azure Storage, wykonaj następujące kroki.
 
@@ -285,7 +285,7 @@ static public async Task UploadBlob(string accountName, string containerName, st
 }
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli skończysz pracę z tym samouczkiem i nie potrzebujesz już aplikacji sieci Web ani skojarzonych zasobów, [Wyczyść utworzone zasoby](scenario-secure-app-clean-up-resources.md).
 

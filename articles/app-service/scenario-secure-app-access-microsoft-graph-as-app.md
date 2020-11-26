@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: a7b8ca309bf5710ddbd88413935bef5e97a1ed9f
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: bdd6dbf790bcf2ec97be33504e51ca3db2eb3ef7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95999675"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182992"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-app"></a>Samouczek: dostęp do Microsoft Graph z zabezpieczonej aplikacji jako aplikacji
 
@@ -23,7 +23,7 @@ Dowiedz się, jak uzyskać dostęp do Microsoft Graph z aplikacji sieci Web dzia
 
 :::image type="content" alt-text="Diagram przedstawiający dostęp do Microsoft Graph." source="./media/scenario-secure-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
 
-Chcesz wywołać Microsoft Graph aplikacji sieci Web. Bezpiecznym sposobem zapewnienia dostępu aplikacji sieci Web do danych jest użycie [tożsamości zarządzanej przypisanej do systemu](/azure/active-directory/managed-identities-azure-resources/overview). Zarządzana tożsamość z Azure Active Directory umożliwia App Service dostępu do zasobów za pośrednictwem kontroli dostępu opartej na rolach (RBAC), bez konieczności korzystania z poświadczeń aplikacji. Po przypisaniu zarządzanej tożsamości do aplikacji sieci Web, platforma Azure bierze pod uwagę tworzenie i dystrybucję certyfikatu. Nie musisz martwić się o zarządzanie wpisami tajnymi lub poświadczeniami aplikacji.
+Chcesz wywołać Microsoft Graph aplikacji sieci Web. Bezpiecznym sposobem zapewnienia dostępu aplikacji sieci Web do danych jest użycie [tożsamości zarządzanej przypisanej do systemu](../active-directory/managed-identities-azure-resources/overview.md). Zarządzana tożsamość z Azure Active Directory umożliwia App Service dostępu do zasobów za pośrednictwem kontroli dostępu opartej na rolach (RBAC), bez konieczności korzystania z poświadczeń aplikacji. Po przypisaniu zarządzanej tożsamości do aplikacji sieci Web, platforma Azure bierze pod uwagę tworzenie i dystrybucję certyfikatu. Nie musisz martwić się o zarządzanie wpisami tajnymi lub poświadczeniami aplikacji.
 
 Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
@@ -204,7 +204,7 @@ public async Task OnGetAsync()
 }
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli skończysz pracę z tym samouczkiem i nie potrzebujesz już aplikacji sieci Web ani skojarzonych zasobów, [Wyczyść utworzone zasoby](scenario-secure-app-clean-up-resources.md).
 

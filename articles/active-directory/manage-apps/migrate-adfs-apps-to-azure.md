@@ -14,14 +14,14 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1012ae32f679d23f16a7483415657596d027cc01
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: ab3b655d59e2cb8c6773fa1a34a08638e6926475
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658829"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180663"
 ---
-# <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Przeniesienie uwierzytelniania aplikacji z Active Directory Federation Services do Azure Active Directory
+# <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Przenoszenie uwierzytelniania aplikacji z usługi Active Directory Federation Services do usługi Azure Active Directory
 
 [Azure Active Directory (Azure AD)](../fundamentals/active-directory-whatis.md) oferuje uniwersalną platformę do obsługi tożsamości, która umożliwia osobom, partnerom i klientom pojedynczą tożsamość dostęp do aplikacji i współpracę z dowolnego platformy i urządzenia. Usługa Azure AD ma [pełen pakiet funkcji zarządzania tożsamościami](../fundamentals/active-directory-whatis.md). Ujednolicenie uwierzytelniania aplikacji i autoryzacji do usługi Azure AD zapewnia korzyści oferowane przez te funkcje.
 
@@ -320,7 +320,7 @@ Selektor użytkownika/grupy to reguła, która umożliwia Wymuszanie uwierzyteln
 
 Określanie reguł MFA dla użytkownika lub grupy w usłudze Azure AD:
 
-1. Utwórz [nowe zasady dostępu warunkowego](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json).
+1. Utwórz [nowe zasady dostępu warunkowego](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json).
 
 2. Wybierz pozycję **Przypisania**. Dodaj użytkowników lub grupy, dla których chcesz wymusić uwierzytelnianie MFA.
 
@@ -333,7 +333,7 @@ Określanie reguł MFA dla użytkownika lub grupy w usłudze Azure AD:
 
 Określ reguły uwierzytelniania MFA dla niezarejestrowanego urządzenia w usłudze Azure AD:
 
-1. Utwórz [nowe zasady dostępu warunkowego](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json).
+1. Utwórz [nowe zasady dostępu warunkowego](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json).
 
 2. Ustaw **przydziały** dla **wszystkich użytkowników**.
 
@@ -348,7 +348,7 @@ Gdy ustawisz opcję dla wielu kontrolek, aby wymagać jednej z wybranych kontrol
 
 Określ reguły MFA na podstawie lokalizacji użytkownika w usłudze Azure AD:
 
-1. Utwórz [nowe zasady dostępu warunkowego](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json).
+1. Utwórz [nowe zasady dostępu warunkowego](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json).
 
 1. Ustaw **przydziały** dla **wszystkich użytkowników**.
 
@@ -386,7 +386,7 @@ AD FS 2016 ma kilka wbudowanych zasad kontroli dostępu, spośród których moż
 ![Usługa Azure AD oparta na kontroli dostępu](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-1.png)
 
 
-Aby zaimplementować wbudowane zasady w usłudze Azure AD, można użyć [nowych zasad dostępu warunkowego](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json) i skonfigurować kontrolę dostępu lub użyć niestandardowego projektanta zasad w AD FS 2016, aby skonfigurować zasady kontroli dostępu. Edytor reguł zawiera wyczerpującą listę opcji zezwalania i z wyjątkiem tych, które mogą pomóc w wprowadzeniu wszystkich rodzajów permutacji.
+Aby zaimplementować wbudowane zasady w usłudze Azure AD, można użyć [nowych zasad dostępu warunkowego](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json) i skonfigurować kontrolę dostępu lub użyć niestandardowego projektanta zasad w AD FS 2016, aby skonfigurować zasady kontroli dostępu. Edytor reguł zawiera wyczerpującą listę opcji zezwalania i z wyjątkiem tych, które mogą pomóc w wprowadzeniu wszystkich rodzajów permutacji.
 
 ![Zasady kontroli dostępu w usłudze Azure AD](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-2.png)
 

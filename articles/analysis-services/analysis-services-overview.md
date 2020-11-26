@@ -8,12 +8,12 @@ ms.date: 10/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: a05da5fae748e799d7965c51415956c2e2a524b1
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d8c7965a1d77d443b538392a4c190a8f578d8e18
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201515"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183213"
 ---
 # <a name="what-is-azure-analysis-services"></a>Co to są usługi Azure Analysis Services?
 
@@ -79,7 +79,7 @@ Usługa Azure Analysis Services jest obsługiwana w regionach na całym świecie
 
 ### <a name="americas"></a>Ameryka Północna i Południowa
 
-|Region  | Obsługiwane plany | Repliki zapytania (tylko plany Standard) |
+|Region (Region)  | Obsługiwane plany | Repliki zapytania (tylko plany Standard) |
 |---------|---------|:---------:|
 |Brazil South     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Kanada Środkowa    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
@@ -99,7 +99,7 @@ Usługa Azure Analysis Services jest obsługiwana w regionach na całym świecie
 
 ### <a name="europe"></a>Europa
 
-|Region  | Obsługiwane plany | Repliki zapytania (tylko plany Standard) |
+|Region (Region)  | Obsługiwane plany | Repliki zapytania (tylko plany Standard) |
 |---------|---------|:---------:|
 |Europa Północna     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
 |Europa Północna     |    S8v2, S9v2      |    3     |
@@ -109,12 +109,12 @@ Usługa Azure Analysis Services jest obsługiwana w regionach na całym świecie
 
 ### <a name="asia-pacific"></a>Azja i Pacyfik 
 
-|Region  | Obsługiwane plany | Repliki zapytania (tylko plany Standard) |
+|Region (Region)  | Obsługiwane plany | Repliki zapytania (tylko plany Standard) |
 |---------|---------|:---------:|
 |Australia Wschodnia     |    B1, B2, S0, S1, S2, S4     |    3     |
 |Australia Wschodnia     |    S8v2, S9v2    |    1     |
 |Australia Południowo-Wschodnia     | B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Japonia Wschodnia     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Japan East     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Southeast Asia     |     B1, B2, S0, S1, S2, S4, D1     |   1      |
 |Southeast Asia     |     S8v2, S9v2     |   1      |
 |Indie Zachodnie     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
@@ -160,11 +160,11 @@ Poziom zgodności dotyczy zachowań specyficznych dla wersji w aparacie Analysis
 
 ## <a name="your-data-is-secure"></a>Twoje dane są bezpieczne
 
-Usługa Azure Analysis Services oferuje zabezpieczenia danych poufnych na wielu poziomach. Usługi Analysis Services, jako usługi platformy Azure, udostępniają automatycznie włączony poziom **Podstawowy** ataków typu DDoS (rozproszona odmowa usługi) w ramach platformy Azure. Aby dowiedzieć się więcej, zobacz [Azure DDoS Protection Standard overview (Omówienie usługi Azure DDoS Protection w warstwie Standardowa)](../virtual-network/ddos-protection-overview.md). 
+Usługa Azure Analysis Services oferuje zabezpieczenia danych poufnych na wielu poziomach. Usługi Analysis Services, jako usługi platformy Azure, udostępniają automatycznie włączony poziom **Podstawowy** ataków typu DDoS (rozproszona odmowa usługi) w ramach platformy Azure. Aby dowiedzieć się więcej, zobacz [Azure DDoS Protection Standard overview (Omówienie usługi Azure DDoS Protection w warstwie Standardowa)](../ddos-protection/ddos-protection-overview.md). 
 
 Na poziomie serwera usługi Analysis Services oferują zaporę, uwierzytelnianie platformy Azure, role administratora serwera i szyfrowanie po stronie serwera. Na poziomie modelu danych zabezpieczenia ról użytkownika, na poziomie wiersza i na poziomie zapewniają bezpieczeństwo danych, które będą widoczne tylko dla użytkowników, którzy powinni je widzieć.
 
-### <a name="firewall"></a>Zapora
+### <a name="firewall"></a>Firewall
 
 Zapora usługi Azure Analysis Services blokuje wszystkie połączenia klienta inne niż adresy IP określone w regułach. Domyślnie ochrona za pomocą zapory nie jest włączana w przypadku nowych serwerów. Zalecane jest włączenie ochrony za pomocą zapory i skonfigurowanie zasad w ramach skryptu inicjowania obsługi serwera lub w portalu natychmiast po utworzeniu serwera. Skonfiguruj reguły, określając dozwolone adresy IP przy użyciu poszczególnych adresów IP klientów lub zakresu. Połączenia usługi Power BI również mogą być dozwolone lub zablokowane. Zaporę i reguły należy skonfigurować w portalu lub przy użyciu programu PowerShell. Aby dowiedzieć się więcej, zobacz [Configure a server firewall](analysis-services-qs-firewall.md) (Konfigurowanie zapory serwera).
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: bc3352dd57a76cbb0b38455adfa11987ec93781a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d73cf3336afad83fadf6f56606161f523e202280
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003025"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180544"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Publikowanie aplikacji lokalnych dla użytkowników zdalnych za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -95,7 +95,7 @@ Serwer proxy aplikacji działa z aplikacjami korzystającymi z następującego n
 
 Serwer proxy aplikacji obsługuje również następujące protokoły uwierzytelniania z integracją innej firmy lub w określonych scenariuszach konfiguracji:
 
-* [**Uwierzytelnianie oparte na nagłówkach**](/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-headers). Ta metoda logowania używa usługi uwierzytelniania innej firmy o nazwie PingAccess i jest używana, gdy aplikacja używa nagłówków na potrzeby uwierzytelniania. W tym scenariuszu uwierzytelnianie jest obsługiwane przez PingAccess.
+* [**Uwierzytelnianie oparte na nagłówkach**](./application-proxy-configure-single-sign-on-with-headers.md). Ta metoda logowania używa usługi uwierzytelniania innej firmy o nazwie PingAccess i jest używana, gdy aplikacja używa nagłówków na potrzeby uwierzytelniania. W tym scenariuszu uwierzytelnianie jest obsługiwane przez PingAccess.
 * [**Uwierzytelnianie oparte na formularzach lub hasłach**](application-proxy-configure-single-sign-on-password-vaulting.md). Przy użyciu tej metody uwierzytelniania Użytkownicy logują się do aplikacji przy użyciu nazwy użytkownika i hasła podczas pierwszego uzyskiwania do niego dostępu. Po pierwszym zalogowaniu usługa Azure AD dostarcza nazwę użytkownika i hasło do aplikacji. W tym scenariuszu uwierzytelnianie jest obsługiwane przez usługę Azure AD.
 * [**Uwierzytelnianie SAML**](application-proxy-configure-single-sign-on-on-premises-apps.md). Logowanie jednokrotne oparte na języku SAML jest obsługiwane w przypadku aplikacji korzystających z protokołów SAML 2,0 lub WS-Federation. Za pomocą logowania jednokrotnego SAML usługa Azure AD uwierzytelnia się w aplikacji przy użyciu konta usługi Azure AD użytkownika.
 

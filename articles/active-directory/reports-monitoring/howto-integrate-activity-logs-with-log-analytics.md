@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01f762ef1fa3a997c01873df02abf87362b8c06f
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 85e6a66f4520f12278266203211e1d1ae224c97f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055957"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180459"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integrowanie dzienników usługi Azure AD z dziennikami Azure Monitor
 
@@ -46,7 +46,7 @@ Dzienniki aktywności inspekcji i dzienniki aktywności logowania można kierowa
 
 * **Dzienniki inspekcji**: [raport działań dotyczący dzienników inspekcji](concept-audit-logs.md) zapewnia dostęp do historii wszystkich zadań wykonanych w dzierżawie.
 * **Dzienniki logowania**: przy użyciu [raportu działań dotyczącego logowań](concept-sign-ins.md) można określić, kto wykonał zadania zgłoszone w dziennikach inspekcji.
-* **Dzienniki aprowizacji**: w przypadku [dzienników aprowizacji](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics)można monitorować, którzy użytkownicy zostali utworzeni, zaktualizowani i usunięci we wszystkich aplikacjach innych firm. 
+* **Dzienniki aprowizacji**: w przypadku [dzienników aprowizacji](../app-provisioning/application-provisioning-log-analytics.md)można monitorować, którzy użytkownicy zostali utworzeni, zaktualizowani i usunięci we wszystkich aplikacjach innych firm. 
 
 > [!NOTE]
 > Dzienniki aktywności inspekcji i logowania związane z funkcjami B2C nie są obecnie obsługiwane.
@@ -69,7 +69,7 @@ Korzystanie z tej funkcji wymaga licencji na Azure AD — wersja Premium P1 lub 
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 
-2. Wybierz **Azure Active Directory**pozycję  >  **Ustawienia diagnostyczne**Azure Active Directory  ->  **Dodaj ustawienie diagnostyczne**. Możesz również wybrać opcję **Eksportuj ustawienia** na stronie **dzienniki inspekcji** lub **logowania** , aby przejść do strony Konfiguracja ustawień diagnostycznych.  
+2. Wybierz **Azure Active Directory** pozycję  >  **Ustawienia diagnostyczne** Azure Active Directory  ->  **Dodaj ustawienie diagnostyczne**. Możesz również wybrać opcję **Eksportuj ustawienia** na stronie **dzienniki inspekcji** lub **logowania** , aby przejść do strony Konfiguracja ustawień diagnostycznych.  
     
 3. W menu **Ustawienia diagnostyczne** zaznacz pole wyboru **Wyślij do log Analytics obszar roboczy** , a następnie wybierz pozycję **Konfiguruj**.
 

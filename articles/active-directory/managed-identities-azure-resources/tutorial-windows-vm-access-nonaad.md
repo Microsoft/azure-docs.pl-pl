@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85da26c9ff302c526ea6210dde776f3a34929ccd
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: fa17a18de8e71b099d6ed717974486203c4379f4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360384"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180510"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Samouczek: używanie przypisanej przez system tożsamości zarządzanej maszyny wirtualnej systemu Windows w celu uzyskania dostępu do usługi Azure Key Vault 
 
@@ -40,7 +40,7 @@ Omawiane kwestie:
 - Konto platformy Azure, [Utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 - Uprawnienia "właściciel" w odpowiednim zakresie (subskrypcji lub grupy zasobów) do wykonywania wymaganych kroków tworzenia zasobów i zarządzania rolami. Jeśli potrzebujesz pomocy dotyczącej przypisania roli, zobacz [Korzystanie z kontroli dostępu opartej na rolach do zarządzania dostępem do zasobów subskrypcji platformy Azure](../../role-based-access-control/role-assignments-portal.md).
 - Potrzebna jest również maszyna wirtualna z systemem Windows z włączonymi tożsamościami zarządzanymi przez system.
-  - Jeśli musisz utworzyć maszynę wirtualną dla tego samouczka, możesz wykonać czynności opisane w artykule zatytułowanym [Tworzenie maszyny wirtualnej z włączoną tożsamością przypisaną przez system](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity)
+  - Jeśli musisz utworzyć maszynę wirtualną dla tego samouczka, możesz wykonać czynności opisane w artykule zatytułowanym [Tworzenie maszyny wirtualnej z włączoną tożsamością przypisaną przez system](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity)
 
 ## <a name="create-a-key-vault"></a>Tworzenie magazynu kluczy  
 
@@ -72,7 +72,7 @@ Zarządzaną tożsamością używaną przez maszynę wirtualną musi być udziel
    ![ekran tworzenia zasad dostępu w magazynie kluczy](./media/msi-tutorial-windows-vm-access-nonaad/key-vault-access-policy.png)
 
 1. W sekcji **Dodawanie zasad dostępu** w obszarze **Konfiguruj z szablonu (opcjonalnie)** wybierz pozycję **Zarządzanie kluczami tajnymi** z menu rozwijanego.
-1. Wybierz opcję **Wybierz podmiot zabezpieczeń** , a następnie w polu wyszukiwania wprowadź nazwę wcześniej utworzonej maszyny wirtualnej.  Na liście wyników wybierz maszynę wirtualną, a następnie wybierz **pozycję Wybierz**.
+1. Wybierz opcję **Wybierz podmiot zabezpieczeń**, a następnie w polu wyszukiwania wprowadź nazwę wcześniej utworzonej maszyny wirtualnej.  Na liście wyników wybierz maszynę wirtualną, a następnie wybierz **pozycję Wybierz**.
 1. Wybierz pozycję **Dodaj**.
 1. Wybierz pozycję **Zapisz**.
 
@@ -86,7 +86,7 @@ Następnie Dodaj klucz tajny do Key Vault, aby można było go później pobrać
 1. Na ekranie **Tworzenie wpisu tajnego** z **opcji przekazywania** pozostaw **ręcznie** zaznaczone.
 1. Wprowadź nazwę i wartość wpisu tajnego.  Wartość może być dowolna. 
 1. Pozostaw pustą datę aktywacji i datę wygaśnięcia oraz zostaw opcję **Włączone** ustawioną na wartość **Tak**. 
-1. Kliknij pozycję **Utwórz** , aby utworzyć wpis tajny.
+1. Kliknij pozycję **Utwórz**, aby utworzyć wpis tajny.
 
    ![Utwórz klucz tajny](./media/msi-tutorial-windows-vm-access-nonaad/create-secret.png)
 
@@ -96,7 +96,7 @@ W tej sekcji pokazano, jak uzyskać token dostępu przy użyciu tożsamości mas
 
 Najpierw użyjemy przypisanej przez system tożsamości zarządzanej maszyny wirtualnej, aby uzyskać token dostępu i przeprowadzić uwierzytelnianie w usłudze Key Vault:
  
-1. W portalu przejdź do pozycji **Maszyny wirtualne** , a następnie przejdź do swojej maszyny wirtualnej z systemem Windows i w pozycji **Przegląd** kliknij przycisk **Połącz**.
+1. W portalu przejdź do pozycji **Maszyny wirtualne**, a następnie przejdź do swojej maszyny wirtualnej z systemem Windows i w pozycji **Przegląd** kliknij przycisk **Połącz**.
 2. Wprowadź **nazwę użytkownika** i **hasło** , które zostały dodane podczas tworzenia **maszyny wirtualnej z systemem Windows**.  
 3. Teraz, po utworzeniu **Podłączanie pulpitu zdalnego** z maszyną wirtualną, Otwórz program PowerShell w sesji zdalnej.  
 4. W programie PowerShell wywołaj żądanie internetowe w dzierżawie, aby uzyskać token dla hosta lokalnego w konkretnym porcie dla maszyny wirtualnej.  
@@ -133,9 +133,9 @@ Odpowiedź będzie wyglądać następująco:
 
 Po pobraniu wpisu tajnego z usługi Key Vault możesz użyć go do uwierzytelnienia w usłudze wymagającej nazwy i hasła.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Aby wyczyścić zasoby, odwiedź [Azure Portal](https://portal.azure.com), wybierz pozycję **grupy zasobów** , Znajdź i wybierz grupę zasobów, która została utworzona w procesie tego samouczka (na przykład `mi-test` ), a następnie użyj polecenia **Usuń grupę zasobów** .
+Aby wyczyścić zasoby, odwiedź [Azure Portal](https://portal.azure.com), wybierz pozycję **grupy zasobów**, Znajdź i wybierz grupę zasobów, która została utworzona w procesie tego samouczka (na przykład `mi-test` ), a następnie użyj polecenia **Usuń grupę zasobów** .
 
 Alternatywnie możesz to zrobić za pomocą [programu PowerShell lub interfejsu wiersza polecenia](../../azure-resource-manager/management/delete-resource-group.md)
 
@@ -144,4 +144,4 @@ Alternatywnie możesz to zrobić za pomocą [programu PowerShell lub interfejsu 
 W tym samouczku przedstawiono sposób używania tożsamości zarządzanej przypisanej przez system Windows VM do uzyskiwania dostępu do Azure Key Vault.  Dowiedz się więcej o usłudze Azure Key Vault:
 
 > [!div class="nextstepaction"]
->[Azure Key Vault](../../key-vault/general/overview.md)
+>[Usługa Azure Key Vault](../../key-vault/general/overview.md)

@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5f96b48b8fec07ab207ea3962a201bbff68a5339
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8033235cde5b7ebe298bb1fa8d4222e208df998b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92200852"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183009"
 ---
 # <a name="azure-app-service-plan-overview"></a>Plan usługi Azure App Service — omówienie
 
@@ -27,7 +27,7 @@ Po utworzeniu planu App Service w określonym regionie (na przykład Europa Zach
 _Warstwa cenowa_ planu App Service określa, jakie funkcje App Service uzyskasz i ile płacisz za plan. Warstwy cenowe dzielą się na kilka kategorii:
 
 - **Udostępnione obliczenia**: **bezpłatne** i **udostępnione**, dwie warstwy podstawowe, URUCHAMIAJĄ aplikację na tej samej maszynie wirtualnej platformy Azure, co inne App Service aplikacje, w tym aplikacje innych klientów. Te warstwy określają limity przydziałów procesora CPU dla każdej aplikacji uruchamianej na udostępnionych zasobach, a zasobów nie można skalować w poziomie.
-- **Dedykowane obliczenia**: warstwy **Basic**, **Standard**, **Premium**, **PremiumV2**i **PremiumV3** uruchamiają aplikacje na dedykowanych maszynach wirtualnych platformy Azure. Jedynie aplikacje w tym samym planie usługi App Service korzystają z tych samych zasobów obliczeniowych. Im wyższa warstwa, tym większa liczba wystąpień maszyn wirtualnych dostępnych na potrzeby zwiększania skali w poziomie.
+- **Dedykowane obliczenia**: warstwy **Basic**, **Standard**, **Premium**, **PremiumV2** i **PremiumV3** uruchamiają aplikacje na dedykowanych maszynach wirtualnych platformy Azure. Jedynie aplikacje w tym samym planie usługi App Service korzystają z tych samych zasobów obliczeniowych. Im wyższa warstwa, tym większa liczba wystąpień maszyn wirtualnych dostępnych na potrzeby zwiększania skali w poziomie.
 - **Izolowane**: Ta warstwa służy do uruchamiania dedykowanych maszyn wirtualnych platformy Azure w dedykowanych sieciach wirtualnych platformy Azure. Zapewnia izolację sieci na poziomie izolacji obliczeniowej dla aplikacji. Ta warstwa daje największe możliwości zwiększania skali w poziomie.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
@@ -37,13 +37,13 @@ Każda warstwa udostępnia również określony podzbiór funkcji App Service. T
 <a name="new-pricing-tier-premiumv3"></a>
 
 > [!NOTE]
-> Nowa warstwa cenowa **PremiumV3** gwarantuje maszynom z szybszymi procesorami (minimalny 195 [ACU](https://docs.microsoft.com/azure/virtual-machines/acu) na wirtualny procesor CPU), magazyn SSD i czterokrotny stosunek pamięci na rdzeń w porównaniu z warstwą **standardowa** . Usługa **PremiumV3** obsługuje również wyższą skalę dzięki większej liczbie wystąpień, jednocześnie zapewniając jednocześnie wszystkie zaawansowane możliwości dostępne w warstwie **standardowa** . Wszystkie funkcje dostępne w istniejącej warstwie **PremiumV2** są zawarte w **PremiumV3**.
+> Nowa warstwa cenowa **PremiumV3** gwarantuje maszynom z szybszymi procesorami (minimalny 195 [ACU](../virtual-machines/acu.md) na wirtualny procesor CPU), magazyn SSD i czterokrotny stosunek pamięci na rdzeń w porównaniu z warstwą **standardowa** . Usługa **PremiumV3** obsługuje również wyższą skalę dzięki większej liczbie wystąpień, jednocześnie zapewniając jednocześnie wszystkie zaawansowane możliwości dostępne w warstwie **standardowa** . Wszystkie funkcje dostępne w istniejącej warstwie **PremiumV2** są zawarte w **PremiumV3**.
 >
 > Podobnie jak w przypadku innych dedykowanych warstw, dla tej warstwy są dostępne trzy rozmiary maszyn wirtualnych:
 >
 > - Małe (2 rdzenie procesora CPU, 8 GiB pamięci) 
 > - Średni (4 rdzenie procesora CPU, 16 GiB pamięci) 
-> - Duże (8 rdzeni procesora CPU, 32 GiB pamięci)  
+> - Duże (8 rdzeni procesora CPU, 32 GiB pamięci)  
 >
 > Aby uzyskać informacje o cenach **PremiumV3** , zobacz [Cennik usługi App Service](https://azure.microsoft.com/pricing/details/app-service/).
 >

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/16/2020
 ms.custom: subject-armqs, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: c8542bfe3d1393917a63e4a1feae7d6dfc223031
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5be4cea7d8ddb00a4c8a22a696dbdce1c062765c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746184"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183026"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>Szybki Start: Tworzenie aplikacji App Service przy użyciu szablonu ARM
 
@@ -21,13 +21,13 @@ Rozpocznij pracę z [Azure App Service](overview.md) , wdrażając aplikację w 
 
  [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w witrynie Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
-Aby wdrożyć system w systemie **Linux** , użyj następującego przycisku:
+Aby wdrożyć system w systemie **Linux**, użyj następującego przycisku:
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-linux%2Fazuredeploy.json)
 
-Użyj następującego przycisku, aby wdrożyć w **systemie Windows** :
+Użyj następującego przycisku, aby wdrożyć w **systemie Windows**:
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-windows%2Fazuredeploy.json)
 
@@ -51,12 +51,12 @@ Ten szablon zawiera kilka parametrów, które są wstępnie zdefiniowane dla wyg
 
 | Parametry | Typ    | Wartość domyślna                | Opis |
 |------------|---------|------------------------------|-------------|
-| webAppName | string  | "webApp- **[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)** " | Nazwa aplikacji |
-| location   | string  | "[[resourceName (). Location](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)]" | Region aplikacji |
-| sku        | string  | Nacionięcie                         | Rozmiar wystąpienia (F1 = warstwa Bezpłatna) |
-| language   | string  | architektury                       | Stos języka programowania (.NET, php, Node, html) |
+| webAppName | ciąg  | "webApp- **[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)** " | Nazwa aplikacji |
+| location   | ciąg  | "[[resourceName (). Location](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)]" | Region aplikacji |
+| sku        | ciąg  | Nacionięcie                         | Rozmiar wystąpienia (F1 = warstwa Bezpłatna) |
+| language   | ciąg  | architektury                       | Stos języka programowania (.NET, php, Node, html) |
 | helloWorld | boolean | Fałsz                        | True = Wdróż aplikację "Hello world" |
-| repoUrl    | string  | " "                          | Zewnętrzne repozytorium git (opcjonalnie) |
+| repoUrl    | ciąg  | " "                          | Zewnętrzne repozytorium git (opcjonalnie) |
 ::: zone-end
 ::: zone pivot="platform-linux"
 Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-app-service-docs-linux). Wdraża Plan App Service i aplikację App Service w systemie Linux. Są one zgodne ze wszystkimi obsługiwanymi językami programowania w App Service.
@@ -72,16 +72,16 @@ Ten szablon zawiera kilka parametrów, które są wstępnie zdefiniowane dla wyg
 
 | Parametry | Typ    | Wartość domyślna                | Opis |
 |------------|---------|------------------------------|-------------|
-| webAppName | string  | "webApp- **[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)** " | Nazwa aplikacji |
-| location   | string  | "[[resourceName (). Location](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)]" | Region aplikacji |
-| sku        | string  | Nacionięcie                         | Rozmiar wystąpienia (F1 = warstwa Bezpłatna) |
-| linuxFxVersion   | string  | "DOTNETCORE&#124;3,0        | "Stos języka programowania &#124; wersja" |
-| repoUrl    | string  | " "                          | Zewnętrzne repozytorium git (opcjonalnie) |
+| webAppName | ciąg  | "webApp- **[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)** " | Nazwa aplikacji |
+| location   | ciąg  | "[[resourceName (). Location](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)]" | Region aplikacji |
+| sku        | ciąg  | Nacionięcie                         | Rozmiar wystąpienia (F1 = warstwa Bezpłatna) |
+| linuxFxVersion   | ciąg  | "DOTNETCORE&#124;3,0        | "Stos języka programowania &#124; wersja" |
+| repoUrl    | ciąg  | " "                          | Zewnętrzne repozytorium git (opcjonalnie) |
 
 ---
 ::: zone-end
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 Interfejs wiersza polecenia platformy Azure jest używany tutaj do wdrożenia szablonu. Można również użyć interfejsu API Azure Portal, Azure PowerShell i REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../azure-resource-manager/templates/deploy-powershell.md).
 
@@ -126,7 +126,7 @@ Aby wdrożyć inny stos języka, zaktualizuj `linuxFxVersion` odpowiednie warto�
 
 Przejdź do `http://<app_name>.azurewebsites.net/` i sprawdź, czy został on utworzony.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli grupa zasobów nie będzie już konieczna, [Usuń ją](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group).
 
@@ -145,7 +145,7 @@ Jeśli grupa zasobów nie będzie już konieczna, [Usuń ją](../azure-resource-
 > [PHP z bazą danych MySQL](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
-> [Nawiązywanie połączenia z usługą Azure SQL Database przy użyciu języka Java](../azure-sql/database/connect-query-java.md?toc=%252fazure%252fjava%252ftoc.json)
+> [Nawiązywanie połączenia z usługą Azure SQL Database przy użyciu języka Java](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
 
 > [!div class="nextstepaction"]
 > [Mapowanie domeny niestandardowej](app-service-web-tutorial-custom-domain.md)

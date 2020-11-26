@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: memildin
-ms.openlocfilehash: 7f5f920f14a556d63f433b36658d7b265d51a28d
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 033f06aa61baf04b5c74fbbe9cc8f925d5d4e3d3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340380"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182312"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alerty zabezpieczeń w Centrum zabezpieczeń Azure
 
@@ -25,7 +25,7 @@ Alerty zabezpieczeń są wyzwalane przez zaawansowane wykrywania i są dostępne
 
 ## <a name="respond-to-todays-threats"></a>Reagowanie na bieżące zagrożenia <a name="respond-threats"> </a>
 
-W ciągu ostatnich 20 lat miały miejsce istotne zmiany dotyczące charakteru występujących zagrożeń. W przeszłości firmy zwykle musiały martwić się o rozpiętie witryny sieci Web przez pojedynczych osób atakujących, którzy głównie chcą zobaczyć "co można zrobić". Obecnie osoby atakujące są znacznie bardziej zaawansowane i zorganizowane. Często mają określone cele finansowe i strategiczne. Ponadto dysponują większą ilością zasobów, ponieważ mogą być finansowane przez państwa lub zorganizowane grupy przestępcze.
+W ciągu ostatnich 20 lat miały miejsce istotne zmiany dotyczące charakteru występujących zagrożeń. W przeszłości firmy zwykle musiały martwić się o rozpiętie witryny sieci Web przez pojedynczych osób atakujących, którzy głównie chcą zobaczyć "co można zrobić". Obecnie osoby atakujące są znacznie bardziej zaawansowane i zorganizowane. Często mają określone cele finansowe i strategiczne. Posiadają również więcej zasobów dostępnych dla nich, ponieważ mogą one być finansowane według państw lub zorganizowanej przestępczości.
 
 Te zmiany mogą doprowadziły do niewcześniejszego poziomu profesjonalizmu w rangach osoby atakującej. Nie wystarcza im już wpływ na zawartość witryn internetowych. Są one teraz zainteresowane kradzieżą informacji, kont finansowych i danych prywatnych, z których mogą korzystać w celu wygenerowania środków pieniężnych na otwartym rynku lub do korzystania z określonych pozycji gospodarczych, politycznych lub wojskowych. Bardziej niepokojący od osób o motywach finansowych są atakujący, którzy naruszają bezpieczeństwo sieci, aby uszkodzić infrastrukturę lub zaszkodzić ludziom.
 
@@ -72,7 +72,7 @@ Stopień zaufania Security Center w analitycznym lub wyszukiwaniu jest średni, 
 - **Niska:** Może to być niegroźne pozytywne lub zablokowany atak.
    * Security Center nie ma wystarczającej pewności, że zamiar jest złośliwy, a działanie może być nieszkodliwe. Na przykład dziennik czyszczenie jest akcją, która może wystąpić, gdy osoba atakująca próbuje ukryć swoje ścieżki, ale w wielu przypadkach jest to procedura wykonywana przez administratorów.
    * Security Center zazwyczaj nie informuje użytkownika o zablokowaniu ataków, chyba że jest to interesujący przypadek, który sugerujemy. 
-- **Informacje:** Podczas przechodzenia do szczegółów zdarzenia związanego z bezpieczeństwem będą wyświetlane tylko alerty informacyjne lub użycie interfejsu API REST z określonym IDENTYFIKATORem alertu. Zdarzenie zwykle składa się z wielu alertów, które mogą być wyświetlane na własne potrzeby tylko w celu uzyskania informacji, ale w kontekście innych alertów może być zaufanego bliższego wyglądu. 
+- **Informacje:** Podczas przechodzenia do szczegółów zdarzenia związanego z bezpieczeństwem będą wyświetlane tylko alerty informacyjne lub użycie interfejsu API REST z określonym IDENTYFIKATORem alertu. Zdarzenie zwykle składa się z wielu alertów, a niektóre z nich mogą być wyświetlane tylko w celu uzyskania informacji, ale w kontekście innych alertów może być zaufanego bliższego wyglądu. 
 
 ## <a name="continuous-monitoring-and-assessments"></a>Ciągłe monitorowanie i oceny
 

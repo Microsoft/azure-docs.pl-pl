@@ -3,12 +3,12 @@ title: Poprawianie wydajności aplikacji platformy Azure za pomocą usługi Advi
 description: Użyj zaleceń dotyczących wydajności w Azure Advisor, aby zwiększyć szybkość i czas odpowiedzi aplikacji o krytycznym znaczeniu dla firmy.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 6a008411d4422853e6a98fad59bd4519b42a9548
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 55f5ac6784bf613170fd10060799ab5ad1290a62
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308676"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183349"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Poprawianie wydajności aplikacji platformy Azure za pomocą Azure Advisor
 
@@ -146,7 +146,7 @@ Program Advisor wykrywa konta Azure Cosmos DB, które mają ruch z regionu, któ
 
 ## <a name="configure-your-azure-cosmos-db-indexing-policy-by-using-custom-included-or-excluded-paths"></a>Konfigurowanie zasad indeksowania Azure Cosmos DB przy użyciu niestandardowych ścieżek uwzględnionych lub wykluczonych
 
-Doradca identyfikuje Azure Cosmos DB kontenery, które używają domyślnych zasad indeksowania, ale mogą korzystać z niestandardowych zasad indeksowania. To oznaczenie jest oparte na wzorcu obciążenia. Domyślne zasady indeksowania indeksów wszystkie właściwości. Niestandardowe zasady indeksowania z jawnymi dołączonymi lub wykluczonymi ścieżkami używanymi w filtrach zapytań mogą zmniejszyć liczbę jednostek ru i miejsce do magazynowania używane do indeksowania. [Dowiedz się więcej o modyfikowaniu zasad indeksu.](/azure/cosmos-db/index-policy)
+Doradca identyfikuje Azure Cosmos DB kontenery, które używają domyślnych zasad indeksowania, ale mogą korzystać z niestandardowych zasad indeksowania. To oznaczenie jest oparte na wzorcu obciążenia. Domyślne zasady indeksowania indeksów wszystkie właściwości. Niestandardowe zasady indeksowania z jawnymi dołączonymi lub wykluczonymi ścieżkami używanymi w filtrach zapytań mogą zmniejszyć liczbę jednostek ru i miejsce do magazynowania używane do indeksowania. [Dowiedz się więcej o modyfikowaniu zasad indeksu.](../cosmos-db/index-policy.md)
 
 ## <a name="set-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Ustaw rozmiar strony zapytania Azure Cosmos DB (MaxItemCount) na-1 
 

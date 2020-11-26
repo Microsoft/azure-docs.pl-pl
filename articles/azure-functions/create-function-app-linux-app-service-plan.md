@@ -3,12 +3,12 @@ title: Tworzenie aplikacji funkcji w systemie Linux z poziomu Azure Portal
 description: Dowiedz się, jak utworzyć pierwszą funkcję platformy Azure w systemie Linux przy użyciu Azure Portal.
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.openlocfilehash: 53edee15d9c9dfa66e57bb1eb03b1d8f66aa1ee2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20390239ed58e42749e9a3bae472a2f3f6324bb2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970735"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181258"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Tworzenie aplikacji funkcji w systemie Linux w planie Azure App Service
 
@@ -18,7 +18,7 @@ Usługa Azure Functions umożliwia obsługę funkcji w systemie Linux w domyśln
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
 Zaloguj się do witryny Azure Portal pod adresem <https://portal.azure.com> przy użyciu danych konta Azure.
 
@@ -44,7 +44,7 @@ Do obsługi wykonywania funkcji w systemie Linux potrzebna jest aplikacja funkcj
     |**Wersja**| Numer wersji | Wybierz wersję zainstalowanego środowiska uruchomieniowego.  |
     |**Region**| Preferowany region | Wybierz [region](https://azure.microsoft.com/regions/) znajdujący się w sąsiedztwie lub w najbliższej usłudze dostęp do funkcji. |
 
-    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-basics-linux.png" alt-text="Tworzenie aplikacji funkcji w witrynie Azure Portal":::
+    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-basics-linux.png" alt-text="Strona Podstawy":::
 
 1. Wybierz pozycję **Dalej: hosting**. Na stronie **hosting** wprowadź następujące ustawienia.
 
@@ -54,7 +54,7 @@ Do obsługi wykonywania funkcji w systemie Linux potrzebna jest aplikacja funkcj
     |**System operacyjny**| **Linux** | System operacyjny jest wstępnie wybrany na podstawie wybranego stosu środowiska uruchomieniowego, ale w razie potrzeby można zmienić to ustawienie. |
     | **[Planowanie](../azure-functions/functions-scale.md)** | **Zużycie (bezserwerowe)** | Plan hostingu określający sposób przydzielania zasobów do aplikacji funkcji. W domyślnym planie **Zużycie** zasoby są dodawane dynamicznie zgodnie z wymaganiami funkcji. W tym przypadku hostingu [bezserwerowego](https://azure.microsoft.com/overview/serverless-computing/) płacisz tylko za czas wykonywania funkcji. W przypadku uruchomienia w ramach planu usługi App Service musisz zarządzać [skalowaniem aplikacji funkcji](../azure-functions/functions-scale.md).  |
 
-    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-hosting-linux.png" alt-text="Tworzenie aplikacji funkcji w witrynie Azure Portal":::
+    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-hosting-linux.png" alt-text="Strona hostingu":::
 
 1. Wybierz kolejno pozycje **Dalej: monitorowanie**. Na stronie **monitorowanie** wprowadź następujące ustawienia.
 
@@ -62,7 +62,7 @@ Do obsługi wykonywania funkcji w systemie Linux potrzebna jest aplikacja funkcj
     | ------------ | ---------------- | ----------- |
     | **[Application Insights](../azure-functions/functions-monitoring.md)** | **Tak** (domyślnie) | Tworzy zasób Application Insights o tej samej *nazwie aplikacji* w najbliższym obsługiwanym regionie. Rozszerzając to ustawienie lub wybierając pozycję **Utwórz nowe**, możesz zmienić nazwę Application Insights lub wybrać inny region w obszarze [geograficznym platformy Azure](https://azure.microsoft.com/global-infrastructure/geographies/) , w którym chcesz przechowywać dane. |
 
-   :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-monitoring-linux.png" alt-text="Tworzenie aplikacji funkcji w witrynie Azure Portal":::
+   :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-monitoring-linux.png" alt-text="Strona monitorowania":::
 
 1. Wybierz pozycję **Przegląd + Utwórz** , aby przejrzeć wybrane opcje konfiguracji aplikacji.
 
@@ -83,7 +83,7 @@ Następnie należy utworzyć funkcję w nowej aplikacji funkcji.
 W tej sekcji pokazano, jak utworzyć funkcję w nowej aplikacji funkcji w portalu.
 
 > [!NOTE]
-> Środowisko programistyczne portalu może być przydatne podczas próby wypróbowania Azure Functions. W przypadku większości scenariuszy Rozważ możliwość lokalnego tworzenia funkcji i publikowania projektu w aplikacji funkcji przy użyciu [Visual Studio Code](functions-create-first-function-vs-code.md#create-an-azure-functions-project) lub [Azure Functions Core Tools](functions-run-local.md#create-a-local-functions-project).  
+> Środowisko programistyczne portalu może być przydatne podczas próby wypróbowania Azure Functions. W przypadku większości scenariuszy Rozważ możliwość lokalnego tworzenia funkcji i publikowania projektu w aplikacji funkcji przy użyciu [Visual Studio Code](./create-first-function-vs-code-csharp.md#create-an-azure-functions-project) lub [Azure Functions Core Tools](functions-run-local.md#create-a-local-functions-project).  
 
 1. W menu po lewej stronie okna **funkcje** wybierz pozycję **funkcje**, a następnie wybierz pozycję **Dodaj** z górnego menu. 
  
@@ -91,7 +91,7 @@ W tej sekcji pokazano, jak utworzyć funkcję w nowej aplikacji funkcji w portal
 
     ![Wybierz funkcję wyzwalacza HTTP](./media/create-function-app-linux-app-service-plan/function-app-select-http-trigger.png)
 
-1. W oknie **Nowa funkcja** Zaakceptuj nazwę domyślną **nowej funkcji**lub wprowadź nową nazwę. 
+1. W oknie **Nowa funkcja** Zaakceptuj nazwę domyślną **nowej funkcji** lub wprowadź nową nazwę. 
 
 1. Z listy rozwijanej **poziom autoryzacji** wybierz pozycję **anonimowe** , a następnie wybierz pozycję **Utwórz funkcję**.
 
@@ -119,7 +119,7 @@ W tej sekcji pokazano, jak utworzyć funkcję w nowej aplikacji funkcji w portal
 
    ![Podgląd dziennika usługi Functions w witrynie Azure Portal.](./media/create-function-app-linux-app-service-plan/function-view-logs.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 

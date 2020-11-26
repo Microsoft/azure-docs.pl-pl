@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 185b61f77b275ed78050f5d8efb820c5333f6e1f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: d813757d5adb8cee9b83e0486baed80ae1bac874
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358579"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180935"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie DocuSign na potrzeby automatycznego aprowizacji użytkowników
 
@@ -95,7 +95,7 @@ Rozpocznie się początkową synchronizację wszystkich użytkowników przypisan
 Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="troubleshooting-tips"></a>Wskazówki dotyczące rozwiązywania problemów
-* Inicjowanie obsługi administracyjnej roli lub profilu uprawnień dla użytkownika w Docusign można wykonać przy użyciu wyrażenia w mapowaniu atrybutów przy użyciu funkcji [Switch](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#switch) i [singleAppRoleAssignment](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#singleapproleassignment) . Na przykład poniższe wyrażenie spowoduje udostępnienie identyfikatora "8032066", gdy użytkownik ma przypisaną rolę "Administrator DS" w usłudze Azure AD. Jeśli użytkownik nie ma przypisanej roli po stronie usługi Azure AD, nie będzie mógł zainicjować żadnego profilu uprawnień. Identyfikator można pobrać z [portalu](https://support.docusign.com/articles/Default-settings-for-out-of-the-box-DocuSign-Permission-Profiles)Docusign.
+* Inicjowanie obsługi administracyjnej roli lub profilu uprawnień dla użytkownika w Docusign można wykonać przy użyciu wyrażenia w mapowaniu atrybutów przy użyciu funkcji [Switch](../app-provisioning/functions-for-customizing-application-data.md#switch) i [singleAppRoleAssignment](../app-provisioning/functions-for-customizing-application-data.md#singleapproleassignment) . Na przykład poniższe wyrażenie spowoduje udostępnienie identyfikatora "8032066", gdy użytkownik ma przypisaną rolę "Administrator DS" w usłudze Azure AD. Jeśli użytkownik nie ma przypisanej roli po stronie usługi Azure AD, nie będzie mógł zainicjować żadnego profilu uprawnień. Identyfikator można pobrać z [portalu](https://support.docusign.com/articles/Default-settings-for-out-of-the-box-DocuSign-Permission-Profiles)Docusign.
 
 Switch (SingleAppRoleAssignment ([appRoleAssignments]), "", "8032066", "Administrator DS.")
 

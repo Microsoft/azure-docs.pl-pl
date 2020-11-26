@@ -17,12 +17,12 @@ ms.date: 10/07/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 675c98e00b7458f326c95741529f7ce41a91dc18
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2408db2d91740350405f11e2a1250ab9b3a4fe31
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319725"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181207"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Raporty dotyczące aprowizacji w portalu Azure Active Directory (wersja zapoznawcza)
 
@@ -33,7 +33,7 @@ Architektura raportowania w Azure Active Directory (Azure AD) składa się z nas
     - **Dzienniki inspekcji**  -  [Dzienniki inspekcji](concept-audit-logs.md) zapewniają informacje o aktywności systemu dotyczące zarządzania użytkownikami i grupami, zarządzanych aplikacji i działań związanych z katalogiem.
     - **Dzienniki aprowizacji** — zapewniają działania systemowe dotyczące użytkowników, grup i ról, które są obsługiwane przez usługę aprowizacji usługi Azure AD. 
 
-- **Zabezpieczenia** 
+- **Bezpieczeństwo** 
     - **Ryzykowne logowania** — [ryzykowne logowanie](../identity-protection/overview-identity-protection.md) jest wskaźnikiem próby logowania, które mogło zostać wykonane przez kogoś, kto nie jest uprawnionym właścicielem konta użytkownika.
     - **Użytkownicy oflagowani do ryzyka** — [ryzykowny użytkownik](../identity-protection/overview-identity-protection.md) jest wskaźnikiem konta użytkownika, które mogło zostać naruszone.
 
@@ -61,7 +61,7 @@ Dzienniki aprowizacji zapewniają odpowiedzi na następujące pytania:
 
 Dostęp do dzienników aprowizacji można uzyskać, wybierając pozycję **dzienniki aprowizacji** w sekcji **monitorowanie** w bloku **Azure Active Directory** w [Azure Portal](https://portal.azure.com). W przypadku niektórych rekordów aprowizacji w portalu może upłynąć do dwóch godzin.
 
-![Dzienniki aprowizowania](./media/concept-provisioning-logs/access-provisioning-logs.png "Dzienniki aprowizowania")
+![Dzienniki aprowizacji](./media/concept-provisioning-logs/access-provisioning-logs.png "Dzienniki aprowizowania")
 
 
 Dziennik aprowizacji zawiera domyślny widok listy, który pokazuje:
@@ -95,7 +95,7 @@ Możesz filtrować dane aprowizacji. Niektóre wartości filtru są dynamicznie 
 W widoku domyślnym można wybrać następujące filtry:
 
 - Tożsamość
-- Date
+- Data
 - Stan
 - Akcja
 
@@ -119,7 +119,7 @@ Po wybraniu niestandardowego przedziału czasu można skonfigurować datę pocz�
 
 Filtr **stanu** umożliwia wybranie:
 
-- Wszystkie
+- Wszystko
 - Powodzenie
 - Niepowodzenie
 - Pominięto
@@ -211,7 +211,7 @@ Karta **Podsumowanie** zawiera przegląd informacji o tym, co się stało i iden
 
 ## <a name="what-you-should-know"></a>Co należy wiedzieć
 
-- W Azure Portal są przechowywane zgłoszone dane aprowizacji przez 30 dni, jeśli masz wersję Premium i 7 dni, jeśli masz bezpłatną wersję. Dzienniki aprowizacji można publikować w usłudze [log Analytics](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) w celu przechowywania danych przez okres dłuższy niż 30 dni. 
+- W Azure Portal są przechowywane zgłoszone dane aprowizacji przez 30 dni, jeśli masz wersję Premium i 7 dni, jeśli masz bezpłatną wersję. Dzienniki aprowizacji można publikować w usłudze [log Analytics](../app-provisioning/application-provisioning-log-analytics.md) w celu przechowywania danych przez okres dłuższy niż 30 dni. 
 
 - Można użyć atrybutu identyfikatora zmiany jako unikatowego identyfikatora. Jest to przydatne na przykład podczas współdziałania z pomocą techniczną produktu.
 

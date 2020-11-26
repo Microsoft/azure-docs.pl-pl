@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: d3706c26d9b15e9ea607996ace222b29ccd84458
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 4125a4493b72fa60203067f3eba1ccebdc820b02
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95999658"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182975"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-user"></a>Samouczek: dostęp do Microsoft Graph z zabezpieczonej aplikacji jako użytkownik
 
@@ -78,7 +78,7 @@ Aplikacja sieci Web ma teraz wymagane uprawnienia i dodaje także identyfikator 
 > [!NOTE]
 > Biblioteka Microsoft. Identity. Web nie jest wymagana w aplikacji sieci Web na potrzeby uwierzytelniania podstawowego/autoryzacji ani do uwierzytelniania żądań za pomocą Microsoft Graph. Istnieje możliwość [bezpiecznego wywołania podrzędnych interfejsów API](tutorial-auth-aad.md#call-api-securely-from-server-code) z włączonym tylko App Service Module uwierzytelniania/autoryzacji.
 > 
-> Jednak uwierzytelnianie/autoryzacja App Service jest zaprojektowana na potrzeby bardziej podstawowych scenariuszy uwierzytelniania. W przypadku bardziej złożonych scenariuszy (na przykład obsługi oświadczeń niestandardowych) potrzebna jest Biblioteka Microsoft. Identity. Web Library lub [Biblioteka uwierzytelniania firmy Microsoft](/azure/active-directory/develop/msal-overview). Na początku znajduje się nieco więcej informacji na temat instalacji i konfiguracji, ale Biblioteka Microsoft. Identity. Web Library może działać obok modułu App Service Authentication/Authorization. Później, gdy aplikacja sieci Web musi obsługiwać bardziej złożone scenariusze, można wyłączyć moduł uwierzytelniania App Service/autoryzacji i Microsoft. Identity. Web będzie już częścią aplikacji.
+> Jednak uwierzytelnianie/autoryzacja App Service jest zaprojektowana na potrzeby bardziej podstawowych scenariuszy uwierzytelniania. W przypadku bardziej złożonych scenariuszy (na przykład obsługi oświadczeń niestandardowych) potrzebna jest Biblioteka Microsoft. Identity. Web Library lub [Biblioteka uwierzytelniania firmy Microsoft](../active-directory/develop/msal-overview.md). Na początku znajduje się nieco więcej informacji na temat instalacji i konfiguracji, ale Biblioteka Microsoft. Identity. Web Library może działać obok modułu App Service Authentication/Authorization. Później, gdy aplikacja sieci Web musi obsługiwać bardziej złożone scenariusze, można wyłączyć moduł uwierzytelniania App Service/autoryzacji i Microsoft. Identity. Web będzie już częścią aplikacji.
 
 ### <a name="install-client-library-packages"></a>Zainstaluj pakiety biblioteki klienta
 
@@ -221,7 +221,7 @@ public class IndexModel : PageModel
 }
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli skończysz pracę z tym samouczkiem i nie potrzebujesz już aplikacji sieci Web ani skojarzonych zasobów, [Wyczyść utworzone zasoby](scenario-secure-app-clean-up-resources.md).
 

@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 4171155f5a9f72ef0c021bd0e37fe4ec2f206646
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: bd1667f6c17922b6c0b0bfba7a7329a3fc96b62e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95253358"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182635"
 ---
 # <a name="hmac-authentication---rest-api-reference"></a>Uwierzytelnianie HMAC — dokumentacja interfejsu API REST
 
@@ -22,7 +22,7 @@ ms.locfileid: "95253358"
 - **Poświadczeń** - \<Access Key ID\>
 - Wartość klucza dostępu dekodowanego przez **klucz tajny** Base64. ``base64_decode(<Access Key Value>)``
 
-Wartości poświadczeń (nazywanych również `id` ) i tajnych (nazywanych również `value` ) muszą zostać pobrane z wystąpienia konfiguracji aplikacji platformy Azure. Można to zrobić za pomocą [Azure Portal](https://portal.azure.com) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true).
+Wartości poświadczeń (nazywanych również `id` ) i tajnych (nazywanych również `value` ) muszą zostać pobrane z wystąpienia konfiguracji aplikacji platformy Azure. Można to zrobić za pomocą [Azure Portal](https://portal.azure.com) lub [interfejsu wiersza polecenia platformy Azure](/cli/azure/?preserve-view=true&view=azure-cli-latest).
 
 Podaj każde żądanie ze wszystkimi nagłówkami HTTP, które są wymagane do uwierzytelniania. Wymagane są następujące wymagania:
 

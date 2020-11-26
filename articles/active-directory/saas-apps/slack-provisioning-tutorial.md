@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: arvinh
-ms.openlocfilehash: 58fe99164c390d8a9435e5aa65e55fe7fca5d6db
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 92c2ae13b840d7a73d86365ce88584bcafc878e8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359480"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181462"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Samouczek: konfigurowanie usługi Slack pod kątem automatycznej aprowizacji użytkowników
 
@@ -36,7 +36,7 @@ Celem tego samouczka jest zaprezentowanie czynności, które należy wykonać w 
 W scenariuszu opisanym w tym samouczku założono, że masz już następujące elementy:
 
 * [Dzierżawę usługi Azure AD](../develop/quickstart-create-new-tenant.md).
-* Konto użytkownika w usłudze Azure AD z [uprawnieniami ](../users-groups-roles/directory-assign-admin-roles.md) do konfigurowania aprowizacji (np. administratora aplikacji, administratora aplikacji w chmurze, właściciela aplikacji lub administratora globalnego).
+* Konto użytkownika w usłudze Azure AD z [uprawnieniami ](../roles/permissions-reference.md) do konfigurowania aprowizacji (np. administratora aplikacji, administratora aplikacji w chmurze, właściciela aplikacji lub administratora globalnego).
 * Dzierżawę usługi Slack z włączonym planem [Plus](https://aadsyncfabric.slack.com/pricing) lub wyższym.
 * Konto użytkownika w usłudze Slack z uprawnieniami Team Admin (administratora zespołu).
 
@@ -63,7 +63,7 @@ Ta sekcja zawiera instrukcje łączenia usługi Azure AD z interfejsem API aprow
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Aby skonfigurować automatyczną aprowizację kont użytkowników usługi Slack w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -88,7 +88,7 @@ Ta sekcja zawiera instrukcje łączenia usługi Azure AD z interfejsem API aprow
 
     ![Okno dialogowe autoryzacji](./media/slack-provisioning-tutorial/slackauthorize.png)
 
-7. W witrynie Azure Portal kliknij polecenie **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z aplikacją Slack. Jeśli połączenie nie powiedzie się, sprawdź, czy użyte konto usługi Slack ma uprawnienia Team Admin i ponownie spróbuj wykonać krok dotyczący autoryzacji.
+7. W witrynie Azure Portal kliknij polecenie **Testuj połączenie**, aby upewnić się, że usługa Azure AD może nawiązać połączenie z aplikacją Slack. Jeśli połączenie nie powiedzie się, sprawdź, czy użyte konto usługi Slack ma uprawnienia Team Admin i ponownie spróbuj wykonać krok dotyczący autoryzacji.
 
 8. W polu **Adres e-mail do powiadomień** wpisz adres e-mail osoby lub grupy, która ma otrzymywać powiadomienia o błędach autoryzacji, a następnie zaznacz pole wyboru **Wyślij powiadomienie e-mail w przypadku wystąpienia błędu**.
 
