@@ -7,12 +7,12 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: a58fa45f47ee8dce4ec96591551abad76c1218ee
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 86c6ea9dded423e7bd513faf73adfd293f2bd38f
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045486"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302600"
 ---
 # <a name="iot-plug-and-play-conventions"></a>Konwencje technologii IoT Plug and Play
 
@@ -79,7 +79,7 @@ Przykładowy raportowany ładunek właściwości:
 
 Urządzenie lub moduł musi dodać znacznik, `{"__t": "c"}` Aby wskazać, że element odwołuje się do składnika.
 
-DTDL:
+DTDL, który odwołuje się do składnika:
 
 ```json
 {
@@ -95,7 +95,11 @@ DTDL:
     }
   ]
 }
+```
 
+DTDL, który definiuje składnik:
+
+```json
 {
   "@context": "dtmi:dtdl:context;2",
   "@id": "dtmi:com:example:Thermostat;1",
@@ -132,7 +136,7 @@ Urządzenie lub moduł powinno potwierdzić, że otrzymał Właściwość przez 
 
 Po uruchomieniu urządzenia powinno ono zażądać sznurka urządzenia i sprawdzić, czy są możliwe do zapisu aktualizacje właściwości. Jeśli wersja właściwości zapisywalnej zwiększyła się, gdy urządzenie jest w trybie offline, urządzenie powinno wysłać zgłoszoną odpowiedź na właściwość w celu potwierdzenia, że została odebrana aktualizacja.
 
-Gdy urządzenie jest uruchamiane po raz pierwszy, może wysłać wartość początkową zgłoszonej właściwości, jeśli nie otrzyma początkowej żądanej właściwości z centrum. W takim przypadku urządzenie powinno ustawić `av` na `1` . Na przykład:
+Gdy urządzenie jest uruchamiane po raz pierwszy, może wysłać wartość początkową zgłoszonej właściwości, jeśli nie otrzyma początkowej żądanej właściwości z centrum. W takim przypadku urządzenie powinno ustawić `av` na `1` . Przykład:
 
 ```json
 "reported": {
@@ -255,7 +259,7 @@ Gdy urządzenie odbiera wiele raportowanych właściwości w jednym ładunku, mo
 
 Urządzenie lub moduł powinno potwierdzić, że otrzymał właściwości, wysyłając zgłoszone właściwości:
 
-DTDL:
+DTDL, który odwołuje się do składnika:
 
 ```json
 {
@@ -271,7 +275,11 @@ DTDL:
     }
   ]
 }
+```
 
+DTDL, który definiuje składnik:
+
+```json
 {
   "@context": "dtmi:dtdl:context;2",
   "@id": "dtmi:com:example:Thermostat;1",

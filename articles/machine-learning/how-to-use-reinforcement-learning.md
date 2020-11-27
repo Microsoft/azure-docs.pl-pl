@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b9966d4d9ab0a37f5484ec9eb9b7e2472a6b41dc
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a7fdb370847e72657829d53df019203b0a5b211b
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95012914"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302576"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Uczenie wzmacniające (wersja zapoznawcza) dzięki Azure Machine Learning
 
@@ -117,7 +117,7 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### <a name="specify-a-virtual-network"></a>Określ sieć wirtualną
 
-W przypadku zadań RL, które korzystają z wielu obiektów docelowych obliczeń, należy określić sieć wirtualną z otwartymi portami, które umożliwiają węzłom roboczym i węzłom głównym komunikowanie się ze sobą. Sieć wirtualna może znajdować się w dowolnej grupie zasobów, ale powinna znajdować się w tym samym regionie, w którym znajduje się obszar roboczy. Aby uzyskać więcej informacji na temat konfigurowania sieci wirtualnej, zobacz [Notes konfiguracji obszaru roboczego](https://aka.ms/azure-rl-env-setup) , który można znaleźć w sekcji wymagania wstępne. Tutaj należy określić nazwę sieci wirtualnej w grupie zasobów.
+W przypadku zadań RL, które korzystają z wielu obiektów docelowych obliczeń, należy określić sieć wirtualną z otwartymi portami, które umożliwiają węzłom roboczym i węzłom głównym komunikowanie się ze sobą. Sieć wirtualna może znajdować się w dowolnej grupie zasobów, ale powinna znajdować się w tym samym regionie, w którym znajduje się obszar roboczy. Aby uzyskać więcej informacji na temat konfigurowania sieci wirtualnej, zobacz Notes konfiguracji obszaru roboczego, który można znaleźć w sekcji wymagania wstępne. Tutaj należy określić nazwę sieci wirtualnej w grupie zasobów.
 
 ```python
 vnet = 'your_vnet'

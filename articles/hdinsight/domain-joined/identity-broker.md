@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: 9a2bda0a526c307ae17d8415f6f24423ddf51b63
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 8a4f9a5df8def928c06fe95a53c7be0d93ec76c4
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917770"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302671"
 ---
 # <a name="azure-hdinsight-id-broker-hib"></a>Broker identyfikatorów usługi Azure HDInsight (HIB)
 
@@ -138,9 +138,9 @@ curl -k -v -H "Authorization: Bearer Access_TOKEN" -H "Content-Type: application
 
 W przypadku korzystania z Z usługi Beeline i usługi Livy można także wykonać poniższe kody próbek, [Aby skonfigurować](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/HIB/HIBSamples) klienta do korzystania z protokołu OAuth i łączenia się z klastrem.
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 ### <a name="what-app-is-created-by-hdinsight-in-aad"></a>Którą aplikację tworzy Usługa HDInsight w usłudze AAD?
-W przypadku każdego klastra aplikacja innej firmy zostanie zarejestrowana w usłudze AAD z identyfikatorem URI klastra jako identifierUri (np https://clustername.azurehdinsight.net .).
+W przypadku każdego klastra aplikacja innej firmy zostanie zarejestrowana w usłudze AAD z identyfikatorem URI klastra jako identifierUri (np `https://clustername.azurehdinsight.net` .).
 
 ### <a name="why-are-users-prompted-for-consent-before-using-hib-enabled-clusters"></a>Dlaczego użytkownicy są monitowani o zgodę przed użyciem klastrów HIB włączonych?
 W usłudze AAD zgoda jest wymagana dla wszystkich aplikacji innych firm, zanim będzie można uwierzytelnić użytkowników lub uzyskać dostęp do danych.

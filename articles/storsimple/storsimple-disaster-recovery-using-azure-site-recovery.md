@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 6d98f1a1dfb575f4af8b666d173f9354b5eeac6b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: e2d89718d953f05b3e5500db412ac8ac03bfa00b
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966262"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301945"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Automatyczne rozwiązanie do odzyskiwania po awarii wykorzystujące Azure Site Recovery dla udziałów plików hostowanych w usłudze StorSimple
 
@@ -44,7 +44,7 @@ Wdrożenie jednego kliknięcia rozwiązania do odzyskiwania po awarii, które u�
    - Lokalne urządzenie magazynujące StorSimple zarejestrowane w usłudze Azure StorSimple Manager
    - Urządzenie w chmurze StorSimple utworzone w usłudze Azure StorSimple Manager. Urządzenie może być utrzymywane w stanie zamknięcia.
    - Udziały plików hostowane na woluminach skonfigurowanych na urządzeniu magazynującym StorSimple
-   - [Magazyn usług Azure Site Recovery Services](/azure/storsimple/hyper-v-vmm-disaster-recovery) utworzony w ramach subskrypcji Microsoft Azure
+   - [Magazyn usług Azure Site Recovery Services](/azure/site-recovery/hyper-v-vmm-azure-tutorial) utworzony w ramach subskrypcji Microsoft Azure
 
 Ponadto jeśli platforma Azure jest witryną odzyskiwania, uruchom narzędzie do [oceny gotowości maszyn wirtualnych platformy Azure](https://azure.microsoft.com/downloads/vm-readiness-assessment/) na maszynach wirtualnych, aby upewnić się, że są one zgodne z maszynami wirtualnymi platformy Azure i usługami Azure Site Recovery.
 
@@ -112,7 +112,7 @@ Ten krok wymaga przygotowania lokalnego środowiska serwera plików, utworzenia 
    1. Użyj roli usługi plików i magazynowania, aby utworzyć udziały plików na tych woluminach.
 
 #### <a name="to-create-and-prepare-an-azure-site-recovery-vault"></a>Aby utworzyć i przygotować Magazyn Azure Site Recovery
-Zapoznaj się z [dokumentacją Azure Site Recovery](/azure/storsimple/hyper-v-azure-tutorial) , aby rozpocząć pracę z usługą Azure Site Recovery przed ochroną maszyny wirtualnej serwera plików.
+Zapoznaj się z [dokumentacją Azure Site Recovery](/azure/site-recovery/) , aby rozpocząć pracę z usługą Azure Site Recovery przed ochroną maszyny wirtualnej serwera plików.
 
 #### <a name="to-enable-protection"></a>Aby włączyć ochronę
 1. Odłącz obiekty docelowe iSCSI od lokalnych maszyn wirtualnych, które mają być chronione za pośrednictwem Azure Site Recovery:
@@ -124,7 +124,7 @@ Zapoznaj się z [dokumentacją Azure Site Recovery](/azure/storsimple/hyper-v-az
    > [!NOTE]
    > Spowoduje to, że udziały plików będą tymczasowo niedostępne.
    
-1. [Włącz ochronę maszyny wirtualnej](/azure/storsimple/hyper-v-azure-tutorial) serwera plików z poziomu portalu Azure Site Recovery.
+1. [Włącz ochronę maszyny wirtualnej](/azure/site-recovery/hyper-v-azure-tutorial) serwera plików z poziomu portalu Azure Site Recovery.
 1. Po rozpoczęciu początkowej synchronizacji można ponownie połączyć się z miejscem docelowym. Przejdź do inicjatora iSCSI, wybierz urządzenie StorSimple, a następnie kliknij przycisk **Połącz**.
 1. Gdy synchronizacja zostanie zakończona, a stan maszyny wirtualnej jest **chroniony**, wybierz maszynę wirtualną, wybierz kartę **Konfiguracja** i odpowiednio zaktualizuj sieć maszyny wirtualnej (jest to sieć, do której będzie częścią maszyn wirtualnych w trybie failover). Jeśli sieć nie zostanie wyświetlona, oznacza to, że synchronizacja nadal trwa.
 

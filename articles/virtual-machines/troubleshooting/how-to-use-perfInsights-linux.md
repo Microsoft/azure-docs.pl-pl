@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
-ms.openlocfilehash: d4d25d8e79c30933546af2b823e328a652f482eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f785f44b88c7f0d5f0b6f43114070888bb23146d
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360535"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302486"
 ---
 # <a name="how-to-use-perfinsights"></a>Korzystanie z narzędzia PerfInsights
 
@@ -132,7 +132,7 @@ Zbierane są informacje o maszynie wirtualnej z systemem Linux, systemie operacy
     |----------------------------|-------------------------------------------------|
     | Serwer Oracle Linux        | 6,10 [ `*` ], 7,3, 7,6, 7,5 |
     | CentOS                     | 6,5 [ `*` ], 7,6                                    |
-    | RHEL                       | 7,2, 7,5, 8,0 [ `*` ]                               |
+    | RHEL                       | 7,6, 7,7, 7,8, 7,9                                |
     | Ubuntu                     | 14,04, 16,04, 18,04, 20,04                               |
     | Debian                     | 8, 9, 10 [ `*` ]                                    |
     | SLES                       | 12 SP4 [ `*` ]                                      |
@@ -236,7 +236,7 @@ Karta **CPU** zawiera informacje dotyczące użycia procesora CPU w całym syste
 
 Sekcja **spostrzeżenia** zawiera różne wyniki i zalecenia dotyczące magazynu.
 
-**Urządzenia blokowe** i inne powiązane sekcje, takie **jak Partitions**, **LVM**i **MDADM** , opisują sposób, w jaki urządzenia blokujące są skonfigurowane i powiązane ze sobą.
+**Urządzenia blokowe** i inne powiązane sekcje, takie **jak Partitions**, **LVM** i **MDADM** , opisują sposób, w jaki urządzenia blokujące są skonfigurowane i powiązane ze sobą.
 
 ![Zrzut ekranu karty magazyn](media/how-to-use-perfinsights-linux/perfinsights-linux-storage-tab.png)  
 ![Zrzut ekranu przedstawiający kartę MDADM](media/how-to-use-perfinsights-linux/perfinsights-linux-mdadm-config.png)

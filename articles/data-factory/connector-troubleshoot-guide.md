@@ -5,16 +5,16 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/10/2020
+ms.date: 11/25/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2e54c0b09c3dbe398b0522d0ad9ad2314e29ed26
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: dcc84dc252001721a3848a008a3db80dcc7822d2
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023844"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301258"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Rozwiązywanie problemów z łącznikami usługi Azure Data Factory
 
@@ -440,7 +440,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 - **Komunikat**: `The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
 
-- **Przyczyna**: w przypadku ustawienia opcji "użycia" w działaniu pierwszy wiersz będzie używany jako nazwa kolumny. Ten błąd oznacza, że pierwszy wiersz zawiera wartość pustą. Na przykład: "ColumnName,, ColumnB".
+- **Przyczyna**: w przypadku ustawienia opcji "użycia" w działaniu pierwszy wiersz będzie używany jako nazwa kolumny. Ten błąd oznacza, że pierwszy wiersz zawiera wartość pustą. Na przykład: "ColumnName, ColumnB".
 
 - **Zalecenie**: zaznacz pierwszy wiersz i popraw wartość, jeśli wartość jest pusta.
 
@@ -449,7 +449,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 - **Komunikat**: `Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %columnCount;.`
 
-- **Przyczyna**: liczba kolumn problematycznych wierszy jest duża niż liczba kolumn w pierwszym wierszu. Może to być spowodowane problemem z danymi lub nieprawidłowym ogranicznikiem kolumny/ustawieniami znaku cudzysłowu.
+- **Przyczyna**: liczba kolumn problematycznych wierszy jest większa niż liczba kolumn w pierwszym wierszu. Może to być spowodowane problemem z danymi lub nieprawidłowym ogranicznikiem kolumny/ustawieniami znaku cudzysłowu.
 
 - **Zalecenie**: Pobierz liczbę wierszy w komunikacie o błędzie, Sprawdź kolumnę wiersza i popraw dane.
 
@@ -645,6 +645,29 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 - **Zalecenie**: Usuń element "CompressionType" w ładunku.
 
+
+## <a name="rest"></a>REST
+
+### <a name="unexpected-network-response-from-rest-connector"></a>Nieoczekiwana odpowiedź sieciowa z łącznika REST
+
+- **Objawy**: punkt końcowy czasami otrzymuje nieoczekiwaną odpowiedź (400/401/403/500) z łącznika Rest.
+
+- **Przyczyna**: Łącznik źródła REST używa adresu URL i metody/nagłówka/treści http z połączonej usługi/zestawu danych/Kopiuj źródło jako parametry podczas konstruowania żądania HTTP. Problem jest najprawdopodobniej spowodowany przez pewne błędy w co najmniej jednym z określonych parametrów.
+
+- **Rozwiązanie**: 
+    - Użyj opcji "zwinięcie" w oknie cmd, aby sprawdzić, czy parametr jest przyczyną lub nie (należy zawsze uwzględniać nagłówki "**Akceptuj** i **User-Agent"** ):
+        ```
+        curl -i -X <HTTP method> -H <HTTP header1> -H <HTTP header2> -H "Accept: application/json" -H "User-Agent: azure-data-factory/2.0" -d '<HTTP body>' <URL>
+        ```
+      Jeśli polecenie zwróci tę samą nieoczekiwaną odpowiedź, Popraw powyższe parametry do momentu, aż zwróci oczekiwaną odpowiedź. 
+
+      Ponadto można użyć "zwinięcie--Help", aby bardziej zaawansowane użycie polecenia.
+
+    - Jeśli tylko łącznik REST ADF zwróci nieoczekiwaną odpowiedź, skontaktuj się z pomocą techniczną firmy Microsoft w celu dalszej rozwiązywania problemów.
+    
+    - Należy pamiętać, że "zwinięcie" może nie być odpowiednie do odtworzenia problemu weryfikacji certyfikatu SSL. W niektórych scenariuszach polecenie "zwinięcie" zostało wykonane pomyślnie bez przekroczenia jakiegokolwiek problemu weryfikacji certyfikatu SSL. Ale jeśli ten sam adres URL jest wykonywany w przeglądarce, w pierwszym miejscu nie zostanie zwrócony żaden certyfikat SSL, aby klient mógł ustanowić relację zaufania z serwerem.
+
+      Narzędzia, takie jak **Poster** i **programu Fiddler** , są zalecane w przypadku powyższego przypadku.
 
 
 ## <a name="general-copy-activity-error"></a>Ogólny błąd działania kopiowania

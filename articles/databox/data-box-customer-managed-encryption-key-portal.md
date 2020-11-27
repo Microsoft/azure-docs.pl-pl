@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/19/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: cd9f4ad6b6831b2b15c09b37edc569b3f2d247f7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: f75907dc1fa079cebb3b80874090c658fd7b8174
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94958209"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302826"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Użyj kluczy zarządzanych przez klienta w Azure Key Vault Azure Data Box
 
@@ -103,7 +103,7 @@ Aby włączyć klucz zarządzany przez klienta dla istniejącego zamówienia urz
 
     ![Wybierz tożsamość do użycia](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-14.png)
 
-    W tym miejscu nie można utworzyć nowej tożsamości użytkownika. Aby dowiedzieć się, jak ją utworzyć, zobacz [Tworzenie, wyświetlanie, usuwanie lub przypisywanie roli do tożsamości zarządzanej przypisanej przez użytkownika przy użyciu Azure Portal](/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
+    W tym miejscu nie można utworzyć nowej tożsamości użytkownika. Aby dowiedzieć się, jak ją utworzyć, zobacz [Tworzenie, wyświetlanie, usuwanie lub przypisywanie roli do tożsamości zarządzanej przypisanej przez użytkownika przy użyciu Azure Portal](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
 
     Wybrana tożsamość użytkownika jest wyświetlana w ustawieniach **typu szyfrowania** .
 

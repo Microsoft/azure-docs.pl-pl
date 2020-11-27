@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 2f16ed3c455067ff2fa185bff023a6993ccda58c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a36eb21f681aec1cfc52a000b60bdbc30cab0633
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311971"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302796"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-machine-learning-studio-classic"></a>Przewodnik dotyczący języka specyfikacji sieci NET # neuronowych dla Machine Learning Studio (klasyczny)
 
-**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 NET # to język opracowany przez firmę Microsoft, który służy do definiowania złożonych architektur sieci neuronowych, takich jak głębokie sieci neuronowych lub convolutions z dowolnych wymiarów. Możesz użyć złożonych struktur, aby zwiększyć uczenie się na danych, takich jak obraz, wideo lub dźwięk.
 
@@ -44,7 +44,7 @@ Każda warstwa przeszkolna (ukryta lub warstwa wyjściowa) ma jeden lub więcej 
 
 NET # obsługuje różne rodzaje pakietów połączeń, co pozwala dostosować sposób, w jaki dane wejściowe są mapowane na ukryte warstwy i zamapowane na dane wyjściowe.
 
-Pakiet domyślny lub standardowy jest **pełnym pakietem** , w którym każdy węzeł w warstwie źródłowej jest połączony z każdym węzłem w warstwie docelowej.
+Pakiet domyślny lub standardowy jest **pełnym pakietem**, w którym każdy węzeł w warstwie źródłowej jest połączony z każdym węzłem w warstwie docelowej.
 
 Ponadto NET # obsługuje cztery następujące rodzaje zaawansowanych pakietów połączeń:
 
@@ -57,7 +57,7 @@ Ponadto NET # obsługuje cztery następujące rodzaje zaawansowanych pakietów p
 
 ## <a name="supported-customizations"></a>Obsługiwane dostosowania
 
-Architektura modeli sieci neuronowych utworzonych w Azure Machine Learning Studio (klasyczny) może być szeroko dostosowywana przy użyciu usługi net #. Można:
+Architektura modeli sieci neuronowych utworzonych w Azure Machine Learning Studio (klasyczny) może być szeroko dostosowywana przy użyciu usługi net #. Oto co możesz zrobić:
 
 + Utwórz ukryte warstwy i kontroluj liczbę węzłów w każdej warstwie.
 + Określ, w jaki sposób warstwy mają być połączone ze sobą.
@@ -80,7 +80,7 @@ Przykłady definiowania sieci neuronowych dla niektórych typowych zadań uczeni
 
 ## <a name="structure-specifications"></a>Specyfikacje struktury
 
-Specyfikacja struktury sieci neuronowych składa się z trzech sekcji: **deklaracji stałej** , **deklaracji warstwy** , **deklaracji połączenia**. Istnieje również opcjonalna sekcja **deklaracji udostępniania** . Sekcje można określić w dowolnej kolejności.
+Specyfikacja struktury sieci neuronowych składa się z trzech sekcji: **deklaracji stałej**, **deklaracji warstwy**, **deklaracji połączenia**. Istnieje również opcjonalna sekcja **deklaracji udostępniania** . Sekcje można określić w dowolnej kolejności.
 
 ## <a name="constant-declaration"></a>Stała deklaracja
 
@@ -192,21 +192,21 @@ Pakiety splotowych obsługują następujące atrybuty:
 
 **InputShape** definiuje wymiar warstwy źródłowej dla celów tego pakietu splotowych. Wartość musi być krotką dodatnich liczb całkowitych. Iloczyn liczb całkowitych musi być równy liczbie węzłów w warstwie źródłowej, ale w przeciwnym razie nie musi być zgodny z wymiarem zadeklarowanym dla warstwy źródłowej. Długość tej krotki zmieni się na wartość **liczbową** dla pakietu splotowych. Zazwyczaj liczba argumentów odnosi się do liczby argumentów lub argumentów operacji, które może wykonać funkcja.
 
-Aby zdefiniować kształt i lokalizacje jądra, użyj atrybutów **KernelShape** , **krok** , **dopełnienie** , **LowerPad** i **UpperPad** :
+Aby zdefiniować kształt i lokalizacje jądra, użyj atrybutów **KernelShape**, **krok**, **dopełnienie**, **LowerPad** i **UpperPad**:
 
-+ **KernelShape** : (wymagane) definiuje wymiar każdego jądra dla pakietu splotowych. Wartość musi być krotką dodatnich liczb całkowitych o długości równej liczbie argumentów pakietu. Każdy składnik tej krotki nie może być większy niż odpowiedni składnik **InputShape**.
++ **KernelShape**: (wymagane) definiuje wymiar każdego jądra dla pakietu splotowych. Wartość musi być krotką dodatnich liczb całkowitych o długości równej liczbie argumentów pakietu. Każdy składnik tej krotki nie może być większy niż odpowiedni składnik **InputShape**.
 
-+ **Krok** : (opcjonalnie) definiuje rozmiary ruchomych etapów Convolution (jeden rozmiar kroku dla każdego wymiaru), czyli odległość między węzłami centralnymi. Wartość musi być krotką dodatnich liczb całkowitych o długości, która jest liczbą argumentów pakietu. Każdy składnik tej krotki nie może być większy niż odpowiedni składnik **KernelShape**. Wartość domyślna to krotka ze wszystkimi składnikami równą jeden.
++ **Krok**: (opcjonalnie) definiuje rozmiary ruchomych etapów Convolution (jeden rozmiar kroku dla każdego wymiaru), czyli odległość między węzłami centralnymi. Wartość musi być krotką dodatnich liczb całkowitych o długości, która jest liczbą argumentów pakietu. Każdy składnik tej krotki nie może być większy niż odpowiedni składnik **KernelShape**. Wartość domyślna to krotka ze wszystkimi składnikami równą jeden.
 
-+ **Udostępnianie** : (opcjonalnie) definiuje udostępnianie wagi dla każdego wymiaru Convolution. Wartość może być pojedynczą wartością logiczną lub krotką wartości logicznych o długości, która jest równa liczbie argumentów pakietu. Pojedyncza wartość logiczna jest rozszerzona tak, aby była krotką o prawidłowej długości ze wszystkimi składnikami równymi określonej wartości. Wartość domyślna to krotka, która składa się ze wszystkich wartości rzeczywistych.
++ **Udostępnianie**: (opcjonalnie) definiuje udostępnianie wagi dla każdego wymiaru Convolution. Wartość może być pojedynczą wartością logiczną lub krotką wartości logicznych o długości, która jest równa liczbie argumentów pakietu. Pojedyncza wartość logiczna jest rozszerzona tak, aby była krotką o prawidłowej długości ze wszystkimi składnikami równymi określonej wartości. Wartość domyślna to krotka, która składa się ze wszystkich wartości rzeczywistych.
 
-+ **MapCount** : (opcjonalnie) określa liczbę map funkcji dla pakietu splotowych. Wartość może być pojedynczą dodatnią liczbą całkowitą lub krotką dodatnich liczb całkowitych o długości, która jest liczbą argumentów pakietu. Wartość pojedynczej liczby całkowitej jest rozszerzona tak, aby była krotką o prawidłowej długości przy pierwszym składniku równym określonej wartości, a wszystkie pozostałe składniki są równe jednej. Wartość domyślna to 1. Łączna liczba map funkcji jest iloczynem składników spójnej kolekcji. Współczynnik całkowitej liczby elementów w składnikach określa sposób grupowania wartości mapy funkcji w węzłach docelowych.
++ **MapCount**: (opcjonalnie) określa liczbę map funkcji dla pakietu splotowych. Wartość może być pojedynczą dodatnią liczbą całkowitą lub krotką dodatnich liczb całkowitych o długości, która jest liczbą argumentów pakietu. Wartość pojedynczej liczby całkowitej jest rozszerzona tak, aby była krotką o prawidłowej długości przy pierwszym składniku równym określonej wartości, a wszystkie pozostałe składniki są równe jednej. Wartość domyślna to 1. Łączna liczba map funkcji jest iloczynem składników spójnej kolekcji. Współczynnik całkowitej liczby elementów w składnikach określa sposób grupowania wartości mapy funkcji w węzłach docelowych.
 
-+ **Wagi** : (opcjonalnie) określa początkowe wagi dla pakietu. Wartość musi być krotką wartości zmiennoprzecinkowych o długości, która jest liczbą jądra pomnożoną przez liczbę obciążeń na jądro, zgodnie z definicją w dalszej części tego artykułu. Domyślne wagi są generowane losowo.
++ **Wagi**: (opcjonalnie) określa początkowe wagi dla pakietu. Wartość musi być krotką wartości zmiennoprzecinkowych o długości, która jest liczbą jądra pomnożoną przez liczbę obciążeń na jądro, zgodnie z definicją w dalszej części tego artykułu. Domyślne wagi są generowane losowo.
 
 Istnieją dwa zestawy właściwości kontrolujących dopełnienie, które wzajemnie się wykluczają:
 
-+ **Uzupełnienie** : (opcjonalnie) określa, czy dane wejściowe powinny być uzupełniane przy użyciu **domyślnego schematu uzupełniania**. Wartość może być pojedynczą wartością logiczną lub może być krotką wartości logicznych o długości, która jest równa liczbie argumentów z pakietu.
++ **Uzupełnienie**: (opcjonalnie) określa, czy dane wejściowe powinny być uzupełniane przy użyciu **domyślnego schematu uzupełniania**. Wartość może być pojedynczą wartością logiczną lub może być krotką wartości logicznych o długości, która jest równa liczbie argumentów z pakietu.
 
     Pojedyncza wartość logiczna jest rozszerzona tak, aby była krotką o prawidłowej długości ze wszystkimi składnikami równymi określonej wartości.
 
@@ -214,7 +214,7 @@ Istnieją dwa zestawy właściwości kontrolujących dopełnienie, które wzajem
 
     Jeśli wartość dla wymiaru ma wartość false, jądra są zdefiniowane tak, aby liczba węzłów na każdej stronie, które są pozostawione, jest taka sama (maksymalnie z różnicą 1). Wartość domyślna tego atrybutu jest krotką ze wszystkimi składnikami równymi false.
 
-+ **UpperPad** i **LowerPad** : (opcjonalnie) zapewniają większą kontrolę nad ilością dopełnienia, która ma zostać użyta. **Ważne:** Te atrybuty można zdefiniować, jeśli i tylko wtedy, gdy właściwość **uzupełnienie** **_nie_ jest *zdefiniowana. Wartości powinny być krotkami o wartościach całkowitych o długościach, które są liczbami argumentów pakietu. Gdy te atrybuty są określone, węzły "fikcyjne" są dodawane do dolnego i górnego końca każdego wymiaru warstwy wejściowej. Liczba węzłów dodawanych do dolnych i górnych punktów końcowych w każdym wymiarze jest określana odpowiednio przez _* LowerPad** [i] i **UpperPad** [i].
++ **UpperPad** i **LowerPad**: (opcjonalnie) zapewniają większą kontrolę nad ilością dopełnienia, która ma zostać użyta. **Ważne:** Te atrybuty można zdefiniować, jeśli i tylko wtedy, gdy właściwość **uzupełnienie** **_nie_ jest *zdefiniowana. Wartości powinny być krotkami o wartościach całkowitych o długościach, które są liczbami argumentów pakietu. Gdy te atrybuty są określone, węzły "fikcyjne" są dodawane do dolnego i górnego końca każdego wymiaru warstwy wejściowej. Liczba węzłów dodawanych do dolnych i górnych punktów końcowych w każdym wymiarze jest określana odpowiednio przez _* LowerPad**[i] i **UpperPad**[i].
 
     Aby zapewnić, że jądra są zgodne tylko z węzłami "Real", a nie z węzłami "fikcyjne", muszą zostać spełnione następujące warunki:
   - Każdy składnik elementu **LowerPad** musi być ściśle mniejszy niż `KernelShape[d]/2` .
@@ -225,12 +225,12 @@ Istnieją dwa zestawy właściwości kontrolujących dopełnienie, które wzajem
 
 Aby uzyskać więcej informacji na temat sieci splotowych i ich aplikacji, zobacz następujące artykuły:
 
-+ [http://deeplearning.net/tutorial/lenet.html](http://deeplearning.net/tutorial/lenet.html)
++ [http://d2l.ai/chapter_convolutional-neural-networks/lenet.html ](http://d2l.ai/chapter_convolutional-neural-networks/lenet.html )
 + [https://research.microsoft.com/pubs/68920/icdar03.pdf](https://research.microsoft.com/pubs/68920/icdar03.pdf)
 
 ## <a name="pooling-bundles"></a>Zbiory pul
 
-**Pakiet puli** ma zastosowanie geometrii podobnej do łączności splotowych, ale używa wstępnie zdefiniowanych funkcji do wartości węzła źródłowego w celu uzyskania wartości węzła docelowego. W związku z tym zbiory buforowania nie mają stanu do uczenia (wagi lub odchylenia). Zbiory buforowania obsługują wszystkie atrybuty splotowych z wyjątkiem **udostępniania** , **MapCount** i **wag**.
+**Pakiet puli** ma zastosowanie geometrii podobnej do łączności splotowych, ale używa wstępnie zdefiniowanych funkcji do wartości węzła źródłowego w celu uzyskania wartości węzła docelowego. W związku z tym zbiory buforowania nie mają stanu do uczenia (wagi lub odchylenia). Zbiory buforowania obsługują wszystkie atrybuty splotowych z wyjątkiem **udostępniania**, **MapCount** i **wag**.
 
 Zwykle jądra podsumowywane przez sąsiednie jednostki puli nie nakładają się na siebie. Jeśli krok [d] jest równy KernelShape [d] w każdym wymiarze, uzyskana warstwa jest tradycyjną warstwą buforowania lokalnego, która jest często stosowana w sieciach splotowych neuronowych. Każdy węzeł docelowy oblicza maksymalną lub średnią aktywność jądra w warstwie źródłowej.
 
@@ -260,11 +260,11 @@ Aby uzyskać więcej informacji o warstwach puli, zobacz następujące artykuły
 
 **Normalizacja odpowiedzi** to lokalny schemat normalizacji, który został po raz pierwszy wprowadzony przez Geoffrey Hinton, et al, w [klasyfikacji papierowej ImageNet z głębokiego splotowych neuronowych](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf).
 
-Normalizacja odpowiedzi jest używana do uogólniania w sieci neuronowych. Gdy jeden neuron jest wyzwalany na wysokim poziomie aktywacji, warstwa normalizacji odpowiedzi lokalnej pomija poziom aktywacji otaczającego neurons. Jest to realizowane przy użyciu trzech parametrów ( `α` , `β` i `k` ) oraz struktury splotowych (lub kształtu klubu). Każdy neuron w warstwie docelowej **y** odpowiada neuron **x** w warstwie źródłowej. Poziom aktywacji **y** jest określony przez następującą formułę, gdzie `f` jest poziomem aktywacji neuron i `Nx` jest jądrem (lub zestawem zawierającym neurons w sąsiedztwie **x** ), zgodnie z definicją w następującej strukturze splotowych:
+Normalizacja odpowiedzi jest używana do uogólniania w sieci neuronowych. Gdy jeden neuron jest wyzwalany na wysokim poziomie aktywacji, warstwa normalizacji odpowiedzi lokalnej pomija poziom aktywacji otaczającego neurons. Jest to realizowane przy użyciu trzech parametrów ( `α` , `β` i `k` ) oraz struktury splotowych (lub kształtu klubu). Każdy neuron w warstwie docelowej **y** odpowiada neuron **x** w warstwie źródłowej. Poziom aktywacji **y** jest określony przez następującą formułę, gdzie `f` jest poziomem aktywacji neuron i `Nx` jest jądrem (lub zestawem zawierającym neurons w sąsiedztwie **x**), zgodnie z definicją w następującej strukturze splotowych:
 
 ![Formuła dla struktury splotowych](./media/azure-ml-netsharp-reference-guide/formula_large.png)
 
-Pakiety normalizacji odpowiedzi obsługują wszystkie atrybuty splotowych z wyjątkiem **udostępniania** , **MapCount** i **wag**.
+Pakiety normalizacji odpowiedzi obsługują wszystkie atrybuty splotowych z wyjątkiem **udostępniania**, **MapCount** i **wag**.
 
 + Jeśli jądro zawiera neurons w tej samej mapie co **_x_*_, schemat normalizacji jest określany jako _ do* normalizacji mapy**. Aby zdefiniować tę samą normalizację mapy, pierwsza Współrzędna w **InputShape** musi mieć wartość 1.
 
@@ -277,9 +277,9 @@ Ponieważ pakiety normalizacji odpowiedzi stosują wstępnie zdefiniowaną funkc
 
 Oprócz czterech opisanych wcześniej atrybutów, pakiety normalizacji odpowiedzi obsługują również następujące atrybuty:
 
-+ **Alpha** : (required) określa wartość zmiennoprzecinkową, która odpowiada `α` w poprzedniej formule.
-+ **Beta** : (wymagane) określa wartość zmiennoprzecinkową, która odpowiada `β` w poprzedniej formule.
-+ **Przesunięcie** : (opcjonalnie) określa wartość zmiennoprzecinkową, która odpowiada `k` w poprzedniej formule. Wartość domyślna to 1.
++ **Alpha**: (required) określa wartość zmiennoprzecinkową, która odpowiada `α` w poprzedniej formule.
++ **Beta**: (wymagane) określa wartość zmiennoprzecinkową, która odpowiada `β` w poprzedniej formule.
++ **Przesunięcie**: (opcjonalnie) określa wartość zmiennoprzecinkową, która odpowiada `k` w poprzedniej formule. Wartość domyślna to 1.
 
 W poniższym przykładzie zdefiniowano pakiet normalizacji odpowiedzi przy użyciu następujących atrybutów:
 

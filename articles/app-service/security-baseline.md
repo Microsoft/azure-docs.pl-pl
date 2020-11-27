@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5b9c41209902e384988064207bb3e1ded1c47477
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 691bb538ea0f46e26c318a68e9f66a9a986eb5d4
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182958"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301845"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>Podstawa zabezpieczeń platformy Azure dla App Service
 
@@ -168,7 +168,7 @@ Przejrzyj linki, do których istnieją odwołania, aby uzyskać dodatkowe inform
 
 - [Jak skonfigurować kompleksową metodę TLS przy użyciu Application Gateway z portalem](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Zabezpiecz środowisko ASE zgodnie z opisem w temacie blokowanie App Service](https://review.docs.microsoft.com/azure/app-service/environment/firewall-integrationEnvironment:)
+- [Zabezpiecz środowisko ASE zgodnie z opisem w temacie blokowanie App Service](/azure/app-service/environment/firewall-integration)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -201,11 +201,11 @@ Użyj wbudowanych definicji zasad dla App Service, takich jak:
 
 Przejrzyj linki, do których istnieją odwołania, aby uzyskać dodatkowe informacje.
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 - [Jak skonfigurować kompleksową metodę TLS przy użyciu Application Gateway z portalem](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Zabezpiecz środowisko ASE zgodnie z opisem w temacie blokowanie App Service](https://review.docs.microsoft.com/azure/app-service/environment/firewall-integrationEnvironment:)
+- [Zabezpiecz środowisko ASE zgodnie z opisem w temacie blokowanie App Service](/azure/app-service/environment/firewall-integration)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -221,7 +221,7 @@ Zastosuj dowolne wbudowane definicje Azure Policy związane ze skutkami tagowani
 
 - [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
-- [Ograniczenia dostępu Azure App Service](/azure/app-service/app-service-ip-restriction)
+- [Ograniczenia dostępu Azure App Service](/azure/app-service/app-service-ip-restrictions)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -424,7 +424,7 @@ Zaimplementuj uwierzytelnianie wieloskładnikowe dla usługi Azure AD. Administr
 
 - [Azure Security MFA](/previous-versions/azure/security/develop/secure-aad-app)
 
-- [Jak włączyć uwierzytelnianie wieloskładnikowe na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Jak włączyć usługę MFA na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 - [Jak monitorować tożsamość i dostęp w Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -438,7 +438,7 @@ Zaimplementuj uwierzytelnianie wieloskładnikowe dla usługi Azure AD. Administr
 
 - [Dowiedz się więcej o stacjach roboczych uprzywilejowanego dostępu](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Jak włączyć uwierzytelnianie wieloskładnikowe na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Jak włączyć usługę MFA na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -584,7 +584,7 @@ Firma Microsoft zarządza podstawową infrastrukturą dla App Service i ma zaimp
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
-**Odpowiedzialność**: Udostępnione
+**Odpowiedzialność**: Współużytkowane
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: Szyfruj wszystkie poufne informacje podczas przesyłania
 
@@ -608,7 +608,7 @@ Firma Microsoft zarządza podstawową platformą i traktuje wszystkie dane klien
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
-**Odpowiedzialność**: Udostępnione
+**Odpowiedzialność**: Współużytkowane
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: stosowanie kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
 
@@ -672,7 +672,7 @@ Przejrzyj i postępuj zgodnie z zaleceniami Security Center na potrzeby zabezpie
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: Udostępnione
+**Odpowiedzialność**: Współużytkowane
 
 ## <a name="inventory-and-asset-management"></a>Zarządzanie magazynem i zasobami
 
@@ -739,7 +739,7 @@ Przejrzyj linki, do których istnieją odwołania, aby uzyskać dodatkowe inform
 
 Użyj grafu zasobów platformy Azure do wykonywania zapytań lub odnajdywania zasobów w ramach ich subskrypcji.  Upewnij się, że wszystkie zasoby platformy Azure obecne w środowisku są zatwierdzone. 
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md) 
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md) 
 
 - [Jak tworzyć zapytania za pomocą usługi Azure Graph](../governance/resource-graph/first-query-portal.md)
 
@@ -805,7 +805,7 @@ Skonfiguruj Azure Policy, aby umieścić ograniczenia dotyczące typu zasobów, 
 
 Użyj zadań WebJob w App Service, aby monitorować niezatwierdzone aplikacje wdrożone w ramach zasobów komputerowych. Używanie zadań WebJob do uruchamiania programu lub skryptu w tym samym wystąpieniu co aplikacja sieci Web, aplikacja interfejsu API lub aplikacja mobilna. Zdefiniuj konfiguracje zadań WebJob i monitoruj je za pomocą dzienników. Na stronie Szczegóły przebiegu Zadania WebJob wybierz pozycję Przełącz dane wyjściowe, aby zobaczyć tekst zawartości dziennika. Należy pamiętać, że Zadania WebJob nie są jeszcze obsługiwane dla App Service w systemie Linux.
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 - [Jak odmówić określonego typu zasobu za pomocą Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
@@ -829,7 +829,7 @@ Skonfiguruj Azure Policy, aby umieścić ograniczenia dotyczące typu zasobów, 
 
 Podobnie należy używać zadań WebJob w App Service do spisu niezatwierdzonych aplikacji oprogramowania wdrożonych w ramach zasobów komputerowych. Zdefiniuj ich konfigurację i monitorowanie za pomocą dzienników. Na stronie Szczegóły przebiegu Zadania WebJob wybierz pozycję Przełącz dane wyjściowe, aby zobaczyć tekst zawartości dziennika. Należy pamiętać, że Zadania WebJob nie są jeszcze obsługiwane dla App Service w systemie Linux.
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 - [Jak odmówić określonego typu zasobu za pomocą Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
@@ -893,7 +893,7 @@ Zaleca się udokumentowanie procesu, aby zastosować wbudowane definicje zasad d
 
 - [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -903,7 +903,7 @@ Zaleca się udokumentowanie procesu, aby zastosować wbudowane definicje zasad d
 
 **Wskazówki**: Użyj Azure Policy [Odmów] i [Wdróż, jeśli nie istnieje] efektów, aby wymusić bezpieczne ustawienia dla aplikacji Azure App Service.
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 - [Zrozumienie efektów Azure Policy](../governance/policy/concepts/effects.md)
 
@@ -929,7 +929,7 @@ Użyj istniejącego potoku ciągłej integracji i ciągłego dostarczania, aby w
 
 **Wskazówki**: Użyj wbudowanych definicji Azure Policy, a także aliasów Azure Policy w przestrzeni nazw "Microsoft. Web", aby utworzyć zasady niestandardowe na potrzeby alertów, inspekcji i wymuszania konfiguracji systemu. Opracowywanie procesu i potoku w celu zarządzania wyjątkami zasad.
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -941,7 +941,7 @@ Użyj istniejącego potoku ciągłej integracji i ciągłego dostarczania, aby w
 
 Zastosuj Azure Policy [Audit], [Odmów] i [Wdróż, jeśli nie istnieje], powoduje automatyczne wymuszanie konfiguracji zasobów platformy Azure.
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -975,7 +975,7 @@ Zastosuj Azure Policy [Audit], [Odmów] i [Wdróż, jeśli nie istnieje], powodu
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7,13: eliminowanie nieprzewidzianego narażenia na poświadczenia
 
-**Wskazówki**: Implementuj skaner poświadczeń, aby identyfikować poświadczenia w kodzie. Skaner poświadczeń zachęca również do przemieszczania odnalezionych poświadczeń do bardziej bezpiecznych lokalizacji, takich jak Azure Key Vault.
+**Wskazówki**: Implementuj skaner poświadczeń, aby identyfikować poświadczenia w kodzie. Skaner poświadczeń ułatwia również przenoszenie odnalezionych poświadczeń do bezpieczniejszych lokalizacji, takich jak usługa Azure Key Vault.
 
 - [Jak skonfigurować skaner poświadczeń](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
@@ -1065,7 +1065,7 @@ Domyślnie dane na koncie magazynu są szyfrowane za pomocą kluczy zarządzanyc
 
 ### <a name="101-create-an-incident-response-guide"></a>10,1: Tworzenie przewodnika odpowiedzi na zdarzenia
 
-**Wskazówki**: Tworzenie przewodnika odpowiedzi na zdarzenia dla organizacji. Upewnij się, że istnieją zarejestrowane plany reakcji na zdarzenia, które definiują wszystkie role pracowników, a także etapy obsługi zdarzeń/zarządzania z wykrywania do oceny po zdarzeniu.
+**Wskazówka**: Utwórz przewodnik odpowiedzi na zdarzenia dla swojej organizacji. Upewnij się, że istnieją zarejestrowane plany reakcji na zdarzenia, które definiują wszystkie role pracowników, a także etapy obsługi zdarzeń/zarządzania od wykrywania do oceny po zdarzeniu.
 
 - [Jak skonfigurować automatyzację przepływu pracy w programie Azure Security Center](../security-center/security-center-planning-and-operations-guide.md)
 
@@ -1091,7 +1091,7 @@ Ponadto wyraźnie oznaczaj subskrypcje (na przykład produkcyjne, nieprodukcyjne
 
 ### <a name="103-test-security-response-procedures"></a>10,3: procedury odpowiedzi na zabezpieczenia testowe
 
-**Wskazówki**: przeprowadzanie ćwiczeń do testowania możliwości odpowiedzi na zdarzenia systemu w regularnych erze. Zidentyfikuj słabe punkty i przerwy i popraw plan zgodnie z wymaganiami.
+**Wskazówki**: przeprowadzanie ćwiczeń do testowania możliwości odpowiedzi na zdarzenia systemu w regularnych erze. Zidentyfikuj słabe punkty i przerwy oraz popraw plan zgodnie z wymaganiami.
 
 - [Zapoznaj się z przewodnikiem po publikacji NIST, aby testować, uczenie i ćwiczenie programów dla planów i możliwości IT](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
@@ -1141,11 +1141,11 @@ Ponadto wyraźnie oznaczaj subskrypcje (na przykład produkcyjne, nieprodukcyjne
 
 Aby uzyskać więcej informacji na temat strategii i sposobu wykonywania czerwonych zespołów i testowania platformy Microsoft na żywo w witrynie, usług i aplikacjach chmurowych zarządzanych przez firmę Microsoft.
 
-- [Działania typu „red team” w chmurze firmy Microsoft](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Testy typu „red team” w chmurze firmy Microsoft](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: Udostępnione
+**Odpowiedzialność**: Współużytkowane
 
 ## <a name="next-steps"></a>Następne kroki
 

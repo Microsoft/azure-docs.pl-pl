@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 04399dc82a3bd2d70b8b472b121e95a73ca43136
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9c27139e2dca37c1ff8d963e1e8cdb5de682d39d
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009623"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302950"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-carlson-wagonlit-travel"></a>Samouczek: integracja Azure Active Directory z Carlson Wagonlit
 
@@ -119,7 +119,7 @@ Aby skonfigurować logowanie jednokrotne w usłudze Azure AD przy użyciu aplika
 
 ### <a name="configure-carlson-wagonlit-travel-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w aplikacji Carlson Wagonlit Travel
 
-Aby skonfigurować logowanie jednokrotne po stronie aplikacji **Carlson Wagonlit Travel**, musisz wysłać pobrany **plik XML metadanych federacji** i odpowiednie adresy URL skopiowane z witryny Azure Portal [zespołowi pomocy technicznej aplikacji Carlson Wagonlit Travel](http://www.carlsonwagonlit.in/content/cwt/in/en/technical-assistance.html). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować logowanie jednokrotne po stronie aplikacji **Carlson Wagonlit Travel**, musisz wysłać pobrany **plik XML metadanych federacji** i odpowiednie adresy URL skopiowane z witryny Azure Portal [zespołowi pomocy technicznej aplikacji Carlson Wagonlit Travel](https://www.mycwt.com/traveler-help/). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -174,7 +174,7 @@ W tej sekcji włączysz dla użytkownika Britta Simon możliwość korzystania z
 
 ### <a name="create-carlson-wagonlit-travel-test-user"></a>Tworzenie użytkownika testowego aplikacji Carlson Wagonlit Travel
 
-W tej sekcji utworzysz w aplikacji Carlson Wagonlit Travel użytkownika o nazwie Britta Simon. Współpracuj z [zespołem pomocy technicznej Carlson Wagonlit](http://www.carlsonwagonlit.in/content/cwt/in/en/technical-assistance.html) , aby dodać użytkowników na platformie podróży Carlson Wagonlit. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz w aplikacji Carlson Wagonlit Travel użytkownika o nazwie Britta Simon. Współpracuj z [zespołem pomocy technicznej Carlson Wagonlit](https://www.mycwt.com/traveler-help/) , aby dodać użytkowników na platformie podróży Carlson Wagonlit. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 

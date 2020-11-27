@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2f1c703f2bd2e90e15c566b7e04e8a878c16f6de
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b73fa80085cc0491c8b4d0856d0baacfef1b51c0
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001273"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301538"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Uruchamianie elementów Runbook w hybrydowym procesie roboczym elementu Runbook
 
@@ -22,7 +22,7 @@ Podczas tworzenia elementu Runbook do uruchamiania w hybrydowym procesie roboczy
 
 Azure Automation obsługuje zadania dla hybrydowych procesów roboczych elementu Runbook inaczej niż zadania uruchamiane w piaskownicach platformy Azure. Jeśli masz długotrwały element Runbook, upewnij się, że jest on odporny na możliwe ponowne uruchomienie. Aby uzyskać szczegółowe informacje o zachowaniu zadania, zobacz [hybrydowe zadania procesu roboczego elementu Runbook](automation-hybrid-runbook-worker.md#hybrid-runbook-worker-jobs).
 
-Zadania dla hybrydowych procesów roboczych elementu Runbook działają w ramach lokalnego konta **systemowego** w systemie Windows lub konta **Nxautomation** w systemie Linux. W przypadku systemu Linux Sprawdź, czy konto **nxautomation** ma dostęp do lokalizacji, w której są przechowywane moduły Runbook. W przypadku korzystania z polecenia cmdlet [Install-module](/powershell/module/powershellget/install-module) należy określić ALLUSERS dla `Scope` parametru, aby upewnić się, że konto **nxautomation** ma dostęp. Aby uzyskać więcej informacji na temat programu PowerShell w systemie Linux, zobacz [znane problemy dotyczące programu PowerShell na platformach innych niż Windows](/powershell/scripting/whats-new/known-issues-ps6#known-issues-for-powershell-on-non-windows-platforms).
+Zadania dla hybrydowych procesów roboczych elementu Runbook działają w ramach lokalnego konta **systemowego** w systemie Windows lub konta **Nxautomation** w systemie Linux. W przypadku systemu Linux Sprawdź, czy konto **nxautomation** ma dostęp do lokalizacji, w której są przechowywane moduły Runbook. W przypadku korzystania z polecenia cmdlet [Install-module](/powershell/module/powershellget/install-module) należy określić ALLUSERS dla `Scope` parametru, aby upewnić się, że konto **nxautomation** ma dostęp. Aby uzyskać więcej informacji na temat programu PowerShell w systemie Linux, zobacz [znane problemy dotyczące programu PowerShell na platformach innych niż Windows](/powershell/scripting/whats-new/what-s-new-in-powershell-70?view=powershell-7.1).
 
 ## <a name="configure-runbook-permissions"></a>Konfigurowanie uprawnień elementu Runbook
 

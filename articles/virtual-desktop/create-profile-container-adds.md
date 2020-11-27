@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ea834ed874f3011d95f8b924df860576f72bc4ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70a56b7efc34ba2fd3c06521c6e4cac6ea28778f
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88825617"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302474"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Tworzenie kontenera profilu przy użyciu Azure Files i platformy Azure AD DS
 
@@ -67,7 +67,7 @@ Aby przypisać uprawnienia dostępu użytkowników:
 
 4. Na karcie **Dodaj przypisanie roli** wybierz odpowiednią wbudowaną rolę z listy rola. Aby uzyskać odpowiednie uprawnienia, należy wybrać co najmniej pozycję **plik usługi Storage współautor udziału SMB** dla konta.
 
-5. W obszarze **Przypisz dostęp do**wybierz pozycję **Azure Active Directory użytkownika, grupy lub nazwy głównej usługi**.
+5. W obszarze **Przypisz dostęp do** wybierz pozycję **Azure Active Directory użytkownika, grupy lub nazwy głównej usługi**.
 
 6. Wybierz nazwę lub adres e-mail dla Azure Active Directory tożsamości docelowej.
 
@@ -83,7 +83,7 @@ Aby uzyskać klucz dostępu do konta magazynu:
 
 2. Z listy kont magazynu wybierz konto, dla którego włączono usługę Azure AD DS i utworzono role niestandardowe w powyższych krokach.
 
-3. W obszarze **Ustawienia**wybierz pozycję **klucze dostępu** i skopiuj klucz z **Klucz1**.
+3. W obszarze **Ustawienia** wybierz pozycję **klucze dostępu** i skopiuj klucz z **Klucz1**.
 
 4. Przejdź do karty **Virtual Machines** i Znajdź wszystkie maszyny wirtualne, które staną się częścią puli hostów.
 
@@ -99,7 +99,7 @@ Aby uzyskać klucz dostępu do konta magazynu:
 7. Uruchom następujące polecenie:
 
      ```cmd
-     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
+     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
      ```
 
     - Zamień na `<desired-drive-letter>` wybraną literę dysku (na przykład `y:` ).
@@ -107,7 +107,7 @@ Aby uzyskać klucz dostępu do konta magazynu:
     - Zamień na `<share-name>` nazwę utworzonego wcześniej udziału.
     - Zamień na `<storage-account-key>` klucz konta magazynu z platformy Azure.
 
-    Na przykład:
+    Przykład:
 
      ```cmd
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
@@ -125,7 +125,7 @@ Aby uzyskać klucz dostępu do konta magazynu:
     - Zamień na `<mounted-drive-letter>` literę dysku, który został użyty do mapowania dysku.
     - Zamień na `<user-email>` nazwę UPN użytkownika lub grupy Active Directory, która zawiera użytkowników, którzy będą potrzebować dostępu do udziału.
 
-    Na przykład:
+    Przykład:
 
      ```cmd
      icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)
@@ -206,7 +206,7 @@ Aby przypisać użytkowników:
 
     Podobnie jak w przypadku wcześniejszych poleceń cmdlet, pamiętaj, aby zastąpić `<your-wvd-tenant>` , `<wvd-pool>` i `<user-principal>` z odpowiednimi wartościami.
 
-    Na przykład:
+    Przykład:
 
      ```powershell
      $pool1 = "contoso"

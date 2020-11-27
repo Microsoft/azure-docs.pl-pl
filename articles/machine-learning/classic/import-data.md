@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: 00501a1e17f8e085b817cfe3dac819ba890248f5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c69ed7b9e2aaa7113637868e1c1329ed2962b931
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309847"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302780"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>Importowanie danych szkoleniowych do Azure Machine Learning Studio (klasyczne) z różnych źródeł danych
 
-**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Aby użyć własnych danych w Machine Learning Studio (klasyczny) do opracowania i uczenia rozwiązania do analizy predykcyjnej, możesz użyć danych z: 
@@ -50,11 +50,11 @@ Możesz zaimportować wiele typów danych do eksperymentu, w zależności od teg
 * Wartości rozdzielane tabulatorami (TSV) z nagłówkiem (. tsv) lub bez (. NH. tsv)
 * Plik programu Excel
 * Tabela platformy Azure
-* Tabela programu Hive
+* Tabela Hive
 * Tabela bazy danych SQL
 * Wartości OData
 * SVMLight Data (. SVMLight) (zobacz [definicję SVMLight](http://svmlight.joachims.org/) , aby uzyskać informacje o formacie)
-* Plik relacji atrybutu (ARFF) — dane (. ARFF) (zobacz [definicję ARFF](https://weka.wikispaces.com/ARFF) , aby uzyskać informacje o formacie)
+* Plik relacji atrybutu (ARFF) — dane (. ARFF) (zobacz [definicję ARFF](https://www.cs.waikato.ac.nz/ml/weka/arff.html) , aby uzyskać informacje o formacie)
 * Plik zip (zip)
 * Obiekt R lub plik obszaru roboczego (. RData
 
@@ -66,19 +66,19 @@ Można jawnie określić lub zmienić nagłówki i typy danych dla kolumn za pom
 
 Następujące typy danych są rozpoznawane przez program Studio (klasyczny):
 
-* String
+* Ciąg
 * Liczba całkowita
 * Double
 * Boolean (wartość logiczna)
 * Data/godzina
 * przedział_czasu
 
-Studio używa wewnętrznego typu danych o nazwie * **Data Table** _ do przekazywania danych między modułami. Dane można jawnie przekonwertować na format tabeli danych przy użyciu modułu [Konwertuj na zestaw][convert-to-dataset] danych.
+Studio używa wewnętrznego typu danych o nazwie ***Data Table** _ do przekazywania danych między modułami. Dane można jawnie przekonwertować na format tabeli danych przy użyciu modułu [Konwertuj na zestaw][convert-to-dataset] danych.
 
 Każdy moduł, który akceptuje formaty inne niż tabela danych, przekonwertuje dane do tabeli danych dyskretnie przed przekazaniem ich do następnego modułu.
 
 W razie potrzeby można przekonwertować Format tabeli danych z powrotem do formatu CSV, TSV, ARFF lub SVMLight przy użyciu innych modułów konwersji.
-Zapoznaj się z sekcją _ *konwersje formatu danych* * w palecie modułów dla modułów, które wykonują te funkcje.
+Zapoznaj się z sekcją _ *konwersje formatu danych** w palecie modułów dla modułów, które wykonują te funkcje.
 
 ## <a name="data-capacities"></a>Pojemności danych
 

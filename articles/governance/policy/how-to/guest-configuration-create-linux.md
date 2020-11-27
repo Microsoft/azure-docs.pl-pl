@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć Azure Policy zasady konfiguracji gości
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1e81d1a5157cc5872ba2628c8d6cb408e35ab9c6
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 1f6308250717d35dc725b097575bf3921646c6a0
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94694246"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302711"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Jak tworzyć zasady konfiguracji gościa dla systemu Linux
 
@@ -89,6 +89,10 @@ Konfiguracja DSC działa jako otoka do standaryzacji w celu ujednolicenia sposob
 #### <a name="configuration-requirements"></a>Wymagania dotyczące konfiguracji
 
 Nazwa konfiguracji niestandardowej musi być spójna wszędzie. Nazwa pliku. zip pakietu zawartości, nazwa konfiguracji w pliku MOF i nazwa przypisywania gościa w szablonie Azure Resource Manager (szablon ARM) musi być taka sama.
+
+Polecenia cmdlet programu PowerShell ułatwiają tworzenie pakietu.
+Nie jest wymagany folder poziomu głównego ani folder wersji.
+Format pakietu musi być plikiem zip. i nie może przekroczyć całkowitego rozmiaru 100 MB w przypadku nieskompresowanego elementu.
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Konfiguracja niestandardowej konfiguracji gościa w systemie Linux
 

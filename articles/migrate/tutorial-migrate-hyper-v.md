@@ -6,12 +6,12 @@ ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 84f04d2f1f8c9b54a1f2a2a13cc97954ac5add90
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 038d0ec817d4f81371546e8d7aa4b48b299c8d98
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995322"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302558"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrowanie maszyn wirtualnych funkcji Hyper-V na platformę Azure 
 
@@ -43,23 +43,9 @@ Przed rozpoczęciem tego samouczka należy:
 2. [Przegląd](migrate-support-matrix-hyper-v-migration.md#hyper-v-host-requirements) Wymagania hosta funkcji Hyper-V dotyczące migracji oraz adresy URL platformy Azure, do których hosty i klastry funkcji Hyper-V potrzebują dostępu do migracji maszyn wirtualnych.
 3. [Zapoznaj](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) się z wymaganiami dotyczącymi maszyn wirtualnych funkcji Hyper-V, które chcesz zmigrować na platformę Azure.
 4. Zalecamy, aby  [oceniać maszyny wirtualne funkcji Hyper-V](tutorial-assess-hyper-v.md) przed ich migracją na platformę Azure, ale nie musisz.
+5. Przejdź do już utworzonego projektu lub [Utwórz nowy projekt](https://docs.microsoft.com/azure/migrate/create-manage-projects)
+6. Sprawdź uprawnienia do konta platformy Azure — Twoje konto platformy Azure wymaga uprawnień do utworzenia maszyny wirtualnej i zapisu na dysku zarządzanym platformy Azure.
 
-   
-## <a name="add-the-azure-migrateserver-migration-tool"></a>Dodawanie Azure Migrate: Narzędzia migracji serwera
-
-Dodaj Azure Migrate: Narzędzia migracji serwera. Jeśli nie masz jeszcze projektu Azure Migrate [, najpierw należy go utworzyć,](how-to-add-tool-first-time.md) aby skonfigurować Azure Migrate projekt. Podczas tworzenia projektu należy dodać Azure Migrate: Narzędzie migracji serwera.
-
-Jeśli masz skonfigurowany projekt, Dodaj narzędzie w następujący sposób:
-
-1. W projekcie Azure Migrate kliknij pozycję **Przegląd**. 
-2. W obszarze **odnajdywanie, ocenianie i** Migrowanie serwerów kliknij pozycję **Oceń i Przeprowadź migrację serwerów**.
-3. W obszarze **Narzędzia migracji** wybierz **pozycję kliknij tutaj, aby dodać narzędzie do migracji, gdy wszystko jest gotowe do migracji**.
-
-    ![Wybierz narzędzie](./media/tutorial-migrate-hyper-v/select-migration-tool.png)
-
-4. Na liście Narzędzia wybierz pozycję **Azure Migrate: serwer**—  >  **Dodawanie narzędzia** do migracji
-
-    ![Narzędzie do migracji serwera](./media/tutorial-migrate-hyper-v/server-migration-tool.png)
 
 ## <a name="download-and-install-the-provider"></a>Pobieranie i Instalowanie dostawcy
 
