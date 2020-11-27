@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: e3f0a9f0b7fdef26cf1ef2b145ede1826fda6ebd
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: d24ae1f42c685589309506b2d5e0eab157b2bc42
+ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685600"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299619"
 ---
 # <a name="use-file-metadata-in-serverless-sql-pool-queries"></a>Korzystanie z metadanych plików w przypadku zapytań puli SQL bezserwerowych
 
@@ -76,7 +76,7 @@ ORDER BY
 
 Funkcja FilePath zwraca pełną lub częściową ścieżkę:
 
-- Gdy wywoływana bez parametru, zwraca pełną ścieżkę pliku, z której pochodzi wiersz.
+- Gdy wywoływana bez parametru, zwraca pełną ścieżkę pliku, z której pochodzi wiersz. Gdy DATA_SOURCE jest używany w funkcji OPENROWSET, zwraca ścieżkę względną do DATA_SOURCE. 
 - Gdy wywoływana z parametrem, zwraca część ścieżki, która pasuje do symbolu wieloznacznego na pozycji określonej w parametrze. Na przykład wartość parametru 1 zwróci część ścieżki, która pasuje do pierwszego symbolu wieloznacznego.
 
 Poniższy przykład odczytuje NYC żółte pliki danych z taksówką dla ostatnich trzech miesięcy 2017. Zwraca liczbę kolarstwu na ścieżkę pliku. Część OPENROWSET zapytania określa, które pliki zostaną odczytane.

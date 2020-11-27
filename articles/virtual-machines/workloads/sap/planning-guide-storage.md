@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/23/2020
+ms.date: 11/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1cd6f5f7865d18461ac7a635530e9aabfde380a6
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 325e28b9fde349fc4bf01d2b130bee0be0684962
+ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955416"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299602"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Typy usługi Azure Storage dla obciążeń SAP
 Platforma Azure ma wiele typów magazynów, które różnią się znacznie w zależności od możliwości, przepływności, opóźnień i cen. Niektóre typy magazynów nie są lub są ograniczone do użycia w scenariuszach SAP. Niektóre typy magazynów platformy Azure są dobrze dopasowane lub zoptymalizowane pod kątem określonych scenariuszy obciążeń SAP. Szczególnie w przypadku SAP HANA niektóre typy magazynów platformy Azure uzyskały certyfikat do użycia z SAP HANA. W tym dokumencie przechodzą różne typy magazynów i opisano ich możliwości i użyteczność przy użyciu obciążeń SAP i składników SAP.
@@ -34,6 +34,8 @@ Uwagi dotyczące jednostek używanych w tym artykule. Dostawcy chmury publicznej
 Microsoft Azure Storage HDD w warstwie Standardowa, SSD w warstwie Standardowa, Azure Premium Storage i Ultra Disk przechowuj podstawowy wirtualny dysk twardy (z systemem operacyjnym) i dyskami z danymi dołączonymi do maszyny wirtualnej w trzech kopiach na trzech różnych węzłach magazynu. Przechodzenie w tryb failover do innej repliki i wypełnianie nowej repliki w przypadku awarii węzła magazynu jest niewidoczne. W wyniku tej nadmiarowości **nie** jest wymagane użycie żadnego rodzaju warstwy nadmiarowości magazynu na wielu dyskach platformy Azure. Ten fakt nosi nazwę magazynu lokalnego nadmiarowego (LRS). LRS jest wartością domyślną dla tego typu magazynu na platformie Azure. [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) zapewnia wystarczającą nadmiarowość do osiągnięcia tego samego umowy SLA, co w przypadku innych natywnych magazynów platformy Azure.
 
 Istnieje kilka metod nadmiarowości, które zostały opisane w artykule [Replikacja usługi Azure Storage](../../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) , która ma zastosowanie do niektórych różnych typów magazynów platformy Azure. 
+
+Należy również pamiętać, że różne typy magazynów platformy Azure mają wpływ na dostępność pojedynczej maszyny wirtualnej umowy SLA jako wydaną w [umowie SLA dla Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines).
 
 ### <a name="azure-managed-disks"></a>Azure Managed disks
 
@@ -131,7 +133,6 @@ Ten typ magazynu dotyczy obciążeń systemu DBMS, ruchu magazynu, który wymaga
 - Przepływność we/wy dla tego magazynu nie jest liniowa z rozmiarem kategorii dysku. W przypadku mniejszych dysków, takich jak kategoria między 65 GiB i 128 GiB pojemności, przepływność jest około 780KB/GiB. W przypadku bardzo dużych dysków, takich jak dysk GiB 32 767, przepływność jest około 28KB/GiB
 - Nie można zmienić umowy SLA IOPS i przepływności bez zmiany pojemności dysku
 
-Platforma Azure ma umowę SLA na maszynę wirtualną o pojemności 99,9%, która jest powiązana z użyciem usługi Azure Premium Storage lub Azure Ultra Disk Storage. Umowa SLA jest udokumentowana w [umowie SLA dla Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Aby zapewnić zgodność z tą samą umową SLA maszyny wirtualnej, podstawowy dysk VHD oraz **wszystkie** dołączone dyski muszą być w usłudze Azure Premium Storage lub Azure Ultra Disk Storage.
 
 Macierz możliwości dla obciążeń SAP wygląda następująco:
 
@@ -139,7 +140,7 @@ Macierz możliwości dla obciążeń SAP wygląda następująco:
 | --- | --- | --- | 
 | Podstawowy dysk twardy systemu operacyjnego | wiek | Wszystkie systemy |
 | Dysk danych | wiek | Wszystkie systemy — [specjalnie dla SAP HANA](../../how-to-enable-write-accelerator.md) |
-| Globalny katalog transportu SAP | TAK | [Obsługiwał](https://launchpad.support.sap.com/#/notes/2015553) |
+| Globalny katalog transportu SAP | TAK | [Obsługiwane](https://launchpad.support.sap.com/#/notes/2015553) |
 | Sapmnt SAP | wiek | Wszystkie systemy |
 | Magazyn kopii zapasowych | wiek | do krótkoterminowego przechowywania kopii zapasowych |
 | Udziały/dysk udostępniony | niedostępne | Potrzebuje plików platformy Azure w warstwie Premium lub innej firmy |
@@ -197,7 +198,7 @@ Macierz możliwości dla obciążeń SAP wygląda następująco:
 | --- | --- | --- | 
 | Podstawowy dysk twardy systemu operacyjnego | nie działa | - |
 | Dysk danych | wiek | Wszystkie systemy  |
-| Globalny katalog transportu SAP | TAK | [Obsługiwał](https://launchpad.support.sap.com/#/notes/2015553) |
+| Globalny katalog transportu SAP | TAK | [Obsługiwane](https://launchpad.support.sap.com/#/notes/2015553) |
 | Sapmnt SAP | wiek | Wszystkie systemy |
 | Magazyn kopii zapasowych | wiek | do krótkoterminowego przechowywania kopii zapasowych |
 | Udziały/dysk udostępniony | niedostępne | Wymaga innej firmy |

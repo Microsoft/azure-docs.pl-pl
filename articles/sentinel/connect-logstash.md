@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: 247abafd7abec38e43794b76268ee52538aee508
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 63b9d74fbbb1a79dd4f3d3e7c5fb094a372282e0
+ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655684"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299636"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Korzystanie z logstash do łączenia źródeł danych z platformą Azure — wskaźnikiem
 
@@ -57,7 +57,7 @@ Wtyczka Azure wskaźnikowego danych wyjściowych dla logstash wysyła dane sform
 
 Wtyczka danych wyjściowych na platformie Azure jest dostępna w kolekcji logstash.
 
-- Postępuj zgodnie z instrukcjami zawartymi w dokumencie logstash [Work with](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) plugins, aby zainstalować wtyczkę **_Microsoft-logstash-Output-Azure-loganalytics_* _.
+- Postępuj zgodnie z instrukcjami zawartymi w dokumencie logstash [Work with](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) plugins, aby zainstalować wtyczkę **_[Microsoft-logstash-Output-Azure-loganalytics](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-logstash-output-azure-loganalytics)_* _.
    
 - Jeśli system logstash nie ma dostępu do Internetu, postępuj zgodnie z instrukcjami zawartymi w dokumencie [Zarządzanie wtyczkami w trybie offline](https://www.elastic.co/guide/en/logstash/current/offline-plugins.html) logstash, aby przygotować pakiet wtyczek w trybie offline i korzystać z niego. (Będzie to wymagało skompilowania innego systemu logstash z dostępem do Internetu).
 
