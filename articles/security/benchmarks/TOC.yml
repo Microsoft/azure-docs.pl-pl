@@ -105,6 +105,8 @@
       href: ../../devtest-labs/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Firewall
       href: ../../firewall/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Azure Firewall Manager
+      href: ../../firewall-manager/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Front Door
       href: ../../frontdoor/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Functions
@@ -185,6 +187,8 @@
       href: ../../logic-apps/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Network Watcher
       href: ../../network-watcher/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Power BI
+      href: /power-bi/fundamentals/security-baseline
     - name: Punkt odniesienia usługi Security Center
       href: ../../security-center/security-baseline.md
     - name: Punkt odniesienia usługi Service Bus
@@ -207,5 +211,7 @@
       href: ../../virtual-network/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń translatora adresów sieciowych usługi Virtual Network
       href: ../../virtual-network/nat-security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń wirtualnej sieci WAN
+      href: ../../virtual-wan/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi VPN Gateway
       href: ../../vpn-gateway/security-baseline.md

@@ -98,6 +98,8 @@
           items:
             - name: Punkt odniesienia zabezpieczeń
               href: security-baseline.md
+            - name: Szyfrowanie
+              href: ./security/workspaces-encryption.md
             - name: Bezpieczeństwo sieci
               items:
                 - name: Reguły zapory adresów IP obszaru roboczego usługi Synapse
@@ -976,6 +978,8 @@
               href: ../data-factory/data-factory-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Rozwiązywanie problemów z łącznikiem
               href: ../data-factory/connector-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Ciągła integracja i wdrażanie
+              href: ../data-factory/ci-cd-github-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Zabezpieczenia i kontrola dostępu
               href: ../data-factory/security-and-access-control-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Rozwiązywanie problemów z własnymi środowiskami Integration Runtime
@@ -1028,6 +1032,9 @@
       href: 'https://github.com/Azure-Samples/Synapse'
     - name: Widoki systemowe
       href: sql/reference-tsql-system-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
     - name: T-SQL
       items:
         - name: Pełna dokumentacja

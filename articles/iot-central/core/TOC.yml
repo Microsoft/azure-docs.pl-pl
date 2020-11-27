@@ -47,12 +47,8 @@
   items:
     - name: Łączenie i tworzenie urządzeń
       items:
-        - name: Łączenie urządzenia (Node.js)
-          href: tutorial-connect-device-nodejs.md
-        - name: Łączenie urządzenia (Python)
-          href: tutorial-connect-device-python.md
-        - name: Łączenie urządzenia (Java)
-          href: tutorial-connect-device-java.md
+        - name: Tworzenie i łączenie urządzenia
+          href: tutorial-connect-device.md
         - name: Tworzenie szablonu urządzenia bramy
           href: tutorial-define-gateway-device-type.md
         - name: Łączenie urządzenia usługi IoT Edge

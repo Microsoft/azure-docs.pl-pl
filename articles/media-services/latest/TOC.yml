@@ -45,6 +45,10 @@
           href: manage-assets-quickstart.md
         - name: Szyfrowanie zawartości przy użyciu portalu
           href: encrypt-content-quickstart.md
+    - name: Korzystanie z szablonu usługi Resource Manager
+      items:
+        - name: Tworzenie konta za pomocą usługi ARM
+          href: quickstart-arm-template-account.md
 - name: Samouczki
   items:
     - name: .NET
