@@ -66,6 +66,10 @@
       href: signalr-concept-authenticate-oauth.md
     - name: Obsługa zdarzeń
       href: signalr-concept-event-grid-integration.md
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Skalowanie
