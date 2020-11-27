@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 11/18/2020
-ms.openlocfilehash: 9715724fc0fbd25198dd3244215ac2c12638d2b8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ac785b3ad534e80d4dd240d1a29ba5f6aa75e10a
+ms.sourcegitcommit: 236014c3274b31f03e5fcee5de510f9cacdc27a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185967"
+ms.locfileid: "96299043"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Klucz zarządzany przez klienta usługi Azure Monitor 
 
@@ -43,7 +43,7 @@ Po zakończeniu konfiguracji wszystkie dane pozyskiwane w obszarach roboczych po
 
 ![Przegląd klucza Customer-Managed](media/customer-managed-keys/cmk-overview.png)
 
-1. Key Vault
+1. Usługa Key Vault
 2. Log Analytics zasobu *klastra* mającego zarządzaną tożsamość z uprawnieniami do Key Vault — tożsamość jest propagowana do underlay dedykowanego log Analytics magazynu klastra
 3. Dedykowany klaster Log Analytics
 4. Obszary robocze połączone z zasobem *klastra* 
@@ -538,7 +538,9 @@ Dowiedz się więcej [na temat Skrytka klienta Microsoft Azure](../../security/f
   1. w przypadku korzystania z usługi REST skopiuj wartość Azure-AsyncOperation adresu URL z odpowiedzi i postępuj zgodnie ze [sprawdzaniem stanu operacji asynchronicznych](#asynchronous-operations-and-status-check).
   2. Wyślij żądanie GET do klastra lub obszaru roboczego i obserwuj odpowiedź. Na przykład niepołączony obszar roboczy nie będzie miał *clusterResourceId* w obszarze *funkcje*.
 
-- [Podwójne szyfrowanie](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) jest konfigurowane automatycznie w przypadku klastrów utworzonych w październiku 2020, gdy w regionie znajdowała się podwójne szyfrowanie. Jeśli utworzysz klaster i wystąpi błąd "<regionu-Name> nie obsługuje podwójnego szyfrowania dla klastrów" ", nadal można utworzyć klaster, ale przy wyłączonym podwójnej szyfrowaniu. Po utworzeniu klastra nie można go włączyć ani wyłączyć. Aby utworzyć klaster, gdy podwójne szyfrowanie nie jest obsługiwane w regionie, Dodaj `"properties": {"isDoubleEncryptionEnabled": false}` w treści żądania Rest.
+- [Podwójne szyfrowanie](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) jest konfigurowane automatycznie w przypadku klastrów utworzonych z października 2020 w obsługiwanych regionach. Możesz sprawdzić, czy klaster jest skonfigurowany do podwójnego szyfrowania przez żądanie GET w klastrze i obserwując `"isDoubleEncryptionEnabled"` wartość właściwości — `true` dla klastrów z włączonym podwójnym szyfrowaniem. 
+  - Jeśli utworzysz klaster i wystąpi błąd "<regionu-Name> nie obsługuje podwójnego szyfrowania dla klastrów" ", można nadal utworzyć klaster bez podwójnego szyfrowania. Dodaj `"properties": {"isDoubleEncryptionEnabled": false}` w treści żądania Rest.
+  - Ustawienia podwójnego szyfrowania nie można zmienić po utworzeniu klastra.
 
 - Komunikaty o błędach
   

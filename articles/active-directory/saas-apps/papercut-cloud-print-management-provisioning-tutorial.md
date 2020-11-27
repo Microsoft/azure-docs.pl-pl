@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Konfigurowanie zarządzania drukowaniem w chmurze PaperCut (Pocket/Hive) w celu automatycznego aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
-description: Dowiedz się, jak automatycznie udostępniać i cofać obsługę administracyjną kont użytkowników z usługi Azure AD w celu PaperCut zarządzania drukowaniem w chmurze (Pocket/Hive).
+title: 'Samouczek: Konfigurowanie zarządzania drukowaniem w chmurze PaperCut dla automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
+description: Dowiedz się, jak automatycznie udostępniać i cofać obsługę administracyjną kont użytkowników z usługi Azure AD w celu PaperCut zarządzania drukowaniem w chmurze.
 services: active-directory
 documentationcenter: ''
 author: Zhchia
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2020
 ms.author: Zhchia
-ms.openlocfilehash: d0ecc06cd256dc2fae598e8bc44336d69a9c99df
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 860b880faae9c5fe37a2c7eab2ef3a068ed4da3e
+ms.sourcegitcommit: 236014c3274b31f03e5fcee5de510f9cacdc27a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96031270"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96299094"
 ---
-# <a name="tutorial-configure-papercut-cloud-print-management-pockethive-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie zarządzania drukowaniem w chmurze PaperCut (Pocket/Hive) w celu automatycznego aprowizacji użytkowników
+# <a name="tutorial-configure-papercut-cloud-print-management-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie zarządzania drukowaniem w chmurze PaperCut dla automatycznej aprowizacji użytkowników
 
-W tym samouczku opisano kroki, które należy wykonać w ramach zarządzania drukowaniem w chmurze PaperCut (Pocket/Hive) i Azure Active Directory (Azure AD) w celu skonfigurowania automatycznego aprowizacji użytkowników. Po skonfigurowaniu usługa Azure AD automatycznie inicjuje i cofa obsługę administracyjną użytkowników i grup w celu [PaperCut zarządzania drukowaniem w chmurze](https://www.papercut.com/products/papercut-pocket/) za pomocą usługi Azure AD Provisioning. Aby zapoznać się z ważnymi szczegółowymi informacjami na temat przeznaczenia i sposobu działania tej usługi oraz z często zadawanymi pytaniami, zobacz [Automatyzowanie aprowizacji i cofania aprowizacji użytkowników w aplikacjach SaaS przy użyciu usługi Azure Active Directory](../manage-apps/user-provisioning.md).
+W tym samouczku opisano kroki, które należy wykonać w ramach zarządzania drukowaniem w chmurze PaperCut i Azure Active Directory (Azure AD) w celu skonfigurowania automatycznego aprowizacji użytkowników. Po skonfigurowaniu usługa Azure AD automatycznie inicjuje i cofa obsługę administracyjną użytkowników i grup w celu [PaperCut zarządzania drukowaniem w chmurze](https://www.papercut.com/products/papercut-pocket/) za pomocą usługi Azure AD Provisioning. Aby zapoznać się z ważnymi szczegółowymi informacjami na temat przeznaczenia i sposobu działania tej usługi oraz z często zadawanymi pytaniami, zobacz [Automatyzowanie aprowizacji i cofania aprowizacji użytkowników w aplikacjach SaaS przy użyciu usługi Azure Active Directory](../manage-apps/user-provisioning.md).
 
 ## <a name="capabilities-supported"></a>Obsługiwane możliwości
 
 > [!div class="checklist"]
-> * Tworzenie użytkowników w PaperCut zarządzania drukowaniem w chmurze (Pocket/Hive)
-> * Usuwanie użytkowników w programie PaperCut Management drukowania (Pocket/Hive), gdy nie wymagają już dostępu
-> * Utrzymywanie synchronizacji atrybutów użytkowników między usługą Azure AD a PaperCut zarządzania drukowaniem w chmurze (Pocket/Hive)
+> * Tworzenie użytkowników w programie PaperCut Management drukowania w chmurze
+> * Usuwanie użytkowników w programie PaperCut Management drukowania w chmurze, gdy nie wymagają już dostępu
+> * Utrzymywanie synchronizacji atrybutów użytkowników między usługą Azure AD i PaperCut Zarządzanie drukowaniem w chmurze
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -39,7 +39,7 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 
 * [Dzierżawa usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
 * Konto użytkownika w usłudze Azure AD z [uprawnieniami](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) do konfigurowania aprowizacji (na przykład administrator aplikacji, administrator aplikacji w chmurze, właściciel aplikacji lub Administrator globalny). 
-* Konto użytkownika w PaperCut Zarządzanie drukowaniem w chmurze (Pocket/Hive) z uprawnieniami administratora
+* Konto użytkownika w PaperCut Zarządzanie drukowaniem w chmurze z uprawnieniami administratora
 
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Krok 1. Planowanie wdrożenia aprowizacji
@@ -58,23 +58,23 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 
 
 
-4. Po zainstalowaniu zostanie wyświetlona strona szczegółów dodatku z **adresem URL dzierżawy** i **tokenem tajnym**. Te wartości zostaną wprowadzone w polu adres URL dzierżawy \* i pole tokenu tajnego \* na karcie Inicjowanie obsługi drukowania w chmurze PaperCut (Pocket/Hive) w Azure Portal.
+4. Po zainstalowaniu zostanie wyświetlona strona szczegółów dodatku z **adresem URL dzierżawy** i **tokenem tajnym**. Te wartości zostaną wprowadzone w polu adres URL dzierżawy \* i pole tokenu tajnego \* na karcie aprowizacji w aplikacji do zarządzania drukowaniem w chmurze PaperCut w Azure Portal.
 
 
 
-## <a name="step-3-add-papercut-cloud-print-management-pockethive-from-the-azure-ad-application-gallery"></a>Krok 3. Dodawanie zarządzania drukowaniem w chmurze PaperCut (Pocket/Hive) z galerii aplikacji usługi Azure AD
+## <a name="step-3-add-papercut-cloud-print-management-from-the-azure-ad-application-gallery"></a>Krok 3. Dodawanie zarządzania drukowaniem w chmurze PaperCut z galerii aplikacji usługi Azure AD
 
-Dodaj PaperCut Zarządzanie drukowaniem w chmurze (Pocket/Hive) z galerii aplikacji usługi Azure AD, aby rozpocząć zarządzanie obsługą do PaperCut Zarządzanie drukowaniem w chmurze (Pocket/Hive). Jeśli wcześniej skonfigurowano PaperCut Zarządzanie drukowaniem w chmurze (Pocket/Hive) dla logowania jednokrotnego, możesz użyć tej samej aplikacji. Zalecane jest jednak utworzenie osobnej aplikacji na potrzeby początkowych testów integracji. Więcej informacji o dodawaniu aplikacji z galerii znajdziesz [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app).
+Dodaj Zarządzanie drukowaniem w chmurze PaperCut z galerii aplikacji usługi Azure AD, aby rozpocząć zarządzanie aprowizacji do PaperCut Zarządzanie drukowaniem w chmurze. Jeśli wcześniej skonfigurowano PaperCut Zarządzanie drukowaniem w chmurze dla logowania jednokrotnego, możesz użyć tej samej aplikacji. Zalecane jest jednak utworzenie osobnej aplikacji na potrzeby początkowych testów integracji. Więcej informacji o dodawaniu aplikacji z galerii znajdziesz [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app).
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Krok 4. Określenie, kto znajdzie się w zakresie aprowizacji
 
 Usługa aprowizacji Azure AD umożliwia określenie zakresu aprowizacji na podstawie przypisania do aplikacji lub na podstawie atrybutów użytkownika/grupy. Jeśli zdecydujesz się na określenie zakresu aprowizacji w aplikacji na podstawie przypisania, możesz skorzystać z następujących [instrukcji](../manage-apps/assign-user-or-group-access-portal.md) w celu przypisania użytkowników i grup do aplikacji. Jeśli zdecydujesz się na określenie zakresu aprowizacji wyłącznie na podstawie atrybutów użytkownika lub grupy, możesz użyć filtra zakresu zgodnie z opisem zamieszczonym [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 
-* Podczas przypisywania użytkowników i grup do PaperCut zarządzania drukowaniem w chmurze (Pocket/Hive) należy wybrać rolę inną niż **domyślny dostęp**. Użytkownicy z rolą Dostęp domyślny są wykluczeni z aprowizacji, a w dziennikach aprowizacji zostaną oznaczeni jako niemający skutecznego uprawnienia. Jeśli jedyną rolą dostępną w aplikacji jest Dostęp domyślny, możesz [zaktualizować manifest aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps), aby dodać więcej ról.
+* Podczas przypisywania użytkowników i grup do PaperCut zarządzania drukowaniem w chmurze należy wybrać rolę inną niż **domyślny dostęp**. Użytkownicy z rolą Dostęp domyślny są wykluczeni z aprowizacji, a w dziennikach aprowizacji zostaną oznaczeni jako niemający skutecznego uprawnienia. Jeśli jedyną rolą dostępną w aplikacji jest Dostęp domyślny, możesz [zaktualizować manifest aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps), aby dodać więcej ról.
 
 * Zacznij od mniejszej skali. Przeprowadź test z użyciem mniejszego zestawu użytkowników i grup, zanim wdrożysz to rozwiązanie dla wszystkich. W przypadku ustawienia zakresu aprowizacji na przypisanych użytkowników i grupy możesz w tym celu przypisać do aplikacji jednego czy dwóch użytkowników bądź jedną lub dwie grupy. W przypadku ustawienia zakresu na wszystkich użytkowników i wszystkie grupy, możesz określić [filtrowanie zakresu na podstawie atrybutów](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-## <a name="step-5-configure-automatic-user-provisioning-to-papercut-cloud-print-management-pockethive"></a>Krok 5. Konfigurowanie automatycznej aprowizacji użytkowników do PaperCut zarządzania drukowaniem w chmurze (Pocket/Hive)
+## <a name="step-5-configure-automatic-user-provisioning-to-papercut-cloud-print-management"></a>Krok 5. Skonfiguruj automatyczne Inicjowanie obsługi administracyjnej użytkowników w celu PaperCut zarządzania drukowaniem w chmurze
 
 Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisioning w celu tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w programie TestApp na podstawie przypisań użytkowników i/lub grup w usłudze Azure AD.
 
@@ -84,7 +84,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście Aplikacje wybierz pozycję **PaperCut Zarządzanie drukowaniem w chmurze (Pocket/Hive)**.
+2. Na liście Aplikacje wybierz pozycję **PaperCut Zarządzanie drukowaniem w chmurze**.
 
    ![Link zarządzania drukowaniem w chmurze PaperCut na liście aplikacji](common/all-applications.png)
 
@@ -96,7 +96,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    ![Automatyczne Inicjowanie obsługi kart](common/provisioning-automatic.png)
 
-5. W sekcji **poświadczenia administratora** wprowadź adres URL dzierżawy usługi PaperCut (Zarządzanie drukowaniem w chmurze) i token tajny. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z usługą PaperCut Management drukowania. Jeśli połączenie nie powiedzie się, upewnij się, że konto zarządzania drukowaniem w chmurze PaperCut ma uprawnienia administratora, a następnie spróbuj ponownie.
+5. W sekcji **poświadczenia administratora** wprowadź adres URL dzierżawy zarządzania drukowaniem w chmurze PaperCut i token tajny. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z usługą PaperCut Management drukowania. Jeśli połączenie nie powiedzie się, upewnij się, że konto zarządzania drukowaniem w chmurze PaperCut ma uprawnienia administratora, a następnie spróbuj ponownie.
 
    ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -118,11 +118,11 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 10. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Aby włączyć usługę Azure AD Provisioning na potrzeby zarządzania drukowaniem w chmurze PaperCut (Pocket/Hive), Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
+11. Aby włączyć usługę Azure AD Provisioning w celu zarządzania drukowaniem w chmurze PaperCut, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
     ![Stan aprowizacji — przełącznik w pozycji włączonej](common/provisioning-toggle-on.png)
 
-12. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić, aby PaperCut Zarządzanie drukowaniem w chmurze (Pocket/Hive), wybierając odpowiednie wartości w **zakresie** w sekcji **Ustawienia** .
+12. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić, aby PaperCut Zarządzanie drukowaniem w chmurze, wybierając odpowiednie wartości w **zakresie** w sekcji **Ustawienia** .
 
     ![Zakres aprowizacji](common/provisioning-scope.png)
 
@@ -140,7 +140,7 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
 2. Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user), aby zapoznać się ze stanem cyklu aprowizacji i czasem pozostałym do jego zakończenia
 3. Jeśli konfiguracja aprowizacji jest w złej kondycji, aplikacja przejdzie w stan kwarantanny. Więcej informacji o stanach kwarantanny znajdziesz [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
