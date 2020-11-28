@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: jushiman
-ms.openlocfilehash: 0aedcc3be4cb319dc24990507d85756bd77777e4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 56a360f461c89d7c60e973bf2d6258d63113ab47
+ms.sourcegitcommit: 6b16e7cc62b29968ad9f3a58f1ea5f0baa568f02
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963831"
+ms.lasthandoff: 11/28/2020
+ms.locfileid: "96303779"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Obsługa maszyn wirtualnych 2. generacji na platformie Azure
 
@@ -49,6 +49,8 @@ Maszyny wirtualne generacji 1 są obsługiwane przez wszystkie rozmiary maszyn w
 * [Seria NCv3](ncv3-series.md)
 * [Seria ND](nd-series.md)
 * [Seria NVv3](nvv3-series.md)
+* [Seria NVv4](nvv4-series.md)
+* [Seria NCasT4_v3](nct4-v3-series.md)
 
 <sup>1</sup> Mv2 — seria nie obsługuje obrazów maszyn wirtualnych generacji 1 i obsługuje tylko podzestaw obrazów generacji 2. Szczegóły można znaleźć w [dokumentacji Mv2](mv2-series.md) .
 
@@ -85,7 +87,7 @@ Platforma Azure nie obsługuje obecnie niektórych funkcji, które są obsługiw
 
 ### <a name="generation-1-vs-generation-2-features"></a>Funkcje generacji 1 a generacja 2
 
-| Obiekt feature | Pierwsza generacja | Druga generacja |
+| Cechy | Pierwsza generacja | Druga generacja |
 |---------|--------------|--------------|
 | Rozruch             | PCAT                      | UEFI                               |
 | Kontrolery dysków | IDE                       | SCSI                               |
