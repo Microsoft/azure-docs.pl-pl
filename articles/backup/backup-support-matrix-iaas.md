@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej pod
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 2c38af9a2e1c4c71bb2d5661758f663efe13a946
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: cd73c07b139aec3b7079c2b042581e26560ed1bc
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95414083"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309617"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tabela obsługi dla maszyn wirtualnych platformy Azure
 
@@ -25,7 +25,7 @@ Inne macierze pomocy technicznej:
 
 Oto jak można tworzyć kopie zapasowe maszyn wirtualnych platformy Azure i przywracać je za pomocą usługi Azure Backup.
 
-**Scenariusz** | **Tworzenie kopii zapasowych** | **Agent** |**Przywróć**
+**Scenariusz** | **Tworzenie kopii zapasowych** | **Agent** |**Przywracanie**
 --- | --- | --- | ---
 Bezpośrednie tworzenie kopii zapasowych maszyn wirtualnych platformy Azure  | Wykonaj kopię zapasową całej maszyny wirtualnej.  | Na maszynie wirtualnej platformy Azure nie jest wymagany żaden dodatkowy Agent. Azure Backup instaluje i używa rozszerzenia dla [agenta maszyny wirtualnej platformy Azure](../virtual-machines/extensions/agent-windows.md) uruchomionego na maszynie wirtualnej. | Przywróć w następujący sposób:<br/><br/> - **Utwórz podstawową maszynę wirtualną**. Jest to przydatne, jeśli maszyna wirtualna nie ma specjalnej konfiguracji, takiej jak wiele adresów IP.<br/><br/> - **Przywróć dysk maszyny wirtualnej**. Przywróć dysk. Następnie Dołącz ją do istniejącej maszyny wirtualnej lub Utwórz nową maszynę wirtualną z dysku przy użyciu programu PowerShell.<br/><br/> - **Zastąp dysk maszyny wirtualnej**. Jeśli maszyna wirtualna istnieje i korzysta z dysków zarządzanych (nieszyfrowanych), można przywrócić dysk i użyć go w celu zastąpienia istniejącego dysku na maszynie wirtualnej.<br/><br/> - **Przywracanie określonych plików/folderów**. Pliki/foldery można przywrócić z maszyny wirtualnej, a nie z całej maszyny wirtualnej.
 Bezpośrednie tworzenie kopii zapasowych maszyn wirtualnych platformy Azure (tylko system Windows)  | Utwórz kopię zapasową określonych plików/folderów/woluminów. | Zainstaluj [agenta Recovery Services platformy Azure](backup-azure-file-folder-backup-faq.md).<br/><br/> Agenta MARS można uruchomić wraz z rozszerzeniem kopii zapasowej agenta maszyny wirtualnej platformy Azure, aby utworzyć kopię zapasową maszyny wirtualnej na poziomie pliku/folderu. | Przywracanie określonych folderów/plików.
@@ -102,12 +102,12 @@ Punkty odzyskiwania na dysku programu DPM/usługi MABS | 64 dla serwerów plikó
 --- | ---
 **Tworzenie nowej maszyny wirtualnej** | Szybko tworzy i pobiera z punktu przywracania skonfigurowaną i uruchomioną podstawową maszynę wirtualną.<br/><br/> Możesz określić nazwę dla maszyny wirtualnej, wybrać grupę zasobów i sieć wirtualną (VNet), w której zostanie umieszczona, a następnie określić konto magazynu dla przywróconej maszyny wirtualnej. Nową maszynę wirtualną należy utworzyć w tym samym regionie co źródłową maszynę wirtualną.
 **Przywracanie dysku** | Przywraca dysk maszyny wirtualnej, za pomocą którego można następnie utworzyć nową maszynę wirtualną.<br/><br/> Usługa Azure Backup udostępnia szablon ułatwiający dostosowanie i utworzenie maszyny wirtualnej. <br/><br> Zadanie przywracania generuje szablon, który można pobrać i użyć, aby określić niestandardowe ustawienia maszyny wirtualnej i utworzyć maszynę wirtualną.<br/><br/> Dyski są kopiowane do określonej grupy zasobów.<br/><br/> Alternatywnie możesz dołączyć dysk do istniejącej maszyny wirtualnej lub utworzyć nową maszynę wirtualną przy użyciu programu PowerShell.<br/><br/> Ta opcja jest przydatna, jeśli chcesz dostosować maszynę wirtualną, dodać ustawienia konfiguracji, których nie było w czasie tworzenia kopii zapasowej, lub dodać ustawienia, które należy skonfigurować za pomocą szablonu lub programu PowerShell.
-**Zamiana istniejącego** | Można przywrócić dysk i użyć go do zamienienia dysku na istniejącej maszynie wirtualnej.<br/><br/> Wymaga to istnienia bieżącej maszyny wirtualnej. Jeśli została ona usunięta, nie można użyć tej opcji.<br/><br/> Azure Backup tworzy migawkę istniejącej maszyny wirtualnej przed zastąpieniem dysku i zapisuje ją w określonej lokalizacji przemieszczania. Istniejące dyski połączone z maszyną wirtualną są zastępowane wybranym punktem przywracania.<br/><br/> Migawka jest kopiowana do magazynu i zachowywana zgodnie z zasadami przechowywania. <br/><br/> Po zakończeniu operacji Zamień dysk oryginalny dysk jest zachowywany w grupie zasobów. Możesz wybrać opcję ręcznego usuwania dysków oryginalnych, jeśli nie są one potrzebne. <br/><br/>Zastąp istniejące jest obsługiwane dla nieszyfrowanych zarządzanych maszyn wirtualnych. Nie jest obsługiwana w przypadku dysków niezarządzanych, [uogólnionych maszyn wirtualnych](../virtual-machines/windows/capture-image-resource.md)ani maszyn wirtualnych [utworzonych przy użyciu obrazów niestandardowych](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> Jeśli punkt przywracania ma więcej lub mniej dysków niż bieżąca maszyna wirtualna, liczba dysków w punkcie przywracania będzie uwzględniać tylko konfigurację maszyny wirtualnej.<br><br> Polecenie Zamień istniejące jest również obsługiwane w przypadku maszyn wirtualnych z połączonymi zasobami, takich jak [zarządzane tożsamości przypisane przez użytkownika](../active-directory/managed-identities-azure-resources/overview.md) i [Key Vault](../key-vault/general/overview.md).
+**Zamiana istniejącego** | Można przywrócić dysk i użyć go do zamienienia dysku na istniejącej maszynie wirtualnej.<br/><br/> Wymaga to istnienia bieżącej maszyny wirtualnej. Jeśli została ona usunięta, nie można użyć tej opcji.<br/><br/> Azure Backup tworzy migawkę istniejącej maszyny wirtualnej przed zastąpieniem dysku i zapisuje ją w określonej lokalizacji przemieszczania. Istniejące dyski połączone z maszyną wirtualną są zastępowane wybranym punktem przywracania.<br/><br/> Migawka jest kopiowana do magazynu i zachowywana zgodnie z zasadami przechowywania. <br/><br/> Po zakończeniu operacji Zamień dysk oryginalny dysk jest zachowywany w grupie zasobów. Możesz wybrać opcję ręcznego usuwania dysków oryginalnych, jeśli nie są one potrzebne. <br/><br/>Zastąp istniejące jest obsługiwane dla nieszyfrowanych zarządzanych maszyn wirtualnych oraz dla maszyn wirtualnych [utworzonych przy użyciu obrazów niestandardowych](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/). Nie jest on obsługiwany w przypadku dysków niezarządzanych i [uogólnionych maszyn wirtualnych](../virtual-machines/windows/capture-image-resource.md).<br/><br/> Jeśli punkt przywracania ma więcej lub mniej dysków niż bieżąca maszyna wirtualna, liczba dysków w punkcie przywracania będzie uwzględniać tylko konfigurację maszyny wirtualnej.<br><br> Polecenie Zamień istniejące jest również obsługiwane w przypadku maszyn wirtualnych z połączonymi zasobami, takich jak [zarządzane tożsamości przypisane przez użytkownika](../active-directory/managed-identities-azure-resources/overview.md) i [Key Vault](../key-vault/general/overview.md).
 **Między regionami (region pomocniczy)** | W celu przywrócenia maszyn wirtualnych platformy Azure w regionie pomocniczym, które jest [sparowanym regionem platformy Azure](../best-practices-availability-paired-regions.md#what-are-paired-regions), można użyć funkcji przywracania między regionami.<br><br> Jeśli kopia zapasowa jest wykonywana w regionie pomocniczym, można przywrócić wszystkie maszyny wirtualne platformy Azure dla wybranego punktu odzyskiwania.<br><br> Ta funkcja jest dostępna dla poniższych opcji:<br> <li> [Tworzenie maszyny wirtualnej](./backup-azure-arm-restore-vms.md#create-a-vm) <br> <li> [Przywracanie dysków](./backup-azure-arm-restore-vms.md#restore-disks) <br><br> Nie obsługujemy obecnie opcji [Zamień istniejące dyski](./backup-azure-arm-restore-vms.md#replace-existing-disks) .<br><br> Uprawnienia<br> Operacja przywracania w regionie pomocniczym może być wykonywana przez administratorów kopii zapasowych i administratorów aplikacji.
 
 ## <a name="support-for-file-level-restore"></a>Obsługa przywracania na poziomie plików
 
-**Przywróć** | **Obsługiwał**
+**Przywracanie** | **Obsługiwane**
 --- | ---
 Przywracanie plików w różnych systemach operacyjnych | Można przywracać pliki na dowolnym komputerze, który ma ten sam (lub zgodny) system operacyjny, co maszyna wirtualna z kopią zapasową. Zobacz [tabelę zgodnych systemów operacyjnych](backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script).
 Przywracanie plików z szyfrowanych maszyn wirtualnych | Nieobsługiwane.
@@ -120,7 +120,7 @@ Przywracanie plików przy użyciu specjalnych ustawień sieci | Przywracanie nie
 
 Poniższa tabela zawiera podsumowanie obsługi kopii zapasowych podczas zadań zarządzania maszyną wirtualną, takich jak dodawanie lub zastępowanie dysków maszyn wirtualnych.
 
-**Przywróć** | **Obsługiwał**
+**Przywracanie** | **Obsługiwane**
 --- | ---
 Przywróć w ramach subskrypcji/regionu/strefy. | Nieobsługiwane.
 Przywracanie do istniejącej maszyny wirtualnej | Użyj opcji Zamień dysk.

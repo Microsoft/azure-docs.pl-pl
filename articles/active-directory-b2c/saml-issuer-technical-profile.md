@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 73c381624b69acb6fe7a6296a3153160812818bf
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: b4fb7c6fb3bbf02e5f1aba25c868e4a44e8507dd
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886417"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309634"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny dla wystawcy tokenów SAML w zasadach niestandardowych Azure Active Directory B2C
 
@@ -60,6 +60,8 @@ Elementy **InputClaims**, **OutputClaims** i **PersistClaims** są puste lub nie
 | IssuerUri | Nie | Nazwa wystawcy, która pojawia się w odpowiedzi SAML. Wartość powinna być taka sama jak nazwa skonfigurowana w aplikacji jednostki uzależnionej. |
 | XmlSignatureAlgorithm | Nie | Metoda, która Azure AD B2C używa do podpisywania potwierdzenia SAML. Możliwe wartości: `Sha256` , `Sha384` , `Sha512` lub `Sha1` . Upewnij się, że algorytm podpisu został skonfigurowany na obu stronach z tą samą wartością. Używaj tylko algorytmu obsługiwanego przez certyfikat. Aby skonfigurować odpowiedź SAML, zobacz [metadane SAML jednostki uzależnionej](relyingparty.md#metadata)|
 |TokenNotBeforeSkewInSeconds| Nie| Określa pochylenie jako liczbę całkowitą dla sygnatury czasowej, która oznacza początek okresu ważności. Im wyższy numer to, tym więcej z powrotem w czasie okres ważności rozpoczyna się w odniesieniu do czasu, w którym oświadczenia są wystawiane dla jednostki uzależnionej. Na przykład gdy TokenNotBeforeSkewInSeconds jest ustawiony na 60 sekund, jeśli token jest wystawiony o 13:05:10 czasu UTC, token jest ważny od 13:04:10 czasu UTC. Wartość domyślna to 0. Wartość maksymalna to 3600 (jedna godzina). |
+|TokenLifeTimeInSeconds| Nie| Określa okres istnienia potwierdzenia SAML. Ta wartość jest w sekundach od NotBefore wartość refernced powyżej. Wartość domyślna to 300 sekund (5 minut). |
+
 
 ## <a name="cryptographic-keys"></a>Klucze kryptograficzne
 

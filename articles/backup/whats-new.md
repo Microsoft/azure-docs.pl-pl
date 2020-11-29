@@ -1,16 +1,16 @@
 ---
-title: Co nowego w Azure Backup
+title: Co nowego w usłudze Azure Backup
 description: Dowiedz się więcej o nowych funkcjach w Azure Backup.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: e48a7df1e42591843c30b77026a4d8656773a57d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ba29ddea5d5f096640f2bfc012c44ab06bb3e131
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511600"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309668"
 ---
-# <a name="whats-new-in-azure-backup"></a>Co nowego w Azure Backup
+# <a name="whats-new-in-azure-backup"></a>Co nowego w usłudze Azure Backup
 
 Azure Backup ciągle ulepsza i zwalnia nowe funkcje, które rozszerzają ochronę danych na platformie Azure. Te nowe funkcje rozszerzają ochronę danych na nowe typy obciążeń, zwiększają bezpieczeństwo i zwiększają dostępność danych kopii zapasowej. Dodaje również nowe możliwości zarządzania, monitorowania i automatyzacji.
 
@@ -19,6 +19,7 @@ Więcej informacji o nowych wersjach można uzyskać, zaznaczając je na tej str
 ## <a name="updates-summary"></a>Podsumowanie aktualizacji
 
 - Listopad 2020 r.
+  - [Szablon Azure Resource Manager dla kopii zapasowej udziału plików platformy Azure (AFS)](#azure-resource-manager-template-for-afs-backup)
   - [Przyrostowe kopie zapasowe baz danych SAP HANA na maszynach wirtualnych platformy Azure](#incremental-backups-for-sap-hana-databases)
 - Wrzesień 2020
   - [Centrum kopii zapasowych](#backup-center)
@@ -30,6 +31,12 @@ Więcej informacji o nowych wersjach można uzyskać, zaznaczając je na tej str
   - [SAP HANA kopii zapasowych w usłudze RHEL Azure Virtual Machines](#backup-sap-hana-in-rhel-azure-virtual-machines)
   - [Magazyn strefowo nadmiarowy (ZRS) dla danych kopii zapasowej](#zone-redundant-storage-zrs-for-backup-data)
   - [Usuwanie nietrwałe dla obciążeń SQL Server i SAP HANA na maszynach wirtualnych platformy Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="azure-resource-manager-template-for-afs-backup"></a>Szablon Azure Resource Manager dla kopii zapasowej AFS
+
+Azure Backup teraz obsługuje Konfigurowanie kopii zapasowej istniejących udziałów plików platformy Azure przy użyciu szablonu Azure Resource Manager (ARM). Szablon konfiguruje ochronę istniejącego udziału plików platformy Azure, określając odpowiednie szczegóły dotyczące magazynu Recovery Services i zasad tworzenia kopii zapasowych. Opcjonalnie tworzy nowy magazyn Recovery Services i zasady tworzenia kopii zapasowych oraz rejestruje konto magazynu zawierające udział plików w magazynie Recovery Services.
+
+Aby uzyskać więcej informacji, zobacz [Azure Resource Manager szablonów dla Azure Backup](backup-rm-template-samples.md).
 
 ## <a name="incremental-backups-for-sap-hana-databases"></a>Przyrostowe kopie zapasowe baz danych SAP HANA
 

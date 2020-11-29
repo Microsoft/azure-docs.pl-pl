@@ -3,37 +3,69 @@ title: Uaktualnij obrazy węzła usługi Azure Kubernetes Service (AKS)
 description: Dowiedz się, jak uaktualnić obrazy w węzłach klastra AKS i w pulach węzłów.
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 11/17/2020
-ms.openlocfilehash: 211190228c1ea9c98004b55da96ad38808821d67
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.date: 11/25/2020
+ms.author: jpalma
+ms.openlocfilehash: e8214345bd1c328f0996f8aa8a2a8bb402a76e8d
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682387"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309600"
 ---
 # <a name="azure-kubernetes-service-aks-node-image-upgrade"></a>Uaktualnianie obrazu węzła usługi Azure Kubernetes Service (AKS)
 
 Program AKS obsługuje uaktualnianie obrazów w węźle, dzięki czemu jesteś aktualny z najnowszymi aktualizacjami systemu operacyjnego i środowiska uruchomieniowego. Program AKS udostępnia jeden nowy obraz tygodniowo z najnowszymi aktualizacjami, dlatego warto uaktualnić obrazy węzła regularnie w przypadku najnowszych funkcji, w tym dla systemu Linux lub Windows. W tym artykule pokazano, jak uaktualnić obrazy węzłów klastra AKS oraz jak aktualizować obrazy puli węzłów bez uaktualniania wersji programu Kubernetes.
 
-Jeśli interesują Cię informacje o najnowszych obrazach dostarczonych przez AKS, zapoznaj się z informacjami o [wersji AKS](https://github.com/Azure/AKS/releases) , aby uzyskać więcej szczegółów.
+Aby uzyskać więcej informacji na temat najnowszych obrazów dostarczonych przez AKS, zobacz [Informacje o wersji AKS](https://github.com/Azure/AKS/releases).
 
 Aby uzyskać informacje na temat uaktualniania wersji Kubernetes dla klastra, zobacz [Uaktualnianie klastra AKS][upgrade-cluster].
 
-## <a name="limitations"></a>Ograniczenia
+> [!NOTE]
+> Klaster AKS musi używać zestawów skalowania maszyn wirtualnych dla węzłów.
 
-* Klaster AKS musi używać zestawów skalowania maszyn wirtualnych dla węzłów.
+## <a name="check-if-your-node-pool-is-on-the-latest-node-image"></a>Sprawdź, czy pula węzłów znajduje się na najnowszym obrazie węzła
 
-## <a name="install-the-aks-cli-extension"></a>Instalowanie rozszerzenia interfejsu wiersza polecenia AKS
-
-Przed wydaniem kolejnej wersji interfejsu wiersza polecenia, konieczne jest rozszerzenie interfejsu wiersza polecenia *AKS-Preview* , aby można było użyć uaktualnienia obrazu węzła. Użyj polecenia [AZ Extension Add][az-extension-add] , a następnie sprawdź, czy są dostępne aktualizacje za pomocą polecenia [AZ Extension Update][az-extension-update] :
+Możesz sprawdzić, jaka jest Najnowsza wersja obrazu węzła dostępna dla puli węzłów za pomocą następującego polecenia: 
 
 ```azurecli
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
+az aks nodepool get-upgrades \
+    --nodepool-name mynodepool \
+    --cluster-name myAKSCluster \
+    --resource-group myResourceGroup
 ```
+
+W danych wyjściowych można zobaczyć, `latestNodeImageVersion` jak pokazano na poniższym przykładzie:
+
+```output
+{
+  "id": "/subscriptions/XXXX-XXX-XXX-XXX-XXXXX/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster/agentPools/nodepool1/upgradeProfiles/default",
+  "kubernetesVersion": "1.17.11",
+  "latestNodeImageVersion": "AKSUbuntu-1604-2020.10.28",
+  "name": "default",
+  "osType": "Linux",
+  "resourceGroup": "myResourceGroup",
+  "type": "Microsoft.ContainerService/managedClusters/agentPools/upgradeProfiles",
+  "upgrades": null
+}
+```
+
+W związku `nodepool1` z tym najnowszy obraz węzła jest dostępny `AKSUbuntu-1604-2020.10.28` . Teraz można ją porównać z bieżącą wersją obrazu węzła używaną przez pulę węzłów przez uruchomienie:
+
+```azurecli
+az aks nodepool show \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name mynodepool \
+    --query nodeImageVersion
+```
+
+Przykładowe dane wyjściowe:
+
+```output
+"AKSUbuntu-1604-2020.10.08"
+```
+
+W tym przykładzie można przeprowadzić uaktualnienie z bieżącej `AKSUbuntu-1604-2020.10.08` wersji obrazu do najnowszej wersji `AKSUbuntu-1604-2020.10.28` . 
 
 ## <a name="upgrade-all-nodes-in-all-node-pools"></a>Uaktualnij wszystkie węzły we wszystkich pulach węzłów
 

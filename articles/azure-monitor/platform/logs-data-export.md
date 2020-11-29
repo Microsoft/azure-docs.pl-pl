@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: bd929d06bca370ffab53ce2023188bc12a1d8bd1
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d2e93ccfaf3ff2c5b74ceef1f6a274f71ee52c4e
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186443"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309838"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics eksportu danych obszaru roboczego w Azure Monitor (wersja zapoznawcza)
 Log Analytics eksport danych obszaru roboczego w programie Azure Monitor umożliwia ciągłe eksportowanie danych z wybranych tabel w obszarze roboczym Log Analytics do konta usługi Azure Storage lub usługi Azure Event Hubs w miarę ich zbierania. Ten artykuł zawiera szczegółowe informacje dotyczące tej funkcji oraz czynności konfigurowania eksportu danych w obszarach roboczych.
@@ -118,6 +118,10 @@ Jeśli konto magazynu zostało skonfigurowane tak, aby zezwalać na dostęp z wy
 Reguła eksportu danych definiuje dane, które mają zostać wyeksportowane dla zestawu tabel w jednym miejscu docelowym. Można utworzyć regułę dla każdego miejsca docelowego.
 
 
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
+
+Nie dotyczy
+
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 Poniższe polecenie interfejsu wiersza polecenia służy do wyświetlania tabel w obszarze roboczym. Może to pomóc w skopiowaniu żądanych tabel i uwzględnieniu w regule eksportowania danych.
@@ -203,6 +207,10 @@ Poniżej znajduje się Przykładowa treść żądania REST dla centrum zdarzeń,
 
 ## <a name="view-data-export-configuration"></a>Wyświetl konfigurację eksportu danych
 
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
+
+Nie dotyczy
+
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 Użyj następującego polecenia, aby wyświetlić konfigurację reguły eksportu danych przy użyciu interfejsu wiersza polecenia.
@@ -221,6 +229,10 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 ---
 
 ## <a name="disable-an-export-rule"></a>Wyłącz regułę eksportu
+
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
+
+Nie dotyczy
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -256,6 +268,10 @@ Content-type: application/json
 
 ## <a name="delete-an-export-rule"></a>Usuwanie reguły eksportu
 
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
+
+Nie dotyczy
+
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 Użyj poniższego polecenia, aby usunąć regułę eksportu danych przy użyciu interfejsu wiersza polecenia.
@@ -274,6 +290,10 @@ DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegrou
 ---
 
 ## <a name="view-all-data-export-rules-in-a-workspace"></a>Wyświetlanie wszystkich reguł eksportu danych w obszarze roboczym
+
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
+
+Nie dotyczy
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
