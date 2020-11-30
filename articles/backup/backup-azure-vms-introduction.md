@@ -3,12 +3,12 @@ title: Informacje o kopii zapasowej maszyny wirtualnej platformy Azure
 description: W tym artykule dowiesz się, jak usługa Azure Backup wykonuje kopie zapasowe maszyn wirtualnych platformy Azure oraz jak postępować zgodnie z najlepszymi rozwiązaniami.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 30d27f3f9c559fd149bd45f303127e0eec40b878
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 7fa47b83eb8fa06c028079cf47ea0cb46df31860
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173854"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325234"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Omówienie kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -51,7 +51,7 @@ Podczas tworzenia kopii zapasowych maszyn wirtualnych platformy Azure z Azure Ba
 
 **Szyfrowanie** | **Szczegóły** | **Pomoc techniczna**
 --- | --- | ---
-**SSE** | W przypadku używania instrukcji SSE usługa Azure Storage zapewnia szyfrowanie w spoczynku przez automatyczne szyfrowanie danych przed ich zapisaniem. Usługa Azure Storage odszyfrowuje również dane przed ich pobraniem. Azure Backup obsługuje kopie zapasowe maszyn wirtualnych z dwoma typami szyfrowanie usługi Storage:<li> **SSE z kluczami zarządzanymi na platformie**: to szyfrowanie jest domyślnie przeznaczone dla wszystkich dysków w maszynach wirtualnych. Zobacz więcej [tutaj](../virtual-machines/windows/disk-encryption.md#platform-managed-keys).<li> **SSE z kluczami zarządzanymi przez klienta**. Program CMK umożliwia zarządzanie kluczami używanymi do szyfrowania dysków. Zobacz więcej [tutaj](../virtual-machines/windows/disk-encryption.md#customer-managed-keys). | Azure Backup używa instrukcji SSE do szyfrowania w czasie spoczynku maszyn wirtualnych platformy Azure.
+**SSE** | W przypadku używania instrukcji SSE usługa Azure Storage zapewnia szyfrowanie w spoczynku przez automatyczne szyfrowanie danych przed ich zapisaniem. Usługa Azure Storage odszyfrowuje również dane przed ich pobraniem. Azure Backup obsługuje kopie zapasowe maszyn wirtualnych z dwoma typami szyfrowanie usługi Storage:<li> **SSE z kluczami zarządzanymi na platformie**: to szyfrowanie jest domyślnie przeznaczone dla wszystkich dysków w maszynach wirtualnych. Zobacz więcej [tutaj](../virtual-machines/disk-encryption.md#platform-managed-keys).<li> **SSE z kluczami zarządzanymi przez klienta**. Program CMK umożliwia zarządzanie kluczami używanymi do szyfrowania dysków. Zobacz więcej [tutaj](../virtual-machines/disk-encryption.md#customer-managed-keys). | Azure Backup używa instrukcji SSE do szyfrowania w czasie spoczynku maszyn wirtualnych platformy Azure.
 **Usługa Azure Disk Encryption** | Azure Disk Encryption szyfruje zarówno dyski systemu operacyjnego, jak i danych dla maszyn wirtualnych platformy Azure.<br/><br/> Azure Disk Encryption integruje się z kluczami szyfrowania funkcji BitLocker (BEKs), które są chronione w magazynie kluczy jako wpisy tajne. Azure Disk Encryption integruje się również z kluczami szyfrowania klucza Azure Key Vault (KEKs). | Azure Backup obsługuje tworzenie kopii zapasowych zarządzanych i niezarządzanych maszyn wirtualnych platformy Azure szyfrowanych tylko za pomocą BEKs lub z BEKs razem z KEKs.<br/><br/> BEKs i KEKs są archiwizowane i szyfrowane.<br/><br/> Ponieważ kopie zapasowe KEKs i BEKs są tworzone, użytkownicy z niezbędnymi uprawnieniami mogą przywrócić klucze i wpisy tajne z powrotem do magazynu kluczy, jeśli jest to konieczne. Ci użytkownicy mogą również odzyskać zaszyfrowaną maszynę wirtualną.<br/><br/> Zaszyfrowane klucze i wpisy tajne nie mogą być odczytywane przez nieautoryzowanych użytkowników lub platformę Azure.
 
 W przypadku zarządzanych i niezarządzanych maszyn wirtualnych platformy Azure usługa Backup obsługuje zarówno maszyny wirtualne zaszyfrowane za pomocą BEKs, jak i maszyny wirtualne zaszyfrowane za pomocą usługi BEKs oraz KEKs.
@@ -76,20 +76,20 @@ Azure Backup wykonuje migawki zgodnie z harmonogramem tworzenia kopii zapasowych
 
 W poniższej tabeli objaśniono różne typy spójności migawek:
 
-**Snapshot** | **Szczegóły** | **Odzyskiwania** | **Zagadnienie**
+**Zdjęcie** | **Szczegóły** | **Odzyskiwania** | **Zagadnienie**
 --- | --- | --- | ---
 **Spójna na poziomie aplikacji** | Kopie zapasowe spójne z aplikacjami przechwytują zawartość pamięci i oczekujące operacje we/wy. Migawki spójne z aplikacjami używają składnika zapisywania usługi VSS (lub skryptów pre/post dla systemu Linux), aby zapewnić spójność danych aplikacji przed wystąpieniem kopii zapasowej. | Podczas odzyskiwania maszyny wirtualnej za pomocą migawki spójnej na poziomie aplikacji maszyna wirtualna jest uruchamiana. Nie występują uszkodzenia ani utrata danych. Aplikacje są uruchamiane w spójnym stanie. | System Windows: wszystkie składniki zapisywania usługi VSS zostały pomyślnie zakończone<br/><br/> Linux: skrypty poprzedzające i końcowe zostały skonfigurowane i zakończyły się powodzeniem
 **Spójny system plików** | Spójne kopie zapasowe systemu plików zapewniają spójność, pobierając migawkę wszystkich plików w tym samym czasie.<br/><br/> | Podczas odzyskiwania maszyny wirtualnej za pomocą migawki spójnej z systemem plików, maszyna wirtualna jest uruchamiana. Nie występują uszkodzenia ani utrata danych. Aplikacje muszą implementować własny mechanizm naprawy, aby upewnić się, że przywrócone dane są spójne. | System Windows: niepowodzenie niektórych składników zapisywania usługi VSS <br/><br/> Linux: wartość domyślna (Jeśli skrypty pre/post nie są skonfigurowane lub zakończyły się niepowodzeniem)
 **Spójny na poziomie awarii** | Migawki spójne z awarią są zwykle wykonywane, gdy maszyna wirtualna platformy Azure jest zamykana w momencie tworzenia kopii zapasowej. Przechwytywane i tworzone są kopie zapasowe tylko danych istniejących na dysku w momencie tworzenia kopii zapasowej. | Rozpoczyna się od procesu rozruchu maszyny wirtualnej, po którym następuje sprawdzenie dysku, aby naprawić błędy uszkodzeń. Wszelkie operacje dotyczące danych w pamięci lub zapisu, które nie zostały przekazane do dysku przed utratą awarii. Aplikacje implementują własne weryfikacje danych. Na przykład aplikacja bazy danych może użyć dziennika transakcji do weryfikacji. Jeśli w dzienniku transakcji znajdują się wpisy, które nie znajdują się w bazie danych, oprogramowanie bazy danych przenosi transakcje z powrotem do momentu spójności danych. | Maszyna wirtualna jest w stanie zamykania (zatrzymano/cofnięto przydział).
 
 >[!NOTE]
-> W przypadku **pomyślnego**stanu aprowizacji Azure Backup pobiera spójne kopie zapasowe systemu plików. Jeśli stan aprowizacji jest **niedostępny** lub **zakończył się niepowodzeniem**, tworzone są kopie zapasowe spójne z awarią. Jeśli stan aprowizacji jest **tworzony** lub **usuwany**, oznacza to, że Azure Backup próbuje wykonać operację ponownie.
+> W przypadku **pomyślnego** stanu aprowizacji Azure Backup pobiera spójne kopie zapasowe systemu plików. Jeśli stan aprowizacji jest **niedostępny** lub **zakończył się niepowodzeniem**, tworzone są kopie zapasowe spójne z awarią. Jeśli stan aprowizacji jest **tworzony** lub **usuwany**, oznacza to, że Azure Backup próbuje wykonać operację ponownie.
 
 ## <a name="backup-and-restore-considerations"></a>Zagadnienia dotyczące tworzenia kopii zapasowych i przywracania
 
 **Zagadnienie** | **Szczegóły**
 --- | ---
-**Dysk** | Tworzenie kopii zapasowych dysków maszyny wirtualnej jest równoległe. Na przykład jeśli maszyna wirtualna ma cztery dyski, usługa tworzenia kopii zapasowych próbuje wykonać kopię zapasową wszystkich czterech dysków równolegle. Kopia zapasowa jest przyrostowa (dotyczy tylko zmienionych danych).
+**3,5** | Tworzenie kopii zapasowych dysków maszyny wirtualnej jest równoległe. Na przykład jeśli maszyna wirtualna ma cztery dyski, usługa tworzenia kopii zapasowych próbuje wykonać kopię zapasową wszystkich czterech dysków równolegle. Kopia zapasowa jest przyrostowa (dotyczy tylko zmienionych danych).
 **Planowanie** |  Aby zmniejszyć ruch kopii zapasowych, wykonaj kopię zapasową różnych maszyn wirtualnych w różnych porach dnia i upewnij się, że czasy nie nakładają się na siebie. Tworzenie kopii zapasowych maszyn wirtualnych w tym samym czasie powoduje korki.
 **Przygotowywanie kopii zapasowych** | Należy pamiętać o czasie potrzebnym do przygotowania kopii zapasowej. Czas przygotowania obejmuje instalowanie lub aktualizowanie rozszerzenia kopii zapasowej oraz wyzwolenie migawki zgodnie z harmonogramem tworzenia kopii zapasowych.
 **Transfer danych** | Należy wziąć pod uwagę czas wymagany do Azure Backup identyfikować przyrostowe zmiany z poprzedniej kopii zapasowej.<br/><br/> W przyrostowej kopii zapasowej usługa Azure Backup określa zmiany, obliczając sumę kontrolną bloku. Jeśli blok ulegnie zmianie, zostanie oznaczony do przesłania do magazynu. Usługa analizuje zidentyfikowane bloki i próbuje jeszcze bardziej zminimalizować ilość danych do przesłania. Po dokonaniu oceny wszystkich zmienionych bloków usługa Azure Backup przesyła zmiany do magazynu.<br/><br/> Może wystąpić opóźnienie między tworzeniem migawki i kopiowaniem jej do magazynu. W godzinach szczytu przekazanie migawek do magazynu może trwać do ośmiu godzin. Czas wykonywania kopii zapasowej maszyny wirtualnej będzie krótszy niż 24 godziny w przypadku codziennie wykonywanej kopii zapasowej.
@@ -136,7 +136,7 @@ Podobnie opłata za magazyn kopii zapasowych zależy od ilości danych przechowy
 
 Załóżmy na przykład, że maszyna wirtualna o rozmiarze a2 ma dwa dodatkowe dyski z danymi o maksymalnym rozmiarze 32 TB. W poniższej tabeli przedstawiono rzeczywiste dane przechowywane na każdym z tych dysków:
 
-**Dysk** | **Maksymalny rozmiar** | **Rzeczywiste dane obecne**
+**3,5** | **Maksymalny rozmiar** | **Rzeczywiste dane obecne**
 --- | --- | ---
 Dysk systemu operacyjnego | 32 TB | 17 GB
 Dysk lokalny/tymczasowy | 135 GB | 5 GB (nie uwzględniono w kopii zapasowej)

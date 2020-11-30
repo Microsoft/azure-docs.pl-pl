@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: d98f2390be3b3f4b3770125185cb33daa5ff6371
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: e2d87d4322ac6b91a19a4775c23ceec75d528030
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93143643"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325336"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Przeglądy, przepływy pracy i zadania moderowania zawartości
 
@@ -26,7 +26,7 @@ Content Moderator łączy moderowane maszynowo z funkcjami w pętli, aby utworzy
 W przeglądzie zawartość jest przekazywana do narzędzia do przeglądu. Możesz wyświetlić ją, klikając jej typ zawartości na karcie **Recenzja** na pulpicie nawigacyjnym. Na ekranie Recenzja można zmienić zastosowane znaczniki i zastosować własne niestandardowe znaczniki odpowiednio do potrzeb. Po przesłaniu przeglądu wyniki są wysyłane do określonego punktu końcowego wywołania zwrotnego, a zawartość jest usuwana z lokacji.
 
 > [!div class="mx-imgBorder"]
-> ![Witryna narzędzia do przeglądu z wybraną kartą przegląd](./Review-Tool-user-Guide/images/review-tab.png)
+> ![Menu rozwijane przegląd jest wyróżnione. Są w nim wyświetlane następujące typy zawartości: obraz, tekst i wideo.](./Review-Tool-user-Guide/images/review-tab.png)
 
 ### <a name="manage-reviews"></a>Zarządzanie recenzjami
 
@@ -40,7 +40,7 @@ Przycisk **akcji** z trzema kropkami w każdym przeglądzie pozwala przejść do
 Za pomocą paska narzędzi **wyszukiwania** można sortować przeglądy według różnych kategorii, takich jak stan przeglądu, Tagi, typ zawartości, podzespołów, przypisani Użytkownicy i Data utworzenia/modyfikacji.
 
 > [!div class="mx-imgBorder"]
-> ![Witryna narzędzia do przeglądu z wybraną kartą przegląd](./Review-Tool-user-Guide/images/review-search.png)
+> ![Zostanie wyświetlony pasek narzędzi wyszukiwanie. Ma różne pola kombi do wprowadzania kryteriów wyszukiwania, takich jak sprawdzanie stanu i Tagi.](./Review-Tool-user-Guide/images/review-search.png)
 
 Zapoznaj się z [przewodnikiem po narzędziu przeglądowym](./review-tool-user-guide/review-moderated-images.md) , aby rozpocząć tworzenie przeglądów, lub zobacz [Przewodnik po interfejsie API REST](./try-review-api-review.md) , aby dowiedzieć się, jak to zrobić programowo
 
@@ -50,7 +50,7 @@ Przepływ pracy to dostosowany do chmury filtr dla zawartości. Przepływy pracy
 
 ### <a name="view-workflows"></a>Wyświetl przepływy pracy
 
-Aby wyświetlić istniejące przepływy pracy, przejdź do [narzędzia przeglądu](https://contentmoderator.cognitive.microsoft.com/) i wybierz pozycję **administracyjne**  >  **przepływy pracy** .
+Aby wyświetlić istniejące przepływy pracy, przejdź do [narzędzia przeglądu](https://contentmoderator.cognitive.microsoft.com/) i wybierz pozycję **administracyjne**  >  **przepływy pracy**.
 
 > [!div class="mx-imgBorder"]
 > ![Domyślny przepływ pracy](images/default-workflow-list.png)

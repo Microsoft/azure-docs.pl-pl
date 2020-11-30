@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 10/26/2020
-ms.openlocfilehash: adf454ac697f8cabf4256ebfc5baa5d0d1c76264
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c806c0a13f9f5f13588b780054d1f285beb44802
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782471"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324537"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-managed-instance-and-sql-server"></a>Kluczowe różnice między usługami Machine Learning Services w usłudze Azure SQL Managed Instance i programie SQL Server
 
@@ -55,7 +55,7 @@ Machine Learning Services w wystąpieniu zarządzanym SQL i SQL Server obsługuj
 Zarządzanie pakietami Python i R działa inaczej niż w przypadku wystąpienia zarządzanego SQL i SQL Server. Te różnice są następujące:
 
 - Pakiety, które są zależne od zewnętrznych środowisk uruchomieniowych (na przykład Java) lub potrzebują dostępu do interfejsów API systemu operacyjnego w celu instalacji lub użycia, nie są obsługiwane.
-- Pakiety mogą wykonywać wychodzące wywołania sieciowe (zmienić z wcześniejszego poziomu w wersji zapoznawczej). Aby włączyć wychodzące wywołania sieciowe, można ustawić odpowiednie reguły zabezpieczeń dla ruchu wychodzącego na poziomie [grupy zabezpieczeń sieci](/azure/virtual-network/network-security-groups-overview) .
+- Pakiety mogą wykonywać wychodzące wywołania sieciowe (zmienić z wcześniejszego poziomu w wersji zapoznawczej). Aby włączyć wychodzące wywołania sieciowe, można ustawić odpowiednie reguły zabezpieczeń dla ruchu wychodzącego na poziomie [grupy zabezpieczeń sieci](../../virtual-network/network-security-groups-overview.md) .
 
 Aby uzyskać więcej informacji na temat zarządzania pakietami Python i R, zobacz:
 

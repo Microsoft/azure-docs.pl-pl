@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak rozwiązywać problemy z tworzenie
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 343ad80a6b68de352424fa8f16686fcece921954
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: cb25d9263648fbd92bc075751c1a8e627d03bd44
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840920"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325217"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Rozwiązywanie problemów dotyczących błędów kopii zapasowych w usłudze Azure Virtual Machines
 
@@ -246,7 +246,7 @@ Dzięki temu migawki będą wykonywane za pośrednictwem hosta, a nie konta goś
 
 **Krok 2**. Spróbuj zmienić harmonogram tworzenia kopii zapasowych na czas, gdy maszyna wirtualna jest mniej załadowana (na przykład mniej procesorów lub IOPS)
 
-**Krok 3**. próba [zwiększenia rozmiaru maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/windows/resize-vm) i ponowna próba wykonania operacji
+**Krok 3**. próba [zwiększenia rozmiaru maszyny wirtualnej](../virtual-machines/windows/resize-vm.md) i ponowna próba wykonania operacji
 
 ### <a name="320001-resourcenotfound---could-not-perform-the-operation-as-vm-no-longer-exists--400094-bcmv2vmnotfound---the-virtual-machine-doesnt-exist--an-azure-virtual-machine-wasnt-found"></a>320001, ResourceNotFound — nie można wykonać operacji, ponieważ maszyna wirtualna już nie istnieje/400094, BCMV2VMNotFound — maszyna wirtualna nie istnieje/nie znaleziono maszyny wirtualnej platformy Azure
 
@@ -311,7 +311,7 @@ Jeśli masz Azure Policy, które [regulują Tagi w środowisku](../governance/po
 | Szczegóły błędu | Obejście |
 | --- | --- |
 | Anulowanie nie jest obsługiwane dla tego typu zadania: <br>Poczekaj na zakończenie zadania. |Brak |
-| Zadanie nie jest w stanie do anulowania: <br>Poczekaj na zakończenie zadania. <br>**lub**<br> Wybrane zadanie nie jest w stanie do anulowania: <br>Poczekaj na zakończenie zadania. |Prawdopodobnie zadanie jest niemal ukończone. Poczekaj na zakończenie zadania.|
+| Zadanie nie jest w stanie do anulowania: <br>Poczekaj na zakończenie zadania. <br>**oraz**<br> Wybrane zadanie nie jest w stanie do anulowania: <br>Poczekaj na zakończenie zadania. |Prawdopodobnie zadanie jest niemal ukończone. Poczekaj na zakończenie zadania.|
 | Kopia zapasowa nie może anulować zadania, ponieważ nie jest w toku: <br>Anulowanie jest obsługiwane tylko dla zadań w toku. Spróbuj anulować zadanie w toku. |Ten błąd występuje ze względu na stan przejściowy. Poczekaj chwilę i spróbuj ponownie wykonać operację anulowania. |
 | Wykonanie kopii zapasowej nie powiodło się: <br>Poczekaj na zakończenie zadania. |Brak |
 
@@ -405,7 +405,7 @@ Kopia zapasowa maszyny wirtualnej polega na wystawianiu poleceń migawek do maga
 * **Jeśli więcej niż cztery maszyny wirtualne współużytkują tę samą usługę w chmurze, należy rozłożyć maszyny wirtualne na wiele zasad tworzenia kopii zapasowych**. Rozłożenie czasu wykonywania kopii zapasowych, więc nie można uruchomić więcej niż czterech kopii zapasowych maszyn wirtualnych. Spróbuj oddzielić godziny rozpoczęcia w zasadach o co najmniej godzinie.
 * **Maszyna wirtualna jest uruchamiana z dużym procesorem CPU lub pamięcią**. Jeśli maszyna wirtualna działa z dużą ilością pamięci lub użyciem procesora CPU, więcej niż 90 procent, zadanie migawki jest umieszczane w kolejce i opóźnione. Ostatecznie przeprowadzi limit czasu. Jeśli ten problem wystąpi, wypróbuj kopię zapasową na żądanie.
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 
 Aby tworzenie kopii zapasowej maszyny wirtualnej IaaS było możliwe, należy włączyć protokół DHCP wewnątrz gościa. Jeśli potrzebujesz statycznego prywatnego adresu IP, skonfiguruj go za pomocą Azure Portal lub programu PowerShell. Upewnij się, że opcja DHCP wewnątrz maszyny wirtualnej jest włączona.
 Uzyskaj więcej informacji na temat konfigurowania statycznego adresu IP za pomocą programu PowerShell:

@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: bc7db167ed1d1d8823e90bf422f17428a7ed4e48
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 369f17a39b9d7b2f85fffb8b72a293558d16416e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94497136"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325166"
 ---
 # <a name="migration-guide-db2-to-sql-database"></a>Przewodnik migracji: DB2 do SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -61,7 +61,7 @@ Aby utworzyć ocenę, wykonaj następujące kroki:
 
 1. Przejrzyj raport HTML, aby poznać statystyki konwersji oraz błędy lub ostrzeżenia. Możesz również otworzyć raport w programie Excel, aby uzyskać spis obiektów DB2 i nakład pracy wymagany do przeprowadzenia konwersji schematu. Domyślna lokalizacja raportu znajduje się w folderze raportów w SSMAProjects.
 
-   Na przykład: `drive:\<username>\Documents\SSMAProjects\MyDB2Migration\report\report_<date>`. 
+   Przykład: `drive:\<username>\Documents\SSMAProjects\MyDB2Migration\report\report_<date>`. 
 
    :::image type="content" source="media/db2-to-sql-database-guide/report.png" alt-text="Przejrzyj raport, aby zidentyfikować błędy lub ostrzeżenia":::
 
@@ -102,7 +102,7 @@ Aby przekonwertować schemat, wykonaj następujące kroki:
 1. Zapisz projekt lokalnie dla ćwiczenia korygowania schematu w trybie offline. Wybierz pozycję **Zapisz projekt** z menu **plik** . 
 
 
-## <a name="migrate"></a>Migrate
+## <a name="migrate"></a>Migrate (Migracja)
 
 Po zakończeniu oceniania baz danych i rozwiązaniu jakichkolwiek rozbieżności następnym krokiem jest wykonanie procesu migracji.
 
@@ -138,10 +138,10 @@ Po przeprowadzeniu migracji danych do środowiska docelowego wszystkie aplikacje
 
 Podejście testowe do migracji bazy danych obejmuje następujące działania:
 
-1. **Opracowywanie testów weryfikacyjnych** : Aby przetestować migrację bazy danych, należy użyć zapytań SQL. Należy utworzyć zapytania walidacji do uruchomienia względem źródłowej i docelowej bazy danych. Zapytania weryfikacyjne powinny obejmować zdefiniowany zakres.
-1. **Konfigurowanie środowiska testowego** : środowisko testowe powinno zawierać kopię źródłowej bazy danych i docelowej bazy danych. Należy pamiętać o odizolowaniu środowiska testowego.
-1. **Uruchom testy weryfikacyjne** : Uruchom testy weryfikacyjne względem źródła i celu, a następnie Przeanalizuj wyniki.
-1. **Uruchom testy wydajnościowe** : Uruchom test wydajności względem źródła i celu, a następnie Przeanalizuj i Porównaj wyniki.
+1. **Opracowywanie testów weryfikacyjnych**: Aby przetestować migrację bazy danych, należy użyć zapytań SQL. Należy utworzyć zapytania walidacji do uruchomienia względem źródłowej i docelowej bazy danych. Zapytania weryfikacyjne powinny obejmować zdefiniowany zakres.
+1. **Konfigurowanie środowiska testowego**: środowisko testowe powinno zawierać kopię źródłowej bazy danych i docelowej bazy danych. Należy pamiętać o odizolowaniu środowiska testowego.
+1. **Uruchom testy weryfikacyjne**: Uruchom testy weryfikacyjne względem źródła i celu, a następnie Przeanalizuj wyniki.
+1. **Uruchom testy wydajnościowe**: Uruchom test wydajności względem źródła i celu, a następnie Przeanalizuj i Porównaj wyniki.
 
    > [!NOTE]
    > Aby uzyskać pomoc w tworzeniu i uruchamianiu testów weryfikacyjnych po migracji, należy wziąć pod uwagę rozwiązanie dotyczące jakości danych dostępne z [QuerySurge](https://www.querysurge.com/company/partners/microsoft)partnera. 
@@ -149,7 +149,7 @@ Podejście testowe do migracji bazy danych obejmuje następujące działania:
 
 ## <a name="leverage-advanced-features"></a>Korzystanie z zaawansowanych funkcji 
 
-Pamiętaj, aby korzystać z zaawansowanych funkcji opartych na chmurze oferowanych przez SQL Database, takich jak [wbudowana wysoka dostępność](../../database/high-availability-sla.md), [wykrywanie zagrożeń](../../database/advanced-data-security.md)i [monitorowanie i dostrajanie obciążenia](../../database/monitor-tune-overview.md). 
+Pamiętaj, aby korzystać z zaawansowanych funkcji opartych na chmurze oferowanych przez SQL Database, takich jak [wbudowana wysoka dostępność](../../database/high-availability-sla.md), [wykrywanie zagrożeń](../../database/azure-defender-for-sql.md)i [monitorowanie i dostrajanie obciążenia](../../database/monitor-tune-overview.md). 
 
 
 Niektóre funkcje SQL Server są dostępne tylko wtedy, gdy [poziom zgodności bazy danych](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) zostanie zmieniony na najnowszy poziom zgodności (150). 

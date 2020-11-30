@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 1459c80c857a436c8369d3ebe89794e0b69c33b1
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 35bed58f95deebb78d8e787c8bc3f522ce7004df
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980885"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326973"
 ---
 # <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Korzyść użycia hybrydowego platformy Azure — jak ma zastosowanie do Linux Virtual Machines
 
@@ -155,9 +155,13 @@ Odp.: nie można. Korzyść użycia hybrydowego platformy Azure obsługuje konwe
 
 Odp.: nie można. Korzyść użycia hybrydowego platformy Azure obsługuje konwersję tylko w przypadku obrazów z opcją płatność zgodnie z rzeczywistym użyciem.
 
-*P: przekazano mój własny obraz RHEL z Premium (za pośrednictwem funkcji ASR lub w inny sposób) do platformy Azure. Czy mogę przekonwertować rozliczenia na te obrazy z BYOS na PAYG?*
+*P: przekazano mój własny obraz RHEL z Premium (za pośrednictwem Azure Migrate, ASR lub w inny sposób) do platformy Azure. Czy mogę przekonwertować rozliczenia na te obrazy z BYOS na PAYG?*
 
 Odp.: nie można. Funkcja Korzyść użycia hybrydowego platformy Azure jest dostępna tylko dla obrazów portalu Marketplace w RHEL i SLES. 
+
+*P: przekazano mój własny obraz RHEL z Premium (za pośrednictwem Azure Migrate, ASR lub w inny sposób) do platformy Azure. Czy muszę korzystać z Korzyść użycia hybrydowego platformy Azure?*
+
+Odp.: nie. Przesyłane obrazy RHEL są już uznawane za BYOS i opłaty są naliczone wyłącznie za koszty infrastruktury platformy Azure. Użytkownik jest odpowiedzialny za koszty subskrypcji usługi RHEL w taki sam sposób jak w środowiskach lokalnych. 
 
 *P: Czy można używać Korzyść użycia hybrydowego platformy Azure na maszynach wirtualnych wdrożonych z obrazów programu Marketplace RHEL i SLES SAP?*
 

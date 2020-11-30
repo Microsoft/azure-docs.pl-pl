@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 0a6b6196888aedfd6aa60c9395ff27611907661a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: ef481b73b6dc42bc35252c08ae8d63b9de95b2ba
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413155"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325098"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Jakie typy dysków są dostępne na platformie Azure?
 
@@ -23,7 +23,7 @@ Usługa Azure Managed disks obecnie oferuje cztery typy dysków, a każdy typ je
 
 Poniższa tabela zawiera porównanie dysków twardych, dysków półprzewodnikowych (SSD), standardowego dysku SSD i standardowych dysków twardych na potrzeby dysków zarządzanych, które ułatwią podjęcie decyzji o tym, czego używać.
 
-| Szczegóły | Dysk w warstwie Ultra | Dysk SSD w warstwie Premium | Dysk SSD w warstwie Standardowa | Dysk HDD w warstwie Standardowa |
+| Szczegół | Dysk w warstwie Ultra | Dysk SSD w warstwie Premium | Dysk SSD w warstwie Standardowa | Dysk HDD w warstwie Standardowa |
 | ------ | ---------- | ----------- | ------------ | ------------ |
 |Typ dysku   |SSD   |SSD   |SSD   |HDD   |
 |Scenariusz   |Obciążenia intensywnie korzystające z operacji we/wy, takie jak [SAP HANA](workloads/sap/hana-vm-operations-storage.md), baz danych najwyższej warstwy (na przykład SQL, Oracle) i innych obciążeń intensywnie korzystających z transakcji.   |Obciążenia produkcyjne i wrażliwe na wydajność   |Serwery internetowe, aplikacje dla przedsiębiorstw używane w niewielkim stopniu oraz tworzenie i testowanie rozwiązań   |Kopia zapasowa, rozwiązania niekrytyczne, rzadki dostęp   |
@@ -82,7 +82,7 @@ Po udostępnieniu dysku magazynu w warstwie Premium, w przeciwieństwie do magaz
 
 ## <a name="bursting"></a>Rozszerzanie możliwości
 
-SSD w warstwie Premium rozmiary mniejsze niż P30 teraz oferują możliwość naliczania dysków na dyskach, a ich liczba operacji we/wy na sekundę wynosi do 3 500 i przepustowość do 170 MB/s. Rozliczanie jest zautomatyzowane i działa na podstawie systemu kredytowego. Kredyty są automatycznie sumowane w zasobniku szeregowym, gdy ruch dysku jest niższy od zainicjowanej wartości docelowej wydajności, a kredyty są automatycznie zużywane, gdy ruch przekracza miejsce docelowe, do maksymalnego limitu. Maksymalny limit serii określa limit liczby operacji we/wy dysku & przepustowości, nawet jeśli masz kredyty na korzystanie z serii. Szeregowanie dysków zapewnia lepszą tolerancję w nieprzewidywalnych zmianach wzorców we/wy. Można go najlepiej wykorzystać do rozruchu z dysku systemu operacyjnego i aplikacji z ruchem pochodzącym.    
+SSD w warstwie Premium rozmiary mniejsze niż P30 teraz oferują możliwość naliczania dysków na dyskach, a ich liczba operacji we/wy na sekundę wynosi nawet 3 500 i przepustowość do 170 MB/s. Rozliczanie jest zautomatyzowane i działa na podstawie systemu kredytowego. Kredyty są automatycznie sumowane w zasobniku szeregowym, gdy ruch dysku jest niższy od zainicjowanej wartości docelowej wydajności, a kredyty są automatycznie zużywane, gdy ruch przekracza miejsce docelowe, do maksymalnego limitu. Maksymalny limit serii określa limit liczby operacji we/wy dysku & przepustowości, nawet jeśli masz kredyty na korzystanie z serii. Szeregowanie dysków zapewnia lepszą tolerancję w nieprzewidywalnych zmianach wzorców we/wy. Można go najlepiej wykorzystać do rozruchu z dysku systemu operacyjnego i aplikacji z ruchem pochodzącym.    
 
 Obsługa serii dysków zostanie włączona w nowych wdrożeniach odpowiednich rozmiarów dysków domyślnie, bez konieczności wykonywania jakiejkolwiek czynności przez użytkownika. W przypadku istniejących dysków o odpowiednich rozmiarach można włączyć korzystanie z jednej z dwóch opcji: Odłącz i ponownie podłącz dysk lub zatrzymywanie i ponowne uruchamianie dołączonej maszyny wirtualnej. Wszystkie odpowiednie rozmiary dysku będą rozpoczynać się od pełnego zasobnika kredytowego, gdy dysk jest podłączony do maszyny wirtualnej, która obsługuje maksymalny czas trwania w szczycie maksymalnego limitu wynoszącym 30 minut. Aby dowiedzieć się więcej o sposobach tworzenia zadań na dyskach platformy Azure, zobacz [SSD w warstwie Premiuming](linux/disk-bursting.md). 
 
@@ -124,15 +124,15 @@ W przypadku korzystania z usługi Managed disks obowiązują następujące zagad
 - Wychodzące transfery danych
 - Liczba transakcji
 
-**Rozmiar dysku zarządzanego** : dyski zarządzane są rozliczane zgodnie z rozmiarem aprowizacji. Platforma Azure mapuje przydziały (zaokrąglone w górę) do najbliższego dostępnego rozmiaru dysku. Szczegółowe informacje o oferowanych rozmiarach dysków można znaleźć w poprzednich tabelach. Każdy dysk jest mapowany do obsługiwanej oferty rozmiaru dysku i jest rozliczany zgodnie z potrzebami. Na przykład, jeśli udostępnisz 200 GiB SSD w warstwie Standardowa, mapuje do oferty rozmiaru dysku E15 (256 GiB). Opłaty za dowolny dysk z zainicjowaną obsługą są naliczane proporcjonalnie do liczby godzin przy użyciu ceny miesięcznej oferty magazynu. Na przykład jeśli udostępnisz dysk E10 i usuniesz go po 20 godzinach, opłaty są naliczane za ofertę E10, która jest naliczana proporcjonalnie do 20 godzin. Jest to niezależne od ilości danych, które są zapisywane na dysku.
+**Rozmiar dysku zarządzanego**: dyski zarządzane są rozliczane zgodnie z rozmiarem aprowizacji. Platforma Azure mapuje przydziały (zaokrąglone w górę) do najbliższego dostępnego rozmiaru dysku. Szczegółowe informacje o oferowanych rozmiarach dysków można znaleźć w poprzednich tabelach. Każdy dysk jest mapowany do obsługiwanej oferty rozmiaru dysku i jest rozliczany zgodnie z potrzebami. Na przykład, jeśli udostępnisz 200 GiB SSD w warstwie Standardowa, mapuje do oferty rozmiaru dysku E15 (256 GiB). Opłaty za dowolny dysk z zainicjowaną obsługą są naliczane proporcjonalnie do liczby godzin przy użyciu ceny miesięcznej oferty magazynu. Na przykład jeśli udostępnisz dysk E10 i usuniesz go po 20 godzinach, opłaty są naliczane za ofertę E10, która jest naliczana proporcjonalnie do 20 godzin. Jest to niezależne od ilości danych, które są zapisywane na dysku.
 
-**Migawki** : rozliczanie migawek odbywa się na podstawie używanego rozmiaru. Na przykład, jeśli utworzysz migawkę dysku zarządzanego o pojemności 64 GiB i rzeczywistej używanej wielkości danych wynoszącej 10 GiB, dla migawki zostanie naliczona tylko za użyty rozmiar danych wynoszący 10 GiB.
+**Migawki**: rozliczanie migawek odbywa się na podstawie używanego rozmiaru. Na przykład, jeśli utworzysz migawkę dysku zarządzanego o pojemności 64 GiB i rzeczywistej używanej wielkości danych wynoszącej 10 GiB, dla migawki zostanie naliczona tylko za użyty rozmiar danych wynoszący 10 GiB.
 
 Aby uzyskać więcej informacji na temat migawek, zobacz sekcję dotyczącą migawek na [dysku zarządzanym — Omówienie](managed-disks-overview.md).
 
-**Wychodzące transfery danych** : [wychodzące transfery danych](https://azure.microsoft.com/pricing/details/bandwidth/) (dane przesyłane z centrów danych platformy Azure) powodują naliczanie opłat za użycie przepustowości.
+**Wychodzące transfery danych**: [wychodzące transfery danych](https://azure.microsoft.com/pricing/details/bandwidth/) (dane przesyłane z centrów danych platformy Azure) powodują naliczanie opłat za użycie przepustowości.
 
-**Transakcje** : opłaty są naliczane za liczbę transakcji wykonywanych na dysku zarządzanym w warstwie Standardowa. W przypadku standardowej dysków SSD każda operacja we/wy mniejsza lub równa 256 KiB przepływności jest uznawana za pojedynczą operację we/wy. Operacje we/wy o rozmiarze większym niż 256 KiB przepływności są uważane za wiele systemów I/OS o rozmiarach 256 KiB. W przypadku standardowej HDD każda operacja we/wy jest uznawana za pojedynczą transakcję, niezależnie od rozmiaru wejścia/wyjścia.
+**Transakcje**: opłaty są naliczane za liczbę transakcji wykonywanych na dysku zarządzanym w warstwie Standardowa. W przypadku standardowej dysków SSD każda operacja we/wy mniejsza lub równa 256 KiB przepływności jest uznawana za pojedynczą operację we/wy. Operacje we/wy o rozmiarze większym niż 256 KiB przepływności są uważane za wiele systemów I/OS o rozmiarach 256 KiB. W przypadku standardowej HDD każda operacja we/wy jest uznawana za pojedynczą transakcję, niezależnie od rozmiaru wejścia/wyjścia.
 
 Aby uzyskać szczegółowe informacje na temat cen Managed Disks, w tym kosztów transakcji, zobacz [Managed disks cennika](https://azure.microsoft.com/pricing/details/managed-disks).
 

@@ -3,12 +3,12 @@ title: Jak włączyć zasób rozwiązania Azure VMware
 description: Dowiedz się, jak przesłać żądanie pomocy technicznej, aby włączyć zasób rozwiązania VMware platformy Azure. Możesz również zażądać większej liczby hostów w istniejącej chmurze prywatnej rozwiązania VMware platformy Azure.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: 68f8fe38c67ec5ddad7cf662a7996330ee2a1e73
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 526d6b38f4b4e3f6c4806b71b4728dee90cf558a
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95794711"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325081"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Jak włączyć zasób rozwiązania VMware dla platformy Azure
 Dowiedz się, jak przesłać żądanie pomocy technicznej, aby włączyć zasób [rozwiązania VMware platformy Azure](introduction.md) . Możesz również zażądać większej liczby hostów w istniejącej chmurze prywatnej rozwiązania VMware platformy Azure.
@@ -76,7 +76,7 @@ Dostawcy usług kryptograficznych muszą korzystać z [Centrum partnerskiego fir
 
 1. Wybierz pozycję **Azure plan** , a następnie wybierz pozycję **Dodaj do koszyka**. 
 
-1. Przejrzyj i Zakończ ogólne ustawienia subskrypcji planu platformy Azure dla klienta. Aby uzyskać więcej informacji, zobacz [dokumentację Centrum partnerskiego firmy Microsoft](https://docs.microsoft.com/partner-center/azure-plan-manage).
+1. Przejrzyj i Zakończ ogólne ustawienia subskrypcji planu platformy Azure dla klienta. Aby uzyskać więcej informacji, zobacz [dokumentację Centrum partnerskiego firmy Microsoft](/partner-center/azure-plan-manage).
 
 Po skonfigurowaniu planu platformy Azure i wymaganych uprawnieniach vSphere RBAC są stosowane jako dostawcy CSP, firma Microsoft może włączyć limit przydziału dla subskrypcji planu platformy Azure. Dostęp do Azure Portal z Centrum partnerskiego przy użyciu procedury **administratora w imieniu** (AOBO).
 

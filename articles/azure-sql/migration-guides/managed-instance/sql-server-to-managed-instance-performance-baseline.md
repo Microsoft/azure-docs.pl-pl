@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: mokabiru
 ms.date: 11/06/2020
-ms.openlocfilehash: e9fb004df5fdf8a955312ebcf16b8b60fd7c9b6a
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: c47e4c1278f222feac35a2c6ab0b067c916c0217
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592196"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326849"
 ---
 # <a name="migration-performance-sql-server-to-sql-managed-instance-performance-analysis"></a>Wydajność migracji: SQL Server do analizy wydajności wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -65,7 +65,7 @@ Wystąpienie zarządzane SQL udostępnia zaawansowane narzędzia do monitorowani
 -  Dane statystyczne, takie jak INSTANCE_LOG_GOVERNOR lub PAGEIOLATCH, które identyfikują problemy we/wy magazynu, szczególnie w warstwie Ogólnego przeznaczenia, które mogą wymagać wstępnego przydzielenia plików w celu uzyskania lepszej wydajności operacji we/wy. 
 
 
-## <a name="considerations"></a>Kwestie do rozważenia  
+## <a name="considerations"></a>Zagadnienia do rozważenia  
 
 Podczas porównywania wydajności należy wziąć pod uwagę następujące kwestie: 
 
@@ -86,4 +86,4 @@ Aby uzyskać więcej informacji na temat optymalizowania nowego środowiska wyst
 - [Jak ustalić, dlaczego wydajność obciążeń w wystąpieniu zarządzanym Azure SQL jest inna niż SQL Server?](https://medium.com/azure-sqldb-managed-instance/what-to-do-when-azure-sql-managed-instance-is-slower-than-sql-server-dd39942aaadd)
 - [Kluczowe przyczyny różnic wydajności między wystąpieniem zarządzanym SQL i SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/)
 - [Najlepsze rozwiązania w zakresie wydajności magazynu i zagadnienia dotyczące wystąpienia zarządzanego Azure SQL (Ogólnego przeznaczenia)](https://techcommunity.microsoft.com/t5/datacat/storage-performance-best-practices-and-considerations-for-azure/ba-p/305525)
-- [Monitorowanie wydajności w czasie rzeczywistym dla wystąpienia zarządzanego Azure SQL (to jest zarchiwizowane, jest to zamierzony cel?)](https://docs.microsoft.com/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance)
+- [Monitorowanie wydajności w czasie rzeczywistym dla wystąpienia zarządzanego Azure SQL (to jest zarchiwizowane, jest to zamierzony cel?)](/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance)

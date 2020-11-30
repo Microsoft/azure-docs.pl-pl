@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: b138b3eb52a0bfb6dca2ec6fdf0b855223bab698
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 1f4d0d5c2d5442d14d68922c4d0c27b45b2b841e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984451"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324724"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Obrazy tagów w projekcie etykietowania 
 
@@ -119,7 +119,7 @@ Nie można zmienić znacznika istniejącego pola ograniczenia. Jeśli wprowadzis
 
 Domyślnie można edytować istniejące pola ograniczenia. Narzędzie **blokowania/odblokowywania** regionów narzędzie do ![ blokowania/odblokowywania regionów ](./media/how-to-label-images/lock-bounding-boxes-tool.png) lub "L" przełącza takie zachowanie. Jeśli regiony są zablokowane, można zmienić tylko kształt lub lokalizację nowego pola ograniczenia.
 
-Użyj narzędzia do manipulowania regionami **w regionach** narzędzi ![ ](./media/how-to-label-images/regions-tool.png) lub "M", aby dostosować istniejące pole ograniczenia. Przeciągnij krawędzie lub rogi, aby dostosować kształt. Kliknij wewnątrz, aby można było przeciągnąć całe pole ograniczenia. Jeśli nie możesz edytować regionu, prawdopodobnie przełączono narzędzie **blokowania/odblokowywania regionów** .
+Użyj narzędzia do **manipulowania regionami** ![ ikona narzędzia do manipulowania regionami — cztery strzałki wskazujące na zewnątrz od środka, w górę, w prawo, w dół i w lewo.](./media/how-to-label-images/regions-tool.png) lub "M", aby dostosować istniejące pole ograniczenia. Przeciągnij krawędzie lub rogi, aby dostosować kształt. Kliknij wewnątrz, aby można było przeciągnąć całe pole ograniczenia. Jeśli nie możesz edytować regionu, prawdopodobnie przełączono narzędzie **blokowania/odblokowywania regionów** .
 
 Użyj narzędzia **opartego na szablonie** narzędzia Box ![ ](./media/how-to-label-images/template-box-tool.png) lub "T", aby utworzyć wiele pól o tym samym rozmiarze. Jeśli obraz nie ma żadnych pól ograniczenia i uaktywniasz pola oparte na szablonach, narzędzie spowoduje utworzenie pól o 50 do 50 pikseli. W przypadku utworzenia pola ograniczenia, a następnie aktywowania pól opartych na szablonach wszystkie nowe pola ograniczenia będą rozmiarem ostatniego utworzonego pola. Po umieszczeniu można zmienić rozmiar pól opartych na szablonie. Zmienianie rozmiaru pola opartego na szablonie zmienia rozmiar tylko określonego pola.
 
@@ -143,7 +143,7 @@ Jeśli chcesz zmienić tag dla wielokąta, wybierz narzędzie do **przenoszenia 
 
 Można edytować istniejące wielokąty. Narzędzie **blokowania/odblokowywania regionów** ![ edytuje wielokąty za pomocą narzędzia do blokowania/odblokowywania regionów ](./media/how-to-label-images/lock-bounding-boxes-tool.png) lub "L" przełącza takie zachowanie. Jeśli regiony są zablokowane, można zmienić tylko kształt lub lokalizację nowego wielokąta.
 
-Użyj narzędzia **Dodaj lub Usuń punkty wielokątów** ![ Dodaj lub Usuń punkty wielokątów ](./media/how-to-label-images/add-remove-points-tool.png) lub "U", aby dostosować istniejący wielokąt. Kliknij Wielokąt, aby dodać lub usunąć punkt. Jeśli nie możesz edytować regionu, prawdopodobnie przełączono narzędzie **blokowania/odblokowywania regionów** .
+Za pomocą narzędzia **Dodaj lub Usuń punkty wielokąta** ![ jest to ikona narzędzia Dodaj lub Usuń punkty wielokąta.](./media/how-to-label-images/add-remove-points-tool.png) lub "U", aby dostosować istniejący wielokąt. Kliknij Wielokąt, aby dodać lub usunąć punkt. Jeśli nie możesz edytować regionu, prawdopodobnie przełączono narzędzie **blokowania/odblokowywania regionów** .
 
 Aby usunąć *wszystkie* wielokąty w bieżącym obrazie, wybierz narzędzie **Usuń wszystkie regiony** narzędzia ![ Usuń wszystkie regiony ](./media/how-to-label-images/delete-regions-tool.png) .
 

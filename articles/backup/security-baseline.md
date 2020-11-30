@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5e688fbf653646fcdd500f36930fd6b46bebeefa
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: a2cbd2dd4dd32be137e461985e9f10fd07ed8a60
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842162"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325642"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Podstawa zabezpieczeń platformy Azure dla kopii zapasowej
 
@@ -30,7 +30,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 **Wskazówki**: nie dotyczy; nie można skojarzyć sieci wirtualnej, podsieci lub grupy zabezpieczeń sieci z magazynem Recovery Services. Podczas tworzenia kopii zapasowej maszyny wirtualnej platformy Azure dane są przesyłane za pośrednictwem sieci szkieletowej platformy Azure. Podczas tworzenia kopii zapasowej z poziomu maszyny lokalnej szyfrowany tunel jest tworzony z określonym punktem końcowym na platformie Azure, a poświadczenia są używane do wstępnego szyfrowania danych przed ich wysłaniem przez zaszyfrowany tunel.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -38,7 +38,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 **Wskazówki**: nie dotyczy; nie można skojarzyć sieci wirtualnej, podsieci lub grupy zabezpieczeń sieci z magazynem Recovery Services. Podczas tworzenia kopii zapasowej maszyny wirtualnej platformy Azure dane są przesyłane za pośrednictwem sieci szkieletowej platformy Azure. Podczas tworzenia kopii zapasowej z poziomu maszyny lokalnej szyfrowany tunel jest tworzony z określonym punktem końcowym na platformie Azure, a poświadczenia są używane do wstępnego szyfrowania danych przed ich wysłaniem przez zaszyfrowany tunel.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -46,7 +46,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone dla aplikacji sieci Web działających na Azure App Service lub zasobach obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -56,7 +56,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 - [Omówienie obsługi sieci i dostępu dla agenta MARS](./backup-support-matrix-mars-agent.md#networking-and-access-support)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: Microsoft
 
@@ -64,7 +64,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 **Wskazówki**: nie dotyczy; nie można skojarzyć sieci wirtualnej, podsieci lub grupy zabezpieczeń sieci z magazynem Recovery Services. Podczas tworzenia kopii zapasowej maszyny wirtualnej platformy Azure dane są przesyłane za pośrednictwem sieci szkieletowej platformy Azure. Podczas tworzenia kopii zapasowych na maszynach lokalnych szyfrowany tunel jest tworzony z określonym punktem końcowym na platformie Azure, a poświadczenia są używane do wstępnego szyfrowania danych przed ich wysłaniem przez zaszyfrowany tunel.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -74,15 +74,15 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 - [Omówienie obsługi sieci i dostępu dla agenta MARS](./backup-support-matrix-mars-agent.md#networking-and-access-support)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1,7: zarządzanie ruchem do aplikacji sieci Web
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone dla aplikacji sieci Web działających na Azure App Service lub zasobach obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -92,15 +92,15 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 - [Tworzenie kopii zapasowych baz danych SQL Server na maszynach wirtualnych platformy Azure](./backup-sql-server-database-azure-vms.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1,9: Obsługa standardowych konfiguracji zabezpieczeń dla urządzeń sieciowych
 
 **Wskazówki**: nie dotyczy; punkty końcowe używane przez Azure Backup (w tym agent Microsoft Azure Recovery Services) są zarządzane przez firmę Microsoft.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -108,9 +108,9 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 **Wskazówki**: Jeśli używasz agenta Mars na maszynie wirtualnej platformy Azure, SKOJARZ tę maszynę wirtualną z grupą zabezpieczeń sieci, używając opisu, aby określić potrzebę biznesową reguły
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1,11: Użyj zautomatyzowanych narzędzi do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian
 
@@ -120,9 +120,9 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 - [Tworzenie i wyświetlanie alertów dziennika aktywności oraz zarządzanie nimi za pomocą Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ## <a name="logging-and-monitoring"></a>Rejestrowanie i monitorowanie
 
@@ -132,7 +132,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 **Wskazówki**: nie dotyczy; Firma Microsoft utrzymuje źródło czasu używane dla zasobów platformy Azure, takie jak Azure Backup, dla sygnatur czasowych w dziennikach.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: Microsoft
 
@@ -148,9 +148,9 @@ Dodatkowo dzienniki pozyskiwania za pośrednictwem Azure Monitor do agregowania 
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
-**Monitorowanie Azure Security Center**: obecnie niedostępna
+**Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2,3: Włączanie rejestrowania inspekcji dla zasobów platformy Azure
 
@@ -162,15 +162,15 @@ Ponadto Azure Backup wysyła zdarzenia diagnostyczne, które mogą być zbierane
 
 - [Używanie ustawień diagnostycznych do dla Recovery Services magazynów](./backup-azure-diagnostic-events.md)
 
-**Monitorowanie Azure Security Center**: obecnie niedostępna
+**Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2,4: Zbierz dzienniki zabezpieczeń z systemów operacyjnych
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -180,9 +180,9 @@ Ponadto Azure Backup wysyła zdarzenia diagnostyczne, które mogą być zbierane
 
 - [Jak ustawić parametry przechowywania dziennika](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="26-monitor-and-review-logs"></a>2,6: dzienniki monitorowania i przeglądania
 
@@ -196,9 +196,9 @@ Włącz ustawienia diagnostyczne dziennika aktywności platformy Azure i Wyślij
 
 - [Jak zbierać i analizować dzienniki aktywności platformy Azure w obszarze roboczym Log Analytics w Azure Monitor](../azure-monitor/platform/activity-log.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="27-enable-alerts-for-anomalous-activity"></a>2,7: Włączanie alertów dla nietypowego działania
 
@@ -214,15 +214,15 @@ Możesz również dołączyć obszar roboczy Log Analytics do funkcji wskaźniko
 
 - [Tworzenie i wyświetlanie alertów dzienników oraz zarządzanie nimi za pomocą Azure Monitor](../azure-monitor/platform/alerts-log.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="28-centralize-anti-malware-logging"></a>2,8: scentralizowanie rejestrowania chroniącego przed złośliwym oprogramowaniem
 
 **Wskazówki**: nie dotyczy; Azure Backup nie przetwarza ani nie tworzy dzienników związanych z oprogramowaniem chroniącym przed złośliwym kodem.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -230,7 +230,7 @@ Możesz również dołączyć obszar roboczy Log Analytics do funkcji wskaźniko
 
 **Wskazówki**: nie dotyczy; Azure Backup nie przetwarza ani nie tworzy dzienników związanych z usługą DNS.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -238,7 +238,7 @@ Możesz również dołączyć obszar roboczy Log Analytics do funkcji wskaźniko
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -256,17 +256,17 @@ Dokumentacja pomocnicza:
 
 - [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
-**Monitorowanie Azure Security Center**: tak
+**Monitorowanie usługi Azure Security Center**: Yes
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3,2: Zmień domyślne hasła, jeśli ma to zastosowanie
 
 **Wskazówki**: usługa Azure AD nie ma koncepcji domyślnych haseł. Inne zasoby platformy Azure wymagające hasła wymuszają utworzenie hasła przy użyciu wymagań dotyczących złożoności i minimalnej długości hasła, które różnią się w zależności od usługi. Użytkownik jest odpowiedzialny za aplikacje innych firm i usługi Marketplace, które mogą korzystać z domyślnych haseł.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3,3: Użyj dedykowanych kont administracyjnych
 
@@ -278,9 +278,9 @@ Ponadto, aby ułatwić śledzenie dedykowanych kont administracyjnych, można u�
 
 - [Jak używać Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Monitorowanie Azure Security Center**: tak
+**Monitorowanie usługi Azure Security Center**: Yes
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3,4: Korzystaj z logowania jednokrotnego (SSO) z usługą Azure Active Directory
 
@@ -292,9 +292,9 @@ Ponadto, aby ułatwić śledzenie dedykowanych kont administracyjnych, można u�
 
 - [Informacje o interfejsie API usługi Azure Recovery Services](/rest/api/recoveryservices/)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3,5: Użyj uwierzytelniania wieloskładnikowego, aby uzyskać dostęp oparty na Azure Active Directory
 
@@ -304,9 +304,9 @@ Ponadto, aby ułatwić śledzenie dedykowanych kont administracyjnych, można u�
 
 - [Planowanie wdrożenia usługi Azure AD Multi-Factor Authentication opartej na chmurze](../active-directory/authentication/howto-mfa-getstarted.md)
 
-**Monitorowanie Azure Security Center**: tak
+**Monitorowanie usługi Azure Security Center**: Yes
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3,6: Używaj dedykowanych maszyn (uprzywilejowany dostęp do stacji roboczych) dla wszystkich zadań administracyjnych
 
@@ -316,9 +316,9 @@ Ponadto, aby ułatwić śledzenie dedykowanych kont administracyjnych, można u�
 
 - [Planowanie wdrożenia usługi Azure AD Multi-Factor Authentication opartej na chmurze](../active-directory/authentication/howto-mfa-getstarted.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3,7: dziennik i alert dotyczący podejrzanego działania z kont administracyjnych
 
@@ -330,9 +330,9 @@ Ponadto za pomocą funkcji wykrywania ryzyka usługi Azure AD można wyświetla�
 
 - [Omówienie wykrywania ryzyka usługi Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
-**Monitorowanie Azure Security Center**: tak
+**Monitorowanie usługi Azure Security Center**: Yes
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3,8: zarządzanie zasobami platformy Azure tylko z zatwierdzonych lokalizacji
 
@@ -340,9 +340,9 @@ Ponadto za pomocą funkcji wykrywania ryzyka usługi Azure AD można wyświetla�
 
 - [Jak skonfigurować nazwane lokalizacje na platformie Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="39-use-azure-active-directory"></a>3,9: Użyj Azure Active Directory
 
@@ -352,9 +352,9 @@ Ponadto za pomocą funkcji wykrywania ryzyka usługi Azure AD można wyświetla�
 
 - [Jak utworzyć i skonfigurować wystąpienie usługi Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-**Monitorowanie Azure Security Center**: tak
+**Monitorowanie usługi Azure Security Center**: Yes
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3,10: regularnie Przeglądaj i Uzgodnij dostęp użytkowników
 
@@ -364,9 +364,9 @@ Ponadto za pomocą funkcji wykrywania ryzyka usługi Azure AD można wyświetla�
 
 - [Jak korzystać z przeglądów dostępu do tożsamości platformy Azure](../active-directory/governance/access-reviews-overview.md)
 
-**Monitorowanie Azure Security Center**: tak
+**Monitorowanie usługi Azure Security Center**: Yes
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="311-monitor-attempts-to-access-deactivated-accounts"></a>3,11: Monitor próbuje uzyskać dostęp do zdezaktywowanych kont
 
@@ -380,9 +380,9 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 - [Jak przejść do tablicy wskaźnikowej platformy Azure](../sentinel/quickstart-onboard.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3,12: odchylenia zachowania podczas logowania do konta
 
@@ -396,9 +396,9 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3,13: Zapewnij firmie Microsoft dostęp do odpowiednich danych klienta w scenariuszach pomocy technicznej
 
@@ -406,9 +406,9 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 - [Lista usług obsługiwanych przez Skrytka klienta](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
-**Monitorowanie Azure Security Center**: obecnie niedostępna
+**Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ## <a name="data-protection"></a>Ochrona danych
 
@@ -420,9 +420,9 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 - [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4,2: Izoluj systemy przechowujące lub przetwarzające informacje poufne
 
@@ -440,9 +440,9 @@ Dokumentacja pomocnicza:
 
 - [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4,3: Monitoruj i blokuj nieautoryzowany transfer informacji poufnych
 
@@ -450,11 +450,11 @@ Dokumentacja pomocnicza:
 
 Firma Microsoft zarządza podstawową infrastrukturą dla Azure Backup i ma zaimplementowane ścisłe kontrole, aby zapobiec utracie lub narażeniu danych klientów.
 
-- [Zrozumienie ochrony danych klientów na platformie Azure](../security/fundamentals/protection-customer-data.md)
+- [Informacje na temat ochrony danych klientów na platformie Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitorowanie Azure Security Center**: obecnie niedostępna
+**Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
-**Odpowiedzialność**: udostępnione
+**Odpowiedzialność**: Współużytkowane
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: Szyfruj wszystkie poufne informacje podczas przesyłania
 
@@ -462,7 +462,7 @@ Firma Microsoft zarządza podstawową infrastrukturą dla Azure Backup i ma zaim
 
 - [Informacje o szyfrowaniu przechowywane w Azure Backup](./backup-encryption.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: Microsoft
 
@@ -472,9 +472,9 @@ Firma Microsoft zarządza podstawową infrastrukturą dla Azure Backup i ma zaim
 
 Firma Microsoft zarządza podstawową infrastrukturą dla Azure Backup i ma zaimplementowane ścisłe kontrole, aby zapobiec utracie lub narażeniu danych klientów.
 
-- [Zrozumienie ochrony danych klientów na platformie Azure](../security/fundamentals/protection-customer-data.md)
+- [Informacje na temat ochrony danych klientów na platformie Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitorowanie Azure Security Center**: obecnie niedostępna
+**Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
 **Odpowiedzialność**: obecnie niedostępna
 
@@ -488,9 +488,9 @@ Azure Backup udostępnia trzy wbudowane role do kontrolowania operacji zarządza
 
 - [Używanie kontroli dostępu opartej na rolach na platformie Azure do zarządzania Azure Backup punktów odzyskiwania](./backup-rbac-rs-vault.md)
 
-**Monitorowanie Azure Security Center**: obecnie niedostępna
+**Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4,7: Wymuś kontrolę dostępu przy użyciu ochrony przed utratą danych opartą na hoście
 
@@ -498,7 +498,7 @@ Azure Backup udostępnia trzy wbudowane role do kontrolowania operacji zarządza
 
 - [Ochrona danych klienta platformy Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: Microsoft
 
@@ -510,9 +510,9 @@ Podczas tworzenia kopii zapasowej przy użyciu agenta MARS lub magazynu Recovery
 
 - [Informacje o szyfrowaniu dla Azure Backup](./backup-encryption.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: udostępnione
+**Odpowiedzialność**: Współużytkowane
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4,9: Rejestruj i Ostrzegaj o zmianach krytycznych zasobów platformy Azure
 
@@ -520,9 +520,9 @@ Podczas tworzenia kopii zapasowej przy użyciu agenta MARS lub magazynu Recovery
 
 - [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/alerts-activity-log.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ## <a name="vulnerability-management"></a>Zarządzanie lukami w zabezpieczeniach
 
@@ -534,17 +534,17 @@ Podczas tworzenia kopii zapasowej przy użyciu agenta MARS lub magazynu Recovery
 
 Platforma bazowa przeskanowana i poprawiona przez firmę Microsoft. Przejrzyj kontrolki zabezpieczeń dostępne dla Azure Backup, aby zmniejszyć luki w zabezpieczeniach związane z konfiguracją usługi.
 
-- [Informacje o kontrolkach zabezpieczeń dostępnych dla Azure Backup](./backup-security-controls.md)
+- [Informacje o kontrolkach zabezpieczeń dostępnych dla Azure Backup]()
 
-**Monitorowanie Azure Security Center**: obecnie niedostępna
+**Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5,2: Wdróż automatyczne rozwiązanie do zarządzania poprawkami systemu operacyjnego
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -552,7 +552,7 @@ Platforma bazowa przeskanowana i poprawiona przez firmę Microsoft. Przejrzyj ko
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -560,7 +560,7 @@ Platforma bazowa przeskanowana i poprawiona przez firmę Microsoft. Przejrzyj ko
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -570,9 +570,9 @@ Platforma bazowa przeskanowana i poprawiona przez firmę Microsoft. Przejrzyj ko
 
 - [Lista Azure Security Center obsługiwanych usług PaaS](../security-center/features-paas.md)
 
-**Monitorowanie Azure Security Center**: obecnie niedostępna
+**Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ## <a name="inventory-and-asset-management"></a>Zarządzanie magazynem i zasobami
 
@@ -590,9 +590,9 @@ Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośredni
 
 - [Opis kontroli RBAC platformy Azure](../role-based-access-control/overview.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="62-maintain-asset-metadata"></a>6,2: Konserwowanie metadanych zasobów
 
@@ -600,9 +600,9 @@ Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośredni
 
 - [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6,3: Usuń nieautoryzowane zasoby platformy Azure
 
@@ -616,17 +616,17 @@ Ponadto należy użyć Azure Policy, aby wprowadzić ograniczenia dotyczące typ
 
 - [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="64-maintain-an-inventory-of-approved-azure-resources-and-software-titles"></a>6,4: przechowywanie spisu zatwierdzonych zasobów platformy Azure i tytułów oprogramowania
 
 **Wskazówki**: Definiowanie zatwierdzonych zasobów platformy Azure i zatwierdzonego oprogramowania dla zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6,5: Monitoruj niezatwierdzone zasoby platformy Azure
 
@@ -634,19 +634,19 @@ Ponadto należy użyć Azure Policy, aby wprowadzić ograniczenia dotyczące typ
 
 Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasobów w ramach subskrypcji.  Upewnij się, że wszystkie zasoby platformy Azure obecne w środowisku są zatwierdzone.
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 - [Jak tworzyć zapytania za pomocą usługi Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6,6: Monitoruj niezatwierdzone aplikacje oprogramowania w ramach zasobów obliczeniowych
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -654,7 +654,7 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -662,7 +662,7 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -670,19 +670,19 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 **Wskazówki**: Użyj Azure Policy, aby wprowadzić ograniczenia dotyczące typu zasobów, które mogą być tworzone w subskrypcjach klientów, przy użyciu następujących wbudowanych definicji zasad: Niedozwolone typy zasobów dozwolone typy zasobów
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 - [Jak odmówić określonego typu zasobu za pomocą Azure Policy](../governance/policy/samples/index.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="610-implement-approved-application-list"></a>6,10: Zaimplementuj listę zatwierdzonych aplikacji
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -692,15 +692,15 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 - [Jak skonfigurować dostęp warunkowy w celu blokowania dostępu do Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6,12: Ogranicz możliwość wykonywania skryptów w zasobach obliczeniowych przez użytkowników
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -708,7 +708,7 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone dla aplikacji sieci Web działających na Azure App Service lub zasobach obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -722,17 +722,17 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 - [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias)
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7,2: Ustanów bezpieczne konfiguracje systemów operacyjnych
 
 **Wskazówki**: nie dotyczy; te wytyczne są przeznaczone dla zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -740,19 +740,19 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 **Wskazówki**: Użyj Azure Policy [Odmów] i [Wdróż, jeśli nie istnieje], aby wymusić bezpieczne ustawienia dla zasobów platformy Azure.
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 - [Zrozumienie efektów Azure Policy](../governance/policy/concepts/effects.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7,4: Zachowaj konfiguracje bezpiecznego systemu operacyjnego
 
 **Wskazówki**: nie dotyczy; te wytyczne są przeznaczone dla zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -764,15 +764,15 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 - [Dokumentacja Azure Repos](/azure/devops/repos/index)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7,6: bezpieczne przechowywanie niestandardowych obrazów systemu operacyjnego
 
 **Wskazówki**: nie dotyczy; te wytyczne są przeznaczone dla zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -780,17 +780,17 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 **Wskazówki**: Użyj wbudowanych definicji Azure Policy, a także aliasów Azure Policy w przestrzeni nazw "Microsoft. RecoveryServices", aby utworzyć zasady niestandardowe na potrzeby alertów, inspekcji i wymuszania konfiguracji systemu. Dodatkowo opracowuj proces i potok na potrzeby zarządzania wyjątkami zasad.
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="78-deploy-system-configuration-management-tools-for-operating-systems"></a>7,8: Wdrażanie narzędzi do zarządzania konfiguracją systemu dla systemów operacyjnych
 
 **Wskazówki**: nie dotyczy; te wytyczne są przeznaczone dla zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -798,17 +798,17 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 **Wskazówki**: Użyj wbudowanych definicji Azure Policy, a także aliasów Azure Policy w przestrzeni nazw "Microsoft. RecoveryServices", aby utworzyć zasady niestandardowe na potrzeby alertów, inspekcji i wymuszania konfiguracji systemu. Użyj Azure Policy [Audit], [Odmów] i [Wdróż, jeśli nie istnieje], aby automatycznie wymuszać konfiguracje dla zasobów platformy Azure.
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
+- [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7,10: Zaimplementuj automatyczne monitorowanie konfiguracji dla systemów operacyjnych
 
 **Wskazówki**: nie dotyczy; te wytyczne są przeznaczone dla zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -822,9 +822,9 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 * [Jak przypisać zasady dostępu Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7,12: bezpieczne i automatyczne zarządzanie tożsamościami
 
@@ -832,19 +832,19 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 - [Usługi obsługujące zarządzane tożsamości dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7,13: eliminowanie nieprzewidzianego narażenia na poświadczenia
 
-**Wskazówki**: Implementuj skaner poświadczeń, aby identyfikować poświadczenia w kodzie. Skaner poświadczeń zachęca również do przemieszczania odnalezionych poświadczeń do bardziej bezpiecznych lokalizacji, takich jak Azure Key Vault.
+**Wskazówki**: Implementuj skaner poświadczeń, aby identyfikować poświadczenia w kodzie. Skaner poświadczeń ułatwia również przenoszenie odnalezionych poświadczeń do bezpieczniejszych lokalizacji, takich jak usługa Azure Key Vault.
 
 - [Jak skonfigurować skaner poświadczeń](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ## <a name="malware-defense"></a>Ochrona przed złośliwym oprogramowaniem
 
@@ -854,7 +854,7 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych. Oprogramowanie chroniące przed złośliwym oprogramowaniem firmy Microsoft jest włączone na podstawowym hoście, który obsługuje usługi platformy Azure (na przykład Azure Backup), ale nie jest uruchamiane w treści klienta.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -870,15 +870,15 @@ Użyj wykrywania zagrożeń Azure Security Center dla usług danych w celu wykry
 
 - [Zrozumienie wykrywania zagrożeń Azure Security Center dla usług danych](../security-center/azure-defender.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>8,3: Upewnij się, że oprogramowanie chroniące przed złośliwym oprogramowaniem i podpisy zostały zaktualizowane
 
 **Wskazówki**: nie dotyczy; te wytyczne są przeznaczone dla zasobów obliczeniowych.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -890,7 +890,7 @@ Użyj wykrywania zagrożeń Azure Security Center dla usług danych w celu wykry
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone dla zasobów, których kopie zapasowe są tworzone, a nie Azure Backup.
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: nie dotyczy
 
@@ -906,9 +906,9 @@ Utwórz kopię zapasową kluczy zarządzanych przez klienta w Azure Key Vault.
 
 - [Informacje o szyfrowaniu w Azure Backup](./backup-encryption.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9,3: Weryfikuj wszystkie kopie zapasowe, w tym klucze zarządzane przez klienta
 
@@ -916,9 +916,9 @@ Utwórz kopię zapasową kluczy zarządzanych przez klienta w Azure Key Vault.
 
 - [Jak przywrócić klucze magazynu kluczy na platformie Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: zapewnianie ochrony kopii zapasowych i kluczy zarządzanych przez klienta
 
@@ -926,9 +926,9 @@ Utwórz kopię zapasową kluczy zarządzanych przez klienta w Azure Key Vault.
 
 - [Jak włączyć usuwanie nietrwałe w Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-**Monitorowanie Azure Security Center**: tak
+**Monitorowanie usługi Azure Security Center**: Yes
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ## <a name="incident-response"></a>Reagowanie na zdarzenia
 
@@ -936,7 +936,7 @@ Utwórz kopię zapasową kluczy zarządzanych przez klienta w Azure Key Vault.
 
 ### <a name="101-create-an-incident-response-guide"></a>10,1: Tworzenie przewodnika odpowiedzi na zdarzenia
 
-**Wskazówki**: Tworzenie przewodnika odpowiedzi na zdarzenia dla organizacji. Upewnij się, że istnieją zarejestrowane plany reakcji na zdarzenia, które definiują wszystkie role pracowników, a także etapy obsługi zdarzeń/zarządzania z wykrywania do oceny po zdarzeniu.
+**Wskazówka**: Utwórz przewodnik odpowiedzi na zdarzenia dla swojej organizacji. Upewnij się, że istnieją zarejestrowane plany reakcji na zdarzenia, które definiują wszystkie role pracowników, a także etapy obsługi zdarzeń/zarządzania od wykrywania do oceny po zdarzeniu.
 
 - [Jak skonfigurować automatyzację przepływu pracy w programie Azure Security Center](../security-center/security-center-planning-and-operations-guide.md)
 
@@ -946,9 +946,9 @@ Utwórz kopię zapasową kluczy zarządzanych przez klienta w Azure Key Vault.
 
 - [Możesz również wykorzystać Przewodnik obsługi zdarzeń związanych z bezpieczeństwem programu NIST, aby pomóc w tworzeniu własnego planu reagowania na zdarzenia](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10,2: Tworzenie oceny incydentu i procedury priorytetyzacji
 
@@ -956,19 +956,19 @@ Utwórz kopię zapasową kluczy zarządzanych przez klienta w Azure Key Vault.
 
 Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i Utwórz system nazewnictwa, aby jasno identyfikować i klasyfikować zasoby platformy Azure.
 
-**Monitorowanie Azure Security Center**: tak
+**Monitorowanie usługi Azure Security Center**: Yes
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="103-test-security-response-procedures"></a>10,3: procedury odpowiedzi na zabezpieczenia testowe
 
-**Wskazówki**: przeprowadzanie ćwiczeń w celu przetestowania możliwości reagowania na zdarzenia systemu w regularnych erze. Zidentyfikuj słabe punkty i przerwy i popraw plan zgodnie z wymaganiami.
+**Wskazówki**: przeprowadzanie ćwiczeń w celu przetestowania możliwości reagowania na zdarzenia systemu w regularnych erze. Zidentyfikuj słabe punkty i przerwy oraz popraw plan zgodnie z wymaganiami.
 
 - [Zapoznaj się z publikacją NIST: Przewodnik dotyczący testowania, uczenia i ćwiczeń programów dla planów i możliwości IT](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10,4: Podaj szczegóły kontaktu dotyczącego zabezpieczeń i Skonfiguruj powiadomienia dotyczące alertów dotyczących zdarzeń związanych z zabezpieczeniami
 
@@ -976,9 +976,9 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i 
 
 - [Jak ustawić kontakt z zabezpieczeniami Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
 
-**Monitorowanie Azure Security Center**: tak
+**Monitorowanie usługi Azure Security Center**: Yes
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10,5: Uwzględnij alerty zabezpieczeń w systemie odpowiedzi na zdarzenia
 
@@ -986,11 +986,11 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i 
 
 - [Jak skonfigurować eksport ciągły](../security-center/continuous-export.md)
 
-- [Jak przesłać strumieniowo alerty do usługi Azure wskaźnikowego](../sentinel/connect-azure-security-center.md)
+- [Jak przesłać strumieniowo alerty do usługi Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10,6: Automatyzowanie odpowiedzi na alerty zabezpieczeń
 
@@ -998,9 +998,9 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i 
 
 - [Jak skonfigurować automatyzację przepływu pracy i Logic Apps](../security-center/workflow-automation.md)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: Klient
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Testy penetracyjne i ćwiczenia typu „red team”
 
@@ -1012,9 +1012,9 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i 
 
 - [W tym miejscu znajdziesz więcej informacji na temat strategii i wykonywania trójwymiarowych operacji tworzenia zespołu i testowania aplikacji na żywo w witrynie Microsoft.](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Monitorowanie Azure Security Center**: nie dotyczy
+**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
-**Odpowiedzialność**: udostępnione
+**Odpowiedzialność**: Współużytkowane
 
 ## <a name="next-steps"></a>Następne kroki
 

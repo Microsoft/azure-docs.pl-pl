@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 461d3800491dbe382beecbcdfe1f2a93bd6b2e5c
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 85638d2ef3499ca71057879852eb582b950b7e2c
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301575"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325689"
 ---
 # <a name="azure-security-baseline-for-azure-bastion"></a>Podstawowa baza zabezpieczeń Azure dla usługi Azure bastionu
 
@@ -22,7 +22,7 @@ Aby dowiedzieć się, jak usługa Azure bastionu jest całkowicie mapowana na te
 
 ## <a name="network-security"></a>Bezpieczeństwo sieci
 
-*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: bezpieczeństwo sieci](/azure/security/benchmarks/security-controls-v2-network-security).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: bezpieczeństwo sieci](../security/benchmarks/security-controls-v2-network-security.md).*
 
 ### <a name="ns-1-implement-security-for-internal-traffic"></a>NS-1: implementowanie zabezpieczeń dla ruchu wewnętrznego
 
@@ -63,7 +63,7 @@ Aby usługa działała prawidłowo, usługa Azure bastionu wymaga otwarcia nast�
 
 ## <a name="identity-management"></a>Zarządzanie tożsamością
 
-*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: zarządzanie tożsamościami](/azure/security/benchmarks/security-controls-v2-identity-management).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: zarządzanie tożsamościami](../security/benchmarks/security-controls-v2-identity-management.md).*
 
 ### <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: Standaryzacja usługi Azure Active Directory jako centralnego systemu tożsamości i uwierzytelniania
 
@@ -149,7 +149,7 @@ Klient może także używać różnych zasad kontroli dostępu opartej na rolach
 
 ## <a name="privileged-access"></a>Dostęp uprzywilejowany
 
-*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: dostęp uprzywilejowany](/azure/security/benchmarks/security-controls-v2-privileged-access).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: dostęp uprzywilejowany](../security/benchmarks/security-controls-v2-privileged-access.md).*
 
 ### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: Ogranicz dostęp administracyjny do systemów o krytycznym znaczeniu dla firmy
 
@@ -193,7 +193,7 @@ Ponadto usługa Azure Privileged Identity Management może być również skonfi
 
 Należy upewnić się, że poświadczenia (takie jak hasło, certyfikat lub karta inteligentna) dla kont dostępu awaryjnego są bezpieczne i znane tylko osobom, które są upoważnione do ich używania tylko w sytuacji awaryjnej.
 
-- [Zarządzanie kontami dostępu awaryjnego w usłudze Azure AD](/azure/active-directory/users-groups-roles/directory-emergency-access)
+- [Zarządzanie kontami dostępu awaryjnego w usłudze Azure AD](../active-directory/roles/security-emergency-access.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -246,7 +246,7 @@ Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
 
 ## <a name="asset-management"></a>Zarządzanie zasobami
 
-*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: zarządzanie elementami zawartości](/azure/security/benchmarks/security-controls-v2-asset-management).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: zarządzanie elementami zawartości](../security/benchmarks/security-controls-v2-asset-management.md).*
 
 ### <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>ZZ-1: Upewnij się, że zespół ds. zabezpieczeń ma wgląd w ryzyko związane z zasobami
 
@@ -274,7 +274,7 @@ Uwaga: Do uzyskania wglądu w obciążenia i usługi mogą być wymagane dodatko
 
 - [Azure Security Center zarządzanie spisem zasobów](../security-center/asset-inventory.md)
 
-- [Aby uzyskać więcej informacji na temat tagowania elementów zawartości, zobacz Przewodnik po nazwie i znakowaniu zasobów](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [Aby uzyskać więcej informacji na temat tagowania elementów zawartości, zobacz Przewodnik po nazwie i znakowaniu zasobów](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -300,7 +300,7 @@ Uwaga: Do uzyskania wglądu w obciążenia i usługi mogą być wymagane dodatko
 
 - [Usuwanie wymuszonego rozłączenia sesji zdalnej](session-monitoring.md#view)
 
-- [Interfejs wiersza polecenia sieci platformy Azure](https://docs.microsoft.com/powershell/module/az.network/?view=azps-5.1.0#networking&amp;preserve-view=true)
+- [Interfejs wiersza polecenia sieci platformy Azure](/powershell/module/az.network/?amp;preserve-view=true&view=azps-5.1.0#networking)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -341,7 +341,7 @@ Azure Security Center może również otrzymywać alerty dotyczące niektórych 
 
 - [Włączanie usługi Azure Identity Protection](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Ochrona przed zagrożeniami w usłudze Azure Security Center](/azure/security-center/threat-protection)
+- [Ochrona przed zagrożeniami w usłudze Azure Security Center](../security-center/azure-defender.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -407,7 +407,7 @@ W Azure Monitor można ustawić okres przechowywania Log Analytics obszaru roboc
 
 - [Jak skonfigurować okres przechowywania obszaru roboczego Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
 
-- [Przechowywanie dzienników zasobów na koncie usługi Azure Storage](/azure/azure-monitor/platform/resource-logs-collect-storage)
+- [Przechowywanie dzienników zasobów na koncie usługi Azure Storage](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
 
 - [Włącz i pracuj z dziennikami usługi Azure filary](diagnostic-logs.md)
 
@@ -417,7 +417,7 @@ W Azure Monitor można ustawić okres przechowywania Log Analytics obszaru roboc
 
 ## <a name="incident-response"></a>Reagowanie na zdarzenia
 
-*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: reagowanie na zdarzenia](/azure/security/benchmarks/security-controls-v2-incident-response).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: reagowanie na zdarzenia](../security/benchmarks/security-controls-v2-incident-response.md).*
 
 ### <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: Przygotowanie — aktualizowanie procesu reagowania na zdarzenia na platformie Azure
 
@@ -499,7 +499,7 @@ Ponadto oznacz zasoby przy użyciu tagów i utwórz system nazewnictwa, aby zide
 
 - [Alerty zabezpieczeń w Centrum zabezpieczeń Azure](../security-center/security-center-alerts-overview.md)
 
-- [Organizowanie zasobów platformy Azure przy użyciu tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Organizowanie zasobów platformy Azure przy użyciu tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -527,7 +527,7 @@ Ponadto oznacz zasoby przy użyciu tagów i utwórz system nazewnictwa, aby zide
 
 **Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla usługi Azure bastionu za pomocą Azure Policy. Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. Network", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji sieci platformy Azure bastionu. Klienci mogą również ustanawiać bezpieczne konfiguracje, wykorzystując plany platformy Azure lub szablony ARM w celu bezpiecznego i spójnego wdrażania zasobów usługi bastionu.
 
-- [Jak wyświetlić dostępne aliasy Azure Policy](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
@@ -543,7 +543,7 @@ Ponadto oznacz zasoby przy użyciu tagów i utwórz system nazewnictwa, aby zide
 
 **Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla usługi Azure bastionu za pomocą Azure Policy. Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. Network", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji sieci zasobów bastionu.
 
-- [Jak wyświetlić dostępne aliasy Azure Policy](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
@@ -569,7 +569,7 @@ Postępuj zgodnie z regułami testowania penetracji w chmurze firmy Microsoft, a
 
 ## <a name="governance-and-strategy"></a>Ład i strategia
 
-*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: ład i strategia](/azure/security/benchmarks/security-controls-v2-governance-strategy).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: ład i strategia](../security/benchmarks/security-controls-v2-governance-strategy.md).*
 
 ### <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: Definiowanie strategii zarządzania elementami zawartości i ochrony danych 
 
@@ -594,11 +594,11 @@ Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dl
 -   Odpowiednie standardy kryptograficzne
 
 Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
-- [Zalecenie dotyczące architektury zabezpieczeń platformy Azure — magazyn, dane i szyfrowanie](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+- [Zalecenie dotyczące architektury zabezpieczeń platformy Azure — magazyn, dane i szyfrowanie](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Podstawy zabezpieczeń platformy Azure — zabezpieczenia, szyfrowanie i magazynowanie danych platformy Azure](../security/fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework — najlepsze rozwiązania z zakresu zabezpieczeń i szyfrowania danych platformy Azure](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+- [Cloud Adoption Framework — najlepsze rozwiązania z zakresu zabezpieczeń i szyfrowania danych platformy Azure](../security/fundamentals/data-encryption-best-practices.md?amp;bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
 - [Test porównawczy zabezpieczeń platformy Azure — zarządzanie elementami zawartości](/azure/security/benchmarks/security-controls-v2-asset-management)
 
@@ -749,5 +749,5 @@ Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [Omówienie testu porównawczego zabezpieczeń platformy Azure w wersji 2](/azure/security/benchmarks/overview)
-- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](/azure/security/benchmarks/security-baselines-overview)
+- Zobacz [Omówienie testu porównawczego zabezpieczeń platformy Azure w wersji 2](../security/benchmarks/overview.md)
+- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](../security/benchmarks/security-baselines-overview.md)

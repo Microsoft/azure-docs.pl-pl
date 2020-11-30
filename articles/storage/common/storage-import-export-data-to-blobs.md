@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d23560e8ee387ca8bc9cb4bba4211f6c8272addd
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 07f1a6ff5d15ee552680c59c86a194aeabe5b866
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490886"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326390"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Importowanie danych do platformy Azure Blob Storage przy użyciu usługi Azure Import/Export
 
@@ -52,7 +52,7 @@ Wykonaj poniższe kroki, aby przygotować dyski.
 1. Podłącz stacje dysków do systemu Windows za pomocą łączników SATA.
 2. Utwórz pojedynczy wolumin NTFS na każdym dysku. Przypisz literę dysku do woluminu. Nie należy używać mountpoints.
 3. Włącz szyfrowanie funkcją BitLocker na woluminie NTFS. W przypadku korzystania z systemu Windows Server wykonaj instrukcje podane w temacie [jak włączyć funkcję BitLocker w systemie Windows Server 2012 R2](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
-4. Kopiuj dane do woluminu szyfrowanego. Użyj przeciągania i upuszczania lub Robocopy lub dowolnego takiego narzędzia do kopiowania. Plik dziennika ( *. jrn* ) jest tworzony w tym samym folderze, w którym uruchomiono narzędzie.
+4. Kopiuj dane do woluminu szyfrowanego. Użyj przeciągania i upuszczania lub Robocopy lub dowolnego takiego narzędzia do kopiowania. Plik dziennika (*. jrn*) jest tworzony w tym samym folderze, w którym uruchomiono narzędzie.
 
    Jeśli dysk jest zablokowany i musisz odblokować dysk, kroki do odblokowania mogą się różnić w zależności od przypadku użycia.
 
@@ -109,7 +109,7 @@ Wykonaj następujące kroki, aby utworzyć zadanie importowania w Azure Portal.
 
     ![Kliknij pozycję Utwórz zadanie importu/eksportu](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
 
-4. **Podstawowe informacje** :
+4. **Podstawowe informacje**:
 
    * Wybierz pozycję **Importuj na platformie Azure**.
    * Wprowadź opisową nazwę zadania importu. Użyj nazwy, aby śledzić postęp zadań.
@@ -120,7 +120,7 @@ Wykonaj następujące kroki, aby utworzyć zadanie importowania w Azure Portal.
 
      ![Tworzenie zadania importowania — krok 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
-5. W **szczegółach zadania** :
+5. W **szczegółach zadania**:
 
    * Przekaż pliki dziennika stacji, które zostały uzyskane podczas kroku przygotowywania dysku. Jeśli `waimportexport.exe version1` został użyty, Przekaż jeden plik dla każdego przygotowanego dysku. Jeśli rozmiar pliku dziennika przekracza 2 MB, można użyć `<Journal file name>_DriveInfo_<Drive serial ID>.xml` również utworzonego w pliku dziennika.
    * Wybierz docelowe konto magazynu, na którym będą przechowywane dane.
@@ -128,7 +128,7 @@ Wykonaj następujące kroki, aby utworzyć zadanie importowania w Azure Portal.
 
    ![Tworzenie zadania importowania — krok 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
-6. W oknie **Informacje o wysyłce zwrotu** :
+6. W oknie **Informacje o wysyłce zwrotu**:
 
    * Wybierz operatora z listy rozwijanej. Jeśli chcesz użyć operatora innego niż FedEx/DHL, wybierz istniejącą opcję z listy rozwijanej. Skontaktuj się z zespołem ds. operacyjnych Azure Data Box `adbops@microsoft.com`  z informacjami dotyczącymi przewoźnika, którego zamierzasz używać.
    * Wprowadź prawidłowy numer konta nośnego, który został utworzony za pomocą tego operatora. Firma Microsoft korzysta z tego konta, aby po zakończeniu zadania importowania dostarczać dyski z powrotem do użytkownika. Jeśli nie masz numeru konta, Utwórz konto z systemem [FedEx](https://www.fedex.com/us/oadr/) lub [DHL](https://www.dhl.com/) .
@@ -139,7 +139,7 @@ Wykonaj następujące kroki, aby utworzyć zadanie importowania w Azure Portal.
 
      ![Tworzenie zadania importowania — krok 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
 
-7. **Podsumowanie** :
+7. **Podsumowanie**:
 
    * Przejrzyj informacje o zadaniu podane w podsumowaniu. Zanotuj nazwę zadania i adres wysyłkowy centrum danych platformy Azure, aby dostarczać dyski z powrotem do platformy Azure. Te informacje są używane później na etykiecie wysyłkowej.
    * Kliknij przycisk **OK** , aby utworzyć zadanie importowania.
@@ -160,7 +160,7 @@ Wykonaj następujące kroki, aby utworzyć zadanie importowania w interfejsie wi
     az extension add --name import-export
     ```
 
-1. Możesz użyć istniejącej grupy zasobów lub utworzyć ją. Aby utworzyć grupę zasobów, uruchom polecenie [AZ Group Create](/cli/azure/group#az_group_create) :
+1. Możesz użyć istniejącej grupy zasobów lub utworzyć ją. Aby utworzyć grupę zasobów, uruchom polecenie [az group create](/cli/azure/group#az_group_create):
 
     ```azurecli
     az group create --name myierg --location "West US"

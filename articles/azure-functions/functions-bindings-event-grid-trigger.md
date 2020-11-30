@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 3bbe704e6223bb04a17af7109c61875ca3b21bf9
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 0e2e09bc72991330ccdec7a35400460cbeba26fc
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748189"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327036"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Wyzwalacz Azure Event Grid dla Azure Functions
 
@@ -399,21 +399,21 @@ Aby uzyskać wyjaśnienia dotyczące wspólnych i specyficznych dla zdarzeń wł
 
 Aby rozpocząć otrzymywanie Event Grid żądania HTTP, Utwórz subskrypcję Event Grid, która określa adres URL punktu końcowego, który wywołuje funkcję.
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
-W przypadku funkcji, które tworzysz w Azure Portal z wyzwalaczem Event Grid, wybierz pozycję **integracja** , a następnie wybierz **wyzwalacz Event Grid** i wybierz pozycję **Utwórz subskrypcję Event Grid** .
+W przypadku funkcji, które tworzysz w Azure Portal z wyzwalaczem Event Grid, wybierz pozycję **integracja** , a następnie wybierz **wyzwalacz Event Grid** i wybierz pozycję **Utwórz subskrypcję Event Grid**.
 
 :::image type="content" source="media/functions-bindings-event-grid/portal-sub-create.png" alt-text="Połącz nową subskrypcję zdarzeń, aby wyzwolić w portalu.":::
 
 Po wybraniu tego linku w portalu zostanie otwarta strona **Tworzenie subskrypcji zdarzeń** z aktualnie zdefiniowanym punktem końcowym wyzwalacza.
 
-:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Połącz nową subskrypcję zdarzeń, aby wyzwolić w portalu." :::
+:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Utwórz subskrypcję zdarzeń z już zdefiniowanym punktem końcowym funkcji" :::
 
 Aby uzyskać więcej informacji o sposobach tworzenia subskrypcji przy użyciu Azure Portal, zobacz [Tworzenie niestandardowych zdarzeń Azure Portal](../event-grid/custom-event-quickstart-portal.md) w dokumentacji Event Grid.
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Aby utworzyć subskrypcję przy użyciu [interfejsu wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), użyj polecenie [AZ eventgrid Event-Subscription Create](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create) .
+Aby utworzyć subskrypcję przy użyciu [interfejsu wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli), użyj polecenie [AZ eventgrid Event-Subscription Create](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) .
 
 Polecenie wymaga adresu URL punktu końcowego, który wywołuje funkcję. Poniższy przykład przedstawia wzorzec adresu URL specyficznego dla wersji:
 
@@ -435,25 +435,55 @@ Oto przykład, który subskrybuje konto usługi BLOB Storage (z symbolem zastęp
 
 #### <a name="version-2x-and-higher-runtime"></a>Środowisko uruchomieniowe w wersji 2. x (lub nowszej)
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
---provider-namespace Microsoft.Storage --resource-type storageAccounts \
---resource-name myblobstorage12345 --name myFuncSub  \
---included-event-types Microsoft.Storage.BlobCreated \
---subject-begins-with /blobServices/default/containers/images/blobs/ \
---endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts \
+    --resource-name myblobstorage12345 --name myFuncSub \
+    --included-event-types Microsoft.Storage.BlobCreated \
+    --subject-begins-with /blobServices/default/containers/images/blobs/ \
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az eventgrid resource event-subscription create -g myResourceGroup ^
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts ^
+    --resource-name myblobstorage12345 --name myFuncSub ^
+    --included-event-types Microsoft.Storage.BlobCreated ^
+    --subject-begins-with /blobServices/default/containers/images/blobs/ ^
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
+```
+
+---
 
 #### <a name="version-1x-runtime"></a>Wersja 1. x środowiska uruchomieniowego
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
---provider-namespace Microsoft.Storage --resource-type storageAccounts \
---resource-name myblobstorage12345 --name myFuncSub  \
---included-event-types Microsoft.Storage.BlobCreated \
---subject-begins-with /blobServices/default/containers/images/blobs/ \
---endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts \
+    --resource-name myblobstorage12345 --name myFuncSub \
+    --included-event-types Microsoft.Storage.BlobCreated \
+    --subject-begins-with /blobServices/default/containers/images/blobs/ \
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az eventgrid resource event-subscription create -g myResourceGroup ^
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts ^
+    --resource-name myblobstorage12345 --name myFuncSub ^
+    --included-event-types Microsoft.Storage.BlobCreated ^
+    --subject-begins-with /blobServices/default/containers/images/blobs/ ^
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
+```
+
+---
 
 Aby uzyskać więcej informacji na temat sposobu tworzenia subskrypcji, zobacz [Przewodnik Szybki Start](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-storage-account) dotyczący usługi BLOB Storage lub innych Event Grid przewodników Szybki Start.
 
@@ -508,7 +538,7 @@ Aby przetestować wyzwalacz Event Grid lokalnie, należy uzyskać Event Grid ż�
 1. [Wygeneruj żądanie](#generate-a-request) i skopiuj treść żądania z aplikacji przeglądarki.
 1. [Ręcznie Opublikuj żądanie](#manually-post-the-request) na adres URL hosta lokalnego funkcji wyzwalacza Event Grid.
 
-Po zakończeniu testowania możesz użyć tej samej subskrypcji dla środowiska produkcyjnego, aktualizując punkt końcowy. Użyj polecenia [AZ eventgrid Event-Subscription Update](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) platformy Azure.
+Po zakończeniu testowania możesz użyć tej samej subskrypcji dla środowiska produkcyjnego, aktualizując punkt końcowy. Użyj polecenia [AZ eventgrid Event-Subscription Update](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-update) platformy Azure.
 
 ### <a name="create-a-viewer-web-app"></a>Tworzenie aplikacji sieci Web w przeglądarce
 

@@ -15,12 +15,12 @@ ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c64ab815572af0f6c76a5076c9d4cf03586f242d
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 57e9c82e5685171cff994aca7985f6a4211f00e7
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785004"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327291"
 ---
 # <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Wskazówki dotyczące cen dla SQL Server na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -36,9 +36,9 @@ Ten artykuł zawiera wskazówki dotyczące cen [SQL Server w usłudze Azure Virt
 
 ## <a name="free-licensed-sql-server-editions"></a>Bezpłatne licencjonowane wersje SQL Server
 
-Jeśli chcesz opracowywać, testować lub kompilować weryfikację koncepcji, użyj bezpłatnie licencjonowanej **wersji SQL Server Developer** . Ta wersja zawiera wszystkie funkcje wersji SQL Server Enterprise, co pozwala na kompilowanie i testowanie aplikacji dowolnego typu. Nie można jednak uruchomić wersji Developer w środowisku produkcyjnym. Na maszynie wirtualnej SQL Server Developer Edition są naliczane opłaty za koszt maszyny wirtualnej, ponieważ nie ma żadnych powiązanych SQL Server kosztów licencjonowania.
+Jeśli chcesz opracowywać, testować lub kompilować weryfikację koncepcji, użyj bezpłatnie licencjonowanej **wersji SQL Server Developer**. Ta wersja zawiera wszystkie funkcje wersji SQL Server Enterprise, co pozwala na kompilowanie i testowanie aplikacji dowolnego typu. Nie można jednak uruchomić wersji Developer w środowisku produkcyjnym. Na maszynie wirtualnej SQL Server Developer Edition są naliczane opłaty za koszt maszyny wirtualnej, ponieważ nie ma żadnych powiązanych SQL Server kosztów licencjonowania.
 
-Jeśli chcesz uruchomić lekkie obciążenie w środowisku produkcyjnym (<4 rdzenie, <1 GB pamięci, <10 GB/bazy danych), użyj swobodnie licencjonowanej **SQL Server Express Edition** . Na maszynie wirtualnej SQL Server Express Edition są również naliczane opłaty za koszt maszyny wirtualnej.
+Jeśli chcesz uruchomić lekkie obciążenie w środowisku produkcyjnym (<4 rdzenie, <1 GB pamięci, <10 GB/bazy danych), użyj swobodnie licencjonowanej **SQL Server Express Edition**. Na maszynie wirtualnej SQL Server Express Edition są również naliczane opłaty za koszt maszyny wirtualnej.
 
 W przypadku takich obciążeń związanych z programowaniem/testowaniem i lekkimi produkcjami można także zaoszczędzić pieniądze, wybierając mniejszy rozmiar maszyny wirtualnej, który jest zgodny z tymi obciążeniami. DS1v2 może być dobrym wyborem w niektórych scenariuszach.
 
@@ -57,11 +57,11 @@ W przypadku nielekkiego obciążenia produkcyjnego należy użyć jednej z nast�
 
 | Wydanie programu SQL Server | Obciążenie |
 |-----|-----|
-| Sieć Web | Małe witryny sieci Web |
+| Internet | Małe witryny sieci Web |
 | Standardowa | Małe i średnie obciążenia |
 | Enterprise | Duże lub krytyczne dla działalności obciążenia|
 
-Dostępne są dwie opcje płacenia za SQL Server Licencjonowanie dla następujących wersji: *płatność za użycie* lub dostarczenie *własnej licencji (BYOL)* .
+Dostępne są dwie opcje płacenia za SQL Server Licencjonowanie dla następujących wersji: *płatność za użycie* lub dostarczenie *własnej licencji (BYOL)*.
 
 ## <a name="pay-per-usage"></a>Płatność za użycie
 
@@ -71,9 +71,9 @@ Koszt jest taki sam dla wszystkich wersji SQL Server (2012 SP3 do 2019). Koszt l
 
 Płatność SQL Server Licencjonowanie za użycie jest zalecana dla:
 
-- **Obciążenia tymczasowe lub okresowe** . Na przykład aplikacja, która wymaga obsługi zdarzenia przez kilka miesięcy w każdym roku lub analiza biznesowa w poniedziałek.
+- **Obciążenia tymczasowe lub okresowe**. Na przykład aplikacja, która wymaga obsługi zdarzenia przez kilka miesięcy w każdym roku lub analiza biznesowa w poniedziałek.
 
-- **Obciążenia z nieznanym okresem istnienia lub skalowaniem** . Na przykład aplikacja, która może nie być wymagana w ciągu kilku miesięcy lub która może wymagać większej lub mniejszej mocy obliczeniowej, zależy od popytu.
+- **Obciążenia z nieznanym okresem istnienia lub skalowaniem**. Na przykład aplikacja, która może nie być wymagana w ciągu kilku miesięcy lub która może wymagać większej lub mniejszej mocy obliczeniowej, zależy od popytu.
 
 Aby utworzyć maszynę wirtualną platformy Azure z systemem SQL Server 2017 przy użyciu jednego z tych obrazów z opcją płatność zgodnie z rzeczywistym użyciem, zobacz następujące linki:
 
@@ -96,7 +96,7 @@ Aby utworzyć maszynę wirtualną platformy Azure z systemem SQL Server 2017 prz
 
 ## <a name="bring-your-own-license-byol"></a><a id="byol"></a> Bring your own license (BYOL)
 
-Udostępnienie **własnej SQL Server licencji za pośrednictwem Przenośność licencji** , nazywanego również **BYOL** , oznacza użycie istniejącej licencji zbiorczej SQL Server z programem Software Assurance na maszynie wirtualnej platformy Azure. Maszyna wirtualna w SQL Server przy użyciu usługi BYOL nalicza opłaty tylko za koszt działania maszyny wirtualnej, a nie do licencjonowania SQL Server, zważywszy, że licencje i program Software Assurance zostały już nabyte za pośrednictwem programu licencjonowania zbiorowego.
+Udostępnienie **własnej SQL Server licencji za pośrednictwem Przenośność licencji**, nazywanego również **BYOL**, oznacza użycie istniejącej licencji zbiorczej SQL Server z programem Software Assurance na maszynie wirtualnej platformy Azure. Maszyna wirtualna w SQL Server przy użyciu usługi BYOL nalicza opłaty tylko za koszt działania maszyny wirtualnej, a nie do licencjonowania SQL Server, zważywszy, że licencje i program Software Assurance zostały już nabyte za pośrednictwem programu licencjonowania zbiorowego.
 
 > [!IMPORTANT]
 > Obrazy BYOL wymagają Umowa Enterprise z programem Software Assurance. W tej chwili nie są dostępne jako część partnera rozwiązań w chmurze (CSP) platformy Azure. Klienci korzystający z programu CSP mogą przenieść własną licencję przez wdrożenie obrazu z opcją płatność zgodnie z rzeczywistym użyciem, a następnie włączenie [korzyść użycia hybrydowego platformy Azure](licensing-model-azure-hybrid-benefit-ahb-change.md).
@@ -106,9 +106,9 @@ Udostępnienie **własnej SQL Server licencji za pośrednictwem Przenośność l
 
 Udostępnienie własnej SQL Server licencjonowania za poorednictwem przenośność licencji jest zalecane w przypadku:
 
-- **Obciążenia ciągłe** . Na przykład aplikacja, która musi obsługiwać operacje biznesowe 24x7.
+- **Obciążenia ciągłe**. Na przykład aplikacja, która musi obsługiwać operacje biznesowe 24x7.
 
-- **Obciążenia o znanym okresie istnienia i skali** . Na przykład aplikacja, która jest wymagana przez cały rok, a zapotrzebowanie jest prognozowane.
+- **Obciążenia o znanym okresie istnienia i skali**. Na przykład aplikacja, która jest wymagana przez cały rok, a zapotrzebowanie jest prognozowane.
 
 Aby używać BYOL z maszyną wirtualną SQL Server, musisz mieć licencję na SQL Server Standard lub Enterprise i [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx#tab=1), która jest wymagana w ramach niektórych programów licencjonowania zbiorowego i opcjonalnego zakupu z innymi. Poziom cen zapewniany za pośrednictwem programów licencjonowania zbiorowego różni się w zależności od typu umowy i ilości oraz zaangażowania do SQL Server. Jednak jako reguła kciuka, dostosowanie własnej licencji do ciągłego obciążeń produkcyjnych ma następujące zalety:
 
@@ -136,7 +136,7 @@ Aby uniknąć niepotrzebnych kosztów, wybierz optymalny rozmiar maszyny wirtual
 
 ### <a name="correctly-size-your-vm"></a><a id="machinesize"></a> Prawidłowe dopasowanie rozmiaru maszyny wirtualnej
 
-Koszt licencjonowania SQL Server jest bezpośrednio związany z liczbą procesorów wirtualnych vCPU. Wybierz rozmiar maszyny wirtualnej odpowiadający oczekiwanym potrzebom dotyczącym przepustowości procesora CPU, pamięci, magazynu i operacji we/wy. Aby uzyskać pełną listę opcji rozmiaru maszyn, zobacz [rozmiary maszyn wirtualnych systemu Windows](../../../virtual-machines/sizes.md) i [rozmiary maszyn wirtualnych](../../../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json)z systemem Linux.
+Koszt licencjonowania SQL Server jest bezpośrednio związany z liczbą procesorów wirtualnych vCPU. Wybierz rozmiar maszyny wirtualnej odpowiadający oczekiwanym potrzebom dotyczącym przepustowości procesora CPU, pamięci, magazynu i operacji we/wy. Aby uzyskać pełną listę opcji rozmiaru maszyn, zobacz [rozmiary maszyn wirtualnych systemu Windows](../../../virtual-machines/sizes.md) i [rozmiary maszyn wirtualnych](../../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)z systemem Linux.
 
 Istnieją nowe rozmiary maszyn, które dobrze sprawdzają się w przypadku niektórych typów obciążeń SQL Server. Te maszyny zajmują dużo poziomów pamięci, magazynu i przepustowości we/wy, ale mają mniejszą liczbę rdzeni zwirtualizowanych. Rozważmy na przykład następujący przykład:
 

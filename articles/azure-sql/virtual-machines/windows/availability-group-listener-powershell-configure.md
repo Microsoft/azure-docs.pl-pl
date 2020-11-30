@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: cb55274800b239cf0e1e942647ae0c65b321b862
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 147c507cde9abf2ef97098c6b41fbbd4d67f02d2
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790053"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324809"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Skonfiguruj co najmniej jeden odbiornik grupy dostępności — Menedżer zasobów
 
@@ -64,7 +64,7 @@ W przypadku ograniczania dostępu za pomocą grupy zabezpieczeń sieci platformy
 Bieżący [szablon firmy Microsoft](./availability-group-quickstart-template-configure.md) dla grupy dostępności używa podstawowego modułu równoważenia obciążenia z podstawowymi adresami IP.
 
    > [!NOTE]
-   > Jeśli używasz standardowego modułu równoważenia obciążenia i usługi Azure Storage dla monitora chmury, musisz skonfigurować [punkt końcowy usługi](../../../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network) . 
+   > Jeśli używasz standardowego modułu równoważenia obciążenia i usługi Azure Storage dla monitora chmury, musisz skonfigurować [punkt końcowy usługi](../../../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network) . 
    > 
 
 W przykładach w tym artykule określono moduł równoważenia obciążenia w warstwie Standardowa. W przykładach skrypt zawiera `-sku Standard` .
@@ -73,7 +73,7 @@ W przykładach w tym artykule określono moduł równoważenia obciążenia w wa
 $ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
 ```
 
-Aby utworzyć podstawowy moduł równoważenia obciążenia, Usuń `-sku Standard` z wiersza, który tworzy moduł równoważenia obciążenia. Na przykład:
+Aby utworzyć podstawowy moduł równoważenia obciążenia, Usuń `-sku Standard` z wiersza, który tworzy moduł równoważenia obciążenia. Przykład:
 
 ```powershell
 $ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
@@ -195,11 +195,11 @@ $ILB | Add-AzLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfigura
 
 1. Uruchom SQL Server Management Studio i Połącz się z repliką podstawową.
 
-1. Przejdź do funkcji AlwaysOn grup dostępności dla grup dostępności **o wysokiej dostępności**  >  **Availability Groups**  >  **Availability Group Listeners** . 
+1. Przejdź do funkcji AlwaysOn grup dostępności dla grup dostępności **o wysokiej dostępności**  >  **Availability Groups**  >  **Availability Group Listeners**. 
 
-1. Powinna zostać wyświetlona nazwa odbiornika utworzona w Menedżer klastra trybu failover. Kliknij prawym przyciskiem myszy nazwę odbiornika i wybierz pozycję **Właściwości** .
+1. Powinna zostać wyświetlona nazwa odbiornika utworzona w Menedżer klastra trybu failover. Kliknij prawym przyciskiem myszy nazwę odbiornika i wybierz pozycję **Właściwości**.
 
-1. W polu **port** Określ numer portu dla odbiornika grupy dostępności przy użyciu użytej wcześniej $EndpointPort (1433 była domyślna), a następnie wybierz **przycisk OK** .
+1. W polu **port** Określ numer portu dla odbiornika grupy dostępności przy użyciu użytej wcześniej $EndpointPort (1433 była domyślna), a następnie wybierz **przycisk OK**.
 
 ## <a name="test-the-connection-to-the-listener"></a>Testowanie połączenia z odbiornikiem
 
@@ -236,7 +236,7 @@ Zwróć uwagę na następujące wytyczne dotyczące odbiornika grupy dostępnoś
   - Przestawne adresy IP modułu równoważenia obciążenia dla odbiornika AG
   - Podstawowy adres IP klastra, jeśli ma zastosowanie.
 
-* Utwórz punkt końcowy usługi przy użyciu standardowego modułu równoważenia obciążenia z usługą Azure Storage dla monitora chmury. Aby uzyskać więcej informacji, zobacz [udzielanie dostępu z sieci wirtualnej](../../../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network).
+* Utwórz punkt końcowy usługi przy użyciu standardowego modułu równoważenia obciążenia z usługą Azure Storage dla monitora chmury. Aby uzyskać więcej informacji, zobacz [udzielanie dostępu z sieci wirtualnej](../../../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
 ## <a name="for-more-information"></a>Więcej informacji
 

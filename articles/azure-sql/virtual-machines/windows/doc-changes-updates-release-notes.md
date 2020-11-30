@@ -11,12 +11,12 @@ ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/15/2020
-ms.openlocfilehash: 262e15754ba481ee37b6af9783e5a3bc82d9450c
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: ff4e6e0451b57046fb8f07f5a1051235e1f6d0f5
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556360"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325727"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Zmiany w dokumentacji dotyczące SQL Server na platformie Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -96,7 +96,7 @@ System Azure umożliwia wdrożenie maszyny wirtualnej za pomocą obrazu SQL Serv
 | **Obsługa nazwanych wystąpień** | Teraz można użyć [rozszerzenia SQL Server IaaS](sql-server-iaas-agent-extension-automate-management.md#installation) z nazwanym wystąpieniem, jeśli domyślne wystąpienie zostało odinstalowane prawidłowo. | 
 | **Rozszerzenie portalu** | Azure Portal środowisko wdrażania SQL Server maszyny wirtualnej zostało odnowionych w celu poprawy użyteczności. Aby uzyskać więcej informacji, zobacz krótkie Przewodnik [szybkiego startu](sql-vm-create-portal-quickstart.md) i dokładniejsze [instrukcje](create-sql-vm-portal.md) dotyczące wdrażania SQL Server maszyny wirtualnej.|
 | **Udoskonalenie portalu** | Teraz można zmienić model licencjonowania dla maszyny wirtualnej SQL Server, wybierając pozycję płatność zgodnie z rzeczywistym użyciem, aby przenieść własną licencję przy użyciu [Azure Portal](licensing-model-azure-hybrid-benefit-ahb-change.md#change-license-model).|
-| **Uproszczenie wdrażania grup dostępności na maszynie wirtualnej SQL Server za pomocą interfejsu wiersza polecenia platformy Azure** | Wdrażanie grupy dostępności na maszynie wirtualnej SQL Server na platformie Azure jest teraz łatwiejsze niż kiedykolwiek wcześniej. Możesz użyć [interfejsu wiersza polecenia platformy Azure](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid&preserve-view=true) do utworzenia klastra trybu failover systemu Windows, wewnętrznego modułu równoważenia obciążenia i odbiorników grup dostępności, a wszystko to w wierszu poleceń. Aby uzyskać więcej informacji, zobacz [Korzystanie z interfejsu wiersza polecenia platformy Azure w celu skonfigurowania grupy dostępności Always On dla SQL Server na maszynie wirtualnej platformy Azure](availability-group-az-cli-configure.md). | 
+| **Uproszczenie wdrażania grup dostępności na maszynie wirtualnej SQL Server za pomocą interfejsu wiersza polecenia platformy Azure** | Wdrażanie grupy dostępności na maszynie wirtualnej SQL Server na platformie Azure jest teraz łatwiejsze niż kiedykolwiek wcześniej. Możesz użyć [interfejsu wiersza polecenia platformy Azure](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid&preserve-view=true) do utworzenia klastra trybu failover systemu Windows, wewnętrznego modułu równoważenia obciążenia i odbiorników grup dostępności, a wszystko to w wierszu poleceń. Aby uzyskać więcej informacji, zobacz [Korzystanie z interfejsu wiersza polecenia platformy Azure w celu skonfigurowania grupy dostępności Always On dla SQL Server na maszynie wirtualnej platformy Azure](./availability-group-az-commandline-configure.md). | 
 | &nbsp; | &nbsp; |
 
 ## <a name="2018"></a>2018 
@@ -110,9 +110,9 @@ System Azure umożliwia wdrożenie maszyny wirtualnej za pomocą obrazu SQL Serv
 |**Przełącz model licencjonowania** | Teraz możesz przechodzić między modelami "płatność za użycie" i "Przenieś własne" dla maszyny wirtualnej SQL Server za pomocą interfejsu wiersza polecenia platformy Azure lub programu PowerShell. Aby uzyskać więcej informacji, zobacz [jak zmienić model licencjonowania dla SQL Server maszyny wirtualnej na platformie Azure](licensing-model-azure-hybrid-benefit-ahb-change.md). | 
 | &nbsp; | &nbsp; |
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-**Maszyny wirtualne z systemem Windows** :
+**Maszyny wirtualne z systemem Windows**:
 
 * [Omówienie SQL Server na maszynie wirtualnej z systemem Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Inicjowanie obsługi administracyjnej SQL Server na maszynie wirtualnej z systemem Windows](create-sql-vm-portal.md)
@@ -121,7 +121,7 @@ System Azure umożliwia wdrożenie maszyny wirtualnej za pomocą obrazu SQL Serv
 * [Najlepsze rozwiązania w zakresie wydajności SQL Server na platformie Azure Virtual Machines](performance-guidelines-best-practices.md)
 * [Wzorce aplikacji i strategie programowania dla SQL Server na platformie Azure Virtual Machines](application-patterns-development-strategies.md)
 
-**Maszyny wirtualne z systemem Linux** :
+**Maszyny wirtualne z systemem Linux**:
 
 * [Omówienie SQL Server na maszynie wirtualnej z systemem Linux](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Inicjowanie obsługi administracyjnej SQL Server na maszynie wirtualnej z systemem Linux](../linux/sql-vm-create-portal-quickstart.md)

@@ -11,12 +11,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/10/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: be063105db2384f566e7c94d9f2e7a2bd808b15f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c394fe2aa7639d32e5d79bcb22a01151f7666f5b
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790138"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324622"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Omówienie programu SQL Server na maszynach wirtualnych platformy Azure (system Linux)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -75,7 +75,7 @@ Podczas konfigurowania SQL Server on Linux należy zainstalować pakiet aparat b
 
 * [Przegląd Virtual Network](../../../virtual-network/virtual-networks-overview.md)
 * [Adresy IP na platformie Azure](../../../virtual-network/public-ip-addresses.md)
-* [Tworzenie w pełni kwalifikowanej nazwy domeny w witrynie Azure Portal](../../../virtual-machines/windows/portal-create-fqdn.md)
+* [Tworzenie w pełni kwalifikowanej nazwy domeny w witrynie Azure Portal](../../../virtual-machines/create-fqdn.md)
 
 ### <a name="sql"></a>SQL
 

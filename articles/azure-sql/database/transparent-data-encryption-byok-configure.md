@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 8881dc3f67ac1c9f699bd2bf7bcf1dbbcd5e9c0c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 40572d50f7653539758ff892019e7e65b0ffa6dd
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95905331"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324894"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell i interfejs wiersza polecenia platformy Azure: Włącz Transparent Data Encryption z kluczem zarządzanym przez klienta w programie Azure Key Vault
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -46,7 +46,7 @@ W tym artykule przedstawiono sposób użycia klucza z Azure Key Vault dla Transp
 
 Aby uzyskać instrukcje dotyczące instalacji modułu Az, zobacz [Instalowanie programu Azure PowerShell](/powershell/azure/install-az-ps). Aby poznać konkretne polecenia cmdlet, zobacz [AzureRM. SQL](/powershell/module/AzureRM.Sql/).
 
-Aby uzyskać szczegółowe informacje na temat Key Vault, zobacz [instrukcje programu PowerShell w artykule Key Vault](../../key-vault/secrets/quick-create-powershell.md) i [sposób korzystania z Key Vault nietrwałego usuwania przy użyciu programu PowerShell](../../key-vault/general/soft-delete-powershell.md).
+Aby uzyskać szczegółowe informacje na temat Key Vault, zobacz [instrukcje programu PowerShell w artykule Key Vault](../../key-vault/secrets/quick-create-powershell.md) i [sposób korzystania z Key Vault nietrwałego usuwania przy użyciu programu PowerShell](../../key-vault/general/key-vault-recovery.md).
 
 > [!IMPORTANT]
 > Moduł Azure Resource Manager programu PowerShell (RM) jest nadal obsługiwany, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. Moduł AzureRM będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020.  Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne. Aby uzyskać więcej informacji o zgodności, zobacz [wprowadzenie do nowego Azure PowerShell AZ module](/powershell/azure/new-azureps-module-az).
@@ -136,7 +136,7 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 Aby zainstalować wymaganą wersję interfejsu wiersza polecenia platformy Azure (w wersji 2,0 lub nowszej) i nawiązać połączenie z subskrypcją platformy Azure, zobacz [Instalowanie i Konfigurowanie międzyplatformowego interfejsu Command-Line platformy azure 2,0](/cli/azure/install-azure-cli).
 
-Aby uzyskać szczegółowe informacje na temat Key Vault, zobacz [zarządzanie Key Vault przy użyciu interfejsu wiersza polecenia 2,0](../../key-vault/general/manage-with-cli2.md) i [sposobu używania Key Vault nietrwałego usuwania przy użyciu interfejsu wiersza polecenia](../../key-vault/general/soft-delete-cli.md).
+Aby uzyskać szczegółowe informacje na temat Key Vault, zobacz [zarządzanie Key Vault przy użyciu interfejsu wiersza polecenia 2,0](../../key-vault/general/manage-with-cli2.md) i [sposobu używania Key Vault nietrwałego usuwania przy użyciu interfejsu wiersza polecenia](../../key-vault/general/key-vault-recovery.md).
 
 ## <a name="assign-an-azure-ad-identity-to-your-server"></a>Przypisywanie tożsamości usługi Azure AD do serwera
 

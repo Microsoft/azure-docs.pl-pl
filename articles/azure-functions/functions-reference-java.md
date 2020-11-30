@@ -4,12 +4,12 @@ description: Dowiedz się, jak opracowywać funkcje przy użyciu języka Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 9679f6030ac889ac442a40cd852f5cc17f505756
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 1ffbd760ae75605d75652b29d379420d6946aa8f
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422522"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326458"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Przewodnik dewelopera Azure Functions Java
 
@@ -45,15 +45,27 @@ Powyższe linki artykułu pokazują, jak utworzyć swoje pierwsze funkcje przy u
 
 ### <a name="project-scaffolding"></a>Tworzenie szkieletu projektu
 
-Jeśli wolisz opracowywanie wiersza polecenia z terminalu, najprostszym sposobem tworzenia szkieletów projektów funkcji opartych na języku Java jest użycie `Apache Maven` Archetypes. Środowisko Java Maven Archetype for Azure Functions jest publikowane w następującej grupie _GroupID_ : _artifactId_ : [com. Microsoft. Azure: Azure-Functions-Archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/). 
+Jeśli wolisz opracowywanie wiersza polecenia z terminalu, najprostszym sposobem tworzenia szkieletów projektów funkcji opartych na języku Java jest użycie `Apache Maven` Archetypes. Środowisko Java Maven Archetype for Azure Functions jest publikowane w następującej grupie _GroupID_:_artifactId_: [com. Microsoft. Azure: Azure-Functions-Archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/). 
 
 Następujące polecenie generuje nowy projekt funkcji Java przy użyciu tego Archetype:
+
+# <a name="bash"></a>[Bash](#tab/bash)
 
 ```bash
 mvn archetype:generate \
     -DarchetypeGroupId=com.microsoft.azure \
-    -DarchetypeArtifactId=azure-functions-archetype 
+    -DarchetypeArtifactId=azure-functions-archetype
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```cmd
+mvn archetype:generate ^
+    -DarchetypeGroupId=com.microsoft.azure ^
+    -DarchetypeArtifactId=azure-functions-archetype
+```
+
+---
 
 Aby rozpocząć korzystanie z tego Archetype, zobacz [Przewodnik Szybki Start dla języka Java](./create-first-function-cli-java.md).
 
@@ -210,19 +222,40 @@ W [Azure Portal](https://portal.azure.com)Użyj [karty Ustawienia aplikacji](fun
 
 Możesz użyć polecenia [AZ functionapp config AppSettings Set](/cli/azure/functionapp/config/appsettings) , aby ustawić `JAVA_OPTS` , jak w poniższym przykładzie:
 
-#### <a name="consumption-plan"></a>[Plan Zużycie](#tab/consumption)
+# <a name="consumption-plan"></a>[Plan Zużycie](#tab/consumption/bash)
+
 ```azurecli-interactive
 az functionapp config appsettings set \
---settings "JAVA_OPTS=-Djava.awt.headless=true" \
-"WEBSITE_USE_PLACEHOLDER=0" \
---name <APP_NAME> --resource-group <RESOURCE_GROUP>
+    --settings "JAVA_OPTS=-Djava.awt.headless=true" \
+    "WEBSITE_USE_PLACEHOLDER=0" \
+    --name <APP_NAME> --resource-group <RESOURCE_GROUP>
 ```
-#### <a name="dedicated-plan--premium-plan"></a>[Plan dedykowany/plan Premium](#tab/dedicated+premium)
+
+# <a name="consumption-plan"></a>[Plan Zużycie](#tab/consumption/cmd)
+
+```azurecli-interactive
+az functionapp config appsettings set ^
+    --settings "JAVA_OPTS=-Djava.awt.headless=true" ^
+    "WEBSITE_USE_PLACEHOLDER=0" ^
+    --name <APP_NAME> --resource-group <RESOURCE_GROUP>
+```
+
+# <a name="dedicated-plan--premium-plan"></a>[Plan dedykowany/plan Premium](#tab/dedicated+premium/bash)
+
 ```azurecli-interactive
 az functionapp config appsettings set \
---settings "JAVA_OPTS=-Djava.awt.headless=true" \
---name <APP_NAME> --resource-group <RESOURCE_GROUP>
+    --settings "JAVA_OPTS=-Djava.awt.headless=true" \
+    --name <APP_NAME> --resource-group <RESOURCE_GROUP>
 ```
+
+# <a name="dedicated-plan--premium-plan"></a>[Plan dedykowany/plan Premium](#tab/dedicated+premium/cmd)
+
+```azurecli-interactive
+az functionapp config appsettings set ^
+    --settings "JAVA_OPTS=-Djava.awt.headless=true" ^
+    --name <APP_NAME> --resource-group <RESOURCE_GROUP>
+```
+
 ---
 
 Ten przykład włącza tryb bezobsługowy. Zastąp ciąg `<APP_NAME>` nazwą aplikacji funkcji i `<RESOURCE_GROUP>` grupą zasobów. 
@@ -460,15 +493,36 @@ Interfejsu wiersza polecenia platformy Azure można użyć do przesyłania strum
 
 Poniżej przedstawiono sposób konfigurowania aplikacji funkcji do zapisywania rejestrowania aplikacji przy użyciu interfejsu wiersza polecenia platformy Azure:
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```azurecli-interactive
 az webapp log config --name functionname --resource-group myResourceGroup --application-logging true
 ```
 
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli-interactive
+az webapp log config --name functionname --resource-group myResourceGroup --application-logging true
+```
+
+---
+
 Aby przesłać strumieniowo dane wyjściowe rejestrowania dla aplikacji funkcji przy użyciu interfejsu wiersza polecenia platformy Azure, Otwórz nowy wiersz poleceń, bash lub sesję terminala, a następnie wprowadź następujące polecenie:
+
+# <a name="bash"></a>[Bash](#tab/bash)
 
 ```azurecli-interactive
 az webapp log tail --name webappname --resource-group myResourceGroup
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli-interactive
+az webapp log tail --name webappname --resource-group myResourceGroup
+```
+
+---
+
 Polecenie [AZ webapp log tail](/cli/azure/webapp/log) zawiera opcje umożliwiające filtrowanie danych wyjściowych przy użyciu `--provider` opcji. 
 
 Aby pobrać pliki dzienników jako pojedynczy plik ZIP przy użyciu interfejsu wiersza polecenia platformy Azure, Otwórz nowy wiersz poleceń, bash lub sesję terminala, a następnie wprowadź następujące polecenie:

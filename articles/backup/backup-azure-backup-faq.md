@@ -3,12 +3,12 @@ title: Odpowiedzi na często zadawane pytania
 description: 'Odpowiedzi na typowe pytania dotyczące funkcji usługi Azure Backup, w tym magazynów usług Recovery Services, elementów, których kopie zapasowe można tworzyć, sposobu działania, szyfrowania i ograniczeń. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 72a4f805b34ba8a536cd398efd5e6809bd66f0d4
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: d85866e490b2c56abb7de1e94cd0ffaa8f714615
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096627"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327155"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup — często zadawane pytania
 
@@ -60,7 +60,7 @@ Jeśli kopia zapasowa została już skonfigurowana i musi zostać przeniesiona z
 
 ### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Jak przenieść dane z magazynu Recovery Services do lokalnego?
 
-Eksportowanie danych bezpośrednio z magazynu Recovery Services do lokalnego przy użyciu urządzenie Data Box nie jest obsługiwane. Dane muszą zostać przywrócone do konta magazynu, a następnie można je przenieść do lokalizacji lokalnej za pośrednictwem [urządzenie Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) lub [zaimportować/wyeksportować](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
+Eksportowanie danych bezpośrednio z magazynu Recovery Services do lokalnego przy użyciu urządzenie Data Box nie jest obsługiwane. Dane muszą zostać przywrócone do konta magazynu, a następnie można je przenieść do lokalizacji lokalnej za pośrednictwem [urządzenie Data Box](../databox/data-box-overview.md) lub [zaimportować/wyeksportować](../storage/common/storage-import-export-service.md).
 
 ## <a name="azure-backup-agent"></a>Agent usługi Azure Backup
 

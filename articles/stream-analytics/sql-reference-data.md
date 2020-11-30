@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 1826b66b0548b7567af59de64549c7eb700025c3
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 7e2826221bd9d15472467c4dd8676d3d0538e0d6
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130905"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326577"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Korzystanie z danych referencyjnych z SQL Database dla zadania Azure Stream Analytics
 
@@ -32,21 +32,21 @@ Wykonaj następujące kroki, aby dodać Azure SQL Database jako źródłowe źr�
 
 ### <a name="define-sql-database-reference-data-input"></a>Zdefiniuj dane referencyjne SQL Database
 
-1. W zadaniu Stream Analytics wybierz pozycję **dane wejściowe** w obszarze **topologia zadania** . Kliknij pozycję **Dodaj dane wejściowe odwołania** i wybierz **SQL Database** .
+1. W zadaniu Stream Analytics wybierz pozycję **dane wejściowe** w obszarze **topologia zadania**. Kliknij pozycję **Dodaj dane wejściowe odwołania** i wybierz **SQL Database**.
 
-   ![Stream Analytics dane wejściowe zadania](./media/sql-reference-data/stream-analytics-inputs.png)
+   ![Dane wejściowe są wybrane w lewym okienku nawigacji. W przypadku danych wejściowych + Dodaj dane wejściowe odwołania jest zaznaczone, aby odsłonić listę rozwijaną, która zawiera wartości BLOB Storage i SQL Database.](./media/sql-reference-data/stream-analytics-inputs.png)
 
 2. Wypełnij Stream Analytics konfiguracjami wejściowymi. Wybierz nazwę bazy danych, nazwę serwera, nazwa użytkownika i hasło. Jeśli chcesz, aby dane wejściowe danych referencyjnych były odświeżane okresowo, wybierz pozycję "włączone", aby określić częstotliwość odświeżania w DD: HH: MM. Jeśli masz duże zestawy danych z krótką częstotliwością odświeżania, możesz użyć [zapytania Delta](sql-reference-data.md#delta-query).
 
-   ![Konfiguracja referencyjna SQL Database](./media/sql-reference-data/sql-input-config.png)
+   ![Po wybraniu SQL Database zostanie wyświetlona strona SQL Database nowe dane wejściowe. W lewym okienku istnieje formularz konfiguracji i zapytanie migawki w okienku po prawej stronie.](./media/sql-reference-data/sql-input-config.png)
 
 3. Przetestuj zapytanie migawki w edytorze zapytań SQL. Aby uzyskać więcej informacji, zobacz [Używanie edytora zapytań SQL Azure Portal do łączenia i wykonywania zapytań dotyczących danych](../azure-sql/database/connect-query-portal.md)
 
 ### <a name="specify-storage-account-in-job-config"></a>Określ konto magazynu w konfiguracji zadania
 
-Przejdź do pozycji **Ustawienia konta magazynu** w obszarze **Konfiguruj** i wybierz pozycję **Dodaj konto magazynu** .
+Przejdź do pozycji **Ustawienia konta magazynu** w obszarze **Konfiguruj** i wybierz pozycję **Dodaj konto magazynu**.
 
-   ![Stream Analytics ustawień konta magazynu](./media/sql-reference-data/storage-account-settings.png)
+   ![Ustawienia konta magazynu są wybrane w okienku po lewej stronie. W okienku po prawej stronie znajduje się przycisk Dodaj konto magazynu.](./media/sql-reference-data/storage-account-settings.png)
 
 ### <a name="start-the-job"></a>Uruchamianie zadania
 
@@ -79,53 +79,53 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 ### <a name="choose-your-subscription"></a>Wybierz subskrypcję
 
-1. W programie Visual Studio w menu **Widok** wybierz opcję **Eksplorator serwera** .
+1. W programie Visual Studio w menu **Widok** wybierz opcję **Eksplorator serwera**.
 
-2. Kliknij prawym przyciskiem myszy pozycję **Azure** , wybierz pozycję **Połącz z subskrypcją Microsoft Azure** i zaloguj się przy użyciu konta platformy Azure.
+2. Kliknij prawym przyciskiem myszy pozycję **Azure**, wybierz pozycję **Połącz z subskrypcją Microsoft Azure** i zaloguj się przy użyciu konta platformy Azure.
 
 ### <a name="create-a-stream-analytics-project"></a>Tworzenie projektu usługi Stream Analytics
 
-1. Wybierz pozycję **Plik > Nowy projekt** . 
+1. Wybierz pozycję **Plik > Nowy projekt**. 
 
-2. Na liście szablonów po lewej stronie wybierz pozycję **Stream Analytics** , a następnie wybierz pozycję **Azure Stream Analytics Application** . 
+2. Na liście szablonów po lewej stronie wybierz pozycję **Stream Analytics**, a następnie wybierz pozycję **Azure Stream Analytics Application**. 
 
-3. Wprowadź **nazwę** projektu, **lokalizację** i **nazwę rozwiązania** , a następnie wybierz **przycisk OK** .
+3. Wprowadź **nazwę** projektu, **lokalizację** i **nazwę rozwiązania**, a następnie wybierz **przycisk OK**.
 
-   ![Nowy projekt Stream Analytics w programie Visual Studio](./media/sql-reference-data/stream-analytics-vs-new-project.png)
+   ![Wybrano szablon Stream Analytics, Azure Stream Analytics aplikacja jest zaznaczona, pola Nazwa, lokalizacja i nazwy rozwiązań są wyróżnione.](./media/sql-reference-data/stream-analytics-vs-new-project.png)
 
 ### <a name="define-sql-database-reference-data-input"></a>Zdefiniuj dane referencyjne SQL Database
 
 1. Utwórz nowe dane wejściowe.
 
-   ![Nowe dane wejściowe Stream Analytics w programie Visual Studio](./media/sql-reference-data/stream-analytics-vs-input.png)
+   ![W obszarze Dodaj nowy element jest zaznaczone pole wyboru.](./media/sql-reference-data/stream-analytics-vs-input.png)
 
-2. Kliknij dwukrotnie **Input.js** w **Eksplorator rozwiązań** .
+2. Kliknij dwukrotnie **Input.js** w **Eksplorator rozwiązań**.
 
-3. Wypełnij **Stream Analytics konfigurację wejściową** . Wybierz nazwę bazy danych, nazwę serwera, typ odświeżania i częstotliwość odświeżania. Określ częstotliwość odświeżania w formacie `DD:HH:MM` .
+3. Wypełnij **Stream Analytics konfigurację wejściową**. Wybierz nazwę bazy danych, nazwę serwera, typ odświeżania i częstotliwość odświeżania. Określ częstotliwość odświeżania w formacie `DD:HH:MM` .
 
-   ![Konfiguracja danych wejściowych Stream Analytics w programie Visual Studio](./media/sql-reference-data/stream-analytics-vs-input-config.png)
+   ![W konfiguracji danych wejściowych Stream Analytics wartości są wprowadzane lub wybierane z list rozwijanych.](./media/sql-reference-data/stream-analytics-vs-input-config.png)
 
    Jeśli wybierzesz opcję "wykonaj tylko raz" lub "wykonaj okresowo", jeden plik SQL CodeBehind o nazwie **[Input alias]. snapshot. SQL** jest generowany w projekcie pod **Input.jsw** węźle plik.
 
-   ![Kod wejściowy w programie Visual Studio](./media/sql-reference-data/once-or-periodically-codebehind.png)
+   ![Plik chemikaliów SQL CodeBehind. snapshot. SQL został wyróżniony.](./media/sql-reference-data/once-or-periodically-codebehind.png)
 
-   W przypadku wybrania opcji "Odświeżaj okresowo z różnicą" zostaną wygenerowane dwa pliki CodeBehind języka SQL: **[alias wejściowy]. snapshot. SQL** i **[Input alias]. Delta. SQL** .
+   W przypadku wybrania opcji "Odświeżaj okresowo z różnicą" zostaną wygenerowane dwa pliki CodeBehind języka SQL: **[alias wejściowy]. snapshot. SQL** i **[Input alias]. Delta. SQL**.
 
-   ![Kod związany z Eksploratorem rozwiązań](./media/sql-reference-data/periodically-delta-codebehind.png)
+   ![Pliki SQL CodeBehinds. Delta. różnicowa. SQL i chemikali. snapshot. SQL są wyróżnione.](./media/sql-reference-data/periodically-delta-codebehind.png)
 
 4. Otwórz plik SQL w edytorze i napisz zapytanie SQL.
 
-5. Jeśli używasz programu Visual Studio 2019 i masz zainstalowane SQL Server narzędzia danych, możesz przetestować zapytanie, klikając pozycję **Wykonaj** . Zostanie wyświetlone okno kreatora, które pomoże Ci połączyć się z SQL Database, a wynik zapytania pojawi się w oknie u dołu.
+5. Jeśli używasz programu Visual Studio 2019 i masz zainstalowane SQL Server narzędzia danych, możesz przetestować zapytanie, klikając pozycję **Wykonaj**. Zostanie wyświetlone okno kreatora, które pomoże Ci połączyć się z SQL Database, a wynik zapytania pojawi się w oknie u dołu.
 
 ### <a name="specify-storage-account"></a>Określ konto magazynu
 
 Otwórz **JobConfig.jsna** , aby określić konto magazynu do przechowywania migawek odwołań SQL.
 
-   ![Konfiguracja zadania Stream Analytics w programie Visual Studio](./media/sql-reference-data/stream-analytics-job-config.png)
+   ![Konfiguracja konfiguracji zadania Stream Analytics jest wyświetlana z wartościami domyślnymi. Globalne ustawienia magazynu są wyróżnione.](./media/sql-reference-data/stream-analytics-job-config.png)
 
 ### <a name="test-locally-and-deploy-to-azure"></a>Testowanie lokalnego i wdrażanie na platformie Azure
 
-Przed wdrożeniem zadania na platformie Azure można testować logikę zapytania lokalnie w odniesieniu do danych wejściowych na żywo. Aby uzyskać więcej informacji na temat tej funkcji, zobacz [test danych na żywo lokalnie przy użyciu narzędzi Azure Stream Analytics Tools for Visual Studio (wersja zapoznawcza)](stream-analytics-live-data-local-testing.md). Po zakończeniu testowania kliknij przycisk **Prześlij do platformy Azure** . Zapoznaj się z tematem [tworzenie Stream Analytics przy użyciu narzędzi Azure Stream Analytics Tools for Visual Studio](stream-analytics-quick-create-vs.md) — Szybki Start, aby dowiedzieć się, jak uruchomić zadanie.
+Przed wdrożeniem zadania na platformie Azure można testować logikę zapytania lokalnie w odniesieniu do danych wejściowych na żywo. Aby uzyskać więcej informacji na temat tej funkcji, zobacz [test danych na żywo lokalnie przy użyciu narzędzi Azure Stream Analytics Tools for Visual Studio (wersja zapoznawcza)](stream-analytics-live-data-local-testing.md). Po zakończeniu testowania kliknij przycisk **Prześlij do platformy Azure**. Zapoznaj się z tematem [tworzenie Stream Analytics przy użyciu narzędzi Azure Stream Analytics Tools for Visual Studio](stream-analytics-quick-create-vs.md) — Szybki Start, aby dowiedzieć się, jak uruchomić zadanie.
 
 ## <a name="delta-query"></a>Zapytanie różnicowe
 
@@ -156,7 +156,7 @@ W przypadku korzystania z zapytania różnicowego tabele danych czasowych [w Azu
  
 2. Utwórz zapytanie różnicowe. 
    
-   To zapytanie pobiera wszystkie wiersze w SQL Database, które zostały wstawione lub usunięte w czasie rozpoczęcia, **\@ deltaStartTime** i **\@ deltaEndTime** czasu zakończenia. Zapytanie Delta musi zwracać te same kolumny co zapytanie migawki, a także **_operację_** kolumny. Ta kolumna określa, czy wiersz został wstawiony, czy usunięty między **\@ deltaStartTime** i **\@ deltaEndTime** . Utworzone wiersze są oflagowane jako **1** , jeśli rekordy zostały wstawione lub **2** , jeśli zostały usunięte. Zapytanie musi również dodać **znak wodny** ze strony SQL Server, aby upewnić się, że wszystkie aktualizacje w okresie Delta zostaną odpowiednio przechwycone. Użycie zapytania Delta bez **znaku wodnego** może spowodować powstanie nieprawidłowego zestawu danych referencyjnych.  
+   To zapytanie pobiera wszystkie wiersze w SQL Database, które zostały wstawione lub usunięte w czasie rozpoczęcia, **\@ deltaStartTime** i **\@ deltaEndTime** czasu zakończenia. Zapytanie Delta musi zwracać te same kolumny co zapytanie migawki, a także **_operację_** kolumny. Ta kolumna określa, czy wiersz został wstawiony, czy usunięty między **\@ deltaStartTime** i **\@ deltaEndTime**. Utworzone wiersze są oflagowane jako **1** , jeśli rekordy zostały wstawione lub **2** , jeśli zostały usunięte. Zapytanie musi również dodać **znak wodny** ze strony SQL Server, aby upewnić się, że wszystkie aktualizacje w okresie Delta zostaną odpowiednio przechwycone. Użycie zapytania Delta bez **znaku wodnego** może spowodować powstanie nieprawidłowego zestawu danych referencyjnych.  
 
    W przypadku rekordów, które zostały zaktualizowane, tabela danych czasowych wykonuje operacje we/wykorzystaniu operacji wstawiania i usuwania. Środowisko uruchomieniowe Stream Analytics następnie zastosuje wyniki zapytania różnicowego do poprzedniej migawki, aby zapewnić aktualność danych referencyjnych. Poniżej przedstawiono przykładowe zapytanie różnicowe:
 
@@ -181,27 +181,27 @@ W przypadku korzystania z zapytania różnicowego tabele danych czasowych [w Azu
 
 1. Skonfiguruj dane wejściowe danych referencyjnych języka SQL.
    
-   ![Skonfiguruj dane wejściowe odwołania SQL](./media/sql-reference-data/configure-sql-reference-data-input.png)
+   ![Edytor Visual Studio Code (karta) pokazuje ReferenceSQLDatabase.json.](./media/sql-reference-data/configure-sql-reference-data-input.png)
 
-2. Wybierz ikonę SQL Server a następnie kliknij pozycję **Dodaj połączenie** .
+2. Wybierz ikonę SQL Server a następnie kliknij pozycję **Dodaj połączenie**.
    
-   ![Kliknij ikonę SQL Server a następnie kliknij pozycję Dodaj połączenie.](./media/sql-reference-data/add-sql-connection.png)
+   ![+ Dodaj połączenie pojawia się w lewym okienku i jest wyróżnione.](./media/sql-reference-data/add-sql-connection.png)
 
 3. Wprowadź informacje o połączeniu.
    
-   ![Konfiguracja danych wejściowych Stream Analytics w programie Visual Studio](./media/sql-reference-data/fill-connection-information.png)
+   ![Zostaną wyróżnione dwa pola informacji o bazie danych i serwerze.](./media/sql-reference-data/fill-connection-information.png)
 
-4. Kliknij prawym przyciskiem myszy w polu referencyjne SQL, a następnie wybierz polecenie **wykonaj zapytanie** .
+4. Kliknij prawym przyciskiem myszy w polu referencyjne SQL, a następnie wybierz polecenie **wykonaj zapytanie**.
    
-   ![Konfiguracja danych wejściowych Stream Analytics w programie Visual Studio](./media/sql-reference-data/execute-query.png)
+   ![Polecenie Execute Query zostało wyróżnione w menu kontekstowym.](./media/sql-reference-data/execute-query.png)
 
 5. Wybierz połączenie.
    
-   ![Konfiguracja danych wejściowych Stream Analytics w programie Visual Studio](./media/sql-reference-data/choose-connection.png)
+   ![W oknie dialogowym zostanie wyświetlony komunikat "Tworzenie profilu połączenia z poniższej listy", a lista zawiera jeden wpis, który jest aktualnie.](./media/sql-reference-data/choose-connection.png)
 
 6. Przejrzyj i sprawdź wynik zapytania.
    
-   ![Konfiguracja danych wejściowych Stream Analytics w programie Visual Studio](./media/sql-reference-data/verify-result.png)
+   ![Wyniki wyszukiwania zapytań znajdują się na karcie edytora VS Code.](./media/sql-reference-data/verify-result.png)
 
 
 ## <a name="faqs"></a>Często zadawane pytania

@@ -3,12 +3,12 @@ title: Transport Layer Security w Azure Backup
 description: Dowiedz się, jak włączyć obsługę Azure Backup przy użyciu protokołu szyfrowania Transport Layer Security (TLS), aby zapewnić bezpieczeństwo danych podczas ich przesyłania przez sieć.
 ms.topic: conceptual
 ms.date: 11/01/2020
-ms.openlocfilehash: 9881fd3532cbc7d67c7d5adbce75e02fc62e0bcf
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: ba9c9d91f562f54695a0739908c8a409d14d5852
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280695"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327121"
 ---
 # <a name="transport-layer-security-in-azure-backup"></a>Transport Layer Security w Azure Backup
 
@@ -45,7 +45,7 @@ Następujące klucze rejestru zapewniają włączenie protokołu TLS 1,2 na pozi
 
 ### <a name="configuring-net-framework"></a>Konfigurowanie .NET Framework
 
-Następujące klucze rejestru umożliwiają skonfigurowanie .NET Framework do obsługi mocnej kryptografii. Więcej informacji na temat [konfigurowania .NET Framework](https://docs.microsoft.com/dotnet/framework/network-programming/tls#configuring-schannel-protocols-in-the-windows-registry)można znaleźć tutaj.
+Następujące klucze rejestru umożliwiają skonfigurowanie .NET Framework do obsługi mocnej kryptografii. Więcej informacji na temat [konfigurowania .NET Framework](/dotnet/framework/network-programming/tls#configuring-schannel-protocols-in-the-windows-registry)można znaleźć tutaj.
 
 ```reg
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
@@ -65,7 +65,7 @@ Protokół TLS 1,2 jest bezpieczniejszy niż poprzednie protokoły kryptograficz
 
 ### <a name="what-determines-the-encryption-protocol-used"></a>Co określa używany protokół szyfrowania?
 
-Największa wersja protokołu obsługiwana przez klienta i serwer jest negocjowana w celu nawiązania zaszyfrowanej konwersacji. Aby uzyskać więcej informacji na temat protokołu uzgadniania TLS, zobacz [Ustanawianie bezpiecznej sesji przy użyciu protokołu TLS](https://docs.microsoft.com/windows/win32/secauthn/tls-handshake-protocol#establishing-a-secure-session-by-using-tls).
+Największa wersja protokołu obsługiwana przez klienta i serwer jest negocjowana w celu nawiązania zaszyfrowanej konwersacji. Aby uzyskać więcej informacji na temat protokołu uzgadniania TLS, zobacz [Ustanawianie bezpiecznej sesji przy użyciu protokołu TLS](/windows/win32/secauthn/tls-handshake-protocol#establishing-a-secure-session-by-using-tls).
 
 ### <a name="what-is-the-impact-of-not-enabling-tls-12"></a>Jaki jest wpływ niewłączania protokołu TLS 1,2?
 
@@ -75,8 +75,8 @@ W celu zwiększenia bezpieczeństwa ataków wykorzystujących obniżanie poziomu
 - Błędy połączeń składników kopii zapasowej z błędem 10054 (istniejące połączenie zostało wymuszone przez hosta zdalnego).
 - Usługi związane z Azure Backup nie będą zatrzymywane ani uruchamiane w zwykły sposób.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Protokół Transport Layer Security](https://docs.microsoft.com/windows/win32/secauthn/transport-layer-security-protocol)
-- [Zapewnianie obsługi protokołu TLS 1,2 w ramach wdrożonych systemów operacyjnych](https://docs.microsoft.com/security/engineering/solving-tls1-problem#ensuring-support-for-tls-12-across-deployed-operating-systems)
-- [Najlepsze rozwiązania w zakresie protokołu TLS (Transport Layer Security) z .NET Framework](https://docs.microsoft.com/dotnet/framework/network-programming/tls)
+- [Protokół Transport Layer Security](/windows/win32/secauthn/transport-layer-security-protocol)
+- [Zapewnianie obsługi protokołu TLS 1,2 w ramach wdrożonych systemów operacyjnych](/security/engineering/solving-tls1-problem#ensuring-support-for-tls-12-across-deployed-operating-systems)
+- [Najlepsze rozwiązania w zakresie protokołu TLS (Transport Layer Security) z .NET Framework](/dotnet/framework/network-programming/tls)

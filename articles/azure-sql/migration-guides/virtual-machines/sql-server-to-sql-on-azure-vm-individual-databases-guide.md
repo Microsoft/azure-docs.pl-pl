@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 1558c396566b2fcfc098a749407d5e7a28316b6f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 3b0fdccd3eaf6e6bd94b595107022f738bdd8382
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019453"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325925"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>Przewodnik migracji: SQL Server SQL Server na maszynach wirtualnych platformy Azure 
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -38,8 +38,8 @@ Aby uzyskać informacje na temat dodatkowych strategii migracji, zobacz [Omówie
 Migrowanie do SQL Server na maszynach wirtualnych platformy Azure wymaga następujących czynności: 
 
 - [Asystent migracji bazy danych (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
-- [Projekt Azure Migrate](/azure/migrate/create-manage-projects).
-- Przygotowana [SQL Server ukierunkowana na maszynie wirtualnej platformy Azure](/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal) , która jest taka sama lub większa niż SQL Server źródłowa.
+- [Projekt Azure Migrate](../../../migrate/create-manage-projects.md).
+- Przygotowana [SQL Server ukierunkowana na maszynie wirtualnej platformy Azure](../../virtual-machines/windows/create-sql-vm-portal.md) , która jest taka sama lub większa niż SQL Server źródłowa.
 - [Łączność między platformą Azure i](/azure/architecture/reference-architectures/hybrid-networking)środowiskiem lokalnym.
 - [Wybór odpowiedniej strategii migracji](sql-server-to-sql-on-azure-vm-migration-overview.md#migrate).
 
@@ -155,10 +155,10 @@ W poniższej tabeli przedstawiono składniki list i zalecane metody migracji, kt
 | **Bazy danych** | Model  | Skrypt z SQL Server Management Studio |
 || TempDB | Zaplanuj przeniesienie bazy danych TempDB na [dysk tymczasowy maszyny wirtualnej platformy Azure](../../virtual-machines/windows/performance-guidelines-best-practices.md#temporary-disk)w celu uzyskania najlepszej wydajności. Upewnij się, że wybrano rozmiar maszyny wirtualnej, który ma wystarczający lokalny dysk SSD, aby pomieścić bazę danych TempDB. |
 || Bazy danych użytkowników z FILESTREAM |  Użyj metod [tworzenia kopii zapasowych i przywracania](../../virtual-machines/windows/migrate-to-vm-from-sql-server.md#back-up-and-restore) dla migracji. Funkcja DMA nie obsługuje baz danych z FILESTREAM. |
-| **Zabezpieczenia** | SQL Server i nazwy logowania systemu Windows | [Przeprowadź migrację logowań użytkowników](/sql/dma/dma-migrateserverlogins)przy użyciu konta DMA. |
+| **Bezpieczeństwo** | SQL Server i nazwy logowania systemu Windows | [Przeprowadź migrację logowań użytkowników](/sql/dma/dma-migrateserverlogins)przy użyciu konta DMA. |
 || Role SQL Server | Skrypt z SQL Server Management Studio |
-|| Dostawcy usług kryptograficznych | Zalecamy [konwersję, aby używać usługi Azure Key Vault](../../virtual-machines/windows/azure-key-vault-integration-configure.md). Ta procedura powoduje użycie [dostawcy zasobów maszyny wirtualnej SQL](../../virtual-machines/windows/sql-vm-resource-provider-register.md). |
-| **Obiekty serwera** | Tworzenie kopii zapasowych urządzeń | Zamień na kopię zapasową bazy danych za pomocą [usługi Azure Backup](../../../backup/backup-sql-server-database-azure-vms.md) lub Zapisz kopie zapasowe w usłudze [Azure Storage](../../virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md) (SQL Server 2012 SP1 zastosujesz pakietu CU2 +). Ta procedura powoduje użycie [dostawcy zasobów maszyny wirtualnej SQL](../../virtual-machines/windows/sql-vm-resource-provider-register.md).|
+|| Dostawcy usług kryptograficznych | Zalecamy [konwersję, aby używać usługi Azure Key Vault](../../virtual-machines/windows/azure-key-vault-integration-configure.md). Ta procedura powoduje użycie [dostawcy zasobów maszyny wirtualnej SQL](../../virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md). |
+| **Obiekty serwera** | Tworzenie kopii zapasowych urządzeń | Zamień na kopię zapasową bazy danych za pomocą [usługi Azure Backup](../../../backup/backup-sql-server-database-azure-vms.md) lub Zapisz kopie zapasowe w usłudze [Azure Storage](../../virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md) (SQL Server 2012 SP1 zastosujesz pakietu CU2 +). Ta procedura powoduje użycie [dostawcy zasobów maszyny wirtualnej SQL](../../virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md).|
 || Serwery połączone | Skrypt z SQL Server Management Studio. |
 || Wyzwalacze serwera | Skrypt z SQL Server Management Studio. |
 | **Replikacja** | Publikacje lokalne | Skrypt z SQL Server Management Studio. |

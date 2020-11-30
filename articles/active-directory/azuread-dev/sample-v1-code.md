@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 484a44a7a9840409e3f5770c743e5cd62e0cef66
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 824ae8d39d934ebc58fc75185e36f5faa11109a9
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910308"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325370"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Przykłady kodu Azure Active Directory (punkt końcowy v 1.0)
 
@@ -69,7 +69,7 @@ Platforma | Przykład |
 
 ## <a name="desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api"></a>Publiczne aplikacje dla komputerów stacjonarnych i mobilnych wywołujące Microsoft Graph lub internetowy interfejs API
 
-W poniższych przykładach przedstawiono publiczne aplikacje klienckie (aplikacje deskto/Pmobile), które uzyskują dostęp do Microsoft Graph lub internetowego interfejsu API w imieniu użytkownika. W zależności od urządzeń i platform aplikacje mogą logować użytkowników na różne sposoby (przepływy/dotacje):
+W poniższych przykładach przedstawiono publiczne aplikacje klienckie (aplikacje klasyczne/mobilne), które uzyskują dostęp do Microsoft Graph lub internetowego interfejsu API w imieniu użytkownika. W zależności od urządzeń i platform aplikacje mogą logować użytkowników na różne sposoby (przepływy/dotacje):
 
 - Interaktywnie
 - Dyskretnie (z zintegrowanym uwierzytelnianiem systemu Windows w systemie Windows lub nazwą użytkownika/hasłem)
@@ -120,7 +120,7 @@ W poniższych przykładach przedstawiono internetowy interfejs API, który wywo�
 
 Aby zapoznać się z przykładami i samouczkami, które demonstrują różne wzorce użycia dla interfejsu API Microsoft Graph, w tym uwierzytelniania za pomocą usługi Azure AD, zobacz [Microsoft Graph przykłady społeczności & samouczków](https://github.com/microsoftgraph/msgraph-community-samples).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Przewodnik dewelopera Azure Active Directory](v1-overview.md)
 - [Azure Active Directory biblioteki uwierzytelniania](active-directory-authentication-libraries.md)

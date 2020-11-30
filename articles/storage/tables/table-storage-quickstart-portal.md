@@ -8,12 +8,12 @@ ms.author: tamram
 ms.topic: quickstart
 ms.date: 12/02/2019
 ms.subservice: tables
-ms.openlocfilehash: d592dd6ac705d0f1a0b3ed55e115d06023b0a511
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 93c6cb0f61185457ef0684d2a1ba691a0534aa13
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88236271"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326781"
 ---
 # <a name="quickstart-create-an-azure-storage-table-in-the-azure-portal"></a>Szybki start: tworzenie tabeli usługi Azure Storage w witrynie Azure Portal 
 
@@ -31,15 +31,15 @@ Teraz możesz użyć usługi Table service w witrynie Azure Portal, aby utworzy�
 
 1. Kliknij pozycję Przegląd > Tabele.
 
-   ![Azure Portal](media/table-storage-quickstart-portal/table-storage-quickstart-01.png)
+   ![W systemie vmamcgestorage konto magazynu jest wyróżnione na karcie Przegląd. W okienku Przegląd w obszarze usługi tabele są wyróżnione.](media/table-storage-quickstart-portal/table-storage-quickstart-01.png)
 
 2. Kliknij pozycję **+ Tabela**.
 
-   ![Azure Portal](media/table-storage-quickstart-portal/table-storage-quickstart-02.png)
+   ![W Table service dla vmamcgestorage opcja + tabela jest wyróżniona.](media/table-storage-quickstart-portal/table-storage-quickstart-02.png)
 
 3. Wpisz nazwę tabeli w polu **Nazwa tabeli**, a następnie kliknij pozycję **OK**. 
 
-   ![Azure Portal](media/table-storage-quickstart-portal/table-storage-quickstart-03.png)
+   ![Na karcie Dodawanie tabeli Table service, Moja tabela jest wprowadzana do nazwy tabeli i jest wyróżniona. Przycisk OK jest zaznaczony i wyróżniony.](media/table-storage-quickstart-portal/table-storage-quickstart-03.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

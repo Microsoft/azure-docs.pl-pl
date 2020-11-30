@@ -9,17 +9,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 59567cf2dc03952a78852f3288e78ba06aa769ee
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 557c624b6ed683f701b6a8d38854cd8604e05b31
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325687"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325268"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>Samouczek 2: uczenie modeli ryzyka kredytowego — Azure Machine Learning Studio (klasyczny)
 
-**dotyczy:** ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) ![ nie ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
-
+**dotyczy:** ![ Jest to znacznik wyboru, co oznacza, że ten artykuł ma zastosowanie do Machine Learning Studio (klasyczne).  ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny)   ![ to jest X, co oznacza, że ten artykuł ma zastosowanie do Azure Machine Learning](../../../includes/media/aml-applies-to-skus/no.png)[ . Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 W tym samouczku szczegółowo przedstawiono proces opracowywania rozwiązania analizy predykcyjnej. Tworzysz prosty model w Machine Learning Studio (klasyczny).  Następnie wdrożysz model jako usługę internetową w ramach usługi Azure Machine Learning.  Wdrożony model może tworzyć przewidywania przy użyciu nowych danych. Ten samouczek jest **drugą częścią serii samouczków z trzema częściami**.
 
@@ -84,7 +83,7 @@ Teraz trzeba poinformować moduł [Train Model][train-model] (Trenowanie modelu)
 
 1. Wybierz moduł [Train Model][train-model] (Trenowanie modelu). W okienku **Properties** (Właściwości) kliknij pozycję **Launch column selector** (Uruchom selektor kolumn).
 
-1. W oknie dialogowym **Select a single column** (Wybieranie pojedynczej kolumny) wpisz „credit risk” („ryzyko kredytowe”) w polu wyszukiwania w obszarze **Available Columns** (Dostępne kolumny), wybierz pozycję „Credit risk” („Ryzyko kredytowe”) poniżej i kliknij przycisk strzałki w prawo ( **>** ) aby przenieść pozycję „Credit risk” („Ryzyko kredytowe”) do pola **Selected Columns** (Wybrane kolumny). 
+1. W oknie dialogowym **Select a single column** (Wybieranie pojedynczej kolumny) wpisz „credit risk” („ryzyko kredytowe”) w polu wyszukiwania w obszarze **Available Columns** (Dostępne kolumny), wybierz pozycję „Credit risk” („Ryzyko kredytowe”) poniżej i kliknij przycisk strzałki w prawo (**>**) aby przenieść pozycję „Credit risk” („Ryzyko kredytowe”) do pola **Selected Columns** (Wybrane kolumny). 
 
     ![Wybieranie kolumny Credit risk (Ryzyko kredytowe) dla modułu Train Model (Trenowanie modelu)](./media/tutorial-part2-credit-risk-train/train-model-select-column.png)
 

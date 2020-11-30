@@ -12,12 +12,12 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: ae2f2b8b9b6f3bc934321b13dcefeff46e43b089
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 936e4f8f54e92ba90372fff1c9d8dfc1982bbd62
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788166"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325137"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Wprowadzenie do wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -72,7 +72,7 @@ Wcześniej wymienione Przewodniki Szybki Start umożliwiają szybkie skonfigurow
 Jednak w celu migrowania produkcyjnej bazy danych, a nawet tworzenia/testowania baz danych, które mają być używane w przypadku niektórych testów wydajności, należy rozważyć użycie pewnych dodatkowych technik, takich jak:
 
 - Testowanie wydajności — należy mierzyć Podstawowe metryki wydajności w wystąpieniu SQL Server źródłowym i porównać je z metrykami wydajności w docelowym wystąpieniu zarządzanym SQL, w którym została zmigrowana baza danych. Dowiedz się więcej o [najlepszych rozwiązaniach dotyczących porównywania wydajności](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
-- Migracja w trybie online — w przypadku kodu natywnego `RESTORE` opisanego w tym artykule należy zaczekać, aż bazy danych mają zostać przywrócone (i skopiowane do usługi Azure Blob Storage, jeśli jeszcze nie są przechowywane). Może to spowodować przestój aplikacji, szczególnie jeśli bazy danych są duże. Aby przenieść produkcyjną bazę danych, użyj usługi [Data Migration Service (DMS)](../../dms/tutorial-sql-server-to-managed-instance.md?toc=%252fazure%252fsql-database%252ftoc.json) w celu migrowania bazy danych z minimalnym przestojem. Usługa DMS osiąga to przez przyrostowe wypychanie zmian wprowadzonych w źródłowej bazie danych do przywracanej bazy danych wystąpienia zarządzanego SQL. Dzięki temu można szybko przełączać aplikację z lokalizacji źródłowej do docelowej bazy danych przy minimalnym przestoju.
+- Migracja w trybie online — w przypadku kodu natywnego `RESTORE` opisanego w tym artykule należy zaczekać, aż bazy danych mają zostać przywrócone (i skopiowane do usługi Azure Blob Storage, jeśli jeszcze nie są przechowywane). Może to spowodować przestój aplikacji, szczególnie jeśli bazy danych są duże. Aby przenieść produkcyjną bazę danych, użyj usługi [Data Migration Service (DMS)](../../dms/tutorial-sql-server-to-managed-instance.md?toc=%2fazure%2fsql-database%2ftoc.json) w celu migrowania bazy danych z minimalnym przestojem. Usługa DMS osiąga to przez przyrostowe wypychanie zmian wprowadzonych w źródłowej bazie danych do przywracanej bazy danych wystąpienia zarządzanego SQL. Dzięki temu można szybko przełączać aplikację z lokalizacji źródłowej do docelowej bazy danych przy minimalnym przestoju.
 
 Dowiedz się więcej o [zalecanym procesie migracji](migrate-to-instance-from-sql-server.md).
 

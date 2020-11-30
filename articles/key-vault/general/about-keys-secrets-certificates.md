@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 78f228a5e188bc930a9e7484f4c982ba746331dd
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: e0a45bde32fed651c4b38d203b3c75a6d928e7c5
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357780"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327087"
 ---
 # <a name="azure-key-vault-keys-secrets-and-certificates-overview"></a>Azure Key Vault klucze, wpisy tajne i certyfikaty — Omówienie
 
@@ -46,10 +46,10 @@ Wpisy tajne|/secrets|Obsługiwane|Nieobsługiwane
 Certyfikaty|/certificates|Obsługiwane|Nieobsługiwane
 Klucze kont magazynu|/storageaccount|Obsługiwane|Nieobsługiwane
 |||
-- **Klucze kryptograficzne** : obsługuje wiele typów kluczy i algorytmów oraz umożliwia korzystanie z kluczy chronionych przez moduł HSM i chronionych przez moduł zabezpieczeń. Aby uzyskać więcej informacji, zobacz [Informacje o kluczach](../keys/about-keys.md).
-- Wpisy **tajne** : zapewnia bezpieczny magazyn wpisów tajnych, takich jak hasła i parametry połączenia bazy danych. Aby uzyskać więcej informacji, zobacz [Informacje o wpisach tajnych](../secrets/about-secrets.md).
-- **Certyfikaty** : obsługuje certyfikaty, które są oparte na kluczach i wpisach tajnych i dodają funkcję automatycznego odnawiania. Aby uzyskać więcej informacji, zobacz [Informacje o certyfikatach](../certificates/about-certificates.md).
-- **Klucze konta usługi Azure Storage** : mogą zarządzać kluczami konta usługi Azure Storage. Wewnętrznie Key Vault mogą wyświetlać (synchronizować) klucze przy użyciu konta usługi Azure Storage i ponownie generować (obrócić) klucze okresowo. Aby uzyskać więcej informacji, zobacz [Zarządzanie kluczami konta magazynu przy użyciu Key Vault](../secrets/overview-storage-keys.md).
+- **Klucze kryptograficzne**: obsługuje wiele typów kluczy i algorytmów oraz umożliwia korzystanie z kluczy chronionych przez moduł HSM i chronionych przez moduł zabezpieczeń. Aby uzyskać więcej informacji, zobacz [Informacje o kluczach](../keys/about-keys.md).
+- Wpisy **tajne**: zapewnia bezpieczny magazyn wpisów tajnych, takich jak hasła i parametry połączenia bazy danych. Aby uzyskać więcej informacji, zobacz [Informacje o wpisach tajnych](../secrets/about-secrets.md).
+- **Certyfikaty**: obsługuje certyfikaty, które są oparte na kluczach i wpisach tajnych i dodają funkcję automatycznego odnawiania. Aby uzyskać więcej informacji, zobacz [Informacje o certyfikatach](../certificates/about-certificates.md).
+- **Klucze konta usługi Azure Storage**: mogą zarządzać kluczami konta usługi Azure Storage. Wewnętrznie Key Vault mogą wyświetlać (synchronizować) klucze przy użyciu konta usługi Azure Storage i ponownie generować (obrócić) klucze okresowo. Aby uzyskać więcej informacji, zobacz [Zarządzanie kluczami konta magazynu przy użyciu Key Vault](../secrets/overview-storage-keys.md).
 
 Aby uzyskać więcej ogólnych informacji na temat Key Vault, zobacz [Informacje o Azure Key Vault](overview.md). Aby uzyskać więcej informacji na temat zarządzanych pul modułów HSM, zobacz co to jest [Azure Key Vault zarządzany moduł HSM?](../managed-hsm/overview.md)
 
@@ -75,15 +75,16 @@ Obiekty przechowywane w Key Vault są używane w wersji za każdym razem, gdy zo
 
 Obiekty w Key Vault mogą być rozkierowane przez określenie wersji lub pominięcie wersji dla operacji w bieżącej wersji obiektu. Na przykład, jeśli klucz o nazwie `MasterKey` , wykonywanie operacji bez określania wersji powoduje, że system używa najnowszej dostępnej wersji. Wykonywanie operacji z identyfikatorem specyficznym dla wersji powoduje, że system używa tej konkretnej wersji obiektu.  
 
+### <a name="vault-name-and-object-name"></a>Magazyn — nazwa i nazwa obiektu
 Obiekty są jednoznacznie identyfikowane w Key Vault przy użyciu adresu URL. Żadne dwa obiekty w systemie nie mają tego samego adresu URL, niezależnie od lokalizacji geograficznej. Pełny adres URL do obiektu jest nazywany identyfikatorem obiektu. Adres URL składa się z prefiksu, który identyfikuje Key Vault, typ obiektu, nazwę obiektu dostarczoną przez użytkownika i wersję obiektu. Nazwa obiektu nie uwzględnia wielkości liter i jest niezmienna. Identyfikatory, które nie zawierają wersji obiektu, są określane jako identyfikatory podstawowe.  
 
 Aby uzyskać więcej informacji, zobacz [uwierzytelnianie, żądania i odpowiedzi](authentication-requests-and-responses.md)
 
 Identyfikator obiektu ma następujący format ogólny (w zależności od typu kontenera):  
 
-- **W przypadku magazynów** : `https://{vault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
+- **W przypadku magazynów**: `https://{vault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
 
-- **W przypadku zarządzanych pul modułu HSM** : `https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
+- **W przypadku zarządzanych pul modułu HSM**: `https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
 
 > [!NOTE]
 > Zobacz [Obsługa typu obiektu](#object-types) dla typów obiektów obsługiwanych przez każdy typ kontenera.

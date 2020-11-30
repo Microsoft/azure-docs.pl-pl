@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 59eae5303d9eca48fa4cec30fe622faf19ffba1f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8572a73586b01967c8aef7f6c4947b5ce96146b4
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94961893"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324860"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Samouczek: wymagania wstępne dotyczące tworzenia grup dostępności na SQL Server na platformie Azure Virtual Machines
 
@@ -144,7 +144,7 @@ Poniższa tabela zawiera podsumowanie ustawień konfiguracji sieci:
 
 ## <a name="create-availability-sets"></a>Tworzenie zestawów dostępności
 
-Przed utworzeniem maszyn wirtualnych należy utworzyć zestawy dostępności. Zestawy dostępności zmniejszają czas przestoju planowanych lub nieplanowanych zdarzeń konserwacji. Zestaw dostępności platformy Azure to logiczna Grupa zasobów, którą usługa Azure umieszcza w fizycznych domenach błędów i domenach aktualizacji. Domena błędów zapewnia, że członkowie zestawu dostępności mają osobne zasoby dotyczące mocy i sieci. Domena aktualizacji zapewnia, że członkowie zestawu dostępności nie są w tym samym czasie przełączane do trybu konserwacji. Aby uzyskać więcej informacji, zobacz [Manage the availability of virtual machines](../../../virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) (Zarządzanie dostępnością maszyn wirtualnych).
+Przed utworzeniem maszyn wirtualnych należy utworzyć zestawy dostępności. Zestawy dostępności zmniejszają czas przestoju planowanych lub nieplanowanych zdarzeń konserwacji. Zestaw dostępności platformy Azure to logiczna Grupa zasobów, którą usługa Azure umieszcza w fizycznych domenach błędów i domenach aktualizacji. Domena błędów zapewnia, że członkowie zestawu dostępności mają osobne zasoby dotyczące mocy i sieci. Domena aktualizacji zapewnia, że członkowie zestawu dostępności nie są w tym samym czasie przełączane do trybu konserwacji. Aby uzyskać więcej informacji, zobacz [Manage the availability of virtual machines](../../../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Zarządzanie dostępnością maszyn wirtualnych).
 
 Potrzebne są dwa zestawy dostępności. Jeden z nich jest przeznaczony dla kontrolerów domeny. Sekunda jest dla SQL Server maszyn wirtualnych.
 
@@ -188,7 +188,7 @@ W poniższej tabeli przedstawiono ustawienia tych dwóch maszyn:
 | --- | --- |
 | **Nazwa** |Pierwszy kontroler domeny: *AD-Primary-DC*.</br>Drugi kontroler domeny *AD-pomocniczy — DC*. |
 | **Typ dysku maszyny wirtualnej** |SSD |
-| **User name** (Nazwa użytkownika) |Administrator domeny |
+| **Nazwa użytkownika** |Administrator domeny |
 | **Hasło** |Contoso! 0000 |
 | **Subskrypcja** |*Twoja subskrypcja* |
 | **Grupa zasobów** |SQL-HA — RG |
@@ -562,7 +562,7 @@ Metoda otwierania portów zależy od używanego rozwiązania zapory. W następne
 
    ![Zapora SQL](./media/availability-group-manually-configure-prerequisites-tutorial-/35-tcpports.png)
 
-5. Wybierz pozycję **Dalej**.
+5. Wybierz opcję **Dalej**.
 6. Na stronie **Akcja** pozostaw zaznaczone pole wyboru **Zezwalaj na połączenie** , a następnie wybierz przycisk **dalej**.
 7. Na stronie **profil** zaakceptuj ustawienia domyślne, a następnie wybierz przycisk **dalej**.
 8. Na stronie **Nazwa** Określ nazwę reguły (na przykład **sondy Azure lb**) w polu tekstowym **Nazwa** , a następnie wybierz pozycję **Zakończ**.

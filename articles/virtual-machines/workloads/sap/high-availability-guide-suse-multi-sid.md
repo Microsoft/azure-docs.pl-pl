@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 3827fa7a98cef9358db0ee102925586bce97fae6
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: cf0703406b71cb56bdd75a04746dfce7db6af471
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188687"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327138"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure w systemie SUSE Linux Enterprise Server for SAP — Przewodnik dotyczący wiele identyfikatorów SID
 
@@ -94,7 +94,7 @@ Maszyny wirtualne, które uczestniczą w klastrze, muszą mieć rozmiar, aby mo�
 
 Aby zapewnić wysoką dostępność, rozwiązanie SAP NetWeaver wymaga wysoce dostępnych udziałów NFS. W tym przykładzie przyjęto założenie, że udziały SAP NFS są hostowane na [serwerze plików NFS](./high-availability-guide-suse-nfs.md)o wysokiej dostępności, który może być używany przez wiele systemów SAP. Lub udziały są wdrażane na [woluminach systemu plików NFS Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md).  
 
-![Omówienie wysokiej dostępności SAP NetWeaver](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
+![W klastrze Pacemaker są wyświetlane szczegółowe informacje o dwóch klastrach z obsługą wiele identyfikatorów SID, msidcl1 i msidcl2.](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
 
 > [!IMPORTANT]
 > Obsługa klastrowania wieloidentyfikatorowego usługi SAP ASCS/wykres WYWOŁUJĄCYCH z systemem SUSE Linux jako systemu operacyjnego gościa na maszynach wirtualnych platformy Azure jest ograniczona do **pięciu** identyfikatorów SID SAP w tym samym klastrze. Każdy nowy identyfikator SID zwiększa złożoność. Mieszany serwer replikacji z kolejki SAP 1 i z kolejki serwer replikacji 2 w tym samym klastrze **nie jest obsługiwany**. Klastrowanie z wieloma SIDmi opisuje instalację wielu wystąpień SAP ASCS/wykres WYWOŁUJĄCYCH z różnymi identyfikatorami SID w jednym klastrze Pacemaker. Obecnie klastrowanie z obsługą wiele identyfikatorów SID jest obsługiwane tylko dla ASCS/wykres WYWOŁUJĄCYCH.  

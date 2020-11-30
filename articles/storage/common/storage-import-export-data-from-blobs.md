@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 39f9a5802d7f10753c8ea81bf414da195e137cc6
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: e2e25f2fb806cb6e88745ffdfefe3dd82c0e9a6d
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93234141"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326544"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Eksportowanie danych z usługi Azure Blob Storage za pomocą usługi Azure Import/Export
 
@@ -43,17 +43,17 @@ Należy:
 Wykonaj następujące kroki, aby utworzyć zadanie eksportu w Azure Portal.
 
 1. Zaloguj się do <https://portal.azure.com/> .
-2. Przejdź do obszaru **wszystkie usługi > magazyn > zadania importowania/eksportowania** .
+2. Przejdź do obszaru **wszystkie usługi > magazyn > zadania importowania/eksportowania**.
 
     ![Przejdź do zadań importu/eksportu](./media/storage-import-export-data-from-blobs/export-from-blob1.png)
 
-3. Kliknij pozycję **Utwórz zadanie importu/eksportu** .
+3. Kliknij pozycję **Utwórz zadanie importu/eksportu**.
 
     ![Kliknij przycisk Importuj/Eksportuj zadanie](./media/storage-import-export-data-from-blobs/export-from-blob2.png)
 
-4. **Podstawowe informacje** :
+4. **Podstawowe informacje**:
 
-    - Wybierz pozycję **Eksportuj z platformy Azure** .
+    - Wybierz pozycję **Eksportuj z platformy Azure**.
     - Wprowadź opisową nazwę zadania eksportu. Użyj wybranej nazwy do śledzenia postępu zadań.
         - Nazwa może zawierać tylko małe litery, cyfry, łączniki i podkreślenia.
         - Nazwa musi rozpoczynać się od litery i nie może zawierać spacji.
@@ -62,7 +62,7 @@ Wykonaj następujące kroki, aby utworzyć zadanie eksportu w Azure Portal.
 
         ![Podstawy](./media/storage-import-export-data-from-blobs/export-from-blob3.png)
 
-5. W **szczegółach zadania** :
+5. W **szczegółach zadania**:
 
     - Wybierz konto magazynu, w którym znajdują się dane, które mają zostać wyeksportowane. Użyj konta magazynu w pobliżu miejsca, w którym się znajdujesz.
     - Lokalizacja Dropoff jest automatycznie wypełniana na podstawie regionu wybranego konta magazynu.
@@ -72,8 +72,8 @@ Wykonaj następujące kroki, aby utworzyć zadanie eksportu w Azure Portal.
          ![Eksportuj wszystko](./media/storage-import-export-data-from-blobs/export-from-blob4.png)
 
     - Możesz określić kontenery i obiekty blob do wyeksportowania.
-        - **Aby określić obiekt BLOB do wyeksportowania** : Użyj selektora **równego** . Określ ścieżkę względną do obiektu BLOB, rozpoczynając od nazwy kontenera. Użyj *$root* , aby określić kontener główny.
-        - **Aby określić wszystkie obiekty blob zaczynające się od prefiksu** : Użyj elementu **Start with** Selector. Określ prefiks, zaczynając od ukośnika "/". Prefiks może być prefiksem nazwy kontenera, pełną nazwą kontenera lub pełną nazwą kontenera, po którym następuje prefiks nazwy obiektu BLOB. Musisz podać ścieżki obiektów BLOB w prawidłowym formacie, aby uniknąć błędów podczas przetwarzania, jak pokazano na poniższym zrzucie ekranu. Aby uzyskać więcej informacji, zobacz [przykłady prawidłowych ścieżek obiektów BLOB](#examples-of-valid-blob-paths).
+        - **Aby określić obiekt BLOB do wyeksportowania**: Użyj selektora **równego** . Określ ścieżkę względną do obiektu BLOB, rozpoczynając od nazwy kontenera. Użyj *$root* , aby określić kontener główny.
+        - **Aby określić wszystkie obiekty blob zaczynające się od prefiksu**: Użyj elementu **Start with** Selector. Określ prefiks, zaczynając od ukośnika "/". Prefiks może być prefiksem nazwy kontenera, pełną nazwą kontenera lub pełną nazwą kontenera, po którym następuje prefiks nazwy obiektu BLOB. Musisz podać ścieżki obiektów BLOB w prawidłowym formacie, aby uniknąć błędów podczas przetwarzania, jak pokazano na poniższym zrzucie ekranu. Aby uzyskać więcej informacji, zobacz [przykłady prawidłowych ścieżek obiektów BLOB](#examples-of-valid-blob-paths).
 
            ![Eksportuj wybrane kontenery i obiekty blob](./media/storage-import-export-data-from-blobs/export-from-blob5.png)
 
@@ -84,7 +84,7 @@ Wykonaj następujące kroki, aby utworzyć zadanie eksportu w Azure Portal.
    > [!NOTE]
    > Jeśli obiekt BLOB do wyeksportowania jest używany podczas kopiowania danych, usługa Azure Import/Export wykonuje migawkę obiektu BLOB i kopiuje migawkę.
 
-6. W oknie **Informacje o wysyłce zwrotu** :
+6. W oknie **Informacje o wysyłce zwrotu**:
 
     - Wybierz operatora z listy rozwijanej. Jeśli chcesz użyć operatora innego niż FedEx/DHL, wybierz istniejącą opcję z listy rozwijanej. Skontaktuj się z zespołem ds. operacyjnych Azure Data Box `adbops@microsoft.com`  z informacjami dotyczącymi przewoźnika, którego zamierzasz używać.
     - Wprowadź prawidłowy numer konta nośnego, który został utworzony za pomocą tego operatora. Firma Microsoft korzysta z tego konta do dostarczania dysków z powrotem po zakończeniu zadania eksportowania.
@@ -93,7 +93,7 @@ Wykonaj następujące kroki, aby utworzyć zadanie eksportu w Azure Portal.
         > [!TIP]
         > Zamiast określania adresu e-mail dla pojedynczego użytkownika, podaj adres e-mail grupy. Dzięki temu będziesz otrzymywać powiadomienia nawet w przypadku opuszczenia przez administratora.
 
-7. **Podsumowanie** :
+7. **Podsumowanie**:
 
     - Przejrzyj szczegóły zadania.
     - Zanotuj nazwę zadania i podano adres wysyłkowy centrum danych platformy Azure na potrzeby wysyłania dysków na platformę Azure.
@@ -147,7 +147,7 @@ Wykonaj następujące kroki, aby utworzyć zadanie eksportu w Azure Portal.
     > [!TIP]
     > Zamiast określania adresu e-mail dla pojedynczego użytkownika, podaj adres e-mail grupy. Dzięki temu będziesz otrzymywać powiadomienia nawet w przypadku opuszczenia przez administratora.
 
-   To zadanie eksportuje wszystkie obiekty blob na koncie magazynu. Można określić obiekt BLOB do wyeksportowania, zastępując tę wartość dla parametru **--Export** :
+   To zadanie eksportuje wszystkie obiekty blob na koncie magazynu. Można określić obiekt BLOB do wyeksportowania, zastępując tę wartość dla parametru **--Export**:
 
     ```azurecli
     --export blob-path=$root/logo.bmp
@@ -155,7 +155,7 @@ Wykonaj następujące kroki, aby utworzyć zadanie eksportu w Azure Portal.
 
    Ta wartość parametru eksportuje obiekt BLOB o nazwie *logo.bmp* w kontenerze głównym.
 
-   Istnieje również możliwość wybrania wszystkich obiektów BLOB w kontenerze przy użyciu prefiksu. Zastąp tę wartość dla parametru **--Export** :
+   Istnieje również możliwość wybrania wszystkich obiektów BLOB w kontenerze przy użyciu prefiksu. Zastąp tę wartość dla parametru **--Export**:
 
     ```azurecli
     blob-path-prefix=/myiecontainer
@@ -234,7 +234,7 @@ Install-Module -Name Az.ImportExport
     > [!TIP]
     > Zamiast określania adresu e-mail dla pojedynczego użytkownika, podaj adres e-mail grupy. Dzięki temu będziesz otrzymywać powiadomienia nawet w przypadku opuszczenia przez administratora.
 
-   To zadanie eksportuje wszystkie obiekty blob na koncie magazynu. Można określić obiekt BLOB do wyeksportowania, zastępując tę wartość parametru **-ExportBlobListblobPath** :
+   To zadanie eksportuje wszystkie obiekty blob na koncie magazynu. Można określić obiekt BLOB do wyeksportowania, zastępując tę wartość parametru **-ExportBlobListblobPath**:
 
    ```azurepowershell-interactive
    -ExportBlobListblobPath $root\logo.bmp
@@ -242,7 +242,7 @@ Install-Module -Name Az.ImportExport
 
    Ta wartość parametru eksportuje obiekt BLOB o nazwie *logo.bmp* w kontenerze głównym.
 
-   Istnieje również możliwość wybrania wszystkich obiektów BLOB w kontenerze przy użyciu prefiksu. Zastąp tę wartość parametru **-ExportBlobListblobPath** :
+   Istnieje również możliwość wybrania wszystkich obiektów BLOB w kontenerze przy użyciu prefiksu. Zastąp tę wartość parametru **-ExportBlobListblobPath**:
 
    ```azurepowershell-interactive
    -ExportBlobListblobPath '/myiecontainer'

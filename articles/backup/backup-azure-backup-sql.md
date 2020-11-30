@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych SQL Server na platformie Azure jako obciążen
 description: Wprowadzenie do tworzenia kopii zapasowych baz danych SQL Server przy użyciu usługi Azure Backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 8130990f86311221ae6d097137a66a6e9b81be73
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 592a51051a0d02a6c1d491db0fe559e2e62babb2
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218089"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327053"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Tworzenie kopii zapasowych SQL Server na platformie Azure jako obciążenia programu DPM
 
@@ -24,7 +24,7 @@ Aby utworzyć kopię zapasową bazy danych SQL Server na platformie Azure i odzy
 
 >[!NOTE]
 >Program DPM 2019 UR2 obsługuje SQL Server wystąpienia klastra trybu failover (FCI) przy użyciu udostępnionych woluminów klastra (CSV).<br><br>
->Ta funkcja umożliwia ochronę [SQL Server wystąpienia klastra trybu failover z bezpośrednie miejsca do magazynowania na platformie Azure](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure)  i [SQL Server wystąpieniem klastra trybu failover z usługą Azure Shared disks](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure) . Serwer programu DPM należy wdrożyć na maszynie wirtualnej platformy Azure w celu ochrony wystąpienia programu SQL FCI wdrożonego na maszynach wirtualnych platformy Azure. 
+>Ta funkcja umożliwia ochronę [SQL Server wystąpienia klastra trybu failover z bezpośrednie miejsca do magazynowania na platformie Azure](../azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md)  i [SQL Server wystąpieniem klastra trybu failover z usługą Azure Shared disks](../azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md) . Serwer programu DPM należy wdrożyć na maszynie wirtualnej platformy Azure w celu ochrony wystąpienia programu SQL FCI wdrożonego na maszynach wirtualnych platformy Azure. 
 
 ## <a name="prerequisites-and-limitations"></a>Wymagania wstępne i ograniczenia
 
@@ -92,19 +92,19 @@ Aby chronić SQL Server bazy danych na platformie Azure, najpierw utwórz zasady
    >
    >
 
-1. Wybierz pozycję **Dalej**. Program DPM pokazuje ogólne dostępne miejsce do magazynowania. Pokazuje również potencjalne użycie miejsca na dysku.
+1. Wybierz opcję **Dalej**. Program DPM pokazuje ogólne dostępne miejsce do magazynowania. Pokazuje również potencjalne użycie miejsca na dysku.
 
     ![Konfigurowanie przydziału dysku](./media/backup-azure-backup-sql/pg-storage.png)
 
     Domyślnie program DPM tworzy jeden wolumin na źródło danych (SQL Server Database). Wolumin jest używany na potrzeby początkowej kopii zapasowej. W tej konfiguracji Menedżer dysków logicznych (LDM) ogranicza ochronę programu DPM do 300 źródeł danych (bazy danych SQL Server). Aby obejść to ograniczenie, wybierz pozycję **Umieść dane w puli magazynów programu DPM**. W przypadku użycia tej opcji program DPM używa pojedynczego woluminu dla wielu źródeł danych. Dzięki temu program DPM może chronić do 2 000 baz danych SQL Server.
 
-    W przypadku wybrania opcji **automatycznie Zwiększ woluminy**program DPM może obsłużyć zwiększony wolumin kopii zapasowej w miarę rozwoju danych produkcyjnych. Jeśli nie wybrano opcji **automatycznie Zwiększ woluminy**, program DPM ograniczy magazyn kopii zapasowych do źródeł danych w grupie ochrony.
+    W przypadku wybrania opcji **automatycznie Zwiększ woluminy** program DPM może obsłużyć zwiększony wolumin kopii zapasowej w miarę rozwoju danych produkcyjnych. Jeśli nie wybrano opcji **automatycznie Zwiększ woluminy**, program DPM ograniczy magazyn kopii zapasowych do źródeł danych w grupie ochrony.
 
 1. Jeśli jesteś administratorem, możesz zdecydować się na automatyczne przeniesienie tej początkowej kopii zapasowej **za pośrednictwem sieci** i wybranie czasu transferu. Lub **ręcznie** przetransferować kopię zapasową. Następnie wybierz przycisk **Dalej**.
 
     ![Wybierz metodę tworzenia repliki](./media/backup-azure-backup-sql/pg-manual.png)
 
-    Początkowa kopia zapasowa wymaga przeniesienia całego źródła danych (SQL Server Database). Dane kopii zapasowej są przenoszone z serwera produkcyjnego (SQL Server komputera) na serwer programu DPM. Jeśli ta kopia zapasowa jest duża, przeniesienie danych przez sieć może spowodować Przeciążenie przepustowości. Z tego powodu Administratorzy mogą zdecydować się na **Ręczne**przetransferowanie początkowej kopii zapasowej za pomocą nośnika wymiennego. Lub mogą automatycznie przesyłać dane **przez sieć** w określonym czasie.
+    Początkowa kopia zapasowa wymaga przeniesienia całego źródła danych (SQL Server Database). Dane kopii zapasowej są przenoszone z serwera produkcyjnego (SQL Server komputera) na serwer programu DPM. Jeśli ta kopia zapasowa jest duża, przeniesienie danych przez sieć może spowodować Przeciążenie przepustowości. Z tego powodu Administratorzy mogą zdecydować się na **Ręczne** przetransferowanie początkowej kopii zapasowej za pomocą nośnika wymiennego. Lub mogą automatycznie przesyłać dane **przez sieć** w określonym czasie.
 
     Po zakończeniu początkowej kopii zapasowej kopie zapasowe będą wykonywane przyrostowo na początkowej kopii zapasowej. Przyrostowe kopie zapasowe mają być małe i łatwo przesyłane przez sieć.
 
@@ -180,7 +180,7 @@ Aby odzyskać chronioną jednostkę, taką jak baza danych SQL Server, z platfor
 1. Kliknij prawym przyciskiem myszy nazwę bazy danych i wybierz polecenie **Odzyskaj**.
 
     ![Odzyskiwanie bazy danych z platformy Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-1. Program DPM wyświetla szczegóły punktu odzyskiwania. Wybierz pozycję **Dalej**. Aby zastąpić bazę danych, wybierz typ odzyskiwania **Odzyskaj do oryginalnego wystąpienia SQL Server**. Następnie wybierz przycisk **Dalej**.
+1. Program DPM wyświetla szczegóły punktu odzyskiwania. Wybierz opcję **Dalej**. Aby zastąpić bazę danych, wybierz typ odzyskiwania **Odzyskaj do oryginalnego wystąpienia SQL Server**. Następnie wybierz przycisk **Dalej**.
 
     ![Odzyskiwanie bazy danych do jej oryginalnej lokalizacji](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 

@@ -8,12 +8,12 @@ author: ShaneBala-keyvault
 ms.author: sudbalas
 manager: ravijan
 ms.date: 09/30/2020
-ms.openlocfilehash: fbeb6f5f223642c09183c149188c6717c1f33a8e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 86190fa307133360c411aafc070412e7d527039e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748505"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324962"
 ---
 # <a name="how-to-enable-soft-delete-and-purge-protection"></a>Włączanie trwałego usuwania i przeczyszczania ochrony
 
@@ -23,11 +23,11 @@ W tym artykule opisano dwie funkcje odzyskiwania Azure Key Vault, nietrwałego u
 
 Nietrwałe usuwanie i ochrona przed czyszczeniem to dwie różne funkcje odzyskiwania magazynu kluczy.
 > [!IMPORTANT]
-> Ochrona usuwania nietrwałego musi być włączona we wszystkich magazynach kluczy. Możliwość wyłączenia ochrony przed usunięciem nietrwałego zostanie wycofana z grudnia 2020. Więcej informacji można znaleźć [ **tutaj** .](soft-delete-change.md)
+> Ochrona usuwania nietrwałego musi być włączona we wszystkich magazynach kluczy. Możliwość wyłączenia ochrony przed usunięciem nietrwałego zostanie wycofana z grudnia 2020. Więcej informacji można znaleźć [ **tutaj**.](soft-delete-change.md)
 
 **Usuwanie nietrwałe** zostało zaprojektowane, aby zapobiec przypadkowemu usunięciu magazynu kluczy oraz kluczy, wpisów tajnych i certyfikatów przechowywanych w magazynie kluczy. Pomyśl o usuwaniu nietrwałego, podobnie jak kosz. Po usunięciu magazynu kluczy lub obiektu magazynu kluczy pozostanie on odwracalny dla konfigurowanego okresu przechowywania użytkownika lub domyślnego 90 dni. Magazyny kluczy w stanie usuniętej nietrwałe mogą być również **przeczyszczane** , co oznacza, że są trwale usuwane. Pozwala to na ponowne utworzenie magazynów kluczy i obiektów magazynu kluczy o tej samej nazwie. Zarówno odzyskiwanie, jak i usunięcie magazynów kluczy i obiektów wymagają podniesionych uprawnień zasad dostępu. **Po włączeniu usuwania nietrwałego nie można go wyłączyć.**
 
-Należy pamiętać, że **nazwy magazynów kluczy są globalnie unikatowe** , dlatego nie będzie można utworzyć magazynu kluczy o takiej samej nazwie jak Magazyn kluczy w stanie usunięte nietrwałe. Podobnie nazwy kluczy, wpisów tajnych i certyfikatów są unikatowe w ramach magazynu kluczy. Nie będzie można utworzyć wpisu tajnego, klucza lub certyfikatu o takiej samej nazwie jak w stanie usunięte nietrwałe.
+Należy pamiętać, że **nazwy magazynów kluczy są globalnie unikatowe**, dlatego nie będzie można utworzyć magazynu kluczy o takiej samej nazwie jak Magazyn kluczy w stanie usunięte nietrwałe. Podobnie nazwy kluczy, wpisów tajnych i certyfikatów są unikatowe w ramach magazynu kluczy. Nie będzie można utworzyć wpisu tajnego, klucza lub certyfikatu o takiej samej nazwie jak w stanie usunięte nietrwałe.
 
 **Ochrona przed przeczyszczeniem** została zaprojektowana, aby zapobiec usunięciu magazynu kluczy, kluczy, wpisów tajnych i certyfikatów przez złośliwego użytkownika. Należy zastanowić się, że jest to kosz z blokadą opartą na czasie. W dowolnym momencie można odzyskać elementy w ramach konfigurowalnego okresu przechowywania. **Nie będzie możliwe trwałe usunięcie lub przeczyszczenie magazynu kluczy do momentu, gdy upłynie okres przechowywania.** Gdy okres przechowywania upływający z magazynu kluczy lub obiekt magazynu kluczy zostanie automatycznie przeczyszczony.
 
@@ -44,7 +44,7 @@ Należy pamiętać, że **nazwy magazynów kluczy są globalnie unikatowe** , dl
 1. Sprawdź, czy przycisk radiowy obok pozycji usuwanie nietrwałe jest ustawiony na wartość "Włącz odzyskiwanie".
 1. Jeśli nie włączono usuwania nietrwałego w magazynie kluczy, kliknij przycisk radiowy, aby włączyć usuwanie nietrwałe, i kliknij przycisk "Zapisz".
 
-:::image type="content" source="../media/key-vault-recovery-1.png" alt-text="<zrzut ekranu Azure Portal>":::
+:::image type="content" source="../media/key-vault-recovery-1.png" alt-text="W oknie właściwości, usuwanie nietrwałe jest wyróżnione, jak jest to wartość, aby ją włączyć.":::
 
 ## <a name="grant-access-to-a-service-principal-to-purge-and-recover-deleted-secrets"></a>Udzielanie dostępu do jednostki usługi w celu przeczyszczenia i odzyskania usuniętych wpisów tajnych
 
@@ -56,7 +56,7 @@ Należy pamiętać, że **nazwy magazynów kluczy są globalnie unikatowe** , dl
 1. Przewiń w dół listy rozwijanej, a następnie kliknij pozycję "Odzyskaj" i "Wyczyść"
 1. Podmioty zabezpieczeń będą potrzebować również funkcji pobierania i wyświetlania listy w celu wykonania większości operacji.
 
-:::image type="content" source="../media/key-vault-recovery-2.png" alt-text="<zrzut ekranu Azure Portal>":::
+:::image type="content" source="../media/key-vault-recovery-2.png" alt-text="W okienku nawigacji po lewej stronie są wyróżnione zasady dostępu. Na stronie zasady dostępu zostanie wyświetlona lista rozwijana pozycje wpisów tajnych i są zaznaczone cztery elementy: pobieranie, wyświetlanie, odzyskiwanie i przeczyszczanie.":::
 
 ## <a name="list-recover-or-purge-a-soft-deleted-key-vault"></a>Wyświetlanie, odzyskiwanie lub przeczyszczanie nietrwałego magazynu kluczy
 
@@ -72,9 +72,9 @@ Należy pamiętać, że **nazwy magazynów kluczy są globalnie unikatowe** , dl
 1. Zaznacz opcję Odzyskaj u dołu okienka kontekstowego, jeśli chcesz odzyskać Magazyn kluczy.
 1. Wybierz opcję przeczyszczania, jeśli chcesz trwale usunąć magazyn kluczy.
 
-:::image type="content" source="../media/key-vault-recovery-3.png" alt-text="<zrzut ekranu Azure Portal>":::
+:::image type="content" source="../media/key-vault-recovery-3.png" alt-text="W obszarze magazyny kluczy zostanie wyróżniona Opcja Zarządzaj usuniętymi magazynami.":::
 
-:::image type="content" source="../media/key-vault-recovery-4.png" alt-text="<zrzut ekranu Azure Portal>":::
+:::image type="content" source="../media/key-vault-recovery-4.png" alt-text="W obszarze Zarządzanie usuniętymi magazynami kluczy zostanie wyróżniony i wybrany tylko wymieniony Magazyn kluczy, a przycisk Odzyskaj jest wyróżniony.":::
 
 ## <a name="list-recover-or-purge-soft-deleted-secrets-keys-and-certificates"></a>Wyświetlanie, odzyskiwanie lub przeczyszczanie usuniętych, nietrwałych wpisów tajnych, kluczy i certyfikatów
 
@@ -87,7 +87,7 @@ Należy pamiętać, że **nazwy magazynów kluczy są globalnie unikatowe** , dl
 1. Wybierz wpis tajny, klucz lub certyfikat, którym chcesz zarządzać.
 1. Wybierz opcję odzyskiwania lub przeczyszczania w dolnej części okienka kontekstowego.
 
-:::image type="content" source="../media/key-vault-recovery-5.png" alt-text="<zrzut ekranu Azure Portal>":::
+:::image type="content" source="../media/key-vault-recovery-5.png" alt-text="W przypadku kluczy jest wyróżniona Opcja Zarządzaj kluczami usuniętymi.":::
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 

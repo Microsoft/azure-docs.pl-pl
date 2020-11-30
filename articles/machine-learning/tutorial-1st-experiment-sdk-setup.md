@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 6eb76c9d8cc8447755e045972a7aceddefd1604a
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: ebde8048c26364d77d95b9c7b34f9d1d7a4a20ee
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94532974"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326287"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>Samouczek: wprowadzenie do Azure Machine Learning w notesach Jupyter
 
@@ -30,7 +30,7 @@ W tym samouczku zostały wykonane następujące czynności:
 
 Jeśli nie masz subskrypcji Azure, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree) dzisiaj.
 
-## <a name="create-a-workspace"></a>Tworzenie obszaru roboczego
+## <a name="create-a-workspace"></a>Utwórz obszar roboczy
 
 Obszar roboczy Azure Machine Learning to podstawowe zasoby w chmurze, za pomocą których można eksperymentować, uczeniować i wdrażać modele uczenia maszynowego. Łączy ona Twoją subskrypcję i grupę zasobów platformy Azure z łatwym w użyciu obiektem w usłudze.
 
@@ -80,7 +80,7 @@ Wykonaj następujące czynności konfiguracyjne i wykonaj kroki opisane w Azure 
     > [!IMPORTANT]
     > Notesy można wyświetlać w folderze **Samples** , ale nie można w tym miejscu uruchamiać notesu. Aby uruchomić Notes, upewnij się, że otwarto sklonowaną wersję notesu w sekcji **pliki użytkownika** .
     
-1. Wybierz plik **samouczek — pierwszy eksperyment-zestaw SDK-pociąg. ipynb** w folderze **samouczki/obraz-Klasyfikacja-mnist ręcznie-dane** .
+1. Wybierz plik **IMG-klasyfikacyjn-part1-Train. ipynb** w folderze **samouczki/— Klasyfikacja obrazu-mnist ręcznie-Data** .
 
     :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Zrzut ekranu pokazujący folder otwartych samouczków.":::
 

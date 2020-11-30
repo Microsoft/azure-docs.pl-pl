@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: 0361ba7bc67948c25b842a3fb7406d2999fdd725
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87d7d4676c604ca7219b7580eb3ce585282a7f11
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530616"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327244"
 ---
 # <a name="azure-functions-deployment-slots"></a>Azure Functions miejsc wdrożenia
 
@@ -57,7 +57,38 @@ Należy pamiętać o następujących kwestiach:
 
 ## <a name="manage-settings"></a>Zarządzanie ustawieniami
 
-[!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
+Niektóre ustawienia konfiguracji są specyficzne dla gniazda. Poniższa lista zawiera szczegółowe informacje o zmianach ustawień w przypadku wymiany miejsc, które pozostają takie same.
+
+**Ustawienia specyficzne dla gniazda**:
+
+* Publikowanie punktów końcowych
+* Niestandardowe nazwy domen
+* Certyfikaty inne niż publiczne i ustawienia protokołu TLS/SSL
+* Ustawienia skalowania
+* Harmonogramy zadań WebJob
+* Ograniczenia adresów IP
+* Zawsze włączone
+* Ustawienia diagnostyczne
+* Współużytkowanie zasobów między źródłami (CORS)
+
+**Ustawienia specyficzne dla gniazda**:
+
+* Ustawienia ogólne, takie jak wersja platformy, 32/64-bitowa, gniazda sieci Web
+* Ustawienia aplikacji (można skonfigurować do nalepki do miejsca)
+* Parametry połączenia (można je skonfigurować do nawiązania połączenia z gniazdem)
+* Mapowania obsługi
+* Certyfikaty publiczne
+* Zawartość zadań WebJob
+* Połączenia hybrydowe *
+* Integracja sieci wirtualnej *
+* Punkty końcowe usługi *
+* Azure Content Delivery Network *
+
+Funkcje oznaczone gwiazdką (*) są planowane jako niezamienione. 
+
+> [!NOTE]
+> Niektóre ustawienia aplikacji, które mają zastosowanie do niewymienianych ustawień, również nie są zamieniane. Na przykład, ponieważ ustawienia diagnostyczne nie są wymieniane, powiązane ustawienia aplikacji, takie jak `WEBSITE_HTTPLOGGING_RETENTION_DAYS` i, `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` również nie są wymieniane, nawet jeśli nie są wyświetlane jako ustawienia gniazda.
+>
 
 ### <a name="create-a-deployment-setting"></a>Utwórz ustawienie wdrożenia
 
@@ -73,15 +104,15 @@ Wykonaj następujące kroki, aby utworzyć ustawienie wdrożenia:
 
 1. Wybierz pozycję **Konfiguracja**, a następnie wybierz nazwę ustawienia, które chcesz nawiązać z bieżącym miejscem.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-configure-deployment-slot.png" alt-text="Znajdź gniazda w Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-configure-deployment-slot.png" alt-text="Skonfiguruj ustawienie aplikacji dla gniazda w Azure Portal." border="true":::
 
 1. Wybierz **ustawienie miejsce wdrożenia**, a następnie wybierz przycisk **OK**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-setting.png" alt-text="Znajdź gniazda w Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-setting.png" alt-text="Skonfiguruj ustawienie miejsca wdrożenia." border="true":::
 
 1. Gdy sekcja ustawienia znika, wybierz pozycję **Zapisz** , aby zachować zmiany
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-save-deployment-slot-setting.png" alt-text="Znajdź gniazda w Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-save-deployment-slot-setting.png" alt-text="Zapisz ustawienie miejsca wdrożenia." border="true":::
 
 ## <a name="deployment"></a>Wdrożenie
 
@@ -102,11 +133,11 @@ Możesz dodać gniazdo za pośrednictwem [interfejsu wiersza polecenia](/cli/azu
 
 1. Wybierz pozycję miejsca **wdrożenia**, a następnie wybierz pozycję **+ Dodaj miejsce**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add.png" alt-text="Znajdź gniazda w Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add.png" alt-text="Dodaj Azure Functions miejsce wdrożenia." border="true":::
 
 1. Wpisz nazwę gniazda i wybierz pozycję **Dodaj**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add-name.png" alt-text="Znajdź gniazda w Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add-name.png" alt-text="Nazwij Azure Functions miejsce wdrożenia." border="true":::
 
 ## <a name="swap-slots"></a>Zastępowanie miejsc
 
@@ -115,11 +146,11 @@ Możesz zamienić gniazda za pośrednictwem [interfejsu wiersza polecenia](/cli/
 1. Przejdź do aplikacji funkcji.
 1. Wybierz pozycję miejsca **wdrożenia**, a następnie wybierz pozycję **Zamień**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Znajdź gniazda w Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Zrzut ekranu pokazujący stronę &quot;miejsce wdrożenia&quot; z wybraną akcją &quot;Dodaj miejsce&quot;." border="true":::
 
 1. Sprawdź ustawienia konfiguracji wymiany i wybierz pozycję **Zamień**
     
-    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png" alt-text="Znajdź gniazda w Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png" alt-text="Zamień miejsce wdrożenia." border="true":::
 
 Operacja może chwilę potrwać, gdy trwa wykonywanie operacji zamiany.
 
@@ -137,15 +168,15 @@ Możesz usunąć gniazdo za pośrednictwem [interfejsu wiersza polecenia](/cli/a
 
 1. Wybierz pozycję **Usuń**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot.png" alt-text="Znajdź gniazda w Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot.png" alt-text="Zrzut ekranu pokazujący stronę &quot;przegląd&quot; z wybraną akcją &quot;Usuń&quot;." border="true":::
 
 1. Wpisz nazwę miejsca wdrożenia, które chcesz usunąć, a następnie wybierz pozycję **Usuń**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot-details.png" alt-text="Znajdź gniazda w Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot-details.png" alt-text="Usuń miejsce wdrożenia w Azure Portal." border="true":::
 
 1. Zamknij okienko potwierdzenie usunięcia.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-deleted.png" alt-text="Znajdź gniazda w Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-deleted.png" alt-text="Potwierdzenie usunięcia miejsca wdrożenia." border="true":::
 
 ## <a name="automate-slot-management"></a>Automatyzowanie zarządzania gniazdami
 
@@ -170,11 +201,11 @@ Aby zmienić plan App Service gniazda, wykonaj następujące czynności:
 
     :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Znajdź gniazda w Azure Portal." border="true":::
 
-1. W obszarze **plan App Service**wybierz pozycję **Zmień App Service plan**.
+1. W obszarze **plan App Service** wybierz pozycję **Zmień App Service plan**.
 
 1. Wybierz plan, do którego chcesz przeprowadzić uaktualnienie, lub Utwórz nowy plan.
 
-    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-apply.png" alt-text="Znajdź gniazda w Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-apply.png" alt-text="Zmień plan App Service w Azure Portal." border="true":::
 
 1. Wybierz przycisk **OK**.
 

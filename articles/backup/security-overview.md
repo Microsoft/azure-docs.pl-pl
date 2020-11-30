@@ -3,12 +3,12 @@ title: Omówienie funkcji zabezpieczeń
 description: Dowiedz się więcej o możliwościach zabezpieczeń w Azure Backup, które ułatwiają ochronę danych kopii zapasowych i zaspokajanie potrzeb firmy.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 8c4d3af9205df43c3596da64d7fcad2a9eb82500
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 9aa1909f1590b477d9a7f7a09ad0c2b1936e3e29
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093348"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325659"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Omówienie funkcji zabezpieczeń w programie Azure Backup
 
@@ -26,7 +26,7 @@ Azure Backup udostępnia trzy [wbudowane role](../role-based-access-control/buil
 
 Dowiedz się więcej [na temat kontroli dostępu opartej na rolach na platformie Azure, aby zarządzać Azure Backup](./backup-rbac-rs-vault.md).
 
-Azure Backup ma kilka kontrolek zabezpieczeń wbudowanych w usługę w celu zapobiegania i wykrywania luk w zabezpieczeniach oraz reagowania na nie. Dowiedz się więcej o [kontrolkach zabezpieczeń dla Azure Backup](./backup-security-controls.md).
+Azure Backup ma kilka kontrolek zabezpieczeń wbudowanych w usługę w celu zapobiegania i wykrywania luk w zabezpieczeniach oraz reagowania na nie. Dowiedz się więcej o [kontrolkach zabezpieczeń dla Azure Backup](./security-baseline.md).
 
 ## <a name="separation-between-guest-and-azure-storage"></a>Rozdzielenie między gośćmi a usługą Azure Storage
 
@@ -64,7 +64,7 @@ Azure Backup udostępnia [wbudowane funkcje monitorowania i alertów](./backup-a
 
 ## <a name="security-features-to-help-protect-hybrid-backups"></a>Funkcje zabezpieczeń chroniące hybrydowe kopie zapasowe
 
-Usługa Azure Backup używa agenta Microsoft Azure Recovery Services (MARS) do tworzenia kopii zapasowych i przywracania plików, folderów oraz stanu woluminu lub systemu z komputera lokalnego na platformę Azure. Usługa MARS zapewnia teraz funkcje zabezpieczeń chroniące hybrydowe kopie zapasowe. Są one następujące:
+Usługa Azure Backup używa agenta Microsoft Azure Recovery Services (MARS) do tworzenia kopii zapasowych i przywracania plików, folderów oraz stanu woluminu lub systemu z komputera lokalnego na platformę Azure. Usługa MARS zapewnia teraz funkcje zabezpieczeń chroniące hybrydowe kopie zapasowe. Do tych funkcji należą:
 
 * Dodatkowa warstwa uwierzytelniania jest dodawana zawsze wtedy, gdy jest wykonywane krytyczne operacje, takie jak zmiana hasła. Ta weryfikacja polega na zapewnieniu, że operacje te mogą być wykonywane tylko przez użytkowników, którzy mają prawidłowe poświadczenia platformy Azure. [Dowiedz się więcej o funkcjach, które uniemożliwiają ataki](./backup-azure-security-feature.md#prevent-attacks).
 

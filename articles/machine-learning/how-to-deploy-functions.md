@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python, devx-track-azurecli
-ms.openlocfilehash: d17967c24fbbb127c1d3eaee5acd5b78c3e3b902
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 901e4d458cc2d77d4e7f13c1782b86c8532ca499
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630349"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327172"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Wdróż model uczenia maszynowego w Azure Functions (wersja zapoznawcza)
 
@@ -58,7 +58,7 @@ Przed wdrożeniem należy zdefiniować, co jest potrzebne do uruchomienia modelu
 
 Aby uzyskać więcej informacji na temat skryptu wprowadzania, zobacz [Definiowanie oceniania kodu](./how-to-deploy-and-where.md#define-an-entry-script)
 
-* **Zależności** , takie jak skrypty pomocnika lub pakiety Python/Conda wymagane do uruchomienia skryptu lub modelu wprowadzania
+* **Zależności**, takie jak skrypty pomocnika lub pakiety Python/Conda wymagane do uruchomienia skryptu lub modelu wprowadzania
 
 Te jednostki są hermetyzowane w __konfiguracji wnioskowania__. Konfiguracja wnioskowania przywołuje skrypt wejściowy i inne zależności.
 
@@ -277,7 +277,7 @@ Po załadowaniu obrazu i udostępnieniu aplikacji wykonaj następujące kroki, a
     }
     ```
 
-3. Aby wyświetlić dane wyjściowe wytwarzane przez funkcję, użyj następującego polecenia, aby wyświetlić listę generowanych plików wyjściowych. Zamień na `<triggerConnectionString>` ciąg połączenia zwrócony wcześniej. W tym przykładzie `output` jest nazwą kontenera wyjściowego utworzonego wcześniej. Jeśli użyto innej nazwy, Zastąp tę wartość::
+3. Aby wyświetlić dane wyjściowe wytwarzane przez funkcję, użyj następującego polecenia, aby wyświetlić listę generowanych plików wyjściowych. Zamień na `<triggerConnectionString>` ciąg połączenia zwrócony wcześniej. W tym przykładzie `output` jest nazwą kontenera wyjściowego utworzonego wcześniej. Jeśli użyto innej nazwy, Zastąp tę wartość:
 
     ```azurecli-interactive
     az storage blob list --container-name output --connection-string <triggerConnectionString> --query '[].name' --output tsv

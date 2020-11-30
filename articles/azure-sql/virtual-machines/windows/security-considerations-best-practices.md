@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e6f6d1960c07dc23c584dec5bb424f91630fc1bb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 92cd20f9e636c50416a72ec974a33c87da1ae2cb
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785072"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327274"
 ---
 # <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Zagadnienia dotyczące zabezpieczeń programu SQL Server w usłudze Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,7 +41,7 @@ Poniższe sekcje zawierają sugestie dotyczące omawiania tych punktów.
 
 ## <a name="secure-connections"></a>Bezpieczne połączenia
 
-W przypadku tworzenia maszyny wirtualnej SQL Server z obrazem galerii opcja **SQL Server łączności** umożliwia wybór **lokalizacji lokalnej (wewnątrz maszyny wirtualnej)** , **prywatnej (w Virtual Network)** lub **publicznej (internetowej)** .
+W przypadku tworzenia maszyny wirtualnej SQL Server z obrazem galerii opcja **SQL Server łączności** umożliwia wybór **lokalizacji lokalnej (wewnątrz maszyny wirtualnej)**, **prywatnej (w Virtual Network)** lub **publicznej (internetowej)**.
 
 ![SQL Server łączności](./media/security-considerations-best-practices/sql-vm-connectivity-option.png)
 
@@ -59,7 +59,7 @@ Na koniec Rozważ włączenie zaszyfrowanych połączeń dla wystąpienia aparat
 
 ## <a name="encryption"></a>Szyfrowanie
 
-Dyski zarządzane oferują Server-Side szyfrowanie i Azure Disk Encryption. [Szyfrowanie po stronie serwera](../../../virtual-machines/windows/disk-encryption.md) zapewnia szyfrowanie w spoczynku i zabezpiecza dane zgodnie z zobowiązaniami dotyczącymi bezpieczeństwa i zgodności w organizacji. [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) używa technologii Bitlocker lub DM-Crypt i integruje się z Azure Key Vault w celu szyfrowania zarówno dysków systemu operacyjnego, jak i danych. 
+Dyski zarządzane oferują Server-Side szyfrowanie i Azure Disk Encryption. [Szyfrowanie po stronie serwera](../../../virtual-machines/disk-encryption.md) zapewnia szyfrowanie w spoczynku i zabezpiecza dane zgodnie z zobowiązaniami dotyczącymi bezpieczeństwa i zgodności w organizacji. [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) używa technologii Bitlocker lub DM-Crypt i integruje się z Azure Key Vault w celu szyfrowania zarówno dysków systemu operacyjnego, jak i danych. 
 
 ## <a name="use-a-non-default-port"></a>Użyj portu innego niż domyślny
 
@@ -84,7 +84,7 @@ Gdy SQL Server nasłuchuje na porcie innym niż domyślny, należy określić po
 
 Nie chcesz, aby osoby atakujące mogli łatwo odgadnąć nazwy kont lub hasła. Aby uzyskać pomoc, Skorzystaj z następujących wskazówek:
 
-- Utwórz unikatowe konto administratora lokalnego, którego nazwa nie jest **administratorem** .
+- Utwórz unikatowe konto administratora lokalnego, którego nazwa nie jest **administratorem**.
 
 - Używaj złożonych silnych haseł dla wszystkich kont. Aby uzyskać więcej informacji na temat tworzenia silnego hasła, zobacz artykuł [Tworzenie silnego hasła](https://support.microsoft.com/instantanswers/9bd5223b-efbe-aa95-b15a-2fb37bef637d/create-a-strong-password) .
 
@@ -93,7 +93,7 @@ Nie chcesz, aby osoby atakujące mogli łatwo odgadnąć nazwy kont lub hasła. 
   - Utwórz konto SQL z unikatową nazwą, która ma członkostwo **sysadmin** . Można to zrobić z poziomu portalu, włączając **uwierzytelnianie SQL** podczas aprowizacji.
 
     > [!TIP] 
-    > Jeśli nie włączysz uwierzytelniania SQL podczas aprowizacji, należy ręcznie zmienić tryb uwierzytelniania na **SQL Server i tryb uwierzytelniania systemu Windows** . Aby uzyskać więcej informacji, zobacz [Zmienianie trybu uwierzytelniania serwera](/sql/database-engine/configure-windows/change-server-authentication-mode).
+    > Jeśli nie włączysz uwierzytelniania SQL podczas aprowizacji, należy ręcznie zmienić tryb uwierzytelniania na **SQL Server i tryb uwierzytelniania systemu Windows**. Aby uzyskać więcej informacji, zobacz [Zmienianie trybu uwierzytelniania serwera](/sql/database-engine/configure-windows/change-server-authentication-mode).
 
   - Jeśli konieczne jest użycie identyfikatora logowania **administratora** systemu, należy włączyć logowanie po aprowizacji i przypisać nowe silne hasło.
 

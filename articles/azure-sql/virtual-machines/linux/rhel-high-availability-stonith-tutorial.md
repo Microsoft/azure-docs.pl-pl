@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: 06442e861a247f545ca6f22ecc82e5f5dc910553
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ef3f9f8d75049051ad568abf1163014a78b0cda3
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790240"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324741"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Samouczek: Konfigurowanie grup dostępności dla SQL Server na maszynach wirtualnych RHEL na platformie Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -263,7 +263,7 @@ Po zakończeniu wykonywania polecenia dla każdej maszyny wirtualnej powinny zos
 > [!IMPORTANT]
 > Domyślny obraz tworzony za pomocą powyższego polecenia domyślnie tworzy dysk o 32 GB systemu operacyjnego. W przypadku tej instalacji domyślnej można było za mało miejsca. Do powyższego polecenia można użyć następującego parametru, `az vm create` Aby utworzyć dysk systemu operacyjnego z 128 GB na przykład: `--os-disk-size-gb 128` .
 >
-> Następnie można [skonfigurować Menedżera woluminów logicznych (LVM)](../../../virtual-machines/linux/configure-lvm.md) , jeśli konieczne jest rozwinięcie odpowiednich woluminów folderu w celu zaspokojenia instalacji.
+> Następnie można [skonfigurować Menedżera woluminów logicznych (LVM)](/previous-versions/azure/virtual-machines/linux/configure-lvm) , jeśli konieczne jest rozwinięcie odpowiednich woluminów folderu w celu zaspokojenia instalacji.
 
 ### <a name="test-connection-to-the-created-vms"></a>Test connection utworzonych maszyn wirtualnych
 
@@ -304,7 +304,7 @@ Połącz się z każdym węzłem maszyny wirtualnej i postępuj zgodnie z poniż
 1. Zaktualizuj i zainstaluj pakiety Pacemaker na wszystkich węzłach przy użyciu następujących poleceń:
 
     > [!NOTE]
-    > **Nmap** jest instalowany w ramach tego bloku poleceń jako narzędzie do znajdowania dostępnych adresów IP w sieci. Nie musisz instalować **Nmap** , ale będzie to przydatne w dalszej części tego samouczka.
+    > **Nmap** jest instalowany w ramach tego bloku poleceń jako narzędzie do znajdowania dostępnych adresów IP w sieci. Nie musisz instalować **Nmap**, ale będzie to przydatne w dalszej części tego samouczka.
 
     ```bash
     sudo yum update -y
@@ -489,11 +489,11 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  3. Kliknij [ **rejestracje aplikacji**](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
  4. Kliknij pozycję **Nowa rejestracja**
  5. Wprowadź **nazwę** , na przykład `<resourceGroupName>-app` , wybierz **konta tylko w tym katalogu organizacji**
- 6. Wybierz pozycję typ aplikacji **Sieć Web** , wprowadź adres URL logowania (na przykład http://localhost) , a następnie kliknij przycisk Dodaj. Adres URL logowania nie jest używany i może być dowolnym prawidłowym adresem URL. Po zakończeniu kliknij pozycję **zarejestruj** .
+ 6. Wybierz pozycję typ aplikacji **Sieć Web**, wprowadź adres URL logowania (na przykład http://localhost) , a następnie kliknij przycisk Dodaj. Adres URL logowania nie jest używany i może być dowolnym prawidłowym adresem URL. Po zakończeniu kliknij pozycję **zarejestruj** .
  7. Wybierz pozycję **Certyfikaty i wpisy tajne** dla nowej rejestracji aplikacji, a następnie kliknij pozycję **nowy klucz tajny klienta** .
  8. Wprowadź opis nowego klucza (klucz tajny klienta), wybierz pozycję **nigdy nie wygasa** , a następnie kliknij przycisk **Dodaj** .
  9. Zapisz wartość klucza tajnego. Służy jako hasło dla nazwy głównej usługi
-10. Wybierz pozycję **Omówienie** . Zapisz identyfikator aplikacji. Jest ona używana jako nazwa użytkownika (identyfikator logowania w poniższych krokach) nazwy głównej usługi
+10. Wybierz pozycję **Omówienie**. Zapisz identyfikator aplikacji. Jest ona używana jako nazwa użytkownika (identyfikator logowania w poniższych krokach) nazwy głównej usługi
  
 ### <a name="create-a-custom-role-for-the-fence-agent"></a>Utwórz rolę niestandardową dla agenta ogranicznika
 

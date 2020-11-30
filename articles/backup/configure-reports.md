@@ -3,12 +3,12 @@ title: Konfigurowanie raportów usługi Azure Backup
 description: Konfigurowanie i wyświetlanie raportów dla Azure Backup przy użyciu Log Analytics i skoroszytów platformy Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 11893488c59781bb78cf913a30069e920c66bc71
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 2565fa1183635c10e45b247f723788b6fe371c14
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172460"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325251"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurowanie raportów usługi Azure Backup
 
@@ -18,7 +18,7 @@ Typowym wymaganiem dla administratorów kopii zapasowych jest uzyskanie wglądu 
 - Inspekcja kopii zapasowych i przywracania.
 - Identyfikowanie kluczowych trendów na różnych poziomach szczegółowości.
 
-Obecnie Azure Backup udostępnia rozwiązanie do raportowania, które korzysta z [dzienników Azure monitor](../azure-monitor/log-query/get-started-portal.md) i [skoroszytów platformy Azure](../azure-monitor/platform/workbooks-overview.md). Te zasoby ułatwiają uzyskiwanie szczegółowych informacji o kopiach zapasowych w całej kopii zapasowej. W tym artykule opisano sposób konfigurowania i wyświetlania raportów Azure Backup.
+Obecnie Azure Backup udostępnia rozwiązanie do raportowania, które korzysta z [dzienników Azure monitor](../azure-monitor/log-query/log-analytics-tutorial.md) i [skoroszytów platformy Azure](../azure-monitor/platform/workbooks-overview.md). Te zasoby ułatwiają uzyskiwanie szczegółowych informacji o kopiach zapasowych w całej kopii zapasowej. W tym artykule opisano sposób konfigurowania i wyświetlania raportów Azure Backup.
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
 
@@ -33,7 +33,7 @@ Obecnie Azure Backup udostępnia rozwiązanie do raportowania, które korzysta z
 
 [!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Wykonaj następujące kroki, aby rozpocząć korzystanie z raportów.
 
@@ -157,7 +157,7 @@ Jeśli używasz [usługi Azure Lighthouse](../lighthouse/index.yml) z delegowany
 - Filtry działają od lewej do prawej i od góry do dołu na każdej karcie. Oznacza to, że dowolny filtr ma zastosowanie tylko do wszystkich tych elementów widget, które są rozmieszczone z prawej strony filtru lub poniżej tego filtru.
 - Wybranie kolorowego kafelka filtruje widżety poniżej kafelka dla rekordów, które odnoszą się do wartości tego kafelka. Na przykład po wybraniu kafelka **zatrzymana ochrona** na karcie **elementy kopii zapasowej** filtry siatki i wykresy poniżej, aby wyświetlić dane dla elementów kopii zapasowej w stanie zatrzymania ochrony.
 - Kafelki, które nie są kolorowe, nie są wybierane.
-- Dane bieżącego częściowego dnia nie są wyświetlane w raportach. Dlatego w przypadku wybrania wartości **zakres czasu** w **ciągu ostatnich 7 dni**raport przedstawia rekordy z ostatnich siedmiu dni. Bieżący dzień nie jest uwzględniony.
+- Dane bieżącego częściowego dnia nie są wyświetlane w raportach. Dlatego w przypadku wybrania wartości **zakres czasu** w **ciągu ostatnich 7 dni** raport przedstawia rekordy z ostatnich siedmiu dni. Bieżący dzień nie jest uwzględniony.
 - Raport przedstawia szczegóły zadań (poza zadaniami dziennika), które zostały *wyzwolone* w wybranym przedziale czasu.
 - Wartości wyświetlane dla **magazynu w chmurze** i **chronionych wystąpień** są na *końcu* wybranego zakresu czasu.
 - Elementy kopii zapasowej wyświetlane w raportach to elementy, które istnieją na *końcu* wybranego zakresu czasu. Elementy kopii zapasowej, które zostały usunięte w środku wybranego zakresu czasu, nie są wyświetlane. Ta sama Konwencja dotyczy również zasad tworzenia kopii zapasowych.

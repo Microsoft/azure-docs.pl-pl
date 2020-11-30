@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 76ecd811ab0bffe20b4bddcc4dc2eacaffaed588
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2a7d77579eaebd3ee951d0184e25937783420806
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308334"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325200"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Funkcja Transparent Data Encryption usługi Azure SQL przy użyciu klucza zarządzanego przez klienta
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -78,7 +78,7 @@ Audytorzy mogą używać Azure Monitor do przeglądania dzienników AuditEvent m
 
 - Magazyn kluczy i SQL Database/wystąpienie zarządzane muszą należeć do tej samej dzierżawy Azure Active Directory. Magazyn kluczy między dzierżawcami i interakcje serwera nie są obsługiwane. Aby później przenieść zasoby, należy ponownie skonfigurować TDE z AKV. Dowiedz się więcej o [przenoszeniu zasobów](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-- Funkcja [usuwania nietrwałego](../../key-vault/general/soft-delete-overview.md) musi być włączona w magazynie kluczy, aby chronić przed utratą danych (lub magazynu kluczy). Zasoby usunięte nietrwale są przechowywane przez 90 dni, chyba że w międzyczasie zostanie odzyskany lub usunięty przez klienta. Akcje *odzyskania* i *przeczyszczania* mają własne uprawnienia skojarzone z zasadami dostępu magazynu kluczy. Funkcja usuwania nietrwałego jest domyślnie wyłączona i można ją włączyć za pomocą [programu PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) lub [interfejsu wiersza polecenia](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete). Nie można jej włączyć za pośrednictwem Azure Portal.  
+- Funkcja [usuwania nietrwałego](../../key-vault/general/soft-delete-overview.md) musi być włączona w magazynie kluczy, aby chronić przed utratą danych (lub magazynu kluczy). Zasoby usunięte nietrwale są przechowywane przez 90 dni, chyba że w międzyczasie zostanie odzyskany lub usunięty przez klienta. Akcje *odzyskania* i *przeczyszczania* mają własne uprawnienia skojarzone z zasadami dostępu magazynu kluczy. Funkcja usuwania nietrwałego jest domyślnie wyłączona i można ją włączyć za pomocą [programu PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell) lub [interfejsu wiersza polecenia](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli). Nie można jej włączyć za pośrednictwem Azure Portal.  
 
 - Przyznaj serwerowi lub wystąpieniu zarządzanemu dostęp do magazynu kluczy (Get, wrapKey, unwrapKey) przy użyciu jego tożsamości Azure Active Directory. W przypadku korzystania z Azure Portal tożsamość usługi Azure AD zostanie utworzona automatycznie. W przypadku korzystania z programu PowerShell lub interfejsu wiersza polecenia tożsamość usługi Azure AD musi być jawnie utworzona, a ukończenie powinna zostać zweryfikowana. Szczegółowe instrukcje krok po kroku znajdują się w temacie [Configure TDE with BYOK](transparent-data-encryption-byok-configure.md) i [Configure TDE with BYOK for SQL Managed instance](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) .
 
@@ -146,7 +146,7 @@ Poniżej znajduje się widok dodatkowych kroków wymaganych w portalu w celu prz
 
 Może się zdarzyć, że ktoś mający wystarczające prawa dostępu do magazynu kluczy przypadkowo wyłącza dostęp serwera do klucza przez:
 
-- Odwoływanie uprawnień *Get* , *wrapKey* i *unwrapKey* magazynu kluczy z serwera
+- Odwoływanie uprawnień *Get*, *wrapKey* i *unwrapKey* magazynu kluczy z serwera
 
 - Usuwanie klucza
 

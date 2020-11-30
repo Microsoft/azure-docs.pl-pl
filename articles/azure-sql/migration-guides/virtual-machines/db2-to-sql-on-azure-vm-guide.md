@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 0522f677c731aa1cd218a14429791db14179686a
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 5312ee08bad9d0b84e13c53fe4b1de59fad896f1
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94497065"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326050"
 ---
 # <a name="migration-guide-db2-to-sql-server-on-azure-vms"></a>Przewodnik migracji: DB2 do SQL Server na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -63,7 +63,7 @@ Aby utworzyć ocenę, wykonaj następujące kroki:
 
 1. Przejrzyj raport HTML, aby poznać statystyki konwersji oraz błędy lub ostrzeżenia. Możesz również otworzyć raport w programie Excel, aby uzyskać spis obiektów DB2 i nakład pracy wymagany do przeprowadzenia konwersji schematu. Domyślna lokalizacja raportu znajduje się w folderze raportów w SSMAProjects.
 
-   Na przykład: `drive:\<username>\Documents\SSMAProjects\MyDB2Migration\report\report_<date>`. 
+   Przykład: `drive:\<username>\Documents\SSMAProjects\MyDB2Migration\report\report_<date>`. 
 
    :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/report.png" alt-text="Przejrzyj raport, aby zidentyfikować błędy lub ostrzeżenia":::
 
@@ -104,7 +104,7 @@ Aby przekonwertować schemat, wykonaj następujące kroki:
 1. Zapisz projekt lokalnie dla ćwiczenia korygowania schematu w trybie offline. Wybierz pozycję **Zapisz projekt** z menu **plik** . 
 
 
-## <a name="migrate"></a>Migrate
+## <a name="migrate"></a>Migrate (Migracja)
 
 Po zakończeniu oceniania baz danych i rozwiązaniu jakichkolwiek rozbieżności następnym krokiem jest wykonanie procesu migracji.
 
@@ -139,10 +139,10 @@ Po przeprowadzeniu migracji danych do środowiska docelowego wszystkie aplikacje
 
 Podejście testowe do migracji bazy danych obejmuje następujące działania:
 
-1. **Opracowywanie testów weryfikacyjnych** : Aby przetestować migrację bazy danych, należy użyć zapytań SQL. Należy utworzyć zapytania walidacji do uruchomienia względem źródłowej i docelowej bazy danych. Zapytania weryfikacyjne powinny obejmować zdefiniowany zakres.
-1. **Konfigurowanie środowiska testowego** : środowisko testowe powinno zawierać kopię źródłowej bazy danych i docelowej bazy danych. Należy pamiętać o odizolowaniu środowiska testowego.
-1. **Uruchom testy weryfikacyjne** : Uruchom testy weryfikacyjne względem źródła i celu, a następnie Przeanalizuj wyniki.
-1. **Uruchom testy wydajnościowe** : Uruchom test wydajności względem źródła i celu, a następnie Przeanalizuj i Porównaj wyniki.
+1. **Opracowywanie testów weryfikacyjnych**: Aby przetestować migrację bazy danych, należy użyć zapytań SQL. Należy utworzyć zapytania walidacji do uruchomienia względem źródłowej i docelowej bazy danych. Zapytania weryfikacyjne powinny obejmować zdefiniowany zakres.
+1. **Konfigurowanie środowiska testowego**: środowisko testowe powinno zawierać kopię źródłowej bazy danych i docelowej bazy danych. Należy pamiętać o odizolowaniu środowiska testowego.
+1. **Uruchom testy weryfikacyjne**: Uruchom testy weryfikacyjne względem źródła i celu, a następnie Przeanalizuj wyniki.
+1. **Uruchom testy wydajnościowe**: Uruchom test wydajności względem źródła i celu, a następnie Przeanalizuj i Porównaj wyniki.
 
    > [!NOTE]
    > Aby uzyskać pomoc w tworzeniu i uruchamianiu testów weryfikacyjnych po migracji, należy wziąć pod uwagę rozwiązanie dotyczące jakości danych dostępne z [QuerySurge](https://www.querysurge.com/company/partners/microsoft)partnera. 
@@ -164,7 +164,7 @@ Te zasoby zostały opracowane w ramach programu SQL Data ninja, który jest spon
 
 Po migracji zapoznaj się z [przewodnikiem walidacji po migracji i optymalizacji](/sql/relational-databases/post-migration-validation-and-optimization-guide). 
 
-W przypadku macierzy usług i narzędzi firmy Microsoft i innych firm, które są dostępne, aby pomóc w różnych scenariuszach migracji bazy danych i danych, a także zadania specjalne, zobacz temat [usługi i narzędzia migracji danych](/azure/dms/dms-tools-matrix).
+W przypadku macierzy usług i narzędzi firmy Microsoft i innych firm, które są dostępne, aby pomóc w różnych scenariuszach migracji bazy danych i danych, a także zadania specjalne, zobacz temat [usługi i narzędzia migracji danych](../../../dms/dms-tools-matrix.md).
 
 W przypadku innych przewodników migracji zapoznaj się z tematem [migracja bazy danych](https://datamigration.microsoft.com/). 
 

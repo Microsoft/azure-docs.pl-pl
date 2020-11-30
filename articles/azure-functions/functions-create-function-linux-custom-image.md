@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 30481fee949df16c70718d0a9cbc6df9ca54d11e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: af63eb68ec82a0725befed723298c079e82bdfdb
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182550"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327104"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Tworzenie funkcji w systemie Linux przy użyciu kontenera niestandardowego
 
@@ -20,7 +20,7 @@ Wdrożenie kodu funkcji w niestandardowym kontenerze systemu Linux wymaga [planu
 
 Można również użyć domyślnego kontenera Azure App Service, zgodnie z opisem w temacie [Tworzenie pierwszej funkcji hostowanej w systemie Linux](./create-first-function-cli-csharp.md?pivots=programming-language-python). Obsługiwane obrazy podstawowe dla Azure Functions są dostępne w [repozytorium Azure Functions obrazów podstawowych](https://hub.docker.com/_/microsoft-azure-functions-base).
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Utwórz aplikację funkcji i pliku dockerfile przy użyciu Azure Functions Core Tools.
@@ -54,34 +54,34 @@ Ten samouczek można wykonać na dowolnym komputerze z systemem Windows, macOS l
 W terminalu lub wierszu polecenia Uruchom następujące polecenie dla wybranego języka, aby utworzyć projekt aplikacji funkcji w folderze o nazwie `LocalFunctionsProject` .  
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  
-```
+```console
 func init LocalFunctionsProject --worker-runtime dotnet --docker
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-```
+```console
 func init LocalFunctionsProject --worker-runtime node --language javascript --docker
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-```
+```console
 func init LocalFunctionsProject --worker-runtime powershell --docker
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-```
+```console
 func init LocalFunctionsProject --worker-runtime python --docker
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
-```
+```console
 func init LocalFunctionsProject --worker-runtime node --language typescript --docker
 ```
 ::: zone-end
 ::: zone pivot="programming-language-java"  
 W pustym folderze uruchom następujące polecenie, aby wygenerować projekt usługi Functions z [archetypu narzędzia Maven](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
 
-# <a name="bash"></a>[bash](#tab/bash)
+# <a name="bash"></a>[Bash](#tab/bash)
 ```bash
 mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DjavaVersion=8 -Ddocker
 ```
@@ -118,41 +118,41 @@ Maven tworzy pliki projektu w nowym folderze o nazwie _artifactId_, w tym przyk�
 
 Przejdź do folderu projektu:
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
-```
+```console
 cd LocalFunctionsProject
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-```
+```console
 cd fabrikam-functions
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
 Dodaj funkcję do projektu za pomocą następującego polecenia, gdzie `--name` argument jest unikatową nazwą funkcji, a `--template` argument określa wyzwalacz funkcji. `func new` Utwórz podfolder pasujący do nazwy funkcji, która zawiera plik kodu odpowiedni dla wybranego języka projektu i plik konfiguracji o nazwie *function.json*.
 
-```
+```console
 func new --name HttpExample --template "HTTP trigger"
 ```
 ::: zone-end  
 Aby przetestować funkcję lokalnie, Uruchom lokalny host środowiska uruchomieniowego Azure Functions w folderze głównym folderu projektu: 
 ::: zone pivot="programming-language-csharp"  
-```
+```console
 func start --build  
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"   
-```
+```console
 func start  
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
-```
+```console
 npm install
 npm start
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-```
+```console
 mvn clean package  
 mvn azure-functions:run
 ```
@@ -167,7 +167,7 @@ Obowiązkowe Zapoznaj się z *pliku dockerfile* w folderze głównym folderu pro
     
 W folderze głównym projektu uruchom polecenie [Docker Build](https://docs.docker.com/engine/reference/commandline/build/) i podaj nazwę, `azurefunctionsimage` i tag `v1.0.0` . Zastąp ciąg `<DOCKER_ID>` identyfikatorem konta usługi Docker Hub. To polecenie powoduje skompilowanie obrazu platformy Docker dla kontenera.
 
-```
+```console
 docker build --tag <DOCKER_ID>/azurefunctionsimage:v1.0.0 .
 ```
 
@@ -175,7 +175,7 @@ Po zakończeniu działania polecenia można uruchomić nowy kontener lokalnie.
     
 Aby przetestować kompilację, uruchom obraz w lokalnym kontenerze przy użyciu polecenia [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) , ZASTĘPUJĄC ponownie `<DOCKER_ID` identyfikatorem platformy Docker i dodając argument porty `-p 8080:80` :
 
-```
+```console
 docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
 ```
 
@@ -197,13 +197,13 @@ Docker Hub to rejestr kontenerów, który hostuje obrazy i udostępnia usługi o
 
 1. Jeśli jeszcze nie zalogowano się do platformy Docker, zrób to za pomocą polecenia [Docker login](https://docs.docker.com/engine/reference/commandline/login/) , zastępując `<docker_id>` identyfikatorem platformy Docker. To polecenie powoduje zapytanie o nazwę użytkownika i hasło. Komunikat "Logowanie pomyślne" potwierdza, że użytkownik jest zalogowany.
 
-    ```
+    ```console
     docker login
     ```
     
 1. Po zalogowaniu wypchnij obraz do usługi Docker Hub przy użyciu polecenia [Docker push](https://docs.docker.com/engine/reference/commandline/push/) , ZASTĘPUJĄC go `<docker_id>` identyfikatorem Docker.
 
-    ```
+    ```console
     docker push <docker_id>/azurefunctionsimage:v1.0.0
     ```
 
@@ -419,13 +419,13 @@ Protokół SSH umożliwia bezpieczną komunikację między kontenerem i klientem
     
 1. Ponownie skompiluj obraz przy użyciu `docker build` polecenia, zastępując go `<docker_id>` identyfikatorem platformy Docker:
 
-    ```
+    ```console
     docker build --tag <docker_id>/azurefunctionsimage:v1.0.0 .
     ```
     
 1. Wypchnij zaktualizowany obraz do centrum platformy Docker, który powinien trwać znacznie krócej niż w przypadku pierwszej wypychania tylko zaktualizowanych segmentów obrazu.
 
-    ```
+    ```console
     docker push <docker_id>/azurefunctionsimage:v1.0.0
     ```
     
@@ -492,13 +492,13 @@ Po zdefiniowaniu powiązania kolejki można teraz zaktualizować funkcję w celu
 
 1. W folderze głównym `docker build` ponownie uruchom program, a następnie zaktualizuj wersję w znaczniku do `v1.0.1` . Tak jak wcześniej, Zastąp ciąg `<docker_id>` identyfikatorem konta centrum Docker:
 
-    ```
+    ```console
     docker build --tag <docker_id>/azurefunctionsimage:v1.0.1 .
     ```
     
 1. Wypchnij zaktualizowany obraz z powrotem do repozytorium za pomocą polecenia `docker push` :
 
-    ```
+    ```console
     docker push <docker_id>/azurefunctionsimage:v1.0.1
     ```
 
@@ -510,7 +510,7 @@ W przeglądarce Użyj tego samego adresu URL, co wcześniej, aby wywołać funkc
 
 [!INCLUDE [functions-add-output-binding-view-queue-cli](../../includes/functions-add-output-binding-view-queue-cli.md)]
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz kontynuować pracę z funkcją platformy Azure przy użyciu zasobów utworzonych w tym samouczku, możesz pozostawić wszystkie te zasoby na miejscu. Ze względu na to, że został utworzony plan Premium dla Azure Functions, ponosisz jeden lub dwa USD dziennie.
 

@@ -3,12 +3,12 @@ title: Zarządzanie cyklem życia maszyn wirtualnych rozwiązań VMware platform
 description: Dowiedz się, jak zarządzać wszystkimi aspektami cyklu życia maszyn wirtualnych rozwiązań VMware platformy Azure przy użyciu narzędzi Microsoft Azure natywnych.
 ms.topic: conceptual
 ms.date: 09/11/2020
-ms.openlocfilehash: 5280d362c1e7b1bf33579d051c4cc11adb1b7e59
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ff1032900fa936895f3adfcb0d8a872f24948aca
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545767"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326815"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Zarządzanie cyklem życia maszyn wirtualnych rozwiązań VMware platformy Azure
 
@@ -61,7 +61,7 @@ Usługa Azure Update Management w Azure Automation zarządza aktualizacjami syst
 
 2. **Log Analytics obszar roboczy** umożliwia zbieranie dzienników i zbieranie danych licznika wydajności przy użyciu agenta log Analytics lub rozszerzeń. Aby utworzyć obszar roboczy Log Analytics, zobacz [tworzenie log Analytics obszaru roboczego w Azure Portal](../azure-monitor/learn/quick-create-workspace.md). Jeśli wolisz, możesz również utworzyć obszar roboczy za pomocą szablonu [interfejsu wiersza polecenia](../azure-monitor/learn/quick-create-workspace-cli.md), [programu PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md)lub [Azure Resource Manager](../azure-monitor/samples/resource-manager-workspace.md).
 
-3. Aby włączyć Update Management platformy Azure dla maszyn wirtualnych, zobacz [włączanie Update Management na podstawie konta usługi Automation](../automation/update-management/update-mgmt-enable-automation-account.md). W procesie zostanie połączony obszar roboczy Log Analytics z kontem usługi Automation. 
+3. Aby włączyć Update Management platformy Azure dla maszyn wirtualnych, zobacz [włączanie Update Management na podstawie konta usługi Automation](../automation/update-management/enable-from-automation-account.md). W procesie zostanie połączony obszar roboczy Log Analytics z kontem usługi Automation. 
  
 4. Po dodaniu maszyn wirtualnych do usługi Azure Update Management można [wdrażać aktualizacje na maszynach wirtualnych i przeglądać wyniki](../automation/update-management/deploy-updates.md). 
 

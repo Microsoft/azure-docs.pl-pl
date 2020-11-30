@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: pafarley
-ms.openlocfilehash: 392cc06c6e0bce7ec2304da61033fc508d940bbb
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 079d5ea0259a436100b81489043b71a81ec1a330
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93143767"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327223"
 ---
 # <a name="video-moderation-with-the-review-tool"></a>Moderowanie wideo za pomocą narzędzia do przeglądu
 
@@ -26,7 +26,7 @@ Za pomocą narzędzia do [łagodzenia filmów wideo](video-moderation-api.md) Co
 Na pulpicie nawigacyjnym wybierz dowolną z kolejek przeglądu w obszarze Typ zawartości wideo. Zostanie rozpoczęte przeglądanie i zostanie otwarta strona moderowanie zawartości wideo.
 
 > [!div class="mx-imgBorder"]
-> ![Widok szczegółowy moderowania wideo w narzędziu do przeglądu](./Review-Tool-User-Guide/images/video-moderation-detailed.png)
+> ![W Content Moderator (wersja zapoznawcza) suwak zostanie wyróżniony i ustawiony na 4 Recenzje. Przełączniki rozmycie wszystkie i czarne i białe są wyróżnione i oba są ustawione.](./Review-Tool-User-Guide/images/video-moderation-detailed.png)
 
 ### <a name="review-count"></a>Licznik przeglądania
 
@@ -55,7 +55,7 @@ W widoku **szczegółowym** w okienku po prawej stronie zostaną wyświetlone ki
 * Wybierz kartę **historia** , aby wyświetlić historię przeglądu, na przykład czas utworzenia i sposób modyfikacji.
 
 > [!div class="mx-imgBorder"]
-> ![Przycisk tagów zbiorczych moderowania wideo](./Review-Tool-User-Guide/images/video-moderation-video-details.png)
+> ![Prawe okienko jest wyróżnione i zaznaczona jest karta uwagi. Istnieje obszar testowy z etykietą Dodaj notatkę.](./Review-Tool-User-Guide/images/video-moderation-video-details.png)
 
 ## <a name="apply-moderation-tags"></a>Zastosuj Tagi moderowania
 
@@ -63,10 +63,10 @@ Głównym zadaniem recenzowania wideo jest stosowanie lub usuwanie tagów modero
 
 ### <a name="bulk-tagging"></a>Znakowanie zbiorcze
 
-Pasek narzędzi **tagów zbiorczych** pozwala dodawać Tagi do wielu wybranych filmów wideo jednocześnie. Wybierz co najmniej jeden film wideo, a następnie wybierz Tagi, które chcesz zastosować, a następnie kliknij przycisk **Prześlij** . 
+Pasek narzędzi **tagów zbiorczych** pozwala dodawać Tagi do wielu wybranych filmów wideo jednocześnie. Wybierz co najmniej jeden film wideo, a następnie wybierz Tagi, które chcesz zastosować, a następnie kliknij przycisk **Prześlij**. 
 
 > [!div class="mx-imgBorder"]
-> ![Przycisk tagów zbiorczych moderowania wideo](./Review-Tool-User-Guide/images/video-moderation-bulk-tags.png)
+> ![Przycisk + zostanie wyróżniony w okienku Tagi zbiorcze.](./Review-Tool-User-Guide/images/video-moderation-bulk-tags.png)
 
 
 ### <a name="key-frame-tagging"></a>Tagowanie klatek kluczowych
@@ -77,7 +77,7 @@ Możesz również dodać tagi moderowania do określonych klatek kluczowych. Wyb
 > Jeśli usługa nie może wyodrębnić klatek kluczowych, w okienku kafelka klatki kluczowej **nie będą wyświetlane żadne ramki** , a opcja zaznaczania klatek kluczowych będzie wyszarzona. W takim przypadku można zastosować tylko tagi do wideo jako całości (za pomocą przycisku **Tagi wideo +** ).
 
 > [!div class="mx-imgBorder"]
-> ![Widok szczegółowy moderowania wideo w narzędziu do przeglądu](./Review-Tool-User-Guide/images/video-moderation-tagging-options.png)
+> ![Wszystkie okienka kafelka, odtwarzacz wideo, Tagi klatek kluczowych i Tagi wideo są wyświetlane. Tagi klatek kluczowych + i Tagi wideo + są wyróżnione.](./Review-Tool-User-Guide/images/video-moderation-tagging-options.png)
 
 ## <a name="put-a-review-on-hold"></a>Przeprowadzenie przeglądu
 
@@ -86,7 +86,7 @@ Przycisk **Wstrzymaj** u dołu okienka wideo umożliwia przeprowadzenie przeglą
 Filmy wideo można wyświetlić, klikając przycisk **Wstrzymaj** w górnej części ekranu. Po prawej stronie zostanie wyświetlone okienko wstrzymania. W tym miejscu możesz wybrać wiele przeglądów do wstrzymania i zwolnić je z powrotem do kolejki lub ustawić ich czas wygaśnięcia. Po upływie skonfigurowanego czasu przeglądy wstrzymane zostaną opublikowane z powrotem do kolejki. Wybierz pozycję **Zapisz** , aby rozpocząć zliczanie w dół od aktualnie wybranego czasu wygaśnięcia.
 
 > [!div class="mx-imgBorder"]
-> ![Widok szczegółowy moderowania wideo w narzędziu do przeglądu](./Review-Tool-User-Guide/images/video-moderation-hold.png)
+> ![W okienku wideo zostanie wyróżniony przycisk Wstrzymaj. W dolnej części okienka pole kombi czasu wstrzymania zostanie wyróżnione wraz z przyciskami Zwolnij i Zapisz.](./Review-Tool-User-Guide/images/video-moderation-hold.png)
 
 ## <a name="submit-a-review"></a>Prześlij przegląd
 

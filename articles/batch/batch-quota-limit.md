@@ -4,12 +4,12 @@ description: Informacje o domyślnych przydziałach Azure Batch, limitach i ogra
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8ca08d43f07633b58cf6f7067c1a8fcd58350678
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: b2039794a0c8a13070c9d81b83869ca4097bd02e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107542"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325976"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Limity przydziału i limity usługi Batch
 
@@ -23,15 +23,33 @@ Jeśli planujesz uruchamianie obciążeń produkcyjnych w usłudze Batch, może 
 
 ## <a name="resource-quotas"></a>Limity przydziałów zasobów
 
-Przydział jest limitem kredytowym, a nie gwarancją wydajności. Jeśli masz zapotrzebowanie na dużą skalę, skontaktuj się z pomocą techniczną platformy Azure.
+Przydział jest limitem, a nie gwarancją wydajności. Jeśli masz zapotrzebowanie na dużą skalę, skontaktuj się z pomocą techniczną platformy Azure.
 
 Należy również pamiętać, że limity przydziału nie są gwarantowane wartości. Przydziały mogą się różnić w zależności od zmian w usłudze Batch lub żądania użytkownika w celu zmiany wartości limitu przydziału.
 
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
+## <a name="core-quotas"></a>Limity przydziału rdzeni
+
+### <a name="cores-quotas-in-batch-service-mode"></a>Liczba przydziałów rdzeni w trybie usługi Batch
+
+Jest ulepszane wymuszanie dedykowanych limitów przydziału, a zmiany są dostępne na etapach i wykonane dla wszystkich kont usługi Batch na koniec grudnia 2020.
+
+Dla każdej serii maszyn wirtualnych obsługiwanej przez usługi Batch istnieją przydziały podstawowe i są one wyświetlane na stronie **przydziały** w portalu. Limity przydziału serii maszyn wirtualnych można aktualizować za pomocą żądania obsługi, jak opisano poniżej.
+
+Z istniejącym mechanizmem, który jest stopniowo wycofywany, limity przydziału dla serii maszyn wirtualnych nie są sprawdzane, wymuszany jest tylko całkowity limit przydziału dla konta. Oznacza to, że może być możliwe przydzielenie większej liczby rdzeni dla serii maszyn wirtualnych, niż jest wskazywane przez przydział serii maszyn wirtualnych, do całkowitego limitu przydziału konta.
+
+Zaktualizowany mechanizm wymusza limity przydziałów maszyn wirtualnych, a także całkowity limit przydziału konta. W ramach przejścia do nowego mechanizmu można zaktualizować wartości przydziału serii maszyn wirtualnych, aby uniknąć błędów alokacji — w przypadku wszystkich serii maszyn wirtualnych użytych w ostatnich miesiącach zostanie zaktualizowany przydział z serii maszyn wirtualnych w celu dopasowania go do całkowitego limitu przydziału konta. Ta zmiana nie umożliwi używania większej pojemności niż jest już dostępna.
+
+Istnieje możliwość ustalenia, czy dla konta usługi Batch włączono wymuszanie limitu przydziału serii VM, sprawdzając:
+
+* Właściwość interfejsu API [dedicatedCoreQuotaPerVMFamilyEnforced](/rest/api/batchmanagement/batchaccount/get#batchaccount) konta usługi Batch.
+
+* Tekst na stronie **przydziały** kont wsadowych w portalu.
+
 ### <a name="cores-quotas-in-user-subscription-mode"></a>Liczba rdzeni w trybie subskrypcji użytkownika
 
-Jeśli utworzono konto usługi [Batch](accounts.md) z trybem alokacji puli ustawionym na **subskrypcję użytkownika**, przydziały są stosowane inaczej. W tym trybie maszyny wirtualne i inne zasoby usługi Batch są tworzone bezpośrednio w Twojej subskrypcji po utworzeniu puli. Przydziały rdzeni Azure Batch nie mają zastosowania do konta utworzonego w tym trybie. Zamiast tego przydziały w ramach subskrypcji dla regionalnych rdzeni obliczeniowych i innych zasobów są stosowane.
+Jeśli utworzono konto usługi [Batch](accounts.md) z trybem alokacji puli ustawionym na **subskrypcję użytkownika**, maszyny wirtualne i inne zasoby usługi Batch są tworzone bezpośrednio w Twojej subskrypcji po utworzeniu puli lub zmianie rozmiaru. Przydziały podstawowe Azure Batch nie mają zastosowania i przydziały w subskrypcji dla regionalnych rdzeni obliczeniowych, rdzeni obliczeniowych na serię i inne zasoby są używane i wymuszane.
 
 Aby dowiedzieć się więcej na temat tych przydziałów, zobacz [limity subskrypcji i usług platformy Azure, limity przydziału i ograniczenia](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
@@ -73,14 +91,14 @@ Aby wyświetlić limity przydziału konta w usłudze Batch w [Azure Portal](http
 1. Wybierz pozycję **przydziały** w menu konta zadania wsadowego.
 1. Wyświetl przydziały aktualnie stosowane do konta programu Batch.
 
-    ![Przydziały kont wsadowych][account_quotas]
+:::image type="content" source="./media/batch-quota-limit/account-quota-portal.png" alt-text="Przydziały kont wsadowych":::
 
 ## <a name="increase-a-quota"></a>Zwiększ limit przydziału
 
 Możesz poprosić o zwiększenie limitu przydziału dla konta usługi Batch lub subskrypcji przy użyciu [Azure Portal](https://portal.azure.com). Typ zwiększenia limitu przydziału zależy od trybu alokacji puli konta usługi Batch. Aby zażądać zwiększenia limitu przydziału, należy dołączyć serię maszyn wirtualnych, dla której chcesz zwiększyć przydział. Po zastosowaniu wzrostu przydziału zostanie on zastosowany do wszystkich serii maszyn wirtualnych.
 
 1. Wybierz kafelek **Pomoc i obsługa techniczna** na pulpicie nawigacyjnym portalu lub znak zapytania (**?**) w prawym górnym rogu portalu.
-1. Wybierz pozycję **nowe**  >  **Informacje podstawowe**żądania obsługi.
+1. Wybierz pozycję **nowe**  >  **Informacje podstawowe** żądania obsługi.
 1. **Podstawowe informacje**:
    
     1. **Typ problemu**  >  **Limity usług i subskrypcji (przydziały)**
@@ -89,11 +107,11 @@ Możesz poprosić o zwiększenie limitu przydziału dla konta usługi Batch lub 
    
     1. **Typ**  >  limitu przydziału **Partia zadań**
       
-       Wybierz pozycję **Dalej**.
+       Wybierz opcję **Dalej**.
     
 1. W obszarze **Szczegóły**:
       
-    1. W obszarze **Podaj szczegóły**Określ lokalizację, typ przydziału i konto w usłudze Batch.
+    1. W obszarze **Podaj szczegóły** Określ lokalizację, typ przydziału i konto w usłudze Batch.
     
        ![Wzrost przydziału partii][quota_increase]
 
@@ -109,7 +127,7 @@ Możesz poprosić o zwiększenie limitu przydziału dla konta usługi Batch lub 
 
     1. Wybierz **wagę** zgodną z Twoim [wpływem na firmę](https://aka.ms/supportseverity).
 
-       Wybierz pozycję **Dalej**.
+       Wybierz opcję **Dalej**.
 
 1. W **informacjach kontaktowych**:
    

@@ -5,12 +5,12 @@ ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 8a6f154dc3c7a2984c687d55af2cf51a60169d6b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 746ec7aa3ee41204e051e843ff94ed0771a9d244
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182567"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326186"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Tworzenie pierwszej funkcji w witrynie Azure Portal
 
@@ -21,11 +21,11 @@ Użyj jednego z poniższych linków, aby rozpocząć pracę z wybranym lokalnym 
 
 | Visual Studio Code | Terminal/wiersz polecenia | Visual Studio |
 | --- | --- | --- |
-|  &bull;&nbsp;[Wprowadzenie do języka C #](./create-first-function-vs-code-csharp.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Wprowadzenie do języka Java](./create-first-function-vs-code-csharp.md?pivots=programming-language-java)<br/>&bull;&nbsp;[Wprowadzenie do języka JavaScript](./create-first-function-vs-code-csharp.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[Wprowadzenie do programu PowerShell](./create-first-function-vs-code-csharp.md?pivots=programming-language-powershell)<br/>&bull;&nbsp;[Wprowadzenie do języka Python](./create-first-function-vs-code-csharp.md?pivots=programming-language-python) |&bull;&nbsp;[Wprowadzenie do języka C #](./create-first-function-cli-csharp.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Wprowadzenie do języka Java](./create-first-function-cli-csharp.md?pivots=programming-language-java)<br/>&bull;&nbsp;[Wprowadzenie do języka JavaScript](./create-first-function-cli-csharp.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[Wprowadzenie do programu PowerShell](./create-first-function-cli-csharp.md?pivots=programming-language-powershell)<br/>&bull;&nbsp;[Wprowadzenie do języka Python](./create-first-function-cli-csharp.md?pivots=programming-language-python) | [Wprowadzenie do języka C #](functions-create-your-first-function-visual-studio.md) |
+|  &bull;&nbsp;[Wprowadzenie do języka C #](./create-first-function-vs-code-csharp.md)<br/>&bull;&nbsp;[Wprowadzenie do języka Java](./create-first-function-vs-code-java.md)<br/>&bull;&nbsp;[Wprowadzenie do języka JavaScript](./create-first-function-vs-code-node.md)<br/>&bull;&nbsp;[Wprowadzenie do programu PowerShell](./create-first-function-vs-code-powershell.md)<br/>&bull;&nbsp;[Wprowadzenie do języka Python](./create-first-function-vs-code-python.md) |&bull;&nbsp;[Wprowadzenie do języka C #](./create-first-function-cli-csharp.md)<br/>&bull;&nbsp;[Wprowadzenie do języka Java](./create-first-function-cli-java.md)<br/>&bull;&nbsp;[Wprowadzenie do języka JavaScript](./create-first-function-cli-node.md)<br/>&bull;&nbsp;[Wprowadzenie do programu PowerShell](./create-first-function-cli-powershell.md)<br/>&bull;&nbsp;[Wprowadzenie do języka Python](./create-first-function-cli-python.md) | [Wprowadzenie do języka C #](functions-create-your-first-function-visual-studio.md) |
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Zaloguj się w [witrynie Azure Portal](https://portal.azure.com) przy użyciu danych konta Azure.
 
@@ -73,7 +73,7 @@ Następnie Utwórz funkcję w nowej aplikacji funkcji.
 
    ![Podgląd dziennika usługi Functions w witrynie Azure Portal.](./media/functions-create-first-azure-function/function-view-logs.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 

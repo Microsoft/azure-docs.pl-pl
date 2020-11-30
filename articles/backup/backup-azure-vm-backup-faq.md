@@ -4,12 +4,12 @@ description: W tym artykule znajdują się odpowiedzi na często zadawane pytani
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: e6e14209a8df7160d103cb036d38c9fee29b34dd
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 0f4f990654cc23fde7cf1ad2e37ba1ada76d94e3
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296067"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324792"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Często zadawane pytania — tworzenie kopii zapasowych maszyn wirtualnych platformy Azure
 
@@ -83,7 +83,7 @@ Azure Backup tworzy osobną grupę zasobów w formacie `AzureBackupRG_<geo>_<num
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>Czy Azure Backup obsługuje standardowe dyski zarządzane przez dysk SSD?
 
-Tak, Azure Backup obsługuje [dyski zarządzane w warstwie Standardowa SSD](https://docs.microsoft.com/azure/virtual-machines/disks-types#standard-ssd).
+Tak, Azure Backup obsługuje [dyski zarządzane w warstwie Standardowa SSD](../virtual-machines/disks-types.md#standard-ssd).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Czy można utworzyć kopię zapasową maszyny wirtualnej z dyskiem z obsługą akcelerator zapisu (WA)?
 

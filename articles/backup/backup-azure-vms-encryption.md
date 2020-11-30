@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych i Przywracanie zaszyfrowanych maszyn wirtualny
 description: Opisuje sposób tworzenia kopii zapasowych i przywracania zaszyfrowanych maszyn wirtualnych platformy Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: 67c0e879fe2acf241b1ed08a5658209bf70b1b9c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c4760a54d0200e48b2d6a38c963e9fc23925f7ff
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95978118"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324928"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Tworzenie kopii zapasowych i Przywracanie zaszyfrowanych maszyn wirtualnych platformy Azure
 
@@ -16,13 +16,13 @@ W tym artykule opisano sposób tworzenia kopii zapasowych i przywracania maszyn 
 
 ## <a name="encryption-using-platform-managed-keys"></a>Szyfrowanie przy użyciu kluczy zarządzanych przez platformę
 
-Domyślnie wszystkie dyski w maszynach wirtualnych są szyfrowane automatycznie przy użyciu kluczy zarządzanych przez platformę (kluczy głównych parowania) korzystających z [szyfrowania usługi Storage](../storage/common/storage-service-encryption.md). Można utworzyć kopię zapasową tych maszyn wirtualnych przy użyciu Azure Backup bez żadnych określonych akcji wymaganych do obsługi szyfrowania na końcu. Aby uzyskać więcej informacji na temat szyfrowania przy użyciu kluczy zarządzanych przez platformę, [Zobacz ten artykuł](../virtual-machines/windows/disk-encryption.md#platform-managed-keys).
+Domyślnie wszystkie dyski w maszynach wirtualnych są szyfrowane automatycznie przy użyciu kluczy zarządzanych przez platformę (kluczy głównych parowania) korzystających z [szyfrowania usługi Storage](../storage/common/storage-service-encryption.md). Można utworzyć kopię zapasową tych maszyn wirtualnych przy użyciu Azure Backup bez żadnych określonych akcji wymaganych do obsługi szyfrowania na końcu. Aby uzyskać więcej informacji na temat szyfrowania przy użyciu kluczy zarządzanych przez platformę, [Zobacz ten artykuł](../virtual-machines/disk-encryption.md#platform-managed-keys).
 
 ![Zaszyfrowane dyski](./media/backup-encryption/encrypted-disks.png)
 
 ## <a name="encryption-using-customer-managed-keys"></a>Szyfrowanie przy użyciu kluczy zarządzanych przez klienta
 
-W przypadku szyfrowania dysków z kluczami zarządzanymi niestandardowymi (CMK) klucz używany do szyfrowania dysków jest przechowywany w Azure Key Vault i jest zarządzany przez użytkownika. Szyfrowanie usługi Storage (SSE) przy użyciu CMK różni się od szyfrowania Azure Disk Encryption (ADE). W programie ADE są stosowane narzędzia szyfrowania systemu operacyjnego. SSE szyfruje dane w usłudze Storage, co pozwala na używanie dowolnego systemu operacyjnego lub obrazów dla maszyn wirtualnych. Aby uzyskać więcej informacji na temat szyfrowania dysków zarządzanych przy użyciu kluczy zarządzanych przez klienta, zobacz [ten artykuł](../virtual-machines/windows/disk-encryption.md#customer-managed-keys).
+W przypadku szyfrowania dysków z kluczami zarządzanymi niestandardowymi (CMK) klucz używany do szyfrowania dysków jest przechowywany w Azure Key Vault i jest zarządzany przez użytkownika. Szyfrowanie usługi Storage (SSE) przy użyciu CMK różni się od szyfrowania Azure Disk Encryption (ADE). W programie ADE są stosowane narzędzia szyfrowania systemu operacyjnego. SSE szyfruje dane w usłudze Storage, co pozwala na używanie dowolnego systemu operacyjnego lub obrazów dla maszyn wirtualnych. Aby uzyskać więcej informacji na temat szyfrowania dysków zarządzanych przy użyciu kluczy zarządzanych przez klienta, zobacz [ten artykuł](../virtual-machines/disk-encryption.md#customer-managed-keys).
 
 ## <a name="encryption-support-using-ade"></a>Obsługa szyfrowania przy użyciu programu ADE
 

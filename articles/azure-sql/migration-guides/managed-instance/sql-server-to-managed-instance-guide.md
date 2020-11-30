@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 5c20fbbe25b51160f42f233d30c39ccaec0f5cac
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5d5404537ad107a54bd32110727e5a7d0f74ebea
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026065"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326900"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Przewodnik migracji: SQL Server do wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -99,7 +99,7 @@ Jeśli potrzebujesz porównać wydajność obciążeń z wystąpieniem zarządza
 
 ### <a name="create-sql-managed-instance"></a>Tworzenie wystąpienia zarządzanego SQL 
 
-Na podstawie informacji w fazie odnajdywania i oceniania Utwórz odpowiednie docelowe wystąpienie zarządzane SQL. Można to zrobić przy użyciu szablonu [Azure Portal](../../managed-instance/instance-create-quickstart.md), [programu PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)lub [Azure Resource Manager (ARM)](/azure/azure-sql/managed-instance/create-template-quickstart). 
+Na podstawie informacji w fazie odnajdywania i oceniania Utwórz odpowiednie docelowe wystąpienie zarządzane SQL. Można to zrobić przy użyciu szablonu [Azure Portal](../../managed-instance/instance-create-quickstart.md), [programu PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)lub [Azure Resource Manager (ARM)](../../managed-instance/create-template-quickstart.md). 
 
 
 ## <a name="migrate"></a>Migrate (Migracja)
@@ -117,14 +117,14 @@ Aby przeprowadzić migrację za pomocą usługi DMS, wykonaj następujące czynn
 1. Zarejestruj dostawcę zasobów **Microsoft. datamigration** w ramach subskrypcji, jeśli wykonujesz tę operację po raz pierwszy.
 1. Utwórz wystąpienie Azure Database Migration Service w wybranej lokalizacji (najlepiej w tym samym regionie, w którym znajduje się docelowe wystąpienie zarządzane Azure SQL) i wybierz istniejącą sieć wirtualną lub Utwórz nową, aby hostować wystąpienie usługi DMS.
 1. Po utworzeniu wystąpienia DMS Utwórz nowy projekt migracji i określ typ serwera źródłowego jako **SQL Server** i docelowy typ serwera jako **Azure SQL Database wystąpienie zarządzane**. Wybierz typ działania w bloku tworzenia projektu — migracja danych w trybie online lub offline. 
-1.  Określ szczegóły SQL Server źródłowej na stronie szczegółów **źródła migracji** oraz szczegóły docelowego wystąpienia zarządzanego Azure SQL na stronie Szczegóły **lokalizacji docelowej migracji** . Wybierz pozycję **Dalej**.
+1.  Określ szczegóły SQL Server źródłowej na stronie szczegółów **źródła migracji** oraz szczegóły docelowego wystąpienia zarządzanego Azure SQL na stronie Szczegóły **lokalizacji docelowej migracji** . Wybierz opcję **Dalej**.
 1. Wybierz bazę danych, którą chcesz zmigrować. 
 1. Podaj ustawienia konfiguracji, aby określić **udział sieciowy SMB** zawierający pliki kopii zapasowej bazy danych. Użyj poświadczeń użytkownika systemu Windows z usługą DMS, która może uzyskać dostęp do udziału sieciowego. Podaj **szczegóły konta usługi Azure Storage**. 
 1. Przejrzyj podsumowanie migracji, a następnie wybierz pozycję **Uruchom migrację**. Następnie można monitorować działanie migracji i sprawdzać postęp migracji bazy danych.
 1. Po przywróceniu bazy danych wybierz pozycję **Start uruchomienie produkcyjne**. Proces migracji kopiuje kopię zapasową dziennika końcowego po udostępnieniu jej w udziale sieciowym SMB i przywraca ją w miejscu docelowym. 
 1. Zatrzymaj cały ruch przychodzący do źródłowej bazy danych i zaktualizuj parametry połączenia do nowej bazy danych wystąpienia zarządzanego Azure SQL. 
 
-Aby zapoznać się z szczegółowym samouczkiem dotyczącym tej opcji migracji, zobacz [migrowanie SQL Server do wystąpienia zarządzanego usługi Azure SQL w trybie online za pomocą usługi DMS](/azure/dms/tutorial-sql-server-managed-instance-online). 
+Aby zapoznać się z szczegółowym samouczkiem dotyczącym tej opcji migracji, zobacz [migrowanie SQL Server do wystąpienia zarządzanego usługi Azure SQL w trybie online za pomocą usługi DMS](../../../dms/tutorial-sql-server-managed-instance-online.md). 
    
 
 
@@ -160,7 +160,7 @@ Aby przeprowadzić migrację przy użyciu kopii zapasowej i przywracania, wykona
 
 1. Po zakończeniu przywracania Wyświetl bazę danych w **Eksplorator obiektów** w SQL Server Management Studio. 
 
-Aby dowiedzieć się więcej o tej opcji migracji, zobacz [przywracanie bazy danych do wystąpienia zarządzanego usługi Azure SQL Database za pomocą programu SSMS](https://docs.microsoft.com/azure/azure-sql/managed-instance/restore-sample-database-quickstart).
+Aby dowiedzieć się więcej o tej opcji migracji, zobacz [przywracanie bazy danych do wystąpienia zarządzanego usługi Azure SQL Database za pomocą programu SSMS](../../managed-instance/restore-sample-database-quickstart.md).
 
 > [!NOTE]
 > Operacja przywracania bazy danych jest asynchroniczna i ponowienie. Może wystąpić błąd w SQL Server Management Studio, jeśli przerwania połączenia lub limit czasu wygaśnie. Azure SQL Database będzie ponawiać próbę przywrócenia bazy danych w tle, a postęp przywracania można śledzić przy użyciu widoków [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) i [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) .
@@ -203,7 +203,7 @@ Podejście testowe do migracji bazy danych obejmuje następujące działania:
 
 ## <a name="leverage-advanced-features"></a>Korzystanie z zaawansowanych funkcji 
 
-Korzystaj z zaawansowanych funkcji opartych na chmurze oferowanych przez wystąpienie zarządzane SQL, takich jak [wbudowana wysoka dostępność](../../database/high-availability-sla.md), [wykrywanie zagrożeń](../../database/advanced-data-security.md)i [monitorowanie i dostrajanie obciążenia](../../database/monitor-tune-overview.md). 
+Korzystaj z zaawansowanych funkcji opartych na chmurze oferowanych przez wystąpienie zarządzane SQL, takich jak [wbudowana wysoka dostępność](../../database/high-availability-sla.md), [wykrywanie zagrożeń](../../database/azure-defender-for-sql.md)i [monitorowanie i dostrajanie obciążenia](../../database/monitor-tune-overview.md). 
 
 [Azure SQL Analytics](../../../azure-monitor/insights/azure-sql.md) umożliwia monitorowanie dużego zestawu wystąpień zarządzanych w sposób scentralizowany.
 

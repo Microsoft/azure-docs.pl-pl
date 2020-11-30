@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 708ffce014f417f3794e59e1f79a3fcf9cba3f23
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: c9ef72241ac62efd8555de59bb52949321364035
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94639270"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325183"
 ---
 # <a name="remote-desktop-protocol-rdp-bandwidth-requirements"></a>Wymagania dotyczące przepustowości Remote Desktop Protocol (RDP)
 
@@ -106,7 +106,7 @@ Aby ustawić wstępnie zdefiniowaną częstotliwość ograniczania przepustowoś
 
 Aby utworzyć zasady QoS dla hostów sesji przyłączonych do domeny, należy najpierw zalogować się na komputerze, na którym zainstalowano zasady grupy zarządzaniem. Otwórz przystawkę Zarządzanie zasady grupyami (wybierz pozycję Start, wskaż pozycję Narzędzia administracyjne, a następnie wybierz pozycję zasady grupy Management), a następnie wykonaj następujące czynności:
 
-1. W obszarze Zarządzanie zasady grupy zlokalizuj kontener, w którym mają zostać utworzone nowe zasady. Na przykład jeśli cała sesja zawiera komputery znajdujące się w jednostce organizacyjnej o nazwie **hosty sesji** , należy utworzyć nowe zasady w sesji HOSTY jednostki organizacyjnej.
+1. W obszarze Zarządzanie zasady grupy zlokalizuj kontener, w którym mają zostać utworzone nowe zasady. Na przykład jeśli cała sesja zawiera komputery znajdujące się w jednostce organizacyjnej o nazwie **hosty sesji**, należy utworzyć nowe zasady w sesji HOSTY jednostki organizacyjnej.
 
 2. Kliknij prawym przyciskiem myszy odpowiedni kontener, a następnie wybierz pozycję **Utwórz obiekt zasad grupy w tej domenie i umieść tu łącze**.
 
@@ -114,21 +114,21 @@ Aby utworzyć zasady QoS dla hostów sesji przyłączonych do domeny, należy na
 
 4. Kliknij prawym przyciskiem myszy nowo utworzone zasady, a następnie wybierz polecenie **Edytuj**.
 
-5. W Edytor zarządzania zasadami grupy rozwiń węzeł **Konfiguracja komputera** , rozwiń węzeł **Ustawienia systemu Windows** , kliknij prawym przyciskiem myszy pozycję **QoS oparte na zasadach** , a następnie wybierz pozycję **Utwórz nowe zasady**.
+5. W Edytor zarządzania zasadami grupy rozwiń węzeł **Konfiguracja komputera**, rozwiń węzeł **Ustawienia systemu Windows**, kliknij prawym przyciskiem myszy pozycję **QoS oparte na zasadach**, a następnie wybierz pozycję **Utwórz nowe zasady**.
 
 6. W oknie dialogowym **ustawienia QoS oparte na zasadach** na stronie Otwieranie wpisz nazwę nowych zasad w polu **Nazwa** . Wybierz pozycję **Określ szybkość ograniczania ruchu wychodzącego** i ustaw wymaganą wartość, a następnie wybierz pozycję **dalej**.
 
-7. Na następnej stronie wybierz **tylko aplikacje o tej nazwie pliku wykonywalnego** i wprowadź nazwę **svchost.exe** , a następnie wybierz przycisk **dalej**. To ustawienie powoduje, że zasady umożliwiają tylko określanie priorytetów pasującego ruchu z usługi Pulpit zdalny.
+7. Na następnej stronie wybierz **tylko aplikacje o tej nazwie pliku wykonywalnego** i wprowadź nazwę **svchost.exe**, a następnie wybierz przycisk **dalej**. To ustawienie powoduje, że zasady umożliwiają tylko określanie priorytetów pasującego ruchu z usługi Pulpit zdalny.
 
 8. Na trzeciej stronie upewnij się, że wybrano zarówno **Dowolny źródłowy adres IP** , jak i **docelowy adres IP** . Wybierz opcję **Dalej**. Te dwa ustawienia zapewniają, że pakiety będą zarządzane niezależnie od tego, który komputer (adres IP) wysłał pakiety, a komputer (adres IP) otrzyma pakiety.
 
 9. Na stronie cztery wybierz pozycję **UDP** z listy rozwijanej **Wybierz protokół, którego dotyczą te zasady QoS** .
 
-10. Pod nagłówkiem **Określ numer portu źródłowego** , wybierz **z tego portu źródłowego lub zakresu**. W polu tekstowym towarzyszące wpisz **3390**. Wybierz pozycję **Zakończ**.
+10. Pod nagłówkiem **Określ numer portu źródłowego**, wybierz **z tego portu źródłowego lub zakresu**. W polu tekstowym towarzyszące wpisz **3390**. Wybierz pozycję **Zakończ**.
 
 Nowo utworzone zasady nie zaczną obowiązywać przed odświeżeniem zasady grupy na komputerach hosta sesji. Mimo że zasady grupy okresowo odświeża własne, można wymusić natychmiastowe odświeżanie, wykonując następujące czynności:
 
-1. Na każdym hoście sesji, dla którego chcesz odświeżyć zasady grupy, Otwórz wiersz polecenia jako administrator ( *Uruchom jako administrator* ).
+1. Na każdym hoście sesji, dla którego chcesz odświeżyć zasady grupy, Otwórz wiersz polecenia jako administrator (*Uruchom jako administrator*).
 
 2. W wierszu polecenia wprowadź
 

@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 97cdc4ad0b1d5e7dfb6642fa0163f810be5d7171
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: ad990f10c611c5ca5bb8a8d053ee4d59b6f05c83
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966925"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327002"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Pobieranie dzienników z wdrożeń IoT Edge
 
@@ -50,10 +50,10 @@ Ta metoda akceptuje ładunek JSON z następującym schematem:
           {
              "id": "regex string",
              "filter": {
-                "tail": int,
-                "since": int,
-                "until": int,
-                "loglevel": int,
+                "tail": "int",
+                "since": "int",
+                "until": "int",
+                "loglevel": "int",
                 "regex": "regex string"
              }
           }
@@ -67,7 +67,7 @@ Ta metoda akceptuje ładunek JSON z następującym schematem:
 |-|-|-|
 | schemaVersion | ciąg | Ustaw wartość `1.0` |
 | produktów | Tablica JSON | Tablica z `id` `filter` kolekcjami i. |
-| ID (Identyfikator) | ciąg | Wyrażenie regularne, które dostarcza nazwę modułu. Może on być zgodny z wieloma modułami na urządzeniu brzegowym. Oczekiwano formatu [wyrażeń regularnych programu .NET](/dotnet/standard/base-types/regular-expressions) . |
+| ID | ciąg | Wyrażenie regularne, które dostarcza nazwę modułu. Może on być zgodny z wieloma modułami na urządzeniu brzegowym. Oczekiwano formatu [wyrażeń regularnych programu .NET](/dotnet/standard/base-types/regular-expressions) . |
 | filter | Sekcja JSON | Filtry dzienników do zastosowania do modułów pasujących do `id` wyrażenia regularnego w spójnej kolekcji. |
 | drugorzędn | liczba całkowita | Liczba wierszy dziennika w przeszłości do pobrania od najnowszych. Obowiązkowe. |
 | Fire | liczba całkowita | Zwracaj dzienniki tylko od tego czasu, jako czas trwania (1 d, 90 m, 2 dni 3 godziny), sygnatury czasowej rfc3339 lub sygnatury czasowej systemu UNIX.  Jeśli oba `tail` i `since` są określone, dzienniki są pobierane przy użyciu `since` wartości pierwszej. Następnie `tail` wartość zostanie zastosowana do wyniku, a końcowy wynik jest zwracany. Obowiązkowe. |
@@ -159,10 +159,10 @@ Ta metoda akceptuje ładunek JSON podobny do **GetModuleLogs**, z dodaniem klucz
           {
              "id": "regex string",
              "filter": {
-                "tail": int,
-                "since": int,
-                "until": int,
-                "loglevel": int,
+                "tail": "int",
+                "since": "int",
+                "until": "int",
+                "loglevel": "int",
                 "regex": "regex string"
              }
           }

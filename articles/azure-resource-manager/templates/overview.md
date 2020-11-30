@@ -3,12 +3,12 @@ title: Przegląd szablonów
 description: Opisuje zalety korzystania z szablonów Azure Resource Manager na potrzeby wdrażania zasobów.
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: 1873c737d17fc8774ddd1276d1375799ca2da35e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 188fd5782795a4fb5456978a2a596cabc6dfd874
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280050"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325064"
 ---
 # <a name="what-are-arm-templates"></a>Co to są szablony usługi ARM?
 
@@ -38,7 +38,7 @@ Jeśli próbujesz zdecydować się na korzystanie z szablonów usługi ARM i jed
 
 * **Testowanie**: można upewnić się, że szablon jest zgodny z zalecanymi wskazówkami, testując go za pomocą zestawu narzędzi szablonów ARM (ARM-TTK). Ten zestaw testów jest skryptem programu PowerShell, który można pobrać z witryny [GitHub](https://github.com/Azure/arm-ttk). Zestaw narzędzi ułatwia opracowywanie wiedzy przy użyciu języka szablonów.
 
-* **Podgląd zmian**: możesz użyć operacji działania [warunkowego](template-deploy-what-if.md) , aby uzyskać podgląd zmian przed wdrożeniem szablonu. Dzięki czemu możesz zobaczyć, które zasoby zostaną utworzone, zaktualizowane lub usunięte, oraz wszelkie właściwości zasobów, które zostaną zmienione. Operacja działania warunkowego sprawdza bieżący stan środowiska i eliminuje konieczność zarządzania stanem.
+* **Podgląd zmian**: możesz użyć operacji działania [warunkowego](template-deploy-what-if.md) , aby uzyskać podgląd zmian przed wdrożeniem szablonu. Dzięki czemu możesz zobaczyć, które zasoby zostaną utworzone, zaktualizowane lub usunięte, oraz wszystkie właściwości zasobów, które zostaną zmienione. Operacja działania warunkowego sprawdza bieżący stan środowiska i eliminuje konieczność zarządzania stanem.
 
 * **Wbudowana weryfikacja**: szablon jest wdrażany dopiero po przekazaniu walidacji. Menedżer zasobów sprawdza szablon przed rozpoczęciem wdrażania, aby upewnić się, że wdrożenie zakończy się pomyślnie. Wdrożenie jest mniej prawdopodobnie zatrzymane w stanie Half-gotowym.
 
@@ -50,7 +50,7 @@ Jeśli próbujesz zdecydować się na korzystanie z szablonów usługi ARM i jed
 
 * **Plany wdrożenia**: możesz skorzystać z [planów](../../governance/blueprints/overview.md) zapewnianych przez firmę Microsoft, aby spełnić standardy zgodności z przepisami. Te plany obejmują wstępnie skompilowane szablony dla różnych architektur.
 
-* **Integracja**ciągłej integracji i ciągłego wdrażania: możesz zintegrować szablony z narzędziami do ciągłego i nieciągłego wdrożenia (Ci/CD), które mogą zautomatyzować potoki wydań w celu uzyskania szybkich i niezawodnych aktualizacji aplikacji i infrastruktury. Za pomocą zadania DevOps platformy Azure i szablonu Menedżer zasobów można używać Azure Pipelines do ciągłego kompilowania i wdrażania projektów szablonów ARM. Aby dowiedzieć się więcej, zobacz [projekt programu vs z potokami](add-template-to-azure-pipelines.md) i [Samouczekem: Ciągła integracja szablonów Azure Resource Manager z Azure Pipelines](./deployment-tutorial-pipeline.md).
+* **Integracja** ciągłej integracji i ciągłego wdrażania: możesz zintegrować szablony z narzędziami do ciągłego i nieciągłego wdrożenia (Ci/CD), które mogą zautomatyzować potoki wydań w celu uzyskania szybkich i niezawodnych aktualizacji aplikacji i infrastruktury. Za pomocą zadania DevOps platformy Azure i szablonu Menedżer zasobów można używać Azure Pipelines do ciągłego kompilowania i wdrażania projektów szablonów ARM. Aby dowiedzieć się więcej, zobacz [projekt programu vs z potokami](add-template-to-azure-pipelines.md) i [Samouczekem: Ciągła integracja szablonów Azure Resource Manager z Azure Pipelines](./deployment-tutorial-pipeline.md).
 
 * **Kod możliwy do eksportu**: można uzyskać szablon dla istniejącej grupy zasobów, eksportując bieżący stan grupy zasobów lub wyświetlając szablon używany do określonego wdrożenia. Przeglądając [wyeksportowany szablon](export-template-portal.md), można poznać jego składnię.
 

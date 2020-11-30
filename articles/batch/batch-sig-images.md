@@ -4,12 +4,12 @@ description: Pule obrazów niestandardowych są wydajnym sposobem konfigurowania
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: c24da435540f62a793620fe6005d176ce10c7b05
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: eb21a9e0d355274142e34fbb5c90a4d293c88ef1
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917787"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327308"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Używanie galerii obrazów udostępnionych do tworzenia niestandardowej puli obrazów
 
@@ -58,7 +58,7 @@ Na platformie Azure można przygotować udostępniony obraz z zarządzanego obra
 - Uogólniony, lokalny wirtualny dysk twardy przekazany do chmury
 
 > [!NOTE]
-> Obecnie w usłudze Batch obsługiwane są tylko uogólnione obrazy udostępnione. W tej chwili nie można utworzyć niestandardowej puli obrazów z wyspecjalizowanego obrazu udostępnionego.
+> Partia obsługuje tylko uogólnione obrazy udostępnione; nie można użyć specjalnego obrazu udostępnionego do utworzenia puli.
 
 Poniższe kroki pokazują, jak przygotować maszynę wirtualną, wykonać migawkę i utworzyć obraz na podstawie migawki.
 

@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 2c143c299cec1d48dd5438d5350c818d5cc93800
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2241049e5c3cb5039a73c0f7637f7e3553d2e227
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023722"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326880"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Omówienie migracji: SQL Server do wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -63,7 +63,7 @@ Niektóre ogólne wytyczne ułatwiające wybranie odpowiedniej warstwy usług i 
 Podczas wdrażania można wybrać zasoby obliczeniowe i magazynowe, a następnie zmienić je po użyciu [Azure Portal](../../database/scale-resources.md) bez ponoszenia przestojów aplikacji. 
 
 > [!IMPORTANT]
-> Wszelkie niezgodności w [wymaganiach dotyczących sieci wirtualnej wystąpienia zarządzanego](/azure/azure-sql/managed-instance/connectivity-architecture-overview#network-requirements) mogą uniemożliwić tworzenie nowych wystąpień lub korzystanie z istniejących. Dowiedz się więcej na temat [tworzenia nowych](/azure/azure-sql/managed-instance/virtual-network-subnet-create-arm-template?branch=release-ignite-arc-data)   i [konfigurowania istniejących](/azure/azure-sql/managed-instance/vnet-existing-add-subnet?branch=release-ignite-arc-data)   sieci. 
+> Wszelkie niezgodności w [wymaganiach dotyczących sieci wirtualnej wystąpienia zarządzanego](../../managed-instance/connectivity-architecture-overview.md#network-requirements) mogą uniemożliwić tworzenie nowych wystąpień lub korzystanie z istniejących. Dowiedz się więcej na temat [tworzenia nowych](../../managed-instance/virtual-network-subnet-create-arm-template.md?branch=release-ignite-arc-data)   i [konfigurowania istniejących](../../managed-instance/vnet-existing-add-subnet.md?branch=release-ignite-arc-data)   sieci. 
 
 ### <a name="sql-server-vm-alternative"></a>Alternatywa maszyny wirtualnej SQL Server
 
@@ -88,7 +88,7 @@ Poniższa tabela zawiera listę zalecanych narzędzi migracji:
 
 |Technologia | Opis|
 |---------|---------|
-|[Usługa Azure Database Migration Service (DMS)](/azure/dms/tutorial-sql-server-to-managed-instance)  | Usługa platformy Azure dla pierwszej firmy, która obsługuje migrację w trybie offline dla aplikacji, które mogą spowodować przestoje podczas procesu migracji. W przeciwieństwie do ciągłej migracji w trybie online, migracja w trybie offline uruchamia jednorazowe Przywracanie pełnej kopii zapasowej bazy danych ze źródła do obiektu docelowego. | 
+|[Usługa Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-managed-instance.md)  | Usługa platformy Azure dla pierwszej firmy, która obsługuje migrację w trybie offline dla aplikacji, które mogą spowodować przestoje podczas procesu migracji. W przeciwieństwie do ciągłej migracji w trybie online, migracja w trybie offline uruchamia jednorazowe Przywracanie pełnej kopii zapasowej bazy danych ze źródła do obiektu docelowego. | 
 |[Natywna kopia zapasowa i przywracanie](../../managed-instance/restore-sample-database-quickstart.md) | Wystąpienie zarządzane SQL obsługuje przywracanie natywnych kopii zapasowych bazy danych SQL Server (pliki. bak), co sprawia, że jest to najprostsza opcja migracji dla klientów, którzy mogą udostępniać pełne kopie zapasowe bazy danych w usłudze Azure Storage. Pełne i różnicowe kopie zapasowe są również obsługiwane i udokumentowane w [sekcji zasobów migracji](#migration-assets) w dalszej części tego artykułu.| 
 | | |
 
@@ -100,8 +100,8 @@ W poniższej tabeli wymieniono alternatywne narzędzia migracji:
 |---------|---------|
 |[Replikacja transakcyjna](../../managed-instance/replication-transactional-overview.md) | Replikowanie danych z tabel źródłowych SQL Server baz danych do wystąpienia zarządzanego SQL przez udostępnienie opcji migracji typu subskrybenta wydawcy podczas zachowywania spójności transakcyjnej. |  |
 |[Kopiowanie zbiorcze](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| [Narzędzie do kopiowania masowego (bcp)](/sql/tools/bcp-utility) kopiuje dane z wystąpienia SQL Server do pliku danych. Wyeksportuj dane ze źródła przy użyciu narzędzia BCP i zaimportuj plik danych do docelowego wystąpienia zarządzanego SQL.</br></br> W przypadku dużych operacji kopiowania zbiorczego do przenoszenia danych do Azure SQL Database [Narzędzie inteligentnego kopiowania masowego](/samples/azure-samples/smartbulkcopy/smart-bulk-copy/) może służyć do maksymalizowania szybkości transferu przez wykorzystanie równoległych zadań kopiowania. | 
-|[Kreator importu eksportu/BACPAC](/azure/azure-sql/database/database-import?tabs=azure-powershell)| [BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) to plik systemu Windows z `.bacpac` rozszerzeniem, które hermetyzuje schemat i dane bazy danych. BACPAC może służyć do eksportowania danych ze źródła SQL Server i do zaimportowania pliku z powrotem do wystąpienia zarządzanego Azure SQL.  |  
-|[Azure Data Factory (ADF)](/azure/data-factory/connector-azure-sql-managed-instance)| [Działanie kopiowania](/azure/data-factory/copy-activity-overview) w programie Azure Data Factory migruje dane ze źródłowej bazy danych SQL Server do wystąpienia zarządzanego SQL przy użyciu wbudowanych łączników i [Integration Runtime](/azure/data-factory/concepts-integration-runtime).</br> </br> ADF obsługuje szeroką gamę [łączników](/azure/data-factory/connector-overview) służących do przenoszenia danych ze źródeł SQL Server do wystąpienia zarządzanego SQL. |
+|[Kreator importu eksportu/BACPAC](../../database/database-import.md?tabs=azure-powershell)| [BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) to plik systemu Windows z `.bacpac` rozszerzeniem, które hermetyzuje schemat i dane bazy danych. BACPAC może służyć do eksportowania danych ze źródła SQL Server i do zaimportowania pliku z powrotem do wystąpienia zarządzanego Azure SQL.  |  
+|[Azure Data Factory (ADF)](../../../data-factory/connector-azure-sql-managed-instance.md)| [Działanie kopiowania](../../../data-factory/copy-activity-overview.md) w programie Azure Data Factory migruje dane ze źródłowej bazy danych SQL Server do wystąpienia zarządzanego SQL przy użyciu wbudowanych łączników i [Integration Runtime](../../../data-factory/concepts-integration-runtime.md).</br> </br> ADF obsługuje szeroką gamę [łączników](../../../data-factory/connector-overview.md) służących do przenoszenia danych ze źródeł SQL Server do wystąpienia zarządzanego SQL. |
 | | |
 
 ## <a name="compare-migration-options"></a>Porównanie opcji migracji
@@ -114,7 +114,7 @@ Poniższa tabela zawiera porównanie zalecanych opcji migracji:
 
 |Opcja migracji  |Kiedy stosować  |Zagadnienia do rozważenia  |
 |---------|---------|---------|
-|[Usługa Azure Database Migration Service (DMS)](/azure/dms/tutorial-sql-server-to-managed-instance) | — Migruj pojedyncze bazy danych lub wiele baz danych na dużą skalę. </br> — Może obsłużyć przestoje podczas procesu migracji. </br> </br> Obsługiwane źródła: </br> -SQL Server (2005 – 2019) lokalnie lub na maszynie wirtualnej platformy Azure </br> -AWS EC2 </br> -AWS RDS </br> -GCP COMPUTE SQL Server VM |  — Migracje na dużą skalę można zautomatyzować za pomocą [programu PowerShell](/azure/dms/howto-sql-server-to-azure-sql-mi-powershell). </br> -Czas na zakończenie migracji zależy od rozmiaru bazy danych i wpływu na czas wykonywania kopii zapasowej i przywracania. </br> -Konieczne może być wystarczające przestoje. |
+|[Usługa Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-managed-instance.md) | — Migruj pojedyncze bazy danych lub wiele baz danych na dużą skalę. </br> — Może obsłużyć przestoje podczas procesu migracji. </br> </br> Obsługiwane źródła: </br> -SQL Server (2005 – 2019) lokalnie lub na maszynie wirtualnej platformy Azure </br> -AWS EC2 </br> -AWS RDS </br> -GCP COMPUTE SQL Server VM |  — Migracje na dużą skalę można zautomatyzować za pomocą [programu PowerShell](../../../dms/howto-sql-server-to-azure-sql-mi-powershell.md). </br> -Czas na zakończenie migracji zależy od rozmiaru bazy danych i wpływu na czas wykonywania kopii zapasowej i przywracania. </br> -Konieczne może być wystarczające przestoje. |
 |[Natywna kopia zapasowa i przywracanie](../../managed-instance/restore-sample-database-quickstart.md) | — Migrowanie poszczególnych baz danych aplikacji biznesowych.  </br> — Szybka i łatwa migracja bez oddzielnej usługi lub narzędzia migracji.  </br> </br> Obsługiwane źródła: </br> -SQL Server (2005 – 2019) lokalnie lub na maszynie wirtualnej platformy Azure </br> -AWS EC2 </br> -AWS RDS </br> -GCP COMPUTE SQL Server VM | — Kopia zapasowa bazy danych używa wielu wątków do optymalizowania transferu danych do usługi Azure Blob Storage, ale przepustowość niezależnego dostawcy oprogramowania i rozmiar bazy danych mogą mieć wpływ na szybkość transferu </br> -Przestoje powinny pomieścić czas wymagany do wykonania pełnej kopii zapasowej i przywracania (czyli rozmiaru operacji na danych).| 
 | | | |
 
@@ -126,8 +126,8 @@ Poniższa tabela zawiera porównanie alternatywnych opcji migracji:
 |---------|---------|---------|
 |[Replikacja transakcyjna](../../managed-instance/replication-transactional-overview.md) | — Migrowanie przez ciągłe publikowanie zmian z tabel źródłowych baz danych do docelowych tabel bazy danych wystąpienia zarządzanego SQL. </br> -Pełna lub częściowa migracja baz danych wybranych tabel (podzbiór bazy danych).  </br> </br> Obsługiwane źródła: </br> -SQL Server (2012 – 2019) z pewnymi ograniczeniami </br> -AWS EC2  </br> -GCP COMPUTE SQL Server VM | </br> -Konfiguracja jest stosunkowo złożona w porównaniu z innymi opcjami migracji.   </br> — Udostępnia opcję ciągłej replikacji danych (bez przełączania baz danych w tryb offline).</br> -Replikacja transakcyjna ma wiele ograniczeń, które należy wziąć pod uwagę podczas konfigurowania wydawcy na SQL Server źródłowej. Zobacz [ograniczenia dotyczące publikowania obiektów](/sql/relational-databases/replication/publish/publish-data-and-database-objects#limitations-on-publishing-objects) , aby dowiedzieć się więcej.  </br> — Możliwość [monitorowania aktywności replikacji](/sql/relational-databases/replication/monitor/monitoring-replication) jest dostępna.    |
 |[Kopiowanie zbiorcze](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| — Migrowanie pełnych lub częściowych migracji danych. </br> — Może obsłużyć przestoje. </br> </br> Obsługiwane źródła: </br> -SQL Server (2005 – 2019) lokalnie lub na maszynie wirtualnej platformy Azure </br> -AWS EC2 </br> -AWS RDS </br> -GCP COMPUTE SQL Server VM   | -Wymaga przestoju podczas eksportowania danych ze źródła i importowania ich do lokalizacji docelowej. </br> -Formaty plików i typy danych używane w eksportu/imporcie muszą być spójne ze schematami tabel. |
-|[Kreator importu eksportu/BACPAC](/azure/azure-sql/database/database-import)| — Migrowanie poszczególnych baz danych aplikacji biznesowych. </br>— Odpowiednie dla mniejszych baz danych.  </br>  Nie wymaga osobnej usługi lub narzędzia migracji. </br> </br> Obsługiwane źródła: </br> -SQL Server (2005 – 2019) lokalnie lub na maszynie wirtualnej platformy Azure </br> -AWS EC2 </br> -AWS RDS </br> -GCP COMPUTE SQL Server VM  |   </br> -Wymaga przestoju, ponieważ dane muszą zostać wyeksportowane w źródle i zaimportowane w miejscu docelowym.   </br> -Formaty plików i typy danych używane w eksportu/imporcie muszą być spójne ze schematami tabel, aby uniknąć błędów obcinania/niezgodności typów danych. </br> — Czas poświęcony na Eksportowanie bazy danych o dużej liczbie obiektów może być znacznie wyższy. |
-|[Azure Data Factory (ADF)](/azure/data-factory/connector-azure-sql-managed-instance)| — Migrowanie i/lub przekształcanie danych z źródłowych SQL Server baz danych.</br> — Scalanie danych z wielu źródeł danych do wystąpienia zarządzanego usługi Azure SQL zwykle dla obciążeń analizy biznesowej.   </br> -Wymaga utworzenia potoków przenoszenia danych w podajniku APD, aby przenieść dane ze źródła do miejsca docelowego.   </br> - [Koszt](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) jest ważnym zagadnieniem i opiera się na wyzwalaczach potoku, uruchomieniach działań, czasie przenoszenia danych itp. |
+|[Kreator importu eksportu/BACPAC](../../database/database-import.md)| — Migrowanie poszczególnych baz danych aplikacji biznesowych. </br>— Odpowiednie dla mniejszych baz danych.  </br>  Nie wymaga osobnej usługi lub narzędzia migracji. </br> </br> Obsługiwane źródła: </br> -SQL Server (2005 – 2019) lokalnie lub na maszynie wirtualnej platformy Azure </br> -AWS EC2 </br> -AWS RDS </br> -GCP COMPUTE SQL Server VM  |   </br> -Wymaga przestoju, ponieważ dane muszą zostać wyeksportowane w źródle i zaimportowane w miejscu docelowym.   </br> -Formaty plików i typy danych używane w eksportu/imporcie muszą być spójne ze schematami tabel, aby uniknąć błędów obcinania/niezgodności typów danych. </br> — Czas poświęcony na Eksportowanie bazy danych o dużej liczbie obiektów może być znacznie wyższy. |
+|[Azure Data Factory (ADF)](../../../data-factory/connector-azure-sql-managed-instance.md)| — Migrowanie i/lub przekształcanie danych z źródłowych SQL Server baz danych.</br> — Scalanie danych z wielu źródeł danych do wystąpienia zarządzanego usługi Azure SQL zwykle dla obciążeń analizy biznesowej.   </br> -Wymaga utworzenia potoków przenoszenia danych w podajniku APD, aby przenieść dane ze źródła do miejsca docelowego.   </br> - [Koszt](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) jest ważnym zagadnieniem i opiera się na wyzwalaczach potoku, uruchomieniach działań, czasie przenoszenia danych itp. |
 | | | |
 
 ## <a name="feature-interoperability"></a>Współdziałanie funkcji 
@@ -136,7 +136,7 @@ Podczas migrowania obciążeń, które są zależne od innych funkcji SQL Server
 
 #### <a name="sql-server-integration-services"></a>Usługi SQL Server Integration Services
 
-Migruj pakiety i projekty SQL Server Integration Services (SSIS) w SSISDB do wystąpienia zarządzanego usługi Azure SQL przy użyciu [Azure Database Migration Service (DMS)](/azure/dms/how-to-migrate-ssis-packages-managed-instance). 
+Migruj pakiety i projekty SQL Server Integration Services (SSIS) w SSISDB do wystąpienia zarządzanego usługi Azure SQL przy użyciu [Azure Database Migration Service (DMS)](../../../dms/how-to-migrate-ssis-packages-managed-instance.md). 
 
 Migracja jest obsługiwana tylko w przypadku pakietów SSIS w SSISDB począwszy od SQL Server 2012. Przekonwertuj starsze pakiety usług SSIS przed migracją. Aby dowiedzieć się więcej, zobacz [Samouczek dotyczący konwersji projektu](/sql/integration-services/lesson-6-2-converting-the-project-to-the-project-deployment-model) . 
 
@@ -149,7 +149,7 @@ Raporty usługi SQL Server Reporting Services (SSRS) można migrować do raport�
 
 SQL Server Analysis Services modele tabelaryczne z SQL Server 2012 i nowszych można migrować do Azure Analysis Services, który jest modelem wdrażania PaaS dla Analysis Services modelu tabelarycznego na platformie Azure. Więcej informacji na temat migrowania modeli Premium do Azure Analysis Services można znaleźć w tym [samouczku wideo](https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/).
 
-Alternatywnie można również rozważyć Migrowanie lokalnych modeli Analysis Services modele tabelaryczne do [Power BI Premium przy użyciu nowych punktów końcowych odczytu/zapisu XMLA](https://docs.microsoft.com/power-bi/admin/service-premium-connect-tools). 
+Alternatywnie można również rozważyć Migrowanie lokalnych modeli Analysis Services modele tabelaryczne do [Power BI Premium przy użyciu nowych punktów końcowych odczytu/zapisu XMLA](/power-bi/admin/service-premium-connect-tools). 
 > [!NOTE]
 > Funkcje punktów końcowych odczytu/zapisu Power BI XMLA są obecnie dostępne w publicznej wersji zapoznawczej i nie powinny być brane pod uwagę w przypadku obciążeń produkcyjnych, dopóki funkcjonalność nie będzie ogólnie dostępna.
 
@@ -161,7 +161,7 @@ Poza architekturą wysokiej dostępności, która jest uwzględniona w wystąpie
 
 #### <a name="sql-agent-jobs"></a>Zadania programu SQL Agent
 
-Użyj opcji Azure Database Migration Service w trybie offline (DMS), aby przeprowadzić migrację [zadań programu SQL Agent](/azure/dms/howto-sql-server-to-azure-sql-mi-powershell#offline-migrations). W przeciwnym razie skryptuje zadania w języku Transact-SQL (T-SQL) przy użyciu SQL Server Management Studio a następnie ręcznie je utworzyć w docelowym wystąpieniu zarządzanym SQL. 
+Użyj opcji Azure Database Migration Service w trybie offline (DMS), aby przeprowadzić migrację [zadań programu SQL Agent](../../../dms/howto-sql-server-to-azure-sql-mi-powershell.md#offline-migrations). W przeciwnym razie skryptuje zadania w języku Transact-SQL (T-SQL) przy użyciu SQL Server Management Studio a następnie ręcznie je utworzyć w docelowym wystąpieniu zarządzanym SQL. 
 
 > [!IMPORTANT]
 > Obecnie usługa Azure DMS obsługuje tylko zadania z podsystemem T-SQL. Zadania z krokami pakietu SSIS będą musiały zostać przemigrowane ręcznie. 
@@ -193,7 +193,7 @@ Przywracanie systemowych baz danych nie jest obsługiwane. Aby przeprowadzić mi
 
 Pamiętaj, aby korzystać z zaawansowanych funkcji opartych na chmurze oferowanych przez wystąpienie zarządzane SQL. Na przykład nie trzeba już martwić się o zarządzanie kopiami zapasowymi, gdy usługa go wykonuje. W okresie przechowywania można przywrócić wszystkie [punkty w czasie](../../database/recovery-using-backups.md#point-in-time-restore). Ponadto nie trzeba martwić się o skonfigurowanie wysokiej dostępności, ponieważ [wysoka dostępność jest wbudowana](../../database/high-availability-sla.md). 
 
-Aby zwiększyć bezpieczeństwo, należy rozważyć użycie [uwierzytelniania Azure Active Directory](../../database/authentication-aad-overview.md), [inspekcji](../../managed-instance/auditing-configure.md), [wykrywania zagrożeń](../../database/advanced-data-security.md), [zabezpieczeń na poziomie wiersza](/sql/relational-databases/security/row-level-security)i [dynamicznego maskowania danych](/sql/relational-databases/security/dynamic-data-masking).
+Aby zwiększyć bezpieczeństwo, należy rozważyć użycie [uwierzytelniania Azure Active Directory](../../database/authentication-aad-overview.md), [inspekcji](../../managed-instance/auditing-configure.md), [wykrywania zagrożeń](../../database/azure-defender-for-sql.md), [zabezpieczeń na poziomie wiersza](/sql/relational-databases/security/row-level-security)i [dynamicznego maskowania danych](/sql/relational-databases/security/dynamic-data-masking).
 
 Oprócz zaawansowanych funkcji zarządzania i zabezpieczeń wystąpienie zarządzane SQL udostępnia zestaw zaawansowanych narzędzi, które mogą ułatwić [monitorowanie i dostrajanie obciążenia](../../database/monitor-tune-overview.md). [Azure SQL Analytics](../../../azure-monitor/insights/azure-sql.md) umożliwia monitorowanie dużego zestawu wystąpień zarządzanych w sposób scentralizowany.  [Dostrajanie automatyczne](/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction)   w zarządzanych wystąpieniach program ciągle monitoruje wydajność statystyk wykonywania planu SQL i automatycznie naprawia zidentyfikowane problemy z wydajnością. 
 

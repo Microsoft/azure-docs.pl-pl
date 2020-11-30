@@ -4,12 +4,12 @@ description: Instrukcje dotyczące przenoszenia magazynu Recovery Services w ram
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 5a73963970b5fad7b3992d501d9aac5cc7229622
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 12c276b861e7db8e93e60eea7e9cd7f3aba04860
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926686"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325778"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Przenoszenie magazynu Recovery Services w ramach subskrypcji i grup zasobów platformy Azure
 
@@ -30,11 +30,11 @@ Obsługiwane są wszystkie regiony publiczne i suwerenne regiony, z wyjątkiem F
 - Jeśli maszyna wirtualna nie jest przenoszona do magazynu Recovery Services między subskrypcjami ani do nowej grupy zasobów, bieżące punkty odzyskiwania maszyny wirtualnej pozostaną nienaruszone w magazynie do momentu ich wygaśnięcia.
 - Niezależnie od tego, czy maszyna wirtualna jest przenoszona z magazynem, czy nie, możesz zawsze przywrócić maszynę wirtualną z zachowanej historii kopii zapasowych w magazynie.
 - Azure Disk Encryption wymaga, aby Magazyn kluczy i maszyny wirtualne znajdowały się w tym samym regionie i subskrypcji platformy Azure.
-- Aby przenieść maszynę wirtualną z dyskami zarządzanymi, zobacz ten [artykuł](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription).
+- Aby przenieść maszynę wirtualną z dyskami zarządzanymi, zobacz ten [artykuł](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - Opcje przeniesienia zasobów wdrożonych za pomocą modelu klasycznego różnią się w zależności od tego, czy przenosisz zasoby w ramach subskrypcji, czy na nową subskrypcję. Więcej informacji znajduje się w tym [artykule](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - Zasady tworzenia kopii zapasowych zdefiniowane dla magazynu są zachowywane po przejściu magazynu między subskrypcjami lub nową grupą zasobów.
 - Można przenieść tylko magazyn zawierający dowolne z następujących typów elementów kopii zapasowej. Wszelkie elementy kopii zapasowej typów, które nie są wymienione poniżej, muszą zostać zatrzymane, a dane zostaną trwale usunięte przed przeniesieniem magazynu.
-  - Azure Virtual Machines
+  - Maszyny wirtualne platformy Azure
   - Agent Microsoft Azure Recovery Services (MARS)
   - Serwer Microsoft Azure Backup (serwera usługi MAB)
   - Program Data Protection Manager (DPM)
@@ -57,7 +57,7 @@ Aby przenieść magazyn Recovery Services i powiązane z nim zasoby do innej gru
 
    ![Karta informacji o Essentials](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
-3. W menu przegląd magazynu wybierz pozycję **Zmień** obok **grupy zasobów** , aby otworzyć okienko **przenoszenie zasobów** .
+3. W menu przegląd magazynu wybierz pozycję **Zmień** obok **grupy zasobów**, aby otworzyć okienko **przenoszenie zasobów** .
 
    ![Zmień grupę zasobów](./media/backup-azure-move-recovery-services/change-resource-group.png)
 
@@ -86,7 +86,7 @@ Magazyn Recovery Services i powiązane z nim zasoby można przenieść do innej 
 
     ![Karta informacji o Essentials](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
-3. W menu przegląd magazynu wybierz pozycję **Zmień** obok pozycji **subskrypcja** , aby otworzyć okienko **przenoszenie zasobów** .
+3. W menu przegląd magazynu wybierz pozycję **Zmień** obok pozycji **subskrypcja**, aby otworzyć okienko **przenoszenie zasobów** .
 
    ![Zmień subskrypcję](./media/backup-azure-move-recovery-services/change-resource-subscription.png)
 
@@ -99,7 +99,7 @@ Magazyn Recovery Services i powiązane z nim zasoby można przenieść do innej 
 
    ![Dodaj subskrypcję](./media/backup-azure-move-recovery-services/add-subscription.png)
 
-7. Zaznacz opcję **rozumiem, że narzędzia i skrypty skojarzone z przeniesionymi zasobami nie będą działały do momentu zaktualizowania ich do korzystania z nowych identyfikatorów zasobów** , aby potwierdzić, a następnie wybierz przycisk **OK** .
+7. Zaznacz opcję **rozumiem, że narzędzia i skrypty skojarzone z przeniesionymi zasobami nie będą działały do momentu zaktualizowania ich do korzystania z nowych identyfikatorów zasobów** , aby potwierdzić, a następnie wybierz przycisk **OK**.
 
 > [!NOTE]
 > Kopia zapasowa między subskrypcjami (magazyn RS i chronione maszyny wirtualne znajdują się w różnych subskrypcjach) nie jest obsługiwanym scenariuszem. Ponadto opcja nadmiarowości magazynu z lokalnego nadmiarowego magazynu (LRS) na globalnie nadmiarowy magazyn (GRS) i na odwrót nie może zostać zmodyfikowana podczas operacji przenoszenia magazynu.
@@ -157,9 +157,9 @@ Aby chronić obciążenia w nowym magazynie, bieżąca Ochrona i dane muszą zos
 
 1. Wyłącz usuwanie nietrwałe we właściwościach magazynu. Wykonaj następujące [kroki](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal) , aby wyłączyć usuwanie nietrwałe.
 
-2. Zatrzymaj ochronę i usuń kopie zapasowe z bieżącego magazynu. W menu pulpitu nawigacyjnego magazynu wybierz pozycję **elementy kopii zapasowej** . Elementy wymienione w tym miejscu, które należy przenieść do nowego magazynu, muszą zostać usunięte wraz z danymi kopii zapasowych. Zobacz jak [usunąć chronione elementy w chmurze](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) i [usunąć chronione elementy lokalnie](backup-azure-delete-vault.md#delete-protected-items-on-premises).
+2. Zatrzymaj ochronę i usuń kopie zapasowe z bieżącego magazynu. W menu pulpitu nawigacyjnego magazynu wybierz pozycję **elementy kopii zapasowej**. Elementy wymienione w tym miejscu, które należy przenieść do nowego magazynu, muszą zostać usunięte wraz z danymi kopii zapasowych. Zobacz jak [usunąć chronione elementy w chmurze](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) i [usunąć chronione elementy lokalnie](backup-azure-delete-vault.md#delete-protected-items-on-premises).
 
-3. Jeśli planujesz przenoszenie programu AFS (udziały plików platformy Azure), serwerów SQL lub serwerów SAP HANA, należy również je wyrejestrować. W menu pulpitu nawigacyjnego magazynu wybierz pozycję **infrastruktura zapasowa** . Zobacz jak [wyrejestrować serwer SQL](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance), [wyrejestrować konto magazynu skojarzone z udziałami plików platformy Azure](manage-afs-backup.md#unregister-a-storage-account)i [wyrejestrować wystąpienie SAP HANA](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
+3. Jeśli planujesz przenoszenie programu AFS (udziały plików platformy Azure), serwerów SQL lub serwerów SAP HANA, należy również je wyrejestrować. W menu pulpitu nawigacyjnego magazynu wybierz pozycję **infrastruktura zapasowa**. Zobacz jak [wyrejestrować serwer SQL](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance), [wyrejestrować konto magazynu skojarzone z udziałami plików platformy Azure](manage-afs-backup.md#unregister-a-storage-account)i [wyrejestrować wystąpienie SAP HANA](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
 
 4. Po usunięciu ze starego magazynu, kontynuuj konfigurowanie kopii zapasowych dla obciążenia w nowym magazynie.
 

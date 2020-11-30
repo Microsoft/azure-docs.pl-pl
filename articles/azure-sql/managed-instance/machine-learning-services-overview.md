@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 06/03/2020
-ms.openlocfilehash: c5392c822c42c2e0ee3f6ce9edffc6229d572165
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c805bacbd4a2219fb79168ad6426efd8b0a390df
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782420"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324520"
 ---
 # <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Machine Learning Services w wystąpieniu zarządzanym usługi Azure SQL (wersja zapoznawcza)
 
@@ -54,7 +54,7 @@ Ta ograniczona publiczna wersja zapoznawcza podlega [postanowieniom dotyczącym 
 
 Jeśli interesuje Cię dołączenie do programu w wersji zapoznawczej i akceptujesz te warunki, możesz poprosić o rejestrację, tworząc bilet pomocy technicznej platformy Azure pod adresem [**https://azure.microsoft.com/support/create-ticket/**](https://azure.microsoft.com/support/create-ticket/) . 
 
-1. Na stronie **Tworzenie biletu pomocy technicznej** kliknij pozycję **Utwórz zdarzenie** .
+1. Na stronie **Tworzenie biletu pomocy technicznej** kliknij pozycję **Utwórz zdarzenie**.
 
 1. Na stronie **Pomoc i obsługa techniczna** kliknij pozycję **nowe żądanie obsługi** , aby utworzyć nowy bilet.
 
@@ -67,16 +67,16 @@ Jeśli interesuje Cię dołączenie do programu w wersji zapoznawczej i akceptuj
    - Typ problemu — **Machine Learning Services dla wystąpienia zarządzanego SQL (wersja zapoznawcza)**
    - Problem z podtypem — **inny problem lub "jak to zrobić"**
 
-1. Kliknij przycisk **Dalej: rozwiązania** .
+1. Kliknij przycisk **Dalej: rozwiązania**.
 
-1. Przeczytaj informacje o wersji zapoznawczej, a następnie kliknij przycisk **Dalej: szczegóły** .
+1. Przeczytaj informacje o wersji zapoznawczej, a następnie kliknij przycisk **Dalej: szczegóły**.
 
 1. Na tej stronie:
-   - Czy w przypadku pytania **próbujesz zarejestrować się w celu skorzystania z wersji zapoznawczej?** wybierz pozycję **tak** . 
+   - Czy w przypadku pytania **próbujesz zarejestrować się w celu skorzystania z wersji zapoznawczej?** wybierz pozycję **tak**. 
    - W polu **Opis** wprowadź szczegóły żądania, w tym nazwę serwera logicznego, region i Identyfikator subskrypcji, które chcesz zarejestrować w wersji zapoznawczej. Wprowadź inne szczegóły stosownie do potrzeb.
    - Wybierz preferowaną metodę kontaktu. 
 
-1. Po zakończeniu kliknij przycisk **Dalej: przegląd i tworzenie** , a następnie kliknij przycisk **Utwórz** .
+1. Po zakończeniu kliknij przycisk **Dalej: przegląd i tworzenie**, a następnie kliknij przycisk **Utwórz**.
 
 Gdy zarejestrujesz się w programie, firma Microsoft dołączy Cię do publicznej wersji zapoznawczej i włączy usługi Machine Learning Services dla Twojej istniejącej lub nowej bazy danych.
 
@@ -85,6 +85,6 @@ W czasie korzystania z publicznej wersji zapoznawczej nie zaleca się używania 
 ## <a name="next-steps"></a>Następne kroki
 
 - Zapoznaj się [z kluczowymi różnicami w Machine Learning Services SQL Server](machine-learning-services-differences.md).
-- Aby dowiedzieć się, jak używać języka Python w Machine Learning Services, zobacz [Uruchamianie skryptów Python](/sql/machine-learning/tutorials/quickstart-python-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&view=sql-server-ver15).
-- Aby dowiedzieć się, jak używać języka R w Machine Learning Services, zobacz [Uruchamianie skryptów języka r](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&view=sql-server-ver15).
+- Aby dowiedzieć się, jak używać języka Python w Machine Learning Services, zobacz [Uruchamianie skryptów Python](/sql/machine-learning/tutorials/quickstart-python-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&view=sql-server-ver15).
+- Aby dowiedzieć się, jak używać języka R w Machine Learning Services, zobacz [Uruchamianie skryptów języka r](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&view=sql-server-ver15).
 - Aby uzyskać więcej informacji na temat uczenia maszynowego na innych platformach SQL, zobacz [dokumentację usługi SQL Machine Learning](/sql/machine-learning/).
