@@ -3,12 +3,12 @@ title: Oszczędność kosztów dzięki zarezerwowanemu wystąpieniu rozwiązania
 description: Dowiedz się, jak kupić wystąpienie zarezerwowane dla rozwiązań VMware platformy Azure.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: b57e985068adabccecbbdb43dd11bcf6596bf422
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 80780e9718001893b6960220b5004c1c29b2fec5
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578969"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327401"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Oszczędność kosztów dzięki rozwiązaniu VMware platformy Azure
 
@@ -22,7 +22,7 @@ Wystąpienia zarezerwowane są dostępne z pewnymi wyjątkami.
 
 -   **Niewystarczające limity przydziału** — w ramach subskrypcji dla nowego wystąpienia zarezerwowanego w ramach rezerwacji należącej do jednej lub udostępnionej subskrypcji musi być dostępny przydział hostów. Aby rozwiązać ten problem, można [utworzyć żądanie zwiększenia limitu przydziału](enable-azure-vmware-solution.md) .
 
--   **Oferta do oferty** — będziesz potrzebować [platformy Azure Umowa Enterprise (EA)](../cost-management-billing/manage/ea-portal-agreements.md) z firmą Microsoft.
+-   **Oferta do oferty**— będziesz potrzebować [platformy Azure Umowa Enterprise (EA)](../cost-management-billing/manage/ea-portal-agreements.md) z firmą Microsoft.
 
 -   **Ograniczenia pojemności** — w rzadkich przypadkach platforma Azure ogranicza zakup nowych rezerwacji dla jednostek SKU hosta rozwiązań VMware platformy Azure z powodu niskiej wydajności w regionie.
 
@@ -58,12 +58,12 @@ Te wymagania dotyczą kupowania zastrzeżonego dedykowanego wystąpienia hosta:
    | Zakres        | Zakres rezerwacji może obejmować jedną subskrypcję lub wiele subskrypcji (zakres udostępniony). W przypadku wybrania opcji:<br><ul><li><b>Zakres pojedynczej grupy zasobów</b> — stosuje rabat rezerwacji do zasobów pasujących tylko w wybranej grupie zasobów.</li><li><b>Zakres pojedynczej subskrypcji</b> — stosuje rabat rezerwacji do pasujących zasobów w wybranej subskrypcji.</li><li><b>Zakres udostępniony</b> — stosuje rabat rezerwacji do pasujących zasobów w uprawnionych subskrypcjach, które znajdują się w kontekście rozliczeń. W przypadku klientów z umowami EA kontekst rozliczania to rejestracja. W przypadku indywidualnych subskrypcji ze stawkami płatności zgodnie z rzeczywistym użyciem kontekst rozliczeń stanowią wszystkie kwalifikujące się subskrypcje utworzone przez administratora konta.</li></ul>       |
    | Region (Region)       | Region świadczenia usługi Azure objęty rezerwacją.   |
    | Rozmiar hosta    | AV36    |
-   | Termin         | Jeden rok lub trzy lata.  |
-   | Ilość     | Liczba wystąpień do zakupu w ramach rezerwacji. Ilość to liczba uruchomionych hostów rozwiązań VMware platformy Azure, które mogą uzyskać rabat rozliczeń.    |
+   | Okres         | Jeden rok lub trzy lata.  |
+   | Liczba     | Liczba wystąpień do zakupu w ramach rezerwacji. Ilość to liczba uruchomionych hostów rozwiązań VMware platformy Azure, które mogą uzyskać rabat rozliczeń.    |
 
 ### <a name="buy-reserved-instances-for-a-csp-subscription"></a>Kupowanie wystąpień zarezerwowanych dla subskrypcji dostawcy CSP
 
-Dostawcy usług kryptograficznych, którzy chcą zakupić wystąpienia zarezerwowane dla swoich klientów, muszą korzystać z procedury **administratora w imieniu** (AOBO) z [dokumentacji Centrum partnerskiego](https://docs.microsoft.com/partner-center/azure-plan-manage). Aby uzyskać więcej informacji, zobacz plik wideo [administratora w imieniu (AOBO)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) .
+Dostawcy usług kryptograficznych, którzy chcą zakupić wystąpienia zarezerwowane dla swoich klientów, muszą korzystać z procedury **administratora w imieniu** (AOBO) z [dokumentacji Centrum partnerskiego](/partner-center/azure-plan-manage). Aby uzyskać więcej informacji, zobacz plik wideo [administratora w imieniu (AOBO)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) .
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com).
 
@@ -87,8 +87,8 @@ Dostawcy usług kryptograficznych, którzy chcą zakupić wystąpienia zarezerwo
    | Zakres        | Zakres rezerwacji może obejmować jedną subskrypcję lub wiele subskrypcji (zakres udostępniony). W przypadku wybrania opcji:<br><ul><li><b>Zakres pojedynczej grupy zasobów</b> — stosuje rabat rezerwacji do zasobów pasujących tylko w wybranej grupie zasobów.</li><li><b>Zakres pojedynczej subskrypcji</b> — stosuje rabat rezerwacji do pasujących zasobów w wybranej subskrypcji.</li><li><b>Zakres udostępniony</b> — stosuje rabat rezerwacji do pasujących zasobów w uprawnionych subskrypcjach, które znajdują się w kontekście rozliczeń. W przypadku klientów z umowami EA kontekst rozliczania to rejestracja. W przypadku indywidualnych subskrypcji ze stawkami płatności zgodnie z rzeczywistym użyciem kontekst rozliczeń stanowią wszystkie kwalifikujące się subskrypcje utworzone przez administratora konta.</li></ul>       |
    | Region (Region)       | Region świadczenia usługi Azure objęty rezerwacją.   |
    | Rozmiar hosta    | AV36    |
-   | Termin         | Jeden rok lub trzy lata.  |
-   | Ilość     | Liczba wystąpień do zakupu w ramach rezerwacji. Ilość to liczba uruchomionych hostów rozwiązań VMware platformy Azure, które mogą uzyskać rabat rozliczeń.     |
+   | Okres         | Jeden rok lub trzy lata.  |
+   | Liczba     | Liczba wystąpień do zakupu w ramach rezerwacji. Ilość to liczba uruchomionych hostów rozwiązań VMware platformy Azure, które mogą uzyskać rabat rozliczeń.     |
 
 Aby dowiedzieć się więcej na temat sposobu wyświetlania zakupionych rezerwacji dla klienta, zobacz temat [Wyświetlanie zastrzeżeń platformy Azure jako artykułu dostawcy rozwiązań w chmurze (CSP)](../cost-management-billing/reservations/how-to-view-csp-reservations.md) .
 
@@ -113,7 +113,7 @@ Zmiany w rezerwacji można wprowadzić po zakupie:
 
 Można również podzielić rezerwację na mniejsze fragmenty lub scalić rezerwacje. Żadna ze zmian nie powoduje nowej transakcji komercyjnej lub zmiana daty zakończenia rezerwacji.
 
-Aby uzyskać szczegółowe informacje na temat rezerwacji zarządzanych przez dostawcę usług kryptograficznych, zobacz [sprzedawanie Microsoft Azure rezerwacji klientom przy użyciu Centrum partnerskiego, Azure Portal lub interfejsów API](https://docs.microsoft.com/partner-center/azure-reservations).
+Aby uzyskać szczegółowe informacje na temat rezerwacji zarządzanych przez dostawcę usług kryptograficznych, zobacz [sprzedawanie Microsoft Azure rezerwacji klientom przy użyciu Centrum partnerskiego, Azure Portal lub interfejsów API](/partner-center/azure-reservations).
 
 
 
@@ -121,8 +121,8 @@ Aby uzyskać szczegółowe informacje na temat rezerwacji zarządzanych przez do
 >Po zakupieniu rezerwacji nie będzie można wprowadzać tych zmian bezpośrednio:
 >
 > - Istniejący region rezerwacji
-> - Jednostka SKU
-> - Ilość
+> - SKU
+> - Liczba
 > - Czas trwania
 >
 >Istnieje jednak możliwość *wymiany* rezerwacji, jeśli chcesz wprowadzić zmiany.
@@ -131,4 +131,4 @@ Aby uzyskać szczegółowe informacje na temat rezerwacji zarządzanych przez do
 
 Rezerwacje można anulować, wymieniać lub zwracać, jednak obowiązują przy tym pewne ograniczenia. Aby uzyskać więcej informacji, zobacz temat [Self-service exchanges and refunds for Azure Reservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md) (Samoobsługowe wymiany i zwroty kosztów dla rezerwacji platformy Azure).
 
-Dostawcy usług kryptograficznych mogą anulować rezerwacje, wymienić je lub refundować, z pewnymi ograniczeniami zakupionymi dla klientów. Aby uzyskać więcej informacji, zobacz artykuł [dotyczący zarządzania zastrzeżeń, anulowania, wymiany lub Microsoft Azure zwrotu dla klientów](https://docs.microsoft.com/partner-center/azure-reservations-manage).
+Dostawcy usług kryptograficznych mogą anulować rezerwacje, wymienić je lub refundować, z pewnymi ograniczeniami zakupionymi dla klientów. Aby uzyskać więcej informacji, zobacz artykuł [dotyczący zarządzania zastrzeżeń, anulowania, wymiany lub Microsoft Azure zwrotu dla klientów](/partner-center/azure-reservations-manage).

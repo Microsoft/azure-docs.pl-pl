@@ -3,14 +3,14 @@ title: Omówienie Update Management Azure Automation
 description: Ten artykuł zawiera omówienie funkcji Update Management, która implementuje aktualizacje dla maszyn z systemami Windows i Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 11/23/2020
+ms.date: 11/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: eadceb17d01b40deab656bdd6223cb8f0844f54f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 37ab05ce7e963ab7fdc4d2b02e254adaa205446c
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95528248"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327495"
 ---
 # <a name="update-management-overview"></a>Omówienie rozwiązania Update Management
 
@@ -79,7 +79,7 @@ W poniższej tabeli wymieniono systemy operacyjne obsługiwane w przypadku ocen 
 |CentOS 6 i 7 (x64)      | Agenci systemu Linux wymagają dostępu do repozytorium aktualizacji. Stosowanie poprawek opartych na klasyfikacji wymaga `yum` zwrócenia danych zabezpieczeń, które nie są dostępne w wersjach RTM CentOS. Aby uzyskać więcej informacji na temat stosowania poprawek opartych na klasyfikacji na CentOS, zobacz [Aktualizacja klasyfikacji w systemie Linux](view-update-assessments.md#linux).          |
 |Red Hat Enterprise 6 i 7 (x64)     | Agenci systemu Linux wymagają dostępu do repozytorium aktualizacji.        |
 |SUSE Linux Enterprise Server 12 (x64)     | Agenci systemu Linux wymagają dostępu do repozytorium aktualizacji.        |
-|Ubuntu 14,04 LTS, 16,04 LTS i 18,04 (x64)      |Agenci systemu Linux wymagają dostępu do repozytorium aktualizacji.         |
+|Ubuntu 14,04 LTS, 16,04 LTS i 18,04 LTS (x64)      |Agenci systemu Linux wymagają dostępu do repozytorium aktualizacji.         |
 
 > [!NOTE]
 > Zestawy skalowania maszyn wirtualnych platformy Azure mogą być zarządzane za pomocą Update Management. Update Management działa na samych wystąpieniach, a nie na obrazie podstawowym. Należy zaplanować aktualizacje w sposób przyrostowy, aby nie wszystkie wystąpienia maszyn wirtualnych były aktualizowane jednocześnie. Węzły dla zestawów skalowania maszyn wirtualnych można dodać, wykonując czynności opisane w sekcji [Dodawanie maszyny spoza platformy Azure do Change Tracking i spisu](../automation-tutorial-installed-software.md#add-a-non-azure-machine-to-change-tracking-and-inventory).

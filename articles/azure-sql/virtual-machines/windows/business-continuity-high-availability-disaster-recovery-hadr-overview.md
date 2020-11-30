@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: 81d0bddbd62f9f2d15d8404fee63b15c8ab2c0a3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 194c6a5cead400e1bac78ba42cb7238b64bd3b7b
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102279"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327478"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Ciągłość działania i HADR Cluster SQL Server na platformie Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -90,7 +90,7 @@ Na poniższej ilustracji Instalator używa SQL Server uruchomionego na maszynie 
 
 Aby uzyskać więcej informacji, zobacz [postanowienia dotyczące licencjonowania produktów](https://www.microsoft.com/licensing/product-licensing/products). 
 
-Aby włączyć tę korzyść, przejdź do [zasobu maszyny wirtualnej SQL Server](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource). Wybierz opcję **Konfiguruj** w obszarze **Ustawienia** , a następnie wybierz opcję **odzyskiwanie awaryjne** w obszarze **SQL Server licencji** . Zaznacz to pole wyboru, aby potwierdzić, że ta SQL Server maszyna wirtualna będzie używana jako replika pasywna, a następnie wybierz pozycję **Zastosuj** , aby zapisać ustawienia. 
+Aby włączyć tę korzyść, przejdź do [zasobu maszyny wirtualnej SQL Server](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource). Wybierz opcję **Konfiguruj** w obszarze **Ustawienia**, a następnie wybierz opcję **odzyskiwanie awaryjne** w obszarze **SQL Server licencji**. Zaznacz to pole wyboru, aby potwierdzić, że ta SQL Server maszyna wirtualna będzie używana jako replika pasywna, a następnie wybierz pozycję **Zastosuj** , aby zapisać ustawienia. 
 
 ![Konfigurowanie repliki odzyskiwania po awarii na platformie Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/dr-replica-in-portal.png)
 
@@ -101,7 +101,7 @@ Maszyny wirtualne, magazyn i sieci platformy Azure mają różne cechy operacyjn
 ### <a name="high-availability-nodes-in-an-availability-set"></a>Węzły wysokiej dostępności w zestawie dostępności
 Zestawy dostępności na platformie Azure umożliwiają umieszczenie węzłów o wysokiej dostępności w oddzielnych domenach błędów i domenach aktualizacji. Platforma Azure przypisuje domenę aktualizacji i domenę błędów do każdej maszyny wirtualnej w zestawie dostępności. Ta konfiguracja w centrum danych gwarantuje, że podczas planowanego lub nieplanowanego zdarzenia konserwacji co najmniej jedna maszyna wirtualna będzie dostępna i spełnia warunki umowy SLA platformy Azure wynoszącą 99,95% czasu. 
 
-Aby skonfigurować konfigurację wysokiej dostępności, należy umieścić wszystkie uczestniczące SQL Server maszyny wirtualne w tym samym zestawie dostępności, aby uniknąć utraty dostępu do aplikacji lub danych podczas zdarzenia konserwacji. Tylko węzły w tej samej usłudze w chmurze mogą uczestniczyć w tym samym zestawie dostępności. Aby uzyskać więcej informacji, zobacz [Manage the availability of virtual machines](../../../virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) (Zarządzanie dostępnością maszyn wirtualnych).
+Aby skonfigurować konfigurację wysokiej dostępności, należy umieścić wszystkie uczestniczące SQL Server maszyny wirtualne w tym samym zestawie dostępności, aby uniknąć utraty dostępu do aplikacji lub danych podczas zdarzenia konserwacji. Tylko węzły w tej samej usłudze w chmurze mogą uczestniczyć w tym samym zestawie dostępności. Aby uzyskać więcej informacji, zobacz [Manage the availability of virtual machines](../../../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Zarządzanie dostępnością maszyn wirtualnych).
 
 ### <a name="high-availability-nodes-in-an-availability-zone"></a>Węzły wysokiej dostępności w strefie dostępności
 Strefy dostępności są unikatowymi lokalizacjami fizycznymi w regionie świadczenia usługi Azure. Każda strefa składa się z co najmniej jednego centrum danych wyposażonego w niezależną moc, chłodzenie i sieci. Fizyczne rozdzielenie stref dostępności w regionie pomaga chronić aplikacje i dane przed awariami centrów danych, co zapewnia, że co najmniej jedna maszyna wirtualna jest dostępna i spełnia warunki umowy SLA platformy Azure wynoszącą 99,99% czasu. 
@@ -136,7 +136,7 @@ Jeśli grupa dostępności obejmuje wiele podsieci platformy Azure (na przykład
 Można nadal łączyć się z każdą repliką dostępności oddzielnie, łącząc się bezpośrednio z wystąpieniem usługi. Ponadto, ponieważ grupy dostępności są zgodne z poprzednimi wersjami klientów funkcji dublowania baz danych, można łączyć się z replikami dostępności, takimi jak partnerzy funkcji dublowania baz danych, o ile repliki są skonfigurowane w podobny sposób do dublowania baz danych:
 
 * Istnieje jedna replika podstawowa i jedna replika pomocnicza.
-* Replika pomocnicza jest skonfigurowana jako nie do odczytu (opcja **pomocnicza do odczytu** jest ustawiona na wartość **no** ).
+* Replika pomocnicza jest skonfigurowana jako nie do odczytu (opcja **pomocnicza do odczytu** jest ustawiona na wartość **no**).
 
 Oto przykładowe parametry połączenia klienta, które odpowiadają tej konfiguracji podobnej do dublowania bazy danych, przy użyciu ADO.NET lub SQL Server Native Client:
 
