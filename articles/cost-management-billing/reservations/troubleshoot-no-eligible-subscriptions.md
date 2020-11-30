@@ -7,13 +7,13 @@ ms.subservice: reservations
 ms.author: banders
 ms.reviewer: yashar
 ms.topic: troubleshooting
-ms.date: 10/14/2020
-ms.openlocfilehash: fd7a2bde47f34a61390082a223409070275b64ce
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.date: 11/16/2020
+ms.openlocfilehash: 1b36577c3c0940687f98394f8ea4faae83f371be
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92115205"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887199"
 ---
 # <a name="troubleshoot-no-eligible-subscriptions"></a>Rozwiązywanie problemów z brakiem kwalifikujących się subskrypcji
 
@@ -21,15 +21,15 @@ Ten artykuł pomaga w rozwiązaniu problemu polegającego na wyświetlaniu komun
 
 ## <a name="symptoms"></a>Objawy
 
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i przejdź do obszaru **Rezerwacje** .
-1. Wybierz pozycję **Dodaj** , a następnie wybierz usługę.
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i przejdź do obszaru **Rezerwacje**.
+1. Wybierz pozycję **Dodaj**, a następnie wybierz usługę.
 1. Zostanie wyświetlony następujący komunikat o błędzie:
    ```
     No eligible subscriptions
     
-    You do not have any eligible subscriptions to purchase reservations. To purchase a reservation, you should be an owner on at least one subscription of the following type: Pay-as-you-go, CSP, Microsoft Enterprise or Microsoft Customer Agreement.
+    You do not have any eligible subscriptions to purchase reservations. To purchase a reservation, you should have owner or reservation purchaser permission on at least one subscription of the following type: Pay-as-you-go, CSP, Microsoft Enterprise or Microsoft Customer Agreement.
     ```
-1. W obszarze **Wybór produktu, który chcesz kupić** rozwiń listę **Subskrypcja rozliczeniowa** , aby zobaczyć, z jakiej przyczyny dana subskrypcja nie kwalifikuje się do zakupu wystąpienia zarezerwowanego. Na poniższym obrazie pokazano przykłady przyczyn uniemożliwiających zakup rezerwacji.  
+1. W obszarze **Wybór produktu, który chcesz kupić** rozwiń listę **Subskrypcja rozliczeniowa**, aby zobaczyć, z jakiej przyczyny dana subskrypcja nie kwalifikuje się do zakupu wystąpienia zarezerwowanego. Na poniższym obrazie pokazano przykłady przyczyn uniemożliwiających zakup rezerwacji.  
     :::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/select-product-to-purchase.png" alt-text="Przykład pokazujący, dlaczego nie można kupić rezerwacji" lightbox="./media/troubleshoot-no-eligible-subscriptions/select-product-to-purchase.png" :::
 
 ## <a name="cause"></a>Przyczyna
@@ -37,7 +37,7 @@ Ten artykuł pomaga w rozwiązaniu problemu polegającego na wyświetlaniu komun
 Aby kupić wystąpienie zarezerwowane na platformie Azure, musisz mieć co najmniej jedną subskrypcję spełniającą następujące wymagania:
 
 - Subskrypcja musi być obsługiwanym typem oferty. Obsługiwane typy ofert to: Płatność zgodnie z rzeczywistym użyciem, Cloud Solution Provider (CSP), Microsoft Azure Enterprise i Umowa z Klientem Microsoft.
-- Musisz być właścicielem subskrypcji.
+- Musisz być nabywcą rezerwacji lub właścicielem subskrypcji.
 
 Jeśli nie masz subskrypcji spełniającej wymagania, zostanie wyświetlony komunikat o błędzie `No eligible subscriptions` (Brak kwalifikujących się subskrypcji).
 
@@ -51,19 +51,17 @@ Subscription not eligible for purchase
 This subscription is not eligible for reservation benefit an cannot be used to purchase a reservation.
 ```
 
-:::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/subscription-not-eligible.png" alt-text="Przykład pokazujący, dlaczego nie można kupić rezerwacji" :::
+:::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/subscription-not-eligible.png" alt-text="Przykład przedstawiający komunikat o błędzie Subskrypcja nie kwalifikuje się do zakupu" :::
 
 ### <a name="cause-2"></a>Przyczyna 2
 
-Musisz być właścicielem subskrypcji. Nie jesteś właścicielem subskrypcji. W przypadku wybrania subskrypcji, której nie jesteś właścicielem, zostanie wyświetlony następujący błąd.
+Musisz być nabywcą rezerwacji lub właścicielem subskrypcji. W przypadku braku wystarczających uprawnień, zobaczysz następujący błąd.
 
 ```
-You do not have owner access on the subscription
+You do not have owner or reservation purchaser access on the subscription
 
-You can only purchase reservations using subscriptions on which you have owner access.
+You can only purchase reservations using subscriptions on which you have owner or reservation purchaser access.
 ```
-
-:::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/no-owner-access.png" alt-text="Przykład pokazujący, dlaczego nie można kupić rezerwacji" :::
 
 ## <a name="solution"></a>Rozwiązanie
 
@@ -92,9 +90,9 @@ Obecny właściciel zamówienia rezerwacji lub właściciel rezerwacji może del
 1. Wybierz pozycję **Wszystkie usługi** > **Rezerwacja** w celu wyświetlenia listy rezerwacji, do których masz dostęp.
 1. Wybierz rezerwację, dla której chcesz delegować dostęp do innych użytkowników.
 1. Wybierz pozycję **Kontrola dostępu (IAM)** .
-1. Wybierz pozycję **Dodaj przypisanie roli** > **Rola** > **Właściciel** . Ewentualnie, jeśli chcesz nadać ograniczony dostęp, wybierz inną rolę.
+1. Wybierz pozycję **Dodaj przypisanie roli** > **Rola** > **Właściciel**. Ewentualnie, jeśli chcesz nadać ograniczony dostęp, wybierz inną rolę.
 1. Wpisz adres e-mail użytkownika, którego chcesz dodać jako właściciela.
-1. Wybierz użytkownika, a następnie wybierz polecenie **Zapisz** .
+1. Wybierz użytkownika, a następnie wybierz polecenie **Zapisz**.
 
 Aby uzyskać więcej informacji, zobacz [Dodawanie lub zmienianie użytkowników, którzy mogą zarządzać rezerwacją](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 

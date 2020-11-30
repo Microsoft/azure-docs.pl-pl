@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 11/19/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 72575725c0924b8ec5f9466f4ffbba86bf071db4
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 28637f35294e9c70cbf0e96fb2cdcb1853d2ba39
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631543"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992730"
 ---
 ::: zone target="docs"
 
@@ -47,7 +47,7 @@ Ten samouczek zawiera informacje na następujące tematy:
 Przed rozpoczęciem upewnij się, że spełniono następujące warunki:
 
 * Ukończenie tematu [Samouczek: kopiowanie danych na urządzenie Azure Data Box i ich weryfikacja](data-box-deploy-copy-data.md).
-* Zadania kopiowania są ukończone, a na stronie **Połącz i skopiuj** nie ma żadnych błędów. Nie można uruchomić przygotowania do wysłania, jeśli zadania kopiowania są w toku lub występują błędy na stronie **Połącz i skopiuj** .
+* Zadania kopiowania są ukończone, a na stronie **Połącz i skopiuj** nie ma żadnych błędów. Nie można uruchomić przygotowania do wysłania, jeśli zadania kopiowania są w toku lub występują błędy na stronie **Połącz i skopiuj**.
 
 ## <a name="prepare-to-ship"></a>Przygotowanie do wysłania
 
@@ -92,7 +92,7 @@ W przypadku zwrotu urządzenia w Stanach Zjednoczonych, Kanadzie lub Europie wyk
     * Jeśli nie podasz numeru śledzenia, firma UPS będzie wymagała uiszczenia dodatkowej opłaty podczas odbioru.
 
     Zamiast planowania odbioru możesz także dostarczyć urządzenie Data Box do najbliższego punktu UPS.
-4. Po odebraniu urządzenia Data Box i zeskanowaniu go przez kuriera stan zamówienia w portalu zostanie zmieniony na **Pobrane** . Będzie też wyświetlany identyfikator śledzenia przesyłki.
+4. Po odebraniu urządzenia Data Box i zeskanowaniu go przez kuriera stan zamówienia w portalu zostanie zmieniony na **Pobrane**. Będzie też wyświetlany identyfikator śledzenia przesyłki.
 
 ::: zone target="chromeless"
 
@@ -103,12 +103,6 @@ W przypadku zwrotu urządzenia w Stanach Zjednoczonych, Kanadzie lub Europie wyk
 ## <a name="erasure-of-data-from-data-box"></a>Wymazywanie danych z urządzenia Data Box
 
 Po zakończeniu przekazywania danych na platformę Azure dane z dysków urządzenia Data Box są bezpiecznie wymazywane zgodnie z wytycznymi [NIST SP 800-88 Revision 1](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
-
-::: zone-end
-
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
 ::: zone-end
 
@@ -131,12 +125,6 @@ W przypadku centrów danych w Australii obowiązuje dodatkowe zabezpieczenie. Za
 ## <a name="erasure-of-data-from-data-box"></a>Wymazywanie danych z urządzenia Data Box
 
 Po zakończeniu przekazywania danych na platformę Azure dane z dysków urządzenia Data Box są bezpiecznie wymazywane zgodnie z wytycznymi [NIST SP 800-88 Revision 1](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
-
-::: zone-end
-
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
 ::: zone-end
 
@@ -182,12 +170,6 @@ Po zakończeniu przekazywania danych na platformę Azure dane z dysków urządze
 
 ::: zone-end
 
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
-
-::: zone-end
-
 ## <a name="singapore"></a>[Singapur](#tab/in-singapore)
 
 1. Zachowaj oryginalne pudełko użyte do wysłania urządzenia na potrzeby wysyłki zwrotnej.
@@ -223,33 +205,33 @@ Po zakończeniu przekazywania danych na platformę Azure dane z dysków urządze
 
 ::: zone-end
 
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
-
-::: zone-end
-
 ## <a name="south-africa"></a>[Republika Południowej Afryki](#tab/in-sa)
 
 1. Na potrzeby wysyłki zwrotnej zapakuj urządzenie w oryginalne pudełko.
 2. Zwiń przewód zasilający dostarczony wraz z urządzeniem i umieść go bezpiecznie z tyłu urządzenia.
-3. Aby zarezerwować odbiór przez firmę DHL:
+3. Zanotuj numer śledzenia (widoczny jako numer referencyjny na stronie **Przygotowanie do wysłania** w lokalnym internetowym interfejsie użytkownika urządzenia Data Box). Ta wartość jest dostępna po pomyślnym ukończeniu kroku „Przygotowanie do wysłania”. Pobierz etykietę wysyłkową z tej strony i naklej ją na opakowaniu.
+4. Zażądaj kodu zwrotu od zespołu operacyjnego usługi Azure Data Box. Kod zwrotu jest wymagany do dostarczenia paczki z powrotem do centrum danych. Wyślij wiadomość e-mail do [adbops@microsoft.com](mailto:adbops@microsoft.com). Zapisz ten kod na etykiecie wysyłkowej obok adresu zwrotnego, aby był dobrze widoczny.
+5. Zarezerwuj odbiór przez firmę DHL przy użyciu jednej z następujących metod:
+ 
+   * Zarezerwuj odbiór online, przechodząc do witryny internetowej firmy [DHL Express dla regionu Republika Południowej Afryki, do pozycji **Zaplanuj odbiór**](https://mydhl.express.dhl/za/en/schedule-pickup.html#/schedule-pickup#label-reference).
+   * Wyślij wiadomość e-mail na adres [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com), korzystając z następującego szablonu:
 
-    * Zadzwoń do centrum kontaktowego działu obsługi klienta pod numer +27(0) 11 9213600, wybierz opcję 1, a następnie podaj numer listu przewozowego.
-    * Aby zaplanować odbiór, należy zadzwonić przed godziną 14:00.
-    * Wyślij wiadomość e-mail na adres [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com), korzystając z następującego szablonu:
+     ```output
+     To: Priority.Support@dhl.com
+     Subject: Pickup request for Microsoft Azure
+     Body: Need pick up for the below shipment
+       *  DHL tracking number: (reference number/waybill number)
+       *  Requested pickup date: yyyy/mm/dd;time:HH MM
+       *  Shipper contact: (company name)
+       *  Contact person: 
+       *  Phone number: 
+       *  Full physical address: 
+       *  Item to be collected: Azure Dt
+     ```
 
-    ```output
-    To: Priority.Support@dhl.com
-    Subject: Pickup request for Microsoft Azure
-    Body: Need pick up for the below shipment
-      *  DHL tracking number (reference number/waybill number)
-      *  Requested pickup date: yyyy/mm/dd;time:HH MM
-    ```
+    * Dostarcz paczkę do najbliższego punktu obsługującego usługę firmy DHL.
 
-    * Alternatywnie możesz dostarczyć paczkę do najbliższego punktu obsługującego usługę firmy DHL.
-
-4. W przypadku napotkania problemów wyślij wiadomość e-mail na adres [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) ze szczegółowymi informacjami o napotkanych problemach, a w wierszu tematu podaj numer listu przewozowego. Możesz również zadzwonić pod numer +27(0)119213902.
+6. W przypadku napotkania problemów wyślij wiadomość e-mail na adres [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) ze szczegółowymi informacjami o napotkanych problemach, a w wierszu tematu podaj numer listu przewozowego. Możesz również zadzwonić pod numer +27(0)119213902.
 
 ::: zone target="chromeless"
 
@@ -260,12 +242,6 @@ Po zakończeniu przekazywania danych na platformę Azure dane z dysków urządze
 ## <a name="erasure-of-data-from-data-box"></a>Wymazywanie danych z urządzenia Data Box
 
 Po zakończeniu przekazywania danych na platformę Azure dane z dysków urządzenia Data Box są bezpiecznie wymazywane zgodnie z wytycznymi [NIST SP 800-88 Revision 1](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
-
-::: zone-end
-
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
 ::: zone-end
 
@@ -301,12 +277,6 @@ W przypadku wystąpienia jakichkolwiek problemów wyślij wiadomość e-mail do 
 ## <a name="erasure-of-data-from-data-box"></a>Wymazywanie danych z urządzenia Data Box
  
 Po zakończeniu przekazywania danych na platformę Azure dane z dysków urządzenia Data Box są bezpiecznie wymazywane zgodnie z wytycznymi [NIST SP 800-88 Revision 1](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
-
-::: zone-end
-
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
 ::: zone-end
 
@@ -369,8 +339,6 @@ Jeśli korzystasz z urządzenia Data Box w Japonii, Singapurze, Korei, Indiach, 
 
 ::: zone target="chromeless"
 
----
-
 ## <a name="verify-data-upload-to-azure"></a>Weryfikowanie przekazania danych na platformę Azure
 
 [!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
@@ -381,7 +349,11 @@ Po zakończeniu przekazywania danych na platformę Azure dane z dysków urządze
 
 ::: zone-end
 
+---
+
 ::: zone target="docs"
+
+## <a name="verify-data-upload-to-azure"></a>Weryfikowanie przekazania danych na platformę Azure
 
 [!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 

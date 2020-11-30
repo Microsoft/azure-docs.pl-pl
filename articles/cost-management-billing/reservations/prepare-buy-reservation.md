@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: d22ab9f028f0491db33d62d0a6dff8d06282f925
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: f22a8f085938f5a3cc3e7a748391a9048129296c
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91368723"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888372"
 ---
 # <a name="buy-a-reservation"></a>Kupowanie rezerwacji
 
@@ -21,9 +21,9 @@ Rezerwacje platformy Azure pomagają zaoszczędzić pieniądze dzięki rocznym l
 
 ## <a name="who-can-buy-a-reservation"></a>Kto może kupić rezerwację
 
-Aby kupić plan, musisz mieć rolę właściciela subskrypcji w subskrypcji Enterprise (MS-AZR-0017P lub MS-AZR-0148P), subskrypcji z płatnością zgodnie z rzeczywistym użyciem (MS-AZR-0003P lub MS-AZR-0023P) albo subskrypcji w ramach umowy klienta firmy Microsoft. Dostawy rozwiązań w chmurze mogą użyć witryny Azure Portal lub [Centrum partnerskiego](/partner-center/azure-reservations), aby zakupić rezerwacje platformy Azure.
+Aby kupić rezerwację, musisz mieć rolę właściciela lub rolę nabywcy rezerwacji w subskrypcji platformy Azure typu Enterprise (MS-AZR-0017P lub MS-AZR-0148P), Płatność zgodnie z rzeczywistym użyciem (MS-AZR-0003P lub MS-AZR-0023P) albo Umowa z Klientem Microsoft. Dostawy rozwiązań w chmurze mogą użyć witryny Azure Portal lub [Centrum partnerskiego](/partner-center/azure-reservations), aby zakupić rezerwacje platformy Azure.
 
-Klienci korzystający z umowy Enterprise Agreement (EA) mogą ograniczyć możliwość zakupów tylko do administratorów EA, wyłączając opcję **Dodaj wystąpienia zarezerwowane** w portalu EA. Administrator EA musi być właścicielem co najmniej jednej subskrypcji EA, aby mieć możliwość zakupu rezerwacji. Ta opcja jest przydatna w przypadku przedsiębiorstw, które chcą kupować rezerwacje dla różnych centrów kosztów za pośrednictwem centralnego zespołu. Po zakupie centralne zespoły mogą dodawać do rezerwacji właścicieli centrów kosztów. Właściciele mogą następnie ograniczyć rezerwację do swoich subskrypcji. Centralny zespół nie musi mieć dostępu właściciela subskrypcji do obszaru, w którym zakupiono rezerwację.
+Klienci korzystający z umowy Enterprise Agreement (EA) mogą ograniczyć możliwość zakupów tylko do administratorów EA, wyłączając opcję **Dodaj wystąpienia zarezerwowane** w portalu EA. Administratorzy umowy EA muszą mieć dostęp właściciela lub nabywcy rezerwacji w ramach co najmniej jednej subskrypcji EA w celu zakupu rezerwacji. Ta opcja jest przydatna w przypadku przedsiębiorstw, które chcą kupować rezerwacje za pośrednictwem centralnego zespołu.
 
 Rabat na rezerwację dotyczy tylko zasobów skojarzonych z subskrypcjami zakupionymi w ramach umowy Enterprise, subskrypcji dostawcy usług w chmurze, umowy klienta firmy Microsoft i planów indywidualnych ze stawkami płatności zgodnie z rzeczywistym użyciem.
 

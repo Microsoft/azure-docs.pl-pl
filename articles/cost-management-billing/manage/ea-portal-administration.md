@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperfq1
-ms.openlocfilehash: edcc94050880544a6c2de54ff27f833f1c60f99f
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: f18f1184f921aca4f2c1e33ac00dcf14c63b24eb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683649"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95893362"
 ---
 # <a name="azure-ea-portal-administration"></a>Administracja przy użyciu witryny Azure EA Portal
 
@@ -146,7 +146,7 @@ Przed przeprowadzeniem przenoszenia własności należy zrozumieć następujące
 - W przypadku przenoszenia własności subskrypcji lub konta między dwoma identyfikatorami organizacyjnymi w tej samej dzierżawie zasady RBAC platformy Azure oraz istniejące role administratora i współadministratora usługi są zachowywane.
 - Przenoszenie własności subskrypcji lub konta między dzierżawami powoduje utratę zasad RBAC platformy Azure oraz przypisań ról.
 - Zasady i role administratorów nie są przenoszone między różnymi katalogami. Administratorzy usługi są aktualizowani do właściciela konta docelowego.
-- Aby uniknąć utraty zasad RBAC i przypisań ról przy przenoszeniu subskrypcji między dzierżawami, należy się upewnić, że pole wyboru **Przenieś subskrypcje do dzierżawy usługi Azure AD odbiorcy** pozostanie **niezaznaczone**. Spowoduje to zachowanie usług, ról RBAC i zasad w bieżącej dzierżawie usługi Azure AD i przeniesienie tylko własności rozliczeń dla konta.  
+- Aby uniknąć utraty zasad RBAC i przypisań ról platformy Azure przy przenoszeniu subskrypcji między dzierżawami, należy się upewnić, że pole wyboru **Przenieś subskrypcje do dzierżawy usługi Azure AD odbiorcy** pozostanie **niezaznaczone**. Spowoduje to zachowanie usług, ról platformy Azure oraz zasad w bieżącej dzierżawie usługi Azure AD i przeniesienie tylko własności rozliczeń dla konta.  
     :::image type="content" source="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Obraz przedstawiający niezaznaczone pole wyboru do przenoszenia subskrypcji do dzierżawy usługi Azure AD" lightbox="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 
 
@@ -282,7 +282,7 @@ Witryna Azure EA Portal ułatwia administrowanie kosztami i użyciem dla umowy E
 
 Każda rola ma inny poziom dostępu i uprawnień.
 
-Aby uzyskać więcej informacji na temat ról użytkownika, zobacz [Role użytkownika przedsiębiorstwa](https://docs.microsoft.com/azure/manage/understand-ea-roles#enterprise-user-roles).
+Aby uzyskać więcej informacji na temat ról użytkownika, zobacz [Role użytkownika przedsiębiorstwa](/azure/cost-management-billing/manage/understand-ea-roles#enterprise-user-roles).
 
 ## <a name="add-an-azure-ea-account"></a>Dodawanie konta usługi Azure EA
 

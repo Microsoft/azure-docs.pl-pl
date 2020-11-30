@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 11/03/2020
+ms.date: 11/20/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 0aace1041eba771a26bed4c85361ea2551c71ba6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: f1d667f55a8be1b701fda6240895dd8f96315cff
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659424"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94986321"
 ---
 ::: zone target="docs"
 
@@ -164,23 +164,28 @@ W przypadku zwrotu urządzenia w Republice Południowej Afryki wykonaj następuj
 
 2. Zamknij i zaklej opakowanie wysyłkowe. Upewnij się, że zwrotna etykieta wysyłkowa jest widoczna.
 
-3. Aby zarezerwować odbiór przez firmę DHL:
+3. Zażądaj kodu zwrotu od zespołu operacyjnego usługi Azure Data Box. Kod zwrotu jest wymagany do dostarczenia paczki z powrotem do centrum danych. Wyślij wiadomość e-mail do [adbops@microsoft.com](mailto:adbops@microsoft.com). Zapisz ten kod na etykiecie wysyłkowej obok adresu zwrotnego, aby był dobrze widoczny.
 
-    * Zadzwoń do centrum kontaktowego działu obsługi klienta pod numer +27(0) 11 9213600, wybierz opcję 1 i podaj numer listu przewozowego.
-    * Aby zaplanować odbiór, należy zadzwonić przed godziną 14:00 czasu standardowego Republiki Południowej Afryki (ZA).  
-    * Wyślij wiadomość e-mail na adres [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com), aby umówić odbiór przy użyciu poniższego szablonu wiadomości e-mail:
+4. Zarezerwuj odbiór przez firmę DHL przy użyciu jednej z następujących metod:
+   * Zarezerwuj odbiór online, przechodząc do witryny internetowej firmy [DHL Express dla regionu Republika Południowej Afryki, do pozycji **Zaplanuj odbiór**](https://mydhl.express.dhl/za/en/schedule-pickup.html#/schedule-pickup#label-reference).
+   * Wyślij wiadomość e-mail na adres [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com), korzystając z następującego szablonu:
 
-    ```output
-    To: Priority.Support@dhl.com
-    Subject:Pickup request for Microsoft Azure
-    Body:  Need pick up for the below shipment
-    *  DHL tracking number (reference number/waybill number)
-    *  Requested pickup date：yyyy/mm/dd; time: HH MM
-    ```
+     ```output
+     To: Priority.Support@dhl.com
+     Subject: Pickup request for Microsoft Azure
+     Body: Need pick up for the below shipment
+       *  DHL tracking number: (reference number/waybill number)
+       *  Requested pickup date: yyyy/mm/dd;time:HH MM
+       *  Shipper contact: (company name)
+       *  Contact person: 
+       *  Phone number: 
+       *  Full physical address: 
+       *  Item to be collected: Azure Dt
+     ```
 
-    * Alternatywnie możesz dostarczyć paczkę do najbliższego punktu obsługującego usługę firmy DHL.
+    * Dostarcz paczkę do najbliższego punktu obsługującego usługę firmy DHL.
 
-4. W przypadku napotkania problemów wyślij wiadomość e-mail na adres [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) ze szczegółowymi informacjami o napotkanych problemach, a w wierszu tematu podaj numer listu przewozowego. Możesz również zadzwonić pod numer +27(0)119213902.
+5. W przypadku napotkania problemów wyślij wiadomość e-mail na adres [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) ze szczegółowymi informacjami o napotkanych problemach, a w wierszu tematu podaj numer listu przewozowego. Możesz również zadzwonić pod numer +27(0)119213902.
 
 ### <a name="china"></a>[Chiny](#tab/in-china)
 

@@ -3,18 +3,18 @@ title: Szybki start — eksplorowanie kosztów platformy Azure za pomocą analiz
 description: Ten przewodnik Szybki start ułatwia eksplorowanie i analizowanie kosztów organizacyjnych platformy Azure za pomocą funkcji analizy kosztów.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/26/2020
+ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: contentperfq2
-ms.openlocfilehash: 31a95d8c02ee540fe6b52088159f04535c39ea93
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a7f3c0ea9517f0ce99912f004ac4de07cc981551
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676835"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122662"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Szybki start: Eksplorowanie i analizowanie kosztów za pomocą analizy kosztów
 
@@ -42,7 +42,7 @@ Jeśli masz nową subskrypcję, nie możesz od razu korzystać z funkcji usługi
 
 ## <a name="review-costs-in-cost-analysis"></a>Przeglądanie kosztów w obrębie analizy kosztów
 
-Aby sprawdzić swoje koszty w analizie kosztów, otwórz zakres w witrynie Azure Portal, a następnie wybierz pozycję **Analiza kosztów** w menu. Na przykład przejdź do obszaru **Subskrypcje** , wybierz subskrypcję z listy, a następnie wybierz pozycję **Analiza kosztów** w menu. Użyj kapsułki **Zakres** , aby przełączyć na inny zakres w analizie kosztów.
+Aby sprawdzić swoje koszty w analizie kosztów, otwórz zakres w witrynie Azure Portal, a następnie wybierz pozycję **Analiza kosztów** w menu. Na przykład przejdź do obszaru **Subskrypcje**, wybierz subskrypcję z listy, a następnie wybierz pozycję **Analiza kosztów** w menu. Użyj kapsułki **Zakres**, aby przełączyć na inny zakres w analizie kosztów.
 
 Wybrany zakres będzie używany w całej usłudze Cost Management w celu zapewnienia konsolidacji danych i kontrolowania dostępu do informacji o kosztach. Gdy używasz zakresów, nie wybierasz równocześnie wielu z nich. W zamian wybierasz większy zakres obejmujący inne zakresy, a następnie filtrujesz zawartość do zagnieżdżonych zakresów, których potrzebujesz. Zrozumienie tej metody jest istotne, ponieważ niektóre osoby mogą nie mieć dostępu do pojedynczego zakresu nadrzędnego, który obejmuje wiele zakresów zagnieżdżonych.
 
@@ -52,15 +52,15 @@ Obejrzyj klip wideo [Jak używać usługi Cost Management w witrynie Azure Porta
 
 Początkowy widok analizy kosztów zawiera poniższe obszary.
 
-**Widok kosztów skumulowanych** : Przedstawia wstępnie zdefiniowaną konfigurację widoku analizy kosztów. Każdy widok zawiera ustawienia zakresu dat, stopnia szczegółowości, sposobu grupowania i filtrowania. Widok domyślny pokazuje skumulowane koszty bieżącego okresu rozliczeniowego, ale można go zmienić na inne wbudowane widoki.
+**Widok kosztów skumulowanych**: Przedstawia wstępnie zdefiniowaną konfigurację widoku analizy kosztów. Każdy widok zawiera ustawienia zakresu dat, stopnia szczegółowości, sposobu grupowania i filtrowania. Widok domyślny pokazuje skumulowane koszty bieżącego okresu rozliczeniowego, ale można go zmienić na inne wbudowane widoki.
 
-**Rzeczywisty koszt** : Przedstawia sumę kosztów użycia i zakupów dla bieżącego miesiąca, które będą widoczne na fakturze, w miarę ich naliczania.
+**Rzeczywisty koszt**: Przedstawia sumę kosztów użycia i zakupów dla bieżącego miesiąca, które będą widoczne na fakturze, w miarę ich naliczania.
 
-**Prognoza** : Przedstawia sumę prognozowanych kosztów w wybranym okresie.
+**Prognoza**: Przedstawia sumę prognozowanych kosztów w wybranym okresie.
 
-**Budżet** : Przedstawia limit planowanych wydatków w wybranym zakresie, jeśli jest dostępny.
+**Budżet**: Przedstawia limit planowanych wydatków w wybranym zakresie, jeśli jest dostępny.
 
-**Skumulowany stopień szczegółowości** : Przedstawia sumę zagregowanych kosztów dziennych od początku okresu rozliczeniowego. Po utworzeniu budżetu subskrypcji lub konta billingowego możesz szybko wyświetlić trend wydatków w odniesieniu do budżetu. Umieść kursor nad datą, aby wyświetlić skumulowany koszt w tym dniu.
+**Skumulowany stopień szczegółowości**: Przedstawia sumę zagregowanych kosztów dziennych od początku okresu rozliczeniowego. Po utworzeniu budżetu subskrypcji lub konta billingowego możesz szybko wyświetlić trend wydatków w odniesieniu do budżetu. Umieść kursor nad datą, aby wyświetlić skumulowany koszt w tym dniu.
 
 **Wykresy przestawne (pierścieniowe)** : Są to dynamiczne elementy przestawne, które przedstawiają podział kosztów według typowego zestawu właściwości standardowych. Przedstawiają one koszty w bieżącym miesiącu, w kolejności od największych do najmniejszych. Wykresy przestawne można zmieniać w dowolnym momencie, wybierając inny element przestawny. Koszty są domyślnie dzielone na kategorie według usługi (kategorii miernika), lokalizacji (regionu) i zakresu podrzędnego. Na przykład konta rejestracji należą do kont rozliczeniowych, grupy zasobów należą do subskrypcji, a zasoby należą do grup zasobów.
 
@@ -70,7 +70,7 @@ Początkowy widok analizy kosztów zawiera poniższe obszary.
 
 Prognoza kosztów pokazuje szacowane koszty w wybranym okresie. Model jest oparty na modelu regresji szeregów czasowych. Do dokładnego przewidywania kosztów wymagane są dane dotyczące kosztów i użycia z co najmniej 10 ostatnich dni. W przypadku danego okresu model prognozy wymaga takiej samej ilości danych treningowych jak dla prognozowanego okresu. Na przykład prognoza na trzy miesiące wymaga danych użycia i kosztów z co najmniej trzech ostatnich miesięcy.
 
-Model używa maksymalnie sześciu miesięcy danych treningowych w celu prognozowania kosztów na rok. Zmiana prognozy wymaga danych treningowych z co najmniej siedmiu dni. Prognoza jest oparta na znaczących zmianach, takich jak istotny wzrost lub spadek, we wzorcach kosztów i użycia. Prognoza nie generuje oddzielnych przewidywań dla każdego elementu we właściwościach **Grupuj według** . Zapewnia jedynie prognozę dla łącznych, skumulowanych kosztów. W przypadku korzystania z wielu walut model udostępnia prognozę kosztów tylko w USD.
+Model używa maksymalnie sześciu miesięcy danych treningowych w celu prognozowania kosztów na rok. Zmiana prognozy wymaga danych treningowych z co najmniej siedmiu dni. Prognoza jest oparta na znaczących zmianach, takich jak istotny wzrost lub spadek, we wzorcach kosztów i użycia. Prognoza nie generuje oddzielnych przewidywań dla każdego elementu we właściwościach **Grupuj według**. Zapewnia jedynie prognozę dla łącznych, skumulowanych kosztów. W przypadku korzystania z wielu walut model udostępnia prognozę kosztów tylko w USD.
 
 ## <a name="customize-cost-views"></a>Dostosowywanie widoków kosztów
 
@@ -82,12 +82,13 @@ Skumulowany koszt | Ile wynoszą dotychczasowe wydatki w tym miesiącu? Czy wyda
 Dzienny koszt | Czy w ciągu ostatnich 30 dni wystąpiły jakiekolwiek wzrosty kosztów dziennych?
 Koszt według usługi | Jak moje miesięczne użycie zmieniało się w okresie objętym przez trzy ostatnie faktury?
 Koszt według zasobu | Które zasoby kosztowały dotychczas najwięcej w tym miesiącu?
+Szczegóły faktury | Jakie opłaty zostały naliczone na mojej ostatniej fakturze?
 
 ![Selektor widoku przedstawiający przykładowy wybór dla tego miesiąca](./media/quick-acm-cost-analysis/view-selector.png)
 
 W większości przypadków będziesz jednak potrzebować dokładniejszej analizy. Dostosowywanie rozpoczyna się od wybrania daty w górnej części strony.
 
-Analiza kosztów domyślnie przedstawia dane z bieżącego miesiąca. Selektor daty służy do szybkiego przełączania typowych zakresów dat. Przykłady to: ostatnie siedem dni, ostatni miesiąc, bieżący rok lub niestandardowy zakres dat. Subskrypcje płatne zgodnie z rzeczywistym użyciem obejmują również zakresy dat oparte na okresie rozliczeniowym, który nie jest powiązany z miesiącem kalendarzowym, takie jak bieżący okres rozliczeniowy lub ostatnia faktura. Aby przejść odpowiednio do poprzedniego lub następnego okresu, skorzystaj z linków **< WSTECZ** i **DALEJ >** u góry menu. Na przykład kliknięcie linku **< WSTECZ** spowoduje przełączenie z okresu **Ostatnie 7 dni** do okresu **8–14 dni temu** lub **15–21 dni temu** .
+Analiza kosztów domyślnie przedstawia dane z bieżącego miesiąca. Selektor daty służy do szybkiego przełączania typowych zakresów dat. Przykłady to: ostatnie siedem dni, ostatni miesiąc, bieżący rok lub niestandardowy zakres dat. Subskrypcje płatne zgodnie z rzeczywistym użyciem obejmują również zakresy dat oparte na okresie rozliczeniowym, który nie jest powiązany z miesiącem kalendarzowym, takie jak bieżący okres rozliczeniowy lub ostatnia faktura. Aby przejść odpowiednio do poprzedniego lub następnego okresu, skorzystaj z linków **< WSTECZ** i **DALEJ >** u góry menu. Na przykład kliknięcie linku **< WSTECZ** spowoduje przełączenie z okresu **Ostatnie 7 dni** do okresu **8–14 dni temu** lub **15–21 dni temu**. Wybierając niestandardowy zakres dat, pamiętaj, że możesz wybrać maksymalnie cały rok (np. od 1 stycznia do 31 grudnia).
 
 ![Selektor daty przedstawiający przykładowy wybór dla tego miesiąca](./media/quick-acm-cost-analysis/date-selector.png)
 
@@ -110,7 +111,7 @@ Ogólnie rzecz biorąc, w ciągu 8–12 godzin można spodziewać się danych lu
 
 **Grupuj według** typowych właściwości, aby dzielić koszty i identyfikować ich najważniejsze składniki. Na przykład aby grupować według tagów zasobów, wybierz klucz tagu, według którego chcesz grupować. Koszty zostaną podzielone według poszczególnych wartości tagu oraz dodatkowego segmentu dla zasobów, do których nie zastosowano tego tagu.
 
-Większość zasobów platformy Azure obsługuje tagowanie. Jednak niektóre tagi nie są dostępne na stronie Zarządzanie kosztami i rozliczenia. Ponadto nie są obsługiwane tagi grup zasobów. Obsługa tagów dotyczy użycia zgłaszanego *po tym* , gdy tag został zastosowany do zasobu. Tagi nie są stosowane wstecznie dla celów zestawień kosztów.
+Większość zasobów platformy Azure obsługuje tagowanie. Jednak niektóre tagi nie są dostępne na stronie Zarządzanie kosztami i rozliczenia. Ponadto nie są obsługiwane tagi grup zasobów. Obsługa tagów dotyczy użycia zgłaszanego *po tym*, gdy tag został zastosowany do zasobu. Tagi nie są stosowane wstecznie dla celów zestawień kosztów.
 
 Obejrzyj film wideo [How to review tag policies with Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) (Jak przeglądać zasady tagów za pomocą usługi Azure Cost Management), aby dowiedzieć się więcej o korzystaniu z zasad tagów platformy Azure w celu zwiększenia widoczności danych dotyczących kosztów.
 
@@ -118,7 +119,7 @@ Oto widok kosztów usług platformy Azure dla bieżącego miesiąca.
 
 ![Skumulowany, zgrupowany widok dzienny przedstawiający przykładowe koszty usług platformy Azure w ostatnim miesiącu](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
-Domyślnie analiza kosztów pokazuje wszystkie koszty użycia i zakupów, które będą widoczne na fakturze, w miarę ich naliczania. Ta funkcja nosi również nazwę **rzeczywistego kosztu** . Wyświetlanie rzeczywistego kosztu idealnie nadaje się do uzgadniania faktury. Jednak skokowe wzrosty kosztu zakupów mogą być alarmujące, gdy pilnujesz anomalii w wydatkach i innych zmian kosztów. Aby wyrównać wzrosty wynikające z kosztów zakupu rezerwacji, przełącz się na **koszt zamortyzowany** .
+Domyślnie analiza kosztów pokazuje wszystkie koszty użycia i zakupów, które będą widoczne na fakturze, w miarę ich naliczania. Ta funkcja nosi również nazwę **rzeczywistego kosztu**. Wyświetlanie rzeczywistego kosztu idealnie nadaje się do uzgadniania faktury. Jednak skokowe wzrosty kosztu zakupów mogą być alarmujące, gdy pilnujesz anomalii w wydatkach i innych zmian kosztów. Aby wyrównać wzrosty wynikające z kosztów zakupu rezerwacji, przełącz się na **koszt zamortyzowany**.
 
 ![Zmiana kosztu rzeczywistego na zamortyzowany w celu wyświetlenia zakupów rezerwacji rozłożonych w całym okresie i przydzielonych do zasobów, które używały rezerwacji](./media/quick-acm-cost-analysis/metric-picker.png)
 
@@ -126,11 +127,11 @@ Koszt zamortyzowany dzieli zakupy rezerwacji na dzienne fragmenty i rozkłada je
 
 W związku ze zmianą sposobu reprezentowania kosztów trzeba pamiętać, że w widokach kosztów rzeczywistych i zamortyzowanych będą wyświetlane różne sumy. Ogólnie rzecz biorąc, podczas przeglądania kosztów zamortyzowanych suma kosztów w miesiącach z zakupem rezerwacji będzie się zmniejszała, a w miesiącach po zakupie rezerwacji — zwiększała. Amortyzacja jest dostępna tylko w przypadku zakupów rezerwacji i w tej chwili nie dotyczy zakupów w witrynie Azure Marketplace.
 
-Na poniższej ilustracji pokazano nazwy grup zasobów. Możesz grupować według tagów, aby wyświetlić sumę kosztów każdego tagu, lub użyć widoku **Koszt według zasobu** , aby wyświetlić wszystkie tagi dla określonego zasobu.
+Na poniższej ilustracji pokazano nazwy grup zasobów. Możesz grupować według tagów, aby wyświetlić sumę kosztów każdego tagu, lub użyć widoku **Koszt według zasobu**, aby wyświetlić wszystkie tagi dla określonego zasobu.
 
 ![Pełne dane dla bieżącego widoku, w którym są wyświetlane nazwy grup zasobów](./media/quick-acm-cost-analysis/full-data-set.png)
 
-Podczas grupowania kosztów według konkretnego atrybutu 10 największych składników kosztów jest pokazanych od najwyższego do najniższego. Jeśli jest ich więcej niż 10, pokazanych jest dziewięć największych składników kosztów oraz grupa **Inne** , która przedstawia wszystkie pozostałe grupy łącznie. W przypadku grupowania według tagów wyświetlana jest także grupa **Bez tagów** dla kosztów, w których nie zastosowano klucza tagu. Grupa **Bez tagów** jest zawsze wyświetlana jako ostatnia, nawet jeśli koszty bez tagów są wyższe niż koszty z tagami. Jeśli istnieje 10 lub więcej wartości tagów, koszty bez tagów będą częścią grupy **Inne** . Przejdź do widoku tabeli i zmień poziom szczegółowości na **Brak** , aby wyświetlić wszystkie wartości sklasyfikowane od najwyższego do najniższego kosztu.
+Podczas grupowania kosztów według konkretnego atrybutu 10 największych składników kosztów jest pokazanych od najwyższego do najniższego. Jeśli jest ich więcej niż 10, pokazanych jest dziewięć największych składników kosztów oraz grupa **Inne**, która przedstawia wszystkie pozostałe grupy łącznie. W przypadku grupowania według tagów wyświetlana jest także grupa **Bez tagów** dla kosztów, w których nie zastosowano klucza tagu. Grupa **Bez tagów** jest zawsze wyświetlana jako ostatnia, nawet jeśli koszty bez tagów są wyższe niż koszty z tagami. Jeśli istnieje 10 lub więcej wartości tagów, koszty bez tagów będą częścią grupy **Inne**. Przejdź do widoku tabeli i zmień poziom szczegółowości na **Brak**, aby wyświetlić wszystkie wartości sklasyfikowane od najwyższego do najniższego kosztu.
 
 Klasyczne maszyny wirtualne, sieci i zasoby magazynu nie udostępniają szczegółowych danych dotyczących rozliczeń. Są one scalane jako **Usługi klasyczne** podczas grupowania kosztów.
 
@@ -138,7 +139,7 @@ Wykresy przestawne w obszarze wykresu głównego przedstawiają różne sposoby 
 
 ![Przykład przedstawiający wykresy przestawne](./media/quick-acm-cost-analysis/pivot-charts.png)
 
-Możesz wyświetlić pełny zestaw danych dla dowolnego widoku. Wszelkie zastosowane opcje lub filtry wpływają na prezentowane dane. Aby wyświetlić pełny zestaw danych, wybierz listę **typ wykresu** , a następnie wybierz widok **tabeli** .
+Możesz wyświetlić pełny zestaw danych dla dowolnego widoku. Wszelkie zastosowane opcje lub filtry wpływają na prezentowane dane. Aby wyświetlić pełny zestaw danych, wybierz listę **typ wykresu**, a następnie wybierz widok **tabeli**.
 
 ![Dane dla bieżącego widoku w widoku tabeli](./media/quick-acm-cost-analysis/chart-type-table-view.png)
 
@@ -156,9 +157,58 @@ Aby udostępnić link do analizy kosztów, wybierz pozycję **Udostępnij** w g�
 
 ## <a name="download-usage-data"></a>Pobieranie danych użycia
 
-Czasami musisz pobrać dane do dalszej analizy, scalić je z własnymi danymi lub zintegrować ze swoimi systemami. Usługa Cost Management oferuje kilka różnych opcji. Na początek, jeśli potrzebujesz podsumowania wysokiego poziomu ad hoc, takiego jak to, które otrzymujesz w ramach analizy kosztów, utwórz potrzebny widok. Następnie pobierz go, wybierając pozycję **Eksportuj** , a następnie pozycję **Pobierz dane do pliku CSV** lub **Pobierz dane do programu Excel** . Pobranie danych do programu Excel zapewnia dodatkowy kontekst w widoku użytym do wygenerowania pobierania, taki jak zakres, konfiguracja zapytania, suma i data wygenerowania.
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Jeśli potrzebujesz pełnego, niezagregowanego zestawu danych, pobierz go z konta rozliczeniowego. Następnie na liście usług w okienku nawigacji po lewej stronie portalu przejdź do pozycji **Zarządzanie kosztami i rozliczenia** . Wybierz konto rozliczeniowe, jeśli ma to zastosowanie. Przejdź do pozycji **Użycie + opłaty** , a następnie wybierz ikonę **Pobierz** dla żądanego okresu rozliczeniowego.
+Czasami musisz pobrać dane do dalszej analizy, scalić je z własnymi danymi lub zintegrować ze swoimi systemami. Usługa Cost Management oferuje kilka różnych opcji. Na początek, jeśli potrzebujesz podsumowania wysokiego poziomu ad hoc, takiego jak to, które otrzymujesz w ramach analizy kosztów, utwórz potrzebny widok. Następnie pobierz go, wybierając pozycję **Eksportuj**, a następnie pozycję **Pobierz dane do pliku CSV** lub **Pobierz dane do programu Excel**. Pobranie danych do programu Excel zapewnia dodatkowy kontekst w widoku użytym do wygenerowania pobierania, taki jak zakres, konfiguracja zapytania, suma i data wygenerowania.
+
+Jeśli potrzebujesz pełnego, niezagregowanego zestawu danych, pobierz go z konta rozliczeniowego. Następnie na liście usług w okienku nawigacji po lewej stronie portalu przejdź do pozycji **Zarządzanie kosztami i rozliczenia**. Wybierz konto rozliczeniowe, jeśli ma to zastosowanie. Przejdź do pozycji **Użycie + opłaty**, a następnie wybierz ikonę **Pobierz** dla żądanego okresu rozliczeniowego.
+
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Rozpocznij od przygotowania środowiska dla interfejsu wiersza polecenia platformy Azure:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Po zalogowaniu użyj polecenia [az costmanagement query](/cli/azure/ext/costmanagement/costmanagement#ext_costmanagement_az_costmanagement_query), aby wykonać zapytanie dotyczące informacji o bieżącym miesięcznym użyciu dla subskrypcji:
+
+```azurecli
+az costmanagement query --timeframe MonthToDate --type Usage \
+   --scope "subscriptions/00000000-0000-0000-0000-000000000000"
+```
+
+Możesz również zawęzić zapytanie przy użyciu parametru **--dataset-filter** lub innych parametrów:
+
+```azurecli
+az costmanagement query --timeframe MonthToDate --type Usage \
+   --scope "subscriptions/00000000-0000-0000-0000-000000000000" \
+   --dataset-filter "{\"and\":[{\"or\":[{\"dimension\":{\"name\":\"ResourceLocation\",\"operator\":\"In\",\"values\":[\"East US\",\"West Europe\"]}},{\"tag\":{\"name\":\"Environment\",\"operator\":\"In\",\"values\":[\"UAT\",\"Prod\"]}}]},{\"dimension\":{\"name\":\"ResourceGroup\",\"operator\":\"In\",\"values\":[\"API\"]}}]}"
+```
+
+Parametr **--dataset-filter** przyjmuje ciąg JSON lub `@json-file`.
+
+Istnieje również możliwość użycia poleceń [az costmanagement export](/cli/azure/ext/costmanagement/costmanagement/export) w celu wyeksportowania danych użycia do konta usługi Azure Storage. Możesz pobrać stamtąd dane.
+
+1. Utwórz grupę zasobów lub użyj istniejącej grupy zasobów. Aby utworzyć grupę zasobów, uruchom polecenie [az group create](/cli/azure/group#az_group_create):
+
+   ```azurecli
+   az group create --name TreyNetwork --location "East US"
+   ```
+
+1. Utwórz konto magazynu, aby otrzymywać eksporty, lub użyj istniejącego konta magazynu. Aby utworzyć konto, użyj polecenia [az storage account create](/cli/azure/storage/account#az_storage_account_create):
+
+   ```azurecli
+   az storage account create --resource-group TreyNetwork --name cmdemo
+   ```
+
+1. Uruchom polecenie [az costmanagement export create](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_create), aby utworzyć eksport:
+
+   ```azurecli
+   az costmanagement export create --name DemoExport --type Usage \
+   --scope "subscriptions/00000000-0000-0000-0000-000000000000" --storage-account-id cmdemo \
+   --storage-container democontainer --timeframe MonthToDate --storage-directory demodirectory
+   ```
+
+---
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

@@ -6,21 +6,21 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 09/15/2020
+ms.topic: how-to
+ms.date: 11/20/2020
 ms.author: banders
-ms.openlocfilehash: f773c964d900c45a51eac433c3616a6e4b8978ae
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: fbb69a4449c32f85cc4be438645b654608aa7489
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "92131143"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026560"
 ---
 # <a name="add-or-update-a-credit-card-for-azure"></a>Dodawanie lub aktualizowanie karty kredytowej dla platformy Azure
 
 Ten dokument dotyczy klientów, którzy zarejestrowali się na platformie Azure w trybie online przy użyciu karty kredytowej.
 
-W witrynie Azure Portal możesz zmienić domyślną formę płatności na nową kartę kredytową i zaktualizować informacje o karcie kredytowej. Musisz być [administratorem konta](../understand/subscription-transfer.md#whoisaa), aby wprowadzić te zmiany.
+W witrynie Azure Portal możesz zmienić domyślną formę płatności na nową kartę kredytową i zaktualizować informacje o karcie kredytowej. Musisz być [administratorem konta](../understand/subscription-transfer.md#whoisaa) lub musisz mieć odpowiednie [uprawnienia umowy MCA](understand-mca-roles.md), aby wprowadzić te zmiany.
 
 Jeśli chcesz usunąć kartę kredytową, zapoznaj się z tematem [Usuwanie metody płatności dla rozliczeń na platformie Azure](delete-azure-payment-method.md).
 
@@ -82,11 +82,11 @@ Jeśli karta kredytowa jest odnawiana, a numer pozostaje taki sam, zaktualizuj i
 
 ## <a name="manage-credit-cards-for-a-microsoft-customer-agreement"></a>Zarządzanie kartami kredytowymi dla Umowy z Klientem Microsoft
 
-Poniższe sekcje dotyczą klientów, którzy mają Umowę z Klientem Microsoft i zarejestrowali się w usłudze Azure w trybie online przy użyciu karty kredytowej. [Dowiedz się, jak sprawdzić, czy masz dostęp do Umowy z Klientem Microsoft](#check-the-type-of-your-account).
+Poniższe sekcje dotyczą klientów, którzy mają Umowę z Klientem Microsoft i zarejestrowali się na platformie Azure w trybie online przy użyciu karty kredytowej, a także tych, którzy mają odpowiednie [uprawnienia umowy MCA](understand-mca-roles.md). [Dowiedz się, jak sprawdzić, czy masz dostęp do Umowy z Klientem Microsoft](#check-the-type-of-your-account).
 
 ### <a name="change-default-credit-card"></a>Zmienianie domyślnej karty kredytowej
 
-Jeśli masz Umowę z Klientem Microsoft, Twoja karta kredytowa jest skojarzona z profilem rozliczeniowym. Aby zmienić formę płatności dla profilu rozliczeniowego, musisz być osobą, która zarejestrowała się na platformie Azure i utworzyła konto rozliczeniowe.
+Jeśli masz Umowę z Klientem Microsoft, Twoja karta kredytowa jest skojarzona z profilem rozliczeniowym. Aby zmienić formę płatności dla profilu rozliczeniowego, musisz być osobą, która zarejestrowała się na platformie Azure i utworzyła konto rozliczeniowe lub musisz mieć [odpowiednie uprawnienia umowy MCA](understand-mca-roles.md).
 
 Jeśli chcesz zmienić domyślną formę płatności profilu rozliczeniowego na czek/przelew, zobacz [Płacenie za subskrypcje platformy Azure za pomocą faktury](pay-by-invoice.md).
 

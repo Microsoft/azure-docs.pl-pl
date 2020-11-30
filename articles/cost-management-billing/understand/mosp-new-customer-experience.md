@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: banders
-ms.openlocfilehash: 0b3cf0c705048d37d422d62b77dc7d94c5ae13bd
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7bec455b804d1f4b13ab7e13677092077214a121
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149399"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965854"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>Rozpoczynanie pracy ze zaktualizowanym kontem rozliczeniowym platformy Azure
 
@@ -42,7 +42,7 @@ Po zaktualizowaniu konta dla każdej subskrypcji zostanie automatycznie utworzon
 
 Role w profilach rozliczeniowych mają uprawnienia do wyświetlania faktur i metod płatności oraz zarządzania nimi. Te role należy przypisywać do użytkowników płacących faktury, takich jak członkowie zespołu księgowego w organizacji. Aby uzyskać więcej informacji, zobacz sekcję [Zadania i role profilu rozliczeniowego](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks). 
 
-Po zaktualizowaniu konta w każdej subskrypcji, w której nadano innym osobom uprawnienia do [wyświetlania faktur](download-azure-invoice.md#allow-others-to-download-the-your-subscription-invoice), użytkownikom, którzy mają rolę RBAC platformy Azure właściciela, współautora, czytelnika lub czytelnika rozliczeń, jest przypisywana rola czytelnika w odpowiednim profilu rozliczeniowym.
+Po zaktualizowaniu konta w każdej subskrypcji, w której nadano innym osobom uprawnienia do [wyświetlania faktur](download-azure-invoice.md#allow-others-to-download-the-your-subscription-invoice), użytkownikom, którzy mają rolę platformy Azure właściciela, współautora, czytelnika lub czytelnika rozliczeń, jest przypisywana rola czytelnika w odpowiednim profilu rozliczeniowym.
 
 ## <a name="invoice-sections"></a>Sekcje faktury
 

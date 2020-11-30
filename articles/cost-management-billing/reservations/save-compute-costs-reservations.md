@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 10/01/2020
+ms.date: 11/18/2020
 ms.author: banders
-ms.openlocfilehash: 5aeb9046b8901580e4de37b1735a2d2dddd42fce
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: eef19a6c421a64c3951d35eea78ea84f7e7d97b2
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147454"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887216"
 ---
 # <a name="what-are-azure-reservations"></a>Co to jest Azure Reservations?
 
@@ -90,7 +90,7 @@ Aby uzyskać więcej informacji, zobacz temat [Self-service exchanges and refund
 - **Wystąpienie zarezerwowane maszyny wirtualnej** — rezerwacja obejmuje tylko koszty obliczeń maszyny wirtualnej i usług w chmurze. Nie dotyczy dodatkowych opłat za oprogramowanie, system Windows, sieć ani magazyn.
 - **Pojemność zarezerwowana usługi Azure Storage** — rezerwacja obejmuje pojemność magazynu dla kont magazynu w warstwie Standardowa dla magazynu obiektów blob lub magazynu usługi Azure Data Lake Gen2. Rezerwacja nie obejmuje stawek za przepustowość lub transakcje.
 - **Pojemność zarezerwowana usługi Azure Cosmos DB** — rezerwacja obejmuje przepływność przydzieloną dla zasobów. Nie dotyczy opłat za magazyn i sieć.
-- **Zarezerwowany rdzeń wirtualny w usłudze SQL Database** — w rezerwacji są uwzględniane tylko koszty obliczeń. Opłata za licencję SQL jest naliczana oddzielnie.
+- **Zarezerwowany rdzeń wirtualny w usłudze SQL Database** — obejmuje zarówno usługę SQL Managed Instance, jak i pulę elastyczną usługi SQL Database/pojedynczą bazę danych. W rezerwacji są uwzględniane tylko koszty obliczeń. Opłata za licencję SQL jest naliczana oddzielnie. 
 - **Azure Synapse Analytics** — rezerwacja obejmuje użycie jednostek cDWU. Nie pokrywa kosztów magazynu i sieci wynikających z użycia usługi Azure Synapse Analytics.
 - **Azure Databricks** — rezerwacja obejmuje tylko użycie jednostek DBU. Pozostałe opłaty, na przykład za obliczenia, magazyn i sieć, są naliczane oddzielnie.
 - **Podatek od czynności cywilnoprawnych za korzystanie z usługi App Service** — rezerwacja obejmuje użycie sygnatury. Nie dotyczy to procesów roboczych, dlatego opłaty za inne zasoby związane z sygnaturą są naliczane oddzielnie.
