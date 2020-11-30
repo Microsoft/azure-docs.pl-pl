@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 7b77a47acba6180df4a067887b79d8cdc0f56df6
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5dbd49312b58dc656e2239e8a0a4acea614023de
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185083"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96317140"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Ciągła integracja i dostarczanie dla obszaru roboczego usługi Azure Synapse
 
@@ -91,11 +91,21 @@ Dodaj zadanie wdrażania Azure Resource Manager, aby tworzyć lub aktualizować 
 
 ## <a name="set-up-a-stage-task-for-artifacts-deployment"></a>Konfigurowanie zadania etapowego dla wdrożenia artefaktów 
 
-Za pomocą [Synapse obszarów roboczych Kompiluj zadanie wydania &](https://marketplace.visualstudio.com/items?itemName=PraveenMathamsetty.synapsecicd-deploy) , aby wdrożyć inne elementy w obszarze roboczym Synapse, takie jak zestaw danych, skrypt SQL, Notes, definicja zadania platformy Spark, przepływu danych, potok, połączona usługa, poświadczenia i IR (Integration Runtime).  
+Użyj rozszerzenia [wdrożenia obszaru roboczego Synapse](https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy) , aby wdrożyć inne elementy w obszarze roboczym usługi Synapse, takie jak zestaw danych, skrypt SQL, Notes, definicja zadania platformy Spark, przepływu danych, potok, połączona usługa, poświadczenia i IR (Integration Runtime).  
+
+1. Wyszukaj i Pobierz rozszerzenie z **witryny Azure DevOps Marketplace**(https://marketplace.visualstudio.com/azuredevops) 
+
+     ![Pobierz rozszerzenie](media/get-extension-from-market.png)
+
+1. Wybierz organizację, w której ma zostać zainstalowane rozszerzenie. 
+
+     ![Instalowanie rozszerzenia](media/install-extension.png)
 
 1. Upewnij się, że z zasadą usługi potoku usługi Azure DevOps udzielono uprawnienia do subskrypcji, a także przypisano ją jako administratora obszaru roboczego. 
 
-1. Utwórz nowe zadanie. Wyszukaj **obszary robocze Synapse Build & Release**, a następnie wybierz pozycję **Dodaj**.
+1. Utwórz nowe zadanie. Wyszukaj **wdrożenie obszaru roboczego Synapse**, a następnie wybierz pozycję **Dodaj**.
+
+     ![Dodaj rozszerzenie](media/add-extension-task.png)
 
 1.  W zadaniu podaj informacje o powiązanym repozytorium git **workspace_publish** , a następnie wybierz pozycję Grupa zasobów, region, nazwa i środowisko chmury dla docelowego obszaru roboczego. W razie potrzeby podaj parametry i wartości.
 

@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: 89cec12804f6fd2b8a3885248c42646d6c6dbb13
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 9f8004b41e8048dfc97fb61bb67a634963c0c575
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186562"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96317558"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alerty dzienników w Azure Monitor
 
@@ -90,7 +90,7 @@ requests
 | where resultCode == "500"
 ```
 
-- **Okres:** 15 minut
+- **Stopień szczegółowości okresu/agregacji:** 15 minut
 - **Częstotliwość alertów:** 15 minut
 - **Wartość progowa:** Większe niż 0
 
@@ -145,7 +145,7 @@ Na przykład chcesz monitorować błędy wielu maszyn wirtualnych z uruchomioną
 - **Kolumna identyfikatora zasobu:** _ResourceId (podział według kolumny identyfikatora zasobu w regułach alertów) jest dostępny tylko dla subskrypcji i grup zasobów.
 - **Wymiary/zagregowane w:**
   - Computer = VM1, VM2 (Filtrowanie wartości w definicji reguł alertów nie jest obecnie dostępne dla obszarów roboczych i Application Insights. Filtr w tekście zapytania.)
-- **Okres:** 15 minut
+- **Stopień szczegółowości okresu/agregacji:** 15 minut
 - **Częstotliwość alertów:** 15 minut
 - **Wartość progowa:** Większe niż 0
 

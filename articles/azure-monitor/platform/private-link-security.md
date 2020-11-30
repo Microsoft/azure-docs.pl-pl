@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 3f9779d2676d4d2b67efff37118d109664b84bd5
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8633aba2f7cda5dec4a48e9f7132283f8235f746
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184607"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96317524"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Używanie usługi Azure Private Link do bezpiecznego łączenia sieci z usługą Azure Monitor
 
@@ -79,10 +79,10 @@ Istnieje szereg ograniczeń, które należy wziąć pod uwagę podczas planowani
 * Obiekt AMPLS może łączyć się z 10 prywatnymi punktami końcowymi.
 
 W poniższej topologii:
-* Każda sieć wirtualna nawiązuje połączenie z 1 AMPLS obiektem, dlatego nie może nawiązać połączenia z innymi AMPLSs.
-* AMPLS B nawiązuje połączenie z 2 sieci wirtualnych: przy użyciu 2/10 z możliwych połączeń prywatnych punktów końcowych.
-* AMPLS nawiązuje połączenie z 2 obszarami roboczymi i 1 składnik usługi Application Insight: przy użyciu 3/50 możliwych zasobów Azure Monitor.
-* Obszar roboczy 2 nawiązuje połączenie z AMPLS a i AMPLS B: przy użyciu 2/5 możliwych połączeń AMPLS.
+* Każda sieć wirtualna nawiązuje połączenie tylko z **1** AMPLS obiektem.
+* AMPLS B jest połączona z prywatnymi punktami końcowymi dwóch sieci wirtualnych (VNet2 i sieci vnet3), przy użyciu 2/10 (20%) z możliwych połączeń prywatnych punktów końcowych.
+* AMPLS łączy się do dwóch obszarów roboczych i jednego składnika usługi Application Insights, używając 3/50 (6%) z możliwych Azure Monitor połączeń zasobów.
+* Workspace2 nawiązuje połączenie z AMPLS a i AMPLS B przy użyciu 2/5 (40%) z możliwych połączeń AMPLS.
 
 ![Diagram limitów AMPLS](./media/private-link-security/ampls-limits.png)
 
@@ -103,9 +103,9 @@ Zacznij od utworzenia zasobu zakresu prywatnego linku Azure Monitor.
 
 6. Pozwól na przekazanie walidacji, a następnie kliknij przycisk **Utwórz**.
 
-## <a name="connect-azure-monitor-resources"></a>Łączenie Azure Monitor zasobów
+### <a name="connect-azure-monitor-resources"></a>Łączenie Azure Monitor zasobów
 
-Możesz połączyć AMPLS najpierw z prywatnymi punktami końcowymi, a następnie w celu Azure Monitor zasobów lub na odwrót, ale proces połączenia przebiega szybciej, jeśli zaczniesz od zasobów Azure Monitor. Poniżej przedstawiono sposób łączenia Azure Monitor Log Analytics obszarów roboczych i składników Application Insights z AMPLS
+Połącz zasoby Azure Monitor (Log Analytics obszary robocze i składniki Application Insights) z AMPLS.
 
 1. W zakresie prywatnego łącza Azure Monitor kliknij pozycję **zasoby Azure monitor** w menu po lewej stronie. Kliknij przycisk **Dodaj** .
 2. Dodaj obszar roboczy lub składnik. Kliknięcie przycisku **Dodaj** powoduje wyświetlenie okna dialogowego, w którym można wybrać Azure monitor zasoby. Możesz przeglądać subskrypcje i grupy zasobów lub wpisywać ich nazwy, aby filtrować do nich. Wybierz obszar roboczy lub składnik, a następnie kliknij przycisk **Zastosuj** , aby dodać je do zakresu.
@@ -150,7 +150,7 @@ Teraz, gdy masz zasoby połączone z AMPLS, Utwórz prywatny punkt końcowy, aby
  
    d.    Zezwalaj na weryfikację. 
  
-   e.    Kliknij przycisk **Utwórz**. 
+   e.    Kliknij pozycję **Utwórz**. 
 
     ![Zrzut ekranu przedstawiający pozycję Utwórz prywatny Endpoint2](./media/private-link-security/ampls-select-private-endpoint-create-5.png)
 
@@ -158,16 +158,19 @@ Utworzono nowy prywatny punkt końcowy, który jest połączony z tym Azure Moni
 
 ## <a name="configure-log-analytics"></a>Konfigurowanie usługi Log Analytics
 
-Przejdź do witryny Azure Portal. W obszarze Log Analytics zasobów obszaru roboczego istnieje **izolacja sieciowa** elementu menu po lewej stronie. W tym menu można kontrolować dwa różne stany. 
+Przejdź do witryny Azure Portal. W obszarze Log Analytics zasobów obszaru roboczego istnieje **izolacja sieciowa** elementu menu po lewej stronie. W tym menu można kontrolować dwa różne stany.
 
 ![Izolacja sieci LA](./media/private-link-security/ampls-log-analytics-lan-network-isolation-6.png)
 
-Najpierw można połączyć ten zasób Log Analytics z dowolnymi Azure Monitor prywatnymi zakresami łączy, do których masz dostęp. Kliknij przycisk **Dodaj** i wybierz prywatny zakres linków Azure monitor.  Kliknij przycisk **Zastosuj** , aby nawiązać połączenie. Wszystkie połączone zakresy są wyświetlane na tym ekranie. Utworzenie tego połączenia zezwala na dostęp do tego obszaru roboczego przez ruch sieciowy podłączonych sieci wirtualnych. Nawiązywanie połączenia ma ten sam skutek, co połączenie z zakresem, tak jak w przypadku [łączenia Azure Monitor zasobów](#connect-azure-monitor-resources).  
+### <a name="connected-azure-monitor-private-link-scopes"></a>Połączone Azure Monitor zakresy linków prywatnych
+Wszystkie zakresy połączone z tym obszarem roboczym są wyświetlane na tym ekranie. Łączenie z zakresami (AMPLSs) zezwala na ruch sieciowy z sieci wirtualnej połączonej z każdym AMPLS, aby dotrzeć do tego obszaru roboczego. Utworzenie połączenia w tym miejscu ma taki sam skutek jak ustawienie go w zakresie, tak jak w przypadku [łączenia Azure Monitor zasobów](#connect-azure-monitor-resources). Aby dodać nowe połączenie, kliknij przycisk **Dodaj** i wybierz prywatny zakres linków Azure monitor. Kliknij przycisk **Zastosuj** , aby nawiązać połączenie. Należy pamiętać, że obszar roboczy może połączyć się z 5 AMPLS obiektów, jak wyjaśniono w temacie [limity](#consider-limits). 
 
-Następnie można kontrolować sposób, w jaki można uzyskać dostęp do tego zasobu spoza zakresów linków prywatnych wymienionych powyżej. Jeśli ustawisz opcję **Zezwalaj na dostęp do sieci publicznej na potrzeby** pozyskiwania na **nie**, maszyny spoza połączonych zakresów nie mogą przekazywać danych do tego obszaru roboczego. Jeśli ustawisz opcję **Zezwalaj na dostęp do sieci publicznej dla zapytań** na wartość **nie**, wówczas maszyny spoza zakresów nie mogą uzyskać dostępu do danych w tym obszarze roboczym. Te dane obejmują dostęp do skoroszytów, pulpitów nawigacyjnych, zapytań dotyczących środowiska klienta opartego na interfejsie API, szczegółowych informacji w Azure Portal i nie tylko. Środowiska działające poza Azure Portal i że zapytanie Log Analytics dane muszą być uruchomione w prywatnej sieci wirtualnej.
+### <a name="access-from-outside-of-private-links-scopes"></a>Dostęp spoza zakresów linków prywatnych
+Ustawienia w dolnej części tej strony kontrolują dostęp z sieci publicznych, czyli oznacza sieci, które nie są połączone przez wymienione powyżej zakresy. Jeśli ustawisz opcję **Zezwalaj na dostęp do sieci publicznej na potrzeby** pozyskiwania na **nie**, maszyny spoza połączonych zakresów nie mogą przekazywać danych do tego obszaru roboczego. Jeśli ustawisz opcję **Zezwalaj na dostęp do sieci publicznej dla zapytań** na wartość **nie**, wówczas maszyny spoza zakresów nie będą miały dostępu do danych w tym obszarze roboczym, co oznacza, że nie będzie możliwe wykonywanie zapytań dotyczących danych obszaru roboczego. Obejmuje zapytania w skoroszytach, pulpitach nawigacyjnych, środowiska klienta opartego na interfejsie API, szczegółowe informacje w Azure Portal i wiele innych. Środowiska działające poza Azure Portal i że zapytanie Log Analytics dane muszą być uruchomione w prywatnej sieci wirtualnej.
 
-Ograniczanie dostępu w ten sposób nie ma zastosowania do Azure Resource Manager i dlatego ma następujące ograniczenia:
-* Dostęp do danych — podczas blokowania zapytań z sieci publicznych stosuje się do większości Log Analyticsych środowisk, ale niektóre środowiska wykonują zapytania dotyczące danych za pośrednictwem Azure Resource Manager i w związku z tym nie będą mogły wykonywać zapytań dotyczących danych, chyba że prywatne ustawienia linku są stosowane również do Menedżer zasobów (funkcja jest dostępna wkrótce). Dotyczy to na przykład Azure Monitor rozwiązań, skoroszytów i szczegółowych informacji oraz łącznika LogicApp.
+### <a name="exceptions"></a>Wyjątki
+Ograniczanie dostępu, jak wyjaśniono powyżej, nie ma zastosowania do Azure Resource Manager i dlatego ma następujące ograniczenia:
+* Dostęp do danych — podczas blokowania/zezwalania na zapytania z sieci publicznych stosuje się do większości Log Analyticsych środowisk, ale niektóre z nich wykonują zapytania dotyczące danych za pośrednictwem Azure Resource Manager i w związku z tym nie będą mogły wysyłać zapytań o dane, chyba że prywatne ustawienia linku są stosowane również do Menedżer zasobów (funkcja jest dostępna wkrótce). Dotyczy to na przykład Azure Monitor rozwiązań, skoroszytów i szczegółowych informacji oraz łącznika LogicApp.
 * Zarządzanie obszarem roboczym — ustawienia obszaru roboczego i zmiany konfiguracji (w tym Włączanie lub wyłączanie tych ustawień dostępu) są zarządzane przez Azure Resource Manager. Ogranicz dostęp do zarządzania obszarami roboczymi przy użyciu odpowiednich ról, uprawnień, kontroli sieci i inspekcji. Aby uzyskać więcej informacji, zobacz [Azure monitor role, uprawnienia i zabezpieczenia](roles-permissions-security.md).
 
 > [!NOTE]

@@ -1,31 +1,31 @@
 ---
-title: Szybki Start — Biblioteka klienta Azure Key Vault Certificates dla platformy .NET (wersja 4)
-description: Dowiedz się, jak tworzyć, pobierać i usuwać certyfikaty z magazynu kluczy platformy Azure przy użyciu biblioteki klienckiej platformy .NET (wersja 4)
+title: Szybki Start — Biblioteka klienta kluczy Azure Key Vault dla platformy .NET (wersja 4)
+description: Dowiedz się, jak tworzyć, pobierać i usuwać klucze z magazynu kluczy platformy Azure przy użyciu biblioteki klienckiej platformy .NET (wersja 4)
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 09/23/2020
 ms.service: key-vault
-ms.subservice: certificates
+ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 49f244ea8e602f3b5e6499b8e14db2be15bfc8f7
+ms.openlocfilehash: 658fa81c972846292b1bf608110fc95ffe1a730d
 ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317081"
+ms.locfileid: "96318456"
 ---
-# <a name="quickstart-azure-key-vault-certificate-client-library-for-net-sdk-v4"></a>Szybki Start: Azure Key Vault Biblioteka kliencka certyfikatów dla platformy .NET (SDK v4)
+# <a name="quickstart-azure-key-vault-key-client-library-for-net-sdk-v4"></a>Szybki Start: Azure Key Vault kluczową bibliotekę klienta dla platformy .NET (SDK v4)
 
-Rozpocznij pracę z biblioteką klienta Azure Key Vault Certificate dla platformy .NET. [Azure Key Vault](../general/overview.md) to usługa w chmurze, która zapewnia bezpieczny magazyn dla certyfikatów. Możesz bezpiecznie przechowywać klucze, hasła, certyfikaty oraz inne wpisy tajne. Magazyny kluczy platformy Azure można tworzyć oraz nimi zarządzać za pośrednictwem witryny Azure Portal. W tym przewodniku szybki start dowiesz się, jak tworzyć, pobierać i usuwać certyfikaty z magazynu kluczy platformy Azure przy użyciu biblioteki klienckiej platformy .NET.
+Rozpocznij pracę z Azure Key Vaultową biblioteką klienta dla platformy .NET. [Azure Key Vault](../general/overview.md) to usługa w chmurze, która zapewnia bezpieczny Magazyn kluczy kryptograficznych. Możesz bezpiecznie przechowywać klucze kryptograficzne, hasła, certyfikaty i inne wpisy tajne. Magazyny kluczy platformy Azure można tworzyć oraz nimi zarządzać za pośrednictwem witryny Azure Portal. W tym przewodniku szybki start dowiesz się, jak tworzyć, pobierać i usuwać klucze z magazynu kluczy platformy Azure przy użyciu biblioteki klienta klucza .NET.
 
-Key Vault zasoby biblioteki klienta:
+Zasoby biblioteki klienta klucza Key Vault:
 
-[Dokumentacja](/dotnet/api/azure.security.keyvault.certificates)  |  interfejsu API [Kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault)  |  źródłowy biblioteki [Pakiet (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Certificates/)
+[Dokumentacja](/dotnet/api/azure.security.keyvault.keys)  |  interfejsu API [Kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault)  |  źródłowy biblioteki [Pakiet (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.keys/)
 
-Aby uzyskać więcej informacji o Key Vault i certyfikatach, zobacz:
+Aby uzyskać więcej informacji na temat Key Vault i kluczy, zobacz:
 - [Przegląd Key Vault](../general/overview.md)
-- [Omówienie certyfikatów](about-certificates.md).
+- [Omówienie kluczy](about-keys.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -79,10 +79,10 @@ Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z inter
 
 ### <a name="install-the-packages"></a>Zainstaluj pakiety
 
-W powłoce poleceń Zainstaluj Azure Key Vault bibliotekę kliencką certyfikatów dla platformy .NET:
+W powłoce poleceń Zainstaluj Azure Key Vault kluczową bibliotekę klienta dla platformy .NET:
 
 ```dotnetcli
-dotnet add package Azure.Security.KeyVault.Certificates
+dotnet add package Azure.Security.KeyVault.Keys
 ```
 
 W tym przewodniku Szybki Start należy również zainstalować bibliotekę klienta zestawu Azure SDK dla tożsamości platformy Azure:
@@ -93,10 +93,10 @@ dotnet add package Azure.Identity
 
 #### <a name="grant-access-to-your-key-vault"></a>Udzielanie dostępu do magazynu kluczy
 
-Tworzenie zasad dostępu dla magazynu kluczy, który przyznaje uprawnienia certyfikatu do konta użytkownika
+Utwórz zasady dostępu dla magazynu kluczy, które przyznaje kluczowe uprawnienia do konta użytkownika
 
 ```console
-az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --certificate-permissions delete get list create purge
+az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --key-permissions delete get list create purge
 ```
 
 #### <a name="set-environment-variables"></a>Ustawianie zmiennych środowiskowych
@@ -119,7 +119,7 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 ## <a name="object-model"></a>Model obiektów
 
-Biblioteka klienta certyfikatu Azure Key Vault dla platformy .NET umożliwia zarządzanie certyfikatami. W sekcji [przykłady kodu](#code-examples) przedstawiono sposób tworzenia klienta, ustawiania certyfikatu, pobierania certyfikatu i usuwania certyfikatu.
+Biblioteka klienta klucza Azure Key Vault dla platformy .NET umożliwia zarządzanie kluczami. W sekcji [przykłady kodu](#code-examples) pokazano, jak utworzyć klienta, ustawić klucz, pobrać klucz i usunąć klucz.
 
 ## <a name="code-examples"></a>Przykłady kodu
 
@@ -130,7 +130,7 @@ Dodaj następujące dyrektywy na początku *program.cs*:
 ```csharp
 using System;
 using Azure.Identity;
-using Azure.Security.KeyVault.Certificates;
+using Azure.Security.KeyVault.Keys;
 ```
 
 ### <a name="authenticate-and-create-a-client"></a>Uwierzytelnianie i tworzenie klienta
@@ -140,44 +140,43 @@ W tym przewodniku szybki start zalogowany użytkownik jest używany do uwierzyte
 W poniższym przykładzie nazwa magazynu kluczy jest rozwinięta do identyfikatora URI magazynu kluczy w formacie "https:// \<your-key-vault-name\> . Vault.Azure.NET". W tym przykładzie użyto klasy  ["DefaultAzureCredential ()"](/dotnet/api/azure.identity.defaultazurecredential) , która umożliwia użycie tego samego kodu w różnych środowiskach z różnymi opcjami w celu zapewnienia tożsamości. Aby uzyskać więcej informacji o uwierzytelnianiu do magazynu kluczy, zobacz [przewodnik dewelopera](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
 ```csharp
-string keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
+var keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
 var kvUri = "https://" + keyVaultName + ".vault.azure.net";
 
-var client = new CertificateClient(new Uri(kvUri), new DefaultAzureCredential());
+var client = new KeyClient(new Uri(kvUri), new DefaultAzureCredential());
 ```
 
-### <a name="save-a-certificate"></a>Zapisz certyfikat
+### <a name="save-a-key"></a>Zapisz klucz
 
-W tym przykładzie dla uproszczenia można użyć certyfikatu z podpisem własnym z domyślnymi zasadami wystawiania. Dla tego zadania użyj metody [StartCreateCertificateAsync](/dotnet/api/azure.security.keyvault.certificates.certificateclient.startcreatecertificateasync) . Parametry metody przyjmują nazwę certyfikatu i [zasady certyfikatu](https://docs.microsoft.com/dotnet/api/azure.security.keyvault.certificates.certificatepolicy).
+Dla tego zadania użyj metody [CreateKeyAsync](/dotnet/api/azure.security.keyvault.keys.keyclient.createkeyasync) . Parametry metody przyjmują nazwę klucza i [Typ klucza](https://docs.microsoft.com/dotnet/api/azure.security.keyvault.keys.keytype).
 
 ```csharp
-var operation = await client.StartCreateCertificateAsync("myCertificate", CertificatePolicy.Default);
-var certificate = await operation.WaitForCompletionAsync();
+var key = await client.CreateKeyAsync("myKey", KeyType.Rsa);
 ```
 
 > [!NOTE]
-> Jeśli nazwa certyfikatu istnieje, powyżej kodu zostanie utworzona nowa wersja tego certyfikatu.
+> Jeśli nazwa klucza istnieje, powyżej kodu zostanie utworzona nowa wersja tego klucza.
 
-### <a name="retrieve-a-certificate"></a>Pobierz certyfikat
+### <a name="retrieve-a-key"></a>Pobierz klucz
 
-Teraz można pobrać wcześniej utworzony certyfikat przy użyciu metody [GetCertificateAsync](/dotnet/api/azure.security.keyvault.certificates.certificateclient.getcertificateasync) .
+Teraz można pobrać utworzony wcześniej klucz za pomocą metody [GetKeyAsync](/dotnet/api/azure.security.keyvault.keys.keyclient.getkeyasync) .
 
 ```csharp
-var certificate = await client.GetCertificateAsync("myCertificate");
+var key = await client.GetKeyAsync("myKey");
 ```
 
-### <a name="delete-a-certificate"></a>Usuwanie certyfikatu
+### <a name="delete-a-key"></a>Usuń klucz
 
-Na koniec Usuń i Przeczyść certyfikat z magazynu kluczy przy użyciu metod [StartDeleteCertificateAsync](/dotnet/api/azure.security.keyvault.certificates.certificateclient.startdeletecertificateasync) i [PurgeDeletedCertificateAsync](/dotnet/api/azure.security.keyvault.certificates.certificateclient.purgedeletedcertificateasync)  .
+Na koniec Usuń i Przeczyść klucz z magazynu kluczy przy użyciu metod [StartDeleteKeyAsync](/dotnet/api/azure.security.keyvault.keys.keyclient.startdeletekeyasync) i [PurgeDeletedKeyAsync](/dotnet/api/azure.security.keyvault.keys.keyclient.purgedeletedkeyasync) .
 
 ```csharp
-var operation = await client.StartDeleteCertificateAsync("myCertificate");
+var operation = await client.StartDeleteKeyAsync("myKey");
 
-// You only need to wait for completion if you want to purge or recover the certificate.
+// You only need to wait for completion if you want to purge or recover the key.
 await operation.WaitForCompletionAsync();
 
-var certificate = operation.Value;
-await client.PurgeDeletedCertificateAsync("myCertificate");
+var key = operation.Value;
+await client.PurgeDeletedKeyAsync("myKey");
 ```
 
 ## <a name="sample-code"></a>Przykładowy kod
@@ -190,7 +189,7 @@ Zmodyfikuj aplikację konsolową .NET Core, aby móc korzystać z Key Vault, wyk
     using System;
     using System.Threading.Tasks;
     using Azure.Identity;
-    using Azure.Security.KeyVault.Certificates;
+    using Azure.Security.KeyVault.Keys;
     
     namespace key_vault_console_app
     {
@@ -198,29 +197,28 @@ Zmodyfikuj aplikację konsolową .NET Core, aby móc korzystać z Key Vault, wyk
         {
             static async Task Main(string[] args)
             {
-                const string certificateName = "myCertificate";
+                const string keyName = "myKey";
                 var keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
                 var kvUri = $"https://{keyVaultName}.vault.azure.net";
     
-                var client = new CertificateClient(new Uri(kvUri), new DefaultAzureCredential());
+                var client = new KeyClient(new Uri(kvUri), new DefaultAzureCredential());
     
-                Console.Write($"Creating a certificate in {keyVaultName} called '{certificateName}' ...");
-                CertificateOperation operation = await client.StartCreateCertificateAsync(certificateName, CertificatePolicy.Default);
-                await operation.WaitForCompletionAsync();
-                Console.WriteLine(" done.");
+                Console.Write($"Creating a key in {keyVaultName} called '{keyName}' ...");
+                var createdKey = await client.CreateKeyAsync(keyName, KeyType.Rsa);
+                Console.WriteLine("done.");
     
-                Console.WriteLine($"Retrieving your certificate from {keyVaultName}.");
-                var certificate = await client.GetCertificateAsync(certificateName);
-                Console.WriteLine($"Your certificate version is '{certificate.Value.Properties.Version}'.");
+                Console.WriteLine($"Retrieving your key from {keyVaultName}.");
+                var key = await client.GetKeyAsync(keyName);
+                Console.WriteLine($"Your key version is '{key.Value.Properties.Version}'.");
     
-                Console.Write($"Deleting your certificate from {keyVaultName} ...");
-                DeleteCertificateOperation deleteOperation = await client.StartDeleteCertificateAsync(certificateName);
-                // You only need to wait for completion if you want to purge or recover the certificate.
+                Console.Write($"Deleting your key from {keyVaultName} ...");
+                var deleteOperation = await client.StartDeleteKeyAsync(keyName);
+                // You only need to wait for completion if you want to purge or recover the key.
                 await deleteOperation.WaitForCompletionAsync();
-                Console.WriteLine(" done.");
+                Console.WriteLine("done.");
 
-                Console.Write($"Purging your certificate from {keyVaultName} ...");
-                await client.PurgeDeletedCertificateAsync(certificateName);
+                Console.Write($"Purging your key from {keyVaultName} ...");
+                await client.PurgeDeletedKeyAsync(keyName);
                 Console.WriteLine(" done.");
             }
         }
@@ -245,10 +243,10 @@ Zmodyfikuj aplikację konsolową .NET Core, aby móc korzystać z Key Vault, wyk
     Zostanie wyświetlona odmiana następujących danych wyjściowych:
 
     ```console
-    Creating a certificate in mykeyvault called 'myCertificate' ... done.
-    Retrieving your certificate from mykeyvault.
-    Your certificate version is '8532359bced24e4bb2525f2d2050738a'.
-    Deleting your certificate from jl-kv ... done
+    Creating a key in mykeyvault called 'myKey' ... done.
+    Retrieving your key from mykeyvault.
+    Your key version is '8532359bced24e4bb2525f2d2050738a'.
+    Deleting your key from jl-kv ... done
     ```
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
@@ -287,12 +285,12 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono Magazyn kluczy, Zapisano certyfikat i pobrano ten certyfikat. 
+W tym przewodniku szybki start utworzono Magazyn kluczy, Zapisano klucz i pobrano ten klucz. 
 
 Aby dowiedzieć się więcej na temat Key Vault i sposobu integrowania go z aplikacjami, zobacz następujące artykuły:
 
 - Zapoznaj się [z omówieniem Azure Key Vault](../general/overview.md)
-- Zapoznaj się z [omówieniem certyfikatów](about-certificates.md)
+- Zapoznaj się z [omówieniem kluczy](about-keys.md)
 - Wyświetlanie [Key Vault dostępu z poziomu samouczka aplikacji App Service](../general/tutorial-net-create-vault-azure-web-app.md)
 - Zobacz [Key Vault dostępu z poziomu samouczka maszyny wirtualnej](../general/tutorial-net-virtual-machine.md)
 - Zobacz [przewodnik dewelopera Azure Key Vault](../general/developers-guide.md)

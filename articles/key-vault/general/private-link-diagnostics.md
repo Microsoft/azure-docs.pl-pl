@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 870a55e5bc2701df5c03e142522e8490612b2917
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 03abe4e4e098d46060e33ba114872905e54a443f
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506060"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96317066"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnozowanie problemów z konfiguracją linków prywatnych w usłudze Azure Key Vault
 
@@ -180,9 +180,16 @@ W systemie Windows:
 C:\> nslookup fabrikam.vault.azure.net
 ```
 
-Odpowiedź Nieautorytatywna: adres: 52.168.109.101 aliasy: fabrikam.vault.azure.net fabrikam.privatelink.vaultcore.azure.net data-prod-eus.vaultcore.azure.net data-prod-eus-region.vaultcore.azure.net
+```output
+Non-authoritative answer:
+Address:  52.168.109.101
+Aliases:  fabrikam.vault.azure.net
+          fabrikam.privatelink.vaultcore.azure.net
+          data-prod-eus.vaultcore.azure.net
+          data-prod-eus-region.vaultcore.azure.net
 ```
-Linux:
+
+W systemie Linux:
 
 ```console
 joe@MyUbuntu:~$ host fabrikam.vault.azure.net
@@ -295,7 +302,7 @@ Jak widać, rozpoznawanie nazw jest pod kontrolą. Racjonalne znaczenie dla tego
 
 ### <a name="query-the-healthstatus-endpoint-of-the-key-vault"></a>Zbadaj `/healthstatus` punkt końcowy magazynu kluczy
 
-Magazyn kluczy udostępnia `/healthstatus` punkt końcowy, który może być używany na potrzeby diagnostyki. Nagłówki odpowiedzi zawierają adres IP źródła, który jest widoczny dla usługi magazynu kluczy. Ten punkt końcowy można wywołać za pomocą następującego polecenia ( **należy pamiętać, aby użyć nazwy hosta magazynu kluczy** ):
+Magazyn kluczy udostępnia `/healthstatus` punkt końcowy, który może być używany na potrzeby diagnostyki. Nagłówki odpowiedzi zawierają adres IP źródła, który jest widoczny dla usługi magazynu kluczy. Ten punkt końcowy można wywołać za pomocą następującego polecenia (**należy pamiętać, aby użyć nazwy hosta magazynu kluczy**):
 
 Windows (PowerShell):
 
