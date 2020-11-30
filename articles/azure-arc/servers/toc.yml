@@ -62,7 +62,7 @@
         - name: Dołączanie do usługi Azure Sentinel
           href: scenario-onboard-azure-sentinel.md
         - name: Dołączanie do usługi Azure Security Center
-          href: /security-center/quickstart-onboard-machines
+          href: ../../security-center/quickstart-onboard-machines.md
     - name: Rozwiązywanie problemów
       items:
         - name: Problemy z połączeniem z agentem

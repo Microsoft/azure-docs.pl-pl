@@ -3,12 +3,12 @@ title: Macierz obsługi dla oprogramowania VMware/fizycznego odzyskiwania po awa
 description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych programu VMware i serwera fizycznego na platformie Azure przy użyciu Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: e3130242e29b8d3886b585d56d33d0a9a2379ee3
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: cdc9edeb99e02d78b0701e02b157adbee016a566
+ms.sourcegitcommit: b849ecdc8aa97337299b0f09970b7810c59cd044
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95800273"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96310338"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Macierz obsługi odzyskiwania po awarii maszyn wirtualnych VMware i serwerów fizycznych na platformie Azure
 
@@ -85,12 +85,12 @@ Windows 7 z dodatkiem SP1 64 — bit | Obsługiwane przez [pakiet zbiorczy aktua
 **System operacyjny** | **Szczegóły**
 --- | ---
 Linux | Obsługiwany jest tylko system 64-bitowy. 32 — system bitowy nie jest obsługiwany.<br/><br/>Każdy serwer z systemem Linux powinien mieć zainstalowane [składniki systemu Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) . Jest to wymagane do uruchomienia serwera na platformie Azure po przetestowaniu trybu failover/przejścia w tryb failover. Jeśli brakuje wbudowanych składników LIS, przed włączeniem replikacji maszyn na platformie Azure upewnij się, że zostały zainstalowane [składniki](https://www.microsoft.com/download/details.aspx?id=55106) . <br/><br/> Site Recovery organizuje przejście w tryb failover na potrzeby uruchamiania serwerów z systemem Linux na platformie Azure. Jednak dostawcy systemu Linux mogą ograniczyć obsługę tylko wersji dystrybucji, które nie dotarły do końca cyklu życia.<br/><br/> W przypadku dystrybucji systemu Linux obsługiwane są tylko jądra, które są częścią wersji pomocniczej dystrybucji/aktualizacji.<br/><br/> Uaktualnianie chronionych maszyn w ramach głównych wersji dystrybucji systemu Linux nie jest obsługiwane. Aby przeprowadzić uaktualnienie, wyłącz replikację, Uaktualnij system operacyjny, a następnie ponownie Włącz replikację.<br/><br/> [Dowiedz się więcej](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) o pomocy technicznej dla systemów Linux i technologii open source na platformie Azure.
-Linux Red Hat Enterprise | 5,2 do 5,11</b><br/> 6,1 do 6,10</b> </br> 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4564347/), [7,9, wersja beta](https://support.microsoft.com/help/4578241/), [7,9](https://support.microsoft.com/help/4590304/) </br> [8,0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8,1, [8,2](https://support.microsoft.com/help/4570609) <br/> Kilka starszych jądra na serwerach z systemem Red Hat Enterprise Linux 5.2 — 5.11 & 6.1-6.10 nie mają wstępnie zainstalowanych [składników usług integracji systemu Linux (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) . Jeśli brakuje wbudowanych składników LIS, przed włączeniem replikacji maszyn na platformie Azure upewnij się, że zostały zainstalowane [składniki](https://www.microsoft.com/download/details.aspx?id=55106) .
+Linux Red Hat Enterprise | 5,2 do 5,11</b><br/> 6,1 do 6,10</b> </br> 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4564347/), [7,9, wersja beta](https://support.microsoft.com/help/4578241/), [7,9](https://support.microsoft.com/help/4590304/), [8,0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8,1, [8,2](https://support.microsoft.com/help/4570609), [8,3](https://support.microsoft.com/help/4597409). <br/><br/> Kilka starszych jądra na serwerach z Red Hat Enterprise Linux 5.2-5.11 & 6.1-6.10 nie mają wstępnie zainstalowanych [składników systemu Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) . Jeśli brakuje wbudowanych składników LIS, zainstaluj [składniki](https://www.microsoft.com/download/details.aspx?id=55106) przed włączeniem replikacji dla maszyny, aby zapewnić rozruch na platformie Azure.
 Linux: CentOS | 5,2 do 5,11</b><br/> 6,1 do 6,10</b><br/> </br> 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4564347/), [7,9](https://support.microsoft.com/help/4578241/) </br> [8,0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8,1, [8,2](https://support.microsoft.com/help/4570609) <br/><br/> Niektóre starsze jądra na serwerach z systemem CentOS 5.2-5.11 & 6.1-6.10 nie mają wstępnie zainstalowanych  [składników usług integracji systemu Linux (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) . Jeśli brakuje wbudowanych składników LIS, przed włączeniem replikacji maszyn na platformie Azure upewnij się, że zostały zainstalowane [składniki](https://www.microsoft.com/download/details.aspx?id=55106) .
 Ubuntu | Ubuntu 14,04 * serwer LTS [(Przejrzyj obsługiwane wersje jądra)](#ubuntu-kernel-versions)<br/>Ubuntu 16,04 * serwer LTS [(Przejrzyj obsługiwane wersje jądra)](#ubuntu-kernel-versions) </br> Ubuntu 18,04 * serwer LTS [(Przejrzyj obsługiwane wersje jądra)](#ubuntu-kernel-versions) </br> Ubuntu 20,04 * serwer LTS [(Przejrzyj obsługiwane wersje jądra)](#ubuntu-kernel-versions) </br> (*obejmuje obsługę wszystkich 14,04.* x *, 16,04.* x *, 18,04.* x *, 20,04.* x * wersje)
 Debian | Debian 7/Debian 8 (obejmuje obsługę wszystkich 7. *x*, 8. *x* wersje); Debian 9 (w tym obsługa 9,1 do 9,13. Debian 9,0 nie jest obsługiwana.) [(Przejrzyj obsługiwane wersje jądra)](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 z dodatkiem SP1, SP2, SP3, SP4, [SP5](https://support.microsoft.com/help/4570609) [(Przejrzyj obsługiwane wersje jądra)](#suse-linux-enterprise-server-12-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 15, 15 SP1 [(Przejrzyj obsługiwane wersje jądra)](#suse-linux-enterprise-server-15-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 11 z dodatkiem SP3. [Upewnij się, że na serwerze konfiguracji jest pobrany najnowszy Instalator agenta mobilności](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server). </br> SUSE Linux Enterprise Server 11 z dodatkiem SP4 </br> **Uwaga**: uaktualnianie zreplikowanych maszyn z programu SUSE Linux Enterprise Server 11 SP3 do wersji SP4 nie jest obsługiwane. Aby przeprowadzić uaktualnienie, wyłącz replikację i włącz ją ponownie po uaktualnieniu. <br/>|
-Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4573888/), [8,0](https://support.microsoft.com/help/4573888/), [8,1](https://support.microsoft.com/help/4573888/), [8,2](https://support.microsoft.com/help/4573888/)  <br/> Uruchamianie jądra zgodnego z systemem Red Hat lub nieprzerwane wydanie jądra 3, 4 & 5 (UEK3, UEK4, UEK5)<br/><br/>8.1<br/>Uruchamianie na wszystkich jądrach UEK i jądrze RedHat <= 3.10.0-1062. * są obsługiwane w [9,35](https://support.microsoft.com/help/4573888/) obsłudze dla pozostałych jądra RedHat jest dostępny w [9,36](https://support.microsoft.com/help/4578241/)
+Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4573888/), [7,9](https://support.microsoft.com/help/4597409), [8,0](https://support.microsoft.com/help/4573888/), [8,1](https://support.microsoft.com/help/4573888/), [8,2](https://support.microsoft.com/help/4573888/), [8,3](https://support.microsoft.com/help/4597409).  <br/> Uruchamianie jądra zgodnego z systemem Red Hat lub nieprzerwane wydanie jądra 3, 4 & 5 (UEK3, UEK4, UEK5)<br/><br/>8.1<br/>Uruchamianie na wszystkich jądrach UEK i jądrze RedHat <= 3.10.0-1062. * są obsługiwane w [9,35](https://support.microsoft.com/help/4573888/) obsłudze dla pozostałych jądra RedHat jest dostępny w [9,36](https://support.microsoft.com/help/4578241/)
 
 > [!Note]
 >- Dla każdej wersji systemu Windows Azure Site Recovery obsługuje tylko kompilacje [LTSC (Long-Term Servicing Channel)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) .  W tej chwili nie są obecnie obsługiwane [półroczne wersje kanałów](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) .
@@ -151,7 +151,7 @@ SUSE Linux Enterprise Server 15 i 15 SP1 | [9,34](https://support.microsoft.com/
 
 ## <a name="linux-file-systemsguest-storage"></a>Systemy plików Linux/magazyn gościa
 
-**Składnik** | **Obsługiwał**
+**Składnik** | **Obsługiwane**
 --- | ---
 Systemy plików | ext3, EXT4, XFS, BTRFS (warunki odpowiednie dla tej tabeli)
 Inicjowanie obsługi zarządzania woluminami logicznymi (LVM)| Grube udostępnianie — tak <br></br> Alokowanie elastyczne — nie
@@ -178,7 +178,7 @@ Dodawanie dysku do zreplikowanej maszyny wirtualnej | Nieobsługiwane.<br/> Wył
 
 ## <a name="network"></a>Sieć
 
-**Składnik** | **Obsługiwał**
+**Składnik** | **Obsługiwane**
 --- | ---
 Tworzenie zespołu kart interfejsu sieciowego hosta | Obsługiwane przez maszyny wirtualne VMware. <br/><br/>Nieobsługiwane w przypadku replikacji maszyn fizycznych.
 Sieć VLAN hosta | Tak.
@@ -195,7 +195,7 @@ Prywatny dostęp do połączenia z usługą Site Recovery | Tak. [Dowiedz się w
 
 ## <a name="azure-vm-network-after-failover"></a>Sieć maszyn wirtualnych platformy Azure (po przejściu w tryb failover)
 
-**Składnik** | **Obsługiwał**
+**Składnik** | **Obsługiwane**
 --- | ---
 Azure ExpressRoute | Tak
 ILB | Tak
@@ -209,7 +209,7 @@ Punkty końcowe usługi dla sieci wirtualnej platformy Azure<br/> | Tak
 Wydajniejsze sieci | Nie
 
 ## <a name="storage"></a>Magazyn
-**Składnik** | **Obsługiwał**
+**Składnik** | **Obsługiwane**
 --- | ---
 Dysk dynamiczny | Dysk systemu operacyjnego musi być dyskiem podstawowym. <br/><br/>Dyski danych mogą być dyskami dynamicznymi
 Konfiguracja dysku platformy Docker | Nie
@@ -240,7 +240,7 @@ Gość/serwer EFI/rozruch UEFI | -Obsługiwane dla wszystkich [systemów operacy
 
 ## <a name="replication-channels"></a>Kanały replikacji
 
-|**Typ replikacji**   |**Obsługiwał**  |
+|**Typ replikacji**   |**Obsługiwane**  |
 |---------|---------|
 |Odciążone transfery danych (ODX)    |       Nie  |
 |Rozmieszczanie w trybie offline        |   Nie      |
@@ -248,7 +248,7 @@ Gość/serwer EFI/rozruch UEFI | -Obsługiwane dla wszystkich [systemów operacy
 
 ## <a name="azure-storage"></a>Azure Storage
 
-**Składnik** | **Obsługiwał**
+**Składnik** | **Obsługiwane**
 --- | ---
 Magazyn lokalnie nadmiarowy | Tak
 Magazyn geograficznie nadmiarowy | Tak
@@ -267,7 +267,7 @@ Konta magazynu ogólnego przeznaczenia w wersji 2 (warstwy gorąca i chłodna) |
 
 ## <a name="azure-compute"></a>Obliczenia na platformie Azure
 
-**Funkcja** | **Obsługiwał**
+**Funkcja** | **Obsługiwane**
 --- | ---
 Zestawy dostępności | Tak
 Strefy dostępności | Nie
@@ -324,7 +324,7 @@ Maksymalny współczynnik zmian danych dziennie obsługiwany przez serwer przetw
 
 ## <a name="vault-tasks"></a>Zadania magazynu
 
-**Akcja** | **Obsługiwał**
+**Akcja** | **Obsługiwane**
 --- | ---
 Przenoszenie magazynu między grupami zasobów | Nie
 Przenoszenie magazynu w ramach subskrypcji i między subskrypcjami | Nie

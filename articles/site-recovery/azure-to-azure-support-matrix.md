@@ -2,14 +2,14 @@
 title: Macierz obsługi odzyskiwania po awarii maszyny wirtualnej platformy Azure z Azure Site Recovery
 description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych platformy Azure w regionie pomocniczym z Azure Site Recovery.
 ms.topic: article
-ms.date: 07/14/2020
+ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: 2391a4056d5c0c952677b57e7d37a181ef0eacc0
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 25fb28c8f420a64f60ab0d058c374f5de74ed883
+ms.sourcegitcommit: b849ecdc8aa97337299b0f09970b7810c59cd044
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95808861"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96310339"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Macierz obsługi odzyskiwania po awarii maszyny wirtualnej platformy Azure między regionami platformy Azure
 
@@ -98,8 +98,8 @@ Windows 7 (x64) z dodatkiem SP1 lub nowszym | W wersji [9,30](https://support.mi
 
 **System operacyjny** | **Szczegóły**
 --- | ---
-Red Hat Enterprise Linux | 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6,[7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4564347/), [7,9](https://support.microsoft.com/help/4578241/), [8,0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8,1, [8,2](https://support.microsoft.com/help/4570609/)
-CentOS | 6,5, 6,6, 6,7, 6,8, 6,9, 6,10 </br> 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, 7,7, [7,8](https://support.microsoft.com/help/4564347/), [7,9, wersja wstępna](https://support.microsoft.com/help/4578241/), 7,9 </br> 8,0, 8,1, [8,2](https://support.microsoft.com/en-us/help/4570609)
+Red Hat Enterprise Linux | 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6,[7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4564347/), [7,9](https://support.microsoft.com/help/4578241/), [8,0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8,1, [8,2](https://support.microsoft.com/help/4570609/), [8,3](https://support.microsoft.com/help/4597409).
+CentOS | 6,5, 6,6, 6,7, 6,8, 6,9, 6,10 </br> 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, 7,7, [7,8](https://support.microsoft.com/help/4564347/), [7,9 w wersji wstępnej](https://support.microsoft.com/help/4578241/), 7,9 (wersja ga jest obsługiwana z poprawka 9,37 * *), 8,0, 8,1, [8,2](https://support.microsoft.com/en-us/help/4570609)
 Serwer Ubuntu 14,04 LTS | Obejmuje obsługę wszystkich 14,04. *x* wersje; [Obsługiwane wersje jądra](#supported-ubuntu-kernel-versions-for-azure-virtual-machines); 
 Serwer Ubuntu 16,04 LTS | Obejmuje obsługę wszystkich 16,04. *x* wersje; [Obsługiwana wersja jądra](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Serwery Ubuntu korzystające z uwierzytelniania opartego na hasłach i logowania, a pakiet Cloud-init do konfigurowania maszyn wirtualnych w chmurze mogą mieć wyłączone logowanie oparte na hasłach w trybie failover (w zależności od konfiguracji cloudinit). Logowanie oparte na haśle można włączyć na maszynie wirtualnej przez zresetowanie hasła w menu Ustawienia > > Rozwiązywanie problemów z pomocą techniczną (w przypadku maszyny wirtualnej w trybie failover w Azure Portal.
 Serwer Ubuntu 18,04 LTS | Obejmuje obsługę wszystkich 18,04. *x* wersje; [Obsługiwana wersja jądra](#supported-ubuntu-kernel-versions-for-azure-virtual-machines) |
@@ -111,10 +111,10 @@ SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4, SP5  [(obsługiwane wersje
 SUSE Linux Enterprise Server 15 | 15, SP1, SP2[(obsługiwane wersje jądra)](#supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | USUWA<br/><br/> Uaktualnienie maszyn replikowanych z programu SP3 do wersji SP4 nie jest obsługiwane. Jeśli replikowana maszyna została uaktualniona, należy wyłączyć replikację i ponownie włączyć replikację po uaktualnieniu.
 SUSE Linux Enterprise Server 11 | DODATEK
-Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4573888/), [8,0](https://support.microsoft.com/help/4573888/), [8,1](https://support.microsoft.com/help/4573888/)  <br/> Uruchamianie jądra zgodnego z systemem Red Hat lub nieprzerwane wydanie jądra 3, 4 & 5 (UEK3, UEK4, UEK5)<br/><br/>8.1<br/>Uruchamianie na wszystkich jądrach UEK i jądrze RedHat <= 3.10.0-1062. * są obsługiwane w [9,35](https://support.microsoft.com/help/4573888/) obsłudze dla pozostałych jądra RedHat jest dostępny w [9,36](https://support.microsoft.com/help/4578241/)
+Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4573888/), [7,9](https://support.microsoft.com/help/4597409), [8,0](https://support.microsoft.com/help/4573888/), [8,1](https://support.microsoft.com/help/4573888/) (uruchamianie jądra zgodnego z systemem Red Hat lub nieprzerwane wydanie jądra 3, 4 & 5 (UEK3, UEK4, UEK5)<br/><br/>8,1 (uruchomione na wszystkich jądrach UEK i jądrze RedHat <= 3.10.0-1062. * są obsługiwane w [9,35](https://support.microsoft.com/help/4573888/). Obsługa pozostałych RedHat jądra jest dostępna w [9,36](https://support.microsoft.com/help/4578241/))
 
 > [!NOTE]
-> Upewnij się, że w przypadku wersji systemu Linux Azure Site Recovery nie obsługuje niestandardowych obrazów systemów operacyjnych. Obsługiwane są tylko jądra podstawowe, które są częścią wersji pomocniczej dystrybucji/aktualizacji.
+> W przypadku wersji systemu Linux Azure Site Recovery nie obsługuje niestandardowych obrazów systemów operacyjnych. Obsługiwane są tylko jądra podstawowe, które są częścią wersji pomocniczej dystrybucji/aktualizacji.
 
 * * Uwaga: aby obsłużyć najnowsze jądra systemu Linux w ciągu 15 dni od wydania, Azure Site Recovery naprawia poprawkę poprawek na bieżąco na najnowszej wersji agenta mobilności. Ta poprawka jest wprowadzana między dwiema wersjami głównymi. Aby zaktualizować do najnowszej wersji agenta mobilności (łącznie z poprawkami gorącą), wykonaj kroki opisane w [tym artykule](service-updates-how-to.md#azure-vm-disaster-recovery-to-azure). Ta poprawka jest obecnie wprowadzana dla agentów mobilności używanych na platformie Azure do scenariusza odzyskiwania po awarii platformy Azure.
 

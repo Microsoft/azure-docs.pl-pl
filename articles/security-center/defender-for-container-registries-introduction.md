@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d587c4dbdd8f46d6e098ff96f464d456fffc9ccf
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: ad880b7c23c687530a79ca1123474e94c923e150
+ms.sourcegitcommit: b849ecdc8aa97337299b0f09970b7810c59cd044
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95529992"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96310395"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Wprowadzenie do usługi Azure Defender dla rejestrów kontenerów
 
@@ -85,6 +85,8 @@ Tak. Jeśli istnieje organizacja, która ma być ignorowana, zamiast skorygować
 
 [Dowiedz się więcej na temat tworzenia reguł w celu wyłączenia wyników z narzędzia zintegrowanej oceny luk w zabezpieczeniach](defender-for-container-registries-usage.md#disable-specific-findings-preview).
 
+### <a name="why-is-security-center-alerting-me-to-vulnerabilities-about-an-image-that-isnt-in-my-registry"></a>Dlaczego Security Center ostrzega mnie o lukach w zabezpieczeniach dotyczących obrazu, który nie znajduje się w rejestrze?
+Security Center zapewnia oceny luk w zabezpieczeniach dla każdego obrazu wypchnięte lub ściągniętego w rejestrze. Niektóre obrazy mogą ponownie używać tagów z obrazu, który został już zeskanowany. Na przykład możesz ponownie przypisać tag "Najnowsza" przy każdym dodawaniu obrazu do skrótu. W takich przypadkach obraz "stary" nadal istnieje w rejestrze i nadal może zostać pobrany przez jego skrót. Jeśli obraz zawiera wyniki dotyczące zabezpieczeń i zostanie pobrany, spowoduje to ujawnienie luk w zabezpieczeniach.
 
 
 ## <a name="next-steps"></a>Następne kroki
