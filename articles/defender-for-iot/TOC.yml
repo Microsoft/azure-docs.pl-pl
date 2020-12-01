@@ -122,11 +122,11 @@
 - name: Zasoby
   items:
     - name: Rozwijanie umiejętności w zakresie zabezpieczeń dzięki środowisku Microsoft Learn
-      href: 'https://docs.microsoft.com/learn/browse/?term=securityS&terms=securityS'
+      href: /learn/browse/?term=securityS&terms=securityS
     - name: Dokumentacja usługi Azure Security Center
-      href: 'https://docs.microsoft.com/azure/security-center/'
+      href: ../security-center/index.yml
     - name: Dokumentacja zabezpieczeń platformy Azure
-      href: 'https://docs.microsoft.com/azure/security/'
+      href: ../security/index.yml
     - name: Moduł zabezpieczeń usługi Azure RTOS w witrynie Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-rtos+azure-iot-security-module'
     - name: 'Blog dotyczący zabezpieczeń IoT, ochrony prywatności i zgodności na platformie Azure'

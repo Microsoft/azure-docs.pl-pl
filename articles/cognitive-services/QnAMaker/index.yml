@@ -11,12 +11,12 @@ metadata:
   services: cognitive-services
   title: Dokumentacja usługi QnA Maker
   description: Usługa QnA Maker to oparta na chmurze usługa interfejsu API, która tworzy warstwę konwersacji w postaci pytań i odpowiedzi nad Twoimi danymi. Usługa QnA Maker umożliwia zasilanie usługi pytań i odpowiedzi za pomocą częściowo ustrukturyzowanej zawartości, takiej jak dokumenty z często zadawanymi pytaniami, adresy URL i podręczniki produktów. Usługa QnA Maker odpowiada na pytania użytkowników zadane w języku naturalnym, dopasowując je do najlepszej możliwej odpowiedzi spośród pytań i odpowiedzi w Twojej bazie wiedzy.
-  ms.openlocfilehash: 487e783aa0c3ac5ad294c34f8522ee54fbfd6aea
-  ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+  ms.openlocfilehash: 54c5e8c880020ac4c29dc730902dadef10838390
+  ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 11/21/2020
-  ms.locfileid: "95021341"
+  ms.lasthandoff: 11/30/2020
+  ms.locfileid: "96338094"
 landingContent:
 - title: Informacje o usłudze QnA Maker
   linkLists:
@@ -34,18 +34,12 @@ landingContent:
     links:
     - text: Cykl projektowania oprogramowania
       url: concepts/development-lifecycle-knowledge-base.md
-    - text: Źródła danych
-      url: concepts/knowledge-base.md
   - linkListType: video
     links:
     - text: Tworzenie bota w ciągu kilku minut
       url: https://channel9.msdn.com/Shows/AI-Show/Build-a-Bot-in-Minutes-with-QnA-Maker
 - title: Tworzenie i edytowanie bazy wiedzy
   linkLists:
-  - linkListType: concept
-    links:
-    - text: Co to jest baza wiedzy
-      url: concepts/knowledge-base.md
   - linkListType: get-started
     links:
     - text: 'Szybki start: Tworzenie nowej bazy wiedzy'
@@ -95,11 +89,11 @@ landingContent:
   - linkListType: get-started
     links:
     - text: 'Portal: Tworzenie bota za pomocą usługi Azure Bot'
-      url: tutorials/create-qna-bot.md
+      url: ./quickstarts/create-publish-knowledge-base.md#create-a-bot
     - text: 'Power Apps: Tworzenie bota opartego na usłudze QnA Maker'
       url: tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
     - text: 'Struktura botów: Rozsyłanie między aplikacjami opartymi na usługach LUIS i QnA Maker'
-      url: https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=cs
+      url: /azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs&view=azure-bot-service-4.0
     - text: Inne przykłady botów
       url: https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md
 - title: Dokumentacja
@@ -109,15 +103,15 @@ landingContent:
     - text: Limity bazy wiedzy
       url: limits.md
     - text: Tworzenie interfejsów API
-      url: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase
+      url: /rest/api/cognitiveservices/qnamaker/knowledgebase
     - text: Interfejsy API generowania odpowiedzi
-      url: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/Runtime
+      url: /rest/api/cognitiveservices/qnamaker4.0/Runtime
     - text: Dokumentacja referencyjna zestawu .Net SDK
-      url: https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
+      url: /dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
     - text: Azure PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.6.0#cognitive_services
+      url: /powershell/module/az.cognitiveservices/?view=azps-2.6.0#cognitive_services
     - text: Interfejs wiersza polecenia platformy Azure
-      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
+      url: /cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
 - title: Pomoc i opinie
   linkLists:
   - linkListType: reference

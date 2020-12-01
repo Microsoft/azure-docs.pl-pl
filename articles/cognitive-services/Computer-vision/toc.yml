@@ -116,19 +116,19 @@
         - name: Uwaga dotycząca przezroczystości
           items:
             - name: Wprowadzenie do analizy przestrzennej
-              href: /legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview?context=%252fazure%252fcognitive-services%252fComputer-vision%252fcontext%252fcontext
+              href: /legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
             - name: Charakterystyka i ograniczenia
-              href: /legal/cognitive-services/computer-vision/accuracy-and-limitations?context=%252fazure%252fcognitive-services%252fComputer-vision%252fcontext%252fcontext
+              href: /legal/cognitive-services/computer-vision/accuracy-and-limitations?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
         - name: Wskazówki dotyczące wdrażania
           items:
             - name: Odpowiedzialne użycie we wdrożeniach AI
-              href: /legal/cognitive-services/computer-vision/responsible-use-deployment?context=%252fazure%252fcognitive-services%252fComputer-vision%252fcontext%252fcontext
+              href: /legal/cognitive-services/computer-vision/responsible-use-deployment?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
             - name: Wytyczne dotyczące projektowania ujawniania
-              href: /legal/cognitive-services/computer-vision/disclosure-design?context=%252fazure%252fcognitive-services%252fComputer-vision%252fcontext%252fcontext
+              href: /legal/cognitive-services/computer-vision/disclosure-design?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
             - name: Analizy badań
-              href: /legal/cognitive-services/computer-vision/research-insights?context=%252fazure%252fcognitive-services%252fComputer-vision%252fcontext%252fcontext
+              href: /legal/cognitive-services/computer-vision/research-insights?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
         - name: 'Zgodność, prywatność i zabezpieczenia'
-          href: /legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=%252fazure%252fcognitive-services%252fComputer-vision%252fcontext%252fcontext
+          href: /legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
 - name: Containers
   items:
     - name: Odczytywanie kontenera interfejsu API

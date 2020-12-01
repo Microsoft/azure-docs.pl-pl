@@ -101,7 +101,7 @@
         - name: Punkt odniesienia zabezpieczeń
           href: security-baseline.md
     - name: Atrybuty zabezpieczeń
-      href: expressroute-security-controls.md
+      href: ./security-baseline.md
     - name: Protokół BFD działający za pośrednictwem usługi ExpressRoute
       href: expressroute-bfd.md
     - name: Wymagania funkcji QoS
