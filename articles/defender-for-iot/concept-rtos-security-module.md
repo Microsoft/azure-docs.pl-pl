@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 9f816b35fd79d3f158ea12fd2c7e1d811823dc8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f521bd593369509fd520831f90ce9c601227f09
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939506"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340054"
 ---
 # <a name="security-module-for-azure-rtos-preview"></a>Moduł zabezpieczeń dla usługi Azure RTO (wersja zapoznawcza)
 
@@ -32,7 +32,7 @@ Moduł zabezpieczeń usługi Azure RTO działa w tle i zapewnia bezproblemowe ś
 
 ## <a name="azure-rtos-netx-duo"></a>Azure RTOS NetX Duo
 
-Azure RTO NetX Duo to zaawansowany stos oparty na protokole TCP/IP klasy przemysłowej zaprojektowany specjalnie z myślą o głęboko osadzonych aplikacjach w czasie rzeczywistym i IoT. Azure RTO NetX Duo to dwuwarstwowy stos sieciowy IPv4 i IPv6, który oferuje bogaty zestaw protokołów, w tym zabezpieczenia i chmurę. Dowiedz się więcej o rozwiązaniach [Azure RTO NetX Duo](https://aka.ms/netxduo) .
+Azure RTO NetX Duo to zaawansowany stos oparty na protokole TCP/IP klasy przemysłowej zaprojektowany specjalnie z myślą o głęboko osadzonych aplikacjach w czasie rzeczywistym i IoT. Azure RTO NetX Duo to dwuwarstwowy stos sieciowy IPv4 i IPv6, który oferuje bogaty zestaw protokołów, w tym zabezpieczenia i chmurę. Dowiedz się więcej o rozwiązaniach [Azure RTO NetX Duo](/azure/rtos/netx-duo/) .
 
 Moduł oferuje następujące funkcje:
 
@@ -47,11 +47,11 @@ Moduł zabezpieczeń usługi Azure RTO jest inicjowany przez platformę oprogram
 :::image type="content" source="media/architecture/security-module-state-diagram.png" alt-text="Diagram stanu modułu usługi Azure IoT Security i przepływ informacji":::
 
 Moduł zabezpieczeń usługi Azure RTO monitoruje następujące działania i informacje o urządzeniu przy użyciu trzech modułów zbierających:
-- Aktywność sieciowa urządzenia **TCP**, **UDP**i **ICM**
+- Aktywność sieciowa urządzenia **TCP**, **UDP** i **ICM**
 - Informacje o systemie jako wersje **ThreadX** i **NetX Duo**
 - Zdarzenia pulsu
 
-Każdy moduł zbierający jest połączony z grupą priorytetów, a każda grupa priorytetów ma własny interwał z możliwymi wartościami **niski**, **Średni**i **wysoki**. Interwały mają wpływ na przedział czasu, w którym dane są zbierane i wysyłane.
+Każdy moduł zbierający jest połączony z grupą priorytetów, a każda grupa priorytetów ma własny interwał z możliwymi wartościami **niski**, **Średni** i **wysoki**. Interwały mają wpływ na przedział czasu, w którym dane są zbierane i wysyłane.
 
 Każdy interwał jest konfigurowalny, a łączniki IoT można włączać i wyłączać, aby dodatkowo [dostosować rozwiązanie](how-to-azure-rtos-security-module.md). 
 
@@ -68,4 +68,3 @@ Moduł zabezpieczeń dla usługi Azure RTO jest dostępny bezpłatnie do pobrani
 - Wprowadzenie do modułu zabezpieczeń dla usługi Azure RTO — [wymagania wstępne i konfiguracja](quickstart-azure-rtos-security-module.md).
 - Dowiedz się więcej na temat modułu zabezpieczeń dla [alertów zabezpieczeń usługi Azure RTO i pomocy technicznej zalecenia](concept-rtos-security-alerts-recommendations.md). 
 - Użyj modułu zabezpieczeń dla [interfejsu API](azure-rtos-security-module-api.md)usługi Azure RTO Reference.
-

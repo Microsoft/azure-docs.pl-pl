@@ -5,12 +5,12 @@ author: batrived
 ms.topic: article
 ms.date: 06/21/2020
 ms.author: batrived
-ms.openlocfilehash: 7b93d7a110889192bb5be6fffa56a73758d6faa2
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: fa119784715b8c88ef3c9f2700b2cac1cc467234
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92892319"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339749"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-grid"></a>Rozwiązywanie problemów z łącznością — Azure Event Grid
 
@@ -50,7 +50,7 @@ telnet {sampletopicname}.{region}-{suffix}.eventgrid.azure.net 443
 
 Podczas pracy z platformą Azure czasami trzeba zezwolić na określone zakresy adresów IP lub adresy URL w firmowej zaporze lub serwerze proxy, aby uzyskać dostęp do wszystkich usług platformy Azure, których używasz lub których próbujesz użyć. Sprawdź, czy ruch jest dozwolony dla adresów IP używanych przez Event Grid. Adresy IP używane przez Azure Event Grid: zobacz [zakresy adresów IP platformy Azure i Tagi usług — chmura publiczna](https://www.microsoft.com/download/details.aspx?id=56519) i [tag usługi — AzureEventGrid](network-security.md#service-tags).
 
-[Zakresy adresów IP platformy Azure i Tagi usług — dokument w chmurze publicznej](https://www.microsoft.com/download/details.aspx?id=56519) zawiera również adresy IP **według regionów** . Można zezwolić na zakresy adresów dla **regionu tematu** i **sparowanego regionu** w firmowej zaporze lub serwerze proxy. W przypadku sparowanego regionu dla regionu Zobacz temat [ciągłość działania i odzyskiwanie po awarii (BCDR): wieloelementowe regiony platformy Azure](/azure/best-practices-availability-paired-regions). 
+[Zakresy adresów IP platformy Azure i Tagi usług — dokument w chmurze publicznej](https://www.microsoft.com/download/details.aspx?id=56519) zawiera również adresy IP **według regionów**. Można zezwolić na zakresy adresów dla **regionu tematu** i **sparowanego regionu** w firmowej zaporze lub serwerze proxy. W przypadku sparowanego regionu dla regionu Zobacz temat [ciągłość działania i odzyskiwanie po awarii (BCDR): wieloelementowe regiony platformy Azure](../best-practices-availability-paired-regions.md). 
 
 > [!NOTE]
 > Nowe adresy IP można dodać do tagu usługi AzureEventGrid, chociaż nie jest to normalne. Dlatego warto wykonać cotygodniowe sprawdzanie tagów usługi.

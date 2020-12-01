@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb0223b338457ad5eeea0b0bb40593f57a0d3aa
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a23056445331c82aded878a77d1e0e730e4e2ceb
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442086"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339476"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Bezpośrednia Federacja z dostawcami AD FS i innych firm dla użytkowników-Gości (wersja zapoznawcza)
 
@@ -45,7 +45,7 @@ W przypadku federacji bezpośredniej użytkownicy-Goście logują się do dzier�
 ## <a name="limitations"></a>Ograniczenia
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>Domeny zweryfikowane przez usługę DNS w usłudze Azure AD
-Domena, do której chcesz sfederować, musi ***nie**_ być zweryfikowana przez system DNS w usłudze Azure AD. Istnieje możliwość skonfigurowania Federacji bezpośredniej z niezarządzanymi (zweryfikowanymi pocztą e-mail lub "wirusami") dzierżaw usługi Azure AD, ponieważ nie są one zweryfikowane przez system DNS.
+Domena, do której chcesz sfederować, musi ***nie** _ być zweryfikowana przez system DNS w usłudze Azure AD. Istnieje możliwość skonfigurowania Federacji bezpośredniej z niezarządzanymi (zweryfikowanymi pocztą e-mail lub "wirusami") dzierżaw usługi Azure AD, ponieważ nie są one zweryfikowane przez system DNS.
 
 ### <a name="authentication-url"></a>Adres URL uwierzytelniania
 Federacja bezpośrednia jest dozwolona tylko w przypadku zasad, w których domena adresu URL uwierzytelniania jest zgodna z domeną docelową lub jeśli adres URL uwierzytelniania jest jednym z tych dozwolonych dostawców tożsamości (Ta lista może ulec zmianie):
@@ -150,7 +150,7 @@ Następnie skonfigurujesz Federacji z dostawcą tożsamości skonfigurowanym w k
 
     ![Zrzut ekranu przedstawiający przycisk dodawania nowego elementu SAML lub WS-Fed dostawcy tożsamości](media/direct-federation/new-saml-wsfed-idp.png)
 
-4. Na **nowej stronie dostawcy tożsamości SAML/WS-karmione** w obszarze **Protokół dostawcy tożsamości**wybierz pozycję **SAML** lub **WS-karmione**.
+4. Na **nowej stronie dostawcy tożsamości SAML/WS-karmione** w obszarze **Protokół dostawcy tożsamości** wybierz pozycję **SAML** lub **WS-karmione**.
 
     ![Zrzut ekranu przedstawiający przycisk analizy na stronie dostawcy tożsamości SAML lub WS-Fed](media/direct-federation/new-saml-wsfed-idp-parse.png)
 
@@ -195,7 +195,7 @@ Teraz Przetestuj konfigurację Federacji bezpośredniej, zapraszając nowego uż
 1. Przejdź do witryny [Azure Portal](https://portal.azure.com/). W lewym okienku wybierz pozycję **Azure Active Directory**. 
 2. Wybierz **tożsamości zewnętrzne**.
 3. Wybierz **wszystkich dostawców tożsamości**
-4. W obszarze **dostawcy tożsamości protokołu SAML/WS-karmionego**wybierz dostawcę.
+4. W obszarze **dostawcy tożsamości protokołu SAML/WS-karmionego** wybierz dostawcę.
 5. W okienku szczegółów dostawcy tożsamości zaktualizuj wartości.
 6. Wybierz pozycję **Zapisz**.
 

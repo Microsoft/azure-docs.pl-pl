@@ -3,12 +3,12 @@ title: Włącz połączenie przeglądarki na Azure DevTest Labs maszynach wirtua
 description: DevTest Labs teraz integrują się z usługą Azure bastionu, jako właściciel laboratorium można włączyć dostęp do wszystkich maszyn wirtualnych laboratorium za pomocą przeglądarki.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 28a3c11f3df578265f9746a173fcb3029a132b26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d9d631c79c22f1f713cfc4ee7cdd766a4ad8f06
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88870497"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341176"
 ---
 # <a name="enable-browser-connection-on-azure-devtest-labs-virtual-machines"></a>Włącz połączenie przeglądarki na Azure DevTest Labs maszynach wirtualnych 
 DevTest Labs integrują się z [usługą Azure bastionu](../bastion/index.yml), która umożliwia łączenie się z maszynami wirtualnymi za pomocą przeglądarki. Najpierw należy włączyć połączenie przeglądarki na maszynach wirtualnych laboratorium.
@@ -20,7 +20,7 @@ W tym artykule przedstawiono sposób włączania połączenia przeglądarki na m
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 - Wdróż hosta bastionu w istniejącej sieci wirtualnej laboratorium **(lub)** Połącz laboratorium ze skonfigurowaną siecią wirtualną bastionu.
-Aby dowiedzieć się, jak wdrożyć hosta bastionu w sieci wirtualnej, zobacz  [Tworzenie hosta usługi Azure bastionu](../bastion/bastion-create-host-portal.md). Podczas tworzenia hosta bastionu wybierz sieć wirtualną laboratorium. 
+Aby dowiedzieć się, jak wdrożyć hosta bastionu w sieci wirtualnej, zobacz  [Tworzenie hosta usługi Azure bastionu](../bastion/tutorial-create-host-portal.md). Podczas tworzenia hosta bastionu wybierz sieć wirtualną laboratorium. 
 - Użytkownik laboratorium musi mieć rolę **czytelnika** na hoście bastionu i sieci wirtualnej, dla której skonfigurowano bastionu. 
 
 ## <a name="create-a-second-sub-net-in-the-bastion-virtual-network"></a>Utwórz drugą podsieć w sieci wirtualnej bastionu
@@ -58,7 +58,7 @@ Aby włączyć program Browser Connect na maszynach wirtualnych laboratorium, wy
 
 1. W Azure Portal przejdź do *laboratorium*.
 1. Wybierz pozycję **Konfiguracja i zasady**.
-1. W obszarze **Ustawienia**wybierz pozycję **przeglądarka Połącz**. Jeśli ta opcja nie jest widoczna, zamknij stronę **zasady konfiguracji** i otwórz ją ponownie. 
+1. W obszarze **Ustawienia** wybierz pozycję **przeglądarka Połącz**. Jeśli ta opcja nie jest widoczna, zamknij stronę **zasady konfiguracji** i otwórz ją ponownie. 
 
     ![Włącz połączenie przeglądarki](./media/enable-browser-connection-lab-virtual-machines/browser-connect.png)
 

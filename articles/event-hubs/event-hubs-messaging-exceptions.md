@@ -3,12 +3,12 @@ title: Azure Event Hubs — wyjątki (starsza wersja)
 description: Ten artykuł zawiera listę wyjątków i sugerowanych akcji usługi Azure Event Hubs Messaging.
 ms.topic: article
 ms.date: 11/02/2020
-ms.openlocfilehash: adaf7242530727a1f77a9662110a43341e57e80a
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 357a87c53023962dd9195a616bd9ce9e01c55bf9
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289339"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340971"
 ---
 # <a name="event-hubs-messaging-exceptions---net-legacy"></a>Event Hubs wyjątki komunikatów — .NET (starsza wersja)
 Ta sekcja zawiera listę wyjątków platformy .NET wygenerowanych przez interfejsy API .NET Framework. 
@@ -70,7 +70,7 @@ Poniższa tabela zawiera listę typów wyjątków komunikatów i ich przyczyny o
 | [Microsoft. ServiceBus. Messaging MessagingEntityNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagingentitynotfoundexception) <br /><br/> [Microsoft. Azure. EventHubs MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.eventhubs.messagingentitynotfoundexception) | Jednostka skojarzona z operacją nie istnieje lub została usunięta. | Upewnij się, że jednostka istnieje. | Ponowienie próby nie powiedzie się. |
 | [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) | Klient nie może nawiązać połączenia z centrum zdarzeń. |Upewnij się, że podana nazwa hosta jest poprawna i że host jest osiągalny. | Ponowienie próby może pomóc w przypadku sporadycznych problemów z łącznością. |
 | [Microsoft. ServiceBus. Messaging wyjątek serverbusyexception](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) <br /> <br/>[Microsoft. Azure. EventHubs wyjątek serverbusyexception](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) | Usługa nie może w tej chwili przetworzyć żądania. | Klient może czekać przez pewien czas, a następnie ponowić próbę wykonania operacji. <br /> Zobacz [wyjątek serverbusyexception](#serverbusyexception). | Klient może ponowić próbę po pewnym interwale. Jeśli ponowienie próby spowoduje inny wyjątek, sprawdź ponowienie tego wyjątku. |
-| [Komunikatexception](/dotnet/api/microsoft.servicebus.messaging.messagingexception) | Ogólny wyjątek komunikatów, który może zostać zgłoszony w następujących przypadkach: podjęto próbę utworzenia [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) przy użyciu nazwy lub ścieżki, która należy do innego typu jednostki (na przykład tematu). Podjęto próbę wysłania komunikatu o rozmiarze większym niż 1 MB. Serwer lub usługa napotkała błąd podczas przetwarzania żądania. Aby uzyskać szczegółowe informacje, zobacz komunikat o wyjątku. Ten wyjątek jest zwykle wyjątek przejściowy. | Sprawdź kod i upewnij się, że tylko obiekty możliwe do serializacji są używane dla treści wiadomości (lub użyj serializatora niestandardowego). Zapoznaj się z dokumentacją dla obsługiwanych typów wartości właściwości i używaj tylko obsługiwanych typów. Sprawdź Właściwość [Isprzejściową](/dotnet/api/microsoft.servicebus.messaging.messagingexception) . Jeśli wartość jest **równa true** , można ponowić próbę wykonania operacji. | Zachowanie przy ponowieniu próby jest niezdefiniowane i może nie pomóc. |
+| [Komunikatexception](/dotnet/api/microsoft.servicebus.messaging.messagingexception) | Ogólny wyjątek komunikatów, który może zostać zgłoszony w następujących przypadkach: podjęto próbę utworzenia [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) przy użyciu nazwy lub ścieżki, która należy do innego typu jednostki (na przykład tematu). Podjęto próbę wysłania komunikatu o rozmiarze większym niż 1 MB. Serwer lub usługa napotkała błąd podczas przetwarzania żądania. Aby uzyskać szczegółowe informacje, zobacz komunikat o wyjątku. Ten wyjątek jest zwykle wyjątek przejściowy. | Sprawdź kod i upewnij się, że tylko obiekty możliwe do serializacji są używane dla treści wiadomości (lub użyj serializatora niestandardowego). Zapoznaj się z dokumentacją dla obsługiwanych typów wartości właściwości i używaj tylko obsługiwanych typów. Sprawdź Właściwość [Isprzejściową](/dotnet/api/microsoft.servicebus.messaging.messagingexception) . Jeśli wartość jest **równa true**, można ponowić próbę wykonania operacji. | Zachowanie przy ponowieniu próby jest niezdefiniowane i może nie pomóc. |
 | [MessagingEntityAlreadyExistsException](/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) | Podjęto próbę utworzenia jednostki o nazwie, która jest już używana przez inną jednostkę w tej przestrzeni nazw usługi. | Usuń istniejącą jednostkę lub wybierz inną nazwę dla jednostki, która ma zostać utworzona. | Ponowienie próby nie powiedzie się. |
 | [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) | Jednostka obsługi komunikatów osiągnęła maksymalny dozwolony rozmiar. Ten wyjątek może wystąpić, jeśli Maksymalna liczba odbiorników (czyli 5) została już otwarta na poziomie grupy dla poszczególnych użytkowników. | Utwórz miejsce w jednostce przez odebranie komunikatów z jednostki lub jej podkolejek. <br /> Zobacz [QuotaExceededException](#quotaexceededexception) | Ponowienie próby może pomóc w przypadku usunięcia komunikatów w międzyczasie. |
 | [MessagingEntityDisabledException](/dotnet/api/microsoft.servicebus.messaging.messagingentitydisabledexception) | Żądanie operacji środowiska uruchomieniowego dla wyłączonej jednostki. |Aktywuj jednostkę. | Ponowienie próby może pomóc, jeśli jednostka została aktywowana w tymczasowym. |
@@ -107,11 +107,11 @@ Ten błąd może wystąpić z jednego z dwóch powodów:
 
 - Obciążenie nie jest równomiernie dystrybuowane we wszystkich partycjach w centrum zdarzeń, a jedna z nich trafi na ograniczenie lokalnej jednostki przepływności.
     
-    **Rozwiązanie** : korygowanie strategii dystrybucji partycji lub próba [EventHubClient. Send (eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) może pomóc.
+    **Rozwiązanie**: korygowanie strategii dystrybucji partycji lub próba [EventHubClient. Send (eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) może pomóc.
 
 - Przestrzeń nazw Event Hubs nie ma wystarczającej liczby jednostek przepływności (można sprawdzić ekran **metryk** w oknie Event Hubs przestrzeni nazw w [Azure Portal](https://portal.azure.com) , aby potwierdzić). W portalu są wyświetlane zagregowane informacje (1 minuty), ale mierzy przepływność w czasie rzeczywistym, więc jest to tylko oszacowanie.
 
-    **Rozwiązanie** : zwiększenie liczby jednostek przepływności w przestrzeni nazw może pomóc. 
+    **Rozwiązanie**: zwiększenie liczby jednostek przepływności w przestrzeni nazw może pomóc. 
 
     Jednostki przepływności można skonfigurować na stronie **skalowania** lub stronie **Przegląd** strony **przestrzeni nazw Event Hubs** w Azure Portal. Lub można użyć [autodostrajania](event-hubs-auto-inflate.md), które automatycznie skaluje się w górę przez zwiększenie liczby jednostek przepływności w celu spełnienia wymagań dotyczących użycia.
 
@@ -123,13 +123,13 @@ Ten błąd może wystąpić z jednego z dwóch powodów:
     
     Na stronie **Przegląd** w sekcji **Pokaż metryki** przejdź do karty **przepływność** . Wybierz wykres, aby otworzyć go w większym oknie z 1-minutowymi interwałami na osi x. Sprawdź wartości szczytowe i podziel je na 60, aby uzyskać przychodzące bajty/sekundę lub wychodzące bajty na sekundę. Użyj podobnego podejścia, aby obliczyć liczbę żądań na sekundę w godzinach szczytu na karcie **żądania** . 
 
-    Jeśli widzisz wartości wyższe niż liczba limitów TUs * (1 MB na sekundę w przypadku żądań transferu danych przychodzących lub 1000 dla ruchu przychodzącego/sekundy, 2 MB na sekundę w przypadku danych wychodzących), Zwiększ liczbę TUs przy użyciu **skali** (na menu po lewej stronie) obszaru nazw Event Hubs, aby ręcznie skalować więcej lub korzystać z funkcji [automatycznego](event-hubs-auto-inflate.md) rozszerzania Event Hubs. Należy pamiętać, że funkcja autorozdęcie może zwiększyć maksymalnie 20 TUS. Aby podnieść poziom do dokładnie 40 TUs, Prześlij [żądanie pomocy technicznej](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+    Jeśli widzisz wartości wyższe niż liczba limitów TUs * (1 MB na sekundę w przypadku żądań transferu danych przychodzących lub 1000 dla ruchu przychodzącego/sekundy, 2 MB na sekundę w przypadku danych wychodzących), Zwiększ liczbę TUs przy użyciu **skali** (na menu po lewej stronie) obszaru nazw Event Hubs, aby ręcznie skalować więcej lub korzystać z funkcji [automatycznego](event-hubs-auto-inflate.md) rozszerzania Event Hubs. Należy pamiętać, że funkcja autorozdęcie może zwiększyć maksymalnie 20 TUS. Aby podnieść poziom do dokładnie 40 TUs, Prześlij [żądanie pomocy technicznej](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ### <a name="error-code-50001"></a>Kod błędu 50001
 
 Ten błąd powinien występować rzadko. Dzieje się tak, gdy w przypadku kontenera, w którym działa kod dla danego obszaru nazw, jest mało czasu procesora CPU — nie więcej niż kilka sekund przed rozpoczęciem Event Hubsego modułu równoważenia obciążenia.
 
-**Rozwiązanie** : limit wywołań metody GetRuntimeInformation —. Usługa Azure Event Hubs obsługuje do 50 wywołań na sekundę w ciągu sekundy do GetRuntimeInfo. Po osiągnięciu limitu może zostać wyświetlony wyjątek podobny do następującego:
+**Rozwiązanie**: limit wywołań metody GetRuntimeInformation —. Usługa Azure Event Hubs obsługuje do 50 wywołań na sekundę w ciągu sekundy do GetRuntimeInfo. Po osiągnięciu limitu może zostać wyświetlony wyjątek podobny do następującego:
 
 ```
 ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The request was terminated because the namespace 75248:aaa-default-eventhub-ns-prodb2b is being throttled. Error code : 50001. Please wait 10 seconds and try again.

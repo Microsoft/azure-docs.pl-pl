@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0abd03338982c866c92a8462e1e840651a9c2759
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b892194a0e716aa3de218bc6edb6c38cdc898935
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101786"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96338660"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-c"></a>Szybki Start: wywoływanie punktu końcowego wyszukiwanie niestandardowe Bing przy użyciu języka C # 
 
 > [!WARNING]
-> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
-> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Skorzystaj z tego przewodnika Szybki Start, aby dowiedzieć się, jak żądać wyników wyszukiwania z wystąpienia wyszukiwanie niestandardowe Bing. Mimo że aplikacja jest zapisywana w języku C#, interfejs API wyszukiwania niestandardowego Bing jest usługą sieci Web RESTful zgodną z większością języków programowania. Kod źródłowy dla tego przykładu jest dostępny w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingCustomSearchv7.cs).
 
@@ -36,8 +36,8 @@ Skorzystaj z tego przewodnika Szybki Start, aby dowiedzieć się, jak żądać w
 - Pakiet NuGet [wyszukiwanie niestandardowe Bing](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/2.0.0) . 
 
    Aby zainstalować ten pakiet w programie Visual Studio: 
-     1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** , a następnie wybierz pozycję **Zarządzaj pakietami NuGet** . 
-     2. Wyszukaj i wybierz pozycję *Microsoft. Azure. CognitiveServices. Search. CustomSearch* , a następnie zainstaluj pakiet.
+     1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań**, a następnie wybierz pozycję **Zarządzaj pakietami NuGet**. 
+     2. Wyszukaj i wybierz pozycję *Microsoft. Azure. CognitiveServices. Search. CustomSearch*, a następnie zainstaluj pakiet.
 
    Po zainstalowaniu pakietu NuGet wyszukiwanie niestandardowe Bing program Visual Studio instaluje również następujące pakiety:
      - **Microsoft.Rest.ClientRuntime**

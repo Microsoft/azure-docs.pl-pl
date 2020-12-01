@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 02/10/2020
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: d54c939f0ecc78d7734345b23fd2b75f150243c1
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b5c81d8b2e6d7eac2dcd9070bf1f448340ea1a18
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148488"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341269"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Wprowadzenie do prywatnych rejestrów kontenerów platformy Docker na platformie Azure
 
@@ -45,7 +45,7 @@ Platforma Azure udostępnia narzędzia, w tym interfejsy Command-Line platformy 
 
   Możesz [kontrolować dostęp](container-registry-authentication.md) do rejestru kontenerów za pomocą tożsamości platformy Azure, [jednostki usługi](../active-directory/develop/app-objects-and-service-principals.md) wspieranej przez usługę Azure Active Directory lub podanego konta administratora. Za pomocą kontroli dostępu opartej na rolach (Azure RBAC) można przypisywać użytkownikom lub systemom szczegółowe uprawnienia do rejestru.
 
-  Funkcje zabezpieczeń warstwy usługi Premium obejmują [zaufanie zawartości](container-registry-content-trust.md) dla podpisywania znacznika obrazu oraz [zapory i sieci wirtualne (wersja zapoznawcza)](container-registry-vnet.md) w celu ograniczenia dostępu do rejestru. Azure Security Center opcjonalnie integrują się z Azure Container Registry, aby [skanować obrazy](../security-center/defender-for-container-registries-introduction.md?bc=%252fazure%252fcontainer-registry%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fcontainer-registry%252ftoc.json) przy każdym wypchnięciu obrazu do rejestru.
+  Funkcje zabezpieczeń warstwy usługi Premium obejmują [zaufanie zawartości](container-registry-content-trust.md) dla podpisywania znacznika obrazu oraz [zapory i sieci wirtualne (wersja zapoznawcza)](container-registry-vnet.md) w celu ograniczenia dostępu do rejestru. Azure Security Center opcjonalnie integrują się z Azure Container Registry, aby [skanować obrazy](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) przy każdym wypchnięciu obrazu do rejestru.
 
 * **Obsługiwane obrazy i artefakty** — pogrupowane w repozytorium, każdy obraz jest migawką tylko do odczytu kontenera zgodnego z platformą Docker. Rejestry kontenerów platformy Azure mogą obejmować zarówno obrazy systemu Windows, jak i Linux. Możesz kontrolować nazwy obrazów wszystkich wdrożeń kontenera. Użyj standardowych [poleceń platformy Docker](https://docs.docker.com/engine/reference/commandline/), aby wypchnąć obrazy do repozytorium lub aby ściągnąć je z repozytorium. Oprócz obrazów kontenerów platformy Docker Azure Container Registry przechowuje [powiązane formaty zawartości](container-registry-image-formats.md) , takie jak [wykresy Helm](container-registry-helm-repos.md) i obrazy skompilowane zgodnie ze [specyfikacją formatu obrazu typu Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/master/spec.md).
 

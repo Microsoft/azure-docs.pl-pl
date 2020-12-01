@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: dd68fd79d25e839876180ff25cacfa1ddf64eb2b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 75a9d1267a8824801e3c24fc25c687f29a808187
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368812"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339935"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Wdrażanie modułu zabezpieczeń na urządzeniu IoT Edge
 
@@ -34,7 +34,7 @@ Wykonaj następujące kroki, aby wdrożyć moduł Defender Security for IoT dla 
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-1. W IoT Hub upewnij się, że urządzenie jest [zarejestrowane jako urządzenie IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-manual-provision-symmetric-key#register-a-new-device).
+1. W IoT Hub upewnij się, że urządzenie jest [zarejestrowane jako urządzenie IoT Edge](../iot-edge/how-to-manual-provision-symmetric-key.md#register-a-new-device).
 
 1. Usługa Defender dla IoT Edge Module wymaga, aby [platforma z inspekcją](https://linux.die.net/man/8/auditd) została zainstalowana na urządzeniu IoT Edge.
 
@@ -57,10 +57,10 @@ Wykonaj następujące kroki, aby wdrożyć moduł Defender Security for IoT dla 
 
 1. Kliknij przycisk **Utwórz** , aby skonfigurować wdrożenie.
 
-1. Wybierz **subskrypcję** platformy Azure IoT Hub, a następnie wybierz **IoT Hub**.<br>Wybierz pozycję **Wdróż na urządzeniu** przeznaczonym dla jednego urządzenia lub wybierz pozycję **Wdróż w odpowiedniej skali** , aby wybrać miejsce docelowe wielu urządzeń, a następnie kliknij pozycję **Utwórz**. Aby uzyskać więcej informacji na temat wdrażania w skali, zobacz artykuł [jak wdrożyć](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-monitor).
+1. Wybierz **subskrypcję** platformy Azure IoT Hub, a następnie wybierz **IoT Hub**.<br>Wybierz pozycję **Wdróż na urządzeniu** przeznaczonym dla jednego urządzenia lub wybierz pozycję **Wdróż w odpowiedniej skali** , aby wybrać miejsce docelowe wielu urządzeń, a następnie kliknij pozycję **Utwórz**. Aby uzyskać więcej informacji na temat wdrażania w skali, zobacz artykuł [jak wdrożyć](../iot-edge/how-to-deploy-at-scale.md).
 
     >[!Note]
-    >W przypadku wybrania **wdrożenia w odpowiedniej skali**należy dodać nazwę i szczegóły urządzenia przed przejściem do karty **Dodawanie modułów** w poniższych instrukcjach.
+    >W przypadku wybrania **wdrożenia w odpowiedniej skali** należy dodać nazwę i szczegóły urządzenia przed przejściem do karty **Dodawanie modułów** w poniższych instrukcjach.
 
 Wykonaj każdy krok, aby ukończyć wdrażanie IoT Edge dla usługi Defender for IoT.
 
@@ -105,14 +105,14 @@ Wykonaj każdy krok, aby ukończyć wdrażanie IoT Edge dla usługi Defender for
      }
    ```
     
-   Więcej informacji o konfigurowaniu agenta znajduje się w temacie [Konfigurowanie agentów zabezpieczeń](https://docs.microsoft.com/azure/defender-for-iot/how-to-agent-configuration).
+   Więcej informacji o konfigurowaniu agenta znajduje się w temacie [Konfigurowanie agentów zabezpieczeń](./how-to-agent-configuration.md).
 
 1. Wybierz pozycję **Aktualizuj**.
 
 #### <a name="step-2-runtime-settings"></a>Krok 2. Ustawienia środowiska uruchomieniowego
 
 1. Wybierz pozycję **Ustawienia środowiska uruchomieniowego**.
-1. W obszarze **centrum brzegowe**Zmień **obraz** na **MCR.Microsoft.com/azureiotedge-Hub:1.0.8.3**.
+1. W obszarze **centrum brzegowe** Zmień **obraz** na **MCR.Microsoft.com/azureiotedge-Hub:1.0.8.3**.
 1. Sprawdź, czy **opcja Utwórz** jest ustawiona na następującą konfigurację:
 
     ``` json
@@ -141,7 +141,7 @@ Wykonaj każdy krok, aby ukończyć wdrażanie IoT Edge dla usługi Defender for
 
 1. Wybierz pozycję **Zapisz**.
 
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 
 #### <a name="step-3-specify-routes"></a>Krok 3. Określanie tras
 
@@ -157,7 +157,7 @@ Wykonaj każdy krok, aby ukończyć wdrażanie IoT Edge dla usługi Defender for
     "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
     ```
 
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 
 #### <a name="step-4-review-deployment"></a>Krok 4. przegląd wdrożenia
 

@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 779b29c8d31dffa495926a7f2ca5e1f77870078c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4b9b73e30094ed7d07e19f4b93f2fe8ab8f6af3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319915"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339425"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>Interfejs API usługi Azure AD Connect Sync w wersji 2 (publiczna wersja zapoznawcza) 
 Firma Microsoft wdrożyła nowy punkt końcowy (API) dla Azure AD Connect, który poprawia wydajność operacji usługi synchronizacji do Azure Active Directory. Korzystając z nowego punktu końcowego w wersji 2, zobaczysz zauważalny wzrost wydajności dotyczący eksportowania i importowania do usługi Azure AD. Ten nowy punkt końcowy obsługuje następujące elementy:
@@ -99,7 +99,7 @@ Aby przełączyć się do punktu końcowego v2, wykonaj następujące czynności
  
  `Set-ADSyncAADConnectorImportApiVersion 2` 
 
- ![Program PowerShell](media/how-to-connect-sync-endpoint-api-v2/endpoint1.png)
+ ![PowerShell](media/how-to-connect-sync-endpoint-api-v2/endpoint1.png)
  
 Punkt końcowy w wersji 2 jest teraz włączony dla serwera. Poświęć trochę czasu, aby upewnić się, że nie ma żadnych nieoczekiwanych wyników po włączeniu punktu końcowego v2 przed przejściem do następnej fazy, w której zostanie zwiększony limit rozmiaru grupy. 
 >[!NOTE]
@@ -155,7 +155,7 @@ Podczas kolejnej podwyżki do limitu elementu członkowskiego grupy w regule syn
 >[!NOTE]
 > Jeśli masz Microsoft 365 ujednoliconych grup, które mają więcej niż 50 000 członków, grupy zostaną odczytane do Azure AD Connect i jeśli włączono funkcję zapisywania zwrotnego grup, zostaną one zapisaną w lokalnej usłudze AD. 
 
-## <a name="rollback"></a>Wycofywania 
+## <a name="rollback"></a>Wycofywanie 
 Jeśli włączono punkt końcowy w wersji 2 i konieczne jest wycofanie, wykonaj następujące kroki: 
 
 1. Na serwerze Azure AD Connect: a. Obowiązkowe Utwórz kopię zapasową bazy danych 
@@ -198,5 +198,5 @@ Jeśli włączono punkt końcowy w wersji 2 i konieczne jest wycofanie, wykonaj 
  
 ## <a name="next-steps"></a>Następne kroki
 
-* [Azure AD Connect Sync: omówienie i dostosowanie synchronizacji](how-to-connect-sync-whatis.md)
+* [Synchronizacja programu Azure AD Connect: omówienie i dostosowywanie synchronizacji](how-to-connect-sync-whatis.md)
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md)

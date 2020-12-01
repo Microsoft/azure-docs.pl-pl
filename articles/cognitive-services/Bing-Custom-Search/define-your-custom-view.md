@@ -10,19 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: e8747b822916ba2c9ef7b45cc3cbbaa88d16dcb1
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: b2d4eb75002474bbec57753bbf0255cc4c2b4a16
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565793"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96338643"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Skonfiguruj środowisko wyszukiwanie niestandardowe Bing
 
 > [!WARNING]
-> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
-> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Niestandardowe wystąpienie wyszukiwania umożliwia dostosowanie funkcji wyszukiwania w celu uwzględnienia zawartości tylko z witryn sieci Web, na które ponosili użytkownicy. Zamiast przeprowadzać wyszukiwanie w całej sieci Web, Bing przeszukuje tylko wycinki sieci Web, która Cię interesuje. Aby utworzyć niestandardowy widok internetowy, użyj [portalu](https://www.customsearch.ai) usługi wyszukiwania niestandardowego Bing.
 
@@ -89,7 +89,7 @@ Możesz przetestować wystąpienie wyszukiwania, korzystając z okienka podgląd
 
 1. Poniżej pola wyszukiwania wybierz pozycję **moje wystąpienie**. Wyniki wyszukiwania można porównać z usługą Bing, wybierając pozycję **Bing**. 
 2. Wybierz filtr wyszukiwania bezpiecznego i szukany rynek (zobacz [parametry zapytania](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)).
-3. Wprowadź zapytanie i naciśnij klawisz ENTER lub kliknij ikonę wyszukiwania, aby wyświetlić wyniki z bieżącej konfiguracji. Typ wyszukiwania można zmienić, klikając pozycję **Sieć Web** , **obraz** lub **wideo** , aby uzyskać odpowiednie wyniki. 
+3. Wprowadź zapytanie i naciśnij klawisz ENTER lub kliknij ikonę wyszukiwania, aby wyświetlić wyniki z bieżącej konfiguracji. Typ wyszukiwania można zmienić, klikając pozycję **Sieć Web**, **obraz** lub **wideo** , aby uzyskać odpowiednie wyniki. 
 
 <a name="adjustrank"></a>
 

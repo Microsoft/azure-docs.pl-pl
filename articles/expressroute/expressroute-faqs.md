@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: b8ef1c14089744defaf6de5b3cf9e72d281452b6
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 7b7362d9315d8228e56dc85b2da22e0d507fa8ae
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027112"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339793"
 ---
 # <a name="expressroute-faq"></a>Usługa ExpressRoute — często zadawane pytania
 
@@ -46,7 +46,7 @@ Nie. Możesz zakupić połączenie sieci VPN z dowolną szybkością od dostawcy
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-use-more-than-my-procured-bandwidth"></a>Czy jeśli płacisz za obwód usługi ExpressRoute o danej przepustowości, czy mogę korzystać z większej przepustowości?
 
-Tak, można użyć maksymalnie dwa razy ograniczenia przepustowości, korzystając z przepustowości dostępnej na pomocniczym połączeniu obwodu usługi ExpressRoute. Wbudowana nadmiarowość obwodu jest konfigurowana przy użyciu podstawowych i pomocniczych połączeń, a każda z nich jest przystosowana do dwóch routerów brzegowych firmy Microsoft (MSEE). Przepustowość dostępna za pomocą połączenia pomocniczego może być używana w przypadku dodatkowego ruchu w razie potrzeby. Ponieważ połączenie pomocnicze jest przeznaczone do nadmiarowości, ale nie jest gwarantowane i nie powinno być używane dla dodatkowego ruchu przez dłuższy czas. Aby dowiedzieć się więcej o tym, jak używać obu połączeniach do przesyłania ruchu, zobacz [tutaj](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending).
+Tak, można użyć maksymalnie dwa razy ograniczenia przepustowości, korzystając z przepustowości dostępnej na pomocniczym połączeniu obwodu usługi ExpressRoute. Wbudowana nadmiarowość obwodu jest konfigurowana przy użyciu podstawowych i pomocniczych połączeń, a każda z nich jest przystosowana do dwóch routerów brzegowych firmy Microsoft (MSEE). Przepustowość dostępna za pomocą połączenia pomocniczego może być używana w przypadku dodatkowego ruchu w razie potrzeby. Ponieważ połączenie pomocnicze jest przeznaczone do nadmiarowości, ale nie jest gwarantowane i nie powinno być używane dla dodatkowego ruchu przez dłuższy czas. Aby dowiedzieć się więcej o tym, jak używać obu połączeniach do przesyłania ruchu, zobacz [tutaj](./expressroute-optimize-routing.md#solution-use-as-path-prepending).
 Jeśli zamierzasz używać połączenia podstawowego do przesyłania ruchu, przepustowość połączenia jest stała i próba jego anulowania spowoduje zwiększenie liczby porzucanych pakietów. Jeśli ruch przepływów przez bramę ExpressRoute, przepustowość dla jednostki SKU jest stała i nie można jej przełączać.
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>Czy można jednocześnie używać tego samego połączenia sieci prywatnej z siecią wirtualną i innymi usługami platformy Azure?
@@ -91,7 +91,7 @@ Jeśli obwód usługi ExpressRoute jest włączony dla komunikacji równorzędne
 
 * [Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
 * Power BI — dostępne za pośrednictwem społeczności regionalnej platformy Azure, zobacz [tutaj](/power-bi/service-admin-where-is-my-tenant-located) , jak sprawdzić region dzierżawy Power BI.
-* Usługa Azure Active Directory
+* Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (społeczność usług globalnych platformy Azure)
 * Publiczne adresy IP platformy Azure dla IaaS (Virtual Machines, bram Virtual Network, modułów równoważenia obciążenia itp.)  
 * Obsługiwane są również większość innych usług platformy Azure. Skontaktuj się bezpośrednio z usługą, która ma zostać użyta, aby zweryfikować pomoc techniczną.

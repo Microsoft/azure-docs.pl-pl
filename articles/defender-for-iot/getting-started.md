@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: e3de253ee6f45f9296d6b09189fe4bc488be36ad
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 6aa525fd7f2d82194baa2e2a0c910cb71509c2d5
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090067"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340020"
 ---
 # <a name="getting-started-with-azure-defender-for-iot"></a>Wprowadzenie do usługi Azure Defender dla IoT
 
@@ -30,9 +30,9 @@ Wykonaj następujące kroki, aby uzyskać dostęp do usługi Azure Defender w ce
 
 ## <a name="1-set-up-azure"></a>1. Skonfiguruj platformę Azure
 
-- Skonfiguruj konto platformy Azure. Aby uzyskać więcej informacji, zobacz [Tworzenie konta platformy Azure](https://docs.microsoft.com/learn/modules/create-an-azure-account/).
+- Skonfiguruj konto platformy Azure. Aby uzyskać więcej informacji, zobacz [Tworzenie konta platformy Azure](/learn/modules/create-an-azure-account/).
 
-- Zapora lub serwer proxy: Jeśli masz zaporę lub podobne urządzenie sieciowe, które jest skonfigurowane tak, aby zezwalać na określone połączenia, sprawdź, czy na zaporze lub serwerze proxy jest otwarta azure-devices.net:443 *. Jeśli symbole wieloznaczne nie są obsługiwane lub chcesz mieć większą kontrolę, należy otworzyć określoną IoT Hub FQDN w sieci lub na serwerze proxy. Aby uzyskać więcej informacji, zobacz [punkty końcowe IoT Hub referencyjnych](/azure/iot-hub/iot-hub-devguide-endpoints).
+- Zapora lub serwer proxy: Jeśli masz zaporę lub podobne urządzenie sieciowe, które jest skonfigurowane tak, aby zezwalać na określone połączenia, sprawdź, czy na zaporze lub serwerze proxy jest otwarta azure-devices.net:443 *. Jeśli symbole wieloznaczne nie są obsługiwane lub chcesz mieć większą kontrolę, należy otworzyć określoną IoT Hub FQDN w sieci lub na serwerze proxy. Aby uzyskać więcej informacji, zobacz [punkty końcowe IoT Hub referencyjnych](../iot-hub/iot-hub-devguide-endpoints.md).
 
 ## <a name="2-deploy-hardware-software-and-onboard-to-sensor"></a>2. Wdróż sprzęt, oprogramowanie i Dołącz do czujnika
 

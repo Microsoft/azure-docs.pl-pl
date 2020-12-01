@@ -3,12 +3,12 @@ title: Omówienie funkcji — Azure Event Hubs | Microsoft Docs
 description: Ten artykuł zawiera szczegółowe informacje o funkcjach i terminologii Event Hubs platformy Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: db7c0244fd4e9e04f9cfbcbba8748ec8190fc5c5
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a38cf4ba6a06dc6e977f9ea168fcf67ce83ff5de
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96007441"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339986"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funkcje i terminologia w usłudze Azure Event Hubs
 
@@ -33,7 +33,7 @@ Każda jednostka, która wysyła dane do centrum zdarzeń, jest producentem zdar
 
 ### <a name="publishing-an-event"></a>Publikowanie zdarzenia
 
-Można opublikować wydarzenie za pośrednictwem AMQP 1,0, Kafka 1,0 (lub nowszego) lub HTTPS. Usługa Event Hubs zapewnia interfejsy [API REST](https://docs.microsoft.com/rest/api/eventhub/) i [.NET](event-hubs-dotnet-standard-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [JavaScript](event-hubs-node-get-started-send.md)i [go](event-hubs-go-get-started-send.md) w celu publikowania zdarzeń w centrum zdarzeń. W przypadku innych środowisk uruchomieniowych i platform można używać dowolnego klienta protokołu AMQP 1.0, na przykład [Apache Qpid](https://qpid.apache.org/). 
+Można opublikować wydarzenie za pośrednictwem AMQP 1,0, Kafka 1,0 (lub nowszego) lub HTTPS. Usługa Event Hubs zapewnia interfejsy [API REST](/rest/api/eventhub/) i [.NET](event-hubs-dotnet-standard-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [JavaScript](event-hubs-node-get-started-send.md)i [go](event-hubs-go-get-started-send.md) w celu publikowania zdarzeń w centrum zdarzeń. W przypadku innych środowisk uruchomieniowych i platform można używać dowolnego klienta protokołu AMQP 1.0, na przykład [Apache Qpid](https://qpid.apache.org/). 
 
 Zdarzenia można publikować indywidualnie lub w partiach. Pojedyncza publikacja (wystąpienie danych zdarzeń) ma limit 1 MB, niezależnie od tego, czy jest to pojedyncze zdarzenie, czy partia. Publikowanie zdarzeń większych niż ten próg spowoduje wystąpienie błędu. Najlepszym rozwiązaniem dla wydawców jest nieznajomość partycji w centrum zdarzeń i określenie tylko *klucza partycji* (wprowadzone w następnej sekcji) lub tożsamości za pomocą ich tokenu sygnatury dostępu współdzielonego.
 

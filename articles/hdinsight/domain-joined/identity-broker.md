@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: 8a4f9a5df8def928c06fe95a53c7be0d93ec76c4
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: c6bc5ca748a35b17c61d314e96f7284d30e7fc3b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302671"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96338133"
 ---
 # <a name="azure-hdinsight-id-broker-hib"></a>Broker identyfikatorów usługi Azure HDInsight (HIB)
 
@@ -146,7 +146,7 @@ W przypadku każdego klastra aplikacja innej firmy zostanie zarejestrowana w us�
 W usłudze AAD zgoda jest wymagana dla wszystkich aplikacji innych firm, zanim będzie można uwierzytelnić użytkowników lub uzyskać dostęp do danych.
 
 ### <a name="can-the-consent-be-approved-programatically"></a>Czy zgoda można zatwierdzić programowo?
-Interfejs API Microsoft Graph umożliwia automatyzację zgody. Zapoznaj się z [dokumentacją interfejsu API](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0) , aby zautomatyzować wyrażanie zgody:
+Interfejs API Microsoft Graph umożliwia automatyzację zgody. Zapoznaj się z [dokumentacją interfejsu API](/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0) , aby zautomatyzować wyrażanie zgody:
 
 * Zarejestruj aplikację i Udziel aplikacji Application. ReadWrite. All uprawnienia do aplikacji, aby uzyskać dostęp do Microsoft Graph
 * Po utworzeniu klastra Zapytaj aplikację klastra na podstawie identyfikatora URI identyfikatora

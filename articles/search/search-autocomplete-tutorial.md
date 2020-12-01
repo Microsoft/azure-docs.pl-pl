@@ -1,5 +1,5 @@
 ---
-title: Dodawanie funkcji Autouzupełnianie i sugestii w polu wyszukiwania
+title: Dodaj Autouzupełnianie do pola wyszukiwania
 titleSuffix: Azure Cognitive Search
 description: Włącz akcje zapytania wyszukiwanie zgodnie z typem na platformie Azure Wyszukiwanie poznawcze przez utworzenie sugestii i formułowanie żądań, które umożliwiają Autouzupełnianie pola wyszukiwania z zakończonymi warunkami lub frazami. Możesz również zwrócić sugerowane dopasowania.
 manager: nitinme
@@ -9,14 +9,14 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5b498b8f49f2f0636b010e3c4d86f13ad44ac090
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 25c87971455ed3c5f59c92748794720d61e599e3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029017"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339612"
 ---
-# <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Dodawanie funkcji Autouzupełnianie i sugestii do aplikacji klienckich
+# <a name="add-autocomplete-and-suggestions-to-client-apps-using-azure-cognitive-search"></a>Dodawanie funkcji Autouzupełnianie i sugestii do aplikacji klienckich przy użyciu usługi Azure Wyszukiwanie poznawcze
 
 Wyszukiwanie zgodnie z oczekiwaniami to typowa technika ulepszania produktywności zapytań inicjowanych przez użytkownika. Na platformie Azure Wyszukiwanie poznawcze to środowisko jest obsługiwane przez *funkcję autouzupełniania*, która kończy termin lub frazę w oparciu o częściowe dane wejściowe (kończąc "mikro" "Microsoft"). Drugie środowisko użytkownika to *sugestie* lub krótka lista pasujących dokumentów (zwracająca tytuły książek z identyfikatorem, aby można było utworzyć link do strony szczegółów dotyczącej tej książki). Zarówno Autouzupełnianie, jak i sugestie są predykatem według dopasowania w indeksie. Usługa nie będzie oferować zapytań, które zwracają wyniki zerowe.
 

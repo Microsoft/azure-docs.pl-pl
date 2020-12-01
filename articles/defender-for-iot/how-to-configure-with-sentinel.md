@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 12f65d0e7f9c380f77fe4189d26fdeafd426295b
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: c5c0f74ed8a5688b20eea4e74f747d3ff6dd0e63
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090798"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340003"
 ---
 # <a name="connect-your-data-from-defender-for-iot-to-azure-sentinel-preview"></a>Łączenie danych z usługi Defender for IoT z platformą Azure (wersja zapoznawcza)
 
@@ -46,9 +46,9 @@ Dzięki ściślejszej integracji usługi Azure Defender for IoT z platformą Azu
 
 1. W obszarze wskaźnik platformy Azure wybierz pozycję **Łączniki danych** , a następnie kliknij kafelek **Defender for IoT** .
 1. W dolnej części okienka po prawej stronie kliknij pozycję **Otwórz stronę łącznika**.
-1. Kliknij przycisk **Połącz**obok każdej IoT Hub subskrypcji, której alerty i alerty urządzeń chcesz przesłać do usługi Azure wskaźnikowej.
+1. Kliknij przycisk **Połącz** obok każdej IoT Hub subskrypcji, której alerty i alerty urządzeń chcesz przesłać do usługi Azure wskaźnikowej.
     - Jeśli usługa Defender for IoT nie jest włączona w tym centrum, zobaczysz komunikat z ostrzeżeniem o włączeniu. Kliknij link **Włącz** , aby uruchomić i włączyć usługę.
-1. Możesz zdecydować, czy alerty z usługi Defender for IoT mają automatycznie generować zdarzenia na platformie Azure. W obszarze **Tworzenie zdarzeń**wybierz pozycję **Włącz** , aby włączyć regułę do automatycznego tworzenia zdarzeń z wygenerowanych alertów.  Tę regułę można zmienić lub edytować w obszarze **Analytics**  >  **aktywne** reguły analizy.
+1. Możesz zdecydować, czy alerty z usługi Defender for IoT mają automatycznie generować zdarzenia na platformie Azure. W obszarze **Tworzenie zdarzeń** wybierz pozycję **Włącz** , aby włączyć regułę do automatycznego tworzenia zdarzeń z wygenerowanych alertów.  Tę regułę można zmienić lub edytować w obszarze **Analytics**  >  **aktywne** reguły analizy.
 
 > [!NOTE]
 >Odświeżenie listy centrów po wprowadzeniu zmian połączenia może zająć 10 sekund lub dłużej.
@@ -57,7 +57,7 @@ Dzięki ściślejszej integracji usługi Azure Defender for IoT z platformą Azu
 
 Aby użyć odpowiedniego schematu w Log Analytics, aby wyświetlić alerty usługi Defender for IoT:
 
-1. Otwórz pozycję **Logs**  >  **SecurityInsights**  >  **SecurityAlert**lub wyszukaj ciąg **SecurityAlert**.
+1. Otwórz pozycję **Logs**  >  **SecurityInsights**  >  **SecurityAlert** lub wyszukaj ciąg **SecurityAlert**.
 1. Filtruj, aby wyświetlić tylko usługi Defender dla alertów generowanych przez usługę IoT przy użyciu następującego filtru KQL:
 
 ```kusto
@@ -72,6 +72,6 @@ Po nawiązaniu połączenia IoT Hub dane centrum są dostępne na platformie Azu
 
 W tym dokumencie przedstawiono sposób nawiązywania połączenia z usługą Defender for IoT z platformą Azure. Aby dowiedzieć się więcej na temat wykrywania zagrożeń i dostępu do danych zabezpieczeń, zobacz następujące artykuły:
 
-- Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)za pomocą usługi Azure wskaźnikowej.
+- Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](../sentinel/quickstart-get-visibility.md)za pomocą usługi Azure wskaźnikowej.
 
 - Dowiedz się, jak [uzyskać dostęp do danych zabezpieczeń IoT](how-to-security-data-access.md)

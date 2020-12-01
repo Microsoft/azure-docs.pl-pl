@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 07/28/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 0b0e198075455f697c87ad48741a770e6f78b5a5
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: a42b07254deaf19d253f7523631018bfe7166a57
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542154"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339595"
 ---
 # <a name="azure-dedicated-hosts"></a>Dedykowane hosty platformy Azure
 
@@ -165,6 +165,8 @@ Jednostka SKU jest definiowana dla hosta i reprezentuje serię i typ rozmiaru ma
 
 Rozmiary i typy sprzętu różnią się w zależności od regionu. Więcej informacji można znaleźć na [stronie cennika](https://aka.ms/ADHPricing) hosta.
 
+> [!NOTE]
+> Po aprowizacji dedykowanego hosta nie można zmienić jego rozmiaru ani typu. Jeśli potrzebujesz innego rozmiaru typu, musisz utworzyć nowy host.  
 
 ## <a name="host-life-cycle"></a>Cykl życia hosta
 
