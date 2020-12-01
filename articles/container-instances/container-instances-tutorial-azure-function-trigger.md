@@ -4,12 +4,12 @@ description: Tworzenie wyzwalanej przez protokół HTTP bezserwerowej funkcji pr
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ec4b2273f6be6ea4aabed2b660e0b7553f861d0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b94d583ca26b88d093810528d3193f20d765f1d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89072047"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349252"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Samouczek: Tworzenie grupy kontenerów za pomocą funkcji platformy Azure wyzwalanej przez protokół HTTP
 
@@ -27,15 +27,15 @@ Omawiane kwestie:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Zobacz [Tworzenie pierwszej funkcji na platformie Azure, korzystając z Visual Studio Code](../azure-functions/functions-create-first-function-vs-code.md?pivots=programming-language-powershell#configure-your-environment) wymagań wstępnych dotyczących instalowania i używania Visual Studio Code z rozszerzeniem Azure Functions w systemie operacyjnym.
+Zobacz [Tworzenie pierwszej funkcji na platformie Azure, korzystając z Visual Studio Code](../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-powershell#configure-your-environment) wymagań wstępnych dotyczących instalowania i używania Visual Studio Code z rozszerzeniem Azure Functions w systemie operacyjnym.
 
 W dodatkowych krokach w tym artykule użyto Azure PowerShell. Jeśli musisz zainstalować lub uaktualnić program, zobacz [instalowanie Azure PowerShell][azure-powershell-install] i [Logowanie do platformy Azure](/powershell/azure/get-started-azureps#sign-in-to-azure).
 
 ## <a name="create-a-basic-powershell-function"></a>Tworzenie podstawowej funkcji programu PowerShell
 
-Wykonaj kroki opisane w temacie [Tworzenie pierwszej funkcji programu PowerShell na platformie Azure](../azure-functions/functions-create-first-function-vs-code.md?pivots=programming-language-powershell) , aby utworzyć funkcję programu PowerShell przy użyciu szablonu wyzwalacza http. Użyj domyślnej nazwy funkcji platformy Azure **HttpTrigger**. Jak pokazano w przewodniku Szybki Start, Przetestuj funkcję lokalnie i Opublikuj projekt w aplikacji funkcji na platformie Azure. Ten przykład jest podstawową funkcją wyzwalaną przez protokół HTTP, która zwraca ciąg tekstowy. W kolejnych krokach tego artykułu zmodyfikujesz funkcję w celu utworzenia grupy kontenerów.
+Wykonaj kroki opisane w temacie [Tworzenie pierwszej funkcji programu PowerShell na platformie Azure](../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-powershell) , aby utworzyć funkcję programu PowerShell przy użyciu szablonu wyzwalacza http. Użyj domyślnej nazwy funkcji platformy Azure **HttpTrigger**. Jak pokazano w przewodniku Szybki Start, Przetestuj funkcję lokalnie i Opublikuj projekt w aplikacji funkcji na platformie Azure. Ten przykład jest podstawową funkcją wyzwalaną przez protokół HTTP, która zwraca ciąg tekstowy. W kolejnych krokach tego artykułu zmodyfikujesz funkcję w celu utworzenia grupy kontenerów.
 
-W tym artykule przyjęto założenie, że projekt jest publikowany przy użyciu nazwy *myfunctionapp*w grupie zasobów platformy Azure automatycznie nazwanej według nazwy aplikacji funkcji (również *myfunctionapp*). W kolejnych krokach Zastąp unikatową nazwę aplikacji funkcji i nazwę grupy zasobów.
+W tym artykule przyjęto założenie, że projekt jest publikowany przy użyciu nazwy *myfunctionapp* w grupie zasobów platformy Azure automatycznie nazwanej według nazwy aplikacji funkcji (również *myfunctionapp*). W kolejnych krokach Zastąp unikatową nazwę aplikacji funkcji i nazwę grupy zasobów.
 
 ## <a name="enable-an-azure-managed-identity-in-the-function-app"></a>Włączanie tożsamości zarządzanej przez platformę Azure w aplikacji funkcji
 
@@ -97,7 +97,7 @@ Upewnij się, że funkcja jest uruchamiana lokalnie przed ponownym opublikowanie
 
 Po sprawdzeniu, że funkcja jest uruchamiana lokalnie, opublikuj ponownie projekt w istniejącej aplikacji funkcji na platformie Azure.
 
-1. W Visual Studio Code Otwórz paletę poleceń. Wyszukaj i wybierz `Azure Functions: Deploy to Function App...` .
+1. W programie Visual Studio Code otwórz paletę poleceń. Wyszukaj i wybierz `Azure Functions: Deploy to Function App...` .
 1. Wybierz bieżący folder roboczy do pliku zip i Wdróż.
 1. Wybierz subskrypcję, a następnie nazwę istniejącej aplikacji funkcji (*myfunctionapp*). Potwierdź, że chcesz zastąpić poprzednie wdrożenie.
 
@@ -143,7 +143,7 @@ This HTTP triggered function executed successfully. Pass a name in the query str
 
 ### <a name="run-function-and-pass-the-name-of-a-container-group"></a>Uruchom funkcję i przekaż nazwę grupy kontenerów
 
-Teraz uruchom `curl` polecenie i Dołącz nazwę grupy kontenerów (obiektu*kontenera*) jako ciąg zapytania `?name=mycontainergroup` :
+Teraz uruchom `curl` polecenie i Dołącz nazwę grupy kontenerów (obiektu *kontenera*) jako ciąg zapytania `?name=mycontainergroup` :
 
 ```bash
 curl --verbose "https://myfunctionapp.azurewebsites.net/api/HttpTrigger?name=mycontainergroup"

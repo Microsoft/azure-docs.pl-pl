@@ -1,6 +1,6 @@
 ---
-title: Migrowanie zarządzanego obrazu do galerii obrazów udostępnionych
-description: Dowiedz się, jak za pomocą Azure PowerShell migrować obraz zarządzany do wersji obrazu w galerii obrazów udostępnionych.
+title: Klonowanie zarządzanego obrazu do galerii obrazów udostępnionych
+description: Dowiedz się, jak używać Azure PowerShell do klonowania zarządzanego obrazu do wersji obrazu w udostępnionej galerii obrazów.
 author: cynthn
 ms.topic: how-to
 ms.service: virtual-machines
@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 1c57d9d283714da6905335fd3167c4f8a69292f8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 92cae59978b172993c779e9a486ff67d82309800
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964885"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349926"
 ---
-# <a name="migrate-from-a-managed-image-to-a-shared-image-gallery-image"></a>Migrowanie z obrazu zarządzanego do obrazu z galerii udostępnionych obrazów
+# <a name="clone-a-managed-image-to-a-shared-image-gallery-image"></a>Klonowanie zarządzanego obrazu do obrazu udostępnionej galerii obrazów
 
-Jeśli masz istniejący obraz zarządzany, który chcesz migrować do galerii obrazów udostępnionych, możesz utworzyć obraz udostępnionej galerii obrazów bezpośrednio z poziomu zarządzanego obrazu. Po przetestowaniu nowego obrazu można usunąć źródłowy obraz zarządzany. Możesz także przeprowadzić migrację z zarządzanego obrazu do udostępnionej galerii obrazów przy użyciu [interfejsu wiersza polecenia platformy Azure](image-version-managed-image-cli.md).
+Jeśli masz istniejący obraz zarządzany, który chcesz sklonować i przenieść do galerii obrazów udostępnionych, możesz utworzyć obraz udostępnionej galerii obrazów bezpośrednio z poziomu zarządzanego obrazu. Po przetestowaniu nowego obrazu można usunąć źródłowy obraz zarządzany. Możesz także przeprowadzić migrację z zarządzanego obrazu do udostępnionej galerii obrazów przy użyciu [interfejsu wiersza polecenia platformy Azure](image-version-managed-image-cli.md).
 
 Obrazy w galerii obrazów mają dwa składniki, które zostaną utworzone w tym przykładzie:
 - **Definicja obrazu** przenosi informacje o obrazie i wymaganiach dotyczących korzystania z niego. Obejmuje to zarówno system Windows, jak i Linux, wyspecjalizowane lub uogólnione informacje o wersji oraz minimalne i maksymalne wymagania dotyczące pamięci. Jest to definicja typu obrazu. 

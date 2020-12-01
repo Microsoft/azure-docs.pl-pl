@@ -12,20 +12,20 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.custom: has-adal-ref
-ms.openlocfilehash: ce4cccba678a934780dc987f1441ea658a70f8eb
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 17d78b4d6db9e65868995d8ea7835a0d911e8589
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996611"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348702"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Konfigurowanie aplikacji uwierzytelniania OpenID/OAuth z galerii aplikacji usługi Azure AD
 
 ## <a name="process-of-adding-an-openid-application-from-the-gallery"></a>Proces dodawania aplikacji uwierzytelniania OpenID z galerii
 
-1. W [witrynie Azure Portal](https://portal.azure.com) w okienku po lewej stronie wybierz pozycję **Azure Active Directory**.
+1. W witrynie [Azure Portal](https://portal.azure.com) wybierz pozycję **Azure Active Directory**.
 
-    ![Przycisk Azure Active Directory](common/select-azuread.png))
+    ![Przycisk Azure Active Directory](common/select-azuread.png)
 
 2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**.
 
@@ -39,17 +39,23 @@ ms.locfileid: "91996611"
 
     ![Pozycja Openid na liście wyników](common/search-new-app.png)
 
-    > [!NOTE]
-    > W przypadku aplikacji uwierzytelniania OpenID Connect i OAuth przycisk **Dodaj** jest domyślnie wyłączony. W tym miejscu administrator dzierżawy powinien wybrać przycisk rejestrowania i wyrazić zgodę na aplikację. Aplikacja zostanie wtedy dodana do dzierżawy klienta, gdzie można ją skonfigurować. Jawne dodawanie aplikacji nie jest potrzebne.
+
+1. Na stronie Nazwa aplikacji kliknij przycisk **Utwórz konto** .
 
     ![Przycisk dodawania](./media/openidoauth-tutorial/addbutton.png)
 
-5. Po wybraniu linku rejestracji nastąpi przekierowanie do strony usługi Azure Active Directory (Azure AD) w celu podania poświadczeń logowania.
+    > [!NOTE]
+    > W tym miejscu administrator dzierżawy powinien wybrać przycisk rejestrowania i wyrazić zgodę na aplikację. Aplikacja zostanie wtedy dodana do dzierżawy klienta, gdzie można ją skonfigurować. Jawne dodawanie aplikacji nie jest potrzebne.
+
+5. Nastąpi przekierowanie do strony logowania aplikacji lub usługi Azure Active Directory (Azure AD) w celu uzyskania poświadczeń logowania.
 
 6. Po pomyślnym uwierzytelnieniu należy zaakceptować zgodę na stronie zgody. Aplikacja zostanie wtedy wyświetlona na stronie głównej.
 
     > [!NOTE]
     > Istnieje możliwość dodania tylko jednego wystąpienia aplikacji. Jeśli wystąpienie zostało już dodane, to próba ponownego wyrażenia zgody nie spowoduje ponownego dodania aplikacji do dzierżawy. Dlatego logicznie można używać tylko jednego wystąpienia aplikacji w dzierżawie.
+
+1. Aby dodać aplikację OpenID Connect z galerii, postępuj zgodnie z poniższym wideo.
+    >[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
 
 ## <a name="authentication-flow-using-openid-connect"></a>Przepływ uwierzytelniania w przypadku protokołu OpenID Connect
 
@@ -151,3 +157,7 @@ Administrator dzierżawy może wyłączyć możliwość wyrażania zgody na apli
 Parametru *prompt=admin_consent* mogą też używać aplikacje wymagające uprawnień, dla których zgoda administratora nie jest konieczna. Przykładem jest aplikacja, która wymaga środowiska, w którym Administrator dzierżawy "rejestruje się" jeden raz, a inni użytkownicy nie otrzymują monitu o zgodę od tego momentu.
 
 Wyobraź sobie sytuację, w której aplikacja wymaga zgody administratora i administrator loguje się bez wysyłania parametru *prompt=admin_consent*. Gdy administrator pomyślnie wyrazi zgodę na aplikację, będzie ona mieć zastosowanie tylko dla jego konta użytkownika. Zwykli użytkownicy nadal nie będą mogli zalogować się ani wyrazić zgody na aplikację. Ta funkcja jest przydatna, jeśli chcesz dać administratorowi dzierżawy możliwość przeanalizowania aplikacji przed zezwoleniem na dostęp innych użytkowników.
+
+## <a name="next-steps"></a>Następne kroki
+
+[Konfigurowanie logowania jednokrotnego opartego na usłudze OIDC (SSO) dla aplikacji w dzierżawie usługi Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-oidc-sso)

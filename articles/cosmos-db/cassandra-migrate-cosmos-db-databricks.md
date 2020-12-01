@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: thvankra
 ms.reviewer: thvankra
-ms.openlocfilehash: 877aa96b189de47d158721df6585cb94ace4a855
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 827abcdb9eb2eb8b7328eb3e3a78f49d51e87e6b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94932916"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349184"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-azure-databricks"></a>Migrowanie danych z Cassandra do konta interfejs API Cassandra Azure Cosmos DB przy użyciu Azure Databricks
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -114,7 +114,7 @@ DFfromNativeCassandra
 ```
 
 > [!NOTE]
-> `spark.cassandra.output.concurrent.writes`Konfiguracje i `connections_per_executor_max` są ważne w przypadku unikania [ograniczania szybkości](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/), co się dzieje, gdy żądania Cosmos DB przekraczają zainicjowaną przepływność ([jednostki żądania](https://docs.microsoft.com/azure/cosmos-db/request-units)). Może być konieczne dostosowanie tych ustawień w zależności od liczby modułów wykonujących w klastrze Spark oraz potencjalnie rozmiaru (a tym samym kosztu RU) każdego rekordu zapisywanego w tabelach docelowych.
+> `spark.cassandra.output.concurrent.writes`Konfiguracje i `connections_per_executor_max` są ważne w przypadku unikania [ograniczania szybkości](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/), co się dzieje, gdy żądania Cosmos DB przekraczają zainicjowaną przepływność ([jednostki żądania](./request-units.md)). Może być konieczne dostosowanie tych ustawień w zależności od liczby modułów wykonujących w klastrze Spark oraz potencjalnie rozmiaru (a tym samym kosztu RU) każdego rekordu zapisywanego w tabelach docelowych.
 
 ## <a name="next-steps"></a>Następne kroki
 

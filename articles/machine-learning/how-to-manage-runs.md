@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 01/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 0da4127960450a13b64ec23908b4a4fd4c69bd7e
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 921c88f4771fedb910dc41983d559987a8cdfb0c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542018"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349337"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Uruchamianie, monitorowanie i anulowanie przebiegów szkoleniowych w języku Python
 
@@ -278,7 +278,7 @@ Aby wydajnie tworzyć wiele podrzędnych przebiegów, użyj [`create_children()`
 
 ### <a name="submit-child-runs"></a>Prześlij uruchomienia podrzędne
 
-Uruchomienia podrzędne mogą być również przesyłane z przebiegu nadrzędnego. Pozwala to na tworzenie hierarchii uruchamiania obiektów nadrzędnych i podrzędnych. 
+Uruchomienia podrzędne mogą być również przesyłane z przebiegu nadrzędnego. Pozwala to na tworzenie hierarchii uruchamiania obiektów nadrzędnych i podrzędnych. Nie można utworzyć przebiegu podrzędnego bez elementu nadrzędnego: nawet wtedy, gdy uruchomienie nadrzędne nic nie robi, ale uruchomienia podrzędnego, nadal trzeba utworzyć hierarchię. Stan wszystkich przebiegów jest niezależny: element nadrzędny może być w `"Completed"` stanie pomyślnym, nawet jeśli co najmniej jedno uruchomienie podrzędne zostało anulowane lub zakończyło się niepowodzeniem.  
 
 Możesz chcieć, aby dziecko uruchomiło inną konfigurację przebiegu niż uruchomienie nadrzędne. Na przykład można użyć mniej zaawansowanej konfiguracji opartej na procesorach CPU dla elementu nadrzędnego, a jednocześnie używać konfiguracji opartych na procesorze GPU dla elementów podrzędnych. Innym typowym pragnieniem jest przekazanie każdego elementu podrzędnego różnych argumentów i danych. Aby dostosować uruchomienie podrzędne, Utwórz `ScriptRunConfig` obiekt dla uruchomienia podrzędnego. Poniższy kod wykonuje następujące czynności:
 
@@ -327,6 +327,24 @@ Aby zbadać podrzędne uruchomienia określonego elementu nadrzędnego, użyj [`
 ```python
 print(parent_run.get_children())
 ```
+
+### <a name="log-to-parent-or-root-run"></a>Rejestruj do uruchomienia nadrzędnego lub głównego
+
+Możesz użyć pola, `Run.parent` Aby uzyskać dostęp do uruchomienia, który uruchomił bieżące uruchomienie podrzędne. Typowym przypadkiem użycia jest to, gdy chcesz skonsolidować wyniki dzienników w jednym miejscu. Należy zauważyć, że elementy podrzędne uruchamiają się asynchronicznie i nie ma gwarancji, że porządkowanie ani synchronizacja wykraczające poza zdolność elementu nadrzędnego do ukończenia jego działania podrzędnego.
+
+```python
+# in child (or even grandchild) run
+
+def root_run(self : Run) -> Run :
+    if self.parent is None : 
+        return self
+    return root_run(self.parent)
+
+current_child_run = Run.get_context()
+root_run(current_child_run).log("MyMetric", f"Data from child run {current_child_run.id}")
+
+```
+
 
 ## <a name="tag-and-find-runs"></a>Tagi i Znajdź przebiegi
 

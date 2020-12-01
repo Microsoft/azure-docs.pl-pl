@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: stevelas
 ms.date: 10/29/2020
 ms.custom: ''
-ms.openlocfilehash: 261604b66d393723b35b472415b8840b047bc36e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 4fba6290b4973e797c13943fc9be4fadb19f3274
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133698"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349286"
 ---
 # <a name="how-to-consume-and-maintain-public-content-with-azure-container-registry-tasks"></a>Jak używać i konserwować publiczną zawartość za pomocą zadań Azure Container Registry
 
@@ -39,7 +39,7 @@ Aby ukończyć ten Instruktaż, można użyć Azure Cloud Shell lub lokalnej ins
 
 Ten Instruktaż konfiguruje:
 
-1. Trzy **rejestry kontenerów** , reprezentujące:
+1. Trzy **rejestry kontenerów**, reprezentujące:
    * Symulowane [centrum Docker][docker-hub] ( `publicregistry` ) umożliwiające obsługę zmiany obrazu podstawowego
    * Rejestr zespołu ( `contoso` ) do udostępniania obrazów prywatnych
    * Udostępniony rejestr firmy/zespołu ( `baseartifacts` ) dla zaimportowanej publicznej zawartości
@@ -47,12 +47,12 @@ Ten Instruktaż konfiguruje:
    1. Tworzenie symulowanego publicznego `node` obrazu
    1. Zaimportuj i sprawdź poprawność `node` obrazu do rejestru udostępnionego firmy/zespołu
    1. Kompilowanie i wdrażanie `hello-world` obrazu
-1. **Definicje zadań ACR** , w tym konfiguracje dla:
-1. Kolekcja **poświadczeń rejestru** , które są wskaźnikami do magazynu kluczy
+1. **Definicje zadań ACR**, w tym konfiguracje dla:
+1. Kolekcja **poświadczeń rejestru**, które są wskaźnikami do magazynu kluczy
 1. Kolekcja wpisów **tajnych** dostępnych w ramach `acr-task.yaml` , które są wskaźnikami do magazynu kluczy
 1. Kolekcja **skonfigurowanych wartości** używanych w ramach `acr-task.yaml`
 1. **Magazyn kluczy platformy Azure** do zabezpieczenia wszystkich wpisów tajnych
-1. **Wystąpienie kontenera platformy Azure** , które hostuje `hello-world` aplikację kompilacji
+1. **Wystąpienie kontenera platformy Azure**, które hostuje `hello-world` aplikację kompilacji
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -751,11 +751,11 @@ W tym artykule. użyto zadań ACR do utworzenia zautomatyzowanego przepływu pra
 
 [install-cli]:                  /cli/azure/install-azure-cli
 [acr]:                          https://aka.ms/acr
-[acr-repo-permissions]:         https://aka.ms/acr/repo-permissions
-[acr-task]:                     https://aka.ms/acr/tasks
+[acr-repo-permissions]:         ./container-registry-repository-scoped-permissions.md
+[acr-task]:                     ./container-registry-tasks-overview.md
 [acr-task-triggers]:            container-registry-tasks-overview.md#task-scenarios
 [acr-task-credentials]:       container-registry-tasks-authentication-managed-identity.md#4-optional-add-credentials-to-the-task
-[acr-tokens]:                   https://aka.ms/acr/tokens
+[acr-tokens]:                   ./container-registry-repository-scoped-permissions.md
 [aci]:                          https://aka.ms/aci
 [alpine-public-image]:          https://hub.docker.com/_/alpine
 [docker-hub]:                   https://hub.docker.com
@@ -766,11 +766,7 @@ W tym artykule. użyto zadań ACR do utworzenia zautomatyzowanego przepływu pra
 [helm-charts]:                  https://helm.sh
 [mcr]:                          https://aka.ms/mcr
 [nginx-public-image]:           https://hub.docker.com/_/nginx
-[oci-artifacts]:                https://aka.ms/acr/artifacts
+[oci-artifacts]:                ./container-registry-oci-artifacts.md
 [oci-consuming-public-content]: https://opencontainers.org/posts/blog/2020-10-30-consuming-public-content/
 [opa]:                          https://www.openpolicyagent.org/
 [quay]:                         https://quay.io
-
-
-
-

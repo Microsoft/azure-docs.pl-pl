@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: c47a4fbf51b14d9a13237f77c75dbf2839fb5f80
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: ff54d605fd81fa640314d99359f1aabacf7a469e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381290"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350385"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Samouczek: tworzenie aplikacji jednostronicowej przy użyciu interfejsu API wyszukiwania w sieci Web Bing
 
 > [!WARNING]
-> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
-> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Ta aplikacja jednostronicowa pokazuje, jak pobierać, analizować i wyświetlać wyniki wyszukiwania z interfejsu API wyszukiwania w sieci Web Bing. W samouczku użyto standardowego kodu HTML i CSS i skoncentrowano się na kodzie JavaScript. Pliki w formatach HTML, CSS i JS są dostępne w serwisie [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) razem z instrukcjami przewodnika Szybki start.
 
@@ -136,9 +136,9 @@ function bingSearchOptions(form) {
 
 Opcja `SafeSearch` może być ustawiona na `strict`, `moderate` lub `off`, gdzie `moderate` będzie ustawieniem domyślnym dla interfejsu API wyszukiwania w sieci Web Bing. Ten formularz używa pola wyboru, które ma dwa stany: `strict` lub `moderate` .
 
-Jeśli zaznaczono którekolwiek pole wyboru **Podwyższ poziom** , parametr `answerCount` zostanie dodany do zapytania. Parametr `answerCount` jest wymagany w przypadku korzystania z parametru `promote`. W tym fragmencie kodu wartość została ustawiona na `9`, aby zwracać wszystkie dostępne typy wyników.
+Jeśli zaznaczono którekolwiek pole wyboru **Podwyższ poziom**, parametr `answerCount` zostanie dodany do zapytania. Parametr `answerCount` jest wymagany w przypadku korzystania z parametru `promote`. W tym fragmencie kodu wartość została ustawiona na `9`, aby zwracać wszystkie dostępne typy wyników.
 > [!NOTE]
-> Podwyższenie poziomu typu wyniku nie *gwarantuje* , że zostanie on uwzględniony w wynikach wyszukiwania. Przeciwnie, podwyższenie poziomu podwyższa klasyfikację wyników tego typu względem ich klasyfikacji typowej. Aby ograniczyć wyszukiwanie do wyników określonego typu, użyj parametru zapytania `responseFilter` lub wywołaj bardziej konkretny punkt końcowy, taki jak interfejs API wyszukiwania obrazów Bing lub interfejs API wyszukiwania wiadomości Bing.
+> Podwyższenie poziomu typu wyniku nie *gwarantuje*, że zostanie on uwzględniony w wynikach wyszukiwania. Przeciwnie, podwyższenie poziomu podwyższa klasyfikację wyników tego typu względem ich klasyfikacji typowej. Aby ograniczyć wyszukiwanie do wyników określonego typu, użyj parametru zapytania `responseFilter` lub wywołaj bardziej konkretny punkt końcowy, taki jak interfejs API wyszukiwania obrazów Bing lub interfejs API wyszukiwania wiadomości Bing.
 
 Parametry zapytania `textDecoration` i `textFormat` zostały zapisane na stałe w skrypcie i powodują, że termin wyszukiwania będzie pogrubiony w wynikach wyszukiwania. Te parametry nie są wymagane.
 

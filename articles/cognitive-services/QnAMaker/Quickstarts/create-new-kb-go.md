@@ -7,22 +7,22 @@ ms.date: 12/16/2019
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: how-to
-ms.openlocfilehash: be314ad74fbb58709f5707e84b193f8ca69b47d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cff2d141e8108d9a3e2e12764174a0bf4978182f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777708"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352324"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-go"></a>Szybki start: tworzenie bazy wiedzy w usłudze QnA Maker przy użyciu języka Go
 
-Ten przewodnik Szybki start przeprowadzi Cię przez programowe tworzenie przykładowej bazy wiedzy usługi QnA Maker. Usługa QnA Maker automatycznie wyodrębnia pytania i odpowiedzi z częściowo ustrukturyzowanej zawartości, na przykład często zadawanych pytań, ze [źródeł danych](../Concepts/knowledge-base.md). Model bazy wiedzy jest zdefiniowany w formacie JSON wysyłanym w treści żądania interfejsu API.
+Ten przewodnik Szybki start przeprowadzi Cię przez programowe tworzenie przykładowej bazy wiedzy usługi QnA Maker. Usługa QnA Maker automatycznie wyodrębnia pytania i odpowiedzi z częściowo ustrukturyzowanej zawartości, na przykład często zadawanych pytań, ze [źródeł danych](../index.yml). Model bazy wiedzy jest zdefiniowany w formacie JSON wysyłanym w treści żądania interfejsu API.
 
 Ten przewodnik Szybki start wywołuje interfejsy API usługi QnA Maker:
-* [Tworzenie bazy wiedzy](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
-* [Pobieranie szczegółów operacji](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
+* [Tworzenie bazy wiedzy](/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
+* [Pobieranie szczegółów operacji](/rest/api/cognitiveservices/qnamaker/operations/getdetails)
 
-[Dokumentacja](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase)  |  referencyjna [Przejdź przykład](https://github.com/Azure-Samples/cognitive-services-qnamaker-go/blob/master/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go)
+[Dokumentacja](/rest/api/cognitiveservices/qnamaker/knowledgebase)  |  referencyjna [Przejdź przykład](https://github.com/Azure-Samples/cognitive-services-qnamaker-go/blob/master/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -64,7 +64,7 @@ Następnie dodaj poniższe funkcje pomocnicze.
 
 ## <a name="add-function-to-create-kb"></a>Dodawanie funkcji tworzącej bazę wiedzy
 
-Dodaj następujące funkcje, aby spowodować, że żądanie HTTP POST utworzy bazę wiedzy. **Identyfikator operacji** _tworzenia_ jest zwracany w **lokalizacji**pola nagłówka odpowiedzi post, a następnie używany jako część trasy w żądaniu get. `Ocp-Apim-Subscription-Key` to klucz usługi QnA Maker używany do uwierzytelniania.
+Dodaj następujące funkcje, aby spowodować, że żądanie HTTP POST utworzy bazę wiedzy. **Identyfikator operacji** _tworzenia_ jest zwracany w **lokalizacji** pola nagłówka odpowiedzi post, a następnie używany jako część trasy w żądaniu get. `Ocp-Apim-Subscription-Key` to klucz usługi QnA Maker używany do uwierzytelniania.
 
 :::code language="go" source="~/cognitive-services-quickstart-code/go/QnAMaker/rest/create-kb.go" id="create_kb":::
 
@@ -127,4 +127,4 @@ Utworzoną bazę wiedzy można wyświetlić w portalu usługi QnA Maker, na stro
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [QnA Maker (V4) REST API Reference (Dokumentacja interfejsu API REST usługi QnA Maker w wersji 4)](https://go.microsoft.com/fwlink/?linkid=2092179)
+> [QnA Maker (V4) REST API Reference (Dokumentacja interfejsu API REST usługi QnA Maker w wersji 4)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase)

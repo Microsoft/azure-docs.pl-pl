@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z siecią przy użyciu rejestru
 description: Objawy, przyczyny i rozwiązywanie typowych problemów podczas uzyskiwania dostępu do usługi Azure Container Registry w sieci wirtualnej lub za zaporą
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 5f2cf2d72e6641d4871b7acccdbd7cc37c653f74
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 95b32b839d1b3b804a2035b797e1146a09d5236a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148455"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351797"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Rozwiązywanie problemów z siecią przy użyciu rejestru
 
@@ -103,7 +103,7 @@ Powiązane linki:
 
 ### <a name="configure-service-access"></a>Konfigurowanie dostępu do usługi
 
-Obecnie Azure Security Center nie można przeprowadzić [skanowania w poszukiwaniu luk w zabezpieczeniach obrazów](../security-center/defender-for-container-registries-introduction.md?bc=%252fazure%252fcontainer-registry%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fcontainer-registry%252ftoc.json) w rejestrze, który ogranicza dostęp do prywatnych punktów końcowych, wybranych podsieci lub adresów IP. Ponadto zasoby następujących usług nie są w stanie uzyskać dostępu do rejestru kontenerów z ograniczeniami sieci:
+Obecnie Azure Security Center nie można przeprowadzić [skanowania w poszukiwaniu luk w zabezpieczeniach obrazów](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) w rejestrze, który ogranicza dostęp do prywatnych punktów końcowych, wybranych podsieci lub adresów IP. Ponadto zasoby następujących usług nie są w stanie uzyskać dostępu do rejestru kontenerów z ograniczeniami sieci:
 
 * Usługa Azure DevOps Services 
 * Azure Container Instances

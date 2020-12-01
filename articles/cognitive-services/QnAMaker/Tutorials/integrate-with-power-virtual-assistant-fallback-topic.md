@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 11/09/2020
-ms.openlocfilehash: 322db4e1535e763f4c3e7c87afaa370471ba0b66
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 3801bb44fed6bf24788957c41de77c89b3025ae8
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376302"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351116"
 ---
 # <a name="tutorial-add-your-knowledge-base-to-power-virtual-agents"></a>Samouczek: Dodawanie bazy wiedzy do zaawansowanych agentów
 Utwórz i zwiększ [możliwości bot agentów wirtualnych](https://powervirtualagents.microsoft.com/) w celu zapewnienia odpowiedzi z bazy wiedzy.
@@ -53,7 +53,7 @@ Poniżej znajduje się omówienie czynności służących do łączenia agenta w
     * Wywoływanie akcji (w celu automatyzacji przepływu).
 * W portalu [automatyzacji](https://us.flow.microsoft.com/) :
     * Wyszukaj w celu _wygenerowania odpowiedzi przy użyciu szablonu QNA Maker_
-    * Użyj szablonu, aby skonfigurować przepływ do korzystania z [GenerateAnswer QNA Maker](https://docs.microsoft.com/connectors/cognitiveservicesqnamaker/).
+    * Użyj szablonu, aby skonfigurować przepływ do korzystania z [GenerateAnswer QNA Maker](/connectors/cognitiveservicesqnamaker/).
         * QnA Maker opublikowane informacje bazy wiedzy:
             * Identyfikator bazy wiedzy
             * Host punktu końcowego zasobów QnA Maker
@@ -181,7 +181,7 @@ Aby Agent mógł znaleźć i połączyć się z przepływem, przepływ musi być
 
 1. Z listy rozwiązań wybierz właśnie utworzone rozwiązanie. Powinien znajdować się w górnej części listy. Jeśli tak nie jest, Wyszukaj według nazwy e-mail, która jest częścią nazwy rozwiązania.
 
-1. W rozwiązaniu wybierz pozycję **+ Dodaj istniejące** , a następnie wybierz pozycję **przepływ** z listy.
+1. W rozwiązaniu wybierz pozycję **+ Dodaj istniejące**, a następnie wybierz pozycję **przepływ** z listy.
 
 1. Znajdź swój przepływ z listy **rozwiązań zewnętrznych** , a następnie wybierz pozycję **Dodaj** , aby zakończyć proces. Jeśli istnieje wiele przepływów, sprawdź **zmodyfikowaną** kolumnę, aby znaleźć najnowszy przepływ.
 
@@ -195,14 +195,14 @@ Aby Agent mógł znaleźć i połączyć się z przepływem, przepływ musi być
 
     :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-flow-after-adding-action.png" alt-text="Częściowy zrzut ekranu kanwy konwersacji w temacie dotyczącej agenta wirtualnego po dodaniu QnA Maker Flow.":::
 
-1. Aby prawidłowo ustawić zmienną wejściową dla akcji QnA Maker, wybierz pozycję **Wybierz zmienną** , a następnie wybierz pozycję **bot. UnrecognizedTriggerPhrase**.
+1. Aby prawidłowo ustawić zmienną wejściową dla akcji QnA Maker, wybierz pozycję **Wybierz zmienną**, a następnie wybierz pozycję **bot. UnrecognizedTriggerPhrase**.
 
     :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-selection-action-input.png" alt-text="Częściowy zrzut ekranu kanwy konwersacji w temacie &quot;Wybieranie zmiennej wejściowej&quot;.":::
 
 
-1. Aby prawidłowo ustawić zmienną wyjściową dla akcji QnA Maker, w akcji **komunikat** wybierz pozycję **UnrecognizedTriggerPhrase** , a następnie wybierz ikonę, aby wstawić zmienną, `{x}` a następnie wybierz pozycję **FinalAnswer**.
+1. Aby prawidłowo ustawić zmienną wyjściową dla akcji QnA Maker, w akcji **komunikat** wybierz pozycję **UnrecognizedTriggerPhrase**, a następnie wybierz ikonę, aby wstawić zmienną, `{x}` a następnie wybierz pozycję **FinalAnswer**.
 
-1. Na pasku narzędzi kontekstu wybierz pozycję **Zapisz** , aby zapisać szczegóły kanwy tworzenia dla tematu.
+1. Na pasku narzędzi kontekstu wybierz pozycję **Zapisz**, aby zapisać szczegóły kanwy tworzenia dla tematu.
 
 Oto jak wygląda Ostatnia Kanwa agenta.
 
@@ -232,7 +232,7 @@ Aby udostępnić agenta wszystkim członkom Twojej szkoły lub organizacji, musi
 
 1. W obszarze nawigacji po lewej stronie wybierz pozycję **Publikuj**. Następnie wybierz pozycję **Publikuj** na stronie.
 
-1. Wypróbuj bot w witrynie sieci Web demonstracyjnej (Poszukaj linku w obszarze **Publikowanie** ).
+1. Wypróbuj bot w witrynie sieci Web demonstracyjnej (Poszukaj linku w obszarze **Publikowanie**).
 
     Zostanie otwarta nowa strona sieci Web z Twoim bot. Podawaj bot tego samego pytania testowego: `How can I improve the throughput performance for query predictions?`
 
@@ -258,6 +258,6 @@ Po zakończeniu pracy z bazą wiedzy Usuń QnA Maker zasoby z Azure Portal.
 [Uzyskiwanie danych analitycznych na potrzeby bazy wiedzy](../How-To/get-analytics-knowledge-base.md)
 
 Dowiedz się więcej:
-* [Power Virtual Agents](https://docs.microsoft.com/power-virtual-agents/)
-* [Power Automate](https://docs.microsoft.com/power-automate/)
-* [QNA Maker łącznika](https://us.flow.microsoft.com/connectors/shared_cognitiveservicesqnamaker/qna-maker/) i [Ustawienia łącznika](https://docs.microsoft.com/connectors/cognitiveservicesqnamaker/)
+* [Power Virtual Agents](/power-virtual-agents/)
+* [Power Automate](/power-automate/)
+* [QNA Maker łącznika](https://us.flow.microsoft.com/connectors/shared_cognitiveservicesqnamaker/qna-maker/) i [Ustawienia łącznika](/connectors/cognitiveservicesqnamaker/)

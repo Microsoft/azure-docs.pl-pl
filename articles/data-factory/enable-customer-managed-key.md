@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: c7d3dae2b7da2fcc14e86eb4965ebd99fd7bf681
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f1a7bffc05d83b30fe9e5bcd6e17bf6bc0192e1d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88650585"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348946"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Szyfrowanie Azure Data Factory przy użyciu kluczy zarządzanych przez klienta
 
@@ -47,8 +47,8 @@ Poniższa lista zawiera opis kroków w diagramie:
 
 Użycie kluczy zarządzanych przez klienta z Data Factory wymaga, aby na Key Vault zostały ustawione dwie właściwości, __nietrwałe usuwanie__ i __nie przeczyszczanie__. Te właściwości można włączyć za pomocą programu PowerShell lub interfejsu wiersza polecenia platformy Azure dla nowego lub istniejącego magazynu kluczy. Aby dowiedzieć się, jak włączyć te właściwości w istniejącym magazynie kluczy, zobacz sekcję zatytułowaną _Włączanie usuwania nietrwałego_ i _Włączanie ochrony przed przeczyszczeniem_ w jednym z następujących artykułów:
 
-- [Jak używać nietrwałego usuwania przy użyciu programu PowerShell](../key-vault/general/soft-delete-powershell.md)
-- [Jak używać nietrwałego usuwania przy użyciu interfejsu wiersza polecenia](../key-vault/general/soft-delete-cli.md)
+- [Jak używać nietrwałego usuwania przy użyciu programu PowerShell](../key-vault/general/key-vault-recovery.md)
+- [Jak używać nietrwałego usuwania przy użyciu interfejsu wiersza polecenia](../key-vault/general/key-vault-recovery.md)
 
 W przypadku tworzenia nowego Azure Key Vault za pomocą Azure Portal, __usuwanie__ nietrwałe i __nie przeczyszczania__ można włączyć w następujący sposób:
 
@@ -56,7 +56,7 @@ W przypadku tworzenia nowego Azure Key Vault za pomocą Azure Portal, __usuwanie
 
 ### <a name="grant-data-factory-access-to-azure-key-vault"></a>Przyznaj Data Factory dostęp do Azure Key Vault
 
-Upewnij się, że Azure Key Vault i Azure Data Factory znajdują się w tej samej dzierżawie Azure Active Directory (Azure AD) i w _tym samym regionie_. Z poziomu Azure Key Vault kontroli dostępu Udziel tożsamość usługi zarządzanej (MSI) następujących uprawnień: _Pobierz_, _Odpakuj klucz_i _Zawijaj klucz_. Te uprawnienia są wymagane, aby włączyć klucze zarządzane przez klienta w Data Factory.
+Upewnij się, że Azure Key Vault i Azure Data Factory znajdują się w tej samej dzierżawie Azure Active Directory (Azure AD) i w _tym samym regionie_. Z poziomu Azure Key Vault kontroli dostępu Udziel tożsamość usługi zarządzanej (MSI) następujących uprawnień: _Pobierz_, _Odpakuj klucz_ i _Zawijaj klucz_. Te uprawnienia są wymagane, aby włączyć klucze zarządzane przez klienta w Data Factory.
 
   ![Zrzut ekranu umożliwiający Data Factory dostęp do Key Vault](media/enable-customer-managed-key/02-access-policy-factory-managed-identities.png)
 
@@ -88,7 +88,7 @@ Możesz utworzyć własne klucze i zapisać je w magazynie kluczy lub użyć Azu
 
 ## <a name="update-key-version"></a>Zaktualizuj wersję klucza
 
-Podczas tworzenia nowej wersji klucza należy zaktualizować fabrykę danych, aby korzystała z nowej wersji. Wykonaj podobne kroki zgodnie z opisem w sekcji _Włączanie kluczy zarządzanych przez klienta_, w tym:
+Podczas tworzenia nowej wersji klucza należy zaktualizować fabrykę danych, aby korzystała z nowej wersji. Wykonaj podobne kroki zgodnie z opisem w sekcji _Włączanie kluczy Customer-Managed_, w tym:
 
 1. Zlokalizuj identyfikator URI nowej wersji klucza za pomocą portalu Azure Key Vault
 
@@ -100,7 +100,7 @@ Podczas tworzenia nowej wersji klucza należy zaktualizować fabrykę danych, ab
 
 ## <a name="use-a-different-key"></a>Użyj innego klucza
 
-Aby zmienić klucz używany do szyfrowania Data Factory, należy ręcznie zaktualizować ustawienia w Data Factory. Wykonaj podobne kroki zgodnie z opisem w sekcji _Włączanie kluczy zarządzanych przez klienta_, w tym:
+Aby zmienić klucz używany do szyfrowania Data Factory, należy ręcznie zaktualizować ustawienia w Data Factory. Wykonaj podobne kroki zgodnie z opisem w sekcji _Włączanie kluczy Customer-Managed_, w tym:
 
 1. Zlokalizuj identyfikator URI nowego klucza za pomocą portalu Azure Key Vault
 
@@ -110,7 +110,7 @@ Aby zmienić klucz używany do szyfrowania Data Factory, należy ręcznie zaktua
 
 1. Kliknij przycisk __Zapisz__ , a Data Factory będzie teraz szyfrowany przy użyciu nowego klucza
 
-## <a name="disable-customer-managed-keys"></a>Wyłącz klucze zarządzane przez klienta
+## <a name="disable-customer-managed-keys"></a>Wyłącz klucze Customer-Managed
 
 Po włączeniu funkcji klucz zarządzany przez klienta nie można usunąć dodatkowego kroku zabezpieczeń. Zawsze oczekujemy, że klucz dostarczony przez klienta zaszyfruje fabrykę i dane.
 

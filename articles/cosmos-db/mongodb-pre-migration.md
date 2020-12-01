@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: chrande
-ms.openlocfilehash: 8ad164f79f150e0cd6ab4a083f21b22c59f7c729
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 337341daf0e092def639a4e8f6fc8ee0a9b57c75
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93361589"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349422"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Kroki poprzedzające migrację dla migracji danych z MongoDB do interfejsu API Azure Cosmos DB dla MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -31,13 +31,13 @@ Jeśli zostały już wykonane powyższe wymagania wstępne dotyczące migracji, 
 
 Poniżej przedstawiono konkretne charakterystyki dotyczące interfejsu API Azure Cosmos DB MongoDB:
 
-- **Model pojemności** : wydajność bazy danych na Azure Cosmos DB jest oparta na modelu przepływności. Ten model jest oparty na [jednostkach żądań na sekundę](request-units.md), które są jednostką, która reprezentuje liczbę operacji bazy danych, które mogą być wykonywane w odniesieniu do kolekcji na sekundę. Tę pojemność można przydzielić na [poziomie bazy danych lub kolekcji](set-throughput.md)i można ją zainicjować w modelu alokacji lub przy użyciu [alokowanej przepływności skalowania automatycznego](provision-throughput-autoscale.md).
+- **Model pojemności**: wydajność bazy danych na Azure Cosmos DB jest oparta na modelu przepływności. Ten model jest oparty na [jednostkach żądań na sekundę](request-units.md), które są jednostką, która reprezentuje liczbę operacji bazy danych, które mogą być wykonywane w odniesieniu do kolekcji na sekundę. Tę pojemność można przydzielić na [poziomie bazy danych lub kolekcji](set-throughput.md)i można ją zainicjować w modelu alokacji lub przy użyciu [alokowanej przepływności skalowania automatycznego](provision-throughput-autoscale.md).
 
-- **Jednostki żądania** : Każda operacja bazy danych ma koszt powiązanych jednostek żądań (jednostek ru) w Azure Cosmos DB. Po wykonaniu ta wartość jest odejmowana od dostępnego poziomu jednostki żądania w danej sekundzie. Jeśli żądanie wymaga więcej jednostek ru niż aktualnie przydzielono RU/s, dostępne są dwie opcje rozwiązania problemu — zwiększenie ilości jednostek ru lub poczekanie na następną sekundę, a następnie ponów próbę wykonania operacji.
+- **Jednostki żądania**: Każda operacja bazy danych ma koszt powiązanych jednostek żądań (jednostek ru) w Azure Cosmos DB. Po wykonaniu ta wartość jest odejmowana od dostępnego poziomu jednostki żądania w danej sekundzie. Jeśli żądanie wymaga więcej jednostek ru niż aktualnie przydzielono RU/s, dostępne są dwie opcje rozwiązania problemu — zwiększenie ilości jednostek ru lub poczekanie na następną sekundę, a następnie ponów próbę wykonania operacji.
 
-- **Elastyczna pojemność** : pojemność danej kolekcji lub bazy danych może się zmienić w dowolnym momencie. Pozwala to na elastyczną adaptację bazy danych do wymagań dotyczących przepływności w obciążeniu.
+- **Elastyczna pojemność**: pojemność danej kolekcji lub bazy danych może się zmienić w dowolnym momencie. Pozwala to na elastyczną adaptację bazy danych do wymagań dotyczących przepływności w obciążeniu.
 
-- **Automatyczna fragmentowania** : Azure Cosmos DB udostępnia system automatycznego partycjonowania, który wymaga tylko fragmentu (lub klucza partycji). [Mechanizm automatycznej partycjonowania](partitioning-overview.md) jest współużytkowany przez wszystkie Azure Cosmos DB interfejsy API i umożliwia bezproblemowe przekazywanie danych i skalowanie w poziomie.
+- **Automatyczna fragmentowania**: Azure Cosmos DB udostępnia system automatycznego partycjonowania, który wymaga tylko fragmentu (lub klucza partycji). [Mechanizm automatycznej partycjonowania](partitioning-overview.md) jest współużytkowany przez wszystkie Azure Cosmos DB interfejsy API i umożliwia bezproblemowe przekazywanie danych i skalowanie w poziomie.
 
 ## <a name="migration-options-for-azure-cosmos-dbs-api-for-mongodb"></a><a id="options"></a>Opcje migracji Azure Cosmos DB interfejsu API dla MongoDB
 
@@ -57,11 +57,11 @@ W Azure Cosmos DB przepływność jest inicjowana z wyprzedzeniem i mierzona w j
 Możesz użyć [kalkulatora pojemności Azure Cosmos DB](https://cosmos.azure.com/capacitycalculator/) , aby określić liczbę jednostek żądania na podstawie konfiguracji konta bazy danych, ilości danych, rozmiaru dokumentu oraz wymaganych odczytów i zapisów na sekundę.
 
 Poniżej przedstawiono kluczowe czynniki wpływające na liczbę wymaganych jednostek ru:
-- **Rozmiar dokumentu** : w miarę wzrostu rozmiaru elementu/dokumentu, liczba jednostek ru zużytych do odczytu lub zapisu elementu/dokumentu również rośnie.
+- **Rozmiar dokumentu**: w miarę wzrostu rozmiaru elementu/dokumentu, liczba jednostek ru zużytych do odczytu lub zapisu elementu/dokumentu również rośnie.
 
-- **Liczba właściwości dokumentu** : liczba jednostek ru użytych do utworzenia lub zaktualizowania dokumentu jest powiązana z liczbą, złożonością i długością właściwości. Można zmniejszyć użycie jednostek żądania dla operacji zapisu, [ograniczając liczbę indeksowanych właściwości](mongodb-indexing.md).
+- **Liczba właściwości dokumentu**: liczba jednostek ru użytych do utworzenia lub zaktualizowania dokumentu jest powiązana z liczbą, złożonością i długością właściwości. Można zmniejszyć użycie jednostek żądania dla operacji zapisu, [ograniczając liczbę indeksowanych właściwości](mongodb-indexing.md).
 
-- **Wzorce zapytań** : złożoność zapytania wpływa na liczbę jednostek żądań używanych przez zapytanie. 
+- **Wzorce zapytań**: złożoność zapytania wpływa na liczbę jednostek żądań używanych przez zapytanie. 
 
 Najlepszym sposobem na zrozumienie kosztów zapytań jest użycie przykładowych danych w Azure Cosmos DB [i uruchomienie przykładowych zapytań z powłoki MongoDB](connect-mongodb-account.md) przy użyciu `getLastRequestStastistics` polecenia w celu uzyskania opłaty za żądanie, która będzie wyprowadzać liczbę użytych jednostek ru:
 
@@ -71,7 +71,7 @@ To polecenie spowoduje wyjście dokumentu JSON podobnego do poniższego:
 
 ```{  "_t": "GetRequestStatisticsResponse",  "ok": 1,  "CommandName": "find",  "RequestCharge": 10.1,  "RequestDurationInMilliSeconds": 7.2}```
 
-Możesz również użyć [ustawień diagnostycznych](cosmosdb-monitor-resource-logs.md) , aby zrozumieć częstotliwość i wzorce zapytań wykonywanych względem Azure Cosmos DB. Wyniki dzienników diagnostycznych mogą być wysyłane do konta magazynu, wystąpienia EventHub lub [log Analytics platformy Azure](../azure-monitor/log-query/get-started-portal.md).  
+Możesz również użyć [ustawień diagnostycznych](cosmosdb-monitor-resource-logs.md) , aby zrozumieć częstotliwość i wzorce zapytań wykonywanych względem Azure Cosmos DB. Wyniki dzienników diagnostycznych mogą być wysyłane do konta magazynu, wystąpienia EventHub lub [log Analytics platformy Azure](../azure-monitor/log-query/log-analytics-tutorial.md).  
 
 ## <a name="choose-your-partition-key"></a><a id="partitioning"></a>Wybierz klucz partycji
 Partycjonowanie, znane także jako fragmentowania, to kluczowy punkt rozważania przed migrowaniem danych. Azure Cosmos DB używa w pełni zarządzanego partycjonowania, aby zwiększyć pojemność bazy danych w celu spełnienia wymagań dotyczących magazynu i przepływności. Ta funkcja nie wymaga hostingu ani konfiguracji serwerów routingu.   

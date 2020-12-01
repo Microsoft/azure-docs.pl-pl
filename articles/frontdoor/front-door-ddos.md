@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: jodowns
-ms.openlocfilehash: 58efeaebcc9f643c725cde54fcbda6f65c4bd700
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 24a8a559d72eae4dab0b6e740b34890f1d7ff114
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94415168"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350787"
 ---
 # <a name="ddos-protection-on-front-door"></a>DDoS ochronę na wierzchu drzwi
 
@@ -36,7 +36,7 @@ Drzwi z przodu to wysoce skalowana, globalnie rozproszona usługa. Mamy wielu kl
 
 ## <a name="caching"></a>Buforowanie
 
-[Możliwości buforowania drzwi przednich](./front-door-caching.md) mogą służyć do ochrony punktów końcowych w dużych ilościach ruchu wygenerowanych przez atak. Zasoby pamięci podręcznej zostaną zwrócone z węzłów krawędzi z przodu, aby nie były przekazywane do zaplecza. Nawet krótkie czasy wygaśnięcia w pamięci podręcznej (w sekundach lub minutach) odpowiedzi dynamicznych mogą znacznie zmniejszyć obciążenie usług zaplecza. Aby uzyskać więcej informacji o pojęciach dotyczących buforowania i wzorcach, zobacz [zagadnienia dotyczące buforowania](https://docs.microsoft.com/azure/architecture/best-practices/caching) i [wzorzec z obsługą pamięci podręcznej](https://docs.microsoft.com/azure/architecture/patterns/cache-aside).
+[Możliwości buforowania drzwi przednich](./front-door-caching.md) mogą służyć do ochrony punktów końcowych w dużych ilościach ruchu wygenerowanych przez atak. Zasoby pamięci podręcznej zostaną zwrócone z węzłów krawędzi z przodu, aby nie były przekazywane do zaplecza. Nawet krótkie czasy wygaśnięcia w pamięci podręcznej (w sekundach lub minutach) odpowiedzi dynamicznych mogą znacznie zmniejszyć obciążenie usług zaplecza. Aby uzyskać więcej informacji o pojęciach dotyczących buforowania i wzorcach, zobacz [zagadnienia dotyczące buforowania](/azure/architecture/best-practices/caching) i [wzorzec z obsługą pamięci podręcznej](/azure/architecture/patterns/cache-aside).
 
 ## <a name="web-application-firewall-waf"></a>Zapora aplikacji internetowej
 

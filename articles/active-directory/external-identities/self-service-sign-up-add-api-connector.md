@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de255836cb269f5077a417a203e136f9e903f05d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d121e6280b83265a742736f9b8dd3aee96a8b32e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441678"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351763"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Dodawanie łącznika interfejsu API do przepływu użytkownika
 
@@ -25,7 +25,7 @@ Aby użyć [łącznika interfejsu API](api-connectors-overview.md), należy najp
 ## <a name="create-an-api-connector"></a>Tworzenie łącznika interfejsu API
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) jako administrator usługi Azure AD.
-2. W obszarze **usługi platformy Azure**wybierz pozycję **Azure Active Directory**.
+2. W obszarze **usługi platformy Azure** wybierz pozycję **Azure Active Directory**.
 3. W menu po lewej stronie wybierz pozycję **tożsamości zewnętrzne**.
 4. Wybierz pozycję **Wszystkie łączniki interfejsu API (wersja zapoznawcza)**, a następnie wybierz pozycję **Nowy łącznik interfejsu API**.
 
@@ -35,7 +35,7 @@ Aby użyć [łącznika interfejsu API](api-connectors-overview.md), należy najp
 6. Podaj **adres URL punktu końcowego** dla wywołania interfejsu API.
 7. Podaj informacje o uwierzytelnianiu dla interfejsu API.
 
-   - Obecnie jest obsługiwane tylko uwierzytelnianie podstawowe. Jeśli chcesz użyć interfejsu API bez uwierzytelniania podstawowego do celów deweloperskich, po prostu wprowadź fikcyjną **nazwę użytkownika** i **hasło** , które mogą być ignorowane przez interfejs API. Do użycia z funkcją platformy Azure z kluczem interfejsu API można uwzględnić kod jako parametr zapytania w **adresie URL punktu końcowego** (na przykład https []() ://contoso.azurewebsites.NET/API/Endpoint<b>? Code = 0123456789</b>).
+   - Obecnie jest obsługiwane tylko uwierzytelnianie podstawowe. Jeśli chcesz użyć interfejsu API bez uwierzytelniania podstawowego do celów deweloperskich, po prostu wprowadź fikcyjną **nazwę użytkownika** i **hasło** , które mogą być ignorowane przez interfejs API. Do użycia z funkcją platformy Azure z kluczem interfejsu API można uwzględnić kod jako parametr zapytania w **adresie URL punktu końcowego** (na przykład https []() ://contoso.azurewebsites.NET/API/Endpoint <b>? Code = 0123456789</b>).
 
    ![Konfigurowanie nowego łącznika interfejsu API](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
 8. Wybierz pozycję **Zapisz**.
@@ -92,7 +92,7 @@ Ponadto w przypadku wszystkich żądań jest domyślnie wysyłane żądanie **us
 Wykonaj następujące kroki, aby dodać łącznik interfejsu API do samoobsługowego przepływu użytkowników rejestracji.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) jako administrator usługi Azure AD.
-2. W obszarze **usługi platformy Azure**wybierz pozycję **Azure Active Directory**.
+2. W obszarze **usługi platformy Azure** wybierz pozycję **Azure Active Directory**.
 3. W menu po lewej stronie wybierz pozycję **tożsamości zewnętrzne**.
 4. Wybierz pozycję **przepływy użytkownika (wersja zapoznawcza)**, a następnie wybierz przepływ użytkownika, do którego chcesz dodać łącznik interfejsu API.
 5. Wybierz pozycję **Łączniki interfejsu API**, a następnie wybierz punkty końcowe interfejsu API, które mają być wywoływane, w następujących krokach przepływu użytkownika:
@@ -106,7 +106,7 @@ Wykonaj następujące kroki, aby dodać łącznik interfejsu API do samoobsługo
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Po zalogowaniu się za pomocą dostawcy tożsamości
 
-Łącznik interfejsu API w tym kroku w procesie tworzenia konta jest wywoływany natychmiast po uwierzytelnieniu użytkownika przy użyciu dostawcy tożsamości (Google, Facebook, Azure AD). Ten krok poprzedza*_stronę kolekcji atrybutów_** _, która jest formularzem prezentowanym użytkownikowi w celu zbierania atrybutów użytkownika. 
+Łącznik interfejsu API w tym kroku w procesie tworzenia konta jest wywoływany natychmiast po uwierzytelnieniu użytkownika przy użyciu dostawcy tożsamości (Google, Facebook, Azure AD). Ten krok poprzedza *_stronę kolekcji atrybutów_** _, która jest formularzem prezentowanym użytkownikowi w celu zbierania atrybutów użytkownika. 
 
 <!-- The following are examples of API connector scenarios you may enable at this step:
 - Use the email or federated identity that the user provided to look up claims in an existing system. Return these claims from the existing system, pre-fill the attribute collection page, and make them available to return in the token.

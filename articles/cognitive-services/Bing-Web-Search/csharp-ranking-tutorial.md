@@ -12,19 +12,19 @@ ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c6b6aea6a3b0856b3db345e20b87d2a12ad055e1
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 077c715616e377d8b296e53fdd5a861f944ab940
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380334"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349507"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Tworzenie klienta wyszukiwania aplikacji konsoli w języku C #
 
 > [!WARNING]
-> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
-> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 W tym samouczku przedstawiono sposób tworzenia prostej aplikacji konsolowej platformy .NET Core, która umożliwia użytkownikom wykonywanie zapytań dotyczących interfejs API wyszukiwania w sieci Web Bing i wyświetlanie rankingowych wyników.
 
@@ -47,7 +47,7 @@ W programie Visual Studio utwórz projekt za pomocą kombinacji `Ctrl`+`Shift`+`
 
 W oknie dialogowym **Nowy projekt** kliknij pozycję **Visual C# > Windows Classic Desktop > aplikacji konsolowej (.NET Framework)**.
 
-Nadaj aplikacji nazwę **MyConsoleSearchApp** , a następnie kliknij przycisk **OK**.
+Nadaj aplikacji nazwę **MyConsoleSearchApp**, a następnie kliknij przycisk **OK**.
 
 ## <a name="add-the-jsonnet-nuget-package-to-the-project"></a>Dodawanie pakietu NuGet JSON.net do projektu
 
@@ -63,12 +63,12 @@ JSON.net umożliwia działanie z odpowiedziami JSON zwracanymi przez interfejs A
 Ten samouczek opiera się na `System.Web` zestawie. Dodaj odwołanie do tego zestawu do projektu:
 
 - W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy pozycję **odwołania** i wybierz polecenie **Dodaj odwołanie...**
-- Wybierz pozycję **zestawy > Framework** , a następnie przewiń w dół i sprawdź **System. Web**
+- Wybierz pozycję **zestawy > Framework**, a następnie przewiń w dół i sprawdź **System. Web**
 - Wybierz przycisk **OK**.
 
 ## <a name="add-some-necessary-using-statements"></a>Dodaj niektóre niezbędne instrukcje using
 
-Kod w tym samouczku wymaga trzech dodatkowych instrukcji using. Dodaj te instrukcje poniżej istniejących `using` instrukcji w górnej części **program.cs** :
+Kod w tym samouczku wymaga trzech dodatkowych instrukcji using. Dodaj te instrukcje poniżej istniejących `using` instrukcji w górnej części **program.cs**:
 
 ```csharp
 using System.Web;
@@ -236,7 +236,7 @@ Przed wyświetleniem sposobu wyświetlania wyników w kolejności uporządkowane
 
 KOD JSON odpowiedzi rankingu może zawierać co najmniej jedną grupę.
 
-W **program.cs** , Dodaj następującą metodę, aby wyświetlić wyniki w prawidłowym porządku uporządkowanym:
+W **program.cs**, Dodaj następującą metodę, aby wyświetlić wyniki w prawidłowym porządku uporządkowanym:
 
 ```csharp
 static void DisplayAllRankedResults(Newtonsoft.Json.Linq.JObject responseObjects)

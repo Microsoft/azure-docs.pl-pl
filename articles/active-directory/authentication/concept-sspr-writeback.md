@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9781196690c689036bfb69e1fa769112b5f69b2b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: af41f03a1ac0ea65d72d9af47b175bb78f9e1bc2
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964982"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348783"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Jak działa funkcja stornowania samoobsługowego resetowania haseł w Azure Active Directory?
 
@@ -90,7 +90,7 @@ Zapisywanie zwrotne haseł jest wysoce bezpieczną usługą. Aby zapewnić ochro
 * **Usługa magistrali usług specyficznych dla dzierżawy**
    * Po skonfigurowaniu usługi przekaźnik usługi Service Bus specyficzny dla dzierżawy jest skonfigurowany do ochrony za pomocą losowo wygenerowanego silnego hasła, do którego firma Microsoft nigdy nie ma dostępu.
 * **Zablokowany, kryptograficznie silnie, klucz szyfrowania hasła**
-   * Po utworzeniu przekaźnika usługi Service Bus zostanie utworzony silny klucz symetryczny that'is używany do szyfrowania hasła w postaci, w jakiej się znajduje w sieci. Ten klucz znajduje się tylko w magazynie wpisów tajnych firmy w chmurze, który jest silnie zablokowany i objęty inspekcją, podobnie jak każde inne hasło w katalogu.
+   * Po utworzeniu przekaźnika usługi Service Bus zostaje utworzony silny klucz symetryczny, który jest używany do szyfrowania hasła w postaci, w jakiej się znajduje w sieci. Ten klucz znajduje się tylko w magazynie wpisów tajnych firmy w chmurze, który jest silnie zablokowany i objęty inspekcją, podobnie jak każde inne hasło w katalogu.
 * **Standard branżowy Transport Layer Security (TLS)**
    1. Gdy w chmurze jest wykonywana operacja resetowania lub zmiany hasła, hasło w postaci zwykłego tekstu jest szyfrowane przy użyciu klucza publicznego.
    1. Szyfrowane hasło jest umieszczane w wiadomości HTTPS wysyłanej przez szyfrowany kanał przy użyciu certyfikatów Microsoft TLS/SSL do przekaźnika usługi Service Bus.

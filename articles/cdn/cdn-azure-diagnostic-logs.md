@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
-ms.openlocfilehash: e5d84616e70d2a28abf3937b485f4fcf5258c43e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: fdb609a243656e2c75159cd2d4e70e2f965ae896
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779411"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352120"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Dzienniki diagnostyczne — Content Delivery Network platformy Azure
 
@@ -42,7 +42,7 @@ Do wykonania poniższych kroków jest wymagany profil Azure CDN. Przed kontynuow
 
 Wykonaj następujące kroki, aby włączyć rejestrowanie dla punktu końcowego Azure CDN:
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com). 
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 
 2. W Azure Portal przejdź do **wszystkich zasobów**  ->  **Sieć CDN — profil**
 
@@ -52,26 +52,26 @@ Wykonaj następujące kroki, aby włączyć rejestrowanie dla punktu końcowego 
 
 3. W sekcji **monitorowanie** wybierz pozycję **dzienniki diagnostyczne** :
 
-    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Wybierz punkt końcowy usługi CDN." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Wybierz pozycję dzienniki diagnostyczne." border="true":::
 
 ### <a name="enable-logging-with-azure-storage"></a>Włączanie rejestrowania w usłudze Azure Storage
 
 Aby użyć konta magazynu do przechowywania dzienników, wykonaj następujące czynności:
 
  >[!NOTE] 
- >Aby wykonać te kroki, wymagane jest konto magazynu. Aby uzyskać więcej informacji, zobacz **[Tworzenie konta usługi Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%252fazure%252fstorage%252fblobs%252ftoc.json)** .
+ >Aby wykonać te kroki, wymagane jest konto magazynu. Aby uzyskać więcej informacji, zobacz **[Tworzenie konta usługi Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)** .
     
 1. W obszarze **Nazwa ustawienia diagnostycznego** wprowadź nazwę ustawień dziennika diagnostycznego.
  
-2. Wybierz pozycję **Archiwizuj na koncie magazynu** , a następnie wybierz pozycję **CoreAnalytics** . 
+2. Wybierz pozycję **Archiwizuj na koncie magazynu**, a następnie wybierz pozycję **CoreAnalytics**. 
 
 3. W polu **przechowywanie (dni)** wybierz liczbę dni przechowywania. Przechowywanie w dniach zero przechowuje dzienniki w nieskończoność. 
 
 4. Wybierz subskrypcję i konto magazynu dla dzienników.
 
-    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Wybierz punkt końcowy usługi CDN." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Dzienniki diagnostyczne — magazyn." border="true":::
 
-3. Wybierz pozycję **Zapisz** .
+3. Wybierz pozycję **Zapisz**.
 
 ### <a name="send-to-log-analytics"></a>Wysyłanie do usługi Log Analytics
 
@@ -82,13 +82,13 @@ Aby użyć Log Analytics dzienników, wykonaj następujące kroki:
     
 1. W obszarze **Nazwa ustawienia diagnostycznego** wprowadź nazwę ustawień dziennika diagnostycznego.
 
-2. Wybierz pozycję **Wyślij do log Analytics** , a następnie wybierz pozycję **CoreAnalytics** . 
+2. Wybierz pozycję **Wyślij do log Analytics**, a następnie wybierz pozycję **CoreAnalytics**. 
 
 3. Wybierz obszar roboczy subskrypcji i Log Analytics dla dzienników.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Wybierz punkt końcowy usługi CDN." border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Dzienniki diagnostyczne — Log Analytics." border="true":::
 
-4. Wybierz pozycję **Zapisz** .
+4. Wybierz pozycję **Zapisz**.
 
 ### <a name="stream-to-an-event-hub"></a>Przesyłaj strumieniowo do centrum zdarzeń
 
@@ -99,13 +99,13 @@ Aby użyć centrum zdarzeń dla dzienników, wykonaj następujące kroki:
     
 1. W obszarze **Nazwa ustawienia diagnostycznego** wprowadź nazwę ustawień dziennika diagnostycznego.
 
-2. Wybierz pozycję **strumień do centrum zdarzeń** , a następnie wybierz pozycję **CoreAnalytics** . 
+2. Wybierz pozycję **strumień do centrum zdarzeń**, a następnie wybierz pozycję **CoreAnalytics**. 
 
 3. Wybierz przestrzeń nazw subskrypcji i centrum zdarzeń dla dzienników.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Wybierz punkt końcowy usługi CDN." border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Dzienniki diagnostyczne — centrum zdarzeń." border="true":::
 
-4. Wybierz pozycję **Zapisz** .
+4. Wybierz pozycję **Zapisz**.
 
 
 ## <a name="enable-logging-with-powershell"></a>Włączanie rejestrowania przy użyciu programu PowerShell
@@ -190,8 +190,8 @@ Aby pobrać narzędzie, zobacz [Eksplorator usługi Azure Storage](https://stora
 1.  Otwórz **Eksplorator usługi Microsoft Azure Storage**
 2.  Lokalizowanie konta magazynu
 3.  Rozwiń węzeł **kontenery obiektów BLOB** w ramach tego konta magazynu.
-4.  Wybierz kontener o nazwie *Insights-Logs-coreanalytics* .
-5.  Wyniki są wyświetlane w okienku po prawej stronie, rozpoczynając od pierwszego poziomu, jako *ResourceID =* . Kontynuuj Wybieranie każdego poziomu, dopóki nie znajdziesz pliku *PT1H.js* . Aby uzyskać wyjaśnienie ścieżki, zobacz [Format ścieżki obiektu BLOB](cdn-azure-diagnostic-logs.md#blob-path-format).
+4.  Wybierz kontener o nazwie *Insights-Logs-coreanalytics*.
+5.  Wyniki są wyświetlane w okienku po prawej stronie, rozpoczynając od pierwszego poziomu, jako *ResourceID =*. Kontynuuj Wybieranie każdego poziomu, dopóki nie znajdziesz pliku *PT1H.js*. Aby uzyskać wyjaśnienie ścieżki, zobacz [Format ścieżki obiektu BLOB](cdn-azure-diagnostic-logs.md#blob-path-format).
 6.  Każdy obiekt BLOB *PT1H.jsw* pliku reprezentuje dzienniki analizy przez jedną godzinę dla określonego punktu końcowego usługi CDN lub jego domeny niestandardowej.
 7.  Schemat zawartości tego pliku JSON został opisany w sekcji schemat podstawowych dzienników analitycznych.
 
@@ -229,7 +229,7 @@ Oto jak można użyć narzędzia:
 
 ## <a name="log-data-delays"></a>Opóźnienia danych dziennika
 
-W poniższej tabeli przedstawiono opóźnienia danych dziennika dla **Azure CDN Standard od firmy Microsoft** , **Azure CDN Standard z Akamai** i **Azure CDN Standard/Premium z Verizon** .
+W poniższej tabeli przedstawiono opóźnienia danych dziennika dla **Azure CDN Standard od firmy Microsoft**, **Azure CDN Standard z Akamai** i **Azure CDN Standard/Premium z Verizon**.
 
 Opóźnienia danych dziennika firmy Microsoft | Opóźnienia danych dziennika Verizon | Opóźnienia danych dziennika Akamai
 --- | --- | ---
@@ -249,7 +249,7 @@ W poniższej tabeli przedstawiono listę metryk dostępnych w głównych dzienni
 Nie wszystkie metryki są dostępne dla wszystkich dostawców, chociaż takie różnice są minimalne. W tabeli są również wyświetlane, czy dana metryka jest dostępna od dostawcy. Metryki są dostępne tylko dla tych punktów końcowych usługi CDN, które mają ruch na nich.
 
 
-|Metryka                     | Opis | Microsoft | Verizon | Akamai |
+|Metric                     | Opis | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
 | RequestCountTotal         | Łączna liczba trafień żądań w tym okresie. | Tak | Tak |Tak |
 | RequestCountHttpStatus2xx | Liczba wszystkich żądań, które spowodowały 2xx kod HTTP (na przykład 200, 202). | Tak | Tak |Tak |
@@ -367,7 +367,7 @@ Przykładowe właściwości:
 
 ```
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Dzienniki diagnostyczne platformy Azure](../azure-monitor/platform/platform-logs-overview.md)
 * [Analiza podstawowa za pośrednictwem Azure CDN Portal uzupełniający](./cdn-analyze-usage-patterns.md)

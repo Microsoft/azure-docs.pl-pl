@@ -10,19 +10,19 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 3057a118117f4f293ec5f90405a4bbd82d7a353d
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 14dacc4351af444c75517df4d4e02ecca3bbf40a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592077"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350079"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Obsługa języka i regionu dla interfejs API wyszukiwania obrazów Bing
 
 > [!WARNING]
-> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
-> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Interfejs API wyszukiwania obrazów Bing obsługuje więcej niż trzy dziesiątki krajów/regionów, wiele z więcej niż jednym językiem. Określenie kraju/regionu z zapytaniem służy głównie do uściślenia wyników wyszukiwania w oparciu o zainteresowania w tym kraju/regionie. Ponadto wyniki mogą zawierać linki do usługi Bing, a te linki mogą lokalizować środowisko użytkownika Bing zgodnie z określonym krajem lub regionami lub językiem.
 
@@ -54,7 +54,7 @@ Alternatywnie możesz określić kraj/region przy użyciu `cc` parametru zapytan
 |Niemcy|DE|
 |SRA Hongkong|HK|
 |Indie|IN|
-|Indonezja|ID (Identyfikator)|
+|Indonezja|ID|
 |Włochy|IT|
 |Japonia|JP|
 |Korea|KR|
@@ -85,7 +85,7 @@ Alternatywnie możesz określić kraj/region przy użyciu `cc` parametru zapytan
 |-------|--------|-----------|
 |Argentyna|Hiszpański|ES-AR|
 |Australia|Angielski|en-AU|
-|Austria|niemiecki|de-AT|
+|Austria|Niemiecki|de-AT|
 |Belgia|Niderlandzki|NL-to|
 |Belgia|Francuski|fr — należy|
 |Brazylia|Portugalski|pt-BR|
@@ -95,13 +95,13 @@ Alternatywnie możesz określić kraj/region przy użyciu `cc` parametru zapytan
 |Dania|Duński|da-DK|
 |Finlandia|Fiński|fi-FI|
 |Francja|Francuski|fr-FR|
-|Niemcy|niemiecki|de-DE|
+|Niemcy|Niemiecki|de-DE|
 |SRA Hongkong|Chiński tradycyjny|zh-HK|
 |Indie|Angielski|dodatek EN-IN|
 |Indonezja|Angielski|pl-ID|
 |Włochy|Włoski|it-IT|
 |Japonia|japoński|ja-JP|
-|Korea|koreański|ko-KR|
+|Korea|Koreański|ko-KR|
 |Malezja|Angielski|pl — MY|
 |Meksyk|Hiszpański|es — MX|
 |Holandia|Niderlandzki|nl-NL|
@@ -116,7 +116,7 @@ Alternatywnie możesz określić kraj/region przy użyciu `cc` parametru zapytan
 |Hiszpania|Hiszpański|es-ES|
 |Szwecja|Szwedzki|sv-SE|
 |Szwajcaria|Francuski|fr-CH|
-|Szwajcaria|niemiecki|Usuń CH|
+|Szwajcaria|Niemiecki|Usuń CH|
 |Tajwan|Chiński tradycyjny|zh-TW|
 |Turcja|Turecki|tr-TR|
 |Zjednoczone Królestwo|Angielski|en-GB|

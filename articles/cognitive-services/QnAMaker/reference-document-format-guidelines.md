@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 04/06/2020
-ms.openlocfilehash: d35ea57a68e500deffa99033b83114ec518dd5e3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1bf6eebcfc43452dd9a62e4a49f9aacbcd517ffc
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993809"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352239"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>Wskazówki dotyczące formatu dla zaimportowanych dokumentów i adresów URL
 
@@ -22,7 +22,7 @@ Po zaimportowaniu pliku lub adresu URL QnA Maker konwertuje i zapisuje zawartoś
 
 Jeśli dodasz lub edytujesz zawartość bezpośrednio w bazie wiedzy, użyj **formatowania promocji** w celu utworzenia zawartości tekstu sformatowanego lub zmiany zawartości formatu promocji, która jest już w odpowiedzi. QnA Maker obsługuje duży format promocji, aby zapewnić możliwość wprowadzenia tekstu sformatowanego do zawartości. Jednak aplikacja kliencka, taka jak rozmowa bot, może nie obsługiwać tego samego zestawu formatów promocji. Ważne jest, aby przetestować wyświetlanie odpowiedzi aplikacji klienta.
 
-Zapoznaj się z pełną listą [typów zawartości i przykładów](./Concepts/content-types.md#file-and-url-data-types).
+Zapoznaj się z pełną listą [typów zawartości i przykładów](./concepts/data-sources-and-content.md#content-types-of-documents-you-can-add-to-a-knowledge-base).
 
 ## <a name="basic-document-formatting"></a>Podstawowe formatowanie dokumentu
 
@@ -118,4 +118,4 @@ Importowanie bazy wiedzy zastępuje zawartość istniejącej bazy wiedzy. Import
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z pełną listą [typów zawartości i przykładów](./Concepts/content-types.md#file-and-url-data-types)
+Zapoznaj się z pełną listą [typów zawartości i przykładów](./concepts/data-sources-and-content.md#content-types-of-documents-you-can-add-to-a-knowledge-base)

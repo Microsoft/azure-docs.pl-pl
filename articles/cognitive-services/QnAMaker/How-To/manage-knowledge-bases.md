@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 890b555703f922168a820a0535296b9f55218752
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8c13dc0854fb29467b0fe8a1ce5f2dfc1c19bd78
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011051"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352341"
 ---
 # <a name="create-knowledge-base-and-manage-settings"></a>Tworzenie bazy wiedzy i zarządzanie ustawieniami
 
@@ -73,7 +73,7 @@ QnA Maker pozwala zarządzać bazami wiedzy, zapewniając dostęp do ustawień b
        |Usuwanie adresu URL|Istniejące adresy URL można usunąć, wybierając ikonę Usuń.|
        |Odśwież zawartość|Jeśli chcesz, aby baza wiedzy przeszukał najnowszą zawartość istniejących adresów URL, zaznacz pole wyboru **Odśwież** . Spowoduje to zaktualizowanie bazy wiedzy przy użyciu najnowszej zawartości adresu URL. Nie jest to ustawienie regularnego harmonogramu aktualizacji.|
        |Dodaj plik|Możesz dodać obsługiwany dokument pliku, który będzie częścią bazy wiedzy, wybierając pozycję **Zarządzaj bazą wiedzy**, a następnie wybierając pozycję **+ Dodaj plik**|
-    |Importuj|Możesz również zaimportować każdą istniejącą bazę wiedzy, wybierając przycisk **Importuj bazę wiedzy** . |
+    |Import|Możesz również zaimportować każdą istniejącą bazę wiedzy, wybierając przycisk **Importuj bazę wiedzy** . |
     |Aktualizacja|Aktualizacja bazy wiedzy zależy od **warstwy cenowej zarządzania** używanej podczas tworzenia usługi QNA Maker skojarzonej z bazą wiedzy. W razie potrzeby można również zaktualizować warstwę zarządzania z Azure Portal.
 
   1. Po zakończeniu wprowadzania zmian w bazie wiedzy wybierz pozycję **Zapisz i Wyszkol** w prawym górnym rogu strony, aby zachować zmiany.
@@ -107,7 +107,7 @@ Jeśli udostępnisz swoją bazę wiedzy współpracownikom,] (współpraca-wiedz
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [zarządzaniu językiem](language-knowledge-base.md) wszystkich baz wiedzy w zasobie.
+Dowiedz się więcej o [zarządzaniu językiem](../index.yml) wszystkich baz wiedzy w zasobie.
 
 * Edytuj pary QnA
 * Zarządzanie zasobami platformy Azure używanymi przez QnA Maker

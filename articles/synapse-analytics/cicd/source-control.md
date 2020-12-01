@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 111b2b5b660133c20afdb3c56e1c3e3ed607398c
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: b6cadbf5c3a33c1a954a47f37b33ad8703f40b69
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96297055"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350742"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Kontrola źródła w usłudze Azure Synapse Studio
 
@@ -192,7 +192,7 @@ Po usunięciu skojarzenia z bieżącym repozytorium można skonfigurować ustawi
 
 ## <a name="best-practices-for-git-integration"></a>Najlepsze rozwiązania związane z integracją z usługą git
 
--   **Uprawnienia**. Gdy repozytorium git jest połączone z obszarem roboczym, każda osoba, która ma dostęp do repozytorium git z dowolną rolą w obszarze roboczym, będzie mogła aktualizować artefakty, takie jak skrypt SQL, Notes, definicja zadania platformy Spark, zestaw danych, przepływu danych i potok w trybie git. Zwykle nie chcesz, aby każdy członek zespołu miał uprawnienia do aktualizowania obszaru roboczego. Przyznaj uprawnienia repozytorium git tylko dla autorów artefaktów obszaru roboczego Synapse. 
+-   **Uprawnienia**. Gdy repozytorium git jest połączone z obszarem roboczym, każda osoba mająca dostęp do repozytorium git z dowolną rolą w obszarze roboczym będzie mogła aktualizować artefakty, takie jak skrypt SQL, Notes, definicja zadania platformy Spark, zestaw danych, przepływu danych i potok w trybie git. Zwykle nie chcesz, aby każdy członek zespołu miał uprawnienia do aktualizowania obszaru roboczego. Przyznaj uprawnienia repozytorium git tylko dla autorów artefaktów obszaru roboczego Synapse. 
 -   **Współpraca**. Zaleca się, aby nie zezwalać na bezpośrednie ewidencjonowanie gałęzi współpracy. To ograniczenie może pomóc zapobiec wystąpieniu błędów, ponieważ każde zaewidencjonowanie przejdzie przez proces przeglądu żądania ściągnięcia opisany w temacie [Tworzenie gałęzi funkcji](source-control.md#creating-feature-branches).
 -   **Synapse tryb na żywo**. Po opublikowaniu w trybie git wszystkie zmiany zostaną odzwierciedlone w trybie Synapse na żywo. W trybie Synapse na żywo publikowanie jest wyłączone. Można też wyświetlać i uruchamiać artefakty w trybie na żywo, jeśli masz przyznane odpowiednie uprawnienia. 
 -   **Edytuj artefakty w programie Studio**. Synapse Studio jest jedynym miejscem, w którym można włączyć kontrolę źródła obszaru roboczego i automatycznie synchronizować zmiany w usłudze git. Wszelkie zmiany za pomocą zestawu SDK i programu PowerShell nie będą synchronizowane z usługą git. Zalecamy, aby podczas włączania usługi git zawsze edytować artefakt w programie Studio.

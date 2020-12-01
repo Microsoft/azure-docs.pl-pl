@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: pafarley
-ms.openlocfilehash: bd2032d565f5bd1fb430449be8b8c08e222f531d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 085dd18214f795566669fb862bba63b67eb9115d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025786"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350368"
 ---
 # <a name="build-an-enrollment-app-for-android-with-react"></a>Tworzenie aplikacji do rejestracji dla systemu Android przy użyciu reakcji
 
@@ -74,7 +74,7 @@ Aby dowiedzieć się, jak zapewnić pełną rejestrację funkcji aplikacji, zapo
 
 ### <a name="android"></a>Android
 
-Najpierw upewnij się, że aplikacja jest gotowa do wdrożenia produkcyjnego: Usuń wszelkie klucze lub wpisy tajne z kodu aplikacji i upewnij się, że przestrzegasz najlepszych rozwiązań w zakresie [zabezpieczeń](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp).
+Najpierw upewnij się, że aplikacja jest gotowa do wdrożenia produkcyjnego: Usuń wszelkie klucze lub wpisy tajne z kodu aplikacji i upewnij się, że przestrzegasz najlepszych rozwiązań w zakresie [zabezpieczeń](../cognitive-services-security.md?tabs=command-line%2ccsharp).
 
 Gdy wszystko będzie gotowe do opublikowania aplikacji w środowisku produkcyjnym, zostanie wygenerowany plik APK gotowy do wydania, który jest formatem pliku pakietu dla aplikacji systemu Android. Ten plik APK musi być podpisany przy użyciu klucza prywatnego. Ta kompilacja wydania umożliwia bezpośrednie Dystrybuowanie aplikacji do urządzeń. 
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: 3940f060209ea5ba55957a3673020656d45de9e4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9541320f65060a0b1f2b5c84a131c08e92554e9e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000100"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351711"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Edytuj pary QnA w bazie wiedzy
 
@@ -128,11 +128,11 @@ Okresowo wybieraj pozycję **Zapisz i pouczenie** po wprowadzeniu zmian, aby uni
 
 [Edytowanie tekstu rozbudowanego](#add-an-editorial-qna-set) odpowiedzi pozwala użytkownikowi, jak autor, korzystać z paska narzędzi formatowania, aby szybko wybierać i formatować tekst.
 
-[Markdown](../reference-markdown-format.md) Aby automatycznie generować zawartość w celu zaimportowania baz wiedzy w ramach potoku ciągłej integracji/ciągłego wdrażania lub [testowania wsadowego](../Quickstarts/batch-testing.md), należy jeszcze lepszym narzędziem.
+[Markdown](../reference-markdown-format.md) Aby automatycznie generować zawartość w celu zaimportowania baz wiedzy w ramach potoku ciągłej integracji/ciągłego wdrażania lub [testowania wsadowego](../index.yml), należy jeszcze lepszym narzędziem.
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Współpraca nad bazą wiedzy](./collaborate-knowledge-base.md)
+> [Współpraca nad bazą wiedzy](../index.yml)
 
 * [Zarządzanie zasobami platformy Azure używanymi przez QnA Maker](set-up-qnamaker-service-azure.md)

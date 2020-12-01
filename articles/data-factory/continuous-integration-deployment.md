@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 728dda7c702d7fc52c9285c7cb15fc4b6dc3003c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: aef85b263a142c001d47bac4aed7a71066e26dae
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182065"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350453"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Ciągła integracja i dostarczanie w Azure Data Factory
 
@@ -305,7 +305,7 @@ Oto przykład tego, jak może wyglądać szablon parametryzacja:
 ```
 Poniżej przedstawiono wyjaśnienie sposobu konstruowania poprzedniego szablonu, podzielonego na typ zasobu.
 
-#### <a name="pipelines"></a>Pipelines
+#### <a name="pipelines"></a>Potoki
     
 * Wszystkie właściwości w ścieżce `activities/typeProperties/waitTimeInSeconds` są sparametryzowane. Wszystkie działania w potoku, który ma właściwość poziomu kodu o nazwie `waitTimeInSeconds` (na przykład `Wait` działanie), są sparametryzowane jako liczba z nazwą domyślną. Ale nie będzie on miał wartości domyślnej w szablonie Menedżer zasobów. Będzie to obowiązkowe wejście podczas wdrażania Menedżer zasobów.
 * Podobnie właściwość o nazwie `headers` (na przykład w `Web` działaniu) ma wartość sparametryzowane z typem `object` (JObject). Ma wartość domyślną, która jest taka sama jak wartość dla fabryki źródłowej.
@@ -639,7 +639,7 @@ Obejrzyj film wideo poniżej szczegółowy samouczek wideo dotyczący sposobu na
 
 ## <a name="exposure-control-and-feature-flags"></a>Kontrola ekspozycji i flagi funkcji
 
-Podczas pracy nad zespołem istnieją wystąpienia, w których można scalać zmiany, ale nie powinny być uruchamiane w środowiskach z podwyższonym poziomem uprawnień, takich jak produkcja i pytania i odpowiedzi. Aby obsłużyć ten scenariusz, zespół ADF zaleca [DevOps koncepcji używania flag funkcji](https://docs.microsoft.com/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops). W module ADF można łączyć [parametry globalne](author-global-parameters.md) i [działanie warunku if](control-flow-if-condition-activity.md) w celu ukrycia zestawów logiki na podstawie tych flag środowiska.
+Podczas pracy nad zespołem istnieją wystąpienia, w których można scalać zmiany, ale nie powinny być one uruchamiane w środowiskach z podwyższonym poziomem uprawnień, takich jak produkcja i pytania i odpowiedzi. Aby obsłużyć ten scenariusz, zespół ADF zaleca [DevOps koncepcji używania flag funkcji](/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops). W module ADF można łączyć [parametry globalne](author-global-parameters.md) i [działanie warunku if](control-flow-if-condition-activity.md) w celu ukrycia zestawów logiki na podstawie tych flag środowiska.
 
 Aby dowiedzieć się, jak skonfigurować flagę funkcji, zobacz poniższy samouczek wideo:
 

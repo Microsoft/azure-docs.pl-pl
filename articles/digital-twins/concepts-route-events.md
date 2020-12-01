@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d085d59dc1dbe09c014dcaf5aa239805824354f0
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 6559de2b94879ac8643f4945fd5adcf4fc7e1045
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279968"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350827"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Kierowanie zdarzeń w ramach i na zewnątrz usługi Azure Digital bliźniaczych reprezentacji
 
@@ -20,7 +20,7 @@ Usługa Azure Digital bliźniaczych reprezentacji korzysta z **tras zdarzeń** d
 
 Istnieją dwa główne przypadki wysyłania danych usługi Azure Digital bliźniaczych reprezentacji:
 * Wysyłanie danych z jednej sznurka na cyfrowym wykresie bliźniaczych reprezentacji Azure do innego. Na przykład, gdy zmieniana jest właściwość jednocyfrowego przędzy, możesz chcieć odpowiednio powiadomić i zaktualizować inne cyfrowe sznurki.
-* Wysyłanie danych do usług danych podrzędnych w celu dodatkowego przechowywania lub przetwarzania (nazywanego również ruchem wychodzącym *danych* ). Na przykład
+* Wysyłanie danych do usług danych podrzędnych w celu dodatkowego przechowywania lub przetwarzania (nazywanego również ruchem wychodzącym *danych*). Na przykład
   - Szpital może chcieć wysłać dane zdarzenia usługi Azure Digital bliźniaczych reprezentacji do [Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md), aby zarejestrować dane szeregów czasowych zdarzeń związanych z handwashing dla analizy zbiorczej.
   - Firma, która już korzysta z [Azure Maps](../azure-maps/about-azure-maps.md) może chcieć używać usługi Azure Digital bliźniaczych reprezentacji do ulepszania swoich rozwiązań. Mogą szybko włączyć mapę platformy Azure po skonfigurowaniu usługi Azure Digital bliźniaczych reprezentacji, przełączyć jednostki mapy platformy Azure do usługi Azure Digital bliźniaczych reprezentacji jako [Digital bliźniaczych reprezentacji](concepts-twins-graph.md) na grafie bliźniaczym lub uruchamiać zaawansowane zapytania wykorzystujące swoje Azure Maps i dane cyfrowego bliźniaczych reprezentacji platformy Azure.
 
@@ -103,7 +103,7 @@ Jeśli spełniony jest dowolny z warunków, zdarzenie zostanie porzucone lub utr
 
 Przed ustawieniem lokalizacji utraconych wiadomości musisz mieć konto magazynu z kontenerem. Podajesz adres URL dla tego kontenera podczas tworzenia punktu końcowego. Utracona wartość jest podawana jako adres URL kontenera z tokenem SAS. Ten token wymaga tylko `write` uprawnienia do kontenera docelowego na koncie magazynu. W pełni sformułowany adres URL będzie miał postać: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
-Aby dowiedzieć się więcej o tokenach SAS, zobacz: [ *udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)*](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+Aby dowiedzieć się więcej o tokenach SAS, zobacz: [ *udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)*](../storage/common/storage-sas-overview.md)
 
 Aby dowiedzieć się, jak skonfigurować punkt końcowy przy użyciu utraconych wiadomości, zobacz [*How to: Manage Endpoints and Routes in Azure Digital bliźniaczych reprezentacji (interfejsy API i CLI)*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
 

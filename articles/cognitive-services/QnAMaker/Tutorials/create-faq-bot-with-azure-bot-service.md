@@ -5,17 +5,17 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 08/31/2020
-ms.openlocfilehash: aa2530f817bf20af40ab2913df9f16e7d1974ef3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 356b954c65086ff65264ce7a62b038cd7a8eac3d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187140"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350963"
 ---
 # <a name="tutorial-create-an-faq-bot-with-azure-bot-service"></a>Samouczek: Tworzenie bot często zadawanych pytań za pomocą Azure Bot Service
 Utwórz bot często zadawanych pytań z usługami QnA Maker i Azure [bot Service](https://azure.microsoft.com/services/bot-service/) bez kodu.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -80,4 +80,4 @@ Po wprowadzeniu zmian w bazie wiedzy i ponownym opublikowaniu nie trzeba podejmo
     Bot rozmowy reaguje na odpowiedź z bazy wiedzy.
 
     :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="Wprowadź zapytanie użytkownika do programu testowego rozmowy w sieci Web.":::
-1. PoBot się z dodatkowymi [obsługiwanymi kanałami](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels?view=azure-bot-service-4.0&preserve-view=true).
+1. PoBot się z dodatkowymi [obsługiwanymi kanałami](/azure/bot-service/bot-service-manage-channels?preserve-view=true&view=azure-bot-service-4.0).

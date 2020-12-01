@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 55a7e117ebd49f268d4b075d58791df4e9223fdf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a61e87c660bf2d2f0f4c8d02bd1699c58f8da667
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849266"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350674"
 ---
 # <a name="create-a-pool-with-disk-encryption-enabled"></a>Tworzenie puli z włączonym szyfrowaniem dysku
 
@@ -25,8 +25,8 @@ Za pomocą puli wsadowej można uzyskać dostęp do danych i przechowywać je w 
 
 Program Batch zastosuje jedną z tych technologii szyfrowania dysków w węzłach obliczeniowych na podstawie konfiguracji puli i regionalnej obsługi.
 
-- [Zarządzane szyfrowanie dysków przy użyciu kluczy zarządzanych przez platformę](../virtual-machines/windows/disk-encryption.md#platform-managed-keys)
-- [Szyfrowanie na hoście przy użyciu klucza zarządzanego przez platformę](../virtual-machines/windows/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
+- [Zarządzane szyfrowanie dysków przy użyciu kluczy zarządzanych przez platformę](../virtual-machines/disk-encryption.md#platform-managed-keys)
+- [Szyfrowanie na hoście przy użyciu klucza zarządzanego przez platformę](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
 - [Usługa Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)
 
 > [!IMPORTANT]
@@ -44,7 +44,7 @@ Podczas tworzenia puli zadań wsadowych w Azure Portal wybierz opcję **Temporar
 
 Po utworzeniu puli w sekcji **Właściwości** puli można zobaczyć cele konfiguracji szyfrowania dysków.
 
-:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Zrzut ekranu opcji Konfiguracja szyfrowania dysku w Azure Portal.":::
+:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Zrzut ekranu przedstawiający elementy docelowe konfiguracji szyfrowania dysków w Azure Portal.":::
 
 ## <a name="examples"></a>Przykłady
 
@@ -107,5 +107,5 @@ az batch pool create \
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [szyfrowaniu Azure Disk Storage po stronie serwera](../virtual-machines/windows/disk-encryption.md).
+- Dowiedz się więcej o [szyfrowaniu Azure Disk Storage po stronie serwera](../virtual-machines/disk-encryption.md).
 - Aby zapoznać się z szczegółowym omówieniem usługi Batch, zobacz temat [przepływ pracy i zasoby usług Batch](batch-service-workflow-features.md).

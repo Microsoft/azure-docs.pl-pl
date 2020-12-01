@@ -11,14 +11,14 @@ ms.date: 09/22/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58b7aa0bf8c82990a00b4e41041145a67ee2f02b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e272c402cac803d10d9998298ce6d3370d0e000
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91637362"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348807"
 ---
-# <a name="azure-ad-connect-cloud-provisioning-attibute-mapping"></a>Azure AD Connect mapowanie atrybutu aprowizacji w chmurze
+# <a name="azure-ad-connect-cloud-provisioning-attribute-mapping"></a>Azure AD Connect Mapowanie atrybutów aprowizacji w chmurze
 
 Azure AD Connect aprowizacji w chmurze wprowadził nową funkcję, która umożliwi łatwe Mapowanie atrybutów między obiektami lokalnymi użytkownika/grupy i obiektami w usłudze Azure AD.  Ta funkcja została dodana do konfiguracji aprowizacji w chmurze.
 
@@ -54,13 +54,13 @@ Wraz z tą właściwością mapowania atrybutów obsługują również następuj
 ## <a name="using-attribute-mapping"></a>Używanie mapowania atrybutów
 Aby skorzystać z nowej funkcji, wykonaj poniższe kroki.
 
- 1.  W Azure Portal wybierz pozycję **Azure Active Directory**.
+ 1.  W witrynie Azure Portal wybierz pozycję **Azure Active Directory**.
  2.  Wybierz **Azure AD Connect**.
  3.  Wybierz pozycję **Zarządzaj obsługą**.
 
    ![Zarządzanie obsługą administracyjną](media/how-to-configure/manage1.png)
  
- 4. W obszarze **Konfiguracja**wybierz konfigurację.
+ 4. W obszarze **Konfiguracja** wybierz konfigurację.
  5. Wybierz **pozycję kliknij, aby edytować mapowania**.  Spowoduje to otwarcie ekranu mapowania atrybutów.
 
  ![Dodawanie atrybutów](media/how-to-attribute-mapping/mapping6.png)
@@ -82,10 +82,10 @@ Aby skorzystać z nowej funkcji, wykonaj poniższe kroki.
 ## <a name="test-your-attribute-mapping"></a>Testowanie mapowania atrybutów
 Aby przetestować Mapowanie atrybutów, można użyć [inicjowania obsługi na żądanie](how-to-on-demand-provision.md).  Z 
 
-1.  W Azure Portal wybierz pozycję **Azure Active Directory**.
+1.  W witrynie Azure Portal wybierz pozycję **Azure Active Directory**.
 2.  Wybierz **Azure AD Connect**.
 3.  Wybierz pozycję **Zarządzaj obsługą**.
-4. W obszarze **Konfiguracja**wybierz konfigurację.
+4. W obszarze **Konfiguracja** wybierz konfigurację.
 5. W obszarze **Weryfikuj** kliknij przycisk **Zainicjuj obsługę użytkownika** . 
 6. Na ekranie aprowizacji na żądanie.  Wprowadź **nazwę wyróżniającą** użytkownika lub grupy, a następnie kliknij przycisk **Udostępnij** .  
 7. Po jego zakończeniu powinien pojawić się ekran o powodzeniu i 4 zielone pola wyboru wskazujące, że został on pomyślnie zainicjowany.  

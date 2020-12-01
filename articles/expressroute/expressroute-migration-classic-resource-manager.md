@@ -7,18 +7,18 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: duau
-ms.openlocfilehash: ac6fe619fc1c65b9ced18227d08cde50997eb7d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57c439cf8ac52d93d231d6ff33f72a5a942dec6a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89395285"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351609"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>Migrowanie sieci wirtualnych skojarzonych z ExpressRoute z klasycznej do Menedżer zasobów
 
 W tym artykule wyjaśniono, jak migrować sieci wirtualne skojarzone z ExpressRoute z klasycznego modelu wdrażania do modelu wdrażania Azure Resource Manager po przeniesieniu obwodu usługi ExpressRoute. 
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -29,10 +29,10 @@ W tym artykule wyjaśniono, jak migrować sieci wirtualne skojarzone z ExpressRo
 * Upewnij się, że masz grupę zasobów, która została utworzona w modelu wdrażania Menedżer zasobów.
 * Zapoznaj się z dokumentacją dotyczącą migracji zasobów:
 
-    * [Obsługiwana przez platformę migracja zasobów IaaS z wdrożenia klasycznego do usługi Azure Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-overview.md)
+    * [Obsługiwana przez platformę migracja zasobów IaaS z wdrożenia klasycznego do usługi Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md)
     * [Rozbudowana technicznie migracja z obsługą platformy od modelu klasycznego do modelu opartego na usłudze Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-deep-dive.md)
     * [Często zadawane pytania: migracja IaaS zasobów z klasycznej do Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-faq.md)
-    * [Przegląd najczęstszych błędów migracji i środków zaradczych](../virtual-machines/windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+    * [Przegląd najczęstszych błędów migracji i środków zaradczych](../virtual-machines/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="supported-and-unsupported-scenarios"></a>Scenariusze obsługiwane i nieobsługiwane
 
@@ -82,7 +82,7 @@ W tej sekcji opisano kroki, które należy wykonać w celu przeprowadzenia migra
    ```
 
 ## <a name="next-steps"></a>Następne kroki
-* [Obsługiwana przez platformę migracja zasobów IaaS z wdrożenia klasycznego do usługi Azure Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-overview.md)
+* [Obsługiwana przez platformę migracja zasobów IaaS z wdrożenia klasycznego do usługi Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md)
 * [Rozbudowana technicznie migracja z obsługą platformy od modelu klasycznego do modelu opartego na usłudze Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-deep-dive.md)
 * [Często zadawane pytania: migracja IaaS zasobów z klasycznej do Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-faq.md)
-* [Przegląd najczęstszych błędów migracji i środków zaradczych](../virtual-machines/windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Przegląd najczęstszych błędów migracji i środków zaradczych](../virtual-machines/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

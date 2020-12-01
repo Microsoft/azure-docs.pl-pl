@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: de74d7e3cf854f36d122be6a32c7fb4d449c5fe5
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f591a9781cb81ec735d22f4f687f8d413923dc93
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175920"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349133"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Przydziały usługi Azure Cosmos DB
 
@@ -78,8 +78,8 @@ Poniżej znajduje się podsumowanie minimalnych limitów przydziałów RU.
 
 | Zasób | Limit domyślny |
 | --- | --- |
-| Minimalna jednostek ru na kontener ([tryb aprowizacji dedykowanej przepustowości](databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| Minimalna jednostek ru na bazę danych ([tryb aprowizacji udostępnionej przepustowości](databases-containers-items.md#azure-cosmos-containers)) | 400 RU/s dla pierwszych 25 kontenerów. Dodatkowe 100 RU/s dla każdego kontenera później. |
+| Minimalna jednostek ru na kontener ([tryb aprowizacji dedykowanej przepustowości](./account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
+| Minimalna jednostek ru na bazę danych ([tryb aprowizacji udostępnionej przepustowości](./account-databases-containers-items.md#azure-cosmos-containers)) | 400 RU/s dla pierwszych 25 kontenerów. Dodatkowe 100 RU/s dla każdego kontenera później. |
 
 Cosmos DB obsługuje programistyczne skalowanie przepływności (RU/s) na kontener lub bazę danych za pośrednictwem zestawów SDK lub portalu.    
 

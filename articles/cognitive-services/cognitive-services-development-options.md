@@ -8,12 +8,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 4eaa33778287bfcda45547c24e6abe0606b6baa7
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: a952bfa45515b9d35549d03d18fd94103679344d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368801"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349473"
 ---
 # <a name="cognitive-services-development-options"></a>Opcje programowania usług Cognitive Services
 
@@ -35,7 +35,7 @@ Zanim przejdziemy do usługi, ważne jest, aby wiedzieć, że Cognitive Services
 
 ## <a name="development-options-for-prediction-and-analysis"></a>Opcje programowania na potrzeby przewidywania i analizy 
 
-Narzędzia, które będą używane do dostosowywania i konfigurowania modeli, są inne niż te, które będą używane do wywoływania Cognitive Services. Najprawdopodobniej, większość Cognitive Services pozwala na wysyłanie danych i uzyskiwanie wglądu bez żadnego dostosowania. Na przykład: 
+Narzędzia, które będą używane do dostosowywania i konfigurowania modeli, są inne niż te, które będą używane do wywoływania Cognitive Services. Najprawdopodobniej, większość Cognitive Services pozwala na wysyłanie danych i uzyskiwanie wglądu bez żadnego dostosowania. Przykład: 
 
 * Można wysłać obraz do usługi przetwarzanie obrazów, aby wykryć słowa i frazy lub liczbę osób w ramce.
 * Można wysłać plik audio do usługi mowy i uzyskać transkrypcje i przetłumaczyć mowę na tekst w tym samym czasie
@@ -49,10 +49,10 @@ Przyjrzyjmy się różnym sposobom, które można współdziałać z Cognitive S
 
 Cognitive Services biblioteki klienckie i interfejsy API REST zapewniają bezpośredni dostęp do usługi. Te narzędzia zapewniają programistyczny dostęp do Cognitive Services, ich modeli bazowych, a w wielu przypadkach umożliwiają programistyczne Dostosowywanie modeli i rozwiązań. 
 
-* **Użytkownicy docelowi** : deweloperzy i analityki danych
-* **Korzyści** : zapewnia największą elastyczność wywoływania usług z dowolnego języka i środowiska. 
-* **Interfejs użytkownika** : tylko N/A-kod
-* **Subskrypcje** : konto platformy Azure i zasoby Cognitive Services
+* **Użytkownicy docelowi**: deweloperzy i analityki danych
+* **Korzyści**: zapewnia największą elastyczność wywoływania usług z dowolnego języka i środowiska. 
+* **Interfejs użytkownika**: tylko N/A-kod
+* **Subskrypcje**: konto platformy Azure i zasoby Cognitive Services
 
 Jeśli chcesz dowiedzieć się więcej o dostępnych bibliotekach klienta i interfejsach API REST, Skorzystaj z naszego [omówienia Cognitive Services](index.yml) , aby wybrać i rozpocząć pracę z jednym z naszych przewodników szybki start dla wizji, decyzji, języka i mowy.
 
@@ -60,10 +60,10 @@ Jeśli chcesz dowiedzieć się więcej o dostępnych bibliotekach klienta i inte
 
 Za pomocą Cognitive Services dla danych Big Data można osadzić ciągłe ulepszanie, inteligentnych modeli bezpośrednio do Apache Spark &trade; i obliczeń SQL. Te narzędzia wykorzystają deweloperów z szczegółów sieci niskiego poziomu, dzięki czemu mogą skupić się na tworzeniu inteligentnych, rozproszonych aplikacji. Cognitive Services dla danych Big Data obsługuje następujące platformy i łączniki: Azure Databricks, Azure Synapse, Azure Kubernetes Service i łączniki danych.
 
-* **Użytkownicy docelowi** : Naukowcy i inżynierowie danych
-* **Zalety** : usługa Azure Cognitive Services dla danych Big Data umożliwia użytkownikom korzystanie z terabajtów danych przez Cognitive Services przy użyciu Apache Spark &trade; . Można łatwo tworzyć inteligentne aplikacje o dużej skali z dowolnym magazynem danych.
-* **Interfejs użytkownika** : tylko N/A-kod
-* **Subskrypcje** : konto platformy Azure i zasoby Cognitive Services
+* **Użytkownicy docelowi**: Naukowcy i inżynierowie danych
+* **Zalety**: usługa Azure Cognitive Services dla danych Big Data umożliwia użytkownikom korzystanie z terabajtów danych przez Cognitive Services przy użyciu Apache Spark &trade; . Można łatwo tworzyć inteligentne aplikacje o dużej skali z dowolnym magazynem danych.
+* **Interfejs użytkownika**: tylko N/A-kod
+* **Subskrypcje**: konto platformy Azure i zasoby Cognitive Services
 
 Jeśli chcesz dowiedzieć się więcej na temat danych Big Data dla Cognitive Services, dobrym miejscem do rozpoczęcia jest zapoznanie się z [omówieniem](./big-data/cognitive-services-for-big-data.md). Jeśli wszystko jest gotowe do rozpoczęcia kompilowania, wypróbuj nasze przykłady w języku [Python](./big-data/samples-python.md) lub [Scala](./big-data/samples-scala.md) .
 
@@ -71,50 +71,50 @@ Jeśli chcesz dowiedzieć się więcej na temat danych Big Data dla Cognitive Se
 
 [Azure Functions](../azure-functions/index.yml) i [Azure App Service zadania sieci Web](../app-service/index.yml) udostępniają usługi integracji w pierwszej kolejności, które są przeznaczone dla deweloperów i są oparte na [usłudze Azure App Services](../app-service/index.yml). Te produkty zapewniają infrastrukturę bezserwerową do pisania kodu. W tym kodzie można wykonywać wywołania naszych usług, korzystając z naszych bibliotek klientów i interfejsów API REST. 
 
-* **Użytkownicy docelowi** : deweloperzy i analityki danych
-* **Zalety** : bezserwerowa usługa obliczeniowa, która umożliwia uruchamianie kodu wyzwalanego przez zdarzenia. 
-* **Interfejs użytkownika** : tak
-* **Subskrypcje** : konto platformy Azure i Cognitive Services resource + Azure Functions Subscription
+* **Użytkownicy docelowi**: deweloperzy i analityki danych
+* **Zalety**: bezserwerowa usługa obliczeniowa, która umożliwia uruchamianie kodu wyzwalanego przez zdarzenia. 
+* **Interfejs użytkownika**: tak
+* **Subskrypcje**: konto platformy Azure i Cognitive Services resource + Azure Functions Subscription
 
 ### <a name="azure-logic-apps"></a>Azure Logic Apps 
 
 [Azure Logic Apps](../logic-apps/index.yml) korzystać z tego samego projektanta przepływów pracy i łączników, co zapewnia automatyzację, ale oferuje bardziej zaawansowane i kontrolki, w tym integracje z programem Visual Studio i DevOps. Automatyzacja i wyłączanie ułatwia integrację z zasobami usług poznawczych za pomocą łączników specyficznych dla usługi, które zapewniają serwer proxy lub otokę obejmującą interfejsy API. Są to te same łączniki, które są dostępne w automatyzacji. 
 
-* **Użytkownicy docelowi** : deweloperzy, Integratory, specjaliści IT, DevOps
-* **Zalety** : model programistyczny w pierwszej kolejności (deklaracyjne) zapewniający zaawansowane opcje i integrację w rozwiązaniu z niską ilością kodu
-* **Interfejs użytkownika** : tak
-* **Subskrypcje** : konto platformy Azure + Cognitive Services resource + Logic Apps Deployment
+* **Użytkownicy docelowi**: deweloperzy, Integratory, specjaliści IT, DevOps
+* **Zalety**: model programistyczny w pierwszej kolejności (deklaracyjne) zapewniający zaawansowane opcje i integrację w rozwiązaniu z niską ilością kodu
+* **Interfejs użytkownika**: tak
+* **Subskrypcje**: konto platformy Azure + Cognitive Services resource + Logic Apps Deployment
 
 ### <a name="power-automate"></a>Power Automate 
 
 Automatyzacja i wyłączanie usługi jest usługą na [platformie](/power-platform/) , która pomaga tworzyć zautomatyzowane przepływy pracy między aplikacjami i usługami bez pisania kodu. Oferujemy kilka łączników, które ułatwiają współpracę z zasobem Cognitive Services w rozwiązaniu do automatyzacji. Automatyzacja jest oparta na Logic Apps. 
 
-* **Użytkownik docelowy** : użytkownicy biznesowi (analityków) i Administratorzy programu SharePoint
-* **Korzyści** : Automatyzowanie powtarzalnych zadań ręcznych po prostu przez nagrywanie kliknięć myszą, naciśnięcie klawiszy i kopiowanie kroków wklejania z pulpitu!
-* **Narzędzia interfejsu użytkownika** : tak — tylko interfejs użytkownika
-* **Subskrypcje** : konto platformy Azure i Cognitive Services Resource + energia Automatyzuj subskrypcję i subskrypcja pakietu Office 365
+* **Użytkownik docelowy**: użytkownicy biznesowi (analityków) i Administratorzy programu SharePoint
+* **Korzyści**: Automatyzowanie powtarzalnych zadań ręcznych po prostu przez nagrywanie kliknięć myszą, naciśnięcie klawiszy i kopiowanie kroków wklejania z pulpitu!
+* **Narzędzia interfejsu użytkownika**: tak — tylko interfejs użytkownika
+* **Subskrypcje**: konto platformy Azure i Cognitive Services Resource + energia Automatyzuj subskrypcję i subskrypcja pakietu Office 365
 
 ### <a name="ai-builder"></a>AI Builder 
 
 [Konstruktor AI](/ai-builder/overview) to funkcja platformy Microsoft, która pozwala zwiększyć wydajność biznesową dzięki automatyzacji procesów i przewidywania wyników. Konstruktor AI umożliwia korzystanie z możliwości systemu AI w rozwiązaniach za pomocą środowiska i kliknięcia. Wiele usług poznawczych, takich jak aparat rozpoznawania formularzy, analiza tekstu i przetwarzanie obrazów, zostały bezpośrednio zintegrowane w tym miejscu i nie musisz tworzyć własnych Cognitive Services. 
 
-* **Użytkownik docelowy** : użytkownicy biznesowi (analityków) i Administratorzy programu SharePoint
-* **Korzyści** : rozwiązanie gotowe, które umożliwia korzystanie z możliwości systemu AI za pomocą środowiska i kliknięcia. Nie są wymagane żadne umiejętności kodowania ani analizy danych.
-* **Narzędzia interfejsu użytkownika** : tak — tylko interfejs użytkownika
-* **Subskrypcje** : Konstruktor AI
+* **Użytkownik docelowy**: użytkownicy biznesowi (analityków) i Administratorzy programu SharePoint
+* **Korzyści**: rozwiązanie gotowe, które umożliwia korzystanie z możliwości systemu AI za pomocą środowiska i kliknięcia. Nie są wymagane żadne umiejętności kodowania ani analizy danych.
+* **Narzędzia interfejsu użytkownika**: tak — tylko interfejs użytkownika
+* **Subskrypcje**: Konstruktor AI
 
 ### <a name="continuous-integration-and-deployment"></a>Ciągła integracja i ciągłe wdrażanie
 
 Aby zarządzać wdrożeniami, możesz użyć akcji Azure DevOps i GitHub. W [poniższej sekcji](#continuous-integration-and-delivery-with-devops-and-github-actions) omówiono dwa przykłady integracji Ci/CD do uczenia i wdrażania niestandardowych modeli dla mowy i usługi Language UNDERSTANDING (Luis). 
 
-* **Użytkownicy docelowi** : deweloperzy, analityki danych i inżynierowie danych
-* **Korzyści** : umożliwia programowe i programistyczne Dostosowywanie, aktualizowanie i wdrażanie aplikacji oraz modeli. Istnieje znacząca korzyść w przypadku regularnego korzystania z danych w celu ulepszania i aktualizowania modeli na potrzeby mowy, wizji, języka i decyzji. 
-* **Narzędzia interfejsu użytkownika** : tylko kod w języku N/A 
-* **Subskrypcje** : konto platformy Azure i zasób Cognitive Services i konto GitHub
+* **Użytkownicy docelowi**: deweloperzy, analityki danych i inżynierowie danych
+* **Korzyści**: umożliwia programowe i programistyczne Dostosowywanie, aktualizowanie i wdrażanie aplikacji oraz modeli. Istnieje znacząca korzyść w przypadku regularnego korzystania z danych w celu ulepszania i aktualizowania modeli na potrzeby mowy, wizji, języka i decyzji. 
+* **Narzędzia interfejsu użytkownika**: tylko kod w języku N/A 
+* **Subskrypcje**: konto platformy Azure i zasób Cognitive Services i konto GitHub
 
 ## <a name="tools-to-customize-and-configure-models"></a>Narzędzia do dostosowywania i konfigurowania modeli
 
-W miarę postępów tworzenia aplikacji lub przepływu pracy przy użyciu Cognitive Services może się okazać, że konieczne jest dostosowanie modelu w celu osiągnięcia odpowiedniej wydajności. Wiele naszych usług pozwala na tworzenie wbudowanych modeli w celu spełnienia określonych potrzeb firmy. W przypadku wszystkich naszych dostosowywalnych usług udostępniamy zarówno środowisko oparte na interfejsie użytkownika, jak i interfejsy API dla szkoleń opartych na kodzie. Na przykład:
+W miarę postępów tworzenia aplikacji lub przepływu pracy przy użyciu Cognitive Services może się okazać, że konieczne jest dostosowanie modelu w celu osiągnięcia odpowiedniej wydajności. Wiele naszych usług pozwala na tworzenie wbudowanych modeli w celu spełnienia określonych potrzeb firmy. W przypadku wszystkich naszych dostosowywalnych usług udostępniamy zarówno środowisko oparte na interfejsie użytkownika, jak i interfejsy API dla szkoleń opartych na kodzie. Przykład:
 
 * Chcesz przeszkolić model Custom Speech, aby prawidłowo rozpoznawał terminy medyczne z użyciem współczynnika błędów wyrazów (WER) poniżej 3%
 * Chcesz utworzyć klasyfikator obrazu z Custom Vision, które mogą odróżnić różnice między drzewami iglastymi i liściaste
@@ -133,7 +133,7 @@ Narzędzia, które będą używane do uczenia i konfiguracji modeli, są inne ni
 | Język | QnA Maker | https://www.qnamaker.ai/ | [Szybki start](./qnamaker/quickstarts/create-publish-knowledge-base.md) |
 | Język | Translator/translator niestandardowy | https://portal.customtranslator.azure.ai/ | [Szybki start](./translator/custom-translator/quickstart-build-deploy-custom-model.md) |
 | Mowa | Polecenia niestandardowe | https://speech.microsoft.com/ | [Szybki start](./speech-service/custom-commands.md) |
-| Mowa | Custom Speech | https://speech.microsoft.com/ | [Szybki start](./speech-service/how-to-custom-speech.md) |
+| Mowa | Custom Speech | https://speech.microsoft.com/ | [Szybki start](./speech-service/custom-speech-overview.md) |
 | Mowa | Niestandardowy głos | https://speech.microsoft.com/ | [Szybki start](./speech-service/how-to-custom-voice.md) |  
 
 ### <a name="continuous-integration-and-delivery-with-devops-and-github-actions"></a>Ciągła integracja i dostarczanie dzięki akcjom DevOps i GitHub

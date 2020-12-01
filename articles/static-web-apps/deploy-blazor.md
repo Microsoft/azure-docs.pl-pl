@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: cshoe
-ms.openlocfilehash: 80a48a948c70db7344ac9cbc20474177309bd909
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 0086f7f68fd05d6925d19c7ab457fbc125e36be4
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024232"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350232"
 ---
 # <a name="tutorial-building-a-static-web-app-with-blazor-in-azure-static-web-apps"></a>Samouczek: Tworzenie statycznej aplikacji internetowej z Blazor w usłudze Azure static Web Apps
 
@@ -64,7 +64,7 @@ Powyższa konfiguracja gwarantuje, że żądania kierowane do dowolnej trasy w a
 W tym artykule wykorzystano repozytorium szablonów usługi GitHub, aby ułatwić rozpoczęcie pracy. Szablon zawiera aplikacje Starter wdrożone w usłudze Azure static Web Apps.
 
 1. Upewnij się, że zalogowano się do usługi GitHub, i przejdź do następującej lokalizacji, aby utworzyć nowe repozytorium:
-    - https://github.com/staticwebdev/blazor-starter/generate
+    - [https://github.com/staticwebdev/blazor-starter/generate](https://github.com/login?return_to=/staticwebdev/blazor-starter/generate)
 1. Nazwij repozytorium **My-First-static-blazor-App**
 
 ## <a name="create-a-static-web-app"></a>Tworzenie statycznej aplikacji internetowej
@@ -103,7 +103,7 @@ Po zalogowaniu się za pomocą usługi GitHub wprowadź informacje o repozytoriu
 
     - Wybierz pozycję **Blazor** z listy rozwijanej _kompilacje predefiniowane_ i Zachowaj wszystkie wartości domyślne.
 
-1. Wybierz pozycję **Przejrzyj i utwórz**.
+1. Wybierz pozycję **Przeglądanie + tworzenie**.
 
     :::image type="content" source="media/deploy-blazor/review-create.png" alt-text="Przycisk tworzenia przeglądu":::
 

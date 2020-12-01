@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: allensu
-ms.openlocfilehash: befd0658c79ac6b395b82b65b935a7bc4c735c2d
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ac00491a34e6e7d18c74827afc6647358794a8be
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778680"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351694"
 ---
 # <a name="azure-cdn-ddos-protection"></a>Azure CDN DDoS Protection
 
@@ -27,7 +27,7 @@ Sieć dostarczania zawartości zapewnia ochronę DDoSą przez projektowanie. Opr
 
 ## <a name="azure-cdn-from-microsoft"></a>Azure CDN od firmy Microsoft
 
-Azure CDN firmy Microsoft jest chroniony przez [usługę Azure Basic DDoS](../virtual-network/ddos-protection-overview.md). Jest ona zintegrowana z Azure CDN z platformy Microsoft domyślnie i bez dodatkowych kosztów. Pełna skala i pojemność Azure CDN z sieci wdrożonej globalnie przez firmę Microsoft zapewnia ochronę przed typowymi atakami warstwy sieci przez zawsze włączone monitorowanie ruchu i środki zaradcze w czasie rzeczywistym. Podstawowa ochrona DDoS jest również obroną przed Najczęściej spotykanymi, często powtarzanymi zapytaniami w usłudze DNS warstwy 7 oraz atakami w warstwie 3 i 4, które są ukierunkowane na punkty końcowe sieci CDN. Ta usługa ma także sprawdzony rekord śledzenia w zakresie ochrony firmowych i korporacyjnych usług firmy Microsoft przed atakami na dużą skalę.
+Azure CDN firmy Microsoft jest chroniony przez [usługę Azure Basic DDoS](../ddos-protection/ddos-protection-overview.md). Jest ona zintegrowana z Azure CDN z platformy Microsoft domyślnie i bez dodatkowych kosztów. Pełna skala i pojemność Azure CDN z sieci wdrożonej globalnie przez firmę Microsoft zapewnia ochronę przed typowymi atakami warstwy sieci przez zawsze włączone monitorowanie ruchu i środki zaradcze w czasie rzeczywistym. Podstawowa ochrona DDoS jest również obroną przed Najczęściej spotykanymi, często powtarzanymi zapytaniami w usłudze DNS warstwy 7 oraz atakami w warstwie 3 i 4, które są ukierunkowane na punkty końcowe sieci CDN. Ta usługa ma także sprawdzony rekord śledzenia w zakresie ochrony firmowych i korporacyjnych usług firmy Microsoft przed atakami na dużą skalę.
 
 ## <a name="azure-cdn-from-verizon"></a>Azure CDN z Verizon
 
@@ -39,4 +39,4 @@ Azure CDN z Akamai jest chroniony przez Akamaią platformę zaradczą DDoS. Jest
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [usłudze Azure DDoS](../virtual-network/ddos-protection-overview.md).
+Dowiedz się więcej o [usłudze Azure DDoS](../ddos-protection/ddos-protection-overview.md).

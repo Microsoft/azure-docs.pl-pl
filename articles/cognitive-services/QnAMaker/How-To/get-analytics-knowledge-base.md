@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: f58fe342d66c328bdadf41fc965c2952605aea8e
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 5f149dd6db82b66b45a4c995e2004936481af786
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376579"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352426"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Uzyskiwanie danych analitycznych na potrzeby bazy wiedzy
 
@@ -44,7 +44,7 @@ QnA Maker przechowuje wszystkie dzienniki rozmowy i inne dane telemetryczne, je�
     | project timestamp, resultCode, duration, id, question, answer, score, performanceBucket,KbId
     ```
 
-    Kliknij przycisk **Uruchom** , aby uruchomić zapytanie.
+    Kliknij przycisk **Uruchom**, aby uruchomić zapytanie.
 
     [![Uruchom zapytanie, aby określić pytania, odpowiedzi i oceny od użytkowników](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
 
@@ -52,7 +52,7 @@ QnA Maker przechowuje wszystkie dzienniki rozmowy i inne dane telemetryczne, je�
 
 QnA Maker Managed (wersja zapoznawcza) używa rejestrowania diagnostycznego platformy Azure do przechowywania danych telemetrycznych i dzienników rozmowy. Postępuj zgodnie z poniższymi instrukcjami, aby uruchomić przykładowe zapytania, aby uzyskać analizę użycia bazy wiedzy QnA Maker.
 
-1. [Włącz rejestrowanie diagnostyczne](https://docs.microsoft.com/azure/cognitive-services/diagnostic-logging) dla QNA Maker zarządzanej usługi (wersja zapoznawcza).
+1. [Włącz rejestrowanie diagnostyczne](../../diagnostic-logging.md) dla QNA Maker zarządzanej usługi (wersja zapoznawcza).
 
 2. W poprzednim kroku wybierz pozycję **Trace** (oprócz opcji **Audit, RequestResponse i AllMetrics** ) na potrzeby rejestrowania
 

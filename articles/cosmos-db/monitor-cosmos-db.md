@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: 19137f3384a1b97ae1ae7e3faeb4dc2e0e4fd3bd
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 550418761e91a8292761d7595ff32d939c0d542e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96017801"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350402"
 ---
 # <a name="monitor-azure-cosmos-db"></a>Monitorowanie usługi Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -93,7 +93,7 @@ Wszystkie metryki dla Azure Cosmos DB znajdują się w przestrzeni nazw **Cosmos
 * Region (Region)
 * Stanu
 
-W przypadku odwołania można zobaczyć listę [wszystkich metryk zasobów obsługiwanych w Azure monitor](/azure/azure-monitor/platform/metrics-supported).
+W przypadku odwołania można zobaczyć listę [wszystkich metryk zasobów obsługiwanych w Azure monitor](../azure-monitor/platform/metrics-supported.md).
 
 ### <a name="view-operation-level-metrics-for-azure-cosmos-db"></a>Wyświetl metryki poziomu operacji dla Azure Cosmos DB
 
@@ -127,7 +127,7 @@ Metryki można grupować przy użyciu opcji **Zastosuj dzielenie** . Na przykła
 
 Dane w dziennikach Azure Monitor są przechowywane w tabelach, dla których każda tabela ma swój własny zestaw unikatowych właściwości.
 
-Wszystkie dzienniki zasobów w Azure Monitor mają te same pola, a następnie pola specyficzne dla usługi. Wspólny schemat został przedstawiony w [schemacie dziennika zasobów Azure monitor](../azure-monitor/platform/diagnostic-logs-schema.md#top-level-resource-logs-schema). Aby uzyskać listę typów dzienników zasobów zbieranych dla Azure Cosmos DB, zobacz [monitorowanie Azure Cosmos DB danych — informacje] ((Monitor-Cosmos-DB-Reference. MD # Resource-logs)  
+Wszystkie dzienniki zasobów w Azure Monitor mają te same pola, a następnie pola specyficzne dla usługi. Wspólny schemat został przedstawiony w [schemacie dziennika zasobów Azure monitor](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema). Listę typów dzienników zasobów zbieranych dla Azure Cosmos DB można znaleźć w temacie [Monitoring Azure Cosmos DB Data Reference](monitor-cosmos-db-reference.md#resource-logs).
 
 [Dziennik aktywności](/azure/azure-monitor/platform/activity-log) to identyfikator logowania platformy Azure, który zapewnia wgląd w zdarzenia na poziomie subskrypcji. Można wyświetlić go niezależnie lub skierować do dzienników Azure Monitor, w którym można wykonywać dużo bardziej skomplikowane zapytania przy użyciu Log Analytics.  
 
@@ -172,7 +172,7 @@ Poniżej przedstawiono niektóre zapytania, które można wprowadzić na pasku w
 
 ## <a name="alerts"></a>Alerty
 
-Alerty Azure Monitor z wyprzedzeniem powiadamiają Cię, gdy w danych monitorowania zostaną znalezione ważne warunki. Umożliwiają identyfikowanie i rozwiązywanie problemów w systemie przed ich zapisaniem przez klientów. Można ustawić alerty dotyczące [metryk](/azure/azure-monitor/platform/alerts-metric-overview), [dzienników](/azure/azure-monitor/platform/alerts-unified-log)i [dziennika aktywności](/azure/azure-monitor/platform/activity-log-alerts). Różne typy alertów mają zalety i wady
+Alerty Azure Monitor z wyprzedzeniem powiadamiają Cię, gdy w danych monitorowania zostaną znalezione ważne warunki. Umożliwiają identyfikowanie i rozwiązywanie problemów w systemie przed ich zapisaniem przez klientów. Można ustawić alerty dotyczące [metryk](../azure-monitor/platform/alerts-metric-overview.md), [dzienników](../azure-monitor/platform/alerts-unified-log.md)i [dziennika aktywności](../azure-monitor/platform/activity-log-alerts.md). Różne typy alertów mają zalety i wady
 
 Na przykład poniższa tabela zawiera kilka reguł alertów dotyczących zasobów. Możesz znaleźć szczegółową listę reguł alertów z Azure Portal. Aby dowiedzieć się więcej, zobacz artykuł [jak skonfigurować alerty](create-alerts.md) .  
 

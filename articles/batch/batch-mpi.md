@@ -4,12 +4,12 @@ description: Dowiedz się, jak wykonywać aplikacje MPI (Message Passing Interfa
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: H1Hack27Feb2017, devx-track-csharp
-ms.openlocfilehash: 3dc52d13cf41347e7382872e887d87fc9b25a95b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 6aa6a910dd57a255d9ec9292119bc692edf4946f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108086"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351524"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Używanie zadań o wiele wystąpień do uruchamiania aplikacji interfejsu przekazywania komunikatów (MPI) w usłudze Batch
 
@@ -21,14 +21,14 @@ Zadania z wieloma wystąpieniami umożliwiają jednoczesne uruchamianie zadania 
 >
 
 ## <a name="multi-instance-task-overview"></a>Przegląd zadań o wiele wystąpień
-W usłudze Batch każde zadanie jest zwykle wykonywane w jednym węźle obliczeniowym — do zadania są przesyłane wiele zadań, a usługa Batch planuje każde zadanie do wykonania w węźle. Jednak konfigurując **Ustawienia wielu wystąpień**zadania, należy powiedzieć usłudze Batch, aby zamiast tego utworzyć jedno zadanie podstawowe i kilka podzadań, które są następnie wykonywane na wielu węzłach.
+W usłudze Batch każde zadanie jest zwykle wykonywane w jednym węźle obliczeniowym — do zadania są przesyłane wiele zadań, a usługa Batch planuje każde zadanie do wykonania w węźle. Jednak konfigurując **Ustawienia wielu wystąpień** zadania, należy powiedzieć usłudze Batch, aby zamiast tego utworzyć jedno zadanie podstawowe i kilka podzadań, które są następnie wykonywane na wielu węzłach.
 
 ![Przegląd zadań o wiele wystąpień][1]
 
 Po przesłaniu zadania z ustawieniami z wieloma wystąpieniami do zadania usługi Batch wykonuje kilka czynności unikatowych dla zadań z wieloma wystąpieniami:
 
 1. Usługa Batch tworzy jedno **podstawowe** i kilka **podzadań** w oparciu o ustawienia wielu wystąpień. Całkowita liczba zadań (podstawowa i wszystkie podzadania) odpowiada liczbie **wystąpień** (węzłów obliczeniowych) określonych w ustawieniach wielu wystąpień.
-2. Partia określa jeden z węzłów obliczeniowych jako **wzorzec**i planuje wykonywanie zadania podstawowego na wzorcu. Planuje wykonywanie podzadań w pozostałej części węzłów obliczeniowych przypisywanych do zadania o wielu wystąpieniach, jednego podzadania na węzeł.
+2. Partia określa jeden z węzłów obliczeniowych jako **wzorzec** i planuje wykonywanie zadania podstawowego na wzorcu. Planuje wykonywanie podzadań w pozostałej części węzłów obliczeniowych przypisywanych do zadania o wielu wystąpieniach, jednego podzadania na węzeł.
 3. Podstawowe i wszystkie podzadania pobierają wszystkie **pliki zasobów** , które są określone w ustawieniach z obsługą wiele wystąpień.
 4. Po pobraniu wspólnych plików zasobów podstawowe i podrzędne zadania wykonują **polecenie koordynacyjne** określone w ustawieniach z obsługą wiele wystąpień. Polecenie koordynacyjne jest zwykle używane do przygotowywania węzłów do wykonania zadania. Może to obejmować uruchamianie usług w tle (takich jak [Microsoft MPI][msmpi_msdn] `smpd.exe` ) i sprawdzanie, czy węzły są gotowe do przetwarzania komunikatów między węzłami.
 5. Zadanie podstawowe wykonuje **polecenie aplikacji** w węźle głównym *po* pomyślnym wykonaniu polecenia koordynacji przez podstawowe i wszystkie podzadania. Polecenie aplikacji jest wierszem polecenia samego zadania o wiele wystąpień i jest wykonywane tylko przez zadanie główne. W rozwiązaniu opartym na [MS-MPI][msmpi_msdn]to miejsce, w którym uruchamiasz aplikację z obsługą MPI przy użyciu programu `mpiexec.exe` .
@@ -39,7 +39,7 @@ Po przesłaniu zadania z ustawieniami z wieloma wystąpieniami do zadania usług
 >
 
 ## <a name="requirements-for-multi-instance-tasks"></a>Wymagania dotyczące zadań o wiele wystąpień
-Zadania z wielowystąpieniem wymagają puli z **włączoną funkcją komunikacji między węzłami**i **współbieżnego wykonywania zadań**. Aby wyłączyć współbieżne wykonywanie zadań, ustaw właściwość [CloudPool. TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool) na 1.
+Zadania z wielowystąpieniem wymagają puli z **włączoną funkcją komunikacji między węzłami** i **współbieżnego wykonywania zadań**. Aby wyłączyć współbieżne wykonywanie zadań, ustaw właściwość [CloudPool. TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool) na 1.
 
 > [!NOTE]
 > Partia zadań [ogranicza](batch-quota-limit.md#pool-size-limits) rozmiar puli, w której włączono komunikację między węzłami.
@@ -95,8 +95,8 @@ Wyszukaj rozmiary określone jako "RDMA w użyciu" w następujących artykułach
   * [Rozmiary dla Cloud Services](../cloud-services/cloud-services-sizes-specs.md) (tylko system Windows)
 * Pule **VirtualMachineConfiguration**
 
-  * [Rozmiary maszyn wirtualnych na platformie Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) (Linux)
-  * [Rozmiary maszyn wirtualnych na platformie Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) (Windows)
+  * [Rozmiary maszyn wirtualnych na platformie Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux)
+  * [Rozmiary maszyn wirtualnych na platformie Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
 
 > [!NOTE]
 > Aby skorzystać z funkcji RDMA w [węzłach obliczeniowych systemu Linux](batch-linux-nodes.md), należy użyć klasy **Intel MPI** na węzłach.
@@ -153,7 +153,7 @@ cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" -d
 Zwróć uwagę na użycie `start` w tym poleceniu koordynacyjnym. Jest to wymagane, ponieważ `smpd.exe` aplikacja nie zwraca natychmiast po wykonaniu. Bez użycia polecenia [Uruchom][cmd_start] to polecenie koordynacyjne nie zwróci i w związku z tym blokuje uruchamianie polecenia aplikacji.
 
 ## <a name="application-command"></a>Polecenie aplikacji
-Gdy zadanie podstawowe i wszystkie podzadania zakończą wykonywanie polecenia koordynacji, wiersz polecenia zadania wielowystąpienia jest wykonywany *tylko*przez zadanie podstawowe. Nazywamy to **polecenie aplikacji** , aby odróżnić je od polecenia koordynacji.
+Gdy zadanie podstawowe i wszystkie podzadania zakończą wykonywanie polecenia koordynacji, wiersz polecenia zadania wielowystąpienia jest wykonywany *tylko* przez zadanie podstawowe. Nazywamy to **polecenie aplikacji** , aby odróżnić je od polecenia koordynacji.
 
 W przypadku aplikacji MS-MPI Użyj polecenia aplikacji, aby uruchomić aplikację z obsługą MPIymi w usłudze `mpiexec.exe` . Na przykład poniżej przedstawiono polecenie aplikacji dla rozwiązania korzystającego z MS-MPI w wersji 7:
 

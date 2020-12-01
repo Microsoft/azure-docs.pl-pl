@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: quickstart
 ms.date: 09/30/2020
 ms.author: mbullwin
-ms.openlocfilehash: 0afd8fab6072e1563d2b2f277e8a53b56a8161c2
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 5dbf98d363429e6d22a0b7719cdc669deebd21a0
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048240"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348640"
 ---
 # <a name="quickstart-monitor-your-first-metric-using-the-web-portal"></a>Szybki Start: monitorowanie pierwszej metryki przy użyciu portalu sieci Web
 
@@ -70,7 +70,7 @@ Dodaj strumieniowe źródło danych, łącząc się ze źródłem danych szereg�
 * Pobieranie **danych od (UTC)**: godzina rozpoczęcia dla pierwszej sygnatury czasowej do pozyskania. 
 
 
-Następnie określ **Parametry połączenia** z poświadczeniami dla źródła danych i **zapytanie**niestandardowe. Zapytanie służy do określania danych do pozyskania i przekonwertowania na wymagany schemat.
+Następnie określ **Parametry połączenia** z poświadczeniami dla źródła danych i **zapytanie** niestandardowe. Zapytanie służy do określania danych do pozyskania i przekonwertowania na wymagany schemat.
 
 [!INCLUDE [query requirements](../includes/query-requirements.md)]
 
@@ -97,7 +97,7 @@ Gdy schemat danych zostanie załadowany i przedstawiony poniżej, wybierz odpowi
 |**Ignoruj**     | Ignoruj wybraną kolumnę.        |         |
 
 
-:::image type="content" source="../media/schema-configuration.png" alt-text="Ustawienia połączenia" lightbox="../media/schema-configuration.png":::
+:::image type="content" source="../media/schema-configuration.png" alt-text="Konfiguracja schematu" lightbox="../media/schema-configuration.png":::
 
 ### <a name="automatic-roll-up-settings"></a>Ustawienia automatycznego zestawiania
 
@@ -117,7 +117,7 @@ Po zastosowaniu wykrywania kliknij jedno z metryk wymienionych w strumieniowym �
 - Aktualizowanie konfiguracji wykrywania w celu spełnienia oczekiwanych wyników
 - Skonfiguruj powiadomienia dla wykrytych anomalii
 
-:::image type="content" source="../media/metric-details.png" alt-text="Ustawienia połączenia" lightbox="../media/metric-details.png":::
+:::image type="content" source="../media/metric-details.png" alt-text="Szczegóły metryki" lightbox="../media/metric-details.png":::
 
 ## <a name="view-the-diagnostic-insights"></a>Wyświetlanie szczegółowych informacji diagnostycznych
 
@@ -125,13 +125,13 @@ Po dostrojeniu konfiguracji wykrywania anomalie, które zostaną znalezione, pow
 
 Aby wyświetlić szczegółowe informacje diagnostyczne, kliknij czerwoną kropkę w wizualizacjach szeregów czasowych, które reprezentują wykryte anomalie. Zostanie wyświetlone okno z linkiem do strony analiza zdarzeń. 
 
-:::image type="content" source="../media/incident-link.png" alt-text="Ustawienia połączenia" lightbox="../media/incident-link.png":::
+:::image type="content" source="../media/incident-link.png" alt-text="Link zdarzenia" lightbox="../media/incident-link.png":::
 
-Po kliknięciu linku nastąpi przestawienie na stronę analiza zdarzeń, która analizuje w odpowiedniej anomalii, za pomocą szeregu szczegółowych informacji diagnostycznych. W górnej części znajdują się statystyki dotyczące zdarzenia, takie jak **ważność**, **związane anomalie**oraz czas **rozpoczęcia** i **czas zakończenia**. 
+Po kliknięciu linku nastąpi przestawienie na stronę analiza zdarzeń, która analizuje w odpowiedniej anomalii, za pomocą szeregu szczegółowych informacji diagnostycznych. W górnej części znajdują się statystyki dotyczące zdarzenia, takie jak **ważność**, **związane anomalie** oraz czas **rozpoczęcia** i **czas zakończenia**. 
 
 Następnie zobaczysz nietypową anomalię zdarzenia oraz zautomatyzowane porady dotyczące głównych przyczyn. To zautomatyzowane porady dotyczące głównej przyczyny są generowane przez analizowanie drzewa incydentów wszystkich powiązanych anomalii, w tym: odchylenia, dystrybucji i udziału w przypadku nadrzędnych anomalii. 
 
-:::image type="content" source="../media/incident-diagnostic.png" alt-text="Ustawienia połączenia" lightbox="../media/incident-diagnostic.png":::
+:::image type="content" source="../media/incident-diagnostic.png" alt-text="Diagnostyka zdarzeń" lightbox="../media/incident-diagnostic.png":::
 
 Na podstawie tych informacji można już uzyskać prosty widok tego, co się dzieje, i wpływ zdarzenia, jak również najbardziej potencjalną główną przyczynę. Dzięki temu można natychmiast podjąć działania w celu rozpoznania zdarzenia najszybciej, jak to możliwe. 
 
@@ -155,5 +155,5 @@ Po utworzeniu punktu zaczepienia ustawienie alertu określa, jak i które powiad
 - [Dołączanie źródeł danych](../how-tos/onboard-your-data.md)
     - [Zarządzanie strumieniowymi źródłami danych](../how-tos/manage-data-feeds.md)
     - [Konfiguracje dla różnych źródeł danych](../data-feeds-from-different-sources.md)
-- [Użyj interfejsu API REST lub bibliotek klienckich](rest-api.md)
+- [Użyj interfejsu API REST lub bibliotek klienckich](./rest-api-and-client-library.md)
 - [Konfigurowanie metryk i dostrajanie konfiguracji wykrywania](../how-tos/configure-metrics.md)

@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: a80082ac524a4777b3b5ee32d946e9db8ec6e7f5
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 85f0a42cdfcbea2223d202a9dc35f58746580e85
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681622"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350130"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Dostęp do pulpitu nawigacyjnego sieci Web Kubernetes w usłudze Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,7 @@ Aby uzyskać więcej informacji na temat pulpitu nawigacyjnego Kubernetes, zobac
  > * Począwszy od Kubernetes 1,19 w wersji zapoznawczej, AKS nie będzie już obsługiwał instalacji zarządzanego dodatku pulpitu nawigacyjnego polecenia. 
  > * Nie wpłynie to na istniejące klastry z włączonym dodatkiem. Użytkownicy będą nadal mogli ręcznie instalować pulpit nawigacyjny "open source" jako oprogramowanie zainstalowane przez użytkownika.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 W krokach przedstawionych w tym dokumencie przyjęto założenie, że utworzono klaster AKS i nawiązano `kubectl` połączenie z klastrem. Jeśli musisz utworzyć klaster AKS, zobacz [Szybki Start: Wdrażanie klastra usługi Azure Kubernetes Service przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart].
 
@@ -41,6 +41,10 @@ az aks disable-addons -g myRG -n myAKScluster -a kube-dashboard
 ```
 
 ## <a name="start-the-kubernetes-dashboard"></a>Uruchamianie pulpitu nawigacyjnego Kubernetes
+
+> [!WARNING]
+> Dodatek pulpitu nawigacyjnego AKS jest przestarzały dla wersji 1.19 +. Zamiast tego użyj [widoku zasobów Kubernetes w Azure Portal (wersja zapoznawcza)][kubernetes-portal] . 
+> * Następujące polecenie spowoduje teraz otwarcie widoku zasobów portalu Azure zamiast pulpitu nawigacyjnego Kubernetes w wersji 1,19 i nowszych.
 
 Aby uruchomić Pulpit nawigacyjny Kubernetes w klastrze, użyj polecenia [AZ AKS Browse][az-aks-browse] . To polecenie wymaga instalacji dodatku polecenia-pulpitu nawigacyjnego w klastrze, który jest domyślnie uwzględniony w klastrach korzystających z dowolnej wersji starszej niż Kubernetes 1,18.
 

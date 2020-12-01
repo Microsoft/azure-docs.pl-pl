@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: aeb5bceca11f595c1582596aeea401fe5f9b239f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64fe65019a66013323b1c6d27055051badb47cee
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883474"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350317"
 ---
 # <a name="tutorial-transfer-data-with-azure-stack-edge-pro"></a>Samouczek: przesyłanie danych przy użyciu Azure Stack EDGE Pro
 
@@ -55,23 +55,23 @@ Aby utworzyć udział, wykonaj następującą procedurę:
     a. W polu **Nazwa** podaj unikatową nazwę udziału.  
     Nazwa udziału może zawierać tylko małe litery, cyfry i łączniki. Musi mieć od 3 do 63 znaków i zaczynać się literą lub cyfrą. Za i przed łącznikiem musi znajdować się litera lub cyfra.
     
-    b. Wybierz **Typ** dla udziału.  
-    Dostępne są dwa typy — **SMB** i **NFS** — przy czym typ SMB jest domyślny. Typ SMB jest standardem dla klientów systemu Windows, natomiast typ NFS jest używany dla klientów systemu Linux.  
+    b. Wybierz **Typ** udziału.  
+    Typ może być typu **SMB** lub **NFS** z domyślnym protokołem SMB. Typ SMB jest standardem dla klientów systemu Windows, natomiast typ NFS jest używany dla klientów systemu Linux.  
     W zależności od tego, czy wybrano udział SMB, czy NFS, pozostałe opcje nieco się różnią. 
 
-    c. Podaj konto magazynu, na którym będzie znajdować się udział. 
+    c. Podaj konto magazynu, na którym zostanie umieszczony udział. 
 
     > [!IMPORTANT]
-    > Upewnij się, że konto usługi Azure Storage, którego używasz, nie ma ustawionych zasad niezmiennościymi, jeśli są używane z urządzeniem Azure Stack EDGE Pro lub Data Box Gateway. Aby uzyskać więcej informacji, zobacz [Ustawianie zasad niezmienności dla usługi BLOB Storage i zarządzanie nimi](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+    > Upewnij się, że konto usługi Azure Storage, którego używasz, nie ma ustawionych zasad niezmiennościymi, jeśli są używane z urządzeniem Azure Stack EDGE Pro lub Data Box Gateway. Aby uzyskać więcej informacji, zobacz [Ustawianie zasad niezmienności dla usługi BLOB Storage i zarządzanie nimi](../storage/blobs/storage-blob-immutability-policies-manage.md).
     
     d. Na liście rozwijanej **Usługa magazynu** wybierz pozycję **Blokowy obiekt blob**, **Stronicowy obiekt blob** lub **Pliki**.  
-    Wybrany typ usługi zależy od tego, jaki format mają mieć dane do użycia na platformie Azure. W tym przykładzie, ponieważ chcemy przechowywać dane jako blokowe obiekty blob na platformie Azure, wybieramy **blokowy obiekt BLOB**. W przypadku wybrania opcji **stronicowego obiektu BLOB**upewnij się, że dane są wyrównane do 512 bajtów. Na przykład dysk VHDX jest zawsze wyrównany o 512 bajtów.
+    Wybrany typ usługi zależy od tego, jaki format mają mieć dane do użycia na platformie Azure. W tym przykładzie, ponieważ chcemy przechowywać dane jako blokowe obiekty blob na platformie Azure, wybieramy **blokowy obiekt BLOB**. W przypadku wybrania opcji **stronicowego obiektu BLOB** upewnij się, że dane są wyrównane do 512 bajtów. Na przykład dysk VHDX jest zawsze wyrównany o 512 bajtów.
 
     e. Utwórz nowy kontener obiektów blob lub Użyj istniejącego z listy rozwijanej. W przypadku tworzenia kontenera obiektów BLOB Podaj nazwę kontenera. Jeśli kontener jeszcze nie istnieje, zostanie on utworzony z nowo utworzoną nazwą udziału na koncie magazynu.
    
     f. W zależności od tego, czy utworzono udział SMB, czy udział NFS, wykonaj jeden z następujących kroków: 
      
-    - **Udział SMB**: w obszarze **wszystkie uprawnienia użytkownika lokalnego**wybierz pozycję **Utwórz nowy** lub **Użyj istniejącej**. Jeśli tworzysz nowego użytkownika lokalnego, wprowadź nazwę użytkownika i hasło, a następnie potwierdź hasło. Ta akcja spowoduje przypisanie uprawnień do użytkownika lokalnego. Po przypisaniu uprawnień w tym miejscu możesz modyfikować je przy użyciu Eksploratora plików.
+    - **Udział SMB**: w obszarze **wszystkie uprawnienia użytkownika lokalnego** wybierz pozycję **Utwórz nowy** lub **Użyj istniejącej**. Jeśli tworzysz nowego użytkownika lokalnego, wprowadź nazwę użytkownika i hasło, a następnie potwierdź hasło. Ta akcja spowoduje przypisanie uprawnień do użytkownika lokalnego. Po przypisaniu uprawnień w tym miejscu możesz modyfikować je przy użyciu Eksploratora plików.
 
         W przypadku zaznaczenia pola wyboru **Zezwalaj tylko na operacje odczytu** dla danych tego udziału można określić użytkowników tylko do odczytu.
 
@@ -162,5 +162,3 @@ Aby dowiedzieć się, jak przekształcić dane przy użyciu Azure Stack EDGE Pro
 
 > [!div class="nextstepaction"]
 > [Przekształcanie danych za pomocą Azure Stack EDGE Pro](./azure-stack-edge-deploy-configure-compute.md)
-
-

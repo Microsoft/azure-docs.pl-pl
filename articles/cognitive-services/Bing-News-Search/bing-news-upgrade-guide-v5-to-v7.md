@@ -10,19 +10,19 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: fe9511df5fb290853dbd6cb8d39fed4e289fca4d
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: a114cb24d79189f9e370fae1962f60ca97241d90
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366421"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351371"
 ---
 # <a name="news-search-api-upgrade-guide"></a>Przewodnik uaktualniania wyszukiwanie wiadomości API
 
 > [!WARNING]
-> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
-> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Ten przewodnik uaktualniania identyfikuje zmiany między wersjami 5 i 7 interfejs API wyszukiwania wiadomości Bing. Skorzystaj z tego przewodnika, aby ułatwić identyfikację części aplikacji, które należy zaktualizować, aby użyć wersji 7.
 
@@ -95,4 +95,4 @@ Zablokowane|InvalidRequest. zablokowane
 
 - Dodano `sort` pole do obiektu [News](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news) . W tym `sort` polu jest wyświetlana kolejność sortowania artykułów. Na przykład artykuły są sortowane według istotności (wartość domyślna) lub daty.
 
-- Dodano obiekt [SortValue](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortvalue) , który definiuje porządek sortowania. `isSelected`Pole wskazuje, czy odpowiedź była używana w kolejności sortowania. W przypadku **wartości true** odpowiedź była używana w kolejności sortowania. Jeśli `isSelected` ma **wartość false** , możesz użyć adresu URL w `url` polu, aby zażądać innej kolejności sortowania.
+- Dodano obiekt [SortValue](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortvalue) , który definiuje porządek sortowania. `isSelected`Pole wskazuje, czy odpowiedź była używana w kolejności sortowania. W przypadku **wartości true** odpowiedź była używana w kolejności sortowania. Jeśli `isSelected` ma **wartość false**, możesz użyć adresu URL w `url` polu, aby zażądać innej kolejności sortowania.

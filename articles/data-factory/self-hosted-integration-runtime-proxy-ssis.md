@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 11/19/2020
-ms.openlocfilehash: a79055a77ec73ce2b267bb4f16fa91f37e22ea75
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 82cc58d46061ec7b623d062ab0b0e5a1fdae7ddd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916784"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352222"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Skonfiguruj własne środowisko IR jako serwer proxy dla Azure-SSIS IR w Azure Data Factory
 
@@ -70,7 +70,7 @@ Jeśli jeszcze tego nie zrobiono, Utwórz połączoną usługę Azure Blob Stora
 - W **obszarze Metoda uwierzytelniania** wybierz pozycję **klucz konta**, **Identyfikator URI sygnatury dostępu współdzielonego**, **nazwę główną usługi** lub **tożsamość zarządzana**.  
 
 >[!TIP]
->W przypadku wybrania metody **głównej usługi** Udziel nazwy głównej usługi co najmniej roli *współautor danych obiektu blob magazynu* . Aby uzyskać więcej informacji, zobacz [Łącznik usługi Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties). W przypadku wybrania metody **zarządzanej tożsamości** Udziel swojej tożsamości zarządzanej przez usługę ADF odpowiednie role, aby uzyskać dostęp do usługi Azure Blob Storage. Aby uzyskać więcej informacji, zobacz [dostęp do usługi Azure Blob Storage przy użyciu uwierzytelniania Azure Active Directory za pomocą tożsamości zarządzanej ADF](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication).
+>W przypadku wybrania metody **głównej usługi** Udziel nazwy głównej usługi co najmniej roli *współautor danych obiektu blob magazynu* . Aby uzyskać więcej informacji, zobacz [Łącznik usługi Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties). W przypadku wybrania metody **zarządzanej tożsamości** Udziel swojej tożsamości zarządzanej przez usługę ADF odpowiednie role, aby uzyskać dostęp do usługi Azure Blob Storage. Aby uzyskać więcej informacji, zobacz [dostęp do usługi Azure Blob Storage przy użyciu uwierzytelniania Azure Active Directory za pomocą tożsamości zarządzanej ADF](/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication).
 
 ![Przygotowywanie usługi połączonej Azure Blob Storage do przemieszczania](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
@@ -157,7 +157,7 @@ Możesz również włączyć tę właściwość, gdy uruchamiasz istniejące pak
 
 ## <a name="debug-the-on-premises-and-cloud-staging-tasks"></a>Debugowanie zadań przemieszczania lokalnego i w chmurze
 
-Na własnym hostowanym środowisku IR można znaleźć dzienniki środowiska uruchomieniowego w folderze *C:\ProgramData\SSISTelemetry* oraz dzienniki wykonywania lokalnych zadań tymczasowych w folderze *C:\ProgramData\SSISTelemetry\ExecutionLog* .  Dzienniki wykonywania zadań przemieszczania w chmurze można znaleźć w SSISDB, określonych ścieżkach plików rejestrowania lub Azure Monitor w zależności od tego, czy pakiety są przechowywane w SSISDB, Włącz [integrację Azure monitor](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#monitor-ssis-operations-with-azure-monitor)itp. W dziennikach wykonywania zadań przemieszczania w chmurze można również znaleźć unikatowe identyfikatory lokalnych zadań tymczasowych. 
+Na własnym hostowanym środowisku IR można znaleźć dzienniki środowiska uruchomieniowego w folderze *C:\ProgramData\SSISTelemetry* oraz dzienniki wykonywania lokalnych zadań tymczasowych w folderze *C:\ProgramData\SSISTelemetry\ExecutionLog* .  Dzienniki wykonywania zadań przemieszczania w chmurze można znaleźć w SSISDB, określonych ścieżkach plików rejestrowania lub Azure Monitor w zależności od tego, czy pakiety są przechowywane w SSISDB, Włącz [integrację Azure monitor](./monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor)itp. W dziennikach wykonywania zadań przemieszczania w chmurze można również znaleźć unikatowe identyfikatory lokalnych zadań tymczasowych. 
 
 ![Unikatowy identyfikator pierwszego zadania przemieszczania](media/self-hosted-integration-runtime-proxy-ssis/shir-first-staging-task-guid.png)
 
@@ -173,7 +173,7 @@ Zadania przemieszczania w chmurze, które są uruchamiane w Azure-SSIS IR nie s�
 
 Aby włączyć składniki niestandardowe/inne firmy do uzyskiwania dostępu do danych lokalnych przy użyciu samodzielnego środowiska IR jako serwera proxy dla Azure-SSIS IR, wykonaj następujące instrukcje:
 
-1. Zainstaluj składniki niestandardowe/innych firm ukierunkowane na SQL Server 2017 na Azure-SSIS IR za pośrednictwem [konfiguracji niestandardowych Standard/Express](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
+1. Zainstaluj składniki niestandardowe/innych firm ukierunkowane na SQL Server 2017 na Azure-SSIS IR za pośrednictwem [konfiguracji niestandardowych Standard/Express](./how-to-configure-azure-ssis-ir-custom-setup.md).
 
 1. Utwórz następujące klucze rejestru DTSPath w samoobsługowym środowisku IR, jeśli jeszcze nie istnieją:
    1. `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` Ustaw na `C:\Program Files\Microsoft SQL Server\140\DTS\`
@@ -197,7 +197,7 @@ Jeśli musisz użyć silnego szyfrowania/bezpieczniejszego protokołu sieciowego
 
 ## <a name="current-limitations"></a>Bieżące ograniczenia
 
-- Obecnie obsługiwane są tylko składniki przepływu danych wbudowane/preinstalowane w systemie Azure-SSIS IR Standard Edition, z wyjątkiem składników Hadoop/HDFS/DQS, zobacz [wszystkie wbudowane/preinstalowane składniki w Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/built-in-preinstalled-components-ssis-integration-runtime).
+- Obecnie obsługiwane są tylko składniki przepływu danych wbudowane/preinstalowane w systemie Azure-SSIS IR Standard Edition, z wyjątkiem składników Hadoop/HDFS/DQS, zobacz [wszystkie wbudowane/preinstalowane składniki w Azure-SSIS IR](./built-in-preinstalled-components-ssis-integration-runtime.md).
 - Obecnie obsługiwane są tylko składniki przepływu danych inne niż niestandardowe/inne firmy, które są zapisywane w kodzie zarządzanym (.NET Framework) — te w kodzie natywnym (C++) nie są obecnie obsługiwane.
 - Zmiana wartości zmiennych w zadaniach tymczasowych i w chmurze nie jest obecnie obsługiwana.
 - Zmiana wartości zmiennych typu Object w lokalnych zadaniach tymczasowych nie zostanie odzwierciedlona w innych zadaniach.

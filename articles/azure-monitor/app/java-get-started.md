@@ -6,18 +6,18 @@ author: lgayhardt
 ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 11/22/2020
-ms.openlocfilehash: 1a68cea423678dd8582d65b839d57076e84de940
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 288b7463098b1c63b816f5544581e6222c7548c9
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029544"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351558"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Szybki Start: Rozpoczynanie pracy z Application Insights w projekcie sieci Web w języku Java
 
 
 > [!CAUTION]
-> Od listopada 2020 do monitorowania aplikacji Java zalecamy autoinstrumentację przy użyciu agenta Azure Monitor Application Insights 3,0. Aby uzyskać więcej informacji na temat rozpoczynania pracy, zobacz [Application Insights Java 3,0 Agent](./java-in-process-agent.md).
+> Od listopada 2020 do monitorowania aplikacji Java zalecamy autoinstrumentację przy użyciu agenta Azure Monitor Application Insights Java 3,0. Aby uzyskać więcej informacji na temat rozpoczynania pracy, zobacz [Application Insights Java 3,0 Agent](./java-in-process-agent.md).
 
 W tym przewodniku szybki start użyjesz zestawu SDK Application Insights, aby instrumentować żądania, śledzić zależności i zbierać liczniki wydajności, diagnozować problemy z wydajnością i wyjątki, a także pisać kod w celu śledzenia użytkowników, którzy korzystają z aplikacji.
 

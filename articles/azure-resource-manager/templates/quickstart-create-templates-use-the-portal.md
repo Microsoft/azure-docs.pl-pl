@@ -1,20 +1,20 @@
 ---
 title: Wdróż szablon — Azure Portal
-description: Dowiedz się, jak utworzyć i wdrożyć swój pierwszy szablon usługi Azure Resource Manager przy użyciu witryny Azure Portal.
+description: Dowiedz się, jak utworzyć pierwszy szablon Azure Resource Manager (szablon ARM) przy użyciu Azure Portal i jak go wdrożyć.
 author: mumian
 ms.date: 06/29/2020
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: c132d8337ccb46824b32ab4a6bcfc73bf5d0818b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bdbcecc247a4b5318ba44b92befa7e90ac47aa8c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95978560"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349626"
 ---
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>Szybki Start: Tworzenie i wdrażanie szablonów ARM przy użyciu Azure Portal
 
-Dowiedz się, jak wygenerować szablon Azure Resource Manager (ARM) przy użyciu Azure Portal i proces edytowania i wdrażania szablonu z poziomu portalu. Szablony ARM to pliki JSON definiujące zasoby, które należy wdrożyć dla rozwiązania. Aby zrozumieć koncepcje związane z wdrażaniem rozwiązań platformy Azure i zarządzaniem nimi, zobacz [Omówienie wdrażania szablonów](overview.md).
+Dowiedz się, jak wygenerować szablon Azure Resource Manager (szablon ARM) przy użyciu Azure Portal i proces edytowania i wdrażania szablonu z poziomu portalu. Szablony ARM to pliki JSON definiujące zasoby, które należy wdrożyć dla rozwiązania. Aby zrozumieć koncepcje związane z wdrażaniem rozwiązań platformy Azure i zarządzaniem nimi, zobacz [Omówienie wdrażania szablonów](overview.md).
 
 ![Diagram portalu szybkiego startu szablonu Menedżer zasobów](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 

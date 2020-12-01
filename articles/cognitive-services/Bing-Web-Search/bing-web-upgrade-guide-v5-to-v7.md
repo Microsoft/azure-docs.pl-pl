@@ -11,19 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 39848bcaded1669c6a6efd5b649ecf8e8343a596
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: d930543671a5328d76a38aa7e1b421c111e89e39
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381120"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349524"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Uaktualnianie z wersji interfejs API wyszukiwania w sieci Web Bing V5 do wersji 7
 
 > [!WARNING]
-> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
-> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Ten przewodnik uaktualniania identyfikuje zmiany między wersjami 5 i 7 interfejs API wyszukiwania w sieci Web Bing. Skorzystaj z tego przewodnika, aby ułatwić identyfikację części aplikacji, które należy zaktualizować, aby użyć wersji 7.
 
@@ -31,7 +31,7 @@ Ten przewodnik uaktualniania identyfikuje zmiany między wersjami 5 i 7 interfej
 
 ### <a name="endpoints"></a>Punkty końcowe
 
-- Numer wersji punktu końcowego zmienił się z 5 na wersji 7. Na przykład https: \/ \/ API.Cognitive.Microsoft.com/Bing/ **v 7.0** /Search.
+- Numer wersji punktu końcowego zmienił się z 5 na wersji 7. Na przykład https: \/ \/ API.Cognitive.Microsoft.com/Bing/**v 7.0**/Search.
 
 ### <a name="error-response-objects-and-error-codes"></a>Obiekty odpowiedzi błędów i kody błędów
 
@@ -86,7 +86,7 @@ Zablokowane|InvalidRequest. zablokowane
 
 - Dodano parametr zapytania [answerCount](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) . Użyj tego parametru, aby określić liczbę odpowiedzi, które ma uwzględnić odpowiedź. Odpowiedzi są wybierane na podstawie klasyfikacji. Na przykład, jeśli ustawisz ten parametr na trzy (3), odpowiedź zawiera trzy pierwsze odpowiedzi z rangą.  
 
-- Dodano parametr [podwyższanie poziomu](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) zapytania. Użyj tego parametru wraz z `answerCount` , aby jawnie uwzględnić jeden lub więcej typów odpowiedzi niezależnie od ich klasyfikacji. Na przykład w celu promowania wideo i obrazów w odpowiedzi należy ustawić opcję Podwyższ poziom do *filmów wideo*. Lista odpowiedzi, które chcesz podwyższyć, nie jest uwzględniana w `answerCount` limicie. Na przykład jeśli wartość `answerCount` jest równa 2 i `promote` jest ustawiona na *wideo, obrazy* , odpowiedź może zawierać strony sieci Web, wiadomości, wideo i obrazy.
+- Dodano parametr [podwyższanie poziomu](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) zapytania. Użyj tego parametru wraz z `answerCount` , aby jawnie uwzględnić jeden lub więcej typów odpowiedzi niezależnie od ich klasyfikacji. Na przykład w celu promowania wideo i obrazów w odpowiedzi należy ustawić opcję Podwyższ poziom do *filmów wideo*. Lista odpowiedzi, które chcesz podwyższyć, nie jest uwzględniana w `answerCount` limicie. Na przykład jeśli wartość `answerCount` jest równa 2 i `promote` jest ustawiona na *wideo, obrazy*, odpowiedź może zawierać strony sieci Web, wiadomości, wideo i obrazy.
 
 ### <a name="object-changes"></a>Zmiany obiektów
 

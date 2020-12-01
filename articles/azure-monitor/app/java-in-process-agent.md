@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights Java
 description: Monitorowanie wydajności aplikacji dla aplikacji Java działających w dowolnym środowisku bez konieczności modyfikacji kodu. Śledzenie rozproszone i mapa aplikacji.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 8423443abac90b87349a4a80fce0ec33a8b686da
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 36e2b419da2bccdf2f5f13227457172cf644994c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444745"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351541"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Monitorowanie aplikacji bezkodu Java Azure Monitor Application Insights
 
@@ -228,17 +228,3 @@ Można również użyć Application Insights Java SDK 2. x:
       telemetryClient.trackException(e);
   }
 ```
-
-## <a name="upgrading-from-application-insights-java-sdk-2x"></a>Uaktualnianie z Application Insights Java SDK 2. x
-
-Jeśli używasz już Application Insights Java SDK 2. x w aplikacji, nie musisz go usunąć.
-Agent Java 3,0 wykryje go i przechwytuje i skorelowanie wszelkich niestandardowych danych telemetrycznych wysyłanych za pośrednictwem zestawu Java SDK 2. x, pomijając automatyczne kolekcje wykonywane przez zestaw Java SDK 2. x, aby zapobiec zduplikowanym telemetrii.
-
-Jeśli używasz agenta Application Insights 2. x, musisz usunąć `-javaagent:` argument JVM, który wskazuje na agenta 2. x.
-
-> [!NOTE]
-> Zestaw Java SDK 2. x TelemetryInitializers i TelemetryProcessors nie zostanie uruchomiony w przypadku korzystania z agenta 3,0.
-> Wiele przypadków użycia, które wcześniej wymagały, można rozwiązać w 3,0 przez skonfigurowanie [niestandardowych wymiarów](./java-standalone-config.md#custom-dimensions) lub skonfigurowanie [procesorów telemetrii](./java-standalone-telemetry-processors.md).
-
-> [!NOTE]
-> 3,0 nie obsługuje jeszcze wielu kluczy Instrumentacji w jednym JVM.

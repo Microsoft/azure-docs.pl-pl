@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 46b1cf2681ab5d804035c98d458600de5081c77d
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: cd64c19e7e9af05becd7a6978ceb4d0306112170
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376800"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351899"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Zasoby platformy Azure dla QnA Maker
 
@@ -48,35 +48,35 @@ Po przejściu do fazy opracowywania projektu należy rozważyć następujące kw
 
 Zwykle istnieją trzy parametry, które należy wziąć pod uwagę:
 
-* **Przepływność wymagana przez usługę** :
-    * Wybierz odpowiedni [Plan aplikacji](https://azure.microsoft.com/pricing/details/app-service/plans/) dla usługi App Service na podstawie Twoich potrzeb. Możesz [skalować w górę](https://docs.microsoft.com/azure/app-service/manage-scale-up) lub w dół aplikacji.
-    * Powinno to mieć wpływ na wybór jednostki SKU platformy Azure **Wyszukiwanie poznawcze** , zobacz [tutaj](https://docs.microsoft.com/azure/search/search-sku-tier)więcej szczegółów. Ponadto może być konieczne dostosowanie Wyszukiwanie poznawcze [pojemności](../../../search/search-capacity-planning.md) z replikami.
+* **Przepływność wymagana przez usługę**:
+    * Wybierz odpowiedni [Plan aplikacji](https://azure.microsoft.com/pricing/details/app-service/plans/) dla usługi App Service na podstawie Twoich potrzeb. Możesz [skalować w górę](../../../app-service/manage-scale-up.md) lub w dół aplikacji.
+    * Powinno to mieć wpływ na wybór jednostki SKU platformy Azure **Wyszukiwanie poznawcze** , zobacz [tutaj](../../../search/search-sku-tier.md)więcej szczegółów. Ponadto może być konieczne dostosowanie Wyszukiwanie poznawcze [pojemności](../../../search/search-capacity-planning.md) z replikami.
 
-* **Rozmiar i liczba baz wiedzy** : wybierz odpowiednią [jednostkę SKU usługi Azure Search](https://azure.microsoft.com/pricing/details/search/) dla danego scenariusza. Zazwyczaj użytkownik decyduje o liczbie potrzebnych baz wiedzy na podstawie liczby różnych domen podmiotu. Gdy domena podmiotu (dla jednego języka) powinna znajdować się w jednej bazie wiedzy.
+* **Rozmiar i liczba baz wiedzy**: wybierz odpowiednią [jednostkę SKU usługi Azure Search](https://azure.microsoft.com/pricing/details/search/) dla danego scenariusza. Zazwyczaj użytkownik decyduje o liczbie potrzebnych baz wiedzy na podstawie liczby różnych domen podmiotu. Gdy domena podmiotu (dla jednego języka) powinna znajdować się w jednej bazie wiedzy.
 
     Bazy wiedzy o N-1 można opublikować w określonej warstwie, gdzie N to maksymalna liczba indeksów dozwolonych w warstwie. Sprawdź również maksymalny rozmiar i liczbę dokumentów dozwolonych dla każdej warstwy.
 
     Na przykład jeśli warstwa ma 15 dozwolonych indeksów, można opublikować 14 baz wiedzy (1 indeks na opublikowaną bazę wiedzy). 15. indeks jest używany dla wszystkich baz wiedzy na potrzeby tworzenia i testowania.
 
-* **Liczba dokumentów jako źródła** : bezpłatna jednostka SKU usługi zarządzania QNA Makerą ogranicza liczbę dokumentów, którymi można zarządzać za pośrednictwem portalu i interfejsów API do 3 (o rozmiarze 1 MB). Standardowa jednostka SKU nie ma ograniczeń do liczby dokumentów, którymi można zarządzać. Więcej szczegółów można znaleźć [tutaj](https://aka.ms/qnamaker-pricing).
+* **Liczba dokumentów jako źródła**: bezpłatna jednostka SKU usługi zarządzania QNA Makerą ogranicza liczbę dokumentów, którymi można zarządzać za pośrednictwem portalu i interfejsów API do 3 (o rozmiarze 1 MB). Standardowa jednostka SKU nie ma ograniczeń do liczby dokumentów, którymi można zarządzać. Więcej szczegółów można znaleźć [tutaj](https://aka.ms/qnamaker-pricing).
 
 W poniższej tabeli przedstawiono ogólne wytyczne.
 
 |                            | Zarządzanie QnA Maker | App Service | Azure Cognitive Search | Ograniczenia                      |
 | -------------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
 | **Eksperymentowanie**        | Bezpłatna jednostka SKU             | Warstwa Bezpłatna   | Warstwa Bezpłatna    | Publikowanie do 2 artykułów bazy wiedzy, rozmiar 50 MB  |
-| **Środowisko deweloperskie/testowe**   | Standardowy SKU         | Udostępniona      | Podstawowe        | Publikowanie do 14 artykułów bazy wiedzy, rozmiar 2 GB    |
+| **Środowisko deweloperskie/testowe**   | Standardowy SKU         | Udostępniona      | Podstawowy        | Publikowanie do 14 artykułów bazy wiedzy, rozmiar 2 GB    |
 | **Środowisko produkcyjne** | Standardowy SKU         | Podstawowa       | Standardowa (Standard)     | Publikowanie do 49 artykułów bazy wiedzy, rozmiar 25 GB |
 
 # <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
 
 Zwykle istnieją trzy parametry, które należy wziąć pod uwagę:
 
-* **Przepływność wymagana przez usługę** :
+* **Przepływność wymagana przez usługę**:
     * QnA Maker Managed (wersja zapoznawcza) to bezpłatna usługa, a przepływność jest obecnie ograniczona do 10 TPS dla interfejsów API zarządzania i interfejsów API przewidywania.
-    * Powinno to mieć wpływ na wybór jednostki SKU platformy Azure **Wyszukiwanie poznawcze** , zobacz [tutaj](https://docs.microsoft.com/azure/search/search-sku-tier)więcej szczegółów. Ponadto może być konieczne dostosowanie Wyszukiwanie poznawcze [pojemności](../../../search/search-capacity-planning.md) z replikami.
+    * Powinno to mieć wpływ na wybór jednostki SKU platformy Azure **Wyszukiwanie poznawcze** , zobacz [tutaj](../../../search/search-sku-tier.md)więcej szczegółów. Ponadto może być konieczne dostosowanie Wyszukiwanie poznawcze [pojemności](../../../search/search-capacity-planning.md) z replikami.
 
-* **Rozmiar i liczba baz wiedzy** : wybierz odpowiednią [jednostkę SKU usługi Azure Search](https://azure.microsoft.com/pricing/details/search/) dla danego scenariusza. Zazwyczaj użytkownik decyduje o liczbie potrzebnych baz wiedzy na podstawie liczby różnych domen podmiotu. Gdy domena podmiotu (dla jednego języka) powinna znajdować się w jednej bazie wiedzy.
+* **Rozmiar i liczba baz wiedzy**: wybierz odpowiednią [jednostkę SKU usługi Azure Search](https://azure.microsoft.com/pricing/details/search/) dla danego scenariusza. Zazwyczaj użytkownik decyduje o liczbie potrzebnych baz wiedzy na podstawie liczby różnych domen podmiotu. Gdy domena podmiotu (dla jednego języka) powinna znajdować się w jednej bazie wiedzy.
 
     Za pomocą QnA Maker Managed (wersja zapoznawcza) masz możliwość skonfigurowania usługi QnA Maker dla artykułów bazy wiedzy w jednym języku lub w wielu językach. Możesz wybrać tę opcję podczas tworzenia pierwszej bazy wiedzy w usłudze Managed QnA Maker (wersja zapoznawcza).
 
@@ -86,14 +86,14 @@ Zwykle istnieją trzy parametry, które należy wziąć pod uwagę:
 
     Na przykład jeśli warstwa ma 15 dozwolonych indeksów, można opublikować 14 baz wiedzy tego samego języka (1 indeks na opublikowaną bazę wiedzy). 15. indeks jest używany dla wszystkich baz wiedzy na potrzeby tworzenia i testowania. Jeśli zdecydujesz się na posiadanie baz wiedzy w różnych językach, możesz publikować tylko 7 baz wiedzy.
 
-* **Liczba dokumentów jako źródła** : zarządzana QNA Maker (wersja zapoznawcza) to bezpłatna usługa i nie ma żadnych ograniczeń dotyczących liczby dokumentów, które można dodać jako źródła. Więcej szczegółów można znaleźć [tutaj](https://aka.ms/qnamaker-pricing).
+* **Liczba dokumentów jako źródła**: zarządzana QNA Maker (wersja zapoznawcza) to bezpłatna usługa i nie ma żadnych ograniczeń dotyczących liczby dokumentów, które można dodać jako źródła. Więcej szczegółów można znaleźć [tutaj](https://aka.ms/qnamaker-pricing).
 
 W poniższej tabeli przedstawiono ogólne wytyczne.
 
 |                            |Azure Cognitive Search | Ograniczenia                      |
 | -------------------------- |------------ | -------------------------------- |
 | **Eksperymentowanie**        |Warstwa Bezpłatna    | Publikowanie do 2 artykułów bazy wiedzy, rozmiar 50 MB  |
-| **Środowisko deweloperskie/testowe**   |Podstawowe        | Publikowanie do 14 artykułów bazy wiedzy, rozmiar 2 GB    |
+| **Środowisko deweloperskie/testowe**   |Podstawowy        | Publikowanie do 14 artykułów bazy wiedzy, rozmiar 2 GB    |
 | **Środowisko produkcyjne** |Standardowa     | Publikowanie do 49 artykułów bazy wiedzy, rozmiar 25 GB |
 
 ---
@@ -120,7 +120,7 @@ QnA Maker zarządzany to bezpłatna usługa, a przepływność jest obecnie ogra
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
 
-|Upgrade|Przyczyna|
+|Uaktualnienie|Przyczyna|
 |--|--|
 |[Uaktualnij](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) Jednostka SKU zarządzania QnA Maker|Chcesz mieć więcej par QnA lub źródeł dokumentów w bazie wiedzy.|
 |[Uaktualnij](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) App Service jednostki SKU i sprawdzanie warstwy Wyszukiwanie poznawcze i [Tworzenie replik wyszukiwanie poznawcze](../../../search/search-capacity-planning.md)|Baza wiedzy musi obtworzyć więcej żądań z aplikacji klienckiej, takich jak rozmowa bot.|
@@ -232,7 +232,7 @@ Usługa zarządzania QnA Maker jest używana tylko dla portalu QnA Maker i do ws
 
 Usługa QnA Maker obsługuje dwa rodzaje kluczy: **klucze autorstwa** i **klucze punktu końcowego zapytania** używane w środowisku uruchomieniowym hostowanym w usłudze App Service.
 
-Jeśli szukasz **klucza subskrypcji** , [terminologia została zmieniona](#subscription-keys).
+Jeśli szukasz **klucza subskrypcji**, [terminologia została zmieniona](#subscription-keys).
 
 Te klucze są używane podczas wykonywania żądań do usługi za pomocą interfejsów API.
 
@@ -240,7 +240,7 @@ Te klucze są używane podczas wykonywania żądań do usługi za pomocą interf
 
 |Nazwa|Lokalizacja|Przeznaczenie|
 |--|--|--|
-|Klucz tworzenia|[Witryna Azure Portal](https://azure.microsoft.com/free/cognitive-services/)|Te klucze są używane w celu uzyskania dostępu do [interfejsów API usługi zarządzania QNA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Te interfejsy API umożliwiają edytowanie pytań i odpowiedzi w bazie wiedzy oraz publikowanie bazy wiedzy. Te klucze są tworzone podczas tworzenia nowej usługi QnA Maker.<br><br>Znajdź te klucze w zasobie **Cognitive Services** na stronie **klucze** .|
+|Klucz tworzenia|[Witryna Azure Portal](https://azure.microsoft.com/free/cognitive-services/)|Te klucze są używane w celu uzyskania dostępu do [interfejsów API usługi zarządzania QNA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Te interfejsy API umożliwiają edytowanie pytań i odpowiedzi w bazie wiedzy oraz publikowanie bazy wiedzy. Te klucze są tworzone podczas tworzenia nowej usługi QnA Maker.<br><br>Znajdź te klucze w zasobie **Cognitive Services** na stronie **klucze** .|
 |Klucz punktu końcowego zapytania|[Portal usługi QnA Maker](https://www.qnamaker.ai)|Te klucze służą do wysyłania zapytań do opublikowanego punktu końcowego bazy wiedzy w celu uzyskania odpowiedzi na pytanie użytkownika. Ten punkt końcowy zapytania jest zazwyczaj używany w bot rozmowy lub w kodzie aplikacji klienta, który nawiązuje połączenie z usługą QnA Maker. Te klucze są tworzone podczas publikowania bazy wiedzy QnA Maker.<br><br>Te klucze znajdują się na stronie **ustawień usługi** . Znajdź Tę stronę w menu użytkownika w prawym górnym rogu strony z menu rozwijanego.|
 
 ### <a name="subscription-keys"></a>Klucze subskrypcji
@@ -251,11 +251,11 @@ Aby dowiedzieć się, który klucz należy znaleźć, należy znać dostęp do k
 
 ### <a name="recommended-settings-for-network-isolation"></a>Zalecane ustawienia izolacji sieci
 
-* Ochrona zasobów usługi poznawczej przed dostępem publicznym przez [skonfigurowanie sieci wirtualnej](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal).
+* Ochrona zasobów usługi poznawczej przed dostępem publicznym przez [skonfigurowanie sieci wirtualnej](../../cognitive-services-virtual-networks.md?tabs=portal).
 * Ochrona App Service (QnA Runtime) z dostępu publicznego:
     * Zezwalaj na ruch tylko z adresów IP usługi poznawczej. Są one już zawarte w tagu usługi "CognitiveServicesManagement". Jest to wymagane do tworzenia interfejsów API (Utwórz/zaktualizuj KB), aby odpowiednio wywoływać usługę App Service i zaktualizować usługę Azure Search.
     * Upewnij się, że można również zezwolić na inne punkty wejścia, takie jak usługa bot, Portal QnA Maker (może to być Corpnet) itp., aby uzyskać dostęp do interfejsu API przewidywania "GenerateAnswer".
-    * Zapoznaj się z [dodatkowymi informacjami na temat tagów usługi.](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+    * Zapoznaj się z [dodatkowymi informacjami na temat tagów usługi.](../../../virtual-network/service-tags-overview.md)
 
 # <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
 
@@ -309,7 +309,7 @@ W programie QnA Maker Managed (wersja zapoznawcza) zarówno zarządzanie, jak i 
 
 Usługa Managed QnA Maker (wersja zapoznawcza) zajmuje się dwoma rodzajami kluczy: **klucze tworzenia** i **klucze wyszukiwanie poznawcze platformy Azure** używane do uzyskiwania dostępu do usługi w ramach subskrypcji klienta.
 
-Jeśli szukasz **klucza subskrypcji** , [terminologia została zmieniona](#subscription-keys).
+Jeśli szukasz **klucza subskrypcji**, [terminologia została zmieniona](#subscription-keys).
 
 Te klucze są używane podczas wykonywania żądań do usługi za pomocą interfejsów API.
 
@@ -317,8 +317,8 @@ Te klucze są używane podczas wykonywania żądań do usługi za pomocą interf
 
 |Nazwa|Lokalizacja|Przeznaczenie|
 |--|--|--|
-|Klucz tworzenia|[Witryna Azure Portal](https://azure.microsoft.com/free/cognitive-services/)|Te klucze są używane w celu uzyskania dostępu do [interfejsów API usługi zarządzania QNA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Te interfejsy API umożliwiają edytowanie pytań i odpowiedzi w bazie wiedzy oraz publikowanie bazy wiedzy. Te klucze są tworzone podczas tworzenia nowej usługi QnA Maker.<br><br>Znajdź te klucze w zasobie **Cognitive Services** na stronie **klucze** .|
-|Klucz administratora usługi Azure Wyszukiwanie poznawcze|[Witryna Azure Portal](https://docs.microsoft.com/azure/search/search-security-api-keys)|Te klucze są używane do komunikowania się z usługą wyszukiwania poznawczego platformy Azure wdrożoną w ramach subskrypcji platformy Azure użytkownika. Po skojarzeniu wyszukiwania poznawczego platformy Azure z usługą QnA Maker Managed (wersja zapoznawcza) klucz administratora jest automatycznie przenoszona do usługi QnA Maker. <br><br>Te klucze można znaleźć w zasobie **usługi Azure wyszukiwanie poznawcze** na stronie **klucze** .|
+|Klucz tworzenia|[Witryna Azure Portal](https://azure.microsoft.com/free/cognitive-services/)|Te klucze są używane w celu uzyskania dostępu do [interfejsów API usługi zarządzania QNA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Te interfejsy API umożliwiają edytowanie pytań i odpowiedzi w bazie wiedzy oraz publikowanie bazy wiedzy. Te klucze są tworzone podczas tworzenia nowej usługi QnA Maker.<br><br>Znajdź te klucze w zasobie **Cognitive Services** na stronie **klucze** .|
+|Klucz administratora usługi Azure Wyszukiwanie poznawcze|[Witryna Azure Portal](../../../search/search-security-api-keys.md)|Te klucze są używane do komunikowania się z usługą wyszukiwania poznawczego platformy Azure wdrożoną w ramach subskrypcji platformy Azure użytkownika. Po skojarzeniu wyszukiwania poznawczego platformy Azure z usługą QnA Maker Managed (wersja zapoznawcza) klucz administratora jest automatycznie przenoszona do usługi QnA Maker. <br><br>Te klucze można znaleźć w zasobie **usługi Azure wyszukiwanie poznawcze** na stronie **klucze** .|
 
 ### <a name="subscription-keys"></a>Klucze subskrypcji
 
@@ -328,13 +328,12 @@ Aby dowiedzieć się, który klucz należy znaleźć, należy znać dostęp do k
 
 ### <a name="recommended-settings-for-network-isolation"></a>Zalecane ustawienia izolacji sieci 
 
-Ochrona zasobów usługi poznawczej przed dostępem publicznym przez [skonfigurowanie sieci wirtualnej](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal).
+Ochrona zasobów usługi poznawczej przed dostępem publicznym przez [skonfigurowanie sieci wirtualnej](../../cognitive-services-virtual-networks.md?tabs=portal).
 
 ---
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o QnA Maker [bazie wiedzy](knowledge-base.md)
+* Dowiedz się więcej o QnA Maker [bazie wiedzy](../index.yml)
 * Omówienie [cyklu życia bazy wiedzy](development-lifecycle-knowledge-base.md)
 * Przejrzyj [limity](../limits.md) usługi i bazy wiedzy
-

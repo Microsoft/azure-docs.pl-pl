@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: effa0d3ba9f7098b691605bfbd76bff9ea3d5e66
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7936699832a09f535729c42b12fec2d5c49a11a0
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023435"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350946"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Tworzenie środowiska Azure-SSIS Integration Runtime w Azure Data Factory
 
@@ -128,7 +128,7 @@ Na stronie **Ustawienia ogólne** okienka **konfiguracji środowiska Integration
 
    7. W obszarze **oszczędność pieniędzy** wybierz opcję korzyść użycia hybrydowego platformy Azure dla środowiska Integration Runtime: **tak** lub **nie**. Wybierz pozycję **tak** , jeśli chcesz uzyskać własną licencję SQL Server z programem Software Assurance, aby korzystać z oszczędności związanych z użyciem hybrydowej.
 
-   8. Wybierz pozycję **Dalej**.
+   8. Wybierz opcję **Dalej**.
 
 #### <a name="deployment-settings-page"></a>Strona Ustawienia wdrożenia
 
@@ -167,7 +167,7 @@ W przypadku zaznaczenia tego pola wyboru wykonaj następujące kroki, aby utworz
 Wybierz **Test connection** , jeśli ma to zastosowanie, a jeśli to się powiedzie, wybierz pozycję **dalej**.
 
 > [!NOTE]
-   > Jeśli do hostowania SSISDB jest używany serwer Azure SQL Database, dane będą przechowywane w magazynie geograficznie nadmiarowym dla kopii zapasowych. Jeśli nie chcesz, aby dane były replikowane w innych regionach, postępuj zgodnie z instrukcjami, aby [skonfigurować nadmiarowość magazynu kopii zapasowych za pomocą programu PowerShell](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=single-database#configure-backup-storage-redundancy-by-using-powershell).
+   > Jeśli do hostowania SSISDB jest używany serwer Azure SQL Database, dane będą przechowywane w magazynie geograficznie nadmiarowym dla kopii zapasowych. Jeśli nie chcesz, aby dane były replikowane w innych regionach, postępuj zgodnie z instrukcjami, aby [skonfigurować nadmiarowość magazynu kopii zapasowych za pomocą programu PowerShell](../azure-sql/database/automated-backups-overview.md?tabs=single-database#configure-backup-storage-redundancy-by-using-powershell).
    
 ##### <a name="creating-azure-ssis-ir-package-stores"></a>Tworzenie Azure-SSIS IR magazynów pakietów
 

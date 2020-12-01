@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2020
 ms.author: mlottner
-ms.openlocfilehash: 3f84f3121d9982205ecf51ec64cfe332b6a5ad42
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 786fcd1a0c6d7df2c38a086a830a63f7179d7d40
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947657"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352511"
 ---
 # <a name="quickstart-onboard-azure-defender-for-iot-service-in-iot-hub"></a>Szybki Start: dołączanie usługi Azure Defender for IoT w IoT Hub
 
-Ten artykuł zawiera wyjaśnienie, jak włączyć usługę Defender for IoT na istniejącym IoT Hub. Jeśli obecnie nie masz IoT Hub, zobacz [tworzenie IoT Hub przy użyciu Azure Portal](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) , aby rozpocząć pracę.
+Ten artykuł zawiera wyjaśnienie, jak włączyć usługę Defender for IoT na istniejącym IoT Hub. Jeśli obecnie nie masz IoT Hub, zobacz [tworzenie IoT Hub przy użyciu Azure Portal](../iot-hub/iot-hub-create-through-portal.md) , aby rozpocząć pracę.
 
 > [!NOTE]
 > Usługa Defender for IoT obecnie obsługuje tylko centra usługi IoT w warstwie Standardowa.
@@ -30,7 +30,7 @@ Ten artykuł zawiera wyjaśnienie, jak włączyć usługę Defender for IoT na i
 ## <a name="prerequisites-for-enabling-the-service"></a>Wymagania wstępne dotyczące włączania usługi
 
 - Obszar roboczy usługi Log Analytics
-  - Dwa typy informacji są domyślnie przechowywane w obszarze roboczym Log Analytics przez usługę Defender for IoT; **alerty** i **zalecenia dotyczące**zabezpieczeń.
+  - Dwa typy informacji są domyślnie przechowywane w obszarze roboczym Log Analytics przez usługę Defender for IoT; **alerty** i **zalecenia dotyczące** zabezpieczeń.
   - Możesz dodać magazyn o dodatkowym typie informacji, **zdarzenia pierwotne**. Należy pamiętać, że przechowywanie **nieprzetworzonych zdarzeń** w log Analytics obejmuje dodatkowe koszty magazynowania.
 - IoT Hub (warstwa standardowa)
 - Spełnia wszystkie [wymagania wstępne dotyczące usługi](service-prerequisites.md)

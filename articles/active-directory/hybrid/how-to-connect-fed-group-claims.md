@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: cb828eeb408a170b93ffc73b58f14b3f7a883cc4
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: bef5942707c1ded22ba82bdb0d945b9fdb23fffa
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95247238"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349354"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Konfigurowanie oświadczeń grupy dla aplikacji z Azure Active Directory
 
@@ -58,7 +58,7 @@ Jeśli jednak istniejąca aplikacja oczekuje na korzystanie z informacji o grupi
 
 - W przypadku korzystania z członkostwa w grupie w celach autoryzacji w aplikacji zaleca się użycie identyfikatora ObjectID grupy. Identyfikator ObjectID grupy jest niezmienny i unikatowy w Azure Active Directory i jest dostępny dla wszystkich grup.
 - Jeśli używasz konta sAMAccountName grupy lokalnej do autoryzacji, użyj nazw kwalifikowanych dla domeny;  istnieje mniej możliwości kolizji nazw. Nazwa sAMAccountName może być unikatowa w ramach domeny Active Directory, ale jeśli więcej niż jedna domena Active Directory jest synchronizowana z dzierżawą Azure Active Directory, istnieje możliwość, że więcej niż jedna grupa ma taką samą nazwę.
-- Rozważ użycie [ról aplikacji](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) , aby zapewnić warstwę pośrednią między członkostwem grupy a aplikacją.   Następnie aplikacja wykonuje wewnętrzne decyzje dotyczące autoryzacji na podstawie Clams ról w tokenie.
+- Rozważ użycie [ról aplikacji](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) , aby zapewnić warstwę pośrednią między członkostwem grupy a aplikacją.   Następnie aplikacja wykonuje wewnętrzne decyzje dotyczące autoryzacji na podstawie oświadczeń ról w tokenie.
 - Jeśli aplikacja jest skonfigurowana do pobierania atrybutów grup, które są synchronizowane z Active Directory, a grupa nie zawiera tych atrybutów, nie zostanie uwzględniona w oświadczeniach.
 - Oświadczenia grupowe w tokenach obejmują grupy zagnieżdżone, z wyjątkiem przypadków, gdy przy użyciu opcji ograniczają oświadczenia grupy do grup przypisanych do aplikacji.  Jeśli użytkownik należy do GroupB, a GroupB jest członkiem grupy, wówczas oświadczenia grupy dla użytkownika będą zawierać zarówno grupę, jak i GroupB. Gdy użytkownicy organizacji mają dużą liczbę członkostw w grupie, liczba grup wymieniona w tokenie może zwiększyć rozmiar tokenu.  Azure Active Directory ogranicza liczbę grup, które będą emitowane w tokenie do 150 dla zatwierdzeń SAML i 200 dla tokenu JWT.  Jeśli użytkownik jest członkiem większej liczby grup, grupy zostaną pominięte i zostanie uwzględniony link do punktu końcowego grafu w celu uzyskania informacji o grupie.
 

@@ -7,12 +7,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: 96cca89b1206aaa7890648def694074a18b2aa17
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 4ab32cd37d732cd9f177363da547edd22bd5af77
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368869"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349269"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Usługi Cognitive Services i uczenie maszynowe
 
@@ -23,8 +23,8 @@ Cognitive Services zapewnia możliwości uczenia maszynowego w celu rozwiązywan
 |Kategoria usługi|Przeznaczenie|
 |--|--|
 |[Decyzja](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|Twórz aplikacje wyświetlające rekomendacje pozwalające skuteczniej podejmować lepsze decyzje.|
-|[Język](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Umożliwiaj aplikacjom przetwarzanie języka naturalnego za pomocą wbudowanych skryptów, ocenianie tonacji i uczenie się rozpoznawania potrzeb użytkowników.|
-|[Wyszukiwanie](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Dodawaj interfejsy API wyszukiwania Bing do aplikacji i wykorzystuj możliwości przeczesywania miliardów stron internetowych, obrazów, wideo i wiadomości za pomocą jednego wywołania interfejsu API.|
+|[Język](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Umożliwianie aplikacjom przetwarzania języka naturalnego za pomocą wbudowanych skryptów, ocenianie tonacji i uczenie się rozpoznawania potrzeb użytkowników.|
+|[Wyszukiwanie](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Dodawanie interfejsów API wyszukiwania Bing do aplikacji i wykorzystanie możliwości przeczesywania miliardów stron internetowych, obrazów, wideo i wiadomości za pomocą jednego wywołania interfejsu API.|
 |[Mowa](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Konwertuj mowę na tekst i tekst na naturalnie brzmiącą mowę. Tłumacz jeden język na inny oraz włącz weryfikację i rozpoznawanie osoby mówiącej.|
 |[Obraz](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|Rozpoznawaj, identyfikuj, podpisuj, indeksuj i moderuj swoje zdjęcia, klipy wideo i zawartość elektronicznego pisma odręcznego.|
 ||||
@@ -44,7 +44,7 @@ Uczenie maszynowe to koncepcja, w której można połączyć dane i algorytm, ab
 
 Proces tworzenia systemu uczenia maszynowego wymaga pewnej znajomości uczenia maszynowego lub nauki dotyczącej danych.
 
-Uczenie maszynowe jest dostępne przy użyciu [produktów i usług Azure Machine Learning (AML)](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%252fmachine-learning%252fstudio%252fcontext%252fml-context).
+Uczenie maszynowe jest dostępne przy użyciu [produktów i usług Azure Machine Learning (AML)](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%2fmachine-learning%2fstudio%2fcontext%2fml-context).
 
 ## <a name="what-is-a-cognitive-service"></a>Co to jest usługa poznawcze?
 
@@ -129,7 +129,7 @@ Cognitive Services, które udostępniają eksportowane modele dla innych narzęd
 |--|--|
 |[Custom Vision](./custom-vision-service/overview.md)|[Export](./Custom-Vision-Service/export-model-python.md) for Tensorflow for Android, CoreML for IOS11, ONNX for Windows ml|
 
-## <a name="learn-more"></a>Więcej tutaj
+## <a name="learn-more"></a>Dowiedz się więcej
 
 * [Przewodnik po architekturze — jakie są produkty uczenia maszynowego w firmie Microsoft?](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
 * [Uczenie maszynowe — wprowadzenie do uczenia głębokiego i uczenia maszynowego](../machine-learning/concept-deep-learning-vs-machine-learning.md)

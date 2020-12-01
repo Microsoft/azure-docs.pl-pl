@@ -10,19 +10,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 93be72f2afcda90dde1b74c5ee317a7ad3350be1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4300860039b76bd076f19acfc252f59ef10d462b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075691"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351848"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Wymagania dotyczące użycia i wyświetlania interfejsu API wyszukiwania Bing
 
 > [!WARNING]
-> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
-> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Te wymagania dotyczące użycia i wyświetlania dotyczą wszelkich implementacji zawartości i skojarzonych informacji z następujących interfejsy API wyszukiwania Bing, w tym relacji, metadanych i innych sygnałów.
 
@@ -39,7 +39,7 @@ Te wymagania dotyczące użycia i wyświetlania dotyczą wszelkich implementacji
 ## <a name="definitions"></a>Definicje
 
 
-|Termin  |Opis  |
+|Okres  |Opis  |
 |---------|---------|
 |Odpowiedź     | Kategoria wyników zwróconych w odpowiedzi. Na przykład odpowiedź z interfejs API wyszukiwania w sieci Web Bing może zawierać odpowiedzi w kategoriach wyników, obrazów, wideo, wizualizacji i wiadomości strony sieci Web. |
 |Reakcja     | Wszystkie odpowiedzi i skojarzone dane odebrane w odpowiedzi na jedno wywołanie interfejsu API wyszukiwania. |
@@ -104,7 +104,7 @@ Nie:
 ### <a name="notices-and-branding"></a>Powiadomienia i znakowanie 
 Nie
 
-- W widocznym miejscu dołączysz funkcjonalne hiperłącze do [zasad zachowania poufności informacji firmy Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839)w każdym miejscu środowiska użytkownika, które oferuje użytkownikowi możliwość wprowadzenia zapytania wyszukiwania. Oznacz hiperłącze **zasad zachowania poufności informacji firmy Microsoft** .
+- W widocznym miejscu dołączysz funkcjonalne hiperłącze do [zasad zachowania poufności informacji firmy Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839)w każdym miejscu środowiska użytkownika, które oferuje użytkownikowi możliwość wprowadzenia zapytania wyszukiwania. Oznacz hiperłącze **zasad zachowania poufności informacji firmy Microsoft**.
 
 - W widocznym miejscu Wykorzystaj znakowanie Bing, zgodnie z [wytycznymi dotyczącymi użycia znaku towarowego Bing](https://go.microsoft.com/fwlink/?linkid=833278), w dowolnym miejscu w środowisku użytkownika, które oferuje użytkownikowi możliwość wprowadzenia zapytania wyszukiwania. Takie oznakowanie musi jasno stwierdzać użytkownikowi, że firma Microsoft umożliwia korzystanie z funkcji wyszukiwania internetowego.
 
@@ -172,5 +172,4 @@ Poprzednie sekcje interfejsów API wyszukiwania wykorzystują i nie mają zastos
 
 ## <a name="gdpr-compliance"></a>Zgodność z RODO  
 
-W odniesieniu do wszelkich danych osobowych podlegających Unii Europejskiej Ogólne rozporządzenie o ochronie danych (Rodo) i przetwarzanych w związku z wywołaniami interfejsów API wyszukiwania, sprawdzanie pisowni Bing interfejsu API lub interfejs API automatycznego sugerowania Bing, rozumiesz, że ty i firma Microsoft są niezależnymi kontrolerami danych w ramach Rodo. Użytkownik jest odpowiedzialny za zgodność z Rodo.  
-
+W odniesieniu do wszelkich danych osobowych podlegających Unii Europejskiej Ogólne rozporządzenie o ochronie danych (Rodo) i przetwarzanych w związku z wywołaniami interfejsów API wyszukiwania, sprawdzanie pisowni Bing interfejsu API lub interfejs API automatycznego sugerowania Bing, rozumiesz, że ty i firma Microsoft są niezależnymi kontrolerami danych w ramach Rodo. Użytkownik jest odpowiedzialny za zgodność z Rodo.

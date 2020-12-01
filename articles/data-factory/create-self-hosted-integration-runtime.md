@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 11/25/2020
-ms.openlocfilehash: 22155083a71a9cbf615293a4f86a179aaefce2a9
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 4a58f25e6183c674990d1d7722ce3196cce0f47c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96023361"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350470"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Tworzenie i konfigurowanie własnego środowiska Integration Runtime
 
@@ -150,7 +150,7 @@ Poniżej znajduje się podsumowanie etapów przepływu danych do kopiowania przy
 - Użyj własnego środowiska Integration Runtime do obsługi integracji danych w ramach sieci wirtualnej platformy Azure.
 - Traktuj źródło danych jako lokalne źródło danych znajdujące się za zaporą, nawet jeśli korzystasz z usługi Azure ExpressRoute. Użyj własnego środowiska Integration Runtime, aby połączyć usługę ze źródłem danych.
 - Użyj własnego środowiska Integration Runtime, nawet jeśli magazyn danych znajduje się w chmurze na maszynie wirtualnej infrastruktury platformy Azure jako usługi (IaaS).
-- Zadania mogą zakończyć się niepowodzeniem w ramach własnego środowiska Integration Runtime zainstalowanego w systemie Windows Server, dla którego włączono szyfrowanie zgodne ze standardem FIPS. Aby obejść ten problem, masz dwie opcje: Przechowuj poświadczenia/wartości tajne w Azure Key Vault lub wyłącz szyfrowanie zgodne ze standardem FIPS na serwerze. Aby wyłączyć szyfrowanie zgodne ze standardem FIPS, należy zmienić wartość następującego podklucza rejestru z 1 (włączone) na 0 (wyłączone): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` . Jeśli używasz [własnego środowiska Integration Runtime jako serwera proxy dla programu SSIS Integration Runtime](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis), szyfrowanie zgodne ze standardem FIPS może być włączone i będzie używane podczas przenoszenia danych z lokalizacji lokalnej na platformę Azure Blob Storage jako obszaru przejściowego.
+- Zadania mogą zakończyć się niepowodzeniem w ramach własnego środowiska Integration Runtime zainstalowanego w systemie Windows Server, dla którego włączono szyfrowanie zgodne ze standardem FIPS. Aby obejść ten problem, masz dwie opcje: Przechowuj poświadczenia/wartości tajne w Azure Key Vault lub wyłącz szyfrowanie zgodne ze standardem FIPS na serwerze. Aby wyłączyć szyfrowanie zgodne ze standardem FIPS, należy zmienić wartość następującego podklucza rejestru z 1 (włączone) na 0 (wyłączone): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` . Jeśli używasz [własnego środowiska Integration Runtime jako serwera proxy dla programu SSIS Integration Runtime](./self-hosted-integration-runtime-proxy-ssis.md), szyfrowanie zgodne ze standardem FIPS może być włączone i będzie używane podczas przenoszenia danych z lokalizacji lokalnej na platformę Azure Blob Storage jako obszaru przejściowego.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -362,7 +362,7 @@ Po zarejestrowaniu własnego środowiska Integration Runtime, jeśli chcesz wyś
 1. Otwórz **Configuration Manager Microsoft Integration Runtime**.
 1. Wybierz kartę **Ustawienia**.
 1. W obszarze **serwer proxy HTTP** wybierz łącze **Zmień** , aby otworzyć okno dialogowe **Ustawianie serwera proxy HTTP** .
-1. Wybierz pozycję **Dalej**. Następnie zostanie wyświetlone ostrzeżenie z prośbą o zgodę na zapisanie ustawienia serwera proxy i ponowne uruchomienie usługi hosta Integration Runtime.
+1. Wybierz opcję **Dalej**. Następnie zostanie wyświetlone ostrzeżenie z prośbą o zgodę na zapisanie ustawienia serwera proxy i ponowne uruchomienie usługi hosta Integration Runtime.
 
 Za pomocą narzędzia Configuration Manager można wyświetlać i aktualizować serwer proxy HTTP.
 

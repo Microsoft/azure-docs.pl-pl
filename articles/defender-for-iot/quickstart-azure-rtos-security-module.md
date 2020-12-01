@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2020
 ms.author: rkarlin
-ms.openlocfilehash: 38e78b80fd14aec7557b563b2b33faf7d51bd114
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 321c8d2b9e58aba943c5bf19adf54d6359c5be96
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759736"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351780"
 ---
 # <a name="quickstart-security-module-for-azure-rtos-preview"></a>Szybki Start: moduł zabezpieczeń dla usługi Azure RTO (wersja zapoznawcza)
 
-Ten artykuł zawiera opis wymagań wstępnych przed rozpoczęciem pracy i wyjaśnia, jak włączyć moduł zabezpieczeń dla usługi Azure RTO na IoT Hub. Jeśli obecnie nie masz IoT Hub, zobacz [tworzenie IoT Hub przy użyciu Azure Portal](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) , aby rozpocząć pracę.
+Ten artykuł zawiera opis wymagań wstępnych przed rozpoczęciem pracy i wyjaśnia, jak włączyć moduł zabezpieczeń dla usługi Azure RTO na IoT Hub. Jeśli obecnie nie masz IoT Hub, zobacz [tworzenie IoT Hub przy użyciu Azure Portal](../iot-hub/iot-hub-create-through-portal.md) , aby rozpocząć pracę.
 
 > [!NOTE]
 > Moduł zabezpieczeń usługi Azure RTO jest obsługiwany tylko w centrach IoT warstwy Standardowa.
@@ -49,7 +49,7 @@ Aby rozpocząć, musisz mieć połączenie IoT Hub.
 1. Skopiuj parametry połączenia IoT do [pliku konfiguracji](how-to-azure-rtos-security-module.md).
 
 
-Poświadczenia połączeń są pobierane z konfiguracji aplikacji użytkownika **HOST_NAME**, **DEVICE_ID**i **DEVICE_SYMMETRIC_KEY**.
+Poświadczenia połączeń są pobierane z konfiguracji aplikacji użytkownika **HOST_NAME**, **DEVICE_ID** i **DEVICE_SYMMETRIC_KEY**.
 
 Moduł zabezpieczeń usługi Azure RTO korzysta z połączeń usługi Azure IoT pośredniczącego na podstawie protokołu **MQTT** .
 
@@ -63,10 +63,10 @@ Log Analytics pozyskiwanie w IoT Hub jest wyłączone domyślnie dla rozwiązani
 1. Wybierz pozycję **zbieranie danych**. 
 1. W opcji **Konfiguracja obszaru roboczego** Przełącz przełącznik na wartość **włączone**. 
 1. Utwórz nowy obszar roboczy Log Analytics lub Dołącz istniejący. Upewnij się, że wybrano opcję **dostęp do danych pierwotnych zabezpieczeń** . 
- :::image type="content" source="media/quickstart/azure-rtos-data-collection-on.png" alt-text="Opcja zbierania danych dostępu dla usługi Azure RTO":::
+ :::image type="content" source="media/quickstart/azure-rtos-data-collection-on.png" alt-text="Konfiguracja usługi Azure RTO z opcją zbierania danych i opcjami pierwotnych danych zabezpieczeń":::
 1. Wybierz pozycję **Zapisz**
 1. Wróć do listy zasobów platformy Azure i upewnij się, że dla IoT Hub został włączony utworzony lub dołączony obszar roboczy Log Analytics.
-    :::image type="content" source="media/quickstart/verify-azure-resource-list.png" alt-text="Opcja zbierania danych dostępu dla usługi Azure RTO"::: 
+    :::image type="content" source="media/quickstart/verify-azure-resource-list.png" alt-text="Sprawdź listę zasobów platformy Azure, aby potwierdzić dodanie poprawnego Log Analytics obszaru roboczego dodanego dla IoT Hub"::: 
 
 ## <a name="next-steps"></a>Następne kroki
 

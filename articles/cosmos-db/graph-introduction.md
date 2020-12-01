@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 11/25/2020
 ms.author: chrande
-ms.openlocfilehash: 56ed1e653547b3c0e3469f820eb33155aedb1bcb
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c2165ea6273ad90cfb95242dfe72538c0a5ef64c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187208"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350062"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Wprowadzenie do interfejsu API Gremlin w Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -56,7 +56,7 @@ Poniżej przedstawiono zróżnicowane funkcje, które Azure Cosmos DB Gremlin in
 
 * **Automatyczne indeksowanie**
 
-  Domyślnie Azure Cosmos DB automatycznie indeksuje wszystkie właściwości w węzłach (nazywanych także wierzchołkami) i krawędziami wykresu i nie oczekuje ani nie wymaga żadnego schematu ani tworzenia indeksów pomocniczych. Dowiedz się więcej [na temat indeksowania w Azure Cosmos DB](/azure/cosmos-db/index-overview).
+  Domyślnie Azure Cosmos DB automatycznie indeksuje wszystkie właściwości w węzłach (nazywanych także wierzchołkami) i krawędziami wykresu i nie oczekuje ani nie wymaga żadnego schematu ani tworzenia indeksów pomocniczych. Dowiedz się więcej [na temat indeksowania w Azure Cosmos DB](./index-overview.md).
 
 * **Zgodność z witryną Apache TinkerPop**
 

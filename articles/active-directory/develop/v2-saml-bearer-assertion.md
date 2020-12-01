@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: kenwith
 ms.reviewer: paulgarn
-ms.openlocfilehash: 6e7e4dd6383b1f264ff2da7893d9f86a3708217d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47b036f558628d51242a78c00d2ee17332816d25
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89227920"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348763"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Microsoft Identity platform i OAuth 2,0 SAML Flow Assertion
 Przepływ potwierdzenia elementu "OAuth 2,0 SAML" umożliwia żądanie tokenu dostępu OAuth przy użyciu potwierdzenia SAML, gdy klient musi używać istniejącej relacji zaufania. Sygnatura zastosowana do potwierdzenia SAML zapewnia uwierzytelnianie autoryzowanej aplikacji. Potwierdzenie SAML to token zabezpieczający XML wystawiony przez dostawcę tożsamości i używany przez dostawcę usług. Dostawca usług opiera się na swojej zawartości, aby zidentyfikować podmiot potwierdzenia dla celów związanych z zabezpieczeniami.
@@ -32,7 +32,7 @@ Przepływ potwierdzenia okaziciela protokołu OAuth jest obsługiwany tylko w pr
 ![Przepływ OAuth](./media/v2-saml-bearer-assertion/1.png)
 
 ## <a name="call-graph-using-saml-bearer-assertion"></a>Wywołaj wykres przy użyciu potwierdzenia elementu SAML okaziciela
-Teraz poinformuj nas o tym, jak można w rzeczywistości pobrać programowo potwierdzenia SAML. Ta metoda jest testowana z usługami AD FS. Jednak działa to z dowolnym dostawcą tożsamości, który obsługuje zwrot SAML Assertion programowo. Podstawowy proces to: uzyskiwanie potwierdzenia SAML, uzyskiwanie tokenu dostępu i Microsoft Graph dostępu.
+Teraz poinformuj nas, w jaki sposób można programowo pobrać potwierdzenie SAML. Ta metoda jest testowana z usługami AD FS. Jednak działa to z dowolnym dostawcą tożsamości, który obsługuje przywracanie potwierdzenia SAML programowo. Podstawowy proces to: uzyskiwanie potwierdzenia SAML, uzyskiwanie tokenu dostępu i Microsoft Graph dostępu.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
@@ -73,7 +73,7 @@ W tym kroku Pobierz token OAuth2 przy użyciu odpowiedzi potwierdzenia usług AD
 1. Utwórz żądanie POST, jak pokazano poniżej, korzystając z wartości nagłówka:
 
     ![Żądanie POST](./media/v2-saml-bearer-assertion/5.png)
-1. W treści żądania Zastąp **client_id**, **client_secret**i **Assertion** (potwierdzenie protokołu SAML zakodowane algorytmem Base64 uzyskało poprzedni krok):
+1. W treści żądania Zastąp **client_id**, **client_secret** i **Assertion** (potwierdzenie protokołu SAML zakodowane algorytmem Base64 uzyskało poprzedni krok):
 
     ![Treść żądania](./media/v2-saml-bearer-assertion/6.png)
 1. Po pomyślnym żądaniu otrzymasz token dostępu z usługi Azure Active Directory.

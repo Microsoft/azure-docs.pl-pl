@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: dech
-ms.openlocfilehash: 691a2e56230d312416aed3d68bffd361f1d63558
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d4baa92fe4aa2ed402c394198684c4deec2bf9f1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008586"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348606"
 ---
-# <a name="work-with-data-using-azure-cosmos-explorer"></a>Praca z danymi za pomocą eksploratora usługi Azure Cosmos 
+# <a name="work-with-data-using-azure-cosmos-db-explorer"></a>Pracuj z danymi za pomocą Eksploratora Azure Cosmos DB 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB Explorer to autonomiczny interfejs oparty na sieci Web, który umożliwia wyświetlanie danych przechowywanych w Azure Cosmos DB i zarządzanie nimi. Eksplorator Azure Cosmos DB jest odpowiednikiem istniejącej karty **Eksplorator danych** dostępnej w Azure Portal podczas tworzenia konta Azure Cosmos DB. Kluczowe zalety Eksploratora Azure Cosmos DB za pośrednictwem istniejącego Eksploratora danych są następujące:
@@ -42,7 +42,7 @@ Azure Cosmos DB Explorer to autonomiczny interfejs oparty na sieci Web, który u
 
    Wybierz typ dostępu, za pomocą którego chcesz otworzyć konto, a następnie kliknij przycisk **Otwórz**. Po otwarciu Eksploratora środowisko działa tak samo, jak w przypadku korzystania z karty Eksplorator danych w Azure Portal.
 
-   :::image type="content" source="./media/data-explorer/open-data-explorer-with-access-url.png" alt-text="Otwórz Eksploratora Azure Cosmos DB":::
+   :::image type="content" source="./media/data-explorer/open-data-explorer-with-access-url.png" alt-text="Otwieranie eksploratora usługi Azure Cosmos DB":::
 
 ## <a name="known-issues"></a>Znane problemy
 

@@ -3,12 +3,12 @@ title: Zbieranie & analizowanie dzienników zasobów
 description: Rejestruj i Analizuj zdarzenia dziennika zasobów dla Azure Container Registry takich jak uwierzytelnianie, wypychanie obrazów i ściąganie obrazów.
 ms.topic: article
 ms.date: 06/01/2020
-ms.openlocfilehash: 63ccb944b9c3de9941acf55ca5ea85fda70a7008
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b05d34e6c50fea3760e30d28f59e55d8c5f211a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87553380"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348589"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Dzienniki Azure Container Registry na potrzeby oceny i inspekcji diagnostyki
 
@@ -81,7 +81,7 @@ Na poniższej ilustracji przedstawiono przykładowe dane wyjściowe:
 
 ![Dane dziennika zapytań](media/container-registry-diagnostics-audit-logs/azure-monitor-query.png)
 
-Aby zapoznać się z samouczkiem dotyczącym używania Log Analytics w Azure Portal, zobacz [wprowadzenie do Azure Monitor Log Analytics](../azure-monitor/log-query/get-started-portal.md)lub wypróbuj [środowisko demonstracyjne](https://portal.loganalytics.io/demo)log Analytics. 
+Aby zapoznać się z samouczkiem dotyczącym używania Log Analytics w Azure Portal, zobacz [wprowadzenie do Azure Monitor Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)lub wypróbuj [środowisko demonstracyjne](https://portal.loganalytics.io/demo)log Analytics. 
 
 Aby uzyskać więcej informacji na temat zapytań dzienników, zobacz [Omówienie zapytań dzienników w Azure monitor](../azure-monitor/log-query/log-query-overview.md).
 
@@ -146,5 +146,5 @@ Zdarzenia dzienników diagnostycznych można przesyłać strumieniowo do [centru
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej na temat używania [log Analytics](../azure-monitor/log-query/get-started-portal.md) i tworzenia [zapytań dzienników](../azure-monitor/log-query/get-started-queries.md).
+* Dowiedz się więcej na temat używania [log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) i tworzenia [zapytań dzienników](../azure-monitor/log-query/get-started-queries.md).
 * Zobacz [Omówienie dzienników platformy Azure](../azure-monitor/platform/platform-logs-overview.md) , aby dowiedzieć się więcej o dziennikach platformy, które są dostępne na różnych warstwach platformy Azure.

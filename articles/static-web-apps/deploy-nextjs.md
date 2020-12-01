@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
-ms.openlocfilehash: 20a3337ab054ca1feefc2f5f08f8e6398417fb9e
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 6f96b74726684d37795c94be74e48611b4145402
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441617"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350215"
 ---
 # <a name="deploy-static-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Wdróż statyczne, renderowane Next.js witryny sieci Web w usłudze Azure static Web Apps Preview
 
@@ -29,9 +29,9 @@ W ramach tego samouczka nauczysz się wdrożyć [Next.js](https://nextjs.org) wy
 
 Zamiast korzystać z interfejsu wiersza polecenia Next.js do tworzenia aplikacji, możesz użyć repozytorium początkowego, które zawiera istniejącą aplikację Next.js. To repozytorium zawiera aplikację Next.jsą z trasami dynamicznymi, która wyróżnia typowy problem związany z wdrażaniem. Trasy dynamiczne wymagają dodatkowej konfiguracji wdrożenia, która w tym momencie będzie dowiedzieć się więcej.
 
-Aby rozpocząć, Utwórz nowe repozytorium na koncie usługi GitHub z repozytorium szablonów. 
+Aby rozpocząć, Utwórz nowe repozytorium na koncie usługi GitHub z repozytorium szablonów.
 
-1. Przejdź do strony <http://github.com/staticwebdev/nextjs-starter/generate>
+1. Przejdź do [https://github.com/staticwebdev/nextjs-starter/generate](https://github.com/login?return_to=/staticwebdev/nextjs-starter/generate)
 1. Nadaj nazwę repozytorium **nextjs-Starter**
 1. Następnie Sklonuj nowe repozytorium na komputerze. Pamiętaj, aby zamienić na `<YOUR_GITHUB_ACCOUNT_NAME>` nazwę swojego konta.
 

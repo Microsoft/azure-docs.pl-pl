@@ -7,16 +7,16 @@ ms.date: 11/09/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: quickstart
-ms.openlocfilehash: 021628b92f1068743b097a455306df742f308f86
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 7592b9fb509f39504ad2399d0e939ceca1156221
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427687"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351099"
 ---
 # <a name="quickstart-use-curl-and-rest-to-manage-knowledge-base"></a>Szybki Start: używanie zawieszania i REST do zarządzania bazą wiedzy
 
-Ten przewodnik Szybki Start przeprowadzi Cię przez proces tworzenia, publikowania i wysyłania zapytań do bazy wiedzy. Usługa QnA Maker automatycznie wyodrębnia pytania i odpowiedzi z częściowo ustrukturyzowanej zawartości, na przykład często zadawanych pytań, ze [źródeł danych](../Concepts/knowledge-base.md). Model bazy wiedzy jest zdefiniowany w formacie JSON wysyłanym w treści żądania interfejsu API.
+Ten przewodnik Szybki Start przeprowadzi Cię przez proces tworzenia, publikowania i wysyłania zapytań do bazy wiedzy. Usługa QnA Maker automatycznie wyodrębnia pytania i odpowiedzi z częściowo ustrukturyzowanej zawartości, na przykład często zadawanych pytań, ze [źródeł danych](../index.yml). Model bazy wiedzy jest zdefiniowany w formacie JSON wysyłanym w treści żądania interfejsu API.
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -54,7 +54,7 @@ Aby utworzyć bazę wiedzy z interfejsami API REST i zwinięciem, musisz dyspono
 |--|--|--|
 |Nazwa zasobu QnA Maker|Adres URL|używane do konstruowania adresu URL|
 |Klucz zasobu QnA Maker|`-h` param dla `Ocp-Apim-Subscription-Key` nagłówka|Uwierzytelnianie w usłudze QnA Maker|
-|JSON opisujące bazę wiedzy|`-d` param|[Przykłady](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) kodu JSON|
+|JSON opisujące bazę wiedzy|`-d` param|[Przykłady](/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) kodu JSON|
 |Rozmiar JSON w bajtach|`-h` param dla `Content-Size` nagłówka||
 
 Polecenie zwinięcie jest wykonywane z poziomu powłoki BASH. Edytuj to polecenie przy użyciu własnej nazwy zasobu, klucza zasobu oraz wartości JSON i rozmiaru JSON.
@@ -89,7 +89,7 @@ Aby utworzyć bazę wiedzy z interfejsami API REST i zwinięciem, musisz dyspono
 |--|--|--|
 |Nazwa zasobu QnA Maker|Adres URL|używane do konstruowania adresu URL|
 |Klucz zasobu QnA Maker|`-h` param dla `Ocp-Apim-Subscription-Key` nagłówka|Uwierzytelnianie w usłudze QnA Maker|
-|JSON opisujące bazę wiedzy|`-d` param|[Przykłady](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) kodu JSON|
+|JSON opisujące bazę wiedzy|`-d` param|[Przykłady](/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) kodu JSON|
 |Rozmiar JSON w bajtach|`-h` param dla `Content-Size` nagłówka||
 
 Polecenie zwinięcie jest wykonywane z poziomu powłoki BASH. Edytuj to polecenie przy użyciu własnej nazwy zasobu, klucza zasobu oraz wartości JSON i rozmiaru JSON.
@@ -322,7 +322,7 @@ Uzyskiwanie odpowiedzi ze wiedzy odbywa się z osobnego środowiska uruchomienio
 |Nazwa zasobu QnA Maker|Adres URL|używane do konstruowania adresu URL|
 |Klucz środowiska uruchomieniowego QnA Maker|`-h` param dla `Authorization` nagłówka|Klucz jest częścią ciągu zawierającego wyraz `Endpointkey ` . Uwierzytelnianie w usłudze QnA Maker|
 |Identyfikator bazy wiedzy|Trasa URL|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
-|Zapytanie JSON opisujące|`-d` param|[Parametry treści żądania](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) i [przykłady](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples) kodu JSON|
+|Zapytanie JSON opisujące|`-d` param|[Parametry treści żądania](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) i [przykłady](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples) kodu JSON|
 |Rozmiar JSON w bajtach|`-h` param dla `Content-Size` nagłówka||
 
 Polecenie zwinięcie jest wykonywane z poziomu powłoki BASH. Edytuj to polecenie przy użyciu własnej nazwy zasobu, klucza zasobu i identyfikatora bazy wiedzy.
@@ -347,7 +347,7 @@ Uzyskiwanie odpowiedzi ze wiedzy odbywa się z osobnego środowiska uruchomienio
 |Nazwa zasobu QnA Maker|Adres URL|używane do konstruowania adresu URL|
 |Klucz zasobu QnA Maker|`-h` param dla `Ocp-Apim-Subscription-Key` nagłówka|Uwierzytelnianie w usłudze QnA Maker|
 |Identyfikator bazy wiedzy|Trasa URL|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
-|Zapytanie JSON opisujące|`-d` param|[Parametry treści żądania](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) i [przykłady](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples) kodu JSON|
+|Zapytanie JSON opisujące|`-d` param|[Parametry treści żądania](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) i [przykłady](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples) kodu JSON|
 |Rozmiar JSON w bajtach|`-h` param dla `Content-Size` nagłówka||
 
 Polecenie zwinięcie jest wykonywane z poziomu powłoki BASH. Edytuj to polecenie przy użyciu własnej nazwy zasobu, klucza zasobu i identyfikatora bazy wiedzy.
@@ -412,13 +412,13 @@ Stan odpowiedzi to 204 bez wyników. Użyj `-v` parametru wiersza polecenia, aby
 
 ---
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-* [Tworzenie](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) Dokumentacja referencyjna
-* [Środowisko uruchomieniowe](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/runtime) Dokumentacja referencyjna
+* [Tworzenie](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) Dokumentacja referencyjna
+* [Środowisko uruchomieniowe](/rest/api/cognitiveservices/qnamaker4.0/runtime) Dokumentacja referencyjna
 * [Przykładowe skrypty BASH korzystające z zwinięcie](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/curl/QnAMaker)
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [QnA Maker (V4) REST API Reference (Dokumentacja interfejsu API REST usługi QnA Maker w wersji 4)](https://go.microsoft.com/fwlink/?linkid=2092179)
+> [QnA Maker (V4) REST API Reference (Dokumentacja interfejsu API REST usługi QnA Maker w wersji 4)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase)

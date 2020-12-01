@@ -1,20 +1,20 @@
 ---
 title: Utwórz szablon — Visual Studio Code
-description: Program Visual Studio Code i rozszerzenie Narzędzia usługi Azure Resource Manager służą do pracy z szablonami usługi Resource Manager.
+description: Użyj Visual Studio Code i rozszerzenia narzędzi do Azure Resource Manager, aby korzystać z szablonów Azure Resource Manager (szablony ARM).
 author: neilpeterson
 ms.date: 08/09/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: 5375fedcd05aefa5d23ee872325373ce631d43bb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d8fd44a1e4c1ddfd78b2afa3280bb05c8fde91e3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88034989"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350147"
 ---
-# <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Szybki Start: Tworzenie szablonów Azure Resource Manager przy użyciu Visual Studio Code
+# <a name="quickstart-create-arm-templates-with-visual-studio-code"></a>Szybki Start: Tworzenie szablonów ARM przy użyciu Visual Studio Code
 
-Azure Resource Manager narzędzia dla Visual Studio Code zapewniają obsługę języków, fragmenty zasobów i Autouzupełnianie zasobów. Te narzędzia ułatwiają tworzenie i weryfikowanie szablonów Azure Resource Manager. W tym przewodniku szybki start użyjesz rozszerzenia, aby utworzyć szablon Azure Resource Manager od podstaw. Podczas wykonywania tych czynności są dostępne funkcje rozszerzeń, takie jak fragmenty szablonów ARM, Walidacja, uzupełnianie i obsługa plików parametrów.
+Azure Resource Manager narzędzia dla Visual Studio Code zapewniają obsługę języków, fragmenty zasobów i Autouzupełnianie zasobów. Te narzędzia ułatwiają tworzenie i weryfikowanie szablonów Azure Resource Manager (szablony ARM). W tym przewodniku szybki start użyjesz rozszerzenia, aby utworzyć szablon ARM od podstaw. Podczas wykonywania tych czynności są dostępne funkcje rozszerzeń, takie jak fragmenty szablonów ARM, Walidacja, uzupełnianie i obsługa plików parametrów.
 
 Aby ukończyć ten przewodnik Szybki Start, musisz [Visual Studio Code](https://code.visualstudio.com/)z zainstalowanym [rozszerzeniem narzędzi Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) . Wymagany jest również [interfejs wiersza polecenia platformy Azure](/cli/azure/?view=azure-cli-latest) lub [moduł Azure PowerShell](/powershell/azure/new-azureps-module-az?view=azps-3.7.0) zainstalowany i uwierzytelniony.
 
@@ -54,7 +54,7 @@ Klawisz **Tab** może służyć do przechodzenia przez konfigurowalne właściwo
 
 ## <a name="completion-and-validation"></a>Ukończenie i weryfikacja
 
-Jedną z najbardziej zaawansowanych możliwości rozszerzenia jest integracja ze schematami platformy Azure. Usługa Azure schematy udostępnia rozszerzenie z możliwościami weryfikacji i uzupełniania z uwzględnieniem zasobów. Zmodyfikujmy konto magazynu, aby zobaczyć sprawdzanie poprawności i zakończenie działania. 
+Jedną z najbardziej zaawansowanych możliwości rozszerzenia jest integracja ze schematami platformy Azure. Usługa Azure schematy udostępnia rozszerzenie z możliwościami weryfikacji i uzupełniania z uwzględnieniem zasobów. Zmodyfikujmy konto magazynu, aby zobaczyć sprawdzanie poprawności i zakończenie działania.
 
 Najpierw zaktualizuj rodzaj konta magazynu do nieprawidłowej wartości takiej jak `megaStorage` . Należy zauważyć, że ta akcja powoduje ostrzeżenie wskazujące, że `megaStorage` nie jest prawidłową wartością.
 
@@ -80,7 +80,7 @@ Nazwy kont usługi Azure Storage mają minimalną długość 3 znaków i maksyma
 
 ![Obraz przedstawiający element minLength i element maxLength dodawane do parametru szablonu ARM](./media/quickstart-create-templates-use-visual-studio-code/11.png)
 
-Teraz w zasobów magazynu zaktualizuj właściwość Name, aby użyć parametru. Aby to zrobić, Usuń bieżącą nazwę. Wprowadź podwójny cudzysłów i otwierający nawias kwadratowy `[` , który tworzy listę funkcji szablonu ARM. Z listy wybierz *Parametry* . 
+Teraz w zasobów magazynu zaktualizuj właściwość Name, aby użyć parametru. Aby to zrobić, Usuń bieżącą nazwę. Wprowadź podwójny cudzysłów i otwierający nawias kwadratowy `[` , który tworzy listę funkcji szablonu ARM. Z listy wybierz *Parametry* .
 
 ![Obraz przedstawiający Autouzupełnianie przy użyciu parametrów w zasobach szablonów ARM](./media/quickstart-create-templates-use-visual-studio-code/12.png)
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
-ms.openlocfilehash: 4378a648b8b7a545c9e4b638d08592aa32fff3aa
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: c89ab375cb02824a08ff57e6b5278dd9299126ff
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427670"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350929"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrowanie bazy wiedzy przy użyciu eksportu i importu
 
@@ -34,7 +34,7 @@ Migrowanie bazy wiedzy wymaga eksportowania z istniejącej bazy wiedzy, a nastę
 1. Zaloguj się do [portalu QNA Maker](https://qnamaker.ai).
 1. Wybierz bazę wiedzy źródłowej, którą chcesz zmigrować.
 
-1. Na stronie **Ustawienia** wybierz pozycję **Eksportuj bazę wiedzy** , aby pobrać plik. tsv, który zawiera zawartość bazy wiedzy o pochodzeniu, odpowiedzi, metadane, monity monitujące oraz nazwy źródeł danych, z których zostały wyodrębnione. Identyfikatory QnA eksportowane z pytaniami i odpowiedziami mogą być używane do aktualizowania określonej pary QnA przy użyciu [interfejsu API aktualizacji](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). Identyfikator QnA dla określonej pary QnA pozostaje niezmieniony w wielu operacjach eksportu.
+1. Na stronie **Ustawienia** wybierz pozycję **Eksportuj bazę wiedzy** , aby pobrać plik. tsv, który zawiera zawartość bazy wiedzy o pochodzeniu, odpowiedzi, metadane, monity monitujące oraz nazwy źródeł danych, z których zostały wyodrębnione. Identyfikatory QnA eksportowane z pytaniami i odpowiedziami mogą być używane do aktualizowania określonej pary QnA przy użyciu [interfejsu API aktualizacji](/rest/api/cognitiveservices/qnamaker/knowledgebase/update). Identyfikator QnA dla określonej pary QnA pozostaje niezmieniony w wielu operacjach eksportu.
 
 1. Wybierz pozycję **Utwórz bazę wiedzy** z górnego menu, a następnie Utwórz _pustą_ bazę wiedzy. Jest ona pusta, ponieważ podczas jej tworzenia nie będzie można dodawać żadnych adresów URL ani plików. Są one dodawane podczas kroku importowania po utworzeniu.
 
@@ -59,16 +59,16 @@ Proces migracji jest programowo dostępny przy użyciu następujących interfejs
 
 **Eksportowanie**
 
-* [Pobierz interfejs API bazy wiedzy](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/download)
+* [Pobierz interfejs API bazy wiedzy](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/download)
 
-**Importuj**
+**Import**
 
-* [Zastąp interfejs API (Załaduj ponownie z tym samym IDENTYFIKATORem bazy wiedzy)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/replace)
-* [Utwórz interfejs API (Załaduj z nowym IDENTYFIKATORem bazy wiedzy)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/create)
+* [Zastąp interfejs API (Załaduj ponownie z tym samym IDENTYFIKATORem bazy wiedzy)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/replace)
+* [Utwórz interfejs API (Załaduj z nowym IDENTYFIKATORem bazy wiedzy)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/create)
 
 
 ## <a name="chat-logs-and-alterations"></a>Dzienniki i zmiany rozmowy
-Zmiany bez uwzględniania wielkości liter (synonimy) nie są importowane automatycznie. Użyj [interfejsów API v4](https://go.microsoft.com/fwlink/?linkid=2092179) , aby przenieść zmiany w nowej bazie wiedzy.
+Zmiany bez uwzględniania wielkości liter (synonimy) nie są importowane automatycznie. Użyj [interfejsów API v4](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) , aby przenieść zmiany w nowej bazie wiedzy.
 
 Nie ma możliwości migrowania dzienników rozmowy, ponieważ nowa baza wiedzy używa Application Insights do przechowywania dzienników rozmowy.
 
