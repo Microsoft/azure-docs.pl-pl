@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 3d399507499a320116ff1c732a1ffc0ad84b5731
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: b43d446930d1f8c40c12e5d0aeba6eb202ef47ef
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015446"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353735"
 ---
 # <a name="voice-assistants-frequently-asked-questions"></a>Często zadawane pytania dotyczące asystentów głosowych
 
-Jeśli nie możesz znaleźć odpowiedzi na pytania w tym dokumencie, zapoznaj się z [innymi opcjami pomocy technicznej](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext).
+Jeśli nie możesz znaleźć odpowiedzi na pytania w tym dokumencie, zapoznaj się z [innymi opcjami pomocy technicznej](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
 ## <a name="general"></a>Ogólne
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 5ba81c7a3da6747b0fee8a05e359181e86e4a19d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7a15248300150c9b79c4678701f81fac923d56a3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181530"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353616"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą usługi ServiceNow
 
@@ -25,6 +25,8 @@ W tym samouczku dowiesz się, jak zintegrować usługę usługi ServiceNow z us�
 * Kontrolka w usłudze Azure AD, która ma dostęp do usługi ServiceNow.
 * Zezwól użytkownikom na automatyczne logowanie się do usługi usługi ServiceNow przy użyciu kont w usłudze Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji: Azure Portal.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Jao6]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -131,7 +133,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal.
    1. W obszarze **Nazwa** wprowadź `B.Simon` .  
    1. W polu **Nazwa użytkownika** wprowadź username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Wybierz pozycję **Pokaż hasło**, a następnie Zapisz wartość, która jest wyświetlana w polu **hasło** .
-   1. Wybierz przycisk **Utwórz**.
+   1. Wybierz pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -318,7 +320,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
         1. Wprowadź **adres URL metadanych federacji aplikacji** , który został skopiowany z Azure Portal.
 
-        1. Wybierz pozycję **Importuj**.
+        1. Wybierz pozycję **Import** (Importuj).
 
     1. Odczytuje adres URL metadanych dostawcy tożsamości i wypełnia wszystkie informacje o polach.
 

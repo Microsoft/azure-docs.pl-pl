@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2019
-ms.openlocfilehash: dc910c01c401468a3dae392a6318344bee25efb7
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 5035a81838ace0678f0cbb68ad2b9325de498003
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94375644"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353123"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Obsługa języka dla zasobów QnA Maker i baz wiedzy
 
@@ -48,7 +48,7 @@ Rozważ następujące źródła:
 # <a name="qnamaker-managed-preview"></a>[Zarządzane QnAMaker (wersja zapoznawcza)](#tab/v2)
 ![Ustawienie języka w QnA Maker zarządzanym](../media/language-support/language-setting-managed.png)
 
-Jeśli **nie zaznaczysz pola wyboru, aby włączyć ustawienie języka dla bazy wiedzy** , weź pod uwagę następujące kwestie: 
+Jeśli **nie zaznaczysz pola wyboru, aby włączyć ustawienie języka dla bazy wiedzy**, weź pod uwagę następujące kwestie: 
 * Usługa QnA Maker i wszystkie jej bazy wiedzy obsługują tylko jeden język.
 * Język jest jawnie ustawiany podczas tworzenia pierwszej bazy wiedzy usługi
 * Język jest określany na podstawie plików i adresów URL dodanych podczas tworzenia bazy wiedzy
@@ -140,7 +140,7 @@ Poniższa lista zawiera języki obsługiwane dla zasobu QnA Maker.
 |Wietnamski|
 
 ## <a name="query-matching-and-relevance"></a>Dopasowanie i zgodność zapytania
-QnA Maker zależy od [analizatorów języka wyszukiwanie poznawcze platformy Azure](https://docs.microsoft.com/rest/api/searchservice/language-support) w celu uzyskania wyników.
+QnA Maker zależy od [analizatorów języka wyszukiwanie poznawcze platformy Azure](/rest/api/searchservice/language-support) w celu uzyskania wyników.
 
 Gdy możliwości platformy Azure Wyszukiwanie poznawcze są dostępne dla obsługiwanych języków, QnA Maker ma dodatkową rangę, która znajduje się powyżej wyników usługi Azure Search. W tym modelu rangi używamy niektórych specjalnych funkcji semantycznych i opartych na programie Word w następujących językach.
 
@@ -166,4 +166,4 @@ Ta dodatkowa klasyfikacja jest wewnętrzną pracą rangi QnA Maker.
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Wybór języka](../how-to/language-knowledge-base.md)
+> [Wybór języka](../index.yml)

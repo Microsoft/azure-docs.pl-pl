@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: 7c0b399f84e793d9e762c89dbbd1901bb5a95f26
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 32f6a9dae1a5b0be604b53d814ebc85cb7813b91
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024334"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353769"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Zamiana mowy na tekst często zadawanych pytań
 
-Jeśli nie możesz znaleźć odpowiedzi na pytania w tym często zadawane pytania, zapoznaj się z [innymi opcjami pomocy technicznej](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext).
+Jeśli nie możesz znaleźć odpowiedzi na pytania w tym często zadawane pytania, zapoznaj się z [innymi opcjami pomocy technicznej](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
 ## <a name="general"></a>Ogólne
 
@@ -71,7 +71,7 @@ Odp **.: nie** można pobrać i wykonać lokalnie modeli.
 
 **P: Czy moje żądania są zarejestrowane?**
 
-Odp **.: domyślnie** żądania nie są rejestrowane (ani audio ani transkrypcja). W razie potrzeby można wybrać opcję *Rejestruj zawartość z tej opcji punktu końcowego* podczas [tworzenia niestandardowego punktu końcowego](how-to-custom-speech-deploy-model.md) w celu włączenia śledzenia. Następnie żądania będą rejestrowane na platformie Azure w bezpiecznym magazynie.
+Odp **.: domyślnie** żądania nie są rejestrowane (ani audio ani transkrypcja). W razie potrzeby można wybrać opcję *Rejestruj zawartość z tej opcji punktu końcowego* podczas [tworzenia niestandardowego punktu końcowego](./how-to-custom-speech-train-model.md) w celu włączenia śledzenia. Następnie żądania będą rejestrowane na platformie Azure w bezpiecznym magazynie.
 
 **P: Czy moje żądania są ograniczone?**
 

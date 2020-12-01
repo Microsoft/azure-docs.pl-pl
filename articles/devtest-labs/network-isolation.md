@@ -3,12 +3,12 @@ title: Izolacja sieci w Azure DevTest Labs
 description: Informacje na temat izolacji sieci w Azure DevTest Labs.
 ms.topic: article
 ms.date: 08/25/2020
-ms.openlocfilehash: aafa6bf94c7963d69bfb67a28a520b811c4fbacf
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 28bfa048a8a6666deb58a8ecfff38779c91d95b8
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149153"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352936"
 ---
 # <a name="network-isolation-in-devtest-labs"></a>Izolacja sieci w DevTest Labs
 
@@ -74,7 +74,7 @@ Dzięki temu usługa Azure Storage zezwoli na połączenia przychodzące z dodan
 
 Możesz również zautomatyzować te kroki, aby skonfigurować to ustawienie dla wielu laboratoriów. 
 
-[Więcej informacji na temat zarządzania domyślnymi regułami dostępu do sieci dla usługi Azure Storage przy użyciu programu PowerShell i interfejsu wiersza polecenia](../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#powershell)
+[Więcej informacji na temat zarządzania domyślnymi regułami dostępu do sieci dla usługi Azure Storage przy użyciu programu PowerShell i interfejsu wiersza polecenia](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#powershell)
 
 ## <a name="things-to-remember-while-using-a-lab-in-a-network-isolated-mode"></a>Kwestie, które należy zapamiętać podczas korzystania z laboratorium w trybie izolowanym w sieci
 

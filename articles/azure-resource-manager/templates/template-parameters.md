@@ -1,18 +1,18 @@
 ---
 title: Parametry w szablonach
-description: Opisuje sposób definiowania parametrów w szablonie Azure Resource Manager.
+description: Opisuje sposób definiowania parametrów w szablonie Azure Resource Manager (szablon ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 8cdc95037967a32c2d8464f4dc39b1e7369102bb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4ac1aeb579040b35b2a9b4cb90fb5687f91ebd3b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911417"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353514"
 ---
-# <a name="parameters-in-azure-resource-manager-templates"></a>Parametry w szablonach usługi Azure Resource Manager
+# <a name="parameters-in-arm-templates"></a>Parametry w szablonach ARM
 
-W tym artykule opisano sposób definiowania parametrów i używania ich w szablonie Azure Resource Manager. Dostarczając różne wartości parametrów, można ponownie użyć szablonu dla różnych środowisk.
+W tym artykule opisano sposób definiowania i używania parametrów w szablonie Azure Resource Manager (szablon ARM). Dostarczając różne wartości parametrów, można ponownie użyć szablonu dla różnych środowisk.
 
 Menedżer zasobów rozwiązuje wartości parametrów przed rozpoczęciem operacji wdrażania. W każdym przypadku, gdy parametr jest używany w szablonie, Menedżer zasobów zastępuje go rozpoznaną wartością.
 
@@ -159,9 +159,8 @@ W poniższych przykładach przedstawiono scenariusze używania parametrów.
 |[parametry z funkcjami dla wartości domyślnych](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Pokazuje, jak używać funkcji szablonu podczas definiowania wartości domyślnych dla parametrów. Szablon nie wdraża żadnych zasobów. Konstruuje wartości parametrów i zwraca te wartości. |
 |[Parameter — obiekt](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Demonstruje użycie obiektu dla parametru. Szablon nie wdraża żadnych zasobów. Konstruuje wartości parametrów i zwraca te wartości. |
 
-
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej o dostępnych właściwościach parametrów, zobacz [Opis struktury i składni szablonów Azure Resource Manager](template-syntax.md).
+* Aby dowiedzieć się więcej o dostępnych właściwościach parametrów, zobacz [Opis struktury i składni szablonów usługi ARM](template-syntax.md).
 * Aby dowiedzieć się więcej o przekazywaniu wartości parametrów jako pliku, zobacz [Tworzenie pliku parametrów Menedżer zasobów](parameter-files.md).
 * Aby zapoznać się z zaleceniami dotyczącymi tworzenia parametrów, zobacz [Best Practices-Parameters](template-best-practices.md#parameters).

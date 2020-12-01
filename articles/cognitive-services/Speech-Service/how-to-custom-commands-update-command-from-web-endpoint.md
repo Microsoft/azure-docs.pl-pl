@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
 ms.author: encorona
-ms.openlocfilehash: a24f1337a68f38db273688e9a91c65ac2f4736b4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 737b6e0534111924a31204d4548dfa59805c2fe5
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963610"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352579"
 ---
 # <a name="update-a-command-from-a-web-endpoint"></a>Aktualizowanie polecenia z poziomu internetowego punktu końcowego
 
@@ -29,7 +29,7 @@ W tym artykule dowiesz się, jak zaktualizować bieżące polecenie z punktu ko�
 
 ## <a name="create-an-azure-function"></a>Tworzenie funkcji platformy Azure 
 
-Na potrzeby tego przykładu wymagana jest [Funkcja platformy Azure](https://docs.microsoft.com/azure/azure-functions/) wyzwalana przez protokół http, która obsługuje następujące dane wejściowe (lub podzestaw tego wejścia):
+Na potrzeby tego przykładu wymagana jest [Funkcja platformy Azure](../../azure-functions/index.yml) wyzwalana przez protokół http, która obsługuje następujące dane wejściowe (lub podzestaw tego wejścia):
 
 ```JSON
 {

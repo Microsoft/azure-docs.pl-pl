@@ -1,6 +1,6 @@
 ---
-title: Migrowanie z obrazu zarządzanego do wersji obrazu przy użyciu interfejsu wiersza polecenia platformy Azure
-description: Dowiedz się, jak przeprowadzić migrację z zarządzanego obrazu do wersji obrazu w udostępnionej galerii obrazów przy użyciu interfejsu wiersza polecenia platformy Azure.
+title: Klonowanie zarządzanego obrazu do wersji obrazu przy użyciu interfejsu wiersza polecenia platformy Azure
+description: Dowiedz się, jak sklonować zarządzany obraz do wersji obrazu w udostępnionej galerii obrazów przy użyciu interfejsu wiersza polecenia platformy Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -10,22 +10,22 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8631a411b26f91bc72e23ac7ff9fb2278f61168c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e53bebf9cdb8c0fc084d04550c7444c1c01be50
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87502889"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352868"
 ---
-# <a name="migrate-from-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Migrowanie z obrazu zarządzanego do wersji obrazu przy użyciu interfejsu wiersza polecenia platformy Azure
-Jeśli masz istniejący obraz zarządzany, który chcesz migrować do galerii obrazów udostępnionych, możesz utworzyć obraz udostępnionej galerii obrazów bezpośrednio z poziomu zarządzanego obrazu. Po przetestowaniu nowego obrazu można usunąć źródłowy obraz zarządzany. Możesz także przeprowadzić migrację z zarządzanego obrazu do udostępnionej galerii obrazów przy użyciu [programu PowerShell](image-version-managed-image-powershell.md).
+# <a name="clone-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Klonowanie zarządzanego obrazu do wersji obrazu przy użyciu interfejsu wiersza polecenia platformy Azure
+Jeśli masz istniejący obraz zarządzany, który chcesz sklonować do galerii obrazów udostępnionych, możesz utworzyć obraz udostępnionej galerii obrazów bezpośrednio z poziomu zarządzanego obrazu. Po przetestowaniu nowego obrazu można usunąć źródłowy obraz zarządzany. Możesz także przeprowadzić migrację z zarządzanego obrazu do udostępnionej galerii obrazów przy użyciu [programu PowerShell](image-version-managed-image-powershell.md).
 
 Obrazy w galerii obrazów mają dwa składniki, które zostaną utworzone w tym przykładzie:
 - **Definicja obrazu** przenosi informacje o obrazie i wymaganiach dotyczących korzystania z niego. Obejmuje to zarówno system Windows, jak i Linux, wyspecjalizowane lub uogólnione informacje o wersji oraz minimalne i maksymalne wymagania dotyczące pamięci. Jest to definicja typu obrazu. 
 - **Wersja obrazu** jest używana do tworzenia maszyny wirtualnej w przypadku korzystania z galerii obrazów udostępnionych. Dla danego środowiska można mieć wiele wersji obrazu. Podczas tworzenia maszyny wirtualnej wersja obrazu jest używana do tworzenia nowych dysków dla maszyny wirtualnej. Wersje obrazów można wielokrotnie używać.
 
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Do wykonania tego artykułu jest wymagana istniejąca [Galeria obrazów udostępnionych](shared-images-cli.md). 
 
@@ -45,7 +45,7 @@ Aby uzyskać więcej informacji na temat wartości, które można określić dla
 
 Utwórz definicję obrazu w galerii za pomocą polecenia [AZ SIG Image-Definition Create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
-W tym przykładzie definicja obrazu ma nazwę *myImageDefinition*i ma na celu [uogólniony](./linux/shared-image-galleries.md#generalized-and-specialized-images) obraz systemu operacyjnego Linux. Aby utworzyć definicję dla obrazów przy użyciu systemu operacyjnego Windows, użyj polecenia `--os-type Windows` . 
+W tym przykładzie definicja obrazu ma nazwę *myImageDefinition* i ma na celu [uogólniony](./linux/shared-image-galleries.md#generalized-and-specialized-images) obraz systemu operacyjnego Linux. Aby utworzyć definicję dla obrazów przy użyciu systemu operacyjnego Windows, użyj polecenia `--os-type Windows` . 
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG

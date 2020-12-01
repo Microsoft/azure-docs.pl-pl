@@ -1,20 +1,20 @@
 ---
 title: Struktura i składnia szablonu
-description: Opisuje strukturę i właściwości szablonów Azure Resource Manager przy użyciu deklaracyjnej składni JSON.
+description: Opisuje strukturę i właściwości szablonów Azure Resource Manager (szablony ARM) przy użyciu składni deklaratywnej JSON.
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: b7cf30741cfd2b85046f64fddf01c414676a97e4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c0e1e3225d63d0463164a3ed599fb0b760367123
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911502"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353497"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Opis struktury i składni szablonów usługi ARM
 
-W tym artykule opisano strukturę szablonu Azure Resource Manager (ARM). Przedstawia różne sekcje szablonu i właściwości, które są dostępne w tych sekcjach.
+W tym artykule opisano strukturę szablonu Azure Resource Manager (szablon ARM). Przedstawia różne sekcje szablonu i właściwości, które są dostępne w tych sekcjach.
 
-Ten artykuł jest przeznaczony dla użytkowników, którzy mają pewną wiedzę z szablonami usługi ARM. Zawiera szczegółowe informacje na temat struktury szablonu. Aby zapoznać się z samouczkiem krok po kroku, który przeprowadzi Cię przez proces tworzenia szablonu, zobacz [Samouczek: Tworzenie i wdrażanie pierwszego szablonu Azure Resource Manager](template-tutorial-create-first-template.md).
+Ten artykuł jest przeznaczony dla użytkowników, którzy mają pewną wiedzę z szablonami usługi ARM. Zawiera szczegółowe informacje na temat struktury szablonu. Aby zapoznać się z samouczkiem krok po kroku, który przeprowadzi Cię przez proces tworzenia szablonu, zobacz [Samouczek: Tworzenie i wdrażanie pierwszego szablonu usługi ARM](template-tutorial-create-first-template.md).
 
 ## <a name="template-format"></a>Template format (Format szablonu)
 
@@ -137,7 +137,7 @@ Dostępne są następujące właściwości parametrów:
 | maxLength |Nie |Maksymalna długość parametrów ciągu, bezpiecznego ciągu i typu tablicy, ta wartość jest włącznie. |
 | description (opis) |Nie |Opis parametru, który jest wyświetlany użytkownikom w portalu. Aby uzyskać więcej informacji, zobacz [Komentarze w szablonach](#comments). |
 
-Aby uzyskać przykłady użycia parametrów, zobacz [Parametry w szablonach Azure Resource Manager](template-parameters.md).
+Aby uzyskać przykłady użycia parametrów, zobacz [Parametry w szablonach ARM](template-parameters.md).
 
 ## <a name="variables"></a>Zmienne
 
@@ -172,7 +172,7 @@ W poniższym przykładzie przedstawiono dostępne opcje definiowania zmiennej:
 
 Aby uzyskać informacje o używaniu `copy` do tworzenia kilku wartości dla zmiennej, zobacz [zmienna iteracja](copy-variables.md).
 
-Aby zapoznać się z przykładami użycia zmiennych, zobacz [zmienne w szablonie Azure Resource Manager](template-variables.md).
+Aby zapoznać się z przykładami użycia zmiennych, zobacz [zmienne w szablonie ARM](template-variables.md).
 
 ## <a name="functions"></a>Funkcje
 
@@ -217,7 +217,7 @@ Podczas definiowania funkcji użytkownika istnieją pewne ograniczenia:
 | Typ danych wyjściowych |Tak |Typ wartości wyjściowej. Wartości wyjściowe obsługują te same typy jak parametry wejściowe funkcji. |
 | Wartość wyjściowa |Tak |Wyrażenie języka szablonu, które jest oceniane i zwracane przez funkcję. |
 
-Przykłady korzystania z funkcji niestandardowych można znaleźć [w temacie Funkcje zdefiniowane przez użytkownika w szablonie Azure Resource Manager](template-user-defined-functions.md).
+Przykłady korzystania z funkcji niestandardowych można znaleźć [w sekcji funkcje zdefiniowane przez użytkownika w szablonie usługi ARM](template-user-defined-functions.md).
 
 ## <a name="resources"></a>Zasoby
 
@@ -287,7 +287,7 @@ Należy zdefiniować zasoby o następującej strukturze:
 | name |Tak |Nazwa zasobu. Nazwa musi następować zgodnie z ograniczeniami składnika URI zdefiniowanymi w RFC3986. Usługi platformy Azure, które uwidaczniają nazwę zasobu podmiotom zewnętrznym, sprawdzają poprawność nazwy, aby upewnić się, że nie jest próbą sfałszowania innej tożsamości. W przypadku zasobu podrzędnego format nazwy zależy od tego, czy jest on zagnieżdżony w obrębie zasobu nadrzędnego, czy zdefiniowany poza zasobem nadrzędnym. Zobacz [Set Name i Type dla zasobów podrzędnych](child-resource-name-type.md). |
 | komentarz |Nie |Twoje notatki umożliwiające dokumentowanie zasobów w szablonie. Aby uzyskać więcej informacji, zobacz [Komentarze w szablonach](template-syntax.md#comments). |
 | location |Różnie |Obsługiwane lokalizacje geograficzne podanego zasobu. Można wybrać dowolną z dostępnych lokalizacji, ale zazwyczaj warto ją wybrać blisko użytkowników. Zwykle warto również umieścić zasoby, które współpracują ze sobą w tym samym regionie. Większość typów zasobów wymaga lokalizacji, ale niektóre typy (takie jak przypisanie roli) nie wymagają lokalizacji. Zobacz [Ustawianie lokalizacji zasobu](resource-location.md). |
-| dependsOn |Nie |Zasoby, które muszą zostać wdrożone przed wdrożeniem tego zasobu. Menedżer zasobów oblicza zależności między zasobami i wdraża je w odpowiedniej kolejności. Gdy zasoby nie są od siebie zależne, są wdrażane równolegle. Wartość może być rozdzielaną przecinkami listą nazw zasobów lub unikatowych identyfikatorów zasobów. Tylko zasoby, które są wdrożone w tym szablonie. Zasoby, które nie są zdefiniowane w tym szablonie, muszą już istnieć. Należy unikać dodawania niepotrzebnych zależności, ponieważ mogą one spowalniać wdrożenie i tworzyć zależności cykliczne. Aby uzyskać wskazówki dotyczące ustawiania zależności, zobacz [Definiowanie zależności w szablonach Azure Resource Manager](define-resource-dependency.md). |
+| dependsOn |Nie |Zasoby, które muszą zostać wdrożone przed wdrożeniem tego zasobu. Menedżer zasobów oblicza zależności między zasobami i wdraża je w odpowiedniej kolejności. Gdy zasoby nie są od siebie zależne, są wdrażane równolegle. Wartość może być rozdzielaną przecinkami listą nazw zasobów lub unikatowych identyfikatorów zasobów. Tylko zasoby, które są wdrożone w tym szablonie. Zasoby, które nie są zdefiniowane w tym szablonie, muszą już istnieć. Należy unikać dodawania niepotrzebnych zależności, ponieważ mogą one spowalniać wdrożenie i tworzyć zależności cykliczne. Aby uzyskać wskazówki dotyczące ustawiania zależności, zobacz [Definiowanie kolejności wdrażania zasobów w usłudze ARM](define-resource-dependency.md). |
 | tags |Nie |Tagi, które są skojarzone z zasobem. Zastosuj Tagi, aby logicznie organizować zasoby w ramach subskrypcji. |
 | sku | Nie | Niektóre zasoby umożliwiają wartości, które definiują jednostkę SKU do wdrożenia. Na przykład można określić typ nadmiarowości dla konta magazynu. |
 | Natur | Nie | Niektóre zasoby umożliwiają wartości, która definiuje typ wdrażanego zasobu. Na przykład można określić typ Cosmos DB, który ma zostać utworzony. |
@@ -322,9 +322,9 @@ Poniższy przykład pokazuje strukturę definicji wyjściowej:
 | rozgrzewa |Nie | Wartość logiczna wskazująca, czy ta wartość wyjściowa jest zwracana. Gdy `true` wartość jest uwzględniona w danych wyjściowych dla wdrożenia. Gdy `false` Wartość wyjściowa jest pomijana dla tego wdrożenia. Gdy nie zostanie określony, wartość domyślna to `true` . |
 | typ |Tak |Typ wartości wyjściowej. Wartości wyjściowe obsługują takie same typy jak parametry wejściowe szablonu. W przypadku określenia elementu **SecureString** dla typu danych wyjściowych wartość nie jest wyświetlana w historii wdrożenia i nie można jej pobrać z innego szablonu. Aby użyć wartości klucza tajnego w więcej niż jednym szablonie, należy zapisać klucz tajny w Key Vault i odwołać się do wpisu tajnego w pliku parametrów. Aby uzyskać więcej informacji, zobacz [używanie Azure Key Vault do przekazywania zabezpieczonej wartości parametrów podczas wdrażania](key-vault-parameter.md). |
 | value |Nie |Wyrażenie języka szablonu, które jest oceniane i zwracane jako wartość wyjściowa. Określ **wartość** lub **Kopiuj**. |
-| kopiowanie |Nie | Służy do zwrócenia więcej niż jednej wartości dla danych wyjściowych. Określ **wartość** lub **Kopiuj**. Aby uzyskać więcej informacji, zobacz [iteracja danych wyjściowych w szablonach Azure Resource Manager](copy-outputs.md). |
+| kopiowanie |Nie | Służy do zwrócenia więcej niż jednej wartości dla danych wyjściowych. Określ **wartość** lub **Kopiuj**. Aby uzyskać więcej informacji, zobacz [iteracja danych wyjściowych w szablonach ARM](copy-outputs.md). |
 
-Aby zapoznać się z przykładami sposobu korzystania z danych wyjściowych, zobacz dane [wyjściowe w szablonie Azure Resource Manager](template-outputs.md).
+Aby zapoznać się z przykładami sposobu korzystania z danych wyjściowych, zobacz dane [wyjściowe w szablonie usługi ARM](template-outputs.md).
 
 <a id="comments"></a>
 
@@ -453,7 +453,7 @@ Aby wdrożyć szablony z użyciem ciągów wielowierszowych przy użyciu interfe
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby wyświetlić pełną listę szablonów dla wielu różnych rozwiązań, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/documentation/templates/).
-* Aby uzyskać szczegółowe informacje o funkcjach, których można użyć w szablonie, zobacz [Azure Resource Manager Template Functions](template-functions.md).
-* Aby połączyć kilka szablonów podczas wdrażania, zobacz [Używanie połączonych szablonów z Azure Resource Manager](linked-templates.md).
-* Zalecenia dotyczące tworzenia szablonów można znaleźć w temacie [Azure Resource Manager Best Practices Template](template-best-practices.md).
+* Aby uzyskać szczegółowe informacje o funkcjach, których można użyć w szablonie, zobacz [funkcje szablonu ARM](template-functions.md).
+* Aby połączyć kilka szablonów podczas wdrażania, zobacz [Używanie połączonych i zagnieżdżonych szablonów podczas wdrażania zasobów platformy Azure](linked-templates.md).
+* Aby zapoznać się z zaleceniami dotyczącymi tworzenia szablonów, zobacz [najlepsze rozwiązania dotyczące szablonów ARM](template-best-practices.md).
 * Odpowiedzi na często zadawane pytania można znaleźć w sekcji [często zadawanych pytań dotyczących szablonów ARM](frequently-asked-questions.md).

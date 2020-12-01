@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 21984a03947e4f9f60e705955cb1be3b2df8933c
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 273548ec095ce04772438a2d732b914d80d976cc
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376195"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353157"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>Przetestuj bazę wiedzy w QnA Maker
 
@@ -70,11 +70,11 @@ Wybierz pozycję **Zapisz i poszkol,** aby zachować tę odpowiedź. Nowa para p
 
 1. Uzyskaj dostęp do bazy wiedzy, wybierając jej nazwę na stronie **Moje bazy wiedzy** .
 1. Aby uzyskać dostęp do panelu slajdu testu, wybierz opcję **test** w górnym panelu aplikacji. 
-1. Zobaczysz pole wyboru u góry **Wyświetl krótką odpowiedź** , która jest zaznaczona domyślnie. Ta opcja służy do włączania wykrywania zakresów odpowiedzi na podstawie MRC w panelu testowania. 
+1. Zobaczysz pole wyboru u góry **Wyświetl krótką odpowiedź**, która jest zaznaczona domyślnie. Ta opcja służy do włączania wykrywania zakresów odpowiedzi na podstawie MRC w panelu testowania. 
 1. Wprowadź zapytanie w polu tekstowym i wybierz klawisz ENTER. 
 1. Dla każdego zapytania, jeśli istnieje dokładna odpowiedź/krótka odpowiedź, która znajduje się w odniesieniu do odpowiedzi, a następnie z najlepszym dopasowanym przedostaniem odpowiedzi, który znajduje się w bazie wiedzy, będzie również dostępna krótka odpowiedź na zapytanie.
     ![Okienko testów z włączonym zarządzaniem](../media/qnamaker-how-to-test-knowledge-bases/test-pane-with-managed-detail.png)
-1. Jeśli anulujesz zaznaczenie opcji **Wyświetl krótką odpowiedź** , jako odpowiedź zostanie zwrócona tylko Najlepsza dopasuje odpowiedź z bazy wiedzy.
+1. Jeśli anulujesz zaznaczenie opcji **Wyświetl krótką odpowiedź**, jako odpowiedź zostanie zwrócona tylko Najlepsza dopasuje odpowiedź z bazy wiedzy.
 
 ### <a name="clear-test-panel"></a>Wyczyść panel testu
 
@@ -263,7 +263,7 @@ Skorzystaj z poniższej tabeli, aby zrozumieć, jak znaleźć wartości pól dla
     > [!TIP]
     > Aby wyświetlić metadane i identyfikatory QnA każdego zestawu, wyeksportuj bazę wiedzy. Wybierz stronę **Ustawienia** , a następnie wybierz pozycję **Eksportuj** jako `.xls` plik. Znajdź ten pobrany plik i otwórz go w programie Excel przegląd dla metadanych i identyfikatora.
 
-1. Wybierz pozycję **Zapisz i pouczenie** , a następnie wybierz stronę **Publikowanie** , a następnie wybierz przycisk **Publikuj** . Te akcje sprawiają, że zmiany są dostępne dla testu wsadowego. Pobierz bazę wiedzy ze strony **ustawień** .
+1. Wybierz pozycję **Zapisz i pouczenie**, a następnie wybierz stronę **Publikowanie** , a następnie wybierz przycisk **Publikuj** . Te akcje sprawiają, że zmiany są dostępne dla testu wsadowego. Pobierz bazę wiedzy ze strony **ustawień** .
 
     Pobrany plik ma prawidłowy format dla metadanych oraz prawidłowy identyfikator pytania i odpowiedzi. Użyj tych pól w następnej sekcji
 
@@ -323,4 +323,4 @@ Jeśli nie chcesz nadal korzystać z tej bazy wiedzy, Usuń bazę wiedzy z nast�
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Publikowanie bazy wiedzy](./publish-knowledge-base.md)
+> [Publikowanie bazy wiedzy](../quickstarts/create-publish-knowledge-base.md)

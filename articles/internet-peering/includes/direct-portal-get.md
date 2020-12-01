@@ -1,21 +1,21 @@
 ---
-title: plik dołączany
+title: Plik dyrektywy include
 titleSuffix: Azure
-description: plik dołączany
+description: Plik dyrektywy include
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: e50f53c65c330265d3d9ec1b1804a7910b632b1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3507aacc68de25f7368cbe3cda917077564c56eb
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81678852"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96356248"
 ---
-1. Przejdź do pozycji **grupy zasobów**i wybierz grupę zasobów wybraną podczas tworzenia zasobu **komunikacji równorzędnej** . Użyj pola **Filtr** , jeśli masz zbyt wiele grup zasobów.
+1. Przejdź do pozycji **grupy zasobów** i wybierz grupę zasobów wybraną podczas tworzenia zasobu **komunikacji równorzędnej** . Użyj pola **Filtr** , jeśli masz zbyt wiele grup zasobów.
 
     > [!div class="mx-imgBorder"]
     > ![Grupy zasobów](../media/setup-direct-get-resourcegroup.png)
@@ -23,7 +23,7 @@ ms.locfileid: "81678852"
 1. Wybierz utworzony zasób **komunikacji równorzędnej** .
 
     > [!div class="mx-imgBorder"]
-    > ![Widok zasobów komunikacji równorzędnej](../media/setup-direct-get-open.png)
+    > ![Strona przegląd została wybrana w lewym okienku. Zawiera informacje o PeeringResourceGroup. Na liście komunikacji równorzędnej jest wyróżniony AshburnPeering.](../media/setup-direct-get-open.png)
 
 1. Na stronie **Przegląd** są wyświetlane informacje wysokiego poziomu, jak pokazano poniżej.
 
@@ -42,4 +42,4 @@ ms.locfileid: "81678852"
 
     * **Stan połączenia** odpowiada stanowi konfiguracji połączenia komunikacji równorzędnej. Stany wyświetlane w tym polu są zgodne ze schematem stanu pokazanym w [przewodniku bezpośredniego komunikacji równorzędnej](../walkthrough-direct-all.md).
     * Stan **sesji IPv4** i **stan sesji IPv6** odpowiadają odpowiednio stanom sesji IPv4 i IPv6. 
-    * Po zaznaczeniu wiersza w górnej części ekranu sekcja **połączenie** na dole pokazuje szczegóły dla każdego połączenia. Wybierz strzałki, aby rozwinąć **konfigurację**, **adres IPv4**i **adres IPv6**.
+    * Po zaznaczeniu wiersza w górnej części ekranu sekcja **połączenie** na dole pokazuje szczegóły dla każdego połączenia. Wybierz strzałki, aby rozwinąć **konfigurację**, **adres IPv4** i **adres IPv6**.

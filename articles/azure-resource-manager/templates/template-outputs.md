@@ -1,18 +1,18 @@
 ---
 title: Dane wyjściowe w szablonach
-description: Opisuje sposób definiowania wartości wyjściowych w szablonie Azure Resource Manager.
+description: Opisuje sposób definiowania wartości wyjściowych w szablonie Azure Resource Manager (szablon ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 8f782a78e523ebc55faac98344643982172476fa
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6a375dfbc767bcbbfd8ec6b7f8cb9e942e275582
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911434"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353531"
 ---
-# <a name="outputs-in-azure-resource-manager-template"></a>Dane wyjściowe w szablonie Azure Resource Manager
+# <a name="outputs-in-arm-templates"></a>Dane wyjściowe w szablonach ARM
 
-W tym artykule opisano sposób definiowania wartości wyjściowych w szablonie Azure Resource Manager. Dane wyjściowe są używane, gdy trzeba zwrócić wartości ze wdrożonych zasobów.
+W tym artykule opisano sposób definiowania wartości wyjściowych w szablonie Azure Resource Manager (szablon ARM). Dane wyjściowe są używane, gdy trzeba zwrócić wartości ze wdrożonych zasobów.
 
 Format każdej wartości wyjściowej musi być zgodny z jednym z [typów danych](template-syntax.md#data-types).
 
@@ -120,4 +120,4 @@ W poniższych przykładach przedstawiono scenariusze używania danych wyjściowy
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej o dostępnych właściwościach danych wyjściowych, zobacz [Opis struktury i składni szablonów Azure Resource Manager](template-syntax.md).
+* Aby dowiedzieć się więcej o dostępnych właściwościach danych wyjściowych, zobacz [Opis struktury i składni szablonów usługi ARM](template-syntax.md).

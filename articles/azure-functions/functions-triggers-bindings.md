@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: e00fd3d1dac0a18ac7f7377e08ae8d20ae132c56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa0d78d52ec13c91b82e6a8d10720269076f59a1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652629"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353548"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Pojęcia powiązań i wyzwalaczy usługi Azure Functions
 
@@ -18,7 +18,7 @@ Ten artykuł zawiera informacje o pojęciach dotyczących wysokiego poziomu otac
 
 Wyzwalacze to przyczyny uruchomienia funkcji. Wyzwalacz definiuje sposób wywoływania funkcji, a funkcja musi mieć dokładnie jeden wyzwalacz. Wyzwalacze mają skojarzone dane, które często są dostarczane jako ładunek funkcji. 
 
-Powiązanie z funkcją jest sposobem deklaratywnego łączenia innego zasobu z funkcją; powiązania mogą być połączone jako *powiązania wejściowe*, *powiązania wyjściowe*lub oba te elementy. Dane z powiązań są podawane do funkcji jako parametry.
+Powiązanie z funkcją jest sposobem deklaratywnego łączenia innego zasobu z funkcją; powiązania mogą być połączone jako *powiązania wejściowe*, *powiązania wyjściowe* lub oba te elementy. Dane z powiązań są podawane do funkcji jako parametry.
 
 Możesz mieszać i dopasowywać różne powiązania, aby dostosować je do własnych potrzeb. Powiązania są opcjonalne, a funkcja może mieć jedno lub wiele powiązań wejściowych i/lub wyjściowych.
 
@@ -88,6 +88,10 @@ Aby uzyskać informacje o tym, które powiązania są w wersji zapoznawczej lub 
 Skorzystaj z poniższej tabeli, aby znaleźć przykłady określonych typów powiązań, które pokazują, jak korzystać z powiązań w swoich funkcjach. Najpierw wybierz kartę językową, która odpowiada Twojemu projektowi. 
 
 [!INCLUDE [functions-bindings-code-example-chooser](../../includes/functions-bindings-code-example-chooser.md)]
+
+## <a name="custom-bindings"></a>Powiązania niestandardowe
+
+Można utworzyć niestandardowe powiązania wejściowe i wyjściowe. Powiązania muszą zostać utworzone w programie .NET, ale mogą być używane z dowolnego obsługiwanego języka. Aby uzyskać więcej informacji na temat tworzenia powiązań niestandardowych, zobacz [Tworzenie niestandardowych powiązań wejściowych i wyjściowych](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
 
 ## <a name="resources"></a>Zasoby
 - [Wyrażenia i wzorce powiązań](./functions-bindings-expressions-patterns.md)

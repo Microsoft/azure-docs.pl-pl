@@ -4,15 +4,15 @@ description: Dowiedz się, jak nawiązać połączenie z serwerem Azure Analysis
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 11/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4658a4c05aac7932d8a99c3511f21024f19fbe47
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: c91cfe24aa7a5dd224fd1aed31b6b0dee44e687f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013733"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352817"
 ---
 # <a name="connect-with-excel"></a>Łączenie z programem Excel
 
@@ -26,16 +26,16 @@ Konto, za pomocą którego logujesz się, musi należeć do roli bazy danych mod
 
 Łączenie z serwerem w programie Excel jest obsługiwane przy użyciu polecenia Pobierz dane w programie Excel 2016 i nowszych. Łączenie przy użyciu Kreatora importu tabeli w Power Pivot nie jest obsługiwane. 
 
-1. W programie Excel na Wstążce **dane** kliknij pozycję **Pobierz dane zewnętrzne**  >  **z innych źródeł**  >  **z Analysis Services**.
+1. W programie Excel na Wstążce **dane** kliknij pozycję **Pobierz dane**  >  **z bazy danych**  >  **z Analysis Services**.
 
-2. W Kreatorze połączenia danych w polu **Nazwa serwera**wprowadź nazwę serwera, w tym protokół i identyfikator URI. Na przykład asazure://westcentralus.asazure.windows.net/advworks. Następnie w obszarze **poświadczenia logowania**wybierz opcję **Użyj następującej nazwy użytkownika i hasła**, a następnie wpisz nazwę użytkownika organizacji, na przykład nancy@adventureworks.com i hasło.
+2. W Kreatorze połączenia danych w polu **Nazwa serwera** wprowadź nazwę serwera, w tym protokół i identyfikator URI. Na przykład asazure://westcentralus.asazure.windows.net/advworks. Następnie w obszarze **poświadczenia logowania** wybierz opcję **Użyj następującej nazwy użytkownika i hasła**, a następnie wpisz nazwę użytkownika organizacji, na przykład nancy@adventureworks.com i hasło.
 
     > [!IMPORTANT]
     > Jeśli zalogujesz się przy użyciu konta Microsoft, usługi Live ID, usługi Yahoo, usługi Gmail itp. lub musisz się zalogować przy użyciu uwierzytelniania wieloskładnikowego, pozostaw pole hasła puste. Po kliknięciu przycisku Dalej zostanie wyświetlony monit o podanie hasła. 
 
     ![Nawiązywanie połączenia z logowaniem do programu Excel](./media/analysis-services-connect-excel/aas-connect-excel-logon.png)
 
-3. W obszarze **Wybierz bazę danych i tabelę**wybierz bazę danych i model lub perspektywę, a następnie kliknij przycisk **Zakończ**.
+3. W obszarze **Wybierz bazę danych i tabelę** wybierz bazę danych i model lub perspektywę, a następnie kliknij przycisk **Zakończ**.
    
     ![Połącz z wybierz model z programu Excel](./media/analysis-services-connect-excel/aas-connect-excel-select.png)
 

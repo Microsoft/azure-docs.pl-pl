@@ -8,12 +8,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/22/2020
 ms.author: makromer
-ms.openlocfilehash: 49d11dfe3d42d99c610fae9fa64079a5fd87501f
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: c8b0ae7058aecc1813d720a3fbb2a1a1f967cf40
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96006795"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352609"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Obsługa wierszy błędów obcięcia SQL w Data Factory mapowania przepływów danych
 
@@ -23,7 +23,7 @@ Typowym scenariuszem w Data Factory podczas korzystania z mapowania przepływów
 
 Istnieją dwie podstawowe metody, które umożliwiają płynne obsłudze błędów podczas zapisywania danych do ujścia bazy danych w przepływach danych ADF:
 
-* Ustaw [obsługę wiersza błędu](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#error-row-handling) ujścia na "Kontynuuj przy błędzie" podczas przetwarzania danych bazy danych. To jest zautomatyzowana Metoda catch-all, która nie wymaga logiki niestandardowej w przepływie danych.
+* Ustaw [obsługę wiersza błędu](./connector-azure-sql-database.md#error-row-handling) ujścia na "Kontynuuj przy błędzie" podczas przetwarzania danych bazy danych. To jest zautomatyzowana Metoda catch-all, która nie wymaga logiki niestandardowej w przepływie danych.
 * Alternatywnie wykonaj poniższe kroki, aby podać rejestrowanie kolumn, które nie mieszczą się w docelowej kolumnie ciągu, co pozwoli na kontynuowanie przepływu danych.
 
 > [!NOTE]

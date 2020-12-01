@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: b489964e5ef8ea483cbe203be1ff665078a6d66a
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 60ef490bbba4dca4f01b82967ad6ea8636e7bd4e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95741733"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353701"
 ---
 # <a name="form-recognizer-layout-service"></a>Usługa układu aparatu rozpoznawania formularzy
 
-Aparat rozpoznawania formularzy platformy Azure może wyodrębnić tekst, tabele, znaczniki wyboru i informacje o strukturze z dokumentów przy użyciu usługi układu. Interfejs API układu umożliwia klientom korzystanie z dokumentów w różnych formatach i zwracanie danych strukturalnych i reprezentacji dokumentu. Łączy nasze zaawansowane funkcje [rozpoznawania znaków optycznych (OCR)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) z dokumentem opisującym modele uczenia głębokiego w celu wyodrębnienia tekstu, tabel, znaczników zaznaczenia i struktury dokumentów. 
+Aparat rozpoznawania formularzy platformy Azure może wyodrębnić tekst, tabele, znaczniki wyboru i informacje o strukturze z dokumentów przy użyciu usługi układu. Interfejs API układu umożliwia klientom korzystanie z dokumentów w różnych formatach i zwracanie danych strukturalnych i reprezentacji dokumentu. Łączy nasze zaawansowane funkcje [rozpoznawania znaków optycznych (OCR)](../computer-vision/concept-recognizing-text.md) z dokumentem opisującym modele uczenia głębokiego w celu wyodrębnienia tekstu, tabel, znaczników zaznaczenia i struktury dokumentów. 
 
 ## <a name="what-does-the-layout-service-do"></a>Do czego służy usługa układu?
 
@@ -92,11 +92,7 @@ Układ wyodrębnia także znaczniki wyboru z dokumentów. Wyodrębnione znacznik
 - Aby rozpocząć wyodrębnianie układów w wybranym języku, wykonaj kroki [przewodnika Szybki Start dla biblioteki klienta aparatu rozpoznawania formularzy](quickstarts/client-library.md) .
 - Można też postępować zgodnie z przewodnikiem Szybki Start do wdrażania [danych układu przy](./QuickStarts/python-layout.md) użyciu języka Python i interfejsu API REST.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Co to jest rozpoznawanie formularzy?](./overview.md)
 * [Dokumentacja interfejsu API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeLayoutAsync)
-
-
-
-

@@ -12,12 +12,12 @@ ms.date: 11/17/2020
 ms.author: aahi
 keywords: Wyszukiwanie tekstu, analiza tonacjiów, analizy tekstu
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 14dfa6111bbda8750b175c8c9b2a96321e1af2c5
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 68f892fea01582b16dad5efd8c86dbf0b578e50f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95519408"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353055"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Czym jest interfejs API analizy tekstu?
 
@@ -82,11 +82,11 @@ Możesz rozpocząć korzystanie z interfejs API analizy tekstu w swoich procesac
 
 * Wymagane jest minimalne programowanie:
     * [Wyodrębnij informacje w programie Excel przy użyciu analiza tekstu i automatyzacji](tutorials/extract-excel-information.md)
-    * [Użyj interfejs API analizy tekstu i usługi MS Flow, aby zidentyfikować tonacji komentarzy w grupie usługi Yammer](/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure?bc=%252f%252fazure%252fbread%252ftoc.json&toc=%252f%252fazure%252fcognitive-services%252ftext-analytics%252ftoc.json)
+    * [Użyj interfejs API analizy tekstu i usługi MS Flow, aby zidentyfikować tonacji komentarzy w grupie usługi Yammer](/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure?bc=%2f%2fazure%2fbread%2ftoc.json&toc=%2f%2fazure%2fcognitive-services%2ftext-analytics%2ftoc.json)
     * [Integruj Power BI z interfejs API analizy tekstu, aby analizować Opinie klientów](tutorials/tutorial-power-bi-key-phrases.md)
 * Zalecane środowisko programistyczne:
-    * [Analiza tonacji na strumieniu danych przy użyciu usługi Azure Databricks](/azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services?bc=%252f%252fazure%252fbread%252ftoc.json&toc=%252f%252fazure%252fcognitive-services%252ftext-analytics%252ftoc.json)
-    * [Tworzenie aplikacji kolby do tłumaczenia tekstu, analizowanie tonacji i synteza mowy](../translator/tutorial-build-flask-app-translation-synthesis.md?bc=%252f%252fazure%252fbread%252ftoc.json&toc=%252f%252fazure%252fcognitive-services%252ftext-analytics%252ftoc.json)
+    * [Analiza tonacji na strumieniu danych przy użyciu usługi Azure Databricks](/azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services?bc=%2f%2fazure%2fbread%2ftoc.json&toc=%2f%2fazure%2fcognitive-services%2ftext-analytics%2ftoc.json)
+    * [Tworzenie aplikacji kolby do tłumaczenia tekstu, analizowanie tonacji i synteza mowy](../translator/tutorial-build-flask-app-translation-synthesis.md?bc=%2f%2fazure%2fbread%2ftoc.json&toc=%2f%2fazure%2fcognitive-services%2ftext-analytics%2ftoc.json)
 
 
 <a name="supported-languages"></a>

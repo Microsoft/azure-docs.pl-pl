@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: 6dbe97d615753f0a90c8ba80aa7afa6dafa15eb2
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 7f8fb0488c863868b1076ad5b3fa7868d1880a6b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658472"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353786"
 ---
 # <a name="what-is-custom-speech"></a>Czym jest usługa Custom Speech?
 
@@ -31,7 +31,7 @@ Ten diagram przedstawia elementy wchodzące w skład [portalu Custom Speech](htt
 
 1. [Subskrybowanie i tworzenie projektu](#set-up-your-azure-account) — Tworzenie konta platformy Azure i Subskrybowanie usługi Speech. Ta ujednolicona subskrypcja zapewnia dostęp do funkcji zamiany mowy na tekst, zamiany tekstu na mowę, tłumaczenia mowy i [portalu Custom Speech](https://speech.microsoft.com/customspeech). Następnie za pomocą subskrypcji usługi mowy Utwórz pierwszy projekt Custom Speech.
 
-1. [Przekazywanie danych testowych](how-to-custom-speech-test-data.md) — przekazywanie danych testowych (plików audio) w celu oszacowania oferty zamiany mowy na tekst firmy Microsoft dla aplikacji, narzędzi i produktów.
+1. [Przekazywanie danych testowych](./how-to-custom-speech-test-and-train.md) — przekazywanie danych testowych (plików audio) w celu oszacowania oferty zamiany mowy na tekst firmy Microsoft dla aplikacji, narzędzi i produktów.
 
 1. [Inspekcja jakości rozpoznawania](how-to-custom-speech-inspect-data.md) — użyj [portalu Custom Speech](https://speech.microsoft.com/customspeech) , aby odtworzyć załadowane audio i sprawdzić jakość rozpoznawania mowy danych testowych. Aby uzyskać miary ilościowe, zobacz [Sprawdzanie danych](how-to-custom-speech-inspect-data.md).
 
@@ -101,7 +101,7 @@ Należy pamiętać, że można uaktualnić model do niestandardowego punktu koń
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Przygotowywanie i testowanie danych](how-to-custom-speech-test-data.md)
+* [Przygotowywanie i testowanie danych](./how-to-custom-speech-test-and-train.md)
 * [Inspekcja danych](how-to-custom-speech-inspect-data.md)
 * [Oceń i popraw dokładność modelu](how-to-custom-speech-evaluate-data.md)
 * [Trenowanie i wdrażanie modelu](how-to-custom-speech-train-model.md)

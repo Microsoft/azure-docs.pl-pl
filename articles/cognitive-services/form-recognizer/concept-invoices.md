@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: af3935bab5cd4d6a2aa4a9e3250f6beec19a8ea4
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 5c8af8ddb7a0870de37b73cbe09965ee63c88ba1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736683"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353752"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Wbudowany model faktury aparatu rozpoznawania formularzy
 
-Aparat rozpoznawania formularzy platformy Azure umożliwia analizowanie i wyodrębnianie informacji z faktur sprzedaży przy użyciu wbudowanych modeli faktur. Interfejs API faktur umożliwia klientom korzystanie z faktur w różnych formatach i zwracanie danych strukturalnych w celu zautomatyzowania przetwarzania faktur. Łączy nasze zaawansowane funkcje [rozpoznawania znaków optycznych (OCR)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) z fakturą zrozumienie modeli uczenia głębokiego, aby wyodrębnić informacje o kluczu z faktur w języku angielskim. Zostanie wyodrębniony tekst, tabele i informacje, takie jak klient, dostawca, Identyfikator faktury, Data płatności faktury, suma, kwota faktury należna, kwota podatku, Wysyłka do, rachunek do i inne. Prekompilowany interfejs API fakturowania jest publicznie dostępny w postaci aparatu rozpoznawania w wersji zapoznawczej.
+Aparat rozpoznawania formularzy platformy Azure umożliwia analizowanie i wyodrębnianie informacji z faktur sprzedaży przy użyciu wbudowanych modeli faktur. Interfejs API faktur umożliwia klientom korzystanie z faktur w różnych formatach i zwracanie danych strukturalnych w celu zautomatyzowania przetwarzania faktur. Łączy nasze zaawansowane funkcje [rozpoznawania znaków optycznych (OCR)](../computer-vision/concept-recognizing-text.md) z fakturą zrozumienie modeli uczenia głębokiego, aby wyodrębnić informacje o kluczu z faktur w języku angielskim. Zostanie wyodrębniony tekst, tabele i informacje, takie jak klient, dostawca, Identyfikator faktury, Data płatności faktury, suma, kwota faktury należna, kwota podatku, Wysyłka do, rachunek do i inne. Prekompilowany interfejs API fakturowania jest publicznie dostępny w postaci aparatu rozpoznawania w wersji zapoznawczej.
 
 ## <a name="what-does-the-invoice-service-do"></a>Co robi usługa Invoice?
 
@@ -80,8 +80,8 @@ Usługa Invoice wyodrębni pola tekstu, tabel i 26 pól faktury. Poniżej przeds
 | CustomerId | ciąg | Identyfikator odwołania dla klienta | IDENTYFIKATOR CID 12345 |  |
 | PurchaseOrder | ciąg | Numer referencyjny zamówienia zakupu | ZZ – 3333 | |  |
 | InvoiceId | ciąg | Identyfikator dla tej konkretnej faktury (często "numer faktury") | INV-100 | |  |
-| InvoiceDate | data | Data wystawienia faktury | 11/15/2019 | 
-| DueDate | data | Data płatności dla tej faktury przypada | 12/15/2019 | 2019-12-15 | 2019-11-15 |
+| InvoiceDate | date | Data wystawienia faktury | 11/15/2019 | 
+| DueDate | date | Data płatności dla tej faktury przypada | 12/15/2019 | 2019-12-15 | 2019-11-15 |
 | NazwaDostawcy | ciąg | Dostawca, który utworzył tę fakturę | CONTOSO LTD. | |
 | VendorAddress | ciąg | Adres korespondencyjny dla dostawcy | 123 456th St New York, NY, 10001 | |
 | VendorAddressRecipient | ciąg | Nazwa skojarzona z VendorAddress | Oddział firmy Contoso | |
@@ -99,8 +99,8 @@ Usługa Invoice wyodrębni pola tekstu, tabel i 26 pól faktury. Poniżej przeds
 | ServiceAddressRecipient | ciąg | Nazwa skojarzona z elementem serviceAddress | Usługi firmy Microsoft | |
 | RemittanceAddress | ciąg | Jawny przelew lub adres płatności dla klienta | 123 — Nowy Jork, NY, 10001 |  |
 | RemittanceAddressRecipient | ciąg | Nazwa skojarzona z RemittanceAddress | Rozliczenia firmy Contoso |  |
-| ServiceStartDate | data | Pierwszy dzień okresu usługi (na przykład okres usługi Billa narzędzia) | 14/10/2019 | 2019-10-14 |
-| Serviceenddate | data | Data końcowa okresu usługi (na przykład okres usługi Billa narzędzia) | 11/14/2019 | 2019-11-14 |
+| ServiceStartDate | date | Pierwszy dzień okresu usługi (na przykład okres usługi Billa narzędzia) | 14/10/2019 | 2019-10-14 |
+| Serviceenddate | date | Data końcowa okresu usługi (na przykład okres usługi Billa narzędzia) | 11/14/2019 | 2019-11-14 |
 | PreviousUnpaidBalance | liczba | Jawne wcześniej niepłatne saldo | $500,00 | 500 |
 
 
@@ -109,8 +109,7 @@ Usługa Invoice wyodrębni pola tekstu, tabel i 26 pól faktury. Poniżej przeds
 - Wypróbuj własne faktury i przykłady w [przykładowym interfejsie użytkownika aparatu rozpoznawania formularzy](https://fott-preview.azurewebsites.net/).
 - Wykonaj kroki z [przewodnikiem Szybki Start dla biblioteki klienta aparatu rozpoznawania](quickstarts/client-library.md) , aby rozpocząć pisanie aplikacji do przetwarzania faktur przy użyciu aparatu rozpoznawania formularzy w wybranym języku.
 - Lub postępuj zgodnie z przewodnikiem Szybki Start dla [danych faktury](./quickstarts/python-invoices.md) , aby zaimplementować wyodrębnianie danych z faktury za pomocą języka Python i interfejsu API REST.
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Co to jest rozpoznawanie formularzy?](./overview.md)
 * [Dokumentacja interfejsu API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeInvoiceAsync)
-
