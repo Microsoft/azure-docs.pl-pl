@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: abae83cee106feb553e8ced404d23ba5619ba416
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 489592fcbc779685728b120f18e5e923ee34d655
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327157"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346379"
 ---
 # <a name="the-confidence-score-of-an-answer"></a>Wynik pewności odpowiedzi
 Gdy zapytanie użytkownika jest dopasowane do bazy wiedzy, QnA Maker zwraca odpowiednie odpowiedzi wraz z oceną ufności. Ten wynik wskazuje, że odpowiedź jest odpowiednim dopasowaniem dla danego zapytania użytkownika.
@@ -50,7 +50,7 @@ Podczas wybierania progu należy wziąć pod uwagę równowagę między dokładn
 
 - Jeśli **dokładność** (lub precyzja) jest ważniejsze dla danego scenariusza, zwiększ wartość progową. Dzięki temu za każdym razem, gdy zwracasz odpowiedź, będzie to znacznie trudniejsze rozwiązanie, a znacznie bardziej prawdopodobnie jest to odpowiedź dla użytkowników. W takim przypadku można zakończyć opuszczanie dalszych pytań bez odpowiedzi. *Na przykład:* Jeśli wprowadzisz próg **70**, możesz pominąć niektóre niejednoznaczne przykłady polubimy "co to jest zapisywanie i uczenie?".
 
-- Jeśli **pokrycie** (lub odwołanie) jest ważniejsze i chcesz odpowiedzieć na tyle, na ile to możliwe, nawet jeśli istnieje tylko część relacji z pytaniem użytkownika, Obniż wartość progu. Oznacza to, że może wystąpić więcej przypadków, w których odpowiedź nie odpowiada rzeczywistej kwerendzie użytkownika, ale podaje nieco inną odpowiedź. *Na przykład:* w przypadku progu **30**można udzielić odpowiedzi na zapytania, takie jak "gdzie mogę edytować moją KB?".
+- Jeśli **pokrycie** (lub odwołanie) jest ważniejsze i chcesz odpowiedzieć na tyle, na ile to możliwe, nawet jeśli istnieje tylko część relacji z pytaniem użytkownika, Obniż wartość progu. Oznacza to, że może wystąpić więcej przypadków, w których odpowiedź nie odpowiada rzeczywistej kwerendzie użytkownika, ale podaje nieco inną odpowiedź. *Na przykład:* w przypadku progu **30** można udzielić odpowiedzi na zapytania, takie jak "gdzie mogę edytować moją KB?".
 
 > [!NOTE]
 > Nowsze wersje QnA Maker obejmują ulepszenia logiki oceniania i mogą wpływać na wartość progową. Za każdym razem, gdy aktualizujesz usługę, pamiętaj o przetestowaniu i dostosowaniu progu, jeśli jest to konieczne. W [tym miejscu](https://www.qnamaker.ai/UserSettings)możesz sprawdzić wersję usługi QNA, a także zapoznać się z artykułem jak uzyskać najnowsze aktualizacje w [tym miejscu](../How-To/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
@@ -62,7 +62,7 @@ Ustaw ocenę wartości progowej jako właściwość [treści JSON interfejsu API
 W środowisku bot należy ustawić wynik jako część obiektu options z [C#](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) lub [Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
 
 ## <a name="improve-confidence-scores"></a>Popraw wyniki pewności
-Aby poprawić wynik pewności konkretnej odpowiedzi dla kwerendy użytkownika, można dodać zapytanie użytkownika do bazy wiedzy jako alternatywne pytanie dotyczące tej odpowiedzi. Można również użyć [zmian wyrazów](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) bez uwzględniania wielkości liter, aby dodać synonimy do słów kluczowych w KB.
+Aby poprawić wynik pewności konkretnej odpowiedzi dla kwerendy użytkownika, można dodać zapytanie użytkownika do bazy wiedzy jako alternatywne pytanie dotyczące tej odpowiedzi. Można również użyć [zmian wyrazów](/rest/api/cognitiveservices/qnamaker/alterations/replace) bez uwzględniania wielkości liter, aby dodać synonimy do słów kluczowych w KB.
 
 
 ## <a name="similar-confidence-scores"></a>Podobne oceny pewności
@@ -89,4 +89,3 @@ Gdy nie zostanie znalezione żadne dobre dopasowanie przez rangę, zwracana jest
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]
 > [Najlepsze praktyki](./best-practices.md)
-

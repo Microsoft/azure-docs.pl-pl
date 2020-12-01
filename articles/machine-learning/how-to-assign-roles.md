@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 11/09/2020
 ms.custom: how-to, seodec18, devx-track-azurecli, contperfq2
-ms.openlocfilehash: 90abd46e73ecb50b5e6de40218571d0ec899752e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 8af3da5d04f9aaafc18299f4837660694ee34b51
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95012971"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345273"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Zarządzanie dostępem do obszaru roboczego usługi Azure Machine Learning
 
@@ -55,7 +55,7 @@ Jeśli jesteś właścicielem obszaru roboczego, możesz dodawać i usuwać role
 - [Program PowerShell](../role-based-access-control/role-assignments-powershell.md)
 - [Interfejs wiersza polecenia platformy Azure](../role-based-access-control/role-assignments-cli.md)
 - [Interfejs API REST](../role-based-access-control/role-assignments-rest.md)
-- [Szablony usługi Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
+- [Szablony Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
 
 Jeśli zainstalowano [interfejs wiersza polecenia Azure Machine Learning](reference-azure-machine-learning-cli.md), do przypisywania ról użytkownikom można używać poleceń CLI:
 
@@ -175,7 +175,7 @@ Poniższa tabela zawiera podsumowanie działań Azure Machine Learning i uprawni
 | Utwórz nowy klaster obliczeniowy | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na: `/workspaces/computes/write` |
 | Utwórz nowe wystąpienie obliczeniowe | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na: `/workspaces/computes/write` |
 | Przesyłanie dowolnego typu przebiegu | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na: `"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
-| Publikowanie punktu końcowego potoku | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na: `"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
+| Publikowanie potoków i punktów końcowych | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na: `"/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
 | Wdrażanie zarejestrowanego modelu w zasobie AKS/ACI | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
 | Ocenianie względem wdrożonego punktu końcowego AKS | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (jeśli nie używasz uwierzytelniania Azure Active Directory) lub `"/workspaces/read"` (Jeśli używasz uwierzytelniania tokenu) |
 | Uzyskiwanie dostępu do magazynu przy użyciu notesów interaktywnych | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listKeys/action"` |

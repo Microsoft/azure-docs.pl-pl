@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
-ms.openlocfilehash: 2016d6dfedef68c334758660e9affa0ad9b9d4a3
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 2c159e25195c5f144187268b4355c1078695e809
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505244"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345529"
 ---
 # <a name="whats-new-in-qna-maker"></a>Co nowego w QnA Maker
 
@@ -56,17 +56,17 @@ Dowiedz się, co nowego w QnA Maker.
 
 ### <a name="november-2019"></a>Listopad 2019 r.
 
-* [Pomoc techniczna w chmurze dla instytucji rządowych USA](https://docs.microsoft.com/azure/azure-government/documentation-government-services-aiandcognitiveservices#qna-maker) dla QNA Maker
-* Funkcja [wielostopniowego wyłączania](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/multiturn-conversation)
-* [Chit — obsługa rozmowy](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/chit-chat-knowledge-base#language-support) jest dostępna w językach warstwy 1
+* [Pomoc techniczna w chmurze dla instytucji rządowych USA](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers) dla QNA Maker
+* Funkcja [wielostopniowego wyłączania](./how-to/multiturn-conversation.md)
+* [Chit — obsługa rozmowy](./how-to/chit-chat-knowledge-base.md#language-support) jest dostępna w językach warstwy 1
 
 ### <a name="october-2019"></a>Październik 2019 r.
 
-* [Jawne ustawienie języka](./how-to/language-knowledge-base.md#select-language-when-creating-first-knowledge-base) dla wszystkich baz wiedzy w usłudze QNA Maker.
+* [Jawne ustawienie języka](./index.yml) dla wszystkich baz wiedzy w usłudze QNA Maker.
 
 ### <a name="september-2019"></a>Wrzesień 2019
 
-* Importowanie i eksportowanie w [formacie pliku xls](concepts/content-types.md)
+* Importowanie i eksportowanie w [formacie pliku xls](./index.yml)
 
 ### <a name="june-2019"></a>Czerwiec 2019 r.
 

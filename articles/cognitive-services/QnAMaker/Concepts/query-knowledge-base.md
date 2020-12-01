@@ -3,12 +3,12 @@ title: Badanie bazy wiedzy — QnA Maker
 description: Baza wiedzy musi być opublikowana. Po opublikowaniu baza wiedzy jest wysyłana w punkcie końcowym przewidywania środowiska uruchomieniowego przy użyciu interfejsu API generateAnswer.
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: e8dd056a7b6357b8342d3059e17baa88db92b404
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: d8f986299edee46bf5cace7a9f4c805c29b3ce0c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376730"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346209"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Zapytanie dotyczące odpowiedzi z bazy wiedzy
 
@@ -18,7 +18,7 @@ Baza wiedzy musi być opublikowana. Po opublikowaniu baza wiedzy jest wysyłana 
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/v1)
 
-Przeszkolony i [opublikowany](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) QNA Maker baza wiedzy otrzymuje zapytanie użytkownika z bot lub innej aplikacji klienckiej w [interfejsie API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). Na poniższym diagramie przedstawiono proces po odebraniu zapytania użytkownika.
+Przeszkolony i [opublikowany](../quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) QNA Maker baza wiedzy otrzymuje zapytanie użytkownika z bot lub innej aplikacji klienckiej w [interfejsie API GenerateAnswer](../how-to/metadata-generateanswer-usage.md). Na poniższym diagramie przedstawiono proces po odebraniu zapytania użytkownika.
 
 ![Proces modelu klasyfikowania dla zapytania użytkownika](../media/qnamaker-concepts-knowledgebase/ranker-v1.png)
 
@@ -28,7 +28,7 @@ Ten proces został wyjaśniony w poniższej tabeli.
 
 |Krok|Przeznaczenie|
 |--|--|
-|1|Aplikacja kliencka wysyła zapytanie użytkownika do [interfejsu API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
+|1|Aplikacja kliencka wysyła zapytanie użytkownika do [interfejsu API GenerateAnswer](../how-to/metadata-generateanswer-usage.md).|
 |2|QnA Maker wstępnie przetworzy zapytanie użytkownika przy użyciu wykrywania języka, modułu sprawdzania pisowni i wyłączników słów.|
 |3|Przetwarzanie wstępne jest podejmowane w celu zmiany zapytania użytkownika w celu uzyskania najlepszych wyników wyszukiwania.|
 |4|To zmienione zapytanie jest wysyłane do indeksu Wyszukiwanie poznawcze platformy Azure, który otrzymuje `top` liczbę wyników. Jeśli prawidłowa odpowiedź nie jest w tych wynikach, zwiększ wartość `top` nieco. Ogólnie rzecz biorąc, wartość 10 dla `top` robót budowlanych w 90% zapytań.|
@@ -41,7 +41,7 @@ Używane funkcje obejmują, ale nie są ograniczone do semantyki na poziomie wyr
 
 # <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
 
-Przeszkolony i [opublikowany](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) QNA Maker baza wiedzy otrzymuje zapytanie użytkownika z bot lub innej aplikacji klienckiej w [interfejsie API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). Na poniższym diagramie przedstawiono proces po odebraniu zapytania użytkownika.
+Przeszkolony i [opublikowany](../quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) QNA Maker baza wiedzy otrzymuje zapytanie użytkownika z bot lub innej aplikacji klienckiej w [interfejsie API GenerateAnswer](../how-to/metadata-generateanswer-usage.md). Na poniższym diagramie przedstawiono proces po odebraniu zapytania użytkownika.
 
 ![Proces modelu klasyfikowania dla podglądu zapytania użytkownika](../media/qnamaker-concepts-knowledgebase/ranker-v2.png)
 
@@ -51,7 +51,7 @@ Ten proces został wyjaśniony w poniższej tabeli.
 
 |Krok|Przeznaczenie|
 |--|--|
-|1|Aplikacja kliencka wysyła zapytanie użytkownika do [interfejsu API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
+|1|Aplikacja kliencka wysyła zapytanie użytkownika do [interfejsu API GenerateAnswer](../how-to/metadata-generateanswer-usage.md).|
 |2|QnA Maker wstępnie przetworzy zapytanie użytkownika przy użyciu wykrywania języka, modułu sprawdzania pisowni i wyłączników słów.|
 |3|Przetwarzanie wstępne jest podejmowane w celu zmiany zapytania użytkownika w celu uzyskania najlepszych wyników wyszukiwania.|
 |4|To zmienione zapytanie jest wysyłane do indeksu Wyszukiwanie poznawcze platformy Azure, który otrzymuje `top` liczbę wyników. Jeśli prawidłowa odpowiedź nie jest w tych wynikach, zwiększ wartość `top` nieco. Ogólnie rzecz biorąc, wartość 10 dla `top` robót budowlanych w 90% zapytań.|

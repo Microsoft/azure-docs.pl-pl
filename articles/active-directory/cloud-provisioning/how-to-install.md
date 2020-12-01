@@ -11,12 +11,12 @@ ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3960b8afeb9d7ecc80aa49fc13eee4977fa5494
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4c4ba11dabc8e805f3604afc2fc4388840ac67cf
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173974"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348538"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Instalowanie agenta aprowizacji w chmurze programu Azure AD Connect
 Ten dokument przeprowadzi Cię przez proces instalacji Azure Active Directory (Azure AD) Połącz agenta aprowizacji i sposób jego początkowego skonfigurowania w Azure Portal.
@@ -58,11 +58,11 @@ Aby zainstalować agenta, wykonaj następujące kroki.
    ![Utwórz gMSA](media/how-to-install/install-12.png)</br>
  11. Na ekranie **połącz Active Directory** wybierz pozycję **Dodaj katalog**. Następnie zaloguj się przy użyciu konta administratora Active Directory. Ta operacja umożliwia dodanie katalogu lokalnego. 
  12. Opcjonalnie można zarządzać preferencjami kontrolerów domeny, które będą używane przez agenta, wybierając **pozycję Wybierz priorytet kontrolera domeny** i porządkując listę kontrolerów domeny.   Kliknij przycisk **OK**.
-  ![Zamów controlllers domeny](media/how-to-install/install-2a.png)</br>
- 13. Wybierz pozycję **Dalej**.
+  ![Zamawianie kontrolerów domeny](media/how-to-install/install-2a.png)</br>
+ 13. Wybierz opcję **Dalej**.
   ![Ekran Active Directory łączenia](media/how-to-install/install-3a.png)</br>
  14.  Na ekranie **Instalacja agenta** Potwierdź ustawienia i konto, które zostanie utworzone, a następnie kliknij przycisk **Potwierdź**.
-  ![Potwierdź settngs](media/how-to-install/install-11.png)</br>
+  ![Potwierdź ustawienia](media/how-to-install/install-11.png)</br>
  15. Po zakończeniu tej operacji powinna zostać wyświetlona **Instalacja agenta.** Wybierz pozycję **Zakończ**.
   ![Ekran ukończono konfigurację](media/how-to-install/install-4a.png)</br>
 1. Jeśli nadal widzisz ekran początkowy **Microsoft Azure AD łączenie się z pakietem agenta aprowizacji** , wybierz pozycję **Zamknij**.

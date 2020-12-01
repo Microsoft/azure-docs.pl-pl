@@ -3,12 +3,12 @@ title: Azure Event Grid dostarczania i ponów próbę
 description: Opisuje, w jaki sposób Azure Event Grid dostarcza zdarzenia i jak obsługuje niedostarczone komunikaty.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 7bf8fd3a647e28d18a7ca1e658761f9226d1153a
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 9a7bde33e322183f86c3c51d30bb004d06fa1406
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94981106"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345357"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid dostarczania komunikatów i ponów próbę
 
@@ -54,6 +54,22 @@ az eventgrid event-subscription create \
 Aby uzyskać więcej informacji na temat korzystania z interfejsu wiersza polecenia platformy Azure z Event Grid, zobacz [Route Storage Events to Web Endpoint with Azure CLI](../storage/blobs/storage-blob-event-quickstart.md).
 
 ## <a name="retry-schedule-and-duration"></a>Harmonogram ponownych prób i czas trwania
+
+Gdy EventGrid odbiera błąd w przypadku próby dostarczenia zdarzenia, EventGrid decyduje o tym, czy należy ponowić próbę dostarczenia, czy też porzucić zdarzenie na podstawie typu błędu. 
+
+Jeśli błąd zwrócony przez subskrybowany punkt końcowy to błąd związany z konfiguracją, którego nie można naprawić z ponownymi próbami (na przykład jeśli punkt końcowy został usunięty), EventGrid go albo wykonuje zdarzenie utraconych wiadomości, albo porzuca zdarzenie, jeśli utracona jest nieskonfigurowana.
+
+Poniżej znajdują się typy punktów końcowych, dla których próba ponowienia nie nastąpi:
+
+| Typ punktu końcowego | Kody błędów |
+| --------------| -----------|
+| Zasoby platformy Azure | 400 Nieprawidłowe żądanie, 413 jednostka żądania jest zbyt duża, 403 jest zabronione | 
+| Webhook | 400 Nieprawidłowe żądanie, 413 jednostka żądania jest zbyt duża, 403 zabronione, nie znaleziono 404, 401 nieautoryzowane |
+ 
+> [!NOTE]
+> Jeśli Dead-Letter nie jest skonfigurowany dla punktu końcowego, zdarzenia zostaną porzucone w przypadku wystąpienia powyższych błędów, więc Rozważ skonfigurowanie wiadomości utraconych, jeśli nie chcesz, aby te typy zdarzeń zostały porzucone.
+
+Jeśli błąd zwrócony przez subskrybowany punkt końcowy nie należy do powyższej listy, EventGrid wykonuje ponowienie przy użyciu zasad opisanych poniżej:
 
 Event Grid czeka 30 sekund na odpowiedź po dostarczeniu komunikatu. Po 30 sekundach, jeśli punkt końcowy nie odpowiedział, komunikat zostanie umieszczony w kolejce w celu ponowienia próby. W przypadku dostarczania zdarzeń Event Grid są stosowane wykładnicze zasady ponawiania wycofywania. Event Grid ponawianie prób dostarczenia zgodnie z poniższym harmonogramem w oparciu o najlepszą pracę:
 
@@ -103,7 +119,7 @@ W tej sekcji przedstawiono przykłady zdarzeń i zdarzeń utraconych w różnych
 
 ### <a name="event-grid-schema"></a>Schemat usługi Event Grid
 
-#### <a name="event"></a>Wydarzenie 
+#### <a name="event"></a>Zdarzenie 
 ```json
 {
     "id": "93902694-901e-008f-6f95-7153a806873c",
@@ -162,7 +178,7 @@ W tej sekcji przedstawiono przykłady zdarzeń i zdarzeń utraconych w różnych
 
 ### <a name="cloudevents-10-schema"></a>Schemat CloudEvents 1,0
 
-#### <a name="event"></a>Wydarzenie
+#### <a name="event"></a>Zdarzenie
 
 ```json
 {
@@ -203,7 +219,7 @@ W tej sekcji przedstawiono przykłady zdarzeń i zdarzeń utraconych w różnych
 
 ### <a name="custom-schema"></a>Schemat niestandardowy
 
-#### <a name="event"></a>Wydarzenie
+#### <a name="event"></a>Zdarzenie
 
 ```json
 {
@@ -256,16 +272,16 @@ Event Grid traktuje **tylko** następujące kody odpowiedzi HTTP jako pomyślne 
 
 ### <a name="failure-codes"></a>Kody błędów
 
-Wszystkie inne kody, które nie znajdują się w powyższym zestawie (200-204), są uznawane za niepowodzenia i zostanie ponowione. Niektóre z nich mają określone zasady ponawiania prób powiązane z nimi, które podano poniżej, wszystkie inne przestrzegają standardowego modelu wykładniczego wycofywania. Należy pamiętać, że ze względu na wysoce parallelowy charakter architektury Event Grid, zachowanie ponowienia nie jest deterministyczne. 
+Wszystkie inne kody, które nie znajdują się w powyższym zestawie (200-204), są uznawane za niepowodzenia i zostanie ponowione (w razie konieczności). Niektóre z nich mają określone zasady ponawiania prób powiązane z nimi, które podano poniżej, wszystkie inne przestrzegają standardowego modelu wykładniczego wycofywania. Należy pamiętać, że ze względu na wysoce parallelowy charakter architektury Event Grid, zachowanie ponowienia nie jest deterministyczne. 
 
 | Kod stanu | Zachowanie przy ponowieniu próby |
 | ------------|----------------|
-| 400 Nieprawidłowe żądanie | Ponów próbę po 5 minutach lub więcej (Utracono wiadomości natychmiast, jeśli konfiguracja utraconych wiadomości) |
-| 401 Brak autoryzacji | Ponów próbę po 5 minutach lub dłużej |
-| 403 Zabronione | Ponów próbę po 5 minutach lub dłużej |
-| 404 — Nie znaleziono | Ponów próbę po 5 minutach lub dłużej |
+| 400 Nieprawidłowe żądanie | Nie podjęto próby |
+| 401 Brak autoryzacji | Ponów próbę po 5 minutach lub więcej dla punktów końcowych zasobów platformy Azure |
+| 403 Zabronione | Nie podjęto próby |
+| 404 — Nie znaleziono | Ponów próbę po 5 minutach lub więcej dla punktów końcowych zasobów platformy Azure |
 | 408 — limit czasu żądania | Ponów próbę po 2 minutach lub więcej |
-| Jednostka żądania 413 jest zbyt duża | Ponów próbę po upływie 10 sekund lub więcej (utraconych wiadomości, jeśli konfiguracja utraconych wiadomości) |
+| Jednostka żądania 413 jest zbyt duża | Nie podjęto próby |
 | 503 — usługa niedostępna | Ponów próbę po 30 sekundach lub więcej |
 | Wszystkie pozostałe | Ponów próbę po 10 sekundach lub więcej |
 

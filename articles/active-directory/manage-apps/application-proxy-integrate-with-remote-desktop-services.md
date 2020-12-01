@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 11/30/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 03e89b0da25a915a00c70a9a87bd0f675b8e12d6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bfa9367e06c099e21a54ad8c03f8d5ab853aaafb
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997532"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348079"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publikowanie pulpitu zdalnego przy użyciu serwera proxy aplikacji usługi Azure AD
 
@@ -96,7 +96,7 @@ Połącz się z wdrożeniem usług pulpitu zdalnego jako administrator i Zmień 
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s:<proxyfrontendurl>`nrequire pre-authentication:i:1"
    ```
 
-   **Na przykład:**
+   **Przykład:**
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```
@@ -130,7 +130,7 @@ Konfiguracja zakreślona w tym artykule dotyczy dostępu do pulpitu zdalnego za 
 
 | Metoda uwierzytelniania | Obsługiwana konfiguracja klienta |
 | --------------------- | ------------------------------ |
-| Wstępne uwierzytelnianie    | Pulpit internetowy usług pulpitu zdalnego — Windows 7/10 przy użyciu przeglądarki Internet Explorer lub programu [Edge](/deployedge/edge-ie-mode) |
+| Wstępne uwierzytelnianie    | Pulpit internetowy usług pulpitu zdalnego — Windows 7/10 przy użyciu przeglądarki Internet Explorer lub programu [Edge](/deployedge/edge-ie-mode) <br /> *Uwaga Portal moje aplikacje obsługuje tylko funkcję Edge.* |
 | Wstępne uwierzytelnianie    | Klient usług pulpitu zdalnego w sieci Web — przeglądarka sieci Web zgodna z programem HTML5, taka jak Microsoft Edge, Internet Explorer 11, Google Chrome, Safari lub Mozilla Firefox (v 55.0 i nowsze) |
 | Kazują | Każdy inny system operacyjny, który obsługuje aplikację Pulpit zdalny Microsoft |
 

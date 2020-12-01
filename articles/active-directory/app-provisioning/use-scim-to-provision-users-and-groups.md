@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: 19942e5400be63dfde48b9653282fb93bcb1ec42
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f524eae791ab3944fb326b867e5f6823a35b432c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174819"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348198"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Samouczek — Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników przy użyciu usługi Azure AD
 
@@ -199,29 +199,21 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
   - [Utwórz użytkownika](#create-user) ([Request](#request)  /  [odpowiedź](#response)na żądanie)
   - [Pobierz użytkownika](#get-user) ([Request](#request-1)  /  [odpowiedź](#response-1)na żądanie)
   - [Pobierz użytkownika według zapytania](#get-user-by-query) ([Request](#request-2)  /  [odpowiedź](#response-2)żądania)
-  - [Pobierz użytkownika według zapytania — wyniki zerowe](#get-user-by-query---zero-results) ([Request](#request-3) 
-/  [odpowiedź](#response-3)na żądanie)
-  - [Aktualizowanie użytkownika [właściwości wielowartościowe]](#update-user-multi-valued-properties) (odpowiedź na[żądanie](#request-4)  /   [Response](#response-4))
-  - [Aktualizowanie użytkownika [właściwości pojedynczej wartości]](#update-user-single-valued-properties) ([Request](#request-5) 
-/  [odpowiedź](#response-5)żądania) 
-  - [Wyłącz użytkownika](#disable-user) ([Request](#request-14)  / 
- [odpowiedź](#response-14)na żądanie)
-  - [Usuń użytkownika](#delete-user) ([Request](#request-6)  / 
- [odpowiedź](#response-6)na żądanie)
+  - [Pobierz użytkownika według zapytania — wyniki zerowe](#get-user-by-query---zero-results) ([Request](#request-3)  /  [odpowiedź](#response-3)na żądanie)
+  - [Aktualizowanie użytkownika [właściwości wielowartościowe]](#update-user-multi-valued-properties) (odpowiedź na[żądanie](#request-4)  /  [Response](#response-4))
+  - [Aktualizowanie użytkownika [właściwości pojedynczej wartości]](#update-user-single-valued-properties) ([Request](#request-5)  /  [odpowiedź](#response-5)żądania) 
+  - [Wyłącz użytkownika](#disable-user) ([Request](#request-14)  /  [odpowiedź](#response-14)na żądanie)
+  - [Usuń użytkownika](#delete-user) ([Request](#request-6)  /  [odpowiedź](#response-6)na żądanie)
 
 
 [Operacje grupy](#group-operations)
-  - [Utwórz grupę](#create-group) ( [Request](#request-7)  /  [odpowiedź](#response-7)na żądanie)
-  - [Pobierz grupę](#get-group) ( [Request](#request-8)  /  [odpowiedź](#response-8)na żądanie)
+  - [Utwórz grupę](#create-group) ([Request](#request-7)  /  [odpowiedź](#response-7)na żądanie)
+  - [Pobierz grupę](#get-group) ([Request](#request-8)  /  [odpowiedź](#response-8)na żądanie)
   - [Pobierz grupę według DisplayName](#get-group-by-displayname) ([Request](#request-9)  /  [odpowiedź](#response-9)na żądanie)
-  - [Grupa aktualizacji [atrybuty inne niż Członkowskie]](#update-group-non-member-attributes) ([Request](#request-10) /
-  [odpowiedź](#response-10)żądania)
-  - [Grupa aktualizacji [Dodaj członków]](#update-group-add-members) ( [żądanie żądania](#request-11)  /
- [Response](#response-11))
-  - [Grupa aktualizacji [usuwanie członków]](#update-group-remove-members) ( [żądanie żądania](#request-12)  /
- [Response](#response-12))
-  - [Usuń grupę](#delete-group) ([Request](#request-13)  /
- [odpowiedź](#response-13)na żądanie)
+  - [Grupa aktualizacji [atrybuty inne niż Członkowskie]](#update-group-non-member-attributes) ([Request](#request-10)  /  [odpowiedź](#response-10)żądania)
+  - [Grupa aktualizacji [Dodaj członków]](#update-group-add-members) ([żądanie żądania](#request-11)  /  [Response](#response-11))
+  - [Grupa aktualizacji [usuwanie członków]](#update-group-remove-members) ([żądanie żądania](#request-12)  /  [Response](#response-12))
+  - [Usuń grupę](#delete-group) ([Request](#request-13)  /  [odpowiedź](#response-13)na żądanie)
 
 ### <a name="user-operations"></a>Operacje użytkownika
 
@@ -229,7 +221,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="create-user"></a>Utwórz użytkownika
 
-###### <a name="request"></a>Żądanie
+###### <a name="request"></a>Request
 
 *Opublikuj/users*
 ```json
@@ -287,7 +279,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="get-user"></a>Pobieranie użytkownika
 
-###### <a name="request"></a><a name="request-1"></a>Żądanie
+###### <a name="request"></a><a name="request-1"></a>Request
 *Pobierz/users/5d48a0a8e9f04aa38008* 
 
 ###### <a name="response-user-found"></a><a name="response-1"></a>Odpowiedź (znaleziono użytkownika)
@@ -317,7 +309,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-###### <a name="request"></a>Żądanie
+###### <a name="request"></a>Request
 *Pobierz/users/5171a35d82074e068ce2* 
 
 ###### <a name="response-user-not-found-note-that-the-detail-is-not-required-only-status"></a>Odpowiedź (nie znaleziono użytkownika. Należy zauważyć, że szczegóły nie są wymagane, tylko stan.)
@@ -334,7 +326,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="get-user-by-query"></a>Pobierz użytkownika według zapytania
 
-##### <a name="request"></a><a name="request-2"></a>Żądanie
+##### <a name="request"></a><a name="request-2"></a>Request
 
 *POBRAĆ wartość/users? Filter = userName EQ "Test_User_dfeef4c5-5681 -4387-b016-bdf221e82081"*
 
@@ -375,7 +367,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="get-user-by-query---zero-results"></a>Pobierz użytkownika według zapytania — wyniki zerowe
 
-##### <a name="request"></a><a name="request-3"></a>Żądanie
+##### <a name="request"></a><a name="request-3"></a>Request
 
 *POBRAĆ wartość/users? Filter = userName EQ "nieistniejącego użytkownika"*
 
@@ -395,7 +387,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="update-user-multi-valued-properties"></a>Aktualizowanie użytkownika [właściwości wielowartościowe]
 
-##### <a name="request"></a><a name="request-4"></a>Żądanie
+##### <a name="request"></a><a name="request-4"></a>Request
 
 *Poprawka/users/6764549bef60420686bc HTTP/1.1*
 ```json
@@ -446,7 +438,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="update-user-single-valued-properties"></a>Aktualizowanie użytkownika [właściwości pojedynczej wartości]
 
-##### <a name="request"></a><a name="request-5"></a>Żądanie
+##### <a name="request"></a><a name="request-5"></a>Request
 
 *Poprawka/users/5171a35d82074e068ce2 HTTP/1.1*
 ```json
@@ -491,7 +483,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 ### <a name="disable-user"></a>Wyłączanie użytkownika
 
-##### <a name="request"></a><a name="request-14"></a>Żądanie
+##### <a name="request"></a><a name="request-14"></a>Request
 
 *Poprawka/users/5171a35d82074e068ce2 HTTP/1.1*
 ```json
@@ -545,7 +537,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 ```
 #### <a name="delete-user"></a>Usuń użytkownika
 
-##### <a name="request"></a><a name="request-6"></a>Żądanie
+##### <a name="request"></a><a name="request-6"></a>Request
 
 *Usuń/users/5171a35d82074e068ce2 HTTP/1.1*
 
@@ -562,7 +554,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="create-group"></a>Tworzenie grupy
 
-##### <a name="request"></a><a name="request-7"></a>Żądanie
+##### <a name="request"></a><a name="request-7"></a>Request
 
 */Groups HTTP/1.1*
 ```json
@@ -597,7 +589,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="get-group"></a>Pobieranie grupy
 
-##### <a name="request"></a><a name="request-8"></a>Żądanie
+##### <a name="request"></a><a name="request-8"></a>Request
 
 *GET/Groups/40734ae655284ad3abcc? excludedAttributes = Members HTTP/1.1*
 
@@ -619,7 +611,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="get-group-by-displayname"></a>Pobierz grupowanie według displayName
 
-##### <a name="request"></a><a name="request-9"></a>Żądanie
+##### <a name="request"></a><a name="request-9"></a>Request
 *GET/Groups? excludedAttributes = memberss&Filter = displayName EQ "displayName" HTTP/1.1*
 
 ##### <a name="response"></a><a name="response-9"></a>Reakcja
@@ -648,7 +640,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="update-group-non-member-attributes"></a>Aktualizacja grupy [atrybuty niebędące elementami członkowskimi]
 
-##### <a name="request"></a><a name="request-10"></a>Żądanie
+##### <a name="request"></a><a name="request-10"></a>Request
 
 *Poprawka/Groups/fa2ce26709934589afc5 HTTP/1.1*
 ```json
@@ -668,7 +660,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 ### <a name="update-group-add-members"></a>Grupa aktualizacji [Dodaj członków]
 
-##### <a name="request"></a><a name="request-11"></a>Żądanie
+##### <a name="request"></a><a name="request-11"></a>Request
 
 *Poprawka/Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
@@ -691,7 +683,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="update-group-remove-members"></a>Grupa aktualizacji [usuwanie członków]
 
-##### <a name="request"></a><a name="request-12"></a>Żądanie
+##### <a name="request"></a><a name="request-12"></a>Request
 
 *Poprawka/Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
@@ -714,7 +706,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="delete-group"></a>Usuń grupę
 
-##### <a name="request"></a><a name="request-13"></a>Żądanie
+##### <a name="request"></a><a name="request-13"></a>Request
 
 *Usuń/Groups/cdb1ce18f65944079d37 HTTP/1.1*
 
@@ -750,7 +742,7 @@ Minimalny pasek mechanizmów szyfrowania TLS 1,2:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>Zakresy adresów IP
-Usługa Azure AD Provisioning obecnie działa pod zakresem adresów IP dla usługi azureactivedirectory jak wymieniono [tutaj](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Możesz dodać zakresy adresów IP wymienione w tagu usługi azureactivedirectory, aby zezwolić na ruch z usługi Azure AD Provisioning do aplikacji. Należy pamiętać, że należy uważnie przejrzeć listę zakresów adresów IP dla obliczanych adresów. Adres taki jak "40.126.25.32" może być przedstawiony na liście zakresów adresów IP jako "40.126.0.0/18". Możesz również programowo pobrać listę zakresów adresów IP za pomocą poniższego [interfejsu API](/rest/api/virtualnetwork/servicetags/list).
+Usługa Azure AD Provisioning obecnie działa pod zakresem adresów IP dla usługi azureactivedirectory jak wymieniono [tutaj](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Możesz dodać zakresy adresów IP wymienione w tagu usługi azureactivedirectory, aby zezwolić na ruch z usługi Azure AD Provisioning do aplikacji. Należy pamiętać, że należy uważnie przejrzeć listę zakresów adresów IP dla obliczanych adresów. Adres taki jak "40.126.25.32" może być przedstawiony na liście zakresów adresów IP jako "40.126.0.0/18". Możesz również programowo pobrać listę zakresów adresów IP przy użyciu poniższego [interfejsu API](/rest/api/virtualnetwork/servicetags/list).
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Krok 3. Tworzenie punktu końcowego Standard scim
 
@@ -1176,7 +1168,7 @@ Po rozpoczęciu pierwszego cyklu możesz wybrać opcję **dzienniki aprowizacji*
 Jeśli tworzysz aplikację, która będzie używana przez więcej niż jedną dzierżawę, możesz ją udostępnić w galerii aplikacji usługi Azure AD. Dzięki temu organizacje mogą łatwo odnaleźć aplikację i skonfigurować obsługę administracyjną. Publikowanie aplikacji w galerii usługi Azure AD i udostępnianie jej innym osobom jest proste. Zapoznaj się z opisanymi [tutaj](../develop/v2-howto-app-gallery-listing.md)instrukcjami. Firma Microsoft będzie współpracować z klientem w celu zintegrowania aplikacji z naszą galerią, przetestowania punktu końcowego i udostępnienia [dokumentacji](../saas-apps/tutorial-list.md) do dołączania do klientów.
 
 ### <a name="gallery-onboarding-checklist"></a>Lista kontrolna dołączania galerii
-Postępuj zgodnie z poniższą listą kontrolną, aby upewnić się, że aplikacja została podłączona, a klienci mają płynne środowisko wdrażania. Informacje zostaną zebrane z użytkownika podczas dołączania do galerii. 
+Postępuj zgodnie z poniższą listą kontrolną, aby upewnić się, że aplikacja zostanie szybko podłączona, a klienci mają bezproblemowe środowisko wdrażania. Informacje zostaną zebrane z użytkownika podczas dołączania do galerii. 
 > [!div class="checklist"]
 > * Obsługa punktu końcowego użytkownika i grupy [standard scim 2,0 ](#step-2-understand-the-azure-ad-scim-implementation) (tylko jeden jest wymagany, ale oba są zalecane)
 > * Obsługa co najmniej 25 żądań na sekundę na dzierżawcę, aby upewnić się, że użytkownicy i grupy są zainicjowani i są cofane bez opóźnień (wymagane)

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/06/2020
 ms.author: nichola
 ms.reviewer: ''
-ms.openlocfilehash: 975c92256ea0993badde0faf840a939f42901059
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: cf5a7a5902484536d0cf2a1844be469f29e15f4b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95753701"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348470"
 ---
 # <a name="how-to-use-continuous-access-evaluation-enabled-apis-in-your-applications"></a>Jak używać interfejsów API z włączoną funkcją oceny dostępu ciągłego w aplikacjach
 
@@ -35,7 +35,7 @@ Jeśli interfejs API zasobów implementuje CAE, a aplikacja deklaruje, że może
 
 Pierwszym krokiem jest dodanie kodu do obsługi odpowiedzi z interfejsu API zasobu odrzucanie wywołania z powodu CAE. W przypadku CAE interfejsy API zwróci stan 401 i nagłówek WWW-Authenticate, gdy token dostępu został odwołany lub interfejs API wykryje zmianę w używanym adresie IP. Nagłówek WWW-Authenticate zawiera wyzwanie dla oświadczeń, za pomocą którego aplikacja może uzyskać nowy token dostępu.
 
-Na przykład:
+Przykład:
 
 ```console
 HTTP 401; Unauthorized
@@ -57,7 +57,7 @@ Po spełnieniu tych warunków aplikacja może wyodrębnić i zdekodować wyzwani
 ```csharp
 if (APIresponse.IsSuccessStatusCode)
 {
-    // . . .
+    // ...
 }
 else
 {
@@ -99,7 +99,7 @@ catch (MsalUiRequiredException)
             .ExecuteAsync()
             .ConfigureAwait(false);
     }
-    // . . .
+    // ...
 ```
 
 Gdy aplikacja będzie gotowa do obsługi żądania roszczeń zwróconego przez zasób z włączonym CAE, możesz powiedzieć tożsamość firmy Microsoft, że aplikacja jest CAE gotowa. Aby to zrobić w aplikacji MSAL, skompiluj klienta publicznego przy użyciu funkcji klienta "CP1".

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: c3d6e21b45bccbdaeeee350bac79be680783eb24
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ecf81152605d77e1036c9fbf5d3308af2b1fb988
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147523"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346159"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>Współpracuj z innymi autorami i edytorami
 
@@ -42,11 +42,11 @@ Na poniższym diagramie przedstawiono przepływ, od perspektywy autora do logowa
 |3|Interfejs API usługi QnA Maker sprawdza poprawność tokenu.|
 |4 |Interfejs API usługi QnA Maker wywołuje usługę QnAMaker.|
 
-Jeśli zamierzasz wywołać [interfejsy API tworzenia](../How-To/collaborate-knowledge-base.md), Dowiedz się więcej na temat konfigurowania uwierzytelniania.
+Jeśli zamierzasz wywołać [interfejsy API tworzenia](../index.yml), Dowiedz się więcej na temat konfigurowania uwierzytelniania.
 
 ## <a name="authenticate-by-qna-maker-portal"></a>Uwierzytelnianie za pomocą portalu QnA Maker
 
-W przypadku tworzenia i współpracy przy użyciu portalu QnA Maker po [dodaniu odpowiedniej roli do zasobu dla współpracownika](../How-To/collaborate-knowledge-base.md)Portal QNA Maker zarządza wszystkimi uprawnieniami dostępu.
+W przypadku tworzenia i współpracy przy użyciu portalu QnA Maker po [dodaniu odpowiedniej roli do zasobu dla współpracownika](../index.yml)Portal QNA Maker zarządza wszystkimi uprawnieniami dostępu.
 
 ## <a name="authenticate-by-qna-maker-apis-and-sdks"></a>Uwierzytelnianie za pomocą QnA Maker interfejsów API i zestawów SDK
 
@@ -54,4 +54,4 @@ W przypadku tworzenia i współpracy z interfejsami API przy użyciu protokołu 
 
 ## <a name="next-step"></a>Następny krok
 
-* Projektowanie bazy wiedzy dla [języków](design-language-culture.md) i [aplikacji klienckich](integration-with-other-applications.md)
+* Projektowanie bazy wiedzy dla [języków](../index.yml) i [aplikacji klienckich](../index.yml)

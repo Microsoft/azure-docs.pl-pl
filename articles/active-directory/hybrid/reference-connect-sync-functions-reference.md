@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d8ec8eec28d66cf93608393ddca45f78460d831
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6c8be064ade8182355c320e948b3b60b846033d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279775"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348062"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync: informacje o funkcjach
 W Azure AD Connect funkcje są używane do manipulowania wartością atrybutu podczas synchronizacji.  
@@ -48,7 +48,7 @@ Typy są wyrażane przy użyciu następującej składni:
 * **var** — wariant (prawie) każdy inny typ
 * **void** — nie zwraca wartości
 
-Funkcje o typach **mvbin**, **mvstr**i **mvref** mogą działać tylko w przypadku atrybutów wielowartościowych. Funkcja with **bin**, **str**i **ref** Work na atrybutach jednowartościowych i wielowartościowych.
+Funkcje o typach **mvbin**, **mvstr** i **mvref** mogą działać tylko w przypadku atrybutów wielowartościowych. Funkcja with **bin**, **str** i **ref** Work na atrybutach jednowartościowych i wielowartościowych.
 
 ## <a name="functions-reference"></a>Informacje ogólne o funkcjach
 
@@ -125,7 +125,7 @@ Funkcje o typach **mvbin**, **mvstr**i **mvref** mogą działać tylko w przypad
   * [IIF](#iif)
   * [Wybierz](#select)
   * [Przełącznika](#switch)
-  * [Miejscu](#where)
+  * [Lokalizacja](#where)
   * [Się](#with)
 * **Tekst**
   * [IDENT](#guid)
@@ -703,7 +703,7 @@ Funkcja InStr Znajdowanie pierwszego wystąpienia podciągu w ciągu
 
 `num InStr(str stringcheck, str stringmatch)`  
 `num InStr(str stringcheck, str stringmatch, num start)`  
-`num InStr(str stringcheck, str stringmatch, num start , enum compare)`
+`num InStr(str stringcheck, str stringmatch, num start, enum compare)`
 
 * stringcheck: ciąg do przeszukania
 * stringmatch: ciąg, który ma zostać znaleziony

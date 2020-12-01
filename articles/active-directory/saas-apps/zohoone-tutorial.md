@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: fa63cc2c76d8bd47ca80050a369bda7211f5db24
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 98c9012969051e4370239a0f4098e0ea1d7a55a0
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896757"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348317"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho-one"></a>Samouczek: Azure Active Directory integrację z usługą Zoho one
 
@@ -49,11 +49,11 @@ Aby skonfigurować integrację programu Zoho z usługą Azure AD, musisz dodać 
 
 **Aby dodać Zoho jeden z galerii, wykonaj następujące czynności:**
 
-1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory** .
+1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do grupy **Aplikacje dla przedsiębiorstw** i wybierz opcję **Wszystkie aplikacje** .
+2. Przejdź do grupy **Aplikacje dla przedsiębiorstw** i wybierz opcję **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Aby skonfigurować integrację programu Zoho z usługą Azure AD, musisz dodać 
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **Zoho** , a następnie wybierz pozycję **Zoho** z panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+4. W polu wyszukiwania wpisz **Zoho**, a następnie wybierz pozycję **Zoho** z panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
      ![Zoho jeden na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą Zoho jednej na podstawie użytkownika testowego o nazwie **Britta Simon** .
+Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą Zoho jednej na podstawie użytkownika testowego o nazwie **Britta Simon**.
 Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Zoho.
 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą Zoho, należy wykonać następujące bloki konstrukcyjne:
@@ -85,15 +85,15 @@ W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure 
 
 Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Zoho, wykonaj następujące czynności:
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie **Zoho jednej** aplikacji wybierz pozycję **Logowanie jednokrotne** .
+1. W [Azure Portal](https://portal.azure.com/)na stronie **Zoho jednej** aplikacji wybierz pozycję **Logowanie jednokrotne**.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
-2. W oknie dialogowym **Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed** , aby włączyć logowanie jednokrotne.
+2. W oknie dialogowym **Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed**, aby włączyć logowanie jednokrotne.
 
     ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
 
-3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij ikonę **Edytuj** , aby otworzyć okno dialogowe **Podstawowa konfiguracja protokołu SAML** .
+3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe **Podstawowa konfiguracja protokołu SAML**.
 
     ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -108,7 +108,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Zoho, wykon
     > [!NOTE]
     > Poprzednia wartość **adresu URL odpowiedzi** nie jest prawdziwa. Otrzymasz `<saml-identifier>` wartość z #step4 **konfigurowania Zoho jednej** jednokrotnej rejestracji, która została omówiona w dalszej części tego samouczka.
 
-    c. Kliknij pozycję **Ustaw dodatkowe adresy URL** .
+    c. Kliknij pozycję **Ustaw dodatkowe adresy URL**.
 
     d. W polu tekstowym **Stan przekaźnika** wpisz adres URL: `https://one.zoho.com`
 
@@ -121,7 +121,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Zoho, wykon
     > [!NOTE] 
     > Poprzednia wartość **adresu URL logowania** nie jest prawdziwa. Wartość zostanie zaktualizowana o rzeczywisty adres URL Sign-On w sekcji **Configure Zoho one Single Sign-on** , która została omówiona w dalszej części tego samouczka. 
 
-6. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz** , aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
+6. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
@@ -139,7 +139,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Zoho, wykon
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się do swojej Zoho jednej witryny firmowej jako administrator.
 
-2. Na karcie **organizacja** kliknij pozycję **Instalator** w obszarze **uwierzytelnianie SAML** .
+2. Na karcie **organizacja** kliknij pozycję **Instalator** w obszarze **uwierzytelnianie SAML**.
 
     ![Zoho jednej organizacji](./media/zohoone-tutorial/tutorial_zohoone_setup.png)
 
@@ -147,19 +147,19 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Zoho, wykon
 
     ![Zoho jeden SIG](./media/zohoone-tutorial/tutorial_zohoone_save.png)
 
-    a. W polu tekstowym **adres URL logowania** wklej wartość **adresu URL logowania** , który został skopiowany z Azure Portal.
+    a. W polu tekstowym **adres URL logowania** wklej wartość **adresu URL logowania**, który został skopiowany z Azure Portal.
 
-    b. W polu tekstowym **adres URL wylogowania** wklej wartość **adresu URL wylogowania** , która została skopiowana z Azure Portal.
+    b. W polu tekstowym **adres URL wylogowania** wklej wartość **adresu URL wylogowania**, która została skopiowana z Azure Portal.
 
     c. Kliknij przycisk **Przeglądaj** , aby przekazać **certyfikat (base64)** pobrany z Azure Portal.
 
-    d. Kliknij pozycję **Zapisz** .
+    d. Kliknij pozycję **Zapisz**.
 
 4. Po zapisaniu konfiguracji uwierzytelniania SAML skopiuj wartość **identyfikatora SAML** i Dołącz ją z **adresem URL odpowiedzi** zamiast `<saml-identifier>` , podobnie jak `https://accounts.zoho.com/samlresponse/one.zoho.com` i wklej WYGENEROWANĄ wartość w polu tekstowym **adres URL odpowiedzi** w sekcji **Podstawowa konfiguracja SAML** .
 
     ![Zoho jeden element SAML](./media/zohoone-tutorial/tutorial_zohoone_samlidenti.png)
 
-5. Przejdź do karty **domeny** , a następnie kliknij pozycję **Dodaj domenę** .
+5. Przejdź do karty **domeny** , a następnie kliknij pozycję **Dodaj domenę**.
 
     ![Zoho jedną domenę](./media/zohoone-tutorial/tutorial_zohoone_domain.png)
 
@@ -169,7 +169,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Zoho, wykon
 
     a. W polu tekstowym **nazwa domeny** wpisz domena, na przykład contoso.com.
 
-    b. Kliknij pozycję **Dodaj** .
+    b. Kliknij pozycję **Dodaj**.
 
     >[!Note]
     >Po dodaniu domeny wykonaj [następujące](https://www.zoho.com/one/help/admin-guide/domain-verification.html) kroki, aby zweryfikować domenę. Po zweryfikowaniu domeny Użyj nazwy domeny w **adresie URL logowania** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
@@ -178,7 +178,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Zoho, wykon
 
 W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie Britta Simon.
 
-1. W witrynie Azure Portal w okienku po lewej stronie wybierz pozycję **Azure Active Directory** , wybierz opcję **Użytkownicy** , a następnie wybierz pozycję **Wszyscy użytkownicy** .
+1. W witrynie Azure Portal w okienku po lewej stronie wybierz pozycję **Azure Active Directory**, wybierz opcję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
@@ -190,31 +190,31 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
-    a. W polu **Nazwa** wprowadź **BrittaSimon** .
+    a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
     b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension` . Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz** .
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
 W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do Zoho.
 
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw** , wybierz pozycję **wszystkie aplikacje** , a następnie wybierz pozycję **Zoho** .
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **Zoho**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście Aplikacje wybierz pozycję **Zoho jeden** .
+2. Na liście Aplikacje wybierz pozycję **Zoho jeden**.
 
     ![Łącze Zoho 1 na liście aplikacji](common/all-applications.png)
 
-3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy** .
+3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
     ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
 
-4. Kliknij przycisk **Dodaj użytkownika** , a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania** .
+4. Kliknij przycisk **Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania**.
 
     ![Okienko Dodawanie przypisania](common/add-assign-user.png)
 
@@ -222,7 +222,7 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
 6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
-7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
+7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
 ### <a name="create-zoho-one-test-user"></a>Utwórz Zoho jednego użytkownika testowego
 
@@ -232,7 +232,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w celu Zoho jedneg
 
 1. Zaloguj się, aby Zoho jeden jako administrator zabezpieczeń.
 
-2. Na karcie **Użytkownicy** kliknij pozycję **logo użytkownika** .
+2. Na karcie **Użytkownicy** kliknij pozycję **logo użytkownika**.
 
     ![Zoho jednego użytkownika](./media/zohoone-tutorial/tutorial_zohoone_users.png)
 
@@ -240,14 +240,14 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w celu Zoho jedneg
 
     ![Zoho jednego użytkownika](./media/zohoone-tutorial/tutorial_zohoone_adduser.png)
     
-    a. W polu tekstowym **Nazwa** wprowadź nazwę użytkownika, np. **Britta Simon** .
+    a. W polu tekstowym **Nazwa** wprowadź nazwę użytkownika, np. **Britta Simon**.
     
     b. W polu tekstowym **Email Address** (Adres e-mail) wprowadź adres e-mail użytkownika, na przykład brittasimon@contoso.com.
 
     >[!Note]
     >Wybierz zweryfikowaną domenę z listy domen.
 
-    c. Kliknij pozycję **Dodaj** .
+    c. Kliknij pozycję **Dodaj**.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 

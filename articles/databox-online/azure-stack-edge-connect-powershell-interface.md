@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: alkohli
-ms.openlocfilehash: 93678735237c25b19d04b7d901583ba785d7f594
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9c6247f021b7af4cfdd899ffd4b6bd178f2256c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613547"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345597"
 ---
 # <a name="manage-an-azure-stack-edge-pro-fpga-device-via-windows-powershell"></a>Zarządzanie urządzeniem Azure Stack EDGE Pro FPGA za pomocą programu Windows PowerShell
 
@@ -43,7 +43,7 @@ Ten artykuł zawiera następujące procedury:
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
 
-Można również przekazać certyfikaty IoT Edge, aby umożliwić bezpieczne połączenie między urządzeniem IoT Edge i urządzeniami podrzędnymi, które mogą się z nim łączyć. Istnieją trzy pliki (format*PEM* ), które należy zainstalować:
+Można również przekazać certyfikaty IoT Edge, aby umożliwić bezpieczne połączenie między urządzeniem IoT Edge i urządzeniami podrzędnymi, które mogą się z nim łączyć. Istnieją trzy pliki (format *PEM* ), które należy zainstalować:
 
 - Certyfikat głównego urzędu certyfikacji lub urząd certyfikacji właściciela
 - Certyfikat urzędu certyfikacji urządzenia
@@ -56,7 +56,7 @@ Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cer
 ```
 Po uruchomieniu tego polecenia cmdlet zostanie wyświetlony monit o podanie hasła dla udziału sieciowego.
 
-Aby uzyskać więcej informacji na temat certyfikatów, przejdź do pozycji [Azure IoT Edge Certificates](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) lub [Zainstaluj certyfikaty na bramie](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway).
+Aby uzyskać więcej informacji na temat certyfikatów, przejdź do pozycji [Azure IoT Edge Certificates](../iot-edge/iot-edge-certs.md) lub [Zainstaluj certyfikaty na bramie](../iot-edge/how-to-create-transparent-gateway.md).
 
 ## <a name="view-device-information"></a>Wyświetl informacje o urządzeniu
  
