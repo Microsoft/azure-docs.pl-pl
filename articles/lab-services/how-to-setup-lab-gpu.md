@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 3cbca82ba88baf5ddda2a6d7a6cdd35b62f28b8e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 264d103cd5f1459a6d29a35a1ecefc595285587a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647940"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433992"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Konfigurowanie laboratorium z maszynami wirtualnymi GPU
 
@@ -115,6 +115,6 @@ Postępuj zgodnie z instrukcjami w sekcji "Weryfikowanie instalacji sterowników
 ## <a name="next-steps"></a>Następne kroki
 Zobacz następujące artykuły:
 
-- [Tworzenie laboratoriów na potrzeby zajęć i zarządzanie nimi](how-to-manage-classroom-labs.md)
+- [Tworzenie laboratoriów i zarządzanie nimi](how-to-manage-classroom-labs.md)
 - [SOLIDWORKS typ klasy projektowania (CAD) dla komputerów](class-type-solidworks.md)
 - [MATLAB (laboratorium macierzowe) typ klasy](class-type-matlab.md)

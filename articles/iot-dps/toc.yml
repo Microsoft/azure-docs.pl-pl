@@ -47,6 +47,8 @@
           href: how-to-legacy-device-symm-key.md
         - name: Korzystanie z niestandardowych zasad alokacji
           href: tutorial-custom-allocation-policies.md
+        - name: Aprowizowanie wielu urządzeń X.509
+          href: tutorial-custom-hsm-enrollment-group-x509.md
     - name: 2 — Aprowizowanie urządzeń w wielu centrach
       items:
         - name: Łączenie wielu centrów z usługą DPS

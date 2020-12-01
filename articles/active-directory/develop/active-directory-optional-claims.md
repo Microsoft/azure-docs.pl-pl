@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/30/2020
+ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 7eedb9ce30be236e8d47152f0e114b7bc5ae2304
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e71ab0293dade56c14dce7318fc96021a040b102
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348096"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433317"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Instrukcje: dostarczanie opcjonalnych oświadczeń do aplikacji
 
@@ -58,7 +58,7 @@ Zestaw opcjonalnych oświadczeń dostępnych domyślnie dla aplikacji do użycia
 | `verified_secondary_email` | Źródłem z SecondaryAuthoritativeEmail użytkownika   | JWT        |           |        |
 | `vnet`                     | Informacje o specyfikatorze sieci wirtualnej. | JWT        |           |      |
 | `fwd`                      | Adres IP.| JWT    |   | Dodaje oryginalny adres IPv4 klienta żądającego (w sieci wirtualnej) |
-| `ctry`                     | Kraj/region użytkownika | JWT, SAML |  | Usługa Azure AD zwraca `ctry` opcjonalne pole, jeśli jest obecne, a wartość pola to standardowy dwuliterowy kod kraju/regionu, taki jak fr, JP, sz i tak dalej. |
+| `ctry`                     | Kraj/region użytkownika | JWT |  | Usługa Azure AD zwraca `ctry` opcjonalne pole, jeśli jest obecne, a wartość pola to standardowy dwuliterowy kod kraju/regionu, taki jak fr, JP, sz i tak dalej. |
 | `tenant_ctry`              | Kraj dzierżawy zasobu | JWT | | Taka sama jak `ctry` z wyjątkiem ustawionych na poziomie dzierżawy przez administratora.  Musi być również standardowa dwuliterowa wartość. |
 | `xms_pdl`             | Preferowana lokalizacja danych   | JWT | | W przypadku dzierżaw z wieloma lokalizacjami geograficznymi preferowaną lokalizacją danych jest kod składający się z regionu geograficznego, w którym znajduje się użytkownik. Aby uzyskać więcej informacji, zobacz [dokumentację Azure AD Connect dotyczącą preferowanej lokalizacji danych](../hybrid/how-to-connect-sync-feature-preferreddatalocation.md).<br/>Na przykład: `APC` dla Azja i Pacyfik. |
 | `xms_pl`                   | Preferowany język użytkownika  | JWT ||Preferowany język użytkownika, jeśli jest ustawiony. Pochodzący od swojej dzierżawy domowej w scenariuszach dostępu gościa. Sformatowane — DW ("pl-US"). |

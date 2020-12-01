@@ -3,12 +3,12 @@ title: Rozpocznij pracę i Utwórz laboratorium Azure Lab Services w zespołach
 description: Dowiedz się, jak rozpocząć pracę i utworzyć laboratorium Azure Lab Services w ramach zespołów.
 ms.topic: article
 ms.date: 10/08/2020
-ms.openlocfilehash: e17b0be223a1630402fc4f32c692d7ecfe184783
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: cc4ad604bdf250cc6e4ba2c50c2f7143c921e906
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217086"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433975"
 ---
 # <a name="get-started-and-create-a-lab-services-lab-within-teams"></a>Rozpocznij pracę i Utwórz laboratorium usług Lab Services w zespołach
 
@@ -40,18 +40,18 @@ Właściciel zespołu może dodawać **Azure Lab Services** aplikację bezpośre
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/integrate-with-teams/add.png" alt-text="Dodaj kartę":::
-1. Wybierz konto usługi laboratoryjnej, którego chcesz użyć do tworzenia laboratoriów zajęć w tym zespole. 
+1. Wybierz konto usługi laboratoryjnej, którego chcesz użyć do tworzenia laboratoriów w tym zespole. 
 
     Azure Lab Services korzysta z logowania jednokrotnego w [witrynie sieci web Azure Lab Services](https://labs.azure.com) i pobiera wszystkie konta laboratorium, do których masz dostęp. 
 
-    Są wyświetlane konta znajdujące się w tej samej dzierżawie co zespoły i dla których masz uprawnienia **właściciela**, **współautora**lub **twórcy** . 
+    Są wyświetlane konta znajdujące się w tej samej dzierżawie co zespoły i dla których masz uprawnienia **właściciela**, **współautora** lub **twórcy** . 
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/integrate-with-teams/welcome.png" alt-text="Dodaj kartę":::
+    > :::image type="content" source="./media/integrate-with-teams/welcome.png" alt-text="Czujnik ALS — Zapraszamy!":::
 1. Naciśnij przycisk **Zapisz** , a karta zostanie dodana do kanału.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/integrate-with-teams/created.png" alt-text="Dodaj kartę":::
+    > :::image type="content" source="./media/integrate-with-teams/created.png" alt-text="Utworzono kartę ALS":::
 
     Teraz możesz wybrać kartę **Azure Lab Services** z kanału i rozpocząć Zarządzanie laboratoriami zgodnie z opisem w poniższych artykułach.
 
@@ -63,7 +63,7 @@ Gdy laboratorium jest tworzone w zespołach, lista użytkowników laboratorium j
 
 [Zarządzanie listami użytkowników usług Lab Services w ramach zespołów](how-to-manage-user-lists-within-teams.md)
 
-### <a name="see-also"></a>Zobacz też
+### <a name="see-also"></a>Zobacz także
 
 Zobacz również następujące artykuły:
 

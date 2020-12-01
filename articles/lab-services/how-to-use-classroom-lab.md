@@ -3,12 +3,12 @@ title: Jak uzyskać dostęp do laboratorium w usłudze Azure Lab Services | Micr
 description: Dowiedz się, jak zarejestrować się w laboratorium zajęć, wyświetlić wszystkie laboratoria, do których można uzyskać dostęp, uruchomić/zatrzymać maszynę wirtualną w laboratorium i połączyć się z maszyną wirtualną.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 0c2f0ba5e6a47e00f47a31e08c036ea17ff2507a
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 6d5585082473a363df5f25f331475536544ae828
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946114"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433142"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Jak uzyskać dostęp do laboratorium w usłudze Azure Lab Services
 W tym artykule opisano sposób rejestracji w laboratorium zajęć, wyświetlania wszystkich laboratoriów, do których można uzyskać dostęp, uruchamiania/zatrzymywania maszyny wirtualnej w laboratorium oraz nawiązywania połączenia z maszyną wirtualną. 
@@ -70,8 +70,8 @@ Pasek postępu na kafelku pokazuje liczbę godzin użycia w odniesieniu do liczb
     ![Pasek postępu w kolorze niebieskim](./media/tutorial-connect-vm-in-classroom-lab/progress-bar-blue-color.png)
 
 
-## <a name="view-all-the-classroom-labs"></a>Wyświetlanie wszystkich laboratoriów
-Po zarejestrowaniu się w laboratoriach możesz wyświetlić wszystkie laboratoria na potrzeby zajęć, wykonując następujące czynności: 
+## <a name="view-all-the-labs"></a>Wyświetl wszystkie laboratoria
+Po zarejestrowaniu się w laboratoriach można wyświetlić wszystkie laboratoria, wykonując następujące czynności: 
 
 1. Przejdź do [https://labs.azure.com](https://labs.azure.com) . Program Internet Explorer 11 nie jest jeszcze obsługiwany. 
 2. Zaloguj się w usłudze przy użyciu konta użytkownika, którego użyto do zarejestrowania się do laboratorium. 

@@ -3,19 +3,19 @@ title: Skonfiguruj automatyczne zamykanie maszyn wirtualnych dla laboratorium w 
 description: Informacje na temat włączania lub wyłączania automatycznego zamykania maszyn wirtualnych po odłączeniu połączenia z pulpitem zdalnym.
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 67b51941207fdd4913df9a92362959bbd468d336
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f9080f3b7b762d3b9fa448a903a4167cd2cec4a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649885"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433936"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab"></a>Konfigurowanie automatycznego zamykania maszyn wirtualnych dla laboratorium
 
 W tym artykule pokazano, jak skonfigurować automatyczne zamykanie maszyn wirtualnych dla laboratorium.
 
 Możesz włączyć kilka funkcji kontroli kosztów automatycznego zamykania, aby aktywnie uniknąć dodatkowych kosztów, gdy maszyny wirtualne nie są aktywnie używane. Kombinacja następujących trzech funkcji automatycznego zamykania i rozłączania przechwytuje większość przypadków, w których użytkownicy przypadkowo opuszczają maszyny wirtualne z systemem:
- 
+ 
 * Automatyczne rozłączanie użytkowników z maszyn wirtualnych uznawanych za bezczynne przez system operacyjny.
 * Automatycznie zamykaj maszyny wirtualne podczas odłączania użytkowników.
 * Automatycznie Zamykaj uruchomione maszyny wirtualne, ale użytkownicy nie łączą się.
@@ -40,4 +40,4 @@ Upewnij się, że szczegółowe informacje o automatycznym zamknięciu znajdują
 > W przypadku zamknięcia systemu operacyjnego Linux lub Windows na maszynie wirtualnej przed rozłączeniem sesji RDP z maszyną wirtualną funkcja Autozamykania nie będzie działać prawidłowo.  
 ## <a name="next-steps"></a>Następne kroki
 
-[Pulpit nawigacyjny dla laboratoriów zajęć](use-dashboard.md)
+[Pulpit nawigacyjny dla laboratoriów](use-dashboard.md)

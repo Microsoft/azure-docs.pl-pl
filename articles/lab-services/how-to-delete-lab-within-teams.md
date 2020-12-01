@@ -3,12 +3,12 @@ title: Usuwanie laboratorium Azure Lab Services z zespołów
 description: Dowiedz się, jak usunąć laboratorium Azure Lab Services z zespołów.
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: 1d2fe73d33a88e595f42b47c1e7122dcbdfe1063
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 8d1e20f8f676eb9863187b550a3c0400871d670c
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094451"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433958"
 ---
 # <a name="delete-labs-within-teams"></a>Usuwanie laboratoriów w zespołach
 
@@ -21,7 +21,7 @@ W tym artykule pokazano, jak usunąć laboratorium z aplikacji **Azure Lab Servi
 
 ## <a name="delete-labs"></a>Usuwanie laboratoriów
 
-Laboratorium utworzone w zespołach można usunąć w [witrynie sieci Web usług Lab Services](https://labs.azure.com) , usuwając laboratorium bezpośrednio, zgodnie z opisem w temacie [Zarządzanie laboratoriami klas w Azure Lab Services](how-to-manage-classroom-labs.md). 
+Laboratorium utworzone w zespołach można usunąć w [witrynie sieci Web usług Lab Services](https://labs.azure.com) , usuwając laboratorium bezpośrednio, zgodnie z opisem w temacie [Zarządzanie laboratoriami w Azure Lab Services](how-to-manage-classroom-labs.md). 
 
 Usuwanie laboratorium jest również wyzwalane, gdy zespół zostanie usunięty. W przypadku usunięcia zespołu, w którym laboratorium zostanie utworzone, laboratorium zostanie automatycznie usunięte po 24 godzinach od momentu wyzwolenia automatycznej synchronizacji listy użytkowników. 
 

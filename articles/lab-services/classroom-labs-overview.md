@@ -1,19 +1,19 @@
 ---
-title: Informacje o laboratoriach zajęć w Azure Lab Services | Microsoft Docs
+title: Informacje o laboratoriach w Azure Lab Services | Microsoft Docs
 description: Dowiedz się, jak szybko skonfigurować środowisko laboratoryjne w chmurze — Skonfiguruj laboratorium z szablonową maszyną wirtualną przy użyciu oprogramowania wymaganego dla klasy i Utwórz kopię maszyny wirtualnej dla każdego ucznia w klasie.
 ms.topic: overview
 ms.date: 06/26/2020
-ms.openlocfilehash: e6ff56a831282c3abf5eec644573b9a3e88c6543
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 79d6f1cc9f2a6d8d8be872359a4677b36602eea5
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85445631"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434808"
 ---
-# <a name="introduction-to-classroom-labs"></a>Wprowadzenie do laboratoriów na potrzeby zajęć
+# <a name="introduction-to-labs"></a>Wprowadzenie do laboratoriów
 Usługa Azure Lab Services umożliwia szybkie skonfigurowanie środowiska laboratorium na potrzeby zajęć w chmurze. Nauczyciel tworzy laboratorium na potrzeby zajęć, aprowizuje maszyny wirtualne z systemem Windows lub Linux, instaluje niezbędne oprogramowanie i narzędzia wymagane podczas zajęć oraz udostępnia je studentom. Studenci na zajęciach łączą się z maszynami wirtualnymi w laboratorium, a następnie używają ich na potrzeby projektów, przydziałów i ćwiczeń wykonywanych na zajęciach. 
 
-Laboratoria na potrzeby zajęć to typy laboratoriów zarządzanych przez platformę Azure. Sama usługa obsługuje całe zarządzanie infrastrukturą dla typu laboratorium zarządzanego, od zwiększania możliwości maszyn wirtualnych do obsługi błędów i skalowania infrastruktury. Użytkownik określa, jakiego rodzaju infrastruktury potrzebuje, i instaluje narzędzia lub oprogramowanie wymagane na zajęciach. 
+Laboratoria to zarządzane typy laboratorium zarządzane przez platformę Azure. Sama usługa obsługuje całe zarządzanie infrastrukturą dla typu laboratorium zarządzanego, od zwiększania możliwości maszyn wirtualnych do obsługi błędów i skalowania infrastruktury. Użytkownik określa, jakiego rodzaju infrastruktury potrzebuje, i instaluje narzędzia lub oprogramowanie wymagane na zajęciach. 
 
 ## <a name="automatic-management-of-azure-infrastructure-and-scale"></a>Automatyczne zarządzanie skalą i infrastrukturą platformy Azure 
 Azure Lab Services to usługa zarządzana, więc automatycznie obsługuje aprowizację podstawowej infrastruktury laboratorium oraz zarządzanie nią. Możesz się skupić wyłącznie na przygotowaniu odpowiedniego środowiska laboratorium dla swoich użytkowników. Pozwól usłudze zająć się resztą i wdrożyć maszyny wirtualne środowiska laboratoryjnego dla grona użytkowników. Skalowanie laboratorium do setek maszyn wirtualnych za pomocą jednego kliknięcia.

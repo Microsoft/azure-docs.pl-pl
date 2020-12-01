@@ -3,12 +3,12 @@ title: Konfigurowanie laboratorium na potrzeby zajęć przy użyciu usługi Azur
 description: W tym samouczku użyjesz Azure Lab Services, aby skonfigurować laboratorium zajęć z maszynami wirtualnymi, które są używane przez uczniów w klasie.
 ms.topic: tutorial
 ms.date: 06/26/2020
-ms.openlocfilehash: 1155646d31ddb8a0a3abce025acde5c4cb645f54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8981a03b53b1cfb67b03d89f8a1468511d9b1b93
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336738"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434859"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Samouczek: konfigurowanie laboratorium na potrzeby zajęć 
 W tym samouczku skonfigurujesz laboratorium na potrzeby zajęć z maszynami wirtualnymi używanymi przez uczniów podczas zajęć.  
@@ -116,7 +116,7 @@ Utwórz zaplanowane zdarzenie dla laboratorium, aby maszyny wirtualne w laborato
     
     ![Zaplanuj w kalendarzu](./media/how-to-create-schedules/schedule-calendar.png)
 
-    Aby uzyskać więcej informacji na temat tworzenia harmonogramów dla klasy i zarządzania nimi, zobacz [Tworzenie harmonogramu dla laboratoriów zajęć i zarządzanie nim](how-to-create-schedules.md).
+    Aby uzyskać więcej informacji na temat tworzenia harmonogramów dla klasy i zarządzania nimi, zobacz [Tworzenie harmonogramu dla laboratoriów i zarządzanie nim](how-to-create-schedules.md).
 
 
 ## <a name="add-users-to-the-lab"></a>Dodawanie użytkowników do laboratorium
@@ -143,7 +143,7 @@ Utwórz zaplanowane zdarzenie dla laboratorium, aby maszyny wirtualne w laborato
 1. Na stronie **wysyłanie zaproszenia** pocztą e-mail wprowadź opcjonalną wiadomość, a następnie wybierz pozycję **Wyślij**. Wiadomość e-mail automatycznie zawiera link rejestracji. Możesz uzyskać ten link rejestracji, wybierając pozycję **... (wielokropek)** na pasku narzędzi i w **łączu rejestracji**. 
 
     ![Wyślij link rejestracji za pośrednictwem poczty e-mail](./media/tutorial-setup-classroom-lab/send-email.png)
-4. Stan **zaproszenia** zostanie wyświetlony na liście **Użytkownicy** . Stan powinien zostać zmieniony na **wysłanie** , a następnie do ** &lt; daty &gt; wysłania**. 
+4. Stan **zaproszenia** zostanie wyświetlony na liście **Użytkownicy** . Stan powinien zostać zmieniony na **wysłanie** , a następnie do **&lt; daty &gt; wysłania**. 
 
     Aby uzyskać więcej informacji na temat dodawania uczniów do klasy i zarządzania ich użyciem laboratorium, zobacz [jak skonfigurować użycie ucznia](how-to-configure-student-usage.md).
 

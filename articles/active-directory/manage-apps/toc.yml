@@ -192,8 +192,16 @@
           href: application-proxy-remove-personal-data.md
         - name: Konfigurowanie domeny niestandardowej
           href: application-proxy-configure-custom-domain.md
-        - name: Bezpieczne starsze aplikacje dzięki kontrolerom dostarczania aplikacji lub sieciom
-          href: secure-hybrid-access.md
+        - name: Zabezpieczanie starszych aplikacji
+          items:
+            - name: Zabezpieczanie dostępu hybrydowego za pomocą usługi Azure AD
+              href: secure-hybrid-access.md
+            - name: Integracja usług F5 i Azure AD
+              href: f5-aad-integration.md
+            - name: Wdrożenie usługi F5 BIG-IP VE w usłudze Azure IaaS
+              href: f5-bigip-deployment-guide.md
+            - name: Bezhasłowa sieć VPN dzięki usługom F5 Big-IP i Azure AD
+              href: f5-aad-password-less-vpn.md
         - name: Przewodniki dotyczące publikowania
           items:
             - name: Integrowanie z serwerem proxy aplikacji na serwerze usługi NDES

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
-ms.openlocfilehash: 3632a34678c7a0f0e6fa93e5ce8000b07bb413a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cec17b98daa8eca31cda076921288e2838960511
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86054529"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434536"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>Aplikacje zarządzane przez platformę Azure z powiadomieniami
 
@@ -61,7 +61,7 @@ Aby rozpocząć, zobacz [publikowanie aplikacji katalogu usług za pomocą Azure
 
 ```
 ## <a name="add-azure-marketplace-managed-application-notifications"></a>Dodawanie powiadomień aplikacji zarządzanych przez portal Azure Marketplace
-Aby uzyskać więcej informacji, zobacz [Tworzenie oferty aplikacji platformy Azure](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
+Aby uzyskać więcej informacji, zobacz [Tworzenie oferty aplikacji platformy Azure](../../marketplace/create-new-azure-apps-offer.md).
 
 ![Powiadomienia aplikacji zarządzane w portalu Azure Marketplace w Azure Portal](./media/publish-notifications/marketplace-notifications.png)
 ## <a name="event-triggers"></a>Wyzwalacze zdarzeń
@@ -70,9 +70,9 @@ W poniższej tabeli opisano wszystkie możliwe kombinacje elementów EventType i
 Typ zdarzenia | ProvisioningState | Wyzwalacz dla powiadomienia
 ---|---|---
 PUT | Zaakceptowano | Zarządzana Grupa zasobów została utworzona i została pomyślnie zastawiona po rozpoczęciu aplikacji (przed rozpoczęciem wdrażania w ramach zarządzanej grupy zasobów).
-PUT | Sukces | Pełna aprowizacji aplikacji zarządzanej zakończyła się pomyślnie po UMIESZCZENIU.
+PUT | Powodzenie | Pełna aprowizacji aplikacji zarządzanej zakończyła się pomyślnie po UMIESZCZENIU.
 PUT | Niepowodzenie | Niepowodzenie inicjowania aprowizacji wystąpienia aplikacji w dowolnym momencie.
-WYSŁANA | Sukces | Po pomyślnej poprawek w wystąpieniu aplikacji zarządzanej w celu zaktualizowania tagów, zasad dostępu JIT lub tożsamości zarządzanej.
+WYSŁANA | Powodzenie | Po pomyślnej poprawek w wystąpieniu aplikacji zarządzanej w celu zaktualizowania tagów, zasad dostępu JIT lub tożsamości zarządzanej.
 DELETE | Usuwanie | Zaraz po zainicjowaniu przez użytkownika usunięcia wystąpienia aplikacji zarządzanej.
 DELETE | Usunięte | Po pełnym i pomyślnym usunięciu zarządzanej aplikacji.
 DELETE | Niepowodzenie | Po wystąpieniu błędu w trakcie anulowania aprowizacji, który blokuje usunięcie.

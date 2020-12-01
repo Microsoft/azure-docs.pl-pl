@@ -3,12 +3,12 @@ title: Wprowadzenie do Azure Lab Services
 description: W tym artykule opisano, jak rozpocząć pracę z Azure Lab Services.
 ms.topic: article
 ms.date: 11/18/2020
-ms.openlocfilehash: bdc4f4af06d70a1798e7409b78f6b47530ddd7f4
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 6fb0da7f91e0eecdeefecdb6635b657245fda9af
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917107"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434434"
 ---
 # <a name="get-started-with-lab-services"></a>Wprowadzenie do usług laboratoryjnych 
 
@@ -48,7 +48,7 @@ Najważniejszym znaczeniem do zapamiętania, gdy zarządzanie maszynami wirtualn
 
 ### <a name="overview"></a>Omówienie
 
-Pulpity nawigacyjne dla laboratoriów stacjonarnych w Azure Lab Services zawierają migawkę różnych aspektów konkretnego laboratorium, w tym informacje o maszynie wirtualnej, liczbę przypisanych i nieprzypisanych maszyn wirtualnych, liczbę zarejestrowanych i niezarejestrowanego użytkownika oraz informacje o harmonogramach laboratorium. 
+Pulpity nawigacyjne dla laboratoriów w Azure Lab Services zawierają migawkę różnych aspektów konkretnego laboratorium, w tym informacje o maszynie wirtualnej, liczbę przypisanych i nieprzypisanych maszyn wirtualnych, liczbę zarejestrowanych i niezarejestrowanego użytkownika oraz informacje o harmonogramach laboratorium. 
 
 > [!NOTE]
 > Chociaż większość aspektów administracyjnych pulpitu nawigacyjnego i [witryny sieci web Azure Lab Services](https://labs.azure.com/) będzie widoczna dla nauczycieli, uprawnienia specyficzne dla Twojej roli mogą mieć wpływ na możliwość modyfikowania określonych kryteriów na pulpicie nawigacyjnym. Jeśli wystąpi problem z konkretną konfigurację laboratorium, skontaktuj się z administratorem CTE.
@@ -118,7 +118,7 @@ Nauczyciele mogą dodawać użytkowników uczniów do laboratorium i monitorowa�
 
     :::image type="content" source="./media/how-to-configure-student-usage/add-users-button.png" alt-text="Przycisk &quot;Dodaj użytkowników&quot;":::
 1. W okienku **Dodaj użytkowników** , które pojawia się po prawej stronie, wprowadź adresy e-mail uczniów w oddzielnych wierszach lub w pojedynczym wierszu oddzielone średnikami.
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
     :::image type="content" source="./media/get-started-manage-labs/add-students.png" alt-text="Dodawanie uczniów do laboratorium":::
 1. Lista użytkowników zostanie teraz zaktualizowana o wiadomości e-mail, status, zaproszenie i godziny przydziału.
@@ -138,7 +138,7 @@ Możesz również dodać użytkowników, przekazując plik CSV zawierający ich 
 1. Wybierz plik CSV zawierający adresy e-mail uczniów, a następnie kliknij przycisk **Otwórz**.
 
     :::image type="content" source="./media/get-started-manage-labs/add-users-spreadsheet.png" alt-text="Dodawanie użytkowników przy użyciu arkusza kalkulacyjnego":::
-1. Wiadomości e-mail będą teraz wyświetlane w oknie po prawej stronie. Kliknij przycisk **Zapisz**.
+1. Wiadomości e-mail będą teraz wyświetlane w oknie po prawej stronie. Kliknij pozycję **Zapisz**.
 
     :::image type="content" source="./media/get-started-manage-labs/register-users.png" alt-text="Rejestrowanie użytkowników":::
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: fc473a06f5cbe00faf0514c70dcb27368897e58f
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 31463855ffe24a4e8766dcefaa6397f890d9dcac
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302882"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435069"
 ---
 # <a name="azure-security-baseline-for-azure-migrate"></a>Podstawa zabezpieczeń platformy Azure dla Azure Migrate
 
@@ -184,7 +184,7 @@ Należy upewnić się, że poświadczenia (takie jak hasło, certyfikat lub kart
 
 Używaj wbudowanych ról do przydzielenia uprawnień i utwórz własną rolę tylko wtedy, gdy jest to wymagane.
 
-Co to jest kontrola dostępu oparta na rolach (Azure RBAC) /role-based-access-control/overview.md 
+- [Co to jest kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md) 
 
 - [Jak skonfigurować kontrolę RBAC na platformie Azure](../role-based-access-control/role-assignments-portal.md) 
 

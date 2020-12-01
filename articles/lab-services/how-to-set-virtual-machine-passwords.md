@@ -1,14 +1,14 @@
 ---
 title: Ustawianie haseł dla maszyn wirtualnych w Azure Lab Services | Microsoft Docs
-description: Dowiedz się, jak ustawiać i resetować hasła dla maszyn wirtualnych w laboratorium z klasą Azure Lab Services.
+description: Dowiedz się, jak ustawiać i resetować hasła dla maszyn wirtualnych w laboratoriach Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: e24fee26670a664012ec5f0216b0638d6149453f
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 6ae577ee4c0c7e31760e0fb12afeaeac1ef8b7e2
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379693"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434230"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Konfigurowanie puli maszyn wirtualnych i zarządzanie nią 
 W tym artykule przedstawiono sposób wykonywania następujących zadań:
@@ -102,4 +102,4 @@ Twórca laboratorium (nauczycieli) może nawiązać połączenie z maszyną wirt
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej o opcjach użycia ucznia (jako właściciel laboratorium), zobacz następujący artykuł: [Konfigurowanie użycia ucznia](how-to-configure-student-usage.md).
 
-Aby dowiedzieć się, w jaki sposób uczniowie mogą resetować hasła dla swoich maszyn wirtualnych, zobacz [Ustawianie lub Resetowanie hasła dla maszyny wirtualnej w laboratoriach z zajęć (students)](how-to-set-virtual-machine-passwords-student.md).
+Aby dowiedzieć się, jak uczniowie mogą resetować hasła dla swoich maszyn wirtualnych, zobacz [Ustawianie lub Resetowanie hasła dla maszyn wirtualnych w laboratoriach (studentów)](how-to-set-virtual-machine-passwords-student.md).

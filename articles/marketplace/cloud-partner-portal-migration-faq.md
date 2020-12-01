@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 8bedecd4a050c445af0ab0ae0250197369b9173b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f0546a76974e429b625ba03fdf4598da7d32c990
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131415"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433362"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Często zadawane pytania dotyczące przechodzenia z portal Cloud Partner do Centrum partnerskiego
 
@@ -22,7 +22,7 @@ Portal Cloud Partner przeszedł do Centrum partnerskiego. Centrum partnerskie of
 
 Możesz kontynuować działalność w centrum partnerskim:
 
-| Warstwowy<img src="" width=200px> | Zmiany |
+| Obszar<img src="" width=200px> | Zmiany |
 | --- | --- |
 | Konto | Nie ma potrzeby tworzenia nowego konta Centrum partnerskiego; Możesz użyć istniejących poświadczeń portal Cloud Partner, aby zalogować się do Centrum partnerskiego, w którym będziesz teraz zarządzać kontem, użytkownikami, uprawnieniami i rozliczeniami. Informacje o umowie dotyczące publikowania i profilu firmy są migrowane do nowego konta Centrum partnerskiego wraz z informacjami o profilu wypłaty, kontami użytkowników i uprawnieniami oraz aktywnymi ofertami. Dowiedz się więcej na temat [zarządzania kontem komercyjnej witryny Marketplace w centrum partnerskim](partner-center-portal/manage-account.md). |
 | Oferowanie funkcji publikowania i zarządzania ofertami | Twoje dane oferty zostały przeniesione z portal Cloud Partner do Centrum partnerskiego. Teraz będziesz uzyskiwać dostęp do ofert w centrum partnerskim, które oferują Ulepszone środowisko użytkownika i intuicyjny interfejs. Dowiedz się [, jak zaktualizować istniejącą ofertę w komercyjnej witrynie Marketplace](partner-center-portal/update-existing-offer.md). |
@@ -58,16 +58,16 @@ Poniżej przedstawiono różnice w raporcie wypłaty między wycofanymi portal C
 
 | Portal Cloud Partner | Centrum partnerskie |
 | --- | --- |
-| **Link** : https://cloudpartner.azure.com/ | **Link** : https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory i https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
-| **Nawigacja** : raportowanie wypłaty w usłudze Insights | **Nawigacja** : raportowanie wypłaty w centrum partnerskim — ikona wypłaty |
-| **Zakres** :<ul><li>Element Transaction na wiersz jest widoczny dla kolekcji w toku, zebranych i płatnych.</li><li>Raportowanie — pokazuje wszystkie elementy wiersza po utworzeniu zamówienia zakupu, w tym zbieranie w toku i rozliczanie w toku oraz stan kolekcji i elementy wierszy, które nie są jeszcze kwalifikujące się do płatności.</li></ul> | **Zakres** :<ul><li>Pokazuje elementy wiersza, gdy są one uznawane za kwalifikujące się zyski.</li><li>Klienci zwracają się najpierw do firmy Microsoft, a następnie dostawcy ISV mogą zobaczyć raport wypłaty.</li><li>Raport wypłaty nie będzie wyświetlał kolekcji w toku i rozliczeń w toku.</li></ul> |
-| **Transakcja nie jest gotowa do wypłaty** : rozliczanie w toku | **Transakcja nie jest gotowa do wypłaty** : Następna Szacowana płatność: stan wypłaty jest w stanie nieprzetworzonym. |
-| **Stan wypłaty** : brak | **Stan wypłaty** :<ul><li>Nieprzetworzone: pokrycie jest uprawnione do płatności.</li><li>Nadchodzące: zdobywanie zostanie wysłane do wydawcy w następnej miesięcznej wypłatie.</li><li>Wysłano: płatność została wysłana do Twojego banku.</li></ul> |
+| **Link**: https://cloudpartner.azure.com/ | **Link**: https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory i https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
+| **Nawigacja**: raportowanie wypłaty w usłudze Insights | **Nawigacja**: raportowanie wypłaty w centrum partnerskim — ikona wypłaty |
+| **Zakres**:<ul><li>Element Transaction na wiersz jest widoczny dla kolekcji w toku, zebranych i płatnych.</li><li>Raportowanie — pokazuje wszystkie elementy wiersza po utworzeniu zamówienia zakupu, w tym zbieranie w toku i rozliczanie w toku oraz stan kolekcji i elementy wierszy, które nie są jeszcze kwalifikujące się do płatności.</li></ul> | **Zakres**:<ul><li>Pokazuje elementy wiersza, gdy są one uznawane za kwalifikujące się zyski.</li><li>Klienci zwracają się najpierw do firmy Microsoft, a następnie dostawcy ISV mogą zobaczyć raport wypłaty.</li><li>Raport wypłaty nie będzie wyświetlał kolekcji w toku i rozliczeń w toku.</li></ul> |
+| **Transakcja nie jest gotowa do wypłaty**: rozliczanie w toku | **Transakcja nie jest gotowa do wypłaty**: Następna Szacowana płatność: stan wypłaty jest w stanie nieprzetworzonym. |
+| **Stan wypłaty**: brak | **Stan wypłaty**:<ul><li>Nieprzetworzone: pokrycie jest uprawnione do płatności.</li><li>Nadchodzące: zdobywanie zostanie wysłane do wydawcy w następnej miesięcznej wypłatie.</li><li>Wysłano: płatność została wysłana do Twojego banku.</li></ul> |
 |||
 
 ## <a name="what-about-offers-i-published-in-the-cloud-partner-portal"></a>Co o ofertach opublikowanych w portal Cloud Partner?
 
-Oferty zostały przeniesione do Centrum partnerskiego i będą dostępne po zalogowaniu się do Centrum partnerskiego, z wyjątkiem usług zarządzanych przez program Dynamics NAV i ofert Cortana Intelligence. Jeśli Twoja oferta była aktywna na rynku komercyjnym, będzie ona nadal dostępna, a klienci będą nadal mogli kupować i wdrażać je bez przeszkód. Zapoznaj się z następnym pytaniem, **jakie oferty zostały przeniesione do Centrum partnerskiego?** , aby uzyskać więcej szczegółów.
+Oferty zostały przeniesione do Centrum partnerskiego i będą dostępne po zalogowaniu się do Centrum partnerskiego, z wyjątkiem usług zarządzanych przez program Dynamics NAV i ofert Cortana Intelligence. Jeśli Twoja oferta była aktywna na rynku komercyjnym, będzie ona nadal dostępna, a klienci będą nadal mogli kupować i wdrażać je bez przeszkód. Zapoznaj się z następnym pytaniem, **jakie oferty zostały przeniesione do Centrum partnerskiego?**, aby uzyskać więcej szczegółów.
 
 ## <a name="what-offers-were-moved-to-partner-center"></a>Jakie oferty zostały przeniesione do Centrum partnerskiego?
 
@@ -79,7 +79,7 @@ W przypadku typów ofert obsługiwanych w centrum partnerskim wszystkie oferty z
 | --- | --- | --- |
 | SaaS | Tak | Zaloguj się do Centrum partnerskiego, aby utworzyć nowe oferty i zarządzać ofertami, które zostały utworzone w portal Cloud Partner. Dowiedz się więcej na temat [planowania oferty SaaS dla komercyjnej witryny Marketplace](plan-saas-offer.md). |
 | Maszyna wirtualna | Tak | Zaloguj się do Centrum partnerskiego, aby utworzyć nowe oferty i zarządzać ofertami, które zostały utworzone w portal Cloud Partner. Dowiedz się więcej na temat [planowania oferty maszyny wirtualnej](marketplace-virtual-machines.md). |
-| Aplikacja platformy Azure | Tak | Zaloguj się do Centrum partnerskiego, aby utworzyć nowe oferty i zarządzać ofertami, które zostały utworzone w portal Cloud Partner. Dowiedz się więcej na temat [tworzenia oferty aplikacji platformy Azure](partner-center-portal/create-new-azure-apps-offer.md). |
+| Aplikacja platformy Azure | Tak | Zaloguj się do Centrum partnerskiego, aby utworzyć nowe oferty i zarządzać ofertami, które zostały utworzone w portal Cloud Partner. Dowiedz się więcej na temat [tworzenia oferty aplikacji platformy Azure](create-new-azure-apps-offer.md). |
 | Dynamics 365 Business Central | Tak | Zaloguj się do Centrum partnerskiego, aby utworzyć nowe oferty i zarządzać ofertami, które zostały utworzone w portal Cloud Partner. Dowiedz się więcej na temat [tworzenia oferty Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md). |
 | Dynamics 365 dla zaangażowania klienta & PowerApps | Tak | Zaloguj się do Centrum partnerskiego, aby utworzyć nowe oferty i zarządzać ofertami, które zostały utworzone w portal Cloud Partner. Dowiedz się więcej na temat [tworzenia oferty usługi Dynamics 365 dla klientów & usługi powerapps](partner-center-portal/create-new-customer-engagement-offer.md). |
 | Dynamics 365 for Operations | Tak | Zaloguj się do Centrum partnerskiego, aby utworzyć nowe oferty i zarządzać ofertami, które zostały utworzone w portal Cloud Partner. Dowiedz się więcej na temat [tworzenia oferty usługi Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md). |
@@ -117,7 +117,7 @@ Jeśli jesteś częścią wielu kont, w centrum partnerskim zostanie wyświetlon
 
 ## <a name="how-do-i-create-new-offers"></a>Jak mogę utworzyć nowe oferty?
 
-Uzyskaj dostęp do komercyjnego programu Marketplace w [centrum partnerskim](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) , aby utworzyć nowe oferty. Na stronie Przegląd wybierz pozycję **+ Nowa oferta** .
+Uzyskaj dostęp do komercyjnego programu Marketplace w [centrum partnerskim](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) , aby utworzyć nowe oferty. Na stronie Przegląd wybierz pozycję **+ Nowa oferta**.
 
 [![Zrzut ekranu przedstawia menu przegląd Centrum partnerskiego.](media/cpp-pc-faq/new-offer.png "Pokazuje menu omówienia Centrum partnerskiego")](media/cpp-pc-faq/new-offer.png#lightbox)
 
@@ -127,7 +127,7 @@ Jeśli nie możesz zalogować się do konta, możesz otworzyć [bilet pomocy tec
 
 ## <a name="where-are-instructions-for-using-partner-center"></a>Gdzie znajdują się instrukcje dotyczące korzystania z Centrum partnerskiego?
 
-Przejdź do [dokumentacji komercyjnej](index.yml)portalu Marketplace, a następnie rozwiń pozycję **komercyjny Portal w witrynie Marketing w centrum partnerskim** . Aby zapoznać się z artykułami dotyczącymi tworzenia ofert w centrum partnerskim, rozwiń pozycję **Utwórz nową ofertę** .
+Przejdź do [dokumentacji komercyjnej](index.yml)portalu Marketplace, a następnie rozwiń pozycję **komercyjny Portal w witrynie Marketing w centrum partnerskim**. Aby zapoznać się z artykułami dotyczącymi tworzenia ofert w centrum partnerskim, rozwiń pozycję **Utwórz nową ofertę**.
 
 ## <a name="what-are-the-publishing-and-offer-management-differences"></a>Jakie są różnice w publikowaniu i ofercie dotyczące zarządzania?
 
@@ -135,7 +135,7 @@ Poniżej przedstawiono kilka różnic między portal Cloud Partner a centrum par
 
 ### <a name="modular-publishing-capabilities"></a>Modularne możliwości publikowania
 
-Centrum partnerskie udostępnia opcję publikowania modularnego, która pozwala wybrać zmiany, które mają zostać opublikowane, zamiast zawsze publikować wszystkie aktualizacje jednocześnie. Na przykład na poniższym ekranie widać, że jedyne zmiany wybrane do opublikowania to zmiany **Właściwości** i  **oferty** . Zmiany wprowadzone na stronie podglądu nie zostaną opublikowane.
+Centrum partnerskie udostępnia opcję publikowania modularnego, która pozwala wybrać zmiany, które mają zostać opublikowane, zamiast zawsze publikować wszystkie aktualizacje jednocześnie. Na przykład na poniższym ekranie widać, że jedyne zmiany wybrane do opublikowania to zmiany **Właściwości** i  **oferty**. Zmiany wprowadzone na stronie podglądu nie zostaną opublikowane.
 
 [![Zrzut ekranu przedstawia stronę przegląd i publikowanie Centrum partnerskiego.](media/cpp-pc-faq/review-page.png "Pokazuje stronę przeglądu i publikowania Centrum partnerskiego")](media/cpp-pc-faq/review-page.png#lightbox)
 

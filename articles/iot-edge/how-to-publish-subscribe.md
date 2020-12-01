@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 1ace40098e1d53c6199accea755ffb6969781663
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: ecb034ae621c935c3ebcd5b480e116c2cb1d864f
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015667"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435539"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publikowanie i subskrybowanie za pomocą Azure IoT Edge
 
@@ -27,7 +27,7 @@ Azure IoT Edge brokera MQTT można użyć do publikowania i subskrybowania komun
 ## <a name="pre-requisites"></a>Wymagania wstępne
 
 - Konto platformy Azure z prawidłową subskrypcją
-- [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true) z `azure-iot` zainstalowanym rozszerzeniem interfejsu wiersza polecenia. Aby uzyskać więcej informacji, zobacz [kroki instalacji rozszerzenia usługi Azure IoT dla interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-iot)Azure.
+- [Interfejs wiersza polecenia platformy Azure](/cli/azure/) z `azure-iot` zainstalowanym rozszerzeniem interfejsu wiersza polecenia. Aby uzyskać więcej informacji, zobacz [kroki instalacji rozszerzenia usługi Azure IoT dla interfejsu wiersza polecenia platformy Azure](/cli/azure/azure-cli-reference-for-iot)Azure.
 - **IoT Hub** jednostki SKU albo F1, S1, S2 lub S3.
 - Mieć **urządzenie IoT Edge w wersji 1,2 lub nowszej**. Ponieważ IoT Edge Broker MQTT jest obecnie w publicznej wersji zapoznawczej, ustaw następujące zmienne środowiskowe na true w kontenerze edgeHub, aby włączyć brokera MQTT:
 
@@ -36,7 +36,7 @@ Azure IoT Edge brokera MQTT można użyć do publikowania i subskrybowania komun
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__mqttBrokerEnabled` | `true` |
 
-- **Mosquitto klientów** zainstalowanych na urządzeniu IoT Edge. W tym artykule są używane popularne komputery klienckie Mosquitto, które zawierają [MOSQUITTO_PUB](https://mosquitto.org/man/mosquitto_pub-1.html) i [MOSQUITTO_SUB](https://mosquitto.org/man/mosquitto_sub-1.html). Zamiast tego można użyć innych klientów MQTT. Aby zainstalować klientów Mosquitto na urządzeniu Ubuntu, uruchom następujące polecenie:
+- **Mosquitto klientów** zainstalowanych na urządzeniu IoT Edge. W tym artykule są wykorzystywane popularne Mosquitto Klienci, [MOSQUITTO_PUB](https://mosquitto.org/man/mosquitto_pub-1.html) i [MOSQUITTO_SUB](https://mosquitto.org/man/mosquitto_sub-1.html). Zamiast tego można użyć innych klientów MQTT. Aby zainstalować klientów Mosquitto na urządzeniu Ubuntu, uruchom następujące polecenie:
 
     ```cmd
     sudo apt-get update && sudo apt-get install mosquitto-clients
@@ -64,26 +64,26 @@ Aby włączyć protokół TLS, jeśli klient nawiąże połączenie z portem 888
 
 Aby klient MQTT mógł się uwierzytelnić, najpierw musi wysłać pakiet CONNECT do brokera MQTT w celu zainicjowania połączenia w jego nazwie. Ten pakiet zawiera trzy informacje o uwierzytelnianiu: a `client identifier` , a `username` i `password` :
 
--   `client identifier`Pole to nazwa urządzenia lub nazwy modułu w IoT Hub. Używa następującej składni:
+- `client identifier`Pole to nazwa urządzenia lub nazwy modułu w IoT Hub. Używa następującej składni:
 
-    - Dla urządzenia: `<device_name>`
+  - Dla urządzenia: `<device_name>`
 
-    - Dla modułu: `<device_name>/<module_name>`
+  - Dla modułu: `<device_name>/<module_name>`
 
    Aby można było połączyć się z brokerem MQTT, urządzenie lub moduł musi być zarejestrowany w IoT Hub.
 
-   Należy pamiętać, że Broker nie zezwoli na łączenie dwóch klientów przy użyciu tych samych poświadczeń. Jeśli drugi klient nawiąże połączenie przy użyciu tych samych poświadczeń, Broker rozłącza już podłączonego klienta.
+   Broker nie będzie zezwalać na połączenia z wielu klientów przy użyciu tych samych poświadczeń. Jeśli drugi klient nawiąże połączenie przy użyciu tych samych poświadczeń, Broker rozłącza już podłączonego klienta.
 
 - `username`Pole jest wyprowadzane z nazwy urządzenia lub modułu, a nazwa IoTHub, do którego należy urządzenie, przy użyciu następującej składni:
 
-    - Dla urządzenia: `<iot_hub_name>.azure-devices.net/<device_name>/?api-version=2018-06-30`
+  - Dla urządzenia: `<iot_hub_name>.azure-devices.net/<device_name>/?api-version=2018-06-30`
 
-    - Dla modułu: `<iot_hub_name>.azure-devices.net/<device_name>/<module_name>/?api-version=2018-06-30`
+  - Dla modułu: `<iot_hub_name>.azure-devices.net/<device_name>/<module_name>/?api-version=2018-06-30`
 
 - `password`Pole pakietu Connect zależy od trybu uwierzytelniania:
 
-    - W przypadku [uwierzytelniania kluczy symetrycznych](how-to-authenticate-downstream-device.md#symmetric-key-authentication) `password` pole jest tokenem sygnatury dostępu współdzielonego.
-    - W przypadku uwierzytelniania z podpisem [własnym X. 509](how-to-authenticate-downstream-device.md#x509-self-signed-authentication) `password` pole nie istnieje. W tym trybie uwierzytelniania wymagany jest kanał TLS. Klient musi połączyć się z portem 8883, aby nawiązać połączenie TLS. Podczas uzgadniania protokołu TLS Broker MQTT żąda certyfikatu klienta. Ten certyfikat służy do weryfikowania tożsamości klienta i w ten sposób `password` nie jest potrzebny do późniejszego wysłania pakietu Connect. Wysłanie zarówno certyfikatu klienta, jak i pola hasła spowoduje wystąpienie błędu, a połączenie zostanie zamknięte. Biblioteki MQTT i biblioteki klienckie TLS zazwyczaj mają możliwość wysyłania certyfikatu klienta podczas inicjowania połączenia. Możesz zobaczyć przykład krok po kroku w sekcji [przy użyciu certyfikatu x509 na potrzeby uwierzytelniania klientów](how-to-authenticate-downstream-device.md#x509-self-signed-authentication).
+  - W przypadku korzystania z uwierzytelniania przy użyciu [kluczy symetrycznych](how-to-authenticate-downstream-device.md#symmetric-key-authentication) `password` pole jest tokenem sygnatury dostępu współdzielonego.
+  - W przypadku korzystania z [uwierzytelniania z podpisem własnym X. 509](how-to-authenticate-downstream-device.md#x509-self-signed-authentication) `password` pole nie istnieje. W tym trybie uwierzytelniania wymagany jest kanał TLS. Klient musi połączyć się z portem 8883, aby nawiązać połączenie TLS. Podczas uzgadniania protokołu TLS Broker MQTT żąda certyfikatu klienta. Ten certyfikat służy do weryfikowania tożsamości klienta i w ten sposób `password` nie jest potrzebny do późniejszego wysłania pakietu Connect. Wysłanie zarówno certyfikatu klienta, jak i pola hasła spowoduje wystąpienie błędu, a połączenie zostanie zamknięte. Biblioteki MQTT i biblioteki klienckie TLS zazwyczaj mają możliwość wysyłania certyfikatu klienta podczas inicjowania połączenia. Możesz zobaczyć przykład krok po kroku w sekcji [przy użyciu certyfikatu x509 na potrzeby uwierzytelniania klientów](how-to-authenticate-downstream-device.md#x509-self-signed-authentication).
 
 Moduły wdrożone przez IoT Edge używają [uwierzytelniania kluczy symetrycznych](how-to-authenticate-downstream-device.md#symmetric-key-authentication) i mogą wywołać [interfejs API obciążenia lokalnego IoT Edge](https://github.com/Azure/iotedge/blob/40f10950dc65dd955e20f51f35d69dd4882e1618/edgelet/workload/README.md) , aby programowo uzyskać token sygnatury dostępu współdzielonego nawet w trybie offline.
 
@@ -92,12 +92,12 @@ Moduły wdrożone przez IoT Edge używają [uwierzytelniania kluczy symetrycznyc
 Po uwierzytelnieniu klienta programu MQTT w usłudze IoT Edge Hub musi on mieć autoryzację, aby nawiązać połączenie. Po nawiązaniu połączenia należy mieć autoryzację, aby opublikować lub subskrybować określone tematy. Te autoryzacji są udzielane przez Centrum IoT Edge w oparciu o zasady autoryzacji. Zasady autoryzacji są zestawem instrukcji wyrażonych jako struktura JSON, która jest wysyłana do centrum IoT Edge za pośrednictwem jego sznurka. Edytuj dwuosiową IoT Edge centrum, aby skonfigurować zasady autoryzacji.
 
 > [!NOTE]
-> W publicznej wersji zapoznawczej edytowanie zasad autoryzacji brokera MQTT jest dostępne tylko za pośrednictwem programu Visual Studio, Visual Studio Code lub interfejsu wiersza polecenia platformy Azure. Obecnie Azure Portal nie obsługuje edytowania dwuosiowego Centrum IoT Edge i jego zasad autoryzacji.
+> W publicznej wersji zapoznawczej edytowanie zasad autoryzacji brokera MQTT jest możliwe tylko za pośrednictwem programu Visual Studio, Visual Studio Code lub interfejsu wiersza polecenia platformy Azure. Obecnie Azure Portal nie obsługuje edytowania dwuosiowego Centrum IoT Edge i jego zasad autoryzacji.
 
-Każda instrukcja zasad autoryzacji składa się z kombinacji `identities` , `allow` lub `deny` , `operations` i `resources` :
+Każda instrukcja zasad autoryzacji składa się z kombinacji `identities` , `allow` lub `deny` efektów, `operations` i `resources` :
 
 - `identities` opisz temat zasad. Musi być mapowany na `client identifier` wysyłanych przez klientów w ich pakiecie Connect.
-- `allow` lub `deny` efekt określa, czy zezwalać na operacje lub odrzucać.
+- `allow` lub `deny` efekty określają, czy zezwalać na operacje, czy odmówić.
 - `operations` Zdefiniuj akcje do autoryzacji. `mqtt:connect``mqtt:publish`i `mqtt:subscribe` są dzisiaj trzy obsługiwane akcje.
 - `resources` Zdefiniuj obiekt zasad. Może to być temat lub wzorzec tematu zdefiniowany za pomocą [symboli wieloznacznych MQTT](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718107).
 
@@ -163,16 +163,18 @@ Poniżej znajduje się przykład zasad autoryzacji, które jawnie nie zezwalają
 ```
 
 Podczas pisania zasad autoryzacji należy pamiętać o kilku kwestiach:
+
 - Wymaga `$edgeHub` schematu bliźniaczyego w wersji 1,2
 - Domyślnie wszystkie operacje są odrzucane.
 - Instrukcje autoryzacji są oceniane w kolejności, w jakiej są wyświetlane w definicji JSON. Rozpocznie się od przejrzenia, `identities` a następnie wybrania pierwszej instrukcji Zezwalaj lub Odmów zgodnej z żądaniem. W przypadku konfliktów między instrukcjami zezwalania i odmowy, instrukcja odmowy WINS.
-- W zasadach autoryzacji można używać kilku zmiennych (np. podstawień):
-    - `{{iot:identity}}` reprezentuje tożsamość aktualnie podłączonego klienta. Na przykład `myDevice` w przypadku urządzenia, `myEdgeDevice/SampleModule` w przypadku modułu.
-    - `{{iot:device_id}}` reprezentuje tożsamość aktualnie podłączonego urządzenia. Na przykład `myDevice` w przypadku urządzenia, `myEdgeDevice` w przypadku modułu.
-    - `{{iot:module_id}}` reprezentuje tożsamość aktualnie połączonego modułu. Na przykład "" w przypadku urządzenia, `SampleModule` w przypadku modułu.
-    - `{{iot:this_device_id}}` reprezentuje tożsamość urządzenia IoT Edge z uruchomionymi zasadami autoryzacji. Na przykład: `myIoTEdgeDevice`.
+- W zasadach autoryzacji można używać kilku zmiennych (na przykład podstawień):
+    - `{{iot:identity}}` reprezentuje tożsamość aktualnie podłączonego klienta. Na przykład tożsamość urządzenia, taka jak `myDevice` lub tożsamość modułu, taką jak `myEdgeDevice/SampleModule` .
+    - `{{iot:device_id}}` reprezentuje tożsamość aktualnie podłączonego urządzenia. Na przykład tożsamość urządzenia, taka jak `myDevice` lub tożsamość urządzenia, na której jest uruchomiony moduł `myEdgeDevice` .
+    - `{{iot:module_id}}` reprezentuje tożsamość aktualnie połączonego modułu. Ta zmienna jest pusta dla podłączonych urządzeń lub tożsamość modułu, na przykład `SampleModule` .
+    - `{{iot:this_device_id}}` reprezentuje tożsamość urządzenia IoT Edge z uruchomionymi zasadami autoryzacji. Na przykład `myIoTEdgeDevice`.
 
-Autoryzacja tematów dotyczących usługi IoT Hub jest obsługiwana nieco inaczej niż w przypadku tematów zdefiniowanych przez użytkownika. Oto kluczowe kwestie, które należy zapamiętać:
+Autoryzacje tematów usługi IoT Hub są obsługiwane nieco inaczej niż w przypadku tematów zdefiniowanych przez użytkownika. Oto kluczowe kwestie, które należy zapamiętać:
+
 - Urządzenia lub moduły usługi Azure IoT wymagają jawnej reguły autoryzacji, aby nawiązać połączenie z usługą IoT Edge Hub Broker MQTT. Poniżej przedstawiono domyślne zasady autoryzacji łączenia.
 - Usługa Azure IoT lub moduły mogą uzyskać dostęp do własnych tematów usługi IoT Hub domyślnie bez żadnej jawnej reguły autoryzacji. Jednak autoryzacje odpadają od relacji nadrzędny/podrzędny w tym przypadku, a te relacje muszą być ustawione. Moduły IoT Edge są automatycznie ustawiane jako elementy podrzędne urządzenia IoT Edge, ale urządzenia muszą być jawnie ustawione jako elementy podrzędne swojej bramy IoT Edge.
 - Usługa Azure IoT lub moduły mogą uzyskać dostęp do tematów, w tym tematów dotyczących usługi IoT Hub, innych urządzeń lub modułów, które zapewniają, że zdefiniowane są odpowiednie reguły autoryzacji jawnej.
@@ -230,7 +232,7 @@ Utwórz dwa urządzenia IoT w IoT Hub i uzyskaj swoje hasła. Korzystanie z inte
        az iot hub generate-sas-token -n <iot_hub_name> -d <device_name> --key-type primary --du 3600
        ```
     
-       gdzie 3600 to czas trwania tokenu sygnatury dostępu współdzielonego w sekundach (np. 3600 = 1 godzina).
+       gdzie 3600 to czas trwania tokenu sygnatury dostępu współdzielonego w sekundach (na przykład 3600 = 1 godzina).
     
     - Dla modułu:
     
@@ -238,7 +240,7 @@ Utwórz dwa urządzenia IoT w IoT Hub i uzyskaj swoje hasła. Korzystanie z inte
        az iot hub generate-sas-token -n <iot_hub_name> -d <device_name> -m <module_name> --key-type primary --du 3600
        ```
     
-       gdzie 3600 to czas trwania tokenu sygnatury dostępu współdzielonego w sekundach (np. 3600 = 1 godzina).
+       gdzie 3600 to czas trwania tokenu sygnatury dostępu współdzielonego w sekundach (na przykład 3600 = 1 godzina).
 
 3. Skopiuj token sygnatury dostępu współdzielonego, który jest wartością odpowiadającą kluczowi "SAS" z danych wyjściowych. Poniżej przedstawiono przykładowe dane wyjściowe z polecenia platformy Azure w powyższym miejscu:
 
@@ -310,7 +312,7 @@ Aby autoryzować wydawcę i abonenta, Edytuj IoT Edgeą sieć centrów za pośre
 
 ### <a name="symmetric-keys-authentication-without-tls"></a>Uwierzytelnianie kluczy symetrycznych bez protokołu TLS
 
-#### <a name="subscribe"></a>Subskrybuj
+#### <a name="subscribe"></a>Zasubskrybowanie
 
 Połącz klienta **sub_client** MQTT z brokerem MQTT i Subskrybuj go, `test_topic` uruchamiając następujące polecenie na urządzeniu IoT Edge:
 
@@ -327,7 +329,7 @@ mosquitto_sub \
 
 `<edge_device_address>`  =  `localhost` w tym przykładzie, ponieważ klient jest uruchomiony na tym samym urządzeniu co IoT Edge.
 
-Należy zauważyć, że w pierwszym przykładzie jest używany port 1883 (MQTT), np. bez protokołu TLS. Innym przykładem z portem 8883 (MQTTS), np. z włączonym protokołem TLS, przedstawiono w następnej sekcji.
+Należy zauważyć, że w pierwszym przykładzie jest używany port 1883 (MQTT) bez protokołu TLS. Inny przykład z portem 8883 (MQTTS) z włączonym protokołem TLS jest widoczny w następnej sekcji.
 
 Klient **sub_client** MQTT jest teraz uruchamiany i oczekuje na komunikaty przychodzące w usłudze `test_topic` .
 
@@ -384,7 +386,7 @@ Aby otrzymywać pojedyncze poprawki, klient musi subskrybować specjalny temat I
 
 ### <a name="receive-direct-methods"></a>Otrzymywanie metod bezpośrednich
 
-Otrzymanie metody bezpośredniej jest bardzo podobne do otrzymywania pełnej bliźniaczych reprezentacji z dodaniem, że klient musi potwierdzić, że odebrał wywołanie. Pierwszy klient subskrybuje usługę IoT Hub w specjalnym temacie `$iothub/methods/POST/#` . Następnie po odebraniu metody bezpośredniej w tym temacie klient musi wyodrębnić identyfikator żądania `rid` z tematu podrzędnego, na którym jest odbierana Metoda bezpośrednia, a następnie opublikować komunikat z potwierdzeniem w temacie specjalnym Centrum IoT Hub `$iothub/methods/res/200/<request_id>` .
+Otrzymanie metody bezpośredniej jest podobne do otrzymywania pełnej bliźniaczych reprezentacji z dodaniem, że klient musi potwierdzić, że odebrał wywołanie. Pierwszy klient subskrybuje specjalne zagadnienie w usłudze IoT Hub `$iothub/methods/POST/#` . Następnie po odebraniu metody bezpośredniej w tym temacie klient musi wyodrębnić identyfikator żądania `rid` z tematu podrzędnego, na którym jest odbierana Metoda bezpośrednia, a następnie opublikować komunikat z potwierdzeniem w temacie specjalnym Centrum IoT Hub `$iothub/methods/res/200/<request_id>` .
 
 ### <a name="send-direct-methods"></a>Wyślij metody bezpośrednie
 
@@ -437,7 +439,7 @@ Poniżej znajduje się przykład konfiguracji IoT Edgeego mostka MQTT, która um
 }
 ```
 Inne notatki dotyczące MQTTego Centrum IoT Edge:
-- Protokół MQTT zostanie automatycznie użyty jako protokół nadrzędny, gdy jest używany Broker MQTT i że IoT Edge jest używany w konfiguracji zagnieżdżonej, np. z `parent_hostname` określonym. Aby dowiedzieć się więcej o protokołach nadrzędnych, zapoznaj się z tematem [komunikacja w chmurze](iot-edge-runtime.md#cloud-communication). Aby dowiedzieć się więcej na temat konfiguracji zagnieżdżonych, zobacz [łączenie urządzenia podrzędnego IoT Edge z bramą Azure IoT Edge](how-to-connect-downstream-iot-edge-device.md#configure-iot-edge-on-devices).
+- Protokół MQTT zostanie automatycznie użyty jako protokół nadrzędny, gdy jest używany Broker MQTT i że IoT Edge jest używany w konfiguracji zagnieżdżonej, na przykład z `parent_hostname` określonym. Aby dowiedzieć się więcej o protokołach nadrzędnych, zapoznaj się z tematem [komunikacja w chmurze](iot-edge-runtime.md#cloud-communication). Aby dowiedzieć się więcej na temat konfiguracji zagnieżdżonych, zobacz [łączenie urządzenia podrzędnego IoT Edge z bramą Azure IoT Edge](how-to-connect-downstream-iot-edge-device.md#configure-iot-edge-on-devices).
 
 ## <a name="next-steps"></a>Następne kroki
 

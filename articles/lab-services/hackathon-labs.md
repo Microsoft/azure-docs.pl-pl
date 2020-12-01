@@ -3,12 +3,12 @@ title: Użyj Azure Lab Services dla hackathon
 description: W tym artykule opisano, jak używać Azure Lab Services do tworzenia laboratoriów, których można użyć do uruchamiania imprezy rozpoczynają.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8727fad6f37d1365983127a1a514e87e3a5003b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 561351636a37c2cd5c3070dbfef2a3122e5c29b0
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445886"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434264"
 ---
 # <a name="use-azure-lab-services-for-your-next-hackathon"></a>Użyj Azure Lab Services dla następnej hackathon
 Azure Lab Services zaprojektowano jako uproszczone i łatwe w użyciu, dzięki czemu możesz szybko uruchomić nowe laboratorium maszyn wirtualnych dla hackathon.  Użyj poniższej listy kontrolnej, aby upewnić się, że hackathon jest tak płynnie, jak to możliwe. Ta lista kontrolna powinna zostać wykonana przez dział IT lub wykładowców odpowiedzialnych za tworzenie i zarządzanie laboratorium hackathon. 
@@ -86,4 +86,4 @@ W tej sekcji opisano kroki, które należy wykonać, aby zakończyć dzień Twoj
         Aby uzyskać więcej informacji, zobacz Przewodnik dotyczący [wysyłania zaproszeń do użytkowników](how-to-configure-student-usage.md?branch=master#send-invitations-to-users) i [łączenia się z maszynami wirtualnymi z systemem Linux](how-to-use-remote-desktop-linux-student.md?branch=master). 
 
 ## <a name="next-steps"></a>Następne kroki
-Zacznij od utworzenia konta laboratorium w laboratoriach zajęć, postępując zgodnie z instrukcjami w artykule: [Samouczek: Konfigurowanie konta laboratorium przy użyciu Azure Lab Services](tutorial-setup-lab-account.md).
+Rozpocznij od utworzenia konta laboratorium w laboratoriach, wykonując instrukcje zawarte w artykule: [Samouczek: Konfigurowanie konta laboratorium przy użyciu Azure Lab Services](tutorial-setup-lab-account.md).

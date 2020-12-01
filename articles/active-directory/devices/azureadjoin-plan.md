@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3587ef6be9d6c9969dff5d1af2181ed51aea7d29
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3acaf4929158b24ff50655aa18c05b41aeec4b53
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308287"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435454"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Instrukcje: Planowanie wdrożenia usługi Azure AD Join
 
@@ -90,10 +90,12 @@ Do dołączania urządzeń do usługi Azure AD nie można używać kart intelige
 
 Jeśli tworzysz użytkowników w:
 
-- **Active Directory lokalnych** , należy zsynchronizować je z usługą Azure AD przy użyciu [Azure AD Connect](../hybrid/how-to-connect-sync-whatis.md). 
-- **Azure AD** , nie jest wymagana żadna dodatkowa konfiguracja.
+- **Active Directory lokalnych**, należy zsynchronizować je z usługą Azure AD przy użyciu [Azure AD Connect](../hybrid/how-to-connect-sync-whatis.md). 
+- **Azure AD**, nie jest wymagana żadna dodatkowa konfiguracja.
 
 Lokalne nazwy UPN, które różnią się od nazw UPN usługi Azure AD, nie są obsługiwane na urządzeniach przyłączonych do usługi Azure AD. Jeśli użytkownicy korzystają z lokalnej nazwy UPN, należy zaplanować przełączenie do korzystania z podstawowej nazwy UPN w usłudze Azure AD.
+
+Zmiany nazw UPN są obsługiwane tylko po uruchomieniu aktualizacji systemu Windows 10 2004. Użytkownicy na urządzeniach z tą aktualizacją nie będą mieli żadnych problemów po zmianie ich nazwy UPN. W przypadku urządzeń starszych niż Windows 10 2004 Update użytkownicy będą mieli problemy z logowaniem jednokrotnym i dostępem warunkowym na swoich urządzeniach. Aby rozwiązać ten problem, należy zalogować się do systemu Windows za pomocą kafelka "inny użytkownik" przy użyciu nowej nazwy UPN. 
 
 ## <a name="assess-your-device-management"></a>Ocenianie zarządzania urządzeniami
 
@@ -187,7 +189,7 @@ Podłączanie pulpitu zdalnego do urządzeń przyłączonych do usługi Azure AD
 Począwszy od systemu Windows 10 2004 Update, użytkownicy mogą również używać pulpitu zdalnego z zarejestrowanego urządzenia z systemem Windows 10 w usłudze Azure AD do urządzenia dołączonego do usługi Azure Active Directory. 
 
 ## <a name="understand-your-provisioning-options"></a>Zapoznaj się z opcjami aprowizacji
-**Uwaga** : urządzeń przyłączonych do usługi Azure AD nie można wdrażać przy użyciu narzędzia do przygotowywania systemu (Sysprep) ani podobnych narzędzi do tworzenia obrazu
+**Uwaga**: urządzeń przyłączonych do usługi Azure AD nie można wdrażać przy użyciu narzędzia do przygotowywania systemu (Sysprep) ani podobnych narzędzi do tworzenia obrazu
 
 Usługę Azure AD Join można zainicjować przy użyciu następujących metod:
 
@@ -243,7 +245,7 @@ Wybierz pozycję **"tak"** , jeśli chcesz, aby użytkownicy korzystali z uwierz
 
 Aby można było skonfigurować ustawienia mobilności, można najpierw dodać dostawcę MDM.
 
-**Aby dodać dostawcę zarządzania urządzeniami przenośnymi** :
+**Aby dodać dostawcę zarządzania urządzeniami przenośnymi**:
 
 1. Na **stronie Azure Active Directory** w sekcji **Zarządzanie** kliknij pozycję `Mobility (MDM and MAM)` . 
 1. Kliknij pozycję **Dodaj aplikację**.
@@ -261,8 +263,8 @@ Wybierz **niektóre** lub **wszystkie** w zależności od zakresu wdrożenia.
 
 Na podstawie Twojego zakresu występuje jedna z następujących sytuacji: 
 
-- **Użytkownik jest w zakresie zarządzania urządzeniami przenośnymi** : Jeśli masz subskrypcję Azure AD — wersja Premium, rejestracja w usłudze MDM jest zautomatyzowana wraz z funkcją Azure AD Join. Wszyscy użytkownicy z zakresem muszą mieć odpowiednią licencję na zarządzanie urządzeniami przenośnymi. Jeśli w tym scenariuszu Rejestracja w usłudze MDM nie powiedzie się, usługa Azure AD Join również zostanie wycofana.
-- **Użytkownik nie znajduje się w zakresie zarządzania urządzeniami przenośnymi** : Jeśli użytkownicy nie znajdują się w zakresie MDM, usługa Azure AD Join zakończy działanie bez rejestracji MDM. Powoduje to niezarządzane urządzenie.
+- **Użytkownik jest w zakresie zarządzania urządzeniami przenośnymi**: Jeśli masz subskrypcję Azure AD — wersja Premium, rejestracja w usłudze MDM jest zautomatyzowana wraz z funkcją Azure AD Join. Wszyscy użytkownicy z zakresem muszą mieć odpowiednią licencję na zarządzanie urządzeniami przenośnymi. Jeśli w tym scenariuszu Rejestracja w usłudze MDM nie powiedzie się, usługa Azure AD Join również zostanie wycofana.
+- **Użytkownik nie znajduje się w zakresie zarządzania urządzeniami przenośnymi**: Jeśli użytkownicy nie znajdują się w zakresie MDM, usługa Azure AD Join zakończy działanie bez rejestracji MDM. Powoduje to niezarządzane urządzenie.
 
 ### <a name="mdm-urls"></a>Adresy URL funkcji zarządzania urządzeniami przenośnymi
 
@@ -284,7 +286,7 @@ MAM nie ma zastosowania do usługi Azure AD Join.
 
 Jeśli chcesz włączyć roaming stanu do usługi Azure AD, aby użytkownicy mogli synchronizować swoje ustawienia na różnych urządzeniach, zobacz [włączanie Enterprise State roaming w Azure Active Directory](enterprise-state-roaming-enable.md). 
 
-**Zalecenie** : Włącz to ustawienie nawet dla urządzeń przyłączonych do hybrydowej usługi Azure AD.
+**Zalecenie**: Włącz to ustawienie nawet dla urządzeń przyłączonych do hybrydowej usługi Azure AD.
 
 ## <a name="configure-conditional-access"></a>Konfigurowanie dostępu warunkowego
 

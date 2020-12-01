@@ -5,12 +5,12 @@ author: FlorianBorn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 0ff6d064b6bfabbd8a648c23b5648aae9b12a11d
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8c037d35c2df4572800d2519347aa113a86cde36
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207499"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434842"
 ---
 # <a name="tutorial-creating-a-commercial-ready-azure-remote-rendering-application"></a>Samouczek: Tworzenie komercyjnej gotowej aplikacji do zdalnego renderowania platformy Azure
 
@@ -255,7 +255,7 @@ Wielu klientów korporacyjnych zezwala na wdrożenie Azure Stack w ramach własn
 Więcej informacji:
 
 * [Azure Marketplace](https://azure.microsoft.com/marketplace/)
-* [Samouczek: publikowanie aplikacji zarządzanych przez platformę Azure w portalu Marketplace](../../../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)
+* [Samouczek: publikowanie aplikacji zarządzanych przez platformę Azure w portalu Marketplace](../../../../marketplace/create-new-azure-apps-offer.md)
 
 ### <a name="security"></a>Zabezpieczenia
 
@@ -279,4 +279,4 @@ Więcej informacji:
 
 * [Uwierzytelnianie usługi Azure AD](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-service-authentication)
 * [Wzmocnij stan zabezpieczeń dzięki platformie Azure](https://azure.microsoft.com/overview/security/)
-* [Zabezpieczenia chmury](https://azure.microsoft.com/product-categories/security/)
+* [Bezpieczeństwo w chmurze](https://azure.microsoft.com/product-categories/security/)

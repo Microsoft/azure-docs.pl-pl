@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 30e76ec3085922ec2a1d4693681eb97c9052c026
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9f0309f4e8273c2ef19ea86636de8e3aa6b6c4bc
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978734"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435104"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>Tworzenie uogólnionych obrazów bez agenta aprowizacji
 
@@ -199,7 +199,7 @@ WantedBy=multi-user.target
 Ta usługa systemowa ma trzy rzeczy na potrzeby podstawowej aprowizacji:
 
 1. Raporty gotowe do platformy Azure (w celu wskazania, że zostały pomyślnie dołączone).
-1. Zmienia nazwę maszyny wirtualnej na podstawie nazwy maszyny wirtualnej dostarczonej przez użytkownika, pobierając te dane z [usługi Azure instance Metadata Service (IMDS)](./instance-metadata-service.md). **Uwaga** IMDS udostępnia również inne [metadane wystąpienia](./instance-metadata-service.md#accessing-azure-instance-metadata-service), takie jak publiczne klucze SSH, aby można było ustawić więcej niż nazwę hosta.
+1. Zmienia nazwę maszyny wirtualnej na podstawie nazwy maszyny wirtualnej dostarczonej przez użytkownika, pobierając te dane z [usługi Azure instance Metadata Service (IMDS)](./instance-metadata-service.md). **Uwaga** IMDS udostępnia również inne [metadane wystąpienia](./instance-metadata-service.md#access-azure-instance-metadata-service), takie jak publiczne klucze SSH, aby można było ustawić więcej niż nazwę hosta.
 1. Wyłącza, tak aby była uruchamiana tylko przy pierwszym rozruchu, a nie w kolejnych ponownych uruchomieniach.
 
 W przypadku jednostki w systemie plików uruchom następujące polecenie, aby je włączyć:

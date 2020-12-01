@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2020
+ms.date: 11/10/2020
 ms.author: memildin
-ms.openlocfilehash: b7c4c0565d17e62226a518bc443223df8339faec
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0e853a4ce1e3891ddffd2f9fb1315da49a896933
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949381"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433226"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Wskaźnik bezpieczeństwa w usłudze Azure Security Center
 
@@ -70,8 +70,6 @@ Aby podsumowanie, Twój bezpieczny wynik jest wyświetlany w następujących lok
 
     :::image type="content" source="./media/secure-score-security-controls/score-on-recommendations-page.png" alt-text="Bezpieczna Ocena na stronie rekomendacji Security Center":::
 
-
-
 ### <a name="get-your-secure-score-from-the-rest-api"></a>Uzyskiwanie bezpiecznego wyniku z interfejsu API REST
 
 Możesz uzyskać dostęp do oceny za pośrednictwem interfejsu API bezpiecznego oceny (obecnie w wersji zapoznawczej). Metody interfejsu API zapewniają elastyczność umożliwiającą wykonywanie zapytań dotyczących danych i Tworzenie własnego mechanizmu raportowania z bezpiecznymi wynikami w czasie. Na przykład możesz użyć [interfejsu API Secure Scores](/rest/api/securitycenter/securescores) , aby uzyskać ocenę dla określonej subskrypcji. Ponadto można użyć [interfejsu API kontroli](/rest/api/securitycenter/securescorecontrols) zabezpieczeń, aby wyświetlić listę kontrolek bezpieczeństwa i bieżący wynik subskrypcji.
@@ -79,8 +77,6 @@ Możesz uzyskać dostęp do oceny za pośrednictwem interfejsu API bezpiecznego 
 ![Pobieranie pojedynczego, bezpiecznego wyniku za pośrednictwem interfejsu API](media/secure-score-security-controls/single-secure-score-via-api.png)
 
 Przykłady narzędzi wbudowanych w interfejsie API oceny zabezpieczeń znajdują się w obszarze "bezpieczeństwo" w [naszej społeczności usługi GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score). 
-
-
 
 ### <a name="get-your-secure-score-from-azure-resource-graph-arg"></a>Pobierz bezpieczny wynik z grafu zasobów platformy Azure (ARG)
 
@@ -114,13 +110,34 @@ Aby uzyskać dostęp do bezpiecznego wyniku dla wielu subskrypcji z ARGUMENTem:
 
 1. Wybierz pozycję **Uruchom zapytanie**.
 
+
+
+
+## <a name="tracking-your-secure-score-over-time"></a>Śledzenie bezpiecznego wyniku w czasie
+
+Jeśli jesteś użytkownikiem Power BI przy użyciu konta Pro, możesz użyć pulpitu nawigacyjnego " **Secure score in Time** Power BI", aby śledzić swój Bezpieczny wynik w czasie i badać wszelkie zmiany.
+
+> [!TIP]
+> Możesz znaleźć ten pulpit nawigacyjny, a także inne narzędzia do pracy z programowo z bezpiecznymi wynikami w dedykowanym obszarze społeczności Azure Security Center w witrynie GitHub: https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score
+
+Pulpit nawigacyjny zawiera dwa następujące raporty, które ułatwiają Analizowanie stanu zabezpieczeń:
+
+- **Podsumowanie zasobów** — zawiera podsumowanie danych dotyczących kondycji zasobów.
+- **Podsumowanie oceny zabezpieczeń** — zawiera podsumowanie danych dotyczących postępu oceny. Aby wyświetlić zmiany w wyniku, użyj wykresu "stawka" w czasie na subskrypcję ". Jeśli zauważysz istotną zmianę w wyniku, sprawdź "wykryte zmiany, które mogą mieć wpływ na tabelę zabezpieczonych wyników" dla możliwych zmian, które mogłyby spowodować zmianę. W tej tabeli przedstawiono usunięte zasoby, nowo wdrożone zasoby lub zasoby, dla których zmieniono stan zabezpieczeń dla jednego z zaleceń.
+
+:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="Opcjonalny, bezpieczny wynik na pulpicie nawigacyjnym usługi Power BI do śledzenia bezpiecznego oceny w czasie i badania zmian":::
+
+
+
+
+
 ## <a name="how-your-secure-score-is-calculated"></a>Jak jest obliczany bezpieczny wynik 
 
 Udział każdej kontroli zabezpieczeń w odniesieniu do ogólnej bezpiecznego wyniku jest widoczny na stronie zalecenia.
 
 [![Ulepszony bezpieczny wynik wprowadza kontrolę zabezpieczeń](media/secure-score-security-controls/security-controls.png)](media/secure-score-security-controls/security-controls.png#lightbox)
 
-Aby uzyskać wszystkie możliwe punkty kontroli zabezpieczeń, wszystkie zasoby muszą być zgodne ze wszystkimi zaleceniami dotyczącymi zabezpieczeń w ramach kontroli zabezpieczeń. Na przykład Security Center ma wiele zaleceń dotyczących zabezpieczania portów zarządzania. W przeszłości można było skorygować niektóre z tych powiązanych i zależnych zaleceń, pozostawiając inne nierozwiązane i bezpieczny wynik. Po zapoznaniu się z obiektywem, można łatwo zatwierdzić, że nie zabezpieczeń zostały ulepszone do momentu ich rozwiązania. Teraz należy skorygować wszystkie te elementy, aby wprowadzić różnicę dla bezpiecznego wyniku.
+Aby uzyskać wszystkie możliwe punkty kontroli zabezpieczeń, wszystkie zasoby muszą być zgodne ze wszystkimi zaleceniami dotyczącymi zabezpieczeń w ramach kontroli zabezpieczeń. Na przykład Security Center ma wiele zaleceń dotyczących zabezpieczania portów zarządzania. Należy skorygować wszystkie te elementy, aby zwiększyć poziom bezpieczeństwa.
 
 Na przykład kontrola zabezpieczeń o nazwie "Zastosuj aktualizacje systemu" ma maksymalny wynik sześciu punktów, który można zobaczyć w etykietce narzędzia dla potencjalnej podwyżki wartości formantu:
 
@@ -137,9 +154,9 @@ Maksymalny wynik tej kontrolki, zastosowanie aktualizacji systemu, to zawsze 6. 
 
 |Metryka|Formuła i przykład|
 |-|-|
-|**Bieżący wynik kontroli zabezpieczeń**|<br>![Równanie obliczania bieżącego wyniku kontroli zabezpieczeń](media/secure-score-security-controls/security-control-scoring-equation.png)<br><br>Każda indywidualna kontrola zabezpieczeń przyczynia się do osiągnięcia oceny zabezpieczeń. Każdy zasób, na który ma wpływ zalecenie w ramach kontroli, przyczynia się do bieżącego wyniku kontrolki. Bieżący wynik dla każdej kontrolki jest miarą stanu zasobów *w* kontrolce.<br>![Etykietki narzędzi pokazujące wartości używane podczas obliczania bieżącego wyniku kontroli zabezpieczeń](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>W tym przykładzie maksymalny wynik 6 zostałby podzielony przez 78, ponieważ to jest suma zasobów w dobrej kondycji i w nieprawidłowych Stanach.<br>6/78 = 0,0769<br>Mnożenie tego przez liczbę zasobów w dobrej kondycji (4) skutkuje bieżącym wynikiem:<br>0,0769 * 4 = **0,31**<br><br>|
-|**Wskaźnik bezpieczeństwa**<br>Subskrypcja pojedyncza|<br>![Równanie do obliczania bieżącego wyniku bezpiecznego](media/secure-score-security-controls/secure-score-equation.png)<br><br>![Jeden bezpieczny wynik subskrypcji z włączonymi wszystkimi kontrolkami](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>W tym przykładzie istnieje jedna subskrypcja z wszystkimi dostępnymi wszystkimi kontrolami zabezpieczeń (potencjalną maksymalną wartością wyniku 60 punktów). Wynik pokazuje 28 punktów z możliwego 60, a pozostałe 32 punkty są odzwierciedlone w postaci "potencjalne zwiększenie wyniku" w zakresie kontroli zabezpieczeń.<br>![Lista kontrolek i zwiększenie potencjalnego wyniku](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
-|**Wskaźnik bezpieczeństwa**<br>Wiele subskrypcji|<br>Bieżące wyniki dla wszystkich zasobów we wszystkich subskrypcjach są dodawane, a obliczenia są takie same jak w przypadku pojedynczej subskrypcji<br><br>Podczas przeglądania wielu subskrypcji, funkcja Secure Score szacuje wszystkie zasoby we wszystkich włączonych zasadach i grupuje ich łączny wpływ na maksymalny wynik kontroli zabezpieczeń.<br>![Zabezpieczony wynik dla wielu subskrypcji z włączonymi wszystkimi kontrolkami](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>Połączony wynik **nie** jest średni; jest to raczej oceniane stan stanu wszystkich zasobów we wszystkich subskrypcjach.<br>Tutaj, jeśli przejdziesz do strony rekomendacje i dodasz dostępne punkty, zobaczysz, że jest to różnica między bieżącym wynikiem (24) i maksymalnym dostępnym wynikiem (60).|
+|**Bieżący wynik kontroli zabezpieczeń**|<br>![Równanie obliczające wynik kontroli zabezpieczeń](media/secure-score-security-controls/secure-score-equation-single-control.png)<br><br>Każda indywidualna kontrola zabezpieczeń przyczynia się do osiągnięcia oceny zabezpieczeń. Każdy zasób, na który ma wpływ zalecenie w ramach kontroli, przyczynia się do bieżącego wyniku kontrolki. Bieżący wynik dla każdej kontrolki jest miarą stanu zasobów *w* kontrolce.<br>![Etykietki narzędzi pokazujące wartości używane podczas obliczania bieżącego wyniku kontroli zabezpieczeń](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>W tym przykładzie maksymalny wynik 6 zostałby podzielony przez 78, ponieważ to jest suma zasobów w dobrej kondycji i w nieprawidłowych Stanach.<br>6/78 = 0,0769<br>Mnożenie tego przez liczbę zasobów w dobrej kondycji (4) skutkuje bieżącym wynikiem:<br>0,0769 * 4 = **0,31**<br><br>|
+|**Wskaźnik bezpieczeństwa**<br>Subskrypcja pojedyncza|<br>![Równanie obliczania bezpiecznego wyniku subskrypcji](media/secure-score-security-controls/secure-score-equation-single-sub.png)<br><br>![Jeden bezpieczny wynik subskrypcji z włączonymi wszystkimi kontrolkami](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>W tym przykładzie istnieje jedna subskrypcja z wszystkimi dostępnymi wszystkimi kontrolami zabezpieczeń (potencjalną maksymalną wartością wyniku 60 punktów). Wynik pokazuje 28 punktów z możliwego 60, a pozostałe 32 punkty są odzwierciedlone w postaci "potencjalne zwiększenie wyniku" w zakresie kontroli zabezpieczeń.<br>![Lista kontrolek i zwiększenie potencjalnego wyniku](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
+|**Wskaźnik bezpieczeństwa**<br>Wiele subskrypcji|<br>![Równanie obliczania bezpiecznego wyniku dla wielu subskrypcji](media/secure-score-security-controls/secure-score-equation-multiple-subs.png)<br><br>Podczas obliczania połączonego wyniku dla wielu subskrypcji Security Center obejmuje *wagę* dla każdej subskrypcji. Wagi względne dla subskrypcji są określane przez Security Center w oparciu o takie czynniki jak liczba zasobów.<br>Bieżący wynik dla każdej subskrypcji jest obliczany w taki sam sposób jak w przypadku pojedynczej subskrypcji, ale waga jest stosowana, jak pokazano w równaniu.<br>Podczas przeglądania wielu subskrypcji, funkcja Secure Score szacuje wszystkie zasoby we wszystkich włączonych zasadach i grupuje ich łączny wpływ na maksymalny wynik kontroli zabezpieczeń.<br>![Zabezpieczony wynik dla wielu subskrypcji z włączonymi wszystkimi kontrolkami](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>Połączony wynik **nie** jest średni; jest to raczej oceniane stan stanu wszystkich zasobów we wszystkich subskrypcjach.<br>Tutaj, jeśli przejdziesz do strony rekomendacje i dodasz dostępne punkty, zobaczysz, że jest to różnica między bieżącym wynikiem (24) i maksymalnym dostępnym wynikiem (60).|
 ||||
 
 ### <a name="which-recommendations-are-included-in-the-secure-score-calculations"></a>Jakie zalecenia są zawarte w zabezpieczonych obliczeniach oceny?
@@ -271,3 +288,4 @@ Ten artykuł zawiera opis bezpiecznego wyniku i kontroli zabezpieczeń, które w
 
 - [Poznaj różne elementy zalecenia](security-center-recommendations.md)
 - [Dowiedz się, jak skorygować zalecenia](security-center-remediate-recommendations.md)
+- [Wyświetlanie narzędzi opartych na usłudze GitHub w celu programistycznego pracy z bezpiecznym wynikiem](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)

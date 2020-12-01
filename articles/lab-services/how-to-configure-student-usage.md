@@ -1,14 +1,14 @@
 ---
-title: Skonfiguruj ustawienia użycia w obszarze laboratoria Azure Lab Services
+title: Konfigurowanie ustawień użycia w laboratoriach Azure Lab Services
 description: Dowiedz się, jak skonfigurować liczbę studentów dla laboratorium, zarejestrować je w laboratorium, kontrolować liczbę godzin, przez które mogą korzystać z maszyny wirtualnej, i nie tylko.
 ms.topic: article
 ms.date: 11/11/2020
-ms.openlocfilehash: d3100f1a7e67e3b0d403375de02cb3daf5fcfb31
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: e768c74d338cf21eb56660fe3790fc1f0f3ec80d
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555723"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434553"
 ---
 # <a name="add-and-manage-lab-users"></a>Dodawanie użytkowników laboratorium i zarządzanie nimi
 
@@ -20,9 +20,9 @@ W tej sekcji dodasz uczniów do laboratorium ręcznie lub przez przekazanie plik
 
 1. W lewym okienku wybierz pozycję **Użytkownicy**. 
 
-    Domyślnie opcja **Ogranicz dostęp** jest włączona i, chyba że znajdują się na liście użytkowników, uczniowie nie mogą zarejestrować się w laboratorium, nawet jeśli mają link do rejestracji. Tylko użytkownicy z listy mogą rejestrować się w laboratorium przy użyciu wysyłanego linku rejestracji. Podczas tej procedury dodasz użytkowników do listy. Alternatywnie można wyłączyć opcję **Ogranicz dostęp** , dzięki czemu uczniowie mogą zarejestrować się w laboratorium, o ile mają link do rejestracji. 
+    Domyślnie opcja **Ogranicz dostęp** jest włączona i, chyba że znajdują się na liście użytkowników, uczniowie nie mogą zarejestrować się w laboratorium, nawet jeśli mają link do rejestracji. Tylko użytkownicy z listy mogą rejestrować się w laboratorium przy użyciu wysyłanego linku rejestracji. Podczas tej procedury dodasz użytkowników do listy. Alternatywnie można wyłączyć opcję **Ogranicz dostęp**, dzięki czemu uczniowie mogą zarejestrować się w laboratorium, o ile mają link do rejestracji. 
 
-1. W górnej części okienka **Użytkownicy** wybierz pozycję **Dodaj użytkowników** , a następnie wybierz pozycję **Dodaj przy użyciu adresu e-mail**. 
+1. W górnej części okienka **Użytkownicy** wybierz pozycję **Dodaj użytkowników**, a następnie wybierz pozycję **Dodaj przy użyciu adresu e-mail**. 
 
     ![Przycisk "Dodaj użytkowników"](./media/how-to-configure-student-usage/add-users-button.png)
 
@@ -49,7 +49,7 @@ Plik tekstowy CSV służy do przechowywania danych tabelarycznych rozdzielanych 
 
     ![Lista użytkowników w pliku CSV](./media/how-to-configure-student-usage/csv-file-with-users.png)
 
-1. W górnej części okienka **Użytkownicy** wybierz pozycję **Dodaj użytkowników** , a następnie wybierz pozycję **Przekaż plik CSV**.
+1. W górnej części okienka **Użytkownicy** wybierz pozycję **Dodaj użytkowników**, a następnie wybierz pozycję **Przekaż plik CSV**.
 
     ![Przycisk "Przekaż wolumin CSV"](./media/how-to-configure-student-usage/upload-csv-button.png)
 
@@ -81,7 +81,7 @@ Ta metoda pokazuje, jak wysyłać wiadomości e-mail za pomocą linku rejestracj
 
 1. W oknie **wysyłanie zaproszenia** pocztą e-mail wprowadź opcjonalny komunikat, a następnie wybierz pozycję **Wyślij**. 
 
-    Wiadomość e-mail automatycznie zawiera link rejestracji. Aby pobrać i zapisać łącze rejestracji oddzielnie, wybierz wielokropek ( **...** ) w górnej części okienka **Użytkownicy** , a następnie wybierz pozycję link do **rejestracji**. 
+    Wiadomość e-mail automatycznie zawiera link rejestracji. Aby pobrać i zapisać łącze rejestracji oddzielnie, wybierz wielokropek (**...**) w górnej części okienka **Użytkownicy** , a następnie wybierz pozycję link do **rejestracji**. 
 
     ![Okno "wysyłanie linku do rejestracji za pośrednictwem poczty e-mail"](./media/tutorial-setup-classroom-lab/send-email.png)
 
@@ -97,7 +97,7 @@ Ta metoda pokazuje, jak zaprosić tylko wybranych uczniów i uzyskać link do re
 
     ![Zaproś wybranych użytkowników](./media/how-to-configure-student-usage/invite-selected-users.png)
 
-1. W oknie **wysyłanie zaproszenia** pocztą e-mail wprowadź opcjonalny **komunikat** , a następnie wybierz pozycję **Wyślij**. 
+1. W oknie **wysyłanie zaproszenia** pocztą e-mail wprowadź opcjonalny **komunikat**, a następnie wybierz pozycję **Wyślij**. 
 
     ![Wyślij wiadomość e-mail do wybranych użytkowników](./media/how-to-configure-student-usage/send-invitation-to-selected-users.png)
 
@@ -111,7 +111,7 @@ W tej sekcji można uzyskać link rejestracji z portalu i wysłać go przy użyc
 
     ![Link rejestracji ucznia](./media/how-to-configure-student-usage/registration-link-button.png)
 
-1. W oknie **Rejestracja użytkownika** wybierz pozycję **Kopiuj** , a następnie wybierz pozycję **gotowe**. 
+1. W oknie **Rejestracja użytkownika** wybierz pozycję **Kopiuj**, a następnie wybierz pozycję **gotowe**. 
 
     ![Okno "Rejestracja użytkownika"](./media/how-to-configure-student-usage/registration-link.png)
 
@@ -122,7 +122,7 @@ W tej sekcji można uzyskać link rejestracji z portalu i wysłać go przy użyc
 ## <a name="view-registered-users"></a>Wyświetl zarejestrowanych użytkowników
 
 1. Przejdź do witryny sieci Web [Azure Lab Services](https://labs.azure.com) . 
-1. Wybierz pozycję **Zaloguj** , a następnie wprowadź swoje poświadczenia. Usługa Azure Lab Services obsługuje konta organizacji i konta Microsoft.
+1. Wybierz pozycję **Zaloguj**, a następnie wprowadź swoje poświadczenia. Usługa Azure Lab Services obsługuje konta organizacji i konta Microsoft.
 1. Na stronie **Moje laboratoria** wybierz laboratorium, którego użycie ma być śledzone. 
 1. W lewym okienku wybierz pozycję **Użytkownicy** lub wybierz kafelek **Użytkownicy** . 
 
@@ -169,7 +169,7 @@ Aby ustawić dodatkowe przydziały, wykonaj następujące czynności:
 Aby dodać uczniów do laboratorium zajęć, użyj swoich kont e-mail. Studenci mogą mieć następujące typy kont e-mail:
 
 - Konto e-mail ucznia udostępniane przez wystąpienie Azure Active Directory University.
-- Konto e-mail w domenie firmy Microsoft, takie jak *Outlook.com* , *hotmail.com* , *MSN.com* lub *Live.com*.
+- Konto e-mail w domenie firmy Microsoft, takie jak *Outlook.com*, *hotmail.com*, *MSN.com* lub *Live.com*.
 - Konto e-mail inne niż firmy Microsoft, na przykład udostępniane przez usługi Yahoo! lub Google. Jednak te typy kont muszą być połączone z konto Microsoft.
 - Konto usługi GitHub. To konto musi być połączone z konto Microsoft.
 
@@ -207,7 +207,7 @@ Jeśli konto usługi GitHub nie zostało jeszcze połączone z konto Microsoft, 
 ## <a name="export-a-list-of-users-to-a-csv-file"></a>Eksportowanie listy użytkowników do pliku CSV
 
 1. Przejdź do okienka **Użytkownicy** .
-1. Na pasku narzędzi wybierz przycisk wielokropka ( **...** ), a następnie wybierz pozycję **Eksportuj plik CSV**. 
+1. Na pasku narzędzi wybierz przycisk wielokropka (**...**), a następnie wybierz pozycję **Eksportuj plik CSV**. 
 
     ![Przycisk "Eksportuj plik CSV"](./media/how-to-export-users-virtual-machines-csv/users-export-csv.png)
 
@@ -218,4 +218,4 @@ Zobacz następujące artykuły:
 
 - Dla administratorów: [Tworzenie kont laboratorium i zarządzanie nimi](how-to-manage-lab-accounts.md)
 - Dla właścicieli laboratorium: [Tworzenie i Zarządzanie laboratoriami](how-to-manage-classroom-labs.md) oraz [Konfigurowanie i publikowanie szablonów](how-to-create-manage-template.md)
-- Dla użytkowników laboratorium: [dostęp do laboratoriów zajęć](how-to-use-classroom-lab.md)
+- Dla użytkowników laboratorium: [laboratoria dostępu](how-to-use-classroom-lab.md)

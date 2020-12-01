@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 53130e395995b3533a45a96f897a0c6bcf1e4c71
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 2b4710fec43e27235ef6c05abb6018e1af4310d3
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187191"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434944"
 ---
 # <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Inicjowanie obsługi administracyjnej agentów i rozszerzeń z Azure Security Center
 
@@ -138,7 +138,7 @@ Usługa Azure Defender jest wymagana do przechowywania danych zdarzeń zabezpiec
 Przechowywanie danych w Log Analytics może wiązać się z dodatkowymi opłatami za przechowywanie danych. Aby uzyskać więcej informacji, odwiedź [stronę cennika](https://azure.microsoft.com/pricing/details/security-center/).
 
 ### <a name="information-for-azure-sentinel-users"></a>Informacje dla użytkowników wskaźnikowych platformy Azure 
-Użytkownicy platformy Azure — należy pamiętać, że zbieranie zdarzeń zabezpieczeń w kontekście jednego obszaru roboczego można skonfigurować z poziomu Azure Security Center lub platformy Azure, ale nie obu. Jeśli planujesz dodać wskaźnik platformy Azure do obszaru roboczego, który już otrzymuje alerty usługi Azure Defender z Azure Security Center i jest ustawiony na zbieranie zdarzeń zabezpieczeń, masz dwie opcje:
+Użytkownicy platformy Azure — należy pamiętać, że zbieranie zdarzeń zabezpieczeń w kontekście jednego obszaru roboczego można skonfigurować z poziomu Azure Security Center lub platformy Azure, ale nie obu. Jeśli planujesz dodać wskaźnik platformy Azure do obszaru roboczego, który już otrzymuje alerty z Azure Security Center i jest ustawiony na zbieranie zdarzeń zabezpieczeń, masz dwie opcje:
 - Pozostaw zbieranie zdarzeń zabezpieczeń w Azure Security Center. Będzie można wykonywać zapytania i analizować te zdarzenia na platformie Azure, a także w usłudze Azure Defender. Nie będzie jednak można monitorować stanu łączności łącznika ani zmieniać jego konfiguracji na platformie Azure — wskaźnik. Jeśli jest to ważne dla Ciebie, weź pod uwagę drugą opcję.
 - Wyłącz zbieranie zdarzeń zabezpieczeń w Azure Security Center (przez ustawienie **zdarzeń zabezpieczeń systemu Windows** na **Brak** w konfiguracji agenta log Analytics). Następnie Dodaj łącznik zdarzeń zabezpieczeń na platformie Azure — wskaźnik. Podobnie jak w przypadku pierwszej opcji, można wysyłać zapytania i analizować zdarzenia zarówno z platformy Azure, jak i usługi Azure Defender/ASC, ale teraz będzie można monitorować stan łączności łącznika lub zmieniać jego konfigurację w systemach i tylko na platformie Azure.
 

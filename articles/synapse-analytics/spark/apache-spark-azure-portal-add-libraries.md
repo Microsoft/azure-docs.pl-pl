@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie bibliotekami Apache Spark w usłudze Azure Synapse Analytics
+title: Zarządzanie bibliotekami Apache Spark
 description: Dowiedz się, jak dodawać biblioteki używane przez Apache Spark w usłudze Azure Synapse Analytics i zarządzać nimi.
 services: synapse-analytics
 author: euangMS
@@ -9,18 +9,18 @@ ms.date: 10/16/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 8d478b35b702e02f303358972526c091ceb3657e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 27881b048a738d4de2acb57dcc4c2dad1f4d5b24
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95917129"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435369"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Zarządzanie bibliotekami Apache Spark w usłudze Azure Synapse Analytics
 
 Biblioteki zapewniają kod wielokrotnego użytku, który może być dołączany do programów lub projektów. Aby udostępnić innym firmom lub lokalnie skompilowany kod dla aplikacji, możesz zainstalować bibliotekę na jednym z pul Apache Spark bezserwerowych (wersja zapoznawcza). Po zainstalowaniu biblioteki dla puli platformy Spark będzie ona dostępna dla wszystkich sesji korzystających z tej samej puli. 
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 - Aby zainstalować i zaktualizować biblioteki, musisz mieć uprawnienia **współautora danych obiektów blob magazynu** lub **dane obiektu blob magazynu** na podstawowym koncie magazynu Gen2, które jest połączone z obszarem roboczym usługi Azure Synapse Analytics.
   
 ## <a name="default-installation"></a>Instalacja domyślna
@@ -36,7 +36,7 @@ Po zidentyfikowaniu bibliotek, które mają być używane dla aplikacji platform
 
 > [!IMPORTANT]
 > - Jeśli instalowany pakiet jest duży lub zajmuje dużo czasu, ma to wpływ na czas uruchamiania wystąpienia platformy Spark.
-> - Pakiety, które wymagają obsługi kompilatora w czasie instalacji, takie jak w przypadku programu, nie są obsługiwane.
+> - Pakiety wymagające obsługi kompilatora w momencie instalacji, takie jak GCC, nie są obsługiwane.
 > - Pakiety nie mogą być obniżane, tylko dodawane lub uaktualniane.
 > - Aby zainstalować biblioteki, musisz mieć uprawnienia współautora danych obiektów blob lub magazyn danych obiektów blob magazynu na podstawowym koncie magazynu Gen2 połączonym z obszarem roboczym Synapse.
 

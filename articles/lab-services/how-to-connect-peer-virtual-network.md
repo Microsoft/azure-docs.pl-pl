@@ -3,12 +3,12 @@ title: Nawiązywanie połączenia z siecią równorzędną w Azure Lab Services 
 description: Dowiedz się, jak połączyć sieć laboratorium z inną siecią jako równorzędną. Na przykład Połącz lokalną sieć organizacji/Uniwersytet z siecią wirtualną laboratorium na platformie Azure.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 169160005b27f6ab9575749e4a72a26d2df4000b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 99ea72f11c8f389a15171a1fe3b376646494903a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647991"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434247"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Połącz sieć laboratorium z równorzędną siecią wirtualną w Azure Lab Services
 
@@ -26,7 +26,7 @@ Może być konieczne połączenie sieci laboratorium z równorzędną siecią wi
 Niektóre sieci lokalne są połączone z platformą Azure Virtual Network przy użyciu bramy [ExpressRoute](../expressroute/expressroute-introduction.md) lub [Virtual Network](../vpn-gateway/vpn-gateway-about-vpngateways.md). Te usługi należy skonfigurować poza Azure Lab Services. Aby dowiedzieć się więcej na temat łączenia sieci lokalnej z platformą Azure przy użyciu usługi ExpressRoute, zobacz [Omówienie usługi ExpressRoute](../expressroute/expressroute-introduction.md). W przypadku połączenia lokalnego przy użyciu bramy Virtual Network brama, określona Sieć wirtualna i konto laboratorium muszą znajdować się w tym samym regionie.
 
 > [!NOTE]
-> Podczas tworzenia Virtual Network platformy Azure, która będzie połączona z kontem laboratorium, ważne jest, aby zrozumieć, w jaki sposób region sieci wirtualnej ma wpływ na to, gdzie są tworzone laboratorium klasowe.  Aby uzyskać więcej informacji, zobacz sekcję Podręcznika administratora w witrynie [regions\locations](./administrator-guide.md#regionslocations).
+> Podczas tworzenia Virtual Network platformy Azure, która będzie połączona z kontem laboratorium, ważne jest, aby zrozumieć, w jaki sposób region sieci wirtualnej ma wpływ na miejsce tworzenia laboratoriów.  Aby uzyskać więcej informacji, zobacz sekcję Podręcznika administratora w witrynie [regions\locations](./administrator-guide.md#regionslocations).
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Konfiguruj podczas tworzenia konta laboratorium
 

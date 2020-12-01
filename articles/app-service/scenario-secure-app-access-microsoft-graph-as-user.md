@@ -7,15 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: 4125a4493b72fa60203067f3eba1ccebdc820b02
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.custom: azureday1
+ms.openlocfilehash: e07ec17a4e14f0099d82bd444f2ee8d37abe9908
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182975"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435012"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-user"></a>Samouczek: dostęp do Microsoft Graph z zabezpieczonej aplikacji jako użytkownik
 
@@ -25,7 +26,7 @@ Dowiedz się, jak uzyskać dostęp do Microsoft Graph z aplikacji sieci Web dzia
 
 Chcesz dodać dostęp do Microsoft Graph z aplikacji sieci Web i wykonać jakąś akcję jako zalogowany użytkownik. W tej sekcji opisano sposób udzielania delegowanych uprawnień aplikacji sieci Web i uzyskiwania informacji o profilu zalogowanego użytkownika z Azure Active Directory (Azure AD).
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -74,6 +75,8 @@ Zapisz ustawienia, wybierając pozycję **Put**. To ustawienie może zająć kil
 ## <a name="call-microsoft-graph-net"></a>Microsoft Graph wywołań (.NET)
 
 Aplikacja sieci Web ma teraz wymagane uprawnienia i dodaje także identyfikator klienta Microsoft Graph do parametrów logowania. Za pomocą [biblioteki Microsoft. Identity. Web](https://github.com/AzureAD/microsoft-identity-web/)aplikacja internetowa pobiera token dostępu do uwierzytelniania za pomocą Microsoft Graph. W wersji 1.2.0 i nowszych Biblioteka Microsoft. Identity. Web Library integruje się z usługą i może działać obok App Service Module uwierzytelniania/autoryzacji. Microsoft. Identity. Web wykrył, że aplikacja sieci Web jest hostowana w App Service i pobiera token dostępu z modułu App Service Authentication/Authorization. Token dostępu jest następnie przesyłany do żądań uwierzytelnionych za pomocą interfejsu API Microsoft Graph.
+
+Aby wyświetlić ten kod jako część przykładowej aplikacji, zobacz [przykład w witrynie GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/2-WebApp-graphapi-on-behalf).
 
 > [!NOTE]
 > Biblioteka Microsoft. Identity. Web nie jest wymagana w aplikacji sieci Web na potrzeby uwierzytelniania podstawowego/autoryzacji ani do uwierzytelniania żądań za pomocą Microsoft Graph. Istnieje możliwość [bezpiecznego wywołania podrzędnych interfejsów API](tutorial-auth-aad.md#call-api-securely-from-server-code) z włączonym tylko App Service Module uwierzytelniania/autoryzacji.
@@ -221,7 +224,7 @@ public class IndexModel : PageModel
 }
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli skończysz pracę z tym samouczkiem i nie potrzebujesz już aplikacji sieci Web ani skojarzonych zasobów, [Wyczyść utworzone zasoby](scenario-secure-app-clean-up-resources.md).
 

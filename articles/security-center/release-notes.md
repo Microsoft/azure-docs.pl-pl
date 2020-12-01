@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2020
+ms.date: 11/30/2020
 ms.author: memildin
-ms.openlocfilehash: 9b715ea890c7c85161a9e360bc16f9a2a608d64b
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: f26fffe8e6b2be6ede064b4750d012b3e4535c66
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95320998"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433351"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -41,6 +41,7 @@ Aktualizacje w listopadzie obejmują:
 - [Ulepszone i rozszerzone środowisko aprowizacji](#auto-provisioning-experience-improved-and-expanded)
 - [Ocena zabezpieczeń jest teraz dostępna w przypadku eksportu ciągłego (wersja zapoznawcza)](#secure-score-is-now-available-in-continuous-export-preview)
 - [Zalecenie "aktualizacje systemu powinny być zainstalowane na Twoich komputerach" obejmuje teraz zalecenia podrzędne](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-sub-recommendations)
+- [Na stronie Zarządzanie zasadami w Azure Portal teraz jest wyświetlany stan domyślnych przypisań zasad](#policy-management-page-in-the-azure-portal-now-shows-status-of-default-policy-assignments)
 
 ### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>29 zaleceń dotyczących wersji zapoznawczej dodanych w celu zwiększenia zakresu testów zabezpieczeń platformy Azure
 
@@ -139,7 +140,11 @@ Dowiedz się więcej o tym, jak [ciągle eksportować Security Center dane](cont
     | where properties.status.code == "Unhealthy"
     ```
 
+### <a name="policy-management-page-in-the-azure-portal-now-shows-status-of-default-policy-assignments"></a>Na stronie Zarządzanie zasadami w Azure Portal teraz jest wyświetlany stan domyślnych przypisań zasad
 
+Teraz możesz sprawdzić, czy subskrypcje mają przypisane domyślne zasady Security Center na stronie **zasady zabezpieczeń** Security Center w Azure Portal.
+
+:::image type="content" source="media/release-notes/policy-assignment-info-per-subscription.png" alt-text="Strona Zarządzanie zasadami Azure Security Center wyświetlania domyślnych przypisań zasad":::
 
 ## <a name="october-2020"></a>Październik 2020 r.
 
@@ -289,7 +294,7 @@ extract("^(.+)/providers/Microsoft.Security/assessments/.+$",1,id)))))
 ```
 
 Dowiedz się więcej na następujące linki:
-- [Jak tworzyć zapytania za pomocą Eksploratora Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
+- [Jak tworzyć zapytania za pomocą eksploratora usługi Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 - [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)
 
 

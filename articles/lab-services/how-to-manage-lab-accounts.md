@@ -3,15 +3,15 @@ title: Zarządzanie kontami laboratorium w Azure Lab Services | Microsoft Docs
 description: Dowiedz się, jak utworzyć konto laboratorium, wyświetlić wszystkie konta laboratorium lub usunąć konto laboratorium w ramach subskrypcji platformy Azure.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 33e5e42f65fdd34bb37b12947b5173700ad7970c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 65ff28401b73698e320735613b32c96bf3de58f2
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999505"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434094"
 ---
 # <a name="create-and-manage-lab-accounts"></a>Tworzenie kont laboratoriów i zarządzanie nimi
-W Azure Lab Services konto laboratorium jest kontenerem dla zarządzanych typów laboratorium, takich jak pracownie. Administrator konfiguruje konto laboratorium przy użyciu Azure Lab Services i zapewnia dostęp do właścicieli laboratorium, którzy mogą tworzyć laboratoria na koncie. W tym artykule opisano sposób tworzenia konta laboratorium, wyświetlania wszystkich kont laboratorium lub usuwania konta laboratorium.
+W Azure Lab Services konto laboratorium jest kontenerem dla zarządzanych typów laboratorium, takich jak laboratoria. Administrator konfiguruje konto laboratorium przy użyciu Azure Lab Services i zapewnia dostęp do właścicieli laboratorium, którzy mogą tworzyć laboratoria na koncie. W tym artykule opisano sposób tworzenia konta laboratorium, wyświetlania wszystkich kont laboratorium lub usuwania konta laboratorium.
 
 ## <a name="create-a-lab-account"></a>Tworzenie konta laboratorium
 Następujące kroki ilustrują tworzenie konta laboratorium w usłudze Azure Lab Services przy użyciu witryny Azure Portal. 

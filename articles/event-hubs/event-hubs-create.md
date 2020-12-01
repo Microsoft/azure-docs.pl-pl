@@ -1,17 +1,17 @@
 ---
 title: Przewodnik Szybki Start platformy Azure — tworzenie centrum zdarzeń przy użyciu Azure Portal
-description: Z tego przewodnika Szybki start dowiesz się, jak utworzyć centrum zdarzeń platformy Azure przy użyciu witryny Azure Portal oraz wysyłać i odbierać zdarzenia za pomocą zestawu .NET Standard SDK.
+description: W tym przewodniku szybki start dowiesz się, jak utworzyć centrum zdarzeń platformy Azure przy użyciu Azure Portal.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 84cafcc86142cb9b97639c023971e7d290fc79fc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c1244317655815da91429585eff9ffbcc16662d4
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88927888"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435505"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Szybki start: tworzenie centrum zdarzeń przy użyciu witryny Azure Portal
-Azure Event Hubs to platforma do pozyskiwania i strumieniowego przesyłania danych, która umożliwia odbieranie i przetwarzanie milionów zdarzeń na sekundę. Usługa Event Hubs pozwala przetwarzać i przechowywać zdarzenia, dane lub dane telemetryczne generowane przez rozproszone oprogramowanie i urządzenia. Dane wysłane do centrum zdarzeń mogą zostać przekształcone i zmagazynowane przy użyciu dowolnego dostawcy analityki czasu rzeczywistego lub adapterów przetwarzania wsadowego/magazynowania. Aby zapoznać się ze szczegółowym omówieniem usługi Event Hubs, zobacz [Omówienie usługi Event Hubs](event-hubs-about.md) i [Funkcje usługi Event Hubs](event-hubs-features.md).
+Azure Event Hubs to usługa do przesyłania strumieniowego danych Big Data i usługi pozyskiwania zdarzeń, które mogą odbierać i przetwarzać miliony zdarzeń na sekundę. Usługa Event Hubs pozwala przetwarzać i przechowywać zdarzenia, dane lub dane telemetryczne generowane przez rozproszone oprogramowanie i urządzenia. Dane wysłane do centrum zdarzeń mogą zostać przekształcone i zmagazynowane przy użyciu dowolnego dostawcy analityki czasu rzeczywistego lub adapterów przetwarzania wsadowego/magazynowania. Aby zapoznać się ze szczegółowym omówieniem usługi Event Hubs, zobacz [Omówienie usługi Event Hubs](event-hubs-about.md) i [Funkcje usługi Event Hubs](event-hubs-features.md).
 
 W tym przewodniku Szybki start utworzysz centrum zdarzeń za pomocą witryny [Azure Portal](https://portal.azure.com).
 
@@ -26,7 +26,7 @@ Aby ukończyć ten przewodnik Szybki start, upewnij się, że dysponujesz nastę
 Grupa zasobów to logiczna kolekcja zasobów platformy Azure. Wszystkie zasoby są wdrażane i zarządzane w ramach grupy zasobów. Aby utworzyć grupę zasobów:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. W lewym obszarze nawigacji kliknij pozycję **Grupy zasobów**. Następnie kliknij przycisk **Dodaj**.
+1. W okienku nawigacji po lewej stronie wybierz pozycję **grupy zasobów**. Następnie wybierz pozycję **Dodaj**.
 
    ![Grupy zasobów — przycisk Dodaj](./media/event-hubs-quickstart-portal/resource-groups1.png)
 
@@ -40,9 +40,9 @@ Grupa zasobów to logiczna kolekcja zasobów platformy Azure. Wszystkie zasoby s
 
 ## <a name="create-an-event-hubs-namespace"></a>Tworzenie przestrzeni nazw usługi Event Hubs
 
-Przestrzeń nazw usługi Event Hubs udostępnia unikatowy kontener zakresu przywoływany przy użyciu jego w pełni kwalifikowanej nazwy domeny, w którym można utworzyć jedno lub wiele centrów zdarzeń. Aby utworzyć przestrzeń nazw w grupie zasobów przy użyciu portalu, wykonaj następujące akcje:
+Przestrzeń nazw Event Hubs zapewnia unikatowy kontener zakresu, w którym można utworzyć co najmniej jedno centrum zdarzeń. Aby utworzyć przestrzeń nazw w grupie zasobów przy użyciu portalu, wykonaj następujące akcje:
 
-1. W witrynie Azure Portal kliknij pozycję **Utwórz zasób** w lewym górnym rogu ekranu.
+1. W witrynie Azure Portal wybierz pozycję **Utwórz zasób** w lewym górnym rogu ekranu.
 1. Wybierz pozycję **Wszystkie usługi** w menu po lewej stronie, a następnie wybierz **gwiazdkę (`*`)** obok pozycji **Event Hubs** w kategorii **Analiza**. Upewnij się, że usługa **Event Hubs** została dodana do kategorii **ULUBIONE** w menu nawigacji po lewej stronie. 
     
    ![Wyszukiwanie usługi Event Hubs](./media/event-hubs-quickstart-portal/select-event-hubs-menu.png)
@@ -53,9 +53,9 @@ Przestrzeń nazw usługi Event Hubs udostępnia unikatowy kontener zakresu przyw
    1. Wybierz **subskrypcję**, w ramach której chcesz utworzyć przestrzeń nazw.  
    1. Wybierz **grupę zasobów** utworzoną w poprzednim kroku.   
    1. Wprowadź **nazwę** dla przestrzeni nazw. System od razu sprawdza, czy nazwa jest dostępna.  
-   1. Wybierz **lokalizację** dla przestrzeni nazw.      
-   1. Wybierz **warstwę cenową** (podstawowa lub standardowa).    
-   1. Pozostaw ustawienia **jednostek przepływności** . Aby dowiedzieć się więcej o jednostkach przepływności, zobacz [Event Hubs skalowalność](event-hubs-scalability.md#throughput-units).  
+   1. Wybierz **lokalizację** dla przestrzeni nazw.
+   1. Wybierz **warstwę cenową** (podstawowa lub standardowa). Aby dowiedzieć się więcej o różnicach między warstwami podstawowa i standardowa, zobacz [Event Hubs Cennik](https://azure.microsoft.com/pricing/details/event-hubs/), [różnice między warstwami](event-hubs-faq.md#what-is-the-difference-between-event-hubs-basic-and-standard-tiers)oraz [limity przydziału i limitów](event-hubs-quotas.md). 
+   1. Pozostaw ustawienia **jednostek przepływności** . Jednostki przepływności to zakupione wcześniej jednostki pojemności. Aby dowiedzieć się więcej o jednostkach przepływności, zobacz [Event Hubs skalowalność](event-hubs-scalability.md#throughput-units).  
    1. Wybierz pozycję **Recenzja + Utwórz** w dolnej części strony.
       
       ![Tworzenie przestrzeni nazw centrum zdarzeń](./media/event-hubs-quickstart-portal/create-event-hub1.png)
@@ -78,19 +78,23 @@ Przestrzeń nazw usługi Event Hubs udostępnia unikatowy kontener zakresu przyw
 Aby utworzyć centrum zdarzeń w przestrzeni nazw, wykonaj następujące akcje:
 
 1. Na stronie przestrzeni nazw usługi Event Hubs wybierz pozycję **Event Hubs** w menu po lewej stronie.
-1. W górnej części okna kliknij pozycję **+ Centrum zdarzeń**.
+1. W górnej części okna wybierz pozycję **+ centrum zdarzeń**.
    
     ![Dodaj centrum zdarzeń — przycisk](./media/event-hubs-quickstart-portal/create-event-hub4.png)
-1. Wpisz nazwę centrum zdarzeń, a następnie kliknij pozycję **Utwórz**.
+1. Wpisz nazwę centrum zdarzeń, a następnie wybierz pozycję **Utwórz**.
    
     ![Tworzenie centrum zdarzeń](./media/event-hubs-quickstart-portal/create-event-hub5.png)
-1. Możesz sprawdzić stan tworzenia centrum zdarzeń w alertach. Po utworzeniu centrum zdarzeń będzie ono widoczne na liście centrów zdarzeń, jak pokazano na poniższej ilustracji:
+
+    Ustawienie **liczba partycji** pozwala zrównoleglanie użycie wielu odbiorców. Aby uzyskać więcej informacji, zobacz [partycje](event-hubs-scalability.md#partitions).
+
+    Ustawienie **przechowywania wiadomości** określa, jak długo usługa Event Hubs przechowuje dane. Maksymalne limity dla tego ustawienia można znaleźć w temacie [limity przydziału i limity](event-hubs-quotas.md).
+1. Możesz sprawdzić stan tworzenia centrum zdarzeń w alertach. Po utworzeniu centrum zdarzeń zostanie ono wyświetlone na liście centrów zdarzeń.
 
     ![Centrum zdarzeń zostało utworzone](./media/event-hubs-quickstart-portal/event-hub-created.png)
-
+    
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule utworzono grupę zasobów, przestrzeń nazw usługi Event Hubs i centrum zdarzeń. Aby uzyskać instrukcje krok po kroku dotyczące wysyłania zdarzeń do (lub) odbierania zdarzeń z centrum zdarzeń, zobacz samouczki **wysyłania i odbierania zdarzeń** : 
+W tym artykule utworzono grupę zasobów, przestrzeń nazw usługi Event Hubs i centrum zdarzeń. Aby uzyskać instrukcje krok po kroku dotyczące wysyłania zdarzeń do (lub) odbierania zdarzeń z centrum zdarzeń, zobacz następujące samouczki: 
 
 - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
 - [Java](event-hubs-java-get-started-send.md)

@@ -3,12 +3,12 @@ title: Azure Lab Services w programie Microsoft Teams
 description: Zawiera omówienie używania Azure Lab Services w programie Microsoft Teams.
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 0c7defdb6f801a10c5fadfdca805381a31f39378
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f39613427ed174dfca80d4a48be9473ab7025e79
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047832"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433917"
 ---
 # <a name="azure-lab-services-within-microsoft-teams"></a>Azure Lab Services w programie Microsoft Teams
 
@@ -23,7 +23,7 @@ W tym artykule przedstawiono zalety korzystania z Azure Lab Services w ramach ze
 
 Azure Lab Services integracja z usługą Microsoft Teams pomoże nauczycielom skonfigurować środowisko klasy i udostępnić wirtualne środowiska laboratoryjne w zespole (Klasa): 
 
-* Nauczyciele mogą konfigurować pracownie, aby studenci mogli uzyskiwać dostęp do swoich maszyn wirtualnych z poziomu zespołów, bez opuszczania zespołów i przechodzenia do [witryny Azure Lab Services](https://labs.azure.com).
+* Nauczyciele mogą konfigurować laboratoria, aby studenci mogli uzyskiwać dostęp do swoich maszyn wirtualnych z poziomu zespołów, bez opuszczania zespołów i przechodzenia do [witryny sieci web Azure Lab Services](https://labs.azure.com).
 * Logowanie jednokrotne (SSO) z zespołów do Azure Lab Services.
 * Właściciele zespołu i laboratorium nie muszą obsługiwać list pól w dwóch różnych systemach — lista użytkowników laboratorium jest automatycznie wypełniana na podstawie członkostwa zespołu, a synchronizacja jest przeprowadzana co 24 godziny. 
 * Po wstępnym opublikowaniu maszyny wirtualnej z szablonem pojemność laboratorium (czyli liczba maszyn wirtualnych w laboratorium) zostanie automatycznie skorygowana na podstawie dodawania/usuwania użytkowników z członkostwa w zespole. 

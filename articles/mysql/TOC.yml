@@ -124,6 +124,8 @@
           href: concepts-supported-versions.md
         - name: Ograniczenia
           href: concepts-limits.md
+        - name: Najlepsze rozwiązania w zakresie operacji
+          href: concept-operation-excellence-best-practices.md
         - name: Warstwy cenowe
           items:
             - name: Warstwy cenowe
@@ -195,6 +197,10 @@
             - name: Zalecenia dotyczące wydajności
               href: concepts-performance-recommendations.md
               displayName: recommendation
+            - name: Najlepsze rozwiązania w zakresie monitorowania
+              href: concept-monitoring-best-practices.md
+            - name: Najlepsze rozwiązania w zakresie wydajności
+              href: concept-performance-best-practices.md
         - name: Opracowywanie aplikacji
           items:
             - name: Omówienie opracowywania aplikacji
@@ -202,7 +208,7 @@
             - name: Zgodność sterowników i narzędzi
               href: concepts-compatibility.md
               displayName: 'drivers, tools'
-            - name: Najlepsze rozwiązania dotyczące aplikacji
+            - name: Najlepsze rozwiązania w zakresie aplikacji
               href: app-development-best-practices.md
               displayName: application
             - name: Elastyczność połączenia
