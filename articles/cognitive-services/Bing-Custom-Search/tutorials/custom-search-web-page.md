@@ -10,19 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: 25d716513c7ceb9311588b75b0fad1c68bf71bfd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a789cb3fde05d12a8793196043f1c246bbab6559
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081114"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96342417"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Samouczek: tworzenie strony internetowej z funkcją wyszukiwania niestandardowego
 
 > [!WARNING]
-> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
-> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Wyszukiwanie niestandardowe Bing umożliwia tworzenie dostosowanych funkcji wyszukiwania dla interesujących Cię tematów. Na przykład, jeśli jesteś członkiem witryny sieci Web Martial sztuk, która udostępnia środowisko wyszukiwania, możesz określić domeny, podwitryny i Webpages, które przeszukują usługi Bing. Użytkownicy zobaczą wyniki dostosowane do zawartości, która ich interesuje, zamiast przewijać strony ogólnych wyników wyszukiwania, które mogą zawierać nieistotną zawartość. 
 
@@ -50,7 +50,7 @@ Aby utworzyć wystąpienie wyszukiwania niestandardowego Bing:
   
 2. Przejdź do [portalu](https://customsearch.ai) wyszukiwania niestandardowego.  
   
-3. Zaloguj się do portalu przy użyciu konta Microsoft (MSA). Jeśli nie masz konta MSA, kliknij przycisk **utwórz konto Microsoft** . Jeśli korzystasz z portalu po raz pierwszy, zostanie wyświetlony zapytanie o uprawnienia dostępu do danych. Kliknij przycisk **Yes** (Tak).  
+3. Zaloguj się do portalu przy użyciu konta Microsoft (MSA). Jeśli nie masz konta MSA, kliknij przycisk **utwórz konto Microsoft**. Jeśli korzystasz z portalu po raz pierwszy, zostanie wyświetlony zapytanie o uprawnienia dostępu do danych. Kliknij przycisk **Yes** (Tak).  
   
 4. Po zalogowaniu się kliknij pozycję **New custom search** (Nowe wyszukiwanie niestandardowe). W oknie **Tworzenie nowego wystąpienia wyszukiwania niestandardowego** wprowadź nazwę zrozumiałą i opisującą typ zawartości zwracanej przez wyszukiwanie. Nazwę można zmienić w dowolnym momencie.  
   
@@ -135,25 +135,25 @@ Istnieją dwa sposoby korzystania z hostowanego interfejsu użytkownika.
 - Opcja 1. Zintegrowanie dostarczonego fragmentu kodu JavaScript z aplikacją.
 - Opcja 2. Użycie dostarczonego punktu końcowego HTML.
 
-W pozostałej części tego samouczka przedstawiono **opcję 1: fragment kodu JavaScript** .  
+W pozostałej części tego samouczka przedstawiono **opcję 1: fragment kodu JavaScript**.  
 
 ## <a name="set-up-your-visual-studio-solution"></a>Konfigurowanie rozwiązania programu Visual Studio
 
 1. Otwórz program **Visual Studio** na komputerze.  
   
-2. W menu **Plik** wybierz polecenie **Nowy** , a następnie wybierz pozycję **Projekt** .  
+2. W menu **Plik** wybierz polecenie **Nowy**, a następnie wybierz pozycję **Projekt**.  
   
-3. W oknie **Nowy projekt** wybierz pozycję **Aplikacja internetowa / Aplikacja internetowa platformy Visual C# / ASP.NET Core** , nazwij swój projekt, a następnie kliknij przycisk **OK** .  
+3. W oknie **Nowy projekt** wybierz pozycję **Aplikacja internetowa / Aplikacja internetowa platformy Visual C# / ASP.NET Core**, nazwij swój projekt, a następnie kliknij przycisk **OK**.  
   
    ![Zrzut ekranu przedstawiający okno nowego projektu](./media/custom-search-new-project.png)  
   
-4. W oknie **Nowa aplikacja internetowa platformy ASP.NET Core** wybierz pozycję **Aplikacja internetowa** i kliknij przycisk **OK** .  
+4. W oknie **Nowa aplikacja internetowa platformy ASP.NET Core** wybierz pozycję **Aplikacja internetowa** i kliknij przycisk **OK**.  
   
    ![Zrzut ekranu przedstawiający nowe okno webapp](./media/custom-search-new-webapp.png)  
 
 ## <a name="edit-indexcshtml"></a>Edytowanie pliku index.cshtml
 
-1. W **Eksploratorze rozwiązań** rozwiń węzeł **Strony** i kliknij dwukrotnie plik **index.cshtml** , aby go otworzyć.  
+1. W **Eksploratorze rozwiązań** rozwiń węzeł **Strony** i kliknij dwukrotnie plik **index.cshtml**, aby go otworzyć.  
   
    ![Zrzut ekranu przedstawiający Eksploratora rozwiązań z rozwiniętym węzłem Strony i wybranym plikiem index.cshtml](./media/custom-search-visual-studio-webapp-solution-explorer-index.png)  
   
@@ -202,7 +202,7 @@ W pozostałej części tego samouczka przedstawiono **opcję 1: fragment kodu Ja
    </div>
    ```  
   
-6. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy pozycję **wwwroot** i kliknij polecenie **Wyświetl w przeglądarce** .  
+6. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy pozycję **wwwroot** i kliknij polecenie **Wyświetl w przeglądarce**.  
   
    ![Zrzut ekranu przedstawiający wybieranie polecenia Wyświetl w przeglądarce w menu kontekstowym elementu wwwroot w Eksploratorze rozwiązań](./media/custom-search-webapp-view-in-browser.png)  
 

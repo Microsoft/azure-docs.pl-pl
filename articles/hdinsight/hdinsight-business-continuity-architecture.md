@@ -8,12 +8,12 @@ keywords: Wysoka dostępność usługi Hadoop
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: c322380d6a41e69baa8f753b84c0bc074f334647
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0275fa4cc46dff8781d73563fd250b1ec62ddd56
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547031"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344117"
 ---
 # <a name="azure-hdinsight-business-continuity-architectures"></a>Architektury ciągłości biznesowej usługi Azure HDInsight
 
@@ -50,13 +50,13 @@ Klaster pomocniczy jest zwykle tylko do odczytu. Można utworzyć dodatkowy klas
 
 W *aktywnym serwerze podstawowym z architekturą pomocniczą na żądanie* aplikacje są zapisywane w aktywnym regionie podstawowym, podczas gdy nie są obsługiwane żadne klastry w regionie pomocniczym podczas normalnych operacji. Magazyn metadanych SQL i magazyn w regionie pomocniczym są trwałe, podczas gdy klaster usługi HDInsight jest skryptowy i wdrażany na żądanie dopiero przed uruchomieniem zaplanowanej replikacji programu Hive.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary.png" alt-text="Architektura zapytań Hive i Interactive":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary.png" alt-text="aktywne podstawowe z dodatkowymi usługami na żądanie":::
 
 #### <a name="hive-active-primary-with-standby-secondary"></a>Aktywna gałąź podstawowa z dodatkowym zapasem pomocniczym
 
-W *aktywnym elemencie podstawowym z rezerwą pomocniczą* , aplikacje zapisują się w aktywnym regionie podstawowym, podczas gdy awaryjny klaster skalowalny w poziomie w trybie tylko do odczytu jest uruchamiany podczas normalnego działania. Podczas normalnych operacji można odciążyć operacje odczytu specyficzne dla regionu do pomocniczego.
+W *aktywnym elemencie podstawowym z rezerwą pomocniczą*, aplikacje zapisują się w aktywnym regionie podstawowym, podczas gdy awaryjny klaster skalowalny w poziomie w trybie tylko do odczytu jest uruchamiany podczas normalnego działania. Podczas normalnych operacji można odciążyć operacje odczytu specyficzne dla regionu do pomocniczego.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="Architektura zapytań Hive i Interactive":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="aktywna podstawowa z rezerwą pomocniczą":::
 
 Aby uzyskać więcej informacji na temat replikacji i przykładów kodu programu Hive, odwołuje się [Apache Hive replikacji w klastrach usługi Azure HDInsight](./interactive-query/apache-hive-replication.md)
 
@@ -85,13 +85,13 @@ Jeśli istnieją biblioteki specyficzne dla klienta, w których Usługa HDInsigh
 
 Aplikacje odczytują i zapisują do klastrów Spark i Hive w regionie podstawowym, podczas gdy nie są obsługiwane żadne klastry w regionie pomocniczym podczas normalnych operacji. Magazyn metadanych SQL, magazyn Hive i magazyn Spark są trwałe w regionie pomocniczym. Klastry Spark i Hive są skryptami i wdrażane na żądanie. Replikacja programu Hive jest używana do replikowania magazynu Hive i magazynu metadanych Hive, podczas gdy Azure Data Factory `DistCP` może służyć do kopiowania autonomicznego magazynu Spark. Klastry Hive muszą zostać wdrożone przed uruchomieniem każdej replikacji programu Hive z powodu `DistCp` obliczeń zależności.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary-spark.png" alt-text="Architektura zapytań Hive i Interactive":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary-spark.png" alt-text="aktywna podstawowa z pomocniczą architekturą Apache Spark na żądanie":::
 
 #### <a name="spark-active-primary-with-standby-secondary"></a>Platforma Spark Active podstawowa z dodatkowym zapasem pomocniczym
 
 Aplikacje odczytują i zapisują w klastrach platformy Spark i Hive w regionie podstawowym, podczas gdy tryb wstrzymania skalowany w poziomie i klastry Spark w trybie tylko do odczytu są uruchamiane w regionie pomocniczym podczas normalnych operacji. Podczas normalnych operacji można odciążyć określony region Hive i operacje odczytu platformy Spark do pomocniczego.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary-spark.png" alt-text="Architektura zapytań Hive i Interactive":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary-spark.png" alt-text="aktywna podstawowa Apache Spark pomocnicza ":::
 
 ## <a name="apache-hbase"></a>Apache HBase
 
@@ -131,19 +131,19 @@ W tej konfiguracji międzyregionowej replikacja jest jednokierunkowe z regionu p
 
 Klaster pomocniczy działa jako normalny klaster HBase, który może obsługiwać własne tabele i może obsługiwać operacje odczytu i zapisu z aplikacji regionalnych. Jednak zapisy w replikowanych tabelach lub tabelach natywnych do pomocniczych nie są replikowane z powrotem do podstawowego.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-follower.png" alt-text="Architektura zapytań Hive i Interactive":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-follower.png" alt-text="Model podążający za liderem HBase":::
 
 #### <a name="hbase-replication--leader--leader-model"></a>Replikacja HBase: lider — model lidera
 
 Ta konfiguracja międzyregionowa jest bardzo podobna do konfiguracji jednokierunkowej, z wyjątkiem tego, że replikacja odbywa się dwukierunkowo między regionem podstawowym i pomocniczym. Aplikacje mogą używać obu klastrów w trybach odczytu i zapisu, a aktualizacje są wymieniane asynchronicznie między nimi.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-leader.png" alt-text="Architektura zapytań Hive i Interactive":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-leader.png" alt-text="Model lidera lidera HBase":::
 
 #### <a name="hbase-replication-multi-region-or-cyclic"></a>Replikacja HBase: wiele regionów lub cyklicznie
 
 Model replikacji wieloregionowej/cyklicznej to rozszerzenie replikacji HBase i może służyć do tworzenia globalnie nadmiarowej architektury HBase z wieloma aplikacjami, które odczytują i zapisują do określonych regionów klastrów HBase. Klastry można skonfigurować w różnych kombinacjach lidera/lidera lub lidera/osoby wykonujące w zależności od wymagań firmy.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-cyclic.png" alt-text="Architektura zapytań Hive i Interactive":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-cyclic.png" alt-text="Model cykliczny HBase":::
 
 ## <a name="apache-kafka"></a>Apache Kafka
 
@@ -151,7 +151,7 @@ Aby włączyć obsługę wielu regionów Usługa HDInsight 4,0 obsługuje Kafka 
 
 W zależności od okresu istnienia replikacji, replikacja tematu narzędzia MirrorMaker może prowadzić do różnych przesunięć między tematami źródłowymi i replikami. Klastry usługi HDInsight Kafka obsługują również replikację partycji tematu, która jest funkcją wysokiej dostępności na poziomie poszczególnych klastrów.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-replication.png" alt-text="Architektura zapytań Hive i Interactive":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-replication.png" alt-text="Apache Kafka replikację":::
 
 ### <a name="apache-kafka-architectures"></a>Architektury Apache Kafka
 
@@ -172,7 +172,7 @@ Wady:
 * Ostateczna spójność między tematami między klastrami aktywnym i pasywnym.
 * Failbacks z podstawową może prowadzić do niespójności komunikatów w tematach.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-passive.png" alt-text="Architektura zapytań Hive i Interactive":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-passive.png" alt-text="Apache Kafka aktywny model pasywny":::
 
 #### <a name="kafka-replication-active--active"></a>Replikacja Kafka: aktywny — aktywny
 
@@ -188,7 +188,7 @@ Wady:
 * Należy rozwiązać problem związany z replikacją cykliczną.  
 * Replikacja dwukierunkowa prowadzi do wyższych, regionalnych kosztów ruchu wychodzącego.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-active.png" alt-text="Architektura zapytań Hive i Interactive":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-active.png" alt-text="Apache Kafka aktywnym aktywnym modelu":::
 
 ## <a name="hdinsight-enterprise-security-package"></a>pakiet Enterprise Security usługi HDInsight
 
@@ -198,11 +198,11 @@ Replikacja magazynu metadanych Ranger:
 
 Magazyn metadanych Ranger jest używany do trwałego przechowywania i obsługiwania zasad Ranger w celu kontrolowania autoryzacji danych. Zalecamy zachowanie niezależnych zasad Rangerymi w podstawowych i pomocniczych i konserwowanie pomocniczej jako repliki do odczytu.
   
-Jeśli wymaganie ma zachować synchronizację zasad Rangerymi między podstawową i pomocniczą, należy użyć [Ranger Import/Export](https://cwiki.apache.org/confluence/display/RANGER/User+Guide+For+Import-Export#:~:text=Ranger%20has%20introduced%20a%20new,can%20import%20and%20export%20policies.&text=Also%20can%20export%2Fimport%20a,repositories\)%20via%20Ranger%20Admin%20UI) , aby okresowo tworzyć kopie zapasowe i importować zasady Ranger z podstawowego do pomocniczego.
+Jeśli wymaganie ma zachować synchronizację zasad Rangerymi między podstawową i pomocniczą, należy użyć [Ranger Import/Export](https://cwiki.apache.org/confluence/display/RANGER/User+Guide+For+Import-Export) , aby okresowo tworzyć kopie zapasowe i importować zasady Ranger z podstawowego do pomocniczego.
 
 Replikowanie zasad Ranger między podstawową i pomocniczą może spowodować, że pomocnicza będzie mogła mieć włączoną opcję zapisu, co może prowadzić do przypadkowego zapisu na pomocniczym serwerze, który prowadzi do niespójności danych.  
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hdinsight-enterprise-security-package.png" alt-text="Architektura zapytań Hive i Interactive":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hdinsight-enterprise-security-package.png" alt-text="Architektura pakiet Enterprise Security usługi HDInsight":::
 
 ## <a name="next-steps"></a>Następne kroki
 

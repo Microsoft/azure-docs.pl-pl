@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: db81f8b60cf4883223f6fc084c19c8da1d07bc9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 282d60b1894ffa186a6b5b6b5630aefa9e961572
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388106"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345137"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurowanie logowania za pomocą konto Microsoft przy użyciu zasad niestandardowych w programie Azure Active Directory B2C
 
@@ -38,7 +38,7 @@ Aby włączyć logowanie dla użytkowników z konto Microsoft, musisz zarejestro
 1. Wybierz pozycję **wszystkie usługi** w lewym górnym rogu Azure Portal, a następnie wyszukaj i wybierz pozycję **rejestracje aplikacji**.
 1. Wybierz pozycję **Nowa rejestracja**.
 1. Wprowadź **nazwę** aplikacji. Na przykład *MSAapp1*.
-1. W obszarze **obsługiwane typy kont**wybierz pozycję **konta w dowolnym katalogu organizacyjnym (dowolny katalog usługi Azure AD — wielodostępny) i osobiste konta Microsoft (np. Skype, Xbox)**.
+1. W obszarze **obsługiwane typy kont** wybierz pozycję **konta w dowolnym katalogu organizacyjnym (dowolny katalog usługi Azure AD — wielodostępny) i osobiste konta Microsoft (np. Skype, Xbox)**.
 1. W obszarze **URI przekierowania (opcjonalnie)** wybierz pozycję **Sieć Web** i wprowadź `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/authresp` wartość w polu tekstowym. Zamień `<tenant-name>` na nazwę dzierżawy Azure AD B2C.
 1. Wybierz pozycję **zarejestruj**
 1. Zapisz **Identyfikator aplikacji (klienta)** widoczny na stronie przeglądu aplikacji. Jest to potrzebne podczas konfigurowania dostawcy oświadczeń w dalszej części.
@@ -55,7 +55,7 @@ Jeśli chcesz uzyskać `family_name` `given_name` oświadczenia i usługi Azure 
 1. W sekcji **Zarządzanie** wybierz pozycję **rejestracje aplikacji**.
 1. Wybierz aplikację, dla której chcesz skonfigurować oświadczenia opcjonalne.
 1. W sekcji **Zarządzanie** wybierz pozycję **Konfiguracja tokenu (wersja zapoznawcza)**.
-1. Wybierz pozycję **Dodaj opcjonalne**pole.
+1. Wybierz pozycję **Dodaj opcjonalne** pole.
 1. Wybierz typ tokenu, który chcesz skonfigurować.
 1. Wybierz opcjonalne oświadczenia do dodania.
 1. Kliknij pozycję **Dodaj**.
@@ -69,11 +69,11 @@ Teraz, po utworzeniu aplikacji w dzierżawie usługi Azure AD, musisz przechowyw
 1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
 1. Na stronie Przegląd wybierz pozycję **Struktura środowiska tożsamości**.
 1. Wybierz pozycję **klucze zasad** , a następnie wybierz pozycję **Dodaj**.
-1. W obszarze **Opcje**wybierz opcję `Manual` .
+1. W obszarze **Opcje** wybierz opcję `Manual` .
 1. Wprowadź **nazwę** klucza zasad. Na przykład `MSASecret`. Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza.
-1. W **kluczu tajnym**wprowadź klucz tajny klienta zapisany w poprzedniej sekcji.
-1. W obszarze **użycie klucza**wybierz opcję `Signature` .
-1. Kliknij przycisk **Utwórz**.
+1. W **kluczu tajnym** wprowadź klucz tajny klienta zapisany w poprzedniej sekcji.
+1. W obszarze **użycie klucza** wybierz opcję `Signature` .
+1. Kliknij pozycję **Utwórz**.
 
 ## <a name="add-a-claims-provider"></a>Dodawanie dostawcy oświadczeń
 
@@ -100,7 +100,7 @@ Usługę Azure AD można zdefiniować jako dostawcę oświadczeń przez dodanie 
             <Item Key="response_mode">form_post</Item>
             <Item Key="scope">openid profile email</Item>
             <Item Key="HttpBinding">POST</Item>
-            <Item Key="UsePolicyInRedirectUri">0</Item>
+            <Item Key="UsePolicyInRedirectUri">false</Item>
             <Item Key="client_id">Your Microsoft application client ID</Item>
           </Metadata>
           <CryptographicKeys>
@@ -158,7 +158,7 @@ W tym momencie skonfigurowano dostawcę tożsamości, ale jeszcze nie jest on do
 Element **ClaimsProviderSelection** jest analogiczny do przycisku dostawcy tożsamości na ekranie rejestracji lub logowania. Jeśli dodasz element **ClaimsProviderSelection** dla konto Microsoft, zostanie wyświetlony nowy przycisk, gdy użytkownik zostanie umieszczony na stronie.
 
 1. W pliku *TrustFrameworkExtensions.xml* Znajdź element **OrchestrationStep** , który zawiera `Order="1"` w podróży użytkownika.
-1. W obszarze **ClaimsProviderSelects**Dodaj następujący element. Ustaw wartość **TargetClaimsExchangeId** na odpowiednią wartość, na przykład `MicrosoftAccountExchange` :
+1. W obszarze **ClaimsProviderSelects** Dodaj następujący element. Ustaw wartość **TargetClaimsExchangeId** na odpowiednią wartość, na przykład `MicrosoftAccountExchange` :
 
     ```xml
     <ClaimsProviderSelection TargetClaimsExchangeId="MicrosoftAccountExchange" />

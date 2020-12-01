@@ -11,19 +11,19 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: 6fb1bdbad4455b55c3f6cc3b395526f637339847
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 2566b2cf950df915f8ea843c34ea1fb6f8e7ea21
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592162"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96342009"
 ---
 # <a name="customize-and-suggest-image-search-queries"></a>Dostosuj i Sugeruj zapytania wyszukiwania obrazów
 
 > [!WARNING]
-> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
-> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Skorzystaj z tego artykułu, aby dowiedzieć się, jak dostosować zapytania i zasugerować wyszukiwane terminy do wysłania do interfejs API wyszukiwania obrazów Bing.
 
@@ -33,9 +33,9 @@ Jeśli Twoja aplikacja zawiera pole wyszukiwania, w którym są wprowadzane term
 
 ## <a name="pivot-the-query"></a>Przestawianie zapytania
 
-Jeśli Bing może segmentować oryginalne zapytanie wyszukiwania, obiekt zwracanych [obrazów](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) zawiera `pivotSuggestions` . Sugestie przestawne mogą być wyświetlane jako opcjonalne terminy wyszukiwania dla użytkownika. Na przykład jeśli oryginalna kwerenda była *powierzchnią firmy Microsoft* , Bing może segmentować zapytanie do *firmy Microsoft* i *powierzchni* i udostępniać sugerowane przestawki dla każdego z nich. Te sugestie mogą być wyświetlane jako opcjonalne warunki kwerendy dla użytkownika.
+Jeśli Bing może segmentować oryginalne zapytanie wyszukiwania, obiekt zwracanych [obrazów](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) zawiera `pivotSuggestions` . Sugestie przestawne mogą być wyświetlane jako opcjonalne terminy wyszukiwania dla użytkownika. Na przykład jeśli oryginalna kwerenda była *powierzchnią firmy Microsoft*, Bing może segmentować zapytanie do *firmy Microsoft* i *powierzchni* i udostępniać sugerowane przestawki dla każdego z nich. Te sugestie mogą być wyświetlane jako opcjonalne warunki kwerendy dla użytkownika.
 
-Poniższy przykład przedstawia sugestie dotyczące obszaru Pivot dla urządzenia *Microsoft Surface* :  
+Poniższy przykład przedstawia sugestie dotyczące obszaru Pivot dla urządzenia *Microsoft Surface*:  
 
 ```json
 {
@@ -106,7 +106,7 @@ The following shows an example of the pivot queries.
 
 ## <a name="expand-the-query"></a>Rozwiń zapytanie
 
-Jeśli usługa Bing może rozwinąć zapytanie w celu zawężenia kryteriów oryginalnego wyszukiwania, obiekt [Images](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) zawiera pole `queryExpansions`. Na przykład, jeśli kwerenda była *powierzchnią firmy Microsoft* , rozszerzone zapytania mogą być następujące:
+Jeśli usługa Bing może rozwinąć zapytanie w celu zawężenia kryteriów oryginalnego wyszukiwania, obiekt [Images](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) zawiera pole `queryExpansions`. Na przykład, jeśli kwerenda była *powierzchnią firmy Microsoft*, rozszerzone zapytania mogą być następujące:
 - Microsoft Surface **Pro 3**.
 - Microsoft Surface **RT**.
 - **Telefon** naziemny firmy Microsoft.

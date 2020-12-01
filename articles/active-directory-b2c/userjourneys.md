@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 10/13/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fda57ae152efbb04a793c6acf63465fe8d406a1a
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 5b89126b837f9c197a8babf81abb17bfd98002e4
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998649"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345001"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -37,7 +37,7 @@ Element **UserJourney** zawiera następujący atrybut:
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| Id | Yes | Identyfikator podróży użytkownika, który może służyć do odwoływania się do niego z innych elementów w zasadach. Element **DefaultUserJourney** [zasad jednostki uzależnionej](relyingparty.md) wskazuje na ten atrybut. |
+| Id | Tak | Identyfikator podróży użytkownika, który może służyć do odwoływania się do niego z innych elementów w zasadach. Element **DefaultUserJourney** [zasad jednostki uzależnionej](relyingparty.md) wskazuje na ten atrybut. |
 
 Element **UserJourney** zawiera następujące elementy:
 
@@ -64,7 +64,7 @@ Element **OrchestrationStep** zawiera następujące atrybuty:
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | `Order` | Tak | Kolejność kroków aranżacji. |
-| `Type` | Yes | Typ kroku aranżacji. Możliwe wartości: <ul><li>**ClaimsProviderSelection** — wskazuje, że krok aranżacji przedstawia różne dostawcy oświadczeń dla użytkownika w celu wybrania jednego z nich.</li><li>**CombinedSignInAndSignUp** — wskazuje, że krok aranżacji przedstawia łączną stronę logowania dostawcy społecznego i konta lokalnego.</li><li>**ClaimsExchange** — wskazuje, że krok aranżacji wymienia oświadczenia z dostawcą oświadczeń.</li><li>**Getclaims** — określa, że krok aranżacji powinien przetwarzać dane oświadczeń wysyłane do Azure AD B2C od jednostki uzależnionej za pośrednictwem jej `InputClaims` konfiguracji.</li><li>**InvokeSubJourney** — wskazuje, że krok aranżacji wymienia oświadczenia z [podróżą podrzędną](subjourneys.md) (w publicznej wersji zapoznawczej).</li><li>**SendClaims** — wskazuje, że krok aranżacji wysyła oświadczenia do jednostki uzależnionej przy użyciu tokenu wystawionego przez wystawcę oświadczeń.</li></ul> |
+| `Type` | Tak | Typ kroku aranżacji. Możliwe wartości: <ul><li>**ClaimsProviderSelection** — wskazuje, że krok aranżacji przedstawia różne dostawcy oświadczeń dla użytkownika w celu wybrania jednego z nich.</li><li>**CombinedSignInAndSignUp** — wskazuje, że krok aranżacji przedstawia łączną stronę logowania dostawcy społecznego i konta lokalnego.</li><li>**ClaimsExchange** — wskazuje, że krok aranżacji wymienia oświadczenia z dostawcą oświadczeń.</li><li>**Getclaims** — określa, że krok aranżacji powinien przetwarzać dane oświadczeń wysyłane do Azure AD B2C od jednostki uzależnionej za pośrednictwem jej `InputClaims` konfiguracji.</li><li>**InvokeSubJourney** — wskazuje, że krok aranżacji wymienia oświadczenia z [podróżą podrzędną](subjourneys.md) (w publicznej wersji zapoznawczej).</li><li>**SendClaims** — wskazuje, że krok aranżacji wysyła oświadczenia do jednostki uzależnionej przy użyciu tokenu wystawionego przez wystawcę oświadczeń.</li></ul> |
 | ContentDefinitionReferenceId | Nie | Identyfikator [definicji zawartości](contentdefinitions.md) skojarzonej z tym krokiem aranżacji. Zazwyczaj identyfikator odwołania definicji zawartości jest zdefiniowany w profilu technicznym z własnym potwierdzeniem. Ale istnieją sytuacje, w których Azure AD B2C muszą wyświetlać coś bez profilu technicznego. Istnieją dwa przykłady — jeśli jest to jeden z następujących typów kroku aranżacji: `ClaimsProviderSelection` lub  `CombinedSignInAndSignUp` , Azure AD B2C musi wyświetlić wybór dostawcy tożsamości bez profilu technicznego. |
 | CpimIssuerTechnicalProfileReferenceId | Nie | Typ kroku aranżacji to `SendClaims` . Ta właściwość określa identyfikator profilu technicznego dostawcy oświadczeń, który wystawia token dla jednostki uzależnionej.  Jeśli nie istnieje, nie zostanie utworzony token jednostki uzależnionej. |
 
@@ -93,7 +93,7 @@ Element **Conditional** zawiera następujące atrybuty:
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | `Type` | Tak | Typ sprawdzenia lub zapytania, które ma zostać wykonane dla tego warunku wstępnego. Wartość może być **ClaimsExist**, która określa, że akcje należy wykonać, jeśli określone oświadczenia istnieją w bieżącym zestawie oświadczeń użytkownika lub **ClaimEquals**, które określa, że akcje należy wykonać, jeśli istnieje określone oświadczenie, a jego wartość jest równa określonej wartości. |
-| `ExecuteActionsIf` | Yes | Użyj testu "prawda" lub "fałsz", aby określić, czy akcje w warunku wstępnym mają być wykonywane. |
+| `ExecuteActionsIf` | Tak | Użyj testu "prawda" lub "fałsz", aby określić, czy akcje w warunku wstępnym mają być wykonywane. |
 
 Elementy **warunku wstępnego** zawierają następujące elementy:
 
@@ -172,7 +172,7 @@ Element **ClaimsProviderSelections** zawiera następujące atrybuty:
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| DisplayOption| Nie | Steruje zachowaniem przypadku, gdy dostępny jest pojedynczy wybór dostawcy oświadczeń. Możliwe wartości:  `DoNotShowSingleProvider`   (domyślnie) użytkownik zostanie natychmiast przekierowany do dostawcy tożsamości federacyjnych. Lub  `ShowSingleProvider`   Azure AD B2C przedstawia stronę logowania za pomocą wyboru dostawcy pojedynczej tożsamości. Aby można było użyć tego atrybutu, [wersja definicji zawartości](page-layout.md) musi być  `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` i nowsza.|
+| DisplayOption| Nie | Steruje zachowaniem przypadku, gdy dostępny jest pojedynczy wybór dostawcy oświadczeń. Możliwe wartości: `DoNotShowSingleProvider` (domyślnie) użytkownik zostanie natychmiast przekierowany do dostawcy tożsamości federacyjnych. Lub `ShowSingleProvider` Azure AD B2C przedstawia stronę logowania za pomocą wyboru dostawcy pojedynczej tożsamości. Aby można było użyć tego atrybutu, [wersja definicji zawartości](page-layout.md) musi być `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` i nowsza.|
 
 Element **ClaimsProviderSelection** zawiera następujące atrybuty:
 
@@ -230,8 +230,8 @@ Element **ClaimsExchange** zawiera następujące atrybuty:
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| Id | Yes | Identyfikator kroku wymiany oświadczeń. Identyfikator jest używany do odwoływania się do wymiany oświadczeń z poziomu dostawcy oświadczeń w ramach zasad. |
-| TechnicalProfileReferenceId | Yes | Identyfikator profilu technicznego, który ma zostać wykonany. |
+| Id | Tak | Identyfikator kroku wymiany oświadczeń. Identyfikator jest używany do odwoływania się do wymiany oświadczeń z poziomu dostawcy oświadczeń w ramach zasad. |
+| TechnicalProfileReferenceId | Tak | Identyfikator profilu technicznego, który ma zostać wykonany. |
 
 ## <a name="journeylist"></a>JourneyList
 
@@ -247,4 +247,4 @@ Element **kandydujący** zawiera następujące atrybuty:
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| SubJourneyReferenceId | Yes | Identyfikator [podpodróży](subjourneys.md) , która ma zostać wykonana. |
+| SubJourneyReferenceId | Tak | Identyfikator [podpodróży](subjourneys.md) , która ma zostać wykonana. |

@@ -13,12 +13,12 @@ ms.date: 07/17/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: ea8629e53ec793b4a63c817b6ec83278a2d23871
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 6b5093c5a1a45aed3493fabd7a362b0579998171
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674092"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96343590"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Inicjuj aplikacje klienckie przy użyciu MSAL.js
 
@@ -37,8 +37,8 @@ Po zarejestrowaniu aplikacji będą potrzebne niektóre lub wszystkie poniższe 
 | Wartość | Wymagane | Opis |
 |:----- | :------: | :---------- |
 | Identyfikator aplikacji (klienta) | Wymagane | Identyfikator GUID, który jednoznacznie identyfikuje aplikację w ramach platformy tożsamości firmy Microsoft. |
-| Urząd | Opcjonalne | Adres URL dostawcy tożsamości ( *wystąpienie* ) i *odbiorca logowania* dla aplikacji. W przypadku łączenia się z wystąpieniem i logowaniem, należy utworzyć *Urząd* . |
-| Identyfikator katalogu (dzierżawcy) | Opcjonalne | Określ tę opcję, jeśli tworzysz aplikację biznesową tylko dla organizacji, która jest często określana jako *aplikacja z jedną dzierżawą* . |
+| Urząd | Opcjonalne | Adres URL dostawcy tożsamości ( *wystąpienie*) i *odbiorca logowania* dla aplikacji. W przypadku łączenia się z wystąpieniem i logowaniem, należy utworzyć *Urząd*. |
+| Identyfikator katalogu (dzierżawcy) | Opcjonalne | Określ tę opcję, jeśli tworzysz aplikację biznesową tylko dla organizacji, która jest często określana jako *aplikacja z jedną dzierżawą*. |
 | Identyfikator URI przekierowania | Opcjonalne | Jeśli tworzysz aplikację sieci Web, `redirectUri` określa miejsce, w którym dostawca tożsamości (platforma tożsamości firmy Microsoft) powinien zwrócić tokeny zabezpieczające, które wystawiły. |
 
 ## <a name="initialize-msaljs-2x-apps"></a>Inicjowanie aplikacji MSAL.js 2. x
@@ -108,7 +108,7 @@ Wywołaj [handleRedirectPromise][msal-js-handleredirectpromise] , gdy aplikacja 
 Istnieją trzy możliwe wyniki z obietnic:
 
 - `.then` jest wywoływany i `tokenResponse` ma prawdziwą wartość: aplikacja zwraca z operacji przekierowania, która zakończyła się pomyślnie.
-- `.then` jest wywoływana i `tokenResponse` ma wartość false ( `null` ): aplikacja nie zwraca z operacji przekierowania.
+- `.then` jest wywoływany i `tokenResponse` jest błędna ( `null` ): aplikacja nie zwraca z operacji przekierowania.
 - `.catch` jest wywoływany: aplikacja zwraca z operacji przekierowania i wystąpił błąd.
 
 ## <a name="initialize-msaljs-1x-apps"></a>Inicjowanie aplikacji MSAL.js 1. x

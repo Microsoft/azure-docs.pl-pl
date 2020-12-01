@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 8d5352a79d2920701c96289f6162c1466f0f9f75
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 6a2c69735c36c06cdf72efc812aa1ac4020ff00a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94367577"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96342230"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>Samouczek: uzyskiwanie sugestii wyszukiwania na stronie sieci Web
 
 > [!WARNING]
-> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
-> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Podczas pracy z tym samouczkiem utworzysz stronę internetową umożliwiającą użytkownikom wysyłanie zapytań do interfejsu API automatycznego sugerowania Bing.
 
@@ -124,7 +124,7 @@ Funkcja pomocnicza getSubscriptionKeyLocalStorage najpierw podejmuje próbę uzy
     }
 ```
 
-Funkcja pomocnicza getSubscriptionKey przyjmuje jeden parametr, **invalidate**. Jeśli parametr **invalidate** ma wartość **true** , funkcja getSubscriptionKey usuwa plik cookie zawierający klucz interfejsu API automatycznego sugerowania Bing. Jeśli parametr **invalidate** ma wartość **false** , funkcja getSubscriptionKey zwraca wartość klucza interfejsu API automatycznego sugerowania Bing.
+Funkcja pomocnicza getSubscriptionKey przyjmuje jeden parametr, **invalidate**. Jeśli parametr **invalidate** ma wartość **true**, funkcja getSubscriptionKey usuwa plik cookie zawierający klucz interfejsu API automatycznego sugerowania Bing. Jeśli parametr **invalidate** ma wartość **false**, funkcja getSubscriptionKey zwraca wartość klucza interfejsu API automatycznego sugerowania Bing.
 
 ```html
     function getSubscriptionKey(invalidate) {
@@ -272,7 +272,7 @@ Utwórz formularz HTML z polem tekstowym. Obsłuż `oninput` zdarzenie i Wywoła
 </form>
 ```
 
-Dodaj tag HTML **div** , używany do wyświetlania wyników. Wcześniej zdefiniowany kod JavaScript odwołuje się do tego tagu **div**.
+Dodaj tag HTML **div**, używany do wyświetlania wyników. Wcześniej zdefiniowany kod JavaScript odwołuje się do tego tagu **div**.
 
 ```html
 <h2>Results</h2>

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/25/2020
 ms.author: allensu
-ms.openlocfilehash: 2fbefd3b7761976cffbd6be8714cb849e1253aec
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e73b4b2eefeb26dad4d028f617cbe453dbd1870d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778028"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96342468"
 ---
 # <a name="monitoring-metrics-and-raw-logs-for-azure-cdn-from-microsoft"></a>Monitorowanie metryk i nieprzetworzonych dzienników dla Azure CDN firmy Microsoft
 Dzięki Azure CDN firmy Microsoft można monitorować zasoby w następujący sposób, aby ułatwić rozwiązywanie problemów, śledzenie i debugowanie. 
@@ -40,30 +40,30 @@ Aby skonfigurować dzienniki pierwotne dla Azure CDN z profilu Microsoft:
 
 1. Z menu Azure Portal wybierz pozycję **wszystkie zasoby**  >>  **\<your-CDN-profile>** .
 
-2. W obszarze **Monitorowanie** wybierz pozycję **Ustawienia diagnostyki** .
+2. W obszarze **Monitorowanie** wybierz pozycję **Ustawienia diagnostyki**.
 
-3. Wybierz pozycję **+ Dodaj ustawienie diagnostyczne** .
+3. Wybierz pozycję **+ Dodaj ustawienie diagnostyczne**.
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-01.png" alt-text="Dodaj ustawienie diagnostyczne dla profilu CDN." border="true":::
     
     > [!IMPORTANT]
     > Dzienniki RAW są dostępne tylko na poziomie profilu, podczas gdy zagregowane dzienniki kodów stanu HTTP są dostępne na poziomie punktu końcowego.
 
-4. W obszarze **Ustawienia diagnostyczne** wprowadź nazwę ustawienia diagnostycznego w obszarze **Nazwa ustawień diagnostycznych** .
+4. W obszarze **Ustawienia diagnostyczne** wprowadź nazwę ustawienia diagnostycznego w obszarze **Nazwa ustawień diagnostycznych**.
 
 5. Wybierz **AzureCdnAccessLog** i Ustaw czas przechowywania w dniach.
 
-6. Wybierz **szczegóły lokalizacji docelowej** . Opcje miejsca docelowego to:
+6. Wybierz **szczegóły lokalizacji docelowej**. Opcje miejsca docelowego to:
     * **Wysyłanie do usługi Log Analytics**
         * Wybierz **obszar roboczy** **subskrypcja** i log Analytics.
     * **Archiwizowanie na koncie magazynu**
-        * Wybierz **subskrypcję** i **konto magazynu** .
+        * Wybierz **subskrypcję** i **konto magazynu**.
     * **Przesyłanie strumieniowe do centrum zdarzeń**
-        * Wybierz **subskrypcję** , **przestrzeń nazw centrum zdarzeń** , **nazwę centrum zdarzeń (opcjonalnie)** i **nazwę zasad centrum zdarzeń** .
+        * Wybierz **subskrypcję**, **przestrzeń nazw centrum zdarzeń**, **nazwę centrum zdarzeń (opcjonalnie)** i **nazwę zasad centrum zdarzeń**.
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Dodaj ustawienie diagnostyczne dla profilu CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Skonfiguruj miejsce docelowe dla ustawień dziennika." border="true":::
 
-7. Wybierz pozycję **Zapisz** .
+7. Wybierz pozycję **Zapisz**.
 
 ## <a name="configuration---azure-powershell"></a>Konfiguracja — Azure PowerShell
 
@@ -178,7 +178,7 @@ Azure CDN z usługi firmy Microsoft obecnie udostępnia dzienniki pierwotne. Dzi
     ```
 
 ### <a name="sent-to-origin-shield-deprecation"></a>Wysłane do przestarzałej osłony pochodzenia
-Właściwość nieprzetworzonego dziennika **isSentToOriginShield** jest przestarzała i zastąpiona przez nowe pole **isReceivedFromClient** . Użyj nowego pola, jeśli używasz już przestarzałego pola. 
+Właściwość nieprzetworzonego dziennika **isSentToOriginShield** jest przestarzała i zastąpiona przez nowe pole **isReceivedFromClient**. Użyj nowego pola, jeśli używasz już przestarzałego pola. 
 
 Dzienniki pierwotne obejmują dzienniki wygenerowane z obu krawędzi sieci CDN (podręczny) i osłony pochodzenia. Tarcza pierwotna odnosi się do węzłów nadrzędnych, które są strategicznie zlokalizowane na całym świecie. Te węzły komunikują się z serwerami pochodzenia i zmniejszają obciążenie ruchu podczas pochodzenia. 
 
@@ -201,7 +201,7 @@ AzureDiagnostics
 ```
 
 > [!IMPORTANT]
-> Funkcja dzienników RAW protokołu HTTP jest dostępna automatycznie dla wszystkich profilów utworzonych lub zaktualizowanych po **25 lutego 2020** . W przypadku utworzonych wcześniej profilów usługi CDN należy zaktualizować punkt końcowy usługi CDN po skonfigurowaniu rejestrowania. Na przykład jeden może przechodzić do filtrowania geograficznego w punktach końcowych usługi CDN i blokować każdy kraj/region, który nie ma znaczenia dla obciążenia i trafiać.
+> Funkcja dzienników RAW protokołu HTTP jest dostępna automatycznie dla wszystkich profilów utworzonych lub zaktualizowanych po **25 lutego 2020**. W przypadku utworzonych wcześniej profilów usługi CDN należy zaktualizować punkt końcowy usługi CDN po skonfigurowaniu rejestrowania. Na przykład jeden może przechodzić do filtrowania geograficznego w punktach końcowych usługi CDN i blokować każdy kraj/region, który nie ma znaczenia dla obciążenia i trafiać.
 
 
 ## <a name="metrics"></a>Metryki
@@ -220,7 +220,7 @@ Aby uzyskać więcej informacji, zobacz [Azure monitor metryki](../azure-monitor
 | Współczynnik trafień bajtów * | Wartość procentowa danych wyjściowych z pamięci podręcznej usługi CDN obliczona względem łącznego ruchu wychodzącego.                                      | Punkt końcowy                                                                                    |
 | RequestCount    | Liczba żądań klientów obsłużonych przez usługę CDN.                                                                     | Punkt końcowy </br> Kraj klienta. </br> Region klienta. </br> Stan HTTP. </br> Grupa stanu HTTP. |
 | ResponseSize    | Liczba bajtów wysłanych jako odpowiedzi z usługi CDN Edge do klientów.                                                  |Punkt końcowy </br> Kraj klienta. </br> Region klienta. </br> Stan HTTP. </br> Grupa stanu HTTP.                                                                                          |
-| TotalLatency    | Łączny czas od żądania klienta odebranego przez usługę CDN **do momentu wysłania ostatniego bajtu odpowiedzi z sieci CDN do klienta** . |Punkt końcowy </br> Kraj klienta. </br> Region klienta. </br> Stan HTTP. </br> Grupa stanu HTTP.                                                                                             |
+| TotalLatency    | Łączny czas od żądania klienta odebranego przez usługę CDN **do momentu wysłania ostatniego bajtu odpowiedzi z sieci CDN do klienta**. |Punkt końcowy </br> Kraj klienta. </br> Region klienta. </br> Stan HTTP. </br> Grupa stanu HTTP.                                                                                             |
 
 **_Liczba bajtów trafień = (ruch wychodzący z krawędzi od brzegu do punktu początkowego)/egress z krawędzi_*
 
@@ -233,33 +233,33 @@ Scenariusze wykluczone ze współczynnika trafień w bajtach:
 
 1. Z menu Azure Portal wybierz pozycję **wszystkie zasoby**  >>  **\<your-CDN-profile>** .
 
-2. W obszarze **monitorowanie** wybierz pozycję **metryki** :
+2. W obszarze **monitorowanie** wybierz pozycję **metryki**:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="Dodaj ustawienie diagnostyczne dla profilu CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="Metryki dla profilu CDN." border="true":::
 
-3. Wybierz pozycję **Dodaj metrykę** , wybierz metrykę do dodania:
+3. Wybierz pozycję **Dodaj metrykę**, wybierz metrykę do dodania:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-04.png" alt-text="Dodaj ustawienie diagnostyczne dla profilu CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-04.png" alt-text="Dodaj i wybierz metrykę dla profilu CDN." border="true":::
 
 4. Wybierz pozycję **Dodaj filtr** , aby dodać filtr:
     
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-05.png" alt-text="Dodaj ustawienie diagnostyczne dla profilu CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-05.png" alt-text="Zastosuj filtr do metryki." border="true":::
 
 5. Wybierz pozycję **Zastosuj** podział, aby zobaczyć trend według różnych wymiarów:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-06.png" alt-text="Dodaj ustawienie diagnostyczne dla profilu CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-06.png" alt-text="Zastosuj podział do metryki." border="true":::
 
 6. Wybierz pozycję **Nowy wykres** , aby dodać nowy wykres:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-07.png" alt-text="Dodaj ustawienie diagnostyczne dla profilu CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-07.png" alt-text="Dodaj nowy wykres do widoku metryki." border="true":::
 
 ### <a name="alerts"></a>Alerty
 
-Alerty można skonfigurować w usłudze Microsoft CDN, wybierając pozycję **monitorowanie**  >>  **alertów** .
+Alerty można skonfigurować w usłudze Microsoft CDN, wybierając pozycję **monitorowanie**  >>  **alertów**.
 
 Wybierz **nową regułę alertu** dla metryk wymienionych w sekcji metryki:
 
-:::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Dodaj ustawienie diagnostyczne dla profilu CDN." border="true":::
+:::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Skonfiguruj alerty dla punktu końcowego usługi CDN." border="true":::
 
 Opłata zostanie naliczona na podstawie Azure Monitor. Aby uzyskać więcej informacji na temat alertów, zobacz [Azure monitor alertów](../azure-monitor/platform/alerts-overview.md).
 
@@ -270,21 +270,21 @@ Dodatkowe metryki można włączyć za pomocą usługi Azure Log Analytics i dzi
 
 2. Wybierz utworzony obszar roboczy Log Analytics:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="Dodaj ustawienie diagnostyczne dla profilu CDN." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="Wybieranie obszaru roboczego usługi log Analytics" border="true":::   
 
 3. Wybierz pozycję **dzienniki** w obszarze **Ogólne** w obszarze roboczym usługi log Analytics.  Następnie wybierz **pozycję Wprowadzenie:**
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Dodaj ustawienie diagnostyczne dla profilu CDN." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Obszar roboczy zasobów usługi log Analytics." border="true":::   
  
-4. Wybierz pozycję **Profile sieci CDN** .  Wybierz przykładowe zapytanie do uruchomienia lub Zamknij Przykładowy ekran, aby wprowadzić zapytanie niestandardowe:
+4. Wybierz pozycję **Profile sieci CDN**.  Wybierz przykładowe zapytanie do uruchomienia lub Zamknij Przykładowy ekran, aby wprowadzić zapytanie niestandardowe:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="Dodaj ustawienie diagnostyczne dla profilu CDN." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="Przykładowy ekran zapytania." border="true":::   
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="Dodaj ustawienie diagnostyczne dla profilu CDN." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="Wykonywanie zapytania." border="true":::   
 
-4. Aby wyświetlić dane według wykresu, wybierz pozycję **Wykres** .  Wybierz pozycję **Przypnij do pulpitu nawigacyjnego** , aby przypiąć wykres do pulpitu nawigacyjnego platformy Azure:
+4. Aby wyświetlić dane według wykresu, wybierz pozycję **Wykres**.  Wybierz pozycję **Przypnij do pulpitu nawigacyjnego** , aby przypiąć wykres do pulpitu nawigacyjnego platformy Azure:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-13.png" alt-text="Dodaj ustawienie diagnostyczne dla profilu CDN." border="true"::: 
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-13.png" alt-text="Przypnij wykres do pulpitu nawigacyjnego." border="true"::: 
 
 ## <a name="next-steps"></a>Następne kroki
 W tym artykule włączono dzienniki RAW protokołu HTTP dla usługi Microsoft CDN.
@@ -295,4 +295,4 @@ Aby uzyskać więcej informacji na temat Azure CDN i innych usług platformy Azu
 
 * Dowiedz się więcej o [Azure monitor](../azure-monitor/overview.md).
 
-* Skonfiguruj [log Analytics w Azure monitor](../azure-monitor/log-query/get-started-portal.md).
+* Skonfiguruj [log Analytics w Azure monitor](../azure-monitor/log-query/log-analytics-tutorial.md).

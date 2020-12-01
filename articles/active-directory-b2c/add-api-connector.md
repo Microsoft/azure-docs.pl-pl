@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 47885e64b40db07ca3b4a7380389967a36abbd9e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 9117474c3cbf5087a5b63512fcc17c4771bf7aa6
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949840"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96343879"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Dodawanie łącznika interfejsu API do przepływu użytkownika rejestracji (wersja zapoznawcza)
 
@@ -239,8 +239,8 @@ Content-type: application/json
 
 | Parametr                                          | Typ              | Wymagane | Opis                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Wersja                                            | String            | Tak      | Wersja interfejsu API.                                                                                                                                                                                                                                                                |
-| akcja                                             | String            | Tak      | Wartość musi być `Continue` .                                                                                                                                                                                                                                                              |
+| Wersja                                            | Ciąg            | Tak      | Wersja interfejsu API.                                                                                                                                                                                                                                                                |
+| akcja                                             | Ciąg            | Tak      | Wartość musi być `Continue` .                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | Nie       | Zwracane wartości mogą zastąpić wartości zebrane przez użytkownika. Mogą być również zwracane w tokenie, jeśli wybrane jako a * wyrażenie aplikacji * *.                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Nie       | Nie musi zawierać tego żądania `_<extensions-app-id>_` . Zwracane wartości mogą zastąpić wartości zebrane przez użytkownika. Mogą być również zwracane w tokenie, jeśli wybrano jako rolę **wniosku**.  |
 
@@ -260,9 +260,9 @@ Content-type: application/json
 
 | Parametr   | Typ   | Wymagane | Opis                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
-| Wersja     | String | Tak      | Wersja interfejsu API.                                                    |
-| akcja      | String | Tak      | Wartość musi być równa `ShowBlockPage`                                              |
-| userMessage | String | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
+| Wersja     | Ciąg | Tak      | Wersja interfejsu API.                                                    |
+| akcja      | Ciąg | Tak      | Wartość musi być równa `ShowBlockPage`                                              |
+| userMessage | Ciąg | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
 
 **Środowisko użytkownika końcowego z odpowiedzią blokującą**
 
@@ -286,10 +286,10 @@ Content-type: application/json
 
 | Parametr   | Typ    | Wymagane | Opis                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
-| Wersja     | String  | Tak      | Wersja interfejsu API.                                                    |
-| akcja      | String  | Tak      | Wartość musi być `ValidationError` .                                           |
-| status      | Integer | Tak      | Musi być wartością `400` dla odpowiedzi ValidationError.                        |
-| userMessage | String  | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
+| Wersja     | Ciąg  | Tak      | Wersja interfejsu API.                                                    |
+| akcja      | Ciąg  | Tak      | Wartość musi być `ValidationError` .                                           |
+| status      | Liczba całkowita | Tak      | Musi być wartością `400` dla odpowiedzi ValidationError.                        |
+| userMessage | Ciąg  | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
 
 > [!NOTE]
 > Kod stanu HTTP musi mieć wartość "400" Oprócz wartości "status" w treści odpowiedzi.

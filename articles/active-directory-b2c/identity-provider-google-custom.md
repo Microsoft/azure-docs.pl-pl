@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/20/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 91a55782492c1b2612652b147e0aca37941bf4db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 635e33223b054aafb1d91c217a44fdd6d9b369b9
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388208"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345171"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurowanie logowania za pomocą konta Google przy użyciu zasad niestandardowych w Azure Active Directory B2C
 
@@ -38,10 +38,10 @@ Aby włączyć Logowanie użytkowników z konta Google, należy utworzyć projek
 3. W menu po lewej stronie wybierz pozycję **poświadczenia** , a następnie wybierz pozycję **Utwórz poświadczenia > identyfikator klienta OAuth**.
 4. Wybierz **ekran Konfigurowanie zgody**.
 5. Wybierz lub Określ prawidłowy **adres e-mail**, podaj **nazwę produktu** widoczną dla użytkowników, wprowadź `b2clogin.com` w obszarze **autoryzowane domeny**, a następnie kliknij przycisk **Zapisz**.
-6. W obszarze **Typ aplikacji**wybierz pozycję **aplikacja sieci Web**.
+6. W obszarze **Typ aplikacji** wybierz pozycję **aplikacja sieci Web**.
 7. Wprowadź **nazwę** aplikacji.
-8. W obszarze **autoryzowane źródła języka JavaScript**wpisz `https://your-tenant-name.b2clogin.com` i w polu **autoryzowane identyfikatory URI przekierowania**wprowadź `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Zastąp nazwę dzierżawy nazwą swojej dzierżawy. Musisz użyć wszystkich małych liter, wprowadzając nazwę dzierżawy, nawet jeśli dzierżawa jest zdefiniowana z dużymi literami w Azure AD B2C.
-8. Kliknij przycisk **Utwórz**.
+8. W obszarze **autoryzowane źródła języka JavaScript** wpisz `https://your-tenant-name.b2clogin.com` i w polu **autoryzowane identyfikatory URI przekierowania** wprowadź `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Zastąp nazwę dzierżawy nazwą swojej dzierżawy. Musisz użyć wszystkich małych liter, wprowadzając nazwę dzierżawy, nawet jeśli dzierżawa jest zdefiniowana z dużymi literami w Azure AD B2C.
+8. Kliknij pozycję **Utwórz**.
 9. Skopiuj wartości **Identyfikator klienta** i **klucz tajny klienta**. Oba te elementy będą potrzebne do skonfigurowania usługi Google jako dostawcy tożsamości w dzierżawie. Klucz tajny klienta jest ważnym poświadczeniem zabezpieczeń.
 
 ## <a name="create-a-policy-key"></a>Tworzenie klucza zasad
@@ -53,11 +53,11 @@ Należy przechowywać klucz tajny klienta, który został wcześniej zarejestrow
 3. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
 4. Na stronie Przegląd wybierz pozycję **Struktura środowiska tożsamości**.
 5. Wybierz pozycję **klucze zasad** , a następnie wybierz pozycję **Dodaj**.
-6. W obszarze **Opcje**wybierz opcję `Manual` .
+6. W obszarze **Opcje** wybierz opcję `Manual` .
 7. Wprowadź **nazwę** klucza zasad. Na przykład `GoogleSecret`. Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza.
-8. W **kluczu tajnym**wprowadź wcześniej zarejestrowany klucz tajny klienta.
-9. W obszarze **użycie klucza**wybierz opcję `Signature` .
-10. Kliknij przycisk **Utwórz**.
+8. W **kluczu tajnym** wprowadź wcześniej zarejestrowany klucz tajny klienta.
+9. W obszarze **użycie klucza** wybierz opcję `Signature` .
+10. Kliknij pozycję **Utwórz**.
 
 ## <a name="add-a-claims-provider"></a>Dodawanie dostawcy oświadczeń
 
@@ -84,7 +84,7 @@ Konto Google można zdefiniować jako dostawcę oświadczeń, dodając je do ele
             <Item Key="ClaimsEndpoint">https://www.googleapis.com/oauth2/v1/userinfo</Item>
             <Item Key="scope">email profile</Item>
             <Item Key="HttpBinding">POST</Item>
-            <Item Key="UsePolicyInRedirectUri">0</Item>
+            <Item Key="UsePolicyInRedirectUri">false</Item>
             <Item Key="client_id">Your Google application ID</Item>
           </Metadata>
           <CryptographicKeys>
@@ -137,7 +137,7 @@ W tym momencie dostawca tożsamości został skonfigurowany, ale nie jest dostę
 Element **ClaimsProviderSelection** jest analogiczny do przycisku dostawcy tożsamości na ekranie rejestracji/logowania. Jeśli dodasz element **ClaimsProviderSelection** dla konta Google, zostanie wyświetlony nowy przycisk, gdy użytkownik zostanie wystawiony na stronie.
 
 1. Znajdź element **OrchestrationStep** , który obejmuje `Order="1"` w podróży użytkownika.
-2. W obszarze **ClaimsProviderSelects**Dodaj następujący element. Ustaw wartość **TargetClaimsExchangeId** na odpowiednią wartość, na przykład `GoogleExchange` :
+2. W obszarze **ClaimsProviderSelects** Dodaj następujący element. Ustaw wartość **TargetClaimsExchangeId** na odpowiednią wartość, na przykład `GoogleExchange` :
 
     ```xml
     <ClaimsProviderSelection TargetClaimsExchangeId="GoogleExchange" />

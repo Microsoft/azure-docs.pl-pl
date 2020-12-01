@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 11/17/2020
 ms.author: lle
-ms.openlocfilehash: 8195c4d072acce5345fa9752f97713aed22d962f
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 635178999398287649d8630fc5262a385afc48b2
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296958"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341788"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Rozwiązywanie problemów z własnym hostowanym środowiskiem Integration Runtime
 
@@ -752,7 +752,7 @@ Dwie możliwe przyczyny tego problemu:
 - W przypadku przyczyny 1 Upewnij się, że certyfikat serwera ADF i jego łańcuch certyfikatów są zaufane przez maszynę, na której zainstalowano SHIR.
 - W przypadku przyczyny 2 należy zaufać zamienionemu głównemu urzędowi certyfikacji na maszynie SHIR lub skonfigurować serwer proxy, aby nie zastępować certyfikatu serwera ADF.
 
-Zapoznaj się z [tym artykułem](https://docs.microsoft.com/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) , aby uzyskać szczegółowe informacje dotyczące zaufania certyfikatu w systemie Windows.
+Zapoznaj się z [tym artykułem](/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) , aby uzyskać szczegółowe informacje dotyczące zaufania certyfikatu w systemie Windows.
 
 #### <a name="additional-info"></a>Dodatkowe informacje
 Wprowadzamy nowy certyfikat SSL, który jest podpisany z DigiCert, sprawdź, czy globalny główny urząd certyfikacji DigiCert jest w zaufanym głównym urzędzie wystawcy.

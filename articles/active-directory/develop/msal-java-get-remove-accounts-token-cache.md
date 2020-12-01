@@ -13,12 +13,12 @@ ms.date: 11/07/2019
 ms.author: sagonzal
 ms.reviewer: navyasri.canumalla
 ms.custom: aaddev, devx-track-java
-ms.openlocfilehash: 6267c2118b7bac9befb42102d1118faac639bf49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc039e06c8c9d75608b60c2f48e86bc5503e5aec
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87312558"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344865"
 ---
 # <a name="get-and-remove-accounts-from-the-token-cache-using-msal-for-java"></a>Pobieranie i usuwanie kont z pamięci podręcznej tokenów przy użyciu programu MSAL for Java
 
@@ -39,7 +39,7 @@ Set<IAccount> accounts = pca.getAccounts().join();
 
 ## <a name="remove-accounts-from-the-cache"></a>Usuwanie kont z pamięci podręcznej
 
-Aby usunąć konto z pamięci podręcznej, Znajdź konto, które należy usunąć, a następnie Wywołaj metodę, `PublicClientApplicatoin.removeAccount()` jak pokazano w poniższym przykładzie:
+Aby usunąć konto z pamięci podręcznej, Znajdź konto, które należy usunąć, a następnie Wywołaj metodę, `PublicClientApplication.removeAccount()` jak pokazano w poniższym przykładzie:
 
 ```java
 Set<IAccount> accounts = pca.getAccounts().join();

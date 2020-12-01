@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/25/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5cbedad360e5270238225503e7802d571820c871
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 084a8e247ab8bb3e6e6c75cf8cfe8e204384f549
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388157"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345154"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurowanie logowania za pomocą konta LinkedIn przy użyciu zasad niestandardowych w Azure Active Directory B2C
 
@@ -52,7 +52,7 @@ Aby korzystać z serwisu LinkedIn jako dostawcy tożsamości w Azure AD B2C, mus
 1. Wybierz kartę **uwierzytelnianie** .
 1. Zapisz **Identyfikator klienta**.
 1. Odsłoń i Zapisz **klucz tajny klienta**.
-1. W obszarze **Ustawienia protokołu OAuth 2,0**Dodaj następujący **adres URL przekierowania**. Zamień `your-tenant` na nazwę dzierżawy. Użyj **wszystkich małych liter** dla nazwy dzierżawy, nawet jeśli jest ona zdefiniowana z dużymi literami w Azure AD B2C.
+1. W obszarze **Ustawienia protokołu OAuth 2,0** Dodaj następujący **adres URL przekierowania**. Zamień `your-tenant` na nazwę dzierżawy. Użyj **wszystkich małych liter** dla nazwy dzierżawy, nawet jeśli jest ona zdefiniowana z dużymi literami w Azure AD B2C.
 
     `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp`
 
@@ -65,11 +65,11 @@ Należy przechowywać klucz tajny klienta, który został wcześniej zarejestrow
 3. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
 4. Na stronie Przegląd wybierz pozycję **Struktura środowiska tożsamości**.
 5. Wybierz pozycję **klucze zasad** , a następnie wybierz pozycję **Dodaj**.
-6. W obszarze **Opcje**wybierz opcję `Manual` .
+6. W obszarze **Opcje** wybierz opcję `Manual` .
 7. Wprowadź **nazwę** klucza zasad. Na przykład `LinkedInSecret`. Prefiks *B2C_1A_* jest automatycznie dodawany do nazwy klucza.
-8. W **kluczu tajnym**wprowadź wcześniej zarejestrowany klucz tajny klienta.
-9. W obszarze **użycie klucza**wybierz opcję `Signature` .
-10. Kliknij przycisk **Utwórz**.
+8. W **kluczu tajnym** wprowadź wcześniej zarejestrowany klucz tajny klienta.
+9. W obszarze **użycie klucza** wybierz opcję `Signature` .
+10. Kliknij pozycję **Utwórz**.
 
 ## <a name="add-a-claims-provider"></a>Dodawanie dostawcy oświadczeń
 
@@ -77,8 +77,8 @@ Jeśli chcesz, aby użytkownicy mogli się logować przy użyciu konta LinkedIn,
 
 Zdefiniuj konto serwisu LinkedIn jako dostawcę oświadczeń, dodając je do elementu **ClaimsProviders** w pliku rozszerzenia zasad.
 
-1. Otwórz plik *SocialAndLocalAccounts/* * TrustFrameworkExtensions.xml** * w edytorze. Ten plik znajduje się w [pakiecie startowym zasad niestandardowych][starter-pack] pobranym jako część jednego z wymagań wstępnych.
-1. Znajdź element **ClaimsProviders** . Jeśli nie istnieje, Dodaj ją do elementu głównego.
+1. Otwórz plik * SocialAndLocalAccounts/**TrustFrameworkExtensions.xml** _ w edytorze. Ten plik znajduje się w [pakiecie startowym zasad niestandardowych][starter-pack] pobranym jako część jednego z wymagań wstępnych.
+1. Znajdź element _ *ClaimsProviders**. Jeśli nie istnieje, Dodaj ją do elementu głównego.
 1. Dodaj nową **ClaimsProvider** w następujący sposób:
 
     ```xml
@@ -99,7 +99,7 @@ Zdefiniuj konto serwisu LinkedIn jako dostawcę oświadczeń, dodając je do ele
             <Item Key="external_user_identity_claim_id">id</Item>
             <Item Key="BearerTokenTransmissionMethod">AuthorizationHeader</Item>
             <Item Key="ResolveJsonPathsInJsonTokens">true</Item>
-            <Item Key="UsePolicyInRedirectUri">0</Item>
+            <Item Key="UsePolicyInRedirectUri">false</Item>
             <Item Key="client_id">Your LinkedIn application client ID</Item>
           </Metadata>
           <CryptographicKeys>
@@ -195,7 +195,7 @@ W tym momencie dostawca tożsamości został skonfigurowany, ale nie jest dostę
 Element **ClaimsProviderSelection** jest analogiczny do przycisku dostawcy tożsamości na ekranie rejestracji lub logowania. Jeśli dodasz element **ClaimsProviderSelection** dla konta LinkedIn, nowy przycisk będzie wyświetlany, gdy użytkownik zostanie wystawiony na stronie.
 
 1. Znajdź element **OrchestrationStep** , który obejmuje `Order="1"` w podróży użytkownika.
-2. W obszarze **ClaimsProviderSelections**Dodaj następujący element. Ustaw wartość **TargetClaimsExchangeId** na odpowiednią wartość, na przykład `LinkedInExchange` :
+2. W obszarze **ClaimsProviderSelections** Dodaj następujący element. Ustaw wartość **TargetClaimsExchangeId** na odpowiednią wartość, na przykład `LinkedInExchange` :
 
     ```xml
     <ClaimsProviderSelection TargetClaimsExchangeId="LinkedInExchange" />
@@ -239,7 +239,7 @@ Serwis LinkedIn ostatnio [zaktualizował interfejsy API z wersji 1.0 do wersji 2
 
 ### <a name="replace-items-in-the-metadata"></a>Zastąp elementy w metadanych
 
-W istniejącym elemencie **metadanych** **profilu technicznym**zaktualizuj następujące elementy **elementu** :
+W istniejącym elemencie **metadanych** **profilu technicznym** zaktualizuj następujące elementy **elementu** :
 
 ```xml
 <Item Key="ClaimsEndpoint">https://api.linkedin.com/v1/people/~:(id,first-name,last-name,email-address,headline)</Item>
@@ -255,7 +255,7 @@ Do:
 
 ### <a name="add-items-to-the-metadata"></a>Dodaj elementy do metadanych
 
-W **metadanych** **profilu technicznym**Dodaj następujące elementy **Item** :
+W **metadanych** **profilu technicznym** Dodaj następujące elementy **Item** :
 
 ```xml
 <Item Key="external_user_identity_claim_id">id</Item>
@@ -281,7 +281,7 @@ Do:
 
 ### <a name="add-new-outputclaimstransformation-elements"></a>Dodaj nowe elementy OutputClaimsTransformation
 
-W **OutputClaimsTransformations** **profilu technicznym**Dodaj następujące elementy **OutputClaimsTransformation** :
+W **OutputClaimsTransformations** **profilu technicznym** Dodaj następujące elementy **OutputClaimsTransformation** :
 
 ```xml
 <OutputClaimsTransformation ReferenceId="ExtractGivenNameFromLinkedInResponse" />

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a4e76e3924b1b14660dce8a3b58f7dd5b2715eec
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: e17c390dddcb2af9fdc83b45ae812ef1fff7f1c3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670119"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345086"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj własny profil techniczny w Azure Active Directory B2C zasad niestandardowych
 
@@ -53,7 +53,7 @@ W profilu technicznym z własnym potwierdzeniem można użyć elementów **Input
 
 ## <a name="display-claims"></a>Wyświetl oświadczenia
 
-Funkcja wyświetlania oświadczeń jest obecnie w **wersji zapoznawczej** .
+Funkcja wyświetlania oświadczeń jest obecnie w **wersji zapoznawczej**.
 
 Element **DisplayClaims** zawiera listę oświadczeń, które mają być wyświetlane na ekranie w celu zbierania danych od użytkownika. Aby wstępnie wypełnić wartości oświadczeń ekranu, użyj oświadczeń wejściowych, które zostały wcześniej opisane. Element może również zawierać wartość domyślną.
 
@@ -114,7 +114,7 @@ Jeśli zasada liścia, która dziedziczy ten element podstawowy, określa `offic
 </TechnicalProfile>
 ```
 
-`age`W zasadach podstawowych nie jest już wyświetlane na ekranie użytkownika — jest to efektywnie "ukryte". Aby wyświetlić to `age` zdarzenie i zebrać wartość wieku od użytkownika, należy dodać `age` **DisplayClaim** .
+`age`W zasadach podstawowych nie jest już wyświetlane na ekranie użytkownika — jest to efektywnie "ukryte". Aby wyświetlić to `age` zdarzenie i zebrać wartość wieku od użytkownika, należy dodać `age` **DisplayClaim**.
 
 ## <a name="output-claims"></a>Oświadczenia wyjściowe
 
@@ -133,10 +133,10 @@ W profilu technicznym z własnym potwierdzeniem kolekcja oświadczeń wychodząc
 
 Użyj oświadczeń wyjściowych, gdy:
 
-- **Oświadczenia są wyprowadzane przez transformację oświadczeń wyjściowych** .
+- **Oświadczenia są wyprowadzane przez transformację oświadczeń wyjściowych**.
 - **Ustawianie wartości domyślnej w ramach zgłoszenia wyjściowego** bez zbierania danych od użytkownika lub zwracania danych z profilu kontroli technicznej. `LocalAccountSignUpWithLogonEmail`Profil techniczny z własnym potwierdzeń ustawia **SelfAsserted** do wykonania `true` .
 - **Profil techniczny weryfikacji zwraca oświadczenia wyjściowe** — Twój profil techniczny może wywołać profil techniczny weryfikacji, który zwraca pewne oświadczenia. Można chcieć wyrównać oświadczenia i zwrócić je do następnych kroków aranżacji w podróży użytkownika. Na przykład podczas logowania się przy użyciu konta lokalnego, z własnym profilem technicznym, nazywa `SelfAsserted-LocalAccountSignin-Email` się profilem technicznym weryfikacji o nazwie `login-NonInteractive` . Ten profil techniczny sprawdza poprawność poświadczeń użytkownika, a także zwraca profil użytkownika. Takie jak "userPrincipalName", "displayName", "podaną nazwę" i "nazwisko".
-- **Kontrolka wyświetlania zwraca oświadczenia wyjściowe** — Twój profil techniczny może mieć odwołanie do [kontrolki wyświetlania](display-controls.md). Kontrolka wyświetlania zwraca pewne oświadczenia, takie jak zweryfikowany adres e-mail. Można chcieć wyrównać oświadczenia i zwrócić je do następnych kroków aranżacji w podróży użytkownika. Funkcja kontrolki wyświetlania jest obecnie w **wersji zapoznawczej** .
+- **Kontrolka wyświetlania zwraca oświadczenia wyjściowe** — Twój profil techniczny może mieć odwołanie do [kontrolki wyświetlania](display-controls.md). Kontrolka wyświetlania zwraca pewne oświadczenia, takie jak zweryfikowany adres e-mail. Można chcieć wyrównać oświadczenia i zwrócić je do następnych kroków aranżacji w podróży użytkownika. Funkcja kontrolki wyświetlania jest obecnie w **wersji zapoznawczej**.
 
 W poniższym przykładzie zademonstrowano korzystanie z własnego profilu technicznego, który używa zarówno oświadczeń, jak i oświadczeń wyjściowych.
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 349f57299387b616373bb5fb4d295da8df8ee493
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: d62e7566038af6647cab2992b02184a4ea5ba30b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279903"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344151"
 ---
 # <a name="secure-azure-digital-twins"></a>Zabezpieczanie usługi Azure Digital bliźniaczych reprezentacji
 
@@ -24,7 +24,7 @@ Usługa Azure Digital bliźniaczych reprezentacji obsługuje również szyfrowan
 
 Usługa Azure RBAC jest świadczona do usługi Azure Digital bliźniaczych reprezentacji za pośrednictwem integracji z usługą [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
 
-Możesz użyć kontroli RBAC platformy Azure, aby przyznać uprawnienia *podmiotowi zabezpieczeń* , które może być użytkownikiem, grupą lub jednostką usługi aplikacji. Podmiot zabezpieczeń jest uwierzytelniany przez usługę Azure AD i odbiera token OAuth 2,0 w programie Return. Token ten może służyć do autoryzowania żądania dostępu do wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
+Możesz użyć kontroli RBAC platformy Azure, aby przyznać uprawnienia *podmiotowi zabezpieczeń*, które może być użytkownikiem, grupą lub jednostką usługi aplikacji. Podmiot zabezpieczeń jest uwierzytelniany przez usługę Azure AD i odbiera token OAuth 2,0 w programie Return. Token ten może służyć do autoryzowania żądania dostępu do wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
 
 ### <a name="authentication-and-authorization"></a>Uwierzytelnianie i autoryzacja
 
@@ -49,7 +49,7 @@ Przy użyciu tożsamości zarządzanych platforma Azure zarządza tą tożsamoś
 
 Platforma Azure udostępnia **dwie wbudowane role platformy Azure** umożliwiające autoryzowanie dostępu do [interfejsów API płaszczyzny danych](how-to-use-apis-sdks.md#overview-data-plane-apis)Digital bliźniaczych reprezentacji na platformie Azure. Można odwołać się do ról według nazwy lub identyfikatora:
 
-| Wbudowana rola | Opis | ID (Identyfikator) | 
+| Wbudowana rola | Opis | ID | 
 | --- | --- | --- |
 | Właściciel danych Digital bliźniaczych reprezentacji systemu Azure | Zapewnia pełen dostęp za pośrednictwem zasobów usługi Azure Digital bliźniaczych reprezentacji | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
 | Czytnik danych Digital bliźniaczych reprezentacji systemu Azure | Zapewnia dostęp tylko do odczytu do zasobów usługi Azure Digital bliźniaczych reprezentacji | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
@@ -93,7 +93,7 @@ Jeśli użytkownik próbuje wykonać akcję niedozwoloną przez ich rolę, może
 
 **Tag usługi** reprezentuje grupę prefiksów adresów IP z danej usługi platformy Azure. Firma Microsoft zarządza prefiksami adresów, które obejmują tag usługi, i automatycznie aktualizuje tag usługi jako adresy, minimalizując złożoność częstych aktualizacji reguł zabezpieczeń sieciowych. Aby uzyskać więcej informacji na temat tagów usługi, zobacz  [*Tagi sieci wirtualnej*](../virtual-network/service-tags-overview.md). 
 
-Możesz użyć tagów usługi do definiowania kontroli dostępu do sieci dla [sieciowych grup zabezpieczeń](../virtual-network/network-security-groups-overview.md#security-rules)   lub [zapory platformy Azure](../firewall/service-tags.md)przy użyciu tagów usługi zamiast określonych adresów IP podczas tworzenia reguł zabezpieczeń. Określając nazwę tagu usługi (w tym przypadku **AzureDigitalTwins** ) w odpowiednim polu *źródłowym*   lub *docelowym*   reguły, można zezwolić na ruch dla odpowiedniej usługi lub go odrzucić. 
+Możesz użyć tagów usługi do definiowania kontroli dostępu do sieci dla [sieciowych grup zabezpieczeń](../virtual-network/network-security-groups-overview.md#security-rules)   lub [zapory platformy Azure](../firewall/service-tags.md)przy użyciu tagów usługi zamiast określonych adresów IP podczas tworzenia reguł zabezpieczeń. Określając nazwę tagu usługi (w tym przypadku **AzureDigitalTwins**) w odpowiednim polu *źródłowym*   lub *docelowym*   reguły, można zezwolić na ruch dla odpowiedniej usługi lub go odrzucić. 
 
 Poniżej znajdują się szczegółowe informacje dotyczące tagu usługi **AzureDigitalTwins** .
 
@@ -121,7 +121,7 @@ Usługa Azure Digital bliźniaczych reprezentacji zapewnia szyfrowanie danych pr
 
 ## <a name="cross-origin-resource-sharing-cors"></a>Współużytkowanie zasobów między źródłami (CORS)
 
-Usługa Azure Digital bliźniaczych reprezentacji obecnie nie obsługuje **udostępniania zasobów między źródłami (CORS)**. W związku z tym, jeśli wywołujesz interfejs API REST z aplikacji przeglądarki, interfejsu [API Management (APIM)](../api-management/api-management-key-concepts.md) lub łącznika [aplikacji zaawansowanych](https://docs.microsoft.com/powerapps/powerapps-overview) , może zostać wyświetlony błąd zasad.
+Usługa Azure Digital bliźniaczych reprezentacji obecnie nie obsługuje **udostępniania zasobów między źródłami (CORS)**. W związku z tym, jeśli wywołujesz interfejs API REST z aplikacji przeglądarki, interfejsu [API Management (APIM)](../api-management/api-management-key-concepts.md) lub łącznika [aplikacji zaawansowanych](/powerapps/powerapps-overview) , może zostać wyświetlony błąd zasad.
 
 Aby rozwiązać ten problem, można wykonać jedną z następujących czynności:
 * Przeplataj nagłówek CORS `Access-Control-Allow-Origin` z wiadomości. Ten nagłówek wskazuje, czy można udostępnić odpowiedź. 

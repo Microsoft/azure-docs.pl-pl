@@ -1,14 +1,14 @@
 ---
 title: Przegląd szablonów
-description: Opisuje zalety korzystania z szablonów Azure Resource Manager na potrzeby wdrażania zasobów.
+description: Opisuje zalety korzystania z szablonów Azure Resource Manager (szablony ARM) na potrzeby wdrażania zasobów.
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: 188fd5782795a4fb5456978a2a596cabc6dfd874
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: e25404fc74456f99a4d41c25786b34b6e1f3edda
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325064"
+ms.locfileid: "96342332"
 ---
 # <a name="what-are-arm-templates"></a>Co to są szablony usługi ARM?
 
@@ -16,7 +16,7 @@ Dzięki przeniesieniu do chmury wiele zespołów przyjmuje metody programowania 
 
 Aby sprostać tym wyzwaniom, można zautomatyzować wdrożenia i korzystać z zalet infrastruktury jako kodu. W kodzie można zdefiniować infrastrukturę, która musi zostać wdrożona. Kod infrastruktury jest częścią projektu. Podobnie jak w przypadku kodu aplikacji, kod infrastruktury jest przechowywany w repozytorium źródłowym i w wersji. Każdy z nich w zespole może uruchomić kod i wdrożyć podobne środowiska.
 
-Aby zaimplementować infrastrukturę jako kod dla rozwiązań platformy Azure, użyj szablonów Azure Resource Manager (ARM). Szablon jest plikiem JavaScript Object Notation (JSON), który definiuje infrastrukturę i konfigurację projektu. Szablon używa składni deklaratywnej, która pozwala określić, co zamierzasz wdrożyć, bez konieczności pisania w tym celu sekwencji poleceń programistycznych. W szablonie należy określić zasoby do wdrożenia oraz właściwości tych zasobów.
+Aby zaimplementować infrastrukturę jako kod dla rozwiązań platformy Azure, użyj szablonów Azure Resource Manager (szablony ARM). Szablon jest plikiem JavaScript Object Notation (JSON), który definiuje infrastrukturę i konfigurację projektu. Szablon używa składni deklaratywnej, która pozwala określić, co zamierzasz wdrożyć, bez konieczności pisania w tym celu sekwencji poleceń programistycznych. W szablonie należy określić zasoby do wdrożenia oraz właściwości tych zasobów.
 
 ## <a name="why-choose-arm-templates"></a>Dlaczego warto wybrać Szablony ARM?
 

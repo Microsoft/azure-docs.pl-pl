@@ -11,19 +11,19 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 3e5041855cc036c278979ba1c87634a61ec68ec7
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 988a1332d03bf2c9563ab0576f7a20ee6b0615aa
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593488"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96342060"
 ---
 # <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>Pobierz obrazy z sieci Web za pomocą interfejs API wyszukiwania obrazów Bing
 
 > [!WARNING]
-> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
-> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 W przypadku korzystania z interfejsu API REST wyszukiwanie obrazów Bing można uzyskać obrazy z sieci Web, które są powiązane z terminem wyszukiwania, wysyłając następujące żądanie GET:
 
@@ -36,7 +36,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Użyj parametru [q](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) zapytania dla terminu wyszukiwania zakodowanego w adresie URL. Na przykład, jeśli wprowadzisz *dinghies* , ustaw `q` na `sailing+dinghies` lub `sailing%20dinghies` .
+Użyj parametru [q](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) zapytania dla terminu wyszukiwania zakodowanego w adresie URL. Na przykład, jeśli wprowadzisz *dinghies*, ustaw `q` na `sailing+dinghies` lub `sailing%20dinghies` .
 
 > [!IMPORTANT]
 > * Wszystkie żądania muszą zostać wykonane z serwera, a nie z klienta programu.
