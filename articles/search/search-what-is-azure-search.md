@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/24/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 1d5047a9be6b4cf53304858d12a0cb7b49b575ca
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c36a88317f71d08094b43d06cc7ba86985a73ca0
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499921"
+ms.locfileid: "96511852"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Co to jest usługa Azure Cognitive Search?
 
@@ -22,10 +22,11 @@ Wyszukiwanie poznawcze platformy Azure ([dawniej znana jako "Azure Search"](what
 
 Po utworzeniu usługi Wyszukiwanie poznawcze otrzymujesz następujące polecenie:
 
-+ aparat wyszukiwania, który wykonuje indeksowanie i wykonywanie zapytań
-+ Analiza i transformacja obrazów oraz nierozróżniane teksty podczas indeksowania
-+ trwały magazyn indeksów wyszukiwania, które tworzysz i którymi zarządzasz
-+ język zapytań umożliwiający tworzenie prostych i złożonych zapytań
++ Aparat wyszukiwania, który wykonuje indeksowanie i wykonywanie zapytań
++ Trwały magazyn indeksów wyszukiwania, które tworzysz i którymi zarządzasz
++ Język zapytań umożliwiający tworzenie prostych i złożonych zapytań
++ Analiza z centrum AI, tworzenie zawartości z możliwością wyszukiwania z obrazów, nieprzetworzony tekst, pliki aplikacji
++ Integracja z danymi platformy Azure za pomocą indeksatorów wyszukiwania, Automatyzowanie importowania i odświeżania danych
 
 W sposób architektoniczny usługa wyszukiwania znajduje się między zewnętrznymi magazynami danych, które zawierają dane nieindeksowane, i aplikacji klienckiej, która wysyła żądania zapytań do indeksu wyszukiwania i obsługuje odpowiedź.
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 12/01/2020
 ms.author: b-juche
-ms.openlocfilehash: 9740506da2c03996db756175551867ed43575a7c
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 682a97738e94c2a8188b4976a229d6a850a5b6ac
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488183"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512005"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Tworzenie woluminu SMB dla usługi Azure NetApp Files
 
@@ -31,7 +31,7 @@ Potrzebujesz skonfigurowanej puli pojemności.
 Podsieć musi być delegowana do usługi Azure NetApp Files.  
 [Delegowanie podsieci do usługi Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
 
-## <a name="requirements-for-active-directory-connections"></a>Wymagania dotyczące Active Directory połączeń
+## <a name="requirements-for-active-directory-connections"></a>Wymagania dotyczące połączeń usługi Active Directory
 
  Przed utworzeniem woluminu SMB należy utworzyć połączenia Active Directory. Wymagania dotyczące połączeń Active Directory są następujące: 
 
@@ -43,8 +43,8 @@ Podsieć musi być delegowana do usługi Azure NetApp Files.
     |     Usługa           |     Port     |     Protokół     |
     |-----------------------|--------------|------------------|
     |    Usługi sieci Web AD    |    9389      |    TCP           |
-    |    DNS                |    53        |    TCP           |
-    |    DNS                |    53        |    UDP           |
+    |    System DNS                |    53        |    TCP           |
+    |    System DNS                |    53        |    UDP           |
     |    Ruch             |    Nie dotyczy       |    Odpowiedź echa    |
     |    Kerberos           |    464       |    TCP           |
     |    Kerberos           |    464       |    UDP           |
@@ -84,7 +84,7 @@ Podsieć musi być delegowana do usługi Azure NetApp Files.
 
 * Azure NetApp Files obsługuje [podpisywanie LDAP](/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server), co umożliwia bezpieczną transmisję ruchu LDAP między usługą Azure NetApp Files i kierowanymi [Active Directory kontrolerami domeny](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview). Jeśli masz wskazówki dotyczące usługi Microsoft Advisory [ADV190023](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023) na potrzeby podpisywania LDAP, należy włączyć funkcję podpisywania ldap w Azure NetApp Files, sprawdzając pole **podpisywania LDAP** w oknie [sprzężenie Active Directory](#create-an-active-directory-connection) . 
 
-    Konfiguracja [powiązania kanału LDAP](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) nie ma wpływu na usługę Azure NetApp Files. 
+    Sama konfiguracja [powiązania kanału LDAP](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) nie ma wpływu na usługę Azure NetApp Files. Jeśli jednak używasz zarówno powiązania kanału LDAP, jak i bezpiecznego protokołu LDAP (na przykład LDAPs lub `start_tls` ), Tworzenie woluminu SMB zakończy się niepowodzeniem.
 
 Zobacz Azure NetApp Files usługi [SMB — często zadawane pytania](./azure-netapp-files-faqs.md#smb-faqs) dotyczące dodatkowych informacji o usłudze AD. 
 
@@ -119,10 +119,10 @@ Dodatkowe zagadnienia dotyczące AADDS mają zastosowanie do Azure NetApp Files:
 
 Podczas tworzenia połączenia Active Directory należy zwrócić uwagę na następujące informacje dotyczące AADDS:
 
-* W menu AADDS można znaleźć informacje dotyczące **podstawowej DNS** , **dodatkowej DNS** i **nazwy domeny DNS usługi AD** .  
+* W menu AADDS można znaleźć informacje dotyczące **podstawowej DNS**, **dodatkowej DNS** i **nazwy domeny DNS usługi AD** .  
 W przypadku serwerów DNS dwa adresy IP zostaną użyte do skonfigurowania połączenia Active Directory. 
 * **Ścieżka jednostki organizacyjnej** to `OU=AADDC Computers` .  
-To ustawienie jest konfigurowane w **Active Directory połączenia** w obszarze **konto NetApp** :
+To ustawienie jest konfigurowane w **Active Directory połączenia** w obszarze **konto NetApp**:
 
   ![Ścieżka jednostki organizacyjnej](../media/azure-netapp-files/azure-netapp-files-org-unit-path.png)
 
@@ -246,7 +246,7 @@ To ustawienie jest konfigurowane w **Active Directory połączenia** w obszarze 
 
     ![Przejdź do woluminów](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png)
 
-2. Kliknij pozycję **+ Dodaj wolumin** , aby utworzyć wolumin.  
+2. Kliknij pozycję **+ Dodaj wolumin**, aby utworzyć wolumin.  
     Zostanie wyświetlone okno Tworzenie woluminu.
 
 3. W oknie Tworzenie woluminu kliknij pozycję **Utwórz** i podaj informacje dla następujących pól na karcie podstawowe:   
@@ -279,7 +279,7 @@ To ustawienie jest konfigurowane w **Active Directory połączenia** w obszarze 
         Określ podsieć, której chcesz użyć na potrzeby woluminu.  
         Określana podsieć musi być delegowana do usługi Azure NetApp Files. 
         
-        Jeśli podsieć nie została delegowana, można kliknąć pozycję **Utwórz nową** na stronie Tworzenie woluminu. Następnie na stronie Utwórz podsieć określ informacje o podsieci i wybierz pozycję **Microsoft.NetApp/woluminy** , aby delegować podsieć dla usługi Azure NetApp Files. W każdej sieci wirtualnej można delegować tylko jedną podsieć do Azure NetApp Files.   
+        Jeśli podsieć nie została delegowana, można kliknąć pozycję **Utwórz nową** na stronie Tworzenie woluminu. Następnie na stronie Utwórz podsieć określ informacje o podsieci i wybierz pozycję **Microsoft.NetApp/woluminy**, aby delegować podsieć dla usługi Azure NetApp Files. W każdej sieci wirtualnej można delegować tylko jedną podsieć do Azure NetApp Files.   
  
         ![Tworzenie woluminu](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     

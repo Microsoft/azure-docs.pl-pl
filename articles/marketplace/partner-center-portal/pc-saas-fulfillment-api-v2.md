@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d6449a00886b7366bcd1f6e2fcec910fd3cb38db
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 1ea326cc4537176c0ddcff070f4dc3b3f77f4b58
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461039"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512039"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>Interfejsy API realizacji SaaS w wersji 2 na komercyjnej witrynie Marketplace
 
@@ -20,7 +20,7 @@ Ten artykuł zawiera szczegółowe informacje dotyczące interfejsów API, któr
 
 ## <a name="managing-the-saas-subscription-life-cycle"></a>Zarządzanie cyklem życia subskrypcji SaaS
 
-Komercyjna witryna Marketplace zarządza całym cyklem życia subskrypcji SaaS po zakupie przez użytkownika końcowego.  Używa ona strony docelowej, interfejsów API realizacji, interfejsów API operacji i elementu webhook jako mechanizmu do kierowania rzeczywistej aktywacji, użycia, aktualizacji i anulowania subskrypcji SaaS.  Rachunek użytkownika końcowego jest oparty na stanie subskrypcji SaaS obsługiwanej przez firmę Microsoft. 
+Komercyjna witryna Marketplace zarządza całym cyklem życia subskrypcji SaaS po zakupie przez użytkownika końcowego. Używa ona strony docelowej, interfejsów API realizacji, interfejsów API operacji i elementu webhook jako mechanizmu do kierowania rzeczywistej aktywacji, użycia, aktualizacji i anulowania subskrypcji SaaS. Rachunek użytkownika końcowego jest oparty na stanie subskrypcji SaaS obsługiwanej przez firmę Microsoft. 
 
 ### <a name="states-of-a-saas-subscription"></a>Stany subskrypcji SaaS
 
@@ -44,11 +44,11 @@ Przykładem takiego wywołania jest `https://contoso.com/signup?token=<blob>` , 
 
 Adres URL strony docelowej musi być uruchomiony przez cały dzień, codziennie i gotowy do otrzymywania nowych wywołań od firmy Microsoft przez cały czas. Jeśli strona docelowa stanie się niedostępna, klienci nie będą mogli zarejestrować się w usłudze SaaS i rozpocząć korzystanie z niej.
 
-Następnie Wydawca musi przekazać *token* z powrotem do firmy Microsoft, wywołując [interfejs API rozpoznawania SaaS](#resolve-a-purchased-subscription)i wprowadzając token jako wartość `x-ms-marketplace-token header` parametru nagłówka.  W wyniku wywołania interfejsu API rozpoznawania token jest wymieniany w celu uzyskania szczegółowych informacji o zakupie SaaS, takich jak unikatowy identyfikator zakupu, zakupionego identyfikatora oferty i identyfikatora zakupionego planu.
+Następnie Wydawca musi przekazać *token* z powrotem do firmy Microsoft, wywołując [interfejs API rozpoznawania SaaS](#resolve-a-purchased-subscription)i wprowadzając token jako wartość `x-ms-marketplace-token header` parametru nagłówka. W wyniku wywołania interfejsu API rozpoznawania token jest wymieniany w celu uzyskania szczegółowych informacji o zakupie SaaS, takich jak unikatowy identyfikator zakupu, zakupionego identyfikatora oferty i identyfikatora zakupionego planu.
 
 Na stronie miejsce docelowe klient powinien być zalogowany na nowym lub istniejącym koncie SaaS za pośrednictwem usługi Azure Active Directory (Azure AD) Logowanie jednokrotne (SSO).
 
-Wydawca powinien zaimplementować Logowanie jednokrotne, aby zapewnić użytkownikowi środowisko wymagane przez firmę Microsoft dla tego przepływu. Upewnij się, że używasz wielodostępnej aplikacji usługi Azure AD i Zezwalaj na konta służbowe lub osobiste konta Microsoft podczas konfigurowania logowania jednokrotnego.  To wymaganie dotyczy tylko strony docelowej dla użytkowników, którzy są przekierowywani do usługi SaaS, gdy są już zalogowani przy użyciu poświadczeń firmy Microsoft. Logowanie jednokrotne nie jest wymagane dla wszystkich logowań do usługi SaaS.
+Wydawca powinien zaimplementować Logowanie jednokrotne, aby zapewnić użytkownikowi środowisko wymagane przez firmę Microsoft dla tego przepływu. Upewnij się, że używasz wielodostępnej aplikacji usługi Azure AD i Zezwalaj na konta służbowe lub osobiste konta Microsoft podczas konfigurowania logowania jednokrotnego. To wymaganie dotyczy tylko strony docelowej dla użytkowników, którzy są przekierowywani do usługi SaaS, gdy są już zalogowani przy użyciu poświadczeń firmy Microsoft. Logowanie jednokrotne nie jest wymagane dla wszystkich logowań do usługi SaaS.
 
 > [!NOTE]
 >Jeśli logowanie jednokrotne wymaga, aby administrator musi udzielić uprawnienia do aplikacji, opis oferty w centrum partnerskim musi ujawnić, że wymagany jest dostęp na poziomie administratora. To ujawnienie jest zgodne z [komercyjnymi zasadami certyfikacji portalu Marketplace](/legal/marketplace/certification-policies#10003-authentication-options).
@@ -82,11 +82,11 @@ Można aktualizować tylko aktywną subskrypcję. Gdy subskrypcja jest aktualizo
 
 ##### <a name="update-initiated-from-the-commercial-marketplace"></a>Aktualizacja zainicjowana z komercyjnego portalu Marketplace
 
-W tym przepływie klient zmienia plan subskrypcji lub liczbę stanowisk z Azure Portal lub Microsoft 365 centrum administracyjnego.  
+W tym przepływie klient zmienia plan subskrypcji lub liczbę stanowisk z Azure Portal lub Microsoft 365 centrum administracyjnego.
 
-1. Po wprowadzeniu aktualizacji firma Microsoft będzie wywoływała adres URL elementu webhook wydawcy, który został skonfigurowany w polu **elementu webhook połączenia** w centrum partnerskim, z odpowiednią wartością dla *akcji* i innych odpowiednich parametrów.  
+1. Po wprowadzeniu aktualizacji firma Microsoft będzie wywoływała adres URL elementu webhook wydawcy, który został skonfigurowany w polu **elementu webhook połączenia** w centrum partnerskim, z odpowiednią wartością dla *akcji* i innych odpowiednich parametrów. 
 1. Po stronie wydawcy należy wprowadzić wymagane zmiany w usłudze SaaS i powiadomić firmę Microsoft po zakończeniu, wywołując [stan aktualizacji interfejsu API operacji](#update-the-status-of-an-operation).
-1. Jeśli poprawka zostanie wysłana ze stanem *niepowodzenia* , proces aktualizacji nie zakończy się po stronie firmy Microsoft.  Subskrypcja usługi SaaS będzie utrzymywać istniejący plan i ilość miejsc.
+1. Jeśli poprawka zostanie wysłana ze stanem *niepowodzenia* , proces aktualizacji nie zakończy się po stronie firmy Microsoft. Subskrypcja usługi SaaS będzie utrzymywać istniejący plan i ilość miejsc.
 
 > [!NOTE]
 > Wydawca powinien wywołać POPRAWKĘ, aby [zaktualizować stan interfejsu API operacji](#update-the-status-of-an-operation) z odpowiedzią na awarię i powodzenie *w 10-sekundowym przedziale czasu* po odebraniu powiadomienia elementu webhook. Jeśli poprawka stanu operacji nie zostanie odebrana w ciągu 10 sekund, plan zmiany zostanie *automatycznie poprawiony jako powodzenie*. 
@@ -101,7 +101,7 @@ W tym przepływie klient zmienia plan subskrypcji lub ilość miejsc zakupionych
 
 1. Kod wydawcy musi wywołać [interfejs API planu zmiany](#change-the-plan-on-the-subscription) i/lub [interfejs API zmiany ilości](#change-the-quantity-of-seats-on-the-saas-subscription) przed wprowadzeniem żądanej zmiany po stronie wydawcy. 
 
-1. Firma Microsoft zastosuje zmianę do subskrypcji, a następnie powiadomi wydawcę za pośrednictwem **elementu webhook** , aby zastosować tę samą zmianę.  
+1. Firma Microsoft zastosuje zmianę do subskrypcji, a następnie powiadomi wydawcę za pośrednictwem **elementu webhook** , aby zastosować tę samą zmianę.
 
 1. Tylko wtedy, gdy Wydawca wprowadzi wymaganą zmianę w subskrypcji SaaS i powiadomi firmę Microsoft, gdy zmiana zostanie dokonana, wywołując [stan aktualizacji interfejsu API operacji](#update-the-status-of-an-operation).
 
@@ -113,7 +113,7 @@ Na poniższym diagramie przedstawiono sekwencję wywołań interfejsu API dla sc
 
 Ten stan wskazuje, że nie odebrano płatności klienta usługi SaaS. Wydawca zostanie powiadomiony o zmianie stanu subskrypcji SaaS przez firmę Microsoft. Powiadomienie jest realizowane za pośrednictwem wywołania elementu webhook z parametrem *akcji* ustawionym na *wstrzymane*.
 
-Wydawca może lub nie może wprowadzać zmian w usłudze SaaS po stronie wydawcy. Firma Microsoft zaleca, aby Wydawca udostępnił te informacje dla zawieszonego klienta i ograniczyć lub zablokować dostęp klienta do usługi SaaS.  Istnieje prawdopodobieństwo, że płatność nigdy nie zostanie odebrana.
+Wydawca może lub nie może wprowadzać zmian w usłudze SaaS po stronie wydawcy. Firma Microsoft zaleca, aby Wydawca udostępnił te informacje dla zawieszonego klienta i ograniczyć lub zablokować dostęp klienta do usługi SaaS. Istnieje prawdopodobieństwo, że płatność nigdy nie zostanie odebrana.
 
 Firma Microsoft przyznaje klientowi 30-dniowy okres prolongaty przed automatycznym anulowaniem subskrypcji. Gdy subskrypcja jest w stanie *wstrzymania* :
 
@@ -126,26 +126,26 @@ Stan subskrypcji zostanie zmieniony na zawieszony po stronie firmy Microsoft prz
 
 Ta akcja wskazuje, że instrument płatniczy klienta stał się ważny, płatność dla subskrypcji SaaS i subskrypcja jest przywracana. W takim przypadku: 
 
-1. Firma Microsoft wywołuje element webhook z parametrem *Action* ustawionym na wartość *przywracania* .  
+1. Firma Microsoft wywołuje element webhook z parametrem *Action* ustawionym na wartość *przywracania* .
 1. Wydawca sprawdza, czy subskrypcja jest w pełni funkcjonalna po stronie wydawcy.
-1. Wydawca wywołuje [interfejs API operacji patch](#update-the-status-of-an-operation) o stanie sukces.  
+1. Wydawca wywołuje [interfejs API operacji patch](#update-the-status-of-an-operation) o stanie sukces.
 1. Proces przywracania zakończy się pomyślnie, a klient jest rozliczany ponownie dla subskrypcji SaaS. 
 
 Jeśli poprawka zostanie wysłana ze stanem *niepowodzenia* , proces przywracania nie zakończy się po stronie firmy Microsoft, a subskrypcja pozostanie *zawieszona*.
 
-Można przywrócić tylko zawieszoną subskrypcję.  Zawieszona subskrypcja SaaS pozostaje w stanie *wstrzymania* , gdy jest ona przywracana.  Po zakończeniu tej operacji stan subskrypcji stanie się *aktywny*.
+Można przywrócić tylko zawieszoną subskrypcję. Zawieszona subskrypcja SaaS pozostaje w stanie *wstrzymania* , gdy jest ona przywracana. Po zakończeniu tej operacji stan subskrypcji stanie się *aktywny*.
 
 #### <a name="renewed-subscribed"></a>Odnowione (*subskrybowane*)
 
-Subskrypcja usługi SaaS jest automatycznie odnawiana przez firmę Microsoft pod koniec okresu subskrypcji miesiąca lub roku.  *Wartość* domyślna dla ustawienia autoodnawiania dotyczy wszystkich subskrypcji SaaS. Subskrypcje Active SaaS będą nadal odnawiane za pomocą zwykłego erzeu. Firma Microsoft nie powiadamia wydawcy o odnowieniu subskrypcji. Klient może wyłączyć automatyczne odnawianie dla subskrypcji SaaS za pośrednictwem portalu administracyjnego Microsoft 365 lub za pośrednictwem Azure Portal.  W takim przypadku subskrypcja SaaS zostanie automatycznie anulowana na końcu bieżącego okresu rozliczeniowego.  Klienci mogą także w dowolnym momencie anulować subskrypcję usługi SaaS.
+Subskrypcja usługi SaaS jest automatycznie odnawiana przez firmę Microsoft pod koniec okresu subskrypcji miesiąca lub roku. *Wartość* domyślna dla ustawienia autoodnawiania dotyczy wszystkich subskrypcji SaaS. Subskrypcje Active SaaS będą nadal odnawiane za pomocą zwykłego erzeu. Firma Microsoft nie powiadamia wydawcy o odnowieniu subskrypcji. Klient może wyłączyć automatyczne odnawianie dla subskrypcji SaaS za pośrednictwem portalu administracyjnego Microsoft 365. W takim przypadku subskrypcja SaaS zostanie automatycznie anulowana na końcu bieżącego okresu rozliczeniowego. Klienci mogą także w dowolnym momencie anulować subskrypcję usługi SaaS.
 
-Tylko aktywne subskrypcje są automatycznie odnawiane.  Subskrypcje pozostają aktywne podczas procesu odnawiania i w przypadku pomyślnego odnowienia automatycznego.  Po odnowieniu daty rozpoczęcia i zakończenia okresu subskrypcji są aktualizowane do dat nowego okresu.
+Tylko aktywne subskrypcje są automatycznie odnawiane. Subskrypcje pozostają aktywne podczas procesu odnawiania i w przypadku pomyślnego odnowienia automatycznego. Po odnowieniu daty rozpoczęcia i zakończenia okresu subskrypcji są aktualizowane do dat nowego okresu.
 
 Jeśli automatyczne odnawianie zakończy się niepowodzeniem z powodu problemu z płatnością, subskrypcja zostanie *zawieszona* , a wydawca zostanie powiadomiony.
 
 #### <a name="canceled-unsubscribed"></a>Anulowane (*niesubskrybowane*) 
 
-Subskrypcje docierają do tego stanu w odpowiedzi na jawną akcję klienta lub dostawcę usług w ramach anulowania subskrypcji z witryny wydawcy, Azure Portal lub Microsoft 365 centrum administracyjnego.  Subskrypcję można również anulować niejawnie, w wyniku niepłaty opłat, po upływie okresu *wstrzymania* przez 30 dni.
+Subskrypcje docierają do tego stanu w odpowiedzi na jawną akcję klienta lub dostawcę usług w ramach anulowania subskrypcji z witryny wydawcy, Azure Portal lub Microsoft 365 centrum administracyjnego. Subskrypcję można również anulować niejawnie, w wyniku niepłaty opłat, po upływie okresu *wstrzymania* przez 30 dni.
 
 Gdy Wydawca otrzyma wywołanie elementu webhook anulowania, powinien zachować dane klienta na potrzeby odzyskiwania na żądanie przez co najmniej siedem dni. Tylko dane klienta mogą zostać usunięte.
 
@@ -163,7 +163,7 @@ Ta sekcja dokumentuje interfejsy API subskrypcji i operacji SaaS.
 * Pobierz listę aplikacji oczekujących na potwierdzenie przez wydawcę.
 
 > [!NOTE]
-> Wersja 1,2 protokołu TLS zostanie wymuszona wkrótce po minimalnej wersji komunikacji HTTPS. Upewnij się, że używasz tej wersji protokołu TLS w kodzie.  Protokoły TLS w wersji 1,0 i 1,1 wkrótce będą przestarzałe.
+> Wersja 1,2 protokołu TLS zostanie wymuszona wkrótce po minimalnej wersji komunikacji HTTPS. Upewnij się, że używasz tej wersji protokołu TLS w kodzie. Protokoły TLS w wersji 1,0 i 1,1 wkrótce będą przestarzałe.
 
 ### <a name="subscription-apis"></a>Interfejsy API subskrypcji
 

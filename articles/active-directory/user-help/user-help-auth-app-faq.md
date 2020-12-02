@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 10/20/2020
+ms.date: 12/01/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 65bd5a89d132a575817480d0609109a3f379e969
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: f0cb7d4ebe428da4a370433b3e90a829f30489db
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833966"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512209"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Często zadawane pytania dotyczące aplikacji Microsoft Authenticator
 
@@ -32,6 +32,14 @@ Aplikacja Microsoft Authenticator została zastąpiona aplikacją Azure Authenti
 **P**: czy rejestrowanie urządzenia oznacza zgodę na dostęp do firmy lub usługi do mojego urządzenia?
 
 Odp **.:** zarejestrowanie urządzenia zapewnia dostęp urządzenia do usług organizacji i nie zezwala na dostęp organizacji do Twojego urządzenia.
+
+## <a name="too-many-app-permissions"></a>Zbyt wiele uprawnień aplikacji
+
+**P**: Dlaczego aplikacja żąda tylu uprawnień?
+
+Odp **.:** Oto pełna lista uprawnień, które mogą zostać poproszeni i jak są używane przez aplikację. Określone uprawnienia są zależne od typu telefonu.
+
+- **Lokalizacja**. Czasami organizacja chce znać swoją lokalizację przed umożliwieniem użytkownikowi dostępu do określonych zasobów. Aplikacja będzie żądać tego uprawnienia tylko wtedy, gdy organizacja ma zasady wymagające lokalizacji. 
 
 ### <a name="legacy-apns-support-deprecated"></a>Starsza obsługa usługi APNs jest przestarzała
 

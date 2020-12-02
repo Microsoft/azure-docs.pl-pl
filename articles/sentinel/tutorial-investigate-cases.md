@@ -14,19 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: c1873e21db1c586453dc9e9fe890268d8797303a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: aa9160f01ed0040123bd8ac932cfd2443f557bb6
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367010"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511733"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Samouczek: badanie zdarzeń za pomocą platformy Azure — wskaźnik
 
 > [!IMPORTANT]
-> Wykres badania jest obecnie w publicznej wersji zapoznawczej.
-> Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych.
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Wykres badania jest obecnie w **wersji zapoznawczej**. Zapoznaj się z dodatkowymi [warunkami użytkowania Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych, aby uzyskać dodatkowe postanowienia prawne dotyczące funkcji systemu Azure, które są w wersji beta, Preview lub w inny sposób nie zostały jeszcze udostępnione publicznie.
 
 
 Ten samouczek ułatwia badanie zdarzeń za pomocą platformy Azure. Po nawiązaniu połączenia ze źródłami danych z platformą Azure — użytkownik chce otrzymywać powiadomienia o wystąpieniu podejrzanych sytuacji. Aby można było to zrobić, badanie wskaźnikowe platformy Azure umożliwia tworzenie zaawansowanych reguł alertów, które generują zdarzenia, które można przypisać i zbadać.
@@ -46,7 +44,7 @@ Zdarzenie może zawierać wiele alertów. Jest to agregacja wszystkich istotnych
 
 ## <a name="how-to-investigate-incidents"></a>Jak badać zdarzenia
 
-1. Wybierz **zdarzenia**. Na stronie **incydenty** są dostępne informacje o liczbie zdarzeń, liczbie otwartych, liczbie ustawionych **w toku**i liczbie zamkniętych. Dla każdego zdarzenia można zobaczyć czas jego wystąpienia i stan zdarzenia. Przyjrzyj się ważności, aby określić, które zdarzenia należy obsłużyć jako pierwsze.
+1. Wybierz **zdarzenia**. Na stronie **incydenty** są dostępne informacje o liczbie zdarzeń, liczbie otwartych, liczbie ustawionych **w toku** i liczbie zamkniętych. Dla każdego zdarzenia można zobaczyć czas jego wystąpienia i stan zdarzenia. Przyjrzyj się ważności, aby określić, które zdarzenia należy obsłużyć jako pierwsze.
 
     ![Wyświetl ważność zdarzenia](media/tutorial-investigate-cases/incident-severity.png)
 
@@ -83,7 +81,9 @@ Aby użyć grafu badania:
 1. Wybierz zdarzenie, a następnie wybierz pozycję **Zbadaj**. Spowoduje to przejście do grafu badania. Wykres przedstawia mapę ilustracyjnyą jednostek, które są bezpośrednio połączone z alertem, a każdy zasób jest podłączany w dalszej części.
 
    > [!IMPORTANT] 
-   > W przypadku korzystania z pól mapowania jednostek można zbadać zdarzenia tylko podczas konfigurowania reguły analizy. Wykres badania wymaga, aby oryginalne zdarzenie obejmowało jednostki.
+   > - W przypadku korzystania z pól mapowania jednostek można zbadać zdarzenia tylko podczas konfigurowania reguły analizy. Wykres badania wymaga, aby oryginalne zdarzenie obejmowało jednostki.
+   >
+   > - Wskaźnik na platformie Azure obecnie obsługuje badanie **zdarzeń do 30 dni**.
 
    ![Wyświetlanie mapy](media/tutorial-investigate-cases/map1.png)
 
@@ -99,7 +99,7 @@ Aby użyć grafu badania:
 
     ![Wyświetl powiązane alerty](media/tutorial-investigate-cases/related-alerts.png)
 
-1. Dla każdej kwerendy eksploracji można wybrać opcję otwarcia nieprzetworzonych wyników zdarzeń i zapytania używanego w Log Analytics, wybierając pozycję **zdarzenia \> **.
+1. Dla każdej kwerendy eksploracji można wybrać opcję otwarcia nieprzetworzonych wyników zdarzeń i zapytania używanego w Log Analytics, wybierając pozycję **zdarzenia \>**.
 
 1. Aby zrozumieć zdarzenie, wykres zawiera równoległą oś czasu.
 
@@ -123,7 +123,7 @@ Po rozwiązaniu konkretnego zdarzenia (na przykład po osiągnięciu jego wniosk
 
 Po wybraniu odpowiedniej klasyfikacji Dodaj tekst opisowy w polu **komentarz** . Będzie to przydatne w przypadku, gdy należy odwołać się do tego zdarzenia. Po zakończeniu kliknij pozycję **Zastosuj** , a zdarzenie zostanie zamknięte.
 
-:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="Zrzut ekranu, który wyróżnia klasyfikacje dostępne na liście wybierz klasyfikację.":::
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="{alt-text}":::
 
 ## <a name="next-steps"></a>Następne kroki
 W ramach tego samouczka nauczysz się rozpocząć badanie zdarzeń przy użyciu platformy Azure — wskaźnik. Przejdź do samouczka dotyczącego [sposobu reagowania na zagrożenia przy użyciu zautomatyzowanego elementy PlayBook](tutorial-respond-threats-playbook.md).

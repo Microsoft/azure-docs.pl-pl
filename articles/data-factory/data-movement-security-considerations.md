@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
-ms.openlocfilehash: b381f2f1871ea7e26950d5b02d5906a50c6129d3
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9e34ce05d055e6933ecfbacf672bb8b1eba544bd
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444999"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512311"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Zagadnienia dotyczące zabezpieczeń dotyczące przenoszenia danych w Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -32,7 +32,7 @@ W ramach rozwiązania fabryki danych jest tworzony co najmniej jeden [potok](con
 
 Mimo że Data Factory jest dostępna tylko w kilku regionach, Usługa przenoszenia danych jest [dostępna globalnie](concepts-integration-runtime.md#integration-runtime-location) w celu zapewnienia zgodności danych, wydajności i obniżenia kosztów ruchu wychodzącego w sieci. 
 
-Azure Data Factory nie przechowuje żadnych danych z wyjątkiem poświadczeń połączonej usługi dla magazynów danych w chmurze, które są szyfrowane przy użyciu certyfikatów. Program Data Factory umożliwia tworzenie przepływów pracy opartych na danych w celu organizowania przenoszenia danych między [obsługiwanymi magazynami danych](copy-activity-overview.md#supported-data-stores-and-formats)oraz przetwarzania danych przy użyciu [usług obliczeniowych](compute-linked-services.md) w innych regionach lub w środowisku lokalnym. Możesz również monitorować przepływy pracy i zarządzać nimi za pomocą zestawów SDK i Azure Monitor.
+Azure Data Factory, w tym Integration Runtime nie przechowuje żadnych danych z wyjątkiem poświadczeń połączonej usługi dla magazynów danych w chmurze, które są szyfrowane przy użyciu certyfikatów. Program Data Factory umożliwia tworzenie przepływów pracy opartych na danych w celu organizowania przenoszenia danych między [obsługiwanymi magazynami danych](copy-activity-overview.md#supported-data-stores-and-formats)oraz przetwarzania danych przy użyciu [usług obliczeniowych](compute-linked-services.md) w innych regionach lub w środowisku lokalnym. Możesz również monitorować przepływy pracy i zarządzać nimi za pomocą zestawów SDK i Azure Monitor.
 
 Data Factory został certyfikowany dla:
 
@@ -128,7 +128,7 @@ Domyślnie program PowerShell używa portu 8060 na komputerze przy użyciu włas
  
 
 
-### <a name="encryption-in-transit"></a>Szyfrowanie podczas transferu
+### <a name="encryption-in-transit"></a>Szyfrowanie danych przesyłanych
 Wszystkie transfery danych są nawiązywane za pośrednictwem protokołu HTTPS Secure Channel i TLS over TCP, aby zapobiec atakom typu man-in-the-Middle podczas komunikacji z usługami platformy Azure.
 
 W celu dodatkowego zabezpieczenia kanału komunikacyjnego między siecią lokalną i platformą Azure można również użyć [protokołu IPSec VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md) lub [Azure ExpressRoute](../expressroute/expressroute-introduction.md) .

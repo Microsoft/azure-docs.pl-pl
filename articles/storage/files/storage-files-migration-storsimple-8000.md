@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 046cca4e683a8f14893bf48ac8601b138a7c28a7
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: daa7c657a47414b01197bed3644caefeda98af1c
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630281"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512175"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 i 8600 migracji do Azure File Sync
 
@@ -56,7 +56,7 @@ Udziały plików platformy Azure zachowują ważne aspekty odtwarzania plików d
 
 Ten artykuł koncentruje się na krokach migracji. Jeśli chcesz dowiedzieć się więcej na temat Azure File Sync przed migracją, zobacz następujące artykuły:
 
-* [Przegląd Azure File Sync](./storage-sync-files-planning.md "Omówienie")
+* [Przegląd Azure File Sync](./storage-sync-files-planning.md "Przegląd")
 * [Przewodnik wdrażania Azure File Sync](storage-sync-files-deployment-guide.md)
 
 ### <a name="storsimple-service-data-encryption-key"></a>Klucz szyfrowania danych usługi StorSimple
@@ -175,7 +175,7 @@ Dostępne są kilka ustawień replikacji. Dowiedz się więcej o różnych typac
 Wybierz jedną z następujących dwóch opcji:
 
 * *Magazyn lokalnie nadmiarowy (LRS)*.
-* *Magazyn strefowo nadmiarowy (ZRS)* , który nie jest dostępny we wszystkich regionach świadczenia usługi Azure.
+* *Magazyn strefowo nadmiarowy (ZRS)*, który nie jest dostępny we wszystkich regionach świadczenia usługi Azure.
 
 > [!NOTE]
 > Tylko typy nadmiarowości LRS i ZRS są zgodne z dużymi udziałami plików platformy Azure o pojemności 100 TiB.
@@ -244,7 +244,7 @@ W tej sekcji opisano sposób konfigurowania zadania migracji i dokładnego mapow
         ![Zadanie migracji serii StorSimple 8000.](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job.png "Zrzut ekranu przedstawiający formularz tworzenia nowego zadania dla zadania usługi przekształcania danych.")
     :::column-end:::
     :::column:::
-        **Nazwa definicji zadania**</br>Ta nazwa powinna wskazywać zestaw plików, które są przenoszone. Przyznaj mu podobną nazwę, ponieważ udział plików platformy Azure jest dobrym zwyczajem. </br></br>**Lokalizacja, w której jest uruchamiane zadanie**</br>W przypadku wybrania regionu należy wybrać ten sam region, w którym znajduje się konto magazynu StorSimple lub, jeśli to nie jest dostępne, a następnie zamknąć region. </br></br><h3>Element źródłowy</h3>**Subskrypcja źródłowa**</br>Wybierz subskrypcję, w ramach której przechowujesz zasób StorSimple Menedżer urządzeń. </br></br>**Zasób StorSimple**</br>Wybierz StorSimple Menedżer urządzeń Twoje urządzenie jest zarejestrowane w usłudze. </br></br>**Klucz szyfrowania danych usługi**</br>Sprawdź tę [wcześniejszą sekcję w tym artykule](#storsimple-service-data-encryption-key) , jeśli nie możesz zlokalizować klucza w rekordach. </br></br>**Urządzenie**</br>Wybierz urządzenie StorSimple, które zawiera wolumin, na którym chcesz przeprowadzić migrację. </br></br>**Wolumin**</br>Wybierz wolumin źródłowy. Następnie zdecyduj, czy chcesz migrować cały wolumin lub podkatalogi do docelowego udziału plików platformy Azure. </br></br><h3>Cel</h3>Wybierz subskrypcję, konto magazynu i udział plików platformy Azure jako element docelowy tego zadania migracji.
+        **Nazwa definicji zadania**</br>Ta nazwa powinna wskazywać zestaw plików, które są przenoszone. Przyznaj mu podobną nazwę, ponieważ udział plików platformy Azure jest dobrym zwyczajem. </br></br>**Lokalizacja, w której jest uruchamiane zadanie**</br>W przypadku wybrania regionu należy wybrać ten sam region, w którym znajduje się konto magazynu StorSimple lub, jeśli to nie jest dostępne, a następnie zamknąć region. </br></br><h3>Źródło</h3>**Subskrypcja źródłowa**</br>Wybierz subskrypcję, w ramach której przechowujesz zasób StorSimple Menedżer urządzeń. </br></br>**Zasób StorSimple**</br>Wybierz StorSimple Menedżer urządzeń Twoje urządzenie jest zarejestrowane w usłudze. </br></br>**Klucz szyfrowania danych usługi**</br>Sprawdź tę [wcześniejszą sekcję w tym artykule](#storsimple-service-data-encryption-key) , jeśli nie możesz zlokalizować klucza w rekordach. </br></br>**Urządzenie**</br>Wybierz urządzenie StorSimple, które zawiera wolumin, na którym chcesz przeprowadzić migrację. </br></br>**Wolumin**</br>Wybierz wolumin źródłowy. Następnie zdecyduj, czy chcesz migrować cały wolumin lub podkatalogi do docelowego udziału plików platformy Azure. </br></br><h3>Cel</h3>Wybierz subskrypcję, konto magazynu i udział plików platformy Azure jako element docelowy tego zadania migracji.
     :::column-end:::
 :::row-end:::
 
@@ -320,8 +320,8 @@ Na koniec fazy 3 uruchomiono zadania usługi transformacji danych z woluminów S
 
 Istnieją dwie główne strategie uzyskiwania dostępu do udziałów plików platformy Azure:
 
-* **Azure File Sync** : [Wdróż Azure File Sync](#deploy-azure-file-sync) do lokalnego wystąpienia systemu Windows Server. Azure File Sync ma wszystkie zalety lokalnej pamięci podręcznej, podobnie jak StorSimple.
-* **Bezpośredni dostęp do udziału** : [Wdróż bezpośredni dostęp do udziału](#deploy-direct-share-access). Ta strategia jest używana, jeśli scenariusz dostępu danego udziału plików platformy Azure nie będzie korzystać z buforowania lokalnego lub nie masz już możliwości hostowania wystąpienia lokalnego systemu Windows Server. W tym miejscu Użytkownicy i aplikacje będą nadal uzyskiwać dostęp do udziałów SMB za pośrednictwem protokołu SMB. Te udziały nie znajdują się już na serwerze lokalnym, ale bezpośrednio w chmurze.
+* **Azure File Sync**: [Wdróż Azure File Sync](#deploy-azure-file-sync) do lokalnego wystąpienia systemu Windows Server. Azure File Sync ma wszystkie zalety lokalnej pamięci podręcznej, podobnie jak StorSimple.
+* **Bezpośredni dostęp do udziału**: [Wdróż bezpośredni dostęp do udziału](#deploy-direct-share-access). Ta strategia jest używana, jeśli scenariusz dostępu danego udziału plików platformy Azure nie będzie korzystać z buforowania lokalnego lub nie masz już możliwości hostowania wystąpienia lokalnego systemu Windows Server. W tym miejscu Użytkownicy i aplikacje będą nadal uzyskiwać dostęp do udziałów SMB za pośrednictwem protokołu SMB. Te udziały nie znajdują się już na serwerze lokalnym, ale bezpośrednio w chmurze.
 
 Należy już zdecydować, która opcja jest Najlepsza dla Ciebie w [fazie 1](#phase-1-prepare-for-migration) tego przewodnika.
 
@@ -413,13 +413,13 @@ To podejście migracji wymaga pewnego przestoju dla użytkowników i aplikacji. 
 
 Jeśli używasz Azure File Sync dla udziału plików platformy Azure, ważne jest, aby określić, że cała przestrzeń nazw zakończyła pobieranie na serwer *przed* rozpoczęciem Robocopy lokalnego. Czas potrzebny na pobranie przestrzeni nazw zależy od liczby elementów w udziale plików platformy Azure. Istnieją dwie metody określania, czy obszar nazw został w pełni osiągnięty na serwerze.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Witryna Azure Portal
 
 Możesz użyć Azure Portal, aby zobaczyć, kiedy obszar nazw został w pełni osiągnięty.
 
 * Zaloguj się do Azure Portal i przejdź do grupy synchronizacji. Sprawdź stan synchronizacji grupy synchronizacji i punktu końcowego serwera.
-* Interesujący kierunek to pobieranie. Jeśli punkt końcowy serwera jest nowo zainicjowany, zostanie wyświetlona **synchronizacja początkowa** , która wskazuje, że przestrzeń nazw wciąż się wyłączy.
-Po wprowadzeniu zmian do wszystkich elementów, ale **synchronizacji początkowej** , obszar nazw zostanie w pełni wypełniony na serwerze. Możesz teraz kontynuować pracę z lokalnym RoboCopy.
+* Interesujący kierunek to pobieranie. Jeśli punkt końcowy serwera jest nowo zainicjowany, zostanie wyświetlona **synchronizacja początkowa**, która wskazuje, że przestrzeń nazw wciąż się wyłączy.
+Po wprowadzeniu zmian do wszystkich elementów, ale **synchronizacji początkowej**, obszar nazw zostanie w pełni wypełniony na serwerze. Możesz teraz kontynuować pracę z lokalnym RoboCopy.
 
 #### <a name="windows-server-event-viewer"></a>Podgląd zdarzeń systemu Windows Server
 
@@ -427,9 +427,9 @@ Możesz również użyć Podgląd zdarzeń w wystąpieniu systemu Windows Server
 
 1. Otwórz **Podgląd zdarzeń** i przejdź do **aplikacji i usług**.
 1. Przejdź do i Otwórz **Microsoft\FileSync\Agent\Telemetry**.
-1. Poszukaj najnowszego **zdarzenia 9102** , które odnosi się do zakończonej sesji synchronizacji.
+1. Poszukaj najnowszego **zdarzenia 9102**, które odnosi się do zakończonej sesji synchronizacji.
 1. Wybierz pozycję **szczegóły** i upewnij się, że szukasz zdarzenia, dla którego jest **pobierana** wartość **SyncDirection** .
-1. W czasie, gdy przestrzeń nazw została zakończona do pobrania do serwera, będzie istnieć jedno zdarzenie z **scenariuszem** , wartość **FullGhostedSync** i **wynik HRESULT**  =  **0**.
+1. W czasie, gdy przestrzeń nazw została zakończona do pobrania do serwera, będzie istnieć jedno zdarzenie z **scenariuszem**, wartość **FullGhostedSync** i **wynik HRESULT**  =  **0**.
 1. Jeśli to zdarzenie zostanie pominięte, możesz również wyszukać inne **zdarzenia 9102** z **SyncDirection**  =  **pobierania** i **scenariusza**  =  **"RegularSync"**. Znalezienie jednego z tych zdarzeń wskazuje również, że przestrzeń nazw zakończyła pobieranie i synchronizowanie w regularnych sesjach synchronizacji, niezależnie od tego, czy istnieją jakieś elementy do synchronizacji, czy nie.
 
 ### <a name="a-final-robocopy"></a>Końcowy RoboCopy
@@ -448,7 +448,7 @@ W tym momencie istnieją różnice między lokalnym wystąpieniem systemu Window
 RoboCopy ma kilka parametrów. W poniższym przykładzie przedstawiono gotowe polecenie i listę przyczyn wyboru tych parametrów.
 
 ```console
-Robocopy /MT:16 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:16 /UNILOG:<file name> /TEE /NP /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 Tle
@@ -475,6 +475,14 @@ Tle
    :::column-end:::
    :::column span="1":::
       Dane wyjściowe do okna konsoli. Używane w połączeniu z danymi wyjściowymi do pliku dziennika.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /NP
+   :::column-end:::
+   :::column span="1":::
+      Pomija rejestrowanie postępu, aby zachować czytelność dziennika.
    :::column-end:::
 :::row-end:::
 :::row:::

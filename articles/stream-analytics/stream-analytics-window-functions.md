@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.openlocfilehash: c4ddffa5f9e9ff4b313f05c9cedb3cb207695225
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 4765c0c43cfd9760eb5b4392604bfaeedc69c388
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129707"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511444"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Wprowadzenie do funkcji okna Stream Analytics
 
@@ -36,7 +36,7 @@ Funkcje okien powtarzanych powodują przeskoki w czasie do przodu o stały okres
 
 ## <a name="sliding-window"></a>Okno przewijania
 
-Okna przewijania, w przeciwieństwie do okien wirowania lub przeskoku, zdarzenia wyjściowe tylko dla punktów w czasie, gdy zawartość okna rzeczywiście ulega zmianie. Innymi słowy, gdy zdarzenie wchodzi lub opuszcza okno. Każde okno ma co najmniej jedno zdarzenie, takie jak w przypadku systemu Windows przeskoku, zdarzenia mogą należeć do więcej niż jednego przedziału ruchomego
+Okna przewijania, w przeciwieństwie do okien wirowania lub przeskoku, zdarzenia wyjściowe tylko dla punktów w czasie, gdy zawartość okna rzeczywiście ulega zmianie. Innymi słowy, gdy zdarzenie wchodzi lub opuszcza okno. Dlatego każde okno ma co najmniej jedno zdarzenie. Podobnie jak w przypadku systemu Windows przeskoku, zdarzenia mogą należeć do więcej niż jednego przedziału.
 
 ![Stream Analytics przesuwanego okna](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 

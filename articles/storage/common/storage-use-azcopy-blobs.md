@@ -4,16 +4,16 @@ description: Ten artykuł zawiera kolekcję przykładowych poleceń AzCopy, któ
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 12/01/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 294adce3dc312003d72336bd0752ba3aba5eaace
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1c9c271fed094bf4777af73d588551f66f4db6f5
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792858"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512124"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transferowanie danych za pomocą AzCopy i magazynu obiektów BLOB
 
@@ -31,7 +31,7 @@ Zapoznaj się z artykułem [wprowadzenie do AzCopy](storage-use-azcopy-v10.md) w
 >
 > Jeśli wolisz używać tokenu SAS do autoryzacji dostępu do danych obiektów blob, możesz dołączyć ten token do adresu URL zasobu w każdym poleceniu AzCopy.
 >
-> Na przykład: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
+> Przykład: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
 ## <a name="create-a-container"></a>Tworzenie kontenera
 
@@ -56,6 +56,7 @@ Ta sekcja zawiera następujące przykłady:
 > * Przekaż katalog
 > * Przekaż zawartość katalogu 
 > * Przekazywanie określonych plików
+> * Przekaż plik ze znacznikami indeksu
 
 > [!TIP]
 > Możesz dostosować operację przekazywania, używając opcjonalnych flag. Oto kilka przykładów.
@@ -153,6 +154,27 @@ Użyj polecenia [copy AzCopy](storage-ref-azcopy-copy.md) z `--include-after` op
 
 Aby uzyskać szczegółowe informacje, zobacz Dokumentacja [AzCopy Copy](storage-ref-azcopy-copy.md) Reference.
 
+### <a name="upload-a-file-with-index-tags"></a>Przekaż plik ze znacznikami indeksu
+
+Można przekazać plik i dodać [Tagi indeksu obiektów BLOB (wersja zapoznawcza)](../blobs/storage-manage-find-blobs.md) do docelowego obiektu BLOB.  
+
+W przypadku korzystania z autoryzacji usługi Azure AD podmiot zabezpieczeń musi mieć przypisaną rolę [właściciela danych obiektu blob magazynu](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) lub musi mieć uprawnienia do `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [operacji dostawcy zasobów platformy Azure](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) za pośrednictwem niestandardowej roli platformy Azure. Jeśli używasz tokenu sygnatury dostępu współdzielonego (SAS), ten token musi zapewnić dostęp do tagów obiektu BLOB za pośrednictwem `t` uprawnienia SAS.
+
+Aby dodać tagi, użyj `--blob-tags` opcji wraz z algorytmem par klucz-wartość w adresie URL. Na przykład, aby dodać klucz `my tag` i wartość `my tag value` , należy dodać `--blob-tags='my%20tag=my%20tag%20value'` do parametru docelowego. 
+
+Oddziel wiele tagów indeksów przy użyciu znaku handlowego "i" ( `&` ).  Na przykład, jeśli chcesz dodać klucz `my second tag` i wartość `my second tag value` , ciąg opcji Complete `--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` .
+
+W poniższych przykładach pokazano, jak użyć `--blob-tags` opcji.
+
+|    |     |
+|--------|-----------|
+| **Przekaż plik** | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
+| **Przekaż katalog** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'`|
+| **Przekaż zawartość katalogu** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
+
+> [!NOTE]
+> Jeśli określisz katalog dla źródła, wszystkie obiekty blob, które są kopiowane do lokalizacji docelowej, będą miały te same znaczniki, które są określone w poleceniu.
+
 ## <a name="download-files"></a>Pobieranie plików
 
 Aby pobrać obiekty blob, katalogi i kontenery na komputer lokalny, można użyć polecenia [copy AzCopy](storage-ref-azcopy-copy.md) .
@@ -199,7 +221,7 @@ Ten przykład powoduje, że katalog o nazwie `C:\myDirectory\myBlobDirectory` za
 
 ### <a name="download-the-contents-of-a-directory"></a>Pobierz zawartość katalogu
 
-Zawartość katalogu można pobrać bez kopiowania samego katalogu zawierającego symbol wieloznaczny (*).
+Możesz pobrać zawartość katalogu bez kopiowania samego katalogu, korzystając z symbolu wieloznacznego (*).
 
 > [!NOTE]
 > Obecnie ten scenariusz jest obsługiwany tylko w przypadku kont, które nie mają hierarchicznej przestrzeni nazw.
@@ -297,6 +319,7 @@ Ta sekcja zawiera następujące przykłady:
 > * Kopiowanie katalogu do innego konta magazynu
 > * Kopiowanie kontenera na inne konto magazynu
 > * Kopiuj wszystkie kontenery, katalogi i pliki na inne konto magazynu
+> * Kopiowanie obiektów BLOB do innego konta magazynu za pomocą tagów indeksu
 
 Te przykłady działają również z kontami, które mają hierarchiczną przestrzeń nazw. [Dostęp z użyciem protokołu wieloprotokołowego do Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) umożliwia używanie tej samej składni adresu URL ( `blob.core.windows.net` ) na tych kontach.
 
@@ -321,6 +344,9 @@ Użyj tej samej składni adresu URL ( `blob.core.windows.net` ) dla kont, które
 | **Przykład** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt'` |
 | **Przykład** (hierarchiczna przestrzeń nazw) | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt'` |
 
+> [!NOTE]
+> Jeśli źródłowe obiekty blob mają Tagi indeksów i chcesz zachować te Tagi, należy ponownie zastosować je do docelowych obiektów BLOB. Informacje o sposobie ustawiania tagów indeksu znajdują się w sekcji [Kopiowanie obiektów BLOB do innego konta magazynu z tagami indeksów](#copy-between-accounts-and-add-index-tags) w tym artykule.  
+
 ### <a name="copy-a-directory-to-another-storage-account"></a>Kopiowanie katalogu do innego konta magazynu
 
 Użyj tej samej składni adresu URL ( `blob.core.windows.net` ) dla kont, które mają hierarchiczną przestrzeń nazw.
@@ -341,6 +367,9 @@ Użyj tej samej składni adresu URL ( `blob.core.windows.net` ) dla kont, które
 | **Przykład** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive` |
 | **Przykład** (hierarchiczna przestrzeń nazw)| `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive` |
 
+> [!NOTE]
+> Jeśli źródłowe obiekty blob mają Tagi indeksów i chcesz zachować te Tagi, należy ponownie zastosować je do docelowych obiektów BLOB. Informacje o sposobie ustawiania tagów indeksu znajdują się w sekcji [Kopiowanie obiektów BLOB do innego konta magazynu z tagami indeksów](#copy-between-accounts-and-add-index-tags) w tym artykule. 
+
 ### <a name="copy-all-containers-directories-and-blobs-to-another-storage-account"></a>Kopiuj wszystkie kontenery, katalogi i obiekty blob na inne konto magazynu
 
 Użyj tej samej składni adresu URL ( `blob.core.windows.net` ) dla kont, które mają hierarchiczną przestrzeń nazw.
@@ -350,6 +379,36 @@ Użyj tej samej składni adresu URL ( `blob.core.windows.net` ) dla kont, które
 | **Składnia** | `azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/' --recursive` |
 | **Przykład** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net' --recursive` |
 | **Przykład** (hierarchiczna przestrzeń nazw)| `azcopy copy 'https://mysourceaccount.blob.core.windows.net/?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net' --recursive` |
+
+> [!NOTE]
+> Jeśli źródłowe obiekty blob mają Tagi indeksów i chcesz zachować te Tagi, należy ponownie zastosować je do docelowych obiektów BLOB. Informacje o sposobie ustawiania tagów indeksu znajdują się w sekcji **Kopiowanie obiektów BLOB do innego konta magazynu z tagami indeksów** poniżej. 
+
+<a id="copy-between-accounts-and-add-index-tags"></a>
+
+### <a name="copy-blobs-to-another-storage-account-with-index-tags"></a>Kopiowanie obiektów BLOB do innego konta magazynu za pomocą tagów indeksu
+
+Możesz skopiować obiekty blob do innego konta magazynu i dodać [Tagi indeksu obiektów BLOB (wersja zapoznawcza)](../blobs/storage-manage-find-blobs.md) do docelowego obiektu BLOB.
+
+W przypadku korzystania z autoryzacji usługi Azure AD podmiot zabezpieczeń musi mieć przypisaną rolę [właściciela danych obiektu blob magazynu](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) lub musi mieć uprawnienia do `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [operacji dostawcy zasobów platformy Azure](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) za pośrednictwem niestandardowej roli platformy Azure. Jeśli używasz tokenu sygnatury dostępu współdzielonego (SAS), ten token musi zapewnić dostęp do tagów obiektu BLOB za pośrednictwem `t` uprawnienia SAS.
+
+Aby dodać tagi, użyj `--blob-tags` opcji wraz z algorytmem par klucz-wartość w adresie URL. 
+
+Na przykład, aby dodać klucz `my tag` i wartość `my tag value` , należy dodać `--blob-tags='my%20tag=my%20tag%20value'` do parametru docelowego. 
+
+Oddziel wiele tagów indeksów przy użyciu znaku handlowego "i" ( `&` ).  Na przykład, jeśli chcesz dodać klucz `my second tag` i wartość `my second tag value` , ciąg opcji Complete `--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` .
+
+W poniższych przykładach pokazano, jak użyć `--blob-tags` opcji.
+
+|    |     |
+|--------|-----------|
+| **Obiekt blob** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
+| **Katalog** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
+| **Kontener** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive --blob-tags="--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
+| **Konto** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net' --recursive --blob-tags="--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
+
+> [!NOTE]
+> Jeśli określisz katalog, kontener lub konto dla źródła, wszystkie obiekty blob, które są kopiowane do miejsca docelowego będą miały te same znaczniki, które są określone w poleceniu. 
+
 
 ## <a name="synchronize-files"></a>Synchronizuj pliki
 

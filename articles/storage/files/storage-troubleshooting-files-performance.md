@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 5a35d939c12639770e25c3096c77f13d31310f85
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 90942e4deebdc65fe26ce94f04a15fe2b8c0684c
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492016"
+ms.locfileid: "96512073"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Rozwiązywanie problemów z wydajnością udziałów plików platformy Azure
 
@@ -74,11 +74,12 @@ Jeśli używana aplikacja jest jednowątkowa, ta konfiguracja może spowodować 
 
 ### <a name="cause"></a>Przyczyna
 
-Maszyna wirtualna klienta (VM) może znajdować się w innym regionie niż udział plików.
+Maszyna wirtualna klienta (VM) może znajdować się w innym regionie niż udział plików. Innym powodem wysokiego opóźnienia może być spowodowanie opóźnień spowodowanych przez klienta lub sieć.
 
 ### <a name="solution"></a>Rozwiązanie
 
 - Uruchom aplikację z maszyny wirtualnej znajdującej się w tym samym regionie co udział plików.
+- W przypadku konta magazynu Przejrzyj metryki transakcji **SuccessE2ELatency** i  **SuccessServerLatency** za pośrednictwem **Azure monitor** w Azure Portal. Wysoka różnica między wartościami metryk SuccessE2ELatency i SuccessServerLatency to wskazanie opóźnienia, które prawdopodobnie jest spowodowane przez sieć lub klienta. Zobacz [metryki transakcji](storage-files-monitoring-reference.md#transaction-metrics) w temacie Informacje o danych monitorowania Azure Files.
 
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>Klient nie może osiągnąć maksymalnej przepływności obsługiwanej przez sieć
 

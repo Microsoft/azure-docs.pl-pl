@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: b70a3fe4884ef209e57fbb954c27aa83486b5c98
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: aaeb38b4d46188205841d6a93437533e30061485
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94661005"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512101"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Samouczek: Tworzenie bramy sieci VPN i zarządzanie nią przy użyciu programu PowerShell
 
@@ -26,7 +26,7 @@ Bramy sieci VPN na platformie Azure zapewniają łączność między lokalizacja
 
 Poniższy diagram przedstawia sieć wirtualną oraz bramę sieci VPN utworzoną w ramach tego samouczka.
 
-:::image type="content" source="./media/vpn-gateway-tutorial-create-gateway-powershell/gateway-diagram.png" alt-text="Diagram sieci VNet i VPN Gateway":::
+:::image type="content" source="./media/vpn-gateway-tutorial-create-gateway-powershell/diagram.png" alt-text="Diagram sieci VNet i VPN Gateway":::
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

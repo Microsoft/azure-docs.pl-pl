@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: a5c0d8bb47b337b0415565a0b6dad5c6822d0b94
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: fd71f4eb56974b93637c23eddc81e5f33ce788b8
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781740"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512158"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -41,7 +41,7 @@ Aby uzyskać więcej informacji, zobacz sekcję przykłady w tym artykule.
 - [Transferowanie danych za pomocą narzędzia AzCopy i magazynu plików](storage-use-azcopy-files.md)
 - [Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCopy](storage-use-azcopy-configure.md)
 
-## <a name="advanced"></a>Zaawansowane
+## <a name="advanced"></a>Zaawansowany
 
 AzCopy automatycznie wykrywa typ zawartości plików podczas ich przekazywania z dysku lokalnego. AzCopy wykrywa typ zawartości na podstawie rozszerzenia lub zawartości pliku (jeśli nie określono rozszerzenia).
 
@@ -107,6 +107,14 @@ Przekaż pliki i katalogi, używając tokenu SAS i symboli wieloznacznych (*):
 ```azcopy
 azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
 ```
+
+Przekaż pliki i katalogi do konta usługi Azure Storage i ustaw Tagi kodowane w ciągu zapytania w obiekcie blob. 
+
+- Aby ustawić Tagi {Key = "pus pus", Val = "foo"} i {Key = "pus pus 2", Val = "bar"}, użyj następującej składni: `azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
+    
+- Klucze i wartości są zakodowane przy użyciu adresu URL, a pary klucz-wartość są oddzielone znakiem handlowego "i" ("&")
+
+- Podczas ustawiania tagów w obiektach Blob istnieją dodatkowe uprawnienia ("dla tagów") w sygnaturze dostępu współdzielonego, bez którego usługa udzieli błędu autoryzacji.
 
 Pobierz pojedynczy plik przy użyciu uwierzytelniania OAuth. Jeśli jeszcze nie zalogowano się w usłudze AzCopy, uruchom `azcopy login` polecenie przed uruchomieniem następującego polecenia.
 
@@ -214,9 +222,19 @@ Skopiuj podzestaw zasobników przy użyciu symbolu wieloznacznego (*) w nazwie z
 - azcopy cp "https://s3.amazonaws.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
 
+Transferuj pliki i katalogi do konta usługi Azure Storage i ustaw odpowiednie Tagi kodowane w ciągu zapytania w obiekcie blob. 
+
+- Aby ustawić Tagi {Key = "pus pus", Val = "foo"} i {Key = "pus pus 2", Val = "bar"}, użyj następującej składni: `azcopy cp "https://[account].blob.core.windows.net/[source_container]/[path/to/directory]?[SAS]" "https://[account].blob.core.windows.net/[destination_container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
+        
+- Klucze i wartości są zakodowane przy użyciu adresu URL, a pary klucz-wartość są oddzielone znakiem handlowego "i" ("&")
+    
+- Podczas ustawiania tagów w obiektach Blob istnieją dodatkowe uprawnienia ("dla tagów") w sygnaturze dostępu współdzielonego, bez którego usługa udzieli błędu autoryzacji.
+
 ## <a name="options"></a>Opcje
 
 **--kopia zapasowa** Aktywuje SeBackupPrivilege systemu Windows pod kątem przekazywania lub SeRestorePrivilege do pobrania, aby umożliwić AzCopy wyświetlanie i odczytywanie wszystkich plików, niezależnie od ich uprawnień systemu plików oraz przywracania wszystkich uprawnień. Wymaga, aby konto z systemem AzCopy już miało te uprawnienia (na przykład ma prawa administratora lub jest członkiem `Backup Operators` grupy). Ta flaga aktywuje uprawnienia, które już istnieją dla konta.
+
+**--Tagi obiektów BLOB —** znaczniki ustawiające obiekty blob w celu kategoryzowania danych na koncie magazynu.
 
 **--ciąg typu BLOB** definiuje typ obiektu BLOB w miejscu docelowym. Służy do przekazywania obiektów blob i kopiowania między kontami (domyślnie `Detect` ). Prawidłowe wartości to `Detect` , `BlockBlob` , `PageBlob` , i `AppendBlob` . Podczas kopiowania między kontami, wartość `Detect` powoduje, że AzCopy używa typu źródłowego obiektu BLOB do określenia typu docelowego obiektu BLOB. Podczas przekazywania pliku określa, `Detect` czy plik jest plikiem VHD lub VHDX na podstawie rozszerzenia pliku. Jeśli plik jest eterem pliku VHD lub VHDX, AzCopy traktuje ten plik jako stronicowy obiekt BLOB. (domyślnie "Detect")
 
@@ -304,6 +322,6 @@ Skopiuj podzestaw zasobników przy użyciu symbolu wieloznacznego (*) w nazwie z
 
 **--Zaufane — ciąg sufiksów firmy Microsoft** określa dodatkowe sufiksy domeny, w których mogą być wysyłane Azure Active Directory tokeny logowania.  Wartość domyślna to `*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net`. Wszystkie wymienione tutaj są dodawane do ustawień domyślnych. W celu zapewnienia bezpieczeństwa należy tu umieścić tylko domeny Microsoft Azure. Rozdziel wiele wpisów średnikami.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [AzCopy](storage-ref-azcopy.md)

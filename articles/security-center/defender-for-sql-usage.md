@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 11/30/2020
 ms.author: memildin
-ms.openlocfilehash: a80747a88087e1ad3a70f198a260e41a6848e34f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 07a94685fb3655aa5aa21a8658b9d975c764daff
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445659"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512282"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Usługa Azure Defender dla serwerów SQL na maszynach 
 
@@ -30,7 +30,7 @@ Zobaczysz alerty w przypadku podejrzanych działań bazy danych, potencjalnych l
 
 |Aspekt|Szczegóły|
 |----|:----|
-|Stan wydania:|Wersja zapoznawcza<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|Stan wydania:|Ogólnie dostępna (GA)|
 |Wpisaną|Opłaty za **usługi Azure Defender dla serwerów SQL na maszynach** są rozliczane zgodnie z [cennikiem](security-center-pricing.md) .|
 |Chronione wersje programu SQL:|Azure SQL Server (wszystkie wersje objęte pomocą techniczną firmy Microsoft)|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Nie](./media/icons/no-icon.png) Chiny gov, inne gov|
@@ -68,7 +68,7 @@ Oba te elementy zostały opisane poniżej.
 
         ![Znajdowanie obszaru roboczego innego niż domyślny według tytułu](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
 
-1. Ustaw opcję **usługi Azure Defender dla serwerów SQL na maszynach (wersja zapoznawcza)** **.** 
+1. Ustaw opcję **usługi Azure Defender for SQL Server na maszynach** na **komputerze**. 
 
     ![Strona cennika Security Center z opcjonalnymi planami](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)
 
@@ -79,7 +79,7 @@ Oba te elementy zostały opisane poniżej.
 
 
 1. Opcjonalnie możesz skonfigurować powiadomienia e-mail o alertach zabezpieczeń. 
-    Po wygenerowaniu alertów Security Center można ustawić listę adresatów, którzy otrzymają powiadomienie e-mail. Wiadomość e-mail zawiera bezpośredni link do alertu w Azure Security Center ze wszystkimi odpowiednimi szczegółami. Aby uzyskać więcej informacji, zobacz [Konfigurowanie powiadomień e-mail dla alertów zabezpieczeń](security-center-provide-security-contact-details.md).
+    Po wygenerowaniu alertów Security Center można ustawić listę adresatów, którzy otrzymają powiadomienie e-mail. Wiadomość e-mail zawiera bezpośrednią sk do alertu w Azure Security Center ze wszystkimi odpowiednimi informacjami. Aby uzyskać więcej informacji, zobacz [Konfigurowanie powiadomień e-mail dla alertów zabezpieczeń](security-center-provide-security-contact-details.md).
 
 
 

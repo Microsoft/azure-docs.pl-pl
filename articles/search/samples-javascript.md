@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: 234c70fffb6f353c670d23624cc446fdaf6bd886
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 09a9ca2ad1b1f1e5578ecc5d35a85c81b32a5b1a
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498969"
+ms.locfileid: "96511750"
 ---
 # <a name="javascript-code-samples-for-azure-cognitive-search"></a>Przykłady kodu JavaScript dla Wyszukiwanie poznawcze platformy Azure
 
@@ -25,7 +25,7 @@ Zapoznaj się z przykładami kodu JavaScript, które demonstrują funkcje i funk
 | [Azure-Samples/Azure-Search-JavaScript-Samples](https://github.com/Azure-Samples/azure-search-javascript-samples) | Przykłady kodu, które są dołączone do artykułów, [w tym Szybki Start: Tworzenie indeksu wyszukiwania w języku JavaScript](search-get-started-javascript.md).|
 
 > [!Tip]
-> Wypróbuj [przeglądarkę przykładów](/samples/browse/?languages=csharp&products=azure-cognitive-search) , aby wyszukać przykłady kodu firmy Microsoft w witrynie GitHub, filtrować według produktu, usługi i języka.
+> Wypróbuj [przeglądarkę przykładów](/samples/browse/?languages=javascript&products=azure-cognitive-search) , aby wyszukać przykłady kodu firmy Microsoft w witrynie GitHub, filtrować według produktu, usługi i języka.
 
 ## <a name="javascript-sdk-samples"></a>Przykłady zestawu SDK języka JavaScript
 

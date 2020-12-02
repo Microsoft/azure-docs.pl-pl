@@ -10,15 +10,15 @@ ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/16/2020
+ms.date: 11/20/2020
 ms.author: genli
 ms.custom: has-adal-ref
-ms.openlocfilehash: 4891d01c59289afddb244879e042e45b7b7a1aa6
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: f69d81656358b8ee9a5fa51cb8261e3115729714
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695728"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511563"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Błędy rozruchu funkcji BitLocker na maszynie wirtualnej platformy Azure
 
@@ -55,7 +55,7 @@ Jeśli ta metoda nie rozwiąże problemu, wykonaj następujące kroki, aby ręcz
     ```Powershell
     $rgName = "myResourceGroup"
     $osDiskName = "ProblemOsDisk"
-
+    # Set the EncryptionSettingsEnabled property to false, so you can attach the disk to the recovery VM.
     New-AzDiskUpdateConfig -EncryptionSettingsEnabled $false |Update-AzDisk -diskName $osDiskName -ResourceGroupName $rgName
 
     $recoveryVMName = "myRecoveryVM" 
@@ -87,21 +87,18 @@ Jeśli ta metoda nie rozwiąże problemu, wykonaj następujące kroki, aby ręcz
             | Sort-Object -Property Created `
             | ft  Created, `
                 @{Label="Content Type";Expression={$_.ContentType}}, `
+                @{Label ="MachineName"; Expression = {$_.Tags.MachineName}}, `
                 @{Label ="Volume"; Expression = {$_.Tags.VolumeLetter}}, `
                 @{Label ="DiskEncryptionKeyFileName"; Expression = {$_.Tags.DiskEncryptionKeyFileName}}
     ```
 
-    Poniżej znajduje się przykład danych wyjściowych. Znajdź nazwę pliku klucz szyfrowania bloków dla dołączonego dysku. W tym przypadku Załóżmy, że litera dysku dołączonego dysku to F, a plik klucz szyfrowania bloków to EF7B2F5A-50C6-4637-9F13-7F599C12F85C. Klucz szyfrowania bloków.
+    Poniżej znajduje się przykład danych wyjściowych. W tym przypadku Załóżmy, że nazwa pliku to EF7B2F5A-50C6-4637-0001-7F599C12F85C. Klucz szyfrowania bloków.
 
     ```
-    Created             Content Type Volume DiskEncryptionKeyFileName               
-    -------             ------------ ------ -------------------------               
-    4/5/2018 7:14:59 PM Wrapped BEK  C:\    B4B3E070-836C-4AF5-AC5B-66F6FDE6A971.BEK
-    4/7/2018 7:21:16 PM Wrapped BEK  F:\    EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
-    4/7/2018 7:26:23 PM Wrapped BEK  G:\    70148178-6FAE-41EC-A05B-3431E6252539.BEK
-    4/7/2018 7:26:26 PM Wrapped BEK  H:\    5745719F-4886-4940-9B51-C98AFABE5305.BEK
+    Created               Content Type Volume MachineName DiskEncryptionKeyFileName
+    -------               ------------ ------ ----------- -------------------------
+    11/20/2020 7:41:56 AM BEK          C:\    myVM   EF7B2F5A-50C6-4637-0001-7F599C12F85C.BEK
     ```
-
     Jeśli widzisz dwa zduplikowane woluminy, wolumin, który ma nowszą sygnaturę czasową, jest bieżącym plikiem klucz szyfrowania bloków używanym przez maszynę wirtualną odzyskiwania.
 
     Jeśli wartość **typu zawartości** jest **opakowana klucz szyfrowania bloków**, przejdź do [scenariuszy klucz szyfrowania klucza (KEK)](#key-encryption-key-scenario).
@@ -112,9 +109,10 @@ Jeśli ta metoda nie rozwiąże problemu, wykonaj następujące kroki, aby ręcz
 
     ```powershell
     $vault = "myKeyVault"
-    $bek = " EF7B2F5A-50C6-4637-9F13-7F599C12F85C"
+    $bek = "EF7B2F5A-50C6-4637-0001-7F599C12F85C"
     $keyVaultSecret = Get-AzKeyVaultSecret -VaultName $vault -Name $bek
-    $bekSecretBase64 = $keyVaultSecret.SecretValueText
+    $bstr = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($keyVaultSecret.SecretValue)
+    $bekSecretBase64 = [Runtime.InteropServices.Marshal]::PtrToStringAuto($bstr)
     $bekFileBytes = [Convert]::FromBase64String($bekSecretbase64)
     $path = "C:\BEK\DiskEncryptionKeyFileName.BEK"
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
@@ -123,7 +121,7 @@ Jeśli ta metoda nie rozwiąże problemu, wykonaj następujące kroki, aby ręcz
 7.  Aby odblokować dołączony dysk przy użyciu pliku klucz szyfrowania bloków, uruchom następujące polecenie.
 
     ```powershell
-    manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
+    manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-0001-7F599C12F85C.BEK
     ```
     W tym przykładzie dołączony dysk systemu operacyjnego to dysk F. Upewnij się, że używasz odpowiedniej litery dysku. 
 

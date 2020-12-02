@@ -8,16 +8,16 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: memildin
-ms.openlocfilehash: 36f519ce41ccfbfb48ca696ed2a61c6131a75998
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca3dd410474af0a42a3cd5b4217c3bba90b8ff1a
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906315"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511988"
 ---
 # <a name="protect-windows-admin-center-resources-with-security-center"></a>Ochrona zasobów centrum administracyjnego systemu Windows za pomocą Security Center
 
-Centrum administracyjne systemu Windows to narzędzie do zarządzania dla serwerów z systemem Windows. Jest to jedna lokalizacja dla administratorów systemu, aby uzyskać dostęp do większości najczęściej używanych narzędzi administracyjnych. Z poziomu Centrum administracyjnego systemu Windows możesz bezpośrednio dołączyć serwery z systemem Premium do Azure Security Center. Możesz wyświetlić podsumowanie zaleceń dotyczących zabezpieczeń i alertów bezpośrednio w środowisku centrum administracyjnego systemu Windows.
+Centrum administracyjne systemu Windows to narzędzie do zarządzania dla serwerów z systemem Windows. Jest to jedna lokalizacja dla administratorów systemu, aby uzyskać dostęp do większości najczęściej używanych narzędzi administracyjnych. Z poziomu Centrum administracyjnego systemu Windows możesz bezpośrednio dołączyć serwery lokalne do Azure Security Center. Możesz wyświetlić podsumowanie zaleceń dotyczących zabezpieczeń i alertów bezpośrednio w środowisku centrum administracyjnego systemu Windows.
 
 > [!NOTE]
 > Aby można było włączyć integrację centrum administracyjnego systemu Windows, w ramach subskrypcji platformy Azure i powiązanego obszaru roboczego Log Analytics należy włączyć usługę Azure Defender.
@@ -29,7 +29,7 @@ Po pomyślnym dołączeniu serwera z centrum administracyjnego systemu Windows d
 * Wyświetlanie alertów zabezpieczeń i zaleceń w ramach rozszerzenia Security Center w centrum administracyjnym systemu Windows
 * Wyświetlanie stan zabezpieczeń i pobieranie dodatkowych szczegółowych informacji o zarządzanych serwerach centrum administracyjnego systemu Windows w Security Center w ramach Azure Portal (lub za pośrednictwem interfejsu API)
 
-Łącząc te dwa narzędzia, Security Center stać się jednym okienkiem Glass, aby wyświetlić wszystkie informacje o zabezpieczeniach, niezależnie od zasobu: Ochrona centrum administracyjnego systemu Windows zarządzanych przez Premium serwerów, maszyn wirtualnych i innych obciążeń PaaS.
+Łącząc te dwa narzędzia, Security Center stać się jednym okienkiem Glass, aby wyświetlić wszystkie informacje o zabezpieczeniach, niezależnie od zasobu: Ochrona centrum administracyjnego systemu Windows zarządzanych serwerów lokalnych, maszyn wirtualnych i innych obciążeń PaaS.
 
 ## <a name="onboard-windows-admin-center-managed-servers-into-security-center"></a>Dołączanie serwerów zarządzanych w centrum administracyjnym systemu Windows do Security Center
 
