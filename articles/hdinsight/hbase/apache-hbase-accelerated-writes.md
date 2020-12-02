@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/24/2020
-ms.openlocfilehash: 99253aa2e7e2e1f3f58f2ab7d5c40a695c2b9690
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7a2373f0cf7005e465c2d3bd42817b3394a84de
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654858"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510282"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Usługa Azure HDInsight — przyspieszone zapisy dla oprogramowania Apache HBase
 
@@ -26,7 +26,7 @@ W HBase **wiersz** składa się z co najmniej jednej **kolumny** i jest identyfi
 
 ## <a name="write-ahead-log-for-apache-hbase"></a>Dziennik zapisu z wyprzedzeniem dla platformy Apache HBase
 
-HBase najpierw zapisuje aktualizacje danych do typu dziennika zatwierdzeń o nazwie zapis z wyprzedzeniem (WAL). Gdy aktualizacja zostanie zapisana w WAL, jest zapisywana w **magazynu**w pamięci. Gdy dane w pamięci osiągną maksymalną pojemność, jest ona zapisywana na dysku jako **HFile**.
+HBase najpierw zapisuje aktualizacje danych do typu dziennika zatwierdzeń o nazwie zapis z wyprzedzeniem (WAL). Gdy aktualizacja zostanie zapisana w WAL, jest zapisywana w **magazynu** w pamięci. Gdy dane w pamięci osiągną maksymalną pojemność, jest ona zapisywana na dysku jako **HFile**.
 
 Jeśli **RegionServer** ulegnie awarii lub stanie się niedostępna przed opróżnieniem magazynu, można użyć dziennika zapisu z wyprzedzeniem, aby powtórzyć aktualizacje. Bez WAL, jeśli **RegionServer** ulega awarii przed opróżnieniem aktualizacji do **HFile**, wszystkie te aktualizacje zostaną utracone.
 
@@ -36,9 +36,9 @@ Funkcja przyspieszone zapisy rozwiązuje problem z wyższymi opóźnieniami zapi
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Jak włączyć przyspieszone zapisy dla HBase w usłudze HDInsight
 
-Aby utworzyć nowy klaster HBase z funkcją szybsze zapisy, wykonaj kroki opisane w temacie [Konfigurowanie klastrów w usłudze HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) , dopóki nie zostanie osiągnięty **krok 3, magazyn**. W obszarze **ustawienia magazynu metadanych**zaznacz pole wyboru obok pozycji **Włącz przyspieszone operacje zapisu HBase**. Następnie kontynuuj pracę z pozostałymi krokami tworzenia klastra.
+Aby utworzyć nowy klaster HBase z funkcją szybsze zapisy, wykonaj kroki opisane w temacie [Konfigurowanie klastrów w usłudze HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) , dopóki nie zostanie osiągnięty **krok 3, magazyn**. W obszarze **ustawienia magazynu metadanych** zaznacz pole wyboru obok pozycji **Włącz przyspieszone operacje zapisu HBase**. Następnie kontynuuj pracę z pozostałymi krokami tworzenia klastra.
 
-![Włącz opcję szybsze zapisy dla usługi HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/azure-portal-cluster-storage-hbase.png)
+![Włącz opcję szybsze zapisy dla usługi HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/azure-portal-create-hbase-wals.png)
 
 ## <a name="other-considerations"></a>Inne zagadnienia
 

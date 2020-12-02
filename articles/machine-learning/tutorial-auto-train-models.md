@@ -11,12 +11,12 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
 ms.custom: devx-track-python, automl
-ms.openlocfilehash: 4f6e194f04789fbcaf24d69965dfa8ac61b20a38
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: e1a5370501fe73fb783db9a039d9f060acdb0a35
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886332"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511036"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Samouczek: Przewidywanie opłat za taksówkę za pomocą zautomatyzowanego uczenia maszynowego
 
@@ -210,7 +210,7 @@ Zdefiniuj parametr eksperymentu i ustawienia modelu dla szkolenia. Wyświetl pe�
 
 |Właściwość| Wartość w ramach tego samouczka |Opis|
 |----|----|---|
-|**iteration_timeout_minutes**|2|Limit czasu w minutach dla każdej iteracji. Zmniejszenie tej wartości powoduje skrócenie całkowitego czasu wykonywania.|
+|**iteration_timeout_minutes**|10|Limit czasu w minutach dla każdej iteracji. Zwiększ tę wartość dla większych zestawów danych, które potrzebują więcej czasu dla każdej iteracji.|
 |**experiment_timeout_hours**|0.3|Maksymalny czas (w godzinach), przez jaki połączone wszystkie iteracje mogą upłynąć przed zakończeniem eksperymentu.|
 |**enable_early_stopping**|Prawda|Oflaguj, aby włączyć wczesne zakończenie, jeśli wynik nie zostanie ulepszony w krótkim czasie.|
 |**primary_metric**| spearman_correlation | Metryka, który ma być optymalizowana. Na podstawie tej metryki zostanie wybrany model o najlepszym dopasowaniu.|
@@ -222,7 +222,7 @@ Zdefiniuj parametr eksperymentu i ustawienia modelu dla szkolenia. Wyświetl pe�
 import logging
 
 automl_settings = {
-    "iteration_timeout_minutes": 2,
+    "iteration_timeout_minutes": 10,
     "experiment_timeout_hours": 0.3,
     "enable_early_stopping": True,
     "primary_metric": 'spearman_correlation',

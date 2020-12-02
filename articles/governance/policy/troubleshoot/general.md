@@ -1,14 +1,14 @@
 ---
 title: Rozwiązywanie typowych problemów
 description: Dowiedz się, jak rozwiązywać problemy z tworzeniem definicji zasad, różnymi zestawami SDK i dodatkiem dla Kubernetes.
-ms.date: 10/30/2020
+ms.date: 12/01/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 74b622dd41fb28e845a35780e5d06588189ec029
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: f3667988d527100507d308887338278e1200d454
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146283"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511002"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Rozwiązywanie problemów z błędami przy użyciu Azure Policy
 
@@ -56,7 +56,7 @@ Najpierw poczekaj na ukończenie odpowiedniej ilości czasu, aby Ocena została 
 
 #### <a name="issue"></a>Problem
 
-Zasób nie jest w stanie oceny, jest _zgodny_ lub _niezgodny_ , oczekiwany dla tego zasobu.
+Zasób nie jest w stanie oceny, jest _zgodny_ lub _niezgodny_, oczekiwany dla tego zasobu.
 
 #### <a name="cause"></a>Przyczyna
 
@@ -88,14 +88,14 @@ Zasób, na który oczekuje się, Azure Policy nie jest i nie ma wpisu w [dzienni
 
 #### <a name="cause"></a>Przyczyna
 
-Przypisanie zasad zostało skonfigurowane do [wymuszania](../concepts/assignment-structure.md#enforcement-mode) _wyłączenia_ . Gdy tryb wymuszania jest wyłączony, efekt zasad nie jest wymuszany, a w dzienniku aktywności nie ma wpisu.
+Przypisanie zasad zostało skonfigurowane do [wymuszania](../concepts/assignment-structure.md#enforcement-mode) _wyłączenia_. Gdy tryb wymuszania jest wyłączony, efekt zasad nie jest wymuszany, a w dzienniku aktywności nie ma wpisu.
 
 #### <a name="resolution"></a>Rozwiązanie
 
 Wykonaj następujące kroki, aby rozwiązać problemy z wymuszeniem przypisania zasad:
 
 1. Najpierw poczekaj na ukończenie odpowiedniej ilości czasu, aby Ocena została ukończona, a wyniki zgodności staną się dostępne w Azure Portal lub SDK. Aby rozpocząć nowe skanowanie w celu oceny przy użyciu Azure PowerShell lub interfejsu API REST, zobacz [skanowanie na żądanie](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
-1. Sprawdź, czy parametry przypisania i zakres przypisania są ustawione prawidłowo i czy **wymuszanie** jest _włączone_ . 
+1. Sprawdź, czy parametry przypisania i zakres przypisania są ustawione prawidłowo i czy **wymuszanie** jest _włączone_.
 1. Sprawdź [tryb definicji zasad](../concepts/definition-structure.md#mode):
    - Tryb "All" dla wszystkich typów zasobów.
    - Tryb "Indexed", jeśli definicja zasad sprawdza pod kątem tagów lub lokalizacji.
@@ -190,24 +190,6 @@ Aby uzyskać szczegółowe opisy, zobacz następujący wpis w blogu:
 
 ## <a name="add-on-for-kubernetes-general-errors"></a>Dodatek dla ogólnych błędów Kubernetes
 
-### <a name="scenario-add-on-doesnt-work-with-aks-clusters-on-version-119-preview"></a>Scenariusz: dodatek nie działa z klastrami AKS w wersji 1,19 (wersja zapoznawcza)
-
-#### <a name="issue"></a>Problem
-
-Klastry w wersji 1,19 zwracają ten błąd za pośrednictwem kontrolera strażnika i elementów webhook zasad:
-
-```
-2020/09/22 20:06:55 http: TLS handshake error from 10.244.1.14:44282: remote error: tls: bad certificate
-```
-
-#### <a name="cause"></a>Przyczyna
-
-AKS clusers w wersji 1,19 (wersja zapoznawcza) nie jest jeszcze zgodna z dodatkiem Azure Policy.
-
-#### <a name="resolution"></a>Rozwiązanie
-
-Unikaj używania Kubernetes 1,19 (wersja zapoznawcza) z dodatkiem Azure Policy. Dodatek może być używany z wszystkimi obsługiwanymi ogólnie dostępnymi wersjami, takimi jak 1,16, 1,17 lub 1,18.
-
 ### <a name="scenario-add-on-is-unable-to-reach-the-azure-policy-service-endpoint-due-to-egress-restrictions"></a>Scenariusz: dodatek nie może nawiązać połączenia z punktem końcowym usługi Azure Policy ze względu na ograniczenia ruchu wychodzącego
 
 #### <a name="issue"></a>Problem
@@ -239,9 +221,9 @@ Dodatek nie może nawiązać połączenia z punktem końcowym usługi Azure Poli
 
 #### <a name="cause"></a>Przyczyna
 
-Ten błąd występuje, gdy w klastrze jest zainstalowana wartość _Add-pod-Identity_ i _polecenia —_ nie są one wykluczone w _usłudze AAD-pod-Identity_ .
+Ten błąd występuje, gdy w klastrze jest zainstalowana wartość _Add-pod-Identity_ i _polecenia —_ nie są one wykluczone w _usłudze AAD-pod-Identity_.
 
-Identyfikator zarządzania (NMI) w _usłudze AAD-pod-Identity_ (usługa) — Azure Site Identity — Modyfikuj węzły dołączenie iptables do przechwytywania wywołań do punktu końcowego metadanych wystąpienia platformy Azure. Ta konfiguracja oznacza, że wszystkie żądania wykonane w punkcie końcowym metadanych są przechwytywane przez NMI, nawet jeśli nie korzystają z usługi _AAD-pod-Identity_ .
+Identyfikator zarządzania (NMI) w _usłudze AAD-pod-Identity_ (usługa) — Azure Site Identity — Modyfikuj węzły dołączenie iptables do przechwytywania wywołań do punktu końcowego metadanych wystąpienia platformy Azure. Ta konfiguracja oznacza, że wszystkie żądania wykonane w punkcie końcowym metadanych są przechwytywane przez NMI, nawet jeśli nie korzystają z usługi _AAD-pod-Identity_.
 **AzurePodIdentityException** CRD można skonfigurować w taki sposób, aby informować usługi _AAD-pod-Identity_ , że wszystkie żądania kierowane do punktów końcowych metadanych pochodzące z elementu, które pasują do etykiet zdefiniowanych w CRD, powinny być serwerem proxy bez żadnego przetwarzania w NMI.
 
 #### <a name="resolution"></a>Rozwiązanie
@@ -277,10 +259,19 @@ spec:
 
 #### <a name="issue"></a>Problem
 
-Dodatek może nawiązać połączenie z punktem końcowym usługi Azure Policy, ale widzi następujący błąd:
+Dodatek może nawiązać połączenie z punktem końcowym usługi Azure Policy, ale widzi jeden z następujących błędów w dziennikach dodatków:
 
 ```
-The resource provider 'Microsoft.PolicyInsights' is not registered in subscription '{subId}'. See https://aka.ms/policy-register-subscription for how to register subscriptions.
+The resource provider 'Microsoft.PolicyInsights' is not registered in subscription '{subId}'. See
+https://aka.ms/policy-register-subscription for how to register subscriptions.
+```
+
+lub
+
+```
+policyinsightsdataplane.BaseClient#CheckDataPolicyCompliance: Failure responding to request:
+StatusCode=500 -- Original Error: autorest/azure: Service returned an error. Status=500
+Code="InternalServerError" Message="Encountered an internal server error."
 ```
 
 #### <a name="cause"></a>Przyczyna
@@ -289,9 +280,9 @@ The resource provider 'Microsoft.PolicyInsights' is not registered in subscripti
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Zarejestruj `Microsoft.PolicyInsights` dostawcę zasobów. Aby uzyskać instrukcje, zobacz [Rejestrowanie dostawcy zasobów](../../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+Zarejestruj `Microsoft.PolicyInsights` dostawcę zasobów w subskrypcji klastra. Aby uzyskać instrukcje, zobacz [Rejestrowanie dostawcy zasobów](../../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
-### <a name="scenario-the-subscript-is-disabled"></a>Scenariusz: indeks dolny jest wyłączony
+### <a name="scenario-the-subscription-is-disabled"></a>Scenariusz: subskrypcja jest wyłączona
 
 #### <a name="issue"></a>Problem
 
@@ -307,7 +298,7 @@ Ten błąd oznacza, że subskrypcja została określona jako problematyczna i fl
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Skontaktuj się z zespołem funkcji `azuredg@microsoft.com` , aby zbadać i rozwiązać ten problem. 
+Skontaktuj się z zespołem funkcji `azuredg@microsoft.com` , aby zbadać i rozwiązać ten problem.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -315,4 +306,4 @@ Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odw
 
 - Uzyskaj odpowiedzi od ekspertów za pośrednictwem usługi [Microsoft Q&A](/answers/topics/azure-policy.html).
 - Connect with [@AzureSupport](https://twitter.com/azuresupport) — oficjalne konto Microsoft Azure, aby usprawnić obsługę klienta, łącząc społeczność platformy Azure z właściwymi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
-- Jeśli potrzebujesz więcej pomocy, możesz obsłużyć zdarzenie pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję **Uzyskaj pomoc techniczną** .
+- Jeśli potrzebujesz więcej pomocy, możesz obsłużyć zdarzenie pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję **Uzyskaj pomoc techniczną**.

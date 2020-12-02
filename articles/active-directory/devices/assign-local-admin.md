@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0903828b04922104a9dd93ac79459bf73644f35c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f705150f927a08b5ca2f91b702ee0853766ac23a
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365837"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511121"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Jak zarządzać lokalną grupą administratorów na urządzeniach dołączonych do usługi Azure AD
 
@@ -72,14 +72,19 @@ Administratorzy urządzeń są przypisani do wszystkich urządzeń przyłączony
 >[!NOTE]
 > Ta funkcja jest obecnie w wersji zapoznawczej.
 
+
 Począwszy od aktualizacji systemu Windows 10 2004, można użyć grup usługi Azure AD do zarządzania uprawnieniami administratora na urządzeniach dołączonych do usługi Azure AD za pomocą zasad MDM [grup z ograniczeniami](/windows/client-management/mdm/policy-csp-restrictedgroups) . Te zasady umożliwiają przypisanie poszczególnych użytkowników lub grup usługi Azure AD do lokalnej grupy administratorów na urządzeniu przyłączonym do usługi Azure AD, co zapewnia stopień szczegółowości konfigurowania różnych administratorów dla poszczególnych grup urządzeń. 
 
-Obecnie nie ma interfejsu użytkownika w usłudze Intune do zarządzania tymi zasadami i należy je skonfigurować przy użyciu [niestandardowych ustawień OMA-URI](/mem/intune/configuration/custom-settings-windows-10). Poniżej wymieniono zagadnienia dotyczące tych zasad: 
+>[!NOTE]
+> Począwszy od systemu Windows 10 20H2 Update, zalecamy używanie zasad [lokalnych użytkowników i grup](/windows/client-management/mdm/policy-csp-localusersandgroups) zamiast zasad grupy z ograniczeniami
+
+
+Obecnie nie ma interfejsu użytkownika w usłudze Intune do zarządzania tymi zasadami i należy je skonfigurować przy użyciu [niestandardowych ustawień OMA-URI](/mem/intune/configuration/custom-settings-windows-10). Poniżej wymieniono zagadnienia dotyczące korzystania z jednej z tych zasad: 
 
 - Dodawanie grup usługi Azure AD za pomocą zasad wymaga, aby identyfikator SID grupy można było uzyskać przez wykonanie interfejsu API grup. Identyfikator SID jest definiowany przez właściwość `securityIdentifier` w interfejsie API grup.
-- Gdy zasady grupy ograniczone są wymuszane, wszystkie bieżące elementy członkowskie grupy, która nie znajduje się na liście członków, zostaną usunięte. Aby wymusić te zasady dla nowych członków lub grup, należy usunąć istniejących administratorów, a także użytkowników, którzy przyłączyły urządzenie, rolę administratora urządzenia i rolę administratora globalnego z urządzenia. Aby uniknąć usuwania istniejących członków, należy je skonfigurować jako część listy członków w zasadach grup z ograniczeniami. 
-- Te zasady mają zastosowanie tylko do następujących dobrze znanych grup na urządzeniach z systemem Windows 10 — Administratorzy, użytkownicy, Goście, użytkownicy zaawansowani, użytkownicy Pulpit zdalny i użytkownicy zdalnego zarządzania. 
-- Zarządzanie administratorami lokalnymi przy użyciu zasad grupy z ograniczeniami nie ma zastosowania do hybrydowej usługi Azure AD przyłączonej lub zarejestrowanych urządzeń usługi Azure AD.
+- Gdy zasady grupy ograniczone są wymuszane, wszystkie bieżące elementy członkowskie grupy, która nie znajduje się na liście członków, zostaną usunięte. Aby wymusić te zasady dla nowych członków lub grup, należy usunąć istniejących administratorów, a także użytkowników, którzy przyłączyły urządzenie, rolę administratora urządzenia i rolę administratora globalnego z urządzenia. Aby uniknąć usuwania istniejących członków, należy je skonfigurować jako część listy członków w zasadach grup z ograniczeniami. To ograniczenie jest rozwiązywane, jeśli używasz zasad lokalnych użytkowników i grup, które zezwalają na aktualizacje przyrostowe członkostwa w grupach.
+- Uprawnienia administratora korzystające z obu zasad są oceniane tylko dla następujących dobrze znanych grup na urządzeniach z systemem Windows 10 — Administratorzy, użytkownicy, Goście, użytkownicy zaawansowani, Pulpit zdalny Użytkownicy i użytkownicy zdalnego zarządzania. 
+- Zarządzanie administratorami lokalnymi przy użyciu grup usługi Azure AD nie ma zastosowania do hybrydowej usługi Azure AD przyłączonej lub zarejestrowanych urządzeń usługi Azure AD.
 - Zasady grup z ograniczeniami istnieją przed aktualizacją systemu Windows 10 2004, ale nie obsługują grup usługi Azure AD jako członków lokalnej grupy administratorów na urządzeniu. 
 
 ## <a name="manage-regular-users"></a>Zarządzanie regularnymi użytkownikami

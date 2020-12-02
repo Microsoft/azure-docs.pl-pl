@@ -5,19 +5,19 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 10/23/2020
-ms.openlocfilehash: 74000322372652b90e0d0db07d687f8e57c4f88e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.date: 12/01/2020
+ms.openlocfilehash: e2df34b7897ee2543d967d147317859ab26971e9
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518249"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510487"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-azure-portal"></a>Samouczek: Tworzenie bramy VPN Gateway i zarządzanie nią przy użyciu Azure Portal
 
 Bramy sieci VPN na platformie Azure zapewniają łączność między lokalizacjami klienta a platformą Azure. Ten samouczek obejmuje podstawowe etapy wdrażania bramy sieci VPN, takie jak tworzenie bramy i zarządzanie nią.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie sieci wirtualnej
@@ -74,7 +74,7 @@ Utwórz bramę sieci wirtualnej przy użyciu następujących wartości:
 
 Publiczny adres IP bramy można wyświetlić na stronie **Przegląd** bramy.
 
-:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Diagram sieci VNet i VPN Gateway":::
+:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Strona przeglądu":::
 
 Aby wyświetlić dodatkowe informacje na temat obiektu publicznego adresu IP, kliknij link nazwa/adres IP obok pozycji **publiczny adres IP**.
 

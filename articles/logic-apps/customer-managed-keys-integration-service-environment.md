@@ -3,15 +3,15 @@ title: Konfigurowanie kluczy zarządzanych przez klienta do szyfrowania danych p
 description: Utwórz własne klucze szyfrowania i zarządzaj nimi, aby zabezpieczyć dane przechowywane w środowiskach usługi Integration Environment (ISEs) w Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, rarayudu, logicappspm
+ms.reviewer: mijos, rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.openlocfilehash: 30b09d43cbe510318ac4f48e0655d5483491c215
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.date: 11/20/2020
+ms.openlocfilehash: 59c60c876058f8664b38411b562e57c2d5cdc2a8
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682778"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510628"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Skonfiguruj klucze zarządzane przez klienta, aby szyfrować dane przechowywane w środowiskach usługi Integration Environment (ISEs) w Azure Logic Apps
 
@@ -21,17 +21,21 @@ Podczas tworzenia [środowiska usługi integracji (ISE)](../logic-apps/connect-v
 
 W tym temacie przedstawiono sposób konfigurowania i określania własnego klucza szyfrowania, który ma być używany podczas tworzenia ISE przy użyciu interfejsu API REST Logic Apps. Aby zapoznać się z ogólnymi krokami tworzenia ISE za pośrednictwem interfejsu API REST Logic Apps, zobacz [Tworzenie środowiska usługi integracji (ISE) przy użyciu interfejsu API rest Logic Apps](../logic-apps/create-integration-service-environment-rest-api.md).
 
-## <a name="considerations"></a>Kwestie do rozważenia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 * W tej chwili obsługa klucza zarządzanego przez klienta dla ISE jest dostępna tylko w następujących regionach świadczenia usługi Azure: zachodnie stany USA 2, Wschodnie stany USA i Południowo-środkowe stany USA
 
 * Klucz zarządzany przez klienta można określić tylko w *przypadku tworzenia ISE*, a nie później. Nie można wyłączyć tego klucza po utworzeniu ISE. Obecnie nie istnieje żadna pomoc dla rotacji klucza zarządzanego przez klienta dla ISE.
 
-* Aby obsługiwały klucze zarządzane przez klienta, ISE wymaga, aby była włączona [tożsamość zarządzana przez system](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) . Ta tożsamość pozwala ISE uwierzytelniać dostęp do zasobów w innych dzierżawach usługi Azure Active Directory (Azure AD), dzięki czemu nie musisz logować się przy użyciu swoich poświadczeń.
+* Aby obsługiwały klucze zarządzane przez klienta, ISE wymaga włączenia [zarządzanej tożsamości przypisanej do systemu lub przypisanej przez użytkownika](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). Ta tożsamość pozwala ISE uwierzytelniać dostęp do zabezpieczonych zasobów, takich jak maszyny wirtualne i inne systemy lub usługi, które znajdują się w usłudze lub są połączone z siecią wirtualną platformy Azure. Dzięki temu nie musisz logować się przy użyciu swoich poświadczeń.
 
-* Obecnie aby utworzyć element ISE, który obsługuje klucze zarządzane przez klienta i ma włączoną swoją tożsamość przypisaną do systemu, należy wywołać interfejs API REST Logic Apps przy użyciu żądania HTTPS PUT.
+* Obecnie aby utworzyć element ISE, który obsługuje klucze zarządzane przez klienta i ma włączony typ tożsamości zarządzanej, należy wywołać interfejs API REST Logic Apps przy użyciu żądania HTTPS PUT.
 
-* W ciągu *30 minut* od wysłania żądania HTTPS Put, które tworzy ISE, należy [nadać magazynowi kluczy dostęp do tożsamości przypisanej do systemu ISE](#identity-access-to-key-vault). W przeciwnym razie tworzenie ISE kończy się niepowodzeniem i zgłasza błąd uprawnień.
+* Musisz [nadać magazynowi kluczy dostęp do tożsamości zarządzanej ISE](#identity-access-to-key-vault), ale chronometraż zależy od używanej tożsamości zarządzanej.
+
+  * **Tożsamość zarządzana przypisana przez system**: w ciągu *30 minut od* WYSŁANia żądania HTTPS Put, które tworzy ISE, należy [przyznać magazynowi kluczy dostęp do tożsamości zarządzanej ISE](#identity-access-to-key-vault). W przeciwnym razie tworzenie ISE kończy się niepowodzeniem i zostanie wyświetlony komunikat o błędzie uprawnień.
+
+  * **Tożsamość zarządzana przypisana przez użytkownika**: przed wysłaniem żądania HTTPS Put, które tworzy ISE, [Udziel magazynowi kluczy dostępu do tożsamości zarządzanej ISE](#identity-access-to-key-vault).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -47,7 +51,7 @@ W tym temacie przedstawiono sposób konfigurowania i określania własnego klucz
   |----------|-------|
   | **Typ klucza** | RSA |
   | **Rozmiar klucza RSA** | 2048 |
-  | **Włączone** | Tak |
+  | **Włączono** | Tak |
   |||
 
   ![Tworzenie klucza szyfrowania zarządzanego przez klienta](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
@@ -56,7 +60,7 @@ W tym temacie przedstawiono sposób konfigurowania i określania własnego klucz
 
 * Narzędzie, za pomocą którego można utworzyć ISE przez wywołanie interfejsu API REST Logic Apps przy użyciu żądania HTTPS PUT. Na przykład można użyć programu [Poster](https://www.getpostman.com/downloads/)lub można utworzyć aplikację logiki, która wykonuje to zadanie.
 
-<a name="enable-support-key-system-identity"></a>
+<a name="enable-support-key-managed-identity"></a>
 
 ## <a name="create-ise-with-key-vault-and-managed-identity-support"></a>Tworzenie ISE przy użyciu magazynu kluczy i pomocy technicznej dotyczącej tożsamości zarządzanej
 
@@ -65,7 +69,7 @@ Aby utworzyć ISE przez wywołanie interfejsu API REST Logic Apps, wykonaj to ż
 `PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01`
 
 > [!IMPORTANT]
-> Wersja interfejsu API REST Logic Apps 2019-05-01 wymaga wprowadzenia własnego żądania HTTP PUT dla łączników ISE.
+> Wersja interfejsu API REST Logic Apps 2019-05-01 wymaga wprowadzenia własnego żądania HTTPS PUT dla łączników ISE.
 
 Wdrożenie zazwyczaj trwa w ciągu dwóch godzin. Czasami wdrożenie może trwać do czterech godzin. Aby sprawdzić stan wdrożenia, w [Azure Portal](https://portal.azure.com)na pasku narzędzi platformy Azure wybierz ikonę powiadomienia, która spowoduje otwarcie okienka powiadomienia.
 
@@ -88,7 +92,7 @@ W nagłówku żądania uwzględnij następujące właściwości:
 
 W treści żądania Włącz obsługę tych dodatkowych elementów, dostarczając ich informacje w definicji ISE:
 
-* Tożsamość zarządzana przypisana przez system, której ISE używa do uzyskiwania dostępu do magazynu kluczy
+* Zarządzana tożsamość wykorzystywana przez ISE do uzyskiwania dostępu do magazynu kluczy
 * Magazyn kluczy i klucz zarządzany przez klienta, który ma być używany
 
 #### <a name="request-body-syntax"></a>Składnia treści żądania
@@ -106,7 +110,14 @@ Poniżej przedstawiono składnię treści żądania opisującą właściwości u
       "capacity": 1
    },
    "identity": {
-      "type": "SystemAssigned"
+      "type": <"SystemAssigned" | "UserAssigned">,
+      // When type is "UserAssigned", include the following "userAssignedIdentities" object:
+      "userAssignedIdentities": {
+         "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{user-assigned-managed-identity-object-ID}": {
+            "principalId": "{principal-ID}",
+            "clientId": "{client-ID}"
+         }
+      }
    },
    "properties": {
       "networkConfiguration": {
@@ -153,7 +164,13 @@ W tej przykładowej treści żądania pokazano przykładowe wartości:
    "type": "Microsoft.Logic/integrationServiceEnvironments",
    "location": "WestUS2",
    "identity": {
-      "type": "SystemAssigned"
+      "type": "UserAssigned",
+      "userAssignedIdentities": {
+         "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/*********************************": {
+            "principalId": "*********************************",
+            "clientId": "*********************************"
+         }
+      }
    },
    "sku": {
       "name": "Premium",
@@ -197,7 +214,11 @@ W tej przykładowej treści żądania pokazano przykładowe wartości:
 
 ## <a name="grant-access-to-your-key-vault"></a>Udzielanie dostępu do magazynu kluczy
 
-W ciągu *30 minut* od wysłania żądania HTTP Put w celu utworzenia ISE należy dodać zasady dostępu do magazynu kluczy dla tożsamości przypisanej do systemu ISE. W przeciwnym razie tworzenie ISE kończy się niepowodzeniem i zostanie wyświetlony komunikat o błędzie uprawnień. 
+Chociaż chronometraż różni się w zależności od używanej tożsamości zarządzanej, należy [przyznać magazynowi kluczy dostęp do tożsamości zarządzanej ISE](#identity-access-to-key-vault).
+
+* **Tożsamość zarządzana przypisana przez system**: w ciągu *30 minut od* WYSŁANia żądania HTTPS Put, które tworzy ISE, należy dodać zasady dostępu do magazynu kluczy dla tożsamości zarządzanej przypisanej do systemu ISE. W przeciwnym razie tworzenie ISE kończy się niepowodzeniem i zostanie wyświetlony komunikat o błędzie uprawnień.
+
+* **Tożsamość zarządzana przypisana przez użytkownika**: przed wysłaniem żądania HTTPS Put, które tworzy ISE, Dodaj zasady dostępu do magazynu kluczy dla tożsamości zarządzanej przypisanej przez użytkownika ISE.
 
 W przypadku tego zadania można użyć polecenia Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) albo wykonać następujące czynności w Azure Portal:
 

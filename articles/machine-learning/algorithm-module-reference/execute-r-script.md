@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/21/2020
-ms.openlocfilehash: 1e71d3883b8dacefa9b501ee3a9a0533d5c7d515
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.date: 12/02/2020
+ms.openlocfilehash: 57b4b6f3f49e9b82ada4b37c8e2de0697781e063
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592672"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510594"
 ---
 # <a name="execute-r-script-module"></a>Wykonaj moduł skryptu języka R
 
@@ -78,25 +78,27 @@ azureml_main <- function(dataframe1, dataframe2){
  > [!NOTE]
  > Przed zainstalowaniem pakietu Sprawdź, czy już istnieje, aby nie powtarzać instalacji. Instalacja powtarzania może spowodować przekroczenie limitu czasu żądań usługi sieci Web.     
 
+## <a name="access-to-registered-dataset"></a>Dostęp do zarejestrowanego zestawu danych
+
+Aby uzyskać dostęp do [zarejestrowanych zestawów danych](../how-to-create-register-datasets.md) w obszarze roboczym, można odwołać się do następującego przykładowego kodu:
+
+```R
+azureml_main <- function(dataframe1, dataframe2){
+  print("R script run.")
+  run = get_current_run()
+  ws = run$experiment$workspace
+  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
+  dataframe2 <- dataset$to_pandas_dataframe()
+  # Return datasets as a Named List
+  return(list(dataset1=dataframe1, dataset2=dataframe2))
+}
+```
+
 ## <a name="uploading-files"></a>Przekazywanie plików
 Moduł wykonywania skryptu języka R obsługuje przekazywanie plików przy użyciu zestawu Azure Machine Learning R SDK.
 
 Poniższy przykład pokazuje, jak przekazać plik obrazu w skrypcie Execute języka R:
 ```R
-
-# R version: 3.5.1
-# The script MUST contain a function named azureml_main,
-# which is the entry point for this module.
-
-# Note that functions dependent on the X11 library,
-# such as "View," are not supported because the X11 library
-# is not preinstalled.
-
-# The entry point function MUST have two input arguments.
-# If the input port is not connected, the corresponding
-# dataframe argument will be null.
-#   Param<dataframe1>: a R DataFrame
-#   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
   print("R script run.")
 
@@ -119,22 +121,6 @@ Po zakończeniu przebiegu potoku można wyświetlić podgląd obrazu w prawym pa
 > [!div class="mx-imgBorder"]
 > ![Podgląd przekazanego obrazu](media/module/upload-image-in-r-script.png)
 
-## <a name="access-to-registered-dataset"></a>Dostęp do zarejestrowanego zestawu danych
-
-Aby uzyskać dostęp do [zarejestrowanych zestawów danych](../how-to-create-register-datasets.md) w obszarze roboczym, można odwołać się do następującego przykładowego kodu:
-
-```R
-    azureml_main <- function(dataframe1, dataframe2){
-  print("R script run.")
-  run = get_current_run()
-  ws = run$experiment$workspace
-  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
-  dataframe2 <- dataset$to_pandas_dataframe()
-  # Return datasets as a Named List
-  return(list(dataset1=dataframe1, dataset2=dataframe2))
-}
-```
-
 ## <a name="how-to-configure-execute-r-script"></a>Jak skonfigurować skrypt wykonywania skryptu języka R
 
 Moduł wykonywania skryptu języka R zawiera przykładowy kod jako punkt wyjścia.
@@ -147,11 +133,11 @@ Zestawy danych przechowywane w projektancie są automatycznie konwertowane na ra
 
 1. Połącz wszystkie dane wejściowe wymagane przez skrypt. Wejścia są opcjonalne i mogą zawierać dane oraz dodatkowy kod R.
 
-    * **Pozycję DataSet1** : odwołanie do pierwszego danych wejściowych jako `dataframe1` . Wejściowy zestaw danych musi być sformatowany jako plik CSV, TSV lub ARFF. Można też połączyć zestaw danych Azure Machine Learning.
+    * **Pozycję DataSet1**: odwołanie do pierwszego danych wejściowych jako `dataframe1` . Wejściowy zestaw danych musi być sformatowany jako plik CSV, TSV lub ARFF. Można też połączyć zestaw danych Azure Machine Learning.
 
-    * **Dataset2** : odwołuje się do drugiego danych wejściowych jako `dataframe2` . Ten zestaw danych musi być również sformatowany jako plik CSV, TSV lub ARFF lub jako zestaw danych Azure Machine Learning.
+    * **Dataset2**: odwołuje się do drugiego danych wejściowych jako `dataframe2` . Ten zestaw danych musi być również sformatowany jako plik CSV, TSV lub ARFF lub jako zestaw danych Azure Machine Learning.
 
-    * **Pakiet skryptu** : trzecie wejście akceptuje pliki. zip. Plik spakowany może zawierać wiele plików i wiele typów plików.
+    * **Pakiet skryptu**: trzecie wejście akceptuje pliki. zip. Plik spakowany może zawierać wiele plików i wiele typów plików.
 
 1. W polu tekstowym **skrypt języka r** wpisz lub wklej prawidłowy skrypt języka r.
 
@@ -237,7 +223,7 @@ Istnieje wiele sposobów na rozbudowanie potoku przy użyciu niestandardowych sk
 
 Moduł wykonywania skryptu języka R obsługuje dowolne pliki skryptów języka R jako dane wejściowe. Aby ich używać, należy przekazać je do obszaru roboczego w ramach pliku zip.
 
-1. Aby przekazać plik. zip zawierający kod R do obszaru roboczego, przejdź do strony zasobów **zestawy danych** . Wybierz pozycję **Utwórz zestaw danych** , a następnie wybierz pozycję **z pliku lokalnego** i opcję **Typ zestawu danych** .  
+1. Aby przekazać plik. zip zawierający kod R do obszaru roboczego, przejdź do strony zasobów **zestawy danych** . Wybierz pozycję **Utwórz zestaw danych**, a następnie wybierz pozycję **z pliku lokalnego** i opcję **Typ zestawu danych** .  
 
 1. Sprawdź, czy spakowany plik jest wyświetlany w obszarze **Moje zestawy danych** w kategorii **zestawy danych** w lewym drzewie modułu.
 

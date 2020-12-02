@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: 244408cc512a51683ecb3c062113170b1c7f4781
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6e0f3d318cc462b03151d5a4935ae318df46e2c5
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499564"
+ms.locfileid: "96510560"
 ---
 # <a name="python-code-samples-for-azure-cognitive-search"></a>Przykłady kodu w języku Python dla usługi Azure Wyszukiwanie poznawcze
 
@@ -25,7 +25,7 @@ Zapoznaj się z przykładami kodu w języku Python, które demonstrują funkcje 
 | [Azure-Samples/Azure-Search-Python-Samples](https://github.com/Azure-Samples/azure-search-python-samples) | Przykłady kodu, które są dołączone do artykułów, [w tym szybkiego startu: Tworzenie indeksu wyszukiwania w języku Python](search-get-started-python.md).|
 
 > [!Tip]
-> Wypróbuj [przeglądarkę przykładów](/samples/browse/?languages=csharp&products=azure-cognitive-search) , aby wyszukać przykłady kodu firmy Microsoft w witrynie GitHub, filtrować według produktu, usługi i języka.
+> Wypróbuj [przeglądarkę przykładów](/samples/browse/?languages=python&products=azure-cognitive-search) , aby wyszukać przykłady kodu firmy Microsoft w witrynie GitHub, filtrować według produktu, usługi i języka.
 
 ## <a name="python-sdk-samples"></a>Przykłady zestawów SDK dla języka Python
 

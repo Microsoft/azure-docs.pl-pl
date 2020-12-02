@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/25/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 05fef320d558de30830f76031d3b96262ae29f07
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 838276c47085a3c7ad0f7c0a35a2578b13eb5026
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445803"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511271"
 ---
 # <a name="azure-synapse-analytics-frequently-asked-questions"></a>Usługa Azure Synapse Analytics — często zadawane pytania
 
@@ -28,13 +28,13 @@ Odp.: usługa Azure Synapse wprowadza wiele ról i zakresów, które umożliwiaj
 
 Synapse role RBAC:
 * Synapse administrator
-* Współautor Synapse
-* Autor artefaktu Synapse
-* Czytnik artefaktów Synapse
-* Synapse COMPUTE Manager
-* Użytkownik poświadczenia Synapse
-* Administrator zarządzanego prywatnego punktu końcowego Synapse
-* Czytnik Synapse
+* Synapse administratora SQL
+* Synapse Spark — administrator
+* Współautor Synapse (wersja zapoznawcza)
+* Wydawca artefaktu Synapse (wersja zapoznawcza)
+* Synapse artefaktu (wersja zapoznawcza)
+* Synapse COMPUTE — operator (wersja zapoznawcza)
+* Użytkownik poświadczeń Synapse (wersja zapoznawcza)
 
 Synapse zakresy RBAC:
 * Workspace 
@@ -71,7 +71,7 @@ Odp.: Synapse łącze dla Apache Spark jest GA. Link Synapse dla puli SQL bezser
 
 Odp.: tak! Wszystkie artefakty potoku, notesy, skrypty SQL i definicje zadań platformy Spark będą przechowywane w usłudze GIT. Wszystkie definicje puli będą przechowywane w usłudze GIT jako szablony ARM. Dedykowane obiekty puli SQL (schematy, tabele, widoki itp.) będą zarządzane przy użyciu projektów bazy danych z obsługą ciągłej integracji/ciągłego wdrażania.
 
-## <a name="pipelines"></a>Potoki
+## <a name="pipelines"></a>Pipelines
 
 ### <a name="q-how-do-i-ensure-i-know-what-credential-is-being-used-to-run-a-pipeline"></a>P: Jak mogę upewnij się, że poświadczenie jest używane do uruchamiania potoku? 
 

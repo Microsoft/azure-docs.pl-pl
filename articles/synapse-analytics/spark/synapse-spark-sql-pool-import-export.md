@@ -6,25 +6,28 @@ author: euangMS
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: spark
-ms.date: 04/15/2020
+ms.date: 11/19/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: 178fc12fe8e8e20af8deb40c62990c279af4ab64
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e0bdfa4a451269e82b73194e921f9067d848868e
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452828"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511087"
 ---
 # <a name="introduction"></a>Wprowadzenie
 
-Usługa Azure Synapse Apache Spark do Synapse SQL Connector została zaprojektowana w celu wydajnego transferu danych między pulami Apache Spark bezserwerowymi i pulami SQL na platformie Azure Synapse. Usługa Azure Synapse Apache Spark Synapse łącznik SQL działa tylko w przypadku dedykowanych pul SQL, ale nie działa z pulą SQL bez serwera.
+Usługa Azure Synapse Apache Spark do Synapse SQL Connector została zaprojektowana w celu wydajnego transferu danych między pulami Apache Spark bezserwerowymi i dedykowanymi pulami SQL na platformie Azure Synapse. Usługa Azure Synapse Apache Spark Synapse łącznik SQL działa tylko w przypadku dedykowanych pul SQL, ale nie działa z pulą SQL bez serwera.
+
+> [!WARNING]
+> Nazwa funkcji **sqlanalytics ()** została zmieniona na **synapsesql ()**. Funkcja sqlanalytics będzie nadal działać, ale zostanie wycofana.  Zmień wszelkie odwołania z **sqlanalytics ()** na **synapsesql ()** , aby zapobiec ewentualnemu zakłóceniu w przyszłości.
 
 ## <a name="design"></a>Projekt
 
 Przenoszenie danych między pulami platformy Spark i pulami SQL można wykonać przy użyciu JDBC. Jednak w przypadku dwóch systemów rozproszonych, takich jak platforma Spark i pule SQL, JDBC zachodzi wąskie gardło z transferem danych szeregowych.
 
-Pula Apache Spark platformy Azure Synapse do Synapse SQL Connector jest implementacją źródła danych dla Apache Spark. Używa Azure Data Lake Storage Gen2 i Base w dedykowanych pulach SQL do wydajnego transferu danych między klastrem Spark a wystąpieniem programu SQL Synapse.
+Pula Apache Spark platformy Azure Synapse do Synapse SQL Connector jest implementacją źródła danych dla Apache Spark. Używa Azure Data Lake Storage Gen2 i Base w dedykowanych pulach SQL do wydajnego transferu danych między klastrem Spark i Synapse dedykowanym wystąpieniem programu SQL Server.
 
 ![Architektura łącznika](./media/synapse-spark-sqlpool-import-export/arch1.png)
 
@@ -37,6 +40,8 @@ Z tego powodu nie ma potrzeby tworzenia poświadczeń ani określania ich w inte
 ## <a name="constraints"></a>Ograniczenia
 
 - Ten łącznik działa tylko w Scala.
+- Aby uzyskać pySpark, zobacz szczegóły w sekcji [use języka Python](#use-pyspark-with-the-connector) .
+- Ten łącznik nie obsługuje zapytań do widoków SQL.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -80,7 +85,7 @@ Instrukcje import nie są wymagane, ale są wstępnie zaimportowane do środowis
 #### <a name="read-api"></a>Odczytaj interfejs API
 
 ```scala
-val df = spark.read.sqlanalytics("<DBName>.<Schema>.<TableName>")
+val df = spark.read.synapsesql("<DBName>.<Schema>.<TableName>")
 ```
 
 Powyższy interfejs API będzie działał zarówno wewnętrznie (zarządzany), jak i zewnętrzne tabele w puli SQL.
@@ -88,7 +93,7 @@ Powyższy interfejs API będzie działał zarówno wewnętrznie (zarządzany), j
 #### <a name="write-api"></a>Interfejs API zapisu
 
 ```scala
-df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
+df.write.synapsesql("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
 Interfejs API zapisu tworzy tabelę w dedykowanej puli SQL, a następnie wywołuje bazę danych, aby załadować dane.  Tabela nie może istnieć w dedykowanej puli SQL lub zostanie zwrócony błąd wskazujący, że "istnieje już obiekt o nazwie..."
@@ -101,7 +106,7 @@ Wartości tabletype
 Tabela zarządzana przez pulę SQL
 
 ```scala
-df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
+df.write.synapsesql("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
 ```
 
 Tabela zewnętrzna puli SQL
@@ -130,7 +135,7 @@ Obiekt poświadczeń zewnętrznych nie jest wymagany w przypadku używania Azure
 df.write.
     option(Constants.DATA_SOURCE, <DataSourceName>).
     option(Constants.FILE_FORMAT, <FileFormatName>).
-    sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.EXTERNAL)
+    synapsesql("<DBName>.<Schema>.<TableName>", Constants.EXTERNAL)
 
 ```
 
@@ -149,7 +154,7 @@ df.write.
 ```scala
 val df = spark.read.
 option(Constants.SERVER, "samplews.database.windows.net").
-sqlanalytics("<DBName>.<Schema>.<TableName>")
+synapsesql("<DBName>.<Schema>.<TableName>")
 ```
 
 #### <a name="write-api"></a>Interfejs API zapisu
@@ -157,7 +162,7 @@ sqlanalytics("<DBName>.<Schema>.<TableName>")
 ```scala
 df.write.
 option(Constants.SERVER, "samplews.database.windows.net").
-sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
+synapsesql("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
 ### <a name="use-sql-auth-instead-of-azure-ad"></a>Użyj uwierzytelniania SQL zamiast usługi Azure AD
@@ -171,7 +176,7 @@ val df = spark.read.
 option(Constants.SERVER, "samplews.database.windows.net").
 option(Constants.USER, <SQLServer Login UserName>).
 option(Constants.PASSWORD, <SQLServer Login Password>).
-sqlanalytics("<DBName>.<Schema>.<TableName>")
+synapsesql("<DBName>.<Schema>.<TableName>")
 ```
 
 #### <a name="write-api"></a>Interfejs API zapisu
@@ -181,10 +186,10 @@ df.write.
 option(Constants.SERVER, "samplews.database.windows.net").
 option(Constants.USER, <SQLServer Login UserName>).
 option(Constants.PASSWORD, <SQLServer Login Password>).
-sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
+synapsesql("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-### <a name="use-the-pyspark-connector"></a>Korzystanie z łącznika PySpark
+### <a name="use-pyspark-with-the-connector"></a>Używanie PySpark z łącznikiem
 
 > [!NOTE]
 > Ten przykład ma na uwadze tylko środowisko notesu.
@@ -203,7 +208,7 @@ Uruchom komórkę Scala w notesie PySpark przy użyciu MAGICS:
 %%spark
 val scala_df = spark.sqlContext.sql ("select * from pysparkdftemptable")
 
-scala_df.write.sqlanalytics("sqlpool.dbo.PySparkTable", Constants.INTERNAL)
+scala_df.write.synapsesql("sqlpool.dbo.PySparkTable", Constants.INTERNAL)
 ```
 
 Podobnie w scenariuszu odczytu Odczytaj dane przy użyciu Scala i Zapisz je w tabeli tymczasowej, a następnie użyj platformy Spark SQL w PySpark, aby zbadać tabelę tymczasową w ramce Dataframe.
@@ -234,6 +239,7 @@ Musisz być właścicielem danych obiektów blob magazynu na koncie magazynu ADL
 
 > [!IMPORTANT]
 > Upewnij się, że nie wybrano opcji "domyślne", jeśli nie chcesz.
+
 
 ## <a name="next-steps"></a>Następne kroki
 

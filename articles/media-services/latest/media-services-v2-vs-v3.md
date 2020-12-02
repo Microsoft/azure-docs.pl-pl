@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 10/01/2020
 ms.author: inhenkel
-ms.openlocfilehash: 23baa6ed92aa01251b4c7ccf34ef784910a0321f
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 14544f58bcda56a55cef33de8fe0a70d5859b589
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019838"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510951"
 ---
 # <a name="media-services-v2-vs-v3"></a>Media Services V2 a v3
 
@@ -80,7 +80,6 @@ Interfejs API v3 ma następujące luki w odniesieniu do interfejsu API w wersji 
     * Łączenie elementów zawartości
     * Nakładki
     * Przycinanie
-    * Miniaturowe sprites
     * Wstawianie dyskretnej ścieżki audio, gdy dane wejściowe nie zawierają dźwięku
     * Wstawianie ścieżki wideo, gdy dane wejściowe nie zawierają wideo
 * Zdarzenia na żywo z transkodowaniem obecnie nie obsługują wstawiania poza strumień i znacznik usługi AD za pośrednictwem wywołania interfejsu API. 

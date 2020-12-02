@@ -11,16 +11,16 @@ ms.date: 07/21/2020
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 7b35997e763434d7ae4d849c33d358d1593d7e33
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ce77a169e28e21aa37be2a49997a58ee42c93807
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460539"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510832"
 ---
 # <a name="score-machine-learning-models-with-predict"></a>Ocena modeli uczenia maszynowego z PRZEWIDYWANIAmi
 
-Dedykowana Pula SQL zapewnia możliwość oceny modeli uczenia maszynowego przy użyciu znanego języka T-SQL. Dzięki [przewidywaniu](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)w języku T-SQL można przenieść istniejące modele uczenia maszynowego z danymi historycznymi i przedstawić je w ramach bezpiecznych granic magazynu danych. Funkcja przewidywania przyjmuje model [ONNX (Open neuronowych Network Exchange)](https://onnx.ai/) i danych jako dane wejściowe. Ta funkcja eliminuje etap przechodzenia cennych danych poza magazyn danych na potrzeby oceniania. Celem jest umożliwienie specjalistom ds. danych łatwego wdrażania modeli uczenia maszynowego przy użyciu znanego interfejsu T-SQL, a także bezproblemowe współdziałanie z analitykami danych, którzy pracują z właściwą strukturą dla swoich zadań.
+Dedykowana Pula SQL zapewnia możliwość oceny modeli uczenia maszynowego przy użyciu znanego języka T-SQL. Dzięki [przewidywaniu](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true)w języku T-SQL można przenieść istniejące modele uczenia maszynowego z danymi historycznymi i przedstawić je w ramach bezpiecznych granic magazynu danych. Funkcja przewidywania przyjmuje model [ONNX (Open neuronowych Network Exchange)](https://onnx.ai/) i danych jako dane wejściowe. Ta funkcja eliminuje etap przechodzenia cennych danych poza magazyn danych na potrzeby oceniania. Celem jest umożliwienie specjalistom ds. danych łatwego wdrażania modeli uczenia maszynowego przy użyciu znanego interfejsu T-SQL, a także bezproblemowe współdziałanie z analitykami danych, którzy pracują z właściwą strukturą dla swoich zadań.
 
 > [!NOTE]
 > Ta funkcja nie jest obecnie obsługiwana w puli SQL bezserwerowej.
@@ -66,7 +66,7 @@ GO
 
 ```
 
-Gdy model zostanie przekonwertowany na ciąg szesnastkowy, a określona definicja tabeli, użyj [polecenia copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) lub MyBase, aby załadować model z tabeli dedykowanej puli SQL. Poniższy przykład kodu używa polecenia Copy do załadowania modelu.
+Gdy model zostanie przekonwertowany na ciąg szesnastkowy, a określona definicja tabeli, użyj [polecenia copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) lub MyBase, aby załadować model z tabeli dedykowanej puli SQL. Poniższy przykład kodu używa polecenia Copy do załadowania modelu.
 
 ```sql
 -- Copy command to load hexadecimal string of the model from Azure Data Lake storage location
@@ -80,17 +80,17 @@ WITH (
 
 ## <a name="scoring-the-model"></a>Ocenianie modelu
 
-Po załadowaniu modelu i danych w magazynie danych należy użyć funkcji **przewidywania T-SQL** , aby wypróbować model. Upewnij się, że nowe dane wejściowe są w tym samym formacie co dane szkoleniowe używane do kompilowania modelu. PRZEWIDYWANie w języku T-SQL pobiera dwa dane wejściowe: model i nowe danych wejściowych oceniania, a następnie generuje nowe kolumny dla danych wyjściowych. Model może być określony jako zmienna, literał lub sub_query skalarna. Użyj opcji [WITH common_table_expression](https://docs.microsoft.com/sql/t-sql/queries/with-common-table-expression-transact-sql?view=sql-server-ver15) , aby określić nazwany zestaw wyników dla parametru Data.
+Po załadowaniu modelu i danych w magazynie danych należy użyć funkcji **przewidywania T-SQL** , aby wypróbować model. Upewnij się, że nowe dane wejściowe są w tym samym formacie co dane szkoleniowe używane do kompilowania modelu. PRZEWIDYWANie w języku T-SQL pobiera dwa dane wejściowe: model i nowe danych wejściowych oceniania, a następnie generuje nowe kolumny dla danych wyjściowych. Model może być określony jako zmienna, literał lub sub_query skalarna. Użyj opcji [WITH common_table_expression](https://docs.microsoft.com/sql/t-sql/queries/with-common-table-expression-transact-sql?view=azure-sqldw-latest&preserve-view=true) , aby określić nazwany zestaw wyników dla parametru Data.
 
-W poniższym przykładzie pokazano przykładowe zapytanie przy użyciu funkcji przewidywania. Zostanie utworzona dodatkowa kolumna o *wartości Nazwa i* typ danych *zmiennoprzecinkowej* zawierającej wyniki przewidywania. Wszystkie kolumny danych wejściowych, jak również kolumny prognozowania danych wyjściowych, są dostępne do wyświetlania z instrukcją SELECT. Aby uzyskać więcej informacji, zobacz [przewidywania (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).
+W poniższym przykładzie pokazano przykładowe zapytanie przy użyciu funkcji przewidywania. Zostanie utworzona dodatkowa kolumna o *wartości Nazwa i* typ danych *zmiennoprzecinkowej* zawierającej wyniki przewidywania. Wszystkie kolumny danych wejściowych, jak również kolumny prognozowania danych wyjściowych, są dostępne do wyświetlania z instrukcją SELECT. Aby uzyskać więcej informacji, zobacz [przewidywania (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ```sql
 -- Query for ML predictions
 SELECT d.*, p.Score
 FROM PREDICT(MODEL = (SELECT Model FROM Models WHERE Id = 1),
-DATA = dbo.mytable AS d) WITH (Score float) AS p;
+DATA = dbo.mytable AS d, RUNTIME = ONNX) WITH (Score float) AS p;
 ```
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat funkcji przewidywania, zobacz [przewidywania (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).
+Aby dowiedzieć się więcej na temat funkcji przewidywania, zobacz [przewidywania (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true).

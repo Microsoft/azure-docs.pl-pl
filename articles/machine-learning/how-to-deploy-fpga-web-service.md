@@ -11,12 +11,12 @@ author: jpe316
 ms.date: 09/24/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq2, devx-track-python, deploy
-ms.openlocfilehash: 9ec82dcd7578744dc7443d48dc28820413f14005
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e2bb133997ec7b7d5ee3b8b82ec3179460596eeb
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996308"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511104"
 ---
 # <a name="deploy-ml-models-to-field-programmable-gate-arrays-fpgas-with-azure-machine-learning"></a>Wdrażanie modeli ML do opartych na programowalnych tablic bram (FPGA) z Azure Machine Learning 
 
@@ -33,7 +33,7 @@ Można ponownie skonfigurować FPGA dla różnych typów modeli uczenia maszynow
 
 |Procesor| Skrót |Opis|
 |---|:-------:|------|
-|Zintegrowane obwody specyficzne dla aplikacji|ASICs|Obwody niestandardowe, takie jak TensorFlowe jednostki procesora (TPU) firmy Google, zapewniają najwyższą wydajność. Nie można ich ponownie skonfigurować zgodnie z potrzebami zmian.|
+|Zintegrowane obwody specyficzne dla aplikacji|ASICs|Obwody niestandardowe, takie jak jednostki procesora (TPU) firmy Google, zapewniają najwyższą wydajność. Nie można ich ponownie skonfigurować zgodnie z potrzebami zmian.|
 |Programowalne tablice bram|Układy FPGA|FPGA, takie jak te dostępne na platformie Azure, zapewniają wydajność zbliżoną do ASICs. Są one również elastyczne i można je skonfigurować w miarę upływu czasu w celu zaimplementowania nowej logiki.|
 |Jednostki przetwarzania grafiki|Procesory GPU|Popularny wybór dla obliczeń AI. Procesory GPU oferują równoległe możliwości przetwarzania, przyspieszając renderowanie obrazów niż procesory CPU.|
 |Jednostki przetwarzania centralnego|Procesory CPU|Procesor ogólnego przeznaczenia, wydajność, która nie jest idealnym rozwiązaniem w przypadku przetwarzania grafiki i wideo.|

@@ -1,6 +1,6 @@
 ---
 title: Co to jest Azure Security Center? | Microsoft Docs
-description: Na tej stronie opisano Security Center kluczowe korzyści — odnajdywanie stanu zabezpieczeń i ulepszanie go z pokryciem zasobów w chmurze i Premium.
+description: Na tej stronie opisano Security Center kluczowe korzyści — odnajdywanie stanu zabezpieczeń i ulepszanie go z pokryciem zasobów w chmurze i lokalnych.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: d62ed31a68d9469a1bd1fc66e479b0f91db2f916
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 0a1cac0fe61ea13a18224ea5992b5c7c1ba69d8a
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372272"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510339"
 ---
 # <a name="what-is-azure-security-center"></a>Co to jest usługa Azure Security Center?
 
@@ -37,11 +37,11 @@ Usługa Azure Security Center rozwiązuje trzy najbardziej pilne problemy związ
 
 Aby sprostać tym wyzwaniom, usługa Security Center oferuje narzędzia umożliwiające:
 
--   **Wzmocnienie stan zabezpieczeń** : Security Center ocenia środowisko i umożliwia zrozumienie stanu zasobów oraz tego, czy są one bezpieczne.
+-   **Wzmocnienie stan zabezpieczeń**: Security Center ocenia środowisko i umożliwia zrozumienie stanu zasobów oraz tego, czy są one bezpieczne.
 
--   **Ochrona przed zagrożeniami** : Security Center ocenia obciążenia i wywołuje zalecenia dotyczące zapobiegania zagrożeniom oraz alerty zabezpieczeń.
+-   **Ochrona przed zagrożeniami**: Security Center ocenia obciążenia i wywołuje zalecenia dotyczące zapobiegania zagrożeniom oraz alerty zabezpieczeń.
 
--   **Szybciej osiągnij bezpieczeństwo** : W usłudze Security Center wszystko jest wykonywane z szybkością chmury. Dzięki natywnej integracji wdrożenie usługi Security Center jest łatwe i zapewnia automatyczne aprowizowanie i ochronę w ramach usług platformy Azure.
+-   **Szybciej osiągnij bezpieczeństwo**: W usłudze Security Center wszystko jest wykonywane z szybkością chmury. Dzięki natywnej integracji wdrożenie usługi Security Center jest łatwe i zapewnia automatyczne aprowizowanie i ochronę w ramach usług platformy Azure.
 
 > [!NOTE]
 > Ta usługa obsługuje usługę [Azure Lighthouse](../lighthouse/overview.md), dzięki której dostawcy usług mogą logować się do własnej dzierżawy w celu zarządzania subskrypcjami i grupami zasobów delegowanymi przez klientów. W przypadku scenariuszy Azure Security Center należy delegować subskrypcję, a nie pojedyncze grupy zasobów.
@@ -66,7 +66,7 @@ Podstawową sprawą jest zapewnienie, że działające obciążenia są bezpiecz
 
 :::image type="content" source="./media/security-center-intro/sc-dashboard.png" alt-text="Strona zarządzania zasadami":::
 
-Security Center pomaga **identyfikować subskrypcje IT w tle**. Sprawdzając subskrypcje oznaczone na pulpicie nawigacyjnym etykietą **Nieobjęte** , można dowiedzieć się natychmiast, że zostały utworzone nowe subskrypcje, i upewnić się, że są objęte zasadami oraz chronione przez usługę Azure Security Center.
+Security Center pomaga **identyfikować subskrypcje IT w tle**. Sprawdzając subskrypcje oznaczone na pulpicie nawigacyjnym etykietą **Nieobjęte**, można dowiedzieć się natychmiast, że zostały utworzone nowe subskrypcje, i upewnić się, że są objęte zasadami oraz chronione przez usługę Azure Security Center.
 
 :::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Pulpit nawigacyjny z zasadami w usłudze Security Center":::
 

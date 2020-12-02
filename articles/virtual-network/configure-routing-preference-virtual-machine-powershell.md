@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2020
+ms.date: 12/01/2020
 ms.author: mnayak
-ms.openlocfilehash: 2002e4a11a2accbbc639c200372c393b8dc2f228
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65f5b27ecc7b526c4b3e4f5ed62ac90149df1ce1
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84707535"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510611"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-azure-powershell"></a>Konfigurowanie preferencji routingu dla maszyny wirtualnej przy użyciu Azure PowerShell
 
@@ -28,12 +28,6 @@ W tym artykule pokazano, jak utworzyć maszynę wirtualną z publicznym adresem 
 > [!IMPORTANT]
 > Preferencje routingu są obecnie dostępne w publicznej wersji zapoznawczej.
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## <a name="register-the-feature-for-your-subscription"></a>Rejestrowanie funkcji dla subskrypcji
-Funkcja preferencji routingu jest obecnie w wersji zapoznawczej. Zarejestruj funkcję subskrypcji w następujący sposób:
-```azurepowershell
-Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature -ProviderNamespace Microsoft.Network
-```
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 1. Jeśli używasz Cloud Shell, przejdź do kroku 2. Otwórz sesję polecenia i zaloguj się do platformy Azure za pomocą usługi `Connect-AzAccount` .
