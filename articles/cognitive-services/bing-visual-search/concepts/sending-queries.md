@@ -10,19 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: aahi
-ms.openlocfilehash: e8a8b843345d21d38c11789b09003a4b82f768f5
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 37d9352b6384ee2b5e95903f35d531bd672b25b1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369498"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490979"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Wysyłanie zapytań wyszukiwania do interfejs API wyszukiwania wizualnego Bing
 
 > [!WARNING]
-> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
-> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 W tym artykule opisano parametry i atrybuty żądań wysyłanych do interfejs API wyszukiwania wizualnego Bing, a także obiekt odpowiedzi. 
 
@@ -89,7 +89,7 @@ Poniżej przedstawiono parametry zapytania, które należy określić w żądani
 
 Poniżej przedstawiono nagłówki, które należy określić w żądaniu. `Content-Type`Nagłówki i `Ocp-Apim-Subscription-Key` są jedynymi wymaganymi nagłówkami, ale należy również uwzględnić `User-Agent` , `X-MSEdge-ClientID` , `X-MSEdge-ClientIP` , i `X-Search-Location` .
 
-| Header | Opis |
+| Nagłówek | Opis |
 | --- | --- |
 | <a name="acceptlanguage"></a>Accept-Language  | Opcjonalny nagłówek żądania.<br /><br /> Rozdzielana przecinkami lista języków dla ciągów interfejsu użytkownika. Lista jest zorganizowana w malejącym porządku preferencji. Aby uzyskać więcej informacji, łącznie z oczekiwanym formatem, zobacz [RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Ten nagłówek i parametr zapytania [setLang](#setlang) wykluczają się wzajemnie&mdash;nie określaj ich jednocześnie.<br /><br /> Jeśli ustawisz ten nagłówek, musisz także określić parametr zapytania [cc](#cc). Aby ustalić rynek, dla którego mają zostać zwrócone wyniki, usługa Bing używa pierwszego obsługiwanego języka znalezionego na liście i łączy go z wartością parametru `cc`. Jeśli lista nie zawiera obsługiwanego języka, usługa Bing znajduje najbliższy język i rynek, które obsługują żądanie, lub używa rynku zagregowanego bądź domyślnego. Aby określić rynek używany przez usługę Bing, zapoznaj się z `BingAPIs-Market` nagłówkiem.<br /><br /> Używaj tego nagłówka i parametru zapytania `cc` tylko wtedy, gdy określasz wiele języków. W przeciwnym razie użyj parametrów zapytania [mkt](#mkt) i [setLang](#setlang).<br /><br /> Ciąg interfejsu użytkownika to ciąg, który jest używany jako etykieta w interfejsie użytkownika. W obiektach odpowiedzi JSON istnieje kilka ciągów interfejsu użytkownika. Wszelkie linki do właściwości witryny Bing.com w obiektach odpowiedzi także stosują określony język.  |
 | <a name="contenttype"></a>Content-Type  |     |

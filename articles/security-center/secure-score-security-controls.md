@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2020
 ms.author: memildin
-ms.openlocfilehash: 0e853a4ce1e3891ddffd2f9fb1315da49a896933
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 3cd536d051f3e227ba86429ae3f1633bf6c2e82f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433226"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490537"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Wskaźnik bezpieczeństwa w usłudze Azure Security Center
 
@@ -80,7 +80,7 @@ Przykłady narzędzi wbudowanych w interfejsie API oceny zabezpieczeń znajdują
 
 ### <a name="get-your-secure-score-from-azure-resource-graph-arg"></a>Pobierz bezpieczny wynik z grafu zasobów platformy Azure (ARG)
 
-Usługa Azure Resource Graph zapewnia błyskawiczny dostęp do informacji o zasobach w środowiskach chmury z niezawodnymi możliwościami filtrowania, grupowania i sortowania. Jest to szybki i wydajny sposób wykonywania zapytań dotyczących informacji w ramach subskrypcji platformy Azure programowo lub z poziomu Azure Portal. [Dowiedz się więcej o usłudze Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/).
+Usługa Azure Resource Graph zapewnia błyskawiczny dostęp do informacji o zasobach w środowiskach chmury z niezawodnymi możliwościami filtrowania, grupowania i sortowania. Jest to szybki i wydajny sposób wykonywania zapytań dotyczących informacji w ramach subskrypcji platformy Azure programowo lub z poziomu Azure Portal. [Dowiedz się więcej o usłudze Azure Resource Graph](../governance/resource-graph/index.yml).
 
 Aby uzyskać dostęp do bezpiecznego wyniku dla wielu subskrypcji z ARGUMENTem:
 

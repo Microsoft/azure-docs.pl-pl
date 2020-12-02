@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 03/31/2019
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 14b32e4d666a81b8cba0e23c99b5878b1d9d4351
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 0ad73d7086a2066517c24a8b10a7f54503535942
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368070"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490299"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Samouczek: Kadrowanie obrazu za pomocą zestawu SDK wyszukiwanie wizualne Bing dla języka C #
 
 > [!WARNING]
-> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
-> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Zestaw SDK wyszukiwanie wizualne Bing umożliwia Przycinanie obrazu przed znalezieniem podobnych obrazów online. Ta aplikacja przycina pojedynczą osobę z obrazu zawierającego kilka osób, a następnie zwraca wyniki wyszukiwania zawierające podobne obrazy Znalezione w trybie online.
 

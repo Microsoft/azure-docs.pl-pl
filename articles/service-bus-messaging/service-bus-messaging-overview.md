@@ -3,12 +3,12 @@ title: Omówienie obsługi komunikatów w usłudze Azure Service Bus | Microsoft
 description: Ten artykuł zawiera ogólne omówienie Azure Service Bus w pełni zarządzanego brokera komunikatów integracji przedsiębiorstwa.
 ms.topic: overview
 ms.date: 11/20/2020
-ms.openlocfilehash: bb894800482cb2b7b4e5d699ab050bd5c93ad038
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ca04b4a41489fba61e7c0ee2bb3f4f7f0b8b80f4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345307"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489483"
 ---
 # <a name="what-is-azure-service-bus"></a>Co to jest Azure Service Bus?
 Microsoft Azure Service Bus to w pełni zarządzany Broker komunikatów przedsiębiorstwa z kolejkami komunikatów i tematami publicznymi subskrybowanymi. Service Bus służy do rozdzielania aplikacji i usług od siebie, co zapewnia następujące korzyści:
@@ -23,9 +23,9 @@ Dane są przesyłane między różnymi aplikacjami i usługami przy użyciu *kom
 Niektóre typowe scenariusze obsługi komunikatów:
 
 * *Obsługa komunikatów*. Przenieś dane biznesowe, takie jak zamówienia sprzedaży lub zakupu, dzienniki lub przesunięcia spisu.
-* Rozdzielanie *aplikacji*. Zwiększ niezawodność i skalowalność aplikacji i usług. Producenci i konsumenci nie muszą być w trybie online ani nie mogą być w tym samym czasie dostępne. [Obciążenie jest bilansowane](https://docs.microsoft.com/azure/architecture/patterns/queue-based-load-leveling) w taki sposób, że skoki ruchu nie overtax usługi. 
-* *Równoważenie obciążenia*. Zezwalaj wielu [konkurującym odbiorcom](https://docs.microsoft.com/azure/architecture/patterns/competing-consumers) na odczytywanie z kolejki w tym samym czasie, przez każdy bezpieczny dostęp do konkretnych komunikatów. 
-* *Tematy i subskrypcje*. Włączenie 1:*n* relacji między [wydawcami i subskrybentami](https://docs.microsoft.com/azure/architecture/patterns/publisher-subscriber), co umożliwia subskrybentom wybranie określonych komunikatów z opublikowanego strumienia komunikatów.
+* Rozdzielanie *aplikacji*. Zwiększ niezawodność i skalowalność aplikacji i usług. Producenci i konsumenci nie muszą być w trybie online ani nie mogą być w tym samym czasie dostępne. [Obciążenie jest bilansowane](/azure/architecture/patterns/queue-based-load-leveling) w taki sposób, że skoki ruchu nie overtax usługi. 
+* *Równoważenie obciążenia*. Zezwalaj wielu [konkurującym odbiorcom](/azure/architecture/patterns/competing-consumers) na odczytywanie z kolejki w tym samym czasie, przez każdy bezpieczny dostęp do konkretnych komunikatów. 
+* *Tematy i subskrypcje*. Włączenie 1:*n* relacji między [wydawcami i subskrybentami](/azure/architecture/patterns/publisher-subscriber), co umożliwia subskrybentom wybranie określonych komunikatów z opublikowanego strumienia komunikatów.
 * *Transakcje*. Umożliwia wykonywanie kilku operacji w zakresie transakcji niepodzielnych. Na przykład następujące operacje można wykonać w zakresie transakcji.  
 
     1. Uzyskaj komunikat z jednej kolejki.
@@ -138,11 +138,11 @@ W celu ochrony przed niechcianym ruchem Service Bus udostępnia [funkcje zabezpi
 
 W pełni obsługiwane Service Bus biblioteki klienckie są dostępne za pośrednictwem zestawu Azure SDK.
 
-- [Azure Service Bus dla platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/service-bus?view=azure-dotnet&preserve-view=true)
-- [Biblioteki Azure Service Bus dla języka Java](https://docs.microsoft.com/java/api/overview/azure/servicebus?view=azure-java-stable&preserve-view=true)
+- [Azure Service Bus dla platformy .NET](/dotnet/api/overview/azure/service-bus?preserve-view=true&view=azure-dotnet)
+- [Biblioteki Azure Service Bus dla języka Java](/java/api/overview/azure/servicebus?preserve-view=true&view=azure-java-stable)
 - [Dostawca Azure Service Bus dla języka Java JMS 2,0](how-to-use-java-message-service-20.md)
-- [Moduły Azure Service Bus dla języków JavaScript i TypeScript](https://docs.microsoft.com/javascript/api/overview/azure/service-bus?view=azure-node-latest&preserve-view=true)
-- [Biblioteki Azure Service Bus dla języka Python](https://docs.microsoft.com/python/api/overview/azure/servicebus?view=azure-python&preserve-view=true)
+- [Moduły Azure Service Bus dla języków JavaScript i TypeScript](/javascript/api/overview/azure/service-bus?preserve-view=true&view=azure-node-latest)
+- [Biblioteki Azure Service Bus dla języka Python](/python/api/overview/azure/servicebus?preserve-view=true&view=azure-python)
 
 [Azure Service Bus "podstawowy protokół to AMQP 1,0](service-bus-amqp-overview.md) i może być używany z dowolnego klienta zgodnego protokołu AMQP 1,0. Kilku klientów AMQP Open Source ma przykłady, które jawnie demonstrują Service Bus współdziałania. Zapoznaj się z [przewodnikiem po protokole AMQP 1,0](service-bus-amqp-protocol-guide.md) , aby dowiedzieć się, jak używać funkcji Service Bus "bezpośrednio z klientami AMQP 1,0.
 

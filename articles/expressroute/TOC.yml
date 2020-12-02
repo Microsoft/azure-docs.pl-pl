@@ -162,6 +162,8 @@
           href: expressroute-howto-coexist-resource-manager.md
         - name: Tworzenie strefowo nadmiarowej bramy sieci wirtualnej w strefach dostępności platformy Azure
           href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=%2fazure%2fexpressroute%2ftoc.json
+    - name: Planowanie kosztów i zarządzanie nimi
+      href: plan-manage-cost.md
     - name: Przenoszenie z wersji klasycznej do usługi Resource Manager
       items:
         - name: Przenoszenie obwodu z wersji klasycznej do usługi Resource Manager

@@ -5,24 +5,24 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 12/01/2020
 ms.author: victorh
-ms.openlocfilehash: 3c09e75a98e5342ab54710e05466755d86705b2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 923c6b685d20ff68788e7d9cfcb45ebaecb535e3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399435"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490112"
 ---
 # <a name="what-are-security-partner-providers"></a>Kim są dostawcy partnerów w zakresie zabezpieczeń?
 
-*Dostawcy usług partnerskich zabezpieczeń* w Menedżerze zapory platformy Azure mogą używać znanych, najlepszych w swojej organizacji ofert zabezpieczeń jako usługi (SECaaS) w celu ochrony dostępu do Internetu użytkownikom.
+*Dostawcy usług partnerskich zabezpieczeń* w Menedżerze zapory platformy Azure umożliwiają używanie znanych, najlepszych w swojej organizacji ofert zabezpieczeń jako usługi (SECaaS) w celu ochrony dostępu do Internetu użytkownikom.
 
 Dzięki szybkiej konfiguracji można zabezpieczyć koncentrator z obsługiwanym partnerem zabezpieczeń oraz skierować i przefiltrować ruch internetowy z sieci wirtualnych (sieci wirtualnych) lub lokalizacji rozgałęzień w obrębie regionu. Można to zrobić za pomocą zautomatyzowanego zarządzania trasami bez konieczności konfigurowania tras zdefiniowanych przez użytkownika (UDR) i zarządzania nimi.
 
 Można wdrożyć zabezpieczone centra skonfigurowane z wybranym przez partnera zabezpieczeń w wielu regionach świadczenia usługi Azure, aby uzyskać łączność i bezpieczeństwo użytkowników w dowolnym miejscu na świecie w tych regionach. Dzięki możliwości korzystania z oferty partnera zabezpieczeń na potrzeby ruchu aplikacji internetowych/SaaS oraz zapory platformy Azure dla ruchu prywatnego w zabezpieczonych centrach możesz teraz rozpocząć tworzenie swojej krawędzi zabezpieczeń na platformie Azure, która jest blisko globalnie dystrybuowanych użytkowników i aplikacji.
 
-Obsługiwane partnerzy zabezpieczeń to **rozwiązania Zscaler**, **Check Point** (wersja zapoznawcza) i **iboss** (wersja zapoznawcza).
+Obsługiwanymi partnerami zabezpieczeń są **rozwiązania Zscaler**, **[Check Point](check-point-overview.md)** i **iboss**.
 
 ![Dostawcy partnerów w zakresie zabezpieczeń](media/trusted-security-partners/trusted-security-partners.png)
 

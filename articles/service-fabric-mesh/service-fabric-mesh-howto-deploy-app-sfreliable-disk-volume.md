@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 66d0d3ebf9d5866039bbbac3171513b37330be7a
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 79ac8e7868b04a63637e24d6dde651b218ce6a46
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146794"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489194"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Instalowanie wysokiej dostępności Service Fabric niezawodnego woluminu opartego na dyskach w aplikacji Service Fabric siatki 
 Typową metodą utrwalania stanu przy użyciu aplikacji kontenera jest używanie zdalnego magazynu, takiego jak usługa Azure File Storage lub baza danych, taka jak Azure Cosmos DB. Wiąże się to z istotnym opóźnieniem odczytu i zapisu sieci dla magazynu zdalnego.
@@ -44,12 +44,12 @@ Utwórz grupę zasobów, w której zostanie wdrożona aplikacja. Następujące p
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 >[!NOTE]
 > Od 2 listopada 2020 [limity szybkości pobierania mają zastosowanie](https://docs.docker.com/docker-hub/download-rate-limit/) do żądań anonimowych i uwierzytelnionych do usługi Docker Hub z kont planów bezpłatnych platformy Docker i są wymuszane na podstawie adresu IP. 
 > 
-> Ten szablon umożliwia korzystanie z obrazów publicznych z usługi Docker Hub. Należy pamiętać, że może być ograniczona stawka. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie przy użyciu usługi Docker Hub](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub).
+> Ten szablon umożliwia korzystanie z obrazów publicznych z usługi Docker Hub. Należy pamiętać, że może być ograniczona stawka. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie przy użyciu usługi Docker Hub](../container-registry/buffer-gate-public-content.md#authenticate-with-docker-hub).
 
 Następujące polecenie wdraża aplikację systemu Linux przy użyciu [counter.sfreliablevolume.linux.jsna szablonie](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.linux.json). Aby wdrożyć aplikację systemu Windows, użyj [counter.sfreliablevolume.windows.jsna szablonie](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.windows.json). Należy pamiętać, że wdrażanie większych obrazów kontenerów może trwać dłużej.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5d114017d5e5dfecfe20afc69849763a87aadd41
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b04b9ababfe0e4c2a60d14044b9d3ee120837dc5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015322"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491047"
 ---
 # <a name="automation-with-service-principals"></a>Automatyzacja przy użyciu jednostek usługi
 
@@ -92,7 +92,7 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### <a name="amo-and-adomd"></a>AMO i ADOMD 
 
-Nawiązując połączenie z aplikacjami klienta i aplikacjami internetowymi instalowalne pakiety NuGet [bibliotek klienta AMO i ADOMD](/analysis-services/client-libraries?view=azure-analysis-services-current) w wersji 15.0.2 lub nowszej obsługują jednostki usługi w parametrach połączenia przy użyciu następującej składni: `app:AppID` i password lub `cert:thumbprint`. 
+Nawiązując połączenie z aplikacjami klienta i aplikacjami internetowymi instalowalne pakiety NuGet [bibliotek klienta AMO i ADOMD](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true) w wersji 15.0.2 lub nowszej obsługują jednostki usługi w parametrach połączenia przy użyciu następującej składni: `app:AppID` i password lub `cert:thumbprint`. 
 
 W poniższym przykładzie parametry `appID` i `password` są używane do wykonania operacji odświeżania bazy danych modelu:
 

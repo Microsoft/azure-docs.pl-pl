@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
-ms.openlocfilehash: 5abb509f1753c65554bd74ababe9acca4103c15a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5974388c096c9bc8693c5fc2cf918989c6eadd3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86509090"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488735"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Rozwiązywanie problemów z MASZYNami wirtualnymi platformy Azure za pomocą narzędzi zdalnych
 
@@ -180,7 +180,7 @@ Uruchom następujące polecenie w oparciu o lokalizację komputera klienckiego:
     Enter-PSSession -ComputerName  "<<CLOUDSERVICENAME.cloudapp.net>>" -port "<<PUBLIC PORT NUMBER>>" -Credential (Get-Credential) -useSSL -SessionOption $Skip
     ```
 
-  * W przypadku maszyny wirtualnej Azure Resource Manager należy najpierw dodać nazwę DNS do publicznego adresu IP. Aby uzyskać szczegółowe instrukcje, zobacz [Tworzenie w pełni kwalifikowanej nazwy domeny w Azure Portal dla maszyny wirtualnej z systemem Windows](../windows/portal-create-fqdn.md). Następnie uruchom następujące polecenie:
+  * W przypadku maszyny wirtualnej Azure Resource Manager należy najpierw dodać nazwę DNS do publicznego adresu IP. Aby uzyskać szczegółowe instrukcje, zobacz [Tworzenie w pełni kwalifikowanej nazwy domeny w Azure Portal dla maszyny wirtualnej z systemem Windows](../create-fqdn.md). Następnie uruchom następujące polecenie:
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck

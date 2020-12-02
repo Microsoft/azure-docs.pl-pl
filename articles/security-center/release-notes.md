@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/30/2020
 ms.author: memildin
-ms.openlocfilehash: f26fffe8e6b2be6ede064b4750d012b3e4535c66
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 5ac96d703ea646d26b84d6d6486d9ee44ad87cd2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433351"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490129"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -129,7 +129,7 @@ Dowiedz się więcej o tym, jak [ciągle eksportować Security Center dane](cont
 
 - Wzbogacone dane dla zalecenia z grafu zasobów platformy Azure (ARG). ARG to usługa platformy Azure, która została zaprojektowana w celu zapewnienia wydajnej eksploracji zasobów. Za pomocą argumentu ARG można wykonywać zapytania na dużą skalę w ramach danego zestawu subskrypcji, dzięki czemu można efektywnie zarządzać środowiskiem. 
 
-    Aby uzyskać Azure Security Center, można użyć ARG i [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/) do wykonywania zapytań o szeroki zakres danych stan zabezpieczeń.
+    Aby uzyskać Azure Security Center, można użyć ARG i [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) do wykonywania zapytań o szeroki zakres danych stan zabezpieczeń.
 
     Wcześniej, jeśli zbadasz to zalecenie w ARG, jedynymi dostępnymi informacjami było to, że zalecenie należy skorygować na komputerze. Poniższe zapytanie o wersję rozszerzoną zwróci wszystkie brakujące aktualizacje systemu pogrupowane według maszyn.
 
@@ -172,7 +172,7 @@ Główne możliwości:
 
 [Dowiedz się więcej o wdrażaniu zintegrowanego skanera luk w zabezpieczeniach na maszynach hybrydowych](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
 
-[Dowiedz się więcej o serwerach z obsługą usługi Azure Arc](https://docs.microsoft.com/azure/azure-arc/servers/).
+[Dowiedz się więcej o serwerach z obsługą usługi Azure Arc](../azure-arc/servers/index.yml).
 
 
 ### <a name="azure-firewall-recommendation-added-preview"></a>Dodane zalecenie dotyczące zapory platformy Azure (wersja zapoznawcza)
@@ -206,7 +206,7 @@ Dowiedz się więcej w temacie [usuwanie standardu z pulpitu nawigacyjnego](upda
 
 Azure Resource Graph to usługa platformy Azure, która została zaprojektowana w celu zapewnienia wydajnej eksploracji zasobów dzięki możliwości wykonywania zapytań na dużą skalę w ramach danego zestawu subskrypcji, dzięki czemu możesz efektywnie zarządzać środowiskiem. 
 
-Aby uzyskać Azure Security Center, można użyć ARG i [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/) do wykonywania zapytań o szeroki zakres danych stan zabezpieczeń. Przykład:
+Aby uzyskać Azure Security Center, można użyć ARG i [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) do wykonywania zapytań o szeroki zakres danych stan zabezpieczeń. Przykład:
 
 - Wykorzystanie spisu zasobów (ARG)
 - Zarejestrowano przykładowe zapytanie ARG dotyczące [identyfikowania kont bez włączonej usługi uwierzytelniania wieloskładnikowego (MFA)](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
@@ -295,7 +295,7 @@ extract("^(.+)/providers/Microsoft.Security/assessments/.+$",1,id)))))
 
 Dowiedz się więcej na następujące linki:
 - [Jak tworzyć zapytania za pomocą eksploratora usługi Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
-- [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)
+- [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/)
 
 
 ## <a name="september-2020"></a>Wrzesień 2020

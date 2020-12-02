@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: 550418761e91a8292761d7595ff32d939c0d542e
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9410a38f7bc7a787fc439b5ad51f4a49f76771f8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350402"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488786"
 ---
 # <a name="monitor-azure-cosmos-db"></a>Monitorowanie usługi Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -83,7 +83,7 @@ Zebrane metryki i dzienniki zostały omówione w poniższych sekcjach.
 
 Azure Cosmos DB udostępnia niestandardowe środowisko pracy z metrykami. Metryki dla Azure Cosmos DB z metrykami z innych usług platformy Azure za pomocą Eksploratora metryk można analizować, otwierając **metryki** z menu **Azure monitor** . Aby uzyskać szczegółowe informacje na temat korzystania z tego narzędzia, zobacz [Rozpoczynanie pracy z usługą Azure Eksplorator metryk](../azure-monitor/platform/metrics-getting-started.md) . Możesz również wyewidencjonować, jak monitorować [opóźnienia po stronie serwera](monitor-server-side-latency.md), [użycie jednostek żądań](monitor-request-unit-usage.md)i [znormalizowane użycie jednostek żądań](monitor-normalized-request-units.md) dla zasobów Azure Cosmos DB.
 
-Aby zapoznać się z listą metryk platformy zbieranych dla Azure Cosmos DB, zobacz [monitorowanie Azure Cosmos DB metryk odwołania danych] monitor-Cosmos-DB-Reference. MD # Metrics.
+Aby uzyskać listę metryk platformy zbieranych dla Azure Cosmos DB, zobacz artykuł dotyczący [monitorowania Azure Cosmos DB danych referencyjnych](monitor-cosmos-db-reference.md#metrics) .
 
 Wszystkie metryki dla Azure Cosmos DB znajdują się w przestrzeni nazw **Cosmos DB metrykach standardowych**. Podczas dodawania filtru do wykresu można użyć następujących wymiarów z tymi metrykami:
 

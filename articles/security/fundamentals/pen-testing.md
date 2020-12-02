@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2020
 ms.author: terrylan
-ms.openlocfilehash: dfacf124f8db0e5323c9abff56c4a78f85f6f014
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af61b6ee1e69d175f47170df30f75832033d61d5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816137"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489721"
 ---
 # <a name="penetration-testing"></a>Testy penetracyjne
 
@@ -46,7 +46,7 @@ Standardowe testy, które można wykonać, obejmują:
 Jednym z typów testów pióra, których nie można wykonać, jest atak [typu "odmowa usługi" (DOS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) . Ten test obejmuje zainicjowanie samego ataku systemu DoS lub wykonanie powiązanych testów, które mogą ustalić, przedstawić lub symulować ataki typu DoS.
 
 >[!Note]
->Firma Microsoft połączyła się z chmurą BreakingPoint, aby utworzyć interfejs, w którym można generować ruch dla publicznych adresów IP z włączoną obsługą DDoS Protection na potrzeby symulacji. Aby dowiedzieć się więcej na temat symulacji chmury w punkcie przerwania, zobacz [Weryfikowanie wykrywania DDoS](../../virtual-network/manage-ddos-protection.md#validate-ddos-detection).
+>Firma Microsoft połączyła się z chmurą BreakingPoint, aby utworzyć interfejs, w którym można generować ruch dla publicznych adresów IP z włączoną obsługą DDoS Protection na potrzeby symulacji. Aby dowiedzieć się więcej na temat symulacji chmury w punkcie przerwania, zobacz [Weryfikowanie wykrywania DDoS](../../ddos-protection/manage-ddos-protection.md#validate-and-test).
 
 ## <a name="next-steps"></a>Następne kroki
 

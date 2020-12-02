@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 09/15/2020
-ms.openlocfilehash: 52cb5ac5423aac0599ba2827667ee670dde286a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01232aa101e2964354acfbeb6cea341a0da33ca6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331662"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489893"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Funkcja Skrytka klienta dla platformy Microsoft Azure
 
@@ -64,7 +64,7 @@ Funkcja Skrytka klienta obecnie jest włączona pod kątem żądań dostępu do 
 - Zestaw skalowania maszyn wirtualnych — systemy Windows i Linux
 
 > [!NOTE]
-> Wystąpienia klasyczne IaaS nie są obsługiwane przez Skrytka klienta. Jeśli masz obciążenia działające na IaaS klasyczne wystąpienia, zalecamy przeprowadzenie migracji z klasycznego do Menedżer zasobów modeli wdrażania. Aby uzyskać instrukcje, zobacz [Obsługiwana przez platformę migracja zasobów IaaS z wdrożenia klasycznego do usługi Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+> Wystąpienia klasyczne IaaS nie są obsługiwane przez Skrytka klienta. Jeśli masz obciążenia działające na IaaS klasyczne wystąpienia, zalecamy przeprowadzenie migracji z klasycznego do Menedżer zasobów modeli wdrażania. Aby uzyskać instrukcje, zobacz [Obsługiwana przez platformę migracja zasobów IaaS z wdrożenia klasycznego do usługi Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
 #### <a name="detailed-audit-logs"></a>Szczegółowe dzienniki inspekcji
 
@@ -109,7 +109,7 @@ Poniższe kroki przedstawiają typowy przepływ pracy dla żądania Skrytka klie
 
     ![Skrytka klienta platformy Azure — Wyświetl oczekujące żądanie](./media/customer-lockbox-overview/customer-lockbox-pending-requests.png)
 
-10. Wyznaczeni osoba zatwierdzająca może również wybrać **Identyfikator żądania** obsługi, aby wyświetlić żądanie biletu pomocy technicznej utworzone przez oryginalnego użytkownika. Te informacje zapewniają kontekst, dla którego pomoc techniczna firmy Microsoft jest zaangażowany, i historię zgłoszonego problemu. Na przykład:
+10. Wyznaczeni osoba zatwierdzająca może również wybrać **Identyfikator żądania** obsługi, aby wyświetlić żądanie biletu pomocy technicznej utworzone przez oryginalnego użytkownika. Te informacje zapewniają kontekst, dla którego pomoc techniczna firmy Microsoft jest zaangażowany, i historię zgłoszonego problemu. Przykład:
 
     ![Skrytka klienta platformy Azure — wyświetlanie żądania biletu pomocy technicznej](./media/customer-lockbox-overview/customer-lockbox-support-ticket.png)
 

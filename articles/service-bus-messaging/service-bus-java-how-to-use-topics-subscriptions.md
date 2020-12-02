@@ -4,12 +4,12 @@ description: W tym przewodniku szybki start napiszesz kod Java za pomocą pakiet
 ms.devlang: Java
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: ab0ba2bb2814ba12a49f4044cbbb7a0ce56f5fc8
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 011dbfef1155b82daca216e9519db07188260130
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452593"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489551"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-java"></a>Wysyłanie komunikatów do tematu Azure Service Bus i odbieranie komunikatów z subskrypcji do tematu (Java)
 W tym przewodniku szybki start napiszesz kod Java za pomocą pakietu Azure-Messaging-ServiceBus, aby wysyłać komunikaty do tematu Azure Service Bus a następnie odbierać komunikaty z subskrypcji do tego tematu.
@@ -226,7 +226,7 @@ Zapoznaj się z poniższą dokumentacją i przykładami:
 
 - [Azure Service Busa Biblioteka kliencka dla języka Java — plik Readme](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/README.md)
 - [Przykłady w serwisie GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/servicebus/azure-messaging-servicebus/src/samples)
-- [Dokumentacja interfejsów API języka Java](https://docs.microsoft.com/java/api/overview/azure/servicebus?view=azure-java-preview&preserve-view=true)
+- [Dokumentacja interfejsów API języka Java](/java/api/overview/azure/servicebus?preserve-view=true&view=azure-java-preview)
 
 
 [Azure SDK for Java]: /java/api/overview/azure/
@@ -235,4 +235,3 @@ Zapoznaj się z poniższą dokumentacją i przykładami:
 [SqlFilter]: /dotnet/api/microsoft.azure.servicebus.sqlfilter
 [SqlFilter.SqlExpression]: /dotnet/api/microsoft.azure.servicebus.sqlfilter.sqlexpression
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
-

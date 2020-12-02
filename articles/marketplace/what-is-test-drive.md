@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 06/19/2020
-ms.openlocfilehash: 304e1ab475213bde2644c8241905408ade5672ed
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 193e7bd78046a1d73cb55171c15c9cb6a7278297
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489968"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490044"
 ---
 # <a name="what-is-a-test-drive"></a>Co to jest wersja testowa?
 
@@ -24,7 +24,7 @@ Klienci korzystają również z dysku testowego. Przez umożliwienie im wcześni
 
 Dyski testowe to wystąpienia zarządzane, które uruchamiają rozwiązanie lub aplikację na żądanie dla klientów, którzy go żądają. Po przypisaniu wystąpienia dysku testowego jest ono dostępne do użycia przez tego klienta przez określony okres. Po zakończeniu okresu zostanie on usunięty w celu utworzenia pokoju dla innego klienta.
 
-Jako wydawca możesz zarządzać ustawieniami dysków testowych w centrum partnerskim i konfigurować je. Szczegóły konfiguracji technicznej różnią się w zależności od typu oferty. Aby uzyskać szczegółowe wskazówki, zobacz [konfigurację techniczną na dysku testowym](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration).
+Jako wydawca możesz zarządzać ustawieniami dysków testowych w centrum partnerskim i konfigurować je. Szczegóły konfiguracji technicznej różnią się w zależności od typu oferty. Aby uzyskać szczegółowe wskazówki, zobacz [konfigurację techniczną na dysku testowym](./test-drive-technical-configuration.md).
 
 Potencjalni klienci odkrywają swój dysk testowy jako CTA w ramach oferty w witrynie [AppSource](https://appsource.microsoft.com/en-US/). Udostępniają one swoje informacje kontaktowe i akceptują Warunki oferty oraz zasady zachowania poufności informacji, a następnie uzyskują dostęp do wstępnie skonfigurowanego środowiska w celu wypróbowania go przez ustalony okres. Klienci otrzymują praktyczne, samodzielne wersje próbne kluczowych funkcji i korzyści produktu, a ty otrzymujesz cenny potencjalny klient.
 
@@ -43,7 +43,7 @@ Istnieją różne dyski testowe dostępne na rynku komercyjnym dla wybranych ofe
 - Aplikacja logiki (tylko w trybie obsługi)
 - Power BI
 
-Aby uzyskać szczegółowe informacje na temat konfigurowania jednego z tych dysków testowych, zobacz temat [konfiguracja techniczna systemu testowego](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration). 
+Aby uzyskać szczegółowe informacje na temat konfigurowania jednego z tych dysków testowych, zobacz temat [konfiguracja techniczna systemu testowego](./test-drive-technical-configuration.md). 
 
 ### <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager dysk testowy
 
@@ -65,7 +65,7 @@ Hostowany dysk testowy eliminuje złożoność Instalatora przez umożliwienie h
 
 ### <a name="logic-app-test-drive"></a>Dysk testowy aplikacji logiki
 
-Ten typ dysku testowego nie jest hostowany przez firmę Microsoft i używa szablonów Azure Resource Manager (ARM) dla typów ofert Dynamics AX/CRM. Musisz uruchomić szablon ARM, aby utworzyć wymagane zasoby w ramach subskrypcji platformy Azure. Wersja testowa aplikacji logiki jest obecnie dostępna tylko w trybie obsługi i nie jest zalecana przez firmę Microsoft w celu uzyskania szczegółowych informacji na temat konfigurowania dysku testowego aplikacji logiki, zobacz temat [konfiguracja techniczna testowa](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration).
+Ten typ dysku testowego nie jest hostowany przez firmę Microsoft i używa szablonów Azure Resource Manager (ARM) dla typów ofert Dynamics AX/CRM. Musisz uruchomić szablon ARM, aby utworzyć wymagane zasoby w ramach subskrypcji platformy Azure. Wersja testowa aplikacji logiki jest obecnie dostępna tylko w trybie obsługi i nie jest zalecana przez firmę Microsoft w celu uzyskania szczegółowych informacji na temat konfigurowania dysku testowego aplikacji logiki, zobacz temat [konfiguracja techniczna testowa](./test-drive-technical-configuration.md).
 
 ### <a name="power-bi-test-drive"></a>Power BI dysk testowy
 

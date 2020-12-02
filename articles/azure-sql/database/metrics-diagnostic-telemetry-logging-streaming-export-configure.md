@@ -9,14 +9,14 @@ ms.devlang: sqldbrb=2
 ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 04/06/2020
-ms.openlocfilehash: b1e1de694b6333a350d034b08225aeea117ae703
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 999bb83af6937d4a7b3d7ee8207e2fd689a23d35
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790478"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490824"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Konfigurowanie eksportu przesyłania strumieniowego Azure SQL Database i diagnostyki wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -50,23 +50,23 @@ Oprócz przesyłania strumieniowego eksportu dziennika Intelligent Insights moż
 | [SQLInsights](#intelligent-insights-dataset): zawiera Intelligent Insights do wydajności bazy danych. Aby dowiedzieć się więcej, zobacz [Intelligent Insights](intelligent-insights-overview.md). | Tak | Tak |
 
 > [!NOTE]
-> Nie można skonfigurować ustawień diagnostycznych dla **systemowych baz danych** , takich jak bazy danych Master, msdb, model, Resource i tempdb.
+> Nie można skonfigurować ustawień diagnostycznych dla **systemowych baz danych**, takich jak bazy danych Master, msdb, model, Resource i tempdb.
 
 ## <a name="streaming-export-destinations"></a>Miejsca docelowe eksportu strumieniowego
 
 Dane telemetryczne diagnostyki mogą być przesyłane strumieniowo do jednego z następujących zasobów platformy Azure w celu przeprowadzenia analizy.
 
-- **[Log Analytics obszar roboczy](#stream-into-sql-analytics)** :
+- **[Log Analytics obszar roboczy](#stream-into-sql-analytics)**:
 
   Dane przesyłane strumieniowo do [obszaru roboczego log Analytics](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) mogą być używane przez usługę [SQL Analytics](../../azure-monitor/insights/azure-sql.md). Analiza SQL to rozwiązanie monitorujące tylko w chmurze, które zapewnia inteligentne monitorowanie baz danych, które obejmują raporty wydajności, alerty i zalecenia dotyczące ograniczenia. Dane przesyłane strumieniowo do obszaru roboczego Log Analytics mogą być analizowane przy użyciu innych zebranych danych monitorowania, a także umożliwiają korzystanie z innych funkcji Azure Monitor, takich jak alerty i wizualizacje
-- **[Event Hubs platformy Azure](#stream-into-event-hubs)** :
+- **[Event Hubs platformy Azure](#stream-into-event-hubs)**:
 
   Dane przesyłane strumieniowo do [centrum zdarzeń platformy Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)zapewniają następujące funkcje:
 
-  - **Przesyłaj strumieniowo dzienniki do systemów rejestrowania i telemetrii innej firmy** : Prześlij strumieniowo wszystkie metryki i dzienniki zasobów do jednego centrum zdarzeń w celu przełączenia danych dziennika do narzędzia Siem lub log Analytics innej firmy.
-  - **Utwórz niestandardową platformę telemetrii i rejestrowania** : wysoce skalowalna natura publikowania/subskrybowania centrów zdarzeń umożliwia elastyczne pozyskiwanie metryk i dzienników zasobów na niestandardową platformę telemetrii. Aby uzyskać szczegółowe informacje [, zobacz Projektowanie i ustalanie rozmiaru globalnej platformy telemetrii w usłudze Azure Event Hubs](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) .
-  - **Wyświetl informacje o kondycji usługi przez przesyłanie strumieniowe danych do Power BI** : Użyj Event Hubs, Stream Analytics i Power BI do przekształcania danych diagnostycznych na szczegółowe informacje w czasie rzeczywistym w ramach usług platformy Azure. Zobacz [Stream Analytics i Power BI: pulpit nawigacyjny analizy w czasie rzeczywistym na potrzeby przesyłania strumieniowego danych](../../stream-analytics/stream-analytics-power-bi-dashboard.md) w celu uzyskania szczegółowych informacji dotyczących tego rozwiązania.
-- **[Usługa Azure Storage](#stream-into-azure-storage)** :
+  - **Przesyłaj strumieniowo dzienniki do systemów rejestrowania i telemetrii innej firmy**: Prześlij strumieniowo wszystkie metryki i dzienniki zasobów do jednego centrum zdarzeń w celu przełączenia danych dziennika do narzędzia Siem lub log Analytics innej firmy.
+  - **Utwórz niestandardową platformę telemetrii i rejestrowania**: wysoce skalowalna natura publikowania/subskrybowania centrów zdarzeń umożliwia elastyczne pozyskiwanie metryk i dzienników zasobów na niestandardową platformę telemetrii. Aby uzyskać szczegółowe informacje [, zobacz Projektowanie i ustalanie rozmiaru globalnej platformy telemetrii w usłudze Azure Event Hubs](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) .
+  - **Wyświetl informacje o kondycji usługi przez przesyłanie strumieniowe danych do Power BI**: Użyj Event Hubs, Stream Analytics i Power BI do przekształcania danych diagnostycznych na szczegółowe informacje w czasie rzeczywistym w ramach usług platformy Azure. Zobacz [Stream Analytics i Power BI: pulpit nawigacyjny analizy w czasie rzeczywistym na potrzeby przesyłania strumieniowego danych](../../stream-analytics/stream-analytics-power-bi-dashboard.md) w celu uzyskania szczegółowych informacji dotyczących tego rozwiązania.
+- **[Usługa Azure Storage](#stream-into-azure-storage)**:
 
   Dane przesyłane strumieniowo do [usługi Azure Storage](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) umożliwiają archiwizowanie ogromnych ilości danych telemetrycznych diagnostyki w przypadku części kosztów poprzednich dwóch opcji przesyłania strumieniowego.
 
@@ -116,18 +116,18 @@ Kontener elastycznej puli ma własne dane telemetryczne oddzielone od poszczegó
 Aby włączyć przesyłanie strumieniowe danych telemetrycznych diagnostyki dla zasobu puli elastycznej, wykonaj następujące kroki:
 
 1. Przejdź do zasobu **puli elastycznej** w Azure Portal.
-2. Wybierz pozycję **Ustawienia diagnostyki** .
+2. Wybierz pozycję **Ustawienia diagnostyki**.
 3. Wybierz opcję **Włącz diagnostykę** , jeśli nie istnieją poprzednie ustawienia lub wybierz opcję **Edytuj ustawienie** , aby edytować poprzednie ustawienie.
 
    ![Włączanie diagnostyki dla pul elastycznych](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-container-elasticpool-enable.png)
 
 4. Wprowadź nazwę ustawienia dla własnego odwołania.
-5. Wybierz zasób docelowy dla danych diagnostycznych przesyłania strumieniowego: **Archiwizuj na koncie magazynu** , **przesyła strumieniowo do centrum zdarzeń** lub **wysyłając do log Analytics** .
+5. Wybierz zasób docelowy dla danych diagnostycznych przesyłania strumieniowego: **Archiwizuj na koncie magazynu**, **przesyła strumieniowo do centrum zdarzeń** lub **wysyłając do log Analytics**.
 6. W przypadku usługi log Analytics wybierz pozycję **Konfiguruj** i Utwórz nowy obszar roboczy, wybierając pozycję **+ Utwórz nowy obszar roboczy** lub wybierz istniejący obszar roboczy.
 7. Zaznacz pole wyboru dla telemetrii diagnostyki puli elastycznej: metryki **podstawowe** .
    ![Konfigurowanie diagnostyki dla pul elastycznych](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-container-elasticpool-selection.png)
 
-8. Wybierz pozycję **Zapisz** .
+8. Wybierz pozycję **Zapisz**.
 9. Ponadto należy skonfigurować przesyłanie strumieniowe telemetrii diagnostyki dla każdej bazy danych w puli elastycznej, którą chcesz monitorować, wykonując czynności opisane w następnej sekcji.
 
 > [!IMPORTANT]
@@ -144,19 +144,19 @@ Można skonfigurować zasób bazy danych, aby zebrać następujące dane telemet
 Aby włączyć przesyłanie strumieniowe telemetrii diagnostyki dla jednej bazy danych lub w puli, wykonaj następujące kroki:
 
 1. Przejdź do zasobu usługi Azure **SQL Database** .
-2. Wybierz pozycję **Ustawienia diagnostyki** .
+2. Wybierz pozycję **Ustawienia diagnostyki**.
 3. Wybierz opcję **Włącz diagnostykę** , jeśli nie istnieją poprzednie ustawienia lub wybierz opcję **Edytuj ustawienie** , aby edytować poprzednie ustawienie. Do telemetrii diagnostyki strumienia można utworzyć maksymalnie trzy połączenia równoległe.
 4. Wybierz pozycję **Dodaj ustawienie diagnostyczne** , aby skonfigurować równoległe przesyłanie strumieniowe danych diagnostycznych do wielu zasobów.
 
    ![Włącz diagnostykę dla baz danych z pojedynczym i pulą](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-database-sql-enable.png)
 
 5. Wprowadź nazwę ustawienia dla własnego odwołania.
-6. Wybierz zasób docelowy dla danych diagnostycznych przesyłania strumieniowego: **Archiwizuj na koncie magazynu** , **przesyła strumieniowo do centrum zdarzeń** lub **wysyłając do log Analytics** .
-7. W przypadku standardowego środowiska monitorowania opartego na zdarzeniach zaznacz następujące pola wyboru dla telemetrii dzienników diagnostyki bazy danych: **SQLInsights** , **AutomaticTuning** , **QueryStoreRuntimeStatistics** , **QueryStoreWaitStatistics** , **Błędy** , **DatabaseWaitStatistics** , **limity czasu** , **bloki** i **zakleszczenia** .
+6. Wybierz zasób docelowy dla danych diagnostycznych przesyłania strumieniowego: **Archiwizuj na koncie magazynu**, **przesyła strumieniowo do centrum zdarzeń** lub **wysyłając do log Analytics**.
+7. W przypadku standardowego środowiska monitorowania opartego na zdarzeniach zaznacz następujące pola wyboru dla telemetrii dzienników diagnostyki bazy danych: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Błędy**, **DatabaseWaitStatistics**, **limity czasu**, **bloki** i **zakleszczenia**.
 8. W przypadku zaawansowanego, opartego na minutę środowiska monitorowania zaznacz pole wyboru dla metryk **podstawowych** .
 
    ![Konfigurowanie diagnostyki dla Azure SQL Database](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-database-sql-selection.png)
-9. Wybierz pozycję **Zapisz** .
+9. Wybierz pozycję **Zapisz**.
 10. Powtórz te kroki dla każdej bazy danych, która ma być monitorowana.
 
 > [!TIP]
@@ -180,19 +180,19 @@ Kontener wystąpienia zarządzanego ma własne dane telemetryczne oddzielone od 
 Aby włączyć przesyłanie strumieniowe danych telemetrycznych diagnostyki dla zasobu wystąpienia zarządzanego, wykonaj następujące czynności:
 
 1. Przejdź do zasobu **wystąpienia zarządzanego** w Azure Portal.
-2. Wybierz pozycję **Ustawienia diagnostyki** .
+2. Wybierz pozycję **Ustawienia diagnostyki**.
 3. Wybierz opcję **Włącz diagnostykę** , jeśli nie istnieją poprzednie ustawienia lub wybierz opcję **Edytuj ustawienie** , aby edytować poprzednie ustawienie.
 
    ![Włącz diagnostykę dla wystąpienia zarządzanego](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-container-mi-enable.png)
 
 4. Wprowadź nazwę ustawienia dla własnego odwołania.
-5. Wybierz zasób docelowy dla danych diagnostycznych przesyłania strumieniowego: **Archiwizuj na koncie magazynu** , **przesyła strumieniowo do centrum zdarzeń** lub **wysyłając do log Analytics** .
+5. Wybierz zasób docelowy dla danych diagnostycznych przesyłania strumieniowego: **Archiwizuj na koncie magazynu**, **przesyła strumieniowo do centrum zdarzeń** lub **wysyłając do log Analytics**.
 6. W przypadku usługi log Analytics wybierz pozycję **Konfiguruj** i Utwórz nowy obszar roboczy, wybierając pozycję **+ Utwórz nowy obszar roboczy** lub korzystając z istniejącego obszaru roboczego.
-7. Zaznacz pole wyboru dla telemetrii diagnostyki wystąpienia: **ResourceUsageStats** .
+7. Zaznacz pole wyboru dla telemetrii diagnostyki wystąpienia: **ResourceUsageStats**.
 
    ![Konfigurowanie diagnostyki dla wystąpienia zarządzanego](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-container-mi-selection.png)
 
-8. Wybierz pozycję **Zapisz** .
+8. Wybierz pozycję **Zapisz**.
 9. Ponadto należy skonfigurować przesyłanie strumieniowe telemetrii diagnostyki dla każdej bazy danych wystąpienia w zarządzanym wystąpieniu, które chcesz monitorować, wykonując kroki opisane w następnej sekcji.
 
 > [!IMPORTANT]
@@ -209,7 +209,7 @@ Można skonfigurować zasób bazy danych wystąpienia, aby zebrać następujące
 Aby włączyć przesyłanie strumieniowe telemetrii diagnostyki dla bazy danych wystąpienia, wykonaj następujące kroki:
 
 1. Przejdź do zasobu **wystąpienia bazy danych** w ramach wystąpienia zarządzanego.
-2. Wybierz pozycję **Ustawienia diagnostyki** .
+2. Wybierz pozycję **Ustawienia diagnostyki**.
 3. Wybierz opcję **Włącz diagnostykę** , jeśli nie istnieją poprzednie ustawienia lub wybierz opcję **Edytuj ustawienie** , aby edytować poprzednie ustawienie.
    - Można utworzyć maksymalnie trzy (3) połączenia równoległe do telemetrii diagnostyki strumienia.
    - Wybierz pozycję **+ Dodaj ustawienie diagnostyczne** , aby skonfigurować równoległe przesyłanie strumieniowe danych diagnostycznych do wielu zasobów.
@@ -217,16 +217,16 @@ Aby włączyć przesyłanie strumieniowe telemetrii diagnostyki dla bazy danych 
    ![Włącz diagnostykę baz danych wystąpień](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-database-mi-enable.png)
 
 4. Wprowadź nazwę ustawienia dla własnego odwołania.
-5. Wybierz zasób docelowy dla danych diagnostycznych przesyłania strumieniowego: **Archiwizuj na koncie magazynu** , **przesyła strumieniowo do centrum zdarzeń** lub **wysyłając do log Analytics** .
-6. Zaznacz pola wyboru dla telemetrii diagnostyki bazy danych: **SQLInsights** , **QueryStoreRuntimeStatistics** , **QueryStoreWaitStatistics** i **Errors** .
+5. Wybierz zasób docelowy dla danych diagnostycznych przesyłania strumieniowego: **Archiwizuj na koncie magazynu**, **przesyła strumieniowo do centrum zdarzeń** lub **wysyłając do log Analytics**.
+6. Zaznacz pola wyboru dla telemetrii diagnostyki bazy danych: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** i **Errors**.
    ![Konfigurowanie diagnostyki dla baz danych wystąpień](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-database-mi-selection.png)
-7. Wybierz pozycję **Zapisz** .
+7. Wybierz pozycję **Zapisz**.
 8. Powtórz te kroki dla każdej bazy danych wystąpienia, która ma być monitorowana.
 
 > [!TIP]
 > Powtórz te kroki dla każdej bazy danych wystąpienia, która ma być monitorowana.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -349,7 +349,7 @@ Eksport przesyłania strumieniowego tej diagnostyki diagnostycznej można skonfi
 
    ![Konfigurowanie Azure SQL Analytics w portalu](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/sql-analytics-configuration-blade.png)
 
-4. Wybierz **przycisk OK** , aby potwierdzić, a następnie wybierz pozycję **Utwórz** .
+4. Wybierz **przycisk OK** , aby potwierdzić, a następnie wybierz pozycję **Utwórz**.
 
 ### <a name="configure-the-resource-to-record-metrics-and-resource-logs"></a>Konfigurowanie zasobu do rejestrowania metryk i dzienników zasobów
 
@@ -424,7 +424,7 @@ W przypadku wybrania Event Hubs lub konta magazynu można określić zasady prze
 > [!IMPORTANT]
 > Aktywne bazy danych z większymi obciążeniami pobierają więcej danych niż bezczynne bazy danych. Aby uzyskać więcej informacji, zobacz [Cennik usługi log Analytics](https://azure.microsoft.com/pricing/details/monitor/).
 
-Jeśli używasz Azure SQL Analytics, możesz monitorować użycie pozyskiwania danych, wybierając **obszar roboczy OMS** w menu nawigacji Azure SQL Analytics, a następnie wybierając pozycję **użycie** i **szacowane koszty** .
+Jeśli używasz Azure SQL Analytics, możesz monitorować użycie pozyskiwania danych, wybierając **obszar roboczy OMS** w menu nawigacji Azure SQL Analytics, a następnie wybierając pozycję **użycie** i **szacowane koszty**.
 
 ## <a name="metrics-and-logs-available"></a>Dostępne metryki i dzienniki
 
@@ -602,7 +602,7 @@ Dowiedz się więcej na temat [danych statystycznych oczekiwania magazynu zapyta
 |ElasticPoolName_s|Nazwa puli elastycznej dla bazy danych (jeśli istnieje) |
 |DatabaseName_s|Nazwa bazy danych |
 |ResourceId|Identyfikator URI zasobu |
-|Wiadomość|Komunikat o błędzie w postaci zwykłego tekstu |
+|Komunikat|Komunikat o błędzie w postaci zwykłego tekstu |
 |user_defined_b|Jest błędem bitowym zdefiniowanym przez użytkownika |
 |error_number_d|Kod błędu |
 |Ważność|Ważność błędu |

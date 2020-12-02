@@ -1,18 +1,18 @@
 ---
 title: Mapowanie transformacji przepływu danych — omówienie
 description: Przegląd różnych przekształceń dostępnych w mapowaniu przepływu danych
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: 6fe85db6612a16099f61cb52fe9c5864882f35b3
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 9d44890e84e97a413543a4291d1331fee0f04841
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92892931"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490894"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Mapowanie transformacji przepływu danych — omówienie
 
@@ -39,6 +39,6 @@ Poniżej znajduje się lista transformacji, które są obecnie obsługiwane w ma
 | [Sortowanie](data-flow-sort.md) | Modyfikator wiersza | Sortuj wiersze przychodzące w bieżącym strumieniu danych |
 | [Element źródłowy](data-flow-source.md) | - | Źródło danych dla przepływu danych |
 | [Klucz zastępczy](data-flow-surrogate-key.md) | Modyfikator schematu | Dodaj przyrostową wartość klucza niezwiązanej z firmą |
-| [Unia](data-flow-union.md) | Wiele danych wejściowych/wyjściowych | Łączenie wielu strumieni danych w pionie |
+| [Unii](data-flow-union.md) | Wiele danych wejściowych/wyjściowych | Łączenie wielu strumieni danych w pionie |
 | [Anulowanie przestawiania](data-flow-unpivot.md) | Modyfikator schematu | Przestawianie kolumn na wartości wierszy |
 | [Okno](data-flow-window.md) | Modyfikator schematu |  Zdefiniuj agregacje kolumn w strumieniach danych. |

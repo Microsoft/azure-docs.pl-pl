@@ -5,13 +5,13 @@ author: Rodrigossz
 ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/09/2020
-ms.openlocfilehash: 0791ed6882feedeab47b75eff6a69bf0a49ab7ee
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.date: 11/30/2020
+ms.openlocfilehash: 82133f990c1714276aa13ff22c3f19d0993d16df
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341295"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488718"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Często zadawane pytania dotyczące usługi Azure Synapse Link dla usługi Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -22,7 +22,7 @@ Link Synapse platformy Azure dla Azure Cosmos DB umożliwia ścisłą integracj�
 
 ### <a name="is-azure-synapse-link-supported-for-all-azure-cosmos-db-apis"></a>Czy link usługi Azure Synapse jest obsługiwany przez wszystkie Azure Cosmos DB interfejsy API?
 
-W publicznej wersji zapoznawczej usługa Azure Synapse link jest obsługiwana w przypadku interfejsu API SQL (rdzeń) Azure Cosmos DB i interfejsu API Azure Cosmos DB dla MongoDB. 
+Usługa Azure Synapse link jest obsługiwana dla interfejsu API SQL (rdzeń) Azure Cosmos DB i interfejsu API Azure Cosmos DB dla MongoDB. 
 
 ### <a name="is-azure-synapse-link-supported-for-multi-region-azure-cosmos-db-accounts"></a>Czy link usługi Azure Synapse jest obsługiwany dla wieloregionowych kont Azure Cosmos DB?
 
@@ -32,7 +32,7 @@ Podczas planowania konfigurowania wieloregionowego konta Azure Cosmos DB z obsł
 
 ### <a name="can-i-choose-to-enable-azure-synapse-link-for-only-certain-region-and-not-all-regions-in-a-multi-region-account-set-up"></a>Czy mogę włączyć link usługi Azure Synapse tylko dla pewnego regionu, a nie wszystkich regionów w konfiguracji konta wieloregionowego?
 
-W wersji zapoznawczej, gdy łącze Azure Synapse jest włączone dla konta wieloregionowego, magazyn analityczny jest tworzony we wszystkich regionach. Dane podstawowe są zoptymalizowane pod kątem przepływności i spójności transakcyjnej w magazynie transakcyjnym.
+Po włączeniu linku Azure Synapse dla konta wieloregionowego magazyn analityczny jest tworzony we wszystkich regionach. Dane podstawowe są zoptymalizowane pod kątem przepływności i spójności transakcyjnej w magazynie transakcyjnym.
 
 ### <a name="is-backup-and-restore-supported-for-azure-synapse-link-enabled-accounts"></a>Czy funkcja tworzenia kopii zapasowych i przywracania jest obsługiwana dla kont usługi Azure Synapse link?
 
@@ -42,9 +42,13 @@ Gdy łącze Synapse jest włączone na koncie bazy danych, Azure Cosmos DB będz
 
 ### <a name="can-i-disable-the-azure-synapse-link-feature-for-my-azure-cosmos-db-account"></a>Czy mogę wyłączyć funkcję linku usługi Azure Synapse dla mojego konta Azure Cosmos DB?
 
-Obecnie po włączeniu funkcji usługi Synapse Link na poziomie konta nie można jej wyłączyć. Należy pamiętać, że włączenie funkcji usługi Synapse Link na poziomie konta nie pociąga żadnych implikacji rozliczeniowych w przypadku braku kontenerów z włączonym magazynem analitycznym. 
+Obecnie po włączeniu funkcji usługi Synapse Link na poziomie konta nie można jej wyłączyć. Należy pamiętać, że włączenie funkcji usługi Synapse Link na poziomie konta nie pociąga żadnych implikacji rozliczeniowych w przypadku braku kontenerów z włączonym magazynem analitycznym.
 
 Jeśli musisz wyłączyć tę możliwość, masz 2 opcje. Pierwszą jest usunięcie i ponowne utworzenie nowego konta usługi Azure Cosmos DB oraz, jeśli jest to konieczne, przeprowadzenie migracji danych. Drugą opcją to otwarcie biletu pomocy technicznej, aby uzyskać pomoc na temat migracji danych na inne konto.
+
+### <a name="does-analytical-store-have-any-impact-on-cosmos-db-transactional-slas"></a>Czy magazyn analityczny ma wpływ na Cosmos DB transakcyjny umowy SLA?
+
+Nie, nie ma żadnego wpływu.
 
 ## <a name="azure-cosmos-db-analytical-store"></a>Magazyn analityczny Azure Cosmos DB
 
@@ -73,7 +77,7 @@ Tak, usunięcie i aktualizacja danych w magazynie transakcyjnym zostaną odzwier
 Można uzyskać dostęp magazynu analitycznego i uruchamiać zapytania względem magazynu analitycznego, jedynie korzystając z różnych środowisk uruchomieniowych udostępnianych przez usługę Azure Synapse Analytics. Magazyn analityczny można odpytywać i analizować przy użyciu następujących narzędzi:
 
 * Synapse Spark z pełną obsługą Scala, Python, SparkSQL i C#. Usługa Synapse Spark stanowi podstawę w przypadku scenariuszy z zakresu inżynierii danych i nauki
-* Bezserwerowa usługa SQL z językiem T-SQL i obsługą znanych narzędzi analizy biznesowej (na przykład Power BI Premium itd.)
+* Bezserwerowa Pula SQL z językiem T-SQL i obsługą znanych narzędzi analizy biznesowej (na przykład Power BI Premium itd.)
 
 ### <a name="can-i-connect-to-analytical-store-from-synapse-sql-provisioned"></a>Czy można nawiązać połączenie z magazynem analitycznym z Synapse SQL?
 
@@ -121,7 +125,12 @@ Wszystkie aktualizacje i usunięcia transakcyjne są kopiowane do magazynu anali
 
 ### <a name="what-is-the-billing-model-of-azure-synapse-link-for-azure-cosmos-db"></a>Jaki jest model rozliczeń usługi Azure Synapse dla Azure Cosmos DB?
 
-[Magazyn analityczny Azure Cosmos DB](analytical-store-introduction.md) jest dostępny w publicznej wersji zapoznawczej bez opłat za magazyn analityczny do 30 sierpnia 2020. Synapse Spark i Synapse SQL są rozliczane przez [użycie usługi Synapse](https://azure.microsoft.com/pricing/details/synapse-analytics/).
+Model rozliczeń łącza usługi Azure Synapse obejmuje koszty związane z korzystaniem z magazynu analitycznego Azure Cosmos DB i środowiska uruchomieniowego Synapse. Aby dowiedzieć się więcej, zapoznaj się z artykułami dotyczącymi [cen sklepu analitycznego Azure Cosmos DB](analytical-store-introduction.md#analytical-store-pricing) i [cennika usługi Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/) .
+
+### <a name="what-is-the-billing-impact-if-i-enable-synapse-link-in-my-azure-cosmos-db-database-account"></a>Jaki jest wpływ rozliczenia, jeśli włączam link Synapse w ramach konta bazy danych Azure Cosmos DB?
+
+Brak. Opłata zostanie naliczona tylko w przypadku utworzenia kontenera z obsługą magazynu analitycznego i rozpoczęcia ładowania danych.
+
 
 ## <a name="security"></a>Zabezpieczenia
 
@@ -136,10 +145,10 @@ Uwierzytelnianie za pomocą magazynu analitycznego jest takie samo jak w przypad
 |Środowisko uruchomieniowe usługi Azure Synapse |Bieżąca obsługa |
 |---------|---------|
 |Pule Azure Synapse Spark | Odczyt, zapis (poprzez magazyn transakcyjny), tabela, widok tymczasowy |
-|Azure Synapse — pule bezserwerowe SQL    | Odczytaj, Wyświetl |
+|Pula SQL bezserwerowa usługi Azure Synapse    | Odczytaj, Wyświetl |
 |Usługa Azure Synapse w wersji zainicjowanej   |  Niedostępne |
 
-### <a name="do-my-azure-synapse-spark-tables-sync-with-my-azure-synapse-sql-serverless-tables-the-same-way-they-do-with-azure-data-lake"></a>Czy moje tabele usługi Azure Synapse Spark są zsynchronizowane z moją tabelą bezserwerową Azure Synapse SQL w taki sam sposób, jak w przypadku Azure Data Lake?
+### <a name="do-my-azure-synapse-spark-tables-sync-with-my-azure-synapse-serverless-sql-pool-tables-the-same-way-they-do-with-azure-data-lake"></a>Czy moje tabele usługi Azure Synapse Spark są synchronizowane z tabelami puli SQL bez serwera Azure Synapse w taki sam sposób, jak w przypadku Azure Data Lake?
 
 Obecnie ta funkcja jest niedostępna.
 

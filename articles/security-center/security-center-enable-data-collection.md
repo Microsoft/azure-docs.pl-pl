@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 2b4710fec43e27235ef6c05abb6018e1af4310d3
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: f5cf432e3824ca0bb441a458a08fc7353291cf1f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96434944"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490061"
 ---
 # <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Inicjowanie obsługi administracyjnej agentów i rozszerzeń z Azure Security Center
 
@@ -211,8 +211,8 @@ Aby ręcznie zainstalować agenta Log Analytics:
 
 1. Aby wdrożyć agentów przy użyciu programu PowerShell, Skorzystaj z instrukcji z dokumentacji dotyczącej maszyn wirtualnych:
 
-    - [Dla maszyn z systemem Windows](../virtual-machines/extensions/oms-windows.md?toc=%252fazure%252fazure-monitor%252ftoc.json#powershell-deployment)
-    - [Dla maszyn z systemem Linux](../virtual-machines/extensions/oms-linux.md?toc=%252fazure%252fazure-monitor%252ftoc.json#azure-cli-deployment)
+    - [Dla maszyn z systemem Windows](../virtual-machines/extensions/oms-windows.md?toc=%2fazure%2fazure-monitor%2ftoc.json#powershell-deployment)
+    - [Dla maszyn z systemem Linux](../virtual-machines/extensions/oms-linux.md?toc=%2fazure%2fazure-monitor%2ftoc.json#azure-cli-deployment)
 
 > [!TIP]
 > Aby uzyskać instrukcje na temat sposobu dołączania Security Center przy użyciu programu PowerShell, zobacz Automatyzowanie dołączania [Azure Security Center przy użyciu programu PowerShell](security-center-powershell-onboarding.md).

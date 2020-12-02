@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 94cb40522a9e463fea2efae329daf910b5386cdd
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: bf593eab54233ab65435585485dd8e3940f5addb
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832606"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489823"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Najlepsze rozwiązania dotyczące zabezpieczeń usługi Azure Identity Management i kontroli dostępu
 
@@ -229,12 +229,12 @@ Zabezpieczanie uprzywilejowanego dostępu jest najważniejszym pierwszym krokiem
 
 Konta uprzywilejowane to konta, które administrują systemami IT i zarządzają nimi. Osoby atakujące cybernetycznymi mogą uzyskać dostęp do danych i systemów organizacji. Aby zabezpieczyć uprzywilejowany dostęp, należy odizolować konta i systemy przed ryzykiem, które ma zostać ujawnione złośliwemu użytkownikowi.
 
-Zalecamy opracowanie i przestrzeganie planu w celu zabezpieczenia uprzywilejowanego dostępu przed osobami atakującymi cybernetycznymi. Informacje o tworzeniu szczegółowego planu zabezpieczania tożsamości i dostępu, które są zarządzane lub zgłaszane w usłudze Azure AD, Microsoft Azure, Microsoft 365 i innych usługach w chmurze, można znaleźć w temacie [Zabezpieczanie uprzywilejowanego dostępu dla wdrożeń hybrydowych i w chmurze w usłudze Azure AD](../../active-directory/users-groups-roles/directory-admin-roles-secure.md).
+Zalecamy opracowanie i przestrzeganie planu w celu zabezpieczenia uprzywilejowanego dostępu przed osobami atakującymi cybernetycznymi. Informacje o tworzeniu szczegółowego planu zabezpieczania tożsamości i dostępu, które są zarządzane lub zgłaszane w usłudze Azure AD, Microsoft Azure, Microsoft 365 i innych usługach w chmurze, można znaleźć w temacie [Zabezpieczanie uprzywilejowanego dostępu dla wdrożeń hybrydowych i w chmurze w usłudze Azure AD](../../active-directory/roles/security-planning.md).
 
-Poniżej przedstawiono podsumowanie najlepszych rozwiązań w [zakresie zabezpieczania uprzywilejowanego dostępu dla wdrożeń hybrydowych i w chmurze w usłudze Azure AD](../../active-directory/users-groups-roles/directory-admin-roles-secure.md):
+Poniżej przedstawiono podsumowanie najlepszych rozwiązań w [zakresie zabezpieczania uprzywilejowanego dostępu dla wdrożeń hybrydowych i w chmurze w usłudze Azure AD](../../active-directory/roles/security-planning.md):
 
 **Najlepsze rozwiązanie**: zarządzanie, kontrolowanie i monitorowanie dostępu do kont uprzywilejowanych.   
-**Szczegóły**: Włącz [Azure AD Privileged Identity Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md). Po włączeniu Privileged Identity Management będziesz otrzymywać wiadomości e-mail z powiadomieniami o zmianach roli uprzywilejowanego dostępu. Te powiadomienia zapewniają wczesne ostrzeżenie, gdy dodatkowi użytkownicy są dodawani do ról o wysokim poziomie uprawnień w katalogu.
+**Szczegóły**: Włącz [Azure AD Privileged Identity Management](../../active-directory/roles/security-planning.md). Po włączeniu Privileged Identity Management będziesz otrzymywać wiadomości e-mail z powiadomieniami o zmianach roli uprzywilejowanego dostępu. Te powiadomienia zapewniają wczesne ostrzeżenie, gdy dodatkowi użytkownicy są dodawani do ról o wysokim poziomie uprawnień w katalogu.
 
 **Najlepsze rozwiązanie**: Upewnij się, że wszystkie krytyczne konta administratorów są zarządzane konta usługi Azure AD.
 **Szczegóły**: Usuń wszystkie konta konsumentów z krytycznych ról administratora (na przykład konta Microsoft, takie jak hotmail.com, live.com i Outlook.com).
@@ -261,10 +261,10 @@ Poniżej przedstawiono podsumowanie najlepszych rozwiązań w [zakresie zabezpie
 **Najlepsze rozwiązanie**: Zdefiniuj co najmniej dwa konta dostępu awaryjnego.   
 **Szczegóły**: konta dostępu awaryjnego pomagają organizacjom ograniczyć dostęp uprzywilejowany w istniejącym środowisku Azure Active Directory. Te konta są wysoce uprzywilejowane i nie są przypisane do określonych osób. Konta dostępu awaryjnego są ograniczone do scenariuszy, w których nie można używać zwykłych kont administracyjnych. Organizacje muszą ograniczyć użycie konta awaryjnego tylko do niezbędnego czasu.
 
-Oceń konta, które są przypisane lub kwalifikujące się do roli administratora globalnego. Jeśli nie widzisz żadnych kont tylko w chmurze przy użyciu `*.onmicrosoft.com` domeny (przeznaczonej do dostępu awaryjnego), utwórz je. Aby uzyskać więcej informacji, zobacz [Zarządzanie kontami administracyjnymi dostępu awaryjnego w usłudze Azure AD](../../active-directory/users-groups-roles/directory-emergency-access.md).
+Oceń konta, które są przypisane lub kwalifikujące się do roli administratora globalnego. Jeśli nie widzisz żadnych kont tylko w chmurze przy użyciu `*.onmicrosoft.com` domeny (przeznaczonej do dostępu awaryjnego), utwórz je. Aby uzyskać więcej informacji, zobacz [Zarządzanie kontami administracyjnymi dostępu awaryjnego w usłudze Azure AD](../../active-directory/roles/security-emergency-access.md).
 
 **Najlepsze rozwiązanie**: w przypadku sytuacji awaryjnej ma miejsce proces "Break Glass".
-**Szczegóły**: Postępuj zgodnie z instrukcjami w temacie [Zabezpieczanie uprzywilejowanego dostępu dla wdrożeń hybrydowych i w chmurze w usłudze Azure AD](../../active-directory/users-groups-roles/directory-admin-roles-secure.md).
+**Szczegóły**: Postępuj zgodnie z instrukcjami w temacie [Zabezpieczanie uprzywilejowanego dostępu dla wdrożeń hybrydowych i w chmurze w usłudze Azure AD](../../active-directory/roles/security-planning.md).
 
 **Najlepsze rozwiązanie**: Wymagaj, aby wszystkie krytyczne konta administratorów miały hasła (preferowany) lub wymagają Multi-Factor Authentication.
 **Szczegóły**: użyj [aplikacji Microsoft Authenticator](../../active-directory/authentication/howto-authentication-passwordless-phone.md) , aby zalogować się do dowolnego konta usługi Azure AD bez użycia hasła. Podobnie jak w [przypadku usługi Windows Hello dla firm](/windows/security/identity-protection/hello-for-business/hello-identity-verification), Microsoft Authenticator używa uwierzytelniania opartego na kluczach, aby włączyć poświadczenia użytkownika powiązane z urządzeniem i korzystać z uwierzytelniania biometrycznego lub numeru PIN.
@@ -284,25 +284,25 @@ Wymagaj usługi Azure AD Multi-Factor Authentication podczas logowania dla wszys
 **Szczegóły**: Użyj symulatora ataków Microsoft 365 lub oferty innej firmy, aby uruchomić realistyczne scenariusze ataków w organizacji. Może to pomóc w znalezieniu narażonych użytkowników przed rzeczywistym atakiem.
 
 **Najlepsze rozwiązanie**: należy podjąć kroki w celu ograniczenia najczęściej używanych technik ataków.  
-**Szczegóły**: [Zidentyfikuj konta Microsoft w rolach administracyjnych, które muszą zostać przełączone na konta](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts) służbowe  
+**Szczegóły**: [Zidentyfikuj konta Microsoft w rolach administracyjnych, które muszą zostać przełączone na konta](../../active-directory/roles/security-planning.md#identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts) służbowe  
 
-[Upewnij się, że konta użytkowników i przekazywanie poczty są przekazywane na konta administratora globalnego](../../active-directory/users-groups-roles/directory-admin-roles-secure.md)  
+[Upewnij się, że konta użytkowników i przekazywanie poczty są przekazywane na konta administratora globalnego](../../active-directory/roles/security-planning.md)  
 
-[Upewnij się, że hasła kont administracyjnych zostały ostatnio zmienione](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#ensure-the-passwords-of-administrative-accounts-have-recently-changed)  
+[Upewnij się, że hasła kont administracyjnych zostały ostatnio zmienione](../../active-directory/roles/security-planning.md#ensure-the-passwords-of-administrative-accounts-have-recently-changed)  
 
-[Włącz synchronizację skrótów haseł](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#turn-on-password-hash-synchronization)  
+[Włącz synchronizację skrótów haseł](../../active-directory/roles/security-planning.md#turn-on-password-hash-synchronization)  
 
-[Wymagaj Multi-Factor Authentication dla użytkowników we wszystkich uprzywilejowanych rolach, a także dla narażonych użytkowników](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users)  
+[Wymagaj Multi-Factor Authentication dla użytkowników we wszystkich uprzywilejowanych rolach, a także dla narażonych użytkowników](../../active-directory/roles/security-planning.md#require-multi-factor-authentication-for-users-in-privileged-roles-and-exposed-users)  
 
-[Uzyskaj Microsoft 365 zabezpieczonych wyników (Jeśli używasz Microsoft 365)](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#obtain-your-office-365-secure-score-if-using-office-365)  
+[Uzyskaj Microsoft 365 zabezpieczonych wyników (Jeśli używasz Microsoft 365)](../../active-directory/roles/security-planning.md#obtain-your-microsoft-365-secure-score-if-using-microsoft-365)  
 
-[Zapoznaj się ze wskazówkami dotyczącymi zabezpieczeń Microsoft 365 (jeśli są używane Microsoft 365)](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#review-the-office-365-security-and-compliance-guidance-if-using-office-365)  
+[Zapoznaj się ze wskazówkami dotyczącymi zabezpieczeń Microsoft 365 (jeśli są używane Microsoft 365)](../../active-directory/roles/security-planning.md#review-the-microsoft-365-security-and-compliance-guidance-if-using-microsoft-365)  
 
-[Skonfiguruj monitorowanie działania Microsoft 365 (jeśli jest używany Microsoft 365)](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#configure-office-365-activity-monitoring-if-using-office-365)  
+[Skonfiguruj monitorowanie działania Microsoft 365 (jeśli jest używany Microsoft 365)](../../active-directory/roles/security-planning.md#configure-microsoft-365-activity-monitoring-if-using-microsoft-365)  
 
-[Ustalanie właścicieli planu reagowania na zdarzenia/sytuacje awaryjne](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#establish-incidentemergency-response-plan-owners)  
+[Ustalanie właścicieli planu reagowania na zdarzenia/sytuacje awaryjne](../../active-directory/roles/security-planning.md#establish-incidentemergency-response-plan-owners)  
 
-[Zabezpieczone konta administracyjne z uprawnieniami lokalnymi](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#turn-on-password-hash-synchronization)
+[Zabezpieczone konta administracyjne z uprawnieniami lokalnymi](../../active-directory/roles/security-planning.md#turn-on-password-hash-synchronization)
 
 Jeśli nie masz bezpiecznego dostępu uprzywilejowanego, może się zdarzyć, że masz zbyt wielu użytkowników w uprzywilejowanych rolach i jest bardziej narażony na ataki. Złośliwe podmioty, w tym cybernetycznymi osoby atakujące, często są docelowymi kontami administracyjnymi i innymi elementami uprzywilejowanego dostępu, aby uzyskać dostęp do poufnych danych i systemów za pomocą kradzieży poświadczeń.
 

@@ -6,17 +6,17 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.date: 10/09/2018
-ms.openlocfilehash: 5d74cd0fcd524f00d79eb3fbab386c602a413766
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16bdd1d31440ed440faf67e939485da613e3886f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81414215"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490945"
 ---
 # <a name="append-variable-activity-in-azure-data-factory"></a>Działanie dołączania zmiennej w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -27,9 +27,9 @@ Użyj działania Dołącz zmienną, aby dodać wartość do istniejącej zmienne
 Właściwość | Opis | Wymagane
 -------- | ----------- | --------
 name | Nazwa działania w potoku | Tak
-description | Tekst opisujący działanie działania | nie
-typ | Typ działania to AppendVariable | tak
-value | Literał ciągu lub wartość obiektu Expression użyta do dołączenia do określonej zmiennej | tak
+description (opis) | Tekst opisujący działanie działania | nie
+typ | Typ działania to AppendVariable | yes
+value | Literał ciągu lub wartość obiektu Expression użyta do dołączenia do określonej zmiennej | yes
 variableName | Nazwa zmiennej, która zostanie zmodyfikowana przez działanie, zmienna musi być typu "Array" | tak
 
 ## <a name="next-steps"></a>Następne kroki

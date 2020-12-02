@@ -1,17 +1,17 @@
 ---
 title: Samouczki wideo dotyczące przepływów mapowania danych
 description: Lista samouczków wideo objaśniających koncepcje dotyczące mapowania przepływu danych
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 11/02/2020
-ms.openlocfilehash: 2fbdaa2329ba2765da7c7ad4023ef164a56aa497
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 605d740b56b4f1cd57ab705e442a8b3e3946fcff
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359378"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490707"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Samouczki wideo dotyczące przepływów mapowania danych
 
@@ -21,7 +21,7 @@ Poniżej znajduje się lista map filmów dotyczących przepływu danych, które 
 
 Gdy aktualizacje są stale wprowadzane do produktu, niektóre funkcje zostały dodane lub inne funkcje w bieżącym środowisku użytkownika Azure Data Factory.
 
-## <a name="getting-started"></a>Getting Started
+## <a name="getting-started"></a>Wprowadzenie
 
 [Wprowadzenie do mapowania przepływów danych w Azure Data Factory](http://youtu.be/MFw7t_8tuV4)
 

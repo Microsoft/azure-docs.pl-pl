@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: c707f6108c73a268bcac18c45afb70ae17185bb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 877200cbafbe68fa6161025572abfddad651e172
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308116"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490724"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Omówienie pojęć związanych z certyfikatami urzędu certyfikacji X. 509 w branży IoT
 
@@ -40,6 +40,8 @@ Atrybut odróżniający uwierzytelniania urzędu certyfikacji X. 509 jest relacj
 Innym ważnym atrybutem uwierzytelniania urzędu certyfikacji X. 509 jest uproszczenie logistyki łańcucha dostaw. Bezpieczne uwierzytelnianie urządzeń wymaga, aby każde urządzenie posiada unikatowy klucz tajny, taki jak klucz jako podstawa zaufania. W przypadku uwierzytelniania opartego na certyfikatach ten klucz tajny jest kluczem prywatnym. Typowy przepływ produkcji urządzenia obejmuje wiele kroków i powierników. Bezpieczne zarządzanie kluczami prywatnymi urządzeń w wielu powiernikach i utrzymywanie zaufania jest trudne i kosztowne. Korzystanie z urzędów certyfikacji rozwiązuje ten problem przez podpisywanie każdego elementu podrzędnego do kryptograficznego łańcucha zaufania, a nie przy użyciu kluczy prywatnych urządzeń. Każdy powiernik z kolei umożliwia znakowanie urządzeń w odpowiednim kroku procesu przepływu produkcji. Ogólny wynik to optymalny łańcuch dostaw z wbudowaną odpowiedzialnością za korzystanie z kryptograficznego łańcucha zaufania. Warto zauważyć, że ten proces daje największe zabezpieczenia, gdy urządzenia chronią swoje unikatowe klucze prywatne. W tym celu zachęcamy do używania sprzętowych modułów zabezpieczeń (HSM), które umożliwiają wewnętrznie generowanie kluczy prywatnych, które nigdy nie będą widoczne.
 
 Ten artykuł zawiera kompleksowy widok użycia uwierzytelniania urzędu certyfikacji X. 509 z konfiguracji łańcucha dostaw do połączenia urządzenia, przy jednoczesnym użyciu rzeczywistego przykładu do poznania zwiększyć.
+
+Możesz również użyć grup rejestracji z usługą Azure IoT Hub Device Provisioning Service (DPS), aby obsługiwać obsługę administracyjną urządzeń dla centrów. Aby uzyskać więcej informacji o używaniu usługi DPS do aprowizacji urządzeń z certyfikatem X. 509, zobacz [Samouczek: Udostępnianie wielu urządzeń x. 509 przy użyciu grup rejestracji](../iot-dps/tutorial-custom-hsm-enrollment-group-x509.md).
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -75,7 +77,7 @@ Proces tworzenia certyfikatu programu Self-Signed X. 509 urzędu certyfikacji je
 
 ## <a name="register-the-x509-certificate-to-iot-hub"></a>Zarejestruj certyfikat X. 509 w celu IoT Hub
 
-Firma-X musi zarejestrować urząd certyfikacji X. 509, aby IoT Hub, w którym będzie on obsługiwał uwierzytelnianie inteligentnych elementów widget. Jest to jednorazowy proces, który umożliwia uwierzytelnianie dowolnej liczby urządzeń typu "Smart-X" i zarządzanie nią. Ten proces jest jednorazowy ze względu na relację jeden-do-wielu między certyfikatem i urządzeniami urzędu, a także stanowi jedną z głównych zalet korzystania z metody uwierzytelniania urzędu certyfikacji X. 509. Alternatywą jest przekazywanie odcisków palców poszczególnych certyfikatów dla każdego i każdego urządzenia inteligentnego, co pozwala na dodawanie do kosztów operacyjnych.
+Firma-X musi zarejestrować urząd certyfikacji X. 509, aby IoT Hub, w którym będzie on obsługiwał uwierzytelnianie inteligentnych elementów widget. Jest to jednorazowy proces, który umożliwia uwierzytelnianie dowolnej liczby urządzeń typu "Smart-X" i zarządzanie nią. Jest to jednorazowy proces z powodu relacji jeden do wielu między certyfikatem urzędu certyfikacji a certyfikatami urządzeń podpisanymi przez certyfikat urzędu certyfikacji lub certyfikat pośredni. Ta relacja stanowi jedną z głównych zalet korzystania z metody uwierzytelniania urzędu certyfikacji X. 509. Alternatywą jest przekazywanie odcisków palców poszczególnych certyfikatów dla każdego i każdego urządzenia inteligentnego, co pozwala na dodawanie do kosztów operacyjnych.
 
 Zarejestrowanie certyfikatu urzędu certyfikacji X. 509 jest procesem dwuetapowym, przekazywaniem certyfikatu i dowodem posiadania certyfikatu.
 

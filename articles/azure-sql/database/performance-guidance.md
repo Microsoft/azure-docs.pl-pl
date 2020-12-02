@@ -8,16 +8,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: jrasnick
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: 773f011e0c79dc7b246ddc4a737914c15fe0f2f6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 40657ad2f3b69d62e0e0d9c7d9e0f0be7343547b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789543"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490605"
 ---
 # <a name="tune-applications-and-databases-for-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>Dostrajanie aplikacji i baz danych pod kątem wydajności w Azure SQL Database i wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

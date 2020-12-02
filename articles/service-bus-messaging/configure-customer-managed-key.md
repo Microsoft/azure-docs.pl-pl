@@ -3,12 +3,12 @@ title: Skonfiguruj własny klucz szyfrowania danych Azure Service Bus przechowyw
 description: Ten artykuł zawiera informacje dotyczące sposobu konfigurowania własnego klucza do szyfrowania danych Azure Service Bus Rest.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 32fcdad28b06df1763ab1efb1740d87d0b247b0a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 35680819350582062dd4227c65f9e72ae8b3ee5c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843404"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489704"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Konfigurowanie kluczy zarządzanych przez klienta do szyfrowania Azure Service Bus danych przechowywanych przy użyciu Azure Portal
 Azure Service Bus Premium zapewnia szyfrowanie danych przechowywanych przy użyciu usługi Azure szyfrowanie usługi Storage (SSE platformy Azure). Service Bus Premium bazuje na usłudze Azure Storage do przechowywania danych i domyślnie wszystkie dane przechowywane w usłudze Azure Storage są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. 
@@ -42,7 +42,7 @@ Aby włączyć klucze zarządzane przez klienta w Azure Portal, wykonaj następu
 
 ## <a name="set-up-a-key-vault-with-keys"></a>Konfigurowanie magazynu kluczy z kluczami
 
-Po włączeniu kluczy zarządzanych przez klienta należy skojarzyć klucz zarządzany klienta z przestrzenią nazw Azure Service Bus. Service Bus obsługuje tylko Azure Key Vault. Po włączeniu opcji **szyfrowania z kluczem zarządzanym przez klienta** w poprzedniej sekcji należy zaimportować klucz do Azure Key Vault. Ponadto klucze muszą mieć **nietrwałe usuwanie** i nie można ich **czyścić** skonfigurować dla klucza. Te ustawienia można skonfigurować przy użyciu [programu PowerShell](../key-vault/general/soft-delete-powershell.md) lub [interfejsu wiersza polecenia](../key-vault/general/soft-delete-cli.md#enabling-purge-protection).
+Po włączeniu kluczy zarządzanych przez klienta należy skojarzyć klucz zarządzany klienta z przestrzenią nazw Azure Service Bus. Service Bus obsługuje tylko Azure Key Vault. Po włączeniu opcji **szyfrowania z kluczem zarządzanym przez klienta** w poprzedniej sekcji należy zaimportować klucz do Azure Key Vault. Ponadto klucze muszą mieć **nietrwałe usuwanie** i nie można ich **czyścić** skonfigurować dla klucza. Te ustawienia można skonfigurować przy użyciu [programu PowerShell](../key-vault/general/key-vault-recovery.md) lub [interfejsu wiersza polecenia](../key-vault/general/key-vault-recovery.md).
 
 1. Aby utworzyć nowy magazyn kluczy, postępuj zgodnie z Azure Key Vault [przewodnika Szybki Start](../key-vault/general/overview.md). Aby uzyskać więcej informacji o importowaniu istniejących kluczy, zobacz [Informacje o kluczach, wpisach tajnych i certyfikatach](../key-vault/general/about-keys-secrets-certificates.md).
 1. Aby włączyć zarówno nietrwałe usuwanie, jak i przeczyszczanie, podczas tworzenia magazynu należy użyć polecenia [AZ Create webmagazynion](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) .

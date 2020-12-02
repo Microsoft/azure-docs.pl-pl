@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 07/28/2020
-ms.openlocfilehash: d43f94d3555a660d6b7c8f755eebfec253d31dc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b845d547224fb173d2a4b156575778783e0281fa
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89322926"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488569"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Informacje o użyciu maszyny wirtualnej platformy Azure
 Analizując dane użycia platformy Azure, można uzyskać zaawansowane informacje o zużyciu — szczegółowe informacje umożliwiające zarządzanie kosztami i alokację w całej organizacji. Ten dokument zawiera szczegółowe informacje o szczegółowe na temat użycia obliczeń na platformie Azure. Aby uzyskać więcej informacji na temat ogólnego użycia platformy Azure, przejdź do opisu [rachunku](../cost-management-billing/understand/review-individual-bill.md).
@@ -33,11 +33,11 @@ Aby rozpocząć, [Pobierz szczegóły użycia](../cost-management-billing/manage
 | Meter Region| Określa lokalizację centrum danych pewnych usług, które są wyceniane na podstawie lokalizacji centrum danych.|  `JA East`|
 | Jednostka| Identyfikuje jednostkę, w której rozliczana jest usługa. Zasoby obliczeniowe są rozliczane na godzinę.| `Hours`|
 | Zużyte| Ilość zasobu wykorzystana w danym dniu. W przypadku obliczeń opłata jest naliczana za każdą minutę, gdy maszyna wirtualna działała przez daną godzinę (do 6 cyfr dziesiętnych dokładności).| `1, 0.5`|
-| Lokalizacja zasobu  | Identyfikuje centrum danych, w którym jest uruchamiany zasób.| `JA East`|
+| Resource Location  | Identyfikuje centrum danych, w którym jest uruchamiany zasób.| `JA East`|
 | Consumed Service | Użyta usługa platformy Azure.| `Microsoft.Compute`|
 | Grupa zasobów | Grupa zasobów, w której działa wdrożony zasób. Aby uzyskać więcej informacji, zobacz [Azure Resource Manager przegląd.](../azure-resource-manager/management/overview.md)|`MyRG`|
 | Instance ID | Identyfikator zasobu. Identyfikator zawiera nazwę, która została określona dla zasobu, gdy został on utworzony. W przypadku maszyn wirtualnych identyfikator wystąpienia będzie zawierać identyfikatory subskrypcji, ResourceGroupName i VMName (lub nazwę zestawu skalowania dla użycia zestawu skalowania).| `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1`<br><br>lub<br><br>`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1`|
-| Tagi| Tag przypisany do zasobu. Użyj tagów, aby zgrupować rekordy rozliczeń. Dowiedz się, jak oznaczyć Virtual Machines przy użyciu [interfejsu wiersza polecenia](./linux/tag.md) lub [programu PowerShell](./windows/tag.md) , który jest dostępny tylko dla Menedżer zasobów maszyn wirtualnych.| `{"myDepartment":"RD","myUser":"myName"}`|
+| Tagi| Tag przypisany do zasobu. Użyj tagów, aby zgrupować rekordy rozliczeń. Dowiedz się, jak oznaczyć Virtual Machines przy użyciu [interfejsu wiersza polecenia](./tag-cli.md) lub [programu PowerShell](./tag-portal.md) , który jest dostępny tylko dla Menedżer zasobów maszyn wirtualnych.| `{"myDepartment":"RD","myUser":"myName"}`|
 | Dodatkowe informacje | Metadane dotyczące konkretnej usługi. W przypadku maszyn wirtualnych w polu dodatkowe informacje są wypełniane następujące dane: <br><br> Obraz, który został uruchomiony. Znajdź pełną listę obsługiwanych ciągów poniżej w obszarze typy obrazów.<br><br> Typ usługi: wdrożony rozmiar.<br><br> VMName: Nazwa maszyny wirtualnej. To pole jest wypełniane tylko dla maszyn wirtualnych z zestawem skalowania. Jeśli potrzebujesz nazwy maszyny wirtualnej dla maszyn wirtualnych zestawu skalowania, możesz ją znaleźć w powyższym ciągu identyfikatora wystąpienia.<br><br> UsageType: określa typ użycia, który reprezentuje.<br><br> ComputeHR to użycie godzin obliczeniowych dla źródłowej maszyny wirtualnej, takie jak Standard_D1_v2.<br><br> ComputeHR_SW to opłata za oprogramowanie w warstwie Premium, jeśli maszyna wirtualna korzysta z oprogramowania Premium, takiego jak Microsoft R Server. | Virtual Machines<br>`{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}`<br><br>Virtual Machine Scale Sets<br> `{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}`<br><br>Oprogramowanie w warstwie Premium<br> `{"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"}` |
 
 ## <a name="image-type"></a>Typ obrazu
@@ -103,7 +103,7 @@ Nazwa regionu wypełniana w polu Lokalizacja zasobu w szczegółach użycia ró�
 | westeurope | West Europe|
 | WestIndia | Indie Zachodnie|
 | westus | Zachodnie stany USA|
-| zachodnie_stany_USA_2 | Zachodnie stany USA 2|
+| westus2 | Zachodnie stany USA 2|
 
 
 ## <a name="virtual-machine-usage-faq"></a>Często zadawane pytania dotyczące użycia maszyn wirtualnych

@@ -1,18 +1,18 @@
 ---
 title: Integracja danych przy użyciu Azure Data Factory i udziału danych platformy Azure
 description: Kopiowanie, przekształcanie i udostępnianie danych przy użyciu Azure Data Factory i udziału danych platformy Azure
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: 11f4e7c50acc8256722949a50760c574d3b9d9e9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0a578f1edb51efd5f0905e663d42bf5a6fbfc783
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318239"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489058"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integracja danych przy użyciu Azure Data Factory i udziału danych platformy Azure
 
@@ -22,23 +22,23 @@ Jako że klienci logują się do nowoczesnych magazynów danych i projektów ana
 
 W celu zapewnienia kompleksowego wglądu w dane w postaci ETL/ELT w celu utworzenia obszernego widoku danych ulepszenia w Azure Data Factory umożliwią inżynierom danych dołączenie większej ilości danych, a tym samym zwiększenie wartości do przedsiębiorstwa. Udział danych platformy Azure umożliwi prowadzenie biznesowego udostępniania w biznesie.
 
-W tej warsztatie będziesz używać Azure Data Factory (ADF) do pozyskiwania danych z Azure SQL Database do Azure Data Lake Storage Gen2 (ADLS Gen2). Po pobraniu danych z usługi Lake przekształćsz je za pośrednictwem mapowania przepływów danych, natywnej usługi transformacji fabryki danych i ujścia do usługi Azure Synapse Analytics (dawniej SQL DW). Następnie udostępnimy tabelę z przekształconymi danymi wraz z dodatkowymi danymi za pomocą udziału danych platformy Azure. 
+W tej warsztatie będziesz używać Azure Data Factory (ADF) do pozyskiwania danych z Azure SQL Database do Azure Data Lake Storage Gen2 (ADLS Gen2). Po pobraniu danych z usługi Lake przekształćsz je za pośrednictwem mapowania przepływów danych, natywnej usługi transformacji fabryki danych i ujścia do usługi Azure Synapse Analytics. Następnie udostępnimy tabelę z przekształconymi danymi wraz z dodatkowymi danymi za pomocą udziału danych platformy Azure. 
 
 Dane używane w tym laboratorium to dane z taksówki w Nowym Jorku. Aby zaimportować go do bazy danych w SQL Database, Pobierz [plik taksówka-dane BACPAC](https://github.com/djpmsft/ADF_Labs/blob/master/sample-data/taxi-data.bacpac).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Subskrypcja platformy Azure** : jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
+* **Subskrypcja platformy Azure**: jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
-* **Azure SQL Database** : Jeśli nie masz bazy danych SQL, Dowiedz się, jak [utworzyć konto bazy danych SQL](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal)
+* **Azure SQL Database**: Jeśli nie masz bazy danych SQL, Dowiedz się, jak [utworzyć konto bazy danych SQL](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal)
 
-* **Azure Data Lake Storage Gen2 konta magazynu** : Jeśli nie masz konta magazynu ADLS Gen2, Dowiedz się, jak [utworzyć konto magazynu ADLS Gen2](../storage/common/storage-account-create.md).
+* **Azure Data Lake Storage Gen2 konta magazynu**: Jeśli nie masz konta magazynu ADLS Gen2, Dowiedz się, jak [utworzyć konto magazynu ADLS Gen2](../storage/common/storage-account-create.md).
 
-* **Azure Synapse Analytics (dawniej SQL DW)** : Jeśli nie masz usługi Azure Synapse Analytics (dawniej SQL DW), Dowiedz się, jak [utworzyć wystąpienie usługi Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
+* **Azure Synapse Analytics (dawniej SQL DW)**: Jeśli nie masz usługi Azure Synapse Analytics (dawniej SQL DW), Dowiedz się, jak [utworzyć wystąpienie usługi Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
-* **Azure Data Factory** : Jeśli Fabryka danych nie została utworzona, zapoznaj się z tematem jak [utworzyć fabrykę danych](./quickstart-create-data-factory-portal.md).
+* **Azure Data Factory**: Jeśli Fabryka danych nie została utworzona, zapoznaj się z tematem jak [utworzyć fabrykę danych](./quickstart-create-data-factory-portal.md).
 
-* **Udział danych platformy Azure** : Jeśli nie utworzono udziału danych, zapoznaj się z tematem jak [utworzyć udział danych](../data-share/share-your-data.md#create-a-data-share-account).
+* **Udział danych platformy Azure**: Jeśli nie utworzono udziału danych, zapoznaj się z tematem jak [utworzyć udział danych](../data-share/share-your-data.md#create-a-data-share-account).
 
 ## <a name="set-up-your-azure-data-factory-environment"></a>Skonfiguruj środowisko Azure Data Factory
 
@@ -176,7 +176,7 @@ Przepływ danych utworzony w tym kroku wewnętrzny przyłączy zestaw danych "Tr
 1. W okienku działania kanwy potoku Otwórz przystawkę **przenoszenie i przekształcanie** i przeciągnij aktywność **przepływu danych** na kanwę.
 
     ![Przepływ danych portalu 1](media/lab-data-flow-data-share/dataflow1.png)
-1. W okienku po otwarciu wybierz pozycję **Utwórz nowy przepływ danych** i wybierz pozycję **Mapowanie przepływu danych**. Kliknij pozycję **OK**.
+1. W okienku po otwarciu wybierz pozycję **Utwórz nowy przepływ danych** i wybierz pozycję **Mapowanie przepływu danych**. Kliknij przycisk **OK**.
 
     ![Przepływ danych portalu 2](media/lab-data-flow-data-share/dataflow2.png)
 1. Nastąpi przekierowanie do kanwy przepływu danych, w której będziesz kompilować logikę transformacji. Na karcie Ogólne Nadaj nazwę przepływowi danych "JoinAndAggregateData".
@@ -280,7 +280,7 @@ Przepływ danych utworzony w tym kroku wewnętrzny przyłączy zestaw danych "Tr
 1. Wywołaj zestaw danych "AggregatedTaxiData". Wybierz pozycję "SQLDW" jako połączoną usługę. Wybierz pozycję **Utwórz nową tabelę** i nazwij nową tabelę dbo. AggregateTaxiData. Po zakończeniu kliknij przycisk OK.
 
     ![Portal portalu 4](media/lab-data-flow-data-share/sink4.png)
-1. Przejdź do karty **Ustawienia** ujścia. Ponieważ tworzymy nową tabelę, musimy wybrać polecenie **Utwórz ponownie tabelę** w obszarze Akcja tabeli. Usuń zaznaczenie opcji **Włącz proces przemieszczania** , który przełącza, czy wstawiasz wiersz po wierszu czy w usłudze Batch.
+1. Przejdź do karty **Ustawienia** ujścia. Ponieważ tworzymy nową tabelę, musimy wybrać polecenie **Utwórz ponownie tabelę** w obszarze Akcja tabeli. Usuń zaznaczenie opcji **Włącz proces przemieszczania**, który przełącza, czy wstawiasz wiersz po wierszu czy w usłudze Batch.
 
     ![Ujścia portalu 5](media/lab-data-flow-data-share/sink5.png)
 
@@ -308,7 +308,7 @@ Część fabryki danych w tym laboratorium została ukończona. Opublikuj zasoby
 
 ## <a name="share-data-using-azure-data-share"></a>Udostępnianie danych za pomocą udziału danych platformy Azure
 
-W tej sekcji dowiesz się, jak skonfigurować nowy udział danych przy użyciu Azure Portal. Obejmuje to utworzenie nowego udziału danych, który będzie zawierać zestawy DataSet z Azure Data Lake Store Gen2 i Azure Synapse Analytics (dawniej SQL Data Warehouse). Następnie skonfigurujesz harmonogram migawek, który zapewni odbiorcom danych opcję automatycznego odświeżania danych, które są im udostępniane. Następnie zapraszasz adresatów do udziału danych. 
+W tej sekcji dowiesz się, jak skonfigurować nowy udział danych przy użyciu Azure Portal. Obejmuje to utworzenie nowego udziału danych, który będzie zawierać zestawy DataSet z Azure Data Lake Store Gen2 i Azure Synapse Analytics. Następnie skonfigurujesz harmonogram migawek, który zapewni odbiorcom danych opcję automatycznego odświeżania danych, które są im udostępniane. Następnie zapraszasz adresatów do udziału danych. 
 
 Po utworzeniu udziału danych następnie Przełącz systemy i Zostań *konsumentem danych*. Jako odbiorca danych postanowisz o zaakceptowaniu zaproszenia do udziału danych, konfigurowaniu miejsca, w którym dane mają być odbierane, oraz mapowania zestawów danych do różnych lokalizacji magazynu. Następnie wyzwolisz migawkę, która skopiuje dane udostępnione Tobie do określonego miejsca docelowego. 
 
@@ -342,7 +342,7 @@ Po utworzeniu udziału danych następnie Przełącz systemy i Zostań *konsument
 
     ![Dodaj zestaw danych 1](media/lab-data-flow-data-share/add-dataset.png)
 
-1. Wybierz pozycję **Azure Synapse Analytics** (wcześniej SQL Data Warehouse), aby wybrać tabelę z usługi Azure Synapse Analytics, w której wykorzystano przekształcenia ADF.
+1. Wybierz pozycję **Azure Synapse Analytics** , aby wybrać tabelę z usługi Azure Synapse Analytics, w której wykorzystano przekształcenia ADF.
 
     ![Dodaj zestaw danych SQL](media/lab-data-flow-data-share/add-dataset-sql.png)
 
@@ -360,7 +360,7 @@ Po utworzeniu udziału danych następnie Przełącz systemy i Zostań *konsument
     
 1. Przełącz się z powrotem do udziału danych platformy Azure, w którym dodano zestawy danych do swojego udziału. 
 
-1. Wybierz pozycję **rozszerzenia** , a następnie wybierz pozycję **AggregatedTaxiData** dla tabeli. 
+1. Wybierz pozycję **rozszerzenia**, a następnie wybierz pozycję **AggregatedTaxiData** dla tabeli. 
 
 1. Wybierz pozycję **Dodaj zestaw danych**
 
@@ -394,7 +394,7 @@ Po utworzeniu udziału danych następnie Przełącz systemy i Zostań *konsument
 
 1. Sprawdź **harmonogram migawek** i skonfiguruj co godzinę odświeżanie danych przy użyciu listy rozwijanej *cykl* .  
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
     Masz już aktywny udział danych. Umożliwia przegląd informacji o tym, co można zobaczyć jako dostawca danych podczas tworzenia udziału danych. 
 
