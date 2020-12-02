@@ -11,16 +11,17 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 70e423cdd8a5c4e4903a9c111b19a91b29fd7e56
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 1376dcb76c22bcd70937f533d337ee9679e9dc59
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458408"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455863"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-loginradius"></a>Samouczek: integracja Azure Active Directory z usługą LoginRadius
 
 W tym samouczku dowiesz się, jak zintegrować usługę LoginRadius z usługą Azure Active Directory (Azure AD).
+
 Integracja LoginRadius z usługą Azure AD zapewnia następujące korzyści:
 
 * Możesz kontrolować usługę Azure AD, która ma dostęp do usługi LoginRadius.
@@ -28,6 +29,7 @@ Integracja LoginRadius z usługą Azure AD zapewnia następujące korzyści:
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -35,7 +37,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpł
 Aby skonfigurować integrację usługi Azure AD z usługą LoginRadius, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/)
-* Subskrypcja z włączonym logowaniem jednokrotnym w LoginRadius
+* Subskrypcja z włączonym logowaniem jednokrotnym w usłudze LoginRadius
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -47,21 +49,21 @@ W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azu
 
 Aby skonfigurować integrację programu LoginRadius z usługą Azure AD, musisz dodać LoginRadius z galerii do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać LoginRadius z galerii, wykonaj następujące czynności:**
+**Aby dodać LoginRadius z galerii:**
 
-1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
+1. W **[Azure Portal](https://portal.azure.com)** w lewym panelu nawigacyjnym wybierz ikonę **Azure Active Directory** .
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do grupy **Aplikacje dla przedsiębiorstw** i wybierz opcję **Wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz opcję **wszystkie aplikacje** .
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-3. Aby dodać nową aplikację, kliknij przycisk **Nowa aplikacja** w górnej części okna dialogowego.
+3. Aby dodać nową aplikację, wybierz przycisk **Nowa aplikacja** :
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **LoginRadius**, wybierz pozycję **LoginRadius** from panel wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+4. W polu wyszukiwania wprowadź **LoginRadius**, wybierz pozycję **LoginRadius** w panelu wyników, a następnie wybierz przycisk **Dodaj** , aby dodać aplikację.
 
     ![LoginRadius na liście wyników](common/search-new-app.png)
 
@@ -89,46 +91,88 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą LoginRadius
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
-2. W oknie dialogowym **Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed**, aby włączyć logowanie jednokrotne.
+2. W okienku **Wybierz metodę logowania** jednokrotnego wybierz tryb **SAML/WS-karmione** , aby włączyć logowanie jednokrotne.
 
     ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
 
-3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe **Podstawowa konfiguracja protokołu SAML**.
+3. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** wybierz ikonę **edycji** , aby otworzyć okienko **podstawowe ustawienia protokołu SAML** .
 
     ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-4. W sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące czynności:
+4. W sekcji **Podstawowa konfiguracja języka SAML** :
 
-    ![LoginRadius domenę i adresy URL Logowanie jednokrotne](common/sp-identifier.png)
+   ![LoginRadius domenę i adresy URL Logowanie jednokrotne](common/sp-identifier.png)
 
-    a. W polu tekstowym **Adres URL logowania** wpisz adres URL: `https://secure.loginradius.com/login`
+   1. W polu tekstowym **adres URL logowania** wprowadź adres URL `https://secure.loginradius.com/login`
 
-    b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL: `https://LoginRadius.hub.loginradius.com/`
+   1. W polu tekstowym **Identyfikator (identyfikator jednostki)** wprowadź adres URL `https://lr.hub.loginradius.com/`
 
-    > [!NOTE]
-    > Otwórz stronę adres URL logowania. Kliknij kartę **Logowanie** jednokrotne i wprowadź **nazwę wtyczki** podaną przez [zespół pomocy technicznej LoginRadius](mailto:support@loginradius.com) , a następnie kliknij przycisk **Zaloguj** się i nastąpi przekierowanie do strony usługi Azure AD w celu zalogowania.
+   1. W polu tekstowym **adres URL odpowiedzi (adres URL usługi konsumenckej odbiorcy)** wprowadź adres URL LoginRadius ACS `https://lr.hub.loginradius.com/saml/serviceprovider/AdfsACS.aspx` 
 
-5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
+5. Na stronie **Konfiguruj pojedyncze Sign-On za pomocą języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz** , aby pobrać **plik XML metadanych Federacji** z określonych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/metadataxml.png)
 
-6. W sekcji **Konfigurowanie LoginRadius** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
+6. W sekcji **Konfiguracja LoginRadius** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
 
-    ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
+   ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
-    a. Adres URL logowania
+   - Adres URL logowania
 
-    b. Identyfikator usługi Azure AD
+   - Identyfikator usługi Azure AD
 
-    c. Adres URL wylogowywania
+   - Adres URL wylogowywania
 
-### <a name="configure-loginradius-single-sign-on"></a>Konfigurowanie pojedynczego Sign-On LoginRadius
+## <a name="configure-loginradius-single-sign-on"></a>Konfigurowanie pojedynczego Sign-On LoginRadius
 
-Aby skonfigurować Logowanie jednokrotne na stronie **LoginRadius** , musisz wysłać pobrany **kod XML metadanych** i odpowiednie skopiowane adresy URL z Azure Portal do [zespołu pomocy technicznej LoginRadius](mailto:support@loginradius.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w konsoli administracyjnej LoginRadius.
+
+1. Zaloguj się do konta [konsoli administratora](https://adminconsole.loginradius.com/login) LoginRadius.
+
+2. Przejdź do sekcji **Zarządzanie zespołem** w [konsoli administracyjnej LoginRadius](https://secure.loginradius.com/account/team).
+
+3. Wybierz kartę **Logowanie jednokrotne** , a następnie wybierz pozycję **Azure AD**:
+
+   ![Zrzut ekranu pokazujący menu logowania jednokrotnego w konsoli zarządzania zespołem LoginRadius](./media/loginradius-tutorial/azure-ad.png)
+4. Na stronie Konfiguracja usługi Azure AD wykonaj następujące czynności:
+
+   ![Zrzut ekranu przedstawiający konfigurację Azure Active Directory w konsoli zarządzania zespołem LoginRadius](./media/loginradius-tutorial/single-sign-on.png)
+
+    1. W polu **Lokalizacja dostawcy identyfikatora** wprowadź punkt końcowy logowania uzyskany na podstawie konta usługi Azure AD.
+
+    1. W **adres URL wylogowania dostawcy identyfikatora** wprowadź punkt końcowy wylogowywania uzyskany na podstawie konta usługi Azure AD.
+ 
+    1. W obszarze **Identyfikator certyfikatu dostawcy** wprowadź certyfikat usługi Azure AD, który uzyskasz z konta usługi Azure AD. Wprowadź wartość certyfikatu z nagłówkiem i stopką. Przykład: `-----BEGIN CERTIFICATE-----<certifciate value>-----END CERTIFICATE-----`
+
+    1. W polu **certyfikat dostawcy usług** i **klucz certyfikatu dostawcy serwera** wprowadź certyfikat i klucz. 
+
+       Certyfikat z podpisem własnym można utworzyć, uruchamiając następujące polecenia w wierszu polecenia (Linux/Mac):
+
+       - Polecenie pobrania klucza certyfikatu dla SP: `openssl genrsa -out lr.hub.loginradius.com.key 2048`
+
+       - Polecenie pobrania certyfikatu dla programu SP: `openssl req -new -x509 -key lr.hub.loginradius.com.key -out lr.hub.loginradius.com.cert -days 3650 -subj /CN=lr.hub.loginradius.com`
+     
+       > [!NOTE]
+       > Pamiętaj, aby wprowadzić certyfikat i wartości klucza certyfikatu z nagłówkiem i stopką:
+       > - Przykładowy format wartości certyfikatu: `-----BEGIN CERTIFICATE-----<certifciate value>-----END CERTIFICATE-----`
+       > - Przykładowy format wartości klucza certyfikatu: `-----BEGIN RSA PRIVATE KEY-----<certifciate key value>-----END RSA PRIVATE KEY-----`
+
+5. W sekcji **Mapowanie danych** wybierz pola (pola SP) i wprowadź odpowiednie pola usługi Azure AD (pola dostawcy tożsamości).
+
+    Poniżej wymieniono niektóre z wymienionych poniżej nazw pól dla usługi Azure AD.
+
+    | Pola    | Klucz profilu                                                          |
+    | --------- | -------------------------------------------------------------------- |
+    | E-mail     | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |
+    | FirstName (Imię) | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`    |
+    | LastName (Nazwisko)  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`      |
+
+    > [!NOTE]
+    > Wymagane jest mapowanie pola **adresu e-mail** . Mapowania pól **FirstName** i **LastName** są opcjonalne.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
-W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie Britta Simon.
+Celem tej sekcji jest utworzenie użytkownika testowego o nazwie Britta Simon w Azure Portal.
 
 1. W witrynie Azure Portal w okienku po lewej stronie wybierz pozycję **Azure Active Directory**, wybierz opcję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
 
@@ -138,17 +182,17 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
-3. We właściwościach użytkownika wykonaj następujące kroki.
+3. We właściwościach **użytkownika** wykonaj następujące czynności.
 
-    ![Okno dialogowe Użytkownik](common/user-properties.png)
+   ![Okno dialogowe Użytkownik](common/user-properties.png)
 
-    a. W polu **Nazwa** wprowadź **BrittaSimon**.
+   1. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension` . Na przykład BrittaSimon@contoso.com
+   1. W polu **Nazwa użytkownika** wprowadź wartość `brittasimon@yourcompanydomain.extension` . Na przykład BrittaSimon@contoso.com.
 
-    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
 
-    d. Kliknij pozycję **Utwórz**.
+   1. Wybierz pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -166,25 +210,35 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
     ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
 
-4. Kliknij przycisk **Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania**.
+4. Wybierz przycisk **Dodaj użytkownika** , a następnie wybierz pozycję **Użytkownicy i grupy** w okienku **Dodaj przypisanie** .
 
     ![Okienko Dodawanie przypisania](common/add-assign-user.png)
 
-5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+5. W okienku **Użytkownicy i grupy** wybierz pozycję **Britta Simon** na liście **Użytkownicy** , a następnie wybierz przycisk **Wybierz** w dolnej części ekranu.
 
-6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+6. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w okienku **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy. Następnie wybierz przycisk **Wybierz** w dolnej części ekranu.
 
-7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
+7. W okienku **Dodaj przypisanie** wybierz przycisk **Przypisz** .
 
 ### <a name="create-loginradius-test-user"></a>Utwórz użytkownika testowego LoginRadius
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w LoginRadius. Aby dodać użytkowników na platformie LoginRadius, Pracuj z [zespołem pomocy technicznej LoginRadius](mailto:support@loginradius.com) . Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+1. Zaloguj się do konta [konsoli administratora](https://adminconsole.loginradius.com/login) LoginRadius.
+
+2. Przejdź do sekcji Zarządzanie zespołem w konsoli administracyjnej LoginRadius.
+
+   ![Zrzut ekranu pokazujący konsolę administracyjną LoginRadius](./media/loginradius-tutorial/team-management.png)
+3. Wybierz pozycję **Dodaj członka zespołu** w menu po stronie, aby otworzyć formularz. 
+
+4. W formularzu **Dodaj członka zespołu** utworzysz użytkownika o nazwie Britta Simon w witrynie LoginRadius, podając szczegóły użytkownika i przypisując uprawnienia, które ma mieć użytkownik. Aby dowiedzieć się więcej na temat uprawnień opartych na rolach, zobacz sekcję [uprawnienia dostępu do roli](https://www.loginradius.com/docs/api/v2/admin-console/team-management/manage-team-members#roleaccesspermissions0) w dokumencie LoginRadius [Zarządzaj członkami zespołu](https://www.loginradius.com/docs/api/v2/admin-console/team-management/manage-team-members#roleaccesspermissions0) . Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka LoginRadius w panelu dostępu należy automatycznie zalogować się do LoginRadius, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+1. W przeglądarce przejdź do https://accounts.loginradius.com/auth.aspx i wybierz pozycję **Logowanie za pomocą logowania jednokrotnego w** usłudze.
+2. Wprowadź nazwę aplikacji LoginRadius, a następnie wybierz pozycję **Zaloguj**.
+3. Powinno to spowodować otwarcie okna podręcznego z prośbą o zalogowanie się do konta usługi Azure AD.
+4. Po uwierzytelnieniu wyskakujące okienko zostanie zamknięte i użytkownik zostanie zalogowany do konsoli administracyjnej LoginRadius.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

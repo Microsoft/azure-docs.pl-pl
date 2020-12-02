@@ -8,17 +8,17 @@ ms.subservice: security
 ms.date: 11/19/2020
 ms.author: nanditav
 ms.reviewer: jrasnick
-ms.openlocfilehash: 17dbdbbef45e0068601835197a1177ee20d98ca3
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: a6ea3925f3b6bc786be6a4855b2f3bfb6b402d70
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296800"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455185"
 ---
-# <a name="encryption-for-azure-synapse-analytics-workspaces-preview"></a>Szyfrowanie usługi Azure Synapse Analytics (obszary robocze w wersji zapoznawczej)
+# <a name="encryption-for-azure-synapse-analytics-workspaces"></a>Szyfrowanie dla obszarów roboczych usługi Azure Synapse Analytics
 
 W tym artykule opisano:
-* Szyfrowanie danych magazynowanych w obszarach roboczych usługi Azure Synapse Analytics.
+* Szyfrowanie danych magazynowanych w obszarach roboczych Synapse Analytics.
 * Konfiguracja obszarów roboczych Synapse, aby włączyć szyfrowanie przy użyciu klucza zarządzanego przez klienta.
 * Zarządzanie kluczami używanymi do szyfrowania danych w obszarach roboczych.
 

@@ -8,22 +8,22 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 00b4f38f4a2a44b88718224db2b2442033816f83
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3cbd9fd697bbae8779f5b2b9fa4ab817efce30ac
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313887"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454628"
 ---
-# <a name="azure-synapse-analytics-ip-firewall-rules-preview"></a>Reguły zapory IP usługi Azure Synapse Analytics (wersja zapoznawcza)
+# <a name="azure-synapse-analytics-ip-firewall-rules"></a>Reguły zapory adresów IP usługi Azure Synapse Analytics
 
 W tym artykule opisano reguły zapory IP i naucz się, jak je skonfigurować w usłudze Azure Synapse Analytics.
 
 ## <a name="ip-firewall-rules"></a>Reguły zapory adresów IP
 
-Reguły zapory adresów IP udzielają lub nie zezwalają na dostęp do obszaru roboczego Synapse na podstawie źródłowego adresu IP każdego żądania. Reguły zapory IP można skonfigurować dla obszaru roboczego. Reguły zapory adresów IP skonfigurowane na poziomie obszaru roboczego mają zastosowanie do wszystkich publicznych punktów końcowych obszaru roboczego (dedykowane pule SQL, bezserwerowa Pula SQL i programowanie).
+Reguły zapory bazującej na adresach IP umożliwiają udzielenie lub zablokowanie dostępu do obszaru roboczego usługi Synapse na podstawie źródłowego adresu IP każdego żądania. Reguły zapory bazującej na adresach IP można skonfigurować dla obszaru roboczego. Reguły zapory adresów IP skonfigurowane na poziomie obszaru roboczego mają zastosowanie do wszystkich publicznych punktów końcowych obszaru roboczego (dedykowane pule SQL, bezserwerowa Pula SQL i programowanie).
 
-## <a name="create-and-manage-ip-firewall-rules"></a>Tworzenie reguł zapory adresów IP i zarządzanie nimi
+## <a name="create-and-manage-ip-firewall-rules"></a>Tworzenie reguł zapory bazujących na adresach IP i zarządzanie nimi
 
 Istnieją dwa sposoby dodawania reguł zapory IP do obszaru roboczego Synapse. Aby dodać zaporę IP do obszaru roboczego, wybierz pozycję **zabezpieczenia i obsługa sieci** i zaznacz pole wyboru **Zezwalaj na połączenia ze wszystkich adresów IP** podczas tworzenia obszaru roboczego.
 

@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/30/2020
-ms.openlocfilehash: 7433c51b45b0d8459ad1959b29f61660537b8851
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 9d402599c4d6732ce92b8c64af6f660bcedbc4ba
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337461"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455055"
 ---
 # <a name="quickstart-create-your-first-logic-apps-workflow---azure-portal"></a>Szybki Start: Tworzenie pierwszego Logic Appsego przepływu pracy — Azure Portal
 
@@ -83,7 +83,7 @@ Każda aplikacja logiki musi rozpoczynać się od [wyzwalacza](../logic-apps/log
 
 W tym przykładzie przewodnika Szybki Start po [utworzeniu aplikacji logiki](#create-your-logic-app)zostanie dodany wyzwalacz, który wyszukuje nowe elementy w kanale informacyjnym RSS i uruchamiany, gdy pojawią się nowe elementy. Można również tworzyć aplikacje logiki z różnymi typami wyzwalaczy, takimi jak w samouczku do [tworzenia przepływów pracy opartych na zatwierdzaniu automatycznym](tutorial-process-mailing-list-subscriptions-workflow.md).
 
-1. W **Projektancie aplikacji logiki** , w polu wyszukiwania zaznacz **wszystko**.
+1. W **Projektancie aplikacji logiki**, w polu wyszukiwania zaznacz **wszystko**.
 
 1. Aby znaleźć łącznik RSS, w polu wyszukiwania wpisz `rss` . Z listy **wyzwalacze** Wybierz wyzwalacz RSS, **gdy zostanie opublikowany element kanału informacyjnego**.
 
@@ -112,7 +112,7 @@ Twoja aplikacja logiki jest już aktywna, ale nie wykonuje żadnych działań po
 
 ## <a name="add-the-send-email-action"></a>Dodaj akcję "Wyślij wiadomość e-mail"
 
-Po [dodaniu wyzwalacza do aplikacji logiki](#add-rss-trigger)należy dodać [akcję](../logic-apps/logic-apps-overview.md#logic-app-concepts) , aby określić odpowiedź, gdy aplikacja logiki sprawdzi kanał informacyjny RSS i pojawi się nowy element. Możesz również tworzyć aplikacje logiki z znacznie bardziej złożonymi akcjami, takimi jak samouczek dotyczący [przetwarzania wiadomości e-mail za pomocą Logic Apps, Azure Functions i usługi Azure Storage](/azure/logic-apps/tutorial-process-email-attachments-workflow).
+Po [dodaniu wyzwalacza do aplikacji logiki](#add-rss-trigger)należy dodać [akcję](../logic-apps/logic-apps-overview.md#logic-app-concepts) , aby określić odpowiedź, gdy aplikacja logiki sprawdzi kanał informacyjny RSS i pojawi się nowy element. Możesz również tworzyć aplikacje logiki z znacznie bardziej złożonymi akcjami, takimi jak samouczek dotyczący [przetwarzania wiadomości e-mail za pomocą Logic Apps, Azure Functions i usługi Azure Storage](./tutorial-process-email-attachments-workflow.md).
 
 > [!NOTE]
 > W tym przykładzie jako usługi poczty e-mail jest stosowany pakiet Office 365 Outlook. Jeśli używasz innej obsługiwanej usługi poczty e-mail w aplikacji logiki, interfejs użytkownika może wyglądać inaczej. Jednak podstawowe koncepcje dotyczące łączenia się z inną usługą poczty e-mail pozostają bez zmian.
@@ -167,7 +167,7 @@ Po [dodaniu wyzwalacza do aplikacji logiki](#add-rss-trigger)należy dodać [akc
 
       ![Zrzut ekranu projektanta Logic Apps, w którym jest wyświetlana akcja "Wyślij wiadomość e-mail" i Przykładowa wiadomość e-mail z uwzględnieniem zawartej właściwości "tytuł źródła danych".](./media/quickstart-create-first-logic-app-workflow/send-email-feed-title.png)
 
-      Jeśli w projektancie pojawi się pętla "for each", wybrano token dla tablicy; na przykład **Kategorie — token elementu** . W przypadku takiego typu tokenów projektant automatycznie dodaje pętlę do akcji, która odwołuje się do tego tokenu. W ten sposób Twoja aplikacja logiki wykonuje tę samą akcję dla każdego elementu tablicy. Aby usunąć pętlę, wybierz **wielokropek** ( **...** ) na pasku tytułu pętli, a następnie wybierz pozycję **Usuń**.
+      Jeśli w projektancie pojawi się pętla "for each", wybrano token dla tablicy; na przykład **Kategorie — token elementu** . W przypadku takiego typu tokenów projektant automatycznie dodaje pętlę do akcji, która odwołuje się do tego tokenu. W ten sposób Twoja aplikacja logiki wykonuje tę samą akcję dla każdego elementu tablicy. Aby usunąć pętlę, wybierz **wielokropek** (**...**) na pasku tytułu pętli, a następnie wybierz pozycję **Usuń**.
 
    1. W polu **treść** wprowadź treść wiadomości e-mail. W tym przykładzie zawartość zawiera trzy właściwości z tekstem opisowym dla każdej z nich: `Title:` , właściwość **title źródła** danych `Date published:` ,, **Źródło danych opublikowanych we** właściwości, a `Link:` także właściwość **linku podstawowego źródła danych** . Aby dodać puste wiersze w polu edycji, naciśnij klawisze Shift + Enter.
 
@@ -203,7 +203,7 @@ Jeśli nie otrzymujesz wiadomości e-mail z powiadomieniem z aplikacji logiki zg
 * Sprawdź folder wiadomości-śmieci lub spamu konta e-mail, na wypadek gdyby komunikat został niepoprawnie przefiltrowany.
 * Upewnij się, że używane źródło danych RSS zawiera elementy opublikowane od czasu ostatniego sprawdzenia zaplanowanego lub ręcznego.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu testowania tej przykładowej aplikacji logiki Wyczyść aplikację logiki i wszystkie powiązane zasoby, usuwając grupę zasobów utworzoną w ramach tego przykładu.
 

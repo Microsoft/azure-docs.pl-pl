@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 4bae9e28a22a99d092db2bf887f0cd790e04c52a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 23ec79b7e3989c9749edf98d930ad8305324c9da
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91318567"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454011"
 ---
 # <a name="what-is-the-azure-stack-edge-mini-r"></a>Co to jest Azure Stack Edge — mini R?
 
@@ -45,7 +45,7 @@ Azure Stack Edge mini R ma następujące możliwości:
 
 Poniżej znajdują się różne scenariusze, w których do szybkiej Machine Learning (ML) inferencing na granicy i przetwarzania danych przed wysłaniem ich do platformy Azure można użyć Azure Stack Edge.
 
-- **Wnioskowanie o Azure Machine Learning** — z Azure Stack Edge w systemie, można uruchamiać modele ml, aby uzyskać szybkie wyniki, które mogą być przetwarzane przed wysłaniem danych do chmury. Pełny zestaw danych można opcjonalnie przesłać, aby kontynuować ponowne uczenie i ulepszanie modeli ML. Aby uzyskać więcej informacji na temat korzystania z wydajnych modeli sprzętowych platformy Azure na urządzeniu z systemem Azure Stack Edge mini R, zobacz [wdrażanie przyspieszone modele sprzętu Azure ml w Azure Stack Edge mini r](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+- **Wnioskowanie o Azure Machine Learning** — z Azure Stack Edge w systemie, można uruchamiać modele ml, aby uzyskać szybkie wyniki, które mogą być przetwarzane przed wysłaniem danych do chmury. Pełny zestaw danych można opcjonalnie przesłać, aby kontynuować ponowne uczenie i ulepszanie modeli ML. Aby uzyskać więcej informacji na temat korzystania z wydajnych modeli sprzętowych platformy Azure na urządzeniu z systemem Azure Stack Edge mini R, zobacz [wdrażanie przyspieszone modele sprzętu Azure ml w Azure Stack Edge mini r](../machine-learning/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server).
 
 - Wstępnie **Przetwarzaj** dane przekształcania danych za pomocą opcji obliczeniowych, takich jak kontenery czy maszyny wirtualne, przed wysłaniem ich do platformy Azure w celu utworzenia bardziej funkcjonalnego zestawu danych. Wstępne przetwarzanie umożliwia:
 
@@ -83,5 +83,3 @@ Azure Stack Edge urządzenie fizyczne, zasób platformy Azure i docelowe konto m
 ## <a name="next-steps"></a>Następne kroki
 
 - Zapoznaj się z tematem [wymagania systemowe w Azure Stack Edge](azure-stack-edge-gpu-system-requirements.md).
-
-

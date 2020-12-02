@@ -9,16 +9,16 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 2597aa1f0589fea75af0a3ac41244e3718d5eb3e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a5d84b936679cdd5ebd5bec4938d6db7fcb641e7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307961"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455496"
 ---
 # <a name="quickstart-create-a-new-azure-machine-learning-linked-service-in-synapse"></a>Szybki Start: Tworzenie nowej Azure Machine Learning połączonej usługi w programie Synapse
 
-W tym przewodniku szybki start połączysz obszar roboczy Synapse Analytics z obszarem roboczym Azure Machine Learning. Łączenie tych obszarów roboczych umożliwia korzystanie z Azure Machine Learning z różnych środowisk w Synapse.
+W tym przewodniku szybki start połączysz obszar roboczy usługi Azure Synapse Analytics z obszarem roboczym Azure Machine Learning. Łączenie tych obszarów roboczych umożliwia korzystanie z Azure Machine Learning z różnych środowisk w Synapse.
 
 Na przykład to połączenie z obszarem roboczym Azure Machine Learning umożliwia korzystanie z następujących funkcji:
 
@@ -80,4 +80,4 @@ Ten krok spowoduje utworzenie nowej nazwy głównej usługi. Jeśli chcesz uży�
 ## <a name="next-steps"></a>Następne kroki
 
 - [Samouczek: Kreator oceniania modelu uczenia maszynowego — dedykowana Pula SQL](tutorial-sql-pool-model-scoring-wizard.md)
-- [Możliwości Machine Learning na platformie Azure Synapse Analytics (obszary robocze — wersja zapoznawcza)](what-is-machine-learning.md)
+- [Możliwości Machine Learning w usłudze Azure Synapse Analytics](what-is-machine-learning.md)

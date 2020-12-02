@@ -12,20 +12,20 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
-ms.openlocfilehash: 094e40fe55e1ba51b0539d740ecb449a8327d6a6
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4f90299daed46d06dad9ab37103e3b8f53763ed4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841244"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454382"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Konfigurowanie uwierzytelniania wieloskładnikowego dla SQL Server Management Studio i usługi Azure AD
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-W tym artykule pokazano, jak używać usługi uwierzytelniania wieloskładnikowego (MFA) w usłudze Azure Active Directory (Azure AD) z programem SQL Server Management Studio (SSMS). Usługi Azure AD MFA można używać podczas nawiązywania połączenia z programem SSMS lub SqlPackage.exe do [Azure SQL Database](sql-database-paas-overview.md), [wystąpienia zarządzanego usługi Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md) i [usługi Azure Synapse Analytics (dawniej SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Aby zapoznać się z omówieniem uwierzytelniania wieloskładnikowego, zobacz [uniwersalne uwierzytelnianie przy użyciu SQL Database, wystąpienia zarządzanego SQL i Azure Synapse (Obsługa programu SSMS dla usługi MFA)](../database/authentication-mfa-ssms-overview.md).
+W tym artykule pokazano, jak używać usługi uwierzytelniania wieloskładnikowego (MFA) w usłudze Azure Active Directory (Azure AD) z programem SQL Server Management Studio (SSMS). Usługi Azure AD MFA można używać podczas nawiązywania połączenia z programem SSMS lub SqlPackage.exe do [Azure SQL Database](sql-database-paas-overview.md), [wystąpienia zarządzanego usługi Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md) i [usługi Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Aby zapoznać się z omówieniem uwierzytelniania wieloskładnikowego, zobacz [uniwersalne uwierzytelnianie przy użyciu SQL Database, wystąpienia zarządzanego SQL i Azure Synapse (Obsługa programu SSMS dla usługi MFA)](../database/authentication-mfa-ssms-overview.md).
 
 > [!IMPORTANT]
-> Bazy danych w Azure SQL Database, wystąpienia zarządzane usługi Azure SQL i Azure Synapse (wcześniej SQL Data Warehouse) są określane zbiorczo w pozostałej części tego artykułu jako bazy danych, a serwer odwołuje się do [serwera](logical-servers.md) , który obsługuje bazy danych dla Azure SQL Database i Azure Synapse.
+> Bazy danych w Azure SQL Database, wystąpienie zarządzane usługi Azure SQL i usługa Azure Synapse są określane zbiorczo w pozostałej części tego artykułu jako bazy danych, a serwer odwołuje się do [serwera](logical-servers.md) , który obsługuje bazy danych dla Azure SQL Database i Azure Synapse.
 
 ## <a name="configuration-steps"></a>Kroki konfiguracji
 

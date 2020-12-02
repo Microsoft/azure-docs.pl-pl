@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 11ed87f8cf5aabb86f709d938acc4c31b737ca91
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d95c4bb0345051cc79dadca5fa7cc11932a9512a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91318600"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454045"
 ---
 # <a name="what-is-the-azure-stack-edge-pro-r"></a>Co to jest Azure Stack EDGE Pro R?
 
@@ -45,7 +45,7 @@ Azure Stack EDGE Pro R ma następujące możliwości:
 
 Poniżej przedstawiono różne scenariusze, w których Azure Stack EDGE Pro R może służyć do szybkiego Machine Learning (ML) inferencing na granicy i przetwarzania wstępnego danych przed wysłaniem ich do platformy Azure.
 
-- **Wnioskowanie z Azure Machine Learning** -with Azure Stack EDGE Pro R umożliwia uruchamianie modeli ml w celu uzyskania szybkich wyników, na które można wykonywać działania przed wysłaniem danych do chmury. Pełny zestaw danych można opcjonalnie przesłać, aby kontynuować ponowne uczenie i ulepszanie modeli ML. Aby uzyskać więcej informacji na temat korzystania z wydajnych modeli sprzętowych platformy Azure na urządzeniu z systemem Azure Stack EDGE Pro R, zobacz [wdrażanie przyspieszone modele sprzętu Azure ml w Azure Stack EDGE Pro R](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+- **Wnioskowanie z Azure Machine Learning** -with Azure Stack EDGE Pro R umożliwia uruchamianie modeli ml w celu uzyskania szybkich wyników, na które można wykonywać działania przed wysłaniem danych do chmury. Pełny zestaw danych można opcjonalnie przesłać, aby kontynuować ponowne uczenie i ulepszanie modeli ML. Aby uzyskać więcej informacji na temat korzystania z wydajnych modeli sprzętowych platformy Azure na urządzeniu z systemem Azure Stack EDGE Pro R, zobacz [wdrażanie przyspieszone modele sprzętu Azure ml w Azure Stack EDGE Pro R](../machine-learning/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server).
 
 - Wstępnie **Przetwarzaj** dane przekształceń danych przed wysłaniem ich do platformy Azure w celu utworzenia bardziej funkcjonalnego zestawu danych. Wstępne przetwarzanie umożliwia:
 
@@ -83,4 +83,3 @@ Azure Stack Edge urządzenie fizyczne Pro R, zasób platformy Azure i docelowe k
 
 - Zapoznaj się z tematem [wymagania systemowe Azure Stack Edge](azure-stack-edge-gpu-system-requirements.md).
 <!--- Understand the [Azure Stack Edge Pro R limits](azure-stack-edge-limits.md).-->
-

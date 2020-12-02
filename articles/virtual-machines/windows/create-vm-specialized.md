@@ -7,18 +7,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 3df7d3d01dcd5e5b097eba53ef0dae29e86fd0a5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cddc7f4f453f22b0cb36b1d3a1e9c2fba2dcabaf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973261"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455094"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Tworzenie maszyny wirtualnej z systemem Windows na podstawie wyspecjalizowanego dysku za pomocą programu PowerShell
 
 Utwórz nową maszynę wirtualną przez dołączenie wyspecjalizowanego dysku zarządzanego jako dysku systemu operacyjnego. Wyspecjalizowany dysk to kopia wirtualnego dysku twardego (VHD) z istniejącej maszyny wirtualnej, która zawiera konta użytkowników, aplikacje i inne dane stanu z oryginalnej maszyny wirtualnej. 
-
-W przypadku tworzenia nowej maszyny wirtualnej przy użyciu wyspecjalizowanego wirtualnego dysku twardego Nowa maszyna wirtualna zachowuje nazwę komputera oryginalnej maszyny wirtualnej. Inne informacje specyficzne dla komputera również są przechowywane i w niektórych przypadkach te duplikaty mogą powodować problemy. Podczas kopiowania maszyny wirtualnej należy wiedzieć o typach informacji specyficznych dla komputera, na których zależą Twoje aplikacje.
 
 Istnieje kilka rozwiązań:
 * [Użyj istniejącego dysku zarządzanego](#option-1-use-an-existing-disk). Ta opcja jest przydatna, jeśli masz maszynę wirtualną, która nie działa prawidłowo. Możesz usunąć maszynę wirtualną, a następnie ponownie użyć dysku zarządzanego, aby utworzyć nową maszynę wirtualną. 
@@ -28,6 +26,11 @@ Istnieje kilka rozwiązań:
 Możesz również użyć Azure Portal, aby [utworzyć nową maszynę wirtualną z wyspecjalizowanego wirtualnego dysku twardego](create-vm-specialized-portal.md).
 
 W tym artykule pokazano, jak używać dysków zarządzanych. Jeśli masz starsze wdrożenie wymagające użycia konta magazynu, zobacz [Tworzenie maszyny wirtualnej na podstawie wyspecjalizowanego wirtualnego dysku twardego na koncie magazynu](/previous-versions/azure/virtual-machines/windows/sa-create-vm-specialized).
+
+> [!IMPORTANT]
+> 
+> W przypadku tworzenia nowej maszyny wirtualnej przy użyciu wyspecjalizowanego dysku Nowa maszyna wirtualna zachowuje nazwę komputera oryginalnej maszyny wirtualnej. Inne informacje specyficzne dla komputera (np. Identyfikator CMID) również są przechowywane i w niektórych przypadkach te zduplikowane informacje mogą powodować problemy. Podczas kopiowania maszyny wirtualnej należy wiedzieć o typach informacji specyficznych dla komputera, na których zależą Twoje aplikacje.  
+> W tym celu nie należy używać wyspecjalizowanego dysku, jeśli chcesz utworzyć wiele maszyn wirtualnych. Zamiast tego, w przypadku większych wdrożeń [Utwórz obraz](capture-image-resource.md) , a następnie [Użyj tego obrazu do utworzenia wielu maszyn wirtualnych](create-vm-generalized-managed.md).
 
 Zalecamy ograniczenie liczby współbieżnych wdrożeń do 20 maszyn wirtualnych z jednego wirtualnego dysku twardego lub migawki. 
 
@@ -150,7 +153,7 @@ Tworzenie sieci i innych zasobów maszyn wirtualnych, które mają być używane
 
 Utwórz [sieć wirtualną](../../virtual-network/virtual-networks-overview.md) i podsieć dla maszyny wirtualnej.
 
-1. Utwórz podsieć. Ten przykład tworzy podsieć o nazwie Moja *podsieć*, w grupie zasobów *myDestinationResourceGroup*i ustawia prefiks adresu podsieci na *10.0.0.0/24*.
+1. Utwórz podsieć. Ten przykład tworzy podsieć o nazwie Moja *podsieć*, w grupie zasobów *myDestinationResourceGroup* i ustawia prefiks adresu podsieci na *10.0.0.0/24*.
    
     ```powershell
     $subnetName = 'mySubNet'
@@ -159,7 +162,7 @@ Utwórz [sieć wirtualną](../../virtual-network/virtual-networks-overview.md) i
        -AddressPrefix 10.0.0.0/24
     ```
     
-2. Utwórz sieć wirtualną. Ten przykład ustawia nazwę sieci wirtualnej na *myVnetName*, lokalizację na *zachodnie stany USA*oraz prefiks adresu sieci wirtualnej na *10.0.0.0/16*. 
+2. Utwórz sieć wirtualną. Ten przykład ustawia nazwę sieci wirtualnej na *myVnetName*, lokalizację na *zachodnie stany USA* oraz prefiks adresu sieci wirtualnej na *10.0.0.0/16*. 
    
     ```powershell
     $vnetName = "myVnetName"
@@ -261,7 +264,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>Sprawdź, czy maszyna wirtualna została utworzona
-Nowo utworzona maszyna wirtualna powinna zostać wyświetlona w [Azure Portal](https://portal.azure.com) w obszarze **przeglądanie**  >  **maszyn wirtualnych**lub przy użyciu następujących poleceń programu PowerShell.
+Nowo utworzona maszyna wirtualna powinna zostać wyświetlona w [Azure Portal](https://portal.azure.com) w obszarze **przeglądanie**  >  **maszyn wirtualnych** lub przy użyciu następujących poleceń programu PowerShell.
 
 ```powershell
 $vmList = Get-AzVM -ResourceGroupName $destinationResourceGroup

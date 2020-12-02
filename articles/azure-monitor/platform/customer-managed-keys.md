@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 11/18/2020
-ms.openlocfilehash: c2a9dbb5fa821d408835cd1bcbf3e6afdade36e1
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: 17648b9bc973285764bb0bd6242506122a043780
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317490"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454270"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Klucz zarządzany przez klienta usługi Azure Monitor 
 
@@ -43,7 +43,7 @@ Po zakończeniu konfiguracji wszystkie dane pozyskiwane w obszarach roboczych po
 
 ![Przegląd klucza Customer-Managed](media/customer-managed-keys/cmk-overview.png)
 
-1. Key Vault
+1. Usługa Key Vault
 2. Log Analytics zasobu *klastra* mającego zarządzaną tożsamość z uprawnieniami do Key Vault — tożsamość jest propagowana do underlay dedykowanego log Analytics magazynu klastra
 3. Dedykowany klaster Log Analytics
 4. Obszary robocze połączone z zasobem *klastra* 
@@ -80,15 +80,15 @@ Niektóre kroki konfiguracji działają asynchronicznie, ponieważ nie mogą by�
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
-Nie dotyczy
+Brak
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Nie dotyczy
+Brak
 
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
-Nie dotyczy
+Brak
 
 # <a name="rest"></a>[REST](#tab/rest)
 
@@ -155,7 +155,7 @@ Operacja jest asynchroniczna i może chwilę potrwać.
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
-Nie dotyczy
+Brak
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -279,7 +279,7 @@ Połącz konto magazynu w celu *wysłania zapytania* do obszaru roboczego — *z
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
-Nie dotyczy
+Brak
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -323,7 +323,7 @@ Po zakończeniu konfiguracji wszystkie nowe *zapisane zapytania wyszukiwania* zo
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
-Nie dotyczy
+Brak
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -375,7 +375,7 @@ Dowiedz się więcej [na temat Skrytka klienta Microsoft Azure](../../security/f
   
   # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
-  Nie dotyczy
+  Brak
 
   # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -437,7 +437,7 @@ Dowiedz się więcej [na temat Skrytka klienta Microsoft Azure](../../security/f
 
   # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
-  Nie dotyczy
+  Brak
 
   # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -470,7 +470,7 @@ Dowiedz się więcej [na temat Skrytka klienta Microsoft Azure](../../security/f
 
   # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
-  Nie dotyczy
+  Brak
 
   # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -511,15 +511,15 @@ Dowiedz się więcej [na temat Skrytka klienta Microsoft Azure](../../security/f
 
   # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
-  Nie dotyczy
+  Brak
 
   # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-  Nie dotyczy
+  Brak
 
   # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
-  Nie dotyczy
+  Brak
 
   # <a name="rest"></a>[REST](#tab/rest)
 
@@ -545,7 +545,7 @@ Dowiedz się więcej [na temat Skrytka klienta Microsoft Azure](../../security/f
 
   # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
-  Nie dotyczy
+  Brak
 
   # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -574,7 +574,7 @@ Dowiedz się więcej [na temat Skrytka klienta Microsoft Azure](../../security/f
 
   # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
-  Nie dotyczy
+  Brak
 
   # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -605,7 +605,7 @@ Dowiedz się więcej [na temat Skrytka klienta Microsoft Azure](../../security/f
 
   # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
-  Nie dotyczy
+  Brak
 
   # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -656,6 +656,12 @@ Dowiedz się więcej [na temat Skrytka klienta Microsoft Azure](../../security/f
 
 - Łącze obszaru roboczego do klastra zakończy się niepowodzeniem, jeśli jest ono połączone z innym klastrem.
 
+- Skrytka nie jest obecnie dostępna w Chinach. 
+
+- [Podwójne szyfrowanie](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) jest konfigurowane automatycznie w przypadku klastrów utworzonych z października 2020 w obsługiwanych regionach. Możesz sprawdzić, czy klaster jest skonfigurowany do podwójnego szyfrowania przez żądanie GET w klastrze i obserwując `"isDoubleEncryptionEnabled"` wartość właściwości — `true` dla klastrów z włączonym podwójnym szyfrowaniem. 
+  - Jeśli utworzysz klaster i wystąpi błąd "<regionu-Name> nie obsługuje podwójnego szyfrowania dla klastrów" ", można nadal utworzyć klaster bez podwójnego szyfrowania. Dodaj `"properties": {"isDoubleEncryptionEnabled": false}` Właściwość w treści żądania Rest.
+  - Ustawienia podwójnego szyfrowania nie można zmienić po utworzeniu klastra.
+
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 - Zachowanie z dostępnością Key Vault
@@ -682,10 +688,6 @@ Dowiedz się więcej [na temat Skrytka klienta Microsoft Azure](../../security/f
 - Niektóre operacje są długie i mogą chwilę potrwać — są to między innymi tworzenie klastra, Aktualizacja klucza klastra i usuwanie klastra. Stan operacji można sprawdzić na dwa sposoby:
   1. w przypadku korzystania z usługi REST skopiuj wartość Azure-AsyncOperation adresu URL z odpowiedzi i postępuj zgodnie ze [sprawdzaniem stanu operacji asynchronicznych](#asynchronous-operations-and-status-check).
   2. Wyślij żądanie GET do klastra lub obszaru roboczego i obserwuj odpowiedź. Na przykład niepołączony obszar roboczy nie będzie miał *clusterResourceId* w obszarze *funkcje*.
-
-- [Podwójne szyfrowanie](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) jest konfigurowane automatycznie w przypadku klastrów utworzonych z października 2020 w obsługiwanych regionach. Możesz sprawdzić, czy klaster jest skonfigurowany do podwójnego szyfrowania przez żądanie GET w klastrze i obserwując `"isDoubleEncryptionEnabled"` wartość właściwości — `true` dla klastrów z włączonym podwójnym szyfrowaniem. 
-  - Jeśli utworzysz klaster i wystąpi błąd "<regionu-Name> nie obsługuje podwójnego szyfrowania dla klastrów" ", można nadal utworzyć klaster bez podwójnego szyfrowania. Dodaj `"properties": {"isDoubleEncryptionEnabled": false}` w treści żądania Rest.
-  - Ustawienia podwójnego szyfrowania nie można zmienić po utworzeniu klastra.
 
 - Komunikaty o błędach
   

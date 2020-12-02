@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: 64bef8a1cd4353ed9602c36cf728a0d727458251
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 512f6044e46fba49ea1c63a89d11135751e7ce43
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675142"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455984"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Tworzenie alertów dla Azure SQL Database i usługi Azure Synapse Analytics przy użyciu Azure Portal
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "92675142"
 
 ## <a name="overview"></a>Omówienie
 
-W tym artykule opisano sposób konfigurowania alertów dla baz danych w Azure SQL Database i analiza Synapse Azure (dawniej SQL Data Warehouse) przy użyciu Azure Portal. Alerty mogą wysyłać wiadomość e-mail lub wywoływać element webhook, gdy pewna Metryka (na przykład rozmiar bazy danych lub użycie procesora) osiągnie wartość progową.
+W tym artykule opisano sposób konfigurowania alertów dla baz danych w Azure SQL Database i analiz Synapse Azure przy użyciu Azure Portal. Alerty mogą wysyłać wiadomość e-mail lub wywoływać element webhook, gdy pewna Metryka (na przykład rozmiar bazy danych lub użycie procesora) osiągnie wartość progową.
 
 > [!NOTE]
 > Aby uzyskać szczegółowe instrukcje dotyczące wystąpienia zarządzanego usługi Azure SQL, zobacz [tworzenie alertów dla wystąpienia zarządzanego Azure SQL](../managed-instance/alerts-create.md).
@@ -43,7 +43,7 @@ Można skonfigurować alert, aby wykonać następujące czynności podczas wyzwa
 Można skonfigurować i uzyskać informacje o regułach alertów za pomocą
 
 * [Witryna Azure Portal](../../azure-monitor/platform/alerts-classic-portal.md)
-* [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md)
+* [Program PowerShell](../../azure-monitor/platform/alerts-classic-portal.md)
 * [Interfejs wiersza polecenia (CLI)](../../azure-monitor/platform/alerts-classic-portal.md)
 * [Interfejs API REST usługi Azure Monitor](/rest/api/monitor/alertrules)
 
@@ -57,13 +57,13 @@ Można skonfigurować i uzyskać informacje o regułach alertów za pomocą
 3. Wybierz przycisk **Nowa reguła alertu** , aby otworzyć stronę **Tworzenie reguły** .
   ![Tworzenie reguły](./media/alerts-insights-configure-portal/create-rule.png)
 
-4. W sekcji **warunek** kliknij pozycję **Dodaj** .
+4. W sekcji **warunek** kliknij pozycję **Dodaj**.
   ![Zdefiniuj warunek](./media/alerts-insights-configure-portal/create-rule.png)
 5. Na stronie **Konfiguruj logikę sygnału** Wybierz sygnał.
   ![Wybierz sygnał](./media/alerts-insights-configure-portal/select-signal.png)
-6. Po wybraniu sygnału, takiego jak **procent procesora CPU** , zostanie wyświetlona strona **Konfiguruj logikę sygnału** .
+6. Po wybraniu sygnału, takiego jak **procent procesora CPU**, zostanie wyświetlona strona **Konfiguruj logikę sygnału** .
   ![Konfigurowanie logiki sygnału](./media/alerts-insights-configure-portal/configure-signal-logic.png)
-7. Na tej stronie Skonfiguruj typ progu, operator, typ agregacji, wartość progu, stopień szczegółowości agregacji oraz częstotliwość obliczania. Następnie kliknij przycisk **gotowe** .
+7. Na tej stronie Skonfiguruj typ progu, operator, typ agregacji, wartość progu, stopień szczegółowości agregacji oraz częstotliwość obliczania. Następnie kliknij przycisk **gotowe**.
 8. Na stronie **Tworzenie reguły** wybierz istniejącą **grupę akcji** lub Utwórz nową. Grupa akcji umożliwia zdefiniowanie akcji, która ma zostać wykonana w przypadku wystąpienia warunku alertu.
   ![Zdefiniuj grupę akcji](./media/alerts-insights-configure-portal/action-group.png)
 

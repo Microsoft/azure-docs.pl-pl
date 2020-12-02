@@ -1,6 +1,6 @@
 ---
-title: Arkusz Ściągawka dla usługi Azure Synapse Analytics (dawniej SQL DW)
-description: Znajdź linki i najlepsze rozwiązania umożliwiające szybkie tworzenie rozwiązań Azure Synapse Analytics (dawniej SQL DW).
+title: Arkusz Ściągawka dla dedykowanej puli SQL (dawniej SQL DW)
+description: Znajdź linki i najlepsze rozwiązania, aby szybko utworzyć dedykowaną pulę SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,18 +10,18 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 648f06ef1af5d6dce9fa3583c6358d3bd173f209
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a236cf99d3131e83619cfab06e8ec028938a87ba
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319674"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454627"
 ---
-# <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Arkusz Ściągawka dla usługi Azure Synapse Analytics (dawniej SQL DW)
+# <a name="cheat-sheet-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytic"></a>Arkusz Ściągawka dla dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics
 
-Ten arkusz Ściągawka zawiera pomocne wskazówki i najlepsze rozwiązania dotyczące tworzenia rozwiązań Synapse platformy Azure.
+Ten arkusz Ściągawka zawiera przydatne porady i najlepsze rozwiązania w zakresie tworzenia dedykowanych pul SQL (dawniej SQL DW).
 
-Na poniższym rysunku przedstawiono proces projektowania magazynu danych:
+Na poniższej ilustracji przedstawiono proces projektowania hurtowni danych z dedykowaną pulą SQL (dawniej SQL DW):
 
 ![Szkic](./media/cheat-sheet/picture-flow.png)
 
@@ -64,7 +64,7 @@ Użyj następujących strategii, w zależności od właściwości tabeli:
 * Upewnij się, że typowe klucze skrótów mają ten sam format danych.
 * Nie Dystrybuuj w formacie varchar.
 * Tabele wymiarów ze wspólnym kluczem skrótu do tabeli faktów z częstymi operacjami sprzężenia mogą być rozproszonymi tabelami skrótów.
-* Użyj elementu *[sys.dm_pdw_nodes_db_partition_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)* , aby analizować skośność danych.
+* Użyj elementu *[sys.dm_pdw_nodes_db_partition_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)*, aby analizować skośność danych.
 * Użyj *[sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)* , aby analizować przepływy danych za zapytania, monitorować emisję czasu i wykonywać operacje losowe. To pomaga w ocenie stosowanej strategii dystrybucji.
 
 Dowiedz się więcej o [tabelach replikowanych](design-guidance-for-replicated-tables.md) i [tabelach rozproszonych](sql-data-warehouse-tables-distribute.md).
@@ -121,13 +121,13 @@ Grupy zasobów są używane jako sposób przydzielania pamięci do zapytań. Je�
 
 Jeśli zauważysz, że wykonywanie zapytań trwa zbyt długo, sprawdź, czy użytkownicy nie stosują uruchamiania w dużych klasach zasobów. Duże klasy zasobów używają wielu miejsc współbieżności. Może to powodować powstanie kolejki innych zasobów.
 
-Na koniec przy użyciu Gen2 [puli SQL](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse)każda klasa zasobów otrzymuje 2,5 razy więcej pamięci niż Gen1.
+Na koniec przy użyciu Gen2 [dedykowanej puli SQL (dawniej SQL DW)](sql-data-warehouse-overview-what-is.md)każda klasa zasobów otrzymuje 2,5 razy więcej pamięci niż Gen1.
 
 Dowiedz się więcej, jak pracować z [klasami zasobów i współbieżnością](resource-classes-for-workload-management.md).
 
 ## <a name="lower-your-cost"></a>Obniżanie kosztów
 
-Kluczową cechą usługi Azure Synapse jest możliwość [zarządzania zasobami obliczeniowymi](sql-data-warehouse-manage-compute-overview.md). Pulę SQL można wstrzymać, gdy nie jest używana, co powoduje zatrzymanie rozliczeń zasobów obliczeniowych. Zasoby można skalować zgodnie ze swoimi wymaganiami dotyczącymi wydajności. W celu wstrzymania użyj witryny [Azure Portal](pause-and-resume-compute-portal.md) lub programu [PowerShell](pause-and-resume-compute-powershell.md). W celu skalowania użyj witryny [Azure Portal](quickstart-scale-compute-portal.md), programu [PowerShell](quickstart-scale-compute-powershell.md), języka [T-SQL](quickstart-scale-compute-tsql.md) lub [interfejsu API REST](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
+Kluczową cechą usługi Azure Synapse jest możliwość [zarządzania zasobami obliczeniowymi](sql-data-warehouse-manage-compute-overview.md). Możesz wstrzymać dedykowaną pulę SQL (dawniej SQL DW), gdy nie jest ona używana, co spowoduje zatrzymanie rozliczeń zasobów obliczeniowych. Zasoby można skalować zgodnie ze swoimi wymaganiami dotyczącymi wydajności. W celu wstrzymania użyj witryny [Azure Portal](pause-and-resume-compute-portal.md) lub programu [PowerShell](pause-and-resume-compute-powershell.md). Aby skalować, użyj [Azure Portal](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md)lub [interfejsu API REST](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 Teraz możesz używać automatycznego skalowania w dowolnym momencie dzięki funkcji Azure Functions:
 
@@ -137,8 +137,8 @@ Teraz możesz używać automatycznego skalowania w dowolnym momencie dzięki fun
 
 Zalecamy rozważenie użycia bazy danych SQL Database i usługi Azure Analysis Services w architekturze gwiazdy. To rozwiązanie może spowodować rozdzielenie obciążenia między różnymi grupami użytkowników przy równoczesnym korzystaniu z zaawansowanych funkcji zabezpieczeń bazy danych SQL Database i usługi Azure Analysis Services. Jest to również sposób na zapewnienie użytkownikom nieograniczonej współbieżności.
 
-Dowiedz się więcej [na temat typowych architektur, które wykorzystują usługę Azure Synapse](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/).
+Dowiedz się więcej o [typowych architekturach korzystających z dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/).
 
-Wdróż aplikację w jednym kliknięciem szprych w bazach danych SQL z puli SQL:
+Wdróż aplikację w jednym kliknięciem szprych w bazach danych SQL z dedykowanej puli SQL (dawniej SQL DW):
 
 [![Obraz przedstawiający przycisk "wdróż na platformie Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwSpokeDbTemplate%2Fazuredeploy.json)

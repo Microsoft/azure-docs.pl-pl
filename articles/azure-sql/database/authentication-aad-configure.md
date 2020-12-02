@@ -12,18 +12,18 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: c5caf48dd4e2860ec5f4815eb38629ad66391a2c
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 5558480f568e802637deb30c9f1b41c00826c9b5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990112"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454494"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Konfigurowanie uwierzytelniania usługi Azure AD i zarządzanie nim za pomocą usługi Azure SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-W tym artykule opisano sposób tworzenia i wypełniania wystąpienia Azure Active Directory (Azure AD), a następnie używania usługi Azure AD z usługą [Azure SQL Database](sql-database-paas-overview.md), [wystąpieniem zarządzanym usługi Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md)i [usługą Azure Synapse Analytics (dawniej SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Aby zapoznać się z omówieniem, zobacz [Azure Active Directory Authentication](authentication-aad-overview.md).
+W tym artykule opisano sposób tworzenia i wypełniania wystąpienia Azure Active Directory (Azure AD), a następnie używania usługi Azure AD z usługą [Azure SQL Database](sql-database-paas-overview.md), [wystąpieniem zarządzanym usługi Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md)i [analizą usługi Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Aby zapoznać się z omówieniem, zobacz [Azure Active Directory Authentication](authentication-aad-overview.md).
 
 ## <a name="azure-ad-authentication-methods"></a>Metody uwierzytelniania usługi Azure AD
 

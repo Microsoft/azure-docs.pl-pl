@@ -1143,6 +1143,8 @@
               href: platform/workbooks-tree-visualizations.md
             - name: Graph
               href: platform/workbooks-graph-visualizations.md
+            - name: Mapa
+              href: platform/workbooks-map-visualizations.md
             - name: Plaster miodu
               href: platform/workbooks-honey-comb.md
             - name: Słupek złożony

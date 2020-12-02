@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 87f27f316914f3efce5a750f50471c65dceca84e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9863ed24da9e427f885a4794bda7e103b0c1cc8e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127845"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455458"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>Interfejs API przekazywania Centrum partnerskiego do dołączania aplikacji platformy Azure w centrum partnerskim
 
@@ -43,7 +43,7 @@ Aby korzystać z interfejsu API przekazywania Microsoft Store, należy skojarzy�
 1. W centrum partnerskim [Skojarz konto Centrum partnerskiego organizacji z katalogiem usługi Azure AD Twojej organizacji](/windows/uwp/publish/associate-azure-ad-with-partner-center).
 1. Następnie na stronie **Użytkownicy** w sekcji **Ustawienia konta** w centrum partnerskim [Dodaj aplikację usługi Azure AD](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#add-azure-ad-applications-to-your-partner-center-account) reprezentującą aplikację lub usługę, która będzie używana w celu uzyskania dostępu do przesłanych danych dla konta Centrum partnerskiego. Upewnij się, że przypiszesz tej aplikacji rolę **Menedżer** . Jeśli aplikacja nie istnieje jeszcze w katalogu usługi Azure AD, możesz [utworzyć nową aplikację usługi Azure AD w centrum partnerskim](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#create-a-new-azure-ad-application-account-in-your-organizations-directory-and-add-it-to-your-partner-center-account).
 1. Wróć do strony **Użytkownicy** , kliknij nazwę aplikacji usługi Azure AD, aby przejść do ustawień aplikacji, a następnie skopiuj wartości **Identyfikator dzierżawy** i identyfikator **klienta** .
-1. Kliknij przycisk **Dodaj nowy klucz** . Na poniższym ekranie skopiuj wartość **klucza** . Nie będzie można uzyskać dostępu do tych informacji ponownie po opuszczeniu tej strony. Aby uzyskać więcej informacji, zobacz [Zarządzanie kluczami dla aplikacji usługi Azure AD](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#manage-keys).
+1. Kliknij przycisk **Dodaj nowy klucz**. Na poniższym ekranie skopiuj wartość **klucza** . Nie będzie można uzyskać dostępu do tych informacji ponownie po opuszczeniu tej strony. Aby uzyskać więcej informacji, zobacz [Zarządzanie kluczami dla aplikacji usługi Azure AD](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#manage-keys).
 
 ### <a name="step-2-obtain-an-azure-ad-access-token"></a>Krok 2. Uzyskiwanie tokenu dostępu usługi Azure AD
 
@@ -73,5 +73,5 @@ https://apidocs.microsoft.com/services/partneringestion/
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się, jak utworzyć [zasób techniczny dla maszyny wirtualnej platformy Azure](create-azure-container-technical-assets.md)
-* Dowiedz się, jak utworzyć [ofertę kontenera platformy Azure](create-azure-container-offer.md)
+* Dowiedz się, jak utworzyć [zasób techniczny dla maszyny wirtualnej platformy Azure](../create-azure-container-technical-assets.md)
+* Dowiedz się, jak utworzyć [ofertę kontenera platformy Azure](../create-azure-container-offer.md)

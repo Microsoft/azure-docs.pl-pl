@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: 5a541dce94cc25958e3c3a6a058e015c8c5e3db0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31677482660a48e2bb4c71b81b04681eba725fcd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87283252"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455127"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Tworzenie maszyny wirtualnej na podstawie dysku VHD przy użyciu Azure Portal
 
@@ -26,7 +26,10 @@ Istnieje kilka sposobów tworzenia maszyny wirtualnej na platformie Azure:
  
 - Maszynę wirtualną platformy Azure można utworzyć na podstawie lokalnego wirtualnego dysku twardego przez przekazanie lokalnego dysku VHD i dołączenie go do nowej maszyny wirtualnej. Za pomocą programu PowerShell lub innego narzędzia można przekazać dysk VHD do konta magazynu, a następnie utworzyć dysk zarządzany na podstawie wirtualnego dysku twardego. Aby uzyskać więcej informacji, zobacz [przekazywanie wyspecjalizowanego wirtualnego dysku twardego](create-vm-specialized.md#option-2-upload-a-specialized-vhd). 
 
-Nie używaj wyspecjalizowanego dysku, jeśli chcesz utworzyć wiele maszyn wirtualnych. Zamiast tego, w przypadku większych wdrożeń [Utwórz obraz](capture-image-resource.md) , a następnie [Użyj tego obrazu do utworzenia wielu maszyn wirtualnych](create-vm-generalized-managed.md).
+> [!IMPORTANT]
+> 
+> W przypadku tworzenia nowej maszyny wirtualnej przy użyciu wyspecjalizowanego dysku Nowa maszyna wirtualna zachowuje nazwę komputera oryginalnej maszyny wirtualnej. Inne informacje specyficzne dla komputera (np. Identyfikator CMID) również są przechowywane i w niektórych przypadkach te zduplikowane informacje mogą powodować problemy. Podczas kopiowania maszyny wirtualnej należy wiedzieć o typach informacji specyficznych dla komputera, na których zależą Twoje aplikacje.  
+> W tym celu nie należy używać wyspecjalizowanego dysku, jeśli chcesz utworzyć wiele maszyn wirtualnych. Zamiast tego, w przypadku większych wdrożeń [Utwórz obraz](capture-image-resource.md) , a następnie [Użyj tego obrazu do utworzenia wielu maszyn wirtualnych](create-vm-generalized-managed.md).
 
 Zalecamy ograniczenie liczby współbieżnych wdrożeń do 20 maszyn wirtualnych z pojedynczej migawki lub dysku VHD. 
 
@@ -40,15 +43,15 @@ Utwórz migawkę, a następnie Utwórz dysk na podstawie migawki. Ta strategia u
 4. Z menu u góry wybierz pozycję **Utwórz migawkę**. 
 5. Wprowadź **nazwę** migawki.
 6. Wybierz **grupę zasobów** dla migawki. Możesz użyć istniejącej grupy zasobów lub utworzyć nową.
-7. W obszarze **Typ konta**wybierz opcję magazyn **Standardowy (dysk twardy)** lub **Premium (SSD)** .
+7. W obszarze **Typ konta** wybierz opcję magazyn **Standardowy (dysk twardy)** lub **Premium (SSD)** .
 8. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz** , aby utworzyć migawkę.
 9. Po utworzeniu migawki wybierz pozycję **Utwórz zasób** w menu po lewej stronie.
 10. W polu wyszukiwania wprowadź **dysk zarządzany** , a następnie wybierz z listy pozycję **Managed disks** .
 11. Na stronie **Managed disks** wybierz pozycję **Utwórz**.
 12. Wprowadź **nazwę** dysku.
 13. Wybierz **grupę zasobów** dla dysku. Możesz użyć istniejącej grupy zasobów lub utworzyć nową. Ten wybór będzie również używany jako Grupa zasobów, w której tworzysz maszynę wirtualną z dysku.
-14. W obszarze **Typ konta**wybierz opcję magazyn **Standardowy (dysk twardy)** lub **Premium (SSD)** .
-15. W polu **Typ źródła**upewnij się, że wybrano **migawkę** .
+14. W obszarze **Typ konta** wybierz opcję magazyn **Standardowy (dysk twardy)** lub **Premium (SSD)** .
+15. W polu **Typ źródła** upewnij się, że wybrano **migawkę** .
 16. Z listy rozwijanej **migawka źródłowa** wybierz migawkę, której chcesz użyć.
 17. Wprowadź inne zmiany w razie potrzeby, a następnie wybierz pozycję **Utwórz** , aby utworzyć dysk.
 
@@ -62,7 +65,7 @@ Gdy masz dysk VHD dysku zarządzanego, którego chcesz użyć, możesz utworzyć
 4. Na stronie **Przegląd** upewnij się, że **stan dysku** jest wymieniony jako **niedołączony**. Jeśli tak nie jest, może być konieczne odłączenie dysku od maszyny wirtualnej lub usunięcie maszyny wirtualnej w celu zwolnienia dysku.
 4. W menu w górnej części strony wybierz pozycję **Utwórz maszynę wirtualną**.
 5. Na stronie **podstawowe informacje** o nowej maszynie wirtualnej wprowadź **nazwę maszyny wirtualnej** , a następnie wybierz istniejącą **grupę zasobów** lub Utwórz nową.
-6. W obszarze **rozmiar**wybierz pozycję **Zmień rozmiar** , aby uzyskać dostęp do strony **rozmiar** .
+6. W obszarze **rozmiar** wybierz pozycję **Zmień rozmiar** , aby uzyskać dostęp do strony **rozmiar** .
 7. Wybierz wiersz rozmiaru maszyny wirtualnej, a następnie wybierz **pozycję Wybierz**.
 8. Na stronie **Sieć** możesz pozwolić, aby Portal utworzył wszystkie nowe zasoby, lub wybrać istniejącą **sieć wirtualną** i **grupę zabezpieczeń sieci**. Portal zawsze tworzy nowy interfejs sieciowy i publiczny adres IP dla nowej maszyny wirtualnej. 
 9. Na stronie **Zarządzanie** Wprowadź wszelkie zmiany w opcjach monitorowania.

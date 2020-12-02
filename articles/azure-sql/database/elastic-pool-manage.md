@@ -10,19 +10,19 @@ ms.author: moslake
 ms.reviewer: sstein
 ms.date: 03/12/2019
 ms.custom: seoapril2019 sqldbrb=1, devx-track-azurecli
-ms.openlocfilehash: 5916a687c4eff4c6c8890b14a8c204cbabc145ea
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9c9af6e3bc3dfd798f4b3f0cad9319aa573c425d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792195"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455989"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>Zarządzanie pulami elastycznymi w Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 W przypadku puli elastycznej można określić ilość zasobów wymaganych przez pulę elastyczną do obsługi obciążenia jego baz danych oraz ilość zasobów dla każdej bazy danych w puli.
 
-## <a name="azure-portal"></a>Witryna Azure Portal
+## <a name="azure-portal"></a>Azure Portal
 
 Wszystkie ustawienia puli można znaleźć w jednym miejscu: w bloku **Konfigurowanie puli** . Aby rozpocząć, Znajdź pulę elastyczną w Azure Portal a następnie kliknij pozycję **Konfiguruj pulę** w górnej części bloku lub w menu zasób po lewej stronie.
 
@@ -94,7 +94,7 @@ Aby tworzyć i przenosić bazy danych w ramach istniejących pul elastycznych lu
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Przenoszenie bazy danych do puli elastycznej lub poza nią.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Usuwa bazę danych.|
 |[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Zwraca statystyki użycia zasobów dla wszystkich pul elastycznych na serwerze. Dla każdej elastycznej puli istnieje jeden wiersz dla każdego 15 drugiego okna raportowania (cztery wiersze na minutę). Obejmuje to procesor CPU, operacje we/wy, dziennik, użycie magazynu i współbieżne użycie żądania/sesji przez wszystkie bazy danych w puli.|
-|[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Zwraca wersję (warstwę usług), cel usługi (warstwę cenową) i nazwę puli elastycznej (jeśli istnieje) dla bazy danych w SQL Database lub Azure Synapse Analytics (dawniej SQL Data Warehouse). Jeśli użytkownik jest zalogowany do bazy danych Master na serwerze, zwraca informacje o wszystkich bazach danych. W przypadku usługi Azure Synapse Analytics musisz mieć połączenie z bazą danych Master.|
+|[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Zwraca wersję (warstwę usług), cel usługi (warstwę cenową) i nazwę puli elastycznej (jeśli istnieje) dla bazy danych w SQL Database lub Azure Synapse Analytics. Jeśli użytkownik jest zalogowany do bazy danych Master na serwerze, zwraca informacje o wszystkich bazach danych. W przypadku usługi Azure Synapse Analytics musisz mieć połączenie z bazą danych Master.|
 
 ## <a name="rest-api"></a>Interfejs API REST
 
