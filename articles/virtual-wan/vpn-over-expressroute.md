@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6c6f71277c276bed603989774637bd95999de333
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b8dde3ed76587e2343edaec8626287853ec6ef9b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023532"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487511"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Szyfrowanie ExpressRoute: IPsec przez ExpressRoute dla wirtualnej sieci WAN
 
@@ -54,7 +54,7 @@ W obu tych przykładach usługa Azure wyśle ruch do 10.0.1.0/24 przez połącze
 > Jeśli anonsuje te *same* prefiksy dla połączeń EXPRESSROUTE i VPN, platforma Azure będzie używać ścieżki ExpressRoute bezpośrednio bez ochrony sieci VPN.
 >
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
@@ -95,7 +95,7 @@ Zasób lokacji jest taki sam jak Lokacje sieci VPN inne niż ExpressRoute dla wi
 
    Jeśli protokół BGP jest włączony, będzie miał zastosowanie do wszystkich połączeń utworzonych dla tej witryny na platformie Azure. Konfigurowanie protokołu BGP w wirtualnej sieci WAN jest równoznaczne z skonfigurowaniem protokołu BGP na bramie sieci VPN platformy Azure. 
    
-   Adres lokalnego elementu równorzędnego protokołu BGP *nie może* być taki sam jak adres IP sieci VPN do urządzenia lub przestrzeń adresów sieci wirtualnej witryny sieci VPN. Użyj innego adresu IP na urządzeniu sieci VPN dla adresu IP elementu równorzędnego protokołu BGP. Może to być adres przypisany do interfejsu sprzężenia zwrotnego na urządzeniu. Jednak *nie może* to być adresowanie APIPA (169,254.*x*. *x*). Określ ten adres w odpowiedniej bramie sieci lokalnej reprezentującej lokalizację. Wymagania wstępne dotyczące protokołu BGP zawiera temat [Informacje o protokole BGP z platformą Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md).
+   Adres lokalnego elementu równorzędnego protokołu BGP *nie może* być taki sam jak adres IP sieci VPN do urządzenia lub przestrzeń adresów sieci wirtualnej witryny sieci VPN. Użyj innego adresu IP na urządzeniu sieci VPN dla adresu IP elementu równorzędnego protokołu BGP. Może to być adres przypisany do interfejsu sprzężenia zwrotnego na urządzeniu. Jednak *nie może* to być adresowanie APIPA (169,254.*x*. *x*). Określ ten adres w odpowiedniej witrynie sieci VPN, która reprezentuje lokalizację. Wymagania wstępne dotyczące protokołu BGP zawiera temat [Informacje o protokole BGP z platformą Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md).
 
 1. Wybierz kolejno pozycje **Dalej: przegląd + utwórz >** , aby sprawdzić wartości ustawień i utworzyć witrynę sieci VPN. W przypadku wybrania **centrów** do połączenia zostanie nawiązane połączenie między siecią lokalną a centralną bramą sieci VPN.
 

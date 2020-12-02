@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6fedefccf57364e690415542114030ba7ce12b49
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3f02c90dd6c751909434f3f2af9b8eb81ee1c4b9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974095"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488378"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Azure Disk Encryption dla często zadawanych pytań dotyczących maszyn wirtualnych z systemem Windows
 
@@ -55,15 +55,15 @@ Nie, Azure Disk Encryption szyfruje tylko woluminy zainstalowane.
 
 ## <a name="what-is-storage-server-side-encryption"></a>Co to jest szyfrowanie po stronie serwera magazynu?
 
-Szyfrowanie po stronie serwera magazynu szyfruje dyski zarządzane platformy Azure w usłudze Azure Storage. Dyski zarządzane są domyślnie szyfrowane za pomocą szyfrowania po stronie serwera z kluczem zarządzanym przez platformę (od 10 czerwca 2017). Można zarządzać szyfrowaniem dysków zarządzanych przy użyciu własnych kluczy, określając klucz zarządzany przez klienta. Aby uzyskać więcej informacji, zobacz [szyfrowanie po stronie serwera dla usługi Azure Managed disks](disk-encryption.md).
+Szyfrowanie po stronie serwera magazynu szyfruje dyski zarządzane platformy Azure w usłudze Azure Storage. Dyski zarządzane są domyślnie szyfrowane za pomocą szyfrowania po stronie serwera z kluczem zarządzanym przez platformę (od 10 czerwca 2017). Można zarządzać szyfrowaniem dysków zarządzanych przy użyciu własnych kluczy, określając klucz zarządzany przez klienta. Aby uzyskać więcej informacji, zobacz [szyfrowanie po stronie serwera dla usługi Azure Managed disks](../disk-encryption.md).
  
 ## <a name="how-is-azure-disk-encryption-different-from-storage-server-side-encryption-with-customer-managed-key-and-when-should-i-use-each-solution"></a>Jak różni się Azure Disk Encryption od szyfrowania po stronie serwera magazynu z kluczem zarządzanym przez klienta i kiedy należy używać poszczególnych rozwiązań?
 
 Azure Disk Encryption zapewnia kompleksowe szyfrowanie dysku systemu operacyjnego, dysków danych i dysku tymczasowego z kluczem zarządzanym przez klienta.
 
 - Jeśli wymagania obejmują szyfrowanie wszystkich powyższych i kompleksowych danych szyfrowania, użyj Azure Disk Encryption. 
-- Jeśli wymagania obejmują szyfrowanie tylko danych przechowywanych w kluczu zarządzanym przez klienta, należy użyć [szyfrowania po stronie serwera z kluczami zarządzanymi przez klienta](disk-encryption.md). Nie można zaszyfrować dysku z szyfrowaniem po stronie serwera Azure Disk Encryption i magazynu przy użyciu kluczy zarządzanych przez klienta.
-- W przypadku korzystania ze scenariusza o nazwie z [nieobsługiwanymi scenariuszami dla systemu Windows](disk-encryption-windows.md#unsupported-scenarios)należy rozważyć [szyfrowanie po stronie serwera za pomocą kluczy zarządzanych przez klienta](disk-encryption.md). 
+- Jeśli wymagania obejmują szyfrowanie tylko danych przechowywanych w kluczu zarządzanym przez klienta, należy użyć [szyfrowania po stronie serwera z kluczami zarządzanymi przez klienta](../disk-encryption.md). Nie można zaszyfrować dysku z szyfrowaniem po stronie serwera Azure Disk Encryption i magazynu przy użyciu kluczy zarządzanych przez klienta.
+- W przypadku korzystania ze scenariusza o nazwie z [nieobsługiwanymi scenariuszami dla systemu Windows](disk-encryption-windows.md#unsupported-scenarios)należy rozważyć [szyfrowanie po stronie serwera za pomocą kluczy zarządzanych przez klienta](../disk-encryption.md). 
 - Jeśli zasady organizacji umożliwiają szyfrowanie zawartości przechowywanej przy użyciu klucza zarządzanego przez platformę Azure, nie jest wymagana żadna akcja — zawartość jest domyślnie szyfrowana. W przypadku dysków zarządzanych zawartość wewnątrz magazynu jest domyślnie szyfrowana przy użyciu szyfrowania po stronie serwera za pomocą klucza zarządzanego przez platformę. Klucz jest zarządzany przez usługę Azure Storage. 
 
 ## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>Jak mogę obrócić wpisy tajne lub klucze szyfrowania?

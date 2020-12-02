@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 86f3ef8ccac83cdc939cff5572dd81e78137d396
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 83da8cbf3a87570cfb967e0a6c8da3f0f2ed1766
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968727"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486746"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Architektury referencyjne dla Oracle Database Enterprise Edition na platformie Azure
 
@@ -207,12 +207,12 @@ Podczas wstępnego żądania serwer aplikacji łączy się z fragmentu Director 
 
 W przypadku wdrażania obciążeń Oracle na platformie Azure firma Microsoft bierze pod uwagę wszystkie poprawki na poziomie systemu operacyjnego hosta. Wszystkie planowane czynności konserwacyjne na poziomie systemu operacyjnego są przekazywane klientom z wyprzedzeniem, aby umożliwić klientowi zaplanowaną konserwację. Dwa serwery z dwóch różnych Strefy dostępności nigdy nie są jednocześnie poprawiane. Zobacz [Zarządzanie dostępnością maszyn wirtualnych](../../manage-availability.md) , aby uzyskać więcej szczegółowych informacji na temat konserwacji maszyn wirtualnych i stosowania poprawek. 
 
-Stosowanie poprawek do systemu operacyjnego maszyny wirtualnej może być zautomatyzowane przy użyciu [Azure Automation Update Management](../../../automation/update-management/update-mgmt-overview.md). Stosowanie poprawek i konserwacji bazy danych Oracle może być zautomatyzowane i zaplanowane przy użyciu [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) lub [Azure Automation Update Management](../../../automation/update-management/update-mgmt-overview.md) w celu zminimalizowania przestojów. Zapoznaj się z [ciągłym dostarczaniem oraz wdrożeniami Blue/Green](/azure/devops/learn/what-is-continuous-delivery) , aby zrozumieć, jak można go używać w kontekście baz danych Oracle.
+Stosowanie poprawek do systemu operacyjnego maszyny wirtualnej może być zautomatyzowane przy użyciu [Azure Automation Update Management](../../../automation/update-management/overview.md). Stosowanie poprawek i konserwacji bazy danych Oracle może być zautomatyzowane i zaplanowane przy użyciu [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) lub [Azure Automation Update Management](../../../automation/update-management/overview.md) w celu zminimalizowania przestojów. Zapoznaj się z [ciągłym dostarczaniem oraz wdrożeniami Blue/Green](/azure/devops/learn/what-is-continuous-delivery) , aby zrozumieć, jak można go używać w kontekście baz danych Oracle.
 
 ## <a name="architecture-and-design-considerations"></a>Zagadnienia dotyczące architektury i projektowania
 
 - Rozważ użycie [maszyny wirtualnej zoptymalizowanej pod kątem pamięci](../../sizes-memory.md) z [ograniczonym rdzeniem procesorów wirtualnych vCPU](../../../virtual-machines/constrained-vcpu.md) dla maszyny wirtualnej Oracle Database, aby zaoszczędzić koszty licencjonowania i zwiększyć wydajność. Używaj wielu dysków Premium lub Ultra (Managed disks) w celu zapewnienia wydajności i dostępności.
-- W przypadku korzystania z dysków zarządzanych nazwa dysku/urządzenia może ulec zmianie przy ponownych uruchomieniach. Zaleca się użycie identyfikatora UUID urządzenia zamiast nazwy, aby upewnić się, że instalacje są zachowywane w ramach ponownych uruchomień. Więcej informacji można znaleźć [tutaj](../../../virtual-machines/linux/configure-raid.md#add-the-new-file-system-to-etcfstab).
+- W przypadku korzystania z dysków zarządzanych nazwa dysku/urządzenia może ulec zmianie przy ponownych uruchomieniach. Zaleca się użycie identyfikatora UUID urządzenia zamiast nazwy, aby upewnić się, że instalacje są zachowywane w ramach ponownych uruchomień. Więcej informacji można znaleźć [tutaj](/previous-versions/azure/virtual-machines/linux/configure-raid#add-the-new-file-system-to-etcfstab).
 - Użyj stref dostępności, aby uzyskać wysoką dostępność w regionie.
 - Rozważ użycie dysków Ultra disks (jeśli jest dostępna) lub Premium dla bazy danych Oracle.
 - Rozważ skonfigurowanie w stanie wstrzymania bazy danych Oracle w innym regionie świadczenia usługi Azure przy użyciu usługi Oracle Data Guard.

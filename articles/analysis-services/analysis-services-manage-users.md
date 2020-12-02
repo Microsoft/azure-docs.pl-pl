@@ -4,15 +4,15 @@ description: W tym artykule opisano, jak Azure Analysis Services używa Azure Ac
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b40be802f30bac8438f10c4ab60e1c196c9f7164
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 551bae56565140da3754e74a23b1cc18087f1171
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833796"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487443"
 ---
 # <a name="authentication-and-user-permissions"></a>Uwierzytelnianie i uprawnienia użytkownika
 
@@ -24,7 +24,7 @@ Azure Analysis Services obsługuje funkcję [współpracy B2B usługi Azure AD](
 
 ## <a name="authentication"></a>Authentication
 
-Wszystkie aplikacje i narzędzia klienckie używają co najmniej jednej z Analysis Services [bibliotek klienckich](/analysis-services/client-libraries?view=azure-analysis-services-current) (AMO, MSOLAP, ADOMD) w celu nawiązania połączenia z serwerem. 
+Wszystkie aplikacje i narzędzia klienckie używają co najmniej jednej z Analysis Services [bibliotek klienckich](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true) (AMO, MSOLAP, ADOMD) w celu nawiązania połączenia z serwerem. 
 
 Wszystkie trzy biblioteki klienta obsługują zarówno przepływ interaktywny usługi Azure AD, jak i nieinteraktywne metody uwierzytelniania. W aplikacjach korzystających z AMOMD i MSOLAP można używać dwóch metod nieinteraktywnych, hasła Active Directory i Active Directory zintegrowanych metod uwierzytelniania. Te dwie metody nigdy nie powodują wyskakujących okien dialogowych.
 

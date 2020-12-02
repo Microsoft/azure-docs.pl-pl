@@ -6,24 +6,23 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: d261640dfdb59b2b06cfe3066fca26640a0bed54
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: a68501bd1189993b4dd0c2acdecaa7434fa51dcc
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874648"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488038"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor rejestruje dedykowane klastry
 
-Azure Monitor dzienniki dedykowane są opcją wdrożenia, która jest dostępna do lepszego obsłużenia klientom o dużej pojemności. Klienci korzystający z ponad 4 TB danych dziennie będą korzystać z dedykowanych klastrów. Klienci z dedykowanymi klastrami mogą wybrać obszary robocze, które mają być hostowane w tych klastrach.
+Azure Monitor dzienników dedykowanych są opcjami wdrażania, które umożliwiają zaawansowaną obsługę Azure Monitor dzienników klientów. Klienci z dedykowanymi klastrami mogą wybrać obszary robocze, które mają być hostowane w tych klastrach.
 
-Oprócz obsługi dużych ilości, istnieją inne korzyści wynikające z używania dedykowanych klastrów:
+Możliwości wymagające dedykowanych klastrów to:
 
-- **Limit szybkości** — klient może mieć wyższe [limity szybkości](../service-limits.md#data-ingestion-volume-rate) pozyskiwania tylko w dedykowanym klastrze.
-- **Funkcje** — niektóre funkcje przedsiębiorstwa są dostępne tylko w dedykowanych klastrach — w odniesieniu do kluczy zarządzanych przez klienta (CMK) i obsługi skrytki. 
-- **Spójność** — klienci mają własne dedykowane zasoby i nie mają wpływu na innych klientów korzystających z tej samej infrastruktury udostępnionej.
-- **Opłacalność** — może być tańsze używanie dedykowanego klastra jako przypisanej do nich warstwy rezerwacji zdolności produkcyjnych uwzględniają cały pozyskiwanie klastra i mają zastosowanie do wszystkich obszarów roboczych, nawet jeśli niektóre z nich są małe i nie kwalifikują się do rabatu za rezerwację zdolności produkcyjnych.
-- Zapytania **między obszarami roboczymi** działają szybciej, jeśli wszystkie obszary robocze znajdują się w tym samym klastrze.
+- **[Klucze zarządzane przez klienta](../platform/customer-managed-keys.md)** — Szyfruj dane klastra przy użyciu kluczy dostarczanych i kontrolowanych przez klienta.
+- **[Skrytka](../platform/customer-managed-keys.md#customer-lockbox-preview)** — klienci mogą kontrolować żądania dostępu inżynierów pomocy technicznej firmy Microsoft dotyczące danych.
+- **[Szyfrowanie podwójne](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)** chroni przed scenariuszem, w którym można złamać jeden z algorytmów szyfrowania lub kluczy. W takim przypadku dodatkowa warstwa szyfrowania nadal chroni dane.
+- **[Wiele obszarów roboczych](../log-query/cross-workspace-query.md)** — Jeśli klient korzysta z więcej niż jednego obszaru roboczego dla środowiska produkcyjnego, warto mieć sens, aby użyć dedykowanego klastra. Zapytania między obszarami roboczymi będą działać szybciej, jeśli wszystkie obszary robocze znajdują się w tym samym klastrze. Korzystanie z dedykowanego klastra może być również tańsze, ponieważ przypisana warstwa rezerwacji pojemności uwzględnia całe pozyskiwanie klastra i ma zastosowanie do wszystkich obszarów roboczych, nawet jeśli niektóre z nich są małe i nie kwalifikują się do rabatu rezerwacji pojemności.
 
 Dedykowane klastry wymagają od klientów zatwierdzeń przy użyciu pojemności co najmniej 1 TB pozyskiwania danych dziennie. Migracja do dedykowanego klastra jest prosta. Brak utraty danych lub przerw w świadczeniu usług. 
 

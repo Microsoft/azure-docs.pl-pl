@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.assetid: 7aa21ef8-9cfb-43e0-bfda-3f10a2a2f3ef
 ms.date: 10/23/2020
-ms.openlocfilehash: 842913b8e9f83ff3b188976da55aef7c909518ca
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: ddd6f277bc71467060aa2279d93f9410a1327dde
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359922"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486610"
 ---
 # <a name="quickstart-wildfly-on-centos-8"></a>Szybki Start: WildFly na CentOS 8
 
@@ -63,7 +63,7 @@ Obraz platformy Azure CentOS 8 to obraz maszyny wirtualnej z opcją płatność 
 
 Szablon można wdrożyć na następujące trzy sposoby:
 
-- Użyj programu PowerShell — Wdróż szablon, uruchamiając następujące polecenia: (Wyewidencjonuj [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) , aby uzyskać informacje dotyczące instalowania i konfigurowania Azure PowerShell).
+- Użyj programu PowerShell — Wdróż szablon, uruchamiając następujące polecenia: (Wyewidencjonuj [Azure PowerShell](/powershell/azure/) , aby uzyskać informacje dotyczące instalowania i konfigurowania Azure PowerShell).
 
     ```
     New-AzResourceGroup -Name <resource-group-name> -Location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment
@@ -73,7 +73,7 @@ Szablon można wdrożyć na następujące trzy sposoby:
     New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json
     ```
     
-- Korzystanie z interfejsu wiersza polecenia platformy Azure — Wdróż szablon, uruchamiając następujące polecenia: (w ramach [międzyplatformowego wiersza poleceń platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) znajdują się szczegółowe informacje dotyczące instalowania i konfigurowania interfejsu Command-Line międzyplatformowego platformy Azure).
+- Korzystanie z interfejsu wiersza polecenia platformy Azure — Wdróż szablon, uruchamiając następujące polecenia: (w ramach [międzyplatformowego wiersza poleceń platformy Azure](/cli/azure/install-azure-cli) znajdują się szczegółowe informacje dotyczące instalowania i konfigurowania interfejsu Command-Line międzyplatformowego platformy Azure).
 
     ```
     az group create --name <resource-group-name> --location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment
@@ -92,7 +92,7 @@ Szablon można wdrożyć na następujące trzy sposoby:
 ## <a name="resource-links"></a>Linki zasobów
 
 * Dowiedz się więcej o [WildFly 18](https://docs.wildfly.org/18/)
-* Dowiedz się więcej o [dystrybucji systemu Linux na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)
+* Dowiedz się więcej o [dystrybucji systemu Linux na platformie Azure](../../linux/endorsed-distros.md)
 * [Dokumentacja dla deweloperów platformy Azure dla języka Java](https://github.com/JasonFreeberg/jboss-on-app-service)
 
 ## <a name="next-steps"></a>Następne kroki

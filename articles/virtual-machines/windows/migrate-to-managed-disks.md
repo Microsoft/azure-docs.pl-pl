@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/30/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 8b7490723d3930a151abf1d3f72bb957e02e5988
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d88792f50e0e79dd0313694cf979761054551eac
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975505"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487528"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrowanie maszyn wirtualnych platformy Azure do Managed Disks na platformie Azure
 
@@ -27,7 +27,7 @@ Można migrować do Managed Disks w następujących scenariuszach:
 |---------|---------|
 |Konwertowanie autonomicznych maszyn wirtualnych i maszyn wirtualnych w zestawie dostępności na dyski zarządzane     |[Konwertowanie maszyn wirtualnych do korzystania z dysków zarządzanych](convert-unmanaged-to-managed-disks.md)         |
 |Konwertowanie pojedynczej maszyny wirtualnej z klasycznej na Menedżer zasobów na dyskach zarządzanych     |[Tworzenie maszyny wirtualnej na podstawie klasycznego wirtualnego dysku twardego](create-vm-specialized-portal.md)         |
-|Konwertuj wszystkie maszyny wirtualne w sieci wirtualnej z klasycznej do Menedżer zasobów na dyskach zarządzanych     |[Migruj zasoby IaaS z klasycznej do Menedżer zasobów](migration-classic-resource-manager-ps.md) a następnie [przekonwertuj maszynę wirtualną z dysków niezarządzanych na dyski zarządzane](convert-unmanaged-to-managed-disks.md)         |
+|Konwertuj wszystkie maszyny wirtualne w sieci wirtualnej z klasycznej do Menedżer zasobów na dyskach zarządzanych     |[Migruj zasoby IaaS z klasycznej do Menedżer zasobów](../migration-classic-resource-manager-ps.md) a następnie [przekonwertuj maszynę wirtualną z dysków niezarządzanych na dyski zarządzane](convert-unmanaged-to-managed-disks.md)         |
 |Uaktualnij maszyny wirtualne ze standardowymi dyskami niezarządzanymi do maszyn wirtualnych z zarządzanymi dyskami Premium     | Najpierw [przekonwertuj maszynę wirtualną z systemem Windows z dysków niezarządzanych na dyski zarządzane](convert-unmanaged-to-managed-disks.md). Następnie [zaktualizuj typ magazynu dla dysku zarządzanego](convert-disk-storage.md).         |
 
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]

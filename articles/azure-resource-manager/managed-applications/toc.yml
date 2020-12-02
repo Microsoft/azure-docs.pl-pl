@@ -31,6 +31,10 @@
       href: concepts-built-in-policy.md
     - name: Artefakt definicji roli
       href: concepts-custom-role-definition.md
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Wydawcy
@@ -40,7 +44,7 @@
         - name: Testowanie interfejsu portalu
           href: test-createuidefinition.md
         - name: Tworzenie oferty aplikacji platformy Azure
-          href: ../../marketplace/partner-center-portal/create-new-azure-apps-offer.md?toc=/azure/azure-resource-manager/managed-applications/toc.json
+          href: ../../marketplace/create-new-azure-apps-offer.md?toc=/azure/azure-resource-manager/managed-applications/toc.json
         - name: Żądanie dostępu just in time
           href: request-just-in-time-access.md
         - name: Używanie istniejącej sieci wirtualnej

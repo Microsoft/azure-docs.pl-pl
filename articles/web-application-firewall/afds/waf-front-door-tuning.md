@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/11/2020
 ms.author: mohitku
 ms.reviewer: tyao
-ms.openlocfilehash: a24f9e78de34b17977a1876cbefb473cc2610db0
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 4c710792dd7966fad76b33954fdf7c2253cf18f0
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95550049"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488242"
 ---
 # <a name="tuning-web-application-firewall-waf-for-azure-front-door"></a>Dostrajanie zapory aplikacji sieci Web (WAF) dla drzwi platformy Azure
  
@@ -136,7 +136,7 @@ Jedną z zalet korzystania z listy wykluczeń jest to, że tylko zmienna dopasow
  
 Należy wziąć pod uwagę, że wykluczenia są ustawieniem globalnym. Oznacza to, że skonfigurowane wykluczenie ma zastosowanie do całego ruchu przechodzącego przez WAF, a nie tylko dla konkretnej aplikacji sieci Web lub identyfikatora URI. Na przykład może to być problem, jeśli *1 = 1* to prawidłowe żądanie w treści dla określonej aplikacji sieci Web, ale nie dla innych osób w ramach tych samych zasad WAFymi. Jeśli warto używać różnych list wykluczeń dla różnych aplikacji, należy rozważyć użycie różnych zasad WAFymi dla każdej aplikacji i zastosowanie ich do frontonu poszczególnych aplikacji.
  
-Podczas konfigurowania list wykluczeń dla reguł zarządzanych można wykluczyć wszystkie reguły w ramach zestawu reguł, wszystkie reguły w grupie reguł lub pojedynczą regułę. Listę wykluczeń można skonfigurować przy użyciu [programu PowerShell](https://docs.microsoft.com/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-4.7.0&viewFallbackFrom=azps-3.5.0), interfejsu [wiersza polecenia platformy Azure lub usługi](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext_front_door_az_network_front_door_waf_policy_managed_rules_exclusion_add) [API REST](https://docs.microsoft.com/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)lub Azure Portal.
+Podczas konfigurowania list wykluczeń dla reguł zarządzanych można wykluczyć wszystkie reguły w ramach zestawu reguł, wszystkie reguły w grupie reguł lub pojedynczą regułę. Listę wykluczeń można skonfigurować przy użyciu [programu PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-4.7.0&viewFallbackFrom=azps-3.5.0), interfejsu [wiersza polecenia platformy Azure lub usługi](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext_front_door_az_network_front_door_waf_policy_managed_rules_exclusion_add) [API REST](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)lub Azure Portal.
 
 * Wykluczenia na poziomie reguły
   * Zastosowanie wykluczeń na poziomie reguły oznacza, że określone wykluczenia nie będą analizowane tylko względem tej pojedynczej reguły, podczas gdy nadal będą analizowane przez wszystkie inne reguły w zestawie reguł. Jest to najbardziej szczegółowy poziom wykluczeń i można go użyć do dostosowania zestawu reguł zarządzanych na podstawie informacji znajdujących się w dziennikach WAF podczas rozwiązywania problemów dotyczących zdarzenia.
@@ -181,7 +181,7 @@ W poniższym przykładzie została utworzona reguła niestandardowa o dwóch war
 
 Korzystanie z reguły niestandardowej pozwala być najbardziej szczegółowym warunkiem dostrajania reguł WAF i w celu poradzenia z fałszywie dodatnimi. W tym przypadku firma Microsoft nie podejmuje działania wyłącznie na podstawie `comment` wartości treści żądania, która może istnieć w wielu witrynach lub aplikacjach objętych tymi samymi zasadami WAFymi. Dzięki dołączeniu innego warunku do dopasowania do określonego identyfikatora URI żądania `/api/Feedbacks/` upewnij się, że ta reguła niestandardowa dotyczy tego jawnego przypadku użycia, który zbadane. Gwarantuje to, że w przypadku przeprowadzenia tego samego ataku w odniesieniu do różnych warunków nadal będzie on sprawdzany i uniemożliwiany przez aparat WAF.
 
-![Dziennik](../media/waf-front-door-tuning/custom-rule.png)
+![Log](../media/waf-front-door-tuning/custom-rule.png)
 
 Podczas eksplorowania dziennika można zobaczyć, że `ruleName_s` pole zawiera nazwę nadaną dla utworzonej reguły niestandardowej: `redirectcomment` . W `action_s` polu można zobaczyć, że wykonano akcję *przekierowania* dla tego zdarzenia. W `details_matches_s` polu można zobaczyć szczegóły obu warunków.
 
@@ -193,7 +193,7 @@ Wyłączenie reguły jest korzystne, gdy masz pewność, że wszystkie żądania
  
 Jednak wyłączenie reguły jest ustawieniem globalnym, które ma zastosowanie do wszystkich hostów frontonu skojarzonych z zasadami WAFymi. Po wybraniu opcji wyłączenia reguły mogą występować luki w zabezpieczeniach, które nie zostały ujawnione lub wykryją inne hosty frontonu skojarzone z zasadami WAFymi.
  
-Jeśli chcesz użyć Azure PowerShell, aby wyłączyć regułę zarządzaną, zobacz [`PSAzureManagedRuleOverride`](https://docs.microsoft.com/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleoverrideobject?view=azps-4.7.0&preserve-view=true) dokumentację obiektu. Jeśli chcesz użyć interfejsu wiersza polecenia platformy Azure, zapoznaj się z [`az network front-door waf-policy managed-rules override`](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/override?view=azure-cli-latest&preserve-view=true) dokumentacją.
+Jeśli chcesz użyć Azure PowerShell, aby wyłączyć regułę zarządzaną, zobacz [`PSAzureManagedRuleOverride`](/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleoverrideobject?preserve-view=true&view=azps-4.7.0) dokumentację obiektu. Jeśli chcesz użyć interfejsu wiersza polecenia platformy Azure, zapoznaj się z [`az network front-door waf-policy managed-rules override`](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/override?preserve-view=true&view=azure-cli-latest) dokumentacją.
 
 ![Reguły WAF](../media/waf-front-door-tuning/waf-rules.png)
 

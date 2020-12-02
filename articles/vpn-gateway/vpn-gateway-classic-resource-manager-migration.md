@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/06/2020
 ms.author: amsriva
-ms.openlocfilehash: b9154b124f89a8b672c58d5e7bce28c0833e8a8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9d7fb8be1894ffa5f8c35e16e1ed3aa0949b3ff
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84988031"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488208"
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>VPN Gateway klasyczny do Menedżer zasobów migracji
 Bramy sieci VPN można teraz migrować z klasycznego do Menedżer zasobów model wdrażania. Więcej informacji o Azure Resource Manager [funkcjach i korzyściach](../azure-resource-manager/management/overview.md)można znaleźć w artykule. W tym artykule szczegółowo opisano sposób migrowania z wdrożeń klasycznych do nowszej wersji Menedżer zasobów opartej na modelu. 
 
-Bramy sieci VPN są migrowane w ramach migracji wirtualnej z klasycznej do Menedżer zasobów. Ta migracja wykonuje jedną sieć wirtualną jednocześnie. Nie ma dodatkowych wymagań w zakresie narzędzi lub wymagań wstępnych migracji. Kroki migracji są identyczne z istniejącą migracją sieci wirtualnej i są udokumentowane na [stronie migracji zasobów IaaS](../virtual-machines/windows/migration-classic-resource-manager-ps.md). Podczas migracji nie ma żadnego przestoju ścieżki danych i w ten sposób istniejące obciążenia byłyby nadal działać bez utraty łączności lokalnej podczas migracji. Publiczny adres IP skojarzony z bramą sieci VPN nie zmienia się w trakcie procesu migracji. Oznacza to, że nie trzeba ponownie konfigurować routera lokalnego po zakończeniu migracji.  
+Bramy sieci VPN są migrowane w ramach migracji wirtualnej z klasycznej do Menedżer zasobów. Ta migracja wykonuje jedną sieć wirtualną jednocześnie. Nie ma dodatkowych wymagań w zakresie narzędzi lub wymagań wstępnych migracji. Kroki migracji są identyczne z istniejącą migracją sieci wirtualnej i są udokumentowane na [stronie migracji zasobów IaaS](../virtual-machines/migration-classic-resource-manager-ps.md). Podczas migracji nie ma żadnego przestoju ścieżki danych i w ten sposób istniejące obciążenia byłyby nadal działać bez utraty łączności lokalnej podczas migracji. Publiczny adres IP skojarzony z bramą sieci VPN nie zmienia się w trakcie procesu migracji. Oznacza to, że nie trzeba ponownie konfigurować routera lokalnego po zakończeniu migracji.  
 
 Model w Menedżer zasobów różni się od modelu klasycznego i składa się z bram sieci wirtualnych, bram sieci lokalnej i zasobów połączeń. Reprezentują one samą bramę sieci VPN, lokację lokalną reprezentującą lokalnie lokalną przestrzeń adresową i łączność między nimi. Po zakończeniu migracji bramy nie będą dostępne w modelu klasycznym, a wszystkie operacje zarządzania na bramach sieci wirtualnej, bramach sieci lokalnej i obiektach połączeń należy wykonać przy użyciu modelu Menedżer zasobów.
 
@@ -66,5 +66,4 @@ Ze względu na to, że przekształcamy sieć wirtualną na łączność sieci wi
 * Nawiąż jawne połączenie z bramą sieci lokalnej, która reprezentuje lokalizację lokalną. Wymaga to również zmiany konfiguracji na routerze lokalnym w celu utworzenia i skonfigurowania tunelu IPsec.
 
 ## <a name="next-steps"></a>Następne kroki
-Po zapoznaniu się z obsługą migracji za pomocą usługi VPN Gateway przejdź do obszaru [migracja zasobów IaaS z klasycznej do Menedżer zasobów](../virtual-machines/windows/migration-classic-resource-manager-ps.md) , aby rozpocząć pracę.
-
+Po zapoznaniu się z obsługą migracji za pomocą usługi VPN Gateway przejdź do obszaru [migracja zasobów IaaS z klasycznej do Menedżer zasobów](../virtual-machines/migration-classic-resource-manager-ps.md) , aby rozpocząć pracę.

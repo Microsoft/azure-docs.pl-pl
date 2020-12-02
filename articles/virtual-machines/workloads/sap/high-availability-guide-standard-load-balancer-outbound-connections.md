@@ -14,21 +14,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/16/2020
+ms.date: 12/01/2020
 ms.author: radeltch
-ms.openlocfilehash: a6b62e9c894c25b2c3cd064524881ae5db51ec5a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 9c9979699b5bcb3636adc0f9b58331568ea9cad1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968540"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486306"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Publiczna łączność z punktem końcowym dla Virtual Machines przy użyciu usługi Azure usługa Load Balancer w warstwie Standardowa w scenariuszach wysokiej dostępności SAP
 
 Zakres tego artykułu opisuje konfiguracje, które umożliwią łączność wychodzącą z publicznymi punktami końcowymi. Konfiguracje są głównie w kontekście wysokiej dostępności z Pacemaker dla SUSE/RHEL.  
 
-Jeśli używasz Pacemaker z agentem usługi Azure ogrodzeniem w rozwiązaniu wysokiej dostępności, maszyny wirtualne muszą mieć łączność wychodzącą z interfejsem API zarządzania platformy Azure.  
-Artykuł zawiera kilka opcji umożliwiających wybranie opcji najlepiej dopasowanej do danego scenariusza.  
+Jeśli używasz Pacemaker z agentem usługi Azure ogrodzeniem w rozwiązaniu wysokiej dostępności, maszyny wirtualne muszą mieć łączność wychodzącą z interfejsem API zarządzania platformy Azure. Artykuł zawiera kilka opcji umożliwiających wybranie opcji najlepiej dopasowanej do danego scenariusza.  
 
 ## <a name="overview"></a>Omówienie
 
@@ -42,12 +41,12 @@ Gdy maszyny wirtualne bez publicznych adresów IP są umieszczane w puli zaplecz
 
 Jeśli do maszyny wirtualnej jest przypisany publiczny adres IP lub maszyna wirtualna znajduje się w puli zaplecza modułu równoważenia obciążenia z publicznym adresem IP, będzie mieć łączność wychodzącą z publicznymi punktami końcowymi.  
 
-Systemy SAP często zawierają poufne dane biznesowe. Są one rzadko akceptowane w przypadku maszyn wirtualnych obsługujących systemy SAP w celu posiadania publicznych adresów IP. W tym samym czasie istnieją scenariusze, które wymagają połączenia wychodzącego z maszyny wirtualnej z publicznymi punktami końcowymi.  
+Systemy SAP często zawierają poufne dane biznesowe. Są one rzadko akceptowane w przypadku maszyn wirtualnych obsługujących systemy SAP są dostępne za pośrednictwem publicznych adresów IP. W tym samym czasie istnieją scenariusze, które wymagają połączenia wychodzącego z maszyny wirtualnej z publicznymi punktami końcowymi.  
 
 Przykłady scenariuszy, które wymagają dostępu do publicznego punktu końcowego platformy Azure, to:  
-- Używanie agenta usługi Azure ogrodzenia jako mechanizmu ogrodzenia w klastrach Pacemaker
-- Azure Backup
-- Azure Site Recovery  
+- Agent usługi Azure ogrodzenia wymaga dostępu do **Management.Azure.com** i **login.microsoftonline.com**  
+- [Azure Backup](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#set-up-network-connectivity)
+- [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-urls)  
 - Używanie repozytorium publicznego na potrzeby stosowania poprawek do systemu operacyjnego
 - Przepływ danych aplikacji SAP może wymagać łączności wychodzącej z publicznym punktem końcowym
 
@@ -70,7 +69,7 @@ Przeczytaj najpierw następujące dokumenty:
 * [Sieci wirtualne — reguły zdefiniowane przez użytkownika](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) — koncepcje i reguły routingu platformy Azure  
 * [Tagi usługi grup zabezpieczeń](../../../virtual-network/network-security-groups-overview.md#service-tags) — jak uprościć sieciowe grupy zabezpieczeń i konfigurację zapory za pomocą tagów usługi
 
-## <a name="additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>Dodatkowe zewnętrzne usługa Load Balancer w warstwie Standardowa platformy Azure dla połączeń wychodzących z Internetem
+## <a name="option-1-additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>Opcja 1: dodatkowe zewnętrzne usługa Load Balancer w warstwie Standardowa platformy Azure dla połączeń wychodzących do Internetu
 
 Jedną z opcji zapewnienia łączności wychodzącej z publicznymi punktami końcowymi, bez zezwalania na połączenia przychodzące z maszyną wirtualną z publicznego punktu końcowego, jest utworzenie drugiego modułu równoważenia obciążenia z publicznym adresem IP, dodanie maszyn wirtualnych do puli zaplecza drugiego modułu równoważenia obciążenia i zdefiniowanie tylko [reguł ruchu wychodzącego](../../../load-balancer/load-balancer-outbound-connections.md#outboundrules).  
 Używaj [sieciowych grup zabezpieczeń](../../../virtual-network/network-security-groups-overview.md) do kontrolowania publicznych punktów końcowych, które są dostępne dla wywołań wychodzących z maszyny wirtualnej.  
@@ -120,7 +119,7 @@ Konfiguracja będzie wyglądać następująco:
 
    Aby uzyskać więcej informacji na temat grup zabezpieczeń sieci platformy Azure, zobacz [grupy zabezpieczeń ](../../../virtual-network/network-security-groups-overview.md). 
 
-## <a name="azure-firewall-for-outbound-connections-to-internet"></a>Zapora platformy Azure dla połączeń wychodzących z Internetem
+## <a name="option-2-azure-firewall-for-outbound-connections-to-internet"></a>Opcja 2: Zapora platformy Azure dla połączeń wychodzących z Internetem
 
 Kolejną opcją zapewnienia łączności wychodzącej z publicznymi punktami końcowymi, bez zezwalania na połączenia przychodzące z maszyną wirtualną z publicznych punktów końcowych, jest Zapora platformy Azure. Zapora systemu Azure to zarządzana usługa z wbudowaną wysoką dostępnością i może obejmować wiele Strefy dostępności.  
 Konieczne będzie również wdrożenie [trasy zdefiniowanej przez użytkownika](../../../virtual-network/virtual-networks-udr-overview.md#custom-routes)skojarzonej z podsiecią, w której wdrożono maszyny wirtualne i moduł równoważenia obciążenia platformy Azure, wskazując na zaporę platformy Azure, aby kierować ruchem za pośrednictwem zapory platformy Azure.  
@@ -170,7 +169,7 @@ Architektura będzie wyglądać następująco:
    1. Nazwa trasy: ToMyAzureFirewall, prefiks adresu: **0.0.0.0/0**. Typ następnego przeskoku: wybierz pozycję urządzenie wirtualne. Adres następnego przeskoku: wprowadź prywatny adres IP skonfigurowanej zapory: **11.97.1.4**.  
    1. Zapisz
 
-## <a name="using-proxy-for-pacemaker-calls-to-azure-management-api"></a>Używanie serwera proxy dla wywołań Pacemaker do interfejsu API zarządzania platformy Azure
+## <a name="option-3-using-proxy-for-pacemaker-calls-to-azure-management-api"></a>Opcja 3: Używanie serwera proxy dla wywołań Pacemaker w interfejsie API zarządzania platformy Azure
 
 Serwera proxy można użyć do zezwalania na wywołania Pacemaker do publicznego punktu końcowego interfejsu API zarządzania platformy Azure.  
 
@@ -221,9 +220,9 @@ Aby umożliwić usłudze Pacemaker komunikowanie się z interfejsem API zarządz
      sudo pcs property set maintenance-mode=false
      ```
 
-## <a name="other-solutions"></a>Inne rozwiązania
+## <a name="other-options"></a>Inne opcje
 
-Jeśli ruch wychodzący jest kierowany za pośrednictwem zapory innej firmy:
+Jeśli ruch wychodzący jest kierowany przez inną firmę, serwer proxy zapory oparty na adresie URL:
 
 - w przypadku korzystania z agenta usługi Azure ogrodzenia upewnij się, że konfiguracja zapory zezwala na łączność wychodzącą z interfejsem API zarządzania platformy Azure: `https://management.azure.com` i `https://login.microsoftonline.com`   
 - Jeśli korzystasz z infrastruktury aktualizacji chmury publicznej platformy Azure do stosowania aktualizacji i poprawek, zobacz [infrastruktura aktualizacji chmury publicznej platformy azure 101](https://suse.com/c/azure-public-cloud-update-infrastructure-101/)

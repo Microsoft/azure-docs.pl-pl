@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 17b978d3f4faebd3870868bceeea4572288ecb07
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 647009854ef5a0c0811fc303914f724272f1a3f5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965361"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486661"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Przewodnik wdrażania platformy SAP BusinessObjects BI dla systemu Linux na platformie Azure
 
@@ -615,7 +615,7 @@ W przypadku innych wdrożeń systemu DBMS dla bazy danych CMS zapoznaj się z [p
 
 Serwer repozytorium plików (FRS) odnosi się do katalogów dysków, w których są przechowywane zawartości, takie jak raporty, miejsca i połączenia. Jest ona udostępniana na wszystkich serwerach aplikacji tego systemu. Dlatego należy się upewnić, że jest ona wysoce dostępna.
 
-Na platformie Azure Możesz wybrać [pliki usługi Azure Premium](../../../storage/files/storage-files-introduction.md) lub [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) dla udziału plików, który ma być wysoce dostępny i wysoce trwały. Aby uzyskać więcej informacji, zobacz sekcję [nadmiarowości](https://docs.microsoft.com/azure/storage/files/storage-files-planning#redundancy) dla Azure Files.
+Na platformie Azure Możesz wybrać [pliki usługi Azure Premium](../../../storage/files/storage-files-introduction.md) lub [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) dla udziału plików, który ma być wysoce dostępny i wysoce trwały. Aby uzyskać więcej informacji, zobacz sekcję [nadmiarowości](../../../storage/files/storage-files-planning.md#redundancy) dla Azure Files.
 
 > [!NOTE]
 > Protokół SMB dla Azure Files jest ogólnie dostępny, ale obsługa protokołu NFS dla Azure Files jest obecnie w wersji zapoznawczej. Aby uzyskać więcej informacji, zobacz [Pomoc techniczna NFS 4,1 dla Azure Files jest teraz w wersji zapoznawczej](https://azure.microsoft.com/en-us/blog/nfs-41-support-for-azure-files-is-now-in-preview/)
@@ -667,7 +667,7 @@ Usługa Azure Site Recovery może służyć do replikowania Virtual Machines uru
 
   Możesz użyć Azure NetApp Files replikacji między regionami, która jest obecnie dostępna w [wersji zapoznawczej](https://azure.microsoft.com/en-us/blog/azure-netapp-files-cross-region-replication-and-new-enhancements-in-preview/) , która korzysta z technologii NetApp SnapMirror®. Dlatego tylko zmienione bloki są wysyłane przez sieć w skompresowanym i wydajnym formacie. Ta technologia własnościowa minimalizuje ilość danych wymaganych do replikacji w regionach, co pozwala zaoszczędzić koszty transferu danych. Skraca również czas replikacji, aby można było osiągnąć mniejszy cel punktu przywracania (RPO). Aby uzyskać więcej informacji, zapoznaj się z [wymaganiami i zagadnieniami dotyczącymi korzystania z replikacji między regionami](../../../azure-netapp-files/cross-region-replication-requirements-considerations.md) .
 
-- **Pliki systemu Azure Premium** obsługują tylko lokalnie nadmiarowy (LRS) i magazyn strefowo nadmiarowy (ZRS). W przypadku strategii odzyskiwania plików na platformie Azure Premium możesz użyć [AzCopy](../../../storage/common/storage-use-azcopy-v10.md) lub [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/) , aby skopiować pliki do innego konta magazynu w innym regionie. Aby uzyskać więcej informacji, zobacz [odzyskiwanie po awarii i konto magazynu w trybie failover](../../../storage/common/storage-disaster-recovery-guidance.md)
+- **Pliki systemu Azure Premium** obsługują tylko lokalnie nadmiarowy (LRS) i magazyn strefowo nadmiarowy (ZRS). W przypadku strategii odzyskiwania plików na platformie Azure Premium możesz użyć [AzCopy](../../../storage/common/storage-use-azcopy-v10.md) lub [Azure PowerShell](/powershell/module/az.storage/) , aby skopiować pliki do innego konta magazynu w innym regionie. Aby uzyskać więcej informacji, zobacz [odzyskiwanie po awarii i konto magazynu w trybie failover](../../../storage/common/storage-disaster-recovery-guidance.md)
 
 #### <a name="cms-database"></a>Baza danych CMS
 
@@ -695,4 +695,4 @@ Poniżej znajduje się zalecenie dotyczące odzyskiwania po awarii dla każdej w
 - [Konfigurowanie odzyskiwania po awarii dla wielowarstwowego wdrożenia aplikacji SAP](../../../site-recovery/site-recovery-sap.md)
 - [Planowanie i wdrażanie Virtual Machines platformy Azure dla oprogramowania SAP](planning-guide.md)
 - [Wdrożenie Virtual Machines platformy Azure dla oprogramowania SAP](deployment-guide.md)
-- [Wdrożenie systemu Azure Virtual Machines DBMS dla oprogramowania SAP](dbms-guide.md)
+- [Wdrożenie systemu Azure Virtual Machines DBMS dla oprogramowania SAP](./dbms_guide_general.md)

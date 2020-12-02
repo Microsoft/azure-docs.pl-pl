@@ -4,16 +4,16 @@ description: Dowiedz się więcej o Azure Analysis Services — w pełni zarząd
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/19/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 496b2ea7272be96774d4bd0900fc35c6de8cf9eb
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e70d02c02ba9a3f14d1659851919fbccf71776d1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457773"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487358"
 ---
 # <a name="what-is-azure-analysis-services"></a>Co to są usługi Azure Analysis Services?
 
@@ -243,7 +243,7 @@ Usługa Azure Analysis Services obsługuje również [dynamiczne widoki zarządz
 
 W tej sekcji została przedstawiona dokumentacja dotycząca usługi Azure Analysis Services. Spis treści po lewej stronie ekranu przeglądarki umożliwia wyszukiwanie artykułów. 
 
-Ponieważ modele tabelaryczne w Azure Analysis Services są znacznie takie same jak modele tabelaryczne w SQL Server Analysis Services i Power BI Premium zestawach danych, istnieje obszerna biblioteka udostępnionych samouczków modelowania, koncepcji, procedur, deweloperów i referencyjnych artykułów [Analysis Services w dokumentacji](/analysis-services/?view=azure-analysis-services-current)programu. Artykuły w dokumentacji udostępnionej Analysis Services są wyświetlane, jeśli mają zastosowanie również do Azure Analysis Services za pomocą transparentu znajdującego się pod tytułem. Możesz również użyć selektora wersji powyżej spisu treści, aby wyświetlić tylko te artykuły, które są stosowane do używanej platformy.
+Ponieważ modele tabelaryczne w Azure Analysis Services są znacznie takie same jak modele tabelaryczne w SQL Server Analysis Services i Power BI Premium zestawach danych, istnieje obszerna biblioteka udostępnionych samouczków modelowania, koncepcji, procedur, deweloperów i referencyjnych artykułów [Analysis Services w dokumentacji](/analysis-services/?view=azure-analysis-services-current&preserve-view=true)programu. Artykuły w dokumentacji udostępnionej Analysis Services są wyświetlane, jeśli mają zastosowanie również do Azure Analysis Services za pomocą transparentu znajdującego się pod tytułem. Możesz również użyć selektora wersji powyżej spisu treści, aby wyświetlić tylko te artykuły, które są stosowane do używanej platformy.
 
 ![Dokumentacja udostępniona](./media/analysis-services-overview/aas-overview-applies-to.png)
 

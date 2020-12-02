@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 6ddce9bd8eaa57571cd3c3eac660806340db4b74
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: b6aaad9cce330d755fb69f8be48737f9a8f6c4a7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408672"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487749"
 ---
 # <a name="security-control-v2-network-security"></a>Kontrola zabezpieczeń v2: zabezpieczenia sieci
 
@@ -40,9 +40,9 @@ Za pomocą wskaźnikowego platformy Azure można wykrywać użycie starszych, ni
 
 - [Skoroszyt niezabezpieczonych protokołów na platformie Azure](../../sentinel/quickstart-get-visibility.md#use-built-in-workbooks)
 
-**Odpowiedzialność** : klient
+**Odpowiedzialność**: Klient
 
-**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -54,7 +54,7 @@ Za pomocą wskaźnikowego platformy Azure można wykrywać użycie starszych, ni
 
 | Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP800-53 identyfikatory () |
 |--|--|--|--|
-| NS-2 | Nie dotyczy | CA-3, AC-17, MA-4 |
+| NS-2 | Brak | CA-3, AC-17, MA-4 |
 
 Użyj usługi Azure ExpressRoute lub wirtualnej sieci prywatnej (VPN) platformy Azure do tworzenia prywatnych połączeń między centrami danych platformy Azure i infrastrukturą lokalną w środowisku z różnymi lokalizacjami. Połączenia ExpressRoute nie przechodzą przez publiczny Internet i oferują większą niezawodność, większe szybkości i krótsze opóźnienia niż typowe połączenia z Internetem. W przypadku połączeń sieci VPN typu punkt-lokacja i sieci VPN typu lokacja-lokacja można połączyć lokalne urządzenia lub sieci z siecią wirtualną przy użyciu dowolnej kombinacji tych opcji sieci VPN i usługi Azure ExpressRoute.
 
@@ -68,9 +68,9 @@ Aby połączyć co najmniej dwie sieci wirtualne na platformie Azure, użyj komu
 
 - [Link prywatny platformy Azure](../../private-link/private-link-service-overview.md)
 
-**Odpowiedzialność** : klient
+**Odpowiedzialność**: Klient
 
-**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -78,7 +78,7 @@ Aby połączyć co najmniej dwie sieci wirtualne na platformie Azure, użyj komu
 
 - [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
-## <a name="ns-3-establish-private-network-access-to-azure-services"></a>NS-3: Ustanów dostęp do sieci prywatnej do usług platformy Azure
+## <a name="ns-3-establish-private-network-access-to-azure-services"></a>NS-3: Ustanów dostęp w sieci prywatnej do usług platformy Azure
 
 | Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP800-53 identyfikatory () |
 |--|--|--|--|
@@ -92,9 +92,9 @@ Dostęp prywatny to dodatkowa ochrona w miarę jak funkcja uwierzytelniania i za
 
 - [Informacje o punktach końcowych usługi Virtual Network](../../virtual-network/virtual-network-service-endpoints-overview.md)
 
-**Odpowiedzialność** : klient
+**Odpowiedzialność**: Klient
 
-**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -120,11 +120,11 @@ Ochrona zasobów platformy Azure przed atakami z sieci zewnętrznych, w tym atak
 
 - [Jak wdrożyć usługę Azure WAF](../../web-application-firewall/overview.md)
 
-- [Zarządzanie standardem Azure DDoS Protection przy użyciu Azure Portal](../../virtual-network/manage-ddos-protection.md)
+- [Zarządzanie standardem Azure DDoS Protection przy użyciu Azure Portal](../../ddos-protection/manage-ddos-protection.md)
 
-**Odpowiedzialność** : klient
+**Odpowiedzialność**: Klient
 
-**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 Brak
 
@@ -144,9 +144,9 @@ Uwaga: Jeśli masz przepisy prawne lub inne wymagania dotyczące używania ident
 
 - [Funkcja Microsoft Defender ATP EDR](/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response)
 
-**Odpowiedzialność** : klient
+**Odpowiedzialność**: Klient
 
-**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -170,9 +170,9 @@ Można również użyć grup zabezpieczeń aplikacji do uproszczenia złożonej 
 
 - [Zrozumienie i używanie grup zabezpieczeń aplikacji](../../virtual-network/network-security-groups-overview.md#application-security-groups)
 
-**Odpowiedzialność** : klient
+**Odpowiedzialność**: Klient
 
-**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -184,7 +184,7 @@ Można również użyć grup zabezpieczeń aplikacji do uproszczenia złożonej 
 
 | Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP800-53 identyfikatory () |
 |--|--|--|--|
-| NS-7 | Nie dotyczy | SC-20, SC-21 |
+| NS-7 | Brak | SC-20, SC-21 |
 
 Postępuj zgodnie z najlepszymi rozwiązaniami dotyczącymi zabezpieczeń systemu DNS, aby wyeliminować typowe ataki, takie jak zawieszonego DNS, serwer DNS wzmianuje ataki i zatrucie DNS itd. 
 
@@ -196,9 +196,9 @@ Gdy Azure DNS jest używany jako autorytatywna usługa DNS, upewnij się, że st
 
 - [Zapobiegaj zawieszonego wpisów DNS i unikaj przejęcia domen podrzędnych](../fundamentals/subdomain-takeover.md)
 
-**Odpowiedzialność** : klient
+**Odpowiedzialność**: Klient
 
-**Uczestnicy zabezpieczeń klientów** ( [Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 

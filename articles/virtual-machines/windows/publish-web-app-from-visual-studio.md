@@ -10,12 +10,12 @@ ms.workload: azure-vs
 ms.topic: how-to
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: bdc03e8c136606ab7768705b0c8dbcc97782966f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7cf2474c9ca005d85cea28f2b8fa1e23836b191f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008892"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487562"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publikowanie aplikacji sieci Web ASP.NET na maszynie wirtualnej platformy Azure z poziomu programu Visual Studio
 
@@ -26,7 +26,7 @@ Aby można było opublikować projekt ASP.NET na maszynie wirtualnej platformy A
 
 - Komputer musi być skonfigurowany do uruchamiania aplikacji sieci Web ASP.NET i zainstalowania narzędzia webdeploy. Aby uzyskać więcej informacji, zobacz [Tworzenie maszyny wirtualnej ASP.NET za pomocą narzędzia webdeploy](https://github.com/aspnet/Tooling/blob/AspNetVMs/docs/create-asp-net-vm-with-webdeploy.md).
 
-- Maszyna wirtualna musi mieć skonfigurowaną nazwę DNS. Aby uzyskać więcej informacji, zobacz [Tworzenie w pełni kwalifikowanej nazwy domeny w Azure Portal dla maszyny wirtualnej z systemem Windows](portal-create-fqdn.md).
+- Maszyna wirtualna musi mieć skonfigurowaną nazwę DNS. Aby uzyskać więcej informacji, zobacz [Tworzenie w pełni kwalifikowanej nazwy domeny w Azure Portal dla maszyny wirtualnej z systemem Windows](../create-fqdn.md).
 
 ## <a name="publish-your-aspnet-web-app-to-the-azure-vm-using-visual-studio"></a>Publikowanie aplikacji sieci Web ASP.NET na maszynie wirtualnej platformy Azure przy użyciu programu Visual Studio
 W poniższej sekcji opisano sposób publikowania istniejącej aplikacji sieci Web ASP.NET na maszynie wirtualnej platformy Azure.
@@ -69,7 +69,7 @@ W poniższej sekcji opisano sposób publikowania istniejącej aplikacji sieci We
 
 11. Jeśli publikowanie powiedzie się, zostanie uruchomiona przeglądarka otwierająca adres URL nowo opublikowanej witryny.
 
-**To wszystko!**
+**Sukces!**
 
 Aplikacja sieci Web została pomyślnie opublikowana na maszynie wirtualnej platformy Azure.
 

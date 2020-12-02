@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ce9ab371c0ed1e81cf1dfb53fca7e359e1aeb35
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 9a907f2a6fc54c96dbef9f2091a91cac50bbd4ca
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967503"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486525"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Konfiguracje infrastruktury SAP HANA i operacje na platformie Azure
 Ten dokument zawiera wskazówki dotyczące konfigurowania infrastruktury platformy Azure i systemów SAP HANA operacyjnych wdrożonych na natywnych maszynach wirtualnych platformy Azure. Dokument zawiera również informacje o konfiguracji SAP HANA skalowania w poziomie dla jednostki SKU maszyny wirtualnej M128s. Ten dokument nie jest przeznaczony do zastępowania standardowej dokumentacji SAP, która obejmuje następującą zawartość:
@@ -245,8 +245,8 @@ Zgodnie z najlepszymi rozwiązaniami dotyczącymi najlepszych rozwiązań o 2,0,
 Należy dołączyć wiele dysków platformy Azure do maszyny wirtualnej DT 2,0 i utworzyć oprogramowanie RAID (Stripe) na poziomie systemu operacyjnego w celu osiągnięcia maksymalnego limitu przepływności dysku na maszynę wirtualną. Pojedynczy dysk platformy Azure nie może zapewnić przepływności do osiągnięcia maksymalnego limitu dla maszyny wirtualnej w tym zakresie. Usługa Azure Premium Storage jest wymagana do uruchomienia DT 2,0. 
 
 - Szczegółowe informacje o dostępnych typach dysków platformy Azure można znaleźć [tutaj](../../disks-types.md)
-- Szczegółowe informacje o tworzeniu RAID oprogramowania za pośrednictwem mdadm można znaleźć [tutaj](../../linux/configure-raid.md)
-- Szczegółowe informacje o konfigurowaniu LVM w celu utworzenia woluminu rozłożonego na potrzeby maksymalnej przepływności można znaleźć [tutaj](../../linux/configure-lvm.md)
+- Szczegółowe informacje o tworzeniu RAID oprogramowania za pośrednictwem mdadm można znaleźć [tutaj](/previous-versions/azure/virtual-machines/linux/configure-raid)
+- Szczegółowe informacje o konfigurowaniu LVM w celu utworzenia woluminu rozłożonego na potrzeby maksymalnej przepływności można znaleźć [tutaj](/previous-versions/azure/virtual-machines/linux/configure-lvm)
 
 W zależności od wymagań dotyczących rozmiaru dostępne są różne opcje umożliwiające osiągnięcie maksymalnej przepływności maszyny wirtualnej. Oto możliwe konfiguracje dysków woluminów danych dla każdego typu maszyny wirtualnej DT 2,0, aby osiągnąć górny limit przepływności maszyny wirtualnej. Maszyna wirtualna E32sv3 powinna być traktowana jako poziom wpisu dla mniejszych obciążeń. W przypadku gdy należy wymusić, że nie jest ona wystarczająco szybko dostępna, może być konieczna zmiana rozmiaru maszyny wirtualnej na M64-32ms.
 Ponieważ maszyna wirtualna M64-32ms ma dużo pamięci, obciążenie we/wy może nie dotrzeć do limitu szczególnie w przypadku obciążeń intensywnie korzystających z operacji odczytu. W związku z tym mniejsza liczba dysków w zestawie rozłożonym może być wystarczająca w zależności od obciążenia określonego przez klienta. Jednak aby mieć pewność, że te konfiguracje dysków zostały wybrane w celu zagwarantowania maksymalnej przepływności:
@@ -324,4 +324,3 @@ Zapoznaj się z artykułami wymienionymi na liście
 - [Wdróż system SAP HANA skalowalny w poziomie z aktywnym węzłem na maszynach wirtualnych platformy Azure przy użyciu Azure NetApp Files na Red Hat Enterprise Linux](./sap-hana-scale-out-standby-netapp-files-rhel.md)
 - [Wysoka dostępność SAP HANA na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server](./sap-hana-high-availability.md)
 - [Wysoka dostępność SAP HANA na maszynach wirtualnych platformy Azure na Red Hat Enterprise Linux](./sap-hana-high-availability-rhel.md)
-
