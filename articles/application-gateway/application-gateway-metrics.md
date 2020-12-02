@@ -2,17 +2,17 @@
 title: Metryki Azure Monitor dla Application Gateway
 description: Dowiedz się, jak używać metryk do monitorowania wydajności bramy aplikacji
 services: application-gateway
-author: abshamsft
+author: surajmb
 ms.service: application-gateway
 ms.topic: article
 ms.date: 06/06/2020
-ms.author: absha
-ms.openlocfilehash: c072e7c1339a2217a3c167be3237029bd71429c2
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.author: surmb
+ms.openlocfilehash: be629d9f8441ad40fe15f005f4aeb0ec5565a7ec
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397743"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437069"
 ---
 # <a name="metrics-for-application-gateway"></a>Metryki dla Application Gateway
 
@@ -40,7 +40,7 @@ Application Gateway zapewnia kilka wbudowanych metryk czasu związanych z żąda
 
   Interwał czasu między rozpoczęciem ustanawiania połączenia z serwerem zaplecza i otrzymywania pierwszego bajtu nagłówka odpowiedzi. 
 
-  Jest to przybliżona suma *czasu łączenia zaplecza* , czasu podejmowanego przez żądanie do osiągnięcia wewnętrznej bazy danych z Application Gateway, czas trwania przez aplikację zaplecza (czas, w którym serwer wygenerował zawartość, potencjalnie pobierane kwerendy bazy danych) i czas potrzebny na pierwszy bajt odpowiedzi w celu uzyskania dostępu do Application Gateway z zaplecza.
+  Jest to przybliżona suma *czasu łączenia zaplecza*, czasu podejmowanego przez żądanie do osiągnięcia wewnętrznej bazy danych z Application Gateway, czas trwania przez aplikację zaplecza (czas, w którym serwer wygenerował zawartość, potencjalnie pobierane kwerendy bazy danych) i czas potrzebny na pierwszy bajt odpowiedzi w celu uzyskania dostępu do Application Gateway z zaplecza.
 
 - **Czas odpowiedzi ostatniego bajtu wewnętrznej bazy danych**
 
@@ -52,7 +52,7 @@ Application Gateway zapewnia kilka wbudowanych metryk czasu związanych z żąda
 
   Średni czas odbierania i przetwarzania żądania oraz jego odpowiedź na wysłanie. 
 
-  Jest to interwał od momentu odebrania przez Application Gateway pierwszego bajtu żądania HTTP do momentu wysłania ostatniego bajtu odpowiedzi do klienta. Dotyczy to również czasu przetwarzania wykonywanego przez Application Gateway, *czas odpowiedzi ostatniego bajtu* , czas wykonania przez Application Gateway, aby wysłać całą odpowiedź i *RTT klienta*.
+  Jest to interwał od momentu odebrania przez Application Gateway pierwszego bajtu żądania HTTP do momentu wysłania ostatniego bajtu odpowiedzi do klienta. Dotyczy to również czasu przetwarzania wykonywanego przez Application Gateway, *czas odpowiedzi ostatniego bajtu*, czas wykonania przez Application Gateway, aby wysłać całą odpowiedź i *RTT klienta*.
 
 - **Czas RTT klienta**
 
@@ -62,7 +62,7 @@ Application Gateway zapewnia kilka wbudowanych metryk czasu związanych z żąda
 
 Te metryki mogą służyć do określenia, czy obserwowane spowolnienie jest spowodowane przez sieć klienta, Application Gateway wydajność, nasycenie stosu TCP sieci i zaplecza, wydajność aplikacji zaplecza lub duży rozmiar pliku.
 
-Na przykład, jeśli występuje wzrost trendu *czasu odpowiedzi na pierwszy bajt z zaplecza* , ale trend *czasu połączenia zaplecza* jest stabilny, można wywnioskować, że czas oczekiwania bramy aplikacji na zaplecze, a termin nawiązywania połączenia jest stabilny, a skok jest spowodowany zwiększeniem czasu odpowiedzi aplikacji zaplecza. Z drugiej strony, jeśli wartość w polu *czas odpowiedzi pierwszego bajtu w zapleczu* jest skojarzona z odpowiednim skokiem w *czasie połączenia zaplecza* , można ustalić, czy sieć między Application Gateway i serwerem zaplecza lub stosem TCP serwera wewnętrznej bazy danych zakończyła się nasyceniem. 
+Na przykład, jeśli występuje wzrost trendu *czasu odpowiedzi na pierwszy bajt z zaplecza* , ale trend *czasu połączenia zaplecza* jest stabilny, można wywnioskować, że czas oczekiwania bramy aplikacji na zaplecze, a termin nawiązywania połączenia jest stabilny, a skok jest spowodowany zwiększeniem czasu odpowiedzi aplikacji zaplecza. Z drugiej strony, jeśli wartość w polu *czas odpowiedzi pierwszego bajtu w zapleczu* jest skojarzona z odpowiednim skokiem w *czasie połączenia zaplecza*, można ustalić, czy sieć między Application Gateway i serwerem zaplecza lub stosem TCP serwera wewnętrznej bazy danych zakończyła się nasyceniem. 
 
 Jeśli zauważysz wzrost w *czasie odpowiedzi ostatniego bajtu* , ale *czas odpowiedzi pierwszego bajtu zaplecze* jest stabilny, można ustalić, że skok jest spowodowany większym żądanym plikiem.
 
@@ -162,7 +162,7 @@ W przypadku Application Gateway dostępne są następujące metryki:
 
 - **Nieudane żądania**
 
-  Liczba żądań obsłużonych przez Application Gateway z kodami błędów serwera 5xx. Obejmuje to kody 5xx, które są generowane na podstawie Application Gateway, a także kody 5xx, które są generowane na podstawie zaplecza. Liczbę żądań można w dalszej odfiltrować, aby pokazać liczbę dla każdej lub określonej puli zaplecza — kombinację ustawień http.
+  Liczba żądań, które się nie powiodły z powodu problemów z połączeniem. Ta liczba obejmuje żądania, które nie powiodły się z powodu przekroczenia ustawienia HTTP "limit czasu żądania" oraz żądania, które nie powiodły się z powodu problemów z połączeniem między usługą Application Gateway i zapleczem. Ta liczba nie obejmuje błędów spowodowanych brakiem nieprawidłowej wewnętrznej bazy danych. odpowiedzi 4xx i 5xx z zaplecza nie są również uwzględniane jako część tej metryki.
 
 - **Stan odpowiedzi**
 
@@ -214,7 +214,7 @@ Poniższy przykład przeprowadzi Cię przez proces tworzenia reguły alertu, kt�
 
 2. Na stronie **Dodawanie reguły** Wypełnij sekcje nazwa, warunek i powiadomienie, a następnie wybierz **przycisk OK**.
 
-   * W selektorze **warunku** wybierz jedną z czterech wartości: **większe** niż, **większe niż lub równe** , **mniejsze niż** lub **mniejsze niż lub równe**.
+   * W selektorze **warunku** wybierz jedną z czterech wartości: **większe** niż, **większe niż lub równe**, **mniejsze niż** lub **mniejsze niż lub równe**.
 
    * W selektorze **okresu** Wybierz okres z pięciu minut do 6 godzin.
 

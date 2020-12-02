@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: KumudD
 ms.author: kumud
 ms.date: 11/25/2020
-ms.openlocfilehash: 2f262b328efcc341c93f1e5c31cab8cbd3ecbf6b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5a2238f5c1561abb1e11d69aa6d0bfe761097c64
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184641"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437307"
 ---
 # <a name="azure-monitor-for-networks"></a>Usługa Azure Monitor dla sieci
 Azure Monitor dla sieci zapewnia kompleksowy wgląd w [kondycję](../../service-health/resource-health-checks-resource-types.md) i [metryki](../platform/metrics-supported.md) dla wszystkich wdrożonych zasobów sieciowych, bez konieczności konfigurowania. Zapewnia również dostęp do funkcji monitorowania sieci, takich jak [monitor połączeń](../../network-watcher/connection-monitor-preview.md), [Rejestrowanie przepływów dla sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)i [Analiza ruchu](../../network-watcher/traffic-analytics.md). Zapewnia inne funkcje [diagnostyki](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) sieci.
@@ -26,7 +26,7 @@ Azure Monitor dla sieci ma strukturę następujących najważniejszych składnik
 
 Strona **przegląd** Azure monitor dla sieci zapewnia łatwy sposób wizualizacji spisu zasobów sieciowych wraz z kondycją zasobów i alertami. Jest on podzielony na cztery kluczowe obszary funkcjonalne: wyszukiwanie i filtrowanie, Kondycja zasobów i metryki, alerty i widok zależności.
 
-[ ![ Zrzut ekranu przedstawiający stronę przeglądu](media/network-insights-overview/overview.png)](media/network-insights-overview/overview.png)#lightbox)
+[![Zrzut ekranu przedstawiający stronę Przegląd](media/network-insights-overview/overview.png)](media/network-insights-overview/overview.png#lightbox)
 
 ### <a name="search-and-filtering"></a>Wyszukiwanie i filtrowanie
 Widok Kondycja zasobów i alerty można dostosować za pomocą filtrów, takich jak **subskrypcja**, **Grupa zasobów** i **Typ**.

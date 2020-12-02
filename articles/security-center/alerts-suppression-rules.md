@@ -1,6 +1,6 @@
 ---
 title: Używanie reguł pomijania alertów w celu pomijania fałszywie dodatnich lub innych niechcianych alertów zabezpieczeń w Azure Security Center.
-description: W tym artykule wyjaśniono, jak używać reguł pomijania Azure Security Center w celu ukrycia niechcianych alertów usługi Azure Defender
+description: W tym artykule wyjaśniono, jak używać reguł pomijania Azure Security Center w celu ukrycia niechcianych alertów zabezpieczeń
 author: memildin
 manager: rkarlin
 services: security-center
@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: b954d6ed29074aa9261611f0d1bb79b5917d03f2
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 4f5049d1589b741e60db69c782107cab1f047b77
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372663"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436797"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Pomijanie alertów z usługi Azure Defender
 
@@ -60,11 +60,11 @@ Aby utworzyć regułę bezpośrednio w Azure Portal:
 
 1. Na stronie alertów zabezpieczeń portalu Security Center:
 
-    - Znajdź konkretny alert, którego nie chcesz już zobaczyć, a następnie z menu wielokropka (...) dla alertu wybierz pozycję **Utwórz regułę pomijania** :
+    - Znajdź konkretny alert, którego nie chcesz już zobaczyć, a następnie z menu wielokropka (...) dla alertu wybierz pozycję **Utwórz regułę pomijania**:
 
         [![* * Tworzenie reguły pomijania * * — opcja](media/alerts-suppression-rules/auto-dismiss-future-option.png)](media/alerts-suppression-rules/auto-dismiss-future-option.png#lightbox)
 
-    - Lub wybierz łącze **reguły pomijania** w górnej części strony, a następnie na stronie reguły pomijania wybierz pozycję **Utwórz nową regułę pomijania** :
+    - Lub wybierz łącze **reguły pomijania** w górnej części strony, a następnie na stronie reguły pomijania wybierz pozycję **Utwórz nową regułę pomijania**:
 
         ![Przycisk tworzenia nowej reguły pomijania * *](media/alerts-suppression-rules/create-new-suppression-rule.png)
 
@@ -127,9 +127,9 @@ Można tworzyć, wyświetlać i usuwać reguły pomijania alertów za pośrednic
 
 Odpowiednie metody HTTP dla reguł pomijania w interfejsie API REST są następujące:
 
-- **Put** : Aby utworzyć lub zaktualizować regułę pomijania w określonej subskrypcji.
+- **Put**: Aby utworzyć lub zaktualizować regułę pomijania w określonej subskrypcji.
 
-- **Pobierz** :
+- **Pobierz**:
 
     - Aby wyświetlić listę wszystkich reguł skonfigurowanych dla określonej subskrypcji. Ta metoda zwraca tablicę odpowiednich reguł.
 
@@ -137,7 +137,7 @@ Odpowiednie metody HTTP dla reguł pomijania w interfejsie API REST są następu
 
     - Aby symulować wpływ reguły pomijania w fazie projektowania. To wywołanie określa, które z istniejących alertów zostałyby odrzucone, jeśli reguła była aktywna.
 
-- **Usuń** : Usuwa istniejącą regułę (ale nie zmienia stanu alertów, które zostały już odrzucone przez niego).
+- **Usuń**: Usuwa istniejącą regułę (ale nie zmienia stanu alertów, które zostały już odrzucone przez niego).
 
 Aby zapoznać się z pełnymi szczegółami i przykładami użycia, zobacz [dokumentację interfejsu API](/rest/api/securitycenter/). 
 

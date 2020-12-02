@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights Java
 description: Monitorowanie wydajności aplikacji dla aplikacji Java działających w dowolnym środowisku bez konieczności modyfikacji kodu. Śledzenie rozproszone i mapa aplikacji.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 36e2b419da2bccdf2f5f13227457172cf644994c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 7046e4a1aeeda5e537208c79858c95c79e188348
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351541"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437205"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Monitorowanie aplikacji bezkodu Java Azure Monitor Application Insights
 
@@ -127,15 +127,16 @@ Aby uzyskać szczegółowe informacje, zobacz [Opcje konfiguracji](./java-standa
 * Micrometer (w tym metryki uruchamiającego uruchamianie sprężynowe)
 * Metryki JMX
 
-## <a name="sending-custom-telemetry-from-your-application"></a>Wysyłanie niestandardowych danych telemetrycznych z aplikacji
+## <a name="send-custom-telemetry-from-your-application"></a>Wyślij niestandardową telemetrię z aplikacji
 
 Naszym celem w programie 3.0 + jest umożliwienie wysyłania niestandardowych danych telemetrycznych przy użyciu standardowych interfejsów API.
 
-Obsługujemy interfejs API Micrometer, OpenTelemetry i popularne struktury rejestrowania. Application Insights Java 3,0 automatycznie przechwytuje dane telemetryczne i skorelowanie ich wraz ze wszystkimi automatycznie zebranymi danymi telemetrycznymi.
+Obsługujemy Micrometer, popularne struktury rejestrowania oraz zestaw Application Insights Java 2. x.
+Application Insights Java 3,0 automatycznie przechwytuje dane telemetryczne wysyłane za pomocą tych interfejsów API i skorelowane z automatycznie zebraną telemetrię.
 
 ### <a name="supported-custom-telemetry"></a>Obsługiwana niestandardowa Telemetria
 
-Poniższa tabela przedstawia obecnie obsługiwane typy niestandardowych danych telemetrycznych, które można włączyć, aby uzupełnić agenta Java 3,0. Podsumowując, metryki niestandardowe są obsługiwane za pomocą micrometer, niestandardowe wyjątki i ślady mogą być włączane za pomocą platform rejestrowania, a dowolny typ telemetrii niestandardowej jest obsługiwany za pomocą [Application Insights Java 2. x SDK](#sending-custom-telemetry-using-application-insights-java-sdk-2x). 
+Poniższa tabela przedstawia obecnie obsługiwane typy niestandardowych danych telemetrycznych, które można włączyć, aby uzupełnić agenta Java 3,0. Podsumowując, metryki niestandardowe są obsługiwane za pomocą micrometer, niestandardowe wyjątki i ślady mogą być włączane za pomocą platform rejestrowania, a dowolny typ telemetrii niestandardowej jest obsługiwany za pomocą [Application Insights Java 2. x SDK](#send-custom-telemetry-using-application-insights-java-2x-sdk).
 
 |                     | Mikrometr | Log4J, logback, lip | zestaw SDK 2. x |
 |---------------------|------------|---------------------|---------|
@@ -149,82 +150,101 @@ Poniższa tabela przedstawia obecnie obsługiwane typy niestandardowych danych t
 
 W tej chwili nie planujemy zwolnić zestawu SDK z Application Insights 3,0.
 
-Application Insights Java 3,0 już nasłuchuje na danych telemetrycznych wysyłanych do Application Insights Java SDK 2. x. Ta funkcja jest ważną częścią wątku uaktualnienia dla istniejących użytkowników w wersji 2. x i pełni ważną lukę w naszej niestandardowej pomocy technicznej telemetrii do momentu, w którym interfejs API OpenTelemetry jest w całości.
+Application Insights Java 3,0 już nasłuchuje na danych telemetrycznych wysyłanych do Application Insights Java 2. x SDK. Ta funkcja jest ważną częścią wątku uaktualnienia dla istniejących użytkowników w wersji 2. x i pełni ważną lukę w naszej niestandardowej pomocy technicznej telemetrii do momentu, w którym interfejs API OpenTelemetry jest w całości.
 
-## <a name="sending-custom-telemetry-using-application-insights-java-sdk-2x"></a>Wysyłanie niestandardowej telemetrii przy użyciu Application Insights Java SDK 2. x
+### <a name="send-custom-metrics-using-micrometer"></a>Wysyłanie metryk niestandardowych przy użyciu Micrometer
+
+Dodaj Micrometer do aplikacji:
+
+```xml
+<dependency>
+  <groupId>io.micrometer</groupId>
+  <artifactId>micrometer-core</artifactId>
+  <version>1.6.1</version>
+</dependency>
+```
+
+Użyj [rejestru globalnego](https://micrometer.io/docs/concepts#_global_registry) Micrometer do utworzenia miernika:
+
+```java
+static final Counter counter = Metrics.counter("test_counter");
+```
+
+i Użyj tego do rejestrowania metryk:
+
+```java
+counter.increment();
+```
+
+### <a name="send-custom-traces-and-exceptions-using-your-favorite-logging-framework"></a>Wysyłanie niestandardowych śladów i wyjątków przy użyciu ulubionej struktury rejestrowania
+
+Log4J, Logback i Java. util. Logging są autoinstrumentami, a rejestrowanie wykonywane za pośrednictwem tych platform rejestrowania jest zbierane w sposób autozbierany jako dane telemetryczne śledzenia i wyjątków.
+
+Domyślnie rejestrowanie jest zbierane tylko wtedy, gdy rejestrowanie odbywa się na poziomie informacji lub wyższym.
+Zobacz [Opcje konfiguracji](./java-standalone-config.md#auto-collected-logging) dotyczące zmiany tego poziomu.
+
+Jeśli chcesz dołączyć niestandardowe wymiary do dzienników, możesz użyć [log4j 1 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html), [Log4J 2 MDC](https://logging.apache.org/log4j/2.x/manual/thread-context.html)lub [Logback MDC](http://logback.qos.ch/manual/mdc.html), a Application Insights Java 3,0 automatycznie przechwytuje te właściwości MDC jako wymiary niestandardowe dla danych telemetrycznych śledzenia i wyjątków.
+
+### <a name="send-custom-telemetry-using-application-insights-java-2x-sdk"></a>Wyślij niestandardową telemetrię przy użyciu Application Insights Java 2. x SDK
 
 Dodaj `applicationinsights-core-2.6.0.jar` do swojej aplikacji (wszystkie wersje 2. x są obsługiwane przez Application Insights Java 3,0, ale warto użyć najnowszej wersji, jeśli masz wybór):
 
 ```xml
-  <dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>applicationinsights-core</artifactId>
-    <version>2.6.0</version>
-  </dependency>
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-core</artifactId>
+  <version>2.6.0</version>
+</dependency>
 ```
 
 Utwórz TelemetryClient:
 
   ```java
-private static final TelemetryClient telemetryClient = new TelemetryClient();
+static final TelemetryClient telemetryClient = new TelemetryClient();
 ```
 
-i służy do wysyłania niestandardowych danych telemetrycznych.
+i Użyj, aby wysłać niestandardową telemetrię:
 
-### <a name="events"></a>Zdarzenia
+##### <a name="events"></a>Zdarzenia
 
-  ```java
+```java
 telemetryClient.trackEvent("WinGame");
 ```
-### <a name="metrics"></a>Metryki
 
-Można wysłać dane telemetryczne metryk za pośrednictwem [Micrometer](https://micrometer.io):
+##### <a name="metrics"></a>Metryki
 
 ```java
-  Counter counter = Metrics.counter("test_counter");
-  counter.increment();
+telemetryClient.trackMetric("queueLength", 42.0);
 ```
 
-Można również użyć Application Insights Java SDK 2. x:
+##### <a name="dependencies"></a>Zależności
 
 ```java
-  telemetryClient.trackMetric("queueLength", 42.0);
+boolean success = false;
+long startTime = System.currentTimeMillis();
+try {
+    success = dependency.call();
+} finally {
+    long endTime = System.currentTimeMillis();
+    RemoteDependencyTelemetry telemetry = new RemoteDependencyTelemetry();
+    telemetry.setTimestamp(new Date(startTime));
+    telemetry.setDuration(new Duration(endTime - startTime));
+    telemetryClient.trackDependency(telemetry);
+}
 ```
 
-### <a name="dependencies"></a>Zależności
+##### <a name="logs"></a>Dzienniki
 
 ```java
-  boolean success = false;
-  long startTime = System.currentTimeMillis();
-  try {
-      success = dependency.call();
-  } finally {
-      long endTime = System.currentTimeMillis();
-      RemoteDependencyTelemetry telemetry = new RemoteDependencyTelemetry();
-      telemetry.setTimestamp(new Date(startTime));
-      telemetry.setDuration(new Duration(endTime - startTime));
-      telemetryClient.trackDependency(telemetry);
-  }
+telemetryClient.trackTrace(message, SeverityLevel.Warning, properties);
 ```
 
-### <a name="logs"></a>Dzienniki
-Możesz wysyłać niestandardowe dane telemetryczne dziennika za pośrednictwem ulubionej struktury rejestrowania.
-
-Można również użyć Application Insights Java SDK 2. x:
+##### <a name="exceptions"></a>Wyjątki
 
 ```java
-  telemetryClient.trackTrace(message, SeverityLevel.Warning, properties);
-```
-
-### <a name="exceptions"></a>Wyjątki
-Możesz wysłać niestandardową telemetrię wyjątku za pośrednictwem ulubionej struktury rejestrowania.
-
-Można również użyć Application Insights Java SDK 2. x:
-
-```java
-  try {
-      ...
-  } catch (Exception e) {
-      telemetryClient.trackException(e);
-  }
+try {
+    ...
+} catch (Exception e) {
+    telemetryClient.trackException(e);
+}
 ```

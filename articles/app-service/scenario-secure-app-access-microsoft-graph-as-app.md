@@ -7,15 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: bdd6dbf790bcf2ec97be33504e51ca3db2eb3ef7
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.custom: azureday1
+ms.openlocfilehash: facc6a4ab8344f9f72fc7abc27433c18ab435504
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182992"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436542"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-app"></a>Samouczek: dostęp do Microsoft Graph z zabezpieczonej aplikacji jako aplikacji
 
@@ -25,7 +26,7 @@ Dowiedz się, jak uzyskać dostęp do Microsoft Graph z aplikacji sieci Web dzia
 
 Chcesz wywołać Microsoft Graph aplikacji sieci Web. Bezpiecznym sposobem zapewnienia dostępu aplikacji sieci Web do danych jest użycie [tożsamości zarządzanej przypisanej do systemu](../active-directory/managed-identities-azure-resources/overview.md). Zarządzana tożsamość z Azure Active Directory umożliwia App Service dostępu do zasobów za pośrednictwem kontroli dostępu opartej na rolach (RBAC), bez konieczności korzystania z poświadczeń aplikacji. Po przypisaniu zarządzanej tożsamości do aplikacji sieci Web, platforma Azure bierze pod uwagę tworzenie i dystrybucję certyfikatu. Nie musisz martwić się o zarządzanie wpisami tajnymi lub poświadczeniami aplikacji.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -121,6 +122,8 @@ W obszarze **Przegląd** wybierz pozycję **uprawnienia**, a zobaczysz uprawnien
 
 Klasa [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) jest używana do uzyskiwania poświadczeń tokenu dla kodu, aby autoryzować żądania do Microsoft Graph. Utwórz wystąpienie klasy [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) , która używa tożsamości zarządzanej do pobierania tokenów i dołączania ich do klienta usługi. Poniższy przykład kodu Pobiera poświadczenia uwierzytelnionego tokenu i używa go do utworzenia obiektu klienta usługi, który pobiera użytkowników w grupie.
 
+Aby wyświetlić ten kod jako część przykładowej aplikacji, zobacz [przykład w witrynie GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/3-WebApp-graphapi-managed-identity).
+
 ### <a name="install-the-microsoftgraph-client-library-package"></a>Instalowanie pakietu biblioteki klienta Microsoft. Graph
 
 Zainstaluj [pakiet NuGet Microsoft. Graph](https://www.nuget.org/packages/Microsoft.Graph) w projekcie przy użyciu interfejsu wiersza polecenia platformy .NET Core lub konsoli Menedżera pakietów w programie Visual Studio.
@@ -204,7 +207,7 @@ public async Task OnGetAsync()
 }
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli skończysz pracę z tym samouczkiem i nie potrzebujesz już aplikacji sieci Web ani skojarzonych zasobów, [Wyczyść utworzone zasoby](scenario-secure-app-clean-up-resources.md).
 

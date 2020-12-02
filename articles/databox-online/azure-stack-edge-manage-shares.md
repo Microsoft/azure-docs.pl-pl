@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: d7ff32b33a8eab5c6729d84d38fec2e5b2c87449
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d43b70c8f958ad37b6ac2d0ee043d5f07d11da9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777211"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444592"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-azure-stack-edge-pro"></a>Użyj Azure Portal, aby zarządzać udziałami na Azure Stack EDGE Pro
 
@@ -47,14 +47,14 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby utworzyć udział.
     
     Nazwy udziałów mogą zawierać tylko cyfry, małe litery i łączniki. Nazwa udziału musi mieć długość od 3 do 63 znaków i rozpoczynać się literą lub cyfrą. Przed i za każdym łącznikiem musi znajdować się znak inny niż łącznik.
 
-3. Wybierz **Typ** dla udziału. Dostępne są dwa typy — **SMB** i **NFS** — przy czym typ SMB jest domyślny. Typ SMB jest standardem dla klientów systemu Windows, natomiast typ NFS jest używany dla klientów systemu Linux. W zależności od tego, czy wybrano udział SMB czy NFS, wyświetlone opcje są nieco inne.
+3. Wybierz **Typ** udziału. Typ może być typu **SMB** lub **NFS** z domyślnym protokołem SMB. Typ SMB jest standardem dla klientów systemu Windows, natomiast typ NFS jest używany dla klientów systemu Linux. W zależności od tego, czy wybrano udział SMB czy NFS, wyświetlone opcje są nieco inne.
 
 4. Podaj **konto magazynu**, w którym znajduje się udział. Na koncie magazynu zostanie utworzony kontener z nazwą udziału (jeśli jeszcze nie istnieje). Jeśli kontener już istnieje, zostanie użyty istniejący kontener.
 
 5. Z listy rozwijanej wybierz **usługę magazynu** z blokowych obiektów blob, stronicowego obiektu BLOB lub plików. Wybrany typ usługi zależy od tego, jaki format mają mieć dane na platformie Azure. Na przykład w tym wystąpieniu dane mają być przechowywane jako blokowe obiekty blob na platformie Azure, dlatego wybieramy **blokowy obiekt BLOB**. Jeśli wybierzesz **stronicowy obiekt BLOB**, musisz upewnić się, że dane są wyrównane do 512 bajtów. Użyj **stronicowego obiektu BLOB** dla dysków VHD lub VHDX, które są zawsze 512 bajty.
 
    > [!IMPORTANT]
-   > Upewnij się, że konto usługi Azure Storage, którego używasz, nie ma ustawionych zasad niezmiennościymi, jeśli są używane z urządzeniem Azure Stack EDGE Pro lub Data Box Gateway. Aby uzyskać więcej informacji, zobacz [Ustawianie zasad niezmienności dla usługi BLOB Storage i zarządzanie nimi](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Upewnij się, że konto usługi Azure Storage, którego używasz, nie ma ustawionych zasad niezmiennościymi, jeśli są używane z urządzeniem Azure Stack EDGE Pro lub Data Box Gateway. Aby uzyskać więcej informacji, zobacz [Ustawianie zasad niezmienności dla usługi BLOB Storage i zarządzanie nimi](../storage/blobs/storage-blob-immutability-policies-manage.md).
 
 6. Ten krok zależy od tego, czy tworzysz udział SMB, czy udział NFS.
    - **W przypadku tworzenia udziału SMB** — w polu **Użytkownik lokalny ze wszystkimi uprawnieniami** wybierz pozycję **Utwórz nowy** lub **Użyj istniejącego**. W przypadku tworzenia nowego użytkownika lokalnego podaj **nazwę użytkownika**, **hasło**, a następnie potwierdź hasło. Spowoduje to przypisanie uprawnień do użytkownika lokalnego. Po przypisaniu uprawnień w tym miejscu możesz następnie zmodyfikować te uprawnienia przy użyciu Eksploratora plików.
@@ -68,7 +68,7 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby utworzyć udział.
 
 7. Aby łatwo uzyskać dostęp do udziałów z modułów obliczeniowych Edge, Użyj lokalnego punktu instalacji. Wybierz pozycję **Użyj udziału przy użyciu obliczeń brzegowych** , aby udział został automatycznie zainstalowany po utworzeniu. Po wybraniu tej opcji moduł Edge może również używać obliczeń z lokalnym punktem instalacji.
 
-8. Kliknij pozycję **Utwórz**, aby utworzyć udział. Zostanie wyświetlone powiadomienie, że trwa tworzenie udziału. Po utworzeniu udziału z określonymi ustawieniami blok **Udziały** zostanie zaktualizowany, aby odzwierciedlić nowy udział.
+8. Kliknij przycisk **Utwórz** , aby utworzyć udział. Zostanie wyświetlone powiadomienie, że trwa tworzenie udziału. Po utworzeniu udziału przy użyciu określonych ustawień blok **udziały** jest aktualizowany w celu odzwierciedlenia nowego udziału.
 
 ## <a name="add-a-local-share"></a>Dodawanie udziału lokalnego
 
@@ -80,7 +80,7 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby utworzyć udział.
     
     Nazwy udziałów mogą zawierać tylko cyfry, małe litery i łączniki. Nazwa udziału musi mieć długość od 3 do 63 znaków i rozpoczynać się literą lub cyfrą. Przed i za każdym łącznikiem musi znajdować się znak inny niż łącznik.
 
-3. Wybierz **Typ** dla udziału. Dostępne są dwa typy — **SMB** i **NFS** — przy czym typ SMB jest domyślny. Typ SMB jest standardem dla klientów systemu Windows, natomiast typ NFS jest używany dla klientów systemu Linux. W zależności od tego, czy wybrano udział SMB czy NFS, wyświetlone opcje są nieco inne.
+3. Wybierz **Typ** udziału. Typ może być typu **SMB** lub **NFS** z domyślnym protokołem SMB. Typ SMB jest standardem dla klientów systemu Windows, natomiast typ NFS jest używany dla klientów systemu Linux. W zależności od tego, czy wybrano udział SMB czy NFS, wyświetlone opcje są nieco inne.
 
 4. Aby łatwo uzyskać dostęp do udziałów z modułów obliczeniowych Edge, Użyj lokalnego punktu instalacji. Wybierz pozycję **Użyj udziału przy użyciu obliczeń brzegowych** , aby moduł Edge mógł korzystać z obliczeń w lokalnym punkcie instalacji.
 
@@ -88,11 +88,11 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby utworzyć udział.
 
 6. W polu **użytkownik lokalny wszystkie uprawnienia** wybierz opcję **Utwórz nowe** lub **Użyj istniejącej**.
 
-7. Wybierz przycisk **Utwórz**. 
+7. Wybierz pozycję **Utwórz**. 
 
    ![Utwórz udział lokalny](media/azure-stack-edge-manage-shares/add-local-share-2.png)
 
-    Zobaczysz powiadomienie o tym, że tworzenie udziału jest w toku. Po utworzeniu udziału z określonymi ustawieniami blok **Udziały** zostanie zaktualizowany, aby odzwierciedlić nowy udział.
+    Zobaczysz powiadomienie o tym, że tworzenie udziału jest w toku. Po utworzeniu udziału przy użyciu określonych ustawień blok **udziały** jest aktualizowany w celu odzwierciedlenia nowego udziału.
 
    ![Widok widoku udziałów aktualizacji](media/azure-stack-edge-manage-shares/add-local-share-3.png)
     

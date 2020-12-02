@@ -7,12 +7,12 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 002c718466b9e13d2f92fbea6dd055eb13d4d3a7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 41d98750f3c869eff5abf7482a9bb04435407318
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789118"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436763"
 ---
 # <a name="introduction-to-azure-defender"></a>Wprowadzenie do usługi Azure Defender
 
@@ -20,7 +20,7 @@ Funkcje Azure Security Center obejmują dwa szerokie filary zabezpieczeń w chmu
 
 - **Cloud Security stan Management (CSPM)** — Security Center jest dostępna **bezpłatnie** dla wszystkich użytkowników platformy Azure. Bezpłatne środowisko obejmuje funkcje CSPM, takie jak bezpieczny wynik, wykrywanie błędnej konfiguracji zabezpieczeń na maszynach platformy Azure, spis zasobów i wiele innych. Korzystaj z tych funkcji CSPM, aby wzmocnić stan chmury hybrydowej i śledzić zgodność z wbudowanymi zasadami.
 
-- **Ochrona obciążenia w chmurze (CWP)** — Security Center Zintegrowana platforma ochrony obciążeń w chmurze (CWPP), **Azure Defender** , zapewnia zaawansowane, inteligentne, ochronę zasobów platformy Azure i hybrydowych oraz obciążeń. Włączenie usługi Azure Defender umożliwia korzystanie z szeregu dodatkowych funkcji zabezpieczeń, zgodnie z opisem na tej stronie. Oprócz wbudowanych zasad, po włączeniu dowolnego planu usługi Azure Defender można dodać zasady niestandardowe i inicjatywy. Możesz dodać standardy prawne, takie jak NIST i Azure CIS, jak również test porównawczy zabezpieczeń platformy Azure, aby uzyskać naprawdę dostosowany widok zgodności.
+- **Ochrona obciążenia w chmurze (CWP)** — Security Center Zintegrowana platforma ochrony obciążeń w chmurze (CWPP), **Azure Defender**, zapewnia zaawansowane, inteligentne, ochronę zasobów platformy Azure i hybrydowych oraz obciążeń. Włączenie usługi Azure Defender umożliwia korzystanie z szeregu dodatkowych funkcji zabezpieczeń, zgodnie z opisem na tej stronie. Oprócz wbudowanych zasad, po włączeniu dowolnego planu usługi Azure Defender można dodać zasady niestandardowe i inicjatywy. Możesz dodać standardy prawne, takie jak NIST i Azure CIS, jak również test porównawczy zabezpieczeń platformy Azure, aby uzyskać naprawdę dostosowany widok zgodności.
 
 Pulpit nawigacyjny usługi Azure Defender w Security Center zapewnia widoczność i kontrolę funkcji CWP w środowisku:
 
@@ -61,7 +61,7 @@ Aby zwiększyć ochronę do maszyn wirtualnych i baz danych SQL, które znajduj�
 
 
 
-## <a name="azure-defender-alerts"></a>Alerty usługi Azure Defender 
+## <a name="security-alerts"></a>Alerty zabezpieczeń 
 
 Gdy usługa Azure Defender wykryje zagrożenie w dowolnym obszarze środowiska, generuje alert. Te alerty opisują szczegóły zasobów, których to dotyczy, sugerowane kroki zaradcze, a w niektórych przypadkach opcja wyzwalająca aplikację logiki w odpowiedzi.
 

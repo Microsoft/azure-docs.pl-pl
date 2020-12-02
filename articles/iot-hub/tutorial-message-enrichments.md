@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 030a69c7eca70c081a1d9392bfa527f3386d7c2b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 60bd416cf330676485f83720be4365b56c56baaf
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150606"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436712"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Samouczek: korzystanie z wzbogacania komunikatów IoT Hub platformy Azure
 
@@ -38,13 +38,13 @@ Poniżej przedstawiono zadania, które należy wykonać w celu wykonania tego sa
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Wymagana jest subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Zainstaluj [program Visual Studio](https://www.visualstudio.com/).
+- Wymagana jest subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Upewnij się, że port 8883 jest otwarty w zaporze. Przykład urządzenia w tym samouczku używa protokołu MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+- Zainstaluj [program Visual Studio](https://www.visualstudio.com/).
 
+- Upewnij się, że port 8883 jest otwarty w zaporze. Przykład urządzenia w tym samouczku używa protokołu MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="retrieve-the-iot-c-samples-repository"></a>Pobierz repozytorium przykładów w języku C# dla IoT
 
@@ -253,7 +253,7 @@ W tym momencie wszystkie zasoby są skonfigurowane i skonfigurowano Routing komu
 
    ![Wybierz routing wiadomości](./media/tutorial-message-enrichments/select-iot-hub.png)
 
-   Okienko routing wiadomości zawiera trzy karty z etykietą **trasy**, **niestandardowe punkty końcowe**i **komunikaty wzbogacania**. Przeglądaj pierwsze dwie karty, aby zobaczyć konfigurację skonfigurowaną przez skrypt. Użyj trzeciej karty, aby dodać wzbogacania komunikatów. Wzbogacamy komunikaty przechodzące do punktu końcowego dla kontenera magazynu o nazwie **wzbogacone**. Wypełnij pola Nazwa i wartość, a następnie wybierz punkt końcowy **ContosoStorageEndpointEnriched** z listy rozwijanej. Oto przykład sposobu konfigurowania wzbogacania, które dodaje do wiadomości nazwę Centrum IoT Hub:
+   Okienko routing wiadomości zawiera trzy karty z etykietą **trasy**, **niestandardowe punkty końcowe** i **komunikaty wzbogacania**. Przeglądaj pierwsze dwie karty, aby zobaczyć konfigurację skonfigurowaną przez skrypt. Użyj trzeciej karty, aby dodać wzbogacania komunikatów. Wzbogacamy komunikaty przechodzące do punktu końcowego dla kontenera magazynu o nazwie **wzbogacone**. Wypełnij pola Nazwa i wartość, a następnie wybierz punkt końcowy **ContosoStorageEndpointEnriched** z listy rozwijanej. Oto przykład sposobu konfigurowania wzbogacania, które dodaje do wiadomości nazwę Centrum IoT Hub:
 
    ![Dodaj pierwsze wzbogacanie](./media/tutorial-message-enrichments/add-message-enrichments.png)
 
@@ -279,7 +279,7 @@ W tym momencie wszystkie zasoby są skonfigurowane i skonfigurowano Routing komu
 ## <a name="create-and-configure-by-using-a-resource-manager-template"></a>Tworzenie i Konfigurowanie przy użyciu szablonu Menedżer zasobów
 Za pomocą szablonu Menedżer zasobów można tworzyć i konfigurować zasoby, routing komunikatów i wzbogacenia komunikatów.
 
-1. Zaloguj się do Portalu Azure. Wybierz pozycję **+ Utwórz zasób** , aby wyświetlić pole wyszukiwania. Wprowadź *wdrożenie szablonu*i wyszukaj je. W okienku wyników wybierz pozycję **Template Deployment (Wdróż przy użyciu szablonu niestandardowego)**.
+1. Zaloguj się do witryny Azure Portal. Wybierz pozycję **+ Utwórz zasób** , aby wyświetlić pole wyszukiwania. Wprowadź *wdrożenie szablonu* i wyszukaj je. W okienku wyników wybierz pozycję **Template Deployment (Wdróż przy użyciu szablonu niestandardowego)**.
 
    ![Template deployment w Azure Portal](./media/tutorial-message-enrichments/template-select-deployment.png)
 
@@ -356,7 +356,7 @@ Aplikacja wysyła nowy komunikat z urządzenia do centrum IoT Hub co sekundę. K
 
 Po wysłaniu kilku komunikatów magazynu Wyświetl dane.
 
-1. Wybierz pozycję **grupy zasobów**. Znajdź grupę zasobów, **ContosoResourcesMsgEn**i wybierz ją.
+1. Wybierz pozycję **Grupy zasobów**. Znajdź grupę zasobów, **ContosoResourcesMsgEn** i wybierz ją.
 
 2. Wybierz konto magazynu, które jest **contosostorage**. Następnie wybierz pozycję **Eksplorator usługi Storage (wersja zapoznawcza)** w okienku po lewej stronie.
 

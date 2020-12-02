@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 78600b7b57a7c30fc609434a700f13fa21e079ce
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 35bb17a5cdfcc6aff4a513a594a08283ab1f1305
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019263"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437035"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Łączenie urządzenia podrzędnego z bramą usługi Azure IoT Edge
 
@@ -100,7 +100,7 @@ Powinien pojawić się komunikat "Aktualizowanie certyfikatów w programie/etc/S
 
 Poniższe kroki przedstawiają przykład sposobu instalowania certyfikatu urzędu certyfikacji na hoście z systemem Windows. W tym przykładzie przyjęto założenie, że używasz certyfikatu **Azure-IoT-test-Only. root. ca. CERT. pem** z artykułów z wymaganiami wstępnymi i że certyfikat został skopiowany do lokalizacji na urządzeniu podrzędnym.
 
-Certyfikaty można instalować przy użyciu programu PowerShell [Import-Certificate](/powershell/module/pkiclient/import-certificate?view=win10-ps) jako administrator:
+Certyfikaty można instalować przy użyciu programu PowerShell [Import-Certificate](/powershell/module/pkiclient/import-certificate) jako administrator:
 
 ```powershell
 import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorelocation cert:\LocalMachine\root

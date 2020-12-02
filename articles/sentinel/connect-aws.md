@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: yelevin
-ms.openlocfilehash: e80f7d26fb7ab598651d08b4c1b6478b2ae75e3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7405824d2477d2d39c45a56ae545e58a090c321
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87563062"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436610"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>Połącz wskaźnik platformy Azure z usługą AWS CloudTrail
 
@@ -80,11 +80,11 @@ Musisz mieć uprawnienie do zapisu w obszarze roboczym wskaźnik platformy Azure
 
 1. Aby użyć odpowiedniego schematu w Log Analytics dla zdarzeń AWS, Wyszukaj **AWSCloudTrail**.
 
-
+    > [!IMPORTANT]
+    > Od 1 grudnia 2020 pole **AwsRequestId** zostało zastąpione polem **AwsRequestId_** (Zwróć uwagę na dodanie znaku podkreślenia). Dane w starym polu **AwsRequestId** zostaną zachowane po upływie określonego okresu przechowywania danych przez klienta.
 
 ## <a name="next-steps"></a>Następne kroki
 W tym dokumencie przedstawiono sposób łączenia AWS CloudTrail z platformą Azure. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
 - Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
 - Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats-built-in.md).
 - [Używaj skoroszytów](tutorial-monitor-your-data.md) do monitorowania danych.
-

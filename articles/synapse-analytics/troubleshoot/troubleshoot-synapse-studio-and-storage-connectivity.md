@@ -1,22 +1,22 @@
 ---
-title: Rozwiązywanie problemów z łącznością między programem Synapse Studio i magazynem
-description: Rozwiązywanie problemów z łącznością między programem Synapse Studio i magazynem
+title: Rozwiązywanie problemów z łącznością między funkcją Synapse Studio i magazynem
+description: Rozwiązywanie problemów z łącznością między funkcją Synapse Studio i magazynem
 author: saveenr
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0b8a64d24242e6fb34c963b14429fdfee2398f62
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: cee6d030a9639a7203a32a3c0957733cecb1f8b6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557871"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445328"
 ---
-# <a name="troubleshoot-connectivity-between-azure-synapse-analytics-synapse-studio-and-storage"></a>Rozwiązywanie problemów z łącznością między usługą Azure Synapse Analytics Synapse Studio i magazynem
+# <a name="troubleshoot-connectivity-between-azure-synapse-analytics-synapse-studio-and-storage"></a>Rozwiązywanie problemów z łącznością między programem Synapse Studio dla usługi Azure Synapse Analytics i magazynem
 
-W programie Synapse Studio (wersja zapoznawcza) można eksplorować zasoby danych znajdujące się w połączonym magazynie. Ten przewodnik pomoże rozwiązać problemy z łącznością podczas próby uzyskania dostępu do zasobów danych. 
+W programie Synapse Studio można eksplorować zasoby danych znajdujące się w połączonym magazynie. Ten przewodnik pomoże rozwiązać problemy z łącznością podczas próby uzyskania dostępu do zasobów danych. 
 
 ## <a name="case-1-storage-account-lacks-proper-permissions"></a>#1 przypadku: brak prawidłowych uprawnień dla konta magazynu
 
@@ -26,7 +26,7 @@ Szczegółowy komunikat o błędzie może się różnić, ale ogólne znaczenie 
 
 ![Problem z łącznością z magazynem 1](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue.1.png)
 
-**Rozwiązanie** : Aby przypisać konto do właściwej roli, zobacz [Używanie Azure Portal do przypisywania roli platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](../../storage/common/storage-auth-aad-rbac-portal.md)
+**Rozwiązanie**: Aby przypisać konto do właściwej roli, zobacz [Używanie Azure Portal do przypisywania roli platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](../../storage/common/storage-auth-aad-rbac-portal.md)
 
 
 ## <a name="case-2-failed-to-send-the-request-to-storage-server"></a>#2 przypadku: nie można wysłać żądania do serwera magazynu
@@ -39,13 +39,13 @@ Może istnieć kilka możliwych przyczyn tego problemu:
 
 ### <a name="the-storage-resource-is-behind-a-vnet-and-a-storage-private-endpoint-needs-to-configure"></a>Zasób magazynu znajduje się za siecią wirtualną, a prywatny punkt końcowy magazynu musi być skonfigurowany
 
-**Rozwiązanie** : w tym przypadku należy skonfigurować prywatny punkt końcowy magazynu dla konta magazynu. Aby uzyskać informacje na temat konfigurowania prywatnego punktu końcowego magazynu dla sieci wirtualnej, zobacz [używanie Azure Portal do przypisywania roli platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](../security/how-to-connect-to-workspace-from-restricted-network.md).
+**Rozwiązanie**: w tym przypadku należy skonfigurować prywatny punkt końcowy magazynu dla konta magazynu. Aby uzyskać informacje na temat konfigurowania prywatnego punktu końcowego magazynu dla sieci wirtualnej, zobacz [używanie Azure Portal do przypisywania roli platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](../security/how-to-connect-to-workspace-from-restricted-network.md).
 
 \<storage-account-name\>Aby sprawdzić łączność po skonfigurowaniu prywatnego punktu końcowego magazynu, można użyć polecenia "nslookup. DFS.Core.Windows.NET". Powinien zwrócić ciąg podobny do: " \<storage-account-name\> . privatelink.DFS.Core.Windows.NET".
 
 ### <a name="the-storage-resource-is-not-behind-a-vnet-but-the-blob-service-azure-ad-endpoint-is-not-accessible-due-to-firewall-configured"></a>Zasób magazynu nie znajduje się za siecią wirtualną, ale punkt końcowy Blob service (Azure AD) nie jest dostępny ze względu na skonfigurowaną zaporę
 
-**Rozwiązanie** : w tym przypadku należy otworzyć konto magazynu w Azure Portal. W lewym okienku nawigacji przewiń w dół, aby **zapewnić obsługę i rozwiązywanie problemów** , a następnie wybierz pozycję **Sprawdzanie łączności** , aby sprawdzić stan łączności usługi **BLOB Service (Azure AD)** . Jeśli nie jest dostępny, postępuj zgodnie z podwyższonym przewodnikiem, aby sprawdzić konfigurację **zapory i sieci wirtualnych** na stronie konta magazynu. Aby uzyskać więcej informacji na temat zapór magazynowych, zobacz [Konfigurowanie zapór usługi Azure Storage i sieci wirtualnych](../../storage/common/storage-network-security.md).
+**Rozwiązanie**: w tym przypadku należy otworzyć konto magazynu w Azure Portal. W lewym okienku nawigacji przewiń w dół, aby **zapewnić obsługę i rozwiązywanie problemów** , a następnie wybierz pozycję **Sprawdzanie łączności** , aby sprawdzić stan łączności usługi **BLOB Service (Azure AD)** . Jeśli nie jest dostępny, postępuj zgodnie z podwyższonym przewodnikiem, aby sprawdzić konfigurację **zapory i sieci wirtualnych** na stronie konta magazynu. Aby uzyskać więcej informacji na temat zapór magazynowych, zobacz [Konfigurowanie zapór usługi Azure Storage i sieci wirtualnych](../../storage/common/storage-network-security.md).
 
 ### <a name="other-issues-to-check"></a>Inne problemy do sprawdzenia 
 

@@ -7,42 +7,44 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 2a21d7a06e8a92022b620704d1fb51a303da3ae0
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: dd29b18dda46a00966a0e5adea7e06be8f43ad35
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185984"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444948"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Wykonywanie zapytań dotyczących danych w Azure Monitor przy użyciu usługi Azure Eksplorator danych (wersja zapoznawcza)
-Klaster usługi Azure Eksplorator danych proxy umożliwia wykonywanie zapytań między produktami między usługą Azure Eksplorator danych, obszarami roboczymi Log Analytics i klasycznymi aplikacjami Application Insights w Azure Monitor. Obszary robocze Log Analytics można mapować w aplikacjach Azure Monitor i klasycznych Application Insights jako klastrów proxy. Następnie można wykonać zapytanie dotyczące klastra proxy przy użyciu narzędzi usługi Azure Eksplorator danych i odwołać się do niego w zapytaniu między klastrami. W tym artykule pokazano, jak nawiązać połączenie z klastrem proxy, dodać klaster proxy do interfejsu użytkownika sieci Web usługi Azure Eksplorator danych i uruchamiać zapytania względem obszarów roboczych Log Analytics lub klasycznych aplikacji Application Insights z usługi Azure Eksplorator danych.
 
-Na poniższym diagramie przedstawiono przepływ serwera proxy usługi Azure Eksplorator danych:
+Eksplorator danych platformy Azure obsługuje zapytania obejmujące wiele usług między usługą Azure Eksplorator danych, [Application Insights (AI)](/azure/azure-monitor/app/app-insights-overview)i [log Analytics (La)](/azure/azure-monitor/platform/data-platform-logs). Następnie można wykonać zapytanie dotyczące obszaru roboczego Log Analytics/Application Insights przy użyciu narzędzi Eksplorator danych platformy Azure i odwołać się do niego w zapytaniu o wiele usług. W tym artykule przedstawiono sposób tworzenia zapytania krzyżowego i dodawania obszaru roboczego Log Analytics/Application Insights do interfejsu użytkownika sieci Web usługi Azure Eksplorator danych.
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-data-explorer-monitor-proxy-flow.png" alt-text="Przepływ serwera proxy Eksploratora danych platformy Azure.":::
-
+Przepływ zapytań między usługami Eksplorator danych platformy Azure: :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-data-explorer-monitor-flow.png" alt-text="przepływ serwera proxy w usłudze Azure Data Explorer.":::
 
 > [!NOTE]
-> Serwer proxy usługi Azure Eksplorator danych jest w publicznej wersji zapoznawczej. [Połącz się z serwerem proxy,](#connect-to-the-proxy) aby włączyć funkcję proxy dla klastrów. 
+> * Możliwość wykonywania zapytań dotyczących danych Azure Monitor z platformy Azure Eksplorator danych, bezpośrednio z poziomu narzędzi klienckich Eksplorator danych platformy Azure lub pośrednio przez uruchomienie zapytania w klastrze Eksplorator danych platformy Azure, jest w trybie podglądu.
+>* Skontaktuj się z zespołem [zapytań międzyusługowych](mailto:adxproxy@microsoft.com) , korzystając z jakichkolwiek pytań.
 
-## <a name="connect-to-the-proxy"></a>Łączenie z serwerem proxy
-Aby połączyć obszar roboczy Log Analytics lub klasyczną aplikację Application Insights, Otwórz[interfejs użytkownika sieci Web platformy Azure Eksplorator danych](https://dataexplorer.azure.com/clusters). Przed nawiązaniem połączenia z klastrem Log Analytics lub Application Insights należy sprawdzić, czy w menu po lewej stronie jest wyświetlany klaster macierzysty platformy Azure Eksplorator danych (na przykład klaster *pomocy* ).
+## <a name="add-a-log-analyticsapplication-insights-workspace-to-azure-data-explorer-client-tools"></a>Dodawanie obszaru roboczego Log Analytics/Application Insights do narzędzia klienckiego platformy Azure Eksplorator danych
+
+1. Przed nawiązaniem połączenia z klastrem Log Analytics lub Application Insights należy sprawdzić, czy w menu po lewej stronie jest wyświetlany klaster macierzysty platformy Azure Eksplorator danych (na przykład klaster *pomocy* ).
 
 :::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-data-explorer-web-ui-help-cluster.png" alt-text="Klaster platformy Azure Eksplorator danych Native.":::
 
-Kliknij pozycję **Dodaj klaster** , a następnie Dodaj adres URL Log Analytics lub Application Insights klastra w jednym z następujących formatów. 
-    
-* Dla Log Analytics: `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`
-* Dla Application Insights: `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`
+ W interfejsie użytkownika usługi Azure Eksplorator danych ( https://dataexplorer.azure.com/clusters) Wybierz pozycję **Dodaj klaster**.
 
-Kliknij przycisk **Dodaj** , aby nawiązać połączenie.
+2. W oknie **Dodawanie klastra** Dodaj adres URL klastra La lub AI.
+
+    * Dla LA: `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`
+    * Dla AI: `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`
+
+    * Wybierz pozycję **Dodaj**.
 
 :::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-add-cluster.png" alt-text="Dodaj klaster.":::
  
-> [!NOTE]
-> W przypadku dodania połączenia do więcej niż jednego klastra proxy nadaj każdej innej nazwie. W przeciwnym razie wszystkie będą mieć taką samą nazwę w lewym okienku.
+>[!NOTE]
+>W przypadku dodania połączenia do więcej niż jednego obszaru roboczego Log Analytics/Application Insights nadaj każdej innej nazwie. W przeciwnym razie wszystkie będą mieć taką samą nazwę w lewym okienku.
 
-Po nawiązaniu połączenia Log Analytics lub klaster Application Insights zostanie wyświetlony w lewym okienku z natywnym klastrem usługi Azure Eksplorator danych. 
+ Po nawiązaniu połączenia obszar roboczy Log Analytics lub Application Insights zostanie wyświetlony w okienku po lewej stronie, w którym znajduje się natywny klaster Eksplorator danych platformy Azure.
 
 :::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-azure-data-explorer-clusters.png" alt-text="Log Analytics i klastry Eksplorator danych platformy Azure.":::
  
@@ -51,30 +53,30 @@ Po nawiązaniu połączenia Log Analytics lub klaster Application Insights zosta
 
 ## <a name="create-queries-using-azure-monitor-data"></a>Tworzenie zapytań przy użyciu danych Azure Monitor
 
-Można uruchamiać zapytania przy użyciu narzędzi klienckich, które obsługują zapytania Kusto, takie jak Eksplorator Kusto, interfejs użytkownika sieci Web platformy Azure Eksplorator danych, Jupyter Kqlmagic, Flow, PowerQuery, PowerShell, Jarvis, soczewki i interfejs API REST.
+Można uruchamiać zapytania przy użyciu narzędzi klienckich, które obsługują zapytania Kusto, takie jak Eksplorator Kusto, interfejs użytkownika sieci Web platformy Azure Eksplorator danych, Jupyter Kqlmagic, Flow, PowerQuery, PowerShell, soczewki, interfejs API REST.
 
 > [!NOTE]
-> Funkcja serwera proxy usługi Azure Eksplorator danych jest używana tylko do pobierania danych. Aby uzyskać więcej informacji, zobacz temat [Obsługa funkcji](#function-supportability).
+> Możliwość wykonywania zapytań między usługami jest używana tylko do pobierania danych. Aby uzyskać więcej informacji, zobacz temat [Obsługa funkcji](#function-supportability).
 
 > [!TIP]
-> * Nazwa bazy danych powinna mieć taką samą nazwę jak zasób określony w klastrze proxy. W nazwach jest uwzględniana wielkość liter.
+> * Nazwa bazy danych powinna mieć taką samą nazwę jak zasób określony w zapytaniu o wiele usług. W nazwach jest uwzględniana wielkość liter.
 > * W przypadku zapytań między klastrami upewnij się, że nazwy aplikacji Application Insights i Log Analytics obszary robocze są poprawne.
->     * Jeśli nazwy zawierają znaki specjalne, są one zastępowane przez kodowanie adresów URL w nazwie klastra proxy. 
->     * Jeśli nazwy zawierają znaki, które nie są zgodne z [regułami nazw identyfikatorów KQL](/azure/data-explorer/kusto/query/schema-entities/entity-names), są zastępowane **-** znakiem kreski.
+> * Jeśli nazwy zawierają znaki specjalne, są one zastępowane przez kodowanie adresów URL w zapytaniu o wiele usług.
+> * Jeśli nazwy zawierają znaki, które nie są zgodne z [regułami nazw identyfikatorów KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/entity-names), są zastępowane **-** znakiem kreski.
 
-### <a name="direct-query-from-your-log-analytics-or-application-insights-proxy-cluster"></a>Bezpośrednie zapytanie z klastra Log Analytics lub Application Insights proxy
+### <a name="direct-query-on-your-log-analytics-or-application-insights-workspaces-from-azure-data-explorer-client-tools"></a>Bezpośrednie zapytanie dotyczące Log Analytics lub Application Insights obszarów roboczych z narzędzi Azure Eksplorator danych Client Tools
 
-Uruchamianie zapytań w klastrze Log Analytics lub Application Insights. Sprawdź, czy klaster został wybrany w lewym okienku. 
+Uruchom zapytania dotyczące Log Analytics lub Application Insights obszarów roboczych. Upewnij się, że obszar roboczy jest wybrany w lewym okienku.
  
 ```kusto
-Perf | take 10 // Demonstrate query through the proxy on the Log Analaytics workspace
+Perf | take 10 // Demonstrate cross service query on the Log Analytics workspace
 ```
 
 :::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-query-la.png" alt-text="Log Analytics obszarze roboczym zapytań.":::
 
-### <a name="cross-query-of-your-log-analytics-or-application-insights-proxy-cluster-and-the-azure-data-explorer-native-cluster"></a>Krzyżowe zapytania dotyczące Log Analytics lub Application Insights klastra proxy i klastra Azure Eksplorator danych Native
+### <a name="cross-query-of-your-log-analytics-or-application-insights-and-the-azure-data-explorer-native-cluster"></a>Krzyżowe zapytania dotyczące Log Analytics lub Application Insights i klastra platformy Azure Eksplorator danych Native
 
-Gdy uruchamiasz zapytania między klastrami z serwera proxy, sprawdź, czy w lewym okienku wybrano klaster Azure Eksplorator danych Native. W poniższych przykładach pokazano, jak łączyć tabele klastra Eksplorator danych platformy Azure przy użyciu operatora [Union](/azure/data-explorer/kusto/query/unionoperator) z obszarem roboczym log Analytics.
+Podczas uruchamiania zapytań usługi między klastrami upewnij się, że w okienku po lewej stronie jest wybrany klaster Azure Eksplorator danych Native. W poniższych przykładach pokazano, jak łączyć tabele klastrów Eksplorator danych platformy Azure [przy użyciu usługi Union](/azure/data-explorer/kusto/query/unionoperator) z log Analytics obszar roboczy.
 
 ```kusto
 union StormEvents, cluster('https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>').Perf
@@ -85,38 +87,38 @@ union StormEvents, cluster('https://ade.loganalytics.io/subscriptions/<subscript
 let CL1 = 'https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>';
 union <Azure Data Explorer table>, cluster(CL1).database(<workspace-name>).<table name>
 ```
-Użycie [ `join` operatora](/azure/data-explorer/kusto/query/joinoperator?pivots=azuremonitor)zamiast Union może wymagać [wskazówki](/azure/data-explorer/kusto/query/joinoperator?pivots=azuremonitor#join-hints) do uruchomienia jej w klastrze usługi Azure Eksplorator danych Native (a nie na serwerze proxy). 
+
+:::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-data-explorer-cross-query-proxy.png" alt-text="Zapytanie o wiele usług z Eksplorator danych platformy Azure.":::
+
+Użycie [ `join` operatora](https://docs.microsoft.com/azure/data-explorer/kusto/query/joinoperator)zamiast Union może wymagać [`hint`](https://docs.microsoft.com/azure/data-explorer/kusto/query/joinoperator#join-hints) uruchomienia go w klastrze macierzystym platformy Azure Eksplorator danych.
 
 ### <a name="join-data-from-an-azure-data-explorer-cluster-in-one-tenant-with-an-azure-monitor-resource-in-another"></a>Dołączanie danych z klastra Eksplorator danych platformy Azure w jednej dzierżawie przy użyciu zasobu Azure Monitor w innym
 
-Zapytania między dzierżawcami nie są obsługiwane przez serwer proxy usługi Azure Eksplorator danych. Użytkownik jest zalogowany do pojedynczej dzierżawy na potrzeby uruchamiania zapytania obejmującego oba zasoby.
+Zapytania między różnymi dzierżawcami nie są obsługiwane. Użytkownik jest zalogowany do pojedynczej dzierżawy na potrzeby uruchamiania zapytania obejmującego oba zasoby.
 
 Jeśli zasób Eksplorator danych platformy Azure znajduje się w dzierżawie "A", a obszar roboczy Log Analytics znajduje się w dzierżawie "B", użyj jednej z następujących dwóch metod:
 
-- Usługa Azure Eksplorator danych pozwala dodawać role dla podmiotów zabezpieczeń w różnych dzierżawach. Dodaj swój identyfikator użytkownika w dzierżawie "B" jako autoryzowany użytkownik w klastrze usługi Azure Eksplorator danych. Sprawdź, czy właściwość *["TrustedExternalTenant"](/powershell/module/az.kusto/update-azkustocluster)* w klastrze Eksplorator danych platformy Azure zawiera dzierżawcę "B". Uruchom zapytanie krzyżowe w pełni w dzierżawie "B".
+1. Usługa Azure Eksplorator danych pozwala dodawać role dla podmiotów zabezpieczeń w różnych dzierżawach. Dodaj swój identyfikator użytkownika w dzierżawie "B" jako autoryzowany użytkownik w klastrze usługi Azure Eksplorator danych. Sprawdź, czy właściwość *["TrustedExternalTenant"](https://docs.microsoft.com/powershell/module/az.kusto/update-azkustocluster)* w klastrze Eksplorator danych platformy Azure zawiera dzierżawcę "B". Uruchom zapytanie krzyżowe w pełni w dzierżawie "B".
 
-- Użyj [Lighthouse](../../lighthouse/index.yml) , aby zaprojektować zasób Azure monitor w dzierżawie "A".
-
+2. Użyj [Lighthouse](https://docs.microsoft.com/azure/lighthouse/) , aby zaprojektować zasób Azure monitor w dzierżawie "A".
 ### <a name="connect-to-azure-data-explorer-clusters-from-different-tenants"></a>Nawiązywanie połączenia z klastrami Eksplorator danych platformy Azure od różnych dzierżawców
 
 Eksplorator Kusto automatycznie loguje użytkownika do dzierżawy, do której należy konto użytkownika. Aby uzyskać dostęp do zasobów w innych dzierżawcach przy użyciu tego samego konta użytkownika, `tenantId` musi być jawnie określona w parametrach połączenia: `Data Source=https://ade.applicationinsights.io/subscriptions/SubscriptionId/resourcegroups/ResourceGroupName;Initial Catalog=NetDefaultDB;AAD Federated Security=True;Authority ID=` **TenantId**
 
 ## <a name="function-supportability"></a>Obsługa funkcji
 
-Klaster usługi Azure Eksplorator danych proxy obsługuje funkcje zarówno dla Log Analytics, jak i Application Insights. Ta funkcja umożliwia wykonywanie zapytań między klastrami w celu bezpośredniego odwoływania się do Azure Monitor funkcji tabelarycznej.
-
-Serwer proxy obsługuje następujące polecenia:
+Usługi Azure Eksplorator danych krzyżowe zapytania obsługują funkcje dla obu Application Insights i Log Analytics.
+Ta funkcja umożliwia wykonywanie zapytań między klastrami w celu bezpośredniego odwoływania się do Azure Monitor funkcji tabelarycznej.
+Następujące polecenia są obsługiwane w przypadku zapytania cross Service:
 
 * `.show functions`
 * `.show function {FunctionName}`
 * `.show database {DatabaseName} schema as json`
 
-Na poniższej ilustracji przedstawiono przykład zapytania dotyczącego funkcji tabelarycznej z internetowego interfejsu użytkownika usługi Azure Eksplorator danych. Aby użyć funkcji, uruchom ją w oknie zapytania.
+Na poniższej ilustracji przedstawiono przykład zapytania dotyczącego funkcji tabelarycznej z internetowego interfejsu użytkownika usługi Azure Eksplorator danych.
+Aby użyć funkcji, uruchom ją w oknie zapytania.
 
 :::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-function-query.png" alt-text="Wykonaj zapytanie dotyczące funkcji tabelarycznej z internetowego interfejsu użytkownika usługi Azure Eksplorator danych.":::
- 
-> [!NOTE]
-> Azure Monitor obsługuje tylko funkcje tabelaryczne, które nie obsługują parametrów.
 
 ## <a name="additional-syntax-examples"></a>Dodatkowe przykłady składni
 
@@ -132,4 +134,4 @@ Podczas wywoływania Log Analytics lub Application Insights klastrów dostępne 
 ## <a name="next-steps"></a>Następne kroki
 
 - Przeczytaj więcej na temat [struktury danych log Analytics obszarów roboczych i Application Insights](data-platform-logs.md).
-- Dowiedz się, jak [pisać zapytania w usłudze Azure Eksplorator danych](/azure/data-explorer/write-queries).
+- Dowiedz się, jak [pisać zapytania w usłudze Azure Eksplorator danych](https://docs.microsoft.com/azure/data-explorer/write-queries).

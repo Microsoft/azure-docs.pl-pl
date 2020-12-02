@@ -6,14 +6,16 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 2a9a8f3fe7422468ff2c8886dff7415322cf70f0
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f7d69c4e112ded678c70a516202492d37ee8f60a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676871"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436865"
 ---
-# <a name="how-to-manually-fix-servicenow-sync-problems"></a>Ręczne rozwiązywanie problemów z synchronizacją usługi ServiceNow
+# <a name="troubleshooting-problems-in-itsm-connector"></a>Rozwiązywanie problemów z łącznik ITSM
+
+## <a name="how-to-manually-fix-servicenow-sync-problems"></a>Ręczne rozwiązywanie problemów z synchronizacją usługi ServiceNow
 
 Azure Monitor mogą łączyć się z dostawcami zarządzania usługami IT innych firm (narzędzia ITSM). Usługi ServiceNow jest jednym z tych dostawców.
 

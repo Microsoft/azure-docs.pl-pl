@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c7225adcfe970d17f8f86afdd15e36e2ba76de3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: eeea88d8c21ba754fbeadbb24891126b639616c7
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91287019"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437244"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Szybki Start: Tworzenie nowej dzierżawy w Azure Active Directory
 Wszystkie zadania administracyjne, w tym tworzenie nowej dzierżawy dla swojej organizacji, możesz wykonywać przy użyciu portalu usługi Azure Active Directory (Azure AD). 
@@ -33,37 +33,41 @@ Po zalogowaniu się do witryny Azure Portal możesz utworzyć nową dzierżawę 
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/)organizacji.
 
-1. W menu witryny Azure Portal wybierz pozycję **Utwórz zasób**.  
+1. Z menu Azure Portal wybierz pozycję **Azure Active Directory**.  
 
-    ![Azure Active Directory utworzyć strony](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+    <kbd>![Azure Active Directory — przegląd — tworzenie dzierżawy](media/active-directory-access-create-new-tenant/azure-ad-portal.png)</kbd>  
 
-1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
+1. Wybierz pozycję **Utwórz dzierżawę**.
 
-    Zostanie wyświetlona strona **Tworzenie katalogu**.
+1. Na karcie podstawowe wybierz typ dzierżawy, którą chcesz utworzyć, **Azure Active Directory** lub **Azure Active Directory (B2C)**.
 
-    ![Strona tworzenia usługi Azure Active Directory](media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)
+1. Wybierz pozycję **Dalej: Konfiguracja** , która ma zostać przeniesiona na kartę Konfiguracja.
 
-1.  Na stronie **Tworzenie katalogu** wprowadź następujące informacje:
+    <kbd>![Azure Active Directory — Tworzenie strony dzierżawy — Karta Konfiguracja ](media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)</kbd>
+
+1.  Na karcie Konfiguracja wprowadź następujące informacje:
     
-    - Wpisz wartość _Contoso_ w polu **Nazwa organizacji**.
+    - Wpisz _organizację contoso_ w polu **Nazwa organizacji** .
 
-    - Wpisz wartość _Contoso_ w polu **Początkowa nazwa domeny**.
+    - Wpisz _Contosoorg_ w polu **nazwa domeny początkowej** .
 
     - Pozostaw opcję _Stany Zjednoczone_ w polu **Kraj lub region**.
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Dalej: przegląd + Utwórz**. Przejrzyj wprowadzone informacje i jeśli informacje są poprawne, wybierz pozycję **Utwórz**.
+
+    <kbd>![Azure Active Directory — przeglądanie i Tworzenie strony dzierżawy](media/active-directory-access-create-new-tenant/azure-ad-review.png)</kbd>
 
 Twoja nowa dzierżawa zostanie utworzona i będzie miała domenę contoso.onmicrosoft.com.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Jeśli nie chcesz nadal korzystać z tej aplikacji, możesz usunąć dzierżawę, wykonując następujące czynności:
 
-- Upewnij się, że zalogowano się do katalogu, który chcesz usunąć za pomocą filtru **katalogów i subskrypcji** w witrynie Azure Portal, a następnie w razie potrzeby przełączenie do katalogu docelowego.
+- Upewnij się, że logujesz się do katalogu, który chcesz usunąć za pomocą filtru **katalogów i subskrypcji** w Azure Portal, i w razie potrzeby przełączasz się do katalogu docelowego.
 - Wybierz usługę **Azure Active Directory**, a następnie na stronie **Contoso — przegląd** wybierz pozycję **Usuń katalog**.
 
     Dzierżawa zostanie usunięta wraz ze skojarzonymi informacjami.
 
-    ![Strona przegląd z wyróżnionym przyciskiem Usuń katalog](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
+    <kbd>![Strona przegląd z wyróżnionym przyciskiem Usuń katalog](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)</kbd>
 
 ## <a name="next-steps"></a>Następne kroki
 - Zmiana lub dodawanie kolejnych nazw domen — zobacz [Jak dodać nazwę domeny niestandardowej do usługi Azure Active Directory](add-custom-domain.md)

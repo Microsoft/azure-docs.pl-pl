@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/21/2020
-ms.openlocfilehash: 42b586062378c59b66ca945880bf723418264071
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 949992418cb19c5c69ed8da92e9c2f0fc5f2f791
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95241934"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445425"
 ---
 # <a name="creating-a-synapse-workspace"></a>Tworzenie obszaru roboczego Synapse
 
@@ -28,7 +28,7 @@ Aby wykonać kroki tego samouczka, musisz mieć dostęp do grupy zasobów, do kt
 ## <a name="create-a-synapse-workspace-in-the-azure-portal"></a>Utwórz obszar roboczy Synapse w Azure Portal
 
 1. Otwórz [Azure Portal](https://portal.azure.com)i w górnej części Szukaj **Synapse**.
-1. W wynikach wyszukiwania w obszarze **usługi** wybierz pozycję **Azure Synapse Analytics (obszary robocze — wersja zapoznawcza)**.
+1. W wynikach wyszukiwania w obszarze **usługi** wybierz pozycję **Azure Synapse Analytics**.
 1. Wybierz pozycję **Dodaj** , aby utworzyć obszar roboczy.
 1. W obszarze **podstawowe** wpisz swoją preferowaną **subskrypcję**, **grupę zasobów**, **region**, a następnie wybierz nazwę obszaru roboczego. W tym samouczku użyjemy **obszaru roboczego**.
 1. Przejdź do **opcji wybierz Data Lake Storage Gen 2**. 
@@ -36,6 +36,10 @@ Aby wykonać kroki tego samouczka, musisz mieć dostęp do grupy zasobów, do kt
 1. Kliknij pozycję **system plików** i nadaj jej nazwę **Użytkownicy**. Spowoduje to utworzenie kontenera o nazwie **Użytkownicy**
 1. Obszar roboczy będzie używał tego konta magazynu jako konta magazynu "podstawowe" do tabel platformy Spark i dzienników aplikacji platformy Spark.
 1. Wybierz pozycję **Przeglądanie + tworzenie** > **Utwórz**. Obszar roboczy jest gotowy w ciągu kilku minut.
+
+> [!NOTE]
+> Aby włączyć funkcje obszaru roboczego z istniejącej dedykowanej puli SQL (dawniej SQL DW), zapoznaj się z [tematem Włączanie obszaru roboczego dla dedykowanej puli SQL (dawniej SQL DW)](./sql-data-warehouse/workspace-connected-create.md).
+
 
 ## <a name="open-synapse-studio"></a>Otwórz Synapse Studio
 
@@ -53,6 +57,9 @@ Po utworzeniu obszaru roboczego usługi Azure Synapse dostępne są dwa sposoby 
 1. Wybierz pozycję **Przeglądanie + tworzenie** > **Utwórz**. Dedykowana Pula SQL będzie gotowa w ciągu kilku minut. Dedykowana Pula SQL jest skojarzona z dedykowaną bazą danych puli SQL o nazwie **SQLPOOL1**.
 
 Dedykowana Pula SQL zużywa zasoby do rozliczenia, o ile jest ona aktywna. Pulę można wstrzymać później, aby zmniejszyć koszty.
+
+> [!NOTE] 
+> Podczas tworzenia nowej dedykowanej puli SQL (dawniej SQL DW) w obszarze roboczym zostanie otwarta strona dedykowana obsługa administracyjna puli SQL. Inicjowanie obsługi administracyjnej odbywa się na logicznym serwerze SQL Server.
 
 ## <a name="create-a-serverless-apache-spark-pool"></a>Utwórz bezserwerową pulę Apache Spark
 

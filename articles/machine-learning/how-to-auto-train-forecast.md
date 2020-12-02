@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 0bbb18a82de508f79cd2fd5dde58c1cf33520950
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 57b54fbe20df4eb74ee17c7b5ac83d773114463b
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887403"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437375"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Autouczenie modelu prognozowania szeregów czasowych
 
@@ -146,6 +146,7 @@ Poniższa tabela zawiera podsumowanie tych dodatkowych parametrów. Zapoznaj si�
 |`forecast_horizon`|Definiuje, ile okresów ma być prognozowanie. Horyzont jest w jednostkach częstotliwości szeregów czasowych. Jednostki są oparte na przedziale czasu na dane szkoleniowe, na przykład co miesiąc, co tydzień, co Prognoza powinna przewidzieć.|✓|
 |`enable_dnn`|[Włącz prognozowanie DNNs]().||
 |`time_series_id_column_names`|Nazwy kolumn używane do unikatowego identyfikowania szeregów czasowych w danych, które mają wiele wierszy z tą samą sygnaturą czasową. Jeśli identyfikatory szeregów czasowych nie są zdefiniowane, zakłada się, że zestaw danych jest jedną serią czasową. Aby dowiedzieć się więcej o pojedynczych seriach czasowych, zobacz [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).||
+|`freq`| Częstotliwość zestawu danych szeregów czasowych. Ten parametr reprezentuje okres, w którym powinny wystąpić zdarzenia, takie jak codziennie, co tydzień, co rok itd. Częstotliwość musi być [aliasem offsetu Pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects).||
 |`target_lags`|Liczba wierszy do rozłożeniu wartości docelowych na podstawie częstotliwości danych. Opóźnienie jest reprezentowane jako lista lub jedna liczba całkowita. Zwłoki należy używać, gdy relacja między zmiennymi niezależnymi i zmienną zależną nie jest zgodna ani nie jest domyślnie skorelowana. ||
 |`feature_lags`| Funkcja zwłoki zostanie automatycznie podjęta przy użyciu zautomatyzowanej ML `target_lags` , gdy są ustawione i `feature_lags` ma ustawioną wartość `auto` . Włączenie funkcji spowolnienia może pomóc w zwiększeniu dokładności. Funkcja spowolnienia jest domyślnie wyłączona. ||
 |`target_rolling_window_size`|*n* okresy historyczne używane do generowania prognozowanych wartości, <= rozmiar zestawu szkoleniowego. W przypadku pominięcia *n* to pełny rozmiar zestawu szkoleniowego. Określ ten parametr, jeśli chcesz wziąć pod uwagę tylko określoną ilość historii podczas uczenia modelu. Dowiedz się więcej o [agregacji przedziałów okien docelowych](#target-rolling-window-aggregation).||
@@ -297,7 +298,7 @@ from azureml.automl.core.forecasting_parameters import ForecastingParameters
 forecast_parameters = ForecastingParameters(time_column_name='day_datetime', 
                                             forecast_horizon=50,
                                             short_series_handling_config='auto',
-                                            freq = 50
+                                            freq = '7',
                                             target_lags='auto')
 ```
 Poniższa tabela zawiera podsumowanie dostępnych ustawień programu `short_series_handling_config` .

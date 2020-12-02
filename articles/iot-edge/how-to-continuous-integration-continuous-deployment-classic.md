@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1866f3360b90a96b5e3f215eb7669a1451262bd8
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b9b842b94d66cf91ad836b8ae61df1b3d3f34293
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046013"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435947"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices-classic-editor"></a>Ciągła integracja i ciągłe wdrażanie na urządzeniach Azure IoT Edge (klasyczny edytor)
 
@@ -32,15 +32,15 @@ W tym artykule dowiesz się, jak za pomocą wbudowanych [Azure IoT Edge zadań](
 
 O ile nie określono inaczej, procedury przedstawione w tym artykule nie eksplorują wszystkich funkcji dostępnych za pomocą parametrów zadań. Aby uzyskać więcej informacji, zobacz następujące tematy:
 
-* [Wersja zadania](/azure/devops/pipelines/process/tasks?tabs=classic&view=azure-devops#task-versions)
+* [Wersja zadania](/azure/devops/pipelines/process/tasks?tabs=classic#task-versions)
 * **Zaawansowane** — Jeśli ma to zastosowanie, Określ moduły, które nie mają być tworzone.
-* [Opcje kontrolki](/azure/devops/pipelines/process/tasks?tabs=classic&view=azure-devops#task-control-options)
-* [Zmienne środowiskowe](/azure/devops/pipelines/process/variables?tabs=yaml%252cbatch&view=azure-devops#environment-variables)
-* [Zmienne wyjściowe](/azure/devops/pipelines/process/variables?tabs=yaml%252cbatch&view=azure-devops#use-output-variables-from-tasks)
+* [Opcje kontrolki](/azure/devops/pipelines/process/tasks?tabs=classic#task-control-options)
+* [Zmienne środowiskowe](/azure/devops/pipelines/process/variables?tabs=classic#environment-variables)
+* [Zmienne wyjściowe](/azure/devops/pipelines/process/variables?tabs=classic#use-output-variables-from-tasks)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Repozytorium Azure Repos. Jeśli go nie masz, możesz [utworzyć nowe repozytorium Git w projekcie](/azure/devops/repos/git/create-new-repo?tabs=new-nav&view=vsts). W tym artykule utworzyliśmy repozytorium o nazwie **IoTEdgeRepo**.
+* Repozytorium Azure Repos. Jeśli go nie masz, możesz [utworzyć nowe repozytorium Git w projekcie](/azure/devops/repos/git/create-new-repo). W tym artykule utworzyliśmy repozytorium o nazwie **IoTEdgeRepo**.
 * Rozwiązanie IoT Edge zostało zatwierdzone i wypchnięte do repozytorium. Jeśli chcesz utworzyć nowe przykładowe rozwiązanie do testowania tego artykułu, postępuj zgodnie z instrukcjami w temacie [programowanie i debugowanie modułów w Visual Studio Code](how-to-vs-code-develop-module.md) lub [opracowywanie i debugowanie modułów w języku C# w programie Visual Studio](./how-to-visual-studio-develop-module.md). W tym artykule utworzyliśmy rozwiązanie w naszym repozytorium o nazwie **IoTEdgeSolution**, które ma kod dla modułu o nazwie **filtermodule**.
 
    W tym artykule wystarczy, że jest to folder rozwiązania utworzony przez szablony IoT Edge w Visual Studio Code lub Visual Studio. Nie musisz kompilować, wypchnięciować, wdrażać ani debugować tego kodu przed kontynuowaniem. Te procesy zostaną skonfigurowane w Azure Pipelines.
@@ -84,7 +84,7 @@ W tej sekcji utworzysz nowy potok kompilacji. Potok można skonfigurować tak, a
 
    * Jeśli chcesz skompilować moduły w programie platform amd64 dla kontenerów systemu Linux, wybierz pozycję **Ubuntu-16,04**
 
-   * Jeśli chcesz skompilować moduły na platformie amd64 dla kontenerów systemu Windows 1809, musisz [skonfigurować samoobsługowy Agent w systemie Windows](/azure/devops/pipelines/agents/v2-windows?view=vsts).
+   * Jeśli chcesz skompilować moduły na platformie amd64 dla kontenerów systemu Windows 1809, musisz [skonfigurować samoobsługowy Agent w systemie Windows](/azure/devops/pipelines/agents/v2-windows).
 
    * Jeśli chcesz skompilować moduły na platformie arm32v7 lub arm64 dla kontenerów systemu Linux, musisz [skonfigurować agenta samoobsługowego w systemie Linux](https://devblogs.microsoft.com/iotdev/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent).
 
@@ -122,7 +122,7 @@ W tej sekcji utworzysz nowy potok kompilacji. Potok można skonfigurować tak, a
     | Akcja | Wybierz pozycję **wypychanie obrazów modułu**. |
     | Typ rejestru kontenera | Użyj typu domyślnego: `Azure Container Registry` . |
     | Subskrypcja platformy Azure | Wybierz subskrypcję. |
-    | Azure Container Registry | Wybierz typ rejestru kontenerów, który ma być używany do przechowywania obrazów modułu. Formularz zmienia się w zależności od wybranego typu rejestru. W przypadku wybrania **Azure Container Registry**Użyj listy rozwijanej, aby wybrać subskrypcję platformy Azure i nazwę rejestru kontenerów. W przypadku wybrania opcji **ogólne Container Registry**wybierz pozycję **Nowy** , aby utworzyć połączenie usługi rejestru. |
+    | Azure Container Registry | Wybierz typ rejestru kontenerów, który ma być używany do przechowywania obrazów modułu. Formularz zmienia się w zależności od wybranego typu rejestru. W przypadku wybrania **Azure Container Registry** Użyj listy rozwijanej, aby wybrać subskrypcję platformy Azure i nazwę rejestru kontenerów. W przypadku wybrania opcji **ogólne Container Registry** wybierz pozycję **Nowy** , aby utworzyć połączenie usługi rejestru. |
     | .template.jspliku | Wybierz wielokropek (**...**) i przejdź do **deployment.template.js** w pliku w repozytorium zawierającym rozwiązanie IoT Edge. |
     | Platforma domyślna | Wybierz odpowiedni system operacyjny dla modułów w oparciu o Twoje urządzenie IoT Edge. |
     | Dodawanie poświadczeń rejestru do manifestu wdrożenia | Określ wartość true, aby dodać poświadczenia rejestru umożliwiające wypychanie obrazów platformy Docker do manifestu wdrożenia. |
@@ -136,14 +136,14 @@ W tej sekcji utworzysz nowy potok kompilacji. Potok można skonfigurować tak, a
     | Nazwa wyświetlana | Użyj nazwy domyślnej lub Dostosuj |
     | Folder źródłowy | Folder zawierający pliki, które mają zostać skopiowane. |
     | Zawartość | Dodaj dwie linie: `deployment.template.json` i `**/module.json` . Te dwa pliki służą jako dane wejściowe do generowania manifestu wdrażania IoT Edge. |
-    | Folder docelowy | Określ zmienną `$(Build.ArtifactStagingDirectory)` . Zobacz temat [Tworzenie zmiennych](/azure/devops/pipelines/build/variables?tabs=yaml&view=azure-devops#build-variables) , aby dowiedzieć się więcej o opisie. |
+    | Folder docelowy | Określ zmienną `$(Build.ArtifactStagingDirectory)` . Zobacz temat [Tworzenie zmiennych](/azure/devops/pipelines/build/variables#build-variables) , aby dowiedzieć się więcej o opisie. |
 
 10. Wybierz zadanie **Opublikuj artefakty kompilacji** , aby je edytować. Podaj ścieżkę katalogu przemieszczania artefaktu do zadania, aby można było opublikować ścieżkę w potoku wydania.
 
     | Parametr | Opis |
     | --- | --- |
     | Nazwa wyświetlana | Użyj nazwy domyślnej lub Dostosuj. |
-    | Ścieżka do publikowania | Określ zmienną `$(Build.ArtifactStagingDirectory)` . Aby dowiedzieć się więcej, zobacz temat [Tworzenie zmiennych](/azure/devops/pipelines/build/variables?tabs=yaml&view=azure-devops#build-variables) . |
+    | Ścieżka do publikowania | Określ zmienną `$(Build.ArtifactStagingDirectory)` . Aby dowiedzieć się więcej, zobacz temat [Tworzenie zmiennych](/azure/devops/pipelines/build/variables#build-variables) . |
     | Nazwa artefaktu | Użyj nazwy domyślnej: **upuść** |
     | Lokalizacja publikowania artefaktu | Użyj domyślnej lokalizacji: **Azure Pipelines** |
 

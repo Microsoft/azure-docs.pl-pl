@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: 8bce19e384e600e95b8306dcbba38652b4432bc9
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 90af33a01450002c7d36a4ab4cf4a3da647068c5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340533"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444580"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Korzystanie z kluczy szyfrowania zarządzanych przez klienta dla pamięci podręcznej platformy Azure HPC
 
@@ -20,7 +20,7 @@ Za pomocą Azure Key Vault można kontrolować własność kluczy używanych do 
 > [!NOTE]
 > Wszystkie dane przechowywane na platformie Azure, w tym na dyskach pamięci podręcznej, są szyfrowane domyślnie przy użyciu kluczy zarządzanych przez firmę Microsoft. Należy wykonać czynności opisane w tym artykule, jeśli chcesz zarządzać kluczami używanymi do szyfrowania danych.
 
-Pamięć podręczna Azure HPC jest również chroniona przez [szyfrowanie hosta maszyny wirtualnej](../virtual-machines/linux/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) na dyskach zarządzanych, które przechowują dane w pamięci podręcznej, nawet jeśli zostanie dodany klucz klienta dla dysków pamięci podręcznej. Dodanie klucza zarządzanego przez klienta do szyfrowania podwójnego zapewnia klientom dodatkowy poziom zabezpieczeń. Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem szyfrowanie po stronie serwera w usłudze Azure Disk Storage](../virtual-machines/linux/disk-encryption.md) .
+Pamięć podręczna Azure HPC jest również chroniona przez [szyfrowanie hosta maszyny wirtualnej](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) na dyskach zarządzanych, które przechowują dane w pamięci podręcznej, nawet jeśli zostanie dodany klucz klienta dla dysków pamięci podręcznej. Dodanie klucza zarządzanego przez klienta do szyfrowania podwójnego zapewnia klientom dodatkowy poziom zabezpieczeń. Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem szyfrowanie po stronie serwera w usłudze Azure Disk Storage](../virtual-machines/disk-encryption.md) .
 
 Ta funkcja jest dostępna tylko w niektórych regionach świadczenia usługi Azure, w których dostępna jest pamięć podręczna Azure HPC. Aby uzyskać szczegółowe informacje, zobacz listę [dostępności regionów](hpc-cache-overview.md#region-availability) .
 
@@ -144,7 +144,7 @@ Po wybraniu nowych wartości klucza szyfrowania kliknij przycisk **Wybierz**. Zo
 W tych artykułach wyjaśniono więcej informacji na temat używania Azure Key Vault i kluczy zarządzanych przez klienta do szyfrowania danych na platformie Azure:
 
 * [Omówienie szyfrowania usługi Azure Storage](../storage/common/storage-service-encryption.md)
-* [Szyfrowanie dysków za pomocą kluczy zarządzanych przez klienta](../virtual-machines/linux/disk-encryption.md#customer-managed-keys) — dokumentacja dotycząca korzystania z Azure Key Vault z dyskami zarządzanymi, która jest podobnym scenariuszem do pamięci podręcznej platformy Azure HPC
+* [Szyfrowanie dysków za pomocą kluczy zarządzanych przez klienta](../virtual-machines/disk-encryption.md#customer-managed-keys) — dokumentacja dotycząca korzystania z Azure Key Vault z dyskami zarządzanymi, która jest podobnym scenariuszem do pamięci podręcznej platformy Azure HPC
 
 ## <a name="next-steps"></a>Następne kroki
 

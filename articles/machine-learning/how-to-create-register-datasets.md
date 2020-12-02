@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: f82c3b894a54dc08b0f6dd73108d6f4b2c17f8d6
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: e8388832985ca3b27baea008ff1a9bdd5df06964
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359837"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445109"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Tworzenie zestawów danych usługi Azure Machine Learning
 
@@ -124,7 +124,7 @@ mnist_ds = Dataset.File.from_files(path=web_paths)
 Aby ponownie wykorzystać i udostępnić zestawy danych w ramach eksperymentu w obszarze roboczym, [zarejestruj zestaw danych](#register-datasets). 
 
 > [!TIP] 
-> Przekaż pliki z katalogu lokalnego i Utwórz FileDataset w jednej metodzie przy użyciu metody publicznej wersji zapoznawczej, [upload_directory ()](/python/api/azureml-core/azureml.data.filedataset?preserve-view=true&view=azure-ml-py#methods). Ta metoda jest [eksperymentalną](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) funkcją w wersji zapoznawczej i może ulec zmianie w dowolnym momencie. 
+> Przekaż pliki z katalogu lokalnego i Utwórz FileDataset w jednej metodzie przy użyciu metody publicznej wersji zapoznawczej, [upload_directory ()](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?preserve-view=true&view=azure-ml-py#upload-directory-src-dir--target--pattern-none--overwrite-false--show-progress-true-). Ta metoda jest [eksperymentalną](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) funkcją w wersji zapoznawczej i może ulec zmianie w dowolnym momencie. 
 > 
 >  Ta metoda służy do przekazywania danych do magazynu bazowego, a w związku z tym koszty związane z magazynowaniem. 
 ### <a name="create-a-tabulardataset"></a>Utwórz TabularDataset
@@ -208,7 +208,7 @@ dataset = Dataset.Tabular.from_delimited_files(path = [(datastore, ('data/prepar
 ```
 
 > [!TIP]
-> Utwórz i zarejestruj TabularDataset z tabeli w pamięci Spark lub Pandas danych za pomocą jednej metody z publicznymi metodami w wersji zapoznawczej [`register_spark_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#methods) i [`register_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#methods) . Te metody rejestracji to [eksperymentalne](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) funkcje w wersji zapoznawczej i mogą ulec zmianie w dowolnym momencie. 
+> Utwórz i zarejestruj TabularDataset z tabeli w pamięci Spark lub Pandas danych za pomocą jednej metody z publicznymi metodami w wersji zapoznawczej [`register_spark_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?preserve-view=true&view=azure-ml-py#methods) i [`register_pandas_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?preserve-view=true&view=azure-ml-py#methods) . Te metody rejestracji to [eksperymentalne](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) funkcje w wersji zapoznawczej i mogą ulec zmianie w dowolnym momencie. 
 > 
 >  Metody te umożliwiają przekazywanie danych do magazynu bazowego, a w związku z tym koszty magazynowania. 
 

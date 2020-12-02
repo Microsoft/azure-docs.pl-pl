@@ -1,23 +1,23 @@
 ---
 title: 'Samouczek: Language Understanding bot Node.js v4'
-description: Korzystając z Node.js, skompiluj program Chat bot zintegrowany z funkcją interpretacji języka (LUIS) w tym samouczku. Ten czatbot używa aplikacji Human Resources, aby szybko wdrożyć rozwiązanie bota. Bot jest tworzony za pomocą platformy Bot Framework w wersji 4 i bota aplikacji internetowej platformy Azure.
+description: Skorzystaj z tego samouczka, aby utworzyć Czat bot zintegrowany z funkcją interpretacji języka (LUIS). Ten czatbot używa aplikacji Human Resources, aby szybko wdrożyć rozwiązanie bota.
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/23/2020
+ms.date: 11/30/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: d070a03a81f70cdbf2c721cc67a3bc40c5d731fc
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: dd5f97f2b1c2ad51dda3446412cd936e45c5982e
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018739"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436899"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Samouczek: używanie bot aplikacji sieci Web z włączonym Language Understanding w Node.js
 
 Użyj Node.js, aby utworzyć Czat bot zintegrowany z funkcją interpretacji języka (LUIS). Bot jest tworzona przy użyciu [aplikacji sieci Web](/azure/bot-service/) platformy Azure bot Resource i [bot Framework w wersji](https://github.com/Microsoft/botbuilder-dotnet) v4.
 
-**Z tego samouczka dowiesz się, jak wykonywać następujące czynności:**
+**Ten samouczek zawiera informacje na temat wykonywania następujących czynności:**
 
 > [!div class="checklist"]
 > * Tworzenie bota aplikacji internetowej. Ten proces tworzy nową aplikację usługi LUIS.

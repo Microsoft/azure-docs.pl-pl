@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: e29aeb7570ad6daba9d6fc652291471fa246bf0a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: b75964f8cfc41efc35858284dbffded3aa406eb6
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674622"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436066"
 ---
 # <a name="marketplace-metered-billing-apis"></a>Interfejsy API rozliczeń mierzonych w witrynie Marketplace
 
@@ -20,7 +20,7 @@ Należy używać mierzonych interfejsów API rozliczeń, gdy wydawca tworzy nies
 
 Aby uzyskać więcej informacji na temat tworzenia niestandardowych wymiarów pomiarowych dla SaaS, zobacz [SaaS naliczanie opłat](saas-metered-billing.md).
 
-Aby uzyskać więcej informacji na temat tworzenia niestandardowych wymiarów pomiaru dla oferty aplikacji platformy Azure z zarządzanym planem aplikacji, zobacz [sekcję konfiguracja techniczna w temacie Tworzenie nowej oferty aplikacji platformy Azure](create-new-azure-apps-offer.md#technical-configuration)).
+Aby uzyskać więcej informacji na temat tworzenia niestandardowych wymiarów pomiaru dla oferty aplikacji platformy Azure z zarządzanym planem aplikacji, zobacz [szczegóły konfiguracji oferty aplikacji platformy Azure](../create-new-azure-apps-offer.md#configure-your-azure-application-offer-setup-details).
 
 ## <a name="enforcing-tls-12-note"></a>Wymuszanie uwagi dotyczącej protokołu TLS 1,2
 
@@ -34,7 +34,7 @@ Dla każdej godziny dnia kalendarzowego może być emitowane tylko jedno zdarzen
 
 Dla każdej godziny dnia kalendarzowego dla każdego zasobu może być emitowane tylko jedno zdarzenie użycia. Jeśli więcej niż jedna jednostka jest zużywana w ciągu godziny, należy zbierać wszystkie jednostki używane w ciągu godziny, a następnie emitować je w pojedynczym zdarzeniu. Zdarzenia użycia mogą być emitowane tylko przez ostatnie 24 godziny. Jeśli wyemitujesz zdarzenie użycia w dowolnym momencie od 8:00 do 8:59:59 (i zostanie ono zaakceptowane) i wyślesz dodatkowe zdarzenie dla tego samego dnia od 8:00 do 8:59:59, zostanie ono odrzucone jako duplikat.
 
-**Wpis** : `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
+**Wpis**: `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
 
 *Parametry zapytania:*
 

@@ -10,16 +10,16 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/17/2020
-ms.openlocfilehash: f55e266b548ea3b43a50d9500a427dfe1199b73f
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: b1339a0ab5be9004643cf2e9f86203eba9a2cc72
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699767"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445068"
 ---
 # <a name="get-started-with-azure-synapse-analytics"></a>Rozpoczynanie pracy z usługą Azure Synapse Analytics
 
-Ten samouczek to przewodnik krok po kroku dotyczący głównych obszarów funkcji usługi Azure Synapse Analytics. Samouczek to idealny punkt wyjścia dla kogoś, kto chce zapoznać się z przewodnikiem w najważniejszych scenariuszach analizy usługi Azure Synapse. Po wykonaniu kroków opisanych w samouczku będziesz mieć w pełni funkcjonalny obszar roboczy Synapse, w którym można rozpocząć analizowanie danych przy użyciu dedykowanej puli SQL, bezserwerowej puli SQL lub Apache Spark.
+Ten samouczek to przewodnik krok po kroku dotyczący głównych obszarów funkcji usługi Azure Synapse Analytics. Samouczek to idealny punkt wyjścia dla kogoś, kto chce zapoznać się z przewodnikiem w najważniejszych scenariuszach analizy usługi Azure Synapse. Po wykonaniu kroków opisanych w samouczku będziesz mieć obszar roboczy Synapse. Ten samouczek zawiera również instrukcje umożliwiające [włączenie obszaru roboczego dla dedykowanej puli SQL (dawniej SQL DW)](./sql-data-warehouse/workspace-connected-create.md). Po utworzeniu obszaru roboczego możesz rozpocząć analizowanie danych za pomocą dedykowanej puli SQL, bezserwerowej puli SQL lub bezserwerowej puli Apache Spark.
 
 Wykonaj *kroki opisane poniżej, aby skorzystać* z wielu możliwości i dowiedzieć się, jak korzystać z podstawowych funkcji programu.
 

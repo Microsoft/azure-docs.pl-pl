@@ -1,5 +1,5 @@
 ---
-title: Tabela referencyjna dla wszystkich alertów usługi Azure Defender w Azure Security Center
+title: Tabela referencyjna dla wszystkich alertów zabezpieczeń w Azure Security Center
 description: W tym artykule wymieniono alerty zabezpieczeń widoczne na pulpicie nawigacyjnym usługi Azure Defender Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2020
 ms.author: memildin
-ms.openlocfilehash: 6d001e638b00cace1dd81d9631f498a911ca19a4
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: c5ee275fb92ff2c3787bef7868665c19fea2109c
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96014605"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436780"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alerty zabezpieczeń — przewodnik informacyjny
 
-W tym artykule wymieniono alerty zabezpieczeń, które mogą zostać wyświetlone w usłudze Azure Defender. Alerty wyświetlane w danym środowisku zależą od zasobów i usług, które są objęte ochroną, a także dostosowaną konfigurację.
+W tym artykule wymieniono alerty zabezpieczeń, które mogą zostać wyświetlone w Azure Security Center i wszystkie plany usługi Azure Defender, które zostały włączone. Alerty wyświetlane w danym środowisku zależą od zasobów i usług, które są objęte ochroną, a także dostosowaną konfigurację.
 
 Aby dowiedzieć się, jak odpowiedzieć na te alerty, zobacz temat [Zarządzanie alertami zabezpieczeń i reagowanie na nie w Azure Security Center](security-center-managing-and-responding-alerts.md).
 
@@ -170,7 +170,7 @@ W dolnej części tej strony znajduje się tabela opisująca łańcuch kasowania
 |**Wykryto Rekonesans hosta lokalnego**|Analiza danych hosta na hoście% {naruszony problem} wykryła wykonanie polecenia, które jest zwykle skojarzone ze wspólnym systemem Linux bot rekonesans.|-|Średniaa|
 |**Wykryto manipulowanie zaporą hosta [napotkano wiele razy]**|Analiza danych hosta na hoście% {naruszony Host} wykryto możliwe manipulowanie zaporą na hoście. Osoby atakujące często go wyłączają, aby wyprowadzać dane. To zachowanie było widoczne [x] razy dzisiaj na następujących komputerach: [nazwy maszyn]|-|Średniaa|
 |**Wykryto manipulowanie zaporą hosta**|Analiza danych hosta na hoście% {naruszony Host} wykryto możliwe manipulowanie zaporą na hoście. Osoby atakujące często go wyłączają, aby wyprowadzać dane.|-|Średniaa|
-|**Wykryto agenta MITRE Caldera**<br>(VM_MitreCalderaTools)|Dzienniki maszyn wskazują, że podejrzany proces: "% {podejrzany proces}" był uruchomiony na komputerze% {naruszony host}. Jest to często związane z agentem MITRE 54ndc47, który może być używany w sposób złośliwy do ataku na inne maszyny w jakiś sposób.|Wszystko |Średniaa|
+|**Wykryto agenta MITRE Caldera**<br>(VM_MitreCalderaTools)|Dzienniki maszyn wskazują, że podejrzany proces: "% {podejrzany proces}" był uruchomiony na komputerze% {naruszony host}. Jest to często związane z agentem MITRE 54ndc47, który może być używany w sposób złośliwy do ataku na inne maszyny w jakiś sposób.|Wszyscy |Średniaa|
 |**Dodano nowy klucz SSH [wiele razy]**|Dodano nowy klucz SSH do pliku autoryzowanych kluczy. To zachowanie było widoczne [x] razy dzisiaj na następujących komputerach: [nazwy maszyn]|-|Niski|
 |**Dodano nowy klucz SSH**|Dodano nowy klucz SSH do pliku autoryzowanych kluczy|-|Niski|
 |**Wykryto możliwe narzędzie ataku [wielokrotnie widoczne]**|Dzienniki maszyn wskazują, że podejrzany proces: "% {podejrzany proces}" był uruchomiony na komputerze% {naruszony host}. To narzędzie jest często związane ze złośliwymi użytkownikami atakujących inne maszyny w jakiś sposób. To zachowanie było widoczne [x] razy dzisiaj na następujących komputerach: [nazwy maszyn]|-|Średniaa|

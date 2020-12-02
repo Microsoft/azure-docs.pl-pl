@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: d59e37cdcb6f530b08e980cf75d8834aed332252
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a16dbeedc2362f4a263d59a673dbb4358f7ba034
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315095"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436491"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>Samouczek: Konfigurowanie metryk i dzienników przy użyciu Centrum IoT Hub oraz korzystanie z nich
 
@@ -42,9 +42,9 @@ Ten samouczek obejmuje wykonanie następujących zadań:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Na komputerze deweloperskim jest wymagany zestaw .NET Core SDK 2,1 lub nowszy. Możesz pobrać zestaw SDK .NET Core dla wielu platform z repozytorium [.NET](https://www.microsoft.com/net/download/all).
+- Na komputerze deweloperskim jest wymagany zestaw .NET Core SDK 2,1 lub nowszy. Możesz pobrać zestaw SDK .NET Core dla wielu platform z repozytorium [.NET](https://www.microsoft.com/net/download/all).
 
   Możesz sprawdzić bieżącą wersję języka C# na komputerze deweloperskim przy użyciu następującego polecenia:
 
@@ -52,11 +52,11 @@ Ten samouczek obejmuje wykonanie następujących zadań:
   dotnet --version
   ```
 
-* Konto e-mail umożliwiające odbieranie wiadomości e-mail.
+- Konto e-mail umożliwiające odbieranie wiadomości e-mail.
 
-* Upewnij się, że port 8883 jest otwarty w zaporze. Przykład urządzenia w tym samouczku używa protokołu MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+- Upewnij się, że port 8883 jest otwarty w zaporze. Przykład urządzenia w tym samouczku używa protokołu MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="set-up-resources"></a>Konfigurowanie zasobów
 
@@ -68,7 +68,7 @@ Poniżej przedstawiono wymagane kroki.
 
 2. Utwórz centrum IoT.
 
-3. Utwórz obszar roboczy Log Analytics.
+3. Utworzenie obszaru roboczego usługi Log Analytics.
 
 4. Zarejestruj tożsamość urządzenia symulowanego urządzenia, które wysyła komunikaty do centrum IoT. Zapisz parametry połączenia urządzenia, aby skonfigurować symulowane urządzenie.
 
@@ -158,11 +158,11 @@ Aby utworzyć ustawienie diagnostyczne do wysyłania dzienników zasobów IoT Hu
 
 1. W obszarze **szczegóły kategorii** wybierz pozycję **połączenia** i dane **telemetryczne urządzenia**.
 
-1. W obszarze **szczegóły miejsca docelowego** wybierz pozycję **Wyślij do log Analytics** , a następnie użyj selektora obszarów roboczych log Analytics, aby wybrać wcześniej zanotowany obszar roboczy. Po zakończeniu ustawienie diagnostyczne powinno wyglądać podobnie do poniższego zrzutu ekranu:
+1. W obszarze **szczegóły miejsca docelowego** wybierz pozycję **Wyślij do log Analytics**, a następnie użyj selektora obszarów roboczych log Analytics, aby wybrać wcześniej zanotowany obszar roboczy. Po zakończeniu ustawienie diagnostyczne powinno wyglądać podobnie do poniższego zrzutu ekranu:
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/add-diagnostic-setting.png" alt-text="Zrzut ekranu przedstawiający ostateczne ustawienia dzienników diagnostycznych.":::
 
-1. Wybierz pozycję **Zapisz** , aby zapisać ustawienia. Zamknij okienko **ustawień diagnostycznych** . Nowe ustawienie jest widoczne na liście ustawień diagnostycznych.
+1. Wybierz pozycję **Zapisz**, aby zapisać ustawienia. Zamknij okienko **ustawień diagnostycznych** . Nowe ustawienie jest widoczne na liście ustawień diagnostycznych.
 
 ## <a name="set-up-metrics"></a>Konfigurowanie metryk
 
@@ -170,7 +170,7 @@ Teraz będziemy używać Eksploratora metryk do tworzenia wykresu, który będzi
 
 1. W okienku po lewej stronie Centrum IoT wybierz pozycję **metryki** w sekcji **monitorowanie** .
 
-1. W górnej części ekranu wybierz pozycję **ostatnie 24 godziny (automatyczne)**. Na wyświetlonej liście rozwijanej wybierz **pozycję ostatnie 4 godziny** dla **zakresu czasu** , ustaw **stopień szczegółowości czasu** na **1 minutę** , a następnie wybierz pozycję **Local** dla opcji **Pokaż czas jako**. Wybierz pozycję **Zastosuj** , aby zapisać te ustawienia. To ustawienie powinno teraz powiedzieć **czas lokalny: ostatnie 4 godziny (1 minuta)**.
+1. W górnej części ekranu wybierz pozycję **ostatnie 24 godziny (automatyczne)**. Na wyświetlonej liście rozwijanej wybierz **pozycję ostatnie 4 godziny** dla **zakresu czasu**, ustaw **stopień szczegółowości czasu** na **1 minutę**, a następnie wybierz pozycję **Local** dla opcji **Pokaż czas jako**. Wybierz pozycję **Zastosuj** , aby zapisać te ustawienia. To ustawienie powinno teraz powiedzieć **czas lokalny: ostatnie 4 godziny (1 minuta)**.
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-select-time-range.png" alt-text="Zrzut ekranu przedstawiający ustawienia czasu metryk.":::
 
@@ -225,17 +225,17 @@ Aby skonfigurować alerty metryk:
 
     1. W okienku **Konfigurowanie logiki sygnału** Ustaw lub potwierdź następujące pola w obszarze **logika alertu** (Możesz zignorować wykres):
 
-       **Próg** :  *statyczny*.
+       **Próg**:  *statyczny*.
 
-       **Operator** : *większe niż*.
+       **Operator**: *większe niż*.
 
-       **Typ agregacji** : *łącznie*.
+       **Typ agregacji**: *łącznie*.
 
-       **Wartość progowa** : 1000.
+       **Wartość progowa**: 1000.
 
-       **Stopień szczegółowości agregacji (okres)** : *5 minut*.
+       **Stopień szczegółowości agregacji (okres)**: *5 minut*.
 
-       **Częstotliwość oceny** : *co 1 minutę*
+       **Częstotliwość oceny**: *co 1 minutę*
 
         :::image type="content" source="media/tutorial-use-metrics-and-diags/configure-signal-logic-set-conditions.png" alt-text="Zrzut ekranu przedstawiający ustawienia warunków alertów.":::
 
@@ -285,17 +285,17 @@ Aby skonfigurować alerty metryk:
 
     * W okienku **Konfigurowanie logiki sygnału** Ustaw lub potwierdź następujące pola (można zignorować wykres):
 
-       **Próg** :  *statyczny*.
+       **Próg**:  *statyczny*.
 
-       **Operator** : *większe niż*.
+       **Operator**: *większe niż*.
 
-       **Typ agregacji** : *maksimum*.
+       **Typ agregacji**: *maksimum*.
 
-       **Wartość progowa** : 4000.
+       **Wartość progowa**: 4000.
 
-       **Stopień szczegółowości agregacji (okres)** : *1 minuta*.
+       **Stopień szczegółowości agregacji (okres)**: *1 minuta*.
 
-       **Częstotliwość oceny** : *co 1 minutę*
+       **Częstotliwość oceny**: *co 1 minutę*
 
        Te ustawienia ustawiają sygnał do uruchomienia, gdy liczba komunikatów osiągnie 4000. Metryka jest szacowana co minutę.
 
@@ -303,7 +303,7 @@ Aby skonfigurować alerty metryk:
 
     * W polu Szczegóły alertu wybierz inną nazwę i opis, niż wcześniej.
 
-1. Wybierz pozycję **alerty** , w obszarze **monitorowanie** w lewym okienku Centrum IoT. Teraz wybierz pozycję **Zarządzaj regułami alertów** w menu w górnej części okienka **alerty** . Zostanie otwarte okienko **reguły** . Powinny teraz być widoczne Twoje dwa alerty:
+1. Wybierz pozycję **alerty**, w obszarze **monitorowanie** w lewym okienku Centrum IoT. Teraz wybierz pozycję **Zarządzaj regułami alertów** w menu w górnej części okienka **alerty** . Zostanie otwarte okienko **reguły** . Powinny teraz być widoczne Twoje dwa alerty:
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/rules-management.png" alt-text="Zrzut ekranu przedstawiający okienko reguł z nowymi regułami alertów.":::
 

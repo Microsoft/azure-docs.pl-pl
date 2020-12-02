@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 236a604c2c1cecfb18a2d82c3796a88cc4341a34
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: d37c362da484a2a7e400da8f87dd0a37f0f80d3a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636388"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436729"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Usługa Azure Defender dla serwerów SQL na maszynach 
 
@@ -64,7 +64,7 @@ Oba te elementy zostały opisane poniżej.
 
     - Jeśli używasz **domyślnego obszaru roboczego Azure Security Center** (o nazwie "defaultworkspace-[Identyfikator subskrypcji] — [region]"), wybierz odpowiednią **subskrypcję**.
 
-    - Jeśli używasz **obszaru roboczego innego niż domyślny** , wybierz odpowiedni **obszar roboczy** (w razie potrzeby wprowadź nazwę obszaru roboczego w filtrze):
+    - Jeśli używasz **obszaru roboczego innego niż domyślny**, wybierz odpowiedni **obszar roboczy** (w razie potrzeby wprowadź nazwę obszaru roboczego w filtrze):
 
         ![Znajdowanie obszaru roboczego innego niż domyślny według tytułu](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
 
@@ -105,14 +105,14 @@ Wyniki oceny luk w zabezpieczeniach można wyświetlić bezpośrednio w Security
 
     * Aby zapoznać się z omówieniem luk w zabezpieczeniach pogrupowanych według konkretnej bazy danych SQL, wybierz interesującą bazę danych.
 
-    W każdym widoku sprawdzanie zabezpieczeń jest sortowane według **ważności**. Kliknij określone sprawdzanie zabezpieczeń, aby wyświetlić okienko szczegółów z **opisem** , jak **rozwiązać ten** problem, oraz inne powiązane informacje, takie jak **wpływ** lub **test porównawczy**.
+    W każdym widoku sprawdzanie zabezpieczeń jest sortowane według **ważności**. Kliknij określone sprawdzanie zabezpieczeń, aby wyświetlić okienko szczegółów z **opisem**, jak **rozwiązać ten** problem, oraz inne powiązane informacje, takie jak **wpływ** lub **test porównawczy**.
 
 ## <a name="azure-defender-for-sql-alerts"></a>Alerty usługi Azure Defender dla programu SQL
 Alerty są generowane przez nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do maszyn SQL lub korzystania z nich. Zdarzenia te mogą wyzwalać alerty wyświetlane w [sekcji alerty dla SQL Database i usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) na stronie informacje o alertach](alerts-reference.md#alerts-sql-db-and-warehouse).
 
 ## <a name="explore-and-investigate-security-alerts"></a>Eksplorowanie i badanie alertów zabezpieczeń
 
-Alerty usługi Azure Defender są dostępne na stronie Alerty Security Center, na karcie Zabezpieczenia zasobu, na [pulpicie nawigacyjnym usługi Azure Defender](azure-defender-dashboard.md)lub za pośrednictwem bezpośredniego linku w wiadomościach e-mail z alertami.
+Alerty usługi Azure Defender dla programu SQL są dostępne na stronie Alerty Security Center, na karcie Zabezpieczenia zasobu, na [pulpicie nawigacyjnym usługi Azure Defender](azure-defender-dashboard.md)lub za pośrednictwem bezpośredniego linku w wiadomościach e-mail z alertami.
 
 1. Aby wyświetlić alerty, wybierz pozycję **alerty zabezpieczeń** z menu Security Center i wybierz alert.
 

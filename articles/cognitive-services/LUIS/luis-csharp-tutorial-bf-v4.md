@@ -6,18 +6,18 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a8d6481bdf3476f8f91c437138f4b6f1ebd1f1de
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 4114dd712028895da03835a2730ebd7a6ab971a4
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058203"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436882"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Samouczek: używanie bot aplikacji sieci Web z włączonym Language Understanding w języku C #
 
-Użyj języka C# do kompilowania programu Chat bot zintegrowanego z funkcją interpretacji języka (LUIS). Bot jest tworzona przy użyciu [aplikacji sieci Web](https://docs.microsoft.com/azure/bot-service/) platformy Azure bot Resource i [bot Framework w wersji](https://github.com/Microsoft/botbuilder-dotnet) v4.
+Użyj języka C# do kompilowania programu Chat bot zintegrowanego z funkcją interpretacji języka (LUIS). Bot jest tworzona przy użyciu [aplikacji sieci Web](/azure/bot-service/) platformy Azure bot Resource i [bot Framework w wersji](https://github.com/Microsoft/botbuilder-dotnet) v4.
 
-**Z tego samouczka dowiesz się, jak wykonywać następujące czynności:**
+**Ten samouczek zawiera informacje na temat wykonywania następujących czynności:**
 
 > [!div class="checklist"]
 > * Tworzenie bota aplikacji internetowej. Ten proces tworzy nową aplikację usługi LUIS.
@@ -49,12 +49,12 @@ Użyj języka C# do kompilowania programu Chat bot zintegrowanego z funkcją int
     |Szablon bota|Ustawienia struktury bota — zobacz następną tabelę|
     |Lokalizacja aplikacji usługi LUIS|Musi być taka sama jak region zasobu usługi LUIS|`westus`|
     |Plan/Lokalizacja usługi App Service|Nie zmieniaj podanej wartości domyślnej.|
-    |Application Insights|Nie zmieniaj podanej wartości domyślnej.|
-    |Identyfikator i hasło aplikacji firmy Microsoft|Nie zmieniaj podanej wartości domyślnej.|
+    |Application Insights|Nie należy zmieniać podanej wartości domyślnej.|
+    |Identyfikator i hasło aplikacji firmy Microsoft|Nie należy zmieniać podanej wartości domyślnej.|
 
-1. W **szablonie bot**wybierz poniższe opcje, a następnie wybierz przycisk **Wybierz** w obszarze te ustawienia:
+1. W **szablonie bot** wybierz poniższe opcje, a następnie wybierz przycisk **Wybierz** w obszarze te ustawienia:
 
-    |Ustawienie|Przeznaczenie|Wybór|
+    |Ustawienie|Przeznaczenie|Zaznaczenie|
     |--|--|--|
     |Język zestawu SDK|Język programowania bota|**C#**|
     |Bot|Typ bota|**Bot podstawowy**|
@@ -98,7 +98,7 @@ Aby tworzyć kod bota aplikacji internetowej, pobierz kod i użyj go na komputer
 
     [![Pobierz kod źródłowy bot aplikacji sieci Web dla podstawowego bot](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
-1. Po wyświetleniu okna dialogowego z monitem o **uwzględnienie ustawień aplikacji w pobranym pliku zip**wybierz pozycję **tak**.
+1. Po wyświetleniu okna dialogowego z monitem o **uwzględnienie ustawień aplikacji w pobranym pliku zip** wybierz pozycję **tak**.
 
 1. Po spakowaniu kodu źródłowego w komunikacie zostanie podany hiperlink umożliwiający pobranie kodu. Wybierz hiperlink.
 
@@ -318,7 +318,7 @@ W programie Visual Studio 2019 Uruchom bot. Zostanie otwarte okno przeglądarki 
 
 1. Rozpocznij emulator bot Framework i wybierz pozycję **Otwórz bot**.
 1. W wyskakującym okienku Otwórz okno dialogowe **bot** wprowadź adres URL bot, taki jak `http://localhost:3978/api/messages` . `/api/messages`Trasa jest adresem sieci Web dla bot.
-1. Wprowadź **Identyfikator aplikacji firmy Microsoft** i **hasło aplikacji firmy**Microsoft, które znajdują się w **appsettings.js** w pliku w katalogu głównym pobranego kodu bot, a następnie wybierz pozycję **Połącz**.
+1. Wprowadź **Identyfikator aplikacji firmy Microsoft** i **hasło aplikacji firmy** Microsoft, które znajdują się w **appsettings.js** w pliku w katalogu głównym pobranego kodu bot, a następnie wybierz pozycję **Połącz**.
 
 1. W emulatorze bot Framework wprowadź `Book a flight from Seattle to Berlin tomorrow` i uzyskaj tę samą odpowiedź dla podstawowego bot, jak zostało to odebrane w sekcji **test in webchat w sieci Web** .
 
@@ -336,4 +336,4 @@ W programie Visual Studio 2019 Uruchom bot. Zostanie otwarte okno przeglądarki 
 Zobacz więcej [przykładów](https://github.com/microsoft/botframework-solutions) z botami konwersacyjnymi.
 
 > [!div class="nextstepaction"]
-> [Tworzenie aplikacji Language Understanding z niestandardową domeną podmiotu](luis-quickstart-intents-only.md)
+> [Tworzenie aplikacji Language Understanding z niestandardową domeną podmiotu](./tutorial-intents-only.md)

@@ -1,17 +1,17 @@
 ---
-title: Pracowni Labs w Azure Lab Services — często zadawane pytania | Microsoft Docs
-description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące laboratoriów stacjonarnych w Azure Lab Services.
+title: Laboratoria w Azure Lab Services — często zadawane pytania | Microsoft Docs
+description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące laboratoriów w Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: ca35d70bc1106e46df4e3c68889b03679fd54b86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 757af8f30e9a71a3889d9f625c87a002af2e1302
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85443302"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437188"
 ---
-# <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Pracowni Labs w Azure Lab Services — często zadawane pytania
-Uzyskaj odpowiedzi na kilka typowych pytań dotyczących laboratoriów stacjonarnych w Azure Lab Services. 
+# <a name="labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Laboratoria w Azure Lab Services — często zadawane pytania
+Uzyskaj odpowiedzi na niektóre często zadawane pytania dotyczące laboratoriów w Azure Lab Services. 
 
 ## <a name="quotas"></a>Przydziały
 
@@ -29,13 +29,14 @@ Nie. Nie wszystkie maszyny wirtualne. Tylko maszyny wirtualne, które są przypi
 ## <a name="lab-accounts"></a>Konta laboratorium
 
 ### <a name="why-am-i-not-able-to-create-a-lab-because-of-unavailability-of-the-address-range"></a>Dlaczego nie mogę utworzyć laboratorium z powodu niedostępności zakresu adresów? 
-Pracownice klasy mogą tworzyć maszyny wirtualne laboratorium w zakresie adresów IP określonym podczas tworzenia konta laboratorium w Azure Portal. Po podaniu zakresu adresów każde laboratorium, które jest tworzone po przypisaniu 512 adresów IP dla maszyn wirtualnych laboratorium. Zakres adresów dla konta laboratorium musi być wystarczająco duży, aby pomieścić wszystkie laboratoria, które mają zostać utworzone w ramach konta laboratorium. 
+
+Laboratoria mogą tworzyć maszyny wirtualne laboratorium w zakresie adresów IP określonym podczas tworzenia konta laboratorium w Azure Portal. Po podaniu zakresu adresów każde laboratorium, które jest tworzone po przypisaniu 512 adresów IP dla maszyn wirtualnych laboratorium. Zakres adresów dla konta laboratorium musi być wystarczająco duży, aby pomieścić wszystkie laboratoria, które mają zostać utworzone w ramach konta laboratorium. 
 
 Na przykład jeśli masz blok/19-10.0.0.0/19, ten zakres adresów uwzględnia 8192 adresy IP i 16 laboratoriów (8192/512 = 16 laboratoriów). W takim przypadku tworzenie laboratorium kończy się niepowodzeniem na siedemnastu tworzenia laboratorium.
 
 ### <a name="what-port-ranges-should-i-open-on-my-organizations-firewall-setting-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Jakie zakresy portów należy otworzyć w ustawieniach zapory organizacji, aby połączyć się z maszynami wirtualnymi laboratorium za pośrednictwem protokołu RDP/SSH?
 
-Porty to: 49152 – 65535. Laboratorium klasowe znajduje się za modułem równoważenia obciążenia. Każde laboratorium ma jeden publiczny adres IP, a każda maszyna wirtualna w laboratorium ma unikatowy port. 
+Porty to: 49152 – 65535. Laboratoria znajdują się za modułem równoważenia obciążenia. Każde laboratorium ma jeden publiczny adres IP, a każda maszyna wirtualna w laboratorium ma unikatowy port. 
 
 Możesz również zobaczyć prywatny adres IP każdej maszyny wirtualnej na karcie **Pula maszyn wirtualnych** na stronie głównej dla laboratorium w Azure Portal. W przypadku ponownego opublikowania laboratorium, publiczny adres IP laboratorium nie ulegnie zmianie, ale prywatny IP i numer portu każdej maszyny wirtualnej w laboratorium można zmienić. Więcej informacji można znaleźć w artykule: [Ustawienia zapory dla Azure Lab Services](how-to-configure-firewall-settings.md).
 

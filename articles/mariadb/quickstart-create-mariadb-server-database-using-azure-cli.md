@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4d2300e36bd06313cf889f40f37d672d66534db6
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 3279150d0cb7b287f0a78581094a51356033596c
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538397"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435743"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Szybki Start: Tworzenie serwera Azure Database for MariaDB przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -21,9 +21,9 @@ Interfejs wiersza polecenia platformy Azure może służyć do tworzenia zasobó
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Jeśli zainstalujesz interfejs wiersza polecenia i korzystasz z niego lokalnie, w tym przewodniku Szybki start musisz uruchomić interfejs wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja wiersza polecenia lub jego uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli).
+- Ten artykuł wymaga wersji 2,0 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
 
 Jeśli masz wiele subskrypcji, wybierz tę subskrypcję, która zawiera zasób, lub subskrypcję, w której są naliczane opłaty. Aby wybrać określony identyfikator subskrypcji na Twoim koncie, użyj polecenia [az account set](/cli/azure/account#az-account-set):
 
@@ -49,14 +49,14 @@ Ustawienie | Wartość przykładowa | Opis
 ---|---|---
 name | **mydemoserver** | Wprowadź unikatową nazwę, która identyfikuje Twój serwer usługi Azure Database for MariaDB. Nazwa serwera może zawierać tylko małe litery, cyfry i znaki łącznika (-). Musi zawierać od 3 do 63 znaków.
 resource-group | **myresourcegroup** | Wprowadź nazwę grupy zasobów platformy Azure.
-sku-name | **GP_Gen5_2** | Nazwa jednostki SKU. Zgodnie z Konwencją Konwencji *cenowej* \_ rdzeni wirtualnych *generacji obliczeń* \_ *vCores* w postaci skróconej. Aby uzyskać więcej informacji na temat parametru **sku-name** , zobacz sekcję poniżej tabeli.
+sku-name | **GP_Gen5_2** | Nazwa jednostki SKU. Zgodnie z Konwencją Konwencji *cenowej* \_ rdzeni wirtualnych *generacji obliczeń* \_ *vCores* w postaci skróconej. Aby uzyskać więcej informacji na temat parametru **sku-name**, zobacz sekcję poniżej tabeli.
 backup-retention | **7** | Jak długo należy przechowywać kopię zapasową. Jednostka to dni. Zakres: 7–35. 
-geo-redundant-backup | **Wyłączone** | Określa, czy dla tego serwera powinny być włączone geograficznie nadmiarowe kopie zapasowe. Dozwolone wartości: **włączone** , **wyłączone**.
+geo-redundant-backup | **Wyłączone** | Określa, czy dla tego serwera powinny być włączone geograficznie nadmiarowe kopie zapasowe. Dozwolone wartości: **włączone**, **wyłączone**.
 location | **westus** | Lokalizacja platformy Azure dla serwera.
-ssl-enforcement | **Włączone** | Określa, czy dla tego serwera powinien być włączony protokół SSL. Dozwolone wartości: **włączone** , **wyłączone**.
+ssl-enforcement | **Włączone** | Określa, czy dla tego serwera powinien być włączony protokół SSL. Dozwolone wartości: **włączone**, **wyłączone**.
 storage-size | **51200** | Pojemność magazynu serwera (w megabajtach). Prawidłowy rozmiar magazynu to 5120 MB (minimum) rosnący z przyrostem 1024 MB. Aby uzyskać więcej informacji na temat limitów rozmiaru magazynu, zobacz [Warstwy cenowe](./concepts-pricing-tiers.md). 
 Wersja | **10,2** | Wersja główna aparatu MariaDB.
-admin-user | **myadmin** | Nazwa użytkownika w przypadku logowania administratora. Parametr **admin-user** nie może mieć wartości **azure_superuser** , **admin** , **administrator** , **root** , **guest** ani **public**.
+admin-user | **myadmin** | Nazwa użytkownika w przypadku logowania administratora. Parametr **admin-user** nie może mieć wartości **azure_superuser**, **admin**, **administrator**, **root**, **guest** ani **public**.
 admin-password | *Twoje hasło* | Hasło użytkownika administratora. Twoje hasło musi zawierać od 8 do 128 znaków. Musi ono zawierać znaki z trzech z następujących kategorii: wielkie litery angielskie, małe litery angielskie, cyfry i znaki inne niż alfanumeryczne.
 
 Wartość parametru sku-name jest zgodna z konwencją {warstwa cenowa}\_{generacja obliczeniowa}\_{rdzenie wirtualne}, jak pokazano w przykładach poniżej:

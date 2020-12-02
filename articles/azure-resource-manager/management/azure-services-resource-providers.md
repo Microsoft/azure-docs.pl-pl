@@ -2,13 +2,13 @@
 title: Dostawcy zasobów według usług platformy Azure
 description: Wyświetla listę wszystkich przestrzeni nazw dostawcy zasobów dla Azure Resource Manager i pokazuje usługę platformy Azure dla tej przestrzeni nazw.
 ms.topic: conceptual
-ms.date: 11/17/2020
-ms.openlocfilehash: 7c8e535978bff38146caee1a3b5177d5befaa6a1
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 11/30/2020
+ms.openlocfilehash: fffac8fef8742cf1f151de06ba6b528035a6668d
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185865"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436831"
 ---
 # <a name="resource-providers-for-azure-services"></a>Dostawcy zasobów dla usług platformy Azure
 
@@ -20,7 +20,7 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | --------------------------- | ------------- |
 | Microsoft. AAD | [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml) |
 | Microsoft. Dodatki | Procesor |
-| Microsoft. ADHybridHealthService<sup>1</sup> | [Azure Active Directory](../../active-directory/index.yml) |
+| Microsoft. ADHybridHealthService — [zarejestrowany](#registration) | [Azure Active Directory](../../active-directory/index.yml) |
 | Microsoft. Advisor | [Azure Advisor](../../advisor/index.yml) |
 | Microsoft. AlertsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft. AnalysisServices | [Azure Analysis Services](../../analysis-services/index.yml) |
@@ -28,7 +28,7 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | Microsoft. AppConfiguration | [Azure App Configuration](../../azure-app-configuration/index.yml) |
 | Microsoft. AppPlatform | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
 | Microsoft. zaświadczanie | Usługa zaświadczania platformy Azure |
-| Microsoft. Authorization<sup>1</sup> | [Azure Resource Manager](../index.yml) |
+| Microsoft. Authorization — [zarejestrowany](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft. Automation | [Automatyzacja](../../automation/index.yml) |
 | Microsoft. AutonomousSystems | [Systemy autonomiczne](https://www.microsoft.com/ai/autonomous-systems) |
 | Microsoft. Automatyczna synchronizacja | [Rozwiązanie Azure VMware](../../azure-vmware/index.yml) |
@@ -37,7 +37,7 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | Microsoft. AzureStack | Procesor |
 | Microsoft. AzureStackHCI | [Azure Stack HCI](/azure-stack/hci/overview) |
 | Microsoft.Batch | [Batch](../../batch/index.yml) |
-| Microsoft. rozliczenia<sup>1</sup> | [Zarządzanie kosztami i rozliczenia](/azure/billing/) |
+| Microsoft. rozliczenia — [zarejestrowane](#registration) | [Zarządzanie kosztami i rozliczenia](/azure/billing/) |
 | Microsoft. BingMaps | [Mapy Bing](/BingMaps/#pivot=main&panel=BingMapsAPI) |
 | Microsoft. łańcucha bloków | [Usługa Azure Blockchain](../../blockchain/workbench/index.yml) |
 | Microsoft. BlockchainTokens | [Tokeny usługi Azure Blockchain](https://azure.microsoft.com/services/blockchain-tokens/) |
@@ -52,15 +52,15 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | Microsoft. ClassicInfrastructureMigrate | Migracja klasycznego modelu wdrażania |
 | Microsoft. ClassicNetwork | Sieć wirtualna klasycznego modelu wdrażania |
 | Microsoft. ClassicStorage | Magazyn klasycznych modeli wdrażania |
-| Microsoft. ClassicSubscription<sup>1</sup> | Klasyczny model wdrażania |
+| Microsoft. ClassicSubscription — [zarejestrowany](#registration) | Klasyczny model wdrażania |
 | Microsoft. CognitiveServices | [Cognitive Services](../../cognitive-services/index.yml) |
-| Microsoft. Commerce<sup>1</sup> | Procesor |
-| Microsoft.Compute | [Virtual Machines](../../virtual-machines/index.yml)<br />[Virtual Machine Scale Sets](../../virtual-machine-scale-sets/index.yml) |
-| Microsoft. zużycie<sup>1</sup> | [Cost Management](/azure/cost-management/) |
+| Microsoft. Commerce — [zarejestrowany](#registration) | Procesor |
+| Microsoft.Compute | [Virtual Machines](../../virtual-machines/index.yml)<br />[Zestawy skali maszyn wirtualnych](../../virtual-machine-scale-sets/index.yml) |
+| Microsoft. zużycie — [zarejestrowane](#registration) | [Cost Management](/azure/cost-management/) |
 | Microsoft. ContainerInstance | [Container Instances](../../container-instances/index.yml) |
 | Microsoft. ContainerRegistry | [Container Registry](../../container-registry/index.yml) |
 | Microsoft. ContainerService | [Azure Kubernetes Service (AKS)](../../aks/index.yml) |
-| Microsoft. CostManagement<sup>1</sup> | [Cost Management](/azure/cost-management/) |
+| Microsoft. CostManagement — [zarejestrowany](#registration) | [Cost Management](/azure/cost-management/) |
 | Microsoft. CostManagementExports | [Cost Management](/azure/cost-management/) |
 | Microsoft. CustomerLockbox | [Funkcja Skrytka klienta dla platformy Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md) |
 | Microsoft. CustomProviders | [Azure Custom Providers](../custom-providers/overview.md) |
@@ -90,7 +90,7 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | Microsoft. EnterpriseKnowledgeGraph | Wykres merytoryczny dla przedsiębiorstw |
 | Microsoft. EventGrid | [Event Grid](../../event-grid/index.yml) |
 | Microsoft. EventHub | [Event Hubs](../../event-hubs/index.yml) |
-| Microsoft. funkcje<sup>1</sup> | [Azure Resource Manager](../index.yml) |
+| Microsoft. Features — [zarejestrowane](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft. GuestConfiguration | [Azure Policy](../../governance/policy/index.yml) |
 | Microsoft. HanaOnAzure | [Oprogramowanie SAP HANA na platformie Azure — duże wystąpienia](../../virtual-machines/workloads/sap/hana-overview-architecture.md) |
 | Microsoft. HardwareSecurityModules | [Dedykowany moduł HSM platformy Azure](../../dedicated-hsm/index.yml) |
@@ -120,7 +120,7 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | Microsoft. Maps | [Azure Maps](../../azure-maps/index.yml) |
 | Microsoft. Marketplace | Procesor |
 | Microsoft. MarketplaceApps | Procesor |
-| Microsoft. MarketplaceOrdering<sup>1</sup> | Procesor |
+| Microsoft. MarketplaceOrdering — [zarejestrowany](#registration) | Procesor |
 | Microsoft. Media | [Media Services](../../media-services/index.yml) |
 | Microsoft. Microservices4Spring | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
 | Microsoft. Migrowanie | [Azure Migrate](../../migrate/migrate-services-overview.md) |
@@ -135,7 +135,7 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | Microsoft. OperationsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft. Komunikacja równorzędna | [Usługa Azure Peering Service](../../peering-service/index.yml) |
 | Microsoft. PolicyInsights | [Azure Policy](../../governance/policy/index.yml) |
-| Microsoft. Portal<sup>1</sup> | [Witryna Azure Portal](../../azure-portal/index.yml) |
+| Microsoft. Portal — [zarejestrowany](#registration) | [Witryna Azure Portal](../../azure-portal/index.yml) |
 | Microsoft. PowerBI | [Power BI](/power-bi/power-bi-overview) |
 | Microsoft. PowerBIDedicated | [Power BI Embedded](/azure/power-bi-embedded/) |
 | Microsoft. PowerPlatform | [Power Platform](/power-platform/) |
@@ -144,15 +144,15 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | Microsoft. RecoveryServices | [Azure Site Recovery](../../site-recovery/index.yml) |
 | Microsoft. RedHatOpenShift | [Azure Red Hat OpenShift](../../virtual-machines/linux/openshift-get-started.md) |
 | Microsoft. Relay | [Azure Relay](../../azure-relay/relay-what-is-it.md) |
-| Microsoft. ResourceGraph<sup>1</sup> | [Azure Resource Graph](../../governance/resource-graph/index.yml) |
+| Microsoft. ResourceGraph — [zarejestrowany](#registration) | [Azure Resource Graph](../../governance/resource-graph/index.yml) |
 | Microsoft. ResourceHealth | [Azure Service Health](../../service-health/index.yml) |
-| Microsoft. resources<sup>1</sup> | [Azure Resource Manager](../index.yml) |
+| Microsoft. resources- [Registered](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft. SaaS | Procesor |
 | Microsoft. Scheduler | [Scheduler](../../scheduler/index.yml) |
 | Microsoft. Search | [Azure Cognitive Search](../../search/index.yml) |
 | Microsoft.Security | [Centrum zabezpieczeń](../../security-center/index.yml) |
 | Microsoft. SecurityInsights | [Azure Sentinel](../../sentinel/index.yml) |
-| Microsoft. SerialConsole<sup>1</sup> | [Konsola szeregowa platformy Azure dla systemu Windows](../../virtual-machines/troubleshooting/serial-console-windows.md) |
+| Microsoft. SerialConsole — [zarejestrowany](#registration) | [Konsola szeregowa platformy Azure dla systemu Windows](../../virtual-machines/troubleshooting/serial-console-windows.md) |
 | Microsoft.ServiceBus | [Service Bus](/azure/service-bus/) |
 | Microsoft. servicefabric | [Service Fabric](../../service-fabric/index.yml) |
 | Microsoft. ServiceFabricMesh | [Service Fabric Mesh](../../service-fabric-mesh/index.yml) |
@@ -168,7 +168,7 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | Microsoft. StorSimple | [StorSimple](../../storsimple/index.yml) |
 | Microsoft. StreamAnalytics | [Azure Stream Analytics](../../stream-analytics/index.yml) |
 | Microsoft. Subscription | Procesor |
-| Microsoft. Support<sup>1</sup> | Procesor |
+| Microsoft. Support — [zarejestrowany](#registration) | Procesor |
 | Microsoft. Synapse | [Azure Synapse Analytics](/azure/sql-data-warehouse/) |
 | Microsoft. TimeSeriesInsights | [Azure Time Series Insights](../../time-series-insights/index.yml) |
 | Microsoft. token | Token |
@@ -181,9 +181,14 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | Microsoft. WindowsDefenderATP | [Zaawansowana ochrona przed zagrożeniami w usłudze Microsoft Defender](../../security-center/security-center-wdatp.md) |
 | Microsoft. WindowsESU | Rozszerzone aktualizacje zabezpieczeń |
 | Microsoft. WindowsIoT | [Windows 10 IoT Core Services](/windows-hardware/manufacture/iot/iotcoreservicesoverview) |
-| Microsoft. Monitor obciążenia został<sup>1</sup> | [Azure Monitor](../../azure-monitor/index.yml) |
+| Microsoft. Monitor obciążenia został | [Azure Monitor](../../azure-monitor/index.yml) |
 
-<sup>1</sup> zarejestrowano domyślnie
+## <a name="registration"></a>Rejestracja
+
+Dostawcy zasobów powyżej oznaczona jako **zarejestrowani** są zarejestrowani domyślnie dla Twojej subskrypcji. Aby korzystać z innych dostawców zasobów, należy [je zarejestrować](resource-providers-and-types.md). Jednak wielu dostawców zasobów jest zarejestrowana podczas wykonywania pewnych akcji. Jeśli na przykład utworzysz zasób za pomocą portalu, Portal automatycznie zarejestruje wszystkich niezarejestrowanych dostawców zasobów, które są potrzebne. W przypadku wdrażania zasobów przy użyciu [szablonu Azure Resource Manager](../templates/overview.md)są również rejestrowane wszystkie wymagane dostawcy zasobów.
+
+> [!IMPORTANT]
+> Zarejestruj dostawcę zasobów tylko wtedy, gdy wszystko jest gotowe do użycia. Krok rejestracji umożliwia zachowanie najniższych uprawnień w ramach subskrypcji. Złośliwy użytkownik nie może używać dostawców zasobów, którzy nie są zarejestrowani.
 
 ## <a name="next-steps"></a>Następne kroki
 

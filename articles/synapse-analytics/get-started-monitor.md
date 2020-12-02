@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
 ms.date: 10/15/2020
-ms.openlocfilehash: 2970bb58bb73d52c75729b00a8209a9c576d4ec0
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: c2260cc0d2c6b889b44c738576e33abceebe23f1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427415"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444403"
 ---
 # <a name="monitor-your-synapse-workspace"></a>Monitorowanie obszaru roboczego Synapse
 
@@ -47,6 +47,9 @@ Otwórz Synapse Studio i przejdź do centrum **monitora** . W tym miejscu można
 1. Wybierz **pulę** do monitorowania. Teraz można zobaczyć wszystkie żądania SQL uruchomione lub uruchomione w obszarze roboczym w tej puli.
 1. Znajdź określone żądanie SQL i umieść wskaźnik myszy na tym elemencie. Po umieszczeniu wskaźnika myszy zostanie wyświetlona ikona skryptu SQL.
 1. Kliknij ikonę skryptu SQL, aby wyświetlić pełny tekst żądania SQL.
+
+    > [!NOTE] 
+    > Żądania SQL przesłane za pośrednictwem programu Synapse Studio w ramach dedykowanej puli SQL z włączonym obszarem roboczym (dawniej SQL DW) można wyświetlić w centrum monitora. W przypadku wszystkich innych działań monitorowania można przejść do Azure Portal dedykowanej puli SQL (dawniej programu SQL DW).
 
 ## <a name="next-steps"></a>Następne kroki
 

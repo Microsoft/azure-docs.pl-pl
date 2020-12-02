@@ -1,25 +1,25 @@
 ---
-title: 'Szybki Start: zmiana modelu przy użyciu interfejsów API REST — LUIS'
+title: Jak zmienić model usługi LUIS przy użyciu interfejsu API REST
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku szybki start interfejsu API REST Dodaj przykład wyrażenia długości, aby zmienić model i szkolić aplikację.
+description: W tym artykule Dodaj przykład wyrażenia długości, aby zmienić model i szkolić aplikację.
 services: cognitive-services
 manager: nitinme
 ms.custom: seodec18, devx-track-python, devx-track-js, devx-track-csharp
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: quickstart
-ms.date: 06/03/2020
+ms.topic: conceptual
+ms.date: 11/30/2020
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 84b3b592f46124dcd5b4e59775361c243dc67754
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7346037ad804da4f68a2bc6512494c461d7fc5bd
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91534679"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436185"
 ---
-# <a name="quickstart-change-model-with-rest-apis"></a>Szybki Start: zmiana modelu przy użyciu interfejsów API REST
+# <a name="how-to-change-the-luis-model-with-rest-apis"></a>Jak zmienić model LUIS przy użyciu interfejsów API REST
 
-W tym przewodniku szybki start dodasz przykład wyrażenia długości do aplikacji Pizza i nauczysz aplikację. Przykładowe wypowiedzi to tekst z rozmowami użytkownika mapowany na intencje. Poprzez zapewnienie przykładowych wypowiedzi dla intencji możesz nauczyć aplikację LUIS, jakim intencjom odpowiada rodzaj tekstu podanego przez użytkownika.
+W tym artykule dodasz przykład wyrażenia długości do aplikacji Pizza i nauczysz aplikację. Przykładowe wypowiedzi to tekst z rozmowami użytkownika mapowany na intencje. Poprzez zapewnienie przykładowych wypowiedzi dla intencji możesz nauczyć aplikację LUIS, jakim intencjom odpowiada rodzaj tekstu podanego przez użytkownika.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Get intent with C# and REST](./includes/get-started-get-model-rest-csharp.md)]

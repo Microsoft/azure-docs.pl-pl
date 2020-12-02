@@ -5,12 +5,12 @@ author: emaher
 ms.topic: overview
 ms.date: 09/16/2020
 ms.author: enewman
-ms.openlocfilehash: ac390fb6624ffc762f77b676c778165e7382f73f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 71d59e8bcf7b4078255d6b119e9d62f366e46033
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91334042"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437324"
 ---
 # <a name="architecture-fundamentals-in-azure-lab-services"></a>Podstawy architektury w Azure Lab Services
 
@@ -20,7 +20,7 @@ Azure Lab Services zapewnia kilka obszarów, które umożliwiają korzystanie z 
 
 Poniżej znajduje się Podstawowa architektura laboratorium z klasą.  Konto laboratorium jest hostowane w Twojej subskrypcji. Maszyny wirtualne uczniów, wraz z zasobami wymaganymi do obsługi maszyn wirtualnych, są hostowane w ramach subskrypcji należącej do usługi laboratoryjnej. Zapoznaj się z bardziej szczegółowymi informacjami o tym, co jest w subskrypcji usługi laboratorium.
 
-![Podstawowa architektura klasy Labs](./media/classroom-labs-fundamentals/labservices-basic-architecture.png)
+![Architektura Basic Labs](./media/classroom-labs-fundamentals/labservices-basic-architecture.png)
 
 ## <a name="hosted-resources"></a>Zasoby hostowane
 

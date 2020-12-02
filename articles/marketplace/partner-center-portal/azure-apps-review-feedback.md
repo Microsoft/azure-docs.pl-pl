@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 351a9742e9d839a8e217fdea35cad922acc3339f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ede4e5dd781851c781407a8acea640e3e501f259
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095676"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436389"
 ---
 # <a name="handling-review-feedback-for-azure-application-offers"></a>Obsługa opinii na temat przeglądu ofert aplikacji platformy Azure
 
@@ -39,7 +39,7 @@ Aby przejrzeć problemy udokumentowane w żądaniu ściągnięcia, należy wykon
     [![Strona główna żądania ściągnięcia](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
     <br/> *Kliknij ten obraz, aby rozwinąć.*
 
-1. Obowiązkowe Po prawej stronie okna, w sekcji **zasady** , wybierz komunikat problemu (w tym przykładzie: **Sprawdzanie poprawności zasad nie powiodło** się), aby zbadać szczegóły tego problemu, w tym skojarzone pliki dziennika. Błędy są zwykle wyświetlane w dolnej części plików dziennika.
+1. Obowiązkowe Po prawej stronie okna, w sekcji **zasady**, wybierz komunikat problemu (w tym przykładzie: **Sprawdzanie poprawności zasad nie powiodło** się), aby zbadać szczegóły tego problemu, w tym skojarzone pliki dziennika. Błędy są zwykle wyświetlane w dolnej części plików dziennika.
 
 1. W menu po lewej stronie strony głównej wybierz pozycję **pliki** , aby wyświetlić listę plików wchodzących w skład zasobów technicznych dla tej oferty. Recenzenci firmy Microsoft powinni dodać komentarze opisujące wykryte problemy krytyczne. W poniższym przykładzie wykryto dwa problemy.
 
@@ -57,4 +57,4 @@ Aby przejrzeć problemy udokumentowane w żądaniu ściągnięcia, należy wykon
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po usunięciu krytycznych problemów udokumentowanych w przeglądzie żądania ściągnięcia należy [ponownie opublikować ofertę aplikacji platformy Azure](./create-new-azure-apps-offer.md#publish).
+Po usunięciu krytycznych problemów udokumentowanych w przeglądzie żądania ściągnięcia należy [ponownie opublikować ofertę aplikacji platformy Azure](../create-new-azure-apps-offer.md).

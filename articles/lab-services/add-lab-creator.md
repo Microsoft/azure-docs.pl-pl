@@ -3,15 +3,15 @@ title: Dodaj użytkownika jako twórcę laboratorium w Azure Lab Services
 description: W tym artykule pokazano, jak dodać użytkownika do roli twórca laboratorium dla konta laboratorium w Azure Lab Services. Twórcy laboratorium mogą tworzyć laboratoria w ramach tego konta laboratorium.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 5fdeb33dab60a2fb9f1680295c355e2c7c0e775a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6c89483744f943926f126701d28988358627a27
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399486"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435964"
 ---
 # <a name="add-lab-creators-to-a-lab-account-in-azure-lab-services"></a>Dodaj twórców laboratorium do konta laboratorium w Azure Lab Services
-W tym artykule opisano sposób dodawania użytkowników jako twórców laboratorium do konta laboratorium w Azure Lab Services. Te zastosowania mogą następnie tworzyć laboratoria klas na koncie laboratorium. 
+W tym artykule opisano sposób dodawania użytkowników jako twórców laboratorium do konta laboratorium w Azure Lab Services. Te zastosowania mogą następnie tworzyć laboratoria na koncie laboratorium. 
 
 ## <a name="add-microsoft-user-account-to-lab-creator-role"></a>Dodaj konto użytkownika Microsoft do roli twórcy laboratorium
 Aby skonfigurować laboratorium na potrzeby zajęć w ramach konta laboratorium, użytkownik musi być członkiem roli **Twórca laboratorium** na koncie laboratorium. Konto, którego użyto do utworzenia konta laboratorium, jest automatycznie dodawane do tej roli. Jeśli planujesz użyć tego samego konta użytkownika w celu utworzenia laboratorium na potrzeby zajęć, możesz pominąć ten krok. Aby użyć innego konta użytkownika do utworzenia laboratorium na potrzeby zajęć, wykonaj następujące czynności: 
@@ -57,7 +57,7 @@ Na stronie **Opcje logowania** wybierz pozycję **Zaloguj się za pomocą usług
 
 ![Zaloguj się przy użyciu linku GitHub](./media/how-to-configure-student-usage/signin-github.png)
 
-Na koniec są wyświetlane monity o utworzenie konto Microsoft połączonego z kontem usługi GitHub. Odbywa się to automatycznie po wybraniu **przycisku Dalej**przez instruktora.  Instruktor jest następnie natychmiast zalogowany i połączony z laboratorium klasy.
+Na koniec są wyświetlane monity o utworzenie konto Microsoft połączonego z kontem usługi GitHub. Odbywa się to automatycznie po wybraniu **przycisku Dalej** przez instruktora.  Instruktor jest następnie natychmiast zalogowany i połączony z laboratorium klasy.
 
 
 ## <a name="next-steps"></a>Następne kroki
@@ -66,4 +66,4 @@ Zobacz następujące artykuły:
 - [As a lab owner, create and manage labs (Tworzenie laboratoriów i zarządzanie nimi jako właściciel laboratorium)](how-to-manage-classroom-labs.md)
 - [As a lab owner, set up and publish templates (Konfigurowanie i tworzenie szablonów jako właściciel laboratorium)](how-to-create-manage-template.md)
 - [As a lab owner, configure and control usage of a lab (Konfigurowanie i kontrolowanie użycia laboratorium jako właściciel laboratorium)](how-to-configure-student-usage.md)
-- [Jako użytkownik laboratorium Uzyskuj dostęp do laboratoriów zajęć](how-to-use-classroom-lab.md)
+- [Jako użytkownik laboratorium, dostęp do laboratoriów](how-to-use-classroom-lab.md)

@@ -1,24 +1,27 @@
 ---
 title: Power BI i bezserwerowa Pula SQL do analizowania danych Azure Cosmos DB za pomocą linku Synapse
-description: Dowiedz się, jak utworzyć Synapse bazę danych i widoki programu SQL Server za pośrednictwem linku Synapse dla Azure Cosmos DB, wysłać zapytanie do kontenerów Azure Cosmos DB, a następnie skompilować model przy użyciu Power BI przez te widoki.
+description: Dowiedz się, jak utworzyć bezserwerową bazę danych puli i widoki za pośrednictwem linku Synapse dla Azure Cosmos DB, wysłać zapytanie do kontenerów Azure Cosmos DB, a następnie skompilować model przy użyciu Power BI w tych widokach.
 author: ArnoMicrosoft
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/30/2020
 ms.author: acomet
-ms.openlocfilehash: 55a73ada39f4f48aeb22c5482bd85d1092d54c35
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 959070ca431c3397779a2a22c16f03b3adebbb35
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342253"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444502"
 ---
-# <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Użyj Power BI i bezserwerowej puli SQL Synapse, aby analizować dane Azure Cosmos DB za pomocą linku Synapse (wersja zapoznawcza) 
+# <a name="use-power-bi-and-serverless-synapse-sql-pool-preview-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Użyj Power BI i bezserwerowej puli SQL Synapse (wersja zapoznawcza) w celu przeanalizowania Azure Cosmos DB danych za pomocą linku Synapse 
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 W tym artykule dowiesz się, jak utworzyć bazę danych puli SQL bezserwerowej i widoki dla Azure Cosmos DB za pośrednictwem linku Synapse. Należy wykonać zapytanie dotyczące kontenerów Azure Cosmos DB, a następnie skompilować model z Power BI nad tymi widokami w celu odzwierciedlenia tego zapytania.
 
 W tym scenariuszu będziesz używać fikcyjnych danych dotyczących sprzedaży produktu Surface w sklepie detalicznym partnera. Możesz analizować przychody dla sklepu w oparciu o bliskość do dużych gospodarstw domowych i wpływ anonsowania na określony tydzień. W tym artykule opisano tworzenie dwóch widoków o nazwach **RetailSales** i **StoreDemographics** oraz zapytania między nimi. Dane przykładowego produktu można pobrać z tego repozytorium [GitHub](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData) .
+
+> [!IMPORTANT]
+> Usługa Synapse w wersji zapoznawczej nie obsługuje bezserwerowej puli SQL dla linku Synapse dla Azure Cosmos DB. Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -55,7 +58,7 @@ Create database RetailCosmosDB
 
 Następnie Utwórz wiele widoków w ramach różnych linków Synapse z obsługą kontenerów usługi Azure Cosmos. Widoki umożliwiają używanie języka T-SQL do przyłączania i wykonywania zapytań dotyczących danych Azure Cosmos DB znajdujących się w różnych kontenerach.  Upewnij się, że podczas tworzenia widoków została wybrana baza danych **RetailCosmosDB** .
 
-Poniższe skrypty pokazują, jak tworzyć widoki w poszczególnych kontenerach. Dla uproszczenia użyjemy funkcji [automatycznego wnioskowania schematu](analytical-store-introduction.md#analytical-schema) Synapse programu SQL Server za pośrednictwem kontenerów z włączonym linkiem Synapse:
+Poniższe skrypty pokazują, jak tworzyć widoki w poszczególnych kontenerach. Dla uproszczenia Użyjmy funkcji [automatycznego wnioskowania schematu](analytical-store-introduction.md#analytical-schema) dla bezserwerowej puli SQL za pośrednictwem kontenerów z włączonym linkiem Synapse:
 
 
 ### <a name="retailsales-view"></a>Widok RetailSales:
@@ -118,7 +121,7 @@ Następnie otwórz Power BI Desktop i Połącz się z punktem końcowym SQL bezs
 
 1. Wybierz preferowaną metodę uwierzytelniania, taką jak Azure AD.
 
-1. Wybierz **RetailCosmosDB** bazę danych i widoki **RetailSales** , **StoreDemographics** .
+1. Wybierz **RetailCosmosDB** bazę danych i widoki **RetailSales**, **StoreDemographics** .
 
 1. Wybierz pozycję **Załaduj** , aby załadować dwa widoki do trybu zapytania bezpośredniego.
 

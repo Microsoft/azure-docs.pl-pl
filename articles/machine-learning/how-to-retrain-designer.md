@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: d8ef4d9f768d6fdcf976c9317d1abec3d4533824
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: d754674fe3aa65fa9fd8540b05083979ce96aff8
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554805"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437120"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer"></a>Ponowne uczenie modeli za pomocą narzędzia Azure Machine Learning Designer
 
@@ -47,7 +47,11 @@ Potok użyty w tym artykule to zmieniona wersja przykładowego [przewidywania do
 
 ## <a name="create-a-pipeline-parameter"></a>Tworzenie parametru potoku
 
-Utwórz parametry potoku, aby dynamicznie ustawiać zmienne w czasie wykonywania. Na potrzeby tego przykładu zmienisz ścieżkę danych szkolenia z ustalonej wartości na parametr, aby można było ponownie nauczyć model na różnych danych.
+Parametry potoku służą do tworzenia uniwersalnych potoków, które można ponownie przesłać później przy użyciu różnych wartości parametrów. Niektóre typowe scenariusze polegają na aktualizowaniu zestawów danych lub niektórych funkcji Hyper-Parameters na potrzeby ponownego szkolenia. Utwórz parametry potoku, aby dynamicznie ustawiać zmienne w czasie wykonywania. 
+
+Parametry potoku można dodać do parametrów źródła danych lub modułu w potoku. Po przesłaniu ponownego potoku można określić wartości tych parametrów.
+
+Na potrzeby tego przykładu zmienisz ścieżkę danych szkolenia z ustalonej wartości na parametr, aby można było ponownie nauczyć model na różnych danych. Możesz również dodać inne parametry modułu jako parametry potoku zgodnie z przypadkiem użycia.
 
 1. Wybierz moduł **Importuj dane** .
 
@@ -60,31 +64,22 @@ Utwórz parametry potoku, aby dynamicznie ustawiać zmienne w czasie wykonywania
 
 1. MouseOver pole **ścieżki** i wybierz wielokropek powyżej wyświetlonego pola **ścieżki** .
 
-    ![Zrzut ekranu pokazujący sposób tworzenia parametru potoku](media/how-to-retrain-designer/add-pipeline-parameter.png)
-
 1. Wybierz pozycję **Dodaj do parametru potoku**.
 
 1. Podaj nazwę parametru i wartość domyślną.
 
-   > [!NOTE]
-   > Parametry potoku można sprawdzić i **edytować, wybierając ikonę koła** zębatego obok tytułu wersji roboczej potoku. 
+   ![Zrzut ekranu pokazujący sposób tworzenia parametru potoku](media/how-to-retrain-designer/add-pipeline-parameter.png)
 
 1. Wybierz pozycję **Zapisz**.
 
+   > [!NOTE]
+   > Możesz również odłączyć parametr modułu z parametru potoku w okienku szczegółów modułu, podobnie jak w przypadku dodawania parametrów potoku.
+   >
+   > Parametry potoku można sprawdzić i **edytować, wybierając ikonę koła** zębatego obok tytułu wersji roboczej potoku. 
+   >    - Po odłączeniu można usunąć parametr potoku w okienku **Ustawienia** .
+   >    - Możesz również dodać parametr potoku w okienku **Ustawienia** , a następnie zastosować go dla niektórych parametrów modułu.
+
 1. Prześlij uruchomienie potoku.
-
-## <a name="find-a-trained-model"></a>Znajdź model przeszkolony
-
-Projektant zapisuje wszystkie dane wyjściowe potoku, w tym modele przeszkolone, do domyślnego konta magazynu obszaru roboczego. Możesz również uzyskać dostęp do przeszkolonych modeli bezpośrednio w projektancie:
-
-1. Poczekaj na zakończenie działania potoku.
-1. Wybierz moduł **Train Model** (Trenowanie modelu).
-1. W okienku Szczegóły modułu z prawej strony kanwy wybierz pozycję dane **wyjściowe + dzienniki**.
-1. Model można znaleźć w innych danych **wyjściowych** wraz z uruchamianiem dzienników.
-1. Alternatywnie wybierz ikonę **Wyświetl dane wyjściowe** . W tym miejscu możesz wykonać instrukcje w oknie dialogowym, aby przejść bezpośrednio do magazynu danych. 
-
-> [!div class="mx-imgBorder"]
-> ![Zrzut ekranu pokazujący sposób pobierania przeszkolonego modelu](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## <a name="publish-a-training-pipeline"></a>Publikowanie potoku szkoleniowego
 
@@ -96,7 +91,7 @@ Opublikuj potok w punkcie końcowym potoku, aby łatwo ponownie wykorzystać pot
    > [!NOTE]
    > Można opublikować wiele potoków w jednym punkcie końcowym. Każdy potok w danym punkcie końcowym ma numer wersji, który można określić podczas wywoływania punktu końcowego potoku.
 
-1. Kliknij pozycję **Opublikuj**.
+1. Wybierz pozycję **Publikuj**.
 
 ## <a name="retrain-your-model"></a>Ponowne uczenie modelu
 

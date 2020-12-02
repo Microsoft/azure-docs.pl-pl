@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: b82478338603750a76718da956d74e23d242692e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d015cec30e516541b50c2acfac38fad898965e1b
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896538"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436355"
 ---
 # <a name="managed-application-metered-billing"></a>Rozliczenia taryfowe zarządzanej aplikacji 
 
@@ -22,7 +22,7 @@ Za pomocą usługi pomiaru w portalu Marketplace można tworzyć zarządzane pla
 
 Aby plan aplikacji zarządzanej mógł korzystać z naliczanych opłat, musi:
 
-* Zapoznaj się ze wszystkimi wymaganiami oferty opisanymi w temacie [Tworzenie oferty aplikacji platformy Azure](create-new-azure-apps-offer.md).
+* Zapoznaj się ze wszystkimi wymaganiami oferty opisanymi w temacie [Tworzenie oferty aplikacji platformy Azure](../create-new-azure-apps-offer.md).
 * Skonfiguruj **ceny** opłat dla klientów za miesięczny koszt usługi. Cena może być równa zero, jeśli nie chcesz obciążyć ustalonej opłaty, a zamiast tego wykorzystasz całkowicie z naliczanych opłat.
 * Ustaw **Wymiary rozliczeń** dla zdarzeń zliczania, dla których klient będzie obciążany, w oparciu o stałą stawkę.
 * Integruj się z [interfejsami API usługi pomiaru Marketplace](./marketplace-metering-service-apis.md) , aby poinformować firmę Microsoft o zdarzeniach rozliczanych.
@@ -56,11 +56,11 @@ Subskrybowanie usługi CoA przez klienta platformy Azure może analizować i gen
 
 Wymiary rozliczeń są używane do komunikowania się z klientem przy użyciu oprogramowania.  Te wymiary są również używane do przekazywania zdarzeń użycia do firmy Microsoft. Są one zdefiniowane w następujący sposób:
 
-* **Identyfikator wymiaru** : niezmienny identyfikator przywoływany podczas emitowania zdarzeń użycia.
-* **Nazwa wymiaru** : Nazwa wyświetlana skojarzona z wymiarem, na przykład "wysłane wiadomości SMS".
-* **Jednostka miary** : Opis jednostki rozliczeniowej, na przykład "na wiadomość SMS" lub "na 100 wiadomości e-mail".
-* **Cena za jednostkę** : Cena jednej jednostki wymiaru.
-* **Uwzględniona ilość w okresie miesięcznym** : liczba wymiarów uwzględnionych miesięcznie dla klientów płacących za cykliczną opłatą miesięczną musi być liczbą całkowitą.
+* **Identyfikator wymiaru**: niezmienny identyfikator przywoływany podczas emitowania zdarzeń użycia.
+* **Nazwa wymiaru**: Nazwa wyświetlana skojarzona z wymiarem, na przykład "wysłane wiadomości SMS".
+* **Jednostka miary**: Opis jednostki rozliczeniowej, na przykład "na wiadomość SMS" lub "na 100 wiadomości e-mail".
+* **Cena za jednostkę**: Cena jednej jednostki wymiaru.
+* **Uwzględniona ilość w okresie miesięcznym**: liczba wymiarów uwzględnionych miesięcznie dla klientów płacących za cykliczną opłatą miesięczną musi być liczbą całkowitą.
 
 Wymiary rozliczeń są współużytkowane przez wszystkie plany oferty. Niektóre atrybuty mają zastosowanie do wymiaru we wszystkich planach, a inne atrybuty są specyficzne dla planu.
 
@@ -79,7 +79,7 @@ Inne atrybuty wymiaru są specyficzne dla każdego planu i mogą mieć różne w
 Wymiary mają również dwie specjalne koncepcje: "Enabled" i "Infinite".
 
 * **Włączone** wskazuje, że ten plan uczestniczy w tym wymiarze.  Tę opcję można pozostawić niesprawdzoną w przypadku tworzenia nowego planu, który nie wysyła zdarzeń użycia opartych na tym wymiarze. Ponadto wszystkie nowe wymiary dodane po pierwszym opublikowaniu planu będą wyświetlane jako "niewłączone" w już opublikowanym planie.  Wyłączony wymiar nie będzie widoczny na żadnych listach wymiarów dla planu widocznego dla klientów.
-* **Nieskończona** , reprezentowana przez symbol nieskończoności "∞" wskazuje, że ten plan uczestniczy w tym wymiarze bez pomiaru użycia względem tego wymiaru. Jeśli chcesz wskazać swoim klientom, że funkcjonalność reprezentowana przez ten wymiar jest uwzględniona w planie, ale bez limitu użycia.  Wymiar z nieskończonym użyciem będzie widoczny na listach wymiarów dla planu widocznego dla klientów.  Ten plan nigdy nie wiąże się z opłatami.
+* **Nieskończona**, reprezentowana przez symbol nieskończoności "∞" wskazuje, że ten plan uczestniczy w tym wymiarze bez pomiaru użycia względem tego wymiaru. Jeśli chcesz wskazać swoim klientom, że funkcjonalność reprezentowana przez ten wymiar jest uwzględniona w planie, ale bez limitu użycia.  Wymiar z nieskończonym użyciem będzie widoczny na listach wymiarów dla planu widocznego dla klientów.  Ten plan nigdy nie wiąże się z opłatami.
 
 >[!Note] 
 >Następujące scenariusze są jawnie obsługiwane:  <br> — Nowy wymiar można dodać do nowego planu.  Nowy wymiar nie zostanie włączony dla żadnego już opublikowanego planu. <br> — Można opublikować plan ze stałą opłatą miesięczną i bez żadnych wymiarów, dodać nowy plan i skonfigurować nowy wymiar dla tego planu. Nowy wymiar nie zostanie włączony dla już opublikowanych planów.

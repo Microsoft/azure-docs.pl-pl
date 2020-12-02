@@ -6,14 +6,14 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 11/30/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 936e98b3efa27f2d0a85c373ccae0ab223f4fd95
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 7d50185169b22a136ce81bd3aebae235cf49498b
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340910"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436627"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Zabezpieczanie dostępu do danych w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -163,13 +163,13 @@ Aby dodać do konta użytkownika dostęp do czytnika konta Azure Cosmos DB, nale
 4. W **polu Przypisz dostęp do** wybierz pozycję **użytkownik, Grupa lub aplikacja usługi Azure AD**.
 5. Wybierz użytkownika, grupę lub aplikację w katalogu, do którego chcesz udzielić dostępu.  Katalog można wyszukać według nazwy wyświetlanej, adresu e-mail lub identyfikatorów obiektów.
     Wybrany użytkownik, Grupa lub aplikacja pojawi się na liście wybranych członków.
-6. Kliknij przycisk **Zapisz**.
+6. Kliknij pozycję **Zapisz**.
 
 Jednostka może teraz odczytywać Azure Cosmos DB zasoby.
 
 ## <a name="delete-or-export-user-data"></a>Usuwanie lub eksportowanie danych użytkownika
 
-Azure Cosmos DB pozwala wyszukiwać, wybierać, modyfikować i usuwać dane osobowe znajdujące się w bazie danych lub kolekcjach. Azure Cosmos DB udostępnia interfejsy API do znajdowania i usuwania danych osobowych, jednak odpowiedzialność za korzystanie z interfejsów API i Definiowanie logiki wymaganej do wymazania danych osobowych. Każdy interfejs API z obsługą wielu modeli (SQL, MongoDB, Gremlin, Cassandra, tabela) oferuje różne zestawy SDK języka, które zawierają metody do wyszukiwania i usuwania danych osobowych. Możesz również włączyć funkcję [Time to Live (TTL)](time-to-live.md) , aby automatycznie usuwać dane po upływie określonego czasu, bez ponoszenia dodatkowych kosztów.
+Jako usługa bazy danych Azure Cosmos DB umożliwia wyszukiwanie, wybieranie, modyfikowanie i usuwanie danych znajdujących się w bazie danych lub kontenerach. Jest to jednak odpowiedzialność za użycie dostarczonych interfejsów API i zdefiniowanie logiki wymaganej do znajdowania i wymazywania danych osobowych w razie potrzeby. Każdy interfejs API z obsługą wielu modeli (SQL, MongoDB, Gremlin, Cassandra, tabela) oferuje różne zestawy SDK języka, które zawierają metody do wyszukiwania i usuwania danych w oparciu o predykaty niestandardowe. Możesz również włączyć funkcję [Time to Live (TTL)](time-to-live.md) , aby automatycznie usuwać dane po upływie określonego czasu, bez ponoszenia dodatkowych kosztów.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 

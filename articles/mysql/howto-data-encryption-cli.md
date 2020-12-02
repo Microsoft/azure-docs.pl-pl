@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 07d2e9fa98c24695a119c651539d4003ecd8524a
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: ac87e8394eaa609f7c57eaf9d83fe11a2bdb04f6
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242096"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435828"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Szyfrowanie danych dla Azure Database for MySQL przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -46,11 +46,22 @@ Dowiedz się, jak skonfigurować szyfrowanie danych dla Azure Database for MySQL
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
     ```
+  * Liczba dni przechowywania ustawiona na 90 dni
+  ```azurecli-interactive
+    az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --retention-days 90
+    ```
 
 * Klucz musi mieć następujące atrybuty do użycia jako klucz zarządzany przez klienta:
   * Brak daty wygaśnięcia
   * Niewyłączone
-  * Wykonywanie operacji **Get** , **zawijania** i **odpakowania**
+  * Wykonywanie operacji **Get**, **zawijania** i **odpakowania**
+  * atrybut recoverylevel ustawiony na **wartość odzyskiwalną**.
+
+Powyższe atrybuty klucza można sprawdzić za pomocą następującego polecenia:
+
+```azurecli-interactive
+az keyvault key show --vault-name <key_vault_name> -n <key_name>
+```
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Ustaw odpowiednie uprawnienia dla operacji Key
 
@@ -68,7 +79,7 @@ Dowiedz się, jak skonfigurować szyfrowanie danych dla Azure Database for MySQL
    az mysql server update --name  <server name>  -g <resource_group> --assign-identity
    ```
 
-2. Ustaw **uprawnienia klucza** ( **pobieranie** , **Zawijanie** , **odpakowywanie) dla** **podmiotu zabezpieczeń** , który jest nazwą serwera MySQL.
+2. Ustaw **uprawnienia klucza** (**pobieranie**, **Zawijanie**, **odpakowywanie) dla** **podmiotu zabezpieczeń**, który jest nazwą serwera MySQL.
 
     ```azurecli-interactive
     az keyvault set-policy --name -g <resource_group> --key-permissions get unwrapKey wrapKey --object-id <principal id of the server>

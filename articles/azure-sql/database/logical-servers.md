@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 38133a63d65e45a4d1c83e9752dcaa01a86da33e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e0736e58983d4c28b8f2f4a20241cd36ac84fdfa
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782896"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445393"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>Co to jest logiczny serwer SQL w Azure SQL Database i Azure Synapse?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -26,7 +26,7 @@ W Azure SQL Database i Azure Synapse Analytics serwer jest konstrukcyjną logicz
 
 Ten serwer różni się od wystąpienia SQL Server, które może być znane w lokalnym świecie. W związku z tym nie ma gwarancji dotyczących lokalizacji baz danych lub bazy danych magazynu danych w odniesieniu do serwera, który zarządza nimi. Ponadto żadna Azure SQL Database ani usługa Azure Synapse nie uwidaczniają żadnego dostępu lub funkcji na poziomie wystąpienia. W przeciwieństwie do bazy danych wystąpienia w zarządzanym wystąpieniu są fizycznie wspólnie zlokalizowane w taki sam sposób, jak w przypadku SQL Server w środowisku lokalnym lub na świecie maszyn wirtualnych.
 
-Podczas tworzenia serwera należy podać konto logowania do serwera i hasło z uprawnieniami administracyjnymi do bazy danych Master na tym serwerze i wszystkich baz danych utworzonych na tym serwerze. To początkowe konto jest kontem logowania SQL. Azure SQL Database i Synapse Analytics obsługują uwierzytelnianie SQL i Azure Active Directory uwierzytelniania na potrzeby uwierzytelniania. Informacje o logowaniach i uwierzytelnianiu znajdują się [w temacie Zarządzanie bazami danych i nazwami logowania w Azure SQL Database](logins-create-manage.md). Uwierzytelnianie systemu Windows nie jest obsługiwane.
+Podczas tworzenia serwera należy podać konto logowania do serwera i hasło z uprawnieniami administracyjnymi do bazy danych Master na tym serwerze i wszystkich baz danych utworzonych na tym serwerze. To początkowe konto jest kontem logowania SQL. Azure SQL Database i usługa Azure Synapse Analytics obsługuje uwierzytelnianie SQL i Azure Active Directory uwierzytelniania na potrzeby uwierzytelniania. Informacje o logowaniach i uwierzytelnianiu znajdują się [w temacie Zarządzanie bazami danych i nazwami logowania w Azure SQL Database](logins-create-manage.md). Uwierzytelnianie systemu Windows nie jest obsługiwane.
 
 Serwer w SQL Database i Azure Synapse:
 

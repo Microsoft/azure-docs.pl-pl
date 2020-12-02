@@ -3,12 +3,12 @@ title: Funkcje zdefiniowane przez użytkownika w szablonach
 description: Opisuje sposób definiowania i używania funkcji zdefiniowanych przez użytkownika w szablonie Azure Resource Manager (szablon ARM).
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: c0d62abb5362d51a77db872c11416b04dcfb3f97
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 12199aca788438e4558ed2c607b866f0dc723e2a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353480"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436967"
 ---
 # <a name="user-defined-functions-in-arm-template"></a>Funkcje zdefiniowane przez użytkownika w szablonie ARM
 
@@ -103,8 +103,7 @@ Podczas definiowania funkcji użytkownika istnieją pewne ograniczenia:
 * Funkcja nie może używać funkcji [Reference](template-functions-resource.md#reference) ani żadnej z funkcji [list](template-functions-resource.md#list) .
 * Parametry funkcji nie mogą mieć wartości domyślnych.
 
-
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej o dostępnych właściwościach funkcji zdefiniowanych przez użytkownika, zobacz [Opis struktury i składni szablonów Azure Resource Manager](template-syntax.md).
-* Listę dostępnych funkcji szablonu można znaleźć w temacie [Azure Resource Manager Template Functions](template-functions.md).
+* Aby dowiedzieć się więcej o dostępnych właściwościach funkcji zdefiniowanych przez użytkownika, zobacz [Omówienie struktury i składni szablonów usługi ARM](template-syntax.md).
+* Listę dostępnych funkcji szablonu można znaleźć w temacie [funkcje szablonu ARM](template-functions.md).

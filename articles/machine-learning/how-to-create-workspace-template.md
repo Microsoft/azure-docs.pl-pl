@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: f07efcc18f3eff7e40232941befb563cd236266b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: bd9199bc73e56ec36343b30d9b24f0b48799835e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95013038"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445207"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Użyj szablonu Azure Resource Manager, aby utworzyć obszar roboczy dla Azure Machine Learning
 
@@ -41,7 +41,7 @@ Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji przy użyciu szabl
 
 ## <a name="limitations"></a>Ograniczenia
 
-* Podczas tworzenia nowego obszaru roboczego można zezwolić obszarowi roboczemu na tworzenie usług platformy Azure, które wymagają automatycznie, lub udostępnić istniejące usługi. W przypadku udostępniania istniejących usług te usługi muszą znajdować się w tej samej subskrypcji platformy Azure co obszar roboczy.
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
 ## <a name="workspace-resource-manager-template"></a>Szablon Menedżer zasobów obszaru roboczego
 
@@ -553,7 +553,7 @@ New-AzResourceGroupDeployment `
    * Region: Wybierz region świadczenia usługi Azure, w którym zostaną utworzone zasoby.
    * Nazwa obszaru roboczego: Nazwa do użycia dla obszaru roboczego Azure Machine Learning, który zostanie utworzony. Nazwa obszaru roboczego musi zawierać od 3 do 33 znaków. Może zawierać tylko znaki alfanumeryczne i znak "-".
    * Lokalizacja: Wybierz lokalizację, w której zostaną utworzone zasoby.
-1. Wybierz pozycję __Przejrzyj i utwórz__.
+1. Wybierz pozycję __Przeglądanie + tworzenie__.
 1. Na ekranie __Recenzja + tworzenie__ Zaakceptuj wymienione warunki i postanowienia, a następnie wybierz pozycję __Utwórz__.
 
 Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów z szablonu niestandardowego](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).

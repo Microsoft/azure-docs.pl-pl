@@ -6,12 +6,12 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f327749d1bdfb8cf2cba00cf4c5f68b4b2b77999
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 50a65583c41dd94b174a33432afcf42b31e67df0
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379557"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437052"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Samouczek: Tworzenie aplikacji zarządzanej z niestandardowymi akcjami i zasobami
 
@@ -41,7 +41,7 @@ Aby ukończyć ten samouczek, musisz znać:
 
 W tym samouczku utworzysz zarządzaną aplikację, a jej zarządzana Grupa zasobów będzie zawierać niestandardowe wystąpienie dostawcy, konto magazynu i funkcję. Funkcja platformy Azure używana w tym przykładzie implementuje interfejs API obsługujący niestandardowe operacje dostawcy dla akcji i zasobów. Konto usługi Azure Storage jest używane jako magazyn podstawowy dla niestandardowych zasobów dostawcy.
 
-Definicja interfejsu użytkownika służąca do tworzenia wystąpienia aplikacji zarządzanej `funcname` zawiera `storagename` elementy i. Nazwa konta magazynu i nazwa funkcji musi być globalnie unikatowa. Domyślnie pliki funkcji zostaną wdrożone z [przykładowego pakietu funkcji](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip), ale można je zmienić przez dodanie elementu wejściowego dla linku do pakietu w *createUiDefinition.jsna* :
+Definicja interfejsu użytkownika służąca do tworzenia wystąpienia aplikacji zarządzanej `funcname` zawiera `storagename` elementy i. Nazwa konta magazynu i nazwa funkcji musi być globalnie unikatowa. Domyślnie pliki funkcji zostaną wdrożone z [przykładowego pakietu funkcji](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip), ale można je zmienić przez dodanie elementu wejściowego dla linku do pakietu w *createUiDefinition.jsna*:
 
 ```json
 {
@@ -74,7 +74,7 @@ Definicja interfejsu użytkownika służąca do tworzenia wystąpienia aplikacji
 }
 ```
 
-i dane wyjściowe w *createUiDefinition.jsna* :
+i dane wyjściowe w *createUiDefinition.jsna*:
 
 ```json
   "funcname": "[steps('applicationSettings').funcname]",
@@ -254,8 +254,8 @@ az managedapp definition create \
 
 3. Podaj wartości do utworzenia definicji katalogu usług:
 
-    * Podaj unikatową **nazwę** definicji katalogu usług, **nazwę wyświetlaną** i *Opis* (opcjonalnie).
-    * Wybierz **subskrypcję** , **grupę zasobów** i **lokalizację** , w której zostanie utworzona definicja aplikacji. Możesz użyć tej samej grupy zasobów, która jest używana przez pakiet ZIP lub utworzyć nową grupę zasobów.
+    * Podaj unikatową **nazwę** definicji katalogu usług, **nazwę wyświetlaną** i *Opis*(opcjonalnie).
+    * Wybierz **subskrypcję**, **grupę zasobów** i **lokalizację** , w której zostanie utworzona definicja aplikacji. Możesz użyć tej samej grupy zasobów, która jest używana przez pakiet ZIP lub utworzyć nową grupę zasobów.
     * W polu **Identyfikator URI pliku pakietu** podaj ścieżkę do pliku zip utworzonego w poprzednim kroku.
 
     ![Podaj wartości](./media/tutorial-create-managed-app-with-custom-provider/add-service-catalog-managed-application.png)
@@ -314,7 +314,7 @@ az managedapp create \
 
 4. Podaj wartości do utworzenia wystąpienia aplikacji zarządzanej z definicji katalogu usług:
 
-    * Wybierz **subskrypcję** , **grupę zasobów** i **lokalizację** , w której zostanie utworzone wystąpienie aplikacji.
+    * Wybierz **subskrypcję**, **grupę zasobów** i **lokalizację** , w której zostanie utworzone wystąpienie aplikacji.
     * Podaj unikatową nazwę funkcji platformy Azure i nazwę konta usługi Azure Storage.
 
     ![Ustawienia aplikacji](./media/tutorial-create-managed-app-with-custom-provider/application-settings.png)
@@ -353,6 +353,6 @@ Jeśli masz pytania dotyczące Azure Managed Applications, spróbuj zadać pytan
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby opublikować aplikację zarządzaną w witrynie Azure Marketplace, zobacz [Aplikacje zarządzane platformy Azure w witrynie Marketplace](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
+Aby opublikować aplikację zarządzaną w witrynie Azure Marketplace, zobacz [Aplikacje zarządzane platformy Azure w witrynie Marketplace](../../marketplace/create-new-azure-apps-offer.md).
 
 Dowiedz się więcej o [dostawcach niestandardowych platformy Azure](../custom-providers/overview.md).

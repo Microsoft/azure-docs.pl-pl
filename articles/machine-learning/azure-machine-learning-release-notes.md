@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 53a30f92adaf25d87897e98834cda2d5f92b874c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 03825e0f091df01b98355dd6789eb5c9cb2897b0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012275"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444545"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Informacje o wersji Azure Machine Learning
 
@@ -43,7 +43,7 @@ Zapoznaj się z [listą znanych problemów](resource-known-issues.md) , aby dowi
     + Ulepszona Dokumentacja programu `OutputDatasetConfig.register_on_complete` obejmująca zachowanie tego, co się stanie, gdy nazwa już istnieje.
     + Określanie zestawu danych wejściowych i wyjściowych, które mogą powodować kolizje ze wspólnymi zmiennymi środowiskowymi, spowoduje to wyświetlenie ostrzeżenia
     + Przeznaczenie `grant_workspace_access` parametru podczas rejestrowania magazynów danych. Ustaw tę wartość, aby `True` uzyskiwać dostęp do danych za pośrednictwem sieci wirtualnej z Machine Learning Studio.
-      [Dowiedz się więcej](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
+      [Dowiedz się więcej](./how-to-enable-studio-virtual-network.md)
     + Interfejs API połączonej usługi jest rafinowany. Zamiast podawania identyfikatora zasobu istnieją trzy osobne parametry sub_id, RG i Name zdefiniowane w konfiguracji.
     + Aby umożliwić klientom Samodzielne rozwiązywanie problemów z uszkodzeniem tokenu, należy włączyć funkcję publiczną synchronizacji tokenów obszaru roboczego.
     + Ta zmiana umożliwia użycie pustego ciągu jako wartości dla script_param
@@ -109,8 +109,8 @@ Dowiedz się więcej o [etykietowaniu segmentacji wystąpień obrazu](how-to-lab
 
 ### <a name="azure-machine-learning-studio-notebooks-experience-october-update"></a>Środowisko Azure Machine Learning Studio notesy (Aktualizacja z października)
 + **Nowe funkcje**
-  + [Pełna obsługa sieci wirtualnej](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
-  + [Tryb koncentracji uwagi](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#focus-mode)
+  + [Pełna obsługa sieci wirtualnej](./how-to-enable-studio-virtual-network.md)
+  + [Tryb koncentracji uwagi](./how-to-run-jupyter-notebooks.md#focus-mode)
   + Zapisz notesy Ctrl-S
   + Numery wierszy
 

@@ -1,22 +1,22 @@
 ---
-title: 'Szybki Start: pobieranie zamierzeń przy użyciu interfejsów API REST — LUIS'
-description: W tym przewodniku szybki start interfejsu API REST Użyj dostępnej publicznej aplikacji LUIS, aby określić zamiar użytkownika z tekstu konwersacji.
+title: Jak uzyskać zamiar przy użyciu interfejsu API REST
+description: W tym artykule Użyj dostępnej publicznej aplikacji LUIS do określenia zamiaru użytkownika z tekstu konwersacji.
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: quickstart
-ms.date: 05/18/2020
+ms.topic: conceptual
+ms.date: 11/30/2020
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: d03ebc1ec5730f1905ce1ee5b9c484312f5aeee1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b49d90ffe2a262895727fdd4ef5f8a7950104102
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91316353"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437018"
 ---
-# <a name="quickstart-get-intent-with-rest-apis"></a>Szybki Start: pobieranie zamierzeń przy użyciu interfejsów API REST
+# <a name="how-to-get-an-intent-using-the-rest-apis"></a>Jak uzyskać zamiar przy użyciu interfejsów API REST
 
-W tym przewodniku szybki start użyjesz aplikacji LUIS do określenia zamiaru użytkownika z tekstu konwersacjowego. Wyślij zamiar użytkownika jako tekst do punktu końcowego przewidywania HTTP aplikacji Pizza. W punkcie końcowym LUIS stosuje model aplikacji Pizza w celu przeanalizowania tekstu w języku naturalnym pod kątem znaczenia, określania ogólnego zamiaru i wyodrębnienia danych związanych z domeną podmiotu aplikacji.
+W tym artykule zostanie użyta aplikacja LUIS do określenia zamiaru użytkownika z tekstu konwersacjowego. Wyślij zamiar użytkownika jako tekst do punktu końcowego przewidywania HTTP aplikacji Pizza. W punkcie końcowym LUIS stosuje model aplikacji Pizza w celu przeanalizowania tekstu w języku naturalnym pod kątem znaczenia, określania ogólnego zamiaru i wyodrębnienia danych związanych z domeną podmiotu aplikacji.
 
 W przypadku tego artykułu jest potrzebne bezpłatne konto [usługi LUIS](https://www.luis.ai).
 

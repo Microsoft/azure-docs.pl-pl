@@ -1,18 +1,18 @@
 ---
 title: Potok ciągłej integracji/ciągłego wdrażania za pomocą usługi Azure DevOps Starter — Azure IoT Edge | Microsoft Docs
 description: Usługa Azure DevOps Starter ułatwia rozpoczęcie pracy z platformą Azure. Ułatwia ona uruchamianie wybranej aplikacji Azure IoT Edge w kilku prostych krokach.
-author: shizn
+author: kgremban
 ms.author: kgremban
 ms.date: 08/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d57c1828b9456851d37a65b88eb5f8ea860a80fe
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 97dc0fe5a3720a41dd63583c222762d832d636ea
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045860"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437001"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-starter"></a>Tworzenie potoku ciągłej integracji/ciągłego wdrażania dla IoT Edge przy użyciu usługi Azure DevOps Starter
 
@@ -32,7 +32,7 @@ DevOps Starter tworzy potok ciągłej integracji/ciągłego wdrażania na platfo
 
 ## <a name="create-a-new-application-pipeline"></a>Tworzenie nowego potoku aplikacji
 
-1. Moduły Azure IoT Edge można napisać w [językach C#](tutorial-csharp-module.md), [Node.js](tutorial-node-module.md), [Python](tutorial-python-module.md), [C](tutorial-c-module.md) i [Java](tutorial-java-module.md). Wybierz preferowany język, aby rozpocząć nową aplikację: **.NET**, **Node.js**, **Python**, **C**lub **Java**. Wybierz przycisk **Dalej**, aby kontynuować.
+1. Moduły Azure IoT Edge można napisać w [językach C#](tutorial-csharp-module.md), [Node.js](tutorial-node-module.md), [Python](tutorial-python-module.md), [C](tutorial-c-module.md) i [Java](tutorial-java-module.md). Wybierz preferowany język, aby rozpocząć nową aplikację: **.NET**, **Node.js**, **Python**, **C** lub **Java**. Wybierz przycisk **Dalej**, aby kontynuować.
 
    ![Wybierz język, aby utworzyć nową aplikację](./media/how-to-devops-starter/select-language.png)
 
@@ -74,14 +74,14 @@ DevOps Starter utworzył repozytorium git dla projektu w Azure Repos. W tej sekc
 
    ![Wyświetl repozytorium wygenerowane w Azure Repos](./media/how-to-devops-starter/view-repositories.png)
 
-> [!NOTE]
-> Poniższe kroki umożliwiają wprowadzenie zmian w kodzie przy użyciu przeglądarki sieci Web. Jeśli chcesz sklonować repozytorium lokalnie, wybierz pozycję **Klonuj** w prawym górnym rogu okna. Użyj podanego adresu URL, aby sklonować repozytorium Git w Visual Studio Code lub preferowanym narzędziu programistycznym.
+   > [!NOTE]
+   > Poniższe kroki umożliwiają wprowadzenie zmian w kodzie przy użyciu przeglądarki sieci Web. Jeśli chcesz sklonować repozytorium lokalnie, wybierz pozycję **Klonuj** w prawym górnym rogu okna. Użyj podanego adresu URL, aby sklonować repozytorium Git w Visual Studio Code lub preferowanym narzędziu programistycznym.
 
 2. Repozytorium zawiera już kod dla modułu o nazwie **FilterModule** na podstawie języka aplikacji wybranego w procesie tworzenia. Otwórz plik **modules/FilterModule/module.jsw** pliku.
 
    ![Otwórz module.jsw pliku w Azure Repos](./media/how-to-devops-starter/open-module-json.png)
 
-3. Zwróć uwagę, że ten plik używa [zmiennych kompilacji usługi Azure DevOps](/azure/devops/pipelines/build/variables?view=vsts#build-variables) w parametrze **Version** . Ta konfiguracja zapewnia, że nowa wersja modułu zostanie utworzona za każdym razem, gdy zostanie uruchomiona nowa kompilacja.
+3. Zwróć uwagę, że ten plik używa [zmiennych kompilacji usługi Azure DevOps](/azure/devops/pipelines/build/variables#build-variables) w parametrze **Version** . Ta konfiguracja zapewnia, że nowa wersja modułu zostanie utworzona za każdym razem, gdy zostanie uruchomiona nowa kompilacja.
 
 ## <a name="examine-the-cicd-pipeline"></a>Badanie potoku ciągłej integracji/ciągłego wdrażania
 

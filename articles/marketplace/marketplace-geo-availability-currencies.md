@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: c277525927f7f74f281220bf5e593e98509d8237
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 40bae584e673e8885416bd1ae08dd808071034e7
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126689"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436134"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Obsługa dostępności geograficznej i waluty komercyjnej witryny Marketplace
 
@@ -50,7 +50,7 @@ Oferty komercyjnej witryny Marketplace można zakupić w 141 lokalizacje geograf
 | Kanada                              | CA        | CAD          |
 | Kajmany                      | KY        | USD          |
 | Chile                               | CL        | USD          |
-| Chinach\**                            | CN        | Nie dotyczy          |
+| Chinach\**                            | CN        | Brak          |
 | Kolumbia                            | CO        | USD          |
 | Kostaryka                          | CR        | USD          |
 | Côte d'Ivoire                       | CI        | USD          |
@@ -79,7 +79,7 @@ Oferty komercyjnej witryny Marketplace można zakupić w 141 lokalizacje geograf
 | Węgry                             | HU        | EUR          |
 | Islandia                             | IS        | EUR          |
 | Indie                               | IN        | INR          |
-| Indonezja                           | ID (Identyfikator)        | USD          |
+| Indonezja                           | ID        | USD          |
 | Irak                                | IQ        | USD          |
 | Irlandia                             | IE        | EUR          |
 | Izrael                              | IL        | USD          |
@@ -194,7 +194,7 @@ Indywidualne ceny (w zależności od tego, jak zostały one ustawione) mogą by�
 
 Aby uzyskać szczegółowe informacje na temat wprowadzania cen dla określonych typów ofert, zobacz następujące artykuły:
 
-- [Tworzenie oferty aplikacji platformy Azure](partner-center-portal/create-new-azure-apps-offer.md)
+- [Tworzenie oferty aplikacji platformy Azure](create-new-azure-apps-offer.md)
 - [Tworzenie oferty kontenera platformy Azure](partner-center-portal/create-azure-container-offer.md)
 - [Tworzenie oferty maszyny wirtualnej platformy Azure](azure-vm-create.md)
 - [Tworzenie oferty usługi konsultingowej](partner-center-portal/create-consulting-service-offer.md)

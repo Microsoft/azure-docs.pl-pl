@@ -7,15 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: c596b0d218c0b935fa1f3e971067160e52d87af1
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.custom: azureday1
+ms.openlocfilehash: 72b1d4fe864c23c0ac065e47d96ab0c78866defa
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183128"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435845"
 ---
 # <a name="tutorial-access-azure-storage-from-a-web-app"></a>Samouczek: uzyskiwanie dostępu do usługi Azure Storage z poziomu aplikacji sieci Web
 
@@ -27,7 +28,7 @@ Chcesz dodać dostęp do płaszczyzny danych platformy Azure (Azure Storage, Azu
 
 Zarządzana tożsamość z usługi Azure Active Directory (Azure AD) umożliwia App Service dostępu do zasobów za pośrednictwem kontroli dostępu opartej na rolach (RBAC), bez konieczności używania poświadczeń aplikacji. Po przypisaniu zarządzanej tożsamości do aplikacji sieci Web, platforma Azure bierze pod uwagę tworzenie i dystrybucję certyfikatu. Osoby nie muszą martwić się o zarządzanie wpisami tajnymi lub poświadczeniami aplikacji.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -87,7 +88,7 @@ Aby utworzyć konto magazynu ogólnego przeznaczenia w wersji 2 w Azure Portal, 
 
 1. Wybierz pozycję **Przejrzyj i utwórz**, aby przejrzeć ustawienia konta magazynu i utworzyć konto.
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 Aby utworzyć kontener Blob Storage w usłudze Azure Storage, wykonaj następujące kroki.
 
@@ -211,6 +212,8 @@ az role assignment create --assignee $spID --role 'Storage Blob Data Contributor
 
 Klasa [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) jest używana do uzyskiwania poświadczeń tokenu dla kodu w celu autoryzowania żądań do usługi Azure Storage. Utwórz wystąpienie klasy [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) , która używa tożsamości zarządzanej do pobierania tokenów i dołączania ich do klienta usługi. Poniższy przykład kodu Pobiera poświadczenia uwierzytelnionego tokenu i używa go do utworzenia obiektu klienta usługi, który przekazuje nowy obiekt BLOB.
 
+Aby wyświetlić ten kod jako część przykładowej aplikacji, zobacz [przykład w witrynie GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/1-WebApp-storage-managed-identity).
+
 ### <a name="install-client-library-packages"></a>Zainstaluj pakiety biblioteki klienta
 
 Zainstaluj [pakiet nuget BLOB Storage](https://www.nuget.org/packages/Azure.Storage.Blobs/) , aby współpracował z BLOB Storage i [biblioteką klienta usługi Azure Identity dla platformy .NET na potrzeby](https://www.nuget.org/packages/Azure.Identity/) uwierzytelniania przy użyciu poświadczeń usługi Azure AD. Zainstaluj biblioteki klienckie przy użyciu interfejsu wiersza polecenia platformy .NET Core lub konsoli Menedżera pakietów w programie Visual Studio.
@@ -285,7 +288,7 @@ static public async Task UploadBlob(string accountName, string containerName, st
 }
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli skończysz pracę z tym samouczkiem i nie potrzebujesz już aplikacji sieci Web ani skojarzonych zasobów, [Wyczyść utworzone zasoby](scenario-secure-app-clean-up-resources.md).
 

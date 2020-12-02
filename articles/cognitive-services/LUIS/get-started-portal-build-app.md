@@ -4,34 +4,34 @@ description: W tym przewodniku szybki start utworzysz podstawowe elementy aplika
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/19/2020
-ms.openlocfilehash: 74866c65111fae9e6fb3b79d9b59819b14b03c16
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 11/30/2020
+ms.openlocfilehash: a5443dce9fc8bc028232f66f45b537a46858f35a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131476"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436678"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Szybki Start: Tworzenie nowej aplikacji w portalu LUIS
 
-W tym przewodniku szybki start utworzysz nową aplikację w portalu LUIS. Najpierw Utwórz podstawowe elementy aplikacji, **intencje** i **jednostki** . Następnie przetestuj aplikację, dostarczając przykładowej wypowiedź użytkownika w panelu testów interakcyjnych w celu uzyskania przewidywanych zamierzeń.
+W tym przewodniku szybki start utworzysz nową aplikację w portalu LUIS. Najpierw Utwórz podstawowe elementy aplikacji, **intencje** i **jednostki**. Następnie przetestuj aplikację, dostarczając przykładowej wypowiedź użytkownika w panelu testów interakcyjnych w celu uzyskania przewidywanych zamierzeń.
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
 ## <a name="create-an-app"></a>Tworzenie aplikacji
 
-Aby utworzyć aplikację, kliknij pozycję  **+ Nowa aplikacja** . 
+Aby utworzyć aplikację, wybierz pozycję **+ Nowa aplikacja**. 
 
 W wyświetlonym oknie wprowadź następujące informacje:
 
 |Nazwa  |Opis  |
 |---------|---------|
-|Nazwa     | Nazwa aplikacji. Na przykład "Automatyzacja domu". Wymagane.        |
+|Nazwa     | Nazwa aplikacji. Na przykład "Automatyzacja główna". Wymagane.        |
 |Kultura     | Język, który aplikacja rozpoznaje i mówi. Wymagane.   |
 |Opis | Opis aplikacji. Opcjonalny.
 |Zasób predykcyjny | Zasób predykcyjny, który będzie odbierać zapytania. Opcjonalny. |
 
-Wybierz pozycję **Gotowe** .
+Kliknij **Gotowe**.
 
 >[!NOTE]
 >Kultury nie można zmienić po utworzeniu aplikacji.
@@ -53,17 +53,17 @@ Dwie różne _intencje_ dotyczące aplikacji są wyrównane do następujących i
 
 Aby utworzyć intencje, wykonaj następujące czynności:
 
-1. Po utworzeniu aplikacji upewnij się, że jesteś na stronie **intencje** w sekcji **kompilacja** . Wybierz pozycję **Utwórz** .
+1. Po utworzeniu aplikacji upewnij się, że jesteś na stronie **intencje** w sekcji **kompilacja** . Wybierz pozycję **Utwórz**.
 
    [![Zrzut ekranu przedstawiający Wybieranie opcji "Utwórz", aby utworzyć nowy cel](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
-1. Wprowadź nazwę celu, `FindForm` a następnie wybierz pozycję **gotowe** .
+1. Wprowadź nazwę celu, `FindForm` a następnie wybierz pozycję **gotowe**.
 
 ## <a name="add-an-example-utterance"></a>Dodawanie przykładu wypowiedź
 
 Po utworzeniu zamiarów należy dodać przykład wyrażenia długości. Przykład wyrażenia długości jest tekstem, który użytkownik wprowadza w programie Chat bot lub innej aplikacji klienckiej. Umożliwiają one mapowanie zamiaru tekstu użytkownika na LUIS zamiar. Na potrzeby tego przykładowej aplikacji `FindForm` Przykładowa wyrażenia długości będzie zawierać numer formularza. Aplikacja kliencka wymaga, aby numer formularza spełniał żądanie użytkownika, więc należy go uwzględnić w wypowiedź.
 
-Na stronie **intencje** w programie `FindForm` Dodaj następujący przykład wyrażenia długości w obszarze **przykład wypowiedź** , 
+Na stronie **intencje** w programie `FindForm` Dodaj następujący przykład wyrażenia długości w obszarze **przykład wypowiedź**, 
 
 |#|Przykładowe wypowiedzi|
 |--|--|
@@ -102,7 +102,7 @@ Aby zwrócić numer formularza w odpowiedzi przewidywania czasu wykonywania, nal
 
 1. Wprowadź nazwę `FormNumber` , wybierz typ jednostki **wyrażenia regularnego** .
 
-1. Wprowadź wyrażenie regularne `hrf-[0-9]{6}` w polu **wyrażenie** regularne. Ten wpis jest zgodny ze znakami literału, `hrf-` i zezwala na dokładnie sześć cyfr, a następnie wybierz pozycję **Utwórz** .
+1. Wprowadź wyrażenie regularne `hrf-[0-9]{6}` w polu **wyrażenie** regularne. Ten wpis jest zgodny ze znakami literału, `hrf-` i zezwala na dokładnie sześć cyfr, a następnie wybierz pozycję **Utwórz**.
 
     > [!div class="mx-imgBorder"]
     > ![Zrzut ekranu przedstawiający tworzenie jednostki wyrażenia regularnego](./media/get-started-portal-build-app/create-regular-expression-entity.png)

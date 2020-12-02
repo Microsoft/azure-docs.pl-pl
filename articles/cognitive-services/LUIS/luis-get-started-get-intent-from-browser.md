@@ -1,18 +1,18 @@
 ---
-title: 'Szybki Start: zapytanie o prognozowanie za pomocą przeglądarki LUIS'
-description: W tym przewodniku szybki start Użyj dostępnej publicznej aplikacji LUIS, aby określić zamiar użytkownika w przeglądarce.
+title: Jak wykonywać zapytania dotyczące prognoz przy użyciu przeglądarki — LUIS
+description: W tym artykule Użyj dostępnej publicznej aplikacji LUIS, aby określić zamiar użytkownika w przeglądarce.
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: quickstart
-ms.date: 04/21/2020
-ms.openlocfilehash: ce7544bee32586aa4cdeeb7f47a84744194db5da
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.topic: conceptual
+ms.date: 11/30/2020
+ms.openlocfilehash: 6aa681c8ea60cb57ac3e6d143c60cc46bc057719
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91316277"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436916"
 ---
-# <a name="quickstart-query-prediction-runtime-with-user-text"></a>Szybki Start: badanie prognoz środowiska uruchomieniowego z tekstem użytkownika
+# <a name="how-to-query-the-prediction-runtime-with-user-text"></a>Jak wykonać zapytanie o środowisko uruchomieniowe przewidywania z tekstem użytkownika
 
 Aby zrozumieć, co zwraca punkt końcowy przewidywania usługi LUIS, wyświetl wynik przewidywania w przeglądarce internetowej.
 
@@ -171,7 +171,7 @@ Aby można było wykonywać zapytania dotyczące aplikacji publicznej, potrzebne
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na następujące tematy:
+Dowiedz się więcej:
 * [Punkt końcowy przewidywania v3](luis-migration-api-v3.md)
 * [Niestandardowe poddomeny](../cognitive-services-custom-subdomains.md)
 

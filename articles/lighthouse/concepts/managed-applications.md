@@ -3,12 +3,12 @@ title: Usługa Azure Lighthouse i aplikacje zarządzane na platformie Azure
 description: Dowiedz się, w jaki sposób usługa Azure Lighthouse i aplikacje zarządzane przez platformę Azure mogą pomóc w różnych scenariuszach i sposobach ich użycia.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 144917716da38cc99078f663cc2f4cb8ba0199c8
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b3d6c83a50f1da006f2618f7f4ff59759dac2555
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014991"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436525"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Usługa Azure Lighthouse i aplikacje zarządzane na platformie Azure
 
@@ -35,7 +35,7 @@ W aplikacji zarządzanej zasoby używane przez aplikację są powiązane ze sob�
 
 Aplikacje zarządzane obsługują [niestandardowe środowiska Azure Portal](../../azure-resource-manager/managed-applications/concepts-view-definition.md) i [integrację z dostawcami niestandardowymi](../../azure-resource-manager/managed-applications/tutorial-create-managed-app-with-custom-provider.md). Te opcje mogą służyć do zapewnienia bardziej dostosowanego i zintegrowanego środowiska, ułatwiając klientom wykonywanie pewnych zadań związanych z zarządzaniem.
 
-Aplikacje zarządzane można [publikować w witrynie Azure Marketplace](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)jako prywatna oferta do użycia przez określonego klienta lub jako publiczna oferta, którą wielu klientów może zakupić. Mogą być również dostarczane do użytkowników w organizacji, [publikując aplikacje zarządzane w katalogu usług](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md). Można wdrożyć zarówno katalog usług, jak i wystąpienia witryny Marketplace przy użyciu szablonów ARM, które mogą obejmować unikatowy identyfikator partnera portalu Marketplace w celu śledzenia [przypisywania użycia klientów](../../marketplace/azure-partner-customer-usage-attribution.md).
+Aplikacje zarządzane można [publikować w witrynie Azure Marketplace](../../marketplace/create-new-azure-apps-offer.md)jako prywatna oferta do użycia przez określonego klienta lub jako publiczna oferta, którą wielu klientów może zakupić. Mogą być również dostarczane do użytkowników w organizacji, [publikując aplikacje zarządzane w katalogu usług](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md). Można wdrożyć zarówno katalog usług, jak i wystąpienia witryny Marketplace przy użyciu szablonów ARM, które mogą obejmować unikatowy identyfikator partnera portalu Marketplace w celu śledzenia [przypisywania użycia klientów](../../marketplace/azure-partner-customer-usage-attribution.md).
 
 Aplikacje zarządzane platformy Azure są zwykle używane w przypadku konkretnego klienta, który można uzyskać za pomocą rozwiązania gotowe, które jest w pełni zarządzane przez dostawcę usług.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
-ms.openlocfilehash: 647256949d1f8f13439a0a5db87f3b02d697d32b
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: 20d38e5caee67ca8bb13877d3162401fa245dc2d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95318137"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444782"
 ---
 # <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>Włącz Azure Monitor dla maszyn wirtualnych kondycję gościa (wersja zapoznawcza)
 Azure Monitor dla maszyn wirtualnych kondycja gościa umożliwia wyświetlanie kondycji maszyny wirtualnej zdefiniowanej przez zestaw pomiarów wydajności, które są próbkowane w regularnych odstępach czasu. W tym artykule opisano, jak włączyć tę funkcję w ramach subskrypcji i jak włączyć monitorowanie Gości dla każdej maszyny wirtualnej.
@@ -87,7 +87,7 @@ Aby włączyć maszyny wirtualne przy użyciu Azure Resource Manager, należy wy
 > [!NOTE]
 > W przypadku włączenia maszyny wirtualnej przy użyciu Azure Portal zostanie utworzona opisana tutaj Reguła zbierania danych. W takim przypadku nie trzeba wykonywać tego kroku.
 
-Konfiguracja monitorów w Azure Monitor dla maszyn wirtualnych kondycji gościa jest przechowywana w [zasadach zbierania danych (DCR)](../platform/data-collection-rule-overview.md). Zainstaluj regułę zbierania danych zdefiniowaną w szablonie Menedżer zasobów poniżej, aby włączyć wszystkie monitory dla maszyn wirtualnych z rozszerzeniem kondycji gościa. Każda maszyna wirtualna z rozszerzeniem kondycji gościa będzie potrzebować skojarzenia z tą regułą.
+Konfiguracja monitorów w Azure Monitor dla maszyn wirtualnych kondycji gościa jest przechowywana w [zasadach zbierania danych (DCR)](../platform/data-collection-rule-overview.md). Każda maszyna wirtualna z rozszerzeniem kondycji gościa będzie potrzebować skojarzenia z tą regułą.
 
 > [!NOTE]
 > Można utworzyć dodatkowe reguły zbierania danych w celu zmodyfikowania konfiguracji domyślnej monitorów zgodnie z opisem w temacie [konfigurowanie monitorowania w Azure monitor dla maszyn wirtualnych kondycja gościa (wersja zapoznawcza)](vminsights-health-configure.md).
@@ -115,7 +115,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
 
 ---
 
-
+Reguła zbierania danych zdefiniowana w szablonie Menedżer zasobów poniżej włącza wszystkie monitory dla maszyn wirtualnych z rozszerzeniem kondycji gościa. Musi zawierać źródła danych dla każdego z liczników wydajności używanych przez monitory.
 
 ```json
 {
@@ -138,7 +138,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
     "dataCollectionRuleLocation": {
       "type": "string",
       "metadata": {
-        "description": "The location code in which the data colleciton rule should be deployed. Examples: eastus, westeurope, etc"
+        "description": "The location code in which the data collection rule should be deployed. Examples: eastus, westeurope, etc"
       }
     }
   },
@@ -151,6 +151,19 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
       "properties": {
         "description": "Data collection rule for VM Insights health.",
         "dataSources": {
+          "performanceCounters": [
+              {
+                  "name": "VMHealthPerfCounters",
+                  "streams": [ "Microsoft-Perf" ],
+                  "scheduledTransferPeriod": "PT1M",
+                  "samplingFrequencyInSeconds": 60,
+                  "counterSpecifiers": [
+                      "\\LogicalDisk(*)\\% Free Space",
+                      "\\Memory\\Available Bytes",
+                      "\\Processor(_Total)\\% Processor Time"
+                  ]
+              }
+          ],
           "extensions": [
             {
               "name": "Microsoft-VMInsights-Health",
@@ -170,7 +183,11 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
                     }
                   }
                 ]
-              }
+              },
+              "inputDataSources": [
+                  "VMHealthPerfCounters"
+              ]
+
             }
           ]
         },
@@ -181,7 +198,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
               "name": "Microsoft-HealthStateChange-Dest"
             }
           ]
-        },
+        },                  
         "dataFlows": [
           {
             "streams": [
@@ -205,7 +222,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "healthDataCollectionRuleResourceId": {
+      "destinationWorkspaceResourceId": {
         "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace"
       },
       "dataCollectionRuleLocation": {
@@ -217,7 +234,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
 
 
 
-## <a name="install-guest-health-extension-and-associate-with-data-collection-rule"></a>Instalowanie rozszerzenia kondycji gościa i kojarzenie z regułą zbierania danych
+### <a name="install-guest-health-extension-and-associate-with-data-collection-rule"></a>Instalowanie rozszerzenia kondycji gościa i kojarzenie z regułą zbierania danych
 Aby włączyć maszynę wirtualną dla kondycji gościa, użyj następującego szablonu Menedżer zasobów. Spowoduje to zainstalowanie rozszerzenia kondycji gościa i utworzenie skojarzenia z regułą zbierania danych. Ten szablon można wdrożyć przy użyciu dowolnej [metody wdrażania dla szablonów Menedżer zasobów](../../azure-resource-manager/templates/deploy-powershell.md).
 
 
@@ -370,9 +387,6 @@ az deployment group create --name GuestHealthDeployment --resource-group my-reso
       },
       "healthDataCollectionRuleResourceId": {
         "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Insights/dataCollectionRules/Microsoft-VMInsights-Health"
-      },
-      "healthExtensionVersion": {
-        "value": "private-preview"
       }
   }
 }

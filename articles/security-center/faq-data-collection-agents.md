@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 2ea9fdcb11bd88755c0972fa166d1d94068ce60e
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: 64fa6c72e3bc37276dd108e3981bbefb5a2021a7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638818"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444529"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Często zadawane pytania — pytania dotyczące zbierania danych, agentów i obszarów roboczych
 
@@ -86,12 +86,12 @@ Lokalizacja domyślnego obszaru roboczego zależy od regionu platformy Azure:
 - W przypadku maszyn wirtualnych w Australii lokalizacją obszaru roboczego jest Australia
 
 
-## <a name="what-data-is-collected-by-the-log-analytics-agent"></a>Jakie dane są zbierane przez agenta Log Analytics?
+## <a name="what-security-events-are-collected-by-the-log-analytics-agent"></a>Jakie zdarzenia zabezpieczeń są zbierane przez agenta Log Analytics?
 
-Aby uzyskać pełną listę aplikacji i usług monitorowanych przez agenta, zobacz [co to jest monitorowane przez Azure monitor?](../azure-monitor/monitor-reference.md#azure-services).
+Aby zapoznać się z pełną listą zdarzeń zabezpieczeń zebranych przez agenta, zobacz, [jakie typy zdarzeń są przechowywane dla ustawień "typowe" i "minimalne" zdarzeń zabezpieczeń?](security-center-enable-data-collection.md#what-event-types-are-stored-for-common-and-minimal).
 
 > [!IMPORTANT]
-> Należy pamiętać, że w przypadku niektórych usług, takich jak Zapora platformy Azure, jeśli włączono rejestrowanie i wybrano zasób z czatem do zarejestrowania (na przykład ustawienie dziennika na *pełne* ) może zostać wyświetlony znaczący wpływ na potrzeby magazynu log Analytics obszaru roboczego. 
+> Należy pamiętać, że w przypadku niektórych usług, takich jak Zapora platformy Azure, jeśli włączono rejestrowanie i wybrano zasób z czatem do zarejestrowania (na przykład ustawienie dziennika na *pełne*) może zostać wyświetlony znaczący wpływ na potrzeby magazynu log Analytics obszaru roboczego. 
 
 
 ## <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Czy mogę usunąć domyślne obszary robocze utworzone przez Security Center?
@@ -250,7 +250,7 @@ Jeśli ta funkcja została włączona, ale teraz chcesz ją wyłączyć:
 
 ## <a name="how-do-i-enable-data-collection"></a>Jak mogę włączyć zbieranie danych?
 
-Zbieranie danych dla subskrypcji platformy Azure można włączyć w zasadach zabezpieczeń. Aby włączyć zbieranie danych. [Zaloguj się do Azure Portal](https://portal.azure.com), wybierz pozycję **Przeglądaj** , wybierz pozycję **Security Center** , a następnie wybierz pozycję **zasady zabezpieczeń**. Wybierz subskrypcję, dla której chcesz włączyć automatyczną obsługę administracyjną. Po wybraniu zasad zabezpieczeń subskrypcji zostanie otwarte **zbieranie danych** . W obszarze **autoinicjowanie obsługi** wybierz pozycję **włączone**.
+Zbieranie danych dla subskrypcji platformy Azure można włączyć w zasadach zabezpieczeń. Aby włączyć zbieranie danych. [Zaloguj się do Azure Portal](https://portal.azure.com), wybierz pozycję **Przeglądaj**, wybierz pozycję **Security Center**, a następnie wybierz pozycję **zasady zabezpieczeń**. Wybierz subskrypcję, dla której chcesz włączyć automatyczną obsługę administracyjną. Po wybraniu zasad zabezpieczeń subskrypcji zostanie otwarte **zbieranie danych** . W obszarze **autoinicjowanie obsługi** wybierz pozycję **włączone**.
 
 
 ## <a name="what-happens-when-data-collection-is-enabled"></a>Co się stanie, gdy zbieranie danych jest włączone?

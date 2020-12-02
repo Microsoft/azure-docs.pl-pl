@@ -8,12 +8,12 @@ ms.author: kgremban
 ms.date: 3/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 1883ffdff20bbbef8efec1440854f01a21a281dc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2ae6d46198d979f91de5bf31d389f75961b4ab88
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994523"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437171"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Użyj programu Visual Studio 2019 do tworzenia i debugowania modułów dla Azure IoT Edge
 
@@ -32,7 +32,7 @@ W tym artykule pokazano, jak za pomocą narzędzi Azure IoT Edge Tools for Visua
 
 W tym artykule przyjęto założenie, że używasz komputera lub maszyny wirtualnej z systemem Windows jako komputera deweloperskiego. Na komputerach z systemem Windows można opracowywać moduły systemu Windows lub Linux. Aby opracowywać moduły systemu Windows, należy użyć komputera z systemem Windows w wersji 1809/Build 17763 lub nowszej. Aby utworzyć moduły systemu Linux, należy użyć komputera z systemem Windows, który spełnia [wymagania programu Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
-Ponieważ ten artykuł używa programu Visual Studio 2019 jako głównego narzędzia deweloperskiego, zainstaluj program Visual Studio. Upewnij się, że w instalacji programu Visual Studio 2019 zawarto projektowanie i programowanie na **platformie Azure** **przy użyciu obciążeń języka C++** . Aby dodać wymagane obciążenia, można [zmodyfikować program Visual Studio 2019](/visualstudio/install/modify-visual-studio?view=vs-2019) .
+Ponieważ ten artykuł używa programu Visual Studio 2019 jako głównego narzędzia deweloperskiego, zainstaluj program Visual Studio. Upewnij się, że w instalacji programu Visual Studio 2019 zawarto projektowanie i programowanie na **platformie Azure** **przy użyciu obciążeń języka C++** . Aby dodać wymagane obciążenia, można [zmodyfikować program Visual Studio 2019](/visualstudio/install/modify-visual-studio?view=vs-2019&preserve-view=true) .
 
 Po przygotowaniu programu Visual Studio 2019 potrzebne są również następujące narzędzia i składniki:
 

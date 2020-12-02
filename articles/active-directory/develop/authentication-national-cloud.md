@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: negoe
-ms.reviewer: negoe,celested
+ms.reviewer: marsma, negoe,celested
 ms.custom: aaddev,references_regions
-ms.openlocfilehash: d27498748f03fb101d165351ec80c77d57f78f1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da1ea6462d22242d23629bcec192d7760314dfed
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88141503"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444802"
 ---
 # <a name="national-clouds"></a>Chmury narodowe
 
@@ -60,8 +60,8 @@ W poniższej tabeli przedstawiono podstawowe adresy URL dla punktów końcowych 
 
 Możesz tworzyć żądania do autoryzacji usługi Azure AD lub punktów końcowych tokenu przy użyciu odpowiedniego podstawowego adresu URL specyficznego dla regionu. Na przykład w przypadku platformy Azure (Niemcy):
 
-  - Wspólny punkt końcowy autoryzacji to `https://login.microsoftonline.de/common/oauth2/v2.0/authorize` .
-  - Wspólny punkt końcowy tokenu to `https://login.microsoftonline.de/common/oauth2/v2.0/token` .
+- Wspólny punkt końcowy autoryzacji to `https://login.microsoftonline.de/common/oauth2/v2.0/authorize` .
+- Wspólny punkt końcowy tokenu to `https://login.microsoftonline.de/common/oauth2/v2.0/token` .
 
 W przypadku aplikacji z jedną dzierżawą Zastąp wartość "Common" w poprzednich adresach URL IDENTYFIKATORem dzierżawy lub nazwą. Może to być na przykład `https://login.microsoftonline.de/contoso.com`.
 
@@ -76,9 +76,10 @@ Aby dowiedzieć się, jak utworzyć aplikację za pomocą platformy tożsamości
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na następujące tematy:
+Dowiedz się, jak używać [biblioteki Microsoft Authentication Library (MSAL) w środowisku chmury krajowej](msal-national-cloud.md).
+
+Dokumentacja chmury krajowej:
 
 - [Azure Government](../../azure-government/index.yml)
 - [Azure w Chinach — 21Vianet](/azure/china/)
 - [Azure (Niemcy)](../../germany/index.yml)
-- [Podstawowe informacje dotyczące uwierzytelniania usługi Azure AD](./authentication-vs-authorization.md)
