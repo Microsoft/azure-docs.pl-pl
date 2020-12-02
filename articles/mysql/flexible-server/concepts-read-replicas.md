@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: ae73885016a40cd3cf79de968ca7c07c51f1400a
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 3fe63deb8115c0043023301c6d0dc3731e97743f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94336067"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492629"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql---flexible-server"></a>Odczytywanie replik na serwerze elastycznym Azure Database for MySQL
 
@@ -55,7 +55,7 @@ Jeśli serwer źródłowy nie ma istniejących serwerów repliki, źródło zost
 Po uruchomieniu przepływu pracy tworzenia repliki zostanie utworzony pusty serwer Azure Database for MySQL. Nowy serwer jest wypełniony danymi znajdującymi się na serwerze źródłowym. Czas utworzenia zależy od ilości danych w źródle oraz czasu od ostatniego cotygodniowej pełnej kopii zapasowej. Czas może się wahać od kilku minut do kilku godzin.
 
 > [!NOTE]
-> Repliki odczytu są tworzone z tą samą konfiguracją serwera co źródło. Konfigurację serwera repliki można zmienić po jego utworzeniu. Serwer repliki jest zawsze tworzony w tej samej grupie zasobów, w tej samej lokalizacji i tej samej subskrypcji co serwer źródłowy. Jeśli chcesz utworzyć serwer repliki w innej grupie zasobów lub innej subskrypcji, możesz [przenieść serwer repliki](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) po utworzeniu. Zaleca się, aby konfiguracja serwera repliki była utrzymywana z równymi lub większymi wartościami niż źródło, aby upewnić się, że replika jest w stanie zachować ze źródłem.
+> Repliki odczytu są tworzone z tą samą konfiguracją serwera co źródło. Konfigurację serwera repliki można zmienić po jego utworzeniu. Serwer repliki jest zawsze tworzony w tej samej grupie zasobów, w tej samej lokalizacji i tej samej subskrypcji co serwer źródłowy. Jeśli chcesz utworzyć serwer repliki w innej grupie zasobów lub innej subskrypcji, możesz [przenieść serwer repliki](../../azure-resource-manager/management/move-resource-group-and-subscription.md) po utworzeniu. Zaleca się, aby konfiguracja serwera repliki była utrzymywana z równymi lub większymi wartościami niż źródło, aby upewnić się, że replika jest w stanie zachować ze źródłem.
 
 Dowiedz się [, jak utworzyć replikę odczytu w Azure Portal](how-to-read-replicas-portal.md).
 

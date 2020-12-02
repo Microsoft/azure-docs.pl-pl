@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: a49dbdace01396656c3114df0bc0d4589aff57c1
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 5a35d939c12639770e25c3096c77f13d31310f85
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916495"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492016"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Rozwiązywanie problemów z wydajnością udziałów plików platformy Azure
 
@@ -196,7 +196,7 @@ Ostatnie zmiany ustawień konfiguracji wielokanałowego protokołu SMB bez ponow
 
 ### <a name="cause"></a>Przyczyna  
 
-Powiadomienia o zmianach plików o dużej liczbie w udziałach plików mogą powodować znaczne duże opóźnienia. Zwykle jest to wykonywane w przypadku witryn sieci Web hostowanych w udziałach plików z głębokiej zagnieżdżonej struktury katalogów. Typowym scenariuszem jest hostowana aplikacja sieci Web IIS, w której jest skonfigurowane powiadomienie o zmianie pliku dla każdego katalogu w konfiguracji domyślnej. Każda zmiana ([ReadDirectoryChangesW](https://docs.microsoft.com/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) w udziale, który jest zarejestrowany przez klienta SMB do wypychania powiadomienia o zmianach z usługi plików do klienta, który pobiera zasoby systemowe, i występuje problem z liczbą zmian. Może to spowodować ograniczenie przepustowości i w związku z tym spowodować większe opóźnienia po stronie klienta. 
+Powiadomienia o zmianach plików o dużej liczbie w udziałach plików mogą powodować znaczne duże opóźnienia. Zwykle jest to wykonywane w przypadku witryn sieci Web hostowanych w udziałach plików z głębokiej zagnieżdżonej struktury katalogów. Typowym scenariuszem jest hostowana aplikacja sieci Web IIS, w której jest skonfigurowane powiadomienie o zmianie pliku dla każdego katalogu w konfiguracji domyślnej. Każda zmiana ([ReadDirectoryChangesW](/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) w udziale, który jest zarejestrowany przez klienta SMB do wypychania powiadomienia o zmianach z usługi plików do klienta, który pobiera zasoby systemowe, i występuje problem z liczbą zmian. Może to spowodować ograniczenie przepustowości i w związku z tym spowodować większe opóźnienia po stronie klienta. 
 
 Aby potwierdzić, możesz użyć metryk platformy Azure w portalu — 
 
@@ -284,7 +284,7 @@ Aby dowiedzieć się więcej o konfigurowaniu alertów w Azure Monitor, zobacz [
 
 Aby dowiedzieć się więcej o konfigurowaniu alertów w Azure Monitor, zobacz [Omówienie alertów w Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 - [Rozwiązywanie problemów Azure Files w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md)  
 - [Rozwiązywanie problemów Azure Files w systemie Linux](storage-troubleshoot-linux-file-connection-problems.md)  
 - [Często zadawane pytania dotyczące usługi Azure Files](storage-files-faq.md)

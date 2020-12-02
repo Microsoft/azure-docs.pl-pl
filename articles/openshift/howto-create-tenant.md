@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: e949f1ac5259ba35772ce98c2ee88e5ea66c2d84
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: b57bafdc3f4748bf634955334424941b55e02fd8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221166"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492373"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Tworzenie dzierżawy usługi Azure AD na platformie Azure Red Hat OpenShift
 
@@ -21,7 +21,7 @@ ms.locfileid: "92221166"
 > Postępuj zgodnie z tym przewodnikiem, aby [utworzyć klaster usługi Azure Red Hat OpenShift 4](tutorial-create-cluster.md).
 > Jeśli masz określone pytania, [skontaktuj się z nami](mailto:arofeedback@microsoft.com).
 
-Microsoft Azure Red Hat OpenShift wymaga dzierżawy [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) , w której ma zostać utworzony klaster. *Dzierżawca* to dedykowane wystąpienie usługi Azure AD, które otrzymuje organizacja lub Deweloper aplikacji podczas tworzenia relacji z firmą Microsoft, rejestrując się na platformie Azure, Microsoft Intune lub Microsoft 365. Każda dzierżawa usługi Azure AD jest odrębna i oddzielona od innych dzierżaw usługi Azure AD i ma własne tożsamości służbowe i rejestracje aplikacji.
+Microsoft Azure Red Hat OpenShift wymaga dzierżawy [Azure Active Directory (Azure AD)](../active-directory/develop/quickstart-create-new-tenant.md) , w której ma zostać utworzony klaster. *Dzierżawca* to dedykowane wystąpienie usługi Azure AD, które otrzymuje organizacja lub Deweloper aplikacji podczas tworzenia relacji z firmą Microsoft, rejestrując się na platformie Azure, Microsoft Intune lub Microsoft 365. Każda dzierżawa usługi Azure AD jest odrębna i oddzielona od innych dzierżaw usługi Azure AD i ma własne tożsamości służbowe i rejestracje aplikacji.
 
 Jeśli nie masz jeszcze dzierżawy usługi Azure AD, postępuj zgodnie z poniższymi instrukcjami, aby je utworzyć.
 

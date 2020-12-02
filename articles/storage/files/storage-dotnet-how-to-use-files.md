@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0196330df01f98e216c39bcc689eac2bde2f4cd9
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: e112060db4a44884d3094a939b03ff106ba72e65
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629346"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492203"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Tworzenie oprogramowania dla usługi Azure Files przy użyciu platformy .NET
 
@@ -67,10 +67,10 @@ Zapoznaj się z tymi pakietami w projekcie:
 - [Biblioteka kliencka plików usługi Azure Storage dla platformy .NET](https://www.nuget.org/packages/Azure.Storage.Files.Shares/): Ten pakiet zapewnia programistyczny dostęp do zasobów plików na koncie magazynu.
 - [Biblioteka Configuration Manager systemu dla platformy .NET](https://www.nuget.org/packages/System.Configuration.ConfigurationManager/): Ten pakiet udostępnia klasę przechowującą i pobierającą wartości w pliku konfiguracji.
 
-Aby uzyskać pakiety, można użyć narzędzia NuGet. Wykonaj następujące czynności:
+Aby uzyskać pakiety, można użyć narzędzia NuGet. Wykonaj następujące kroki:
 
 1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Zarządzaj pakietami NuGet**.
-1. W **Menedżerze pakietów NuGet** wybierz pozycję **Przeglądaj**. Następnie wyszukaj i wybierz pozycję **Azure. Core** , a następnie wybierz pozycję **Zainstaluj**.
+1. W **Menedżerze pakietów NuGet** wybierz pozycję **Przeglądaj**. Następnie wyszukaj i wybierz pozycję **Azure. Core**, a następnie wybierz pozycję **Zainstaluj**.
 
    Ten krok powoduje zainstalowanie pakietu wraz z jego zależnościami.
 
@@ -87,10 +87,10 @@ Aby uzyskać pakiety, można użyć narzędzia NuGet. Wykonaj następujące czyn
 - [Biblioteka plików Microsoft Azure Storage dla platformy .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/): Ten pakiet zapewnia programistyczny dostęp do zasobów plików na koncie magazynu.
 - [Microsoft Azure Configuration Manager Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): Ten pakiet zawiera klasę do analizowania parametrów połączenia w pliku konfiguracji, wszędzie tam, gdzie aplikacja jest uruchomiona.
 
-Aby uzyskać pakiety, można użyć narzędzia NuGet. Wykonaj następujące czynności:
+Aby uzyskać pakiety, można użyć narzędzia NuGet. Wykonaj następujące kroki:
 
 1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Zarządzaj pakietami NuGet**.
-1. W **Menedżerze pakietów NuGet** wybierz pozycję **Przeglądaj**. Następnie wyszukaj i wybierz pozycję **Microsoft. Azure. Storage. blob** , a następnie wybierz pozycję **Zainstaluj**.
+1. W **Menedżerze pakietów NuGet** wybierz pozycję **Przeglądaj**. Następnie wyszukaj i wybierz pozycję **Microsoft. Azure. Storage. blob**, a następnie wybierz pozycję **Zainstaluj**.
 
    Ten krok powoduje zainstalowanie pakietu wraz z jego zależnościami.
 1. Wyszukaj i Zainstaluj następujące pakiety:
@@ -316,7 +316,7 @@ Aby uzyskać więcej informacji na temat tworzenia i używania sygnatur dostępu
 
 Począwszy od wersji 5. x biblioteki klienta Azure Files, można skopiować plik do innego pliku, pliku do obiektu BLOB lub obiektu BLOB do pliku.
 
-Można również użyć AzCopy do kopiowania jednego pliku do innego lub kopiowania obiektu BLOB do pliku lub w inny sposób. Zobacz Rozpoczynanie [pracy z usługą AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
+Można również użyć AzCopy do kopiowania jednego pliku do innego lub kopiowania obiektu BLOB do pliku lub w inny sposób. Zobacz Rozpoczynanie [pracy z usługą AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 > [!NOTE]
 > W przypadku kopiowania obiektu blob do pliku lub pliku do obiektu blob konieczne jest autoryzowanie dostępu do obiektu źródłowego za pomocą sygnatury dostępu współdzielonego, nawet jeśli kopiowanie odbywa się w ramach tego samego konta magazynu.
@@ -624,10 +624,10 @@ Aby uzyskać więcej informacji na temat Azure Files, zobacz następujące zasob
 
 ### <a name="tooling-support-for-file-storage"></a>Narzędzia dostępne dla usługi Magazyn plików
 
-- [Wprowadzenie do narzędzia AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json)
+- [Wprowadzenie do narzędzia AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 - [Rozwiązywanie problemów z usługą Azure Files w systemie Windows](./storage-troubleshoot-windows-file-connection-problems.md)
 
-### <a name="reference"></a>Dokumentacja
+### <a name="reference"></a>Odwołanie
 
 - [Interfejsy API usługi Azure Storage dla platformy .NET](/dotnet/api/overview/azure/storage)
 - [Interfejs API REST usługi File (Plik)](/rest/api/storageservices/File-Service-REST-API)

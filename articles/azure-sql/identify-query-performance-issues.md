@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: troubleshooting
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnick, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: ce5bf86073b2c478108e264010bb3c213c214368
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6ea17f04538e3444b1baddaa8862add2cfbbaa9c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791753"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493427"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Wykrywalne typy wąskich gardeł wydajności zapytań w usłudze Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -27,7 +27,7 @@ Aby wykryć te typy wąskich gardeł wydajności, można użyć Azure SQL Databa
 
 ![Stany obciążeń](./media/identify-query-performance-issues/workload-states.png)
 
-**Problemy związane z uruchamianiem** : problemy związane z działaniem są zwykle związane z problemami z kompilacją, które wykonują nieoptymalny plan zapytania lub problemy z wykonywaniem związane z niewystarczającymi lub niewykorzystanymi zasobami.
+**Problemy związane z uruchamianiem**: problemy związane z działaniem są zwykle związane z problemami z kompilacją, które wykonują nieoptymalny plan zapytania lub problemy z wykonywaniem związane z niewystarczającymi lub niewykorzystanymi zasobami.
 **Problemy** zależne: problemy związane z oczekiwaniem są zwykle powiązane z:
 
 - Blokady (blokowanie)
@@ -68,7 +68,7 @@ Kilka obejść może rozwiązać problemy związane z PSP. Każde obejście ma p
 
 - Użyj wskazówki dotyczącej ponownej [kompilacji](/sql/t-sql/queries/hints-transact-sql-query) w każdym wykonaniu zapytania. To obejście umożliwia wymianę czasu kompilacji i zwiększenie procesora w celu zapewnienia lepszej jakości planu. `RECOMPILE`Opcja jest często niemożliwa w przypadku obciążeń wymagających dużej przepływności.
 - Użyj [opcji zapytania (Optymalizacja dla...)](/sql/t-sql/queries/hints-transact-sql-query) , aby zastąpić rzeczywistą wartość parametru wartością typowego parametru, która generuje plan, który jest wystarczająco dobry dla większości wartości parametrów. Ta opcja wymaga dobrego poznania optymalnych wartości parametrów i skojarzonych cech planu.
-- Użyj [opcji (Optymalizacja dla NIEznanej)](/sql/t-sql/queries/hints-transact-sql-query) wskazówki, aby zastąpić rzeczywistą wartość parametru, a zamiast tego użyć średniej gęstości wektora. Można to zrobić również, przechwytując wartości parametrów przychodzących w zmiennych lokalnych, a następnie używając zmiennych lokalnych w predykatach zamiast używać samych parametrów. W przypadku tej poprawki średnia gęstość musi być *wystarczająca* .
+- Użyj [opcji (Optymalizacja dla NIEznanej)](/sql/t-sql/queries/hints-transact-sql-query) wskazówki, aby zastąpić rzeczywistą wartość parametru, a zamiast tego użyć średniej gęstości wektora. Można to zrobić również, przechwytując wartości parametrów przychodzących w zmiennych lokalnych, a następnie używając zmiennych lokalnych w predykatach zamiast używać samych parametrów. W przypadku tej poprawki średnia gęstość musi być *wystarczająca*.
 - Wyłącz wykrywanie parametrów, używając wskazówki zapytania [DISABLE_PARAMETER_SNIFFING](/sql/t-sql/queries/hints-transact-sql-query) .
 - Użyj wskazówki zapytania [KEEPFIXEDPLAN](/sql/t-sql/queries/hints-transact-sql-query) , aby uniemożliwić ponowne kompilacje w pamięci podręcznej. W tym rozwiązaniu przyjęto założenie, że jest to ten sam plan, który jest już w pamięci podręcznej. Możesz również wyłączyć automatyczne aktualizacje statystyk, aby zmniejszyć prawdopodobieństwo wykluczenia dobrego planu i skompilowania nowego nieprawidłowego planu.
 - Wymuś planowanie jawnie za pomocą wskazówki zapytania [use plan](/sql/t-sql/queries/hints-transact-sql-query) przez ponowne zapisanie zapytania i dodanie wskazówki w tekście zapytania. Lub ustawić konkretny plan przy użyciu magazynu zapytań lub przez włączenie [dostrajania automatycznego](../azure-sql/database/automatic-tuning-overview.md).
@@ -137,13 +137,13 @@ Jeśli używasz wskazówki RECOMPILE, plan nie zostanie zapisany w pamięci podr
 
 Ponowna kompilacja (lub Nowa kompilacja po wykluczeniu pamięci podręcznej) nadal może skutkować generowaniem planu wykonywania zapytania, który jest identyczny z oryginałem. W przypadku zmiany planu z planu poprzedniego lub oryginalnego te wyjaśnienia mogą być następujące:
 
-- **Zmieniony projekt fizyczny** : na przykład nowo utworzone indeksy bardziej efektywnie obejmują wymagania zapytania. Nowe indeksy mogą być używane w nowej kompilacji, jeśli optymalizator zapytań zdecyduje, że użycie tego nowego indeksu jest bardziej optymalne niż użycie struktury danych, która została pierwotnie wybrana dla pierwszej wersji wykonywania zapytania. Wszelkie zmiany fizyczne obiektów, do których istnieją odwołania, mogą spowodować powstanie nowego planu w czasie kompilacji.
+- **Zmieniony projekt fizyczny**: na przykład nowo utworzone indeksy bardziej efektywnie obejmują wymagania zapytania. Nowe indeksy mogą być używane w nowej kompilacji, jeśli optymalizator zapytań zdecyduje, że użycie tego nowego indeksu jest bardziej optymalne niż użycie struktury danych, która została pierwotnie wybrana dla pierwszej wersji wykonywania zapytania. Wszelkie zmiany fizyczne obiektów, do których istnieją odwołania, mogą spowodować powstanie nowego planu w czasie kompilacji.
 
-- **Różnice zasobów serwera** : gdy plan w jednym systemie różni się od planu w innym systemie, dostępność zasobów, taka jak liczba dostępnych procesorów, może mieć wpływ na sposób generowania planu. Na przykład jeśli jeden system ma więcej procesorów, można wybrać plan równoległy.
+- **Różnice zasobów serwera**: gdy plan w jednym systemie różni się od planu w innym systemie, dostępność zasobów, taka jak liczba dostępnych procesorów, może mieć wpływ na sposób generowania planu. Na przykład jeśli jeden system ma więcej procesorów, można wybrać plan równoległy.
 
-- **Różne statystyki** : Statystyka skojarzona z obiektami, do których istnieją odwołania, mogła ulec zmianie lub może być istotnie różna od statystyk oryginalnego systemu. W przypadku zmiany statystyk i ponownej kompilacji optymalizator zapytań używa statystyk rozpoczynających się od momentu zmiany. Dane statystyczne i częstotliwości dla zaktualizowanych statystyk mogą się różnić od tych, które zostały oryginalnie skompilowane. Te zmiany są używane do tworzenia oszacowań kardynalności. ( *Oszacowania kardynalności* to liczba wierszy, które powinny przepływać przez drzewo zapytania logicznego). Zmiany w oszacowaniach kardynalności mogą prowadzić do wyboru różnych operatorów fizycznych i skojarzonych z nimi zamówień. Nawet niewielkie zmiany w statystyce mogą spowodować zmianę planu wykonywania zapytania.
+- **Różne statystyki**: Statystyka skojarzona z obiektami, do których istnieją odwołania, mogła ulec zmianie lub może być istotnie różna od statystyk oryginalnego systemu. W przypadku zmiany statystyk i ponownej kompilacji optymalizator zapytań używa statystyk rozpoczynających się od momentu zmiany. Dane statystyczne i częstotliwości dla zaktualizowanych statystyk mogą się różnić od tych, które zostały oryginalnie skompilowane. Te zmiany są używane do tworzenia oszacowań kardynalności. (*Oszacowania kardynalności* to liczba wierszy, które powinny przepływać przez drzewo zapytania logicznego). Zmiany w oszacowaniach kardynalności mogą prowadzić do wyboru różnych operatorów fizycznych i skojarzonych z nimi zamówień. Nawet niewielkie zmiany w statystyce mogą spowodować zmianę planu wykonywania zapytania.
 
-- **Zmieniony poziom zgodności bazy danych lub wersja szacowaniaa Kardynalność** : zmiany poziomu zgodności bazy danych mogą umożliwić nowe strategie i funkcje, które mogą spowodować powstanie innego planu wykonywania zapytań. Poza poziomem zgodności bazy danych wyłączona lub włączona flaga śledzenia 4199 lub zmieniony stan QUERY_OPTIMIZER_HOTFIXES konfiguracji z zakresem bazy danych może również mieć wpływ na Opcje planu wykonywania zapytania w czasie kompilacji. Flagi śledzenia 9481 (Wymuś starszą wersję CE) i 2312 (Wymuś ustawienie domyślne CE) wpływają również na plan.
+- **Zmieniony poziom zgodności bazy danych lub wersja szacowaniaa Kardynalność**: zmiany poziomu zgodności bazy danych mogą umożliwić nowe strategie i funkcje, które mogą spowodować powstanie innego planu wykonywania zapytań. Poza poziomem zgodności bazy danych wyłączona lub włączona flaga śledzenia 4199 lub zmieniony stan QUERY_OPTIMIZER_HOTFIXES konfiguracji z zakresem bazy danych może również mieć wpływ na Opcje planu wykonywania zapytania w czasie kompilacji. Flagi śledzenia 9481 (Wymuś starszą wersję CE) i 2312 (Wymuś ustawienie domyślne CE) wpływają również na plan.
 
 ## <a name="resource-limits-issues"></a>Problemy z ograniczeniami zasobów
 
@@ -173,11 +173,11 @@ Podsumowując, jeśli plan wykonywania zapytania nie został wykonany inaczej, a
 
 Nie zawsze można łatwo zidentyfikować zmiany woluminu obciążenia, który zapewnia problem z procesorem CPU. Należy wziąć pod uwagę następujące czynniki:
 
-- **Zmieniono użycie zasobów** : na przykład Rozważmy scenariusz, w którym użycie procesora CPU wzrosło do 80% przez dłuższy czas. Samo użycie procesora CPU nie oznacza, że wolumin obciążenia został zmieniony. Regresje w planie wykonywania zapytań oraz zmiany w dystrybucji danych mogą również przyczynić się do większej ilości zasobów, nawet jeśli aplikacja wykonuje to samo obciążenie.
+- **Zmieniono użycie zasobów**: na przykład Rozważmy scenariusz, w którym użycie procesora CPU wzrosło do 80% przez dłuższy czas. Samo użycie procesora CPU nie oznacza, że wolumin obciążenia został zmieniony. Regresje w planie wykonywania zapytań oraz zmiany w dystrybucji danych mogą również przyczynić się do większej ilości zasobów, nawet jeśli aplikacja wykonuje to samo obciążenie.
 
-- **Wygląd nowej kwerendy** : aplikacja może uzyskać nowy zestaw zapytań w różnym czasie.
+- **Wygląd nowej kwerendy**: aplikacja może uzyskać nowy zestaw zapytań w różnym czasie.
 
-- **Zwiększenie lub zmniejszenie liczby żądań** : ten scenariusz jest najbardziej oczywistą miarą obciążenia. Liczba zapytań nie zawsze odpowiada większej ilości zasobów. Jednak ten pomiar jest nadal znaczący, przy założeniu, że inne czynniki nie są zmieniane.
+- **Zwiększenie lub zmniejszenie liczby żądań**: ten scenariusz jest najbardziej oczywistą miarą obciążenia. Liczba zapytań nie zawsze odpowiada większej ilości zasobów. Jednak ten pomiar jest nadal znaczący, przy założeniu, że inne czynniki nie są zmieniane.
 
 Użyj Intelligent Insights, aby wykrywać [wzrost obciążeń](database/intelligent-insights-troubleshoot-performance.md#workload-increase) i [planować regresje](database/intelligent-insights-troubleshoot-performance.md#plan-regression).
 
@@ -185,7 +185,7 @@ Użyj Intelligent Insights, aby wykrywać [wzrost obciążeń](database/intellig
 
 Gdy zostanie wyeliminowany nieoptymalny plan i problemy *związane* z uruchamianiem, które są związane z problemami z wykonywaniem, problem z wydajnością zazwyczaj jest oczekiwany w przypadku niektórych zasobów. Problemy zależne mogą być spowodowane przez:
 
-- **Blokowanie** :
+- **Blokowanie**:
 
   Jedno zapytanie może blokować blokowanie obiektów w bazie danych, podczas gdy inne próbują uzyskać dostęp do tych samych obiektów. Można zidentyfikować blokowanie zapytań za pomocą [widoków DMV](database/monitoring-with-dmvs.md#monitoring-blocked-queries) lub [Intelligent Insights](database/intelligent-insights-troubleshoot-performance.md#locking).
 - **Problemy we/wy**

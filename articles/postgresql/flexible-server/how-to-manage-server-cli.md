@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 06341f8630684519a456d5ef89144ae3c0934b23
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 278f8f816909a7e365d7e45d04c5169950e79a65
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423151"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493682"
 ---
 # <a name="manage-an-azure-database-for-postgresql---flexible-server-by-using-the-azure-cli"></a>Zarządzanie serwerem elastycznym Azure Database for PostgreSQL przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -43,7 +43,7 @@ az account set --subscription <subscription id>
 
 ## <a name="scale-compute-and-storage"></a>Skalowanie zasobów obliczeniowych i magazynu
 
-Możesz łatwo skalować warstwę obliczeniową, rdzeni wirtualnych i magazyn przy użyciu poniższego polecenia. Aby uzyskać listę wszystkich operacji serwera, które można uruchomić, zobacz [AZ Postgres elastyczny-Server](https://docs.microsoft.com/cli/azure/postgres/flexible-server) Overview.
+Możesz łatwo skalować warstwę obliczeniową, rdzeni wirtualnych i magazyn przy użyciu poniższego polecenia. Aby uzyskać listę wszystkich operacji serwera, które można uruchomić, zobacz [AZ Postgres elastyczny-Server](/cli/azure/postgres/flexible-server) Overview.
 
 ```azurecli-interactive
 az postgres flexible-server update --resource-group myresourcegroup --name mydemoserver --sku-name Standard_D4ds_v3 --storage-size 6144
@@ -104,7 +104,7 @@ Istnieje wiele aplikacji, za pomocą których można nawiązać połączenie z s
     CREATE DATABASE postgresdb;
     ```
 
-3. W wierszu polecenia Uruchom następujące polecenie, aby przełączyć połączenia na nowo utworzoną bazę danych **postgresdb** :
+3. W wierszu polecenia Uruchom następujące polecenie, aby przełączyć połączenia na nowo utworzoną bazę danych **postgresdb**:
 
     ```bash
     \c postgresdb
@@ -131,7 +131,7 @@ az postgres flexible-server update --resource-group myresourcegroup --name mydem
 
 ## <a name="delete-a-server"></a>Usuwanie serwera
 
-Aby usunąć serwer elastyczny Azure Database for PostgreSQL, uruchom polecenie [AZ Postgres elastyczny-Server Delete](https://docs.microsoft.com/cli/azure/postgres/flexible-server#az-PostgreSQL-flexible-server-delete) .
+Aby usunąć serwer elastyczny Azure Database for PostgreSQL, uruchom polecenie [AZ Postgres elastyczny-Server Delete](/cli/azure/postgres/flexible-server#az-PostgreSQL-flexible-server-delete) .
 
 ```azurecli-interactive
 az postgres flexible-server delete --resource-group myresourcegroup --name mydemoserver

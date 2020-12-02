@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.openlocfilehash: 4282294ff54fd3da3f764f53efc8b040b9522191
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: f71bcc1fd3b92a32a3e6d9fa056bae7131a663bd
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542256"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492611"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Szybki Start: Tworzenie serwera Azure Database for MySQL przy użyciu Azure Portal
 
@@ -22,14 +22,14 @@ Azure Database for MySQL to usługa zarządzana, która umożliwia uruchamianie 
 Wymagana jest subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
 
 ## <a name="create-an-azure-database-for-mysql-single-server"></a>Tworzenie Azure Database for MySQL pojedynczego serwera
-1. Przejdź do [Azure Portal](https://portal.azure.com/) , aby utworzyć bazę danych jednego serwera MySQL. Wyszukaj i wybierz **Azure Database for MySQL** :
+1. Przejdź do [Azure Portal](https://portal.azure.com/) , aby utworzyć bazę danych jednego serwera MySQL. Wyszukaj i wybierz **Azure Database for MySQL**:
 
    >[!div class="mx-imgBorder"]
    > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/find-azure-mysql-in-portal.png" alt-text="Znajdź Azure Database for MySQL":::
 
 1. Wybierz pozycję **Dodaj**.
 
-2. Na stronie **Wybierz opcję wdrożenia Azure Database for MySQL** wybierz pozycję  **pojedynczy serwer** :
+2. Na stronie **Wybierz opcję wdrożenia Azure Database for MySQL** wybierz pozycję  **pojedynczy serwer**:
    >[!div class="mx-imgBorder"]
    > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/choose-singleserver.png" alt-text="Zrzut ekranu pokazujący opcję jednego serwera.":::
 
@@ -43,11 +43,11 @@ Wymagana jest subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy
    Subskrypcja | Twoja subskrypcja | Wybierz żądaną subskrypcję platformy Azure.
    Grupa zasobów | **myresourcegroup** | Wprowadź nową grupę zasobów lub istniejącą w ramach subskrypcji.
    Nazwa serwera | **mydemoserver** | Wprowadź unikatową nazwę. Nazwa serwera może zawierać tylko małe litery, cyfry i znaki łącznika (-). Musi zawierać od 3 do 63 znaków.
-   Źródło danych |**Brak** | Wybierz pozycję **Brak** , aby utworzyć nowy serwer od podstaw. Wybierz pozycję **kopia zapasowa** tylko wtedy, gdy przywracasz z geograficznej kopii zapasowej istniejącego serwera.
+   Źródło danych |**Brak** | Wybierz pozycję **Brak**, aby utworzyć nowy serwer od podstaw. Wybierz pozycję **kopia zapasowa** tylko wtedy, gdy przywracasz z geograficznej kopii zapasowej istniejącego serwera.
    Lokalizacja |Żądana lokalizacja | Wybierz lokalizację z listy.
-   Wersja | Najnowsza wersja główna| Użyj najnowszej wersji głównej. Zobacz [Wszystkie obsługiwane wersje](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
+   Wersja | Najnowsza wersja główna| Użyj najnowszej wersji głównej. Zobacz [Wszystkie obsługiwane wersje](../postgresql/concepts-supported-versions.md).
    Obliczenia i magazyn | Użyj ustawień domyślnych| Domyślna warstwa cenowa jest **ogólnego przeznaczenia** z **4 rdzeni wirtualnych** i **100 GB** pamięci. Przechowywanie kopii zapasowych jest ustawione na **7 dni** przy użyciu opcji tworzenia kopii zapasowej **geograficznie nadmiarowej** .<br/>Zapoznaj się z [cennikiem](https://azure.microsoft.com/pricing/details/mysql/) i zaktualizuj wartości domyślne, jeśli zachodzi taka potrzeba.
-   Nazwa użytkownika administratora | **mydemoadmin** | Wprowadź nazwę użytkownika administratora serwera. Nie można użyć **azure_superuser** , **admin** , **administrator** , **root** , **Guest** ani **Public** dla nazwy użytkownika administratora.
+   Nazwa użytkownika administratora | **mydemoadmin** | Wprowadź nazwę użytkownika administratora serwera. Nie można użyć **azure_superuser**, **admin**, **administrator**, **root**, **Guest** ani **Public** dla nazwy użytkownika administratora.
    Hasło | Hasło | Nowe hasło dla użytkownika administratora serwera. Hasło musi mieć długość od 8 do 128 znaków i zawierać kombinację wielkich lub małych liter, cyfr i znaków innych niż alfanumeryczne (!, $, #,% itd.).
   
 
@@ -67,12 +67,12 @@ Wymagana jest subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy
 
 Domyślnie nowy serwer jest chroniony za pomocą zapory. Aby nawiązać połączenie, musisz zapewnić dostęp do swojego adresu IP, wykonując następujące czynności:
 
-1. Przejdź do pozycji **zabezpieczenia połączeń** z okienka po lewej stronie dla zasobu serwera. Jeśli nie wiesz, jak znaleźć zasób, zobacz [Jak otworzyć zasób](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
+1. Przejdź do pozycji **zabezpieczenia połączeń** z okienka po lewej stronie dla zasobu serwera. Jeśli nie wiesz, jak znaleźć zasób, zobacz [Jak otworzyć zasób](../azure-resource-manager/management/manage-resources-portal.md#open-resources).
 
    >[!div class="mx-imgBorder"]
    > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="Zrzut ekranu przedstawiający stronę reguły zapory > zabezpieczenia połączeń.":::
 
-2. Wybierz pozycję **Dodaj bieżący adres IP klienta** , a następnie wybierz pozycję **Zapisz**.
+2. Wybierz pozycję **Dodaj bieżący adres IP klienta**, a następnie wybierz pozycję **Zapisz**.
 
    > [!NOTE]
    > Aby uniknąć problemów z łącznością, należy sprawdzić, czy sieć zezwala na ruch wychodzący przez port 3306, który jest używany przez Azure Database for MySQL. 
@@ -151,9 +151,9 @@ Aby usunąć serwer, możesz wybrać pozycję **Usuń** na stronie **Przegląd**
 
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]
->[Tworzenie aplikacji PHP w systemie Windows za pomocą programu MySQL](../app-service/app-service-web-tutorial-php-mysql.md) <br/>
+>[Tworzenie aplikacji PHP w systemie Windows za pomocą programu MySQL](../app-service/tutorial-php-mysql-app.md) <br/>
 
 > [!div class="nextstepaction"]
->[Tworzenie aplikacji PHP w systemie Linux przy użyciu programu MySQL](../app-service/containers/tutorial-php-mysql-app.md)<br/><br/>
+>[Tworzenie aplikacji PHP w systemie Linux przy użyciu programu MySQL](../app-service/tutorial-php-mysql-app.md?pivots=platform-linux%3fpivots%3dplatform-linux)<br/><br/>
 
 [Nie możesz znaleźć tego, czego szukasz? Daj nam znać.](https://aka.ms/mysql-doc-feedback)

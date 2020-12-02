@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 72718285ff83a23acd21a5e29001ea96e1f061c8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 9763a0ac3cba15dcfd66b8fad83230e2b0eb356b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95531359"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491676"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics partycjonowanie niestandardowego obiektu BLOB
 
@@ -25,7 +25,7 @@ Atrybuty pola niestandardowego lub danych wejściowych usprawniają przepływy p
 
 ### <a name="partition-key-options"></a>Opcje klucza partycji
 
-Klucz partycji lub nazwa kolumny używana do partycjonowania danych wejściowych mogą zawierać znaki alfanumeryczne z łącznikami, podkreśleniami i spacjami. Nie można używać zagnieżdżonych pól jako klucza partycji, chyba że są używane w połączeniu z aliasami. Klucz partycji musi być typu NVARCHAR (MAX), BIGINT, FLOAT lub BIT (poziom zgodności 1,2 lub wyższy). Aby uzyskać więcej informacji, zobacz [Azure Stream Analytics typów danych](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
+Klucz partycji lub nazwa kolumny używana do partycjonowania danych wejściowych mogą zawierać znaki alfanumeryczne z łącznikami, podkreśleniami i spacjami. Nie można używać zagnieżdżonych pól jako klucza partycji, chyba że są używane w połączeniu z aliasami. Klucz partycji musi być typu NVARCHAR (MAX), BIGINT, FLOAT lub BIT (poziom zgodności 1,2 lub wyższy). Aby uzyskać więcej informacji, zobacz [Azure Stream Analytics typów danych](/stream-analytics-query/data-types-azure-stream-analytics).
 
 ### <a name="example"></a>Przykład
 

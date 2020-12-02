@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/28/2020
-ms.openlocfilehash: b93bc4d1adfa2787f14106707b3848ebfe5c57bc
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: cb3b711c532ccf44bebf08d42b5284db458cf5b7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021205"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492662"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql"></a>Szybki Start: używanie języka PHP do łączenia i wykonywania zapytań dotyczących danych w Azure Database for MySQL
 Ten przewodnik Szybki start przedstawia sposób nawiązywania połączeń z usługą Azure Database for MySQL przy użyciu aplikacji języka [PHP](https://secure.php.net/manual/intro-whatis.php). Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych.
@@ -30,7 +30,7 @@ W tym przewodniku Szybki Start są potrzebne następujące aplikacje:
     | **Konfigurowanie punktu końcowego usługi** | Publiczne | [Portal](./howto-manage-vnet-using-portal.md) <br/> [Interfejs wiersza polecenia](./howto-manage-vnet-using-cli.md)|
     | **Konfigurowanie linku prywatnego** | Prywatne | [Portal](./howto-configure-privatelink-portal.md) <br/> [Interfejs wiersza polecenia](./howto-configure-privatelink-cli.md) |
 
-- [Tworzenie bazy danych i użytkownika niebędącego administratorem](/azure/mysql/howto-create-users?tabs=single-server)
+- [Tworzenie bazy danych i użytkownika niebędącego administratorem](./howto-create-users.md?tabs=single-server)
 - Zainstaluj najnowszą wersję języka PHP dla systemu operacyjnego
     - [PHP w macOS](https://secure.php.net/manual/install.macosx.php)
     - [PHP w systemie Linux](https://secure.php.net/manual/install.unix.php)

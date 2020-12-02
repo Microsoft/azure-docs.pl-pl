@@ -10,12 +10,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 5357a1f2d1f042f9dab01edf205926992e4225d0
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: c33771bc67a67d6b3b73769071126db6a913f702
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843829"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492152"
 ---
 # <a name="monitoring-azure-files"></a>Azure Files monitorowania
 
@@ -44,7 +44,7 @@ Azure Files gromadzi te same rodzaje danych monitorowania jak inne zasoby platfo
 
 Aby uzyskać szczegółowe informacje na temat metryk i dzienników tworzonych przez Azure Files, zobacz [Dokumentacja usługi Azure File monitoring](storage-files-monitoring-reference.md) .
 
-Metryki i dzienniki w Azure Monitor obsługują tylko Azure Resource Manager kont magazynu. Azure Monitor nie obsługuje klasycznych kont magazynu. Jeśli chcesz użyć metryk lub dzienników na klasycznym koncie magazynu, musisz przeprowadzić migrację do konta magazynu Azure Resource Manager. Zobacz [Migrowanie do Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+Metryki i dzienniki w Azure Monitor obsługują tylko Azure Resource Manager kont magazynu. Azure Monitor nie obsługuje klasycznych kont magazynu. Jeśli chcesz użyć metryk lub dzienników na klasycznym koncie magazynu, musisz przeprowadzić migrację do konta magazynu Azure Resource Manager. Zobacz [Migrowanie do Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
 ## <a name="collection-and-routing"></a>Kolekcja i Routing
 
@@ -71,7 +71,7 @@ Aby uzyskać ogólne wskazówki, zobacz [Tworzenie ustawień diagnostycznych w c
 
 ### <a name="azure-portal"></a>[Witryna Azure Portal](#tab/azure-portal)
 
-1. Zaloguj się w witrynie Azure Portal.
+1. Zaloguj się do witryny Azure Portal.
 
 2. Przejdź do konta magazynu.
 

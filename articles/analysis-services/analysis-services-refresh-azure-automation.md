@@ -4,22 +4,22 @@ description: W tym artykule opisano sposób odświeżenia modelu kodu dla Azure 
 author: chrislound
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 12/01/2020
 ms.author: chlound
-ms.openlocfilehash: fe811c81d0774393f40dc5c8403d1af8b22da109
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 7c801511b6f24cf5ef04d55bb195e3a4c62d7b6d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019141"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491251"
 ---
 # <a name="refresh-with-azure-automation"></a>Odświeżanie za pomocą usługi Azure Automation
 
 Za pomocą Azure Automation i elementów Runbook programu PowerShell, można wykonywać automatyczne operacje odświeżania danych w modelach tabelarycznych usługi Azure Analysis.  
 
-W przykładzie w tym artykule jest wykorzystywany [moduł SqlServer programu PowerShell](/powershell/module/sqlserver/?view=sqlserver-ps). Przykładowy element Runbook programu PowerShell, który demonstruje odświeżenie modelu w dalszej części tego artykułu.  
+W przykładzie w tym artykule jest wykorzystywany [moduł SqlServer programu PowerShell](/powershell/module/sqlserver/?view=sqlserver-ps&preserve-view=true). Przykładowy element Runbook programu PowerShell, który demonstruje odświeżenie modelu w dalszej części tego artykułu.  
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 Wszystkie wywołania muszą zostać uwierzytelnione z prawidłowym tokenem Azure Active Directory (OAuth 2).  W przykładzie w tym artykule jest wykorzystywana nazwa główna usługi (SPN) do uwierzytelniania w Azure Analysis Services. Aby dowiedzieć się więcej, zobacz [Tworzenie jednostki usługi przy użyciu Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -56,7 +56,7 @@ Utworzona jednostka usługi musi mieć uprawnienia administratora serwera na ser
 
     ![Zrzut ekranu przedstawiający stronę "poświadczenia" z wybraną akcją "Dodaj poświadczenie".](./media/analysis-services-refresh-azure-automation/6.png)
 
-2. Wprowadź szczegóły poświadczenia. W polu **Nazwa użytkownika**wprowadź identyfikator aplikacji głównej usługi (AppID), a następnie w polu **hasło**wprowadź klucz tajny jednostki usługi.
+2. Wprowadź szczegóły poświadczenia. W polu **Nazwa użytkownika** wprowadź identyfikator aplikacji głównej usługi (AppID), a następnie w polu **hasło** wprowadź klucz tajny jednostki usługi.
 
     ![Utwórz poświadczenie](./media/analysis-services-refresh-azure-automation/7.png)
 
@@ -71,7 +71,7 @@ Utworzona jednostka usługi musi mieć uprawnienia administratora serwera na ser
 
     ![Importuj element Runbook](./media/analysis-services-refresh-azure-automation/9.png)
 
-5. Po utworzeniu elementu Runbook zostanie on automatycznie przeszedł w tryb edycji.  Kliknij pozycję **Opublikuj**.
+5. Po utworzeniu elementu Runbook zostanie on automatycznie przeszedł w tryb edycji.  Wybierz pozycję **Publikuj**.
 
     ![Publikowanie elementu Runbook](./media/analysis-services-refresh-azure-automation/10.png)
 
@@ -82,7 +82,7 @@ Utworzona jednostka usługi musi mieć uprawnienia administratora serwera na ser
 
     ![Zrzut ekranu pokazujący stronę "przegląd" z wybraną akcją "Start".](./media/analysis-services-refresh-azure-automation/11.png)
 
-7. Wypełnij parametry **DatabaseName**, **ANALYSISSERVER**i **reodświeżony** , a następnie kliknij przycisk **OK**. Parametr **WEBHOOKDATA** nie jest wymagany, gdy element Runbook jest uruchamiany ręcznie.
+7. Wypełnij parametry **DatabaseName**, **ANALYSISSERVER** i **reodświeżony** , a następnie kliknij przycisk **OK**. Parametr **WEBHOOKDATA** nie jest wymagany, gdy element Runbook jest uruchamiany ręcznie.
 
     ![Uruchamianie elementu Runbook](./media/analysis-services-refresh-azure-automation/12.png)
 
@@ -117,7 +117,7 @@ Można to skonfigurować w następujący sposób:
 Aby korzystać z elementu Runbook przy użyciu Azure Data Factory, należy najpierw utworzyć element **webhook** dla elementu Runbook. **Element webhook** poda adres URL, który można wywoływać za pomocą Azure Data Factory działania sieci Web.
 
 > [!IMPORTANT]
-> Aby utworzyć element **webhook**, należy **opublikować**stan elementu Runbook.
+> Aby utworzyć element **webhook**, należy **opublikować** stan elementu Runbook.
 
 1. W elemencie Runbook usługi Automation kliknij pozycję elementy **webhook**, a następnie kliknij pozycję **Dodaj element webhook**.
 
@@ -174,7 +174,7 @@ Maszyna wirtualna platformy Azure ze statycznym publicznym adresem IP może być
 >
 >Aby dowiedzieć się więcej o konfigurowaniu Azure Automation hybrydowych procesów roboczych, zobacz [Instalacja hybrydowego procesu roboczego elementu Runbook](../automation/automation-hybrid-runbook-worker.md#hybrid-runbook-worker-installation).
 
-Po skonfigurowaniu hybrydowego procesu roboczego Utwórz element webhook zgodnie z opisem w sekcji [Korzystanie z Data Factory](#consume-with-data-factory).  Jedyną różnicą jest wybranie opcji **Uruchom przy**użyciu  >  **hybrydowego procesu roboczego** podczas konfigurowania elementu webhook.
+Po skonfigurowaniu hybrydowego procesu roboczego Utwórz element webhook zgodnie z opisem w sekcji [Korzystanie z Data Factory](#consume-with-data-factory).  Jedyną różnicą jest wybranie opcji **Uruchom przy** użyciu  >  **hybrydowego procesu roboczego** podczas konfigurowania elementu webhook.
 
 Przykładowy element webhook z użyciem hybrydowego procesu roboczego:
 
@@ -202,7 +202,7 @@ $_Credential = Get-AutomationPSCredential -Name "ServicePrincipal"
 
 # If runbook was called from Webhook, WebhookData will not be null.
 if ($WebhookData)
-{ 
+{ 
     # Retrieve AAS details from Webhook request body
     $atmParameters = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
     Write-Output "CredentialName: $($atmParameters.CredentialName)"

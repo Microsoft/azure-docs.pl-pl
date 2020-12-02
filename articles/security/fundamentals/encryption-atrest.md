@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c9a68661a89f53c5aa27bdd046b5bc09a47db400
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 092320db9b7fe2b1f3fe142f84ad201d40dc6e2e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556628"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492288"
 ---
-# <a name="azure-data-encryption-at-rest"></a>Szyfrowanie danych magazynowanych platformy Azure
+# <a name="azure-data-encryption-at-rest"></a>Szyfrowanie danych platformy Azure w spoczynku
 
 Microsoft Azure zawiera narzędzia do zabezpieczania danych zgodnie z potrzebami zabezpieczeń i zgodności firmy. Ten dokument koncentruje się na:
 
@@ -132,7 +132,7 @@ Obsługa szyfrowania serwera jest obecnie udostępniana za pomocą funkcji SQL o
 
 Szyfrowanie po stronie klienta Azure SQL Database danych jest obsługiwane za pomocą funkcji [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) . Always Encrypted używa klucza utworzonego i przechowywanego przez klienta. Klienci mogą przechowywać klucz główny w magazynie certyfikatów systemu Windows, Azure Key Vault lub lokalnych sprzętowych modułach zabezpieczeń. Za pomocą SQL Server Management Studio użytkownicy SQL wybierają klucz, którego chcesz użyć do zaszyfrowania kolumny.
 
-## <a name="conclusion"></a>Podsumowanie
+## <a name="conclusion"></a>Wniosek
 
 Ochrona danych klienta przechowywanych w ramach usług platformy Azure ma najważniejsze znaczenie dla firmy Microsoft. Wszystkie usługi hostowane na platformie Azure są zobowiązane do zapewniania szyfrowania w opcjach Rest. Usługi platformy Azure obsługują klucze zarządzane przez usługę, klucze zarządzane przez klienta lub szyfrowanie po stronie klienta. Usługi platformy Azure w szerokim zakresie rozszerzają szyfrowanie w stanie spoczynku i w nadchodzących miesiącach są planowane nowe opcje dotyczące wersji zapoznawczej i ogólnej dostępności.
 

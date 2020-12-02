@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: e60ba773c5ef750f027c2e0b1528409c71eeb4b8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 650ee1fc9e0e1941a7a3655bca1c75950ab878dd
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011706"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492118"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planowanie wdrażania usługi Pliki Azure
 [Azure Files](storage-files-introduction.md) można wdrożyć na dwa sposoby: przez bezpośrednie zainstalowanie udziałów plików platformy Azure bezserwerowych lub buforowanie udziałów plików platformy Azure lokalnie przy użyciu Azure File Sync. Wybór opcji wdrożenia powoduje zmianę warunków, które należy wziąć pod uwagę podczas planowania wdrożenia. 
@@ -52,7 +52,7 @@ W przypadku klientów migrowania z lokalnych serwerów plików lub tworzenia now
 
 Jeśli zamierzasz korzystać z klucza konta magazynu w celu uzyskania dostępu do udziałów plików platformy Azure, zalecamy używanie punktów końcowych usługi zgodnie z opisem w sekcji dotyczącej [sieci](#networking) .
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 Udziały plików platformy Azure są dostępne z dowolnego miejsca za pośrednictwem publicznego punktu końcowego konta magazynu. Oznacza to, że uwierzytelnione żądania, takie jak żądania autoryzowane przez tożsamość logowania użytkownika, mogą bezpiecznie pochodziły z platformy Azure lub spoza niej. W wielu środowiskach klienta początkowa instalacja udziału plików platformy Azure na lokalnej stacji roboczej zakończy się niepowodzeniem, nawet jeśli instalacje z maszyn wirtualnych platformy Azure powiodą się. Przyczyną tego jest to, że wiele organizacji i usługodawców internetowych (ISP) blokują port wykorzystywany przez protokół SMB do komunikacji, port 445. Aby zobaczyć podsumowanie usługodawców internetowych, którzy nie zezwalają na dostęp z portu 445, przejdź do witryny [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
 Aby odblokować dostęp do udziału plików platformy Azure, masz dwie opcje główne:
@@ -99,13 +99,13 @@ Zalecamy włączenie usuwania nietrwałego dla większości udziałów plików. 
 Aby uzyskać więcej informacji na temat usuwania nietrwałego, zobacz [zapobieganie przypadkowemu](./storage-files-prevent-file-share-deletion.md)usuwaniu danych.
 
 ### <a name="backup"></a>Backup
-Można utworzyć kopię zapasową udziału plików platformy Azure za pośrednictwem [migawek udziałów](./storage-snapshots-files.md), które są tylko do odczytu i są kopiami danego udziału. Migawki są przyrostowe, co oznacza, że zawierają one tylko ilość danych, które uległy zmianie od poprzedniej migawki. Na udział plików można uzyskać maksymalnie 200 migawek i przechowywać je przez maksymalnie 10 lat. Można ręcznie wykonać te migawki w Azure Portal za pomocą programu PowerShell lub interfejsu wiersza polecenia (CLI) lub użyć [Azure Backup](../../backup/azure-file-share-backup-overview.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json). Migawki są przechowywane w udziale plików, co oznacza, że jeśli usuniesz udział plików, migawki również zostaną usunięte. Aby chronić kopie zapasowe migawki przed przypadkowym usunięciem, upewnij się, że w danym udziale jest włączona funkcja usuwania nietrwałego.
+Można utworzyć kopię zapasową udziału plików platformy Azure za pośrednictwem [migawek udziałów](./storage-snapshots-files.md), które są tylko do odczytu i są kopiami danego udziału. Migawki są przyrostowe, co oznacza, że zawierają one tylko ilość danych, które uległy zmianie od poprzedniej migawki. Na udział plików można uzyskać maksymalnie 200 migawek i przechowywać je przez maksymalnie 10 lat. Można ręcznie wykonać te migawki w Azure Portal za pomocą programu PowerShell lub interfejsu wiersza polecenia (CLI) lub użyć [Azure Backup](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Migawki są przechowywane w udziale plików, co oznacza, że jeśli usuniesz udział plików, migawki również zostaną usunięte. Aby chronić kopie zapasowe migawki przed przypadkowym usunięciem, upewnij się, że w danym udziale jest włączona funkcja usuwania nietrwałego.
 
-[Azure Backup dla udziałów plików platformy Azure](../../backup/azure-file-share-backup-overview.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) obsługuje planowanie i przechowywanie migawek. Jej możliwości dla dziadka-ojciec-syn (GFS) oznaczają, że możesz wykonywać migawki codziennie, co tydzień, co miesiąc i co roku, z których każdy ma własny odrębny okres przechowywania. Azure Backup również organizuje włączenie usuwania nietrwałego i przyjmuje blokadę usuwania na koncie magazynu zaraz po skonfigurowaniu wszystkich udziałów plików w ramach tej kopii zapasowej. Na koniec Azure Backup zapewnia pewne kluczowe funkcje monitorowania i alertów, które umożliwiają klientom skonsolidowany widok ich kopii zapasowej.
+[Azure Backup dla udziałów plików platformy Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) obsługuje planowanie i przechowywanie migawek. Jej możliwości dla dziadka-ojciec-syn (GFS) oznaczają, że możesz wykonywać migawki codziennie, co tydzień, co miesiąc i co roku, z których każdy ma własny odrębny okres przechowywania. Azure Backup również organizuje włączenie usuwania nietrwałego i przyjmuje blokadę usuwania na koncie magazynu zaraz po skonfigurowaniu wszystkich udziałów plików w ramach tej kopii zapasowej. Na koniec Azure Backup zapewnia pewne kluczowe funkcje monitorowania i alertów, które umożliwiają klientom skonsolidowany widok ich kopii zapasowej.
 
 Można wykonywać zarówno przywracanie na poziomie elementu, jak i na poziomie udziału w Azure Portal przy użyciu Azure Backup. Wystarczy wybrać punkt przywracania (konkretną migawkę), określony plik lub katalog, jeśli ma zastosowanie, a następnie lokalizację (oryginalną lub alternatywną), do której chcesz przywrócić. Usługa Backup obsługuje kopiowanie danych migawek do i pokazuje postęp przywracania w portalu.
 
-Aby uzyskać więcej informacji na temat kopii zapasowej, zobacz [Informacje o kopii zapasowej udziału plików platformy Azure](../../backup/azure-file-share-backup-overview.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
+Aby uzyskać więcej informacji na temat kopii zapasowej, zobacz [Informacje o kopii zapasowej udziału plików platformy Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 ### <a name="advanced-threat-protection-for-azure-files-preview"></a>Zaawansowana ochrona przed zagrożeniami dla Azure Files (wersja zapoznawcza)
 Zaawansowana ochrona przed zagrożeniami dla usługi Azure Storage stanowi dodatkową warstwę analizy zabezpieczeń, która zapewnia alerty w przypadku wykrycia nietypowej aktywności na koncie magazynu, na przykład nietypowe próby dostępu do konta magazynu. ATP uruchamia również analizę reputacji skrótu złośliwego oprogramowania i alertuje o znanym złośliwym oprogramowaniu. ATP można skonfigurować na poziomie subskrypcji lub konta magazynu za pośrednictwem Azure Security Center. 

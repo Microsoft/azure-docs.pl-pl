@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=1, references_regions
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 09/16/2020
-ms.openlocfilehash: d24143a440c0d30c3abcd6eb5efd454033b8f71c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: da3c70baccc3c86f2ac57d61539456464e3042b6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791481"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493410"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Skalowanie zasobów pojedynczej bazy danych w usłudze Azure SQL Database
 
@@ -84,7 +84,7 @@ W bloku przegląd bazy danych przejdź do **powiadomień** i kliknij kafelek z i
 
 ![Bieżąca operacja](./media/single-database-scale/ongoing-operations.png)
 
-Następnie kliknij przycisk z etykietą **Anuluj tę operację** .
+Następnie kliknij przycisk z etykietą **Anuluj tę operację**.
 
 ![Anuluj trwającą operację](./media/single-database-scale/cancel-ongoing-operation.png)
 

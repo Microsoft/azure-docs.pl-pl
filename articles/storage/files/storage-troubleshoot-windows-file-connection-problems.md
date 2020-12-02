@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e446ec08d63c44566b2f45c1427999536d0be703
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: aef332e54fa650e1abbebe671560238d7eb318de
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188721"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492050"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Rozwiązywanie problemów z Azure Files w systemie Windows (SMB)
 
@@ -147,7 +147,7 @@ Błąd 1816 występuje po osiągnięciu górnego limitu współbieżnych otwarty
 
 ### <a name="solution"></a>Rozwiązanie
 
-Zmniejsz liczbę współbieżnych dojść otwartych przez zamknięcie niektórych uchwytów, a następnie ponów próbę. Aby uzyskać więcej informacji, zobacz [Microsoft Azure Storage listy kontrolnej wydajności i skalowalności](../blobs/storage-performance-checklist.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
+Zmniejsz liczbę współbieżnych dojść otwartych przez zamknięcie niektórych uchwytów, a następnie ponów próbę. Aby uzyskać więcej informacji, zobacz [Microsoft Azure Storage listy kontrolnej wydajności i skalowalności](../blobs/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 Aby wyświetlić otwarte uchwyty dla udziału plików, katalogu lub pliku, należy użyć polecenia cmdlet [Get-AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle) programu PowerShell.  
 
@@ -262,7 +262,7 @@ Podczas próby przetransferowania plików do usługi plików platformy Azure mo�
 - Jeśli nie masz wymaganego minimalnego rozmiaru operacji we/wy, zalecamy użycie 1 MiB jako rozmiaru we/wy w celu uzyskania optymalnej wydajności.
 -   Jeśli znasz końcowy rozmiar pliku, który jest rozszerzany przy użyciu zapisu, a oprogramowanie nie ma problemów ze zgodnością, gdy niezapisany ogon w pliku zawiera zera, a następnie ustaw rozmiar pliku z góry, zamiast wprowadzać każdy zapis rozszerzający.
 -   Użyj odpowiedniej metody copy:
-    -   Użyj [AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) do dowolnego transferu między dwoma udziałami plików.
+    -   Użyj [AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) do dowolnego transferu między dwoma udziałami plików.
     -   Użyj [Robocopy](./storage-files-deployment-guide.md#robocopy) między udziałami plików na komputerze lokalnym.
 
 ### <a name="considerations-for-windows-81-or-windows-server-2012-r2"></a>Zagadnienia dotyczące Windows 8.1 lub systemu Windows Server 2012 R2
@@ -401,7 +401,7 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 Polecenie cmdlet wykonuje poniższe testy w sekwencji i zawiera wskazówki dotyczące niepowodzeń:
 1. CheckADObjectPasswordIsCorrect: Upewnij się, że hasło skonfigurowane na tożsamości usługi AD reprezentującej konto magazynu jest zgodne z kluczem konta magazynu kerb1 lub kerb2. Jeśli hasło jest niepoprawne, można uruchomić polecenie [Update-AzStorageAccountADObjectPassword](./storage-files-identity-ad-ds-update-password.md) w celu zresetowania hasła. 
 2. CheckADObject: Upewnij się, że w Active Directory znajduje się obiekt, który reprezentuje konto magazynu i ma poprawną nazwę SPN (główna nazwa usługi). Jeśli nazwa SPN nie została prawidłowo skonfigurowana, uruchom polecenie cmdlet Set-AD zwrócone w poleceniu cmdlet Debug, aby skonfigurować nazwę SPN.
-3. CheckDomainJoined: Sprawdź, czy komputer kliencki jest przyłączony do usługi AD. Jeśli komputer nie jest przyłączony do usługi AD, zapoznaj się z tym [artykułem](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain#:~:text=To%20join%20a%20computer%20to%20a%20domain&text=Navigate%20to%20System%20and%20Security,join%2C%20and%20then%20click%20OK) , aby uzyskać instrukcje dotyczące przyłączania do domeny.
+3. CheckDomainJoined: Sprawdź, czy komputer kliencki jest przyłączony do usługi AD. Jeśli komputer nie jest przyłączony do usługi AD, zapoznaj się z tym [artykułem](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain) , aby uzyskać instrukcje dotyczące przyłączania do domeny.
 4. CheckPort445Connectivity: Sprawdź, czy port 445 jest otwarty dla połączenia SMB. Jeśli wymagany port nie jest otwarty, Skorzystaj z narzędzia do rozwiązywania problemów [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) w przypadku problemów z łącznością z Azure Files.
 5. CheckSidHasAadUser: Sprawdź, czy zalogowany użytkownik usługi AD jest synchronizowany z usługą Azure AD. Jeśli chcesz sprawdzić, czy określony użytkownik usługi AD jest synchronizowany z usługą Azure AD, możesz określić parametry-UserName i-Domain w parametrach wejściowych. 
 6. CheckGetKerberosTicket: spróbuj uzyskać bilet protokołu Kerberos, aby nawiązać połączenie z kontem magazynu. Jeśli nie ma prawidłowego tokenu Kerberos, uruchom polecenie cmdlet Klist-CIFS/Storage-account-name. plik. Core. Windows. NET i Przeanalizuj kod błędu do katalogu głównego — spowoduje to niepowodzenie pobierania biletu.

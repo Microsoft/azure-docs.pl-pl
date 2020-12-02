@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/18/2020
-ms.openlocfilehash: 42e15da2fd31d163bc8822a347101704b27e1222
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 000ab3e3911c65554622a48d34abda79d60411df
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913420"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492390"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-portal"></a>Szybki Start: Tworzenie serwera Azure Database for PostgreSQL przy użyciu Azure Portal
 
@@ -44,8 +44,8 @@ Przejdź do [Azure Portal](https://portal.azure.com/) , aby utworzyć Azure Data
    |Subskrypcja|Nazwa subskrypcji|Wybierz żądaną subskrypcję platformy Azure.|
    |Grupa zasobów|*myresourcegroup*| Nowa lub istniejąca Grupa zasobów z subskrypcji.|
    |Nazwa serwera |*mydemoserver*|Unikatowa nazwę, która identyfikuje serwer usługi Azure Database for PostgreSQL. Nazwa domeny *Postgres.Database.Azure.com* jest dołączana do podania nazwy serwera. Serwer może zawierać tylko małe litery, cyfry i znaki łącznika (-). Musi zawierać od 3 do 63 znaków.|
-   |Źródło danych | Brak | Wybierz pozycję **Brak** , aby utworzyć nowy serwer od podstaw. Wybierz pozycję **kopia zapasowa** tylko wtedy, gdy przywrócono z geograficznej kopii zapasowej istniejącego serwera.|
-   |Nazwa użytkownika administratora |*myadmin*| Wprowadź nazwę użytkownika administratora serwera. Nie może zaczynać się od **pg_** i te wartości są niedozwolone: **azure_superuser** , **azure_pg_admin** , **admin** , **administrator** , **root** , **Guest** lub **Public**.|
+   |Źródło danych | Brak | Wybierz pozycję **Brak**, aby utworzyć nowy serwer od podstaw. Wybierz pozycję **kopia zapasowa** tylko wtedy, gdy przywrócono z geograficznej kopii zapasowej istniejącego serwera.|
+   |Nazwa użytkownika administratora |*myadmin*| Wprowadź nazwę użytkownika administratora serwera. Nie może zaczynać się od **pg_** i te wartości są niedozwolone: **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **Guest** lub **Public**.|
    |Hasło |Twoje hasło| Nowe hasło dla użytkownika administratora serwera. Musi zawierać od 8 do 128 znaków z trzech z następujących kategorii: wielkie litery angielskie, małe litery angielskie, cyfry (od 0 do 9) i znaki inne niż alfanumeryczne (na przykład!, $, #,%).|
    |Lokalizacja|żądana lokalizacja| Wybierz lokalizację z listy rozwijanej.|
    |Wersja|Najnowsza wersja główna| Najnowsza wersja główna usługi PostgreSQL, chyba że masz inne określone wymagania.|
@@ -55,7 +55,7 @@ Przejdź do [Azure Portal](https://portal.azure.com/) , aby utworzyć Azure Data
    > [!NOTE]
    > Jeśli niewielkie zasoby obliczeniowe i we/wy są wystarczające dla Twojego obciążenia, warto rozważyć użycie warstwy cenowej Podstawowa. Należy pamiętać, że serwery utworzone w warstwie cenowej podstawowa nie mogą być później skalowane do Ogólnego przeznaczenia lub zoptymalizowane pod kątem pamięci.
 
-5. Wybierz pozycję **Recenzja + Utwórz** , aby przejrzeć wybrane opcje. Wybierz pozycję **Utwórz** , aby aprowizować serwer. Ta operacja może potrwać kilka minut.
+5. Wybierz pozycję **Recenzja + Utwórz** , aby przejrzeć wybrane opcje. Wybierz pozycję **Utwórz**, aby aprowizować serwer. Ta operacja może potrwać kilka minut.
     > [!NOTE]
     > Zostanie utworzona pusta baza danych, **Postgres**. Znajduje się również **azure_maintenance** baza danych służąca do oddzielania procesów usługi zarządzanej od akcji użytkownika. Nie możesz uzyskać dostępu do bazy danych **azure_maintenance** .
 
@@ -65,12 +65,12 @@ Przejdź do [Azure Portal](https://portal.azure.com/) , aby utworzyć Azure Data
 [Masz problemy? Daj nam znać.](https://aka.ms/postgres-doc-feedback)
 
 ## <a name="configure-a-firewall-rule"></a>Konfigurowanie reguły zapory
-Domyślnie tworzony serwer nie jest publicznie dostępny. Musisz nadać uprawnienia na adres IP. Przejdź do zasobu serwera w Azure Portal i wybierz pozycję **zabezpieczenia połączeń** z menu po lewej stronie dla zasobu serwera. Jeśli nie masz pewności, jak znaleźć zasób, zobacz [otwarte zasoby](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
+Domyślnie tworzony serwer nie jest publicznie dostępny. Musisz nadać uprawnienia na adres IP. Przejdź do zasobu serwera w Azure Portal i wybierz pozycję **zabezpieczenia połączeń** z menu po lewej stronie dla zasobu serwera. Jeśli nie masz pewności, jak znaleźć zasób, zobacz [otwarte zasoby](../azure-resource-manager/management/manage-resources-portal.md#open-resources).
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/quickstart-create-database-portal/add-current-ip-firewall.png" alt-text="Zrzut ekranu przedstawiający reguły zapory dotyczące zabezpieczeń połączeń.":::
 
-Wybierz pozycję **Dodaj bieżący adres IP klienta** , a następnie wybierz pozycję **Zapisz**. Możesz dodać więcej adresów IP lub podać zakres adresów IP, aby połączyć się z serwerem z tych adresów IP. Aby uzyskać więcej informacji, zobacz [reguły zapory w Azure Database for PostgreSQL](./concepts-firewall-rules.md).
+Wybierz pozycję **Dodaj bieżący adres IP klienta**, a następnie wybierz pozycję **Zapisz**. Możesz dodać więcej adresów IP lub podać zakres adresów IP, aby połączyć się z serwerem z tych adresów IP. Aby uzyskać więcej informacji, zobacz [reguły zapory w Azure Database for PostgreSQL](./concepts-firewall-rules.md).
 
 > [!NOTE]
 > Aby uniknąć problemów z łącznością, należy sprawdzić, czy sieć zezwala na ruch wychodzący przez port 5432. Azure Database for PostgreSQL używa tego portu.

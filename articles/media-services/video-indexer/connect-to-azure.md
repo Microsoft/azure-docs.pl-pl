@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: juliako
-ms.openlocfilehash: 3f159a11dc9607daf479c13f6612cab0175dae0c
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 282e1ef98a3c0d6e152b56a180a639c86d004af9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94634892"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493104"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Utwórz konto Video Indexer połączone z platformą Azure
 
@@ -45,7 +45,7 @@ W przypadku przechodzenia z *wersji próbnej* do *płatnego* konta Video Indexer
 
     Ten element członkowski będzie używany podczas łączenia konta Video Indexer z platformą Azure.
 
-    Ten użytkownik powinien być członkiem subskrypcji platformy Azure z rolą **właściciela** albo rolami **administratora dostępu** **współautora** i użytkownika. Można dwa razy dodać użytkownika z dwiema rolami. Jeden raz z współautor i raz z administratorem dostępu użytkowników. Aby uzyskać więcej informacji, zobacz [Wyświetlanie dostępu użytkownika do zasobów platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/check-access).
+    Ten użytkownik powinien być członkiem subskrypcji platformy Azure z rolą **właściciela** albo rolami **administratora dostępu** **współautora** i użytkownika. Można dwa razy dodać użytkownika z dwiema rolami. Jeden raz z współautor i raz z administratorem dostępu użytkowników. Aby uzyskać więcej informacji, zobacz [Wyświetlanie dostępu użytkownika do zasobów platformy Azure](../../role-based-access-control/check-access.md).
 
     ![Kontrola dostępu](./media/create-account/access-control-iam.png)
 
@@ -53,7 +53,7 @@ W przypadku przechodzenia z *wersji próbnej* do *płatnego* konta Video Indexer
 
 * Zarejestruj dostawcę zasobów EventGrid przy użyciu Azure Portal.
 
-    W [Azure Portal](https://portal.azure.com/)przejdź do pozycji **subskrypcje** — > [subskrypcja]-> **ResourceProviders**.
+    W [Azure Portal](https://portal.azure.com/)przejdź do pozycji **subskrypcje**— > [subskrypcja]->**ResourceProviders**.
 
     Wyszukaj ciąg **Microsoft. Media** i **Microsoft. EventGrid**. Jeśli nie jest w stanie "zarejestrowano", kliknij pozycję **zarejestruj**. Rejestracja może potrwać kilka minut.
 
@@ -127,7 +127,7 @@ Jeśli połączenie z platformą Azure zakończyło się niepowodzeniem, możesz
     2. Wybierz [metodę uwierzytelniania nazwy głównej usługi](../previous/media-services-portal-get-started-with-aad.md).
     3. Pobierz identyfikator klienta i klucz tajny klienta
 
-        Po **wybraniu opcji** -> **klucze** , Dodaj **Opis** , naciśnij przycisk **Zapisz** , a wartość klucza zostanie wypełniona.
+        Po **wybraniu opcji** -> **klucze**, Dodaj **Opis**, naciśnij przycisk **Zapisz**, a wartość klucza zostanie wypełniona.
 
         Jeśli klucz zostanie wygaśnie, właściciel konta będzie musiał skontaktować się z pomocą techniczną Video Indexer, aby odnowić klucz.
 
@@ -167,7 +167,7 @@ Wybierz pozycję konto **— >**  ->  **usunąć to konto**.
 
 Konto zostanie trwale usunięte w ciągu 90 dni.
 
-## <a name="considerations"></a>Kwestie do rozważenia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 Stosuje się następujące Azure Media Services powiązane zagadnienia:
 
@@ -180,7 +180,7 @@ Stosuje się następujące Azure Media Services powiązane zagadnienia:
     ![Media Services punkt końcowy przesyłania strumieniowego](./media/create-account/ams-streaming-endpoint.png)
 
     Punkty końcowe przesyłania strumieniowego mają znaczny czas uruchamiania. W związku z tym może upłynąć kilka minut od momentu połączenia Twojego konta z platformą Azure, dopóki Twoje wideo nie zostanie przesłane i będzie widoczne w aplikacji internetowej Video Indexer.
-* Jeśli łączysz się z istniejącym kontem Media Services, Video Indexer nie zmieni domyślnej konfiguracji punktu końcowego przesyłania strumieniowego. Jeśli nie ma uruchomionego **punktu końcowego przesyłania strumieniowego** , nie możesz oglądać filmów wideo z tego konta Media Services ani Video Indexer.
+* Jeśli łączysz się z istniejącym kontem Media Services, Video Indexer nie zmieni domyślnej konfiguracji punktu końcowego przesyłania strumieniowego. Jeśli nie ma uruchomionego **punktu końcowego przesyłania strumieniowego**, nie możesz oglądać filmów wideo z tego konta Media Services ani Video Indexer.
 * W przypadku automatycznego łączenia Video Indexer ustawia **jednostki zarezerwowane** multimediów na 10 jednostek S3:
 
     ![Media Services jednostek zarezerwowanych](./media/create-account/ams-reserved-units.png)

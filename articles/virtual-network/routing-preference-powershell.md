@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: e856e3fc253800b71176dad3db40e7a13a7e6140
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47e1701accd0ef7cce2a08b230682f4f8d5d8ed4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84707875"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491506"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-azure-powershell"></a>Skonfiguruj preferencję routingu dla publicznego adresu IP przy użyciu Azure PowerShell
 
-W tym artykule pokazano, jak skonfigurować preferencję routingu za pośrednictwem sieci usługodawcy internetowego (opcja**internetowa** ) dla publicznego adresu IP przy użyciu Azure PowerShell. Po utworzeniu publicznego adresu IP możesz skojarzyć go z poniższymi zasobami platformy Azure dla ruchu przychodzącego i wychodzącego do Internetu:
+W tym artykule pokazano, jak skonfigurować preferencję routingu za pośrednictwem sieci usługodawcy internetowego (opcja **internetowa** ) dla publicznego adresu IP przy użyciu Azure PowerShell. Po utworzeniu publicznego adresu IP możesz skojarzyć go z poniższymi zasobami platformy Azure dla ruchu przychodzącego i wychodzącego do Internetu:
 
 * Maszyna wirtualna
 * Zestaw skalowania maszyn wirtualnych
@@ -41,12 +41,6 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz teraz [bezpłatne konto](ht
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 Jeśli zdecydujesz się zainstalować program PowerShell i używać go lokalnie, ten artykuł będzie wymagał modułu Azure PowerShell w wersji 6.9.0 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-Az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure.
-
-## <a name="register-the-feature-for-your-subscription"></a>Rejestrowanie funkcji dla subskrypcji
-Funkcja preferencji routingu jest obecnie w wersji zapoznawczej. Zarejestruj funkcję subskrypcji w następujący sposób:
-```azurepowershell
-Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature -ProviderNamespace Microsoft.Network
-```
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 

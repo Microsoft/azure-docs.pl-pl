@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 554b3ad1dbe1e736300387aefde195b9054ab326
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 87dff3bbb4a7ff5e40a06d1b63bdc38987d727fe
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437103"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492696"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Azure Database for MySQL szyfrowanie danych za pomocą klucza zarządzanego przez klienta
 
@@ -97,8 +97,8 @@ W przypadku konfigurowania szyfrowania danych przy użyciu klucza zarządzanego 
 
 * Jeśli zostanie utworzony serwer przywracania punktu w czasie dla Azure Database for MySQL, w którym włączono szyfrowanie danych, nowo utworzony serwer będzie w stanie *niedostępnym* . Można to naprawić za poorednictwem [Azure Portal](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) lub [interfejsu wiersza polecenia](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
 * Jeśli utworzymy replikę odczytu dla Azure Database for MySQL, w której włączono szyfrowanie danych, serwer repliki będzie w stanie *niedostępnym* . Można to naprawić za poorednictwem [Azure Portal](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) lub [interfejsu wiersza polecenia](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
-* W przypadku usunięcia magazynu kluczy Azure Database for MySQL nie będzie w stanie uzyskać dostępu do klucza i przejdzie do stanu *niedostępności* . Odzyskaj [Key Vault](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) i ponownie Zweryfikuj szyfrowanie danych, aby *udostępnić serwer.*
-* W przypadku usunięcia klucza z magazynu kluczy Azure Database for MySQL nie będzie w stanie uzyskać dostępu do klucza i przejdzie do stanu *niedostępności* . Odzyskaj [klucz](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) i ponownie Zweryfikuj szyfrowanie danych, aby *udostępnić serwer.*
+* W przypadku usunięcia magazynu kluczy Azure Database for MySQL nie będzie w stanie uzyskać dostępu do klucza i przejdzie do stanu *niedostępności* . Odzyskaj [Key Vault](../key-vault/general/key-vault-recovery.md) i ponownie Zweryfikuj szyfrowanie danych, aby *udostępnić serwer.*
+* W przypadku usunięcia klucza z magazynu kluczy Azure Database for MySQL nie będzie w stanie uzyskać dostępu do klucza i przejdzie do stanu *niedostępności* . Odzyskaj [klucz](../key-vault/general/key-vault-recovery.md) i ponownie Zweryfikuj szyfrowanie danych, aby *udostępnić serwer.*
 * Jeśli klucz zapisany w magazynie kluczy platformy Azure wygaśnie, klucz stanie się nieprawidłowy, a Azure Database for MySQL przejdzie w stan *niedostępności* . Zwiększ datę wygaśnięcia klucza przy użyciu [interfejsu wiersza polecenia](/cli/azure/keyvault/key#az-keyvault-key-set-attributes) , a następnie ponownie Zweryfikuj szyfrowanie danych, aby udostępnić *serwer.*
 
 ### <a name="accidental-key-access-revocation-from-key-vault"></a>Przypadkowe odwoływanie dostępu do klucza z Key Vault

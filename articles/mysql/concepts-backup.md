@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 05cc6579d83fe0cd861f3f91b8d44297963f8101
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: a124f576b2540399d27fcd97e0e58476dba4ba4b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433278"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492815"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Tworzenie kopii zapasowych i przywracanie w Azure Database for MySQL
 
@@ -38,11 +38,11 @@ Kopie zapasowe dziennika transakcji są wykonywane co pięć minut.
 Magazyn ogólnego przeznaczenia to magazyn zaplecza obsługujący [ogólnego przeznaczenia](concepts-pricing-tiers.md) i serwer [warstwy zoptymalizowanej pod kątem pamięci](concepts-pricing-tiers.md) . W przypadku serwerów z magazynem ogólnego przeznaczenia do 4 TB kopie zapasowe są wykonywane co tydzień. Różnicowe kopie zapasowe są wykonywane dwa razy dziennie. Kopie zapasowe dziennika transakcji są wykonywane co pięć minut. Kopie zapasowe w magazynie ogólnego przeznaczenia o pojemności do 4 TB nie są oparte na migawce i zużywają przepustowość we/wy w momencie tworzenia kopii zapasowej. W przypadku dużych baz danych (> 1 TB) w przypadku magazynu z 4 TB Zalecamy rozważenie
 
 - Inicjowanie obsługi większej liczby IOPs na potrzeby tworzenia kopii zapasowych systemu IOs lub
-- Alternatywnie można przeprowadzić migrację do magazynu ogólnego przeznaczenia, który obsługuje maksymalnie 16 TB magazynu, jeśli podstawowa infrastruktura magazynu jest dostępna w preferowanych [regionach platformy Azure](/azure/mysql/concepts-pricing-tiers#storage). Nie ma dodatkowych kosztów związanych z magazynem ogólnego przeznaczenia, który obsługuje maksymalnie 16 TB pamięci masowej. Aby uzyskać pomoc dotyczącą migracji do magazynu o pojemności 16 TB, należy otworzyć bilet pomocy technicznej z Azure Portal.
+- Alternatywnie można przeprowadzić migrację do magazynu ogólnego przeznaczenia, który obsługuje maksymalnie 16 TB magazynu, jeśli podstawowa infrastruktura magazynu jest dostępna w preferowanych [regionach platformy Azure](./concepts-pricing-tiers.md#storage). Nie ma dodatkowych kosztów związanych z magazynem ogólnego przeznaczenia, który obsługuje maksymalnie 16 TB pamięci masowej. Aby uzyskać pomoc dotyczącą migracji do magazynu o pojemności 16 TB, należy otworzyć bilet pomocy technicznej z Azure Portal.
 
 #### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Serwery magazynu ogólnego przeznaczenia z magazynem do 16 TB
 
-W podzestawie [regionów świadczenia usługi Azure](/azure/mysql/concepts-pricing-tiers#storage)wszystkie nowo Obsługiwane serwery mogą obsługiwać magazyn ogólnego przeznaczenia o pojemności do 16 TB. Innymi słowy, magazyn do 16 TB magazynu jest domyślnym magazynem ogólnego przeznaczenia dla wszystkich [regionów](concepts-pricing-tiers.md#storage) , w których jest obsługiwany. Kopie zapasowe na tych serwerach magazynu 16 TB są oparte na migawce. Pierwsza pełna kopia zapasowa migawki jest planowana natychmiast po utworzeniu serwera. Kopia zapasowa pierwszej pełnej migawki jest zachowywana jako podstawowa kopia zapasowa serwera. Kolejne kopie zapasowe migawki są jedynie różnicowymi kopiami zapasowymi.
+W podzestawie [regionów świadczenia usługi Azure](./concepts-pricing-tiers.md#storage)wszystkie nowo Obsługiwane serwery mogą obsługiwać magazyn ogólnego przeznaczenia o pojemności do 16 TB. Innymi słowy, magazyn do 16 TB magazynu jest domyślnym magazynem ogólnego przeznaczenia dla wszystkich [regionów](concepts-pricing-tiers.md#storage) , w których jest obsługiwany. Kopie zapasowe na tych serwerach magazynu 16 TB są oparte na migawce. Pierwsza pełna kopia zapasowa migawki jest planowana natychmiast po utworzeniu serwera. Kopia zapasowa pierwszej pełnej migawki jest zachowywana jako podstawowa kopia zapasowa serwera. Kolejne kopie zapasowe migawki są jedynie różnicowymi kopiami zapasowymi.
 
 Różnicowe kopie zapasowe migawek są tworzone co najmniej raz dziennie. Różnicowe kopie zapasowe migawek nie są tworzone zgodnie z ustalonym harmonogramem. Kopie zapasowe migawek różnicowych są wykonywane co 24 godziny, chyba że dziennik transakcji (binlog w programie MySQL) przekracza 50 GB od czasu ostatniej różnicowej kopii zapasowej. W ciągu dnia dozwolonych jest maksymalnie sześć migawek różnicowych.
 

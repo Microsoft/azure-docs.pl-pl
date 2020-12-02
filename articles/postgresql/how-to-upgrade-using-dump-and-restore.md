@@ -6,18 +6,18 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: e756e033c8e5b2508dca9bde76ad16be26a940fa
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 42bbe1c9f4056ae0dae0ccd59b452db90a7c63c5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505788"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493665"
 ---
 # <a name="upgrade-your-postgresql-database-using-dump-and-restore"></a>Uaktualnianie bazy danych PostgreSQL przy użyciu funkcji zrzutów i przywracania
 
 Serwer PostgreSQL wdrożony w ramach jednego serwera Azure Database for PostgreSQL programu można uaktualnić, przechodząc do serwera o wyższej wersji głównej, korzystając z następujących metod.
 * Metoda **offline** korzystająca z PostgreSQL [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) i [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) , która powoduje przestoje w przypadku migrowania danych. Ten dokument dotyczy tej metody uaktualniania/migracji.
-* Metoda **online** korzystająca z [Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal) (DMS). Ta metoda zapewnia ograniczoną migrację przestojów i utrzymuje docelową bazę danych w synchronizacji ze źródłem i można wybrać opcję wycinania. Istnieje jednak kilka wymagań wstępnych i ograniczeń związanych z korzystaniem z usługi DMS. Aby uzyskać szczegółowe informacje, zobacz [dokumentację usługi DMS](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal). 
+* Metoda **online** korzystająca z [Database Migration Service](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md) (DMS). Ta metoda zapewnia ograniczoną migrację przestojów i utrzymuje docelową bazę danych w synchronizacji ze źródłem i można wybrać opcję wycinania. Istnieje jednak kilka wymagań wstępnych i ograniczeń związanych z korzystaniem z usługi DMS. Aby uzyskać szczegółowe informacje, zobacz [dokumentację usługi DMS](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md). 
 
  W poniższej tabeli przedstawiono niektóre zalecenia na podstawie rozmiarów i scenariuszy baz danych.
 
@@ -28,7 +28,7 @@ Serwer PostgreSQL wdrożony w ramach jednego serwera Azure Database for PostgreS
 | Mały średni baz danych (10 GB – 100 GB) | X | X |
 | Duże bazy danych (> 100 GB) |  | X |
 | Może zapewnić przestoje do uaktualnienia (niezależnie od rozmiaru bazy danych) | X |  |
-| Może rozwiązać [wymagania wstępne systemu](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal#prerequisites)DMS, w tym ponowny rozruch? |  | X |
+| Może rozwiązać [wymagania wstępne systemu](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md#prerequisites)DMS, w tym ponowny rozruch? |  | X |
 | Czy w trakcie procesu uaktualniania można uniknąć DDLs i niezarejestrowanych tabel? | |  X |
 
 Ten przewodnik zawiera kilka metod migracji w trybie offline i przykłady przedstawiające sposób migracji z serwera źródłowego na serwer docelowy, na którym działa nowsza wersja PostgreSQL.
@@ -103,7 +103,7 @@ Jeśli nie masz klienta PostgreSQL lub chcesz użyć Azure Cloud Shell, możesz 
     pg_dump -Fc -v --mySourceServer --port=5432 --username=myUser --dbname=mySourceDB | pg_restore -v --no-owner --host=myTargetServer --port=5432 --username=myUser --dbname=myTargetDB
     ```
 
-    Przykład:
+    Na przykład
 
     ```azurecli-interactive
     pg_dump -Fc -v --host=pg-95.postgres.database.azure.com --port=5432 --username=pg@pg-95 --dbname=bench5gb | pg_restore -v --no-owner --host=pg-11.postgres.database.azure.com --port=5432 --username=pg@pg-11 --dbname=bench5gb
@@ -131,7 +131,7 @@ Tę metodę można wziąć pod uwagę, jeśli w bazie danych masz kilka większy
     psql "host=myTargetServer port=5432 dbname=postgres user=myuser password=###### sslmode=mySSLmode"
     postgresl> create database myDB;
    ```
-   Przykład:
+   Na przykład
     ```bash
     psql "host=pg-11.postgres.database.azure.com port=5432 dbname=postgres user=pg@pg-11 password=###### sslmode=require"
 
@@ -144,7 +144,7 @@ Tę metodę można wziąć pod uwagę, jeśli w bazie danych masz kilka większy
     ```bash
     pg_dump -Fd -v --host=sourceServer --port=5432 --username=myUser --dbname=mySourceDB -j 4 -f myDumpDirectory
     ```
-    Przykład:
+    Na przykład
     ```bash
     pg_dump -Fd -v --host=pg-95.postgres.database.azure.com --port=5432 --username=pg@pg-95 --dbname=bench5gb -j 4 -f dump.dir
     ```
@@ -153,7 +153,7 @@ Tę metodę można wziąć pod uwagę, jeśli w bazie danych masz kilka większy
     ```bash
     $ pg_restore -v --no-owner --host=myTargetServer --port=5432 --username=myUser --dbname=myTargetDB -j 4 myDumpDir
     ```
-    Przykład:
+    Na przykład
     ```bash
     $ pg_restore -v --no-owner --host=pg-11.postgres.database.azure.com --port=5432 --username=pg@pg-11 --dbname=bench5gb -j 4 dump.dir
     ```

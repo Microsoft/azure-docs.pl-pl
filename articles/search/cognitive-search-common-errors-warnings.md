@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 8ceb6d4dddb76148be1e82ebc8c1994886a11da3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcdc05ae696a207546eb62160fe89ea38d307058
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362818"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492271"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Rozwiązywanie problemów z typowymi błędami indeksatora i ostrzeżeniami w usłudze Azure Wyszukiwanie poznawcze
 
@@ -348,8 +348,8 @@ Aby obejść to ostrzeżenie, należy określić, co ma być kodowanie tekstu dl
 
 ## <a name="warning-cosmos-db-collection-x-has-a-lazy-indexing-policy-some-data-may-be-lost"></a>Ostrzeżenie: Kolekcja Cosmos DB "X" ma opóźnione zasady indeksowania. Niektóre dane mogą zostać utracone
 
-Kolekcje z [opóźnionymi](/azure/cosmos-db/index-policy#indexing-mode) zasadami indeksowania nie mogą być wykonywane w sposób ciągły, co spowodowało brak danych indeksatora. Aby obejść to ostrzeżenie, Zmień zasady indeksowania tak, aby były spójne.
+Kolekcje z [opóźnionymi](../cosmos-db/index-policy.md#indexing-mode) zasadami indeksowania nie mogą być wykonywane w sposób ciągły, co spowodowało brak danych indeksatora. Aby obejść to ostrzeżenie, Zmień zasady indeksowania tak, aby były spójne.
 
 ## <a name="warning-the-document-contains-very-long-words-longer-than-64-characters-these-words-may-result-in-truncated-andor-unreliable-model-predictions"></a>Ostrzeżenie: dokument zawiera bardzo długie słowa (więcej niż 64 znaków). Te słowa mogą powodować obcinanie i/lub zawodne przewidywania modeli.
 
-To ostrzeżenie jest przesyłane z usługi analiza tekstu.  W niektórych przypadkach jest bezpieczne ignorowanie tego ostrzeżenia, na przykład wtedy, gdy dokument zawiera długi adres URL (prawdopodobnie nie jest to kluczowa fraza lub tonacji, itp.).  Należy pamiętać, że gdy wyraz jest dłuższy niż 64 znaków, zostanie obcięty do 64 znaków, które mogą wpływać na przewidywania modeli.  
+To ostrzeżenie jest przesyłane z usługi analiza tekstu.  W niektórych przypadkach jest bezpieczne ignorowanie tego ostrzeżenia, na przykład wtedy, gdy dokument zawiera długi adres URL (prawdopodobnie nie jest to kluczowa fraza lub tonacji, itp.).  Należy pamiętać, że gdy wyraz jest dłuższy niż 64 znaków, zostanie obcięty do 64 znaków, które mogą wpływać na przewidywania modeli.

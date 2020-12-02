@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: 171ae04a70f3639981e74d20d260a03359a0f2c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f5653e4c184e88bce86026681dde1aee9e14d49
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187442"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491421"
 ---
 # <a name="what-is-routing-preference-preview"></a>Co to jest preferencja routingu (wersja zapoznawcza)?
 
@@ -65,24 +65,12 @@ Publiczny adres IP z wyborem preferencji routingu "Microsoft Global Network" mo�
 W przypadku usługi Storage podstawowe punkty końcowe zawsze używają **sieci globalnej firmy Microsoft**. Pomocnicze punkty końcowe można włączyć w **Internecie** jako wybór dla routingu ruchu. Obsługiwane usługi magazynu:
 
 * Obiekty blob
-* Files
-* Sieć Web
+* Pliki
+* Internet
 * Azure DataLake
 
 ## <a name="pricing"></a>Cennik
-Różnica między cenami w obu opcjach jest uwzględniana w cenach transferu danych wychodzących z Internetu. Funkcja routingu za pośrednictwem usługi **Microsoft Global Network** Data Transfer jest taka sama jak bieżąca cena wychodząca z Internetu. Aby uzyskać najnowsze informacje o cenach, odwiedź [stronę z cennikiem usługi Azure przepustowość](https://azure.microsoft.com/pricing/details/bandwidth/) . Do routingu za pośrednictwem **publicznej sieci Internet** jest niższa cena, jak pokazano w poniższej tabeli:
-
-| Region źródła ruchu wychodzącego | 0-5 GB na miesiąc | 5 GB — 10 TB/miesiąc | 10-50 TB/miesiąc | 50-150 TB/miesiąc | 150-500 TB/miesiąc |
-| --- | --- | --- | --- | --- | --- |
-| Strefa 1 | $0/GB | $0.085/GB | $0.065/GB | $0.06/GB | $0,04/GB |
-| Strefa 2 | $0/GB | $0,11/GB | $0.075/GB | $0,07/GB | $0.06/GB  |
-
-[Skontaktuj się z nami](https://azure.microsoft.com/overview/sales-number/) w przypadku miesięcznego wolumenu przekraczającego 500 TB.
-* Strefa 1 — Australia Środkowa, Australia Środkowa 2, Kanada środkowa, Kanada Wschodnia, Europa Północna, Europa Zachodnia, Francja środkowa, Francja Południowa, Niemcy Północne (publiczna), Niemcy Środkowo-Zachodnie (Public), Norwegia wschodnia, południowe stany USA Południowe Zjednoczone Królestwo Szwajcaria Zachodnia Szwajcaria Północna, w Stanach Zjednoczonych i zachodnie stany USA, Południowo-środkowe stany USA, zachodnie stany USA, zachodnie stany USA 2 i środkowe stany USA.
-
-* Strefa 2 — Azja Wschodnia, Azja Południowo-Wschodnia, Australia Wschodnia, Australia Południowo-Wschodnia, Indie Środkowe, Indie Południowe, Indie Zachodnie, Japonia Wschodnia, Japonia Zachodnia, Korea środkowa, Korea Południowa.
-
-* Strefa 3 — Brazylia Południowa, Północna Republika Południowej Afryki, Zachodnia Republika Południowej Afryki, Zjednoczone Emiraty Arabskie i Zjednoczone Emiraty Arabskie.
+Różnica między cenami w obu opcjach jest uwzględniana w cenach transferu danych wychodzących z Internetu. Funkcja routingu za pośrednictwem usługi **Microsoft Global Network** Data Transfer jest taka sama jak bieżąca cena wychodząca z Internetu. Aby uzyskać najnowsze informacje o cenach, odwiedź [stronę z cennikiem usługi Azure przepustowość](https://azure.microsoft.com/pricing/details/bandwidth/) . 
 
 ## <a name="availability"></a>Dostępność
 

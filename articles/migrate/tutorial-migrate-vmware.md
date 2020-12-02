@@ -4,12 +4,12 @@ description: Dowiedz się, jak uruchomić migrację maszyn wirtualnych VMware be
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 7eb918a844b1cd542664ac7e5aec2736ceba0e6f
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 202886bc0a7738f8211cfea6d90a380c7bac82b8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301639"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492951"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrowanie maszyn wirtualnych VMware na platformę Azure (bez wykorzystania agentów)
 
@@ -21,7 +21,7 @@ Ten samouczek jest trzecią częścią serii, która pokazuje, jak oceniać i mi
 > Samouczki przedstawiają najprostszą ścieżkę wdrożenia dla scenariusza, dzięki czemu można szybko skonfigurować weryfikację koncepcji. Jeśli to możliwe, samouczki używają opcji domyślnych i nie przedstawiają wszystkich możliwych ustawień i ścieżek. 
 
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Dodaj narzędzie migracji platformy Azure: serwer.
@@ -38,7 +38,7 @@ Przed rozpoczęciem tego samouczka należy:
 
 1. [Wykonaj pierwszy samouczek,](./tutorial-discover-vmware.md) aby przygotować platformę Azure i oprogramowanie VMware do migracji.
 2. Zalecamy wykonanie drugiego samouczka w celu [oceny maszyn wirtualnych VMware](./tutorial-assess-vmware-azure-vm.md) przed przeprowadzeniem migracji na platformę Azure, ale nie jest to konieczne. 
-3. Przejdź do już utworzonego projektu lub [Utwórz nowy projekt](https://docs.microsoft.com/azure/migrate/create-manage-projects)
+3. Przejdź do już utworzonego projektu lub [Utwórz nowy projekt](./create-manage-projects.md)
 4. Sprawdź uprawnienia do konta platformy Azure — Twoje konto platformy Azure wymaga uprawnień do utworzenia maszyny wirtualnej i zapisu na dysku zarządzanym platformy Azure.
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Konfigurowanie urządzenia Azure Migrate

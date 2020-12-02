@@ -6,12 +6,12 @@ ms.author: jiangma
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 0a6449e6b728ee690dd6ddee192868aaeb3511ad
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9ed53721b66dc03bad24e0510e0c8a970c61aec1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911043"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492424"
 ---
 # <a name="configure-built-in-container-registry-for-azure-red-hat-openshift-4"></a>Konfigurowanie wbudowanego rejestru kontenerów dla systemu Azure Red Hat OpenShift 4
 
@@ -24,11 +24,11 @@ W tym artykule opisano sposób konfigurowania wbudowanego rejestru obrazów kont
 > * Konfigurowanie połączenia OpenID Connect
 > * Dostęp do rejestru wbudowanego obrazu kontenera
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-W tym artykule przyjęto założenie, że masz istniejący klaster ARO. Jeśli potrzebujesz klastra ARO, zobacz samouczek ARO, [Tworzenie klastra usługi Azure Red Hat OpenShift 4](/azure/openshift/tutorial-create-cluster). Należy utworzyć klaster z `--pull-secret` argumentem `az aro create` .  Jest to konieczne, aby skonfigurować uwierzytelnianie Azure Active Directory i wbudowany rejestr kontenerów.
+W tym artykule przyjęto założenie, że masz istniejący klaster ARO. Jeśli potrzebujesz klastra ARO, zobacz samouczek ARO, [Tworzenie klastra usługi Azure Red Hat OpenShift 4](./tutorial-create-cluster.md). Należy utworzyć klaster z `--pull-secret` argumentem `az aro create` .  Jest to konieczne, aby skonfigurować uwierzytelnianie Azure Active Directory i wbudowany rejestr kontenerów.
 
-Po utworzeniu klastra Połącz się z klastrem, wykonując kroki opisane w temacie [łączenie z klastrem usługi Azure Red Hat OpenShift 4](/azure/openshift/tutorial-connect-cluster).
+Po utworzeniu klastra Połącz się z klastrem, wykonując kroki opisane w temacie [łączenie z klastrem usługi Azure Red Hat OpenShift 4](./tutorial-connect-cluster.md).
    * Upewnij się, że wykonano kroki opisane w temacie "Instalowanie interfejsu wiersza polecenia OpenShift", ponieważ użyjemy `oc` polecenia w dalszej części tego artykułu.
    * Zanotuj adres URL konsoli klastra, który wygląda podobnie do programu `https://console-openshift-console.apps.<random>.<region>.aroapp.io/` . Wartości dla `<random>` i `<region>` zostaną użyte w dalszej części tego artykułu.
    * Zanotuj `kubeadmin` poświadczenia. Zostaną one również użyte w dalszej części tego artykułu.

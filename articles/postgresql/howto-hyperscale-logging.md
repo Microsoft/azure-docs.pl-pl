@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 7/13/2020
-ms.openlocfilehash: fac0db7f8c94113ff87d1c0a3091e4c0cbd5ed2b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f8840d5115cb552ed203705d37f8c692b3418947
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489850"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492339"
 ---
 # <a name="logs-in-azure-database-for-postgresql---hyperscale-citus"></a>Dzienniki w Azure Database for PostgreSQL-ze skalowaniem (Citus)
 
@@ -26,13 +26,13 @@ Aby uzyskać dostęp do dzienników PostgreSQL dla koordynatora ze skalowaniem (
 
 W wybranym węźle otwórz pozycję **Ustawienia diagnostyczne**, a następnie kliknij pozycję **+ Dodaj ustawienie diagnostyczne**.
 
-:::image type="content" source="media/howto-hyperscale-logging/diagnostic-settings.png" alt-text="Lista węzłów":::
+:::image type="content" source="media/howto-hyperscale-logging/diagnostic-settings.png" alt-text="Przycisk dodawania ustawień diagnostycznych":::
 
 Wybierz nazwę nowych ustawień diagnostycznych i zaznacz pole **PostgreSQLLogs** .  Wybierz, które miejsca docelowe powinny otrzymywać dzienniki.
 
-:::image type="content" source="media/howto-hyperscale-logging/diagnostic-create-setting.png" alt-text="Lista węzłów":::
+:::image type="content" source="media/howto-hyperscale-logging/diagnostic-create-setting.png" alt-text="Wybieranie dzienników PostgreSQL":::
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wprowadzenie do zapytań usługi log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [Wprowadzenie do zapytań usługi log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 - Informacje o [centrach zdarzeń platformy Azure](../event-hubs/event-hubs-about.md)
