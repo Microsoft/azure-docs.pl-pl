@@ -6,18 +6,18 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 10/30/2020
 ms.author: rahugup
-ms.openlocfilehash: e1b34db7f2473e16d3ebde11376652f654f2f778
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 4ef4d3989f063e9d31718bc7143662c4f20cc90b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377959"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500822"
 ---
 # <a name="scale-migration-of-vmware-vms"></a>Skalowanie migracji maszyn wirtualnych VMware 
 
-Ten artykuł pomaga zrozumieć, jak za pomocą skryptów migrować dużą liczbę maszyn wirtualnych VMware przy użyciu metody bez agenta. Aby skalować migracje, należy użyć [modułu Azure Migrate PowerShell](https://aka.ms/azuremigratepowershellvmware). 
+Ten artykuł pomaga zrozumieć, jak za pomocą skryptów migrować dużą liczbę maszyn wirtualnych VMware przy użyciu metody bez agenta. Aby skalować migracje, należy użyć [modułu Azure Migrate PowerShell](./tutorial-migrate-vmware-powershell.md). 
 
-Azure Migrate skrypty automatyzacji migracji VMware są dostępne do pobrania w [Azure PowerShell repozytorium przykładów](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-vmware-agentles) w witrynie GitHub. Skrypty te mogą służyć do migrowania maszyn wirtualnych VMware na platformę Azure przy użyciu metody migracji bez wykorzystania agentów. Polecenia Azure Migrate PowerShell używane w tych skryptach zostały udokumentowane w [tym miejscu](https://aka.ms/azuremigratepowershellvmware).
+Azure Migrate skrypty automatyzacji migracji VMware są dostępne do pobrania w [Azure PowerShell repozytorium przykładów](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-vmware-agentles) w witrynie GitHub. Skrypty te mogą służyć do migrowania maszyn wirtualnych VMware na platformę Azure przy użyciu metody migracji bez wykorzystania agentów. Polecenia Azure Migrate PowerShell używane w tych skryptach zostały udokumentowane w [tym miejscu](./tutorial-migrate-vmware-powershell.md).
 
 ## <a name="current-limitations"></a>Bieżące ograniczenia
 - Te skrypty obsługują migrację maszyn wirtualnych VMware ze wszystkimi dyskami. Możesz zaktualizować skrypty, jeśli chcesz selektywnie replikować dyski dołączone do maszyny wirtualnej VMware. 
@@ -26,7 +26,7 @@ Azure Migrate skrypty automatyzacji migracji VMware są dostępne do pobrania w 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - [Ukończ samouczek odnajdywania](tutorial-discover-vmware.md) , aby przygotować platformę Azure i oprogramowanie VMware do migracji.
-- Zalecamy wykonanie drugiego samouczka, aby [ocenić maszyny wirtualne VMware](tutorial-assess-vmware.md) przed przeprowadzeniem migracji na platformę Azure.
+- Zalecamy wykonanie drugiego samouczka, aby [ocenić maszyny wirtualne VMware](./tutorial-assess-vmware-azure-vm.md) przed przeprowadzeniem migracji na platformę Azure.
 - Masz `Az` moduł Azure PowerShell. Jeśli musisz zainstalować lub uaktualnić Azure PowerShell, postępuj zgodnie [z tym przewodnikiem, aby zainstalować i skonfigurować Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="install-azure-migrate-powershell-module"></a>Zainstaluj moduł Azure Migrate PowerShell
@@ -123,4 +123,4 @@ Jeśli chcesz uruchomić skrypt w celu uruchomienia replikacji dla maszyn wirtua
 ".\AzMigrate_StartReplication.ps1" .\Input.csv 
 ```
 
-Aby dowiedzieć się więcej o używaniu Azure PowerShell do migrowania maszyn wirtualnych VMware z Azure Migrate, postępuj zgodnie z [samouczkiem](https://aka.ms/azuremigratepowershellvmware).
+Aby dowiedzieć się więcej o używaniu Azure PowerShell do migrowania maszyn wirtualnych VMware z Azure Migrate, postępuj zgodnie z [samouczkiem](./tutorial-migrate-vmware-powershell.md).

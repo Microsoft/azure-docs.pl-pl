@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: ad9f3a115ed226b492a08dae29db61029d9098eb
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 03cf20e5c796a7092dc16c466934f377c945ad48
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95558995"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509138"
 ---
 Konto magazynu to udostępniona pula magazynu, w której można wdrażać udziały plików platformy Azure lub inne zasoby magazynu, takie jak obiekty blob i kolejki. Konto magazynu może zawierać nieograniczoną liczbę udziałów. W udziale można przechowywać nieograniczoną liczbę plików, aż do osiągnięcia limitów pojemności konta magazynu.
 
@@ -30,7 +30,7 @@ Aby utworzyć konto magazynu:
     > [!NOTE]
     > Ten przewodnik Szybki Start tworzy standardowy udział plików, ale jeśli chciałeś użyć udziałów plików w warstwie Premium, zamiast tego wybierz opcję **Premium** .
 
-1. W polu **Rodzaj konta** wybierz wartość **StorageV2**. Aby dowiedzieć się więcej na temat różnych rodzajów kont magazynu, zobacz [Understand Azure storage accounts (Omówienie kont usługi Azure Storage)](../articles/storage/common/storage-account-overview.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
+1. W polu **Rodzaj konta** wybierz wartość **StorageV2**. Aby dowiedzieć się więcej na temat różnych rodzajów kont magazynu, zobacz [Understand Azure storage accounts (Omówienie kont usługi Azure Storage)](../articles/storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
     > [!NOTE]
     > Ten przewodnik Szybki Start tworzy konto ogólnego przeznaczenia w wersji 2. Jeśli chcesz użyć udziałów plików w warstwie Premium, zamiast tego wybierz pozycję **FileStorage** .

@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 102b8f4099c93637779743b9c08347266c1d044f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 25636611795a18761a1fc7135efd4abba5af5fe3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094028"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501111"
 ---
 # <a name="security-controls-for-azure-spring-cloud-service"></a>Mechanizmy kontroli zabezpieczeń dla usługi Azure Spring Cloud
 
@@ -26,7 +26,7 @@ Kontrola zabezpieczeń jest jakością lub funkcją usługi platformy Azure, kt�
 
 | Kontrola zabezpieczeń | Tak/Nie | Uwagi | Dokumentacja |
 |:-------------|:-------|:-------------------------------|:----------------------|
-| Szyfrowanie po stronie serwera w czasie spoczynku: klucze zarządzane przez firmę Microsoft | Tak | Użytkownik przekazał źródło i artefakty, ustawienia serwera konfiguracji, ustawienia aplikacji i dane w magazynie trwałym są przechowywane w usłudze Azure Storage, która automatycznie szyfruje zawartość w stanie spoczynku.<br><br>Pamięć podręczna serwera konfiguracji, pliki binarne środowiska uruchomieniowego skompilowane z przekazanego źródła i dzienniki aplikacji w okresie istnienia aplikacji są zapisywane na dysku zarządzanym platformy Azure, który automatycznie szyfruje zawartość w stanie spoczynku.<br><br>Obrazy kontenerów skompilowane ze źródła przekazanego przez użytkownika są zapisywane w Azure Container Registry, które automatycznie szyfruje zawartość obrazu w stanie spoczynku. | [Szyfrowanie w usłudze Azure Storage dla danych magazynowanych](../storage/common/storage-service-encryption.md)<br><br>[Szyfrowanie po stronie serwera dla usługi Azure Managed disks](../virtual-machines/linux/disk-encryption.md)<br><br>[Magazyn obrazów kontenerów w Azure Container Registry](../container-registry/container-registry-storage.md) |
+| Szyfrowanie po stronie serwera w czasie spoczynku: klucze zarządzane przez firmę Microsoft | Tak | Użytkownik przekazał źródło i artefakty, ustawienia serwera konfiguracji, ustawienia aplikacji i dane w magazynie trwałym są przechowywane w usłudze Azure Storage, która automatycznie szyfruje zawartość w stanie spoczynku.<br><br>Pamięć podręczna serwera konfiguracji, pliki binarne środowiska uruchomieniowego skompilowane z przekazanego źródła i dzienniki aplikacji w okresie istnienia aplikacji są zapisywane na dysku zarządzanym platformy Azure, który automatycznie szyfruje zawartość w stanie spoczynku.<br><br>Obrazy kontenerów skompilowane ze źródła przekazanego przez użytkownika są zapisywane w Azure Container Registry, które automatycznie szyfruje zawartość obrazu w stanie spoczynku. | [Szyfrowanie w usłudze Azure Storage dla danych magazynowanych](../storage/common/storage-service-encryption.md)<br><br>[Szyfrowanie po stronie serwera dla usługi Azure Managed disks](../virtual-machines/disk-encryption.md)<br><br>[Magazyn obrazów kontenerów w Azure Container Registry](../container-registry/container-registry-storage.md) |
 | Szyfrowanie przejściowe | Tak | Publiczne punkty końcowe aplikacji użytkownika domyślnie używają protokołu HTTPS dla ruchu przychodzącego. |  |
 | Wywołania interfejsu API są szyfrowane | Tak | Wywołania zarządzania w celu skonfigurowania usługi w chmurze Azure wiosennej są wykonywane za pośrednictwem wywołań Azure Resource Manager za pośrednictwem protokołu HTTPS | [Azure Resource Manager](../azure-resource-manager/index.yml) |
 

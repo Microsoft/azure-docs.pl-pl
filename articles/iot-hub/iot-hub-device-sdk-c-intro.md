@@ -13,16 +13,19 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 24f1332e940929cff6aeb6a0d5d3c43e28d36f22
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 9b870e21ffd5c6a8261b6731b939b5dff558256d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149178"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501196"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Zestaw SDK urządzeń Azure IoT dla języka C
 
 **Zestaw SDK urządzeń Azure IoT** to zestaw bibliotek zaprojektowanych w celu uproszczenia procesu wysyłania komunikatów do i otrzymywania komunikatów z usługi **Azure IoT Hub** . Istnieją różne warianty zestawu SDK, które są przeznaczone dla konkretnej platformy, ale w tym artykule opisano **zestaw SDK urządzeń Azure IoT dla języka C**.
+
+> [!NOTE]
+> Osadzony zestaw SDK języka C jest alternatywą dla urządzeń z ograniczeniami, które obsługują podejście do dołączenia do sieci (BYON). Deweloperzy IoT mogą korzystać z możliwości MQTT klienta, TLS i wybranego gniazda, aby utworzyć rozwiązanie dla urządzeń. [Dowiedz się więcej o osadzonym zestawie SDK języka C](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -98,7 +101,7 @@ Jeśli nie masz doświadczenia z narzędziem Eksplorator urządzeń, Poniższa p
 
 1. Wprowadź **Parametry połączenia IoT Hub** w pierwszym polu, a następnie kliknij przycisk **Aktualizuj**. Ten krok umożliwia skonfigurowanie narzędzia w taki sposób, aby mógł komunikować się z IoT Hub. 
 
-**Parametry połączenia** można znaleźć w obszarze **IoT Hub**  >  **Ustawienia**usługi  >  **zasady dostępu współdzielonego**  >  **iothubowner**.
+**Parametry połączenia** można znaleźć w obszarze **IoT Hub**  >  **Ustawienia** usługi  >  **zasady dostępu współdzielonego**  >  **iothubowner**.
 
 1. Po skonfigurowaniu parametrów połączenia IoT Hub kliknij kartę **Zarządzanie** :
 
@@ -114,7 +117,7 @@ Na tej karcie można zarządzać urządzeniami zarejestrowanymi w usłudze IoT H
 
    ![Device Explorer dwuosiowy z prawym przyciskiem myszy](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab_RightClick.png)
 
-1. W przypadku wybrania opcji **Kopiuj parametry połączenia dla wybranego urządzenia**parametry połączenia urządzenia zostaną skopiowane do Schowka. Zachowaj kopię parametrów połączenia urządzenia. Jest on potrzebny podczas uruchamiania przykładowych aplikacji opisanych w poniższych sekcjach.
+1. W przypadku wybrania opcji **Kopiuj parametry połączenia dla wybranego urządzenia** parametry połączenia urządzenia zostaną skopiowane do Schowka. Zachowaj kopię parametrów połączenia urządzenia. Jest on potrzebny podczas uruchamiania przykładowych aplikacji opisanych w poniższych sekcjach.
 
 Po wykonaniu powyższych kroków wszystko jest gotowe do rozpoczęcia uruchamiania kodu. Większość przykładów ma stałą w górnej części głównego pliku źródłowego, która umożliwia wprowadzanie parametrów połączenia. Na przykład odpowiedni wiersz ze **iothub_client \_ przykładów \_ iothub_convenience_sample** aplikacji pojawia się w następujący sposób.
 
@@ -124,7 +127,7 @@ static const char* connectionString = "[device connection string]";
 
 ## <a name="use-the-iothubclient-library"></a>Korzystanie z biblioteki usługi iothubclient
 
-W folderze ** \_ Client iothub** w repozytorium [Azure-IoT-SDK-c](https://github.com/azure/azure-iot-sdk-c) istnieje folder **Samples** zawierający aplikację o nazwie **iothub \_ Client \_ Sample \_ MQTT**.
+W folderze **\_ Client iothub** w repozytorium [Azure-IoT-SDK-c](https://github.com/azure/azure-iot-sdk-c) istnieje folder **Samples** zawierający aplikację o nazwie **iothub \_ Client \_ Sample \_ MQTT**.
 
 Wersja systemu Windows **iothub_client \_ przykładów \_ iothub_convenience_sample** aplikacji zawiera następujące rozwiązanie programu Visual Studio:
 
@@ -149,7 +152,7 @@ Poniższe kroki umożliwiają korzystanie z tej przykładowej aplikacji w celu p
 ### <a name="initialize-the-library"></a>Zainicjuj bibliotekę
 
 > [!NOTE]
-> Przed rozpoczęciem pracy z bibliotekami może być konieczne wykonanie pewnej inicjalizacji specyficznej dla platformy. Na przykład jeśli planujesz używać AMQP w systemie Linux, musisz zainicjować bibliotekę OpenSSL. Przykłady w [repozytorium GitHub](https://github.com/Azure/azure-iot-sdk-c) wywołują funkcję narzędzia ** \_ init platformy** funkcji podczas uruchamiania klienta i wywołają funkcję ** \_ DEINIT platformy** przed zamknięciem. Te funkcje są zadeklarowane w pliku nagłówkowym platform. h. Sprawdź definicje tych funkcji dla docelowej platformy w [repozytorium](https://github.com/Azure/azure-iot-sdk-c) , aby określić, czy w kliencie należy uwzględnić kod inicjalizacji specyficzny dla danej platformy.
+> Przed rozpoczęciem pracy z bibliotekami może być konieczne wykonanie pewnej inicjalizacji specyficznej dla platformy. Na przykład jeśli planujesz używać AMQP w systemie Linux, musisz zainicjować bibliotekę OpenSSL. Przykłady w [repozytorium GitHub](https://github.com/Azure/azure-iot-sdk-c) wywołują funkcję narzędzia **\_ init platformy** funkcji podczas uruchamiania klienta i wywołają funkcję **\_ DEINIT platformy** przed zamknięciem. Te funkcje są zadeklarowane w pliku nagłówkowym platform. h. Sprawdź definicje tych funkcji dla docelowej platformy w [repozytorium](https://github.com/Azure/azure-iot-sdk-c) , aby określić, czy w kliencie należy uwzględnić kod inicjalizacji specyficzny dla danej platformy.
 
 Aby rozpocząć pracę z bibliotekami, najpierw Przydziel IoT Hub obsługę klienta:
 
@@ -166,7 +169,7 @@ else
 
 Do tej funkcji jest przekazywany kopia parametrów połączenia urządzenia uzyskanych w narzędziu Eksplorator urządzeń. Należy również wyznaczyć protokół komunikacyjny do użycia. Ten przykład używa MQTT, ale AMQP i HTTPS są również opcjami.
 
-Jeśli masz prawidłowe ** \_ \_ dojście klienta IOTHUB**, możesz rozpocząć wywoływanie interfejsów API, aby wysyłać i odbierać komunikaty do i z IoT Hub.
+Jeśli masz prawidłowe **\_ \_ dojście klienta IOTHUB**, możesz rozpocząć wywoływanie interfejsów API, aby wysyłać i odbierać komunikaty do i z IoT Hub.
 
 ### <a name="send-messages"></a>Wysyłanie komunikatów
 
@@ -229,7 +232,7 @@ static void SendConfirmationCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, v
 }
 ```
 
-Zwróć uwagę na wywołanie funkcji ** \_ Destroy IoTHubMessage** po zakończeniu pracy z komunikatem. Ta funkcja zwalnia zasoby przydzieloną podczas tworzenia komunikatu.
+Zwróć uwagę na wywołanie funkcji **\_ Destroy IoTHubMessage** po zakończeniu pracy z komunikatem. Ta funkcja zwalnia zasoby przydzieloną podczas tworzenia komunikatu.
 
 ### <a name="receive-messages"></a>Odbieranie komunikatów
 
@@ -319,7 +322,7 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HA
 }
 ```
 
-Użyj funkcji ** \_ getbytearray IoTHubMessage** , aby pobrać komunikat, który w tym przykładzie jest ciągiem.
+Użyj funkcji **\_ getbytearray IoTHubMessage** , aby pobrać komunikat, który w tym przykładzie jest ciągiem.
 
 ### <a name="uninitialize-the-library"></a>Odinicjuj bibliotekę
 
@@ -391,7 +394,7 @@ else
 ...
 ```
 
-Wywołanie funkcji ** \_ init serializatora** to jednorazowe wywołanie i inicjuje podstawową bibliotekę. Następnie należy wywołać funkcję **usługi iothubclient \_ ll \_ CreateFromConnectionString** , która jest tym samym interfejsem API jak w przykładzie **usługi iothubclient** . To wywołanie ustawia parametry połączenia urządzenia (to wywołanie jest również używane w przypadku wybrania protokołu, który ma być używany). Ten przykład używa MQTT jako transportu, ale może użyć AMQP lub HTTPS.
+Wywołanie funkcji **\_ init serializatora** to jednorazowe wywołanie i inicjuje podstawową bibliotekę. Następnie należy wywołać funkcję **usługi iothubclient \_ ll \_ CreateFromConnectionString** , która jest tym samym interfejsem API jak w przykładzie **usługi iothubclient** . To wywołanie ustawia parametry połączenia urządzenia (to wywołanie jest również używane w przypadku wybrania protokołu, który ma być używany). Ten przykład używa MQTT jako transportu, ale może użyć AMQP lub HTTPS.
 
 Na koniec wywołaj funkcję **create \_ model \_ instance** . **WeatherStation** jest przestrzenią nazw modelu, a **ContosoAnemometer** jest nazwą modelu. Po utworzeniu wystąpienia modelu można go użyć do rozpoczęcia wysyłania i otrzymywania komunikatów. Ważne jest jednak, aby zrozumieć, co to jest model.
 
@@ -415,7 +418,7 @@ END_NAMESPACE(WeatherStation);
 
 Makra **Begin \_ Namespace** i **End \_ Namespaces** przyjmują przestrzeń nazw modelu jako argument. Oczekuje się, że wszystkie te makra są definicjami modelu lub modeli oraz strukturą danych używaną przez modele.
 
-W tym przykładzie istnieje jeden model o nazwie **ContosoAnemometer**. Ten model definiuje dwie fragmenty danych, które urządzenie może wysłać do IoT Hub: **DeviceID** i **WindSpeed**. Definiuje również trzy akcje (komunikaty), które urządzenie może odbierać: **TurnFanOn**, **TurnFanOff**i **SetAirResistance**. Każdy element danych ma typ, a każda akcja ma nazwę (i opcjonalnie zestaw parametrów).
+W tym przykładzie istnieje jeden model o nazwie **ContosoAnemometer**. Ten model definiuje dwie fragmenty danych, które urządzenie może wysłać do IoT Hub: **DeviceID** i **WindSpeed**. Definiuje również trzy akcje (komunikaty), które urządzenie może odbierać: **TurnFanOn**, **TurnFanOff** i **SetAirResistance**. Każdy element danych ma typ, a każda akcja ma nazwę (i opcjonalnie zestaw parametrów).
 
 Dane i akcje zdefiniowane w modelu definiują powierzchnię interfejsu API, za pomocą której można wysyłać komunikaty do IoT Hub i odpowiadać na komunikaty wysyłane do urządzenia. Korzystanie z tego modelu jest najlepszym rozwiązaniem na przykład.
 
@@ -541,7 +544,7 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE mess
 }
 ```
 
-Jest to ten sam kod, który jest taki sam dla każdego rozwiązania. Ta funkcja otrzymuje komunikat i bierze pod uwagę kierowanie do odpowiedniej funkcji za pomocą wywołania ** \_ polecenia Execute**. Funkcja wywołana w tym punkcie zależy od definicji akcji w modelu.
+Jest to ten sam kod, który jest taki sam dla każdego rozwiązania. Ta funkcja otrzymuje komunikat i bierze pod uwagę kierowanie do odpowiedniej funkcji za pomocą wywołania **\_ polecenia Execute**. Funkcja wywołana w tym punkcie zależy od definicji akcji w modelu.
 
 Podczas definiowania akcji w modelu wymagane jest zaimplementowanie funkcji, która jest wywoływana, gdy urządzenie otrzyma odpowiedni komunikat. Na przykład jeśli model definiuje tę akcję:
 

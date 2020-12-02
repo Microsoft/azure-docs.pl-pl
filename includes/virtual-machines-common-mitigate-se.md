@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/12/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 8594ce713a8675505e0ee3051018b05992b160a9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a9146099951aba223a7b201c1613e1ec0ba617d4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96028425"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509484"
 ---
 **Ostatnia aktualizacja dokumentu**: 12 listopada 2019 10:00 am.
 
@@ -21,7 +21,7 @@ Ujawnienie [nowej klasy luk w zabezpieczeniach procesora](https://portal.msrc.mi
 
 Firma Microsoft wdrożyła środki zaradcze dla wszystkich naszych usług w chmurze. Infrastruktura działająca na platformie Azure i izolowanie obciążeń klientów od innych użytkowników jest chroniona. Oznacza to, że potencjalni osoba atakująca korzystająca z tej samej infrastruktury nie może zaatakować aplikacji przy użyciu tych luk w zabezpieczeniach.
 
-Platforma Azure korzysta z konserwowanej [pamięci](../articles/virtual-machines/maintenance-and-updates.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json%252c%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json%253ftoc%253d%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#maintenance-that-doesnt-require-a-reboot) , jeśli jest to możliwe, aby zminimalizować wpływ klienta i wyeliminować konieczność ponownego uruchomienia. Platforma Azure będzie nadal korzystać z tych metod podczas systemowo aktualizacji hosta i ochrony naszych klientów.
+Platforma Azure korzysta z konserwowanej [pamięci](../articles/virtual-machines/maintenance-and-updates.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json%252c%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json%253ftoc%253d%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#maintenance-that-doesnt-require-a-reboot) , jeśli jest to możliwe, aby zminimalizować wpływ klienta i wyeliminować konieczność ponownego uruchomienia. Platforma Azure będzie nadal korzystać z tych metod podczas systemowo aktualizacji hosta i ochrony naszych klientów.
 
 Więcej informacji o tym, jak zabezpieczenia są zintegrowane z każdym aspektem platformy Azure, jest dostępny w witrynie [dokumentacji zabezpieczeń platformy Azure](../articles/security/index.yml) . 
 

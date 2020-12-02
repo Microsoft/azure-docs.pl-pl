@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ef481b73b6dc42bc35252c08ae8d63b9de95b2ba
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 1a7e8e71e26af241d16095a5fa1e6a02a7e3d4c2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325098"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500771"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Jakie typy dysków są dostępne na platformie Azure?
 
@@ -84,7 +84,7 @@ Po udostępnieniu dysku magazynu w warstwie Premium, w przeciwieństwie do magaz
 
 SSD w warstwie Premium rozmiary mniejsze niż P30 teraz oferują możliwość naliczania dysków na dyskach, a ich liczba operacji we/wy na sekundę wynosi nawet 3 500 i przepustowość do 170 MB/s. Rozliczanie jest zautomatyzowane i działa na podstawie systemu kredytowego. Kredyty są automatycznie sumowane w zasobniku szeregowym, gdy ruch dysku jest niższy od zainicjowanej wartości docelowej wydajności, a kredyty są automatycznie zużywane, gdy ruch przekracza miejsce docelowe, do maksymalnego limitu. Maksymalny limit serii określa limit liczby operacji we/wy dysku & przepustowości, nawet jeśli masz kredyty na korzystanie z serii. Szeregowanie dysków zapewnia lepszą tolerancję w nieprzewidywalnych zmianach wzorców we/wy. Można go najlepiej wykorzystać do rozruchu z dysku systemu operacyjnego i aplikacji z ruchem pochodzącym.    
 
-Obsługa serii dysków zostanie włączona w nowych wdrożeniach odpowiednich rozmiarów dysków domyślnie, bez konieczności wykonywania jakiejkolwiek czynności przez użytkownika. W przypadku istniejących dysków o odpowiednich rozmiarach można włączyć korzystanie z jednej z dwóch opcji: Odłącz i ponownie podłącz dysk lub zatrzymywanie i ponowne uruchamianie dołączonej maszyny wirtualnej. Wszystkie odpowiednie rozmiary dysku będą rozpoczynać się od pełnego zasobnika kredytowego, gdy dysk jest podłączony do maszyny wirtualnej, która obsługuje maksymalny czas trwania w szczycie maksymalnego limitu wynoszącym 30 minut. Aby dowiedzieć się więcej o sposobach tworzenia zadań na dyskach platformy Azure, zobacz [SSD w warstwie Premiuming](linux/disk-bursting.md). 
+Obsługa serii dysków zostanie włączona w nowych wdrożeniach odpowiednich rozmiarów dysków domyślnie, bez konieczności wykonywania jakiejkolwiek czynności przez użytkownika. W przypadku istniejących dysków o odpowiednich rozmiarach można włączyć korzystanie z jednej z dwóch opcji: Odłącz i ponownie podłącz dysk lub zatrzymywanie i ponowne uruchamianie dołączonej maszyny wirtualnej. Wszystkie odpowiednie rozmiary dysku będą rozpoczynać się od pełnego zasobnika kredytowego, gdy dysk jest podłączony do maszyny wirtualnej, która obsługuje maksymalny czas trwania w szczycie maksymalnego limitu wynoszącym 30 minut. Aby dowiedzieć się więcej o sposobach tworzenia zadań na dyskach platformy Azure, zobacz [SSD w warstwie Premiuming](./disk-bursting.md). 
 
 ### <a name="transactions"></a>Transakcje
 

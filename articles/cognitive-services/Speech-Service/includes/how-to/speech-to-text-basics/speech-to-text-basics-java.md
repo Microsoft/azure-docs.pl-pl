@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: 3564bf0db3e85ed1d2d1716fd50e48838a94d40a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4a06d40c3052fef9a484dc98220a0ad7cccd33bb
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96026579"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509201"
 ---
 Jedną z podstawowych funkcji usługi mowy jest możliwość rozpoznawania i transkrypcja mowy (często nazywanej zamianą mowy na tekst). W tym przewodniku szybki start dowiesz się, jak używać zestawu Speech SDK w aplikacjach i produktach do wykonywania konwersji wysokiej jakości zamiany mowy na tekst.
 
@@ -263,5 +263,5 @@ phraseList.clear();
 
 Listy fraz są tylko jedną opcją w celu zwiększenia dokładności rozpoznawania. Możesz również wykonać następujące czynności: 
 
-* [Zwiększanie dokładności za pomocą mowy niestandardowej](../../../how-to-custom-speech.md)
+* [Zwiększanie dokładności za pomocą mowy niestandardowej](../../../custom-speech-overview.md)
 * [Zwiększanie dokładności za pomocą modeli dzierżaw](../../../tutorial-tenant-model.md)

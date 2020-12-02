@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: 6ad8f3e146c13e7b88752b8ef6d514346542ce26
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 748ac448ad8bf5c06e5be8b7a4a8b00a9b7af84b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672268"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500890"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Znajdź i Zastosuj zalecenia dotyczące wydajności
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,8 +29,8 @@ Aby wyświetlić i zastosować zalecenia dotyczące wydajności, musisz mieć od
 
 Wykonaj następujące kroki, aby znaleźć zalecenia dotyczące wydajności Azure Portal:
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com/).
-2. Przejdź do obszaru **wszystkie usługi**  >  **bazy danych SQL** , a następnie wybierz bazę danych.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+2. Przejdź do obszaru **wszystkie usługi**  >  **bazy danych SQL**, a następnie wybierz bazę danych.
 3. Przejdź do **zalecenia** dotyczącego wydajności, aby wyświetlić dostępne rekomendacje dla wybranej bazy danych.
 
 Zalecenia dotyczące wydajności są wyświetlane w tabeli podobnej do przedstawionej na poniższej ilustracji:
@@ -86,9 +86,9 @@ Jeśli lista zaleceń zawiera elementy, które chcesz usunąć z listy, możesz 
 
 W razie potrzeby można dodać odrzucone elementy z listy **rekomendacje** :
 
-1. Na stronie **zalecenia** kliknij przycisk **Wyświetl odrzucony** .
+1. Na stronie **zalecenia** kliknij przycisk **Wyświetl odrzucony**.
 2. Wybierz z listy odrzucony element, aby wyświetlić jego szczegóły.
-3. Opcjonalnie kliknij przycisk **Cofnij Odrzuć** , aby dodać indeks z powrotem do głównej listy **zaleceń** .
+3. Opcjonalnie kliknij przycisk **Cofnij Odrzuć** , aby dodać indeks z powrotem do głównej listy **zaleceń**.
 
 > [!NOTE]
 > Należy pamiętać, że jeśli SQL Database [dostrajania automatycznego](automatic-tuning-overview.md) jest włączona, a jeśli użytkownik ręcznie odrzuci zalecenie z listy, takie zalecenie nigdy nie będzie automatycznie stosowane. Odrzucanie zalecenia jest wygodnym sposobem, aby użytkownicy mogli korzystać z funkcji automatycznego dostrajania w przypadkach, gdy wymagają zastosowania określonego zalecenia.
@@ -98,7 +98,7 @@ W razie potrzeby można dodać odrzucone elementy z listy **rekomendacje** :
 
 Bazę danych można skonfigurować do automatycznego implementowania zaleceń. Gdy udostępnisz zalecenia, są one automatycznie stosowane. Podobnie jak w przypadku wszystkich zaleceń zarządzanych przez usługę, jeśli wpływ na wydajność jest negatywny, zalecenie zostanie cofnięte.
 
-1. Na stronie **zalecenia** kliknij przycisk **Automatyzuj** :
+1. Na stronie **zalecenia** kliknij przycisk **Automatyzuj**:
 
    ![Ustawienia usługi Advisor](./media/database-advisor-find-recommendations-portal/settings.png)
 2. Wybierz akcje do zautomatyzowania:
@@ -112,13 +112,13 @@ Po wybraniu odpowiedniej konfiguracji kliknij przycisk Zastosuj.
 
 ### <a name="manually-apply-recommendations-through-t-sql"></a>Ręcznie stosuj zalecenia przy użyciu języka T-SQL
 
-Wybierz dowolne zalecenie, a następnie kliknij przycisk **Wyświetl skrypt** . Uruchom ten skrypt w bazie danych, aby ręcznie zastosować zalecenie.
+Wybierz dowolne zalecenie, a następnie kliknij przycisk **Wyświetl skrypt**. Uruchom ten skrypt w bazie danych, aby ręcznie zastosować zalecenie.
 
 *Indeksy, które są wykonywane ręcznie, nie są monitorowane i sprawdzane pod kątem wydajności przez usługę* , dlatego zaleca się monitorowanie tych indeksów po utworzeniu, aby upewnić się, że zapewniają one zyski z wydajności i dostosowywać je w razie potrzeby. Aby uzyskać szczegółowe informacje na temat tworzenia indeksów, zobacz [create index (Transact-SQL)](/sql/t-sql/statements/create-index-transact-sql). Ponadto ręcznie zastosowane rekomendacje pozostaną aktywne i wyświetlone na liście zaleceń dla 24-48 godzin. przed automatycznym wycofaniem ich przez system. Jeśli chcesz usunąć zalecenie wcześniej, możesz je ręcznie odrzucić.
 
 ### <a name="canceling-recommendations"></a>Anulowanie zaleceń
 
-Zaleceń, które znajdują się w stanie **oczekiwania** , **sprawdzania poprawności** lub **sukcesu** , można anulować. Nie można anulować zaleceń dotyczących stanu **wykonywania** .
+Zaleceń, które znajdują się w stanie **oczekiwania**, **sprawdzania poprawności** lub **sukcesu** , można anulować. Nie można anulować zaleceń dotyczących stanu **wykonywania** .
 
 1. Wybierz zalecenie w obszarze **historia dostrajania** , aby otworzyć stronę **szczegóły rekomendacji** .
 2. Kliknij przycisk **Anuluj** , aby przerwać proces stosowania zalecenia.
@@ -168,7 +168,7 @@ Monitoruj swoje rekomendacje i Kontynuuj ich stosowanie w celu udoskonalenia wyd
 * Zobacz [zalecenia dotyczące wydajności](database-advisor-implement-performance-recommendations.md) , aby zapoznać się z omówieniem zaleceń dotyczących wydajności Azure SQL Database.
 * Zobacz [szczegółowe informacje o wydajności zapytań](query-performance-insight-use.md) , aby dowiedzieć się więcej o wyświetlaniu wydajności najważniejszych zapytań.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Magazyn zapytań](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)
 * [CREATE INDEX](/sql/t-sql/statements/create-index-transact-sql)

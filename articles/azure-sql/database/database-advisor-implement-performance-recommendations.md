@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: b1ef29eb71ccd945552550f64e5ae95bc85be44d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 79ccf0f8aae7e915601081f875cea294de52d787
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672118"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500856"
 ---
 # <a name="database-advisor-performance-recommendations-for-azure-sql-database"></a>Zalecenia dotyczące wydajności Database Advisor Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,10 +29,10 @@ Przegląd wydajności zawiera podsumowanie wydajności bazy danych, a także uł
 
 ![Przegląd wydajności dla Azure SQL Database](./media/database-advisor-implement-performance-recommendations/performance-overview-annotated.png)
 
-- Kafelek **rekomendacje** zawiera podział zaleceń dotyczących dostrajania dla bazy danych (w przypadku większej liczby najważniejszych zaleceń są wyświetlane trzy zalecenia). Kliknięcie tego kafelka spowoduje przejście do **[opcji zalecenia dotyczące wydajności](database-advisor-find-recommendations-portal.md#viewing-recommendations)** .
+- Kafelek **rekomendacje** zawiera podział zaleceń dotyczących dostrajania dla bazy danych (w przypadku większej liczby najważniejszych zaleceń są wyświetlane trzy zalecenia). Kliknięcie tego kafelka spowoduje przejście do **[opcji zalecenia dotyczące wydajności](database-advisor-find-recommendations-portal.md#viewing-recommendations)**.
 - Kafelek **działania dostrajania** zawiera podsumowanie bieżących i ukończonych akcji dostrajania dla bazy danych, dzięki czemu można szybko wyświetlić historię działania dostrajania. Kliknięcie tego kafelka spowoduje przejście do widoku historii pełnego dostrajania dla bazy danych.
 - Kafelek **autodostrajania** pokazuje **[konfigurację](automatic-tuning-enable.md)** autodostrajania dla bazy danych (opcje dostrajania, które są automatycznie stosowane do bazy danych). Kliknięcie tego kafelka spowoduje otwarcie okna dialogowego konfiguracji automatyzacji.
-- Kafelek **zapytania bazy danych** pokazuje podsumowanie wydajności zapytań dla bazy danych (ogólne użycie jednostek DTU i najpopularniejsze zapytania zużywające zasoby). Kliknięcie tego kafelka spowoduje przejście do **[szczegółowe informacje o wydajności zapytań](query-performance-insight-use.md)** .
+- Kafelek **zapytania bazy danych** pokazuje podsumowanie wydajności zapytań dla bazy danych (ogólne użycie jednostek DTU i najpopularniejsze zapytania zużywające zasoby). Kliknięcie tego kafelka spowoduje przejście do **[szczegółowe informacje o wydajności zapytań](query-performance-insight-use.md)**.
 
 ## <a name="performance-recommendation-options"></a>Opcje rekomendacji dotyczących wydajności
 
@@ -103,9 +103,9 @@ Po zastosowaniu tego zalecenia włącza wymuszone parametryzacja w ciągu kilku 
 
 Zalecenie "Rozwiąż problem ze schematem" pojawia się, gdy Azure SQL Database zauważy anomalię w liczbie błędów SQL związanych ze schematami, które są wykonywane w bazie danych. W poniższej tabeli przedstawiono błędy związane z problemami ze schematem:
 
-| Kod błędu SQL | Wiadomość |
+| Kod błędu SQL | Komunikat |
 | --- | --- |
-| 201 |Procedura lub funkcja " *" oczekuje parametru "* ", który nie został podany. |
+| 201 |Procedura lub funkcja "*" oczekuje parametru "*", który nie został podany. |
 | 207 |Nieprawidłowa nazwa kolumny "*". |
 | 208 |Nieprawidłowa nazwa obiektu "*". |
 | 213 |Nazwa kolumny lub liczba podanych wartości nie pasują do definicji tabeli. |

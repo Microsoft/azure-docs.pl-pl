@@ -10,19 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: scottwhi
-ms.openlocfilehash: f32c7a97036319dcae610fd0baa2dad48763d8ae
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6d93b6d024fc966f3b260602f4798a2d77669a35
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094935"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501162"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Obsługa języka i regionu dla interfejs API wyszukiwania wizualnego Bing
 
 > [!WARNING]
-> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
-> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Interfejs API wyszukiwania wizualnego Bing obsługuje więcej niż trzy dziesiątki krajów/regionów, wiele z więcej niż jednym językiem. Każde żądanie powinno zawierać kraj/region i język wyboru użytkownika. Wiedząc, że rynek użytkownika pomaga w usłudze Bing zwracać odpowiednie wyniki. Jeśli nie określisz kraju/regionu i języka, Bing najlepiej nadaje się do ustalenia kraju/regionu i języka użytkownika. Ze względu na to, że wyniki mogą zawierać linki do usługi Bing, wiedząc, że kraj/region i język mogą zapewnić preferowany, zlokalizowany interfejs użytkownika Bing, jeśli użytkownik kliknie linki Bing.
 
@@ -56,7 +56,7 @@ Alternatywnie możesz określić kraj/region przy użyciu `cc` parametru zapytan
 |Niemcy|DE|
 |SRA Hongkong|HK|
 |Indie|IN|
-|Indonezja|ID (Identyfikator)|
+|Indonezja|ID|
 |Włochy|IT|
 |Japonia|JP|
 |Korea|KR|

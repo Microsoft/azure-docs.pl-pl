@@ -4,15 +4,15 @@ description: Dowiedz się, jak wdrożyć model tabelaryczny na serwerze Azure An
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 45ea75b65e75f9bac4d6d4839ffe7fa095e3b25d
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 9df10760164dcd0d207663c14107f72c46b76d25
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018780"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501247"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>Wdrażanie modelu z programu Visual Studio
 
@@ -27,7 +27,7 @@ Aby rozpocząć pracę, potrzebne będą następujące elementy:
 * **Brama lokalna** — jeśli co najmniej jedno źródło danych znajduje się w sieci organizacji, należy zainstalować [bramę danych lokalnych](analysis-services-gateway.md). Brama jest niezbędna, aby umożliwić serwerowi w chmurze łączenie się z lokalnymi źródłami danych w celu przetwarzania i odświeżania danych w modelu.
 
 > [!TIP]
-> Przed jej wdrożeniem upewnij się, że można przetwarzać dane w tabelach. W programie Visual Studio kliknij pozycję **model**procesu  >  **Process**  >  **All (wszystkie**). Jeśli przetwarzanie zakończy się niepowodzeniem, wdrożenie nie jest możliwe.
+> Przed jej wdrożeniem upewnij się, że można przetwarzać dane w tabelach. W programie Visual Studio kliknij pozycję **model** procesu  >  **Process**  >  **All (wszystkie**). Jeśli przetwarzanie zakończy się niepowodzeniem, wdrożenie nie jest możliwe.
 > 
 > 
 
@@ -39,7 +39,7 @@ Skopiuj nazwę serwera z **portalu Azure** > serwer > **Omówienie** > **Nazwa s
 
 ## <a name="to-deploy-from-visual-studio"></a>Aby wdrożyć z programu Visual Studio
 
-1. W programie Visual Studio > **Eksplorator rozwiązań**, kliknij prawym przyciskiem myszy > **Właściwości**projektu. Następnie na **Deployment**  >  **serwerze** wdrażania wklej nazwę serwera.   
+1. W programie Visual Studio > **Eksplorator rozwiązań**, kliknij prawym przyciskiem myszy > **Właściwości** projektu. Następnie na **Deployment**  >  **serwerze** wdrażania wklej nazwę serwera.   
    
     ![Wklejanie nazwy serwera we właściwościach serwera wdrażania](./media/analysis-services-deploy/aas-deploy-deployment-server-property.png)
 2. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy **Właściwości**, a następnie kliknij przycisk **Wdróż**. Może zostać wyświetlony monit o zalogowanie się do platformy Azure.
@@ -63,4 +63,4 @@ Jeśli wdrożenie zakończy się niepowodzeniem dla tabeli, prawdopodobnie serwe
 
 Po wdrożeniu modelu tabelarycznego na serwerze możesz się z nim połączyć. Możesz połączyć się z [nim za pomocą SQL Server Management Studio (SSMS)](analysis-services-manage.md) , aby zarządzać nim. Możesz również [nawiązać połączenie za pomocą narzędzia klienta](analysis-services-connect.md), takiego jak usługi Power BI, Power BI Desktop lub program Excel, i rozpocząć tworzenie raportów.   
 
-Aby dowiedzieć się więcej na temat zaawansowanych metod wdrażania, zobacz temat [wdrażanie rozwiązania modelu tabelarycznego](/analysis-services/deployment/tabular-model-solution-deployment?view=azure-analysis-services-current).
+Aby dowiedzieć się więcej na temat zaawansowanych metod wdrażania, zobacz temat [wdrażanie rozwiązania modelu tabelarycznego](/analysis-services/deployment/tabular-model-solution-deployment?view=azure-analysis-services-current&preserve-view=true).

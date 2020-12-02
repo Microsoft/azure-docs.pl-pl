@@ -3,12 +3,12 @@ title: Konfigurowanie analizy zależności bez agentów w ocenie serwera Azure M
 description: Skonfiguruj analizę zależności bez agenta w ocenie serwera Azure Migrate.
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: 8893b0f41bb7a06c02a6c2aa28002980144b582a
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 722ad4cc27132815c1416331aaf0691754ccee05
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337697"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500788"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analizowanie zależności maszyny (bez agentów)
 
@@ -31,7 +31,7 @@ W tym artykule opisano sposób konfigurowania analizy zależności bez agentów 
 
 - [Przejrzyj](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) obsługiwane systemy operacyjne i wymagane uprawnienia.
 - Upewnij się, że:
-    - Mieć projekt Azure Migrate. Jeśli tego nie zrobisz, [Utwórz](how-to-add-tool-first-time.md) je teraz.
+    - Mieć projekt Azure Migrate. Jeśli tego nie zrobisz, [Utwórz](./create-manage-projects.md) je teraz.
     - Sprawdź, czy [dodano](how-to-assess.md) Azure Migrate: Narzędzie do oceny serwera do projektu.
     - Skonfiguruj [urządzenie Azure Migrate](migrate-appliance.md) w celu odnajdywania maszyn lokalnych. [Skonfiguruj urządzenie](how-to-set-up-appliance-vmware.md) dla maszyn wirtualnych VMware. Urządzenie odnajduje maszyny lokalne i wysyła metadane i dane wydajności do Azure Migrate: Ocena serwera.
 - Sprawdź, czy narzędzia VMware (nowsze niż 10,2) są zainstalowane na każdej maszynie wirtualnej, którą chcesz przeanalizować.
@@ -49,8 +49,8 @@ Dodaj konto użytkownika do urządzenia.
 1. Otwórz aplikację zarządzanie urządzeniami. 
 2. Przejdź do panelu **Podaj szczegóły programu vCenter** .
 3. W obszarze **Znajdź aplikację i zależności na maszynach wirtualnych** kliknij pozycję **Dodaj poświadczenia** .
-3. Wybierz **system operacyjny** , podaj przyjazną nazwę konta i hasło w polu **Nazwa użytkownika** / **Password**
-6. Kliknij przycisk **Zapisz**.
+3. Wybierz **system operacyjny**, podaj przyjazną nazwę konta i hasło w polu **Nazwa użytkownika** / **Password**
+6. Kliknij pozycję **Zapisz**.
 7. Kliknij przycisk **Zapisz i Rozpocznij odnajdywanie**.
 
     ![Dodaj konto użytkownika maszyny wirtualnej](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
@@ -59,7 +59,7 @@ Dodaj konto użytkownika do urządzenia.
 
 Wybierz maszyny, na których chcesz włączyć odnajdowanie zależności. 
 
-1. W **Azure Migrate: Ocena serwera** , kliknij przycisk **odnalezione serwery**.
+1. W **Azure Migrate: Ocena serwera**, kliknij przycisk **odnalezione serwery**.
 2. Kliknij ikonę **analiza zależności** .
 3. Kliknij pozycję **Dodaj serwery**.
 4. Na stronie **Dodawanie serwerów** wybierz urządzenie, które odnajduje odpowiednie maszyny.
@@ -72,7 +72,7 @@ Możesz wizualizować zależności na sześć godzin po rozpoczęciu odnajdywani
 
 ## <a name="visualize-dependencies"></a>Wizualizacja zależności
 
-1. W **Azure Migrate: Ocena serwera** , kliknij przycisk **odnalezione serwery**.
+1. W **Azure Migrate: Ocena serwera**, kliknij przycisk **odnalezione serwery**.
 2. Wyszukaj maszynę, którą chcesz wyświetlić.
 3. W kolumnie **zależności** kliknij pozycję **Wyświetl zależności.**
 4. Zmień okres, dla którego ma zostać wyświetlona mapa, przy użyciu listy rozwijanej czas **trwania** .
@@ -93,7 +93,7 @@ Możesz wizualizować zależności na sześć godzin po rozpoczęciu odnajdywani
 
 ## <a name="export-dependency-data"></a>Eksportuj dane zależności
 
-1. W **Azure Migrate: Ocena serwera** , kliknij przycisk **odnalezione serwery**.
+1. W **Azure Migrate: Ocena serwera**, kliknij przycisk **odnalezione serwery**.
 2. Kliknij ikonę **analiza zależności** .
 3. Kliknij pozycję **Eksportuj zależności aplikacji**.
 4. Na stronie **Eksportuj zależności aplikacji** wybierz urządzenie, które odnajduje odpowiednie maszyny.
@@ -127,7 +127,7 @@ Port docelowy | Numer portu na maszynie docelowej
 
 Wybierz maszyny, na których chcesz zatrzymać odnajdywanie zależności. 
 
-1. W **Azure Migrate: Ocena serwera** , kliknij przycisk **odnalezione serwery**.
+1. W **Azure Migrate: Ocena serwera**, kliknij przycisk **odnalezione serwery**.
 2. Kliknij ikonę **analiza zależności** .
 3. Kliknij przycisk **Usuń serwery**.
 3. Na stronie **usuwanie serwerów** wybierz **urządzenie** , które odnajduje maszyny wirtualne, na których chcesz zatrzymać odnajdywanie zależności.

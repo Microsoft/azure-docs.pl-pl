@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 11/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 325e28b9fde349fc4bf01d2b130bee0be0684962
-ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
+ms.openlocfilehash: 6982b782fdd6b5b269c1562c54be3478c58bbce9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96299602"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501001"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Typy usługi Azure Storage dla obciążeń SAP
 Platforma Azure ma wiele typów magazynów, które różnią się znacznie w zależności od możliwości, przepływności, opóźnień i cen. Niektóre typy magazynów nie są lub są ograniczone do użycia w scenariuszach SAP. Niektóre typy magazynów platformy Azure są dobrze dopasowane lub zoptymalizowane pod kątem określonych scenariuszy obciążeń SAP. Szczególnie w przypadku SAP HANA niektóre typy magazynów platformy Azure uzyskały certyfikat do użycia z SAP HANA. W tym dokumencie przechodzą różne typy magazynów i opisano ich możliwości i użyteczność przy użyciu obciążeń SAP i składników SAP.
@@ -164,7 +164,7 @@ Usługa Azure Premium Storage nie spełnia SAP HANA kluczowych wskaźników wyda
 
 
 ### <a name="azure-burst-functionality-for-premium-storage"></a>Azure w warstwie Premium Storage
-W przypadku dysków usługi Azure Premium Storage o rozmiarze mniejszym lub równym 512 GiB jest oferowana funkcja pojemności. Dokładny sposób działania tworzenia [serii dysków w artykule.](../../linux/disk-bursting.md) Po przeczytaniu artykułu rozumiesz koncepcję naliczania liczby operacji we/wy i przepływności w czasie, gdy obciążenie wejścia/wyjścia jest poniżej wartości nominalnych IOPS i przepływności dysków (Aby uzyskać szczegółowe informacje na temat nominalnej przepływności, zobacz [Cennik dysku zarządzanego](https://azure.microsoft.com/pricing/details/managed-disks/)). Nastąpi naliczanie różnic między bieżącym użyciem a wartością nominalną dysku. Liczby serii są ograniczone do maksymalnie 30 minut.
+W przypadku dysków usługi Azure Premium Storage o rozmiarze mniejszym lub równym 512 GiB jest oferowana funkcja pojemności. Dokładny sposób działania tworzenia [serii dysków w artykule.](../../disk-bursting.md) Po przeczytaniu artykułu rozumiesz koncepcję naliczania liczby operacji we/wy i przepływności w czasie, gdy obciążenie wejścia/wyjścia jest poniżej wartości nominalnych IOPS i przepływności dysków (Aby uzyskać szczegółowe informacje na temat nominalnej przepływności, zobacz [Cennik dysku zarządzanego](https://azure.microsoft.com/pricing/details/managed-disks/)). Nastąpi naliczanie różnic między bieżącym użyciem a wartością nominalną dysku. Liczby serii są ograniczone do maksymalnie 30 minut.
 
 Idealnymi przypadkami, w których można zaplanować tę funkcję, jest prawdopodobnie woluminy lub dyski zawierające pliki danych dla różnych systemów DBMS. Obciążenie we/wy oczekiwane na te woluminy, zwłaszcza w przypadku systemów z małym i średnim zakresem, powinny wyglądać następująco:
 
@@ -376,4 +376,3 @@ Zapoznaj się z artykułami:
 
 - [Zagadnienia dotyczące wdrażania systemu Azure Virtual Machines DBMS dla obciążeń SAP](./dbms_guide_general.md)
 - [Konfiguracje magazynu maszyn wirtualnych platformy Azure SAP HANA](./hana-vm-operations-storage.md)
- 

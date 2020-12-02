@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 44980977f366bc40ceff9c7b5751d5657c79ccc2
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 21216625ed99a595b0ceeeea90e0cd00ce447498
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94482741"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509212"
 ---
 Jedną z podstawowych funkcji usługi mowy jest możliwość rozpoznawania i transkrypcja mowy (często nazywanej zamianą mowy na tekst). W tym przewodniku szybki start dowiesz się, jak używać zestawu Speech SDK w aplikacjach i produktach do wykonywania konwersji wysokiej jakości zamiany mowy na tekst.
 
@@ -224,5 +224,5 @@ phrase_list_grammar.clear()
 
 Listy fraz są tylko jedną opcją w celu zwiększenia dokładności rozpoznawania. Możesz również wykonać następujące czynności: 
 
-* [Zwiększanie dokładności za pomocą mowy niestandardowej](../../../how-to-custom-speech.md)
+* [Zwiększanie dokładności za pomocą mowy niestandardowej](../../../custom-speech-overview.md)
 * [Zwiększanie dokładności za pomocą modeli dzierżaw](../../../tutorial-tenant-model.md)

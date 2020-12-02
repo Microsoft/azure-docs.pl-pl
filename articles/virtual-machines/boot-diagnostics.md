@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 1dcefefe02d91506c494cdf91e75ca951ccf43bb
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 408ba76c44d1161a4b91ccc037721796c7b94661
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94365474"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500754"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnostyka rozruchu platformy Azure
 
@@ -41,10 +41,10 @@ W przypadku tworzenia maszyny wirtualnej w Azure Portal domyślnym ustawieniem j
 :::image type="content" source="./media/boot-diagnostics/boot-diagnostics-enable-portal.png" alt-text="Zrzut ekranu włączania zarządzanej diagnostyki rozruchu podczas tworzenia maszyny wirtualnej.":::
 
 ### <a name="enable-managed-boot-diagnostics-using-cli"></a>Włączanie zarządzanej diagnostyki rozruchu przy użyciu interfejsu wiersza polecenia
-Diagnostyka rozruchu z zarządzanym kontem magazynu jest obsługiwana w interfejsie wiersza polecenia platformy Azure 2.12.0 i nowszych. Jeśli nie wpiszesz nazwy lub identyfikatora URI dla konta magazynu, zostanie użyte konto zarządzane. Aby uzyskać więcej informacji i przykładów kodu, zobacz [dokumentację interfejsu wiersza polecenia dla diagnostyki rozruchu](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics?view=azure-cli-latest&preserve-view=true).
+Diagnostyka rozruchu z zarządzanym kontem magazynu jest obsługiwana w interfejsie wiersza polecenia platformy Azure 2.12.0 i nowszych. Jeśli nie wpiszesz nazwy lub identyfikatora URI dla konta magazynu, zostanie użyte konto zarządzane. Aby uzyskać więcej informacji i przykładów kodu, zobacz [dokumentację interfejsu wiersza polecenia dla diagnostyki rozruchu](/cli/azure/vm/boot-diagnostics?preserve-view=true&view=azure-cli-latest).
 
 ### <a name="enable-managed-boot-diagnostics-using-azure-resource-manager-arm-templates"></a>Włączanie zarządzanej diagnostyki rozruchu przy użyciu szablonów Azure Resource Manager (ARM)
-Wszystko po interfejsie API w wersji 2020-06-01 obsługuje zarządzaną diagnostykę rozruchu. Aby uzyskać więcej informacji, zobacz [Widok wystąpienia diagnostyki rozruchu](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#bootdiagnostics).
+Wszystko po interfejsie API w wersji 2020-06-01 obsługuje zarządzaną diagnostykę rozruchu. Aby uzyskać więcej informacji, zobacz [Widok wystąpienia diagnostyki rozruchu](/rest/api/compute/virtualmachines/createorupdate#bootdiagnostics).
 
 ```ARM Template
             "name": "[parameters('virtualMachineName')]",

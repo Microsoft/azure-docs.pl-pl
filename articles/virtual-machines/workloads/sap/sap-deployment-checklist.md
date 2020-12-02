@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ac75ab31f8c9cdd9405115db4f5c35d28707e29f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 06d20dd47ceb71b51e226d662892eab06b072685
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950367"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500941"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Obciążenia SAP na platformie Azure: Lista kontrolna planowania i wdrażania
 
@@ -243,8 +243,8 @@ W tej fazie należy zebrać informacje o doświadczeniu i Poznaniu w ramach wdro
     - Usługa Azure Premium Storage jest używana w przypadku dysków z uwzględnieniem opóźnień lub gdy wymagana jest [Umowa SLA dla jednej maszyny wirtualnej o 99,9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) .
     - Usługa Azure akcelerator zapisu została wdrożona prawidłowo.
         - Upewnij się, że w ramach maszyn wirtualnych, miejsc do magazynowania lub zestawów rozłożonych zostały prawidłowo skompilowane na dyskach, które wymagają akcelerator zapisu.
-        - Sprawdź [konfigurację RAID oprogramowania w systemie Linux](../../linux/configure-raid.md).
-        - Sprawdź [konfigurację LVM na maszynach wirtualnych z systemem Linux na platformie Azure](../../linux/configure-lvm.md).
+        - Sprawdź [konfigurację RAID oprogramowania w systemie Linux](/previous-versions/azure/virtual-machines/linux/configure-raid).
+        - Sprawdź [konfigurację LVM na maszynach wirtualnych z systemem Linux na platformie Azure](/previous-versions/azure/virtual-machines/linux/configure-lvm).
     - [Usługi Azure Managed disks](https://azure.microsoft.com/services/managed-disks/) są używane wyłącznie.
     - Maszyny wirtualne zostały wdrożone w prawidłowych zestawach dostępności i Strefy dostępności.
     - [Przyspieszona sieć platformy Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) jest włączona na maszynach wirtualnych używanych w warstwie aplikacji SAP i w warstwie systemu SAP DBMS.

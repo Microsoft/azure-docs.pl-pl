@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 12240dd3c8dca2c686950f420f49411fde5f7f28
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b605c2c9f3c7468d0fe1f2cccd8c3602c556714b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460363"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501077"
 ---
 # <a name="azure-synapse-analytics-managed-virtual-network"></a>Virtual Network zarządzane przez usługę Azure Synapse Analytics
 
@@ -52,8 +52,6 @@ Jeśli pole wyboru nie zostanie zaznaczone, obszar roboczy nie będzie z nim sko
 
 ![Włącz zarządzaną Virtual Network obszaru roboczego](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
 
->[!NOTE]
->Cały ruch wychodzący z zarządzanego obszaru roboczego Virtual Network poza zarządzanymi prywatnymi punktami końcowymi zostanie zablokowany w przyszłości. Zaleca się utworzenie zarządzanych prywatnych punktów końcowych w celu nawiązania połączenia ze wszystkimi źródłami danych platformy Azure spoza obszaru roboczego. 
 
 Możesz sprawdzić, czy obszar roboczy usługi Azure Synapse jest skojarzony z zarządzanym Virtual Network obszarem roboczym, wybierając pozycję **Przegląd** z Azure Portal.
 

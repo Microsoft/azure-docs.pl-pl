@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: sample
-author: MightyPen
-ms.author: genemi
-ms.reviewer: jrasnik
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 06/06/2020
-ms.openlocfilehash: 9674b7188251312056812ac8e1dcae5885579e2a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d7a57f98551cf91ed87858caba0907471bcf6b12
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791311"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501230"
 ---
 # <a name="event-file-target-code-for-extended-events-in-azure-sql-database"></a>Kod docelowy pliku zdarzeń dla zdarzeń rozszerzonych w Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -54,7 +54,7 @@ Ten temat przedstawia dwufazowy przykład kodu:
 
 - Musisz mieć zainstalowane [moduły Azure PowerShell](https://go.microsoft.com/?linkid=9811175) .
 
-  - Moduły udostępniają polecenia, takie jak- **New-AzStorageAccount** .
+  - Moduły udostępniają polecenia, takie jak- **New-AzStorageAccount**.
 
 ## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Faza 1: kod programu PowerShell dla kontenera usługi Azure Storage
 
@@ -62,7 +62,7 @@ Ten program PowerShell to faza 1 przykładu kodu dwuetapowego.
 
 Skrypt rozpoczyna się od poleceń, które mają zostać oczyszczone po możliwym wcześniejszym uruchomieniu i jest rerunnable.
 
-1. Wklej skrypt programu PowerShell do prostego edytora tekstu, takiego jak Notepad.exe, i Zapisz skrypt jako plik z rozszerzeniem **. ps1** .
+1. Wklej skrypt programu PowerShell do prostego edytora tekstu, takiego jak Notepad.exe, i Zapisz skrypt jako plik z rozszerzeniem **. ps1**.
 2. Uruchom program PowerShell ISE jako administrator.
 3. W wierszu polecenia wpisz<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>a następnie naciśnij klawisz ENTER.
 4. W programie PowerShell ISE Otwórz plik **. ps1** . Uruchom skrypt.
@@ -258,7 +258,7 @@ Skrypt programu PowerShell drukuje kilka nazwanych wartości po zakończeniu. Ab
 6. Zapisz, a następnie uruchom skrypt.
 
 > [!WARNING]
-> Wartość klucza sygnatury dostępu współdzielonego wygenerowanego przez poprzedni skrypt programu PowerShell może rozpoczynać się od znaku "?" (znak zapytania). Jeśli używasz klucza sygnatury dostępu współdzielonego w następującym skrypcie T-SQL, musisz *usunąć wiodący znak "?"* . W przeciwnym razie działania mogą być blokowane przez zabezpieczenia.
+> Wartość klucza sygnatury dostępu współdzielonego wygenerowanego przez poprzedni skrypt programu PowerShell może rozpoczynać się od znaku "?" (znak zapytania). Jeśli używasz klucza sygnatury dostępu współdzielonego w następującym skrypcie T-SQL, musisz *usunąć wiodący znak "?"*. W przeciwnym razie działania mogą być blokowane przez zabezpieczenia.
 
 ### <a name="transact-sql-code"></a>Kod języka Transact-SQL
 
@@ -506,9 +506,9 @@ Objaśnienie zaawansowanych opcji wyświetlania danych z zdarzeń rozszerzonych 
 
 Załóżmy, że chcemy uruchomić poprzedni przykład Transact-SQL w Microsoft SQL Server.
 
-- Dla uproszczenia warto całkowicie zastąpić korzystanie z kontenera usługi Azure Storage za pomocą prostego pliku, takiego jak *C:\myeventdata.XEL* . Plik zostanie zapisany na lokalnym dysku twardym komputera, który jest hostem SQL Server.
-- Nie trzeba potrzebować żadnego rodzaju instrukcji języka Transact-SQL do **tworzenia klucza głównego** i **tworzenia poświadczeń** .
-- W instrukcji **Create Event Session** w jej klauzuli **Add Target** należy zastąpić wartość http przypisanej do **filename =** ciągiem pełnej ścieżki, na przykład *C:\myfile.XEL* .
+- Dla uproszczenia warto całkowicie zastąpić korzystanie z kontenera usługi Azure Storage za pomocą prostego pliku, takiego jak *C:\myeventdata.XEL*. Plik zostanie zapisany na lokalnym dysku twardym komputera, który jest hostem SQL Server.
+- Nie trzeba potrzebować żadnego rodzaju instrukcji języka Transact-SQL do **tworzenia klucza głównego** i **tworzenia poświadczeń**.
+- W instrukcji **Create Event Session** w jej klauzuli **Add Target** należy zastąpić wartość http przypisanej do **filename =** ciągiem pełnej ścieżki, na przykład *C:\myfile.XEL*.
   
   - Nie trzeba brać udziału w koncie usługi Azure Storage.
 
