@@ -3,20 +3,20 @@ title: Wywoływanie programów platformy Spark z Azure Data Factory
 description: Dowiedz się, jak wywoływać programy Spark z fabryki danych platformy Azure przy użyciu działania MapReduce.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 97e2be64818888040b7e6ac3bc8861da24ebdbbd
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6c9e5b6466d3da675975dbf2c532602561e820c9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359955"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495076"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Wywoływanie programów platformy Spark z potoków Azure Data Factory
 
@@ -67,7 +67,7 @@ Aby utworzyć fabrykę danych, wykonaj następujące kroki:
 
 1. Wybierz pozycję **nowe**  >  **dane + analiza**  >  **Data Factory**.
 
-1. W bloku **Nowa fabryka danych** w obszarze **Nazwa**wprowadź **SparkDF**.
+1. W bloku **Nowa fabryka danych** w obszarze **Nazwa** wprowadź **SparkDF**.
 
    > [!IMPORTANT]
    > Nazwa fabryki danych Azure musi być globalnie unikatowa. Jeśli zobaczysz błąd "Nazwa fabryki danych SparkDF jest niedostępna", Zmień nazwę fabryki danych. Na przykład użyj yournameSparkDFdate i ponownie utwórz fabrykę danych. Aby uzyskać więcej informacji na temat reguł nazewnictwa, zobacz [Data Factory: Naming rules (Fabryka danych: reguły nazewnictwa)](data-factory-naming-rules.md).
@@ -112,13 +112,13 @@ W tym kroku opisano łączenie konta magazynu z fabryką danych. Zestaw danych t
 #### <a name="create-an-hdinsight-linked-service"></a>Tworzenie połączonej usługi HDInsight
 W tym kroku utworzysz połączoną usługę HDInsight, aby połączyć klaster usługi HDInsight Spark z fabryką danych. Klaster usługi HDInsight służy do uruchamiania programu Spark określonego w działaniu Spark potoku w tym przykładzie.
 
-1. W edytorze Data Factory wybierz pozycję **więcej**  >  **Nowy**  >  **klaster usługi HDInsight**COMPUTE.
+1. W edytorze Data Factory wybierz pozycję **więcej**  >  **Nowy**  >  **klaster usługi HDInsight** COMPUTE.
 
     ![Tworzenie połączonej usługi HDInsight](media/data-factory-spark/new-hdinsight-linked-service.png)
 
 1. Skopiuj i wklej poniższy fragment kodu do okna Wersja robocza-1. W edytorze JSON wykonaj następujące czynności:
 
-    a. Określ identyfikator URI klastra usługi HDInsight Spark. Na przykład: `https://<sparkclustername>.azurehdinsight.net/`.
+    a. Określ identyfikator URI klastra usługi HDInsight Spark. Przykład: `https://<sparkclustername>.azurehdinsight.net/`.
 
     b. Określ nazwę użytkownika, który ma dostęp do klastra Spark.
 
@@ -237,7 +237,7 @@ W tym kroku utworzysz potok z działaniem HDInsightSpark. W tym przypadku wyjśc
 
     ![Kafelek Monitorowanie i zarządzanie](media/data-factory-spark/monitor-and-manage-tile.png)
 
-1. Zmień filtr **godzina rozpoczęcia** na wartość **2/1/2017**i wybierz pozycję **Zastosuj**.
+1. Zmień filtr **godzina rozpoczęcia** na wartość **2/1/2017** i wybierz pozycję **Zastosuj**.
 
 1. Wyświetlane jest tylko jedno okno działania, ponieważ między początkiem (2017-02-01) i godzinami zakończenia (2017-02-02) potoku występuje tylko jeden dzień. Upewnij się, że wycinek danych jest w stanie **gotowe** .
 
@@ -327,7 +327,7 @@ W poniższej tabeli opisano właściwości JSON używane w definicji JSON.
 | Właściwość | Opis | Wymagane |
 | -------- | ----------- | -------- |
 | name | Nazwa działania w potoku. | Tak |
-| description | Tekst opisujący działanie działania. | Nie |
+| description (opis) | Tekst opisujący działanie działania. | Nie |
 | typ | Ta właściwość musi być ustawiona na HDInsightSpark. | Tak |
 | linkedServiceName | Nazwa połączonej usługi HDInsight, w której jest uruchamiany program Spark. | Tak |
 | Właściwość RootPath | Kontener obiektów blob i folder, który zawiera plik Spark. W nazwie pliku rozróżniana jest wielkość liter. | Tak |

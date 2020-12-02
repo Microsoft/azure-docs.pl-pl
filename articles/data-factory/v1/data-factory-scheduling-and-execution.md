@@ -3,20 +3,20 @@ title: Planowanie i wykonywanie przy użyciu Data Factory
 description: Poznaj aspekty planowania i wykonywania Azure Data Factory modelu aplikacji.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: e0707f9a7694741f54771699f5aeb3b452b11b8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60410eb2a9a5f18abf2daf87646943ffdc944402
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85319724"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495178"
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Data Factory planowanie i wykonywanie
 > [!NOTE]
@@ -695,7 +695,7 @@ Oto przykładowy kod JSON potoku:
 
 Zwróć uwagę, że w przykładzie wyjściowy zestaw danych pierwszego działania kopiowania (Dataset2) jest określony jako dane wejściowe dla drugiego działania. W związku z tym drugie działanie jest uruchamiane tylko wtedy, gdy wyjściowy zestaw danych z pierwszego działania jest gotowy.  
 
-W przykładzie CopyActivity2 może mieć inne dane wejściowe, takie jak Dataset3, ale jako dane wejściowe do CopyActivity2 należy określić Dataset2, więc działanie nie jest uruchamiane do momentu zakończenia plik copyactivity1. Na przykład:
+W przykładzie CopyActivity2 może mieć inne dane wejściowe, takie jak Dataset3, ale jako dane wejściowe do CopyActivity2 należy określić Dataset2, więc działanie nie jest uruchamiane do momentu zakończenia plik copyactivity1. Przykład:
 
 Plik copyactivity1
 

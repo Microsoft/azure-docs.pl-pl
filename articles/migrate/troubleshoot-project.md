@@ -6,12 +6,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/01/2020
-ms.openlocfilehash: f2245e13f348706f662055408196ea7a26484811
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: af9254bc536dedc425aac53199665ae399e60a5a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314641"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494413"
 ---
 # <a name="troubleshoot-azure-migrate-projects"></a>Rozwiązywanie problemów z projektami usługi Azure Migrate
 
@@ -19,7 +19,7 @@ Ten artykuł pomaga rozwiązywać problemy podczas tworzenia projektów [Azure M
 
 ## <a name="how-to-add-new-project"></a>Jak dodać nowy projekt?
 
-W ramach subskrypcji można mieć wiele projektów Azure Migrate. [Dowiedz się, jak](how-to-add-tool-first-time.md) utworzyć projekt po raz pierwszy lub [dodać dodatkowe](create-manage-projects.md#create-additional-projects) projekty.
+W ramach subskrypcji można mieć wiele projektów Azure Migrate. [Dowiedz się, jak](./create-manage-projects.md) utworzyć projekt po raz pierwszy lub [dodać dodatkowe](create-manage-projects.md#create-additional-projects) projekty.
 
 ## <a name="what-azure-permissions-are-needed"></a>Jakie uprawnienia platformy Azure są potrzebne?
 
@@ -40,13 +40,13 @@ Można ocenić do 35 000 maszyn wirtualnych VMware lub do 35 000 maszyn wirtualn
 
 ## <a name="can-i-upgrade-old-project"></a>Czy mogę uaktualnić stary projekt?
 
-Nie można zaktualizować projektów z poprzedniej wersji Azure Migrate. Należy [utworzyć nowy projekt](how-to-add-tool-first-time.md)i dodać do niego narzędzia.
+Nie można zaktualizować projektów z poprzedniej wersji Azure Migrate. Należy [utworzyć nowy projekt](./create-manage-projects.md)i dodać do niego narzędzia.
 
 ## <a name="cant-create-a-project"></a>Nie można utworzyć projektu
 
 Jeśli spróbujesz utworzyć projekt i napotkasz błąd wdrożenia:
 
-- Spróbuj ponownie utworzyć projekt w przypadku, gdy jest to błąd przejściowy. W obszarze **wdrożenia**kliknij pozycję **Wdróż ponownie** , aby spróbować ponownie.
+- Spróbuj ponownie utworzyć projekt w przypadku, gdy jest to błąd przejściowy. W obszarze **wdrożenia** kliknij pozycję **Wdróż ponownie** , aby spróbować ponownie.
 - Sprawdź, czy masz uprawnienia współautora lub właściciela w ramach subskrypcji.
 - Jeśli wdrażasz program w nowo dodanym obszarze geograficznym, poczekaj chwilę i spróbuj ponownie.
 - Jeśli zostanie wyświetlony komunikat o błędzie "żądania muszą zawierać nagłówki tożsamości użytkownika", może to wskazywać, że nie masz dostępu do dzierżawy usługi Azure Active Directory (Azure AD) w organizacji. W takim przypadku:
@@ -61,7 +61,7 @@ Jeśli spróbujesz utworzyć projekt i napotkasz błąd wdrożenia:
 
 ## <a name="added-tools-dont-show"></a>Dodane narzędzia nie są wyświetlane
 
-Upewnij się, że wybrano odpowiedni projekt. Na **serwerach** Azure Migrate Hub > lub w **bazach danych**kliknij pozycję **Zmień** obok pozycji **Migruj projekt (Zmień)** w prawym górnym rogu ekranu. Wybierz poprawną subskrypcję i nazwę projektu, > **OK**. Strona powinna zostać odświeżona przy użyciu dodanych narzędzi wybranego projektu.
+Upewnij się, że wybrano odpowiedni projekt. Na **serwerach** Azure Migrate Hub > lub w **bazach danych** kliknij pozycję **Zmień** obok pozycji **Migruj projekt (Zmień)** w prawym górnym rogu ekranu. Wybierz poprawną subskrypcję i nazwę projektu, > **OK**. Strona powinna zostać odświeżona przy użyciu dodanych narzędzi wybranego projektu.
 
 ## <a name="next-steps"></a>Następne kroki
 

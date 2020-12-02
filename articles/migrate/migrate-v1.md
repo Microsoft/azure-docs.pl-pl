@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 53a10123bf3304ab9c949146d7cad6b904c8323d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: c87290b36ec77e834a0d0fcd99e9a8bdb05675b5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317204"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494702"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Pracuj z poprzednią wersją Azure Migrate
 
@@ -31,7 +31,7 @@ Istnieją dwie wersje usługi Azure Migrate:
 
 ## <a name="upgrade-between-versions"></a>Uaktualnianie między wersjami
 
-Nie można uaktualnić projektów lub składników w poprzedniej wersji do nowej wersji. Należy [utworzyć nowy projekt Azure Migrate](create-manage-projects.md)i dodać do niego [Narzędzia do oceny i migracji](how-to-add-tool-first-time.md) . Skorzystaj z samouczków, aby zrozumieć, jak korzystać z dostępnych narzędzi do oceny i migracji. Jeśli masz obszar roboczy Log Analytics dołączony do projektu klasycznego, możesz dołączyć go do projektu bieżącej wersji po usunięciu projektu klasycznego.
+Nie można uaktualnić projektów lub składników w poprzedniej wersji do nowej wersji. Należy [utworzyć nowy projekt Azure Migrate](create-manage-projects.md)i dodać do niego [Narzędzia do oceny i migracji](./create-manage-projects.md) . Skorzystaj z samouczków, aby zrozumieć, jak korzystać z dostępnych narzędzi do oceny i migracji. Jeśli masz obszar roboczy Log Analytics dołączony do projektu klasycznego, możesz dołączyć go do projektu bieżącej wersji po usunięciu projektu klasycznego.
 
 ## <a name="find-projects-from-previous-version"></a>Znajdź projekty z poprzedniej wersji
 
@@ -207,7 +207,7 @@ Aby skonfigurować wizualizację zależności, należy skojarzyć obszar roboczy
 
 Aby użyć wizualizacji zależności, należy skojarzyć obszar roboczy Log Analytics z projektem migracji. Można utworzyć lub dołączyć obszar roboczy tylko w ramach tej samej subskrypcji, w której jest tworzony projekt migracji.
 
-1. Aby dołączyć Log Analytics obszar roboczy do projektu, w obszarze **omówienie**> **Essentials**kliknij pozycję **wymaga konfiguracji**.
+1. Aby dołączyć Log Analytics obszar roboczy do projektu, w obszarze **omówienie**> **Essentials** kliknij pozycję **wymaga konfiguracji**.
 2. Można utworzyć nowy obszar roboczy lub dołączyć istniejący:
   - Aby utworzyć nowy obszar roboczy, określ nazwę. Obszar roboczy jest tworzony w regionie w tej samej lokalizacji [geograficznej platformy Azure](https://azure.microsoft.com/global-infrastructure/geographies/) co projekt migracji.
   - Po dołączeniu istniejącego obszaru roboczego możesz wybrać wszystkie dostępne obszary robocze w tej samej subskrypcji co projekt migracji. Na liście są wyświetlane tylko te obszary robocze, które zostały utworzone w [obsługiwanym Service map regionie](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions). Aby dołączyć obszar roboczy, upewnij się, że masz dostęp do obszaru roboczego "czytelnik".
@@ -219,7 +219,7 @@ Aby użyć wizualizacji zależności, należy skojarzyć obszar roboczy Log Anal
 
 Po skonfigurowaniu obszaru roboczego należy pobrać i zainstalować agentów na poszczególnych maszynach lokalnych, które chcesz oszacować. Ponadto, jeśli masz maszyny bez łączności z Internetem, musisz pobrać i zainstalować [bramę log Analytics](../azure-monitor/platform/gateway.md) na nich.
 
-1. W obszarze **Przegląd**kliknij pozycję **Zarządzaj**  >  **maszynami**, a następnie wybierz wymagany komputer.
+1. W obszarze **Przegląd** kliknij pozycję **Zarządzaj**  >  **maszynami**, a następnie wybierz wymagany komputer.
 2. W kolumnie **zależności** kliknij pozycję **Zainstaluj agentów**.
 3. Na stronie **zależności** Pobierz i zainstaluj Microsoft Monitoring Agent (MMA) i agenta zależności dla każdej maszyny wirtualnej, którą chcesz ocenić.
 4. Skopiuj identyfikator i klucz obszaru roboczego. Są one potrzebne po zainstalowaniu MMA na maszynie lokalnej.
@@ -234,8 +234,8 @@ Aby zainstalować agenta na komputerze z systemem Windows:
 
 1. Kliknij dwukrotnie pobranego agenta.
 2. Na **stronie powitalnej** kliknij przycisk **Dalej**. Na stronie **postanowienia licencyjne** kliknij przycisk **zgadzam** się, aby zaakceptować licencję.
-3. W **folderze docelowym**Zachowaj lub zmodyfikuj domyślny Folder instalacji > **dalej**.
-4. W obszarze **Opcje instalacji agenta**wybierz pozycję **Azure log Analytics**  >  **dalej**.
+3. W **folderze docelowym** Zachowaj lub zmodyfikuj domyślny Folder instalacji > **dalej**.
+4. W obszarze **Opcje instalacji agenta** wybierz pozycję **Azure log Analytics**  >  **dalej**.
 5. Kliknij przycisk **Dodaj** , aby dodać nowy obszar roboczy log Analytics. Wklej w obszarze Identyfikator i klucz obszaru roboczego skopiowane z portalu. Kliknij przycisk **Dalej**.
 
 Agenta można zainstalować z poziomu wiersza polecenia lub przy użyciu metody zautomatyzowanej, takiej jak Configuration Manager. [Dowiedz się więcej](../azure-monitor/platform/log-analytics-agent.md#installation-options) na temat korzystania z tych metod w celu zainstalowania agenta MMA.
@@ -303,12 +303,12 @@ Dane zależności przechwycone przez Service Map są dostępne do wykonywania za
 Aby uruchomić zapytania Kusto:
 
 1. Po zainstalowaniu agentów przejdź do portalu, a następnie kliknij pozycję **Przegląd**.
-2. W obszarze **Przegląd**przejdź do sekcji **podstawowe** projektu i kliknij nazwę obszaru roboczego podaną obok **obszaru roboczego pakietu OMS**.
-3. Na stronie obszar roboczy log Analytics kliknij pozycję **General**  >  **dzienniki**ogólne.
+2. W obszarze **Przegląd** przejdź do sekcji **podstawowe** projektu i kliknij nazwę obszaru roboczego podaną obok **obszaru roboczego pakietu OMS**.
+3. Na stronie obszar roboczy log Analytics kliknij pozycję **General**  >  **dzienniki** ogólne.
 4. Napisz zapytanie, aby zebrać dane zależności przy użyciu dzienników Azure Monitor. Znajdź przykładowe zapytania w następnej sekcji.
 5. Uruchom zapytanie, klikając polecenie Uruchom. 
 
-[Dowiedz się więcej](../azure-monitor/log-query/get-started-portal.md) na temat pisania zapytań Kusto. 
+[Dowiedz się więcej](../azure-monitor/log-query/log-analytics-tutorial.md) na temat pisania zapytań Kusto. 
 
 ### <a name="sample-azure-monitor-logs-queries"></a>Przykładowe zapytania dzienników Azure Monitor
 

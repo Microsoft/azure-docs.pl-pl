@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 10/23/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 151b72eb11600713b115d45e5927d8170a519ad1
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: a7d63fd76a88430495c9f55200308f63b11c89d4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635776"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494311"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-flexible-server-using-the-azure-cli"></a>Tworzenie replik odczytu i zarządzanie nimi w Azure Database for MySQL elastycznym serwerze przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -44,7 +44,7 @@ az mysql flexible-server replica create --replica-name mydemoreplicaserver --sou
 ``` 
 
 > [!NOTE]
-> Repliki odczytu są tworzone z tą samą konfiguracją serwera co źródło. Konfigurację serwera repliki można zmienić po jego utworzeniu. Serwer repliki jest zawsze tworzony w tej samej grupie zasobów, w tej samej lokalizacji i tej samej subskrypcji co serwer źródłowy. Jeśli chcesz utworzyć serwer repliki w innej grupie zasobów lub innej subskrypcji, możesz [przenieść serwer repliki](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) po utworzeniu. Zaleca się, aby konfiguracja serwera repliki była utrzymywana z równymi lub większymi wartościami niż źródło, aby upewnić się, że replika jest w stanie zachować ze źródłem.
+> Repliki odczytu są tworzone z tą samą konfiguracją serwera co źródło. Konfigurację serwera repliki można zmienić po jego utworzeniu. Serwer repliki jest zawsze tworzony w tej samej grupie zasobów, w tej samej lokalizacji i tej samej subskrypcji co serwer źródłowy. Jeśli chcesz utworzyć serwer repliki w innej grupie zasobów lub innej subskrypcji, możesz [przenieść serwer repliki](../../azure-resource-manager/management/move-resource-group-and-subscription.md) po utworzeniu. Zaleca się, aby konfiguracja serwera repliki była utrzymywana z równymi lub większymi wartościami niż źródło, aby upewnić się, że replika jest w stanie zachować ze źródłem.
 
 
 ### <a name="list-replicas-for-a-source-server"></a>Wyświetlanie listy replik dla serwera źródłowego

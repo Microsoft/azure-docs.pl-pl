@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: b6fed24c7de87424bde94b864d4a9db91828a510
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0d4630cad94a30e0dd53785c512e452d7b4a7d38
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315789"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494447"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Rozwiązywanie problemów z urządzeniem Azure Migrate i odnajdywanie
 
@@ -31,7 +31,7 @@ Jeśli zostanie wyświetlony komunikat o błędzie "podany plik manifestu jest n
 2. Jeśli wdrożenie nadal kończy się niepowodzeniem i używasz klienta VMware vSphere do wdrożenia pliku OVF, spróbuj wdrożyć go za pośrednictwem klienta sieci Web vSphere. Jeśli wdrożenie nadal kończy się niepowodzeniem, spróbuj użyć innej przeglądarki sieci Web.
 3. Jeśli używasz klienta sieci Web vSphere i podjęto próbę jego wdrożenia na vCenter Server 6,5 lub 6,7, spróbuj wdrożyć komórki jajowe bezpośrednio na hoście ESXi:
    - Połącz się bezpośrednio z hostem ESXi (zamiast vCenter Server) z klientem sieci Web (https://<*adres IP hosta*>/UI).
-   - W **obszarze**  >  **spis sprzętu**wybierz pozycję **plik**  >  **Wdróż OVF szablon**. Przejdź do komórek jajowych i Ukończ wdrożenie.
+   - W **obszarze**  >  **spis sprzętu** wybierz pozycję **plik**  >  **Wdróż OVF szablon**. Przejdź do komórek jajowych i Ukończ wdrożenie.
 4. Jeśli wdrożenie nadal kończy się niepowodzeniem, skontaktuj się z pomocą techniczną Azure Migrate.
 
 ## <a name="cant-connect-to-the-internet"></a>Nie można nawiązać połączenia z Internetem
@@ -80,7 +80,7 @@ Jeśli wystąpi błąd połączenia, może nie być możliwe nawiązanie połąc
     - [Dowiedz się więcej](./migrate-appliance.md#appliance---vmware) na temat wymaganych ról i uprawnień platformy Azure.
 - Błąd 60039, "urządzenie mogło nie zostać pomyślnie zarejestrowane w projekcie Azure Migrate" może wystąpić, jeśli rejestracja nie powiedzie się, ponieważ nie można odnaleźć projektu Azure Migrate użytego do rejestracji urządzenia.
     - W Azure Portal i sprawdź, czy projekt istnieje w grupie zasobów.
-    - Jeśli projekt nie istnieje, Utwórz nowy projekt Azure Migrate w grupie zasobów i ponownie Zarejestruj urządzenie. [Dowiedz się, jak](./how-to-add-tool-first-time.md#create-a-project-and-add-a-tool) utworzyć nowy projekt.
+    - Jeśli projekt nie istnieje, Utwórz nowy projekt Azure Migrate w grupie zasobów i ponownie Zarejestruj urządzenie. [Dowiedz się, jak](./create-manage-projects.md#create-a-project-for-the-first-time) utworzyć nowy projekt.
 
 ## <a name="error-6003060031-key-vault-management-operation-failed"></a>Błąd 60030/60031: operacja zarządzania Key Vault nie powiodła się
 
@@ -157,8 +157,8 @@ Jeśli to nie zadziała, a będziesz odnajdywać serwery VMware:
 
 Jeśli odnalezione maszyny wirtualne nie są wyświetlane w portalu lub dane maszyny wirtualnej są nieaktualne, odczekaj kilka minut. Zmiany w wykrytych konfiguracjach maszyn wirtualnych mogą pojawić się w portalu dopiero po 30 minutach. Zmiany w danych aplikacji mogą pojawić się dopiero po kilku godzinach. Jeśli po tym czasie nie ma danych, spróbuj odświeżyć w następujący sposób.
 
-1. W obszarze **serwery**  >  **Azure Migrate oceny serwera**wybierz pozycję **Przegląd**.
-2. W obszarze **Zarządzaj**wybierz pozycję **Agent Health**.
+1. W obszarze **serwery**  >  **Azure Migrate oceny serwera** wybierz pozycję **Przegląd**.
+2. W obszarze **Zarządzaj** wybierz pozycję **Agent Health**.
 3. Wybierz pozycję **Odśwież agenta**.
 4. Poczekaj na zakończenie operacji odświeżania. Informacje powinny być teraz wyświetlane na bieżąco.
 
@@ -179,8 +179,8 @@ Ten stan jest wyświetlany, jeśli przekazywanie pliku CSV nie powiodło się z 
 ## <a name="do-not-see-application-details-even-after-updating-guest-credentials"></a>Nie wyświetlaj szczegółów aplikacji nawet po zaktualizowaniu poświadczeń gościa
 Odnajdywanie aplikacji jest uruchamiane co 24 godziny. Jeśli chcesz natychmiast zobaczyć szczegóły, Odśwież w następujący sposób. Może to potrwać kilka minut, w zależności od tego, czy nie. wykrytych maszyn wirtualnych.
 
-1. W obszarze **serwery**  >  **Azure Migrate oceny serwera**wybierz pozycję **Przegląd**.
-2. W obszarze **Zarządzaj**wybierz pozycję **Agent Health**.
+1. W obszarze **serwery**  >  **Azure Migrate oceny serwera** wybierz pozycję **Przegląd**.
+2. W obszarze **Zarządzaj** wybierz pozycję **Agent Health**.
 3. Wybierz pozycję **Odśwież agenta**.
 4. Poczekaj na zakończenie operacji odświeżania. Informacje powinny być teraz wyświetlane na bieżąco.
 

@@ -7,12 +7,12 @@ ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 05/06/2020
-ms.openlocfilehash: 2ab713da87bd67053505289f5c9c8e7b747fd6bd
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: cc7d3a7ba5927730a68b704d61101a9dba447f2f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654851"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493971"
 ---
 # <a name="what-are-azure-open-datasets-and-how-can-you-use-them"></a>Co to są otwarte zestawy danych platformy Azure i jak można z nich korzystać?
 
@@ -59,5 +59,5 @@ Jeśli nie możesz znaleźć żądanych danych, Wyślij do nas wiadomość e-mai
 
 ## <a name="next-steps"></a>Następne kroki
 * [Przykładowy Notes](samples.md)
-* [Samouczek: Modelowanie regresji z danymi o taksówkach](../machine-learning/tutorial-auto-train-models.md?context=azure%252fopen-datasets%252fcontext%252fopen-datasets-context)
+* [Samouczek: Modelowanie regresji z danymi o taksówkach](../machine-learning/tutorial-auto-train-models.md?context=azure%2fopen-datasets%2fcontext%2fopen-datasets-context)
 * [Zestaw SDK języka Python dla otwartych zestawów danych](/python/api/azureml-opendatasets/)

@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 10/1/2020
 ms.author: rahugup
-ms.openlocfilehash: 185979fcc0eeaebbe1c3b09d74050e05899737af
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 3cd8d29a498a6a00fa8fff679afc969b339934b1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376803"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494345"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless---powershell"></a>Migrowanie maszyn wirtualnych VMware na platformę Azure (bez agenta) — PowerShell
 
@@ -38,7 +38,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 Przed rozpoczęciem tego samouczka należy:
 
 1. [Ukończ samouczek odnajdywania](tutorial-discover-vmware.md) , aby przygotować platformę Azure i oprogramowanie VMware do migracji.
-2. Zalecamy wykonanie drugiego samouczka, aby [ocenić maszyny wirtualne VMware](tutorial-assess-vmware.md) przed przeprowadzeniem migracji na platformę Azure.
+2. Zalecamy wykonanie drugiego samouczka, aby [ocenić maszyny wirtualne VMware](./tutorial-assess-vmware-azure-vm.md) przed przeprowadzeniem migracji na platformę Azure.
 3. Masz `Az` moduł Azure PowerShell. Jeśli musisz zainstalować lub uaktualnić Azure PowerShell, postępuj zgodnie [z tym przewodnikiem, aby zainstalować i skonfigurować Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="install-azure-migrate-powershell-module"></a>Zainstaluj moduł Azure Migrate PowerShell
@@ -117,10 +117,10 @@ $DiscoveredServers = Get-AzMigrateDiscoveredServer -ProjectName $MigrateProject.
 
 [Azure Migrate: Migracja serwera](migrate-services-overview.md#azure-migrate-server-migration-tool) wykorzystuje wiele zasobów platformy Azure do migrowania maszyn wirtualnych. Migracja serwera udostępnia następujące zasoby w tej samej grupie zasobów co projekt.
 
-- **Service Bus** : Migracja serwera używa usługi Service Bus do wysyłania komunikatów aranżacji replikacji do urządzenia.
-- **Konto magazynu bramy** : Migracja serwera używa konta magazynu bramy do przechowywania informacji o stanie replikowanych maszyn wirtualnych.
-- **Konto magazynu dzienników** : urządzenie Azure Migrate przekazuje dzienniki replikacji dla maszyn wirtualnych do konta magazynu dzienników. Azure Migrate stosuje informacje o replikacji do dysków zarządzanych przez replikę.
-- **Magazyn kluczy** : urządzenie Azure Migrate używa magazynu kluczy do zarządzania parametrami połączenia dla magistrali usług i kluczy dostępu dla kont magazynu używanych w replikacji.
+- **Service Bus**: Migracja serwera używa usługi Service Bus do wysyłania komunikatów aranżacji replikacji do urządzenia.
+- **Konto magazynu bramy**: Migracja serwera używa konta magazynu bramy do przechowywania informacji o stanie replikowanych maszyn wirtualnych.
+- **Konto magazynu dzienników**: urządzenie Azure Migrate przekazuje dzienniki replikacji dla maszyn wirtualnych do konta magazynu dzienników. Azure Migrate stosuje informacje o replikacji do dysków zarządzanych przez replikę.
+- **Magazyn kluczy**: urządzenie Azure Migrate używa magazynu kluczy do zarządzania parametrami połączenia dla magistrali usług i kluczy dostępu dla kont magazynu używanych w replikacji.
 
 Przed replikacją pierwszej maszyny wirtualnej w projekcie Azure Migrate uruchom następujący skrypt, aby zainicjować obsługę infrastruktury replikacji. Ten skrypt inicjuje i konfiguruje wyżej wymienione zasoby, aby można było rozpocząć Migrowanie maszyn wirtualnych VMware.
 
@@ -480,11 +480,8 @@ Write-Output $StopReplicationJob.State
     - Zadbaj, aby pakiety robocze były uruchomione i stale dostępne, replikując maszyny wirtualne platformy Azure do regionu pomocniczego za pomocą usługi Site Recovery. [Dowiedz się więcej](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - Aby zwiększyć bezpieczeństwo:
     - Zablokuj i Ogranicz dostęp do ruchu przychodzącego za pomocą [administracji Azure Security Center w czasie](../security-center/security-center-just-in-time.md).
-    - Ogranicz ruch sieciowy do punktów końcowych zarządzania za pomocą [sieciowych grup zabezpieczeń](../virtual-network/security-overview.md).
+    - Ogranicz ruch sieciowy do punktów końcowych zarządzania za pomocą [sieciowych grup zabezpieczeń](../virtual-network/network-security-groups-overview.md).
     - Wdróż usługę [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md), aby ułatwić zabezpieczenie dysków i zabezpieczyć dane przed kradzieżą lub nieautoryzowanym dostępem.
     - Przeczytaj więcej na temat [zabezpieczania zasobów IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) i skorzystaj z usługi [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - Na potrzeby monitorowania i zarządzania:
 -  Rozważ wdrożenie usługi [Azure Cost Management](../cost-management-billing/cloudyn/overview.md), aby monitorować użycie zasobu i wydatki.
-
-
-

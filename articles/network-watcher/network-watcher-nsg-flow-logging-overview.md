@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 792908236c4f240db64bd3899474d779d5b0570c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b6f66813ea23f6c9d4b47a3733d0c72c683d0676
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018107"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493988"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Wprowadzenie do rejestrowania przepływu dla sieciowych grup zabezpieczeń
 
@@ -59,7 +59,7 @@ Dzienniki przepływu są źródłem prawdy dla całej aktywności sieciowej w ś
 **Podstawowe pojęcia**
 
 - Sieci zdefiniowane w oprogramowaniu są zorganizowane wokół sieci wirtualnych (sieci wirtualnych) i podsieci. Zabezpieczeniami tych sieci wirtualnych i podsieci można zarządzać przy użyciu sieciowej grupy zabezpieczeń.
-- Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń) zawiera listę _reguł zabezpieczeń_ , które zezwalają na ruch sieciowy w zasobach, do których jest podłączony. Sieciowych grup zabezpieczeń można kojarzyć z podsieciami, poszczególnymi maszynami wirtualnymi lub interfejsami sieciowymi (NIC) podłączonymi do maszyn wirtualnych (Menedżer zasobów). Aby uzyskać więcej informacji, zobacz [Omówienie grup zabezpieczeń sieci](../virtual-network/network-security-groups-overview.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json).
+- Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń) zawiera listę _reguł zabezpieczeń_ , które zezwalają na ruch sieciowy w zasobach, do których jest podłączony. Sieciowych grup zabezpieczeń można kojarzyć z podsieciami, poszczególnymi maszynami wirtualnymi lub interfejsami sieciowymi (NIC) podłączonymi do maszyn wirtualnych (Menedżer zasobów). Aby uzyskać więcej informacji, zobacz [Omówienie grup zabezpieczeń sieci](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - Wszystkie przepływy ruchu w sieci są oceniane przy użyciu reguł w odpowiednich sieciowej grupy zabezpieczeń.
 - Wynikiem tych ocen są dzienniki przepływu sieciowej grupy zabezpieczeń. Dzienniki przepływów są zbierane za pomocą platformy Azure i nie wymagają żadnej zmiany w zasobach klienta.
 - Uwaga: reguły są dwa typy — kończąc & niekończący, z których każdy ma inne zachowanie rejestrowania.

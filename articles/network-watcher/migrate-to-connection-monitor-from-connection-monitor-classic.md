@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: eed68ff7e6b002e7a5985b336686b646a1a9acee
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: a97f3bf3a479d956747755a421d7946f7aafd4f1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522958"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494243"
 ---
 # <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>Migrowanie do monitora połączeń z monitora połączeń (klasyczny)
 
@@ -64,5 +64,5 @@ Po rozpoczęciu migracji następujące zmiany zostały wykonane:
 ## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się więcej na temat monitora połączeń, zobacz:
-* [Migrowanie z Network Performance Monitor do monitora połączeń](/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor)
+* [Migrowanie z Network Performance Monitor do monitora połączeń](./migrate-to-connection-monitor-from-network-performance-monitor.md)
 * [Utwórz monitor połączeń przy użyciu Azure Portal](./connection-monitor-create-using-portal.md)

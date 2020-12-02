@@ -8,19 +8,19 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/15/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 63768581da07566ac59b525ca0aefbd7b616e20e
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 4f774351fc0eaaf32069687a1943c72b74b6308a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635572"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494328"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>Szybki Start: Tworzenie serwera Azure Database for MySQL przy użyciu interfejsu wiersza polecenia platformy Azure
 
 > [!TIP]
 > Rozważ użycie prostszego polecenia [AZ MySQL up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) Azure CLI (obecnie w wersji zapoznawczej). Wypróbuj [Przewodnik Szybki Start](./quickstart-create-server-up-azure-cli.md).
 
-W tym przewodniku szybki start pokazano, jak za pomocą poleceń [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) w [Azure Cloud Shell](https://shell.azure.com) utworzyć serwer Azure Database for MySQL w ciągu pięciu minut. 
+W tym przewodniku szybki start pokazano, jak za pomocą poleceń [interfejsu wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli) w [Azure Cloud Shell](https://shell.azure.com) utworzyć serwer Azure Database for MySQL w ciągu pięciu minut. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -54,9 +54,9 @@ Poniżej znajdują się szczegółowe informacje dotyczące argumentów:
 name | mydemoserver | Wprowadź unikatową nazwę serwera Azure Database for MySQL. Nazwa serwera może zawierać tylko małe litery, cyfry i znaki łącznika (-). Musi zawierać od 3 do 63 znaków.
 resource-group | myresourcegroup | Podaj nazwę grupy zasobów platformy Azure.
 location | westus | Lokalizacja platformy Azure dla serwera.
-admin-user | myadmin | Nazwa użytkownika w przypadku logowania administratora. Nie może być to **azure_superuser** , **admin** , **administrator** , **root** , **guest** ani **public**.
+admin-user | myadmin | Nazwa użytkownika w przypadku logowania administratora. Nie może być to **azure_superuser**, **admin**, **administrator**, **root**, **guest** ani **public**.
 admin-password | *bezpieczne hasło* | Hasło użytkownika administratora. Musi zawierać od 8 do 128 znaków. Hasło musi zawierać znaki z trzech z następujących kategorii: wielkie litery angielskie, małe litery angielskie, cyfry i znaki inne niż alfanumeryczne.
-sku-name|GP_Gen5_2|Wprowadź nazwę warstwy cenowej i konfiguracji obliczeniowej. Zgodnie z konwencją {warstwa cenowa} _{generacja obliczeniowa}_ {rdzenie wirtualne} w skrócie. Aby uzyskać więcej informacji, zobacz [warstwy cenowe](./concepts-pricing-tiers.md) .
+sku-name|GP_Gen5_2|Wprowadź nazwę warstwy cenowej i konfiguracji obliczeniowej. Zgodnie z konwencją {warstwa cenowa}_{generacja obliczeniowa}_{rdzenie wirtualne} w skrócie. Aby uzyskać więcej informacji, zobacz [warstwy cenowe](./concepts-pricing-tiers.md) .
 
 >[!IMPORTANT] 
 >- Domyślną wersją programu MySQL na serwerze jest 5,7. Obecnie dostępne są również wersje 5,6 i 8,0.

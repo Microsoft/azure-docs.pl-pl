@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: c5bf559ec7bf85e92cf21e3d4c493cae1361ea7c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: e4782bf09b8c27132417f6021927408e18755104
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968030"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494022"
 ---
 # <a name="what-is-azure-network-watcher"></a>Co to jest Azure Network Watcher?
 
@@ -31,7 +31,7 @@ Azure Network Watcher to usługa, która udostępnia narzędzia umożliwiające 
 
 Punkty końcowe mogą być inną maszyną wirtualną (VM), w pełni kwalifikowaną nazwą domeny (FQDN), identyfikatorem URI (Uniform Resource Identifier) lub adresem IPv4. *Monitor połączenia* umożliwia monitorowanie komunikacji w regularnych odstępach czasu i informuje o dostępności, opóźnieniu i zmianach topologii sieci między maszyną wirtualną a punktem końcowym. Przykładem może być maszyna wirtualna serwera sieci Web, która komunikuje się z maszyną wirtualną serwera baz danych. Możesz nie wiedzieć, że pewien członek organizacji zastosował niestandardową trasę lub regułę zabezpieczeń na maszynie wirtualnej serwera sieci Web lub serwera baz danych albo też w podsieci.
 
-Jeśli punkt końcowy staje się niedostępny, funkcja rozwiązywania problemów z połączeniem informuje o przyczynie. Potencjalne przyczyny to problem z rozpoznawaniem nazw DNS, procesorem, pamięcią lub zaporą w systemie operacyjnym maszyny wirtualnej lub typ przeskoku w trasie niestandardowej albo też reguła zabezpieczeń dla maszyny wirtualnej lub podsieci dla połączenia wychodzącego. Dowiedz się więcej o [regułach zabezpieczeń](../virtual-network/network-security-groups-overview.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json#security-rules) i [typach przeskoku trasy](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) na platformie Azure.
+Jeśli punkt końcowy staje się niedostępny, funkcja rozwiązywania problemów z połączeniem informuje o przyczynie. Potencjalne przyczyny to problem z rozpoznawaniem nazw DNS, procesorem, pamięcią lub zaporą w systemie operacyjnym maszyny wirtualnej lub typ przeskoku w trasie niestandardowej albo też reguła zabezpieczeń dla maszyny wirtualnej lub podsieci dla połączenia wychodzącego. Dowiedz się więcej o [regułach zabezpieczeń](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#security-rules) i [typach przeskoku trasy](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) na platformie Azure.
 
 Monitor połączenia dostarcza również informacje o zmianach w czasie minimalnego, średniego i maksymalnego obserwowanego opóźnienia. Po zapoznaniu się z danymi o opóźnieniu połączenia może okazać się możliwe zmniejszenia opóźnienia dzięki przeniesieniu zasobów platformy Azure do innych regionów platformy. Dowiedz się więcej na temat określania [względnych opóźnień między regionami platformy Azure i dostawcami usług internetowych](#determine-relative-latencies-between-azure-regions-and-internet-service-providers) oraz o sposobach monitorowania komunikacji między maszyną wirtualną a punktem końcowym za pomocą [monitora połączenia](connection-monitor.md). Jeśli zamiast tego chcesz przetestować połączenie w określonym momencie, zamiast monitorować jego zachowanie w czasie za pomocą monitora połączenia, użyj funkcji [rozwiązywania problemów z połączeniem](#connection-troubleshoot).
 
