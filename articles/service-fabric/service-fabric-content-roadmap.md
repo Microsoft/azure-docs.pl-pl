@@ -3,12 +3,12 @@ title: Dowiedz się więcej o usłudze Azure Service Fabric
 description: Zapoznaj się z podstawowymi pojęciami i Głównymi obszarami Service Fabric platformy Azure. Zawiera dodatkowe Omówienie Service Fabric i sposobu tworzenia mikrousług.
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 07b41f10430592e6035bfe0179cb717d0bc5c8b0
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 36215dd3419050cf498a749b5caf927c3c4e275a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681741"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485454"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Czy chcesz dowiedzieć się więcej o Service Fabric?
 Usługa Azure Service Fabric to platforma systemów rozproszonych ułatwiająca pakowanie i wdrażanie skalowalnych i niezawodnych mikrousług oraz zarządzanie nimi.  Service Fabric ma jednak duże powierzchnie, ale istnieje wiele informacji.  Ten artykuł zawiera streszczenie Service Fabric i zawiera opis podstawowych pojęć, modeli programowania, cyklu życia aplikacji, testowania, klastrów i monitorowania kondycji. Zapoznaj się z [omówieniem](service-fabric-overview.md) i [co to są mikrousługi?](service-fabric-overview-microservices.md) , aby zapoznać się z wprowadzeniem i jak Service Fabric może służyć do tworzenia mikrousług. Ten artykuł nie zawiera obszernej listy zawartości, ale łączy się z artykułami dotyczącymi przeglądu i uruchamiania dla każdego obszaru Service Fabric. 
@@ -51,7 +51,7 @@ Na poniższym diagramie przedstawiono relację między aplikacjami i wystąpieni
 
 Repliki każdej partycji są rozmieszczane w węzłach klastra, co pozwala na [skalowanie](service-fabric-concepts-scalability.md)stanu nazwanej usługi. W miarę wzrostu ilości danych partycje rosną i Service Fabric zrównoważą partycje w różnych węzłach w celu efektywnego wykorzystania zasobów sprzętowych. W przypadku dodania nowych węzłów do klastra program Service Fabric będzie ponownie zrównoważyć repliki partycji w większej liczbie węzłów. Ogólna wydajność aplikacji zwiększa się i rywalizacja o zmniejszenie ilości pamięci. Jeśli węzły w klastrze nie są efektywnie używane, można zmniejszyć liczbę węzłów w klastrze. Service Fabric ponownie zrównoważy repliki partycji na zmniejszonej liczbie węzłów, aby lepiej wykorzystać sprzęt w każdym węźle.
 
-W ramach partycji usługi bezstanowe mają wystąpienia, podczas gdy stanowe nazwy usług mają repliki. Zwykle usługi bezstanowe mają już jedną partycję, ponieważ nie mają wewnętrznego stanu, chociaż [istnieją wyjątki](https://docs.microsoft.com/azure/service-fabric/service-fabric-concepts-partitioning#partition-service-fabric-stateless-services). Wystąpienia partycji zapewniają [dostępność](service-fabric-availability-services.md). Jeśli jedno wystąpienie nie powiedzie się, inne wystąpienia nadal działają normalnie, a następnie Service Fabric tworzy nowe wystąpienie. Stanowe nazwy usług utrzymują swój stan w replikach, a każda partycja ma swój własny zestaw replik. Operacje odczytu i zapisu są wykonywane w jednej replice (nazywanej głównym). Zmiany stanu z operacji zapisu są replikowane do wielu innych replik (nazywanych Active pomocniczymi). Jeśli replika nie powiedzie się, Service Fabric kompiluje nową replikę z istniejących replik.
+W ramach partycji usługi bezstanowe mają wystąpienia, podczas gdy stanowe nazwy usług mają repliki. Zwykle usługi bezstanowe mają już jedną partycję, ponieważ nie mają wewnętrznego stanu, chociaż [istnieją wyjątki](./service-fabric-concepts-partitioning.md#partition-service-fabric-stateless-services). Wystąpienia partycji zapewniają [dostępność](service-fabric-availability-services.md). Jeśli jedno wystąpienie nie powiedzie się, inne wystąpienia nadal działają normalnie, a następnie Service Fabric tworzy nowe wystąpienie. Stanowe nazwy usług utrzymują swój stan w replikach, a każda partycja ma swój własny zestaw replik. Operacje odczytu i zapisu są wykonywane w jednej replice (nazywanej głównym). Zmiany stanu z operacji zapisu są replikowane do wielu innych replik (nazywanych Active pomocniczymi). Jeśli replika nie powiedzie się, Service Fabric kompiluje nową replikę z istniejących replik.
 
 ## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Mikrousługi stanowe i bezstanowe dla usługi Service Fabric
 Usługa Service Fabric umożliwia tworzenie aplikacji składających się z mikrousług lub kontenerów. Mikrousługi bezstanowe (na przykład bramy protokołów i internetowe serwery proxy) nie utrzymują modyfikowalnego stanu poza żądaniem i odpowiedzią serwera. Przykładem usługi bezstanowej są procesy robocze usług Azure Cloud Services. Mikrousługi stanowe (na przykład konta użytkowników, bazy danych, urządzenia, koszyki zakupów i kolejki) utrzymują modyfikowalny, autorytatywny stan poza żądaniem i odpowiedzią. Współczesne aplikacje internetowe łączą w sobie mikrousługi stanowe i bezstanowe. 
@@ -66,7 +66,7 @@ Dlaczego mikrousługi stanowe mają być bezstanowe? Istnieją dwa główne przy
 ## <a name="supported-programming-models"></a>Obsługiwane modele programowania
 Service Fabric oferuje wiele sposobów zapisywania usług i zarządzania nimi. Usługi mogą korzystać z interfejsów API Service Fabric, aby w pełni korzystać z funkcji platformy i struktur aplikacji. Usługi mogą być również dowolnym skompilowanym programem wykonywalnym zapisanym w dowolnym języku i hostowanym w klastrze Service Fabric. Aby uzyskać więcej informacji, zobacz [obsługiwane modele programowania](service-fabric-choose-framework.md).
 
-### <a name="containers"></a>Kontenery
+### <a name="containers"></a>Containers
 Domyślnie program Service Fabric wdraża i aktywuje usługi jako procesy. Service Fabric można również wdrożyć usługi w [kontenerach](service-fabric-containers-overview.md). Ważne, można mieszać usługi w ramach procesów i usług w kontenerach w tej samej aplikacji. Service Fabric obsługuje wdrażanie kontenerów systemu Linux i kontenerów Windows w systemie Windows Server 2016. W kontenerach można wdrażać istniejące aplikacje, usługi bezstanowe lub usługi stanowe. 
 
 ### <a name="reliable-services"></a>Reliable Services

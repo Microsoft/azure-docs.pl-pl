@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: how-to
-ms.date: 06/30/2020
+ms.date: 12/01/2020
 ms.author: victorh
-ms.openlocfilehash: 3323f73c137905fbe677c68d3830d7f609fa0172
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 906687e08c9f31890a9ecec9154079e704512832
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85611581"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485726"
 ---
 # <a name="deploy-a-security-partner-provider"></a>Wdrażanie dostawcy partnera w zakresie zabezpieczeń
 
@@ -21,14 +21,18 @@ ms.locfileid: "85611581"
 Aby dowiedzieć się więcej o obsługiwanych scenariuszach i wskazówkach dotyczących najlepszych rozwiązań, zobacz [co to są dostawcy partnera zabezpieczeń?](trusted-security-partners.md)
 
 
-Zintegrowane partnerzy usługi Security AS (SECaaS) innych firm są teraz dostępni we wszystkich regionach chmury publicznej platformy Azure. **Rozwiązania Zscaler** integracja będzie ogólnie dostępna 3 lipca 2020. Wartość **Check Point** to obsługiwany partner SECaaS i będzie on w wersji zapoznawczej 3 lipca 2020. Integracja **iboss** będzie ogólnie dostępna w dniu 31 lipca 2020.
+Obecnie dostępne są partnerzy usługi Security AS (SECaaS) innych firm: 
+
+- **Zscaler**
+- **[Check Point](check-point-overview.md)**
+- **iboss**
 
 ## <a name="deploy-a-third-party-security-provider-in-a-new-hub"></a>Wdróż dostawcę zabezpieczeń innych firm w nowym centrum
 
 Pomiń tę sekcję, Jeśli wdrażasz dostawcę innej firmy w istniejącym centrum.
 
 1. Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
-2. W polu **wyszukiwania**wpisz **Menedżer zapory** i wybierz go w obszarze **usługi**.
+2. W polu **wyszukiwania** wpisz **Menedżer zapory** i wybierz go w obszarze **usługi**.
 3. Przejdź do **wprowadzenie**. Wybierz pozycję **Wyświetl zabezpieczone centra wirtualne**.
 4. Wybierz pozycję **Utwórz nowe zabezpieczone centrum wirtualne**.
 5. Wprowadź subskrypcję i grupę zasobów, wybierz obsługiwany region i Dodaj informacje o centrum i wirtualnej sieci WAN. 
@@ -55,7 +59,7 @@ Po utworzeniu centrum i skonfigurowaniu partnera zabezpieczeń Kontynuuj, aby po
 
 Możesz również wybrać istniejące centrum w wirtualnej sieci WAN i przekonwertować je na *zabezpieczone centrum wirtualne*.
 
-1. W **wprowadzenie**wybierz pozycję **Wyświetl zabezpieczone centra wirtualne**.
+1. W **wprowadzenie** wybierz pozycję **Wyświetl zabezpieczone centra wirtualne**.
 2. Wybierz pozycję **Konwertuj istniejące centra**.
 3. Wybierz subskrypcję i istniejące centrum. Wykonaj pozostałe kroki, aby wdrożyć dostawcę innych firm w nowym centrum.
 
@@ -81,8 +85,8 @@ Aby skonfigurować tunele do VPN Gateway koncentratora wirtualnego, dostawcy inn
 1. Postępuj zgodnie z instrukcjami dostarczonymi przez partnera, aby zakończyć instalację. Obejmuje to przesyłanie informacji usługi AAD w celu wykrywania i łączenia się z centrum, aktualizowania zasad ruchu wychodzącego oraz sprawdzania stanu i dzienników łączności.
 
    - [Rozwiązania Zscaler: Skonfiguruj integrację wirtualnej sieci WAN Microsoft Azure](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration).
-   - [Check Point (wersja zapoznawcza): konfigurowanie Microsoft Azure integracji wirtualnej sieci WAN](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/CloudGuard-Connect-Azure-Virtual-WAN/Default.htm).
-   - [iboss (wersja zapoznawcza): Konfigurowanie integracji wirtualnej sieci WAN Microsoft Azure](https://www.iboss.com/blog/securing-microsoft-azure-with-iboss-saas-network-security). 
+   - [Check Point: konfigurowanie Microsoft Azure integracji wirtualnej sieci WAN](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/CloudGuard-Connect-Azure-Virtual-WAN/Default.htm).
+   - [iboss: Skonfiguruj integrację wirtualnej sieci WAN Microsoft Azure](https://www.iboss.com/blog/securing-microsoft-azure-with-iboss-saas-network-security). 
    
 2. Stan tworzenia tunelu można sprawdzić w portalu Azure Virtual WAN na platformie Azure. Po pobraniu przez tunele **połączenia** na platformie Azure i w portalu dla partnerów przejdź do następnych kroków, aby skonfigurować trasy do wybierania gałęzi i sieci wirtualnych powinny wysyłać ruch internetowy do partnera.
 
@@ -95,11 +99,11 @@ Aby skonfigurować tunele do VPN Gateway koncentratora wirtualnego, dostawcy inn
 3. Wybierz centrum i przejdź do **ustawień trasy**.
 
    Podczas wdrażania dostawcy innej firmy w centrum program konwertuje koncentrator do *zabezpieczonego koncentratora wirtualnego*. Dzięki temu dostawca innych firm anonsuje trasę 0.0.0.0/0 (domyślnie) do centrum. Jednak połączenia sieci wirtualnej i lokacje połączone z centrum nie otrzymują tej trasy, chyba że użytkownik zdecyduje się na to, które połączenia powinny uzyskać tę trasę domyślną.
-4. W obszarze **ruch internetowy**wybierz opcję połączenie między sieciami **wirtualnymi** lub **rozgałęzienia z Internetem** albo skonfiguruj trasy wysyłane przez inną firmę.
+4. W obszarze **ruch internetowy** wybierz opcję połączenie między sieciami **wirtualnymi** lub **rozgałęzienia z Internetem** albo skonfiguruj trasy wysyłane przez inną firmę.
 
    Wskazuje to, który typ ruchu powinien być kierowany do centrum, ale nie ma to wpływu na trasy w sieci wirtualnych lub gałęziach. Trasy te nie są propagowane do wszystkich sieci wirtualnychów/gałęzi, które są domyślnie dołączone do centrum.
 5. Musisz wybrać opcję **bezpieczne połączenia** i wybrać połączenia, dla których mają zostać ustawione te trasy. Wskazuje, które sieci wirtualnych/gałęzie mogą rozpocząć wysyłanie ruchu internetowego do dostawcy innej firmy.
-6. W obszarze **Ustawienia trasy**wybierz pozycję **bezpieczne połączenia** w obszarze ruch internetowy, a następnie wybierz sieć wirtualną lub gałęzie (*Lokacje* w wirtualnej sieci WAN), które mają być zabezpieczone. Wybierz pozycję **bezpieczny ruch internetowy**.
+6. W obszarze **Ustawienia trasy** wybierz pozycję **bezpieczne połączenia** w obszarze ruch internetowy, a następnie wybierz sieć wirtualną lub gałęzie (*Lokacje* w wirtualnej sieci WAN), które mają być zabezpieczone. Wybierz pozycję **bezpieczny ruch internetowy**.
    ![Bezpieczny ruch internetowy](media/deploy-trusted-security-partner/secure-internet-traffic.png)
 7. Przejdź z powrotem do strony centrów. Stan **dostawcy partnera zabezpieczeń** centrum powinien być teraz  **zabezpieczony**.
 

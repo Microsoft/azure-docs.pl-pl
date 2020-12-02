@@ -3,20 +3,20 @@ title: Aktywność sieci Web w Azure Data Factory
 description: Dowiedz się, w jaki sposób można użyć działania sieci Web, jednego z działań przepływu sterowania obsługiwanego przez Data Factory, aby wywołać punkt końcowy REST z potoku.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: e74361d6fb3eb1f9708f39f198506d16c7c046c4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 8ee23adf569a6afafc57dac786cd907a3481abde
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635103"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485811"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Aktywność sieci Web w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -72,8 +72,8 @@ Działanie WebActivity może być używane do wywoływania niestandardowego punk
 
 Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | --------
-name | Nazwa działania sieci Web | String | Tak
-typ | Musi być ustawiona na **webactivity** . | String | Tak
+name | Nazwa działania sieci Web | Ciąg | Tak
+typ | Musi być ustawiona na **webactivity**. | Ciąg | Tak
 method | Metoda interfejsu API REST dla docelowego punktu końcowego. | Ciąg. <br/><br/>Obsługiwane typy: "GET", "POST", "PUT" | Tak
 url | Docelowy punkt końcowy i ścieżka | Ciąg (lub wyrażenie z typem ResultType ciągu). Limit czasu działania zostanie przekroczony za 1 minutę z błędem, jeśli nie otrzyma odpowiedzi z punktu końcowego. | Tak
 nagłówka | Nagłówki wysyłane do żądania. Na przykład, aby ustawić język i typ dla żądania: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | Ciąg (lub wyrażenie z typem ResultType ciągu) | Tak, nagłówek Content-Type jest wymagany. `"headers":{ "Content-Type":"application/json"}`
@@ -104,7 +104,7 @@ Poniżej przedstawiono obsługiwane typy uwierzytelniania w działaniu sieci Web
 
 Jeśli uwierzytelnianie nie jest wymagane, nie należy uwzględniać właściwości "Authentication".
 
-### <a name="basic"></a>Podstawowa
+### <a name="basic"></a>Podstawowy
 
 Określ nazwę użytkownika i hasło, które mają być używane z uwierzytelnianiem podstawowym.
 
