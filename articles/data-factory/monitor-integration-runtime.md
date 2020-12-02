@@ -7,15 +7,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/11/2020
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: 3c7765d65b63c9cee83a76a13448506f61aa8472
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 4eb9b0077d1d0591953a40d98a220d7aa0683de7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637160"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497949"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitor an integration runtime in Azure Data Factory (Monitorowanie środowiska Integration Runtime w usłudze Azure Data Factory)
 
@@ -72,7 +72,7 @@ Ta sekcja zawiera opisy właściwości zwracanych przez polecenie cmdlet Get-AzD
 
 ### <a name="properties"></a>Właściwości
 
-Poniższa tabela zawiera opisy właściwości monitorowania dla **każdego węzła** :
+Poniższa tabela zawiera opisy właściwości monitorowania dla **każdego węzła**:
 
 | Właściwość | Opis | 
 | -------- | ----------- | 
@@ -82,7 +82,7 @@ Poniższa tabela zawiera opisy właściwości monitorowania dla **każdego węz�
 | Dostępna pamięć | Dostępna pamięć w węźle środowiska Integration Runtime w trybie własnym. Ta wartość jest migawką niemal w czasie rzeczywistym. | 
 | Wykorzystanie procesora | Użycie procesora CPU w węźle środowiska Integration Runtime (własny). Ta wartość jest migawką niemal w czasie rzeczywistym. |
 | Sieć (do/z) | Wykorzystanie sieci w węźle środowiska Integration Runtime (własny). Ta wartość jest migawką niemal w czasie rzeczywistym. | 
-| Zadania współbieżne (uruchomione/ograniczone) | **Uruchomione** . Liczba zadań lub zadań uruchomionych w każdym węźle. Ta wartość jest migawką niemal w czasie rzeczywistym. <br/><br/>**Limit** . Wartość Ogranicz oznacza maksymalne zadania współbieżne dla każdego węzła. Ta wartość jest definiowana w zależności od rozmiaru maszyny. Można zwiększyć limit skalowania współbieżnego wykonywania zadań w zaawansowanych scenariuszach, gdy działania mają limit czasu, nawet gdy wykorzystanie procesora CPU, pamięci lub sieci jest w użyciu. Ta funkcja jest również dostępna w przypadku autonomicznego środowiska Integration Runtime w jednym węźle. |
+| Zadania współbieżne (uruchomione/ograniczone) | **Uruchomione**. Liczba zadań lub zadań uruchomionych w każdym węźle. Ta wartość jest migawką niemal w czasie rzeczywistym. <br/><br/>**Limit**. Wartość Ogranicz oznacza maksymalne zadania współbieżne dla każdego węzła. Ta wartość jest definiowana w zależności od rozmiaru maszyny. Można zwiększyć limit skalowania współbieżnego wykonywania zadań w zaawansowanych scenariuszach, gdy działania mają limit czasu, nawet gdy wykorzystanie procesora CPU, pamięci lub sieci jest w użyciu. Ta funkcja jest również dostępna w przypadku autonomicznego środowiska Integration Runtime w jednym węźle. |
 | Rola | Istnieją dwa typy ról w ramach międzywęzłowego środowiska Integration Runtime — Dyspozytor i proces roboczy. Wszystkie węzły są pracownikami, co oznacza, że mogą być używane do wykonywania zadań. Istnieje tylko jeden węzeł dyspozytora, który służy do ściągania zadań/zadań z usług w chmurze i wysyłania ich do różnych węzłów procesu roboczego. Węzeł dyspozytora jest również węzłem procesu roboczego. |
 
 Niektóre ustawienia właściwości są bardziej zrozumiałe, jeśli istnieją co najmniej dwa węzły w środowisku Integration Runtime (w scenariuszu skalowania w poziomie).
@@ -192,7 +192,7 @@ Poniższa tabela zawiera opisy właściwości zwracanych przez powyższe polecen
 | CatalogPricingTier           | Warstwa cenowa usługi SSISDB hostowana przez Azure SQL Database Server.  Nie dotyczy SSISDB hostingu wystąpienia zarządzanego Azure SQL. |
 | VNetId                       | Identyfikator zasobu sieci wirtualnej dla Azure-SSIS IR do przyłączenia. |
 | Podsieć                       | Nazwa podsieci do przyłączenia do Azure-SSIS IR. |
-| ID (Identyfikator)                           | Identyfikator zasobu Azure-SSIS IR. |
+| ID                           | Identyfikator zasobu Azure-SSIS IR. |
 | Typ                         | Typ IR (zarządzany/samoobsługowy) Azure-SSIS IR. |
 | ResourceGroupName            | Nazwa grupy zasobów platformy Azure, w której zostały utworzone zasoby ADF i Azure-SSIS IR. |
 | DataFactoryName              | Nazwa Twojego ADF. |
@@ -234,7 +234,7 @@ Następnie wybierz nazwę Azure-SSIS IR, aby otworzyć jej stronę monitorowania
 
 #### <a name="status-tile"></a>Kafelek stanu
 
-Na kafelku **stan** strony monitorowania Azure-SSIS IR można zobaczyć jej ogólny stan, na przykład **uruchomioną** lub **zatrzymaną** . Wybranie stanu **działania** powoduje wyczyszczenie okna z aktywnym przyciskiem **Zatrzymaj** , aby zatrzymać Azure-SSIS IR. Zaznaczenie pola stan **zatrzymania** powoduje wyczyszczenie okna z aktywnym przyciskiem **Start** , aby rozpocząć Azure-SSIS IR. W oknie podręcznym jest również dostępny przycisk **Wykonaj pakiet SSIS** , aby automatycznie wygenerować potok ADF z działaniem pakietu SSIS, które jest uruchamiane na Azure-SSIS IR (zobacz [uruchamianie pakietów SSIS jako działania pakietu SSIS w potokach APD](./how-to-invoke-ssis-package-ssis-activity.md)) i pole tekstowe **Identyfikator zasobu** , w którym można skopiować identyfikator zasobu Azure-SSIS IR ( `/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR` ). Sufiks identyfikatora zasobu Azure-SSIS IR, który zawiera pliki ADF i Azure-SSIS IR, stanowi identyfikator klastra, którego można użyć do zakupu dodatkowych składników usług SSIS/licencjonowanych w warstwie Premium od niezależnych dostawców oprogramowania (ISV) i powiązać je z Azure-SSIS IR (zobacz [Instalowanie składników Premium/licencjonowanych w Azure-SSIS IR](./how-to-develop-azure-ssis-ir-licensed-components.md)).
+Na kafelku **stan** strony monitorowania Azure-SSIS IR można zobaczyć jej ogólny stan, na przykład **uruchomioną** lub **zatrzymaną**. Wybranie stanu **działania** powoduje wyczyszczenie okna z aktywnym przyciskiem **Zatrzymaj** , aby zatrzymać Azure-SSIS IR. Zaznaczenie pola stan **zatrzymania** powoduje wyczyszczenie okna z aktywnym przyciskiem **Start** , aby rozpocząć Azure-SSIS IR. W oknie podręcznym jest również dostępny przycisk **Wykonaj pakiet SSIS** , aby automatycznie wygenerować potok ADF z działaniem pakietu SSIS, które jest uruchamiane na Azure-SSIS IR (zobacz [uruchamianie pakietów SSIS jako działania pakietu SSIS w potokach APD](./how-to-invoke-ssis-package-ssis-activity.md)) i pole tekstowe **Identyfikator zasobu** , w którym można skopiować identyfikator zasobu Azure-SSIS IR ( `/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR` ). Sufiks identyfikatora zasobu Azure-SSIS IR, który zawiera pliki ADF i Azure-SSIS IR, stanowi identyfikator klastra, którego można użyć do zakupu dodatkowych składników usług SSIS/licencjonowanych w warstwie Premium od niezależnych dostawców oprogramowania (ISV) i powiązać je z Azure-SSIS IR (zobacz [Instalowanie składników Premium/licencjonowanych w Azure-SSIS IR](./how-to-develop-azure-ssis-ir-licensed-components.md)).
 
 ![Monitorowanie kafelka Azure-SSIS IR-STATUS](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-status.png)
 

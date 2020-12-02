@@ -1,19 +1,19 @@
 ---
-title: Wygaszania Fresnela efekt
+title: Efekt Fresnela
 description: Strona wyjaśnienia funkcji dla efektu materiału wygaszania Fresnela
 author: jumeder
 ms.author: jumeder
 ms.date: 11/09/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0596d118d1f3c09bc295891f023fe9990f3f1e05
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: c8ecd3afc95cf4b8054cd7db3530c15afebea3ce
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557920"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498238"
 ---
-# <a name="fresnel-effect"></a>Wygaszania Fresnela efekt
+# <a name="fresnel-effect"></a>Efekt Fresnela
 
 Funkcja materiału wygaszania Fresnela efekt jest niefizycznie poprawna. Ta funkcja jest oparta na fizycznej obserwowanie obiektów, które stają się bardziej odbijające pod tymi kątami. Odbicie wygaszania Fresnela jest już fizycznie wbudowane w [modelu materiałowym PBR](../../overview/features/pbr-materials.md) używanym podczas renderowania zdalnego platformy Azure. W przeciwieństwie do funkcji materiału wygaszania Fresnela efekt jest tylko dodatkowy efekt koloru bez zależności od [świateł](../../overview/features/lights.md) lub [środowiska](../../overview/features/sky.md).
 
@@ -21,7 +21,7 @@ Efekt wygaszania Fresnela daje obiektom, których to dotyczy, jest to kolor, kt�
 
 ## <a name="enabling-the-fresnel-effect"></a>Włączanie efektu wygaszania Fresnela
 
-Aby można było korzystać z funkcji wygaszania Fresnela Effect, należy ją włączyć w danych materiałach. Można ją włączyć, ustawiając FresnelEffect bit [PbrMaterialFeatures](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pbrmaterialfeatures) w [materiale PBR](../../overview/features/pbr-materials.md). Ten sam wzorzec dotyczy [ColorMaterialFeatures](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering) i [materiału koloru](../../overview/features/color-materials.md). Zobacz sekcję przykłady kodu, aby zapoznać się z prezentacją użycia.
+Aby można było korzystać z funkcji wygaszania Fresnela Effect, należy ją włączyć w danych materiałach. Można ją włączyć, ustawiając FresnelEffect bit [PbrMaterialFeatures](/dotnet/api/microsoft.azure.remoterendering.pbrmaterialfeatures) w [materiale PBR](../../overview/features/pbr-materials.md). Ten sam wzorzec dotyczy [ColorMaterialFeatures](/dotnet/api/microsoft.azure.remoterendering) i [materiału koloru](../../overview/features/color-materials.md). Zobacz sekcję przykłady kodu, aby zapoznać się z prezentacją użycia.
 
 Po włączeniu efekt wygaszania Fresnela będzie od razu widoczny. Domyślnie jest to kolor biały (1, 1, 1, 1) i ma wykładnik potęgi 1. Te ustawienia można dostosować za pomocą metod ustawianych poniżej.
 
@@ -93,10 +93,10 @@ void SetFresnelEffect(ApiHandle<AzureSession> session, ApiHandle<Material> mater
 
 ## <a name="api-documentation"></a>Dokumentacja interfejsu API
 
-* [PbrMaterialFeatures C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pbrmaterialfeatures)
-* [C++ PbrMaterialFeatures](https://docs.microsoft.com/cpp/api/remote-rendering/pbrmaterialfeatures)
-* [ColorMaterialFeatures C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.colormaterialfeatures)
-* [C++ ColorMaterialFeatures](https://docs.microsoft.com/cpp/api/remote-rendering/colormaterialfeatures)
+* [PbrMaterialFeatures C#](/dotnet/api/microsoft.azure.remoterendering.pbrmaterialfeatures)
+* [C++ PbrMaterialFeatures](/cpp/api/remote-rendering/pbrmaterialfeatures)
+* [ColorMaterialFeatures C#](/dotnet/api/microsoft.azure.remoterendering.colormaterialfeatures)
+* [C++ ColorMaterialFeatures](/cpp/api/remote-rendering/colormaterialfeatures)
 
 ## <a name="next-steps"></a>Następne kroki
 

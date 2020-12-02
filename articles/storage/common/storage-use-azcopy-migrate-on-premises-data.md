@@ -8,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 154a7b17fc09c55e83b65eef8d479904c36e87eb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: eddee58d70cf621bd6c82d54fe75434f4e596d9e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791192"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498170"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Samouczek: Migrowanie danych lokalnych do magazynu w chmurze za pomocą usługi AzCopy
 
@@ -44,13 +44,13 @@ Pierwszym krokiem jest utworzenie kontenera, ponieważ obiekty blob należy zaws
 Wykonaj następujące kroki, aby utworzyć kontener:
 
 1. Wybierz przycisk **Konta magazynu** ze strony głównej, a następnie wybierz utworzone konto magazynu.
-2. Wybierz pozycję **Obiekty blob** w obszarze **Usługi** , a następnie wybierz pozycję **Kontener** .
+2. Wybierz pozycję **Obiekty blob** w obszarze **Usługi**, a następnie wybierz pozycję **Kontener**.
 
    ![Zrzut ekranu przedstawiający tworzenie kontenera](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
  
 Nazwy kontenerów muszą zaczynać się literą lub cyfrą. Mogą one zawierać tylko litery, cyfry i znaki łącznika (-). Aby uzyskać dodatkowe informacje o regułach nazewnictwa kontenerów i obiektów blob, zobacz temat [Naming and Referencing Containers, Blobs, and Metadata (Nazewnictwo i odwoływanie się do kontenerów, obiektów blob i metadanych)](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-## <a name="download-azcopy"></a>Pobierz AzCopy
+## <a name="download-azcopy"></a>Pobieranie narzędzia AzCopy
 
 Pobierz plik wykonywalny AzCopy v10.
 
@@ -176,7 +176,7 @@ Aby sprawdzić, czy zaplanowane zadanie lub zadanie cron jest działa poprawnie,
 
 Aby dowiedzieć się więcej o sposobach przenoszenia danych lokalnych do usługi Azure Storage i na odwrót, kliknij następujący link:
 
-* [Przenoszenie danych do i z usługi Azure Storage](./storage-choose-data-transfer-solution.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).  
+* [Przenoszenie danych do i z usługi Azure Storage](./storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
 
 Aby uzyskać więcej informacji na temat AzCopy, zobacz dowolny z następujących artykułów:
 

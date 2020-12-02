@@ -4,12 +4,12 @@ description: Dowiedz się, jak za pomocą usługi Azure Custom Vision utworzyć 
 ms.topic: tutorial
 ms.date: 09/08/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 685aab603b2589a97b4c80ef0f8c5860617f1147
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: b4d9f82d99542bde216f0eaa1459d0f6c1a52659
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358319"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498340"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Samouczek: analizowanie wideo na żywo za pomocą analizy filmów wideo na żywo na IoT Edge i na platformie Azure Custom Vision
 
@@ -62,7 +62,7 @@ Przed rozpoczęciem Przeczytaj następujące artykuły:
 ## <a name="review-the-sample-video"></a>Zapoznaj się z przykładowym wideo
 
 
-W tym samouczku do symulowania strumienia na żywo jest wykorzystywany plik wideo dotyczący [wywnioskowania samochodu](https://lvamedia.blob.core.windows.net/public/t2.mkv) . Film wideo można przeanalizować za pomocą aplikacji, takiej jak [VLC Media Player](https://www.videolan.org/vlc/). Wybierz **kombinację klawiszy CTRL + N** , a następnie wklej link do [filmu wideo dotyczącego wnioskowania samochodu](https://lvamedia.blob.core.windows.net/public/t2.mkv) , aby rozpocząć odtwarzanie. Gdy oglądasz film wideo, pamiętaj, że w filmie o 36-sekundowym znakiem wózka zabawki. Model niestandardowy został przeszkolony w celu wykrywania określonego wózka zabawki. W tym samouczku użyjesz usługi Analiza filmów wideo na żywo na IoT Edge, aby wykryć takie wózki i publikować powiązane zdarzenia wnioskowania do centrum IoT Edge.
+W tym samouczku do symulowania strumienia na żywo jest wykorzystywany plik wideo dotyczący [wywnioskowania samochodu](https://lvamedia.blob.core.windows.net/public/t2.mkv) . Film wideo można przeanalizować za pomocą aplikacji, takiej jak [VLC Media Player](https://www.videolan.org/vlc/). Wybierz **kombinację klawiszy CTRL + N**, a następnie wklej link do [filmu wideo dotyczącego wnioskowania samochodu](https://lvamedia.blob.core.windows.net/public/t2.mkv) , aby rozpocząć odtwarzanie. Gdy oglądasz film wideo, pamiętaj, że w filmie o 36-sekundowym znakiem wózka zabawki. Model niestandardowy został przeszkolony w celu wykrywania określonego wózka zabawki. W tym samouczku użyjesz usługi Analiza filmów wideo na żywo na IoT Edge, aby wykryć takie wózki i publikować powiązane zdarzenia wnioskowania do centrum IoT Edge.
 
 ## <a name="overview"></a>Omówienie
 
@@ -194,7 +194,7 @@ Kliknij prawym przyciskiem myszy urządzenie analizy wideo na żywo, a następni
 
 Jeśli otworzysz topologię grafu dla tego samouczka w przeglądarce, zobaczysz, że wartość `inferencingUrl` została ustawiona na `http://cv:80/image` . To ustawienie oznacza, że serwer wnioskowania zwróci wyniki po rozpoczęciu wykrywania wózków zabawka (jeśli istnieją) w wideo na żywo.
 
-1. W Visual Studio Code Otwórz kartę **rozszerzenia** (lub wybierz **kombinację klawiszy Ctrl + Shift + X** ) i Wyszukaj pozycję Azure IoT Hub.
+1. W Visual Studio Code Otwórz kartę **rozszerzenia** (lub wybierz **kombinację klawiszy Ctrl + Shift + X**) i Wyszukaj pozycję Azure IoT Hub.
 1. Kliknij prawym przyciskiem myszy i wybierz pozycję **Ustawienia rozszerzenia**.
 
     > [!div class="mx-imgBorder"]
@@ -382,7 +382,7 @@ Zwróć uwagę na następujące informacje w poprzednich komunikatach:
 * Treść zawiera dane dotyczące zdarzenia analizy. W takim przypadku zdarzenie jest zdarzeniem wnioskowania, dlatego treść zawiera tablicę wniosków o nazwie przewidywania.
 * Sekcja przewidywania zawiera listę prognoz, w których w ramce zostanie znaleziony ciężar dostawy zabawki (tag "wózek dostawczy"). W miarę odwoływania "wózek dostawczy" jest niestandardowym tagiem dostarczonym do niestandardowego, przeszkolonego modelu dla wózka zabawki. Model wnioskuje i identyfikuje wózka zabawki w wejściowym wideo z różnymi wynikami pewności dopasowania prawdopodobieństwa.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli zamierzasz wypróbować inne samouczki lub Przewodniki Szybki Start, zaczekaj na utworzone zasoby. W przeciwnym razie przejdź do obszaru Azure Portal, przejdź do grup zasobów, wybierz grupę zasobów, w której uruchomiono ten samouczek, i Usuń wszystkie zasoby.
 
@@ -391,6 +391,6 @@ Jeśli zamierzasz wypróbować inne samouczki lub Przewodniki Szybki Start, zacz
 Zapoznaj się z dodatkowymi wyzwaniami dla zaawansowanych użytkowników:
 
 * Użyj [kamery IP](https://en.wikipedia.org/wiki/IP_camera) , która obsługuje protokół RTSP, zamiast korzystać z symulatora RTSP. Można wyszukać kamery IP obsługujące protokół RTSP na stronie [ONVIF zgodnych](https://www.onvif.org/conformant-products/) produktów. Wyszukaj urządzenia zgodne z profilami G, S lub T.
-* Użyj urządzenia z systemem AMD64 lub x64 zamiast z maszyną wirtualną z systemem Linux systemu Azure. To urządzenie musi znajdować się w tej samej sieci co kamera IP. Można postępować zgodnie z instrukcjami w temacie [Install Azure IoT Edge Runtime on Linux](../../iot-edge/how-to-install-iot-edge-linux.md).
+* Użyj urządzenia z systemem AMD64 lub x64 zamiast z maszyną wirtualną z systemem Linux systemu Azure. To urządzenie musi znajdować się w tej samej sieci co kamera IP. Można postępować zgodnie z instrukcjami w temacie [Install Azure IoT Edge Runtime on Linux](../../iot-edge/how-to-install-iot-edge.md).
 
 Następnie Zarejestruj urządzenie w usłudze Azure IoT Hub, postępując zgodnie z instrukcjami podanymi w temacie [Wdróż swój pierwszy IoT Edge module na wirtualnym urządzeniu z systemem Linux](../../iot-edge/quickstart-linux.md).

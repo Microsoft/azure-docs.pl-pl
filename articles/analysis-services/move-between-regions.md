@@ -4,16 +4,16 @@ description: Opisuje sposób przenoszenia zasobu Azure Analysis Services do inne
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 1f7ecf960ae94fae4d829e73daf051b9062e478d
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 049ff6d14c3967481eb73037814082fa261154e3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018198"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497932"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Przenieś Analysis Services do innego regionu
 
@@ -88,7 +88,7 @@ Aby wyeksportować szablon przy użyciu witryny Azure Portal:
 
 Aby wyeksportować szablon przy użyciu programu PowerShell:
 
-1. Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie:
+1. Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie:
 
    ```azurepowershell-interactive
    Connect-AzAccount
@@ -129,7 +129,7 @@ Aby uzyskać sygnaturę dostępu współdzielonego przy użyciu portalu:
 
     :::image type="content" source="media/move-between-regions/get-sas.png" alt-text="Pobieranie sygnatury dostępu współdzielonego":::
 
-4. W obszarze **sygnatura dostępu współdzielonego**wybierz pozycję **Utwórz**. Domyślnie sygnatura dostępu współdzielonego wygaśnie w ciągu 24 godzin.
+4. W obszarze **sygnatura dostępu współdzielonego** wybierz pozycję **Utwórz**. Domyślnie sygnatura dostępu współdzielonego wygaśnie w ciągu 24 godzin.
 
 5. Skopiuj i Zapisz **Identyfikator URI**. 
 
@@ -177,7 +177,7 @@ Aby zmodyfikować szablon:
 
 #### <a name="regions"></a>Regiony
 
-Aby uzyskać regiony platformy Azure, zobacz [lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/). Aby uzyskać regiony przy użyciu programu PowerShell, uruchom polecenie [Get-AzLocation](/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) .
+Aby uzyskać regiony platformy Azure, zobacz [lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/). Aby uzyskać regiony przy użyciu programu PowerShell, uruchom polecenie [Get-AzLocation](/powershell/module/az.resources/get-azlocation) .
 
 ```azurepowershell-interactive
    Get-AzLocation | format-table 
@@ -191,7 +191,7 @@ Aby wdrożyć nowy zasób serwera w innym regionie, użyjesz **template.jsna** w
 
 1. W portalu wybierz pozycję **Utwórz zasób**.
 
-2. W obszarze **Wyszukaj w portalu Marketplace**wpisz **wdrożenie szablonu**, a następnie naciśnij klawisz **Enter**.
+2. W obszarze **Wyszukaj w portalu Marketplace** wpisz **wdrożenie szablonu**, a następnie naciśnij klawisz **Enter**.
 
 3. Wybierz **Template Deployment**.
 
@@ -262,15 +262,15 @@ Wykonaj kroki opisane w sekcji [przywracanie](analysis-services-backup.md#restor
 
 Opcjonalne: po przywróceniu bazy danych modelu przetwórz model i tabele, aby odświeżyć dane ze źródeł danych. Aby przetworzyć model i tabelę za pomocą programu SSMS:
 
-1. W programie SSMS kliknij prawym przyciskiem myszy bazę danych modelu > **przetwarzania bazy**danych.
+1. W programie SSMS kliknij prawym przyciskiem myszy bazę danych modelu > **przetwarzania bazy** danych.
 
-2. Rozwiń węzeł **tabele**, kliknij prawym przyciskiem myszy tabelę. W **tabeli procesów**zaznacz opcję Wszystkie tabele, a następnie wybierz przycisk **OK**.
+2. Rozwiń węzeł **tabele**, kliknij prawym przyciskiem myszy tabelę. W **tabeli procesów** zaznacz opcję Wszystkie tabele, a następnie wybierz przycisk **OK**.
 
 ## <a name="verify"></a>Weryfikacja
 
 1. W portalu przejdź do nowego serwera docelowego.
 
-2. Na stronie Przegląd w obszarze **modele na serwerze Analysis Services**Sprawdź, czy przywrócone modele są widoczne.
+2. Na stronie Przegląd w obszarze **modele na serwerze Analysis Services** Sprawdź, czy przywrócone modele są widoczne.
 
 3. Użyj aplikacji klienckiej, takiej jak Power BI lub Excel, aby nawiązać połączenie z modelem na nowym serwerze. Sprawdź obiekty modelu, takie jak tabele, miary i hierarchie. 
 
@@ -278,7 +278,7 @@ Opcjonalne: po przywróceniu bazy danych modelu przetwórz model i tabele, aby o
 
 Opcjonalnie: [Alm Toolkit](http://alm-toolkit.com/) to narzędzie *Open Source* służące do porównywania i zarządzania Power BI zestawami danych *i* Analysis Servicesymi bazami kodu modelu tabelarycznego. Użyj zestawu narzędzi, aby połączyć się z bazami danych serwera źródłowego i docelowego i porównać. Jeśli migracja bazy danych zakończy się pomyślnie, obiekty modelu będą mieć tę samą definicję. 
 
-:::image type="content" source="media/move-between-regions/alm-toolkit.png" alt-text="Pobieranie sygnatury dostępu współdzielonego":::
+:::image type="content" source="media/move-between-regions/alm-toolkit.png" alt-text="ALM Toolkit":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

@@ -5,18 +5,18 @@ services: data-factory
 ms.service: data-factory
 tags: azure-resource-manager
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan, jingwang
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 07/16/2020
-ms.openlocfilehash: eb423ebd354adeb8273755d34323b283d53eb8b5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0a9c4f6d9e98e721370f54dfbe261025cf186b6c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87283898"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497490"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-arm-template"></a>Szybki Start: Tworzenie Azure Data Factory przy użyciu szablonu ARM
 
@@ -94,23 +94,23 @@ Więcej przykładów szablonów Azure Data Factory można znaleźć w [galerii s
 
 1. Wybierz pozycję **Przejdź do grupy zasobów**.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-go-to-resource-group.png" alt-text="Wdróż szablon ARM w usłudze ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-go-to-resource-group.png" alt-text="Grupa zasobów":::
 
 2.  Sprawdź, czy Azure Data Factory został utworzony.
     1. Nazwa Azure Data Factory jest w formacie — DataFactory \<uniqueid\> .
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-sample.png" alt-text="Wdróż szablon ARM w usłudze ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-sample.png" alt-text="Przykład Data Factory":::
 
 2. Sprawdź, czy konto magazynu zostało utworzone.
     1. Nazwa konta magazynu jest w formacie-Storage \<uniqueid\> .
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-storage-account.png" alt-text="Wdróż szablon ARM w usłudze ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-storage-account.png" alt-text="Konto magazynu":::
 
 3. Wybierz utworzone konto magazynu, a następnie wybierz pozycję **Containers (kontenery**).
     1. Na stronie **kontenery** wybierz utworzony kontener obiektów BLOB.
         1. Nazwa kontenera obiektów BLOB jest w formacie-BLOB \<uniqueid\> .
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-blob-container.png" alt-text="Wdróż szablon ARM w usłudze ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-blob-container.png" alt-text="Kontener obiektów blob":::
 
 ### <a name="upload-a-file"></a>Przekazywanie pliku
 
@@ -126,7 +126,7 @@ Więcej przykładów szablonów Azure Data Factory można znaleźć w [galerii s
 
 6. Wybierz ikonę **Zamknij** ( **symbol X**), aby zamknąć stronę **przekazywanie obiektu BLOB** .
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-upload-blob-file.png" alt-text="Wdróż szablon ARM w usłudze ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-upload-blob-file.png" alt-text="Przekaż plik do folderu wejściowego":::
 
 Pozostaw otwartą stronę kontenera, ponieważ można jej użyć do zweryfikowania danych wyjściowych na końcu tego przewodnika Szybki Start.
 
@@ -136,19 +136,19 @@ Pozostaw otwartą stronę kontenera, ponieważ można jej użyć do zweryfikowan
 
 2. Wybierz kafelek **tworzenie & monitor** . 
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author-monitor-tile.png" alt-text="Wdróż szablon ARM w usłudze ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author-monitor-tile.png" alt-text="Tworzenie monitora &":::
 
 2. Wybierz kartę **autor** :::image type="icon" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author.png" border="false"::: .
 
 3. Wybierz utworzony potok-ArmtemplateSampleCopyPipeline.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-pipelines.png" alt-text="Wdróż szablon ARM w usłudze ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-pipelines.png" alt-text="Potok szablonu ARM":::
 
 4. Wybierz pozycję **Dodaj wyzwalacz wyzwalacza**  >  **teraz**.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-trigger-now.png" alt-text="Wdróż szablon ARM w usłudze ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-trigger-now.png" alt-text="Wyzwalacz":::
 
-5. W prawym okienku w obszarze **uruchomienie potoku**wybierz pozycję **OK**.
+5. W prawym okienku w obszarze **uruchomienie potoku** wybierz pozycję **OK**.
 
 ### <a name="monitor-the-pipeline"></a>Monitorowanie potoku
 
@@ -156,7 +156,7 @@ Pozostaw otwartą stronę kontenera, ponieważ można jej użyć do zweryfikowan
 
 2. Zostaną wyświetlone uruchomienia działania skojarzone z uruchomieniem potoku. W tym przewodniku Szybki start potok ma tylko jedno działanie typu Kopiowanie. W związku z tym zostanie wyświetlony przebieg dla tego działania.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-successful-run.png" alt-text="Wdróż szablon ARM w usłudze ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-successful-run.png" alt-text="Pomyślne uruchomienie":::
 
 ### <a name="verify-the-output-file"></a>Weryfikowanie pliku wyjściowego
 
@@ -168,7 +168,7 @@ Potok automatycznie tworzy folder wyjściowy w kontenerze obiektów BLOB. Nastę
 
 3. Upewnij się, że plik **emp.txt** jest kopiowany do folderu wyjściowego. 
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-output.png" alt-text="Wdróż szablon ARM w usłudze ADF":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-output.png" alt-text="Dane wyjściowe":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

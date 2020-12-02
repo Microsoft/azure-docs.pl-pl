@@ -4,18 +4,18 @@ description: Przykłady Azure PowerShell — skrypty ułatwiające tworzenie fab
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.openlocfilehash: 20ee36989acbc36f86478d8205dd61097362eea3
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 031c897c17a086e0ebb3b2708cfe942a1ef3208e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461545"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497269"
 ---
 # <a name="azure-powershell-samples-for-azure-data-factory"></a>Przykłady Azure PowerShell dla Azure Data Factory
 

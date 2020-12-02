@@ -3,12 +3,12 @@ title: Wdrażanie analizy filmów wideo na żywo na urządzeniu IoT Edge — Azu
 description: W tym artykule przedstawiono kroki, które ułatwią wdrożenie analizy wideo na żywo na urządzeniu IoT Edge. Można to zrobić na przykład, jeśli masz dostęp do lokalnej maszyny z systemem Linux i/lub wcześniej utworzono konto Azure Media Services.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: a64fc11d7afa70d5200fdbd24bd3facdb8a95a7e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 4fa4a9643976ba513b025706cacec26b2a50afb5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019583"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498323"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Wdrażanie analizy filmów wideo na żywo na urządzeniu IoT Edge
 
@@ -23,8 +23,8 @@ W tym artykule przedstawiono kroki, które ułatwią wdrożenie analizy wideo na
 * Urządzenie z systemem x86/64 lub ARM64 z jednym z [obsługiwanych systemów operacyjnych Linux](../../iot-edge/support.md#operating-systems)
 * Subskrypcja platformy Azure, do której masz [uprawnienia właściciela](../../role-based-access-control/built-in-roles.md#owner)
 * [Utwórz i skonfiguruj IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
-* [Zarejestruj urządzenie IoT Edge](../../iot-edge/how-to-register-device.md)
-* [Install the Azure IoT Edge runtime on Debian-based Linux systems (Instalowanie środowiska uruchomieniowego usługi IoT Edge w systemach Linux opartych na rozwiązaniu Debian)](../../iot-edge/how-to-install-iot-edge-linux.md)
+* [Zarejestruj urządzenie IoT Edge](../../iot-edge/how-to-manual-provision-symmetric-key.md)
+* [Install the Azure IoT Edge runtime on Debian-based Linux systems (Instalowanie środowiska uruchomieniowego usługi IoT Edge w systemach Linux opartych na rozwiązaniu Debian)](../../iot-edge/how-to-install-iot-edge.md)
 * [Tworzenie konta usługi Azure Media Services](../latest/create-account-howto.md)
 
     * Użyj jednego z następujących regionów: Wschodnie stany USA 2, Wschodnie stany USA, środkowe stany USA, Północno-środkowe stany USA, Japonia Wschodnia, zachodnie stany USA, zachodnie stany USA 2, zachodnie stany USA, Kanada Wschodnia, Południowe Zjednoczone Królestwo, Francja środkowa, Francja Południowa, Szwajcaria Północna, Szwajcaria Zachodnia i Japonia Zachodnia.
@@ -99,7 +99,7 @@ Azure Portal przeprowadzi Cię przez proces tworzenia manifestu wdrażania i wyp
 
 #### <a name="configure-a-deployment-manifest"></a>Konfigurowanie manifestu wdrożenia
 
-Manifest wdrożenia to dokument JSON, który opisuje moduły do wdrożenia, sposób przepływu danych między modułami i żądane właściwości modułu bliźniaczych reprezentacji. Azure Portal zawiera kreatora, który przeprowadzi Cię przez proces tworzenia manifestu wdrożenia. Trzy kroki są zorganizowane na kartach: **moduły**, **trasy**i **Przegląd + Utwórz**.
+Manifest wdrożenia to dokument JSON, który opisuje moduły do wdrożenia, sposób przepływu danych między modułami i żądane właściwości modułu bliźniaczych reprezentacji. Azure Portal zawiera kreatora, który przeprowadzi Cię przez proces tworzenia manifestu wdrożenia. Trzy kroki są zorganizowane na kartach: **moduły**, **trasy** i **Przegląd + Utwórz**.
 
 #### <a name="add-modules"></a>Dodaj moduły
 
@@ -113,7 +113,7 @@ Manifest wdrożenia to dokument JSON, który opisuje moduły do wdrożenia, spos
     ![Zrzut ekranu przedstawia kartę Ustawienia modułu.](./media/deploy-iot-edge-device/add.png)
     
     > [!TIP]
-    > Nie zaznaczaj opcji **Dodaj** , dopóki nie zostaną określone wartości na kartach **Ustawienia modułu**, **Opcje tworzenia kontenera**i **Ustawienia sznurka modułu** , zgodnie z opisem w tej procedurze.
+    > Nie zaznaczaj opcji **Dodaj** , dopóki nie zostaną określone wartości na kartach **Ustawienia modułu**, **Opcje tworzenia kontenera** i **Ustawienia sznurka modułu** , zgodnie z opisem w tej procedurze.
     
     > [!WARNING]
     > Podczas wykonywania wywołań do modułów w Azure IoT Edge rozróżniana jest wielkość liter. Zanotuj dokładny ciąg używany jako nazwa modułu.

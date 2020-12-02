@@ -10,12 +10,12 @@ ms.date: 11/03/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 5f772bd996b126a4cd7182a2ce088c2d3edc8e7d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 683f0e070ad77add62ed76eabd70b42ba15f012e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312031"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498136"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Wymuś minimalną wymaganą wersję Transport Layer Security (TLS) dla żądań kierowanych do konta magazynu
 
@@ -35,7 +35,7 @@ Po wymuszeniu minimalnej wersji protokołu TLS dla konta magazynu ryzyko odrzuce
 
 Aby rejestrować żądania na koncie usługi Azure Storage i określać wersję protokołu TLS używaną przez klienta, można użyć rejestrowania w usłudze Azure Storage w Azure Monitor (wersja zapoznawcza). Aby uzyskać więcej informacji, zobacz [monitorowanie usługi Azure Storage](../blobs/monitor-blob-storage.md).
 
-Rejestrowanie w usłudze Azure Storage w Azure Monitor obsługuje używanie zapytań dzienników do analizowania danych dziennika. Aby wykonywać zapytania dotyczące dzienników, możesz użyć obszaru roboczego usługi Azure Log Analytics. Aby dowiedzieć się więcej o zapytaniach dziennika, zobacz [Samouczek: Rozpoczynanie pracy z zapytaniami log Analytics](../../azure-monitor/log-query/get-started-portal.md).
+Rejestrowanie w usłudze Azure Storage w Azure Monitor obsługuje używanie zapytań dzienników do analizowania danych dziennika. Aby wykonywać zapytania dotyczące dzienników, możesz użyć obszaru roboczego usługi Azure Log Analytics. Aby dowiedzieć się więcej o zapytaniach dziennika, zobacz [Samouczek: Rozpoczynanie pracy z zapytaniami log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md).
 
 Aby rejestrować dane usługi Azure Storage za pomocą Azure Monitor i analizować je za pomocą usługi Azure Log Analytics, należy najpierw utworzyć ustawienie diagnostyczne wskazujące typy żądań i usługi magazynu, dla których mają być rejestrowane dane. Aby utworzyć ustawienie diagnostyczne w Azure Portal, wykonaj następujące kroki:
 
@@ -44,7 +44,7 @@ Aby rejestrować dane usługi Azure Storage za pomocą Azure Monitor i analizowa
 1. W witrynie Azure Portal przejdź do swojego konta magazynu.
 1. W sekcji monitorowanie wybierz pozycję **Ustawienia diagnostyczne (wersja zapoznawcza)**.
 1. Wybierz usługę Azure Storage, dla której chcesz rejestrować żądania. Na przykład wybierz **obiekt BLOB** , aby rejestrować żądania do magazynu obiektów BLOB.
-1. Wybierz pozycję **Dodaj ustawienie diagnostyczne**.
+1. Wybierz pozycję **Dodaj ustawienia diagnostyczne**.
 1. Podaj nazwę dla ustawienia diagnostyki.
 1. W obszarze **szczegóły kategorii** w sekcji **Dziennik** wybierz typy żądań do zarejestrowania. Można rejestrować żądania odczytu, zapisu i usuwania. Na przykład wybranie **StorageRead** i **StorageWrite** będzie rejestrować żądania odczytu i zapisu do wybranej usługi.
 1. W obszarze **szczegóły miejsca docelowego** wybierz pozycję **Wyślij do log Analytics**. Wybierz swoją subskrypcję i utworzony wcześniej obszar roboczy Log Analytics, jak pokazano na poniższej ilustracji.
@@ -91,7 +91,7 @@ Jeśli masz pewność, że ruch od klientów korzystających ze starszych wersji
 
 Aby skonfigurować minimalną wersję protokołu TLS dla konta magazynu, ustaw wersję **MinimumTlsVersion** dla konta. Ta właściwość jest dostępna dla wszystkich kont magazynu utworzonych za pomocą modelu wdrażania Azure Resource Manager. Aby uzyskać więcej informacji o modelu wdrażania Azure Resource Manager, zobacz temat [konto magazynu — Omówienie](storage-account-overview.md).
 
-Właściwość **MinimumTlsVersion** nie jest domyślnie ustawiona i nie zwraca wartości, dopóki nie zostanie jawnie ustawiona.  Jeśli wartość właściwości jest **równa null** , konto magazynu będzie zezwalać na żądania wysyłane z użyciem protokołu TLS w wersji 1,0 lub nowszej.
+Właściwość **MinimumTlsVersion** nie jest domyślnie ustawiona i nie zwraca wartości, dopóki nie zostanie jawnie ustawiona.  Jeśli wartość właściwości jest **równa null**, konto magazynu będzie zezwalać na żądania wysyłane z użyciem protokołu TLS w wersji 1,0 lub nowszej.
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
@@ -105,7 +105,7 @@ Aby skonfigurować minimalną wersję protokołu TLS dla istniejącego konta mag
 
     :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Zrzut ekranu przedstawiający sposób konfigurowania minimalnej wersji protokołu TLS w Azure Portal":::
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 Aby skonfigurować minimalną wersję protokołu TLS dla konta magazynu za pomocą programu PowerShell, zainstaluj [Azure PowerShell w wersji 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) lub nowszej. Następnie skonfiguruj Właściwość **MinimumTLSVersion** dla nowego lub istniejącego konta magazynu. Prawidłowe wartości dla **MinimumTlsVersion** to `TLS1_0` , `TLS1_1` i `TLS1_2` .
 
@@ -172,8 +172,8 @@ az storage account show \
 Aby skonfigurować minimalną wersję protokołu TLS dla konta magazynu z szablonem, Utwórz szablon z właściwością **MinimumTLSVersion** ustawioną na wartość `TLS1_0` , `TLS1_1` lub `TLS1_2` . Poniższe kroki opisują sposób tworzenia szablonu w Azure Portal.
 
 1. W Azure Portal wybierz pozycję **Utwórz zasób**.
-1. W obszarze **Wyszukaj w portalu Marketplace** wpisz **wdrożenie szablonu** , a następnie naciśnij klawisz **Enter**.
-1. Wybierz **Template Deployment (Wdróż przy użyciu szablonów niestandardowych) (wersja zapoznawcza)** , wybierz pozycję **Utwórz** , a następnie wybierz opcję **Kompiluj własny szablon w edytorze**.
+1. W obszarze **Wyszukaj w portalu Marketplace** wpisz **wdrożenie szablonu**, a następnie naciśnij klawisz **Enter**.
+1. Wybierz **Template Deployment (Wdróż przy użyciu szablonów niestandardowych) (wersja zapoznawcza)**, wybierz pozycję **Utwórz**, a następnie wybierz opcję **Kompiluj własny szablon w edytorze**.
 1. W edytorze szablonów wklej poniższy kod JSON, aby utworzyć nowe konto i ustawić minimalną wersję protokołu TLS na TLS 1,2. Pamiętaj, aby zastąpić symbole zastępcze w nawiasach kątowe własnymi wartościami.
 
     ```json

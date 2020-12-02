@@ -3,12 +3,12 @@ title: Ciągłe nagrywanie filmów wideo w chmurze i odtwarzanie z samouczka dot
 description: W tym samouczku dowiesz się, jak używać usługi Azure Live Video Analytics na Azure IoT Edge, aby ciągle rejestrować wideo w chmurze i przesyłać strumieniowo dowolną część tego filmu wideo przy użyciu Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 7e8bf1202e95cb4e76b54473f9d84076d24accea
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: c38ab1f32d1ef4e54cd8568ff17d325fabdefc31
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346370"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498374"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Samouczek: ciągłe nagrywanie filmów wideo w chmurze i odtwarzanie z chmury
 
@@ -49,7 +49,7 @@ Po zakończeniu tych kroków będziesz mieć odpowiednie zasoby platformy Azure 
 * Azure IoT Hub
 * Konto usługi Azure Storage
 * Konto Azure Media Services
-* Maszyna wirtualna z systemem Linux na platformie Azure, w której zainstalowano [środowisko uruchomieniowe IoT Edge](../../iot-edge/how-to-install-iot-edge-linux.md)
+* Maszyna wirtualna z systemem Linux na platformie Azure, w której zainstalowano [środowisko uruchomieniowe IoT Edge](../../iot-edge/how-to-install-iot-edge.md)
 
 ## <a name="concepts"></a>Pojęcia
 
@@ -74,8 +74,8 @@ Przed rozpoczęciem upewnij się, że zostały spełnione trzeci punktor w sekcj
 
 W tym samouczku znajdują się następujące pliki:
 
-* **~/CloudDrive/LVA-Sample/Edge-Deployment/.env** : zawiera właściwości, których Visual Studio Code używa do wdrożenia modułów na urządzeniu brzegowym.
-* **~/clouddrive/lva-sample/appsettings.json** : używany przez Visual Studio Code do uruchamiania przykładowego kodu.
+* **~/CloudDrive/LVA-Sample/Edge-Deployment/.env**: zawiera właściwości, których Visual Studio Code używa do wdrożenia modułów na urządzeniu brzegowym.
+* **~/clouddrive/lva-sample/appsettings.json**: używany przez Visual Studio Code do uruchamiania przykładowego kodu.
 
 Te pliki będą potrzebne do wykonania następujących czynności:
 
@@ -114,14 +114,14 @@ Te pliki będą potrzebne do wykonania następujących czynności:
 
 W Visual Studio Code Otwórz pozycję src/Edge/deployment.template.jsna. Ten szablon definiuje, które moduły krawędzi zostaną wdrożone na urządzeniu brzegowym (maszyna wirtualna z systemem Linux Azure). W sekcji **modułów** znajdują się dwa wpisy o następujących nazwach:
 
-* **lvaEdge** : to jest analiza filmów wideo na żywo w IoT Edge module.
-* **rtspsim** : to jest symulator RTSP.
+* **lvaEdge**: to jest analiza filmów wideo na żywo w IoT Edge module.
+* **rtspsim**: to jest symulator RTSP.
 
 Następnie przejdź do folderu src/Cloud-to-Device-Console-App. Tutaj zobaczysz appsettings.jsw utworzonym pliku wraz z kilkoma innymi plikami:
 
-* **C2D-Console-App. csproj** : plik projektu dla Visual Studio Code.
-* **operations.js** : ten plik zawiera listę różnych operacji, które mają zostać uruchomione.
-* **Program.cs** : przykładowy kod programu, który:
+* **C2D-Console-App. csproj**: plik projektu dla Visual Studio Code.
+* **operations.js**: ten plik zawiera listę różnych operacji, które mają zostać uruchomione.
+* **Program.cs**: przykładowy kod programu, który:
     * Ładuje ustawienia aplikacji.
     * Wywołuje bezpośrednie metody udostępniane przez usługę Live Video Analytics w module IoT Edge. Za pomocą modułu można analizować strumienie wideo na żywo poprzez wywoływanie [metod bezpośrednich](direct-methods.md).
     * Wstrzymuje pracę, aby przeanalizować dane wyjściowe z programu w oknie **terminalu** oraz zdarzenia wygenerowane przez moduł w oknie **danych wyjściowych** .
@@ -143,8 +143,8 @@ Manifest wdrożenia definiuje, jakie moduły są wdrażane na urządzeniu brzego
    ![Utwórz wdrożenie dla pojedynczego urządzenia](./media/quickstarts/create-deployment-single-device.png)
 1. Zostanie wyświetlony monit o **wybranie urządzenia IoT Hub**. Z listy rozwijanej wybierz pozycję LVA-Sample-Device.
 1. W ciągu około 30 sekund Odśwież IoT Hub platformy Azure w lewej dolnej części. Na urządzeniu brzegowym powinny zostać wdrożone następujące moduły:
-    * Analiza wideo na żywo na IoT Edge (Nazwa modułu: **lvaEdge** )
-    * Symulator RTSP (Nazwa modułu **rtspsim** )
+    * Analiza wideo na żywo na IoT Edge (Nazwa modułu: **lvaEdge**)
+    * Symulator RTSP (Nazwa modułu **rtspsim**)
  
     ![Usługa IoT Hub](./media/continuous-video-recording-tutorial/iot-hub.png)
 
@@ -180,7 +180,7 @@ Gdy korzystasz z modułu IoT Edge analizy filmów wideo na żywo, aby nagrać st
 
     `"assetNamePattern": "sampleAsset-${System.GraphTopologyName}-${System.GraphInstanceName}"`    
 1. Rozpocznij sesję debugowania, wybierając klawisz F5. Zobaczysz kilka komunikatów wydrukowanych w oknie **terminalu** .
-1. operations.jsw pliku rozpoczyna się z wywołaniami do GraphTopologyList i GraphInstanceList. Jeśli wyczyszczono zasoby po poprzednich przewodnikach szybki start lub samouczkach, ta akcja zwróci puste listy, a następnie Wstrzymuje wybieranie **klawisza ENTER** , jak pokazano poniżej:
+1. operations.jsw pliku rozpoczyna się z wywołaniami do GraphTopologyList i GraphInstanceList. Jeśli wyczyszczono zasoby po poprzednich przewodnikach szybki start lub samouczkach, ta akcja zwróci puste listy, a następnie Wstrzymuje wybieranie **klawisza ENTER**, jak pokazano poniżej:
 
     ```
     --------------------------------------------------------------------------
@@ -385,4 +385,4 @@ Jeśli zamierzasz wypróbować inne samouczki, zaczekaj na utworzone zasoby. W p
 ## <a name="next-steps"></a>Następne kroki
 
 * Użyj [aparatu IP](https://en.wikipedia.org/wiki/IP_camera) z obsługą protokołu RTSP, zamiast korzystać z symulatora RTSP. W celu wyszukania kamer IP z obsługą protokołu RTSP na [stronie ONVIF zgodne produkty](https://www.onvif.org/conformant-products/) można wyszukać urządzenia zgodne z profilami G, S lub T.
-* Użyj urządzenia z systemem AMD64 lub x64 (a nie z maszyną wirtualną systemu Linux). To urządzenie musi znajdować się w tej samej sieci co kamera IP. Postępuj zgodnie z instrukcjami w temacie [Install Azure IoT Edge Runtime on Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Następnie postępuj zgodnie z instrukcjami podanymi w obszarze [Wdróż pierwszy IoT Edge module w ramach](../../iot-edge/quickstart-linux.md) szybkiego startu urządzenia z systemem Linux, aby zarejestrować urządzenie w usłudze Azure IoT Hub.
+* Użyj urządzenia z systemem AMD64 lub x64 (a nie z maszyną wirtualną systemu Linux). To urządzenie musi znajdować się w tej samej sieci co kamera IP. Postępuj zgodnie z instrukcjami w temacie [Install Azure IoT Edge Runtime on Linux](../../iot-edge/how-to-install-iot-edge.md). Następnie postępuj zgodnie z instrukcjami podanymi w obszarze [Wdróż pierwszy IoT Edge module w ramach](../../iot-edge/quickstart-linux.md) szybkiego startu urządzenia z systemem Linux, aby zarejestrować urządzenie w usłudze Azure IoT Hub.

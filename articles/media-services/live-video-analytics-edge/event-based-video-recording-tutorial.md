@@ -3,12 +3,12 @@ title: Nagrywanie filmów wideo na podstawie zdarzeń do chmury i odtwarzanie z 
 description: W tym samouczku dowiesz się, jak za pomocą usługi Azure Live Video Analytics na Azure IoT Edge zarejestrować rejestrowanie wideo oparte na zdarzeniach w chmurze i odtworzyć je z poziomu chmury.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 03c97854673b369db9fe1cb026161a1e81a6bf31
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 84f6ef813fb1b2cc425e096212010717d0561aef
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346659"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498306"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Samouczek: Rejestrowanie wideo oparte na zdarzeniach w chmurze i odtwarzanie z chmury
 
@@ -52,7 +52,7 @@ Po zakończeniu tych kroków będziesz mieć odpowiednie zasoby platformy Azure 
 * Azure IoT Hub
 * Konto usługi Azure Storage
 * Konto Azure Media Services
-* Maszyna wirtualna z systemem Linux na platformie Azure, w której zainstalowano [środowisko uruchomieniowe IoT Edge](../../iot-edge/how-to-install-iot-edge-linux.md)
+* Maszyna wirtualna z systemem Linux na platformie Azure, w której zainstalowano [środowisko uruchomieniowe IoT Edge](../../iot-edge/how-to-install-iot-edge.md)
 
 ## <a name="concepts"></a>Pojęcia
 
@@ -86,8 +86,8 @@ Przed rozpoczęciem upewnij się, że zostały spełnione trzeci punktor w sekcj
 
 W tym samouczku znajdują się następujące pliki:
 
-* **~/CloudDrive/LVA-Sample/Edge-Deployment/.env** : zawiera właściwości, których Visual Studio Code używa do wdrożenia modułów na urządzeniu brzegowym.
-* **~/clouddrive/lva-sample/appsetting.json** : używany przez Visual Studio Code do uruchamiania przykładowego kodu.
+* **~/CloudDrive/LVA-Sample/Edge-Deployment/.env**: zawiera właściwości, których Visual Studio Code używa do wdrożenia modułów na urządzeniu brzegowym.
+* **~/clouddrive/lva-sample/appsetting.json**: używany przez Visual Studio Code do uruchamiania przykładowego kodu.
 
 Te pliki będą potrzebne do wykonania tych czynności.
 
@@ -132,10 +132,10 @@ W Visual Studio Code przejdź do węzła src/Edge. Zobaczysz utworzony plik ENV 
 
 Otwórz w programie src/Edge/deployment.objectCounter.template.js. W sekcji **modułów** znajdują się cztery wpisy, które odpowiadają elementom wymienionym w poprzedniej sekcji "koncepcje":
 
-* **lvaEdge** : to jest analiza filmów wideo na żywo w IoT Edge module.
-* **yolov3** : jest to moduł AI zbudowany przy użyciu modelu Yolo v3.
-* **rtspsim** : to jest symulator RTSP.
-* **objectCounter** : to jest moduł, który szuka określonych obiektów w wynikach z yolov3.
+* **lvaEdge**: to jest analiza filmów wideo na żywo w IoT Edge module.
+* **yolov3**: jest to moduł AI zbudowany przy użyciu modelu Yolo v3.
+* **rtspsim**: to jest symulator RTSP.
+* **objectCounter**: to jest moduł, który szuka określonych obiektów w wynikach z yolov3.
 
 W przypadku modułu objectCounter Zobacz ciąg ($ {MODULEs. objectCounter}) użyty dla wartości "Image". Jest to oparte na [samouczku](../../iot-edge/tutorial-develop-for-linux.md) dotyczącym tworzenia modułu IoT Edge. Visual Studio Code automatycznie rozpoznaje, że kod modułu objectCounter jest w obszarze src/Edge/modules/objectCounter. 
 
@@ -207,7 +207,7 @@ Aby wyświetlić zdarzenia z modułu objectCounter i z poziomu modułu analizy f
 
     `"topologyName" : "EVRtoAssetsOnObjDetect"`
 1. Rozpocznij sesję debugowania, wybierając klawisz F5. Zobaczysz kilka komunikatów wydrukowanych w oknie **terminalu** .
-1. operations.jsw pliku rozpoczyna się z wywołaniami do GraphTopologyList i GraphInstanceList. Jeśli wyczyszczono zasoby po poprzednich przewodnikach szybki start lub samouczkach, ta akcja zwróci puste listy i wstrzymuje Wybieranie **klawisza ENTER** , jak pokazano poniżej:
+1. operations.jsw pliku rozpoczyna się z wywołaniami do GraphTopologyList i GraphInstanceList. Jeśli wyczyszczono zasoby po poprzednich przewodnikach szybki start lub samouczkach, ta akcja zwróci puste listy i wstrzymuje Wybieranie **klawisza ENTER**, jak pokazano poniżej:
 
     ```
     --------------------------------------------------------------------------
@@ -424,4 +424,4 @@ Jeśli zamierzasz wypróbować inne samouczki, zaczekaj na utworzone zasoby. W p
 ## <a name="next-steps"></a>Następne kroki
 
 * Użyj [aparatu IP](https://en.wikipedia.org/wiki/IP_camera) z obsługą protokołu RTSP, zamiast korzystać z symulatora RTSP. W celu wyszukania kamer IP z obsługą protokołu RTSP na [stronie ONVIF zgodne produkty](https://www.onvif.org/conformant-products/) można wyszukać urządzenia zgodne z profilami G, S lub T.
-* Użyj urządzenia z systemem AMD64 lub x64 (a nie z maszyną wirtualną systemu Linux). To urządzenie musi znajdować się w tej samej sieci co kamera IP. Postępuj zgodnie z instrukcjami w temacie [Install Azure IoT Edge Runtime on Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Następnie postępuj zgodnie z instrukcjami podanymi w obszarze [Wdróż pierwszy IoT Edge module w ramach](../../iot-edge/quickstart-linux.md) szybkiego startu urządzenia z systemem Linux, aby zarejestrować urządzenie w usłudze Azure IoT Hub.
+* Użyj urządzenia z systemem AMD64 lub x64 (a nie z maszyną wirtualną systemu Linux). To urządzenie musi znajdować się w tej samej sieci co kamera IP. Postępuj zgodnie z instrukcjami w temacie [Install Azure IoT Edge Runtime on Linux](../../iot-edge/how-to-install-iot-edge.md). Następnie postępuj zgodnie z instrukcjami podanymi w obszarze [Wdróż pierwszy IoT Edge module w ramach](../../iot-edge/quickstart-linux.md) szybkiego startu urządzenia z systemem Linux, aby zarejestrować urządzenie w usłudze Azure IoT Hub.

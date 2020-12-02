@@ -2,13 +2,13 @@
 title: Struktura i składnia szablonu
 description: Opisuje strukturę i właściwości szablonów Azure Resource Manager (szablony ARM) przy użyciu składni deklaratywnej JSON.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: c0e1e3225d63d0463164a3ed599fb0b760367123
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.date: 12/01/2020
+ms.openlocfilehash: ce36d725b3844fcd4c8d43a9f044423611d44fbd
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353497"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497881"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Opis struktury i składni szablonów usługi ARM
 
@@ -283,7 +283,7 @@ Należy zdefiniować zasoby o następującej strukturze:
 |:--- |:--- |:--- |
 | rozgrzewa | Nie | Wartość logiczna wskazująca, czy zasób zostanie zainicjowany podczas tego wdrożenia. Gdy `true` zasób jest tworzony podczas wdrażania. Gdy `false` zasób jest pomijany dla tego wdrożenia. Zobacz [warunek](conditional-resource-deployment.md). |
 | typ |Tak |Typ zasobu. Ta wartość jest kombinacją przestrzeni nazw dostawcy zasobów i typu zasobu (np **. Microsoft. Storage/storageAccounts**). Aby określić dostępne wartości, zobacz [Dokumentacja szablonu](/azure/templates/). W przypadku zasobu podrzędnego format typu zależy od tego, czy jest on zagnieżdżony w obrębie zasobu nadrzędnego, czy zdefiniowany poza zasobem nadrzędnym. Zobacz [Set Name i Type dla zasobów podrzędnych](child-resource-name-type.md). |
-| apiVersion |Tak |Wersja interfejsu API REST do użycia podczas tworzenia zasobu. Aby określić dostępne wartości, zobacz [Dokumentacja szablonu](/azure/templates/). |
+| apiVersion |Tak |Wersja interfejsu API REST do użycia podczas tworzenia zasobu. Podczas tworzenia nowego szablonu należy ustawić tę wartość na najnowszą wersję zasobu, który jest wdrażany. Dopóki szablon działa zgodnie z wymaganiami, Kontynuuj korzystanie z tej samej wersji interfejsu API. Kontynuując korzystanie z tej samej wersji interfejsu API, można zminimalizować ryzyko nowej wersji interfejsu API w celu zmiany sposobu działania szablonu. Aktualizację wersji interfejsu API należy rozważyć tylko wtedy, gdy chcesz użyć nowej funkcji wprowadzonej w nowszej wersji. Aby określić dostępne wartości, zobacz [Dokumentacja szablonu](/azure/templates/). |
 | name |Tak |Nazwa zasobu. Nazwa musi następować zgodnie z ograniczeniami składnika URI zdefiniowanymi w RFC3986. Usługi platformy Azure, które uwidaczniają nazwę zasobu podmiotom zewnętrznym, sprawdzają poprawność nazwy, aby upewnić się, że nie jest próbą sfałszowania innej tożsamości. W przypadku zasobu podrzędnego format nazwy zależy od tego, czy jest on zagnieżdżony w obrębie zasobu nadrzędnego, czy zdefiniowany poza zasobem nadrzędnym. Zobacz [Set Name i Type dla zasobów podrzędnych](child-resource-name-type.md). |
 | komentarz |Nie |Twoje notatki umożliwiające dokumentowanie zasobów w szablonie. Aby uzyskać więcej informacji, zobacz [Komentarze w szablonach](template-syntax.md#comments). |
 | location |Różnie |Obsługiwane lokalizacje geograficzne podanego zasobu. Można wybrać dowolną z dostępnych lokalizacji, ale zazwyczaj warto ją wybrać blisko użytkowników. Zwykle warto również umieścić zasoby, które współpracują ze sobą w tym samym regionie. Większość typów zasobów wymaga lokalizacji, ale niektóre typy (takie jak przypisanie roli) nie wymagają lokalizacji. Zobacz [Ustawianie lokalizacji zasobu](resource-location.md). |
@@ -351,7 +351,7 @@ W przypadku komentarzy wbudowanych można użyć którejkolwiek `//` z tych opcj
   ],
 ```
 
-W Visual Studio Code [rozszerzenie narzędzi Azure Resource Manager](quickstart-create-templates-use-visual-studio-code.md) może automatycznie wykryć szablon Menedżer zasobów i odpowiednio zmienić tryb języka. Jeśli widzisz **szablon Azure Resource Manager** w prawym dolnym rogu vs Code, możesz użyć komentarzy wbudowanych. Komentarze w tekście nie są już oznaczone jako nieprawidłowe.
+W Visual Studio Code [rozszerzenia narzędzi Azure Resource Manager](quickstart-create-templates-use-visual-studio-code.md) mogą automatycznie wykrywać szablon ARM i zmieniać tryb języka. Jeśli widzisz **szablon Azure Resource Manager** w prawym dolnym rogu vs Code, możesz użyć komentarzy wbudowanych. Komentarze w tekście nie są już oznaczone jako nieprawidłowe.
 
 ![Tryb szablonu Azure Resource Manager Visual Studio Code](./media/template-syntax/resource-manager-template-editor-mode.png)
 

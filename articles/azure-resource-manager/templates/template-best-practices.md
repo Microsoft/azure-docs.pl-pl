@@ -2,13 +2,13 @@
 title: Najlepsze rozwiązania dotyczące szablonów
 description: Opisuje zalecane podejścia do tworzenia szablonów Azure Resource Manager. Oferuje sugestie pozwalające uniknąć typowych problemów związanych z korzystaniem z szablonów.
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: 1121c66e0bcd7de39afd5bea85866fd9ad007ce4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/01/2020
+ms.openlocfilehash: c62bde8fc8cfc79330d13b7b2ff4f778dadf1339
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87809259"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497983"
 ---
 # <a name="arm-template-best-practices"></a>Najlepsze praktyki dotyczące szablonów ARM
 
@@ -87,8 +87,6 @@ Informacje przedstawione w tej sekcji mogą być przydatne podczas pracy z [para
    },
    ```
 
-* Nie należy używać parametru dla wersji interfejsu API dla typu zasobu. Właściwości i wartości zasobów mogą się różnić w zależności od numeru wersji. Funkcja IntelliSense w edytorze kodu nie może określić poprawnego schematu, gdy wersja interfejsu API jest ustawiona na wartość parametru. Zamiast tego należy zwolnić wersję interfejsu API w szablonie.
-
 * Używaj `allowedValues` oszczędnie. Użyj go tylko wtedy, gdy musisz upewnić się, że niektóre wartości nie są uwzględnione w dozwolonych opcjach. Jeśli używasz `allowedValues` zbyt szerokiego okresu, możesz zablokować prawidłowe wdrożenia, nie zachowując Aktualności listy.
 
 * Jeśli nazwa parametru w szablonie jest zgodna z parametrem w poleceniu wdrażania programu PowerShell, Menedżer zasobów rozwiązuje ten konflikt nazw przez dodanie przyrostka **FromTemplate** do parametru szablonu. Na przykład jeśli w szablonie zostanie uwzględniony parametr o nazwie **ResourceGroupName** , powoduje to konflikt z parametrem **ResourceGroupName** w poleceniu cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) . Podczas wdrażania zostanie wyświetlony monit o podanie wartości dla **ResourceGroupNameFromTemplate**.
@@ -146,8 +144,6 @@ Poniższe informacje mogą być przydatne podczas pracy ze [zmiennymi](template-
 
 * Używaj zmiennych dla wartości, które są konstruowane na podstawie złożonego rozmieszczenia funkcji szablonu. Szablon jest łatwiejszy do odczytania, gdy złożone wyrażenie pojawia się tylko w zmiennych.
 
-* Nie używaj zmiennych dla `apiVersion` zasobu. Wersja interfejsu API określa schemat zasobu. Często nie można zmienić wersji bez zmiany właściwości zasobu.
-
 * Nie można użyć funkcji [Reference](template-functions-resource.md#reference) w sekcji **zmiennych** szablonu. Funkcja **Reference** dziedziczy jej wartość ze stanu środowiska uruchomieniowego zasobu. Jednak zmienne są rozwiązywane podczas początkowej analizy szablonu. Konstruowanie wartości, które wymagają funkcji **referencyjnej** , bezpośrednio w sekcji **zasoby** lub dane **wyjściowe** szablonu.
 
 * Dołącz zmienne nazw zasobów, które muszą być unikatowe.
@@ -155,6 +151,16 @@ Poniższe informacje mogą być przydatne podczas pracy ze [zmiennymi](template-
 * Użyj [pętli kopiowania w zmiennych](copy-variables.md) , aby utworzyć powtarzający się wzorzec obiektów JSON.
 
 * Usuń nieużywane zmienne.
+
+## <a name="api-version"></a>Wersja interfejsu API
+
+Ustaw `apiVersion` Właściwość na zakodowaną wersję interfejsu API dla typu zasobu. W przypadku tworzenia nowego szablonu zalecamy użycie najnowszej wersji interfejsu API dla typu zasobu. Aby określić dostępne wartości, zobacz [Dokumentacja szablonu](/azure/templates/).
+
+Gdy szablon działa zgodnie z oczekiwaniami, zalecamy dalsze korzystanie z tej samej wersji interfejsu API. Korzystając z tej samej wersji interfejsu API, nie trzeba martwić się o istotne zmiany, które mogą zostać wprowadzone w nowszych wersjach.
+
+Nie używaj parametru dla wersji interfejsu API. Właściwości i wartości zasobów mogą się różnić w zależności od wersji interfejsu API. Funkcja IntelliSense w edytorze kodu nie może określić poprawnego schematu, gdy wersja interfejsu API jest ustawiona na wartość parametru. Jeśli przejdziesz do wersji interfejsu API, która nie jest zgodna z właściwościami w szablonie, wdrożenie zakończy się niepowodzeniem.
+
+Nie używaj zmiennych dla wersji interfejsu API. W szczególności nie należy używać [funkcji Providers](template-functions-resource.md#providers) do dynamicznego pobierania wersji interfejsu API podczas wdrażania. Dynamicznie pobierana wersja interfejsu API może nie być zgodna z właściwościami w szablonie.
 
 ## <a name="resource-dependencies"></a>Zależności zasobów
 

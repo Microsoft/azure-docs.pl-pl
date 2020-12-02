@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: tutorial
 ms.date: 10/18/2020
-ms.openlocfilehash: 93bbd84c25f02ac1653a46ebb4a70c1dfa90c744
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: c8a5b682e2ac4879d2181bdb069cf554bad512d9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94687244"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498289"
 ---
 # <a name="tutorial-use-customer-managed-keys-or-byok-with-media-services-rest-api"></a>Samouczek: Używanie kluczy zarządzanych przez klienta lub BYOK za pomocą interfejsu API REST Media Services
 
@@ -43,8 +43,8 @@ Jeśli nie masz subskrypcji platformy Azure, [Utwórz konto bezpłatnej wersji p
 
 ### <a name="register-a-service-principal-with-the-needed-permissions"></a>Rejestrowanie jednostki usługi z wymaganymi uprawnieniami
 
-1. [Utwórz nazwę główną usługi](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
-1. Przejdź do [opcji 2: Utwórz nowy klucz tajny aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#authentication-two-options) , aby uzyskać klucz tajny jednostki usługi.
+1. [Utwórz nazwę główną usługi](../../active-directory/develop/howto-create-service-principal-portal.md).
+1. Przejdź do [opcji 2: Utwórz nowy klucz tajny aplikacji](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) , aby uzyskać klucz tajny jednostki usługi.
 
    > [!IMPORTANT]
    >Skopiuj i Zapisz klucz tajny do późniejszego użycia. Nie możesz uzyskać dostępu do wpisu tajnego po opuszczeniu strony klucza tajnego w portalu.
@@ -66,7 +66,7 @@ Pobierz kolekcję programu Poster dla tego samouczka na [platformie Azure przyk�
 ## <a name="install-the-postman-collection-and-environment"></a>Instalowanie kolekcji i środowiska programu Poster
 
 1. Uruchom notkę.
-1. Wybierz pozycję **Importuj**.
+1. Wybierz pozycję **Import** (Importuj).
 1. Wybierz pozycję **Przekaż pliki**.
 1. Przejdź do lokalizacji, w której zapisano pliki kolekcji i środowiska.
 1. Wybierz pliki kolekcji i środowiska.

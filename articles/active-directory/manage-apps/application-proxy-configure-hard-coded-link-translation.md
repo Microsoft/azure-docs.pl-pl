@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ad45d5f0e313c06619fa9c998515e434de957ea
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 08c4020fc03f89b2c583a2458c70e18ecbbe0ba1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997566"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498068"
 ---
 # <a name="redirect-hard-coded-links-for-apps-published-with-azure-ad-application-proxy"></a>Przekieruj trwale kodowane linki dla aplikacji opublikowanych przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -86,28 +86,28 @@ Istnieją dwa popularne typy linków wewnętrznych w aplikacjach lokalnych:
 - **Względne linki wewnętrzne** wskazujące na zasób udostępniony w strukturze plików lokalnych, takich jak `/claims/claims.html` . Te linki automatycznie pracują w aplikacjach publikowanych za pomocą serwera proxy aplikacji i nadal pracują z tłumaczeniem linków lub bez niego. 
 - **Stałe kodowane linki wewnętrzne** do innych aplikacji lokalnych, takich jak `http://expenses` lub pliki opublikowane, takie jak `http://expenses/logo.jpg` . Funkcja tłumaczenia łączy działa na stałych kodowanych łączach wewnętrznych i zmienia je w taki sposób, aby wskazywały zewnętrzne adresy URL, do których użytkownicy zdalni muszą przejść.
 
-Kompletna lista tagów kodu HTML, które serwer proxy aplikacji obsługuje tłumaczenie linków dla:
-* a
-* dźwięk
-* base
-* button
-* div
-* Osadź
-* seryjn
-* ramowe
-* MTP
-* html
-* iframe
-* img
-* wejście
-* połącz
-* elementem
-* odpowiada
-* object
-* skrypt
-* source
-* śledź
-* wideo
+Pełna lista atrybutów w znacznikach kodu HTML, które serwer proxy aplikacji obsługuje translację linków dla dołączenia:
+* a (href)
+* audio (SRC)
+* Base (href)
+* przycisk (formaction)
+* DIV (dane-tło, styl, dane — SRC)
+* Osadź (SRC)
+* formularz (Akcja)
+* Ramka (SRC)
+* nagłówek (profil)
+* HTML (manifest)
+* iframe (longdesc, SRC)
+* img (longdesc, SRC)
+* dane wejściowe (formaction, src, Value)
+* Link (href)
+* MenuItem (ikona)
+* meta (zawartość)
+* Obiekt (Archiwalny, dane, baza kodu)
+* skrypt (SRC)
+* Źródło (SRC)
+* Śledź (SRC)
+* wideo (src, plakat)
 
 Ponadto w obszarze CSS atrybut adresu URL jest również tłumaczony.
 
