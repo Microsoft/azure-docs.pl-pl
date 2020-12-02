@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: 06f308b4e0b2df0487a351ae38f16f3872961cfb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 17765d89cacfb6083df5ac911d2b24d573fba511
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89436260"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463071"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Wprowadzenie do usługi Azure Data Factory 
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -35,7 +35,7 @@ Na przykład firma tworząca gry zbiera dzienniki generowane przez gry w chmurze
 
 Do analizy tych dzienników firma musi użyć danych referencyjnych, np. informacji o kliencie, grze i kampanii marketingowej, które znajdują się w lokalnym magazynie danych. W związku z tym firma chce pozyskać dane dzienników z magazynu danych w chmurze oraz dane referencyjne z lokalnego magazynu danych. 
 
-Następnie firma chce przetwarzać dane, używając usługi Hadoop w chmurze (Azure HDInsight). Chcą opublikować dane wynikowe w magazynie danych w chmurze, takim jak Azure Synapse Analytics (dawniej SQL Data Warehouse) lub lokalnym magazynem danych, takim jak SQL Server. Firma chce uruchamiać taki przepływ pracy raz w tygodniu. 
+Następnie firma chce przetwarzać dane, używając usługi Hadoop w chmurze (Azure HDInsight). Chcą opublikować dane wynikowe w magazynie danych w chmurze, takim jak usługa Azure Synapse Analytics lub lokalne magazyny danych, takie jak SQL Server. Firma chce uruchamiać taki przepływ pracy raz w tygodniu. 
 
 Firma potrzebuje platformy, na której może utworzyć przepływ pracy pozyskujący dane z magazynu lokalnego i w chmurze. Firma musi mieć też możliwość przekształcania lub przetwarzania danych za pomocą istniejących usług obliczeniowych, takich jak Hadoop, i publikowania wyników w lokalnym magazynie danych lub magazynie danych w chmurze, aby mogły z nich korzystać aplikacje analizy biznesowej. 
 
@@ -71,7 +71,7 @@ Na przykład można pobrać dane z usługi Azure Data Lake Store i przekształci
 ### <a name="transform-and-enrich"></a>Przekształcanie i wzbogacanie
 Po umieszczeniu danych w centralnym magazynie danych w chmurze zebrane dane należy przetworzyć lub przetransferować za pomocą usług obliczeniowych, takich jak HDInsight Hadoop, Spark, Data Lake Analytics lub Machine Learning. Przekształcone dane powinny być generowane niezawodnie i zgodnie z możliwym do utrzymania i kontrolowania harmonogramem, aby zapewnić środowiskom produkcyjnym zaufane dane. 
 
-### <a name="publish"></a>Opublikuj 
+### <a name="publish"></a>Publikowanie 
 Przekształcone dane należy dostarczyć z chmury do źródeł lokalnych, takich jak program SQL Server. Można też zachować je w magazynach w chmurze do wykorzystania przez narzędzia analityczne, aplikacje analizy biznesowej i inne aplikacje.
 
 ## <a name="key-components"></a>Główne składniki

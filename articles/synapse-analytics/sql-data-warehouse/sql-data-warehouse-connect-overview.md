@@ -1,5 +1,5 @@
 ---
-title: Łączenie z pulą SQL Synapse
+title: Nawiązywanie połączenia z pulą SQL na platformie Azure Synapse
 description: Połącz z pulą SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -10,17 +10,17 @@ ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, devx-track-csharp
-ms.openlocfilehash: ab169f7b814dedbc63f3cb6cddbfb822bdb57ab9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: azure-synapse, seo-lt-2019, devx-track-csharp
+ms.openlocfilehash: 3483fa03e8c05101b88bde5c964b74b382d32a52
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016448"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462855"
 ---
-# <a name="connect-to-synapse-sql-pool"></a>Łączenie z pulą SQL Synapse
+# <a name="connect-to-a-sql-pool-in-azure-synapse"></a>Nawiązywanie połączenia z pulą SQL na platformie Azure Synapse 
 
-Połącz z pulą SQL.
+Połącz się z pulą SQL na platformie Azure Synapse.
 
 ## <a name="find-your-server-name"></a>Znajdowanie nazwy serwera
 
@@ -70,7 +70,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 Podczas łączenia i tworzenia obiektów w puli SQL jest przeprowadzana standaryzacja. Tych ustawień nie można zastąpić i obejmują one:
 
-| Ustawienia bazy danych | Wartość |
+| Ustawienie puli SQL | Wartość |
 |:--- |:--- |
 | [ANSI_NULLS](/sql/t-sql/statements/set-ansi-nulls-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |ON |
 | [QUOTED_IDENTIFIERS](/sql/t-sql/statements/set-quoted-identifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |ON |

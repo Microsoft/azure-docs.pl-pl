@@ -1,5 +1,5 @@
 ---
-title: Synapse zalecenia dotyczące języka SQL
+title: Azure Advisor zalecenia dedykowanej puli SQL
 description: Poznaj zalecenia dotyczące Synapse SQL i sposobu ich generowania
 services: synapse-analytics
 author: kevinvngo
@@ -11,18 +11,18 @@ ms.date: 06/26/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e4564005e3b9cc9673cc20596d4114d102174b9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 667629b7f613b11f40528b039c7525339b7a62d0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85482857"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462863"
 ---
-# <a name="synapse-sql-recommendations"></a>Synapse zalecenia dotyczące języka SQL
+# <a name="azure-advisor-recommendations-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Zalecenia dotyczące Azure Advisor dedykowanej puli SQL w usłudze Azure Synapse Analytics
 
-W tym artykule opisano zalecenia dotyczące programu Synapse SQL obsługiwane za pomocą Azure Advisor.  
+W tym artykule opisano dedykowane zalecenia dotyczące puli SQL dostępne w Azure Advisor.  
 
-Synapse SQL zawiera zalecenia, aby zapewnić, że obciążenie magazynu danych jest stale zoptymalizowane pod kątem wydajności. Zalecenia są ściśle zintegrowane z [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) , aby zapewnić najlepszym praktykom bezpośrednio w ramach [Azure Portal](https://aka.ms/Azureadvisor). Synapse SQL zbiera zalecenia dotyczące danych telemetrycznych i powierzchni dla aktywnego obciążenia w codziennej erze. Obsługiwane scenariusze rekomendacji opisano poniżej wraz z sposobem zastosowania zalecanych akcji.
+Dedykowana Pula SQL zawiera zalecenia pozwalające zapewnić spójność obciążenia magazynu danych pod kątem wydajności. Zalecenia są ściśle zintegrowane z [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) , aby zapewnić najlepszym praktykom bezpośrednio w ramach [Azure Portal](https://aka.ms/Azureadvisor). Dedykowana Pula SQL zbiera zalecenia dotyczące danych telemetrycznych i powierzchni dla aktywnego obciążenia w codziennym erze. Obsługiwane scenariusze rekomendacji opisano poniżej wraz z sposobem zastosowania zalecanych akcji.
 
 Możesz [sprawdzić swoje rekomendacje](https://aka.ms/Azureadvisor) już dzisiaj! 
 
@@ -73,4 +73,4 @@ Wydajność zapytań może wzniżyć, gdy istnieje duża rywalizacja o bazę dan
 
 ## <a name="data-loading-misconfiguration"></a>Niekonfiguracja ładowania danych
 
-Należy zawsze ładować dane z konta magazynu w tym samym regionie, w którym znajduje się pula SQL, aby zminimalizować opóźnienia. Użyj [instrukcji Copy do pozyskiwania danych o wysokiej przepływności](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) i Podziel pliki przemieszczane na koncie magazynu, aby zmaksymalizować przepływność. Jeśli nie można użyć instrukcji COPY, można użyć interfejsu API SqlBulkCopy lub BCP o dużej wielkości partii, aby zapewnić lepszą przepływność. Aby uzyskać dodatkowe wskazówki dotyczące ładowania danych, zapoznaj się z poniższą [dokumentacją](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data). 
+Należy zawsze ładować dane z konta magazynu w tym samym regionie co dedykowana Pula SQL, aby zminimalizować opóźnienia. Użyj [instrukcji Copy do pozyskiwania danych o wysokiej przepływności](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) i Podziel pliki przemieszczane na koncie magazynu, aby zmaksymalizować przepływność. Jeśli nie można użyć instrukcji COPY, można użyć interfejsu API SqlBulkCopy lub BCP o dużej wielkości partii, aby zapewnić lepszą przepływność. Aby uzyskać dodatkowe wskazówki dotyczące ładowania danych, zapoznaj się z poniższą [dokumentacją](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data). 

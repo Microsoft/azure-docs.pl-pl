@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 5e2bdec8b3c628f1d470acb3e27bb18eabbc71ac
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 563ccdb0633f94acccf3ade9faf1c40c28f108ac
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565542"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462939"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny Użycie w analizie komercyjnej platformy handlowej
 
@@ -21,7 +21,7 @@ Ten artykuł zawiera informacje na temat pulpitu nawigacyjnego użycie w centrum
 Aby uzyskać dostęp do pulpitu nawigacyjnego użycie w centrum partnerskim, w obszarze **komercyjne Marketplace** wybierz pozycję **[Analizuj](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  >  **użycie**.
 
 >[!NOTE]
-> Aby uzyskać szczegółowe definicje terminologii dotyczącej analizy, zobacz temat [Terminologia i często zadawane pytania dotyczące analizy Marketplace](./partner-center-portal/faq-terminology.md).
+> Aby uzyskać szczegółowe definicje terminologii dotyczącej analizy, zobacz temat [Terminologia i często zadawane pytania dotyczące analizy Marketplace](./analytics-faq.md).
 
 ## <a name="usage-dashboard"></a>Pulpit nawigacyjny Użycie
 
@@ -124,7 +124,7 @@ _**Tabela 1: słownik terminów dotyczących danych**_
 | Typ oferty | Typ oferty | Typ komercyjnej oferty portalu Marketplace. |
 | Typ licencji platformy Azure | Typ licencji platformy Azure | Typ umowy licencyjnej używanej przez klientów do kupowania platformy Azure. Znany również jako kanał. Możliwe wartości są następujące:<ui><li>Dostawca rozwiązań w chmurze</li><li>Enterprise</li><li>Przedsiębiorstwo przez odsprzedawcę</li><li>Płatność zgodnie z rzeczywistym użyciem</li></ul> |
 | Typ licencji Marketplace | Typ licencji Marketplace | Metoda rozliczeń komercyjnej oferty portalu Marketplace. Możliwe wartości są następujące:<ul><li>Rozliczanie za pomocą platformy Azure</li><li>Korzystanie z własnej licencji</li><li>Bezpłatna</li><li>Firma Microsoft jako odsprzedawca</li></ul> |
-| Jednostka SKU | Jednostka SKU | Plan skojarzony z ofertą. |
+| SKU | SKU | Plan skojarzony z ofertą. |
 | Kraj klienta | Kraj/region klienta | Nazwa kraju/regionu podana przez klienta. Kraj/region może być inny niż kraj/region w subskrypcji platformy Azure klienta. |
 | Jest jednostką SKU wersji zapoznawczej | Jest jednostką SKU wersji zapoznawczej | Wartość jest wyświetlana, jeśli jednostka SKU została oznaczona jako "wersja zapoznawcza". Wartość będzie równa "yes", jeśli jednostka SKU została odpowiednio oznaczona, a tylko subskrypcje platformy Azure autoryzowane przez użytkownika, można wdrożyć i korzystać z tego obrazu. Wartość będzie równa "No", jeśli jednostka SKU nie została zidentyfikowana jako "wersja zapoznawcza". |
 | Typ rozliczeń jednostki SKU | Typ rozliczeń jednostki SKU | Typ rozliczeń skojarzony z poszczególnymi jednostkami SKU w ofercie. Możliwe wartości są następujące:<ul><li>Bezpłatna</li><li>Święcona</li></ul> |
@@ -171,13 +171,13 @@ Widżety i eksport raportu dotyczące użycia surowego maszyny wirtualnej są po
 
 Karta **użycie taryfowe** zawiera informacje o użyciu typów ofert, w których użycie jest mierzone przez wymiar miernika. Typ nadwyżki oferty SaaS jest obecnie prezentowany. Na karcie przedstawiono graficzną reprezentację trendów nadwyżkowych w przypadku używania rozliczeń SaaS z naliczaniem:
 
-- **Trend nadwyżkowy według wymiaru miernika** : przedstawia miesięczną wartość trendu nadwyżkowego dla wybranego wymiaru licznika oferty. Oś X reprezentuje miesiąc, a oś Y reprezentuje ilość użycia nadwyżkowego. Jednostka pomiaru licznika niestandardowego jest również wyświetlana na osi Y.
+- **Trend nadwyżkowy według wymiaru miernika**: przedstawia miesięczną wartość trendu nadwyżkowego dla wybranego wymiaru licznika oferty. Oś X reprezentuje miesiąc, a oś Y reprezentuje ilość użycia nadwyżkowego. Jednostka pomiaru licznika niestandardowego jest również wyświetlana na osi Y.
 
     :::image type="content" source="./media/usage-dashboard/metered-usage.png" alt-text="Ilustruje znormalizowany wykres użycia maszyny wirtualnej na pulpicie nawigacyjnym użycia.":::
 
-- **Trend nadwyżkowy według jednostki SKU** : reprezentuje trend ilości użycia wybranego wymiaru licznika według jednostki SKU/planów. Zostaną wyświetlone pięć najważniejszych planów z największą ilością użycia dla wybranej oferty.
+- **Trend nadwyżkowy według jednostki SKU**: reprezentuje trend ilości użycia wybranego wymiaru licznika według jednostki SKU/planów. Zostaną wyświetlone pięć najważniejszych planów z największą ilością użycia dla wybranej oferty.
 
-- **Trend nadwyżkowy przez klientów** : tablica lidera klienta reprezentuje skumulowaną listę klientów o największej godzinie użycia i jest wyświetlana na _tablicy lidera_ , w rankingu według najwyższego użycia miernika niestandardowego. Wybierz klienta na tablicy lidera, aby wyświetlić trend użycia nadwyżkowego dla wybranego wymiaru miernika.
+- **Trend nadwyżkowy przez klientów**: tablica lidera klienta reprezentuje skumulowaną listę klientów o największej godzinie użycia i jest wyświetlana na _tablicy lidera_, w rankingu według najwyższego użycia miernika niestandardowego. Wybierz klienta na tablicy lidera, aby wyświetlić trend użycia nadwyżkowego dla wybranego wymiaru miernika.
 
     :::image type="content" source="./media/usage-dashboard/metered-usage-by-customers.png" alt-text="Przedstawia wykres użycia mierzony przez klientów na pulpicie nawigacyjnym użycia.":::
 
@@ -194,4 +194,4 @@ Jeśli masz wiele ofert, które używają niestandardowych mierników, raport U�
 - W przypadku maszyn wirtualnych (VM) są dostępne metryki dotyczące użycia i taryfowego rozliczania, zobacz [pulpit nawigacyjny użycia w portalu komercyjnej analizy Marketplace](usage-dashboard.md).
 - Aby uzyskać listę żądań pobierania w ciągu ostatnich 30 dni, zobacz [pulpit nawigacyjny w portalu komercyjnej analizy Marketplace](./partner-center-portal/downloads-dashboard.md).
 - Aby wyświetlić skonsolidowany widok opinii klientów na temat ofert w witrynie Azure Marketplace i Microsoft AppSource, zobacz [omówienie & przeglądy pulpit nawigacyjny analizy w centrum partnerskim](./partner-center-portal/ratings-reviews.md).
-- Często zadawane pytania dotyczące analizy komercyjnej portalu Marketplace i kompleksowego słownika warunków dotyczących danych można znaleźć w temacie [Terminologia i często zadawane pytania dotyczące analizy Marketplace](./partner-center-portal/faq-terminology.md).
+- Często zadawane pytania dotyczące analizy komercyjnej portalu Marketplace i kompleksowego słownika warunków dotyczących danych można znaleźć w temacie [Terminologia i często zadawane pytania dotyczące analizy Marketplace](./analytics-faq.md).

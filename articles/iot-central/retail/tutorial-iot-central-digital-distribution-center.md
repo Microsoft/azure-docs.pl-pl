@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: a76df67d1ef9d203d5e5d54cb95bb8fc90f70180
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d19310dbd54c8bd5f9854ff86af051b68c5cd378
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90980745"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463295"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Samouczek: wdrażanie i przechodzenie przez szablon aplikacji centrum dystrybucji cyfrowej
 
@@ -34,8 +34,7 @@ Możesz utworzyć aplikację, wykonując następujące czynności
 
 1. Przejdź do witryny sieci Web programu Azure IoT Central Application Manager. Wybierz pozycję **kompilacja** na pasku nawigacyjnym po lewej stronie, a następnie kliknij kartę **sprzedaż detaliczna** .
 
-    > [!div class="mx-imgBorder"]
-    > ![Zrzut ekranu przedstawiający sposób wybierania szablonu aplikacji centrum dystrybucji cyfrowej](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
+    :::image type="content" source="media/tutorial-iot-central-ddc/iotc-retail-homepage.png" alt-text="Szablon aplikacji centrum dystrybucji cyfrowej":::
 
 2. Wybierz kartę **sprzedaż detaliczna** i wybierz pozycję **Utwórz aplikację** w obszarze **aplikacja centrum dystrybucji cyfrowej**
 
@@ -45,11 +44,9 @@ Możesz utworzyć aplikację, wykonując następujące czynności
    **Informacje o rozliczeniach**: katalog, subskrypcja platformy Azure i szczegółowe informacje o regionie są wymagane do aprowizacji zasobów.
    **Utwórz**: wybierz pozycję Utwórz w dolnej części strony, aby wdrożyć aplikację.
 
-    > [!div class="mx-imgBorder"]
-    > ![Zrzut ekranu przedstawiający sposób tworzenia aplikacji z szablonu aplikacji Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc-create.png)
+   :::image type="content" source="media/tutorial-iot-central-ddc/ddc-create.png" alt-text="Zrzut ekranu przedstawiający sposób tworzenia aplikacji z szablonu aplikacji Digital Distribution Center":::
 
-    > [!div class="mx-imgBorder"]
-    > ![Zrzut ekranu przedstawiający opcje rozliczania podczas tworzenia aplikacji](./media/tutorial-iot-central-ddc/ddc-create-billinginfo.png)
+   :::image type="content" source="media/tutorial-iot-central-ddc/ddc-create-billinginfo.png" alt-text="Zrzut ekranu przedstawiający opcje rozliczania podczas tworzenia aplikacji":::
 
 ## <a name="walk-through-the-application-dashboard"></a>Przechodzenie przez pulpit nawigacyjny aplikacji 
 

@@ -1,6 +1,6 @@
 ---
-title: Najlepsze rozwiązania dotyczące Synapse puli SQL w usłudze Azure Synapse Analytics (dawniej SQL DW)
-description: 'Zalecenia i najlepsze rozwiązania dotyczące tworzenia rozwiązań dla puli SQL w usłudze Azure Synapse Analytics (dawniej: SQL DW).'
+title: Najlepsze rozwiązania dotyczące dedykowanej puli SQL (dawniej SQL DW)
+description: Zalecenia i najlepsze rozwiązania dotyczące tworzenia rozwiązań dla dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: cf841da85dc929366991d6aed8f3d400ab3b31cc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 9802e6553d553aae4f13194dc9951d1a17af6f66
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489646"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462874"
 ---
-# <a name="best-practices-for-synapse-sql-pool-in-azure-synapse-analytics-formerly-sql-dw"></a>Najlepsze rozwiązania dotyczące Synapse puli SQL w usłudze Azure Synapse Analytics (dawniej SQL DW)
+# <a name="best-practices-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Najlepsze rozwiązania dotyczące dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics
 
-Ten artykuł stanowi zbiór najlepszych rozwiązań ułatwiających osiągnięcie optymalnej wydajności wdrożenia [puli SQL](sql-data-warehouse-overview-what-is.md) .  Celem tego artykułu jest udostępnienie podstawowych wskazówek i wyróżnienie ważnych obszarów fokusu.  
+Ten artykuł stanowi zbiór najlepszych rozwiązań ułatwiających osiągnięcie optymalnej wydajności z [dedykowanej puli SQL (dawniej SQL DW)](sql-data-warehouse-overview-what-is.md) .  Celem tego artykułu jest udostępnienie podstawowych wskazówek i wyróżnienie ważnych obszarów fokusu.  
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>Obniżenie kosztów dzięki wstrzymaniu i skalowaniu
 
@@ -27,7 +27,7 @@ Aby uzyskać więcej informacji dotyczących obniżania kosztów za pomocą wstr
 
 ## <a name="maintain-statistics"></a>Prowadzenie statystyk
 
-Pulę SQL można skonfigurować do automatycznego wykrywania i tworzenia statystyk w kolumnach.  Plany zapytania utworzone przez optymalizator są tak dobre, jak w przypadku dostępnych statystyk.  
+Dedykowana Pula SQL (wcześniej SQL DW) może być skonfigurowana w taki sposób, aby automatycznie wykrywać i tworzyć statystyki dotyczące kolumn.  Plany zapytania utworzone przez optymalizator są tak dobre, jak w przypadku dostępnych statystyk.  
 
 Zalecamy włączenie AUTO_CREATE_STATISTICS dla baz danych i regularne aktualizowanie statystyk codziennie lub po każdym załadowaniu, aby zapewnić, że statystyki dla kolumn używanych w zapytaniach są zawsze aktualne.
 
@@ -40,7 +40,7 @@ Zobacz też [Zarządzanie statystykami tabel](sql-data-warehouse-tables-statisti
 
 ## <a name="use-dmvs-to-monitor-and-optimize-your-queries"></a>Korzystanie z widoków DMV do monitorowania i optymalizowania zapytań
 
-Pula SQL ma kilka widoków DMV, których można użyć do monitorowania wykonywania zapytań.  W artykule monitorowanie obciążenia przy użyciu widoków DMV artykułu przedstawiono szczegółowe instrukcje krok po kroku dotyczące sposobu przeglądania szczegółowych informacji o wykonywanej kwerendzie.  
+Dedykowana Pula SQL (wcześniej SQL DW) ma kilka widoków DMV, których można użyć do monitorowania wykonywania zapytania.  W artykule [monitorowanie obciążenia przy użyciu widoków DMV](sql-data-warehouse-manage-monitor.md) artykułu przedstawiono szczegółowe instrukcje krok po kroku dotyczące sposobu przeglądania szczegółowych informacji o wykonywanej kwerendzie.  
 
 Aby szybko wyszukać zapytania w tych widokach DMV, z zapytaniami można użyć opcji LABEL.
 
@@ -62,7 +62,7 @@ Zobacz również [Wstawianie](/sql/t-sql/statements/insert-transact-sql?toc=/azu
 
 ## <a name="use-polybase-to-load-and-export-data-quickly"></a>Korzystanie z funkcji PolyBase do szybkiego ładowania i eksportowania danych
 
-Pula SQL obsługuje ładowanie i eksportowanie danych za poorednictwem kilku narzędzi, takich jak Azure Data Factory, Base i BCP.  W przypadku małych ilości danych, gdy wydajność nie ma decydującego znaczenia, można zastosować dowolne narzędzie.  Jednak podczas ładowania lub eksportowania dużych ilości danych lub w przypadku, gdy wymagana jest wysoka wydajność, najlepszym wyborem jest funkcja PolyBase.  
+Dedykowana Pula SQL (dawniej SQL DW) obsługuje ładowanie i eksportowanie danych za poorednictwem kilku narzędzi, takich jak Azure Data Factory, Base i BCP.  W przypadku małych ilości danych, gdy wydajność nie ma decydującego znaczenia, można zastosować dowolne narzędzie.  Jednak podczas ładowania lub eksportowania dużych ilości danych lub w przypadku, gdy wymagana jest wysoka wydajność, najlepszym wyborem jest funkcja PolyBase.  
 
 Baza danych została zaprojektowana tak, aby korzystała z rozproszonego charakteru systemu i załadowała i eksportuje znacznie szybciej niż inne narzędzia.  Obciążenia funkcji PolyBase można uruchomić za pomocą instrukcji CTAS lub INSERT INTO.   
 
@@ -74,13 +74,13 @@ Azure Data Factory obsługuje również obciążenia wielopodstawowe i mogą osi
 > [!NOTE]
 > Aby zmaksymalizować przepływność przy użyciu plików tekstowych gzip, należy podzielić pliki na 60 lub więcej plików, aby zmaksymalizować równoległość obciążenia.  W celu uzyskania szybszej całkowitej przepływności warto rozważyć równoległe ładowania danych.
 
-Zobacz też [ładowanie danych](design-elt-data-loading.md), [Przewodnik po korzystaniu](guidance-for-loading-data.md)z [wzorców i strategii ładowania puli SQL](https://blogs.msdn.microsoft.com/sqlcat/20../../), [ładowanie danych za pomocą Azure Data Factory]( ../../data-factory/load-azure-sql-data-warehouse.md), [przenoszenie danych za pomocą Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md), [Tworzenie zewnętrznego formatu pliku](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)i [Tworzenie tabeli jako Select (CTAs)](sql-data-warehouse-develop-ctas.md).
+Zobacz też [ładowanie danych](design-elt-data-loading.md), [Przewodnik po użyciu zestawu Base](guidance-for-loading-data.md), [dedykowane wzorce ładowania puli SQL i strategie](https://blogs.msdn.microsoft.com/sqlcat/20../../), [ładowanie danych za pomocą Azure Data Factory]( ../../data-factory/load-azure-sql-data-warehouse.md), [przenoszenie danych za pomocą Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md), [Tworzenie zewnętrznego formatu pliku](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)i [Tworzenie tabeli jako Select (CTAs)](sql-data-warehouse-develop-ctas.md).
 
 ## <a name="load-then-query-external-tables"></a>Ładowanie i przesyłanie zapytań dotyczących tabel zewnętrznych
 
 O ile funkcja Polybase (nazywana też tabelami zewnętrznymi) może być najszybszym sposobem załadowania danych, nie jest to narzędzie zoptymalizowane pod kątem zapytań. Tabele bazowe obecnie obsługują tylko pliki obiektów blob platformy Azure i Magazyn Azure Data Lake. Te pliki nie mają żadnych zasobów obliczeniowych stanowiących ich zaplecze.  
 
-W związku z tym Pula SQL nie może odciążać tej pracy i dlatego musi odczytać cały plik przez załadowanie go do bazy danych tempdb w celu odczytania ich.  W związku z tym mając kilka kwerend, które będą wykonywać zapytania dotyczące tych danych, lepiej jest załadować te dane jeden raz i zapewnić możliwość obejmowania zapytaniem lokalnej tabeli.
+W związku z tym dedykowana Pula SQL nie może odciążać tej pracy i dlatego musi odczytać cały plik przez załadowanie go do bazy danych tempdb, aby można było je odczytać.  W związku z tym mając kilka kwerend, które będą wykonywać zapytania dotyczące tych danych, lepiej jest załadować te dane jeden raz i zapewnić możliwość obejmowania zapytaniem lokalnej tabeli.
 
 Zobacz też [Przewodnik dotyczący korzystania z bazy Base](guidance-for-loading-data.md).
 
@@ -101,9 +101,9 @@ Zobacz także [Omówienie tabel](sql-data-warehouse-tables-overview.md), [dystry
 
 ## <a name="do-not-over-partition"></a>Unikanie nadmiernego partycjonowania
 
-Gdy Partycjonowanie danych może być skuteczne do obsługi danych za pomocą przełączania partycji lub optymalizowania skanowania za pomocą eliminacji partycji, zbyt wiele partycji może spowalniać zapytania.  Często wysoce ziarnista strategia partycjonowania, która może być dobrze włączona SQL Server może nie być dobrze w puli SQL.  
+Gdy Partycjonowanie danych może być skuteczne do obsługi danych za pomocą przełączania partycji lub optymalizowania skanowania za pomocą eliminacji partycji, zbyt wiele partycji może spowalniać zapytania.  Często wysoce ziarnista strategia partycjonowania, która może być dobrze włączona SQL Server może nie współpracować w dedykowanej puli SQL (dawniej SQL DW).  
 
-Zbyt duża liczba partycji danych może także zmniejszyć skuteczność indeksów klastrowanego magazynu kolumn, jeśli każda partycja ma mniej niż milion wierszy.  Należy pamiętać, że w tle Pula SQL dzieli Twoje dane na 60 baz danych, dlatego w przypadku utworzenia tabeli z partycjami 100 w rzeczywistości spowoduje to 6000 partycji.  
+Zbyt duża liczba partycji danych może także zmniejszyć skuteczność indeksów klastrowanego magazynu kolumn, jeśli każda partycja ma mniej niż milion wierszy.  Należy pamiętać, że w tle, dedykowana Pula SQL dzieli dane na 60 baz danych, dlatego w przypadku utworzenia tabeli z partycjami 100 w rzeczywistości spowoduje to 6000 partycji.  
 
 Każde obciążenie jest inne, więc warto eksperymentować z podziałem na partycje — w ten sposób można przekonać się, jakie rozwiązanie sprawdzi się najlepiej w przypadku danego obciążenia.  Warto rozważyć stopień szczegółowości niższy od pomyślnie zastosowanego w programie SQL Server.  Można na przykład rozważyć wykorzystanie partycji cotygodniowych lub comiesięcznych zamiast partycji codziennych.
 
@@ -145,13 +145,13 @@ Zobacz również [tabele tymczasowe](sql-data-warehouse-tables-temporary.md), [C
 
 ## <a name="optimize-clustered-columnstore-tables"></a>Optymalizowanie tabel klastrowanego magazynu kolumn
 
-Klastrowane indeksy magazynu kolumn to jeden z najbardziej wydajnych sposobów przechowywania danych w puli SQL.  Domyślnie tabele w puli SQL są tworzone jako klastrowane magazynu kolumn.  Dla uzyskania najlepszej wydajności kwerend w odniesieniu do tabel magazynu kolumn ważne jest zapewnienie dobrej jakości segmentów.  
+Klastrowane indeksy magazynu kolumn to jeden z najbardziej wydajnych sposobów przechowywania danych w dedykowanej puli SQL.  Domyślnie tabele w dedykowanej puli SQL są tworzone jako klastrowane magazynu kolumn.  Dla uzyskania najlepszej wydajności kwerend w odniesieniu do tabel magazynu kolumn ważne jest zapewnienie dobrej jakości segmentów.  
 
 Jeśli wiersze są zapisywane w tabelach magazynu kolumn przy dużym wykorzystaniu pamięci, może to spowodować obniżenie jakości segmentów w magazynie kolumn.  Jakość segmentu określa się na podstawie liczby wierszy w skompresowanej grupie wierszy.  Zobacz [przyczyny niskiej jakości indeksu magazynu kolumn](sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality) w artykule [indeksy tabel](sql-data-warehouse-tables-index.md) , aby uzyskać instrukcje krok po kroku dotyczące wykrywania i poprawiania jakości segmentu dla klastrowanych tabel magazynu kolumn.  
 
 Ponieważ duże jakości segmenty magazynu kolumn są ważne, dobrym pomysłem jest użycie identyfikatorów użytkowników, które znajdują się w średniej lub dużej klasie zasobów do ładowania danych. W przypadku korzystania z niższych [jednostek magazynu danych](what-is-a-data-warehouse-unit-dwu-cdwu.md) do użytkownika ładującego należy przypisać większą klasę zasobów.
 
-Ponieważ tabele magazynu kolumn zwykle nie przepychają danych do skompresowanego segmentu magazynu kolumn, dopóki nie będzie więcej niż 1 000 000 wierszy na tabelę, a każda tabela puli SQL zostanie podzielona na 60 tabel, a tabela magazynu kolumn nie będzie korzystać z kwerendy, chyba że zawiera ona więcej niż 60 000 000 wierszy.  Stosowanie indeksu magazynu kolumn może nie mieć sensu w przypadku tabel z mniej niż 60 milionami wierszy.  Jego użycie nie przyniesie też jednak niekorzystnych skutków.  
+Ponieważ tabele magazynu kolumn zwykle nie przepychają danych do skompresowanego segmentu magazynu kolumn, dopóki nie będzie więcej niż 1 000 000 wierszy na tabelę, a każda dedykowana tabela puli SQL zostanie podzielona na 60 tabel, a tabela magazynu kolumn nie będzie korzystać z kwerendy, chyba że zawiera ona więcej niż 60 000 000 wierszy.  Stosowanie indeksu magazynu kolumn może nie mieć sensu w przypadku tabel z mniej niż 60 milionami wierszy.  Jego użycie nie przyniesie też jednak niekorzystnych skutków.  
 
 Ponadto w przypadku partycjonowania danych warto wziąć pod uwagę, że każda partycja będzie musiała mieć milion wierszy, aby można było odnieść korzyść z zastosowania klastrowanego indeksu magazynu kolumn.  Jeśli tabela ma 100 partycji, będzie musiała mieć co najmniej 6 000 000 000 wierszy do skorzystania z magazynu kolumn klastrowanych (60 distributions *100 partycje* 1 000 000 wiersze).  
 
@@ -164,7 +164,7 @@ Zobacz także artykuły [Indeksy tabel](sql-data-warehouse-tables-index.md), [Pr
 
 ## <a name="use-larger-resource-class-to-improve-query-performance"></a>Użycie większej klasy zasobów w celu poprawy wydajność przesyłania zapytań
 
-Pula SQL używa grup zasobów jako metody przydzielania pamięci do zapytań.  Poza tym wszyscy użytkownicy są przypisani do małej klasy zasobów, która przyznaje 100 MB pamięci na dystrybucję.  Jako że zawsze jest 60 dystrybucji i każda z nich ma przydzielone co najmniej 100 MB, całkowita alokacji pamięci w systemie wynosi 6000 MB lub nieco poniżej 6 GB.  
+Dedykowana Pula SQL używa grup zasobów jako metody przydzielania pamięci do zapytań.  Poza tym wszyscy użytkownicy są przypisani do małej klasy zasobów, która przyznaje 100 MB pamięci na dystrybucję.  Jako że zawsze jest 60 dystrybucji i każda z nich ma przydzielone co najmniej 100 MB, całkowita alokacji pamięci w systemie wynosi 6000 MB lub nieco poniżej 6 GB.  
 
 Stosowanie wybranych kwerend, takich jak duże sprzężenia lub obciążenia odnoszące się do klastrowanych tabel magazynu kolumn, pozwolą korzystać z większych alokacji pamięci.  Niektóre zapytania, takie jak czyste skanowania, nie będą miały żadnych korzyści.  Jednak wykorzystanie większych klas zasobów zmniejsza współbieżność, dlatego warto uwzględnić ten wpływ przed przeniesieniem wszystkich użytkowników do dużej klasy zasobów.
 

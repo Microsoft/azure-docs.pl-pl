@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 85f5beb6188b1f6987934f1c39c579d5a3028a5e
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 61ee0b769664d1f574177e27b5b1fb10e9845035
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579491"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463098"
 ---
 # <a name="configure-a-managed-application-plan"></a>Konfigurowanie zarządzanego planu aplikacji
 
@@ -29,7 +29,7 @@ Każdy plan musi być dostępny na co najmniej jednym rynku. Na karcie **Cennik 
     > [!NOTE]
     > To okno dialogowe zawiera pole wyszukiwania i opcję filtrowania tylko w krajach, w których firma Microsoft przekazuje sprzedaż i korzysta z opodatkowania w Twoim imieniu.
 
-1. Wybierz pozycję **Zapisz** , aby zamknąć okno dialogowe.
+1. Wybierz pozycję **Zapisz**, aby zamknąć okno dialogowe.
 
 ## <a name="define-pricing"></a>Definiowanie cen
 
@@ -80,7 +80,7 @@ Każdy plan można skonfigurować tak, aby był widoczny dla wszystkich użytkow
 
 W obszarze **widoczność planu** wykonaj jedną z następujących czynności:
 
-- Aby określić plan jako publiczny, wybierz przycisk opcji **Public** (znany również jako _przycisk radiowy_ ).
+- Aby określić plan jako publiczny, wybierz przycisk opcji **Public** (znany również jako _przycisk radiowy_).
 - Aby plan był prywatny, wybierz przycisk opcji **prywatny** , a następnie ręcznie Dodaj identyfikatory subskrypcji platformy Azure lub w pliku CSV.
 
 > [!NOTE]
@@ -135,10 +135,10 @@ Aby włączyć dostęp JIT dla tego planu, zaznacz pole wyboru **Włącz dostęp
 
 Wybierz tryb wdrażania **kompletnego** lub **przyrostowego** .
 
-- W trybie **kompletnym** ponowne wdrożenie aplikacji przez klienta spowoduje usunięcie zasobów w zarządzanej grupie zasobów, jeśli zasoby nie są zdefiniowane w [mainTemplate.jsna](/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#create-the-arm-template.md).
+- W trybie **kompletnym** ponowne wdrożenie aplikacji przez klienta spowoduje usunięcie zasobów w zarządzanej grupie zasobów, jeśli zasoby nie są zdefiniowane w [mainTemplate.jsna](../azure-resource-manager/managed-applications/publish-service-catalog-app.md?tabs=azure-powershell#create-the-arm-template).
 - W trybie **przyrostowym** ponowne wdrożenie aplikacji pozostawia istniejące zasoby bez zmian.
 
-Aby dowiedzieć się więcej na temat trybów wdrażania, zobacz [Azure Resource Manager trybami wdrożenia](/azure/azure-resource-manager/deployment-modes).
+Aby dowiedzieć się więcej na temat trybów wdrażania, zobacz [Azure Resource Manager trybami wdrożenia](../azure-resource-manager/templates/deployment-modes.md).
 
 ### <a name="provide-a-notification-endpoint-url"></a>Podaj adres URL punktu końcowego powiadomienia
 
@@ -175,14 +175,14 @@ Można skonfigurować maksymalnie pięć zasad i tylko jedno wystąpienie poszcz
 
 ## <a name="view-your-plans"></a>Wyświetlanie planów
 
-- Wybierz pozycję **Zapisz wersję roboczą** , a następnie w lewym górnym rogu strony wybierz pozycję **planowanie przegląd** , aby powrócić do strony **Przegląd planu** .
+- Wybierz pozycję **Zapisz wersję roboczą**, a następnie w lewym górnym rogu strony wybierz pozycję **planowanie przegląd** , aby powrócić do strony **Przegląd planu** .
 
 Po utworzeniu jednego lub kilku planów zobaczysz nazwę planu, identyfikator planu, typ planu, dostępność (publiczna lub prywatna), bieżący stan publikowania oraz wszystkie dostępne akcje na karcie **Przegląd planu** .
 
 Akcje, które są dostępne w kolumnie **Akcja** karty **Przegląd planu** , różnią się w zależności od stanu planu i mogą obejmować następujące elementy:
 
-- Jeśli plan ma stan **wersja robocza** , w kolumnie **Akcja** zostanie wyświetlona wartość **Usuń wersję roboczą**.
-- Jeśli plan ma stan **Live** , link w kolumnie **akcji** będzie **zatrzymywać plan sprzedaży** lub **zsynchronizować odbiorców prywatnych**. Link **Synchronizuj odbiorców prywatnych** będzie publikować tylko zmiany w prywatnych odbiorcach, bez publikowania innych aktualizacji, które mogły zostać wprowadzone do oferty.
+- Jeśli plan ma stan **wersja robocza**, w kolumnie **Akcja** zostanie wyświetlona wartość **Usuń wersję roboczą**.
+- Jeśli plan ma stan **Live**, link w kolumnie **akcji** będzie **zatrzymywać plan sprzedaży** lub **zsynchronizować odbiorców prywatnych**. Link **Synchronizuj odbiorców prywatnych** będzie publikować tylko zmiany w prywatnych odbiorcach, bez publikowania innych aktualizacji, które mogły zostać wprowadzone do oferty.
 - Aby utworzyć kolejny plan dla tej oferty, w górnej części karty **Przegląd planu** wybierz pozycję **+ Utwórz nowy plan**. Następnie powtórz kroki opisane w temacie [jak utworzyć plany dla oferty aplikacji platformy Azure](create-new-azure-apps-offer-plans.md). W przeciwnym razie, jeśli skończysz tworzyć plany, przejdź do następnej sekcji: Następne kroki.
 
 ## <a name="next-steps"></a>Następne kroki

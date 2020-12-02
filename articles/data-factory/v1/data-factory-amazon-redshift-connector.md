@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 290990e312a7f591539686ecce1eec1ac742dd60
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c0dcaec9c8e9a310af1fd6fc319e0784694610e2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999301"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463084"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Przenoszenie danych z usługi Amazon RedShift przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -101,7 +101,7 @@ Alternatywnie można użyć typu **RelationalSource** , który obejmuje Amazon R
 
 Polecenie Amazon RedShift [**unload Zwalnia**](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) wyniki zapytania do co najmniej jednego pliku w witrynie Amazon S3. To polecenie jest zalecane przez Amazon do kopiowania dużych zestawów danych z RedShift.
 
-**Przykład: kopiowanie danych z Amazon RedShift do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse)**
+**Przykład: kopiowanie danych z Amazon RedShift do usługi Azure Synapse Analytics**
 
 Ten przykład kopiuje dane z Amazon RedShift do usługi Azure Synapse Analytics. W przykładzie zastosowano polecenie RedShift **Unload** , przygotowane dane kopiowania i bazę danych firmy Microsoft.
 
@@ -333,7 +333,7 @@ Następujące mapowania są używane, gdy działanie kopiowania konwertuje dane 
 | LICZBA CAŁKOWITA |Int32 |
 | BIGINT |Int64 |
 | DOKŁADNOŚCI |Liczba dziesiętna |
-| LICZBA RZECZYWISTA |Pojedyncze |
+| LICZBA RZECZYWISTA |Pojedynczy |
 | PODWÓJNA PRECYZJA |Double |
 | TYPU |Ciąg |
 | DELIKATN |Ciąg |

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: trkeya
 ms.author: trkeya
-ms.openlocfilehash: de85e4eb553f623790b472e79f8f97487ba96b48
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 553eba3898a5ea42e5d478603e35e82c68abcab1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95751117"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462906"
 ---
 # <a name="test-drive-technical-configuration"></a>Wersja testowa konfiguracji technicznej
 
@@ -38,9 +38,9 @@ Firma Microsoft może usunąć złożoność konfigurowania dysku testowego, udo
 
 - **Nazwa roli** (wymagana) — podaj nazwę roli zabezpieczeń, która została zdefiniowana w niestandardowym dysku testowym Dynamics 365, która zostanie przypisana do użytkownika podczas testu na dysku (na przykład "rola stacji testowych").
 
-Aby uzyskać pomoc dotyczącą sposobu konfigurowania środowiska Dynamics 365 dla dysku testowego i przyznawania uprawnień AppSource do aprowizacji i anulowania aprowizacji użytkowników w dzierżawie, postępuj zgodnie z [tymi instrukcjami](https://docs.microsoft.com/azure/marketplace/test-drive-azure-subscription-setup).
+Aby uzyskać pomoc dotyczącą sposobu konfigurowania środowiska Dynamics 365 dla dysku testowego i przyznawania uprawnień AppSource do aprowizacji i anulowania aprowizacji użytkowników w dzierżawie, postępuj zgodnie z [tymi instrukcjami](./test-drive-azure-subscription-setup.md).
 
-Instrukcje krok po kroku dotyczące wyświetlania i konfigurowania hostowanego dysku testowego znajdują się na stronie [Szczegółowa konfiguracja dla hostowanego dysku testowego](https://docs.microsoft.com/azure/marketplace/test-drive-hosted-detailed-config) .
+Instrukcje krok po kroku dotyczące wyświetlania i konfigurowania hostowanego dysku testowego znajdują się na stronie [Szczegółowa konfiguracja dla hostowanego dysku testowego](./test-drive-hosted-detailed-config.md) .
 
 ## <a name="logic-app-test-drive"></a>Dysk testowy aplikacji logiki
 
@@ -95,7 +95,7 @@ Opcja **listy** dla wersji testowych znajduje się na karcie **dysk testowy** w 
 
 Jeśli obecnie tworzysz dysk testowy w centrum partnerskim, wybierz opcję **Zapisz wersję roboczą** przed kontynuowaniem.
 
-Instrukcje krok po kroku dotyczące wyświetlania i konfigurowania hostowanego dysku testowego znajdują się na stronie [Szczegółowa konfiguracja dla hostowanego dysku testowego](https://docs.microsoft.com/azure/marketplace/test-drive-hosted-detailed-config) .
+Instrukcje krok po kroku dotyczące wyświetlania i konfigurowania hostowanego dysku testowego znajdują się na stronie [Szczegółowa konfiguracja dla hostowanego dysku testowego](./test-drive-hosted-detailed-config.md) .
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

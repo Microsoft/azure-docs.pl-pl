@@ -1,30 +1,30 @@
 ---
 title: Korzystanie z dynamicznego języka SQL
-description: Wskazówki dotyczące rozwiązań programistycznych korzystających z dynamicznego języka SQL w puli SQL Synapse.
+description: Porady dotyczące rozwiązań programistycznych korzystających z dynamicznego języka SQL dla dedykowanych pul SQL w usłudze Azure Synapse Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: bce79b8e18b3ec6f1fd139af280086281bbdda98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 52bc7bdc63f754d52bf4a69097c1dd309a6dc3ec
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213469"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462775"
 ---
-# <a name="dynamic-sql-in-synapse-sql-pool"></a>Dynamiczne SQL w puli SQL Synapse
+# <a name="dynamic-sql-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Dynamiczne SQL dla dedykowanych pul SQL w usłudze Azure Synapse Analytics
 
-W tym artykule przedstawiono wskazówki dotyczące rozwiązań programistycznych korzystających z dynamicznego języka SQL w puli SQL.
+W tym artykule przedstawiono wskazówki dotyczące rozwiązań programistycznych korzystających z dynamicznego języka SQL w dedykowanych pulach SQL.
 
 ## <a name="dynamic-sql-example"></a>Dynamiczny przykład SQL
 
-Podczas opracowywania kodu aplikacji dla puli SQL może być konieczne użycie dynamicznego języka SQL w celu zapewnienia elastycznych, ogólnych i modularnych rozwiązań. W tej chwili Pula SQL nie obsługuje typów danych obiektów BLOB.
+Podczas tworzenia kodu aplikacji dla dedykowanych pul SQL może być konieczne użycie dynamicznego SQL w celu zapewnienia elastycznych, ogólnych i modularnych rozwiązań. Dedykowane pule SQL nie obsługują w tym momencie typów danych obiektów BLOB.
 
 Nieobsługiwane typy danych obiektów BLOB mogą ograniczać rozmiar ciągów, ponieważ typy danych obiektów BLOB zawierają zarówno typy varchar (max), jak i nvarchar (max).
 

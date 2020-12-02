@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 827d571a6545d0aaffb0f96134fcf094eaa5f26b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1b7069cb723bffd758c3603cc957329dd6d2a9b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90980606"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463258"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Samouczek: wdrażanie i przechodzenie przez szablon aplikacji do zarządzania magazynem inteligentnym
 
@@ -35,22 +35,19 @@ Możesz utworzyć aplikację, wykonując następujące czynności
 
 1. Przejdź do witryny sieci Web programu Azure IoT Central Application Manager. Wybierz pozycję **kompilacja** na pasku nawigacyjnym po lewej stronie, a następnie kliknij kartę **sprzedaż detaliczna** .
 
-    > [!div class="mx-imgBorder"]
-    > ![Zrzut ekranu przedstawiający sposób wybierania szablonu inteligentnego spisu managementapplication](./media/tutorial-iot-central-smart-inventory-management/iotc_retail_homepage.png)
+    :::image type="content" source="media/tutorial-iot-central-smart-inventory-management/iotc_retail_homepage.png" alt-text="Zrzut ekranu przedstawiający sposób wybierania szablonu aplikacji do zarządzania magazynem inteligentnym":::
 
 2. Wybierz kartę **sprzedaż detaliczna** i wybierz pozycję **Utwórz aplikację** w obszarze **Zarządzanie magazynem inteligentnym**
 
 3. **Utwórz aplikację** spowoduje otwarcie formularza nowej aplikacji i zapełnienie żądanych szczegółów, jak pokazano poniżej.
-   **Nazwa aplikacji**: możesz użyć domyślnej sugerowanej nazwy lub wprowadzić przyjazną nazwę aplikacji.
-   **Adres URL**: możesz użyć sugerowanego domyślnego adresu URL lub wprowadzić przyjazny unikatowy adres URL, który można dopamiętać. Następnie ustawienie domyślne jest zalecane, jeśli masz już subskrypcję platformy Azure. Możesz zacząć od 7-dniowego planu cenowego w wersji próbnej i wybrać konwersję do standardowego planu cenowego w dowolnym momencie przed wygaśnięciem okresu bezpłatnego.
-   **Informacje o rozliczeniach**: katalog, subskrypcja platformy Azure i szczegółowe informacje o regionie są wymagane do aprowizacji zasobów.
-   **Utwórz**: wybierz pozycję Utwórz w dolnej części strony, aby wdrożyć aplikację.
+    **Nazwa aplikacji**: możesz użyć domyślnej sugerowanej nazwy lub wprowadzić przyjazną nazwę aplikacji.
+    **Adres URL**: możesz użyć sugerowanego domyślnego adresu URL lub wprowadzić przyjazny unikatowy adres URL, który można dopamiętać. Następnie ustawienie domyślne jest zalecane, jeśli masz już subskrypcję platformy Azure. Możesz zacząć od 7-dniowego planu cenowego w wersji próbnej i wybrać konwersję do standardowego planu cenowego w dowolnym momencie przed wygaśnięciem okresu bezpłatnego.
+    **Informacje o rozliczeniach**: katalog, subskrypcja platformy Azure i szczegółowe informacje o regionie są wymagane do aprowizacji zasobów.
+    **Utwórz**: wybierz pozycję Utwórz w dolnej części strony, aby wdrożyć aplikację.
 
-    > [!div class="mx-imgBorder"]
-    > ![Zrzut ekranu przedstawiający sposób tworzenia aplikacji na podstawie szablonu inteligentnego spisu managementapplication](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png)
+    :::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png" alt-text="Zrzut ekranu przedstawiający sposób tworzenia aplikacji na podstawie szablonu aplikacji do zarządzania magazynem inteligentnym":::
 
-    > [!div class="mx-imgBorder"]
-    > ![Zrzut ekranu przedstawiający opcje rozliczania podczas tworzenia aplikacji](./media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-app-create-billinginfo.png)
+    :::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-app-create-billinginfo.png" alt-text="Zrzut ekranu przedstawiający opcje rozliczania podczas tworzenia aplikacji":::
 
 ## <a name="walk-through-the-application"></a>Przechodzenie przez aplikację 
 

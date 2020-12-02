@@ -1,26 +1,23 @@
 ---
-title: Konfigurowanie i używanie linku Azure Synapse dla Azure Cosmos DB (wersja zapoznawcza)
+title: Konfigurowanie i używanie usługi Azure Synapse Link dla usługi Azure Cosmos DB
 description: Dowiedz się, jak włączyć łącze Synapse dla kont Azure Cosmos DB, utworzyć kontener z włączonym magazynem analitycznym, połączyć usługę Azure Cosmos Database z obszarem roboczym Synapse i uruchomić zapytania.
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: 3355b502033451f58ac2289a81414e62823e459b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 32b64cd0d83c51a77b7bc58bde80e00e1980c233
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175954"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463326"
 ---
-# <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Konfigurowanie i używanie linku Azure Synapse dla Azure Cosmos DB (wersja zapoznawcza)
+# <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Konfigurowanie i używanie usługi Azure Synapse Link dla usługi Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 [Link Synapse platformy Azure dla Azure Cosmos DB](synapse-link.md) to natywna w chmurze funkcja przetwarzania transakcyjnego i analitycznego (HTAP), która pozwala uruchamiać analizę niemal w czasie rzeczywistym za pośrednictwem danych operacyjnych w Azure Cosmos DB. Link Synapse tworzy ścisłą integrację między usługami Azure Cosmos DB i Azure Synapse Analytics.
-
-> [!IMPORTANT]
-> Aby korzystać z usługi Azure Synapse, upewnij się, że masz konto Azure Cosmos DB & obszarze roboczym usługi Azure Synapse Analytics w jednym z obsługiwanych regionów. Link Synapse platformy Azure jest obecnie dostępny w następujących regionach świadczenia usługi Azure: zachodnie stany USA, Wschodnie stany USA, zachodni stany USA 2, Europa Północna, Europa Zachodnia, Południowe Południowo-środkowe stany USA, Azja Południowo-Wschodnia, Australia Wschodnia, Wschodni wschód, Południowe Zjednoczone Królestwo.
 
 Link Synapse platformy Azure jest dostępny Azure Cosmos DB dla kontenerów interfejsu API SQL lub Azure Cosmos DB interfejsu API dla kolekcji Mongo DB. Wykonaj następujące kroki, aby uruchomić zapytania analityczne za pomocą linku Azure Synapse dla Azure Cosmos DB:
 
@@ -28,14 +25,14 @@ Link Synapse platformy Azure jest dostępny Azure Cosmos DB dla kontenerów inte
 * [Tworzenie Azure Cosmos DB kontenerów z włączonym magazynem analitycznym](#create-analytical-ttl)
 * [Łączenie bazy danych Azure Cosmos DB z obszarem roboczym Synapse](#connect-to-cosmos-database)
 * [Zbadaj magazyn analityczny za pomocą Synapse Spark](#query-analytical-store-spark)
-* [Zbadaj magazyn analityczny przy użyciu programu Synapse SQL Server](#query-analytical-store-sql-on-demand)
-* [Używaj bezSynapseowego programu SQL Server, aby analizować i wizualizować dane w Power BI](#analyze-with-powerbi)
+* [Zbadaj magazyn analityczny za pomocą puli SQL bezserwerowej](#query-analytical-store-sql-on-demand)
+* [Użyj bezserwerowej puli SQL, aby analizować i wizualizować dane w Power BI](#analyze-with-powerbi)
 
 ## <a name="enable-azure-synapse-link-for-azure-cosmos-db-accounts"></a><a id="enable-synapse-link"></a>Włącz łącze usługi Azure Synapse dla kont Azure Cosmos DB
 
 ### <a name="azure-portal"></a>Azure Portal
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
 
 1. [Utwórz nowe konto platformy Azure](create-sql-api-dotnet.md#create-account)lub Wybierz istniejące konto Azure Cosmos DB.
 
@@ -43,7 +40,7 @@ Link Synapse platformy Azure jest dostępny Azure Cosmos DB dla kontenerów inte
 
 1. Wybierz **łącze Synapse** z listy funkcji.
 
-   :::image type="content" source="./media/configure-synapse-link/find-synapse-link-feature.png" alt-text="Znajdź funkcję w wersji zapoznawczej linku Synapse":::
+   :::image type="content" source="./media/configure-synapse-link/find-synapse-link-feature.png" alt-text="Znajdź funkcję linku Synapse":::
 
 1. Następnie zostanie wyświetlony komunikat z prośbą o włączenie linku Synapse na Twoim koncie. Wybierz pozycję **Włącz**. Ten proces może potrwać od 1 do 5 minut.
 
@@ -218,11 +215,11 @@ Skorzystaj z instrukcji w temacie [zapytania Azure Cosmos DB ze sklepu analitycz
 
 ## <a name="query-the-analytical-store-using-serverless-sql-pool-in-azure-synapse-analytics"></a><a id="query-analytical-store-sql-on-demand"></a> Zbadaj magazyn analityczny, używając bezserwerowej puli SQL w usłudze Azure Synapse Analytics
 
-Bezserwerowa Pula SQL umożliwia wykonywanie zapytań i analizowanie danych w kontenerach Azure Cosmos DB, które są włączone przy użyciu linku Synapse platformy Azure. Dane można analizować niemal w czasie rzeczywistym bez wpływania na wydajność obciążeń transakcyjnych. Oferuje znaną składnię T-SQL służącą do wykonywania zapytań dotyczących danych z magazynu analitycznego i zintegrowanej łączności z szeroką gamę narzędzi do wykonywania zapytań w trybie analizy biznesowej i ad hoc za pośrednictwem interfejsu T-SQL. Aby dowiedzieć się więcej, zobacz artykuł dotyczący [magazynu analitycznego w kwerendzie przy użyciu programu Synapse SQL Server](../synapse-analytics/sql/query-cosmos-db-analytical-store.md) .
+Bezserwerowa Pula SQL umożliwia wykonywanie zapytań i analizowanie danych w kontenerach Azure Cosmos DB, które są włączone przy użyciu linku Synapse platformy Azure. Dane można analizować niemal w czasie rzeczywistym bez wpływania na wydajność obciążeń transakcyjnych. Oferuje znaną składnię T-SQL służącą do wykonywania zapytań dotyczących danych z magazynu analitycznego i zintegrowanej łączności z szeroką gamę narzędzi do wykonywania zapytań w trybie analizy biznesowej i ad hoc za pośrednictwem interfejsu T-SQL. Aby dowiedzieć się więcej, zobacz temat [zapytanie o magazyn analityczny z użyciem puli SQL bezserwerowej](../synapse-analytics/sql/query-cosmos-db-analytical-store.md) .
 
-## <a name="use-synapse-sql-serverless-to-analyze-and-visualize-data-in-power-bi"></a><a id="analyze-with-powerbi"></a>Używaj bezSynapseowego programu SQL Server, aby analizować i wizualizować dane w Power BI
+## <a name="use-serverless-sql-pool-to-analyze-and-visualize-data-in-power-bi"></a><a id="analyze-with-powerbi"></a>Użyj bezserwerowej puli SQL, aby analizować i wizualizować dane w Power BI
 
-Można utworzyć Synapse bazę danych programu SQL Server i widoki za pośrednictwem linku Synapse dla Azure Cosmos DB. Później możesz wysyłać zapytania o kontenery usługi Azure Cosmos, a następnie utworzyć model z Power BIem w tych widokach w celu odzwierciedlenia tego zapytania. Aby dowiedzieć się więcej, zobacz artykuł jak korzystać z [programu Synapse SQL Server, aby analizować dane Azure Cosmos DB za pomocą linku Synapse](synapse-link-power-bi.md) .
+Można utworzyć bezserwerową bazę danych puli SQL i widoki dla Azure Cosmos DB. Później możesz wysyłać zapytania o kontenery usługi Azure Cosmos, a następnie utworzyć model z Power BIem w tych widokach w celu odzwierciedlenia tego zapytania. Aby dowiedzieć się więcej, zobacz jak używać [Bezserwerowej puli SQL do analizowania danych Azure Cosmos DB za pomocą linku Synapse](synapse-link-power-bi.md) .
 
 ## <a name="azure-resource-manager-template"></a>Szablon usługi Azure Resource Manager
 
@@ -238,10 +235,10 @@ Aby dowiedzieć się więcej, zobacz następujące dokumenty:
 
 * [Link Synapse platformy Azure dla Azure Cosmos DB.](synapse-link.md)
 
-* [Omówienie magazynu analitycznego usługi Azure Cosmos DB.](analytical-store-introduction.md)
+* [Azure Cosmos DB Omówienie magazynu analitycznego.](analytical-store-introduction.md)
 
 * [Często zadawane pytania dotyczące Azure Cosmos DB.](synapse-link-frequently-asked-questions.md)
 
 * [Apache Spark w usłudze Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md).
 
-* [Obsługa środowiska wykonawczego bezserwerowego programu SQL Server w usłudze Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md).
+* [Obsługa środowiska uruchomieniowego puli SQL Bezserwerowej w usłudze Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md).

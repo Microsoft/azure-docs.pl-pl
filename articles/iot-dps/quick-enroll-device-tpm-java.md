@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: cda36539e4a24bbb017873dafd2c12356a785e55
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0a1f4ed46ab9e467a19cfa722a2d345284fdc94a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966602"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463058"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Szybki Start: rejestrowanie urządzenia TPM w IoT Hub Device Provisioning Service przy użyciu zestawu SDK usługi Java
 
@@ -27,7 +27,7 @@ W tym przewodniku szybki start utworzysz samodzielną rejestrację dla symulowan
 - Zakończenie [konfigurowania IoT Hub Device Provisioning Service przy użyciu Azure Portal](./quick-setup-auto-provision.md).
 - Kończenie [odczytywania kluczy kryptograficznych z urządzenia TPM](quick-create-simulated-device.md#simulatetpm).
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Java SE Development Kit 8](https://aka.ms/azure-jdks). Ten przewodnik Szybki Start instaluje [zestaw SDK usługi Java](https://azure.github.io/azure-iot-sdk-java/master/service/) poniżej. Działa on zarówno w systemie Windows, jak i Linux. Ten przewodnik Szybki Start używa systemu Windows.
+- [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support). Ten przewodnik Szybki Start instaluje [zestaw SDK usługi Java](https://azure.github.io/azure-iot-sdk-java/master/service/) poniżej. Działa on zarówno w systemie Windows, jak i Linux. Ten przewodnik Szybki Start używa systemu Windows.
 - [Maven 3](https://maven.apache.org/download.cgi).
 - Usługi [git](https://git-scm.com/download/).
 

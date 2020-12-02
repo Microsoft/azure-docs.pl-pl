@@ -3,12 +3,12 @@ title: Azure Event Grid dostarczania i ponów próbę
 description: Opisuje, w jaki sposób Azure Event Grid dostarcza zdarzenia i jak obsługuje niedostarczone komunikaty.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 9a7bde33e322183f86c3c51d30bb004d06fa1406
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 51473cf457a1c713e6694edd23c344be8c4d439e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345357"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463243"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid dostarczania komunikatów i ponów próbę
 
@@ -57,7 +57,7 @@ Aby uzyskać więcej informacji na temat korzystania z interfejsu wiersza polece
 
 Gdy EventGrid odbiera błąd w przypadku próby dostarczenia zdarzenia, EventGrid decyduje o tym, czy należy ponowić próbę dostarczenia, czy też porzucić zdarzenie na podstawie typu błędu. 
 
-Jeśli błąd zwrócony przez subskrybowany punkt końcowy to błąd związany z konfiguracją, którego nie można naprawić z ponownymi próbami (na przykład jeśli punkt końcowy został usunięty), EventGrid go albo wykonuje zdarzenie utraconych wiadomości, albo porzuca zdarzenie, jeśli utracona jest nieskonfigurowana.
+Jeśli błąd zwrócony przez subskrybowany punkt końcowy jest błędem związanym z konfiguracją, którego nie można naprawić z ponownymi próbami (na przykład jeśli punkt końcowy został usunięty), EventGrid będzie wykonywał utraconą literę zdarzenia lub porzucić zdarzenie, jeśli nie skonfigurowano wiadomości utraconych.
 
 Poniżej znajdują się typy punktów końcowych, dla których próba ponowienia nie nastąpi:
 
@@ -119,7 +119,7 @@ W tej sekcji przedstawiono przykłady zdarzeń i zdarzeń utraconych w różnych
 
 ### <a name="event-grid-schema"></a>Schemat usługi Event Grid
 
-#### <a name="event"></a>Zdarzenie 
+#### <a name="event"></a>Wydarzenie 
 ```json
 {
     "id": "93902694-901e-008f-6f95-7153a806873c",
@@ -178,7 +178,7 @@ W tej sekcji przedstawiono przykłady zdarzeń i zdarzeń utraconych w różnych
 
 ### <a name="cloudevents-10-schema"></a>Schemat CloudEvents 1,0
 
-#### <a name="event"></a>Zdarzenie
+#### <a name="event"></a>Wydarzenie
 
 ```json
 {
@@ -219,7 +219,7 @@ W tej sekcji przedstawiono przykłady zdarzeń i zdarzeń utraconych w różnych
 
 ### <a name="custom-schema"></a>Schemat niestandardowy
 
-#### <a name="event"></a>Zdarzenie
+#### <a name="event"></a>Wydarzenie
 
 ```json
 {

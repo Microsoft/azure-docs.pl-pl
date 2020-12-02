@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 6b59da408ae7c88aaf8b9e7423fe955a861edf0f
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: c02ba12c790d745904d241f121e269aac3ed12f6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565521"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462984"
 ---
 # <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny Podsumowanie w analizie komercyjnej platformy handlowej
 
@@ -21,7 +21,7 @@ Ten artykuł zawiera informacje na temat pulpitu nawigacyjnego podsumowanie w ce
 Aby uzyskać dostęp do pulpitu nawigacyjnego podsumowanie w centrum partnerskim, w obszarze **Marketing komercyjny** wybierz pozycję **[Analizuj](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  >  **Podsumowanie**.
 
 >[!NOTE]
-> Aby uzyskać szczegółowe definicje terminologii dotyczącej analizy, zobacz temat [Terminologia i często zadawane pytania dotyczące analizy Marketplace](./partner-center-portal/faq-terminology.md).
+> Aby uzyskać szczegółowe definicje terminologii dotyczącej analizy, zobacz temat [Terminologia i często zadawane pytania dotyczące analizy Marketplace](./analytics-faq.md).
 
 ## <a name="summary-dashboard"></a>Pulpit nawigacyjny Podsumowanie
 
@@ -109,4 +109,4 @@ W przypadku wybranego okresu obliczeniowego mapę cieplną wyświetla łączną 
 - Aby uzyskać szczegółowe informacje na temat klientów, w tym trendów wzrostu, zobacz [pulpit nawigacyjny klienta w komercyjnej analizie portalu Marketplace](customer-dashboard.md).
 - Aby uzyskać listę żądań pobierania w ciągu ostatnich 30 dni, zobacz [pulpit nawigacyjny w portalu komercyjnej analizy Marketplace](./partner-center-portal/downloads-dashboard.md).
 - Aby wyświetlić skonsolidowany widok opinii klientów na temat ofert w witrynie Azure Marketplace i AppSource, zobacz temat [ocena & przeglądy pulpit nawigacyjny analizy w centrum partnerskim](./partner-center-portal/ratings-reviews.md).
-- Często zadawane pytania dotyczące analizy komercyjnej portalu Marketplace i kompleksowego słownika warunków dotyczących danych można znaleźć w temacie [Terminologia i często zadawane pytania dotyczące analizy Marketplace](./partner-center-portal/faq-terminology.md).
+- Często zadawane pytania dotyczące analizy komercyjnej portalu Marketplace i kompleksowego słownika warunków dotyczących danych można znaleźć w temacie [Terminologia i często zadawane pytania dotyczące analizy Marketplace](./analytics-faq.md).

@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 11/06/2020
-ms.openlocfilehash: 9e8aecfe8b16d8af755d3f4c3c71b875d4e8ec40
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 88779f67a2fa9b18f0177a1459b32c672343bb57
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95751253"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462955"
 ---
 # <a name="detailed-configuration-for-hosted-test-drives"></a>Szczegółowa konfiguracja dla hostowanych dysków testowych
 
@@ -29,7 +29,7 @@ W tym artykule opisano sposób konfigurowania hostowanego dysku testowego dla pr
 
     - **Typ dysku testowego** — wybierz **firmę Microsoft hostowaną (Dynamics 365 for Customer Engagement & powerapps)**. Oznacza to, że firma Microsoft będzie hostować i obsługiwać usługę, która przeprowadza testowanie i cofa obsługę administracyjną użytkowników.
 
-5. Przyznaj Microsoft AppSource uprawnienia do aprowizacji i anulowania aprowizacji użytkowników w dzierżawie przy użyciu [tych instrukcji](https://docs.microsoft.com/azure/marketplace/test-drive-azure-subscription-setup). W tym kroku zostanie wygenerowany **aplikacja usługi Azure AD identyfikator** i **aplikacja usługi Azure AD wartości klucza** wymienione poniżej.
+5. Przyznaj Microsoft AppSource uprawnienia do aprowizacji i anulowania aprowizacji użytkowników w dzierżawie przy użyciu [tych instrukcji](./test-drive-azure-subscription-setup.md). W tym kroku zostanie wygenerowany **aplikacja usługi Azure AD identyfikator** i **aplikacja usługi Azure AD wartości klucza** wymienione poniżej.
 6. Wypełnij te pola na stronie **konfiguracja techniczna na dysku testowym** .
 
     [![Strona konfiguracja techniczna na dysku testowym.](media/test-drive/technical-config-details.png)](media/test-drive/technical-config-details.png#lightbox)
@@ -81,7 +81,7 @@ W tym artykule opisano sposób konfigurowania hostowanego dysku testowego dla pr
     - **Azure Active Directory nazwę dzierżawy** — nazwa dzierżawy platformy Azure dla wystąpienia usługi Dynamics 365. Użyj formatu `<tenantname>.onmicrosoft.com`. Przykładowa wartość: `testdrive.onmicrosoft.com` .
     - **Identyfikator aplikacji Azure Active Directory** — identyfikator aplikacji Azure Active Directory (AD) utworzonej w kroku 5. Przykładowa wartość: `53852862-a2ae-4e43-9461-faa49650a096` .
     - **Azure Active Directory App Client Secret** — Secret dla aplikacji usługi Azure AD utworzonej w kroku 5. Przykładowa wartość: `IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=` .
-    - **Wersja próbna podmiotu prawnego** — umożliwia podmiotowi prawnemu przypisanie użytkownika wersji próbnej. Nową [jednostkę](https://technet.microsoft.com/library/hh242184.aspx)można utworzyć przy użyciu programu.
+    - **Wersja próbna podmiotu prawnego** — umożliwia podmiotowi prawnemu przypisanie użytkownika wersji próbnej. Nową [jednostkę](/dynamicsax-2012/appuser-itpro/create-or-modify-a-legal-entity)można utworzyć przy użyciu programu.
     - **Nazwa roli** — nazwa AOT (drzewo obiektów aplikacji) dla niestandardowej roli zabezpieczeń Dynamics 365 utworzonej dla dysku testowego. Jest to rola, która zostanie przypisana do użytkowników na ich dysku testowym.
 
         :::image type="content" source="./media/test-drive/security-config.png" alt-text="Na stronie Konfiguracja zabezpieczeń.":::

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: 7621a19b510d302454465f9fcbacec27a14dddf9
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9855a53ebdf7501907b3e1e63d59823d3a0b0209
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340179"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463121"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Usługa Azure Synapse Link dla usługi Azure Cosmos DB: Przypadki użycia analizy prawie w czasie rzeczywistym
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -53,9 +53,9 @@ W oparciu o poprzednią architekturę można osiągnąć następujące przypadki
 
   Link Synapse dla Azure Cosmos DB włącza bogate scenariusze analizy biznesowej (BI)/Reporting:
 
-  * Wykonywanie zapytań dotyczących danych operacyjnych z magazynu analitycznego Azure Cosmos DB przy użyciu natywnej integracji z programem Synapse SQL Server i pełnym wyrazistości języka T-SQL.
+  * Wykonywanie zapytań dotyczących danych operacyjnych z magazynu analitycznego Azure Cosmos DB przy użyciu natywnej integracji z pulą SQL bez serwera i pełnym wyrazistości języka T-SQL.
 
-  * Modelowanie i publikowanie pulpitów nawigacyjnych usługi Power BI za pośrednictwem Azure Cosmos DB za pośrednictwem programu Synapse SQL Server w przypadku znanych narzędzi analizy biznesowej. Na przykład Azure Analysis Services, Power BI Premium itd.
+  * Modelowanie i publikowanie pulpitów nawigacyjnych usługi Power BI na Azure Cosmos DB za pośrednictwem bezserwerowej puli SQL obsługującej znane narzędzia analizy biznesowej. Na przykład Azure Analysis Services, Power BI Premium itd.
 
 Poniżej przedstawiono kilka wskazówek dotyczących integracji danych na potrzeby usługi Batch & przesyłania strumieniowego danych w Azure Cosmos DB:
 
@@ -143,4 +143,4 @@ Aby dowiedzieć się więcej, zobacz następujące dokumenty:
 
 * [Apache Spark w usłudze Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md)
 
-* [Obsługa środowiska wykonawczego bezserwerowego programu SQL Server w usłudze Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md)
+* [Obsługa środowiska uruchomieniowego puli SQL bezserwerowej w usłudze Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md)

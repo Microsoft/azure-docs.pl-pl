@@ -1,6 +1,6 @@
 ---
-title: Ciągła integracja i ciągłe wdrażanie
-description: Baza danych klasy korporacyjnej DevOps środowisko umożliwiające magazynowanie danych dzięki wbudowanej obsłudze ciągłej integracji i wdrażania przy użyciu Azure Pipelines.
+title: Ciągła integracja i wdrażanie dedykowanej puli SQL
+description: DevOps Database klasy korporacyjnej dla dedykowanej puli SQL w usłudze Azure Synapse Analytics dzięki wbudowanej obsłudze ciągłej integracji i wdrażania przy użyciu Azure Pipelines.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 061be5addd0c236db5d982e6103e3cf455b9c361
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 35f503e7214fa91962c91c35611fc9447302f9fc
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480534"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462815"
 ---
-# <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Ciągła integracja i wdrażanie na potrzeby magazynowania danych
+# <a name="continuous-integration-and-deployment-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Ciągła integracja i wdrażanie dedykowanej puli SQL w usłudze Azure Synapse Analytics
 
 W tym prostym samouczku przedstawiono sposób integrowania projektu bazy danych SQL Server Data Tools (SSDT) z usługą Azure DevOps i korzystania z Azure Pipelines w celu skonfigurowania ciągłej integracji i wdrażania. Ten samouczek to drugi krok tworzenia potoku ciągłej integracji i wdrażania na potrzeby magazynowania danych.
 
@@ -60,7 +60,7 @@ W tym momencie istnieje proste środowisko, w którym każde ewidencjonowanie ga
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Eksplorowanie [architektury puli SQL Synapse](massively-parallel-processing-mpp-architecture.md)
-- Szybkie [Tworzenie puli SQL](create-data-warehouse-portal.md)
+- Eksplorowanie [dedykowanej puli SQL (dawniej SQL DW)](massively-parallel-processing-mpp-architecture.md)
+- Szybkie [Tworzenie dedykowanej puli SQL (dawniej SQL DW)](create-data-warehouse-portal.md)
 - [Ładowanie danych przykładowych](load-data-from-azure-blob-storage-using-polybase.md)
 - Eksploruj [wideo](sql-data-warehouse-videos.md)

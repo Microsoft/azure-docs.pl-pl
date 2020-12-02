@@ -1,5 +1,5 @@
 ---
-title: Pula SQL bezserwerowa (wersja zapoznawcza)
+title: Bezserwerowa pula SQL
 description: Dowiedz się więcej o puli SQL bezserwerowej w usłudze Azure Synapse Analytics.
 services: synapse analytics
 author: filippopovic
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e0d47567c3bc0b05c47efafa3bdc8b297a7bdbea
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 34ce36f0ff348f896b7c2ea680c113b5e9e4ea09
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93306862"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463171"
 ---
-# <a name="serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Pula SQL bezserwerowa (wersja zapoznawcza) w usłudze Azure Synapse Analytics 
+# <a name="serverless-sql-pool-in-azure-synapse-analytics"></a>Pula SQL bezserwerowa w usłudze Azure Synapse Analytics 
 
-Każdy obszar roboczy usługi Azure Synapse Analytics (wersja zapoznawcza) zapewnia bezserwerowe punkty końcowe puli SQL (wersja zapoznawcza), których można użyć do wykonywania zapytań dotyczących danych w usłudze Lake.
+Każdy obszar roboczy usługi Azure Synapse Analytics zawiera punkty końcowe puli SQL bezserwerowe, których można użyć do wykonywania zapytań dotyczących danych w usłudze Lake.
 
 Pula SQL bezserwerowa jest usługą zapytania na danych w usłudze Data Lake. Umożliwia ona dostęp do danych za pomocą następujących funkcji:
  
@@ -123,7 +123,7 @@ Uwierzytelnianie puli SQL bezserwerowej odnosi się do sposobu, w jaki użytkown
 
   Ta metoda uwierzytelniania używa nazwy użytkownika i hasła.
 
-- **Uwierzytelnianie Azure Active Directory** :
+- **Uwierzytelnianie Azure Active Directory**:
 
   Ta metoda uwierzytelniania używa tożsamości zarządzanych przez Azure Active Directory. W przypadku użytkowników usługi Azure AD można włączyć uwierzytelnianie wieloskładnikowe. Używaj uwierzytelniania usługi Active Directory (zabezpieczeń zintegrowanych), [gdy tylko jest to możliwe](/sql/relational-databases/security/choose-an-authentication-mode?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 

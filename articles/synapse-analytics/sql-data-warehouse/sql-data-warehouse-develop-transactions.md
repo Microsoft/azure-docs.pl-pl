@@ -1,5 +1,5 @@
 ---
-title: Używanie transakcji w puli SQL Synapse
+title: Korzystanie z transakcji w puli SQL usługi Azure Synapse Analytics
 description: Ten artykuł zawiera wskazówki dotyczące implementowania transakcji i opracowywania rozwiązań w puli SQL Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -9,17 +9,18 @@ ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 03/22/2019
 ms.author: xiaoyul
+ms.custom: azure-synapse
 ms.reviewer: igorstan
-ms.openlocfilehash: 40a9e5268b7fccc5c01775c10e55eee47f1aaf3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5a3c0863bb35f0988d7928bb9a2857f6aceded6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213384"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463201"
 ---
-# <a name="use-transactions-in-synapse-sql-pool"></a>Używanie transakcji w puli SQL Synapse
+# <a name="use-transactions-in-a-sql-pool-in-azure-synapse"></a>Używanie transakcji w puli SQL w usłudze Azure Synapse 
 
-Ten artykuł zawiera wskazówki dotyczące implementowania transakcji i tworzenia rozwiązań w puli SQL.
+Ten artykuł zawiera wskazówki dotyczące implementowania transakcji i opracowywania rozwiązań w puli SQL.
 
 ## <a name="what-to-expect"></a>Czego oczekiwać
 
@@ -27,7 +28,7 @@ Zgodnie z oczekiwaniami Pula SQL obsługuje transakcje w ramach obciążenia mag
 
 ## <a name="transaction-isolation-levels"></a>Poziomy izolacji transakcji
 
-Pula SQL implementuje transakcje KWASowe. Poziom izolacji obsługi transakcyjnej jest domyślnie ODCZYTYWANy jako niezatwierdzony.  Można ją zmienić w celu odczytania ZATWIERDZONEj izolacji migawek przez READ_COMMITTED_SNAPSHOT włączenie opcji bazy danych dla bazy danych użytkownika w przypadku nawiązania połączenia z bazą danych Master.  
+Pula SQL implementuje transakcje KWASowe. Poziom izolacji obsługi transakcyjnej jest domyślnie ODCZYTYWANy jako niezatwierdzony.  Można ją zmienić w celu odczytania ZATWIERDZONEj izolacji migawek przez READ_COMMITTED_SNAPSHOT włączenie opcji bazy danych dla puli SQL dla użytkownika w przypadku nawiązania połączenia z bazą danych Master.  
 
 Po włączeniu wszystkie transakcje w tej bazie danych są wykonywane w ramach przekroczenia izolacji ZATWIERDZONEj migawki i ustawienie Odczytaj niezatwierdzone na poziomie sesji nie zostanie uznane. Sprawdź [Opcje ALTER DATABASE SET (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , aby uzyskać szczegółowe informacje.
 

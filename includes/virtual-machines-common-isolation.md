@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: sttsinar
 ms.custom: include file
-ms.openlocfilehash: 3d65b574fc1479d000d347020823166a4d4b968b
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: bd31152c6742271658cf4fd7ac2a5e2957651c84
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410588"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96477622"
 ---
 Usługa Azure COMPUTE oferuje rozmiary maszyn wirtualnych, które są odizolowane od określonego typu sprzętu i przeznaczone dla jednego klienta. Izolowane rozmiary na żywo i działają na określonej generacji sprzętu i zostaną wycofane, gdy generacja sprzętu zostanie wycofana.
 
@@ -25,10 +25,13 @@ Ponadto, ponieważ maszyny wirtualne o rozmiarze izolowanym są duże, klienci m
 Obecnie odizolowane oferty maszyn wirtualnych obejmują:
 * Standard_E64is_v3
 * Standard_E64i_v3
+* Standard_E80ids_v4
+* Standard_E80is_v4
 * Standard_M128ms
 * Standardowa_GS5
 * Standard_G5
 * Standard_F72s_v2
+
 
 > [!NOTE]
 > Izolowane rozmiary maszyn wirtualnych mają ograniczoną cykl życia sprzętową. Aby uzyskać szczegółowe informacje, zobacz poniżej.

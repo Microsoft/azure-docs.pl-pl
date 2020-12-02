@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 452904e18a0910c2dd4781ca978042e0cdd4996d
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 57806ecaf4b0e295457c78faaff6033126ddb2c8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630128"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463018"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Tworzenie i uruchamianie potoków uczenia maszynowego za pomocą zestawu SDK Azure Machine Learning
 
@@ -24,7 +24,7 @@ ms.locfileid: "94630128"
 
 W tym artykule dowiesz się, jak utworzyć i uruchomić [potok uczenia maszynowego](concept-ml-pipelines.md) przy użyciu [zestawu SDK Azure Machine Learning](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). Użyj **potoków ml** , aby utworzyć przepływ pracy, który będzie łączyć różne fazy ml. Następnie opublikuj ten potok na potrzeby późniejszego dostępu lub udostępniania innym osobom. Śledź potoki ML, aby zobaczyć, jak model działa w świecie rzeczywistym i wykrywać dryfowanie danych. Potoki ML doskonale nadają się do scenariuszy wsadowych oceniania, przy użyciu różnych obliczeń, ponownej realizacji czynności zamiast uruchamiania ich, a także udostępniania przepływów pracy ML innym osobom.
 
-Chociaż możesz użyć innego rodzaju potoku o nazwie [potoku platformy Azure](/azure/devops/pipelines/targets/azure-machine-learning?context=azure%252fmachine-learning%252fservice%252fcontext%252fml-context&preserve-view=true&tabs=yaml&view=azure-devops) do automatyzacji wykonywania zadań w usłudze ml, ten typ potoku nie jest przechowywany w obszarze roboczym. [Porównaj te różne potoki](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
+Chociaż możesz użyć innego rodzaju potoku o nazwie [potoku platformy Azure](/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2fmachine-learning%2fservice%2fcontext%2fml-context&preserve-view=true&tabs=yaml&view=azure-devops) do automatyzacji wykonywania zadań w usłudze ml, ten typ potoku nie jest przechowywany w obszarze roboczym. [Porównaj te różne potoki](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
 
 Utworzone potoki ML są widoczne dla członków [obszaru roboczego](how-to-manage-workspace.md)Azure Machine Learning. 
 
@@ -110,7 +110,7 @@ output_data1 = PipelineData(
 ## <a name="set-up-a-compute-target"></a>Konfigurowanie celu obliczeń
 
 
-W Azure Machine Learning termin __obliczeniowy__ (lub __element docelowy obliczeń__ ) odnosi się do maszyn lub klastrów wykonujących kroki obliczeniowe w potoku uczenia maszynowego.   Zobacz [elementy docelowe obliczeń dla szkolenia modelu](concept-compute-target.md#train) , aby uzyskać pełną listę elementów docelowych obliczeń i [utworzyć cele obliczeniowe](how-to-create-attach-compute-studio.md) na potrzeby tworzenia i dołączania ich do obszaru roboczego.   Proces tworzenia i dołączania obiektu docelowego obliczeń jest taki sam, jak w przypadku szkolenia modelu lub uruchamiania kroku potoku. Po utworzeniu i dołączeniu obiektu docelowego obliczeń Użyj `ComputeTarget` obiektu w [kroku potoku](#steps).
+W Azure Machine Learning termin __obliczeniowy__ (lub __element docelowy obliczeń__) odnosi się do maszyn lub klastrów wykonujących kroki obliczeniowe w potoku uczenia maszynowego.   Zobacz [elementy docelowe obliczeń dla szkolenia modelu](concept-compute-target.md#train) , aby uzyskać pełną listę elementów docelowych obliczeń i [utworzyć cele obliczeniowe](how-to-create-attach-compute-studio.md) na potrzeby tworzenia i dołączania ich do obszaru roboczego.   Proces tworzenia i dołączania obiektu docelowego obliczeń jest taki sam, jak w przypadku szkolenia modelu lub uruchamiania kroku potoku. Po utworzeniu i dołączeniu obiektu docelowego obliczeń Użyj `ComputeTarget` obiektu w [kroku potoku](#steps).
 
 > [!IMPORTANT]
 > Wykonywanie operacji zarządzania na obiektach docelowych obliczeń nie jest obsługiwane w ramach zadań zdalnych. Potoki uczenia maszynowego są przesyłane jako zadania zdalne, dlatego nie należy używać operacji zarządzania na obiektach docelowych obliczeń z wnętrza potoku.
