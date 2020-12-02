@@ -1,187 +1,288 @@
 ---
-title: Zabezpieczanie obszaru roboczego usługi Synapse
-description: W tym artykule opisano sposób korzystania z ról i kontroli dostępu w celu kontrolowania działań i uzyskiwania dostępu do danych w obszarze roboczym Synapse.
+title: Jak skonfigurować kontrolę dostępu dla obszaru roboczego Synapse
+description: W tym artykule przedstawiono sposób kontrolowania dostępu do obszaru roboczego Synapse przy użyciu ról platformy Azure, ról Synapse, uprawnień SQL i uprawnień git.
 services: synapse-analytics
-author: matt1883
+author: billgib
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: security
-ms.date: 04/15/2020
-ms.author: mahi
+ms.date: 12/03/2020
+ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 25e191af919c5880045a6c4c7c79b675cf02520e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7243d24204c8e15ae4246718cafb24d31f804d02
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458711"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519182"
 ---
-# <a name="secure-your-synapse-workspace"></a>Zabezpieczanie obszaru roboczego usługi Synapse 
+# <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Jak skonfigurować kontrolę dostępu dla obszaru roboczego Synapse 
 
-W tym artykule opisano sposób korzystania z ról i kontroli dostępu w celu kontrolowania działań i uzyskiwania dostępu do danych. Zgodnie z tymi instrukcjami kontrola dostępu w usłudze Azure Synapse Analytics jest uproszczona. Wystarczy dodać i usunąć użytkowników z jednej z trzech grup zabezpieczeń.
+W tym artykule przedstawiono sposób kontrolowania dostępu do obszaru roboczego Synapse przy użyciu ról platformy Azure, ról Synapse, uprawnień SQL i uprawnień git.   
 
-## <a name="overview"></a>Omówienie
+W tym przewodniku skonfigurujesz obszar roboczy i skonfigurujesz podstawowy system kontroli dostępu odpowiedni dla wielu projektów Synapse.  Następnie w tym artykule opisano bardziej zaawansowane opcje precyzyjnej kontroli, która powinna być potrzebna.  
+
+Kontrolę dostępu Synapse można uprościć za pomocą grup zabezpieczeń, które są wyrównane z rolami i osób w organizacji.  Aby zarządzać dostępem, wystarczy dodawać i usuwać użytkowników z grup zabezpieczeń.
+
+Przed rozpoczęciem tego instruktażu zapoznaj się z [omówieniem kontroli dostępu Synapse](./synapse-workspace-access-control-overview.md) , aby zaznajomić się z mechanizmami kontroli dostępu używanymi przez Synapse.   
+
+## <a name="access-control-mechanisms"></a>Mechanizmy kontroli dostępu
+
+> [!NOTE]
+> Podejście wykonane w tym przewodniku polega na utworzeniu kilku grup zabezpieczeń, a następnie przypisaniu ról do tych grup. Po skonfigurowaniu grup należy zarządzać członkostwem w grupach zabezpieczeń, aby kontrolować dostęp do obszaru roboczego.
 
 Aby zabezpieczyć obszar roboczy Synapse, należy postępować zgodnie ze wzorcem konfigurowania następujących elementów:
 
-- Role platformy Azure (takie jak wbudowane, takie jak właściciel, współautor itp.)
-- Role Synapse — te role są unikatowe dla Synapse i nie są oparte na rolach platformy Azure. Istnieją trzy z tych ról:
-  - Administrator obszaru roboczego Synapse
-  - Synapse administratora SQL
-  - Apache Spark dla administratora usługi Azure Synapse Analytics
-- Kontrola dostępu do danych w Azure Data Lake Storage Gen 2 (ADLSGEN2).
-- Kontrola dostępu do Synapse baz danych SQL i Spark
-
+- **Grupy zabezpieczeń**, które umożliwiają grupowanie użytkowników o podobnych wymaganiach dotyczących dostępu.
+- **Role platformy Azure**, które umożliwiają kontrolowanie użytkowników, którzy mogą tworzyć pule SQL, pule Apache Spark i środowiska Integration Runtime oraz zarządzać nimi, a także uzyskiwać dostęp do usługi ADLS Gen2 Storage.
+- **Role Synapse**, umożliwiające kontrolowanie dostępu do opublikowanych artefaktów kodu, korzystanie z Apache Spark zasobów obliczeniowych i środowiska Integration Runtime 
+- **Uprawnienia SQL** do kontrolowania dostępu do pul SQL przez administrację i płaszczyzny danych. 
+- **Uprawnienia git**, aby kontrolować, kto może uzyskiwać dostęp do artefaktów kodu w kontroli źródła w przypadku skonfigurowania usługi git dla obszaru roboczego 
+ 
 ## <a name="steps-to-secure-a-synapse-workspace"></a>Procedura zabezpieczania obszaru roboczego Synapse
 
-Ten dokument używa standardowych nazw do uproszczenia instrukcji. Zastąp je wszystkimi wybranymi nazwami.
+Ten dokument używa standardowych nazw do uproszczenia instrukcji. Zastąp je wybranymi nazwami.
 
-|Ustawienie | Przykładowa wartość | Opis |
+|Ustawienie | Nazwa standardowa | Opis |
 | :------ | :-------------- | :---------- |
-| **Obszar roboczy Synapse** | WS1 |  Nazwa, która będzie miała obszar roboczy Synapse. |
-| **Konto ADLSGEN2** | STG1 | Konto ADLS, które ma być używane z Twoim obszarem roboczym. |
-| **Kontener** | CNT1 | Kontener w STG1, który będzie używany domyślnie przez obszar roboczy. |
-| **Dzierżawa usługi Active Directory** | contoso | Nazwa dzierżawy usługi Active Directory.|
+| **Obszar roboczy Synapse** | `workspace1` |  Nazwa, która będzie miała obszar roboczy Synapse. |
+| **Konto ADLSGEN2** | `storage1` | Konto ADLS, które ma być używane z Twoim obszarem roboczym. |
+| **Kontener** | `container1` | Kontener w STG1, który będzie używany domyślnie przez obszar roboczy. |
+| **Dzierżawa usługi Active Directory** | `contoso` | Nazwa dzierżawy usługi Active Directory.|
 ||||
 
 ## <a name="step-1-set-up-security-groups"></a>Krok 1. Konfigurowanie grup zabezpieczeń
 
-Tworzenie i wypełnianie trzech grup zabezpieczeń dla obszaru roboczego:
+>[!Note] 
+>W trakcie okresu zapoznawczego zaleca się utworzenie grup zabezpieczeń zamapowanych na role administratorów Synapse **Synapse SQL** i **Synapse Apache Spark** .  Wraz z wprowadzeniem nowych Synapse ról i zakresów kontroli RBAC zaleca się używanie tych nowych funkcji w celu kontrolowania dostępu do obszaru roboczego.  Te nowe role i zakresy zapewniają większą elastyczność konfiguracji i rozpoznaje, że deweloperzy często korzystają z różnych wersji SQL i Spark w tworzeniu aplikacji analitycznych i może być konieczne udzielenie dostępu do określonych zasobów w obszarze roboczym. [Dowiedz się więcej](./synapse-workspace-synapse-rbac.md).
 
-- **WS1 \_ WSAdmins** — dla użytkowników, którzy potrzebują pełnej kontroli nad obszarem roboczym
-- **WS1 \_ SparkAdmins** — dla tych użytkowników, którzy potrzebują pełnej kontroli nad aspektami Spark obszaru roboczego
-- **WS1 \_ Sqladmins** — dla użytkowników, którzy potrzebują pełnej kontroli nad aspektami programu SQL obszaru roboczego
+Utwórz następujące grupy zabezpieczeń dla obszaru roboczego:
 
-## <a name="step-2-prepare-your-data-lake-storage-gen2-account"></a>Krok 2. Przygotowywanie konta Data Lake Storage Gen2
+- **`workspace1_SynapseAdministrators`** dla użytkowników, którzy potrzebują pełnej kontroli nad obszarem roboczym.  Dodaj siebie do tej grupy zabezpieczeń, co najmniej na początku.
+- **`workspace1_SynapseContributors`** dla deweloperów, którzy muszą opracowywać, debugować i publikować kod w usłudze.   
+- **`workspace1_SynapseComputeOperators`** w przypadku użytkowników, którzy muszą zarządzać pulami Apache Spark i nimi monitorować oraz w programie Integration Runtime.
+- **`workspace1_SynapseCredentialUsers`** w przypadku użytkowników, którzy muszą debugować i uruchamiać potoki aranżacji przy użyciu poświadczenie obszaru roboczego MSI (tożsamość usługi zarządzanej) i anulować uruchomienia potoku.   
 
-Zidentyfikuj te informacje o magazynie:
+Wkrótce przypiszesz role Synapse do tych grup w zakresie obszaru roboczego.  
 
-- Konto ADLSGEN2 do użycia w Twoim obszarze roboczym. Ten dokument wywołuje STG1 IT.  STG1 jest uznawana za "podstawowe" konto magazynu dla Twojego obszaru roboczego.
-- Kontener w WS1, który będzie używany przez obszar roboczy Synapse domyślnie. Ten dokument wywołuje CNT1 IT.  Ten kontener jest używany na potrzeby:
+Utwórz również tę grupę zabezpieczeń: 
+- **`workspace1_SQLAdministrators`**, Grupa użytkowników, którzy potrzebują Active Directory urzędu administracyjnego w ramach pul SQL w obszarze roboczym. 
+
+Ta `workspace1_SynapseSQLAdministrators` Grupa będzie używana podczas konfigurowania uprawnień SQL w PULACH SQL podczas ich tworzenia. 
+
+W przypadku podstawowej instalacji tych pięciu grup wystarczą. Później możesz dodać grupy zabezpieczeń, aby obsługiwać użytkowników, którzy potrzebują bardziej wyspecjalizowanego dostępu, lub udzielić użytkownikom dostępu tylko do określonych zasobów.
+
+> [!NOTE]
+>- Dowiedz się, jak utworzyć grupę zabezpieczeń w [tym artykule](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
+>- Dowiedz się, jak dodać grupę zabezpieczeń z innej grupy zabezpieczeń w [tym artykule](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal).
+
+>[!Tip]
+>Indywidualni użytkownicy Synapse mogą używać Azure Active Directory w Azure Portal, aby wyświetlić ich członkostwo w grupach w celu ustalenia, które role zostały im przyznane.
+
+## <a name="step-2-prepare-your-adls-gen2-storage-account"></a>Krok 2. Przygotowywanie konta magazynu ADLS Gen2
+
+Obszar roboczy Synapse używa domyślnego kontenera magazynu dla:
   - Przechowywanie plików danych kopii zapasowej dla tabel platformy Spark
   - Dzienniki wykonywania dla zadań platformy Spark
 
-- Przy użyciu Azure Portal Przypisz grupy zabezpieczeń następujące role w CNT1
+Zidentyfikuj następujące informacje dotyczące magazynu:
 
-  - Przypisywanie **WS1 \_ WSAdmins** do roli **współautor danych obiektów blob magazynu**
-  - Przypisywanie **WS1 \_ SparkAdmins** do roli **współautor danych obiektów blob magazynu**
-  - Przypisywanie **WS1 \_ sqladmins** do roli **współautor danych obiektów blob magazynu**
+- Konto ADLS Gen2 do użycia w Twoim obszarze roboczym. Ten dokument wywołuje go `storage1` . `storage1` jest uznawany za "podstawowe" konto magazynu dla Twojego obszaru roboczego.
+- Kontener, w `workspace1` którym znajduje się obszar roboczy Synapse, będzie używany domyślnie. Ten dokument wywołuje go `container1` . 
+
+- Za pomocą Azure Portal Przypisz następujące role platformy Azure `container1` do grup zabezpieczeń 
+
+  - Przypisz rolę **współautor danych obiektu blob magazynu** do programu `workspace1_SynapseAdmins` 
+  - Przypisz rolę **współautor danych obiektu blob magazynu** do programu `workspace1_SynapseContributors`
+  - Przypisz rolę **współautor danych obiektu blob magazynu** do `workspace1_SynapseComputeOperators` **<< weryfikacji**  
 
 ## <a name="step-3-create-and-configure-your-synapse-workspace"></a>Krok 3. Tworzenie i Konfigurowanie obszaru roboczego Synapse
 
- W Azure Portal Utwórz obszar roboczy Synapse:
+W Azure Portal Utwórz obszar roboczy Synapse:
 
 - Wybierz swoją subskrypcję
-- Wybierz grupę zasobów — musisz mieć dostęp do grupy zasobów, do której przypisano rolę **właściciela** .
-- Nazwij obszar roboczy WS1
-- Wybierz pozycję STG1 dla konta magazynu —. Wybierz pozycję CNT1 dla kontenera, który jest używany jako "system plików".
+- Wybierz lub Utwórz grupę zasobów, dla której masz rolę **właściciela** platformy Azure.
+- Nazwij obszar roboczy `workspace1`
+- Wybierz `storage1` konto magazynu
+- Wybierz `container1` kontener, który jest używany jako "system plików".
 - Otwórz WS1 w programie Synapse Studio
-- Wybierz pozycję **Zarządzaj**  >  **Access Control** Przypisz grupy zabezpieczeń do następujących ról Synapse.
-  - Przypisywanie **WS1 \_ WSAdmins** do administratorów obszaru roboczego Synapse
-  - Przypisywanie **WS1 \_ SparkAdmins** do administratorów platformy Synapse Spark
-  - Przypisywanie **WS1 \_ sqladmins** do Synapse Administratorzy SQL
+- Przejdź do obszaru **Zarządzanie**  >  **Access Control** i przypisz następujące role Synapse w *obszarze roboczym* do grup zabezpieczeń.
+  - Przypisz rolę **administratora Synapse** do programu `workspace1_SynapseAdministrators` 
+  - Przypisz rolę **współautora Synapse** do elementu `workspace1_SynapseContributors` 
+  - Przypisz rolę **operatora obliczeń Synapse SQL** do programu `workspace1_SynapseComputeOperators`
 
-## <a name="step-4-configure-data-lake-storage-gen2-for-use-by-synapse-workspace"></a>Krok 4. Konfigurowanie Data Lake Storage Gen2 do użycia przez obszar roboczy Synapse
+## <a name="step-4-grant-the-workspace-msi-access-to-the-default-storage-container"></a>Krok 4. przyznanie do domyślnego kontenera magazynu obszaru roboczego MSI
 
-Obszar roboczy Synapse wymaga dostępu do STG1 i CNT1, aby można było uruchamiać potoki i wykonywać zadania systemowe.
-
-- Otwórz witrynę Azure Portal
-- Znajdź STG1
-- Przejdź do CNT1
-- Upewnij się, że plik MSI (tożsamość usługi zarządzanej) dla WS1 jest przypisany do roli **współautor danych obiektów blob magazynu** w witrynie CNT1
-  - Jeśli nie widzisz jej przypisanej, przypisz ją.
-  - Plik MSI ma taką samą nazwę jak obszar roboczy. W takim przypadku &quot; WS1 &quot; .
-
-## <a name="step-5-configure-admin-access-for-synapse-sql"></a>Krok 5. Konfigurowanie dostępu administratora dla usługi Synapse SQL
+Aby uruchamiać potoki i wykonywać zadania systemowe, Synapse wymaga, aby tożsamość usługi zarządzanej przez obszar roboczy (MSI) wymagała dostępu do `container1` konta domyślnego ADLS Gen2.
 
 - Otwórz witrynę Azure Portal
-- Przejdź do WS1
+- Znajdź konto magazynu, `storage1` a następnie `container1`
+- Przy użyciu **Access Control (IAM)** upewnij się, że rola **współautor danych obiektów blob magazynu** jest przypisana do pliku MSI obszaru roboczego
+  - Jeśli nie jest przypisana, przypisz ją.
+  - Plik MSI ma taką samą nazwę jak obszar roboczy. W tym artykule `workspace1` .
+
+## <a name="step-5-grant-the-synapse-administrators-the-azure-contributor-role-on-the-workspace"></a>Krok 5. przyznanie administratorom Synapse roli współautor platformy Azure w obszarze roboczym 
+
+Aby tworzyć pule SQL, pule Apache Spark i środowiska Integration Runtime, użytkownicy muszą mieć co najmniej dostęp współautora platformy Azure w obszarze roboczym. Rola współautor umożliwia również tym użytkownikom zarządzanie zasobami, w tym Wstrzymywanie i skalowanie.
+
+- Otwórz witrynę Azure Portal
+- Zlokalizuj obszar roboczy, `workspace1`
+- Przypisz rolę **współautor platformy Azure** `workspace1` do programu `workspace1_SynapseAdministrators` . 
+
+## <a name="step-6-assign-sql-active-directory-admin-role"></a>Krok 6. Przypisywanie roli administratora Active Directory SQL
+
+Twórca stacji roboczej jest automatycznie ustawiany jako administrator Active Directory dla obszaru roboczego.  Tę rolę można udzielić tylko jednemu użytkownikowi lub grupie. W tym kroku przypiszesz administrator Active Directory w obszarze roboczym do `workspace1_SynapseSQLAdministrators` grupy zabezpieczeń.  Przypisanie tej roli daje grupie administratorów o wysokim poziomie uprawnień dostęp do wszystkich pul SQL.   
+
+- Otwórz witrynę Azure Portal
+- Przejdź do strony `workspace1`
 - W obszarze **Ustawienia** wybierz pozycję **SQL Active Directory administrator**
-- Wybierz pozycję **Ustaw administratora** i wybierz pozycję WS1 \_ sqladmins
+- Wybierz pozycję **Ustaw administratora** i wybierz pozycję **`workspace1_SynapseSQLAdministrators`**
 
-## <a name="step-6-maintain-access-control"></a>Krok 6. Obsługa kontroli dostępu
+>[!Note]
+>Ta czynność jest opcjonalna.  Można przyznać grupie administratorów SQL mniej uprzywilejowaną rolę. Aby przypisać `db_owner` lub inne role SQL, należy uruchomić skrypty dla każdej bazy danych SQL. 
 
-Konfiguracja została zakończona.
+## <a name="step-7-grant-access-to-sql-pools"></a>Krok 7. udzielanie dostępu do pul SQL
 
-Teraz, aby zarządzać dostępem użytkowników, można dodawać i usuwać użytkowników z trzech grup zabezpieczeń.
+Domyślnie wszyscy użytkownicy z przypisaną rolą administratora Synapse są również przypisani do roli SQL `db_owner` w puli SQL bezserwerowej, "wbudowane".
 
-Mimo że można ręcznie przypisać użytkowników do ról Synapse, jeśli tak się stanie, nie będzie on spójnie skonfigurowany. Zamiast tego należy dodawać i usuwać tylko użytkowników z grup zabezpieczeń.
+Dostęp do pul SQL dla innych użytkowników i dla pliku MSI obszaru roboczego jest kontrolowany przy użyciu uprawnień SQL.  Przypisanie uprawnień SQL wymaga, aby skrypty SQL były uruchamiane w każdej puli SQL po utworzeniu.  Istnieją trzy przypadki, w których wymagane jest uruchomienie następujących skryptów:
+1. Udzielanie innym użytkownikom dostępu do puli SQL bezserwerowej, "wbudowane"
+2. Udzielanie wszystkim użytkownikom dostępu do pul dedykowanych
+3. Udzielanie dostępu do pliku MSI w puli SQL w celu umożliwienia pomyślnego uruchomienia potoków, które wymagają dostępu do puli SQL.
 
-## <a name="step-7-verify-access-for-users-in-the-roles"></a>Krok 7. Weryfikowanie dostępu dla użytkowników w rolach
+Poniżej znajdują się przykładowe skrypty SQL.
 
-Użytkownicy w każdej roli muszą wykonać następujące czynności:
+Aby udzielić dostępu do dedykowanej puli SQL, skrypty mogą być uruchamiane przez twórcę obszaru roboczego lub dowolnego członka `workspace1_SynapseSQL Administrators` grupy.  
 
-| Liczba | Krok | Administratorzy obszaru roboczego | Administratorzy platformy Spark | Administratorzy SQL |
-| --- | --- | --- | --- | --- |
-| 1 | Przekaż plik Parquet do CNT1 | TAK | TAK | TAK |
-| 2 | Odczytaj plik Parquet za pomocą puli SQL bezserwerowej | TAK | NO | TAK |
-| 3 | Utwórz bezserwerową pulę Apache Spark | TAK [1] | TAK [1] | NO  |
-| 4 | Odczytuje plik Parquet z notesem | TAK | TAK | NO |
-| 5 | Tworzenie potoku z poziomu notesu i wyzwalanie potoku w celu uruchomienia go teraz | TAK | NO | NO |
-| 6 | Utwórz dedykowaną pulę SQL i uruchom skrypt SQL, taki jak &quot; SELECT 1&quot; | TAK [1] | NO | TAK [1] |
+Aby udzielić dostępu do puli SQL bezserwerowej, "wbudowane", skrypty mogą być dodatkowo uruchamiane przez dowolnego członka  `workspace1_SynapseAdministrators` grupy. 
+
+> [!TIP]
+> Poniższe kroki muszą zostać uruchomione dla **każdej** puli SQL, aby umożliwić użytkownikom dostęp do wszystkich baz danych SQL, z wyjątkiem sekcji w [obszarze obszar roboczy](#workspace-scoped-permission) , w którym można przypisać rolę administratora systemu.
+
+### <a name="step-71-serverless-sql-pools"></a>Krok 7,1: bezserwerowe pule SQL
+
+W tej sekcji znajdziesz przykłady umożliwiające użytkownikowi uprawnienie do konkretnej bazy danych lub pełnych uprawnień serwera.
 
 > [!NOTE]
-> [1] aby utworzyć pule SQL lub Spark, użytkownik musi mieć co najmniej rolę współautor w obszarze roboczym Synapse.
->
- 
->[!TIP]
-> - Niektóre kroki zostaną celowo zabronione w zależności od roli.
-> - Należy pamiętać, że niektóre zadania mogą się nie powieść, jeśli zabezpieczenia nie zostały w pełni skonfigurowane. Te zadania są wymienione w tabeli.
+> W przykładach skryptu Zamień *alias* na alias użytkownika lub grupy, którym udzielono dostępu, i *domenę* z domeną firmy, której używasz.
 
-## <a name="step-8-network-security"></a>Krok 8. zabezpieczenia sieci
+#### <a name="pool-scoped-permission"></a>Uprawnienie z zakresem puli
 
-W celu skonfigurowania zapory obszaru roboczego, sieci wirtualnej i [linku prywatnego](../../azure-sql/database/private-endpoint-overview.md).
+Aby udzielić dostępu użytkownikowi do **pojedynczej** puli SQL bezserwerowej, wykonaj czynności opisane w tym przykładzie:
 
-## <a name="step-9-completion"></a>Krok 9. uzupełnianie
+1. Utwórz nazwę logowania
+
+    ```sql
+    use master
+    go
+    CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
+    go
+    ```
+
+2. Utwórz użytkownika
+
+    ```sql
+    use yourdb -- Use your DB name
+    go
+    CREATE USER alias FROM LOGIN [alias@domain.com];
+    ```
+
+3. Dodaj użytkownika do członków określonej roli
+
+    ```sql
+    use yourdb -- Use your DB name
+    go
+    alter role db_owner Add member alias -- Type USER name from step 2
+    ```
+
+#### <a name="workspace-scoped-permission"></a>Uprawnienie do zakresu obszaru roboczego
+
+Aby udzielić pełnego dostępu do **wszystkich** pul SQL bezserwerowych w obszarze roboczym, Użyj skryptu w tym przykładzie:
+
+```sql
+CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
+ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
+```
+
+### <a name="step-72-dedicated-sql-pools"></a>Krok 7,2: dedykowane pule SQL
+
+Aby udzielić dostępu do **pojedynczej** dedykowanej puli SQL, wykonaj następujące kroki w Edytorze skryptów SQL Synapse:
+
+1. Utwórz użytkownika w bazie danych, uruchamiając następujące polecenie w docelowej bazie danych, wybierane przy użyciu opcji *Połącz z* listą rozwijaną:
+
+    ```sql
+    --Create user in SQL DB
+    CREATE USER [<alias@domain.com>] FROM EXTERNAL PROVIDER;
+    ```
+
+2. Przyznaj użytkownikowi rolę dostępu do bazy danych:
+
+    ```sql
+    --Create user in SQL DB
+    EXEC sp_addrolemember 'db_owner', '<alias@domain.com>';
+    ```
+
+> [!IMPORTANT]
+> *db_datareader* i *db_datawriter* mogą współdziałać z uprawnieniami do odczytu i zapisu, jeśli udzielanie *db_owner* nie jest wymagane.
+> Aby użytkownik platformy Spark mógł odczytywać i zapisywać dane bezpośrednio z platformy Spark do lub z puli SQL, wymagane jest uprawnienie *db_owner* .
+
+Po utworzeniu użytkowników Sprawdź, czy pula SQL bezserwerowa może wysyłać zapytania do konta magazynu.
+
+### <a name="step-73-sl-access-control-for-workspace-pipeline-runs"></a>Krok 7,3: Kontrola dostępu SL dla uruchomień potoków obszaru roboczego
+
+### <a name="workspace-managed-identity"></a>Tożsamość zarządzana przez obszar roboczy
+
+> [!IMPORTANT]
+> Aby pomyślnie uruchomić potoki, które zawierają zestawy danych lub działania odwołujące się do puli SQL, tożsamość obszaru roboczego musi mieć przyznane dostęp do puli SQL.
+
+Uruchom następujące polecenia w każdej puli SQL, aby umożliwić tożsamości zarządzanej przez obszar roboczy uruchamianie potoków w bazie danych puli SQL:
+
+```sql
+--Create user in DB
+CREATE USER [<workspacename>] FROM EXTERNAL PROVIDER;
+
+--Granting permission to the identity
+GRANT CONTROL ON DATABASE::<SQLpoolname> TO <workspacename>;
+```
+
+To uprawnienie można usunąć, uruchamiając następujący skrypt w tej samej puli SQL:
+
+```sql
+--Revoking permission to the identity
+REVOKE CONTROL ON DATABASE::<SQLpoolname> TO <workspacename>;
+
+--Deleting the user in the DB
+DROP USER [<workspacename>];
+```
+
+## <a name="step-8-add-users-to-security-groups"></a>Krok 8. Dodawanie użytkowników do grup zabezpieczeń
+
+Początkowa konfiguracja systemu kontroli dostępu została ukończona.
+
+Aby zarządzać dostępem, można dodawać i usuwać użytkowników z grup zabezpieczeń, które zostały skonfigurowane.  Mimo że można ręcznie przypisać użytkowników do ról Synapse, jeśli to zrobisz, nie skonfiguruje ich uprawnień konsekwentnie. Zamiast tego należy dodawać i usuwać tylko użytkowników z grup zabezpieczeń.
+
+## <a name="step-9-network-security"></a>Krok 9. zabezpieczenia sieci
+
+Ostatnim krokiem do zabezpieczenia obszaru roboczego jest Zabezpieczanie dostępu do sieci przy użyciu:
+- [Zapora obszaru roboczego](./synapse-workspace-ip-firewall.md)
+- [Zarządzana Sieć wirtualna](./synapse-workspace-managed-vnet.md) 
+- [Prywatne punkty końcowe](./synapse-workspace-managed-private-endpoints.md)
+- [Link prywatny](../../azure-sql/database/private-endpoint-overview.md)
+
+## <a name="step-10-completion"></a>Krok 10. uzupełnianie
 
 Obszar roboczy jest teraz w pełni skonfigurowany i zabezpieczony.
 
-## <a name="how-roles-interact-with-synapse-studio"></a>Jak role współdziałają z programem Synapse Studio
+## <a name="supporting-more-advanced-scenarios"></a>Obsługa bardziej zaawansowanych scenariuszy
 
-Program Synapse Studio będzie zachowywać się inaczej w zależności od ról użytkownika. Niektóre elementy mogą być ukryte lub wyłączone, jeśli użytkownik nie jest przypisany do ról, które zapewniają odpowiedni dostęp. Poniższa tabela zawiera podsumowanie wpływu programu Synapse Studio.
+Ten przewodnik koncentruje się na konfigurowaniu podstawowego systemu kontroli dostępu. Można obsługiwać bardziej zaawansowane scenariusze, tworząc dodatkowe grupy zabezpieczeń i przypisując im bardziej szczegółowe role w bardziej szczegółowych zakresach. Należy wziąć pod uwagę następujące przypadki:
 
-| Zadanie | Administratorzy obszaru roboczego | Administratorzy platformy Spark | Administratorzy SQL |
-| --- | --- | --- | --- |
-| Otwórz Synapse Studio | TAK | TAK | TAK |
-| Wyświetlanie centrum macierzystego | TAK | TAK | TAK |
-| Wyświetlanie centrum danych | TAK | TAK | TAK |
-| Centrum danych/zobacz połączone ADLS Gen2 konta i kontenery | TAK [1] | TAK [1] | TAK [1] |
-| Centrum danych/Wyświetlanie baz danych | TAK | TAK | TAK |
-| Centrum danych/wyświetlanie obiektów w bazach danych | TAK | TAK | TAK |
-| Centra danych/dostęp do danych w Synapse bazach danych SQL | TAK   | NO   | TAK   |
-| Centra danych/dostęp do danych w bezserwerowych bazach danych puli SQL | TAK [2]  | NO  | TAK [2]  |
-| Centra danych/dostęp do danych w bazach danych Spark | TAK [2] | TAK [2] | TAK [2] |
-| Korzystanie z centrum opracowywania | TAK | TAK | TAK |
-| Opracowywanie skryptów SQL Hub/autora | TAK | NO | TAK |
-| Opracowywanie definicji zadań centrum/autora platformy Spark | TAK | TAK | NO |
-| Opracowywanie notesów centrum/autora | TAK | TAK | NO |
-| Opracowywanie centrów/autora przepływu | TAK | NO | NO |
-| Korzystanie z centrum aranżacji | TAK | TAK | TAK |
-| Organizuj centra/Użyj potoków | TAK | NO | NO |
-| Korzystanie z centrum zarządzania | TAK | TAK | TAK |
-| Zarządzanie usługą Hub/Synapse SQL | TAK | NO | TAK |
-| Zarządzanie pulami Hub/Spark | TAK | TAK | NO |
-| Zarządzaj centrum/wyzwalaczami | TAK | NO | NO |
-| Zarządzanie centrami/połączonymi usługami | TAK | TAK | TAK |
-| Zarządzanie centrami/Access Control (przypisywanie użytkowników do ról obszaru roboczego Synapse) | TAK | NO | NO |
-| Zarządzanie centrami/środowiskami Integration Runtime | TAK | TAK | TAK |
-| Korzystanie z centrum monitora | TAK | TAK | TAK |
-| Monitoruj uruchomienia centrów/aranżacji/potoku  | TAK | NO | NO |
-| Monitorowanie uruchomień centrum/aranżacji/wyzwalacza  | TAK | NO | NO |
-| Monitorowanie centrów/aranżacji/środowisk Integration Runtime  | TAK | TAK | TAK |
-| Monitoruj centra/działania/aplikacje platformy Spark | TAK | TAK | NO  |
-| Monitoruj centra/działania/żądania SQL | TAK | NO | TAK |
-| Monitoruj centrum/działania/pule platformy Spark | TAK | TAK | NO  |
-| Monitoruj centrum/wyzwalacze | TAK | NO | NO |
-| Zarządzanie centrami/połączonymi usługami | TAK | TAK | TAK |
-| Zarządzanie centrami/Access Control (przypisywanie użytkowników do ról obszaru roboczego Synapse) | TAK | NO | NO |
-| Zarządzanie centrami/środowiskami Integration Runtime | TAK | TAK | TAK |
+**Włącz usługę git — obsługa** obszaru roboczego w przypadku bardziej zaawansowanych scenariuszy programistycznych, takich jak Ci/CD.  W trybie git uprawnienia usługi git określają, czy użytkownik może zatwierdzić zmiany w gałęzi roboczej.  Publikowanie w usłudze odbywa się tylko z gałęzi współpracy.  Należy rozważyć utworzenie grupy zabezpieczeń dla deweloperów, którzy muszą opracowywać i debugować aktualizacje w gałęzi roboczej, ale nie muszą publikować zmian w usłudze na żywo.
 
+**Ogranicz dostęp deweloperów** do określonych zasobów.  Utwórz dodatkowe bardziej szczegółowe grupy zabezpieczeń dla deweloperów, którzy potrzebują dostępu tylko do określonych zasobów.  Przypisz te grupy odpowiednie role Synapse do zakresu określonych pul platformy Spark, środowisk Integration Runtime lub poświadczeń.
 
-> [!NOTE]
-> [1] dostęp do danych w kontenerach zależy od kontroli dostępu w ADLS Gen2. </br>
-> [2] tabele SQL OD i tabele platformy Spark przechowują swoje dane w ADLS Gen2 i dostęp wymaga odpowiednich uprawnień do ADLS Gen2.
+**Ograniczanie operatorów do uzyskiwania dostępu do artefaktów kodu**.  Utwórz grupy zabezpieczeń dla operatorów, które muszą monitorować stan operacyjny zasobów obliczeniowych Synapse i wyświetlać dzienniki, ale którzy nie potrzebują dostępu do kodu lub publikowania aktualizacji usługi. Przypisz te grupy rolę operatora obliczeniowego w zakresie określonych pul platformy Spark i środowisk Integration Runtime.  
 
 ## <a name="next-steps"></a>Następne kroki
 
-Tworzenie [obszaru roboczego Synapse](../quickstart-create-workspace.md)
+Dowiedz się, [jak zarządzać przypisaniami ról RBAC Synapse](./how-to-manage-synapse-rbac-role-assignments.md) tworzenie [obszaru roboczego Synapse](../quickstart-create-workspace.md)

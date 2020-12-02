@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1cb882ac1051c41f4d887a9ff4dd8cd64bc9f56c
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: a439ce5cd56bde5f9a60a1d99f5299bd16c81f8b
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593607"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519080"
 ---
 # <a name="create-an-account-sas-with-net"></a>Tworzenie sygnatury dostępu współdzielonego konta przy użyciu platformy .NET
 
@@ -67,8 +67,6 @@ static string GetAccountSASToken()
 Aby za pomocą sygnatury dostępu współdzielonego konta uzyskać dostęp do interfejsów API na poziomie usługi dla Blob service, Utwórz obiekt klienta Blob service przy użyciu sygnatury dostępu współdzielonego i punktu końcowego magazynu obiektów BLOB dla konta magazynu.
 
 ### <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
-
-
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_UseAccountSAS":::
 

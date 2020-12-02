@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/24/2020
-ms.openlocfilehash: c7a2373f0cf7005e465c2d3bd42817b3394a84de
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 27b0485fdd7b3c352a85fe7eb39fba33c53bf727
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510282"
+ms.locfileid: "96519216"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Usługa Azure HDInsight — przyspieszone zapisy dla oprogramowania Apache HBase
 
@@ -36,7 +36,7 @@ Funkcja przyspieszone zapisy rozwiązuje problem z wyższymi opóźnieniami zapi
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Jak włączyć przyspieszone zapisy dla HBase w usłudze HDInsight
 
-Aby utworzyć nowy klaster HBase z funkcją szybsze zapisy, wykonaj kroki opisane w temacie [Konfigurowanie klastrów w usłudze HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) , dopóki nie zostanie osiągnięty **krok 3, magazyn**. W obszarze **ustawienia magazynu metadanych** zaznacz pole wyboru obok pozycji **Włącz przyspieszone operacje zapisu HBase**. Następnie kontynuuj pracę z pozostałymi krokami tworzenia klastra.
+Aby utworzyć nowy klaster HBase z funkcją szybsze zapisy, wykonaj kroki opisane w temacie [Konfigurowanie klastrów w usłudze HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Na karcie **podstawowe** wybierz pozycję typ klastra jako HBase, określ wersję składnika, a następnie kliknij pole wyboru obok pozycji **Włącz szybsze zapisywanie HBase**. Następnie kontynuuj pracę z pozostałymi krokami tworzenia klastra.
 
 ![Włącz opcję szybsze zapisy dla usługi HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/azure-portal-create-hbase-wals.png)
 

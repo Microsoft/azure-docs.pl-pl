@@ -1,5 +1,5 @@
 ---
-title: Nie można utworzyć notesu Jupyter w usłudze Azure HDInsight
+title: Nie można utworzyć Jupyter Notebook w usłudze Azure HDInsight
 description: Zapoznaj się z krokami rozwiązywania problemów i możliwymi rozwiązaniami dotyczącymi problemów podczas pracy z klastrami usługi Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,20 +7,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/11/2020
-ms.openlocfilehash: 50a77e240315796d0d4c98fc8fba8edfc9cd2b7d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 41eefd18419969c6e8c54ba68ce6c0d1eeb7832b
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545535"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519199"
 ---
-# <a name="unable-to-create-jupyter-notebook-in-azure-hdinsight"></a>Nie można utworzyć notesu Jupyter w usłudze Azure HDInsight
+# <a name="unable-to-create-jupyter-notebook-in-azure-hdinsight"></a>Nie można utworzyć Jupyter Notebook w usłudze Azure HDInsight
 
 W tym artykule opisano kroki rozwiązywania problemów oraz możliwe rozwiązania problemów występujących w przypadku współpracy z klastrami usługi Azure HDInsight.
 
 ## <a name="issue"></a>Problem
 
-Podczas uruchamiania notesu Jupyter pojawia się komunikat o błędzie zawierający:
+Podczas uruchamiania Jupyter Notebook zostanie wyświetlony komunikat o błędzie zawierający:
 
 ```error
 Cannot convert notebook to v5 because that version doesn't exist
@@ -50,7 +50,7 @@ Niezgodność wersji.
     version_info = (4, 0, 3)
     ```
 
-    Zapisz zmiany, wprowadzając **kombinację klawiszy Ctrl + X** , **Y** i **Enter** .
+    Zapisz zmiany, wprowadzając **kombinację klawiszy Ctrl + X**, **Y** i **Enter**.
 
 1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net/#/main/services/JUPYTER` lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra.
 
