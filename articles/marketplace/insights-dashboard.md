@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 8f85e9c77cc6fed7e2763f694664332b124d0780
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 9089fee7565633b198043efeed929fc7446437d5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561798"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458283"
 ---
 # <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny Analiza platformy handlowej w analizie komercyjnej platformy handlowej
 
@@ -20,7 +20,7 @@ Ten artykuł zawiera informacje na temat pulpitu nawigacyjnego usługi Marketpla
 
 Aby uzyskać dostęp do pulpitu nawigacyjnego usługi **Marketplace Insights** w centrum partnerskim, w obszarze komercyjna witryna Marketplace wybierz pozycję **[Analizuj](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** szczegółowe dane w  >  **portalu Marketplace**.
 
-Aby uzyskać szczegółowe definicje terminologii dotyczącej analizy, zobacz temat [Terminologia i często zadawane pytania dotyczące analizy Marketplace](./partner-center-portal/faq-terminology.md).
+Aby uzyskać szczegółowe definicje terminologii dotyczącej analizy, zobacz temat [Terminologia i często zadawane pytania dotyczące analizy Marketplace](./analytics-faq.md).
 
 ## <a name="marketplace-insights-dashboard"></a>Pulpit nawigacyjny Szczegółowe informacje na temat platformy handlowej
 
@@ -54,29 +54,29 @@ Wybór zakresu miesiąca można znaleźć w prawym górnym rogu każdej strony. 
 
 Na wykresie dla **osób odwiedzających** szczegółowe informacje o portalu Marketplace jest wyświetlana liczba _wizyt stron_ i _unikatowych osób odwiedzających_ dla wybranego okresu obliczeń.
 
-**Wizyty stron** : Ta liczba przedstawia liczbę różnych sesji użytkownika na stronie z listą ofert (Strona szczegółów produktu) dla wybranego okresu obliczeniowego. Wskaźniki procentów czerwonych i zielonych przedstawiają procent wzrostu odwiedzin strony. Wykres trendu przedstawia liczbę odwiedzin strony od początku do miesiąca.
+**Wizyty stron**: Ta liczba przedstawia liczbę różnych sesji użytkownika na stronie z listą ofert (Strona szczegółów produktu) dla wybranego okresu obliczeniowego. Wskaźniki procentów czerwonych i zielonych przedstawiają procent wzrostu odwiedzin strony. Wykres trendu przedstawia liczbę odwiedzin strony od początku do miesiąca.
 
-**Unikatowi Goście** : Ta liczba reprezentuje liczbę różnych odwiedzających w wybranym okresie obliczeń dla ofert w witrynie Azure Marketplace i AppSource. Osoba odwiedzająca, która odwiedziła co najmniej jedną stronę szczegółów produktu, będzie traktowana jako jeden unikatowy użytkownik.
+**Unikatowi Goście**: Ta liczba reprezentuje liczbę różnych odwiedzających w wybranym okresie obliczeń dla ofert w witrynie Azure Marketplace i AppSource. Osoba odwiedzająca, która odwiedziła co najmniej jedną stronę szczegółów produktu, będzie traktowana jako jeden unikatowy użytkownik.
 
 [![Ilustruje wykres odwiedzających na pulpicie nawigacyjnym usługi Marketplace Insights.](./media/insights-dashboard/visitors.png)](./media/insights-dashboard/visitors.png#lightbox)
 
 ### <a name="call-to-actions-trend"></a>Wywołanie trendu akcji
 
-Ta liczba przedstawia liczbę kliknięć przycisku **akcji, które** zostały wykonane na stronie aukcji oferty (Strona szczegółów produktu). _Wywołania akcji_ są zliczane, gdy użytkownicy wybierają przyciski **Pobierz teraz** , **bezpłatna wersja próbna** , **kontakt ze mną** lub **Testuj dysk** .
+Ta liczba przedstawia liczbę kliknięć przycisku **akcji, które** zostały wykonane na stronie aukcji oferty (Strona szczegółów produktu). _Wywołania akcji_ są zliczane, gdy użytkownicy wybierają przyciski **Pobierz teraz**, **bezpłatna wersja próbna**, **kontakt ze mną** lub **Testuj dysk** .
 
 [![Ilustruje wywołanie wykresu akcji na pulpicie nawigacyjnym usługi Marketplace Insights.](./media/insights-dashboard/call-to-actions-trend.png)](./media/insights-dashboard/call-to-actions-trend.png#lightbox)
 
 ### <a name="page-visits-and-call-to-actions-against-offers-referral-domains-and-campaign-ids"></a>Odwiedziny stron i wywoływanie akcji związanych z ofertami, domenami odwołań i identyfikatorami kampanii
 
-**Domeny odwołań** : wybranie konkretnej domeny odwołania powoduje wyświetlenie miesięcznego trendu wizyt stron i wywoływanie akcji na wykresie po prawej stronie.
+**Domeny odwołań**: wybranie konkretnej domeny odwołania powoduje wyświetlenie miesięcznego trendu wizyt stron i wywoływanie akcji na wykresie po prawej stronie.
 
 :::image type="content" source="./media/insights-dashboard/referral-domain.png" alt-text="Ilustruje wykres domeny odwołań na pulpicie nawigacyjnym usługi Marketplace Insights.":::
 
-**Oferty** : Wybierz konkretną ofertę, aby zobaczyć miesięczny trend wizyt stron oraz wywołania akcji na wykresie po prawej stronie.
+**Oferty**: Wybierz konkretną ofertę, aby zobaczyć miesięczny trend wizyt stron oraz wywołania akcji na wykresie po prawej stronie.
 
 :::image type="content" source="./media/insights-dashboard/offer-alias.png" alt-text="Ilustruje wykres aliasu oferty na pulpicie nawigacyjnym usługi Marketplace Insights.":::
 
-**Identyfikatory kampanii** : wybierając konkretny identyfikator kampanii, powinno być możliwe zrozumienie sukcesu kampanii. Dla każdej kampanii powinno być możliwe wyświetlenie miesięcznego trendu wizyt stron i wywoływanie akcji na wykresie po prawej stronie.
+**Identyfikatory kampanii**: wybierając konkretny identyfikator kampanii, powinno być możliwe zrozumienie sukcesu kampanii. Dla każdej kampanii powinno być możliwe wyświetlenie miesięcznego trendu wizyt stron i wywoływanie akcji na wykresie po prawej stronie.
 
 :::image type="content" source="./media/insights-dashboard/campaign.png" alt-text="Przedstawia wykres kampanii na pulpicie nawigacyjnym usługi Marketplace Insights.":::
 
@@ -112,4 +112,4 @@ Ta tabela zawiera widok listy wizyt stron oraz wywołania akcji wybranych stron,
 - Aby uzyskać szczegółowe informacje na temat klientów, w tym trendów wzrostu, zobacz [pulpit nawigacyjny klienta w komercyjnej analizie portalu Marketplace](./customer-dashboard.md).
 - Aby uzyskać listę żądań pobierania w ciągu ostatnich 30 dni, zobacz [pulpit nawigacyjny w portalu komercyjnej analizy Marketplace](./partner-center-portal/downloads-dashboard.md).
 - Aby wyświetlić skonsolidowany widok opinii klientów na temat ofert w witrynie Azure Marketplace i AppSource, zobacz temat [ocena & przeglądy pulpit nawigacyjny analizy w centrum partnerskim](./partner-center-portal/ratings-reviews.md).
-- Często zadawane pytania dotyczące analizy komercyjnej portalu Marketplace i kompleksowego słownika warunków dotyczących danych można znaleźć w temacie [Terminologia i często zadawane pytania dotyczące analizy Marketplace](./partner-center-portal/faq-terminology.md).
+- Często zadawane pytania dotyczące analizy komercyjnej portalu Marketplace i kompleksowego słownika warunków dotyczących danych można znaleźć w temacie [Terminologia i często zadawane pytania dotyczące analizy Marketplace](./analytics-faq.md).

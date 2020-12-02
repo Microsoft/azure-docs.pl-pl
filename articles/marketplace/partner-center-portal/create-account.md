@@ -8,12 +8,12 @@ ms.date: 11/02/2020
 author: parthpandyaMSFT
 ms.author: parthp
 ms.custom: contperfq2
-ms.openlocfilehash: ccdc87d03181bad1aba4dd362a651fa42381343a
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 39a9b363c847b615bfbe049b4b47628e8688c607
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95542290"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458123"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Utwórz komercyjne konto witryny Marketplace w centrum partnerskim
 
@@ -22,7 +22,7 @@ Aby opublikować oferty w usłudze [Microsoft AppSource](https://appsource.micro
 >[!NOTE]
 >Jeśli masz konto w portal Cloud Partner (CPP), przeniesionomy je do Centrum partnerskiego. Nie musisz tworzyć nowego konta. Aby uzyskać więcej informacji, zobacz [wydawcy przeniesieni z Portal Cloud partner](#publishers-who-moved-from-the-cloud-partner-portal).
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Aby utworzyć konto w centrum partnerskim, upewnij się, że spełniasz poniższe wymagania wstępne. Będziemy weryfikować te informacje podczas procesu tworzenia konta.
 
@@ -114,7 +114,7 @@ Konto komercyjnego portalu Marketplace zostało już utworzone w centrum partner
 >
 >Poszczególne konta są przeznaczone dla deweloperów pracujących nad nimi. Konta firmowe są przeznaczone dla organizacji i firm. Konta firmowe umożliwiają dostęp do przesyłania aplikacji z dodatkowymi funkcjami.
 >
-> Aby upewnić się, że masz uprawnienia do konfigurowania konta dla firmy, wymagamy dodatkowej weryfikacji kont firmowych po zarejestrowaniu. Ta weryfikacja może potrwać od kilku dni do kilku tygodni i często zawiera połączenie telefoniczne z firmą. Oba typy kont umożliwiają przesyłanie aplikacji, dodatków i usług. Aby uzyskać więcej informacji, zobacz [typy kont, lokalizacje i opłaty](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees).
+> Aby upewnić się, że masz uprawnienia do konfigurowania konta dla firmy, wymagamy dodatkowej weryfikacji kont firmowych po zarejestrowaniu. Ta weryfikacja może potrwać od kilku dni do kilku tygodni i często zawiera połączenie telefoniczne z firmą. Oba typy kont umożliwiają przesyłanie aplikacji, dodatków i usług. Aby uzyskać więcej informacji, zobacz [typy kont, lokalizacje i opłaty](/windows/uwp/publish/account-types-locations-and-fees).
 
 Gdy zarejestrujesz się w programie komercyjnym Marketplace przy użyciu tego samego konta co program dla deweloperów, możesz zobaczyć wszystkie istniejące rejestracje programu w lewym okienku Centrum partnerskiego.
 

@@ -12,12 +12,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 55c884375372b3fea2ff3153aa936893cf668903
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e73381ef0e646f697f5195cb3df7f4c2733cccaf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359989"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456915"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Działanie procedury składowanej SQL Server
 > [!div class="op_single_selector" title1="Działania transformacji"]
@@ -26,8 +26,8 @@ ms.locfileid: "92359989"
 > * [Działanie MapReduce](data-factory-map-reduce.md)
 > * [Działanie przesyłania strumieniowego Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Działanie platformy Spark](data-factory-spark.md)
-> * [Działanie wykonywania wsadowego w Azure Machine Learning Studio (klasycznej)](data-factory-azure-ml-batch-execution-activity.md)
-> * [Działanie aktualizacji zasobów Azure Machine Learning Studio (klasycznej)](data-factory-azure-ml-update-resource-activity.md)
+> * [Działanie wykonywania wsadowego w usłudze Azure Machine Learning Studio (wersja klasyczna)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Działanie aktualizacji zasobów w usłudze Azure Machine Learning Studio (wersja klasyczna)](data-factory-azure-ml-update-resource-activity.md)
 > * [Działania procedur składowanych](data-factory-stored-proc-activity.md)
 > * [Działania języka U-SQL usługi Data Lake Analytics](data-factory-usql-activity.md)
 > * [Niestandardowe działanie platformy .NET](data-factory-use-custom-activities.md)
@@ -41,7 +41,7 @@ Korzystając z działań przekształcania danych w [potoku](data-factory-create-
 Możesz użyć działania procedury składowanej, aby wywołać procedurę składowaną w jednym z następujących magazynów danych w przedsiębiorstwie lub na maszynie wirtualnej platformy Azure:
 
 - Azure SQL Database
-- Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)
+- Azure Synapse Analytics
 - Baza danych SQL Server. Jeśli używasz SQL Server, zainstaluj bramę Zarządzanie danymi na tym samym komputerze, na którym znajduje się baza danych programu, lub na oddzielnej maszynie, która ma dostęp do bazy danych. Zarządzanie danymi Gateway to składnik, który łączy źródła danych lokalnie/na maszynie wirtualnej platformy Azure z usługami w chmurze w bezpieczny i zarządzany sposób. Aby uzyskać szczegółowe informacje, zobacz artykuł dotyczący [bramy zarządzanie danymi](data-factory-data-management-gateway.md) .
 
 > [!IMPORTANT]
@@ -201,7 +201,7 @@ Zwróć uwagę na następujące właściwości:
 1. Kliknij przycisk **X**, aby zamknąć bloki Edytora fabryki danych i przejść z powrotem do bloku Fabryka danych, a następnie kliknij przycisk **Diagram**.
 
     ![Diagram kafelka 1](media/data-factory-stored-proc-activity/data-factory-diagram-tile.png)
-2. W **widoku diagramu**zostanie wyświetlony przegląd potoków i zestawów danych używanych w tym samouczku.
+2. W **widoku diagramu** zostanie wyświetlony przegląd potoków i zestawów danych używanych w tym samouczku.
 
     ![Diagram kafelka 2](media/data-factory-stored-proc-activity/data-factory-diagram-view.png)
 3. W widoku diagramu kliknij dwukrotnie zestaw danych `sprocsampleout` . Wycinki są wyświetlane w stanie gotowe. Powinna być pięć wycinków, ponieważ wycinek jest generowany przez każdą godzinę między czasem rozpoczęcia i czasem zakończenia z pliku JSON.
@@ -306,7 +306,7 @@ W poniższej tabeli opisano te właściwości JSON:
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
 | name | Nazwa działania |Tak |
-| description |Tekst opisujący działanie używanego działania |Nie |
+| description (opis) |Tekst opisujący działanie używanego działania |Nie |
 | typ | Musi być ustawiona na: **SqlServerStoredProcedure** | Tak |
 | danych wejściowych | Opcjonalny. Jeśli określisz wejściowy zestaw danych, musi on być dostępny (w stanie "gotowe") do uruchomienia działania procedury składowanej. Wejściowy zestaw danych nie może być używany w procedurze składowanej jako parametr. Jest on używany tylko do sprawdzania zależności przed rozpoczęciem działania procedury składowanej. |Nie |
 | wydajności | Należy określić wyjściowy zestaw danych dla działania procedury składowanej. Wyjściowy zestaw danych określa **harmonogram** działania procedury składowanej (co godzinę, co tydzień, co miesiąc itd.). <br/><br/>Wyjściowy zestaw danych musi używać **połączonej usługi** , która odnosi się do Azure SQL Database lub usługi Azure Synapse Analytics lub bazy danych SQL Server, w której ma zostać uruchomiona procedura składowana. <br/><br/>Wyjściowy zestaw danych może stanowić sposób przekazania wyniku procedury składowanej w celu późniejszego przetworzenia przez inne działanie ([łańcuch działań](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) w potoku. Jednak Data Factory nie zapisuje automatycznie danych wyjściowych procedury składowanej do tego zestawu danych. Jest to procedura składowana, która zapisuje w tabeli SQL, do której wskazuje wyjściowy zestaw danych. <br/><br/>W niektórych przypadkach wyjściowy zestaw danych może być **fikcyjnym zestawem danych**, który jest używany tylko do określenia harmonogramu uruchamiania działania procedury składowanej. |Tak |

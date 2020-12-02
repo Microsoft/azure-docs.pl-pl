@@ -1,6 +1,6 @@
 ---
-title: Monitorowanie znaczenia obciążenia i zarządzanie nim
-description: Dowiedz się, jak zarządzać i monitorować ważność poziomu żądań w usłudze Azure Synapse Analytics.
+title: Zarządzanie ważnością obciążeń i monitorowanie jej w dedykowanej puli SQL
+description: Dowiedz się, jak zarządzać i monitorować dedykowaną pulę SQL na poziomie żądania dla usługi Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 43006456142728287ddf4adba1fbb9b45f5ccc89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb0a5fbf33b48521882646bf8fb5eb3fe5dacca6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85211973"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459215"
 ---
-# <a name="manage-and-monitor-workload-importance-in-azure-synapse-analytics"></a>Zarządzanie i monitorowanie ważności obciążeń w usłudze Azure Synapse Analytics
+# <a name="manage-and-monitor-workload-importance-in-dedicated-sql-pool-for-azure-synapse-analytics"></a>Zarządzanie i monitorowanie znaczenia obciążeń w dedykowanej puli SQL dla usługi Azure Synapse Analytics
 
-Zarządzaj i monitoruj Synapse ważność żądania SQL na poziomie na platformie Azure Synapse przy użyciu widoków widoków DMV i wykazu.
+Zarządzaj i monitoruj dedykowaną ważność poziomu żądań puli SQL w usłudze Azure Synapse przy użyciu widoków widoków DMV i wykazu.
 
 ## <a name="monitor-importance"></a>Ważność monitora
 

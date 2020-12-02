@@ -1,6 +1,6 @@
 ---
-title: Najlepsze rozwiązania dotyczące puli SQL bezserwerowej (wersja zapoznawcza)
-description: Zalecenia i najlepsze rozwiązania dotyczące pracy z bezserwerową pulą SQL (wersja zapoznawcza).
+title: Najlepsze rozwiązania dotyczące puli SQL bezserwerowej
+description: Zalecenia i najlepsze rozwiązania dotyczące pracy z pulą bezserwerową SQL.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ddf9d689316d3c95c322aa3a967af53621a2e00f
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: b8b93471b6d7f2555cfd71e524718ed0ea1ee191
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638873"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457899"
 ---
-# <a name="best-practices-for-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Najlepsze rozwiązania dotyczące puli SQL bezserwerowej (wersja zapoznawcza) w usłudze Azure Synapse Analytics
+# <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Najlepsze rozwiązania dotyczące puli SQL bezserwerowej w usłudze Azure Synapse Analytics
 
-W tym artykule znajdziesz zbiór najlepszych rozwiązań dotyczących używania puli SQL bezserwerowej (wersja zapoznawcza). Pula SQL bezserwerowa jest zasobem w usłudze Azure Synapse Analytics.
+W tym artykule znajdziesz zbiór najlepszych rozwiązań dotyczących używania puli SQL bezserwerowej. Pula SQL bezserwerowa jest zasobem w usłudze Azure Synapse Analytics.
 
 ## <a name="general-considerations"></a>Zagadnienia ogólne
 
@@ -129,7 +129,7 @@ Analizatora zoptymalizowanych pod kątem wydajności można użyć podczas wykon
 
 ## <a name="manually-create-statistics-for-csv-files"></a>Ręczne tworzenie statystyk dla plików CSV
 
-Pula SQL bezserwerowa opiera się na statystyce do generowania optymalnych planów wykonywania zapytań. W razie potrzeby dane statystyczne zostaną automatycznie utworzone dla kolumn w plikach Parquet. W tej chwili statystyki nie są tworzone automatycznie dla kolumn w plikach CSV i należy tworzyć statystyki ręcznie w przypadku kolumn używanych w zapytaniach, szczególnie w odniesieniu do tych, które są używane w różnych, sprzężeniach, gdzie, klauzuli ORDER BY i GROUP BY. Aby uzyskać szczegółowe informacje, sprawdź [statystyki w puli SQL bezserwerowej](develop-tables-statistics.md#statistics-in-serverless-sql-pool-preview) .
+Pula SQL bezserwerowa opiera się na statystyce do generowania optymalnych planów wykonywania zapytań. W razie potrzeby dane statystyczne zostaną automatycznie utworzone dla kolumn w plikach Parquet. W tej chwili statystyki nie są tworzone automatycznie dla kolumn w plikach CSV i należy tworzyć statystyki ręcznie w przypadku kolumn używanych w zapytaniach, szczególnie w odniesieniu do tych, które są używane w różnych, sprzężeniach, gdzie, klauzuli ORDER BY i GROUP BY. Sprawdź [Statystyka w puli SQL bezserwerowej] (opracowywanie tabel-Statistics. MD # Statistics-in-Server-SQL-Pool, aby uzyskać szczegółowe informacje.
 
 ## <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Korzystanie z CETAS w celu zwiększenia wydajności zapytań i sprzężeń
 

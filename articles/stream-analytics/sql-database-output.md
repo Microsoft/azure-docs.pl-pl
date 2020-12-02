@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 9d5ddb508740cf5fec670d258926419512e3d549
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ac2c9cb1710c4b4f67ba2aa06707d08cc45d4907
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129834"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459242"
 ---
 # <a name="azure-sql-database-output-from-azure-stream-analytics"></a>Azure SQL Database dane wyjściowe z Azure Stream Analytics
 
@@ -35,11 +35,11 @@ W poniższej tabeli wymieniono nazwy właściwości i ich opisy dotyczące tworz
 |Dziedzicz schemat partycji| Opcja dziedziczenia schematu partycjonowania poprzedniego kroku zapytania, w celu włączenia w pełni równoległej topologii z wieloma składnikami zapisywania do tabeli. Aby uzyskać więcej informacji, zobacz [Azure Stream Analytics danych wyjściowych Azure SQL Database](stream-analytics-sql-output-perf.md).|
 |Maksymalna liczba partii| Zalecany górny limit liczby rekordów wysyłanych z każdą zbiorczą transakcją wstawiania.|
 
-Istnieją dwie karty, które umożliwiają wyjście z Azure Stream Analytics usługi Azure Synapse Analytics (dawniej SQL Data Warehouse): SQL Database i Azure Synapse. Zalecamy wybranie karty usługi Azure Synapse Analytics zamiast karty SQL Database, jeśli spełniony jest dowolny z następujących warunków:
+Istnieją dwie karty, które umożliwiają wyjście z Azure Stream Analytics usługi Azure Synapse Analytics: SQL Database i Azure Synapse. Zalecamy wybranie karty usługi Azure Synapse Analytics zamiast karty SQL Database, jeśli spełniony jest dowolny z następujących warunków:
 
-* **Przepływność** : jeśli oczekiwana przepływność teraz lub w przyszłości jest większa niż 10 MB/s, użyj opcji danych wyjściowych usługi Azure Synapse, aby uzyskać lepszą wydajność.
+* **Przepływność**: jeśli oczekiwana przepływność teraz lub w przyszłości jest większa niż 10 MB/s, użyj opcji danych wyjściowych usługi Azure Synapse, aby uzyskać lepszą wydajność.
 
-* **Partycje wejściowe** : Jeśli masz osiem lub więcej partycji wejściowych, użyj opcji danych wyjściowych usługi Azure Synapse w celu lepszego skalowania w poziomie.
+* **Partycje wejściowe**: Jeśli masz osiem lub więcej partycji wejściowych, użyj opcji danych wyjściowych usługi Azure Synapse w celu lepszego skalowania w poziomie.
 
 ## <a name="partitioning"></a>Partycjonowanie
 
@@ -47,7 +47,7 @@ Partycjonowanie musi być włączone i opiera się na klauzuli PARTITION BY w za
 
 ## <a name="output-batch-size"></a>Rozmiar partii wyjściowej
 
-Maksymalny rozmiar wiadomości można skonfigurować przy użyciu **maksymalnej liczby partii** . Domyślna wartość maksymalna to 10 000, a domyślna wartość minimalna to 100 wierszy na pojedynczy wkład zbiorczy. Aby uzyskać więcej informacji, zobacz [limity usługi Azure SQL](../azure-sql/database/resource-limits-logical-server.md). Każda partia jest początkowo wstawiana zbiorczo z maksymalną liczbą partii. Partia jest dzielona w połowie (do momentu minimalnej liczby partii) na podstawie błędów z możliwością powtarzania z bazy danych SQL.
+Maksymalny rozmiar wiadomości można skonfigurować przy użyciu **maksymalnej liczby partii**. Domyślna wartość maksymalna to 10 000, a domyślna wartość minimalna to 100 wierszy na pojedynczy wkład zbiorczy. Aby uzyskać więcej informacji, zobacz [limity usługi Azure SQL](../azure-sql/database/resource-limits-logical-server.md). Każda partia jest początkowo wstawiana zbiorczo z maksymalną liczbą partii. Partia jest dzielona w połowie (do momentu minimalnej liczby partii) na podstawie błędów z możliwością powtarzania z bazy danych SQL.
 
 ## <a name="next-steps"></a>Następne kroki
 

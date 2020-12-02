@@ -9,14 +9,14 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2e06f0918ce23beded7475f644e7cc6019facacc
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 28af603c0969419cd2e7b8683373faf3838e2242
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322576"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458930"
 ---
-# <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link-preview"></a>Korzystanie z Azure Cosmos DB przy użyciu Apache Spark w usłudze Azure Synapse link (wersja zapoznawcza)
+# <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link"></a>Korzystanie z Azure Cosmos DB przy użyciu Apache Spark w usłudze Azure Synapse link
 
 W tym artykule dowiesz się, jak korzystać z Azure Cosmos DB przy użyciu Apache Spark Synapse. Wraz z pełną obsługą Scala, Python, SparkSQL i C#, Synapse Apache Spark to centrum analiz, Inżynieria danych, nauka danych i scenariusze eksploracji danych w [usłudze Azure Synapse link do Azure Cosmos DB](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 

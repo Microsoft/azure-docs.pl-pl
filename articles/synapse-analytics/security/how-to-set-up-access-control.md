@@ -1,5 +1,5 @@
 ---
-title: Zabezpieczanie obszaru roboczego Synapse (wersja zapoznawcza)
+title: Zabezpieczanie obszaru roboczego usługi Synapse
 description: W tym artykule opisano sposób korzystania z ról i kontroli dostępu w celu kontrolowania działań i uzyskiwania dostępu do danych w obszarze roboczym Synapse.
 services: synapse-analytics
 author: matt1883
@@ -9,20 +9,20 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 79a4db1f7d4be88260ea41ce1090007bc66cc7c8
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 25e191af919c5880045a6c4c7c79b675cf02520e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556033"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458711"
 ---
-# <a name="secure-your-synapse-workspace-preview"></a>Zabezpieczanie obszaru roboczego Synapse (wersja zapoznawcza) 
+# <a name="secure-your-synapse-workspace"></a>Zabezpieczanie obszaru roboczego usługi Synapse 
 
 W tym artykule opisano sposób korzystania z ról i kontroli dostępu w celu kontrolowania działań i uzyskiwania dostępu do danych. Zgodnie z tymi instrukcjami kontrola dostępu w usłudze Azure Synapse Analytics jest uproszczona. Wystarczy dodać i usunąć użytkowników z jednej z trzech grup zabezpieczeń.
 
 ## <a name="overview"></a>Omówienie
 
-Aby zabezpieczyć obszar roboczy Synapse (wersja zapoznawcza), postępuj zgodnie ze wzorcem konfigurowania następujących elementów:
+Aby zabezpieczyć obszar roboczy Synapse, należy postępować zgodnie ze wzorcem konfigurowania następujących elementów:
 
 - Role platformy Azure (takie jak wbudowane, takie jak właściciel, współautor itp.)
 - Role Synapse — te role są unikatowe dla Synapse i nie są oparte na rolach platformy Azure. Istnieją trzy z tych ról:

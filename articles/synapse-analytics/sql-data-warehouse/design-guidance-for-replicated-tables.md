@@ -11,12 +11,12 @@ ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 036cb15cf16b5f90dc17ccdce378a073a398d403
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cf40990d59aff984226244f520e6f8f937713fd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86181339"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456484"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Wskazówki dotyczące projektowania na potrzeby używania zreplikowanych tabel w puli SQL Synapse
 
@@ -26,13 +26,13 @@ W tym artykule przedstawiono zalecenia dotyczące projektowania replikowanych ta
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym artykule założono, że znasz koncepcje dystrybucji i przenoszenia danych w puli SQL.Aby uzyskać więcej informacji, zobacz artykuł dotyczący [architektury](massively-parallel-processing-mpp-architecture.md) .
+W tym artykule założono, że znasz koncepcje dystrybucji i przenoszenia danych w puli SQL.  Aby uzyskać więcej informacji, zobacz artykuł dotyczący [architektury](massively-parallel-processing-mpp-architecture.md) .
 
-W ramach projektu tabeli należy zrozumieć możliwie jak najwięcej danych i jak są wykonywane zapytania dotyczące danych.Rozważmy na przykład następujące pytania:
+W ramach projektu tabeli należy zrozumieć możliwie jak najwięcej danych i jak są wykonywane zapytania dotyczące danych.  Rozważmy na przykład następujące pytania:
 
 - Jak duży jest tabela?
 - Jak często jest odświeżana tabela?
-- Czy istnieją tabele faktów i wymiarów w bazie danych puli SQL?
+- Czy istnieją tabele faktów i wymiarów w puli SQL?
 
 ## <a name="what-is-a-replicated-table"></a>Co to jest zreplikowana tabela?
 
@@ -51,8 +51,8 @@ Rozważ użycie zreplikowanej tabeli, gdy:
 
 Zreplikowane tabele mogą nie dać najlepszej wydajności zapytania, gdy:
 
-- W tabeli występują częste operacje wstawiania, aktualizowania i usuwania.Operacje języka danych (DML) wymagają odbudowania zreplikowanej tabeli.Ponowne kompilowanie często może spowodować wolniejszą wydajność.
-- Baza danych puli SQL jest często skalowana. Skalowanie bazy danych puli SQL zmienia liczbę węzłów obliczeniowych, co powoduje ponowne skompilowanie zreplikowanej tabeli.
+- W tabeli występują częste operacje wstawiania, aktualizowania i usuwania. Operacje języka danych (DML) wymagają odbudowania zreplikowanej tabeli. Ponowne kompilowanie często może spowodować wolniejszą wydajność.
+- Pula SQL jest często skalowana. Skalowanie puli SQL zmienia liczbę węzłów obliczeniowych, co powoduje ponowne skompilowanie zreplikowanej tabeli.
 - Tabela zawiera dużą liczbę kolumn, ale operacje na danych zazwyczaj uzyskują dostęp tylko do niewielkiej liczby kolumn. W tym scenariuszu zamiast replikowania całej tabeli może być bardziej efektywne dystrybuowanie tabeli, a następnie utworzenie indeksu na często używanych kolumnach. Gdy zapytanie wymaga przenoszenia danych, Pula SQL przenosi tylko dane dla żądanych kolumn.
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>Korzystanie z zreplikowanych tabel z prostymi predykatami zapytań
@@ -174,8 +174,8 @@ To zapytanie używa DMV [sys.pdw_replicated_table_cache_state](/sql/relational-d
 
 ```sql
 SELECT [ReplicatedTable] = t.[name]
-  FROM sys.tables t  
-  JOIN sys.pdw_replicated_table_cache_state c  
+  FROM sys.tables t  
+  JOIN sys.pdw_replicated_table_cache_state c  
     ON c.object_id = t.object_id
   JOIN sys.pdw_table_distribution_properties p
     ON p.object_id = t.object_id

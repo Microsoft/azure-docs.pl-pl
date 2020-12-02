@@ -7,20 +7,20 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 11/30/2020
-ms.openlocfilehash: 30f9eac0a0e88092a243b4d9421d2a4f33b07841
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 014bcd6fc519c267cdf17e9e98b850425c25ead6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95759039"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459325"
 ---
 # <a name="prepare-your-azure-container-technical-assets"></a>Przygotuj swoje zasoby techniczne kontenera platformy Azure
 
 W tym artykule przedstawiono zasoby techniczne i zalecenia ułatwiające tworzenie oferty kontenera w witrynie Azure Marketplace.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Aby zapoznać się z przewodnikami Szybki Start, samouczkami i przykładami, zobacz [dokumentację Azure Container Instances](/azure/container-instances/).
+Aby zapoznać się z przewodnikami Szybki Start, samouczkami i przykładami, zobacz [dokumentację Azure Container Instances](../container-instances/index.yml).
 
 ## <a name="fundamental-technical-knowledge"></a>Podstawowa wiedza techniczna
 
@@ -43,7 +43,7 @@ Wybierz co najmniej jedno z następujących środowisk skryptów, aby ułatwić 
 
 Zalecamy dodanie tych narzędzi do środowiska deweloperskiego:
 
-- [Eksplorator usługi Azure Storage](/azure/vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows)
+- [Eksplorator usługi Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows)
 - [Visual Studio Code](https://code.visualstudio.com/)
   - Rozszerzenie: [narzędzia Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
   - Rozszerzenie: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -55,9 +55,9 @@ Zapoznaj się z dostępnymi narzędziami na stronie [Narzędzia deweloperskie pl
 
 Nie można wdrożyć obrazu do Azure Container Instances z rejestru lokalnego.
 
-- Jeśli masz już kontener roboczy w lokalnym rejestrze, Utwórz rejestr platformy Azure i Przekaż obraz kontenera do Azure Container Registry. Aby dowiedzieć się więcej, zobacz [Samouczek: kompilowanie i wdrażanie obrazów kontenerów w chmurze za pomocą zadań Azure Container Registry](/azure/container-registry/container-registry-tutorial-quick-task.md).
+- Jeśli masz już kontener roboczy w lokalnym rejestrze, Utwórz rejestr platformy Azure i Przekaż obraz kontenera do Azure Container Registry. Aby dowiedzieć się więcej, zobacz [Samouczek: kompilowanie i wdrażanie obrazów kontenerów w chmurze za pomocą zadań Azure Container Registry](../container-registry/container-registry-tutorial-quick-task.md).
 
-- Jeśli nie masz jeszcze obrazu kontenera i potrzebujesz konteneryzowanie istniejącej aplikacji lub utworzyć nową aplikację opartą na kontenerach, Sklonuj kod źródłowy aplikacji z usługi GitHub, Utwórz obraz kontenera ze źródła aplikacji i przetestuj go w lokalnym środowisku platformy Docker. Aby dowiedzieć się więcej, zobacz [Samouczek: Tworzenie obrazu kontenera na potrzeby wdrożenia do Azure Container Instances](/azure/container-instances/container-instances-tutorial-prepare-app.md).
+- Jeśli nie masz jeszcze obrazu kontenera i potrzebujesz konteneryzowanie istniejącej aplikacji lub utworzyć nową aplikację opartą na kontenerach, Sklonuj kod źródłowy aplikacji z usługi GitHub, Utwórz obraz kontenera ze źródła aplikacji i przetestuj go w lokalnym środowisku platformy Docker. Aby dowiedzieć się więcej, zobacz [Samouczek: Tworzenie obrazu kontenera na potrzeby wdrożenia do Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

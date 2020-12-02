@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d7c95317667999ac17803f08575e68641100b967
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a9d8c42432d619ab120afd0bd5734f6fa269b514
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023272"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458100"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Samouczek: Eksplorowanie usługi Azure Digital bliźniaczych reprezentacji za pomocą przykładowej aplikacji klienckiej
 
@@ -47,9 +47,9 @@ W oknie programu Visual Studio, w którym jest otwarty projekt _**AdtE2ESample**
 
 Wybierz pozycję *Room.jsna* , aby otworzyć ją w oknie edycji i zmienić ją w następujący sposób:
 
-* **Zaktualizuj numer wersji**, aby wskazać, że dostarczasz nowszą wersję tego modelu. W tym celu należy zmienić *1* na końcu `@id` wartości na *2*. Dowolna liczba większa niż bieżący numer wersji również będzie działała.
-* **Edytuj Właściwość**. Zmień nazwę `Humidity` właściwości na *HumidityLevel* (lub coś innego, jeśli chcesz. Jeśli używasz czegoś innego niż *HumidityLevel*, Zapamiętaj, które z nich korzystasz, i Kontynuuj, korzystając z niego, zamiast *HumidityLevel* w całym samouczku).
-* **Dodaj właściwość**. Poniżej `HumidityLevel` właściwości, która zostanie zakończona w wierszu 15, wklej następujący kod, aby dodać `RoomName` Właściwość do pokoju:
+1. **Zaktualizuj numer wersji**, aby wskazać, że dostarczasz nowszą wersję tego modelu. W tym celu należy zmienić *1* na końcu `@id` wartości na *2*. Dowolna liczba większa niż bieżący numer wersji również będzie działała.
+1. **Edytuj Właściwość**. Zmień nazwę `Humidity` właściwości na *HumidityLevel* (lub coś innego, jeśli chcesz. Jeśli używasz czegoś innego niż *HumidityLevel*, Zapamiętaj, które z nich korzystasz, i Kontynuuj, korzystając z niego, zamiast *HumidityLevel* w całym samouczku).
+1. **Dodaj właściwość**. Poniżej `HumidityLevel` właściwości, która zostanie zakończona w wierszu 15, wklej następujący kod, aby dodać `RoomName` Właściwość do pokoju:
 
     ```json
     ,
@@ -59,13 +59,13 @@ Wybierz pozycję *Room.jsna* , aby otworzyć ją w oknie edycji i zmienić ją w
       "schema": "string"
     }
     ```
-* **Dodaj relację**. Poniżej `RoomName` dodawanej właściwości wklej poniższy kod, aby dodać możliwość dla tego typu sznurka do formularza *zawiera* relacje z innymi bliźniaczych reprezentacji:
+1. **Dodaj relację**. Poniżej `RoomName` dodawanej właściwości wklej poniższy kod, aby dodać możliwość dla tego typu sznurka do formularza *zawiera* relacje z innymi bliźniaczych reprezentacji:
 
     ```json
     ,
     {
       "@type": "Relationship",
-      "name": "contains",
+      "name": "contains"
     }
     ```
 

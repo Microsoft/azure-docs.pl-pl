@@ -9,16 +9,16 @@ ms.date: 10/16/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 27881b048a738d4de2acb57dcc4c2dad1f4d5b24
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 62610e1b86671021e66891ae232bacbd4b3e40ed
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435369"
+ms.locfileid: "96458812"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Zarządzanie bibliotekami Apache Spark w usłudze Azure Synapse Analytics
 
-Biblioteki zapewniają kod wielokrotnego użytku, który może być dołączany do programów lub projektów. Aby udostępnić innym firmom lub lokalnie skompilowany kod dla aplikacji, możesz zainstalować bibliotekę na jednym z pul Apache Spark bezserwerowych (wersja zapoznawcza). Po zainstalowaniu biblioteki dla puli platformy Spark będzie ona dostępna dla wszystkich sesji korzystających z tej samej puli. 
+Biblioteki zapewniają kod wielokrotnego użytku, który może być dołączany do programów lub projektów. Aby udostępnić innym firmom lub lokalnie skompilowany kod dla aplikacji, można zainstalować bibliotekę na jednym z pul Apache Spark bezserwerowych. Po zainstalowaniu biblioteki dla puli platformy Spark będzie ona dostępna dla wszystkich sesji korzystających z tej samej puli. 
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 - Aby zainstalować i zaktualizować biblioteki, musisz mieć uprawnienia **współautora danych obiektów blob magazynu** lub **dane obiektu blob magazynu** na podstawowym koncie magazynu Gen2, które jest połączone z obszarem roboczym usługi Azure Synapse Analytics.
@@ -26,11 +26,11 @@ Biblioteki zapewniają kod wielokrotnego użytku, który może być dołączany 
 ## <a name="default-installation"></a>Instalacja domyślna
 Apache Spark w usłudze Azure Synapse Analytics ma kompletną instalację Anacondas plus dodatkowe biblioteki. Listę pełnych bibliotek można znaleźć w obszarze [Obsługa wersji Apache Spark](apache-spark-version-support.md). 
 
-Po uruchomieniu wystąpienia platformy Spark te biblioteki zostaną automatycznie uwzględnione. Do poziomu puli Spark (wersja zapoznawcza) można dodać dodatkowe skompilowane i niestandardowe pakiety w języku Python i.
+Po uruchomieniu wystąpienia platformy Spark te biblioteki zostaną automatycznie uwzględnione. Dodatkowe skompilowane i niestandardowe pakiety języka Python można dodać na poziomie puli platformy Spark.
 
 
 ## <a name="manage-python-packages"></a>Zarządzanie pakietami języka Python
-Po zidentyfikowaniu bibliotek, które mają być używane dla aplikacji platformy Spark, można je zainstalować w puli platformy Spark (wersja zapoznawcza). 
+Po zidentyfikowaniu bibliotek, które mają być używane dla aplikacji platformy Spark, można je zainstalować w puli platformy Spark. 
 
  Plik *requirements.txt* (dane wyjściowe `pip freeze` polecenia) może służyć do uaktualnienia środowiska wirtualnego. Pakiety wymienione w tym pliku do zainstalowania lub uaktualnienia są pobierane z PyPi w momencie uruchamiania puli. Ten plik wymagań jest używany za każdym razem, gdy wystąpienie platformy Spark jest tworzone na podstawie tej puli platformy Spark.
 
@@ -54,7 +54,7 @@ alabaster==0.7.10
 Podczas opracowywania aplikacji platformy Spark może się okazać, że trzeba zaktualizować istniejące lub zainstalować nowe biblioteki. Biblioteki można aktualizować podczas tworzenia puli lub po niej.
 
 #### <a name="install-packages-during-pool-creation"></a>Zainstaluj pakiety podczas tworzenia puli
-Aby zainstalować biblioteki w puli platformy Spark (wersja zapoznawcza) podczas tworzenia puli:
+Aby zainstalować biblioteki w puli platformy Spark podczas tworzenia puli:
    
 1. Przejdź do obszaru roboczego usługi Azure Synapse Analytics z poziomu Azure Portal.
    
@@ -66,7 +66,7 @@ Aby zainstalować biblioteki w puli platformy Spark (wersja zapoznawcza) podczas
  
 
 #### <a name="install-packages-from-the-synapse-workspace"></a>Instalowanie pakietów z obszaru roboczego Synapse
-Aby zaktualizować lub dodać dodatkowe biblioteki do puli platformy Spark (wersja zapoznawcza) z portalu usługi Azure Synapse Analytics:
+Aby zaktualizować lub dodać dodatkowe biblioteki do puli platformy Spark z portalu usługi Azure Synapse Analytics:
 
 1.  Przejdź do obszaru roboczego usługi Azure Synapse Analytics z poziomu Azure Portal.
    
@@ -79,7 +79,7 @@ Aby zaktualizować lub dodać dodatkowe biblioteki do puli platformy Spark (wers
     ![Dodawanie bibliotek języka Python w programie Synapse](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-update.png)
    
 #### <a name="install-packages-from-the-azure-portal"></a>Zainstaluj pakiety z Azure Portal
-Aby zainstalować bibliotekę w puli platformy Spark (wersja zapoznawcza) bezpośrednio z Azure Portal:
+Aby zainstalować bibliotekę w puli platformy Spark bezpośrednio z Azure Portal:
    
  1. Przejdź do obszaru roboczego usługi Azure Synapse Analytics z poziomu Azure Portal.
    

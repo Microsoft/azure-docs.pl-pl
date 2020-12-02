@@ -9,12 +9,12 @@ ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick
-ms.openlocfilehash: e6708874fee3e15349b4389f1ecafa3d48a628dd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b2fbc74304cdb71d9cb3e1ea476af8c92eb99b7e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95917197"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458832"
 ---
 # <a name="tutorial-run-experiments-using-azure-automated-ml-and-apache-spark"></a>Samouczek: uruchamianie eksperymentów przy użyciu zautomatyzowanej platformy Azure i Apache Spark
 
@@ -28,7 +28,7 @@ W tym samouczku przedstawiono następujące zadania:
 - Uczenie zautomatyzowanego modelu regresji uczenia maszynowego
 - Oblicz dokładność modelu
 
-### <a name="before-you-begin"></a>Zanim rozpoczniesz
+### <a name="before-you-begin"></a>Przed rozpoczęciem
 
 - Utwórz bezserwerową pulę Apache Spark, wykonując czynności opisane w obszarze [Utwórz bezserwerową pulę Apache Spark szybki start](../quickstart-create-apache-spark-pool-studio.md).
 - Ukończ [samouczek konfiguracji obszaru roboczego Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/tutorial-1st-experiment-sdk-setup) , jeśli nie masz istniejącego obszaru roboczego Azure Machine Learning. 
@@ -72,7 +72,7 @@ df = spark.read.parquet(wasbs_path)
 
 ```
 
-3. W zależności od rozmiaru puli Spark (wersja zapoznawcza) dane pierwotne mogą być zbyt duże lub zbyt dużo czasu na wykonanie operacji. Te dane można filtrować do mniejszej liczby przy użyciu ```start_date``` ```end_date``` filtrów i. Powoduje to zastosowanie filtru, który zwraca miesiąc danych. Po przefiltrowaniu ramki danych zostanie również uruchomiona ```describe()``` Funkcja w nowej ramce Dataframe, aby wyświetlić statystyki podsumowania dla każdego pola. 
+3. W zależności od rozmiaru puli platformy Spark dane pierwotne mogą być zbyt duże lub zbyt dużo czasu na wykonanie operacji. Te dane można filtrować do mniejszej liczby przy użyciu ```start_date``` ```end_date``` filtrów i. Powoduje to zastosowanie filtru, który zwraca miesiąc danych. Po przefiltrowaniu ramki danych zostanie również uruchomiona ```describe()``` Funkcja w nowej ramce Dataframe, aby wyświetlić statystyki podsumowania dla każdego pola. 
 
    Na podstawie statystyk podsumowania możemy zobaczyć, że w danych znajdują się pewne nieprawidłowości i wartości. Na przykład statystyka pokazuje, że minimalna odległość podróży jest mniejsza niż 0. Będziemy musieli odfiltrować te nieregularne punkty danych.
    

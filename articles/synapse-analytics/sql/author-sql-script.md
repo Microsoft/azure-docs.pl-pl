@@ -1,6 +1,6 @@
 ---
-title: Skrypty SQL w usłudze Azure Synapse Studio (wersja zapoznawcza)
-description: Wprowadzenie do usługi Azure Synapse Studio (wersja zapoznawcza) — skrypty SQL
+title: Skrypty SQL w programie Synapse Studio
+description: Wprowadzenie do skryptów SQL programu Synapse Studio w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: pimorano
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: omafnan
-ms.openlocfilehash: 3f3009799889bd6b118f586676e22338d821d37c
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 077815d117af0328a3466346727e135caaf8ff21
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635293"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457995"
 ---
-# <a name="using-sql-scripts-in-azure-synapse-studio-preview"></a>Korzystanie ze skryptów SQL w usłudze Azure Synapse Studio (wersja zapoznawcza)
+# <a name="synapse-studio-sql-scripts-in-azure-synapse-analytics"></a>Skrypty SQL Synapse Studio w usłudze Azure Synapse Analytics 
 
-Usługa Azure Synapse Studio (wersja zapoznawcza) udostępnia interfejs sieci Web skryptu SQL służący do tworzenia zapytań SQL. Możesz nawiązać połączenie z pulą SQL (wersja zapoznawcza). 
+Program Synapse Studio udostępnia interfejs sieci Web skryptu SQL służący do tworzenia zapytań SQL. 
 
 ## <a name="begin-authoring-in-sql-script"></a>Rozpocznij tworzenie w skrypcie SQL 
 

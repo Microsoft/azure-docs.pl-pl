@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Eksplorowanie i analizowanie jezior danych dzięki bezserwerowym Synapse SQL'
-description: W tym samouczku pokazano, jak łatwo przeprowadzać analizę danych w celu łączenia się z różnymi serwerami Open DataSets przy użyciu puli SQL bezserwerowej (wersja zapoznawcza) i wizualizować wyniki w programie Synapse Studio for Azure Synapse Analytics.
+title: 'Samouczek: używanie bezserwerowej puli SQL do analizowania otwartych zestawów danych platformy Azure w usłudze Azure Synapse Studio'
+description: W tym samouczku pokazano, jak łatwo przeprowadzać analizę danych w celu łączenia różnych otwartych zestawów datadataset za pomocą bezserwerowej puli SQL i wizualizować wyniki w usłudze Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 11/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: af6fc75b5de22fc77313932ca17ce695e889dad3
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 7b2d4953b3a42c5d66fca4a67b4a6d0f13700a35
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95237967"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459130"
 ---
-# <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool-preview"></a>Samouczek: Eksplorowanie i analizowanie jezior danych dzięki bezserwerowej puli SQL (wersja zapoznawcza)
+# <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool"></a>Samouczek: Eksplorowanie i analizowanie jezior danych z bezserwerową pulą SQL
 
 W ramach tego samouczka nauczysz się przeprowadzać analizę danych w nauce. Możesz połączyć różne otwarte zestawy danych platformy Azure, korzystając z puli SQL bezserwerowej. Następnie można wizualizować wyniki w programie Synapse Studio for Azure Synapse Analytics.
 

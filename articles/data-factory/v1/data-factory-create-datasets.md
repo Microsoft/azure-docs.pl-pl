@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ddb99fd7a7ce8265a6e9c63555cd6a226caacc4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45150e00db1885a4ca4d083a8a54cbfd4da0bb10
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440732"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456935"
 ---
 # <a name="datasets-in-azure-data-factory-version-1"></a>Zestawy danych w Azure Data Factory (wersja 1)
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -26,15 +26,15 @@ ms.locfileid: "89440732"
 > [!NOTE]
 > Ten artykuł dotyczy wersji 1 usługi Data Factory. Jeśli używasz bieżącej wersji usługi Data Factory, zobacz [zestawy danych w wersji 2](../concepts-datasets-linked-services.md).
 
-W tym artykule opisano zestawy danych, sposób ich definiowania w formacie JSON oraz sposób ich użycia w potokach Azure Data Factory. Zawiera szczegółowe informacje o każdej sekcji (na przykład strukturę, dostępność i zasady) w definicji JSON zestawu danych. Artykuł zawiera również przykłady użycia właściwości **przesunięcia**, **anchorDateTime**i **stylu** w definicji JSON zestawu danych.
+W tym artykule opisano zestawy danych, sposób ich definiowania w formacie JSON oraz sposób ich użycia w potokach Azure Data Factory. Zawiera szczegółowe informacje o każdej sekcji (na przykład strukturę, dostępność i zasady) w definicji JSON zestawu danych. Artykuł zawiera również przykłady użycia właściwości **przesunięcia**, **anchorDateTime** i **stylu** w definicji JSON zestawu danych.
 
 > [!NOTE]
 > Jeśli dopiero zaczynasz Data Factory, zobacz [wprowadzenie do Azure Data Factory](data-factory-introduction.md) przegląd. Jeśli nie masz praktycznego doświadczenia w tworzeniu fabryk danych, możesz uzyskać lepsze zrozumienie, odczytując [Samouczek dotyczący transformacji danych](data-factory-build-your-first-pipeline.md) i [samouczek przenoszenia danych](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="overview"></a>Omówienie
-Fabryka danych może obejmować jeden lub wiele potoków. **Potok** jest logicznym grupą **działań** , które wspólnie wykonują zadanie. Działania w potoku określają akcje do wykonania na danych. Można na przykład użyć działania kopiowania w celu skopiowania danych z bazy danych SQL Server do usługi Azure Blob Storage. Następnie możesz użyć działania programu Hive, które uruchamia skrypt programu Hive w klastrze usługi Azure HDInsight, aby przetwarzać dane z magazynu obiektów BLOB w celu utworzenia danych wyjściowych. Na koniec możesz użyć drugiego działania kopiowania, aby skopiować dane wyjściowe do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse), na podstawie których są tworzone rozwiązania do raportowania analizy biznesowej (BI). Aby uzyskać więcej informacji na temat potoków i działań, zobacz [potoki i działania w Azure Data Factory](data-factory-create-pipelines.md).
+Fabryka danych może obejmować jeden lub wiele potoków. **Potok** jest logicznym grupą **działań** , które wspólnie wykonują zadanie. Działania w potoku określają akcje do wykonania na danych. Można na przykład użyć działania kopiowania w celu skopiowania danych z bazy danych SQL Server do usługi Azure Blob Storage. Następnie możesz użyć działania programu Hive, które uruchamia skrypt programu Hive w klastrze usługi Azure HDInsight, aby przetwarzać dane z magazynu obiektów BLOB w celu utworzenia danych wyjściowych. Na koniec możesz użyć drugiego działania kopiowania, aby skopiować dane wyjściowe do usługi Azure Synapse Analytics, na podstawie których są tworzone rozwiązania do raportowania analizy biznesowej (BI). Aby uzyskać więcej informacji na temat potoków i działań, zobacz [potoki i działania w Azure Data Factory](data-factory-create-pipelines.md).
 
-Działanie może pobrać zero lub więcej wejściowych **zestawów**danych i utworzyć co najmniej jeden wyjściowy zestaw danych. Wejściowy zestaw danych reprezentuje dane wejściowe dla działania w potoku, a wyjściowy zestaw danych reprezentuje dane wyjściowe dla działania. Zestawy danych identyfikują dane w różnych magazynach danych, takich jak tabele, pliki, foldery i dokumenty. Na przykład zestaw danych obiektów blob platformy Azure Określa kontener obiektów blob i folder w usłudze BLOB Storage, z których potok ma odczytywać dane.
+Działanie może pobrać zero lub więcej wejściowych **zestawów** danych i utworzyć co najmniej jeden wyjściowy zestaw danych. Wejściowy zestaw danych reprezentuje dane wejściowe dla działania w potoku, a wyjściowy zestaw danych reprezentuje dane wyjściowe dla działania. Zestawy danych identyfikują dane w różnych magazynach danych, takich jak tabele, pliki, foldery i dokumenty. Na przykład zestaw danych obiektów blob platformy Azure Określa kontener obiektów blob i folder w usłudze BLOB Storage, z których potok ma odczytywać dane.
 
 Przed utworzeniem zestawu danych Utwórz **połączoną usługę** , aby połączyć magazyn danych z fabryką danych. Połączone usługi działają podobnie do parametrów połączenia, umożliwiając definiowanie informacji wymaganych przez usługę Data Factory do nawiązywania połączeń z zasobami zewnętrznymi. Zestawy danych identyfikują dane w połączonych magazynach danych, takich jak tabele SQL, pliki, foldery i dokumenty. Na przykład połączona usługa Azure Storage łączy konto magazynu z fabryką danych. Zestaw danych obiektów blob platformy Azure reprezentuje kontener obiektów blob i folder zawierający wejściowe obiekty blob do przetworzenia.
 
@@ -193,12 +193,12 @@ Każda kolumna w strukturze zawiera następujące właściwości:
 | --- | --- | --- |
 | name |Nazwa kolumny. |Tak |
 | typ |Typ danych kolumny.  |Nie |
-| kultura |. Kultura oparta na sieci, która ma być używana, gdy typem jest typ .NET: `Datetime` lub `Datetimeoffset` . Wartość domyślna to `en-us`. |Nie |
+| kultura |Kultura oparta na platformie .NET, która ma być używana, gdy typem jest typ .NET: `Datetime` lub `Datetimeoffset` . Wartość domyślna to `en-us`. |Nie |
 | format |Ciąg formatu, który ma być używany, gdy typ jest typem .NET: `Datetime` lub `Datetimeoffset` . |Nie |
 
 Poniższe wskazówki ułatwiają określenie, kiedy należy uwzględnić informacje o strukturze, i co należy uwzględnić w sekcji **struktury** .
 
-* **W przypadku strukturalnych źródeł danych**Określ sekcję struktury tylko wtedy, gdy chcesz, aby kolumny źródłowe były mapowane na kolumny, a ich nazwy nie są takie same. Ten rodzaj strukturalnego źródła danych przechowuje informacje o schemacie i typach danych wraz z samymi danymi. Przykłady strukturalnych źródeł danych obejmują SQL Server, Oracle i Azure Table.
+* **W przypadku strukturalnych źródeł danych** Określ sekcję struktury tylko wtedy, gdy chcesz, aby kolumny źródłowe były mapowane na kolumny, a ich nazwy nie są takie same. Ten rodzaj strukturalnego źródła danych przechowuje informacje o schemacie i typach danych wraz z samymi danymi. Przykłady strukturalnych źródeł danych obejmują SQL Server, Oracle i Azure Table.
   
     Ponieważ informacje o typie są już dostępne dla strukturalnych źródeł danych, nie należy uwzględniać informacji o typie, gdy zostanie uwzględniona sekcja struktury.
 * W **przypadku schematu dotyczącego odczytywania źródeł danych (w przypadku usługi BLOB Storage)** można wybrać przechowywanie danych bez zapisywania jakichkolwiek schematów lub informacji o typie danych. W przypadku tych typów źródeł danych należy uwzględnić strukturę, gdy chcesz mapować kolumny źródłowe na kolumny ujścia. Uwzględnij także strukturę, gdy zestaw danych jest danymi wejściowymi dla działania kopiowania, a typy danych źródłowego elementu DataSet powinny być konwertowane na typy natywne dla ujścia.
@@ -280,7 +280,7 @@ Sekcja **zasady** w definicji zestawu danych definiuje kryteria lub warunek, kt�
 ### <a name="validation-policies"></a>Zasady walidacji
 | Nazwa zasady | Opis | Zastosowane do | Wymagane | Domyślne |
 | --- | --- | --- | --- | --- |
-| minimumSizeMB |Sprawdza, czy dane w **usłudze Azure Blob Storage** spełniają minimalne wymagania dotyczące rozmiaru (w megabajtach). |Azure Blob Storage |Nie |Nie dotyczy |
+| minimumSizeMB |Sprawdza, czy dane w **usłudze Azure Blob Storage** spełniają minimalne wymagania dotyczące rozmiaru (w megabajtach). |Usługa Azure Blob Storage |Nie |Nie dotyczy |
 | minimumRows |Sprawdza, czy dane w **bazie danych SQL Azure** lub w **tabeli platformy Azure** zawierają minimalną liczbę wierszy. |<ul><li>Azure SQL Database</li><li>Tabela platformy Azure</li></ul> |Nie |Nie dotyczy |
 
 #### <a name="examples"></a>Przykłady
@@ -316,7 +316,7 @@ Jeśli zestaw danych nie jest tworzony przez Data Factory, powinien być oznaczo
 
 | Nazwa | Opis | Wymagane | Wartość domyślna |
 | --- | --- | --- | --- |
-| datadelay |Czas oczekiwania na sprawdzenie dostępności danych zewnętrznych dla danego wycinka. Na przykład można opóźnić sprawdzanie godzinowe za pomocą tego ustawienia.<br/><br/>To ustawienie dotyczy tylko obecnego czasu. Na przykład jeśli jest to 1:00 PM teraz, a ta wartość wynosi 10 minut, sprawdzanie poprawności rozpocznie się o 1:10 PM.<br/><br/>Należy zauważyć, że to ustawienie nie ma wpływu na wycinki w przeszłości. Wycinki z dataopóźnieniem **czasu zakończenia wycinka**  +  **dataDelay**  <  są**teraz** przetwarzane bez opóźnień.<br/><br/>Czasy większe niż 23:59 godzin należy określić przy użyciu `day.hours:minutes:seconds` formatu. Na przykład, aby określić 24 godziny, nie należy używać 24:00:00. Zamiast tego należy użyć 1,00:00:00. Jeśli używasz 24:00:00, jest on traktowany jako 24 dni (24.00:00:00). Przez 1 dzień i 4 godziny należy określić 1:04:00:00. |Nie |0 |
+| datadelay |Czas oczekiwania na sprawdzenie dostępności danych zewnętrznych dla danego wycinka. Na przykład można opóźnić sprawdzanie godzinowe za pomocą tego ustawienia.<br/><br/>To ustawienie dotyczy tylko obecnego czasu. Na przykład jeśli jest to 1:00 PM teraz, a ta wartość wynosi 10 minut, sprawdzanie poprawności rozpocznie się o 1:10 PM.<br/><br/>Należy zauważyć, że to ustawienie nie ma wpływu na wycinki w przeszłości. Wycinki z dataopóźnieniem **czasu zakończenia wycinka**  +  **dataDelay**  <  są **teraz** przetwarzane bez opóźnień.<br/><br/>Czasy większe niż 23:59 godzin należy określić przy użyciu `day.hours:minutes:seconds` formatu. Na przykład, aby określić 24 godziny, nie należy używać 24:00:00. Zamiast tego należy użyć 1,00:00:00. Jeśli używasz 24:00:00, jest on traktowany jako 24 dni (24.00:00:00). Przez 1 dzień i 4 godziny należy określić 1:04:00:00. |Nie |0 |
 | retryInterval |Czas oczekiwania między awarią a kolejną próbą. To ustawienie dotyczy obecnego czasu. Jeśli poprzednia próba zakończyła się niepowodzeniem, następna próba będzie późniejsza po okresie **retryInterval** . <br/><br/>Jeśli teraz jest 1:00 PM, rozpoczynamy pierwszą próbę. Jeśli czas trwania pierwszego sprawdzania poprawności wynosi 1 minuta, a operacja nie powiodła się, kolejna ponowna próba jest równa 1:00 + 1 min (czas trwania) + 1 min (interwał ponawiania prób) = 1:02 PM. <br/><br/>W przypadku wycinków w przeszłości nie ma opóźnień. Ponowna próba nastąpi natychmiast. |Nie |00:01:00 (1 minuta) |
 | retryTimeout |Limit czasu dla każdej próbnej próby.<br/><br/>Jeśli ta właściwość ma wartość 10 minut, walidacja powinna zostać zakończona w ciągu 10 minut. Jeśli sprawdzanie poprawności będzie możliwe dopiero po upływie 10 minut, ponów próbę.<br/><br/>Jeśli wszystkie próby sprawdzania poprawności przekroczą limit czasu, wycinek zostanie oznaczony jako **TimedOut**. |Nie |00:10:00 (10 minut) |
 | maximumRetry |Liczba przypadków sprawdzania dostępności danych zewnętrznych. Maksymalna dozwolona wartość to 10. |Nie |3 |

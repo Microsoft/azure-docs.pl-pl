@@ -5,22 +5,36 @@ description: Nowa i zaktualizowana dokumentacja platformy tożsamości firmy Mic
 services: active-directory
 author: mmacy
 manager: CelesteDG
-ms.date: 11/03/2020
+ms.date: 12/01/2020
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-ms.openlocfilehash: d5865810dafef9ce2bb525a8f1b6cdbdb1a86566
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 108cd5f74b7b560534baf8f55f7d07ebb6557e7f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322566"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457156"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Dokumentacja platformy tożsamości firmy Microsoft: co nowego
 
 Witamy w dokumentacji platformy tożsamości firmy Microsoft. W tym artykule wymieniono nowe dokumenty, które zostały dodane oraz te, które mają znaczące aktualizacje w ciągu ostatnich trzech miesięcy.
+
+## <a name="november-2020"></a>Listopad 2020 r.
+
+### <a name="new-articles"></a>Nowe artykuły
+
+- [Jak używać interfejsów API z włączoną funkcją oceny dostępu ciągłego w aplikacjach](app-resilience-continuous-access-evaluation.md)
+
+### <a name="updated-articles"></a>Zaktualizowane artykuły
+
+- [Tokeny dostępu platformy tożsamości firmy Microsoft](access-tokens.md)
+- [Opcje konfiguracji aplikacji (MSAL)](msal-client-application-configuration.md)
+- [Instrukcje: dostarczanie opcjonalnych oświadczeń do aplikacji](active-directory-optional-claims.md)
+- [Publikowanie aplikacji w galerii aplikacji usługi Azure AD](v2-howto-app-gallery-listing.md)
+- [Instrukcje: Dodawanie ról aplikacji do aplikacji i odbieranie ich w tokenie](howto-add-app-roles-in-azure-ad-apps.md)
 
 ## <a name="october-2020"></a>Październik 2020 r.
 
@@ -67,23 +81,3 @@ Witamy w dokumentacji platformy tożsamości firmy Microsoft. W tym artykule wym
 - [Szybki Start: Konfigurowanie aplikacji klienckiej w celu uzyskania dostępu do internetowego interfejsu API](quickstart-configure-app-access-web-apis.md)
 - [Szybki Start: Konfigurowanie aplikacji do udostępniania internetowego interfejsu API](quickstart-configure-app-expose-web-apis.md)
 - [Szybki Start: rejestrowanie aplikacji na platformie tożsamości firmy Microsoft](quickstart-register-app.md)
-
-## <a name="august-2020"></a>Sierpień 2020 r.
-
-### <a name="new-articles"></a>Nowe artykuły
-
-- [Migrowanie aplikacji systemu Android, które używają brokera z ADAL.NET do MSAL.NET](msal-net-migration-android-broker.md)
-- [Obsługa wyjątków i błędów w MSAL dla systemu Android](msal-android-handling-exceptions.md)
-
-### <a name="updated-articles"></a>Zaktualizowane artykuły
-
-- [Migrowanie aplikacji systemu iOS, które używają Microsoft Authenticator z programu ADAL.NET do MSAL.NET](msal-net-migration-ios-broker.md)
-- [Używanie Microsoft Authenticator lub Intune — Portal firmy w aplikacjach platformy Xamarin](msal-net-use-brokers-with-xamarin-apps.md)
-- [Wymagania dotyczące konfiguracji i wskazówki dotyczące rozwiązywania problemów z platformą Xamarin Android z MSAL.NET](msal-net-xamarin-android-considerations.md)
-- [Konfigurowanie aplikacji mobilnej, która wywołuje interfejsy API sieci Web](scenario-mobile-app-configuration.md)
-- [Instrukcje: Dostosowywanie oświadczeń emitowanych w tokenach dla określonej aplikacji w dzierżawie (wersja zapoznawcza)](active-directory-claims-mapping.md)
-- [Poświadczenia certyfikatu uwierzytelniania aplikacji platformy tożsamości firmy Microsoft](active-directory-certificate-credentials.md)
-- [Ograniczenia i ograniczenia URI przekierowania (adres URL odpowiedzi)](reply-url.md)
-- [Szybki Start: Konfigurowanie aplikacji do udostępniania internetowego interfejsu API](quickstart-configure-app-expose-web-apis.md)
-- [Wideo poświęcone platformie tożsamości firmy Microsoft](identity-videos.md)
-- [Szybki Start: wywoływanie interfejsu API sieci Web ASP.NET chronionego przez platformę tożsamości firmy Microsoft](quickstart-v2-dotnet-native-aspnet.md)

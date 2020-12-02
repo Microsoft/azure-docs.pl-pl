@@ -10,18 +10,18 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 09/22/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 1a6708214eadb2f5d0d66d72f5db5cb4a195d206
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 43b03abb2aac13358a2187a0a5dc570c1e45934e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324862"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458489"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Uczenie głębokie a uczenie maszynowe w Azure Machine Learning
 
 W tym artykule opisano uczenie głębokie i uczenie maszynowe oraz ich dopasowanie do szerszej kategorii sztucznej analizy. Dowiedz się więcej na temat rozwiązań do uczenia głębokiego, które możesz kompilować na Azure Machine Learning, takich jak wykrywanie oszustw, rozpoznawanie głosu i twarzy, analiza tonacji i prognozowanie szeregów czasowych.
 
-Aby uzyskać wskazówki dotyczące wybierania algorytmów dla rozwiązań, zobacz [arkusz Machine Learning Algorithm Ściągawka](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri).
+Aby uzyskać wskazówki dotyczące wybierania algorytmów dla rozwiązań, zobacz [arkusz Machine Learning Algorithm Ściągawka](./algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri).
 
 ## <a name="deep-learning-machine-learning-and-ai"></a>Uczenie głębokie, uczenie maszynowe i AI
 

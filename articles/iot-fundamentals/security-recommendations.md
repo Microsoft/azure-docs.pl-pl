@@ -12,12 +12,12 @@ ms.custom:
 - security-recommendations
 - amqp
 - mqtt
-ms.openlocfilehash: 5a7fc2a5a5a6be7695fa816f28e3cdf61c5839f2
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a1de3a71253b1a82b4423bff279fbf3f7e378da4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208276"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457615"
 ---
 # <a name="security-recommendations-for-azure-internet-of-things-iot-deployment"></a>Zalecenia dotyczące zabezpieczeń dla wdrożenia usługi Azure Internet rzeczy (IoT)
 
@@ -40,7 +40,7 @@ Niektóre zalecenia zawarte w tym artykule mogą być automatycznie monitorowane
 
 | Zalecenie | Komentarze | Obsługiwane przez ASC |
 |-|----|--|
-| Definiowanie kontroli dostępu do centrum | [Zrozumienie i Definiowanie typu dostępu](iot-security-deployment.md#securing-the-cloud) każdego składnika, który będzie znajdował się w rozwiązaniu IoT Hub, na podstawie jego funkcjonalności. Dozwolonymi uprawnieniami są *odczyty rejestru*, *RegistryReadWrite*, *serviceconnect*i *DeviceConnect*. Domyślne [zasady dostępu współdzielonego w usłudze IoT Hub](../iot-hub/iot-hub-devguide-security.md#access-control-and-permissions) mogą także ułatwić Definiowanie uprawnień dla każdego składnika na podstawie jego roli. | - |
+| Definiowanie kontroli dostępu do centrum | [Zrozumienie i Definiowanie typu dostępu](iot-security-deployment.md#securing-the-cloud) każdego składnika, który będzie znajdował się w rozwiązaniu IoT Hub, na podstawie jego funkcjonalności. Dozwolonymi uprawnieniami są *odczyty rejestru*, *RegistryReadWrite*, *serviceconnect* i *DeviceConnect*. Domyślne [zasady dostępu współdzielonego w usłudze IoT Hub](../iot-hub/iot-hub-devguide-security.md#access-control-and-permissions) mogą także ułatwić Definiowanie uprawnień dla każdego składnika na podstawie jego roli. | - |
 | Definiowanie kontroli dostępu dla usług zaplecza | Dane pozyskane przez rozwiązanie IoT Hub mogą być używane przez inne usługi platformy Azure, takie jak [Cosmos DB](../cosmos-db/index.yml), [Stream Analytics](../stream-analytics/index.yml), [App Service](../app-service/index.yml), [Logic Apps](../logic-apps/index.yml)i [Magazyn obiektów BLOB](../storage/blobs/storage-blobs-introduction.md). Upewnij się, że rozumiesz i zezwolisz na odpowiednie uprawnienia dostępu zgodnie z opisem dla tych usług. | - |
 
 ## <a name="data-protection"></a>Ochrona danych
@@ -63,8 +63,8 @@ Niektóre zalecenia zawarte w tym artykule mogą być automatycznie monitorowane
 | Zalecenie | Komentarze | Obsługiwane przez ASC |
 |-|----|--|
 | Monitoruj nieautoryzowany dostęp do urządzeń |  Funkcja rejestrowania systemu operacyjnego urządzenia służy do monitorowania wszelkich naruszeń zabezpieczeń lub fizycznego manipulowania urządzeniem lub jego portów. | - |
-| Monitoruj rozwiązanie IoT w chmurze | Monitoruj ogólną kondycję rozwiązania IoT Hub przy użyciu [metryk w Azure monitor](../iot-hub/iot-hub-metrics.md). | - |
-| Konfigurowanie diagnostyki | Uważnie Monitoruj operacje przez rejestrowanie zdarzeń w rozwiązaniu, a następnie wysyłanie dzienników diagnostycznych do Azure Monitor, aby uzyskać wgląd w wydajność. Aby uzyskać więcej informacji, przeczytaj artykuł [monitorowanie i diagnozowanie problemów w centrum IoT Hub](../iot-hub/iot-hub-monitor-resource-health.md) . | - |
+| Monitoruj rozwiązanie IoT w chmurze | Monitoruj ogólną kondycję rozwiązania IoT Hub przy użyciu [metryk w Azure monitor](../iot-hub/monitor-iot-hub.md). | - |
+| Konfigurowanie diagnostyki | Uważnie Monitoruj operacje przez rejestrowanie zdarzeń w rozwiązaniu, a następnie wysyłanie dzienników diagnostycznych do Azure Monitor, aby uzyskać wgląd w wydajność. Aby uzyskać więcej informacji, przeczytaj artykuł [monitorowanie i diagnozowanie problemów w centrum IoT Hub](../iot-hub/monitor-iot-hub.md) . | - |
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,6 +1,6 @@
 ---
-title: Bezserwerowa Pula SQL (wersja zapoznawcza) Samopomoc
-description: Ta sekcja zawiera informacje, które mogą pomóc w rozwiązywaniu problemów związanych z bezserwerową pulą SQL (wersja zapoznawcza).
+title: Bezserwerowa Pula SQL w samoobsługowej pomocy
+description: Ta sekcja zawiera informacje, które mogą pomóc w rozwiązywaniu problemów z pulą SQL bez serwera.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,23 +9,23 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: aefdb90c3e6c8d3abc3924ecebb2aa46739e99ad
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 12ff369cb931eb36014b7c9598b036afdc158750
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682625"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457194"
 ---
-# <a name="self-help-for-serverless-sql-pool-preview"></a>Samoobsługowa pomoc dla puli SQL bezserwerowej (wersja zapoznawcza)
+# <a name="self-help-for-serverless-sql-pool"></a>Samoobsługowa pomoc dla puli SQL bezserwerowej
 
-Ten artykuł zawiera informacje o sposobie rozwiązywania problemów z większością częstych problemów dotyczących puli SQL bez użycia serwera (wersja zapoznawcza) w usłudze Azure Synapse Analytics.
+Ten artykuł zawiera informacje o sposobie rozwiązywania problemów z większością częstych problemów dotyczących puli SQL bez użycia serwera w usłudze Azure Synapse Analytics.
 
 ## <a name="serverless-sql-pool-is-grayed-out-in-synapse-studio"></a>Pula SQL bezserwerowa jest wyszarzona w programie Synapse Studio
 
 Jeśli program Synapse Studio nie może nawiązać połączenia z pulą SQL bezserwerową, Zauważ, że bezserwerowa Pula SQL jest wyszarzona lub zawiera stan "offline". Zazwyczaj ten problem występuje, gdy wystąpi jedno z następujących przypadków:
 
-1) Twoja sieć uniemożliwia komunikację z zapleczem usługi Azure Synapse. W większości przypadków jest blokowany port 1443. Aby uzyskać bezserwerową pulę SQL do pracy, Odblokuj ten port. Inne problemy mogą uniemożliwić działanie puli SQL bezserwerowej. Aby uzyskać [więcej informacji, odwiedź pełny Przewodnik rozwiązywania problemów](../troubleshoot/troubleshoot-synapse-studio.md).
-2) Nie masz uprawnień do logowania się do bezserwerowej puli SQL. Aby uzyskać dostęp, jedna z administratorów obszaru roboczego usługi Azure Synapse powinna dodać użytkownika do roli administratora obszaru roboczego lub administratora SQL. [Aby uzyskać więcej informacji, odwiedź pełny Przewodnik po kontroli dostępu](access-control.md).
+1) Twoja sieć uniemożliwia komunikację z zapleczem usługi Azure Synapse. W większości przypadków przyczyną jest zablokowany port 1443. Aby uzyskać bezserwerową pulę SQL do pracy, Odblokuj ten port. Inne problemy mogą uniemożliwić działanie puli SQL bezserwerowej. Aby uzyskać [więcej informacji, odwiedź pełny Przewodnik rozwiązywania problemów](../troubleshoot/troubleshoot-synapse-studio.md).
+2) Nie masz uprawnień do logowania się do bezserwerowej puli SQL. Aby udzielić Ci dostępu, administrator obszaru roboczego usługi Azure Synapse powinien dodać Cię do roli administratora obszaru roboczego lub administratora SQL. [Aby uzyskać więcej informacji, odwiedź pełny przewodnik dotyczący kontroli dostępu](access-control.md).
 
 ## <a name="query-fails-because-file-cannot-be-opened"></a>Zapytanie nie powiodło się, ponieważ nie można otworzyć pliku
 
@@ -37,7 +37,7 @@ Jeśli zapytanie nie powiedzie się i zostanie wyświetlony komunikat o błędzi
 
 - Upewnij się, że są używane typy danych o rozsądnych rozmiarach. Ponadto Określ schemat dla plików Parquet dla kolumn ciągów, ponieważ będą one domyślnie VARCHAR (8000). 
 
-- Jeśli zapytanie wskazuje pliki CSV, należy rozważyć [utworzenie statystyk](develop-tables-statistics.md#statistics-in-serverless-sql-pool-preview). 
+- Jeśli zapytanie wskazuje pliki CSV, należy rozważyć [utworzenie statystyk](develop-tables-statistics.md#statistics-in-serverless-sql-pool). 
 
 - Odwiedź [najlepsze rozwiązania w zakresie wydajności dla puli SQL bezserwerowej](best-practices-sql-on-demand.md) , aby zoptymalizować zapytanie.  
 

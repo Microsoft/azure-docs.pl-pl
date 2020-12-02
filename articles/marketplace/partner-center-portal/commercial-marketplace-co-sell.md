@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 10/28/2020
-ms.openlocfilehash: 2a648b4f4c614fc64fa7817102215720e51abe7f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d303a5d5b9779a2003b12d063c97c36a90576dd3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095605"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456623"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Wspólna sprzedaż w Centrum partnerskim
 
@@ -83,10 +83,10 @@ Możesz udostępnić swoje kontakty, pobierając szablon CSV z Centrum partnersk
 
 Możesz również wyeksportować istniejącą listę kontaktów oferty, a następnie wprowadzić zmiany w tym pliku.
 
-* *Nazwa (wymagana)* : nazwa kontaktu.
-* *Adres e-mail (wymagane)* : adres e-mail osoby kontaktowej.
-* *Stanowisko (wymagane)* : stanowisko stanowiska.
-* *Rola (wymagana)* : Użyj dowolnej z następujących ról.
+* *Nazwa (wymagana)*: nazwa kontaktu.
+* *Adres e-mail (wymagane)*: adres e-mail osoby kontaktowej.
+* *Stanowisko (wymagane)*: stanowisko stanowiska.
+* *Rola (wymagana)*: Użyj dowolnej z następujących ról.
 
     | **Role**    | **Opis**  |
     | :------------------- | :-------------------|
@@ -108,7 +108,7 @@ Diagram architektury referencyjnej to model, który reprezentuje infrastrukturę
 
 Dokument można utworzyć za pomocą wielu narzędzi. Zalecamy korzystanie z programu Microsoft Visio, ponieważ zawiera on wiele wzorników, które przedstawiają modele architektury platformy Azure.
 
-Przydatnym punktem wyjścia do tworzenia diagramów architektury referencyjnej jest wykorzystanie [modeli architektury platformy Azure](https://docs.microsoft.com/azure/architecture/browse/).
+Przydatnym punktem wyjścia do tworzenia diagramów architektury referencyjnej jest wykorzystanie [modeli architektury platformy Azure](/azure/architecture/browse/).
 
 ### <a name="typical-components-of-a-reference-architecture-diagram"></a>Typowe składniki diagramu architektury referencyjnej
 - Usługi w chmurze, które obsługują i współpracują z ofertą, w tym te, które generują użycie platformy Azure

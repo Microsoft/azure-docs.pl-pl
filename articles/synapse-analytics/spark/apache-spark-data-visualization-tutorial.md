@@ -1,5 +1,5 @@
 ---
-title: Wizualizowanie danych za pomocą Apache Spark
+title: Wizualizowanie danych za pomocą platformy Apache Spark
 description: Twórz rozbudowane wizualizacje danych przy użyciu Apache Spark i notesów analitycznych Synapse platformy Azure
 services: synapse-analytics
 author: midesa
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 10/20/2020
 ms.author: midesa
-ms.openlocfilehash: 820dd8b607f5ec2fdc44d25063e0a941f76237ad
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8735514b639cb0322a83ffb19d661027327c0f73
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95920170"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458761"
 ---
 # <a name="analyze-data-with-apache-spark"></a>Analizowanie danych za pomocą Apache Spark
 
@@ -21,7 +21,7 @@ W ramach tego samouczka nauczysz się przeprowadzać analizę danych w postaci p
 
 W szczególności przeanalizuje zestaw danych o [taksówkach w Nowym Jorku (NYC)](https://azure.microsoft.com/en-us/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) . Dane są dostępne za pomocą otwartych zestawów danych platformy Azure. Ten podzestaw zestawu danych zawiera informacje o żółtych rejsach, w tym informacje o każdej podróży, godzinie rozpoczęcia oraz o czasie i lokalizacji oraz o tym, czy koszt i inne interesujące atrybuty.
   
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 - Utwórz pulę Apache Spark, postępując zgodnie z [samouczkiem Tworzenie puli Apache Spark](../articles/../quickstart-create-apache-spark-pool-studio.md) 
 
 ## <a name="download-and-prepare-the-data"></a>Pobieranie i przygotowywanie danych
@@ -99,7 +99,7 @@ Oprócz wbudowanych opcji wykresów notesu można również używać popularnych
 
 > [!Note]
 > 
-> Domyślnie każda pula Apache Spark usługi Azure Synapse Analytics zawiera zestaw często używanych i domyślnych bibliotek. Pełną listę bibliotek można wyświetlić w [środowisku uruchomieniowym usługi Azure Synapse](../spark/apache-spark-version-support.md). łączoną. Ponadto, aby udostępnić innym osobom lub lokalnie skompilowany kod dla aplikacji, można [zainstalować bibliotekę](../spark/apache-spark-azure-portal-add-libraries.md) na jednej z pul platformy Spark (wersja zapoznawcza).
+> Domyślnie każda pula Apache Spark usługi Azure Synapse Analytics zawiera zestaw często używanych i domyślnych bibliotek. Pełną listę bibliotek można wyświetlić w [środowisku uruchomieniowym usługi Azure Synapse](../spark/apache-spark-version-support.md). łączoną. Ponadto, aby udostępnić innym osobom lub lokalnie skompilowany kod dla aplikacji, można [zainstalować bibliotekę](../spark/apache-spark-azure-portal-add-libraries.md) na jednej z pul platformy Spark.
 >
 
 1. Aby ułatwić opracowywanie i tańsze programowanie, przejdziemy do przykładowego zestawu danych. Użyjemy wbudowanej funkcji próbkowania Apache Spark. Ponadto zarówno Seaborn, jak i matplotlib wymagają tablicy Dataframe lub numpy. Aby uzyskać Pandas Dataframe, użyjemy ```toPandas()``` polecenia, aby przekonwertować ramkę Dataframe.

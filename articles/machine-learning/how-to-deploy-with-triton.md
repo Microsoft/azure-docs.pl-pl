@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy, devx-track-azurecli
-ms.openlocfilehash: 8e479367a04e105ae2111ce66707999aff7ef960
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: b47b8f9d9429f38fb8b5da6d8f9083736f230fcb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302453"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458282"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Obsługa wysokiej wydajności przy użyciu serwera wnioskowania Triton (wersja zapoznawcza) 
 
@@ -53,7 +53,7 @@ Przed podjęciem próby użycia Triton dla własnego modelu ważne jest, aby zro
 
 ### <a name="setting-the-number-of-workers"></a>Ustawianie liczby procesów roboczych
 
-Aby ustawić liczbę procesów roboczych we wdrożeniu, należy ustawić zmienną środowiskową `WORKER_COUNT` . Jeśli masz obiekt [środowiska](/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) o nazwie `env` , możesz wykonać następujące czynności:
+Aby ustawić liczbę procesów roboczych we wdrożeniu, należy ustawić zmienną środowiskową `WORKER_COUNT` . Jeśli masz obiekt [środowiska](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) o nazwie `env` , możesz wykonać następujące czynności:
 
 ```{py}
 env.environment_variables["WORKER_COUNT"] = "1"

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7518d6ac8bc0cde515ab8da2f3d9c1496cb93f08
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b8b0ac002cb52acdc043e4e8ca4fa91daae4e665
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311713"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457988"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-synapse-sql"></a>Uwierzytelnianie za pomocą usługi Synapse SQL przy użyciu uwierzytelniania Azure Active Directory
 
@@ -36,7 +36,7 @@ Czynności konfiguracyjne obejmują następujące procedury w celu skonfigurowan
 
 1. Utwórz i wypełnij usługę Azure AD.
 2. Tworzenie tożsamości Azure Active Directory
-3. Przypisywanie roli do utworzonej tożsamości Azure Active Directory w obszarze roboczym Synapse (wersja zapoznawcza)
+3. Przypisywanie roli do utworzonej tożsamości Azure Active Directory w obszarze roboczym Synapse
 4. Nawiązywanie połączenia z programem Synapse Studio przy użyciu tożsamości usługi Azure AD.
 
 ## <a name="azure-ad-pass-through-in-azure-synapse-analytics"></a>Usługa Azure AD Pass-through w usłudze Azure Synapse Analytics
@@ -65,7 +65,7 @@ W przypadku korzystania z uwierzytelniania usługi Azure AD istnieją dwa konta 
 
 Identyfikator logowania administratora usługi Azure AD może być użytkownikiem usługi Azure AD lub grupą usługi Azure AD. Jeśli administrator jest kontem grupy, może być używany przez dowolnego członka grupy, co pozwala na wielu administratorów usługi Azure AD dla wystąpienia SQL Synapse. 
 
-Użycie konta grupy jako administrator zwiększa możliwości zarządzania, umożliwiając centralne Dodawanie i usuwanie członków grupy w usłudze Azure AD bez zmiany użytkowników ani uprawnień w obszarze roboczym Synapse Analytics. W dowolnej chwili można skonfigurować tylko jednego administratora usługi Azure AD (użytkownika lub grupę).
+Użycie konta grupy jako administrator zwiększa możliwości zarządzania, umożliwiając centralne Dodawanie i usuwanie członków grupy w usłudze Azure AD bez zmiany użytkowników ani uprawnień w obszarze roboczym usługi Azure Synapse Analytics. W dowolnej chwili można skonfigurować tylko jednego administratora usługi Azure AD (użytkownika lub grupę).
 
 ![Struktura administratora](./media/aad-authentication/3-admin-structure.png)
 
@@ -109,7 +109,7 @@ Azure Active Directory Authentication obsługuje następujące metody łączenia
 - Azure Active Directory Universal with MFA
 - Korzystanie z uwierzytelniania za pomocą tokenu aplikacji
 
-Następujące metody uwierzytelniania są obsługiwane dla podmiotów zabezpieczeń serwera usługi Azure AD (w **publicznej wersji zapoznawczej** ):
+Następujące metody uwierzytelniania są obsługiwane dla podmiotów zabezpieczeń serwera usługi Azure AD (logowania):
 
 - Azure Active Directory hasło
 - Azure Active Directory zintegrowany
@@ -119,10 +119,10 @@ Następujące metody uwierzytelniania są obsługiwane dla podmiotów zabezpiecz
 
 - W celu zwiększenia możliwości zarządzania zalecamy udostępnienie dedykowanej grupy usługi Azure AD jako administrator.
 - W dowolnej chwili można skonfigurować tylko jednego administratora usługi Azure AD (użytkownika lub grupę) dla puli SQL Synapse.
-  - Dodanie podmiotów zabezpieczeń serwera usługi Azure AD dla programu Synapse SQL (wersja zapoznawcza) umożliwia tworzenie wielu podmiotów nazw (Logins) serwera usługi Azure AD, które można dodać do `sysadmin` roli.
+  - Dodanie podmiotów zabezpieczeń serwera usługi Azure AD dla programu Synapse SQL umożliwia tworzenie wielu podmiotów nazw (Logins) serwera usługi Azure AD, które można dodać do `sysadmin` roli.
 - Tylko administrator usługi Azure AD dla Synapse SQL może początkowo połączyć się z Synapse SQL przy użyciu konta Azure Active Directory. Administrator Active Directory może skonfigurować kolejnych użytkowników bazy danych usługi Azure AD.
 - Zalecamy ustawienie limitu czasu połączenia na 30 sekund.
-- SQL Server 2016 Management Studio i SQL Server Data Tools for Visual Studio 2015 (wersja 14.0.60311.1 kwietnia 2016 lub nowszy) obsługuje Azure Active Directory uwierzytelnianie. (Uwierzytelnianie usługi Azure AD jest obsługiwane przez **.NET Framework dostawca danych dla programu SqlServer** ; co najmniej w wersji .NET Framework 4,6). Dlatego najnowsze wersje tych narzędzi i aplikacji warstwy danych (DAC i. BACPAC) może korzystać z uwierzytelniania usługi Azure AD.
+- SQL Server 2016 Management Studio i SQL Server Data Tools for Visual Studio 2015 (wersja 14.0.60311.1 kwietnia 2016 lub nowszy) obsługuje Azure Active Directory uwierzytelnianie. (Uwierzytelnianie usługi Azure AD jest obsługiwane przez **.NET Framework dostawca danych dla programu SqlServer**; co najmniej w wersji .NET Framework 4,6). Dlatego najnowsze wersje tych narzędzi i aplikacji warstwy danych (DAC i. BACPAC) może korzystać z uwierzytelniania usługi Azure AD.
 - Począwszy od wersji 15.0.1, [narzędzia sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) i obsługi [narzędzia bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) Active Directory interakcyjnego uwierzytelniania przy użyciu usługi MFA.
 - Narzędzia SQL Server Data Tools for Visual Studio 2015 wymagają co najmniej wersji 2016 z kwietnia (wersja za14.0.60311.1na). Obecnie użytkownicy usługi Azure AD nie są wyświetlani w SSDT Eksplorator obiektów. Aby obejść ten sposób, Wyświetl użytkowników w [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 - [Sterownik Microsoft JDBC 6,0 dla SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) obsługuje uwierzytelnianie w usłudze Azure AD. Ponadto zobacz [Ustawianie właściwości połączenia](/sql/connect/jdbc/setting-the-connection-properties?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).

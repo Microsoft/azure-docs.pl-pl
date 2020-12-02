@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 3d9d41e80f78af7087c80592d927c193e494eab8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b458b8d76111db6b32d188d9784e56d7fae303b9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442398"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456852"
 ---
 # <a name="use-case---product-recommendations"></a>Przypadek użycia — zalecenia dotyczące produktu
 Azure Data Factory jest jedną z wielu usług służących do implementowania Cortana Intelligence Suite akceleratorów rozwiązań.  Aby uzyskać szczegółowe informacje o tym zestawie, zobacz stronę [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) . W tym dokumencie opisano typowy przypadek użycia, który użytkownicy platformy Azure już rozwiązany i zaimplementowali przy użyciu Azure Data Factory i innych usług składników Cortana Intelligence.
@@ -41,7 +41,7 @@ Poza tym detaliści muszą mierzyć skuteczność podejścia przez śledzenie ca
 ## <a name="solution-overview"></a>Omówienie rozwiązania
 Ten przykładowy przypadek użycia został rozwiązany i wdrożony przez prawdziwych użytkowników platformy Azure przy użyciu Azure Data Factory i innych usług składników Cortana Intelligence, w tym [HDInsight](https://azure.microsoft.com/services/hdinsight/) i [Power BI](https://powerbi.microsoft.com/).
 
-Detaliczny detalista używa magazynu obiektów blob platformy Azure, lokalnego SQL Server, Azure SQL Database i składni danych relacyjnych jako opcji przechowywania danych w ramach przepływu pracy.  Magazyn obiektów BLOB zawiera informacje o klientach, dane dotyczące zachowania klienta i dane o produkcie. Dane o produkcie zawierają informacje o marce produktu i katalog produktów przechowywane lokalnie w usłudze Azure Synapse Analytics (dawniej SQL Data Warehouse). 
+Detaliczny detalista używa magazynu obiektów blob platformy Azure, lokalnego SQL Server, Azure SQL Database i składni danych relacyjnych jako opcji przechowywania danych w ramach przepływu pracy.  Magazyn obiektów BLOB zawiera informacje o klientach, dane dotyczące zachowania klienta i dane o produkcie. Dane o produkcie zawierają informacje o marce produktu i katalog produktów przechowywane lokalnie w usłudze Azure Synapse Analytics. 
 
 Wszystkie dane są łączone i przekazywane do systemu rekomendacji produktów w celu dostarczenia spersonalizowanych zaleceń w oparciu o zainteresowania i akcje klienta, podczas gdy użytkownik przegląda produkty w katalogu w witrynie sieci Web. Klienci widzą również produkty, które są związane z tym produktem, na podstawie ogólnych wzorców użycia witryny sieci Web, które nie są powiązane z żadnym użytkownikiem.
 

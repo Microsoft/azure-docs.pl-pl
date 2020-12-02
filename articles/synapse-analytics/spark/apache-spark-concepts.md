@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: d29fa6454839b0c34830374282b8abb5fa6e4c51
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8df7a2ecd2a6732a011267eb0efe00e8eaf2bef4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313394"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458744"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Apache Spark w podstawowych pojęciach dotyczących usługi Azure Synapse Analytics
 
@@ -22,15 +22,15 @@ Apache Spark jest platformą przetwarzania równoległego, która obsługuje prz
 
 Usługa Azure Synapse ułatwia tworzenie i Konfigurowanie funkcji platformy Spark na platformie Azure. Usługa Azure Synapse zapewnia inną implementację tych możliwości platformy Spark, które są udokumentowane w tym miejscu.
 
-## <a name="spark-pools-preview"></a>Pule Spark (wersja zapoznawcza)
+## <a name="spark-pools"></a>Pule platformy Spark
 
-W Azure Portal zostanie utworzona Pula Apache Spark bezserwerowa (wersja zapoznawcza). Jest to definicja puli platformy Spark, która podczas tworzenia wystąpienia jest używana do tworzenia wystąpienia platformy Spark, które przetwarza dane. Po utworzeniu puli platformy Spark istnieje ona tylko jako metadane i żadne zasoby nie są używane, nie są uruchamiane ani obciążane opłatami. Pula platformy Spark ma serię właściwości kontrolujących charakterystykę wystąpienia platformy Spark. Te cechy obejmują, ale nie są ograniczone do nazwy, rozmiaru, zachowania skalowania, czasu wygaśnięcia.
+W Azure Portal zostanie utworzona Pula Apache Spark bezserwerowa. Jest to definicja puli platformy Spark, która podczas tworzenia wystąpienia jest używana do tworzenia wystąpienia platformy Spark, które przetwarza dane. Po utworzeniu puli platformy Spark istnieje ona tylko jako metadane i żadne zasoby nie są używane, nie są uruchamiane ani obciążane opłatami. Pula platformy Spark ma serię właściwości kontrolujących charakterystykę wystąpienia platformy Spark. Te cechy obejmują, ale nie są ograniczone do nazwy, rozmiaru, zachowania skalowania, czasu wygaśnięcia.
 
 Ponieważ nie ma dolarów ani kosztu zasobów związanych z tworzeniem pul platformy Spark, można utworzyć dowolną liczbę z dowolną liczbą różnych konfiguracji. Uprawnienia mogą być również stosowane do pul platformy Spark, co pozwala użytkownikom tylko na dostęp do niektórych i innych osób.
 
 Najlepszym rozwiązaniem jest utworzenie mniejszych pul platformy Spark, które mogą być używane do programowania i debugowania, a następnie większych do uruchamiania obciążeń produkcyjnych.
 
-Możesz zapoznać się z artykułem jak utworzyć pulę platformy Spark i zobaczyć wszystkie ich właściwości tutaj, aby rozpocząć [pracę z pulami platformy Spark w Synapse Analytics](../quickstart-create-apache-spark-pool-portal.md)
+Możesz zapoznać się z artykułem jak utworzyć pulę platformy Spark i zobaczyć wszystkie ich właściwości tutaj, aby rozpocząć [pracę z pulami platformy Spark w usłudze Azure Synapse Analytics](../quickstart-create-apache-spark-pool-portal.md)
 
 ## <a name="spark-instances"></a>Wystąpienia platformy Spark
 

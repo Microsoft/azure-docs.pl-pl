@@ -9,18 +9,18 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1a78142ded7be46bdc06c49d6e0a26ef8b266300
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0e3bbb2532340664d0fc54b29bea3ef3af75f9b6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318403"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459152"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Synapse użycie zasobów SQL
 
-W tym artykule opisano modele użycia zasobów Synapse SQL (wersja zapoznawcza).
+W tym artykule opisano modele użycia zasobów Synapse SQL.
 
-## <a name="serverless-sql-pool"></a>Pula SQL bezserwerowa
+## <a name="serverless-sql-pool"></a>Bezserwerowa pula SQL
 
 Bezserwerowa Pula SQL to płatność za usługę zapytań, która nie wymaga wybrania odpowiedniego rozmiaru. System automatycznie dostosowuje się w oparciu o Twoje wymagania, zwalniając użytkownika z zarządzania infrastrukturą i wybierając odpowiedni rozmiar rozwiązania.
 

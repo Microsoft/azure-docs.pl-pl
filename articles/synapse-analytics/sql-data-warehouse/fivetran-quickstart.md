@@ -1,6 +1,6 @@
 ---
-title: 'Szybki Start: Fivetran i magazyn danych'
-description: Rozpocznij pracę z usługą Fivetran i magazynem danych usługi Azure Synapse Analytics.
+title: 'Szybki Start: Fivetran i dedykowana Pula SQL (dawniej SQL DW)'
+description: Rozpocznij pracę z Fivetran i dedykowaną pulą SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,22 +11,22 @@ ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 96e679c0b284cc649dbde3fba1b640f4e09df05e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f332c3b0bd53d80d4a8471f53c56ecab611787c1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001851"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456367"
 ---
-# <a name="quickstart-fivetran-with-data-warehouse"></a>Szybki Start: Fivetran z magazynem danych 
+# <a name="quickstart-fivetran-with-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Szybki Start: Fivetran z dedykowaną pulą SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics 
 
-W tym przewodniku szybki start opisano sposób konfigurowania nowego użytkownika Fivetran do pracy z magazynem danych usługi Azure Synapse Analytics, który został zainicjowany przy użyciu puli SQL. W tym artykule przyjęto założenie, że masz istniejący magazyn danych.
+W tym przewodniku szybki start opisano, jak skonfigurować nowego użytkownika Fivetran do pracy z dedykowaną pulą SQL (dawniej SQL DW). W tym artykule przyjęto założenie, że masz istniejącą dedykowaną pulę SQL (dawniej SQL DW).
 
 ## <a name="set-up-a-connection"></a>Skonfiguruj połączenie
 
-1. Znajdź w pełni kwalifikowaną nazwę serwera i nazwę bazy danych, która jest używana do nawiązywania połączenia z magazynem danych.
+1. Znajdź w pełni kwalifikowaną nazwę serwera i nazwę bazy danych, która jest używana do nawiązywania połączenia z dedykowaną pulą SQL (dawniej SQL DW).
     
-    Jeśli potrzebujesz pomocy w znalezieniu tych informacji, zobacz [nawiązywanie połączenia z magazynem danych](../sql/connect-overview.md).
+    Jeśli potrzebujesz pomocy w znalezieniu tych informacji, zobacz [nawiązywanie połączenia z dedykowaną pulą SQL (dawniej SQL DW)](sql-data-warehouse-connection-strings.md).
 
 2. W Kreatorze instalacji wybierz, czy chcesz połączyć bazę danych bezpośrednio, czy przy użyciu tunelu SSH.
 
@@ -34,13 +34,13 @@ W tym przewodniku szybki start opisano sposób konfigurowania nowego użytkownik
 
    W przypadku wybrania opcji nawiązywania połączenia przy użyciu tunelu SSH Fivetran łączy się z osobnym serwerem w sieci. Serwer udostępnia tunel SSH do bazy danych. Tej metody należy użyć, jeśli baza danych znajduje się w podsieci niedostępnej w sieci wirtualnej.
 
-3. Dodaj adres IP **52.0.2.4** do zapory na poziomie serwera, aby zezwolić na połączenia przychodzące do wystąpienia magazynu danych z Fivetran.
+3. Dodaj adres IP **52.0.2.4** do zapory na poziomie serwera, aby zezwolić na połączenia przychodzące do dedykowanej puli SQL (dawniej SQL DW) z Fivetran.
 
    Aby uzyskać więcej informacji, zobacz temat [Tworzenie reguły zapory na poziomie serwera](create-data-warehouse-portal.md#create-a-server-level-firewall-rule).
 
 ## <a name="set-up-user-credentials"></a>Skonfiguruj poświadczenia użytkownika
 
-1. Połącz się z magazynem danych, korzystając z SQL Server Management Studio (SSMS) lub narzędzia, którego wolisz. Zaloguj się jako administrator serwera. Następnie uruchom następujące polecenia SQL, aby utworzyć użytkownika dla Fivetran:
+1. Połącz się z dedykowaną pulą SQL (dawniej SQL DW) przy użyciu programu SQL Server Management Studio (SSMS) lub narzędzia, którego wolisz. Zaloguj się jako administrator serwera. Następnie uruchom następujące polecenia SQL, aby utworzyć użytkownika dla Fivetran:
 
     - W bazie danych Master: 
     
@@ -48,7 +48,7 @@ W tym przewodniku szybki start opisano sposób konfigurowania nowego użytkownik
       CREATE LOGIN fivetran WITH PASSWORD = '<password>'; 
       ```
 
-    - W bazie danych magazynu danych:
+    - W dedykowanej puli SQL (dawniej SQL DW):
 
       ```sql
       CREATE USER fivetran_user_without_login without login;
@@ -56,7 +56,7 @@ W tym przewodniku szybki start opisano sposób konfigurowania nowego użytkownik
       GRANT IMPERSONATE on USER::fivetran_user_without_login to fivetran;
       ```
 
-2. Przyznaj użytkownikowi Fivetran następujące uprawnienia do magazynu danych:
+2. Przyznaj użytkownikowi Fivetran następujące uprawnienia do dedykowanej puli SQL (dawniej SQL DW):
 
     ```sql
     GRANT CONTROL to fivetran;
@@ -77,7 +77,7 @@ W tym przewodniku szybki start opisano sposób konfigurowania nowego użytkownik
 
 ## <a name="connect-from-fivetran"></a>Łączenie z Fivetran
 
-Aby nawiązać połączenie z magazynem danych z konta usługi Fivetran, wprowadź poświadczenia, które są używane w celu uzyskania dostępu do magazynu danych: 
+Aby nawiązać połączenie z dedykowaną pulą SQL (dawniej SQL DW) z konta usługi Fivetran, wprowadź poświadczenia, które są używane w celu uzyskania dostępu do dedykowanej puli SQL (dawniej SQL DW): 
 
 * Host (nazwa serwera).
 * Przewożąc.

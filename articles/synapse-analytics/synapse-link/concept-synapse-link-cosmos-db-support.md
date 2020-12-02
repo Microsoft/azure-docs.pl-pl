@@ -9,14 +9,14 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: fa05f8a8b05a0acddae906a93c90c42424466969
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3d12e60e2aeee667b89d56589870d53366772014
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322605"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459045"
 ---
-# <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Link usługi Azure Synapse (wersja zapoznawcza) dla Azure Cosmos DB obsługiwanych funkcji
+# <a name="azure-synapse-link-for-azure-cosmos-db-supported-features"></a>Obsługiwane funkcje usługi Azure Synapse Link dla usługi Azure Cosmos DB
 
 W tym artykule opisano funkcje, które są obecnie obsługiwane w usłudze Azure Synapse Link dla usługi Azure Cosmos DB.
 
@@ -31,9 +31,9 @@ Istnieją dwa typy kontenerów w Azure Cosmos DB:
 
 Można nawiązać połączenie z kontenerem Azure Cosmos DB bez włączania linku Synapse. W tym scenariuszu można tylko odczytywać i zapisywać dane w magazynie transakcyjnym. Poniżej znajduje się lista obecnie obsługiwanych funkcji w ramach linku Synapse dla Azure Cosmos DB. 
 
-| Kategoria              | Opis |[Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [Bezserwerowy SQL](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
+| Kategoria              | Opis |[Pula Apache Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [Pula SQL bezserwerowa](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- |
-| **Obsługa czasu wykonywania** |Obsługiwane środowisko uruchomieniowe usługi Azure Synapse w celu uzyskania dostępu Azure Cosmos DB| ✓ | ✓ |
+| **Obsługa czasu wykonywania** |Obsługiwane środowisko uruchomieniowe usługi Azure Synapse w celu uzyskania dostępu Azure Cosmos DB| ✓ | Wersja zapoznawcza |
 | **Obsługa interfejsu API Azure Cosmos DB** | Obsługiwany Azure Cosmos DB rodzaj interfejsu API | SQL/MongoDB | SQL/MongoDB |
 | **Stream**  |Obiekty takie jak tabela, która może być utworzona, wskazująca bezpośrednio na kontener Azure Cosmos DB| Dataframe, widok, tabela | Widok |
 | **Odczyt**    | Typ kontenera Azure Cosmos DB, który może zostać odczytany | OLTP/HTAP | HTAP  |
@@ -53,12 +53,12 @@ Można nawiązać połączenie z kontenerem Azure Cosmos DB bez włączania link
 | **Zapisz ramkę danych przesyłania strumieniowego do kontenera** |Przesyłanie strumieniowe danych przy użyciu kanału informacyjnego zmiany Azure Cosmos DB|✓| ✓ |
 
 
-## <a name="supported-code-generated-actions-for-sql-serverless"></a>Obsługiwane akcje generowane w kodzie dla programu SQL Server
+## <a name="supported-code-generated-actions-for-serverless-sql-pool"></a>Obsługiwane akcje generowane przez kod dla puli SQL bezserwerowej
 
 | Gest              | Opis |OLTP |HTAP |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- |----------------------------------------------------------- |
 | **Eksplorowanie danych** |Eksplorowanie danych z kontenera przy użyciu znanej składni języka T-SQL i automatycznego wnioskowania schematu|X| ✓ |
-| **Tworzenie widoków i raportów analizy biznesowej** |Utwórz widok SQL, aby uzyskać bezpośredni dostęp do kontenera dla analizy biznesowej za pośrednictwem usługi Synapse SQL Server |X| ✓ |
+| **Tworzenie widoków i raportów analizy biznesowej** |Tworzenie widoku SQL w celu uzyskania bezpośredniego dostępu do kontenera dla analizy biznesowej za pośrednictwem puli SQL bezserwerowej |X| ✓ |
 | **Dołącz do różnych źródeł danych wraz z danymi Cosmos DB** | Przechowuj wyniki zapytania dotyczące odczytywania danych z kontenerów Cosmos DB i danych na platformie Azure Blob Storage lub Azure Data Lake Storage za pomocą CETAS |X| ✓ |
 
 ## <a name="next-steps"></a>Następne kroki

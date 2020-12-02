@@ -1,30 +1,30 @@
 ---
-title: Najlepsze rozwiązania dotyczące ładowania danych dla puli SQL Synapse
-description: Zalecenia i optymalizacje wydajności służące do ładowania danych przy użyciu puli SQL Synapse.
+title: Najlepsze rozwiązania dotyczące ładowania danych dla dedykowanych pul SQL
+description: Zalecenia i optymalizacje wydajności służące do ładowania danych przy użyciu dedykowanych pul SQL w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 02/04/2020
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 34a536ea535fa222340bd004253ee54b9c13bea9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39625914f179dfc8d5511b9a3d386cc8332b7efa
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441225"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456299"
 ---
-# <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Najlepsze rozwiązania dotyczące ładowania danych przy użyciu puli SQL Synapse
+# <a name="best-practices-for-loading-data-using-dedicated-sql-pools-in-azure-synapse-analytics"></a>Najlepsze rozwiązania dotyczące ładowania danych przy użyciu dedykowanych pul SQL w usłudze Azure Synapse Analytics
 
-W tym artykule przedstawiono zalecenia i optymalizacje wydajności dotyczące ładowania danych przy użyciu puli SQL.
+W tym artykule przedstawiono zalecenia i optymalizacje wydajności dotyczące ładowania danych przy użyciu dedykowanej puli SQL.
 
 ## <a name="preparing-data-in-azure-storage"></a>Przygotowywanie danych w usłudze Azure Storage
 
-Aby zminimalizować opóźnienie, należy rozszukać warstwę magazynu i pulę SQL.
+Aby zminimalizować opóźnienie, należy rozszukać warstwę magazynu i dedykowaną pulę SQL.
 
 Podczas eksportowania danych do formatu plików ORC mogą pojawić się błędy braku pamięci Java, jeśli w danych znajdują się duże kolumny tekstu. Aby obejść to ograniczenie, można wyeksportować tylko podzestaw wszystkich kolumn.
 
@@ -34,7 +34,7 @@ Duże pliki skompresowane można podzielić na mniejsze.
 
 ## <a name="running-loads-with-enough-compute"></a>Uruchamianie zadań ładowania przy użyciu wystarczających zasobów obliczeniowych
 
-Aby uzyskać większą szybkość ładowania, uruchamiaj tylko jedno zadanie ładowania naraz. Jeśli to nie jest możliwe, należy uruchomić minimalną liczbę obciążeń jednocześnie. Jeśli spodziewasz się dużego zadania ładowania, rozważ przeskalowanie puli SQL przed obciążeniem.
+Aby uzyskać większą szybkość ładowania, uruchamiaj tylko jedno zadanie ładowania naraz. Jeśli to nie jest możliwe, należy uruchomić minimalną liczbę obciążeń jednocześnie. Jeśli spodziewasz się dużego zadania ładowania, rozważ przeskalowanie w górę dedykowanej puli SQL przed obciążeniem.
 
 Aby uruchamiać zadania ładowania przy użyciu odpowiednich zasobów obliczeniowych, utwórz użytkowników ładujących na potrzeby uruchamiania ładowania. Klasyfikowanie każdego użytkownika ładującego do określonej grupy obciążeń. Aby uruchomić ładowanie, zaloguj się jako jeden z użytkowników ładujących, a następnie uruchom obciążenie. Obciążenie jest uruchamiane z grupą obciążeń użytkownika.  
 
@@ -47,10 +47,10 @@ W tym przykładzie tworzony jest użytkownik ładujący sklasyfikowany do okreś
    CREATE LOGIN loader WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-Nawiąż połączenie z pulą SQL i Utwórz użytkownika. Poniższy kod założono, że masz połączenie z bazą danych o nazwie mySampleDataWarehouse. Przedstawiono w nim sposób tworzenia użytkownika o nazwie Loader i nadaje użytkownikowi uprawnienia do tworzenia tabel i ładowania przy użyciu [instrukcji Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Następnie klasyfikuje użytkownika do grupy obciążeń dataloads z maksymalnymi zasobami. 
+Nawiąż połączenie z dedykowaną pulą SQL i Utwórz użytkownika. Poniższy kod założono, że masz połączenie z bazą danych o nazwie mySampleDataWarehouse. Przedstawiono w nim sposób tworzenia użytkownika o nazwie Loader i nadaje użytkownikowi uprawnienia do tworzenia tabel i ładowania przy użyciu [instrukcji Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Następnie klasyfikuje użytkownika do grupy obciążeń dataloads z maksymalnymi zasobami. 
 
 ```sql
-   -- Connect to the SQL pool
+   -- Connect to the dedicated SQL pool
    CREATE USER loader FOR LOGIN loader;
    GRANT ADMINISTER DATABASE BULK OPERATIONS TO loader;
    GRANT INSERT ON <yourtablename> TO loader;
@@ -76,7 +76,7 @@ Aby uruchomić obciążenie z zasobami dla ładowania grupy obciążeń, zaloguj
 
 ## <a name="allowing-multiple-users-to-load-polybase"></a>Zezwalanie wielu użytkownikom na ładowanie (baza Base)
 
-Często istnieje potrzeba, aby wielu użytkowników ładowała dane do puli SQL. Ładowanie przy użyciu [CREATE TABLE jako Select (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (baza Base) wymaga uprawnień kontroli bazy danych.  Uprawnienia kontrolne (CONTROL) zapewniają dostęp z prawem kontroli do wszystkich schematów.
+Często istnieje potrzeba, aby wielu użytkowników ładowała dane do dedykowanej puli SQL. Ładowanie przy użyciu [CREATE TABLE jako Select (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (baza Base) wymaga uprawnień kontroli bazy danych.  Uprawnienia kontrolne (CONTROL) zapewniają dostęp z prawem kontroli do wszystkich schematów.
 
 Być może nie chcesz, aby wszyscy użytkownicy, którzy wykonują zadania ładowania, mieli dostęp z prawem kontroli do wszystkich schematów. Aby ograniczyć uprawnienia, użyj instrukcji DENY CONTROL.
 
@@ -91,9 +91,9 @@ User_A i user_B są teraz zablokowane w schemacie innego działu.
 
 ## <a name="loading-to-a-staging-table"></a>Ładowanie do tabeli przejściowej
 
-Aby osiągnąć najszybszą szybkość ładowania do przenoszenia danych do tabeli puli SQL, Załaduj dane do tabeli przejściowej.  Zdefiniuj tabelę przejściową jako stertę i użyj opcji dystrybucji z działaniem okrężnym.
+Aby osiągnąć najszybszą szybkość ładowania do przenoszenia danych do dedykowanej tabeli puli SQL, Załaduj dane do tabeli przejściowej.  Zdefiniuj tabelę przejściową jako stertę i użyj opcji dystrybucji z działaniem okrężnym.
 
-Należy wziąć pod uwagę, że ładowanie jest zwykle procesem dwuetapowym, w którym należy najpierw załadować do tabeli przejściowej, a następnie wstawić dane do tabeli produkcyjnej puli SQL. Jeśli tabela produkcyjna korzysta z dystrybucji skrótów, łączny czas ładowania i wstawiania może być krótszy w przypadku zdefiniowania tabeli przejściowej za pomocą dystrybucji skrótów.
+Należy wziąć pod uwagę, że ładowanie jest zwykle procesem dwuetapowym, w którym należy najpierw załadować do tabeli przejściowej, a następnie wstawić dane do dedykowanej tabeli puli SQL w środowisku produkcyjnym. Jeśli tabela produkcyjna korzysta z dystrybucji skrótów, łączny czas ładowania i wstawiania może być krótszy w przypadku zdefiniowania tabeli przejściowej za pomocą dystrybucji skrótów.
 
 Ładowanie do tabeli przejściowej trwa dłużej, ale drugi etap wstawiania wierszy do tabeli produkcyjnej nie powoduje przenoszenia danych między dystrybucjami.
 
@@ -111,7 +111,7 @@ Jeśli pamięci jest za mało, indeks magazynu kolumn może nie osiągać maksym
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Zwiększ rozmiar wsadu podczas korzystania z interfejsu API SqLBulkCopy lub BCP
 
-Ładowanie za pomocą instrukcji COPY zapewni najwyższą przepływność przy użyciu puli SQL. Jeśli nie można użyć kopii do załadowania i należy użyć [interfejsu API SqLBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) lub [BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), należy rozważyć zwiększenie rozmiaru wsadu w celu uzyskania lepszej przepływności.
+Ładowanie za pomocą instrukcji COPY zapewnia najwyższą przepływność przy użyciu dedykowanych pul SQL. Jeśli nie można użyć kopii do załadowania i należy użyć [interfejsu API SqLBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) lub [BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), należy rozważyć zwiększenie rozmiaru wsadu w celu uzyskania lepszej przepływności.
 
 > [!TIP]
 > Rozmiar wsadu między 100 K a 1M wierszy jest zalecaną linią bazową do określania optymalnej pojemności wsadu.
