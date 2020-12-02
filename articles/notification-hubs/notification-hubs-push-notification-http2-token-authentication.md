@@ -16,12 +16,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/13/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e8258aeef33be9192608f0d4cb29b46f08da64e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f8de6389a04448579672b84e91f0bb4dd0f4ce2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89010634"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460463"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Uwierzytelnianie oparte na tokenach (HTTP/2) dla usługi APNS
 
@@ -52,7 +52,7 @@ Aby włączyć uwierzytelnianie oparte na tokenach, potrzebne są następujące 
 
 ### <a name="key-identifier"></a>Identyfikator klucza
 
-Identyfikator klucza można uzyskać ze strony **klucze** w obszarze **certyfikaty, identyfikatory & profile**na koncie dewelopera firmy Apple:
+Identyfikator klucza można uzyskać ze strony **klucze** w obszarze **certyfikaty, identyfikatory & profile** na koncie dewelopera firmy Apple:
 
 ![Certyfikaty](./media/notification-hubs-push-notification-http2-token-authentification/keys.png)
 
@@ -71,14 +71,14 @@ Koncentrator można skonfigurować tak, aby korzystał z uwierzytelniania oparte
 ![Skonfiguruj token](./media/notification-hubs-push-notification-http2-token-authentification/azure-portal-apns-settings.png)
 
 * Wprowadź właściwości pobrane z konta dewelopera firmy Apple.
-* Wybierz tryb aplikacji (w**środowisku produkcyjnym** lub **piaskownicy**).
+* Wybierz tryb aplikacji (w **środowisku produkcyjnym** lub **piaskownicy**).
 * Kliknij przycisk **Zapisz** , aby zaktualizować poświadczenia usługi APNs.
 
 Poświadczenia oparte na tokenach składają się z następujących pól:
 
 * **Identyfikator klucza**: Identyfikator klucza prywatnego, który został wygenerowany w portalu dla deweloperów firmy Apple; na przykład `2USFGKSKLT` .
 * **Identyfikator zespołu**: nazywany także "prefiksem" lub "prefiksem aplikacji". To jest identyfikator organizacji w portalu dla deweloperów firmy Apple. na przykład `S4V3D7CHJR` .
-* **Identyfikator pakietu**: określany również jako "Identyfikator aplikacji". Jest to identyfikator pakietu dla aplikacji; na przykład `com.example.myapp` . Należy pamiętać, że można użyć jednego klucza dla wielu aplikacji. Ta wartość jest mapowana na `apns-topic` nagłówek HTTP podczas wysyłania powiadomienia i służy do określania docelowej aplikacji. Należy pamiętać, że nie można ustawić wartości `apns-topic` jawnie.
+* **Identyfikator pakietu**: określany również jako "Identyfikator aplikacji". Jest to identyfikator pakietu dla aplikacji; na przykład `com.example.myapp` . Należy pamiętać, że można użyć tylko jednego klucza dla jednej aplikacji. Ta wartość jest mapowana na `apns-topic` nagłówek HTTP podczas wysyłania powiadomienia i służy do określania docelowej aplikacji. Nie można ustawić wartości `apns-topic` jawnie.
 * **Token**: nazywany także "kluczem" lub "kluczem prywatnym". Jest to uzyskiwane z pliku. P8 wygenerowanego w portalu dla deweloperów firmy Apple. Klucz musi mieć włączoną funkcję APN (wybraną w portalu dla deweloperów firmy Apple podczas generowania klucza). Ta wartość musi mieć usunięte z nagłówka PEM/Stopka podczas dostarczania go do portalu NH/interfejsu API.
 * **Punkt końcowy**: jest to przełącznik w bloku Notification Hubs Portal i pola ciągu w interfejsie API. Prawidłowe wartości to `https://api.development.push.apple.com:443/3/device` lub `https://api.sandbox.push.apple.com:443/3/device` . Notification Hubs używa tej wartości dla środowiska produkcyjnego lub piaskownicy do wysyłania powiadomień. Ta wartość musi być zgodna z `aps-environment` uprawnieniem w aplikacji, w przeciwnym razie wygenerowane tokeny urządzeń APNs nie są zgodne ze środowiskiem i powiadomienia nie są wysyłane.
 

@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
-ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 0e807a01f575615967a039d360505a4f090cd1fd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.reviewer: nibruno; jrasnick; azure-synapse
+ms.openlocfilehash: 902f0ac96349cf3e30ec12aeda02130afc2b800c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478324"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460762"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Dostrajanie wydajności w widokach z materiałami
 
-Widoki z materiałami w puli SQL Synapse zapewniają niską metodę konserwacji dla złożonych zapytań analitycznych w celu uzyskania szybkiej wydajności bez żadnej zmiany w zapytaniu. W tym artykule omówiono ogólne wskazówki dotyczące korzystania z widoków z materiałami.
+Widoki z materiałami w puli SQL usługi Azure Synapse zapewniają niską metodę konserwacji dla złożonych zapytań analitycznych w celu uzyskania szybkiej wydajności bez żadnej zmiany w zapytaniu. W tym artykule omówiono ogólne wskazówki dotyczące korzystania z widoków z materiałami.
 
 ## <a name="materialized-views-vs-standard-views"></a>Widoki z materiałami i widoki standardowe
 
-Pula SQL obsługuje widoki standardowe i z materiałami.  Obie są tabelami wirtualnymi utworzonymi za pomocą SELECT Expressions i prezentowanych jako tabele logiczne.  Widoki hermetyzują złożoność wspólnych obliczeń danych i dodają warstwę abstrakcji do obliczeń zmian, aby nie trzeba było ponownie pisać zapytań.  
+Pula SQL w usłudze Azure Synapse obsługuje widoki standardowe i z materiałami.  Obie są tabelami wirtualnymi utworzonymi za pomocą SELECT Expressions i prezentowanych jako tabele logiczne.  Widoki hermetyzują złożoność wspólnych obliczeń danych i dodają warstwę abstrakcji do obliczeń zmian, aby nie trzeba było ponownie pisać zapytań.  
 
-Widok standardowy oblicza swoje dane za każdym razem, gdy widok jest używany.  Brak danych przechowywanych na dysku. Użytkownicy zazwyczaj używają widoków standardowych jako narzędzia, które ułatwiają organizowanie obiektów logicznych i zapytań w bazie danych.  Aby użyć widoku standardowego, zapytanie musi nawiązać bezpośrednie odwołanie do niego.
+Widok standardowy oblicza swoje dane za każdym razem, gdy widok jest używany.  Brak danych przechowywanych na dysku. Użytkownicy zazwyczaj używają widoków standardowych jako narzędzia, które ułatwiają organizowanie obiektów logicznych i zapytań w puli SQL.  Aby użyć widoku standardowego, zapytanie musi nawiązać bezpośrednie odwołanie do niego.
 
 Widok z materiałami umożliwia wstępne obliczenie, przechowywanie i przechowywanie danych w puli SQL w taki sam sposób jak tabela.  Za każdym razem, gdy jest używany widok materiałowy, nie jest wymagana żadna konieczność obliczenia.  Dlatego, że zapytania, które używają wszystkich lub podzbiór danych w widokach z możliwością, mogą uzyskać lepszą wydajność.  Jeszcze lepsze zapytania mogą korzystać z widoku z materiałami bez bezpośredniego odniesienia do niego, dlatego nie trzeba zmieniać kodu aplikacji.  
 
@@ -79,7 +79,7 @@ W porównaniu z innymi opcjami dostrajania, takimi jak skalowanie i Zarządzanie
 
 **Potrzebna inna strategia dystrybucji danych w celu przyspieszenia wykonywania zapytań**
 
-Synapse SQL to system przetwarzania zapytań rozproszonych.  Dane w tabeli SQL są dystrybuowane między 60 węzłami przy użyciu jednej z trzech [strategii dystrybucji](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (mieszanie, round_robin lub zreplikowane).   
+Azure Synapse Analytics to rozproszony system przetwarzania zapytań.  Dane w tabeli SQL są dystrybuowane między 60 węzłami przy użyciu jednej z trzech [strategii dystrybucji](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (mieszanie, round_robin lub zreplikowane).   
 
 Dystrybucja danych jest określana w czasie tworzenia tabeli i pozostaje niezmieniona, dopóki tabela nie zostanie porzucona. Widok z materiałami jest tabelą wirtualną na dysku obsługującym dystrybucję danych i round_robin.  Użytkownicy mogą wybrać dystrybucję danych inną niż tabele podstawowe, ale optymalną dla wydajności zapytań, które korzystają z większości widoków.  
 
@@ -97,11 +97,11 @@ Oceń te zalecenia z uwzględnieniem potrzeb związanych z obciążeniem.  Ideal
 
 **Weź pod uwagę kompromis między szybszymi zapytaniami i kosztem**
 
-Dla każdego widoku z materiałami istnieje koszt magazynowania danych i koszt utrzymania widoku.  Wraz ze zmianami danych w tabelach podstawowych rozmiar widoku z materiałami wzrasta i jego struktura fizyczna również ulega zmianie.  Aby uniknąć obniżenia wydajności zapytań, każdy widok z materiałami jest obsługiwany oddzielnie przez aparat puli SQL.  
+Dla każdego widoku z materiałami istnieje koszt magazynowania danych i koszt utrzymania widoku.  Wraz ze zmianami danych w tabelach podstawowych rozmiar widoku z materiałami wzrasta i jego struktura fizyczna również ulega zmianie.  Aby uniknąć obniżenia wydajności zapytań, każdy widok z materiałami jest obsługiwany oddzielnie przez aparat analityczny usługi SQL.  
 
 Obciążenie pracą konserwacyjną jest wyższe, gdy liczba widoków z materiałami i zmianami w tabeli podstawowej rośnie.   Użytkownicy powinni sprawdzić, czy koszt ponoszony ze wszystkich widoków z materiałami może być przesunięty przez wzrost wydajności zapytania.  
 
-To zapytanie można uruchomić, aby wyświetlić listę przykładowego widoku w bazie danych:
+To zapytanie można uruchomić, aby wyświetlić listę przykładowego widoku w puli SQL:
 
 ```sql
 SELECT V.name as materialized_view, V.object_id
@@ -141,7 +141,7 @@ GROUP BY A, C
 
 **Nie wszystkie dostrajanie wydajności wymaga zmiany zapytania**
 
-Optymalizator puli SQL może automatycznie używać wdrożonych widoków w celu zwiększenia wydajności zapytań.  Ta obsługa jest zastosowana w sposób niewidoczny dla zapytań, które nie odwołują się do widoków i zapytań, które używają wartości zagregowanych nieobsługiwanych w przypadku tworzenia widoków w materiałach.  Nie jest wymagana żadna zmiana zapytania. Można sprawdzić szacowany plan wykonywania zapytania, aby potwierdzić, czy jest używany widok z materiałami.  
+Optymalizator analityczny SQL może automatycznie używać wdrożonych widoków w celu zwiększenia wydajności zapytań.  Ta obsługa jest zastosowana w sposób niewidoczny dla zapytań, które nie odwołują się do widoków i zapytań, które używają wartości zagregowanych nieobsługiwanych w przypadku tworzenia widoków w materiałach.  Nie jest wymagana żadna zmiana zapytania. Można sprawdzić szacowany plan wykonywania zapytania, aby potwierdzić, czy jest używany widok z materiałami.  
 
 **Monitorowanie widoków z materiałami**
 
@@ -151,7 +151,7 @@ Aby uniknąć obniżenia wydajności zapytań, dobrym sposobem jest uruchomienie
 
 **Widok materiałowy i buforowanie zestawu wyników**
 
-Te dwie funkcje są wprowadzane w puli SQL w tym samym czasie na potrzeby dostrajania wydajności zapytań.  Buforowanie zestawu wyników służy do uzyskiwania dużej współbieżności i szybkiej reakcji od powtarzających się zapytań na dane statyczne.  
+Te dwie funkcje są wprowadzane w usłudze SQL Analytics w tym samym czasie na potrzeby dostrajania wydajności zapytań.  Buforowanie zestawu wyników służy do uzyskiwania dużej współbieżności i szybkiej reakcji od powtarzających się zapytań na dane statyczne.  
 
 Aby można było użyć buforowanego wyniku, formularz żądania pamięci podręcznej musi pasować do zapytania, które spowodowało wytworzenie pamięci podręcznej.  Ponadto, buforowany wynik musi dotyczyć całego zapytania.  
 

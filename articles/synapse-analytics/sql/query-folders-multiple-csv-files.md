@@ -1,6 +1,6 @@
 ---
-title: Wysyłanie zapytań do folderów i wielu plików przy użyciu puli SQL bezserwerowej (wersja zapoznawcza)
-description: Pula SQL bezserwerowa (wersja zapoznawcza) obsługuje odczytywanie wielu plików/folderów przy użyciu symboli wieloznacznych, które są podobne do symboli wieloznacznych używanych w systemie operacyjnym Windows.
+title: Wysyłanie zapytań do folderów i wielu plików przy użyciu puli SQL bezserwerowej
+description: Pula SQL bezserwerowa obsługuje odczytywanie wielu plików/folderów przy użyciu symboli wieloznacznych, które są podobne do symboli wieloznacznych używanych w systemie operacyjnym Windows.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9d15d681a114b0f364e8e33adc786b4d0ba7df0e
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 83c4d88e1a87f6b546e26dd55da338a36f16ebe4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684563"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462627"
 ---
 # <a name="query-folders-and-multiple-files"></a>Wykonywanie zapytań względem folderów i wielu plików  
 
-W tym artykule dowiesz się, jak napisać zapytanie przy użyciu bezserwerowej puli SQL (wersja zapoznawcza) w usłudze Azure Synapse Analytics.
+W tym artykule dowiesz się, jak napisać zapytanie przy użyciu bezserwerowej puli SQL w usłudze Azure Synapse Analytics.
 
 Pula SQL bezserwerowa obsługuje odczytywanie wielu plików/folderów przy użyciu symboli wieloznacznych, które są podobne do symboli wieloznacznych używanych w systemie operacyjnym Windows. Jednak większa elastyczność jest obecna, ponieważ wiele symboli wieloznacznych jest dozwolonych.
 

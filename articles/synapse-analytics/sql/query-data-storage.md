@@ -1,6 +1,6 @@
 ---
-title: Wykonywanie zapytań dotyczących magazynu danych za pomocą puli SQL bezserwerowej (wersja zapoznawcza)
-description: W tym artykule opisano sposób tworzenia zapytań do usługi Azure Storage przy użyciu zasobu puli SQL bezserwerowej (wersja zapoznawcza) w ramach usługi Azure Synapse Analytics.
+title: Wykonywanie zapytań dotyczących magazynu danych za pomocą puli SQL bez serwera
+description: W tym artykule opisano sposób wykonywania zapytań w usłudze Azure Storage przy użyciu bezserwerowego zasobu puli SQL w ramach usługi Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 81a892b10996686cf58d45867e3d889505b5d3d9
-ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
+ms.openlocfilehash: 967250cf29d1f0248f296cb545a764bd8e611773
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96299585"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462655"
 ---
-# <a name="query-storage-files-with-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Wykonywanie zapytań dotyczących plików magazynu za pomocą puli SQL bezserwerowej (wersja zapoznawcza) w usłudze Azure Synapse Analytics
+# <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Wykonywanie zapytań dotyczących plików magazynu z pulą SQL bezserwerowych w usłudze Azure Synapse Analytics
 
-Pula SQL bezserwerowa (wersja zapoznawcza) umożliwia wykonywanie zapytań dotyczących danych w usłudze Data Lake. Oferuje obszar powierzchni zapytania T-SQL, który służy do obsługi zapytań o dane z częściową strukturą i bez struktury. Do wykonywania zapytań są obsługiwane następujące aspekty języka T-SQL:
+Pula SQL bezserwerowa umożliwia wykonywanie zapytań dotyczących danych w usłudze Data Lake. Oferuje obszar powierzchni zapytania T-SQL, który służy do obsługi zapytań o dane z częściową strukturą i bez struktury. Do wykonywania zapytań są obsługiwane następujące aspekty języka T-SQL:
 
 - Pełny [wybór](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) obszaru powierzchni, w tym większość [funkcji SQL i operatorów](overview-features.md).
 - Utwórz tabelę ZEWNĘTRZną jako SELECT ([CETAS](develop-tables-cetas.md)) tworzy [tabelę zewnętrzną](develop-tables-external-tables.md) , a następnie eksportuje, równolegle, wyniki instrukcji SELECT języka Transact-SQL do usługi Azure Storage.
@@ -222,7 +222,7 @@ Możesz dowiedzieć się więcej o wysyłaniu zapytań do różnych typów danyc
 ### <a name="tools"></a>Narzędzia
 
 Narzędzia potrzebne do wysyłania zapytań:
-    - Azure Synapse Studio (wersja zapoznawcza)
+    - Azure Synapse Studio 
     - Azure Data Studio
     - SQL Server Management Studio
 

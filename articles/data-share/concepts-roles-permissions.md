@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: efb86dbcbe7619ff6727c5e7374835dc3fc7d731
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: ed4b4d9c1de1e9024e8ea86d4661b42d6c68b0ae
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220503"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460997"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Role i wymagania dotyczące usługi Azure Data Share 
 
@@ -43,7 +43,7 @@ W przypadku udostępniania opartego na języku SQL użytkownik musi zostać utwo
 |**Typ SQL Database**|**Dostawca danych uprawnienie użytkownika SQL**|**Uprawnienie użytkownika SQL dla danych klienta**|
 |---|---|---|
 |Azure SQL Database | db_datareader | db_datareader, db_datawriter, db_ddladmin
-|Azure Synapse Analytics (dawniej SQL DW) | db_datareader | db_datareader, db_datawriter, db_ddladmin
+|Azure Synapse Analytics | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |
 
 ### <a name="data-provider"></a>Dostawca danych
@@ -59,13 +59,13 @@ Aby ręcznie utworzyć przypisanie roli dla tożsamości zarządzanej zasobu udz
 1. Przejdź do magazynu danych platformy Azure.
 1. Wybierz pozycję **Access Control (IAM)**.
 1. Wybierz pozycję **Dodaj przypisanie roli**.
-1. W obszarze *rola*wybierz rolę w powyższej tabeli przypisania roli (na przykład dla konta magazynu wybierz pozycję *czytnik danych magazynu obiektów BLOB*).
-1. W obszarze *Wybierz*wpisz nazwę zasobu udziału danych platformy Azure.
+1. W obszarze *rola* wybierz rolę w powyższej tabeli przypisania roli (na przykład dla konta magazynu wybierz pozycję *czytnik danych magazynu obiektów BLOB*).
+1. W obszarze *Wybierz* wpisz nazwę zasobu udziału danych platformy Azure.
 1. Kliknij pozycję *Zapisz*.
 
 Aby dowiedzieć się więcej na temat przypisywania ról, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). Jeśli udostępniasz dane przy użyciu interfejsów API REST, możesz utworzyć przypisanie roli przy użyciu interfejsu API, przywołując [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu API REST](../role-based-access-control/role-assignments-rest.md). 
 
-W przypadku źródeł opartych na języku SQL użytkownik musi zostać utworzony przez dostawcę zewnętrznego w SQL Database z taką samą nazwą jak zasób udziału danych platformy Azure podczas nawiązywania połączenia z usługą SQL Database przy użyciu uwierzytelniania Azure Active Directory. Ten użytkownik musi mieć przyznane uprawnienie *db_datareader* . Przykładowy skrypt wraz z innymi wymaganiami wstępnymi dotyczącymi udostępniania danych opartych na języku SQL można znaleźć w samouczku [Azure SQL Database lub Synapse Analytics](how-to-share-from-sql.md) . 
+W przypadku źródeł opartych na języku SQL użytkownik musi zostać utworzony przez dostawcę zewnętrznego w SQL Database z taką samą nazwą jak zasób udziału danych platformy Azure podczas nawiązywania połączenia z usługą SQL Database przy użyciu uwierzytelniania Azure Active Directory. Ten użytkownik musi mieć przyznane uprawnienie *db_datareader* . Przykładowy skrypt wraz z innymi wymaganiami wstępnymi dotyczącymi udostępniania danych opartych na języku SQL można znaleźć w samouczku [Azure SQL Database lub Azure Synapse Analytics](how-to-share-from-sql.md) . 
 
 ### <a name="data-consumer"></a>Odbiorca danych
 Aby otrzymywać dane, tożsamość zarządzana zasobu udziału danych klienta musi mieć przyznane dostęp do docelowego magazynu danych platformy Azure. Na przykład w przypadku konta magazynu zarządzana tożsamość zasobu udziału danych jest przyznana roli współautor danych obiektu blob magazynu. 
@@ -79,13 +79,13 @@ Aby ręcznie utworzyć przypisanie roli dla tożsamości zarządzanej zasobu udz
 1. Przejdź do magazynu danych platformy Azure.
 1. Wybierz pozycję **Access Control (IAM)**.
 1. Wybierz pozycję **Dodaj przypisanie roli**.
-1. W obszarze *rola*wybierz rolę w powyższej tabeli przypisania roli (na przykład dla konta magazynu wybierz pozycję *czytnik danych magazynu obiektów BLOB*).
-1. W obszarze *Wybierz*wpisz nazwę zasobu udziału danych platformy Azure.
+1. W obszarze *rola* wybierz rolę w powyższej tabeli przypisania roli (na przykład dla konta magazynu wybierz pozycję *czytnik danych magazynu obiektów BLOB*).
+1. W obszarze *Wybierz* wpisz nazwę zasobu udziału danych platformy Azure.
 1. Kliknij pozycję *Zapisz*.
 
 Aby dowiedzieć się więcej na temat przypisywania ról, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). Jeśli otrzymujesz dane przy użyciu interfejsów API REST, możesz utworzyć przypisanie roli przy użyciu interfejsu API, przywołując [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu API REST](../role-based-access-control/role-assignments-rest.md). 
 
-W przypadku obiektów docelowych opartych na języku SQL użytkownik musi zostać utworzony przez dostawcę zewnętrznego w SQL Database z taką samą nazwą jak zasób udziału danych platformy Azure podczas nawiązywania połączenia z usługą SQL Database przy użyciu uwierzytelniania Azure Active Directory. Ten użytkownik musi mieć przyznane *db_datareader, db_datawriter db_ddladmin* uprawnienia. Przykładowy skrypt wraz z innymi wymaganiami wstępnymi dotyczącymi udostępniania danych opartych na języku SQL można znaleźć w samouczku [Azure SQL Database lub Synapse Analytics](how-to-share-from-sql.md) . 
+W przypadku obiektów docelowych opartych na języku SQL użytkownik musi zostać utworzony przez dostawcę zewnętrznego w SQL Database z taką samą nazwą jak zasób udziału danych platformy Azure podczas nawiązywania połączenia z usługą SQL Database przy użyciu uwierzytelniania Azure Active Directory. Ten użytkownik musi mieć przyznane *db_datareader, db_datawriter db_ddladmin* uprawnienia. Przykładowy skrypt wraz z innymi wymaganiami wstępnymi dotyczącymi udostępniania danych opartych na języku SQL można znaleźć w samouczku [Azure SQL Database lub Azure Synapse Analytics](how-to-share-from-sql.md) . 
 
 ## <a name="resource-provider-registration"></a>Rejestracja dostawcy zasobów 
 

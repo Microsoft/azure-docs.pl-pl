@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: Tworzenie puli Apache Spark bezserwerowej (wersja zapoznawcza) przy użyciu programu Synapse Studio'
+title: 'Szybki Start: Tworzenie puli Apache Spark bezserwerowej przy użyciu programu Synapse Studio'
 description: Utwórz bezserwerową pulę Apache Spark przy użyciu programu Synapse Studio, wykonując czynności opisane w tym przewodniku.
 services: synapse-analytics
 author: saveenr
@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 10/16/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 313ad0c620fe06158e96c208ae265702134b58d1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d280e96b354f38a86545ed5f6bcaa6c9a314c46b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324183"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462024"
 ---
-# <a name="quickstart-create-a-serverless-apache-spark-pool-preview-using-synapse-studio"></a>Szybki Start: Tworzenie puli Apache Spark bezserwerowej (wersja zapoznawcza) przy użyciu programu Synapse Studio
+# <a name="quickstart-create-a-serverless-apache-spark-pool-using-synapse-studio"></a>Szybki Start: Tworzenie puli Apache Spark bezserwerowej przy użyciu programu Synapse Studio
 
 Usługa Azure Synapse Analytics oferuje różne aparaty analityczne, które ułatwiają pozyskiwanie, przekształcanie, modelowanie, analizowanie i obsługiwanie danych. Pula Apache Spark oferuje możliwości obliczeniowe Big Data dla Open Source. Po utworzeniu puli Apache Spark w obszarze roboczym Synapse dane mogą być ładowane, modelowane, przetwarzane i obsługiwane w celu uzyskania szczegółowych informacji.  
 
@@ -100,7 +100,7 @@ Wykonaj poniższe kroki, aby usunąć pulę Apache Spark z obszaru roboczego prz
 Jeśli chcesz usunąć pulę Apache Spark, wykonaj następujące czynności:
 
 1. Przejdź do pul Apache Spark w centrum zarządzania w programie Synapse Studio.
-1. Wybierz wielokropek obok puli Apache do usunięcia (w tym przypadku **contosospark** ), aby wyświetlić polecenia dla puli Apache Spark.
+1. Wybierz wielokropek obok puli Apache do usunięcia (w tym przypadku **contosospark**), aby wyświetlić polecenia dla puli Apache Spark.
 
     ![Lista pul Apache Spark, dla których wybrano ostatnio utworzoną pulę.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-29.png)
 

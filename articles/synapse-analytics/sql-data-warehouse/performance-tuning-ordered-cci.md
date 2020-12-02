@@ -1,6 +1,6 @@
 ---
 title: Strojenie wydajności za pomocą uporządkowanego klastrowanego indeksu magazynu kolumn
-description: Zalecenia i zagadnienia, które należy znać w przypadku używania uporządkowanego klastrowanego indeksu magazynu kolumn w celu zwiększenia wydajności zapytań.
+description: Zalecenia i zagadnienia, które należy znać w przypadku używania uporządkowanego klastrowanego indeksu magazynu kolumn w celu zwiększenia wydajności zapytań w dedykowanych pulach SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,22 +11,22 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 48db8541ebad19e3b22b737f7e92dcc980708ef6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afb6efcee2ad4f5cf25a411eed353ff2fc27d75c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841598"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460793"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Strojenie wydajności za pomocą uporządkowanego klastrowanego indeksu magazynu kolumn  
 
-Gdy użytkownicy wysyłają zapytanie do tabeli magazynu kolumn w puli SQL Synapse, optymalizator sprawdza wartości minimalne i maksymalne przechowywane w każdym segmencie.  Segmenty, które znajdują się poza granicami predykatu zapytania, nie są odczytywane z dysku do pamięci.  Zapytanie może zwiększyć wydajność, jeśli liczba segmentów do odczytu i ich łączny rozmiar jest mały.   
+Gdy użytkownicy wysyłają zapytanie do tabeli magazynu kolumn w dedykowanej puli SQL, optymalizator sprawdza wartości minimalne i maksymalne przechowywane w poszczególnych segmentach.  Segmenty, które znajdują się poza granicami predykatu zapytania, nie są odczytywane z dysku do pamięci.  Zapytanie może zwiększyć wydajność, jeśli liczba segmentów do odczytu i ich łączny rozmiar jest mały.   
 
 ## <a name="ordered-vs-non-ordered-clustered-columnstore-index"></a>Uporządkowany a nieuporządkowany klastrowany indeks magazynu kolumn
 
 Domyślnie dla każdej tabeli utworzonej bez opcji index składnik wewnętrzny (Konstruktor indeksowania) tworzy na nim nieuporządkowany klastrowany indeks magazynu kolumn (WIK).  Dane w każdej kolumnie są kompresowane do oddzielnego segmentu grupy wierszy WIK.  Istnieją metadane dla każdego zakresu wartości segmentu, dlatego segmenty, które znajdują się poza granicami predykatu zapytania, nie są odczytywane z dysku podczas wykonywania zapytania.  WIK oferuje najwyższy poziom kompresji danych i zmniejsza rozmiar segmentów do odczytu, dzięki czemu zapytania mogą działać szybciej. Jednak ponieważ Konstruktor indeksu nie sortuje danych przed ich kompresowaniem do segmentów, mogą wystąpić segmenty z nakładającymi się zakresami wartości, co sprawia, że zapytania odczytują więcej segmentów z dysku i trwają dłużej.  
 
-Podczas tworzenia uporządkowanej WIK aparat SQL Synapse sortuje istniejące dane w pamięci przez klucze kolejności, zanim Konstruktor index kompresuje je do segmentów indeksu.  Posortowane dane, nakładające się segmenty, zmniejszają się, umożliwiając wykonywanie zapytań o bardziej wydajny sposób eliminacji segmentów, co zwiększa wydajność, ponieważ liczba segmentów odczytywanych z dysku jest mniejsza.  Jeśli wszystkie dane można sortować jednocześnie w pamięci, można uniknąć nakładania się segmentów.  Ze względu na duże tabele w magazynach danych ten scenariusz nie jest często wykonywany.  
+Podczas tworzenia uporządkowanej WIK aparat puli SQL sortuje istniejące dane w pamięci przez klucze kolejności, zanim Konstruktor index kompresuje je do segmentów indeksu.  Posortowane dane, nakładające się segmenty, zmniejszają się, umożliwiając wykonywanie zapytań o bardziej wydajny sposób eliminacji segmentów, co zwiększa wydajność, ponieważ liczba segmentów odczytywanych z dysku jest mniejsza.  Jeśli wszystkie dane można sortować jednocześnie w pamięci, można uniknąć nakładania się segmentów.  Ze względu na duże tabele w magazynach danych ten scenariusz nie jest często wykonywany.  
 
 Aby sprawdzić zakresy segmentów dla kolumny, uruchom następujące polecenie z nazwą tabeli i nazwą kolumny:
 
@@ -50,7 +50,7 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> W tabeli uporządkowanej WIK nowe dane, które wynikają z tej samej partii operacji ładowania DML lub danych, są sortowane w tej partii, nie istnieje sortowanie globalne dla wszystkich danych w tabeli.  Użytkownicy mogą odbudować uporządkowaną WIK, aby posortować wszystkie dane w tabeli.  W Synapse SQL, ponowne KOMPILOWAnie indeksu magazynu kolumn jest operacją offline.  W przypadku partycjonowanej tabeli ponowne KOMPILOWAnie wykonuje jedną partycję w danym momencie.  Dane w partycji, która jest ponownie skompilowana, są w trybie offline i niedostępne do momentu ukończenia odbudowy dla tej partycji. 
+> W tabeli uporządkowanej WIK nowe dane, które wynikają z tej samej partii operacji ładowania DML lub danych, są sortowane w tej partii, nie istnieje sortowanie globalne dla wszystkich danych w tabeli.  Użytkownicy mogą odbudować uporządkowaną WIK, aby posortować wszystkie dane w tabeli.  W dedykowanej puli SQL indeks magazynu kolumn jest ponownie przełączony do trybu offline.  W przypadku partycjonowanej tabeli ponowne KOMPILOWAnie wykonuje jedną partycję w danym momencie.  Dane w partycji, która jest ponownie skompilowana, są w trybie offline i niedostępne do momentu ukończenia odbudowy dla tej partycji. 
 
 ## <a name="query-performance"></a>Wydajność zapytań
 
@@ -109,7 +109,7 @@ Liczba nakładających się segmentów zależy od rozmiaru danych do sortowania,
 
 - Użyj klasy zasobów xlargerc na wyższym jednostek dwu, aby umożliwić większą ilość pamięci na potrzeby sortowania danych, zanim Konstruktor indeksów kompresuje dane do segmentów.  Raz w segmencie indeksu nie można zmienić fizycznej lokalizacji danych.  Nie ma sortowania danych w ramach segmentu ani między segmentami.  
 
-- Utwórz uporządkowaną WIK z MAXDOP = 1.  Każdy wątek używany do uporządkowanego tworzenia WIK działa w ramach podzestawu danych i sortuje go lokalnie.  Nie ma sortowania globalnego dla danych posortowanych według różnych wątków.  Użycie równoległych wątków może skrócić czas tworzenia uporządkowanej WIK, ale generuje więcej nakładających się segmentów niż przy użyciu jednego wątku.  Obecnie opcja MAXDOP jest obsługiwana tylko w przypadku tworzenia tabeli uporządkowanej WIK przy użyciu CREATE TABLE jako polecenia SELECT.  Tworzenie uporządkowanej WIK za pomocą poleceń CREATE INDEX lub CREATE TABLE nie obsługuje opcji MAXDOP. Przykład:
+- Utwórz uporządkowaną WIK z MAXDOP = 1.  Każdy wątek używany do uporządkowanego tworzenia WIK działa w ramach podzestawu danych i sortuje go lokalnie.  Nie ma sortowania globalnego dla danych posortowanych według różnych wątków.  Użycie równoległych wątków może skrócić czas tworzenia uporządkowanej WIK, ale generuje więcej nakładających się segmentów niż przy użyciu jednego wątku.  Obecnie opcja MAXDOP jest obsługiwana tylko w przypadku tworzenia tabeli uporządkowanej WIK przy użyciu CREATE TABLE jako polecenia SELECT.  Tworzenie uporządkowanej WIK za pomocą poleceń CREATE INDEX lub CREATE TABLE nie obsługuje opcji MAXDOP. Na przykład
 
 ```sql
 CREATE TABLE Table1 WITH (DISTRIBUTION = HASH(c1), CLUSTERED COLUMNSTORE INDEX ORDER(c1) )

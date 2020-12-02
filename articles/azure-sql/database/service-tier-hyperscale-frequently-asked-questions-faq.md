@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: 400dd66827e82c1ede496526c49977e6f5383487
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 4ea1982e7545f4ac39a5ecd15dc9e19a582ae31c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780193"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459627"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Azure SQL Database często zadawane pytania dotyczące skalowania
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,17 +42,17 @@ Warstwy usług oparte na rdzeń wirtualny są zróżnicowane w zależności od d
 
 | | Typ zasobu | Ogólnego przeznaczenia |  Hiperskala | Krytyczne dla działania firmy |
 |:---:|:---:|:---:|:---:|:---:|
-| **Optymalne zastosowanie** |Wszystko|Oferuje zorientowane na budżety Opcje obliczeniowe i magazynowe.|Większość obciążeń firmowych. Skalowanie automatyczne magazynu o rozmiarze do 100 TB, szybkie skalowanie w pionie i w poziomie, szybkie przywracanie bazy danych.|Aplikacje OLTP o wysokim współczynniku transakcji i niskim opóźnieniu we/wy. Oferuje największą odporność na błędy i szybkie przełączanie w tryb failover przy użyciu wielu replik synchronicznie zaktualizowanych.|
+| **Optymalne zastosowanie** |Wszyscy|Oferuje zorientowane na budżety Opcje obliczeniowe i magazynowe.|Większość obciążeń firmowych. Skalowanie automatyczne magazynu o rozmiarze do 100 TB, szybkie skalowanie w pionie i w poziomie, szybkie przywracanie bazy danych.|Aplikacje OLTP o wysokim współczynniku transakcji i niskim opóźnieniu we/wy. Oferuje największą odporność na błędy i szybkie przełączanie w tryb failover przy użyciu wielu replik synchronicznie zaktualizowanych.|
 |  **Typ zasobu** ||Wystąpienie zarządzane SQL Database/SQL | Pojedyncza baza danych | Wystąpienie zarządzane SQL Database/SQL |
 | **Rozmiar obliczeń**|SQL Database * | od 1 do 80 rdzeni wirtualnych | od 1 do 80 rdzeni wirtualnych * | od 1 do 80 rdzeni wirtualnych |
-| **Rozmiar obliczeń**|Wystąpienie zarządzane SQL | 8, 16, 24, 32, 40, 64, 80 rdzeni wirtualnych | Nie dotyczy | 8, 16, 24, 32, 40, 64, 80 rdzeni wirtualnych |
-| **Typ magazynu** | Wszystko |Magazyn zdalny w warstwie Premium (na wystąpienie) | Niepołączony magazyn z lokalną pamięcią podręczną dysków SSD (na wystąpienie) | Lokalny magazyn SSD o wysokiej szybkości (na wystąpienie) |
+| **Rozmiar obliczeń**|Wystąpienie zarządzane SQL | 8, 16, 24, 32, 40, 64, 80 rdzeni wirtualnych | Brak | 8, 16, 24, 32, 40, 64, 80 rdzeni wirtualnych |
+| **Typ magazynu** | Wszyscy |Magazyn zdalny w warstwie Premium (na wystąpienie) | Niepołączony magazyn z lokalną pamięcią podręczną dysków SSD (na wystąpienie) | Lokalny magazyn SSD o wysokiej szybkości (na wystąpienie) |
 | **Rozmiar magazynu** | SQL Database *| 5 GB – 4 TB | Do 100 TB | 5 GB – 4 TB |
-| **Rozmiar magazynu** | Wystąpienie zarządzane SQL  | 32 GB – 8 TB | Nie dotyczy | 32 GB – 4 TB |
+| **Rozmiar magazynu** | Wystąpienie zarządzane SQL  | 32 GB – 8 TB | Brak | 32 GB – 4 TB |
 | **Liczba operacji we/wy na sekundę** | Pojedyncza baza danych | 500 operacji we/wy na sekundę z 7000 maksymalną liczbą IOPS | Skalowanie jest architekturą wielowarstwową z buforowaniem na wielu poziomach. Efektywne operacje we/wy będą zależeć od obciążenia. | 5000 operacji we/wy z maksymalną liczbą IOPS 200 000|
-| **Liczba operacji we/wy na sekundę** | Wystąpienie zarządzane SQL | Zależy od rozmiaru pliku | Nie dotyczy | 1375 operacji we/wy na sekundę |
-|**Dostępność**|Wszystko|1 replika, brak skalowania do odczytu, brak lokalnej pamięci podręcznej | Wiele replik, do 4 odczyt skalowalny w poziomie, częściowa lokalna pamięć podręczna | 3 repliki, odczyt skalowalny w poziomie, strefa nadmiarowa, pełny magazyn lokalny |
-|**Tworzenie kopii zapasowych**|Wszystko|RA-GRS, 7-35 dni (domyślnie 7 dni)| RA-GRS, 7 dni, stałe odzyskiwanie do czasu w czasie (kopie) | RA-GRS, 7-35 dni (domyślnie 7 dni) |
+| **Liczba operacji we/wy na sekundę** | Wystąpienie zarządzane SQL | Zależy od rozmiaru pliku | Brak | 1375 operacji we/wy na sekundę |
+|**Dostępność**|Wszyscy|1 replika, brak skalowania do odczytu, brak lokalnej pamięci podręcznej | Wiele replik, do 4 odczyt skalowalny w poziomie, częściowa lokalna pamięć podręczna | 3 repliki, odczyt skalowalny w poziomie, strefa nadmiarowa, pełny magazyn lokalny |
+|**Tworzenie kopii zapasowych**|Wszyscy|RA-GRS, 7-35 dni (domyślnie 7 dni)| RA-GRS, 7 dni, stałe odzyskiwanie do czasu w czasie (kopie) | RA-GRS, 7-35 dni (domyślnie 7 dni) |
 
 \* Pule elastyczne nie są obsługiwane w warstwie usługi w ramach skalowania
 
@@ -118,7 +118,7 @@ Funkcja skalowania obsługuje wszystkie SQL Server obciążenia, ale jest głów
 
 W przypadku wykonywania interakcyjnych zapytań analitycznych przy użyciu SQL Server jako magazynu danych funkcja wieloskalowania jest doskonałym rozwiązaniem, ponieważ umożliwia hostowanie małych i średnich magazynów danych (takich jak kilka TB do 100 TB) przy niższych kosztach. można także migrować obciążenia magazynu danych SQL Server do skalowania przy minimalnych zmianach w kodzie T-SQL.
 
-W przypadku korzystania z analizy danych na dużą skalę z złożonymi zapytaniami i pozyskanymi szybkościami pozyskiwania większymi niż 100 MB/s lub przy użyciu usługi Parallel Data Warehouse (PDW), Teradata lub innych magazynów danych (MPP), usługa Azure Synapse Analytics (dawniej SQL Data Warehouse) może być najlepszym wyborem.
+W przypadku korzystania z analizy danych na dużą skalę z złożonymi zapytaniami i pozyskanymi szybkościami pozyskiwania większymi niż 100 MB/s lub przy użyciu usług Parallel Data Warehouse (PDW), Teradata lub innych magazynów danych z możliwością przetwarzania równoległego (MPP) usługa Azure Synapse Analytics może być najlepszym wyborem.
   
 ## <a name="hyperscale-compute-questions"></a>Pytania obliczeniowe w ramach skalowania
 

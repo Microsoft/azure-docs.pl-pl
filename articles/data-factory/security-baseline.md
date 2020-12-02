@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6cda99bfcb883dd42aa813d6edb922f2701ed1fe
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e48b1357b8576baca0e8defca94f4c5248c6f74e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352205"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461281"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Podstawa zabezpieczeń platformy Azure dla Azure Data Factory
 
@@ -578,7 +578,7 @@ W przypadku udostępnienia linku prywatnego Użyj prywatnych punktów końcowych
 
 **Wskazówki**: Jeśli magazyn danych w chmurze obsługuje protokół HTTPS lub TLS, wszystkie transfery danych między usługami przenoszenia danych w Data Factory i magazynem danych w chmurze są realizowane za pośrednictwem protokołu HTTPS lub TLS bezpiecznego kanału. Używana wersja protokołu TLS to 1,2.
 
-Wszystkie połączenia do Azure SQL Database i usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) wymagają szyfrowania (SSL/TLS), gdy dane są przesyłane do i z bazy danych. Podczas tworzenia potoku przy użyciu formatu JSON należy dodać właściwość szyfrowania i ustawić jej wartość na true w parametrach połączenia. W przypadku usługi Azure Storage można użyć protokołu HTTPS w parametrach połączenia.
+Wszystkie połączenia do Azure SQL Database i Azure Synapse Analytics wymagają szyfrowania (SSL/TLS), gdy dane są przesyłane do i z bazy danych. Podczas tworzenia potoku przy użyciu formatu JSON należy dodać właściwość szyfrowania i ustawić jej wartość na true w parametrach połączenia. W przypadku usługi Azure Storage można użyć protokołu HTTPS w parametrach połączenia.
 
 * [Informacje o szyfrowaniu podczas przesyłania Azure Data Factory](./data-movement-security-considerations.md)
 

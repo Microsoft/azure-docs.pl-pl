@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: f06777e559187a57bfe0625cde700f30fb636a2b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 495300d677d6d898bfc916e5115b801c815bd587
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95974463"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461495"
 ---
 # <a name="ingest-data-into-azure-data-lake-storage-gen2"></a>Pozyskiwanie danych w Azure Data Lake Storage Gen2 
 
@@ -72,4 +72,4 @@ W tym kroku ręcznie wyzwolimy potok opublikowany w poprzednim kroku.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat integracji danych na potrzeby usługi Synapse Analytics, zobacz artykuł pozyskiwanie [danych do dedykowanej puli SQL](data-integration-sql-pool.md) .
+Aby uzyskać więcej informacji na temat integracji danych dla usługi Azure Synapse Analytics, zobacz artykuł pozyskiwanie [danych do dedykowanej puli SQL](data-integration-sql-pool.md) .

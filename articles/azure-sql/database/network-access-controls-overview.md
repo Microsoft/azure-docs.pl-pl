@@ -1,7 +1,7 @@
 ---
 title: Kontrola dostępu do sieci
 titleSuffix: Azure SQL Database & Azure Synapse Analytics
-description: Przegląd sposobu zarządzania dostępem do sieci Azure SQL Database i usługi Azure Synapse Analytics (dawniej SQL Data Warehouse).
+description: Omówienie sposobu zarządzania dostępem do sieci Azure SQL Database i usługi Azure Synapse Analytics oraz kontrolowania do nich dostępu.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,16 +12,16 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: be327fabdffc0f98dc0449b51e7e4d73651d80d8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 90bc57af3aaf0d11cd354bfe7163014f836a72e8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789492"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460015"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Azure SQL Database i kontrola dostępu do sieci w usłudze Azure Synapse Analytics
 
-Po utworzeniu logicznego serwera SQL na podstawie [Azure Portal](single-database-create-quickstart.md) dla Azure SQL Database i usługi Azure Synapse Analytics wynik jest publicznym punktem końcowym w formacie *yourservername.Database.Windows.NET* .
+Po utworzeniu logicznego serwera SQL na podstawie [Azure Portal](single-database-create-quickstart.md) dla Azure SQL Database i usługi Azure Synapse Analytics wynik jest publicznym punktem końcowym w formacie *yourservername.Database.Windows.NET*.
 
 Aby selektywnie zezwolić na dostęp do bazy danych za pośrednictwem publicznego punktu końcowego, można użyć następujących kontroli dostępu do sieci:
 
@@ -34,7 +34,7 @@ Możesz również zezwolić na prywatny dostęp do bazy danych z [sieci wirtualn
 - Link prywatny: Ta funkcja służy do tworzenia prywatnego punktu końcowego dla [logicznego programu SQL Server](logical-servers.md) w ramach określonej sieci wirtualnej
 
 > [!IMPORTANT]
-> Ten artykuł *nie* dotyczy **wystąpienia zarządzanego SQL** . Aby uzyskać więcej informacji na temat konfiguracji sieci, zobacz [nawiązywanie połączenia z wystąpieniem zarządzanym usługi Azure SQL](../managed-instance/connect-application-instance.md) .
+> Ten artykuł *nie* dotyczy **wystąpienia zarządzanego SQL**. Aby uzyskać więcej informacji na temat konfiguracji sieci, zobacz [nawiązywanie połączenia z wystąpieniem zarządzanym usługi Azure SQL](../managed-instance/connect-application-instance.md) .
 
 Zapoznaj się z poniższym wideo, aby zapoznać się z ogólnymi objaśnieniami tych kontroli dostępu i ich działaniami:
 
@@ -42,7 +42,7 @@ Zapoznaj się z poniższym wideo, aby zapoznać się z ogólnymi objaśnieniami 
 
 ## <a name="allow-azure-services"></a>Zezwalaj na usługi platformy Azure
 
-Domyślnie podczas tworzenia nowego serwera logicznego SQL [z Azure Portal](single-database-create-quickstart.md)to ustawienie jest **wyłączone** . To ustawienie pojawia się, gdy łączność jest dozwolona przy użyciu punktu końcowego usługi publicznej.
+Domyślnie podczas tworzenia nowego serwera logicznego SQL [z Azure Portal](single-database-create-quickstart.md)to ustawienie jest **wyłączone**. To ustawienie pojawia się, gdy łączność jest dozwolona przy użyciu punktu końcowego usługi publicznej.
 
 Możesz również zmienić to ustawienie za pośrednictwem okienka Zapora po utworzeniu logicznego programu SQL Server w następujący sposób.
   
@@ -56,7 +56,7 @@ Jednak ma to wpływ na następujące funkcje, które są uruchamiane na maszynac
 
 ### <a name="import-export-service"></a>Importuj usługę eksportu
 
-Usługa Import Export nie działa, gdy ustawienie **Zezwalaj na dostęp do usług platformy Azure** jest **wyłączone** . Można jednak obejść ten problem [, ręcznie uruchamiając sqlpackage.exe z maszyny wirtualnej platformy Azure lub wykonując eksport](./database-import-export-azure-services-off.md) bezpośrednio w kodzie przy użyciu interfejsu API DACFx.
+Usługa Import Export nie działa, gdy ustawienie **Zezwalaj na dostęp do usług platformy Azure** jest **wyłączone**. Można jednak obejść ten problem [, ręcznie uruchamiając sqlpackage.exe z maszyny wirtualnej platformy Azure lub wykonując eksport](./database-import-export-azure-services-off.md) bezpośrednio w kodzie przy użyciu interfejsu API DACFx.
 
 ### <a name="data-sync"></a>Synchronizacja danych
 
@@ -110,7 +110,7 @@ Zapora oparta na protokole IP to funkcja logicznego programu SQL Server na platf
 
 ## <a name="virtual-network-firewall-rules"></a>Reguły zapory sieci wirtualnej
 
-Oprócz reguł IP Zapora serwera umożliwia definiowanie *reguł sieci wirtualnej* .  
+Oprócz reguł IP Zapora serwera umożliwia definiowanie *reguł sieci wirtualnej*.  
 Aby dowiedzieć się więcej, zobacz [punkty końcowe usługi sieci wirtualnej i reguły dotyczące Azure SQL Database](vnet-service-endpoint-rule-overview.md) lub Obejrzyj ten film wideo:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--Demo--Vnet-Firewall-Rules-for-SQL-Database/player?WT.mc_id=dataexposed-c9-niner]
@@ -121,9 +121,9 @@ Należy pamiętać o następujących kwestiach dotyczących sieci platformy Azur
 
 **Sieć wirtualna:** Możesz mieć sieci wirtualne skojarzone z subskrypcją platformy Azure
 
-**Podsieć:** Sieć wirtualna zawiera **podsieci** . Wszystkie maszyny wirtualne platformy Azure, które są przypisane do podsieci. Jedna podsieć może zawierać wiele maszyn wirtualnych lub innych węzłów obliczeniowych. Węzły obliczeniowe znajdujące się poza siecią wirtualną nie mogą uzyskać dostępu do sieci wirtualnej, chyba że skonfigurowano zabezpieczenia, aby zezwolić na dostęp.
+**Podsieć:** Sieć wirtualna zawiera **podsieci**. Wszystkie maszyny wirtualne platformy Azure, które są przypisane do podsieci. Jedna podsieć może zawierać wiele maszyn wirtualnych lub innych węzłów obliczeniowych. Węzły obliczeniowe znajdujące się poza siecią wirtualną nie mogą uzyskać dostępu do sieci wirtualnej, chyba że skonfigurowano zabezpieczenia, aby zezwolić na dostęp.
 
-**Punkt końcowy usługi sieci wirtualnej:** [Punkt końcowy usługi sieci wirtualnej](../../virtual-network/virtual-network-service-endpoints-overview.md) jest podsiecią, której wartości właściwości zawierają co najmniej jedną formalną nazwę typu usługi platformy Azure. W tym artykule jesteśmy zainteresowani nazwą typu **Microsoft. SQL** , która odnosi się do usługi platformy Azure o nazwie SQL Database.
+**Punkt końcowy usługi sieci wirtualnej:** [Punkt końcowy usługi sieci wirtualnej](../../virtual-network/virtual-network-service-endpoints-overview.md) jest podsiecią, której wartości właściwości zawierają co najmniej jedną formalną nazwę typu usługi platformy Azure. W tym artykule jesteśmy zainteresowani nazwą typu **Microsoft. SQL**, która odnosi się do usługi platformy Azure o nazwie SQL Database.
 
 **Reguła sieci wirtualnej:** Reguła sieci wirtualnej dla serwera to podsieć wymieniona na liście kontroli dostępu (ACL) serwera. Aby znajdować się na liście kontroli dostępu dla bazy danych w SQL Database, podsieć musi zawierać nazwę typu **Microsoft. SQL** . Reguła sieci wirtualnej instruuje serwer, aby zaakceptował komunikację z każdego węzła znajdującego się w podsieci.
 
@@ -140,7 +140,7 @@ Reguły sieci wirtualnej są łatwiejsze do ustanowienia i zarządzania dostępe
 
 ## <a name="private-link"></a>Private Link
 
-Link prywatny umożliwia nawiązanie połączenia z serwerem za pośrednictwem **prywatnego punktu końcowego** . Prywatny punkt końcowy to prywatny adres IP w ramach określonej [sieci wirtualnej](../../virtual-network/virtual-networks-overview.md) i podsieci.
+Link prywatny umożliwia nawiązanie połączenia z serwerem za pośrednictwem **prywatnego punktu końcowego**. Prywatny punkt końcowy to prywatny adres IP w ramach określonej [sieci wirtualnej](../../virtual-network/virtual-networks-overview.md) i podsieci.
 
 ## <a name="next-steps"></a>Następne kroki
 

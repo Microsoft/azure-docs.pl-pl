@@ -1,6 +1,6 @@
 ---
 title: Model udostępnionej metadanych
-description: Usługa Azure Synapse Analytics umożliwia korzystanie z różnych aparatów obliczeniowych obszarów roboczych w celu udostępniania baz danych i tabel między jej Apache Spark pulami (wersja zapoznawcza), bezserwerową pulą SQL (wersja zapoznawcza) i dedykowane pule SQL.
+description: Usługa Azure Synapse Analytics umożliwia korzystanie z różnych aparatów obliczeniowych obszarów roboczych w celu udostępniania baz danych i tabel między jej pulami Apache Spark, bezserwerową pulą SQL i dedykowanymi pulami SQL.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -9,18 +9,16 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 64c19f3331be8ffda433207da88ebf22c546ee4e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b10b6f011fa7daee4094f0cc7b819d36127fedcd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324664"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460350"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Udostępnione metadane usługi Azure Synapse Analytics
 
-Usługa Azure Synapse Analytics umożliwia korzystanie z różnych aparatów obliczeniowych obszarów roboczych w celu udostępniania baz danych i tabel między jej Apache Spark pulami (wersja zapoznawcza) i bezserwerową pulą SQL (wersja zapoznawcza).
-
-[!INCLUDE [preview](../includes/note-preview.md)]
+Usługa Azure Synapse Analytics umożliwia korzystanie z różnych aparatów obliczeniowych obszarów roboczych w celu udostępniania baz danych i tabel między jej pulami Apache Spark i bezserwerową pulą SQL.
 
 Udostępnianie obsługuje tak zwane wzorce nowoczesnego magazynu danych i zapewnia obszarowi roboczemu aparaty SQL dostęp do baz danych i tabel utworzonych przy użyciu platformy Spark. Umożliwia także aparatom SQL tworzenie własnych obiektów, które nie są współużytkowane z innymi aparatami.
 

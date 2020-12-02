@@ -3,12 +3,12 @@ title: Azure Key Vault jako źródło Event Grid
 description: Opisuje właściwości i schemat udostępnione dla zdarzeń Azure Key Vault z Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: b3d961228429c1f84e45c1df9147fa1687ab5074
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 605502794f2f3aa4f4edd14b49efda5003b91146
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324080"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460398"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Azure Key Vault jako źródło Event Grid
 
@@ -64,7 +64,7 @@ Poniższy przykład przedstawia schemat dla elementu **Microsoft. SecretNewVersi
 
 Zdarzenie ma następujące dane najwyższego poziomu:
 
-| Właściwość | Type | Opis |
+| Właściwość | Typ | Opis |
 | ---------- | ----------- |---|
 | identyfikator | ciąg | Identyfikator obiektu, który wyzwolił to zdarzenie |
 | vaultName | ciąg | Nazwa magazynu kluczy obiektu, który wyzwolił to zdarzenie |
@@ -85,5 +85,5 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 
 * Aby zapoznać się z wprowadzeniem do Azure Event Grid, zobacz [co to jest Event Grid?](overview.md).
 * Aby uzyskać więcej informacji na temat tworzenia subskrypcji Azure Event Grid, zobacz [Event Grid schematu subskrypcji](subscription-creation-schema.md).
-* Aby uzyskać więcej informacji na temat magazynu kluczy, zobacz [co to jest Azure Key Vault?](../key-vault/general/overview.md)
+* Aby uzyskać więcej informacji na temat Key Vault, zobacz [co to jest Azure Key Vault?](../key-vault/general/overview.md)
 

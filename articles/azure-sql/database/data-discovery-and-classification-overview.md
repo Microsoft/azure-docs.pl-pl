@@ -11,19 +11,19 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 09/21/2020
+ms.date: 12/01/2020
 tags: azure-synapse
-ms.openlocfilehash: ab974b0f68e831e672329f8af5ae1cb6a5fdbd4c
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c3f1209c2c903399617bd60258cc152a6ce90b80
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672072"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462110"
 ---
 # <a name="data-discovery--classification"></a>Odnajdywanie i klasyfikacja danych
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Klasyfikacja & odnajdywania danych jest wbudowana w Azure SQL Database, wystąpienie zarządzane Azure SQL i usługa Azure Synapse Analytics. Zapewnia zaawansowane funkcje odnajdywania, klasyfikowania, etykietowania i raportowania poufnych danych w bazach danych.
+Klasyfikacja & odnajdywania danych jest wbudowana w Azure SQL Database, wystąpienie zarządzane Azure SQL i usługa Azure Synapse Analytics. Zapewnia zaawansowane możliwości w zakresie odnajdywania, klasyfikowania, etykietowania i raportowania danych poufnych w bazach danych.
 
 Najważniejsze dane mogą obejmować działalność, finanse, opiekę lub dane osobowe. Odnajdywanie i Klasyfikowanie tych danych może odgrywać rolę przestawną w podejściu do ochrony informacji w organizacji. Może to stanowić infrastrukturę dla następujących działań:
 
@@ -55,8 +55,8 @@ W tej sekcji opisano kroki dla programu:
 
 Klasyfikacja obejmuje dwa atrybuty metadanych:
 
-- **Etykiety** : główne atrybuty klasyfikacji używane do definiowania poziomu czułości danych przechowywanych w kolumnie.  
-- **Typy informacji** : atrybuty, które dostarczają bardziej szczegółowych informacji na temat typu danych przechowywanych w kolumnie.
+- **Etykiety**: główne atrybuty klasyfikacji używane do definiowania poziomu czułości danych przechowywanych w kolumnie.  
+- **Typy informacji**: atrybuty, które dostarczają bardziej szczegółowych informacji na temat typu danych przechowywanych w kolumnie.
 
 ### <a name="define-and-customize-your-classification-taxonomy"></a>Definiowanie i dostosowywanie taksonomii klasyfikacji
 
@@ -77,7 +77,9 @@ Po zdefiniowaniu zasad w całej organizacji można kontynuować klasyfikowanie p
 
 1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
 
-1. Przejdź do obszaru **odnajdywanie danych & Klasyfikacja** pod nagłówkiem zabezpieczenia w okienku Azure SQL Database. Karta przegląd zawiera podsumowanie bieżącego stanu klasyfikacji bazy danych. Podsumowanie zawiera szczegółową listę wszystkich sklasyfikowanych kolumn, które można również filtrować w celu wyświetlania tylko określonych części schematu, typów informacji i etykiet. Jeśli nie zostały jeszcze sklasyfikowane żadne kolumny, [Przejdź do kroku 4](#step-4).
+1. Przejdź do obszaru **odnajdywanie danych & Klasyfikacja** pod nagłówkiem **zabezpieczenia** w okienku Azure SQL Database. Karta przegląd zawiera podsumowanie bieżącego stanu klasyfikacji bazy danych. Podsumowanie zawiera szczegółową listę wszystkich sklasyfikowanych kolumn, które można również filtrować w celu wyświetlania tylko określonych części schematu, typów informacji i etykiet. Jeśli nie zostały jeszcze sklasyfikowane żadne kolumny, [Przejdź do kroku 4](#step-4).
+
+    ![Omówienie](./media/data-discovery-and-classification-overview/data-discovery-and-classification.png)
 
 1. Aby pobrać raport w formacie programu Excel, wybierz opcję **Eksportuj** w górnym menu okienka.
 
@@ -91,7 +93,9 @@ Po zdefiniowaniu zasad w całej organizacji można kontynuować klasyfikowanie p
 
    - Aby zaakceptować zalecenie dotyczące konkretnej kolumny, zaznacz pole wyboru w lewej kolumnie odpowiedniego wiersza. Aby oznaczyć wszystkie rekomendacje jako akceptowane, zaznacz pole wyboru z lewej strony w nagłówku tabeli rekomendacji.
 
-   - Aby zastosować wybrane zalecenia, wybierz pozycję **Zaakceptuj wybrane rekomendacje** .
+   - Aby zastosować wybrane zalecenia, wybierz pozycję **Zaakceptuj wybrane rekomendacje**.
+
+   ![Zalecenia dotyczące klasyfikacji](./media/data-discovery-and-classification-overview/recommendation.png)
 
 1. Można również klasyfikować kolumny ręcznie, jako alternatywę lub jako uzupełnienie klasyfikacji opartej na rekomendacji:
 
@@ -101,7 +105,10 @@ Po zdefiniowaniu zasad w całej organizacji można kontynuować klasyfikowanie p
 
    1. Wybierz pozycję **Dodaj klasyfikację** u dołu okna kontekstu.
 
-1. Aby dokończyć swoją klasyfikację i trwale oznaczyć (tag) kolumnami bazy danych nowymi metadanymi klasyfikacji, wybierz pozycję **Zapisz** w górnym menu okna.
+   ![Ręcznie Dodaj klasyfikację](./media/data-discovery-and-classification-overview/manually-add-classification.png)
+
+
+1. Aby dokończyć swoją klasyfikację i trwale oznaczyć (tag) kolumnami bazy danych nowymi metadanymi klasyfikacji, wybierz pozycję **Zapisz** na stronie **Klasyfikacja** .
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>Inspekcja dostępu do poufnych danych
 

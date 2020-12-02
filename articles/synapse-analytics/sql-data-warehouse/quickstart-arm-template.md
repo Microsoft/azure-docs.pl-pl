@@ -1,5 +1,5 @@
 ---
-title: Tworzenie puli SQL przy użyciu szablonu Azure Resource Manager
+title: Tworzenie dedykowanej puli SQL (dawniej SQL DW) przy użyciu szablonu Azure Resource Manager
 description: Dowiedz się, jak utworzyć pulę SQL usługi Azure Synapse Analytics przy użyciu szablonu Azure Resource Manager.
 services: azure-resource-manager
 author: julieMSFT
@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 06/09/2020
-ms.openlocfilehash: 29d4e4d696b34aa493714c870ebb466f491c47fe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 70adb7409c44a79345a192df173a1a073cc9b7dd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88641878"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460737"
 ---
-# <a name="quickstart-create-an-azure-synapse-analytics-sql-pool-by-using-an-arm-template"></a>Szybki Start: Tworzenie puli SQL usługi Azure Synapse Analytics przy użyciu szablonu ARM
+# <a name="quickstart-create-an-azure-synapse-analytics-dedicated-sql-pool-formerly-sql-dw-by-using-an-arm-template"></a>Szybki Start: Tworzenie dedykowanej puli SQL usługi Azure Synapse Analytics (dawniej SQL DW) przy użyciu szablonu usługi ARM
 
-Ten szablon Azure Resource Manager (szablon ARM) utworzy pulę SQL usługi Azure Synapse Analytics z włączonym Transparent Data Encryption. Synapse Pula SQL odwołuje się do funkcji magazynowania danych przedsiębiorstwa, które są ogólnie dostępne w usłudze Azure Synapse.
+Ten szablon Azure Resource Manager (szablon ARM) utworzy dedykowaną pulę SQL (wcześniej SQL DW) z włączonym Transparent Data Encryption. Dedykowana Pula SQL (dawniej SQL DW) odnosi się do funkcji magazynowania danych przedsiębiorstwa, które są ogólnie dostępne w usłudze Azure Synapse.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -41,7 +41,7 @@ Szablon definiuje jeden zasób:
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
-1. Wybierz Poniższy obraz, aby zalogować się do platformy Azure i otworzyć szablon. Ten szablon służy do tworzenia puli SQL Synapse.
+1. Wybierz Poniższy obraz, aby zalogować się do platformy Azure i otworzyć szablon. Ten szablon służy do tworzenia dedykowanej puli SQL (dawniej SQL DW).
    
    [![Wdrażanie na platformie Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create%2Fazuredeploy.json)
 
@@ -53,7 +53,7 @@ Szablon definiuje jeden zasób:
    * **Nazwa SQL Server**: Zaakceptuj nazwę domyślną lub wprowadź nazwę nazwy SQL Server.
    * **Logowanie administratora SQL**: Wprowadź nazwę użytkownika administratora dla SQL Server.
    * **Hasło administratora SQL**: wprowadź hasło administratora dla SQL Server.
-   * **Nazwa magazynu danych**: Wprowadź nazwę puli SQL.
+   * **Nazwa magazynu danych**: Wprowadź nazwę dedykowanej puli SQL.
    * **Transparent Data Encryption**: Zaakceptuj wartość domyślną, włączono. 
    * **Cel poziomu usługi**: Zaakceptuj wartość domyślną, DW400c.
    * **Lokalizacja**: zaakceptuj domyślną lokalizację grupy zasobów.
@@ -67,7 +67,7 @@ Możesz użyć Azure Portal do sprawdzenia wdrożonych zasobów lub użyć inter
 # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
 
 ```azurecli-interactive
-echo "Enter the resource group where your Synapse SQL pool exists:" &&
+echo "Enter the resource group where your dedicated SQL pool (formerly SQL DW) exists:" &&
 read resourcegroupName &&
 az resource list --resource-group $resourcegroupName 
 ```
@@ -75,7 +75,7 @@ az resource list --resource-group $resourcegroupName
 # <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the resource group name where your SQL pool account exists"
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name where your dedicated SQL pool (formerly SQL DW) account exists"
 (Get-AzResource -ResourceType "Microsoft.Sql/servers/databases" -ResourceGroupName $resourceGroupName).Name
  Write-Host "Press [ENTER] to continue..."
 ```
@@ -107,7 +107,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono pulę SQL usługi Azure Synapse Analytics przy użyciu szablonu ARM i zweryfikowano wdrożenie. Aby dowiedzieć się więcej o usłudze Azure Synapse Analytics i Azure Resource Manager, przejdź do artykułu poniżej.
+W tym przewodniku szybki start utworzono dedykowaną pulę SQL (dawniej SQL DW) przy użyciu szablonu usługi ARM i zweryfikowano wdrożenie. Aby dowiedzieć się więcej o usłudze Azure Synapse Analytics i Azure Resource Manager, zobacz artykuły poniżej.
 
 - Zapoznaj się [z omówieniem usługi Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md)
 - Dowiedz się więcej o usłudze [Azure Resource Manager](../../azure-resource-manager/management/overview.md)

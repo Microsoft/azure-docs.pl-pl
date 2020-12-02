@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: de0224c51debe4d0203400b55721208ce7093649
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 05f336af62bc0869249d5b32700ea3515ac5994f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636293"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459698"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Ładowanie danych z pakietu Office 365 przy użyciu Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-W tym artykule przedstawiono sposób użycia Data Factory _ładowania danych z pakietu Office 365 do usługi Azure Blob Storage_ . Możesz wykonać podobne kroki, aby skopiować dane do Azure Data Lake Gen1 lub Gen2. Zapoznaj się z [artykułem łącznika pakietu office 365](connector-office-365.md) w sprawie kopiowania danych z pakietu Office 365 ogólnie.
+W tym artykule przedstawiono sposób użycia Data Factory _ładowania danych z pakietu Office 365 do usługi Azure Blob Storage_. Możesz wykonać podobne kroki, aby skopiować dane do Azure Data Lake Gen1 lub Gen2. Zapoznaj się z [artykułem łącznika pakietu office 365](connector-office-365.md) w sprawie kopiowania danych z pakietu Office 365 ogólnie.
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
@@ -34,22 +34,22 @@ W tym artykule przedstawiono sposób użycia Data Factory _ładowania danych z p
       
    ![Strona Nowa fabryka danych](./media/load-office-365-data/new-azure-data-factory.png)
  
-    * **Nazwa** : wprowadź globalnie unikatową nazwę usługi Azure Data Factory. Jeśli zostanie wyświetlony komunikat o błędzie "Nazwa fabryki danych *LoadFromOffice365Demo* jest niedostępna", wprowadź inną nazwę fabryki danych. Można na przykład _**użyć nazwy namename**_**LoadFromOffice365Demo** . Spróbuj ponownie utworzyć fabrykę danych. Artykuł [Data Factory naming rules (Zasady nazewnictwa fabryki danych)](naming-rules.md) zawiera zasady nazewnictwa artefaktów usługi Data Factory.
-    * **Subskrypcja** : wybierz subskrypcję platformy Azure, w której chcesz utworzyć fabrykę danych. 
-    * **Grupa zasobów** : wybierz istniejącą grupę zasobów z listy rozwijanej lub wybierz opcję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów. Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
-    * **Wersja** : Wybierz pozycję **Wersja 2** .
-    * **Lokalizacja** : Wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych używane przez fabrykę danych mogą znajdować się w innych lokalizacjach i regionach. Te magazyny danych obejmują Azure Data Lake Store, Azure Storage, Azure SQL Database i tak dalej.
+    * **Nazwa**: wprowadź globalnie unikatową nazwę usługi Azure Data Factory. Jeśli zostanie wyświetlony komunikat o błędzie "Nazwa fabryki danych *LoadFromOffice365Demo* jest niedostępna", wprowadź inną nazwę fabryki danych. Można na przykład _**użyć nazwy namename**_**LoadFromOffice365Demo**. Spróbuj ponownie utworzyć fabrykę danych. Artykuł [Data Factory naming rules (Zasady nazewnictwa fabryki danych)](naming-rules.md) zawiera zasady nazewnictwa artefaktów usługi Data Factory.
+    * **Subskrypcja**: wybierz subskrypcję platformy Azure, w której chcesz utworzyć fabrykę danych. 
+    * **Grupa zasobów**: wybierz istniejącą grupę zasobów z listy rozwijanej lub wybierz opcję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów. Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
+    * **Wersja**: Wybierz pozycję **Wersja 2**.
+    * **Lokalizacja**: Wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych używane przez fabrykę danych mogą znajdować się w innych lokalizacjach i regionach. Te magazyny danych obejmują Azure Data Lake Store, Azure Storage, Azure SQL Database i tak dalej.
 
-3. Wybierz pozycję **Utwórz** .
+3. Wybierz pozycję **Utwórz**.
 4. Po zakończeniu tworzenia przejdź do fabryki danych. Zostanie wyświetlona strona główna **Data Factory** , jak pokazano na poniższej ilustracji:
    
    ![Strona główna fabryki danych](./media/load-office-365-data/data-factory-home-page.png)
 
-5. Wybierz kafelek **Tworzenie i monitorowanie** , aby w osobnej karcie uruchomić aplikację Integracja danych.
+5. Wybierz kafelek **Tworzenie i monitorowanie**, aby w osobnej karcie uruchomić aplikację Integracja danych.
 
 ## <a name="create-a-pipeline"></a>Tworzenie potoku
 
-1. Na stronie "wprowadzenie" Wybierz pozycję **Utwórz potok** .
+1. Na stronie "wprowadzenie" Wybierz pozycję **Utwórz potok**.
  
     ![Tworzenie potoku](./media/load-office-365-data/create-pipeline-entry.png)
 
@@ -59,9 +59,9 @@ W tym artykule przedstawiono sposób użycia Data Factory _ładowania danych z p
 
 ### <a name="configure-source"></a>Konfigurowanie źródła
 
-1. Przejdź do **karty źródło** > potoku, kliknij pozycję **+ Nowy** , aby utworzyć źródłowy zestaw danych. 
+1. Przejdź do **karty źródło**> potoku, kliknij pozycję **+ Nowy** , aby utworzyć źródłowy zestaw danych. 
 
-2. W oknie Nowy zestaw danych wybierz pozycję **Office 365** , a następnie wybierz pozycję **Kontynuuj** .
+2. W oknie Nowy zestaw danych wybierz pozycję **Office 365**, a następnie wybierz pozycję **Kontynuuj**.
  
 3. Jesteś teraz na karcie Konfiguracja działania kopiowania. Kliknij przycisk **Edytuj** obok zestawu danych pakietu Office 365, aby kontynuować konfigurację danych.
 
@@ -69,7 +69,7 @@ W tym artykule przedstawiono sposób użycia Data Factory _ładowania danych z p
  
 4. Zostanie wyświetlona nowa karta dla zestawu danych pakietu Office 365. Na **karcie Ogólne** w dolnej części okno właściwości wprowadź wartość "SourceOffice365Dataset" jako nazwę.
  
-5. Przejdź do **karty połączenie** w okno właściwości. Obok pola tekstowego połączona usługa kliknij pozycję **+ Nowy** .
+5. Przejdź do **karty połączenie** w okno właściwości. Obok pola tekstowego połączona usługa kliknij pozycję **+ Nowy**.
 
 6. W oknie Nowa połączona usługa wprowadź wartość "Office365LinkedService" jako nazwę, wprowadź identyfikator jednostki usługi i klucz jednostki usługi, a następnie Testuj połączenie i wybierz pozycję **Utwórz** , aby wdrożyć połączoną usługę.
 
@@ -79,7 +79,7 @@ W tym artykule przedstawiono sposób użycia Data Factory _ładowania danych z p
 
     ![Konfiguracja tabeli zestawu danych pakietu Office 365](./media/load-office-365-data/edit-dataset.png)
 
-8. Teraz wróć do karty Źródło **potoku** ,  >  **Source tab** aby kontynuować konfigurowanie dodatkowych właściwości wyodrębniania danych pakietu Office 365.  Zakres użytkownika i filtr zakresu użytkownika to opcjonalne predykaty, które można zdefiniować, aby ograniczyć dane, które mają zostać wyodrębnione z pakietu Office 365. Aby skonfigurować te ustawienia, zobacz sekcję [Właściwości zestawu danych pakietu Office 365](./connector-office-365.md#dataset-properties) .
+8. Teraz wróć do karty Źródło **potoku**,  >  **Source tab** aby kontynuować konfigurowanie dodatkowych właściwości wyodrębniania danych pakietu Office 365.  Zakres użytkownika i filtr zakresu użytkownika to opcjonalne predykaty, które można zdefiniować, aby ograniczyć dane, które mają zostać wyodrębnione z pakietu Office 365. Aby skonfigurować te ustawienia, zobacz sekcję [Właściwości zestawu danych pakietu Office 365](./connector-office-365.md#dataset-properties) .
 
 9. Wymagane jest wybranie jednego z filtrów daty i podanie wartości czasu rozpoczęcia i czasu zakończenia.
 
@@ -89,15 +89,15 @@ W tym artykule przedstawiono sposób użycia Data Factory _ładowania danych z p
 
 ### <a name="configure-sink"></a>Konfigurowanie ujścia
 
-1. Przejdź do **karty ujścia** > potoku, a następnie wybierz pozycję **+ Nowy** , aby utworzyć zestaw danych ujścia.
+1. Przejdź do **karty ujścia**> potoku, a następnie wybierz pozycję **+ Nowy** , aby utworzyć zestaw danych ujścia.
  
-2. W oknie Nowy zestaw danych należy zauważyć, że podczas kopiowania z pakietu Office 365 wybierane są tylko obsługiwane miejsca docelowe. Wybierz pozycję **Azure Blob Storage** , wybierz pozycję format binarny, a następnie wybierz pozycję **Kontynuuj** .  W tym samouczku skopiujesz dane pakietu Office 365 do Blob Storage platformy Azure.
+2. W oknie Nowy zestaw danych należy zauważyć, że podczas kopiowania z pakietu Office 365 wybierane są tylko obsługiwane miejsca docelowe. Wybierz pozycję **Azure Blob Storage**, wybierz pozycję format binarny, a następnie wybierz pozycję **Kontynuuj**.  W tym samouczku skopiujesz dane pakietu Office 365 do Blob Storage platformy Azure.
 
 3. Kliknij przycisk **Edytuj** obok zestawu danych BLOB Storage platformy Azure, aby kontynuować konfigurację danych.
 
 4. Na **karcie ogólne** okno właściwości w polu Nazwa wprowadź wartość "OutputBlobDataset".
 
-5. Przejdź do **karty połączenie** w okno właściwości. Kliknij pozycję + Nowy obok pola tekstowego **Połączona usługa** .
+5. Przejdź do **karty połączenie** w okno właściwości. Kliknij pozycję + Nowy obok pola tekstowego **Połączona usługa**.
 
 6. W oknie Nowa połączona usługa wprowadź wartość "AzureStorageLinkedService" jako nazwę, wybierz pozycję "główna usługa" z listy rozwijanej metody uwierzytelniania, Wypełnij punkt końcowy usługi, dzierżawę, identyfikator jednostki usługi i klucz jednostki usługi, a następnie wybierz pozycję Zapisz, aby wdrożyć połączoną usługę.  Zapoznaj się z [tym](connector-azure-blob-storage.md#service-principal-authentication) artykułem, jak skonfigurować uwierzytelnianie jednostki usługi dla BLOB Storage platformy Azure.
 
@@ -106,19 +106,19 @@ W tym artykule przedstawiono sposób użycia Data Factory _ładowania danych z p
 
 ## <a name="validate-the-pipeline"></a>Weryfikowanie potoku
 
-Wybierz na pasku narzędzi pozycję **Weryfikuj** , aby zweryfikować potok.
+Wybierz na pasku narzędzi pozycję **Weryfikuj**, aby zweryfikować potok.
 
 Możesz również wyświetlić kod JSON skojarzony z potoku, klikając pozycję kod w prawym górnym rogu.
 
 ## <a name="publish-the-pipeline"></a>Publikowanie potoku
 
-Na górnym pasku narzędzi wybierz pozycję **Opublikuj wszystko** . Ta akcja powoduje opublikowanie utworzonych jednostek (zestawy danych i potok) w usłudze Data Factory.
+Na górnym pasku narzędzi wybierz pozycję **Opublikuj wszystko**. Ta akcja powoduje opublikowanie utworzonych jednostek (zestawy danych i potok) w usłudze Data Factory.
 
 ![Publikowanie zmian](./media/load-office-365-data/publish-changes.png) 
 
 ## <a name="trigger-the-pipeline-manually"></a>Ręczne wyzwalanie potoku
 
-Na pasku narzędzi wybierz pozycję **Dodaj wyzwalacz** , a następnie wybierz pozycję **Wyzwól teraz** . Na stronie Uruchomienie potoku wybierz przycisk **Zakończ** . 
+Na pasku narzędzi wybierz pozycję **Dodaj wyzwalacz** , a następnie wybierz pozycję **Wyzwól teraz**. Na stronie Uruchomienie potoku wybierz przycisk **Zakończ**. 
 
 ## <a name="monitor-the-pipeline"></a>Monitorowanie potoku
 
@@ -130,7 +130,7 @@ Aby wyświetlić uruchomienia działań skojarzone z uruchomieniem potoku, wybie
 
 ![Monitorowanie aktywności](./media/load-office-365-data/activity-status.png) 
 
-Jeśli żądanie danych dla tego kontekstu jest wykonywane po raz pierwszy (połączenie z tabelą danych jest dostępne, do której należy dane konto docelowe, i które tożsamość użytkownika tworzy żądanie dostępu do danych), zobaczysz stan działania kopiowania jako **w toku** i tylko po kliknięciu linku "Szczegóły" w obszarze Akcje zobaczysz stan jako **RequesetingConsent** .  Członek grupy osoby zatwierdzającej dostęp do danych musi zatwierdzić żądanie w Privileged Access Management zanim będzie możliwe kontynuowanie wyodrębniania danych.
+Jeśli żądanie danych dla tego kontekstu jest wykonywane po raz pierwszy (połączenie z tabelą danych jest dostępne, do której należy dane konto docelowe, i które tożsamość użytkownika tworzy żądanie dostępu do danych), zobaczysz stan działania kopiowania jako **w toku** i tylko po kliknięciu linku "Szczegóły" w obszarze Akcje zobaczysz stan jako **RequesetingConsent**.  Członek grupy osoby zatwierdzającej dostęp do danych musi zatwierdzić żądanie w Privileged Access Management zanim będzie możliwe kontynuowanie wyodrębniania danych.
 
 _Stan jako żądanie zgody:_ 
  ![ Szczegóły wykonania działania — zgoda na żądanie](./media/load-office-365-data/activity-details-request-consent.png) 
@@ -147,7 +147,7 @@ Teraz przejdź do docelowego Blob Storage platformy Azure i sprawdź, czy dane p
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przejdź do poniższego artykułu, aby dowiedzieć się więcej o obsłudze usługi Azure Synapse Analytics (dawniej SQL Data Warehouse): 
+Przejdź do poniższego artykułu, aby dowiedzieć się więcej o obsłudze usługi Azure Synapse Analytics: 
 
 > [!div class="nextstepaction"]
 >[Łącznik usługi Office 365](connector-office-365.md)

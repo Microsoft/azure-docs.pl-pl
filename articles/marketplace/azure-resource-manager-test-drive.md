@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: trkeya
 author: trkeya
-ms.openlocfilehash: 0b445f9d4fdda0b1fac9dcdb4344533cfd7d37a9
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: fd3fa04d2d7e868476838788dd9cf0e27c07aeca
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491243"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461758"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager dysk testowy
 
@@ -37,7 +37,7 @@ Szablon wdrożenia zawiera wszystkie zasoby platformy Azure, które składają s
 - **Test Azure Resource Manager szablonu** — Przekaż plik zip zawierający szablon Azure Resource Manager. Dowiedz się więcej o tworzeniu szablonu Azure Resource Manager w artykule Szybki Start [Tworzenie i wdrażanie szablonów Azure Resource Manager przy użyciu Azure Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
     > [!note]
-    > Aby opublikować pomyślnie, należy sprawdzić poprawność formatowania szablonu ARM. Dwa sposoby to zrobić (1) za pomocą [Narzędzia API online](https://docs.microsoft.com/rest/api/resources/deployments/validate) lub (2) z [wdrożeniem testowym](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal).
+    > Aby opublikować pomyślnie, należy sprawdzić poprawność formatowania szablonu ARM. Dwa sposoby to zrobić (1) za pomocą [Narzędzia API online](/rest/api/resources/deployments/validate) lub (2) z [wdrożeniem testowym](../azure-resource-manager/templates/deploy-portal.md).
 
 - **Czas trwania dysku testowego** (wymagane) — wprowadź liczbę godzin aktywności dysku testowego. Po upływie tego czasu test kończy się automatycznie. Używaj tylko liczb całkowitych (na przykład godziny "2" są prawidłowe, "1,5" nie jest).
 
@@ -76,7 +76,7 @@ Możesz użyć dowolnej prawidłowej nazwy dla parametrów; Test Drive rozpoznaj
 | Typ metadanych   | Typ parametru  | Opis     | Przykładowa wartość    |
 |---|---|---|---|
 | **baseUri**     | ciąg          | Podstawowy identyfikator URI pakietu wdrożeniowego| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
-| **nazwa użytkownika**    | ciąg          | Nowa losowa nazwa użytkownika.| admin68876      |
+| **uż**    | ciąg          | Nowa losowa nazwa użytkownika.| admin68876      |
 | **hasło**    | ciąg zabezpieczony    | Nowe hasło losowe | LP! \^ 2KH ACS     |
 | **Identyfikator sesji**   | ciąg          | Identyfikator sesji unikatowego dysku testowego (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
@@ -300,7 +300,7 @@ Ostatnia sekcja do ukończenia polega na automatycznym wdrożeniu dysków testow
 
    ![Subskrypcje platformy Azure](media/test-drive/azure-subscriptions.png)
 
-2. Uzyskaj **Identyfikator dzierżawy usługi Azure AD**. Jeśli masz już dostępny identyfikator dzierżawy, możesz go znaleźć w **Azure Active Directory**  >  **Właściwości**  >  **katalogu** :
+2. Uzyskaj **Identyfikator dzierżawy usługi Azure AD**. Jeśli masz już dostępny identyfikator dzierżawy, możesz go znaleźć w **Azure Active Directory**  >  **Właściwości**  >  **katalogu**:
 
    ![Właściwości Azure Active Directory](media/test-drive/azure-active-directory-properties.png)
 
@@ -313,7 +313,7 @@ Ostatnia sekcja do ukończenia polega na automatycznym wdrożeniu dysków testow
    3. Podaj nazwę aplikacji.
    4. Wybierz **Typ** **aplikacji sieci Web/interfejsu API**.
    5. Podaj dowolną wartość w adresie URL logowania, to pole nie jest używane.
-   6. Wybierz przycisk **Utwórz**.
+   6. Wybierz pozycję **Utwórz**.
    7. Po utworzeniu aplikacji wybierz pozycję **Właściwości**  >  **Ustaw aplikację jako wiele dzierżawców** , a następnie **Zapisz**.
 
 4. Wybierz pozycję **Zapisz**.
@@ -336,7 +336,7 @@ Ostatnia sekcja do ukończenia polega na automatycznym wdrożeniu dysków testow
 
    1. Wybierz pozycję **Zapisz**.
 
-7. Wygeneruj klucz uwierzytelniania **aplikacja usługi Azure AD** . W obszarze **klucze** Dodaj **Opis klucza** , ustaw czas trwania **nigdy nie wygasa** (klucz, który wygasł, spowoduje przerwanie pracy w środowisku produkcyjnym), a następnie wybierz pozycję **Zapisz**. Skopiuj tę wartość i wklej ją do wymaganego pola Test Drive.
+7. Wygeneruj klucz uwierzytelniania **aplikacja usługi Azure AD** . W obszarze **klucze** Dodaj **Opis klucza**, ustaw czas trwania **nigdy nie wygasa** (klucz, który wygasł, spowoduje przerwanie pracy w środowisku produkcyjnym), a następnie wybierz pozycję **Zapisz**. Skopiuj tę wartość i wklej ją do wymaganego pola Test Drive.
 
 ![Pokazuje klucze aplikacji usługi Azure AD](media/test-drive/azure-ad-app-keys.png)
 
@@ -348,7 +348,7 @@ Teraz, po zakończeniu wszystkich pól testowych, należy **ponownie opublikowa�
 1. Otwórz subskrypcję platformy Azure w ramach Azure Portal.
 1. Sprawdź, czy twój dysk testowy jest poprawnie wdrażany.
 
-   ![Witryna Azure Portal](media/test-drive/azure-portal.png)
+   ![Azure Portal](media/test-drive/azure-portal.png)
 
 Nie usuwaj żadnych wystąpień testowych, dla których Zainicjowano obsługę klientów; Usługa dysku testowego automatycznie czyści te grupy zasobów po zakończeniu działania klienta.
 

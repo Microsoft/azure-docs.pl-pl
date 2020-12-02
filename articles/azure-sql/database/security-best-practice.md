@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: 803c9a98f0dc10ff8218ac7b7c20dcb117700034
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1217d3af855e96b6d6a0f403c2ff351a6b957d9a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187106"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459675"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Element PlayBook do rozwiązywania typowych wymagań dotyczących zabezpieczeń w przypadku wystąpienia zarządzanego Azure SQL Database i usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ Ten dokument zawiera wskazówki dotyczące sposobu rozwiązywania typowych wymag
 
 ### <a name="deployment-offers-not-covered-in-this-guide"></a>Oferty wdrażania nie zostały omówione w tym przewodniku
 
-- Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)
+- Azure Synapse Analytics
 - Maszyny wirtualne Azure SQL (IaaS)
 - SQL Server
 

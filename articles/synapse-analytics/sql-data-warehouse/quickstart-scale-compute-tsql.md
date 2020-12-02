@@ -1,6 +1,6 @@
 ---
-title: 'Szybki Start: skalowanie zasobów obliczeniowych w usłudze Azure Synapse Analytics — T-SQL'
-description: Skalowanie zasobów obliczeniowych w usłudze Azure Synapse Analytics przy użyciu języka T-SQL i SQL Server Management Studio (SSMS). Skalowanie zasobów obliczeniowych w poziomie zapewnia lepszą wydajność, a zmniejszenie ich skali pozwala ograniczyć koszty.
+title: 'Szybki Start: skalowanie zasobów obliczeniowych w dedykowanej puli SQL (dawniej SQL DW) — T-SQL'
+description: Skalowanie obliczeniowe w dedykowanej puli SQL (dawniej SQL DW) przy użyciu języka T-SQL i SQL Server Management Studio (SSMS). Skalowanie zasobów obliczeniowych w poziomie zapewnia lepszą wydajność, a zmniejszenie ich skali pozwala ograniczyć koszty.
 services: synapse-analytics
 author: Antvgski
 manager: craigg
@@ -11,26 +11,26 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: d11474a3f3b5d8c314f67260fddbbe0a98fe5196
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 37033e3c5f388d1a55a122899114914e661565f6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91569895"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460225"
 ---
-# <a name="quickstart-scale-compute-in-azure-synapse-analytics-using-t-sql"></a>Szybki Start: skalowanie zasobów obliczeniowych w usłudze Azure Synapse Analytics przy użyciu języka T-SQL
+# <a name="quickstart-scale-compute-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-t-sql"></a>Szybki Start: skalowanie zasobów obliczeniowych dla dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics przy użyciu języka T-SQL
 
-Skalowanie obliczeniowe w usłudze Azure Synapse Analytics (dawniej SQL DW) przy użyciu języka T-SQL i SQL Server Management Studio (SSMS). [Skalowanie zasobów obliczeniowych w poziomie](sql-data-warehouse-manage-compute-overview.md) zapewnia lepszą wydajność, a zmniejszenie ich skali pozwala ograniczyć koszty.
+Skalowanie obliczeniowe w dedykowanej puli SQL (dawniej SQL DW) przy użyciu języka T-SQL i SQL Server Management Studio (SSMS). [Skalowanie zasobów obliczeniowych w poziomie](sql-data-warehouse-manage-compute-overview.md) zapewnia lepszą wydajność, a zmniejszenie ich skali pozwala ograniczyć koszty.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Pobierz i zainstaluj najnowszą wersję programu [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
 
-## <a name="create-a-data-warehouse"></a>Tworzenie magazynu danych
+## <a name="create-a-dedicated-sql-pool-formerly-sql-dw"></a>Tworzenie dedykowanej puli SQL (dawniej SQL DW)
 
-Wykonaj czynności opisane w przewodniku [Szybki start: tworzenie i łączenie — portal](create-data-warehouse-portal.md), aby utworzyć magazyn danych o nazwie **mySampleDataWarehouse**. Ukończ Przewodnik Szybki Start, aby upewnić się, że masz regułę zapory i można nawiązać połączenie z magazynem danych z poziomu SQL Server Management Studio.
+Skorzystaj z [przewodnika Szybki Start: Tworzenie i łączenie — Portal](create-data-warehouse-portal.md) , aby utworzyć dedykowaną pulę SQL (dawniej SQL DW) o nazwie **mySampleDataWarehouse**. Ukończ Przewodnik Szybki Start, aby upewnić się, że masz regułę zapory i można nawiązać połączenie z dedykowaną pulą SQL (dawniej SQL DW) z poziomu usługi SQL Server Management Studio.
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Nawiąż połączenie z serwerem jako administrator serwera
 
@@ -58,11 +58,11 @@ W tej sekcji używany jest program [SQL Server Management Studio](/sql/ssms/down
 
 ## <a name="view-service-objective"></a>Wyświetlanie celu usługi
 
-Ustawienie dotyczące celu usługi zawiera liczbę jednostek magazynu danych dla magazynu danych.
+Ustawienie cel usługi zawiera liczbę jednostek magazynu danych dla dedykowanej puli SQL (dawniej SQL DW).
 
-Aby wyświetlić bieżące jednostki magazynu danych dla magazynu danych:
+Aby wyświetlić bieżące jednostki magazynu danych dla dedykowanej puli SQL (dawniej SQL DW):
 
-1. W obszarze połączenie z usługą **mySampleDataWarehouseservername.Database.Windows.NET**rozwiń pozycję **systemowe bazy danych**.
+1. W obszarze połączenie z usługą **mySampleDataWarehouseservername.Database.Windows.NET** rozwiń pozycję **systemowe bazy danych**.
 2. Kliknij prawym przyciskiem myszy pozycję **master**, a następnie wybierz pozycję **New Query** (Nowe zapytanie). Otworzy się okno nowego zapytania.
 3. Uruchom następujące zapytanie, aby wybrać odpowiedni element z dynamicznego widoku zarządzania sys.database_service_objectives.
 
@@ -85,7 +85,7 @@ Aby wyświetlić bieżące jednostki magazynu danych dla magazynu danych:
 
 ## <a name="scale-compute"></a>Skalowanie zasobów obliczeniowych
 
-W usłudze Azure Synapse można zwiększyć lub zmniejszyć zasoby obliczeniowe przez dostosowanie jednostek magazynu danych. Postępując według czynności opisanych w artykule [Tworzenie i łączenie — portal](create-data-warehouse-portal.md) utworzono bazę danych **mySampleDataWarehouse** z 400 jednostkami DWU. Poniższe kroki umożliwiają dostosowanie liczby jednostek DWU dla bazy danych **mySampleDataWarehouse**.
+W dedykowanej puli SQL (dawniej SQL DW) można zwiększyć lub zmniejszyć zasoby obliczeniowe przez dostosowanie jednostek magazynu danych. Postępując według czynności opisanych w artykule [Tworzenie i łączenie — portal](create-data-warehouse-portal.md) utworzono bazę danych **mySampleDataWarehouse** z 400 jednostkami DWU. Poniższe kroki umożliwiają dostosowanie liczby jednostek DWU dla bazy danych **mySampleDataWarehouse**.
 
 Aby zmienić liczbę jednostek magazynu danych:
 
@@ -130,13 +130,13 @@ Aby sondować stan zmiany obiektu usługi:
 
     ![Stan operacji](./media/quickstart-scale-compute-tsql/polling-output.png)
 
-## <a name="check-data-warehouse-state"></a>Sprawdzanie stanu magazynu danych
+## <a name="check-dedicated-sql-pool-formerly-sql-dw-state"></a>Sprawdź dedykowany stan puli SQL (dawniej SQL DW)
 
-Gdy magazyn danych jest wstrzymany, nawiązanie z nim połączenia za pomocą języka T-SQL nie jest możliwe. Aby wyświetlić bieżący stan magazynu danych, można użyć polecenia cmdlet programu PowerShell. Aby zapoznać się z przykładem, zobacz [Sprawdzanie stanu magazynu danych — PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state).
+W przypadku wstrzymania dedykowanej puli SQL (dawniej SQL DW) nie można nawiązać z nią połączenia przy użyciu języka T-SQL. Aby wyświetlić bieżący stan dedykowanej puli SQL (dawniej SQL DW), możesz użyć polecenia cmdlet programu PowerShell. Aby zapoznać się z przykładem, zobacz [Sprawdzanie dedykowanej puli SQL (dawniej SQL DW) — PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state).
 
 ## <a name="check-operation-status"></a>Sprawdzanie stanu operacji
 
-Aby zwrócić informacje dotyczące różnych operacji zarządzania na platformie Azure Synapse, uruchom następujące zapytanie na [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) DMV. Na przykład zwraca operację i typ stanu operacji: IN_PROGRESS (W toku) lub COMPLETED (Ukończono).
+Aby zwrócić informacje o różnych operacjach zarządzania w dedykowanej puli SQL (dawniej SQL DW), uruchom następujące zapytanie na [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) DMV. Na przykład zwraca operację i typ stanu operacji: IN_PROGRESS (W toku) lub COMPLETED (Ukończono).
 
 ```sql
 SELECT *
@@ -150,7 +150,7 @@ AND
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz już wiesz, jak skalować zasoby obliczeniowe na potrzeby magazynu danych. Aby dowiedzieć się więcej o usłudze Azure Synapse, przejdź do samouczka dotyczącego ładowania danych.
+Teraz wiesz już, jak skalować obliczenia dla dedykowanej puli SQL (dawniej SQL DW). Aby dowiedzieć się więcej o usłudze Azure Synapse Analytics, przejdź do samouczka dotyczącego ładowania danych.
 
 > [!div class="nextstepaction"]
->[Ładowanie danych do usługi Azure Synapse Analytics](load-data-from-azure-blob-storage-using-polybase.md)
+>[Ładowanie danych do dedykowanej puli SQL](load-data-from-azure-blob-storage-using-polybase.md)

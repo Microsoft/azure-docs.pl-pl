@@ -8,14 +8,14 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 919b8fb89e9189df7cb1964cbe0149dc6945ad2d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e0309b4c96b2ae25eb568e390717ba76cfd84fa5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323201"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461314"
 ---
-# <a name="create-a-managed-private-endpoint-to-your-data-source-preview"></a>Utwórz zarządzany prywatny punkt końcowy ze źródłem danych (wersja zapoznawcza)
+# <a name="create-a-managed-private-endpoint-to-your-data-source"></a>Utwórz zarządzany prywatny punkt końcowy ze źródłem danych
 
 W tym artykule omówiono sposób tworzenia zarządzanego prywatnego punktu końcowego dla źródła danych na platformie Azure. Aby dowiedzieć się więcej, zobacz [zarządzane prywatne punkty końcowe](./synapse-workspace-managed-private-endpoints.md) .
 
@@ -35,7 +35,7 @@ Wybierz typ źródła danych. W takim przypadku docelowym źródłem danych jest
 
 ## <a name="step-4-enter-information-about-the-data-source"></a>Krok 4. Wprowadzanie informacji o źródle danych
 
-W następnym oknie wprowadź informacje o źródle danych. W tym przykładzie tworzymy zarządzany prywatny punkt końcowy do konta ADLS Gen2. Wprowadź **nazwę** zarządzanego prywatnego punktu końcowego. Podaj **subskrypcję platformy Azure** i **nazwę konta magazynu**. Wybierz przycisk **Utwórz**.
+W następnym oknie wprowadź informacje o źródle danych. W tym przykładzie tworzymy zarządzany prywatny punkt końcowy do konta ADLS Gen2. Wprowadź **nazwę** zarządzanego prywatnego punktu końcowego. Podaj **subskrypcję platformy Azure** i **nazwę konta magazynu**. Wybierz pozycję **Utwórz**.
 ![Wprowadź szczegóły docelowego źródła danych](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-4.png)
 
 ## <a name="step-5-verify-that-your-managed-private-endpoint-was-successfully-created"></a>Krok 5. Sprawdzanie, czy zarządzany prywatny punkt końcowy został pomyślnie utworzony

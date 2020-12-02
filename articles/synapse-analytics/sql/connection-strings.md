@@ -1,6 +1,6 @@
 ---
-title: Parametry połączenia dla Synapse SQL (wersja zapoznawcza)
-description: Parametry połączenia dla Synapse SQL (wersja zapoznawcza)
+title: Parametry połączenia dla Synapse SQL
+description: Parametry połączenia dla Synapse SQL
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,16 +10,16 @@ ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e34563a312c5a248e97c4aac72d06030a836727b
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6859d0582997ee861713090ccb4c22ed58ec4ca7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684845"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462334"
 ---
-# <a name="connection-strings-for-synapse-sql-preview"></a>Parametry połączenia dla Synapse SQL (wersja zapoznawcza)
+# <a name="connection-strings-for-synapse-sql"></a>Parametry połączenia dla Synapse SQL
 
-Można nawiązać połączenie z usługą Synapse SQL (wersja zapoznawcza) przy użyciu kilku różnych protokołów aplikacji, takich jak [ADO.NET](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [php](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396)i [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). Poniżej przedstawiono kilka przykładów połączeń ciągów dla każdego protokołu. 
+Można nawiązać połączenie z usługą Synapse SQL przy użyciu kilku różnych protokołów aplikacji, takich jak [ADO.NET](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [php](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396)i [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). Poniżej przedstawiono kilka przykładów połączeń ciągów dla każdego protokołu. 
 
 Możesz również użyć Azure Portal, aby skompilować parametry połączenia.  Aby skompilować parametry połączenia przy użyciu Azure Portal, przejdź do bloku bazy danych, w obszarze *Essentials* wybierz pozycję *Pokaż parametry połączenia bazy danych*.
 

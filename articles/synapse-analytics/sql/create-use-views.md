@@ -1,6 +1,6 @@
 ---
-title: Tworzenie i Używanie widoków w bezserwerowej puli SQL (wersja zapoznawcza)
-description: W tej sekcji dowiesz się, jak tworzyć widoki i używać ich do zawijania zapytań puli SQL bezserwerowej (wersja zapoznawcza). Widoki umożliwią ponowne użycie tych zapytań. Widoki są również potrzebne, jeśli chcesz używać narzędzi, takich jak Power BI, w połączeniu z pulą SQL bez użycia serwera.
+title: Tworzenie i Używanie widoków w puli SQL bezserwerowej
+description: W tej sekcji dowiesz się, jak tworzyć widoki i używać ich do otaczania zapytań puli SQL bezserwerowych. Widoki umożliwią ponowne użycie tych zapytań. Widoki są również potrzebne, jeśli chcesz używać narzędzi, takich jak Power BI, w połączeniu z pulą SQL bez użycia serwera.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 302cf97db7c1d2ba489a84b6be912816d20f6091
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 0948c7c82d7577bae07057bff9d1be4d7e09f978
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685566"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462284"
 ---
-# <a name="create-and-use-views-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Tworzenie i Używanie widoków przy użyciu bezserwerowej puli SQL (wersja zapoznawcza) w usłudze Azure Synapse Analytics
+# <a name="create-and-use-views-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Tworzenie i Używanie widoków przy użyciu bezserwerowej puli SQL w usłudze Azure Synapse Analytics
 
-W tej sekcji dowiesz się, jak tworzyć widoki i używać ich do zawijania zapytań puli SQL bezserwerowej (wersja zapoznawcza). Widoki umożliwią ponowne użycie tych zapytań. Widoki są również potrzebne, jeśli chcesz używać narzędzi, takich jak Power BI, w połączeniu z pulą SQL bez użycia serwera.
+W tej sekcji dowiesz się, jak tworzyć widoki i używać ich do otaczania zapytań puli SQL bezserwerowych. Widoki umożliwią ponowne użycie tych zapytań. Widoki są również potrzebne, jeśli chcesz używać narzędzi, takich jak Power BI, w połączeniu z pulą SQL bez użycia serwera.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

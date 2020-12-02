@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ec619681f1eebc51da85d31ad15f1db25cfd3cbc
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 570281e31c70b2f5f85a858f9dd424f93ee86029
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917923"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460066"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrowanie usługi Key Vault z usługą Azure Private Link
 
@@ -69,7 +69,7 @@ Teraz będzie można zobaczyć skonfigurowany prywatny punkt końcowy. Masz tera
 
 Jeśli masz już Magazyn kluczy, możesz utworzyć połączenie prywatne, wykonując następujące czynności:
 
-1. Zaloguj się w witrynie Azure Portal. 
+1. Zaloguj się do witryny Azure Portal. 
 1. Na pasku wyszukiwania wpisz ciąg "magazyny kluczy".
 1. Z listy wybierz magazyn kluczy, do którego chcesz dodać prywatny punkt końcowy.
 1. Wybierz kartę "Sieć" w obszarze Ustawienia
@@ -226,14 +226,14 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 * Upewnij się, że masz zasób strefy Prywatna strefa DNS. 
     1. Musisz mieć Prywatna strefa DNS zasób strefy o dokładnej nazwie: privatelink.vaultcore.azure.net. 
-    2. Aby dowiedzieć się, jak skonfigurować to ustawienie, zobacz następujący link. [Strefy Prywatna strefa DNS](https://docs.microsoft.com/azure/dns/private-dns-privatednszone)
+    2. Aby dowiedzieć się, jak skonfigurować to ustawienie, zobacz następujący link. [Strefy Prywatna strefa DNS](../../dns/private-dns-privatednszone.md)
     
 * Sprawdź, czy prywatna strefa DNS nie jest połączona z siecią wirtualną. Może to być problem, jeśli nadal jest wyświetlany publiczny adres IP. 
     1. Jeśli usługa DNS strefy prywatnej nie jest połączona z siecią wirtualną, zapytanie DNS pochodzące z sieci wirtualnej zwróci publiczny adres IP magazynu kluczy. 
     2. Przejdź do zasobu strefy Prywatna strefa DNS w Azure Portal i kliknij opcję linki sieci wirtualnej. 
     4. Należy wymienić sieć wirtualną, która będzie wykonywać wywołania do magazynu kluczy. 
     5. Jeśli tak nie jest, Dodaj go. 
-    6. Aby uzyskać szczegółowe instrukcje, zobacz następujący link do dokumentu [Virtual Network prywatna strefa DNS Zone](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network)
+    6. Aby uzyskać szczegółowe instrukcje, zobacz następujący link do dokumentu [Virtual Network prywatna strefa DNS Zone](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network)
 
 * Upewnij się, że strefa Prywatna strefa DNS nie zawiera rekordu A dla magazynu kluczy. 
     1. Przejdź do strony strefy Prywatna strefa DNS. 

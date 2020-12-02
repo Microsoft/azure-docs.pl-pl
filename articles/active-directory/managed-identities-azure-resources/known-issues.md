@@ -13,16 +13,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/06/2020
+ms.date: 12/01/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref, devx-track-azurecli
-ms.openlocfilehash: c41ec06b1f985296377d27dcbe72b5f41224809b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4d7debce83928e21072c981b007e8048bfc4c594
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835411"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460938"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Często zadawane pytania i znane problemy związane z tożsamościami zarządzanymi dla zasobów platformy Azure
 
@@ -74,7 +74,7 @@ Granica zabezpieczeń tożsamości jest zasobem, do którego jest dołączony. N
 
 Nie. Jeśli przeniesiesz subskrypcję do innego katalogu, musisz ręcznie utworzyć ponownie i przydzielić przydziały ról platformy Azure.
 - Dla tożsamości zarządzanych przypisanych przez system: Wyłącz i ponownie włącz. 
-- W przypadku tożsamości zarządzanych przypisanych przez użytkownika: Usuń, ponownie utwórz i Dołącz je do niezbędnych zasobów (np. maszyn wirtualnych).
+- W przypadku tożsamości zarządzanych przypisanych przez użytkownika: Usuń, ponownie utwórz i Dołącz je do niezbędnych zasobów (np. maszyn wirtualnych)
 
 ### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>Czy mogę użyć tożsamości zarządzanej w celu uzyskania dostępu do zasobu w innym katalogu/dzierżawie?
 
@@ -85,6 +85,46 @@ Nie. Tożsamości zarządzane nie obsługują obecnie scenariuszy między katalo
 - Tożsamość zarządzana przypisana przez system: wymagane są uprawnienia do zapisu dla zasobu. Na przykład w przypadku maszyn wirtualnych potrzebne jest uprawnienie Microsoft.Compute/virtualMachines/write. Ta akcja jest uwzględniona w rolach wbudowanych specyficznych dla zasobów, takich jak [współautor maszyny wirtualnej](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 - Tożsamość zarządzana przypisana przez użytkownika: wymagane są uprawnienia do zapisu dla zasobu. Na przykład w przypadku maszyn wirtualnych potrzebne jest uprawnienie Microsoft.Compute/virtualMachines/write. Oprócz przypisywania roli [operatora tożsamości zarządzanej](../../role-based-access-control/built-in-roles.md#managed-identity-operator) przez zarządzaną tożsamość.
 
+### <a name="how-do-i-prevent-the-creation-of-user-assigned-managed-identities"></a>Jak mogę uniemożliwić tworzenie tożsamości zarządzanych przypisanych przez użytkownika?
+
+Możesz uniemożliwić użytkownikom tworzenie tożsamości zarządzanych przez użytkowników przy użyciu [Azure Policy](../../governance/policy/overview.md)
+
+- Przejdź do [Azure Portal](https://portal.azure.com) i przejdź do pozycji **zasady**.
+- Wybieranie **definicji**
+- Wybierz pozycję **+ Definicja zasad** , a następnie wprowadź niezbędne informacje.
+- W sekcji Reguła zasad wklej
+
+```json
+{
+  "mode": "All",
+  "policyRule": {
+    "if": {
+      "field": "type",
+      "equals": "Microsoft.ManagedIdentity/userAssignedIdentities"
+    },
+    "then": {
+      "effect": "deny"
+    }
+  },
+  "parameters": {}
+}
+
+```
+
+Po utworzeniu zasad Przypisz je do grupy zasobów, której chcesz użyć.
+
+- Przejdź do grup zasobów.
+- Znajdź grupę zasobów używaną do testowania.
+- Wybierz pozycję **zasady** w menu po lewej stronie.
+- Wybierz pozycję **Przypisz zasady**
+- Sekcja **podstawowe informacje** zawiera:
+    - **Zakres** Grupa zasobów używana do testowania
+    - **Definicja zasad**: utworzone wcześniej zasady.
+- Pozostaw wartości domyślne pozostałych ustawień, a następnie wybierz kolejno pozycje **Przegląd + Utwórz**
+
+W tym momencie każda próba utworzenia tożsamości zarządzanej przypisanej przez użytkownika w grupie zasobów zakończy się niepowodzeniem.
+
+  ![Naruszenie zasad](./media/known-issues/policy-violation.png)
 
 ## <a name="known-issues"></a>Znane problemy
 
@@ -127,7 +167,7 @@ Tożsamości zarządzane nie są aktualizowane, gdy subskrypcja jest przenoszona
 Obejście dla zarządzanych tożsamości w ramach subskrypcji, która została przeniesiona do innego katalogu:
 
  - Dla tożsamości zarządzanych przypisanych przez system: Wyłącz i ponownie włącz. 
- - W przypadku tożsamości zarządzanych przypisanych przez użytkownika: Usuń, ponownie utwórz i Dołącz je do niezbędnych zasobów (np. maszyn wirtualnych).
+ - W przypadku tożsamości zarządzanych przypisanych przez użytkownika: Usuń, ponownie utwórz i Dołącz je do niezbędnych zasobów (np. maszyn wirtualnych)
 
 Aby uzyskać więcej informacji, zobacz [Przenoszenie subskrypcji platformy Azure do innego katalogu usługi Azure AD](../../role-based-access-control/transfer-subscription.md).
 

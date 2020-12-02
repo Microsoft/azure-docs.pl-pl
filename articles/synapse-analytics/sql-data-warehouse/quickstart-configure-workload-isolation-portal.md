@@ -1,6 +1,6 @@
 ---
 title: 'Szybki Start: Konfigurowanie izolacji obciążenia — Portal'
-description: Użyj Azure Portal, aby skonfigurować izolację obciążenia.
+description: Użyj Azure Portal, aby skonfigurować izolację obciążenia dla dedykowanej puli SQL.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 05/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 30862a0c16995e143df72f2a243419819941f54e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 302249b7d8490e43b841116c52500e686626433d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85213044"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460580"
 ---
-# <a name="quickstart-configure-synapse-sql-pool-workload-isolation-using-a-workload-group-in-the-azure-portal"></a>Szybki Start: Konfigurowanie Synapse izolacji puli SQL przy użyciu grupy obciążeń w Azure Portal
+# <a name="quickstart-configure-dedicated-sql-pool-workload-isolation-using-a-workload-group-in-the-azure-portal"></a>Szybki Start: Skonfiguruj dedykowaną izolację obciążenia puli SQL przy użyciu grupy obciążeń w Azure Portal
 
 W tym przewodniku szybki start skonfigurujesz [izolację obciążenia](sql-data-warehouse-workload-isolation.md) , tworząc grupę obciążeń na potrzeby rezerwowania zasobów.  Na potrzeby tego samouczka utworzymy grupę obciążeń na potrzeby ładowania danych `DataLoads` . Grupa obciążeń zarezerwuje 20% zasobów systemowych.  Dzięki obciążeniu o 20% w przypadku ładowania danych są one gwarantowane, dzięki czemu mogą trafiać do umowy SLA.  Po utworzeniu grupy obciążeń [Utwórz klasyfikator obciążeń](quickstart-create-a-workload-classifier-portal.md) , aby przypisać zapytania do tej grupy obciążeń.
 
@@ -31,24 +31,24 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 > [!NOTE]
-> Utworzenie wystąpienia puli SQL w usłudze Azure Synapse Analytics może spowodować powstanie nowej usługi do obciążania.  Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> Tworzenie dedykowanego wystąpienia puli SQL w usłudze Azure Synapse Analytics może spowodować powstanie nowej usługi do obciążania.  Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym przewodniku szybki start założono, że masz już wystąpienie puli SQL w Synapse SQL i że masz uprawnienia sterujące bazą danych. Jeżeli chcesz utworzyć taki magazyn, skorzystaj z przewodnika [Szybki start: tworzenie i łączenie — portal](create-data-warehouse-portal.md), aby utworzyć magazyn danych o nazwie **mySampleDataWarehouse**.
+W tym przewodniku szybki start założono, że masz już dedykowane wystąpienie puli SQL w Synapse SQL i że masz uprawnienia sterujące bazą danych. Jeśli trzeba ją utworzyć, Skorzystaj z [przewodnika Szybki Start: Tworzenie dedykowanej puli SQL — Portal](../quickstart-create-sql-pool-portal.md) , aby utworzyć magazyn danych o nazwie **mySampleDataWarehouse**.
 
 >[!IMPORTANT] 
->Aby można było skonfigurować zarządzanie obciążeniami, Pula SQL musi być w trybie online. 
+>Dedykowana Pula SQL musi być w trybie online, aby można było skonfigurować zarządzanie obciążeniami. 
 
 ## <a name="configure-workload-isolation"></a>Konfigurowanie izolacji obciążenia
-Zasoby puli SQL mogą być izolowane i zarezerwowane dla konkretnych obciążeń przez tworzenie grup obciążeń.  Zapoznaj się z dokumentacją dotyczącą pojęć związanych z [izolacją obciążenia](sql-data-warehouse-workload-isolation.md) , aby uzyskać więcej szczegółowych informacji o sposobie zarządzania obciążeniem przez grupy obciążeń.  Przewodnik Szybki Start dotyczący [tworzenia i nawiązywania połączenia z portalem](create-data-warehouse-portal.md) został utworzony przez **mySampleDataWarehouse** i zainicjowany z 400 jednostek dwu. Poniższe kroki tworzą grupę obciążeń w **mySampleDataWarehouse**.
+
+Dedykowane zasoby puli SQL mogą być izolowane i zarezerwowane dla konkretnych obciążeń przez tworzenie grup obciążeń.  Zapoznaj się z dokumentacją dotyczącą pojęć związanych z [izolacją obciążenia](sql-data-warehouse-workload-isolation.md) , aby uzyskać więcej szczegółowych informacji o sposobie zarządzania obciążeniem przez grupy obciążeń.  Przewodnik Szybki Start dotyczący [tworzenia i nawiązywania połączenia z portalem](create-data-warehouse-portal.md) został utworzony przez **mySampleDataWarehouse** i zainicjowany na DW100c. Poniższe kroki tworzą grupę obciążeń w **mySampleDataWarehouse**.
 
 Aby utworzyć grupę obciążeń z izolacją 20%:
-1.  Kliknij pozycję **Azure Synapse Analytics (wcześniej SQL DW)** na lewej stronie Azure Portal.
-2.  Wybierz pozycję **mySampleDataWarehouse** na stronie **usługi Azure Synapse Analytics (dawniej SQL DW)** . Zostanie otwarta Pula SQL.
-3.  Kliknij pozycję **zarządzanie obciążeniami**.
-4.  Kliknij pozycję **Nowa grupa obciążeń**.
-5.  Kliknij pozycję **niestandardowy**.
+1.  Przejdź do strony dedykowanej puli SQL **mySampleDataWarehouse** .
+1.  Wybierz pozycję  **zarządzanie obciążeniami**.
+1.  Wybierz pozycję **Nowa grupa obciążeń**.
+1.  wybierz pozycję **Niestandardowe**.
 
     ![Kliknij pozycję niestandardowe](./media/quickstart-configure-workload-isolation-portal/create-wg.png)
 
@@ -56,7 +56,7 @@ Aby utworzyć grupę obciążeń z izolacją 20%:
 7.  Wprowadź wartość `20` w obszarze **min. resources%**.
 8.  Wprowadź wartość `5` w obszarze **min. resources% na żądanie**.
 9.  Wprowadź `100` dla **zasobów Cap%**.
-10.   Kliknij pozycję **Zapisz**.
+10. Wprowadź **Zapisz**.
 
    ![Klikanie pozycji Zapisz.](./media/quickstart-configure-workload-isolation-portal/configure-wg.png)
 
@@ -83,17 +83,13 @@ Opłaty są naliczane za jednostki magazynu danych i dane przechowywane w magazy
 
 Wykonaj następujące kroki, aby wyczyścić zasoby.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com), wybierz pozycję Magazyn danych.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com), wybierz dedykowaną pulę SQL.
 
     ![Czyszczenie zasobów](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. Aby wstrzymać obliczenia, wybierz przycisk **Wstrzymaj** . Gdy magazyn danych jest wstrzymany, zobaczysz przycisk **Uruchom**.  Aby wznowić obliczenia, wybierz pozycję **Uruchom**.
 
 3. Aby usunąć magazyn danych, aby nie naliczać opłat za zasoby obliczeniowe i magazynowanie, wybierz pozycję **Usuń**.
-
-4. Aby usunąć utworzony serwer SQL, wybierz pozycję **sqlpoolservername.Database.Windows.NET** na poprzednim obrazie, a następnie wybierz pozycję **Usuń**.  Należy zachować ostrożność podczas usuwania, ponieważ usunięcie serwera spowoduje również usunięcie wszystkich baz danych przypisanych do tego serwera.
-
-5. Aby usunąć grupę zasobów, wybierz pozycję Moja **zasobów**, a następnie wybierz pozycję **Usuń grupę zasobów**.
 
 ## <a name="next-steps"></a>Następne kroki
 

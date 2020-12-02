@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: Tworzenie dedykowanej puli SQL (wersja zapoznawcza) przy użyciu Azure Portal'
+title: 'Szybki Start: Tworzenie dedykowanej puli SQL przy użyciu Azure Portal'
 description: Utwórz nową dedykowaną pulę SQL przy użyciu Azure Portal, wykonując czynności opisane w tym przewodniku.
 services: synapse-analytics
 author: julieMSFT
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: b558e34d3f5d224515eee669dfa7b8f2c6bbb3cd
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 3537b126adf082c8b00a02d999789d8a32b3f51d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541015"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462021"
 ---
-# <a name="quickstart-create-a-dedicated-sql-pool-preview-using-the-azure-portal"></a>Szybki Start: Tworzenie dedykowanej puli SQL (wersja zapoznawcza) przy użyciu Azure Portal
+# <a name="quickstart-create-a-dedicated-sql-pool-using-the-azure-portal"></a>Szybki Start: Tworzenie dedykowanej puli SQL przy użyciu Azure Portal
 
 Usługa Azure Synapse Analytics oferuje różne aparaty analityczne, które ułatwiają pozyskiwanie, przekształcanie, modelowanie i analizowanie danych. Dedykowana Pula SQL oferuje oparte na języku T-SQL możliwości obliczeniowe i magazynowe. Po utworzeniu dedykowanej puli SQL w obszarze roboczym usługi Synapse dane można ładować, modelować, przetwarzać i dostarczać w celu szybszego wglądu w informacje analityczne.
 
@@ -64,8 +64,8 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 
 ![dedykowany przepływ tworzenia puli SQL — karta Ustawienia dodatkowe.](media/quickstart-create-sql-pool/create-sql-pool-portal-03.png)
 
-5. Wybierz pozycję **Przejrzyj i utwórz**.
-6. Upewnij się, że szczegóły są poprawne na podstawie wprowadzonych wcześniej informacji. Wybierz przycisk **Utwórz**.
+5. Wybierz pozycję **Przeglądanie + tworzenie**.
+6. Upewnij się, że szczegóły są poprawne na podstawie wprowadzonych wcześniej informacji. Wybierz pozycję **Utwórz**.
 ![dedykowana Pula SQL CREATE Flow — przegląd ustawień.](media/quickstart-create-sql-pool/create-sql-pool-portal-04.png)
 
 7. W tym momencie przepływ aprowizacji zasobów zostanie uruchomiony.
@@ -86,7 +86,7 @@ Wykonaj poniższe kroki, aby usunąć dedykowaną pulę SQL z obszaru roboczego.
 Jeśli chcesz usunąć dedykowaną pulę SQL, wykonaj następujące czynności:
 
 1. Przejdź do bloku pule SQL w bloku obszaru roboczego
-1. Wybierz dedykowaną pulę SQL do usunięcia (w tym przypadku **contosowdw** )
+1. Wybierz dedykowaną pulę SQL do usunięcia (w tym przypadku **contosowdw**)
 1. Po wybraniu naciśnij klawisz **delete** .
 1. Potwierdzenie usunięcia i naciśnięcie przycisku **Usuń** ![ dedykowanej puli SQL — wyróżnianie potwierdzenia usunięcia.](media/quickstart-create-sql-pool/create-sql-pool-portal-11.png)
 1. Gdy proces zakończy się pomyślnie, dedykowana Pula SQL nie będzie już wyświetlana w obszarze zasoby obszaru roboczego.

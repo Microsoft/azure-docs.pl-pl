@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a77a4808390f816bc3a6646520f4b542bee89d4c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fa6e19fd9759d6e489d0945b5521a2e0ae3881e0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001751"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462639"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Kopiowanie danych do lub z usługi Azure Blob Storage przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -31,7 +31,7 @@ ms.locfileid: "96001751"
 W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych do i z usługi Azure Blob Storage. Jest on używany w artykule dotyczącym [przenoszenia danych](data-factory-data-movement-activities.md) , który przedstawia ogólne omówienie przenoszenia danych za pomocą działania kopiowania.
 
 ## <a name="overview"></a>Omówienie
-Dane można kopiować z dowolnego obsługiwanego źródłowego magazynu danych na platformę Azure Blob Storage lub z usługi Azure Blob Storage do dowolnego obsługiwanego magazynu danych ujścia. Poniższa tabela zawiera listę magazynów danych obsługiwanych jako źródła lub ujścia przez działanie kopiowania. Można na przykład przenieść dane **z** bazy danych SQL Server lub bazy danych Azure SQL Database **do** magazynu obiektów blob platformy Azure. I można skopiować dane **z** usługi Azure Blob Storage **do** usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) lub do kolekcji Azure Cosmos DB.
+Dane można kopiować z dowolnego obsługiwanego źródłowego magazynu danych na platformę Azure Blob Storage lub z usługi Azure Blob Storage do dowolnego obsługiwanego magazynu danych ujścia. Poniższa tabela zawiera listę magazynów danych obsługiwanych jako źródła lub ujścia przez działanie kopiowania. Można na przykład przenieść dane **z** bazy danych SQL Server lub bazy danych Azure SQL Database **do** magazynu obiektów blob platformy Azure. I można skopiować dane **z** usługi Azure Blob Storage **do** usługi Azure Synapse Analytics lub kolekcji Azure Cosmos DB.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

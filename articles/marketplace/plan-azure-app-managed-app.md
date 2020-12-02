@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 2f32fc9ffb8be5b71bfe84a4f0e946e68e8fcd03
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: a915b5a348e3167d2cf81906b19abd9850584ce9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577825"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460980"
 ---
 # <a name="plan-an-azure-managed-application-for-an-azure-application-offer"></a>Planowanie aplikacji zarządzanej przez platformę Azure dla oferty aplikacji platformy Azure
 
@@ -32,7 +32,7 @@ Użyj aplikacji platformy Azure: planu aplikacji zarządzanej, gdy wymagane są 
 | ------------ | ------------- |
 | Subskrypcja platformy Azure | Zarządzane aplikacje muszą być wdrożone w ramach subskrypcji klienta, ale mogą być zarządzane przez inną firmę. |
 | Rozliczenia i pomiary | Zasoby są udostępniane w ramach subskrypcji platformy Azure klienta. Maszyny wirtualne korzystające z modelu płatności zgodnie z rzeczywistym użyciem są transakcyjne dla klienta przez firmę Microsoft i rozliczane za pośrednictwem subskrypcji platformy Azure klienta. <br><br> W przypadku maszyn wirtualnych służących do przenoszenia własnych licencji firma Microsoft rozlicza wszelkie koszty związane z infrastrukturą, które są naliczane w ramach subskrypcji klienta, ale bezpośrednio obciążają opłaty za Licencjonowanie oprogramowania. |
-| Wirtualny dysk twardy (VHD) zgodny z platformą Azure | Maszyny wirtualne muszą być wbudowane w system Windows lub Linux. Aby uzyskać więcej informacji, zobacz:<br> • [Utwórz zasób techniczny maszyny wirtualnej platformy Azure](/azure/marketplace/partner-center-portal/vm-certification-issues-solutions#how-to-address-a-vulnerability-or-exploit-in-a-vm-offer.md) (dla dysków VHD z systemem Windows).<br> •  [Dystrybucje systemu Linux zatwierdzone na platformie Azure](/azure/virtual-machines/linux/endorsed-distros) (dla dysków VHD z systemem Linux). |
+| Wirtualny dysk twardy (VHD) zgodny z platformą Azure | Maszyny wirtualne muszą być wbudowane w system Windows lub Linux. Aby uzyskać więcej informacji, zobacz:<br> • [Utwórz zasób techniczny maszyny wirtualnej platformy Azure](./azure-vm-create-certification-faq.md#address-a-vulnerability-or-an-exploit-in-a-vm-offer) (dla dysków VHD z systemem Windows).<br> •  [Dystrybucje systemu Linux zatwierdzone na platformie Azure](../virtual-machines/linux/endorsed-distros.md) (dla dysków VHD z systemem Linux). |
 | Udział w zakresie użycia przez klienta | Wszystkie nowe oferty aplikacji platformy Azure muszą również obejmować identyfikator GUID [przypisywania użycia klienta przez partnera platformy Azure](azure-partner-customer-usage-attribution.md) . Aby uzyskać więcej informacji o przypisywaniu użycia klienta i sposobach ich włączania, zobacz temat przypisanie [użycia klienta przez partnera platformy Azure](azure-partner-customer-usage-attribution.md). |
 | Pakiet wdrożeniowy | Wymagany jest pakiet wdrożeniowy, który umożliwi klientom wdrożenie planu. Jeśli tworzysz wiele planów, które wymagają tej samej konfiguracji technicznej, możesz użyć tego samego pakietu. Aby uzyskać szczegółowe informacje, zobacz następną sekcję: pakiet wdrożeniowy. |
 |||
@@ -46,8 +46,8 @@ Pakiet wdrożeniowy zawiera wszystkie pliki szablonów potrzebne dla tego planu,
 
 Wszystkie aplikacje platformy Azure muszą zawierać te dwa pliki w folderze głównym archiwum. zip:
 
-- Plik szablonu Menedżer zasobów o nazwie [mainTemplate.json](/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#create-the-arm-template.md). Ten szablon definiuje zasoby, które mają zostać wdrożone w ramach subskrypcji platformy Azure klienta. Przykłady szablonów Menedżer zasobów można znaleźć w [galerii szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/documentation/templates/) lub w odpowiedniej repozytorium [szablonów szybkiego startu: Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) .
-- Definicja interfejsu użytkownika dla środowiska tworzenia aplikacji platformy Azure o nazwie [createUiDefinition.jsna](/azure/azure-resource-manager/managed-application-createuidefinition-overview). W interfejsie użytkownika należy określić elementy, które umożliwiają klientom podanie wartości parametrów.
+- Plik szablonu Menedżer zasobów o nazwie [mainTemplate.json](../azure-resource-manager/managed-applications/publish-service-catalog-app.md?tabs=azure-powershell#create-the-arm-template). Ten szablon definiuje zasoby, które mają zostać wdrożone w ramach subskrypcji platformy Azure klienta. Przykłady szablonów Menedżer zasobów można znaleźć w [galerii szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/documentation/templates/) lub w odpowiedniej repozytorium [szablonów szybkiego startu: Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) .
+- Definicja interfejsu użytkownika dla środowiska tworzenia aplikacji platformy Azure o nazwie [createUiDefinition.jsna](../azure-resource-manager/managed-applications/create-uidefinition-overview.md). W interfejsie użytkownika należy określić elementy, które umożliwiają klientom podanie wartości parametrów.
 
 Maksymalne obsługiwane rozmiary plików:
 
@@ -58,7 +58,7 @@ Wszystkie nowe oferty aplikacji platformy Azure muszą również obejmować iden
 
 ## <a name="azure-regions"></a>Regiony świadczenia usługi Azure
 
-Plan można opublikować w regionie publicznym platformy Azure, w regionie Azure Government lub w obu tych przypadkach. Przed opublikowaniem w celu [Azure Government](/azure/azure-government/documentation-government-manage-marketplace-partners)Przetestuj i zweryfikuj swój plan w środowisku, ponieważ niektóre punkty końcowe mogą się różnić. Aby skonfigurować i przetestować plan, zażądaj konta próbnego od [Microsoft Azure Government wersji próbnej](https://azure.microsoft.com/global-infrastructure/government/request/).
+Plan można opublikować w regionie publicznym platformy Azure, w regionie Azure Government lub w obu tych przypadkach. Przed opublikowaniem w celu [Azure Government](../azure-government/documentation-government-manage-marketplace-partners.md)Przetestuj i zweryfikuj swój plan w środowisku, ponieważ niektóre punkty końcowe mogą się różnić. Aby skonfigurować i przetestować plan, zażądaj konta próbnego od [Microsoft Azure Government wersji próbnej](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 Ponieważ Wydawca jest odpowiedzialny za wszelkie kontrole zgodności, miary zabezpieczeń i najlepsze rozwiązania. Azure Government używa fizycznie wyizolowanych centrów danych i sieci (znajdujących się tylko w Stanach Zjednoczonych).
 
@@ -87,14 +87,14 @@ Ceny są ustawiane w USD (USD = Stany Zjednoczone dolara) są konwertowane na wa
 
 ## <a name="just-in-time-jit-access"></a>Dostęp just in Time (JIT)
 
-Dostęp JIT umożliwia żądanie dostępu z podwyższonym poziomem uprawnień do zasobów aplikacji zarządzanej w celu rozwiązywania problemów lub konserwacji. Zawsze masz dostęp tylko do odczytu do zasobów, ale przez określony okres możesz mieć większy dostęp. Aby uzyskać więcej informacji, zobacz [Włączanie i żądanie dostępu just in Time do Azure Managed Applications](/azure/managed-applications/request-just-in-time-access).
+Dostęp JIT umożliwia żądanie dostępu z podwyższonym poziomem uprawnień do zasobów aplikacji zarządzanej w celu rozwiązywania problemów lub konserwacji. Zawsze masz dostęp tylko do odczytu do zasobów, ale przez określony okres możesz mieć większy dostęp. Aby uzyskać więcej informacji, zobacz [Włączanie i żądanie dostępu just in Time do Azure Managed Applications](../azure-resource-manager/managed-applications/request-just-in-time-access.md).
 
 > [!NOTE]
 > Informacje, które użytkownik powinien zauważyć, nawet jeśli skimmingBe należy zaktualizować `createUiDefinition.json` plik w celu obsługi tej funkcji.
 
 ## <a name="deployment-mode"></a>Tryb wdrożenia
 
-Plan aplikacji zarządzanej można skonfigurować tak, aby korzystał z trybu wdrożenia **kompletnego** lub **przyrostowego** . W trybie kompletnym ponowne wdrożenie aplikacji przez klienta skutkuje usunięciem zasobów w zarządzanej grupie zasobów, jeśli zasoby nie są zdefiniowane w [mainTemplate.jsna](/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#create-the-arm-template.md). W trybie przyrostowym ponowne wdrożenie aplikacji pozostawia istniejące zasoby bez zmian. Aby dowiedzieć się więcej, zobacz [Azure Resource Manager trybu wdrożenia](/azure/azure-resource-manager/templates/deployment-modes).
+Plan aplikacji zarządzanej można skonfigurować tak, aby korzystał z trybu wdrożenia **kompletnego** lub **przyrostowego** . W trybie kompletnym ponowne wdrożenie aplikacji przez klienta skutkuje usunięciem zasobów w zarządzanej grupie zasobów, jeśli zasoby nie są zdefiniowane w [mainTemplate.jsna](../azure-resource-manager/managed-applications/publish-service-catalog-app.md?tabs=azure-powershell#create-the-arm-template). W trybie przyrostowym ponowne wdrożenie aplikacji pozostawia istniejące zasoby bez zmian. Aby dowiedzieć się więcej, zobacz [Azure Resource Manager trybu wdrożenia](../azure-resource-manager/templates/deployment-modes.md).
 
 ## <a name="notification-endpoint-url"></a>Adres URL punktu końcowego powiadomienia
 
@@ -104,7 +104,7 @@ Opcjonalnie możesz udostępnić punkt końcowy elementu webhook HTTPS, aby otrz
 
 Opcjonalnie można określić, które akcje mogą wykonywać klienci na zarządzanych zasobach oprócz `*/read` akcji, które są domyślnie dostępne.
 
-W przypadku wybrania tej opcji należy podać akcje kontrolki lub dozwolone akcje danych albo oba te elementy. Aby uzyskać więcej informacji, zobacz [Omówienie przypisań Odmów dla zasobów platformy Azure](/azure/role-based-access-control/deny-assignments). Aby uzyskać dostępne akcje, zobacz [Azure Resource Manager operacje dostawcy zasobów](/azure/role-based-access-control/resource-provider-operations). Na przykład, aby zezwolić użytkownikom na ponowne uruchomienie maszyn wirtualnych, Dodaj `Microsoft.Compute/virtualMachines/restart/action` do dozwolonych akcji.
+W przypadku wybrania tej opcji należy podać akcje kontrolki lub dozwolone akcje danych albo oba te elementy. Aby uzyskać więcej informacji, zobacz [Omówienie przypisań Odmów dla zasobów platformy Azure](../role-based-access-control/deny-assignments.md). Aby uzyskać dostępne akcje, zobacz [Azure Resource Manager operacje dostawcy zasobów](../role-based-access-control/resource-provider-operations.md). Na przykład, aby zezwolić użytkownikom na ponowne uruchomienie maszyn wirtualnych, Dodaj `Microsoft.Compute/virtualMachines/restart/action` do dozwolonych akcji.
 
 ## <a name="choose-who-can-manage-the-application"></a>Wybierz, kto może zarządzać aplikacją
 
@@ -113,14 +113,14 @@ Należy wskazać, kto może zarządzać zarządzaną aplikacją w każdej z wybr
 - **Azure Active Directory identyfikator dzierżawy** — identyfikator dzierżawy usługi Azure AD (znany również jako identyfikator katalogu) zawierający tożsamości użytkowników, grup lub aplikacji, do których chcesz udzielić uprawnień. Identyfikator dzierżawy usługi Azure AD można znaleźć na Azure Portal w obszarze [właściwości Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
 - **Autoryzacje** — Dodaj identyfikator obiektu Azure Active Directory każdego użytkownika, grupy lub aplikacji, którym chcesz nadać uprawnienia do zarządzanej grupy zasobów. Zidentyfikuj użytkownika według identyfikatora podmiotu zabezpieczeń, który można znaleźć w [bloku Azure Active Directory użytkownicy na Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
-Dla każdego identyfikatora podmiotu zabezpieczeń zostanie skojarzona jedna z wbudowanych ról usługi Azure AD (właściciela lub współautora). Wybrana rola opisuje uprawnienia podmiotu zabezpieczeń w ramach zasobów w ramach subskrypcji klienta. Aby uzyskać więcej informacji, zobacz [Role wbudowane platformy Azure](/azure/role-based-access-control/built-in-roles). Aby uzyskać więcej informacji na temat kontroli dostępu opartej na rolach (RBAC), zobacz [Rozpoczynanie pracy z funkcją RBAC w Azure Portal](/azure/role-based-access-control/overview).
+Dla każdego identyfikatora podmiotu zabezpieczeń zostanie skojarzona jedna z wbudowanych ról usługi Azure AD (właściciela lub współautora). Wybrana rola opisuje uprawnienia podmiotu zabezpieczeń w ramach zasobów w ramach subskrypcji klienta. Aby uzyskać więcej informacji, zobacz [Role wbudowane platformy Azure](../role-based-access-control/built-in-roles.md). Aby uzyskać więcej informacji na temat kontroli dostępu opartej na rolach (RBAC), zobacz [Rozpoczynanie pracy z funkcją RBAC w Azure Portal](../role-based-access-control/overview.md).
 
 > [!NOTE]
 > Mimo że użytkownik może dodać do 100 autoryzacji w regionie świadczenia usługi Azure, zazwyczaj łatwiej jest utworzyć Active Directory grupę użytkowników i określić jej identyfikator w "Identyfikator podmiotu zabezpieczeń". Pozwala to na dodanie większej liczby użytkowników do grupy zarządzania po wdrożeniu planu i zmniejszenie potrzeb aktualizacji planu tylko w celu dodania większej liczby autoryzacji.
 
 ## <a name="policy-settings"></a>Ustawienia zasad
 
-[Zasady platformy Azure](/azure/governance/policy) można zastosować do aplikacji zarządzanej, aby określić wymagania dotyczące zgodności dla wdrożonego rozwiązania. Definicje zasad i format wartości parametrów podano w artykule [Przykłady dla usługi Azure Policy](/azure/governance/policy/samples).
+[Zasady platformy Azure](../governance/policy/index.yml) można zastosować do aplikacji zarządzanej, aby określić wymagania dotyczące zgodności dla wdrożonego rozwiązania. Definicje zasad i format wartości parametrów podano w artykule [Przykłady dla usługi Azure Policy](../governance/policy/samples/index.md).
 
 Można skonfigurować maksymalnie pięć zasad i tylko jedno wystąpienie każdego typu zasad. Niektóre typy zasad wymagają dodatkowych parametrów.
 

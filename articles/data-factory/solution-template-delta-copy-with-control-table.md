@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/24/2018
-ms.openlocfilehash: 255e4085e24ee7520c603f8a00b3e46c23367a77
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e7b7acb7e67d809229825b3d393fe49af12b3642
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000831"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461207"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Kopiowanie przyrostowe z bazy danych z tabelą formantów
 
@@ -140,7 +140,7 @@ Szablon definiuje następujące parametry:
 
     Zobaczysz, że tylko nowe wiersze zostały skopiowane do lokalizacji docelowej.
 
-15. Obowiązkowe W przypadku wybrania usługi Azure Synapse Analytics (dawniej SQL DW) jako miejsca docelowego danych należy również udostępnić połączenie z magazynem obiektów blob platformy Azure na potrzeby przemieszczania, które jest wymagane przez usługę Azure Synapse Analytics (dawniej SQL Data Warehouse). Szablon spowoduje wygenerowanie ścieżki kontenera. Po uruchomieniu potoku Sprawdź, czy kontener został utworzony w usłudze BLOB Storage.
+15. Obowiązkowe W przypadku wybrania usługi Azure Synapse Analytics jako miejsca docelowego danych należy również udostępnić połączenie z usługą Azure Blob Storage na potrzeby przemieszczania, które jest wymagane przez bazę danych Azure Synapse Analytics. Szablon spowoduje wygenerowanie ścieżki kontenera. Po uruchomieniu potoku Sprawdź, czy kontener został utworzony w usłudze BLOB Storage.
     
     ![Skonfiguruj bazę](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png)
     

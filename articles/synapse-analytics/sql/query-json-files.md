@@ -1,5 +1,5 @@
 ---
-title: Wykonywanie zapytań dotyczących plików JSON przy użyciu puli SQL bezserwerowej (wersja zapoznawcza)
+title: Wykonywanie zapytań dotyczących plików JSON przy użyciu puli SQL bezserwerowej
 description: W tej sekcji opisano sposób odczytywania plików JSON przy użyciu bezserwerowej puli SQL w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: d071bbabf630dd326ae46f4c840f8e60f957f9fe
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 5703e4ac3d4a545041c7d258f0b1f0e7c79a33b5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685634"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462612"
 ---
-# <a name="query-json-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Wykonywanie zapytań dotyczących plików JSON przy użyciu puli SQL bezserwerowej (wersja zapoznawcza) w usłudze Azure Synapse Analytics
+# <a name="query-json-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Wykonywanie zapytań dotyczących plików JSON przy użyciu bezserwerowej puli SQL w usłudze Azure Synapse Analytics
 
-W tym artykule dowiesz się, jak napisać zapytanie przy użyciu bezserwerowej puli SQL (wersja zapoznawcza) w usłudze Azure Synapse Analytics. Celem zapytania jest odczytywanie plików JSON przy użyciu funkcji [OPENROWSET](develop-openrowset.md). 
+W tym artykule dowiesz się, jak napisać zapytanie przy użyciu bezserwerowej puli SQL w usłudze Azure Synapse Analytics. Celem zapytania jest odczytywanie plików JSON przy użyciu funkcji [OPENROWSET](develop-openrowset.md). 
 - Standardowe pliki JSON, w których wiele dokumentów JSON jest przechowywanych jako tablica JSON.
 - Rozdzielane wierszami pliki JSON, w których dokumenty JSON są rozdzielone znakami nowego wiersza. Typowymi rozszerzeniami tych typów plików są `jsonl` , `ldjson` , i `ndjson` .
 

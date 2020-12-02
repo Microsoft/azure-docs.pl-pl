@@ -1,6 +1,6 @@
 ---
-title: Wykonywanie zapytań dotyczących plików CSV za pomocą puli SQL bezserwerowej (wersja zapoznawcza)
-description: W tym artykule dowiesz się, jak wykonywać zapytania dotyczące pojedynczych plików CSV z różnymi formatami plików, używając bezserwerowej puli SQL (wersja zapoznawcza).
+title: Wykonywanie zapytań dotyczących plików CSV za pomocą puli SQL bezserwerowej
+description: W tym artykule dowiesz się, jak wykonywać zapytania dotyczące pojedynczych plików CSV z różnymi formatami plików, używając bezserwerowej puli SQL.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9faff6589466c7cbe78a11c283139acb72bce4bb
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: f2f0cdf307e91fb40c55d4a98139bad1a5eca886
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685651"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462600"
 ---
 # <a name="query-csv-files"></a>Wykonywanie zapytań o pliki CSV
 
-W tym artykule dowiesz się, jak wykonywać zapytania dotyczące pojedynczego pliku CSV przy użyciu puli SQL bezserwerowej (wersja zapoznawcza) w usłudze Azure Synapse Analytics. Pliki CSV mogą mieć różne formaty: 
+W tym artykule dowiesz się, jak wykonywać zapytania dotyczące pojedynczego pliku CSV przy użyciu bezserwerowej puli SQL w usłudze Azure Synapse Analytics. Pliki CSV mogą mieć różne formaty: 
 
 - Z wierszem nagłówka i bez niego
 - Wartości rozdzielane przecinkami i tabulatorami
@@ -47,7 +47,7 @@ from openrowset(
 Opcja `firstrow` służy do pomijania pierwszego wiersza w pliku CSV, który reprezentuje nagłówek w tym przypadku. Upewnij się, że możesz uzyskać dostęp do tego pliku. Jeśli plik jest chroniony za pomocą klucza SAS lub tożsamości niestandardowej, należy skonfigurować [poświadczenia na poziomie serwera dla logowania SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
 > [!IMPORTANT]
-> Jeśli plik CSV zawiera znaki UTF-8, upewnij się, że używasz pewnego sortowania bazy danych UTF-8 (na przykład `Latin1_General_100_CI_AS_SC_UTF8` ).
+> Jeśli plik CSV zawiera znaki UTF-8, upewnij się, że używasz sortowania bazy danych UTF-8 (na przykład `Latin1_General_100_CI_AS_SC_UTF8` ).
 > Niezgodność między kodowaniem tekstu w pliku a sortowaniem może spowodować nieoczekiwane błędy konwersji.
 > Można łatwo zmienić domyślne sortowanie bieżącej bazy danych, korzystając z następującej instrukcji T-SQL: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 

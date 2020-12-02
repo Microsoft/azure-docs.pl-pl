@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie dostępem do obszarów roboczych, danych i potoków
-description: Dowiedz się, jak zarządzać kontrolą dostępu do obszarów roboczych, danych i potoków w obszarze roboczym usługi Azure Synapse Analytics (wersja zapoznawcza).
+description: Dowiedz się, jak zarządzać kontrolą dostępu do obszarów roboczych, danych i potoków w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5d95ddcc610fb0350f47e0e5b494cbd16b95468c
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: c4304aeadf2950c1a91ee50ba9ecd895b2561b41
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95255225"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461356"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Zarządzanie dostępem do obszarów roboczych, danych i potoków
 
-Dowiedz się, jak zarządzać kontrolą dostępu do obszarów roboczych, danych i potoków w obszarze roboczym usługi Azure Synapse Analytics (wersja zapoznawcza).
+Dowiedz się, jak zarządzać kontrolą dostępu do obszarów roboczych, danych i potoków w usłudze Azure Synapse Analytics.
 
 > [!NOTE]
 > W odniesieniu do systemu Azure RBAC będzie bardziej opracowywany przez wprowadzenie ról platformy Azure specyficznych dla Synapse
@@ -171,7 +171,7 @@ Aby udzielić dostępu użytkownikowi do **pojedynczej** bazy danych SQL, wykona
 
 Po utworzeniu użytkowników Sprawdź, czy możesz wysyłać zapytania do konta magazynu za pomocą puli SQL bezserwerowej.
 
-## <a name="access-control-to-workspace-pipeline-runs"></a>Kontrola dostępu do przebiegów potoku obszaru roboczego
+## <a name="access-control-to-workspace-pipeline-runs"></a>Kontrola dostępu dla przebiegów potoku obszaru roboczego
 
 ### <a name="workspace-managed-identity"></a>Tożsamość zarządzana przez obszar roboczy
 

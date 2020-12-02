@@ -7,152 +7,149 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: c2679be2ca1db9017cbc37219402fa4e1c0666a5
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: d6449a00886b7366bcd1f6e2fcec910fd3cb38db
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874427"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461039"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>Interfejsy API realizacji SaaS w wersji 2 na komercyjnej witrynie Marketplace
 
-W tym artykule szczegółowo opisano interfejsy API, które umożliwiają partnerom sprzedawanie ofert SaaS w Microsoft AppSource i witrynie Azure Marketplace. Do zaimplementowania integracji z tymi interfejsami API w centrum partnerskim jest wymagany Wydawca.
+Ten artykuł zawiera szczegółowe informacje dotyczące interfejsów API, które umożliwiają partnerom sprzedawanie ich oprogramowania jako usługi (SaaS) w Microsoft AppSource i witrynie Azure Marketplace. Do zaimplementowania integracji z tymi interfejsami API w centrum partnerskim jest wymagany Wydawca.
 
 ## <a name="managing-the-saas-subscription-life-cycle"></a>Zarządzanie cyklem życia subskrypcji SaaS
 
-Komercyjna witryna Marketplace zarządza całym cyklem życia subskrypcji SaaS po zakupie przez klienta końcowego.  Korzysta ona ze strony docelowej, interfejsów API realizacji, interfejsów API operacji i elementu webhook jako mechanizmu do kierowania rzeczywistej aktywacji i użycia subskrypcji SaaS, aktualizacji oraz anulowania subskrypcji.  Rachunek klienta końcowego jest oparty na stanie subskrypcji SaaS obsługiwanej przez firmę Microsoft. 
+Komercyjna witryna Marketplace zarządza całym cyklem życia subskrypcji SaaS po zakupie przez użytkownika końcowego.  Używa ona strony docelowej, interfejsów API realizacji, interfejsów API operacji i elementu webhook jako mechanizmu do kierowania rzeczywistej aktywacji, użycia, aktualizacji i anulowania subskrypcji SaaS.  Rachunek użytkownika końcowego jest oparty na stanie subskrypcji SaaS obsługiwanej przez firmę Microsoft. 
 
 ### <a name="states-of-a-saas-subscription"></a>Stany subskrypcji SaaS
 
-Są wyświetlane Stany subskrypcji SaaS i odpowiednie działania.
+Na poniższym diagramie przedstawiono Stany subskrypcji SaaS i odpowiednie akcje.
 
-![Cykl życia subskrypcji SaaS na rynku Marketplace](./media/saas-subscription-lifecycle-api-v2.png)
+![Diagram przedstawiający cykl życia oprogramowania jako subskrypcji usługi w portalu Marketplace.](./media/saas-subscription-lifecycle-api-v2.png)
 
 #### <a name="purchased-but-not-yet-activated-pendingfulfillmentstart"></a>Zakupione, ale jeszcze nie aktywowane (*PendingFulfillmentStart*)
 
-Po zakupie przez klienta końcowego oferty SaaS w portalu Marketplace Wydawca powinien zostać powiadomiony o zakupie, aby nowe konto SaaS zostało utworzone i skonfigurowane dla klienta końcowego po stronie wydawcy.
+Po zakupie przez użytkownika końcowego (lub CSP) oferty SaaS w komercyjnej witrynie Marketplace Wydawca powinien zostać powiadomiony o zakupie. Wydawca może następnie utworzyć i skonfigurować nowe konto SaaS po stronie wydawcy dla użytkownika końcowego.
 
 W celu utworzenia konta:
 
-1. Klient musi kliknąć przycisk **konfiguracji** , który jest dostępny dla oferty SaaS po pomyślnym zakupie w Microsoft AppSource lub Azure Portal. Lub w wiadomości e-mail, którą klient otrzyma wkrótce po zakupie.
-2. Następnie firma Microsoft powiadamia partnera o zakupie, otwierając w nowej karcie przeglądarki adres URL strony docelowej z parametrem token (komercyjny token identyfikacji zakupów w portalu Marketplace).
+1. Klient wybiera przycisk **Konfiguruj** , który jest dostępny dla oferty SaaS po pomyślnym zakupie w Microsoft AppSource lub Azure Portal. Alternatywnie klient może użyć przycisku **Konfiguruj** w wiadomości e-mail, który wkrótce otrzyma po zakupie.
+2. Firma Microsoft następnie powiadamia partnera o zakupie, otwierając w nowej karcie przeglądarki adres URL strony docelowej z parametrem token (token identyfikacji zakupu z komercyjnej witryny Marketplace).
 
 Przykładem takiego wywołania jest `https://contoso.com/signup?token=<blob>` , podczas gdy adres URL strony docelowej dla tej oferty SaaS w centrum partnerskim jest skonfigurowany jako `https://contoso.com/signup` . Token ten zawiera wydawcę o IDENTYFIKATORze, który jednoznacznie identyfikuje SaaS zakupu i klienta.
 
 >[!NOTE]
->Wydawca nie otrzyma powiadomienia o zakupie SaaS, dopóki klient nie zainicjuje procesu konfiguracji od firmy Microsoft.
+>Wydawca nie zostanie powiadomiony o zakupie SaaS, dopóki klient nie zainicjuje procesu konfiguracji po stronie firmy Microsoft.
 
-Adres URL strony docelowej musi być ustawiony na 24x7 i być gotowy do otrzymywania nowych wywołań od firmy Microsoft przez cały czas. Jeśli strona docelowa stanie się niedostępna, klienci nie będą mogli zarejestrować się w usłudze SaaS i rozpocząć korzystanie z niej.
+Adres URL strony docelowej musi być uruchomiony przez cały dzień, codziennie i gotowy do otrzymywania nowych wywołań od firmy Microsoft przez cały czas. Jeśli strona docelowa stanie się niedostępna, klienci nie będą mogli zarejestrować się w usłudze SaaS i rozpocząć korzystanie z niej.
 
-Następnie *token* musi zostać przesłany z powrotem do firmy Microsoft przez wydawcę, wywołując [interfejs API rozpoznawania SaaS](#resolve-a-purchased-subscription)jako wartość `x-ms-marketplace-token header` parametru nagłówka.  W wyniku wywołania interfejsu API rozpoznawania token jest wymieniany ze szczegółowymi informacjami o zakupie SaaS, takimi jak unikatowy identyfikator zakupu, zakupionego identyfikatora oferty, IDENTYFIKATORem zakupionego planu itd.
+Następnie Wydawca musi przekazać *token* z powrotem do firmy Microsoft, wywołując [interfejs API rozpoznawania SaaS](#resolve-a-purchased-subscription)i wprowadzając token jako wartość `x-ms-marketplace-token header` parametru nagłówka.  W wyniku wywołania interfejsu API rozpoznawania token jest wymieniany w celu uzyskania szczegółowych informacji o zakupie SaaS, takich jak unikatowy identyfikator zakupu, zakupionego identyfikatora oferty i identyfikatora zakupionego planu.
 
-Na stronie miejsce docelowe klient powinien być zalogowany na nowym lub istniejącym koncie usługi SaaS za pośrednictwem logowania jednokrotnego (SSO) w usłudze Azure Active Directory (Azure AD).
+Na stronie miejsce docelowe klient powinien być zalogowany na nowym lub istniejącym koncie SaaS za pośrednictwem usługi Azure Active Directory (Azure AD) Logowanie jednokrotne (SSO).
 
-Wydawca powinien zaimplementować logowanie za pomocą logowania jednokrotnego, aby zapewnić użytkownikowi środowisko wymagane przez firmę Microsoft dla tego przepływu.  Upewnij się, że używasz wielodostępnej aplikacji usługi Azure AD, podczas konfigurowania logowania jednokrotnego Zezwól na konta służbowe lub osobiste konta Microsoft.  To wymaganie dotyczy tylko strony docelowej i dla użytkowników, którzy są przekierowywani do usługi SaaS, gdy jest już zalogowany przy użyciu poświadczeń firmy Microsoft. Nie dotyczy to wszystkich logowań do usługi SaaS.
+Wydawca powinien zaimplementować Logowanie jednokrotne, aby zapewnić użytkownikowi środowisko wymagane przez firmę Microsoft dla tego przepływu. Upewnij się, że używasz wielodostępnej aplikacji usługi Azure AD i Zezwalaj na konta służbowe lub osobiste konta Microsoft podczas konfigurowania logowania jednokrotnego.  To wymaganie dotyczy tylko strony docelowej dla użytkowników, którzy są przekierowywani do usługi SaaS, gdy są już zalogowani przy użyciu poświadczeń firmy Microsoft. Logowanie jednokrotne nie jest wymagane dla wszystkich logowań do usługi SaaS.
 
 > [!NOTE]
->Jeśli logowanie za pomocą logowania jednokrotnego wymaga, aby administrator przyznał uprawnienia do aplikacji, opis oferty w centrum partnerskim musi ujawnić, że wymagany jest dostęp na poziomie administratora. Jest to zgodne z [komercyjnymi zasadami certyfikacji portalu Marketplace](/legal/marketplace/certification-policies#10003-authentication-options).
+>Jeśli logowanie jednokrotne wymaga, aby administrator musi udzielić uprawnienia do aplikacji, opis oferty w centrum partnerskim musi ujawnić, że wymagany jest dostęp na poziomie administratora. To ujawnienie jest zgodne z [komercyjnymi zasadami certyfikacji portalu Marketplace](/legal/marketplace/certification-policies#10003-authentication-options).
 
-Po zalogowaniu klient powinien zakończyć konfigurację SaaS po stronie wydawcy. Następnie Wydawca musi wywołać [aktywację subskrypcji API](#activate-a-subscription) , aby wysłać sygnał do witryny Marketplace, że inicjowanie obsługi konta SaaS zostało ukończone.
-Spowoduje to rozpoczęcie cyklu rozliczeniowego klienta. Jeśli wywołanie interfejsu API aktywacji subskrypcji nie powiedzie się, klient nie jest rozliczany za zakup.
+Po zalogowaniu klient powinien ukończyć konfigurację SaaS po stronie wydawcy. Następnie Wydawca musi wywołać [interfejs API aktywacji subskrypcji](#activate-a-subscription) , aby wysłać sygnał do portalu Azure Marketplace, że inicjowanie obsługi konta SaaS zostało zakończone.
+Ta akcja spowoduje rozpoczęcie cyklu rozliczeniowego klienta. Jeśli wywołanie interfejsu API aktywacji subskrypcji nie powiedzie się, klient nie jest obciążany opłatą za zakup.
 
 
-![Wywołania interfejsu API dla scenariusza aprowizacji](./media/saas-update-api-v2-calls-from-saas-service-a.png) 
+![Diagram przedstawiający wywołanie P I dla scenariusza aprowizacji.](./media/saas-update-api-v2-calls-from-saas-service-a.png) 
 
-#### <a name="active-subscribed"></a>Aktywne (subskrybowane)
+#### <a name="active-subscribed"></a>Aktywne (*subskrybowane*)
 
-Ten stan jest stałym stanem zainicjowanej subskrypcji SaaS. Po przetworzeniu wywołania [interfejsu API aktywacji subskrypcji](#activate-a-subscription) po stronie firmy Microsoft subskrypcja SaaS jest oznaczona jako subskrybowana. Usługa SaaS jest teraz gotowa do użycia przez klienta po stronie wydawcy, a klient jest rozliczany.
+*Active (subskrybowana)* jest stałym stanem zainicjowanej subskrypcji SaaS. Gdy po stronie firmy Microsoft przetworzy wywołanie [interfejsu API aktywacji subskrypcji](#activate-a-subscription) , subskrypcja SaaS jest oznaczona jako *subskrybowana*. Klient może teraz korzystać z usługi SaaS po stronie wydawcy i będzie rozliczany.
 
-Gdy subskrypcja usługi SaaS jest już aktywna i klient zdecyduje się na uruchomienie funkcji **zarządzania** SaaS w centrum administracyjnym usługi Azure Portal lub M365, **adres URL strony docelowej** jest ponownie wywoływany przez firmę Microsoft z parametrem *tokenu* tak samo jak w przepływie aktywacji.  Wydawca powinien rozróżnić nowe zakupy i zarządzać istniejącymi kontami SaaS i obsłużyć odpowiednie wywołanie adresu URL strony docelowej.
+Gdy subskrypcja usługi SaaS jest już aktywna, klient może wybrać pozycję **Zarządzaj usługą SaaS** z poziomu centrum administracyjnego Azure Portal lub Microsoft 365. Ta akcja powoduje również, że firma Microsoft może wywoływać **adres URL strony docelowej** z parametrem *tokenu* tak samo jak w przepływie aktywacji. Wydawca powinien rozróżnić nowe zakupy i zarządzać istniejącymi kontami SaaS i obsłużyć odpowiednie wywołanie adresu URL strony docelowej.
 
-#### <a name="being-updated-subscribed"></a>Aktualizowany (subskrybowany)
+#### <a name="being-updated-subscribed"></a>Aktualizowany (*subskrybowany*)
 
-Ta akcja oznacza, że aktualizacja istniejącej aktywnej subskrypcji usługi SaaS jest przetwarzana przez firmę Microsoft i wydawcę. Taka aktualizacja może zostać zainicjowana przez:
+Ta akcja oznacza, że aktualizacja istniejącej aktywnej subskrypcji SaaS jest przetwarzana przez firmę Microsoft i wydawcę. Taka aktualizacja może zostać zainicjowana przez:
 
 - Klient z komercyjnej witryny Marketplace.
 - Dostawca CSP z komercyjnej witryny Marketplace.
-- Klient z witryny SaaS wydawcy (nie ma zastosowania do zakupu dostawcy CSP).
+- Klient z witryny SaaS wydawcy (ale nie do zakupów dla dostawcy CSP).
 
 Dostępne są dwa typy aktualizacji dla subskrypcji SaaS:
 
 - Zaktualizuj plan, gdy klient wybierze inny plan dla subskrypcji.
-- Aktualizowanie ilości, gdy klient zmienia liczbę zakupionych stanowisk dla subskrypcji
+- Zaktualizuj ilość, gdy klient zmieni liczbę zakupionych stanowisk dla subskrypcji.
 
 Można aktualizować tylko aktywną subskrypcję. Gdy subskrypcja jest aktualizowana, jej stan pozostaje aktywny po stronie firmy Microsoft.
 
-##### <a name="update-initiated-from-the-marketplace"></a>Aktualizacja zainicjowana z portalu Marketplace
+##### <a name="update-initiated-from-the-commercial-marketplace"></a>Aktualizacja zainicjowana z komercyjnego portalu Marketplace
 
-W tym przepływie klient zmienia plan subskrypcji lub liczbę stanowisk z Azure Portal lub centrum administracyjnego M365.  
+W tym przepływie klient zmienia plan subskrypcji lub liczbę stanowisk z Azure Portal lub Microsoft 365 centrum administracyjnego.  
 
-1. Po wprowadzeniu aktualizacji firma Microsoft będzie wywoływała adres URL elementu webhook wydawcy, który został skonfigurowany w polu **elementu webhook** w centrum partnerskim, z odpowiednią wartością dla *akcji* i innych odpowiednich parametrów.  
-1. Po stronie wydawcy należy wprowadzić wymagane zmiany w usłudze SaaS i powiadomić firmę Microsoft o zakończeniu zmiany, wywołując [stan aktualizacji interfejsu API operacji](#update-the-status-of-an-operation).
-1. Jeśli poprawka zostanie wysłana ze stanem niepowodzenia, proces aktualizacji nie zostanie ukończony po stronie firmy Microsoft.  Subskrypcja usługi SaaS zostanie pozostawiona z istniejącym planem i ilością stanowisk.
+1. Po wprowadzeniu aktualizacji firma Microsoft będzie wywoływała adres URL elementu webhook wydawcy, który został skonfigurowany w polu **elementu webhook połączenia** w centrum partnerskim, z odpowiednią wartością dla *akcji* i innych odpowiednich parametrów.  
+1. Po stronie wydawcy należy wprowadzić wymagane zmiany w usłudze SaaS i powiadomić firmę Microsoft po zakończeniu, wywołując [stan aktualizacji interfejsu API operacji](#update-the-status-of-an-operation).
+1. Jeśli poprawka zostanie wysłana ze stanem *niepowodzenia* , proces aktualizacji nie zakończy się po stronie firmy Microsoft.  Subskrypcja usługi SaaS będzie utrzymywać istniejący plan i ilość miejsc.
 
 > [!NOTE]
 > Wydawca powinien wywołać POPRAWKĘ, aby [zaktualizować stan interfejsu API operacji](#update-the-status-of-an-operation) z odpowiedzią na awarię i powodzenie *w 10-sekundowym przedziale czasu* po odebraniu powiadomienia elementu webhook. Jeśli poprawka stanu operacji nie zostanie odebrana w ciągu 10 sekund, plan zmiany zostanie *automatycznie poprawiony jako powodzenie*. 
 
-Poniżej przedstawiono sekwencję wywołań interfejsu API dla scenariusza aktualizacji zainicjowanej w portalu Marketplace.
+Sekwencja wywołań interfejsu API dla scenariusza aktualizacji, który jest inicjowany z komercyjnej witryny Marketplace, jest pokazana na poniższym diagramie.
 
-![Wywołania interfejsu API dla aktualizacji zainicjowanej w portalu Marketplace](./media/saas-update-status-api-v2-calls-marketplace-side.png)
+![Diagram przedstawiający wywołanie P dla aktualizacji zainicjowanej w portalu Marketplace.](./media/saas-update-status-api-v2-calls-marketplace-side.png)
 
 ##### <a name="update-initiated-from-the-publisher"></a>Aktualizacja zainicjowana przez wydawcę
 
 W tym przepływie klient zmienia plan subskrypcji lub ilość miejsc zakupionych w ramach usługi SaaS. 
 
-1. Kod wydawcy musi wywołać [interfejs API planu zmiany](#change-the-plan-on-the-subscription) i/lub [zmienić liczbę interfejsów API](#change-the-quantity-of-seats-on-the-saas-subscription) , zanim przeniesiesz żądaną zmianę po stronie wydawcy. 
+1. Kod wydawcy musi wywołać [interfejs API planu zmiany](#change-the-plan-on-the-subscription) i/lub [interfejs API zmiany ilości](#change-the-quantity-of-seats-on-the-saas-subscription) przed wprowadzeniem żądanej zmiany po stronie wydawcy. 
 
 1. Firma Microsoft zastosuje zmianę do subskrypcji, a następnie powiadomi wydawcę za pośrednictwem **elementu webhook** , aby zastosować tę samą zmianę.  
 
-1. Tylko Wydawca powinien wprowadzić wymaganą zmianę w subskrypcji usługi SaaS i powiadomić firmę Microsoft, gdy zmiana zostanie wykonana, wywołując [stan aktualizacji interfejsu API operacji](#update-the-status-of-an-operation).
+1. Tylko wtedy, gdy Wydawca wprowadzi wymaganą zmianę w subskrypcji SaaS i powiadomi firmę Microsoft, gdy zmiana zostanie dokonana, wywołując [stan aktualizacji interfejsu API operacji](#update-the-status-of-an-operation).
 
-Sekwencja wywołań interfejsu API dla scenariusza zainicjowanej aktualizacji po stronie wydawcy.
+Na poniższym diagramie przedstawiono sekwencję wywołań interfejsu API dla scenariusza aktualizacji, który jest inicjowany po stronie wydawcy.
 
-![Wywołania interfejsu API dla aktualizacji zainicjowanej po stronie wydawcy](./media/saas-update-status-api-v2-calls-publisher-side.png)
+![Diagram przedstawiający wywołanie P dla aktualizacji zainicjowanej po stronie wydawcy.](./media/saas-update-status-api-v2-calls-publisher-side.png)
 
 #### <a name="suspended-suspended"></a>Zawieszone (*zawieszone*)
 
-Ten stan wskazuje, że nie odebrano płatności klienta usługi SaaS. Wydawca zostanie powiadomiony o zmianie stanu subskrypcji SaaS przez firmę Microsoft. Powiadomienie jest wykonywane za pośrednictwem wywołania elementu webhook z parametrem *Action* ustawionym na wartość *SUSPENDED*.
+Ten stan wskazuje, że nie odebrano płatności klienta usługi SaaS. Wydawca zostanie powiadomiony o zmianie stanu subskrypcji SaaS przez firmę Microsoft. Powiadomienie jest realizowane za pośrednictwem wywołania elementu webhook z parametrem *akcji* ustawionym na *wstrzymane*.
 
-Wydawca może lub nie może wprowadzać zmian w usłudze SaaS po stronie wydawcy. Firma Microsoft zaleca, aby Wydawca udostępnił te informacje dla zawieszonego klienta i limitów lub blokuje dostęp klienta do usługi SaaS.  Istnieje prawdopodobieństwo, że płatność nigdy nie zostanie odebrana.
+Wydawca może lub nie może wprowadzać zmian w usłudze SaaS po stronie wydawcy. Firma Microsoft zaleca, aby Wydawca udostępnił te informacje dla zawieszonego klienta i ograniczyć lub zablokować dostęp klienta do usługi SaaS.  Istnieje prawdopodobieństwo, że płatność nigdy nie zostanie odebrana.
 
-Firma Microsoft przyznaje klientowi 30-dniowy okres prolongaty przed automatycznym anulowaniem subskrypcji. Gdy subskrypcja jest w stanie wstrzymania:
+Firma Microsoft przyznaje klientowi 30-dniowy okres prolongaty przed automatycznym anulowaniem subskrypcji. Gdy subskrypcja jest w stanie *wstrzymania* :
 
-* Niezależny dostawca oprogramowania musi przechowywać konto SaaS w stanie odzyskiwalnym. Pełną funkcjonalność można przywrócić bez utraty danych lub ustawień.
-* Należy zwrócić żądanie przywrócenia dla tej subskrypcji, jeśli płatność zostanie odebrana w okresie prolongaty lub gdy żądanie anulowania aprowizacji zostanie zakończone po upływie okresu prolongaty, zarówno za pośrednictwem mechanizmu elementu webhook.
+* Partner lub niezależnego dostawcy oprogramowania muszą zachować stan odwracalny, aby można było przywrócić pełną funkcjonalność bez utraty danych lub ustawień.
+* Partner lub dostawca oprogramowania powinien oczekiwać na żądanie przywrócenia subskrypcji, jeśli płatność zostanie odebrana w okresie prolongaty lub żądanie anulowania aprowizacji subskrypcji na koniec okresu prolongaty. Oba żądania będą wysyłane za pośrednictwem mechanizmu elementu webhook.
 
 Stan subskrypcji zostanie zmieniony na zawieszony po stronie firmy Microsoft przed wykonaniem jakiejkolwiek akcji przez wydawcę. Można wstrzymać tylko aktywne subskrypcje.
 
 #### <a name="reinstated-suspended"></a>Przywrócono (*zawieszone*)
 
-Trwa przywracanie subskrypcji.
-
-Ta akcja wskazuje, że instrument płatniczy klienta został ponownie ważny i płatność dla subskrypcji SaaS.  Trwa przywracanie subskrypcji. W takim przypadku: 
+Ta akcja wskazuje, że instrument płatniczy klienta stał się ważny, płatność dla subskrypcji SaaS i subskrypcja jest przywracana. W takim przypadku: 
 
 1. Firma Microsoft wywołuje element webhook z parametrem *Action* ustawionym na wartość *przywracania* .  
-1. Wydawca sprawdza, czy ta subskrypcja jest w pełni funkcjonalna po stronie wydawcy.
+1. Wydawca sprawdza, czy subskrypcja jest w pełni funkcjonalna po stronie wydawcy.
 1. Wydawca wywołuje [interfejs API operacji patch](#update-the-status-of-an-operation) o stanie sukces.  
-1. Następnie przywracanie zakończy się pomyślnie, a klient zostanie rozliczony ponownie dla subskrypcji SaaS. 
-1. Jeśli poprawka zostanie wysłana ze stanem niepowodzenia, proces przywracania nie zostanie ukończony po stronie firmy Microsoft. Subskrypcja pozostanie zawieszona.
+1. Proces przywracania zakończy się pomyślnie, a klient jest rozliczany ponownie dla subskrypcji SaaS. 
 
-Jeśli poprawka zostanie wysłana ze stanem niepowodzenia, proces przywracania nie zostanie ukończony po stronie firmy Microsoft.  Subskrypcja pozostanie zawieszona.
+Jeśli poprawka zostanie wysłana ze stanem *niepowodzenia* , proces przywracania nie zakończy się po stronie firmy Microsoft, a subskrypcja pozostanie *zawieszona*.
 
-Można przywrócić tylko zawieszoną subskrypcję.  Gdy subskrypcja SaaS jest przywracana, jej stan pozostaje zawieszony.  Po zakończeniu tej operacji stan subskrypcji stanie się aktywny.
+Można przywrócić tylko zawieszoną subskrypcję.  Zawieszona subskrypcja SaaS pozostaje w stanie *wstrzymania* , gdy jest ona przywracana.  Po zakończeniu tej operacji stan subskrypcji stanie się *aktywny*.
 
 #### <a name="renewed-subscribed"></a>Odnowione (*subskrybowane*)
 
-Po upływie okresu subskrypcji (po upływie miesiąca lub roku) subskrypcja usługi SaaS jest automatycznie odnawiana przez firmę Microsoft.  Ustawienie domyślne dla ustawienia autoodnawiania ma *wartość true* dla wszystkich subskrypcji SaaS. Subskrypcje Active SaaS będą nadal odnawiane za pomocą zwykłego erzeu. Firma Microsoft nie powiadamia wydawcy o odnowieniu subskrypcji. Klient może wyłączyć automatyczne odnawianie dla subskrypcji SaaS za pośrednictwem portalu administratora M365 lub za pośrednictwem Azure Portal.  W takim przypadku subskrypcja SaaS zostanie automatycznie anulowana na końcu bieżącego okresu rozliczeniowego.  Klienci mogą również anulować subskrypcję usługi SaaS w dowolnym momencie.
+Subskrypcja usługi SaaS jest automatycznie odnawiana przez firmę Microsoft pod koniec okresu subskrypcji miesiąca lub roku.  *Wartość* domyślna dla ustawienia autoodnawiania dotyczy wszystkich subskrypcji SaaS. Subskrypcje Active SaaS będą nadal odnawiane za pomocą zwykłego erzeu. Firma Microsoft nie powiadamia wydawcy o odnowieniu subskrypcji. Klient może wyłączyć automatyczne odnawianie dla subskrypcji SaaS za pośrednictwem portalu administracyjnego Microsoft 365 lub za pośrednictwem Azure Portal.  W takim przypadku subskrypcja SaaS zostanie automatycznie anulowana na końcu bieżącego okresu rozliczeniowego.  Klienci mogą także w dowolnym momencie anulować subskrypcję usługi SaaS.
 
-Tylko aktywne subskrypcje są automatycznie odnawiane.  Subskrypcje pozostają aktywne podczas procesu odnawiania i w przypadku pomyślnego odnowienia automatycznego.  Po odnowieniu daty rozpoczęcia i zakończenia okresu subskrypcji zostaną zaktualizowane do dat nowych warunków.
+Tylko aktywne subskrypcje są automatycznie odnawiane.  Subskrypcje pozostają aktywne podczas procesu odnawiania i w przypadku pomyślnego odnowienia automatycznego.  Po odnowieniu daty rozpoczęcia i zakończenia okresu subskrypcji są aktualizowane do dat nowego okresu.
 
-Jeśli autoodnowienie nie powiedzie się z powodu problemu z płatnością, subskrypcja zostanie zawieszona.  Wydawca zostanie powiadomiony.
+Jeśli automatyczne odnawianie zakończy się niepowodzeniem z powodu problemu z płatnością, subskrypcja zostanie *zawieszona* , a wydawca zostanie powiadomiony.
 
 #### <a name="canceled-unsubscribed"></a>Anulowane (*niesubskrybowane*) 
 
-Subskrypcje docierają do tego stanu w odpowiedzi na jawną akcję klienta lub dostawcę usług w ramach anulowania subskrypcji z witryny wydawcy, Azure Portal lub centrum administracyjnego M365.  Subskrypcję można również anulować niejawnie, ze względu na niepłatne należności, po upływie okresu wstrzymania przez 30 dni.
+Subskrypcje docierają do tego stanu w odpowiedzi na jawną akcję klienta lub dostawcę usług w ramach anulowania subskrypcji z witryny wydawcy, Azure Portal lub Microsoft 365 centrum administracyjnego.  Subskrypcję można również anulować niejawnie, w wyniku niepłaty opłat, po upływie okresu *wstrzymania* przez 30 dni.
 
-Po odebraniu wywołania elementu webhook anulowania Wydawca powinien zachować dane klienta na potrzeby odzyskiwania na żądanie przez co najmniej siedem dni. Tylko dane klienta można usunąć.
+Gdy Wydawca otrzyma wywołanie elementu webhook anulowania, powinien zachować dane klienta na potrzeby odzyskiwania na żądanie przez co najmniej siedem dni. Tylko dane klienta mogą zostać usunięte.
 
-Subskrypcję usługi SaaS można anulować w dowolnym momencie jej cyklu życia. Po anulowaniu subskrypcji nie można ponownie aktywować.
+Subskrypcję usługi SaaS można anulować w dowolnym momencie jej cyklu życia. Po anulowaniu subskrypcji nie można jej ponownie aktywować.
 
 ## <a name="api-reference"></a>Dokumentacja interfejsu API
 
@@ -162,26 +159,25 @@ Ta sekcja dokumentuje interfejsy API subskrypcji i operacji SaaS.
 
 **Interfejsy API operacji** powinny służyć do:
 
-* Weryfikowanie i Potwierdzanie przetworzonych wywołań elementu webhook
-* Pobierz listę aplikacji oczekujących na potwierdzenie przez wydawcę
+* Zweryfikuj i Potwierdź przetworzone wywołania elementu webhook.
+* Pobierz listę aplikacji oczekujących na potwierdzenie przez wydawcę.
 
-### <a name="enforcing-tls-12-note"></a>Wymuszanie uwagi dotyczącej protokołu TLS 1,2
-
-Wersja 1,2 protokołu TLS zostanie wymuszona wkrótce po minimalnej wersji komunikacji HTTPS. Upewnij się, że używasz tej wersji protokołu TLS w kodzie.  Protokoły TLS w wersji 1,0 i 1,1 wkrótce będą przestarzałe.
+> [!NOTE]
+> Wersja 1,2 protokołu TLS zostanie wymuszona wkrótce po minimalnej wersji komunikacji HTTPS. Upewnij się, że używasz tej wersji protokołu TLS w kodzie.  Protokoły TLS w wersji 1,0 i 1,1 wkrótce będą przestarzałe.
 
 ### <a name="subscription-apis"></a>Interfejsy API subskrypcji
 
 #### <a name="resolve-a-purchased-subscription"></a>Rozwiązywanie zakupionej subskrypcji
 
-Rozwiązywanie punktu końcowego umożliwia wydawcy wymianę tokenów identyfikacji zakupu w portalu Marketplace (nazywanego *tokenem* [zakupionego, ale jeszcze nie aktywowanego](#purchased-but-not-yet-activated-pendingfulfillmentstart)) z trwałym zakupionym identyfikatorem subskrypcji SaaS i jego szczegółami.
+Rozwiązanie punktu końcowego pozwala wydawcy na wymianę tokenu identyfikacji zakupu z komercyjnej witryny Marketplace (nazywanej *tokenem* [zakupionego, ale jeszcze nie aktywowanego](#purchased-but-not-yet-activated-pendingfulfillmentstart)) z trwałym zakupionym identyfikatorem subskrypcji SaaS i jego szczegółami.
 
-Gdy klient zostanie przekierowany do adresu URL strony docelowej partnera, token identyfikacji klienta jest przenoszona jako parametr *tokenu* tego wywołania adresu URL. Partner powinien używać tego tokenu i wysłać żądanie rozwiązania problemu. Rozwiązywanie odpowiedzi interfejsu API zawiera identyfikator subskrypcji SaaS oraz inne szczegóły, które jednoznacznie identyfikują zakup. *Token* dostarczony z adresem URL strony docelowej jest zwykle ważny przez 24 godziny. Jeśli otrzymany *token* już wygasł, zalecamy podanie następujących wskazówek dla klienta końcowego:
+Gdy klient zostanie przekierowany do adresu URL strony docelowej partnera, token identyfikacji klienta jest przenoszona jako parametr *tokenu* tego wywołania adresu URL. Partner powinien używać tego tokenu i wysłać żądanie rozwiązania problemu. Rozwiązywanie odpowiedzi interfejsu API zawiera identyfikator subskrypcji SaaS oraz inne szczegóły, które jednoznacznie identyfikują zakup. *Token* dostarczony z adresem URL strony docelowej jest zwykle ważny przez 24 godziny. Jeśli otrzymany *token* już wygasł, zalecamy dostarczenie użytkownikowi końcowemu następujących wskazówek:
 
-"Nie można zidentyfikować tego zakupu. ponownie otwórz tę subskrypcję SaaS w Azure Portal lub w centrum administracyjnym M365 i ponownie kliknij przycisk" Skonfiguruj konto "lub" Zarządzaj kontem ".
+"Nie można zidentyfikować tego zakupu. Otwórz ponownie tę subskrypcję SaaS w Azure Portal lub w centrum administracyjnym Microsoft 365 i wybierz pozycję "Konfiguruj konto" lub "Zarządzaj kontem".
 
-Wywołanie interfejsu API rozwiązywania problemów zwróci szczegóły subskrypcji i stan subskrypcji SaaS we wszystkich obsługiwanych Stanach.
+Wywołanie interfejsu API rozpoznawania spowoduje zwrócenie informacji o subskrypcji i stanu subskrypcji SaaS we wszystkich obsługiwanych Stanach.
 
-##### <a name="posthttpsmarketplaceapimicrosoftcomapisaassubscriptionsresolveapi-versionapiversion"></a>Wpis`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
+##### <a name="post-httpsmarketplaceapimicrosoftcomapisaassubscriptionsresolveapi-versionapiversion"></a>Poubojowego `https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
 
 *Parametry zapytania:*
 
@@ -197,7 +193,7 @@ Wywołanie interfejsu API rozwiązywania problemów zwróci szczegóły subskryp
 |  `x-ms-requestid`    |  Unikatowa wartość ciągu służąca do śledzenia żądania od klienta, najlepiej identyfikatora GUID. Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi. |
 |  `x-ms-correlationid` |  Unikatowa wartość ciągu dla operacji na kliencie. Ten parametr umożliwia skorelowanie wszystkich zdarzeń z operacji klienta ze zdarzeniami po stronie serwera. Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi.  |
 |  `authorization`     |  Unikatowy token dostępu identyfikujący wydawcę wykonującą to wywołanie interfejsu API. Format to, `"Bearer <accessaccess_token>"` kiedy wartość tokenu jest pobierana przez wydawcę, zgodnie z opisem w temacie [pobieranie tokenu na podstawie aplikacji usługi Azure AD](./pc-saas-registration.md#get-the-token-with-an-http-post). |
-|  `x-ms-marketplace-token`  | Parametr *tokenu* zakupu w witrynie Marketplace do rozwiązania.  Token jest przesyłany do wywołania adresu URL strony docelowej, gdy klient zostanie przekierowany do witryny sieci Web partnera SaaS (na przykład: `https://contoso.com/signup?token=<token><authorization_token>` ). <br> <br>  *Uwaga:* Zakodowana wartość *tokenu* jest częścią adresu URL strony docelowej, dlatego należy ją zdekodować przed użyciem jako parametru w tym wywołaniu interfejsu API.  <br> <br> Przykład zakodowanego ciągu w adresie URL wygląda następująco: `contoso.com/signup?token=ab%2Bcd%2Fef` , gdzie token jest `ab%2Bcd%2Fef` .  Ten sam token zdekodowany będzie: `Ab+cd/ef` |
+|  `x-ms-marketplace-token`  | Parametr *tokenu* identyfikacji zakupu do rozwiązania.  Token jest przesyłany do wywołania adresu URL strony docelowej, gdy klient zostanie przekierowany do witryny sieci Web partnera SaaS (na przykład: `https://contoso.com/signup?token=<token><authorization_token>` ). <br> <br>  Należy zauważyć, że zakodowana wartość *tokenu* jest częścią adresu URL strony docelowej, więc należy ją zdekodować przed użyciem jako parametru w tym wywołaniu interfejsu API.  <br> <br> Oto przykład zakodowanego ciągu w adresie URL: `contoso.com/signup?token=ab%2Bcd%2Fef` , gdzie *token* to `ab%2Bcd%2Fef` .  Ten sam token zdekodowany będzie: `Ab+cd/ef` |
 | | |
 
 *Kody odpowiedzi:*
@@ -249,7 +245,7 @@ Przykład treści odpowiedzi:
 
 Kod: 400 Nieprawidłowe żądanie. `x-ms-marketplace-token` Brak, źle sformułowany, nieprawidłowy lub wygasł.
 
-Kod: 403 zabroniony. Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany.  Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która została opublikowana przy użyciu innego identyfikatora aplikacja usługi Azure AD z klucza użytego do utworzenia tokenu autoryzacji.
+Kod: 403 zabroniony. Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany.  Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która została opublikowana z innym identyfikatorem aplikacji usługi Azure AD na podstawie identyfikatora użytego do utworzenia tokenu autoryzacji.
 
 Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](pc-saas-registration.md) .
 
@@ -257,16 +253,16 @@ Kod: błąd wewnętrzny serwera 500.  Ponów wywołanie interfejsu API.  Jeśli 
 
 #### <a name="activate-a-subscription"></a>Aktywuj subskrypcję
 
-Po skonfigurowaniu konta SaaS dla klienta końcowego Wydawca musi wywołać interfejs API aktywacji subskrypcji na stronie firmy Microsoft.  Klient nie będzie obciążany opłatami, chyba że wywołanie interfejsu API zakończy się pomyślnie.
+Po skonfigurowaniu konta SaaS dla użytkownika końcowego Wydawca musi wywołać interfejs API aktywacji subskrypcji po stronie firmy Microsoft.  Klient nie będzie obciążany opłatami, chyba że wywołanie interfejsu API zakończy się pomyślnie.
 
-##### <a name="posthttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidactivateapi-versionapiversion"></a>Wpis`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`
+##### <a name="post-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidactivateapi-versionapiversion"></a>Poubojowego `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`
 
 *Parametry zapytania:*
 
 |  Parametr         | Wartość             |
 |  --------   |  ---------------  |
 | `ApiVersion`  |  Użyj 2018-08-31.   |
-| `subscriptionId` | Unikatowy identyfikator zakupionej subskrypcji SaaS.  Ten identyfikator jest uzyskiwany po rozwiązaniu tokenu autoryzacji portalu Marketplace przy użyciu [interfejsu API rozpoznawania](#resolve-a-purchased-subscription).
+| `subscriptionId` | Unikatowy identyfikator zakupionej subskrypcji SaaS.  Ten identyfikator jest uzyskiwany po rozwiązaniu komercyjnego tokenu autoryzacji portalu Marketplace przy użyciu [interfejsu API rozpoznawania](#resolve-a-purchased-subscription).
  |
 
 *Nagłówki żądania:*
@@ -296,25 +292,25 @@ Brak treści odpowiedzi dla tego wywołania.
 Kod: 400 Nieprawidłowe żądanie: Walidacja nie powiodła się.
 
 * `planId` nie istnieje w ładunku żądania.
-* `planId` w ładunku żądania nie jest zgodny z zakupionym pakietem.
-* `quantity` w ładunku żądania nie jest zgodny z zakupionym
-* Subskrypcja SaaS jest w stanie subskrybowanym lub zawieszonym.
+* `planId` ładunek żądania nie jest zgodny z zakupionym pakietem.
+* `quantity` ładunek żądania nie jest zgodny z zakupionym
+* Subskrypcja SaaS jest w stanie *subskrybowanym* lub *zawieszonym* .
 
-Kod: 403 zabroniony. Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany. Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która została opublikowana przy użyciu innego identyfikatora aplikacja usługi Azure AD z klucza użytego do utworzenia tokenu autoryzacji.
+Kod: 403 zabroniony. Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany. Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która została opublikowana z innym identyfikatorem aplikacji usługi Azure AD na podstawie identyfikatora użytego do utworzenia tokenu autoryzacji.
 
 Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](pc-saas-registration.md) .
 
-Nie znaleziono kodu: 404. Subskrypcja SaaS jest w stanie niesubskrybowanym.
+Nie znaleziono kodu: 404. Subskrypcja SaaS jest w stanie *niesubskrybowanym* .
 
 Kod: błąd wewnętrzny serwera 500.  Ponów wywołanie interfejsu API.  Jeśli błąd będzie się powtarzać, skontaktuj się z [pomocą techniczną firmy Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
 
 #### <a name="get-list-of-all-subscriptions"></a>Pobierz listę wszystkich subskrypcji
 
-Pobiera listę wszystkich zakupionych subskrypcji SaaS dla wszystkich ofert opublikowanych przez wydawcę w portalu Marketplace.  Wszystkie możliwe stany będą zwracane subskrypcje SaaS. Zwracane są również niesubskrybowane subskrypcje SaaS, ponieważ te informacje nie zostaną usunięte po stronie firmy Microsoft.
+Ten interfejs API pobiera listę wszystkich zakupionych subskrypcji SaaS dla wszystkich ofert opublikowanych przez wydawcę w portalu komercyjnym.  Wszystkie możliwe stany będą zwracane subskrypcje SaaS. Zwracane są również niesubskrybowane subskrypcje SaaS, ponieważ te informacje nie są usuwane po stronie firmy Microsoft.
 
-Ten interfejs API zwraca wyniki z podziałem na strony. Rozmiar strony wynosi 100.
+Interfejs API zwraca wyniki z podziałem na strony 100 na stronę.
 
-##### <a name="gethttpsmarketplaceapimicrosoftcomapisaassubscriptionsapi-versionapiversion"></a>Pobierz`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=<ApiVersion>`
+##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionsapi-versionapiversion"></a>Pobierz `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=<ApiVersion>`
 
 *Parametry zapytania:*
 
@@ -334,7 +330,7 @@ Ten interfejs API zwraca wyniki z podziałem na strony. Rozmiar strony wynosi 10
 
 *Kody odpowiedzi:*
 
-Kod: 200 zwraca listę wszystkich istniejących subskrypcji dla wszystkich ofert tego wydawcy, na podstawie tokenu autoryzacji wydawcy.
+Kod: 200 zwraca listę wszystkich istniejących subskrypcji dla wszystkich ofert wykonanych przez tego wydawcę na podstawie tokenu autoryzacji wydawcy.
 
 *Przykład treści odpowiedzi:*
 
@@ -419,7 +415,7 @@ Kod: błąd wewnętrzny serwera 500. Ponów wywołanie interfejsu API.  Jeśli b
 
 #### <a name="get-subscription"></a>Pobierz subskrypcję
 
-Pobiera określoną zakupioną subskrypcję SaaS dla oferty SaaS opublikowanej w portalu Marketplace przez wydawcę. Użyj tego wywołania, aby uzyskać wszystkie dostępne informacje dla określonej subskrypcji SaaS za pomocą jej identyfikatora zamiast wywołania interfejsu API w celu uzyskania listy wszystkich subskrypcji.
+Ten interfejs API pobiera określoną zakupioną subskrypcję SaaS dla oferty SaaS, którą Wydawca publikuje na komercyjnym rynku. Użyj tego wywołania, aby uzyskać wszystkie dostępne informacje dla określonej subskrypcji SaaS za pomocą jej identyfikatora zamiast wywoływania interfejsu API, który służy do pobierania listy wszystkich subskrypcji.
 
 ##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Pobierz `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
@@ -428,7 +424,7 @@ Pobiera określoną zakupioną subskrypcję SaaS dla oferty SaaS opublikowanej w
 |  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 | `ApiVersion`        |   Użyj 2018-08-31. |
-| `subscriptionId`     |  Unikatowy identyfikator zakupionej subskrypcji SaaS.  Ten identyfikator jest uzyskiwany po rozwiązaniu tokenu autoryzacji portalu Marketplace przy użyciu interfejsu API rozpoznawania. |
+| `subscriptionId`     |  Unikatowy identyfikator zakupionej subskrypcji SaaS.  Ten identyfikator jest uzyskiwany po rozwiązaniu komercyjnego tokenu autoryzacji portalu Marketplace przy użyciu interfejsu API rozpoznawania. |
 
 *Nagłówki żądania:*
 
@@ -479,7 +475,7 @@ Kod: 200 zwraca szczegóły dotyczące subskrypcji SaaS na podstawie `subscripti
 }
 ```
 
-Kod: 403 zabroniony. Token autoryzacji jest nieprawidłowy, wygasł i nie został podany. Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która jest publikowana przy użyciu innego identyfikatora aplikacja usługi Azure AD od użytego do utworzenia tokenu autoryzacji.
+Kod: 403 zabroniony. Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany. Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która jest publikowana z innym identyfikatorem aplikacji usługi Azure AD na podstawie identyfikatora użytego do utworzenia tokenu autoryzacji.
 
 Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](pc-saas-registration.md) . 
 
@@ -489,9 +485,9 @@ Kod: błąd wewnętrzny serwera 500.  Ponów wywołanie interfejsu API.  Jeśli 
 
 #### <a name="list-available-plans"></a>Wyświetl dostępne plany
 
-Pobiera wszystkie plany dla oferty SaaS identyfikowanej przez `subscriptionId` określony zakup oferty.  Użyj tego wywołania, aby uzyskać listę wszystkich planów prywatnych i publicznych, które beneficjent subskrypcji SaaS może zaktualizować dla subskrypcji.  Zwrócone plany będą dostępne w tej samej lokalizacji geograficznej co już zakupiony plan.
+Ten interfejs API pobiera wszystkie plany dla oferty SaaS identyfikowanej przez `subscriptionId` określony zakup tej oferty.  Użyj tego wywołania, aby uzyskać listę wszystkich planów prywatnych i publicznych, które beneficjent subskrypcji SaaS może zaktualizować dla subskrypcji.  Zwrócone plany będą dostępne w tej samej lokalizacji geograficznej co już zakupiony plan.
 
-To wywołanie zwraca listę planów dostępnych dla tego klienta (oprócz już zakupionego).  Lista może być prezentowana klientowi końcowemu w witrynie wydawcy.  Klient końcowy może zmienić plan subskrypcji na jeden z planów na liście zwracanych.  Zmiana planu na taki, który nie znajduje się na liście, zakończy się niepowodzeniem.
+To wywołanie zwraca listę planów dostępnych dla tego klienta (oprócz już zakupionego).  Lista może być prezentowana użytkownikowi końcowemu w witrynie wydawcy.  Użytkownik końcowy może zmienić plan subskrypcji na jeden z planów na liście zwracanych.  Zmiana planu na taki, który nie znajduje się na liście, zakończy się niepowodzeniem.
 
 ##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidlistavailableplansapi-versionapiversion"></a>Pobierz `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`
 
@@ -500,7 +496,7 @@ To wywołanie zwraca listę planów dostępnych dla tego klienta (oprócz już z
 |  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Użyj 2018-08-31.  |
-|  `subscriptionId`    |  Unikatowy identyfikator zakupionej subskrypcji SaaS.  Ten identyfikator jest uzyskiwany po rozwiązaniu tokenu autoryzacji portalu Marketplace przy użyciu interfejsu API rozpoznawania. |
+|  `subscriptionId`    |  Unikatowy identyfikator zakupionej subskrypcji SaaS.  Ten identyfikator jest uzyskiwany po rozwiązaniu komercyjnego tokenu autoryzacji portalu Marketplace przy użyciu interfejsu API rozpoznawania. |
 
 *Nagłówki żądania:*
 
@@ -536,7 +532,7 @@ Przykład treści odpowiedzi:
 
 Jeśli `subscriptionId` nie zostanie znaleziona, zwracana jest pusta treść odpowiedzi.
 
-Kod: 403 zabroniony. Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany.  Żądanie może próbować uzyskać dostęp do subskrypcji SaaS dla oferty, która jest publikowana przy użyciu innego identyfikatora aplikacja usługi Azure AD od użytego do utworzenia tokenu autoryzacji.
+Kod: 403 zabroniony. Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany.  Żądanie może próbować uzyskać dostęp do subskrypcji SaaS dla oferty, która jest publikowana z innym identyfikatorem aplikacji usługi Azure AD na podstawie identyfikatora użytego do utworzenia tokenu autoryzacji.
 
 Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](pc-saas-registration.md) . 
 
@@ -544,9 +540,9 @@ Kod: błąd wewnętrzny serwera 500.  Ponów wywołanie interfejsu API.  Jeśli 
 
 #### <a name="change-the-plan-on-the-subscription"></a>Zmiana planu subskrypcji
 
-Zaktualizuj istniejący plan zakupiony dla subskrypcji SaaS na nowy plan (publiczny lub prywatny).  Wydawca musi wywołać ten interfejs API w przypadku zmiany planu po stronie wydawcy dla subskrypcji SaaS zakupionej w witrynie Marketplace.
+Ten interfejs API służy do aktualizowania istniejącego planu zakupionego w ramach subskrypcji SaaS w nowym planie (publicznym lub prywatnym).  Wydawca musi wywołać ten interfejs API w przypadku zmiany planu po stronie wydawcy dla subskrypcji SaaS zakupionej w komercyjnej witrynie Marketplace.
 
-Ten interfejs API można wywołać tylko dla aktywnych subskrypcji.  Każdy plan można zmienić na inny istniejący plan (publiczny lub prywatny), ale nie do samego siebie.  W przypadku planów prywatnych dzierżawa klienta musi być zdefiniowana jako część odbiorcy planu w centrum partnerskim.
+Ten interfejs API można wywołać tylko dla *aktywnych* subskrypcji.  Każdy plan można zmienić na inny istniejący plan (publiczny lub prywatny), ale nie do samego siebie.  W przypadku planów prywatnych dzierżawa klienta musi być zdefiniowana jako część odbiorcy planu w centrum partnerskim.
 
 ##### <a name="patch-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Wysłana `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
@@ -555,7 +551,7 @@ Ten interfejs API można wywołać tylko dla aktywnych subskrypcji.  Każdy plan
 |  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Użyj 2018-08-31.  |
-| `subscriptionId`     | Unikatowy identyfikator zakupionej subskrypcji SaaS.  Ten identyfikator jest uzyskiwany po rozwiązaniu tokenu autoryzacji portalu Marketplace przy użyciu interfejsu API rozpoznawania. |
+| `subscriptionId`     | Unikatowy identyfikator zakupionej subskrypcji SaaS.  Ten identyfikator jest uzyskiwany po rozwiązaniu komercyjnego tokenu autoryzacji portalu Marketplace przy użyciu interfejsu API rozpoznawania. |
 
 *Nagłówki żądania:*
  
@@ -576,9 +572,9 @@ Ten interfejs API można wywołać tylko dla aktywnych subskrypcji.  Każdy plan
 
 *Kody odpowiedzi:*
 
-Kod: 202 żądanie zmiany planu zostało zaakceptowane i obsłużone asynchronicznie.  Partner oczekuje na sondowanie **adresu URL lokalizacji operacji** w celu ustalenia sukcesu lub niepowodzenia żądania zmiany planu.  Sondowanie należy wykonać co kilka sekund do momentu, aż końcowy stan zakończył się niepowodzeniem, powodzenie lub odebranie konfliktu dla operacji.  Końcowy stan operacji powinien być zwracany szybko, ale w niektórych przypadkach może upłynąć kilka minut.
+Kod: 202 żądanie zmiany planu zostało zaakceptowane i obsłużone asynchronicznie.  Partner oczekuje na sondowanie **adresu URL lokalizacji operacji** w celu ustalenia sukcesu lub niepowodzenia żądania zmiany planu.  Sondowanie należy wykonać co kilka sekund do momentu, aż końcowy stan zakończył *się niepowodzeniem*, *powodzenie* lub odebranie *konfliktu* dla operacji.  Końcowy stan operacji powinien być zwracany szybko, ale w niektórych przypadkach może upłynąć kilka minut.
 
-Partner otrzyma również powiadomienie elementu webhook, gdy akcja będzie gotowa do pomyślnego zakończenia pracy po stronie portalu Marketplace.  Tylko Wydawca powinien zmienić plan po stronie wydawcy.
+Partner otrzyma również powiadomienie elementu webhook, gdy akcja będzie gotowa do pomyślnego zakończenia pracy po stronie komercyjnej witryny Marketplace.  Tylko wtedy, gdy Wydawca zmieni plan po stronie wydawcy.
 
 *Nagłówki odpowiedzi:*
 
@@ -589,11 +585,11 @@ Partner otrzyma również powiadomienie elementu webhook, gdy akcja będzie goto
 Kod: 400 Nieprawidłowe żądanie: Błędy walidacji.
 
 * Nowy plan nie istnieje lub nie jest dostępny dla tej konkretnej subskrypcji SaaS.
-* Podjęto próbę zmiany tego samego planu.
-* Stan subskrypcji SaaS nie jest subskrybowany.
-* Operacja aktualizacji dla subskrypcji SaaS nie jest dołączona do programu `allowedCustomerOperations` .
+* Nowy plan jest taki sam jak bieżący plan.
+* Stan subskrypcji SaaS nie jest *subskrybowany*.
+* Operacja aktualizacji dla subskrypcji SaaS nie jest uwzględniona w programie `allowedCustomerOperations` .
 
-Kod: 403 zabroniony. Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany.  Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która jest publikowana przy użyciu innego identyfikatora aplikacja usługi Azure AD od użytego do utworzenia tokenu autoryzacji.
+Kod: 403 zabroniony. Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany.  Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która jest publikowana z innym identyfikatorem aplikacji usługi Azure AD na podstawie identyfikatora użytego do utworzenia tokenu autoryzacji.
 
 Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](pc-saas-registration.md) .
 
@@ -605,22 +601,22 @@ Kod: błąd wewnętrzny serwera 500.  Ponów wywołanie interfejsu API.  Jeśli 
 >Plan lub ilość siedzeń można zmienić jednocześnie, nie obu.
 
 >[!Note]
->Ten interfejs API można wywołać tylko po uzyskaniu jawnej zgody dla zmiany przez klienta końcowego.
+>Ten interfejs API można wywołać tylko po uzyskaniu jawnej zgody dla zmiany od użytkownika końcowego.
 
 #### <a name="change-the-quantity-of-seats-on-the-saas-subscription"></a>Zmień liczbę stanowisk w ramach subskrypcji SaaS
 
-Aktualizowanie (zwiększanie lub zmniejszanie) liczby miejsc zakupionych w ramach subskrypcji SaaS.  Wydawca musi wywołać ten interfejs API, gdy liczba miejsc zostanie zmieniona po stronie wydawcy dla subskrypcji SaaS utworzonej w portalu Marketplace.
+Użyj tego interfejsu API, aby zaktualizować (zwiększyć lub zmniejszyć) liczbę miejsc zakupionych w ramach subskrypcji SaaS.  Wydawca musi wywołać ten interfejs API, gdy liczba miejsc zostanie zmieniona po stronie wydawcy dla subskrypcji SaaS utworzonej w portalu komercyjnym.
 
-Liczba stanowisk nie może być większa niż dozwolona w bieżącym planie.  W takim przypadku należy zmienić plan przed zmianą ilości.
+Liczba stanowisk nie może być większa niż dozwolona ilość w bieżącym planie.  W takim przypadku Wydawca powinien zmienić plan przed zmianą liczby stanowisk.
 
-##### <a name="patchhttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Patch`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
+##### <a name="patch-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Wysłana `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Parametry zapytania:*
 
 |  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Użyj 2018-08-31.  |
-|  `subscriptionId`     | Unikatowy identyfikator zakupionej subskrypcji SaaS.  Ten identyfikator jest uzyskiwany po rozwiązaniu tokenu autoryzacji portalu Marketplace przy użyciu interfejsu API rozpoznawania.  |
+|  `subscriptionId`     | Unikatowy identyfikator zakupionej subskrypcji SaaS.  Ten identyfikator jest uzyskiwany po rozwiązaniu komercyjnego tokenu autoryzacji portalu Marketplace przy użyciu interfejsu API rozpoznawania.  |
 
 *Nagłówki żądania:*
  
@@ -641,9 +637,9 @@ Liczba stanowisk nie może być większa niż dozwolona w bieżącym planie.  W 
 
 *Kody odpowiedzi:*
 
-Kod: 202 żądanie zmiany ilości zostało zaakceptowane i obsłużone asynchronicznie. Partner oczekuje na sondowanie **adresu URL lokalizacji operacji** w celu ustalenia sukcesu lub niepowodzenia żądania zmiany ilości.  Sondowanie należy wykonać co kilka sekund do momentu, aż końcowy stan zakończył się niepowodzeniem, powodzenie lub odebranie konfliktu dla operacji.  Końcowy stan operacji należy zwrócić szybko, ale w niektórych przypadkach może upłynąć kilka minut.
+Kod: 202 żądanie zmiany ilości zostało zaakceptowane i obsłużone asynchronicznie. Partner oczekuje na sondowanie **adresu URL lokalizacji operacji** w celu ustalenia sukcesu lub niepowodzenia żądania zmiany ilości.  Sondowanie należy wykonać co kilka sekund do momentu, aż końcowy stan zakończył *się niepowodzeniem*, *powodzenie* lub odebranie *konfliktu* dla operacji.  Końcowy stan operacji należy zwrócić szybko, ale w niektórych przypadkach może upłynąć kilka minut.
 
-Partner otrzyma również powiadomienie elementu webhook, gdy akcja będzie gotowa do pomyślnego zakończenia pracy po stronie portalu Marketplace.  Tylko Wydawca powinien wprowadzać zmiany w stronie wydawcy.
+Partner otrzyma również powiadomienie elementu webhook, gdy akcja będzie gotowa do pomyślnego zakończenia pracy po stronie komercyjnej witryny Marketplace.  Tylko wtedy, gdy Wydawca wprowadzi zmianę ilości po stronie wydawcy.
 
 *Nagłówki odpowiedzi:*
 
@@ -655,7 +651,7 @@ Kod: 400 Nieprawidłowe żądanie: Błędy walidacji.
 
 * Nowa ilość jest większa lub mniejsza od bieżącego limitu planu.
 * Brak nowej ilości.
-* Podjęto próbę zmiany tej samej ilości.
+* Nowa ilość jest taka sama jak Bieżąca ilość.
 * Stan subskrypcji SaaS nie jest subskrybowany.
 * Operacja aktualizacji dla subskrypcji SaaS nie jest dołączona do programu `allowedCustomerOperations` .
 
@@ -671,29 +667,29 @@ Kod: błąd wewnętrzny serwera 500.  Ponów wywołanie interfejsu API.  Jeśli 
 >Jednocześnie można zmienić tylko plan lub ilość, ale nie oba naraz.
 
 >[!Note]
->Ten interfejs API można wywołać tylko po uzyskaniu jawnej zgody dla zmiany przez klienta końcowego.
+>Ten interfejs API można wywołać tylko po uzyskaniu jawnej zgody użytkownika końcowego o zmianę.
 
 #### <a name="cancel-a-subscription"></a>Anulowanie subskrypcji
 
-Anuluj subskrypcję określonej subskrypcji SaaS.  Wydawca nie musi korzystać z tego interfejsu API i zalecamy kierowanie klientów do witryny Marketplace, aby anulować subskrypcje SaaS.
+Użyj tego interfejsu API, aby anulować subskrypcję określonej subskrypcji SaaS.  Wydawca nie musi korzystać z tego interfejsu API i zalecamy kierowanie klientów do komercyjnej witryny Marketplace, aby anulować subskrypcje SaaS.
 
-Jeśli Wydawca zdecyduje się na wdrożenie anulowania subskrypcji SaaS zakupionej w witrynie Marketplace na stronie wydawcy, musi wywołać ten interfejs API.  Po zakończeniu tego wywołania status subskrypcji stanie się *niesubskrybowany* po stronie firmy Microsoft.
+Jeśli Wydawca zdecyduje się na zaimplementowanie subskrypcji SaaS zakupionej w portalu komercyjnym po stronie wydawcy, musi wywołać ten interfejs API.  Po zakończeniu tego wywołania status subskrypcji stanie się *niesubskrybowany* po stronie firmy Microsoft.
 
-Jeśli subskrypcja zostanie anulowana w ramach następujących okresów prolongaty, klient nie zostanie rozliczony:
+Klient nie zostanie rozliczony w przypadku anulowania subskrypcji w ramach następujących okresów prolongaty:
 
-* 24 godziny na comiesięczną subskrypcję po aktywacji.
-* 14 dni w przypadku subskrypcji rocznej po aktywacji.
+* Dwadzieścia cztery godziny na comiesięczną subskrypcję po aktywacji.
+* Czternaście dni w przypadku subskrypcji rocznej po aktywacji.
 
-Jeśli subskrypcja zostanie anulowana po powyższym okresie prolongaty, klient zostanie rozliczony.  Po pomyślnym zakończeniu anulowania klient natychmiast utraci dostęp do subskrypcji SaaS na stronie firmy Microsoft.
+Klient zostanie rozliczony, jeśli subskrypcja zostanie anulowana po poprzednich okresach prolongaty.  Klient utraci dostęp do subskrypcji usługi SaaS bezpośrednio po anulowaniu. 
 
-##### <a name="deletehttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>usuwanie`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
+##### <a name="delete-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Usunięty `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Parametry zapytania:*
 
 |  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Użyj 2018-08-31.  |
-|  `subscriptionId`     | Unikatowy identyfikator zakupionej subskrypcji SaaS.  Ten identyfikator jest uzyskiwany po rozwiązaniu tokenu autoryzacji portalu Marketplace przy użyciu interfejsu API rozpoznawania.  |
+|  `subscriptionId`     | Unikatowy identyfikator zakupionej subskrypcji SaaS.  Ten identyfikator jest uzyskiwany po rozwiązaniu komercyjnego tokenu autoryzacji portalu Marketplace przy użyciu interfejsu API rozpoznawania.  |
 
 *Nagłówki żądania:*
  
@@ -706,9 +702,9 @@ Jeśli subskrypcja zostanie anulowana po powyższym okresie prolongaty, klient z
 
 *Kody odpowiedzi:*
 
-Kod: 202 żądanie anulowania subskrypcji zostało zaakceptowane i obsłużone asynchronicznie.  Partner oczekuje na sondowanie **adresu URL lokalizacji operacji** w celu ustalenia sukcesu lub niepowodzenia tego żądania.  Sondowanie należy wykonać co kilka sekund do momentu, aż końcowy stan zakończył się niepowodzeniem, powodzenie lub odebranie konfliktu dla operacji.  Końcowy stan operacji należy zwrócić szybko, ale w niektórych przypadkach może upłynąć kilka minut.
+Kod: 202 żądanie anulowania subskrypcji zostało zaakceptowane i obsłużone asynchronicznie.  Partner oczekuje na sondowanie **adresu URL lokalizacji operacji** w celu ustalenia sukcesu lub niepowodzenia tego żądania.  Sondowanie należy wykonać co kilka sekund do momentu, aż końcowy stan zakończył *się niepowodzeniem*, *powodzenie* lub odebranie *konfliktu* dla operacji.  Końcowy stan operacji należy zwrócić szybko, ale w niektórych przypadkach może upłynąć kilka minut.
 
-Partner otrzyma również powiadomienie elementu webhook, gdy akcja zostanie zakończona pomyślnie po stronie portalu Marketplace.  A następnie Wydawca powinien anulować subskrypcję po stronie wydawcy.
+Partner otrzyma również powiadomienie elementu webhook, gdy akcja zostanie zakończona pomyślnie po stronie komercyjnej witryny Marketplace.  Tylko wtedy, gdy Wydawca będzie anulować subskrypcję po stronie wydawcy.
 
 *Nagłówki odpowiedzi:*
 
@@ -718,7 +714,7 @@ Partner otrzyma również powiadomienie elementu webhook, gdy akcja zostanie zak
 
 Kod: 400 Nieprawidłowe żądanie.  Usuwanie nie znajduje się na `allowedCustomerOperations` liście dla tej subskrypcji SaaS.
 
-Kod: 403 zabroniony.  Token autoryzacji jest nieprawidłowy, wygasł lub niedostępny. Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która jest publikowana przy użyciu innego identyfikatora aplikacja usługi Azure AD od użytego do utworzenia tokenu autoryzacji.
+Kod: 403 zabroniony.  Token autoryzacji jest nieprawidłowy, wygasł lub jest niedostępny. Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która jest publikowana z innym identyfikatorem aplikacji usługi Azure AD na podstawie identyfikatora użytego do utworzenia tokenu autoryzacji.
 
 Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](pc-saas-registration.md) .
 
@@ -730,7 +726,7 @@ Kod: błąd wewnętrzny serwera 500. Ponów wywołanie interfejsu API.  Jeśli b
 
 #### <a name="list-outstanding-operations"></a>Utwórz listę zaległych operacji 
 
-Pobierz listę oczekujących operacji dla określonej subskrypcji SaaS.  Zwrócone operacje powinny zostać potwierdzone przez wydawcę przez wywołanie [interfejsu API poprawek operacji](#update-the-status-of-an-operation).
+Pobierz listę oczekujących operacji dla określonej subskrypcji SaaS.  Wydawca powinien potwierdzić zwrócone operacje przez wywołanie [interfejsu API poprawek operacji](#update-the-status-of-an-operation).
 
 Obecnie tylko **operacje przywracania** są zwracane jako odpowiedź dla tego wywołania interfejsu API.
 
@@ -741,7 +737,7 @@ Obecnie tylko **operacje przywracania** są zwracane jako odpowiedź dla tego wy
 |  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 |    `ApiVersion`    |  Użyj 2018-08-31.         |
-|    `subscriptionId` | Unikatowy identyfikator zakupionej subskrypcji SaaS.  Ten identyfikator jest uzyskiwany po rozwiązaniu tokenu autoryzacji portalu Marketplace przy użyciu interfejsu API rozpoznawania.  |
+|    `subscriptionId` | Unikatowy identyfikator zakupionej subskrypcji SaaS.  Ten identyfikator jest uzyskiwany po rozwiązaniu komercyjnego tokenu autoryzacji portalu Marketplace przy użyciu interfejsu API rozpoznawania.  |
 
 *Nagłówki żądania:*
  
@@ -781,7 +777,7 @@ Zwraca pusty kod JSON, jeśli operacje przywracania nie są oczekiwane.
 
 Kod: 400 Nieprawidłowe żądanie: Błędy walidacji.
 
-Kod: 403 zabroniony. Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany.  Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która jest publikowana przy użyciu innego identyfikatora aplikacja usługi Azure AD od użytego do utworzenia tokenu autoryzacji.
+Kod: 403 zabroniony. Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany.  Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która jest publikowana z innym identyfikatorem aplikacji usługi Azure AD na podstawie identyfikatora użytego do utworzenia tokenu autoryzacji.
 
 Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](pc-saas-registration.md) . 
 
@@ -791,9 +787,9 @@ Kod: błąd wewnętrzny serwera 500. Ponów wywołanie interfejsu API.  Jeśli b
 
 #### <a name="get-operation-status"></a>Pobierz stan operacji
 
-Umożliwia wydawcy śledzenie stanu określonej operacji asynchronicznej:  **unsubskrybuj**, **ChangePlan** lub **ChangeQuantity**.
+Ten interfejs API umożliwia wydawcy śledzenie stanu określonej operacji asynchronicznej:  **unsubskrybuj**, **ChangePlan** lub **ChangeQuantity**.
 
-`operationId`Dla tego wywołania interfejsu API można pobrać z wartości zwracanej przez **lokalizację operacji**, pobrać oczekujące wywołanie interfejsu API operacji lub `<id>` wartość parametru odebraną w wywołaniu elementu webhook.
+`operationId`Dla tego wywołania interfejsu API można pobrać z wartości zwróconej przez **lokalizację operacji**, wywołanie interfejsu API oczekujących operacji get lub `<id>` wartość parametru odebraną w wywołaniu elementu webhook.
 
 ##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Pobierz `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
@@ -802,7 +798,7 @@ Umożliwia wydawcy śledzenie stanu określonej operacji asynchronicznej:  **uns
 |  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Użyj 2018-08-31.  |
-|  `subscriptionId`    |  Unikatowy identyfikator zakupionej subskrypcji SaaS.  Ten identyfikator jest uzyskiwany po rozwiązaniu tokenu autoryzacji portalu Marketplace przy użyciu interfejsu API rozpoznawania. |
+|  `subscriptionId`    |  Unikatowy identyfikator zakupionej subskrypcji SaaS.  Ten identyfikator jest uzyskiwany po rozwiązaniu komercyjnego tokenu autoryzacji portalu Marketplace przy użyciu interfejsu API rozpoznawania. |
 |  `operationId`       |  Unikatowy identyfikator pobieranej operacji. |
 
 *Nagłówki żądania:*
@@ -838,7 +834,7 @@ Response body:
 }
 ```
 
-Kod: 403 zabroniony. Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany.  Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która jest publikowana przy użyciu innego identyfikatora aplikacja usługi Azure AD od użytego do utworzenia tokenu autoryzacji.
+Kod: 403 zabroniony. Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany.  Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która jest publikowana z innym identyfikatorem aplikacji usługi Azure AD na podstawie identyfikatora użytego do utworzenia tokenu autoryzacji.
 
 Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](pc-saas-registration.md) . 
 
@@ -851,9 +847,9 @@ Kod: błąd wewnętrzny serwera 500.  Ponów wywołanie interfejsu API.  Jeśli 
 
 #### <a name="update-the-status-of-an-operation"></a>Aktualizowanie stanu operacji
 
-Zaktualizuj stan oczekującej operacji, aby wskazać powodzenie lub niepowodzenie operacji po stronie wydawcy.
+Ten interfejs API służy do aktualizowania stanu oczekującej operacji w celu wskazania sukcesu lub niepowodzenia operacji po stronie wydawcy.
 
-`operationId`Dla tego wywołania interfejsu API można pobrać z wartości zwracanej przez **lokalizację operacji**, pobrać oczekujące wywołanie interfejsu API operacji lub `<id>` wartość parametru odebraną w wywołaniu elementu webhook.
+`operationId`Dla tego wywołania interfejsu API można pobrać z wartości zwróconej przez **lokalizację operacji**, wywołanie interfejsu API oczekujących operacji get lub `<id>` wartość parametru odebraną w wywołaniu elementu webhook.
 
 ##### <a name="patch-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Wysłana `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
@@ -862,7 +858,7 @@ Zaktualizuj stan oczekującej operacji, aby wskazać powodzenie lub niepowodzeni
 |  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 |   `ApiVersion`       |  Użyj 2018-08-31.  |
-|   `subscriptionId`   |  Unikatowy identyfikator zakupionej subskrypcji SaaS.  Ten identyfikator jest uzyskiwany po rozwiązaniu tokenu autoryzacji portalu Marketplace przy użyciu interfejsu API rozpoznawania.  |
+|   `subscriptionId`   |  Unikatowy identyfikator zakupionej subskrypcji SaaS.  Ten identyfikator jest uzyskiwany po rozwiązaniu komercyjnego tokenu autoryzacji portalu Marketplace przy użyciu interfejsu API rozpoznawania.  |
 |   `operationId`      |  Unikatowy identyfikator wykonywanej operacji. |
 
 *Nagłówki żądania:*
@@ -886,8 +882,9 @@ Zaktualizuj stan oczekującej operacji, aby wskazać powodzenie lub niepowodzeni
 
 Kod: 200 wywołanie do informowania o zakończeniu operacji po stronie partnera.  Na przykład ta odpowiedź może sygnalizować zakończenie zmiany stanowisk lub planów po stronie wydawcy.
 
-Kod: 403 zabroniony.  Token autoryzacji jest niedostępny, nieprawidłowy lub wygasł. Żądanie może próbować uzyskać dostęp do subskrypcji, która nie należy do bieżącego wydawcy.
-Zabrania.  Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany.  Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która jest publikowana przy użyciu innego identyfikatora aplikacja usługi Azure AD od użytego do utworzenia tokenu autoryzacji.
+Kod: 403
+- Zabrania.  Token autoryzacji jest niedostępny, jest nieprawidłowy lub wygasł. Żądanie może próbować uzyskać dostęp do subskrypcji, która nie należy do bieżącego wydawcy.
+- Zabrania.  Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany.  Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która jest publikowana z innym identyfikatorem aplikacji usługi Azure AD na podstawie identyfikatora użytego do utworzenia tokenu autoryzacji.
 
 Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](pc-saas-registration.md) .
 
@@ -902,14 +899,14 @@ Kod: błąd wewnętrzny serwera 500.  Ponów wywołanie interfejsu API.  Jeśli 
 
 ## <a name="implementing-a-webhook-on-the-saas-service"></a>Implementowanie elementu webhook w usłudze SaaS
 
-W przypadku tworzenia oferty SaaS z transactu w centrum partnerskim partner udostępnia adres URL **elementu webhook połączenia** , który będzie używany jako punkt końcowy HTTP.  Ten element webhook jest wywoływany przez firmę Microsoft przy użyciu wywołania POST protokołu HTTP w celu powiadomienia po stronie wydawcy następujących zdarzeń po stronie firmy Microsoft:
+W przypadku tworzenia oferty SaaS z transactu w centrum partnerskim partner udostępnia adres URL **elementu webhook połączenia** , który będzie używany jako punkt końcowy HTTP.  Ten element webhook jest wywoływany przez firmę Microsoft przy użyciu wywołania POST protokołu HTTP w celu powiadomienia po stronie wydawcy następujących zdarzeń występujących po stronie firmy Microsoft:
 
-* Gdy subskrypcja SaaS jest w stanie subskrybowanym:
+* Gdy subskrypcja SaaS jest w stanie *subskrybowanym* :
     * ChangePlan 
     * ChangeQuantity
     * Wstrzymanie
     * Anuluj subskrypcję
-* Gdy subskrypcja SaaS jest w stanie wstrzymania:
+* Gdy subskrypcja SaaS jest w stanie *wstrzymania* :
     * Przywróć
     * Anuluj subskrypcję
 
@@ -921,7 +918,7 @@ Wydawca musi zaimplementować element webhook w usłudze SaaS, aby zapewnić, ż
 *Przykłady ładunku elementu webhook:*
 
 ```json
-// end customer changed a quantity of purchased seats for a plan on Microsoft side
+// end user changed a quantity of purchased seats for a plan on Microsoft side
 {
   "id": "<guid>", // this is the operation ID to call with get operation API
   "activityId": "<guid>", // do not use
@@ -937,7 +934,7 @@ Wydawca musi zaimplementować element webhook w usłudze SaaS, aby zapewnić, ż
 ```
 
 ```json
-// end customer's payment instrument became valid again, after being suspended, and the SaaS subscription is being reinstated
+// end user's payment instrument became valid again, after being suspended, and the SaaS subscription is being reinstated
 {
   "id": "<guid>",
   "activityId": "<guid>",
@@ -954,18 +951,18 @@ Wydawca musi zaimplementować element webhook w usłudze SaaS, aby zapewnić, ż
 
 ## <a name="development-and-testing"></a>Tworzenie i testowanie
 
-Aby rozpocząć proces opracowywania, zalecamy utworzenie fikcyjnych odpowiedzi interfejsu API po stronie wydawcy.  Odpowiedzi te mogą opierać się na przykładowych odpowiedziach podanych w tym dokumencie.
+Aby rozpocząć proces opracowywania, zalecamy utworzenie fikcyjnych odpowiedzi interfejsu API po stronie wydawcy.  Odpowiedzi te mogą opierać się na przykładowych odpowiedziach podanych w tym artykule.
 
 Gdy Wydawca jest gotowy do zakończenia testowania:
 
 * Opublikuj ofertę SaaS w ograniczonej grupie odbiorców w wersji zapoznawczej i Zachowaj ją na etapie wersji zapoznawczej.
-* Ta oferta powinna mieć plan z równą 0 cenie, dlatego nie należy wyzwalać rzeczywistych wydatków rozliczeniowych podczas testowania.  Innym rozwiązaniem jest ustawienie ceny niezerowej i anulowanie wszystkich zakupów testowych w ciągu 24 godzin.
-* Upewnij się, że wszystkie przepływy są wywoływane na zakończenie, tak jak w przypadku zakupienia oferty przez klienta.
-* Jeśli Partner chce przetestować pełny przepływ zakupów i rozliczeń, należy to zrobić z ofertą podaną powyżej $0.  Zakup zostanie rozliczony i zostanie wygenerowana faktura.
+* Ustaw cenę planu na 0, aby uniknąć wyzwalania rzeczywistych wydatków rozliczeniowych podczas testowania.  Innym rozwiązaniem jest ustawienie ceny niezerowej i anulowanie wszystkich zakupów testowych w ciągu 24 godzin.
+* Upewnij się, że wszystkie przepływy są wywoływane na zakończenie, aby symulować prawdziwy scenariusz dla klientów.
+* Jeśli Partner chce przetestować pełny przepływ zakupów i rozliczeń, zrób to za pomocą oferty podanej powyżej $0.  Zakup zostanie rozliczony i zostanie wygenerowana faktura.
 
 Przepływ zakupu można wyzwolić z poziomu witryny Azure Portal lub Microsoft AppSource, w zależności od tego, gdzie jest publikowana oferta.
 
-Akcje *zmiany planu*, *ilości* i *anulowania subskrypcji* są testowane po stronie wydawcy.  Po stronie firmy Microsoft można wyzwolenie *anulowania subskrypcji* z poziomu Centrum Azure Portal i administratora (w portalu, w którym Microsoft AppSource zakupy są zarządzane).  *Zmiany ilości i planu* można wyzwolić tylko z poziomu Centrum administracyjnego.
+Akcje *zmiany planu*, *ilości* i *anulowania subskrypcji* są testowane po stronie wydawcy.  Po stronie firmy Microsoft *Anulowanie subskrypcji* może być wyzwalane zarówno przez centrum Azure Portal, jak i administratora (w portalu, w którym Microsoft AppSource zakupy są zarządzane).  *Zmiany ilości i planu* można wyzwolić tylko z poziomu Centrum administracyjnego.
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 

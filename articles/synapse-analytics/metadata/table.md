@@ -1,6 +1,6 @@
 ---
 title: Udostępnione tabele metadanych
-description: Usługa Azure Synapse Analytics oferuje współużytkowany model metadanych, w którym Tworzenie tabeli w puli Apache Spark bezserwerowej udostępni ją z puli SQL bezserwerowej (wersja zapoznawcza) i dedykowanej puli SQL bez duplikowania danych.
+description: Usługa Azure Synapse Analytics oferuje współużytkowany model metadanych, w którym Tworzenie tabeli w puli Apache Spark bezserwerowej udostępni ją z puli SQL bezserwerowej i dedykowanej puli SQL bez duplikowania danych.
 services: sql-data-warehouse
 author: MikeRys
 ms.service: synapse-analytics
@@ -10,18 +10,17 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f269217908bea4b5e8ef3c0004a9cec9d5d682c7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9ee18edd563d94a85dedf48b7a4d6df394c09707
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314537"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461386"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tabele udostępnione metadanych usługi Azure Synapse Analytics
 
-[!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-Usługa Azure Synapse Analytics umożliwia korzystanie z różnych aparatów obliczeniowych obszarów roboczych w celu udostępniania baz danych i tabel z Parquetmi, między pulami Apache Spark (wersja zapoznawcza) i bezserwerową pulą SQL (wersja zapoznawcza).
+Usługa Azure Synapse Analytics umożliwia korzystanie z różnych aparatów obliczeniowych obszarów roboczych w celu udostępniania baz danych i tabel z Parquetmi, między pulami Apache Spark i bezserwerową pulą SQL.
 
 Po utworzeniu bazy danych przez zadanie platformy Spark można utworzyć w niej tabele z platformą Spark, która używa Parquet jako formatu magazynu. Te tabele staną się natychmiast dostępne do wykonywania zapytań za pomocą dowolnych pul platformy Azure Synapse Workspace. Mogą być również używane z dowolnego zadania platformy Spark z uprawnieniami.
 
@@ -87,9 +86,9 @@ Tabele platformy Spark zapewniają różne typy danych niż aparaty SQL Synapse.
 
 Bazy danych i tabele platformy Spark oraz zsynchronizowane reprezentacje w aparacie SQL zostaną zabezpieczone na podstawowym poziomie magazynu. Ponieważ nie mają obecnie uprawnień do samych obiektów, obiekty mogą być widoczne w Eksploratorze obiektów.
 
-Podmiot zabezpieczeń tworzący zarządzaną tabelę jest traktowany jako właściciel tej tabeli i ma wszystkie prawa do tabeli, a także bazowe foldery i pliki. Ponadto właściciel bazy danych automatycznie stanie się współwłaścicielem tabeli.
+Podmiot zabezpieczeń tworzący zarządzaną tabelę jest traktowany jako właściciel tej tabeli i ma wszystkie prawa do tabeli, a także do bazowych folderów i plików. Ponadto właściciel bazy danych automatycznie stanie się współwłaścicielem tabeli.
 
-Jeśli utworzysz tabelę zewnętrzną Spark lub SQL z przekazywaniem uwierzytelniania, dane są zabezpieczane tylko na poziomach folderów i plików. Jeśli ktoś wysyła zapytanie do tego typu tabeli zewnętrznej, tożsamość zabezpieczeń przesyłającego zapytania jest przekazywana do systemu plików, co spowoduje sprawdzenie praw dostępu.
+Jeśli utworzysz zewnętrzną tabelę platformy Spark lub SQL z przekazywaniem uwierzytelniania, dane będą zabezpieczone tylko na poziomach folderów i plików. Jeśli ktoś wysyła zapytanie do tego typu tabeli zewnętrznej, tożsamość zabezpieczeń przesyłającego zapytanie jest przekazywana do systemu plików, co powoduje sprawdzenie praw dostępu.
 
 Aby uzyskać więcej informacji na temat sposobu ustawiania uprawnień do folderów i plików, zobacz [udostępniona baza danych usługi Azure Synapse Analytics](database.md).
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/03/2018
-ms.openlocfilehash: 4fdbf3bf1d9f740654fa694de03315b876116429
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1e286b2329cb98d580bbf64071ff8767db304a00
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784885"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461877"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Rozwiązywanie różnic w języku Transact-SQL podczas migracji do SQL Database
 
@@ -45,7 +45,7 @@ Są dostępne podstawowe instrukcje języka DDL (Data Definition Language), ale 
 Oprócz instrukcji języka Transact-SQL odnoszących się do nieobsługiwanych funkcji opisanych w ramach [porównania funkcji Azure SQL Database](features-comparison.md), następujące instrukcje i grupy instrukcji nie są obsługiwane. W związku z tym, jeśli baza danych, która ma zostać zmigrowana, korzysta z jednej z następujących funkcji, należy odtworzyć swój język T-SQL w celu wyeliminowania tych funkcji i instrukcji języka T-SQL.
 
 - Sortowanie obiektów systemu
-- Powiązane połączenie: punkty końcowe. SQL Database nie obsługuje uwierzytelniania systemu Windows, ale obsługuje podobne uwierzytelnianie Azure Active Directory. Niektóre typy uwierzytelniania wymagają najnowszej wersji usługi SSMS. Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia z SQL Database lub Azure Azure Synapse Analytics (dawniej SQL Data Warehouse) przy użyciu uwierzytelniania Azure Active Directory](authentication-aad-overview.md).
+- Powiązane połączenie: punkty końcowe. SQL Database nie obsługuje uwierzytelniania systemu Windows, ale obsługuje podobne uwierzytelnianie Azure Active Directory. Niektóre typy uwierzytelniania wymagają najnowszej wersji usługi SSMS. Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia z usługami SQL Database lub Azure Synapse Analytics przy użyciu uwierzytelniania Azure Active Directory](authentication-aad-overview.md).
 - Zapytania obejmujące wiele baz danych, korzystające z nazw trój- i czteroczęściowych. (Zapytania tylko do odczytu obejmujące wiele baz danych są obsługiwane za pomocą [zapytania elastycznej bazy danych](elastic-query-overview.md)).
 - Tworzenie łańcucha własności między wieloma bazami danych, ustawienie `TRUSTWORTHY`
 - `EXECUTE AS LOGIN` Zamiast tego użyj instrukcji „EXECUTE AS USER”.
@@ -82,7 +82,7 @@ Aby uzyskać więcej informacji dotyczących gramatyki języka Transact-SQL oraz
 
 ### <a name="about-the-applies-to-tags"></a>Tagi „Applies to” (Dotyczy)
 
-Dokumentacja języka Transact-SQL zawiera artykuły powiązane z SQL Server wersjami 2008. Poniżej tytułu artykułu znajduje się pasek ikon zawierający cztery SQL Server platformy i wskazujące na zastosowanie. Na przykład grupy dostępności zostały wprowadzone w programie SQL Server 2012. Artykuł [Tworzenie grupy dostępności](/sql/t-sql/statements/create-availability-group-transact-sql) wskazuje, że instrukcja ma zastosowanie do **SQL Server (począwszy od 2012)** . Instrukcja nie ma zastosowania do SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure Synapse Analytics (dawniej SQL Data Warehouse) lub Parallel Data Warehouse.
+Dokumentacja języka Transact-SQL zawiera artykuły powiązane z SQL Server wersjami 2008. Poniżej tytułu artykułu znajduje się pasek ikon zawierający cztery SQL Server platformy i wskazujące na zastosowanie. Na przykład grupy dostępności zostały wprowadzone w programie SQL Server 2012. Artykuł [Tworzenie grupy dostępności](/sql/t-sql/statements/create-availability-group-transact-sql) wskazuje, że instrukcja ma zastosowanie do **SQL Server (począwszy od 2012)**. Instrukcja nie ma zastosowania do SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure Synapse Analytics lub Parallel Data Warehouse.
 
 W niektórych przypadkach ogólna część artykułu może być używana w produkcie, ale istnieją niewielkie różnice między produktami. Różnice są wskazane w środkach w artykule stosownie do potrzeb. W niektórych przypadkach ogólna część artykułu może być używana w produkcie, ale istnieją niewielkie różnice między produktami. Różnice są wskazane w środkach w artykule stosownie do potrzeb. Na przykład artykuł Tworzenie WYZWALACZa jest dostępny w SQL Database. Jednak opcja **wszystkie serwery** dla wyzwalaczy na poziomie serwera wskazuje, że w SQL Database nie można używać wyzwalaczy na poziomie serwera. Zamiast tego Użyj wyzwalaczy na poziomie bazy danych.
 

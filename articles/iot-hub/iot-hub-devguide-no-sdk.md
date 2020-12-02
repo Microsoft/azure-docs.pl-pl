@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
-ms.openlocfilehash: 3968f19329536169c3fb3eb1fbbaff99e99c293d
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ae8b01522a248b8b1dbdd255a9fcd55f16cf2369
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079664"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461702"
 ---
 # <a name="develop-without-using-an-azure-iot-hub-sdk"></a>Programowanie bez użycia zestawu Azure IoT Hub SDK
 
@@ -48,10 +48,10 @@ Aby uzyskać pomoc dotyczącą korzystania z następujących protokołów bez ze
 
 * Aplikacje urządzenia w systemie **MQTT**, zobacz [MQTT support](iot-hub-mqtt-support.md). Większość tego tematu traktuje się bezpośrednio przy użyciu protokołu MQTT. Zawiera również informacje dotyczące korzystania z [przykładowego repozytorium IoT MQTT](https://github.com/Azure-Samples/IoTMQTTSample). To repozytorium zawiera przykłady C, które umożliwiają wysyłanie komunikatów do IoT Hub przy użyciu biblioteki Mosquitto.
 
-* Urządzenia lub aplikacje zaplecza na **protokole https**zapoznaj się z [interfejsem API REST usługi Azure IoT Hub](https://docs.microsoft.com/rest/api/iothub/). Należy pamiętać, że zgodnie z [wymaganiami wstępnymi](#development-prerequisites)dotyczącymi programowania nie można używać uwierzytelniania urzędu certyfikacji X. 509 przy użyciu protokołu HTTPS.
+* Urządzenia lub aplikacje zaplecza na **protokole https** zapoznaj się z [interfejsem API REST usługi Azure IoT Hub](/rest/api/iothub/). Należy pamiętać, że zgodnie z [wymaganiami wstępnymi](#development-prerequisites)dotyczącymi programowania nie można używać uwierzytelniania urzędu certyfikacji X. 509 przy użyciu protokołu HTTPS.
 
 W przypadku urządzeń zdecydowanie zalecamy użycie usługi MQTT, jeśli jest ona obsługiwana przez urządzenie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Obsługa protokołu MQTT](iot-hub-mqtt-support.md)
+* [Obsługa MQTT](iot-hub-mqtt-support.md)

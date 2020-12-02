@@ -11,14 +11,14 @@ ms.topic: conceptual
 author: monhaber
 ms.author: ronmat
 ms.reviewer: vanto, sstein
-ms.date: 09/21/2020
+ms.date: 12/01/2020
 tags: azure-synapse
-ms.openlocfilehash: f83b9515e16fcf2c2158586297545206d57e1a6e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 931e914cd3c184136395a9bb9a7e148a90e9fb91
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785123"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461968"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Zaawansowana ochrona przed zagrożeniami dla Azure SQL Database, wystąpienia zarządzanego SQL i usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -35,7 +35,7 @@ Aby przeprowadzić pełne badanie, zaleca się włączenie inspekcji, która zap
 
 ## <a name="alerts"></a>Alerty
 
-Zaawansowana ochrona przed zagrożeniami dla Azure SQL Database wykrywa anomalie działania wskazujące nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do baz danych lub ich wykorzystania. Listę alertów dla Azure SQL Database można znaleźć [w temacie alerty dotyczące SQL Database i usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) w Azure Security Center](../../security-center/alerts-reference.md#alerts-sql-db-and-warehouse).
+Zaawansowana ochrona przed zagrożeniami dla Azure SQL Database wykrywa anomalie działania wskazujące nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do baz danych lub ich wykorzystania. Aby uzyskać listę alertów dotyczących Azure SQL Database, zobacz [alerty dotyczące SQL Database i usługi Azure Synapse Analytics w Azure Security Center](../../security-center/alerts-reference.md#alerts-sql-db-and-warehouse).
 
 ## <a name="explore-detection-of-a-suspicious-event"></a>Eksplorowanie wykrywania podejrzanego zdarzenia
 
@@ -58,6 +58,10 @@ Po wykryciu nietypowych działań bazy danych otrzymasz powiadomienie e-mail. Wi
 Zaawansowana ochrona przed zagrożeniami integruje swoje alerty z [usługą Azure Security Center](https://azure.microsoft.com/services/security-center/). Kafelki na żywo SQL Advanced Threat Protection w bazie danych i w usłudze SQL Azure Defender w Azure Portal śledzą stan aktywnych zagrożeń.
 
 Kliknij **alert zaawansowanej ochrony przed zagrożeniami** , aby uruchomić stronę alerty Azure Security Center i zapoznać się z omówieniem aktywnych zagrożeń SQL wykrytych w bazie danych.
+
+:::image type="content" source="media/azure-defender-for-sql/advanced-threat-protection-alerts.png" alt-text="alerty zaawansowanej ochrony przed zagrożeniami w bazie danych — omówienie":::
+
+:::image type="content" source="media/azure-defender-for-sql/advanced-threat-protection.png" alt-text="Zaawansowana ochrona przed zagrożeniami w usłudze Security Center":::
 
 ## <a name="next-steps"></a>Następne kroki
 

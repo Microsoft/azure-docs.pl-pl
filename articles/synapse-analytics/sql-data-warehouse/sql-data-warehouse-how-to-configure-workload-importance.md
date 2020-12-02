@@ -1,5 +1,5 @@
 ---
-title: Konfigurowanie znaczenia obciążenia
+title: Konfigurowanie ważności obciążenia dla dedykowanej puli SQL
 description: Dowiedz się, jak ustawić ważność poziomu żądania w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
@@ -11,20 +11,20 @@ ms.date: 05/15/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 83170f4090909e3edcc163312383773d088d8c57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 067551d198f717dd40995cb8bc3e1345e82f078f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212126"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461907"
 ---
-# <a name="configure-workload-importance-in-azure-synapse-analytics"></a>Konfigurowanie ważności obciążenia w usłudze Azure Synapse Analytics
+# <a name="configure-workload-importance-in-dedicated-sql-pool-for-azure-synapse-analytics"></a>Skonfiguruj ważność obciążenia w dedykowanej puli SQL dla usługi Azure Synapse Analytics
 
-Ustawienie znaczenia w Synapse SQL dla usługi Azure Synapse pozwala na wpływ na planowanie zapytań. Zapytania o wyższym znaczeniu zostaną zaplanowane do uruchomienia przed zapytaniami o niższej ważności. Aby przypisać ważność do zapytań, należy utworzyć klasyfikator obciążeń.
+Ustawienie znaczenia w dedykowanej puli SQL dla usługi Azure Synapse umożliwia planowanie zapytań. Zapytania o wyższym znaczeniu zostaną zaplanowane do uruchomienia przed zapytaniami o niższej ważności. Aby przypisać ważność do zapytań, należy utworzyć klasyfikator obciążeń.
 
 ## <a name="create-a-workload-classifier-with-importance"></a>Tworzenie klasyfikatora obciążeń o ważności
 
-Często w scenariuszu hurtowni danych masz użytkowników, którzy korzystają z systemu, który musi szybko uruchamiać swoje zapytania.  Użytkownik może być dyrektorem firmy, którzy muszą uruchamiać raporty lub użytkownik może być analitykiem, na którym działa zapytanie ad hoc. Aby przypisać ważność, należy utworzyć klasyfikator obciążeń i znaczenie jest przypisane do zapytania.  W poniższych przykładach użyto składni  [klasyfikatora tworzenia obciążenia](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , aby utworzyć dwa klasyfikatory. `Membername` może być pojedynczym użytkownikiem lub grupą.  Aby znaleźć istniejących użytkowników magazynu danych, uruchom polecenie:
+Często w scenariuszu hurtowni danych masz użytkowników, którzy korzystają z systemu, który musi szybko uruchamiać swoje zapytania.  Użytkownik może być dyrektorem firmy, którzy muszą uruchamiać raporty lub użytkownik może być analitykiem, na którym działa zapytanie ad hoc. Aby przypisać ważność, należy utworzyć klasyfikator obciążeń i znaczenie jest przypisane do zapytania.  W poniższych przykładach użyto składni  [klasyfikatora tworzenia obciążenia](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , aby utworzyć dwa klasyfikatory. `Membername` może być pojedynczym użytkownikiem lub grupą.  Aby znaleźć istniejących dedykowanych użytkowników puli SQL, uruchom polecenie:
 
 ```sql
 Select name from sys.sysusers

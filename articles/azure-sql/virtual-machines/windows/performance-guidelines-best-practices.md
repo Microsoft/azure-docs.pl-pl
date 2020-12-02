@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/18/2019
+ms.date: 11/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6a6b39d540427b7c3400fded62431c914db23bb3
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 2cff67dde7cfe9e015cd25b26811410ce6e686e9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327325"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462549"
 ---
 # <a name="performance-guidelines-for-sql-server-on-azure-virtual-machines"></a>Wytyczne dotyczące wydajności programu SQL Server na maszynach wirtualnych Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,9 +29,9 @@ Ten artykuł zawiera wskazówki dotyczące optymalizacji wydajności SQL Server 
 
 ## <a name="overview"></a>Omówienie
 
- W trakcie działania SQL Server na platformie Azure Virtual Machines zalecamy dalsze korzystanie z tych samych opcji dostrajania wydajności bazy danych, które mają zastosowanie do SQL Server w lokalnych środowiskach serwerów. Jednak wydajność relacyjnej bazy danych w chmurze publicznej zależy od wielu czynników, takich jak rozmiar maszyny wirtualnej i konfiguracja dysków z danymi.
+W trakcie działania SQL Server na platformie Azure Virtual Machines zalecamy dalsze korzystanie z tych samych opcji dostrajania wydajności bazy danych, które mają zastosowanie do SQL Server w lokalnych środowiskach serwerów. Jednak wydajność relacyjnej bazy danych w chmurze publicznej zależy od wielu czynników, takich jak rozmiar maszyny wirtualnej i konfiguracja dysków z danymi.
 
-[SQL Server obrazy obsługiwane w Azure Portal](sql-vm-create-portal-quickstart.md) postępuj zgodnie z ogólnymi najlepszymi rozwiązaniami konfiguracji magazynu (Aby uzyskać więcej informacji na temat konfigurowania magazynu, zobacz [Konfiguracja magazynu dla maszyn wirtualnych SQL Server](storage-configuration.md)). Po zainicjowaniu obsługi należy rozważyć zastosowanie innych optymalizacji omówionych w tym artykule. Podstawowe możliwości wyboru w obciążeniu i sprawdź, czy testowanie zostało przeprowadzone.
+[SQL Server obrazy obsługiwane w Azure Portal](sql-vm-create-portal-quickstart.md) postępuj zgodnie z ogólnymi [najlepszymi rozwiązaniami konfiguracji](storage-configuration.md)magazynu. Po zainicjowaniu obsługi należy rozważyć zastosowanie innych optymalizacji omówionych w tym artykule. Podstawowe możliwości wyboru w obciążeniu i sprawdź, czy testowanie zostało przeprowadzone.
 
 > [!TIP]
 > Jest to zazwyczaj kompromis między optymalizacją kosztów i optymalizacją pod kątem wydajności. Ten artykuł koncentruje się na uzyskiwaniu *najlepszej* wydajności SQL Server na platformie Azure Virtual Machines. Jeśli obciążenie jest mniej wymagające, możesz nie wymagać każdej optymalizacji wymienionej poniżej. Podczas oceny tych zaleceń należy wziąć pod uwagę potrzeby związane z wydajnością, kosztami i wzorcami obciążeń.
@@ -42,21 +42,165 @@ Poniżej przedstawiono szybką listę kontrolną w celu uzyskania optymalnej wyd
 
 | Obszar | Optymalizacje |
 | --- | --- |
-| [Rozmiar maszyny wirtualnej](#vm-size-guidance) | — Użyj rozmiarów maszyn wirtualnych z 4 lub więcej vCPU, takimi jak [E4S_v3](../../../virtual-machines/ev3-esv3-series.md) lub wyższy lub [DS12_v2](../../../virtual-machines/dv2-dsv2-series-memory.md) lub wyższy.<br/><br/> - [ES, EAS, DS i Das Series](../../../virtual-machines/sizes-general.md) oferują optymalną pamięć do vCPU współczynnika wymaganą dla wydajności obciążeń OLTP. <br/><br/> - [Seria M](../../../virtual-machines/m-series.md) oferuje największą ilość pamięci do vCPU współczynnika wymaganą dla wydajności o krytycznym znaczeniu i jest idealnym rozwiązaniem w przypadku obciążeń magazynu danych. <br/><br/> — Zbieraj dane o liczbie operacji we [/wy na sekundę](../../../virtual-machines/premium-storage-performance.md#iops), wymagania dotyczące [przepływności](../../../virtual-machines/premium-storage-performance.md#throughput)  i [opóźnień](../../../virtual-machines/premium-storage-performance.md#latency) w godzinach szczytu, postępując zgodnie z [listą wymagań dotyczących wydajności aplikacji](../../../virtual-machines/premium-storage-performance.md#application-performance-requirements-checklist) , a następnie wybierz [rozmiar maszyny wirtualnej](../../../virtual-machines/sizes-general.md) , który można skalować do wymagań dotyczących wydajności obciążeń.|
-| [Storage](#storage-guidance) | — Aby uzyskać szczegółowe informacje na temat testowania wydajności SQL Server na platformie Azure Virtual Machines z użyciem testów TPC-E i TPC_C, zapoznaj się z blogiem [Optymalizacja wydajności OLTP](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794). <br/><br/> — Użyj [dysków SSD Premium](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794) , aby uzyskać najlepsze korzyści z cen/wydajności. Skonfiguruj [pamięć podręczną tylko do odczytu](../../../virtual-machines/premium-storage-performance.md#disk-caching) dla plików danych i brak pamięci podręcznej dla pliku dziennika. <br/><br/> -Użyj [Ultra disks](../../../virtual-machines/disks-types.md#ultra-disk) , jeśli obciążenie wymaga mniej niż 1 ms magazynu. Aby dowiedzieć się więcej, zobacz [Migrowanie do programu Ultra Disk](storage-migrate-to-ultradisk.md) . <br/><br/> — Zbierz wymagania dotyczące opóźnień magazynu dla plików SQL Server, dzienników i tymczasowych baz danych, [monitorując aplikację](../../../virtual-machines/premium-storage-performance.md#application-performance-requirements-checklist) przed wybraniem typu dysku. Jeśli <są wymagane opóźnienia magazynu 1 ms, użyj Ultra disks, w przeciwnym razie użyj SSD w warstwie Premium. Jeśli małe opóźnienia są wymagane tylko dla pliku dziennika, a nie dla plików danych, [należy zastanowić się, że na dysku jest](../../../virtual-machines/disks-enable-ultra-ssd.md) wymagana liczba IOPS i poziomy przepływności tylko dla pliku dziennika. <br/><br/> -  [Udziały plików w warstwie Premium](failover-cluster-instance-premium-file-share-manually-configure.md) są zalecane jako magazyn udostępniony dla SQL Server wystąpienia klastra trybu failover. Udziały plików w warstwie Premium nie obsługują buforowania i oferują ograniczoną wydajność w porównaniu z dyskami SSD w warstwie Premium. Wybierz opcję Premium dyski zarządzane dyskami SSD za pośrednictwem udziałów plików w warstwie Premium dla autonomicznych wystąpień programu SQL Server; Jednak korzystanie z udziałów plików Premium dla magazynu klastra trybu failover w celu ułatwienia konserwacji i elastycznej skalowalności. <br/><br/> — Magazyn w warstwie Standardowa jest zalecany tylko w celach deweloperskich i testowych lub dla plików kopii zapasowej i nie powinien być używany w przypadku obciążeń produkcyjnych. <br/><br/> — Zachowaj [konto magazynu](../../../storage/common/storage-account-create.md) i SQL Server maszynę wirtualną w tym samym regionie.<br/><br/> -Wyłącz [Magazyn Geograficznie nadmiarowy](../../../storage/common/storage-redundancy.md) platformy Azure (replikacja geograficzna) na koncie magazynu.  |
-| [Dyski](#disks-guidance) | — Należy użyć co najmniej dwóch [dysków SSD w warstwie Premium](../../../virtual-machines/disks-types.md#premium-ssd) (1 dla plików dziennika i 1 dla plików danych). <br/><br/> — W przypadku obciążeń wymagających <1 ms operacji we/wy, Włącz akcelerator zapisu dla serii M i Rozważ użycie dysków SSD w warstwie Ultra dla programu es i serii DS. <br/><br/> -Włącz [buforowanie tylko do odczytu](../../../virtual-machines/premium-storage-performance.md#disk-caching) na dyskach, na których znajdują się pliki danych.<br/><br/> -Dodaj dodatkową wydajność operacji we/wy na poziomie 20% Premium, która jest wymagana [w przypadku konfigurowania magazynu dla SQL Server danych, dzienników i plików tempdb](storage-configuration.md) <br/><br/> — Unikaj używania systemu operacyjnego lub dysków tymczasowych do przechowywania i rejestrowania baz danych.<br/><br/> -Nie włączaj buforowania na dyskach, które obsługują plik dziennika.  **Ważne**: zatrzymaj usługę SQL Server podczas zmieniania ustawień pamięci podręcznej dla dysku Virtual Machines platformy Azure.<br/><br/> -Rozpoznaj wiele dysków danych platformy Azure, aby zwiększyć przepustowość magazynu.<br/><br/> -Format z udokumentowanymi rozmiarami alokacji. <br/><br/> -Należy umieścić bazę danych TempDB na lokalnym `D:\` dysku SSD dla obciążeń o krytycznym znaczeniu SQL Server (po wybraniu prawidłowego rozmiaru maszyny wirtualnej). Jeśli tworzysz maszynę wirtualną na podstawie Azure Portal lub szablonów szybkiego startu platformy Azure i [umieścisz tymczasową bazę danych na dysku lokalnym](https://techcommunity.microsoft.com/t5/SQL-Server/Announcing-Performance-Optimized-Storage-Configuration-for-SQL/ba-p/891583) , nie potrzebujesz żadnych dalszych akcji. we wszystkich innych przypadkach postępuj zgodnie z instrukcjami w blogu dotyczącymi  [używania dysków SSD do przechowywania bazy danych tempdb](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) , aby zapobiec błędom po ponownym uruchomieniu. Jeśli pojemność dysku lokalnego nie jest wystarczająca dla rozmiaru tymczasowej bazy danych, umieść tymczasową bazę danych [w puli](../../../virtual-machines/premium-storage-performance.md) magazynów na dyskach SSD w warstwie Premium z [buforowaniem tylko do odczytu](../../../virtual-machines/premium-storage-performance.md#disk-caching). |
-| [WE/WY](#io-guidance) |-Włącz kompresję strony bazy danych.<br/><br/> -Włącz natychmiastowe inicjowanie plików danych.<br/><br/> -Ograniczanie automatycznego zwiększania rozmiaru bazy danych.<br/><br/> — Wyłącz Autozmniejszanie bazy danych.<br/><br/> — Przenoszenie wszystkich baz danych do dysków danych, w tym systemowych baz danych.<br/><br/> — Przechodź SQL Server dzienniku błędów i śledzenia katalogów plików na dyskach danych.<br/><br/> -Skonfiguruj domyślne lokalizacje kopii zapasowych i plików bazy danych.<br/><br/> - [Włącz blokowane strony w pamięci](/sql/database-engine/configure-windows/enable-the-lock-pages-in-memory-option-windows?view=sql-server-2017).<br/><br/> -Zastosuj SQL Server poprawki wydajnościowe. |
+| [Rozmiar maszyny wirtualnej](#vm-size-guidance) | — Użyj rozmiarów maszyn wirtualnych z 4 lub więcej vCPU, takimi jak [Standard_M8-4 MS](/../../virtual-machines/m-series), [E4ds_v4](../../../virtual-machines/edv4-edsv4-series.md#edv4-series)lub do [DS12_v2](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) lub wyższych. <br/><br/> — Użyj [zoptymalizowanych pod kątem pamięci](../../../virtual-machines/sizes-memory.md) rozmiarów maszyn wirtualnych, aby zapewnić najlepszą wydajność obciążeń SQL Server. <br/><br/> — Seria [DSv2 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md), [Edsv4](../../../virtual-machines/edv4-edsv4-series.md) , [M-](../../../virtual-machines/m-series.md)i [Mv2](../../../virtual-machines/mv2-series.md) Series oferują optymalny stosunek pamięci do rdzeń wirtualny wymagany do obciążeń OLTP. Obie maszyny wirtualne serii M oferują największy współczynnik pamięci do rdzeń wirtualny wymagany dla obciążeń o znaczeniu krytycznym i jest również idealnym rozwiązaniem w przypadku obciążeń magazynu danych. <br/><br/> — Większy współczynnik pamięci do rdzeń wirtualny może być wymagany w przypadku obciążeń o kluczowym znaczeniu i magazynem danych. <br/><br/> — Skorzystaj z obrazów z witryny Marketplace platformy Azure Virtual Machines, ponieważ ustawienia SQL Server i opcje magazynu są skonfigurowane pod kątem optymalnej wydajności SQL Server. <br/><br/> — Zbieraj charakterystyki wydajności docelowej obciążenia i używaj ich w celu określenia odpowiedniego rozmiaru maszyny wirtualnej dla Twojej firmy.|
+| [Storage](#storage-guidance) | — Aby uzyskać szczegółowe informacje na temat testowania wydajności SQL Server na platformie Azure Virtual Machines z użyciem testów TPC-E i TPC_C, zapoznaj się z blogiem [Optymalizacja wydajności OLTP](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794). <br/><br/> — Użyj [dysków SSD Premium](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794) , aby uzyskać najlepsze korzyści z cen/wydajności. Skonfiguruj [pamięć podręczną tylko do odczytu](../../../virtual-machines/premium-storage-performance.md#disk-caching) dla plików danych i brak pamięci podręcznej dla pliku dziennika. <br/><br/> -Użyj [Ultra disks](../../../virtual-machines/disks-types.md#ultra-disk) , jeśli obciążenie wymaga mniej niż 1-ms magazynu. Aby dowiedzieć się więcej, zobacz [Migrowanie do programu Ultra Disk](storage-migrate-to-ultradisk.md) . <br/><br/> — Zbierz wymagania dotyczące opóźnień magazynu dla plików SQL Server, dzienników i tymczasowych baz danych, [monitorując aplikację](../../../virtual-machines/premium-storage-performance.md#application-performance-requirements-checklist) przed wybraniem typu dysku. Jeśli wymagane są < 1-ms magazynu, użyj polecenia Ultra disks, w przeciwnym razie użyj dysku SSD Premium. Jeśli małe opóźnienia są wymagane tylko dla pliku dziennika, a nie dla plików danych, [należy zastanowić się, że na dysku jest](../../../virtual-machines/disks-enable-ultra-ssd.md) wymagana liczba IOPS i poziomy przepływności tylko dla pliku dziennika. <br/><br/>  — Magazyn w warstwie Standardowa jest zalecany tylko w celach deweloperskich i testowych lub dla plików kopii zapasowej i nie powinien być używany w przypadku obciążeń produkcyjnych. <br/><br/> — Zachowaj [konto magazynu](../../../storage/common/storage-account-create.md) i SQL Server maszynę wirtualną w tym samym regionie.<br/><br/> -Wyłącz [Magazyn Geograficznie nadmiarowy](../../../storage/common/storage-redundancy.md) platformy Azure (replikacja geograficzna) na koncie magazynu.  |
+| [Dyski](#disks-guidance) | — Należy użyć co najmniej dwóch [dysków SSD w warstwie Premium](../../../virtual-machines/disks-types.md#premium-ssd) (1 dla plików dziennika i 1 dla plików danych). <br/><br/> -Dla obciążeń wymagających < 1-ms operacji we/wy, Włącz akcelerator zapisu dla serii M i Rozważ użycie dysków SSD w warstwie Ultra dla programu es i serii DS. <br/><br/> -Włącz [buforowanie tylko do odczytu](../../../virtual-machines/premium-storage-performance.md#disk-caching) na dyskach, na których znajdują się pliki danych.<br/><br/> -Dodaj dodatkową wydajność operacji we/wy na poziomie 20% Premium, która jest wymagana [w przypadku konfigurowania magazynu dla SQL Server danych, dzienników i plików tempdb](storage-configuration.md) <br/><br/> — Unikaj używania systemu operacyjnego lub dysków tymczasowych do przechowywania i rejestrowania baz danych.<br/><br/> -Nie włączaj buforowania na dyskach, które obsługują plik dziennika.  **Ważne**: zatrzymaj usługę SQL Server podczas zmieniania ustawień pamięci podręcznej dla dysku Virtual Machines platformy Azure.<br/><br/> -Rozpoznaj wiele dysków danych platformy Azure, aby zwiększyć przepustowość magazynu.<br/><br/> -Format z udokumentowanymi rozmiarami alokacji. <br/><br/> -Należy umieścić bazę danych TempDB na lokalnym `D:\` dysku SSD dla obciążeń o krytycznym znaczeniu SQL Server (po wybraniu prawidłowego rozmiaru maszyny wirtualnej). Jeśli utworzysz maszynę wirtualną na podstawie Azure Portal lub szablonów szybkiego startu platformy Azure i [umieścisz tymczasową bazę danych na dysku lokalnym](https://techcommunity.microsoft.com/t5/SQL-Server/Announcing-Performance-Optimized-Storage-Configuration-for-SQL/ba-p/891583), nie potrzebujesz żadnych dalszych akcji. we wszystkich innych przypadkach postępuj zgodnie z instrukcjami w blogu dotyczącymi  [używania dysków SSD do przechowywania bazy danych tempdb](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-TempDB-and-buffer-pool-extensions/) , aby zapobiec błędom po ponownym uruchomieniu. Jeśli pojemność dysku lokalnego nie jest wystarczająca dla rozmiaru tymczasowej bazy danych, umieść tymczasową bazę danych [w puli](../../../virtual-machines/premium-storage-performance.md) magazynów na dyskach SSD w warstwie Premium z [buforowaniem tylko do odczytu](../../../virtual-machines/premium-storage-performance.md#disk-caching). |
+| [WE/WY](#io-guidance) |-Włącz kompresję strony bazy danych.<br/><br/> -Włącz natychmiastowe inicjowanie plików danych.<br/><br/> -Ograniczanie automatycznego zwiększania rozmiaru bazy danych.<br/><br/> — Wyłącz Autozmniejszanie bazy danych.<br/><br/> — Przenoszenie wszystkich baz danych do dysków danych, w tym systemowych baz danych.<br/><br/> — Przechodź SQL Server dzienniku błędów i śledzenia katalogów plików na dyskach danych.<br/><br/> -Skonfiguruj domyślne lokalizacje kopii zapasowych i plików bazy danych.<br/><br/> - [Włącz blokowane strony w pamięci](/sql/database-engine/configure-windows/enable-the-lock-pages-in-memory-option-windows).<br/><br/> — Oceń i Zastosuj [najnowsze aktualizacje zbiorcze](/sql/database-engine/install-windows/latest-updates-for-microsoft-sql-server) dla zainstalowanej wersji programu SQL Server. |
 | [Specyficzne dla funkcji](#feature-specific-guidance) | — Wykonaj kopię zapasową bezpośrednio w usłudze Azure Blob Storage.<br/><br/>— Użyj [kopii zapasowych migawek plików](/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure) dla baz danych o rozmiarze większym niż 12 TB. <br/><br/>— Użyj wielu plików tymczasowych baz danych, 1 pliku na rdzeń, do 8 plików.<br/><br/>-Ustaw maksymalną ilość pamięci serwera na 90% lub do 50 GB w lewo dla systemu operacyjnego. <br/><br/>-Enable soft NUMA. |
 
+
+<br/>
 Aby uzyskać więcej informacji na temat tego, *jak* i *dlaczego* należy wykonać te optymalizacje, zapoznaj się ze szczegółami i wskazówkami podanymi w poniższych sekcjach.
+<br/><br/>
+
+## <a name="getting-started"></a>Wprowadzenie
+
+Jeśli tworzysz nowe SQL Server na maszynie wirtualnej platformy Azure i nie migrujesz bieżącego systemu źródłowego, Utwórz nową SQL Server maszynę wirtualną na podstawie wymagań dotyczących dostawcy.  Wymagania dotyczące dostawcy SQL Server maszyny wirtualnej są takie same, jak w przypadku wdrożenia lokalnego. 
+
+Jeśli tworzysz nową maszynę wirtualną SQL Server przy użyciu nowej aplikacji skompilowanej dla chmury, możesz łatwo zmienić rozmiar maszyny wirtualnej SQL Server w miarę rozwoju wymagań dotyczących danych i użycia.
+Uruchamiaj środowiska deweloperskie z seriami serii D, B lub Av2 z niższą warstwą oraz Rozwijaj środowisko w miarę upływu czasu. 
+
+Zalecane minimum dla produkcyjnego środowiska OLTP to 4 rdzeń wirtualny, 32 GB pamięci i stosunek pamięci do rdzeń wirtualny 8. W przypadku nowych środowisk należy zacząć od 4 maszyn rdzeń wirtualny i skalować do 8, 16, 32 rdzeni wirtualnych lub więcej, gdy zmieniają się dane i wymagania dotyczące obliczeń. W przypadku przepływności OLTP docelowa SQL Server maszyny wirtualne, które mają 5000 operacji we/wy dla każdego rdzeń wirtualnyu. 
+
+Użyj obrazów z witryny Marketplace w witrynie SQL Server z konfiguracją magazynu w portalu. Ułatwi to prawidłowe tworzenie pul magazynu niezbędnych do uzyskania rozmiaru, operacji we/wy i przepływności wymaganych dla obciążeń. Ważne jest, aby wybrać SQL Server maszyny wirtualne obsługujące usługę Premium Storage i pamięć podręczną Premium Storage. Aby dowiedzieć się więcej, zobacz sekcję dotyczącą [magazynu](#storage-guidance) . 
+
+SQL Server magazyny danych i krytyczne środowiska produkcyjne będą często wymagały skalowania poza przełożeniem 8 pamięci na rdzeń wirtualny. W przypadku średnich środowisk można wybrać przeznaczenie 16 rdzeni na pamięć i współczynnik 32 rdzeń-pamięć dla większych środowisk magazynu danych. 
+
+SQL Server środowiska magazynu danych często korzystają z przetwarzania równoległego większych maszyn. Z tego powodu Seria M i seria Mv2 są silnymi opcjami dla większych środowisk magazynu danych.
 
 ## <a name="vm-size-guidance"></a>Wskazówki dotyczące rozmiaru maszyny wirtualnej
 
-Zacznij od zebrania wymagań dotyczących wydajności procesora CPU, pamięci i magazynu dla obciążenia w godzinach szczytu. Liczniki wydajności odczyty \LogicalDisk\Disk/s i \LogicalDisk\Disk/s mogą służyć do zbierania danych dotyczących liczby operacji we/wy odczytu i zapisu, a także do zbierania wymagań dotyczących [przepływności magazynu](../../../virtual-machines/premium-storage-performance.md#disk-caching) dla plików, dzienników i tymczasowych baz danych. Po zdefiniowaniu liczby operacji we/wy i przepływności w szczycie należy oszacować rozmiary maszyn wirtualnych. Jeśli na przykład obciążenie wymaga 20 operacji wejścia/wyjścia odczytu i 10 000 operacji wejścia/wyjścia na sekundę, można wybrać opcję E16s_v3 (z maksymalnie 32 K pamięcią podręczną w pamięci podręcznej i 25600 operacji we/wy na sekundę) lub M16_s (z maksymalnie 20 dyskami buforowanymi w pamięci podręcznej i 10 tys.) przy użyciu dwóch dysków P30 Upewnij się, że rozumiesz wymagania dotyczące przepływności i liczby operacji we/wy obciążenia, ponieważ maszyny wirtualne mają różne limity skalowania dla operacji we/wy na sekundę.<br/><br/>[DSv_3](../../../virtual-machines/dv3-dsv3-series.md) i [Seria Es_v3](../../../virtual-machines/ev3-esv3-series.md) są hostowane na sprzęcie ogólnego przeznaczenia z procesorami Intel Haswell lub Broadwell. [Seria M](../../../virtual-machines/m-series.md) oferuje największą liczbę vCPU i pamięć dla największych obciążeń SQL Server i jest obsługiwana na urządzeniach zoptymalizowanych pod kątem pamięci z rodziną procesorów Skylake. Te serie maszyn wirtualnych obsługują usługę Premium Storage, która jest zalecana dla najlepszej wydajności w przypadku pamięci podręcznej odczytu na poziomie hosta. Zarówno Es_v3, jak i serii M są również dostępne w [ograniczonych rozmiarach podstawowych](../../../virtual-machines/constrained-vcpu.md), co pozwala zaoszczędzić pieniądze w przypadku obciążeń o niższych wymaganiach dotyczących pojemności obliczeniowej i dużego magazynu. 
+Użyj konfiguracji vCPU i pamięci z maszyny źródłowej jako linii bazowej do migrowania bieżącej lokalnej bazy danych SQL Server, aby SQL Server na maszynach wirtualnych platformy Azure. Wprowadź licencję podstawową na platformę Azure, aby skorzystać z [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) i zaoszczędzić SQL Server kosztów licencjonowania.
+
+**Firma Microsoft zaleca przełożenie pamięci na rdzeń wirtualny 8 jako punkt wyjścia dla obciążeń produkcyjnych SQL Server.** Mniejsze wskaźniki są akceptowalne dla obciążeń nieprodukcyjnych. 
+
+Wybierz rozmiar maszyny wirtualnej [zoptymalizowanej](../../../virtual-machines/sizes-memory.md)pod kątem pamięci, [ogólnego przeznaczenia](../../../virtual-machines/sizes-general.md), [zoptymalizowanej pod kątem magazynu](../../../virtual-machines/sizes-storage.md)lub [ograniczonego rdzeń wirtualny](../../../virtual-machines/constrained-vcpu.md) , optymalny dla wydajności SQL Server na podstawie obciążenia (OLTP lub magazynu danych). 
+
+### <a name="memory-optimized"></a>Optymalizacja pod kątem pamięci
+
+[Rozmiary maszyn wirtualnych zoptymalizowane pod kątem pamięci](../../../virtual-machines/sizes-memory.md) są głównym miejscem docelowym dla SQL Server maszyn wirtualnych i zalecanym wyborem przez firmę Microsoft. Maszyny wirtualne zoptymalizowane pod kątem pamięci oferują większe proporcje między PROCESORAmi i średnią pamięcią podręczną. 
+
+#### <a name="m-and-mv2-series"></a>Seria M i Mv2
+
+[Seria M](../../../virtual-machines/m-series.md) oferuje rdzeń wirtualny liczniki i pamięć dla niektórych największych obciążeń SQL Server.  
+
+[Seria Mv2](../../../virtual-machines/mv2-series.md) ma największą liczbę rdzeń wirtualny i ilość pamięci i jest zalecana dla obciążeń magazynu o znaczeniu krytycznym i magazynem danych. Wystąpienia serii Mv2 to rozmiary maszyn wirtualnych zoptymalizowane pod kątem pamięci, które zapewniają niezrównaną wydajność obliczeniową w celu obsługi dużych baz danych i obciążeń z dużą ilością pamięci, która jest idealnym rozwiązaniem w przypadku serwerów relacyjnych baz danych, dużych pamięci podręcznych i analizy w pamięci.
+
+[Standard_M64ms](../../../virtual-machines/m-series.md) ma na przykład 28% do-rdzeń wirtualny współczynnika pamięci.
+
+Niektóre funkcje z serii M i Mv2 są atrakcyjne dla SQL Server wydajności obejmują [Magazyn Premium Storage](../../../virtual-machines/premium-storage-performance.md) i pamięć [podręczną Premium Storage](../../../virtual-machines/premium-storage-performance.md#disk-caching) , obsługę [Ultra-Disk](../../../virtual-machines/disks-enable-ultra-ssd.md) i [przyspieszenie pisania](../../../virtual-machines/how-to-enable-write-accelerator.md).
+
+#### <a name="edsv4-series"></a>Seria Edsv4
+
+[Seria Edsv4](../../../virtual-machines/edv4-edsv4-series.md) jest przeznaczona dla aplikacji intensywnie korzystających z pamięci. Te maszyny wirtualne mają duże pojemności SSD magazynu lokalnego, silne liczby operacji we/wy na dysku lokalnym, do 504 GiB pamięci RAM i ulepszone obliczenia w porównaniu z poprzednimi rozmiarami EV3/Esv3 z maszynami wirtualnymi Gen2. Istnieje niemal spójny stosunek pamięci do rdzeń wirtualny w ramach tych maszyn wirtualnych, co jest idealne dla standardowych obciążeń SQL Server. 
+
+Ta seria maszyn wirtualnych jest idealna dla aplikacji i aplikacji dla przedsiębiorstw intensywnie korzystających z pamięci, które korzystają z małych opóźnień i dużych magazynów lokalnych.
+
+Maszyny wirtualne z serii Edsv4 obsługują [Magazyn Premium Storage](../../../virtual-machines/premium-storage-performance.md)i pamięć [podręczną Premium Storage](../../../virtual-machines/premium-storage-performance.md#disk-caching).
+
+#### <a name="dsv2-series-11-15"></a>DSv2 — Seria 11-15
+
+[Seria DSv2 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) ma takie same konfiguracje pamięci i dysków jak w przypadku poprzedniej serii D. Ta seria ma spójny stosunek pamięci do procesora CPU wynoszący 7 między wszystkimi maszynami wirtualnymi. 
+
+[Seria DSv2 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) obsługuje pamięć podręczną [Premium Storage](../../../virtual-machines/premium-storage-performance.md) i [Premium Storage](../../../virtual-machines/premium-storage-performance.md#disk-caching), co zdecydowanie zaleca się w celu uzyskania optymalnej wydajności.
+
+### <a name="general-purpose"></a>Ogólnego przeznaczenia
+
+[Rozmiary maszyn wirtualnych ogólnego przeznaczenia](../../../virtual-machines/sizes-general.md) zaprojektowano w celu zapewnienia zrównoważonego współczynnika pamięci do rdzeń wirtualny dla mniejszych obciążeń poziomu wejścia, takich jak programowanie i testowanie, serwery sieci Web i mniejsze serwery baz danych. 
+
+Ze względu na mniejszą liczbę współczynników rdzeń wirtualny z maszynami wirtualnymi ogólnego przeznaczenia ważne jest dokładne monitorowanie liczników wydajności opartych na pamięci, aby upewnić się, że SQL Server jest w stanie uzyskać potrzebną pamięć podręczną buforu. Aby uzyskać więcej informacji, zobacz [punkt odniesienia wydajności pamięci](#memory) . 
+
+Ze względu na to, że początkowe zalecenie dla obciążeń produkcyjnych jest stosunkiem pamięci do rdzeń wirtualny, minimalna zalecana konfiguracja dla maszyny wirtualnej ogólnego przeznaczenia, na której działa SQL Server, to 4 vCPU i 32 GB pamięci. 
+
+#### <a name="ddsv4-series"></a>Seria Ddsv4
+
+[Seria Ddsv4](../../../virtual-machines/ddv4-ddsv4-series.md) oferuje rzetelną kombinację vCPU, pamięci i dysku tymczasowego, ale z mniejszym wsparciem pamięci na rdzeń wirtualny. 
+
+Maszyny wirtualne Ddsv4 obejmują małe opóźnienia i magazyn lokalny o większej szybkości.
+
+Te maszyny doskonale nadają się do wdrożeń równoległych SQL i aplikacji, które wymagają szybkiego dostępu do magazynu tymczasowego i relacyjnych baz danych. Istnieje standardowy stosunek pamięci do rdzeń wirtualny dla wszystkich maszyn wirtualnych w tej serii. 
+
+Z tego powodu zaleca się używanie D8ds_v4 jako startera maszyny wirtualnej w tej serii, która ma 8 rdzeni wirtualnych i 32 GB pamięci. Największą maszyną jest D64ds_v4, która ma 64 rdzeni wirtualnych i 256 GB pamięci.
+
+Maszyny wirtualne z [serii Ddsv4](../../../virtual-machines/ddv4-ddsv4-series.md) obsługują pamięć podręczną [Premium Storage](../../../virtual-machines/premium-storage-performance.md) i [Premium Storage](../../../virtual-machines/premium-storage-performance.md#disk-caching).
+
+> [!NOTE]
+> [Seria Ddsv4](../../../virtual-machines/ddv4-ddsv4-series.md) nie ma współczynnika pamięci do rdzeń wirtualny, która jest zalecana dla obciążeń SQL Server. W związku z tym Rozważ użycie tych maszyn wirtualnych w przypadku mniejszych obciążeń aplikacji i programowania.
+
+#### <a name="b-series"></a>Seria B
+
+Rozmiary maszyn wirtualnych z [serii B](../../../virtual-machines/sizes-b-series-burstable.md) są idealne dla obciążeń, które nie wymagają spójnej wydajności, takiej jak Weryfikacja koncepcji i bardzo małych serwerów aplikacji i programowania. 
+
+Większość maszyn wirtualnych [serii B](../../../virtual-machines/sizes-b-series-burstable.md) z możliwością przełożenia ma współczynnik pamięci do rdzeń wirtualny 4. Największe z tych maszyn jest [Standard_B20ms](../../../virtual-machines/sizes-b-series-burstable.md) z 20 rdzeni wirtualnych i 80 GB pamięci.
+
+Ta seria jest unikatowa, ponieważ aplikacje mają możliwość rozbudowania w godzinach pracy, a kredyty do rozliczania są **różne w zależności** od rozmiaru maszyny. 
+
+Gdy środki zostaną wyczerpane, maszyna wirtualna wraca do wydajności maszyny linii bazowej.
+
+Zaletą serii B jest oszczędności wynikające z obliczeń w porównaniu z innymi rozmiarami maszyn wirtualnych w innych seriach, szczególnie w przypadku, gdy zapotrzebowanie na wydajność przetwarzania jest oszczędne przez cały dzień.
+
+Ta seria obsługuje usługę [Premium Storage](../../../virtual-machines/premium-storage-performance.md), ale **nie obsługuje** [buforowania magazynu w warstwie Premium](../../../virtual-machines/premium-storage-performance.md#disk-caching).
+
+> [!NOTE] 
+> [Seria B](../../../virtual-machines/sizes-b-series-burstable.md) z możliwością przełożenia nie ma współczynnika pamięci do rdzeń wirtualny, która jest zalecana dla obciążeń SQL Server. W związku z tym Rozważ użycie tych maszyn wirtualnych w przypadku mniejszych aplikacji, serwerów sieci Web i obciążeń programistycznych.
+
+#### <a name="av2-series"></a>Seria Av2
+
+Maszyny wirtualne z [serii Av2](../../../virtual-machines/av2-series.md) najlepiej nadają się do obsługi obciążeń na poziomie wejścia, takich jak programowanie i testowanie, serwery sieci Web o małym ruchu, małe i średnie bazy danych aplikacji oraz sprawdzanie koncepcji.
+
+Tylko [Standard_A2m_v2](../../../virtual-machines/av2-series.md) (2 rdzeni wirtualnych i 16GBs pamięci), [Standard_A4m_v2](../../../virtual-machines/av2-series.md) (4 rdzeni wirtualnych i 32GBs pamięci), a [Standard_A8m_v2](../../../virtual-machines/av2-series.md) (8 rdzeni wirtualnych i 64GBs pamięci) mają prawidłowy stosunek pamięci do rdzeń wirtualny 8 dla tych trzech najlepszych maszyn wirtualnych. 
+
+Te maszyny wirtualne są dobrą opcją dla mniejszych maszyn deweloperskich i testowych SQL Server. 
+
+8 rdzeń wirtualny [Standard_A8m_v2](../../../virtual-machines/av2-series.md) może być również dobrym rozwiązaniem dla małych serwerów aplikacji i sieci Web.
+
+> [!NOTE] 
+> Seria Av2 nie obsługuje magazynu w warstwie Premium i w związku z tym nie jest zalecana w przypadku obciążeń produkcyjnych SQL Server nawet z maszynami wirtualnymi, które mają stosunek pamięci do rdzeń wirtualny 8.
+
+### <a name="storage-optimized"></a>Optymalizacja pod kątem magazynu
+
+[Rozmiary maszyn wirtualnych zoptymalizowane pod kątem magazynu](../../../virtual-machines/sizes-storage.md) są przeznaczone do określonych przypadków użycia. Te maszyny wirtualne zostały zaprojektowane z myślą o zoptymalizowanej przepływności dysku i operacji we/wy. Ta seria maszyn wirtualnych jest przeznaczona dla scenariuszy danych Big Data, magazynowania danych i dużych transakcyjnych baz danych. 
+
+#### <a name="lsv2-series"></a>Seria Lsv2
+
+[Seria Lsv2](../../../virtual-machines/lsv2-series.md) oferuje wysoką przepływność, małe opóźnienia i lokalny magazyn interfejsu NVMe. Maszyny wirtualne z serii Lsv2 są zoptymalizowane pod kątem używania dysku lokalnego w węźle dołączonym bezpośrednio do maszyny wirtualnej zamiast korzystania z trwałych dysków danych. 
+
+Te maszyny wirtualne są silnymi opcjami dotyczącymi danych Big Data, magazynu danych, raportowania i obciążeń ETL. Wysoka przepływność i operacje we/wy lokalnego magazynu interfejsu NVMe to dobry przypadek użycia do przetwarzania plików, które zostaną załadowane do bazy danych programu, i innych scenariuszy, w których dane źródłowe mogą być tworzone ponownie z systemu źródłowego lub innych repozytoriów, takich jak Azure Blob Storage czy Azure Data Lake. [Seria Lsv2](../../../virtual-machines/lsv2-series.md) Maszyny wirtualne mogą również naszeregować wydajność dysku przez maksymalnie 30 minut w danym momencie.
+
+Rozmiar tych maszyn wirtualnych wynosił od 8 do 80 vCPU z 8 GiB pamięci na vCPU i dla każdego 8 procesorów wirtualnych vCPU istnieje 1,92 TB dysku SSD interfejsu NVMe. Oznacza to, że dla największych maszyn wirtualnych tej serii [L80s_v2](../../../virtual-machines/lsv2-series.md)istnieje 80 vCPU i 640 BIB pamięci z 10X 1.92 TB magazynu interfejsu NVMe.  Istnieje spójny stosunek pamięci do rdzeń wirtualny na wszystkich tych maszynach wirtualnych.
+
+Magazyn interfejsu NVMe jest nieulotny, co oznacza, że dane zostaną utracone na tych dyskach po ponownym uruchomieniu maszyny wirtualnej.
+
+Serie Lsv2 i LS obsługują [Magazyn Premium Storage](../../../virtual-machines/premium-storage-performance.md), ale nie buforowanie magazynu w warstwie Premium. Tworzenie lokalnej pamięci podręcznej w celu zwiększenia liczby operacji we/wy nie jest obsługiwane. 
+
+> [!WARNING]
+> Przechowywanie plików danych w magazynie tymczasowych interfejsu NVMe może spowodować utratę danych podczas cofania przydziału maszyny wirtualnej. 
+
+### <a name="constrained-vcores"></a>Ograniczone rdzeni wirtualnych
+
+Duże wydajności obciążeń SQL Server często potrzebują większej ilości pamięci, operacji we/wy i przepływności bez większych rdzeń wirtualny. 
+
+Większość obciążeń OLTP to bazy danych aplikacji, które są oparte na dużej liczbie mniejszych transakcji. W przypadku obciążeń OLTP, tylko niewielka ilość danych jest odczytywana lub modyfikowana, ale woluminy transakcji sterowane przez liczby użytkowników są znacznie wyższe. Ważne jest, aby SQL Server pamięci podręcznej, przechowywać ostatnio używane dane pod kątem wydajności i zapewnić, że odczyty fizyczne mogą być szybko odczytywane w pamięci. 
+
+Te środowiska OLTP potrzebują większej ilości pamięci, szybkiego magazynu i przepustowości we/wy niezbędnej do optymalnego działania. 
+
+W celu utrzymania tego poziomu wydajności bez wyższych SQL Server kosztów licencjonowania platforma Azure oferuje rozmiary maszyn wirtualnych z [ograniczoną liczbą vCPU](../../../virtual-machines/constrained-vcpu.md). 
+
+Pomaga to kontrolować koszty licencjonowania przez zredukowanie dostępnego rdzeni wirtualnych przy zachowaniu tej samej przepustowości pamięci, magazynu i operacji we/wy nadrzędnej maszyny wirtualnej.
+
+Liczba vCPU może być ograniczona do jednego kwartału oryginalnego rozmiaru maszyny wirtualnej. Zmniejszenie rdzeni wirtualnych dostępnego dla maszyny wirtualnej spowoduje osiągnięcie większej liczby przełożeń pamięci do rdzeń wirtualny.
+
+Te nowe rozmiary maszyn wirtualnych mają sufiks, który określa liczbę aktywnych procesorów wirtualnych vCPU, aby ułatwić ich identyfikację. 
+
+Na przykład [M64-32ms](../../../virtual-machines/constrained-vcpu.md) wymaga licencjonowania tylko 32 SQL Server rdzeni wirtualnych z pamięcią, we/wy i przepływności [M64ms](../../../virtual-machines/m-series.md) , a [M64-16Ms](../../../virtual-machines/constrained-vcpu.md) wymaga licencjonowania tylko 16 rdzeni wirtualnych.  Chociaż [M64-16ms](../../../virtual-machines/constrained-vcpu.md) ma SQL Server kwartał kosztu licencjonowania usługi M64ms, koszt obliczeniowy maszyny wirtualnej będzie taki sam.
+
+> [!NOTE] 
+> - Średnie i duże obciążenia magazynu danych mogą nadal korzystać z [ograniczonych maszyn wirtualnych rdzeń wirtualny](../../../virtual-machines/constrained-vcpu.md), ale obciążenia magazynu danych często charakteryzują się mniejszą liczbą użytkowników i procesów obejmujących większe ilości danych za pośrednictwem planów zapytań, które działają równolegle. 
+> - Koszt obliczeń, który obejmuje Licencjonowanie systemu operacyjnego, pozostaje taki sam jak nadrzędna maszyna wirtualna. 
 
 ## <a name="storage-guidance"></a>Wskazówki dotyczące magazynu
 
-Aby uzyskać szczegółowe informacje na temat testów wydajności SQL Server na platformie Azure Virtual Machines z użyciem testów TPC-E i TPC_C, zapoznaj się z blogiem [Optymalizacja wydajności OLTP](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794). 
+Aby uzyskać szczegółowe informacje na temat testowania wydajności SQL Server na platformie Azure Virtual Machines z użyciem testów TPC-E i TPC-C, zapoznaj się z blogiem [Optymalizacja wydajności OLTP](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794). 
 
 Pamięć podręczna Azure Blob with Premium dysków SSD jest zalecana dla wszystkich obciążeń produkcyjnych. 
 
@@ -85,7 +229,7 @@ Domyślne zasady buforowania na dysku systemu operacyjnego są **Odczyt/zapis**.
 
 Dysk magazynu tymczasowego oznaczony jako dysk **D** nie jest utrwalany w usłudze Azure Blob Storage. Na dysku **D**: nie należy przechowywać plików bazy danych użytkownika ani plików dziennika transakcji użytkownika.
 
-Umieść bazę danych TempDB na lokalnym `D:\` dysku SSD dla obciążeń o krytycznym znaczeniu SQL Server (po wybraniu prawidłowego rozmiaru maszyny wirtualnej). Jeśli utworzysz maszynę wirtualną na podstawie Azure Portal lub szablonów szybkiego startu platformy Azure i [umieścisz tymczasową bazę danych na dysku lokalnym](https://techcommunity.microsoft.com/t5/SQL-Server/Announcing-Performance-Optimized-Storage-Configuration-for-SQL/ba-p/891583), nie potrzebujesz żadnych dalszych akcji. we wszystkich innych przypadkach postępuj zgodnie z instrukcjami w blogu dotyczącymi  [używania dysków SSD do przechowywania bazy danych tempdb](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) , aby zapobiec błędom po ponownym uruchomieniu. Jeśli pojemność dysku lokalnego nie jest wystarczająca dla rozmiaru tymczasowej bazy danych, umieść tymczasową bazę danych [w puli](../../../virtual-machines/premium-storage-performance.md) magazynów na dyskach SSD w warstwie Premium z [buforowaniem tylko do odczytu](../../../virtual-machines/premium-storage-performance.md#disk-caching).
+Umieść bazę danych TempDB na lokalnym `D:\` dysku SSD dla obciążeń o krytycznym znaczeniu SQL Server (po wybraniu prawidłowego rozmiaru maszyny wirtualnej). Jeśli utworzysz maszynę wirtualną na podstawie Azure Portal lub szablonów szybkiego startu platformy Azure i [umieścisz tymczasową bazę danych na dysku lokalnym](https://techcommunity.microsoft.com/t5/SQL-Server/Announcing-Performance-Optimized-Storage-Configuration-for-SQL/ba-p/891583), nie potrzebujesz żadnych dalszych akcji. we wszystkich innych przypadkach postępuj zgodnie z instrukcjami w blogu dotyczącymi  [używania dysków SSD do przechowywania bazy danych tempdb](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-TempDB-and-buffer-pool-extensions/) , aby zapobiec błędom po ponownym uruchomieniu. Jeśli pojemność dysku lokalnego nie jest wystarczająca dla rozmiaru tymczasowej bazy danych, umieść tymczasową bazę danych [w puli](../../../virtual-machines/premium-storage-performance.md) magazynów na dyskach SSD w warstwie Premium z [buforowaniem tylko do odczytu](../../../virtual-machines/premium-storage-performance.md#disk-caching).
 
 W przypadku maszyn wirtualnych, które obsługują usługę Premium dysków SSD, można również przechowywać bazę danych TempDB na dysku obsługującym usługę Premium dysków SSD z włączonym buforowaniem odczytu.
 
@@ -142,7 +286,7 @@ W przypadku maszyn wirtualnych, które obsługują usługę Premium dysków SSD,
      > [!WARNING]
      > Zatrzymaj usługę SQL Server w przypadku zmiany ustawienia pamięci podręcznej dysków Azure Virtual Machines, aby uniknąć wystąpienia uszkodzenia bazy danych.
 
-* **Rozmiar jednostki alokacji systemu plików NTFS**: podczas formatowania dysku z danymi zaleca się użycie rozmiaru jednostki alokacji 64 KB dla plików danych i dziennika, a także tempdb. Jeśli baza danych TempDB jest umieszczona na dysku tymczasowym (D:\ napęd) wydajność uzyskaną przez wykorzystanie tego dysku spowoduje, że nie ma potrzeby rozmiaru jednostki alokacji o rozmiarze 64 KB. 
+* **Rozmiar jednostki alokacji systemu plików NTFS**: podczas formatowania dysku z danymi zaleca się użycie rozmiaru jednostki alokacji 64 KB dla plików danych i dziennika, a także tempdb. Jeśli baza danych TempDB jest umieszczona na dysku tymczasowym (D:\ napęd) wydajność uzyskaną przez wykorzystanie tego dysku spowoduje, że rozmiar jednostki alokacji 64 KB jest konieczny. 
 
 * **Najlepsze rozwiązania dotyczące zarządzania dyskami**: podczas usuwania dysku z danymi lub zmiany jego typu pamięci podręcznej zatrzymaj usługę SQL Server podczas zmiany. Gdy ustawienia buforowania zostaną zmienione na dysku systemu operacyjnego, platforma Azure zatrzyma maszynę wirtualną, zmieni typ pamięci podręcznej i ponownie uruchomi maszynę wirtualną. Gdy ustawienia pamięci podręcznej dysku danych zostaną zmienione, maszyna wirtualna nie zostanie zatrzymana, ale dysk danych zostanie odłączony od maszyny wirtualnej podczas zmiany, a następnie ponownie dołączony.
 
@@ -210,10 +354,61 @@ Znaki przeciążonych systemów mogą obejmować, ale nie są ograniczone do, wy
 
 
 
+## <a name="collect-performance-baseline"></a>Zbierz linię bazową wydajności
+
+Aby uzyskać bardziej szczegółowe podejście, należy zebrać liczniki wydajności przy użyciu narzędzia PerfMon/LogMan i przechwycić SQL Server dane statystyczne oczekiwania w celu lepszego zrozumienia ogólnych ciśnień i potencjalnych wąskich gardeł w środowisku źródłowym. 
+
+Zacznij od zebrania procesora CPU, pamięci, operacji we [/wy na sekundę](../../../virtual-machines/premium-storage-performance.md#iops), [przepływności](../../../virtual-machines/premium-storage-performance.md#throughput)i [opóźnień](../../../virtual-machines/premium-storage-performance.md#latency) obciążenia źródłowego w godzinach szczytu po [liście kontrolnej wydajności aplikacji](../../../virtual-machines/premium-storage-performance.md#application-performance-requirements-checklist). 
+
+Zbieraj dane w godzinach szczytu, takich jak obciążenia w typowym dniu roboczym, ale również inne procesy wysokiego obciążenia, takie jak przetwarzanie końcowe i obciążenia w weekendy. Należy rozważyć skalowanie zasobów w górę dla nietypowych obciążeń, takich jak przetwarzanie końcowe, a następnie skalowanie wykonywane po zakończeniu obciążenia. 
+
+Użyj analizy wydajności, aby wybrać [rozmiar maszyny wirtualnej](../../../virtual-machines/sizes-memory.md) , który można skalować do wymagań dotyczących wydajności obciążenia.
+
+
+### <a name="iops-and-throughput"></a>Operacje we/wy i przepływność
+
+SQL Server wydajność zależy w przypadku podsystemu we/wy. O ile baza danych nie mieści się w pamięci fizycznej, SQL Server ciągle przywraca strony bazy danych do i z puli buforów. Pliki danych dla SQL Server powinny być traktowane inaczej. Dostęp do plików dziennika jest sekwencyjny, z wyjątkiem sytuacji, gdy transakcja musi zostać wycofana w przypadku, gdy do przechowywania plików danych, w tym TempDB, są dostępne losowo. Jeśli masz wolny podsystem we/wy, mogą wystąpić problemy z wydajnością, takie jak czasy odpowiedzi i zadania, które nie zostały wykonane z powodu przekroczenia limitu czasu. 
+
+Maszyny wirtualne portalu Azure Marketplace mają pliki dziennika na dysku fizycznym, który jest domyślnie oddzielony od plików danych. Liczba plików danych TempDB i rozmiar są zgodne z najlepszymi rozwiązaniami, które są związane z elementem tymczasowych D:/ dysk.. 
+
+Następujące liczniki Monitora wydajności mogą pomóc w sprawdzeniu przepływności we/wy wymaganej przez SQL Server: 
+* **\LogicalDisk\Disk odczyty/s (operacje we/** wy odczytu i zapisu)
+* **\LogicalDisk\Disk/s** (liczba operacji we/wy odczytu i zapisu) 
+* **\LogicalDisk\Disk bajtów/s** (wymagania dotyczące przepływności dla plików danych, dzienników i tempdb)
+
+Przy użyciu operacji IOPS i przepływności na poziomach szczytu należy oszacować rozmiary maszyn wirtualnych, które pasują do pojemności z pomiarów. 
+
+Jeśli obciążenie wymaga 20 kilobitów operacji odczytu i 10 000 operacji wejścia/wyjścia na sekundę, można wybrać E16s_v3 (z maksymalnie 32 K pamięcią podręczną w pamięci podręcznej i 25600 operacji we/wy) lub M16_s (z maksymalnie 20 dyskami w pamięci podręcznej i 10 tys.) przy użyciu funkcji miejsca do magazynowania. 
+
+Upewnij się, że rozumiesz wymagania dotyczące przepływności i liczby operacji we/wy obciążenia, ponieważ maszyny wirtualne mają różne limity skalowania dla operacji we/wy na sekundę.
+
+### <a name="memory"></a>Pamięć
+
+Śledź zarówno pamięć zewnętrzną używaną przez system operacyjny, jak i pamięć używaną wewnętrznie przez SQL Server. Zidentyfikowanie nacisku dla każdego składnika ułatwi określenie rozmiaru maszyn wirtualnych i zidentyfikowanie możliwości dostrajania. 
+
+Następujące liczniki Monitora wydajności mogą pomóc w sprawdzeniu kondycji pamięci SQL Server maszyny wirtualnej: 
+* [\Memory\Available (MB)](/azure/monitoring/infrastructure-health/vmhealth-windows/winserver-memory-availmbytes)
+* [\SQLServer: pamięć serwera Manager\Target (KB)](/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object)
+* [\SQLServer: pamięć serwera Manager\Total (KB)](/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object)
+* [\SQLServer: bufory Manager\Lazy zapisy/s](/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object)
+* [\SQLServer: bufor Menedżer odczytów stron](/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object)
+
+### <a name="compute--processing"></a>Obliczenia/przetwarzanie
+
+Obliczenia na platformie Azure są zarządzane inaczej niż lokalnie. Serwery lokalne są tworzone w ciągu kilku lat bez uaktualnienia ze względu na koszty związane z zarządzaniem i koszt nabycia nowego sprzętu. Wirtualizacja ogranicza niektóre z tych problemów, ale aplikacje są zoptymalizowane pod kątem optymalnego sprzętu, co oznacza, że jakakolwiek znacząca zmiana zużycia zasobów wymaga ponownego zrównoważenia całego środowiska fizycznego. 
+
+Nie jest to wyzwanie na platformie Azure, w którym Nowa maszyna wirtualna jest w innym szeregu sprzętu, a nawet w innym regionie, jest łatwa do osiągnięcia. 
+
+Na platformie Azure chcesz korzystać z możliwie największej ilości zasobów maszyn wirtualnych, dlatego należy skonfigurować maszyny wirtualne platformy Azure tak, aby utrzymywać średnie użycie procesora jako możliwe bez wpływu na obciążenie. 
+
+Następujące liczniki Monitora wydajności mogą pomóc w sprawdzeniu kondycji obliczeniowej maszyny wirtualnej SQL Server:
+* **\Processor Information (_Total) — \% czas procesora**
+* **\Process (sqlservr) — \% czas procesora**
+
+> [!NOTE] 
+> Najlepiej, staraj się, aby użyć 80% obliczeń z szczytem powyżej 90%, ale nie osiągnąć 100% przez dłuższy czas. Na bieżąco należy jedynie zapewnić obsługę obliczeń wymaganych przez aplikację, a następnie zaplanować skalowanie w górę lub w dół zgodnie z wymaganiami biznesowymi. 
 
 ## <a name="next-steps"></a>Następne kroki
-
-Aby uzyskać więcej informacji na temat magazynu i wydajności, zobacz [wytyczne dotyczące konfiguracji magazynu dla SQL Server na platformie Azure Virtual Machines](/archive/blogs/sqlserverstorageengine/storage-configuration-guidelines-for-sql-server-on-azure-vm)
 
 Najlepsze rozwiązania w zakresie zabezpieczeń znajdują się w temacie [zagadnienia dotyczące zabezpieczeń SQL Server w usłudze Azure Virtual Machines](security-considerations-best-practices.md).
 

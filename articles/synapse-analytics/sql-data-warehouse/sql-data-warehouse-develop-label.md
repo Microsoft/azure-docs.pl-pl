@@ -1,32 +1,30 @@
 ---
 title: Używanie etykiet do Instrumentacji zapytań
-description: Porady dotyczące używania etykiet do Instrumentacji zapytań w puli SQL Synapse na potrzeby tworzenia rozwiązań.
+description: Porady dotyczące używania etykiet do Instrumentacji zapytań dla dedykowanych pul SQL w usłudze Azure Synapse Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 91b6dac5fba4bb8dfd8cf4a3bb4e5952f8388bb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 7958caf71658dcdcbf31bac84697931e9049452f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89459151"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462742"
 ---
-# <a name="using-labels-to-instrument-queries-in-synapse-sql-pool"></a>Używanie etykiet do Instrumentacji zapytań w puli SQL Synapse
+# <a name="using-labels-to-instrument-queries-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Używanie etykiet do Instrumentacji zapytań dla dedykowanych pul SQL w usłudze Azure Synapse Analytics
 
-W tym artykule przedstawiono wskazówki dotyczące opracowywania rozwiązań przy użyciu etykiet do Instrumentacji zapytań w puli SQL.
-
-Porady dotyczące używania etykiet do Instrumentacji zapytań w usłudze Azure Synapse Analytics na potrzeby tworzenia rozwiązań.
+W tym artykule przedstawiono wskazówki dotyczące opracowywania rozwiązań przy użyciu etykiet do Instrumentacji zapytań w dedykowanych pulach SQL.
 
 ## <a name="what-are-labels"></a>Co to są etykiety?
 
-Pula SQL obsługuje koncepcję o nazwie etykiety zapytań. Przed przejściem do dowolnej głębokości Przyjrzyjmy się przykładowi:
+Dedykowana Pula SQL obsługuje koncepcję o nazwie etykiety zapytań. Przed przejściem do dowolnej głębokości Przyjrzyjmy się przykładowi:
 
 ```sql
 SELECT *

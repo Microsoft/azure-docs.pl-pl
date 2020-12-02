@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: 40bae584e673e8885416bd1ae08dd808071034e7
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: bd6067b39f12888bb903a68fb9834250c9d86638
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436134"
+ms.locfileid: "96462433"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Obsługa dostępności geograficznej i waluty komercyjnej witryny Marketplace
 
@@ -197,7 +197,7 @@ Aby uzyskać szczegółowe informacje na temat wprowadzania cen dla określonych
 - [Tworzenie oferty aplikacji platformy Azure](create-new-azure-apps-offer.md)
 - [Tworzenie oferty kontenera platformy Azure](partner-center-portal/create-azure-container-offer.md)
 - [Tworzenie oferty maszyny wirtualnej platformy Azure](azure-vm-create.md)
-- [Tworzenie oferty usługi konsultingowej](partner-center-portal/create-consulting-service-offer.md)
+- [Tworzenie oferty usługi konsultingowej](./create-consulting-service-offer.md)
 - [Tworzenie oferty Dynamics 365 for Customer Engagement & PowerApps](partner-center-portal/create-new-customer-engagement-offer.md)
 - [Tworzenie oferty Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md)
 - [Tworzenie oferty Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md)

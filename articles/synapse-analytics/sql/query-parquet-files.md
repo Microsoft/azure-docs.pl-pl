@@ -1,6 +1,6 @@
 ---
-title: Wykonywanie zapytań dotyczących plików Parquet przy użyciu puli SQL bezserwerowej (wersja zapoznawcza)
-description: W tym artykule dowiesz się, jak wykonywać zapytania dotyczące plików Parquet przy użyciu puli SQL bezserwerowej (wersja zapoznawcza).
+title: Wykonywanie zapytań dotyczących plików Parquet przy użyciu puli SQL bezserwerowej
+description: W tym artykule dowiesz się, jak wykonywać zapytania dotyczące plików Parquet przy użyciu puli SQL bezserwerowej.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 97b34d85e4628c0ef01dd02d3a9be85da7f8291e
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 20bfbaeea48711a680877e4d5d8f618e84eb12d7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685617"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462569"
 ---
-# <a name="query-parquet-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Badaj pliki Parquet za pomocą puli SQL bezserwerowej (wersja zapoznawcza) w usłudze Azure Synapse Analytics
+# <a name="query-parquet-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Wykonywanie zapytań dotyczących plików Parquet przy użyciu bezserwerowej puli SQL w usłudze Azure Synapse Analytics
 
-W tym artykule dowiesz się, jak napisać zapytanie przy użyciu bezserwerowej puli SQL (wersja zapoznawcza), która będzie odczytywać pliki Parquet.
+W tym artykule dowiesz się, jak napisać zapytanie przy użyciu puli SQL bezserwerowej, która będzie odczytywać pliki Parquet.
 
 ## <a name="quickstart-example"></a>Przykład szybkiego startu
 
@@ -38,9 +38,9 @@ from openrowset(
 Upewnij się, że możesz uzyskać dostęp do tego pliku. Jeśli plik jest chroniony za pomocą klucza SAS lub niestandardowej tożsamości platformy Azure, należy skonfigurować [poświadczenia na poziomie serwera dla logowania SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
 > [!IMPORTANT]
-> Upewnij się, że używasz pewnego sortowania bazy danych UTF-8 (na przykład `Latin1_General_100_CI_AS_SC_UTF8` ), ponieważ wartości ciągów w plikach PARQUET są kodowane przy użyciu kodowania UTF-8.
+> Upewnij się, że używasz sortowania bazy danych UTF-8 (na przykład `Latin1_General_100_CI_AS_SC_UTF8` ), ponieważ wartości ciągów w plikach PARQUET są kodowane przy użyciu kodowania UTF-8.
 > Niezgodność między kodowaniem tekstu w pliku PARQUET i sortowanie może spowodować nieoczekiwane błędy konwersji.
-> Można łatwo zmienić domyślne sortowanie bieżącej bazy danych, korzystając z następującej instrukcji T-SQL: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
+> Domyślne sortowanie bieżącej bazy danych można łatwo zmienić, korzystając z następującej instrukcji T-SQL: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 ### <a name="data-source-usage"></a>Użycie źródła danych
 

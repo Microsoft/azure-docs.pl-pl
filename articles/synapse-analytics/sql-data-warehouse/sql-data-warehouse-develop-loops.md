@@ -1,34 +1,34 @@
 ---
 title: Korzystanie z pętli T-SQL
-description: Wskazówki dotyczące opracowywania rozwiązań przy użyciu pętli T-SQL i zastępowania kursorów w puli SQL Synapse.
+description: Wskazówki dotyczące opracowywania rozwiązań przy użyciu pętli T-SQL i zastępowania kursorów dla dedykowanych pul SQL w usłudze Azure Synapse Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 25dad01a54b6ffe08656379340f58e0fe70ec666
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 3477b3095414248afa9fbc7417ab707c94f35546
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213418"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462726"
 ---
-# <a name="using-t-sql-loops-in-synapse-sql-pool"></a>Używanie pętli T-SQL w puli SQL Synapse
+# <a name="using-t-sql-loops-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Używanie pętli T-SQL dla dedykowanych pul SQL w usłudze Azure Synapse Analytics
 
-W tym artykule przedstawiono wskazówki dotyczące programowania rozwiązań w puli SQL przy użyciu pętli T-SQL i zastępowanie kursorów.
+W tym artykule przedstawiono wskazówki dotyczące opracowywania dedykowanych rozwiązań puli SQL przy użyciu pętli T-SQL i zastępowanie kursorów.
 
 ## <a name="purpose-of-while-loops"></a>Przeznaczenie pętli WHILE
 
-Synapse Pula SQL obsługuje pętlę [while](/sql/t-sql/language-elements/while-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) do wielokrotnego wykonywania bloków instrukcji. Ta Pętla WHILE działa tak długo, jak określone warunki są prawdziwe lub do momentu, aż kod zakończy pętlę przy użyciu słowa kluczowego BREAK.
+Dedykowane pule SQL na platformie Azure Synapse obsługują pętlę [while](/sql/t-sql/language-elements/while-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) do wielokrotnego wykonywania bloków instrukcji. Ta Pętla WHILE działa tak długo, jak określone warunki są prawdziwe lub do momentu, aż kod zakończy pętlę przy użyciu słowa kluczowego BREAK.
 
 Pętle są przydatne do zastępowania kursorów zdefiniowanych w kodzie SQL. Na szczęście prawie wszystkie kursory, które są zapisywane w kodzie SQL, są do przodu, tylko do odczytu. Tak więc, podczas gdy pętle są świetną alternatywą dla zastępowania kursorów.
 
-## <a name="replacing-cursors-in-synapse-sql-pool"></a>Zastępowanie kursorów w puli SQL Synapse
+## <a name="replacing-cursors-in-dedicated-sql-pool"></a>Zastępowanie kursorów w dedykowanej puli SQL
 
 Jednak przed nakazaniem najpierw należy zadać sobie następujące pytanie: "czy można ponownie napisać ten kursor, aby użyć operacji ustawionych?".
 

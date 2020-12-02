@@ -3,12 +3,12 @@ title: Podręcznik administratora Azure Lab Services | Microsoft Docs
 description: Ten przewodnik pomaga administratorom, którzy tworzą konta laboratorium i zarządzają nimi przy użyciu Azure Lab Services.
 ms.topic: article
 ms.date: 10/20/2020
-ms.openlocfilehash: 08d2fea719ad67f666ea9da09721dc3f7ab54768
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3ad3ee38a6c08a6af85822d76012cc6dfc34ff4e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999284"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462477"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services — Podręcznik administratora
 Administratorzy IT, którzy zarządzają zasobami w chmurze University, są zwykle odpowiedzialni za skonfigurowanie konta laboratorium dla swojej szkoły. Po skonfigurowaniu konta Laboratorium Administratorzy lub wykładowcy tworzą laboratoria, które są zawarte w ramach tego konta. Ten artykuł zawiera ogólne omówienie zasobów platformy Azure, które są wykorzystywane, oraz wskazówki dotyczące ich tworzenia.
@@ -167,14 +167,14 @@ Gdy Administratorzy lub twórcy laboratorium tworzą laboratorium, mogą wybrać
 
 | Rozmiar | Specyfikacje | Seria | Sugerowane użycie |
 | ---- | ----- | ------ | ------------- |
-| Mały| <ul><li>2 &nbsp; rdzenie</li><li>Pamięć RAM 3,5 gigabajtów (GB)</li> | [Standardowa_A2_v2](../virtual-machines/av2-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Najlepiej dopasowane do wiersza polecenia, otwierania przeglądarki sieci Web, serwerów sieci Web o niewielkim ruchu, małych i średnich baz danych. |
-| Średniaa | <ul><li>4 &nbsp; rdzenie</li><li>7 &nbsp; GB &nbsp; pamięci RAM</li> | [Standardowa_A4_v2](../virtual-machines/av2-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Najlepiej dopasowane do relacyjnych baz danych, buforowania w pamięci i analizy. |
-| Średni (Wirtualizacja zagnieżdżona) | <ul><li>4 &nbsp; rdzenie</li><li>16 &nbsp; GB &nbsp; pamięci RAM</li></ul> | [Standardowa_D4s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#dsv3-series) | Najlepiej dopasowane do relacyjnych baz danych, buforowania w pamięci i analizy.
-| Duży | <ul><li>8 &nbsp; rdzeni</li><li>16 &nbsp; GB &nbsp; pamięci RAM</li></ul>  | [Standardowa_A8_v2](../virtual-machines/av2-series.md) | Najlepiej dopasowane do aplikacji wymagających szybszych procesorów, lepszej wydajności dysków lokalnych, dużych baz danych i dużych pamięci podręcznych pamięci.  Ten rozmiar obsługuje również wirtualizację zagnieżdżoną. |
-| Duże (Wirtualizacja zagnieżdżona) | <ul><li>8 &nbsp; rdzeni</li><li>32 &nbsp; GB &nbsp; pamięci RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#dsv3-series) | Najlepiej dopasowane do aplikacji wymagających szybszych procesorów, lepszej wydajności dysków lokalnych, dużych baz danych i dużych pamięci podręcznych pamięci. |
+| Mała| <ul><li>2 &nbsp; rdzenie</li><li>Pamięć RAM 3,5 gigabajtów (GB)</li> | [Standardowa_A2_v2](../virtual-machines/av2-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Najlepiej dopasowane do wiersza polecenia, otwierania przeglądarki sieci Web, serwerów sieci Web o niewielkim ruchu, małych i średnich baz danych. |
+| Średniaa | <ul><li>4 &nbsp; rdzenie</li><li>7 &nbsp; GB &nbsp; pamięci RAM</li> | [Standardowa_A4_v2](../virtual-machines/av2-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Najlepiej dopasowane do relacyjnych baz danych, buforowania w pamięci i analizy. |
+| Średni (Wirtualizacja zagnieżdżona) | <ul><li>4 &nbsp; rdzenie</li><li>16 &nbsp; GB &nbsp; pamięci RAM</li></ul> | [Standardowa_D4s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#dsv3-series) | Najlepiej dopasowane do relacyjnych baz danych, buforowania w pamięci i analizy.
+| Duża | <ul><li>8 &nbsp; rdzeni</li><li>16 &nbsp; GB &nbsp; pamięci RAM</li></ul>  | [Standardowa_A8_v2](../virtual-machines/av2-series.md) | Najlepiej dopasowane do aplikacji wymagających szybszych procesorów, lepszej wydajności dysków lokalnych, dużych baz danych i dużych pamięci podręcznych pamięci.  Ten rozmiar obsługuje również wirtualizację zagnieżdżoną. |
+| Duże (Wirtualizacja zagnieżdżona) | <ul><li>8 &nbsp; rdzeni</li><li>32 &nbsp; GB &nbsp; pamięci RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#dsv3-series) | Najlepiej dopasowane do aplikacji wymagających szybszych procesorów, lepszej wydajności dysków lokalnych, dużych baz danych i dużych pamięci podręcznych pamięci. |
 | Mały procesor GPU (wizualizacja) | <ul><li>6 &nbsp; rdzeni</li><li>56 &nbsp; GB &nbsp; pamięci RAM</li>  | [Standardowa_NV6](../virtual-machines/nv-series.md) | Najlepiej dopasowane do zdalnej wizualizacji, przesyłania strumieniowego, gier i kodowania przy użyciu platform, takich jak OpenGL i DirectX. |
 | Mały procesor GPU (obliczenia) | <ul><li>6 &nbsp; rdzeni</li><li>56 &nbsp; GB &nbsp; pamięci RAM</li></ul>  | [Standardowa_NC6](../virtual-machines/nc-series.md) |Najlepiej dopasowane do aplikacji intensywnie korzystających z komputerów, takich jak AI i uczenie głębokie. |
-| Średni procesor GPU (wizualizacja) | <ul><li>12 &nbsp; rdzeni</li><li>112 &nbsp; GB &nbsp; pamięci RAM</li></ul>  | [Standardowa_NV12](../virtual-machines/nv-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Najlepiej dopasowane do zdalnej wizualizacji, przesyłania strumieniowego, gier i kodowania przy użyciu platform, takich jak OpenGL i DirectX. |
+| Średni procesor GPU (wizualizacja) | <ul><li>12 &nbsp; rdzeni</li><li>112 &nbsp; GB &nbsp; pamięci RAM</li></ul>  | [Standardowa_NV12](../virtual-machines/nv-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Najlepiej dopasowane do zdalnej wizualizacji, przesyłania strumieniowego, gier i kodowania przy użyciu platform, takich jak OpenGL i DirectX. |
 
 ## <a name="manage-identity"></a>Zarządzanie tożsamością
 

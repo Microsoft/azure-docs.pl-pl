@@ -8,14 +8,14 @@ ms.subservice: security
 ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4100640fd619d9d971ac1c7083eedef8e2125fc3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5506a54193efc813927663533ddfd89be3ddf40a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738237"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461296"
 ---
-# <a name="azure-synapse-workspace-managed-identity-preview"></a>Tożsamość zarządzana obszaru roboczego usługi Azure Synapse (wersja zapoznawcza)
+# <a name="azure-synapse-workspace-managed-identity"></a>Tożsamość zarządzana obszaru roboczego usługi Azure Synapse
 
 W tym artykule omówiono tożsamość zarządzaną w obszarze roboczym usługi Azure Synapse.
 
@@ -27,7 +27,7 @@ Zarządzane tożsamości dla zasobów platformy Azure to nowa nazwa usługi znan
 
 ## <a name="azure-synapse-workspace-managed-identity"></a>Tożsamość zarządzana obszaru roboczego usługi Azure Synapse
 
-Podczas tworzenia obszaru roboczego tworzona jest tożsamość zarządzana przypisana przez system dla obszaru roboczego usługi Azure Synapse.
+Tożsamość zarządzana przypisana przez system jest tworzona dla obszaru roboczego usługi Azure Synapse podczas jego tworzenia.
 
 >[!NOTE]
 >Ta tożsamość zarządzana w obszarze roboczym będzie określana jako tożsamość zarządzana w pozostałej części tego dokumentu.
@@ -48,11 +48,11 @@ Uruchom **usługę Azure Synapse Studio** i wybierz kartę **Zarządzanie** na p
 
 ![Tworzenie połączonej usługi 1](./media/synapse-workspace-managed-identity/workspace-managed-identity-2.png)
 
-W oknie **Nowa połączona usługa** wpisz *Azure Data Lake Storage Gen2* . Wybierz z poniższej listy Typ zasobu **Azure Data Lake Storage Gen2** i wybierz pozycję **Kontynuuj** .
+W oknie **Nowa połączona usługa** wpisz *Azure Data Lake Storage Gen2*. Wybierz z poniższej listy Typ zasobu **Azure Data Lake Storage Gen2** i wybierz pozycję **Kontynuuj**.
 
 ![Tworzenie połączonej usługi 2](./media/synapse-workspace-managed-identity/workspace-managed-identity-3.png)
 
-W następnym oknie wybierz pozycję **zarządzana tożsamość** dla **metody uwierzytelniania** . Zobaczysz **nazwę** i **Identyfikator obiektu** tożsamości zarządzanej.
+W następnym oknie wybierz pozycję **zarządzana tożsamość** dla **metody uwierzytelniania**. Zobaczysz **nazwę** i **Identyfikator obiektu** tożsamości zarządzanej.
 
 ![Tworzenie połączonej usługi 3](./media/synapse-workspace-managed-identity/workspace-managed-identity-4.png)
 

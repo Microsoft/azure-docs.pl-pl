@@ -11,24 +11,24 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/27/2020
-ms.openlocfilehash: f9dc11bd046bdc3a8913b4b05f1b68b84c9736c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c20508d27d03c00a6842979731fb905bbaa9def
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89438453"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461244"
 ---
 # <a name="transformation-with-azure-databricks"></a>Przekształcanie za pomocą usługi Azure Databricks
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-W tym samouczku utworzysz kompleksowy potok zawierający dane dotyczące **weryfikacji**, **kopiowania**i działania **notesu** w Azure Data Factory.
+W tym samouczku utworzysz kompleksowy potok zawierający dane dotyczące **weryfikacji**, **kopiowania** i działania **notesu** w Azure Data Factory.
 
 - **Walidacja** gwarantuje, że źródłowy zestaw danych jest gotowy do użycia na użytek podrzędny przed wywołaniem zadania kopiowania i analizy.
 
 - **Kopiuj dane** duplikują źródłowy zestaw danych do magazynu ujścia, który jest instalowany jako DBFS w notesie Azure Databricks. W ten sposób zestaw danych może być bezpośrednio używany przez platformę Spark.
 
-- **Notes** wyzwala Notes datakostki, który przekształca zestaw danych. Dodaje również zestaw danych do przetworzonego folderu lub usługi Azure Synapse Analytics (dawniej SQL Data Warehouse).
+- **Notes** wyzwala Notes datakostki, który przekształca zestaw danych. Dodaje również zestaw danych do przetworzonego folderu lub usługi Azure Synapse Analytics.
 
 Dla uproszczenia szablon w tym samouczku nie tworzy zaplanowanego wyzwalacza. W razie potrzeby można dodać jeden z nich.
 
@@ -56,29 +56,29 @@ Aby zaimportować Notes **transformacji** do obszaru roboczego datakostki:
 
    W zaimportowanym notesie przejdź do **polecenia 5** , jak pokazano w poniższym fragmencie kodu.
 
-   - Zastąp `<storage name>` i `<access key>` własnymi informacjami o połączeniu z magazynem.
+   - Zastąp `<storage name>` i `<access key>` własnymi informacjami o połączeniu z magazynem.
    - Użyj konta magazynu z `sinkdata` kontenerem.
 
     ```python
-    # Supply storageName and accessKey values  
-    storageName = "<storage name>"  
-    accessKey = "<access key>"  
+    # Supply storageName and accessKey values  
+    storageName = "<storage name>"  
+    accessKey = "<access key>"  
 
-    try:  
-      dbutils.fs.mount(  
-        source = "wasbs://sinkdata\@"+storageName+".blob.core.windows.net/",  
-        mount_point = "/mnt/Data Factorydata",  
-        extra_configs = {"fs.azure.account.key."+storageName+".blob.core.windows.net": accessKey})  
+    try:  
+      dbutils.fs.mount(  
+        source = "wasbs://sinkdata\@"+storageName+".blob.core.windows.net/",  
+        mount_point = "/mnt/Data Factorydata",  
+        extra_configs = {"fs.azure.account.key."+storageName+".blob.core.windows.net": accessKey})  
 
-    except Exception as e:  
-      # The error message has a long stack track. This code tries to print just the relevant line indicating what failed.
+    except Exception as e:  
+      # The error message has a long stack track. This code tries to print just the relevant line indicating what failed.
 
-    import re
-    result = re.findall(r"\^\s\*Caused by:\s*\S+:\s\*(.*)\$", e.message, flags=re.MULTILINE)
-    if result:
-      print result[-1] \# Print only the relevant error message
-    else:  
-      print e \# Otherwise print the whole stack trace.  
+    import re
+    result = re.findall(r"\^\s\*Caused by:\s*\S+:\s\*(.*)\$", e.message, flags=re.MULTILINE)
+    if result:
+      print result[-1] \# Print only the relevant error message
+    else:  
+      print e \# Otherwise print the whole stack trace.  
     ```
 
 1. Generowanie **tokenu dostępu do datakostki** dla Data Factory w celu uzyskania dostępu do datakostki.
@@ -126,23 +126,23 @@ Aby zaimportować Notes **transformacji** do obszaru roboczego datakostki:
 
 W nowym potoku większość ustawień jest konfigurowana automatycznie z wartościami domyślnymi. Przejrzyj konfiguracje potoku i wprowadź niezbędne zmiany.
 
-1. W **flagi dostępność**działania **walidacji** Sprawdź, czy wartość zestawu **danych** źródłowych została `SourceAvailabilityDataset` utworzona wcześniej.
+1. W **flagi dostępność** działania **walidacji** Sprawdź, czy wartość zestawu **danych** źródłowych została `SourceAvailabilityDataset` utworzona wcześniej.
 
    ![Wartość źródłowego zestawu danych](media/solution-template-Databricks-notebook/validation-settings.png)
 
-1. W oknie działanie **Kopiuj dane** **do obiektów BLOB**Sprawdź karty **źródłowe** i **ujścia** . Zmień ustawienia w razie potrzeby.
+1. W oknie działanie **Kopiuj dane** **do obiektów BLOB** Sprawdź karty **źródłowe** i **ujścia** . Zmień ustawienia w razie potrzeby.
 
    - **Karta źródło karty** źródłowej ![](media/solution-template-Databricks-notebook/copy-source-settings.png)
 
    - Karta ujścia karty **ujścia** ![](media/solution-template-Databricks-notebook/copy-sink-settings.png)
 
-1. W **transformacji**działania **notesu** Przejrzyj i zaktualizuj ścieżki oraz ustawienia zgodnie z wymaganiami.
+1. W **transformacji** działania **notesu** Przejrzyj i zaktualizuj ścieżki oraz ustawienia zgodnie z wymaganiami.
 
    **Połączona usługa datakostki** powinna być wstępnie wypełniona wartością z poprzedniego kroku, jak pokazano: ![ wartość wypełniono dla połączonej usługi datakostki](media/solution-template-Databricks-notebook/notebook-activity.png)
 
    Aby sprawdzić ustawienia **notesu** :
   
-    1. Wybierz kartę **Ustawienia** . W polu **ścieżka notesu**Sprawdź, czy ścieżka domyślna jest poprawna. Może być konieczne przeszukanie i wybranie odpowiedniej ścieżki notesu.
+    1. Wybierz kartę **Ustawienia** . W polu **ścieżka notesu** Sprawdź, czy ścieżka domyślna jest poprawna. Może być konieczne przeszukanie i wybranie odpowiedniej ścieżki notesu.
 
        ![Ścieżka notesu](media/solution-template-Databricks-notebook/notebook-settings.png)
 

@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: e84afc949a84da90a4799d7db3b3e7ad3e0057a3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3fc7a7f137701590e4bddd791a3fdd2d1eaeca4a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323524"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461599"
 ---
 # <a name="quickstart-create-a-new-serverless-apache-spark-pool-using-the-azure-portal"></a>Szybki Start: Tworzenie nowej puli Apache Spark bezserwerowej przy użyciu Azure Portal
 
@@ -67,7 +67,7 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 4. Wybierz pozycję **Dalej: Tagi**. Nie dodawaj żadnych tagów.
     ![Utwórz przepływ Apache Spark puli — karta Ustawienia dodatkowe.](media/quickstart-create-apache-spark-pool/create-spark-pool-03-tags.png)
 
-5. Wybierz pozycję **Przejrzyj i utwórz**.
+5. Wybierz pozycję **Przeglądanie + tworzenie**.
 
 6. Upewnij się, że szczegóły są poprawne w zależności od tego, co zostało wcześniej wprowadzone, i wybierz pozycję **Utwórz**.
     ![Tworzenie przepływu Apache Spark puli — przegląd ustawień.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-05.png)
@@ -89,7 +89,7 @@ Wykonaj poniższe kroki, aby usunąć pulę Apache Spark z obszaru roboczego.
 Jeśli chcesz usunąć pulę Apache Spark, wykonaj następujące czynności:
 
 1. Przejdź do bloku pule Apache Spark w obszarze roboczym.
-2. Wybierz pulę Apache Spark do usunięcia (w tym przypadku **contosospark** ).
+2. Wybierz pulę Apache Spark do usunięcia (w tym przypadku **contosospark**).
 3. Naciśnij klawisz **delete**.
  ![Lista pul Apache Spark, dla których wybrano ostatnio utworzoną pulę.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-08.png)
 4. Potwierdź usunięcie i naciśnij przycisk **Usuń** .
@@ -99,4 +99,4 @@ Jeśli chcesz usunąć pulę Apache Spark, wykonaj następujące czynności:
 ## <a name="next-steps"></a>Następne kroki
 
 - Zobacz [Szybki Start: Tworzenie notesu Apache Spark](quickstart-apache-spark-notebook.md).
-- Zobacz [Szybki Start: Tworzenie dedykowanej puli SQL Synapse przy użyciu Azure Portal](quickstart-create-sql-pool-portal.md).
+- Zobacz [Szybki Start: Tworzenie dedykowanej puli SQL przy użyciu Azure Portal](quickstart-create-sql-pool-portal.md).

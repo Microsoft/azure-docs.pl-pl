@@ -1,6 +1,6 @@
 ---
-title: Parquet typy zagnieżdżone zapytania przy użyciu bezserwerowej puli SQL (wersja zapoznawcza)
-description: W tym artykule dowiesz się, jak badać Parquet typy zagnieżdżone przy użyciu bezserwerowej puli SQL (wersja zapoznawcza).
+title: Parquet zagnieżdżonych typów zapytań przy użyciu puli SQL bezserwerowej
+description: W tym artykule dowiesz się, jak wykonywać zapytania dotyczące Parquet typów zagnieżdżonych za pomocą puli SQL bezserwerowej.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 426c95638422fa4260508aa81bb47a7c9565e6eb
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 91f612ba7f19deb739dbb6004e275ea044a5a3d3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685719"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462563"
 ---
-# <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Zapytania zagnieżdżonych typów w plikach Parquet i JSON przy użyciu puli SQL bezserwerowej (wersja zapoznawcza) w usłudze Azure Synapse Analytics
+# <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Zapytania zagnieżdżonych typów w plikach Parquet i JSON przy użyciu bezserwerowej puli SQL w usłudze Azure Synapse Analytics
 
-W tym artykule dowiesz się, jak napisać zapytanie przy użyciu bezserwerowej puli SQL (wersja zapoznawcza) w usłudze Azure Synapse Analytics. Zapytanie będzie odczytywać Parquet typy zagnieżdżone.
+W tym artykule dowiesz się, jak napisać zapytanie przy użyciu bezserwerowej puli SQL w usłudze Azure Synapse Analytics. Zapytanie będzie odczytywać Parquet typy zagnieżdżone.
 Zagnieżdżone typy to złożone struktury, które reprezentują obiekty lub tablice. Zagnieżdżone typy mogą być przechowywane w: 
 - [Parquet](query-parquet-files.md), w którym można mieć wiele kolumn złożonych zawierających tablice i obiekty.
 - Hierarchiczne [pliki JSON](query-json-files.md), które umożliwiają odczytywanie złożonego dokumentu JSON jako pojedynczej kolumny.

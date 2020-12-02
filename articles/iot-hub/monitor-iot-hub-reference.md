@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: reference
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: 03941c3abe833deb218844cc60e2f04556fccc22
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 609c44991e7deca183321758fabdef80b71210c5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078207"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460852"
 ---
 # <a name="monitoring-azure-iot-hub-data-reference"></a>Monitorowanie danych IoT Hub platformy Azure
 
@@ -19,13 +19,13 @@ Aby uzyskać szczegółowe informacje na temat zbierania i analizowania danych m
 
 ## <a name="metrics"></a>Metryki
 
-Ta sekcja zawiera listę wszystkich automatycznie zebranych metryk platformy dla IoT Hub platformy Azure. Przestrzeń nazw dostawcy zasobów dla metryk IoT Hub to **Microsoft. Devices** i typ przestrzeni nazw to **IoTHubs** .
+Ta sekcja zawiera listę wszystkich automatycznie zebranych metryk platformy dla IoT Hub platformy Azure. Przestrzeń nazw dostawcy zasobów dla metryk IoT Hub to **Microsoft. Devices** i typ przestrzeni nazw to **IoTHubs**.
 
 Poniższe podsekcje dzielą metryki platformy IoT Hub według ogólnej kategorii i wyświetlają je według nazwy, która pojawia się w Azure Portal za pomocą. Informacje są również dostępne dla metryk, które pojawiają się w każdej podsekcji.
 
-Możesz również znaleźć jedną tabelę zawierającą wszystkie IoT Hub metryki platformy według nazwy metryki w obszarze [Microsoft. Devices/IotHubs](/azure/azure-monitor/platform/metrics-supported#microsoftdevicesiothubs) w dokumentacji Azure monitor. Należy pamiętać, że ta tabela nie zawiera niektórych informacji, takich jak [obsługiwane agregacje](#supported-aggregations) dla niektórych metryk, które są dostępne w tym artykule.
+Możesz również znaleźć jedną tabelę zawierającą wszystkie IoT Hub metryki platformy według nazwy metryki w obszarze [Microsoft. Devices/IotHubs](../azure-monitor/platform/metrics-supported.md#microsoftdevicesiothubs) w dokumentacji Azure monitor. Należy pamiętać, że ta tabela nie zawiera niektórych informacji, takich jak [obsługiwane agregacje](#supported-aggregations) dla niektórych metryk, które są dostępne w tym artykule.
 
-Aby dowiedzieć się więcej o metrykach obsługiwanych przez inne usługi platformy Azure, zobacz temat [obsługiwane metryki w Azure monitor](/azure/azure-monitor/platform/metrics-supported).
+Aby dowiedzieć się więcej o metrykach obsługiwanych przez inne usługi platformy Azure, zobacz temat [obsługiwane metryki w Azure monitor](../azure-monitor/platform/metrics-supported.md).
 
 **Tematy w tej sekcji**
 
@@ -49,11 +49,11 @@ Kolumna **typ agregacji** w każdej tabeli odpowiada agregacji domyślnej, któr
 
    ![Zrzut ekranu przedstawiający agregację dla metryk](./media/monitor-iot-hub-reference/aggregation-type.png)
 
-W przypadku większości metryk wszystkie typy agregacji są prawidłowe; Jednak w przypadku metryk zliczania, które mają wartość kolumny **jednostki** **Count** , tylko niektóre agregacje są prawidłowe. Metryki zliczania mogą być jednym z dwóch typów:
+W przypadku większości metryk wszystkie typy agregacji są prawidłowe; Jednak w przypadku metryk zliczania, które mają wartość kolumny **jednostki** **Count**, tylko niektóre agregacje są prawidłowe. Metryki zliczania mogą być jednym z dwóch typów:
 
-* W przypadku metryk zliczania **pojedynczych punktów** IoT Hub rejestruje pojedynczy punkt danych — zasadniczo 1---za każdym razem, gdy nastąpi pomiar operacji. Azure Monitor następnie sumuje te punkty danych w ramach określonego stopnia szczegółowości. Przykładami metryk **pojedynczych punktów** są *wysyłane komunikaty telemetryczne* i *Zakończono dostarczanie komunikatów C2D* . Dla tych metryk jedynym odpowiednim typem agregacji jest suma (sum). Portal umożliwia wybranie opcji minimum, maksimum i średnika; te wartości będą jednak zawsze 1.
+* W przypadku metryk zliczania **pojedynczych punktów** IoT Hub rejestruje pojedynczy punkt danych — zasadniczo 1---za każdym razem, gdy nastąpi pomiar operacji. Azure Monitor następnie sumuje te punkty danych w ramach określonego stopnia szczegółowości. Przykładami metryk **pojedynczych punktów** są *wysyłane komunikaty telemetryczne* i *Zakończono dostarczanie komunikatów C2D*. Dla tych metryk jedynym odpowiednim typem agregacji jest suma (sum). Portal umożliwia wybranie opcji minimum, maksimum i średnika; te wartości będą jednak zawsze 1.
 
-* W przypadku metryk zliczania **migawek** IoT Hub rejestruje łączną liczbę w przypadku wystąpienia operacji mierzonej. Obecnie istnieją trzy metryki **migawek** wyemitowane przez IoT Hub: *całkowita liczba użytych komunikatów* , *łączne urządzenia (wersja zapoznawcza)* i *połączone urządzenia (wersja zapoznawcza)* . Ponieważ te metryki stanowią "łączną ilość" przy każdej emisji, sumowanie ich od określonego stopnia szczegółowości nie ma sensu. Azure Monitor ogranicza wybór wartości średniej, minimalnej i maksymalnej dla typu agregacji dla tych metryk.
+* W przypadku metryk zliczania **migawek** IoT Hub rejestruje łączną liczbę w przypadku wystąpienia operacji mierzonej. Obecnie istnieją trzy metryki **migawek** wyemitowane przez IoT Hub: *całkowita liczba użytych komunikatów*, *łączne urządzenia (wersja zapoznawcza)* i *połączone urządzenia (wersja zapoznawcza)*. Ponieważ te metryki stanowią "łączną ilość" przy każdej emisji, sumowanie ich od określonego stopnia szczegółowości nie ma sensu. Azure Monitor ogranicza wybór wartości średniej, minimalnej i maksymalnej dla typu agregacji dla tych metryk.
 
 ### <a name="cloud-to-device-command-metrics"></a>Metryki poleceń z chmury do urządzenia
 
@@ -150,8 +150,8 @@ W przypadku metryk z wartością **jednostki** **Count** tylko suma (sum) jest p
 
 |Nazwa wyświetlana metryki|Metryka|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|Dostawy Event Grid (wersja zapoznawcza)|EventGridDeliveries|Liczba|Łącznie|Liczba zdarzeń IoT Hub opublikowanych do Event Grid. Użyj wymiaru wynik dla liczby żądań zakończonych powodzeniem i niepowodzeniem. Wymiar EventType przedstawia typ zdarzenia ( https://aka.ms/ioteventgrid) .|Wynik:<br/>Typ zdarzenia<br>*Aby uzyskać więcej informacji, zobacz [Dimension Metrics](#metric-dimensions)* .|
-|Opóźnienie Event Grid (wersja zapoznawcza)|EventGridLatency|)|Średnia|Średnie opóźnienie (w milisekundach) od momentu wygenerowania zdarzenia usługi IoT Hub po opublikowaniu zdarzenia w Event Grid. Ta liczba jest średnia między wszystkimi typami zdarzeń. Użyj wymiaru EventType, aby zobaczyć opóźnienie określonego typu zdarzenia.|Typ zdarzenia<br>*Aby uzyskać więcej informacji, zobacz [Dimension Metrics](#metric-dimensions)* .|
+|Dostawy Event Grid (wersja zapoznawcza)|EventGridDeliveries|Liczba|Łącznie|Liczba zdarzeń IoT Hub opublikowanych do Event Grid. Użyj wymiaru wynik dla liczby żądań zakończonych powodzeniem i niepowodzeniem. Wymiar EventType przedstawia typ zdarzenia ( https://aka.ms/ioteventgrid) .|Wynik:<br/>Typ zdarzenia<br>*Aby uzyskać więcej informacji, zobacz [Dimension Metrics](#metric-dimensions)*.|
+|Opóźnienie Event Grid (wersja zapoznawcza)|EventGridLatency|)|Średnia|Średnie opóźnienie (w milisekundach) od momentu wygenerowania zdarzenia usługi IoT Hub po opublikowaniu zdarzenia w Event Grid. Ta liczba jest średnia między wszystkimi typami zdarzeń. Użyj wymiaru EventType, aby zobaczyć opóźnienie określonego typu zdarzenia.|Typ zdarzenia<br>*Aby uzyskać więcej informacji, zobacz [Dimension Metrics](#metric-dimensions)*.|
 
 W przypadku metryk z wartością **jednostki** **Count** tylko suma (sum) jest prawidłowa. Agregacje minimalna, maksymalna i średnia zawsze zwracają wartość 1. Aby uzyskać więcej informacji, zobacz [obsługiwane agregacje](#supported-aggregations).
 
@@ -178,9 +178,9 @@ W przypadku metryk z wartością **jednostki** **Count** tylko suma (sum) jest p
 
 |Nazwa wyświetlana metryki|Metryka|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-| Próby dostarczania routingu (wersja zapoznawcza) |RoutingDeliveries | Liczba | Łącznie |Jest to metryka dostarczania routingu. Wymiary służą do identyfikowania stanu dostawy dla określonego punktu końcowego lub dla określonego źródła routingu.| Wynik:<br>RoutingSource,<br>EndpointType,<br>FailureReasonCategory,<br>Nazwapunktukoncowego<br>*Aby uzyskać więcej informacji, zobacz [Dimension Metrics](#metric-dimensions)* . |
-| Rozmiar danych dostarczania routingu (w bajtach) (wersja zapoznawcza)|RoutingDataSizeInBytesDelivered| Bajty | Łącznie |Całkowita liczba bajtów kierowanych przez IoT Hub do niestandardowego punktu końcowego i wbudowanego punktu końcowego. Wymiary umożliwiają identyfikowanie rozmiaru danych kierowanych do określonego punktu końcowego lub dla określonego źródła routingu.| RoutingSource,<br>Punkt końcowy<br>Nazwapunktukoncowego<br>*Aby uzyskać więcej informacji, zobacz [Dimension Metrics](#metric-dimensions)* .|
-| Opóźnienie routingu (wersja zapoznawcza) |RoutingDeliveryLatency| ) | Średnia |Jest to metryka opóźnienia dostarczania routingu. Wymiary umożliwiają zidentyfikowanie opóźnienia dla określonego punktu końcowego lub dla określonego źródła routingu.| RoutingSource,<br>EndpointType,<br>Nazwapunktukoncowego<br>*Aby uzyskać więcej informacji, zobacz [Dimension Metrics](#metric-dimensions)* .|
+| Próby dostarczania routingu (wersja zapoznawcza) |RoutingDeliveries | Liczba | Łącznie |Jest to metryka dostarczania routingu. Wymiary służą do identyfikowania stanu dostawy dla określonego punktu końcowego lub dla określonego źródła routingu.| Wynik:<br>RoutingSource,<br>EndpointType,<br>FailureReasonCategory,<br>Nazwapunktukoncowego<br>*Aby uzyskać więcej informacji, zobacz [Dimension Metrics](#metric-dimensions)*. |
+| Rozmiar danych dostarczania routingu (w bajtach) (wersja zapoznawcza)|RoutingDataSizeInBytesDelivered| Bajty | Łącznie |Całkowita liczba bajtów kierowanych przez IoT Hub do niestandardowego punktu końcowego i wbudowanego punktu końcowego. Wymiary umożliwiają identyfikowanie rozmiaru danych kierowanych do określonego punktu końcowego lub dla określonego źródła routingu.| RoutingSource,<br>Punkt końcowy<br>Nazwapunktukoncowego<br>*Aby uzyskać więcej informacji, zobacz [Dimension Metrics](#metric-dimensions)*.|
+| Opóźnienie routingu (wersja zapoznawcza) |RoutingDeliveryLatency| ) | Średnia |Jest to metryka opóźnienia dostarczania routingu. Wymiary umożliwiają zidentyfikowanie opóźnienia dla określonego punktu końcowego lub dla określonego źródła routingu.| RoutingSource,<br>EndpointType,<br>Nazwapunktukoncowego<br>*Aby uzyskać więcej informacji, zobacz [Dimension Metrics](#metric-dimensions)*.|
 |Routing: obiekty blob dostarczane do magazynu|D2C. endpoints. dane wyjściowe. Storage. blob|Liczba|Łącznie|Ile razy usługa Routing IoT Hub dostarczać obiekty blob do punktów końcowych magazynu.|Brak|
 |Routing: dane dostarczane do magazynu|D2C. endpoints. ruch wychodzący. Storage. Bytes|Bajty|Łącznie|Ilość danych (w bajtach) IoT Hub Routing dostarczany do punktów końcowych magazynu.|Brak|
 |Routing: opóźnienie komunikatu dla centrum zdarzeń|D2C. endpoints. opóźnienie. eventHubs|)|Średnia|Średnie opóźnienie (w milisekundach) między komunikatami przychodzącymi do IoT Hub i komunikatów przychodzących do niestandardowych punktów końcowych typu centrum zdarzeń. Nie obejmuje to tras komunikatów do wbudowanego punktu końcowego (zdarzenia).|Brak|
@@ -219,17 +219,17 @@ Usługa Azure IoT Hub ma następujące wymiary skojarzone z niektórymi metrykam
 |---|---|
 ||
 |**Nazwapunktukoncowego**| Nazwa punktu końcowego.|
-|**Punkt końcowy**|Jedną z następujących wartości: **eventHubs** , **serviceBusQueues** , **cosmosDB** , **serviceBusTopics** . **wbudowane** lub **blobStorage** .|
-|**Klasę**| Jeden z następujących Event Grid typów zdarzeń: **Microsoft. Devices. DeviceCreated** . **Microsoft. Devices. DeviceDeleted** , **Microsoft. Devices. DeviceConnected** , **Microsoft. Devices. DeviceDisconnected** , lub **Microsoft. Devices. DeviceTelemetry** . Aby uzyskać więcej informacji, zobacz [typy zdarzeń](iot-hub-event-grid.md#event-types).|
-|**FailureReasonCategory**| Jeden z następujących: **nieprawidłowy** , **porzucony** , **oddzielony** lub **zerowy** .|
-|**Wynik**| **Powodzenie** lub **Niepowodzenie** .|
+|**Punkt końcowy**|Jedną z następujących wartości: **eventHubs**, **serviceBusQueues**, **cosmosDB**, **serviceBusTopics**. **wbudowane** lub **blobStorage**.|
+|**Klasę**| Jeden z następujących Event Grid typów zdarzeń: **Microsoft. Devices. DeviceCreated**. **Microsoft. Devices. DeviceDeleted**, **Microsoft. Devices. DeviceConnected**, **Microsoft. Devices. DeviceDisconnected**, lub **Microsoft. Devices. DeviceTelemetry**. Aby uzyskać więcej informacji, zobacz [typy zdarzeń](iot-hub-event-grid.md#event-types).|
+|**FailureReasonCategory**| Jeden z następujących: **nieprawidłowy**, **porzucony**, **oddzielony** lub **zerowy**.|
+|**Wynik**| **Powodzenie** lub **Niepowodzenie**.|
 |**RoutingSource**| Komunikaty urządzenia<br>Zdarzenia zmiany bliźniaczych<br>Zdarzenia cyklu życia urządzenia|
 
-Aby dowiedzieć się więcej na temat wymiarów metryk, zobacz [wielowymiarowe metryki](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+Aby dowiedzieć się więcej na temat wymiarów metryk, zobacz [wielowymiarowe metryki](../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics).
 
 ## <a name="resource-logs"></a>Dzienniki zasobów
 
-Ta sekcja zawiera listę wszystkich typów kategorii dzienników zasobów i schematów zebranych dla IoT Hub platformy Azure. Dostawca zasobów i typ wszystkich dzienników IoT Hub to [Microsoft. Devices/IotHubs](/azure/azure-monitor/platform/resource-logs-categories#microsoftdevicesiothubs).
+Ta sekcja zawiera listę wszystkich typów kategorii dzienników zasobów i schematów zebranych dla IoT Hub platformy Azure. Dostawca zasobów i typ wszystkich dzienników IoT Hub to [Microsoft. Devices/IotHubs](../azure-monitor/platform/resource-logs-categories.md#microsoftdevicesiothubs).
 
 **Tematy w tej sekcji**
 
@@ -384,7 +384,7 @@ Ta kategoria nie może przechwytywać błędów, które są bezpośrednio wykony
 
 ### <a name="routes"></a>Trasy
 
-Kategoria [routingu wiadomości](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) śledzi błędy występujące podczas oceny trasy komunikatów i kondycji punktu końcowego, jak zostało to postrzegane przez IoT Hub. Ta kategoria obejmuje następujące zdarzenia:
+Kategoria [routingu wiadomości](./iot-hub-devguide-messages-d2c.md) śledzi błędy występujące podczas oceny trasy komunikatów i kondycji punktu końcowego, jak zostało to postrzegane przez IoT Hub. Ta kategoria obejmuje następujące zdarzenia:
 
 * Reguła ma wartość "undefined".
 * IoT Hub oznacza punkt końcowy jako martwy lub
@@ -595,8 +595,8 @@ W `properties` sekcji ten dziennik zawiera dodatkowe informacje na temat przycho
 
 | Właściwość | Typ | Opis |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **isRoutingEnabled** | String | Wartość true lub false wskazuje, czy w IoT Hub jest włączona funkcja routingu komunikatów |
-| **parentSpanId** | String | [Identyfikator zakresu](https://w3c.github.io/trace-context/#parent-id) komunikatu nadrzędnego, który będzie w tym przypadku D2C śledzenia komunikatów |
+| **isRoutingEnabled** | Ciąg | Wartość true lub false wskazuje, czy w IoT Hub jest włączona funkcja routingu komunikatów |
+| **parentSpanId** | Ciąg | [Identyfikator zakresu](https://w3c.github.io/trace-context/#parent-id) komunikatu nadrzędnego, który będzie w tym przypadku D2C śledzenia komunikatów |
 
 #### <a name="iot-hub-egress-logs"></a>Dzienniki wychodzące IoT Hub
 
@@ -627,9 +627,9 @@ W `properties` sekcji ten dziennik zawiera dodatkowe informacje na temat przycho
 
 | Właściwość | Typ | Opis |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **Nazwapunktukoncowego** | String | Nazwa punktu końcowego routingu |
-| **punkt końcowy** | String | Typ punktu końcowego routingu |
-| **parentSpanId** | String | [Identyfikator zakresu](https://w3c.github.io/trace-context/#parent-id) komunikatu nadrzędnego, który będzie IoT Hub śledzenia komunikatów przychodzących w tym przypadku |
+| **Nazwapunktukoncowego** | Ciąg | Nazwa punktu końcowego routingu |
+| **punkt końcowy** | Ciąg | Typ punktu końcowego routingu |
+| **parentSpanId** | Ciąg | [Identyfikator zakresu](https://w3c.github.io/trace-context/#parent-id) komunikatu nadrzędnego, który będzie IoT Hub śledzenia komunikatów przychodzących w tym przypadku |
 
 ### <a name="configurations"></a>Konfiguracje
 
@@ -689,4 +689,4 @@ Aby uzyskać informacje na temat wszystkich Azure Monitor dzienników/tabel Log 
 ## <a name="see-also"></a>Zobacz też
 
 * Aby uzyskać opis monitorowania IoT Hub platformy Azure, zobacz artykuł [monitorowanie usługi azure IoT Hub](monitor-iot-hub.md) .
-* Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](/azure/azure-monitor/insights/monitor-azure-resource) .
+* Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../azure-monitor/insights/monitor-azure-resource.md) .

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 460fed7244ba8094da41ae6b5b8161de3d9efe65
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: efa160eb422658aeeb2eea3ad3c1d305b4b9f8be
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317279"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462411"
 ---
 # <a name="sql-authentication"></a>Uwierzytelnianie SQL
 
@@ -22,14 +22,14 @@ Usługa Azure Synapse Analytics ma dwa czynniki formularzy SQL, które umożliwi
 
 Aby autoryzować do Synapse SQL, można użyć dwóch typów autoryzacji:
 
-- Autoryzacja Azure Active Directory
+- Autoryzacja usługi Azure Active Directory
 - Autoryzacja SQL
 
 Azure Active Directory umożliwia korzystanie z jednego miejsca do zarządzania użytkownikami. Autoryzacja SQL umożliwia starszym aplikacjom używanie Synapse SQL w dobrze znany sposób.
 
 ## <a name="administrative-accounts"></a>Konta administracyjne
 
-Istnieją dwa konta z uprawnieniami administracyjnymi ( **Administrator serwera** i **Administrator usługi Active Directory** ), które funkcjonują jako administratorzy. Aby zidentyfikować te konta administratorów dla programu SQL Server, Otwórz Azure Portal i przejdź do karty właściwości w programie SQL Synapse.
+Istnieją dwa konta z uprawnieniami administracyjnymi (**Administrator serwera** i **Administrator usługi Active Directory**), które funkcjonują jako administratorzy. Aby zidentyfikować te konta administratorów dla programu SQL Server, Otwórz Azure Portal i przejdź do karty właściwości w programie SQL Synapse.
 
 ![Administratorzy serwera SQL](./media/sql-authentication/sql-admins.png)
 
@@ -51,7 +51,7 @@ Konta administratorów **serwera** i **usługi Azure AD** mają następującą c
 - Może dodawać i usuwać członków do `dbmanager` ról i `loginmanager` .
 - Może wyświetlać `sys.sql_logins` tabelę systemową.
 
-## <a name="serverless-sql-pool-preview"></a>[Pula SQL bezserwerowa (wersja zapoznawcza)](#tab/serverless)
+## <a name="serverless-sql-pool"></a>[Pula SQL bezserwerowa](#tab/serverless)
 
 Aby zarządzać użytkownikami mającymi dostęp do bezserwerowej puli SQL, można użyć poniższych instrukcji.
 
@@ -127,7 +127,7 @@ Teraz użytkownik może połączyć się z `master` bazą danych i może tworzy�
 
 ### <a name="login-managers"></a>Menedżerowie logowania
 
-Druga rola administracyjna to rola menedżera logowania. Członkowie tej roli mogą tworzyć nowe nazwy logowania w bazie danych master. Jeśli chcesz, możesz wykonać te same kroki (utworzenie identyfikatora logowania i użytkownika, a następnie dodanie użytkownika do roli **loginmanager** ), aby umożliwić użytkownikowi tworzenie nowych identyfikatorów logowania w bazie danych master. Zazwyczaj logowanie nie jest konieczne, ponieważ firma Microsoft zaleca korzystanie z użytkowników zawartej bazy danych, którzy uwierzytelniają się na poziomie bazy danych zamiast korzystać z użytkowników na podstawie nazw logowania. Aby uzyskać więcej informacji, zobacz artykuł [Contained Database Users - Making Your Database Portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (Użytkownicy zawartej bazy danych — tworzenie przenośnej bazy danych).
+Druga rola administracyjna to rola menedżera logowania. Członkowie tej roli mogą tworzyć nowe nazwy logowania w bazie danych master. Jeśli chcesz, możesz wykonać te same kroki (utworzenie identyfikatora logowania i użytkownika, a następnie dodanie użytkownika do roli **loginmanager**), aby umożliwić użytkownikowi tworzenie nowych identyfikatorów logowania w bazie danych master. Zazwyczaj logowanie nie jest konieczne, ponieważ firma Microsoft zaleca korzystanie z użytkowników zawartej bazy danych, którzy uwierzytelniają się na poziomie bazy danych zamiast korzystać z użytkowników na podstawie nazw logowania. Aby uzyskać więcej informacji, zobacz artykuł [Contained Database Users - Making Your Database Portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (Użytkownicy zawartej bazy danych — tworzenie przenośnej bazy danych).
 
 ---
 
@@ -187,7 +187,7 @@ Wydajne zarządzanie dostępem obejmuje korzystanie z uprawnień przypisanych do
 
 - W przypadku uwierzytelniania programu SQL Server utwórz zawartych użytkowników bazy danych w bazie danych. Umieść co najmniej jednego użytkownika bazy danych w [roli bazy danych](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), a następnie przypisz [uprawnienia](/sql/relational-databases/security/permissions-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) do roli bazy danych.
 
-Role bazy danych mogą być rolami wbudowanymi, takimi jak **db_owner** , **db_ddladmin** , **db_datawriter** , **db_datareader** , **db_denydatawriter** i **db_denydatareader**. Rola **db_owner** jest najczęściej używana do udzielenia pełnych uprawnień jedynie niewielkiej liczbie użytkowników. Inne ustalone role bazy danych ułatwiają szybkie tworzenie prostej bazy danych, ale nie zaleca się ich używania w większości przypadków tworzenia produkcyjnych baz danych. 
+Role bazy danych mogą być rolami wbudowanymi, takimi jak **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter** i **db_denydatareader**. Rola **db_owner** jest najczęściej używana do udzielenia pełnych uprawnień jedynie niewielkiej liczbie użytkowników. Inne ustalone role bazy danych ułatwiają szybkie tworzenie prostej bazy danych, ale nie zaleca się ich używania w większości przypadków tworzenia produkcyjnych baz danych. 
 
 Na przykład ustalona rola bazy danych **db_datareader** pozwala na odczyt każdej tabeli w bazie danych, co nie zawsze jest niezbędne. 
 

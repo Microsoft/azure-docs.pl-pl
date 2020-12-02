@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
 ms.date: 11/06/2020
-ms.openlocfilehash: dc239843c4ed597949b4ba00c44ec84fc70741a8
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 2fabf75f74ccf57f57e7b47720ceda8885420842
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357610"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460914"
 ---
 # <a name="monitoring-azure-iot-hub"></a>Monitorowanie IoT Hub platformy Azure
 
@@ -29,9 +29,9 @@ Informacje przedstawione w okienku Przegląd są przydatne, ale przedstawiają t
 
 ## <a name="what-is-azure-monitor"></a>Co to jest Azure Monitor?
 
-Usługa Azure IoT Hub tworzy dane monitorowania przy użyciu [Azure monitor](/azure/azure-monitor/overview), który jest pełną usługą monitorowania stosu na platformie Azure, która oferuje pełny zestaw funkcji do monitorowania zasobów platformy Azure, a także zasobów w innych chmurach i lokalnych.
+Usługa Azure IoT Hub tworzy dane monitorowania przy użyciu [Azure monitor](../azure-monitor/overview.md), który jest pełną usługą monitorowania stosu na platformie Azure, która oferuje pełny zestaw funkcji do monitorowania zasobów platformy Azure, a także zasobów w innych chmurach i lokalnych.
 
-Zacznij od artykułu [monitorowanie zasobów platformy Azure za pomocą Azure monitor](/azure/azure-monitor/insights/monitor-azure-resource), który opisuje następujące pojęcia:
+Zacznij od artykułu [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../azure-monitor/insights/monitor-azure-resource.md), który opisuje następujące pojęcia:
 
 - Co to jest Azure Monitor?
 - Koszty związane z monitorowaniem
@@ -43,7 +43,7 @@ Poniższe sekcje dotyczą tego artykułu, opisując szczegółowe dane zebrane d
 
 ## <a name="monitoring-data"></a>Dane monitorowania
 
-Usługa Azure IoT Hub zbiera te same dane monitorowania co inne zasoby platformy Azure, które są opisane w temacie [monitorowanie danych z zasobów platformy Azure](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources).
+Usługa Azure IoT Hub zbiera te same dane monitorowania co inne zasoby platformy Azure, które są opisane w temacie [monitorowanie danych z zasobów platformy Azure](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data).
 
 Aby uzyskać szczegółowe informacje na temat metryk i dzienników utworzonych przez usługę Azure IoT Hub, zobacz artykuł [monitorowanie danych usługi azure IoT Hub Data Reference](monitor-iot-hub-reference.md) .
 
@@ -67,31 +67,31 @@ Poniższy zrzut ekranu przedstawia ustawienie diagnostyczne dla routingu typ dzi
 
 :::image type="content" source="media/monitor-iot-hub/diagnostic-setting-portal.png" alt-text="Okienko ustawień diagnostycznych Centrum IoT.":::
 
-Zobacz [Tworzenie ustawień diagnostycznych, aby zbierać dzienniki platformy i metryki na platformie Azure](/azure/azure-monitor/platform/diagnostic-settings) w celu uzyskania szczegółowego procesu tworzenia ustawień diagnostycznych przy użyciu Azure Portal, interfejsu wiersza polecenia lub programu PowerShell. Podczas tworzenia ustawienia diagnostycznego należy określić, które kategorie dzienników mają być zbierane. Kategorie IoT Hub platformy Azure znajdują się w obszarze [dzienniki zasobów w temacie monitorowanie danych IoT Hub platformy Azure](monitor-iot-hub-reference.md#resource-logs).
+Zobacz [Tworzenie ustawień diagnostycznych, aby zbierać dzienniki platformy i metryki na platformie Azure](../azure-monitor/platform/diagnostic-settings.md) w celu uzyskania szczegółowego procesu tworzenia ustawień diagnostycznych przy użyciu Azure Portal, interfejsu wiersza polecenia lub programu PowerShell. Podczas tworzenia ustawienia diagnostycznego należy określić, które kategorie dzienników mają być zbierane. Kategorie IoT Hub platformy Azure znajdują się w obszarze [dzienniki zasobów w temacie monitorowanie danych IoT Hub platformy Azure](monitor-iot-hub-reference.md#resource-logs).
 
 Podczas routingu IoT Hub metryki platformy do innych lokalizacji należy pamiętać, że:
 
 - Następujące metryki platformy nie są eksportowane za pośrednictwem ustawień diagnostycznych: *urządzenia połączone (wersja zapoznawcza)* i *łączna liczba urządzeń (wersja zapoznawcza)*.
 
-- Metryki wielowymiarowe, na przykład niektóre [metryki routingu](monitor-iot-hub-reference.md#routing-metrics), są obecnie eksportowane jako spłaszczone metryki jednowymiarowe zagregowane w obrębie wartości wymiarów. Aby uzyskać więcej szczegółów, zobacz [Eksportowanie metryk platformy do innych lokalizacji](/azure/azure-monitor/platform/metrics-supported#exporting-platform-metrics-to-other-locations).
+- Metryki wielowymiarowe, na przykład niektóre [metryki routingu](monitor-iot-hub-reference.md#routing-metrics), są obecnie eksportowane jako spłaszczone metryki jednowymiarowe zagregowane w obrębie wartości wymiarów. Aby uzyskać więcej szczegółów, zobacz [Eksportowanie metryk platformy do innych lokalizacji](../azure-monitor/platform/metrics-supported.md#exporting-platform-metrics-to-other-locations).
 
 ## <a name="analyzing-metrics"></a>Analizowanie metryk
 
-Metryki dla IoT Hub platformy Azure można analizować za pomocą metryk z innych usług platformy Azure przy użyciu Eksploratora metryk, otwierając **metryki** z menu **Azure monitor** . Aby uzyskać szczegółowe informacje na temat korzystania z tego narzędzia, zobacz [Rozpoczynanie pracy z usługą Azure Eksplorator metryk](/azure/azure-monitor/platform/metrics-getting-started) .
+Metryki dla IoT Hub platformy Azure można analizować za pomocą metryk z innych usług platformy Azure przy użyciu Eksploratora metryk, otwierając **metryki** z menu **Azure monitor** . Aby uzyskać szczegółowe informacje na temat korzystania z tego narzędzia, zobacz [Rozpoczynanie pracy z usługą Azure Eksplorator metryk](../azure-monitor/platform/metrics-getting-started.md) .
 
 W Azure Portal można wybrać **metryki** w obszarze **monitorowanie** w okienku po lewej stronie Centrum IoT, aby otworzyć Eksploratora metryk z zakresem domyślnie do metryk platformy emitowanych przez Centrum IoT Hub:
 
 :::image type="content" source="media/monitor-iot-hub/metrics-portal.png" alt-text="Strona Eksploratora metryk dla Centrum IoT Hub.":::
 
-Listę metryk platformy zebranych dla usługi Azure IoT Hub można znaleźć w temacie [Metrics (monitorowanie danych IoT Hub platformy Azure](monitor-iot-hub-reference.md#metrics)). Aby zapoznać się z listą metryk platformy zebranych dla wszystkich usług platformy Azure, zobacz temat [obsługiwane metryki w Azure monitor](/azure/azure-monitor/platform/metrics-supported).
+Listę metryk platformy zebranych dla usługi Azure IoT Hub można znaleźć w temacie [Metrics (monitorowanie danych IoT Hub platformy Azure](monitor-iot-hub-reference.md#metrics)). Aby zapoznać się z listą metryk platformy zebranych dla wszystkich usług platformy Azure, zobacz temat [obsługiwane metryki w Azure monitor](../azure-monitor/platform/metrics-supported.md).
 
 W przypadku metryk IoT Hub platformy, które są zbierane w jednostkach zliczania, niektóre agregacje mogą nie być dostępne ani użyteczne. Aby dowiedzieć się więcej, zobacz temat [obsługiwane agregacje w temacie monitorowanie danych usługi Azure IoT Hub](monitor-iot-hub-reference.md#supported-aggregations).
 
-Niektóre metryki IoT Hub, takie jak [metryki routingu](monitor-iot-hub-reference.md#routing-metrics), są wielowymiarowe. W przypadku tych metryk można zastosować [filtry](/azure/azure-monitor/platform/metrics-charts#apply-filters-to-charts) i [podzielić](/azure/azure-monitor/platform/metrics-charts#apply-splitting-to-a-chart) je na wykresy w oparciu o wymiar.
+Niektóre metryki IoT Hub, takie jak [metryki routingu](monitor-iot-hub-reference.md#routing-metrics), są wielowymiarowe. W przypadku tych metryk można zastosować [filtry](../azure-monitor/platform/metrics-charts.md#apply-filters-to-charts) i [podzielić](../azure-monitor/platform/metrics-charts.md#apply-splitting-to-a-chart) je na wykresy w oparciu o wymiar.
 
 ## <a name="analyzing-logs"></a>Analizowanie dzienników
 
-Dane w dziennikach Azure Monitor są przechowywane w tabelach, w których każda tabela ma swój własny zestaw unikatowych właściwości. Dane w tych tabelach są skojarzone z obszarem roboczym Log Analytics i można je zbadać w Log Analytics. Aby dowiedzieć się więcej na temat dzienników Azure Monitor, zobacz [Omówienie dzienników Azure monitor](/azure/azure-monitor/platform/data-platform-logs) w dokumentacji Azure monitor. 
+Dane w dziennikach Azure Monitor są przechowywane w tabelach, w których każda tabela ma swój własny zestaw unikatowych właściwości. Dane w tych tabelach są skojarzone z obszarem roboczym Log Analytics i można je zbadać w Log Analytics. Aby dowiedzieć się więcej na temat dzienników Azure Monitor, zobacz [Omówienie dzienników Azure monitor](../azure-monitor/platform/data-platform-logs.md) w dokumentacji Azure monitor. 
 
 Aby przekierować dane do dzienników Azure Monitor, należy utworzyć ustawienie diagnostyczne, aby wysyłać dzienniki zasobów lub metryki platformy do Log Analytics obszaru roboczego. Aby dowiedzieć się więcej, zobacz [zbieranie i Routing](#collection-and-routing).
 
@@ -101,17 +101,17 @@ W Azure Portal można wybrać pozycję **dzienniki** w obszarze **monitorowanie*
 
 Aby uzyskać listę tabel używanych przez Azure Monitor dzienników i Queryable przez Log Analytics, zobacz [dzienniki dzienników Azure monitor w temacie monitorowanie danych IoT Hub platformy Azure](monitor-iot-hub-reference.md#azure-monitor-logs-tables).
 
-Wszystkie dzienniki zasobów w Azure Monitor mają te same pola, a następnie pola specyficzne dla usługi. Wspólny schemat został przedstawiony w [schemacie dziennika zasobów Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#top-level-resource-logs-schema). Schemat i kategorie dzienników zasobów zbieranych dla IoT Hub platformy Azure można znaleźć w [dziennikach zasobów w temacie monitorowanie danych IoT Hub platformy Azure](monitor-iot-hub-reference.md#resource-logs).
+Wszystkie dzienniki zasobów w Azure Monitor mają te same pola, a następnie pola specyficzne dla usługi. Wspólny schemat został przedstawiony w [schemacie dziennika zasobów Azure monitor](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema). Schemat i kategorie dzienników zasobów zbieranych dla IoT Hub platformy Azure można znaleźć w [dziennikach zasobów w temacie monitorowanie danych IoT Hub platformy Azure](monitor-iot-hub-reference.md#resource-logs).
 
-[Dziennik aktywności](/azure/azure-monitor/platform/activity-log) to dziennik platformy na platformie Azure, który zapewnia wgląd w zdarzenia na poziomie subskrypcji. Można wyświetlić go niezależnie lub skierować do dzienników Azure Monitor, w którym można wykonywać dużo bardziej skomplikowane zapytania przy użyciu Log Analytics.  
+[Dziennik aktywności](../azure-monitor/platform/activity-log.md) to dziennik platformy na platformie Azure, który zapewnia wgląd w zdarzenia na poziomie subskrypcji. Można wyświetlić go niezależnie lub skierować do dzienników Azure Monitor, w którym można wykonywać dużo bardziej skomplikowane zapytania przy użyciu Log Analytics.  
 
 Podczas routingu IoT Hub metryki platformy do dzienników Azure Monitor należy pamiętać, że:
 
 - Następujące metryki platformy nie są eksportowane za pośrednictwem ustawień diagnostycznych: *urządzenia połączone (wersja zapoznawcza)* i *łączna liczba urządzeń (wersja zapoznawcza)*.
 
-- Metryki wielowymiarowe, na przykład niektóre [metryki routingu](monitor-iot-hub-reference.md#routing-metrics), są obecnie eksportowane jako spłaszczone metryki jednowymiarowe zagregowane w obrębie wartości wymiarów. Aby uzyskać więcej szczegółów, zobacz [Eksportowanie metryk platformy do innych lokalizacji](/azure/azure-monitor/platform/metrics-supported#exporting-platform-metrics-to-other-locations).
+- Metryki wielowymiarowe, na przykład niektóre [metryki routingu](monitor-iot-hub-reference.md#routing-metrics), są obecnie eksportowane jako spłaszczone metryki jednowymiarowe zagregowane w obrębie wartości wymiarów. Aby uzyskać więcej szczegółów, zobacz [Eksportowanie metryk platformy do innych lokalizacji](../azure-monitor/platform/metrics-supported.md#exporting-platform-metrics-to-other-locations).
 
-W przypadku niektórych typowych zapytań z IoT Hub zobacz [przykładowe zapytania Kusto](#sample-kusto-queries). Aby uzyskać szczegółowe informacje na temat używania zapytań Log Analytics, zobacz [Omówienie zapytań dzienników w programie Azure monitor](/azure/azure-monitor/log-query/log-query-overview).
+W przypadku niektórych typowych zapytań z IoT Hub zobacz [przykładowe zapytania Kusto](#sample-kusto-queries). Aby uzyskać szczegółowe informacje na temat używania zapytań Log Analytics, zobacz [Omówienie zapytań dzienników w programie Azure monitor](../azure-monitor/log-query/log-query-overview.md).
 
 ### <a name="sdk-version-in-iot-hub-logs"></a>Wersja zestawu SDK w dziennikach IoT Hub
 
@@ -152,7 +152,7 @@ AzureDiagnostics
 ### <a name="sample-kusto-queries"></a>Przykładowe zapytania Kusto
 
 > [!IMPORTANT]
-> Po wybraniu opcji **dzienniki** w menu centrum IoT log Analytics zostanie otwarty z zakresem zapytania ustawionym na bieżące Centrum IoT. Oznacza to, że zapytania dziennika będą zawierać tylko dane z tego zasobu. Jeśli chcesz uruchomić zapytanie, które zawiera dane z innych centrów IoT lub danych z innych usług platformy Azure, wybierz pozycję **dzienniki** z menu **Azure monitor** . Aby uzyskać szczegółowe informacje [, zobacz zakres zapytań dzienników i zakres czasu w Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) .
+> Po wybraniu opcji **dzienniki** w menu centrum IoT log Analytics zostanie otwarty z zakresem zapytania ustawionym na bieżące Centrum IoT. Oznacza to, że zapytania dziennika będą zawierać tylko dane z tego zasobu. Jeśli chcesz uruchomić zapytanie, które zawiera dane z innych centrów IoT lub danych z innych usług platformy Azure, wybierz pozycję **dzienniki** z menu **Azure monitor** . Aby uzyskać szczegółowe informacje [, zobacz zakres zapytań dzienników i zakres czasu w Azure Monitor Log Analytics](../azure-monitor/log-query/scope.md) .
 
 Poniżej znajdują się zapytania, których można użyć do monitorowania Centrum IoT.
 
@@ -288,13 +288,13 @@ class Program
 
 ## <a name="alerts"></a>Alerty
 
-Alerty Azure Monitor z wyprzedzeniem powiadamiają Cię, gdy w danych monitorowania zostaną znalezione ważne warunki. Umożliwiają identyfikowanie i rozwiązywanie problemów w systemie przed ich zapisaniem przez klientów. Można ustawić alerty dotyczące [metryk](/azure/azure-monitor/platform/alerts-metric-overview), [dzienników](/azure/azure-monitor/platform/alerts-unified-log)i [dziennika aktywności](/azure/azure-monitor/platform/activity-log-alerts). Różne typy alertów mają zalety i wady.
+Alerty Azure Monitor z wyprzedzeniem powiadamiają Cię, gdy w danych monitorowania zostaną znalezione ważne warunki. Umożliwiają identyfikowanie i rozwiązywanie problemów w systemie przed ich zapisaniem przez klientów. Można ustawić alerty dotyczące [metryk](../azure-monitor/platform/alerts-metric-overview.md), [dzienników](../azure-monitor/platform/alerts-unified-log.md)i [dziennika aktywności](../azure-monitor/platform/activity-log-alerts.md). Różne typy alertów mają zalety i wady.
 
 Podczas tworzenia reguły alertu na podstawie metryk platformy należy pamiętać, że w przypadku metryk IoT Hub platformy, które są zbierane w jednostkach zliczania, niektóre agregacje mogą nie być dostępne ani użyteczne. Aby dowiedzieć się więcej, zobacz temat [obsługiwane agregacje w temacie monitorowanie danych usługi Azure IoT Hub](monitor-iot-hub-reference.md#supported-aggregations).
 
 ## <a name="monitor-per-device-disconnects-with-event-grid"></a>Monitoruj rozłączanie dla poszczególnych urządzeń za pomocą Event Grid
 
-Azure Monitor zapewnia metrykę i *połączone urządzenia* , za pomocą których można monitorować liczbę urządzeń podłączonych do IoT Hub i wyzwalać alert, gdy liczba połączonych urządzeń spadnie poniżej wartości progowej. Chociaż może to być wystarczające w niektórych scenariuszach, [Azure Event Grid](/azure/event-grid/) zapewnia rozwiązanie do monitorowania o małym opóźnieniu i na urządzenie, za pomocą którego można śledzić połączenia urządzeń dla kluczowych urządzeń i infrastruktury.
+Azure Monitor zapewnia metrykę i *połączone urządzenia*, za pomocą których można monitorować liczbę urządzeń podłączonych do IoT Hub i wyzwalać alert, gdy liczba połączonych urządzeń spadnie poniżej wartości progowej. Chociaż może to być wystarczające w niektórych scenariuszach, [Azure Event Grid](../event-grid/index.yml) zapewnia rozwiązanie do monitorowania o małym opóźnieniu i na urządzenie, za pomocą którego można śledzić połączenia urządzeń dla kluczowych urządzeń i infrastruktury.
 
 Za pomocą Event Grid można subskrybować zdarzenia IoT Hub [ **DeviceConnected** i **DeviceDisconnected**](iot-hub-event-grid.md#event-types) w celu wyzwalania alertów i monitorowania stanu połączenia urządzenia. Event Grid zapewnia znacznie małe opóźnienia zdarzeń niż Azure Monitor i można monitorować dla poszczególnych urządzeń, a nie dla łącznej liczby połączonych urządzeń. Te czynniki sprawiają, Event Grid preferowaną metodę monitorowania połączeń dla krytycznych urządzeń i infrastruktury. Zdecydowanie zalecamy używanie Event Grid do monitorowania połączeń urządzeń w środowiskach produkcyjnych.
 
@@ -304,4 +304,4 @@ Aby uzyskać bardziej szczegółowe informacje na temat monitorowania połącze�
 
 - Aby uzyskać informacje na temat metryk, dzienników i innych ważnych wartości utworzonych przez program [nazwa usługi], zobacz artykuł [monitorowanie danych usługi Azure IoT Hub](monitor-iot-hub-reference.md) .
 
-- Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](/azure/azure-monitor/insights/monitor-azure-resource) .
+- Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../azure-monitor/insights/monitor-azure-resource.md) .

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: kgremban
-ms.openlocfilehash: eb53e7052db6d4de365864184b9bd2e6585b7e2d
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: dfd819d82f5e35183802e33e5d423cad4de36c38
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412126"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461593"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-azure-monitor-resource-logs"></a>Migrowanie IoT Hub z monitorowania operacji do Azure Monitor dzienników zasobów
 
@@ -47,11 +47,11 @@ Aby zaktualizować IoT Hub w Azure Portal, najpierw Utwórz ustawienie diagnosty
 
    :::image type="content" source="media/iot-hub-migrate-to-diagnostics-settings/add-diagnostic-setting.png" alt-text="Zrzut ekranu przedstawiający zakończone ustawienie diagnostyczne.":::
 
-1. Wybierz pozycję **Zapisz** , aby zapisać ustawienia.
+1. Wybierz pozycję **Zapisz**, aby zapisać ustawienia.
 
-Nowe ustawienia zaczną obowiązywać od około 10 minut. Następnie dzienniki są wyświetlane w skonfigurowanym miejscu docelowym. Aby uzyskać więcej informacji o konfigurowaniu diagnostyki, zobacz [zbieranie i korzystanie z danych dzienników z zasobów platformy Azure](/azure/azure-monitor/platform/platform-logs-overview).
+Nowe ustawienia zaczną obowiązywać od około 10 minut. Następnie dzienniki są wyświetlane w skonfigurowanym miejscu docelowym. Aby uzyskać więcej informacji o konfigurowaniu diagnostyki, zobacz [zbieranie i korzystanie z danych dzienników z zasobów platformy Azure](../azure-monitor/platform/platform-logs-overview.md).
 
-Aby uzyskać szczegółowe informacje na temat sposobu tworzenia ustawień diagnostycznych, w tym programu PowerShell i interfejsu wiersza polecenia platformy Azure, zobacz [Ustawienia diagnostyczne](/azure/azure-monitor/platform/diagnostic-settings) w dokumentacji Azure monitor.
+Aby uzyskać szczegółowe informacje na temat sposobu tworzenia ustawień diagnostycznych, w tym programu PowerShell i interfejsu wiersza polecenia platformy Azure, zobacz [Ustawienia diagnostyczne](../azure-monitor/platform/diagnostic-settings.md) w dokumentacji Azure monitor.
 
 ### <a name="turn-off-operations-monitoring"></a>Wyłącz monitorowanie operacji
 

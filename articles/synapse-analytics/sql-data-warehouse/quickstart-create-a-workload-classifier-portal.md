@@ -11,14 +11,14 @@ ms.date: 05/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 691cdcb525f8e9e3d1fb914372b9f62366f4bfba
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4c761404ab5a95bc0189407cc97ce779b66356fe
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85213027"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460721"
 ---
-# <a name="quickstart-create-a-synapse-sql-pool-workload-classifier-using-the-azure-portal"></a>Szybki Start: Tworzenie klasyfikatora obciążeń puli SQL Synapse przy użyciu Azure Portal
+# <a name="quickstart-create-a-dedicated-sql-pool-workload-classifier-using-the-azure-portal"></a>Szybki Start: tworzenie dedykowanego klasyfikatora obciążeń puli SQL przy użyciu Azure Portal
 
 W tym przewodniku szybki start utworzysz [klasyfikator obciążeń](sql-data-warehouse-workload-classification.md) służący do przypisywania zapytań do grupy obciążeń.  Klasyfikator przypisze żądania od `ELTLogin` użytkownika SQL do `DataLoads` grupy obciążeń.   Postępuj zgodnie z samouczkiem [Szybki Start: Konfigurowanie izolacji obciążenia](quickstart-configure-workload-isolation-portal.md) , aby utworzyć `DataLoads` grupę obciążeń.  W tym samouczku zostanie utworzony klasyfikator obciążeń z opcją WLM_LABEL, aby ułatwić dalsze klasyfikowanie żądań.  Klasyfikator przypisze `HIGH` również [ważność obciążeń](sql-data-warehouse-workload-importance.md) do tych żądań.
 
@@ -31,16 +31,16 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 > [!NOTE]
-> Utworzenie wystąpienia puli SQL w usłudze Azure Synapse Analytics może spowodować powstanie nowej usługi do obciążania.  Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> Tworzenie dedykowanego wystąpienia puli SQL w usłudze Azure Synapse Analytics może spowodować powstanie nowej usługi do obciążania.  Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym przewodniku szybki start założono, że masz już wystąpienie puli SQL w Synapse SQL i że masz uprawnienia sterujące bazą danych. Jeżeli chcesz utworzyć taki magazyn, skorzystaj z przewodnika [Szybki start: tworzenie i łączenie — portal](create-data-warehouse-portal.md), aby utworzyć magazyn danych o nazwie **mySampleDataWarehouse**.
+W tym przewodniku szybki start założono, że masz już dedykowane wystąpienie puli SQL, które ma uprawnienia do kontroli bazy danych. Jeśli trzeba ją utworzyć, użyj instrukcji [Create i Connect-Portal](create-data-warehouse-portal.md) , aby utworzyć dedykowaną pulę SQL o nazwie **mySampleDataWarehouse**.
 <br><br>
 Grupa obciążenia `DataLoads` istnieje.  Zobacz samouczek [Szybki Start: Konfigurowanie izolacji obciążenia](quickstart-configure-workload-isolation-portal.md) , aby utworzyć grupę obciążeń.
 <br><br>
 >[!IMPORTANT] 
->Aby można było skonfigurować zarządzanie obciążeniami, Pula SQL musi być w trybie online. 
+>Dedykowana Pula SQL musi być w trybie online, aby można było skonfigurować zarządzanie obciążeniami. 
 
 
 ## <a name="create-a-login-for-eltlogin"></a>Utwórz nazwę logowania dla ELTLogin
@@ -72,18 +72,17 @@ END
 Klasyfikacja pozwala na kierowanie żądań na podstawie zestawu reguł do grupy obciążeń.  W samouczku [Szybki Start: Konfigurowanie izolacji obciążeń](quickstart-configure-workload-isolation-portal.md) utworzyliśmy `DataLoads` grupę obciążeń.  Teraz utworzysz klasyfikator obciążeń, aby kierować zapytania do `DataLoads` grupy obciążeń.
 
 
-1.  Kliknij pozycję **Azure Synapse Analytics (wcześniej SQL DW)** na lewej stronie Azure Portal.
-2.  Wybierz pozycję **mySampleDataWarehouse** na stronie **usługi Azure Synapse Analytics (dawniej SQL DW)** . Zostanie otwarta Pula SQL.
-3.  Kliknij pozycję **zarządzanie obciążeniami**.
+1.  Przejdź do strony dedykowanej puli SQL **mySampleDataWarehouse** .
+3.  Wybierz pozycję **zarządzanie obciążeniami**.
 
     ![Menu kliknij](./media/quickstart-create-a-workload-classifier-portal/menu.png)
 
-4.  Kliknij pozycję **ustawienia & klasyfikatory** po prawej stronie `DataLoads` grupy obciążenia.
+4.  Wybierz pozycję **ustawienia & klasyfikatory** po prawej stronie `DataLoads` grupy obciążenia.
 
     ![Kliknięcie pozycji Utwórz](./media/quickstart-create-a-workload-classifier-portal/settings-classifiers.png)
 
-5. Kliknij **klasyfikatora**.
-6. Kliknij pozycję **Dodaj klasyfikator**.
+5. W kolumnie klasyfikatory wybierz pozycję  **Nieskonfigurowane** .
+6. Wybierz pozycję **+ Dodaj klasyfikator**.
 
     ![Kliknij pozycję Dodaj.](./media/quickstart-create-a-workload-classifier-portal/add-wc.png)
 
@@ -91,8 +90,8 @@ Klasyfikacja pozwala na kierowanie żądań na podstawie zestawu reguł do grupy
 8.  Wprowadź `ELTLogin` dla **elementu członkowskiego**.
 9.  Wybierz `High` opcję **ważności żądania**.  *Opcjonalna*, normalna ważność jest domyślna.
 10. Wprowadź `fact_loads` dla **etykiety**.
-11. Kliknij pozycję **Dodaj**.
-12. Kliknij pozycję **Zapisz**.
+11. Wybierz pozycję **Dodaj**.
+12. Wybierz pozycję **Zapisz**.
 
     ![Kliknij pozycję Konfiguracja](./media/quickstart-create-a-workload-classifier-portal/config-wc.png)
 
@@ -135,8 +134,6 @@ WHERE [label] = 'fact_loads'
 ORDER BY submit_time DESC
 ```
 
-
-
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby usunąć `ELTLoginDataLoads` klasyfikator obciążeń utworzony w tym samouczku:
@@ -152,24 +149,20 @@ Aby usunąć `ELTLoginDataLoads` klasyfikator obciążeń utworzony w tym samouc
 
     ![Klikanie pozycji Zapisz.](./media/quickstart-create-a-workload-classifier-portal/delete-save-wc.png)
 
-Opłaty są naliczane za jednostki magazynu danych i dane przechowywane w magazynie danych. Opłaty za te zasoby obliczeniowe i magazynowe są naliczane osobno.
+Opłaty są naliczane za jednostki magazynu danych i dane przechowywane w dedykowanej puli SQL. Opłaty za te zasoby obliczeniowe i magazynowe są naliczane osobno.
 
-- Jeśli chcesz przechowywać dane w magazynie, możesz wstrzymać obliczenia, gdy nie korzystasz z magazynu danych. Przez wstrzymywanie obliczeń opłata jest naliczana tylko za magazyn danych. Gdy wszystko będzie gotowe do pracy z danymi, Wznów obliczenia.
-- Aby uniknąć opłat w przyszłości, możesz usunąć magazyn danych.
+- Jeśli chcesz zachować dane w magazynie, możesz wstrzymać obliczenia, gdy nie korzystasz z dedykowanej puli SQL. Przez wstrzymywanie obliczeń opłata jest naliczana tylko za magazyn danych. Gdy wszystko będzie gotowe do pracy z danymi, Wznów obliczenia.
+- Jeśli chcesz usunąć przyszłe opłaty, możesz usunąć dedykowaną pulę SQL.
 
 Wykonaj następujące kroki, aby wyczyścić zasoby.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com), wybierz pozycję Magazyn danych.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com), wybierz dedykowaną pulę SQL.
 
     ![Czyszczenie zasobów](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Aby wstrzymać obliczenia, wybierz przycisk **Wstrzymaj** . Gdy magazyn danych jest wstrzymany, zobaczysz przycisk **Uruchom**.  Aby wznowić obliczenia, wybierz pozycję **Uruchom**.
+2. Aby wstrzymać obliczenia, wybierz przycisk **Wstrzymaj** . Gdy dedykowana Pula SQL jest wstrzymana, zobaczysz przycisk **Start** .  Aby wznowić obliczenia, wybierz pozycję **Uruchom**.
 
-3. Aby usunąć magazyn danych, aby nie naliczać opłat za zasoby obliczeniowe i magazynowanie, wybierz pozycję **Usuń**.
-
-4. Aby usunąć utworzony serwer SQL, wybierz pozycję **sqlpoolservername.Database.Windows.NET** na poprzednim obrazie, a następnie wybierz pozycję **Usuń**.  Należy zachować ostrożność podczas usuwania, ponieważ usunięcie serwera spowoduje również usunięcie wszystkich baz danych przypisanych do tego serwera.
-
-5. Aby usunąć grupę zasobów, wybierz pozycję Moja **zasobów**, a następnie wybierz pozycję **Usuń grupę zasobów**.
+3. Aby usunąć dedykowaną pulę SQL, aby nie naliczać opłat za zasoby obliczeniowe i magazynowanie, wybierz pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 

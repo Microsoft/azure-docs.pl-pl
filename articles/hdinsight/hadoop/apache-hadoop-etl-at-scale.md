@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: bb978f30104b1e38bd8930ccb058c4057d394e51
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: d6c3dbc28da7bee0bc24a6dc24608c78e480c20e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899659"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462170"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Wyodrębnianie, przekształcanie i ładowanie (ETL) na dużą skalę
 
@@ -27,7 +27,7 @@ W poniższych sekcjach opisano wszystkie fazy ETL i powiązane z nimi składniki
 
 ## <a name="orchestration"></a>Aranżacja
 
-Aranżacja obejmuje wszystkie fazy potoku ETL. Zadania ETL w usłudze HDInsight często obejmują kilka różnych produktów współpracujących ze sobą. Na przykład:
+Aranżacja obejmuje wszystkie fazy potoku ETL. Zadania ETL w usłudze HDInsight często obejmują kilka różnych produktów współpracujących ze sobą. Przykład:
 
 - Możesz użyć Apache Hive, aby wyczyścić część danych, i Apache świni, aby oczyścić kolejną część.
 - Azure Data Factory można użyć do załadowania danych do Azure SQL Database z Azure Data Lake Store.
@@ -86,7 +86,7 @@ W przypadku przekazywania zestawów danych w zakresie terabajtów opóźnienie s
 
 ### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-Usługa Azure Synapse Analytics (wcześniej SQL DW) jest odpowiednim rozwiązaniem do przechowywania przygotowanych wyników. Usługa Azure HDInsight umożliwia wykonywanie tych usług na platformie Azure Synapse Analytics.
+Usługa Azure Synapse Analytics jest odpowiednim rozwiązaniem do przechowywania przygotowanych wyników. Usługa Azure HDInsight umożliwia wykonywanie tych usług na platformie Azure Synapse Analytics.
 
 Usługa Azure Synapse Analytics to relacyjny magazyn baz danych zoptymalizowany pod kątem obciążeń analitycznych. Skaluje się na podstawie partycjonowanych tabel. Tabele mogą być partycjonowane w wielu węzłach. Węzły są wybierane podczas tworzenia. Mogą one być skalowane po fakcie, ale jest to aktywny proces, który może wymagać przeniesienia danych. Aby uzyskać więcej informacji, zobacz [Zarządzanie obliczeniami w usłudze Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 

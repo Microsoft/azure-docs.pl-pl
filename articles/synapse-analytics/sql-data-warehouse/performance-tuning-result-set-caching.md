@@ -1,6 +1,6 @@
 ---
 title: Strojenie wydajności za pomocą buforowania zestawu wyników
-description: Omówienie funkcji buforowania zestawu wyników dla puli SQL Synapse w usłudze Azure Synapse Analytics
+description: Omówienie funkcji buforowania zestawu wyników dla dedykowanej puli SQL w usłudze Azure Synapse Analytics
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 933ec541e358f1839c1b4d24acd19e439ea26375
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2b54277d0306244dc4ab6740fdd30e52668dd63c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541285"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460776"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Strojenie wydajności za pomocą buforowania zestawu wyników
 
-Gdy buforowanie zestawu wyników jest włączone, Synapse SQL automatycznie buforuje wyniki zapytania w bazie danych użytkownika do powtarzanego użycia.  Dzięki temu kolejne wykonania zapytania będą uzyskiwać wyniki bezpośrednio z utrwalonej pamięci podręcznej, więc ponowne obliczenie nie jest konieczne.   Buforowanie zestawu wyników zwiększa wydajność zapytań i zmniejsza użycie zasobów obliczeniowych.  Ponadto zapytania korzystające z zbuforowanego zestawu wyników nie używają żadnych miejsc współbieżności, więc nie są wliczane do istniejących limitów współbieżności. W celu zapewnienia bezpieczeństwa użytkownicy mogą uzyskiwać dostęp do buforowanych wyników tylko wtedy, gdy mają one takie same uprawnienia dostępu do danych, jak użytkownicy tworzący buforowane wyniki.  
+Gdy buforowanie zestawu wyników jest włączone, dedykowana Pula SQL automatycznie buforuje wyniki zapytania w bazie danych użytkownika do powtarzanego użycia.  Dzięki temu kolejne wykonania zapytania będą uzyskiwać wyniki bezpośrednio z utrwalonej pamięci podręcznej, więc ponowne obliczenie nie jest konieczne.   Buforowanie zestawu wyników zwiększa wydajność zapytań i zmniejsza użycie zasobów obliczeniowych.  Ponadto zapytania korzystające z zbuforowanego zestawu wyników nie używają żadnych miejsc współbieżności, więc nie są wliczane do istniejących limitów współbieżności. W celu zapewnienia bezpieczeństwa użytkownicy mogą uzyskiwać dostęp do buforowanych wyników tylko wtedy, gdy mają one takie same uprawnienia dostępu do danych, jak użytkownicy tworzący buforowane wyniki.  
 
 ## <a name="key-commands"></a>Polecenia kluczowe
 
@@ -47,7 +47,7 @@ Po włączeniu buforowania zestawu wyników dla bazy danych wyniki są buforowan
 > - Jeśli dane w kolumnach ORDER BY nie są unikatowe, nie istnieje kolejność wierszy GARANTEED wierszy z tymi samymi wartościami w kolumnach ORDER BY, niezależnie od tego, czy buforowanie zestawu wyników jest włączone, czy wyłączone.
 
 > [!IMPORTANT]
-> Operacje tworzenia pamięci podręcznej zestawu wyników i pobierania danych z pamięci podręcznej odbywają się w węźle kontrolnym wystąpienia puli SQL Synapse.
+> Operacje tworzenia pamięci podręcznej zestawu wyników i pobierania danych z pamięci podręcznej są wykonywane w węźle kontrolnym dedykowanego wystąpienia puli SQL.
 > Gdy buforowanie zestawu wyników jest włączone, uruchomione zapytania, które zwracają duży zestaw wyników (na przykład >1 GB) mogą spowodować wysokie ograniczenia w węźle kontrolnym i spowalniać ogólną odpowiedź na zapytanie w wystąpieniu.  Te zapytania są często używane podczas operacji eksploracji danych lub ETL. Aby uniknąć naciskania węzła kontrolnego i spowodować problem z wydajnością, użytkownicy powinni wyłączyć buforowanie zestawu wyników w bazie danych przed uruchomieniem tych typów zapytań.  
 
 Uruchom to zapytanie przez czas wykonywania operacji buforowania przez zestaw wyników dla zapytania:
@@ -85,7 +85,7 @@ WHERE request_id = <'Your_Query_Request_ID'>
 
 Maksymalny rozmiar pamięci podręcznej zestawu wyników wynosi 1 TB na bazę danych.  Buforowane wyniki zostaną automatycznie unieważnione po zmianie źródłowych danych zapytania.  
 
-Wykluczanie pamięci podręcznej jest zarządzane przez program Synapse SQL, zgodnie z tym harmonogramem:
+Wykluczanie pamięci podręcznej jest zarządzane przez dedykowaną pulę SQL automatycznie zgodnie z tym harmonogramem:
 
 - Co 48 godzin, jeśli zestaw wyników nie został użyty lub został unieważniony.
 - Gdy pamięć podręczna zestawu wyników zbliża się do maksymalnego rozmiaru.

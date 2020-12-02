@@ -11,14 +11,14 @@ ms.date: 04/27/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 9132c9609961053e7f60344dc387b2a8d01bd6b9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ae21368269a2c098b4e35bf83b8c9fdf2749a297
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85212993"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460557"
 ---
-# <a name="quickstart-configure-workload-isolation-using-t-sql"></a>Szybki Start: Konfigurowanie izolacji obciążenia przy użyciu języka T-SQL
+# <a name="quickstart-configure-workload-isolation-in-a-dedicated-sql-pool-using-t-sql"></a>Szybki Start: Konfigurowanie izolacji obciążeń w dedykowanej puli SQL przy użyciu języka T-SQL
 
 W tym przewodniku szybki start utworzysz grupę obciążeń i klasyfikator w celu zarezerwowania zasobów na potrzeby ładowania danych. Grupa obciążenia przydzieli 20% zasobów systemowych na ładowane dane.  Klasyfikator obciążeń przypisze żądania do grupy obciążeń ładowania danych.  Dzięki obciążeniu 20% w przypadku ładowania danych są one gwarantowane zasobom, które trafią umowy SLA.
 
@@ -29,7 +29,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym przewodniku szybki start założono, że masz już wystąpienie SQL Synapse w usłudze Azure Synapse i że masz uprawnienia do kontroli bazy danych. Jeżeli chcesz utworzyć taki magazyn, skorzystaj z przewodnika [Szybki start: tworzenie i łączenie — portal](create-data-warehouse-portal.md), aby utworzyć magazyn danych o nazwie **mySampleDataWarehouse**.
+W tym przewodniku szybki start założono, że masz już wystąpienie SQL Synapse w usłudze Azure Synapse i że masz uprawnienia do kontroli bazy danych. Jeśli trzeba ją utworzyć, użyj instrukcji [Create i Connect-Portal](create-data-warehouse-portal.md) , aby utworzyć dedykowaną pulę SQL o nazwie **mySampleDataWarehouse**.
 
 ## <a name="create-login-for-dataloads"></a>Utwórz nazwę logowania dla ładowania danych
 
@@ -103,10 +103,10 @@ DROP USER [ELTLogin]
 ;
 ```
 
-Opłaty są naliczane za jednostki magazynu danych i dane przechowywane w magazynie danych. Opłaty za te zasoby obliczeniowe i magazynowe są naliczane osobno.
+Opłaty są naliczane za jednostki magazynu danych i dane przechowywane w dedykowanej puli SQL. Opłaty za te zasoby obliczeniowe i magazynowe są naliczane osobno.
 
-- Jeśli chcesz zachować dane w magazynie, możesz wstrzymać obliczenia, gdy nie używasz puli SQL. Przez wstrzymywanie obliczeń opłata jest naliczana tylko za magazyn danych. Gdy wszystko będzie gotowe do pracy z danymi, Wznów obliczenia.
-- Aby uniknąć opłat w przyszłości, możesz usunąć magazyn danych.
+- Jeśli chcesz zachować dane w magazynie, możesz wstrzymać obliczenia, gdy nie używasz dedykowanej puli SQL. Przez wstrzymywanie obliczeń opłata jest naliczana tylko za magazyn danych. Gdy wszystko będzie gotowe do pracy z danymi, Wznów obliczenia.
+- Jeśli chcesz usunąć przyszłe opłaty, możesz usunąć dedykowaną pulę SQL.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to, data4ml
-ms.openlocfilehash: e97546e678b3b7bf7932600ea53d09557493685c
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 554c815e6384115d56611e497f49a2c97ed15e38
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359871"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461436"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Łączenie się z danymi za pomocą programu Azure Machine Learning Studio
 
@@ -60,7 +60,7 @@ Utwórz nowy magazyn danych w kilku krokach za pomocą programu Azure Machine Le
 1. Wybierz pozycję **+ nowy magazyn** danych.
 1. Wypełnij formularz, aby utworzyć i zarejestrować nowy magazyn danych. Formularz jest inteligentnie aktualizowany na podstawie wybranych opcji typu usługi Azure Storage i typu uwierzytelniania. Zapoznaj się z [sekcją dostęp do magazynu i uprawnienia](#access-validation) , aby dowiedzieć się, gdzie znaleźć poświadczenia uwierzytelniania potrzebne do wypełnienia tego formularza.
 
-Poniższy przykład pokazuje, jak wygląda formularz podczas tworzenia **magazynu danych obiektów blob platformy Azure** :
+Poniższy przykład pokazuje, jak wygląda formularz podczas tworzenia **magazynu danych obiektów blob platformy Azure**:
 
 ![Formularz dla nowego magazynu danych](media/how-to-connect-data-ui/new-datastore-form.png)
 
@@ -134,7 +134,7 @@ Aby zapewnić bezpieczne łączenie się z usługą Azure Storage, Azure Machine
 
 ### <a name="virtual-network"></a>Sieć wirtualna
 
-Jeśli Twoje konto magazynu danych znajduje się w **sieci wirtualnej** , wymagane są dodatkowe czynności konfiguracyjne, aby zapewnić, że Azure Machine Learning ma dostęp do danych. Aby zapewnić stosowanie odpowiednich czynności konfiguracyjnych podczas tworzenia i rejestrowania magazynu danych, należy zapoznać się z tematem [izolacja sieci & prywatności](how-to-enable-studio-virtual-network.md) .  
+Jeśli Twoje konto magazynu danych znajduje się w **sieci wirtualnej**, wymagane są dodatkowe czynności konfiguracyjne, aby zapewnić, że Azure Machine Learning ma dostęp do danych. Aby zapewnić stosowanie odpowiednich czynności konfiguracyjnych podczas tworzenia i rejestrowania magazynu danych, należy zapoznać się z tematem [izolacja sieci & prywatności](how-to-enable-studio-virtual-network.md) .  
 
 ### <a name="access-validation"></a>Sprawdzanie poprawności dostępu
 
@@ -160,7 +160,7 @@ Informacje na temat klucza konta, tokenu sygnatury dostępu współdzielonego i 
 
 ### <a name="permissions"></a>Uprawnienia
 
-W przypadku kontenera obiektów blob platformy Azure i Azure Data Lake magazynu generacji 2 Upewnij się, że poświadczenia uwierzytelniania mają dostęp do **czytnika danych obiektu blob magazynu** . Dowiedz się więcej o [czytniku danych BLOB Storage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). Token sygnatury dostępu współdzielonego konta domyślnie nie ma uprawnień. 
+W przypadku kontenera obiektów blob platformy Azure i Azure Data Lake magazynu generacji 2 Upewnij się, że poświadczenia uwierzytelniania mają dostęp do **czytnika danych obiektu blob magazynu** . Dowiedz się więcej o [czytniku danych BLOB Storage](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Token sygnatury dostępu współdzielonego konta domyślnie nie ma uprawnień. 
 * W przypadku **dostępu do odczytu** danych poświadczenia uwierzytelniania muszą mieć co najmniej uprawnienia do wyświetlania i odczytu dla kontenerów i obiektów. 
 
 * W przypadku **dostępu do zapisu** danych wymagane są również uprawnienia do zapisu i dodawania.

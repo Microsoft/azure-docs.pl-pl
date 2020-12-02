@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2020
-ms.openlocfilehash: 010ca40f4f3aacd6353aecd150e944672cc09066
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a559a51feafa310a4645282dc6368f520fc6b972
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097516"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459612"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Optymalizacja kosztów korzystania z wielu regionów w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,14 +26,14 @@ W systemie zapisów w wielu regionach sieć dostępna jednostek ru dla operacji 
 
 ### <a name="example"></a>Przykład
 
-Rozważmy, że masz kontener w regionie zachodnie stany USA skonfigurowany do zapisu w jednym regionie, Zainicjowano obsługę przepływności 10 jednostek RU/s i przechowujesz 1 TB danych w tym miesiącu. Załóżmy, że dodasz region, Wschodnie stany USA, z tym samym magazynem i przepływność, co pozwoli na zapisanie w kontenerach w obu regionach z poziomu aplikacji. Łączny rachunek miesięczny (przy założeniu 31 dni) w miesiącu jest następujący:
+Należy wziąć pod uwagę, że masz kontener w regionie zachodnie stany USA skonfigurowany do zapisu w jednym regionie, ale Zainicjowano obsługę przepływności 10 jednostek RU/s, przechowując 0,5 TB danych w tym miesiącu. Załóżmy, że dodasz region, Wschodnie stany USA, korzystając z tego samego magazynu i przepływności, i chcesz, aby można było zapisywać w kontenerach w obu regionach aplikacji. Nowy łączny rachunek miesięczny (przy założeniu, że 730 godzin w miesiącu) będzie następujący:
 
 |**Element**|**Użycie (co miesiąc)**|**Częstotliwość**|**Koszt miesięczny**|
 |----|----|----|----|
-|Rachunek przepływności dla kontenera w regionie zachodnie stany USA (pojedyncze regiony zapisu) |10 000 jednostek RU/s * 24 godziny * 31 dni |$0,008 za 100 RU/s na godzinę |$584,06 |
-|Rachunek przepływności dla kontenera w 2 regionach — zachodnie stany USA & Wschodnie stany USA (wiele regionów zapisu) |2 * 10 tys. jednostek RU/s * 24 godziny * 31 dni|$0,016 za 100 RU/s na godzinę |$2 336,26 |
-|Magazyn dla kontenera w regionie zachodnie stany USA |1 TB (lub 1 024 GB) |$0,25/GB |$256 |
-|Rachunek magazynu dla 2 regionów — zachodnie stany USA & Wschodnie stany USA |2 * 1 TB (lub 3 072 GB) |$0,25/GB |$768 |
+|Rachunek przepływności dla kontenera w regionie zachodnie stany USA (pojedynczy region zapisu) |10 000 jednostek RU/s * 730 godz. |$0,008 za 100 RU/s na godzinę |$584 |
+|Rachunek przepływności dla kontenera w 2 regionach — zachodnie stany USA & Wschodnie stany USA (wiele regionów zapisu) |2 * 10 tys. RU/s * 730 godz. |$0,016 za 100 RU/s na godzinę |$2 336 |
+|Magazyn dla kontenera w regionie zachodnie stany USA |0,5 TB (lub 512 GB) |$0,25/GB |$128 |
+|Rachunek za magazyn dla kontenera w 2 regionach — zachodnie stany USA & Wschodnie stany USA |2 * 0,5 TB (lub 1 024 GB) |$0,25/GB |$256 |
 
 ## <a name="improve-throughput-utilization-on-a-per-region-basis"></a>Zwiększenie wykorzystania przepływności na podstawie poszczególnych regionów
 

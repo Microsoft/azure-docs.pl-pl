@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/16/2020
-ms.openlocfilehash: 0314f5e55a476cd1cd1f8a31bd918e0ebb64c75f
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 611d2163e242d7851398821344c3ed595df364cb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95254242"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460256"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Poznaj centrum wiedzy Synapse
 
@@ -55,6 +55,9 @@ Wybierz jedną z metod i Otwórz **centrum merytoryczne**.
 1. Zostanie wyświetlony nowy skrypt SQL.
 1. Kliknij przycisk **Uruchom**
 1. Spowoduje to utworzenie kilku tabel dla wszystkich danych z NYC taksówki i załadowanie ich przy użyciu polecenia COPY T-SQL.
+
+    > [!NOTE] 
+    > W przypadku korzystania z galerii przykładów dla skryptu SQL z dedykowaną pulą SQL (dawniej SQL DW) będzie można używać tylko istniejącej dedykowanej puli SQL (dawniej SQL DW).
 
 ## <a name="next-steps"></a>Następne kroki
 

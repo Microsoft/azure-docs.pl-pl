@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 9821cc8905caa9576662a192fc704c53b35af82d
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 878fa181ff09d547ef6594a238e9c1d883cc89b7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564875"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460487"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny klientów w komercyjnej analizie Marketplace
 
@@ -21,7 +21,7 @@ Ten artykuł zawiera informacje na temat pulpitu nawigacyjnego klienci w centrum
 Aby uzyskać dostęp do pulpitu nawigacyjnego klienci w centrum partnerskim, w obszarze **komercyjne Marketplace** wybierz pozycję **[Analizuj](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  >  **klientów**.
 
 >[!NOTE]
-> Aby uzyskać szczegółowe definicje terminologii dotyczącej analizy, zobacz temat [Terminologia i często zadawane pytania dotyczące analizy Marketplace](./partner-center-portal/faq-terminology.md).
+> Aby uzyskać szczegółowe definicje terminologii dotyczącej analizy, zobacz temat [Terminologia i często zadawane pytania dotyczące analizy Marketplace](./analytics-faq.md).
 
 ## <a name="customers-dashboard"></a>Pulpit nawigacyjny Klienci
 
@@ -58,7 +58,7 @@ W tej sekcji znajdziesz trend wzrostu dla klientów w wybranym okresie obliczeni
 
 [![Ilustruje widżet Customers na stronie klienci.](./media/customer-dashboard/customers-widget.png)](./media/customer-dashboard/customers-widget.png#lightbox)
 
-Istnieją trzy _typy klientów_ : nowe, istniejące i zmienione.
+Istnieją trzy _typy klientów_: nowe, istniejące i zmienione.
 
 - Nowy klient uzyskał co najmniej jedną ofertę po raz pierwszy w wybranym miesiącu.
 - Istniejący klient uzyskał jedną lub większą liczbę ofert przed wybranym miesiącem.
@@ -86,15 +86,15 @@ Wykres **klienci według zamówień/użycia** ma trzy karty: zamówienia, znorma
 
 - Tablica lidera przedstawia szczegółowe informacje o klientach uporządkowane według liczby zamówień. Po wybraniu klienta szczegóły klienta są wyświetlane w sekcjach sąsiadujące "Szczegóły", "zamówienia według jednostek SKU" i "jednostki SKU według siedzeń".
 - Szczegóły profilu klienta są wyświetlane w tym miejscu, gdy wydawcy są zalogowani przy użyciu roli właściciela. Jeśli wydawcy są zalogowani przy użyciu roli współautor, szczegóły w tej sekcji nie będą dostępne.
-- Wykres pierścieniowy **Orders by SKU** zawiera podział zamówień zakupionych dla planów. Wyświetlane są pięć najważniejszych planów o najwyższej liczbie zamówień, podczas gdy pozostałe zamówienia są pogrupowane w obszarze **rest All (wszystkie** ).
-- Wykres pierścieniowy **jednostki SKU według siedzeń** przedstawia podział stanowisk zamówionych dla planów. Wyświetlane są pięć najważniejszych planów z najwyższymi stanowiskami, podczas gdy pozostałe zamówienia są pogrupowane w obszarze **rest All (wszystkie** ).
+- Wykres pierścieniowy **Orders by SKU** zawiera podział zamówień zakupionych dla planów. Wyświetlane są pięć najważniejszych planów o najwyższej liczbie zamówień, podczas gdy pozostałe zamówienia są pogrupowane w obszarze **rest All (wszystkie**).
+- Wykres pierścieniowy **jednostki SKU według siedzeń** przedstawia podział stanowisk zamówionych dla planów. Wyświetlane są pięć najważniejszych planów z najwyższymi stanowiskami, podczas gdy pozostałe zamówienia są pogrupowane w obszarze **rest All (wszystkie**).
 
 Możesz również wybrać kartę **znormalizowane** użycie lub **surowe użycie** , aby wyświetlić szczegóły użycia.
 
 - Tablica lidera przedstawia szczegółowe informacje o klientach, które są klasyfikowane według liczby godzin użycia. Po wybraniu klienta szczegóły dotyczące klienta są prezentowane w sekcji "Szczegóły", "znormalizowane użycie przez oferty" i "znormalizowane użycie według rozmiaru maszyny wirtualnej".
 - Szczegóły profilu klienta są wyświetlane w tym miejscu, gdy wydawcy są zalogowani przy użyciu roli właściciela. Jeśli wydawcy są zalogowani przy użyciu roli współautor, szczegóły w tej sekcji nie będą dostępne.
-- Wykres pierścieniowy z **znormalizowanym użyciem przez oferty** zawiera podział użycia wykorzystanego przez oferty. Wyświetlane są pięć najważniejszych planów o najwyższej liczbie użycia, podczas gdy pozostałe oferty są pogrupowane w obszarze **rest All (wszystkie** ).
-- Wykres pierścieniowy z **znormalizowanym użyciem według rozmiaru maszyny wirtualnej** przedstawia podział użycia zużyty przez różne rozmiary maszyn wirtualnych. Wyświetlane są pięć pierwszych rozmiarów maszyn wirtualnych z najwyższym znormalizowanym użyciem, podczas gdy reszta użycia jest zgrupowana w obszarze **rest All (wszystkie** ).
+- Wykres pierścieniowy z **znormalizowanym użyciem przez oferty** zawiera podział użycia wykorzystanego przez oferty. Wyświetlane są pięć najważniejszych planów o najwyższej liczbie użycia, podczas gdy pozostałe oferty są pogrupowane w obszarze **rest All (wszystkie**).
+- Wykres pierścieniowy z **znormalizowanym użyciem według rozmiaru maszyny wirtualnej** przedstawia podział użycia zużyty przez różne rozmiary maszyn wirtualnych. Wyświetlane są pięć pierwszych rozmiarów maszyn wirtualnych z najwyższym znormalizowanym użyciem, podczas gdy reszta użycia jest zgrupowana w obszarze **rest All (wszystkie**).
 
 ### <a name="top-customers-percentile"></a>U największych klientów percentyl
 
@@ -180,4 +180,4 @@ Filtry stron klienci są stosowane na poziomie strony klientów. Można wybrać 
 - W przypadku maszyn wirtualnych (VM) są dostępne metryki dotyczące użycia i taryfowego rozliczania, zobacz [pulpit nawigacyjny użycia w portalu komercyjnej analizy Marketplace](./usage-dashboard.md).
 - Aby uzyskać listę żądań pobierania w ciągu ostatnich 30 dni, zobacz [pulpit nawigacyjny w portalu komercyjnej analizy Marketplace](./partner-center-portal/downloads-dashboard.md).
 - Aby wyświetlić skonsolidowany widok opinii klientów na temat ofert w witrynie Azure Marketplace i Microsoft AppSource, zobacz [omówienie & przeglądy pulpit nawigacyjny analizy w centrum partnerskim](./partner-center-portal/ratings-reviews.md).
-- Często zadawane pytania dotyczące analizy komercyjnej portalu Marketplace i kompleksowego słownika warunków dotyczących danych można znaleźć w temacie [Terminologia i często zadawane pytania dotyczące analizy Marketplace](./partner-center-portal/faq-terminology.md).
+- Często zadawane pytania dotyczące analizy komercyjnej portalu Marketplace i kompleksowego słownika warunków dotyczących danych można znaleźć w temacie [Terminologia i często zadawane pytania dotyczące analizy Marketplace](./analytics-faq.md).

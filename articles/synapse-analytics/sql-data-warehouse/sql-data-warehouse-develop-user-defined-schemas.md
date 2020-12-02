@@ -1,25 +1,25 @@
 ---
 title: Używanie schematów zdefiniowanych przez użytkownika
-description: Wskazówki dotyczące korzystania ze schematów zdefiniowanych przez użytkownika w języku T-SQL do tworzenia rozwiązań w Synapse puli SQL.
+description: Wskazówki dotyczące korzystania ze schematów zdefiniowanych przez użytkownika w języku T-SQL do tworzenia rozwiązań dla dedykowanych pul SQL w usłudze Azure Synapse Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: fc5e035215e7cabd02861c6ee2498cadd1ef0534
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 3204c77dd076d9aac6eb5a60b489280caefcbf4b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213367"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460447"
 ---
-# <a name="user-defined-schemas-in-synapse-sql-pool"></a>Schematy zdefiniowane przez użytkownika w puli SQL Synapse
-Ten artykuł koncentruje się na dostarczaniu kilku porad dotyczących korzystania ze schematów zdefiniowanych przez użytkownika w języku T-SQL do tworzenia rozwiązań w Synapse puli SQL.
+# <a name="user-defined-schemas-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Schematy zdefiniowane przez użytkownika dla dedykowanych pul SQL w usłudze Azure Synapse Analytics
+Ten artykuł koncentruje się na dostarczaniu kilku porad dotyczących korzystania ze schematów zdefiniowanych przez użytkownika w języku T-SQL do tworzenia rozwiązań w dedykowanej puli SQL.
 
 ## <a name="schemas-for-application-boundaries"></a>Schematy granic aplikacji
 
@@ -27,7 +27,7 @@ Tradycyjne magazyny danych często używają osobnych baz danych do tworzenia gr
 
 Przykładowo uproszczony magazyn danych SQL Server może obejmować tymczasową bazę danych, bazę danych i dane składni danych. W tej topologii każda baza danych działa jako granica obciążenia i zabezpieczeń w architekturze.
 
-Z kolei Pula SQL uruchamia całe obciążenie magazynu danych w jednej bazie danych. Sprzężenia między bazami danych nie są dozwolone. Pula SQL oczekuje, że wszystkie tabele używane przez magazyn są przechowywane w jednej bazie danych.
+Z kolei dedykowana Pula SQL uruchamia całe obciążenie magazynu danych w jednej bazie danych. Sprzężenia między bazami danych nie są dozwolone. Dedykowana Pula SQL oczekuje, że wszystkie tabele używane przez magazyn są przechowywane w jednej bazie danych.
 
 > [!NOTE]
 > Pula SQL nie obsługuje zapytań między bazami danych dowolnego rodzaju. W związku z tym należy skorygować implementacje magazynu danych korzystające z tego wzorca.
@@ -37,11 +37,11 @@ Z kolei Pula SQL uruchamia całe obciążenie magazynu danych w jednej bazie dan
 ## <a name="recommendations"></a>Zalecenia
 Poniżej znajdują się zalecenia dotyczące konsolidowania obciążeń, zabezpieczeń, domeny i granic funkcjonalnych przy użyciu schematów zdefiniowanych przez użytkownika:
 
-- Użyj jednej bazy danych puli SQL do uruchomienia całego obciążenia magazynu danych.
-- Konsoliduj istniejące środowisko magazynu danych, aby korzystać z jednej bazy danych puli SQL.
+- Korzystaj z jednej bazy danych w dedykowanej puli SQL do uruchamiania całego obciążenia magazynu danych.
+- Konsoliduj istniejące środowisko magazynu danych, aby korzystać z jednej dedykowanej bazy danych puli SQL.
 - Korzystaj ze **schematów zdefiniowanych przez użytkownika** , aby zapewnić granicę zaimplementowaną wcześniej przy użyciu baz danych.
 
-Jeśli schemat zdefiniowany przez użytkownika nie był wcześniej używany, to masz czysty. Użyj starej nazwy bazy danych jako podstawy dla schematów zdefiniowanych przez użytkownika w bazie danych puli SQL.
+Jeśli schemat zdefiniowany przez użytkownika nie był wcześniej używany, to masz czysty. Użyj starej nazwy bazy danych jako podstawy dla schematów zdefiniowanych przez użytkownika w dedykowanej bazie danych puli SQL.
 
 Jeśli schematy zostały już użyte, możesz skorzystać z kilku opcji:
 
@@ -50,7 +50,7 @@ Jeśli schematy zostały już użyte, możesz skorzystać z kilku opcji:
 - Zachowaj starsze nazwy schematów, implementując widoki w tabeli w dodatkowym schemacie, aby ponownie utworzyć starą strukturę schematu.
 
 > [!NOTE]
-> Przy pierwszej inspekcji Opcja 3 może wyglądać jak najbardziej atrakcyjny opcję. Devil jest jednak szczegółowy. Widoki są tylko do odczytu w puli SQL. Wszelkie modyfikacje danych lub tabel należy wykonać w odniesieniu do tabeli podstawowej. Opcja 3 wprowadza również warstwę widoków w systemie. Jeśli używasz już widoków w danej architekturze, możesz zadawać to kilka dodatkowych myśli.
+> Przy pierwszej inspekcji Opcja 3 może wyglądać jak najbardziej atrakcyjny opcję. Devil jest jednak szczegółowy. Widoki są odczytywane tylko w dedykowanej puli SQL. Wszelkie modyfikacje danych lub tabel należy wykonać w odniesieniu do tabeli podstawowej. Opcja 3 wprowadza również warstwę widoków w systemie. Jeśli używasz już widoków w danej architekturze, możesz zadawać to kilka dodatkowych myśli.
 > 
 > 
 
