@@ -5,32 +5,28 @@ author: sakthi-vetrivel
 ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
-ms.date: 06/22/2020
-ms.openlocfilehash: 3417b59d0be9e285f8793ef598abb7f98bda7549
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.date: 11/23/2020
+ms.openlocfilehash: 2d9169e836b5819756e716c64ed9d41094f08c5e
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95527993"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512373"
 ---
-# <a name="networking-in-azure-red-hat-on-openshift-4"></a>Sieć na platformie Azure Red Hat w systemie OpenShift 4
+# <a name="network-concepts-for-azure-red-hat-openshift-aro"></a>Pojęcia dotyczące sieci na platformie Azure Red Hat OpenShift (ARO)
 
-Ten przewodnik obejmuje omówienie sieci na platformie Azure Red Hat w klastrach OpenShift 4, a także diagram i listę ważnych punktów końcowych.
-
-Aby uzyskać więcej informacji o podstawowych pojęciach dotyczących sieci OpenShift, zobacz [dokumentację dotyczącą obsługi sieci na platformie Azure Red Hat OpenShift 4](https://docs.openshift.com/aro/4/networking/understanding-networking.html).
-
-## <a name="networking-concepts-in-azure-red-hat-openshift"></a>Pojęcia dotyczące sieci na platformie Azure Red Hat OpenShift
+Ten przewodnik obejmuje omówienie sieci na platformie Azure Red Hat OpenShift na klastrach OpenShift 4, a także diagram i listę ważnych punktów końcowych. Aby uzyskać więcej informacji o podstawowych pojęciach dotyczących sieci OpenShift, zobacz [dokumentację dotyczącą obsługi sieci na platformie Azure Red Hat OpenShift 4](https://docs.openshift.com/aro/4/networking/understanding-networking.html).
 
 ![Diagram sieciowy usługi Azure Red Hat OpenShift 4](./media/concepts-networking/aro4-networking-diagram.png)
 
-Po wdrożeniu usługi Azure Red Hat w systemie OpenShift 4 cały klaster jest zawarty w sieci wirtualnej. W ramach tej sieci wirtualnej węzły główne i procesy robocze znajdują się na żywo w ich własnej podsieci. Każda podsieć używa publicznego i wewnętrznego modułu równoważenia obciążenia.
+Po wdrożeniu usługi Azure Red Hat w systemie OpenShift 4 cały klaster jest zawarty w sieci wirtualnej. W ramach tej sieci wirtualnej węzły główne i procesy robocze znajdują się na żywo w ich własnej podsieci. Każda podsieć używa wewnętrznego modułu równoważenia obciążenia i publicznego modułu równoważenia obciążenia.
 
-## <a name="explanation-of-endpoints"></a>Wyjaśnienie punktów końcowych
+## <a name="networking-components"></a>Składniki sieciowe
 
-Poniższa lista obejmuje ważne punkty końcowe w klastrze Red Hat OpenShift platformy Azure.
+Poniższa lista obejmuje ważne składniki sieci w klastrze Red Hat OpenShift platformy Azure.
 
 * **ARO — innych obszarów roboczych**
-    * Jest to punkt końcowy linku prywatnego platformy Azure używany przez inżynierów niezawodności firmy Microsoft i Red Hat w celu ułatwienia zarządzania klastrem.
+    * Jest to punkt końcowy linku prywatnego platformy Azure używany przez inżynierów firmy Microsoft i Red Hat site niezawodność do zarządzania klastrem.
 * **ARO — wewnętrzna — lb**
     * Ten punkt końcowy równoważy ruch do serwera interfejsu API. W przypadku tego modułu równoważenia obciążenia węzły główne znajdują się w puli zaplecza.
 * **ARO — Public-lb**
@@ -38,50 +34,42 @@ Poniższa lista obejmuje ważne punkty końcowe w klastrze Red Hat OpenShift pla
 * **ARO (wewnętrzne)**
     * Ten punkt końcowy równoważy ruch usługi wewnętrznej. W przypadku tego modułu równoważenia obciążenia węzły procesu roboczego znajdują się w puli zaplecza.
     * Ten moduł równoważenia obciążenia nie jest domyślnie tworzony. Ten moduł równoważenia obciążenia jest tworzony po utworzeniu usługi typu równoważenia obciążenia z prawidłowymi adnotacjami. Na przykład: service.beta.kubernetes.io/azure-load-balancer-internal: "true".
-* **Zasady sieciowe (ruch przychodzący)**
-    * Obsługiwane jako część OpenShift SDN
-    * Włączone domyślnie przez wymuszanie wykonywane przez klientów
-    * Zgodne z V1 NetworkPolicy, jednak typy "wychodzące i IPBlock" nie są jeszcze obsługiwane
-    * **firmy**
-    * Ten punkt końcowy równoważy ruch do serwera interfejsu API. W przypadku tego modułu równoważenia obciążenia węzły główne znajdują się w puli zaplecza.
-  * **ARO — wewnętrzna — lb**
+* **ARO — wewnętrzna — lb**
     * Ten punkt końcowy jest używany dla każdego ruchu publicznego. Podczas tworzenia aplikacji i trasy są to ścieżki ruchu przychodzącego.
     * Ten moduł równoważenia obciążenia obejmuje również wychodzące połączenia z Internetu z dowolnego poziomu działającego w węzłach procesu roboczego za pośrednictwem reguł Azure Load Balancer wychodzących.
         * Obecnie nie można konfigurować reguł dla ruchu wychodzącego. Przydzielają one porty TCP 1 024 do każdego węzła.
         * DisableOutboundSnat nie jest skonfigurowana w regułach równoważenia obciążenia, więc w przypadku wszystkich publicznych adresów IP skonfigurowanych w tym ALB.
         * W wyniku dwóch poprzednich punktów jedynym sposobem dodawania tymczasowych portów podłączania jest dodanie publicznych usług typu modułu równoważenia obciążenia do wersji ARO.
-* **Zasady sieciowe (ruch wychodzący)**
-    * Zasady ruchu wychodzącego są obsługiwane za pomocą funkcji zapory ruchu wychodzącego w OpenShift.
-    * Tylko jeden na przestrzeń nazw/projekt.
-    * Zasady ruchu wychodzącego nie są obsługiwane w przestrzeni nazw "default".
-    * Reguły zasad ruchu wychodzącego są oceniane w kolejności (od pierwszej do ostatniej).
-    * **ARO-wyjście-PIP**
-        * Ten punkt końcowy służy jako publiczny adres IP (PIP) dla węzłów procesu roboczego.
-        * Ten punkt końcowy umożliwia usługom dodanie określonego adresu IP pochodzącego z klastra Red Hat OpenShift platformy Azure do listy dozwolonych.
-* **ARO-Node-sieciowej grupy zabezpieczeń**
-    * Po udostępnieniu usługi interfejs API tworzy regułę w tej sieciowej grupie zabezpieczeń, aby ruch przepływał i docierał do węzłów.
+* **ARO-wyjście-PIP**
+    * Ten punkt końcowy służy jako publiczny adres IP (PIP) dla węzłów procesu roboczego.
+    * Ten punkt końcowy umożliwia usługom dodanie określonego adresu IP pochodzącego z klastra Red Hat OpenShift platformy Azure do listy dozwolonych.
+* **ARO — sieciowej grupy zabezpieczeń**
+    * Po udostępnieniu usługi interfejs API tworzy regułę w tej sieciowej grupie zabezpieczeń, tak aby ruch przepływał i docierał do płaszczyzny kontroli i węzłów.
     * Domyślnie ta sieciowa Grupa zabezpieczeń zezwala na cały ruch wychodzący. Obecnie ruch wychodzący może być ograniczony tylko do płaszczyzny kontroli OpenShift na platformie Azure Red Hat.
 * **ARO-controlplane-sieciowej grupy zabezpieczeń**
-    * Ten punkt końcowy zezwala tylko na ruch przychodzący przez port 6443 dla węzłów głównych.
+  * Ten punkt końcowy zezwala tylko na ruch przychodzący przez port 6443 dla węzłów głównych.
 * **Azure Container Registry**
-    * Jest to rejestr kontenerów, który jest używany wewnętrznie przez firmę Microsoft.
+    * Jest to rejestr kontenerów, który jest używany wewnętrznie przez firmę Microsoft. Ten rejestr jest tylko do odczytu i nie jest przeznaczony do użycia przez użytkowników systemu Red Hat OpenShift.
         * Ten Rejestr zawiera obrazy platformy hosta i składniki klastra. Na przykład monitorowanie i rejestrowanie kontenerów.
-        * Nie jest przeznaczone do użycia przez klientów usługi Azure Red Hat OpenShift.  
-        * Tylko do odczytu.
         * Połączenia z tym rejestrem odbywają się za pośrednictwem punktu końcowego usługi (łączność wewnętrzna między usługami platformy Azure).
         * Ten rejestr wewnętrzny nie jest domyślnie dostępny poza klastrem.
 * **Link prywatny**
-    * Umożliwia łączność sieciową od płaszczyzny zarządzania do klastra w celu zarządzania klastrem.
-    * Inżynierowie niezawodności witryn firmy Microsoft i Red Hat mogą pomóc w zarządzaniu klastrem.
+    * Umożliwia łączność sieciową od płaszczyzny zarządzania do klastra dla inżynierów niezawodności firmy Microsoft i Red Hat w celu ułatwienia zarządzania klastrem.
+
+## <a name="networking-policies"></a>Zasady dotyczące sieci
+
+* Ruch przychodzący **: zasady** dotyczące sieci danych przychodzących są obsługiwane w ramach [OpenShift SDN](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/about-openshift-sdn.html). Ta zasada sieciowa jest domyślnie włączona i wymuszanie jest wykonywane przez użytkowników. Zasady dotyczące sieci danych przychodzących są zgodne z V1 NetworkPolicy, ale typy wychodzące i IPBlock nie są obsługiwane.
+
+* Ruch wychodzący **: zasady** sieci danych wychodzących są obsługiwane za pomocą funkcji [Zapora ruchu](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/configuring-egress-firewall.html) wychodzącego w OpenShift. Istnieje tylko jedna zasada ruchu wychodzącego dla przestrzeni nazw/projektu. Zasady ruchu wychodzącego nie są obsługiwane w przestrzeni nazw "default" i są oceniane w kolejności (od pierwszego do ostatniego).
 
 ## <a name="networking-basics-in-openshift"></a>Podstawowe informacje o sieci w OpenShift
 
-OpenShift Networking defined Network (SDN) służy do konfigurowania sieci nakładki przy użyciu otwartego przełącznika vSwitch (OVS), implementacji OpenFlow opartej na specyfikacji interfejsu sieciowego kontenera (CNI). SDN obsługuje różne wtyczki, a zasady sieciowe są wtyczkami używanymi na platformie Azure Red Hat OpenShift 4. Cała komunikacja sieciowa jest zarządzana przez SDN, więc do sieci wirtualnych nie są potrzebne żadne dodatkowe trasy, aby osiągnąć komunikację pod względem.
+OpenShift Networking defined Network [(SDN)](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/about-openshift-sdn.html) służy do konfigurowania sieci nakładki przy użyciu otwartego przełącznika VSwitch [(OVS)](https://www.openvswitch.org/), implementacji OpenFlow opartej na specyfikacji interfejsu sieciowego kontenera (CNI). SDN obsługuje różne wtyczki — zasady sieciowe są wtyczkami używanymi w systemie Red Hat na platformie OpenShift 4. Cała komunikacja sieciowa jest zarządzana przez SDN, więc do sieci wirtualnych nie są potrzebne żadne dodatkowe trasy, aby osiągnąć komunikację pod względem.
 
-## <a name="azure-red-hat-openshift-networking-specifics"></a>Specyficzne dla platformy Azure Red Hat OpenShift Networking
+## <a name="networking--for-azure-red-hat-openshift"></a>Obsługa sieci na platformie Azure Red Hat OpenShift
 
-Następujące funkcje są specyficzne dla systemu Azure Red Hat OpenShift:
-* Korzystanie z własnej sieci wirtualnej jest obsługiwane.
+Następujące funkcje sieciowe są specyficzne dla systemu Azure Red Hat OpenShift:
+* Użytkownicy mogą utworzyć swój klaster ARO w istniejącej sieci wirtualnej lub utworzyć sieć wirtualną podczas tworzenia klastra.
 * W przypadku routingu CIDR sieci usług i usługi można konfigurować.
 * Węzły i wzorce znajdują się w różnych podsieciach.
 * Węzły i główne podsieci sieci wirtualnej powinny być minimalne/27.
@@ -92,7 +80,7 @@ Następujące funkcje są specyficzne dla systemu Azure Red Hat OpenShift:
 
 ## <a name="network-settings"></a>Ustawienia sieciowe
 
-Następujące ustawienia sieciowe są dostępne na platformie Azure Red Hat OpenShift 4:
+Następujące ustawienia sieciowe są dostępne dla klastrów usługi Azure Red Hat OpenShift 4:
 
 * **Widoczność interfejsu API** — Ustaw widoczność interfejsu API podczas uruchamiania [polecenia AZ ARO Create](tutorial-create-cluster.md#create-the-cluster).
     * "Publiczny" — serwer interfejsu API jest dostępny dla sieci zewnętrznych.
@@ -101,15 +89,26 @@ Następujące ustawienia sieciowe są dostępne na platformie Azure Red Hat Open
     * Trasy "Public" domyślnie będą usługa Load Balancer w warstwie Standardowa publicznego (można to zmienić).
     * Trasy "prywatne" będą domyślnie kierowane do wewnętrznego modułu równoważenia obciążenia (można to zmienić).
 
-## <a name="network-security-groups"></a>Grupy zabezpieczeń sieci
-Sieciowe grupy zabezpieczeń zostaną utworzone w grupie zasobów węzła, która jest zablokowana. Sieciowe grupy zabezpieczeń są przypisywane bezpośrednio do podsieci, a nie na kartach sieciowych węzła. Sieciowe grupy zabezpieczeń są niezmienne, co oznacza, że nie masz uprawnień do ich zmiany. 
+## <a name="network-security-groups"></a>Sieciowe grupy zabezpieczeń
+Sieciowe grupy zabezpieczeń są tworzone w grupie zasobów węzła, która jest zablokowana dla użytkowników. Sieciowe grupy zabezpieczeń są przypisywane bezpośrednio do podsieci, a nie na kartach sieciowych węzła. Sieciowe grupy zabezpieczeń są niezmienne, a użytkownicy nie mają uprawnień do ich zmiany.
 
-Jednak przy użyciu publicznie widocznego serwera interfejsu API nie można tworzyć sieciowych grup zabezpieczeń i przypisywać ich do kart sieciowych.
+Publicznie widoczny serwer interfejsu API nie pozwala na tworzenie sieciowych grup zabezpieczeń i przypisywanie ich do kart sieciowych.
 
 ## <a name="domain-forwarding"></a>Przekazywanie domen
-W systemie Azure Red Hat OpenShift jest używanych CoreDNS. Można skonfigurować przekazywanie domen (zobacz dokumentację dotyczącą [korzystania z przekazywania DNS](https://docs.openshift.com/aro/4/networking/dns-operator.html#nw-dns-forward_dns-operator) , aby uzyskać więcej informacji).
+W systemie Azure Red Hat OpenShift jest używanych CoreDNS. Można skonfigurować przekazywanie domen. Nie można przenieść własnego serwera DNS do sieci wirtualnych. Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [korzystania z przekazywania DNS](https://docs.openshift.com/aro/4/networking/dns-operator.html#nw-dns-forward_dns-operator).
 
-Obecnie nie można przenieść własnego systemu DNS do sieci wirtualnych.
+## <a name="whats-new-in-openshift-45"></a>Co nowego w programie OpenShift 4,5
 
+Dzięki obsłudze OpenShift 4,5 w systemie Azure Red Hat OpenShift wprowadzono kilka znaczących zmian w architekturze. Te zmiany dotyczą tylko nowo utworzonych klastrów z systemem OpenShift 4,5. Istniejące klastry uaktualnione do OpenShift 4,5 nie będą miały architektury sieci zmienionej przez proces uaktualniania. Użytkownicy będą musieli ponownie utworzyć swoje klastry, aby korzystać z tej nowej architektury.
 
+![Diagram sieciowy usługi Azure Red Hat OpenShift 4,5](./media/concepts-networking/aro-4-5-networking-diagram.png)
+
+Jak przedstawiono na powyższym diagramie, zauważysz, że wprowadzono kilka zmian:
+* Wcześniej wykorzystano dwa publiczne LoadBalancers: jeden dla serwera interfejsu API i jeden dla puli węzłów procesu roboczego. Ta aktualizacja architektury została skonsolidowana w ramach jednego modułu równoważenia obciążenia. 
+* Aby zmniejszyć złożoność, zostały usunięte dedykowane zasoby adresów IP.
+* Płaszczyzna kontroli wyaro teraz udostępnia tę samą siećową grupę zabezpieczeń co węzły procesu roboczego ARO.
+
+Aby uzyskać więcej informacji na temat OpenShift 4,5, zapoznaj się z [informacjami o wersji OpenShift 4,5](https://docs.openshift.com/container-platform/4.5/release_notes/ocp-4-5-release-notes.html).
+
+## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej informacji na temat ruchu wychodzącego i usługi Azure Red Hat OpenShift obsługiwanej przez funkcję transferu danych wychodzących, zobacz dokumentację [zasad obsługi](support-policies-v4.md) .

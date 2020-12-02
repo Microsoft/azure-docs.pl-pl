@@ -1,21 +1,21 @@
 ---
-title: Lista bezpiecznych adresów URL pulpitu wirtualnego systemu Windows — Azure
+title: Lista wymaganych adresów URL pulpitu wirtualnego systemu Windows — Azure
 description: Lista adresów URL, które należy odblokować, aby upewnić się, że wdrożenie pulpitu wirtualnego systemu Windows działa zgodnie z oczekiwaniami.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 12/02/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3d19a60fd6a22eb9245722c6ff69d3b39c05d29e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 6b3fdc18a04dadf4bf1cf380c7bb51d21f826633
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023177"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512345"
 ---
-# <a name="safe-url-list"></a>Lista bezpiecznych adresów URL
+# <a name="required-url-list"></a>Lista wymaganych adresów URL
 
-Należy odblokować niektóre adresy URL, aby wdrożenie pulpitu wirtualnego systemu Windows działało prawidłowo. W tym artykule wymieniono te adresy URL, dzięki czemu wiadomo, które z nich są bezpieczne.
+Aby można było wdrożyć i korzystać z pulpitu wirtualnego systemu Windows, należy odblokować niektóre adresy URL, aby maszyny wirtualne mogły uzyskiwać do nich dostęp w dowolnym momencie. Ten artykuł zawiera listę wymaganych adresów URL, które należy odblokować.
 
 ## <a name="virtual-machines"></a>Maszyny wirtualne
 
@@ -53,7 +53,7 @@ Maszyny wirtualne platformy Azure tworzone dla pulpitu wirtualnego systemu Windo
 |*. servicebus.usgovcloudapi.net|443|Ruch agenta|AzureCloud|
 |* xt.table.core.usgovcloudapi.net|443|Ruch agenta|AzureCloud|
 |Kms.core.usgovcloudapi.net|1688|Aktywacja systemu Windows|Internet|
-|mrsglobalstugviffx.core.usgovcloudapi.net|443|Aktualizacje stosu agenta i SXS|AzureCloud|
+|mrsglobalstugviffx.blob.core.usgovcloudapi.net|443|Aktualizacje stosu agenta i SXS|AzureCloud|
 |wvdportalstorageblob.blob.core.usgovcloudapi.net|443|Obsługa Azure Portal|AzureCloud|
 | 169.254.169.254 | 80 | [Punkt końcowy usługi metadanych wystąpienia platformy Azure](../virtual-machines/windows/instance-metadata-service.md) | Nie dotyczy |
 | 168.63.129.16 | 80 | [Monitorowanie kondycji hosta sesji](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | Nie dotyczy |
@@ -68,10 +68,14 @@ W poniższej tabeli przedstawiono opcjonalne adresy URL, do których maszyny wir
 |*. prod.do.dsp.mp.microsoft.com|443|Windows Update|Brak|
 |login.windows.net|443|Zaloguj się do usług Microsoft Online Services, Microsoft 365|login.microsoftonline.us|
 |*. sfx.ms|443|Aktualizacje oprogramowania klienckiego usługi OneDrive|oneclient.sfx.ms|
-|*. digicert.com|443|Sprawdzanie odwołania certyfikatu|Brak|
+|*. digicert.com|443|Sprawdzenie odwołania certyfikatu|Brak|
+|*. azure-dns.com|443|Azure DNS rozwiązanie|Brak|
+|*. azure-dns.net|443|Azure DNS rozwiązanie|Brak|
 
 >[!NOTE]
 >Pulpit wirtualny systemu Windows nie ma obecnie listy zakresów adresów IP, które można odblokować, aby zezwolić na ruch sieciowy. Obecnie obsługujemy odblokowywanie określonych adresów URL.
+>
+>Jeśli używasz zapory nowej generacji (zapory następnej generacji), musisz użyć dynamicznej listy przeznaczonej dla adresów IP platformy Azure, aby upewnić się, że można nawiązać połączenie.
 >
 >Aby uzyskać listę bezpiecznych adresów URL związanych z pakietem Office, w tym wymaganych adresów URL związanych z Azure Active Directory, zobacz [adresy URL i zakresy adresów IP usługi office 365](/office365/enterprise/urls-and-ip-address-ranges).
 >
@@ -92,7 +96,7 @@ Wszyscy klienci korzystający z Pulpit zdalny muszą mieć dostęp do następuj�
 |go.microsoft.com|443|Linki fwlink firmy Microsoft|Wszystko|Brak|
 |aka.ms|443|Shortener URL firmy Microsoft|Wszystko|Brak|
 |docs.microsoft.com|443|Dokumentacja|Wszystko|Brak|
-|privacy.microsoft.com|443|Oświadczenie o ochronie prywatności|Wszystko|Brak|
+|privacy.microsoft.com|443|Zasady zachowania poufności informacji|Wszystko|Brak|
 |query.prod.cms.rt.microsoft.com|443|Aktualizacje klienta|Pulpit systemu Windows|Brak|
 
 >[!IMPORTANT]

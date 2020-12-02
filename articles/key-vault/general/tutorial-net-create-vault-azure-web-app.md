@@ -10,18 +10,18 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 278c842d6e6f73bff5468f601eea77f8b140a07c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 473ed1f14d77470e31c2f14665a12542a70a2a98
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444437"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512302"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-in-net"></a>Samouczek: łączenie Key Vault z aplikacją sieci Web platformy Azure w programie .NET przy użyciu tożsamości zarządzanej
 
 [Azure Key Vault](./overview.md) zapewnia sposób przechowywania poświadczeń i innych wpisów tajnych ze zwiększonymi zabezpieczeniami. Jednak kod wymaga uwierzytelnienia, aby Key Vault je pobrać. [Zarządzane tożsamości dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md) pomagają rozwiązać ten problem, oferując usługi platformy Azure, które automatycznie zarządza tożsamość w Azure Active Directory (Azure AD). Tej tożsamości można użyć do uwierzytelniania w dowolnej usłudze, która obsługuje uwierzytelnianie usługi Azure AD, w tym Key Vault, bez konieczności wyświetlania poświadczeń w kodzie.
 
-W tym samouczku użyjesz tożsamości zarządzanej do uwierzytelniania aplikacji sieci Web platformy Azure przy użyciu magazynu kluczy platformy Azure. Użyjesz [biblioteki klienta Azure Key Vault w wersji 4 dla platformy .NET](/dotnet/api/overview/azure/key-vault) i [interfejsu wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli). Te same podstawowe zasady mają zastosowanie w przypadku korzystania z wybranego języka deweloperskiego, Azure PowerShell i/lub Azure Portal.
+W tym samouczku użyjesz tożsamości zarządzanej do uwierzytelniania aplikacji sieci Web platformy Azure przy użyciu magazynu kluczy platformy Azure. Użyjesz [Azure Key Vault poufnej biblioteki klienta dla platformy .NET](/dotnet/api/overview/azure/key-vault) i [interfejsu wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli). Te same podstawowe zasady mają zastosowanie w przypadku korzystania z wybranego języka deweloperskiego, Azure PowerShell i/lub Azure Portal.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -253,9 +253,11 @@ Zasady dostępu można także przypisywać przy użyciu [Azure Portal](./assign-
 
 ### <a name="modify-the-app-to-access-your-key-vault"></a>Modyfikowanie aplikacji w celu uzyskania dostępu do magazynu kluczy
 
+W tym samouczku użyjesz [Azure Key Vault poufnej biblioteki klienta](https://docs.microsoft.com/dotnet/api/overview/azure/security.keyvault.secrets-readme) w celach demonstracyjnych. Można również użyć [Azure Key Vault Biblioteka klienta certyfikatu](https://docs.microsoft.com/dotnet/api/overview/azure/security.keyvault.certificates-readme)lub [Azure Key Vault bibliotekę klienta klucza](https://docs.microsoft.com/dotnet/api/overview/azure/security.keyvault.keys-readme).
+
 #### <a name="install-the-packages"></a>Zainstaluj pakiety
 
-W oknie terminalu Zainstaluj Azure Key Vault bibliotekę kliencką dla pakietów .NET:
+W oknie terminalu Zainstaluj bibliotekę klienta Azure Key Vault Secret dla platformy .NET i pakietów biblioteki klienta tożsamości platformy Azure:
 
 ```console
 dotnet add package Azure.Identity
@@ -318,12 +320,11 @@ git push azure master
 http://<your-webapp-name>.azurewebsites.net
 ```
 
-Gdzie przed rozpoczęciem "Hello world!" powinna zostać wyświetlona wartość wpisu tajnego: "Success!"
+Gdzie przed rozpoczęciem "Hello world!" powinna zostać wyświetlona wartość klucza tajnego.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Używanie Azure Key Vault z aplikacjami wdrożonymi na maszynie wirtualnej w środowisku .NET](./tutorial-net-virtual-machine.md)
 - Dowiedz się więcej o [tożsamościach zarządzanych dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md)
-- Dowiedz się więcej o [tożsamościach zarządzanych dla App Service](../../app-service/overview-managed-identity.md?tabs=dotnet)
 - Wyświetl [przewodnik dewelopera](./developers-guide.md)
 - [Bezpieczny dostęp do magazynu kluczy](./secure-your-key-vault.md)

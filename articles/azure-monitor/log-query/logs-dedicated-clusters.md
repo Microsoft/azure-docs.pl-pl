@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: a68501bd1189993b4dd0c2acdecaa7434fa51dcc
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d2446e866c0e12d50a0759373682f4f62bc4bba0
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488038"
+ms.locfileid: "96512226"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor rejestruje dedykowane klastry
 
 Azure Monitor dzienników dedykowanych są opcjami wdrażania, które umożliwiają zaawansowaną obsługę Azure Monitor dzienników klientów. Klienci z dedykowanymi klastrami mogą wybrać obszary robocze, które mają być hostowane w tych klastrach.
 
-Możliwości wymagające dedykowanych klastrów to:
+Możliwości, które wymagają dedykowanych klastrów, to:
 
 - **[Klucze zarządzane przez klienta](../platform/customer-managed-keys.md)** — Szyfruj dane klastra przy użyciu kluczy dostarczanych i kontrolowanych przez klienta.
 - **[Skrytka](../platform/customer-managed-keys.md#customer-lockbox-preview)** — klienci mogą kontrolować żądania dostępu inżynierów pomocy technicznej firmy Microsoft dotyczące danych.
@@ -52,7 +52,7 @@ Istnieją dwa tryby rozliczania użycia w klastrze. Można je określić przy u�
 
 2. **Obszary robocze**: koszty rezerwacji pojemności dla klastra są przydzielone proporcjonalnie do obszarów roboczych w klastrze (po rozpoczęciu obsługi alokacji dla każdego węzła z [Azure Security Center](../../security-center/index.yml) dla każdego obszaru roboczego).
 
-Należy pamiętać, że jeśli obszar roboczy korzysta ze starszej warstwy cenowej na węzeł, gdy jest on połączony z klastrem, będzie rozliczany na podstawie danych pozyskanych w ramach rezerwacji pojemności klastra i nie jest już na węzeł. Alokacje danych na węzeł z Azure Security Center będą nadal stosowane.
+Jeśli obszar roboczy korzysta ze starszej warstwy cenowej na węzeł, gdy jest ona połączona z klastrem, będzie rozliczany na podstawie danych pozyskanych w ramach rezerwacji pojemności klastra i nie jest już na węzeł. Alokacje danych na węzeł z Azure Security Center będą nadal stosowane.
 
 Więcej szczegółów zawiera rozliczenia dla Log Analytics dedykowanych klastrów są dostępne [tutaj]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters).
 
@@ -183,7 +183,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -Cl
 > [!NOTE]
 > Możesz zaktualizować *jednostkę SKU* zasobu *klastra* , *keyVaultProperties* lub *rozliczeń* przy użyciu poprawki.
 
-Przykład: 
+Na przykład: 
 
 *Call*
 

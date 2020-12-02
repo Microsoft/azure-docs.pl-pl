@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: 2977946b2e1f37aa356ee075d2caac237170df0f
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 90a4da2aadbbdf07d851e4407d2d417fc76d32af
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "95993346"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512328"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Jak wywołać interfejs API REST analiza tekstu
 
@@ -31,7 +31,7 @@ Począwszy od wersji v 3.1 — wersja zapoznawcza. 3, interfejs API analizy teks
 
 Zapoznaj się z poniższą tabelą, aby zobaczyć, które funkcje mogą być używane asynchronicznie. Należy zauważyć, że tylko kilka funkcji można wywołać z `/analyze` punktu końcowego. 
 
-| Cechy | Synchronous | Asynchroniczny |
+| Obiekt feature | Synchronous | Asynchroniczny |
 |--|--|--|
 | Wykrywanie języka | ✔ |  |
 | Analiza tonacji | ✔ |  |
@@ -54,9 +54,9 @@ Zapoznaj się z poniższą tabelą, aby zobaczyć, które funkcje mogą być uż
 > [!NOTE]
 > Jeśli chcesz użyć punktów końcowych lub, będziesz potrzebować zasobu analiza tekstu przy użyciu [warstwy cenowej](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) standardowa `/analyze` `/health` .
 
-1.  Najpierw przejdź do [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) i Utwórz nowy zasób analiza tekstu, jeśli jeszcze go nie masz. Wybierz warstwę cenową Standard (S), jeśli chcesz użyć `/analyze` `/health` punktów końcowych lub.
+1.  Najpierw przejdź do [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) i Utwórz nowy zasób analiza tekstu, jeśli jeszcze go nie masz. Wybierz **warstwę cenową Standard (S)** , jeśli chcesz użyć `/analyze` `/health` punktów końcowych lub.
 
-2.  Wybierz region, który ma być używany przez punkt końcowy.
+2.  Wybierz region, który ma być używany dla punktu końcowego.  Należy zwrócić uwagę, że `/analyze` `/health` punkty końcowe i są dostępne tylko w następujących regionach: zachodnie stany USA 2, Wschodnie stany USA 2, środkowe stany USA, Europa Północna i Europa Zachodnia.
 
 3.  Utwórz zasób analiza tekstu i przejdź do bloku "klucze i punkt końcowy" w lewej części strony. Skopiuj klucz, który będzie używany później podczas wywoływania interfejsów API. Ten element zostanie później dodany jako wartość `Ocp-Apim-Subscription-Key` nagłówka.
 
@@ -194,7 +194,7 @@ W programie Poster (lub innym narzędziu testowym interfejsu API sieci Web) Doda
 
 #### <a name="synchronous"></a>[Synchronous](#tab/synchronous)
 
-| Cechy | Typ żądania | Punkty końcowe zasobów |
+| Obiekt feature | Typ żądania | Punkty końcowe zasobów |
 |--|--|--|
 | Wykrywanie języka | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
 | Analiza tonacji | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment` |
@@ -206,14 +206,14 @@ W programie Poster (lub innym narzędziu testowym interfejsu API sieci Web) Doda
 
 #### <a name="analyze"></a>[Analiza](#tab/analyze)
 
-| Cechy | Typ żądania | Punkty końcowe zasobów |
+| Obiekt feature | Typ żądania | Punkty końcowe zasobów |
 |--|--|--|
 | Prześlij zadanie analizy | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze` |
 | Pobieranie stanu i wyników analizy | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze/jobs/<Operation-Location>` |
 
 #### <a name="text-analytics-for-health"></a>[Analiza tekstu dla opieki zdrowotnej](#tab/health)
 
-| Cechy | Typ żądania | Punkty końcowe zasobów |
+| Obiekt feature | Typ żądania | Punkty końcowe zasobów |
 |--|--|--|
 | Prześlij analiza tekstu do zadania kondycji  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs` |
 | Pobieranie stanu i wyników zadania | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |

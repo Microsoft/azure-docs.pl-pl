@@ -12,20 +12,23 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/27/2020
+ms.date: 12/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30724edafdee0c04f0c8b004ce335072b4ce0fd4
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 759781fd61cd42d05f2823d390e99d128dd2fcac
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367452"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512396"
 ---
 # <a name="management-capabilities-for-privileged-access-azure-ad-groups-preview"></a>Możliwości zarządzania uprzywilejowanym dostępem do grup usługi Azure AD (wersja zapoznawcza)
 
 W Privileged Identity Management (PIM) można teraz przypisywać uprawnienia do członkostwa lub własności uprzywilejowanych grup dostępu. Począwszy od tej wersji zapoznawczej, można przypisać wbudowane role usługi Azure Active Directory (Azure AD) do grup chmur i używać usługi PIM do zarządzania członkiem grupy oraz uprawnieniem i aktywacją właściciela. Aby uzyskać więcej informacji na temat grup, które można przypisać do ról w usłudze Azure AD, zobacz temat [Używanie grup w chmurze do zarządzania przypisaniami ról w Azure Active Directory (wersja zapoznawcza)](../roles/groups-concept.md).
+
+>[!Important]
+> Aby przypisać uprzywilejowaną grupę dostępu do roli w celu uzyskania dostępu administracyjnego do centrum programu Exchange, zabezpieczeń i zgodności lub programu SharePoint, należy użyć **ról i administratorów** portalu usługi Azure AD, a nie w środowisku uprzywilejowanych grup dostępu, aby użytkownik lub grupa uprawnieni do aktywacji do grupy.
 
 ## <a name="require-different-policies-for-each-role-assignable-group"></a>Wymagaj różnych zasad dla każdej grupy, którą można przypisać
 
