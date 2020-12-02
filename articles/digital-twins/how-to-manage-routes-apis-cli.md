@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3db475b5eb0c584f86c8810e9c993e4d5d7b497e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7016abc9d52aa12b497d29f605fe351ee3f6a2dd
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452895"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519117"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Zarządzanie punktami końcowymi i trasami w usłudze Azure Digital bliźniaczych reprezentacji (interfejsy API i interfejs wiersza polecenia)
 
@@ -90,47 +90,59 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 Gdy punkt końcowy nie może dostarczyć zdarzenia w określonym czasie lub po próbie dostarczenia zdarzenia przez określoną liczbę razy, może wysłać niedostarczone zdarzenie do konta magazynu. Ten proces jest znany jako **utracony**.
 
-Aby dowiedzieć się więcej o utraconych wiadomościach, zobacz [*pojęcia: trasy zdarzeń*](concepts-route-events.md#dead-letter-events).
+Aby dowiedzieć się więcej o utraconych wiadomościach, zobacz [*pojęcia: trasy zdarzeń*](concepts-route-events.md#dead-letter-events). Aby uzyskać instrukcje dotyczące sposobu konfigurowania punktu końcowego z utraconymi wiadomościami, przejdź do dalszej części tej sekcji.
 
 #### <a name="set-up-storage-resources"></a>Konfigurowanie zasobów magazynu
 
-Przed ustawieniem lokalizacji utraconych wiadomości musisz mieć [konto magazynu](../storage/common/storage-account-create.md?tabs=azure-portal) z [kontenerem](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) skonfigurowanym na koncie platformy Azure. Podasz adres URL dla tego kontenera podczas późniejszego tworzenia punktu końcowego.
-Utracona wartość jest podawana jako adres URL kontenera z [tokenem SAS](../storage/common/storage-sas-overview.md). Ten token wymaga tylko `write` uprawnienia do kontenera docelowego na koncie magazynu. W pełni sformułowany adres URL będzie miał postać: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
+Przed ustawieniem lokalizacji utraconych wiadomości musisz mieć [konto magazynu](../storage/common/storage-account-create.md?tabs=azure-portal) z [kontenerem](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) skonfigurowanym na koncie platformy Azure. 
+
+Podasz adres URL dla tego kontenera podczas późniejszego tworzenia punktu końcowego. Lokalizacja utraconych wiadomości zostanie dostarczona do punktu końcowego jako adres URL kontenera z [tokenem sygnatury dostępu współdzielonego](../storage/common/storage-sas-overview.md). Ten token wymaga `write` uprawnień do kontenera docelowego na koncie magazynu. W pełni sformułowany adres URL będzie miał format: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>` .
 
 Wykonaj poniższe kroki, aby skonfigurować te zasoby magazynu na koncie platformy Azure, aby przygotować się do skonfigurowania połączenia punktu końcowego w następnej sekcji.
 
-1. Postępuj zgodnie z [tym artykułem](../storage/common/storage-account-create.md?tabs=azure-portal) , aby utworzyć konto magazynu i zapisać nazwę konta magazynu, aby użyć go później.
-2. Utwórz kontener przy użyciu [tego artykułu](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) i Zapisz nazwę kontenera, aby użyć go później, podczas konfigurowania połączenia między kontenerem i punktem końcowym.
-3. Następnie utwórz token sygnatury dostępu współdzielonego dla konta magazynu. Zacznij od przechodzenia do konta magazynu w [Azure Portal](https://ms.portal.azure.com/#home) (można go znaleźć za pomocą nazwy na pasku wyszukiwania portalu).
-4. Na stronie konto magazynu wybierz łącze _sygnatura dostępu współdzielonego_ na lewym pasku nawigacyjnym, aby wybrać odpowiednie uprawnienia do generowania tokenu SAS.
-5. W przypadku _dozwolonych usług_ i _dozwolonych typów zasobów_ wybierz odpowiednie ustawienia. Musisz wybrać co najmniej jedno pole w każdej kategorii. Aby uzyskać dozwolone uprawnienia, wybierz opcję **zapisu** (Jeśli chcesz, możesz również wybrać inne uprawnienia).
-Ustaw pozostałe ustawienia, które chcesz wykonać.
-6. Następnie wybierz przycisk _Generuj sygnaturę dostępu współdzielonego i parametry połączenia_ , aby wygenerować token sygnatury dostępu współdzielonego. Spowoduje to wygenerowanie kilku wartości sygnatury dostępu współdzielonego i parametrów połączenia w dolnej części tej samej strony, poniżej ustawienia wyboru. Przewiń w dół, aby wyświetlić wartości, a następnie skopiuj wartość **tokena SAS** za pomocą ikony Kopiuj do Schowka. Zapisz go do późniejszego użycia.
+1. Postępuj zgodnie z instrukcjami w temacie [*Tworzenie konta magazynu*](../storage/common/storage-account-create.md?tabs=azure-portal) , aby utworzyć **konto magazynu** w ramach subskrypcji platformy Azure. Zanotuj nazwę konta magazynu, aby użyć jej później.
+2. Wykonaj kroki opisane w temacie [*Tworzenie kontenera*](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) , aby utworzyć **kontener** w ramach nowego konta magazynu. Zanotuj nazwę kontenera, aby użyć go później.
+3. Następnie Utwórz **token sygnatury dostępu współdzielonego** dla konta magazynu, którego punkt końcowy może użyć, aby uzyskać do niego dostęp. Zacznij od przechodzenia do konta magazynu w [Azure Portal](https://ms.portal.azure.com/#home) (można go znaleźć za pomocą nazwy na pasku wyszukiwania portalu).
+4. Na stronie konto magazynu wybierz łącze _sygnatura dostępu współdzielonego_ na lewym pasku nawigacyjnym, aby rozpocząć konfigurowanie tokenu SAS.
 
-:::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token.png" alt-text="Strona konta magazynu w Azure Portal pokazujący wszystkie wybrane ustawienia w celu wygenerowania tokenu SAS." lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token.png":::
+    :::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token-1.png" alt-text="Strona konta magazynu w Azure Portal" lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token-1.png":::
 
-:::image type="content" source="./media/how-to-manage-routes-apis-cli/copy-sas-token.png" alt-text="Skopiuj token sygnatury dostępu współdzielonego, aby użyć go w kluczu tajnym utraconych wiadomości." lightbox="./media/how-to-manage-routes-apis-cli/copy-sas-token.png":::
+1. Na *stronie sygnatura dostępu współdzielonego* w obszarze *dozwolone usługi* i *dozwolone typy zasobów* Wybierz dowolne ustawienia, które chcesz. Musisz wybrać co najmniej jedno pole w każdej kategorii. W obszarze *dozwolone uprawnienia* wybierz pozycję **Zapisz** (Jeśli chcesz, możesz również wybrać inne uprawnienia).
+1. Ustaw dowolne wartości dla pozostałych ustawień.
+1. Po zakończeniu wybierz przycisk _Generuj sygnaturę dostępu współdzielonego i parametry połączenia_ , aby wygenerować token sygnatury dostępu współdzielonego. 
 
+    :::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token-2.png" alt-text="Strona konta magazynu w Azure Portal pokazywania wszystkich opcji wyboru w celu wygenerowania tokenu sygnatury dostępu współdzielonego oraz wyróżniania przycisku &quot;Generuj sygnaturę dostępu współdzielonego i parametrów połączenia&quot;" lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token-2.png"::: 
+
+1. Spowoduje to wygenerowanie kilku wartości sygnatury dostępu współdzielonego i parametrów połączenia w dolnej części tej samej strony, poniżej ustawienia wyboru. Przewiń w dół, aby wyświetlić wartości, a następnie skopiuj wartość **tokena SAS** za pomocą ikony *Kopiuj do schowka* . Zapisz go do późniejszego użycia.
+
+    :::image type="content" source="./media/how-to-manage-routes-apis-cli/copy-sas-token.png" alt-text="Skopiuj token sygnatury dostępu współdzielonego, aby użyć go w kluczu tajnym utraconych wiadomości." lightbox="./media/how-to-manage-routes-apis-cli/copy-sas-token.png":::
+    
 #### <a name="configure-the-endpoint"></a>Konfigurowanie punktu końcowego
 
-Punkty końcowe utraconych wiadomości są tworzone przy użyciu Azure Resource Manager interfejsów API. Podczas tworzenia punktu końcowego należy użyć [dokumentacji interfejsów api Azure Resource Manager](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) , aby wypełnić wymagane parametry żądania. Ponadto Dodaj `deadLetterSecret` do obiektu Properties w **treści** żądania, który zawiera adres URL kontenera i token sygnatury dostępu współdzielonego dla konta magazynu.
+Aby utworzyć punkt końcowy, w którym włączono obsługę utraconych wiadomości, musisz utworzyć punkt końcowy przy użyciu Azure Resource Manager interfejsów API. 
+
+1. Najpierw użyj [dokumentacji interfejsów api Azure Resource Manager](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) , aby skonfigurować żądanie utworzenia punktu końcowego, i Wypełnij wymagane parametry żądania. 
+
+1. Następnie Dodaj `deadLetterSecret` pole do obiektu właściwości w **treści** żądania. Ustaw tę wartość zgodnie z szablonem poniżej, który określa adres URL z nazwy konta magazynu, nazwy kontenera i wartości tokena SAS zebrane w [poprzedniej sekcji](#set-up-storage-resources).
       
-```json
-{
-  "properties": {
-    "endpointType": "EventGrid",
-    "TopicEndpoint": "https://contosoGrid.westus2-1.eventgrid.azure.net/api/events",
-    "accessKey1": "xxxxxxxxxxx",
-    "accessKey2": "xxxxxxxxxxx",
-    "deadLetterSecret":"https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>"
-  }
-}
-```
+    ```json
+    {
+      "properties": {
+        "endpointType": "EventGrid",
+        "TopicEndpoint": "https://contosoGrid.westus2-1.eventgrid.azure.net/api/events",
+        "accessKey1": "xxxxxxxxxxx",
+        "accessKey2": "xxxxxxxxxxx",
+        "deadLetterSecret":"https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>"
+      }
+    }
+    ```
+1. Wyślij żądanie, aby utworzyć punkt końcowy.
+
 Aby uzyskać więcej informacji na temat tworzenia struktury tego żądania, zobacz Dokumentacja interfejsu API REST usługi Azure Digital bliźniaczych reprezentacji: [punkty końcowe — DigitalTwinsEndpoint metodę createorupdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
 
 ### <a name="message-storage-schema"></a>Schemat magazynu komunikatów
 
-Komunikaty o utraconych wiadomościach będą przechowywane w następującym formacie na koncie magazynu:
+Po skonfigurowaniu punktu końcowego z utraconymi komunikatami wiadomości utracone będą przechowywane w następującym formacie na koncie magazynu:
 
 `{container}/{endpointName}/{year}/{month}/{day}/{hour}/{eventId}.json`
 

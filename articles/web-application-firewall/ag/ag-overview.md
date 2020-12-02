@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: d3e38de191557f0602d1b544c6590018f98405b0
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: f15a739904c28361a60210a0cc4606c7048d0f53
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94560795"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518978"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Co to jest Zapora aplikacji sieci Web platformy Azure w usłudze Azure Application Gateway?
 
@@ -22,9 +22,6 @@ Zapora aplikacji sieci Web platformy Azure (WAF) na platformie Azure Application
 WAF na Application Gateway opiera się na [podstawowym zestawie reguł (KSR)](https://owasp.org/www-project-modsecurity-core-rule-set/) 3,1, 3,0 lub 2.2.9 z projektu Open Web Application Security (OWASP). WAF automatycznie aktualizuje, aby uwzględnić ochronę przed nowymi lukami w zabezpieczeniach, bez konieczności dodatkowej konfiguracji. 
 
 Wszystkie funkcje WAF wymienione poniżej istnieją w zasadach WAF. Można utworzyć wiele zasad i można je skojarzyć z Application Gateway, do poszczególnych odbiorników lub regułami routingu opartymi na ścieżce na Application Gateway. W ten sposób można mieć osobne zasady dla każdej witryny za Application Gateway w razie potrzeby. Aby uzyskać więcej informacji na temat zasad WAFymi, zobacz [Tworzenie zasad WAF](create-waf-policy-ag.md).
-
-   > [!NOTE]
-   > Zasady WAF dla identyfikatorów URI są dostępne w publicznej wersji zapoznawczej. Oznacza to, że ta funkcja podlega dodatkowym warunkom użytkowania firmy Microsoft. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Application Gateway diagram WAF](../media/ag-overview/waf1.png)
 
@@ -122,8 +119,8 @@ Jeśli ochrona bot jest włączona, przychodzące żądania zgodne ze złośliwy
 
 WAF Application Gateway można skonfigurować do uruchamiania w następujących dwóch trybach:
 
-* **Tryb wykrywania** : służy do monitorowania i rejestrowania wszystkich alertów dotyczących zagrożeń. Należy włączyć diagnostykę rejestrowania dla Application Gateway w sekcji **Diagnostyka** . Należy również upewnić się, że dziennik WAF został wybrany i włączony. Zapora aplikacji sieci Web nie blokuje żądań przychodzących, gdy działa w trybie wykrywania.
-* **Tryb zapobiegania** : blokuje wtargnięcie i ataki wykrywane przez zasady. Osoba atakująca otrzymuje wyjątek "403 nieautoryzowany dostęp", a połączenie jest zamknięte. Tryb zapobiegania rejestruje takie ataki w dziennikach WAF.
+* **Tryb wykrywania**: służy do monitorowania i rejestrowania wszystkich alertów dotyczących zagrożeń. Należy włączyć diagnostykę rejestrowania dla Application Gateway w sekcji **Diagnostyka** . Należy również upewnić się, że dziennik WAF został wybrany i włączony. Zapora aplikacji sieci Web nie blokuje żądań przychodzących, gdy działa w trybie wykrywania.
+* **Tryb zapobiegania**: blokuje wtargnięcie i ataki wykrywane przez zasady. Osoba atakująca otrzymuje wyjątek "403 nieautoryzowany dostęp", a połączenie jest zamknięte. Tryb zapobiegania rejestruje takie ataki w dziennikach WAF.
 
 > [!NOTE]
 > Zaleca się uruchamianie nowo wdrożonych WAF w trybie wykrywania przez krótki czas w środowisku produkcyjnym. Zapewnia to możliwość uzyskiwania [dzienników zapory](../../application-gateway/application-gateway-diagnostics.md#firewall-log) i aktualizowania wyjątków lub [reguł niestandardowych](./custom-waf-rules-overview.md) przed przejściem do trybu zapobiegania. Może to pomóc w zmniejszeniu wystąpienia nieoczekiwanego zablokowanego ruchu.
@@ -134,7 +131,7 @@ OWASP ma dwa tryby decydowania, czy ruch ma być blokowany: tryb tradycyjny i tr
 
 W trybie tradycyjnym ruch pasujący do dowolnej reguły jest traktowany niezależnie od innych dopasowań reguł. Ten tryb jest łatwy do zrozumienia. Jednak brak informacji o liczbie reguł zgodnych z określonym żądaniem jest ograniczeniem. Dlatego wprowadzono tryb oceniania anomalii. Jest to wartość domyślna dla OWASP 3. *x*.
 
-W trybie oceniania anomalii ruch pasujący do dowolnej reguły nie jest natychmiast blokowany, gdy Zapora działa w trybie zapobiegania. Reguły mają określoną wagę: *krytyczny* , *błąd* , *Ostrzeżenie* lub *powiadomienie*. Ważność ta ma wpływ na wartość liczbową żądania, która jest nazywana wynikiem anomalii. Na przykład jedna reguła *ostrzegawcza* współtworzy wynik 3. Jedna zgodność z regułą *krytyczną* współtworzy 5.
+W trybie oceniania anomalii ruch pasujący do dowolnej reguły nie jest natychmiast blokowany, gdy Zapora działa w trybie zapobiegania. Reguły mają określoną wagę: *krytyczny*, *błąd*, *Ostrzeżenie* lub *powiadomienie*. Ważność ta ma wpływ na wartość liczbową żądania, która jest nazywana wynikiem anomalii. Na przykład jedna reguła *ostrzegawcza* współtworzy wynik 3. Jedna zgodność z regułą *krytyczną* współtworzy 5.
 
 |Ważność  |Wartość  |
 |---------|---------|

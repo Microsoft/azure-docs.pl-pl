@@ -7,21 +7,16 @@ author: winthrop28
 ms.service: web-application-firewall
 ms.date: 11/20/2020
 ms.author: victorh
-ms.openlocfilehash: b546b043b856fd6ec69acd63fd69a01c48d0553b
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 59ca0b85ba2aff29bdb2ad3379c1054041d2b4cb
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990129"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518740"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Omówienie zasad zapory aplikacji sieci Web platformy Azure (WAF)
 
 Zasady zapory aplikacji sieci Web zawierają wszystkie ustawienia i konfiguracje WAF. Obejmuje to wykluczenia, reguły niestandardowe, reguły zarządzane i tak dalej. Te zasady są następnie skojarzone z bramą aplikacji (globalną), odbiornikiem (na lokację) lub regułą opartą na ścieżce (dla identyfikatora URI), aby zaczęła obowiązywać.
-
-> [!NOTE]
-> Zasady usługi Azure Web Application Firewall (WAF) dla identyfikatorów URI są dostępne w publicznej wersji zapoznawczej.
-> 
-> Publiczna wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie należy korzystać z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą nie być obsługiwane, mogą mieć ograniczone możliwości lub mogą nie być dostępne we wszystkich lokalizacjach platformy Azure. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Nie ma żadnego limitu liczby zasad, które można utworzyć. Podczas tworzenia zasad musi być ona skojarzona z bramą aplikacji, aby zaczęła obowiązywać. Można je skojarzyć z dowolną kombinacją bram aplikacji, odbiorników i reguł opartych na ścieżce.
 

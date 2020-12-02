@@ -2,15 +2,15 @@
 title: Tworzenie i wdrażanie specyfikacji szablonu
 description: Dowiedz się, jak utworzyć specyfikację szablonu na podstawie szablonu ARM. Następnie wdróż specyfikację szablonu w grupie zasobów w subskrypcji.
 author: tfitzmac
-ms.date: 11/17/2020
+ms.date: 12/01/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: 8439b1de5a69b3e5bfc22e10f089938da921c1cb
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 03cf2013f1cec9722af5d7e72285d9f11d8a6bc1
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94747506"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518961"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Szybki Start: Tworzenie i wdrażanie specyfikacji szablonu (wersja zapoznawcza)
 
@@ -21,15 +21,37 @@ W tym przewodniku szybki start pokazano, jak spakować szablon Azure Resource Ma
 Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Specyfikacje szablonu są obecnie w wersji zapoznawczej. Aby go użyć, należy zainstalować najnowszą wersję programu PowerShell lub interfejsu wiersza polecenia platformy Azure. W przypadku Azure PowerShell Użyj [wersji 5.0.0 lub nowszej](/powershell/azure/install-az-ps). W przypadku interfejsu wiersza polecenia platformy Azure Użyj [wersji 2.14.2 lub nowszej](/cli/azure/install-azure-cli).
+> Specyfikacje szablonu są obecnie w wersji zapoznawczej. Aby można było używać go z Azure PowerShell, należy zainstalować [wersję 5.0.0 lub nowszą](/powershell/azure/install-az-ps). Aby użyć go z interfejsem wiersza polecenia platformy Azure, użyj [wersji 2.14.2 lub nowszej](/cli/azure/install-azure-cli).
 
 ## <a name="create-template-spec"></a>Utwórz specyfikację szablonu
 
-Specyfikacja szablonu jest typem zasobu o nazwie **Microsoft. resources/templateSpecs**. Aby utworzyć specyfikację szablonu, można użyć Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub szablonu ARM. We wszystkich opcjach wymagany jest szablon ARM, który jest spakowany w ramach specyfikacji szablonu.
+Specyfikacja szablonu jest typem zasobu o nazwie **Microsoft. resources/templateSpecs**. Aby utworzyć specyfikację szablonu, można użyć Azure Portal, Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub szablonu ARM. We wszystkich opcjach wymagany jest szablon ARM, który jest spakowany w ramach specyfikacji szablonu.
 
 Przy użyciu programu PowerShell i interfejsu wiersza polecenia szablon ARM jest przekazaniem jako parametr w poleceniu. W przypadku szablonu ARM szablon ARM do spakowania w specyfikacji szablonu jest osadzony w definicji specyfikacji szablonu.
 
 Te opcje są pokazane poniżej.
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. W górnej części ekranu, w obszarze **Wyszukaj zasoby, usługi i dokumenty**, wprowadź **specyfikacje szablonu**, a następnie wybierz pozycję **specyfikacje szablonu**.
+1. Wybierz pozycję **Utwórz specyfikację szablonu**.
+1. Wybierz lub wprowadź następujące wartości:
+
+    - **Nazwa**: Wprowadź nazwę specyfikacji szablonu.  Na przykład **storageSpec**
+    - **Subskrypcja**: wybierz subskrypcję platformy Azure używaną do tworzenia specyfikacji szablonu.
+    - **Grupa zasobów**: wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę nowej grupy zasobów.  Na przykład **templateSpecRG**.
+    - **Lokalizacja**: wybierz lokalizację grupy zasobów. Na przykład  **zachodnie stany USA 2**.
+    - **Wersja**: wprowadź wersję specyfikacji szablonu. Na przykład **1,0** lub **v 1.0**.
+
+1. Wybierz pozycję **Dalej: Edytuj szablon**.
+1. Zastąp zawartość szablonu następującym kodem JSON:
+
+    :::code language="json" source="~/quickstart-templates/101-storage-account-create/azuredeploy.json":::
+
+    Jest to szablon, który zostanie spakowany w specyfikacji szablonu.
+1. Wybierz pozycję **Recenzja + Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -203,7 +225,23 @@ Te opcje są pokazane poniżej.
 
 ## <a name="deploy-template-spec"></a>Wdróż specyfikację szablonu
 
-Teraz można wdrożyć specyfikację szablonu. Wdrożenie specyfikacji szablonu jest tak samo samo jak wdrażanie szablonu, który zawiera, z tą różnicą, że identyfikator zasobu specyfikacji szablonu jest przekazywany. Używasz tych samych poleceń wdrażania i w razie potrzeby Przekaż wartości parametrów dla specyfikacji szablonu.
+Teraz można wdrożyć specyfikację szablonu. Wdrożenie specyfikacji szablonu jest tak samo jak wdrażanie szablonu, który zawiera, z tą różnicą, że identyfikator zasobu specyfikacji szablonu w Azure PowerShell lub interfejs wiersza polecenia platformy Azure. Używasz tych samych poleceń wdrażania i w razie potrzeby Przekaż wartości parametrów dla specyfikacji szablonu.
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1. W Azure Portal Otwórz grupę zasobów utworzoną w ostatniej procedurze.  Na przykład **templateSpecRG**.
+1. Wybierz utworzoną specyfikację szablonu. Na przykład **storageSpec**.
+1. Wybierz pozycję **Wdróż**.
+1. Wybierz lub wprowadź następujące wartości:
+
+    - **Subskrypcja**: wybierz subskrypcję platformy Azure na potrzeby tworzenia zasobu.
+    - **Grupa zasobów**: wybierz pozycję **Utwórz nową** , a następnie wprowadź **storageRG**.
+    - **Typ konta magazynu**: wybierz pozycję **Standard_GRS**.
+
+    Tworzysz nową grupę zasobów i wdrażasz szablon w ramach specyfikacji szablonu do nowej grupy zasobów.
+
+1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Utwórz**.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 

@@ -13,12 +13,12 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: 9ecac482c138447a3a9dc99193fb131b688993e4
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 28bacb923578fa0c631aa7b5092e0d11f98b1dcf
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556611"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518417"
 ---
 # <a name="use-azure-portal-to-configure-an-availability-group-preview-for-sql-server-on-azure-vm"></a>Użyj Azure Portal, aby skonfigurować grupę dostępności (wersja zapoznawcza) dla SQL Server na maszynie wirtualnej platformy Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -100,9 +100,6 @@ W tym celu wykonaj następujące czynności:
 1. Sprawdź ustawienia klastra. 
 1. Wybierz pozycję **Zastosuj** , aby dołączyć klaster, a następnie wybierz pozycję **tak** w wierszu polecenia, aby wykonać operację.
 
-
-
-
 ## <a name="create-availability-group"></a>Utwórz grupę dostępności
 
 Po utworzeniu lub dołączeniu klastra utwórz grupę dostępności przy użyciu Azure Portal. W tym celu wykonaj następujące czynności:
@@ -146,7 +143,7 @@ Aby dodać bazy danych do grupy dostępności przy użyciu SQL Server Management
 1. Otwórz SQL Server Management Studio (SSMS).
 1. Nawiąż połączenie z wystąpieniem SQL Server. 
 1. Rozwiń pozycję **zawsze w przypadku wysokiej dostępności** w **Eksplorator obiektów**.
-1. Rozwiń węzeł **grupy dostępności** , kliknij prawym przyciskiem myszy grupę dostępności, a następnie wybierz polecenie **Dodaj bazę danych.**...
+1. Rozwiń węzeł **grupy dostępności**, kliknij prawym przyciskiem myszy grupę dostępności, a następnie wybierz polecenie **Dodaj bazę danych.**...
 
    :::image type="content" source="media/availability-group-az-portal-configure/add-database.png" alt-text="Kliknij prawym przyciskiem myszy grupę dostępności w Eksploratorze obiektów i wybierz polecenie Dodaj bazę danych":::
 
@@ -171,7 +168,7 @@ Aby dodać więcej SQL Server maszyn wirtualnych do klastra, wykonaj następują
 
 1. Rozwiń pozycję **poświadczenia klastra trybu failover systemu Windows Server** i wprowadź konta używane dla usług SQL Server, operatora klastra i kont Bootstrap klastra. 
 1. Wybierz Maszyny wirtualne SQL Server, które chcesz dodać do klastra. 
-1. Wybierz pozycję **Zastosuj**. 
+1. Wybierz przycisk **Zastosuj**. 
 
 Stan wdrożenia można sprawdzić w **dzienniku aktywności** , który jest dostępny z ikony dzwonka na górnym pasku nawigacyjnym. 
 
@@ -207,7 +204,7 @@ Następnie usuń metadane klastra z rozszerzenia programu SQL IaaS Agent:
 # Remove the cluster from the SQL VM RP metadata
 # example: az sql vm group delete --name Cluster --resource-group SQLVM-RG
 
-az sql vm group delete --name <cluster name> Cluster --resource-group <resource group name>
+az sql vm group delete --name <cluster name> --resource-group <resource group name>
 ```
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
@@ -235,7 +232,7 @@ Następnie usuń metadane klastra z rozszerzenia programu SQL IaaS Agent:
 # Remove the cluster metadata
 # example: Remove-AzSqlVMGroup -ResourceGroupName "SQLVM-RG" -Name "Cluster"
 
-Remove-AzSqlVMGroup -ResourceGroupName "<resource group name>" -Name "<cluster name> "
+Remove-AzSqlVMGroup -ResourceGroupName "<resource group name>" -Name "<cluster name>"
 ```
 
 ---

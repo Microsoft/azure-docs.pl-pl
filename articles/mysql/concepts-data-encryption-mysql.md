@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 87dff3bbb4a7ff5e40a06d1b63bdc38987d727fe
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f9b9681b08f5864dc34bbf1c35dc6919129c24cb
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492696"
+ms.locfileid: "96518808"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Azure Database for MySQL szyfrowanie danych za pomocą klucza zarządzanego przez klienta
 
@@ -61,7 +61,7 @@ Gdy serwer jest skonfigurowany do korzystania z klucza zarządzanego przez klien
 Poniżej przedstawiono wymagania dotyczące konfigurowania Key Vault:
 
 * Key Vault i Azure Database for MySQL muszą należeć do tej samej dzierżawy Azure Active Directory (Azure AD). Między dzierżawcami Key Vault i interakcje serwera nie są obsługiwane. Późniejsze przeniesienie zasobów Key Vault wymaga ponownego skonfigurowania szyfrowania danych.
-* Włącz [unsoft-DELETE] ((... /Key-Vault/General/Soft-Delete-Overview.MD) w magazynie kluczy z okresem przechowywania ustawionym na **90 dni**, aby chronić przed utratą danych w przypadku wystąpienia przypadkowego usunięcia klucza (lub Key Vault). Wstępnie usunięte zasoby są domyślnie zachowywane przez 90 dni, chyba że okres przechowywania jest jawnie ustawiony na <= 90 dni. Akcje odzyskania i przeczyszczania mają własne uprawnienia skojarzone z zasadami dostępu Key Vault. Funkcja usuwania nietrwałego jest domyślnie wyłączona, ale można ją włączyć za pomocą programu PowerShell lub interfejsu wiersza polecenia platformy Azure (należy zauważyć, że nie można włączyć jej za pomocą Azure Portal).
+* Włącz funkcję [usuwania nietrwałego](../key-vault/general/soft-delete-overview.md) w magazynie kluczy z okresem przechowywania ustawionym na **90 dni**, aby chronić przed utratą danych w przypadku wystąpienia przypadkowego usunięcia klucza (lub Key Vault). Wstępnie usunięte zasoby są domyślnie zachowywane przez 90 dni, chyba że okres przechowywania jest jawnie ustawiony na <= 90 dni. Akcje odzyskania i przeczyszczania mają własne uprawnienia skojarzone z zasadami dostępu Key Vault. Funkcja usuwania nietrwałego jest domyślnie wyłączona, ale można ją włączyć za pomocą programu PowerShell lub interfejsu wiersza polecenia platformy Azure (należy zauważyć, że nie można włączyć jej za pomocą Azure Portal).
 * Włącz funkcję [przeczyszczania ochrony](../key-vault/general/soft-delete-overview.md#purge-protection) w magazynie kluczy z okresem przechowywania ustawionym na **90 dni**. Ochronę przeczyszczania można włączyć tylko po włączeniu usuwania nietrwałego. Można ją włączyć za pomocą interfejsu wiersza polecenia platformy Azure lub programu PowerShell. Gdy ochrona przed przeczyszczeniem jest włączona, nie można wyczyścić magazynu ani obiektu w stanie usuniętym, dopóki nie upłynie okres przechowywania. Nieusunięte magazyny i obiekty nadal mogą być odzyskiwane, co oznacza, że zostaną zastosowane zasady przechowywania. 
 * Przyznaj Azure Database for MySQL dostęp do magazynu kluczy za pomocą uprawnień Get, wrapKey i unwrapKey przy użyciu unikatowej tożsamości zarządzanej. W Azure Portal unikatowa tożsamość "usługa" jest automatycznie tworzona, gdy szyfrowanie danych jest włączone w programie MySQL. Szczegółowe instrukcje krok po kroku znajdują Azure Portal się w temacie [Konfigurowanie szyfrowania danych dla programu MySQL](howto-data-encryption-portal.md) .
 
@@ -70,8 +70,8 @@ Poniżej przedstawiono wymagania dotyczące konfigurowania klucza zarządzanego 
 * Klucz zarządzany przez klienta, który ma być używany na potrzeby szyfrowania, może być tylko asymetryczny, RSA 2048.
 * Data aktywacji klucza (jeśli jest ustawiona) musi być datą i godziną w przeszłości. Nie ustawiono daty wygaśnięcia.
 * Klucz musi być w stanie *włączony* .
-* Klucz musi mieć [nietrwałe usuwanie](../key-vault/general/soft-delete-overview.md) z okresem przechowywania ustawionym na **90 dni**.
-* Kay musi mieć [włączoną ochronę przed przeczyszczeniem](../key-vault/general/soft-delete-overview.md#purge-protection).
+* Klucz musi mieć [nietrwałe usuwanie](../key-vault/general/soft-delete-overview.md) z okresem przechowywania ustawionym na **90 dni**. Niejawnie ustawia wymagany atrybut klucza recoveryLevel: "odwracalne". Jeśli wartość przechowywania jest ustawiona na < 90 dni, recoveryLevel: "CustomizedRecoverable", co nie jest wymagane, dlatego należy ustawić okres przechowywania ustawiony na **90 dni**.
+* Klucz musi mieć [włączoną ochronę przed czyszczeniem](../key-vault/general/soft-delete-overview.md#purge-protection).
 * W przypadku [importowania istniejącego klucza](/rest/api/keyvault/ImportKey/ImportKey) do magazynu kluczy upewnij się, że jest on udostępniany w obsługiwanych formatach plików ( `.pfx` , `.byok` , `.backup` ).
 
 ## <a name="recommendations"></a>Zalecenia

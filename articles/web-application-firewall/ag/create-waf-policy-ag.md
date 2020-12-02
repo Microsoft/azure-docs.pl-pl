@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
-ms.openlocfilehash: 5705eedfb919c792c558384f6309325dcded4b43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26078c3757e42c3e290a5f4122461b287582fb80
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86146608"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518825"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Tworzenie zasad zapory aplikacji sieci Web dla Application Gateway
 
@@ -22,8 +22,6 @@ Możesz wprowadzić dowolną liczbę zasad. Po utworzeniu zasad, muszą one być
 
 Jeśli do Application Gateway zastosowano zasady, a następnie zastosujesz inne zasady do odbiornika w tym Application Gateway, zasady odbiornika zostaną zastosowane, ale tylko dla odbiorników, do których są przypisane. Zasady Application Gateway nadal dotyczą wszystkich innych odbiorników, do których nie są przypisane określone zasady. 
 
-   > [!NOTE]
-   > Zasady WAF dla identyfikatorów URI są dostępne w publicznej wersji zapoznawczej. Oznacza to, że ta funkcja podlega dodatkowym warunkom użytkowania firmy Microsoft. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
    > [!NOTE]
    > Gdy zasady zapory są skojarzone z usługą WAF, zawsze muszą istnieć zasady skojarzone z tym WAF. Te zasady mogą zostać zastąpione, ale usunięcie skojarzenia zasad z WAF całkowicie nie jest obsługiwane. 
 

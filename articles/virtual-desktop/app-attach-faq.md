@@ -8,24 +8,28 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a63d7f067665836910b91b2911db522f0a92bbb1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73fb9bf436c043e903977fafbb5a502e2edc5488
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88556336"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518689"
 ---
 # <a name="msix-app-attach-faq"></a>Załączanie aplikacji MSIX — często zadawane pytania
 
 W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące dołączania aplikacji MSIX dla pulpitu wirtualnego systemu Windows.
 
+## <a name="whats-the-difference-between-msix-and-msix-app-attach"></a>Jaka jest różnica między dołączaniem aplikacji MSIX i MSIX?
+
+MSIX to format pakietu dla aplikacji, podczas gdy dołączanie do aplikacji MSIX to funkcja, która dostarcza pakiety MSIX do wdrożenia.
+
 ## <a name="does-msix-app-attach-use-fslogix"></a>Czy aplikacja MSIX dołącza użycie FSLogix?
 
-Dołączenie do aplikacji MSIX nie korzysta z FSLogix. Jednak dołączone do aplikacji i FSLogix są przeznaczone do współdziałania w celu zapewnienia bezproblemowego środowiska użytkownika.
+Dołączenie do aplikacji MSIX nie korzysta z FSLogix. Jednak dołączenie i FSLogix aplikacji MSIX są przeznaczone do współdziałania w celu zapewnienia bezproblemowego środowiska użytkownika.
 
 ## <a name="can-i-use-msix-app-attach-outside-of-windows-virtual-desktop"></a>Czy mogę użyć dołączania aplikacji MSIX poza pulpitem wirtualnym systemu Windows?
 
-Tak, dołączanie aplikacji MSIX to funkcja, która jest dostępna w systemie Windows 10 Enterprise i może być używana poza pulpitem wirtualnym systemu Windows. Nie istnieje jednak płaszczyzna zarządzania dla MSIX aplikacji poza pulpitem wirtualnym systemu Windows.
+Interfejsy API, które są dołączone do aplikacji MSIX, są dostępne dla systemu Windows 10 Enterprise. Te interfejsy API mogą być używane poza pulpitem wirtualnym systemu Windows. Nie istnieje jednak płaszczyzna zarządzania dla MSIX aplikacji poza pulpitem wirtualnym systemu Windows.
 
 ## <a name="how-do-i-get-an-msix-package"></a>Jak mogę uzyskać pakiet MSIX?
 
@@ -33,8 +37,41 @@ Dostawca oprogramowania przekaże pakiet MSIX. Możesz również skonwertować P
 
 ## <a name="which-operating-systems-support-msix-app-attach"></a>Które systemy operacyjne obsługują dołączanie aplikacji MSIX?
 
-Wiele sesji dla systemu Windows 10 Enterprise i Windows 10 Enterprise.
+Wiele sesji systemu Windows 10 Enterprise i Windows 10 Enterprise, wersja 2004 lub nowsza.
+
+## <a name="is-msix-app-attach-currently-generally-available"></a>Czy dołączenie do aplikacji MSIX jest obecnie ogólnie dostępne?
+
+Dołączenie do aplikacji MSIX jest częścią wielosesyjnych systemów Windows 10 Enterprise i Windows 10 Enterprise, w wersji 2004 lub nowszej. Oba systemy operacyjne są obecnie ogólnie dostępne. 
+
+## <a name="can-i-use-msix-app-attach-outside-of-windows-virtual-desktop"></a>Czy mogę użyć dołączania aplikacji MSIX poza pulpitem wirtualnym systemu Windows?
+
+Interfejsy API dołączania aplikacji MSIX i MSIX są częścią wielu sesji systemu Windows 10 Enterprise i Windows 10 Enterprise, w wersji 2004 i nowszych. Obecnie nie zapewniamy oprogramowania do zarządzania do dołączania aplikacji MSIX poza pulpitem wirtualnym systemu Windows.
+
+## <a name="can-i-run-two-versions-of-the-same-application-at-the-same-time"></a>Czy mogę uruchomić dwie wersje tej samej aplikacji w tym samym czasie?
+
+Aby jednocześnie uruchamiać dwie wersje tych samych aplikacji MSIX, Rodzina pakietów MSIX zdefiniowana w pliku appxmanifest.xml musi być inna dla każdej aplikacji.
+
+## <a name="should-i-disable-auto-update-when-using-msix-app-attach"></a>Czy po dołączeniu do aplikacji MSIX należy wyłączyć automatyczne aktualizowanie?
+
+Tak. Dołączenie do aplikacji MSIX nie obsługuje aktualizacji automatyczne dla aplikacji MSIX.
+
+## <a name="how-do-permissions-work-with-msix-app-attach"></a>Jak uprawnienia współpracują z aplikacją MSIX?
+
+Wszystkie maszyny wirtualne w puli hostów używające dołączania aplikacji MSIX muszą mieć uprawnienia do odczytu w udziale plików, w którym są przechowywane obrazy MSIX. Jeśli używa ona również Azure Files, muszą mieć przyznane uprawnienia kontroli dostępu opartej na rolach (RBAC) i nowego systemu plików (NTFS).
+
+## <a name="can-i-use-msix-app-attach-for-http-or-https"></a>Czy mogę użyć dołączania aplikacji MSIX dla protokołu HTTP lub HTTPs?
+
+Wszystkie maszyny wirtualne będące częścią puli hostów korzystającej z dołączania aplikacji MSIX muszą mieć uprawnienia do odczytu w udziale plików, w którym są przechowywane obrazy MSIX. Jeśli Azure Files jest używany, należy udzielić uprawnień RBAC i NTFS.
+
+## <a name="can-i-restage-the-same-msix-application"></a>Czy mogę przemieścić tę samą aplikację MSIX?
+
+Tak. Można przemieścić aplikacje, które zostały już przemieszczone, i nie powinno to spowodować żadnych błędów.
+
+## <a name="does-msix-app-attach-support-self-signed-certificates"></a>Czy aplikacja MSIX obsługuje certyfikaty z podpisem własnym?
+
+Używanie funkcji dołączania aplikacji MSIX za pośrednictwem protokołu HTTP lub HTTPs nie jest obecnie obsługiwane.
+
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli chcesz dowiedzieć się więcej o dołączaniu do aplikacji MSIX, zapoznaj się z naszym [słownikiem](app-attach-glossary.md)z [omówieniem](what-is-app-attach.md) . W przeciwnym razie Zacznij od [przygotowania do dołączenia do aplikacji](app-attach.md).
+Jeśli chcesz dowiedzieć się więcej na temat dołączania do aplikacji MSIX, zapoznaj się z [omówieniem](what-is-app-attach.md) i [słownikiem](app-attach-glossary.md). W przeciwnym razie Zacznij od [przygotowania do dołączenia do aplikacji](app-attach.md).

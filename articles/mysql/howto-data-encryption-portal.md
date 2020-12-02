@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9de4a4534551c4a41b2c81c1d10fecf6118ff868
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 00670746c1686bca354adc989ddce6c9dd336491
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96434519"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519063"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Szyfrowanie danych dla Azure Database for MySQL przy użyciu Azure Portal
 
@@ -44,7 +44,8 @@ Dowiedz się, jak za pomocą Azure Portal skonfigurować szyfrowanie danych dla 
   * Brak daty wygaśnięcia
   * Niewyłączone
   * Wykonywanie operacji **Get**, **zawijania** i **odpakowania**
-  * atrybut recoverylevel ustawiony na **wartość odzyskiwalną**.
+  * atrybut recoverylevel ustawiony do **odzyskania** (wymaga włączenia opcji Soft-Delete z okresem przechowywania ustawionym na 90 dni)
+  * Włączono ochronę przed przeczyszczeniem
 
 Powyższe atrybuty klucza można sprawdzić za pomocą następującego polecenia:
 

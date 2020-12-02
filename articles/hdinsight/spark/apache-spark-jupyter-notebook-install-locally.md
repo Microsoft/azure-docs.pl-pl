@@ -1,6 +1,6 @@
 ---
 title: Instalowanie Jupyter lokalnie i nawiązywanie połączenia z platformą Spark w usłudze Azure HDInsight
-description: Dowiedz się, jak zainstalować Notes Jupyter lokalnie na komputerze i połączyć go z klastrem Apache Spark.
+description: Dowiedz się, jak zainstalować Jupyter Notebook lokalnie na komputerze i połączyć go z klastrem Apache Spark.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,21 +8,21 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-python
 ms.date: 04/23/2020
-ms.openlocfilehash: 96b2e7deff464f00ced4457a514ac833a90bd42d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 16cb8a9c2a951c9f60640248ef74757d1e5ee200
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999896"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518927"
 ---
-# <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instalowanie notesu Jupyter na komputerze i nawiązywanie połączenia z usługą Apache Spark w usłudze HDInsight
+# <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instalowanie Jupyter Notebook na komputerze i nawiązywanie połączenia z Apache Spark w usłudze HDInsight
 
-W tym artykule dowiesz się, jak zainstalować Notes Jupyter za pomocą niestandardowego PySpark (dla języka Python) i Apache Spark (dla Scala) jądra z użyciem usługi Spark Magic. Następnie można połączyć Notes z klastrem usługi HDInsight.
+W tym artykule dowiesz się, jak zainstalować Jupyter Notebook przy użyciu niestandardowych PySpark (dla języka Python) i Apache Spark jądra (dla Scala) przy użyciu usługi Spark Magic. Następnie można połączyć Notes z klastrem usługi HDInsight.
 
 Istnieją cztery kluczowe kroki związane z instalowaniem Jupyter i nawiązywanie połączenia z usługą Apache Spark w usłudze HDInsight.
 
 * Skonfiguruj klaster Spark.
-* Zainstaluj Notes Jupyter.
+* Zainstaluj Jupyter Notebook.
 * Zainstaluj jądra PySpark i Spark przy użyciu Magic Spark.
 * Skonfiguruj magiczną platformę Spark, aby uzyskać dostęp do klastra Spark w usłudze HDInsight.
 
@@ -34,7 +34,7 @@ Aby uzyskać więcej informacji na temat niestandardowych jądra i programu Spar
 
 * Znajomość zagadnień dotyczących używania notesów Jupyter za pomocą platformy Spark w usłudze HDInsight.
 
-## <a name="install-jupyter-notebook-on-your-computer"></a>Instalowanie notesu Jupyter na komputerze
+## <a name="install-jupyter-notebook-on-your-computer"></a>Instalowanie Jupyter Notebook na komputerze
 
 Zainstaluj środowisko Python przed zainstalowaniem notesów Jupyter. W ramach [dystrybucji Anaconda](https://www.anaconda.com/download/) zostanie zainstalowany zarówno Język Python, jak i Jupyter Notebook.
 
@@ -150,7 +150,7 @@ W tej sekcji skonfigurujesz program Spark, który został wcześniej zainstalowa
 
     a. Utwórz nowy notes. W prawym górnym rogu wybierz pozycję **Nowy**. Powinien zostać wyświetlony domyślny jądro **Python 2** lub **Python 3** i zainstalowane jądra. Rzeczywiste wartości mogą się różnić w zależności od opcji instalacji.  Wybierz pozycję **PySpark**.
 
-    ![Dostępne jądra w notesie Jupyter](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Jądra w notesie Jupyter")
+    ![Dostępne jądra w Jupyter Notebook](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Jądra w Jupyter Notebook")
 
     > [!IMPORTANT]  
     > Po wybraniu pozycji **Nowy** Przejrzyj powłokę pod kątem błędów.  Jeśli zobaczysz błąd, `TypeError: __init__() got an unexpected keyword argument 'io_loop'` może wystąpić znany problem z niektórymi wersjami programu Tornado.  Jeśli tak, Zatrzymaj jądro, a następnie Obniż poziom instalacji Tornado przy użyciu następującego polecenia: `pip install tornado==4.5.3` .
@@ -170,7 +170,7 @@ W tej sekcji skonfigurujesz program Spark, który został wcześniej zainstalowa
 
 Przyczyny instalacji usługi Jupyter na komputerze, a następnie połączenia jej z klastrem Apache Spark w usłudze HDInsight:
 
-* Zapewnia możliwość lokalnego tworzenia notesów, testowania aplikacji w uruchomionym klastrze, a następnie przekazywania notesów do klastra. Aby przekazać notesy do klastra, można przekazać je za pomocą notesu Jupyter z systemem lub w klastrze lub zapisać je `/HdiNotebooks` w folderze na koncie magazynu skojarzonym z klastrem. Aby uzyskać więcej informacji o tym, jak notesy są przechowywane w klastrze, zobacz [gdzie są przechowywane notesy Jupyter](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)?
+* Zapewnia możliwość lokalnego tworzenia notesów, testowania aplikacji w uruchomionym klastrze, a następnie przekazywania notesów do klastra. Aby przekazać Notes do klastra, można przekazać je przy użyciu Jupyter Notebook z systemem lub w klastrze lub zapisać je `/HdiNotebooks` w folderze na koncie magazynu skojarzonym z klastrem. Aby uzyskać więcej informacji o tym, jak notesy są przechowywane w klastrze, zobacz [gdzie są przechowywane notesy Jupyter](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)?
 * Dostępne lokalnie notesy umożliwiają łączenie się z różnymi klastrami platformy Spark na podstawie wymagań aplikacji.
 * Za pomocą usługi GitHub można zaimplementować system kontroli źródła i mieć kontrolę wersji dla notesów. Możesz również mieć środowisko współpracy, w którym wielu użytkowników może pracować z tym samym notesem.
 * Można korzystać z notesów lokalnie bez potrzeby klastra. Do testowania notesów jest potrzebny tylko klaster, a nie ręczne zarządzanie notesami lub środowiskiem programistycznym.
@@ -182,5 +182,5 @@ Przyczyny instalacji usługi Jupyter na komputerze, a następnie połączenia je
 ## <a name="next-steps"></a>Następne kroki
 
 * [Przegląd: platforma Apache Spark w usłudze Azure HDInsight](apache-spark-overview.md)
-* [Jądra dla notesu Jupyter w Apache Spark](apache-spark-jupyter-notebook-kernels.md)
+* [Jądra dla Jupyter Notebook na Apache Spark](apache-spark-jupyter-notebook-kernels.md)
 * [Korzystanie z zewnętrznych pakietów z notesami Jupyter w Apache Spark](apache-spark-jupyter-notebook-use-external-packages.md)

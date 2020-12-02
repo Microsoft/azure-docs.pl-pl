@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 8c6a27f0cfaafe7e6c1181651e672d0e828af855
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 605e8cd57ab5863c1011082f0f2dbd93d078980b
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444488"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518944"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Autouczenie modelu prognozowania szeregów czasowych
 
@@ -286,19 +286,19 @@ Zobacz przykład kodu w języku Python, wykorzystując [funkcję agregacji przed
 
 ### <a name="short-series-handling"></a>Obsługa krótkich serii
 
-Automatyczna część ML traktuje serię czasową jako **krótką serię** , jeśli nie ma wystarczającej liczby punktów danych do przeprowadzenia fazy tworzenia i weryfikacji modelu. Liczba punktów danych jest różna dla każdego eksperymentu i zależy od max_horizon, liczby podziałów wzajemnego sprawdzania poprawności oraz długości modelu lookback, który jest maksymalną historią, która jest wymagana do skonstruowania funkcji szeregów czasowych. Dokładne obliczenie można znaleźć w [dokumentacji referencyjnej short_series_handling_config](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py#short-series-handling-configuration).
+Automatyczna część ML traktuje serię czasową jako **krótką serię** , jeśli nie ma wystarczającej liczby punktów danych do przeprowadzenia fazy tworzenia i weryfikacji modelu. Liczba punktów danych jest różna dla każdego eksperymentu i zależy od max_horizon, liczby podziałów wzajemnego sprawdzania poprawności oraz długości modelu lookback, który jest maksymalną historią, która jest wymagana do skonstruowania funkcji szeregów czasowych. Dokładne obliczenie można znaleźć w [dokumentacji referencyjnej short_series_handling_configuration](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py#short-series-handling-configuration).
 
-Zautomatyzowanej ML oferuje obsługę krótkich serii domyślnie przy użyciu `short_series_handling_config` parametru w `ForecastingParameters` obiekcie. 
+Zautomatyzowanej ML oferuje obsługę krótkich serii domyślnie przy użyciu `short_series_handling_configuration` parametru w `ForecastingParameters` obiekcie. 
 
-Aby włączyć obsługę krótkich serii, `freq` parametr musi również być zdefiniowany. Aby zmienić zachowanie domyślne, `short_series_handling_config = auto` należy zaktualizować `short_series_handling_config` parametr w `ForecastingParameter` obiekcie.  
+Aby włączyć obsługę krótkich serii, `freq` parametr musi również być zdefiniowany. Aby zdefiniować częstotliwość godzinową, zostanie ustawiona `freq='H'` . W [tym miejscu](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects)przejrzyj opcje ciągu częstotliwości. Aby zmienić zachowanie domyślne, `short_series_handling_configuration = 'auto'` należy zaktualizować `short_series_handling_configuration` parametr w `ForecastingParameter` obiekcie.  
 
 ```python
 from azureml.automl.core.forecasting_parameters import ForecastingParameters
 
 forecast_parameters = ForecastingParameters(time_column_name='day_datetime', 
                                             forecast_horizon=50,
-                                            short_series_handling_config='auto',
-                                            freq = '7',
+                                            short_series_handling_configuration='auto',
+                                            freq = 'H',
                                             target_lags='auto')
 ```
 Poniższa tabela zawiera podsumowanie dostępnych ustawień programu `short_series_handling_config` .
@@ -306,7 +306,7 @@ Poniższa tabela zawiera podsumowanie dostępnych ustawień programu `short_seri
 |Ustawienie|Opis
 |---|---
 |`auto`| Poniżej przedstawiono domyślne zachowanie obsługi krótkich serii <li> *Jeśli cała seria jest krótka*, Zablokuj dane. <br> <li> *Jeśli nie wszystkie serie są krótkie*, Usuń krótką serię. 
-|`pad`| Jeśli `short_series_handling_config = pad` , wówczas automatyczne dodawanie i dodanie fikcyjnych wartości do każdej krótkiej serii. Poniżej przedstawiono listę typów kolumn i ich uzupełniania: <li>Kolumny obiektów z NaNs <li> Kolumny liczbowe z wartością 0 <li> Kolumny logiczne/logiczne z wartością false <li> Kolumna docelowa jest uzupełniona losowo wartościami o wartości zero i odchylenie standardowe równe 1. 
+|`pad`| Jeśli `short_series_handling_config = pad` , wówczas automatyczna wartość ml dodaje losowo wartości do każdej znalezionej serii krótkiej. Poniżej przedstawiono listę typów kolumn i ich uzupełniania: <li>Kolumny obiektów z NaNs <li> Kolumny liczbowe z wartością 0 <li> Kolumny logiczne/logiczne z wartością false <li> Kolumna docelowa jest uzupełniona losowo wartościami o wartości zero i odchylenie standardowe równe 1. 
 |`drop`| Jeśli `short_series_handling_config = drop` , wówczas automatyczne odniesie się do krótkich serii i nie zostanie wykorzystane do szkolenia ani przewidywania. Przewidywania dla tych serii zwracają.
 |`None`| Żadna seria nie jest uzupełniona ani porzucona
 

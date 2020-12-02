@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 11/20/2020
-ms.openlocfilehash: 9d6970331024ea0cd08e890cc62507d9eb230678
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 12/2/2020
+ms.openlocfilehash: 99b5e7bee93ffee14585f048506104ec313b9bff
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016337"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518539"
 ---
 # <a name="co-sell-partner-engagement"></a>Współpraca między partnerami w zakresie sprzedaży
 
@@ -24,7 +24,7 @@ Program współsprzedażowy jest dostępny dla **oprogramowania utworzonego za p
 
     ![Diagram przedstawiający sposób, w jaki następuje współsprzedaż, gdy potencjalni klienci są współdzieli, zaakceptowali i korzystali z klientów zarządzanych przez firmę Microsoft.](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png)
 
-- **Sprzedawanie zachęcani** Rozwiązania IP mogą zdobywać zachęty dla sprzedawców w dziedzinie firmy Microsoft, gdy są one sprzedawane we współpracy z zespołami sprzedaży firmy Microsoft, oprócz korzyści z witryny Marketplace wymienionych poniżej.</li></ul>
+- **Sprzedawanie zachęcani** Oferty IP mogą zdobywać zachęty dla sprzedawców w dziedzinie firmy Microsoft, gdy są one sprzedawane we współpracy z zespołami sprzedaży firmy Microsoft, oprócz korzyści z witryny Marketplace wymienionych poniżej.</li></ul>
 
 ## <a name="marketplace-benefits-for-incentivized-offers"></a>Korzyści z witryny Marketplace dla ofert zachęcani
 
@@ -67,7 +67,7 @@ Rozpocznij swoją podróż wspólną bezpośrednio w centrum partnerskim, wykonu
 
     :::image type="content" source="media/co-sell/co-sell-listing-section.png" alt-text="Ten obraz przedstawia sekcję wystawiania na karcie współsprzedaż.":::  
 
-1. Podaj szczegółowe informacje o ofercie i przekaż zabezpieczenia w sekcji **dokumenty** . Sprzedawcy firmy Microsoft będą korzystać z tych informacji w celu zaproponowania i sprzedaży oferty. (*Wymagane: klient z jednym modułem stronicowania i talią klienta).*
+1. Podaj szczegółowe informacje o ofercie i przekaż zabezpieczenia w sekcji **dokumenty** . Sprzedawcy firmy Microsoft będą korzystać z tych informacji w celu zaproponowania i sprzedaży oferty. *(Wymagane: rozwiązanie/oferowanie jednego modułu stronicowania i rozwiązania/oferty z ofertą. Wymagany do osiągnięcia stanu zachęcani "współsprzedażu" platformy Azure IP: diagram architektury referencyjnej.*
 
     :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="Ten obraz przedstawia sekcję dokumenty na karcie współsprzedaż.":::
 

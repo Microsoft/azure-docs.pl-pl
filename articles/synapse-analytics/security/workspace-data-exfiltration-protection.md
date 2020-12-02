@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7af49b31aed3794d204b653f0ebfd66283c26cd4
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 71210cdcc2b3758a59a1b41816e6468556e94808
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501547"
+ms.locfileid: "96518264"
 ---
 # <a name="data-exfiltration-protection-for-azure-synapse-analytics-workspaces"></a>Ochrona danych eksfiltracji dla obszarów roboczych usługi Azure Synapse Analytics
 W tym artykule opisano ochronę danych eksfiltracji w usłudze Azure Synapse Analytics
@@ -25,7 +25,7 @@ Obszary robocze analiz usługi Azure Synapse obsługują Włączanie ochrony dan
 >Po utworzeniu obszaru roboczego nie można zmienić konfiguracji obszaru roboczego dla zarządzanej sieci wirtualnej i ochrony eksfiltracji danych.
 
 ## <a name="managing-synapse-workspace-data-egress-to-approved-targets"></a>Zarządzanie danymi obszaru roboczego Synapse do zatwierdzonych celów
-Po utworzeniu obszaru roboczego z włączonym eksfiltracji danych właściciele zasobów obszaru roboczego mogą zarządzać listą zatwierdzonych dzierżawców usługi Azure AD dla obszaru roboczego. Użytkownicy z [prawidłowymi uprawnieniami](./access-control.md) w obszarze roboczym mogą używać programu Synapse Studio do tworzenia zarządzanych prywatnych połączeń punktów końcowych do zasobów w zatwierdzonych dzierżawach usługi Azure AD w obszarze roboczym. Tworzenie zarządzanego prywatnego punktu końcowego zostanie zablokowane, jeśli użytkownik spróbuje utworzyć połączenie prywatnego punktu końcowego z zasobem w niezatwierdzonej dzierżawie.
+Po utworzeniu obszaru roboczego z włączonym eksfiltracji danych właściciele zasobów obszaru roboczego mogą zarządzać listą zatwierdzonych dzierżawców usługi Azure AD dla obszaru roboczego. Użytkownicy z [prawidłowymi uprawnieniami](./synapse-workspace-access-control-overview.md) w obszarze roboczym mogą używać programu Synapse Studio do tworzenia zarządzanych prywatnych połączeń punktów końcowych do zasobów w zatwierdzonych dzierżawach usługi Azure AD w obszarze roboczym. Tworzenie zarządzanego prywatnego punktu końcowego zostanie zablokowane, jeśli użytkownik spróbuje utworzyć połączenie prywatnego punktu końcowego z zasobem w niezatwierdzonej dzierżawie.
 
 ## <a name="sample-workspace-with-data-exfiltration-protection-enabled"></a>Przykładowa przestrzeń robocza z włączoną ochroną eksfiltracji danych
 Przekaż nam przykład, aby zilustrować ochronę danych eksfiltracji dla obszarów roboczych Synapse. Firma Contoso ma zasoby platformy Azure w dzierżawie a i w dzierżawie B i istnieje potrzeba, aby te zasoby łączyły się bezpiecznie. Obszar roboczy Synapse został utworzony w dzierżawie A z dzierżawcą B dodany jako zatwierdzoną dzierżawę usługi Azure AD. Diagram przedstawia prywatne połączenia punktów końcowych z kontami usługi Azure Storage w dzierżawie a i w dzierżawie B, które zostały zatwierdzone przez właścicieli kont magazynu. Na diagramie przedstawiono również zablokowane tworzenie prywatnych punktów końcowych. Tworzenie tego prywatnego punktu końcowego zostało zablokowane, ponieważ jest ono przeznaczone dla konta usługi Azure Storage w dzierżawie usługi Azure AD firmy Fabrikam, która nie jest zatwierdzoną dzierżawą usługi Azure AD dla obszaru roboczego contoso. 

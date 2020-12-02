@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: e919db24a70b0ed69aca6977865cc76c0c9c5845
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: dd7616bdc07aee86ac56a2f2fe0ac282838c58b4
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182465"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518859"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Specyfikacje szablonu Azure Resource Manager (wersja zapoznawcza)
 
@@ -21,7 +21,7 @@ Specyfikacja szablonu to typ zasobu do przechowywania szablonu Azure Resource Ma
 Do wdrożenia specyfikacji szablonu można używać standardowych narzędzi platformy Azure, takich jak PowerShell, interfejs wiersza polecenia platformy Azure, Azure Portal, REST i inne obsługiwane zestawy SDK i klienci. Używasz tych samych poleceń, co w przypadku szablonu.
 
 > [!NOTE]
-> Specyfikacje szablonu są obecnie w wersji zapoznawczej. Aby go użyć, należy zainstalować najnowszą wersję programu PowerShell lub interfejsu wiersza polecenia platformy Azure. W przypadku Azure PowerShell Użyj [wersji 5.0.0 lub nowszej](/powershell/azure/install-az-ps). W przypadku interfejsu wiersza polecenia platformy Azure Użyj [wersji 2.14.2 lub nowszej](/cli/azure/install-azure-cli).
+> Specyfikacje szablonu są obecnie w wersji zapoznawczej. Aby można było używać go z Azure PowerShell, należy zainstalować [wersję 5.0.0 lub nowszą](/powershell/azure/install-az-ps). Aby użyć go z interfejsem wiersza polecenia platformy Azure, użyj [wersji 2.14.2 lub nowszej](/cli/azure/install-azure-cli).
 
 ## <a name="why-use-template-specs"></a>Dlaczego warto używać specyfikacji szablonu?
 
@@ -332,7 +332,7 @@ Poniższy przykład jest podobny do wcześniejszego przykładu, ale użyto wła�
 
 Aby uzyskać więcej informacji na temat łączenia specyfikacji szablonu, zobacz [Samouczek: wdrażanie specyfikacji szablonu jako połączonego szablonu](template-specs-deploy-linked-template.md).
 
-## <a name="versioning"></a>Przechowywanie wersji
+## <a name="versioning"></a>Obsługa wersji
 
 Podczas tworzenia specyfikacji szablonu należy podać jej nazwę. Podczas iteracji kodu szablonu można zaktualizować istniejącą wersję (w przypadku poprawek) lub opublikować nową wersję. Wersja jest ciągiem tekstowym. Możesz użyć dowolnego systemu obsługi wersji, w tym wersji semantycznej. Użytkownicy specyfikacji szablonu mogą podać nazwę wersji, która ma być używana podczas jej wdrażania.
 

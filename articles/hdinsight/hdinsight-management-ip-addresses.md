@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 35f2f82b4fe6862f0d023a70b32c964698b0c0eb
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 682db0ef52e624a23d95aa18a007f05a78f39677
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547813"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518791"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Adresy IP zarządzania usługą HDInsight
 
@@ -32,13 +32,13 @@ W poniższych sekcjach omówiono konkretne adresy IP, które muszą być dozwolo
 
 ## <a name="azure-dns-service"></a>Usługa Azure DNS
 
-Jeśli używasz usługi DNS udostępnionej przez platformę Azure, Zezwól na dostęp z __168.63.129.16__ na porcie 53. Aby uzyskać więcej informacji, zobacz [rozpoznawanie nazw dla maszyn wirtualnych i wystąpień ról](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) . Jeśli używasz niestandardowej usługi DNS, Pomiń ten krok.
+Jeśli używasz usługi DNS udostępnionej przez platformę Azure, Zezwól na dostęp do __168.63.129.16__ na porcie 53 dla protokołów TCP i UDP. Aby uzyskać więcej informacji, zobacz [rozpoznawanie nazw dla maszyn wirtualnych i wystąpień ról](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) . Jeśli używasz niestandardowej usługi DNS, Pomiń ten krok.
 
 ## <a name="health-and-management-services-all-regions"></a>Usługi kondycji i zarządzania: wszystkie regiony
 
 Zezwalaj na ruch z następujących adresów IP dla usług Azure HDInsight Health i Management Services, które mają zastosowanie do wszystkich regionów platformy Azure:
 
-| Źródłowy adres IP | Element docelowy  | Kierunek |
+| Źródłowy adres IP | Miejsce docelowe  | Kierunek |
 | ---- | ----- | ----- |
 | 168.61.49.99 | \*: 443 | Przychodzący |
 | 23.99.5.239 | \*: 443 | Przychodzący |

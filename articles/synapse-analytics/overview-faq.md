@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/25/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 838276c47085a3c7ad0f7c0a35a2578b13eb5026
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 57948cf705d2a58b4f8e19e56121115ba33362ad
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511271"
+ms.locfileid: "96518638"
 ---
 # <a name="azure-synapse-analytics-frequently-asked-questions"></a>Usługa Azure Synapse Analytics — często zadawane pytania
 
@@ -22,7 +22,7 @@ W tym przewodniku znajdziesz najczęściej zadawane pytania dotyczące usługi A
 
 ## <a name="general"></a>Ogólne
 
-### <a name="q-what-rbac-roles-exist-and-how-do-i-use-them-to-secure-a-synapse-workspace"></a>P: jakie role RBAC istnieją i jak używać ich do zabezpieczenia obszaru roboczego Synapse?
+### <a name="q-how-can-i-use-rbac-roles-to-secure-my-workspace"></a>P: Jak mogę użyć ról RBAC do zabezpieczenia mojego obszaru roboczego?
 
 Odp.: usługa Azure Synapse wprowadza wiele ról i zakresów, które umożliwiają ich przypisanie, co upraszcza ochronę obszaru roboczego.
 
@@ -36,16 +36,16 @@ Synapse role RBAC:
 * Synapse COMPUTE — operator (wersja zapoznawcza)
 * Użytkownik poświadczeń Synapse (wersja zapoznawcza)
 
-Synapse zakresy RBAC:
-* Workspace 
-* Pula platformy Spark
-* Integration Runtime
-* Połączona usługa
-* Poświadczenie
+Aby zabezpieczyć obszar roboczy Synapse, przypisz role RBAC do tych zakresów RBAC:
+* Obszary robocze
+* Pule platformy Spark
+* Środowisko Integration Runtime
+* Połączone usługi
+* Poświadczenia
 
 Ponadto w przypadku dedykowanych pul SQL masz wszystkie te same funkcje zabezpieczeń, które znasz i lubisz.
 
-### <a name="q-how-can-i-cost-control-for-the-capabilities-inside-a-synapse-workspace-such-as-dedicated-sql-pools-serverless-spark-pools-and-serverless-sql-pools"></a>P: Jak mogę obsłużyć kontrolę kosztów funkcji w obszarze roboczym Synapse, takich jak dedykowane pule SQL, bezserwerowe pule Spark i pule SQL bezserwerowe?
+### <a name="q-how-do-i-control-cont-dedicated-sql-pools-serverless-sql-pools-and-serverless-spark-pools"></a>P: Jak mogę kontroluje dedykowane pule SQL, bezserwerowe pule SQL i bezserwerowe pule platformy Spark?
 
 Odp.: jako punkt początkowy, usługa Azure Synapse współpracuje z wbudowaną analizą kosztów i alertami kosztów dostępnymi na poziomie subskrypcji platformy Azure.
 

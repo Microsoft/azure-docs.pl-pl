@@ -3,12 +3,12 @@ title: Wdróż specyfikację szablonu jako połączony szablon
 description: Dowiedz się, jak wdrożyć istniejącą specyfikację szablonu w połączonym wdrożeniu.
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: 65ad5767817457133d0fbc34c7735cf52ff2c3f3
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: b30a99a469ec010dcc2e128bbeb446b493631608
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94747472"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518876"
 ---
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>Samouczek: wdrażanie specyfikacji szablonu jako połączonego szablonu (wersja zapoznawcza)
 
@@ -19,7 +19,7 @@ Dowiedz się, jak wdrożyć istniejącą [specyfikację szablonu](template-specs
 Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Specyfikacje szablonu są obecnie w wersji zapoznawczej. Aby go użyć, należy zainstalować najnowszą wersję programu PowerShell lub interfejsu wiersza polecenia platformy Azure. W przypadku Azure PowerShell Użyj [wersji 5.0.0 lub nowszej](/powershell/azure/install-az-ps). W przypadku interfejsu wiersza polecenia platformy Azure Użyj [wersji 2.14.2 lub nowszej](/cli/azure/install-azure-cli).
+> Specyfikacje szablonu są obecnie w wersji zapoznawczej. Aby można było używać go z Azure PowerShell, należy zainstalować [wersję 5.0.0 lub nowszą](/powershell/azure/install-az-ps). Aby użyć go z interfejsem wiersza polecenia platformy Azure, użyj [wersji 2.14.2 lub nowszej](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-template-spec"></a>Utwórz specyfikację szablonu
 
@@ -147,7 +147,7 @@ Składnia przekazywania parametrów do specyfikacji szablonu jest następująca:
 > [!NOTE]
 > ApiVersion `Microsoft.Resources/deployments` musi mieć wartość 2020-06-01 lub nowszą.
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 Po wdrożeniu połączonego szablonu wdrażana jest zarówno aplikacja sieci Web, jak i konto magazynu. Wdrożenie jest takie samo jak wdrażanie innych szablonów ARM.
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: 25f4ae0dbfd7827a36dede6a889c342ea490e273
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: f27f2a6319bf2648546a62c2566d938db657738f
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94948480"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518468"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Analiza ruchu często zadawane pytania
 
@@ -401,3 +401,6 @@ Na stronie topologia podsieci wirtualnych znajdują się dwie główne sekcje:
 - Aby przejść do innych wyróżnionych węzłów w widoku topologii, użyj `Shift+Right arrow` klawisza do przesunięcia do przodu. 
 - W zaznaczonych węzłach fokus jest przenoszony do **pola narzędzia informacji** dla węzła. Domyślnie fokus jest przenoszony do przycisku **więcej szczegółów** w **polu narzędzie informacji**. Aby dalej poruszać się wewnątrz widoku **pola** , użyj `Right arrow` klawiszy i, `Left arrow` Aby przenieść odpowiednio do przodu i do tyłu. Naciśnięcie klawisza `Enter` ma ten sam efekt, co wybranie priorytetowego przycisku w **polu narzędzie informacji**.
 - Po wybraniu takich węzłów można odwiedzać wszystkie jego połączenia, po jednym przez naciśnięcie `Shift+Left arrow` klawisza. Fokus jest przenoszony do **pola narzędzia informacji** tego połączenia. W dowolnym momencie fokus można przesunąć z powrotem do węzła, naciskając `Shift+Right arrow` ponownie.
+
+## <a name="are-classic-nsgs-supported"></a>Czy obsługiwane są klasyczne sieciowych grup zabezpieczeń?
+Nie, Analiza ruchu nie obsługuje klasycznej sieciowej grupy zabezpieczeń. Zaleca się migrację zasobów IaaS z klasycznego do Azure Resource Manager, ponieważ zasoby klasyczne będą [przestarzałe](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation). Zapoznaj się z tym artykułem, aby zrozumieć, [Jak przeprowadzić migrację](https://docs.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-overview).
