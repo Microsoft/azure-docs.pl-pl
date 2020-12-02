@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: aa85822b433e2d8128df9ae3664411ea3fcddec4
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 66a9c9d605911a9d3b30a55d47e16026e26e502a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95012926"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447256"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Tworzenie obszaru roboczego dla Azure Machine Learning przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -32,7 +32,7 @@ W tym artykule dowiesz się, jak utworzyć obszar roboczy Azure Machine Learning
 
 ## <a name="limitations"></a>Ograniczenia
 
-* Podczas tworzenia nowego obszaru roboczego można zezwolić obszarowi roboczemu na tworzenie usług platformy Azure, które wymagają automatycznie, lub udostępnić istniejące usługi. W przypadku udostępniania istniejących usług te usługi muszą znajdować się w tej samej subskrypcji platformy Azure co obszar roboczy.
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
 ## <a name="connect-the-cli-to-your-azure-subscription"></a>Łączenie interfejsu wiersza polecenia z subskrypcją platformy Azure
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: d9e0da9e24a0bd32047d029879c4f0e110dc0c16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef840b3d9db4e82eeecea37079a08ccb0858a77b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320799"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448528"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-pro-device"></a>Kubernetes zarządzanie obciążeniami na urządzeniu Azure Stack EDGE Pro
 
@@ -49,11 +49,11 @@ Istnieją trzy podstawowe sposoby wdrażania obciążeń. Każda z tych metod wd
 
 - **Wdrożenie lokalne**: to wdrożenie jest dostępne za pomocą narzędzia wiersza polecenia, takiego jak `kubectl` , które pozwala na wdrożenie Kubernetes `yamls` . Użytkownik uzyskuje dostęp do klastra Kubernetes na Azure Stack Edge w systemie za pośrednictwem `kubeconfig` pliku. Aby uzyskać więcej informacji, przejdź do [obszaru dostęp do klastra Kubernetes za pośrednictwem usługi polecenia kubectl](azure-stack-edge-gpu-create-kubernetes-cluster.md).
 
-- **Wdrożenie IoT Edge**: odbywa się to za pomocą IoT Edge, który łączy się z IoT Hub platformy Azure. Nawiąż połączenie z klastrem Kubernetes na urządzeniu z systemem Azure Stack EDGE Pro za pośrednictwem `iotedge` przestrzeni nazw. IoT Edge agenci wdrożoni w tej przestrzeni nazw są odpowiedzialni za łączność z platformą Azure. Konfiguracja zostanie zastosowana `IoT Edge deployment.json` za pomocą usługi Azure DEVOPS Ci/CD. Przestrzeń nazw i zarządzanie IoT Edge są wykonywane za poorednictwem operatora chmury.
+- **Wdrożenie IoT Edge**: odbywa się to za pomocą IoT Edge, który łączy się z IoT Hub platformy Azure. Nawiąż połączenie z klastrem Kubernetes na urządzeniu z systemem Azure Stack EDGE Pro za pośrednictwem `iotedge` przestrzeni nazw. Agenci usługi IoT Edge wdrożeni w tej przestrzeni nazw są odpowiedzialni za łączność z platformą Azure. Konfiguracja zostanie zastosowana `IoT Edge deployment.json` za pomocą usługi Azure DEVOPS Ci/CD. Przestrzeń nazw i zarządzanie IoT Edge są wykonywane za poorednictwem operatora chmury.
 
 - **Usługa Azure ARC z włączonym Kubernetes wdrożeniem**: usługa Azure Arc Kubernetes jest narzędziem do zarządzania hybrydowego, które umożliwi wdrażanie aplikacji w klastrach Kubernetes. Nawiąż połączenie z klastrem Kubernetes na urządzeniu z systemem Azure Stack EDGE Pro za pośrednictwem `azure-arc namespace` . Agenci wdrożoni w tej przestrzeni nazw są odpowiedzialni za łączność z platformą Azure. Konfigurację wdrożenia należy zastosować przy użyciu GitOps zarządzania konfiguracją. 
     
-    Usługa Azure ARC z włączonym Kubernetes umożliwia również korzystanie z Azure Monitor kontenerów do wyświetlania i monitorowania klastra. Aby uzyskać więcej informacji, przejdź do [co to jest usługa Azure Arc włączona Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+    Usługa Azure ARC z włączonym Kubernetes umożliwia również korzystanie z Azure Monitor kontenerów do wyświetlania i monitorowania klastra. Aby uzyskać więcej informacji, przejdź do [co to jest usługa Azure Arc włączona Kubernetes?](../azure-arc/kubernetes/overview.md).
 
 ## <a name="choose-the-deployment-type"></a>Wybierz typ wdrożenia
 

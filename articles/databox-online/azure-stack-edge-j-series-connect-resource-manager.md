@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 5cf406dc0577f477858dd8a6570f7975747112e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 048f2585d8e9ac1b10293083bda0900e7ce468bb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891241"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447592"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Nawiązywanie połączenia z usługą Azure Resource Manager na urządzeniu z systemem Azure Stack EDGE Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Azure Resource Manager udostępnia warstwę zarządzania, która umożliwia tworzenie, aktualizowanie i usuwanie zasobów w ramach subskrypcji platformy Azure. Urządzenie Azure Stack EDGE Pro obsługuje te same interfejsy API Azure Resource Manager do tworzenia, aktualizowania i usuwania maszyn wirtualnych w ramach subskrypcji lokalnej. Ta obsługa pozwala zarządzać urządzeniem w sposób zgodny z chmurą. 
+Program Azure Resource Manager zapewnia warstwę zarządzania, która umożliwia tworzenie, aktualizowanie i usuwanie zasobów w subskrypcji platformy Azure. Urządzenie Azure Stack EDGE Pro obsługuje te same interfejsy API Azure Resource Manager do tworzenia, aktualizowania i usuwania maszyn wirtualnych w ramach subskrypcji lokalnej. Ta obsługa pozwala zarządzać urządzeniem w sposób zgodny z chmurą. 
 
 W tym samouczku opisano sposób nawiązywania połączenia z lokalnymi interfejsami API na urządzeniu Azure Stack EDGE Pro za pośrednictwem Azure Resource Manager przy użyciu Azure PowerShell.
 
@@ -99,7 +99,7 @@ Tylko do celów testowych i programistycznych można użyć programu Windows Pow
 
 3. W przypadku wszystkich tych certyfikatów upewnij się, że nazwa podmiotu i Alternatywna nazwa podmiotu są zgodne z następującymi wskazówkami:
 
-    |Type |Nazwa podmiotu (SN)  |Alternatywna nazwa podmiotu (SAN)  |Przykład nazwy podmiotu |
+    |Typ |Nazwa podmiotu (SN)  |Alternatywna nazwa podmiotu (SAN)  |Przykład nazwy podmiotu |
     |---------|---------|---------|---------|
     |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
     |Blob Storage|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
@@ -138,9 +138,9 @@ Klient systemu Windows musi spełniać następujące wymagania wstępne:
 
     Porównaj wersję **główną** i upewnij się, że jest ona 5,0 lub nowsza.
 
-    Jeśli masz nieaktualną wersję, zobacz [Upgrading existing Windows PowerShell (Uaktualnianie istniejącego programu Windows PowerShell)](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
+    Jeśli masz nieaktualną wersję, zobacz [Upgrading existing Windows PowerShell (Uaktualnianie istniejącego programu Windows PowerShell)](/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
 
-    Jeśli nie \' masz programu PowerShell 5,0, postępuj zgodnie z tematem [Instalowanie programu Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6).
+    Jeśli nie \' masz programu PowerShell 5,0, postępuj zgodnie z tematem [Instalowanie programu Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6).
 
     Poniżej pokazano przykładowe dane wyjściowe.
 
@@ -175,11 +175,11 @@ Klient systemu Windows musi spełniać następujące wymagania wstępne:
     PSGallery                 Trusted              https://www.powershellgallery.com/api/v2
     ```
     
-Jeśli repozytorium nie jest zaufane lub potrzebujesz więcej informacji, zobacz [Sprawdzanie dostępności Galeria programu PowerShell](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?view=azs-1908#2-validate-the-powershell-gallery-accessibility).
+Jeśli repozytorium nie jest zaufane lub potrzebujesz więcej informacji, zobacz [Sprawdzanie dostępności Galeria programu PowerShell](/azure-stack/operator/azure-stack-powershell-install?view=azs-1908#2-validate-the-powershell-gallery-accessibility).
 
 ## <a name="step-4-set-up-azure-powershell-on-the-client"></a>Krok 4. Konfigurowanie Azure PowerShell na kliencie 
 
-<!--1. Verify the API profile of the client and identify which version of the Azure PowerShell modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
+<!--1. Verify the API profile of the client and identify which version of the Azure PowerShell modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
 
 1. Na kliencie zostaną zainstalowane moduły Azure PowerShell, które będą współpracować z Twoim urządzeniem.
 
@@ -297,9 +297,9 @@ Sprawdź, czy nazwa punktu końcowego jest rozpoznawana na kliencie używanym do
 Ustaw środowisko Azure Resource Manager i sprawdź, czy urządzenie do komunikacji z klientem za pośrednictwem Azure Resource Manager działa prawidłowo. Wykonaj następujące czynności w ramach tej weryfikacji:
 
 
-1. Użyj `Add-AzureRmEnvironment` polecenia cmdlet, aby zapewnić, że komunikacja za pośrednictwem Azure Resource Manager działa prawidłowo, a wywołania interfejsu API przechodzą przez port dedykowany dla Azure Resource Manager-443.
+1. Za pomocą polecenia cmdlet `Add-AzureRmEnvironment` upewnij się, że komunikacja za pośrednictwem programu Azure Resource Manager działa prawidłowo, a wywołania interfejsu API przechodzą przez port dedykowany dla programu Azure Resource Manager — 443.
 
-    `Add-AzureRmEnvironment`Polecenie cmdlet dodaje punkty końcowe i metadane umożliwiające Azure Resource Manager polecenia cmdlet do nawiązywania połączenia z nowym wystąpieniem Azure Resource Manager. 
+    Polecenie cmdlet `Add-AzureRmEnvironment` dodaje punkty końcowe i metadane umożliwiające poleceniom cmdlet programu Azure Resource Manager nawiązywanie połączeń z nowym wystąpieniem programu Azure Resource Manager. 
 
 
     > [!IMPORTANT]
@@ -319,7 +319,7 @@ Ustaw środowisko Azure Resource Manager i sprawdź, czy urządzenie do komunika
     AzDBE https://management.dbe-n6hugc2ra.microsoftdatabox.com https://login.dbe-n6hugc2ra.microsoftdatabox.com/adfs/
     ```
 
-2. Ustaw środowisko jako Azure Stack brzeg Pro i port, który ma być używany do Azure Resource Manager wywołań jako 443. Środowisko definiuje się na dwa sposoby:
+2. Jako środowisko ustaw urządzenie Azure Stack Edge Pro, a port, który ma być używany do wywołań programu Azure Resource Manager, ustaw na 443. Środowisko definiuje się na dwa sposoby:
 
     - Ustaw środowisko. Wpisz następujące polecenie:
 
@@ -327,13 +327,13 @@ Ustaw środowisko Azure Resource Manager i sprawdź, czy urządzenie do komunika
     Set-AzureRMEnvironment -Name <Environment Name>
     ```
     
-    Aby uzyskać więcej informacji, przejdź do pozycji [Set-AzureRMEnvironment](https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0).
+    Aby uzyskać więcej informacji, przejdź do pozycji [Set-AzureRMEnvironment](/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0).
 
     - Zdefiniuj środowisko w tekście dla każdego wykonywanego polecenia cmdlet. Dzięki temu wszystkie wywołania interfejsu API przechodzą przez poprawne środowisko. Domyślnie wywołania przechodzą przez publiczną platformę Azure, ale chcesz, aby przechodzą przez środowisko, które zostało ustawione dla Azure Stack Edge na urządzeniu.
 
     - Zobacz więcej informacji na temat [sposobu przełączania środowisk AzureRM](#switch-environments).
 
-2. Wywołaj interfejsy API urządzenia lokalnego, aby uwierzytelnić połączenia z Azure Resource Manager. 
+2. Wywołaj interfejsy API urządzenia lokalnego, aby uwierzytelnić połączenia z programem Azure Resource Manager. 
 
     1. Te poświadczenia są przeznaczone dla konta komputera lokalnego i są używane wyłącznie na potrzeby dostępu do interfejsu API.
 

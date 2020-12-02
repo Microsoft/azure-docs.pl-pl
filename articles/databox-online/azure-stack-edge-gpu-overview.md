@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 8ae95518bab5ed9bc100a5902acf1fd1db631dbe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3fb4085ba275bda1fe784f368eb5d92ac0c668f0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91617166"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448511"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>Co to jest Azure Stack Edge Pro z procesorem GPU?
 
@@ -25,7 +25,7 @@ Azure Stack EDGE Pro z procesorem GPU to rozwiązanie typu "sprzęt jako usługa
 
 Poniżej przedstawiono różne scenariusze, w których Azure Stack EDGE Pro można używać do szybkiego Machine Learning (ML) inferencing na granicy i przetwarzania wstępnego danych przed wysłaniem ich do platformy Azure.
 
-- **Wnioskowanie z Azure Machine Learning** -with Azure Stack EDGE Pro umożliwia uruchamianie modeli ml w celu uzyskania szybkich wyników, na które można wykonywać działania przed wysłaniem danych do chmury. Pełny zestaw danych można opcjonalnie przesłać, aby kontynuować ponowne uczenie i ulepszanie modeli ML. Aby uzyskać więcej informacji na temat korzystania z wydajnych modeli sprzętu Azure ML na urządzeniu Azure Stack EDGE Pro, zobacz [wdrażanie przyspieszanych modeli sprzętu Azure ml na Azure Stack EDGE Pro](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+- **Wnioskowanie z Azure Machine Learning** -with Azure Stack EDGE Pro umożliwia uruchamianie modeli ml w celu uzyskania szybkich wyników, na które można wykonywać działania przed wysłaniem danych do chmury. Pełny zestaw danych można opcjonalnie przesłać, aby kontynuować ponowne uczenie i ulepszanie modeli ML. Aby uzyskać więcej informacji na temat korzystania z wydajnych modeli sprzętu Azure ML na urządzeniu Azure Stack EDGE Pro, zobacz [wdrażanie przyspieszanych modeli sprzętu Azure ml na Azure Stack EDGE Pro](../machine-learning/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server).
 
 - **Przetwarzaj** wstępnie dane transformacji danych przed wysłaniem ich do platformy Azure za pomocą opcji obliczeniowych, takich jak obciążenia kontenerów i Virtual Machines, aby utworzyć bardziej funkcjonalny zestaw danych. Wstępne przetwarzanie umożliwia: 
 

@@ -6,18 +6,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 11/04/2020
 ms.author: alkohli
-ms.openlocfilehash: b66a184abce53c31fade19fc9e10ffe4c7ff8415
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 38dcb32b2993838f8c3f13334e0bc44e9146f113
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94532447"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448576"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro-gpu"></a>Zarządzanie dostępem, mocą i trybem łączności dla Azure Stack
 
 W tym artykule opisano sposób zarządzania dostępem, możliwością i trybem łączności dla Azure Stack EDGE Pro z urządzeniem GPU. Te operacje są wykonywane za pośrednictwem lokalnego interfejsu użytkownika sieci Web lub Azure Portal.
+
+Ten artykuł ma zastosowanie do Azure Stack brzegowych procesorów GPU, Azure Stack EDGE Pro R i Azure Stack Edge.
+
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -31,6 +34,8 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 ## <a name="manage-device-access"></a>Zarządzanie dostępem do urządzeń
 
 Dostęp do urządzenia z Azure Stack Edge w wersji Pro jest kontrolowany przy użyciu hasła urządzenia. Hasło można zmienić za pomocą lokalnego interfejsu użytkownika sieci Web. Możesz również zresetować hasło urządzenia w Azure Portal.
+
+Dostęp do danych na dyskach urządzeń jest również kontrolowany przez klucze szyfrowania w czasie spoczynku.
 
 ### <a name="change-device-password"></a>Zmienianie hasła urządzenia
 
@@ -54,6 +59,40 @@ Resetowanie przepływu pracy nie wymaga od użytkownika odwoływania starego has
 
 2. Wprowadź nowe hasło, a następnie potwierdź je. Podane hasło musi zawierać od 8 do 16 znaków. Hasło musi zawierać 3 z następujących znaków: wielkie litery, małe litery, cyfry i znaki specjalne. Wybierz pozycję **Resetuj**.
 
+    ![Resetuj hasło 2](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+
+### <a name="manage-access-to-device-data"></a>Zarządzanie dostępem do danych urządzenia
+
+W przypadku urządzeń z systemem Azure Stack EDGE Pro R i Azure Stack Edge w usłudze Power mini R można kontrolować dostęp do danych urządzenia przy użyciu kluczy szyfrowania w trybie spoczynku dla dysków urządzeń. Po pomyślnym skonfigurowaniu urządzenia pod kątem szyfrowania w trybie spoczynku opcja Obróć szyfrowanie-at-REST będzie dostępna w lokalnym interfejsie użytkownika urządzenia. 
+
+Ta operacja pozwala zmienić klucze dla woluminów funkcji BitLocker `HcsData` oraz `HcsInternal` wszystkie dyski samoszyfrowane na urządzeniu.
+
+Wykonaj następujące kroki, aby obrócić klucze szyfrowania w czasie spoczynku.
+
+1. W lokalnym interfejsie użytkownika urządzenia przejdź na stronę **wprowadzenie** . Na kafelku **zabezpieczenia** wybierz pozycję **szyfrowanie-at-REST: opcja Obróć klucze** . Ta opcja jest dostępna tylko po pomyślnym skonfigurowaniu kluczy szyfrowania w trybie spoczynku.
+
+    ![Wybierz pozycję Obróć klucze do szyfrowania na stronie Wprowadzenie](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-1.png)
+
+1. Możesz użyć własnych kluczy funkcji BitLocker lub użyć kluczy generowanych przez system.  
+
+    Aby podać własny klucz, wprowadź znak 32 w postaci długiej Base-64 zakodowany ciąg. Dane wejściowe są podobne do zawartości wprowadzonej podczas konfigurowania szyfrowania po raz pierwszy.
+
+    ![Korzystanie z własnego klucza szyfrowania](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-2.png)
+
+    Możesz również wybrać użycie klucza wygenerowanego przez system.
+
+    ![Korzystanie z wygenerowanego przez system klucza szyfrowania w czasie spoczynku](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-3.png)
+
+1. Wybierz przycisk **Zastosuj**. Funkcje ochrony kluczy są obracane.
+
+    ![Zastosuj nowy klucz szyfrowania — w czasie spoczynku](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-4.png)
+
+1. Po wyświetleniu monitu o pobranie i zapisanie pliku klucza wybierz pozycję **Pobierz i Kontynuuj**. 
+
+    ![Pobierz i Kontynuuj plik klucza](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-5.png)
+
+    Zapisz `.json` plik klucza w bezpiecznej lokalizacji. Ten plik jest używany do ułatwienia potencjalnego odzyskiwania urządzenia w przyszłości.
+
     ![Zrzut ekranu przedstawia okno dialogowe Resetowanie hasła urządzenia.](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-resource-access"></a>Zarządzenie dostępem do zasobów
@@ -69,7 +108,7 @@ Podczas generowania klucza aktywacji dla urządzenia z systemem Azure Stack EDGE
 
 Musisz mieć dostęp do `User` Active Directory dzierżawy, ponieważ musisz mieć możliwość `Read all directory objects` . Nie możesz być użytkownikiem-gościem, ponieważ nie ma uprawnień do programu `Read all directory objects` . Jeśli jesteś gościem, to operacje, takie jak generowanie klucza aktywacji, tworzenie udziału na urządzeniu z systemem Azure Stack Edge, Tworzenie użytkownika, konfiguracja roli obliczeniowej programu Edge, Resetowanie hasła urządzenia zakończy się niepowodzeniem.
 
-Aby uzyskać więcej informacji na temat zapewniania dostępu użytkownikom do Microsoft Graph interfejsu API, zobacz [Microsoft Graph informacje o uprawnieniach](https://docs.microsoft.com/graph/permissions-reference).
+Aby uzyskać więcej informacji na temat zapewniania dostępu użytkownikom do Microsoft Graph interfejsu API, zobacz [Microsoft Graph informacje o uprawnieniach](/graph/permissions-reference).
 
 ### <a name="register-resource-providers"></a>Zarejestruj dostawców zasobów
 
@@ -115,7 +154,7 @@ Poza domyślnym trybem w pełni połączonym urządzenie można również urucho
 Aby zmienić tryb urządzenia, wykonaj następujące kroki:
 
 1. W lokalnym interfejsie użytkownika sieci Web urządzenia przejdź do pozycji **konfiguracja > chmura**.
-2. Z listy rozwijanej wybierz tryb, w którym chcesz korzystać z urządzenia. Możesz wybrać z w **pełni połączone** , **częściowo połączone** i **całkowicie odłączone**. Aby uruchomić urządzenie w trybie częściowo rozłączona, Włącz **zarządzanie Azure Portal**.
+2. Z listy rozwijanej wybierz tryb, w którym chcesz korzystać z urządzenia. Możesz wybrać z w **pełni połączone**, **częściowo połączone** i **całkowicie odłączone**. Aby uruchomić urządzenie w trybie częściowo rozłączona, Włącz **zarządzanie Azure Portal**.
 
  
 ## <a name="manage-power"></a>Zarządzanie mocą

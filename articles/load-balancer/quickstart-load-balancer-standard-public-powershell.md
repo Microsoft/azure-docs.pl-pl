@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 9f443b15cd427dd31c2ffa95af8d1124f1169881
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 9081ba0aae14c39d70e62818dc13aa4d92c91986
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302640"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445944"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Szybki Start: Tworzenie publicznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu Azure PowerShell
 
@@ -239,7 +239,7 @@ W tej sekcji utworzysz trzy maszyny wirtualne dla puli zaplecza modułu równowa
 
 * Utwórz trzy interfejsy sieciowe za pomocą [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface).
 
-* Ustaw nazwę użytkownika i hasło administratora dla maszyn wirtualnych z opcją [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential).
+* Ustaw nazwę użytkownika i hasło administratora dla maszyn wirtualnych z opcją [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential).
 
 * Utwórz maszyny wirtualne za pomocą:
     * [New-AzVM](/powershell/module/az.compute/new-azvm)

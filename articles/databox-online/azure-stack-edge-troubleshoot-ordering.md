@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: alkohli
-ms.openlocfilehash: 3087c209b844d691173edbbd8a993c1d0aae319b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be7d477d08b025fd450bfa859e8eb677ba680143
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903645"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446376"
 ---
 # <a name="troubleshoot-your-azure-stack-edge-pro-ordering-issues"></a>Rozwiązywanie problemów związanych z porządkowaniem programu Azure Stack EDGE Pro
 
 W tym artykule opisano sposób rozwiązywania problemów związanych z porządkowaniem programu Azure Stack EDGE Pro.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -33,7 +33,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 ![Nieobsługiwana subskrypcja lub region](media/azure-stack-edge-troubleshoot-ordering/azure-stack-edge-troubleshoot-ordering-01.png)
 
-**Sugerowane rozwiązanie:**  Upewnij się, że użyto obsługiwanej subskrypcji, takiej jak [Microsoft Umowa Enterprise (EA)](https://azure.microsoft.com/overview/sales-number/), [dostawca rozwiązań w chmurze (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp)lub [dostęp sponsorowany Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/). Subskrypcje z płatność zgodnie z rzeczywistym użyciem nie są obsługiwane. Aby uzyskać więcej informacji, zobacz [Azure Stack Edge — wymagania wstępne dotyczące zasobów](azure-stack-edge-deploy-prep.md#prerequisites).
+**Sugerowane rozwiązanie:**  Upewnij się, że użyto obsługiwanej subskrypcji, takiej jak [Microsoft Umowa Enterprise (EA)](https://azure.microsoft.com/overview/sales-number/), [dostawca rozwiązań w chmurze (CSP)](/partner-center/azure-plan-lp)lub [dostęp sponsorowany Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/). Subskrypcje z płatność zgodnie z rzeczywistym użyciem nie są obsługiwane. Aby uzyskać więcej informacji, zobacz [Azure Stack Edge — wymagania wstępne dotyczące zasobów](azure-stack-edge-deploy-prep.md#prerequisites).
 
 Istnieje możliwość, że firma Microsoft może zezwolić na uaktualnienie typu subskrypcji na zasadzie przypadku. Skontaktuj się z [pomocą techniczną firmy Microsoft](https://azure.microsoft.com/support/options/) , aby móc zrozumieć Twoje potrzeby i odpowiednio dostosować te limity.
 
@@ -45,7 +45,7 @@ Istnieje możliwość, że firma Microsoft może zezwolić na uaktualnienie typu
 
 **Sugerowane rozwiązanie:** Wykonaj następujące kroki, aby zarejestrować dostawcę zasobów Azure Stack Edge:
 
-1. W Azure Portal przejdź do pozycji **Home**  >  **subskrypcje**główne.
+1. W Azure Portal przejdź do pozycji **Home**  >  **subskrypcje** główne.
 
 2. Wybierz subskrypcję, która będzie używana do zamawiania urządzenia.
 
@@ -53,7 +53,7 @@ Istnieje możliwość, że firma Microsoft może zezwolić na uaktualnienie typu
 
     ![Rejestrowanie dostawcy zasobów](media/azure-stack-edge-troubleshoot-ordering/azure-stack-edge-troubleshoot-ordering-02.png)
 
-Jeśli nie masz dostępu właściciela lub współautora do zarejestrowania dostawcy zasobów, zostanie wyświetlony następujący błąd: * &lt; Nazwa subskrypcji subskrypcji &gt; nie ma uprawnień do rejestrowania dostawców zasobów: Microsoft. DataBoxEdge.*
+Jeśli nie masz dostępu właściciela lub współautora do zarejestrowania dostawcy zasobów, zostanie wyświetlony następujący błąd: *&lt; Nazwa subskrypcji subskrypcji &gt; nie ma uprawnień do rejestrowania dostawców zasobów: Microsoft. DataBoxEdge.*
 
 Aby uzyskać więcej informacji, zobacz [Rejestrowanie dostawców zasobów](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
 

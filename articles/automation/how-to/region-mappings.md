@@ -1,16 +1,16 @@
 ---
 title: Obsługiwane regiony połączonego obszaru roboczego usługi Log Analytics
 description: W tym artykule opisano obsługiwane mapowania regionów między kontem usługi Automation a obszarem roboczym Log Analytics, które odnoszą się do niektórych funkcji Azure Automation.
-ms.date: 10/19/2020
+ms.date: 12/01/2020
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 23e5293301a2fc311565d0c1c8ec5fd92bebe9b2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 25ddf562f92ca96a505432a58f137657a2bbc4bd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183570"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446965"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Obsługiwane regiony połączonego obszaru roboczego usługi Log Analytics
 
@@ -31,6 +31,7 @@ W poniższej tabeli przedstawiono obsługiwane mapowania:
 |---|---|
 |**USA**||
 |Wschodnie<sup>1</sup>|EastUS2|
+|EastUS2<sup>2</sup>|EastUS|
 |WestUS2|WestUS2|
 |SouthCentralUS|SouthCentralUS|
 |WestCentralUS|WestCentralUS|
@@ -40,7 +41,7 @@ W poniższej tabeli przedstawiono obsługiwane mapowania:
 |AustraliaSoutheast|AustraliaSoutheast|
 |SoutheastAsia|SoutheastAsia|
 |CentralIndia|CentralIndia|
-|ChinaEast2<sup>2</sup>|ChinaEast2|
+|ChinaEast2<sup>3</sup>|ChinaEast2|
 |JapanEast|JapanEast|
 |**Europa**||
 |UKSouth|UKSouth|
@@ -48,11 +49,13 @@ W poniższej tabeli przedstawiono obsługiwane mapowania:
 |SwitzerlandNorth|SwitzerlandNorth|
 |**US Gov**||
 |USGovVirginia|USGovVirginia|
-|USGovArizona<sup>2</sup>|USGovArizona|
+|USGovArizona<sup>3</sup>|USGovArizona|
 
 <sup>1</sup> mapowanie Wschodnie dla obszarów roboczych log Analytics na konta usługi Automation nie jest dokładnym mapowaniem między regionami, ale jest poprawnym mapowaniem.
 
-<sup>2</sup> w tym regionie obsługiwana jest tylko Update Management, a inne funkcje, takie jak Change Tracking i spis, nie są dostępne w tej chwili.
+<sup>2</sup> mapowanie EastUS2 dla obszarów roboczych log Analytics na konta usługi Automation nie jest dokładnym mapowaniem między regionami, ale jest poprawnym mapowaniem.
+
+<sup>3</sup> w tym regionie obsługiwana jest tylko Update Management, a inne funkcje, takie jak Change Tracking i spis, nie są dostępne w tej chwili.
 
 ## <a name="unlink-a-workspace"></a>Odłączanie obszaru roboczego
 

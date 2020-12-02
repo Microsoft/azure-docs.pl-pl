@@ -1,6 +1,6 @@
 ---
-title: Często zadawane pytania — Azure Synapse Analytics (obszary robocze — wersja zapoznawcza)
-description: Często zadawane pytania dotyczące usługi Azure Synapse Analytics (obszary robocze — wersja zapoznawcza)
+title: Często zadawane pytania — Azure Synapse Analytics
+description: Często zadawane pytania dotyczące usługi Azure Synapse Analytics
 services: synapse-analytics
 author: saveenr
 ms.service: synapse-analytics
@@ -9,22 +9,20 @@ ms.subservice: overview
 ms.date: 10/25/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5acfc8c01f375164979e1fb051563fcfb2da3bd3
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 05fef320d558de30830f76031d3b96262ae29f07
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436260"
+ms.locfileid: "96445803"
 ---
-# <a name="azure-synapse-analytics-workspaces-preview-frequently-asked-questions"></a>Analiza usługi Azure Synapse (obszary robocze — wersja zapoznawcza) — często zadawane pytania
+# <a name="azure-synapse-analytics-frequently-asked-questions"></a>Usługa Azure Synapse Analytics — często zadawane pytania
 
 W tym przewodniku znajdziesz najczęściej zadawane pytania dotyczące usługi Azure Synapse Analytics.
 
-[!INCLUDE [preview](includes/note-preview.md)]
-
 ## <a name="general"></a>Ogólne
 
-### <a name="q-what-rbac-roles-exist-and-how-i-use-them-to-secure-a-synapse-workspace"></a>P: jakie role RBAC istnieją i jak są używane do zabezpieczania obszaru roboczego Synapse?
+### <a name="q-what-rbac-roles-exist-and-how-do-i-use-them-to-secure-a-synapse-workspace"></a>P: jakie role RBAC istnieją i jak używać ich do zabezpieczenia obszaru roboczego Synapse?
 
 Odp.: usługa Azure Synapse wprowadza wiele ról i zakresów, które umożliwiają ich przypisanie, co upraszcza ochronę obszaru roboczego.
 

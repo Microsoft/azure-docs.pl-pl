@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 39a1f41d97b1f4576d5877e4f35c99b3e189e3b2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f65c1d6fda09d7762a59fb5a932a72ad706a767a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314498"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448016"
 ---
 # <a name="partitioning-tables-in-dedicated-sql-pool"></a>Partycjonowanie tabel w dedykowanej puli SQL
 
@@ -30,7 +30,7 @@ Partycjonowanie może korzystać z konserwacji danych i wydajności zapytań. Ni
 
 ### <a name="benefits-to-loads"></a>Zalety ładowania
 
-Główną zaletą partycjonowania w dedykowanej puli SQL jest poprawa wydajności i wydajności ładowania danych przy użyciu usuwania partycji, przełączania i scalania. W większości przypadków dane są partycjonowane w kolumnie dat, która jest ściśle związana z kolejnością, w której dane są ładowane do bazy danych. Jedną z największych korzyści wynikających z używania partycji do obsługi danych jest unikanie rejestrowania transakcji. Podczas gdy po prostu Wstawianie, aktualizowanie lub usuwanie danych może być najbardziej prostym podejściem, przy użyciu partycjonowania podczas procesu ładowania może znacznie poprawić wydajność.
+Główną zaletą partycjonowania w dedykowanej puli SQL jest poprawa wydajności i wydajności ładowania danych przy użyciu usuwania partycji, przełączania i scalania. W większości przypadków dane są partycjonowane w kolumnie dat, która jest ściśle związana z kolejnością, w której dane są ładowane do puli SQL. Jedną z największych korzyści wynikających z używania partycji do obsługi danych jest unikanie rejestrowania transakcji. Podczas gdy po prostu Wstawianie, aktualizowanie lub usuwanie danych może być najbardziej prostym podejściem, przy użyciu partycjonowania podczas procesu ładowania może znacznie poprawić wydajność.
 
 Przełączanie partycji może służyć do szybkiego usuwania lub zastępowania sekcji tabeli.  Na przykład tabela faktów sprzedaży może zawierać tylko dane dla ostatnich 36 miesięcy. Na koniec każdego miesiąca z tabeli jest usuwany najstarszy miesiąc danych sprzedaży.  Te dane można usunąć za pomocą instrukcji DELETE w celu usunięcia danych z najstarszego miesiąca. 
 
@@ -355,7 +355,7 @@ Aby uniknąć definicji tabeli z **rusting** w systemie kontroli źródła, wart
     DROP TABLE #partitions;
     ```
 
-W tym podejściu kod w kontroli źródła pozostaje statyczny, a wartości graniczne partycjonowania mogą być dynamiczne; rozwijanie bazy danych w czasie.
+W tym podejściu kod w kontroli źródła pozostaje statyczny, a wartości graniczne partycjonowania mogą być dynamiczne; rozwijanie z pulą SQL wraz z upływem czasu.
 
 ## <a name="next-steps"></a>Następne kroki
 

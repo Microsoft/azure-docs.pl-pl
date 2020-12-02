@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: de060be7ace84ea309b71087a50fd572091bed43
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 88d732cc3feaa2c9a528443d4a783227f3d8e641
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004793"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446793"
 ---
 # <a name="add-an-iot-edge-device-to-your-remote-monitoring-solution-accelerator"></a>Dodawanie urządzenia IoT Edge do akceleratora rozwiązania do monitorowania zdalnego
 
@@ -34,9 +34,9 @@ W panelu **nowe urządzenie** wybierz pozycję **IoT Edge urządzenie**. Dla inn
 
 Istnieje również możliwość zarejestrowania urządzenia IoT Edge bezpośrednio z wystąpieniem IoT Hub w akceleratorze rozwiązania. Musisz znać nazwę Centrum IoT w akceleratorze rozwiązania, zanim skorzystasz z następujących przewodników:
 
-- [Zarejestruj nowe urządzenie Azure IoT Edge z poziomu Azure Portal](../iot-edge/how-to-register-device.md#register-in-the-azure-portal)
-- [Rejestrowanie nowego urządzenia Azure IoT Edge przy użyciu interfejsu wiersza polecenia platformy Azure](../iot-edge/how-to-register-device.md#register-with-the-azure-cli)
-- [Zarejestruj nowe urządzenie Azure IoT Edge z poziomu Visual Studio Code](../iot-edge/how-to-register-device.md#register-with-visual-studio-code)
+- [Zarejestruj nowe urządzenie Azure IoT Edge z poziomu Azure Portal](../iot-edge/how-to-manual-provision-symmetric-key.md?tabs=azure-portal%2Cwindows)
+- [Rejestrowanie nowego urządzenia Azure IoT Edge przy użyciu interfejsu wiersza polecenia platformy Azure](../iot-edge/how-to-manual-provision-symmetric-key.md?tabs=azure-cli%2Cwindows)
+- [Zarejestruj nowe urządzenie Azure IoT Edge z poziomu Visual Studio Code](../iot-edge/how-to-manual-provision-symmetric-key.md?tabs=visual-studio-code%2Cwindows)
 
 Po zarejestrowaniu urządzenia bezpośrednio w usłudze IoT Hub w akceleratorze rozwiązania do monitorowania zdalnego jest on wyświetlany na stronie **Device Explorer** w interfejsie użytkownika sieci Web.
 
@@ -44,11 +44,11 @@ Po zarejestrowaniu urządzenia bezpośrednio w usłudze IoT Hub w akceleratorze 
 
 Aby można było wdrażać moduły na urządzeniu brzegowym, należy zainstalować środowisko uruchomieniowe IoT Edge na rzeczywistym urządzeniu. Poniższe przewodniki przedstawiają sposób instalowania środowiska uruchomieniowego na popularnych platformach urządzeń:
 
-- [Zainstaluj środowisko uruchomieniowe Azure IoT Edge w systemie Linux (x64)](../iot-edge/how-to-install-iot-edge-linux.md)
-- [Zainstaluj środowisko uruchomieniowe Azure IoT Edge w systemie Linux (ARM32v7/armhf)](../iot-edge/how-to-install-iot-edge-linux.md)
-- [Instalowanie Azure IoT Edge środowiska uruchomieniowego w systemie Windows do użycia z kontenerami systemu Windows](../iot-edge/how-to-install-iot-edge-windows.md)
-- [Zainstaluj środowisko uruchomieniowe Azure IoT Edge w systemie Windows do użycia z kontenerami systemu Linux](../iot-edge/how-to-install-iot-edge-windows-with-linux.md)
-- [Zainstaluj środowisko uruchomieniowe IoT Edge w systemie Windows IoT Core](../iot-edge/how-to-install-iot-edge-windows.md)
+- [Zainstaluj środowisko uruchomieniowe Azure IoT Edge w systemie Linux (x64)](../iot-edge/how-to-install-iot-edge.md)
+- [Zainstaluj środowisko uruchomieniowe Azure IoT Edge w systemie Linux (ARM32v7/armhf)](../iot-edge/how-to-install-iot-edge.md)
+- [Instalowanie Azure IoT Edge środowiska uruchomieniowego w systemie Windows do użycia z kontenerami systemu Windows](../iot-edge/how-to-install-iot-edge.md)
+- [Zainstaluj środowisko uruchomieniowe Azure IoT Edge w systemie Windows do użycia z kontenerami systemu Linux](../iot-edge/how-to-install-iot-edge.md)
+- [Zainstaluj środowisko uruchomieniowe IoT Edge w systemie Windows IoT Core](../iot-edge/how-to-install-iot-edge.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

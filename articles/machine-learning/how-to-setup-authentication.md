@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperfq2
-ms.openlocfilehash: 7fa6beacf4456145e312494a72dad321dfef3754
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: ca8a36584c09d850ed1daab8cba301b244f76526
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843931"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447014"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Konfigurowanie uwierzytelniania dla zasobów i przepływów pracy usługi Azure Machine Learning
 
@@ -67,7 +67,7 @@ Najprostszym sposobem utworzenia SP i udzielenia dostępu do obszaru roboczego j
 
     Jeśli interfejs wiersza polecenia może otworzyć Twoją domyślną przeglądarkę, zrobi to i załaduje stronę logowania. W przeciwnym razie musisz otworzyć przeglądarkę i postępować zgodnie z instrukcjami w wierszu polecenia. Instrukcje obejmują przeglądanie [https://aka.ms/devicelogin](https://aka.ms/devicelogin) i wprowadzanie kodu autoryzacji.
 
-    Jeśli masz wiele subskrypcji platformy Azure, możesz użyć polecenia, `az account set -s <subscription name or ID>` Aby ustawić subskrypcję. Aby uzyskać więcej informacji, zobacz [Korzystanie z wielu subskrypcji platformy Azure](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
+    Jeśli masz wiele subskrypcji platformy Azure, możesz użyć polecenia, `az account set -s <subscription name or ID>` Aby ustawić subskrypcję. Aby uzyskać więcej informacji, zobacz [Korzystanie z wielu subskrypcji platformy Azure](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
 
     Aby poznać inne metody uwierzytelniania, zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest).
 
@@ -184,7 +184,7 @@ Większość przykładów w dokumentacji i przykładach używa uwierzytelniania 
 > interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
 > ```
 
-W przypadku korzystania z interfejsu wiersza polecenia platformy Azure `az login` polecenie jest używane do uwierzytelniania sesji CLI. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z interfejsem wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+W przypadku korzystania z interfejsu wiersza polecenia platformy Azure `az login` polecenie jest używane do uwierzytelniania sesji CLI. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z interfejsem wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli).
 
 > [!TIP]
 > Jeśli używasz zestawu SDK ze środowiska, w którym wcześniej uwierzytelniono się interaktywnie przy użyciu interfejsu wiersza polecenia platformy Azure, możesz użyć `AzureCliAuthentication` klasy do uwierzytelnienia w obszarze roboczym przy użyciu poświadczeń w pamięci podręcznej interfejsu wiersza polecenia:

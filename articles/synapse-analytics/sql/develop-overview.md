@@ -10,22 +10,22 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2a24a61e26bdfaba0619e3965e95b1828380a1c8
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d47b4847a12b63532e44a8a1a47101dd065f811b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322107"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446598"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Projektowanie decyzji i technik kodowania dla funkcji SQL Synapse w usłudze Azure Synapse Analytics
-W tym artykule znajdziesz listę zasobów dla dedykowanej puli SQL i bezserwerowej puli SQL (wersja zapoznawcza) usługi Synapse SQL. Zalecane artykuły są podzielone na dwie sekcje: najważniejsze decyzje projektowe i techniki programowania i kodowania.
+W tym artykule znajdziesz listę zasobów dla dedykowanej puli SQL i bezserwerowych funkcji puli SQL programu Synapse SQL. Zalecane artykuły są podzielone na dwie sekcje: najważniejsze decyzje projektowe i techniki programowania i kodowania.
 
-Celem tych artykułów jest ułatwienie opracowywania optymalnego podejścia technicznego dla składników SQL Synapse w programie Synapse Analytics.
+Celem tych artykułów jest ułatwienie opracowywania optymalnego podejścia technicznego dla składników SQL Synapse w ramach usługi Azure Synapse Analytics.
 
 ## <a name="key-design-decisions"></a>Najważniejsze decyzje projektowe
 Artykuły poniżej wyróżniają koncepcje i decyzje projektowe dotyczące programowania w programie SQL Synapse:
 
-| Artykuł | dedykowana Pula SQL | Pula SQL bezserwerowa |
+| Artykuł | dedykowana Pula SQL | Bezserwerowa pula SQL |
 | ------- | -------- | ------------- |
 | [Połączenia](connect-overview.md)                    | Tak | Tak |
 | [Klasy zasobów i współbieżność](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Tak    | Nie |
@@ -44,7 +44,7 @@ Artykuły poniżej wyróżniają koncepcje i decyzje projektowe dotyczące progr
 
 Poniżej znajdziesz podstawowe artykuły, które podkreślają konkretne techniki kodowania, porady i zalecenia dotyczące programowania:
 
-| Artykuł | dedykowana Pula SQL | Pula SQL bezserwerowa |
+| Artykuł | dedykowana Pula SQL | Bezserwerowa pula SQL |
 | ------- | -------- | ------------- |
 | [Procedury składowane](develop-stored-procedures.md)  | Tak                | Nie                      |
 | [Etykiety](develop-label.md)                           | Tak                | Nie                      |

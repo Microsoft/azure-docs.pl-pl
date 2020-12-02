@@ -1,6 +1,6 @@
 ---
-title: Architektura usługi Azure Synapse Analytics (dawniej SQL DW)
-description: Dowiedz się, jak usługa Azure Synapse Analytics (wcześniej SQL DW) łączy rozproszone możliwości przetwarzania zapytań z usługą Azure Storage w celu uzyskania wysokiej wydajności i skalowalności.
+title: Architektura dedykowanej puli SQL (dawniej SQL DW)
+description: Dowiedz się, jak dedykowana Pula SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics łączy rozproszone możliwości przetwarzania zapytań z usługą Azure Storage w celu uzyskania wysokiej wydajności i skalowalności.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,49 +10,44 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 1d32aa011e9e816f97b050d43f9558af0cf82e90
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 45c7f89f773095a102429c07f7441223de3c2dec
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319664"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448254"
 ---
-# <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Architektura usługi Azure Synapse Analytics (dawniej SQL DW)
+# <a name="dedicated-sql-pool-formerly-sql-dw-architecture-in-azure-synapse-analytics"></a>Architektura dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics
 
-Azure Synapse to nieograniczona usługa analizy, która łączy magazynowanie danych przedsiębiorstwa z analizą danych big data. Zapewnia swobodę wykonywania zapytań dotyczących danych na Twoich warunkach, korzystając z bezserwerowych zasobów na żądanie lub aprowizowanych zasobów — w dużej skali. Usługa Azure Synapse łączy te dwa światy w ujednolicone środowisko umożliwiające pozyskiwanie, przygotowywanie i udostępnianie danych oraz zarządzanie nimi na potrzeby natychmiastowej analizy biznesowej oraz uczenia maszynowego.
+Usługa Azure Synapse Analytics to usługa analizy, która łączy magazynowanie danych przedsiębiorstwa z analizą danych big data. Zapewnia to swobodę wykonywania zapytań dotyczących danych na Twoich warunkach.
 
- Usługa Azure Synapse ma cztery składniki:
+> [!NOTE]
+>Zapoznaj się z [dokumentacją usługi Azure Synapse Analytics](../overview-what-is.md).
+>
 
-- Synapse SQL: Ukończ analizę opartą na języku T-SQL
-
-  - Dedykowana Pula SQL (płatność za jednostek dwu z obsługą administracyjną) — ogólnie dostępna
-  - Bezserwerowa Pula SQL (płatność za 1 TB) — (wersja zapoznawcza)
-- Spark: głębokie zintegrowane Apache Spark (wersja zapoznawcza)
-- Integracja danych: integracja danych hybrydowych (wersja zapoznawcza)
-- Studio: ujednolicone środowisko użytkownika.  (Wersja zapoznawcza)
 
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
 ## <a name="synapse-sql-architecture-components"></a>Składniki architektury SQL Synapse
 
-[Synapse SQL](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse) wykorzystuje architekturę skalowalną w poziomie do dystrybucji obliczeniowego przetwarzania danych w wielu węzłach. Jednostka skali jest abstrakcją mocy obliczeniowej, która jest znana jako [Jednostka magazynu danych](what-is-a-data-warehouse-unit-dwu-cdwu.md). Obliczenia są niezależne od magazynu, co umożliwia skalowanie obliczeniowe niezależnie od danych w systemie.
+[Dedykowana Pula SQL (dawniej SQL DW)](sql-data-warehouse-overview-what-is.md) wykorzystuje architekturę skalowalną w poziomie do dystrybucji obliczeniowego przetwarzania danych w wielu węzłach. Jednostka skali jest abstrakcją mocy obliczeniowej, która jest znana jako [Jednostka magazynu danych](what-is-a-data-warehouse-unit-dwu-cdwu.md). Obliczenia są niezależne od magazynu, co umożliwia skalowanie obliczeniowe niezależnie od danych w systemie.
 
-![Architektura usługi](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
+![Architektura dedykowanej puli SQL (dawniej SQL DW)](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-Synapse SQL używa architektury opartej na węźle. Aplikacje nawiązują połączenie i wydają polecenia T-SQL do węzła kontrolki, który jest pojedynczym punktem wejścia dla Synapse SQL. Węzeł kontrolny obsługuje aparat zapytań rozproszonych, który optymalizuje zapytania do przetwarzania równoległego, a następnie przekazuje operacje do węzłów obliczeniowych w celu wykonywania równoległych zadań.
+Dedykowana Pula SQL (wcześniej SQL DW) korzysta z architektury opartej na węźle. Aplikacje nawiązują połączenie i wydają polecenia T-SQL do węzła kontrolki. Węzeł kontrolny obsługuje aparat zapytań rozproszonych, który optymalizuje zapytania do przetwarzania równoległego, a następnie przekazuje operacje do węzłów obliczeniowych w celu wykonywania równoległych zadań.
 
 Węzły obliczeniowe przechowują wszystkie dane użytkowników w usłudze Azure Storage i wykonują zapytania równoległe. Usługa przenoszenia danych (ang. Data Movement Service, DMS) to wewnętrzna usługa działająca na poziomie systemu, która przenosi dane pomiędzy węzłami w sposób wymagany do równoległego wykonywania zapytań i zwracania prawidłowych wyników.
 
-Z rozdzielonym magazynem i funkcją obliczeniową w przypadku korzystania z Synapse puli SQL one może:
+Z rozdzielonym magazynem i funkcją obliczeniową w przypadku korzystania z dedykowanej puli SQL (dawniej SQL DW) jeden z nich może:
 
 - Niezależnie od potrzeb związanych z magazynem bez względu na wielkość mocy obliczeniowej.
-- Zwiększ lub Zmniejsz moc obliczeniową w puli SQL (hurtowni danych) bez przeniesienia danych.
+- Zwiększ lub Zmniejsz moc obliczeniową w ramach dedykowanej puli SQL (dawniej SQL DW) bez przeniesienia danych.
 - Wstrzymywać zasoby obliczeniowe bez wpływu na dane, płacąc tylko za przestrzeń dyskową.
 - Wznawiać zasoby obliczeniowe w godzinach pracy.
 
 ### <a name="azure-storage"></a>Azure Storage
 
-Synapse SQL wykorzystuje usługę Azure Storage, aby zapewnić bezpieczeństwo danych użytkownika.  Ponieważ dane są przechowywane i zarządzane przez usługę Azure Storage, istnieje oddzielna opłata za użycie magazynu. Dane są podzielonej na fragmenty do **dystrybucji** w celu zoptymalizowania wydajności systemu. Można wybrać, który wzorzec fragmentowania ma być używany do dystrybucji danych podczas definiowania tabeli. Te wzorce fragmentowania są obsługiwane:
+Dedykowana Pula SQL (dawniej SQL DW) korzysta z usługi Azure Storage, aby zapewnić bezpieczeństwo danych użytkownika.  Ponieważ dane są przechowywane i zarządzane przez usługę Azure Storage, istnieje oddzielna opłata za użycie magazynu. Dane są podzielonej na fragmenty do **dystrybucji** w celu zoptymalizowania wydajności systemu. Można wybrać, który wzorzec fragmentowania ma być używany do dystrybucji danych podczas definiowania tabeli. Te wzorce fragmentowania są obsługiwane:
 
 - Skrót
 - Działanie okrężne
@@ -76,7 +71,7 @@ Usługa przenoszenia danych (DMS) to technologia transportu danych, która koord
 
 Dystrybucja to podstawowa jednostka magazynowania i przetwarzania zapytań równoległych wykonywanych na danych rozproszonych. Gdy Synapse SQL uruchamia kwerendę, pracy jest podzielony na 60 mniejszych zapytań, które są uruchamiane równolegle.
 
-Każda z 60 mniejszych zapytań jest uruchamiana na jednym z dystrybucji danych. Każdy węzeł obliczeniowy zarządza jedną lub większą liczbą dystrybucji 60. Pula SQL z maksymalną ilość zasobów obliczeniowych ma jedną dystrybucję na każdy węzeł obliczeniowy. Pula SQL o minimalnych zasobach obliczeniowych ma wszystkie dystrybucje w jednym węźle obliczeniowym.  
+Każda z 60 mniejszych zapytań jest uruchamiana na jednym z dystrybucji danych. Każdy węzeł obliczeniowy zarządza jedną lub większą liczbą dystrybucji 60. Dedykowana Pula SQL (wcześniej SQL DW) z maksymalną ilość zasobów obliczeniowych ma jedną dystrybucję na każdy węzeł obliczeniowy. Dedykowana Pula SQL (wcześniej SQL DW) o minimalnych zasobach obliczeniowych ma wszystkie dystrybucje w jednym węźle obliczeniowym.  
 
 ## <a name="hash-distributed-tables"></a>Tabele dystrybuowane przy użyciu skrótu
 
@@ -112,7 +107,7 @@ Na poniższym diagramie przedstawiono zreplikowane tabele, które są buforowane
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy znasz już usługę Azure Synapse, Dowiedz się, jak szybko [utworzyć pulę SQL](create-data-warehouse-portal.md) i [załadować przykładowe dane](load-data-from-azure-blob-storage-using-polybase.md). Jeśli dopiero zaczynasz korzystać z platformy Azure, [słownik platformy Azure](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) może pomóc Ci zaznajomić się z nową terminologią. Lub zapoznaj się z innymi zasobami usługi Azure Synapse.  
+Teraz, gdy znasz już usługę Azure Synapse, Dowiedz się, jak szybko [utworzyć dedykowaną pulę SQL (dawniej SQL DW)](create-data-warehouse-portal.md) i [załadować przykładowe dane](load-data-from-azure-blob-storage-using-polybase.md). Jeśli dopiero zaczynasz korzystać z platformy Azure, [słownik platformy Azure](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) może pomóc Ci zaznajomić się z nową terminologią. Lub zapoznaj się z innymi zasobami usługi Azure Synapse.  
 
 - [Historie sukcesu klientów](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
 - [Blogi](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)

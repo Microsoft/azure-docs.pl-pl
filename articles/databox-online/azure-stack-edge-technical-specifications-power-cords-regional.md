@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 76d8c84fd1dd403c88e8261cf49e3620f3a6ec14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18de1f445990f167041c755aa5e7d909819319b1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903623"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446458"
 ---
 # <a name="azure-stack-edge-pro-power-cord-specifications"></a>Azure Stack Edge — specyfikacje dla przewodu Power BI Pro
 
@@ -76,7 +76,7 @@ W poniższej tabeli można znaleźć prawidłowe specyfikacje dotyczące przewod
 |Indie|250|10|IS694 3.|JEST 1293|C13|1830|
 |Indonezja|250|10|H05Z1Z1 3.|CEE 7|C13|1830|
 |Irlandia|250|5|H05VV-F 3.0,75|BS 1363/SS145/A|C13|1800|
-|Izrael|250|2,5|H05VV-F 3.1,00|SI 32|C13|2000|
+|Izrael|250|2.5|H05VV-F 3.1,00|SI 32|C13|2000|
 |Włochy|250|10|H05VV-F 3.0,75|CEI 23-50|C13|1800|
 |Jamajka|125|10|SVE 18/3|NEMA 5 — 15P|C13|1830|
 |Japonia|125|15|VCTF 3 x 2,00|JIS C 8303|C13|2300|
@@ -158,4 +158,4 @@ W poniższej tabeli można znaleźć prawidłowe specyfikacje dotyczące przewod
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Azure Stack Edge — specyfikacje techniczne Pro](data-box-edge-technical-specifications-compliance.md)
+[Azure Stack Edge — specyfikacje techniczne Pro](./azure-stack-edge-technical-specifications-compliance.md)

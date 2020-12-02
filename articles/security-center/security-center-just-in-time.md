@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 9a01dabbd0a3e9d76caaead544be655b9505030d
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 55e9d2d1af863084b080c2de7833712413221050
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289199"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445636"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Zabezpieczanie portów zarządzania przy użyciu dostępu just in time
 
@@ -89,9 +89,9 @@ W Security Center można włączyć i skonfigurować dostęp JIT do maszyny wirt
 
     Dla każdego portu (niestandardowego i domyślnego) okienka **Dodawanie konfiguracji portów** dostępne są następujące opcje:
 
-    - **Protokół** — protokół, który jest dozwolony na tym porcie, gdy żądanie zostanie zatwierdzone
+    - **Protokół**— protokół, który jest dozwolony na tym porcie, gdy żądanie zostanie zatwierdzone
     - **Dozwolone źródła** IP — zakresy adresów IP, które są dozwolone na tym porcie, gdy żądanie zostanie zatwierdzone
-    - **Maksymalny czas żądania** — maksymalny przedział czasu, w którym można otworzyć określony port
+    - **Maksymalny czas żądania**— maksymalny przedział czasu, w którym można otworzyć określony port
 
      1. Ustaw odpowiednie zabezpieczenia portów.
 
@@ -300,7 +300,7 @@ Uruchom następujące polecenia w programie PowerShell:
 
     ```azurepowershell
     $JitPolicyVm1 = (@{
-        id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
+        id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
         ports=(@{
            number=22;
            endTimeUtc="2020-07-15T17:00:00.3658798Z";

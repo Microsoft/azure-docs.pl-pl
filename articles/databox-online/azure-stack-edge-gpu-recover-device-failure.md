@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: 91efdac9d17e679226f10012bbff9b5b6676ff0e
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: bf4d0a845b7f26c82ba3940d6613a33bcacf9187
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205582"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448325"
 ---
 # <a name="recover-from-a-failed-azure-stack-edge-pro-gpu-device"></a>Odzyskiwanie po awarii urządzenia GPU z niepowodzeniem Azure Stack Edge 
 
@@ -79,9 +79,9 @@ Aby przygotować się do potencjalnego błędu urządzenia, można wdrożyć jed
 
 
 
-| Rozwiązania do tworzenia kopii zapasowych        | Obsługiwane systemy operacyjne   | Dokumentacja                                                                |
+| Rozwiązania do tworzenia kopii zapasowych        | Obsługiwane systemy operacyjne   | Odwołanie                                                                |
 |-------------------------|----------------|--------------------------------------------------------------------------|
-| Agent Microsoft Azure Recovery Services (MARS) dla Azure Backup | Windows        | [Informacje o agencie MARS](/azure/backup/backup-azure-about-mars)    |
+| Agent Microsoft Azure Recovery Services (MARS) dla Azure Backup | Windows        | [Informacje o agencie MARS](../backup/backup-azure-about-mars.md)    |
 | Cohesity                | Windows, Linux | [Microsoft Azure integracja, rozwiązanie do tworzenia kopii zapasowych i odzyskiwania](https://www.cohesity.com/solution/cloud/azure) <br>Aby uzyskać szczegółowe informacje, skontaktuj się z Cohesity.                          |
 | CommVault               | Windows, Linux | https://www.commvault.com/azure <br> Aby uzyskać szczegółowe informacje, skontaktuj się z firmą CommVault.
 | Firmę                 | Windows, Linux | http://veritas.com/azure <br> Aby uzyskać szczegółowe informacje, skontaktuj się z firmą Veritas.                    |

@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Zarządzanie obliczeniami przy użyciu Azure Functions'
-description: Jak używać Azure Functions do zarządzania obliczeniem puli SQL w usłudze Azure Synapse Analytics.
+description: Jak używać Azure Functions do zarządzania obliczeniami dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -11,26 +11,26 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: bc615322c11a456699d2364cf44cad40e086e851
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f0731f0deaf46ec419cfe43037804e10f2b73fd4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022483"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448381"
 ---
-# <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Używanie Azure Functions do zarządzania zasobami obliczeniowymi w puli SQL usługi Azure Synapse Analytics
+# <a name="use-azure-functions-to-manage-compute-resources-for-your-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Użyj Azure Functions do zarządzania zasobami obliczeniowymi dla dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics
 
-Ten samouczek używa Azure Functions do zarządzania zasobami obliczeniowymi dla puli SQL w usłudze Azure Synapse Analytics.
+Ten samouczek używa Azure Functions do zarządzania zasobami obliczeniowymi dla dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics.
 
-Aby można było korzystać z usługi Azure aplikacja funkcji z pulą SQL, należy utworzyć [konto głównej usługi](../../active-directory/develop/howto-create-service-principal-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) z dostępem współautora w ramach tej samej subskrypcji, w której znajduje się wystąpienie puli SQL.
+Aby użyć aplikacja funkcji platformy Azure z dedykowaną pulą SQL (dawniej SQL DW), należy utworzyć [konto nazwy głównej usługi](../../active-directory/develop/howto-create-service-principal-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Konto nazwy głównej usługi wymaga dostępu współautora w ramach tej samej subskrypcji, co dedykowane wystąpienie puli SQL (dawniej SQL DW).
 
 ## <a name="deploy-timer-based-scaling-with-an-azure-resource-manager-template"></a>Wdrażanie skalowania opartego na czasomierzu przy użyciu szablonu Azure Resource Manager
 
 Aby wdrożyć szablon, potrzebne są następujące informacje:
 
-- Nazwa grupy zasobów, w której znajduje się wystąpienie puli SQL
-- Nazwa serwera, na którym znajduje się wystąpienie puli SQL
-- Nazwa wystąpienia puli SQL
+- Nazwa grupy zasobów, w której znajduje się dedykowane wystąpienie puli SQL (dawniej SQL DW)
+- Nazwa serwera, w którym jest używane dedykowane wystąpienie puli SQL (dawniej SQL DW)
+- Nazwa dedykowanego wystąpienia puli SQL (dawniej SQL DW)
 - Identyfikator dzierżawy (identyfikator katalogu ) usługi Azure Active Directory
 - Identyfikator subskrypcji
 - Identyfikator aplikacji nazwy głównej usługi
@@ -48,13 +48,13 @@ Po wdrożeniu szablonu należy znaleźć trzy nowe zasoby: bezpłatny plan Azure
 
    ![Funkcje wdrażane przy użyciu szablonu](./media/manage-compute-with-azure-functions/five-functions.png)
 
-2. Wybierz pozycję *DWScaleDownTrigger* lub *DWScaleUpTrigger* w zależności od tego, czy chcesz zmienić czas skalowania w górę, czy czas skalowania w dół. Z menu rozwijanego wybierz pozycję Integruj.
+2. Wybierz opcję *DWScaleDownTrigger* lub *DWScaleUpTrigger* , aby skalować w górę lub w dół. Z menu rozwijanego wybierz pozycję Integruj.
 
    ![Wybieranie pozycji Integruj dla funkcji](./media/manage-compute-with-azure-functions/select-integrate.png)
 
 3. Obecnie powinna być wyświetlana wartość *%ScaleDownTime%* lub *%ScaleUpTime%*. Te wartości wskazują, że harmonogram jest oparty na wartościach określonych w [ustawieniach aplikacji](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Na razie można zignorować tę wartość i zmienić harmonogram na preferowany czas na podstawie następnych kroków.
 
-4. W obszarze harmonogram Dodaj godzinę wyrażenia, które chcesz odzwierciedlić, jak często chcesz skalować usługę Azure Synapse Analytics.
+4. W obszarze harmonogram Dodaj wyrażenie CRONUS, aby odzwierciedlić, jak często chcesz skalować usługę Azure Synapse Analytics.
 
    ![Zmienianie harmonogramu funkcji](./media/manage-compute-with-azure-functions/change-schedule.png)
 
@@ -70,11 +70,11 @@ Po wdrożeniu szablonu należy znaleźć trzy nowe zasoby: bezpłatny plan Azure
 
 1. Przejdź do usługi aplikacji funkcji. Jeśli szablon został wdrożony przy użyciu wartości domyślnych, usługa ta powinna mieć nazwę *DWOperations*. Po otwarciu aplikacji funkcji powinno być widocznych pięć funkcji wdrożonych w usłudze aplikacji funkcji.
 
-2. Wybierz pozycję *DWScaleDownTrigger* lub *DWScaleUpTrigger* w zależności od tego, czy chcesz zmienić wartość obliczeniową skalowania w górę, czy wartość obliczeniową skalowania w dół. Po wybraniu funkcji w okienku powinien zostać wyświetlony plik *index.js*.
+2. Wybierz opcję *DWScaleDownTrigger* lub *DWScaleUpTrigger* , aby skalować wartość obliczeniową w górę lub w dół. Po wybraniu funkcji w okienku powinien zostać wyświetlony plik *index.js*.
 
    ![Zmienianie poziomu obliczeniowego wyzwalacza funkcji](././media/manage-compute-with-azure-functions/index-js.png)
 
-3. Zmień wartość elementu *ServiceLevelObjective* na odpowiedni poziom i wybierz pozycję Zapisz. Ta wartość jest poziomem obliczeń, na który będzie skalowane wystąpienie magazynu danych, na podstawie harmonogramu zdefiniowanego w sekcji Integruj.
+3. Zmień wartość *ServiceLevelObjective* na żądany poziom i wybierz pozycję Zapisz. *ServiceLevelObjective* to poziom obliczeń, na który będzie skalowany wystąpienie magazynu danych na podstawie harmonogramu zdefiniowanego w sekcji Integruj.
 
 ## <a name="use-pause-or-resume-instead-of-scale"></a>Używanie wstrzymywania lub wznawiania zamiast skalowania
 
@@ -84,7 +84,7 @@ Obecnie funkcje włączone domyślnie to *DWScaleDownTrigger* i *DWScaleUpTrigge
 
    ![Okienko Funkcje](./media/manage-compute-with-azure-functions/functions-pane.png)
 
-2. Kliknij przełącznik obok wyzwalaczy, które chcesz włączyć.
+2. Wybierz odpowiedni przełącznik dla odpowiednich wyzwalaczy, które chcesz włączyć.
 
 3. Przejdź do kart *Integracja* odpowiednich wyzwalaczy, aby zmienić ich harmonogram.
 
@@ -114,17 +114,17 @@ Obecnie szablon zawiera tylko dwie funkcje skalowania. Korzystając z tych funkc
 5. Ustaw dla zmiennej operacji odpowiednie zachowanie w następujący sposób:
 
    ```JavaScript
-   // Resume the SQL pool instance
+   // Resume the dedicated SQL pool (formerly SQL DW) instance
    var operation = {
        "operationType": "ResumeDw"
    }
 
-   // Pause the SQL pool instance
+   // Pause the dedicated SQL pool (formerly SQL DW) instance
    var operation = {
        "operationType": "PauseDw"
    }
 
-   // Scale the SQL pool instance to DW600c
+   // Scale the dedicated SQL pool (formerly SQL DW)l instance to DW600c
    var operation = {
        "operationType": "ScaleDw",
        "ServiceLevelObjective": "DW600c"
@@ -169,4 +169,4 @@ Skaluj w górę o 8:00 do DW1000c, Skaluj w dół do DW600c na 16:00 w dniach ro
 
 Dowiedz się więcej na temat [wyzwalacza czasomierza](../../azure-functions/functions-create-scheduled-function.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Azure Functions.
 
-Wyewidencjonowywanie [repozytorium przykładów](https://github.com/Microsoft/sql-data-warehouse-samples)puli SQL.
+Zobacz [repozytorium przykładów](https://github.com/Microsoft/sql-data-warehouse-samples)dedykowanej puli SQL (dawniej SQL DW).

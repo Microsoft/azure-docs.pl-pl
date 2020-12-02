@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 9a6b0910fcfd2a632f2520a2fe683b15592017cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15e2d7a144b54f443b8298b20dbfacf78a50f9e1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891171"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447546"
 ---
 # <a name="configure-tls-12-on-windows-clients-accessing-azure-stack-edge-pro-device"></a>Konfigurowanie protokołu TLS 1,2 na klientach z systemem Windows uzyskujących dostęp do urządzenia Azure Stack EDGE Pro
 
@@ -38,11 +38,11 @@ Wykonaj następujące kroki, aby skonfigurować protokół TLS 1,2 na kliencie.
 
 Jeśli chcesz ustawić protokół TLS 1,2 dla danego środowiska, postępuj zgodnie z wytycznymi w następujących dokumentach:
 
-- [Ogólne — Włączanie protokołu TLS 1,2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12)
-- [Jak włączyć protokół TLS 1,2 na klientach](https://docs.microsoft.com/configmgr/core/plan-design/security/enable-tls-1-2-client)
-- [Jak włączyć protokół TLS 1,2 na serwerach lokacji i zdalnych systemach lokacji](https://docs.microsoft.com/configmgr/core/plan-design/security/enable-tls-1-2-server)
-- [Protokoły protokołu TLS/SSL (dostawca obsługi zabezpieczeń Schannel)](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-ecc-curve-order)
-- [Mechanizmy szyfrowania](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12): w [celu skonfigurowania kolejności mechanizmów szyfrowania TLS](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order) upewnij się, że zostały wymienione bieżące mechanizmy szyfrowania i poprzedź wszystkie brakujące z poniższej listy:
+- [Ogólne — Włączanie protokołu TLS 1,2](/windows-server/security/tls/tls-registry-settings#tls-12)
+- [Jak włączyć protokół TLS 1,2 na klientach](/configmgr/core/plan-design/security/enable-tls-1-2-client)
+- [Jak włączyć protokół TLS 1,2 na serwerach lokacji i zdalnych systemach lokacji](/configmgr/core/plan-design/security/enable-tls-1-2-server)
+- [Protokoły protokołu TLS/SSL (dostawca obsługi zabezpieczeń Schannel)](/windows-server/security/tls/manage-tls#configuring-tls-ecc-curve-order)
+- [Mechanizmy szyfrowania](/windows-server/security/tls/tls-registry-settings#tls-12): w [celu skonfigurowania kolejności mechanizmów szyfrowania TLS](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order) upewnij się, że zostały wymienione bieżące mechanizmy szyfrowania i poprzedź wszystkie brakujące z poniższej listy:
 
     - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
     - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
@@ -68,7 +68,7 @@ Jeśli chcesz ustawić protokół TLS 1,2 dla danego środowiska, postępuj zgod
     New-ItemProperty -Path "$HklmSoftwarePath\Policies\Microsoft\Cryptography\Configuration\SSL\00010002" -Name "EccCurves" -PropertyType MultiString -Value @("NistP256", "NistP384")
     ```
     
-    - [Ustaw minimalny rozmiar wymiany klucza RSA na 2048](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#keyexchangealgorithm---client-rsa-key-sizes).
+    - [Ustaw minimalny rozmiar wymiany klucza RSA na 2048](/windows-server/security/tls/tls-registry-settings#keyexchangealgorithm---client-rsa-key-sizes).
 
 
 

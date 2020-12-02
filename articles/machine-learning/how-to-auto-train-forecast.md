@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 57b54fbe20df4eb74ee17c7b5ac83d773114463b
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 8c6a27f0cfaafe7e6c1181651e672d0e828af855
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437375"
+ms.locfileid: "96444488"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Autouczenie modelu prognozowania szeregów czasowych
 
@@ -154,7 +154,7 @@ Poniższa tabela zawiera podsumowanie tych dodatkowych parametrów. Zapoznaj si�
 
 
 Poniższy kod, 
-* Wykorzystuje [`ForecastingParameters`](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) klasę do definiowania parametrów prognozowania dla szkolenia eksperymentu
+* Wykorzystuje [`ForecastingParameters`](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) klasę do definiowania parametrów prognozowania dla szkolenia eksperymentu
 * Ustawia `time_column_name` do `day_datetime` pola w zestawie danych. 
 * Definiuje `time_series_id_column_names` parametr do `"store"` . Zapewnia to, że dla danych są tworzone **dwie osobne grupy szeregów czasowych** . jeden dla sklepu A i B.
 * Ustawia wartość `forecast_horizon` na 50, aby przewidzieć cały zestaw testów. 

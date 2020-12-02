@@ -1,5 +1,5 @@
 ---
-title: Terminologia — Azure Synapse Analytics (obszary robocze — wersja zapoznawcza)
+title: Terminologia — Analiza usługi Azure Synapse
 description: Przewodnik dotyczący przechodzenia przez usługę Azure Synapse Analytics
 services: synapse-analytics
 author: saveenr
@@ -9,16 +9,14 @@ ms.subservice: overview
 ms.date: 11/18/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 60c3fc6688dc4a25faf5ed94df25055e29d34403
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: 7f0ca83c194aae6f4a8d04d70c2d4f3746ad2ca5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96309821"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446713"
 ---
 # <a name="azure-synapse-analytics-terminology"></a>Terminologia dotycząca usługi Azure Synapse Analytics
-
-[!INCLUDE [preview](includes/note-preview.md)]
 
 W tym dokumencie przedstawiono podstawowe pojęcia dotyczące usługi Azure Synapse Analytics.
 

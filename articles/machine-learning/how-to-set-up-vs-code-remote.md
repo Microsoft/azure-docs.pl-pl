@@ -10,12 +10,12 @@ ms.custom: how-to
 ms.author: jmartens
 author: j-martens
 ms.date: 11/16/2020
-ms.openlocfilehash: 2abad31173992a891e908bdbb61c37e905907d69
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 0afbf32f80a3d19f6db457f398a213a634cfa3d4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94697582"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447059"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Nawiązywanie połączenia z wystąpieniem obliczeniowym Azure Machine Learning w Visual Studio Code (wersja zapoznawcza)
 
@@ -41,7 +41,7 @@ Aby nawiązać połączenie z wystąpieniem obliczeniowym:
 1. Po załadowaniu zintegrowanego środowiska notesu wybierz opcję **serwer Jupyter**.
 
     > [!div class="mx-imgBorder"]
-    > ![Lista rozwijana uruchamiania Azure Machine Learning zdalnego serwera notesu Jupyter](media/how-to-set-up-vs-code-remote/launch-server-selection-dropdown.png)
+    > ![Lista rozwijana uruchamiania serwera zdalnego Jupyter Notebook Azure Machine Learning](media/how-to-set-up-vs-code-remote/launch-server-selection-dropdown.png)
 
     Alternatywnie można również użyć palety poleceń:
 
@@ -58,7 +58,7 @@ Aby nawiązać połączenie z wystąpieniem obliczeniowym:
 > [!IMPORTANT]
 > Aby nawiązać połączenie, **należy** uruchomić komórkę.
 
-W tym momencie można nadal uruchamiać komórki w notesie Jupyter.
+W tym momencie można nadal uruchamiać komórki w Jupyter Notebook.
 
 > [!TIP]
 > Możesz również współpracować z plikami skryptów języka Python (. PR) zawierającymi komórki kodu podobne do Jupyter. Aby uzyskać więcej informacji, zobacz [dokumentację interaktywną języka Python Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support-py).

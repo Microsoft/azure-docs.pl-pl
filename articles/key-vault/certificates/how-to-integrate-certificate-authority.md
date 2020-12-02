@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: 50f2515cee92ead8018ffaaf4b4574905f8007d5
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4d29d7401cf944e8d999db847ce2e1266169ea34
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844509"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448413"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrowanie usługi Key Vault z urzędem certyfikacji DigiCert
 
@@ -66,7 +66,7 @@ Po zebraniu powyższych informacji z konta DigiCert CertCentral możesz teraz do
 6.  Zobaczysz, że DigicertCA został już dodany do listy urzędów certyfikacji.
 
 
-### <a name="azure-powershell"></a>Program Azure PowerShell
+### <a name="azure-powershell"></a>Azure PowerShell
 
 Azure PowerShell służy do tworzenia zasobów platformy Azure i zarządzania nimi przy użyciu poleceń lub skryptów. Usługa Azure hosts Azure Cloud Shell, interaktywnego środowiska powłoki, którego można używać za pomocą Azure Portal w samej przeglądarce.
 
@@ -108,7 +108,7 @@ $org = New-AzKeyVaultCertificateOrganizationDetail -Id OrganizationIDfromDigiCer
 $secureApiKey = ConvertTo-SecureString DigiCertCertCentralAPIKey -AsPlainText –Force
 ```
 
-4. Ustawianie **wystawcy**. Spowoduje to dodanie DigiCert jako urzędu certyfikacji w magazynie kluczy. Aby dowiedzieć się więcej na temat parametrów, [Przeczytaj tutaj](https://docs.microsoft.com/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer)
+4. Ustawianie **wystawcy**. Spowoduje to dodanie DigiCert jako urzędu certyfikacji w magazynie kluczy. Aby dowiedzieć się więcej na temat parametrów, [Przeczytaj tutaj](/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer)
 ```azurepowershell-interactive
 Set-AzKeyVaultCertificateIssuer -VaultName "Contoso-Vaultname" -Name "TestIssuer01" -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org -PassThru
 ```

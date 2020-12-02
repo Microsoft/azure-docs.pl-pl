@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: alkohli
-ms.openlocfilehash: c27f6ef47b8e4db83ceb63e308e318803800f8a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c12935a4b0b9cbbf088ba7b9c5ea804be0ce85a1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890710"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447361"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Wdrażanie maszyn wirtualnych na urządzeniu z systemem Azure Stack Edge na komputerze GPU przy użyciu interfejsu wiersza polecenia platformy Azure i języka Python
 
@@ -117,7 +117,7 @@ Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu 
 
 ### <a name="verify-profile-and-install-azure-cli"></a>Weryfikowanie profilu i Instalowanie interfejsu wiersza polecenia platformy Azure
 
-<!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
+<!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
 
 1. Zainstaluj interfejs wiersza polecenia platformy Azure na kliencie. W tym przykładzie zainstalowano interfejs wiersza polecenia platformy Azure 2.0.80. Aby sprawdzić wersję interfejsu wiersza polecenia platformy Azure, uruchom `az --version` polecenie.
 
@@ -147,7 +147,7 @@ Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu 
     PS C:\windows\system32>
     ```
 
-    Jeśli nie masz interfejsu wiersza polecenia platformy Azure, Pobierz i [Zainstaluj interfejs wiersza polecenia platformy Azure w systemie Windows](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest). Interfejs wiersza polecenia platformy Azure można uruchomić przy użyciu wiersza poleceń systemu Windows lub środowiska Windows PowerShell.
+    Jeśli nie masz interfejsu wiersza polecenia platformy Azure, Pobierz i [Zainstaluj interfejs wiersza polecenia platformy Azure w systemie Windows](/cli/azure/install-azure-cli-windows?view=azure-cli-latest). Interfejs wiersza polecenia platformy Azure można uruchomić przy użyciu wiersza poleceń systemu Windows lub środowiska Windows PowerShell.
 
 2. Zanotuj lokalizację języka Python interfejsu wiersza polecenia. Należy to zrobić, aby określić lokalizację zaufanego głównego magazynu certyfikatów dla interfejsu wiersza polecenia platformy Azure.
 
@@ -308,7 +308,7 @@ Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu 
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
     ```
 
-4. Zaloguj się do swojego środowiska usługi Azure Stack EDGE Pro przy użyciu `az login` polecenia. Możesz zalogować się do środowiska Azure Stack EDGE Pro jako użytkownik lub jako nazwa [główna usługi](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+4. Zaloguj się do swojego środowiska usługi Azure Stack EDGE Pro przy użyciu `az login` polecenia. Możesz zalogować się do środowiska Azure Stack EDGE Pro jako użytkownik lub jako nazwa [główna usługi](../active-directory/develop/app-objects-and-service-principals.md).
 
    Wykonaj następujące kroki, aby zalogować się jako *użytkownik*:
 

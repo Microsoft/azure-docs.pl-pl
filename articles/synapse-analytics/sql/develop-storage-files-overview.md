@@ -1,6 +1,6 @@
 ---
-title: Dostęp do plików w magazynie w puli SQL bezserwerowej (wersja zapoznawcza)
-description: Opisuje wykonywanie zapytań dotyczących plików magazynu przy użyciu puli SQL bezserwerowej (wersja zapoznawcza) w usłudze Azure Synapse Analytics.
+title: Dostęp do plików w magazynie w puli SQL bezserwerowej
+description: Opisuje wykonywanie zapytań dotyczących plików magazynu za pomocą bezserwerowej puli SQL w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 64148cd8fd467be6a5f09ee723e230bdc8181d2d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 82a4ded3a64a8a8bbc62f99a8854eb6d2b5f0d0b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685685"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446584"
 ---
-# <a name="access-external-storage-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Dostęp do magazynu zewnętrznego przy użyciu puli SQL bezserwerowej (wersja zapoznawcza) w usłudze Azure Synapse Analytics
+# <a name="access-external-storage-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Dostęp do magazynu zewnętrznego przy użyciu puli SQL bezserwerowej w usłudze Azure Synapse Analytics
 
 W tym dokumencie opisano, jak użytkownicy mogą odczytywać dane z plików przechowywanych w usłudze Azure Storage w puli SQL bezserwerowej. Użytkownicy mają następujące opcje dostępu do magazynu:
 

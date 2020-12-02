@@ -1,6 +1,6 @@
 ---
-title: Kontrola dostępu do konta magazynu dla puli SQL bezserwerowej (wersja zapoznawcza)
-description: Opisuje, w jaki sposób bezserwerowa Pula SQL (wersja zapoznawcza) uzyskuje dostęp do usługi Azure Storage oraz jak można kontrolować dostęp do magazynu dla puli SQL bezserwerowej w usłudze Azure Synapse Analytics.
+title: Kontrolowanie dostępu do konta magazynu dla puli SQL bezserwerowej
+description: Opisuje sposób, w jaki Pula SQL bezserwerowa uzyskuje dostęp do usługi Azure Storage oraz jak można kontrolować dostęp do magazynu dla puli SQL bezserwerowej w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 958f371a0018d20331e73d0eabba9354614d121c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 631aaf3c6a99e093f6ed59089f7ce99803f3f054
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315725"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446622"
 ---
-# <a name="control-storage-account-access-for-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Kontrolowanie dostępu do konta magazynu dla puli SQL bezserwerowej (wersja zapoznawcza) w usłudze Azure Synapse Analytics
+# <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Kontrolowanie dostępu do konta magazynu dla puli SQL bezserwerowej w usłudze Azure Synapse Analytics
 
 Zapytanie puli SQL bezserwerowe odczytuje pliki bezpośrednio z usługi Azure Storage. Uprawnienia dostępu do plików w usłudze Azure Storage są kontrolowane na dwóch poziomach:
 - **Poziom magazynu** — użytkownik powinien mieć uprawnienia dostępu do podstawowych plików magazynu. Administrator magazynu powinien zezwalać podmiotowi zabezpieczeń usługi Azure AD na odczyt/zapis plików lub generowanie klucza SAS, który będzie używany do uzyskiwania dostępu do magazynu.
@@ -33,7 +33,7 @@ Użytkownik zalogowany do bezserwerowej puli SQL musi mieć autoryzację, aby uz
 
 ### <a name="user-identity"></a>[Tożsamość użytkownika](#tab/user-identity)
 
-**Tożsamość użytkownika** , znana również jako "przekazywanie usługi Azure AD", jest typem autoryzacji, w którym tożsamość użytkownika usługi Azure AD, która została zarejestrowana w puli SQL bezserwerowej, jest używana do autoryzowania dostępu do danych. Przed uzyskaniem dostępu do danych administrator usługi Azure Storage musi udzielić uprawnień użytkownikowi usługi Azure AD. Zgodnie z poniższą tabelą, nie jest obsługiwana w przypadku typu użytkownika SQL.
+**Tożsamość użytkownika**, znana również jako "przekazywanie usługi Azure AD", jest typem autoryzacji, w którym tożsamość użytkownika usługi Azure AD, która została zarejestrowana w puli SQL bezserwerowej, jest używana do autoryzowania dostępu do danych. Przed uzyskaniem dostępu do danych administrator usługi Azure Storage musi udzielić uprawnień użytkownikowi usługi Azure AD. Zgodnie z poniższą tabelą, nie jest obsługiwana w przypadku typu użytkownika SQL.
 
 > [!IMPORTANT]
 > Aby móc uzyskiwać dostęp do danych, musisz mieć rolę właściciel danych obiektów BLOB/współautor/czytelnik.
@@ -144,7 +144,7 @@ Użytkownicy SQL nie mogą uzyskać dostępu do magazynu przy użyciu uwierzytel
 
 Poniższy skrypt tworzy poświadczenia na poziomie serwera, które mogą być używane przez `OPENROWSET` funkcję do uzyskiwania dostępu do dowolnych plików w usłudze Azure Storage przy użyciu tokenu SAS. Utwórz to poświadczenie, aby włączyć podmiot zabezpieczeń SQL, który wykonuje `OPENROWSET` funkcję do odczytu plików chronionych za pomocą klucza SAS w usłudze Azure Storage, które pasują do adresu URL w nazwie poświadczenia.
 
-Program Exchange < *mystorageaccountname* > z rzeczywistą nazwą konta magazynu i < *mystorageaccountcontainername* > z rzeczywistą nazwą kontenera:
+Program Exchange <*mystorageaccountname*> z rzeczywistą nazwą konta magazynu i <*mystorageaccountcontainername*> z rzeczywistą nazwą kontenera:
 
 ```sql
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]

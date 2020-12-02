@@ -1,6 +1,6 @@
 ---
 title: Rozwiązywanie problemów z łącznością
-description: Rozwiązywanie problemów z łącznością w dedykowanej puli SQL.
+description: Rozwiązywanie problemów z łącznością w dedykowanej puli SQL (dawniej SQL DW).
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,47 +11,47 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-csharp
-ms.openlocfilehash: 82b9f988ef4a7f4a53cd0b451da28642b53bcb65
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ea99c2ce1963ec58649fd4c2fbb4d98768da8c6f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308362"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447953"
 ---
-# <a name="troubleshooting-connectivity-issues-in-dedicated-sql-pool"></a>Rozwiązywanie problemów z łącznością w dedykowanej puli SQL
+# <a name="troubleshooting-connectivity-issues-in-dedicated-sql-pool-formerly-sql-dw"></a>Rozwiązywanie problemów z łącznością w dedykowanej puli SQL (dawniej: SQL DW)
 
-W tym artykule wymieniono typowe techniki rozwiązywania problemów dotyczące łączenia się z dedykowaną bazą danych puli SQL.
+W tym artykule wymieniono typowe techniki rozwiązywania problemów dotyczące łączenia się z dedykowaną bazą danych puli SQL (dawniej SQL DW).
 
 ## <a name="check-service-availability"></a>Sprawdź dostępność usługi
 
-Sprawdź, czy usługa jest dostępna. W Azure Portal przejdź do dedykowanej puli SQL, którą próbujesz połączyć. W panelu po lewej stronie kliknij pozycję **diagnozowanie i rozwiązywanie problemów**.
+Sprawdź, czy usługa jest dostępna. W Azure Portal przejdź do dedykowanej puli SQL (dawniej SQL DW), którą próbujesz połączyć. W panelu po lewej stronie kliknij pozycję **diagnozowanie i rozwiązywanie problemów**.
 
 ![Wybierz kondycję zasobu](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-W tym miejscu zostanie wyświetlony stan dedykowanej puli SQL. Jeśli usługa nie jest wyświetlana jako **dostępna** , należy zapoznać się z kolejnymi krokami.
+W tym miejscu zostanie wyświetlony stan dedykowanej puli SQL (dawniej SQL DW). Jeśli usługa nie jest wyświetlana jako **dostępna**, należy zapoznać się z kolejnymi krokami.
 
 ![Usługa dostępna](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-Jeśli Kondycja zasobów pokazuje, że dedykowane wystąpienie puli SQL jest wstrzymane lub skalowane, postępuj zgodnie ze wskazówkami, aby wznowić wystąpienie.
+Jeśli Kondycja zasobów pokazuje, że dedykowane wystąpienie puli SQL (dawniej SQL DW) jest wstrzymane lub skalowane, postępuj zgodnie ze wskazówkami, aby wznowić wystąpienie.
 
-![Zrzut ekranu przedstawia wystąpienie wstrzymania lub skalowania magazynu danych SQL.](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)
+![Zrzut ekranu przedstawia wystąpienie dedykowanej puli SQL, która jest wstrzymana lub skalowana.](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)
 Dodatkowe informacje na temat Resource Health można znaleźć tutaj.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>Sprawdzanie istnienia wstrzymania lub operacji skalowania
 
-Sprawdź Portal, aby sprawdzić, czy dedykowane wystąpienie puli SQL jest wstrzymane lub skalowane.
+Sprawdź Portal, aby sprawdzić, czy dedykowane wystąpienie puli SQL (dawniej SQL DW) jest wstrzymane lub skalowane.
 
 ![Zrzut ekranu pokazuje, jak sprawdzić, czy magazyn danych jest wstrzymany.](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-Jeśli zobaczysz, że usługa jest wstrzymana lub skalowania, sprawdź, czy nie jest ona wyświetlana w harmonogramie konserwacji. W portalu dla dedykowanej puli SQL *— Omówienie* , zobaczysz wybrany harmonogram konserwacji.
+Jeśli zobaczysz, że usługa jest wstrzymana lub skalowania, sprawdź, czy nie jest ona wyświetlana w harmonogramie konserwacji. W portalu dla dedykowanej puli SQL (dawniej SQL DW) *Omówienie* zostanie wyświetlony wybrany harmonogram konserwacji.
 
 ![Harmonogram konserwacji — Omówienie](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-W przeciwnym razie skontaktuj się z administratorem IT, aby sprawdzić, czy ta konserwacja nie jest zaplanowana. Aby wznowić dedykowane wystąpienie puli SQL, wykonaj następujące [kroki](pause-and-resume-compute-portal.md).
+W przeciwnym razie skontaktuj się z administratorem IT, aby sprawdzić, czy ta konserwacja nie jest zaplanowana. Aby wznowić dedykowane wystąpienie puli SQL (dawniej SQL DW), wykonaj [następujące czynności](pause-and-resume-compute-portal.md).
 
 ## <a name="check-your-firewall-settings"></a>Sprawdzanie ustawień zapory
 
-Dedykowana baza danych puli SQL komunikuje się przez port 1433.Jeśli próbujesz nawiązać połączenie z sieci firmowej, ruch wychodzący na porcie 1433 może być blokowany przez zaporę sieciową. W takim przypadku nie można nawiązać połączenia z [serwerem logicznym](../../azure-sql/database/logical-servers.md) , chyba że dział IT otworzy port 1433. Dodatkowe informacje na temat konfiguracji zapory można znaleźć [tutaj](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
+Baza danych dedykowanej puli SQL (dawniej SQL DW) komunikuje się przez port 1433.Jeśli próbujesz nawiązać połączenie z sieci firmowej, ruch wychodzący na porcie 1433 może być blokowany przez zaporę sieciową. W takim przypadku nie można nawiązać połączenia z [serwerem logicznym](../../azure-sql/database/logical-servers.md) , chyba że dział IT otworzy port 1433. Dodatkowe informacje na temat konfiguracji zapory można znaleźć [tutaj](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>Sprawdzanie ustawień sieci wirtualnej/punktu końcowego usługi
 
@@ -61,7 +61,7 @@ Jeśli otrzymujesz błędy 40914 i 40615, zobacz [Opis błędu i rozwiązanie tu
 
 ### <a name="software"></a>Oprogramowanie
 
-Upewnij się, że używasz najnowszych narzędzi do nawiązania połączenia z dedykowaną pulą SQL:
+Upewnij się, że używasz najnowszych narzędzi do łączenia się z dedykowaną pulą SQL (dawniej SQL DW):
 
 - SSMS
 - Azure Data Studio
@@ -106,7 +106,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="intermittent-connection-issues"></a>Sporadyczne problemy z połączeniami
 
-Sprawdź, czy serwer nie jest mocno obciążony, a w kolejce nie ma dużej liczby żądań. Może być konieczne skalowanie w górę dedykowanej puli SQL w celu uzyskania dodatkowych zasobów.
+Sprawdź, czy serwer nie jest mocno obciążony, a w kolejce nie ma dużej liczby żądań. Może być konieczne skalowanie w górę dedykowanej puli SQL (dawniej SQL DW) do dodatkowych zasobów.
 
 ## <a name="common-error-messages"></a>Typowe komunikaty o błędach
 

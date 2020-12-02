@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: f7c7caf6c01c2e7ea9aaf141a2597ef338735d3d
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 986a3c56a1e0dcc79ab472a7e18d7eeb7e2fddb5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173596"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448350"
 ---
 # <a name="prepare-for-an-azure-stack-edge-pro-gpu-device-failure"></a>Przygotowanie do niepowodzenia urządzenia GPU w Azure Stack Edge
 
@@ -75,9 +75,9 @@ Poniższe rozwiązania do ochrony danych innych firm mogą udostępniać rozwią
 Azure Stack Edge współpracuje z Azure Backup i innymi rozwiązaniami do ochrony danych innych firm, aby udostępnić rozwiązanie do tworzenia kopii zapasowych w celu ochrony danych zawartych w maszynach wirtualnych wdrożonych na urządzeniu. Poniższa tabela zawiera odwołania do dostępnych rozwiązań, spośród których można dokonać wyboru.
 
 
-| Rozwiązania do tworzenia kopii zapasowych        | Obsługiwane systemy operacyjne   | Dokumentacja                                                                |
+| Rozwiązania do tworzenia kopii zapasowych        | Obsługiwane systemy operacyjne   | Odwołanie                                                                |
 |-------------------------|----------------|--------------------------------------------------------------------------|
-| Agent Microsoft Azure Recovery Services (MARS) dla Azure Backup | Windows        | [Informacje o agencie MARS](/azure/backup/backup-azure-about-mars)    |
+| Agent Microsoft Azure Recovery Services (MARS) dla Azure Backup | Windows        | [Informacje o agencie MARS](../backup/backup-azure-about-mars.md)    |
 | Cohesity                | Windows, Linux | [Microsoft Azure integracja, rozwiązanie do tworzenia kopii zapasowych i odzyskiwania](https://www.cohesity.com/solution/cloud/azure) <br>Aby uzyskać szczegółowe informacje, skontaktuj się z Cohesity.                          |
 | CommVault               | Windows, Linux | https://www.commvault.com/azure <br>Aby uzyskać szczegółowe informacje, skontaktuj się z firmą CommVault.                          |
 | Firmę                 | Windows, Linux | http://veritas.com/azure <br> Aby uzyskać szczegółowe informacje, skontaktuj się z firmą Veritas.                    |

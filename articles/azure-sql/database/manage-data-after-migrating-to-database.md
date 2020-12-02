@@ -12,12 +12,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: fe49dce276a15d9d7bc8ddaa5618c0e43dec62e9
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b34ac24cb26bf5db4a49a5ad5b531deb252f4695
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841227"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446121"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Nowa usługa DBA w chmurze — zarządzanie Azure SQL Database po migracji
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -101,12 +101,12 @@ SQL Database bardzo poważnie zapewnia bezpieczeństwo i ochronę prywatności. 
 
 Istnieją dwie metody uwierzytelniania oferowane w SQL Database:
 
-- [Uwierzytelnianie Azure Active Directory](authentication-aad-overview.md)
+- [Uwierzytelnianie usługi Azure Active Directory](authentication-aad-overview.md)
 - [Uwierzytelnianie SQL](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
 Tradycyjne uwierzytelnianie systemu Windows nie jest obsługiwane. Azure Active Directory (Azure AD) to scentralizowana usługa zarządzania tożsamościami i dostępem. Dzięki temu możesz bardzo łatwo zapewnić dostęp logowania jednokrotnego do wszystkich pracowników w organizacji. Oznacza to, że poświadczenia są współużytkowane przez wszystkie usługi platformy Azure w celu łatwiejszego uwierzytelniania. 
 
-Usługa Azure AD obsługuje [usługę Azure ad Multi-Factor Authentication](authentication-mfa-ssms-overview.md) i za pomocą [kilku kliknięć](../../active-directory/hybrid/how-to-connect-install-express.md) można zintegrować usługę Azure AD z Active Directory systemu Windows Server. Uwierzytelnianie SQL działa tak samo jak w przeszłości. Podaj nazwę użytkownika/hasło, a następnie możesz uwierzytelnić użytkowników w dowolnej bazie danych na danym serwerze. Umożliwia to również SQL Database i usługi Azure Synapse Analytics (wcześniej SQL Data Warehouse) do oferowania kont użytkowników Multi-Factor Authentication i Gości w domenie usługi Azure AD. Jeśli masz już Active Directory lokalnie, możesz sfederować katalog z Azure Active Directory, aby zwiększyć katalog na platformie Azure.
+Usługa Azure AD obsługuje [usługę Azure ad Multi-Factor Authentication](authentication-mfa-ssms-overview.md) i za pomocą [kilku kliknięć](../../active-directory/hybrid/how-to-connect-install-express.md) można zintegrować usługę Azure AD z Active Directory systemu Windows Server. Uwierzytelnianie SQL działa tak samo jak w przeszłości. Podaj nazwę użytkownika/hasło, a następnie możesz uwierzytelnić użytkowników w dowolnej bazie danych na danym serwerze. Umożliwia to również SQL Database i usługę Azure Synapse Analytics w celu oferowania kont użytkowników Multi-Factor Authentication i Gości w domenie usługi Azure AD. Jeśli masz już Active Directory lokalnie, możesz sfederować katalog z Azure Active Directory, aby zwiększyć katalog na platformie Azure.
 
 |**Jeśli ty...**|**SQL Database/analiza Synapse Azure**|
 |---|---|
@@ -127,7 +127,7 @@ Istnieje wiele technik do dyspozycji, których można użyć do uzyskania optyma
 - Punkty końcowe usługi sieci wirtualnej
 - Zastrzeżone adresy IP
 
-#### <a name="firewall"></a>Firewall
+#### <a name="firewall"></a>Zapora
 
 Zapora uniemożliwia dostęp do serwera z zewnętrznej jednostki, zezwalając na dostęp tylko określonym podmiotom do serwera. Domyślnie wszystkie połączenia z bazami danych znajdującymi się na serwerze są niedozwolone, z wyjątkiem połączeń (optionally7) pochodzących z innych usług platformy Azure. Za pomocą reguły zapory można otworzyć dostęp do serwera tylko do jednostek (na przykład na komputerze dewelopera), które zostały zatwierdzone przez zezwolenie na ten komputer za pomocą zapory. Pozwala także określić zakres adresów IP, które mają zezwalać na dostęp do serwera. Na przykład adresy IP komputerów deweloperów w organizacji można dodać jednocześnie, określając zakres na stronie Ustawienia zapory.
 

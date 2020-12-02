@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 212e5fb62043c2ffe2b8876249a6aad1d224411d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 3d7e6357fd8f1091509cbf27875c028d3af310cb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685855"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445908"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Szybki start: konfigurowanie i pobieranie wpisów tajnych z usługi Key Vault przy użyciu witryny Azure Portal
 
@@ -45,13 +45,13 @@ Aby dodać wpis tajny do magazynu, wykonaj następujące czynności:
 1. Kliknij pozycję **Wygeneruj/zaimportuj**.
 1. Na ekranie **Tworzenie wpisu tajnego** wybierz następujące wartości:
     - **Opcje przekazywania**: Ręcznie.
-    - **Nazwa**: wpisz nazwę wpisu tajnego. Nazwa wpisu tajnego musi być unikatowa w obrębie Key Vault. Nazwa musi być ciągiem znaków 1-127, rozpoczynając od litery i zawierającą tylko 0-9, a-z, A-Z, i-. Aby uzyskać więcej informacji na temat nazewnictwa, zobacz [Key Vault obiektów, identyfikatorów i przechowywania wersji](https://docs.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#objects-identifiers-and-versioning) .
+    - **Nazwa**: wpisz nazwę wpisu tajnego. Nazwa wpisu tajnego musi być unikatowa w obrębie Key Vault. Nazwa musi być ciągiem znaków 1-127, rozpoczynając od litery i zawierającą tylko 0-9, a-z, A-Z, i-. Aby uzyskać więcej informacji na temat nazewnictwa, zobacz [Key Vault obiektów, identyfikatorów i przechowywania wersji](../general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning) .
     - **Wartość**: wpisz wartość wpisu tajnego. Key Vault interfejsy API akceptują i zwracają wartości tajne jako ciągi. 
     - Dla pozostałych opcji zostaw wartości domyślne. Kliknij pozycję **Utwórz**.
 
 Gdy otrzymasz komunikat o pomyślnym utworzeniu wpisu tajnego, możesz kliknąć go na liście. 
 
-Aby uzyskać więcej informacji o atrybutach tajnych, zobacz [Informacje o Azure Key Vault](https://docs.microsoft.com/azure/key-vault/secrets/about-secrets) Secret
+Aby uzyskać więcej informacji o atrybutach tajnych, zobacz [Informacje o Azure Key Vault](./about-secrets.md) Secret
 
 ## <a name="retrieve-a-secret-from-key-vault"></a>Pobierz klucz tajny z Key Vault
 
@@ -75,7 +75,7 @@ Jeśli nie będą Ci one już potrzebne, usuń grupę zasobów, a zostanie takż
 3. W polu **WPISZ NAZWĘ GRUPY ZASOBÓW:** wpisz nazwę grupy zasobów i wybierz pozycję **Usuń**.
 
 > [!NOTE]
-> Należy pamiętać, że po usunięciu wpisu tajnego, klucza, certyfikatu lub magazynu kluczy pozostanie on odzyskany przez konfigurowalny okres od 7 do 90 dni kalendarzowych. Jeśli konfiguracja nie zostanie określona, domyślny okres odzyskiwania zostanie ustawiony na 90 dni. Zapewnia to użytkownikom wystarczającą ilość czasu na powiadomienie o przypadkowym usunięciu tajnych wpisów i udzieleniu odpowiedzi. Aby uzyskać więcej informacji na temat usuwania i odzyskiwania magazynów kluczy oraz obiektów magazynu kluczy, zobacz [Azure Key Vault Omówienie usuwania nietrwałego](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview)
+> Należy pamiętać, że po usunięciu wpisu tajnego, klucza, certyfikatu lub magazynu kluczy pozostanie on odzyskany przez konfigurowalny okres od 7 do 90 dni kalendarzowych. Jeśli konfiguracja nie zostanie określona, domyślny okres odzyskiwania zostanie ustawiony na 90 dni. Zapewnia to użytkownikom wystarczającą ilość czasu na powiadomienie o przypadkowym usunięciu tajnych wpisów i udzieleniu odpowiedzi. Aby uzyskać więcej informacji na temat usuwania i odzyskiwania magazynów kluczy oraz obiektów magazynu kluczy, zobacz [Azure Key Vault Omówienie usuwania nietrwałego](../general/soft-delete-overview.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

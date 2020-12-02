@@ -1,6 +1,6 @@
 ---
-title: Synchronizuj Apache Spark definicji tabeli zewnętrznej w bezserwerowej puli SQL (wersja zapoznawcza)
-description: Omówienie wykonywania zapytań dotyczących tabel platformy Spark przy użyciu bezserwerowej puli SQL (wersja zapoznawcza)
+title: Synchronizuj Apache Spark definicji tabel zewnętrznych w puli SQL bezserwerowej
+description: Omówienie sposobu wykonywania zapytań w tabelach platformy Spark przy użyciu bezserwerowej puli SQL
 services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: ea4e7cd009be8a78faa0dcfab44371a350b6a200
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 057a69881b8b407e5d75fa3510ca1c3eb1830bc7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315830"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446487"
 ---
-# <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-serverless-sql-pool-preview"></a>Synchronizuj Apache Spark dla definicji tabeli zewnętrznej Synapse platformy Azure w bezserwerowej puli SQL (wersja zapoznawcza)
+# <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-serverless-sql-pool"></a>Synchronizuj Apache Spark dla definicji tabeli zewnętrznej Synapse platformy Azure w bezserwerowej puli SQL
 
-Bezserwerowa Pula SQL (wersja zapoznawcza) może automatycznie synchronizować metadane z Apache Spark. Bezserwerowa baza danych puli SQL zostanie utworzona dla każdej bazy danych istniejącej w ramach pul Apache Spark bezserwerowych (wersja zapoznawcza). 
+Pula SQL bezserwerowa może automatycznie synchronizować metadane z Apache Spark. Bezserwerowa baza danych puli SQL zostanie utworzona dla każdej bazy danych istniejącej w puli Apache Spark bezserwerowych. 
 
 Dla każdej tabeli zewnętrznej platformy Spark opartej na Parquet i znajdującej się w usłudze Azure Storage tabela zewnętrzna jest tworzona w bazie danych puli SQL bezserwerowej. W związku z tym można wyłączyć pule Spark i nadal wykonywać zapytania dotyczące zewnętrznych tabel platformy Spark z puli SQL bezserwerowej.
 

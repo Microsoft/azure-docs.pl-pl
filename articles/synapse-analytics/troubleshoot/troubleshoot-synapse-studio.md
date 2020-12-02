@@ -1,5 +1,5 @@
 ---
-title: Rozwiązywanie problemów z programem Synapse Studio (wersja zapoznawcza)
+title: Rozwiązywanie problemów z programem Synapse Studio
 description: Rozwiązywanie problemów z usługą Azure Synapse Studio
 author: julieMSFT
 ms.service: synapse-analytics
@@ -8,18 +8,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3fe31f83ccc0dcbd2d61a7c70d40a64da08d13a1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a96709c7538bda6d6b338c29dc512902e9ca2c87
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321009"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445846"
 ---
-# <a name="azure-synapse-studio-preview-troubleshooting"></a>Rozwiązywanie problemów z usługą Azure Synapse Studio (wersja zapoznawcza)
+# <a name="azure-synapse-studio-troubleshooting"></a>Rozwiązywanie problemów z usługą Azure Synapse Studio
 
 Ten przewodnik rozwiązywania problemów zawiera instrukcje dotyczące tego, jakie informacje należy podać podczas otwierania biletu pomocy technicznej dotyczącej problemów z łącznością sieciową. Mając odpowiednie informacje, możemy szybko rozwiązać ten problem.
 
-## <a name="serverless-sql-pool-preview-service-connectivity-issue"></a>Problem z połączeniem usługi bezserwerowej puli SQL (wersja zapoznawcza)
+## <a name="serverless-sql-pool-service-connectivity-issue"></a>Problem z łącznością usługi puli SQL bezserwerowej
 
 ### <a name="symptom-1"></a>Objaw 1
 
@@ -61,7 +61,7 @@ Znajdź element, którego kolumna URL pasuje do następującego wzorca:
 
 `https://[*A*]-ondemand.database.windows.net:1443/databases/[*B*]/query?api-version=2018-08-01-preview&application=ArcadiaSqlOnDemandExplorer`
 
-Gdzie [ *A* ] jest nazwą obszaru roboczego, a "-OnDemand" może mieć wartość "-sqlod", gdzie [ *B* ] powinna być nazwą bazy danych, taką jak "Master". Powinien istnieć co najwyżej dwa elementy o tej samej wartości adresu URL, ale różne wartości metod; Opcje i POST. Sprawdź, czy te dwa elementy mają wartość "200" lub "20x" w kolumnie Stan, gdzie "x" może być dowolną pojedynczą cyfrą.
+Gdzie [*A*] jest nazwą obszaru roboczego, a "-OnDemand" może mieć wartość "-sqlod", gdzie [*B*] powinna być nazwą bazy danych, taką jak "Master". Powinien istnieć co najwyżej dwa elementy o tej samej wartości adresu URL, ale różne wartości metod; Opcje i POST. Sprawdź, czy te dwa elementy mają wartość "200" lub "20x" w kolumnie Stan, gdzie "x" może być dowolną pojedynczą cyfrą.
 
 Jeśli jeden z nich ma coś innego niż "20x" i:
 

@@ -10,12 +10,12 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: ff294c0227bb6a830a5aef2379248714a7f2f64a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: fee7e244e26a59a773a5d5c9c74e23acd4113ee6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435199"
+ms.locfileid: "96446691"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Wprowadzenie do narzędzi Microsoft Spark Utilities
 
@@ -879,6 +879,6 @@ Env.GetClusterId()
 ## <a name="next-steps"></a>Następne kroki
 
 - [Zapoznaj się z przykładowymi notesami Synapse](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
-- [Szybki Start: Tworzenie puli Apache Spark (wersja zapoznawcza) w usłudze Azure Synapse Analytics przy użyciu narzędzi sieci Web](../quickstart-apache-spark-notebook.md)
+- [Szybki Start: Tworzenie puli Apache Spark w usłudze Azure Synapse Analytics przy użyciu narzędzi sieci Web](../quickstart-apache-spark-notebook.md)
 - [Co to jest Apache Spark w usłudze Azure Synapse Analytics](apache-spark-overview.md)
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)

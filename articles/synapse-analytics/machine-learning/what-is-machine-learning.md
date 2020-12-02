@@ -9,16 +9,14 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 382ba871f95b3b36c3f819de8d582ba2c5dc358a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 20f095a058434c36373c30ed2a633db12643814d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316094"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448277"
 ---
-# <a name="machine-learning-capabilities-in-azure-synapse-analytics-workspaces-preview"></a>Możliwości Machine Learning na platformie Azure Synapse Analytics (obszary robocze — wersja zapoznawcza)
-
-[!INCLUDE [preview](../includes/note-preview.md)]
+# <a name="machine-learning-capabilities-in-azure-synapse-analytics"></a>Możliwości Machine Learning w usłudze Azure Synapse Analytics
 
 Usługa Azure Synapse Analytics oferuje różne możliwości uczenia maszynowego. Ten artykuł zawiera omówienie sposobu stosowania Machine Learning w kontekście usługi Azure Synapse.
 
@@ -48,11 +46,11 @@ Dzięki [Azure Data Factory](/azure/data-factory/introduction)wbudowanej w spos�
 
 Ważną częścią procesu uczenia maszynowego jest zrozumienie danych przez eksplorowanie i wizualizacje.
 
-W zależności od tego, gdzie są przechowywane dane, Synapse oferuje zestaw różnych narzędzi do eksplorowania i przygotowania do analizy i uczenia maszynowego. Jednym z najszybszych metod rozpoczęcia korzystania z eksploracji danych jest użycie Apache Spark lub Synapse pul bezserwerowych SQL bezpośrednio za pośrednictwem danych w usłudze Data Lake.
+W zależności od tego, gdzie są przechowywane dane, Synapse oferuje zestaw różnych narzędzi do eksplorowania i przygotowania do analizy i uczenia maszynowego. Jednym z najszybszych sposobów rozpoczynania pracy z eksploracją danych jest używanie Apache Spark lub bezserwerowych pul SQL bezpośrednio za pośrednictwem danych w usłudze Data Lake.
 
 * [Apache Spark usługi Azure Synapse](../spark/apache-spark-overview.md) oferuje funkcje umożliwiające przekształcanie, przygotowywanie i Eksplorowanie danych w odpowiedniej skali. Te pule platformy Spark oferują narzędzia takie jak PySpark/Python, Scala i .NET na potrzeby przetwarzania danych na dużą skalę. Korzystając z zaawansowanych bibliotek wizualizacji, środowisko eksploracji danych można ulepszyć, aby lepiej zrozumieć dane. [Dowiedz się więcej o sposobach eksplorowania i wizualizowania danych w programie Synapse przy użyciu platformy Spark](../get-started-analyze-spark.md).
 
-* [Synapse pule bezserwerowe SQL](../sql/on-demand-workspace-overview.md) umożliwiają Eksplorowanie danych za pomocą TSQL bezpośrednio za pośrednictwem usługi Data Lake. Synapse pule bezserwerowe SQL oferują również wbudowane wizualizacje w programie Synapse Studio. [Dowiedz się więcej o tym, jak eksplorować dane przy użyciu pul BezSynapseowych programu SQL Server](../get-started-analyze-sql-on-demand.md).
+* [Pule SQL bezserwerowe](../sql/on-demand-workspace-overview.md) umożliwiają Eksplorowanie danych za pomocą usługi TSQL bezpośrednio za pośrednictwem usługi Data Lake. Pule SQL bezserwerowe oferują również wbudowane wizualizacje w programie Synapse Studio. [Dowiedz się więcej o tym, jak eksplorować dane przy użyciu pul SQL bezserwerowych](../get-started-analyze-sql-on-demand.md).
 
 ### <a name="modeling"></a>Modelowanie
 

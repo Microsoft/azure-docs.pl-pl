@@ -10,13 +10,13 @@ ms.subservice: sql-dw
 ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: d9349c5d1c4e6255dc0854537bb7e93e3e636ce8
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: e7fc89dcc0e7938ea2958d5c804abe82e20f186d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321063"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447942"
 ---
 # <a name="table-statistics-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Statystyka tabeli dla dedykowanej puli SQL w usłudze Azure Synapse Analytics
 
@@ -72,7 +72,7 @@ Aby uniknąć wymiernego obniżenia wydajności, należy upewnić się, że stat
 > [!NOTE]
 > Tworzenie statystyk zostanie zalogowane [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) w innym kontekście użytkownika.
 
-W przypadku tworzenia automatycznych statystyk będą one miały postać: _WA_Sys_ <8 Identyfikator kolumny cyfr w>_ szesnastkowym<8 identyfikator tabeli cyfrowej w> szesnastkowym. Można wyświetlić statystyki, które zostały już utworzone, uruchamiając polecenie [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) :
+W przypadku tworzenia automatycznych statystyk będą one miały postać: _WA_Sys_<8 Identyfikator kolumny cyfr w>_ szesnastkowym<8 identyfikator tabeli cyfrowej w> szesnastkowym. Można wyświetlić statystyki, które zostały już utworzone, uruchamiając polecenie [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) :
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -101,7 +101,7 @@ To pytanie nie jest takie, którego można udzielić odpowiedzi według wieku da
 
 Nie istnieje dynamiczny widok zarządzania, aby określić, czy dane w tabeli uległy zmianie od czasu ostatniego aktualizowania statystyk.  Poniższe dwa zapytania mogą pomóc w ustaleniu, czy statystyki są przestarzałe.
 
-**Zapytanie 1:**  Sprawdź różnicę między liczbą wierszy z statystyk ( **stats_row_count** ) i rzeczywistą liczbę wierszy ( **actual_row_count** ). 
+**Zapytanie 1:**  Sprawdź różnicę między liczbą wierszy z statystyk (**stats_row_count**) i rzeczywistą liczbę wierszy (**actual_row_count**). 
 
 ```sql
 select 
@@ -282,13 +282,13 @@ Aby utworzyć obiekt statystyk z wieloma kolumnami, należy użyć powyższych p
 > [!NOTE]
 > Histogram, który jest używany do oszacowania liczby wierszy w wyniku zapytania, jest dostępny tylko dla pierwszej kolumny wymienionej w definicji obiektu statystyki.
 
-W tym przykładzie histogram znajduje się w *\_ kategorii Product (produkt* ). Statystyki między kolumnami są obliczane na *podstawie \_ kategorii produktu* i *\_ sub_category produktu* :
+W tym przykładzie histogram znajduje się w *\_ kategorii Product (produkt*). Statystyki między kolumnami są obliczane na *podstawie \_ kategorii produktu* i *\_ sub_category produktu*:
 
 ```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Ponieważ istnieje korelacja między *\_ kategorią produktu* a *\_ podrzędną \_ kategorią produktu* , obiekt statystyk wielokolumnowych może być przydatny, jeśli dostęp do tych kolumn odbywa się w tym samym czasie.
+Ponieważ istnieje korelacja między *\_ kategorią produktu* a *\_ podrzędną \_ kategorią produktu*, obiekt statystyk wielokolumnowych może być przydatny, jeśli dostęp do tych kolumn odbywa się w tym samym czasie.
 
 ### <a name="create-statistics-on-all-columns-in-a-table"></a>Tworzenie statystyk dla wszystkich kolumn w tabeli
 
@@ -312,11 +312,11 @@ CREATE STATISTICS stats_col2 on dbo.table2 (col2);
 CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 ```
 
-### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>Użyj procedury składowanej, aby utworzyć statystyki dla wszystkich kolumn w bazie danych
+### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-sql-pool"></a>Użyj procedury składowanej, aby utworzyć statystyki dla wszystkich kolumn w puli SQL
 
-Dedykowana Pula SQL nie ma systemowej procedury składowanej równoważnej sp_create_stats w SQL Server. Ta procedura składowana tworzy obiekt statystyki jednokolumnowej dla każdej kolumny bazy danych, która nie ma jeszcze statystyk.
+Dedykowana Pula SQL nie ma systemowej procedury składowanej równoważnej sp_create_stats w SQL Server. Ta procedura składowana tworzy obiekt statystyki jednokolumnowej dla każdej kolumny w puli SQL, która nie ma jeszcze statystyk.
 
-Poniższy przykład pomoże Ci rozpocząć pracę z projektem bazy danych. Możesz dostosowywać je do Twoich potrzeb.
+Poniższy przykład pomoże Ci rozpocząć pracę z projektem puli SQL. Możesz dostosowywać je do Twoich potrzeb.
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]
@@ -539,7 +539,7 @@ AND     st.[user_created] = 1
 
 Polecenie DBCC SHOW_STATISTICS () pokazuje dane przechowywane w obiekcie statystyk. Te dane wchodzą w skład trzech części:
 
-- Header
+- Nagłówek
 - Wektor gęstości
 - Histogram
 

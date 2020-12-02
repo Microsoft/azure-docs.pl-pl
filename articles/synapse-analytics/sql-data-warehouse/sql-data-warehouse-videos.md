@@ -11,16 +11,16 @@ ms.date: 02/15/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b0b3a924008d4180c045455aecda8ec109845939
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: eaf41e903f1a55dd85c6b6282617564a32087707
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321004"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447826"
 ---
-# <a name="azure-synapse-analytics---dedicated-sql-pool-videos"></a>Azure Synapse Analytics — dedykowane wideo puli SQL
+# <a name="azure-synapse-analytics---dedicated-sql-pool--formerly-sql-dw-videos"></a>Azure Synapse Analytics — dedykowana Pula SQL (dawniej SQL DW)
 
-Obejrzyj najnowsze dedykowane wideo puli SQL, aby dowiedzieć się więcej o nowych możliwościach i ulepszeniach wydajności. 
+Obejrzyj najnowsze dedykowane pule SQL (dawniej SQL DW), aby dowiedzieć się więcej o nowych możliwościach i ulepszeniach wydajności. 
 
 Aby rozpocząć, wybierz poniższe wideo z omówieniem, aby dowiedzieć się więcej o nowych aktualizacjach dedykowanej puli SQL. Należy również dowiedzieć się, jak nowoczesne wzorce magazynu danych mogą służyć do rozwiązywania rzeczywistych scenariuszy, takich jak Cybercrime.
 </br>

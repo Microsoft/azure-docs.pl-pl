@@ -13,12 +13,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: e511b8b5505f1fa8713d81d0ce959df32ef28503
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6344e8e02f61da0bc742dcc6e05914bebf5d1fba
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013330"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446035"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Szybki start: Tworzenie fabryki danych i potoku przy użyciu języka Python
 
@@ -32,7 +32,7 @@ W tym przewodniku szybki start utworzysz fabrykę danych przy użyciu języka Py
 
 Azure Data Factory to oparta na chmurze usługa integracji danych, która umożliwia tworzenie przepływów pracy opartych na danych na potrzeby organizowania i automatyzowania przenoszenia i przekształcania danych. Za pomocą Azure Data Factory można tworzyć i planować przepływy pracy oparte na danych, nazywane potokami.
 
-Potoki mogą pozyskiwanie danych z różnych magazynów danych. Potoki przetwarzają lub przekształcają dane przy użyciu usług obliczeniowych, takich jak Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics i Azure Machine Learning. Potoki publikują dane wyjściowe w magazynach danych, takich jak Azure Synapse Analytics (dawniej SQL Data Warehouse) dla aplikacji analizy biznesowej (BI).
+Potoki mogą pozyskiwanie danych z różnych magazynów danych. Potoki przetwarzają lub przekształcają dane przy użyciu usług obliczeniowych, takich jak Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics i Azure Machine Learning. Potoki publikują dane wyjściowe w magazynach danych, takich jak Azure Synapse Analytics for Business Intelligence (BI).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

@@ -11,16 +11,16 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: cb10eb0f89ce37bc484c8570995ebaa098c696f1
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 492d1370a228fc4fc80880102899c9207a514f57
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541304"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447195"
 ---
 # <a name="configure-and-submit-training-runs"></a>Konfigurowanie i przesyłanie przebiegów trenowania
 
-W tym artykule dowiesz się, jak skonfigurować i przesłać Azure Machine Learning uruchomienia do uczenia modeli.
+W tym artykule dowiesz się, jak skonfigurować i przesłać Azure Machine Learning uruchomienia do uczenia modeli. Fragmenty kodu wyjaśniają kluczowe części konfiguracji i przedłożenie skryptu szkoleniowego.  Następnie skorzystaj z jednego z [przykładowych notesów](#notebooks) , aby znaleźć kompletne, kompleksowe Przykłady pracy.
 
 W przypadku szkolenia często należy zacząć pracę na komputerze lokalnym, a następnie skalować w poziomie do klastra opartego na chmurze. Za pomocą Azure Machine Learning można uruchamiać skrypty na różnych obiektach docelowych obliczeń bez konieczności zmiany skryptu szkoleniowego.
 
@@ -38,10 +38,10 @@ Wystarczy zdefiniować środowisko dla każdego obiektu docelowego obliczeń w r
 
 Możesz przesłać eksperyment szkoleniowy z obiektem ScriptRunConfig.  Ten obiekt obejmuje:
 
-* **source_directory** : Katalog źródłowy zawierający skrypt szkoleniowy
-* **skrypt** : skrypt szkoleniowy do uruchomienia
-* **compute_target** : element docelowy obliczeń do uruchomienia
-* **środowisko** : środowisko, które ma być używane podczas uruchamiania skryptu
+* **source_directory**: Katalog źródłowy zawierający skrypt szkoleniowy
+* **skrypt**: skrypt szkoleniowy do uruchomienia
+* **compute_target**: element docelowy obliczeń do uruchomienia
+* **środowisko**: środowisko, które ma być używane podczas uruchamiania skryptu
 * i kilka dodatkowych konfigurowalnych opcji (zobacz [dokumentację referencyjną](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) , aby uzyskać więcej informacji)
 
 ## <a name="train-your-model"></a><a id="submit"></a>Szkolenie modelu
@@ -94,7 +94,7 @@ Aby uzyskać więcej informacji i szczegółowe informacje o środowiskach, zoba
   
 ### <a name="local-compute-target"></a><a name="local"></a>Lokalne miejsce docelowe obliczeń
 
-Jeśli obiektem docelowym obliczeń jest komputer **lokalny** , użytkownik jest odpowiedzialny za zapewnienie, że wszystkie niezbędne pakiety są dostępne w środowisku języka Python, w którym działa skrypt.  Użyj, `python.user_managed_dependencies` Aby użyć bieżącego środowiska Python (lub języka Python w określonej ścieżce).
+Jeśli obiektem docelowym obliczeń jest komputer **lokalny**, użytkownik jest odpowiedzialny za zapewnienie, że wszystkie niezbędne pakiety są dostępne w środowisku języka Python, w którym działa skrypt.  Użyj, `python.user_managed_dependencies` Aby użyć bieżącego środowiska Python (lub języka Python w określonej ścieżce).
 
 ```python
 from azureml.core import Environment
@@ -152,7 +152,7 @@ run.wait_for_completion(show_output=True)
 > Aby uzyskać więcej informacji na [temat migawek, zobacz](concept-azure-machine-learning-architecture.md#snapshots)snapshots.
 
 > [!IMPORTANT]
-> **Foldery specjalne** Dwa foldery, dane *wyjściowe* i *dzienniki* , otrzymują specjalne traktowanie według Azure Machine Learning. Podczas szkolenia podczas pisania plików do folderów o nazwie dane *wyjściowe* i *dzienniki* , które są względne dla katalogu głównego ( `./outputs` i `./logs` odpowiednio), pliki zostaną automatycznie przekazane do historii uruchamiania, dzięki czemu będziesz mieć do nich dostęp po zakończeniu przebiegu.
+> **Foldery specjalne** Dwa foldery, dane *wyjściowe* i *dzienniki*, otrzymują specjalne traktowanie według Azure Machine Learning. Podczas szkolenia podczas pisania plików do folderów o nazwie dane *wyjściowe* i *dzienniki* , które są względne dla katalogu głównego ( `./outputs` i `./logs` odpowiednio), pliki zostaną automatycznie przekazane do historii uruchamiania, dzięki czemu będziesz mieć do nich dostęp po zakończeniu przebiegu.
 >
 > Aby tworzyć artefakty podczas szkoleń (takich jak pliki modelu, punkty kontrolne, pliki danych lub rysunki), Zapisz je w `./outputs` folderze.
 >
@@ -164,7 +164,7 @@ run.wait_for_completion(show_output=True)
 
 Po rozpoczęciu szkolenia w przypadku, gdy katalog źródłowy jest lokalnym repozytorium git, informacje o repozytorium są przechowywane w historii uruchamiania. Aby uzyskać więcej informacji, zobacz Integracja z usługą [git dla Azure Machine Learning](concept-train-model-git-integration.md).
 
-## <a name="notebook-examples"></a>Przykłady notesu
+## <a name="notebook-examples"></a><a name="notebooks"></a>Przykłady notesu
 
 Zobacz te notesy, aby zapoznać się z przykładami konfigurowania przebiegów w różnych scenariuszach szkoleniowych:
 * [Szkolenie dotyczące różnych obiektów docelowych obliczeń](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)

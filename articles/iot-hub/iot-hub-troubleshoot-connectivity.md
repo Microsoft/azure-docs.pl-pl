@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Technical Support'
 - fasttrack-edit
 - iot
-ms.openlocfilehash: b179bb3566cc19b8033a56348db34cd1f05cee10
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 81558526500f3c01e975d9a963b4a6a98ec6d753
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506400"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446414"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Monitorowanie, diagnozowanie i rozwiązywanie problemów z połączeniami z platformą Azure IoT Hub
 
@@ -34,7 +34,7 @@ W obu przypadkach te funkcje są ograniczone do tego, co IoT Hub może obsłuży
 
 ## <a name="event-grid-vs-azure-monitor"></a>Event Grid a Azure Monitor
 
-Event Grid zapewnia rozwiązanie do monitorowania o małym opóźnieniu i na urządzenie, którego można użyć do śledzenia połączeń urządzeń z krytycznymi urządzeniami i infrastrukturą. Azure Monitor zapewnia metrykę i *połączone urządzenia* , za pomocą których można monitorować liczbę urządzeń podłączonych do IoT Hub i wyzwalać alert, gdy liczba spadnie poniżej progu statycznego.
+Event Grid zapewnia rozwiązanie do monitorowania o małym opóźnieniu i na urządzenie, którego można użyć do śledzenia połączeń urządzeń z krytycznymi urządzeniami i infrastrukturą. Azure Monitor zapewnia metrykę i *połączone urządzenia*, za pomocą których można monitorować liczbę urządzeń podłączonych do IoT Hub i wyzwalać alert, gdy liczba spadnie poniżej progu statycznego.
 
 Podczas decydowania, czy należy używać Event Grid lub Azure Monitor w przypadku konkretnego scenariusza:
 
@@ -58,7 +58,7 @@ Zapoznaj się z następującymi tematami, aby dowiedzieć się więcej o monitor
 
 * Aby zapoznać się z samouczkiem dotyczącym określania kolejności zdarzeń połączeń urządzeń, zobacz temat porządkowanie [zdarzeń połączeń urządzeń z platformy Azure IoT Hub przy użyciu Azure Cosmos DB](iot-hub-how-to-order-connection-state-events.md).
 
-* Aby zapoznać się z samouczkiem dotyczącym wysyłania powiadomień E-mail, zobacz [wysyłanie powiadomień e-mail dotyczących zdarzeń platformy Azure IoT Hub przy użyciu Event Grid i Logic Apps](/azure/event-grid/publish-iot-hub-events-to-logic-apps) w dokumentacji Event Grid.
+* Aby zapoznać się z samouczkiem dotyczącym wysyłania powiadomień E-mail, zobacz [wysyłanie powiadomień e-mail dotyczących zdarzeń platformy Azure IoT Hub przy użyciu Event Grid i Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md) w dokumentacji Event Grid.
 
 ## <a name="azure-monitor-route-connection-events-to-logs"></a>Azure Monitor: kierowanie zdarzeń połączenia do dzienników
 
@@ -94,7 +94,7 @@ Po utworzeniu ustawienia diagnostycznego w celu kierowania dzienników zasobów 
 
 1. W obszarze **monitorowanie** w okienku po lewej stronie Centrum IoT wybierz pozycję **dzienniki**.
 
-1. Aby wyizolować dzienniki błędów łączności dla IoT Hub, wprowadź następujące zapytanie w edytorze zapytań, a następnie wybierz polecenie **Uruchom** :
+1. Aby wyizolować dzienniki błędów łączności dla IoT Hub, wprowadź następujące zapytanie w edytorze zapytań, a następnie wybierz polecenie **Uruchom**:
 
     ```kusto
     AzureDiagnostics

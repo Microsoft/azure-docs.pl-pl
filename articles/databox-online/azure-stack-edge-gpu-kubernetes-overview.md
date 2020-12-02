@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 0f67a36ac4ccb27d7b955158b7e4a9cf4f5185d0
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 5b96e568b57c34fec1c93727aabe8e739a2a45cd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636922"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448658"
 ---
 # <a name="kubernetes-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes na urządzeniu GPU z systemem Azure Stack Edge
 
@@ -106,7 +106,7 @@ Aby uzyskać więcej informacji na temat wdrażania aplikacji w klastrze Kuberne
 
 ### <a name="kubernetes-and-azure-arc"></a>Kubernetes i Azure — łuk
 
-Azure Arc to narzędzie do zarządzania hybrydowego, które umożliwi wdrażanie aplikacji w klastrach Kubernetes. Usługa Azure Arc umożliwia także używanie Azure Monitor do kontenerów do wyświetlania i monitorowania klastrów. Aby uzyskać więcej informacji, przejdź do [co to jest Azure-Arc włączone Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview). Aby uzyskać informacje na temat cen usługi Azure ARC, przejdź do [cennika usługi Azure Arc](https://azure.microsoft.com/services/azure-arc/#pricing).
+Azure Arc to narzędzie do zarządzania hybrydowego, które umożliwi wdrażanie aplikacji w klastrach Kubernetes. Usługa Azure Arc umożliwia także używanie Azure Monitor do kontenerów do wyświetlania i monitorowania klastrów. Aby uzyskać więcej informacji, przejdź do [co to jest Azure-Arc włączone Kubernetes?](../azure-arc/kubernetes/overview.md). Aby uzyskać informacje na temat cen usługi Azure ARC, przejdź do [cennika usługi Azure Arc](https://azure.microsoft.com/services/azure-arc/#pricing).
 
 
 ## <a name="next-steps"></a>Następne kroki

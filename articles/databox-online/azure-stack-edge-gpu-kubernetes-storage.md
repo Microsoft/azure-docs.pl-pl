@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 11/04/2020
 ms.author: alkohli
-ms.openlocfilehash: ff2a473ca008e9b283d03ebb05f35122473d778a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34165071238ca3edf78ab9cca43639c23ce5ed2a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899265"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448707"
 ---
 # <a name="kubernetes-storage-management-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes Zarządzanie magazynem na urządzeniu GPU z systemem Azure Stack Edge
 
@@ -41,9 +41,9 @@ Aby zrozumieć, jak magazyn jest zarządzany przez program Kubernetes, musi on z
 
 Inicjowanie obsługi magazynu może być statyczne lub dynamiczne. Każdy typ aprowizacji został omówiony w poniższych sekcjach.
 
-## <a name="staticprovisioning"></a>Inicjowanie obsługi statycznej
+## <a name="static-provisioning"></a>Inicjowanie obsługi statycznej
 
-Administratorzy klastrów Kubernetes mogą statycznie inicjować magazyn. W tym celu mogą korzystać z zaplecza magazynu opartego na systemach plików SMB/NFS lub używać dysków iSCSI, które łączą się lokalnie za pośrednictwem sieci w środowisku lokalnym, a także używają Azure Files lub dysków platformy Azure w chmurze. Ten typ magazynu nie jest obsługiwany domyślnie, a administratorzy klastrów muszą planować tę prowizję i zarządzać nią. 
+Administratorzy klastrów Kubernetes mogą statycznie aprowizować magazyn. W tym celu mogą korzystać z zaplecza magazynu opartego na systemach plików SMB/NFS lub używać dysków iSCSI, które łączą się lokalnie za pośrednictwem sieci w środowisku lokalnym, a także używają Azure Files lub dysków platformy Azure w chmurze. Ten typ magazynu nie jest obsługiwany domyślnie, a administratorzy klastrów muszą planować tę prowizję i zarządzać nią. 
  
 Poniżej znajduje się diagram, który przedstawia sposób korzystania z magazynu z alokacją statyczną w programie Kubernetes: 
 
@@ -58,7 +58,7 @@ Wystąpią następujące czynności:
 1. **Instalowanie obwodu PVC do kontenera**: po POwiązaniu obwodu PVC z WB można zainstalować ten obwód PVC na ścieżce w kontenerze. Gdy logika aplikacji w kontenerze odczytuje/zapisuje z/do tej ścieżki, dane są zapisywane w magazynie SMB.
  
 
-## <a name="dynamicprovisioning"></a>Dynamiczna obsługa administracyjna
+## <a name="dynamic-provisioning"></a>Dynamiczna obsługa administracyjna
 
 Poniżej znajduje się diagram, który przedstawia sposób korzystania z magazynu z alokacją statyczną w programie Kubernetes: 
 
@@ -104,6 +104,26 @@ spec:
 ```
 
 Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji stanowej za pośrednictwem statycznej aprowizacji na Azure Stack EDGE Pro za pośrednictwem polecenia kubectl](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md).
+
+Aby uzyskać dostęp do tego samego statycznego magazynu, odpowiednie opcje instalacji woluminów dla powiązań usługi IoT są następujące: `/home/input`Jest to ścieżka, w której wolumin jest dostępny w ramach kontenera.
+
+```
+{
+"HostConfig": {
+"Mounts": [
+{
+"Target": "/home/input",
+"Source": "<nfs-or-smb-share-name-here>",
+"Type": "volume"
+},
+{
+"Target": "/home/output",
+"Source": "<nfs-or-smb-share-name-here>",
+"Type": "volume"
+}]
+}
+}
+```
 
 Azure Stack EDGE Pro ma także wbudowaną `StorageClass` nazwę `ase-node-local` , która używa magazynu danych dołączonego do węzła Kubernetes. `StorageClass`Obsługuje to dynamiczną obsługę administracyjną. Możesz wprowadzić `StorageClass` odwołanie w aplikacjach pod, a funkcja PV zostanie automatycznie utworzona. Aby uzyskać więcej informacji, zobacz [pulpit nawigacyjny Kubernetes](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md) , aby wykonać zapytanie `ase-node-local StorageClass` .
 

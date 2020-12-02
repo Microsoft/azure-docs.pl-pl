@@ -1,6 +1,6 @@
 ---
-title: Jak używać funkcji OPENROWSET w bezserwerowej puli SQL (wersja zapoznawcza)
-description: W tym artykule opisano składnię funkcji OPENROWSET w puli SQL bezserwerowej (wersja zapoznawcza) i wyjaśniono, jak używać argumentów.
+title: Jak korzystać z funkcji OPENROWSET w puli SQL bezserwerowej
+description: W tym artykule opisano składnię OPENROWSET w puli SQL bezserwerowej i wyjaśniono, jak używać argumentów.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 90a5afb19c9ba5061b9304c739914262bcdbee15
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 97ee6c17d62a924686e3e4f4717d7bb7f4375988
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122721"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446684"
 ---
-# <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Jak używać funkcji OPENROWSET przy użyciu bezserwerowej puli SQL (wersja zapoznawcza) w usłudze Azure Synapse Analytics
+# <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Jak używać funkcji OPENROWSET przy użyciu bezserwerowej puli SQL w usłudze Azure Synapse Analytics
 
-`OPENROWSET(BULK...)`Funkcja umożliwia dostęp do plików w usłudze Azure Storage. `OPENROWSET` Funkcja odczytuje zawartość zdalnego źródła danych (na przykład pliku) i zwraca zawartość jako zestaw wierszy. W ramach zasobu puli SQL bezserwerowej (wersja zapoznawcza) dostawca zestawu wierszy zbiorczych OPENROWSET jest dostępny przez wywołanie funkcji OPENROWSET i określenie opcji BULK.  
+`OPENROWSET(BULK...)`Funkcja umożliwia dostęp do plików w usłudze Azure Storage. `OPENROWSET` Funkcja odczytuje zawartość zdalnego źródła danych (na przykład pliku) i zwraca zawartość jako zestaw wierszy. W ramach zasobu puli SQL bezserwerowej można uzyskać dostęp do dostawcy zestawów wierszy zbiorczych OPENROWSET, wywołując funkcję OPENROWSET i określając opcję ZBIORCZą.  
 
 Do `OPENROWSET` funkcji można odwoływać się w `FROM` klauzuli zapytania, tak jakby była nazwą tabeli `OPENROWSET` . Obsługuje operacje zbiorcze za pośrednictwem wbudowanego dostawcy ZBIORCZego, który umożliwia odczytywanie danych z pliku i zwracanie ich jako zestawu wierszy.
 

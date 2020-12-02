@@ -9,20 +9,18 @@ ms.subservice: overview
 ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2052e27cde3427986dbf7784dcd5dbb179c5b209
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: c315dae7e5f02f112dfdfbec02e1ebaaa5e48a9f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380933"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445775"
 ---
-# <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>Co to jest usługa Azure Synapse Analytics (obszary robocze w wersji zapoznawczej)?
-
-[!INCLUDE [preview](includes/note-preview.md)]
+# <a name="what-is-azure-synapse-analytics"></a>Co to jest usługa Azure Synapse Analytics?
 
 Analiza przedsiębiorstwa musi być wydajna na bardzo dużą skalę w przypadku dowolnego rodzaju danych, zarówno nieprzetworzony, rafinowany, jak i wysoce nadzorowany. Zwykle jest to konieczne, aby przedsiębiorstwa współpracowały z dużą ilością danych i technologiami magazynowania danych w złożonych potokach danych, które działają między danymi w magazynach relacyjnych i jeziorach danych. Te rodzaje rozwiązań są trudne do skompilowania, utrzymania i zabezpieczenia. Opóźnienia w zakresie złożoności zapewniające zapotrzebowanie na przedsiębiorstwa.
 
-**Azure Synapse** to zintegrowana usługa analityczna, która przyspiesza czas w celu wglądu w dane między magazynami danych i systemami danych Big Data. Usługa Azure Synapse umożliwia łączenie najlepszych technologii **SQL** używanych w magazynie danych w przedsiębiorstwie, technologii **Spark** używanych w przypadku danych Big Data oraz **potoków** do integracji danych i ETL/ELT. Program **Synapse Studio** zapewnia ujednolicone środowisko zarządzania, monitorowania, kodowania i zabezpieczeń. Synapse ma ścisłą integrację z innymi usługami platformy Azure, takimi jak **PowerBI** , **CosmosDB** i **Azure**.
+**Azure Synapse** to zintegrowana usługa analityczna, która przyspiesza czas w celu wglądu w dane między magazynami danych i systemami danych Big Data. Usługa Azure Synapse umożliwia łączenie najlepszych technologii **SQL** używanych w magazynie danych w przedsiębiorstwie, technologii **Spark** używanych w przypadku danych Big Data oraz **potoków** do integracji danych i ETL/ELT. Program **Synapse Studio** zapewnia ujednolicone środowisko zarządzania, monitorowania, kodowania i zabezpieczeń. Synapse ma ścisłą integrację z innymi usługami platformy Azure, takimi jak **Power BI**, **CosmosDB** i **Azure**.
 
 ## <a name="key-features--benefits"></a>Najważniejsze funkcje & korzyści
 
@@ -53,7 +51,7 @@ Usługa Azure Synapse usuwa tradycyjne bariery technologiczne między programami
 
 ### <a name="built-in-data-integration-via-pipelines"></a>Wbudowana integracja danych za pośrednictwem potoków
 
-Usługa Azure Synapse jest wbudowana przy użyciu tego samego aparatu integracji danych i środowisk, co Azure Data Factory, co pozwala na tworzenie rozbudowanych potoków ETL na skalę bez opuszczania Synapse Analytics.
+Usługa Azure Synapse jest wbudowana przy użyciu tego samego aparatu integracji danych i środowisk Azure Data Factory, co pozwala na tworzenie rozbudowanych potoków ETL w skali, bez opuszczania usługi Azure Synapse Analytics.
 
 * Pozyskiwanie danych ze źródeł danych 90 +
 * Code-Free ETL z działaniami przepływu danych

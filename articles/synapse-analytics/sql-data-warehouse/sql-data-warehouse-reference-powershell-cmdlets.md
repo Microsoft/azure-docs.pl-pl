@@ -1,6 +1,6 @@
 ---
-title: Interfejsy API REST programu PowerShell &
-description: Znajdź najważniejsze polecenia cmdlet programu PowerShell dla puli SQL usługi Azure Synapse Analytics, w tym sposób wstrzymywania i wznawiania bazy danych.
+title: 'Interfejsy API REST programu PowerShell & dla dedykowanej puli SQL (dawniej: SQL DW)'
+description: Najważniejsze polecenia cmdlet programu PowerShell dla dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics, w tym informacje na temat wstrzymania i wznowienia bazy danych.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: aaf290fac71fec0ff4106e3f8a1895dd65b94e09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb26ac0071a50095f8e93ce0cc25da0055bdbac8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89072897"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448228"
 ---
-# <a name="powershell--rest-apis-for-azure-synapse-analytics-sql-pool"></a>Interfejsy API REST programu PowerShell & dla puli SQL usługi Azure Synapse Analytics
+# <a name="powershell--rest-apis-for-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Interfejsy API REST programu PowerShell & dla dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics 
 
-Wiele zadań administracyjnych puli SQL usługi Azure Synapse Analytics można zarządzać przy użyciu poleceń cmdlet Azure PowerShell lub interfejsów API REST.  Poniżej przedstawiono kilka przykładów użycia poleceń programu PowerShell do automatyzowania typowych zadań w puli SQL.  Aby zapoznać się z niektórymi dobrymi przykładami REST, zobacz artykuł [Zarządzanie skalowalnością przy użyciu interfejsu REST](sql-data-warehouse-manage-compute-rest-api.md).
+Wiele dedykowanych zadań administracyjnych puli SQL można zarządzać przy użyciu poleceń cmdlet Azure PowerShell lub interfejsów API REST.  Poniżej przedstawiono kilka przykładów użycia poleceń programu PowerShell do automatyzowania typowych zadań w dedykowanej puli SQL (dawniej SQL DW).  Aby zapoznać się z niektórymi dobrymi przykładami REST, zobacz artykuł [Zarządzanie skalowalnością przy użyciu interfejsu REST](sql-data-warehouse-manage-compute-rest-api.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
